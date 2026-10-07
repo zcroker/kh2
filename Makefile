@@ -102,6 +102,9 @@ inner-all: $(GEN)/objects.mk $(ORDERED_OBJS)
 		python3 $(TOOLS)/build_elf.py normalize --linked-elf $(TMP_LINK_ELF) --out-elf $(TARGET); \
 	fi
 
+# Functions the original built without optimisation (fp/s8 frame) live in *_O0.cpp.
+out/build/%_O0.o: CXXFLAGS := $(subst -O2,-O0,$(CXXFLAGS))
+
 out/build/%.o: %.cpp
 	@mkdir -p $(dir $@)
 	@/opt/ps2/gcc/bin/ee-g++ $(CXXFLAGS) -c -o $@ $<

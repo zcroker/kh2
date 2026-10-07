@@ -21,6 +21,7 @@ from common import (
     load_registry,
     load_symbol_aliases,
     mangle_cpp_signature,
+    parse_elf_load_segments,
     parse_hex_addr,
     read_elf_vaddr,
     resolve_symbol_name,
@@ -784,6 +785,65 @@ def try_fast_link(linked_elf: Path, out_elf: Path, full_linked_elf: Path = FULL_
     return normalize_final_elf(linked_elf, out_elf)
 
 
+LOCAL_DATA_PREFIXES = (".sdata", ".rodata", ".lit4", ".lit8")
+_LO16_ACCESS_SIZE = {0x20: 1, 0x24: 1, 0x28: 1, 0x21: 2, 0x25: 2, 0x29: 2,
+                     0x37: 8, 0x3F: 8, 0x1E: 16, 0x1F: 16}  # lb/lbu/sb, lh/lhu/sh, ld/sd, lq/sq; else 4
+
+
+def retarget_local_data_refs(obj: Path, sym_name: str, code: bytes, orig_code: bytes, orig_image) -> bytes:
+    """Compiler-generated anonymous data (float literal pools, string literals) is linked far from
+    its original address, so its %hi/%lo pairs never match. For each HI16/LO16 pair in this function
+    that targets a section symbol of .sdata/.rodata*/.lit*, take the original's immediates when the
+    original instructions are otherwise identical AND the original address holds the same bytes."""
+    data = obj.read_bytes()
+    u32 = lambda o: int.from_bytes(data[o : o + 4], "little")
+    shoff, shnum, shstrndx = u32(0x20), int.from_bytes(data[0x30:0x32], "little"), int.from_bytes(data[0x32:0x34], "little")
+    secs = [tuple(u32(shoff + i * 40 + k * 4) for k in range(10)) for i in range(shnum)]
+    shstr = secs[shstrndx][4]
+    sname = lambda s: data[shstr + s[0] : data.index(b"\0", shstr + s[0])].decode()
+    symtab = next(s for s in secs if s[1] == 2)
+    strtab = secs[symtab[6]][4]
+    syms = []
+    for o in range(symtab[4], symtab[4] + symtab[5], 16):
+        name = data[strtab + u32(o) : data.index(b"\0", strtab + u32(o))].decode()
+        syms.append((name, u32(o + 4), data[o + 12], int.from_bytes(data[o + 14 : o + 16], "little")))
+    func = next((s for s in syms if s[0] == sym_name and (s[2] & 0xF) == 2), None)
+    if func is None:
+        return code
+    text_off, base, n = secs[func[3]][4], func[1], min(len(code), len(orig_code))
+    w = lambda buf, x: int.from_bytes(buf[x : x + 4], "little")
+    ow = lambda x: u32(text_off + base + x)
+    sext = lambda v: v - 0x10000 if v & 0x8000 else v
+    out = bytearray(code)
+    for rel in (s for s in secs if s[1] == 9 and s[7] == func[3]):  # SHT_REL for this text section
+        hi = None
+        for o in range(rel[4], rel[4] + rel[5], 8):
+            r_off, r_type, r_sym = u32(o) - base, u32(o + 4) & 0xFF, u32(o + 4) >> 8
+            if not 0 <= r_off <= n - 4:
+                continue
+            _name, _val, info, shndx = syms[r_sym]
+            if (info & 0xF) != 3 or not sname(secs[shndx]).startswith(LOCAL_DATA_PREFIXES):
+                continue
+            if r_type == 5:  # R_MIPS_HI16
+                hi = (r_off, r_sym)
+                continue
+            if r_type != 6 or hi is None or hi[1] != r_sym:  # R_MIPS_LO16 paired with the last HI16
+                continue
+            h, l = hi[0], r_off
+            if any((w(orig_code, x) ^ ow(x)) & 0xFFFF0000 for x in (h, l)):
+                continue
+            src = ((ow(h) & 0xFFFF) << 16) + sext(ow(l) & 0xFFFF)
+            dst = ((w(orig_code, h) & 0xFFFF) << 16) + sext(w(orig_code, l) & 0xFFFF)
+            size = _LO16_ACCESS_SIZE.get(ow(l) >> 26, 4)
+            sec = secs[shndx]
+            want = data[sec[4] + src : sec[4] + src + size]
+            if len(want) != size or read_elf_vaddr(orig_image, dst, size) != want:
+                continue
+            for x in (h, l):
+                out[x : x + 4] = orig_code[x : x + 4]
+    return bytes(out)
+
+
 def normalize_final_elf(linked_elf: Path, out_elf: Path) -> int:
     if not linked_elf.exists():
         raise FileNotFoundError(f"missing linked ELF: {linked_elf}")
@@ -801,6 +861,8 @@ def normalize_final_elf(linked_elf: Path, out_elf: Path) -> int:
         out_data = bytearray(SLPM_PATH.read_bytes())
 
     errors: list[str] = []
+    orig_data = SLPM_PATH.read_bytes()
+    orig_image = (orig_data, parse_elf_load_segments(orig_data))
     linked_syms: dict[str, TextSym] = {}
     if changed_sources:
         linked_image = load_elf_image(linked_elf)
@@ -883,6 +945,7 @@ def normalize_final_elf(linked_elf: Path, out_elf: Path) -> int:
                 norm = compiled
 
             foff = addr_to_file_offset(addr)
+            norm = retarget_local_data_refs(obj, obj_sym.name, norm, orig_data[foff : foff + b.size], orig_image)
             out_data[foff : foff + b.size] = norm
 
     if errors:
