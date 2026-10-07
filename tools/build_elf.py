@@ -817,6 +817,7 @@ def retarget_local_data_refs(obj: Path, sym_name: str, code: bytes, orig_code: b
     out = bytearray(code)
     for rel in (s for s in secs if s[1] == 9 and s[7] == func[3]):  # SHT_REL for this text section
         hi = None
+        pend: list = []  # HI16s since the last LO16 (gcc may duplicate a lui into a delay slot)
         for o in range(rel[4], rel[4] + rel[5], 8):
             r_off, r_type, r_sym = u32(o) - base, u32(o + 4) & 0xFF, u32(o + 4) >> 8
             if not 0 <= r_off <= n - 4:
@@ -826,7 +827,9 @@ def retarget_local_data_refs(obj: Path, sym_name: str, code: bytes, orig_code: b
                 continue
             if r_type == 5:  # R_MIPS_HI16
                 hi = (r_off, r_sym)
+                pend.append(hi)
                 continue
+            extra, pend = [x for x, xs in pend[:-1] if xs == r_sym], []
             if r_type != 6 or hi is None or hi[1] != r_sym:  # R_MIPS_LO16 paired with the last HI16
                 continue
             h, l = hi[0], r_off
@@ -841,6 +844,12 @@ def retarget_local_data_refs(obj: Path, sym_name: str, code: bytes, orig_code: b
                 continue
             for x in (h, l):
                 out[x : x + 4] = orig_code[x : x + 4]
+            # Duplicates of this same lui (identical compiled and original instruction words
+            # apart from the immediate, and the same immediates as the paired one) get it too.
+            for x in extra:
+                if (ow(x) == ow(h)) and ((w(orig_code, x) ^ w(orig_code, h)) & 0xFFFF0000) == 0 \
+                        and (w(orig_code, x) & 0xFFFF) == (w(orig_code, h) & 0xFFFF):
+                    out[x : x + 4] = orig_code[x : x + 4]
     return bytes(out)
 
 
