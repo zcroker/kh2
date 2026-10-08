@@ -794,3 +794,153 @@ void func_00247a20(void) {
     func_00247c20();
 }
 }
+
+struct V4r { f32 x, y, z, w; } __attribute__((aligned(16)));
+struct M4r { V4r r[4]; };
+struct Model {
+    u8 pad0[48];
+    V4r rows[4];
+    u8 pad112[12];
+    f32 scale;
+    f32 off[3];
+    u8 pad140[3];
+    u8 noOffset;
+    u8 pad144[20];
+    f32 size;
+};
+struct DrawSrc { Model* model; u32 tex; u8 data[1]; };
+struct DrawArg { DrawSrc* src; u32 color; void* mtx; f32 len; u16 div; u16 h; f32* scl; };
+struct DrawReq {
+    u32 tex;
+    u32 data;
+    u8 pad8[10];
+    u16 id;
+    union { u32 color; u8 c[4]; };
+    u32 f24;
+    u16 f28;
+    u16 f30;
+    M4r* mtx;
+    u8 pad36[8];
+    u32 f44;
+    u8 pad48[16];
+};
+extern "C" {
+extern Model D_01d9e360;
+struct CamBlk { u8 pad[48]; f32 pos[3]; };
+extern CamBlk D_01d9e840;
+void func_002f3f88(V4r*, V4r*);
+void func_002f3f40(V4r*, V4r*, f32);
+void func_002f3d08(M4r*, void*, M4r*);
+void func_0021efc0(DrawReq*);
+void func_0021f060(DrawReq*);
+// Builds a billboard matrix from the model rows (scaled by size/length) and queues the draw request.
+void func_0021fbd8(DrawArg* a, u32 id) {
+    M4r m;
+    DrawReq req;
+    DrawSrc* src = a->src;
+    Model* md = src->model;
+    if (md == &D_01d9e360) return;
+    if (!src->tex) return;
+    if (md->scale == 0.0f) return;
+    func_002f3f88(&m.r[0], &md->rows[1]);
+    func_002f3f88(&m.r[1], &md->rows[2]);
+    func_002f3f88(&m.r[2], &md->rows[3]);
+    func_002f3f88(&m.r[3], &md->rows[0]);
+    f32 k = a->len * md->size / (f32)a->div;
+    func_002f3f40(&m.r[0], &m.r[0], -k);
+    func_002f3f40(&m.r[1], &m.r[1], k);
+    if (!md->noOffset) {
+        m.r[3].x = D_01d9e840.pos[0] + md->off[0];
+        m.r[3].y = D_01d9e840.pos[1] + md->off[1];
+        m.r[3].z = D_01d9e840.pos[2] + md->off[2];
+    }
+    func_002f3f40(&m.r[0], &m.r[0], a->scl[0]);
+    func_002f3f40(&m.r[1], &m.r[1], a->scl[1]);
+    func_002f3f40(&m.r[2], &m.r[2], a->scl[2]);
+    func_002f3d08(&m, a->mtx, &m);
+    req.color = a->color;
+    k = md->size / (f32)a->h;
+    f32 lim = 1.0f;
+    if (!(lim < k)) lim = k;
+    req.c[3] = (s32)(req.c[3] * md->scale * lim);
+    req.tex = src->tex;
+    req.data = (u32)src->data;
+    func_0021efc0(&req);
+    req.id = id;
+    req.mtx = &m;
+    req.f44 = 0;
+    req.f24 = 0;
+    req.f28 = 0;
+    req.f30 = 0;
+    func_0021f060(&req);
+}
+}
+
+#define QCPY(d, s) asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(d), "r"(s) : "$8", "memory")
+struct QP {
+    f32 x, y, z, w;
+    QP() {}
+    QP(const QP& o) { QCPY(this, &o); }
+    QP& operator=(const QP& o) {
+        if (this != &o) QCPY(this, &o);
+        return *this;
+    }
+} __attribute__((aligned(16)));
+struct Sph {
+    s32 type;
+    f32 r0, r1;
+    s32 f12;
+    QP c;
+    Sph(const QP& p, f32 r) : type(3), r0(r), r1(r), f12(0), c(p) {}
+};
+struct HitShape { u8 pad[32]; };
+struct ActSub { u8 pad[20]; s32 state; };
+struct Actor { u8 pad[320]; ActSub sub; u8 pad344[1072]; u32 flags; };
+struct HitCtx { u8 pad[36]; s32 mode; };
+extern "C" {
+extern u32 D_00352bd0;
+s32 func_0019ba60(Actor*);
+const QP& func_001e0cc8(HitCtx*);
+u32 func_0016bc20(Actor*, s32, s32);
+void func_0018a818(HitShape*, Actor*, u32);
+s32 func_0018a550(Sph*, HitShape*);
+s32 func_00180618(ActSub*);
+void func_001e2660(u32, QP*);
+void func_002bc188(u32, QP*);
+void func_001e1070(HitCtx*, Actor*);
+void func_001e23b0(u32, QP*);
+// Hit check around the context position: big sphere vs downed actor (state 254-256), else small sphere.
+s32 func_001e1350(HitCtx* c, Actor* o) {
+    if (o && func_0019ba60(o)) {
+        QP pos;
+        pos = func_001e0cc8(c);
+        Sph near(pos, 50.0f);
+        Sph far(pos, 200.0f);
+        HitShape sh;
+        func_0018a818(&sh, o, func_0016bc20(o, 1, -1));
+        if (func_0018a550(&far, &sh)) {
+            ActSub* q = &o->sub;
+            if (q->state == 254) goto down;
+            if (q->state == 255) goto down;
+            if (q->state != 256) goto skip;
+        down:
+            if (!func_00180618(q)) {
+                func_001e2660(D_00352bd0, &pos);
+                if (o->flags & 0x80) func_002bc188(0x5b531, &pos);
+                else func_002bc188(0x5b532, &pos);
+                c->mode = 6;
+                return 1;
+            }
+        }
+    skip:
+        if (func_0018a550(&near, &sh)) {
+            func_001e1070(c, o);
+            func_001e23b0(D_00352bd0, &pos);
+            func_002bc188(0x5b51f, &pos);
+            c->mode = 6;
+            return 1;
+        }
+    }
+    return 0;
+}
+}
