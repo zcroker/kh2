@@ -102,4 +102,16 @@ void func_002b8c78(Obj78* o)
     }
 }
 
+// ---- 002b6f28
+s32 func_002b6708_6f28(s32, s32, u32, u32, u32) asm("func_002b6708");
+s32 func_002b6f28(u32 a0, u32 a1, u32 a2) {
+    return func_002b6708_6f28(4, 14, a0, a1, a2);
+}
+
+// ---- 002b70b8
+s32 wt_002b70b8(u32 a0, u32 a1, u32 a2) asm("_Z16wtarget_002b70b8jjjj");
+s32 wt_002b70b8(u32 a0, u32 a1, u32 a2) {
+    return func_002b6708_6f28(4, 17, a0, a1, a2);
+}
+
 } // extern "C"
