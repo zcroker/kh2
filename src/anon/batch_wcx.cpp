@@ -56,7 +56,7 @@ void func_001399c0(s32);
 void func_00139ab0(s32);
 void func_00139948(s32);
 void func_0013b2d8(f32);
-f32 func_0013b2a8(u8*);
+f32 func_0013b2a8(u8*);  // mul_float684_692
 void func_00138d48(u8*, f32, f32, f32, f32);
 
 void func_0013d3f8(u8* p)
@@ -75,14 +75,14 @@ void func_0013d3f8(u8* p)
     func_00138d48(p + 260, 1.0f, 1.0f, 1.0f, func_0013b2a8(p));
 }
 
-f32 func_002f8870(f32);
+f32 func_002f8870(f32);  // fabsf
 void func_0013fda0(u8*);
 void func_0013fdc8(u8*);
 
 // 00140150: step the value at +72 towards the target at +200
 void func_00140150(u8* p, f32 x)
 {
-    if (func_002f8870(*(f32*)(p + 72) - *(f32*)(p + 200)) >= 1.0f) {
+    if (func_002f8870(*(f32*)(p + 72) - *(f32*)(p + 200)) >= 1.0f) {  // fabsf
         if (*(f32*)(p + 200) < *(f32*)(p + 72)) {
             *(f32*)(p + 72) = *(f32*)(p + 72) - x * 0.5f;
             func_0013fda0(p);
@@ -208,7 +208,7 @@ extern Rd D_00350cb0;
 extern u8 D_00350ca8[];
 s32 func_002f79c8(s32);
 s32 func_002f7be8(u32, u32, u32, u8*);
-void func_001ae678(void);
+void func_001ae678(void);  // to_306698_arg10
 
 // 001ae8d8: record a read request and retry until the drive accepts it
 void func_001ae8d8(u8* p, u32 buf, u32 size, u32 a, u32 e)
@@ -222,17 +222,17 @@ void func_001ae8d8(u8* p, u32 buf, u32 size, u32 a, u32 e)
     u32 n = (size + 2047) >> 11;
     for (;;) {
         if (func_002f79c8(1) == 2 && func_002f7be8(*f, n, buf, D_00350ca8) == 1) break;
-        func_001ae678();
+        func_001ae678();  // to_306698_arg10
     }
 }
 
-V4* func_0016c028(u8*);
+V4* func_0016c028(u8*);  // obj_get_attach_or_alt
 f32 func_001849d8(u8*);
 
 s32 func_001b2d10(u8* p, f32* q)
 {
     V4 t;
-    V4* src = func_0016c028(p);
+    V4* src = func_0016c028(p);  // obj_get_attach_or_alt
     // 128-bit copy (lq/sq)
     asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(&t), "r"(src) : "$8", "memory");
     f32 s = t.y + q[1];
@@ -373,7 +373,7 @@ void CmSLBase_GetCurrentListItem(void)
 }
 
 f32 func_00106558(f32);
-s32 func_001064a8(s32);
+s32 func_001064a8(s32);  // int_to_float_scaled
 typedef void (*Fn84)(u8*, s32, s32);
 
 // 002e7568: with probability x pick a random entry of the table and apply it
@@ -390,7 +390,7 @@ s32 func_002e7568(u8* obj, s32 n, u8* tbl, f32 x)
 u32 func_002eaf40(u8*);
 s32 func_001c0cd8(u32);
 void func_0017f488(u8*, s32, f32, f32);
-s32 func_0019c090(u8*);
+s32 func_0019c090(u8*);  // obj_is_enabled
 void func_0017c430(u8*, s32, f32);
 void func_0016bd60(u8*, s32);
 
@@ -400,7 +400,7 @@ s32 func_002eb3b8(u8* p)
     u8* q = p + 320;
     if ((*(u32*)(p + 352) & 0x4000) && func_001c0cd8(r)) return 0;
     if (*(u32*)(p + 352) & 0x4000) func_0017f488(q, 0, 0.0f, 0.0f);
-    if (func_0019c090(p)) {
+    if (func_0019c090(p)) {  // obj_is_enabled
         func_0017c430(p, 0, 0.0f);
         func_0016bd60(p, 1);
     } else {
@@ -418,7 +418,7 @@ struct SFile {
     void* cookie; void* read; void* write; void* seek; void* close;
     u8 pad[36]; void* data; u8 pad2[8];
 };
-s32 func_002ffd00(SFile*, const char*, void*);
+s32 func_002ffd00(SFile*, const char*, void*);  // fprintf_stream_va
 s32 func_00302b18(SFile*);
 s32 func_002ffc50(SFile* fp, const char* fmt, void* ap)
 {
@@ -432,7 +432,7 @@ s32 func_002ffc50(SFile* fp, const char* fmt, void* ap)
     fake.base = fake.p = buf;
     fake.size = fake.w = 1024;
     fake.lbfsize = 0;
-    s32 ret = func_002ffd00(&fake, fmt, ap);
+    s32 ret = func_002ffd00(&fake, fmt, ap);  // fprintf_stream_va
     if (ret >= 0 && func_00302b18(&fake)) ret = -1;
     if (fake.flags & 0x40) fp->flags |= 0x40;
     return ret;
@@ -444,7 +444,7 @@ extern "C" {
 extern u8 D_00350bb0[];
 extern u8 D_0034e8a8[];
 void func_00239870(u8*);
-void func_00239848(u8*);
+void func_00239848(u8*);  // set_vtbl_36eb28_then_call
 void func_001ac5b8(u8*);
 void func_00105110(u8*);
 void func_0031f820(u8* p)
@@ -464,7 +464,7 @@ done1544:
     func_00239870(p + 848);
     func_00239870(p + 484);
     *(void**)(p + 132) = D_0034e8a8;
-    func_00239848(p + 132);
+    func_00239848(p + 132);  // set_vtbl_36eb28_then_call
     func_001ac5b8(p);
     func_00105110(p);
 }
@@ -536,7 +536,7 @@ extern M4 D_003478f0;
 static inline void VCp(V4* d, V4* s) { asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(d), "r"(s) : "$8", "memory"); }
 
 typedef void (*Fn52)(u8*, s32, u32);
-u8* func_00124748(u8*, s32);
+u8* func_00124748(u8*, s32);  // list_nth_node_rel
 
 void func_00138988(u8*);
 void func_00138de0(u8*);
@@ -553,7 +553,7 @@ extern P2 D_00348578;
 void func_0013b348(s32);
 void func_00138698(u32, u32);
 void func_0013d4c8(void);
-u8* func_0013cb80(void);
+u8* func_0013cb80(void);  // get_global_358050
 void func_001387f8(u8*, u32, u8*, u32);
 void func_0013b2d8(f32);
 void func_0013d6b0(u32 a, u32 b)
@@ -562,7 +562,7 @@ void func_0013d6b0(u32 a, u32 b)
     func_00138698(D_00348050, a);
     *(u32*)(D_003484a0 + 676) = b;
     func_0013d4c8();
-    u8* r = func_0013cb80();
+    u8* r = func_0013cb80();  // get_global_358050
     func_001387f8(D_003484a0 + 260, b, r + 32, D_00348578.a);
     *(u32*)(D_003484a0 + 652) = D_00348578.b;
     func_0013b2d8(0.0f);
@@ -601,13 +601,13 @@ void func_00152120(S151* p)
 namespace w70_q {
 extern "C" {
 typedef void (*Fn52)(u8*, s32, u32);
-u8* func_00124748(u8*, s32);
+u8* func_00124748(u8*, s32);  // list_nth_node_rel
 void func_001241b8(u8* p, s32 base, u32 c)
 {
-    u8* o = func_00124748(p, 0);
+    u8* o = func_00124748(p, 0);  // list_nth_node_rel
     (*(Fn52*)(*(u8**)o + 52))(o, base, c);
     for (s32 i = 1; i < *(s32*)(p + 16); i++) {
-        o = func_00124748(p, i);
+        o = func_00124748(p, i);  // list_nth_node_rel
         (*(Fn52*)(*(u8**)o + 52))(o, base + ((s32*)(p + 28))[i], c);
     }
 }
@@ -638,14 +638,14 @@ struct V4 { f32 x, y, z, w; } __attribute__((aligned(16)));
 extern "C" {
 typedef u8* (*AllocFn)(u8*, s32, void*);
 extern u8* D_0032b91c;
-void func_00168958(u8*, s32, u32);
+void func_00168958(u8*, s32, u32);  // obj_init_name_string
 
 extern u8 D_0032bae0;
-u8* func_0016c028(u8*);
+u8* func_0016c028(u8*);  // obj_get_attach_or_alt
 void func_001cc3b8(u8*, u8);
 
 extern u8* D_0034dca0;
-s32 func_002ff1a4(u8*, u32);
+s32 func_002ff1a4(u8*, u32);  // strcmp
 static inline u8* NextA(u8* n) { if (!n) return D_0034dca0; return *(u8**)(n + 60); }
 u8* ctarget_00170240(u32, u32, u32, u32) asm("_Z16ctarget_00170240jjjj");
 u8* ctarget_00170240(u32 name, u32 id, u32, u32)
@@ -732,12 +732,12 @@ struct V4 { f32 x, y, z, w; } __attribute__((aligned(16)));
 extern "C" {
 typedef u8* (*AllocFn)(u8*, s32, void*);
 extern u8* D_0032b91c;
-void func_00168958(u8*, s32, u32);
+void func_00168958(u8*, s32, u32);  // obj_init_name_string
 void func_00168410(u32 a, u32 b, u32 c, u16 d, u32 e, u32 f)
 {
     u8* al = D_0032b91c;
     u8* o = (**(AllocFn**)al)(al, 76, __builtin_return_address(0));
-    func_00168958(o, 0, a);
+    func_00168958(o, 0, a);  // obj_init_name_string
     *(u32*)(o + 52) = b;
     *(u32*)(o + 56) = e;
     *(u32*)(o + 60) = f;
@@ -833,7 +833,7 @@ u32 ctarget_001d52c0(u32 a, u32 b, u32, u32)
     return 0;
 }
 
-u8* func_00168b38(u32, s32, u8);
+u8* func_00168b38(u32, s32, u8);  // entry_array_find_nth
 void func_001d5370(u32*, u32, s32);
 union UH { u32 w; u16 h; };
 
@@ -847,7 +847,7 @@ extern u32 D_003638d0;
 u64 func_00312db8(u64, u64);
 
 extern u8* D_0035dcf0;
-s32 func_002ff1a4(u8*, u32);
+s32 func_002ff1a4(u8*, u32);  // strcmp
 }
 
 }
@@ -874,7 +874,7 @@ void u_tail4_001d8190(u32 a, u32 b, u32 c, u32)
     p->arr[p->n++] = o;
 }
 extern u8* D_0035dcf0;
-s32 func_002ff1a4(u8*, u32);
+s32 func_002ff1a4(u8*, u32);  // strcmp
 struct E84 { s32 id; u32 used; u8 pad[40]; u8 name[36]; };
 extern E84* D_0035dcf0b asm("D_0035dcf0");
 E84* func_00227a60(u32 name, s32 id)
@@ -891,7 +891,7 @@ namespace w70_x {
 extern "C" {
 void func_001991a8(s32, s32);
 void func_002249f8(s32);
-u32 func_002282d8(void);
+u32 func_002282d8(void);  // limit_15000_or_25000
 void func_0022c840(void);
 u8* func_00102c18(s32, u32, void (*)(void));
 void func_0022c8f8(s32 a)
@@ -910,7 +910,7 @@ void func_0022c8f8(s32 a)
 
 struct E40 { u32 a; u32 b; u8* o; u8 pad[28]; };
 extern E40* volatile D_0035dcfc;
-void func_001ba028(u8*);
+void func_001ba028(u8*);  // list_contains_ptr
 void func_00232db0(u32);
 typedef void (*VFn)(u8*);
 
@@ -953,7 +953,7 @@ extern u8* D_0035f01c;
 extern u8* D_0035f024;
 u32 func_0028b1b8(u8*);
 void func_0028b1b0(u8*, u32);
-s32 func_0028b1c0(u8*, s32);
+s32 func_0028b1c0(u8*, s32);  // test_bit_field32
 void func_002891f0(u8*, s32, s32, s32, s32);
 void func_00287cc0(s32);
 void func_0026cb38(void);
@@ -1133,22 +1133,22 @@ void func_002e8400(u8* p)
     }
 }
 
-s32* func_00316e10(void);
+s32* func_00316e10(void);  // get_data_369928
 s32 func_0030edb0(void);
-void func_0030ee00(void);
+void func_0030ee00(void);  // ee_intr_get_enable
 s32 func_00316c68(s32* out, s32 flag)
 {
-    s32* t = func_00316e10();
+    s32* t = func_00316e10();  // get_data_369928
     s32 st = func_0030edb0();
     for (s32 i = 0; i < 8; i++, t++) {
         if (!*t && flag) {
             *t = 1;
-            if (st) func_0030ee00();
+            if (st) func_0030ee00();  // ee_intr_get_enable
             *out = i;
             return 0;
         }
     }
-    if (st) func_0030ee00();
+    if (st) func_0030ee00();  // ee_intr_get_enable
     return -1;
 }
 }
@@ -1156,8 +1156,8 @@ s32 func_00316c68(s32* out, s32 flag)
 }
 namespace w70_z {
 extern "C" {
-s32 func_00224910(u8*);
-void func_00239f18(u8*, f32);
+s32 func_00224910(u8*);  // get_global_36dac4
+void func_00239f18(u8*, f32);  // obj_set_float312_and_flags
 static inline f32 Clamp(f32 v, f32 lo, f32 hi) { return v < lo ? lo : (hi < v ? hi : v); }
 f32 func_0028f1e0(f32* a, f32* b, f32 x)
 {
@@ -1182,7 +1182,7 @@ typedef void (*VFn)(void*);
 extern u8 D_00350bb0[];
 extern u8 D_0034e8a8[];
 void func_00239870(u8*);
-void func_00239848(u8*);
+void func_00239848(u8*);  // set_vtbl_36eb28_then_call
 void func_001ac5b8(u8*);
 void func_00105110(u8*);
 // same shape as 0031f820
@@ -1203,12 +1203,12 @@ done:
     func_00239870(p + 848);
     func_00239870(p + 484);
     *(void**)(p + 132) = D_0034e8a8;
-    func_00239848(p + 132);
+    func_00239848(p + 132);  // set_vtbl_36eb28_then_call
     func_001ac5b8(p);
     func_00105110(p);
 }
 f32 func_001142a0(u32);
-f32 func_0010f660(void);
+f32 func_0010f660(void);  // cvt_20001_scaled
 void func_001111c8(u8* p)
 {
     *(u32*)(p + 2940) &= ~0x20;
@@ -1227,23 +1227,23 @@ extern "C" {
 void func_001025f8(u8*, u8*);
 void wtarget_00102688(u32, u32, u32, u32) asm("_Z16wtarget_00102688jjjj");
 typedef void (*Fn60)(u8*, s32, u32);
-u8* func_00124748(u8*, s32);
+u8* func_00124748(u8*, s32);  // list_nth_node_rel
 void func_00124278(u8* p, s32 base, u32 c)
 {
-    u8* o = func_00124748(p, 0);
+    u8* o = func_00124748(p, 0);  // list_nth_node_rel
     (*(Fn60*)(*(u8**)o + 60))(o, base, c);
     for (s32 i = 1; i < *(s32*)(p + 16); i++) {
-        o = func_00124748(p, i);
+        o = func_00124748(p, i);  // list_nth_node_rel
         (*(Fn60*)(*(u8**)o + 60))(o, base + ((s32*)(p + 28))[i], c);
     }
 }
 f32* func_001333c8(u8*);
-f32 func_002f8870(f32);
+f32 func_002f8870(f32);  // fabsf
 void func_0013fda0(u8*);
 void func_0013fdc8(u8*);
 void func_001400b0(u8* p, f32 x)
 {
-    if (func_002f8870(*(f32*)(p + 72) - *(f32*)(p + 204)) >= 1.0f) {
+    if (func_002f8870(*(f32*)(p + 72) - *(f32*)(p + 204)) >= 1.0f) {  // fabsf
         if (*(f32*)(p + 204) < *(f32*)(p + 72)) {
             *(f32*)(p + 72) = *(f32*)(p + 72) - x;
             func_0013fda0(p);
@@ -1256,8 +1256,8 @@ void func_001400b0(u8* p, f32 x)
 struct V4 { f32 x, y, z, w; } __attribute__((aligned(16)));
 struct Seg { V4 a, b; };
 void func_00144490(Seg*, f32, f32, f32, f32, f32, f32);
-void func_00144e30(Seg*);
-u32 func_00141970(u8*);
+void func_00144e30(Seg*);  // zero_6_halfwords
+u32 func_00141970(u8*);  // vtable_get12
 void func_00144e50(Seg*, Seg*, u32);
 void func_00141c18(u8*, s32, s32, s32, s32);
 void func_00141c38(u8*, s32, Seg*, u16*, s32);
@@ -1267,12 +1267,12 @@ void func_001991a8(s32, s32);
 u8* func_001058e8(void);
 u8 func_00149fa8(s32);
 void func_00104f58(S10*, u32, s32, s32, s32);
-void func_00239f18(u8*, f32);
+void func_00239f18(u8*, f32);  // obj_set_float312_and_flags
 void func_00138c68(u8*, s32, s32);
 void func_00155ab0(u8* p, s32 v, s32 i)
 {
     f32 f = (f32)v;
-    func_00239f18(p + i * 412 + 6728, f / 100.0f);
+    func_00239f18(p + i * 412 + 6728, f / 100.0f);  // obj_set_float312_and_flags
     if (i == 9) func_00138c68(p + 11236, (s32)-f, 0);
 }
 }
@@ -1286,8 +1286,8 @@ f32* func_001333c8(u8*);
 struct V4 { f32 x, y, z, w; } __attribute__((aligned(16)));
 struct Seg { V4 a, b; };
 void func_00144490(Seg*, f32, f32, f32, f32, f32, f32);
-void func_00144e30(V4*);
-u32 func_00141970(u8*);
+void func_00144e30(V4*);  // zero_6_halfwords
+u32 func_00141970(u8*);  // vtable_get12
 void func_00144e50(V4*, Seg*, u32);
 void func_00141c18(u8*, s32, s32, s32, s32);
 void func_00141c38(u8*, s32, V4*, u16*, s32);
@@ -1296,7 +1296,7 @@ u16 func_00142848(u8* o, u8* p)
     Seg a;
     V4 b;
     func_00144490(&a, *(f32*)(p + 48), *(f32*)(p + 52) - *(f32*)(p + 108), *(f32*)(p + 56), *(f32*)(p + 48), *(f32*)(p + 52) + 320000.0f, *(f32*)(p + 56));
-    func_00144e30(&b);
+    func_00144e30(&b);  // zero_6_halfwords
     func_00144e50(&b, &a, func_00141970(o));
     u16 r = 0;
     func_00141c18(o, 0, 0, 0, 0);
@@ -1380,13 +1380,13 @@ void func_001707d8(void)
         n = nx;
     }
 }
-s32 func_002ff1a4(u8*, u32);
+s32 func_002ff1a4(u8*, u32);  // strcmp
 static inline u8* NextA(u8* n) { if (!n) return D_0034dca0; return *(u8**)(n + 60); }
 u8* func_0018bc60(u8*, s32);
 u32 func_0018bae8(u8*, u8*);
 // YS::STDOBJ::hook_command_image
 extern s8 D_0036d0c8[4];
-u8* func_00168b88(u32, s32, u32, s32);
+u8* func_00168b88(u32, s32, u32, s32);  // find_entry16_by_half_word
 void func_0013d6b0(u32, u32);
 static inline u32 Key4(s8* k) { return k[0] | k[3] << 24 | (k[2] << 16 | k[1] << 8); }
 void STDOBJ_hook_command_image(u8*) asm("_ZN2YS6STDOBJ18hook_command_imageEv");
@@ -1469,7 +1469,7 @@ void func_001d6ba0(u8* p)
 }
 extern u8 D_01dad990[];
 s32 func_002282f0(s16);
-s32 func_00225b00(s16);
+s32 func_00225b00(s16);  // flag_query_by_index
 void func_002f1460(u8*, s32, f32, f32, f32, f32);
 void func_0022cf18(void);
 void func_00102c18(s32, s32, void (*)(void));
@@ -1592,14 +1592,14 @@ void Select_Destroy(u8*) asm("_ZN2Tz6Select7DestroyEz");
 // Tz::Selector::CreateHelpGra
 void func_00290740(u8*);
 void func_002362b0(u8*, u32);
-void func_002367c8(u8*);
+void func_002367c8(u8*);  // obj_dispatch_bitfield64
 void Selector_CreateHelpGra(u8*, u32, u32, u32) asm("_ZN2Tz8Selector13CreateHelpGraEz");
 extern s8* D_0035f5d4;
 void func_002a18d0(void);
 s32 func_002a9e98(s32);
 s32 func_002a9f50(s32);
 u8* func_00294000(s32);
-s32 func_002aacd8(s32);
+s32 func_002aacd8(s32);  // test_bit_global_d
 extern u8* D_0035f610;
 }
 
@@ -1607,7 +1607,7 @@ extern u8* D_0035f610;
 namespace w71_b8 {
 struct V4 { f32 x, y, z, w; } __attribute__((aligned(16)));
 extern "C" {
-u8* func_001d9e30(u8*);
+u8* func_001d9e30(u8*);  // record_range_check_or_first
 s32 func_002764b0(u8);
 extern u8* D_0035f610;
 s32 func_002b7d5c(u32, u32, s32, u32);
@@ -1616,8 +1616,8 @@ u8 func_002b73ac(u32, u32, u32, s32, u32);
 extern u8* D_01e2aa80;
 s32 ctarget_002bb468(u32, u32, u32, u32) asm("_Z16ctarget_002bb468jjjj");
 void func_002b740c(u32, u32, u32, s32);
-void func_002e34c8(u8*);
-s32* func_002e34d8(u8*, s32);
+void func_002e34c8(u8*);  // obj_get_field8_by_vtable
+s32* func_002e34d8(u8*, s32);  // list_walk_stride12
 void func_001d14b0(u8*, s32);
 u8 func_002cd008(u8*, u32);
 extern u32 D_00363560;
@@ -1698,13 +1698,13 @@ namespace w72_d2 {
 struct V4 { f32 x, y, z, w; } __attribute__((aligned(16)));
 extern "C" {
 typedef void (*Fn64)(u8*, s32, u32);
-u8* func_00124748(u8*, s32);
+u8* func_00124748(u8*, s32);  // list_nth_node_rel
 void func_00124338(u8* p, s32 base, u32 c)
 {
-    u8* o = func_00124748(p, 0);
+    u8* o = func_00124748(p, 0);  // list_nth_node_rel
     (*(Fn64*)(*(u8**)o + 64))(o, base, c);
     for (s32 i = 1; i < *(s32*)(p + 16); i++) {
-        o = func_00124748(p, i);
+        o = func_00124748(p, i);  // list_nth_node_rel
         (*(Fn64*)(*(u8**)o + 64))(o, base + ((s32*)(p + 28))[i], c);
     }
 }
@@ -1731,7 +1731,7 @@ void func_00148a68(u32, u8*);
 void func_00147f08(u32, u8*);
 static inline u8* NextK(u8* n, u8* c) { if (!c) return *(u8**)(n + 240); return *(u8**)(c + 236); }
 s32 func_001541d8(u8*, u32*, u32);
-u32 func_00154288(u8*, u32, u32);
+u32 func_00154288(u8*, u32, u32);  // state_index_0_1_2
 void func_001386e0(u8*, u32, u32, u8*, u32, u32);
 void func_001391c8(u8*, u32);
 void func_00138748(u8*);
@@ -1811,7 +1811,7 @@ void func_001d9f30(u8* p)
 }
 extern u8* D_00352ae0;
 s32 func_001dc9d0(u8*);
-s32 func_001dc738(u8*);
+s32 func_001dc738(u8*);  // state_gate_flags
 void func_001dda78(void)
 {
     u8* n = D_00352ae0;
@@ -1820,7 +1820,7 @@ void func_001dda78(void)
         u8* nx = *(u8**)(n + 40);
         if (func_001dc9d0(n)) goto next;
         if ((u8)((*(s32*)(n + 8) >> 26) & 1)) goto next;
-        if (!func_001dc738(n)) {
+        if (!func_001dc738(n)) {  // state_gate_flags
             u32 f = *(u32*)(n + 8);
             if (f & 0x100000) {
                 if (n) (*(VFn*)(*(u8**)n + 4))(n);
@@ -1851,7 +1851,7 @@ void func_001ea100(u32 x, u8* d, HF* v)
 }
 s32 func_002282f0(s16);
 u8* func_00227d10(s16);
-void func_001ba028(u8*);
+void func_001ba028(u8*);  // list_contains_ptr
 s32 func_001c0cd8(u8*);
 void func_001c0e60(u8*);
 void func_00232db0(s16);
@@ -1863,7 +1863,7 @@ void func_0022f308(HP* hp)
     s16* p = hp->h;
     if (func_002282f0(p[2])) return;
     u8* e = func_00227d10(p[3]);
-    func_001ba028(*(u8**)(e + 8));
+    func_001ba028(*(u8**)(e + 8));  // list_contains_ptr
     if (func_001c0cd8(*(u8**)(e + 8))) func_001c0e60(*(u8**)(e + 8));
     (*(VFn*)(**(u8***)(e + 8) + 40))(*(u8**)(e + 8));
     *(u8**)(e + 8) = 0;
@@ -1890,7 +1890,7 @@ void func_0023eea0(u8* p, u32 a, u32 b, u32 c, u32 d, u32 e)
 }
 extern char D_00371698[];
 void func_002ff2e8(char*, const char*);
-s32 func_002ff3fc(const char*);
+s32 func_002ff3fc(const char*);  // strlen
 void func_00240118(char*, u32, u32);
 extern u8* D_0035ee34;
 extern s8 D_0035ee51;
@@ -1945,7 +1945,7 @@ typedef void (*VFn)(void*);
 extern u8 D_00350bb0[];
 extern u8 D_0034e8a8[];
 void func_00239870(u8*);
-void func_00239848(u8*);
+void func_00239848(u8*);  // set_vtbl_36eb28_then_call
 void func_001ac5b8(u8*);
 struct NoTail { ~NoTail() {} };
 void func_0031e590(u8* p)
@@ -1966,11 +1966,11 @@ done:
     func_00239870(p + 848);
     func_00239870(p + 484);
     *(void**)(p + 132) = D_0034e8a8;
-    func_00239848(p + 132);
+    func_00239848(p + 132);  // set_vtbl_36eb28_then_call
     func_001ac5b8(p);
 }
 s32 func_00168aa0(u32, s32);
-u8* func_00168b38(u32, s32, s32);
+u8* func_00168b38(u32, s32, s32);  // entry_array_find_nth
 void func_0031ae58(u32* p, u32 a)
 {
     p[0] = a;
@@ -1978,8 +1978,8 @@ void func_0031ae58(u32* p, u32 a)
     p[1] = n;
     for (s32 i = 0; i < (s32)p[1]; i++) {
         u32* e = p + i * 2;
-        e[3] = *(u32*)(func_00168b38(p[0], 25, i) + 8);
-        if (func_00168b38(p[0], 24, 0)) e[2] = *(u32*)(func_00168b38(p[0], 24, i) + 8);
+        e[3] = *(u32*)(func_00168b38(p[0], 25, i) + 8);  // entry_array_find_nth
+        if (func_00168b38(p[0], 24, 0)) e[2] = *(u32*)(func_00168b38(p[0], 24, i) + 8);  // entry_array_find_nth
         else e[2] = 0;
     }
 }
@@ -2017,14 +2017,14 @@ void func_002dae38(u8* p)
     func_002e7568(p, 2, D_00362698, 1.0f);
 }
 extern V4 D_01e2be20;
-V4* func_0016c028(u8*);
+V4* func_0016c028(u8*);  // obj_get_attach_or_alt
 void func_0016af58(V4*, u8*);
 void func_002cba88(V4*, u32, V4*, V4*, f32, f32);
 void func_002e35e8(u8** p)
 {
     u8* o = *(u8**)(p[0] + 4);
     if (!*(u32*)(o + 1288)) return;
-    V4* a = func_0016c028(o);
+    V4* a = func_0016c028(o);  // obj_get_attach_or_alt
     V4 r, b;
     func_0016af58(&b, o);
     func_002cba88(&r, *(u32*)(o + 1288), a, &b, ((f32*)p)[1], ((f32*)p)[2]);
@@ -2079,13 +2079,13 @@ void func_0014c738(Spr* p)
 namespace w73_f1 {
 extern "C" {
 typedef void (*Fn68)(u8*, s32, u32);
-u8* func_00124748(u8*, s32);
+u8* func_00124748(u8*, s32);  // list_nth_node_rel
 void func_001243f8(u8* p, s32 base, u32 c)
 {
-    u8* o = func_00124748(p, 0);
+    u8* o = func_00124748(p, 0);  // list_nth_node_rel
     (*(Fn68*)(*(u8**)o + 68))(o, base, c);
     for (s32 i = 1; i < *(s32*)(p + 16); i++) {
-        o = func_00124748(p, i);
+        o = func_00124748(p, i);  // list_nth_node_rel
         (*(Fn68*)(*(u8**)o + 68))(o, base + ((s32*)(p + 28))[i], c);
     }
 }
@@ -2178,7 +2178,7 @@ V4* func_0017d538(V4* out, V4* in, f32 ang)
     return out;
 }
 typedef void (*Fn20)(u8*, f32*, f32*);
-V4* func_0016c028(u8*);
+V4* func_0016c028(u8*);  // obj_get_attach_or_alt
 s32 func_002bc420(u8*);
 s32 func_0019c6f0(u8*);
 void func_002bc3f0(u8*, V4*);
@@ -2223,14 +2223,14 @@ u8* func_001a1490(s32 k)
     return o;
 }
 s32 func_001de2e0(u32, u32);
-u8* func_001de168(u32, s32, u32, u32, u32, s32);
+u8* func_001de168(u32, s32, u32, u32, u32, s32);  // scan_list_by_half
 V4* func_001dc5f8(u8*);
 u8* func_001a3b48(u32 a, u32 b, V4* v, u32 c, u32 d, u32 e)
 {
     s32 id = func_001de2e0(a, b);
     u8* r = 0;
     if (id >= 0) {
-        u8* o = func_001de168(a, id, c, d, e, 0);
+        u8* o = func_001de168(a, id, c, d, e, 0);  // scan_list_by_half
         if (o) {
             V4* dst = func_001dc5f8(o);
             if (dst != v) asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(dst), "r"(v) : "$8", "memory");
@@ -2284,7 +2284,7 @@ struct Rd { CbFn volatile cb; u8* obj; u32 buf; u32 size; s32 e; };
 extern Rd D_00350cb0;
 void func_003058a0(s32);
 s32 func_002f7dc8(void);
-void func_001c1748(u8*, u32, u32, u32);
+void func_001c1748(u8*, u32, u32, u32);  // obj_init_from_src
 struct Hit { u8 pad[16]; u32 a; s32 id; };
 s32 func_00143b88(V4*, Hit*, u16*, u32*, u32);
 s32 func_00143ae0(V4*, Hit*, u16*);
@@ -2302,15 +2302,15 @@ void func_001d8718(s32 base, s32 i)
     func_001d1b60(e + 232, *(s32*)(i * 56 + func_001bbcb0() + 276) + base);
 }
 extern f32 D_00349e10;
-V4* func_001e0cc8(u8*);
-V4* func_001e0ce8(u8*);
+V4* func_001e0cc8(u8*);  // entry64_by_field32
+V4* func_001e0ce8(u8*);  // entry64_by_field32_b
 void func_001e0d08(u8*, V4*);
 static inline void VCp(V4* d, V4* s) { asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(d), "r"(s) : "$8", "memory"); }
 void func_001e1500(u8* p)
 {
     V4 a, b, u, t;
-    VCp(&a, func_001e0cc8(p));
-    VCp(&b, func_001e0ce8(p));
+    VCp(&a, func_001e0cc8(p));  // entry64_by_field32
+    VCp(&b, func_001e0ce8(p));  // entry64_by_field32_b
     VScale(&t, &b, 40.0f);
     VScale(&u, &t, D_00349e10);
     VAdd(&a, &a, &u);
@@ -2319,7 +2319,7 @@ void func_001e1500(u8* p)
 extern u8* D_01d9e6e8;
 void func_001fa668(u8*, u32, u8*);
 void func_002f3cd8(V4*, u8*, V4*);
-void func_002f3f40(u8*, V4*, f32);
+void func_002f3f40(u8*, V4*, f32);  // vec_scale_by_f12
 void func_001faea8(u8*, s32, s32);
 }
 
@@ -2376,7 +2376,7 @@ void func_0028e0d8(u8* p, u32 a1, u32 a2, u32 a3, s16* list, s32 n, u32 t2)
     for (s32 i = 0; i < n; i++) func_0028e3b8(p, i, a2, a3, list[i]);
 }
 extern u8* D_0035f480;
-s16* func_0028f690(s32);
+s16* func_0028f690(s32);  // record884_type_index
 void func_00138c10(u8*, s32);
 void func_0028d5d0(u8*);
 s32 func_0028d6e8(u8*);
@@ -2490,8 +2490,8 @@ void u_tail0_002b9ad0(void)
 }
 extern f32 D_00349e10;
 void func_00187750(u8*);
-f32 func_002f8870(f32);
-u8* func_00168b38(u32, s32, s32);
+f32 func_002f8870(f32);  // fabsf
+u8* func_00168b38(u32, s32, s32);  // entry_array_find_nth
 void func_002ef180(u32*, f32, f32);
 typedef s32 (*Fn8)(u8*);
 extern u8 D_0034a548[];
@@ -2506,19 +2506,19 @@ namespace w74_g1 {
 struct V4 { f32 x, y, z, w; } __attribute__((aligned(16)));
 extern "C" {
 typedef void (*Fn72)(u8*, s32, u32);
-u8* func_00124748(u8*, s32);
+u8* func_00124748(u8*, s32);  // list_nth_node_rel
 void func_001244b8(u8* p, s32 base, u32 c)
 {
-    u8* o = func_00124748(p, 0);
+    u8* o = func_00124748(p, 0);  // list_nth_node_rel
     (*(Fn72*)(*(u8**)o + 72))(o, base, c);
     for (s32 i = 1; i < *(s32*)(p + 16); i++) {
-        o = func_00124748(p, i);
+        o = func_00124748(p, i);  // list_nth_node_rel
         (*(Fn72*)(*(u8**)o + 72))(o, base + ((s32*)(p + 28))[i], c);
     }
 }
 extern f32 D_00349e10;
 f32 func_0017ce10(f32);
-f32 func_002f8870(f32);
+f32 func_002f8870(f32);  // fabsf
 s32 func_00116d08(u8* p)
 {
     V4 d;
@@ -2526,7 +2526,7 @@ s32 func_00116d08(u8* p)
     f32 len;
     asm volatile("lqc2 $vf1, 0(%1)\n\tvmul.xyz $vf1, $vf1, $vf1\n\tvaddy.x $vf1, $vf1, $vf1y\n\tvaddz.x $vf1, $vf1, $vf1z\n\tvsqrt Q, $vf1x\n\tvwaitq\n\tcfc2.ni $8, $vi22\n\tmtc1 $8, %0" : "=f"(len) : "r"(&d) : "$8", "memory");
     if (!(len < *(f32*)(p + 1576) * D_00349e10)) return 0;
-    f32 a = func_002f8870(func_0017ce10(d.w));
+    f32 a = func_002f8870(func_0017ce10(d.w));  // fabsf
     f32 k = D_00349e10;
     if (a < *(f32*)(p + 1580) * k) return 1;
     return 0;
@@ -2580,8 +2580,8 @@ void func_00152990(u8* p, u32 a1, u32 b, u32 c, u32 d, u32 e, u32 f, u32 g)
 extern u8 D_0035eb98[];
 extern u8 D_0034a7c0[];
 u8* func_0023ee30(s32);
-void func_002369a0(u8*);
-void func_0023c008(u8*);
+void func_002369a0(u8*);  // obj_ctor_36eac8
+void func_0023c008(u8*);  // obj_ctor_36eae8
 void func_00153cc8(u8*, u32, s32, u32, s32);
 s32 func_0013a9d0(void);
 void func_00236bb8(u8*, f32);
@@ -2590,8 +2590,8 @@ u8* func_00153d70(u32 a, u32 b)
     u8* o = func_0023ee30(164);
     *(u32*)(o + 12) = 0;
     *(void**)o = D_0035eb98;
-    func_002369a0(o + 24);
-    func_0023c008(o + 48);
+    func_002369a0(o + 24);  // obj_ctor_36eac8
+    func_0023c008(o + 48);  // obj_ctor_36eae8
     *(void**)o = D_0034a7c0;
     func_00153cc8(o, a, 4800, b, 0);
     if (func_0013a9d0()) func_00236bb8(o + 24, 1.0f);
@@ -2599,7 +2599,7 @@ u8* func_00153d70(u32 a, u32 b)
 }
 extern u8 D_0034af40[];
 extern u8 D_0034b0e0[];
-void func_00236788(u8*);
+void func_00236788(u8*);  // to_236830
 u8 func_00239d30(u8*, u32);
 s32 func_00239d10(u8*);
 u32 func_0014aba8(void);
@@ -2675,13 +2675,13 @@ void func_00182bc0(s8* k)
 f32 func_0017ce10(f32);
 void func_0017d1d8(M4*, u32, f32);
 struct B32 { f32 a, y, c; u32 d; V4 pos; };
-f32 func_002f8870(f32);
+f32 func_002f8870(f32);  // fabsf
 s32 func_0018a420(B32* a, B32* b)
 {
     V4 t, d;
     asm volatile(".set noreorder\n\tlqc2 $vf1, 0(%0)\n\tlqc2 $vf2, 0(%1)\n\tvsub.wxyz $vf1, $vf1, $vf2\n\tsqc2 $vf1, 0(%2)\n\t.set reorder" : : "r"(&b->pos), "r"(&a->pos), "r"(&d) : "memory");
     VCopyChk(&t, &d);
-    f32 dy = func_002f8870(t.y);
+    f32 dy = func_002f8870(t.y);  // fabsf
     if (a->c + b->c <= dy) return 0;
     f32 r = a->y + b->y;
     *(u32*)&t.y = 0;
@@ -2782,7 +2782,7 @@ extern f32 D_00354be0[3];
 extern u8* D_01d9e6e8;
 extern u8 D_01d9e940[];
 extern u8 D_01d9e900[];
-void func_002f3f40(u8*, u8*, f32);
+void func_002f3f40(u8*, u8*, f32);  // vec_scale_by_f12
 void func_002f3d08(u8*, u8*, u8*);
 void func_002f3cd8(u8*, u8*, u8*);
 union GPV { u8* p; V4 v; };
@@ -2790,9 +2790,9 @@ extern GPV D_01d9e6e8u asm("D_01d9e6e8");
 void func_001eb460(void)
 {
     f32* s = D_00354be0;
-    func_002f3f40(D_01d9e6e8u.p + 80, D_01d9e6e8u.p + 16, s[0]);
-    func_002f3f40(D_01d9e6e8u.p + 96, D_01d9e6e8u.p + 32, s[1]);
-    func_002f3f40(D_01d9e6e8u.p + 112, D_01d9e6e8u.p + 48, s[2]);
+    func_002f3f40(D_01d9e6e8u.p + 80, D_01d9e6e8u.p + 16, s[0]);  // vec_scale_by_f12
+    func_002f3f40(D_01d9e6e8u.p + 96, D_01d9e6e8u.p + 32, s[1]);  // vec_scale_by_f12
+    func_002f3f40(D_01d9e6e8u.p + 112, D_01d9e6e8u.p + 48, s[2]);  // vec_scale_by_f12
     *(V4*)(D_01d9e6e8u.p + 128) = *(V4*)(D_01d9e6e8u.p + 64);
     func_002f3d08(D_01d9e6e8u.p + 80, D_01d9e940, D_01d9e6e8u.p + 80);
     func_002f3cd8(D_01d9e6e8u.p + 128, D_01d9e900, D_01d9e6e8u.p + 64);
@@ -2823,14 +2823,14 @@ extern s32 D_0035ee2c;
 extern u8* D_0035ee10;
 extern E6 D_00372390[];
 u8 u_call4_00139d78(void*) asm("_Z16u_call4_00139d78jjjj");
-s32 func_0024f2b8(s32);
+s32 func_0024f2b8(s32);  // word_table_372368
 void func_00138c10(u8*, s32);
 void func_0024f1a0(void)
 {
     if (D_0035ee2c < 0) return;
     if (!D_0035ee10) return;
     if (!u_call4_00139d78(D_0035ee10)) return;
-    s32 k = func_0024f2b8(D_0035ee2c);
+    s32 k = func_0024f2b8(D_0035ee2c);  // word_table_372368
     s16 v = D_00372390[k].b;
     if (*(s32*)(D_0035ee10 + 388) == v) return;
     D_0035ee2c = -1;
@@ -2987,7 +2987,7 @@ extern s8 D_01e2bc20;
 extern V4 D_01e2bc30;
 u32 func_0016b740(s32);
 void func_001c0d38(u8*, u32, s32, s32);
-void func_002fd188(void (*)(void));
+void func_002fd188(void (*)(void));  // pool_alloc_block
 void func_002be6e8(void);
 void func_0016b070(u8*, V4*);
 void func_0017f488(u8*, s32, f32, f32);
@@ -3021,7 +3021,7 @@ V4* func_002c6610(V4* out, u32, V4* a, V4* b, f32 k, f32 lim)
 extern u32 D_00361f60;
 void func_001780d8(u8*);
 void func_00198860(u8*, s32);
-u8* func_002d1f00(u32);
+u8* func_002d1f00(u32);  // ptr_add160
 void func_0016ace0(u8*, V4*);
 void func_0016aef0(u8*, V4*);
 void func_0016bd60(u8*, s32);
@@ -3030,7 +3030,7 @@ void func_002d4aa0(u8* p)
     func_001780d8(p);
     func_00198860(p, 6);
     V4 a, b;
-    asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(&a), "r"(func_002d1f00(D_00361f60) + 48) : "$8", "memory");
+    asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(&a), "r"(func_002d1f00(D_00361f60) + 48) : "$8", "memory");  // ptr_add160
     *(u32*)&a.z = 0;
     func_0016ace0(p, &a);
     asm volatile("vsub.wxyz $vf1, $vf0, $vf0\n\tsqc2 $vf1, 0(%0)" : : "r"(p + 3104) : "memory");
@@ -3046,16 +3046,16 @@ struct HT { u8* head; u8* tail; };
 extern HT D_01e2c080;
 extern u8 D_00363808[];
 extern u32 D_003637f8;
-void func_002edf28(u8*);
-u8* func_002ee840(void);
+void func_002edf28(u8*);  // obj_ctor_3637e0
+u8* func_002ee840(void);  // get_data_1e2c088
 void func_002ee498(void);
 u32 func_00102788(u32, s32, s32, void (*)(void));
 void func_002ee220(u8* p)
 {
-    func_002edf28(p);
+    func_002edf28(p);  // obj_ctor_3637e0
     *(u32*)p = (u32)D_00363808;
     if (!D_003637f8) {
-        u8* o = func_002ee840();
+        u8* o = func_002ee840();  // get_data_1e2c088
         (**(VFn**)o)(o);
         D_003637f8 = func_00102788(*(u32*)(o + 4), 0, 2000, func_002ee498);
     }
@@ -3130,24 +3130,24 @@ extern u8* D_0034dca0;
 extern u32 D_0034dcb0;
 void func_001700e8(u8*, s32);
 void func_0016fc10(u8*);
-s32 func_002ff1a4(u8*, u32);
+s32 func_002ff1a4(u8*, u32);  // strcmp
 static inline u8* NextA(u8* n) { if (!n) return D_0034dca0; return *(u8**)(n + 60); }
 u8* func_0018bc60(u8*, s32);
 u32 func_0018bae8(u8*, u8*);
 // YS::STDOBJ::hook_command_image
 extern s8 D_0036d0c8[4];
-u8* func_00168b88(u32, s32, u32, s32);
+u8* func_00168b88(u32, s32, u32, s32);  // find_entry16_by_half_word
 void func_0013d6b0(u32, u32);
 static inline u32 Key4(s8* k) { return k[0] | k[1] << 8 | k[2] << 16 | k[3] << 24; }
 void STDOBJ_hook_command_image(u8*) asm("_ZN2YS6STDOBJ18hook_command_imageEv");
 void STDOBJ_hook_command_image(u8* p)
 {
     u8* q = p + 1952;
-    u8* r1 = func_00168b88(*(u32*)(q + 16), 24, Key4(D_0036d0c8), 0);
+    u8* r1 = func_00168b88(*(u32*)(q + 16), 24, Key4(D_0036d0c8), 0);  // find_entry16_by_half_word
     u32 k2 = Key4(D_0036d0c8);
     u32 o = *(u32*)(q + 16);
     u32 a = *(u32*)(r1 + 8);
-    u32 b = *(u32*)(func_00168b88(o, 25, k2, 0) + 8);
+    u32 b = *(u32*)(func_00168b88(o, 25, k2, 0) + 8);  // find_entry16_by_half_word
     func_0013d6b0(a, b);
 }
 typedef s32 (*Fn8)(u8*, u32);
@@ -3196,7 +3196,7 @@ void func_00192b30(u8*);
 void func_002362b0(u8*, u32);
 s32 func_0013a9d0(void);
 void func_002368e8(u8*, f32);
-void func_002367c8(u8*);
+void func_002367c8(u8*);  // obj_dispatch_bitfield64
 void func_001386e0(u8*, u32, u32, u8*, u32, u32);
 void func_00154048(u8* p, u32 a1, u32 a2, u32 a3, u32 t0, u32 t1)
 {
@@ -3204,12 +3204,12 @@ void func_00154048(u8* p, u32 a1, u32 a2, u32 a3, u32 t0, u32 t1)
     u8* q = p + 416;
     func_002362b0(q, a3);
     if (func_0013a9d0()) func_002368e8(q, 1.0f);
-    func_002367c8(q);
+    func_002367c8(q);  // obj_dispatch_bitfield64
     func_001386e0(p, a1, a2, q, t0, t1);
     p[836] = 1;
 }
 s32 func_0013c7d0(void);
-s32 func_00155d58(u8*, s32);
+s32 func_00155d58(u8*, s32);  // table_word_indexed_by_3
 s32 func_00155f40(u8*);
 s32 func_00155fc0(u8*);
 void func_00138c10(u8*, s32);
@@ -3284,7 +3284,7 @@ void func_00185988(u8* p)
     }
     *(u32*)(p + 2552) = 0;
 }
-V4* func_0016c028(u8*);
+V4* func_0016c028(u8*);  // obj_get_attach_or_alt
 void func_0016aef0(u8*, V4*);
 s32 func_0019ba60(u8*);
 void func_0017f488(u8*, s32, f32, f32);
@@ -3292,7 +3292,7 @@ void func_0018b288(u8* p, V4* v, f32 x)
 {
     if (!(*(u32*)(p + 2820) & 0x10)) {
         V4 d;
-        asm volatile("lqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 0(%2)\n\tvsub.wxyz $vf1, $vf1, $vf2\n\tsqc2 $vf1, 0(%0)" : : "r"(&d), "r"(v), "r"(func_0016c028(p)) : "memory");
+        asm volatile("lqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 0(%2)\n\tvsub.wxyz $vf1, $vf1, $vf2\n\tsqc2 $vf1, 0(%0)" : : "r"(&d), "r"(v), "r"(func_0016c028(p)) : "memory");  // obj_get_attach_or_alt
         func_0016aef0(p, &d);
     }
     if ((*(u8**)(p + 8))[4] != 15) return;
@@ -3304,16 +3304,16 @@ s32 u_call4_0018c598(u32, u32, u32, u32) asm("_Z16u_call4_0018c598jjjj");
 extern u8* D_0034e948;
 extern u8 D_01c60d10[];
 u8* func_001cd7a8(u8*);
-s32 func_0016a090(u8*);
+s32 func_0016a090(u8*);  // get_byte74
 void func_00190878(u8*, u8*, s32);
-s32 func_0019f528(u8*, u32);
-s32 func_0019f550(u8*, u32);
+s32 func_0019f528(u8*, u32);  // test_bit_by_index
+s32 func_0019f550(u8*, u32);  // test_bit_addressable
 void func_0019f490(u8*, u32);
 typedef void (*Fn80)(u8*, u32, u32, u8*, u32);
 void func_00198ae0(u8* p, u32 a, u32 b, u32 c)
 {
     u8* q = p + 1148;
-    if (func_0019f528(q, b) || !func_0019f550(q, b)) {
+    if (func_0019f528(q, b) || !func_0019f550(q, b)) {  // test_bit_by_index
         func_0019f490(p + 1140, b);
         (*(Fn80*)(*(u8**)p + 80))(p, a, b, p, c);
     }
@@ -3405,7 +3405,7 @@ extern u32 D_0035de4c, D_0035de50, D_0035de2c;
 extern u32 D_0035dd08[64];
 extern V4 D_0035de70;
 void func_0022d7c8(void);
-void func_00225a00(void);
+void func_00225a00(void);  // zero_global_byte_e
 void func_00225a20(void);
 void func_0022d7e8(void);
 void func_00226fc8(void)
@@ -3414,7 +3414,7 @@ void func_00226fc8(void)
     D_0035de25 = 0;
     D_0035de28 = -1;
     func_0022d7c8();
-    func_00225a00();
+    func_00225a00();  // zero_global_byte_e
     func_00225a20();
     D_0035de4c = 0;
     D_0035de50 = 0;
@@ -3472,17 +3472,17 @@ void func_00246708(void)
 }
 extern u8 D_0035f0e8;
 extern u8* D_0035f0e4;
-u32 func_00267248(void);
+u32 func_00267248(void);  // global_ptr_by_flag32
 s32 func_0028b040(u32);
 s32 func_0028afa8(u32);
 void func_002891f0(u32, s32, s32, s32, s32);
 u32 func_00257130(void);
-s32 func_002827e0(u32, s32);
+s32 func_002827e0(u32, s32);  // get_indexed_word
 s32 func_002813b8(void);
 s32 func_00281420(void);
 extern u32 D_0035f0fc;
 u32 func_00293bc0(void);
-s32 func_001a8bf8(u32, s32);
+s32 func_001a8bf8(u32, s32);  // get_bits5_at
 s32 func_0026d8c0(s32 x)
 {
     s32 r = -1;
@@ -3691,7 +3691,7 @@ s32 func_002a81a8(void)
 namespace wcx_retry_f1 {
 extern "C" {
 typedef void (*Fn68)(u8*, s32, u32);
-u8* func_00124748(u8*, s32);
+u8* func_00124748(u8*, s32);  // list_nth_node_rel
 u32 func_00313bc0(f32);
 void func_0014b220(u8*, s32, s32, s32, s32);
 void func_0014b620(u8*, s32);
@@ -3752,8 +3752,8 @@ s32 func_002ad950(s32 id)
 }
 extern "C" {
 extern u8* D_0035f610;
-s32 func_002aacd8(s32);
-s32 func_002ab100(s32);
+s32 func_002aacd8(s32);  // test_bit_global_d
+s32 func_002ab100(s32);  // test_bit_global_c
 }
 
 }

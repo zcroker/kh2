@@ -20,7 +20,7 @@ void func_001e6688(void) {
 /* func_001e6ed8 */
 void f3f98(void*, void*) asm("_Z16u_call4_002f3f98jjjj");
 void f3d08(void*, void*, void*) asm("_Z16wtarget_002f3d08jjjj");
-void func_002f3e20(void*, void*);
+void func_002f3e20(void*, void*);  // convert_vectors_to_scalar
 extern u128 D_01d9e730, D_01d9e740, D_01d9e750, D_01d9e760;
 extern u128 D_01d9e770[4];
 extern u128 D_01d9e7b0[4];
@@ -43,12 +43,12 @@ void func_001e6ed8(u128* a, u128* b, u128* c, u128* d) {
     D_01d9e7f0 = *c;
     D_01d9e800 = *d;
     D_01d9e830.f = 53.0f;
-    func_002f3e20(D_01d9e7b0, &D_01d9e730);
+    func_002f3e20(D_01d9e7b0, &D_01d9e730);  // convert_vectors_to_scalar
     f3d08(D_01d9ea00, &D_01d9e8c0, &D_01d9e730);
 }
 
 /* partMng.c asserts (file name string D_0036e9d0) */
-void func_002fdfc8(const char*, ...);
+void func_002fdfc8(const char*, ...);  // device_vprintf_va
 extern char D_0036e978[], D_0036e998[], D_0036e9d0[];
 static inline void ryjAssert(const char* e, const char* f, s32 l) {
     func_002fdfc8(D_0036e978, e);        /* "RyjAssertion failed: %s\n" */
@@ -56,13 +56,13 @@ static inline void ryjAssert(const char* e, const char* f, s32 l) {
     asm volatile("break");
 }
 static inline void ryjAssert5(const char* f1, const char* e, const char* f2, const char* f, s32 l) {
-    func_002fdfc8(f1, e);
-    func_002fdfc8(f2, f, l);
+    func_002fdfc8(f1, e);  // device_vprintf_va
+    func_002fdfc8(f2, f, l);  // device_vprintf_va
     asm volatile("break");
 }
 #define ASSERT(c, e, l) if (!(c)) ryjAssert(e, D_0036e9d0, l)
 #define ASSERT5(c, e, l) if (!(c)) ryjAssert5(D_0036e978, e, D_0036e998, D_0036e9d0, l)
-void* func_001e3650(void*);
+void* func_001e3650(void*);  // ptr_add4
 s32* func_001e3660(void*, s32) asm("_Z13func_001e3660ji");
 
 /* func_001e5458 */

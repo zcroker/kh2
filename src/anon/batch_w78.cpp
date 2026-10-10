@@ -34,20 +34,20 @@ static inline f32 vlength(const W78Vec* v) {
 
 // ---- c1
 extern "C" {
-u32 func_002ff3fc(const u8*);
-u8* func_00100430(u8*, u64*);
+u32 func_002ff3fc(const u8*);  // strlen
+u8* func_00100430(u8*, u64*);  // varint64_decode_c
 u8* func_00100468(u8*, s64*);
 u8* func_001004c0(u8, u32, u8*, u32*);
-W78Vec* func_00133bb8(u32, s32, u32, u32);
+W78Vec* func_00133bb8(u32, s32, u32, u32);  // forward_sub24_to_133848
 void func_0015cb78(void*, u32);
 void func_00141c18(void*, u32, u32, u32, u32);
 s32 func_00141ff0(void*, void*, void*, void*, s32);
 struct W78VecC { f32 x,y,z,w; W78VecC(const W78VecC& o) { asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(this), "r"(&o) : "$8", "memory"); } } __attribute__((aligned(16)));
 void func_001539c0(void*, W78VecC);
-void func_00147c78(u8*, u8*, f32);
+void func_00147c78(u8*, u8*, f32);  // copy_bytes_232_to_12
 u8* func_001058e8(void);
 f32 func_0017ce10(f32);
-u32 func_00155d58(u32, s32);
+u32 func_00155d58(u32, s32);  // table_word_indexed_by_3
 void func_00138c10(u32, u32);
 void func_00154408(u32, u32);
 s32 func_001581d0(u32);
@@ -67,11 +67,11 @@ s32 func_001009a0(u8* cie) {
     u8* p;
     if (aug[0] != 'z') return 0;
     p = aug + func_002ff3fc(aug) + 1;
-    p = func_00100430(p, &utmp);
+    p = func_00100430(p, &utmp);  // varint64_decode_c
     p = func_00100468(p, &stmp);
     p++;
     aug++;
-    p = func_00100430(p, &utmp);
+    p = func_00100430(p, &utmp);  // varint64_decode_c
     while (1) {
         if (*aug == 'R') return *p;
         else if (*aug == 'P') p = func_001004c0(*p & 0x7f, 0, p + 1, &dummy);
@@ -82,11 +82,11 @@ s32 func_001009a0(u8* cie) {
 }
 
 void func_00134c00(W78Vec* v, u32 a) {
-    W78Vec* d = func_00133bb8(a, 3, 0x01000101, 0x6c034005);
+    W78Vec* d = func_00133bb8(a, 3, 0x01000101, 0x6c034005);  // forward_sub24_to_133848
     d[0] = v[0];
     d[1] = v[1];
     d[2] = v[2];
-    W78Mtx* m = (W78Mtx*)func_00133bb8(a, 4, 0x01000101, 0x6c04400a);
+    W78Mtx* m = (W78Mtx*)func_00133bb8(a, 4, 0x01000101, 0x6c04400a);  // forward_sub24_to_133848
     *m = *(W78Mtx*)(v + 3);
 }
 
@@ -142,7 +142,7 @@ void wtarget_001575c0(u8* p) {
 // ---- c2
 extern "C" {
 u8* func_00102c80(void);
-void func_00102670(u32, void*);
+void func_00102670(u32, void*);  // to_1025f8
 void func_001623b0(void);
 void func_001619e8(void);
 void func_001620a8(void);
@@ -160,7 +160,7 @@ struct W78Task { u32 x0; f32 f4; f32 f8; f32 inv; s32 mode; u8 pad[28]; W78Any f
 static inline W78Vec operator-(const W78Vec& a, const W78Vec& b) { W78Vec r; vsub(&r, &a, &b); return r; }
 
 void func_0016c8f8(void*, u32, u32, u32);
-void func_001da458(void*, s32, u32, u32);
+void func_001da458(void*, s32, u32, u32);  // stream_init_fields
 void func_0016cd48(void*, u32*);
 void func_0016cab8(void*);
 extern u32 D_0034d8a4;
@@ -184,8 +184,8 @@ void func_00177c50(u8* o, s32 dmg, u32 c, u8 flag) {
 }
 
 s32 func_00190180(u32*);
-void func_00190388(W78Vec*, u32*);
-W78Vec* func_0016c028(u8*);
+void func_00190388(W78Vec*, u32*);  // vec4_from_arg
+W78Vec* func_0016c028(u8*);  // obj_get_attach_or_alt
 void func_00184ad0(u8*, W78Vec*, f32);
 extern "C" {
 u32 u_call4_00187300(u8* o, u32* tgt, f32 f) asm("_Z16u_call4_00187300jjjj");
@@ -238,18 +238,18 @@ void func_0018c150(u8* p) {
 
 // ---- c3
 extern "C" {
-s32 func_00192440(u8*, s32);
-u8* func_00192388(u8*);
+s32 func_00192440(u8*, s32);  // is_byte_lt25
+u8* func_00192388(u8*);  // skip_control_codes
 s32 func_00192b80(u8* n) {
     s32 depth = 1;
     if (n) {
         do {
             s32 prev = depth;
-            if (func_00192440(n, 0)) {
+            if (func_00192440(n, 0)) {  // is_byte_lt25
                 if (*n == 2) depth++;
                 else if (*n == 0) return depth;
             }
-            n = func_00192388(n);
+            n = func_00192388(n);  // skip_control_codes
             if (prev != depth) {
                 if (!n || (func_00192440(n, 0) && *n == 0)) depth--;
             }
@@ -301,7 +301,7 @@ void func_001a86b8(u8* o) {
 
 s32 func_001a9780(u32);
 u8* func_001a97b8(u32, s32);
-u8* func_00168b38(u8*, s32, s32);
+u8* func_00168b38(u8*, s32, s32);  // entry_array_find_nth
 u32 func_001a9458(u8* o, s32 a, s32 b) {
     u8* r = 0;
     if (func_001a9780(*(u32*)(o + 20))) {
@@ -317,11 +317,11 @@ u32 func_001a9458(u8* o, s32 a, s32 b) {
         r = func_001a97b8(*(u32*)(o + 20), a);
     }
     u8* v;
-    if (r && (v = func_00168b38(r, 9, 0)) != 0) return *(u32*)(v + 8);
+    if (r && (v = func_00168b38(r, 9, 0)) != 0) return *(u32*)(v + 8);  // entry_array_find_nth
     return 0;
 }
 
-u8* func_00168b88(u32, s32, s32, s32);
+u8* func_00168b88(u32, s32, s32, s32);  // find_entry16_by_half_word
 #define W78_FOURCC(c) ((c)[0] | ((c)[1] << 8) | ((c)[2] << 16) | ((c)[3] << 24))
 
 struct W78Five { u32 w[5]; };
@@ -413,8 +413,8 @@ void func_001d6f28(s32 n) {
     if (up) func_001b7468(D_0034e948);
 }
 
-void func_002fdfc8(const char*, ...);
-u8* func_001e3650(void*);
+void func_002fdfc8(const char*, ...);  // device_vprintf_va
+u8* func_001e3650(void*);  // ptr_add4
 s32* func_001e3660(u8*, s32);
 void func_001e5220(u32, s32);
 extern char D_0036e978[];
@@ -424,8 +424,8 @@ extern char D_0036e9d0[];
 extern char D_0036ec40[];
 // "RyjAssertion failed: %s\n" / "   File %s, Line %u\n" (partMng.c), then break.
 static inline void w78_assert(const char* e, const char* f, s32 l) {
-    func_002fdfc8(D_0036e978, e);
-    func_002fdfc8(D_0036e998, f, l);
+    func_002fdfc8(D_0036e978, e);  // device_vprintf_va
+    func_002fdfc8(D_0036e998, f, l);  // device_vprintf_va
     asm volatile("break");
 }
 }
@@ -454,30 +454,30 @@ static inline void w78_scale(u8* v, u32 s) {
     asm volatile("qmtc2 %1, $vf9\n\tlqc2 $vf10, 0(%0)\n\tvmulx.xyz $vf10, $vf10, $vf9x\n\tsqc2 $vf10, 0(%0)" : : "r"(v), "r"(s) : "memory");
 }
 
-void func_002f4000(W78Vec*);
+void func_002f4000(W78Vec*);  // vu_store_w_splat
 void func_002f3d08(W78Vec*, void*, W78Vec*);
-void func_002f3f40(u8*, u8*, f32);
+void func_002f3f40(u8*, u8*, f32);  // vec_scale_by_f12
 void func_002f3cd8(u8*, W78Vec*, u8*);
 extern u8 D_01d9e730[];
 extern u8 D_01d9e8c0[];
 void func_00200700(u8* o, u32 a1, u8* a2) {
     W78Vec m[4];
     u8* p = o + (*(u32**)(a2 + 12))[1];
-    func_002f4000(m);
+    func_002f4000(m);  // vu_store_w_splat
     f32* s = (f32*)(p + 160);
     m[3].x = s[0];
     m[3].y = s[1];
     m[3].z = s[2];
     func_002f3d08(m, D_01d9e730, m);
-    func_002f3f40(D_01d9e6e8 + 80, D_01d9e6e8 + 16, s[4]);
-    func_002f3f40(D_01d9e6e8 + 96, D_01d9e6e8 + 32, s[5]);
-    func_002f3f40(D_01d9e6e8 + 112, D_01d9e6e8 + 48, s[6]);
+    func_002f3f40(D_01d9e6e8 + 80, D_01d9e6e8 + 16, s[4]);  // vec_scale_by_f12
+    func_002f3f40(D_01d9e6e8 + 96, D_01d9e6e8 + 32, s[5]);  // vec_scale_by_f12
+    func_002f3f40(D_01d9e6e8 + 112, D_01d9e6e8 + 48, s[6]);  // vec_scale_by_f12
     func_002f3cd8(D_01d9e6e8 + 128, m, D_01d9e6e8 + 64);
     func_002f3d08((W78Vec*)(D_01d9e6e8 + 80), D_01d9e8c0, (W78Vec*)(D_01d9e6e8 + 80));
 }
 
 void func_00228240(void);
-u32 func_002282d8(void);
+u32 func_002282d8(void);  // limit_15000_or_25000
 u8* func_00102c80(void);
 u8* func_00102788(u32, u32, u32, void*);
 void func_00227e30(void);
@@ -491,7 +491,7 @@ extern u32 D_0035de3c;
 extern u8 D_0035de27;
 void func_00228150(u32 a) {
     func_00228240();
-    u32 w = func_002282d8();
+    u32 w = func_002282d8();  // limit_15000_or_25000
     D_0035de3c = *(u32*)(func_00102c80() + 4);
     if (!D_0035de30) D_0035de30 = func_00102818(D_0035de3c, a, w, (void*)func_00227e30, 0x2000);
     if (!D_0035de34) D_0035de34 = func_00102818(D_0035de3c, a, w, (void*)func_002272b8, 0x2000);
@@ -562,7 +562,7 @@ s32 func_002325f0(u8* o) {
 
 s32 func_002282f0(s16);
 s32 func_00227ca8(void*);
-s32 func_00225b00(s16);
+s32 func_00225b00(s16);  // flag_query_by_index
 u32 func_002bc238(s32);
 void func_002bc358(u32, s32);
 extern s32 D_0035e35c;
@@ -637,7 +637,7 @@ s32 func_0024e080(void) {
 
 u32 func_00257770(void);
 s32 func_00287bc0(void);
-s32 func_0027af58(void);
+s32 func_0027af58(void);  // check_state16_then_loop
 void func_0028dac8(u32, s16);
 s32 func_0028be58(u32);
 void func_0028bdb8(u32);
@@ -773,13 +773,13 @@ extern s32 D_0035f628;
 extern s32 D_0035f62c;
 extern u8* D_0035f620;
 
-u8* func_002b23e0(s32);
+u8* func_002b23e0(s32);  // list_entry_by_index_checked
 u8* w78_9d68(void) asm("func_002a9d68");
 s32 func_002b2380(s16, s16);
 extern u8* D_0035f638;
 s32 func_002b3c38(u32 mask) {
     s32 r = 1;
-    u8* a = func_002b23e0(-1);
+    u8* a = func_002b23e0(-1);  // list_entry_by_index_checked
     u8* b = w78_9d68();
     u8* t = D_0035f638;
     s32 k = (*(u32*)(t + 52) >> 10) & 2;
@@ -792,7 +792,7 @@ s32 func_002b3c38(u32 mask) {
 
 u32 func_002bc988(u32);
 s32 func_002bc9d8(u8*, u32);
-void func_002bc9a8(u8*, s32, u32);
+void func_002bc9a8(u8*, s32, u32);  // find_entry12_set_field
 s32 func_002bc978(u32);
 void func_002bcda8(u8*, s32);
 void func_002bd188(u8*, s32);
@@ -806,7 +806,7 @@ void wtarget_002c5298(u32 a, u32 b) asm("_Z16wtarget_002c5298jjjj");
 // ---- c9
 extern "C" {
 f32 func_002f8a18(f32);
-f32 func_002f8870(f32);
+f32 func_002f8870(f32);  // fabsf
 struct W78VecC2 {
     f32 x, y, z, w;
     W78VecC2& operator=(const W78VecC2& o) {
@@ -818,7 +818,7 @@ W78VecC2* func_002d1d30(W78VecC2* out, u8* cam, W78VecC2* pos) {
     *out = *pos;
     vsub((W78Vec*)out, (W78Vec*)out, (W78Vec*)(cam + 208));
     f32 t = func_002f8a18(*(f32*)(cam + 112) * 0.5f * 0.01745329238474369f);
-    t *= func_002f8870(out->z);
+    t *= func_002f8870(out->z);  // fabsf
     out->z = 0.0f;
     out->x = out->x / (t * 4.0f / 3.0f);
     out->y = out->y / t;

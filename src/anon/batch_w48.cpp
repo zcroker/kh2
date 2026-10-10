@@ -17,13 +17,13 @@ f32 func_00112c28(void);
 f32 func_00112c38(void);
 s32 func_00111e38(s32);
 void func_0011ac10(s32);
-u8* func_00106a60(s32);
+u8* func_00106a60(s32);  // buffer_get_by_index
 void func_0016aef0(s32, f32*);
-void func_001391a8(void*, Vq);
+void func_001391a8(void*, Vq);  // vec_copy_at416_if_diff
 s32 func_00139d78(void*);
 Vq func_0016af58(u32);
 void func_0013fcd8(void*, Vq);
-void func_00107368(void*, void*);
+void func_00107368(void*, void*);  // vec_copy_at80_if_diff
 void func_00165f70(void*, void*, void*, void*, void*);
 extern u8* D_00348800;
 extern u32 D_00348810;
@@ -51,7 +51,7 @@ s32 func_00135d00(u8* p, s32 i) {
 void func_0011b038(s32 a) {
     s32 h = func_00111e38(0);
     func_0011ac10(a);
-    u8* p = func_00106a60(1);
+    u8* p = func_00106a60(1);  // buffer_get_by_index
     f32 v[4];
     f32 x = *(f32*)(p + 24);
     f32 z = *(f32*)(p + 56);
@@ -62,7 +62,7 @@ void func_0011b038(s32 a) {
 }
 
 void func_0013e3b0(u8* o, Vq* v) {
-    func_001391a8(o, *v);
+    func_001391a8(o, *v);  // vec_copy_at416_if_diff
     if (func_00139d78(o + 448)) func_001391a8(o + 448, *v);
 }
 
@@ -76,7 +76,7 @@ void func_00144060(void) {
     u8 buf[16];
     *(u32*)(D_00348800 + 1904) = 0;
     if (D_00348810 != 0 && D_0034881f != 0) {
-        func_00107368(func_00106a60(1), buf);
+        func_00107368(func_00106a60(1), buf);  // vec_copy_at80_if_diff
         u8* q = D_00348800;
         func_00165f70((void*)D_00348810, buf, q + 624, q + 1904, q + 496);
     }
@@ -126,7 +126,7 @@ void func_001817f0(s32 id) {
 }
 
 s32 func_001c0cd8(void*);
-s32 func_0019c090(void*);
+s32 func_0019c090(void*);  // obj_is_enabled
 s32 func_001886d0(u8* o) {
     s32 r = 0;
     if (func_001c0cd8(*(void**)(*(u8**)(o + 136) + 4)) != 0 || func_0019c090(*(void**)(*(u8**)(o + 136) + 4)) == 0) {
@@ -175,16 +175,16 @@ void func_00196198(void) {
     func_0016c770();
 }
 
-u8* func_00168b88(void*, s32, s32, s32);
+u8* func_00168b88(void*, s32, s32, s32);  // find_entry16_by_half_word
 s32 func_00198738(u8* o, s8* b) {
     void* p = *(void**)(o + 1968);
     u8* r;
-    if (p && (r = func_00168b88(p, 22, b[0] | (b[1] << 8) | (b[2] << 16) | (b[3] << 24), 0)) != 0) return *(s32*)(r + 8);
+    if (p && (r = func_00168b88(p, 22, b[0] | (b[1] << 8) | (b[2] << 16) | (b[3] << 24), 0)) != 0) return *(s32*)(r + 8);  // find_entry16_by_half_word
     return 0;
 }
 
 void func_0018f028(void*);
-void func_0019f9a8(u8* o) {
+void func_0019f9a8(u8* o) {  // array8_free_slots
     u8* p = o;
     for (s32 i = 7; i >= 0; i--) {
         if (*(void**)(p + 12)) {
@@ -284,7 +284,7 @@ u8* func_001e3468(u8* o) {
 
 
 /* wait until VIF0/VIF1/GIF are idle and VU0 has stopped */
-void func_001e7538(void) {
+void func_001e7538(void) {  // hw_regs_setup
     do {
         s32 busy;
         u32 m = *(volatile u32*)0x10009000 & 0x100;
@@ -468,12 +468,12 @@ void func_002b2840(void) {
 }
 
 s32 func_002bc988(s32);
-void func_002bc9a8(void*, s32, s32);
+void func_002bc9a8(void*, s32, s32);  // find_entry12_set_field
 void func_002bcbf0(u8* o, s32 a1, s32 a2, s32* a3, s32* t0) {
     *t0 = func_002bc988(a1);
     s32 m = *(s32*)(o + 332);
     *a3 = m;
-    func_002bc9a8(o, m, *t0);
+    func_002bc9a8(o, m, *t0);  // find_entry12_set_field
     *(s32*)(o + 332) = *(s32*)(o + 332) == 20 ? 21 : 20;
 }
 
@@ -512,7 +512,7 @@ void func_002e7c18(u32* o) {
 
 struct Bigint { void* next; s32 k; s32 maxwds; s32 sign; s32 wds; u32 x[1]; };
 /* newlib __mcmp: compare two bigints */
-s32 func_00304468(Bigint* a, Bigint* b) {
+s32 func_00304468(Bigint* a, Bigint* b) {  // cmp_entries_16_then_words
     u32 *xa, *xa0, *xb, *xb0;
     s32 i = a->wds, j = b->wds;
     if ((i -= j)) return i;

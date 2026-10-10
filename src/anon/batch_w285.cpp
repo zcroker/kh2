@@ -38,7 +38,7 @@ void func_001256c0(f32 (*d)[4], f32 (*a)[4], f32 (*b)[4], f32 t) {
 }
 
 void func_001902a8(void*, Loc285*);
-Vq285* func_0016c028(s32);
+Vq285* func_0016c028(s32);  // obj_get_attach_or_alt
 void func_001a7610(Vq285*, Vq285*, s32, f32, f32);
 void func_0016bd60(s32, s32);
 void func_002c6eb8(Obj285* o, s32 id, void* p) {
@@ -46,7 +46,7 @@ void func_002c6eb8(Obj285* o, s32 id, void* p) {
     l.d = 0;
     func_001902a8(p, &l);
     o->v40 = l.v;
-    o->v0 = *func_0016c028(id);
+    o->v0 = *func_0016c028(id);  // obj_get_attach_or_alt
     o->v30 = l.v;
     o->v30.z -= l.b;
     func_001a7610(&o->v30, &o->v30, 0, 5000.0f, 1000.0f);
@@ -73,13 +73,13 @@ s32 func_0028acc8(void*);
 s32 func_0028d008(s32);
 void func_0028cc78(s32, s32, s32, void*, s32, s32);
 s32 func_002891d0(void*);
-void func_0028cf28(s32, s32);
+void func_0028cf28(s32, s32);  // record408_set_and_refresh
 s32 func_0028d6e8(void*);
 void func_0028d1c0(void*, s32, s32, s32, void*, void*, s32);
-void func_0028d660(void*, s32);
+void func_0028d660(void*, s32);  // record_set_value_refresh
 s32 func_00287bc0(void);
 void func_0026eae8(void*, s32);
-void func_0028cdb8(s32);
+void func_0028cdb8(s32);  // record408_alloc_init
 void func_0028d5d0(void*);
 void PauseTaskUpdate_impl(void) asm("_ZN2Tz15PauseTaskUpdateEv");
 void PauseTaskUpdate_impl(void) {
@@ -93,15 +93,15 @@ void PauseTaskUpdate_impl(void) {
     if (func_0028acc8(D_0035f10c) && s == 1) {
         if (func_0028d008(0) == 0) {
             func_0028cc78(0, 0, 0, D_0035f100, 6, 6);
-            func_0028cf28(0, func_002891d0(D_0035f10c));
+            func_0028cf28(0, func_002891d0(D_0035f10c));  // record408_set_and_refresh
             if (func_0028d6e8(D_0035f110) == 0) {
                 func_0028d1c0(D_0035f110, 30026, 0, 0, D_0035f100, D_003738d8, 0);
             }
-            func_0028d660(D_0035f110, func_002891d0(D_0035f10c));
+            func_0028d660(D_0035f110, func_002891d0(D_0035f10c));  // record_set_value_refresh
         }
     } else if (s == 2) {
         if (func_0028d008(0)) {
-            func_0028cdb8(0);
+            func_0028cdb8(0);  // record408_alloc_init
             func_0028d5d0(D_0035f110);
         } else if (func_0028d6e8(D_0035f110)) {
             func_0028d5d0(D_0035f110);

@@ -49,7 +49,7 @@ s32 func_0022a3d0(s32 n, f32 x, s32* a, s32* b, s32* c, s32* d, s32* e, s32* f, 
 }
 
 s32 func_0016a070(u8*);
-QV298* func_0016c028(u8*);
+QV298* func_0016c028(u8*);  // obj_get_attach_or_alt
 void func_001703a8(s32);
 void func_001afb80(void*, s32, s32, s32);
 void func_0016ed50(s32, s32, s32);
@@ -58,7 +58,7 @@ void func_001c9e50(void*);
 s32 func_0017e4f8(s32, QV298*, f32, f32, f32);
 void func_001617d8(void);
 void func_001ad990(u8*, f32, f32, f32);
-s32 func_001ba028(u8*);
+s32 func_001ba028(u8*);  // list_contains_ptr
 void func_00102448(void*, s32);
 s32 func_001b5cf8(O5cf8* o, void* a1)
 {
@@ -71,13 +71,13 @@ s32 func_001b5cf8(O5cf8* o, void* a1)
     case 2420: s5 = 6; break;
     }
     QV298 pos;
-    pos = *func_0016c028(o->p4);
+    pos = *func_0016c028(o->p4);  // obj_get_attach_or_alt
     switch (o->f0) {
     case 0: {
         u8* p = o->p4;
         if (!(*(u32*)(p + 2040) & 0x10)) { f32 c = 8.0f; func_001ad990(p + 2092, 1.0f, 0.0f, c); }
         *(u32*)(p + 2040) |= 0x10;
-        while (func_001ba028(o->p4)) func_00102448(a1, 0);
+        while (func_001ba028(o->p4)) func_00102448(a1, 0);  // list_contains_ptr
         func_00102448(a1, 1);
         break;
     }
@@ -98,5 +98,5 @@ s32 func_001b5cf8(O5cf8* o, void* a1)
 }
 
 s32 func_0018ca48(u8);
-QV298* func_0016c028(u8*);
+QV298* func_0016c028(u8*);  // obj_get_attach_or_alt
 }

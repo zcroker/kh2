@@ -2,7 +2,7 @@
 
 u32 func_001041a0(u32, u32, u32, u32);
 u32 func_00113628(u32, u32, u32, u32);
-u32 func_00124bb8(u32, u32, u32, u32);
+u32 func_00124bb8(u32, u32, u32, u32);  // obj_ctor_347b88
 u32 func_00138c10(u32, u32, u32, u32);
 u32 func_0013e8c0(u32, u32, u32, u32);
 u32 func_0014b290(u32, u32, u32, u32);
@@ -14,7 +14,7 @@ u32 func_001a4db0(u32, u32, u32, u32);
 u32 func_001ae9a0(u32, u32, u32, u32);
 u32 func_001b1d20(u32, u32, u32, u32);
 u32 func_001baa58(u32, u32, u32, u32);
-u32 func_001c10f8(u32, u32, u32, u32);
+u32 func_001c10f8(u32, u32, u32, u32);  // request_pool_block64
 u32 func_001c8db8(u32, u32, u32, u32);
 u32 func_001d3350(u32, u32, u32, u32);
 u32 func_001db8f8(u32, u32, u32, u32);
@@ -22,7 +22,7 @@ u32 func_002361d0(u32, u32, u32, u32);
 u32 func_00239870(u32, u32, u32, u32);
 u32 func_0028e350(u32, u32, u32, u32);
 u32 func_002cf3f8(u32, u32, u32, u32);
-u32 func_002cfeb0(u32, u32, u32, u32);
+u32 func_002cfeb0(u32, u32, u32, u32);  // obj_init_field1416_bit800
 u32 func_002d0ea8(u32, u32, u32, u32);
 u32 func_002db4b0(u32, u32, u32, u32);
 u32 func_002f5d18(u32, u32, u32, u32);
@@ -96,7 +96,7 @@ u32 func_0011a490(u32 a0, u32 a1, u32 a2, u32 a3) {
 u32 func_001316c0(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u, r15 = 0u, r16 = 0u;
     r16 = r4;
-    r2 = func_00124bb8(r4, r5, r6, r7);
+    r2 = func_00124bb8(r4, r5, r6, r7);  // obj_ctor_347b88
     r15 = (u32)&D_00347bd8;
     *(u32*)((u32)r16 + (s32)(0)) = r15;
     return r2;
@@ -105,7 +105,7 @@ u32 func_001316c0(u32 a0, u32 a1, u32 a2, u32 a3) {
 u32 func_001316f0(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u, r15 = 0u, r16 = 0u;
     r16 = r4;
-    r2 = func_00124bb8(r4, r5, r6, r7);
+    r2 = func_00124bb8(r4, r5, r6, r7);  // obj_ctor_347b88
     r15 = (u32)&D_00347bd8;
     *(u32*)((u32)r16 + (s32)(0)) = r15;
     return r2;
@@ -295,7 +295,7 @@ u32 func_001bb288(u32 a0, u32 a1, u32 a2, u32 a3) {
 
 u32 func_001c11a8(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u, r14 = 0u, r15 = 0u;
-    r2 = func_001c10f8(r4, r5, r6, r7);
+    r2 = func_001c10f8(r4, r5, r6, r7);  // request_pool_block64
     r14 = (u32)(*(u8*)((u32)r2 + (s32)(36)));
     r15 = (u32)&D_01d49388;
     r14 = (u32)(r14 << 6);
@@ -545,7 +545,7 @@ u32 func_002d6990(u32 a0, u32 a1, u32 a2, u32 a3) {
     r7 = r6;
     r6 = (u32)((s32)0u + (1));
     r16 = r4;
-    r2 = func_002cfeb0(r4, r5, r6, r7);
+    r2 = func_002cfeb0(r4, r5, r6, r7);  // obj_init_field1416_bit800
     r15 = (u32)&D_00362398;
     *(u32*)((u32)r16 + (s32)(0)) = r15;
     return r2;
@@ -556,7 +556,7 @@ u32 func_002d69c8(u32 a0, u32 a1, u32 a2, u32 a3) {
     r7 = r6;
     r6 = (u32)((s32)0u + (1));
     r16 = r4;
-    r2 = func_002cfeb0(r4, r5, r6, r7);
+    r2 = func_002cfeb0(r4, r5, r6, r7);  // obj_init_field1416_bit800
     r15 = (u32)&D_00362398;
     *(u32*)((u32)r16 + (s32)(0)) = r15;
     return r2;
@@ -603,7 +603,7 @@ u32 func_002de750(u32 a0, u32 a1, u32 a2, u32 a3) {
     r7 = r6;
     r6 = 0u;
     r16 = r4;
-    r2 = func_002cfeb0(r4, r5, r6, r7);
+    r2 = func_002cfeb0(r4, r5, r6, r7);  // obj_init_field1416_bit800
     r15 = (u32)&D_00362ad8;
     *(u32*)((u32)r16 + (s32)(0)) = r15;
     return r2;
@@ -614,7 +614,7 @@ u32 func_002de788(u32 a0, u32 a1, u32 a2, u32 a3) {
     r7 = r6;
     r6 = 0u;
     r16 = r4;
-    r2 = func_002cfeb0(r4, r5, r6, r7);
+    r2 = func_002cfeb0(r4, r5, r6, r7);  // obj_init_field1416_bit800
     r15 = (u32)&D_00362ad8;
     *(u32*)((u32)r16 + (s32)(0)) = r15;
     return r2;

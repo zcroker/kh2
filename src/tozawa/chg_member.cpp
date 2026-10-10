@@ -13,7 +13,7 @@ u32 ChgMember::isLoadExec() {
 }
 
 extern u8 D_0035f4f9 asm("D_0035f4f9");
-extern "C" u32 func_00102a38(...);
+extern "C" u32 func_00102a38(...);  // list_contains_id
 extern "C" u32 func_00103eb0(...);
 extern "C" u32 func_00170320(...);
 extern "C" u32 func_00170cd0(...);
@@ -25,7 +25,7 @@ u32 ChgMember::isLoadFinish() {
     if (D_0035f4f9 == 0) {
         return 0;
     }
-    if (func_00102a38(*(u32*)(func_00103eb0() + 4), (u32)&D_00293848) != 0) {
+    if (func_00102a38(*(u32*)(func_00103eb0() + 4), (u32)&D_00293848) != 0) {  // list_contains_id
         return 0;
     }
     return (func_00170cd0() ^ 1) & 0xff;

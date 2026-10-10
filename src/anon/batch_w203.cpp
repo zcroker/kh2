@@ -10,7 +10,7 @@ extern W203Vq D_01e2bf90;
 
 extern "C" {
 void func_00152508(void*, u32, u32, u32, u32);
-void func_00162058(float);
+void func_00162058(float);  // to_161f48_arg1
 void func_0023fad0(void*);
 void w203_createTask(int, int, void (*)(void*)) asm("_ZN5FIELD10CreateTaskEiiPFvP4TASKE");
 void w203_ensureTask(void*) asm("_ZN2dk10TalkCamera10ensureTaskEP4TASK");
@@ -25,7 +25,7 @@ void func_00152ab8(W203C* a, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32
 
 void func_00159c20(void) {
   w203_createTask(1, 25990, w203_ensureTask);
-  func_00162058(8.0f);
+  func_00162058(8.0f);  // to_161f48_arg1
 }
 
 void u_call4_0023f8c8(u8* a) asm("_Z16u_call4_0023f8c8jjjj");

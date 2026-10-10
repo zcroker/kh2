@@ -80,7 +80,7 @@ void func_001f0ea8(u8* o, u32 a1, u8* x) {
 
 extern u8 D_0032e020[];
 W248Tbl* func_00188fe0(void*);
-u8* func_001a80c8(u32);
+u8* func_001a80c8(u32);  // table24_find_by_id
 s32 func_001a3570(u32);
 s32 func_001a35f8(u32 id, s32 mode) {
     s32 cnt = 0;
@@ -88,7 +88,7 @@ s32 func_001a35f8(u32 id, s32 mode) {
         cnt = func_001a3570(id);
     } else {
         W248Tbl* t = func_00188fe0(D_0032e020);
-        switch (func_001a80c8(id)[2]) {
+        switch (func_001a80c8(id)[2]) {  // table24_find_by_id
         case 0: {
             s32 i;
             for (i = 0; i < t->n; i++) {

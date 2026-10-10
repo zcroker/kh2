@@ -19,7 +19,7 @@ extern Buf256 D_003a7b70[];
 extern Buf256 D_003a7d70[];
 extern s32 D_0033cc40;
 extern u8 D_0033cc44;
-void* func_00106a18(u8 a) {
+void* func_00106a18(u8 a) {  // buffer_get_256
     if (a || D_0033cc44) return &D_003a7b70[D_0033cc40];
     return &D_003a7d70[D_0033cc40];
 }
@@ -71,11 +71,11 @@ s32 func_0017de70(Obj17d* o) {
 
 struct Node17f { u8 pad[60]; s32 a; s32 b; u8 pad2[148 - 68]; Node17f* child; u8 pad3[4]; Node17f* next; };
 // Clear two fields on a node and, recursively, on all its children.
-void func_0017f380(Node17f* n) {
+void func_0017f380(Node17f* n) {  // obj_walk_children
     n->a = 0;
     n->b = 0;
     Node17f* c = 0;
-    while ((c = !c ? n->child : c->next) != 0) func_0017f380(c);
+    while ((c = !c ? n->child : c->next) != 0) func_0017f380(c);  // obj_walk_children
 }
 
 s32 func_00181500(void*);
@@ -178,7 +178,7 @@ void u_call0_001b5400(void) {
     }
 }
 
-s32 func_001dc738(void*);
+s32 func_001dc738(void*);  // state_gate_flags
 s32 func_001dc790(u32* p) {
     s32 r = 0;
     if (func_001dc738(p) || (p[2] & 0x200000)) r = 1;
@@ -186,7 +186,7 @@ s32 func_001dc790(u32* p) {
 }
 
 // VU0 random: five vrnext steps seeded with -1, plus 1.0 (hand-written VU0 macro code).
-f32 func_00203a40(void) {
+f32 func_00203a40(void) {  // vu_const_5f
     register u32 r asm("$15");
     asm volatile(
         "addi $8, $0, -1\n\tqmtc2 $8, $vf2\n\t"
@@ -252,14 +252,14 @@ void init_00236d10(void*) {
     D_0035ea40 = 1;
 }
 
-void func_00242408(void);
-u32 func_00242418(void*, u32);
+void func_00242408(void);  // set_global_crc_m1
+u32 func_00242418(void*, u32);  // crc_byte_update
 extern void* D_0035ec90;
 s32 func_00241670(void* a) {
-    func_00242408();
-    u32 x = func_00242418(a, 0x8a58);
-    func_00242408();
-    return x == func_00242418(D_0035ec90, 0x8a58);
+    func_00242408();  // set_global_crc_m1
+    u32 x = func_00242418(a, 0x8a58);  // crc_byte_update
+    func_00242408();  // set_global_crc_m1
+    return x == func_00242418(D_0035ec90, 0x8a58);  // crc_byte_update
 }
 
 struct Bits242 { u32 pad; u32 lo : 6; u32 off : 1; };
@@ -307,11 +307,11 @@ void ResetPauseImpl_002bd6d0(void) {
 }
 
 extern void* D_00362908[];
-void func_002e7328(void*);
+void func_002e7328(void*);  // to_2e7458
 void func_002cff98(void*);
 void func_002db928(u8* p) {
     *(void**)p = D_00362908;
-    func_002e7328(p + 2976);
+    func_002e7328(p + 2976);  // to_2e7458
     func_002cff98(p);
     func_00105110(p);
 }
@@ -382,14 +382,14 @@ void func_0031d7c0(void** p) {
 }
 
 extern void* D_0034ee08[];
-void func_0019f9a8(void*);
+void func_0019f9a8(void*);  // array8_free_slots
 void func_001c0248(void*);
-void func_00319fb0(void*);
+void func_00319fb0(void*);  // big_obj_dtor
 void func_00324980(u8* p) {
     *(void**)p = D_0034ee08;
-    func_0019f9a8(p + 2568);
+    func_0019f9a8(p + 2568);  // array8_free_slots
     func_001c0248(p + 2640);
-    func_00319fb0(p);
+    func_00319fb0(p);  // big_obj_dtor
     func_00105110(p);
 }
 

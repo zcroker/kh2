@@ -19,11 +19,11 @@ extern "C" {
 extern u8* D_01d9e6e0;
 extern s32 D_01d9ea9c;
 extern W317Y D_01d9e360;
-void func_002f3f10(void*, void*, void*);
-void func_002f3f88(void*, void*);
+void func_002f3f10(void*, void*, void*);  // vec4_sub
+void func_002f3f88(void*, void*);  // memcpy16
 s32 func_002225a8(void*);
-void func_002f3f40(void*, void*, f32);
-void func_002f3ef8(void*, void*, void*);
+void func_002f3f40(void*, void*, f32);  // vec_scale_by_f12
+void func_002f3ef8(void*, void*, void*);  // vec4_add
 void func_00222730(void*, void*, void*);
 void func_001fc320(u8* self, W317P* p, W317Q* q) {
     W317X* x = (W317X*)(self + q->of->o8 + 160);
@@ -49,16 +49,16 @@ void func_001fc320(u8* self, W317P* p, W317Q* q) {
     u8* s3 = self + q->of->o4 + 160;
     if (f == 0.0f) return;
     l.t = f;
-    func_002f3f10(&l, s4, y->m4.p);
-    func_002f3f88(l.b, s3);
+    func_002f3f10(&l, s4, y->m4.p);  // vec4_sub
+    func_002f3f88(l.b, s3);  // memcpy16
     if (!func_002225a8(&l)) return;
     f32 u = l.u;
     if (u < 0.0f) return;
     if (1.0f < u) return;
     x->flags |= 1;
-    func_002f3f40(l.c, l.b, u);
-    func_002f3ef8(l.c, l.c, &l);
-    func_002f3ef8(x, ((W317Y*)x->y)->m4.p, l.c);
+    func_002f3f40(l.c, l.b, u);  // vec_scale_by_f12
+    func_002f3ef8(l.c, l.c, &l);  // vec4_add
+    func_002f3ef8(x, ((W317Y*)x->y)->m4.p, l.c);  // vec4_add
     if (x->flags & 2) {
         func_00222730(s3, x, s4);
         *(s32*)(self + 12) = 0xffff0000;
@@ -67,7 +67,7 @@ void func_001fc320(u8* self, W317P* p, W317Q* q) {
 
 s32 func_0013cb90(void);
 u32 func_001b8e88(u32);
-s32 func_0013b988(u8*, W317H*, u32, s32, s32, s32);
+s32 func_0013b988(u8*, W317H*, u32, s32, s32, s32);  // table_by_arg_flags
 u32 func_00192048(u32);
 void func_0013b5d0(u8*, s32, s32, void*, u32, s32, s32, u32, f32, u32, s32);
 void func_0013c820(u8*, s32);
@@ -87,7 +87,7 @@ void func_0013cbb8(u8* self, W317H* h, u8 a2) {
         do {
             u8* q = (u8*)func_001b8e88(p->e[0].id);
             s32 c = 0;
-            s32 r = func_0013b988(self, h, p->e[0].b, i++, 0, 1);
+            s32 r = func_0013b988(self, h, p->e[0].b, i++, 0, 1);  // table_by_arg_flags
             if (p->e[0].c) c = D_00348520[idx][p->e[0].c];
             p = (W317H*)((u8*)p + 12);
             u32 t = func_00192048(*(u32*)(q + 8));

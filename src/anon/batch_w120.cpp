@@ -5,8 +5,8 @@ extern void* D_0034ec68;
 extern u32 D_0034ec70[19];
 extern s8 D_0036c600[8], D_0036c608[8], D_0036c610[8], D_0036c618[8], D_0036c620[8], D_0036c628[8];
 void* func_001b1490(void*);
-Res* func_00168b38(void*, s32, s32);
-Res* func_00168b88(void*, s32, s32, s32);
+Res* func_00168b38(void*, s32, s32);  // entry_array_find_nth
+Res* func_00168b88(void*, s32, s32, s32);  // find_entry16_by_half_word
 void func_00196608(u32);
 void func_001b87a0(u32);
 void func_001c3660(u32);
@@ -22,7 +22,7 @@ void func_00180f28(void)
     void* h = func_001b1490(D_0034ec68);
     s32 i;
     for (i = 0; i < 19; i++) {
-        Res* r = func_00168b38(h, 2, i);
+        Res* r = func_00168b38(h, 2, i);  // entry_array_find_nth
         if (!r) D_0034ec70[i] = 0;
         else D_0034ec70[i] = r->data;
     }
@@ -51,19 +51,19 @@ void func_0028af18(u32, s32);
 void func_00276690(s32);
 s32 func_00276358(void);
 void func_00276220(s32, s32);
-void func_00274cf0(s32);
+void func_00274cf0(s32);  // state_dispatch_0_1_2
 void func_002925c0(void);
 void func_002995e8(void);
 s32 func_00289310(u32);
-s32 func_00276398(void);
+s32 func_00276398(void);  // state_is_150
 void func_00275b60(void);
 void func_00287c90(s32);
 s32 func_00287df0(s32, s32, s32, s32, s32);
 s32 func_00242848(s32);
 void func_00287da0(void);
 s32 func_00288040(void);
-void func_00288018(void);
-void func_0028f6f0(s32);
+void func_00288018(void);  // global_zero_4dwords
+void func_0028f6f0(s32);  // record884_refresh_by_index
 void func_002a6a10(void);
 void func_00276dc0(void);
 void func_00287c00(s32);
@@ -94,7 +94,7 @@ void func_002a6be0(void)
         func_00276690(0);
         func_00276220(func_00276358(), 0);
         if (k != 13) return;
-        func_00274cf0(13);
+        func_00274cf0(13);  // state_dispatch_0_1_2
         func_002925c0();
         func_002995e8();
         return;
@@ -103,7 +103,7 @@ void func_002a6be0(void)
         func_00276220(0, 2);
         func_00275b60();
     }
-    if (st == 0 && func_00276398()) func_00287c90(1);
+    if (st == 0 && func_00276398()) func_00287c90(1);  // state_is_150
     if (func_00242848(func_00287df0(sel, func_00289310(D_0035f200), 1, 0, 1)) == 0) {
         switch (sel) {
         case -1: break;
@@ -111,7 +111,7 @@ void func_002a6be0(void)
             func_00287da0();
             break;
         case -2: {
-            func_0028f6f0(0);
+            func_0028f6f0(0);  // record884_refresh_by_index
             func_002a6a10();
             func_00276dc0();
             func_00276220(1, 1);
@@ -153,7 +153,7 @@ void func_00287bd0(s32, s32);
 void func_0026c760(void);
 void func_0023d820(s32);
 void func_00288e88(u32);
-void func_00263c60(void);
+void func_00263c60(void);  // sync_global_index_if_changed
 void func_0026cb90(void);
 
 void func_0026c470(void)
@@ -194,8 +194,8 @@ void func_0026c470(void)
             break;
         case -2:
             func_00288e88(D_0035f024);
-            func_00263c60();
-            func_0028f6f0(0);
+            func_00263c60();  // sync_global_index_if_changed
+            func_0028f6f0(0);  // record884_refresh_by_index
             func_0026cb90();
             func_00287cc0(2);
             func_00287c00(0);
@@ -241,7 +241,7 @@ void func_002a52b0(void)
         func_0028af18(D_0035f200, 115);
         func_00276220(func_00276358(), 0);
         if (k == 13) {
-            func_00274cf0(13);
+            func_00274cf0(13);  // state_dispatch_0_1_2
             func_002925c0();
             func_002766b0(0);
             func_002995e8();
@@ -254,7 +254,7 @@ void func_002a52b0(void)
         func_00276220(0, 2);
         func_00275b60();
     }
-    if (st == 0 && func_00276398()) func_00287c90(1);
+    if (st == 0 && func_00276398()) func_00287c90(1);  // state_is_150
     if (func_00242848(func_00287df0(sel, func_00289310(D_0035f200), 1, (s32)func_002a6878, 1)) == 0) {
         switch (sel) {
         case -1: break;
@@ -266,7 +266,7 @@ void func_002a52b0(void)
             break;
         }
         case -2: {
-            func_0028f6f0(0);
+            func_0028f6f0(0);  // record884_refresh_by_index
             func_002a4df0();
             func_00276dc0();
             func_00276220(1, 1);
@@ -325,7 +325,7 @@ void func_0029b378(void)
         func_0028af18(D_0035f200, 115);
         func_00276220(func_00276358(), 0);
         if (k == 13) {
-            func_00274cf0(13);
+            func_00274cf0(13);  // state_dispatch_0_1_2
             func_002925c0();
             func_002766b0(0);
             func_002995e8();
@@ -338,7 +338,7 @@ void func_0029b378(void)
         func_00276220(0, 2);
         func_00275b60();
     }
-    if (st == 0 && func_00276398()) func_00287c90(1);
+    if (st == 0 && func_00276398()) func_00287c90(1);  // state_is_150
     if (func_00242848(func_00287df0(sel, func_00289310(D_0035f200), 1, (s32)func_0029ecf0, 1)) == 0) {
         switch (sel) {
         case -1: break;
@@ -346,7 +346,7 @@ void func_0029b378(void)
             func_00287da0();
             break;
         case -2:
-            func_0028f6f0(0);
+            func_0028f6f0(0);  // record884_refresh_by_index
             func_0029aa30();
             func_00276dc0();
             func_00276220(1, 1);
@@ -428,7 +428,7 @@ void func_0025e8a0(void)
             func_002b5108(0xb85d, w);
             func_00287bd0(5, 0);
             func_00234570(w, 0);
-            func_00263c60();
+            func_00263c60();  // sync_global_index_if_changed
             return;
         }
     }
@@ -436,15 +436,15 @@ void func_0025e8a0(void)
         switch (sel) {
         case -1: break;
         case -4:
-            func_00263c60();
+            func_00263c60();  // sync_global_index_if_changed
             func_00287da0();
             break;
         case -2:
             func_002b5558();
             func_00287c90(1);
             func_00287c00(1);
-            func_0028f6f0(1);
-            func_00263c60();
+            func_0028f6f0(1);  // record884_refresh_by_index
+            func_00263c60();  // sync_global_index_if_changed
             break;
         default:
             if (sel >= 0 && sel < func_0028afa8(D_0035f64c)) {
@@ -457,7 +457,7 @@ void func_0025e8a0(void)
                     func_00287d20(50);
                     func_00234570(w, 0);
                 }
-                func_00263c60();
+                func_00263c60();  // sync_global_index_if_changed
             }
             break;
         }

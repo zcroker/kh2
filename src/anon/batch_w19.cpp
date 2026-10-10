@@ -6,7 +6,7 @@ void func_0016bd60(void*, s32);
 void func_00113668(void*);
 void func_00105110(void*);
 u32 func_001688c8(char*);
-void* func_00170b30(u32);
+void* func_00170b30(u32);  // alloc_align128
 void func_0013f030(void);
 void func_0013f048(void);
 void* func_0014aba8(void);
@@ -19,7 +19,7 @@ void* func_0016f610(const void*, s32);
 void* func_00185890(u32, void*);
 u32 func_001a8258(u32);
 u32 func_001a8418(u32);
-u32 func_001a8510(void);
+u32 func_001a8510(void);  // mod8_of_difference
 void func_001382b8(u32);
 void func_001940f0(void*, s32);
 void func_00186740(u32, u32, u32, u32, f32, f32);
@@ -27,7 +27,7 @@ void func_001991a8(u32, u32);
 u8 func_00239d10(void*);
 s32 func_001bb4a0(void);
 void* func_001bbcb0(void);
-void* func_00168b38(u32, s32, s32);
+void* func_00168b38(u32, s32, s32);  // entry_array_find_nth
 void func_001980d0(void*, u32, s32, u32);
 void func_0021fa10(void*);
 void func_00240360(void);
@@ -36,12 +36,12 @@ void func_0014aa58(void*, s32, s32);
 void func_002bd760(s32);
 void func_00287cc0(s32);
 void func_00287c78(void);
-void func_00287c20(void);
+void func_00287c20(void);  // clear_global_flag_return_m1
 s32 func_00276c18(void);
 u8* func_00294000(s32);
 u8 func_0028acc8(u32);
 u8 func_002cff98(void*);
-u8 func_002e7328(void*);
+u8 func_002e7328(void*);  // to_2e7458
 void func_002e7670(void*);
 void func_002e76b0(void*);
 void func_002e77a8(void*);
@@ -49,7 +49,7 @@ void func_002ee730(void*);
 s32 func_002bc1e8(s32);
 u32 func_0010c7e8(u32);
 void func_00119830(u32, u32);
-void func_00239848(void*);
+void func_00239848(void*);  // set_vtbl_36eb28_then_call
 void func_00106420(void*);
 void func_001d48b0(void*);
 u8 func_00108698(void*);
@@ -113,7 +113,7 @@ void func_00115560(void** p) {
 u32 bgse_alloc(char* name, u32& size) {
     u32 n = func_001688c8(name);
     size = n;
-    return (u32)func_00170b30((n + 2047) & ~2047);
+    return (u32)func_00170b30((n + 2047) & ~2047);  // alloc_align128
 }
 
 void jumpeffect_outclear(void) {
@@ -175,7 +175,7 @@ u32 func_001abf00(s32* p) {
 }
 
 struct Ref0498 { u8* o; u32 x; bool f; };
-bool func_001b0498(Ref0498* p) {
+bool func_001b0498(Ref0498* p) {  // obj_check_ready_flags
     u8* o = p->o;
     if (!o) return false;
     return (u8)(!p->f & 1) || (*(u32*)(o + 352) & 0x4000000) != 0;
@@ -203,7 +203,7 @@ void func_001d4dc0(u32* p, u32 a, u32 b, u32 c) {
 
 void func_001d5030(u32 a) {
     D_00352768 = a;
-    D_01d5ba68 = *(u32*)((u8*)func_00168b38(a, 2, 0) + 8);
+    D_01d5ba68 = *(u32*)((u8*)func_00168b38(a, 2, 0) + 8);  // entry_array_find_nth
 }
 
 void func_001d9ef0(u8* p, u32 a, u32 b) {
@@ -238,10 +238,10 @@ void func_0025cd40(void) {
 void func_00287b98(void) {
     D_0035f2f8--;
     func_00287c78();
-    func_00287c20();
+    func_00287c20();  // clear_global_flag_return_m1
 }
 
-void func_00287d68(void) {
+void func_00287d68(void) {  // copy_globals_3words
     D_0035f2fc = D_0035f2f8;
     D_0035f308 = D_0035f304;
     D_0035f310 = D_0035f30c;
@@ -274,7 +274,7 @@ void func_002d2a58(void** p) {
 
 u32 func_002d5dd0(u8* p) {
     *(void**)p = D_00362428;
-    func_002e7328(p + 0xb38);
+    func_002e7328(p + 0xb38);  // to_2e7458
     return func_002cff98(p);
 }
 
@@ -297,7 +297,7 @@ void trap_stitch_shot_effect(u32* v) {
 
 void func_0031e630(void** p) {
     *p = D_0034e8a8;
-    func_00239848(p);
+    func_00239848(p);  // set_vtbl_36eb28_then_call
     func_00106420(p);
 }
 

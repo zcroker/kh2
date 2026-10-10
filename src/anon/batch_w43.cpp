@@ -12,7 +12,7 @@ struct Munny {
 
 extern "C" {
 u32 func_0030edb0(void);
-void func_0030ee00(void);
+void func_0030ee00(void);  // ee_intr_get_enable
 extern u32 D_0037aa2c;
 extern void* D_0037aa30;
 u8* func_0016a070(void);
@@ -23,7 +23,7 @@ void func_001128d0(u32, s32);
 extern s32 D_003417a8;
 extern u32 D_00341788[];
 void* func_00132350(void*);
-void func_00124bb8(void*);
+void func_00124bb8(void*);  // obj_ctor_347b88
 extern void* D_00347bb0[];
 struct E64 { u8 b[64]; };
 extern E64 D_003a99f0[];
@@ -40,7 +40,7 @@ void func_00190128(void*);
 void func_00190878(void*, u32, u32);
 void func_001d6ab0(u32);
 void func_0019ca90(u32, u32, void*);
-u32 func_0016c028(void*);
+u32 func_0016c028(void*);  // obj_get_attach_or_alt
 s32 func_001a7610(u32, void*, s32, f32, f32);
 void func_0016ace0(void*, void*);
 s32 func_001883d8(u8*, void*);
@@ -56,7 +56,7 @@ extern void* D_00350b30[];
 void func_001ac078(void*, s32, s32, s32);
 void func_001aa388(void*, u32);
 extern f32 D_00349e10;
-void* func_00168b38(u32, s32, s32);
+void* func_00168b38(u32, s32, s32);  // entry_array_find_nth
 s32 func_001dcd38(void*);
 s32 func_001c8ab0(void);
 s32 func_001dc790(u32);
@@ -165,7 +165,7 @@ void func_001129d8(u32 a) {
 }
 
 void func_00127f40(P3* p) {
-    func_00124bb8(p);
+    func_00124bb8(p);  // obj_ctor_347b88
     p->vt = (u32)D_00347bb0;
     H3* h = p->h;
     s32 n = h->hi - h->lo;
@@ -186,7 +186,7 @@ u32 func_0016b740(u32 id) {
     return (u32)v;
 }
 
-s32 func_0016f6f8(u32 id) {
+s32 func_0016f6f8(u32 id) {  // check_flag_4000_type
     if (!(id & 0x40000000)) return 0;
     u8* p = (u8*)func_0016e920(id);
     if (!p) return 0;
@@ -216,7 +216,7 @@ void func_00174290(u8* p) {
 
 void func_001852b8(u8* p) {
     u8 buf[16];
-    u32 v = func_0016c028(p);
+    u32 v = func_0016c028(p);  // obj_get_attach_or_alt
     if (func_001a7610(v, buf, (((s32)(*(s64*)(p + 1536) << 29 >> 32)) & 0xf) | 0x10000, 100000.0f, 200.0f))
         func_0016ace0(p, buf);
 }
@@ -263,7 +263,7 @@ void func_001ad430(u8* p, u32 a) {
     func_001aa388(q, *(u32*)(q + 12));
 }
 
-s32 func_001ad9c8(f32* p) {
+s32 func_001ad9c8(f32* p) {  // float_accumulate_clamped
     if (p[1] == 0.0f) return 0;
     f32 v = p[0] + p[1] * D_00349e10;
     p[0] = v;
@@ -278,7 +278,7 @@ s32 func_001ad9c8(f32* p) {
 }
 
 // Init a node from a 16-byte header and append it to the owner's list.
-void func_001c1748(NdB* n, LsB* l, void* src, u32 a3) {
+void func_001c1748(NdB* n, LsB* l, void* src, u32 a3) {  // obj_init_from_src
     cpq(n, src);
     n->f16 = a3;
     n->b21 = -128;
@@ -293,8 +293,8 @@ void func_001c1748(NdB* n, LsB* l, void* src, u32 a3) {
 }
 
 void func_001d5370(u32* out, u32 a, s32 b) {
-    u8* v = (u8*)func_00168b38(a, -1, b);
-    u8* w = (u8*)func_00168b38(a, -1, b + 1);
+    u8* v = (u8*)func_00168b38(a, -1, b);  // entry_array_find_nth
+    u8* w = (u8*)func_00168b38(a, -1, b + 1);  // entry_array_find_nth
     u32 x = *(u32*)(v + 8);
     u32 y = *(u32*)(w + 8);
     out[0] = x;
@@ -350,7 +350,7 @@ void func_00225328(u8* p) {
     else func_00225280(p[11], D_00370d88[p[9]]);
 }
 
-void func_0023c008(u32* p) {
+void func_0023c008(u32* p) {  // obj_ctor_36eae8
     *(void***)p = D_0035eb08;
     p[1] = 0;
     p[2] = 0; p[3] = 0; p[4] = 0; p[5] = 0; p[6] = 0; p[7] = 0; p[8] = 0; p[9] = 0;
@@ -367,7 +367,7 @@ void func_00249358(void) {
     }
 }
 
-s32 func_002671e8(s32 n) {
+s32 func_002671e8(s32 n) {  // find_free_bit_index
     s32 r = -1;
     s32 cnt = 0;
     u8* g = D_0035f0e4;
@@ -397,7 +397,7 @@ void func_0028e5e0(void* a, s16* l, s32 n) {
     for (s32 i = 0; i < n; i++) func_0028e510(a, i, l[i]);
 }
 
-Ent8* func_0028f690(s32 i) {
+Ent8* func_0028f690(s32 i) {  // record884_type_index
     u8* q = D_0035f480;
     q += i * 884;
     s32 v = *(s32*)(q + 388);
@@ -510,7 +510,7 @@ void wtarget_00100700(u32 a, u32 b, u32 c, u32 d) {
     D_0037aa2c = s;
     p->next = D_0037aa30;
     D_0037aa30 = p;
-    if (s) func_0030ee00();
+    if (s) func_0030ee00();  // ee_intr_get_enable
 }
 
 void wtarget_0015eaf8(u32 a, u32 b, u32, u32) {

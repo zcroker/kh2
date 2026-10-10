@@ -39,7 +39,7 @@ s32 func_0019a9e0(u8*, u8*);
 void func_0019ab80(u8*);
 void func_001a1db8(u8*);
 u32 func_001b1490(u32);
-u8* func_00168b38(u32, u32, s32);
+u8* func_00168b38(u32, u32, s32);  // entry_array_find_nth
 extern u32 D_00350de8;
 extern u32 D_01c94040[];
 void func_001b08e8(u8*, u32);
@@ -58,7 +58,7 @@ extern u8 D_0032f055;
 extern u32 D_00351214;
 void func_001c89a8(void);
 void func_001c8a70(void);
-void func_001c1748(u8*, u32, void*, void*);
+void func_001c1748(u8*, u32, void*, void*);  // obj_init_from_src
 void func_001dbd38(void);
 void func_001dc010(u8*, u8*);
 extern LList2 D_01d9e348;
@@ -66,7 +66,7 @@ u8* func_00102788(u32, u32, u32, void*);
 void func_001de690(void);
 void func_001de6d0(void);
 void func_001de710(void);
-void func_002f4000(f32*);
+void func_002f4000(f32*);  // vu_store_w_splat
 void func_002f3d08(u8*, f32*, u8*);
 extern u8* D_01d9e6e0;
 extern u8* D_01d9e6e8;
@@ -74,7 +74,7 @@ f32 func_00207260(void);
 u32 func_001de4b0(u32, u32, u32);
 extern u32 D_0035de84;
 extern u32 D_0035de88;
-void func_001ba028(u8*);
+void func_001ba028(u8*);  // list_contains_ptr
 u8* func_001058e8(void);
 s32 func_00139d78(u8*);
 void func_00139510(u8*);
@@ -215,7 +215,7 @@ void func_001a1d50(u8* a0, f32 d) {
 void func_001aeb80(void) {
     u32 v = func_001b1490(D_00350de8);
     for (s32 i = 0; i < 19; i++) {
-        D_01c94040[i] = *(u32*)(func_00168b38(v, 2, i) + 8);
+        D_01c94040[i] = *(u32*)(func_00168b38(v, 2, i) + 8);  // entry_array_find_nth
     }
 }
 
@@ -269,7 +269,7 @@ void ctarget_001c8948(u32, u32, u32, u32) {
 }
 
 void func_001dbc58(u8* a0, u32 a1, u8* a2, u8* a3) {
-    func_001c1748(a0, a1, a2, (void*)func_001dbd38);
+    func_001c1748(a0, a1, a2, (void*)func_001dbd38);  // obj_init_from_src
     asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(a0 + 48), "r"(a2) : "$8", "memory");
     a0[80] = 0;
     *(u8**)(a0 + 92) = a3;
@@ -309,7 +309,7 @@ void func_001de8a8(u32 a0, u32 a1, u32 a2, u32 a3) {
 // scale matrix (clamped) applied to the global transform
 void func_001eb228(u32 a0, f32* a1) {
     f32 m[16] __attribute__((aligned(16)));
-    func_002f4000(m);
+    func_002f4000(m);  // vu_store_w_splat
     f32 s = *(f32*)(D_01d9e6e0 + 64);
     f32 v = s + s * a1[1];
     m[0] = v;
@@ -327,7 +327,7 @@ s8 func_002072a8(u8 n) {
 }
 
 // Hand-written VU0 macro code: d = ftoi4/ftoi0 of (a + b) with an overflow-flag fix-up
-void func_00222790(void* d, const void* a, const void* b) {
+void func_00222790(void* d, const void* a, const void* b) {  // vec2_add_round_pack
     asm volatile(
         ".set noreorder\n\t"
         "lqc2 $vf1, 0($5)\n\t"
@@ -370,7 +370,7 @@ s32 func_0022c758(void) {
 }
 
 void func_0022e6b0(s32 which, u8* a1, f32 f) {
-    func_001ba028(a1);
+    func_001ba028(a1);  // list_contains_ptr
     switch (which) {
     case 0: *(f32*)(a1 + 52) = f; break;
     case 1: *(f32*)(a1 + 56) = f; break;
@@ -404,7 +404,7 @@ void func_00275e08(void) {
     if (func_00139d78(D_0035f20c + 436)) func_00139510(D_0035f20c + 436);
 }
 
-void func_0028b078(u8* a0, s32 a1, s32 a2) {
+void func_0028b078(u8* a0, s32 a1, s32 a2) {  // obj_setup_from_args
     a0[38] = 0;
     a0[37] = 1;
     *(s16*)(a0 + 24) = a1;
@@ -414,7 +414,7 @@ void func_0028b078(u8* a0, s32 a1, s32 a2) {
     func_0028b1b0(a0, 0);
 }
 
-void func_0028ce98(s32 i, u32 v) {
+void func_0028ce98(s32 i, u32 v) {  // slot_set_and_refresh
     u32* p = (u32*)(i * 4 + (u32)D_0035f408);
     if (*p == v) return;
     *p = v;

@@ -2,19 +2,19 @@
 
 extern "C" {
 void func_00102730(void*);
-void* func_00124748(void*, s32);
+void* func_00124748(void*, s32);  // list_nth_node_rel
 void func_00113668(void*);
 void func_00105110(void*);
-void func_00124c08(void*);
+void func_00124c08(void*);  // set_vtbl_347b88
 void func_00106420(void*);
 void func_001391c8(void*, s32, s32);
-void func_001666a0(void*);
+void func_001666a0(void*);  // zero_fields_0_4_6_8
 void func_00138c10(void*, s32);
 void* func_001dc648(void*);
 void func_0014d358(void*, s32, void (*)(void), s32);
 void func_0016f9e8(void);
 void func_00140db0(void*);
-void func_00182f28(s32);
+void func_00182f28(s32);  // store_global_35ed04
 void func_001d69d0(void*);
 s32 func_0017ec98(void*, s32);
 s32 func_0017edf0(void*, s32);
@@ -46,7 +46,7 @@ u8 func_0023f848(void*);
 void func_0028b8a0(void*);
 void func_0023f820(void*);
 void func_00292998(void);
-s32 func_001b6d70(u8);
+s32 func_001b6d70(u8);  // table_entry_ptr_b
 void func_002bf650(void*, s32);
 void func_002d2948(void*, void*, s32, void*);
 void func_002e7308(void*);
@@ -114,13 +114,13 @@ void func_00114de0(u8* p) {
 }
 
 void func_00124100(void* a, s32 b) {
-    void** o = (void**)func_00124748(a, 0);
+    void** o = (void**)func_00124748(a, 0);  // list_nth_node_rel
     (*(void (**)(void*, s32))(*(u8**)o + 44))(o, b);
 }
 
 void func_00128008(u8* p) {
     *(u8**)p = D_00347bb0;
-    func_00124c08(p);
+    func_00124c08(p);  // set_vtbl_347b88
     func_00106420(p);
 }
 
@@ -137,7 +137,7 @@ void func_00137c50(u8* p) {
 struct Entry20 { u8 pad[16]; u8 on; u8 id; u8 pad2[2]; };
 
 // Clears the 'on' flag of every entry whose id matches.
-void func_001418e8(u8* p, u8 id) {
+void func_001418e8(u8* p, u8 id) {  // clear_records_by_index
     s32 n = *(s32*)(p + 36);
     s32 i;
     for (i = 0; i < n; i++) {
@@ -146,7 +146,7 @@ void func_001418e8(u8* p, u8 id) {
 }
 
 void func_0014dc08(u8* p) {
-    func_001666a0(p);
+    func_001666a0(p);  // zero_fields_0_4_6_8
     *(s32*)(p + 464) = 0;
     *(s16*)(p + 468) = 0;
     p[470] = 0;
@@ -171,7 +171,7 @@ void TargetCamera_change(u32* t) {
 }
 
 void func_001668f8(u8* p) {
-    func_001666a0(p);
+    func_001666a0(p);  // zero_fields_0_4_6_8
     *(s16*)(p + 12) = 0;
     p[14] = 1;
     *(s16*)(p + 10) = 0;
@@ -192,7 +192,7 @@ void func_0016fa58(void) {
 
 void func_001781e8(u8* p) {
     func_00140db0(p);
-    func_00182f28(0);
+    func_00182f28(0);  // store_global_35ed04
     func_001d69d0(*(void**)(p + 2876));
     *(void**)(p + 2876) = 0;
 }
@@ -297,7 +297,7 @@ void func_002368b0(u8* p) {
     func_002f2be0(p + 160, *(void**)(p + 60));
 }
 
-void func_00237458(u8* p, u32 i, s32 j, s32 v) {
+void func_00237458(u8* p, u32 i, s32 j, s32 v) {  // entry20_accumulate
     u8* t = *(u8**)(p + 12);
     s32* e = (s32*)(*(u8**)(p + 8) + (*(u16*)(i * 4 + (u32)t) + j) * 20);
     e[2] = v + e[2] - e[0];
@@ -360,7 +360,7 @@ void func_002d4200(u8* p, void* a, void* b) {
 }
 
 // Skips n variable-length records (64 bytes + 12 per sub-entry) after a 16-byte header.
-u8* func_002e34d8(u8** p, s32 n) {
+u8* func_002e34d8(u8** p, s32 n) {  // list_walk_stride12
     u8* q = *p;
     q += 16;
     if (n > 0) do {

@@ -56,7 +56,7 @@ void func_00109360(u32 a0, s32 id)
 }
 
 // 0010fea0: common value of three slots, or 0
-s32 func_00112720(void*);
+s32 func_00112720(void*);  // check_2924_lt14
 s32 func_0010fea0(u8* p)
 {
     if (func_00112720(p)) return 0;
@@ -98,14 +98,14 @@ void func_0015def8(void)
 struct L168 { L168* next; u32 f4; u8 lay[40]; u32 f48; u8 pad[16]; u32 f68; u16 pad72; u16 f74; };
 struct List168 { L168* head; L168* tail; };
 extern List168 D_0034d840;
-void func_002ff3fc(void*);
+void func_002ff3fc(void*);  // strlen
 void func_00168958(L168* p, u32 a1, void* data)
 {
     p->f48 = a1;
     p->f4 = 0;
     p->f68 = 0;
     p->f74 = 0;
-    func_002ff3fc(data);
+    func_002ff3fc(data);  // strlen
     lay_file_build_data(p->lay, data);
     if (!D_0034d840.head) {
         D_0034d840.tail = p;
@@ -150,12 +150,12 @@ s32 func_00170e80(void)
 extern s8 D_01c5f510;
 extern u128 D_01c5f520;
 extern u8 D_00175548[];
-void func_002fd188(void*);
+void func_002fd188(void*);  // pool_alloc_block
 void func_001739b8(u128** out)
 {
     if (!D_01c5f510) {
         D_01c5f510 = 1;
-        func_002fd188(D_00175548);
+        func_002fd188(D_00175548);  // pool_alloc_block
     }
     u128* src = (u128*)(*(u8**)((u8*)*out + 4) + 2128);
     u128* dst = &D_01c5f520;
@@ -229,7 +229,7 @@ u32 func_001a3958(u32 kind)
 }
 
 // 001a8cd0: slot (0-3) holding the given element, or -1
-s32 func_001a8bf8(u32, s32);
+s32 func_001a8bf8(u32, s32);  // get_bits5_at
 s32 func_001a8cd0(u32 a0, u32 a1)
 {
     s32 k = a1 & 0x1f;
@@ -251,12 +251,12 @@ void func_001ad020(u8* p, s32 x, s32 y, s32 a3)
 }
 
 // 001be940
-s32 func_001b9d40(u32);
+s32 func_001b9d40(u32);  // vtable_call_slot64_flags
 void func_001d6da8(void*);
 void func_001bc990(void*, void*);
 void func_001be940(u8* p)
 {
-    if (func_001b9d40(*(u32*)(p + 2528))) func_001d6da8(p + 2642);
+    if (func_001b9d40(*(u32*)(p + 2528))) func_001d6da8(p + 2642);  // vtable_call_slot64_flags
     command_menu_clear(p + 848);
     func_001bc990(p + 848, p + 2642);
 }
@@ -332,13 +332,13 @@ void func_001e65d0(void)
 
 // 002252b0
 extern s32 D_01dad910[2];
-s32 func_00225540(void);
-void func_00136b78(s32, s32);
+s32 func_00225540(void);  // get_global_byte_36de29
+void func_00136b78(s32, s32);  // entry16_set_field8
 void func_002252b0(void)
 {
     if (!func_00225540()) return;
-    if (D_01dad910[0] != -1) func_00136b78(0, D_01dad910[0]);
-    if (D_01dad910[1] != -1) func_00136b78(1, D_01dad910[1]);
+    if (D_01dad910[0] != -1) func_00136b78(0, D_01dad910[0]);  // entry16_set_field8
+    if (D_01dad910[1] != -1) func_00136b78(1, D_01dad910[1]);  // entry16_set_field8
 }
 
 // 00242418: CRC32 update over a buffer
@@ -375,10 +375,10 @@ u8 func_00263cc0(void)
 }
 
 // 00264328: index of `id` in the 128-entry table, or -1
-u8* func_00263ea8(void);
+u8* func_00263ea8(void);  // get_global_36f1d0
 s32 func_00264328(u32 id)
 {
-    u8* h = func_00263ea8();
+    u8* h = func_00263ea8();  // get_global_36f1d0
     u16* t = (u16*)(h + *(u32*)(h + 12));
     s32 r = -1;
     for (s32 i = 0; i < 128; i++) {
@@ -489,14 +489,14 @@ void func_002dd448(u8* p, s32 mul, s32 idx)
 }
 
 // 002e95a0: set size and build the collision shape
-double func_00313b80(f32);
-s32 func_003142e0(double, double);
+double func_00313b80(f32);  // float_to_double
+s32 func_003142e0(double, double);  // double_compare
 struct C2e { u8 pad[16]; u8 col[36]; f32 x; f32 y; };
 void func_002e95a0(C2e* p, f32 x, f32 y)
 {
     p->y = y;
     p->x = x;
-    if (func_003142e0(0.0, func_00313b80(y)) < 0) collision_make(p->col, 0, x, y);
+    if (func_003142e0(0.0, func_00313b80(y)) < 0) collision_make(p->col, 0, x, y);  // double_compare
     else collision_make(p->col, 3, x, x);
 }
 

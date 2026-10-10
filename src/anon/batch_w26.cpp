@@ -32,7 +32,7 @@ inline void* operator new(unsigned int, void* p) { return p; }
 extern "C" {
 void* func_0010cce0(void*);
 s32 obj_is_culling(void*) asm("_ZN2YS3OBJ10is_cullingEv");
-void* func_00124748(void*, s32);
+void* func_00124748(void*, s32);  // list_nth_node_rel
 void loadImage(u32) asm("_ZN2dk9loadImageEj");
 void TaskYield(...) asm("_ZN2Tz9TaskYieldEz");
 void SignalCall(void) asm("_ZN2Tz8DbgSMenu10SignalCallEv");
@@ -52,24 +52,24 @@ void* sheet_ctor(void*) asm("_ZN2YS5SHEETC1Ev");
 void* func_001db5a8(void*);
 void func_001a0ee0(void*, void*);
 void func_00239700(void*);
-void* func_001ab810(void);
+void* func_001ab810(void);  // get_global_1c7cec0
 void* font_get_image(void) asm("_ZN2YS4FONT8GetImageEv");
 void func_00239988(void*, void*, void*);
 s32 obj_is_attach(void*) asm("_ZN2YS3OBJ9is_attachEv");
 void* friend_get(s32) asm("_ZN2YS6FRIEND3GetEi");
 s32 obj_is_leave(void*) asm("_ZN2YS3OBJ8is_leaveEv");
-s32 func_001ca448(void*);
+s32 func_001ca448(void*);  // type_is_16_44_161
 s32 mission_is_exec(void) asm("_ZN2YS7MISSION6IsExecEv");
 s32 mission_get_count(s32) asm("_ZN2YS7MISSION8GetCountEi");
 void func_00177dc8(void*, void*, s32, void*, void*);
 void func_001befd8(void*, void*, s32);
 s32 func_001d7f10(s32);
-u8 func_002f3f88(void*, void*);
+u8 func_002f3f88(void*, void*);  // memcpy16
 u8* minigame_get_score(s32) asm("_ZN2YS8MINIGAME8GetScoreEi");
 s32 jiminy_is_full_open(void) asm("_ZN2Tz6Jiminy10isFullOpenEv");
 s32 select_get_current(void*) asm("_ZN2Tz6Select10GetCurrentEv");
 s32 menuflag_check(s32) asm("_ZN2YS8MENUFLAG5CheckEi");
-void func_001a6c90(s32);
+void func_001a6c90(s32);  // set_bit_in_array_b
 bool u_call4_00139d78(void*) asm("_Z16u_call4_00139d78jjjj");
 bool select_is_created(...) asm("_ZN2Tz6Select9isCreatedEz");
 s32 seq_get_loop_mode(void*, s32) asm("_ZN2YI8SEQUENCE11GetLoopModeEi");
@@ -78,15 +78,15 @@ u8 func_002bb9b8(void*);
 s32 func_002bbc90(void*);
 s32 func_002bbbc8(void*);
 void area_free(void*) asm("_ZN4AREA4FreeEPv");
-void func_0019f9a8(void*);
+void func_0019f9a8(void*);  // array8_free_slots
 void func_001c0248(void*);
-u8 func_00319fb0(void*);
+u8 func_00319fb0(void*);  // big_obj_dtor
 void func_002e70b0(void*);
 void LoadDataFree(...) asm("_ZN2Tz12LoadDataFreeEz");
 u8 func_002cea28(void*);
 void func_002d0ea8(void*);
-s32 func_003060f0(void);
-void func_0030ee00(void);
+s32 func_003060f0(void);  // ee_intr_disabled
+void func_0030ee00(void);  // ee_intr_get_enable
 void func_0031cd50(void*);
 void ctrl_sel(void) asm("_ZN2Tz4LMMU7CtrlSelEv");
 void wtarget_002f3d08(u32, u32, u32, u32) asm("_Z16wtarget_002f3d08jjjj");
@@ -153,7 +153,7 @@ s32 func_001182d0(void) {
 }
 
 void func_00123d40(void* a, void* b, void* c) {
-    void** o = (void**)func_00124748(a, 0);
+    void** o = (void**)func_00124748(a, 0);  // list_nth_node_rel
     ((void (*)(void*, void*, void*))((void**)*o)[4])(o, b, c);
 }
 
@@ -254,11 +254,11 @@ void* func_001a1018(void* a) {
 void func_001ac028(u8* p) {
     p[0] = 0;
     func_00239700(p + 4);
-    void* a = func_001ab810();
+    void* a = func_001ab810();  // get_global_1c7cec0
     func_00239988(p + 4, a, font_get_image());
 }
 
-s32 func_001bbb50(void) {
+s32 func_001bbb50(void) {  // type_is_2_or_25
     void* p = D_01d49320;
     if (!p) return 0;
     switch (*(u8*)(*(u8**)((u8*)p + 8) + 8)) {
@@ -334,8 +334,8 @@ void* func_001de4b0(DList* l, s32 type, void* prev) {
 
 u8 func_002007e0(u8* p, u8* q) {
     u8* b = p + *(s32*)(*(u8**)(q + 12) + 4);
-    func_002f3f88(b + 160, D_00354bc0);
-    return func_002f3f88(b + 176, D_00354be0);
+    func_002f3f88(b + 160, D_00354bc0);  // memcpy16
+    return func_002f3f88(b + 176, D_00354be0);  // memcpy16
 }
 
 void func_002349e8(void) {
@@ -352,7 +352,7 @@ s32 func_0024ad50(void) {
 
 void ctrl_sel(void) {
     s32 f = D_00372438[select_get_current(D_0035ee34)];
-    if (!menuflag_check(f)) func_001a6c90(f);
+    if (!menuflag_check(f)) func_001a6c90(f);  // set_bit_in_array_b
 }
 
 bool func_0027f2b0(void) {
@@ -364,7 +364,7 @@ bool func_0027f2b0(void) {
     return r;
 }
 
-s32 func_0028dd90(s32 x) {
+s32 func_0028dd90(s32 x) {  // mod10_classify_012
     s32 r = 0;
     s32 m = x % 10;
     switch (m) {
@@ -416,9 +416,9 @@ void func_002beea8(u8* o) {
 
 u8 func_002cff98(u8* o) {
     *(u8**)o = D_0034ee08;
-    func_0019f9a8(o + 2568);
+    func_0019f9a8(o + 2568);  // array8_free_slots
     func_001c0248(o + 2640);
-    return func_00319fb0(o);
+    return func_00319fb0(o);  // big_obj_dtor
 }
 
 u8 func_002d72e0(u8* o) {
@@ -469,11 +469,11 @@ void wtarget_002f3d08(u32 d, u32 m, u32 v, u32 n) {
 }
 
 void func_002fdf30(void) {
-    if (func_003060f0() != 1) {
+    if (func_003060f0() != 1) {  // ee_intr_disabled
         if (--D_003660a8 == 0) {
             if (D_003660ac) {
                 D_003660ac = 0;
-                func_0030ee00();
+                func_0030ee00();  // ee_intr_get_enable
             }
         }
     }
@@ -488,13 +488,13 @@ void func_0031ca20(u8* o) {
 
 void func_0031ebb0(u8* o) {
     *(u8**)o = D_0034ee08;
-    func_0019f9a8(o + 2568);
+    func_0019f9a8(o + 2568);  // array8_free_slots
     func_001c0248(o + 2640);
-    func_00319fb0(o);
+    func_00319fb0(o);  // big_obj_dtor
     area_free(o);
 }
 // Copy-constructs a block in place.
-void func_00323af8(W26Blk* d, const W26Blk* s) {
+void func_00323af8(W26Blk* d, const W26Blk* s) {  // obj_copy_48_bytes
     new (d) W26Blk(*s);
 }
 }

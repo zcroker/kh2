@@ -109,7 +109,7 @@ extern void YS_ITEM_Reduce(s32, s32) asm("_ZN2YS4ITEM6ReduceEii");
 extern void YS_BTLOBJ_blow(void*) asm("_ZN2YS6BTLOBJ4blowERKN2kn7FVectorE");
 extern "C" void func_0014ce50(f32);
 extern "C" void func_0019ec88(u32);
-extern "C" u32 func_00198580(u32, u32);
+extern "C" u32 func_00198580(u32, u32);  // check_div1000_500
 extern "C" f32 func_0018cb30(s32);
 extern "C" void func_0018e040(s32);
 extern "C" u32 func_00153f08(u32, u32, u32, u32);
@@ -199,7 +199,7 @@ void trap_obj_capture_command(BD_VALUE* bd) {
 
 u32 trap_obj_get_weight(u32 a0, u32 a1, u32 a2, u32 a3) asm("_ZN2YS19trap_obj_get_weightEP8BD_VALUE");
 u32 trap_obj_get_weight(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_00198580(*(u32*)(*(u32*)(a0 + 0u) + 4u), *(u32*)(a0 + 4u));
+    return func_00198580(*(u32*)(*(u32*)(a0 + 0u) + 4u), *(u32*)(a0 + 4u));  // check_div1000_500
 }
 
 void trap_obj_hook_command_image(BD_VALUE* bd) {

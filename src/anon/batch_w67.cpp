@@ -97,7 +97,7 @@ void func_00124b10(u8* p, Mtx* m)
     *d = t;
 }
 
-s16* func_001aec40(void*);
+s16* func_001aec40(void*);  // get_global_1c9408c
 void func_002b9ab8(s32);
 void func_002bc458(s32);
 void func_001369d0(void);
@@ -112,7 +112,7 @@ extern u32 D_00347d20;
 // 001366b8
 void func_001366b8(void* a)
 {
-    s16* r = func_001aec40(a);
+    s16* r = func_001aec40(a);  // get_global_1c9408c
     if (!r) return;
     if (r[0] == -1) func_002b9ab8(20);
     else func_002b9ab8(r[0]);
@@ -180,7 +180,7 @@ f32 func_001ef5a0(u8 a)
     return x;
 }
 
-s32 func_0016c028(void*);
+s32 func_0016c028(void*);  // obj_get_attach_or_alt
 void func_002bc188(s32, s32);
 
 // 00198580
@@ -336,8 +336,8 @@ void func_002a8948(void)
     D_0035f60c = arr;
 }
 
-f32 func_002faaf0(f32, f32);
-f32 func_002fb460(f32, f32, s32);
+f32 func_002faaf0(f32, f32);  // float_to_int_b
+f32 func_002fb460(f32, f32, s32);  // float_to_int
 s32 func_002fa678(f32, f32*);
 union FloatWord { f32 f; s32 i; };
 
@@ -348,13 +348,13 @@ f32 func_002f87c0(f32 x)
     FloatWord u;
     u.f = x;
     s32 ix = u.i & 0x7fffffff;
-    if (ix <= 0x3f490fd8) return func_002faaf0(x, 0.0f);
+    if (ix <= 0x3f490fd8) return func_002faaf0(x, 0.0f);  // float_to_int_b
     s32 n = func_002fa678(x, y);
     switch (n & 3) {
-    case 0: return func_002faaf0(y[0], y[1]);
-    case 1: return -func_002fb460(y[0], y[1], 1);
-    case 2: return -func_002faaf0(y[0], y[1]);
-    default: return func_002fb460(y[0], y[1], 1);
+    case 0: return func_002faaf0(y[0], y[1]);  // float_to_int_b
+    case 1: return -func_002fb460(y[0], y[1], 1);  // float_to_int
+    case 2: return -func_002faaf0(y[0], y[1]);  // float_to_int_b
+    default: return func_002fb460(y[0], y[1], 1);  // float_to_int
     }
 }
 
@@ -415,8 +415,8 @@ extern u8 D_0035eb98[];
 extern u8* D_00347f80;
 void func_002c1750(u8*);
 void func_00239870(u8*);
-void func_0023c098(u8*);
-void func_002369f0(u8*);
+void func_0023c098(u8*);  // set_vtbl_36eae8_then_call
+void func_002369f0(u8*);  // set_vtbl_36eac8_then_call
 
 // 002ca320: destructor
 void func_002ca320(u8* o)
@@ -428,8 +428,8 @@ void func_002ca320(u8* o)
     func_00239870(o + 216);
     *(u8**)(o + 192) = D_00347f98;
     *(u8**)(o + 28) = D_0035eb98;
-    func_0023c098(o + 76);
-    func_002369f0(o + 52);
+    func_0023c098(o + 76);  // set_vtbl_36eae8_then_call
+    func_002369f0(o + 52);  // set_vtbl_36eac8_then_call
     *(u8**)(o + 28) = D_00347f98;
     *(u8**)o = D_00347f98;
     u8* m = *(u8**)(D_00347f80 + 20);
@@ -524,7 +524,7 @@ void func_0031da48(u8* o)
 
 extern u8 D_00350bb0[];
 extern u8 D_0034e8a8[];
-void func_00239848(u8*);
+void func_00239848(u8*);  // set_vtbl_36eb28_then_call
 void func_001ac5b8(u8*);
 void func_00105110(u8*);
 
@@ -544,7 +544,7 @@ void func_0031f590(u8* o)
     func_00239870(o + 848);
     func_00239870(o + 484);
     *(u8**)(o + 132) = D_0034e8a8;
-    func_00239848(o + 132);
+    func_00239848(o + 132);  // set_vtbl_36eb28_then_call
     func_001ac5b8(o);
     func_00105110(o);
 }
@@ -582,7 +582,7 @@ void func_002e3540(u8** o)
 {
     u8* s = *(u8**)(*o + 4);
     if (!*(u32*)(s + 1288)) return;
-    s32 v = func_0016c028(s);
+    s32 v = func_0016c028(s);  // obj_get_attach_or_alt
     D_01e2be20 = func_002cba88(*(u32*)(s + 1288), v, func_0016af58(s), *(f32*)(o + 1), 1.0f);
     *o = (u8*)&D_01e2be20;
 }
@@ -632,13 +632,13 @@ void func_001c7f10(u8* o)
     func_0010c7f0(o);
 }
 
-void func_002cfeb0(u8*, void*, s32, s32);
+void func_002cfeb0(u8*, void*, s32, s32);  // obj_init_field1416_bit800
 extern u8 D_00362b68[];
 
 // 002dd9e0: constructor
 void func_002dd9e0(u8* o, Word* p, s32 c)
 {
-    func_002cfeb0(o, p, 3, c);
+    func_002cfeb0(o, p, 3, c);  // obj_init_field1416_bit800
     *(u8**)o = D_00362b68;
     *(f32*)(o + 2840) = 300.0f;
     switch (p->u) {

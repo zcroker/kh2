@@ -19,14 +19,14 @@ u32 PartyInfo::GetSheet(s32 index) {
     return *(u32*)((char*)this + ((u32)index * 20) + 20);
 }
 extern "C" u32 func_001a8bd0(...);
-extern "C" u32 func_001a8bf8(...);
+extern "C" u32 func_001a8bf8(...);  // get_bits5_at
 extern u32 D_00374190 asm("D_00374190");
 u32 PartyInfo::GetEntryId(s32 index) {
     u32 i = 0;
     while (true) {
         u32 t = func_001a8bd0(-1);
-        u32 l = func_001a8bf8(t, i);
-        u32 r = func_001a8bf8(*(u32*)((u32)this + 84), (u32)index);
+        u32 l = func_001a8bf8(t, i);  // get_bits5_at
+        u32 r = func_001a8bf8(*(u32*)((u32)this + 84), (u32)index);  // get_bits5_at
         if (l == r) {
             break;
         }
@@ -39,7 +39,7 @@ u32 PartyInfo::GetEntryId(s32 index) {
 }
 extern "C" u32 func_00281180(...);
 extern "C" u32 func_00281198(...);
-extern "C" u32 func_00281128(...);
+extern "C" u32 func_00281128(...);  // get_entry20_field16
 extern "C" u32 func_001a9758(...);
 u32 PartyInfo::isLoadObj(s32 index) {
     u32 ok = func_00281180((u32)this, (u32)index);
@@ -47,7 +47,7 @@ u32 PartyInfo::isLoadObj(s32 index) {
     if (ok != 0) {
         u32 t = func_00281198((u32)this, (u32)index);
         u32 obj = GetEntryId((s32)t);
-        u32 tmp = func_00281128((u32)this, (u32)index);
+        u32 tmp = func_00281128((u32)this, (u32)index);  // get_entry20_field16
         (void)tmp;
         out = func_001a9758(obj, 0);
     }

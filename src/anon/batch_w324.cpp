@@ -9,8 +9,8 @@ struct W324Obj {
 };
 extern "C" {
 extern u32 D_00375480[];
-void func_002c2228(u8);
-void func_002c2248(u8);
+void func_002c2228(u8);  // to_15ee90_if_nonzero
+void func_002c2248(u8);  // to_15ee10_if_nonzero
 void func_0017f540(void*, s32, f32, f32);
 void* func_0016abf8(W324Obj*, s32, s32, s32);
 void* func_0016ac38(W324Obj*, s32, s32, s32, s32);
@@ -25,16 +25,16 @@ void func_002bf650(W324Obj* o, W324C4* p) {
     if (p->r != 0) {
         if (p->r != 1) {
             o->b1 = 0; o->b5 = 0;
-            func_002c2228(o->sub->id);
+            func_002c2228(o->sub->id);  // to_15ee90_if_nonzero
         } else {
             o->b1 = 0; o->b5 = 1;
             m = 161;
-            func_002c2248(o->sub->id);
+            func_002c2248(o->sub->id);  // to_15ee10_if_nonzero
         }
     } else {
         o->b1 = 1; o->b5 = 1;
         m = 161;
-        func_002c2248(o->sub->id);
+        func_002c2248(o->sub->id);  // to_15ee10_if_nonzero
     }
     func_0017f540(o->mot, m, 0.0f, 0.0f);
     if (cf(p)) o->b6 = 0;

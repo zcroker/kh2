@@ -30,10 +30,10 @@ void func_00102818(u32, u32, u32, u32, u32);
 void func_00105110(void*);
 u8 func_00106420(void*);
 void func_00113668(void*);
-void* func_00124748(void*, u32);
+void* func_00124748(void*, u32);  // list_nth_node_rel
 s32 func_001320f0(u8*);
 u32 func_00132208(u8*);
-void func_001322f0(void*);
+void func_001322f0(void*);  // set_vtbl_347c00
 void func_0013b258(void*);
 void func_0013b1d0(void*);
 void func_0013d208(void*);
@@ -50,12 +50,12 @@ u8 func_001b8e88(void);
 u8 func_0019c218(u8*, u32);
 u8 func_001ab598(u32, void*, u32, u32, u32, u32);
 u32 func_001a3a78(void*);
-void func_001de168(u32, u32, u32, u32, u32, void*);
+void func_001de168(u32, u32, u32, u32, u32, void*);  // scan_list_by_half
 u8 func_002fd248(u32, void*, u32, u32, void*);
 u32 func_001bb4a0(void);
 void func_001a4e30(void*);
 u8* func_001bbcb0(void);
-void* func_001e3650(void);
+void* func_001e3650(void);  // ptr_add4
 void* func_001e3660(void*, u32);
 void* func_001e4248(void*);
 void* func_001e4e18(void*);
@@ -71,10 +71,10 @@ void func_0028f4d8(u32, u32, u32);
 void func_002908f0(void*);
 u8* func_002766d0(s32);
 void func_0028dac8(void*, u32);
-u8 func_002e7328(void*);
+u8 func_002e7328(void*);  // to_2e7458
 u8 func_002d2a08(void*);
-u8 func_003167f8(void*);
-void func_003155e8(void*);
+u8 func_003167f8(void*);  // set_vtbl_367910
+void func_003155e8(void*);  // set_vtbl_367878
 void func_0031ffc0(void*);
 void func_0017c4c8(u32, void*);
 void func_0016bd60(u32, u32);
@@ -116,7 +116,7 @@ void func_00115090(void* p) {
 }
 
 u32 func_00123e00(void* a) {
-    void* o = func_00124748(a, 0);
+    void* o = func_00124748(a, 0);  // list_nth_node_rel
     return (*(VFnR*)(*(u8**)o + 32))(o);
 }
 
@@ -130,7 +130,7 @@ u8* func_00132130(u8* p) {
 
 void func_00132590(void* p) {
     *(void**)p = &D_00347c30;
-    func_001322f0(p);
+    func_001322f0(p);  // set_vtbl_347c00
     func_00106420(p);
 }
 
@@ -205,7 +205,7 @@ u8 func_001aa940(u8* p, u32 a, u32 b, u32 c, u32 d) {
 }
 
 void func_001b7468(void* p) {
-    func_001de168(func_001a3a78(p), 16, 1, 1, 10005, p);
+    func_001de168(func_001a3a78(p), 16, 1, 1, 10005, p);  // scan_list_by_half
 }
 
 u8 func_001b8800(u32 a) {
@@ -236,7 +236,7 @@ void func_001e4f00(void) {
 }
 
 // 3D vector length (VU0).
-f32 func_002229a0(void* v) {
+f32 func_002229a0(void* v) {  // vec3_length
     f32 r[4] __attribute__((aligned(16)));
     asm volatile("lqc2 $vf10, 0(%1)\n\tvmul.xyz $vf10, $vf10, $vf10\n\tvmove.xyz $vf9, $vf10\n\t"
                  "vaddx.y $vf9, $vf9, $vf9x\n\tvaddy.z $vf9, $vf9, $vf9y\n\tvsqrt Q, $vf9z\n\tvwaitq\n\t"
@@ -282,7 +282,7 @@ u32 func_002424c0(u32 a) {
     return *(u32*)(func_001058e8() + 9280) + a <= 999999;
 }
 
-void func_00251e90(s32 i) {
+void func_00251e90(s32 i) {  // to_28dbf8_entry8_b
     func_0028dbf8(D_0035ee60, D_00372608, D_00372610[i]);
 }
 
@@ -311,19 +311,19 @@ u8 func_002c22b8(u32 a) {
 
 u8 func_002d47e8(u8* p) {
     *(void**)p = &D_003621a0;
-    func_002e7328(p + 3208);
+    func_002e7328(p + 3208);  // to_2e7458
     return func_002d2a08(p);
 }
 
 u8 func_00315700(void* p) {
     *(void**)p = &D_00367848;
-    func_003167f8(p);
+    func_003167f8(p);  // set_vtbl_367910
     return func_00106420(p);
 }
 
 void func_003157b8(void* p) {
     *(void**)p = &D_00367818;
-    func_003155e8(p);
+    func_003155e8(p);  // set_vtbl_367878
     func_00106420(p);
 }
 

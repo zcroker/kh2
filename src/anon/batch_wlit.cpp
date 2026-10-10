@@ -51,7 +51,7 @@ u8* func_0017c8f0(u8* p) { func_0017c870(p, 0.9f, 0.95f); return p; }
 u8* func_002c1a18(u8* p, u32 a, u32 b) { f32 f = 0.95f; func_00184540(p, b, f, f); return p; }
 
 // Constructor-like init: vtable/type pointer at +0, scale 1.0 at +24.
-void func_00132270(u32* p, u32 a) {
+void func_00132270(u32* p, u32 a) {  // obj_ctor_347c00
     p[1] = a;
     p[2] = 0;
     p[3] = 0;

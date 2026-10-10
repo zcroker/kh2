@@ -32,7 +32,7 @@ struct Ob {
 using namespace w320_b;
 extern Cfg* D_00352130;
 extern "C" {
-s32 func_001c90f0(void);
+s32 func_001c90f0(void);  // id_in_201_204
 void func_001c9110(void*, Ob*);
 void func_0017f540(void*, s32, f32, f32);
 void func_0017f5e0(void*, s32, s32, f32, f32);
@@ -47,7 +47,7 @@ void func_001c92a0(void* x, Ob* o)
     u32 fl = o->flags;
     if (fl & 0x10) {
         f32 d = Dot(v, o->q16);
-        if (func_001c90f0() && !(o->p2884->f8 & 4)) {
+        if (func_001c90f0() && !(o->p2884->f8 & 4)) {  // id_in_201_204
             o->flags &= ~0x10;
             func_0017f540(o->sub, 202, 0.0f, 0.0f);
             if (c.f[1] <= 0.0f) func_0017f5e0(o->sub, 203, 0, 0.0f, 0.0f);
@@ -112,8 +112,8 @@ extern "C" {
 extern Model D_01d9e360;
 extern CamBlk D_01d9e840;
 void func_002f3f98(M4r*, Model*);
-void func_002f4000(M4r*);
-void func_002f3f40(V4r*, V4r*, f32);
+void func_002f4000(M4r*);  // vu_store_w_splat
+void func_002f3f40(V4r*, V4r*, f32);  // vec_scale_by_f12
 void func_002f3d08(M4r*, void*, M4r*);
 void func_0021efc0(DrawReq*);
 void func_0021f060(DrawReq*);
@@ -131,7 +131,7 @@ void func_0021fe40(DrawArg* a, u32 id) {
     if (md->noOffset) {
         func_002f3f98(&m, md);
     } else {
-        func_002f4000(&m);
+        func_002f4000(&m);  // vu_store_w_splat
         m.r[3].x = D_01d9e840.pos[0] + md->off[0];
         m.r[3].y = D_01d9e840.pos[1] + md->off[1];
         m.r[3].z = D_01d9e840.pos[2] + md->off[2];
@@ -147,8 +147,8 @@ void func_0021fe40(DrawArg* a, u32 id) {
     case 1: m.r[1].y = s * lim; break;
     case 2: m.r[1].y = s * (k + 1.0f); break;
     }
-    func_002f3f40(&m.r[0], &m.r[0], a->scl[0]);
-    func_002f3f40(&m.r[1], &m.r[1], a->scl[1]);
+    func_002f3f40(&m.r[0], &m.r[0], a->scl[0]);  // vec_scale_by_f12
+    func_002f3f40(&m.r[1], &m.r[1], a->scl[1]);  // vec_scale_by_f12
     func_002f3d08(&m, a->mtx, &m);
     req.color = a->color;
     req.c[3] = (s32)(req.c[3] * md->scale * lim);
@@ -353,7 +353,7 @@ void func_00138c10(u8*, s32);
 void func_001396b0(u8*);
 void func_0031a260(u8*, s32);
 u8* func_002891d0(u32);
-void func_0028d660(u8*, s32);
+void func_0028d660(u8*, s32);  // record_set_value_refresh
 void func_0027d5d8(void)
 {
     u8* base = func_00257770();
@@ -382,7 +382,7 @@ void func_0027d5d8(void)
         if (!func_00139d78(D_0035f050)) return;
         s32 v = *(s32*)(D_0035f050 + 396);
         if (v == *(s32*)(func_002891d0(D_0035f01c) + 396)) return;
-        func_0028d660(D_0035f050, *(s32*)(func_002891d0(D_0035f01c) + 396));
+        func_0028d660(D_0035f050, *(s32*)(func_002891d0(D_0035f01c) + 396));  // record_set_value_refresh
     } else {
         u8* w = base + 816;
         if (func_00139d78(w)) func_00139510(w);

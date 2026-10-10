@@ -10,7 +10,7 @@ void wtarget_002e1878(u32, u32, u32, u32) asm("_Z16wtarget_002e1878jjjj");
 
 extern "C" {
 
-f32 func_001142e0(u32, u32, u32, u32);
+f32 func_001142e0(u32, u32, u32, u32);  // entry8_float_by_flags
 s32 func_001917c0(void);
 
 typedef s32 (*VFnI)(void*);
@@ -18,7 +18,7 @@ typedef void (*VFn)(void*);
 typedef void (*VFn1)(void*, u32);
 
 // Scaled value: base minus half of a field, clamped to >= 1, doubled for state 3 in battle mode.
-f32 func_00111808(u8* p) {
+f32 func_00111808(u8* p) {  // obj_update_sprite_floats
     f32 r = func_001142e0(*(u32*)(p + 2912), 1, 0, 1) - *(f32*)(p + 1464) * 0.5f;
     if (r <= 1.0f) r = 1.0f;
     if (func_001917c0()) {
@@ -83,7 +83,7 @@ extern "C" {
 f32 func_0013fd10(void*);
 void func_0013f828(void*);
 void func_0013f888(void*, void*, u32);
-void func_0013f5f0(void*);
+void func_0013f5f0(void*);  // copy_float_220_to_48
 void func_0013f608(void*);
 void func_0013f648(void*);
 
@@ -100,7 +100,7 @@ void func_0013f558(u8* p) {
         *(f32*)(p + 76) = x;
         func_0013f828(p);
         func_0013f888(p, p + 128, 0);
-        func_0013f5f0(p);
+        func_0013f5f0(p);  // copy_float_220_to_48
         func_0013f608(p);
         func_0013f648(p);
     }
@@ -129,13 +129,13 @@ void func_0014a6e0(void) {
     D_0034939c = 0;
 }
 
-u8* func_00168b38(void*, u32, s32);
-u32 func_001667d0(u16);
+u8* func_00168b38(void*, u32, s32);  // entry_array_find_nth
+u32 func_001667d0(u16);  // ilog2
 struct TexInfo { u32 w0; u16 h4; u16 h6; u16 h8; };
 
 // Build a GS TEX0 register value.
 u64 func_00166730(TexInfo* t) {
-    u32 lg = func_001667d0(t->h4);
+    u32 lg = func_001667d0(t->h4);  // ilog2
     return (u64)(u32)(t->w0 << 5) | ((u64)(u16)(t->h4 >> 6) << 14) | ((u64)t->h8 << 20) |
            ((u64)lg << 26) | ((u64)9 << 30) | ((u64)1 << 34) | ((u64)1 << 51) | ((u64)1 << 61);
 }
@@ -144,11 +144,11 @@ struct Allocator;
 struct AllocVt { void* (*alloc)(Allocator*, u32, void*); };
 struct Allocator { AllocVt* vt; };
 extern Allocator* D_0032b91c;
-void func_00168958(void*, u32, u32);
+void func_00168958(void*, u32, u32);  // obj_init_name_string
 
 void func_001684c0(u32 a0, u32 a1, u32 a2, u32 a3) {
     u8* o = (u8*)D_0032b91c->vt->alloc(D_0032b91c, 76, __builtin_return_address(0));
-    func_00168958(o, 1, a0);
+    func_00168958(o, 1, a0);  // obj_init_name_string
     *(u32*)(o + 52) = a1;
     *(u32*)(o + 56) = a2;
     *(u32*)(o + 60) = a3;
@@ -217,7 +217,7 @@ u32 wtarget_00180828(u32 a0, u32, u32, u32) {
 extern "C" {
 
 // Store v at p+16 normalized (VU0), set p+28 = x; returns the original length.
-f32 func_00183768(u8* p, u128* v, f32 x) {
+f32 func_00183768(u8* p, u128* v, f32 x) {  // copy_quad_at16_and_len
     u128* d = (u128*)(p + 16);
     f32 len;
     if (d != v) asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(d), "r"(v) : "$8", "memory");
@@ -249,17 +249,17 @@ void func_00185e20(u32 a0) {
     while ((o = func_00185da8(o)) != 0) func_0016c568(o, a0, 0.0f);
 }
 
-void func_001ba028(u32);
+void func_001ba028(u32);  // list_contains_ptr
 u32 func_0018db38(u32, void*, u32, u32);
-void func_0018ca10(u32);
+void func_0018ca10(u32);  // alloc_from_pool_magic
 
 void func_0018fab0(u32* p) {
-    func_001ba028(*(u32*)(p[1] + 4));
+    func_001ba028(*(u32*)(p[1] + 4));  // list_contains_ptr
     u8* o = *(u8**)(p[1] + 4);
     u32 r = func_0018db38(p[0], o, p[2], p[3]);
     if (r) {
         (*(VFn1*)(*(u8**)o + 100))(o, r);
-        func_0018ca10(r);
+        func_0018ca10(r);  // alloc_from_pool_magic
     }
 }
 
@@ -290,7 +290,7 @@ static inline bool hasValue8(u8* r) { return r && *(u32*)(r + 8); }
 void func_00199688(void) {
     u32 o = func_001b1490(D_0035043c);
     for (s32 i = 0; i < 19; i++) {
-        u8* r = func_00168b38((void*)o, 2, i);
+        u8* r = func_00168b38((void*)o, 2, i);  // entry_array_find_nth
         bool ok = hasValue8(r);
         u32 v = 0;
         if (ok) v = *(u32*)(r + 8);
@@ -336,7 +336,7 @@ void func_001b3a90(u8* p, u32 a1, u32 a2) {
     if (func_0016a070(p) == 5008) D_00351068 = p;
 }
 
-s32 func_0018a550(void*, u32);
+s32 func_0018a550(void*, u32);  // state_dispatch_0_1_3
 
 void* func_001b7998(s32* p, u32 a1) {
     for (s32 i = 0; i < p[0]; i++) {
@@ -432,7 +432,7 @@ u32 wtarget_001d9980(u32, u32, u32, u32) {
 extern "C" {
 
 // VU0 random float (hand-written VU0 asm).
-f32 func_0020b410(void) {
+f32 func_0020b410(void) {  // vu_const_5f_b
     register u32 b asm("$15");
     asm volatile(
         "addi $8, $0, -1\n\t"
@@ -457,7 +457,7 @@ f32 func_0020b410(void) {
 }
 
 // Transform v by matrix m, project, store to out; returns screen clip flags (hand-written VU0 asm).
-u32 func_00222898(void* out, void* m, void* v) {
+u32 func_00222898(void* out, void* m, void* v) {  // mat4_transform_vec
     register u32 r asm("$2");
     asm volatile(
         ".set noreorder\n\t"
@@ -527,11 +527,11 @@ void func_00233410(u8* p) {
     u128 v;
     asm volatile("sqc2 $vf0, 0(%0)" : : "r"(&v) : "memory");
     e[2] = func_0016f000(e[0] | 0x40000000, &v, 3.1415925f);
-    func_001ba028(e[2]);
+    func_001ba028(e[2]);  // list_contains_ptr
     func_00233280(e[2]);
 }
 
-void func_00239558(u8* p, u16* a, u16* b) {
+void func_00239558(u8* p, u16* a, u16* b) {  // copy_4halfwords_and_set_flag
     *(u32*)(p + 16) |= 0x40;
     u8* q = p;
     for (s32 i = 0; i < 4; i++) {
@@ -625,7 +625,7 @@ static inline u32 flagTest(u32 n) {
 }
 
 // Test flag n, or any of flags 0..12 when n < 0.
-u32 func_002aa2f8(s32 n) {
+u32 func_002aa2f8(s32 n) {  // test_bit_global_b
     if (n < 0) {
         u32 r;
         for (s32 i = 0; i < 13; i++) {
@@ -656,16 +656,16 @@ u32 func_002bb510(u8* p) {
     }
 }
 
-void func_002edfd8(void*, void*);
+void func_002edfd8(void*, void*);  // list_unlink_and_clear
 s32 func_002be5b8(void*);
 void func_0015f548(void);
 void func_001c8e90(void);
 void func_002be9b0(void);
 
-void func_002be0b0(u8* p, s32 i) {
+void func_002be0b0(u8* p, s32 i) {  // quad_entry_process
     u8** slot = (u8**)((u8*)(i * 4) + (u32)p + 44);
     if (*slot) {
-        func_002edfd8(p + 8, *slot);
+        func_002edfd8(p + 8, *slot);  // list_unlink_and_clear
         if (*slot) (*(VFn*)(*(u8**)*slot + 4))(*slot);
         *slot = 0;
     }

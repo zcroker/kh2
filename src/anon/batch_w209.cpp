@@ -28,7 +28,7 @@ void func_0016d800(VP209* a) {
 }
 
 // --- 001a6600
-extern f32 func_001826e0(void);
+extern f32 func_001826e0(void);  // global_float_diff
 u32 cac209(f32 f) asm("_ZN2YS5MAGIC10CanAddCostEf");
 u32 cac209(f32 f) { return f <= func_001826e0() + 2.0f; }
 
@@ -89,10 +89,10 @@ void func_00281cf0(u32 a) {
 }
 
 // --- 002cd3e0
-extern V209* func_0016c028(u32);
+extern V209* func_0016c028(u32);  // obj_get_attach_or_alt
 extern void func_002cd428(u32, V209*);
 void func_002cd3e0(u32 a, u32 b) {
-    V209 t(*func_0016c028(b));
+    V209 t(*func_0016c028(b));  // obj_get_attach_or_alt
     func_002cd428(a, &t);
 }
 

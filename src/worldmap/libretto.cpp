@@ -1,7 +1,7 @@
 #include "libretto.hpp"
 
 extern "C" void func_00170dd0(...);
-extern "C" void func_002be0b0(...);
+extern "C" void func_002be0b0(...);  // quad_entry_process
 extern void* YS_CACHE_BUFF_Alloc(char const*, s32) asm("_ZN2YS10CACHE_BUFF5AllocEPKci");
 
 namespace worldmap {
@@ -15,7 +15,7 @@ bool Libretto::isExec() { return D_003617fc != 0; }
 void Libretto::leaveAllObj() {
     s32 i = 0;
     do {
-        func_002be0b0(this, (u32)i);
+        func_002be0b0(this, (u32)i);  // quad_entry_process
         i += 1;
     } while (i < 4);
 }

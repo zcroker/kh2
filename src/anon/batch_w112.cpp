@@ -3,8 +3,8 @@
 #define QCOPY(d, s) asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(d), "r"(s) : "$8", "memory")
 struct Vec4 { f32 x, y, z, w; } __attribute__((aligned(16)));
 extern "C" {
-Vec4* func_0016c028(void*);
-f32 func_002f8870(f32);
+Vec4* func_0016c028(void*);  // obj_get_attach_or_alt
+f32 func_002f8870(f32);  // fabsf
 }
 
 // ---- 001011e0
@@ -12,15 +12,15 @@ namespace n001011e0 {
 struct EhObj { u32 pc_begin, tbase, dbase, u; u64 sorted : 1, from_array : 1, mixed : 1, encoding : 8, count : 21; };
 struct EhFde { u32 length; s32 cie; u8 pc_begin[8]; };
 extern "C" {
-u32 func_00100920(u8, EhObj*);
+u32 func_00100920(u8, EhObj*);  // classify_subtype
 s32 func_001009a0(void*);
 u8* func_001004c0(u8, u32, u8*, u32*);
-u32 func_001003c8(u8);
+u32 func_001003c8(u8);  // classify_arg_masked3
 // linear_search_fdes: walks an FDE list for the entry covering pc.
 EhFde* func_001011e0(EhObj* ob, EhFde* fde, u32 pc) {
     void* last_cie = 0;
     s32 encoding = ob->encoding;
-    u32 base = func_00100920(ob->encoding, ob);
+    u32 base = func_00100920(ob->encoding, ob);  // classify_subtype
     for (; fde->length != 0; fde = (EhFde*)((u8*)fde + fde->length + 4)) {
         u32 pc_begin, pc_range;
         if (fde->cie == 0) continue;
@@ -29,7 +29,7 @@ EhFde* func_001011e0(EhObj* ob, EhFde* fde, u32 pc) {
             if (cie != last_cie) {
                 last_cie = cie;
                 encoding = func_001009a0(cie);
-                base = func_00100920(encoding, ob);
+                base = func_00100920(encoding, ob);  // classify_subtype
             }
         }
         if (encoding == 0) {
@@ -40,7 +40,7 @@ EhFde* func_001011e0(EhObj* ob, EhFde* fde, u32 pc) {
             u32 mask;
             u8* p = func_001004c0(encoding, base, fde->pc_begin, &pc_begin);
             func_001004c0(encoding & 0x0F, 0, p, &pc_range);
-            mask = func_001003c8(encoding);
+            mask = func_001003c8(encoding);  // classify_arg_masked3
             if (mask < 4) mask = (1L << (mask << 3)) - 1;
             else mask = -1;
             if ((pc_begin & mask) == 0) continue;
@@ -80,11 +80,11 @@ s32 func_00110b00(u8* o, Vec4* pos, u32 a2) {
     if (r == 1) return 0;
     if (r != 0) return 0;
     if (*(u32*)(D_00341708 + 352) & 0x4000) return 0;
-    vsub(&d, pos, func_0016c028(D_00341708));
+    vsub(&d, pos, func_0016c028(D_00341708));  // obj_get_attach_or_alt
     k = *(f32*)(o + 2944);
     if (0.0f < d.y * k) return 0;
     d.y = 0.0f;
-    if (func_002f8870(k) < 1000.0f) {
+    if (func_002f8870(k) < 1000.0f) {  // fabsf
         if (0.0f < vdot((Vec4*)(o + 2976), &d)) return 0;
     } else {
         if (-0.5f < vdot((Vec4*)(o + 2976), &d)) return 0;
@@ -354,8 +354,8 @@ void func_0014ce60(void);
 void func_00194980(void);
 s32 func_0019f060(u8*);
 void func_0019f070(u8*, u32);
-u32 func_0014abe8(void);
-u32 func_0014abf8(void);
+u32 func_0014abe8(void);  // get_data_3595a0
+u32 func_0014abf8(void);  // get_data_3596b0
 void func_0014aa80(u32, u32, u32);
 void func_00170320(s32);
 void func_00197780(void);
@@ -520,7 +520,7 @@ s32 func_002bcbf0(u8*, u32, u32, s32*, s32*);
 s32 func_002bca78(u8*, u32, u32, s32*, s32*);
 s32 func_002bcb60(u8*, s32, u32, u32, s32*, s32*);
 void func_002baf48(s32, u32, u32, u32, void (*)(u32), u32);
-void func_002bce10(u8*, s32);
+void func_002bce10(u8*, s32);  // find_entry12_set_flag
 }
 extern "C" {
 // Issues a request of the given kind, then registers the transfer(s) and callback on success.
@@ -553,7 +553,7 @@ s32 func_002ba3e8(s32 cmd, u32 a, u32 b, u32 c, u32 d, s32* out, void (*cb)(u32)
         func_002baf48(*out, 0, a, b, 0, 0);
         func_002baf48(*out, 1, c, d, cb, arg);
     } else func_002baf48(*out, 0, a, b, cb, arg);
-    func_002bce10(D_01e2a410, *out);
+    func_002bce10(D_01e2a410, *out);  // find_entry12_set_flag
     return res;
 }
 }
@@ -573,12 +573,12 @@ extern f32 D_0036e3bc;
 extern Cfg2* D_00352130;
 void func_00178758(Ch*);
 s32 func_00180618(u8*);
-void func_001a1aa0(Lv*, u32);
+void func_001a1aa0(Lv*, u32);  // ring_buffer_index
 void func_0017f488(u8*, u32, f32, f32);
 void func_0017f5e0(u8*, u32, u32, f32, f32);
 void func_00190128(Iter*);
 void func_001d0558(Ch*);
-void func_001d2648(u8*, u32, f32);
+void func_001d2648(u8*, u32, f32);  // clear_fields_0_4_32
 void func_001d2690(u8*, u32, f32);
 u32 func_001d14a0(void);
 void func_00190878(Iter*, u32, u32);
@@ -595,7 +595,7 @@ void func_001d03a0(Ch* o) {
     if (0.0f < o->timer) {
         if (func_00180618(o->mot)) {
             if ((o->tick -= D_00349e10) <= 0.0f) {
-                func_001a1aa0(o->lv, 1);
+                func_001a1aa0(o->lv, 1);  // ring_buffer_index
                 o->tick += D_00352130->interval;
             }
         }
@@ -609,7 +609,7 @@ void func_001d03a0(Ch* o) {
     if (IsFull(o->lv)) {
         if (!o->flag) {
             func_001d0558(o);
-            func_001d2648(o->eff, 0xbbc3, D_0036e3bc);
+            func_001d2648(o->eff, 0xbbc3, D_0036e3bc);  // clear_fields_0_4_32
             func_001d2690(o->eff, 0xbbc4, D_0036e3bc);
         }
         func_00190878(&it, func_001d14a0(), 0);
@@ -704,7 +704,7 @@ u8* func_001b9bc8(u8*);
 s32 func_0016a060(u8*);
 s32 func_002cf270(u8*, u32);
 s32 func_002ceef8(u32, u8*);
-QV* func_0016c028(u8*);
+QV* func_0016c028(u8*);  // obj_get_attach_or_alt
 }
 static inline void qcopy(QV* d, const QV* s) { asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(d), "r"(s) : "$8", "memory"); }
 static inline void vsub(QV* d, const QV* a, const QV* b) {
@@ -733,12 +733,12 @@ u8* func_002d5958(u32 id) {
         if (!func_002ceef8(area, a)) continue;
         if (best) {
             QV d;
-            vsub(&d, func_0016c028(a), &pos);
+            vsub(&d, func_0016c028(a), &pos);  // obj_get_attach_or_alt
             if (vlen(&d) < bestd) best = a;
         } else {
             QV d;
             best = a;
-            vsub(&d, func_0016c028(a), &pos);
+            vsub(&d, func_0016c028(a), &pos);  // obj_get_attach_or_alt
             bestd = vlen(&d);
         }
     }

@@ -31,7 +31,7 @@ void func_002fd160(void) __attribute__((noreturn));
 
 struct EhObject { u32 pc_begin; u32 tbase; u32 dbase; };
 // base_from_object: base address for a DWARF EH pointer encoding.
-u32 func_00100920(u8 encoding, EhObject* ob) {
+u32 func_00100920(u8 encoding, EhObject* ob) {  // classify_subtype
     if (encoding == 0xff) return 0;
     switch (encoding & 0x70) {
     case 0x00:
@@ -65,14 +65,14 @@ s32 func_00102180(Node2180** out) {
     return count;
 }
 
-void func_0010a800(u8*, u8*, u8*);
+void func_0010a800(u8*, u8*, u8*);  // copy_global_3bytes
 void func_00108698(u8* p) {
     *(u32*)p = 0;
     p[7] = 0x80;
     p[6] = 0x80;
     p[5] = 0x80;
     p[4] = 0x80;
-    func_0010a800(p + 8, p + 9, p + 10);
+    func_0010a800(p + 8, p + 9, p + 10);  // copy_global_3bytes
     p[11] = 0xff;
     p[43] = 0x80;
     p[42] = 0x80;
@@ -88,23 +88,23 @@ void func_00108698(u8* p) {
 }
 
 struct VObj1246 { u32 (**vt)(...); };
-VObj1246* func_00124748(u32, u32);
+VObj1246* func_00124748(u32, u32);  // list_nth_node_rel
 typedef u32 (*Fn1246)(VObj1246*, u32, u32, u32, u32, u8, u32);
 u32 func_001246b8(u32 a0, u32 a1, u32 a2, u32 a3, u32 t0, u8 t1, u32 t2) {
-    VObj1246* o = func_00124748(a0, 0);
+    VObj1246* o = func_00124748(a0, 0);  // list_nth_node_rel
     return ((Fn1246)o->vt[22])(o, a1, a2, a3, t0, t1, t2);
 }
 
-void func_00132270(u8*);
-void func_00108398(u8*);
+void func_00132270(u8*);  // obj_ctor_347c00
+void func_00108398(u8*);  // clear_quads_set_flags
 extern u8 D_00347c30[];
 // Constructor: base, vtable, four 144-byte members at +48.
 void func_00132430(u8* p) {
-    func_00132270(p);
+    func_00132270(p);  // obj_ctor_347c00
     *(u32*)p = (u32)D_00347c30;
     u8* e = p + 48;
     for (s32 i = 3; i != -1; i--) {
-        func_00108398(e + 16);
+        func_00108398(e + 16);  // clear_quads_set_flags
         e += 144;
     }
     *(u32*)(p + 8) = 1;
@@ -117,13 +117,13 @@ void func_00132430(u8* p) {
 extern u32 D_0034a3f0;
 extern f32* D_0034a3f4;
 extern f32 D_0034a3f8;
-f32* func_0016c028(u32);
+f32* func_0016c028(u32);  // obj_get_attach_or_alt
 f32 func_002f8ad0(f32, f32);
 // Yaw/pitch (atan2) of the offset between two points.
 void func_0014e658(u8* p) {
     f32 d[4] __attribute__((aligned(16)));
     f32* a = D_0034a3f4;
-    f32* b = func_0016c028(D_0034a3f0);
+    f32* b = func_0016c028(D_0034a3f0);  // obj_get_attach_or_alt
     asm volatile("lqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 0(%2)\n\tvsub.xyzw $vf1, $vf1, $vf2\n\tsqc2 $vf1, 0(%0)"
                  : : "r"(d), "r"(a), "r"(b) : "memory");
     d[1] += D_0034a3f8;
@@ -209,7 +209,7 @@ struct V4 { f32 x, y, z, w; };
 extern s8 D_01c5f490;
 extern V4 D_01c5f4a0;
 void func_00175528(void);
-void func_002fd188(void (*)(void));
+void func_002fd188(void (*)(void));  // pool_alloc_block
 u32 func_0016f000(u32, V4*, f32);
 // Function-local static vector (0,0,0,1) with its guard and atexit registration.
 void func_00170f98(u32* p) {
@@ -220,7 +220,7 @@ void func_00170f98(u32* p) {
         D_01c5f4a0.z = z;
         D_01c5f4a0.w = 1.0f;
         D_01c5f490 = 1;
-        func_002fd188(func_00175528);
+        func_002fd188(func_00175528);  // pool_alloc_block
     }
     *p = func_0016f000(*p, &D_01c5f4a0, 3.14159274f);
 }
@@ -244,7 +244,7 @@ Vr func_0017ff68(S17f* s) {
 }
 
 struct Slot180 { u32 obj; u32 key; };
-u32 func_00198580(u32, u32);
+u32 func_00198580(u32, u32);  // check_div1000_500
 // Ensures `key` has an object in the 8-slot table (filled into the last free slot).
 void func_00180b10(u8* t, u32 key) {
     s32 slot = -1;
@@ -255,7 +255,7 @@ void func_00180b10(u8* t, u32 key) {
         else if (e[1].key == key) return;
     }
     Slot180* s = (Slot180*)((u8*)(slot * 8) + (u32)t + 256);
-    u32 o = func_00198580(*(u32*)(t + 8), key);
+    u32 o = func_00198580(*(u32*)(t + 8), key);  // check_div1000_500
     s[1].obj = o;
     s[1].key = key;
 }
@@ -347,7 +347,7 @@ s32 func_001bc948(S1bc* s) {
 }
 
 // Wraps an angle into [-pi, pi].
-f32 func_001cbf50(f32 a) {
+f32 func_001cbf50(f32 a) {  // float_bucket_index_c
     if (0.0f < a) {
         if (3.14159274f < a) {
             do a -= 6.28318548f; while (3.14159274f < a);
@@ -362,9 +362,9 @@ void func_001c8d98(u8*, u32);
 void func_001c9b90(void);
 void func_001d2710(u8*);
 void func_00319f88(u8*);
-void func_0019f9a8(u8*);
+void func_0019f9a8(u8*);  // array8_free_slots
 void func_001c0248(u8*);
-void func_00319fb0(u8*);
+void func_00319fb0(u8*);  // big_obj_dtor
 extern u8 D_00352360[];
 extern u8 D_0034e8b8[];
 extern u8 D_0034ee08[];
@@ -381,12 +381,12 @@ void func_001cfeb0(u8* p) {
     *(u32*)p = (u32)D_0034e8b8;
     func_00319f88(p + 2824);
     *(u32*)p = (u32)D_0034ee08;
-    func_0019f9a8(p + 2568);
+    func_0019f9a8(p + 2568);  // array8_free_slots
     func_001c0248(p + 2640);
-    func_00319fb0(p);
+    func_00319fb0(p);  // big_obj_dtor
 }
 
-void func_001d1678(u8*, s32);
+void func_001d1678(u8*, s32);  // obj_init_28bytes
 void func_001d19e8(u8*, s32);
 void func_001d16e8(u8*, u32, u32);
 extern u8 D_003525c8[];
@@ -396,7 +396,7 @@ void func_001d4c98(u8* p) {
     *(u32*)p = (u32)D_003525c8;
     *(u32*)(p + 8) = 0;
     *(u32*)(p + 12) = 0;
-    func_001d1678(p, -1);
+    func_001d1678(p, -1);  // obj_init_28bytes
     *(u32*)(p + 48) = 0;
     *(u32*)p = (u32)D_00352750;
     u8* e = p + 57;
@@ -493,7 +493,7 @@ void cm_FadeOutStock(void* self) {
 
 extern u32 D_0035f010;
 u8* func_00281180(u32, u32);
-u8* func_001a80c8(u16);
+u8* func_001a80c8(u16);  // table24_find_by_id
 struct Ent267 { u16 id : 15; u16 on : 1; };
 // Sums byte 7 of every enabled entry's record over the 80-entry list.
 s32 func_00267150(u32 a) {
@@ -509,17 +509,17 @@ s32 func_00267150(u32 a) {
 }
 
 void func_00139d78(u8*);
-s16* func_0028ac98(u8*, u32);
+s16* func_0028ac98(u8*, u32);  // lookup_by_index_align
 s32 func_0028ae98(u8* p, u32 i) {
     u8* o = (*(u8***)(p + 40))[i];
     if (o) func_00139d78(o);
-    s16* r = func_0028ac98(p, i);
+    s16* r = func_0028ac98(p, i);  // lookup_by_index_align
     return *(s32*)((*(u8***)(p + 40))[i] + 388) == r[3];
 }
 
 void func_00138840(void);
-double func_00313b80(f32);
-s32 func_003142e0(double, double);
+double func_00313b80(f32);  // float_to_double
+s32 func_003142e0(double, double);  // double_compare
 extern f32 D_00349e10;
 void func_0028d2a0(u8* p) {
     if (*(u32*)(p + 12) & 0x100) return;
@@ -534,7 +534,7 @@ void func_0028d2a0(u8* p) {
 struct VObj2b { void (**vt)(VObj2b*); u8 pad[28]; VObj2b* next; };
 void func_002be148(u8*);
 void func_00170950(u32);
-void func_001b86e0(u32);
+void func_001b86e0(u32);  // alloc_from_pool_magic_c
 void func_00170320(s32);
 extern u32 D_003617fc;
 extern u8 D_003637e0[];
@@ -547,7 +547,7 @@ void func_002bda38(u8* p) {
         o = n;
     }
     if (*(u32*)(p + 104)) func_00170950(*(u32*)(p + 104));
-    func_001b86e0(*(u32*)(p + 4));
+    func_001b86e0(*(u32*)(p + 4));  // alloc_from_pool_magic_c
     func_00170320(-200);
     D_003617fc = 0;
     *(u32*)(p + 8) = (u32)D_003637e0;

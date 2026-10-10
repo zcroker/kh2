@@ -54,9 +54,9 @@ void func_0019d5f8(W260Ent* e, W260Hdr* h)
     func_0019d588(e, h->b5 == 8 ? 0 : z->b36);
 }
 
-u8 func_002f3f88(void*, void*);
-void func_002f3d98(W260Q*, W260Q*);
-void func_002f3d50(W260Q*, W260Q*, W260Q*);
+u8 func_002f3f88(void*, void*);  // memcpy16
+void func_002f3d98(W260Q*, W260Q*);  // vec4_normalize
+void func_002f3d50(W260Q*, W260Q*, W260Q*);  // vec3_cross
 void w260_mtx(void*, void*, void*) asm("_Z16wtarget_002f3d08jjjj");
 extern u8 D_00354bc0[];
 extern u8 D_00354be0[];
@@ -68,16 +68,16 @@ void func_00200950(u8* p, u8* q)
 {
     W260Q a, b, c;
     u8* s = p + *(s32*)(*(u8**)(q + 12) + 4);
-    func_002f3f88(s + 160, D_00354bc0);
-    func_002f3f88(s + 176, D_00354be0);
+    func_002f3f88(s + 160, D_00354bc0);  // memcpy16
+    func_002f3f88(s + 176, D_00354be0);  // memcpy16
     b.x = D_01d9e840.x; b.w = 0; b.y = D_01d9e840.y; b.z = D_01d9e840.z;
-    func_002f3d98(&b, &b);
+    func_002f3d98(&b, &b);  // vec4_normalize
     D_01d9e890 = b;
     a.x = b.y; a.y = -b.x; a.z = 0; a.w = 0;
-    func_002f3d98(&a, &a);
+    func_002f3d98(&a, &a);  // vec4_normalize
     D_01d9e880 = a;
-    func_002f3d50(&c, &a, &b);
-    func_002f3d98(&c, &c);
+    func_002f3d50(&c, &a, &b);  // vec3_cross
+    func_002f3d98(&c, &c);  // vec4_normalize
     D_01d9e8a0 = c;
     D_01d9e8b0 = D_01d9e870;
     w260_mtx(D_01d9e940, D_01d9e8c0, &D_01d9e880);
@@ -100,7 +100,7 @@ int func_0018e698(W260Ctl* c, W260Tgt** t)
     return W260Dot(w, d) < lim;
 }
 
-W260Q func_00190388(W260Tg*);
+W260Q func_00190388(W260Tg*);  // vec4_from_arg
 int func_0016bba8(u8*, int, int);
 void func_0018a818(W260Col*, u8*, int);
 
@@ -112,7 +112,7 @@ int func_00112f88(W260Tg* t)
         if (*(u32*)(o + 1416) & 2) {
             W260Col r;
             f32 bd = 0;
-            W260Q tp = func_00190388(t);
+            W260Q tp = func_00190388(t);  // vec4_from_arg
             int c = 0;
             while ((c = func_0016bba8(o, 2, c)) != 0) {
                 func_0018a818(&r, o, c);

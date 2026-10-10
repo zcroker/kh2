@@ -12,7 +12,7 @@ void wtarget_001e7230(u32, u32, u32, u32) asm("_Z16wtarget_001e7230jjjj");
 void wtarget_0028d068(u32, u32, u32, u32) asm("_Z16wtarget_0028d068jjjj");
 
 s32 func_00139d78(void*);
-Vec4* func_0016c028(void*);
+Vec4* func_0016c028(void*);  // obj_get_attach_or_alt
 
 void func_00170dd0(void);
 void func_003058a0(s32);
@@ -94,7 +94,7 @@ union U173 { f32 f[4]; u32 u[4]; } __attribute__((aligned(16)));
 extern U173 D_01c5f480;
 f32 func_00184a90(void*);
 void func_00173f08(u32* p) {
-    U173* v = (U173*)func_0016c028(*(void**)(p[0] + 4));
+    U173* v = (U173*)func_0016c028(*(void**)(p[0] + 4));  // obj_get_attach_or_alt
     U173* d = &D_01c5f480;
     if (v != d) QCOPY(d, v);
     d->f[1] = func_00184a90(*(void**)(p[0] + 4));
@@ -157,13 +157,13 @@ void u_call0_0018d790(void) {
     D_01c60ce0 = 0;
 }
 
-void func_00198660(u32);
+void func_00198660(u32);  // to_1b0250_field
 void func_001d5770(u8*, Vec4*);
 void func_0016a9b8(u32);
 void wtarget_00198690(u32 a, u32, u32, u32) {
-    func_00198660(a);
+    func_00198660(a);  // to_1b0250_field
     Vec4 v;
-    QCOPY(&v, func_0016c028((void*)a));
+    QCOPY(&v, func_0016c028((void*)a));  // obj_get_attach_or_alt
     u8* p = (u8*)a + 2524;
     for (s32 i = 0; i < 2; i++, p += 12) func_001d5770(p, &v);
     func_0016a9b8(a);
@@ -186,7 +186,7 @@ void func_001aa728(u32 a, u32 b, u32 c, u32 d, u32 e, u32 f, u32 g) {
 
 s32 func_001b58a8(void);
 u32 func_001a8bd0(s32);
-s32 func_001a8bf8(u32, s32);
+s32 func_001a8bf8(u32, s32);  // get_bits5_at
 s32 func_001c8db8(void*, s32);
 extern u8 D_00351ec0[];
 s32 func_001b6070(void) {
@@ -222,7 +222,7 @@ u32 func_001b84b8(u32 a, u32 b, u32, u32) {
     return p->f8 != 0;
 }
 
-s32 func_001b9d40(u8* p) {
+s32 func_001b9d40(u8* p) {  // vtable_call_slot64_flags
     s32 r = 0;
     if ((*(s32 (**)(u8*))(*(u8**)p + 64))(p)) {
         u32 f = *(u32*)(p + 352);
@@ -251,11 +251,11 @@ void func_001e0230(u32 a, u32 b) {
 extern char D_0036e978[];
 extern char D_0036e998[];
 extern char D_0036e9b0[];
-void func_002fdfc8(const char*, ...);
+void func_002fdfc8(const char*, ...);  // device_vprintf_va
 void func_001e2ad8(u32 a, u32 b, u32 c, u32 d) {
-    func_002fdfc8(D_0036e978, a);
-    func_002fdfc8(D_0036e998, b, c);
-    func_002fdfc8(D_0036e9b0, d);
+    func_002fdfc8(D_0036e978, a);  // device_vprintf_va
+    func_002fdfc8(D_0036e998, b, c);  // device_vprintf_va
+    func_002fdfc8(D_0036e9b0, d);  // device_vprintf_va
     asm volatile("break");
 }
 
@@ -292,8 +292,8 @@ void func_00250928(void) {
     }
 }
 
-s32 func_002538f8(u32);
-s32 func_00253928(u32);
+s32 func_002538f8(u32);  // entry16_get_flag_bit
+s32 func_00253928(u32);  // entry16_get_bit1
 s32 func_00253918(void);
 s32 func_002539e8(u32, s32);
 s32 func_00259350(u32 a) {
@@ -333,7 +333,7 @@ s32 func_00292eb0(void) {
 }
 
 extern s8* D_0035f5d0;
-s32 func_002a01c8(s32);
+s32 func_002a01c8(s32);  // obj4_entry_by_index
 s32 func_002943e8(s32);
 s32 func_002a00f0(void) {
     s32 n = 0;
@@ -356,10 +356,10 @@ s32 func_002adf60(s32 a) {
     return r;
 }
 
-void func_002bb100(u8*, s32, s32);
+void func_002bb100(u8*, s32, s32);  // next_global_id
 void func_002bb5a8(u8*, u32);
 void func_002bb3f0(u8* p, u32 a, u32 b, u32 c, u32 d) {
-    func_002bb100(p, 1, 6);
+    func_002bb100(p, 1, 6);  // next_global_id
     func_002bb5a8(p, c);
     *(u32*)(p + 24) = a;
     *(u32*)(p + 16) = b;
@@ -418,12 +418,12 @@ void func_002eed48(u8* p) {
 }
 
 // strrchr-style: last match of c in s (func_002ff014 is strchr).
-char* func_002ff014(char*, s32);
+char* func_002ff014(char*, s32);  // memset
 char* func_002ff8b0(char* s, s32 c) {
     char* r = 0;
     if (c != 0) {
         while ((s = func_002ff014(s, c)) != 0) { r = s; s++; }
-    } else r = func_002ff014(s, c);
+    } else r = func_002ff014(s, c);  // memset
     return r;
 }
 void wtarget_001124f8(u32, u32, u32, u32) asm("_Z16wtarget_001124f8jjjj");

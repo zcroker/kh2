@@ -5,7 +5,7 @@ extern "C" {
 struct HasF4 { s32 limit; s32 base; };
 struct P10f6b8 { u8 pad[1164]; HasF4* lim; };
 // Is base*scale over the limit?
-s32 func_0010f6b8(P10f6b8* p, f32 scale) {
+s32 func_0010f6b8(P10f6b8* p, f32 scale) {  // count_reached_threshold
     HasF4* l = p->lim;
     if (l != 0) {
         s32 n = (s32)((f32)l->base * scale);
@@ -49,12 +49,12 @@ void func_00135900(Node135* p) {
 
 extern u32 D_004574b8;
 extern u32 D_0032b91c;
-void func_0014f030(void*, f32, f32, f32);
+void func_0014f030(void*, f32, f32, f32);  // obj_set_lerp_params
 void func_00102788(u32, u32, u32, void (*)(void));
 void func_0014cd98(void);
 void Vsync_setGameSpeed(f32, f32, f32) asm("_ZN2dk5Vsync12setGameSpeedEfff");
 void Vsync_setGameSpeed(f32 a, f32 b, f32 c) {
-    func_0014f030(&D_004574b8, a, b, c);
+    func_0014f030(&D_004574b8, a, b, c);  // obj_set_lerp_params
     func_00102788(D_0032b91c, 0, 800000, func_0014cd98);
 }
 
@@ -65,7 +65,7 @@ void func_00150578(u8* p) {
 }
 
 void func_001581f8(void*);
-s32 func_00154ee8(void*);
+s32 func_00154ee8(void*);  // field24_state_code
 void GAUGE_FRIEND_reload(u8*) asm("_ZN2dk12GAUGE_FRIEND6reloadEv");
 void GAUGE_FRIEND_reload(u8* self) {
     func_001581f8(self);
@@ -190,7 +190,7 @@ void func_001befd8(P1be* p, u32 a, u32 b) {
 extern u8* D_01d49508;
 extern u32 D_00320898;
 u8 func_002fd248(void*, void*, u32, s32, void*);
-s32 func_001c10f8(void* a) {
+s32 func_001c10f8(void* a) {  // request_pool_block64
     u8* g = D_01d49508;
     return func_002fd248(a, g + 8, *(u32*)(g + 4), 64, &D_00320898);
 }
@@ -262,7 +262,7 @@ void func_002314c0(f32* s) {
 
 struct E237 { u32 a; s32 lo; u32 b; s32 hi; u32 c; };
 struct P237 { u32 pad[2]; E237* e; u16* idx; };
-s32 func_00237578(P237* p, s32 i, s32 j) {
+s32 func_00237578(P237* p, s32 i, s32 j) {  // entry20_field12_minus4
     E237* e = &p->e[p->idx[i * 2] + j];
     return e->hi - e->lo;
 }
@@ -291,12 +291,12 @@ void func_002810c8(void* a, void* b) {
 }
 
 void func_00281f40(void*, s32);
-void func_00281f48(void*);
+void func_00281f48(void*);  // memset_1920
 void func_00281f70(void*);
 void func_00281f90(void*);
 void func_00281ec8(void* p) {
     func_00281f40(p, 0);
-    func_00281f48(p);
+    func_00281f48(p);  // memset_1920
     func_00281f70(p);
     func_00281f90(p);
 }
@@ -309,11 +309,11 @@ s32 func_0028cc08(void* a) {
 }
 
 u8* func_00103eb0(void);
-u8 func_00102a38(u32, void (*)(void));
+u8 func_00102a38(u32, void (*)(void));  // list_contains_id
 void func_00293b08(void);
 u32 ChgMember_isExec(void) asm("_ZN2Tz9ChgMember18isExecChangeMemberEv");
 u32 ChgMember_isExec(void) {
-    return func_00102a38(*(u32*)(func_00103eb0() + 4), func_00293b08);
+    return func_00102a38(*(u32*)(func_00103eb0() + 4), func_00293b08);  // list_contains_id
 }
 
 struct E2bc { s32 v; s32 key; u32 c; };
@@ -386,10 +386,10 @@ void func_0031fe88(void** p) {
 }
 
 extern u32 D_00362cc8;
-void func_002dea80(void*);
+void func_002dea80(void*);  // set_vtbl_362d20
 void func_003255b8(void** p) {
     *p = &D_00362cc8;
-    func_002dea80(p);
+    func_002dea80(p);  // set_vtbl_362d20
     func_00106420(p);
 }
 

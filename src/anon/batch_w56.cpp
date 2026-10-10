@@ -157,7 +157,7 @@ void func_0014c9f0(s32);
 void func_001c11a8(s32);
 void func_001384a0(s32);
 void func_002bc798(void);
-void func_002ba610(void);
+void func_002ba610(void);  // zero_global_byte_1e3
 extern u32 D_0035037c;
 void func_00196e00(O196* a)
 {
@@ -166,7 +166,7 @@ void func_00196e00(O196* a)
     func_001c11a8(12);
     func_001384a0(1);
     if (!fl196_b5(a->fl)) func_002bc798();
-    if (fl196_b0(a->fl)) func_002ba610();
+    if (fl196_b0(a->fl)) func_002ba610();  // zero_global_byte_1e3
     D_0035037c = 0;
 }
 
@@ -213,7 +213,7 @@ void func_001aa8f0(u8* p, u32 a1, u32 a2, u32 a3, u32 a4)
 struct P1ae { const char* a[2]; };
 extern P1ae D_0036d850;
 char* func_002ff8b0(const char*, s32);
-s32 func_002ff1a4(const char*, const char*);
+s32 func_002ff1a4(const char*, const char*);  // strcmp
 s32 func_001ae010(const char* s)
 {
     P1ae t = D_0036d850;
@@ -301,7 +301,7 @@ void func_001d5198(u8* p)
 // 001d77a0
 s32 func_001a6d08(s32);
 u8* func_00189200(void*, s32);
-void func_001a6c90(s32);
+void func_001a6c90(s32);  // set_bit_in_array_b
 extern u8 D_0032e020[];
 void u_call0_001d77a0(void) asm("_Z16u_call0_001d77a0v");
 void u_call0_001d77a0(void)
@@ -311,7 +311,7 @@ void u_call0_001d77a0(void)
     for (s32 i = 1; i < 5; i++) {
         if (func_00189200(D_0032e020, i)[2] < 5) return;
     }
-    func_001a6c90(106);
+    func_001a6c90(106);  // set_bit_in_array_b
 }
 
 // 001ef1a0: VU0 random number(s)
@@ -352,7 +352,7 @@ void func_00232988(void);
 void func_002bc518(void);
 s32 func_00228378(void);
 void func_0023d230(s32);
-u32 func_002282d8(void);
+u32 func_002282d8(void);  // limit_15000_or_25000
 void func_00102c48(s32, u32, void*, s32);
 void func_00226ce8(s32);
 void func_00226dc8(void)

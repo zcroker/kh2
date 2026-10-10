@@ -48,14 +48,14 @@ void func_001e23b0(W231Sl* p, W231Sl* src) {
     }
 }
 
-s32 func_002538f8(s32);
-s32 func_00253928(s32);
+s32 func_002538f8(s32);  // entry16_get_flag_bit
+s32 func_00253928(s32);  // entry16_get_bit1
 s32 func_00253918(void);
 s32 func_002539e8(s32, s32);
 void func_00102448(u32, s32);
 s32 func_002b6298(u32 a) {
     if (func_002538f8(1)) return 1;
-    if (!func_00253928(1)) {
+    if (!func_00253928(1)) {  // entry16_get_bit1
         for (;;) {
             if (!func_00253918() && !func_002539e8(1, 0)) break;
             func_00102448(a, 0);

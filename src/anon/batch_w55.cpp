@@ -51,7 +51,7 @@ void func_00138698(u32, u32);
 u32 func_0013a800(void);
 void func_0013d4c8(void);
 u32 func_0013a810(void);
-u32 func_0013cb80(void);
+u32 func_0013cb80(void);  // get_global_358050
 void func_001387f8(u32, u32, u32, u32);
 void func_0013b2d8(f32);
 extern u32 D_00348050;
@@ -62,7 +62,7 @@ void func_0015ceb8(Q16*);
 void func_0015cea0(Q16*);
 f32 func_0015ced0(void);
 f32 func_0015cee0(void);
-void func_0015ce90(void);
+void func_0015ce90(void);  // zero_global_byte_g
 void func_0014fcd8(u8*);
 s32 func_00139d78(void*);
 void func_00151c70(u8*);
@@ -91,7 +91,7 @@ void func_00253180(s32, s32);
 extern s8 D_01c60500;
 extern V4 D_01c60510;
 void func_0017bef8(void);
-void func_002fd188(void (*)(void));
+void func_002fd188(void (*)(void));  // pool_alloc_block
 s32 func_00180cd0(u8*);
 s32 func_00196618(u32, u32, s32);
 u32 func_001d52c0(u32, u32);
@@ -101,7 +101,7 @@ void func_0014c9f0(s32);
 void func_001c11a8(s32);
 void func_001384a0(s32);
 void func_002bc798(void);
-void func_002ba610(void);
+void func_002ba610(void);  // zero_global_byte_1e3
 extern u32 D_0035037c;
 u8* func_0016e920(u32);
 void func_001a78c0(u8*, u32, s32, f32, f32, f32, f32);
@@ -123,7 +123,7 @@ void func_001bb890(void);
 s32 func_001bb7f8(void);
 void func_001bc0d0(u8*);
 void func_001bbc30(void);
-u8* func_001a80c8(u32);
+u8* func_001a80c8(u32);  // table24_find_by_id
 extern EntW55 D_0036dcf8[];
 void* func_001050d8(u32);
 void func_001bf270(void*, u8*, u32, u32, f32);
@@ -135,7 +135,7 @@ extern void* D_01d5ba10[];
 s32 func_001d3558(void*, void*);
 void* func_001d3498(void*, void*);
 extern u32 D_01d9eaa0;
-void func_00287d68(void);
+void func_00287d68(void);  // copy_globals_3words
 s32 func_00287db0(void);
 void func_0024ec50(void);
 extern u8* D_0035ee04;
@@ -147,7 +147,7 @@ void func_001039f8(void);
 u32 func_00259460(u32, u8);
 void func_002595b8(u32, u32, u8);
 s32 func_00287bc0(void);
-s32 func_00253578(void);
+s32 func_00253578(void);  // get_global_36ee90
 s32 func_002637e8(s32);
 bool func_002577b0(void);
 bool func_0027b528(void);
@@ -167,13 +167,13 @@ s32 func_002d5c40(u32);
 void func_002d3fa8(Q16*, u32, u32);
 u32 func_002e64b0(u32);
 HeapW55* func_001050c8(void);
-void func_002edf28(u8*);
+void func_002edf28(u8*);  // obj_ctor_3637e0
 void func_001ad330(u8*, s32);
 extern u8 D_00363828[];
 u32 func_0010c7e8(u32);
 void func_0011a900(Q16*, u32);
 extern Q16 D_01e2c0c0;
-s32 func_002ff1a4(const char*, const char*);
+s32 func_002ff1a4(const char*, const char*);  // strcmp
 extern char D_00377cf8[];
 extern char D_00377cc0[];
 void func_003147a0(void*, FpW55*);
@@ -253,7 +253,7 @@ void func_0013d620(void) {
     *(u32*)(D_003484a0 + 672) = 0;
     func_0013d4c8();
     u32 s = func_0013a810();
-    u32 v = func_0013cb80();
+    u32 v = func_0013cb80();  // get_global_358050
     func_001387f8((u32)(D_003484a0 + 260), s, v + 32, D_00348578[0]);
     *(u32*)(D_003484a0 + 652) = D_00348578[1];
     func_0013b2d8(0.0f);
@@ -269,7 +269,7 @@ void func_001407d0(u8* p) {
     if ((Q16*)q != &t) copyQ(q, &t);
     *(f32*)(p + 32) = func_0015ced0();
     *(f32*)(p + 36) = func_0015cee0();
-    func_0015ce90();
+    func_0015ce90();  // zero_global_byte_g
 }
 
 void func_00151aa8(u8* p) {
@@ -345,7 +345,7 @@ Q16* ctarget_0017a968(Q16* out) {
     if (!D_01c60500) {
         D_01c60510.w = D_01c60510.z = D_01c60510.y = D_01c60510.x = 0.0f;
         D_01c60500 = 1;
-        func_002fd188(func_0017bef8);
+        func_002fd188(func_0017bef8);  // pool_alloc_block
     }
     copyQ(out, &D_01c60510);
     return out;
@@ -379,7 +379,7 @@ void func_00196d78(u8* p) {
     func_001384a0(1);
     if ((u8)((*(u16*)(*(u8**)(p + 60) + 2) >> 5) & 1) == 0) func_002bc798();
     u32 v = *(u16*)(*(u8**)(p + 60) + 2);
-    if ((u8)(v & 1)) func_002ba610();
+    if ((u8)(v & 1)) func_002ba610();  // zero_global_byte_1e3
     D_0035037c = 0;
 }
 
@@ -510,7 +510,7 @@ f32 func_001eeb90(u8 a) {
 }
 
 s32 func_0024ebc0(void) {
-    func_00287d68();
+    func_00287d68();  // copy_globals_3words
     if (func_00287db0()) {
         if (!Select_isCreated(D_0035ee04) && !func_00139d78(D_0035ee08) && !func_00139d78(D_0035ee10)) {
             func_0024eb50();
@@ -592,7 +592,7 @@ void func_0029aa30(void) {
 }
 
 // Tests flag n, or whether any of the 96 flags is set when n is negative.
-s32 func_002ab100(s32 n) {
+s32 func_002ab100(s32 n) {  // test_bit_global_c
     if (n < 0) {
         u32* bits = (u32*)(D_0035f610 + 136);
         s32 r;
@@ -666,7 +666,7 @@ void func_002e6fc0(u32* p, u32 b) {
 }
 
 void TutorialWidgetCtor(u8* self, s32 a) {
-    func_002edf28(self);
+    func_002edf28(self);  // obj_ctor_3637e0
     *(s32*)(self + 40) = a;
     *(u32*)(self + 36) = 0;
     *(u32*)self = (u32)D_00363828;
@@ -712,7 +712,7 @@ const char* wtarget_00303728(u32 a, u32 b, u32 c, u32) {
 extern "C" {
 
 // Soft-float binary op: unpack both doubles, combine, pack.
-double func_00313e80(double a, double b) {
+double func_00313e80(double a, double b) {  // double_div
     FpW55 x, y, t;
     func_003147a0(&a, &x);
     func_003147a0(&b, &y);

@@ -69,7 +69,7 @@ void func_002ce958(void*, s32, u32, s32);
 void func_002e34b8(void*);
 void func_002ceae8(void*, char*, char*);
 u32 func_001708f8(char*, s32);
-u8* func_00168b38(u32, s32, s32);
+u8* func_00168b38(u32, s32, s32);  // entry_array_find_nth
 void func_002e34c0(void*, u32);
 u32 func_001050c8(void);
 void* func_001063c0(s32, u32);
@@ -100,7 +100,7 @@ void func_002e0be0(S2e0* p, u32 a1) {
   v = func_001708f8(buf, -1);
   p->f96 = v;
   func_002e34c0(p->f104, *(u32*)(func_00168b38(v, 42, 0) + 8));
-  p->f108 = *(u32*)(func_00168b38(v, 42, 1) + 8);
+  p->f108 = *(u32*)(func_00168b38(v, 42, 1) + 8);  // entry_array_find_nth
   n = func_001063c0(12, func_001050c8());
   func_002e6fc0(n, p->f108);
   p->f112 = n;

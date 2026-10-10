@@ -13,7 +13,7 @@ s32 func_001d3c78(E*);
 s32 func_001d3e40(E*);
 void* func_0017e668(u8);
 X* func_00177860(void*);
-V4* func_0016c028(void*);
+V4* func_0016c028(void*);  // obj_get_attach_or_alt
 Z* func_001b8e88(u16);
 s32 func_001bc2a8(Z*, void*, s32);
 }
@@ -31,8 +31,8 @@ Z* func_001d45a0(void* self, u32 id) {
         if (!func_001d3e40(e)) continue;
         void* o = func_0017e668(e->b1);
         if (!(func_00177860(o)->w10 & 2)) continue;
-        V4* p1 = func_0016c028(o);
-        V4* p2 = func_0016c028(self);
+        V4* p1 = func_0016c028(o);  // obj_get_attach_or_alt
+        V4* p2 = func_0016c028(self);  // obj_get_attach_or_alt
         V4 d;
         asm volatile("lqc2 $vf1, 0(%0)\n\tlqc2 $vf2, 0(%1)\n\tvsub.xyzw $vf1, $vf1, $vf2\n\tsqc2 $vf1, 0(%2)" : : "r"(p1), "r"(p2), "r"(&d) : "memory");
         d.y = 0.0f;

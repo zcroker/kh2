@@ -3,9 +3,9 @@
 u32 func_001050d8(u32, u32, u32, u32);
 u32 func_00106420(u32, u32, u32, u32);
 u32 func_00113668(u32, u32, u32, u32);
-u32 func_0011ee58(u32, u32, u32, u32);
-u32 func_00124c08(u32, u32, u32, u32);
-u32 func_001322f0(u32, u32, u32, u32);
+u32 func_0011ee58(u32, u32, u32, u32);  // set_vtbl_347940
+u32 func_00124c08(u32, u32, u32, u32);  // set_vtbl_347b88
+u32 func_001322f0(u32, u32, u32, u32);  // set_vtbl_347c00
 u32 func_001336f8(u32, u32, u32, u32);
 u32 func_00139d78(u32, u32, u32, u32);
 u32 func_0016a358(u32, u32, u32, u32);
@@ -39,13 +39,13 @@ u32 func_001d1438(u32, u32, u32, u32);
 u32 func_001d1ed0(u32, u32, u32, u32);
 u32 func_001d2210(u32, u32, u32, u32);
 u32 func_001d3f80(u32, u32, u32, u32);
-u32 func_001d4808(u32, u32, u32, u32);
+u32 func_001d4808(u32, u32, u32, u32);  // is_halfword42_zero
 u32 func_001d48b0(u32, u32, u32, u32);
 u32 func_001d9d48(u32, u32, u32, u32);
 extern "C" u32 func_00228378(u32, u32, u32, u32) asm("_ZN2sa5EVENT16isSceneEventExecEv");
 u32 func_00236c38(u32, u32, u32, u32);
 u32 func_00237238(u32, u32, u32, u32);
-u32 func_00239848(u32, u32, u32, u32);
+u32 func_00239848(u32, u32, u32, u32);  // set_vtbl_36eb28_then_call
 u32 func_0023aa98(u32, u32, u32, u32);
 u32 func_0023c300(u32, u32, u32, u32);
 u32 func_0023f8c8(u32, u32, u32, u32);
@@ -63,7 +63,7 @@ u32 func_002cf1b8(u32, u32, u32, u32);
 u32 func_002cff98(u32, u32, u32, u32);
 u32 func_002d0f38(u32, u32, u32, u32);
 u32 func_002db530(u32, u32, u32, u32);
-u32 func_002dea80(u32, u32, u32, u32);
+u32 func_002dea80(u32, u32, u32, u32);  // set_vtbl_362d20
 u32 func_002ed738(u32, u32, u32, u32);
 u32 func_002ed830(u32, u32, u32, u32);
 u32 func_002eec58(u32, u32, u32, u32);
@@ -76,10 +76,10 @@ u32 func_0030b9e0(u32, u32, u32, u32);
 u32 func_0030d998(u32, u32, u32, u32);
 u32 func_0030df38(u32, u32, u32, u32);
 u32 func_0030e7b0(u32, u32, u32, u32);
-u32 func_003155e8(u32, u32, u32, u32);
+u32 func_003155e8(u32, u32, u32, u32);  // set_vtbl_367878
 u32 func_00315768(u32, u32, u32, u32);
-u32 func_003167f8(u32, u32, u32, u32);
-u32 func_0031baa8(u32, u32, u32, u32);
+u32 func_003167f8(u32, u32, u32, u32);  // set_vtbl_367910
+u32 func_0031baa8(u32, u32, u32, u32);  // set_vtbl_3486a8_b
 u32 func_0031cd50(u32, u32, u32, u32);
 u32 func_0031fec0(u32, u32, u32, u32);
 u32 func_0031ffc0(u32, u32, u32, u32);
@@ -441,7 +441,7 @@ u32 func_001157a8(u32 a0, u32 a1, u32 a2, u32 a3) {
     return r2;
 }
 
-void func_00117910(u32 a0, u32 a1, u32 a2, u32 a3) {
+void func_00117910(u32 a0, u32 a1, u32 a2, u32 a3) {  // entry64_clear_fields
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r15;
     r5 = (u32)(r5 << 6);
     r15 = (u32)((s32)0u + (-1));
@@ -1032,7 +1032,7 @@ u32 func_001a4df0(u32 a0, u32 a1, u32 a2, u32 a3) {
     return r2;
 }
 
-void func_001a8c60(u32 a0, u32 a1, u32 a2, u32 a3) {
+void func_001a8c60(u32 a0, u32 a1, u32 a2, u32 a3) {  // masked_byte_store
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r15;
     r15 = (u32)((s32)0u + (-97));
     r4 = (u32)(r4 + r5);
@@ -1132,7 +1132,7 @@ u32 func_001b77a8(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_00192048(r4, r5, r6, r7);
 }
 
-u32 func_001b90a8(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_001b90a8(u32 a0, u32 a1, u32 a2, u32 a3) {  // halfword_table_3948
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2, r14, r15;
     r14 = (u32)(*(u16*)((u32)r4 + (s32)(38)));
     r15 = (u32)&D_0032bb30;
@@ -1522,7 +1522,7 @@ u32 func_001de568(u32 a0, u32 a1, u32 a2, u32 a3) {
     return r2;
 }
 
-u32 func_001e09a0(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_001e09a0(u32 a0, u32 a1, u32 a2, u32 a3) {  // entry64_by_3index
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2, r14, r15;
     r15 = (u32)(r5 << 1);
     r6 = (u32)((s32)r6 + (-1));
@@ -1584,7 +1584,7 @@ u32 func_002369c8(u32 a0, u32 a1, u32 a2, u32 a3) {
     return r2;
 }
 
-u32 func_002369f0(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_002369f0(u32 a0, u32 a1, u32 a2, u32 a3) {  // set_vtbl_36eac8_then_call
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2, r15;
     r15 = (u32)&D_0035eac8;
     *(u32*)((u32)r4 + (s32)(0)) = r15;
@@ -1593,7 +1593,7 @@ u32 func_002369f0(u32 a0, u32 a1, u32 a2, u32 a3) {
     return r2;
 }
 
-u32 func_00239848(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_00239848(u32 a0, u32 a1, u32 a2, u32 a3) {  // set_vtbl_36eb28_then_call
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2, r15;
     r15 = (u32)&D_0035eaf8;
     *(u32*)((u32)r4 + (s32)(0)) = r15;
@@ -1620,7 +1620,7 @@ u32 func_0023c070(u32 a0, u32 a1, u32 a2, u32 a3) {
     return r2;
 }
 
-u32 func_0023c098(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_0023c098(u32 a0, u32 a1, u32 a2, u32 a3) {  // set_vtbl_36eae8_then_call
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2, r15;
     r15 = (u32)&D_0035eb08;
     *(u32*)((u32)r4 + (s32)(0)) = r15;
@@ -1654,7 +1654,7 @@ u32 func_0023f848(u32 a0, u32 a1, u32 a2, u32 a3) {
     return r2;
 }
 
-u32 func_0023fd30(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_0023fd30(u32 a0, u32 a1, u32 a2, u32 a3) {  // global_flag_nonzero
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2, r15;
     r15 = (u32)(0x0036u << 16);
     r2 = *(u32*)((u32)r15 + (s32)(-5140));
@@ -1662,14 +1662,14 @@ u32 func_0023fd30(u32 a0, u32 a1, u32 a2, u32 a3) {
     return r2;
 }
 
-void func_00240bb0(u32 a0, u32 a1, u32 a2, u32 a3) {
+void func_00240bb0(u32 a0, u32 a1, u32 a2, u32 a3) {  // global_store_half2
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r14, r15;
     r15 = (u32)(0x0036u << 16);
     r14 = *(u32*)((u32)r15 + (s32)(-4972));
     *(u16*)((u32)r14 + (s32)(2)) = (u16)r4;
 }
 
-void func_002419d0(u32 a0, u32 a1, u32 a2, u32 a3) {
+void func_002419d0(u32 a0, u32 a1, u32 a2, u32 a3) {  // store_global_bool_converted
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r14, r15;
     r15 = (u32)(0x0036u << 16);
     r4 = ((u32)0u < (u32)r4);
@@ -2185,7 +2185,7 @@ u32 func_002f6fa0(u32 a0, u32 a1, u32 a2, u32 a3) {
     return r2;
 }
 
-void func_00303c18(u32 a0, u32 a1, u32 a2, u32 a3) {
+void func_00303c18(u32 a0, u32 a1, u32 a2, u32 a3) {  // push_entry_onto_slot_list
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r13, r14, r15;
     if (r5 != 0u) {
         r15 = *(u32*)((u32)r5 + (s32)(4));
@@ -2535,12 +2535,12 @@ u32 func_00325528(u32 a0, u32 a1, u32 a2, u32 a3) {
 }
 
 u32 func_001058e8(u32, u32, u32, u32);
-u32 func_0016fa98(u32, u32, u32, u32);
-u32 func_001a2478(u32, u32, u32, u32);
-u32 func_00242408(u32, u32, u32, u32);
-u32 func_00242418(u32, u32, u32, u32);
+u32 func_0016fa98(u32, u32, u32, u32);  // set_table_word
+u32 func_001a2478(u32, u32, u32, u32);  // count_div4_compare
+u32 func_00242408(u32, u32, u32, u32);  // set_global_crc_m1
+u32 func_00242418(u32, u32, u32, u32);  // crc_byte_update
 u32 func_002c23d8(u32, u32, u32, u32);
-u32 func_002dea80(u32, u32, u32, u32);
+u32 func_002dea80(u32, u32, u32, u32);  // set_vtbl_362d20
 u32 func_002f17e0(u32, u32, u32, u32);
 u32 func_002fbd38(u32, u32, u32, u32);
 u32 func_002fdd68(u32, u32, u32, u32);

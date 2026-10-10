@@ -1,7 +1,7 @@
 #include "../common/types.h"
 
 extern "C" u32 getSaveRam(u32, u32, u32, u32) asm("_Z10getSaveRamv");
-u32 func_001064a8(u32, u32, u32, u32);
+u32 func_001064a8(u32, u32, u32, u32);  // int_to_float_scaled
 u32 func_0010e130(u32, u32, u32, u32);
 u32 func_0010f7b0(u32, u32, u32, u32);
 extern "C" u32 kn_Friend_getToScript(u32, u32, u32, u32) asm("_ZN2kn6Friend11getToScriptEv");
@@ -54,7 +54,7 @@ extern "C" u32 YS_OBJ_is_hover(u32, u32, u32, u32) asm("_ZN2YS3OBJ8is_hoverEv");
 u32 func_001a27d8(u32, u32, u32, u32);
 extern "C" u32 YS_EFFECT_GetSystemPax(u32, u32, u32, u32) asm("_ZN2YS6EFFECT12GetSystemPaxEv");
 u32 func_001a6118(u32, u32, u32, u32);
-u32 func_001a8b28(u32, u32, u32, u32);
+u32 func_001a8b28(u32, u32, u32, u32);  // get_data_1c7cc10
 u32 func_001abe48(u32, u32, u32, u32);
 u32 func_001b1100(u32, u32, u32, u32);
 u32 func_001b1328(u32, u32, u32, u32);
@@ -66,7 +66,7 @@ extern "C" u32 YS_OBJ_is_attach(u32, u32, u32, u32) asm("_ZN2YS3OBJ9is_attachEv"
 u32 func_001c1df8(u32, u32, u32, u32);
 u32 func_001c8948(u32, u32, u32, u32);
 u32 func_001cc920(u32, u32, u32, u32);
-u32 func_001d1678(u32, u32, u32, u32);
+u32 func_001d1678(u32, u32, u32, u32);  // obj_init_28bytes
 u32 func_001d1698(u32, u32, u32, u32);
 u32 func_001d2110(u32, u32, u32, u32);
 extern "C" u32 YS_MISSION_ResetComboCounter(u32, u32, u32, u32) asm("_ZN2YS7MISSION17ResetComboCounterEi");
@@ -89,7 +89,7 @@ u32 func_00106520(u32 a0, u32 a1, u32 a2, u32 a3) {
     r5 = (u32)(r5 - r4);
     r16 = r4;
     r4 = r5;
-    r2 = func_001064a8(r4, r5, r6, r7);
+    r2 = func_001064a8(r4, r5, r6, r7);  // int_to_float_scaled
     r16 = (u32)(r16 + r2);
     r2 = r16;
     return r2;
@@ -592,7 +592,7 @@ u32 func_001a8678(u32 a0, u32 a1, u32 a2, u32 a3) {
 u32 func_001a8b38(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u, r16 = 0u;
     r16 = r4;
-    r2 = func_001a8b28(r4, r5, r6, r7);
+    r2 = func_001a8b28(r4, r5, r6, r7);  // get_data_1c7cc10
     r16 = (u32)(r16 << 1);
     r16 = (u32)(r16 + r2);
     r2 = (u32)(*(u16*)((u32)r16 + (s32)(16)));
@@ -631,7 +631,7 @@ u32 func_001d1a18(u32 a0, u32 a1, u32 a2, u32 a3) {
 u32 func_001d1cd8(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u, r16 = 0u;
     r16 = r4;
-    r2 = func_001d1678(r4, r5, r6, r7);
+    r2 = func_001d1678(r4, r5, r6, r7);  // obj_init_28bytes
     *(u32*)((u32)r16 + (s32)(48)) = 0u;
     return r2;
 }

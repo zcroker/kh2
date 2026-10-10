@@ -5,10 +5,10 @@ void func_00113668(void*);
 void func_00105110(void*);
 void* func_0011ef70(void*, void*);
 void func_0011f2f0(void*);
-void func_0011ee58(void*);
+void func_0011ee58(void*);  // set_vtbl_347940
 void func_00106420(void*);
 void func_002362b0(void*, void*);
-void func_002367c8(void*);
+void func_002367c8(void*);  // obj_dispatch_bitfield64
 void func_0014ce20(s32);
 void func_0014ce30(s32);
 void func_0014ce60(void);
@@ -18,7 +18,7 @@ void func_00140f10(void*);
 void func_00140dd0(void*);
 void func_001024a8(void*);
 void* func_001050c8(void);
-void func_001ba028(u32);
+void func_001ba028(u32);  // list_contains_ptr
 void func_0016bd60(u32, s32);
 void func_00177498(void*);
 void func_0016cc18(void*, void*, void*, void*, s32);
@@ -51,7 +51,7 @@ void func_00138988(void*);
 void func_0014b9a8(void*);
 void func_00138de0(void*);
 void func_0031ffc0(void*);
-void func_002dea80(void*);
+void func_002dea80(void*);  // set_vtbl_362d20
 
 extern u8 D_00346658;
 extern u8 D_003479a8;
@@ -110,14 +110,14 @@ void func_0011f3e0(void* p) {
 // Deleting destructor: reset vtable, run base dtor, free.
 void func_0011f5a0(void** p) {
     *p = &D_003479a8;
-    func_0011ee58(p);
+    func_0011ee58(p);  // set_vtbl_347940
     func_00106420(p);
 }
 
 void SpriteImage_change(void* self, void* data) {
     u8* img = (u8*)self + 32;
     func_002362b0(img, data);
-    func_002367c8(img);
+    func_002367c8(img);  // obj_dispatch_bitfield64
 }
 
 void func_0014cfc8(void) {
@@ -151,7 +151,7 @@ void func_0015cc18(s32 i, u8 r, u8 g, u8 b, u8 a) {
 }
 
 void trap_obj_idle(u32** bd) {
-    func_001ba028((*bd)[1]);
+    func_001ba028((*bd)[1]);  // list_contains_ptr
     func_0016bd60((*bd)[1], 0);
 }
 
@@ -185,7 +185,7 @@ void func_00198aa8(u8* o, s32 i, s32 v, s32 id) {
 
 struct Range { s32 cur, max, min; };
 // Adds d to range i and clamps it to [min, max].
-s32 func_001a1910(Range* r, s32 d, s32 i) {
+s32 func_001a1910(Range* r, s32 d, s32 i) {  // entry12_add_clamped
     Range* e = &r[i];
     s32 v = e->cur + d;
     return e->cur = v < e->min ? e->min : (e->max < v ? e->max : v);
@@ -366,7 +366,7 @@ void func_0031ff88(void** p) {
 // Deleting destructor: reset vtable, run base dtor, free.
 void func_00325618(void** p) {
     *p = &D_00362c70;
-    func_002dea80(p);
+    func_002dea80(p);  // set_vtbl_362d20
     func_00106420(p);
 }
 

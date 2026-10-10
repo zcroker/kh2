@@ -48,7 +48,7 @@ void func_00113628(void*);
 void func_0031a060(void*);
 void* func_00114490(void*, s32);
 void func_0011b6a8(void*);
-void func_00117910(void*, s32);
+void func_00117910(void*, s32);  // entry64_clear_fields
 extern u8 D_003476f0[];
 extern u8 D_00347588;
 void func_00117c28(u8* p) {
@@ -68,7 +68,7 @@ void func_00117c28(u8* p) {
     *(f32*)(p + 1576) = 15.0f;
     *(f32*)(p + 1580) = 0.19634954631328583f;
     func_0011b6a8(p + 1728);
-    for (s32 i = 0; i < 24; i++) func_00117910(p, i);
+    for (s32 i = 0; i < 24; i++) func_00117910(p, i);  // entry64_clear_fields
     *(s32*)(p + 1568) = 0;
     *(s32*)(p + 1928) = 0;
 }
@@ -156,7 +156,7 @@ void func_00154c10(u8* p, s32 n) {
 // ---- 0x1863a8 ----
 void func_001866f0(void*, s32, f32);
 void func_001866a0(void*, s32, f32);
-s32 func_0019c090(void*);
+s32 func_0019c090(void*);  // obj_is_enabled
 void func_001a2a18(void*);
 void func_00186548(void*, s32, f32);
 static inline bool flags_2_and_40(u32 fl) {
@@ -169,7 +169,7 @@ void func_001863a8(u8* p, s32 a, f32 x) {
         func_001866f0(p, a, x);
         return;
     }
-    s32 r = func_0019c090(p);
+    s32 r = func_0019c090(p);  // obj_is_enabled
     if (r) {
         func_001866a0(p, a, x);
         return;
@@ -180,10 +180,10 @@ void func_001863a8(u8* p, s32 a, f32 x) {
 }
 
 // ---- 0x192e50: expands '\r' markers in a string with formatted varargs ----
-s32 func_00192440(char*, s32);
+s32 func_00192440(char*, s32);  // is_byte_lt25
 void func_002fdd68(char*, char*, s32);
 s32 func_00192c40(s32, char*);
-char* func_00192388(char*);
+char* func_00192388(char*);  // skip_control_codes
 char* func_00192e50(char* s, char* out, s32 unused, ...) {
     va_list ap;
     va_start(ap, unused);
@@ -191,7 +191,7 @@ char* func_00192e50(char* s, char* out, s32 unused, ...) {
     char* ret = out;
     if (s) {
         do {
-            if (func_00192440(s, 0)) {
+            if (func_00192440(s, 0)) {  // is_byte_lt25
                 u8 c = *s;
                 s32 n;
                 if (c != 0) {
@@ -210,7 +210,7 @@ char* func_00192e50(char* s, char* out, s32 unused, ...) {
                     out += n;
                 }
             }
-        } while ((s = func_00192388(s)) != 0);
+        } while ((s = func_00192388(s)) != 0);  // skip_control_codes
     }
     va_end(ap);
     return ret;
@@ -251,7 +251,7 @@ s32 func_001b90f0(u8* o, u8* p) {
 
 // ---- 0x1bcd08: unwinds a stack of entries once none are busy ----
 s32 func_001bcf18(void*);
-s32 func_001bcf38(void*);
+s32 func_001bcf38(void*);  // state_in_set_5_10_13to18
 void func_001bc720(void*);
 void func_001bd618(void*, s32);
 void func_002ba2e8(s32, s32);
@@ -298,7 +298,7 @@ void func_001c91c8(void* unused, u8* p) {
 u8* func_00221f98(u8*);
 struct Key { void* p; u8 b; };
 void func_00221e28(Key*);
-void func_002226b8(void*, s32);
+void func_002226b8(void*, s32);  // vec3_copy
 void func_00222080(u8* list, u8* a1, s32 a2, s32 a3) {
     u8* n = func_00221f98(a1);
     if (!n) return;
@@ -315,8 +315,8 @@ void func_00222080(u8* list, u8* a1, s32 a2, s32 a3) {
     if (c & 8) fl |= 0x400;
     if (c & 0x20) fl |= 0x1000;
     *(u16*)(n + 62) |= fl;
-    func_002226b8(n + 64, a2);
-    func_002226b8(n + 96, a3);
+    func_002226b8(n + 64, a2);  // vec3_copy
+    func_002226b8(n + 96, a3);  // vec3_copy
     u8* h = *(u8**)list;
     if (h) *(u8**)(h + 4) = n;
     *(u8**)n = h;
@@ -359,7 +359,7 @@ extern char* D_0035ebf8;
 extern char* D_0035ebfc;
 extern char* D_0035ec00;
 void func_002ff2e8(void*, const char*);
-s32 func_00240108(void);
+s32 func_00240108(void);  // get_global_36eb68
 void func_00240118(void*, s32, s32);
 void func_00240360(s32 k) {
     if (k == -5) return;
@@ -430,7 +430,7 @@ extern s32 D_00372308[];
 extern UP D_0035ee18[];
 extern s32 D_0035ee08;
 u8* func_0028c198(s32, s32, s32, s32, s32, s32);
-s32 func_0024efc0(s32);
+s32 func_0024efc0(s32);  // to_28dbf8_entry6
 void func_001396b0(void*);
 void func_0031ac78(void*, s32);
 void func_0024e9c0(void) {
@@ -485,7 +485,7 @@ void func_002816f0(void) {
     }
 }
 // ---- 0x284ef0 ----
-void func_00287d68(void);
+void func_00287d68(void);  // copy_globals_3words
 s32 func_00287db0(void);
 extern s32 D_0035f2d4;
 extern u8 D_0035f2d0;
@@ -497,7 +497,7 @@ s32 func_00287bc0(void);
 void func_00285070(void);
 void func_00284fd8(void);
 s32 func_00284ef0(void) {
-    func_00287d68();
+    func_00287d68();  // copy_globals_3words
     if (func_00287db0()) {
         if (D_0035f2d4 == 2 && func_00284538()) {
             if ((*(s32*)(func_0014aba8() + 252) ^ 4) == 0) func_002843e8();
@@ -629,7 +629,7 @@ void func_00117e98(u8* p) {
     do {
         void* o = ((Obj117*)p)->e[i].h;
         if (o) func_001dc920(o);
-        func_00117910(p, i);
+        func_00117910(p, i);  // entry64_clear_fields
     } while (++i < 24);
     if (*(void**)(p + 1568)) {
         func_0018f028(*(void**)(p + 1568));
@@ -783,7 +783,7 @@ void func_002ca4c0(u8* p) {
     }
 }
 // ---- 0x1c3060: re-registers flagged ids (high bit set) from two slot tables ----
-void* func_001a80c8(u16);
+void* func_001a80c8(u16);  // table24_find_by_id
 void func_001c3150(void*, u16);
 void func_001c35a0(void*);
 struct O40 { u8 pad[580]; u8* a; u16* b; };
@@ -793,7 +793,7 @@ static inline __attribute__((always_inline)) void slots_a(u8* p, u8* a, u16* b) 
         s32 i;
         for (i = 0, e = (u16*)(a + 80); i < 80; i++, e++) {
             if (((u32)e[2] & 0xffff) >> 15) {
-                u8* r = (u8*)func_001a80c8(e[2] & 0x7fff);
+                u8* r = (u8*)func_001a80c8(e[2] & 0x7fff);  // table24_find_by_id
                 if (!r[6] || !b) func_001c3150(p, e[2] & 0x7fff);
             }
         }

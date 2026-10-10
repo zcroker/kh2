@@ -347,7 +347,7 @@ void func_002da520(LO269* a0, const LM269* a1) {
 }
 
 extern f32 D_00349e10;
-s32 func_002e34c8(u8*);
+s32 func_002e34c8(u8*);  // obj_get_field8_by_vtable
 void func_001991a8(s32, s32);
 void func_002e0fa0(NO269*, s32);
 NM269 func_002e71a0(s32, u8, s32);
@@ -359,7 +359,7 @@ void wt269(NO269* a0, u32, u32, u32) {
     }
     if ((f32)a0->info->frames + 1.0f <= a0->time) {
         a0->idx++;
-        if (a0->idx >= func_002e34c8(a0->sub)) {
+        if (a0->idx >= func_002e34c8(a0->sub)) {  // obj_get_field8_by_vtable
             func_001991a8(21, 0);
             a0->idx = func_002e34c8(a0->sub) - 1;
             a0->time = (f32)a0->info->frames;

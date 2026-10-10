@@ -29,14 +29,14 @@ extern "C" {
 // --- callees
 void func_00190128(void*);
 s32 func_00168aa0(u32, u32);
-u8* func_00168b38(u32, u32, s32);
+u8* func_00168b38(u32, u32, s32);  // entry_array_find_nth
 void func_0031ae58(void*, void*);
 u32 func_001050c8(void);
 u8* func_001063c0(u32, u32);
 void func_00239700(u8*);
 u32 func_0013e678(void);
 void func_0015b368(u8*, u32, u32, u32);
-void func_001391a8(u8*, V4*);
+void func_001391a8(u8*, V4*);  // vec_copy_at416_if_diff
 void func_0014f648(u32);
 void func_001bcf80(u8*);
 void func_0019c920(u8*);
@@ -71,7 +71,7 @@ u32 func_00227ca8(u8*);
 u32 func_0016f000(u32, V4*, f32);
 f32 func_002f8960(f32);
 f32 func_002f87c0(f32);
-s32 func_00240440(u32);
+s32 func_00240440(u32);  // round_up_1024
 u32 func_001058e8(void);
 void func_002fdd68(void*, u32, u32);
 u8 func_00241e18(void);
@@ -113,7 +113,7 @@ s32 func_00289358(u32);
 void func_002b5c30(u32);
 s32 func_0028d008(u32);
 u32 func_002891d0(u32);
-void func_0028cf28(u32, u32);
+void func_0028cf28(u32, u32);  // record408_set_and_refresh
 u32 func_001708f8(u32, s32);
 u32 func_002ca3d0(u8*, u32);
 void func_0023eea0(u8*, u32, u32, u32, u32, u32);
@@ -191,9 +191,9 @@ void func_0013a6f8(void) {
     D_00347fb0.data = (u32)D_003b8bc0;
     D_00347fb0.count = func_00168aa0((u32)D_003b8bc0, 25);
     for (s32 i = 0; i < D_00347fb0.count; i++) {
-        D_00347fb0.e[i].y = *(u32*)(func_00168b38(D_00347fb0.data, 25, i) + 8);
+        D_00347fb0.e[i].y = *(u32*)(func_00168b38(D_00347fb0.data, 25, i) + 8);  // entry_array_find_nth
         if (func_00168b38(D_00347fb0.data, 24, 0))
-            D_00347fb0.e[i].x = *(u32*)(func_00168b38(D_00347fb0.data, 24, i) + 8);
+            D_00347fb0.e[i].x = *(u32*)(func_00168b38(D_00347fb0.data, 24, i) + 8);  // entry_array_find_nth
         else
             D_00347fb0.e[i].x = 0;
     }
@@ -220,7 +220,7 @@ void func_0015b680(V4* pos, u32 a, u32 b) {
     func_0015b368(o, 16, func_0013e678(), a);
     V4 t;
     QCOPY(&t, pos);
-    func_001391a8(o, &t);
+    func_001391a8(o, &t);  // vec_copy_at416_if_diff
     func_0014f648(b);
 }
 
@@ -384,15 +384,15 @@ s32 func_002408d0(u32 mode) {
     s32 b = 0;
     s32 a = 0;
     if (mode < 2) {
-        a = func_00240440(964);
-        a += func_00240440(0x8a58);
-        a += func_00240440(0x10fc0);
+        a = func_00240440(964);  // round_up_1024
+        a += func_00240440(0x8a58);  // round_up_1024
+        a += func_00240440(0x10fc0);  // round_up_1024
         a = (a + 8) / 5 * 5;
     }
     if (mode == 0 || mode == 2) {
-        b = func_00240440(964);
-        b += func_00240440(0x8a58);
-        b += func_00240440(1024);
+        b = func_00240440(964);  // round_up_1024
+        b += func_00240440(0x8a58);  // round_up_1024
+        b += func_00240440(1024);  // round_up_1024
         b = (b + 8) / 5 * 5;
     }
     a += b;
@@ -596,7 +596,7 @@ s32 func_0019ad58(u8* p) {
 
 struct E1ce0a8 { u8 a; u8 b; s8 link; u8 c; u8 pad[4]; u16 id; u8 rest[58]; };
 struct T1ce0a8 { s32 n; E1ce0a8 e[1]; };
-s32 func_001d7f40(T1ce0a8*, s32);
+s32 func_001d7f40(T1ce0a8*, s32);  // find_slot_by_byte
 static inline u32 Bit1ce0a8(u32* b, u32 i) { return b[i >> 5] & (1 << (i & 31)); }
 #define TAB1ce0a8 (*(T1ce0a8**)(p + 68))
 E1ce0a8* func_001ce0a8(u8* p) {
@@ -656,11 +656,11 @@ struct EA1213c0 { u32 lo : 6; u32 kind : 5; u32 hi : 21; u8 pad[28]; };
 struct EB1213c0 { u32 kind : 5; u32 hi : 27; u8 pad[28]; };
 struct TA1213c0 { u8 pad[28]; s32 n; EA1213c0 e[1]; };
 struct TB1213c0 { u8 pad[28]; s32 n; EB1213c0 e[1]; };
-TB1213c0* func_00120800(u8*);
+TB1213c0* func_00120800(u8*);  // obj_get_sub_ptr_by12
 // Mark every entry of the given kind (-1 = all) in both tables as state 1.
 void func_001213c0(u8* p, F1213c0* fl, s32 kind) {
     TA1213c0* t = *(TA1213c0**)(p + 4);
-    TB1213c0* b = func_00120800(p);
+    TB1213c0* b = func_00120800(p);  // obj_get_sub_ptr_by12
     for (s32 i = 0; i < t->n; i++) {
         if (kind == -1 || t->e[i].kind == kind) fl[i].st = 1;
     }

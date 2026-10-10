@@ -4,16 +4,16 @@ struct EhFde { u32 length; s32 CIE_delta; u32 pc_begin[1]; };
 struct EhFdeVec { void* orig; u32 count; EhFde* array[1]; };
 struct EhAccu { EhFdeVec* linear; };
 struct EhObj { u32 pc_begin; u32 tbase; u32 dbase; u32 u; union { struct { unsigned long sorted:1; unsigned long from_array:1; unsigned long mixed_encoding:1; unsigned long encoding:8; unsigned long count:21; } b; u32 i; } s; EhObj* next; };
-u32 func_00100920(u8, EhObj*);
+u32 func_00100920(u8, EhObj*);  // classify_subtype
 s32 func_001009a0(u8*);
 u8* func_001004c0(u8, u32, u32*, u32*);
-u32 func_001003c8(u8);
+u32 func_001003c8(u8);  // classify_arg_masked3
 // add_fdes: insert every live FDE of an object into the accumulator.
 void func_00101050(EhObj* ob, EhAccu* accu, EhFde* this_fde)
 {
     u8* last_cie = 0;
     int encoding = ob->s.b.encoding;
-    u32 base = func_00100920(ob->s.b.encoding, ob);
+    u32 base = func_00100920(ob->s.b.encoding, ob);  // classify_subtype
     for (; this_fde->length != 0; this_fde = (EhFde*)((u8*)this_fde + this_fde->length + 4)) {
         u8* this_cie;
         if (this_fde->CIE_delta == 0) continue;
@@ -22,7 +22,7 @@ void func_00101050(EhObj* ob, EhAccu* accu, EhFde* this_fde)
             if (this_cie != last_cie) {
                 last_cie = this_cie;
                 encoding = func_001009a0(this_cie);
-                base = func_00100920(encoding, ob);
+                base = func_00100920(encoding, ob);  // classify_subtype
             }
         }
         if (encoding == 0) {
@@ -30,7 +30,7 @@ void func_00101050(EhObj* ob, EhAccu* accu, EhFde* this_fde)
         } else {
             u32 pc_begin, mask;
             func_001004c0(encoding, base, this_fde->pc_begin, &pc_begin);
-            mask = func_001003c8(encoding);
+            mask = func_001003c8(encoding);  // classify_arg_masked3
             if (mask < 4) mask = (1L << (mask << 3)) - 1;
             else mask = -1;
             if ((pc_begin & mask) == 0) continue;
@@ -42,7 +42,7 @@ struct EhObj2 { u32 pc_begin; u32 tbase; u32 dbase; u32 u; union { struct { unsi
 struct EhBases { u32 tbase; u32 dbase; u32 func; };
 EhFde* func_00101388(EhObj*, void*);
 s32 func_0030edb0(void);
-void func_0030ee00(void);
+void func_0030ee00(void);  // ee_intr_get_enable
 extern s32 D_0037aa2c;
 extern EhObj* D_0037aa30;
 extern EhObj* D_0037aa34;
@@ -69,7 +69,7 @@ EhFde* func_00101698(void* pc, EhBases* bases)
         if (f) goto fini;
     }
 fini:
-    if (D_0037aa2c) func_0030ee00();
+    if (D_0037aa2c) func_0030ee00();  // ee_intr_get_enable
     if (f) {
         int encoding;
         bases->tbase = ob->tbase;
@@ -83,17 +83,17 @@ fini:
 }
 
 
-void func_00103ea0(s32);
+void func_00103ea0(s32);  // set_hook_ptr
 void func_0014c9d8(s32);
 void func_0014df88(void);
 void func_0014e0d8(void);
-void func_0023ed90(void);
+void func_0023ed90(void);  // set_global_byte1
 s32 func_001050c8(void);
 s32 func_00104288(void);
 s32 func_00104600(void);
 s32 func_00102e90(void);
 void func_0023fb00(s32);
-void func_00103c70(void);
+void func_00103c70(void);  // clear_hook_ptr
 void func_00103e78(void);
 void func_00102080(void*);
 void func_00167ea8(void);
@@ -115,7 +115,7 @@ static inline bool Isa64Two() { return D_0032ba64 == 2; }
 void func_001037f8(void* a0)
 {
     s32 skip = 0;
-    func_00103ea0(0);
+    func_00103ea0(0);  // set_hook_ptr
     if (IsMode156(D_0032ba24) && Is984Two()) skip = 1;
     else if (D_0032ba24 == 4 && Is9bcTwo()) skip = 1;
     else if (D_0032ba24 == 2) skip = Isa64Two();
@@ -129,13 +129,13 @@ void func_001037f8(void* a0)
             func_0014df88(); func_0014e0d8();
             if (D_0032ba48.f28) D_0032ba48.f28 = 2;
         }
-        func_0023ed90();
+        func_0023ed90();  // set_global_byte1
         if (IsMode156(D_0032ba24)) r = func_001050c8();
         else if (D_0032ba24 == 2) r = func_00104288();
         else if (D_0032ba24 == 3) r = func_00104600();
         else r = func_00102e90();
         func_0023fb00(r);
-        func_00103c70();
+        func_00103c70();  // clear_hook_ptr
         func_00103e78();
     }
     func_00102080(D_0032b9e8);
@@ -300,7 +300,7 @@ extern SObj14 D_003498f0;
 extern SObj14 D_00349a00;
 extern void* D_00349b40[];
 void func_0014a950(SObj14*);
-void func_0031bb08(SObj14*);
+void func_0031bb08(SObj14*);  // set_vtbl_3486a8
 void func_0014aed0(int init, int prio) asm("_Z13func_0014aed0ii");
 }
 // Static construction / destruction of this unit's seven global objects.
@@ -375,8 +375,8 @@ static inline f32 DistSq14(const void* a, const void* b) {
     return d;
 }
 extern "C" {
-void* func_00106a60(s32);
-void func_00107368(void*, Vq14*);
+void* func_00106a60(s32);  // buffer_get_by_index
+void func_00107368(void*, Vq14*);  // vec_copy_at80_if_diff
 Vq14* func_00143ec8(u16);
 Pts14* func_00143ea8(u16);
 s32 func_00162b68(Sph14*, Vq14*, f32*);
@@ -393,7 +393,7 @@ s32 func_0014ee28(s32 id, Vq14* out, u8* direct)
     Pts14 pts;
     Vq14 alt;
     f32 t;
-    func_00107368(func_00106a60(0), &cam);
+    func_00107368(func_00106a60(0), &cam);  // vec_copy_at80_if_diff
     s.c = cam;
     s.r = 5000.0f;
     dir = *func_00143ec8(id);
@@ -428,8 +428,8 @@ extern "C" {
 extern Info17* D_00352130;
 s32 func_0017ca88(void*, Obj17*);
 s32 func_001958d0(Obj17*);
-s32 func_0017cb48(void*, Obj17*);
-void func_0017cb78(void*, Obj17*);
+s32 func_0017cb48(void*, Obj17*);  // can_run_when_268_bit0
+void func_0017cb78(void*, Obj17*);  // handle_field256_eq4
 // Animation-window step: fires the motor callbacks when the play time enters / leaves the active windows.
 void func_0017c690(void* self, Obj17* o)
 {
@@ -437,7 +437,7 @@ void func_0017c690(void* self, Obj17* o)
     if ((o->mode & 4) && func_0017ca88(self, o) && func_001958d0(o)) return;
     if (6.0f < o->t && o->t < o->end) {
         if (o->flags & 0x400000) {
-            if (func_0017cb48(self, o)) func_0017cb78(self, o);
+            if (func_0017cb48(self, o)) func_0017cb78(self, o);  // can_run_when_268_bit0
             ((MotorFn17)o->motor->vt[3])(o->motor, o, 0.0f);
             o->fb.b17 = 0;
             o->fb.b18 = 0;
@@ -445,11 +445,11 @@ void func_0017c690(void* self, Obj17* o)
         }
     }
     if ((o->flags & 0x40000) && 6.0f < o->t && o->t < o->end - 5.0f) {
-        if (func_0017cb48(self, o)) func_0017cb78(self, o);
+        if (func_0017cb48(self, o)) func_0017cb78(self, o);  // can_run_when_268_bit0
         ((MotorFn17)o->motor->vt[3])(o->motor, o, 5.10204f);
         o->fb.b18 = 0;
     } else if (o->end <= o->t + 5.0f) {
-        if (func_0017cb48(self, o)) func_0017cb78(self, o);
+        if (func_0017cb48(self, o)) func_0017cb78(self, o);  // can_run_when_268_bit0
         o->fb.b17 = 0;
     }
 }
@@ -469,7 +469,7 @@ struct Obj18 {
 extern "C" {
 void func_001888c8(E18a*);
 void func_00189170(E18b*);
-void func_001a8bb8(E18c*);
+void func_001a8bb8(E18c*);  // obj_set_header_bytes
 void func_00319d30(void*);
 void func_001d9768(void*);
 // Initialises the owner object: constructs its element arrays and clears the tables.
@@ -638,7 +638,7 @@ void func_00287b08(s32);
 void func_00252618(void);
 void func_00287da0(void);
 s32 func_00288040(void);
-void func_00288018(void);
+void func_00288018(void);  // global_zero_4dwords
 // Menu update: handles the confirm/close states and dispatches the chosen entry.
 void func_00251780(void)
 {
@@ -710,7 +710,7 @@ void func_00287da0(void);
 s32 func_00287dc0(void);
 void func_0023d820(s32);
 s32 func_00288040(void);
-void func_00288018(void);
+void func_00288018(void);  // global_zero_4dwords
 void func_0026d960(void);
 // Menu update for this list: close handling, cursor feedback and entry dispatch.
 void func_0026c818(void)
@@ -765,11 +765,11 @@ extern void* D_0035f14c;
 extern u8 D_00373d78[];
 extern u8 D_00373d80[];
 extern Sys27* D_00347f80;
-Pt27* func_00276fa8(void);
+Pt27* func_00276fa8(void);  // global_ptr_by_flag2
 void* func_0023ee30(s32);
 void func_0031a838(void*);
-void func_002369a0(void*);
-void func_0023c008(void*);
+void func_002369a0(void*);  // obj_ctor_36eac8
+void func_0023c008(void*);  // obj_ctor_36eae8
 void func_0028d7f0(void*, s32, s32, s32, s32, s32, s32, s32, s32);
 void func_0023ef50(void*);
 void func_0028f280(void*, void*, void*, void*, void*);
@@ -787,13 +787,13 @@ void func_002a77a0(void);
 // Creates this screen's main object and item, then enters the mode-specific setup.
 void func_00274fa8(void)
 {
-    Pt27* p = func_00276fa8();
+    Pt27* p = func_00276fa8();  // global_ptr_by_flag2
     u8* o = (u8*)func_0023ee30(160);
     *(u32*)o = (u32)D_00347f98;
     func_0031a838(o + 12);
     *(u32*)o = (u32)D_0035eb98;
-    func_002369a0(o + 24);
-    func_0023c008(o + 48);
+    func_002369a0(o + 24);  // obj_ctor_36eac8
+    func_0023c008(o + 48);  // obj_ctor_36eae8
     D_0035f210.p = o;
     func_0028d7f0(o, 30039, 0, 0, p->x, p->y, 0, 0, 0);
     func_0023ef50(D_0035f210.p);
@@ -822,7 +822,7 @@ void func_00274fa8(void)
 
 extern "C" {
 u64 func_00313ed8(u64, u64);
-s32 func_003142e0(u64, u64);
+s32 func_003142e0(u64, u64);  // double_compare
 char* func_00301938(void*, u64, s32, s32, s32*, s32*, char**);
 // cvt (newlib vfprintf): convert a double to digits for %e/%f/%g.
 char* func_003012d8(void* data, u64 value, s32 ndigits, s32 flags, char* sign, s32* decpt, s32 ch, s32* length)

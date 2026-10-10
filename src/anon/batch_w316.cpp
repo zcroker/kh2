@@ -11,12 +11,12 @@ extern char D_0036eb90[];
 extern char D_0036ebc8[];
 extern char D_0036ebf0[];
 extern char D_0036ec18[];
-u32 func_002fdfc8(const char*, ...);
-s32* func_001e3650(void*);
+u32 func_002fdfc8(const char*, ...);  // device_vprintf_va
+s32* func_001e3650(void*);  // ptr_add4
 s32* func_001e3660_x(s32*, s32) asm("_Z13func_001e3660ji");
 static inline void assert_fail_1e3690(const char* e, const char* f, s32 l) {
-    func_002fdfc8(D_0036e978, e);
-    func_002fdfc8(D_0036e998, f, l);
+    func_002fdfc8(D_0036e978, e);  // device_vprintf_va
+    func_002fdfc8(D_0036e998, f, l);  // device_vprintf_va
     asm volatile("break");
 }
 s32 func_001e3690(u8* o) {
@@ -25,7 +25,7 @@ s32 func_001e3690(u8* o) {
   u8 idx;
   p = (s32*)*(void**)(o + 136);
   idx = o[147];
-  p = func_001e3650(p);
+  p = func_001e3650(p);  // ptr_add4
   s32 n = *p++;
   s32 i;
   for (i = 0; i < n; i++, p++) {

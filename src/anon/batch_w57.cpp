@@ -27,11 +27,11 @@ void func_001002b0(void) {
 }
 
 // Sum a virtual query over the objects referenced by an offset table.
-u32 func_00124748(void*);
+u32 func_00124748(void*);  // list_nth_node_rel
 typedef s32 (*VFn124)(u8*);
 s32 func_00124788(u8* a) {
     s32 sum = 0;
-    u8* end = (u8*)func_00124748(a);
+    u8* end = (u8*)func_00124748(a);  // list_nth_node_rel
     u8* base = *(u8**)(a + 4);
     s32* p = (s32*)(base + 16);
     while (*p) {
@@ -191,7 +191,7 @@ u32 func_001a7588(void* p, u32 a1, Q16* out) {
 }
 
 // Out-of-range test against the 0x7000/0x9000/0x7300/0x8d00 screen limits.
-u32 func_001aaf98(u32 z, s32 a, s32 b, s32 c, s32 d) {
+u32 func_001aaf98(u32 z, s32 a, s32 b, s32 c, s32 d) {  // bounds_check_ranges
     u32 r = 0;
     if (a + c < 0x7000 || a > 0x9000 || b < 0x7300 || b - d > 0x8d00) r = 1;
     return r;
@@ -228,7 +228,7 @@ void func_001b7f30(u32* t) {
 
 
 // Destructor: release the array member and trailing sub-object.
-void func_00161530(void*);
+void func_00161530(void*);  // noop_ret_b
 extern u8 D_0034c750, D_0034c738;
 struct E16 { u8 d[16]; ~E16() {} };
 struct M272 { u8 d[8]; ~M272() { func_00161530(this); } };
@@ -243,7 +243,7 @@ struct C160 {
 void func_00160268(C160* t) { t->~C160(); }
 
 // Destructor with a base chain and a 2-element array member.
-void func_001d5718(void*);
+void func_001d5718(void*);  // list_free_nodes
 void func_0031e7f8(void*);
 void func_0016a358(void*);
 extern u8 D_003507a0, D_003503e0;
@@ -311,7 +311,7 @@ void func_0028d6e8(void*);
 void func_001396b0(void*);
 void func_0031a260(void*, u32);
 struct T28d { u8 p[396]; u32 f396; u32 f400; u8 p2[9]; u8 b413; };
-void func_0028d660(T28d* t, u32 v) {
+void func_0028d660(T28d* t, u32 v) {  // record_set_value_refresh
     func_0028d6e8(t);
     if (t->f396 != v) {
         t->f396 = v;
@@ -347,9 +347,9 @@ void func_002bd788(u32 a) {
 
 // Destructor: tear down the layered members and chain to the base.
 void func_00319f88(void*);
-void func_0019f9a8(void*);
+void func_0019f9a8(void*);  // array8_free_slots
 void func_001c0248(void*);
-void func_00319fb0(void*);
+void func_00319fb0(void*);  // big_obj_dtor
 extern u8 D_00345c08, D_0034e8b8, D_0034ee08;
 struct G0 { u8* t; ~G0() { func_00319fb0(t); } };
 struct G1 { u8* t; ~G1() { *(void**)t = &D_0034ee08; func_0019f9a8(t + 2568); func_001c0248(t + 2640); } };
@@ -398,8 +398,8 @@ void func_001d8070(u8* t) {
 }
 
 // Drop every list entry whose owner is still valid.
-u32 func_001dca20(void*);
-void func_00321ce8(void*, void*);
+u32 func_001dca20(void*);  // get_bit20_of_field8
+void func_00321ce8(void*, void*);  // list_unlink_node
 void func_001e0058(void*);
 void func_001de610(u8* t) {
     u8* n = *(u8**)(t + 12);
@@ -408,8 +408,8 @@ void func_001de610(u8* t) {
         u8 bit = (*(s32*)(a + 8) >> 26) & 1;
         u8* nx = *(u8**)(n + 96);
         if (!bit) {
-            if (func_001dca20(a)) {
-                func_00321ce8(t + 12, n);
+            if (func_001dca20(a)) {  // get_bit20_of_field8
+                func_00321ce8(t + 12, n);  // list_unlink_node
                 func_001e0058(n);
             }
         }

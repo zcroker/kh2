@@ -1,7 +1,7 @@
 #include "../common/types.h"
 extern "C" {
-void func_00109330(void);
-void func_00109340(void);
+void func_00109330(void);  // set_global_3756_return
+void func_00109340(void);  // to_109450_zero
 void func_001344b8(u32);
 void func_00108998(void*);
 void func_00108f28(void*, u64);
@@ -9,7 +9,7 @@ void func_00109008(void*);
 void func_00109fe8(void*);
 void func_0010a1d0(void*);
 void func_0010a5f0(void);
-u64 func_00109050(void*);
+u64 func_00109050(void*);  // get_field16_64
 void func_00108ae0(void*, u32, u64, u64, u64, u64, u64, u64);
 void func_0010a580(void*);
 void func_0010a4d0(void);
@@ -22,8 +22,8 @@ extern s32 D_00340ed4;
 extern u8 D_00340ed8[];
 // Runs the scene passes over the four draw lists (pass id in D_00340ed4).
 void ctarget0_0010a618(void) {
-    func_00109330();
-    func_00109340();
+    func_00109330();  // set_global_3756_return
+    func_00109340();  // to_109450_zero
     func_001344b8(64);
     func_00108998(D_00340ed8);
     func_00108f28(D_00340ed8, (u64)D_00340ed0[0] | ((u64)D_00340ed0[1] << 8) | ((u64)D_00340ed0[2] << 16));
@@ -62,7 +62,7 @@ void ctarget0_0010a618(void) {
 }
 
 extern "C" {
-void func_0023e738(void*, s32, s32, s32);
+void func_0023e738(void*, s32, s32, s32);  // store_2halfwords_2928
 void func_0014b610(u8*, u64);
 void func_0014b608(u8*, u64);
 void func_0014b5e0(u8*, u32);
@@ -109,7 +109,7 @@ void func_0023d5b8(Work* w) {
         w->a[i] = 0;
         w->b[i] = 0;
         w->c[i] = 0;
-        func_0023e738(w, i, 0, 0);
+        func_0023e738(w, i, 0, 0);  // store_2halfwords_2928
     }
     w->f2920 = 0;
     w->flag[0] = 0;
@@ -201,7 +201,7 @@ extern QU D_01d9ea80;
 struct NoTail { ~NoTail() {} };
 void func_001e2bc8(u32, u32, u32, u32);
 void func_001e7650(Obj6*, u32, u32);
-void func_002f4000(void*);
+void func_002f4000(void*);  // vu_store_w_splat
 void func_001e2b50(u32, u32);
 void func_001e5fd8(void);
 // Stores the draw parameters into the global state block, then resets and starts the pass.
@@ -233,7 +233,7 @@ void func_001e6d38(u32 a0, u32 a1, u32 a2, u32 a3, u32 t0, u32 t1, u32 t2, u32 t
     D_01d9e6b8.f24 = D_00354248;
     D_01d9e6e4 = &D_01d9e6b8;
     D_01d9eaa0 = 0;
-    func_002f4000(D_01d9ea40);
+    func_002f4000(D_01d9ea40);  // vu_store_w_splat
     D_01d9ea80.q = 0;
     D_01d9ea80.f[3] = 1.0f;
     func_001e2b50(a2, a3);
@@ -320,10 +320,10 @@ struct UwFrameState {
 };
 union Unaligned { void* p; } __attribute__((packed));
 extern "C" {
-u32 func_002ff3fc(const u8*);
-const u8* func_00316f38(const u8*, u64*);
+u32 func_002ff3fc(const u8*);  // strlen
+const u8* func_00316f38(const u8*, u64*);  // varint64_decode
 const u8* func_00316f70(const u8*, s64*);
-u32 func_00316e88(u8, void*);
+u32 func_00316e88(u8, void*);  // classify_subtype_c
 const u8* func_00316fc8(u8, u32, const u8*, u32*);
 static inline const u8* read_encoded_value(void* context, u8 encoding, const u8* p, u32* val) {
     return func_00316fc8(encoding, func_00316e88(encoding, context), p, val);
@@ -339,12 +339,12 @@ const u8* func_00317140(DwCie* cie, void* context, UwFrameState* fs) {
         p += sizeof(void*);
         aug += 2;
     }
-    p = func_00316f38(p, &fs->code_align);
+    p = func_00316f38(p, &fs->code_align);  // varint64_decode
     p = func_00316f70(p, &fs->data_align);
     fs->retaddr_column = *p++;
     fs->lsda_encoding = 0xff;
     if (*aug == 'z') {
-        p = func_00316f38(p, &utmp);
+        p = func_00316f38(p, &utmp);  // varint64_decode
         ret = p + utmp;
         fs->saw_z = 1;
         ++aug;
@@ -378,7 +378,7 @@ struct ListCur {
     u8 wrap;
 };
 extern "C" {
-s32 func_0028b1c0(ListCur*, s32);
+s32 func_0028b1c0(ListCur*, s32);  // test_bit_field32
 // Moves the cursor up one entry (scrolling / wrapping), skipping entries the check accepts.
 s32 func_00289d28(ListCur* o, s16* cur, s16* top) {
     s32 n = o->count;
@@ -422,7 +422,7 @@ u32 func_001d1438(u32);
 u32 func_0017df70(s32);
 u32 func_00198040(s32);
 u32 func_0016eb18(u32, s32);
-JmSrc* func_001a8b28(void);
+JmSrc* func_001a8b28(void);  // get_data_1c7cc10
 u32 func_0017dfc8(s32);
 void* func_001d3408(u32);
 void* GetCharaData_0016e920(u32 id) asm("_ZN2Tz6JmInfo12GetCharaDataEj");
@@ -464,8 +464,8 @@ extern u32 D_004f63a8;
 extern u32 D_004f63ac;
 extern u8 D_0032f054;
 u32 func_001d1438(u32);
-s32 func_0016f6f8(u32);
-s32 func_0016f770(u32);
+s32 func_0016f6f8(u32);  // check_flag_4000_type
+s32 func_0016f770(u32);  // in_id_special_range
 u32 func_0016eb48(u32, u32, u32, s32);
 u32 func_0016ef28(u8);
 }
@@ -486,7 +486,7 @@ u32 wtarget_0016ed50(u32 id, u32 kind, u32 mode, u32) {
     case 793: return func_0016eb48(0x20000237, kind, 5, -1);
     case 794: return func_0016eb48(0x20000238, kind, 6, -1);
     }
-    if (!func_0016f6f8(id) && !func_0016f770(id) && mode == 30) {
+    if (!func_0016f6f8(id) && !func_0016f770(id) && mode == 30) {  // check_flag_4000_type
         JmEnt* e = (JmEnt*)GetCharaData_0016e920(id);
         if (!e) return;
         switch (e->type) {
@@ -568,7 +568,7 @@ extern TblPtr D_0035f5e4;
 u32 func_00276c18(void);
 void func_002fde18(void*, s32, s32);
 ItemRec* func_001a82b0(ItemRec*);
-ItemDef* func_001a80c8(u16);
+ItemDef* func_001a80c8(u16);  // table24_find_by_id
 s32 func_002a43b0(ItemRec*);
 u8 func_002764b0(u8);
 void func_002a2ff8(void);
@@ -585,7 +585,7 @@ void func_002a2c40(void) {
     for (;;) {
         it = func_001a82b0(it);
         if (!it) break;
-        if (func_001a80c8(it->id)->type == 22) {
+        if (func_001a80c8(it->id)->type == 22) {  // table24_find_by_id
             s32 r = func_002a43b0(it);
             if (r || all) {
                 u8 v = func_002764b0(it->f5);
@@ -623,8 +623,8 @@ extern u8 D_0035f4f8;
 extern void* D_0035f4f4;
 void* func_001a8bd0(s32);
 void func_00170320(s32);
-s32 func_001a8bf8(void*, s32);
-void func_001a8ff8(void*, s32, s32);
+s32 func_001a8bf8(void*, s32);  // get_bits5_at
+void func_001a8ff8(void*, s32, s32);  // swap_bytes
 s32 func_00253598(void);
 SysA* func_00103eb0(void);
 ReqObj* func_00102818(u32, s32, s32, void*, s32);
@@ -638,8 +638,8 @@ u8 func_00293948(void) {
     func_00170320(5100);
     D_0035f4f8 = 1;
     if (func_001a8bf8(cur, 1) != func_001a8bf8(D_0035f4f4, 1) && func_001a8bf8(cur, 2) != func_001a8bf8(D_0035f4f4, 2))
-        func_001a8ff8(cur, 1, 2);
-    s32 k = func_001a8bf8(cur, 3);
+        func_001a8ff8(cur, 1, 2);  // swap_bytes
+    s32 k = func_001a8bf8(cur, 3);  // get_bits5_at
     if (k != 18) {
         s32 i;
         for (i = 0; i < 4; i++) {
@@ -648,13 +648,13 @@ u8 func_00293948(void) {
         if (i != 3) {
             if (func_00253598()) {
                 ReqObj* o = func_00102818(func_00103eb0()->f4, 0, 0x222e0, (void*)func_00293b08, 6144);
-                Tbl16* t = (Tbl16*)func_001a8b28();
+                Tbl16* t = (Tbl16*)func_001a8b28();  // get_data_1c7cc10
                 u16 v = t->v[func_001a8bf8(func_001a8bd0(-1), 3)];
                 o->f4 = func_0017e668(func_001a8c10(func_001a8bd0(-1), i));
                 o->f8 = v;
                 o->f12 = func_001a8c10(func_001a8bd0(-1), i);
             } else {
-                func_001a8ff8(cur, i, 3);
+                func_001a8ff8(cur, i, 3);  // swap_bytes
             }
         }
     }
@@ -668,7 +668,7 @@ extern IdList* D_0035f5ac;
 u8* func_00294000(s32);
 s32 func_00276638(s32);
 s32 func_00276620(s32);
-s32 func_002943b0(u8*);
+s32 func_002943b0(u8*);  // test_bit_global_array
 void func_002765e8(s32, s32, s32);
 void func_0029eaa8(void);
 // Moves the list cursor to the next/previous usable entry (wrapping) and scrolls the 10-row window.
@@ -828,8 +828,8 @@ extern "C" {
 extern Model D_01d9e360;
 struct CamBlk { u8 pad[48]; f32 pos[3]; };
 extern CamBlk D_01d9e840;
-void func_002f3f88(V4r*, V4r*);
-void func_002f3f40(V4r*, V4r*, f32);
+void func_002f3f88(V4r*, V4r*);  // memcpy16
+void func_002f3f40(V4r*, V4r*, f32);  // vec_scale_by_f12
 void func_002f3d08(M4r*, void*, M4r*);
 void func_0021efc0(DrawReq*);
 void func_0021f060(DrawReq*);
@@ -842,21 +842,21 @@ void func_0021fbd8(DrawArg* a, u32 id) {
     if (md == &D_01d9e360) return;
     if (!src->tex) return;
     if (md->scale == 0.0f) return;
-    func_002f3f88(&m.r[0], &md->rows[1]);
-    func_002f3f88(&m.r[1], &md->rows[2]);
-    func_002f3f88(&m.r[2], &md->rows[3]);
-    func_002f3f88(&m.r[3], &md->rows[0]);
+    func_002f3f88(&m.r[0], &md->rows[1]);  // memcpy16
+    func_002f3f88(&m.r[1], &md->rows[2]);  // memcpy16
+    func_002f3f88(&m.r[2], &md->rows[3]);  // memcpy16
+    func_002f3f88(&m.r[3], &md->rows[0]);  // memcpy16
     f32 k = a->len * md->size / (f32)a->div;
-    func_002f3f40(&m.r[0], &m.r[0], -k);
-    func_002f3f40(&m.r[1], &m.r[1], k);
+    func_002f3f40(&m.r[0], &m.r[0], -k);  // vec_scale_by_f12
+    func_002f3f40(&m.r[1], &m.r[1], k);  // vec_scale_by_f12
     if (!md->noOffset) {
         m.r[3].x = D_01d9e840.pos[0] + md->off[0];
         m.r[3].y = D_01d9e840.pos[1] + md->off[1];
         m.r[3].z = D_01d9e840.pos[2] + md->off[2];
     }
-    func_002f3f40(&m.r[0], &m.r[0], a->scl[0]);
-    func_002f3f40(&m.r[1], &m.r[1], a->scl[1]);
-    func_002f3f40(&m.r[2], &m.r[2], a->scl[2]);
+    func_002f3f40(&m.r[0], &m.r[0], a->scl[0]);  // vec_scale_by_f12
+    func_002f3f40(&m.r[1], &m.r[1], a->scl[1]);  // vec_scale_by_f12
+    func_002f3f40(&m.r[2], &m.r[2], a->scl[2]);  // vec_scale_by_f12
     func_002f3d08(&m, a->mtx, &m);
     req.color = a->color;
     k = md->size / (f32)a->h;
@@ -900,10 +900,10 @@ struct HitCtx { u8 pad[36]; s32 mode; };
 extern "C" {
 extern u32 D_00352bd0;
 s32 func_0019ba60(Actor*);
-const QP& func_001e0cc8(HitCtx*);
+const QP& func_001e0cc8(HitCtx*);  // entry64_by_field32
 u32 func_0016bc20(Actor*, s32, s32);
 void func_0018a818(HitShape*, Actor*, u32);
-s32 func_0018a550(Sph*, HitShape*);
+s32 func_0018a550(Sph*, HitShape*);  // state_dispatch_0_1_3
 s32 func_00180618(ActSub*);
 void func_001e2660(u32, QP*);
 void func_002bc188(u32, QP*);
@@ -913,12 +913,12 @@ void func_001e23b0(u32, QP*);
 s32 func_001e1350(HitCtx* c, Actor* o) {
     if (o && func_0019ba60(o)) {
         QP pos;
-        pos = func_001e0cc8(c);
+        pos = func_001e0cc8(c);  // entry64_by_field32
         Sph near(pos, 50.0f);
         Sph far(pos, 200.0f);
         HitShape sh;
         func_0018a818(&sh, o, func_0016bc20(o, 1, -1));
-        if (func_0018a550(&far, &sh)) {
+        if (func_0018a550(&far, &sh)) {  // state_dispatch_0_1_3
             ActSub* q = &o->sub;
             if (q->state == 254) goto down;
             if (q->state == 255) goto down;
@@ -933,7 +933,7 @@ s32 func_001e1350(HitCtx* c, Actor* o) {
             }
         }
     skip:
-        if (func_0018a550(&near, &sh)) {
+        if (func_0018a550(&near, &sh)) {  // state_dispatch_0_1_3
             func_001e1070(c, o);
             func_001e23b0(D_00352bd0, &pos);
             func_002bc188(0x5b51f, &pos);

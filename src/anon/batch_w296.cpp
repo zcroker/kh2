@@ -6,7 +6,7 @@ extern u8* D_0034e948;
 s32 func_001bffd8(void);
 s32 func_001c0090(void);
 u8* func_0019fe90(s32, s32);
-void func_001c0150(void*, s32);
+void func_001c0150(void*, s32);  // obj_init_fields_1c0150
 void func_0018e0d8(void*, u32);
 s32 func_001b5a10(void);
 
@@ -48,7 +48,7 @@ void func_0018d050(W296Obj* o, u8* a1, u8* a2, s32 a3, s32 a4, s32 a5, s32 a6) {
     o->a1c = a5 >= 0 ? a5 : func_001bffd8();
     o->p24 = a1 ? a1 + 128 : 0;
     o->p28 = func_0019fe90(a3, a4);
-    func_001c0150(o->sub30, 0);
+    func_001c0150(o->sub30, 0);  // obj_init_fields_1c0150
     o->p88 = a1;
     o->a84 = 0;
     o->a8c = 0;
@@ -92,7 +92,7 @@ void func_0018d238(W296Obj* o, u8* a1, u8* a2, s32 a3, s32 a4, s32 a5, s32 a6) {
     o->a1c = a5 >= 0 ? a5 : func_001bffd8();
     o->p24 = a1 ? a1 + 128 : 0;
     o->p28 = func_0019fe90(a3, a4);
-    func_001c0150(o->sub30, 0);
+    func_001c0150(o->sub30, 0);  // obj_init_fields_1c0150
     o->p88 = a1;
     o->a84 = 0;
     o->a8c = 0;
@@ -135,13 +135,13 @@ void func_0023f070(u8*, s32, s32);
 void func_00288e88(u8*);
 void func_0024eac0(void);
 void func_0024f1a0(void);
-void func_0028cdb8(s32);
+void func_0028cdb8(s32);  // record408_alloc_init
 void func_0024f2d0(void);
 s32 func_002891e8(u8*);
 s32 func_00287cd0(void);
 s32 func_0028d008(s32);
 void func_0028cc78(s32, s32, s32, u8*, s32, s32);
-s32 func_0024efc0(s32);
+s32 func_0024efc0(s32);  // to_28dbf8_entry6
 void func_0028cf98(s32, s32);
 s32 func_00289310(u8*);
 void func_0024eff8(s32);
@@ -164,7 +164,7 @@ void func_0024edd8(void) {
         func_00288e88(D_0035ee04);
         func_0024eac0();
         func_0024f1a0();
-        func_0028cdb8(0);
+        func_0028cdb8(0);  // record408_alloc_init
     } else {
         s32 r;
         func_0024f2d0();

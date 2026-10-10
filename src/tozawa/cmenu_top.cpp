@@ -27,7 +27,7 @@ extern u8 D_00372a00 asm("D_00372a00");
 extern u8 D_00372a08 asm("D_00372a08");
 extern u8 D_0035f055 asm("D_0035f055");
 
-extern "C" u32 func_0028f690(...);
+extern "C" u32 func_0028f690(...);  // record884_type_index
 extern "C" u32 func_00139d78(...);
 extern "C" void func_001396b0(...);
 extern "C" u32 func_0028acc8(...);

@@ -3,9 +3,9 @@
 typedef void (*VFn)(void*);
 
 extern "C" {
-u32 func_00112740(void*);
+u32 func_00112740(void*);  // get_field2940
 void func_00112730(void*, u32);
-void* func_00124748(void*, s32);
+void* func_00124748(void*, s32);  // list_nth_node_rel
 void* func_0016e920(void*, void*);
 void func_0016f6a0(void*, void*);
 void func_0016adc8(void*, void*);
@@ -22,7 +22,7 @@ void func_001956d0(void*, void*);
 void func_001b7f88(void);
 void func_001bdc18(void*);
 void func_001bd5b0(void*, u32, s32);
-void func_0016a9a0(void*);
+void func_0016a9a0(void*);  // to_16a950
 void func_001c1428(void*);
 void func_001dba98(void*);
 void func_0016b5b8(void*);
@@ -100,7 +100,7 @@ void Peterpan_acceptNotifyPlayerTarget(void* s) {
 }
 
 void* func_00123dd0(void* a) {
-    void* o = func_00124748(a, 0);
+    void* o = func_00124748(a, 0);  // list_nth_node_rel
     return (*(void* (**)(void*))(*(u8**)o + 28))(o);
 }
 
@@ -210,7 +210,7 @@ void func_001befa8(u8* p) {
 }
 
 void MASSOBJ_OVR_exec(void* o) {
-    func_0016a9a0(o);
+    func_0016a9a0(o);  // to_16a950
     func_001c1428(*(void**)((u8*)o + 2548));
 }
 
@@ -244,7 +244,7 @@ void* func_001e0128(void* a) {
 }
 
 // Normalize the 2D vector at s (xy) into d.
-void func_00222868(void* d, void* s) {
+void func_00222868(void* d, void* s) {  // vec2_normalize
     asm volatile(
         ".set noreorder\n\t"
         "lqc2 $vf1, 0(%1)\n\t"
@@ -304,7 +304,7 @@ void* CMData_GetPtr(s32) {
     return func_0023fa08(&D_0035f3a8, func_002537c8(5));
 }
 
-void func_0028b218(u8* p, u8 on) {
+void func_0028b218(u8* p, u8 on) {  // obj_set_flag39_bits3000
     p[39] = on;
     if (on) {
         *(u32*)(p + 52) |= 0x3000;
@@ -354,7 +354,7 @@ bool func_002f1ae0(u32 n) {
 }
 
 // Store a 4x4 identity matrix at m (rows written last-to-first).
-void func_002f4000(void* m) {
+void func_002f4000(void* m) {  // vu_store_w_splat
     asm volatile(
         "vsub.xyzw $vf4, $vf0, $vf0\n\t"
         "vadd.w $vf4, $vf4, $vf0\n\t"
@@ -369,7 +369,7 @@ void func_002f4000(void* m) {
 }
 
 // 64-byte (4 quadword) copy.
-void func_0031bae0(void* d, void* s) {
+void func_0031bae0(void* d, void* s) {  // memcpy64
     asm volatile(
         ".set noreorder\n\t"
         "lq $8, 0(%1)\n\t"

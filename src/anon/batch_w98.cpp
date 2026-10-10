@@ -61,9 +61,9 @@ struct M174 { f32 m[4][4]; } __attribute__((aligned(16)));
 struct IV174 { f32 x, y, z; s32 w; };
 union PU174 { IV174* p; f32 f; };
 extern IV174 D_01c5f480;
-u8* func_00106a18(s32);
-u8* func_00106a60(s32);
-void func_002f47d8(void*, void*, void*, u32);
+u8* func_00106a18(s32);  // buffer_get_256
+u8* func_00106a60(s32);  // buffer_get_by_index
+void func_002f47d8(void*, void*, void*, u32);  // mat4_transform_perspective
 static inline void mulmat174(M174* d, const void* a, const void* b) {
     asm volatile(
         "lqc2 $vf1,0(%1)\n\tlqc2 $vf2,16(%1)\n\tlqc2 $vf3,32(%1)\n\tlqc2 $vf4,48(%1)\n\t"
@@ -79,10 +79,10 @@ static inline void mulmat174(M174* d, const void* a, const void* b) {
 void func_00174e38(PU174* pv) {
     M174 m;
     s32 o[4];
-    u8* a = func_00106a18(1);
-    u8* b = func_00106a60(1);
+    u8* a = func_00106a18(1);  // buffer_get_256
+    u8* b = func_00106a60(1);  // buffer_get_by_index
     mulmat174(&m, a, b ? b + 16 : 0);
-    func_002f47d8(o, &m, pv->p, 0);
+    func_002f47d8(o, &m, pv->p, 0);  // mat4_transform_perspective
     D_01c5f480.x = (f32)((o[0] >> 4) - 2048);
     D_01c5f480.y = (f32)((o[1] >> 4) - 2048);
     D_01c5f480.z = (f32)(o[2] >> 4);
@@ -236,7 +236,7 @@ static inline u32 ActFlags18d(u8* a) {
 s32 func_0018cae0(u8*);
 
 u8* func_0018c8f0(u8*, u8*, u8*);
-void func_00198580(u8*, s32);
+void func_00198580(u8*, s32);  // check_div1000_500
 s32 func_001de2e0(u32*, u64);
 void func_001877a0(u8*, u32*, s32);
 
@@ -247,7 +247,7 @@ u8* func_0018da18(u8* o, u8* act, u8* info) {
     *(u32*)(o + 4) |= 2;
     if (*(u32*)(r + 24) & 4) return r;
     if (ActFlags18d(act) & 0x2000) return r;
-    if (*(s32*)(info + 28) >= 0) func_00198580(*(u8**)(o + 16), *(s32*)(info + 28));
+    if (*(s32*)(info + 28) >= 0) func_00198580(*(u8**)(o + 16), *(s32*)(info + 28));  // check_div1000_500
     u32* e = *(u32**)(o + 36);
     if (!e) return r;
     if (!*e) return r;
@@ -259,15 +259,15 @@ u8* func_0018da18(u8* o, u8* act, u8* info) {
     return r;
 }
 
-s32 func_00192440(u8*, s32);
-u32 func_00192498(u8*, s32);
-u8* func_00192388(u8*);
+s32 func_00192440(u8*, s32);  // is_byte_lt25
+u32 func_00192498(u8*, s32);  // read_u16_be
+u8* func_00192388(u8*);  // skip_control_codes
 
 // Walks the node list, forwarding type-5 nodes to the listener; stops at type 0 or 16.
 void func_001aa558(u8* o) {
     u8* n = *(u8**)(o + 12);
     while (n) {
-        if (func_00192440(n, 0)) {
+        if (func_00192440(n, 0)) {  // is_byte_lt25
             switch (*n) {
             case 0:
             case 16:
@@ -275,9 +275,9 @@ void func_001aa558(u8* o) {
                 break;
             case 5:
                 if (*(u8**)(o + 24)) {
-                    u32 a = func_00192498(n, 1);
-                    u32 b = func_00192498(n, 3);
-                    u32 c = func_00192498(n, 5);
+                    u32 a = func_00192498(n, 1);  // read_u16_be
+                    u32 b = func_00192498(n, 3);  // read_u16_be
+                    u32 c = func_00192498(n, 5);  // read_u16_be
                     u8* t = *(u8**)(o + 24);
                     (*(void (**)(u8*, u32, u32, u32))(*(u8**)t + 28))(t, a, b, c);
                 }
@@ -285,7 +285,7 @@ void func_001aa558(u8* o) {
             }
         }
         if (!n) break;
-        n = func_00192388(n);
+        n = func_00192388(n);  // skip_control_codes
     }
 }
 
@@ -395,7 +395,7 @@ void func_001bc780(void*, u16, s32, s32);
 s32 func_001d4420(void);
 s32 func_001b58a8(void);
 s32 func_001d3f80(E1d4*);
-s32 func_001d4808(E1d4*);
+s32 func_001d4808(E1d4*);  // is_halfword42_zero
 s32 func_001d3c78(E1d4*);
 s32 func_001d3e40(E1d4*);
 
@@ -427,7 +427,7 @@ extern CamP200 D_01d9e6e8;
 extern u8 D_00354bd0[];
 extern f32 D_00354bc0[4];
 void func_001e8fe0(void*, void*);
-void func_002f3e20(M200*, M200*);
+void func_002f3e20(M200*, M200*);  // convert_vectors_to_scalar
 void func_002f3d08(void*, void*, void*);
 static inline void ScaleRow(f32* row, u32 k) {
     asm volatile("qmtc2 %1, $vf9\n\tlqc2 $vf10, 0(%0)\n\tvmulx.xyz $vf10, $vf10, $vf9x\n\tsqc2 $vf10, 0(%0)" : : "r"(row), "r"(k) : "memory");
@@ -449,7 +449,7 @@ void func_00200c50(u8* base, u8*, u8* c) {
     m.m[3][0] = D_00354bc0[0];
     m.m[3][1] = D_00354bc0[1];
     m.m[3][2] = D_00354bc0[2];
-    func_002f3e20(&m, &m);
+    func_002f3e20(&m, &m);  // convert_vectors_to_scalar
     func_002f3d08(&D_01d9e6e8.p->mat, &D_01d9e6e8.p->mat, sc);
     func_002f3d08(&D_01d9e6e8.p->mat, &m, &D_01d9e6e8.p->mat);
     ScaleRow(D_01d9e6e8.p->mat.m[0], scale[0]);
@@ -457,13 +457,13 @@ void func_00200c50(u8* base, u8*, u8* c) {
     ScaleRow(D_01d9e6e8.p->mat.m[2], scale[2]);
 }
 
-void func_00229430(u8*, s32);
+void func_00229430(u8*, s32);  // to_1391c8_arg11
 u32 func_0022b9e0(void);
 u32 func_0022b720(void);
 void func_001386e0(u8*, s32, u32, u32, s32, s32);
 void func_001396b0(u8*);
 void func_0031a260(u8*, s32);
-u32 func_00224910(void);
+u32 func_00224910(void);  // get_global_36dac4
 
 static inline void Settle228(u8* m) {
     func_001396b0(m);
@@ -478,7 +478,7 @@ static inline void Settle228(u8* m) {
 void func_00228ab0(u8* o) {
     u8* m1 = o + 432;
     u8* m2 = o + 24;
-    func_00229430(o, 2800);
+    func_00229430(o, 2800);  // to_1391c8_arg11
     u32 a = func_0022b9e0();
     u32 b = func_0022b720();
     func_001386e0(m2, 2800, a, b, 28, 11);
@@ -620,7 +620,7 @@ void func_00288d80(u8*, s32, s32, s32, u32, u16, E248*, u8*);
 u32 func_0023aa78(u8*);
 u32 func_0023aa98(u8*);
 void func_00288e08(u8*, s32, u32, s32);
-u32 func_0028dd90(u32);
+u32 func_0028dd90(u32);  // mod10_classify_012
 u32 func_0028ddd8(u32);
 void func_001395f8(u8*);
 void func_002891f0(u8*, s32, s32, s32, s32);
@@ -645,7 +645,7 @@ void func_002485c8(void) {
 
 extern u32* D_0035f2e4;
 u32* func_002859a0(void);
-u8* func_001a80c8(s32);
+u8* func_001a80c8(s32);  // table24_find_by_id
 s32 func_00285d18(u8);
 static inline u32 Bit285(u32* a, s32 i) { return a[(u32)i >> 5] & (1 << (i & 31)); }
 // True when the id (or, for id < 0, every enabled id that qualifies) is also set in the obtained mask.
@@ -832,7 +832,7 @@ static inline void VAdd2cd(QW2cd* d, const QW2cd* a, const QW2cd* b) {
 }
 struct O2cd { u8 pad[4]; u32 f4; u32 f8; u8 pad2[12]; u32 f24; f32 f28; u8 pad3[4]; f32 range; u8 pad4[95]; u8 on; u8* target; };
 extern "C" {
-QW2cd* func_0016c028(u8*);
+QW2cd* func_0016c028(u8*);  // obj_get_attach_or_alt
 void func_002cd3e0(O2cd*, u8*);
 void func_002cd428(O2cd*, QW2cd*);
 
@@ -849,8 +849,8 @@ void func_002cd290(O2cd* o, u8* from, u8* to) {
     o->f8 = 0;
     o->f28 = -2.0f;
     o->f24 = 0;
-    QW2cd* a = func_0016c028(from);
-    QW2cd* b = func_0016c028(to);
+    QW2cd* a = func_0016c028(from);  // obj_get_attach_or_alt
+    QW2cd* b = func_0016c028(to);  // obj_get_attach_or_alt
     QW2cd d, p, e;
     VSub2cd(&d, b, a);
     f32 len = VLen2cd(&d);

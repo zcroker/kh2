@@ -3,14 +3,14 @@
 namespace Tz {
 
 extern "C" u32 func_00257130(...);
-extern "C" u32 func_002827e0(...);
+extern "C" u32 func_002827e0(...);  // get_indexed_word
 
 u32 ItemInfo::GetEquipMax(s32 a0) {
     u32 arr[5];
     s32 i = 0;
     while (i < 5) {
         u32 v = func_00257130();
-        v = func_002827e0(v, i);
+        v = func_002827e0(v, i);  // get_indexed_word
         arr[i] = v;
         i = i + 1;
     }

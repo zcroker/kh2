@@ -33,7 +33,7 @@ void func_0011b250(u8* p) {
     } else func_0016bd60(c, 0);
 }
 
-u8* func_0023ee30(s32); void func_0031a838(void*); void func_002369a0(void*); void func_0023c008(void*);
+u8* func_0023ee30(s32); void func_0031a838(void*); void func_002369a0(void*); void func_0023c008(void*);  // obj_ctor_36eae8
 void func_0028d7f0(void*, s32, s32, s32, s32, s32, s32, s32, s32);
 void func_0026e1e0(void); s32 func_00287bc0(void); void func_0026df30(void);
 void* func_0023f1b0(void*); void* func_0023c3e0(void*, s32, s32);
@@ -52,8 +52,8 @@ void PauseTaskBegin_impl(void) {
     *(u32*)t = (u32)D_00347f98;
     func_0031a838(t + 12);
     *(u32*)t = (u32)D_0035eb98;
-    func_002369a0(t + 24);
-    func_0023c008(t + 48);
+    func_002369a0(t + 24);  // obj_ctor_36eac8
+    func_0023c008(t + 48);  // obj_ctor_36eae8
     D_0035f100 = t;
     func_0028d7f0(t, 30002, 0, 0, 0, -1, 0, 0, 0);
     func_0026e1e0();

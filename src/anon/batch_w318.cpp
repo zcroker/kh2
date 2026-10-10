@@ -28,14 +28,14 @@ void func_00190128(void*);
 int func_00190140(void*);
 int func_00190680(void*, T318*);
 int func_001b58a8(void);
-int func_00112720(void*);
+int func_00112720(void*);  // check_2924_lt14
 void func_0010df18(A318* p) {
     T318* s = &p->t;
     T318 t = p->t;
     func_00190128(s);
     if (func_001b58a8()) {
         (p->*D_00345b28[11].f)(&t, s);
-    } else if (func_00112720(p)) {
+    } else if (func_00112720(p)) {  // check_2924_lt14
         (p->*D_00345b28[p->idx - 8].f)(&t, s);
     } else {
         int i = (*(int (**)(void*))(*(u32*)p + 152))(p);
@@ -54,7 +54,7 @@ void func_0010df18(A318* p) {
     if (!func_00190680(s, &t)) p->fl |= 8;
 }
 
-u32 func_001064a8(int);
+u32 func_001064a8(int);  // int_to_float_scaled
 void func_0018c438(R318c*);
 int func_0018c528(int);
 int func_0016b740(s32);
@@ -65,7 +65,7 @@ int func_0018c650(R318c* o, Q318* v, int n, E318c* tab, O318* obj, f32 fa, f32 f
     E318c* sel = 0;
     int acc = 0;
     E318c* sp5 = 0;
-    int r = (int)func_001064a8(100);
+    int r = (int)func_001064a8(100);  // int_to_float_scaled
     for (int i = 0; i < n; i++) {
         if (tab[i].b0 == obj->h->h2) {
             if (tab[i].b1 == 3) sp5 = &tab[i];
@@ -114,7 +114,7 @@ s32 func_0013a7e8(int);
 s32 func_0013d7e0(void);
 int func_00156030(void*);
 s32 func_00155f40(void*);
-s32 func_00155ee8(void*);
+s32 func_00155ee8(void*);  // state_dispatch_0_4
 s32 func_00155fc0(void*);
 int func_00139c18(void*);
 void func_001386e0(void*, int, s32, s32, int, s32);
@@ -122,8 +122,8 @@ void func_001396b0(void*);
 void func_0031a260(void*, int);
 int func_001396c0(void*);
 void func_00139570(void*);
-int func_00156058(void*);
-int func_00156080(void*);
+int func_00156058(void*);  // state_code_is_2
+int func_00156080(void*);  // state_code_is_3
 void func_00138c10(void*, s32);
 void func_00156d20(void*);
 void func_00156408(void*);
@@ -162,7 +162,7 @@ void func_00156e48(u8* p) {
             }
             if (func_001396c0(q)) func_00139570(&((L318*)(p + 3364))[i]);
         }
-        if (func_00156058(p) || func_00156080(p)) {
+        if (func_00156058(p) || func_00156080(p)) {  // state_code_is_2
             func_00138c10(k, func_00155f40(p));
             func_00138c10(p + 12060, func_00155fc0(p));
             p[15607] = 1;

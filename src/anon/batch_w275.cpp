@@ -109,7 +109,7 @@ void func_001b4f40(u8* p) {
 }
 s32 func_0019bb98(void*);
 f32 func_0016a0a0(void*);
-void func_001b7958(void*, V7b*);
+void func_001b7958(void*, V7b*);  // add_vec_to_records
 void func_001b7b10(u8* a, u8* b, V7b* src, V7b* dst) {
     if (func_0019bb98(*(void**)(b + 4))) {
         if (func_0019bb98(*(void**)(a + 4))) {
@@ -119,7 +119,7 @@ void func_001b7b10(u8* a, u8* b, V7b* src, V7b* dst) {
     }
     if (func_0019bb98(*(void**)(a + 4))) {
         *(V7b*)(*(u8**)(b + 4) + 2160) += *dst;
-        func_001b7958(b, dst);
+        func_001b7958(b, dst);  // add_vec_to_records
         dst->zero();
         return;
     }
@@ -129,11 +129,11 @@ void func_001b7b10(u8* a, u8* b, V7b* src, V7b* dst) {
     v = scl(*dst, ma, ma + mb);
     *dst = scl(v, mb, ma);
     *(V7b*)(*(u8**)(b + 4) + 2160) += v;
-    func_001b7958(b, &v);
+    func_001b7958(b, &v);  // add_vec_to_records
 }
 s32 func_001bfca0(void*);
 void func_001991a8(s32, s32);
-V7e* func_0016c028(void*);
+V7e* func_0016c028(void*);  // obj_get_attach_or_alt
 V7e func_0016be98(void*);
 void func_0016bd60(void*, s32);
 void* func_0016a070(void*);

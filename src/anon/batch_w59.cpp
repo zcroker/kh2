@@ -50,22 +50,22 @@ void* create_task(void* self, int a, int b, void* fn) {
 
 // --- 00109140
 void func_00133de8(void);
-void func_00109330(void);
-void func_00109340(void);
-void func_0010a7d8(int, int, int);
+void func_00109330(void);  // set_global_3756_return
+void func_00109340(void);  // to_109450_zero
+void func_0010a7d8(int, int, int);  // store_triple_bytes
 void func_0010a828(f32, f32);
-void func_0010a8a8(f32, f32);
+void func_0010a8a8(f32, f32);  // store_global_float_pair
 extern u64 D_003a8e10;
 extern u8 D_00340eb0;
 void func_00109140(void) {
     func_00133de8();
-    func_00109330();
-    func_00109340();
+    func_00109330();  // set_global_3756_return
+    func_00109340();  // to_109450_zero
     D_003a8e10 = 0x4000000001300000ULL;
     D_00340eb0 = 1;
-    func_0010a7d8(128, 128, 128);
+    func_0010a7d8(128, 128, 128);  // store_triple_bytes
     func_0010a828(5000.0f, 1000000.0f);
-    func_0010a8a8(0.0f, 255.0f);
+    func_0010a8a8(0.0f, 255.0f);  // store_global_float_pair
 }
 
 // --- 0010cce0
@@ -94,7 +94,7 @@ void func_0013e2d8(u8* p, u32 a, u32 b) {
 
 // --- 00141850
 // Clear every entry's flag, then apply each bit set in the 64-bit mask.
-void func_00141928(u8*, u8);
+void func_00141928(u8*, u8);  // mark_records_by_index
 struct E141 { u8 pad[16]; u8 f; u8 p2[3]; };
 void func_00141850(u8* p, u64 mask) {
     s32 j;
@@ -103,7 +103,7 @@ void func_00141850(u8* p, u64 mask) {
     s32 i;
     for (i = 0; i < 64; i++) {
         u64 one = 1;
-        if (mask & (one << i)) func_00141928(p, i);
+        if (mask & (one << i)) func_00141928(p, i);  // mark_records_by_index
     }
 }
 
@@ -179,14 +179,14 @@ u32 func_00167cd0(u8* p) {
 // p[0] = &(static vector = *p[0] - *p[1]); the static's guard/atexit is open-coded.
 extern s8 D_004f62d0;
 extern Vec4 D_004f62e0;
-void func_002fd188(void (*)(void));
+void func_002fd188(void (*)(void));  // pool_alloc_block
 void func_0016e880(void);
 void func_0016d3c8(Vec4** p) {
     Vec4* a = p[0];
     Vec4* b = p[1];
     if (!D_004f62d0) {
         D_004f62d0 = 1;
-        func_002fd188(func_0016e880);
+        func_002fd188(func_0016e880);  // pool_alloc_block
     }
     Vec4 t;
     asm volatile("lqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 0(%2)\n\tvsub.xyzw $vf1, $vf1, $vf2\n\tsqc2 $vf1, %0" : "=m"(t) : "r"(a), "r"(b));
@@ -196,7 +196,7 @@ void func_0016d3c8(Vec4** p) {
 
 // --- 00173f68
 f32 func_00184a90(u32);
-f32* func_0016c028(u32);
+f32* func_0016c028(u32);  // obj_get_attach_or_alt
 void func_00173f68(u8* p) {
     u32 o = *(u32*)(*(u8**)p + 4);
     f32 d = func_00184a90(o) - func_0016c028(o)[1];
@@ -253,7 +253,7 @@ void func_00188ac8(S188* p) {
 // --- 00190388
 struct Buf190 { u32 a, b, c, d; Vec4c v; };
 void func_001902a8(u32, Buf190*);
-Vec4c func_00190388(u32 a) {
+Vec4c func_00190388(u32 a) {  // vec4_from_arg
     Buf190 t;
     t.d = 0;
     func_001902a8(a, &t);
@@ -319,7 +319,7 @@ extern u8* D_01d5ba68;
 extern u8 D_00321790[];
 extern u32 D_00352768;
 u8* func_002fd248(u32, u8*, u32, u32, void*);
-u8* func_00168b38(u32, u32, u8);
+u8* func_00168b38(u32, u32, u8);  // entry_array_find_nth
 void func_0023cde8(u32);
 void func_001d5068(u32 key) {
     u8* t = D_01d5ba68;
@@ -363,8 +363,8 @@ void func_001d8ad8(s32 idx, u8 flag) {
 
 // --- 001da458
 struct P1da { u32 a; u32 b; u32 cur; };
-void func_001da3d8(P1da*, u32*);
-void func_001da458(P1da* p, u32 a, u32* arr, s32 n) {
+void func_001da3d8(P1da*, u32*);  // stream_append_unaligned
+void func_001da458(P1da* p, u32 a, u32* arr, s32 n) {  // stream_init_fields
     u32 i;
     p->b = a;
     for (i = 0; i < 4; i++) {
@@ -372,16 +372,16 @@ void func_001da458(P1da* p, u32 a, u32* arr, s32 n) {
         *c = 0;
         p->cur = (u32)(c + 1);
     }
-    for (i = 0; (s32)i < n; i++) func_001da3d8(p, &arr[i]);
+    for (i = 0; (s32)i < n; i++) func_001da3d8(p, &arr[i]);  // stream_append_unaligned
 }
 
 // --- 001e0de8
-Vec4* func_001e0cc8(Vec4*);
-Vec4* func_001e0ce8(Vec4*);
+Vec4* func_001e0cc8(Vec4*);  // entry64_by_field32
+Vec4* func_001e0ce8(Vec4*);  // entry64_by_field32_b
 void func_001e0de8(Vec4* p) {
-    p[0] = *func_001e0cc8(p);
+    p[0] = *func_001e0cc8(p);  // entry64_by_field32
     *(u32*)&p[0].w = 0;
-    p[1] = *func_001e0ce8(p);
+    p[1] = *func_001e0ce8(p);  // entry64_by_field32_b
 }
 
 // --- 001ea458
@@ -428,7 +428,7 @@ extern u8 D_0035f360[];
 extern u32* volatile D_0035f0dc;
 void func_00263bb0(u32, u32);
 void func_00239700(u32*);
-void func_00263960(u32 a, u32 b, u32 c, u32 d, u32 e) {
+void func_00263960(u32 a, u32 b, u32 c, u32 d, u32 e) {  // store_globals_and_init
     D_0035f0b8 = a;
     D_0035f0bc = b;
     D_0035f0c0 = c;

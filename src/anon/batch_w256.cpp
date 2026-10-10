@@ -64,8 +64,8 @@ extern u32 D_0035f01c;
 u32 getselpos_w256(s32) asm("_ZN2Tz5CmTop12GetSelectPosEi");
 s32 getitemtbl_w256(s32) asm("_ZN2Tz9CmAbility10GetItemTblEi");
 void func_0027aed8(u32, s32*, s32*);
-s32 func_0027af58(void);
-I27* func_00273180(s32, s32);
+s32 func_0027af58(void);  // check_state16_then_loop
+I27* func_00273180(s32, s32);  // state_dispatch_2_3
 void func_002891f0(u32, s32, s32, s32, s32);
 void func_0027b248(s32);
 void func_0027afe0(void) {
@@ -73,7 +73,7 @@ void func_0027afe0(void) {
   s32 r = 0;
   func_0027aed8(getselpos_w256(15), &a, &b);
   s32 k = getselpos_w256(16);
-  s32 v = func_0027af58();
+  s32 v = func_0027af58();  // check_state16_then_loop
   s8 f = D_0035f230->e[k].b;
   if (!D_0035f230->e[k].a) goto out;
   if (a) goto one;
@@ -82,7 +82,7 @@ void func_0027afe0(void) {
   if (f) goto one;
   if (getitemtbl_w256(k)) goto one;
   {
-    I27* p = func_00273180(4, -1);
+    I27* p = func_00273180(4, -1);  // state_dispatch_2_3
     s32 i;
     for (i = 0; i < 3; i++) if (p[i].b5 == D_0035f230->e[k].c) break;
     r = i + 1;

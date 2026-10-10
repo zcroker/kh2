@@ -95,15 +95,15 @@ s32 func_0013ff08(Ob13* o, In13* in, f32 dt) {
   return r;
 }
 
-QV_bfa0* func_0016c028(void*);
+QV_bfa0* func_0016c028(void*);  // obj_get_attach_or_alt
 void func_0018bfa0(Act_bfa0* a, void* b, f32 dist) {
-  QV_bfa0 d = *func_0016c028(a) - *func_0016c028(b);
+  QV_bfa0 d = *func_0016c028(a) - *func_0016c028(b);  // obj_get_attach_or_alt
   normalize_bfa0(&d);
   QV_bfa0 c = cross_bfa0(d, QV_bfa0(0.0f, 1.0f, 0.0f, 0.0f));
   normalize_bfa0(&c);
   scale_bfa0(&c, dist);
   QV_bfa0 s = *func_0016c028(b) + c;
-  QV_bfa0 t = s - *func_0016c028(a);
+  QV_bfa0 t = s - *func_0016c028(a);  // obj_get_attach_or_alt
   normalize_bfa0(&t);
   a->xa80 = t;
 }
@@ -112,7 +112,7 @@ void func_002ce2a0(Ob_c620*, s32*, f32*, QV_bfa0*);
 QV_bfa0 func_002cda68(Ob_c620*, s32, f32);
 void func_002cc620(Ob_c620* o, void* a, void* b) {
   if (o->x86) return;
-  QV_bfa0 d = *func_0016c028(a) - *func_0016c028(b);
+  QV_bfa0 d = *func_0016c028(a) - *func_0016c028(b);  // obj_get_attach_or_alt
 
   if (normalize_bfa0(&d) < 0.01f) return;
   s32 i; f32 f;
@@ -172,8 +172,8 @@ struct Ob_5680 {
   u8 x790[0xc60 - 0x790]; u8 xc60[16][880]; El_5680 x4360[512]; u8 p5360[4]; s32 x5364; u8 p5368[4];
   s32 x536c, x5370, x5374, x5378, x537c;
 };
-void func_00106ab8(void*);
-void func_001070c8(void*);
+void func_00106ab8(void*);  // noop_ret
+void func_001070c8(void*);  // set_vtbl_34cc50
 void func_0015e4e0(void*);
 void func_0015e9e0(void*);
 void func_0031a830(void*);
@@ -182,8 +182,8 @@ void func_00145b90(Ob_5680*, s32);
 void func_00146d28(Ob_5680*);
 void func_00145680(Ob_5680* o, Hd_5680* h, u8 flag, s32 a3) {
   o->x4 = 0; o->x8 = 0; o->xc = 0; o->x10 = 0; o->x14 = 0; o->x18 = 0; o->x1c = 0;
-  func_00106ab8(o->x20);
-  func_001070c8(o->x120);
+  func_00106ab8(o->x20);  // noop_ret
+  func_001070c8(o->x120);  // set_vtbl_34cc50
   o->x778 = flag;
   o->x779 = 0;
   func_0015e4e0(o->x790);
@@ -222,7 +222,7 @@ void func_00139660(Nd94*);
 void func_00139688(Nd94*);
 s32 func_0023aa98(void*);
 void func_00138c68(Nd94*, s32, s32);
-void func_00229430(Ow94*, s32);
+void func_00229430(Ow94*, s32);  // to_1391c8_arg11
 void func_00229830(Ow94*);
 static inline void setParent_2294c8(Nd94* n, Nd94* p) {
   n->parent = p;
@@ -251,7 +251,7 @@ void func_002294c8(Ow94* o, s32 n, s32 b, Desc94* d) {
     func_00139688(e);
     func_00138c68(e, k * func_0023aa98((u8*)o + 456), 0);
   }
-  func_00229430(o, 2800);
+  func_00229430(o, 2800);  // to_1391c8_arg11
   setParent_2294c8(&o->root, 0);
   func_00229830(o);
   o->xb44 = -1;

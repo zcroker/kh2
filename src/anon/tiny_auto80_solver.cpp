@@ -13,7 +13,7 @@ u32 func_00102750(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_00102788(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_00102818(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_001029e8(u32, u32, u32, u32, u32, u32, u32, u32);
-u32 func_00102a38(u32, u32, u32, u32, u32, u32, u32, u32);
+u32 func_00102a38(u32, u32, u32, u32, u32, u32, u32, u32);  // list_contains_id
 u32 func_00102b58(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_00102c18(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_00102c48(u32, u32, u32, u32, u32, u32, u32, u32);
@@ -40,10 +40,10 @@ u32 func_00106178(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_001063c0(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_001063f0(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_00106420(u32, u32, u32, u32, u32, u32, u32, u32);
-void func_001069b8(u32, u32, u32, u32, u32, u32, u32, u32);
-u32 func_00106a60(u32, u32, u32, u32, u32, u32, u32, u32);
-u32 func_00107478(u32, u32, u32, u32, u32, u32, u32, u32);
-u32 func_00108398(u32, u32, u32, u32, u32, u32, u32, u32);
+void func_001069b8(u32, u32, u32, u32, u32, u32, u32, u32);  // swap_global_word
+u32 func_00106a60(u32, u32, u32, u32, u32, u32, u32, u32);  // buffer_get_by_index
+u32 func_00107478(u32, u32, u32, u32, u32, u32, u32, u32);  // vec_copy_at96_if_diff
+u32 func_00108398(u32, u32, u32, u32, u32, u32, u32, u32);  // clear_quads_set_flags
 u32 func_00108698(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_001091c8(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_00109280(u32, u32, u32, u32, u32, u32, u32, u32);
@@ -55,7 +55,7 @@ u32 func_00111040(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_001124e8(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_00112570(u32);
 u32 func_00112730(u32, u32, u32, u32, u32, u32, u32, u32);
-u32 func_00112740(u32, u32, u32, u32, u32, u32, u32, u32);
+u32 func_00112740(u32, u32, u32, u32, u32, u32, u32, u32);  // get_field2940
 u32 func_00112760(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_00112ab8(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_00112c58(u32, u32, u32, u32, u32, u32, u32, u32);
@@ -82,17 +82,17 @@ u32 func_0011d440(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_0011e350(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_0011e450(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_0011eb08(u32, u32, u32, u32, u32, u32, u32, u32);
-u32 func_0011ee58(u32, u32, u32, u32, u32, u32, u32, u32);
+u32 func_0011ee58(u32, u32, u32, u32, u32, u32, u32, u32);  // set_vtbl_347940
 u32 func_0011ee98(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_0011ef20(u32, u32, u32);
 u32 func_0011f7a8(u32, u32, u32, u32, u32, u32, u32, u32);
-u32 func_00124748(u32, u32, u32, u32, u32, u32, u32, u32);
-void func_00124bb8(u32, u32, u32, u32, u32, u32, u32, u32);
-u32 func_00124c08(u32, u32, u32, u32, u32, u32, u32, u32);
+u32 func_00124748(u32, u32, u32, u32, u32, u32, u32, u32);  // list_nth_node_rel
+void func_00124bb8(u32, u32, u32, u32, u32, u32, u32, u32);  // obj_ctor_347b88
+u32 func_00124c08(u32, u32, u32, u32, u32, u32, u32, u32);  // set_vtbl_347b88
 u32 func_001320f0(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_00132208(u32, u32, u32, u32, u32, u32, u32, u32);
-u32 func_00132270(u32, u32, u32, u32, u32, u32, u32, u32);
-u32 func_001322f0(u32, u32, u32, u32, u32, u32, u32, u32);
+u32 func_00132270(u32, u32, u32, u32, u32, u32, u32, u32);  // obj_ctor_347c00
+u32 func_001322f0(u32, u32, u32, u32, u32, u32, u32, u32);  // set_vtbl_347c00
 u32 func_00133630(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_001336d8(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_001336e8(u32, u32, u32, u32, u32, u32, u32, u32);
@@ -100,16 +100,16 @@ u32 func_001336f8(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_00133718(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_00133720(u32);
 u32 func_001337a0(u32, u32, u32, u32, u32, u32, u32, u32);
-u32 func_00133848(u32, u32, u32, u32, u32, u32, u32, u32);
-u32 func_00133898(u32, u32, u32, u32, u32, u32, u32, u32);
+u32 func_00133848(u32, u32, u32, u32, u32, u32, u32, u32);  // entry16_init_flag16
+u32 func_00133898(u32, u32, u32, u32, u32, u32, u32, u32);  // entry16_init_flag96
 u32 func_001338e8(u32, u32, u32, u32, u32, u32, u32, u32);
 void func_00133ac8(u32, u64, u64, u32, u32, u32, u32, u32);
 u32 func_00133b78(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_00133b88(u32, u32, u32, u32, u32, u32, u32, u32);
-u32 func_00133bb8(u32, u32, u32, u32, u32, u32, u32, u32);
+u32 func_00133bb8(u32, u32, u32, u32, u32, u32, u32, u32);  // forward_sub24_to_133848
 u32 func_00133c00(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_00133c18(u32, u32, u32, u32, u32, u32, u32, u32);
-u32 func_00133c60(u32, u32, u32, u32, u32, u32, u32, u32);
+u32 func_00133c60(u32, u32, u32, u32, u32, u32, u32, u32);  // forward_sub24_to_133980
 u32 func_00133c78(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_00133f20(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_00134258(u32, u32, u32, u32, u32, u32, u32, u32);
@@ -193,7 +193,7 @@ u32 func_00140e30(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_00140f10(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_00140f20(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_00141778(u32, u32, u32, u32, u32, u32, u32, u32);
-u32 func_00141970(u32, u32, u32, u32, u32, u32, u32, u32);
+u32 func_00141970(u32, u32, u32, u32, u32, u32, u32, u32);  // vtable_get12
 u32 func_00142278(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_00142900(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_001431e8(u32, u32, u32, u32, u32, u32, u32, u32);
@@ -205,20 +205,20 @@ u32 func_00149370(u32, u32);
 u32 func_001493b8(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_001493e8(u32, u32);
 u32 func_00149428(u32, u32, u32, u32, u32, u32, u32, u32);
-u32 func_0014a248(u32, u32, u32, u32, u32, u32, u32, u32);
+u32 func_0014a248(u32, u32, u32, u32, u32, u32, u32, u32);  // zero_global_byte_b
 u32 func_0014a4b0(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_0014a4c0(u32, u32, u32, u32, u32, u32, u32, u32);
-u32 func_0014a988(u32, u32, u32, u32, u32, u32, u32, u32);
+u32 func_0014a988(u32, u32, u32, u32, u32, u32, u32, u32);  // clear_fields_244_260
 u32 func_0014a9a0(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_0014aa58(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_0014aa80(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_0014aba8(u32, u32, u32, u32, u32, u32, u32, u32);
-u32 func_0014abb8(u32, u32, u32, u32, u32, u32, u32, u32);
-u32 func_0014abc8(u32, u32, u32, u32, u32, u32, u32, u32);
+u32 func_0014abb8(u32, u32, u32, u32, u32, u32, u32, u32);  // get_data_359840
+u32 func_0014abc8(u32, u32, u32, u32, u32, u32, u32, u32);  // get_data_359950
 u32 func_0014ace8(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_0014acf8(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_0014ae10(u32, u32, u32, u32, u32, u32, u32, u32);
-void func_0014b150(u32, u32, u32, u32, u32, u32, u32, u32);
+void func_0014b150(u32, u32, u32, u32, u32, u32, u32, u32);  // obj_init_fields_14b150
 u32 func_0014b208(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_0014b248(u32, u32, u32, u32, u32, u32, u32, u32);
 void func_0014b5e8(u32, u32, u32, u32, u32, u32, u32, u32);
@@ -237,14 +237,14 @@ u32 func_0014d358(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_0014d8d0(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_0014de30(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_0014dec0(u32, u32, u32, u32, u32, u32, u32, u32);
-u32 func_0014df98(u32, u32, u32, u32, u32, u32, u32, u32);
+u32 func_0014df98(u32, u32, u32, u32, u32, u32, u32, u32);  // zero_global_byte
 u32 func_0014e088(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_0014e098(u32);
 u32 func_0014e0d8(void);
 u32 func_0014e5f0(u32);
-u32 func_0014e648(u32, u32, u32, u32, u32, u32, u32, u32);
+u32 func_0014e648(u32, u32, u32, u32, u32, u32, u32, u32);  // ptr_add752
 u32 func_0014e658(u32, u32, u32, u32, u32, u32, u32, u32);
-u32 func_0014f030(u32, u32, u32, u32, u32, u32, u32, u32);
+u32 func_0014f030(u32, u32, u32, u32, u32, u32, u32, u32);  // obj_set_lerp_params
 u32 func_0014f8d0(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_00150be8(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_00150dc0(u32, u32, u32, u32, u32, u32, u32, u32);
@@ -255,17 +255,17 @@ u32 func_00153540(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_00153d70(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_00154408(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_00154450(u32, u32, u32, u32, u32, u32, u32, u32);
-u32 func_00154ee8(u32, u32, u32, u32, u32, u32, u32, u32);
+u32 func_00154ee8(u32, u32, u32, u32, u32, u32, u32, u32);  // field24_state_code
 u32 func_00155f40(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_00156408(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_001581f8(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_0015b7f8(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_0015bab8(u32, u32, u32, u32, u32, u32, u32, u32);
-u32 func_0015ce90(u32, u32, u32, u32, u32, u32, u32, u32);
+u32 func_0015ce90(u32, u32, u32, u32, u32, u32, u32, u32);  // zero_global_byte_g
 u32 func_00160268(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_001616d8(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_00165898(u32, u32, u32, u32, u32, u32, u32, u32);
-u32 func_001666a0(u32, u32, u32, u32, u32, u32, u32, u32);
+u32 func_001666a0(u32, u32, u32, u32, u32, u32, u32, u32);  // zero_fields_0_4_6_8
 void func_001666d0(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_001669e0(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_00167658(u32, u32, u32, u32, u32, u32, u32, u32);
@@ -279,13 +279,13 @@ u32 func_00167f38(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_00168388(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_00168548(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_001688c8(u32, u32, u32, u32, u32, u32, u32, u32);
-u32 func_00168b38(u32, u32, u32, u32, u32, u32, u32, u32);
+u32 func_00168b38(u32, u32, u32, u32, u32, u32, u32, u32);  // entry_array_find_nth
 u32 func_0016a020(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_0016a070(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_0016a080(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_0016a2e0(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_0016a358(u32, u32, u32, u32, u32, u32, u32, u32);
-u32 func_0016a9a0(u32, u32, u32, u32, u32, u32, u32, u32);
+u32 func_0016a9a0(u32, u32, u32, u32, u32, u32, u32, u32);  // to_16a950
 u32 func_0016ac38(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_0016ac80(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_0016b5b8(u32, u32, u32, u32, u32, u32, u32, u32);
@@ -308,14 +308,14 @@ u32 func_0016cfa0(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_0016e920(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_0016ed50(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_0016f6a0(u32, u32, u32, u32, u32, u32, u32, u32);
-u32 func_0016fa98(u32, u32, u32, u32, u32, u32, u32, u32);
+u32 func_0016fa98(u32, u32, u32, u32, u32, u32, u32, u32);  // set_table_word
 u32 func_00170320(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_00170400(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_00170518(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_00170888(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_001708f8(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_00170950(u32, u32, u32, u32, u32, u32, u32, u32);
-u32 func_00170b30(u32, u32, u32, u32, u32, u32, u32, u32);
+u32 func_00170b30(u32, u32, u32, u32, u32, u32, u32, u32);  // alloc_align128
 void func_00170c00(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_001758b0(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_00175af8(u32, u32, u32, u32, u32, u32, u32, u32);
@@ -347,7 +347,7 @@ u32 func_00180ce0(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_00181178(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_00182780(u32, u32, u32, u32, u32, u32, u32, u32);
 void func_00182838(u32, u32, u32, u32, u32, u32, u32, u32);
-u32 func_00182f28(u32, u32, u32, u32, u32, u32, u32, u32);
+u32 func_00182f28(u32, u32, u32, u32, u32, u32, u32, u32);  // store_global_35ed04
 u32 func_001852b8(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_00185ed8(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_001860b0(u32, u32, u32, u32, u32, u32, u32, u32);
@@ -414,7 +414,7 @@ u32 func_0019d548(u32, u32, u32, u32, u32, u32, u32, u32);
 void func_0019ec88(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_0019ed48(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_0019f2a8(u32, u32, u32, u32, u32, u32, u32, u32);
-u32 func_0019f9a8(u32, u32, u32, u32, u32, u32, u32, u32);
+u32 func_0019f9a8(u32, u32, u32, u32, u32, u32, u32, u32);  // array8_free_slots
 u32 func_0019fb48(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_001a0798(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_001a0e78(u32, u32, u32, u32, u32, u32, u32, u32);
@@ -423,16 +423,16 @@ u32 func_001a11e0(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_001a15d0(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_001a17c8(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_001a1840(u32, u32, u32, u32, u32, u32, u32, u32);
-u32 func_001a1910(u32, u32, u32, u32, u32, u32, u32, u32);
+u32 func_001a1910(u32, u32, u32, u32, u32, u32, u32, u32);  // entry12_add_clamped
 u32 func_001a1a50(u32, u32, u32, u32, u32, u32, u32, u32);
 void func_001a1c70(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_001a2438(u32, u32, u32, u32, u32, u32, u32, u32);
-u32 func_001a2478(u32, u32, u32, u32, u32, u32, u32, u32);
+u32 func_001a2478(u32, u32, u32, u32, u32, u32, u32, u32);  // count_div4_compare
 u32 func_001a3168(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_001a3188(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_001a35f8(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_001a36e0(u32, u32, u32, u32, u32, u32, u32, u32);
-u32 func_001a3888(u32, u32, u32, u32, u32, u32, u32, u32);
+u32 func_001a3888(u32, u32, u32, u32, u32, u32, u32, u32);  // id_in_range_5_7_131
 u32 func_001a3a78(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_001a3c88(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_001a4550(u32, u32, u32, u32, u32, u32, u32, u32);
@@ -449,23 +449,23 @@ u32 func_001a6598(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_001a6a20(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_001a6d08(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_001a7588(u32, u32, u32, u32, u32, u32, u32, u32);
-u32 func_001a80c8(u32, u32, u32, u32, u32, u32, u32, u32);
+u32 func_001a80c8(u32, u32, u32, u32, u32, u32, u32, u32);  // table24_find_by_id
 u32 func_001a8258(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_001a82f0(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_001a8418(void);
 u32 func_001a84b0(u32, u32, u32, u32, u32, u32, u32, u32);
-u32 func_001a8510(u32, u32, u32, u32, u32, u32, u32, u32);
-u32 func_001a8b28(u32, u32, u32, u32, u32, u32, u32, u32);
+u32 func_001a8510(u32, u32, u32, u32, u32, u32, u32, u32);  // mod8_of_difference
+u32 func_001a8b28(u32, u32, u32, u32, u32, u32, u32, u32);  // get_data_1c7cc10
 u32 func_001a8b38(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_001a8b68(u32, u32, u32, u32, u32, u32, u32, u32);
-u32 func_001a8f10(u32, u32, u32, u32, u32, u32, u32, u32);
+u32 func_001a8f10(u32, u32, u32, u32, u32, u32, u32, u32);  // arg_map_0_1_2
 u32 func_001a9110(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_001a9218(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_001a9350(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_001a9780(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_001ab598(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_001ab800(u32, u32, u32, u32, u32, u32, u32, u32);
-u32 func_001ab810(u32, u32, u32, u32, u32, u32, u32, u32);
+u32 func_001ab810(u32, u32, u32, u32, u32, u32, u32, u32);  // get_global_1c7cec0
 u32 func_001ac310(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_001ac5b8(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_001acd78(u32, u32, u32, u32, u32, u32, u32, u32);
@@ -490,17 +490,17 @@ u32 func_001b3b70(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_001b58f0(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_001b6298(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_001b6bd8(u32, u32, u32, u32, u32, u32, u32, u32);
-u32 func_001b6d70(u32, u32, u32, u32, u32, u32, u32, u32);
+u32 func_001b6d70(u32, u32, u32, u32, u32, u32, u32, u32);  // table_entry_ptr_b
 u32 func_001b77a8(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_001b77d0(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_001b7f88(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_001b83d0(u32, u32, u32, u32, u32, u32, u32, u32);
-u32 func_001b83f0(u32, u32, u32, u32, u32, u32, u32, u32);
+u32 func_001b83f0(u32, u32, u32, u32, u32, u32, u32, u32);  // to_2fd248_block8
 u32 func_001b8e88(u32, u32, u32, u32, u32, u32, u32, u32);
 void func_001b9c28(u32, u32, u32, u32, u32, u32, u32, u32);
 void func_001b9c58(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_001b9db0(u32, u32, u32, u32, u32, u32, u32, u32);
-u32 func_001ba028(u32, u32, u32, u32, u32, u32, u32, u32);
+u32 func_001ba028(u32, u32, u32, u32, u32, u32, u32, u32);  // list_contains_ptr
 u32 func_001ba158(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_001ba598(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_001ba740(u32, u32, u32, u32, u32, u32, u32, u32);
@@ -527,12 +527,12 @@ u32 func_001c0248(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_001c0c80(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_001c0cd8(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_001c0d38(u32, u32, u32, u32, u32, u32, u32, u32);
-u32 func_001c10f8(u32, u32, u32, u32, u32, u32, u32, u32);
-u32 func_001c1130(u32, u32, u32, u32, u32, u32, u32, u32);
+u32 func_001c10f8(u32, u32, u32, u32, u32, u32, u32, u32);  // request_pool_block64
+u32 func_001c1130(u32, u32, u32, u32, u32, u32, u32, u32);  // copy_record_block_to_table
 u32 func_001c11a8(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_001c1428(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_001c14e0(u32, u32, u32, u32, u32, u32, u32, u32);
-u32 func_001c1748(u32, u32, u32, u32, u32, u32, u32, u32);
+u32 func_001c1748(u32, u32, u32, u32, u32, u32, u32, u32);  // obj_init_from_src
 u32 func_001c1b08(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_001c2b58(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_001c2d48(u32, u32, u32, u32, u32, u32, u32, u32);
@@ -549,7 +549,7 @@ u32 func_001c9770(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_001ce378(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_001d01e0(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_001d14a0(u32, u32, u32, u32, u32, u32, u32, u32);
-void func_001d1678(u32, u32, u32, u32, u32, u32, u32, u32);
+void func_001d1678(u32, u32, u32, u32, u32, u32, u32, u32);  // obj_init_28bytes
 u32 func_001d16f8(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_001d1b60(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_001d1ed0(u32, u32, u32, u32, u32, u32, u32, u32);
@@ -567,7 +567,7 @@ u32 func_001d3390(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_001d3f80(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_001d44d8(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_001d4550(u32, u32, u32, u32, u32, u32, u32, u32);
-u32 func_001d4808(u32, u32, u32, u32, u32, u32, u32, u32);
+u32 func_001d4808(u32, u32, u32, u32, u32, u32, u32, u32);  // is_halfword42_zero
 u32 func_001d48b0(u32, u32, u32, u32, u32, u32, u32, u32);
 void func_001d4bb8(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_001d4f40(u32, u32, u32, u32, u32, u32, u32, u32);
@@ -599,19 +599,19 @@ u32 func_001dcdb8(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_001dced0(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_001ddd10(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_001dde40(u32, u32, u32, u32, u32, u32, u32, u32);
-u32 func_001de168(u32, u32, u32, u32, u32, u32, u32, u32);
+u32 func_001de168(u32, u32, u32, u32, u32, u32, u32, u32);  // scan_list_by_half
 u32 func_001de450(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_001de690(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_001de750(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_001de808(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_001e02f8(u32, u32, u32, u32, u32, u32, u32, u32);
-u32 func_001e0cc8(u32, u32, u32, u32, u32, u32, u32, u32);
+u32 func_001e0cc8(u32, u32, u32, u32, u32, u32, u32, u32);  // entry64_by_field32
 u32 func_001e17b8(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_001e1988(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_001e26b8(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_001e2c78(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_001e2c80(u32, u32, u32, u32, u32, u32, u32, u32);
-u32 func_001e3650(u32, u32, u32, u32, u32, u32, u32, u32);
+u32 func_001e3650(u32, u32, u32, u32, u32, u32, u32, u32);  // ptr_add4
 u32 func_001e3660(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_001e4248(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_001e4320(u32, u32, u32, u32, u32, u32, u32, u32);
@@ -656,13 +656,13 @@ u32 func_00234670(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_002346a0(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_002361d0(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_002362b0(u32, u32, u32, u32, u32, u32, u32, u32);
-u32 func_002367c8(u32, u32, u32, u32, u32, u32, u32, u32);
-u32 func_002369f0(u32, u32, u32, u32, u32, u32, u32, u32);
+u32 func_002367c8(u32, u32, u32, u32, u32, u32, u32, u32);  // obj_dispatch_bitfield64
+u32 func_002369f0(u32, u32, u32, u32, u32, u32, u32, u32);  // set_vtbl_36eac8_then_call
 u32 func_00236c38(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_00236cc0(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_00237238(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_00239700(u32, u32, u32, u32, u32, u32, u32, u32);
-u32 func_00239848(u32, u32, u32, u32, u32, u32, u32, u32);
+u32 func_00239848(u32, u32, u32, u32, u32, u32, u32, u32);  // set_vtbl_36eb28_then_call
 u32 func_00239870(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_00239988(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_00239bf8(u32, u32, u32, u32, u32, u32, u32, u32);
@@ -674,7 +674,7 @@ u32 func_0023aa38(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_0023aa98(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_0023acd8(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_0023ade0(u32, u32, u32, u32, u32, u32, u32, u32);
-u32 func_0023c098(u32, u32, u32, u32, u32, u32, u32, u32);
+u32 func_0023c098(u32, u32, u32, u32, u32, u32, u32, u32);  // set_vtbl_36eae8_then_call
 u32 func_0023c300(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_0023c4b8(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_0023c598(u32, u32, u32, u32, u32, u32, u32, u32);
@@ -704,8 +704,8 @@ u32 func_00240be0(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_00240c08(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_00242088(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_002423a0(u32, u32, u32, u32, u32, u32, u32, u32);
-u32 func_00242408(u32, u32, u32, u32, u32, u32, u32, u32);
-u32 func_00242418(u32, u32, u32, u32, u32, u32, u32, u32);
+u32 func_00242408(u32, u32, u32, u32, u32, u32, u32, u32);  // set_global_crc_m1
+u32 func_00242418(u32, u32, u32, u32, u32, u32, u32, u32);  // crc_byte_update
 u32 func_00242560(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_00242880(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_00242b58(u32, u32, u32, u32, u32, u32, u32, u32) asm("_ZN2Tz6Config12isCameraAutoEv");
@@ -728,7 +728,7 @@ u32 func_002571e0(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_00257388(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_00257708(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_00257770(u32, u32, u32, u32, u32, u32, u32, u32);
-u32 func_00257fa8(u32, u32, u32, u32, u32, u32, u32, u32);
+u32 func_00257fa8(u32, u32, u32, u32, u32, u32, u32, u32);  // nth_set_bit_index
 u32 func_00258af0(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_00258b00(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_00258d40(u32, u32, u32, u32, u32, u32, u32, u32);
@@ -768,7 +768,7 @@ u32 func_00281008(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_00281238(u32, u32, u32, u32, u32, u32, u32, u32);
 void func_002817b8(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_00281f40(u32, u32, u32, u32, u32, u32, u32, u32);
-u32 func_00281f48(u32, u32, u32, u32, u32, u32, u32, u32);
+u32 func_00281f48(u32, u32, u32, u32, u32, u32, u32, u32);  // memset_1920
 u32 func_00281f70(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_00281f90(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_002833f8(u32, u32, u32, u32, u32, u32, u32, u32);
@@ -780,7 +780,7 @@ u32 func_00287760(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_002878c8(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_00287bc0(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_00287bd0(u32, u32);
-u32 func_00287c20(u32, u32, u32, u32, u32, u32, u32, u32);
+u32 func_00287c20(u32, u32, u32, u32, u32, u32, u32, u32);  // clear_global_flag_return_m1
 void func_00287c78(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_00287cc0(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_00287dc0(u32, u32, u32, u32, u32, u32, u32, u32);
@@ -823,7 +823,7 @@ u32 func_002953c8(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_0029a5f0(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_0029e430(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_002ac678(u32, u32, u32, u32, u32, u32, u32, u32);
-u32 func_002b23e0(u32, u32, u32, u32, u32, u32, u32, u32);
+u32 func_002b23e0(u32, u32, u32, u32, u32, u32, u32, u32);  // list_entry_by_index_checked
 u32 func_002b4b00(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_002b6ab8(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_002b6adc(u32, u32, u32, u32, u32, u32, u32, u32);
@@ -850,8 +850,8 @@ u32 func_002baa60(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_002baf38(u32, u32, u32, u32, u32, u32, u32, u32);
 void func_002bb0c8(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_002bb0e0(u32, u32, u32, u32, u32, u32, u32, u32);
-u32 func_002bb100(u32, u32, u32, u32, u32, u32, u32, u32);
-u32 func_002bb180(u32, u32, u32, u32, u32, u32, u32, u32);
+u32 func_002bb100(u32, u32, u32, u32, u32, u32, u32, u32);  // next_global_id
+u32 func_002bb180(u32, u32, u32, u32, u32, u32, u32, u32);  // obj_init_with_temp_blocks
 u32 func_002bc470(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_002bc608(u32, u32, u32, u32, u32, u32, u32, u32);
 extern "C" u32 func_002bc798(u32, u32, u32, u32, u32, u32, u32, u32) asm("_ZN5SOUND10SE3DEnableEv");
@@ -877,7 +877,7 @@ u32 func_002cf268(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_002cf280(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_002cf2d0(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_002cf3f8(u32, u32, u32, u32, u32, u32, u32, u32);
-u32 func_002cfeb0(u32);
+u32 func_002cfeb0(u32);  // obj_init_field1416_bit800
 u32 func_002cff50(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_002cff98(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_002d00a0(u32);
@@ -892,12 +892,12 @@ u32 func_002db530(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_002db610(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_002dc4e0(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_002dc7e8(u32, u32, u32, u32, u32, u32, u32, u32);
-u32 func_002dea80(u32, u32, u32, u32, u32, u32, u32, u32);
+u32 func_002dea80(u32, u32, u32, u32, u32, u32, u32, u32);  // set_vtbl_362d20
 u32 func_002e0d28(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_002e20d8(u32, u32, u32, u32, u32, u32, u32, u32);
-u32 func_002e4a90(u32, u32, u32, u32, u32, u32, u32, u32);
+u32 func_002e4a90(u32, u32, u32, u32, u32, u32, u32, u32);  // in_even_range
 u32 func_002e7308(u32, u32, u32, u32, u32, u32, u32, u32);
-u32 func_002e7328(u32, u32, u32, u32, u32, u32, u32, u32);
+u32 func_002e7328(u32, u32, u32, u32, u32, u32, u32, u32);  // to_2e7458
 u32 func_002e7670(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_002e7688(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_002e76b0(u32, u32, u32, u32, u32, u32, u32, u32);
@@ -910,8 +910,8 @@ u32 func_002e9cb8(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_002e9fa8(u32, u32, u32, u32, u32, u32, u32, u32);
 void func_002e9fb8(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_002ed300(u32, u32, u32, u32, u32, u32, u32, u32);
-void func_002edf28(u32, u32, u32, u32, u32, u32, u32, u32);
-u32 func_002ee840(u32, u32, u32, u32, u32, u32, u32, u32);
+void func_002edf28(u32, u32, u32, u32, u32, u32, u32, u32);  // obj_ctor_3637e0
+u32 func_002ee840(u32, u32, u32, u32, u32, u32, u32, u32);  // get_data_1e2c088
 u32 func_002eec58(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_002eefa8(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_002ef618(u32, u32, u32, u32, u32, u32, u32, u32);
@@ -927,7 +927,7 @@ u32 func_002f2be0(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_002f3490(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_002f35e8(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_002f3918(u32, u32, u32, u32, u32, u32, u32, u32);
-u32 func_002f3f88(u32, u32, u32, u32, u32, u32, u32, u32);
+u32 func_002f3f88(u32, u32, u32, u32, u32, u32, u32, u32);  // memcpy16
 u32 func_002f71b0(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_002f79c8(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_002f7e60(u32, u32, u32, u32, u32, u32, u32, u32);
@@ -938,7 +938,7 @@ u32 func_002fde18(u32, u32, u32, u32, u32, u32, u32, u32);
 void func_002fea00(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_002fee78(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_002ff2e8(u32, u32, u32, u32, u32, u32, u32, u32);
-u32 func_002ff3fc(u32, u32, u32, u32, u32, u32, u32, u32);
+u32 func_002ff3fc(u32, u32, u32, u32, u32, u32, u32, u32);  // strlen
 u32 func_002ffbb0(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_003037b0(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_00305240(u32, u32, u32, u32, u32, u32, u32, u32);
@@ -965,16 +965,16 @@ u32 func_0030f3a8(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_0030f468(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_0030f620(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_003114f0(u32, u32, u32, u32, u32, u32, u32, u32);
-u32 func_003155e8(u32, u32, u32, u32, u32, u32, u32, u32);
+u32 func_003155e8(u32, u32, u32, u32, u32, u32, u32, u32);  // set_vtbl_367878
 u32 func_00315768(u32, u32, u32, u32, u32, u32, u32, u32);
-u32 func_003167f8(u32, u32, u32, u32, u32, u32, u32, u32);
+u32 func_003167f8(u32, u32, u32, u32, u32, u32, u32, u32);  // set_vtbl_367910
 u32 func_00316c68(u32, u32, u32, u32, u32, u32, u32, u32);
-u32 func_00316d08(u32, u32, u32, u32, u32, u32, u32, u32);
-u32 func_00319a60(u32, u32, u32, u32, u32, u32, u32, u32);
-u32 func_00319fb0(u32, u32, u32, u32, u32, u32, u32, u32);
+u32 func_00316d08(u32, u32, u32, u32, u32, u32, u32, u32);  // get_global_365c48
+u32 func_00319a60(u32, u32, u32, u32, u32, u32, u32, u32);  // clear_fixed_blocks
+u32 func_00319fb0(u32, u32, u32, u32, u32, u32, u32, u32);  // big_obj_dtor
 u32 func_0031a840(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_0031acc0(u32, u32, u32, u32, u32, u32, u32, u32);
-u32 func_0031baa8(u32, u32, u32, u32, u32, u32, u32, u32);
+u32 func_0031baa8(u32, u32, u32, u32, u32, u32, u32, u32);  // set_vtbl_3486a8_b
 u32 func_0031cd50(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_0031fe00(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_0031fec0(u32, u32, u32, u32, u32, u32, u32, u32);
@@ -1496,7 +1496,7 @@ u32 func_00105728(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7
     return r2;
 }
 
-u32 func_00105c48(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
+u32 func_00105c48(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {  // entry12_34cae4
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r2, r14, r15;
     r14 = (u32)((s32)0u + (12));
     r4 = (u32)(r4 * r14);
@@ -2811,7 +2811,7 @@ u32 duplicate_unplaced_00124100(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, 
     return r2;
 }
 
-void func_00124bb8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
+void func_00124bb8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {  // obj_ctor_347b88
     u32 r4 = a0, r5 = a1, r15;
     r15 = (u32)&D_00347b88;
     *(u32*)(r4 + 4) = r5;
@@ -2939,7 +2939,7 @@ u32 duplicate_unplaced_00132590(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, 
     return ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_00106420)(r4, r5, r6, r7, r8, r9, r10, r11);
 }
 
-u32 func_00132c98(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
+u32 func_00132c98(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {  // entry144_sub_ptr
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r2, r14, r15;
     r15 = *(volatile u32*)((u32)r4 + (s32)(624));
     r14 = (u32)((s32)0u + (144));
@@ -3041,7 +3041,7 @@ u32 func_001337a0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7
     return a1;
 }
 
-u32 func_00133848(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
+u32 func_00133848(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {  // entry16_init_flag16
     volatile u32* pp = (volatile u32*)a0;
     *(volatile u8*)(*pp + 2) = 0;
     *(volatile u32*)(*pp + 8) = a2;
@@ -3055,7 +3055,7 @@ u32 func_00133848(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7
     return p + 16;
 }
 
-u32 func_00133898(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
+u32 func_00133898(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {  // entry16_init_flag96
     volatile u32* pp = (volatile u32*)a0;
     *(volatile u8*)(*pp + 2) = 0;
     *(volatile u32*)(*pp + 8) = a2;
@@ -3712,7 +3712,7 @@ u32 func_0013b538(void) {
     return ((u32(*)())func_0013b5a8)();
 }
 
-u32 func_0013b808(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
+u32 func_0013b808(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {  // entry168_by_index
     u32* table = (u32*)&D_004573c0;
     u32 off4 = a1 << 2;
     u32 off8 = a1 << 3;
@@ -4315,7 +4315,7 @@ u32 duplicate_unplaced_0014ad20(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, 
     return ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_00102788)(r4, r5, r6, r7, r8, r9, r10, r11);
 }
 
-void func_0014b150(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
+void func_0014b150(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {  // obj_init_fields_14b150
     Obj_0014b150* s = (Obj_0014b150*)a0;
     s->h8 = 0;
     s->h10 = 0;
@@ -4716,7 +4716,7 @@ u32 duplicate_unplaced_0014f688(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, 
     return ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_00150dc0)(r4, r5, r6, r7, r8, r9, r10, r11);
 }
 
-void func_0014fdd0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
+void func_0014fdd0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {  // entry_clear_by_fields
     u32 x = *(volatile u32*)(a0 + 24);
     u32 y = *(volatile u32*)(a0 + 28);
     u32 idx = x << 1;
@@ -4908,7 +4908,7 @@ u32 duplicate_unplaced_00155528(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, 
     return ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_00138c10)(r4, r5, r6, r7, r8, r9, r10, r11);
 }
 
-u32 func_00155d58(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
+u32 func_00155d58(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {  // table_word_indexed_by_3
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r2, r14, r15;
     r14 = *(volatile u32*)((u32)r4 + (s32)(24));
     r15 = (u32)(r5 << 1);
@@ -5309,7 +5309,7 @@ void func_001666d0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a
     *(u16*)(a0 + 6) = a4;
 }
 
-void func_001666f0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
+void func_001666f0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {  // obj_store_masked
     a1 &= 0xffff;
     *(u32*)a0 = a2;
     a3 &= 0xffff;
@@ -5386,7 +5386,7 @@ u32 duplicate_unplaced_00167b60(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, 
     return r2;
 }
 
-u32 func_00167bf0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
+u32 func_00167bf0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {  // entry384_get
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r2, r14, r15;
     r14 = (u32)((s32)0u + (384));
     r4 = (u32)(r4 * r14);
@@ -7424,7 +7424,7 @@ void duplicate_unplaced_001a1c70(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5,
     *(volatile u32*)((u32)r4 + (s32)(436)) = 0u;
 }
 
-u32 func_001a2478(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
+u32 func_001a2478(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {  // count_div4_compare
     s32 value = *(s32*)(a0 + 4);
     s32 limit = *(s32*)a0;
     s32 adjusted = value + 3;
@@ -8742,7 +8742,7 @@ u32 duplicate_unplaced_001bfca0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, 
     return r2;
 }
 
-void func_001c0058(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
+void func_001c0058(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {  // clear_bit_in_array
     u32 idx = a0 >> 5;
     u32 base = (u32)&D_01d49328;
     idx <<= 2;
@@ -10982,7 +10982,7 @@ u32 func_00234868(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7
     return r2;
 }
 
-u32 func_00234888(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
+u32 func_00234888(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {  // entry32_word
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r2, r15;
     r4 = (u32)(r4 << 2);
     r15 = (u32)&D_01dae480;
@@ -11037,7 +11037,7 @@ u32 duplicate_unplaced_002368b0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, 
     return ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_002f2be0)(r4, r5, r6, r7, r8, r9, r10, r11);
 }
 
-void func_002369a0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
+void func_002369a0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {  // obj_ctor_36eac8
     u32 r4 = a0, r15;
     r15 = (u32)&D_0035eac8;
     *(u32*)(r4 + 20) = 0u;
@@ -12070,7 +12070,7 @@ u32 duplicate_unplaced_00246968(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, 
     return r2;
 }
 
-u32 func_0024efc0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
+u32 func_0024efc0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {  // to_28dbf8_entry6
     a2 = a0 * 6;
     u32 r14 = (u32)&D_0035ee08;
     a1 = (u32)&D_00372380;
@@ -12149,7 +12149,7 @@ u32 duplicate_unplaced_002538f8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, 
     return r2;
 }
 
-u32 func_00253928(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
+u32 func_00253928(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {  // entry16_get_bit1
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r2, r15;
     r15 = (u32)&D_0035eee0;
     r4 = (u32)(r4 << 4);    r4 = (u32)(r4 + r15);
@@ -12159,7 +12159,7 @@ u32 func_00253928(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7
     return r2;
 }
 
-u32 func_00253b00(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
+u32 func_00253b00(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {  // get_global_ptr_1dae6c0
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r2, r14, r15;
     r15 = (u32)(0x0036u << 16);
     r14 = (u32)&D_01dae6c0;
@@ -13884,7 +13884,7 @@ u32 duplicate_unplaced_002b3420(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, 
 }
 
 
-void func_002b60e8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
+void func_002b60e8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {  // slot8_store_pair
     u32 off = ((a0 << 2) + a0 + a1) << 3;
     u32 base = *(volatile u32*)&D_0035f660;
     *(volatile u32*)(off + base) = a2;
@@ -14619,7 +14619,7 @@ u32 duplicate_unplaced_002cef58(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, 
     return r2;
 }
 
-u32 func_002cfeb0(u32 a0) {
+u32 func_002cfeb0(u32 a0) {  // obj_init_field1416_bit800
     u32 s0 = a0;
     ((u32(*)(u32))func_001b3b70)(a0);
     *(u32*)s0 = (u32)&D_00361fc8;

@@ -23,19 +23,19 @@ s32 LoadDataIsFlushing_at(void) asm("func_00292630");  // same function, by its 
 void func_00170c00(void*);
 s32 func_0019ba60(void*);
 void func_0011f3b8(void*);
-void func_0011ee58(void*);
+void func_0011ee58(void*);  // set_vtbl_347940
 void func_00127f40(u32, u32);
 void func_001316f0(u32, u32);
 s32 func_001341e8(void*);
 s32 func_00134020(void);
-void func_00134030(void);
+void func_00134030(void);  // poll_timer_status
 void* func_001b9bc8(void*);
 s32 func_0016f930(s32);
 void func_0016fb00(void*);
 s32 func_0019c5d0(void*);
 void func_00177638(void*);
 void func_001dc978(void*, f32);
-void* func_001de168(u32, u32, u32, u32, u32, void*);
+void* func_001de168(u32, u32, u32, u32, u32, void*);  // scan_list_by_half
 s32 func_001b58a8(void);
 s32 func_001a6850(void);
 void* func_00102c18(u32, u32, void*);
@@ -54,16 +54,16 @@ u8 func_00181500(u16);
 u8 func_001b8958(u16);
 u8 func_001a6d08(u16);
 void func_001e2c00(void*);
-void func_001e6c00(void*);
+void func_001e6c00(void*);  // alloc_336_align_171
 void func_00321c50(void*, void*);
 void func_001dc4b8(void*);
-void* func_00106a18(s32);
-void* func_00106a60(s32);
+void* func_00106a18(s32);  // buffer_get_256
+void* func_00106a60(s32);  // buffer_get_by_index
 void func_001dd320(void*, void*, s32);
-void func_002f4000(void*);
+void func_002f4000(void*);  // vu_store_w_splat
 void func_002f3d08(void*, void*, void*);
 void func_002247e8(s32);
-s32 func_002249b8(void);
+s32 func_002249b8(void);  // get_global_36dac0
 void func_002248f8(s32);
 s32 func_002ef7b8(void);
 void* func_0014abd8(void);
@@ -82,7 +82,7 @@ void func_002bd788(u32);
 void func_002bd730(void*, s32, s32, s32);
 void func_00139570(void*);
 u8* func_00103eb0(void);
-s32 func_00102a38(void*, void*);
+s32 func_00102a38(void*, void*);  // list_contains_id
 void func_00292608(void);
 void func_002933b8(void);
 s32 func_00170cd0(void);
@@ -92,11 +92,11 @@ void func_00293d80(s32);
 void func_0017f540(void*, s32, f32, f32);
 void func_0017d8c0(void*, void*, void*);
 void func_00182f38(void);
-void func_00182f28(s32);
+void func_00182f28(s32);  // store_global_35ed04
 void func_00319f88(void*);
-void func_0019f9a8(void*);
+void func_0019f9a8(void*);  // array8_free_slots
 void func_001c0248(void*);
-void func_00319fb0(void*);
+void func_00319fb0(void*);  // big_obj_dtor
 void func_00105110(void*);
 void func_002cbed8(void*, void*);
 void func_0017f5f8(void*, s32, s32, f32, f32);
@@ -152,7 +152,7 @@ void func_00123ba8(u32* self) {
     self[0] = (u32)&D_00347a90;
     for (u32* p = (u32*)(a + 16); *p; p++) func_0011f3b8(a + *p);
     NoTail g;
-    func_0011ee58(self);
+    func_0011ee58(self);  // set_vtbl_347940
 }
 
 u32 wtarget_00127d40(u32 a, u32, u32, u32) {
@@ -170,7 +170,7 @@ void f1340e8(void* p) {
     if (func_001341e8(p) >= 0) {
         while (func_00134020()) func_00134030();
     } else {
-        func_00134030();
+        func_00134030();  // poll_timer_status
         D_00347cb4 = 0;
     }
     *(volatile u32*)0x10003010 = 0;  // GIF_MODE
@@ -200,7 +200,7 @@ void wtarget_0013a820(u32 a, u32 b, u32, u32) {
 
 // Default material check: no alpha offset, 255 scale, neutral 0x808080 colour.
 extern u8 D_00340eb0;
-s32 func_0015cc80(u8* p) {
+s32 func_0015cc80(u8* p) {  // test_float12_zero_and_bits
     if (*(f32*)(p + 12) == 0.0f && *(f32*)(p + 16) == 255.0f && (*(u32*)p & 0xffffff) == 0x808080) {
         D_00340eb0 = 0;
         return 1;
@@ -354,7 +354,7 @@ void func_001dc418(u8* o) {
     *(void**)o = D_00352b48;
     if (*(void**)(o + 28)) {
         func_001e2c00(*(void**)(o + 28));
-        func_001e6c00(*(void**)(o + 28));
+        func_001e6c00(*(void**)(o + 28));  // alloc_336_align_171
     }
     func_00321c50(D_00352ae0, o);
     D_00352ae8--;
@@ -366,7 +366,7 @@ extern u8 D_00352af1;
 void func_001dd2b8(void) {
     if (D_00352af1) return;
     if (!D_00352af0) return;
-    void* a = func_00106a18(0);
+    void* a = func_00106a18(0);  // buffer_get_256
     func_001dd320(a, func_00106a60(0), 1);
 }
 
@@ -374,7 +374,7 @@ extern u8* D_01d9e6e0;
 extern u8* D_01d9e6e8;
 void func_001eb140(void*, f32* v) {
     f32 m[4][4];
-    func_002f4000(m);
+    func_002f4000(m);  // vu_store_w_splat
     f32 h = *(f32*)(D_01d9e6e0 + 68);
     f32 y = h + h * v[1];
     m[1][1] = y;
@@ -385,7 +385,7 @@ void func_001eb140(void*, f32* v) {
 
 void func_001eb1b0(void*, f32* v) {
     f32 m[4][4];
-    func_002f4000(m);
+    func_002f4000(m);  // vu_store_w_splat
     f32 h = *(f32*)(D_01d9e6e0 + 68);
     f32 y = h + h * v[1];
     m[1][1] = y;
@@ -397,10 +397,10 @@ void func_001eb1b0(void*, f32* v) {
 
 s32 func_0022b028(s32 n) {
     func_002247e8(n);
-    if (func_002249b8() == 3) {
+    if (func_002249b8() == 3) {  // get_global_36dac0
         n = -n;
         func_002248f8(n);
-    } else if (func_002249b8() == 5) {
+    } else if (func_002249b8() == 5) {  // get_global_36dac0
         n = -n;
         if (n > 0) func_002248f8(n);
     } else {
@@ -481,7 +481,7 @@ s32 LoadDataIsFlushing(void) {
 extern s16* D_0035f4e8;
 s32 func_00293668(void) {
     s32 r = 0;
-    if (!func_00102a38(*(void**)(func_00103eb0() + 4), (void*)func_002933b8)) {
+    if (!func_00102a38(*(void**)(func_00103eb0() + 4), (void*)func_002933b8)) {  // list_contains_id
         s16* p = D_0035f4e8;
         for (s32 i = 0; i < 8; i++, p += 3) {
             if (*p >= 0) { r = 1; break; }
@@ -528,7 +528,7 @@ void func_002c2168(Q16* q) {
 
 extern s32 D_00361fa0;
 extern u8* volatile D_00361fa4;
-void func_002cf938(u8 on) {
+void func_002cf938(u8 on) {  // count_entries_masked
     if (on && D_00361fa4) {
         for (s32 i = 0; i < D_00361fa0; i++) *(u32*)(D_00361fa4 + i * 40) = 0;
     }
@@ -542,14 +542,14 @@ extern u8 D_0034e8b8[];
 extern u8 D_0034ee08[];
 void func_002d1028(u8* o) {
     *(void**)o = D_00362060;
-    func_00182f28(0);
+    func_00182f28(0);  // store_global_35ed04
     D_00362050 = 0;
     *(void**)o = D_0034e8b8;
     func_00319f88(o + 2824);
     *(void**)o = D_0034ee08;
-    func_0019f9a8(o + 2568);
+    func_0019f9a8(o + 2568);  // array8_free_slots
     func_001c0248(o + 2640);
-    func_00319fb0(o);
+    func_00319fb0(o);  // big_obj_dtor
     func_00105110(o);
 }
 

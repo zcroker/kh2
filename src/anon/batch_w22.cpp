@@ -48,7 +48,7 @@ void func_00119d08(void** p) {
 }
 
 // --- 00124748
-u8* func_00124748(u8* a, s32 n) {
+u8* func_00124748(u8* a, s32 n) {  // list_nth_node_rel
     u8* base = *(u8**)(a + 4);
     u8* r = 0;
     for (u32* q = (u32*)(base + 16); *q; q++) {
@@ -149,7 +149,7 @@ void MESSAGE_Init(int a, int b) {
 // --- 00192388
 // Advance past one message token (control codes < 0x20 have table lengths).
 extern u8 D_0036cea0[];
-u8* func_00192388(u8* p) {
+u8* func_00192388(u8* p) {  // skip_control_codes
     u8 c = *p;
     if (c >= 32) {
         p++;
@@ -172,7 +172,7 @@ s32 ctarget_00195468(u32 a, u32 key, u32, u32) {
 
 // --- 001aae28
 struct S1aae28 { u32 a, b, c, d; u8 e, f, g, h; u32 j; u32 i; };
-void func_001aae28(S1aae28* s, u32 a, u32 b, u32 c, u32 d, u32 e, u32 f, u32 g, u32 h, u32 j, u32 i) {
+void func_001aae28(S1aae28* s, u32 a, u32 b, u32 c, u32 d, u32 e, u32 f, u32 g, u32 h, u32 j, u32 i) {  // obj_init_from_6args
     s->a = a;
     s->b = b;
     s->c = c;
@@ -195,10 +195,10 @@ void func_001af328(u32 a) {
 // --- 001b6d00
 extern u8* D_00351184;
 extern u32 D_00351214;
-void func_00102670(u32, u32);
+void func_00102670(u32, u32);  // to_1025f8
 void func_001b6d00(void) {
     if (D_00351184) {
-        func_00102670(D_00351214, *(u32*)(D_00351184 + 24));
+        func_00102670(D_00351214, *(u32*)(D_00351184 + 24));  // to_1025f8
         D_00351184 = 0;
     }
 }
@@ -222,7 +222,7 @@ void func_001b8228(void) {
 struct E20 { u32 w[5]; };
 struct G1d48cc8 { E20 e[8]; s32 list[8]; s32 n; };
 extern G1d48cc8 D_01d48cc8;
-void func_001b86e0(E20* e) {
+void func_001b86e0(E20* e) {  // alloc_from_pool_magic_c
     s32 n = D_01d48cc8.n;
     D_01d48cc8.n = n + 1;
     D_01d48cc8.list[n] = e - D_01d48cc8.e;
@@ -278,7 +278,7 @@ u8 wtarget_001d9688(R3* a, u32 b, u32 c, u32) {
 
 // --- 001e0f90
 extern u32 D_00352bd0;
-u32 func_001e0cc8(void*);
+u32 func_001e0cc8(void*);  // entry64_by_field32
 void func_001e26b8(u32, u32);
 void func_001e0f90(u8* p) {
     func_001e26b8(D_00352bd0, func_001e0cc8(p));
@@ -322,7 +322,7 @@ void func_0022be28(u32 a) {
 // --- 00237508
 struct E237 { s32 a, b, c, d, e; };
 struct T237 { u32 pad[2]; E237* ent; u16* idx; };
-s32 func_00237508(T237* t, s32 i, s32 j) {
+s32 func_00237508(T237* t, s32 i, s32 j) {  // entry20_field8_minus0
     E237* e = &t->ent[t->idx[i * 2] + j];
     return e->c - e->a;
 }
@@ -354,7 +354,7 @@ u32 JmReport_DrawMessage(s32 a, u8 b) {
 // Index of the entry with the given id, or -1.
 struct E281 { s16 id; s16 pad; u32 x[4]; };
 struct T281 { s32 n; E281 e[1]; };
-s32 func_002811f8(T281* t, s32 key) {
+s32 func_002811f8(T281* t, s32 key) {  // find_halfword_index
     s32 i;
     for (i = 0; i < t->n; i++) {
         if (t->e[i].id == key) break;
@@ -417,11 +417,11 @@ void func_002dad40(void** p) {
 
 // --- 002dc708
 extern u32 D_003629e8;
-void func_002e4a90(void*);
+void func_002e4a90(void*);  // in_even_range
 u8 func_002cea28(void*);
 u32 func_002dc708(void** p) {
     *p = &D_003629e8;
-    func_002e4a90(p + 64);
+    func_002e4a90(p + 64);  // in_even_range
     return func_002cea28(p);
 }
 

@@ -44,7 +44,7 @@ extern u8 D_0034c6c8[];
 extern u8 D_004f3820[];
 u8* func_00186078(u8*);
 s32 func_0019ba60(u8*);
-Q16* func_0016c028(u8*);
+Q16* func_0016c028(u8*);  // obj_get_attach_or_alt
 void func_00182980(void*, Q16*);
 extern u8* D_0034ed04;
 extern s32 D_0034ed00;
@@ -70,11 +70,11 @@ static inline f32 vlen_w96(const Vq_w96& a) {
     return r;
 }
 u8* func_00177860(void);
-f32 func_002f8870(f32);
+f32 func_002f8870(f32);  // fabsf
 void func_002fee78(char*, const char*, ...);
-u32 func_00170b30(u32);
+u32 func_00170b30(u32);  // alloc_align128
 void func_00168328(char*, u32);
-u8* func_00168b38(u32, u32, u32);
+u8* func_00168b38(u32, u32, u32);  // entry_array_find_nth
 void func_001aad28(u32, u32, u32, u32, u32, u32);
 void func_00170c00(u32);
 extern const char* D_00350a2c;
@@ -84,7 +84,7 @@ void func_002395b8(u32);
 void func_001abd90(u32);
 void func_001ac028(u32);
 void func_00239700(u32);
-u32 func_001ab810(void);
+u32 func_001ab810(void);  // get_global_1c7cec0
 u32 func_001ab800(void);
 void func_001aa668(u32, u32);
 extern u8 D_00350bb0[];
@@ -104,7 +104,7 @@ extern u32 D_0035ed08;
 void func_00288d80(u32, s32, u32, u32, u32, u32, Item36_w96*, u8*);
 u8* func_002891b8(u32, s32);
 void func_00288e08(u32, s32, s32, u32);
-u32 func_0028dd90(s32);
+u32 func_0028dd90(s32);  // mod10_classify_012
 u32 func_0028ddd8(s32);
 void func_001395f8(u8*);
 void func_002891f0(u32, s32, u32, u32, u32);
@@ -149,7 +149,7 @@ s32 func_00293fb0(void);
 void func_00293e00(u32);
 void func_00293fc0(void);
 u8* func_001063c0(u32, u32);
-void func_00319a60(u8*);
+void func_00319a60(u8*);  // clear_fixed_blocks
 u8* func_001063f0(u32, u32);
 extern u32 D_0035f628;
 extern u32 D_0035f62c;
@@ -160,7 +160,7 @@ extern u8* D_0035f620;
 extern u8* D_0035f624;
 struct Pair_w96 { u32 a; u32 b; };
 u8* func_002a9d68(void);
-u32* func_002b23e0(s32);
+u32* func_002b23e0(s32);  // list_entry_by_index_checked
 s32 func_002b3ac8(u32);
 void func_002b2f28(u32);
 union EU_w96 { u32 u; u16 h; };
@@ -185,7 +185,7 @@ void func_00189f20(u32, void (*)(void), u32, f32);
 void func_002ef148(void);
 struct Bigint_w96 { Bigint_w96* next; s32 k; s32 maxwds; s32 sign; s32 wds; u32 x[1]; };
 Bigint_w96* func_00303b70(void*, s32);
-void func_00303c18(void*, Bigint_w96*);
+void func_00303c18(void*, Bigint_w96*);  // push_entry_onto_slot_list
 
 // Builds the widget: icons, 7 child panels, then hands off to the shared init.
 void wtarget_001521c8(u32 a0, u32 a1, u32, u32) asm("_Z16wtarget_001521c8jjjj");
@@ -221,7 +221,7 @@ void wtarget_001521c8(u32 self, u32 id, u32, u32) {
     func_0014fc40(self, 14, func_0023aa78(self + 72), 4500, 7, 0);
 }
 
-void func_001558b8(u32 self, u32 a1, s32 idx) {
+void func_001558b8(u32 self, u32 a1, s32 idx) {  // entry592_process
     u32 e = self + idx * 592;
     u32 obj = e + 13232;
     u32 s7 = e + 13552;
@@ -330,7 +330,7 @@ void func_00182c60(void) {
     }
     if (func_0019ba60(D_0034ed04) && !(*(u32*)(D_0034ed04 + 2040) & 4)) {
         Q16 q;
-        Q16* v = func_0016c028(D_0034ed04);
+        Q16* v = func_0016c028(D_0034ed04);  // obj_get_attach_or_alt
         s32 i;
         if (&q != v) QCOPY(&q, v);
         if (*(u32*)(D_0034ed04 + 1416) & 0x80) {
@@ -359,7 +359,7 @@ s32 func_001a4ff8(u8* o, Vq_w96* p, f32 r, f32 h) {
     }
     if (*(u8**)(o + 1164)) r = r + *(f32*)(*(u8**)(o + 1164) + 452);
     if (h <= 0.0f) h = 30.0f;
-    d = vsubn_w96(*p, *(Vq_w96*)func_0016c028(o));
+    d = vsubn_w96(*p, *(Vq_w96*)func_0016c028(o));  // obj_get_attach_or_alt
     if (h < func_002f8870(d.y)) return 0;
     d.y = 0.0f;
     if (vlen_w96(d) <= r) return 1;
@@ -372,15 +372,15 @@ void func_001aabd8(void) {
     u32 h;
     u32 p;
     func_002fee78(path, D_00350a2c, D_0033caf4);
-    h = func_00170b30(0x80000);
+    h = func_00170b30(0x80000);  // alloc_align128
     func_00168328(path, h);
-    p = *(u32*)(func_00168b38(h, 36, 0) + 8);
+    p = *(u32*)(func_00168b38(h, 36, 0) + 8);  // entry_array_find_nth
     func_001aad28(0, 8, 36, 512, 256, p);
     func_001aad28(0, 8, 44, 512, 256, p + 0x10000);
-    p = *(u32*)(func_00168b38(h, 36, 1) + 8);
+    p = *(u32*)(func_00168b38(h, 36, 1) + 8);  // entry_array_find_nth
     func_001aad28(2048, 8, 36, 512, 512, p);
     func_001aad28(2048, 8, 44, 512, 512, p + 0x20000);
-    p = *(u32*)(func_00168b38(h, 36, 2) + 8);
+    p = *(u32*)(func_00168b38(h, 36, 2) + 8);  // entry_array_find_nth
     func_001aad28(6144, 4, 27, 256, 160, p);
     func_001aad28(16380, 1, 0, 16, 16, p + 0xa000);
     func_00170c00(h);
@@ -404,12 +404,12 @@ void func_001ac970(u32 self, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32
     }
     *(u32*)(self + 2920) = 0;
     {
-        u32 a = func_001ab810();
+        u32 a = func_001ab810();  // get_global_1c7cec0
         func_00239988(self + 132, a, func_001ab800());
     }
     func_00239bf8(self + 132, D_00350a38[*(u32*)(self + 476)].c[0]);
     for (s32 i = 0; i < 4; i++) {
-        u32 a = func_001ab810();
+        u32 a = func_001ab810();  // get_global_1c7cec0
         func_00239988(self + 1544 + i * 344, a, func_001ab800());
     }
     func_001aa668(self + 12, self);
@@ -556,7 +556,7 @@ void func_002acda8(void) {
     if (func_00103b38()) {
         D_0035f618 = func_00103570();
     } else {
-        u32 v = func_00170b30(0x10000);
+        u32 v = func_00170b30(0x10000);  // alloc_align128
         D_0035f61c = v;
         D_0035f618 = func_00106178(v, 0x10000);
         if (!func_00293fb0()) {
@@ -567,7 +567,7 @@ void func_002acda8(void) {
     }
     {
         u8* p = func_001063c0(2408, D_0035f618);
-        func_00319a60(p);
+        func_00319a60(p);  // clear_fixed_blocks
         D_0035f620 = p;
     }
     q = (Pair_w96*)func_001063f0(80, D_0035f618);
@@ -585,7 +585,7 @@ void func_002acda8(void) {
 s32 func_002b3318(void) {
     u8* g = func_002a9d68();
     s32 ok = 1;
-    u32* e = func_002b23e0(-1);
+    u32* e = func_002b23e0(-1);  // list_entry_by_index_checked
     u8 k;
     s32 n, i;
     if (*e & 0x4000000) return 0;
@@ -687,7 +687,7 @@ Bigint_w96* func_00304308(void* ptr, Bigint_w96* b, s32 k) {
             *x1++ = *x++;
         while (x < xe);
     b1->wds = n1 - 1;
-    func_00303c18(ptr, b);
+    func_00303c18(ptr, b);  // push_entry_onto_slot_list
     return b1;
 }
 

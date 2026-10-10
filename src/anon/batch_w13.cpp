@@ -5,30 +5,30 @@ struct Q128 { u32 w[4]; };
 extern "C" {
 void func_00113668(void*);
 void func_00105110(void*);
-void func_0011ee58(void*);
+void func_0011ee58(void*);  // set_vtbl_347940
 void func_00106420(void*);
-void* func_00124748(void*, s32);
+void* func_00124748(void*, s32);  // list_nth_node_rel
 void func_002ba848(s32);
 void func_00136a18(void);
 void func_0013f030(void);
 void* func_00102c80(void);
 void func_00102818(u32, s32, u32, void*, s32);
 void func_0013f450(void);
-void func_001666a0(void*);
+void func_001666a0(void*);  // zero_fields_0_4_6_8
 void func_00138c10(void*, s32);
 void func_0014e098(s32);
 void func_001024a8(void*);
 u8 func_00176db0(void*, u32);
 u8 func_0016b558(void*, u32);
 u32 func_001a7588(u32, u32, u32, u32);
-void* func_00168b38(void*, s32, s32);
+void* func_00168b38(void*, s32, s32);  // entry_array_find_nth
 void func_00188340(void*, s32, void*, s32);
 void func_0019cc20(void*);
 u8* func_0019f7d0(void);
 void func_001d59b0(void);
 void func_003201e8(void*, void*);
 s32 func_001bb4a0(void);
-void func_0016a9a0(void*);
+void func_0016a9a0(void*);  // to_16a950
 void func_001c14e0(void*);
 void func_001c8d98(void*, s32);
 void func_0014c9f0(s32);
@@ -51,14 +51,14 @@ void func_00287c78(s32);
 void func_0028b8a0(void*);
 u8 func_0023f820(void*);
 u32 func_002b823c(void);
-Q128* func_002cb890(void*, void*);
+Q128* func_002cb890(void*, void*);  // hash_bucket_get
 void func_002cd878(void*, u32, s32, f32);
 void func_002cff98(void*);
 f32 func_001906f0(void*, void*);
 void func_00239870(void*);
 u8 func_0031a840(void*);
 void func_001b0188(void*);
-void func_002dea80(void*);
+void func_002dea80(void*);  // set_vtbl_362d20
 
 extern u8 D_003467b8;
 extern u8 D_00347a28;
@@ -110,13 +110,13 @@ void func_00114cc8(void** p) {
 
 void func_001207c8(void** p) {
     *p = &D_00347a28;
-    func_0011ee58(p);
+    func_0011ee58(p);  // set_vtbl_347940
     func_00106420(p);
 }
 
 typedef s32 (*VFn2)(void*, s32);
 s32 func_00123d90(void* a, s32 b) {
-    void* o = func_00124748(a, 0);
+    void* o = func_00124748(a, 0);  // list_nth_node_rel
     return (*(VFn2*)(*(u8**)o + 24))(o, b);
 }
 
@@ -135,7 +135,7 @@ void func_0013f4d8(void) {
 }
 
 void func_0014dbc8(u8* p) {
-    func_001666a0(p);
+    func_001666a0(p);  // zero_fields_0_4_6_8
     *(u32*)(p + 464) = 0;
     *(u16*)(p + 468) = 0;
     p[470] = 0;
@@ -191,7 +191,7 @@ no:
 
 u32 func_00180408(void* a0, void* a1) {
     u8* v;
-    if (a1 && (v = (u8*)func_00168b38(a1, 9, 0)) != 0) return *(u32*)(v + 8);
+    if (a1 && (v = (u8*)func_00168b38(a1, 9, 0)) != 0) return *(u32*)(v + 8);  // entry_array_find_nth
     return 0;
 }
 
@@ -217,7 +217,7 @@ u8* func_0019f8c0(void) {
     return 0;
 }
 
-void func_001a6c90(u32 n) {
+void func_001a6c90(u32 n) {  // set_bit_in_array_b
     D_0032dec0[n >> 5] |= 1 << (n & 31);
     func_001d59b0();
 }
@@ -245,7 +245,7 @@ s32 func_001bb9b0(void) {
 }
 
 void MANAGER_exec_zsort(u8* self) {
-    func_0016a9a0(self);
+    func_0016a9a0(self);  // to_16a950
     func_001c14e0(*(void**)(self + 2548));
 }
 
@@ -358,7 +358,7 @@ void func_002bd538(void) {
 }
 
 Q128* func_002cb7c8(Q128* out, void* a, void* b) {
-    Q128* s = func_002cb890(a, b);
+    Q128* s = func_002cb890(a, b);  // hash_bucket_get
     asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(out), "r"(s) : "$8", "memory");
     return out;
 }
@@ -382,7 +382,7 @@ void func_002e7ff8(u32* p) {
 }
 
 u32 func_002f1898(void) {
-    return *(u32*)((u8*)func_00168b38(D_01e2c0d0, 25, 0) + 8);
+    return *(u32*)((u8*)func_00168b38(D_01e2c0d0, 25, 0) + 8);  // entry_array_find_nth
 }
 
 
@@ -413,7 +413,7 @@ void func_00320050(void** p) {
 
 void func_00325678(void** p) {
     *p = &D_00362c18;
-    func_002dea80(p);
+    func_002dea80(p);  // set_vtbl_362d20
     func_00106420(p);
 }
 

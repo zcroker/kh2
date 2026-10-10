@@ -25,13 +25,13 @@ extern Cfg15c D_004f3650;
 void func_0015cbb8(s32, s32, s32, s32);
 void func_0015c4b8(void);
 void func_0015cc18(s32, s32, s32, s32, s32);
-s32 func_0015cc80(Fog15c*);
-void func_0010a8a8(f32, f32);
+s32 func_0015cc80(Fog15c*);  // test_float12_zero_and_bits
+void func_0010a8a8(f32, f32);  // store_global_float_pair
 void func_0010a828(f32, f32);
-void func_0010a7d8(u8, u8, u8);
+void func_0010a7d8(u8, u8, u8);  // store_triple_bytes
 void func_001dd1e8(u8, u8);
-void func_001dd1b0(f32, f32);
-void func_001dd1c8(u8, u8, u8);
+void func_001dd1b0(f32, f32);  // to_1e7018
+void func_001dd1c8(u8, u8, u8);  // to_1e7030_masked
 
 void func_0015c500(void)
 {
@@ -50,14 +50,14 @@ void func_0015c500(void)
     f->g = c;
     f->b = c;
     f->a = c;
-    if (!func_0015cc80(f)) {
-        func_0010a8a8(f->fmin, f->fmax);
+    if (!func_0015cc80(f)) {  // test_float12_zero_and_bits
+        func_0010a8a8(f->fmin, f->fmax);  // store_global_float_pair
         func_0010a828(f->near, f->far);
-        func_0010a7d8(f->r, f->g, f->b);
+        func_0010a7d8(f->r, f->g, f->b);  // store_triple_bytes
     }
     func_001dd1e8((s32)f->fmin, (s32)f->fmax);
-    func_001dd1b0(f->near, f->far);
-    func_001dd1c8(f->r, f->g, f->b);
+    func_001dd1b0(f->near, f->far);  // to_1e7018
+    func_001dd1c8(f->r, f->g, f->b);  // to_1e7030_masked
     D_004f36a8 = D_004f3700;
     D_004f3650 = D_004f36a8;
 }
@@ -182,7 +182,7 @@ struct Obj142 {
     u8 pad[20]; f32 rad; u8 pad2[48 - 24]; QV142 pos; u8 pad3[104 - 64]; f32 f104; f32 h;
     u64 lo : 3; u64 kind : 4; u64 mid : 26; u64 miss : 1; u64 hi : 30;
 };
-f32 func_002f8870(f32);
+f32 func_002f8870(f32);  // fabsf
 void func_00141c18(void*, s32, s32, s32, s32);
 s32 func_00141ff0(void*, Seg142*, QV142*, s16*, s32);
 void func_001419f8(void*, u16, Obj142*, QV142);
@@ -191,7 +191,7 @@ s32 func_001424c0(void* self, Obj142* o)
 {
     QV142 p(o->pos);
     QV142 q(o->pos);
-    f32 r = func_002f8870(o->rad);
+    f32 r = func_002f8870(o->rad);  // fabsf
     if (o->kind == 0) r = clamp142(r, 0.0f, 100.0f);
     p.y = p.y - o->h - r;
     q.y = q.y + o->h * 3.0f;

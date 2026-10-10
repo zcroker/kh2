@@ -7,7 +7,7 @@ extern "C" void func_002430d8(u32);
 extern "C" void func_00102448(u32, u32);
 extern "C" void func_00251148();
 extern "C" void func_00242678(u32);
-extern "C" void func_00236d60();
+extern "C" void func_00236d60();  // clear_64_entries_24
 extern "C" u32 func_00251318();
 extern "C" void func_00251a70();
 
@@ -18,7 +18,7 @@ void CANA::PauseThread(TASK* a0) {
     func_00251148();
     func_00242678(17014);
     while (1) {
-        func_00236d60();
+        func_00236d60();  // clear_64_entries_24
         if (func_00251318() != 0) {
             return;
         }

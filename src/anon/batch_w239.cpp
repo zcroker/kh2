@@ -2,14 +2,14 @@
 
 extern "C" {
 void* func_00294000(s32);
-s32 func_002ab100(s32);
+s32 func_002ab100(s32);  // test_bit_global_c
 extern u8* D_0035f610;
 s32 func_002ab2b0(s32 id) {
     s32 r = 0;
     s32* p = (s32*)func_00294000(7);
     u16* base = (u16*)((u8*)p + 16);
     if (id < 0) {
-        r = func_002ab100(-1);
+        r = func_002ab100(-1);  // test_bit_global_c
     } else {
         s32 n = p[2];
         s32 i = 0;
@@ -32,7 +32,7 @@ s32 func_002ab2b0(s32 id) {
 void func_001ad990(u32, f32, f32, f32);
 void* func_0017e668(void);
 s32 func_0019ba60(void*);
-void* func_001a8f10(void*);
+void* func_001a8f10(void*);  // arg_map_0_1_2
 extern s32 D_00351f30;
 extern u32 D_01d49980[];
 void func_001c97b0(void* a, f32 f) asm("_Z13func_001c97b0Pvf");
@@ -44,13 +44,13 @@ void func_001c97b0(void* a, f32 f) {
         }
         *(u32*)(s0 + 2040) |= 0x10;
     }
-    D_01d49980[D_00351f30++] = (u32)func_001a8f10(a);
+    D_01d49980[D_00351f30++] = (u32)func_001a8f10(a);  // arg_map_0_1_2
 }
 
 void func_00108698(void*);
 void func_00144450(void*);
 void func_0011b6a8(void*);
-void func_0031e158(u32* a) {
+void func_0031e158(u32* a) {  // obj_init_large
     u8* s = (u8*)a;
     a[0] = 0;
     func_00108698(s + 8);

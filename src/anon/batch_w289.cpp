@@ -7,8 +7,8 @@ extern void* D_0035eb98[];
 extern u8* D_00361dd8;
 void func_00170950(void*);
 void func_00239870(u8*);
-void func_0023c098(u8*);
-void func_002369f0(u8*);
+void func_0023c098(u8*);  // set_vtbl_36eae8_then_call
+void func_002369f0(u8*);  // set_vtbl_36eac8_then_call
 typedef void (*Dtor2c7e68)(u8*);
 #define DestroyArr2c7e68(B, E, SZ) \
     if ((B) != 0) { \
@@ -38,8 +38,8 @@ static inline __attribute__((always_inline)) void Body2c7e68(u8* p) {
     DestroyArr2c7e68(p + 632, p + 1856, 408);
     Seq2c7e68(p + 196);
     *(void***)(p + 28) = D_0035eb98;
-    func_0023c098(p + 76);
-    func_002369f0(p + 52);
+    func_0023c098(p + 76);  // set_vtbl_36eae8_then_call
+    func_002369f0(p + 52);  // set_vtbl_36eac8_then_call
     *(void***)(p + 28) = D_00347f98;
     *(void***)p = D_00347f98;
 }
@@ -57,7 +57,7 @@ struct GObj { s32 count; GEnt e[256]; GRow rows[8]; };
 struct GInfo { u16 h0; u8 b2; u8 b3; u16 h4; };
 struct GItem { u32 f0, f4, f8; };
 extern char D_003741e8[];
-GInfo* func_001a80c8(u32);
+GInfo* func_001a80c8(u32);  // table24_find_by_id
 u32 func_001a3820(u32);
 GItem* func_001b8e88(u32);
 s32 func_001a6598(u32);
@@ -73,7 +73,7 @@ void func_00282940(GObj* obj, s32 start, s32 n) {
         s32 idx = i + start;
         s32 arg;
         if (idx >= obj->count) return;
-        GInfo* info = func_001a80c8(obj->e[idx].id);
+        GInfo* info = func_001a80c8(obj->e[idx].id);  // table24_find_by_id
         u8 kind = info->b2;
         if (kind == 0 || kind == 18) {
             GItem* item = func_001b8e88(func_001a3820(info->h0));

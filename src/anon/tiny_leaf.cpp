@@ -8,7 +8,7 @@ void func_00105710(u32 a0, u32 a1, u32 a2, u32 a3) {
     *(u32*)((u32)r14 + (s32)(-17624)) = r15;
 }
 
-u32 func_0010f8c0(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_0010f8c0(u32 a0, u32 a1, u32 a2, u32 a3) {  // test_field2940_bit2
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u;
     r2 = *(u32*)((u32)r4 + (s32)(2940));
     r2 = (u32)((s32)r2 >> 2);
@@ -16,7 +16,7 @@ u32 func_0010f8c0(u32 a0, u32 a1, u32 a2, u32 a3) {
     return r2;
 }
 
-u32 func_0010f8e0(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_0010f8e0(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_bit3_of_field2940
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u;
     r2 = *(u32*)((u32)r4 + (s32)(2940));
     r2 = (u32)((s32)r2 >> 3);
@@ -44,7 +44,7 @@ void func_00117aa8(u32 a0, u32 a1, u32 a2, u32 a3) {
     *(u32*)((u32)r5 + (s32)(32)) = r15;
 }
 
-void func_00117b20(u32 a0, u32 a1, u32 a2, u32 a3) {
+void func_00117b20(u32 a0, u32 a1, u32 a2, u32 a3) {  // entry64_set_bit10
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r15 = 0u;
     r5 = (u32)(r5 << 6);
     r5 = (u32)(r5 + r4);
@@ -73,7 +73,7 @@ void func_00133b78(u32 a0, u32 a1, u32 a2, u32 a3) {
     *(u32*)((u32)r4 + (s32)(24)) = r15;
 }
 
-u32 func_0013bc40(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_0013bc40(u32 a0, u32 a1, u32 a2, u32 a3) {  // is_zero_arg
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u;
     r5 = ((u32)r5 < 0x00000001u);
     r2 = r5;
@@ -144,7 +144,7 @@ u32 func_001492e8(u32 a0, u32 a1, u32 a2, u32 a3) {
     return r2;
 }
 
-void func_0014b258(u32 a0, u32 a1, u32 a2, u32 a3) {
+void func_0014b258(u32 a0, u32 a1, u32 a2, u32 a3) {  // copy_halfwords_8_10
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r14 = 0u, r15 = 0u;
     r14 = (u32)(*(u16*)((u32)r4 + (s32)(8)));
     *(u16*)((u32)r5 + (s32)(0)) = (u16)r14;
@@ -178,7 +178,7 @@ u32 func_0016f460(u32 a0, u32 a1, u32 a2, u32 a3) {
     return r2;
 }
 
-u32 func_0016f7a0(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_0016f7a0(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_bit28
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u;
     r4 = (u32)((s32)r4 >> 28);
     r4 = (u32)(r4 & 0x0001u);
@@ -200,7 +200,7 @@ void func_00191a20(u32 a0, u32 a1, u32 a2, u32 a3) {
     *(u32*)((u32)r14 + (s32)(-3520)) = r15;
 }
 
-u32 func_00192440(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_00192440(u32 a0, u32 a1, u32 a2, u32 a3) {  // is_byte_lt25
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u;
     r4 = (u32)(r4 + r5);
     r2 = (u32)(*(u8*)((u32)r4 + (s32)(0)));
@@ -243,7 +243,7 @@ u32 func_001d3f80(u32 a0, u32 a1, u32 a2, u32 a3) {
     return r2;
 }
 
-u32 func_001d4808(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_001d4808(u32 a0, u32 a1, u32 a2, u32 a3) {  // is_halfword42_zero
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u;
     r2 = (u32)(*(u16*)((u32)r4 + (s32)(42)));
     r2 = ((u32)r2 < 0x00000001u);
@@ -286,7 +286,7 @@ void func_001dba88(u32 a0, u32 a1, u32 a2, u32 a3) {
     *(u32*)((u32)r4 + (s32)(2552)) = r15;
 }
 
-u32 func_001dca20(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_001dca20(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_bit20_of_field8
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u;
     r2 = *(u32*)((u32)r4 + (s32)(8));
     r2 = (u32)((s32)r2 >> 20);
@@ -294,7 +294,7 @@ u32 func_001dca20(u32 a0, u32 a1, u32 a2, u32 a3) {
     return r2;
 }
 
-void func_001dca30(u32 a0, u32 a1, u32 a2, u32 a3) {
+void func_001dca30(u32 a0, u32 a1, u32 a2, u32 a3) {  // obj_set48_52_flag40000
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r14 = 0u, r15 = 0u;
     r14 = *(u32*)((u32)r4 + (s32)(8));
     r15 = (u32)(0x0004u << 16);
@@ -314,7 +314,7 @@ void func_001dca50(u32 a0, u32 a1, u32 a2, u32 a3) {
     *(u32*)((u32)r4 + (s32)(8)) = r14;
 }
 
-u32 func_001e0cc8(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_001e0cc8(u32 a0, u32 a1, u32 a2, u32 a3) {  // entry64_by_field32
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u, r13 = 0u, r14 = 0u, r15 = 0u;
     r14 = (u32)(0x0035u << 16);
     r15 = *(u32*)((u32)r4 + (s32)(32));
@@ -326,7 +326,7 @@ u32 func_001e0cc8(u32 a0, u32 a1, u32 a2, u32 a3) {
     return r2;
 }
 
-u32 func_001e0ce8(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_001e0ce8(u32 a0, u32 a1, u32 a2, u32 a3) {  // entry64_by_field32_b
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u, r13 = 0u, r14 = 0u, r15 = 0u;
     r14 = (u32)(0x0035u << 16);
     r15 = *(u32*)((u32)r4 + (s32)(32));
@@ -434,7 +434,7 @@ void func_0023ec38(u32 a0, u32 a1, u32 a2, u32 a3) {
     *(u8*)((u32)r4 + (s32)(5346)) = (u8)r5;
 }
 
-u32 func_002827e0(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_002827e0(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_indexed_word
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u;
     r5 = (u32)(r5 << 2);
     r5 = (u32)(r5 + r4);
@@ -442,7 +442,7 @@ u32 func_002827e0(u32 a0, u32 a1, u32 a2, u32 a3) {
     return r2;
 }
 
-u32 func_0028cf10(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_0028cf10(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_table_entry
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u, r14 = 0u, r15 = 0u;
     r15 = (u32)(0x0036u << 16);
     r4 = (u32)(r4 << 2);
@@ -479,7 +479,7 @@ void func_002c5608(u32 a0, u32 a1, u32 a2, u32 a3) {
     *(u32*)((u32)r4 + (s32)(268)) = r14;
 }
 
-u32 func_002d8898(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_002d8898(u32 a0, u32 a1, u32 a2, u32 a3) {  // invert_byte192
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u;
     r2 = (u32)(*(u8*)((u32)r4 + (s32)(192)));
     r2 = (u32)(r2 ^ 0x0001u);
@@ -503,12 +503,12 @@ u32 func_002f1ac8(u32 a0, u32 a1, u32 a2, u32 a3) {
     return r2;
 }
 
-void func_00319d58(u32 a0, u32 a1, u32 a2, u32 a3) {
+void func_00319d58(u32 a0, u32 a1, u32 a2, u32 a3) {  // store_zero_byte
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3;
     *(u8*)((u32)r4 + (s32)(0)) = (u8)0u;
 }
 
-void func_00320730(u32 a0, u32 a1, u32 a2, u32 a3) {
+void func_00320730(u32 a0, u32 a1, u32 a2, u32 a3) {  // zero_halfword
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3;
     *(u16*)((u32)r4 + (s32)(0)) = (u16)0u;
 }

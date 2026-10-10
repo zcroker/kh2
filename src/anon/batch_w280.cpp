@@ -5,15 +5,15 @@ typedef void (*VV)(...);
 #define VT(o,i) ((VF)((*(void***)(o))[i]))
 #define VTv(o,i) ((VV)((*(void***)(o))[i]))
 extern "C" {
-s32 func_001c0298(void*, void*);
+s32 func_001c0298(void*, void*);  // state_check5or6
 void* func_0018db38(void*, void*, u32, u32);
 void func_0018e420(void*, void*, void*, void*, s32);
 void func_0018ef68(void*, void*, s32);
-void func_0018ca10(void*);
+void func_0018ca10(void*);  // alloc_from_pool_magic
 void func_0018e298(void** a0, void* a1, void* a2)
 {
     s32 mode;
-    if (VT(a1, 24)(a1) != 0 || func_001c0298((u8*)a1 + 2640, *a0) == 0) {
+    if (VT(a1, 24)(a1) != 0 || func_001c0298((u8*)a1 + 2640, *a0) == 0) {  // state_check5or6
         mode = 4;
     } else {
         mode = 1;
@@ -44,7 +44,7 @@ void func_0018e298(void** a0, void* a1, void* a2)
         VT(o, 30)(o, x, 0, 0);
     }
     VTv(a1, 25)(a1, r);
-    func_0018ca10(r);
+    func_0018ca10(r);  // alloc_from_pool_magic
 }
 }
 
@@ -211,7 +211,7 @@ static inline void QZero(QWord* p)
 extern "C" u8* D_00361f60;
 extern "C" {
 void func_0016aef0(u8*, QWord*);
-QWord* func_0016c028(u8*);
+QWord* func_0016c028(u8*);  // obj_get_attach_or_alt
 void func_0016ace0(u8*, QWord*);
 void func_002dff60(u8*, u8*);
 void func_002e0230(u8*, u8*);
@@ -226,14 +226,14 @@ void func_002dfcb0(u8* a, u8* b)
         QWord v(0.0f, 0.0f, -1.0f, 0.0f);
         func_0016aef0(b, &v);
     }
-    QWord p = *func_0016c028(b);
+    QWord p = *func_0016c028(b);  // obj_get_attach_or_alt
     p.f[2] = 0.0f;
     func_0016ace0(b, &p);
     if (*(u32*)(a + 72)) func_002dff60(a, b);
     else func_002e0230(a, b);
     if (*(u32*)(a + 72)) {
         QZero((QWord*)(b + 16));
-        QWord w = *func_0016c028(b);
+        QWord w = *func_0016c028(b);  // obj_get_attach_or_alt
         w.f[1] = func_002de6e8(*(u32*)(a + 72));
         func_0016ace0(b, &w);
     } else {
@@ -313,7 +313,7 @@ extern "C" u8* D_01d9e6e0;
 extern "C" s32 D_01d9e360[];
 union FU { f32 f; s32 i; };
 extern "C" {
-s32 func_001ed7d8(void*, f32);
+s32 func_001ed7d8(void*, f32);  // int_float_mul_m1_b
 void func_001ed7f0(u8* o, S1* s, T1* t)
 {
     if (D_01d9ea9c) return;
@@ -327,9 +327,9 @@ void func_001ed7f0(u8* o, S1* s, T1* t)
     if (s->off != -1) d = (s32*)(o + s->off + 160);
     else d = D_01d9e360;
     f32 v = pr->f;
-    d[0] += func_001ed7d8(s->a, v);
-    d[1] += func_001ed7d8(s->b, pr->f);
-    d[2] += func_001ed7d8(s->c, pr->f);
+    d[0] += func_001ed7d8(s->a, v);  // int_float_mul_m1_b
+    d[1] += func_001ed7d8(s->b, pr->f);  // int_float_mul_m1_b
+    d[2] += func_001ed7d8(s->c, pr->f);  // int_float_mul_m1_b
 }
 }
 }

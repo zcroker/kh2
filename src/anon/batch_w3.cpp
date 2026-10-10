@@ -55,7 +55,7 @@ void func_00137250(void*);
 void func_00136fa8() { func_00102c18(1, 300000, func_00137250); }
 
 // Copy the RGBA bytes at +0xe8 to +0x0c.
-void func_00147c78(u32, u8* p) {
+void func_00147c78(u32, u8* p) {  // copy_bytes_232_to_12
     u8 r = p[232], g = p[233], b = p[234], a = p[235];
     p[12] = r;
     p[13] = g;
@@ -124,7 +124,7 @@ void func_00175328(BD_VALUE* bd) {
 }
 
 // Zero the 16-byte vector at +0xa0 (VU0).
-void func_0017fdf8(u8* p) {
+void func_0017fdf8(u8* p) {  // clear_vec_at160
     asm volatile(".set noreorder\n\tvsub.xyzw $vf1, $vf0, $vf0\n\tsqc2 $vf1, 0(%0)\n\t.set reorder"
                  : : "r"(p + 160) : "memory");
 }
@@ -145,14 +145,14 @@ u8 func_0019c898(u32);
 u32 func_0016a070();
 u32 func_0019c8a8() { return func_0019c898(func_0016a070()); }
 
-void func_001a8bb8(u8* p) {
+void func_001a8bb8(u8* p) {  // obj_set_header_bytes
     p[0] = 0;
     p[1] = 18;
     p[2] = 18;
     p[3] = 18;
 }
 
-u32 func_001a8f10();
+u32 func_001a8f10();  // arg_map_0_1_2
 void func_001a8b38(u32);
 void func_001a90f0() { func_001a8b38(func_001a8f10()); }
 
@@ -224,7 +224,7 @@ u32 func_002806a0() { return func_00139d78(D_0035f264 + 896); }
 
 extern u32 D_0035f28c;
 extern u8 D_0035f299;
-void func_00281e70(u32 a) {
+void func_00281e70(u32 a) {  // store_global_and_clear_flag
     D_0035f28c = a;
     D_0035f299 = 0;
 }
@@ -233,7 +233,7 @@ u32 func_002766d0();
 void func_0028dac8(u32, u32);
 void func_0029e050() { func_0028dac8(func_002766d0() + 18528, 6); }
 
-u8* func_002b23e0();
+u8* func_002b23e0();  // list_entry_by_index_checked
 void func_002ac678(u8);
 void func_002b3420() { func_002ac678(func_002b23e0()[2]); }
 
@@ -271,12 +271,12 @@ void func_002f3f28(void* dst, void* a, void* b) {
 }
 
 // 16-byte copy.
-void func_002f3f88(void* dst, void* src) {
+void func_002f3f88(void* dst, void* src) {  // memcpy16
     asm volatile("lq $6, 0(%1)\n\tsq $6, 0(%0)" : : "r"(dst), "r"(src) : "$6", "memory");
 }
 
 // Returns 1 when interrupts are disabled (Status.IE clear).
-s32 func_003060f0() {
+s32 func_003060f0() {  // ee_intr_disabled
     s32 r;
     asm volatile("mfc0 %0, $12" : "=r"(r));
     return (r ^ 1) & 1;
@@ -291,7 +291,7 @@ void func_003062c0() {
 // libkernel: enable interrupts, return whether EIE was already set.
 // The mfc0/lui/and sequence is in asm: this area is hand-written / other-compiler
 // code that uses v0/v1 as scratch.
-s32 func_0030ee00() {
+s32 func_0030ee00() {  // ee_intr_get_enable
     register u32 r asm("$2");
     register u32 m asm("$3");
     asm volatile("mfc0 %0, $12\n\tlui %1, 1\n\tand %0, %0, %1" : "=r"(r), "=r"(m));

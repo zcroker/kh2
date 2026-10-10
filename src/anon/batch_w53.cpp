@@ -58,7 +58,7 @@ void func_0011e350(u8*, u32);
 void func_0011c438(u8*);
 void* func_0011e7e0(u32, void*, u32, u32, u32);
 void func_00132370(void*, f32);
-u8* func_00124748(u32, u32);
+u8* func_00124748(u32, u32);  // list_nth_node_rel
 void func_00239988(u8*);
 void func_00138c10(u8*, u32);
 void func_0013f230(void);
@@ -107,11 +107,11 @@ void func_002c9f20(u8*);
 void func_002c90c8(void*, u32);
 u8* func_00102c80(void);
 u8* func_00102788(u32, u32, u32, u32);
-void func_002cfeb0(u8*, u32, u32, u32);
+void func_002cfeb0(u8*, u32, u32, u32);  // obj_init_field1416_bit800
 void func_002e7308(u8*);
 void func_002def70(u8*);
 u8* func_002dc7c8(u32);
-void func_002deac0(u8*, f32, f32);
+void func_002deac0(u8*, f32, f32);  // set_float24_scaled
 void func_002deba0(u8*, u32, f32, f32);
 void func_001002a0(s32) __attribute__((noreturn));
 
@@ -157,7 +157,7 @@ void wtarget_0011e9a8(u32 a, u32 b, u32 c, u32 d, f32 x) {
 }
 
 u32 func_00124578(u32 a0, u32 a1, u32 a2, u32 a3, u32 t0, u32 t1, u8 t2, u32 t3) {
-    u8* o = func_00124748(a0, 0);
+    u8* o = func_00124748(a0, 0);  // list_nth_node_rel
     return (*(Fn8*)(*(u8**)o + 76))(o, a1, a2, a3, t0, t1, t2, t3);
 }
 
@@ -295,7 +295,7 @@ void func_00191758(void) {
 }
 
 // Add d to a 0..99 sub-counter at +432, carrying into the level at +433 (capped by +434).
-void func_001a1aa0(u8* p, s32 d) {
+void func_001a1aa0(u8* p, s32 d) {  // ring_buffer_index
     s32 v = p[432] + d;
     if (d >= 0) {
         while (v >= 100) {
@@ -476,7 +476,7 @@ f32 func_002d48b8(f32 x) {
 
 void func_002db808(u8* p, u32 a, u32 b) {
     NoTail g;
-    func_002cfeb0(p, a, 3, b);
+    func_002cfeb0(p, a, 3, b);  // obj_init_field1416_bit800
     *(s32*)(p + 2836) = -1;
     *(u8**)p = D_00362908;
     func_002e7308(p + 2976);
@@ -487,7 +487,7 @@ void func_002df7d8(u8* p, u32 b) {
     u32 s = D_00361f60;
     u8* x1 = func_002dc7c8(s);
     u8* y1 = func_002dc7c8(s);
-    func_002deac0(p, *(f32*)(x1 + 244), *(f32*)(y1 + 248));
+    func_002deac0(p, *(f32*)(x1 + 244), *(f32*)(y1 + 248));  // set_float24_scaled
     u8* x2 = func_002dc7c8(s);
     u8* y2 = func_002dc7c8(s);
     func_002deba0(p, b, *(f32*)(x2 + 252), *(f32*)(y2 + 256));

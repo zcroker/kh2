@@ -68,10 +68,10 @@ void func_0010c9f8(u8* p, f32 a, f32 b, f32 c, f32 d, f32 e) {
 
 // --- 001215b8
 // Flags (|= 4) every entry of both tables whose id field matches (or all when id == -1).
-u8* func_00120800(u8*);
+u8* func_00120800(u8*);  // obj_get_sub_ptr_by12
 void func_001215b8(u8* p, u8* flags, s32 id) {
     u8* q = *(u8**)(p + 4);
-    u8* r = func_00120800(p);
+    u8* r = func_00120800(p);  // obj_get_sub_ptr_by12
     s32 i;
     for (i = 0; i < *(s32*)(q + 28); i++) {
         if (id == -1 || ((*(u32*)(q + 32 + i * 32) >> 6) & 0x1f) == id) flags[i] |= 4;
@@ -100,13 +100,13 @@ void func_00131810(u8* p, u8* q, u32, u32, u32 x, f32 t) {
 
 // --- 00132f98
 // Walks a list and collects (counts) the active entries with the given id/owner.
-s32 func_00132338(u8*);
+s32 func_00132338(u8*);  // get_field8
 u8* func_00132c68(u8*);
 u8* func_00132350(u8*);
 s32 func_00132f98(u8* p, u32 id, u8** out, u32, u8* owner) {
     s32 n = 0;
     if (p) do {
-        if (func_00132338(p) == 1) {
+        if (func_00132338(p) == 1) {  // get_field8
             u8* d = func_00132c68(p);
             if ((!owner || *(u8**)(p + 4) == owner) && d && *(u16*)(d + 2) == id && *(s32*)(p + 636)) {
                 if (out) out[n] = p;
@@ -196,7 +196,7 @@ void func_00154de8(u8* p, f32 t) {
 u8* func_00177860(u8*);
 void func_00177a78(u8*);
 void func_00177a38(u8*);
-void func_00177a28(u8*);
+void func_00177a28(u8*);  // set_bytes_2820_2821
 u8 func_00177ab8(u8* p, u8 force) {
     u32 f;
     if ((*(u32*)(p + 360) & 0x20) && force) {
@@ -218,7 +218,7 @@ u8 func_00177ab8(u8* p, u8 force) {
         if (f & 0x10) one: b = 1;
         if (!(u8)b) return 0;
     }
-    func_00177a28(p);
+    func_00177a28(p);  // set_bytes_2820_2821
 done:
     *(u32*)(p + 264) &= ~0x02000000;
     return 1;
@@ -230,7 +230,7 @@ void func_002cb708(u8*);
 void func_00105110(u8*);
 u8* func_0019b380(u8*, u32);
 u8* func_00182e98(u32);
-u32 func_0016c028(u8*);
+u32 func_0016c028(u8*);  // obj_get_attach_or_alt
 u8* func_002cd018(u8*, u8*, u32, f32);
 u32 ctarget_00184f90(u8* p, u32 a1, u32, u32) asm("_Z16ctarget_00184f90jjjj");
 u32 ctarget_00184f90(u8* p, u32 a1, u32, u32) {
@@ -327,7 +327,7 @@ u8* func_001c16f0(u8*, u8*);
 void func_001ccac0(u8*, u8*);
 extern u8* D_00352050;
 void func_001cc9c8(u8* o, f32 r) {
-    Vc pos(*(Vc*)func_0016c028(o));
+    Vc pos(*(Vc*)func_0016c028(o));  // obj_get_attach_or_alt
     u8* e = 0;
     while ((e = func_001c16f0(*(u8**)(D_00352050 + 2548), e)) != 0) {
         if (*(u32*)(e + 72)) continue;
@@ -405,7 +405,7 @@ void func_001d7538(u8* p, u8* q) {
 u8* func_001050d8(u32);
 void func_0018d238(u8*, u32, u32, u32, u32, s32, s32);
 UF91* func_0018da18(u8*, u8*, u32, u32);
-void func_0018ca10(UF91*);
+void func_0018ca10(UF91*);  // alloc_from_pool_magic
 void func_0018f028(u8*);
 extern u8* D_00352bd0;
 // Unused 16-byte local with trivial ctor/dtor: reserves the frame slot and blocks the tail call.
@@ -419,7 +419,7 @@ void func_001e1070(u32, u8* a) {
         m[3].f = m[2].f = m[0].f = 0.0f;
         m[1].f = 1.0f;
         (*(void (**)(u8*, UF91*))(*(u32*)a + 100))(a, m);
-        func_0018ca10(m);
+        func_0018ca10(m);  // alloc_from_pool_magic
     }
     u8* x = *(u8**)(D_00352bd0 + 3536);
     (*(void (**)(u8*, u8*, u8*, u32))(*(u8**)x + 116))(x, a, o, m[8].u);
@@ -474,7 +474,7 @@ void func_001f6778(u8* base, A1f* a1, u8* a2) {
 // --- 001fb790
 // Sets the RGBA bytes of a node from 0..255 inputs scaled by the global colour.
 extern f32 D_00354be0[];
-void func_002f3f88(u8*, f32*);
+void func_002f3f88(u8*, f32*);  // memcpy16
 void func_001fb6c8(u8*, u32, u32);
 void func_001fb790(u8* base, u8* c, u8* a2) {
     u8* s = base + **(u32**)(a2 + 12) + 160;
@@ -482,7 +482,7 @@ void func_001fb790(u8* base, u8* c, u8* a2) {
     s[73] = (s32)(c[9] * *(f32*)(D_01d9e6e0 + 52));
     s[74] = (s32)(c[10] * *(f32*)(D_01d9e6e0 + 56));
     s[75] = (s32)(c[11] * *(f32*)(D_01d9e6e0 + 60));
-    func_002f3f88(s + 48, D_00354be0);
+    func_002f3f88(s + 48, D_00354be0);  // memcpy16
     func_001fb6c8(s, 0, 0);
 }
 
@@ -492,20 +492,20 @@ extern u8 D_01dad8d0[];
 extern u8 D_01d9e840[];
 extern u8 D_01d9e8c0[];
 void func_002f3d08(u8*, u8*, u8*);
-void func_002f3f40(u8*, u8*, f32);
+void func_002f3f40(u8*, u8*, f32);  // vec_scale_by_f12
 void func_002f3cd8(u8*, u8*, u8*);
 void func_001fcd70(void) {
     func_002f3d08(D_01dad890, D_01d9e840, D_01dad8d0);
-    func_002f3f40(D_01d9e6e8.p + 80, D_01d9e6e8.p + 16, D_00354be0[0]);
-    func_002f3f40(D_01d9e6e8.p + 96, D_01d9e6e8.p + 32, D_00354be0[1]);
-    func_002f3f40(D_01d9e6e8.p + 112, D_01d9e6e8.p + 48, D_00354be0[2]);
+    func_002f3f40(D_01d9e6e8.p + 80, D_01d9e6e8.p + 16, D_00354be0[0]);  // vec_scale_by_f12
+    func_002f3f40(D_01d9e6e8.p + 96, D_01d9e6e8.p + 32, D_00354be0[1]);  // vec_scale_by_f12
+    func_002f3f40(D_01d9e6e8.p + 112, D_01d9e6e8.p + 48, D_00354be0[2]);  // vec_scale_by_f12
     func_002f3cd8(D_01d9e6e8.p + 128, D_01d9e840, D_01d9e6e8.p + 64);
     func_002f3d08(D_01d9e6e8.p + 80, D_01d9e8c0, D_01d9e6e8.p + 80);
 }
 
 // --- 0024a270
 s32 func_00287bc0(void);
-void func_00287d68(void);
+void func_00287d68(void);  // copy_globals_3words
 u32 func_00287db0(void);
 u32 func_0028acc8(u32);
 void func_001039f8(void);
@@ -518,7 +518,7 @@ extern u8* D_0035ed7c;
 extern u8* D_0035ed80;
 u32 func_0024a270(void) {
     s32 s = func_00287bc0();
-    func_00287d68();
+    func_00287d68();  // copy_globals_3words
     if (func_00287db0()) {
         if (!func_0028acc8(D_0035ed70) && !func_0028acc8(D_0035ed74) && !u_call4_00139d78(D_0035ed78) && !u_call4_00139d78(D_0035ed7c) && !u_call4_00139d78(D_0035ed80)) {
             func_001039f8();
@@ -593,7 +593,7 @@ u32 func_0027b5d0(void) {
 extern u8* D_00347f80;
 extern u8 D_00347e60[];
 void func_00239700(u8*);
-void func_0028dfe8(u8*);
+void func_0028dfe8(u8*);  // obj_ctor_36f440
 void func_00258d58(u32, u32, u32);
 typedef u8* (*AllocFn91)(u8*, u32, u32);
 void func_00290198(u8* self, u32 a, u32 b, u32 c, u16* arr) {
@@ -605,7 +605,7 @@ void func_00290198(u8* self, u32 a, u32 b, u32 c, u16* arr) {
     *(u8**)self = o;
     u8* h2 = *(u8**)(D_00347f80 + 20);
     u8* o2 = (**(AllocFn91**)h2)(h2, 60, 0);
-    func_0028dfe8(o2);
+    func_0028dfe8(o2);  // obj_ctor_36f440
     *(u8**)(self + 4) = o2;
     for (s32 i = 0; i < 3; i++) ((u16*)(self + 8))[i] = arr[i];
     *(u32*)(self + 16) = a;
@@ -708,13 +708,13 @@ u32 func_002ab540(s32 who) {
 
 // --- 002ac800
 u8* func_002a9d68(void);
-u8* func_001d9e30(u8*);
+u8* func_001d9e30(u8*);  // record_range_check_or_first
 u32 func_002ac800(s32 who) {
     u8* p = 0;
     u32 r = 1;
     u8* x = func_002a9d68();
     for (;;) {
-        p = func_001d9e30(p);
+        p = func_001d9e30(p);  // record_range_check_or_first
         if (!p) break;
         if (who >= 0 && func_002764b0(p[4]) != who) continue;
         if (!tbit91((u32*)(D_0035f610 + p[0] * 8 + 404), p[1])) continue;
@@ -729,7 +729,7 @@ extern u8 D_01e2a410[];
 void func_002bcc60(u8*, u32, u32, s32*, s32*);
 u32 func_002bccd8(u8*, u32, u32, u32, s32*, s32*);
 void func_002baf48(s32, s32, u32, u32, u32, u32);
-void func_002bce10(u8*, s32);
+void func_002bce10(u8*, s32);  // find_entry12_set_flag
 s32 func_002ba630(u32 a, u32 b, u32 c, u32 d) {
     s32 h[2];
     h[0] = -1;
@@ -737,7 +737,7 @@ s32 func_002ba630(u32 a, u32 b, u32 c, u32 d) {
     func_002bcc60(D_01e2a410, a, c, &h[0], &h[1]);
     func_002baf48(h[0], 0, a, b, 0, 0);
     if (c) func_002baf48(h[0], 1, c, d, 0, 0);
-    func_002bce10(D_01e2a410, h[0]);
+    func_002bce10(D_01e2a410, h[0]);  // find_entry12_set_flag
     return h[1];
 }
 
@@ -748,7 +748,7 @@ s32 func_002ba6f0(u32 a, u32 b, u32 c, u32 d, u32 e, s32* out) {
     if (func_002bccd8(D_01e2a410, a, b, d, out, &r)) {
         func_002baf48(*out, 0, b, c, 0, 0);
         if (d) func_002baf48(*out, 1, d, e, 0, 0);
-        func_002bce10(D_01e2a410, *out);
+        func_002bce10(D_01e2a410, *out);  // find_entry12_set_flag
     }
     return r;
 }
@@ -837,7 +837,7 @@ fpn91* func_003141e8(fpn91* a, fpn91* b) {
 
 // --- 001422a0
 // Fetches a vertex position (w = 1), transforms it by the object's matrix and normalizes it.
-Vq* func_001422a0(Vq* out, u8* obj, u16 idx) {
+Vq* func_001422a0(Vq* out, u8* obj, u16 idx) {  // find_record16_and_copy
     u8* e = *(u8**)(obj + 12) + idx * 16;
     *out = *(Vq*)(*(u8**)(obj + 24) + *(u16*)(e + 10) * 16);
     out->w = 1.0f;
@@ -858,10 +858,10 @@ Vq* func_001422a0(Vq* out, u8* obj, u16 idx) {
 
 // --- 001a7790
 struct Ob64 { u8 b[64]; } __attribute__((aligned(16)));
-u8* func_00106a18(s32);
+u8* func_00106a18(s32);  // buffer_get_256
 Mc* func_00106ad0(u8*);
-u8* func_00106a60(s32);
-void func_00146680(Ob64*, Mc*);
+u8* func_00106a60(s32);  // buffer_get_by_index
+void func_00146680(Ob64*, Mc*);  // copy_quad4_if_diff
 u32 func_00146730(Ob64*, u8*);
 static inline void mmul91(Mc* r, Mc* a, Mc* b) {
     asm volatile("lqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 16(%1)\n\tlqc2 $vf3, 32(%1)\n\tlqc2 $vf4, 48(%1)\n\t"
@@ -876,11 +876,11 @@ static inline void mmul91(Mc* r, Mc* a, Mc* b) {
 u32 func_001a7790(u8* a) {
     Ob64 ob;
     Mc m(*func_00106ad0(func_00106a18(1)));
-    u8* t = func_00106a60(1);
+    u8* t = func_00106a60(1);  // buffer_get_by_index
     Mc* n = t ? (Mc*)(t + 16) : 0;
     Mc r;
     mmul91(&r, &m, n);
-    func_00146680(&ob, &r);
+    func_00146680(&ob, &r);  // copy_quad4_if_diff
     return func_00146730(&ob, a) == 0;
 }
 

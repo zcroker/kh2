@@ -38,7 +38,7 @@ extern u8 D_00351ec0[];
 void func_00177dc8(u8*, u32, s32, u32, u32);
 void func_0017a480(u8*, u32, s32, s32);
 void func_001a1a50(Sub1cf*, s32);
-void func_001d2648(u8*, s32, f32);
+void func_001d2648(u8*, s32, f32);  // clear_fields_0_4_32
 void func_001c8d80(u8*, s32);
 s32 func_002a0360(void);
 s32 func_002a9b88(s32);
@@ -82,14 +82,14 @@ void func_001cfbd8(u8* p, u32 a1, u32 a2, u32 a3) {
     if (D_0032bb30.a < 999) D_0032bb30.a++;
     if (D_0032bb30.b < 999) D_0032bb30.b++;
     *(u32*)(p + 2748) |= 0x240;
-    func_001d2648(s, 0xbbc2, k);
+    func_001d2648(s, 0xbbc2, k);  // clear_fields_0_4_32
     func_001c8d80(D_00351ec0, 4);
 }
 
 extern E259 D_00372ed8[];
 extern void* D_0035f64c;
 extern u32 D_0035f664;
-s32 func_00253578(void);
+s32 func_00253578(void);  // get_global_36ee90
 void func_00288d80(void*, s32, s32, s32, u32, u32, E259*, void*);
 void func_00288e08(void*, s32, s32, s32);
 u32 func_002891b8(void*, s32);
@@ -110,22 +110,22 @@ void func_00259e90(void) {
 }
 
 s32 func_002282f0(s32);
-void* func_002282d8(void);
+void* func_002282d8(void);  // limit_15000_or_25000
 C22e* func_00227d10(s32);
-void func_001ba028(B22e*);
-s32 func_00225b00(s32);
+void func_001ba028(B22e*);  // list_contains_ptr
+s32 func_00225b00(s32);  // flag_query_by_index
 V22e* func_00102c18(s32, void*, void*);
 void* func_001050c8(void);
 W22e* func_001063c0(s32, void*);
-void func_0014f030(W22e*, f32, f32, f32);
+void func_0014f030(W22e*, f32, f32, f32);  // obj_set_lerp_params
 void func_0022ed70(void);
 void func_0022ee00(void);
 void func_0022ee30(A22e* a) {
     if (func_002282f0(a->h4)) return;
-    void* s = func_002282d8();
+    void* s = func_002282d8();  // limit_15000_or_25000
     C22e* c = func_00227d10(a->h6);
-    func_001ba028(c->f8);
-    if (!func_00225b00(a->h4)) {
+    func_001ba028(c->f8);  // list_contains_ptr
+    if (!func_00225b00(a->h4)) {  // flag_query_by_index
     V22e* v = func_00102c18(1, s, (void*)func_0022ed70);
     v->f48 = (B22e*)func_0022ee00;
     v->f4 = c->f8;
@@ -134,7 +134,7 @@ void func_0022ee30(A22e* a) {
     w->f4 = 0;
     w->f8 = 1.0f;
     v->f8.p = w;
-    func_0014f030(w, (f32)a->b8, (f32)a->b9, (f32)a->h10 * 2.0f);
+    func_0014f030(w, (f32)a->b8, (f32)a->b9, (f32)a->h10 * 2.0f);  // obj_set_lerp_params
     } else {
         c->f8->f2472 = (f32)a->b9;
     }

@@ -51,15 +51,15 @@ void func_001e8288(u8* p, s32 d) {
     }
 }
 
-void func_002fdfc8(const char*, ...);
+void func_002fdfc8(const char*, ...);  // device_vprintf_va
 extern char D_0036e978[], D_0036e998[], D_0036e9d0[], D_0036ec40[], D_0036ec58[], D_0036ec70[], D_0036ecb0[], D_0036ecc8[];
 static inline void ryjAssert(const char* e, const char* f, s32 l) {
-    func_002fdfc8(D_0036e978, e);
-    func_002fdfc8(D_0036e998, f, l);
+    func_002fdfc8(D_0036e978, e);  // device_vprintf_va
+    func_002fdfc8(D_0036e998, f, l);  // device_vprintf_va
     asm volatile("break");
 }
 static inline void ryjTail(const char* f, s32 l) {
-    func_002fdfc8(D_0036e998, f, l);
+    func_002fdfc8(D_0036e998, f, l);  // device_vprintf_va
     asm volatile("break");
 }
 #define ASSERTM(c, e, l) if (!(c)) { func_002fdfc8(D_0036e978, e); ryjTail(D_0036e9d0, l); }

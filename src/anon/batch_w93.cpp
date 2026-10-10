@@ -68,7 +68,7 @@ void func_001127c0(void)
     for (i = D_003417a8; i < 8; i++) D_00341788[i] = 0;
 }
 
-s16* func_001aec40(u32);
+s16* func_001aec40(u32);  // get_global_1c9408c
 u32 func_002ba0b0(s32);
 u32 func_002ba0f8(s32);
 u32 func_00136790(u32, u32*);
@@ -84,7 +84,7 @@ extern s32 D_003b8b38;
 void func_001363a0(u32 p)
 {
     u32 sz[2];
-    s16* v = func_001aec40(p);
+    s16* v = func_001aec40(p);  // get_global_1c9408c
     if (v[3] == D_003b8b20.a && v[2] == D_003b8b20.b) return;
     if (v[3] == -1) return;
     if (v[2] == -1) return;
@@ -171,7 +171,7 @@ void func_00158b78(W93A* a, W93B* b)
 
 struct W93Orb { u8 pad[4]; f32 dist; f32 radius; u8 p2[4]; W93V center; };
 struct W93Pos { u8 pad[32]; W93V pos; };
-f32 func_002f8870(f32);
+f32 func_002f8870(f32);  // fabsf
 // Places a point on the orb around o->center at the height of p, clamped to the radius.
 W93V func_0018e160(const W93Pos* p, const W93Orb* o)
 {
@@ -184,7 +184,7 @@ W93V func_0018e160(const W93Pos* p, const W93Orb* o)
     if (d.y < -r) y = -r;
     else if (r < d.y) y = r;
     else y = d.y;
-    f32 c = func_002f8870(y / r);
+    f32 c = func_002f8870(y / r);  // fabsf
     f32 s = __builtin_sqrtf(1.0f - c * c);
     d.y = 0;
     asm volatile("lqc2 $vf1, 0(%0)\n\tvmul.xyz $vf2, $vf1, $vf1\n\tvaddy.x $vf2, $vf2, $vf2y\n\tvaddz.x $vf2, $vf2, $vf2z\n\t"
@@ -201,7 +201,7 @@ W93V func_0018e160(const W93Pos* p, const W93Orb* o)
 
 struct W93Hdr { u32 p0; u32 flags; };
 struct W93Act { W93Hdr* h; u8 pad[16]; f32 f20; u8 p2[8]; W93Vec pos; };
-void* func_001de168(u32, u32, s32, s32, s32, s32);
+void* func_001de168(u32, u32, s32, s32, s32, s32);  // scan_list_by_half
 W93Vec* func_001dc5f8(void*);
 void func_001c2c00(void*);
 void func_0018efe8(W93Hdr*);
@@ -210,7 +210,7 @@ void func_0018e8f0(W93Act* a, u32 x, u32 y, W93Act* b)
 {
     if (a->h->flags & 0x80) return;
     if (b->h->flags & 0x80) return;
-    void* r = func_001de168(x, y, 1, 1, 10000, 0);
+    void* r = func_001de168(x, y, 1, 1, 10000, 0);  // scan_list_by_half
     if (r) {
         W93Vec d;
         d = b->pos - a->pos;
@@ -226,7 +226,7 @@ struct W93Map { u8 pad[4]; u16 flags; };
 struct W93Res { u8 pad[8]; W93Map* map; };
 struct W93Fld { u8 pad[8]; W93Map* map; u8 p2[40 - 12]; u8 f40[32]; u32 f72; };
 u32 func_001708f8(void*, s32);
-W93Res* func_00168b38(u32, s32, s32);
+W93Res* func_00168b38(u32, s32, s32);  // entry_array_find_nth
 void func_001d5458(W93Map*);
 void func_00191990(void);
 union W93UM { W93Map* p; u32 u; };
@@ -311,7 +311,7 @@ void func_001d0eb8(W93Pl*);
 void func_001991a8(s32, s32);
 void func_001b6c60(W93Pl*);
 s32 func_001c8b48(void);
-s32 func_001bbb50(void);
+s32 func_001bbb50(void);  // type_is_2_or_25
 s32 func_001c8ab0(void);
 void func_001d1408(W93Pl*);
 void func_001af328(W93Pl*);
@@ -342,7 +342,7 @@ void func_001d0d60(W93Pl* p)
         func_001af328(p);
         return;
     }
-    if (func_001bbb50()) {
+    if (func_001bbb50()) {  // type_is_2_or_25
         func_001d0eb8(p);
         func_001af360(p);
         return;
@@ -401,8 +401,8 @@ extern u8 D_00352af1;
 extern W93Sp* D_00352ae0;
 void func_001dd6a0(void); void func_001b81e8(void); void func_001e6688(void);
 s32 func_001dc9d0(W93Sp*); void func_001dc878(W93Sp*); s32 func_001dcc60(W93Sp*);
-void func_001e6648(void); void func_001dca70(W93Sp*); void func_001e3330(u32); s32 func_001e66e8(u32); void func_001e6c00(u32);
-void func_001e6af8(void); void func_001b8218(void);
+void func_001e6648(void); void func_001dca70(W93Sp*); void func_001e3330(u32); s32 func_001e66e8(u32); void func_001e6c00(u32);  // alloc_336_align_171
+void func_001e6af8(void); void func_001b8218(void);  // zero_global_byte_f
 struct W93NoTail { ~W93NoTail() {} };
 // Draws every visible sprite: direct draws batch together, textured ones flush the batch first.
 // (The empty-destructor local keeps the final call a jal, as in the original.)
@@ -434,13 +434,13 @@ void func_001dd920(void)
             func_001dca70(o);
             func_001e3330(o->tex);
             if (func_001e66e8(o->tex)) continue;
-            func_001e6c00(o->tex);
+            func_001e6c00(o->tex);  // alloc_336_align_171
             o->tex = 0;
             o->flags |= 0x10000;
         }
     }
     func_001e6af8();
-    func_001b8218();
+    func_001b8218();  // zero_global_byte_f
 }
 
 union W93IF { s32 i; f32 f; };
@@ -465,7 +465,7 @@ void func_00205040(W93IF* idx, f32* key, s32 lo, s32 hi)
 
 struct W93Ver { u32 a, b, c; };
 void* func_00105c30(void);
-W93Ver* func_00105c48(void*);
+W93Ver* func_00105c48(void*);  // entry12_34cae4
 u32 func_002402e0(void);
 void func_002fee78(char*, const char*, ...);
 extern char D_00371658[]; extern char D_00371668[]; extern char D_00371678[]; extern char D_00371680[];
@@ -473,7 +473,7 @@ extern u32 D_0035ec04;
 // Formats the version/build string for the given mode.
 void func_00240118(char* buf, s32 a, s32 mode)
 {
-    W93Ver* v = func_00105c48(func_00105c30());
+    W93Ver* v = func_00105c48(func_00105c30());  // entry12_34cae4
     if (a < 0) {
         func_002fee78(buf, D_00371658, func_002402e0(), v->a, v->b, v->c);
     } else if (mode == 1) {
@@ -494,7 +494,7 @@ union W93MdlP { W93Mdl* p; s32 i; };
 extern W93MdlP D_0035ee10;
 extern W93Six D_00372390[];
 extern u32 D_0035ee08;
-s32 func_0024f2b8(void);
+s32 func_0024f2b8(void);  // word_table_372368
 s32 func_00139d78(W93Mdl*);
 W93Mdl* func_0028c198(s32, s32, s32, u32, u32, u32);
 void func_00138c10(W93Mdl*, s32);
@@ -504,7 +504,7 @@ void func_0024f070(s32 idx)
 {
     s32 prev = D_0035ee2c;
     D_0035ee2c = idx;
-    s32 r = func_0024f2b8();
+    s32 r = func_0024f2b8();  // word_table_372368
     u32 res = D_003723b8[D_0035ee18[idx] ? idx + 5 : idx];
     if (!func_00139d78(D_0035ee10.p)) {
         W93Six* e = &D_00372390[r];

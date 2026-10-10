@@ -7,7 +7,7 @@ extern "C" {
 
 // 00100b70: compare two FDEs by their decoded initial PC (mixed CIE encodings).
 s32 func_001009a0(u8*);
-u32 func_00100920(u8, void*);
+u32 func_00100920(u8, void*);  // classify_subtype
 u8* func_001004c0(u8, u32, u8*, u32*);
 struct Fde { u32 len; s32 cie; u8 pc[1]; };
 static inline u8* FdeCie(Fde* f) { return (u8*)&f->cie - f->cie; }
@@ -25,8 +25,8 @@ s32 func_00100b70(void* ob, Fde* x, Fde* y)
 }
 
 // 0011e260: attach a chunk list, then process element 0 and every (0, i) pair.
-void* func_00132068(void*, s32);
-void* func_00132018(void*);
+void* func_00132068(void*, s32);  // entry_get_by_index
+void* func_00132018(void*);  // entry_ptr_from_header
 void func_0011e410(void*, void*);
 void func_0011e450(void*, void*);
 void func_0011e600(void*, void*, void*);
@@ -84,7 +84,7 @@ s32 func_0013ba60(s32 a0, s32 a1, s32 a2, u8* a3, s32 a4, u32* a5, u32* a6)
 
 // 001403b0: per-frame update using the global time step.
 extern f32 D_00349e10;
-void func_0013f5f0(void*);
+void func_0013f5f0(void*);  // copy_float_220_to_48
 s32 func_00167f18(s32);
 s32 func_0013ff08(void*, s32, f32);
 s32 func_00140370(void*, s32);
@@ -95,7 +95,7 @@ void func_0013fca8(void*);
 void func_001403b0(u8* self)
 {
     s32 r = 0;
-    func_0013f5f0(self);
+    func_0013f5f0(self);  // copy_float_220_to_48
     s32 g = func_00167f18(0);
     VObj* o = *(VObj**)(self + 68);
     f32 dt = D_00349e10;
@@ -152,10 +152,10 @@ void func_0014ca80(u32 a0, u32* h, u32* m, u32* s, s32* cs)
 }
 
 // 0015d5d0
-s32 func_0013ef80(u32);
+s32 func_0013ef80(u32);  // get_global_byte_358700
 void func_001024a8(u32);
 void func_0013f048(void);
-void func_00236788(void*);
+void func_00236788(void*);  // to_236830
 struct G34b0 { u8 pad[276]; u32 f276; u8 pad2[48]; u32 f328; u32 f332; };
 extern G34b0 D_0034b0e0;
 extern u8 D_0034af40[];
@@ -167,7 +167,7 @@ void func_0023ade0(void*);
 void func_0015d5d0(u32 a0)
 {
     if (!func_0013ef80(a0)) { func_001024a8(a0); func_0013f048(); }
-    func_00236788(D_0034af40);
+    func_00236788(D_0034af40);  // to_236830
     if (!(u8)func_00239d30(&D_0034b0e0, D_0034b0e0.f276) && !func_00239d10(&D_0034b0e0)
         && !*(s32*)(func_0014aba8() + 252)) { func_001024a8(a0); func_0013f048(); }
     func_0023acd8(&D_0034b0e0);
@@ -283,7 +283,7 @@ void func_001bdd50(u8* self)
 
 // 001c3ba8
 f32 func_00184a90(void*);
-f32* func_0016c028(void*);
+f32* func_0016c028(void*);  // obj_get_attach_or_alt
 #define MAX(a, b) ((a) > (b) ? (a) : (b))
 #define MIN(a, b) ((a) < (b) ? (a) : (b))
 #define HEIGHT(o) (func_00184a90(o) - func_0016c028(o)[1])
@@ -405,7 +405,7 @@ void func_001e2130(u8* self)
 
 // 001fb5b8: scale an RGBA byte colour by the global colour multipliers.
 extern u8* D_01d9e6e0;
-void func_002f3f88(void*, void*);
+void func_002f3f88(void*, void*);  // memcpy16
 void func_001fb508(void*, s32, s32);
 extern u8 D_00354be0[];
 void func_001fb5b8(u8* base, u8* c, u8* a2)
@@ -416,13 +416,13 @@ void func_001fb5b8(u8* base, u8* c, u8* a2)
     p[37] = (s32)(c[9] * *(f32*)(D_01d9e6e0 + 52));
     p[38] = (s32)(c[10] * *(f32*)(D_01d9e6e0 + 56));
     p[39] = (s32)(c[11] * *(f32*)(D_01d9e6e0 + 60));
-    func_002f3f88(base + 176, D_00354be0);
+    func_002f3f88(base + 176, D_00354be0);  // memcpy16
     func_001fb508(p, 0, 0);
 }
 
 // 00248900
 s32 func_00287bc0(void);
-void func_00287d68(void);
+void func_00287d68(void);  // copy_globals_3words
 s32 func_00287db0(void);
 s32 func_0028acc8(void*);
 s32 func_00139d78(void*);
@@ -437,7 +437,7 @@ extern void* D_0035ed5c;
 s32 func_00248900(void)
 {
     s32 m = func_00287bc0();
-    func_00287d68();
+    func_00287d68();  // copy_globals_3words
     if (func_00287db0()) {
         if (func_0028acc8(D_0035ed4c) || func_0028acc8(D_0035ed50) || func_00139d78(D_0035ed54)
             || func_00139d78(D_0035ed58) || func_00139d78(D_0035ed5c)) return 0;
@@ -466,14 +466,14 @@ void func_00256f18(void)
 
 // 0025d918: create the menu object and set up its layers.
 u8* func_0023ee30(u32);
-void func_002369a0(void*);
-void func_0023c008(void*);
+void func_002369a0(void*);  // obj_ctor_36eac8
+void func_0023c008(void*);  // obj_ctor_36eae8
 s32 func_0023f948(void*, s32);
 void func_0028d7f0(void*, s32, s32, s32, s32, s32, s32, s32, s32);
 void func_0023ef50(void*);
 void func_0028f280(s32, s32, void*, void*, void*);
-void func_00263960(s32, s32, void*, void*, void*);
-void func_0023d2e0(u32*);
+void func_00263960(s32, s32, void*, void*, void*);  // store_globals_and_init
+void func_0023d2e0(u32*);  // store_global_test_result
 void func_00240b90(u32);
 void func_00287bd0(s32, s32);
 void func_00287cc0(s32);
@@ -490,16 +490,16 @@ void func_0025d918(void)
     u8* o = func_0023ee30(160);
     *(u32*)(o + 12) = 0;
     *(void**)o = D_0035eb98;
-    func_002369a0(o + 24);
-    func_0023c008(o + 48);
+    func_002369a0(o + 24);  // obj_ctor_36eac8
+    func_0023c008(o + 48);  // obj_ctor_36eae8
     D_0035f664 = o;
     s32 v = func_0023f948(D_0035f674, 1);
     func_0028d7f0(D_0035f664, 30039, 0, 0, 0, 1, v, 0, 0);
     func_0023ef50(D_0035f664);
     func_0028f280(0, 0, D_0035f664, D_00373108, D_00373130);
-    func_00263960(0, 0, D_0035f664, D_00373100, D_00373138);
+    func_00263960(0, 0, D_0035f664, D_00373100, D_00373138);  // store_globals_and_init
     u32 tmp;
-    func_0023d2e0(&tmp);
+    func_0023d2e0(&tmp);  // store_global_test_result
     func_00240b90(tmp);
     func_00287bd0(1, 0);
     func_00287cc0(0);
@@ -556,7 +556,7 @@ union HeapRef { u8* p; u32 w; };
 extern HeapRef D_00347f80;
 extern u8 D_00347e60[];
 void func_00239700(void*);
-void func_0028dfe8(void*);
+void func_0028dfe8(void*);  // obj_ctor_36f440
 void func_00258d58(u32, u32, u32);
 typedef u8* (*AllocFn)(void*, u32, u32);
 static inline u8* HeapAlloc(u32 n) { VObj* al = *(VObj**)(D_00347f80.p + 20); return ((AllocFn)al->vt[0])(al, n, 0); }
@@ -569,7 +569,7 @@ void func_00290098(Pair290* self, u32 a1, u32 a2, u32 a3, u16* src)
     func_00239700(a + 24);
     self->a = a;
     u8* b = HeapAlloc(60);
-    func_0028dfe8(b);
+    func_0028dfe8(b);  // obj_ctor_36f440
     self->b = b;
     for (s32 i = 0; i < 3; i++) self->v[i] = src[i];
     self->x = a1;
@@ -725,8 +725,8 @@ void func_002d5e50(u8* self)
 // 002ed738
 s32 func_00190140(void*);
 f32 func_001906f0(void*, void*);
-double func_00313b80(f32);
-s32 func_003142e0(double, double);
+double func_00313b80(f32);  // float_to_double
+s32 func_003142e0(double, double);  // double_compare
 void func_002ed630(void*);
 void func_002ed720(void*);
 u32 func_002ed830(void*);
@@ -747,7 +747,7 @@ u32 u_call4_002ed738(Fx* self, u32, u32, u32)
     }
     func_002ed630(self);
     func_002ed720(self);
-    if (func_003142e0(func_00313b80(self->t), 0.0) <= 0) {
+    if (func_003142e0(func_00313b80(self->t), 0.0) <= 0) {  // double_compare
         self->t = 8.0f;
         self->cb = (u32)func_002ed8c0;
         return func_002ed830(self);
@@ -903,14 +903,14 @@ void func_00163650(f32* out, FV* p0, FV* p1, FV* p2)
 
 // 001423c0: fetch a target point list, optionally transformed by the object matrix.
 
-void func_00141988(void*, void*, PtrList*);
+void func_00141988(void*, void*, PtrList*);  // collect_entry_ptrs_by_halves
 u32 wtarget_001423c0(u8* self, u32 a1, FV* out, u32) asm("_Z16wtarget_001423c0jjjj");
 u32 wtarget_001423c0(u8* self, u32 a1, FV* out, u32)
 {
     u16 i = a1;
     if (i == 0xffff) return 0;
     PtrList l;
-    func_00141988(self, *(u8**)(self + 12) + i * 16, &l);
+    func_00141988(self, *(u8**)(self + 12) + i * 16, &l);  // collect_entry_ptrs_by_halves
     s32 n = l.n;
     if (self[209]) {
         for (s32 k = 0; k < n; k++) *out++ = *l.p[k];

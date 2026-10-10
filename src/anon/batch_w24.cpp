@@ -118,7 +118,7 @@ void func_0018d738(void) {
 }
 
 void wtarget_00191938(s32, u32, u32, u32) asm("_Z16wtarget_00191938jjjj");
-void func_001c1130(s32);
+void func_001c1130(s32);  // copy_record_block_to_table
 void func_001c11a8(s32);
 extern s32 D_01c61958;
 void wtarget_00191938(s32 v, u32, u32, u32) {
@@ -163,13 +163,13 @@ s32 func_0019d748(u32* p) {
 }
 
 void func_00239700(u32*);
-s32 func_001ab810(void);
+s32 func_001ab810(void);  // get_global_1c7cec0
 s32 func_001ab800(void);
 void func_00239988(u32*, s32, s32);
 void func_001abb28(u32* p) {
     p[0] = 0;
     func_00239700(p + 5);
-    s32 a = func_001ab810();
+    s32 a = func_001ab810();  // get_global_1c7cec0
     s32 b = func_001ab800();
     func_00239988(p + 5, a, b);
 }
@@ -208,7 +208,7 @@ void u_tail0_001b87b0(void) {
 }
 
 // ids 5, 10 and 13..18
-s32 func_001bcf38(s32* p) {
+s32 func_001bcf38(s32* p) {  // state_in_set_5_10_13to18
     switch (*p) {
     case 5: case 10: case 13: case 14: case 15: case 16: case 17: case 18:
         return 1;
@@ -301,14 +301,14 @@ void func_00280240(void) {
 }
 
 extern u8 D_01e2a410;
-void func_002bc9a8(void*, s32, s32);
-void func_002bce10(void*, s32);
+void func_002bc9a8(void*, s32, s32);  // find_entry12_set_field
+void func_002bce10(void*, s32);  // find_entry12_set_flag
 void func_002b9b78(void) {
     void* o = &D_01e2a410;
-    func_002bc9a8(o, 2, 0);
-    func_002bce10(o, 2);
-    func_002bc9a8(o, 3, 999);
-    func_002bce10(o, 3);
+    func_002bc9a8(o, 2, 0);  // find_entry12_set_field
+    func_002bce10(o, 2);  // find_entry12_set_flag
+    func_002bc9a8(o, 3, 999);  // find_entry12_set_field
+    func_002bce10(o, 3);  // find_entry12_set_flag
 }
 
 void func_00102448(u32, s32);
@@ -317,11 +317,11 @@ void func_002ba7c8(u32 a) {
 }
 
 void func_002baa60(u8*);
-u32* func_00168b38(u32, s32, u32);
+u32* func_00168b38(u32, s32, u32);  // entry_array_find_nth
 void func_002baa08(u32, u32, s32, s32);
 void func_002be568(u8* p, u32 x) {
     func_002baa60(p);
-    u32* r = func_00168b38(*(u32*)(p + 104), -1, x);
+    u32* r = func_00168b38(*(u32*)(p + 104), -1, x);  // entry_array_find_nth
     func_002baa08(r[2], r[3], 16383, 64);
 }
 
@@ -347,11 +347,11 @@ f32* func_002d6e08(f32* p, u32, u8* q) {
     return p;
 }
 
-void func_002cfeb0(u8*, u32, s32, u32);
+void func_002cfeb0(u8*, u32, s32, u32);  // obj_init_field1416_bit800
 u8 func_002e7308(u8*);
 extern void* D_00362908[];
 s32 func_002db858(u8* p, u32 a, u32 b) {
-    func_002cfeb0(p, a, 3, b);
+    func_002cfeb0(p, a, 3, b);  // obj_init_field1416_bit800
     *(s32*)(p + 2836) = -1;
     *(void**)p = D_00362908;
     return func_002e7308(p + 2976);
@@ -368,24 +368,24 @@ void func_002ece98(u32, u8* o) {
 void menu_mode_start(void*) asm("_ZN4menu4Mode5startEv");
 u32 func_00102210(void);
 void func_00102080(void*);
-u8* func_002ee840(void);
+u8* func_002ee840(void);  // get_data_1e2c088
 u32 func_001031b0(void);
 void menu_mode_start(void* self) {
     *(u32*)((u8*)self + 44) = func_00102210();
     func_00102080(self);
-    u8* s = func_002ee840();
+    u8* s = func_002ee840();  // get_data_1e2c088
     *(u32*)(s + 4) = func_001031b0();
 }
 
 struct P2 { u32 a; u32 b; };
 struct P3 { P2* p; s32 n; u32 v; };
-u32 func_002ff3fc(void);
+u32 func_002ff3fc(void);  // strlen
 void func_003032d0(u32, P3*);
 void func_00316d18(u32 a, u32 b) {
     P3 s;
     P2 x;
     x.a = a;
-    u32 v = func_002ff3fc();
+    u32 v = func_002ff3fc();  // strlen
     s.v = v;
     x.b = v;
     s.p = &x;
@@ -418,12 +418,12 @@ void func_0031b070(u8* p) {
 }
 
 extern void* D_0035eb98[];
-void func_0023c098(u8*);
-void func_002369f0(u8*);
+void func_0023c098(u8*);  // set_vtbl_36eae8_then_call
+void func_002369f0(u8*);  // set_vtbl_36eac8_then_call
 void func_0031cd90(u8* p) {
     *(void**)p = D_0035eb98;
-    func_0023c098(p + 48);
-    func_002369f0(p + 24);
+    func_0023c098(p + 48);  // set_vtbl_36eae8_then_call
+    func_002369f0(p + 24);  // set_vtbl_36eac8_then_call
     *(void**)p = D_00347f98;
 }
 

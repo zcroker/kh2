@@ -27,11 +27,11 @@ void func_00115290(void** p) {
 }
 
 extern u32 D_00347c60;
-void func_001322f0(void*);
+void func_001322f0(void*);  // set_vtbl_347c00
 void func_00106420(void*);
 void func_00133228(void** p) {
     *p = &D_00347c60;
-    func_001322f0(p);
+    func_001322f0(p);  // set_vtbl_347c00
     func_00106420(p);
 }
 
@@ -80,7 +80,7 @@ void func_00167fc8(void) {
 }
 
 u32 func_001c0cd8(void*);
-u8* func_0016c028(u8* p) {
+u8* func_0016c028(u8* p) {  // obj_get_attach_or_alt
     return func_001c0cd8(p) ? p + 112 : p + 1344;
 }
 
@@ -146,7 +146,7 @@ void func_001a49a0(u8* p, u8* a, u8* b) {
 }
 
 extern s32 D_01c6cba0[2];
-s32 func_001a8510(void) {
+s32 func_001a8510(void) {  // mod8_of_difference
     return (D_01c6cba0[0] - D_01c6cba0[1] + 8) % 8;
 }
 
@@ -159,7 +159,7 @@ void func_001ac660(void** p) {
     func_00105110(p);
 }
 
-void func_001b7958(s32* p, void* v) {
+void func_001b7958(s32* p, void* v) {  // add_vec_to_records
     for (s32 i = 0; i < *p; i++) {
         u8* q = (u8*)p + 32 + i * 32;
         asm volatile("lqc2 $vf1, 0(%0)\n\tlqc2 $vf2, 0(%1)\n\tvadd.xyzw $vf1, $vf1, $vf2\n\tsqc2 $vf1, 0(%0)" : : "r"(q), "r"(v) : "memory");
@@ -310,10 +310,10 @@ void func_002c6158(u32* p) {
 }
 
 extern u32 D_00362428;
-void func_002cfeb0(void*, u32, u32, u32);
+void func_002cfeb0(void*, u32, u32, u32);  // obj_init_field1416_bit800
 void func_002e7308(void*);
 void func_002d5d10(u8* p, u32 a, u32 b) {
-    func_002cfeb0(p, a, 1, b);
+    func_002cfeb0(p, a, 1, b);  // obj_init_field1416_bit800
     *(void**)p = &D_00362428;
     func_002e7308(p + 2872);
 }
@@ -343,11 +343,11 @@ void func_00315840(void** p) {
 }
 
 extern u32 D_003678f8[];
-void func_003167f8(void*);
+void func_003167f8(void*);  // set_vtbl_367910
 u8 func_00106420_u8(void*) asm("func_00106420");
 u8 func_00316890(void** p) {
     *p = D_003678f8;
-    func_003167f8(p);
+    func_003167f8(p);  // set_vtbl_367910
     return func_00106420_u8(p);
 }
 

@@ -8,7 +8,7 @@ extern "C" {
 
 struct Node38 { u32 key; u8 _4[52]; Node38* next; };
 struct List8 { u32 _0; u32 _4; Node38* head; };
-int func_00102a38(List8* list, u32 key) {
+int func_00102a38(List8* list, u32 key) {  // list_contains_id
     Node38* n = 0;
     while ((n = !n ? list->head : n->next) != 0) {
         if (n->key == key) return 1;
@@ -36,16 +36,16 @@ void func_0011b6a8_impl(void* dst) {
 }
 
 extern u8 D_00347bd8;
-void func_00124c08(void*);
+void func_00124c08(void*);  // set_vtbl_347b88
 void func_00106420(void*);
 void func_00131770(void** self) {
     *self = &D_00347bd8;
-    func_00124c08(self);
+    func_00124c08(self);  // set_vtbl_347b88
     func_00106420(self);
 }
 
 struct Chunk { s16 type; u16 _2; u32 _4; u32 offs[1]; };
-void* func_00132068(Chunk* c, int i) {
+void* func_00132068(Chunk* c, int i) {  // entry_get_by_index
     if (c != 0) {
         switch (c->type) {
         case -1: return (u8*)c + c->offs[i];
@@ -65,11 +65,11 @@ void func_001394d8(void* p) {
     func_00102750(*D_00347f80);
 }
 
-int func_00141970(void*, u32);
+int func_00141970(void*, u32);  // vtable_get12
 void func_001450e8(void*, int, u32);
 void func_00142900(u8* p, u32 a, u32 b) {
     u8* q = *(u8**)(p + 4);
-    int r = func_00141970(p, a);
+    int r = func_00141970(p, a);  // vtable_get12
     func_001450e8(q + 16, r, b);
 }
 
@@ -97,9 +97,9 @@ void func_001614e8(u8* p, u32 v) {
     func_001616d8(p);
 }
 
-void func_001666a0(void*);
+void func_001666a0(void*);  // zero_fields_0_4_6_8
 void func_00166930(u8* p) {
-    func_001666a0(p);
+    func_001666a0(p);  // zero_fields_0_4_6_8
     *(u16*)(p + 12) = 0;
     *(u8*)(p + 14) = 1;
     *(u16*)(p + 10) = 0;
@@ -149,7 +149,7 @@ void func_0018fee8(u32* p) {
 }
 
 struct Pair12 { u32 a; u32 b; u32 c; };
-Pair12* func_0019f5d8(Pair12* e, u32 a, u32 b) {
+Pair12* func_0019f5d8(Pair12* e, u32 a, u32 b) {  // find_entry12_pair
     for (int i = 0; i < 8; i++) {
         if (e[i].a == a && e[i].b == b) return &e[i];
     }
@@ -166,9 +166,9 @@ void func_001a2a18(u8* p) {
 }
 
 void* func_001a3a78(void*);
-void func_001de168(void*, u32, u32, u32, u32, void*);
+void func_001de168(void*, u32, u32, u32, u32, void*);  // scan_list_by_half
 void func_001b7428(void* p) {
-    func_001de168(func_001a3a78(p), 15, 1, 1, 10005, p);
+    func_001de168(func_001a3a78(p), 15, 1, 1, 10005, p);  // scan_list_by_half
 }
 
 extern u32 D_003511bc;
@@ -261,7 +261,7 @@ void func_002346f0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4) {
 
 struct Ent20 { u32 _0; u32 b; u32 _8; u32 c; u32 _10; };
 struct Tbl { u32 _0; u32 _4; Ent20* ents; u32* idx; };
-void func_002374c8(Tbl* t, int i, int j, u32 v) {
+void func_002374c8(Tbl* t, int i, int j, u32 v) {  // entry20_accumulate_b
     Ent20* e = &t->ents[*(u16*)&t->idx[i] + j];
     e->c = v + e->c - e->b;
     e->b = v;
@@ -280,12 +280,12 @@ void func_0023edb0(u32 x) {
     D_0035eb84++;
 }
 
-void func_002ff3fc(u32);
+void func_002ff3fc(u32);  // strlen
 void func_002346a0(s32, u32, u32);
 extern u32 D_0035ec88;
 extern s8* D_0035ec94;
 void func_00241528(void) {
-    func_002ff3fc(D_0035ec88);
+    func_002ff3fc(D_0035ec88);  // strlen
     func_002346a0(*D_0035ec94, D_0035ec88, 0);
 }
 
@@ -331,18 +331,18 @@ void func_002c1c50(void* p) {
 }
 
 extern u8 D_003621a0;
-void func_002e7328(void*);
+void func_002e7328(void*);  // to_2e7458
 u8 func_002d2a08(void*);
 u8 func_002d47a8(void** self) {
     *self = &D_003621a0;
-    func_002e7328((u8*)self + 3208);
+    func_002e7328((u8*)self + 3208);  // to_2e7458
     return func_002d2a08(self);
 }
 
-void func_0016a9a0(void*);
+void func_0016a9a0(void*);  // to_16a950
 void func_002db610(void*, s32);
 void func_002db7d0(u8* p) {
-    func_0016a9a0(p);
+    func_0016a9a0(p);  // to_16a950
     func_002db610(p, (p[568] & 1) ? 0 : -1);
 }
 
@@ -360,11 +360,11 @@ u8 func_002e9c58(u8* a, u8* b) {
 }
 
 extern u8 D_00367860;
-void func_003167f8(void*);
+void func_003167f8(void*);  // set_vtbl_367910
 u8 func_00106420_u8(void*) asm("func_00106420");
 u8 func_00315678(void** self) {
     *self = &D_00367860;
-    func_003167f8(self);
+    func_003167f8(self);  // set_vtbl_367910
     return func_00106420_u8(self);
 }
 

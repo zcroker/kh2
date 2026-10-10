@@ -73,7 +73,7 @@ void jm_unload(u8* j) asm("_ZN2Tz6JmInfo6UnloadEz");
 
 #define QCOPY(d, s) asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(d), "r"(s) : "$8", "memory")
 
-void func_00107300(u8* p, u8* a, u8* b, f32 f) {
+void func_00107300(u8* p, u8* a, u8* b, f32 f) {  // copy_blocks_and_store_float
     u8* d = p + 80;
     if (d != a) QCOPY(d, a);
     d = p + 96;
@@ -271,7 +271,7 @@ void func_002f0a38(u32* p) {
 }
 
 // VU0 vector blend: d = a*t + b*(1-t).
-void func_002f3ed0(f32* d, f32* a, f32* b, f32 t) {
+void func_002f3ed0(f32* d, f32* a, f32* b, f32 t) {  // vec4_lerp
     asm volatile(
         "lqc2 $vf4, 0(%1)\n\t"
         "lqc2 $vf5, 0(%2)\n\t"

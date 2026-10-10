@@ -35,7 +35,7 @@ void func_001e8180(u8* p, u8* base) {
     for (j = 0; j < na; j++) A[j] = (s32)(base + A[j] * 72);
     for (k = 0; k < nb; k++) B[k] = B[k] + (s32)p;
 }
-void func_002fdfc8(const char*, ...);
+void func_002fdfc8(const char*, ...);  // device_vprintf_va
 void func_001e2ad8(const char*, const char*, s32, const char*);
 extern char D_0036e978[], D_0036e998[], D_0036e9d0[], D_0036ec40[], D_0036ec58[], D_0036ec70[], D_0036ece0[], D_0036ecf0[];
 typedef union { u16 h; void* p; u8 c; } U2_331;

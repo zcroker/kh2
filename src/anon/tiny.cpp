@@ -9,7 +9,7 @@ void func_00133e50(void*);
 void func_001340e8(void*);
 void func_0010b550(void*);
 void func_0010d2b8(void*);
-void func_001064a8(void*);
+void func_001064a8(void*);  // int_to_float_scaled
 void func_00127a88(void*);
 void func_00136840(void*);
 void func_00138840(void*);
@@ -47,7 +47,7 @@ void func_001d5730(void*);
 void func_001bde88(void*);
 void func_001e4f40(void*);
 void func_001e7018(void*);
-void func_001e7698(void*);
+void func_001e7698(void*);  // alloc_aligned16
 void func_0020dff0(void*);
 void func_001fa7b0(void*);
 void func_001fab48(void*);
@@ -72,13 +72,13 @@ void func_002b9968(void*);
 void func_002b99c8(void*);
 void func_002b82f8(void*);
 void func_002b83b4(void*);
-void func_0016a9a0(void*);
+void func_0016a9a0(void*);  // to_16a950
 void func_002e7458(void*);
 void func_002e7688(void*);
 void func_002e76c8(void*);
 void func_002f9268(void*);
 void func_002f9e78(void*);
-void func_002ff014(void*);
+void func_002ff014(void*);  // memset
 void func_00139858(s32);
 void func_00139dc0(s32);
 void func_001393f8(s32);
@@ -300,7 +300,7 @@ u32 func_00103b38(u32 a0, u32 a1, u32 a2, u32 a3) {
     return (u32)(*(u8*)((u32)b + (-17880)));
 }
 
-void func_00103c70(u32 a0, u32 a1, u32 a2, u32 a3) {
+void func_00103c70(u32 a0, u32 a1, u32 a2, u32 a3) {  // clear_hook_ptr
     u32 b = (0x0033u << 16);
     *(u32*)((u32)b + (-17876)) = (u32)0;
 }
@@ -310,7 +310,7 @@ void func_00103c80(u32 a0, u32 a1, u32 a2, u32 a3) {
     *(u32*)((u32)b + (-17876)) = (u32)a0;
 }
 
-void func_00103ea0(u32 a0, u32 a1, u32 a2, u32 a3) {
+void func_00103ea0(u32 a0, u32 a1, u32 a2, u32 a3) {  // set_hook_ptr
     u32 b = (0x0033u << 16);
     *(u32*)((u32)b + (-17868)) = (u32)a0;
 }
@@ -404,14 +404,14 @@ u32 func_00106a08(u32 a0, u32 a1, u32 a2, u32 a3) {
     return (u32)(*(u32*)((u32)b + (-13248)));
 }
 
-void func_00106ab8(u32 a0, u32 a1, u32 a2, u32 a3) {
+void func_00106ab8(u32 a0, u32 a1, u32 a2, u32 a3) {  // noop_ret
     (void)a0;
     (void)a1;
     (void)a2;
     (void)a3;
 }
 
-u32 func_0010aba8(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_0010aba8(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_global_34ed4
     (void)a0;
     (void)a1;
     (void)a2;
@@ -420,7 +420,7 @@ u32 func_0010aba8(u32 a0, u32 a1, u32 a2, u32 a3) {
     return (u32)(*(u32*)((u32)b + (3796)));
 }
 
-u32 func_00112740(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_00112740(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_field2940
     return (u32)(*(u32*)((u32)a0 + (2940)));
 }
 
@@ -444,7 +444,7 @@ void func_001133f8(u32 a0, u32 a1, u32 a2, u32 a3) {
     *(u32*)((u32)a0 + (2940)) = t;
 }
 
-u32 func_00132338(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_00132338(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_field8
     return (u32)(*(u32*)((u32)a0 + (8)));
 }
 
@@ -526,7 +526,7 @@ u32 func_0013a800(u32 a0, u32 a1, u32 a2, u32 a3) {
     return (u32)(*(u32*)((u32)b + (32736)));
 }
 
-u32 func_0013cb80(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_0013cb80(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_global_358050
     (void)a0;
     (void)a1;
     (void)a2;
@@ -549,7 +549,7 @@ u32 func_0013d810(u32 a0, u32 a1, u32 a2, u32 a3) {
     return (u32)(*(u32*)((u32)b + (-31240)));
 }
 
-u32 func_0013ef80(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_0013ef80(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_global_byte_358700
     (void)a0;
     (void)a1;
     (void)a2;
@@ -578,7 +578,7 @@ void func_0014a1e0(u32 a0, u32 a1, u32 a2, u32 a3) {
     *(u8*)((u32)b + (-28056)) = (u8)0;
 }
 
-void func_0014a248(u32 a0, u32 a1, u32 a2, u32 a3) {
+void func_0014a248(u32 a0, u32 a1, u32 a2, u32 a3) {  // zero_global_byte_b
     u32 b = (0x0035u << 16);
     *(u8*)((u32)b + (-28055)) = (u8)0;
 }
@@ -616,7 +616,7 @@ u32 func_0014ca38(u32 a0, u32 a1, u32 a2, u32 a3) {
     return (u32)(*(u32*)((u32)b + (-25096)));
 }
 
-void func_0014df98(u32 a0, u32 a1, u32 a2, u32 a3) {
+void func_0014df98(u32 a0, u32 a1, u32 a2, u32 a3) {  // zero_global_byte
     u32 b = (0x0035u << 16);
     *(u8*)((u32)b + (-23584)) = (u8)0;
 }
@@ -637,7 +637,7 @@ u32 func_0015ce80(u32 a0, u32 a1, u32 a2, u32 a3) {
     return (u32)(*(u8*)((u32)b + (-20680)));
 }
 
-void func_0015ce90(u32 a0, u32 a1, u32 a2, u32 a3) {
+void func_0015ce90(u32 a0, u32 a1, u32 a2, u32 a3) {  // zero_global_byte_g
     u32 b = (0x0035u << 16);
     *(u8*)((u32)b + (-20680)) = (u8)0;
 }
@@ -680,7 +680,7 @@ void func_00161228(u32 a0, u32 a1, u32 a2, u32 a3) {
     *(u8*)((u32)b + (-14528)) = (u8)0;
 }
 
-void func_00161530(u32 a0, u32 a1, u32 a2, u32 a3) {
+void func_00161530(u32 a0, u32 a1, u32 a2, u32 a3) {  // noop_ret_b
     (void)a0;
     (void)a1;
     (void)a2;
@@ -721,7 +721,7 @@ void func_00182df0(u32 a0, u32 a1, u32 a2, u32 a3) {
     *(u32*)((u32)b + (-4860)) = (u32)0;
 }
 
-void func_00182f28(u32 a0, u32 a1, u32 a2, u32 a3) {
+void func_00182f28(u32 a0, u32 a1, u32 a2, u32 a3) {  // store_global_35ed04
     u32 b = (0x0035u << 16);
     *(u32*)((u32)b + (-4860)) = (u32)a0;
 }
@@ -781,7 +781,7 @@ void func_001a97e8(u32 a0, u32 a1, u32 a2, u32 a3) {
     *(u32*)((u32)b + (-13232)) = (u32)a0;
 }
 
-u32 func_001ab810(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_001ab810(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_global_1c7cec0
     (void)a0;
     (void)a1;
     (void)a2;
@@ -808,7 +808,7 @@ u32 func_001ae990(u32 a0, u32 a1, u32 a2, u32 a3) {
     return (u32)(*(u32*)((u32)b + (3208)));
 }
 
-u32 func_001aec40(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_001aec40(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_global_1c9408c
     (void)a0;
     (void)a1;
     (void)a2;
@@ -832,7 +832,7 @@ void func_001b6fa0(u32 a0, u32 a1, u32 a2, u32 a3) {
     *(u32*)((u32)b + (-29516)) = (u32)a0;
 }
 
-void func_001b8218(u32 a0, u32 a1, u32 a2, u32 a3) {
+void func_001b8218(u32 a0, u32 a1, u32 a2, u32 a3) {  // zero_global_byte_f
     u32 b = (0x0035u << 16);
     *(u8*)((u32)b + (4545)) = (u8)0;
 }
@@ -857,7 +857,7 @@ void func_001c09f0(u32 a0, u32 a1, u32 a2, u32 a3) {
     *(u32*)((u32)b + (-27808)) = (u32)a0;
 }
 
-u32 func_001c0c18(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_001c0c18(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_global_35c638
     (void)a0;
     (void)a1;
     (void)a2;
@@ -871,7 +871,7 @@ void func_001c0c70(u32 a0, u32 a1, u32 a2, u32 a3) {
     *(u32*)((u32)b + (-27776)) = (u32)a0;
 }
 
-u32 func_001c0cc8(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_001c0cc8(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_global_35c63c
     (void)a0;
     (void)a1;
     (void)a2;
@@ -910,7 +910,7 @@ void func_001c3f48(u32 a0, u32 a1, u32 a2, u32 a3) {
     *(u32*)((u32)b + (-27288)) = (u32)a0;
 }
 
-u32 func_001c4160(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_001c4160(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_global_byte_35d60c
     (void)a0;
     (void)a1;
     (void)a2;
@@ -1021,7 +1021,7 @@ void func_001e70a0(u32 a0, u32 a1, u32 a2, u32 a3) {
     *(u32*)((u32)b + (11320)) = (u32)a0;
 }
 
-u32 func_002247d8(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_002247d8(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_global_36dad0
     (void)a0;
     (void)a1;
     (void)a2;
@@ -1030,7 +1030,7 @@ u32 func_002247d8(u32 a0, u32 a1, u32 a2, u32 a3) {
     return (u32)(*(u32*)((u32)b + (-9520)));
 }
 
-u32 func_00224860(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_00224860(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_global_36daf4
     (void)a0;
     (void)a1;
     (void)a2;
@@ -1044,7 +1044,7 @@ void func_002248c0(u32 a0, u32 a1, u32 a2, u32 a3) {
     *(u32*)((u32)b + (-9524)) = (u32)0;
 }
 
-u32 func_00224910(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_00224910(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_global_36dac4
     (void)a0;
     (void)a1;
     (void)a2;
@@ -1081,7 +1081,7 @@ u32 func_00224978(u32 a0, u32 a1, u32 a2, u32 a3) {
     return (u32)(*(u32*)((u32)b + (-9504)));
 }
 
-u32 func_00224988(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_00224988(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_global_byte_36dad5
     (void)a0;
     (void)a1;
     (void)a2;
@@ -1095,7 +1095,7 @@ void func_002249a8(u32 a0, u32 a1, u32 a2, u32 a3) {
     *(u32*)((u32)b + (-9536)) = (u32)a0;
 }
 
-u32 func_002249b8(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_002249b8(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_global_36dac0
     (void)a0;
     (void)a1;
     (void)a2;
@@ -1109,7 +1109,7 @@ void func_002249d8(u32 a0, u32 a1, u32 a2, u32 a3) {
     *(u8*)((u32)b + (-9506)) = (u8)0;
 }
 
-u32 func_002249e8(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_002249e8(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_global_byte_36dad6
     (void)a0;
     (void)a1;
     (void)a2;
@@ -1127,7 +1127,7 @@ u32 func_00224e90(u32 a0, u32 a1, u32 a2, u32 a3) {
     return (u32)(*(u8*)((u32)b + (-8667)));
 }
 
-u32 func_00225540(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_00225540(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_global_byte_36de29
     (void)a0;
     (void)a1;
     (void)a2;
@@ -1136,7 +1136,7 @@ u32 func_00225540(u32 a0, u32 a1, u32 a2, u32 a3) {
     return (u32)(*(u8*)((u32)b + (-8695)));
 }
 
-void func_00225a00(u32 a0, u32 a1, u32 a2, u32 a3) {
+void func_00225a00(u32 a0, u32 a1, u32 a2, u32 a3) {  // zero_global_byte_e
     u32 b = (0x0036u << 16);
     *(u8*)((u32)b + (-9492)) = (u8)0;
 }
@@ -1207,7 +1207,7 @@ u32 func_00234778(u32 a0, u32 a1, u32 a2, u32 a3) {
     return (u32)(*(u32*)((u32)b + (-7100)));
 }
 
-u32 func_002347a8(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_002347a8(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_global_1dbe468
     (void)a0;
     (void)a1;
     (void)a2;
@@ -1216,7 +1216,7 @@ u32 func_002347a8(u32 a0, u32 a1, u32 a2, u32 a3) {
     return (u32)(*(u32*)((u32)b + (-7088)));
 }
 
-u32 func_002347b8(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_002347b8(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_global_1dbe454
     (void)a0;
     (void)a1;
     (void)a2;
@@ -1225,7 +1225,7 @@ u32 func_002347b8(u32 a0, u32 a1, u32 a2, u32 a3) {
     return (u32)(*(u32*)((u32)b + (-7084)));
 }
 
-u32 func_002347c8(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_002347c8(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_global_1dbe470
     (void)a0;
     (void)a1;
     (void)a2;
@@ -1234,7 +1234,7 @@ u32 func_002347c8(u32 a0, u32 a1, u32 a2, u32 a3) {
     return (u32)(*(u32*)((u32)b + (-7080)));
 }
 
-u32 func_002347d8(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_002347d8(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_global_1dbe45c
     (void)a0;
     (void)a1;
     (void)a2;
@@ -1243,7 +1243,7 @@ u32 func_002347d8(u32 a0, u32 a1, u32 a2, u32 a3) {
     return (u32)(*(u32*)((u32)b + (-7076)));
 }
 
-u32 func_002347e8(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_002347e8(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_global_1dbe460
     (void)a0;
     (void)a1;
     (void)a2;
@@ -1256,7 +1256,7 @@ void func_00237ad8(u32 a0, u32 a1, u32 a2, u32 a3) {
     *(u32*)((u32)a0 + (156)) = (u32)a1;
 }
 
-void func_0023d1e0(u32 a0, u32 a1, u32 a2, u32 a3) {
+void func_0023d1e0(u32 a0, u32 a1, u32 a2, u32 a3) {  // zero_global_d
     u32 b = (0x0036u << 16);
     *(u32*)((u32)b + (-5324)) = (u32)0;
 }
@@ -1267,7 +1267,7 @@ void func_0023d230(u32 a0, u32 a1, u32 a2, u32 a3) {
 }
 
 
-u32 func_00240108(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_00240108(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_global_36eb68
     (void)a0;
     (void)a1;
     (void)a2;
@@ -1294,7 +1294,7 @@ u32 func_002431c0(u32 a0, u32 a1, u32 a2, u32 a3) {
     return (u32)(*(u32*)((u32)b + (-4896)));
 }
 
-u32 func_00253578(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_00253578(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_global_36ee90
     (void)a0;
     (void)a1;
     (void)a2;
@@ -1308,7 +1308,7 @@ void func_002634c8(u32 a0, u32 a1, u32 a2, u32 a3) {
     *(u8*)((u32)b + (-3915)) = (u8)a0;
 }
 
-u32 func_00263ea8(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_00263ea8(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_global_36f1d0
     (void)a0;
     (void)a1;
     (void)a2;
@@ -1327,7 +1327,7 @@ void func_0026d808(u32 a0, u32 a1, u32 a2, u32 a3) {
     *(u32*)((u32)b + (-3848)) = (u32)a0;
 }
 
-u32 func_00287ec8(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_00287ec8(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_global_byte_36f320
     (void)a0;
     (void)a1;
     (void)a2;
@@ -1336,7 +1336,7 @@ u32 func_00287ec8(u32 a0, u32 a1, u32 a2, u32 a3) {
     return (u32)(*(u8*)((u32)b + (-3296)));
 }
 
-u32 func_00288008(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_00288008(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_global_36f7d4
     (void)a0;
     (void)a1;
     (void)a2;
@@ -1350,7 +1350,7 @@ void func_00288648(u32 a0, u32 a1, u32 a2, u32 a3) {
     *(u16*)((u32)b + (-3286)) = (u16)a0;
 }
 
-void func_0028b248(u32 a0, u32 a1, u32 a2, u32 a3) {
+void func_0028b248(u32 a0, u32 a1, u32 a2, u32 a3) {  // set_field28_half
     *(u16*)((u32)a0 + (28)) = (u16)a1;
 }
 
@@ -1377,7 +1377,7 @@ u32 func_00293ba0(u32 a0, u32 a1, u32 a2, u32 a3) {
     return (u32)(*(u8*)((u32)b + (-2822)));
 }
 
-u32 func_00296f80(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_00296f80(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_global_36f594
     (void)a0;
     (void)a1;
     (void)a2;
@@ -1386,7 +1386,7 @@ u32 func_00296f80(u32 a0, u32 a1, u32 a2, u32 a3) {
     return (u32)(*(u32*)((u32)b + (-2684)));
 }
 
-u32 func_00296f90(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_00296f90(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_global_36f598
     (void)a0;
     (void)a1;
     (void)a2;
@@ -1395,17 +1395,17 @@ u32 func_00296f90(u32 a0, u32 a1, u32 a2, u32 a3) {
     return (u32)(*(u32*)((u32)b + (-2680)));
 }
 
-void func_002b4ae0(u32 a0, u32 a1, u32 a2, u32 a3) {
+void func_002b4ae0(u32 a0, u32 a1, u32 a2, u32 a3) {  // store_global_word_b
     u32 b = (0x0036u << 16);
     *(u32*)((u32)b + (-2488)) = (u32)a0;
 }
 
-void func_002b4af0(u32 a0, u32 a1, u32 a2, u32 a3) {
+void func_002b4af0(u32 a0, u32 a1, u32 a2, u32 a3) {  // store_global_word
     u32 b = (0x0036u << 16);
     *(u32*)((u32)b + (-2356)) = (u32)a0;
 }
 
-void func_002b50f8(u32 a0, u32 a1, u32 a2, u32 a3) {
+void func_002b50f8(u32 a0, u32 a1, u32 a2, u32 a3) {  // zero_global_byte_c
     u32 b = (0x0036u << 16);
     *(u8*)((u32)b + (-2352)) = (u8)0;
 }
@@ -1414,7 +1414,7 @@ extern "C" u32 func_002b64c8(u32, u32, u32, u32) asm("_ZN2Tz10SyntheData15GetMix
 
 extern "C" u32 func_002ba358(u32, u32, u32, u32) asm("_ZN5SOUND13isSeAlertPlayEv");
 
-void func_002ba610(u32 a0, u32 a1, u32 a2, u32 a3) {
+void func_002ba610(u32 a0, u32 a1, u32 a2, u32 a3) {  // zero_global_byte_1e3
     u32 b = (0x01e3u << 16);
     *(u8*)((u32)b + (-23200)) = (u8)0;
 }
@@ -1465,7 +1465,7 @@ u32 func_002d1260(u32 a0, u32 a1, u32 a2, u32 a3) {
     return (u32)(*(u32*)((u32)b + (8272)));
 }
 
-u32 func_002dc7f8(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_002dc7f8(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_global_35e958
     (void)a0;
     (void)a1;
     (void)a2;
@@ -1508,7 +1508,7 @@ u32 func_002f1888(u32 a0, u32 a1, u32 a2, u32 a3) {
     return (u32)(*(u32*)((u32)b + (15396)));
 }
 
-u32 func_00316d08(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_00316d08(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_global_365c48
     (void)a0;
     (void)a1;
     (void)a2;
@@ -1636,7 +1636,7 @@ u32 func_00103070(u32 a0, u32 a1, u32 a2, u32 a3) {
     return (u32)&D_0032b9a0;
 }
 
-u32 func_00103c90(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_00103c90(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_hook_ptr
     (void)a0;
     (void)a1;
     (void)a2;
@@ -1684,14 +1684,14 @@ u32 func_001058e8(u32 a0, u32 a1, u32 a2, u32 a3) {
     return (u32)&D_0032bb30;
 }
 
-void func_001070c8(u32 a0, u32 a1, u32 a2, u32 a3) {
+void func_001070c8(u32 a0, u32 a1, u32 a2, u32 a3) {  // set_vtbl_34cc50
     (void)a1;
     (void)a2;
     (void)a3;
     *(u32*)((u32)a0 + (0)) = (u32)&D_0033cc50;
 }
 
-u32 func_0010ae90(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_0010ae90(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_table_34ed8
     (void)a0;
     (void)a1;
     (void)a2;
@@ -1712,14 +1712,14 @@ void func_0010eed8(u32 a0, u32 a1, u32 a2, u32 a3) {
     *(u32*)((u32)a0 + (3172)) = a2;
 }
 
-u32 func_0010f8d0(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_0010f8d0(u32 a0, u32 a1, u32 a2, u32 a3) {  // is_field912_set
     (void)a1;
     (void)a2;
     (void)a3;
     return (*(u32*)((u32)a0 + (912)) != 0);
 }
 
-u32 func_0010fa28(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_0010fa28(u32 a0, u32 a1, u32 a2, u32 a3) {  // ptr_add3072
     (void)a1;
     (void)a2;
     (void)a3;
@@ -1740,14 +1740,14 @@ void func_00113668(u32 a0, u32 a1, u32 a2, u32 a3) {
     *(u32*)((u32)a0 + (0)) = (u32)&D_00345cf8;
 }
 
-void func_0011ee58(u32 a0, u32 a1, u32 a2, u32 a3) {
+void func_0011ee58(u32 a0, u32 a1, u32 a2, u32 a3) {  // set_vtbl_347940
     (void)a1;
     (void)a2;
     (void)a3;
     *(u32*)((u32)a0 + (0)) = (u32)&D_00347940;
 }
 
-void func_00124c08(u32 a0, u32 a1, u32 a2, u32 a3) {
+void func_00124c08(u32 a0, u32 a1, u32 a2, u32 a3) {  // set_vtbl_347b88
     (void)a1;
     (void)a2;
     (void)a3;
@@ -1761,14 +1761,14 @@ u32 func_00132170(u32 a0, u32 a1, u32 a2, u32 a3) {
     return (u32)((s32)a0 + (8));
 }
 
-void func_001322f0(u32 a0, u32 a1, u32 a2, u32 a3) {
+void func_001322f0(u32 a0, u32 a1, u32 a2, u32 a3) {  // set_vtbl_347c00
     (void)a1;
     (void)a2;
     (void)a3;
     *(u32*)((u32)a0 + (0)) = (u32)&D_00347c00;
 }
 
-u32 func_001344f8(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_001344f8(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_data_347c88
     (void)a0;
     (void)a1;
     (void)a2;
@@ -1784,7 +1784,7 @@ u32 func_00135640(u32 a0, u32 a1, u32 a2, u32 a3) {
     return (u32)&D_00347cc0;
 }
 
-u32 func_001384c0(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_001384c0(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_global_347e08
     (void)a0;
     (void)a1;
     (void)a2;
@@ -1831,7 +1831,7 @@ u32 func_0014aba8(u32 a0, u32 a1, u32 a2, u32 a3) {
     return (u32)&D_003493a0;
 }
 
-u32 func_0014abb8(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_0014abb8(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_data_359840
     (void)a0;
     (void)a1;
     (void)a2;
@@ -1839,7 +1839,7 @@ u32 func_0014abb8(u32 a0, u32 a1, u32 a2, u32 a3) {
     return (u32)&D_003497e0;
 }
 
-u32 func_0014abc8(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_0014abc8(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_data_359950
     (void)a0;
     (void)a1;
     (void)a2;
@@ -1855,7 +1855,7 @@ u32 func_0014abd8(u32 a0, u32 a1, u32 a2, u32 a3) {
     return (u32)&D_003494b0;
 }
 
-u32 func_0014abe8(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_0014abe8(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_data_3595a0
     (void)a0;
     (void)a1;
     (void)a2;
@@ -1863,7 +1863,7 @@ u32 func_0014abe8(u32 a0, u32 a1, u32 a2, u32 a3) {
     return (u32)&D_003495c0;
 }
 
-u32 func_0014abf8(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_0014abf8(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_data_3596b0
     (void)a0;
     (void)a1;
     (void)a2;
@@ -1879,7 +1879,7 @@ u32 func_0014ac08(u32 a0, u32 a1, u32 a2, u32 a3) {
     return (u32)&D_00349a00;
 }
 
-u32 func_0014ca10(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_0014ca10(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_global_359e0c
     (void)a0;
     (void)a1;
     (void)a2;
@@ -1910,7 +1910,7 @@ u32 func_0014e638(u32 a0, u32 a1, u32 a2, u32 a3) {
     return (u32)((s32)a0 + (736));
 }
 
-u32 func_0014e648(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_0014e648(u32 a0, u32 a1, u32 a2, u32 a3) {  // ptr_add752
     (void)a1;
     (void)a2;
     (void)a3;
@@ -1963,7 +1963,7 @@ u32 func_001a3a78(u32 a0, u32 a1, u32 a2, u32 a3) {
     return (u32)&D_01c6cae0;
 }
 
-u32 func_001a8b28(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_001a8b28(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_data_1c7cc10
     (void)a0;
     (void)a1;
     (void)a2;
@@ -1995,7 +1995,7 @@ u32 func_001af9e8(u32 a0, u32 a1, u32 a2, u32 a3) {
     return (D_00350df0 != 0);
 }
 
-u32 func_001b0320(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_001b0320(u32 a0, u32 a1, u32 a2, u32 a3) {  // is_field16_set
     (void)a1;
     (void)a2;
     (void)a3;
@@ -2067,7 +2067,7 @@ void func_001e02f8(u32 a0, u32 a1, u32 a2, u32 a3) {
     D_00352b54 = 0;
 }
 
-u32 func_001e3650(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_001e3650(u32 a0, u32 a1, u32 a2, u32 a3) {  // ptr_add4
     (void)a1;
     (void)a2;
     (void)a3;
@@ -2119,7 +2119,7 @@ u32 func_00224930(u32 a0, u32 a1, u32 a2, u32 a3) {
     return (u32)&D_0035dac4;
 }
 
-u32 func_00227120(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_00227120(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_data_1dbd8f8
     (void)a0;
     (void)a1;
     (void)a2;
@@ -2200,7 +2200,7 @@ u32 func_002bfdf8(u32 a0, u32 a1, u32 a2, u32 a3) {
     return (D_00361a50 != 0);
 }
 
-u32 func_002cebb0(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_002cebb0(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_global_361f60
     (void)a0;
     (void)a1;
     (void)a2;
@@ -2208,7 +2208,7 @@ u32 func_002cebb0(u32 a0, u32 a1, u32 a2, u32 a3) {
     return (D_00361f60 != 0);
 }
 
-u32 func_002d1f00(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_002d1f00(u32 a0, u32 a1, u32 a2, u32 a3) {  // ptr_add160
     (void)a1;
     (void)a2;
     (void)a3;
@@ -2229,7 +2229,7 @@ u32 func_002d1f20(u32 a0, u32 a1, u32 a2, u32 a3) {
     return (u32)((s32)a0 + (288));
 }
 
-u32 func_002d1f30(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_002d1f30(u32 a0, u32 a1, u32 a2, u32 a3) {  // ptr_add304
     (void)a1;
     (void)a2;
     (void)a3;
@@ -2243,7 +2243,7 @@ u32 func_002d51f0(u32 a0, u32 a1, u32 a2, u32 a3) {
     return ((*(u32*)((u32)a0 + (340)) ^ 0x000eu) == 0);
 }
 
-u32 func_002d5578(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_002d5578(u32 a0, u32 a1, u32 a2, u32 a3) {  // is_field340_eq151
     (void)a1;
     (void)a2;
     (void)a3;
@@ -2264,7 +2264,7 @@ u32 func_002d8900(u32 a0, u32 a1, u32 a2, u32 a3) {
     return ((*(u32*)((u32)a0 + (164)) ^ 0x0004u) == 0);
 }
 
-u32 func_002da110(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_002da110(u32 a0, u32 a1, u32 a2, u32 a3) {  // is_field340_eq14
     (void)a1;
     (void)a2;
     (void)a3;
@@ -2278,7 +2278,7 @@ u32 func_002dc7e8(u32 a0, u32 a1, u32 a2, u32 a3) {
     return (u32)((s32)a0 + (256));
 }
 
-void func_002dea80(u32 a0, u32 a1, u32 a2, u32 a3) {
+void func_002dea80(u32 a0, u32 a1, u32 a2, u32 a3) {  // set_vtbl_362d20
     (void)a1;
     (void)a2;
     (void)a3;
@@ -2321,7 +2321,7 @@ u32 func_002ee6d8(u32 a0, u32 a1, u32 a2, u32 a3) {
     return ((*(u32*)((u32)a0 + (36)) ^ 0x0002u) == 0);
 }
 
-u32 func_002ee840(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_002ee840(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_data_1e2c088
     (void)a0;
     (void)a1;
     (void)a2;
@@ -2329,7 +2329,7 @@ u32 func_002ee840(u32 a0, u32 a1, u32 a2, u32 a3) {
     return (u32)&D_01e2c088;
 }
 
-u32 func_002f1fa8(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_002f1fa8(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_363c40
     (void)a0;
     (void)a1;
     (void)a2;
@@ -2345,21 +2345,21 @@ u32 func_003037b0(u32 a0, u32 a1, u32 a2, u32 a3) {
     return (u32)&D_00377cc8;
 }
 
-void func_003155e8(u32 a0, u32 a1, u32 a2, u32 a3) {
+void func_003155e8(u32 a0, u32 a1, u32 a2, u32 a3) {  // set_vtbl_367878
     (void)a1;
     (void)a2;
     (void)a3;
     *(u32*)((u32)a0 + (0)) = (u32)&D_00367878;
 }
 
-void func_003167f8(u32 a0, u32 a1, u32 a2, u32 a3) {
+void func_003167f8(u32 a0, u32 a1, u32 a2, u32 a3) {  // set_vtbl_367910
     (void)a1;
     (void)a2;
     (void)a3;
     *(u32*)((u32)a0 + (0)) = (u32)&D_00367910;
 }
 
-u32 func_00316e00(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_00316e00(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_367918
     (void)a0;
     (void)a1;
     (void)a2;
@@ -2367,7 +2367,7 @@ u32 func_00316e00(u32 a0, u32 a1, u32 a2, u32 a3) {
     return (u32)&D_00367928;
 }
 
-u32 func_00316e10(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_00316e10(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_data_369928
     (void)a0;
     (void)a1;
     (void)a2;
@@ -2382,35 +2382,35 @@ void func_0031a840(u32 a0, u32 a1, u32 a2, u32 a3) {
     *(u32*)((u32)a0 + (0)) = (u32)&D_00347f98;
 }
 
-void func_0031b910(u32 a0, u32 a1, u32 a2, u32 a3) {
+void func_0031b910(u32 a0, u32 a1, u32 a2, u32 a3) {  // set_vtbl_3486a8_d
     (void)a1;
     (void)a2;
     (void)a3;
     *(u32*)((u32)a0 + (0)) = (u32)&D_00348698;
 }
 
-void func_0031baa8(u32 a0, u32 a1, u32 a2, u32 a3) {
+void func_0031baa8(u32 a0, u32 a1, u32 a2, u32 a3) {  // set_vtbl_3486a8_b
     (void)a1;
     (void)a2;
     (void)a3;
     *(u32*)((u32)a0 + (0)) = (u32)&D_00348698;
 }
 
-void func_0031bb08(u32 a0, u32 a1, u32 a2, u32 a3) {
+void func_0031bb08(u32 a0, u32 a1, u32 a2, u32 a3) {  // set_vtbl_3486a8
     (void)a1;
     (void)a2;
     (void)a3;
     *(u32*)((u32)a0 + (0)) = (u32)&D_00348698;
 }
 
-void func_0031bbc8(u32 a0, u32 a1, u32 a2, u32 a3) {
+void func_0031bbc8(u32 a0, u32 a1, u32 a2, u32 a3) {  // set_vtbl_348c08_b
     (void)a1;
     (void)a2;
     (void)a3;
     *(u32*)((u32)a0 + (0)) = (u32)&D_00348698;
 }
 
-void func_0031d6b0(u32 a0, u32 a1, u32 a2, u32 a3) {
+void func_0031d6b0(u32 a0, u32 a1, u32 a2, u32 a3) {  // set_vtbl_3486a8_c
     (void)a1;
     (void)a2;
     (void)a3;
@@ -2522,7 +2522,7 @@ u64 func_00109048(u32 a0, u32 a1, u32 a2, u32 a3) {
     return *(u64*)((u32)a0 + (8));
 }
 
-u64 func_00109050(u32 a0, u32 a1, u32 a2, u32 a3) {
+u64 func_00109050(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_field16_64
     (void)a1;
     (void)a2;
     (void)a3;
@@ -2550,7 +2550,7 @@ u64 func_00109068(u32 a0, u32 a1, u32 a2, u32 a3) {
     return *(u64*)((u32)a0 + (40));
 }
 
-void func_00109330(u32 a0, u32 a1, u32 a2, u32 a3) {
+void func_00109330(u32 a0, u32 a1, u32 a2, u32 a3) {  // set_global_3756_return
     (void)a0;
     (void)a1;
     (void)a2;
@@ -2599,7 +2599,7 @@ f32 func_001142b0(u32 a0, u32 a1, u32 a2, u32 a3) {
     return *(f32*)((u32)p + (100));
 }
 
-f32 func_001142c0(u32 a0, u32 a1, u32 a2, u32 a3) {
+f32 func_001142c0(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_float_104
     (void)a1;
     (void)a2;
     (void)a3;
@@ -2607,7 +2607,7 @@ f32 func_001142c0(u32 a0, u32 a1, u32 a2, u32 a3) {
     return *(f32*)((u32)p + (104));
 }
 
-f32 func_001142d0(u32 a0, u32 a1, u32 a2, u32 a3) {
+f32 func_001142d0(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_float_at_ptr108
     (void)a1;
     (void)a2;
     (void)a3;
@@ -2631,7 +2631,7 @@ f32 func_00114390(u32 a0, u32 a1, u32 a2, u32 a3) {
     return *(f32*)((u32)p + (136));
 }
 
-void func_00136b48(u32 a0, u32 a1, u32 a2, u32 a3) {
+void func_00136b48(u32 a0, u32 a1, u32 a2, u32 a3) {  // entry16_set_word0
     (void)a2;
     (void)a3;
     *(u32*)((u32)&D_00347d30 + ((u32)a0 << 4) + (0)) = a1;
@@ -2644,7 +2644,7 @@ void func_00136b60(u32 a0, u32 a1, u32 a2, u32 a3) {
     *(u32*)((u32)p + (4)) = a1;
 }
 
-void func_00136b78(u32 a0, u32 a1, u32 a2, u32 a3) {
+void func_00136b78(u32 a0, u32 a1, u32 a2, u32 a3) {  // entry16_set_field8
     (void)a2;
     (void)a3;
     u32 p = (u32)&D_00347d30 + ((u32)a0 << 4);
@@ -2774,7 +2774,7 @@ u32 func_00149308(u32 a0, u32 a1, u32 a2, u32 a3) {
     return *(u32*)((u32)a0 + ((u32)a1 * (12)) + (120));
 }
 
-u32 func_00149320(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_00149320(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_entry12_field124
     (void)a2;
     (void)a3;
     return *(u32*)((u32)a0 + ((u32)a1 * (12)) + (124));
@@ -2824,7 +2824,7 @@ f32 func_0014ce78(u32 a0, u32 a1, u32 a2, u32 a3) {
     return *(f32*)&D_00349e10;
 }
 
-void func_0014dda0(u32 a0, u32 a1, u32 a2, u32 a3) {
+void func_0014dda0(u32 a0, u32 a1, u32 a2, u32 a3) {  // store_byte_473
     (void)a2;
     (void)a3;
     u32 v = a1 & 0x00ffu;
@@ -2880,7 +2880,7 @@ void func_001617c8(u32 a0, u32 a1, u32 a2, u32 a3) {
     *(u8*)&D_0034c772 = (u8)v;
 }
 
-void func_0016fa98(u32 a0, u32 a1, u32 a2, u32 a3) {
+void func_0016fa98(u32 a0, u32 a1, u32 a2, u32 a3) {  // set_table_word
     (void)a2;
     (void)a3;
     *(u32*)((u32)&D_01c5f460 + ((u32)a0 << 2) + (0)) = a1;
@@ -2929,7 +2929,7 @@ u32 func_001aae68(u32 a0, u32 a1, u32 a2, u32 a3) {
     return (u32)&D_01c6cc60 + ((u32)a0 << 5);
 }
 
-u32 func_001b6d70(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_001b6d70(u32 a0, u32 a1, u32 a2, u32 a3) {  // table_entry_ptr_b
     (void)a1;
     (void)a2;
     (void)a3;
@@ -3098,7 +3098,7 @@ void func_002373a8(u32 a0, u32 a1, u32 a2, u32 a3) {
     *(u32*)((u32)a0 + (80)) = 0;
 }
 
-void func_0023d1d0(u32 a0, u32 a1, u32 a2, u32 a3) {
+void func_0023d1d0(u32 a0, u32 a1, u32 a2, u32 a3) {  // set_global_word1
     (void)a0;
     (void)a1;
     (void)a2;
@@ -3113,7 +3113,7 @@ void func_0023ebd0(u32 a0, u32 a1, u32 a2, u32 a3) {
     *(u8*)((u32)a0 + (5345)) = (u8)v;
 }
 
-void func_0023ed90(u32 a0, u32 a1, u32 a2, u32 a3) {
+void func_0023ed90(u32 a0, u32 a1, u32 a2, u32 a3) {  // set_global_byte1
     (void)a1;
     (void)a2;
     (void)a3;
@@ -3129,7 +3129,7 @@ void func_00241a60(u32 a0, u32 a1, u32 a2, u32 a3) {
     *(u8*)((u32)D_0035ec94 + (5)) = 0;
 }
 
-void func_00242408(u32 a0, u32 a1, u32 a2, u32 a3) {
+void func_00242408(u32 a0, u32 a1, u32 a2, u32 a3) {  // set_global_crc_m1
     (void)a0;
     (void)a1;
     (void)a2;
@@ -3137,13 +3137,13 @@ void func_00242408(u32 a0, u32 a1, u32 a2, u32 a3) {
     D_0035ecc4 = (u32)((s32)-1);
 }
 
-u32 func_00281128(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_00281128(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_entry20_field16
     (void)a2;
     (void)a3;
     return *(u32*)((u32)a0 + ((u32)a1 * (20)) + (16));
 }
 
-void func_00287c20(u32 a0, u32 a1, u32 a2, u32 a3) {
+void func_00287c20(u32 a0, u32 a1, u32 a2, u32 a3) {  // clear_global_flag_return_m1
     (void)a0;
     (void)a1;
     (void)a2;
@@ -3175,7 +3175,7 @@ void func_0029ae30(u32 a0, u32 a1, u32 a2, u32 a3) {
     *(u8*)&D_0035f5b4 = (u8)v;
 }
 
-u32 func_002b3b60(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_002b3b60(u32 a0, u32 a1, u32 a2, u32 a3) {  // halfword_table_374cb0
     (void)a1;
     (void)a2;
     (void)a3;
@@ -3235,14 +3235,14 @@ void func_002c65f8(u32 a0, u32 a1, u32 a2, u32 a3) {
     *(u32*)((u32)a0 + (84)) = v;
 }
 
-u32 func_002c83a8(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_002c83a8(u32 a0, u32 a1, u32 a2, u32 a3) {  // halfword_375540_b
     (void)a1;
     (void)a2;
     (void)a3;
     return (u32)(s32)(*(s16*)((u32)&D_00375540 + ((u32)a1 << 1) + (0)));
 }
 
-u32 func_002c9e90(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_002c9e90(u32 a0, u32 a1, u32 a2, u32 a3) {  // halfword_375540
     (void)a1;
     (void)a2;
     (void)a3;
@@ -3265,7 +3265,7 @@ void func_002e7688(u32 a0, u32 a1, u32 a2, u32 a3) {
     *(u8*)((u32)a0 + (0)) = (u8)v;
 }
 
-void func_0031e938(u32 a0, u32 a1, u32 a2, u32 a3) {
+void func_0031e938(u32 a0, u32 a1, u32 a2, u32 a3) {  // store_zero_u32
     (void)a1;
     (void)a2;
     (void)a3;

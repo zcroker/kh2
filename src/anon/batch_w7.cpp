@@ -26,7 +26,7 @@ void func_002f79c8(u32);
 void func_0017c430(u32);
 void func_0016bd60(u32, u32);
 u32 func_001a36e0(u32);
-u32 func_001a80c8(u32);
+u32 func_001a80c8(u32);  // table24_find_by_id
 void func_001b8e88(u32);
 void func_001dc9e0(u32);
 u32 func_001e6cd0(u32);
@@ -104,7 +104,7 @@ void func_0016a328(u32 a0) {
 }
 
 // Stores f(x, z) of the vector at a1 into +1644 (e.g. a heading angle).
-void func_0016b010(u8* a0, f32* a1) {
+void func_0016b010(u8* a0, f32* a1) {  // obj_set_float1644_from_pair
     *(f32*)(a0 + 1644) = func_002f8ad0(a1[0], a1[2]);
 }
 
@@ -137,7 +137,7 @@ u32 func_0017eb68(u32 a0) {
 }
 
 // True when the entry at +320 is set and its id (+20) is in [140, 151).
-bool func_00186d18(u8* a0) {
+bool func_00186d18(u8* a0) {  // check_size140to150
     u32* p = (u32*)(a0 + 320);
     if (*p == 0) return false;
     s32 v = p[5];
@@ -174,7 +174,7 @@ void func_001b2c18(u32 a0, u32 a1) {
 // COMMAND_ELEM GetForm
 void command_elem_get_form(u32 a0) asm("_ZN2YS12COMMAND_ELEM7GetFormEi");
 void command_elem_get_form(u32 a0) {
-    u32 p = func_001a80c8(func_001a36e0(a0));
+    u32 p = func_001a80c8(func_001a36e0(a0));  // table24_find_by_id
     func_001b8e88(*(u16*)(p + 16));
 }
 
@@ -202,7 +202,7 @@ Blob10* func_001cd520(Blob10* p) {
 }
 
 // Pops one entry: --count; return base + scale * table[count].
-s32 func_001db888(s32* a0) {
+s32 func_001db888(s32* a0) {  // record_index_calc
     a0[2]--;
     return a0[3] + a0[5] * ((s32*)a0[4])[a0[2]];
 }

@@ -39,7 +39,7 @@ void wtarget_0020e9f8(f32 a, f32 b) {
     D_00359110.b = x / b;
 }
 
-s32 func_0028b160(W211S28* s, u32 key) {
+s32 func_0028b160(W211S28* s, u32 key) {  // find_index_in_array
     s32 i = 0;
     s32 n = s->n;
     if (n > 0) {

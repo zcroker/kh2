@@ -25,7 +25,7 @@ void func_0029ac00(void) {
 struct I265 { s32 id; s32 b; s32 c; s32 n; s32 x; s32 y; };
 struct O265 { u8 pad[64]; s32 h; u8 pad2[260]; s32 x; s32 y; u8 pad3[8]; };
 struct P265 { u8 pad[16]; u8* tbl; u8* recs; u8 pad2[24]; O265* objs; s32 cnt; s32 st; u8 padx[4]; f32 lim; u8 pad3[8]; s32 sel; u8 pad4[4]; s32 dx; s32 dy; };
-void func_00236d60(void);
+void func_00236d60(void);  // clear_64_entries_24
 void func_00236830(s32);
 void func_0023ade0(O265*);
 void func_002367a0(void);
@@ -38,7 +38,7 @@ void func_0023cc18(P265* p) {
     if (p->st < 2) return;
     if (p->st >= 4) return;
     { s32 k = p->sel * 20; u8* r = p->recs; it = (I265*)(p->tbl + *(u16*)(r + k) * 24); }
-    func_00236d60();
+    func_00236d60();  // clear_64_entries_24
     last = -1;
     for (i = 0; i < p->cnt; i++, it++) {
         O265* o = &p->objs[i];
@@ -59,7 +59,7 @@ void func_0023cc18(P265* p) {
 extern char D_0036cbc0[];
 void func_0017f488(u8*, s32, f32, f32);
 s32 func_0019ba60(u8*);
-s32 func_001b0498(u8*);
+s32 func_001b0498(u8*);  // obj_check_ready_flags
 void func_001b0700(u8*, f32);
 void func_0018c438(u8*);
 s32 func_001883d8(u8*, const char*);
@@ -74,7 +74,7 @@ void func_0018b338(Q265g* p, f32 x) {
     }
     if (!p->b0) {
         q = (u8*)p + 1184;
-        if (func_001b0498(q)) func_001b0700(q, 0.0f);
+        if (func_001b0498(q)) func_001b0700(q, 0.0f);  // obj_check_ready_flags
         *(s32*)((u8*)p + 2720) = 4;
         func_0018c438((u8*)p + 2624);
         p->f2816 = *(f32*)((u8*)p + 2840) + 60.0f;
@@ -90,8 +90,8 @@ extern u8 D_0035eb98[];
 extern void* D_00347f80;
 void func_00170950(u32);
 void func_00239870(u8*);
-void func_0023c098(u8*);
-void func_002369f0(u8*);
+void func_0023c098(u8*);  // set_vtbl_36eae8_then_call
+void func_002369f0(u8*);  // set_vtbl_36eac8_then_call
 typedef void (*VF265)(u8*);
 typedef void (*VF265b)(u8*, u8*);
 void func_002c1320(u8* p) {
@@ -125,8 +125,8 @@ void func_002c1320(u8* p) {
     func_00239870(p + 216);
     *(void**)(p + 192) = D_00347f98;
     *(void**)(p + 28) = D_0035eb98;
-    func_0023c098(p + 76);
-    func_002369f0(p + 52);
+    func_0023c098(p + 76);  // set_vtbl_36eae8_then_call
+    func_002369f0(p + 52);  // set_vtbl_36eac8_then_call
     *(void**)(p + 28) = D_00347f98;
     *(void**)p = D_00347f98;
     {
@@ -139,7 +139,7 @@ struct Y265q { u8 pad[44]; N265q* head; };
 void func_001471d8(u8*, N265q*);
 void func_00147210(u8*, N265q*);
 void func_00144b38(u8*, V265q*);
-s32 func_001466b0(u8*, V265q*);
+s32 func_001466b0(u8*, V265q*);  // mat4_transform_vecs
 void func_00146250(u8* a, Y265q* y) {
     V265q m[8];
     N265q* n;
@@ -158,12 +158,12 @@ void func_00146250(u8* a, Y265q* y) {
                 mp = m;
                 func_00144b38(n->d, m);
             }
-            r = func_001466b0(a + 496, mp);
+            r = func_001466b0(a + 496, mp);  // mat4_transform_vecs
             if (r == 1) goto A;
             if (r < 2) continue;
             if (r != 2) continue;
             if (!(n->fl & 0x20)) goto A;
-            r2 = func_001466b0(a + 560, mp);
+            r2 = func_001466b0(a + 560, mp);  // mat4_transform_vecs
             if (r2 == 1) goto A;
             if (r2 < 2) continue;
             if (r2 != r) continue;

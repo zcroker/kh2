@@ -17,7 +17,7 @@ void func_0010b550(Pair8* p) {
 extern u32 D_0033cc38;
 extern u32 D_0033cc3c;
 // Sets the current value, keeping the previous one.
-void func_001069b8(u32 v) {
+void func_001069b8(u32 v) {  // swap_global_word
     D_0033cc3c = D_0033cc38;
     D_0033cc38 = v;
 }

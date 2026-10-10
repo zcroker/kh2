@@ -143,7 +143,7 @@ u32 func_001435a0(u32 a) {
 // ---- 00159b40
 void func_00141010(f32);
 u8* func_00140df0(void);
-void func_00162058(f32);
+void func_00162058(f32);  // to_161f48_arg1
 struct S20 { u32 w[5]; };
 extern S20 D_0034aa18;
 extern u8 D_0034aa11;
@@ -152,7 +152,7 @@ void func_00159b40(S20* a, u8 b) {
     func_00141010(30.0f);
     *(u32*)(func_00140df0() + 64) = 4;
     D_0034aa18 = *a;
-    func_00162058(8.0f);
+    func_00162058(8.0f);  // to_161f48_arg1
     D_0034aa10 = 1;
     D_0034aa11 = b;
 }
@@ -225,7 +225,7 @@ f32 func_00314930(Fpn* s) {
 struct S18b { u8 pad[12]; u32 f12; u8 pad2[16]; S18b() { f12 = 0; } };
 u32 func_0016bc20(u32, u32, s32);
 void func_0018a818(S18b*, u32, u32);
-s32 func_0018a550(S18b*, S18b*);
+s32 func_0018a550(S18b*, S18b*);  // state_dispatch_0_1_3
 extern u32 D_0034e948;
 s32 func_0018bd50(u32 a, u32 b) {
     u32 v = func_0016bc20(a, b, -1);
@@ -244,12 +244,12 @@ s32 func_0018bd50(u32 a, u32 b) {
 }
 
 // ---- 00192a80
-s32 func_00192440(u8*, s32);
-u8* func_00192388(u8*);
+s32 func_00192440(u8*, s32);  // is_byte_lt25
+u8* func_00192388(u8*);  // skip_control_codes
 s32 func_00192a80(u8* p) {
     s32 n = 0;
-    for (; p; p = func_00192388(p)) {
-        if (func_00192440(p, 0)) {
+    for (; p; p = func_00192388(p)) {  // skip_control_codes
+        if (func_00192440(p, 0)) {  // is_byte_lt25
             switch (*p) {
             case 16: return n;
             case 2: return n;
@@ -305,7 +305,7 @@ struct Pool1b { N1b items[16]; s32 freeIdx[16]; s32 nfree; };
 struct List1b { N1b* head; N1b* tail; };
 extern Pool1b D_01d44108;
 extern List1b D_01d44100;
-void func_001b1ab8(N1b* n) {
+void func_001b1ab8(N1b* n) {  // alloc_from_pool_magic_b
     D_01d44108.freeIdx[D_01d44108.nfree++] = n - D_01d44108.items;
     N1b* prev;
     if (n == D_01d44100.head) {
@@ -362,7 +362,7 @@ s32 func_001b9c90(u8* p) {
     return r;
 }
 // ---- 001bf930
-u32 func_0016c028(u8*);
+u32 func_0016c028(u8*);  // obj_get_attach_or_alt
 void func_002bc188(s32, u32);
 void func_001bf930(u32, u8* p) {
     f32 v = *(f32*)(p + 36);
@@ -418,13 +418,13 @@ void func_001c5e88(u8* p) {
     dec1c5(&e->sub);
 }
 // ---- 001cbc50
-u8* func_001db888(u8*, s32, void*);
+u8* func_001db888(u8*, s32, void*);  // record_index_calc
 void func_001ca988(u8*, u8*, u32, u32, void*, u32);
 void func_001cab08(void);
 u8* func_001cbc50(u8* p, u32 a, u32 b, u32 c) {
     u8* q = *(u8**)(p + 2548) + 20;
     if (!*(u32*)(q + 8)) return 0;
-    u8* v = func_001db888(q, 192, __builtin_return_address(0));
+    u8* v = func_001db888(q, 192, __builtin_return_address(0));  // record_index_calc
     func_001ca988(v, p, a, b, (void*)func_001cab08, c);
     return v;
 }
@@ -453,8 +453,8 @@ f32 func_001eef90(u8 a) {
     return r;
 }
 // ---- 00229120
-void func_00229430(u8*, s32);
-u32 func_00224860(void);
+void func_00229430(u8*, s32);  // to_1391c8_arg11
+u32 func_00224860(void);  // get_global_36daf4
 u32 func_0022b9e0(void);
 u32 func_0022b720(void);
 void func_001386e0(u8*, s32, u32, u32, s32, s32);
@@ -463,7 +463,7 @@ void func_0031a260(u8*, s32);
 struct S229 { u8 pad[392]; s32 f392; u32 f396; u32 f400; };
 static inline void init229(S229* s, u32 x, u32 y) { func_001386e0((u8*)s, 2800, x, y, 21, 11); s->f396 = 0; s->f392 = 22; }
 void func_00229120(u8* p) {
-    func_00229430(p, 2800);
+    func_00229430(p, 2800);  // to_1391c8_arg11
     *(u32*)(p + 2472) = func_00224860();
     u32 x = func_0022b9e0();
     u32 y = func_0022b720();
@@ -478,8 +478,8 @@ void func_00229120(u8* p) {
 }
 // ---- 0022cae8
 s32 func_002282f0(s16);
-s32 func_00225b00(s16);
-u32 func_002282d8(void);
+s32 func_00225b00(s16);  // flag_query_by_index
+u32 func_002282d8(void);  // limit_15000_or_25000
 u8* func_00102c18(s32, u32, void*);
 void func_0022cba0(void);
 void func_0022cc08(void);
@@ -599,7 +599,7 @@ extern T2a7* D_0035f600;
 extern u32 D_0035f200;
 s8* func_00276568(void);
 s32 func_0028afa8(u32);
-void func_0028afd0(u32, s32);
+void func_0028afd0(u32, s32);  // obj_set_signed18
 void func_002a7d10(void) {
     s32 n;
     if (func_00287bc0() == 36) {
@@ -615,7 +615,7 @@ void func_002a7d10(void) {
         n = i;
         if (n >= func_0028afa8(D_0035f200)) n = func_0028afa8(D_0035f200) - 1;
     }
-    func_0028afd0(D_0035f200, n);
+    func_0028afd0(D_0035f200, n);  // obj_set_signed18
 }
 // ---- 002a8258
 struct VObj436 { void** vt; u8 pad[432]; };

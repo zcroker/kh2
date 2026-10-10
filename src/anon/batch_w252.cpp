@@ -1,13 +1,13 @@
 #include "../common/types.h"
 extern "C" {
-s32 func_002fdfc8(const char*, ...);
+s32 func_002fdfc8(const char*, ...);  // device_vprintf_va
 extern char D_0036e978[], D_0036ed60[], D_0036e998[], D_0036e9d0[], D_0036ec40[];
-void* func_001e3650(void*);
+void* func_001e3650(void*);  // ptr_add4
 s32* func_001e3660(void*, s32);
 void func_001e5220(s32, s32);
 static inline void assert_fail_1e5610(const char* e, const char* f, s32 l) {
-    func_002fdfc8(D_0036e978, e);
-    func_002fdfc8(D_0036e998, f, l);
+    func_002fdfc8(D_0036e978, e);  // device_vprintf_va
+    func_002fdfc8(D_0036e998, f, l);  // device_vprintf_va
     asm volatile("break");
 }
 void func_001e5610(s32* p) {
@@ -25,7 +25,7 @@ void func_001e5610(s32* p) {
 struct Bigint_w252 { Bigint_w252* next; s32 k, maxwds, sign, wds; u32 x[1]; };
 Bigint_w252* func_00303b70(void*, s32);
 void* memcpy_w252(void*, const void*, u32) asm("func_002fdd68");
-void func_00303c18(void*, Bigint_w252*);
+void func_00303c18(void*, Bigint_w252*);  // push_entry_onto_slot_list
 Bigint_w252* func_00303c48(void* ptr, Bigint_w252* b, s32 m, s32 a) {
     s32 i, wds;
     u32* x;
@@ -46,7 +46,7 @@ Bigint_w252* func_00303c48(void* ptr, Bigint_w252* b, s32 m, s32 a) {
         if (wds >= b->maxwds) {
             b1 = func_00303b70(ptr, b->k + 1);
             memcpy_w252((char*)&b1->sign, (char*)&b->sign, b->wds * sizeof(s32) + 2 * sizeof(s32));
-            func_00303c18(ptr, b);
+            func_00303c18(ptr, b);  // push_entry_onto_slot_list
             b = b1;
         }
         b->x[wds++] = carry;

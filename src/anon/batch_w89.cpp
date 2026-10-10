@@ -18,12 +18,12 @@ namespace n00100aa0 {
 struct EhObj { u32 pc_begin, tbase, dbase, u; u64 sorted : 1, from_array : 1, mixed : 1, encoding : 8, count : 21; };
 struct EhFde { u32 length; s32 cie; u8 pc_begin[4]; };
 extern "C" {
-u32 func_00100920(u8, EhObj*);
+u32 func_00100920(u8, EhObj*);  // classify_subtype
 u8* func_001004c0(u8, u32, u8*, u32*);
 // fde_single_encoding_compare: orders two FDEs by their decoded pc_begin.
 s32 func_00100aa0(EhObj* ob, EhFde* x, EhFde* y) {
     u32 xp, yp;
-    u32 base = func_00100920(ob->encoding, ob);
+    u32 base = func_00100920(ob->encoding, ob);  // classify_subtype
     func_001004c0(ob->encoding, base, x->pc_begin, &xp);
     func_001004c0(ob->encoding, base, y->pc_begin, &yp);
     if (xp > yp) return 1;
@@ -94,14 +94,14 @@ extern "C" {
 extern Pos24 D_003b8b20;
 extern u32 D_003b8b38;
 extern u32 D_00347d24;
-Pos24* func_001aec40(void);
+Pos24* func_001aec40(void);  // get_global_1c9408c
 void func_00136840(void);
 u32 func_00136778(s32, s32);
 u32 func_002bc288(u32, u32);
 // Tracks the current position record; reloads when the area/map changes.
 void func_00136878(void) {
     u64 unused[2]; // keeps the original's 48-byte frame
-    Pos24* p = func_001aec40();
+    Pos24* p = func_001aec40();  // get_global_1c9408c
     if (!p) return;
     if (p->f8 == -1) func_00136840();
     else if (p->f8 == D_003b8b20.f8 && p->f4 == D_003b8b20.f4 && p->f6 == D_003b8b20.f6) {}
@@ -119,16 +119,16 @@ namespace n0013d208 {
 struct Pair8 { u32 x, y; };
 extern "C" {
 extern Pair8 D_00348578[];
-s32 func_0013cb80(void);
+s32 func_0013cb80(void);  // get_global_358050
 s32 func_0013cb90(void);
 u32 func_0013cb30(void);
 void func_001386e0(u8*, u32, u32, s32, u32, u32);
 void func_00138c40(u8*, u32, u32);
-f32 func_0013b2a8(u8*);
+f32 func_0013b2a8(u8*);  // mul_float684_692
 void func_00138d48(u8*, f32, f32, f32, f32);
 void func_0013d1d0(u8*);
 void func_0013d208(u8* o) {
-    s32 a = func_0013cb80();
+    s32 a = func_0013cb80();  // get_global_358050
     u8* s = o + 260;
     s32 b = func_0013cb90();
     a += 32;
@@ -137,7 +137,7 @@ void func_0013d208(u8* o) {
     func_001386e0(s, 5301, c, a, e->x, 1);
     func_00138c40(s, 28, 322);
     *(u32*)(s + 392) = e->y;
-    f32 r = func_0013b2a8(o);
+    f32 r = func_0013b2a8(o);  // mul_float684_692
     func_00138d48(s, 1.0f, 1.0f, 1.0f, r);
     func_0013d1d0(o);
 }
@@ -293,7 +293,7 @@ void func_001ac108(W108* o, s32 x, s32 y, s32 w, s32 h) {
 namespace n001b3e88 {
 extern "C" {
 s32 func_0018ca48(u8);
-void func_00198580(u8*, s32);
+void func_00198580(u8*, s32);  // check_div1000_500
 void func_001b3e88(u8* o, u8* e) {
     u8* p = *(u8**)(o + 2484);
     s32 id = p ? *(s16*)(p + 2) : -1;
@@ -312,7 +312,7 @@ void func_001b3e88(u8* o, u8* e) {
             }
         }
         if (k >= 0) {
-            func_00198580(o, id * 1000 + k + (o[2044] & 1));
+            func_00198580(o, id * 1000 + k + (o[2044] & 1));  // check_div1000_500
             o[2044]++;
         }
     }
@@ -351,7 +351,7 @@ void u_call4_001c2eb8(u32 id, u32, u32, u32) {
 namespace n001d7880 {
 extern "C" {
 s32 func_001a6d08(u32);
-void func_001a6c90(u32);
+void func_001a6c90(u32);  // set_bit_in_array_b
 s32 func_00181500(u16);
 u8* func_00189200(u8*, s32);
 extern u16 D_0036e628[];
@@ -367,7 +367,7 @@ void u_tail0_001d7880(void) {
     for (s32 j = 1; j < 6; j++)
         if (func_00189200(&D_0032e020, j)[2] < 7) return;
     if (D_0032f056 < 7) return;
-    func_001a6c90(104);
+    func_001a6c90(104);  // set_bit_in_array_b
 }
 }
 }
@@ -521,7 +521,7 @@ extern "C" {
 extern u32 D_0035f01c;
 extern u32 D_0035f0ec;
 s32 func_00287bc0(void);
-s32 func_0028b160(u32, u8*);
+s32 func_0028b160(u32, u8*);  // find_index_in_array
 s32 func_0028b038(u32);
 u8* func_00281f30(u32);
 void func_001a98e8(u8*, u32, u8*, u32, u32);
@@ -532,7 +532,7 @@ void func_001a9ae8(u8*, s32, s32, u32);
 void func_0026a9f8(s32 x, s32 y, u32 a2, u32 a3, u8* o) {
     u8 buf[96];
     s32 m = func_00287bc0();
-    s32 n = func_0028b160(D_0035f01c, o);
+    s32 n = func_0028b160(D_0035f01c, o);  // find_index_in_array
     bool b = (u32)(m - 5) < 2;
     s32 k = func_0028b038(D_0035f01c);
     u8* base = func_00281f30(D_0035f0ec);
@@ -558,8 +558,8 @@ s32 func_0027f2b0(void);
 s32 func_00253918(void);
 FnHolder* func_001040f8(void);
 s32 func_00242a00(void);
-void func_0023d1d0(void);
-void func_0023d1e0(void);
+void func_0023d1d0(void);  // set_global_word1
+void func_0023d1e0(void);  // zero_global_d
 void func_001039f8(void);
 void func_0027f7f0(void);
 void func_0027f9d8(void);
@@ -569,7 +569,7 @@ s32 func_0027f3d8(void) {
         if (func_00253918()) return 0;
         func_001040f8()->fn();
         if (func_00242a00()) func_0023d1d0();
-        else func_0023d1e0();
+        else func_0023d1e0();  // zero_global_d
         func_001039f8();
         return 1;
     }
@@ -729,7 +729,7 @@ extern u8 D_0034c6e0[];
 extern u8 D_00349dc0[];
 extern u8 D_00348d58[];
 void func_0031bab8(u8*);
-void func_0031baa8(u8*);
+void func_0031baa8(u8*);  // set_vtbl_3486a8_b
 void func_001070e8(u8*);
 void func_00106ac8(u8*);
 // Destructor body: member arrays destroyed back to front, then members and bases.
@@ -744,7 +744,7 @@ void func_00145ab8(u8* o) {
     *(u32*)(o + 1936) = (u32)D_0034c6e0;
     func_0031bab8(o + 2352);
     *(u32*)(o + 2080) = (u32)D_00349dc0;
-    func_0031baa8(o + 2080);
+    func_0031baa8(o + 2080);  // set_vtbl_3486a8_b
     *(u32*)(o + 1936) = (u32)D_00348d58;
     if (o + 624 != 0) {
         E80* p = (E80*)(o + 624) + 16;
@@ -819,9 +819,9 @@ extern "C" {
 extern u8 D_0034af08[];
 extern u8 D_00349b40[];
 extern u8 D_00347f98[];
-void func_0031bbc8(u8*);
-void func_0031b910(u8*);
-void func_0031bb08(u8*);
+void func_0031bbc8(u8*);  // set_vtbl_348c08_b
+void func_0031b910(u8*);  // set_vtbl_3486a8_d
+void func_0031bb08(u8*);  // set_vtbl_3486a8
 // Destructor body: own vtable, inlined member destructor (two arrays, members, base), base vtable.
 void func_0031dc78(u8* o) {
     *(u32*)o = (u32)D_0034af08;
@@ -838,10 +838,10 @@ void func_0031dc78(u8* o) {
     top2:
         if (b != p) { p--; p->vt[0](p); goto top2; }
     }
-    func_0031bbc8(m + 624);
-    func_0031b910(m + 336);
+    func_0031bbc8(m + 624);  // set_vtbl_348c08_b
+    func_0031b910(m + 336);  // set_vtbl_3486a8_d
     *(u32*)m = (u32)D_00349b40;
-    func_0031bb08(m);
+    func_0031bb08(m);  // set_vtbl_3486a8
     *(u32*)o = (u32)D_00347f98;
 }
 }
@@ -852,7 +852,7 @@ namespace n0015aba8 {
 extern "C" {
 extern u8 D_0032bae0;
 void func_002362b0(u8*);
-void func_002367c8(u8*);
+void func_002367c8(u8*);  // obj_dispatch_bitfield64
 s32 func_00105c30(void);
 s32 func_00241ed8(u8);
 void func_001386e0(u8*, u32, u32, s32, u32, u32);
@@ -861,7 +861,7 @@ void func_0015aba8(u8* o, u32 a1, u32 a2) {
     s32 skip = 0;
     s32 x = 0;
     func_002362b0(s);
-    func_002367c8(s);
+    func_002367c8(s);  // obj_dispatch_bitfield64
     if (func_00105c30() == 1 || func_00105c30() == 8) skip = 1;
     if (!(u8)skip) x = func_00241ed8(D_0032bae0) != 0;
     func_001386e0(o, 20000, a2, (s32)s, x, 0);

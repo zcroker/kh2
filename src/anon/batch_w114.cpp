@@ -106,9 +106,9 @@ u32 func_001b1ff0(s32);
 u32 func_001b1e70(void);
 void func_00138650(u8*, s32, u32, s32);
 void func_001386e0(u8*, s32, u32, u8*, s32, s32);
-void func_00236410(u8*, s32);
-void func_00236428(u8*, s32);
-void func_002367c8(u8*);
+void func_00236410(u8*, s32);  // obj_set4_then_call
+void func_00236428(u8*, s32);  // obj_set32_then_call
+void func_002367c8(u8*);  // obj_dispatch_bitfield64
 void func_00139598(u8*);
 void func_001395a8(u8*);
 void func_00138840(u8*);
@@ -133,9 +133,9 @@ void func_001379e0(u8* p) {
             func_00138650(p + 448, 11100, *(u32*)(p + 1304), 0);
             u8* q = p + 896;
             func_001386e0(q, 11100, t, m, 2, 0);
-            func_00236410(m, 14080);
-            func_00236428(m, 10752);
-            func_002367c8(m);
+            func_00236410(m, 14080);  // obj_set4_then_call
+            func_00236428(m, 10752);  // obj_set32_then_call
+            func_002367c8(m);  // obj_dispatch_bitfield64
             *(u8**)(q + 396) = p;
             settle(q);
         } else {
@@ -246,7 +246,7 @@ void func_001dc920(u32);
 void func_001dde40(u32*);
 void func_001a9350(u8*);
 void func_00106420(u8*);
-void func_0023e738(Mgr11*, s32, s32, s32);
+void func_0023e738(Mgr11*, s32, s32, s32);  // store_2halfwords_2928
 void func_001dda78(s32);
 }
 // Releases every active slot (handles, items, owned object) and resets the slot order.
@@ -285,7 +285,7 @@ void func_0023d820(Mgr11* p) {
             s->active = 0;
             any = 1;
         }
-        func_0023e738(p, i, 0, 0);
+        func_0023e738(p, i, 0, 0);  // store_2halfwords_2928
     }
     if (any) {
         func_001dda78(0);

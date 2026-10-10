@@ -52,14 +52,14 @@ void func_001626e0(Src273* p, V4w273* m) {
   m[0].w = m[1].w = m[2].w = m[3].w = m[4].w = m[5].w = m[6].w = m[7].w = 1.0f;
 }
 
-s32 func_002fdfc8(const char*, ...);
+s32 func_002fdfc8(const char*, ...);  // device_vprintf_va
 void func_001e3898(void*, void*);
-s32* func_001e3650(void*);
+s32* func_001e3650(void*);  // ptr_add4
 void func_001e8180(s32, void*);
 void func_001e4f00(void*);
 static inline void assert_fail_1e4f40(const char* e, const char* f, s32 l) {
-  func_002fdfc8(D_0036e978, e);
-  func_002fdfc8(D_0036e998, f, l);
+  func_002fdfc8(D_0036e978, e);  // device_vprintf_va
+  func_002fdfc8(D_0036e998, f, l);  // device_vprintf_va
   asm volatile("break");
 }
 void func_001e4f40(void* p) asm("_Z13func_001e4f40Pv");
@@ -68,7 +68,7 @@ void func_001e4f40(void* p) {
   ASSERT(p, D_0036ed60, 1389);
   ASSERT(((u32)p & 0xf) == 0, D_0036ed78, 1390);
   func_001e3898(p, p);
-  s32* q = func_001e3650(p);
+  s32* q = func_001e3650(p);  // ptr_add4
   s32 n = *q;
   s32 i;
   q++;
@@ -174,11 +174,11 @@ s32 func_001affe0(Tbl273* t, s32 a1, s32 a2) {
   return -1;
 }
 
-Sub273* func_00120800(Own273*);
+Sub273* func_00120800(Own273*);  // obj_get_sub_ptr_by12
 void func_0011efe8(Own273*, u8*);
 void func_00121218(Own273* o, u8* fl, u16* list) {
   Sub273* a = o->sub;
-  Sub273* b = func_00120800(o);
+  Sub273* b = func_00120800(o);  // obj_get_sub_ptr_by12
   s32 i;
   func_0011efe8(o, fl);
   while ((s16)*list != -1) {

@@ -51,14 +51,14 @@ extern s32 D_0033cc40;
 struct E144 { u8 pad[144]; };
 extern E144 D_003a7f70[];
 extern E144 D_003a8090[];
-E144* func_00106a60(u8 a) {
+E144* func_00106a60(u8 a) {  // buffer_get_by_index
     if (a || D_0033cc44) return &D_003a7f70[D_0033cc40];
     return &D_003a8090[D_0033cc40];
 }
 
 // Walks a chunk chain until a chunk with the given tag (or the "_KN5" end tag).
 s32 func_00132208(void*);
-u32 func_001320b0(void*);
+u32 func_001320b0(void*);  // read_u32_be
 void* func_00132130(void*);
 void* func_00132180(void* p, u32 tag) {
     for (;;) {
@@ -127,7 +127,7 @@ void func_00144570(f32* box, u8* s) {
 
 // Clip-tests 8 points against the matrix m: 0 = all outside one plane,
 // 2 = partially clipped, 1 = all inside.
-s32 func_001466b0(Vec4* m, Vec4* v) {
+s32 func_001466b0(Vec4* m, Vec4* v) {  // mat4_transform_vecs
     u32 orr = 0, andd = 63;
     for (s32 i = 0; i < 8; i++, v++) {
         u32 c;
@@ -185,14 +185,14 @@ void func_001656d0(Nd12* n, u32 a1, u32 a2) {
 // p[0] = p[0] + p[1] (vector), returned through a function-local static.
 extern s8 D_004f62b0;
 extern Vec4 D_004f62c0;
-void func_002fd188(void (*)(void));
+void func_002fd188(void (*)(void));  // pool_alloc_block
 void func_0016e878(void);
 void func_0016d340(Vec4** p) {
     Vec4* a = p[0];
     Vec4* b = p[1];
     if (!D_004f62b0) {
         D_004f62b0 = 1;
-        func_002fd188(func_0016e878);
+        func_002fd188(func_0016e878);  // pool_alloc_block
     }
     Vec4 t;
     asm volatile("lqc2 $vf1,0(%1)\n\tlqc2 $vf2,0(%2)\n\tvadd.xyzw $vf1,$vf1,$vf2\n\tsqc2 $vf1,0(%0)"
@@ -201,9 +201,9 @@ void func_0016d340(Vec4** p) {
     p[0] = &D_004f62c0;
 }
 
-u32 func_001de168(u32, u32, u32, u32, u32, u32);
+u32 func_001de168(u32, u32, u32, u32, u32, u32);  // scan_list_by_half
 void func_00174858(u32* p) {
-    p[0] = func_001de168(p[0], p[1], p[3], 1, p[4], ((u32*)p[2])[1]);
+    p[0] = func_001de168(p[0], p[1], p[3], 1, p[4], ((u32*)p[2])[1]);  // scan_list_by_half
 }
 
 void func_0016b668(u8*);
@@ -218,10 +218,10 @@ void func_00175a70(u8* p) {
 }
 
 extern u32* D_01c60888;
-u8* func_001a80c8(u32);
+u8* func_001a80c8(u32);  // table24_find_by_id
 u32 func_00185890(s32 a, u32 b) {
     if (a == 0 || b == 0 || D_01c60888[a] == 0) return 0;
-    u8* v = func_001a80c8(b);
+    u8* v = func_001a80c8(b);  // table24_find_by_id
     u32* t = D_01c60888;
     u32* q = &t[t[a]];
     return q[*(u16*)(v + 4)];
@@ -287,10 +287,10 @@ void func_001a4388(void) {
 }
 
 // CRC-16/CCITT of a string, processed from the last character backwards.
-u32 func_002ff3fc(const char*);
+u32 func_002ff3fc(const char*);  // strlen
 u16 func_001ae270(const char* s) {
     u16 crc = 0xffff;
-    u32 n = func_002ff3fc(s);
+    u32 n = func_002ff3fc(s);  // strlen
     const s8* p = (const s8*)s + n - 1;
     for (u32 i = 0; i < n; i++) {
         crc ^= *p-- << 8;
@@ -307,7 +307,7 @@ struct Nd20 { f32 f0; u32 f4; u32 f8; u32 f12; u32 f16; Nd20* next; };
 struct L20 { Nd20* head; Nd20* tail; };
 extern L20 D_01d48de0;
 u32 func_0016a070(u32);
-s32 func_001a3888(u32);
+s32 func_001a3888(u32);  // id_in_range_5_7_131
 void func_001ba1f8(Nd20* n, u32 a1, u32 a2, u32 a3) {
     n->f4 = a2;
     n->f8 = a1;
@@ -426,7 +426,7 @@ void func_001e0058(u8* p) {
 }
 
 // Frees up to three buffers from the current heap, then clears the heap.
-void func_00102670(u32, u32);
+void func_00102670(u32, u32);  // to_1025f8
 extern u32 D_0035de3c;
 extern u32 D_0035de30;
 extern u32 D_0035de34;
@@ -435,15 +435,15 @@ extern u8 D_0035de27;
 void func_00228240(void) {
     if (!D_0035de3c) return;
     if (D_0035de30) {
-        func_00102670(D_0035de3c, D_0035de30);
+        func_00102670(D_0035de3c, D_0035de30);  // to_1025f8
         D_0035de30 = 0;
     }
     if (D_0035de34) {
-        func_00102670(D_0035de3c, D_0035de34);
+        func_00102670(D_0035de3c, D_0035de34);  // to_1025f8
         D_0035de34 = 0;
     }
     if (D_0035de38 && !D_0035de27) {
-        func_00102670(D_0035de3c, D_0035de38);
+        func_00102670(D_0035de3c, D_0035de38);  // to_1025f8
         D_0035de38 = 0;
     }
     D_0035de3c = 0;
@@ -506,12 +506,12 @@ void func_0027aed8(s32 a, s32* o1, s32* o2) {
 }
 
 s32 func_00168aa0(u32, u32);
-u8* func_00168b38(u32, u32, s32);
+u8* func_00168b38(u32, u32, s32);  // entry_array_find_nth
 void func_00290960(u8* p, u32 a, u32 b) {
     *(u32*)(p + 4) = a;
     *(s32*)(p + 8) = func_00168aa0(a, b);
     for (s32 i = 0; i < *(s32*)(p + 8); i++)
-        (*(u32**)(p + 20))[i] = *(u32*)(func_00168b38(*(u32*)(p + 4), b, i) + 8);
+        (*(u32**)(p + 20))[i] = *(u32*)(func_00168b38(*(u32*)(p + 4), b, i) + 8);  // entry_array_find_nth
 }
 
 void func_002b7fbc(s32);
@@ -548,7 +548,7 @@ struct Nd28 { u8 pad[20]; s32 id; u8 pad2[4]; Nd28* next; u8 pad3[4]; s32 f36; u
 struct L28 { Nd28* head; Nd28* tail; };
 extern L28 D_01e2aa80;
 extern s32 D_003616e8;
-void func_002bb100(Nd28* n, s32 a1, s32 a2) {
+void func_002bb100(Nd28* n, s32 a1, s32 a2) {  // next_global_id
     s32 id = D_003616e8;
     n->id = id;
     D_003616e8 = ++id;
@@ -574,14 +574,14 @@ void func_002c1a58(u8* p) {
 }
 
 void func_002df160(u32);
-Vec4* func_0016c028(u32);
+Vec4* func_0016c028(u32);  // obj_get_attach_or_alt
 f32 func_002df1a0(u32);
 void func_0016ace0(u32, Vec4*);
 extern f32 D_00375d40;
 void func_002deb18(u32 a0, u32 a1) {
     Vec4 v;
     func_002df160(a0);
-    cpq(&v, func_0016c028(a1));
+    cpq(&v, func_0016c028(a1));  // obj_get_attach_or_alt
     f32 r = func_002df1a0(a0);
     v.z = 0;
     v.y = -r * 100.0f - D_00375d40;

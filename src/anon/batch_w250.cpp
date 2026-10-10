@@ -3,7 +3,7 @@ extern "C" {
 extern char D_0036b600[];
 char* func_002ff2e8(char*, const char*);
 char* func_002feee8(char*, const char*);
-s32 func_002ff3fc(const char*);
+s32 func_002ff3fc(const char*);  // strlen
 s32 func_002ffbe0(s32 c);
 s32 func_0030e770(char*, u32, u32);
 void wtarget_00167358(u32 a0, u32 a1, u32 a2, u32) asm("_Z16wtarget_00167358jjjj");
@@ -11,8 +11,8 @@ void wtarget_00167358(u32 a0, u32 a1, u32 a2, u32) {
   char buf[256];
   func_002ff2e8(buf, D_0036b600);
   func_002feee8(buf, (const char*)a0);
-  s32 n0 = func_002ff3fc(D_0036b600);
-  s32 n = func_002ff3fc(buf);
+  s32 n0 = func_002ff3fc(D_0036b600);  // strlen
+  s32 n = func_002ff3fc(buf);  // strlen
   for (s32 i = n0; i < n; i++) {
     char* p = &buf[i];
     if (*p == '/') *p = '\\';
@@ -27,7 +27,7 @@ struct ObjVt { void* s[7]; void (*f7)(Obj*, void*); };
 struct Obj { ObjVt* vt; };
 struct P { s32 mode; Q* q; u8 pad[0x10]; Obj* obj; u8 pad2[8]; s32 x24; u8 pad3[4]; u32 x2c; };
 Obj* func_0013e610(s32);
-void func_00190388(void*, Q**);
+void func_00190388(void*, Q**);  // vec4_from_arg
 void func_0013e520(Obj*, s32);
 void func_0019d228(P*);
 void func_0019d260(P* p) {
@@ -49,7 +49,7 @@ void func_0019d260(P* p) {
   }
   if (p->obj) {
     u8 buf[16] __attribute__((aligned(16)));
-    func_00190388(buf, &p->q);
+    func_00190388(buf, &p->q);  // vec4_from_arg
     p->obj->vt->f7(p->obj, buf);
     s32 flag = 0;
     Q* q = p->q;
@@ -68,7 +68,7 @@ S3  = -1.9841270114e-04f,
 S4  =  2.755731202e-06f,
 S5  = -2.5050759689e-08f,
 S6  =  1.589690879e-10f;
-f32 func_002fb460(f32 x, f32 y, s32 iy) {
+f32 func_002fb460(f32 x, f32 y, s32 iy) {  // float_to_int
   f32 z, r, v;
   s32 ix;
   union { f32 f; s32 i; } u;

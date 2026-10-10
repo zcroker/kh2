@@ -28,7 +28,7 @@ void func_0019fb70(u32 a0, u8* a1) {
 
 extern f32 func_001065a8();
 struct W214O { u8 pad[24]; f32 f; };
-void func_002deac0(W214O* o, f32 a, f32 b) {
+void func_002deac0(W214O* o, f32 a, f32 b) {  // set_float24_scaled
     if (a == b) { asm("" : "+r"(o)); o->f = a; }
     else o->f = func_001065a8();
     o->f = o->f * 0.01f;

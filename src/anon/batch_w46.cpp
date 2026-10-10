@@ -185,10 +185,10 @@ void func_0017a418(u8* p, s32 m) {
 }
 
 // ---- 0017ce10: wrap an angle into [-pi, pi] (func_002f8b00 = fmodf)
-f32 func_002f8b00(f32, f32);
+f32 func_002f8b00(f32, f32);  // to_2f9a38
 f32 FixRadian46(f32 x) {
     if (0.0f < x) return func_002f8b00(x + 3.1415927f, 6.2831855f) - 3.1415927f;
-    return 3.1415927f - func_002f8b00(3.1415927f - x, 6.2831855f);
+    return 3.1415927f - func_002f8b00(3.1415927f - x, 6.2831855f);  // to_2f9a38
 }
 
 // ---- 0017fef0: move to the new position, accumulating the delta into rot and wrapping rot.w
@@ -385,14 +385,14 @@ extern char D_003712e8[];
 u32 func_00232348(char*);
 void func_002fee78(char*, char*, u32);
 void func_002feee8(char*, char*);
-void func_002ff3fc(char*);
+void func_002ff3fc(char*);  // strlen
 char* func_00232498(char* name) {
     D_01dadbb0[0] = 0;
     u32 v = func_00232348(name);
     func_002fee78(D_01dadbb0, D_003712d8, v);
     func_002feee8(D_01dadbb0, name);
     func_002feee8(D_01dadbb0, D_003712e8);
-    func_002ff3fc(D_01dadbb0);
+    func_002ff3fc(D_01dadbb0);  // strlen
     return D_01dadbb0;
 }
 
@@ -424,7 +424,7 @@ s32 func_00263cc0(void);
 void func_00138c10(u8*, s32);
 extern s16 D_0035f0d8;
 extern u8* D_0035f0dc;
-void func_00263c60(void) {
+void func_00263c60(void) {  // sync_global_index_if_changed
     if (func_00263cc0()) {
         s16 v = D_0035f0d8;
         if (*(s32*)(D_0035f0dc + 388) != v) {
@@ -483,16 +483,16 @@ s32 func_002a74c0(void) {
 }
 
 // ---- 002c6420
-u8* func_00106a60(u32);
-void func_00107368(u8*, u8*);
-void func_00107478(u8*, u8*);
-u8* func_00106a18(u32);
+u8* func_00106a60(u32);  // buffer_get_by_index
+void func_00107368(u8*, u8*);  // vec_copy_at80_if_diff
+void func_00107478(u8*, u8*);  // vec_copy_at96_if_diff
+u8* func_00106a18(u32);  // buffer_get_256
 f32 func_00106f30(u8*, u32);
 void func_002c6420(u8* p) {
     *(u32*)(p + 84) = 0;
-    u8* v = func_00106a60(1);
-    func_00107368(v, p + 16);
-    func_00107478(v, p + 32);
+    u8* v = func_00106a60(1);  // buffer_get_by_index
+    func_00107368(v, p + 16);  // vec_copy_at80_if_diff
+    func_00107478(v, p + 32);  // vec_copy_at96_if_diff
     f32 f = func_00106f30(func_00106a18(1), 0);
     *(f32*)(p + 80) = f;
     *(u32*)(p + 88) = 0;
@@ -554,10 +554,10 @@ void func_002eecd0(u8* p) {
 
 // ---- 0031e520
 s32 func_002ee6d8(u8*);
-void func_002edfd8(VObj*, u8*);
+void func_002edfd8(VObj*, u8*);  // list_unlink_and_clear
 s32 func_0031e520(VObj* p) {
     if (func_002ee6d8((u8*)p + 36)) {
-        func_002edfd8(p, (u8*)p + 36);
+        func_002edfd8(p, (u8*)p + 36);  // list_unlink_and_clear
         if (p) p->vt[1](p);
         return 0;
     }

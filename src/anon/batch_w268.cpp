@@ -10,7 +10,7 @@ extern void func_0023f070(void*, s32, s32);
 extern void func_0024c898(void);
 extern s32 func_0028d008(s32);
 extern s32 func_002891d0(void*);
-extern void func_0028cf28(s32, s32);
+extern void func_0028cf28(s32, s32);  // record408_set_and_refresh
 extern void func_002b4388(void*, void*, s32);
 struct W268E6 { s16 a, b, c; };
 struct W268E36 { u8 d[36]; };
@@ -97,14 +97,14 @@ void func_002881c0(void)
     D_0035f32e = -1;
 }
 
-s32 func_002fdfc8(const char*, ...);
+s32 func_002fdfc8(const char*, ...);  // device_vprintf_va
 extern char D_0036e978[], D_0036ed60[], D_0036e998[], D_0036e9d0[], D_0036ed78[], D_0036ed98[];
 void func_001e3898(void*, s32);
-s32* func_001e3650(void*);
+s32* func_001e3650(void*);  // ptr_add4
 void func_001e8288(s32, s32);
 static inline void assert_fail_1e50a8(const char* e, const char* f, s32 l) {
-    func_002fdfc8(D_0036e978, e);
-    func_002fdfc8(D_0036e998, f, l);
+    func_002fdfc8(D_0036e978, e);  // device_vprintf_va
+    func_002fdfc8(D_0036e998, f, l);  // device_vprintf_va
     asm volatile("break");
 }
 void func_001e50a8(s32* a0, s32 a1) {
@@ -112,7 +112,7 @@ void func_001e50a8(s32* a0, s32 a1) {
     if (!a0) assert_fail_1e50a8(D_0036ed60, D_0036e9d0, 1441);
     if ((u32)a0 & 0xf) assert_fail_1e50a8(D_0036ed78, D_0036e9d0, 1442);
     func_001e3898(a0, a1);
-    a0 = func_001e3650(a0);
+    a0 = func_001e3650(a0);  // ptr_add4
     s32 n = *a0++;
     for (s32 i = 0; i < n; i++) {
         v = *a0++;
@@ -128,16 +128,16 @@ struct W268Item;
 struct W268Owner { W268Desc* desc; W268Item* last; u8 pad8[4]; u16 count; };
 struct W268Item { W268Item* next; u8 p4[4]; W268Owner* owner; s32 f0c; u8 p10[0x80]; s32 f90; s32 f94; u8 p98[4]; u8 b9c; u8 b9d; u8 b9e; };
 struct W268Mgr { u8 pad[0x74]; W268Item* head; };
-W268Item* func_001e7698(void*, s32*);
+W268Item* func_001e7698(void*, s32*);  // alloc_aligned16
 void func_001e79f0(W268Item*);
 static inline void assert_fail_1e7a98(const char* e, const char* f, s32 l) {
-    func_002fdfc8(D_0036ef58, e);
-    func_002fdfc8(D_0036ef98, f, l);
+    func_002fdfc8(D_0036ef58, e);  // device_vprintf_va
+    func_002fdfc8(D_0036ef98, f, l);  // device_vprintf_va
     asm volatile("break");
 }
 W268Item* func_001e7a98(W268Mgr* mgr, W268Owner* own) {
     W268Desc* d = own->desc;
-    W268Item* it = func_001e7698(D_01d9e6e4, &d->tbl[d->idx]);
+    W268Item* it = func_001e7698(D_01d9e6e4, &d->tbl[d->idx]);  // alloc_aligned16
     if ((u32)it & 0xf) assert_fail_1e7a98(D_0036ef70, D_0036ef88, 222);
     it->f0c = 0;
     it->b9c = 1;
@@ -324,15 +324,15 @@ static inline void W268Apply(W268V4* pr, const W268Mtx* m, const W268V4* v) {
         "sqc2 $vf5, 0(%0)"
         : : "r"(&r), "r"(m), "r"(v) : "memory");
 }
-W268Mtx* func_00106a18(s32);
-u8* func_00106a60(s32);
+W268Mtx* func_00106a18(s32);  // buffer_get_256
+u8* func_00106a60(s32);  // buffer_get_by_index
 W268V4 func_0017cf00(const W268V4& in)
 {
     W268V4 r(in);
     f32 one = 1.0f;
     r.v[3] = one;
-    W268Mtx* a = func_00106a18(1);
-    u8* c = func_00106a60(1);
+    W268Mtx* a = func_00106a18(1);  // buffer_get_256
+    u8* c = func_00106a60(1);  // buffer_get_by_index
     W268Mtx* b = c ? (W268Mtx*)(c + 16) : 0;
     W268V4 tmp;
     W268Mtx t;

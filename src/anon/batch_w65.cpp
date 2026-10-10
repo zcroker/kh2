@@ -76,10 +76,10 @@ void func_0011ecc8(u8* p, s32 key) {
 // Constructor: base init, vtable, then collect flag bits 0 / 29 of each 32-byte entry.
 struct FlagEnt { u32 f; u32 x[7]; };
 struct FlagHdr { u8 pad[28]; s32 n; FlagEnt e[1]; };
-void func_0011ee18(void*);
+void func_0011ee18(void*);  // obj_ctor_347940
 extern u8 D_00347a28[];
 void func_001206e0(u32* p) {
-    func_0011ee18(p);
+    func_0011ee18(p);  // obj_ctor_347940
     p[0] = (u32)D_00347a28;
     FlagHdr* d = (FlagHdr*)p[1];
     s32 i;
@@ -220,12 +220,12 @@ u32 func_00182e98(u32 x) {
 }
 
 s32 func_0018b198(void*);
-void func_001ad9c8(void*);
+void func_001ad9c8(void*);  // float_accumulate_clamped
 void func_0016aeb8(void*, f32);
 void func_001b0728(void*, void*, s32, f32);
 void func_0018b110(u8* p) {
     if (!func_0018b198(p)) return;
-    func_001ad9c8(p + 2592);
+    func_001ad9c8(p + 2592);  // float_accumulate_clamped
     func_0016aeb8(p, *(f32*)(p + 2564) + *(f32*)(p + 2568) * *(f32*)(p + 2592));
     if (func_0018b198(p)) return;
     if (*(u8*)(p + 2560)) {
@@ -239,7 +239,7 @@ extern u8 D_0034ef18[];
 extern u8 D_01c60cd8[];
 void func_0031ee68(void*, void*);
 void func_0018e040(void*);
-void func_001c0058(u32);
+void func_001c0058(u32);  // clear_bit_in_array
 void func_001c0248(void*);
 void func_0018d590(u32* p) {
     p[0] = (u32)D_0034ef18;
@@ -248,7 +248,7 @@ void func_0018d590(u32* p) {
     func_0031ee68(D_01c60cd8, p);
     if (!(p[1] & 0x400)) {
         func_0018e040(p);
-        func_001c0058(p[7]);
+        func_001c0058(p[7]);  // clear_bit_in_array
     }
     func_001c0248(p + 12);
     func_00105110(p);
@@ -287,7 +287,7 @@ extern u8 D_01c6cae0[];
 extern u32 D_01c6cb00[4];
 extern u32 D_01c6cb10;
 u32 func_001708f8(u32, s32);
-u8* func_00168b38(u32, s32, s32);
+u8* func_00168b38(u32, s32, s32);  // entry_array_find_nth
 void func_001dddd0(void*, u32);
 void func_001a3a88(void) {
     u32 v = func_001708f8(D_00350748, -1);
@@ -343,7 +343,7 @@ u8* func_001c0648(u32 key) {
 extern u8 D_003525c8[];
 extern u8 D_00352750[];
 void func_00320400(void*);
-void func_001d1678(void*, s32);
+void func_001d1678(void*, s32);  // obj_init_28bytes
 void func_001d19e8(void*, s32);
 void func_001d16e8(void*, s32, s32);
 void func_001d4d28(u32* p) {
@@ -351,7 +351,7 @@ void func_001d4d28(u32* p) {
     p[0] = (u32)D_003525c8;
     p[2] = 0;
     func_00320400(p + 3);
-    func_001d1678(p, -1);
+    func_001d1678(p, -1);  // obj_init_28bytes
     p[12] = 0;
     p[0] = (u32)D_00352750;
     u8* q = (u8*)p + 57;
@@ -375,7 +375,7 @@ void func_001d7cd0(u8* p, u8* q, u32 c) {
 
 // Y-axis rotation matrix from the sine table (angle in 1/65536 turns).
 extern f32 D_00359a20[];
-void func_0021ea50(f32* m, u32 a) {
+void func_0021ea50(f32* m, u32 a) {  // table_float_pair_lookup_b
     f32 s = D_00359a20[(a >> 4) & 0xfff];
     f32 c = D_00359a20[((a + 0x4000) >> 4) & 0xfff];
     m[0] = c; m[4] = 0; m[8] = s; m[12] = 0;
@@ -430,7 +430,7 @@ void func_00290488(VObj** p) {
     if (p[1] && func_00139d78(p[1])) ((void (*)(VObj*))p[1]->vt[5])(p[1]);
 }
 
-s32 func_00253b00(void);
+s32 func_00253b00(void);  // get_global_ptr_1dae6c0
 s32 func_00253b18(void);
 void func_00292a58(void);
 extern s32 D_0035f4c8;
@@ -442,7 +442,7 @@ extern s16 D_0035f4d8;
 extern u8 D_0035f4e2;
 extern s32 D_0035f4d0;
 void func_00292870(void) {
-    D_0035f4c8 = func_00253b00();
+    D_0035f4c8 = func_00253b00();  // get_global_ptr_1dae6c0
     D_0035f4cc = func_00253b18();
     D_0035f4d0 = D_0035f4cc / D_0035f4c0;
     if (D_0035f4d0 > D_0035f4bc) D_0035f4d0 = D_0035f4bc;
@@ -563,7 +563,7 @@ extern char D_0036e978[];
 extern char D_0036ef28[];
 extern char D_0036e998[];
 extern char D_0036e9d0[];
-u32 func_002fdfc8(const char*, ...);
+u32 func_002fdfc8(const char*, ...);  // device_vprintf_va
 u32 func_001e3690(void*);
 void func_001e8048(void*, u32, s32);
 s32 func_001e6c40(u8* p, u32 a, u32 b, u32 c, f32 f) {
@@ -574,8 +574,8 @@ s32 func_001e6c40(u8* p, u32 a, u32 b, u32 c, f32 f) {
     *(u32*)(p + 160) = 0;
     u32 r = func_001e3690(p);
     if (!r) {
-        func_002fdfc8(D_0036e978, D_0036ef28);
-        func_002fdfc8(D_0036e998, D_0036e9d0, 2563);
+        func_002fdfc8(D_0036e978, D_0036ef28);  // device_vprintf_va
+        func_002fdfc8(D_0036e998, D_0036e9d0, 2563);  // device_vprintf_va
         asm volatile("break");
         return 0;
     }
@@ -602,8 +602,8 @@ void func_00201b30(Vq* o, Vq* a, Vq* b, f32 t) {
 extern u8 D_00361e38[];
 extern u8 D_0035eb98[];
 extern union { u32* v; u8 c; } D_00361e28;
-void func_002369a0(void*);
-void func_0023c008(void*);
+void func_002369a0(void*);  // obj_ctor_36eac8
+void func_0023c008(void*);  // obj_ctor_36eae8
 void func_0028d140(void*);
 void func_00167f38(s32);
 void func_002c5f48(void);
@@ -614,8 +614,8 @@ void func_002ca170(u32* p) {
     p[6] = 0;
     func_0031a838(p + 10);
     p[7] = (u32)D_0035eb98;
-    func_002369a0(p + 13);
-    func_0023c008(p + 19);
+    func_002369a0(p + 13);  // obj_ctor_36eac8
+    func_0023c008(p + 19);  // obj_ctor_36eae8
     p[47] = 0;
     func_0028d140(p + 48);
     p[159] = 0;

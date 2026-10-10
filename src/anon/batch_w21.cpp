@@ -12,7 +12,7 @@ u8* func_00102c80(void);
 void func_00102788(u32, u32, u32, void*);
 void func_0013f428(void);
 void func_0014b638(void*);
-void func_0014a988(void*);
+void func_0014a988(void*);  // clear_fields_244_260
 void func_0014acf8(void);
 void func_0014ac18(void);
 void func_00167e28(void*);
@@ -26,7 +26,7 @@ void func_001de450(void*);
 void func_001dde40(void*);
 void func_00170950(u32);
 s32 func_002f71b0(s32);
-void func_001ae678(void);
+void func_001ae678(void);  // to_306698_arg10
 void func_001d2180(void*);
 void func_001d20a8(void*);
 void func_0017c4c8(void*, void*);
@@ -46,7 +46,7 @@ void func_0028da70(void*, s32);
 s32 func_00287bc0(void);
 u8* func_00294000(s32);
 void func_002cff98(void*);
-void func_002e7328(void*);
+void func_002e7328(void*);  // to_2e7458
 void* func_0010c7e8(u32);
 void func_00118d10(void*, u32);
 u32 func_00114438(void*, u32);
@@ -119,7 +119,7 @@ void func_0013f498(void) {
 void func_0014a950(void** p) {
     func_0014b638(p);
     *p = &D_00349b28;
-    func_0014a988(p);
+    func_0014a988(p);  // clear_fields_244_260
 }
 
 void func_0014ad20(void) {
@@ -136,7 +136,7 @@ void func_00153100(void) {
     }
 }
 
-s32 func_00154288(u32, s32 a) {
+s32 func_00154288(u32, s32 a) {  // state_index_0_1_2
     switch (a) {
     case 0: return 3;
     case 1: return 0;
@@ -184,7 +184,7 @@ void func_001906f0(void* a, u128* v) {
     func_0018a970(buf, &t);
 }
 
-void func_001940b8(u8* p, u32 a, u32 b, u32 c, f32 x, f32 y) {
+void func_001940b8(u8* p, u32 a, u32 b, u32 c, f32 x, f32 y) {  // obj_set_bytes_and_lerp
     p[1664] = a;
     p[1665] = b;
     p[1666] = c;
@@ -318,7 +318,7 @@ struct BaseDtor { void** self; ~BaseDtor() { func_002cff98(self); } };
 void func_002db8e8(void** p) {
     BaseDtor g = { p };
     *p = &D_00362908;
-    func_002e7328((u8*)p + 2976);
+    func_002e7328((u8*)p + 2976);  // to_2e7458
 }
 
 void func_002df160(f32* p) {
@@ -358,7 +358,7 @@ void worldmap_ObjWidget_D0(void** p) {
 struct E24 { u8 a; u32 b; u32 pad[4]; };
 extern E24 D_0035e440[64];
 // Clear the 64-entry table at D_0035e440.
-void func_00236d60(void) {
+void func_00236d60(void) {  // clear_64_entries_24
     E24* e;
     for (e = D_0035e440; (s32)e < (s32)(D_0035e440 + 64); e++) {
         e->a = 0;

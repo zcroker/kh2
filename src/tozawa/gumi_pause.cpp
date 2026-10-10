@@ -30,7 +30,7 @@ extern "C" void func_00280678();
 extern "C" void func_002593b8(u32, u32);
 extern "C" void func_00102448(u32, u32);
 extern "C" void func_002806c8();
-extern "C" void func_00236d60();
+extern "C" void func_00236d60();  // clear_64_entries_24
 extern "C" u32 func_0027f3d8();
 extern "C" void func_0027fba0();
 
@@ -41,7 +41,7 @@ void GumiPause::PauseThread(TASK* a0) {
     func_002806c8();
     SetupTop();
     while (true) {
-        func_00236d60();
+        func_00236d60();  // clear_64_entries_24
         if (func_0027f3d8() != 0) {
             break;
         }

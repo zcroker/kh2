@@ -189,14 +189,14 @@ struct Cam323 {
     ~Cam323() { func_001070e8(this); }
 } __attribute__((aligned(16)));
 extern "C" {
-Cam323* func_00106a60(s32);
+Cam323* func_00106a60(s32);  // buffer_get_by_index
 void func_00147810(u32, u8* o) {
     if (!(*(u32*)(o + 248) & 0x1000)) return;
     if (*(u32*)(o + 288)) return;
     QM323 w;
     QV323 p;
     QV323 pad;
-    Cam323 c(*func_00106a60(1));
+    Cam323 c(*func_00106a60(1));  // buffer_get_by_index
     c.m.invOrtho();
     p = c.m * *(QV323*)(o + 192);
     w = *(QM323*)(o + 64);
@@ -207,14 +207,14 @@ void func_00147810(u32, u8* o) {
 }
 extern "C" {
 extern u8* D_00361f60;
-QV323& func_0016c028(void);
+QV323& func_0016c028(void);  // obj_get_attach_or_alt
 QV323 func_002d1d30(u8*, const QV323&);
 f32 rnd2d4548(f32, f32) asm("_Z13func_001065a8jjjjjjjj");
-f32 func_002f8870(f32);
+f32 func_002f8870(f32);  // fabsf
 void func_002d4548(u8* self) {
     u8* cam = D_00361f60;
     f32 save = *(f32*)(self + 2876);
-    QV323 v = func_0016c028();
+    QV323 v = func_0016c028();  // obj_get_attach_or_alt
     QV323 r = func_002d1d30(cam, v);
     if ((0.8f < r.x && 0.0f < *(f32*)(self + 2864)) || (r.x < -0.8f && *(f32*)(self + 2864) < 0.0f) ||
         (0.8f < r.y && 0.0f < *(f32*)(self + 2868)) || (r.y < -0.8f && *(f32*)(self + 2868) < 0.0f)) {
@@ -222,11 +222,11 @@ void func_002d4548(u8* self) {
         do {
             a = rnd2d4548(-1.0f, 1.0f);
             b = rnd2d4548(-1.0f, 1.0f);
-        } while (func_002f8870(a) < 0.001f && func_002f8870(b) < 0.001f);
-        if (0.7f < r.x) a = -func_002f8870(a);
-        if (r.x < -0.7f) a = func_002f8870(a);
-        if (0.7f < r.y) b = -func_002f8870(b);
-        if (r.y < -0.7f) b = func_002f8870(b);
+        } while (func_002f8870(a) < 0.001f && func_002f8870(b) < 0.001f);  // fabsf
+        if (0.7f < r.x) a = -func_002f8870(a);  // fabsf
+        if (r.x < -0.7f) a = func_002f8870(a);  // fabsf
+        if (0.7f < r.y) b = -func_002f8870(b);  // fabsf
+        if (r.y < -0.7f) b = func_002f8870(b);  // fabsf
         *(f32*)(self + 2864) = a;
         *(f32*)(self + 2868) = b;
         *(f32*)(self + 2872) = 0.0f;

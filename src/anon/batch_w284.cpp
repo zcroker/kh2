@@ -26,8 +26,8 @@ extern u8 D_0035eb98[];
 extern u8* D_00361e00;
 void func_00170950(u32);
 void func_00239870(u8*);
-void func_0023c098(u8*);
-void func_002369f0(u8*);
+void func_0023c098(u8*);  // set_vtbl_36eae8_then_call
+void func_002369f0(u8*);  // set_vtbl_36eac8_then_call
 #define ARR(b, e) if (p + (b)) { E284* q = (E284*)(p + (e)); top##b: if ((E284*)(p + (b)) == q) goto out##b; q--; q->vt[3](q); goto top##b; } out##b:
 void func_002c9998(u8* p) {
     *(void**)p = D_00361e10;
@@ -46,8 +46,8 @@ void func_002c9998(u8* p) {
     func_00239870(p + 212);
     *(u32*)(p + 188) = (u32)D_00347f98;
     *(u32*)(p + 28) = (u32)D_0035eb98;
-    func_0023c098(p + 76);
-    func_002369f0(p + 52);
+    func_0023c098(p + 76);  // set_vtbl_36eae8_then_call
+    func_002369f0(p + 52);  // set_vtbl_36eac8_then_call
     *(u32*)(p + 28) = (u32)D_00347f98;
     *(u32*)p = (u32)D_00347f98;
 }
@@ -69,8 +69,8 @@ void func_002c9b38(u8* p) {
     func_00239870(p + 212);
     *(u32*)(p + 188) = (u32)D_00347f98;
     *(u32*)(p + 28) = (u32)D_0035eb98;
-    func_0023c098(p + 76);
-    func_002369f0(p + 52);
+    func_0023c098(p + 76);  // set_vtbl_36eae8_then_call
+    func_002369f0(p + 52);  // set_vtbl_36eac8_then_call
     *(u32*)(p + 28) = (u32)D_00347f98;
     *(u32*)p = (u32)D_00347f98;
 }
@@ -87,19 +87,19 @@ void wtarget_002c6cd8(u32 a, u32 b, u32, u32) {
 }
 
 // ---- 002cbd20: step *t along a path until the travelled distance reaches dist
-void func_002cd910(QV284*, u8*, f32);
-f32 func_002f8870(f32);
-s32 func_002cb920(u8*);
+void func_002cd910(QV284*, u8*, f32);  // split_float_call
+f32 func_002f8870(f32);  // fabsf
+s32 func_002cb920(u8*);  // get_sum_fields_minus1
 s32 wtarget_002cbd20(u8*, f32*, f32) asm("_Z16wtarget_002cbd20jjjj");
 s32 wtarget_002cbd20(u8* obj, f32* t, f32 dist) {
     QV284 a;
     f32 acc = 0.0f;
     f32 t0 = *t;
     s32 i = 0;
-    func_002cd910(&a, obj, t0);
+    func_002cd910(&a, obj, t0);  // split_float_call
     while (acc < dist) {
         QV284 b, d;
-        func_002cd910(&b, obj, *t);
+        func_002cd910(&b, obj, *t);  // split_float_call
         vsub284(&d, &b, &a);
         f32 prev = acc;
         acc += vlen284(&d);
@@ -110,7 +110,7 @@ s32 wtarget_002cbd20(u8* obj, f32* t, f32 dist) {
         a = b;
         t0 = *t;
         *t = t0 + 5e-05f;
-        if ((f32)(func_002cb920(obj) + 1) <= *t) *t = *t - (f32)(func_002cb920(obj) + 1);
+        if ((f32)(func_002cb920(obj) + 1) <= *t) *t = *t - (f32)(func_002cb920(obj) + 1);  // get_sum_fields_minus1
         i++;
         if (i >= 1024) break;
     }

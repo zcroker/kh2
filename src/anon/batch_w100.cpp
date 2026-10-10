@@ -160,7 +160,7 @@ extern f32 D_004573e0;
 extern f32 D_004573e4;
 s32 func_00184478(u32);
 f32 func_0013fd10(u8*);
-f32 func_002f8870(f32);
+f32 func_002f8870(f32);  // fabsf
 f32 func_0017ce80(f32, f32, f32);
 void func_00140150(u8*, f32);
 }
@@ -189,12 +189,12 @@ namespace w100_a9 {
 extern "C" {
 u32 func_00177860(u8*);
 s32 func_001c3618(u32, s32);
-s32 func_0019c090(u8*);
-s32 func_001b9d40(u8*);
+s32 func_0019c090(u8*);  // obj_is_enabled
+s32 func_001b9d40(u8*);  // vtable_call_slot64_flags
 void func_0016aef0(u8*, u8*);
 void func_0017f488(u8*, s32, f32, f32);
 void func_0017f5e0(u8*, s32, s32, f32, f32);
-u8* func_001ce300(s32);
+u8* func_001ce300(s32);  // to_1ce2a0_index_minus1
 void func_00176a60(u8*, f32);
 }
 static inline bool IsLocked(u8* o) {
@@ -224,7 +224,7 @@ static inline bool CanAct3(u8* o) { return !IsBusy(o); }
 extern "C" {
 s32 func_00179530(u8* o) {
     s32 n = func_001c3618(func_00177860(o), 4);
-    if (n > 0 && CanAct3(o) && func_001b9d40(o)) {
+    if (n > 0 && CanAct3(o) && func_001b9d40(o)) {  // vtable_call_slot64_flags
         func_0016aef0(o, o + 16);
         func_0017f488(o + 320, 209, 0.0f, 0.0f);
         func_0017f5e0(o + 320, 0, 0, 0.0f, 0.0f);
@@ -479,7 +479,7 @@ s32 func_002f79c8(s32);
 s32 func_002f7be8(u32, s32, u32, u8*);
 void func_001ae620(void);
 void func_001ae650(void);
-void func_001ae678(void);
+void func_001ae678(void);  // to_306698_arg10
 u32 func_002f7dc8(void);
 void func_003058a0(s32);
 void func_002efcc0(u32, u32, s32);
@@ -492,7 +492,7 @@ u32 func_001adf00(u32 key, u32 buf) {
     if (!e) return 0;
     for (;;) {
         if (func_002f79c8(1) != 2 || func_002f7be8(e->id, (e->h6 & 0x3fff) + 1, buf, D_00350ca0) != 1) {
-            func_001ae678();
+            func_001ae678();  // to_306698_arg10
             continue;
         }
         func_001ae620();
@@ -521,7 +521,7 @@ extern "C" {
 s32 func_001bc710(Ent18*);
 void func_002ba2e8(s32, s32);
 s32 func_001bcf18(Hdr18*);
-s32 func_001bcf38(Hdr18*);
+s32 func_001bcf38(Hdr18*);  // state_in_set_5_10_13to18
 void func_001bc730(Hdr18*, s32);
 void func_001bd618(Obj18*, s32);
 }
@@ -556,9 +556,9 @@ namespace w100_a21b {
 asm("fptodp = func_00313b80");
 extern "C" {
 extern char D_00370c20[];
-s32 func_002fdfc8(const char*, ...);
+s32 func_002fdfc8(const char*, ...);  // device_vprintf_va
 void func_002234c0(const char* name, f32* m) {
-    func_002fdfc8(D_00370c20, name, m[0], m[1], m[2], m[3], m[4], m[5], m[6], m[7], m[8], m[9], m[10], m[11], m[12], m[13], m[14], m[15]);
+    func_002fdfc8(D_00370c20, name, m[0], m[1], m[2], m[3], m[4], m[5], m[6], m[7], m[8], m[9], m[10], m[11], m[12], m[13], m[14], m[15]);  // device_vprintf_va
 }
 }
 
@@ -572,7 +572,7 @@ extern Cam22 D_01d9e6e8;
 extern u8 D_00354bd0[];
 extern f32 D_00354bc0[3];
 void func_0021ec80(void*, void*);
-void func_002f3e20(M22*, M22*);
+void func_002f3e20(M22*, M22*);  // convert_vectors_to_scalar
 void func_002f3d08(void*, void*, void*);
 }
 static inline void ScaleRow(void* row, f32 s) {
@@ -593,7 +593,7 @@ void func_002010b0(u8* o, u32 a1, u8* x) {
     m.t[0] = D_00354bc0[0];
     m.t[1] = D_00354bc0[1];
     m.t[2] = D_00354bc0[2];
-    func_002f3e20(&m, &m);
+    func_002f3e20(&m, &m);  // convert_vectors_to_scalar
     func_002f3d08(D_01d9e6e8.p + 16, D_01d9e6e8.p + 16, mtx);
     func_002f3d08(D_01d9e6e8.p + 16, &m, D_01d9e6e8.p + 16);
     ScaleRow(D_01d9e6e8.p + 16, scl[0]);

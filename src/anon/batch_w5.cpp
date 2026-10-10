@@ -7,7 +7,7 @@ struct Q16 { u32 w[4]; } __attribute__((aligned(16)));
 extern "C" {
 
 // Copy the quadword at src+0x60 to dst (unless they are the same).
-void func_00107478(u8* src, u8* dst) {
+void func_00107478(u8* src, u8* dst) {  // vec_copy_at96_if_diff
     src += 0x60;
     if (dst != src) {
         asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(dst), "r"(src) : "$8", "memory");
@@ -42,10 +42,10 @@ void func_0013d798(void) {
 
 void func_0014ace8(void);
 extern u32 D_003493a0;
-void func_0014a988(void*);
+void func_0014a988(void*);  // clear_fields_244_260
 void func_0014acf8(void) {
     func_0014ace8();
-    func_0014a988(&D_003493a0);
+    func_0014a988(&D_003493a0);  // clear_fields_244_260
 }
 
 void func_001398d0(u32);
@@ -117,7 +117,7 @@ void func_001a04f8(BD_VALUE* bd) {
 }
 
 // Low five bits of table byte i.
-u8 func_001a8bf8(u8* p, s32 i) {
+u8 func_001a8bf8(u8* p, s32 i) {  // get_bits5_at
     return p[i] & 0x1f;
 }
 
@@ -196,7 +196,7 @@ void func_0029e148(void) {
 }
 
 struct S2dd { u8 pad[0x12]; u16 flags; };
-u32 func_002ddbb8(u8* p) {
+u32 func_002ddbb8(u8* p) {  // get_bit0_of_field2808
     S2dd* s = *(S2dd**)(p + 0xaf8);
     if (s) return (s->flags & 1) != 0;
     return 0;
@@ -222,7 +222,7 @@ void func_002ea2d8(u32* p) {
 }
 
 // VU0 macro code: dst = a x b (outer product), dst.w = 0.
-void func_002f3d50(void* dst, void* a, void* b) {
+void func_002f3d50(void* dst, void* a, void* b) {  // vec3_cross
     asm volatile(
         "lqc2 $vf4, 0(%1)\n\tlqc2 $vf5, 0(%2)\n\t"
         "vopmula.xyz ACC, vf4, vf5\n\tvopmsub.xyz $vf6, $vf5, $vf4\n\t"
@@ -231,7 +231,7 @@ void func_002f3d50(void* dst, void* a, void* b) {
 }
 
 // VU0 macro code: dst.xyz = v.xyz * s.
-void func_002f4870(void* dst, void* v, f32 s) {
+void func_002f4870(void* dst, void* v, f32 s) {  // vec3_scale_by_f12
     asm volatile(
         "lqc2 $vf4, 0(%1)\n\tmfc1 $8, %2\n\tqmtc2 $8, $vf5\n\t"
         "vmulx.xyz $vf4, $vf4, $vf5x\n\tsqc2 $vf4, 0(%0)"

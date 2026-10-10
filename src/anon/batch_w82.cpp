@@ -39,21 +39,21 @@ static inline void VZero82(void* p) { asm volatile("vsub.xyzw $vf1, $vf0, $vf0\n
 extern "C" {
 s32 func_00181a70(u8*);
 void func_00189228(u8*, u16);
-s32 func_001ba028(u32);
-void func_00177a28(u8*);
+s32 func_001ba028(u32);  // list_contains_ptr
+void func_00177a28(u8*);  // set_bytes_2820_2821
 void func_0016bae8(u32, u8*, u16, u8*);
 void func_0016bd60(u8*, s32);
 u32 func_00177860(u8*);
 s32 func_001c3618(u32, s32);
-u8* func_001ce300(s32);
+u8* func_001ce300(s32);  // to_1ce2a0_index_minus1
 void func_0017f488(u8*, s32, f32, f32);
 void func_001c97b0(u16, f32);
 u32 func_001c88a8(u32, f32);
-s32 func_001c9958(u8, u16);
+s32 func_001c9958(u8, u16);  // state_pair_check
 void* func_001050d8(u32);
 void func_0010c078(void*, u8*, u32, f32);
 s32 func_00168aa0(void*, s32);
-u8* func_00168b38(void*, s32, s32);
+u8* func_00168b38(void*, s32, s32);  // entry_array_find_nth
 s32 func_0013d498(void);
 void func_0013b3f8(void);
 void func_0013a4a8(void);
@@ -64,7 +64,7 @@ void func_0013fdc8(void*);
 void func_0031bc58(void*);
 void func_0014fe00(void*, u32, u32, u32, u32, u32, u32, u32, u32);
 void func_001a17c8(u32);
-void func_001b78b8(u32);
+void func_001b78b8(u32);  // to_105110
 void func_002cb708(u32);
 void func_00105110(u32);
 void func_001b3098(void*);
@@ -78,8 +78,8 @@ u32 func_0016f470(u32, u32);
 u32 func_0016f4b8(u32, u32);
 u32 func_0016f520(u32, u32, u32);
 s32 func_00170978(u32);
-s32 func_0016f6f8(u32);
-s32 func_0016f770(u32);
+s32 func_0016f6f8(u32);  // check_flag_4000_type
+s32 func_0016f770(u32);  // in_id_special_range
 s32 func_0016f460(u32);
 void func_0031e328(void*, Node0017*);
 void func_00170188(Node0017*);
@@ -91,9 +91,9 @@ void func_0013a368(void)
     D_00347fd8.res = (u32)D_004193c0;
     D_00347fd8.count = func_00168aa0(D_004193c0, 25);
     for (i = 0; i < D_00347fd8.count; i++) {
-        D_00347fd8.e[i].a = *(u32*)(func_00168b38((void*)D_00347fd8.res, 25, i) + 8);
+        D_00347fd8.e[i].a = *(u32*)(func_00168b38((void*)D_00347fd8.res, 25, i) + 8);  // entry_array_find_nth
         if (func_00168b38((void*)D_00347fd8.res, 24, 0))
-            D_00347fd8.e[i].b = *(u32*)(func_00168b38((void*)D_00347fd8.res, 24, i) + 8);
+            D_00347fd8.e[i].b = *(u32*)(func_00168b38((void*)D_00347fd8.res, 24, i) + 8);  // entry_array_find_nth
         else
             D_00347fd8.e[i].b = 0;
     }
@@ -195,7 +195,7 @@ void func_0017cd20(u8* a0, u8* a1)
         if (!n) return;
         if (!(*(u32*)(a1 + 268) & 2)) return;
     }
-    r = func_001ce300(n);
+    r = func_001ce300(n);  // to_1ce2a0_index_minus1
     v = *(Vec82*)(a1 + 16);
     if (0.0f < v.w) v.w = *(f32*)(r + 8);
     v.y = *(f32*)(r + 4);
@@ -217,7 +217,7 @@ u32 func_0017e418(u8* a0, u32 a1, f32 f)
         func_001c97b0(*(u16*)(a0 + 76), 15.0f);
         return func_001c88a8(a1, f);
     }
-    if (func_001c9958(D_0032bb30[13604], *(u16*)(a0 + 76))) {
+    if (func_001c9958(D_0032bb30[13604], *(u16*)(a0 + 76))) {  // state_pair_check
         func_001c97b0(*(u16*)(a0 + 76), 15.0f);
         return 0;
     }
@@ -232,7 +232,7 @@ void func_00178bf0(u8* a0, u8* a1)
     if (*(u16*)(a1 + 38) && func_00181a70(a0))
         func_00189228(D_0032e020, *(u16*)(a1 + 38));
     if (!func_001ba028(*(u32*)(*(u8**)(a0 + 2884) + 12))) return;
-    func_00177a28(a0);
+    func_00177a28(a0);  // set_bytes_2820_2821
     switch (a1[37]) {
     case 0:
         break;
@@ -267,8 +267,8 @@ void u_call4_0016a358(u32 a0, u32, u32, u32)
     u32 p;
     *(u32*)o = (u32)D_0034d850;
     if (*(u32*)(o + 1164)) func_001a17c8(*(u32*)(o + 1164));
-    if (*(u32*)(o + 2088)) func_001b78b8(*(u32*)(o + 2088));
-    if (*(u32*)(o + 1296)) func_001b78b8(*(u32*)(o + 1296));
+    if (*(u32*)(o + 2088)) func_001b78b8(*(u32*)(o + 2088));  // to_105110
+    if (*(u32*)(o + 1296)) func_001b78b8(*(u32*)(o + 1296));  // to_105110
     p = *(u32*)(o + 1288);
     if (p) {
         func_002cb708(p);
@@ -310,8 +310,8 @@ void func_0018a958(u8*, u32, f32, f32);
 s32 func_0019ba60(u32);
 u32 func_00190208(u8*, u32);
 void func_0018a818(u8*, u32, u32);
-Vec82* func_0016c028(u32);
-s32 func_001b9d40(u8*, u8*);
+Vec82* func_0016c028(u32);  // obj_get_attach_or_alt
+s32 func_001b9d40(u8*, u8*);  // vtable_call_slot64_flags
 void func_0016af58(void*, u8*);
 
 void func_001902a8(u8* a0, u8* a1)
@@ -323,7 +323,7 @@ void func_001902a8(u8* a0, u8* a1)
     } else if (func_0019ba60(*(u32*)a0)) {
         u32 v = func_00190208(a0, 1);
         if (v) func_0018a818(a1, *(u32*)a0, v);
-        else *(Vec82*)(a1 + 16) = *func_0016c028(*(u32*)a0);
+        else *(Vec82*)(a1 + 16) = *func_0016c028(*(u32*)a0);  // obj_get_attach_or_alt
     } else {
         // identity row (0,0,0,1) from vf0
         asm volatile("sqc2 $vf0, 0(%0)" : : "r"(a1 + 16) : "memory");
@@ -342,7 +342,7 @@ s32 func_0019c778(u8* a0, u8* a1)
 {
     s32 r = 0;
     Vec82 t;
-    if (func_001b9d40(a0, a1) && 0.0f < *(f32*)(a0 + 28)) {
+    if (func_001b9d40(a0, a1) && 0.0f < *(f32*)(a0 + 28)) {  // vtable_call_slot64_flags
         func_0016af58(&t, a0);
         if (Dot82(a1, &t) >= 0.7f && Dot82(a1, a0 + 16) >= 0.7f) r = 1;
     }
@@ -450,7 +450,7 @@ struct Ev001f { u8 pad[4]; s16 f4; u8 pad2[6]; u8 f12; u8 f13; u8 f14; u8 pad3; 
 
 extern "C" {
 void func_001e0e40(u8*);
-s32 func_00222568(void);
+s32 func_00222568(void);  // vu_const_5f_d
 void func_001f5cc8(void);
 void func_0021ee48(u8*, Ev001f*, void*, u8*, s16, u8, u8);
 
@@ -501,7 +501,7 @@ extern f32 D_00354bc0[3];
 extern u8* D_01d9e6e8;
 
 extern "C" {
-void func_002f3f40(u8*, u8*, f32);
+void func_002f3f40(u8*, u8*, f32);  // vec_scale_by_f12
 void func_002f3cd8(u8*, u8*, u8*);
 void func_002f3f98(u8*, u8*);
 void func_002f3d08(u8*, u8*, u8*);
@@ -510,9 +510,9 @@ void func_0021ec80(u8*, s32*);
 void func_001fcb90(u8* a0, u32, u8* a2)
 {
     u8* p = a0 + *(u32*)(*(u8**)(a2 + 12) + 4) + 160;
-    func_002f3f40(D_01d9e6e8 + 80, D_01d9e6e8 + 16, D_00354be0[0]);
-    func_002f3f40(D_01d9e6e8 + 96, D_01d9e6e8 + 32, D_00354be0[1]);
-    func_002f3f40(D_01d9e6e8 + 112, D_01d9e6e8 + 48, D_00354be0[2]);
+    func_002f3f40(D_01d9e6e8 + 80, D_01d9e6e8 + 16, D_00354be0[0]);  // vec_scale_by_f12
+    func_002f3f40(D_01d9e6e8 + 96, D_01d9e6e8 + 32, D_00354be0[1]);  // vec_scale_by_f12
+    func_002f3f40(D_01d9e6e8 + 112, D_01d9e6e8 + 48, D_00354be0[2]);  // vec_scale_by_f12
     func_002f3cd8(D_01d9e6e8 + 128, D_01d9e840, D_01d9e6e8 + 64);
     func_002f3f98(p, D_01d9e6e8 + 80);
     func_002f3d08(D_01d9e6e8 + 80, D_01d9e8c0, D_01d9e6e8 + 80);
@@ -560,7 +560,7 @@ void func_00287d20(s32);
 s32 func_00287bc0(void);
 void func_002b5188(u8*, s32);
 void func_00287cc0(s32);
-void func_00240bb0(s32);
+void func_00240bb0(s32);  // global_store_half2
 void func_002417a0(void);
 void func_002b4ee0(void);
 void func_00287c00(s32);
@@ -600,7 +600,7 @@ void func_0025e370(void)
         return;
     }
     if (v == 0) func_00287cc0(1);
-    func_00240bb0(8000);
+    func_00240bb0(8000);  // global_store_half2
     func_002417a0();
     func_002b4ee0();
     func_00287c00(12);
@@ -628,7 +628,7 @@ extern u32 D_0035f250;
 extern "C" {
 u32 func_00257130(void);
 u8* func_00281f20(u32);
-u8* func_001a80c8(u32);
+u8* func_001a80c8(u32);  // table24_find_by_id
 s32 func_00281f18(u32);
 void func_0028d980(u8*, s32, s32, s32, u32, s32, s32, s32, s32);
 void func_00139620(u8*);
@@ -651,7 +651,7 @@ u8* func_0026a178(s32 idx, s32 mode)
     }
     if (ok) {
         u16 id = *(u16*)(tbl + idx * 6);
-        if (id) return func_001a80c8(id);
+        if (id) return func_001a80c8(id);  // table24_find_by_id
     }
     return 0;
 }
@@ -682,8 +682,8 @@ s32 func_00286058(u8);
 u32 func_0023f9c8(u8*, s32);
 void func_001386e0(u32, s32, u32, u32, s32, s32);
 void func_0028d8c0(u8*, u32, u32, u32, u32, u32, s32, s32);
-void func_0028b4c0(u8*, u32);
-void func_0028b4f0(u8*, u32);
+void func_0028b4c0(u8*, u32);  // copy_3halfwords_416
+void func_0028b4f0(u8*, u32);  // copy_3halfwords_422
 u8* func_0023f1b0(u32);
 u32 func_0023c3e0(u8*, s16, s32);
 void func_0028dd28(u8*, u32);
@@ -724,8 +724,8 @@ void func_0028b300(u8* a0, u32 a1, u32 a2, u32 a3, u32 t0, u32 t1, u32 t2, u32 t
     s32 i;
     *(u32*)(a0 + 408) = t0;
     func_0028d8c0(a0, a1, a2, a3, t0, t3, -1, 0);
-    func_0028b4c0(a0, t1);
-    func_0028b4f0(a0, t2);
+    func_0028b4c0(a0, t1);  // copy_3halfwords_416
+    func_0028b4f0(a0, t2);  // copy_3halfwords_422
     cur = *(s32*)(func_0023f1b0(*(u32*)(a0 + 408)) + 76);
     {
         u8* p = a0;
@@ -742,7 +742,7 @@ extern u8 D_00347e60[];
 
 extern "C" {
 void func_00239700(u8*);
-void func_0028dfe8(void*);
+void func_0028dfe8(void*);  // obj_ctor_36f440
 void func_00258d40(u32, u32);
 
 static inline void* Alloc82(u32 n) { Alloc0014* h = D_00347f80->heap; return h->vt->alloc(h, n, 0); }
@@ -756,7 +756,7 @@ void func_0028fc78(Mgr0014** a0, u32 a1, u32 a2, u16* a3)
     func_00239700(o + 24);
     a0[0] = (Mgr0014*)o;
     o = (u8*)Alloc82(60);
-    func_0028dfe8(o);
+    func_0028dfe8(o);  // obj_ctor_36f440
     a0[1] = (Mgr0014*)o;
     for (i = 0; i < 3; i++) ((u16*)(a0 + 2))[i] = a3[i];
     *(u32*)(a0 + 4) = a1;
@@ -817,8 +817,8 @@ u32 func_002d2660(u8* a0, s32 a1)
     if (!slot[1]) return 0;
     o = func_002d1260(a0);
     r = *(s16*)(func_0016bc20(slot[1], 5, -1) + 16);
-    QCopy82(a, func_0016c028((u32)o));
-    QCopy82(b, func_0016c028(slot[1]));
+    QCopy82(a, func_0016c028((u32)o));  // obj_get_attach_or_alt
+    QCopy82(b, func_0016c028(slot[1]));  // obj_get_attach_or_alt
     VSub82(d, a, b);
     if (VLen82(d) < r) return slot[1];
     return 0;
@@ -835,7 +835,7 @@ void func_002da040(u8* a0)
         else func_0017f540(*(u8**)(a0 + 3056) + 320, 153, 0.0f, 0.0f);
     }
     func_0017f540(a0 + 320, 0, 0.0f, 0.0f);
-    for (i = 0; i < 8; i++) ((Vec82*)(a0 + 3232))[i] = *func_0016c028((u32)a0);
+    for (i = 0; i < 8; i++) ((Vec82*)(a0 + 3232))[i] = *func_0016c028((u32)a0);  // obj_get_attach_or_alt
 }
 }
 
@@ -844,10 +844,10 @@ static inline void VAdd82(void* d, const void* a, const void* b) { asm volatile(
 extern "C" {
 void func_002e2a30(u8*, Vec82*, u8*, u8*);
 f32 func_002edd20(u32);
-f32 func_002f8870(f32);
-double func_00313b80(f32);
-double func_00313e80(double, double);
-s32 func_003142e0(double, double);
+f32 func_002f8870(f32);  // fabsf
+double func_00313b80(f32);  // float_to_double
+double func_00313e80(double, double);  // double_div
+s32 func_003142e0(double, double);  // double_compare
 
 void func_002e2940(u8* a0, u8* a1, Vec82* a2, Vec82* a3)
 {
@@ -855,7 +855,7 @@ void func_002e2940(u8* a0, u8* a1, Vec82* a2, Vec82* a3)
     if (func_00197920((S001d*)a0)) return;
     if (!a0[88]) return;
     if (!(*(u32*)(a1 + 1416) & 0x80)) return;
-    VAdd82(&a, func_0016c028((u32)a1), a2);
+    VAdd82(&a, func_0016c028((u32)a1), a2);  // obj_get_attach_or_alt
     VAdd82(&b, &a, a3);
     QCopy82(&a, &b);
     func_002e2a30(a0, &a, a0 + 288, a0 + 304);
@@ -871,9 +871,9 @@ Vec82* func_002ede48(Vec82* a0, u32 a1, Vec82* a2, f32 f12, f32 f13)
     f32 step;
     double dx;
     *a0 = *a2;
-    dx = func_00313b80(func_002f8870(diff));
+    dx = func_00313b80(func_002f8870(diff));  // float_to_double
     step = f13 * D_00349e10;
-    if (func_003142e0(func_00313e80(func_00313b80(step), 10.0), dx) < 0) {
+    if (func_003142e0(func_00313e80(func_00313b80(step), 10.0), dx) < 0) {  // double_compare
         if (func_003142e0(func_00313b80(diff), 0.0) < 0) a0->y -= step;
         else a0->y += step;
     }

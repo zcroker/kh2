@@ -7,7 +7,7 @@ extern "C" void func_002430d8(u32);
 extern "C" void func_00102448(u32, u32);
 extern "C" void func_0024f710();
 extern "C" void func_00242678(u32);
-extern "C" void func_00236d60();
+extern "C" void func_00236d60();  // clear_64_entries_24
 extern "C" u32 func_0024ff08();
 extern "C" void func_00250328();
 
@@ -18,7 +18,7 @@ void LMMU::PauseThread(TASK* a0) {
     func_0024f710();
     func_00242678(12022);
     while (1) {
-        func_00236d60();
+        func_00236d60();  // clear_64_entries_24
         if (func_0024ff08() != 0) {
             return;
         }

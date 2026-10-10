@@ -1,6 +1,6 @@
 #include "../common/types.h"
 
-void* func_001e3650(void*);
+void* func_001e3650(void*);  // ptr_add4
 void* func_001e3660(void*, s32);
 void* func_001e3c98(void*, void*);
 void* func_001e3e48(void*, void*);
@@ -8,18 +8,18 @@ u8 func_001e4028(void*, void*);
 s32 func_001e41e0(u8* p) {
     void* q = *(void**)(p + 0x88);
     void* t;
-    q = func_001e3650(q);
+    q = func_001e3650(q);  // ptr_add4
     t = func_001e3660(q, 2);
     t = func_001e3c98(t, *(u8**)(p + 0x8c) + 0xc0);
     t = func_001e3e48(t, *(u8**)(p + 0x8c) + 0xd0);
     return func_001e4028(t, *(u8**)(p + 0x8c) + 0xe0);
 }
 
-void func_002fdfc8(const char*, ...);
+void func_002fdfc8(const char*, ...);  // device_vprintf_va
 extern char D_0036ef58[], D_0036efc8[], D_0036ef88[], D_0036ef98[];
 static inline void ryjAssert(const char* e, const char* f, s32 l) {
-    func_002fdfc8(D_0036ef58, e);
-    func_002fdfc8(D_0036ef98, f, l);
+    func_002fdfc8(D_0036ef58, e);  // device_vprintf_va
+    func_002fdfc8(D_0036ef98, f, l);  // device_vprintf_va
     asm volatile("break");
 }
 void func_001e8558(void*, void*);

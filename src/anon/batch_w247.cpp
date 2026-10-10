@@ -142,7 +142,7 @@ void func_00237068(Obj237* o)
 
 u32 func_002bc988(void*) asm("_Z13func_002bc988Pv");
 s32 func_002bc9d8(u8*, u32);
-void func_002bc9a8(u8*, s32, u32);
+void func_002bc9a8(u8*, s32, u32);  // find_entry12_set_field
 s32 func_002bc978(void*);
 void func_002bcda8(u8*, s32);
 void func_002bd188(u8*, s32);
@@ -155,7 +155,7 @@ s32 func_002bca78(u8* o, void* a, void* b, s32* out, u32* out2)
     if (r == -1) {
         s32 v = *(s32*)(o + 328);
         *out = v;
-        func_002bc9a8(o, v, *out2);
+        func_002bc9a8(o, v, *out2);  // find_entry12_set_field
         s32 n = func_002bc978(b);
         for (s32 i = 0; i < n - 1; i++) {
             s32 x = *(s32*)(o + 328) + i + 1;

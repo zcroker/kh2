@@ -26,7 +26,7 @@ void func_0017f5e0(u8*, s32, s32, f32, f32);
 void func_0016bd60(u8*, s32);
 void func_00290740(u8*);
 void func_002362b0(u8*, u32);
-void func_002367c8(u8*);
+void func_002367c8(u8*);  // obj_dispatch_bitfield64
 void func_001386e0(u8*, u32, u32, u8*, u32, u32);
 void func_002b740c(u32, u32, u32, u32);
 
@@ -78,7 +78,7 @@ void Selector_CreateHelpGra(u8* t, u32 a1, u32 a2, u32 a3) {
     func_00290740(t);
     u8* s0 = t + 416;
     func_002362b0(s0, a2);
-    func_002367c8(s0);
+    func_002367c8(s0);  // obj_dispatch_bitfield64
     func_001386e0(t, *(u32*)(t + 408), a1, s0, a3, 0);
     u32* q = (u32*)(t + 24);
     q[46] |= 8;

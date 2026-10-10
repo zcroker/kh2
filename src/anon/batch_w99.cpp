@@ -29,23 +29,23 @@ static inline f32 Dot10ce(const V10ce& a, const V10ce& b)
 
 extern "C" {
 extern u8* D_00341708;
-V10ce func_00190388(u8*);
-V10ce* func_0016c028(u8*);
-f32 func_001142d0(u32);
+V10ce func_00190388(u8*);  // vec4_from_arg
+V10ce* func_0016c028(u8*);  // obj_get_attach_or_alt
+f32 func_001142d0(u32);  // get_float_at_ptr108
 f32 func_00114380(u32);
 f32 func_00114390(u32);
 
 s32 func_0010cef0(u8* o)
 {
-    V10ce d = func_00190388(o + 2548) - *func_0016c028(o);
-    f32 r = func_001142d0(*(u32*)(o + 2912));
+    V10ce d = func_00190388(o + 2548) - *func_0016c028(o);  // vec4_from_arg
+    f32 r = func_001142d0(*(u32*)(o + 2912));  // get_float_at_ptr108
     r = r * r;
     if (r < Dot10ce(d, d)) return 1;
     r = func_00114380(*(u32*)(o + 2912));
     r += func_00114390(*(u32*)(o + 2912));
     r *= 0.5f;
     r = r * r;
-    d = func_00190388(o + 2548) - *func_0016c028(D_00341708);
+    d = func_00190388(o + 2548) - *func_0016c028(D_00341708);  // vec4_from_arg
     if (r < Dot10ce(d, d)) return 1;
     return 0;
 }
@@ -289,7 +289,7 @@ union W1791 { f32 f; u32 u; };
 struct D1791 { u8 pad[12]; f32 f12; f32 scale; f32 f20; f32 f24; f32 f28; };
 u32 func_00177860(u8*);
 s32 func_001c3618(u32, s32);
-D1791* func_001ce300(s32);
+D1791* func_001ce300(s32);  // to_1ce2a0_index_minus1
 void func_0016aef0(u8*, V1791*);
 void func_0017f488(u8*, s32, f32, f32);
 void func_0016ac38(u8*, s32, s32, s32, s32);
@@ -300,7 +300,7 @@ s32 func_001791e8(u8* o, V1791* v)
 {
     s32 n = func_001c3618(func_00177860(o), 1);
     if (n > 0) {
-    D1791* d = func_001ce300(n);
+    D1791* d = func_001ce300(n);  // to_1ce2a0_index_minus1
     *(V1791*)(o + 32) = *v * d->scale;
     *(f32*)(o + 240) = d->f20;
     *(f32*)(o + 244) = d->f12;
@@ -358,7 +358,7 @@ void func_0017da90(u8* p, u32 a, u32 b)
 
 // ---- 00180058
 extern "C" {
-u8* func_00168b88(u32, s32, s32, s32);
+u8* func_00168b88(u32, s32, s32, s32);  // find_entry16_by_half_word
 void func_0017efa0(u8*, u32, f32, f32);
 void func_00180800(u8*, s32);
 
@@ -366,7 +366,7 @@ void func_00180058(u8* p, u32 res, s8* id, u32 a, u32 b, s32* ref, f32 s)
 {
     s32 i;
     for (i = 0; i < 4; i++) {
-        u8* e = func_00168b88(res, -1, id[0] | (id[1] << 8) | (id[2] << 16) | (id[3] << 24), i);
+        u8* e = func_00168b88(res, -1, id[0] | (id[1] << 8) | (id[2] << 16) | (id[3] << 24), i);  // find_entry16_by_half_word
         if (e && *(u32*)(e + 8)) {
             *(u32*)(p + 240) = a;
             *(u32*)(p + 36) |= 4;
@@ -392,7 +392,7 @@ struct Obj1857;
 struct VT1857 { u8 pad[72]; void (*f72)(Obj1857*); };
 struct Obj1857 { VT1857* vt; u32 pad; Info1857* info; u8 pad2[256]; u32 flags; u8 pad3[2276]; u32 w2548; };
 void func_0016ac38_185770(Obj1857*, s32, s32, s32, s32) asm("func_0016ac38");
-void func_001940b8(Obj1857*, s32, s32, s32, f32, f32);
+void func_001940b8(Obj1857*, s32, s32, s32, f32, f32);  // obj_set_bytes_and_lerp
 s32 func_0019c650(u32);
 void func_00177638(u32);
 
@@ -402,10 +402,10 @@ void func_00185770(Obj1857* o)
 {
     func_0016ac38_185770(o, 0, 1, 0, 0);
     if (o->info->id == 114) {
-        func_001940b8(o, 255, 255, 255, 1.0f, 0.0f);
+        func_001940b8(o, 255, 255, 255, 1.0f, 0.0f);  // obj_set_bytes_and_lerp
     } else {
-        func_001940b8(o, 255, 255, 255, 0.0f, 0.0f);
-        func_001940b8(o, 255, 255, 255, 1.0f, 16.0f);
+        func_001940b8(o, 255, 255, 255, 0.0f, 0.0f);  // obj_set_bytes_and_lerp
+        func_001940b8(o, 255, 255, 255, 1.0f, 16.0f);  // obj_set_bytes_and_lerp
     }
     if (func_0019c650(o->w2548)) {
         o->flags &= ~0x100;
@@ -460,7 +460,7 @@ extern "C" {
 struct Buf1b72 { u8 b[80]; };
 void func_001b74b8(Buf1b72*);
 void func_001b7508(Buf1b72*, s32, s32);
-s32 func_001b73e8(u8*, u32);
+s32 func_001b73e8(u8*, u32);  // compute_avg_state
 void func_001a3188(u16, u32, s32);
 void func_001b7538(Buf1b72*, u16);
 u32 func_001a8bd0(s32);
@@ -474,8 +474,8 @@ void func_001b72c0(u8* p, u32 b, u32 c, s32 idx)
     func_001b7508(&s, p[4] - p[-12], 0x8ade);
     func_001b7508(&s, p[5] - p[-11], 0x8adf);
     func_001b7508(&s, p[6] - p[-10], 0x8ae0);
-    s32 d = func_001b73e8(p, b);
-    d -= func_001b73e8(p - 16, b);
+    s32 d = func_001b73e8(p, b);  // compute_avg_state
+    d -= func_001b73e8(p - 16, b);  // compute_avg_state
     func_001b7508(&s, d, 0x8ae1);
     u16 id = *(u16*)(p + idx * 2 + 8);
     if (id) {
@@ -494,7 +494,7 @@ extern BL1c08 D_0032bb30;
 extern T1c08* D_01d49358;
 u8* func_001c0648(u32);
 s32 func_001c09c0(u32);
-u32 func_001a1658(u8, s32);
+u32 func_001a1658(u8, s32);  // state_dispatch_0_1_14
 void func_001c0690(u8*, u32);
 void func_001a17c8(u32);
 void func_00181670(void);
@@ -510,7 +510,7 @@ void bonuslevel_up(u32 id)
     u32* bits = bl->bits;
     bits[id >> 5] |= 1 << (id & 31);
     while (e < D_01d49358->e + D_01d49358->n * 16 && e[0] == id) {
-        u32 x = func_001a1658(e[1], -1);
+        u32 x = func_001a1658(e[1], -1);  // state_dispatch_0_1_14
         func_001c0690(e, x);
         e += 16;
         func_001a17c8(x);
@@ -549,8 +549,8 @@ extern "C" {
 struct O1d24 { u8 pad[16]; V1d24 v16; V1d24 dir; };
 struct G1d24 { u8 pad[224]; f32 speed; };
 extern G1d24* D_00352130;
-double func_00313b80(f32);
-s32 func_003142e0(double, double);
+double func_00313b80(f32);  // float_to_double
+s32 func_003142e0(double, double);  // double_compare
 V1d24 func_0016af58(O1d24*);
 void func_0016bd60_1d2418(O1d24*, s32) asm("func_0016bd60");
 void func_0017f488(u8*, s32, f32, f32);
@@ -558,7 +558,7 @@ void func_0017f5e0(u8*, s32, s32, f32, f32);
 
 void func_001d2418(O1d24* o)
 {
-    if (0.0f < o->v16.w && (o->v16.x != 0.0f || func_003142e0(func_00313b80(o->v16.z), 0.0))) {
+    if (0.0f < o->v16.w && (o->v16.x != 0.0f || func_003142e0(func_00313b80(o->v16.z), 0.0))) {  // double_compare
         o->dir = o->v16;
     } else {
         o->dir = func_0016af58(o);
@@ -581,7 +581,7 @@ extern U200e D_01d9e6e8;
 extern M200e D_00354bd0;
 extern f32 D_00354bc0[3];
 void func_0021eb50(M200e*, void*);
-void func_002f3e20(M200e*, M200e*);
+void func_002f3e20(M200e*, M200e*);  // convert_vectors_to_scalar
 void func_002f3d08(M200e*, M200e*, void*);
 
 static inline void ScaleRow200e(f32* row, f32 s)
@@ -606,7 +606,7 @@ void func_00200e80(u8* p, u32, u8* a2)
     t.m[12] = D_00354bc0[0];
     t.m[13] = D_00354bc0[1];
     t.m[14] = D_00354bc0[2];
-    func_002f3e20(&t, &t);
+    func_002f3e20(&t, &t);  // convert_vectors_to_scalar
     func_002f3d08(&D_01d9e6e8.p->mtx, &D_01d9e6e8.p->mtx, m);
     func_002f3d08(&D_01d9e6e8.p->mtx, &t, &D_01d9e6e8.p->mtx);
     ScaleRow200e(&D_01d9e6e8.p->mtx.m[0], scl[0]);
@@ -624,8 +624,8 @@ struct N2221 {
 struct H2221 { N2221* first; u8 flags; };
 struct C2221 { H2221* head; u32 a; void* b; N2221* list; u32 c; u32 d; };
 struct W2221 { u8 pad[64]; N2221* node; u32 a; u32 l; void* b; };
-void func_002f4000(W2221*);
-void func_002226b8(void*, u32);
+void func_002f4000(W2221*);  // vu_store_w_splat
+void func_002226b8(void*, u32);  // vec3_copy
 void func_00221348(W2221*);
 void func_00221ed0(N2221*);
 
@@ -638,15 +638,15 @@ void func_00222170(C2221* c)
         fl = 32;
         h->flags &= ~2;
     }
-    func_002f4000(&w);
+    func_002f4000(&w);  // vu_store_w_splat
     w.a = c->a;
     w.l = (u32)c->list;
     w.b = c->b;
     N2221* n = h->first;
     while (n) {
         if (n->flags & 0x200) {
-            func_002226b8(n->m[n->sel].a, c->c);
-            func_002226b8(n->m[n->sel].a + 32, c->d);
+            func_002226b8(n->m[n->sel].a, c->c);  // vec3_copy
+            func_002226b8(n->m[n->sel].a + 32, c->d);  // vec3_copy
         }
         if (n->flags & 0x100) n->flags = fl | n->flags;
         w.node = n;
@@ -728,7 +728,7 @@ void func_0023f070(u32, s16, s32);
 void func_002493c8(void);
 s32 func_0028d008(u32);
 u32 func_002891d0(u32);
-void func_0028cf28(u32, u32);
+void func_0028cf28(u32, u32);  // record408_set_and_refresh
 void func_002b4388(u32, S36_248*, s32);
 
 void func_00248f50(u32 obj, s32 mode, u32 w)
@@ -759,7 +759,7 @@ u8* func_002891b8(u32, s32);
 u32 func_0023aa78(void*);
 u32 func_0023aa98(void*);
 void func_00288e08(u32, s32, u32, s32);
-u32 func_0028dd90(u32);
+u32 func_0028dd90(u32);  // mod10_classify_012
 u32 func_0028ddd8(u32);
 void func_001395f8(u8*);
 void func_002891f0(u32, s32, s32, s32, s32);
@@ -807,7 +807,7 @@ s32 func_002938f0(void);
 u32 func_00293bc0(void);
 void func_002810c8(u32, u32);
 void func_00293bb0(void);
-void func_00236d60(void);
+void func_00236d60(void);  // clear_64_entries_24
 void func_00293520(void);
 s32 func_00255588(void);
 void func_00255df0(void);
@@ -831,7 +831,7 @@ void func_00254648(u32 a)
             func_002810c8(D_0035f010, func_00293bc0());
             func_00293bb0();
         }
-        func_00236d60();
+        func_00236d60();  // clear_64_entries_24
         func_00293520();
         if (func_00255588()) break;
         func_00255df0();
@@ -844,7 +844,7 @@ void func_00254648(u32 a)
 extern "C" {
 extern u32* D_0035f2e4;
 u32* func_002859a0(void);
-u8* func_001a80c8(s32);
+u8* func_001a80c8(s32);  // table24_find_by_id
 s32 func_00286058(u8);
 
 static inline s32 Check286(u32* got, u32 i)
@@ -1112,7 +1112,7 @@ void func_002ce958(u8*, s32, u32, s32);
 void func_002e34b8(u8*);
 void func_002ceae8(u8*, Buf2e0d*, void*);
 u8* func_001708f8(Buf2e0d*, s32);
-u8* func_00168b38(u8*, s32, s32);
+u8* func_00168b38(u8*, s32, s32);  // entry_array_find_nth
 void func_002e34c0(u8*, u32);
 u32 func_001050c8(void);
 u8* func_001063c0(u32, u32);

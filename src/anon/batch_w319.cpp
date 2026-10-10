@@ -2,9 +2,9 @@
 extern "C" {
 extern s32 D_00348060[];
 extern s32 D_00348420[];
-u32 func_0013b988(void*, void*, u8, s32, s32, s32);
+u32 func_0013b988(void*, void*, u8, s32, s32, s32);  // table_by_arg_flags
 void func_0013c080(void*, void*, s32, s32, u8*, s32, s32*, s32*);
-u32 func_0013bc40(void*, s32);
+u32 func_0013bc40(void*, s32);  // is_zero_arg
 u32 func_0013b9e0(void*, s32);
 u8* func_001b8e88(u16);
 u32 func_00192048(u32);
@@ -16,7 +16,7 @@ void func_0013c190(u8* p, u8* a1, s32 a2, s32 a3, u8 t0, s32 t1, s32 t2, s32 t3,
     s32 w20;
     s32 w24;
     s32 s4 = *(s32*)(a1 + 108);
-    u32 s8 = func_0013b988(p, a1, s6[5], s4, 1, 0);
+    u32 s8 = func_0013b988(p, a1, s6[5], s4, 1, 0);  // table_by_arg_flags
     u8* v;
     u8* r;
     flag = 0;
@@ -101,13 +101,13 @@ s32 func_0023aa38(...);
 u32 func_00288ce0(...);
 u32 func_00239870(...);
 u32 func_002891f0(...);
-u32 func_0028b078(...);
-u32 func_0028af90(...);
+u32 func_0028b078(...);  // obj_setup_from_args
+u32 func_0028af90(...);  // obj_set_field22_from_arg
 u32 func_00288f48(...);
 u32 func_0028d068(...);
 u32 func_0028d1c0(...);
 u32 func_002891d0(...);
-u32 func_0028d660(...);
+u32 func_0028d660(...);  // record_set_value_refresh
 u32 func_001396b0(...);
 
 struct W319C { void f(s32, s32) asm("func_002889f0"); };
@@ -141,12 +141,12 @@ void func_002ca828(u8* p) {
         func_00239870(buf);
     }
     func_002891f0(s2, 0, 1, 0, 2);
-    func_0028b078(s2, 1, 2);
-    func_0028af90(s2, 2);
+    func_0028b078(s2, 1, 2);  // obj_setup_from_args
+    func_0028af90(s2, 2);  // obj_set_field22_from_arg
     func_00288f48(s2, 16, 32, 64, 128);
     func_0028d068(30040, -1);
     func_0028d1c0(p + 192, 30050, 1, 1, p + 28, D_00375838, 0);
-    func_0028d660(p + 192, func_002891d0(s2));
+    func_0028d660(p + 192, func_002891d0(s2));  // record_set_value_refresh
     func_001396b0(p + 192);
 }
 }

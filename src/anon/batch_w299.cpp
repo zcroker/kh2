@@ -42,7 +42,7 @@ extern u8 D_0032f230;
 void func_001b74b8(void*);
 void func_001a1950(void*, s32, s32, s32);
 void func_001a1a20(void*, s32, s32);
-void func_001a1aa0(void*, s32);
+void func_001a1aa0(void*, s32);  // ring_buffer_index
 void func_00188958(void*, s32);
 void func_001b7508(void*, s32, s32);
 void func_001a3188(s32, s32, s32);
@@ -70,7 +70,7 @@ void func_001c0690(u8* p, Obj1c0* o) {
     s32 n = o->f434 + p[4];
     if (n >= 10) n = 9;
     o->f434 = n;
-    func_001a1aa0(o, 0);
+    func_001a1aa0(o, 0);  // ring_buffer_index
     if (o->f580) {
         func_00188958(o->f580, o->f580->f18 + p[5]);
         o->f580->f17 += p[6];
@@ -131,7 +131,7 @@ void setdir2d6(Act2d6*, V299*, f32) asm("_Z16ctarget_00186a90jjjj");
 void wt2cf280(void*, s32, s32) asm("_Z16wtarget_002cf280jjjj");
 void func_002d6600(Act2d6*, V299*);
 void func_002d3f18(Act2d6*);
-f32 func_002f8870(f32);
+f32 func_002f8870(f32);  // fabsf
 static inline u8 pos2d6(Act2d6* t) { return 0.0f < t->f2780; }
 void func_002d6750(Act2d6* a, Ctx2d6* c) {
     Mg2d6* g = D_00361f60;
@@ -155,7 +155,7 @@ void func_002d6750(Act2d6* a, Ctx2d6* c) {
         func_002d6600(a, &d);
     } else {
         if (config2d6(g)->f140 < 0.0f) d.Zero();
-        setdir2d6(a, &d, func_002f8870(config2d6(g)->f140));
+        setdir2d6(a, &d, func_002f8870(config2d6(g)->f140));  // fabsf
     }
     wt2cf280((u8*)c->f16 + 2800, 256, 0);
     func_002d3f18(c->f16);

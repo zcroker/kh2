@@ -1,6 +1,6 @@
 #include "../common/types.h"
 extern "C" {
-f32* func_0016c028(u8*);
+f32* func_0016c028(u8*);  // obj_get_attach_or_alt
 struct Q16 { u32 w[4]; } __attribute__((aligned(16)));
 s32 func_00114620(u32);
 u32 func_0016a070(u32);
@@ -56,7 +56,7 @@ void func_00111e50(void)
     func_001357d8();
 }
 
-s32 func_001384c0(void);
+s32 func_001384c0(void);  // get_global_347e08
 extern u8 D_0032bad8;
 s32 func_00103b38(void);
 u8* func_0014aba8(void);
@@ -138,12 +138,12 @@ void func_001450e8(HalfOrFloat6* src, s32 idx, HalfOrFloat6* out)
     }
 }
 
-void func_00239f18(u8*, f32);
+void func_00239f18(u8*, f32);  // obj_set_float312_and_flags
 void func_00138c68(u8*, s32, s32);
 void func_001547e0(u8* a, s32 b, s32 c)
 {
     f32 v = b;
-    func_00239f18(a + c * 408 + 72, v / 100.0f);
+    func_00239f18(a + c * 408 + 72, v / 100.0f);  // obj_set_float312_and_flags
     s32 n = (s32)-v;
     func_00138c68(a + c * 408 + 48, n, 0);
     if (c == 2) func_00138c68(a + 1272, n, 0);
@@ -172,7 +172,7 @@ void func_0015d208(f32* a, f32* b)
     *b = D_004f37c0.y;
 }
 
-void func_001da458(u8*, u32, u32, u32);
+void func_001da458(u8*, u32, u32, u32);  // stream_init_fields
 void func_001da558(u8*, void*, u32, u32);
 extern u8 D_0034dbf8;
 void func_0016cab8(u8*);
@@ -185,7 +185,7 @@ static inline void Kill(u8* n) { if (n) { func_0016cab8(n); func_0016c7d8(n); } 
 void func_0016c9e8(u8* o)
 {
     if (*(u32*)(o + 36)) {
-        func_001da458(o, *(u32*)(o + 36), 0, 0);
+        func_001da458(o, *(u32*)(o + 36), 0, 0);  // stream_init_fields
         func_001da558(o, &D_0034dbf8, 0, 0);
     }
     u8* n = *(u8**)(o + 44);
@@ -233,7 +233,7 @@ void flagupd_0017c578(void*, u8* o)
     if (fl & 0x10000) *(u32*)(o + 264) = fl | 0x20000;
     else *(u32*)(o + 264) = fl & ~0x20000;
     *(u32*)(o + 264) &= ~0x10000;
-    f32* v = func_0016c028(o);
+    f32* v = func_0016c028(o);  // obj_get_attach_or_alt
     *(f32*)(o + 216) += v[1];
     if (0.0f < *(f32*)(o + 204)) {
         Q16* d = (Q16*)(o + 32);
@@ -420,7 +420,7 @@ s32 func_00181978(void);
 extern u32 D_0034f240;
 void func_001a1c90(u8*, s32, s32);
 s32 func_001d6d88(void);
-u8* func_001c1130(s32);
+u8* func_001c1130(s32);  // copy_record_block_to_table
 u32 func_00192048(s32);
 void func_001c11a8(s32);
 void func_001d0878(u8* o, u32 a, s32 kind)
@@ -439,7 +439,7 @@ void func_001d0878(u8* o, u32 a, s32 kind)
         else *(*(u8**)(o + 1164) + 431) = 1;
     }
     if (kind == 6) {
-        u8* r = func_001c1130(29);
+        u8* r = func_001c1130(29);  // copy_record_block_to_table
         *(u32*)(r + 24) = func_00192048(0xc44f);
     } else {
         func_001c11a8(29);
@@ -542,7 +542,7 @@ void func_001f6b68(u8* base, u8* in, u8* desc)
 }
 
 extern u8 D_00354be0[];
-void func_002f3f88(u8*, void*);
+void func_002f3f88(u8*, void*);  // memcpy16
 void func_001fb8b8(u8*, s32, s32);
 void func_001fb9a8(u8* base, u8* in, u8* desc)
 {
@@ -552,7 +552,7 @@ void func_001fb9a8(u8* base, u8* in, u8* desc)
     q[37] = (s32)(in[9] * *(f32*)(D_01d9e6e0 + 52));
     q[38] = (s32)(in[10] * *(f32*)(D_01d9e6e0 + 56));
     q[39] = (s32)(in[11] * *(f32*)(D_01d9e6e0 + 60));
-    func_002f3f88(p + 176, D_00354be0);
+    func_002f3f88(p + 176, D_00354be0);  // memcpy16
     func_001fb8b8(q, 0, 0);
 }
 
@@ -580,7 +580,7 @@ void func_00201ca0(u8* p, s32* x, s32* w, s32* y, s32* h)
     *h = hv - 16;
 }
 s32 func_00287bc0(void);
-void func_00287d68(void);
+void func_00287d68(void);  // copy_globals_3words
 s32 func_00287db0(void);
 s32 func_0028acc8(u32);
 s32 func_00139d78(void*);
@@ -595,7 +595,7 @@ extern void* D_0035edb8;
 s32 func_0024bd90(void)
 {
     s32 mode = func_00287bc0();
-    func_00287d68();
+    func_00287d68();  // copy_globals_3words
     if (func_00287db0()) {
         if (func_0028acc8(D_0035eda8) || func_0028acc8(D_0035edac) || func_00139d78(D_0035edb0)
             || func_00139d78(D_0035edb4) || func_00139d78(D_0035edb8))
@@ -756,7 +756,7 @@ bool func_002adaf0(s32 who)
     }
     return r;
 }
-void func_002edf28(u8*);
+void func_002edf28(u8*);  // obj_ctor_3637e0
 u8* func_001050d8(u32);
 void func_001ad0f8(u8*, u32, s32);
 void func_001ad330(u8*, u32);
@@ -764,7 +764,7 @@ extern u8 D_00361980[];
 union PtrS { u8* p; s32 i; };
 void func_002bec88(u8* o, s32 kind, u32 arg)
 {
-    func_002edf28(o);
+    func_002edf28(o);  // obj_ctor_3637e0
     *(u32*)(o + 40) = 0;
     *(u32*)o = (u32)D_00361980;
     switch (kind) {
@@ -787,30 +787,30 @@ void func_002bec88(u8* o, s32 kind, u32 arg)
     }
 }
 
-void func_002369a0(u8*);
-void func_0023c008(u8*);
+void func_002369a0(u8*);  // obj_ctor_36eac8
+void func_0023c008(u8*);  // obj_ctor_36eae8
 extern u8 D_00363880[];
 extern u8 D_003619a8[];
 extern u32 D_00361998;
 u8* func_002beb90(void);
 u32 func_001708f8(u8*, s32);
-u8* func_00168b38(u32, s32, s32);
+u8* func_00168b38(u32, s32, s32);  // entry_array_find_nth
 void func_002ef1f8(u8*, u32, u32);
 void func_002bf308(void);
 void func_00102c18(s32, u32, void*);
 void func_002befc0(u8* o)
 {
     u32 v = (u32)func_001050c8();
-    func_002edf28(o);
+    func_002edf28(o);  // obj_ctor_3637e0
     *(u32*)(o + 36) = v;
     *(u32*)o = (u32)D_00363880;
-    func_002369a0(o + 40);
-    func_0023c008(o + 64);
+    func_002369a0(o + 40);  // obj_ctor_36eac8
+    func_0023c008(o + 64);  // obj_ctor_36eae8
     *(u32*)o = (u32)D_003619a8;
     D_00361998 = (u32)o;
     *(u32*)(o + 156) = func_001708f8(func_002beb90(), -1);
-    u8* x = func_00168b38(*(u32*)(o + 156), 28, 0);
-    u8* y = func_00168b38(*(u32*)(o + 156), 29, 0);
+    u8* x = func_00168b38(*(u32*)(o + 156), 28, 0);  // entry_array_find_nth
+    u8* y = func_00168b38(*(u32*)(o + 156), 29, 0);  // entry_array_find_nth
     func_002ef1f8(o, *(u32*)(x + 8), *(u32*)(y + 8));
     *(u32*)(o + 4) |= 1;
     func_00102c18(1, 0x19258, (void*)func_002bf308);
@@ -858,7 +858,7 @@ s32 func_00301480(char* buf, s32 v, s32 c)
 void func_001af638(void);
 void func_001af6f0(void);
 void func_001bb468(u8*);
-u32 func_001c10f8(s32);
+u32 func_001c10f8(s32);  // request_pool_block64
 s32 func_0017a538(u8*);
 u32 func_001d1438(s32);
 u32 func_0016a020(u8*);
@@ -887,12 +887,12 @@ extern char D_0036ef58[];
 extern char D_0036efb8[];
 extern char D_0036ef98[];
 extern char D_0036ef88[];
-void func_002fdfc8(const char*, ...);
+void func_002fdfc8(const char*, ...);  // device_vprintf_va
 u8* func_001e7a98(u8*, u8*);
 static inline void AssertFail(const char* expr, const char* file, u32 line)
 {
-    func_002fdfc8(D_0036ef58, expr);
-    func_002fdfc8(D_0036ef98, file, line);
+    func_002fdfc8(D_0036ef58, expr);  // device_vprintf_va
+    func_002fdfc8(D_0036ef98, file, line);  // device_vprintf_va
     asm volatile("break");
 }
 void func_001e8ac8(u8* o)
@@ -908,7 +908,7 @@ void func_001e8ac8(u8* o)
     }
 }
 
-u8* func_001a80c8(u16);
+u8* func_001a80c8(u16);  // table24_find_by_id
 bool func_002ab8e8(s32 who)
 {
     u8* e = 0;

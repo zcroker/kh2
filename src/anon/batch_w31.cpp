@@ -13,7 +13,7 @@ int func_00150bc0(void*);
 void func_00150940(void*, u32);
 void func_001507b8(void*, u32);
 
-u32 func_00154ee8(void*);
+u32 func_00154ee8(void*);  // field24_state_code
 void func_00138c10(void*, u32);
 void func_00154408(void*, u32);
 
@@ -44,7 +44,7 @@ extern u8* D_01c6cb90;
 void func_001ad280(void*);
 extern void* D_00350a70[];
 extern u8 D_00350a56;
-void func_001c1130(int);
+void func_001c1130(int);  // copy_record_block_to_table
 void func_0014c9d8(int);
 
 int func_001c9ab8(void*);
@@ -60,13 +60,13 @@ void func_00105110(void*);
 
 extern char D_00370bd8[];
 extern char D_00370bf8[];
-void func_002fdfc8(const char*, ...);
+void func_002fdfc8(const char*, ...);  // device_vprintf_va
 
 extern u32 D_0033caf4;
 extern char D_01dad960[];
 extern char D_00371190[];
 void func_002fee78(char*, const char*, ...);
-void func_002ff3fc(char*);
+void func_002ff3fc(char*);  // strlen
 }
 
 // Queue a target-event entry into the 64-slot ring; returns its serial number.
@@ -93,15 +93,15 @@ u32 wtarget_00234098(u32 a, u32 b, u32 c, u32 d) {
 extern "C" {
 u8* func_00294000(int);
 int func_00295158(u32);
-u32* func_002b23e0(int);
+u32* func_002b23e0(int);  // list_entry_by_index_checked
 extern u32 D_00374ca4;
 extern u32 D_00374ca8;
 extern char D_01e2a5a8[];
 extern char D_00374f80[];
 extern void* D_003621a0[];
-void func_002e7328(void*);
+void func_002e7328(void*);  // to_2e7458
 void func_002d2a08(void*);
-void func_002cfeb0(void*, u32, int, u32);
+void func_002cfeb0(void*, u32, int, u32);  // obj_init_field1416_bit800
 extern void* D_003627c8[];
 void func_002cf280(void*, int, int);
 u8* func_002dc7c8(void*);
@@ -116,13 +116,13 @@ void func_00195858(void*, int);
 extern void* D_00347f98[];
 extern u8* D_00347f80;
 extern void* D_0034ee08[];
-void func_0019f9a8(void*);
+void func_0019f9a8(void*);  // array8_free_slots
 void func_001c0248(void*);
-void func_00319fb0(void*);
+void func_00319fb0(void*);  // big_obj_dtor
 extern void* D_00363880[];
 extern void* D_003637e0[];
-void func_0023c098(void*);
-void func_002369f0(void*);
+void func_0023c098(void*);  // set_vtbl_36eae8_then_call
+void func_002369f0(void*);  // set_vtbl_36eac8_then_call
 
 
 // dk Field: start the title task.
@@ -201,7 +201,7 @@ void* func_001a78c0(void* out, u32 a, int b, f32 x, f32 y, f32 z, f32 w) {
 }
 
 // Find the 24-byte table entry whose u16 id matches.
-u8* func_001a80c8(int id) {
+u8* func_001a80c8(int id) {  // table24_find_by_id
     u8* t = D_01c6cb90;
     s32 n = *(s32*)(t + 4);
     u8* e = t + 8;
@@ -215,7 +215,7 @@ void func_001ad5a8(void** p) {
     func_001ad280(p);
     *p = D_00350a70;
     D_00350a56 = 1;
-    func_001c1130(12);
+    func_001c1130(12);  // copy_record_block_to_table
     func_0014c9d8(8);
 }
 
@@ -234,7 +234,7 @@ out:
     return r;
 }
 
-int func_001ca448(u8* p) {
+int func_001ca448(u8* p) {  // type_is_16_44_161
     switch (*(s32*)(p + 340)) {
     case 16:
     case 44:
@@ -249,7 +249,7 @@ int func_001ca448(u8* p) {
 }
 
 // Next 10-byte entry after e (or the first when e is null); null past the end.
-u8* func_001d9e30(u8* e) {
+u8* func_001d9e30(u8* e) {  // record_range_check_or_first
     if (e == 0) return D_01d5baa8 + 8;
     e += 10;
     u8* t = D_01d5baa8;
@@ -294,14 +294,14 @@ void func_001e2998(void) {
 
 // Print two messages and trap.
 void func_002233f0(u32 a, u32 b, u32 c) {
-    func_002fdfc8(D_00370bd8, a);
-    func_002fdfc8(D_00370bf8, b, c);
+    func_002fdfc8(D_00370bd8, a);  // device_vprintf_va
+    func_002fdfc8(D_00370bf8, b, c);  // device_vprintf_va
     asm volatile("break");
 }
 
 char* func_0022c4b8(u32 x) {
     func_002fee78(D_01dad960, D_00371190, D_0033caf4, x);
-    func_002ff3fc(D_01dad960);
+    func_002ff3fc(D_01dad960);  // strlen
     return D_01dad960;
 }
 
@@ -334,7 +334,7 @@ s8 func_00295228(u32 x) {
 }
 
 u32 func_002b1aa0(void) {
-    u32 f = *func_002b23e0(-1);
+    u32 f = *func_002b23e0(-1);  // list_entry_by_index_checked
     if (f & 0x04000000) return 20690;
     if (f & 0x10000000) return D_00374ca4;
     return D_00374ca8;
@@ -342,7 +342,7 @@ u32 func_002b1aa0(void) {
 
 char* func_002ba0f8(u32 x) {
     func_002fee78(D_01e2a5a8, D_00374f80, x);
-    func_002ff3fc(D_01e2a5a8);
+    func_002ff3fc(D_01e2a5a8);  // strlen
     return D_01e2a5a8;
 }
 
@@ -361,13 +361,13 @@ void func_002bbe80(void) {
 
 void func_002d4828(void** p) {
     *p = D_003621a0;
-    func_002e7328((u8*)p + 3208);
+    func_002e7328((u8*)p + 3208);  // to_2e7458
     func_002d2a08(p);
     func_00105110(p);
 }
 
 void func_002dac50(u8* p, u32 a, u32 b) {
-    func_002cfeb0(p, a, 3, b);
+    func_002cfeb0(p, a, 3, b);  // obj_init_field1416_bit800
     *(u32*)(p + 2836) = 0;
     *(u8*)(p + 2840) = 0;
     *(void***)p = D_003627c8;
@@ -440,23 +440,23 @@ void func_0031c0b8(void** p) {
 void func_003218c8(void** p) {
     NoTail g;
     *p = D_0034ee08;
-    func_0019f9a8((u8*)p + 2568);
+    func_0019f9a8((u8*)p + 2568);  // array8_free_slots
     func_001c0248((u8*)p + 2640);
-    func_00319fb0(p);
+    func_00319fb0(p);  // big_obj_dtor
 }
 
 void func_00321910(void** p) {
     *p = D_0034ee08;
-    func_0019f9a8((u8*)p + 2568);
+    func_0019f9a8((u8*)p + 2568);  // array8_free_slots
     func_001c0248((u8*)p + 2640);
-    func_00319fb0(p);
+    func_00319fb0(p);  // big_obj_dtor
     func_00105110(p);
 }
 
 void func_00325ae8(void** p) {
     *p = D_00363880;
-    func_0023c098((u8*)p + 64);
-    func_002369f0((u8*)p + 40);
+    func_0023c098((u8*)p + 64);  // set_vtbl_36eae8_then_call
+    func_002369f0((u8*)p + 40);  // set_vtbl_36eac8_then_call
     *p = D_003637e0;
     func_00106420(p);
 }

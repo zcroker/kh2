@@ -51,7 +51,7 @@ u32 func_0010c7e8(u32);
 void func_00117aa8(u32, u32);
 void func_0016a358(void*);
 u8 func_002cff98(void*);
-void func_002e7328(void*);
+void func_002e7328(void*);  // to_2e7458
 
 extern u32 D_0033cb84;
 extern void* D_003473c8[];
@@ -101,7 +101,7 @@ void func_001156b8(void** p) {
 }
 
 // Index of v in the id list at p+16 (count at p+12), or -1.
-s32 func_00135c88(u8* p, s32 v) {
+s32 func_00135c88(u8* p, s32 v) {  // find_word_index
     s32 n = *(s32*)(p + 12);
     for (s32 i = 0; i < n; i++) {
         if (((s32*)(p + 16))[i] == v) return i;
@@ -281,7 +281,7 @@ void func_002d6af0(void** p) {
 
 s32 func_002db8a8(void** p) {
     *p = D_00362908;
-    func_002e7328((u8*)p + 2976);
+    func_002e7328((u8*)p + 2976);  // to_2e7458
     return func_002cff98(p);
 }
 

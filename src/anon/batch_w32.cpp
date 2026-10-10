@@ -32,7 +32,7 @@ s32 func_001a1540(s32);
 void func_00239bf8(void*, s32);
 void func_001abb78(void*, s32);
 void func_001ad280(void*);
-void func_001c1130(s32);
+void func_001c1130(s32);  // copy_record_block_to_table
 void func_0014c9d8(s32);
 extern u8 D_00350a70[];
 extern u8 D_00350a56;
@@ -43,7 +43,7 @@ extern u32 D_0034f240;
 void func_001e7798(void*, void*);
 extern void* D_01d9e6e4;
 void func_001e2c00(void*);
-void func_001e6c00(void*);
+void func_001e6c00(void*);  // alloc_336_align_171
 void func_001dc700(void*, s32);
 extern u32 D_0035dad0;
 extern u8 D_0035dade;
@@ -64,10 +64,10 @@ extern u8* D_0035f630;
 void* func_002bbda0(void*);
 void func_002bb5a8(void*, void*);
 extern u8 D_00362428[];
-void func_002e7328(void*);
+void func_002e7328(void*);  // to_2e7458
 void func_002cff98(void*);
 void func_00105110(void*);
-void func_002cfeb0(void*, void*, s32, void*);
+void func_002cfeb0(void*, void*, s32, void*);  // obj_init_field1416_bit800
 extern u8 D_003627c8[];
 void func_002cf280(void*, s32, s32);
 void func_00106420(void*);
@@ -79,12 +79,12 @@ extern void* D_00363748;
 extern void* D_00347f98[];
 extern void* D_00347f80;
 extern u8 D_0035eb98[];
-void func_0023c098(void*);
-void func_002369f0(void*);
+void func_0023c098(void*);  // set_vtbl_36eae8_then_call
+void func_002369f0(void*);  // set_vtbl_36eac8_then_call
 extern u8 D_0034ee08[];
-void func_0019f9a8(void*);
+void func_0019f9a8(void*);  // array8_free_slots
 void func_001c0248(void*);
-u8 func_00319fb0(void*);
+u8 func_00319fb0(void*);  // big_obj_dtor
 extern u8 D_003638a8[];
 extern u8 D_003637e0[];
 void func_00239870(void*);
@@ -158,7 +158,7 @@ void func_0018ef98(s32 key, s32 val) {
     }
 }
 
-s32 func_001a1658(s32 x) {
+s32 func_001a1658(s32 x) {  // state_dispatch_0_1_14
     switch (x) {
     case 0: return 0;
     case 1: case 14: return func_001a15d0(x);
@@ -190,7 +190,7 @@ void func_001ad5f0(void** p) {
     func_001ad280(p);
     p[0] = D_00350a70;
     D_00350a56 = 1;
-    func_001c1130(12);
+    func_001c1130(12);  // copy_record_block_to_table
     func_0014c9d8(8);
 }
 
@@ -201,7 +201,7 @@ void func_001ccda0(u8* p) {
     for (void* w = 0; (w = func_00186078(w)) != 0;) ;
 }
 
-bool func_001dc738(u32* p) {
+bool func_001dc738(u32* p) {  // state_gate_flags
     u32 fl = p[2];
     return (fl & 0x400000) || ((D_0034f240 & 0x20) && p[1] != 3) || (bool)(((s32)fl >> 26) & 1);
 }
@@ -221,7 +221,7 @@ void EFFECT_free(u8* e) {
     void* h = *(void**)(e + 0x1c);
     if (h) {
         func_001e2c00(h);
-        func_001e6c00(*(void**)(e + 0x1c));
+        func_001e6c00(*(void**)(e + 0x1c));  // alloc_336_align_171
         *(void**)(e + 0x1c) = 0;
     }
 }
@@ -277,7 +277,7 @@ s32 func_00282c68(s32 key) {
     return r;
 }
 
-u8* func_002b23e0(s32 i) {
+u8* func_002b23e0(s32 i) {  // list_entry_by_index_checked
     if (i < 0) i = func_00276608(28);
     return D_0035f630 + func_002b2338(i) * 36;
 }
@@ -292,13 +292,13 @@ void func_002bc398(void* a, void* b) {
 
 void func_002d5e10(void** p) {
     p[0] = D_00362428;
-    func_002e7328((u8*)p + 0xb38);
+    func_002e7328((u8*)p + 0xb38);  // to_2e7458
     func_002cff98(p);
     func_00105110(p);
 }
 
 void func_002daca0(u8* p, void* b, void* c) {
-    func_002cfeb0(p, b, 3, c);
+    func_002cfeb0(p, b, 3, c);  // obj_init_field1416_bit800
     *(u32*)(p + 0xb14) = 0;
     p[0xb18] = 0;
     *(void**)p = D_003627c8;
@@ -331,7 +331,7 @@ void func_002ed2b0(void** p, void* b, void* c) {
 }
 
 // Signed LEB128 decode.
-u8* func_00314b38(u8* p, s64* out) {
+u8* func_00314b38(u8* p, s64* out) {  // varint64_decode_b
     u32 shift = 0;
     u64 r = 0;
     u8 b;
@@ -354,16 +354,16 @@ void func_0031d770(void** p) {
 
 void func_00322d70(void** p) {
     p[0] = D_0035eb98;
-    func_0023c098((u8*)p + 48);
-    func_002369f0((u8*)p + 24);
+    func_0023c098((u8*)p + 48);  // set_vtbl_36eae8_then_call
+    func_002369f0((u8*)p + 24);  // set_vtbl_36eac8_then_call
     p[0] = D_00347f98;
 }
 
 s32 func_00324938(void** p) {
     p[0] = D_0034ee08;
-    func_0019f9a8((u8*)p + 0xa08);
+    func_0019f9a8((u8*)p + 0xa08);  // array8_free_slots
     func_001c0248((u8*)p + 0xa50);
-    return func_00319fb0(p);
+    return func_00319fb0(p);  // big_obj_dtor
 }
 
 void func_00325b80(void** p) {

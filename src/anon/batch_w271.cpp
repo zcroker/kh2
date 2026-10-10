@@ -10,11 +10,11 @@ struct Obj_w271 { VT_w271* vt; };
 extern u32 D_0034e948;
 extern "C" {
 u32 func_0019ba60(u32);
-u32 func_0019c090(u32);
+u32 func_0019c090(u32);  // obj_is_enabled
 u32 func_0019c5d0(Obj_w271*);
 f32 func_001849d8(u32);
 u32 c5d0f(Obj_w271*, f32) asm("func_0019c5d0");
-V4_w271* func_0016c028(u32);
+V4_w271* func_0016c028(u32);  // obj_get_attach_or_alt
 f32 func_0016afe0(u32);
 void func_0016aeb8(Obj_w271*, f32);
 void func_0016ace0(Obj_w271*, V4_w271*);
@@ -23,13 +23,13 @@ void func_0016ac38(Obj_w271*, s32, s32, s32, s32);
 void func_001b2db8(u32 self, Obj_w271* o) {
     u32 w = D_0034e948;
     if (func_0019ba60(w)) {
-        if (func_0019c090(w)) {
+        if (func_0019c090(w)) {  // obj_is_enabled
             if (!c5d0f(o, 0.0f)) {
                 f32 a = func_001849d8(w);
-                if (a < func_0016c028((u32)o)->y) ((void (*)(Obj_w271*))o->vt->f[17])(o);
+                if (a < func_0016c028((u32)o)->y) ((void (*)(Obj_w271*))o->vt->f[17])(o);  // obj_get_attach_or_alt
             }
             func_0016aeb8(o, func_0016afe0(w));
-            V4_w271 t(*func_0016c028(w));
+            V4_w271 t(*func_0016c028(w));  // obj_get_attach_or_alt
             t.y = (func_0016c028((u32)o)->y < t.y) ? t.y : func_0016c028((u32)o)->y;
             func_0016ace0(o, &t);
         } else {
@@ -51,7 +51,7 @@ extern u8 D_00354bd0[];
 extern f32 D_00354bc0[3];
 void func_0021ebe8(void*, void*);
 void func_0021edb0(void*, void*);
-void func_002f3e20(M_w271*, M_w271*);
+void func_002f3e20(M_w271*, M_w271*);  // convert_vectors_to_scalar
 void func_002f3d08(void*, void*, void*);
 }
 static inline void ScaleRow_w271(void* row, f32 s) {
@@ -92,7 +92,7 @@ u8* func_002891b8(void*, s32);
 u32 func_0023aa78(void*);
 u32 func_0023aa98(void*);
 void func_00288e08(void*, s32, u32, s32);
-u32 func_0028dd90(u32);
+u32 func_0028dd90(u32);  // mod10_classify_012
 u32 func_0028ddd8(u32);
 void func_001395f8(u8*);
 void func_002891f0(void*, s32, s32, s32, s32);

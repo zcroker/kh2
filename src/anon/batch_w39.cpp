@@ -24,7 +24,7 @@ extern "C" {
 // --- 00100228
 // crt0 helper: zero [v0, v1) (bytes up to 16-byte alignment, then quadwords,
 // then the tail). Hand-written assembly: register inputs v0/v1, sq loop.
-void func_00100228(void) {
+void func_00100228(void) {  // align_and_zero_fill
     asm volatile(
         ".set noreorder\n"
         "1:\n\t"
@@ -128,7 +128,7 @@ void func_0014ba20(u8* p) {
 }
 
 // --- 001576e8
-u32 func_00155d58(u8*, int);
+u32 func_00155d58(u8*, int);  // table_word_indexed_by_3
 void func_00138c10(u8*, u32);
 void func_00154408(u8*, u32);
 void func_001576e8(u8* p) {
@@ -150,9 +150,9 @@ void func_0015a768(int a, int b) {
 }
 
 // --- 00166880
-void func_001666f0(u8*, u16, u32, u16, u16);
+void func_001666f0(u8*, u16, u32, u16, u16);  // obj_store_masked
 void func_00166880(u8* p, u8 c, u16 a, u32 b, u16 d, u16 e, s16 x, s16 y) {
-    func_001666f0(p, a, b, d, e);
+    func_001666f0(p, a, b, d, e);  // obj_store_masked
     *(s16*)(p + 10) = x;
     *(s16*)(p + 12) = y;
     p[14] = c;
@@ -205,12 +205,12 @@ void func_0016f970(void) {
 extern s8 D_01c5f4d0;
 extern Vec4 D_01c5f4e0;
 void func_00175538(void);
-void func_002fd188(void (*)(void));
+void func_002fd188(void (*)(void));  // pool_alloc_block
 Vec4 func_00143e50(u16, int);
 void func_00173348(void* p) {
     if (!D_01c5f4d0) {
         D_01c5f4d0 = 1;
-        func_002fd188(func_00175538);
+        func_002fd188(func_00175538);  // pool_alloc_block
     }
     D_01c5f4e0 = func_00143e50(*(u16*)p, 0);
     *(Vec4**)p = &D_01c5f4e0;
@@ -302,15 +302,15 @@ int func_001afe70(u32 a, u32 b, u32 c, u32* out) {
 extern void* D_003525c8[];
 extern void* D_003525e8[];
 void func_00320400(u8*);
-void func_001d1678(u8*, int);
+void func_001d1678(u8*, int);  // obj_init_28bytes
 void func_001d19e8(u8*, int);
 void func_001d16e8(u8*, int, int);
-void func_001d1fa8(u8* p) {
+void func_001d1fa8(u8* p) {  // obj_ctor_3525c8
     *(u32*)(p + 4) = 0;
     *(u32*)p = (u32)D_003525c8;
     *(u32*)(p + 8) = 0;
     func_00320400(p + 12);
-    func_001d1678(p, -1);
+    func_001d1678(p, -1);  // obj_init_28bytes
     *(u32*)(p + 48) = 0;
     *(u32*)p = (u32)D_003525e8;
     func_001d19e8(p, -1);
@@ -324,7 +324,7 @@ void func_001d1fa8(u8* p) {
 // with table[a-1][b] (keeping bit 15).
 struct Row1d5 { u16 v[5]; };
 extern Row1d5 D_0036e5a0[];
-u16 func_001d5ec0(u16* p, int n, int a, int b) {
+u16 func_001d5ec0(u16* p, int n, int a, int b) {  // halfword_table_lookup
     Row1d5* r = &D_0036e5a0[a - 1];
     u16* e = &r->v[b];
     u16 from = e[-1];
@@ -374,7 +374,7 @@ void func_00200638(u8* a, u32 unused, u8* c) {
 // --- 00222800
 // VU0: d.xy = ftoi4(s.xy), d.zw = ftoi0(s.zw); if s.xy falls outside
 // [0, 4096) (clip flags), d.w is replaced by 0x8000.
-void func_00222800(void* d, void* s) {
+void func_00222800(void* d, void* s) {  // vec2_ftoi_round_pack
     asm volatile(
         ".set noreorder\n\t"
         "lqc2 $vf1, 0(%1)\n\t"
@@ -412,13 +412,13 @@ extern char D_01dadac0[];
 extern char D_003711e8[];
 extern char D_003711f8[];
 void func_002feee8(char*, const char*);
-void func_002ff3fc(char*);
+void func_002ff3fc(char*);  // strlen
 char* func_0022e188(const char* s) {
     D_01dadac0[0] = 0;
     func_002feee8(D_01dadac0, D_003711e8);
     func_002feee8(D_01dadac0, s);
     func_002feee8(D_01dadac0, D_003711f8);
-    func_002ff3fc(D_01dadac0);
+    func_002ff3fc(D_01dadac0);  // strlen
     return D_01dadac0;
 }
 
@@ -475,7 +475,7 @@ void func_00267320(void) {
 // --- 00272a00
 u8* func_00257770(void);
 u32 func_00257140(int);
-u16* func_00273180(int, int);
+u16* func_00273180(int, int);  // state_dispatch_2_3
 u32 func_00192048(u16);
 void func_00272a00(void) {
     u8* p = func_00257770() + 24740;
@@ -509,11 +509,11 @@ void func_00288fd8(S288* p, int i, int v, int w) {
 // --- 0028ae28
 struct S28a { u8 pad[40]; u8** items; };
 void func_00139d78(u8*);
-s16* func_0028ac98(S28a*, int);
+s16* func_0028ac98(S28a*, int);  // lookup_by_index_align
 int IsSeqDone_impl(S28a* p, int i) asm("_ZN2Tz6Select9IsSeqDoneEz");
 int IsSeqDone_impl(S28a* p, int i) {
     func_00139d78(p->items[i]);
-    s16* r = func_0028ac98(p, i);
+    s16* r = func_0028ac98(p, i);  // lookup_by_index_align
     return *(s32*)(p->items[i] + 388) == r[2];
 }
 
@@ -565,12 +565,12 @@ extern u32 D_003617f0;
 extern u32 D_003617f4;
 extern u8 D_003617f8;
 void func_002b8a70(u32);
-void func_00102670(u32, u32);
+void func_00102670(u32, u32);  // to_1025f8
 void func_002bd7d8(void) {
     func_002b8a70(D_003617ec);
     D_003617ec = 0;
     D_003617f0 = 0;
-    func_00102670(D_0032b91c, D_003617f4);
+    func_00102670(D_0032b91c, D_003617f4);  // to_1025f8
     D_003617f4 = 0;
     D_003617f8 = 0;
 }
@@ -606,12 +606,12 @@ void func_002d4a30(u8* p, Vec4* v) {
 // --- 002f0b60
 struct S2f0 { u8 pad[16]; Vec4 a; Vec4 b; };
 void func_00110618(S2f0*);
-Vec4* func_0010fa28(S2f0*);
+Vec4* func_0010fa28(S2f0*);  // ptr_add3072
 Vec4* func_0010fa58(S2f0*);
 void func_002f0b60(u8** pp) {
     S2f0* s = *(S2f0**)(*pp + 4);
     func_00110618(s);
-    s->a = *func_0010fa28(s);
+    s->a = *func_0010fa28(s);  // ptr_add3072
     s->b = *func_0010fa58(s);
 }
 

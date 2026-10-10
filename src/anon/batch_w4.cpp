@@ -15,7 +15,7 @@ void func_00139858(s32);
 void func_00139ab0(s32);
 void* func_00102c80(void);
 void func_00102688(u32, u32, u32);
-void func_00183768(u32, u32, f32);
+void func_00183768(u32, u32, f32);  // copy_quad_at16_and_len
 void func_001b1be0(u32, f32);
 void func_001cc9c8(u32, f32);
 void func_00153e28(u32, f32, f32);
@@ -60,7 +60,7 @@ struct Obj0011eef8 {
     u32 f10;
     void* f14;
 };
-void func_0011eef8(void* a, Obj0011eef8* b) {
+void func_0011eef8(void* a, Obj0011eef8* b) {  // obj_init_and_call
     b->fc = 0;
     b->f14 = a;
     b->f8 = 0;
@@ -68,7 +68,7 @@ void func_0011eef8(void* a, Obj0011eef8* b) {
 }
 
 // Quadword copy from p+0x50 into dst (unless they alias).
-void func_00107368(u8* p, void* dst) {
+void func_00107368(u8* p, void* dst) {  // vec_copy_at80_if_diff
     void* src = p + 80;
     if (dst != src) {
         asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(dst), "r"(src) : "$8", "memory");
@@ -84,7 +84,7 @@ void func_00135670(void* dst) {
 }
 
 // Quadword copy of src into p+0x1a0.
-void func_001391a8(u8* p, void* src) {
+void func_001391a8(u8* p, void* src) {  // vec_copy_at416_if_diff
     void* dst = p + 416;
     if (dst != src) {
         asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(dst), "r"(src) : "$8", "memory");
@@ -129,7 +129,7 @@ void func_00174168(Args00174168* p) {
     Obj00174168* o = p->o;
     u32 a = p->a;
     u32 m = o->m;
-    func_00183768(m, a, p->f);
+    func_00183768(m, a, p->f);  // copy_quad_at16_and_len
 }
 
 struct ArgsUF {
@@ -180,7 +180,7 @@ u32 func_001bbb08(void) {
     return *p;
 }
 
-s32 func_001c4170(void) {
+s32 func_001c4170(void) {  // global_pair_diff
     return D_00351604 - D_00351608;
 }
 
@@ -262,7 +262,7 @@ void func_002e9c98(u32 x, Pair* p) {
 }
 
 // Dot product of a.xyz and b.xyz (VU0 macro mode).
-f32 func_002f3d70(void* a, void* b) {
+f32 func_002f3d70(void* a, void* b) {  // vec3_dot
     f32 r;
     asm volatile("lqc2 $vf4, 0(%1)\n\t"
                  "lqc2 $vf5, 0(%2)\n\t"
@@ -278,7 +278,7 @@ f32 func_002f3d70(void* a, void* b) {
 }
 
 // d = a * s (VU0 macro mode).
-void func_002f3f40(void* d, void* a, f32 s) {
+void func_002f3f40(void* d, void* a, f32 s) {  // vec_scale_by_f12
     asm volatile("lqc2 $vf4, 0(%1)\n\t"
                  "mfc1 $8, %2\n\t"
                  "qmtc2 $8, $vf5\n\t"
@@ -302,12 +302,12 @@ void func_003062e0(void) {
     asm volatile("sync");
 }
 
-void func_0028af90(u8* p, s32 a) {
+void func_0028af90(u8* p, s32 a) {  // obj_set_field22_from_arg
     *(u16*)(p + 22) = (a >= 0) ? a : *(u16*)(p + 4);
 }
 
 // Tests bit `bit` of the mask at +0x20.
-u32 func_0028b1c0(u8* p, s32 bit) {
+u32 func_0028b1c0(u8* p, s32 bit) {  // test_bit_field32
     u32 m = *(u32*)(p + 32);
     if (m == 0) return 0;
     return (m & (1 << bit)) != 0;
@@ -345,11 +345,11 @@ void dk::Fade::fadeOut(u32 a0, bool a1) {
     func_0014a9a0(this, a0);
 }
 
-extern "C" void func_001da458(void*, u32);
+extern "C" void func_001da458(void*, u32);  // stream_init_fields
 extern "C" void func_0016ce90(void*, u32);
 void u_tail4_0016cba0(u32 a0, u32 a1, u32 a2, u32 a3) {
     *(u32*)(a0 + 28) = 0;
-    if ((s32)a1 > 0) func_001da458((void*)a0, a1);
+    if ((s32)a1 > 0) func_001da458((void*)a0, a1);  // stream_init_fields
     else func_0016ce90((void*)a0, a1);
 }
 

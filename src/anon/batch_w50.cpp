@@ -86,7 +86,7 @@ void func_00138650(void*, s32, u32, s32);
 s32 func_00242c70(void);
 s32 func_0013a9d0(void);
 void func_002368e8(void*, f32);
-void func_002367c8(void*);
+void func_002367c8(void*);  // obj_dispatch_bitfield64
 extern u8* D_00348050;
 s32 func_001991a8(s32, s32);
 void func_0013f030(void);
@@ -96,12 +96,12 @@ void func_0013f288(void);
 void func_0015d690(void);
 void func_0013f3d0(void);
 void func_0013f4d8(void);
-void func_001069b8(s32);
+void func_001069b8(s32);  // swap_global_word
 void func_00140f78(void*, void*);
-void* func_00106a60(s32);
-void* func_00106a18(s32);
-void func_00107368(void*, void*);
-void func_00107478(void*, void*);
+void* func_00106a60(s32);  // buffer_get_by_index
+void* func_00106a18(s32);  // buffer_get_256
+void func_00107368(void*, void*);  // vec_copy_at80_if_diff
+void func_00107478(void*, void*);  // vec_copy_at96_if_diff
 f32 func_001074b8(void*);
 f32 func_00106f30(void*, s32);
 extern u8 D_0034af38;
@@ -114,7 +114,7 @@ void func_001609e0(void);
 void func_00160a90(void);
 extern void* D_004f3b30;
 extern void* D_0032b91c;
-void func_00168958(void*, s32, u32);
+void func_00168958(void*, s32, u32);  // obj_init_name_string
 Vec4 func_0016bda8(void*);
 s32 func_001d35e0(Vec4*, Vec4*, Vec4*, s32);
 void func_001a55a8(Vec4*, s32);
@@ -122,7 +122,7 @@ void YS_OBJ_scatter_prize(u8*, s32) asm("_ZN2YS3OBJ13scatter_prizeEi");
 extern s8 D_004f62f0;
 extern Vec4 D_004f6300;
 void func_0016e888(void);
-void func_002fd188(void*);
+void func_002fd188(void*);  // pool_alloc_block
 void func_001b6dd0(void*, void*);
 void func_0017f488(void*, u32, f32, f32);
 f32 func_002f8ad0(f32, f32);
@@ -157,8 +157,8 @@ s32 func_0019c8a8(void*);
 extern u8 D_00352878[];
 extern F8 D_003590f0;
 extern f32 D_00359a20[];
-double func_00313b80(f32);
-void func_002fdfc8(const char*, u32, double, double, double, double);
+double func_00313b80(f32);  // float_to_double
+void func_002fdfc8(const char*, u32, double, double, double, double);  // device_vprintf_va
 extern const char D_00370c68[];
 void func_0016ed50(u32, s32, s32);
 u8* func_00227d10(u32);
@@ -187,12 +187,12 @@ s32 func_001c0cd8(u8*);
 void func_001dc818(u32);
 u32 func_0016ac38(u8*, s32, s32, s32, s32);
 extern u8 D_00362d20[];
-u32 func_002e64b8(s32, u32);
+u32 func_002e64b8(s32, u32);  // list_advance_count
 void func_002e6ab0(u32, u8*, f32);
 extern u8* D_01e2bfa0;
 
 // Clears a 3-quadword GS packet and fills in its GIFtags and A+D register ids.
-void func_00108398(Pkt* p) {
+void func_00108398(Pkt* p) {  // clear_quads_set_flags
     p->d3 = 0;
     *(u128*)&p->tag = 0;
     *(u128*)&p->tag2 = 0;
@@ -241,7 +241,7 @@ void func_0013b1d0(void) {
     if (!func_0013a9d0()) return;
     u8* p = D_00348050 + 32;
     func_002368e8(p, 0.8f);
-    func_002367c8(p);
+    func_002367c8(p);  // obj_dispatch_bitfield64
 }
 
 void func_0013f0d0(void) {
@@ -261,13 +261,13 @@ void func_0013f0d0(void) {
 void func_0015cde0(u8 a) {
     u8 b[16];
     u8 c[16];
-    func_001069b8(0);
+    func_001069b8(0);  // swap_global_word
     func_00140f78(c, b);
     if (a == 1) {
         D_0034af38 = a;
-        void* v = func_00106a60(1);
-        func_00107368(v, D_004f3800);
-        func_00107478(v, D_004f37f0);
+        void* v = func_00106a60(1);  // buffer_get_by_index
+        func_00107368(v, D_004f3800);  // vec_copy_at80_if_diff
+        func_00107478(v, D_004f37f0);  // vec_copy_at96_if_diff
         D_004f3814 = func_001074b8(v);
         D_004f3810 = func_00106f30(func_00106a18(1), 0);
     }
@@ -283,7 +283,7 @@ void func_00160ac0(u32 a, u32 b) {
 void func_00168388(u32 a, u32 b, u32 c, u32 d) {
     void* h = D_0032b91c;
     u8* o = (u8*)(*(AllocFn*)(*(u8**)h))(h, 76, __builtin_return_address(0));
-    func_00168958(o, 0, a);
+    func_00168958(o, 0, a);  // obj_init_name_string
     *(u32*)(o + 52) = b;
     *(u32*)(o + 56) = c;
     *(u32*)(o + 60) = d;
@@ -306,7 +306,7 @@ void func_0016d450(Scaled* o) {
     Vec4* v = o->v;
     if (!D_004f62f0) {
         D_004f62f0 = 1;
-        func_002fd188((void*)func_0016e888);
+        func_002fd188((void*)func_0016e888);  // pool_alloc_block
     }
     Vec4 t;
     asm("lqc2 $vf1, 0(%1)\n\tmfc1 $8, %2\n\tqmtc2 $8, $vf2\n\tvmulx.xyzw $vf1, $vf1, $vf2x\n\tsqc2 $vf1, 0(%0)"
@@ -438,7 +438,7 @@ void func_00202ba0(Vec4* out, Vec4* a, Vec4* b, f32 t) {
 
 union FU { u32 u; f32 f; };
 // VU0 random float: reseed/step R five times. Hand-written VU0 assembly.
-f32 func_00209fb8(void) {
+f32 func_00209fb8(void) {  // vu_const_5f_c
     register u32 x asm("$15");
     asm volatile("addi $8, $0, -1\n\tqmtc2 $8, $vf2\n\t"
         "vrxor R, $vf2x\n\tvrnext.x $vf1, R\n\tvrxor R, $vf2x\n\tvrnext.x $vf1, R\n\t"
@@ -451,7 +451,7 @@ f32 func_00209fb8(void) {
 }
 
 // Rotation about Z from a 16-bit angle (4096-entry sine table).
-void func_0021ead0(f32* m, u32 ang) {
+void func_0021ead0(f32* m, u32 ang) {  // table_float_pair_lookup
     f32 s = D_00359a20[(ang >> 4) & 0xfff];
     f32 c = D_00359a20[((ang + 0x4000) >> 4) & 0xfff];
     m[0] = c; m[4] = -s; m[8] = 0; m[12] = 0;
@@ -462,7 +462,7 @@ void func_0021ead0(f32* m, u32 ang) {
 
 // Debug print of a vec4 (floats promoted through the soft-double helper).
 void func_00223608(u32 x, f32* v) {
-    func_002fdfc8(D_00370c68, x, func_00313b80(v[0]), func_00313b80(v[1]), func_00313b80(v[2]), func_00313b80(v[3]));
+    func_002fdfc8(D_00370c68, x, func_00313b80(v[0]), func_00313b80(v[1]), func_00313b80(v[2]), func_00313b80(v[3]));  // device_vprintf_va
 }
 
 void func_0022f5a0(u32 a, u32 b, u32 c) {
@@ -561,7 +561,7 @@ void func_002dc1b8(u8* o, s32 id) {
     *(s32*)(o + 2836) = id;
 }
 
-void func_002dea00(u8* o, f32 a, f32 b) {
+void func_002dea00(u8* o, f32 a, f32 b) {  // obj_init_with_floats
     *(u32*)(o + 4) = 30;
     *(u32*)(o + 8) = 256;
     *(u8**)o = D_00362d20;

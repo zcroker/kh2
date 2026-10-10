@@ -67,7 +67,7 @@ void func_00172f00(u32* p) {
 }
 
 // Zero three VU0 vectors.
-void func_00178cf8(u8* p) {
+void func_00178cf8(u8* p) {  // clear_vecs_three
     asm volatile("vsub.xyzw $vf1, $vf0, $vf0\n\tsqc2 $vf1, 0(%0)" : : "r"(p + 32) : "memory");
     asm volatile("vsub.xyzw $vf1, $vf0, $vf0\n\tsqc2 $vf1, 0(%0)" : : "r"(*(u8**)(p + 0xb44) + 0xa30) : "memory");
     asm volatile(".set noreorder\n\tvsub.xyzw $vf1, $vf0, $vf0\n\tsqc2 $vf1, 0(%0)\n\t.set reorder" : : "r"(p + 16) : "memory");
@@ -119,7 +119,7 @@ u32 func_001b7fd0(void) {
 void func_002fd248(u32, void*, u32, u32, void*);
 extern u32* D_01d48cc4;
 extern u8 D_00320408;
-void func_001b83f0(u32 a) {
+void func_001b83f0(u32 a) {  // to_2fd248_block8
     u32* p = D_01d48cc4;
     func_002fd248(a, p + 2, p[1], 8, &D_00320408);
 }
@@ -233,7 +233,7 @@ u32 func_00256b80(s32 i) {
 
 // Clear four doublewords of the buffer.
 extern volatile u64* volatile D_0035f324;
-void func_00288018(void) {
+void func_00288018(void) {  // global_zero_4dwords
     D_0035f324[0] = 0;
     D_0035f324[1] = 0;
     D_0035f324[2] = 0;

@@ -2,7 +2,7 @@
 extern "C" {
 void func_00190128(u32*);
 void* func_00111e38(s32);
-s32 func_0010f6b8(void*, f32);
+s32 func_0010f6b8(void*, f32);  // count_reached_threshold
 u32 func_00190140(u32*);
 void func_00190878(u32*, void*, s32);
 void func_0010cbc8(u32, s32, void*, s32);
@@ -16,7 +16,7 @@ u32 func_00119d70(u32* a0, u32 a1, u32* a2, u32* a3, u8 t0) {
         *a3 = 0;
         func_00190128(a2);
         void* p = func_00111e38(0);
-        if (func_0010f6b8(p, 0.25f)) {
+        if (func_0010f6b8(p, 0.25f)) {  // count_reached_threshold
             if (!valid(a2)) func_00190878(a2, p, 0);
         }
         if (valid(a2)) goto one;
@@ -51,11 +51,11 @@ extern G292p D_0035f4d4;
 extern G292p D_0035f4c0;
 extern G292p D_0035f4c8;
 extern u8 D_0035f4e2;
-void func_002ff3fc(void*);
+void func_002ff3fc(void*);  // strlen
 void func_00168410(void*, s32, s32, u16, void*, void*);
 void func_00292e60(void);
 s32 func_00292fe8(void) {
-    func_002ff3fc(D_0035f4e4.v);
+    func_002ff3fc(D_0035f4e4.v);  // strlen
     s32 v = *D_0035f4dc.q;
     s32 hi = v >> 16;
     s32 lo = v & 0xffff;

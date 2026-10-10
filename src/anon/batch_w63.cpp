@@ -15,22 +15,22 @@ void func_0013a958(void*);
 void func_00181ba0(void);
 void func_001053c0(void);
 s32 func_002fea18(void);
-void func_00132270(void*);
-void func_00108398(void*);
+void func_00132270(void*);  // obj_ctor_347c00
+void func_00108398(void*);  // clear_quads_set_flags
 void func_0014fcd8(void*);
 s32 func_00139538(void*);
 void func_00138c40(void*, s32, u32);
 void func_0023acd8(void*);
 void* func_0023ee30(u32);
 void func_0031a838(void*);
-void func_002369a0(void*);
-void func_0023c008(void*);
+void func_002369a0(void*);  // obj_ctor_36eac8
+void func_0023c008(void*);  // obj_ctor_36eae8
 void func_00153ea0(void*, u32, s32, u32, s32);
 void func_002fee78(char*, const char*, ...);
 void func_001447e0(void*, void*, void*);
 void func_00167658(void*, s32);
 s32 func_00141080(u32);
-s32 func_001b9d40(u32);
+s32 func_001b9d40(u32);  // vtable_call_slot64_flags
 void func_001835a0(u32, f32);
 void func_00175b68(u32);
 void func_0016d110(void);
@@ -74,7 +74,7 @@ void func_002bc608(s32);
 void func_002bbf98(void);
 void func_002be148(void*);
 void func_00170950(u32);
-void func_001b86e0(u32);
+void func_001b86e0(u32);  // alloc_from_pool_magic_c
 void func_00170320(s32);
 void func_0017f540(void*, s32, f32, f32);
 u32 func_002d1260(void);
@@ -138,11 +138,11 @@ f32 func_00106558(f32 x) {
 
 // Constructor: base ctor, vtable, four 144-byte members, cleared tail fields.
 void func_001324b8(u8* p) {
-    func_00132270(p);
+    func_00132270(p);  // obj_ctor_347c00
     *(void**)p = D_00347c30;
     u8* e = p + 48;
     for (s32 i = 3; i != -1; i--) {
-        func_00108398(e + 16);
+        func_00108398(e + 16);  // clear_quads_set_flags
         e += 144;
     }
     *(u32*)(p + 624) = 0;
@@ -193,8 +193,8 @@ void* cam_sxfs(u32 a0, u32 a1) {
     *(void**)p = D_00347f98;
     func_0031a838(p + 12);
     *(void**)p = D_0035eb98;
-    func_002369a0(p + 24);
-    func_0023c008(p + 48);
+    func_002369a0(p + 24);  // obj_ctor_36eac8
+    func_0023c008(p + 48);  // obj_ctor_36eae8
     *(void**)p = D_0034a7a0;
     func_00153ea0(p, a0, 4800, a1, 0);
     return p;
@@ -237,7 +237,7 @@ void func_00167f38(s32 idx) {
 struct E16 { u16 id; u16 pad; u32 w[3]; };
 struct H16 { u32 f0; s32 count; u32 pad[2]; E16 e[1]; };
 // Returns the n-th entry with the given id (id -1 matches any).
-E16* func_00168b38(H16* h, s32 id, s32 n) {
+E16* func_00168b38(H16* h, s32 id, s32 n) {  // entry_array_find_nth
     s32 i = 0;
     if (h->count > 0) {
         E16* e = h->e;
@@ -465,7 +465,7 @@ void func_002bdac8(u8* p) {
         o = next;
     }
     if (*(u32*)(p + 104)) func_00170950(*(u32*)(p + 104));
-    func_001b86e0(*(u32*)(p + 4));
+    func_001b86e0(*(u32*)(p + 4));  // alloc_from_pool_magic_c
     func_00170320(-200);
     D_003617fc.v = 0;
     *(void**)(p + 8) = D_003637e0;

@@ -101,7 +101,7 @@ void func_0031dee8(u8* a0) {
     ((void (*)(VObj*, u8*))o->vt[1])(o, a0);
 }
 
-f32 func_002f8870(f32);
+f32 func_002f8870(f32);  // fabsf
 static inline W253Vec vsub(const f32* a, const f32* b) {
     W253Vec r;
     asm volatile(".set noreorder\n\tlqc2 vf1,0(%1)\n\tlqc2 vf2,0(%2)\n\tvsub.xyzw vf1,vf1,vf2\n\tsqc2 vf1,0(%0)\n\t.set reorder" : : "r"(&r), "r"(a), "r"(b) : "memory");
@@ -116,7 +116,7 @@ s32 func_0018a318(u8* a0, u8* a1) {
     W253Vec d;
     d = vsub((f32*)(a1 + 16), (f32*)(a0 + 16));
     f32 dy;
-    dy = func_002f8870(d.y);
+    dy = func_002f8870(d.y);  // fabsf
     f32 r1 = *(f32*)(a1 + 8);
     f32 r0 = *(f32*)(a0 + 8);
     if (r0 + r1 <= dy) return 0;

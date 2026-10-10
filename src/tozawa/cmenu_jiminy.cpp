@@ -43,7 +43,7 @@ extern "C" void func_00293fc0();
 extern "C" void func_00294020(u32);
 extern "C" u32 func_0028d6e8(...);
 extern "C" void func_0028d1c0(...);
-extern "C" void func_0028d660(...);
+extern "C" void func_0028d660(...);  // record_set_value_refresh
 extern "C" void func_00293eb0() asm("_ZN2Tz6JmInfo4ExitEv");
 extern "C" u32 func_00293d80(...);
 
@@ -86,10 +86,10 @@ void Jiminy::CreateLightCursor(::dk::Sprite* a0) {
         if (*(u32*)(p + 396) == s0) {
             return;
         }
-        func_0028d660(p, s0);
+        func_0028d660(p, s0);  // record_set_value_refresh
         return;
     }
-    func_0028d660(D_0035f218, s0);
+    func_0028d660(D_0035f218, s0);  // record_set_value_refresh
 }
 
 void Jiminy::SetupMainFrame() {

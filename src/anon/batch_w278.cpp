@@ -21,13 +21,13 @@ extern void* D_0035f408;
 extern void* D_0035f40c;
 extern s32 D_0035f410;
 extern MCSave278* D_0035f414;
-void func_0028cdb8(s32);
+void func_0028cdb8(s32);  // record408_alloc_init
 void DelArr278(void*) asm("_ZdaPv");
 void LoadDataFree278(...) asm("_ZN2Tz12LoadDataFreeEz");
 void Exit278() asm("_ZN2Tz10MenuCursor4ExitEv");
 void Exit278() {
     s32 i;
-    for (i = 0; i < D_0035f404; i++) func_0028cdb8(i);
+    for (i = 0; i < D_0035f404; i++) func_0028cdb8(i);  // record408_alloc_init
     if (D_0035f3fc) {
         delete[] D_0035f3fc;
         D_0035f3fc = 0;
@@ -58,14 +58,14 @@ struct CurSt278 { u32 pad:27; u32 bit:1; u32 pad2:4; };
 extern "C" {
 extern CurOwn278* D_0035f634;
 extern CurTbl278 D_00374cd8[];
-CurSt278* func_002b23e0(s32);
+CurSt278* func_002b23e0(s32);  // list_entry_by_index_checked
 void Call4_278(CurItem278*) asm("_Z16u_call4_00139d78jjjj");
 s32 IsHide278(CurItem278*) asm("_ZN2dk5Obj2D6isHideEv");
 void Show278(CurItem278*) asm("_ZN2dk5Obj2D4showEv");
 void SetNum278(CurItem278*, s32) asm("_ZN2dk6Sprite6setNumEi");
 void Attach278(CurItem278*, CurItem278*) asm("_ZN2Tz10MenuCursor12AttachSpriteEz");
 void func_002b2da8(s32 idx) {
-    CurSt278* st = func_002b23e0(-1);
+    CurSt278* st = func_002b23e0(-1);  // list_entry_by_index_checked
     CurItem278* o = &D_0035f634->item[idx + 1];
     Call4_278(o);
     if (IsHide278(o)) Show278(o);
@@ -87,14 +87,14 @@ void func_002b2da8(s32 idx) {
 }
 struct Big278 { Big278* next; s32 k, maxwds, sign, wds; u32 x[1]; };
 extern "C" {
-s32 func_00304468(Big278*, Big278*);
+s32 func_00304468(Big278*, Big278*);  // cmp_entries_16_then_words
 Big278* func_00303b70(void*, s32);
 Big278* func_003044d0(void* ptr, Big278* a, Big278* b) {
     Big278* c;
     s32 i, wa, wb;
     s32 borrow, y, z;
     u32 *xa, *xae, *xb, *xbe, *xc;
-    i = func_00304468(a, b);
+    i = func_00304468(a, b);  // cmp_entries_16_then_words
     if (!i) {
         c = func_00303b70(ptr, 0);
         c->wds = 1;
@@ -148,8 +148,8 @@ extern "C" {
 extern s8 D_01c940c0;
 extern Res278 D_01c940d0;
 void func_001b13d0();
-void func_002fd188(void (*)());
-s32 func_001b0498(Src278*);
+void func_002fd188(void (*)());  // pool_alloc_block
+s32 func_001b0498(Src278*);  // obj_check_ready_flags
 f32 func_002f87c0(f32);
 Res278* func_001b0580(Src278* s) {
     if (!D_01c940c0) {
@@ -185,8 +185,8 @@ extern s32 D_0035f01c;
 extern s8* D_0035f234;
 extern ITbl278 D_00373f10[];
 s32 func_0028b040(s32);
-void func_0023d1d0();
-void func_0023d1e0();
+void func_0023d1d0();  // set_global_word1
+void func_0023d1e0();  // zero_global_d
 void func_002b6bc4(s32);
 void func_0027d868(u8 dir) {
     s32 k = func_0028b040(D_0035f01c);
@@ -200,8 +200,8 @@ void func_0027d868(u8 dir) {
     }
     D_0035f234[k] = v;
     if (k == 6) {
-        if (D_0035f234[6] == 0) func_0023d1d0();
-        else func_0023d1e0();
+        if (D_0035f234[6] == 0) func_0023d1d0();  // set_global_word1
+        else func_0023d1e0();  // zero_global_d
     } else if (k == 7) {
         s8 m = D_0035f234[7];
         if (m == 2) v = 0;
@@ -236,7 +236,7 @@ extern "C" {
 extern s32 D_01d9ea9c;
 extern JSt278* D_01d9e6e0;
 extern s32 D_01d9e360[];
-s32 func_001ed638(f32, void*);
+s32 func_001ed638(f32, void*);  // int_float_mul_sub
 void func_001ed658(u8* o, JEnt278* e, JRef278* r) {
     if (D_01d9ea9c) return;
     if (D_01d9e6e0->bits & 0xff0000ff00ULL) return;
@@ -254,8 +254,8 @@ void func_001ed658(u8* o, JEnt278* e, JRef278* r) {
     s32* d;
     if (e->off != -1) d = (s32*)(o + e->off + 160);
     else d = D_01d9e360;
-    d[0] += func_001ed638(pf->f, e->a);
-    d[1] += func_001ed638(pf->f, e->b);
-    d[2] += func_001ed638(pf->f, e->c);
+    d[0] += func_001ed638(pf->f, e->a);  // int_float_mul_sub
+    d[1] += func_001ed638(pf->f, e->b);  // int_float_mul_sub
+    d[2] += func_001ed638(pf->f, e->c);  // int_float_mul_sub
 }
 }

@@ -39,11 +39,11 @@ void func_001052a8(u32 a) {
     D_0032bb30[14] = D_0032bae0[2];
 }
 
-void func_0010a800(u8*, u8*, u8*);
+void func_0010a800(u8*, u8*, u8*);  // copy_global_3bytes
 void func_00108600(u8* p) {
     *(u32*)p = 0;
     p[4] = p[5] = p[6] = p[7] = 0x80;
-    func_0010a800(p + 8, p + 9, p + 10);
+    func_0010a800(p + 8, p + 9, p + 10);  // copy_global_3bytes
     p[11] = 0xff;
     p[43] = 0x80;
     p[42] = 0x80;
@@ -88,12 +88,12 @@ void func_00145b90(S145* a0, u64 mask) {
     }
 }
 
-void func_00147c78(u8*, u8*);
+void func_00147c78(u8*, u8*);  // copy_bytes_232_to_12
 void func_0011cd80(u32, u8*, u8*, u8*, void*, u32);
 struct B148 { s16 a, b; u8 pad[12]; };
 void func_00148598(u8* a0, u8* a1) {
     if (a1[235] && (*(u32*)(a1 + 248) & 4)) {
-        func_00147c78(a0, a1);
+        func_00147c78(a0, a1);  // copy_bytes_232_to_12
         B148 buf;
         (*(u8**)(a0 + 21356) + (u32)a1)[270] = 0;
         *(u64*)(a1 + 32) = 0x31000070;
@@ -163,7 +163,7 @@ void func_00168808(s32 a) {
 
 u8* func_00176fb0(u8*, u32);
 s32 func_001a0920(u8*, u8*);
-s32 func_001b9d40(u8*);
+s32 func_001b9d40(u8*);  // vtable_call_slot64_flags
 void func_00177008(u8*, u8*, u32);
 s32 func_001790c0(u8* a0) {
     u8* v = func_00176fb0(a0, 11);
@@ -235,9 +235,9 @@ void func_001c8d98(void*, u32);
 void func_001c9b90(void);
 void func_001d2710(void*);
 void func_00319f88(void*);
-void func_0019f9a8(void*);
+void func_0019f9a8(void*);  // array8_free_slots
 void func_001c0248(void*);
-void func_00319fb0(void*);
+void func_00319fb0(void*);  // big_obj_dtor
 extern u8 D_00352360[];
 extern u8 D_00351eb8[];
 extern u8 D_00351ec0[];
@@ -254,9 +254,9 @@ void func_001cfe18(u8* p) {
     *(u8**)p = D_0034e8b8;
     func_00319f88(p + 2824);
     *(u8**)p = D_0034ee08;
-    func_0019f9a8(p + 2568);
+    func_0019f9a8(p + 2568);  // array8_free_slots
     func_001c0248(p + 2640);
-    func_00319fb0(p);
+    func_00319fb0(p);  // big_obj_dtor
 }
 
 u32 func_002fd248(u32, u8*, u32, u32, void*);
@@ -469,11 +469,11 @@ s32 func_00304d68(double x) {
 }
 
 u64 func_00314330(s32);
-u64 func_00313f40(u64, u64);
-u64 func_00313e80(u64, u64);
+u64 func_00313f40(u64, u64);  // double_mul
+u64 func_00313e80(u64, u64);  // double_div
 
 s32 func_0030edb0(void);
-void func_0030ee00(void);
+void func_0030ee00(void);  // ee_intr_get_enable
 void func_00316998(void);
 extern s32 D_00367924;
 extern s32 D_00367920;
@@ -486,7 +486,7 @@ static inline f32 lsq(const void* v) {
     asm volatile("lqc2 $vf1, 0(%1)\n\tvmul.xyz $vf1, $vf1, $vf1\n\tvaddy.x $vf1, $vf1, $vf1y\n\tvaddz.x $vf1, $vf1, $vf1z\n\tqmfc2 $8, $vf1\n\tmtc1 $8, %0" : "=f"(r) : "r"(v) : "$8");
     return r;
 }
-s32 func_00142b70(u8* p) {
+s32 func_00142b70(u8* p) {  // len_sq_compare_at80
     if (lsq(p + 80) < 0.01f || lsq(p + 96) < 0.01f || lsq(p + 112) < 0.01f) return 1;
     return 0;
 }

@@ -4,17 +4,17 @@ extern "C" {
 void func_00139858(s32);
 void func_00139ab0(s32);
 extern u8* D_003484a0;
-s16 func_00147050(u32, u32, void*, u32, void*);
+s16 func_00147050(u32, u32, void*, u32, void*);  // entry48_process_5args
 extern u32 D_00348800;
 void func_001398d0(s32);
 void func_00139a38(s32);
 void func_001ca148(void*, u32, u32, f32);
 extern u8 D_01c5f480[16];
-u32 func_00106a60(s32);
-void func_00107478(u32, void*);
+u32 func_00106a60(s32);  // buffer_get_by_index
+void func_00107478(u32, void*);  // vec_copy_at96_if_diff
 u32 func_002cd1d8(void*, u32);
 void func_002cd290(u32, void*, u32);
-void func_00192f78(void*);
+void func_00192f78(void*);  // obj_init_float_const
 void func_001ab750(u32, void*);
 extern s32* D_01c94040[];
 extern void* D_01c9408c;
@@ -33,9 +33,9 @@ extern u8 D_0035de54;
 extern s32 D_0035de20;
 extern s32 D_0035de5c;
 void* func_0022b688(u32);
-void func_001391a8(void*, void*);
+void func_001391a8(void*, void*);  // vec_copy_at416_if_diff
 void func_002251c8(u32);
-u32 func_001064a8(s32);
+u32 func_001064a8(s32);  // int_to_float_scaled
 extern u16 D_0035f0a8[3];
 void func_001a17c8(u32);
 u8* func_00103eb0(void);
@@ -60,15 +60,15 @@ void func_002bd140(void*);
 extern u8 D_01e2a568[];
 extern u8 D_00374f70[];
 void func_002fee78(void*, void*, u32);
-void func_002ff3fc(void*);
+void func_002ff3fc(void*);  // strlen
 extern u8 D_0034ee08[];
-void func_0019f9a8(void*);
+void func_0019f9a8(void*);  // array8_free_slots
 void func_001c0248(void*);
-u8 func_00319fb0(void*);
+u8 func_00319fb0(void*);  // big_obj_dtor
 void func_00105110(void*);
 void* func_001050d8(u32);
 void* func_002d1550(void*, u32, u32);
-void func_002cfeb0(void*, u32, u32, u32);
+void func_002cfeb0(void*, u32, u32, u32);  // obj_init_field1416_bit800
 extern u8 D_00362858[];
 void func_002cf280(void*, u32, u32);
 extern u8 D_00362eb8[];
@@ -79,8 +79,8 @@ void func_00195858(void*, u32);
 extern void* D_00347f98[];
 extern void** D_00347f80;
 extern u8 D_0035eb98[];
-void func_0023c098(void*);
-void func_002369f0(void*);
+void func_0023c098(void*);  // set_vtbl_36eae8_then_call
+void func_002369f0(void*);  // set_vtbl_36eac8_then_call
 void func_0023ee68(void*);
 }
 
@@ -126,7 +126,7 @@ void wtarget_001d7a08(u32 a, u32 b, u32, u32) {
 }
 
 void trap_camera_at(void** v) {
-    func_00107478(func_00106a60(1), D_01c5f480);
+    func_00107478(func_00106a60(1), D_01c5f480);  // vec_copy_at96_if_diff
     *v = D_01c5f480;
 }
 
@@ -219,7 +219,7 @@ void func_001aa7f0(u32* p, u32 a) {
     p[0] = a;
     p[5] = 0x60000000;
     p[1] = 0;
-    func_00192f78(p + 8);
+    func_00192f78(p + 8);  // obj_init_float_const
     p[14] = 0;
     p[15] = 0;
     Q3* q = (Q3*)(p + 16);
@@ -241,7 +241,7 @@ struct F28 {
     u32 on : 1;
 };
 
-s32 func_001c7950(u8* p, void* o) {
+s32 func_001c7950(u8* p, void* o) {  // copy_quad_if_flag
     if (!((F28*)p)->on) return 0;
     f32 v[4] __attribute__((aligned(16)));
     asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(v), "r"(p) : "$8", "memory");
@@ -249,7 +249,7 @@ s32 func_001c7950(u8* p, void* o) {
     return func_001a4ff8(o, v);
 }
 
-u8 func_001c9958(s32 a, s32 b) {
+u8 func_001c9958(s32 a, s32 b) {  // state_pair_check
     if (!in_1_6(a)) return 0;
     switch (a) {
     case 2: return b == 2;
@@ -280,7 +280,7 @@ s32 func_0020f188(void) {
     return func_002f3918(D_003591c8, D_00359940);
 }
 
-u8 func_00225b00(s32 n) {
+u8 func_00225b00(s32 n) {  // flag_query_by_index
     if (n == -1) return D_0035de54;
     u8 r = 0;
     if (D_0035de54 || (n < D_0035de20 && D_0035de20 == D_0035de5c)) r = 1;
@@ -291,7 +291,7 @@ void* func_0022af48(u8* p) {
     u8 tmp[16] __attribute__((aligned(16)));
     void* v = func_0022b688(140);
     asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(tmp), "r"(p) : "$8", "memory");
-    func_001391a8(v, tmp);
+    func_001391a8(v, tmp);  // vec_copy_at416_if_diff
     func_002251c8(12103);
     return v;
 }
@@ -346,16 +346,16 @@ void func_002b9ed0(void) {
 
 void* func_002ba0b0(u32 a) {
     func_002fee78(D_01e2a568, D_00374f70, a);
-    func_002ff3fc(D_01e2a568);
+    func_002ff3fc(D_01e2a568);  // strlen
     return D_01e2a568;
 }
 
 // Deleting destructor.
 void func_002d0028(u8* p) {
     *(void**)p = D_0034ee08;
-    func_0019f9a8(p + 2568);
+    func_0019f9a8(p + 2568);  // array8_free_slots
     func_001c0248(p + 2640);
-    func_00319fb0(p);
+    func_00319fb0(p);  // big_obj_dtor
     func_00105110(p);
 }
 
@@ -364,7 +364,7 @@ void* func_002d1270(u32 a, u32 b) {
 }
 
 void func_002daa98(u8* p, u32 a, u32 b) {
-    func_002cfeb0(p, a, 3, b);
+    func_002cfeb0(p, a, 3, b);  // obj_init_field1416_bit800
     *(void**)p = D_00362858;
     func_002cf280(p + 2800, 1, 0);
 }
@@ -394,7 +394,7 @@ void func_003147a0(void*, FpNum*);
 f32 func_00314698(s32, u32, s32, u32);
 
 // Software double -> float (libgcc fp-bit __truncdfsf2).
-f32 func_003144b0(u64 a) {
+f32 func_003144b0(u64 a) {  // double_trunc
     FpNum in;
     u64 au = a;
     func_003147a0(&au, &in);
@@ -411,23 +411,23 @@ void func_0031ae18(void** p) {
 
 s32 func_0031eb68(u8* p) {
     *(void**)p = D_0034ee08;
-    func_0019f9a8(p + 2568);
+    func_0019f9a8(p + 2568);  // array8_free_slots
     func_001c0248(p + 2640);
-    return func_00319fb0(p);
+    return func_00319fb0(p);  // big_obj_dtor
 }
 
 void func_00320bc0(u8* p) {
     *(void**)p = D_0034ee08;
-    func_0019f9a8(p + 2568);
+    func_0019f9a8(p + 2568);  // array8_free_slots
     func_001c0248(p + 2640);
-    func_00319fb0(p);
+    func_00319fb0(p);  // big_obj_dtor
     func_00105110(p);
 }
 
 void func_00322db8(u8* p) {
     *(void**)p = D_0035eb98;
-    func_0023c098(p + 48);
-    func_002369f0(p + 24);
+    func_0023c098(p + 48);  // set_vtbl_36eae8_then_call
+    func_002369f0(p + 24);  // set_vtbl_36eac8_then_call
     *(void**)p = D_00347f98;
     func_0023ee68(p);
 }

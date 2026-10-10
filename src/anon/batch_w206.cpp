@@ -32,7 +32,7 @@ M1702e0* ctarget_001702e0(u32 a0, u32 a1, u32 a2, u32 a3) {
 }
 
 // VU0 random number in [0,1) scaled to 0..32767
-s32 func_00222568(void) {
+s32 func_00222568(void) {  // vu_const_5f_d
     f32 r;
     asm volatile("addi $8, $0, -1\n\tqmtc2 $8, $vf2\n\tvrxor R, $vf2x\n\tvitof0.x $vf2, $vf2\n\tvrnext.x $vf1, R\n\tvadd.x $vf1, $vf1, $vf2\n\tqmfc2 %0, $vf1" : "=r"(r) : : "$8");
     return (s32)(r * 32768.0f);

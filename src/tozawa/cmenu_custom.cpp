@@ -4,13 +4,13 @@ namespace Tz {
 
 extern u32 D_0035f12c asm("D_0035f12c");
 
-extern "C" u32 func_001a80c8(...);
+extern "C" u32 func_001a80c8(...);  // table24_find_by_id
 
 u32 CmCustom::GetItemTbl(s32 index) {
     u32 p = ((u32)index << 3) + D_0035f12c;
     s32 v = *(s16*)(p + 8u);
     if (v != 0) {
-        return func_001a80c8((u32)v);
+        return func_001a80c8((u32)v);  // table24_find_by_id
     }
     return 0u;
 }

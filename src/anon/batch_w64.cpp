@@ -34,13 +34,13 @@ u8* func_00102818(void** heap, u32 a1, u32 a2, u32 a3, u32 size) {
 }
 
 // ---------------------------------------------------------------------------
-s32 func_002ff3fc(void*);
+s32 func_002ff3fc(void*);  // strlen
 s32 func_002ff538(void*, u32, s32);
 extern u32 D_0033cbb8[];
 
 // Returns the index of the first of 19 table entries the check rejects (0 if none).
 s32 func_00105f00(void* p) {
-    if (func_002ff3fc(p) == 2) {
+    if (func_002ff3fc(p) == 2) {  // strlen
         for (s32 i = 0; i < 19; i++) {
             if (func_002ff538(p, D_0033cbb8[i], 2) == 0) return i;
         }
@@ -49,7 +49,7 @@ s32 func_00105f00(void* p) {
 }
 
 // ---------------------------------------------------------------------------
-s32 func_0010f6f8(u8* p, f32 f) {
+s32 func_0010f6f8(u8* p, f32 f) {  // count_reached_threshold_b
     if (*(u32*)(p + 2040) & 4) return 0;
     u8* q = *(u8**)(p + 1164);
     if (q) {
@@ -60,14 +60,14 @@ s32 func_0010f6f8(u8* p, f32 f) {
 }
 
 // ---------------------------------------------------------------------------
-void func_0011ee18(void*);
+void func_0011ee18(void*);  // obj_ctor_347940
 extern char D_00347a28[];
 struct Entry20648 { u32 b0 : 1; u32 m : 28; u32 b29 : 1; u32 hi : 2; u32 pad[7]; };
 struct Hdr20648 { u8 pad[0x1c]; s32 n; Entry20648 e[1]; };
 
 // Constructor: base ctor, vtable, then collect flag bits from the entry list.
 void func_00120648(u8* self) {
-    func_0011ee18(self);
+    func_0011ee18(self);  // obj_ctor_347940
     Hdr20648* h = *(Hdr20648**)(self + 4);
     *(u32*)self = (u32)D_00347a28;
     for (s32 i = 0; i < h->n; i++) {
@@ -150,11 +150,11 @@ s32 func_00155830(s32 a0, f32* a1, f32* a2, f32* a3) {
 }
 
 // ---------------------------------------------------------------------------
-void func_00239f18(u8*);
+void func_00239f18(u8*);  // obj_set_float312_and_flags
 void func_00138c68(u8*, s32, s32);
 
 void func_00155b58(u8* p, s32 idx, f32 f) {
-    func_00239f18(p + idx * 412 + 6728);
+    func_00239f18(p + idx * 412 + 6728);  // obj_set_float312_and_flags
     if (idx == 9) func_00138c68(p + 11236, -(s32)(f * 100.0f), 0);
 }
 
@@ -173,7 +173,7 @@ void func_00158ac8(u8* p) {
 
 // ---------------------------------------------------------------------------
 extern u8* D_004f3b38;
-void func_00160488(u8*, u8, u8, u8);
+void func_00160488(u8*, u8, u8, u8);  // mix_color_channels
 static inline u8* next_611a8(u8* n) {
     if (!n) return D_004f3b38;
     return *(u8**)(n + 128);
@@ -182,7 +182,7 @@ static inline u8* next_611a8(u8* n) {
 // Applies func_00160488 to every node of the list.
 void func_001611a8(u8 a, u8 b, u8 c) {
     u8* n = 0;
-    while ((n = next_611a8(n))) func_00160488(n, a, b, c);
+    while ((n = next_611a8(n))) func_00160488(n, a, b, c);  // mix_color_channels
 }
 
 // ---------------------------------------------------------------------------
@@ -408,9 +408,9 @@ void func_001c8d98(void*, s32);
 void func_001c9b90(void);
 void func_001d2710(u8*);
 void func_00319f88(u8*);
-void func_0019f9a8(u8*);
+void func_0019f9a8(u8*);  // array8_free_slots
 void func_001c0248(u8*);
-void func_00319fb0(u8*);
+void func_00319fb0(u8*);  // big_obj_dtor
 void func_00105110(u8*);
 
 // Deleting destructor.
@@ -423,9 +423,9 @@ void func_001cff48(u8* p) {
     *(void**)p = D_0034e8b8;
     func_00319f88(p + 2824);
     *(void**)p = D_0034ee08;
-    func_0019f9a8(p + 2568);
+    func_0019f9a8(p + 2568);  // array8_free_slots
     func_001c0248(p + 2640);
-    func_00319fb0(p);
+    func_00319fb0(p);  // big_obj_dtor
     func_00105110(p);
 }
 
@@ -494,7 +494,7 @@ void func_00209df0(u8* p, u32 a1, u8* r) {
 extern f32 D_00359a20[];
 
 // Rotation matrix about X from a 16-bit angle (sine table lookup).
-void func_0021e9d0(f32* m, u32 a) {
+void func_0021e9d0(f32* m, u32 a) {  // table_float_pair_lookup_c
     f32 s = D_00359a20[(a >> 4) & 0xfff];
     f32 c = D_00359a20[((a + 0x4000) >> 4) & 0xfff];
     m[0] = 1.0f; m[4] = 0; m[8] = 0; m[12] = 0;
@@ -591,7 +591,7 @@ void func_00284fd8(void) {
 extern u8* D_0035f3fc;
 extern u32 D_0035f410;
 
-void func_0028cdb8(s32 i) {
+void func_0028cdb8(s32 i) {  // record408_alloc_init
     if (func_00139d78(D_0035f3fc + i * 408)) {
         u8* o = (u8*)(i * 408 + (u32)D_0035f3fc);
         (*(VFn*)(*(u8**)o + 20))(o);
@@ -611,8 +611,8 @@ extern char D_00347f98[];
 extern char D_0035eb98[];
 extern u8* D_00361e28;
 void func_0031a838(u8*);
-void func_002369a0(u8*);
-void func_0023c008(u8*);
+void func_002369a0(u8*);  // obj_ctor_36eac8
+void func_0023c008(u8*);  // obj_ctor_36eae8
 void func_0028d140(u8*);
 void func_00167f38(s32);
 void func_002c5f48(void);
@@ -625,8 +625,8 @@ void func_002ca0e0(u8* p) {
     *(u32*)(p + 24) = 0;
     func_0031a838(p + 40);
     *(void**)(p + 28) = D_0035eb98;
-    func_002369a0(p + 52);
-    func_0023c008(p + 76);
+    func_002369a0(p + 52);  // obj_ctor_36eac8
+    func_0023c008(p + 76);  // obj_ctor_36eae8
     *(u32*)(p + 188) = 0;
     func_0028d140(p + 192);
     *(u32*)(p + 636) = 0;

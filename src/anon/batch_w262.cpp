@@ -11,10 +11,10 @@ struct W262S {
 };
 struct W262Key { s32 t : 29; u32 type : 3; f32 v; f32 m1; f32 m0; };
 extern "C" {
-void func_00319d20(void*);
-void func_00321198(void*);
-void func_00319d58(void*);
-void func_00319a60(void*);
+void func_00319d20(void*);  // zero_two_words
+void func_00321198(void*);  // zero_3_words
+void func_00319d58(void*);  // store_zero_byte
+void func_00319a60(void*);  // clear_fixed_blocks
 void func_00321068(u8* p) {
     W262S* s = (W262S*)p;
     W262In* in = &s->in;
@@ -29,14 +29,14 @@ void func_00321068(u8* p) {
     q = &s->q;
     for (i = 0; i < 4; i++) q->a[i] = 0;
     q->b = 0;
-    func_00319d20(p + 2136);
-    func_00319d20(p + 2144);
-    func_00321198(p + 2152);
-    func_00321198(p + 2164);
-    func_00321198(p + 2176);
-    func_00319d20(p + 2188);
-    func_00319d58(p + 2713);
-    func_00319a60(p + 2716);
+    func_00319d20(p + 2136);  // zero_two_words
+    func_00319d20(p + 2144);  // zero_two_words
+    func_00321198(p + 2152);  // zero_3_words
+    func_00321198(p + 2164);  // zero_3_words
+    func_00321198(p + 2176);  // zero_3_words
+    func_00319d20(p + 2188);  // zero_two_words
+    func_00319d58(p + 2713);  // store_zero_byte
+    func_00319a60(p + 2716);  // clear_fixed_blocks
 }
 
 f32 func_00230de0(s32 i, W262Key* keys, W262Key* out, f32 t) {

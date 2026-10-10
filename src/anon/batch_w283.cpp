@@ -54,8 +54,8 @@ extern "C" {
 extern s32 D_01d9ea9c;
 extern u8* D_01d9e6e0;
 extern u8 D_01d9e360[];
-u8 func_001edb18(s32, f32);
-u16 func_001ee070(s32, f32);
+u8 func_001edb18(s32, f32);  // fix8_mul_e
+u16 func_001ee070(s32, f32);  // fix16_mul_e
 void func_001edb48(u8* a0, W283_Arg8* a1, u8* a2) {
     if (D_01d9ea9c != 0) return;
     if ((*(u64*)(D_01d9e6e0 + 168) & 0xff0000ff00ULL) != 0) return;
@@ -70,9 +70,9 @@ void func_001edb48(u8* a0, W283_Arg8* a1, u8* a2) {
     if (idx != -1) s1 = (W283_C8*)(a0 + idx + 160); else s1 = (W283_C8*)D_01d9e360;
     asm volatile("" ::: "memory");
     { f32 ff = *s2; s1->r += func_001edb18((s8)a1->add.r, ff); }
-    s1->g += func_001edb18((s8)a1->add.g, *s2);
-    s1->b += func_001edb18((s8)a1->add.b, *s2);
-    s1->a += func_001edb18((s8)a1->add.a, *s2);
+    s1->g += func_001edb18((s8)a1->add.g, *s2);  // fix8_mul_e
+    s1->b += func_001edb18((s8)a1->add.b, *s2);  // fix8_mul_e
+    s1->a += func_001edb18((s8)a1->add.a, *s2);  // fix8_mul_e
 }
 void func_001ee0a0(u8* a0, W283_Arg16* a1, u8* a2) {
     if (D_01d9ea9c != 0) return;
@@ -88,9 +88,9 @@ void func_001ee0a0(u8* a0, W283_Arg16* a1, u8* a2) {
     if (idx != -1) s1 = (W283_C16*)(a0 + idx + 160); else s1 = (W283_C16*)D_01d9e360;
     asm volatile("" ::: "memory");
     { f32 ff = s2->f; s1->r += func_001ee070((s16)a1->add.r, ff); }
-    s1->g += func_001ee070((s16)a1->add.g, s2->f);
-    s1->b += func_001ee070((s16)a1->add.b, s2->f);
-    s1->a += func_001ee070((s16)a1->add.a, s2->f);
+    s1->g += func_001ee070((s16)a1->add.g, s2->f);  // fix16_mul_e
+    s1->b += func_001ee070((s16)a1->add.b, s2->f);  // fix16_mul_e
+    s1->a += func_001ee070((s16)a1->add.a, s2->f);  // fix16_mul_e
 }
 
 extern f32 D_00349e14;
@@ -141,7 +141,7 @@ extern char* D_0035ec00;
 extern char* D_0035ec08;
 extern char D_003716e0[];
 extern char D_003716e8[];
-s32 func_002ff1a4(const char*, const char*);
+s32 func_002ff1a4(const char*, const char*);  // strcmp
 void func_00240118(char*, s32, s32);
 s32 W283_GetFileTableMax(s32, s32) asm("_ZN2YI5MCARD15GetFileTableMaxEii");
 s32 func_00241a88(u8 a) {
@@ -154,11 +154,11 @@ s32 func_00241a88(u8 a) {
         if (func_002ff1a4(e->name, D_003716e0) == 0) continue;
         if (func_002ff1a4(e->name, D_003716e8) == 0) continue;
         if (e->attr & 0x20) continue;
-        if (func_002ff1a4(e->name, D_0035ec88) == 0) {
+        if (func_002ff1a4(e->name, D_0035ec88) == 0) {  // strcmp
             if (e->size == 1024) got |= 4;
-        } else if (func_002ff1a4(e->name, D_0035ebf8) == 0) {
+        } else if (func_002ff1a4(e->name, D_0035ebf8) == 0) {  // strcmp
             if (e->size == 964) got |= 1;
-        } else if (func_002ff1a4(e->name, !a ? D_0035ec08 : D_0035ec00) == 0) {
+        } else if (func_002ff1a4(e->name, !a ? D_0035ec08 : D_0035ec00) == 0) {  // strcmp
             if (e->size == 0x8a58) got |= 2;
         }
     }

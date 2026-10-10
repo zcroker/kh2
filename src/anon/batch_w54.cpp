@@ -71,14 +71,14 @@ union S16c {
 
 extern "C" {
 
-void func_00103ea0(s32);
+void func_00103ea0(s32);  // set_hook_ptr
 extern void (*D_0032ba34)(void);
 extern s32 D_0032ba04;
 // run the registered hook if any, otherwise set the state to 3
 void func_001039f8(void) {
     if (D_0032ba34) {
         D_0032ba34();
-        func_00103ea0(0);
+        func_00103ea0(0);  // set_hook_ptr
         return;
     }
     D_0032ba04 = 3;
@@ -111,9 +111,9 @@ void func_0011ed90(Link64* p, s32 n) {
 }
 
 typedef s32 (*VFn124)(void*, s32, s32, s32, s32, s32, u8, s32);
-void* func_00124748(void*, s32);
+void* func_00124748(void*, s32);  // list_nth_node_rel
 s32 func_00124618(void* a0, s32 a1, s32 a2, s32 a3, s32 t0, s32 t1, u8 t2, s32 t3) {
-    void* o = func_00124748(a0, 0);
+    void* o = func_00124748(a0, 0);  // list_nth_node_rel
     return (*(VFn124*)((*(u8**)o) + 80))(o, a1, a2, a3, t0, t1, t2, t3);
 }
 
@@ -201,7 +201,7 @@ void func_0015bbc8(u8* p, s32 a1) {
 
 s32 func_00177860(void);
 s32 func_001c3618(s32, s32);
-f32* func_001ce300(s32);
+f32* func_001ce300(s32);  // to_1ce2a0_index_minus1
 f32 func_0016c460(u8* p, S32c* out) {
     f32 r = *(f32*)(p + 280);
     out->v = 3;
@@ -209,7 +209,7 @@ f32 func_0016c460(u8* p, S32c* out) {
         if (*(u32*)(*(u8**)(p + 12) + 8) & 0x800) return r;
         s32 k = func_001c3618(func_00177860(), 0);
         if (k > 0) {
-            r = *func_001ce300(k);
+            r = *func_001ce300(k);  // to_1ce2a0_index_minus1
             out->v = 201;
         }
     }
@@ -292,20 +292,20 @@ void func_001a6440(void** p) {
     func_0016cbc8(p[0], 21, 0, 0);
 }
 
-s32 func_001a8f10(void*);
-s32 func_001a8bf8(void*, s32);
-void func_001a8c60(void*, s32, s32);
+s32 func_001a8f10(void*);  // arg_map_0_1_2
+s32 func_001a8bf8(void*, s32);  // get_bits5_at
+void func_001a8c60(void*, s32, s32);  // masked_byte_store
 // move the entry matching a1 into slot 3, swapping with whatever was there
 void func_001a8f68(void* a0, void* a1) {
-    s32 v = func_001a8f10(a1);
+    s32 v = func_001a8f10(a1);  // arg_map_0_1_2
     s32 i;
     for (i = 1; i < 3; i++) {
-        if (func_001a8bf8(a0, i) == v) {
-            func_001a8c60(a0, i, func_001a8bf8(a0, 3));
+        if (func_001a8bf8(a0, i) == v) {  // get_bits5_at
+            func_001a8c60(a0, i, func_001a8bf8(a0, 3));  // masked_byte_store
             break;
         }
     }
-    func_001a8c60(a0, 3, v);
+    func_001a8c60(a0, 3, v);  // masked_byte_store
 }
 
 void func_001ac970(void*, s32, s32, s32, s32, s32, s32, s32);
@@ -369,14 +369,14 @@ void* func_001ce488(void* a0, void* a1, f32 f) {
     return o;
 }
 
-void func_002f4000(f32*);
+void func_002f4000(f32*);  // vu_store_w_splat
 void func_002f3d08(void*, f32*, void*);
 extern u8* D_01d9e6e0;
 extern u8* D_01d9e6e8;
 // scale matrix built from two clamped factors
 void func_001eb030(void* a0, f32* s) {
     f32 m[16];
-    func_002f4000(m);
+    func_002f4000(m);  // vu_store_w_splat
     f32 k = s[1];
     f32 mx = s[2];
     u8* t = D_01d9e6e0;
@@ -506,7 +506,7 @@ static inline s32 bit_test(u32* b, u32 i) {
     return (b[i >> 5] & (1 << (i & 31))) != 0;
 }
 // test flag n; n < 0 tests whether any of the 192 flags is set
-s32 func_002aacd8(s32 n) {
+s32 func_002aacd8(s32 n) {  // test_bit_global_d
     if (n < 0) {
         s32 r;
         s32 i;
@@ -617,12 +617,12 @@ void func_002ef8d0(void** p, void* a1) {
     }
 }
 
-s32 func_003060f0(void);
+s32 func_003060f0(void);  // ee_intr_disabled
 s32 func_0030edb0(void);
 extern s32 D_003660a8;
 extern s32 D_003660ac;
 void func_002fded8(void) {
-    if (func_003060f0() != 1) {
+    if (func_003060f0() != 1) {  // ee_intr_disabled
         if (D_003660a8 == 0) D_003660ac = func_0030edb0();
         D_003660a8++;
     }

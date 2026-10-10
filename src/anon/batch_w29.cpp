@@ -33,18 +33,18 @@ s32 SelCheck(s32 i) asm("_ZN2Tz10JmWorldSel8SelCheckEi");
 void ctarget_002cf3f8(void) asm("_Z16ctarget_002cf3f8jjjj");
 void wtarget_002eb460(u8* o, Q16* q) asm("_Z16wtarget_002eb460jjjj");
 
-void func_0015ce90(void);
-void func_001069b8(u32);
+void func_0015ce90(void);  // zero_global_byte_g
+void func_001069b8(u32);  // swap_global_word
 void func_0013f558(void*);
 u8* func_00102c80(void);
 void func_00102788(u32, u32, u32, void*);
 void func_00139858(u32);
 void func_00139ab0(u32);
 void func_00144b38(u32, E16*);
-void func_001466b0(u32, E16*);
+void func_001466b0(u32, E16*);  // mat4_transform_vecs
 void func_0016bda8(Q16*, u32);
 void func_0013dad0(void*);
-void func_00192f78(void*);
+void func_00192f78(void*);  // obj_init_float_const
 void func_001ab750(u32, void*);
 u8 func_001aafe8(u32, u32*, u32, u32, u32, u32, f32, f32);
 void func_001acdc0(void*, u32, u32, u32, u32, u32);
@@ -56,7 +56,7 @@ u8* func_001bbcb0(void);
 void func_001c23a8(u8*, u32, u32, u32, u32, u32, u32);
 void func_00223e98(u32, u8*, u32, u32, f32, f32, u32);
 u32 func_0022b688(u32);
-void func_001391a8(u32, Q16*);
+void func_001391a8(u32, Q16*);  // vec_copy_at416_if_diff
 void func_002251c8(u32);
 u32 func_00139d78(u32);
 void func_00239700(void*);
@@ -74,7 +74,7 @@ u32 func_002be4a0(void);
 void func_00102448(u32, u32);
 void func_00106450(u32);
 void func_001d86a0(u32, u32);
-void func_002cfeb0(u32*, u32, u32, u32);
+void func_002cfeb0(u32*, u32, u32, u32);  // obj_init_field1416_bit800
 void func_002cf280(void*, u32, u32);
 void func_002e70b0(void*);
 void func_00106420(void*);
@@ -85,9 +85,9 @@ u32 func_003032d0(u32, u32*);
 void func_003147a0(void*, void*);
 void* func_003141e8(void*, void*);
 u64 func_003146c8(void*);
-void func_0019f9a8(void*);
+void func_0019f9a8(void*);  // array8_free_slots
 void func_001c0248(void*);
-void func_00319fb0(void*);
+void func_00319fb0(void*);  // big_obj_dtor
 void func_00105110(void*);
 
 extern u8 D_00348710[];
@@ -125,8 +125,8 @@ void func_0011ea40(u8* o, f32 t) {
 }
 
 void createTask(void) {
-    func_0015ce90();
-    func_001069b8(0);
+    func_0015ce90();  // zero_global_byte_g
+    func_001069b8(0);  // swap_global_word
     func_0013f558(D_00348710);
     func_00102788(*(u32*)(func_00102c80() + 4), 1, 26000, (void*)camera_task);
 }
@@ -134,7 +134,7 @@ void createTask(void) {
 void wtarget_00146730(u32 a, u32 b) {
     E16 buf[8];
     func_00144b38(b, buf);
-    func_001466b0(a, buf);
+    func_001466b0(a, buf);  // mat4_transform_vecs
 }
 
 void func_0014f4d8(void) {
@@ -148,7 +148,7 @@ void func_0014f4d8(void) {
     func_00139ab0(10);
 }
 
-u32 func_00154ee8(u8* p) {
+u32 func_00154ee8(u8* p) {  // field24_state_code
     switch (*(s32*)(p + 24)) {
     case 1: return 67;
     case 0: case 2: return 72;
@@ -219,7 +219,7 @@ void func_001aa790(u32* p, u32 a) {
     p[0] = a;
     p[5] = 0x60000000;
     p[1] = 0;
-    func_00192f78(p + 8);
+    func_00192f78(p + 8);  // obj_init_float_const
     p[14] = 0;
     p[15] = 0;
     Tri* q = (Tri*)(p + 16);
@@ -298,7 +298,7 @@ u32 func_0022aef0(Q16* q) {
     u32 v = func_0022b688(141);
     Q16 t;
     QCOPY(&t, q);
-    func_001391a8(v, &t);
+    func_001391a8(v, &t);  // vec_copy_at416_if_diff
     func_002251c8(12102);
     return v;
 }
@@ -381,7 +381,7 @@ void func_002d28f8(u32 x, u32 m, s32 i) {
 }
 
 void func_002daa50(u32* p, u32 a, u32 b) {
-    func_002cfeb0(p, a, 3, b);
+    func_002cfeb0(p, a, 3, b);  // obj_init_field1416_bit800
     *(void**)p = D_00362858;
     func_002cf280((u8*)p + 2800, 1, 0);
 }
@@ -417,7 +417,7 @@ u32 func_002ffc08(u32 a, u32* p) {
 }
 
 // Soft-float double binary op (libgcc dp-bit style): unpack both, combine, pack.
-u64 func_00314190(u64 a, u64 b) {
+u64 func_00314190(u64 a, u64 b) {  // double_add
     FPParts x, y;
     func_003147a0(&a, &x);
     func_003147a0(&b, &y);
@@ -426,9 +426,9 @@ u64 func_00314190(u64 a, u64 b) {
 
 void func_00320290(u8* p) {
     *(void**)p = D_0034ee08;
-    func_0019f9a8(p + 2568);
+    func_0019f9a8(p + 2568);  // array8_free_slots
     func_001c0248(p + 2640);
-    func_00319fb0(p);
+    func_00319fb0(p);  // big_obj_dtor
     func_00105110(p);
 }
 }

@@ -88,7 +88,7 @@ void func_001123f0(void) {
 }
 
 void func_001dc920(void*);
-void func_00117910(void*, s32);
+void func_00117910(void*, s32);  // entry64_clear_fields
 void func_0018f028(void*);
 void func_00113668(void*);
 extern u8 D_003476f0[];
@@ -99,14 +99,14 @@ void func_00117dd8(Obj117* o) {
     o->vtbl = D_003476f0;
     for (i = 0; i < 24; i++) {
         if (o->slots.s[i].p) func_001dc920(o->slots.s[i].p);
-        func_00117910(o, i);
+        func_00117910(o, i);  // entry64_clear_fields
     }
     if (o->f1568) { func_0018f028(o->f1568); o->f1568 = 0; }
     o->slots.~SlotArr117();
     func_00113668(o);
 }
 
-void func_0011ee18(void*);
+void func_0011ee18(void*);  // obj_ctor_347940
 void func_0011f2f0(void*);
 extern u8 D_00347a90[];
 typedef s32 (*PartFn)(void*);
@@ -117,7 +117,7 @@ void func_001239d8(Obj123* o) {
     u8* d;
     s32* list;
     s4 = 0; s3 = 0;
-    func_0011ee18(o);
+    func_0011ee18(o);  // obj_ctor_347940
     d = o->data;
     o->n = 0;
     o->vtbl = D_00347a90;
@@ -149,7 +149,7 @@ void func_001841f0(Obj184* o) {
     if (!(o->flags & 0x04000000)) o->vt->f44(o);
 }
 
-u32 func_001a80c8(u32);
+u32 func_001a80c8(u32);  // table24_find_by_id
 u8* func_001a8190(u32);
 void func_001c3150(void*, u16);
 struct St1a2 { u8 pad[392]; u16 s[4]; u8 p400[24]; u8 r[8]; u8 p432[28]; u8 f460[4]; };
@@ -228,14 +228,14 @@ void func_001d89e8(s32 digit, s32 val, s32 idx) {
     func_001d1b60(e, cur + (val - cur / m % 10) * m);
 }
 
-u8* func_001e09a0(void*, s32, s32, s32);
+u8* func_001e09a0(void*, s32, s32, s32);  // entry64_by_3index
 f32 func_001e09d0(void* o) {
     f32 sum = 0.0f, cnt = 0.0f;
     s32 i, j;
     for (j = 0; j < 9; j++)
         for (i = 1; i < 4; i++) {
             cnt += 100.0f;
-            sum += *(f32*)(func_001e09a0(o, j, i, 0) + 32);
+            sum += *(f32*)(func_001e09a0(o, j, i, 0) + 32);  // entry64_by_3index
         }
     return sum / cnt * 100.0f;
 }
@@ -261,7 +261,7 @@ void func_00201668(u8* o, u8* a1) {
     *(f32*)(t + 56) = D_00354bc0.z;
 }
 
-char* func_00227120(void);
+char* func_00227120(void);  // get_data_1dbd8f8
 s32 func_002ff538(const char*, const char*, s32);
 extern char D_00370cd8[];
 extern char D_00370ce8[];
@@ -331,7 +331,7 @@ void* func_00225eb8(Heap225* h, u32 size, s32 mode) {
 struct Obj22f;
 struct Obj22fvt { u8 pad[40]; void (*f40)(Obj22f*); };
 struct Obj22f { Obj22fvt* vt; };
-void func_001ba028(Obj22f*);
+void func_001ba028(Obj22f*);  // list_contains_ptr
 void func_00232db0(u32);
 struct Ent22f { s32 id; u32 f4; Obj22f* obj; u8 pad[28]; };
 union Tbl22f { Ent22f* p; u8 c; };
@@ -343,7 +343,7 @@ s32 func_0022f5e8(void) {
     if (!D_0035dcfc.p) return 0;
     for (i = 0; i < 96; i++) {
         if (D_0035dcfc.p[i].obj) {
-            func_001ba028(D_0035dcfc.p[i].obj);
+            func_001ba028(D_0035dcfc.p[i].obj);  // list_contains_ptr
             D_0035dcfc.p[i].obj->vt->f40(D_0035dcfc.p[i].obj);
             D_0035dcfc.p[i].obj = 0;
             func_00232db0(D_0035dcfc.p[i].f4);
@@ -406,7 +406,7 @@ extern void* D_0035f01c;
 struct Ent273 { u16 id; u8 pad[6]; };
 extern Ent273 D_00373af8[];
 s32 func_00287bc0(void);
-s32 func_0028b160(void*, u8*);
+s32 func_0028b160(void*, u8*);  // find_index_in_array
 u32 func_00192048(u16);
 void func_001a98e8(void*, s32, u32, u32, s32);
 s32 func_0023aa98(void*);
@@ -417,7 +417,7 @@ void func_00273078(u8* base, u32 a1, u32 a2, u32 a3, u8* p) {
     s32 v;
     u32 x;
     if (func_00287bc0() != 31) return;
-    v = func_0028b160(D_0035f01c, p);
+    v = func_0028b160(D_0035f01c, p);  // find_index_in_array
     x = *(u32*)(p + 424);
     func_001a98e8(buf, 1, func_00192048(D_00373af8[v / 2].id), x, 0);
     func_001a9ae8(buf, base + func_0023aa98(p + 24), a1, func_0023a918(p + 24));
@@ -450,8 +450,8 @@ extern f32 D_00349e10;
 extern u8 D_0035f298;
 struct Snd281 { s16 id; };
 extern Snd281 D_0035f280;
-double func_00313b80(f32);
-s32 func_003142e0(double, double);
+double func_00313b80(f32);  // float_to_double
+s32 func_003142e0(double, double);  // double_compare
 s32 func_001688b8(void);
 s32 func_00292a90(s16);
 void func_00292b40(Snd281*, s32);
@@ -507,8 +507,8 @@ void func_00282858(List282* l, s32 first, s32 count) {
 }
 void func_0028af18(void*, s32);
 void func_0028b1b0(void*, s32);
-void func_0028b218(void*, s32);
-void func_0028b248(void*, s32);
+void func_0028b218(void*, s32);  // obj_set_flag39_bits3000
+void func_0028b248(void*, s32);  // set_field28_half
 union S16U { s16 s; u8 c; };
 union U32U { u32 w; u8 c; };
 struct Obj288 { u8 p0[4]; s16 n; u8 p6[8]; s16 h14; u8 p16[2]; s16 h18; u8 p20[2]; s16 h22; u8 p24[16]; U32U* a; S16U* b; S16U* c; };
@@ -527,8 +527,8 @@ void func_00288e88(Obj288* o) {
     o->h14 = 0;
     func_0028af18(o, 115);
     func_0028b1b0(o, 0);
-    func_0028b218(o, 0);
-    func_0028b248(o, 1);
+    func_0028b218(o, 0);  // obj_set_flag39_bits3000
+    func_0028b248(o, 1);  // set_field28_half
 }
 
 void func_0028eb88(u32, s32, f32, f32);
@@ -612,7 +612,7 @@ void func_002ad9f8(void) {
         idx++;
     }
 }
-s32 func_002d5578(u8*);
+s32 func_002d5578(u8*);  // is_field340_eq151
 void func_00178d28(u8*);
 void func_0017f488(u8*, s32, f32, f32);
 void func_0017f5e0(u8*, s32, s32, f32, f32);
@@ -621,7 +621,7 @@ void func_0017f5e0(u8*, s32, s32, f32, f32);
             func_0017f488(*(u8**)(o + 3096) + 320, 151, z, z); \
             func_0017f5e0(*(u8**)(o + 3096) + 320, 0, 0, z, z); }
 void func_002d54a8(u8* o) {
-    if (!func_002d5578(o) || (*(u32*)(o + 352) & 0x10)) {
+    if (!func_002d5578(o) || (*(u32*)(o + 352) & 0x10)) {  // is_field340_eq151
         if (*(f32*)(o + 3116) == 0.0f) {
             if (0.0f <= *(f32*)(o + 1360)) *(f32*)(o + 3104) = 1.0f;
             else *(f32*)(o + 3104) = -1.0f;

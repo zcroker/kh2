@@ -14,9 +14,9 @@ u32 ctarget_0018bbf8(u32, u32, u32, u32) asm("_Z16ctarget_0018bbf8jjjj");
 s32 func_0013ba50(u8*, s32);
 extern s8 D_00457458;
 extern u8 D_00457460[];
-void func_002fd188(void*);
+void func_002fd188(void*);  // pool_alloc_block
 void func_00142c88(void);
-void func_00141988(u8*, u32, u8*);
+void func_00141988(u8*, u32, u8*);  // collect_entry_ptrs_by_halves
 extern u8 D_00348d68[];
 void func_00149448(u8*);
 u32 func_001492c8(u8*);
@@ -27,7 +27,7 @@ extern f32 D_0034a780;
 extern f32 D_0034a784;
 extern f32 D_0034a788;
 s32 func_001541d8(u8*, u32*, u32);
-u32 func_00154288(u8*, u32);
+u32 func_00154288(u8*, u32);  // state_index_0_1_2
 void func_001387f8(u8*, u32, u8*, u32);
 s32 func_00197920(u8*);
 extern f32 D_00349e14;
@@ -41,8 +41,8 @@ u32 func_0016a070(u32);
 s32 func_001a90a8(u32, u32);
 void func_001d7cd0(u8*);
 extern u8 D_0034ed78[];
-s32 func_0016a090(u8*);
-u32 func_0016c028(void);
+s32 func_0016a090(u8*);  // get_byte74
+u32 func_0016c028(void);  // obj_get_attach_or_alt
 u32 func_0018c490(u8*, u32);
 void func_0018c480(u8*, u32);
 u8* func_001b58f0(u32, u32, u32, u32);
@@ -63,10 +63,10 @@ extern u8 D_0036d4e8[];
 void func_001a5420(u32, u8*, u32);
 void func_00239700(u8*);
 void func_001abb28(u8*);
-u32 func_001ab810(void);
+u32 func_001ab810(void);  // get_global_1c7cec0
 u32 func_001ab800(void);
 void func_00239988(u8*, u32, u32);
-u8* func_001c10f8(void);
+u8* func_001c10f8(void);  // request_pool_block64
 extern Blk64 D_01d49388[];
 
 s32 func_0013b9e0(u8* p, s32 b) {
@@ -82,9 +82,9 @@ u32 wtarget_00142208(u32 a0, u32 a1, u32, u32) {
     u16 i = a1;
     if (!D_00457458) {
         D_00457458 = 1;
-        func_002fd188((void*)func_00142c88);
+        func_002fd188((void*)func_00142c88);  // pool_alloc_block
     }
-    func_00141988(p, *(u32*)(p + 12) + i * 16, D_00457460);
+    func_00141988(p, *(u32*)(p + 12) + i * 16, D_00457460);  // collect_entry_ptrs_by_halves
     return (u32)D_00457460;
 }
 
@@ -196,12 +196,12 @@ void func_001abd90(u8* p) {
     *(u32*)p = 0;
     func_00239700(p + 4);
     func_001abb28(p + 348);
-    u32 x = func_001ab810();
+    u32 x = func_001ab810();  // get_global_1c7cec0
     func_00239988(p + 4, x, func_001ab800());
 }
 
-Blk64* func_001c1130(void) {
-    u8* p = func_001c10f8();
+Blk64* func_001c1130(void) {  // copy_record_block_to_table
+    u8* p = func_001c10f8();  // request_pool_block64
     D_01d49388[p[36]] = *(Blk64*)p;
     return &D_01d49388[p[36]];
 }
@@ -224,7 +224,7 @@ void func_001dba88(u32);
 u8* func_001d6cc8(u8*);
 s32 func_001a3570(u16);
 s32 func_002283e0(void);
-u32 func_00227120(void);
+u32 func_00227120(void);  // get_data_1dbd8f8
 s32 func_002ff538(u32, const char*, u32);
 extern const char D_003712f0[];
 extern u8 D_0035e359;
@@ -334,7 +334,7 @@ s32 func_002384f8(Tbl* t, s32 i) {
 struct Ent144 { u32 flags; u32 pad[2]; s32 v; u8 pad2[128]; };
 struct Rng36 { u16 first, count; u8 pad[32]; };
 
-s32 func_00239b50(u8* p, s32 i) {
+s32 func_00239b50(u8* p, s32 i) {  // find_entry_in_group
     Rng36* r = &(*(Rng36**)(p + 180))[i];
     Ent144* e = &(*(Ent144**)(p + 176))[r->first];
     s32 n = r->count;
@@ -354,7 +354,7 @@ s32 func_00239b50(u8* p, s32 i) {
 
 extern "C" {
 s32 wtarget_002fee78(u8*, const char*, ...) asm("_Z16wtarget_002fee78jjjj");
-s32 func_002ffd00(u8*, const char*, va_list);
+s32 func_002ffd00(u8*, const char*, va_list);  // fprintf_stream_va
 
 extern u32 D_0035ee64;
 s32 func_00139d78(u32);
@@ -392,14 +392,14 @@ void func_002c5f78(u8*);
 u8* func_001c3748(u32, u8*);
 extern s32 D_01e2bfa4;
 extern u8* D_01e2bfa0;
-void func_002e93a0(u8*);
+void func_002e93a0(u8*);  // clear_fields_28_48_60
 extern f32 D_01e2c048;
 void func_001d14b0(u8*, u32);
 void func_0017c578(u32, u8*);
 u32 func_002f3588(u32);
 void func_002f3490(u32*);
 s32 func_0030edb0(void);
-void func_0030ee00(void);
+void func_0030ee00(void);  // ee_intr_get_enable
 void func_003086b8(u32, void*, u32);
 void func_002f6bd0(void);
 extern s32 D_00363da4;
@@ -475,7 +475,7 @@ void func_002b1660(void) {
     func_00281be0();
 }
 
-void func_002b6338(u32 a, u32 b, u32 c, u32 d) {
+void func_002b6338(u32 a, u32 b, u32 c, u32 d) {  // hash_with_seed_choice
     u32 id = !d ? 0xb7d4 : 0xb7d5;
     u32 x = func_00192048(c);
     func_00192e50(x, a, b, func_00192048(id));
@@ -527,14 +527,14 @@ s32 wtarget_002fee78(u8* buf, const char* fmt, ...) {
     f.size = f.w = 0x7fffffff;
     f.data = D_00365c48;
     va_start(ap, fmt);
-    s32 r = func_002ffd00((u8*)&f, fmt, ap);
+    s32 r = func_002ffd00((u8*)&f, fmt, ap);  // fprintf_stream_va
     va_end(ap);
     *f.p = 0;
     return r;
 }
 
 // vfprintf: makes sure the stream has an initialised reentrancy struct.
-s32 func_002ffd00(u8* fp, const char* fmt, va_list ap) {
+s32 func_002ffd00(u8* fp, const char* fmt, va_list ap) {  // fprintf_stream_va
     if (*(u8**)(fp + 84) == 0) *(u8**)(fp + 84) = D_00365c48;
     if (*(u32*)(*(u8**)(fp + 84) + 56) == 0) func_00302e10(*(u8**)(fp + 84));
     return func_002ffd78(*(u8**)(fp + 84), fp, fmt, ap);

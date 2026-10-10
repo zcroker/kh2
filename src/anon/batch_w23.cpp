@@ -55,12 +55,12 @@ void func_001358c0(Node135* p) {
 
 extern u8 D_0034926a;
 extern u32 D_0032b91c;
-void func_0014a248(void);
+void func_0014a248(void);  // zero_global_byte_b
 void func_0014a310(void);
 void func_00102788(u32, u32, u32, void (*)(void));
 void func_0014a470(void) {
     D_0034926a = 0;
-    func_0014a248();
+    func_0014a248();  // zero_global_byte_b
     func_00102788(D_0032b91c, 0, 0x1c908, func_0014a310);
 }
 
@@ -136,7 +136,7 @@ static inline bool list1b_has(L1b* o) {
     return false;
 }
 // Is o in the list?
-u8 func_001ba028(L1b* o) {
+u8 func_001ba028(L1b* o) {  // list_contains_ptr
     return list1b_has(o);
 }
 
@@ -177,7 +177,7 @@ void wtarget_001c4080(u32 a, u32 b, u32, u32) {
 
 struct E68 { u8 id; u8 pad[67]; };
 struct T1d7 { s32 n; E68 e[1]; };
-s32 func_001d7f40(T1d7* t, u32 id) {
+s32 func_001d7f40(T1d7* t, u32 id) {  // find_slot_by_byte
     s32 i;
     for (i = 0; i < t->n; i++) {
         if (t->e[i].id == id) return i;
@@ -247,12 +247,12 @@ void func_00275c78(void) {
 }
 
 void func_00281f40(void*, s32);
-void func_00281f48(void*);
+void func_00281f48(void*);  // memset_1920
 void func_00281f70(void*);
 void func_00281f90(void*);
 void func_00281e88(void* p) {
     func_00281f40(p, 0);
-    func_00281f48(p);
+    func_00281f48(p);  // memset_1920
     func_00281f70(p);
     func_00281f90(p);
 }
@@ -302,11 +302,11 @@ void func_002db580(void** p) {
 }
 
 extern u32 D_003629e8;
-u8 func_002e4a90(void*);
+u8 func_002e4a90(void*);  // in_even_range
 u8 func_002cea28(void*);
 s32 func_002dc748(void** p) {
     *p = &D_003629e8;
-    func_002e4a90((u8*)p + 256);
+    func_002e4a90((u8*)p + 256);  // in_even_range
     return func_002cea28(p);
 }
 
@@ -322,7 +322,7 @@ void trap_chickenlittle_set_shoot_target(u32** bd) {
 }
 
 // Normalise a 3-vector (VU0 macro code)
-void func_002f3d98(f32* d, const f32* s) {
+void func_002f3d98(f32* d, const f32* s) {  // vec4_normalize
     asm volatile(
         "lqc2 $vf4, 0(%1)\n\t"
         "vmul.xyz $vf5, $vf4, $vf4\n\t"

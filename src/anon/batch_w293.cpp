@@ -4,10 +4,10 @@ inline void* operator new(unsigned int, void* p) { return p; }
 
 extern "C" {
 extern u8 D_00363860[];
-void func_002edf28(u8*);
-void func_001a91f8(u8*);
+void func_002edf28(u8*);  // obj_ctor_3637e0
+void func_001a91f8(u8*);  // obj_init_24bytes
 void func_001a92d8(u8*, u32, s32);
-void func_00106ab8(u8*);
+void func_00106ab8(u8*);  // noop_ret
 void func_00108698(u8*);
 void func_002eeee8(u8*, u8*);
 struct VObj { void** vt; };
@@ -26,13 +26,13 @@ typedef u32 (*Fn9)(VObj*, u32);
 
 void func_002ee8a8(u8* p, u32 a, u32 b)
 {
-    func_002edf28(p);
+    func_002edf28(p);  // obj_ctor_3637e0
     *(u32*)(p + 40) = a;
     *(u32*)(p + 36) = 0;
     *(u32*)p = (u32)D_00363860;
-    func_001a91f8(p + 44);
+    func_001a91f8(p + 44);  // obj_init_24bytes
     func_001a92d8(p + 44, b, 0);
-    func_00106ab8(p + 80);
+    func_00106ab8(p + 80);  // noop_ret
     func_00108698(p + 400);
     func_002eeee8(p + 456, p);
     VObj* v = func_001a93e8(p + 44);
@@ -54,13 +54,13 @@ void func_002ee8a8(u8* p, u32 a, u32 b)
 
 void func_002eea80(u8* p, u32 a, u32 b)
 {
-    func_002edf28(p);
+    func_002edf28(p);  // obj_ctor_3637e0
     *(u32*)(p + 40) = a;
     *(u32*)(p + 36) = 0;
     *(u32*)p = (u32)D_00363860;
-    func_001a91f8(p + 44);
+    func_001a91f8(p + 44);  // obj_init_24bytes
     func_001a92d8(p + 44, b, 0);
-    func_00106ab8(p + 80);
+    func_00106ab8(p + 80);  // noop_ret
     func_00108698(p + 400);
     func_002eeee8(p + 456, p);
     VObj* v = func_001a93e8(p + 44);
@@ -87,7 +87,7 @@ namespace n00188c30 {
 extern "C" {
 void func_001888c8(void*);
 void func_00189170(void*);
-void func_001a8bb8(void*);
+void func_001a8bb8(void*);  // obj_set_header_bytes
 void func_001d9768(void*);
 }
 struct A276 { u8 d[276]; A276() { func_001888c8(this); } };
@@ -156,14 +156,14 @@ extern "C" {
 extern u8* D_00361f60;
 extern u8* D_0034e948;
 void func_002df040(u8*, u8*);
-QWord* func_0016c028(u8*);
+QWord* func_0016c028(u8*);  // obj_get_attach_or_alt
 u8* func_002dc7c8(u8*);
 void func_002dd2d8(u8*, f32*, f32*);
 void func_002df868(u8* s, u8* o)
 {
     func_002df040(s, o);
     u8* m = D_00361f60;
-    QWord t = *func_0016c028(o);
+    QWord t = *func_0016c028(o);  // obj_get_attach_or_alt
     QWord* d = (QWord*)(o + 16);
     t.v[0] = t.v[0] + *(f32*)(func_002dc7c8(m) + 240) * (f32)*(s32*)(s + 52);
     f32 lo, hi;
@@ -178,7 +178,7 @@ void func_002df868(u8* s, u8* o)
     Normalize(d);
     *(f32*)(o + 28) = len;
     if (*(s32*)(s + 56) == 0) {
-        QWord e = Sub(*func_0016c028(D_0034e948), t);
+        QWord e = Sub(*func_0016c028(D_0034e948), t);  // obj_get_attach_or_alt
         f32 dist = Length(&e);
         if (dist <= *(f32*)(func_002dc7c8(m) + 260)) *(s32*)(s + 56) = 1;
     }

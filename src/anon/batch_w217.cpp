@@ -24,10 +24,10 @@ void func_0010a828(f32 a, f32 b) {
     D_00340ec0 = 255.0f * b / d;
 }
 
-u32* func_0016c028(u32);
+u32* func_0016c028(u32);  // obj_get_attach_or_alt
 void func_0013f828(u32* t) {
     u32* s0 = t + 32;
-    u32* v = func_0016c028(t[17]);
+    u32* v = func_0016c028(t[17]);  // obj_get_attach_or_alt
     if (s0 != v) asm volatile("lq $8,0(%1)\n\tsq $8,0(%0)" :: "r"(s0), "r"(v) : "$8", "memory");
     ((f32*)t)[33] = ((f32*)t)[33] - 170.0f;
 }

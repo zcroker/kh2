@@ -11,7 +11,7 @@ extern "C" void func_00106420(void*);
 extern "C" void func_00106450(void*);
 extern "C" void func_00293eb0();
 extern "C" void func_00170c00(void*);
-extern "C" u32 func_001d9e30(u32);
+extern "C" u32 func_001d9e30(u32);  // record_range_check_or_first
 extern "C" s32 func_002764b0(u32);
 extern "C" u32 func_001d9d48(void*);
 
@@ -49,7 +49,7 @@ u32 JmComplete::isPuzzleInfoComp(s32 a0) {
 
 L_loop:
     {
-        u32 v0 = func_001d9e30(s0);
+        u32 v0 = func_001d9e30(s0);  // record_range_check_or_first
         if (v0 == 0) {
             goto L_ret;
         }

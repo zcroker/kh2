@@ -56,13 +56,13 @@ void func_00175af8(void*);
 s32 func_0018e0d8(TRAP*, s32);
 void func_001a49a0(u32, u32, u32);
 void func_00195558(void*);
-u8* func_001a80c8(s32);
+u8* func_001a80c8(s32);  // table24_find_by_id
 void func_001b8e88(u32);
-void func_001de168(void*, u32, u32, u32, u32, u32);
+void func_001de168(void*, u32, u32, u32, u32, u32);  // scan_list_by_half
 void func_001d2690(void*);
 void func_0021fbc0(u32);
 u16* func_002632d0();
-u8 func_001a3888(u16);
+u8 func_001a3888(u16);  // id_in_range_5_7_131
 u8 func_00139d78(u8*);
 u8* func_002766d0();
 void func_0028dac8(u8*, s32);
@@ -78,7 +78,7 @@ void func_00100338(void) {
 }
 
 // Set the current RGB colour.
-void func_0010a7d8(u8 r, u8 g, u8 b) {
+void func_0010a7d8(u8 r, u8 g, u8 b) {  // store_triple_bytes
     u8* c = (u8*)&D_00340ed0;
     c[0] = r;
     c[1] = g;
@@ -154,7 +154,7 @@ void func_00195750(void) {
     func_00195558(D_0034fa78);
 }
 
-void func_001a91f8(s32* p) {
+void func_001a91f8(s32* p) {  // obj_init_24bytes
     p[0] = -1;
     p[1] = 0;
     p[3] = 0;
@@ -163,17 +163,17 @@ void func_001a91f8(s32* p) {
 }
 
 void func_001b58f0(u8* p, u32 a1, u32 a2, u32 a3) {
-    func_001de168(p + 24, a1, a2, 1, 30000, a3);
+    func_001de168(p + 24, a1, a2, 1, 30000, a3);  // scan_list_by_half
 }
 
 // Advance the cursor by n 16-byte entries; returns the old position.
-Vec16* func_001b7ff8(Cursor16* c, s32 n) {
+Vec16* func_001b7ff8(Cursor16* c, s32 n) {  // bump_field8_alloc
     Vec16* r = c->p;
     c->p = r + n;
     return r;
 }
 
-void func_001d1678(s32* p, s32 a1) {
+void func_001d1678(s32* p, s32 a1) {  // obj_init_28bytes
     p[4] = a1;
     p[3] = 1;
     p[1] = 0;
@@ -181,7 +181,7 @@ void func_001d1678(s32* p, s32 a1) {
     p[10] = 0;
 }
 
-void func_001d2648(s32* p) {
+void func_001d2648(s32* p) {  // clear_fields_0_4_32
     p[0] = 0;
     p[1] = 0;
     p[8] = 0;
@@ -193,13 +193,13 @@ void func_001fb698(u32 base, OffsetHolder* h) {
 }
 
 // VU0 macro: d.xyz = s.xyz.
-void func_002226b8(void* d, void* s) {
+void func_002226b8(void* d, void* s) {  // vec3_copy
     asm volatile(".set noreorder\n\tlqc2 $vf1, 0(%0)\n\tlqc2 $vf2, 0(%1)\n\tvmove.xyz $vf1, $vf2\n\tsqc2 $vf1, 0(%0)\n\t.set reorder"
                  : : "r"(d), "r"(s) : "memory");
 }
 
 // VU0 square root.
-f32 func_00222978(f32 x) {
+f32 func_00222978(f32 x) {  // vu_sqrt_f12
     f32 v[4] __attribute__((aligned(16)));
     f32 r;
     v[1] = x;
@@ -209,7 +209,7 @@ f32 func_00222978(f32 x) {
 }
 
 // Returns 0 (and stores 0) when the value is unset (-1).
-s32 func_0023d2e0(s32* out) {
+s32 func_0023d2e0(s32* out) {  // store_global_test_result
     s32 v = D_0035eb48;
     s32 none = (v == -1);
     *out = none ? 0 : v;
@@ -223,19 +223,19 @@ void func_00258d58(s32 a, s32 b, s32 c) {
 }
 
 u8 func_00263688(void) {
-    return func_001a3888(*func_002632d0());
+    return func_001a3888(*func_002632d0());  // id_in_range_5_7_131
 }
 
 u8 func_00276f38(void) {
     return func_00139d78(D_0035f21c + 408);
 }
 
-Entry8* func_0028ac98(Table8* t, s32 id) {
+Entry8* func_0028ac98(Table8* t, s32 id) {  // lookup_by_index_align
     if (id == t->id) return &t->self[id];
     return &t->other[id];
 }
 
-void func_0028dfe8(u32* p) {
+void func_0028dfe8(u32* p) {  // obj_ctor_36f440
     p[14] = 0;
     p[3] = 0;
     p[0] = (u32)D_0035f440;
@@ -260,13 +260,13 @@ void func_002ead20(void** o, u32 a1) {
 }
 
 // VU0 macro: d = a - b.
-void func_002f3f10(void* d, void* a, void* b) {
+void func_002f3f10(void* d, void* a, void* b) {  // vec4_sub
     asm volatile("lqc2 $vf4, 0(%0)\n\tlqc2 $vf5, 0(%1)\n\tvsub.xyzw $vf6, $vf4, $vf5\n\tsqc2 $vf6, 0(%2)"
                  : : "r"(a), "r"(b), "r"(d) : "memory");
 }
 
 // VU0 macro: d = ftoi0(s).
-void func_002f3fd0(void* d, void* s) {
+void func_002f3fd0(void* d, void* s) {  // vec4_ftoi0_trunc
     asm volatile("lqc2 $vf4, 0(%0)\n\tvftoi0.xyzw $vf5, $vf4\n\tsqc2 $vf5, 0(%1)" : : "r"(s), "r"(d) : "memory");
 }
 
@@ -345,7 +345,7 @@ void ITEM::GetCommandElem(s32 id) {
 }
 }  // namespace YS
 
-f32 func_001826e0() {
+f32 func_001826e0() {  // global_float_diff
     return D_01c6053c - D_01c60540;
 }
 

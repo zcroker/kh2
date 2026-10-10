@@ -273,15 +273,15 @@ struct U24_W80Own { u8 pad[2548]; u8* heap; };
 
 
 extern "C" {
-U0_Hdr* func_00120800(U0_Obj*);
+U0_Hdr* func_00120800(U0_Obj*);  // obj_get_sub_ptr_by12
 u32 func_001319d8(u32, f32);
 void func_0013b348(u32);
 void func_002362b0(u8*, u32);
 s32 func_0013a9d0(void);
 void func_002368e8(u8*, f32);
-void func_002367c8(u8*);
+void func_002367c8(u8*);  // obj_dispatch_bitfield64
 void func_0013d4c8(void);
-u8* func_0013cb80(void);
+u8* func_0013cb80(void);  // get_global_358050
 void func_001387f8(u8*, u32, u8*, u32);
 void func_0013b2d8(f32);
 s32 func_00158450(U0_Inp*);
@@ -289,18 +289,18 @@ s32 func_001584a0(U0_Inp*);
 void func_0013fda0(U0_Body*);
 void func_0013fdc8(U0_Body*);
 void func_00106420(void*);
-U0_Info* func_0018a1b8(u32, u32, U0_Info*);
+U0_Info* func_0018a1b8(u32, u32, U0_Info*);  // find_byte1_entry
 u32 func_001b7850(U0_Chr*, u32, u32);
 s32 func_0016f460(void);
 void func_002fee78(char*, const char*, ...);
-s32 func_0016f7a0(u32);
-s32 func_0016f770(u32);
+s32 func_0016f7a0(u32);  // get_bit28
+s32 func_0016f770(u32);  // in_id_special_range
 s32 func_00170978(char*);
 char* func_002ff8b0(char*, s32);
 void func_002ff2e8(char*, const char*);
 void func_001700e8(U0_Blk*, u32);
-s32 func_0019c090(U0_Act*);
-s32 func_001b9d40(U0_Act*);
+s32 func_0019c090(U0_Act*);  // obj_is_enabled
+s32 func_001b9d40(U0_Act*);  // vtable_call_slot64_flags
 U0_Mot* func_00177860(U0_Act*);
 void func_0016bd60(U0_Act*, u32);
 s32 func_0019c400(U1_Turn*);
@@ -311,13 +311,13 @@ void func_002cb708(void*);
 void func_00105110(void*);
 void* func_0019b328(void*, u32);
 void* func_00182e08(u32);
-HasF4* func_0016c028(void*);
+HasF4* func_0016c028(void*);  // obj_get_attach_or_alt
 void* func_002cd018(U1_Eff*, void*, HasF4*, f32);
 s32 func_001d96e8(s32, s32);
 void func_00192cc0(char*, const char*, s32);
 void func_00192e50(u32, char*, u32, char*, char*, char*, char*, char*, char*);
-s32 func_0019f528(u8*, s32);
-s32 func_0019f550(u8*, s32);
+s32 func_0019f528(u8*, s32);  // test_bit_by_index
+s32 func_0019f550(u8*, s32);  // test_bit_addressable
 U2_Lvl* func_001b6fb0(void*, u32);
 void func_001b72c0(U2_Lvl*, void*, u32, u32);
 void func_001b7428(U2_GrowOwn*);
@@ -333,7 +333,7 @@ void func_002b797c(u32, u32, s32);
 f32 func_002f8960(f32);
 f32 func_002f87c0(f32);
 s32 func_00287bc0(void);
-void func_00287d68(void);
+void func_00287d68(void);  // copy_globals_3words
 s32 func_00287db0(void);
 s32 func_0028acc8(u32);
 s32 func_00139d78(void*);
@@ -373,7 +373,7 @@ s32 func_00181500(u32);
 U17_GotList* func_00294000(u32);
 s32 func_002a8920(u32);
 U18_Evt* func_001a82b0(U18_Evt*);
-U18_EvtInfo* func_001a80c8(u32);
+U18_EvtInfo* func_001a80c8(u32);  // table24_find_by_id
 s32 func_002a43b0(U18_Evt*);
 void func_00139510(void*);
 s32 func_002bb510(U20_Fade*);
@@ -393,7 +393,7 @@ void func_002e1440(U23_W80Obj*, U23_W80Vec*, U23_W80Vec*, U23_W80Vec*);
 U23_W80Vec* w80_pos_vec(void*) asm("func_0016c028");
 U23_AiParam* func_002d73f0(U23_Ai*);
 s32 func_002ceef8(U23_Ai*, U23_AiTgt*);
-U24_W80Eff* func_001db888(U24_W80Heap*, u32, void*);
+U24_W80Eff* func_001db888(U24_W80Heap*, u32, void*);  // record_index_calc
 void func_002ed8a0(void);
 void func_002ed558(U24_W80Eff*, U24_W80Own*, u32, u32, void (*)(void));
 void func_002ed5a8(U24_W80Eff*);
@@ -408,7 +408,7 @@ static inline bool func_00179450_busy(U0_Act* a) { bool b = func_0019c090(a) || 
 // clear the low two flag bits of every entry matching id (-1 = all)
 void func_001214c0(U0_Obj* p, u8* flags, s32 id) {
     U0_Hdr* h = p->h;
-    U0_Hdr* h2 = func_00120800(p);
+    U0_Hdr* h2 = func_00120800(p);  // obj_get_sub_ptr_by12
     s32 i;
     for (i = 0; i < h->n; i++) {
         if (id == -1 || ((h->e[i].w >> 6) & 0x1f) == (u32)id) flags[i] &= ~3;
@@ -441,7 +441,7 @@ void func_0013d550(u32 a, u32 b) {
     s = D_00348050 + 32;
     func_002362b0(s, a);
     if (func_0013a9d0()) func_002368e8(s, 0.95f);
-    func_002367c8(s);
+    func_002367c8(s);  // obj_dispatch_bitfield64
     D_003484a0->f672 = b;
     func_0013d4c8();
     func_001387f8(D_003484a0->sub, b, func_0013cb80() + 32, D_00348578.f8);
@@ -481,17 +481,17 @@ void func_00165768(U0_Link* n) {
 void func_0016a1b8(U0_Chr* c, u32 id) {
     U0_Info* v;
     c->id = id;
-    v = func_0018a1b8(id, 17, 0);
+    v = func_0018a1b8(id, 17, 0);  // find_byte1_entry
     if (v) {
         c->f1456.f = c->f1464.f = (f32)v->f16;
         c->f1460.f = (f32)v->f18;
         c->f1532.f = (f32)v->f14;
         c->b1 = v->f4 != 0;
         c->f2040 |= 1;
-        v = func_0018a1b8(c->id, 17, v);
+        v = func_0018a1b8(c->id, 17, v);  // find_byte1_entry
         if (v) {
             c->f1636 = v;
-            c->f1640 = func_0018a1b8(c->id, 17, v);
+            c->f1640 = func_0018a1b8(c->id, 17, v);  // find_byte1_entry
         }
     }
     c->f2088 = func_001b7850(c, c->id, 1);
@@ -502,17 +502,17 @@ char* func_0016f520(U0_Res* r, u32 key, char* buf) {
     if (!buf) buf = D_004f6400;
     if (func_0016f460()) {
         func_002fee78(buf, D_0036c460, r->f40);
-        if (func_0016f7a0(key) || (func_0016f770(key) && r->f4 && func_00170978(buf) < 2)) {
+        if (func_0016f7a0(key) || (func_0016f770(key) && r->f4 && func_00170978(buf) < 2)) {  // get_bit28
             func_002ff2e8(func_002ff8b0(buf, '.'), D_0036c468);
         }
         return buf;
     }
-    if (func_0016f7a0(key)) {
+    if (func_0016f7a0(key)) {  // get_bit28
         func_002fee78(buf, D_0036c478, r->f8);
     } else buf = 0;
     return buf;
 }
-u32 func_00170b30(u32 size) {
+u32 func_00170b30(u32 size) {  // alloc_align128
     U0_Blk* b;
     size += 127; size &= ~127;
     D_0034dca8--;
@@ -531,7 +531,7 @@ u32 func_00170b30(u32 size) {
 s32 func_00179450(U0_Act* a) {
     if (a->state == 7) {
         if (!func_00179450_busy(a)) return 0;
-        if (a->sub->f4 == 0 && func_001b9d40(a)) {
+        if (a->sub->f4 == 0 && func_001b9d40(a)) {  // vtable_call_slot64_flags
             if (!(a->f28 > 0.0f)) return 0;
             if (func_00177860(a)->f20 & 0x40) {
                 func_0016bd60(a, 22);
@@ -722,7 +722,7 @@ void func_00237808(U8_Rot3* o, f32 rx) {
 
 s32 func_00244068(void) {
     s32 m = func_00287bc0();
-    func_00287d68();
+    func_00287d68();  // copy_globals_3words
     if (func_00287db0()) {
         if (func_0028acc8(D_0035ece8) || func_0028acc8(D_0035ecec) || func_00139d78((void*)D_0035ecf0) || func_00139d78((void*)D_0035ecf4) || func_00139d78((void*)D_0035ecf8)) return 0;
         func_00243f48();
@@ -1006,7 +1006,7 @@ U24_W80Eff* func_002ed350(U24_W80Own* own, u32 a1, const U24_W80Param* prm, u32 
     U24_W80Heap* h = (U24_W80Heap*)(own->heap + 20);
     U24_W80Eff* e;
     if (!h->f8) return 0;
-    e = func_001db888(h, 128, __builtin_return_address(0));
+    e = func_001db888(h, 128, __builtin_return_address(0));  // record_index_calc
     func_002ed558(e, own, a1, a3, func_002ed8a0);
     e->prm = *prm;
     e->pos = *pos;
@@ -1015,7 +1015,7 @@ U24_W80Eff* func_002ed350(U24_W80Own* own, u32 a1, const U24_W80Param* prm, u32 
 }
 
 
-void func_00319870(u8* p) {
+void func_00319870(u8* p) {  // init_18x4_entries
     s32 i;
     u8* q;
     u8* s;

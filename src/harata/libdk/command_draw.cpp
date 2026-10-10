@@ -5,7 +5,7 @@ namespace dk {
 extern u8 D_003484a0 asm("D_003484a0");
 
 extern "C" u32 func_0013cb08(...);
-extern "C" u32 func_001bcf38(...);
+extern "C" u32 func_001bcf38(...);  // state_in_set_5_10_13to18
 extern "C" u32 func_0013a810(...);
 
 u32 COMMAND_DRAW::isInsertSkipCommand() {
@@ -18,7 +18,7 @@ u32 COMMAND_DRAW::isInsertSkipCommand() {
         if (func_0013cb08() != 0u) {
             t6 = 0u;
         } else {
-            t6 = func_001bcf38(s0);
+            t6 = func_001bcf38(s0);  // state_in_set_5_10_13to18
         }
     }
     return t6;

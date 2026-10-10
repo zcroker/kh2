@@ -16,14 +16,14 @@ void func_00294020(s32);
 void func_002a75c0(void);
 s32 func_00292630(void);
 s32 func_00287bc0(void);
-void func_00274cf0(s32);
+void func_00274cf0(s32);  // state_dispatch_0_1_2
 void func_002b3440(void);
 void func_002a9d88(void);
 void func_002acf48(void);
 void func_00274fa8(void);
 void func_00292870(void);
 void func_00242618(s32, s32);
-void func_00236d60(void);
+void func_00236d60(void);  // clear_64_entries_24
 s32 func_00275180(void);
 void func_00275438(void);
 void func_00274e50(void);
@@ -43,7 +43,7 @@ void func_00274b40(s32 a0) {
     }
     func_002a75c0();
     while (func_00292630()) func_00102448(a0, 0);
-    func_00274cf0(func_00287bc0());
+    func_00274cf0(func_00287bc0());  // state_dispatch_0_1_2
     func_002925c0();
     func_00102448(a0, 0);
     func_00170dd0(a0);
@@ -55,7 +55,7 @@ void func_00274b40(s32 a0) {
     func_00292870();
     func_00242618(11, 1);
     for (;;) {
-        func_00236d60();
+        func_00236d60();  // clear_64_entries_24
         if (func_00275180()) break;
         func_00275438();
         func_00102448(a0, 0);
@@ -120,10 +120,10 @@ extern s32 D_0035f01c;
 extern s32 D_0035f010;
 s32 func_002570a0(s32);
 void func_0027aed8(s32, s32*, s32*);
-s32 func_0027af58(void);
+s32 func_0027af58(void);  // check_state16_then_loop
 s32 func_0028b040(s32);
 s32 func_0027c3b8(s32);
-E27* func_00273180(s32, s32);
+E27* func_00273180(s32, s32);  // state_dispatch_2_3
 u8* func_001145b0(u16);
 u8* func_00281180(s32, s32);
 void func_0027c118(s32, s32);
@@ -131,7 +131,7 @@ void func_0027c118(s32, s32);
 void func_0027bf68(void) {
     s32 a, b;
     func_0027aed8(func_002570a0(15), &a, &b);
-    s32 busy = func_0027af58();
+    s32 busy = func_0027af58();  // check_state16_then_loop
     s32 idx = func_0028b040(D_0035f01c);
     s8 f16 = *(s8*)(REC(idx) + 16);
     s32 ok;
@@ -140,7 +140,7 @@ void func_0027bf68(void) {
     u8* sp_;
     u8* w;
     if (a != 0 || b == 0 || busy != 0 || f16 != 0 || func_0027c3b8(idx)) goto early;
-    v = func_00273180(4, -1);
+    v = func_00273180(4, -1);  // state_dispatch_2_3
     if (*(s8*)(REC(idx) + 14) != 0) {
         for (i = 0; i < 3; i++) {
             if (v[i].key == *(s8*)(REC(idx) + 18)) break;
@@ -173,13 +173,13 @@ extern S15 D_004f3650;
 extern S15 D_004f3700;
 extern T15 D_004f3744;
 void func_0015c4b8(void);
-s32 func_0015cc80(T15*);
-void func_0010a8a8(f32, f32);
+s32 func_0015cc80(T15*);  // test_float12_zero_and_bits
+void func_0010a8a8(f32, f32);  // store_global_float_pair
 void func_0010a828(f32, f32);
-void func_0010a7d8(u8, u8, u8);
+void func_0010a7d8(u8, u8, u8);  // store_triple_bytes
 void func_001dd1e8(u8, u8);
-void func_001dd1b0(f32, f32);
-void func_001dd1c8(u8, u8, u8);
+void func_001dd1b0(f32, f32);  // to_1e7018
+void func_001dd1c8(u8, u8, u8);  // to_1e7030_masked
 void func_0015c6d0(S15* a0) {
     D_004f36a8 = *a0;
     D_004f3650 = D_004f36a8;
@@ -189,14 +189,14 @@ void func_0015c6d0(S15* a0) {
     if (p->t.f16 == 0.0f) p->t.f16 = 255.0f;
     T15* t = &p->t;
     T15* g = &D_004f3744;
-    if (!func_0015cc80(t)) {
-        func_0010a8a8(t->f12, t->f16);
+    if (!func_0015cc80(t)) {  // test_float12_zero_and_bits
+        func_0010a8a8(t->f12, t->f16);  // store_global_float_pair
         func_0010a828(t->f4, t->f8);
-        func_0010a7d8(g->id, t->b1, t->b2);
+        func_0010a7d8(g->id, t->b1, t->b2);  // store_triple_bytes
     }
     func_001dd1e8((s32)t->f12, (s32)t->f16);
-    func_001dd1b0(t->f4, t->f8);
-    func_001dd1c8(g->id, t->b1, t->b2);
+    func_001dd1b0(t->f4, t->f8);  // to_1e7018
+    func_001dd1c8(g->id, t->b1, t->b2);  // to_1e7030_masked
 }
 }
 struct V287 {
@@ -224,10 +224,10 @@ extern u8* D_00352130;
 extern f32 D_00349e10;
 s32 func_001917b0(void);
 void func_0017de70(u8*);
-s32 func_001b9d40(u8*);
-s32 func_0019c090(u8*);
+s32 func_001b9d40(u8*);  // vtable_call_slot64_flags
+s32 func_0019c090(u8*);  // obj_is_enabled
 s32 func_001a3a78(void);
-s32 func_001de168(s32, s32, s32, s32, s32, s32);
+s32 func_001de168(s32, s32, s32, s32, s32, s32);  // scan_list_by_half
 void func_0017f540(u8*, s32, f32, f32);
 s32 func_0016bc20(u8*, s32, s32);
 V287* func_001dc5f8(s32);
@@ -247,9 +247,9 @@ void func_0017dcc0(u8* o) {
         *(f32*)(o + 2880) -= dt;
         if (*(f32*)(o + 2880) <= 0.0f) func_0017de70(o);
     }
-    if ((*(u32*)(o + 2040) & 4) && func_001b9d40(o)) {
+    if ((*(u32*)(o + 2040) & 4) && func_001b9d40(o)) {  // vtable_call_slot64_flags
         if (l287_idle(o)) {
-            if (*(s32*)(o + 2884) == 0) *(s32*)(o + 2884) = func_001de168(func_001a3a78(), 14, 1, 1, 0, 0);
+            if (*(s32*)(o + 2884) == 0) *(s32*)(o + 2884) = func_001de168(func_001a3a78(), 14, 1, 1, 0, 0);  // scan_list_by_half
             func_0017f540(o + 320, 54, 0.0f, 0.0f);
             goto out;
         }
@@ -287,7 +287,7 @@ extern "C" {
 extern u8* D_00361f60;
 extern f32 D_00349e10;
 s32 func_001c0cd8(void);
-V287* func_0016c028(u8*);
+V287* func_0016c028(u8*);  // obj_get_attach_or_alt
 u8* func_002d73f0(u8*);
 static inline void o287_tick(u8* self, f32 s) {
     *(f32*)(self + 2840) += s * D_00349e10;
@@ -300,7 +300,7 @@ f32 func_002dbf50(u8* a0) {
     *(f32*)(a0 + 2840) = 0.0f;
     M287 m = *(M287*)(cam + 336);
     m.invert();
-    V287 p = *func_0016c028(a0);
+    V287 p = *func_0016c028(a0);  // obj_get_attach_or_alt
     p.w = 1.0f;
     V287 r;
     o287_apply(&r, &m, &p);

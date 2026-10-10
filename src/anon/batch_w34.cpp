@@ -26,10 +26,10 @@ void func_00160e50(u32);
 void func_0015c2a0(u32, u64);
 void func_0011c4e8(u32, void*, u32, u32, u32, u32, f32);
 void func_0011c4b0(u32, void*);
-f32 func_0017d160(Vec4*, Vec4*);
+f32 func_0017d160(Vec4*, Vec4*);  // vec3_dot_clamped
 void func_002fee78(char*, const char*, void*);
 s32 func_0016a070(void*);
-void func_0017f380(s32);
+void func_0017f380(s32);  // obj_walk_children
 void func_0017f268(s32, s32, f32, f32);
 void func_001802d8(u32, u32, u32, u32, u32, u32);
 void* func_00185da8(void*);
@@ -139,7 +139,7 @@ void func_001a2618(u8* p, s32 n) {
     *(u16*)(p + 404) += n;
 }
 
-void func_00192800(u32, u32, Words6*);
+void func_00192800(u32, u32, Words6*);  // to_192528
 s32 func_001c9db0(u32);
 void func_001ac378(void*, u32, u32, u32, u32, u32, u32);
 void func_001aa668(void*, void*);
@@ -150,13 +150,13 @@ void func_001b8450(void*, u32, u32);
 s32 func_001bb4a0(void);
 void func_001c11a8(u32);
 void func_00177dc8(void*, u32, u32, u32, u32);
-void func_001d56f0(void*);
+void func_001d56f0(void*);  // zero_three_words
 void func_001d16f8(void*);
 void func_0014f688(u32, u32, u32, u32, u32);
 void func_001d1950(void*, u32);
 void func_001e2c00(u32);
-void func_001e6c00(u32);
-void func_001e6000(void*);
+void func_001e6c00(u32);  // alloc_336_align_171
+void func_001e6000(void*);  // obj_dec_timer
 
 extern void* D_00350bf0[];
 extern u8* D_01d48cb0;
@@ -182,7 +182,7 @@ extern Pair72 D_00354bf0[];
 
 
 void func_00192818(u32 a, u32 b, Words6 s) {
-    func_00192800(a, b, &s);
+    func_00192800(a, b, &s);  // to_192528
 }
 
 s32 func_001a8c78(u8* p, s32 n) {
@@ -224,7 +224,7 @@ void func_001ced10(u8* p, u32 a, u32 b, u32 c) {
     *(u32*)(p + 2920) = 0;
     *(u32*)(p + 2928) = 0;
     *(void**)p = D_003521e0;
-    func_001d56f0(p + 2932);
+    func_001d56f0(p + 2932);  // zero_three_words
     *(u32*)(p + 1420) |= 4;
 }
 
@@ -237,17 +237,17 @@ void func_001d18c0(u8* p) {
 
 void func_001e60b0(void) {
     for (Pair72* e = D_00354bf0; e->id >= 0; e++) {
-        func_001e6000(e->x);
-        func_001e6000(e->y);
+        func_001e6000(e->x);  // obj_dec_timer
+        func_001e6000(e->y);  // obj_dec_timer
     }
 }
 
-void func_002f4000(void*);
+void func_002f4000(void*);  // vu_store_w_splat
 s32 func_00139d78(void*);
 void func_0023f0c8(void*, s32);
 u8* func_001058e8(void);
 s32 func_0024ac88(void);
-void func_002839f0(s32);
+void func_002839f0(s32);  // entry416_by_masked_index
 void* func_002be908(void*);
 void func_002c1dc0(void);
 s32 func_00190140(void*);
@@ -258,16 +258,16 @@ void func_002dc4e0(void*, u32, u32);
 void func_002ceb08(void);
 void func_002cc620(u32, u8*, u32);
 void func_002eb6f8(u8*, s32);
-void func_001c1748(void*, u32, u32, u32);
+void func_001c1748(void*, u32, u32, u32);  // obj_init_from_src
 void func_00190128(void*);
 void func_00103748(void);
 void func_00170c00(u32);
 void func_00103bb0(s32);
 s32 func_00105c30(void);
 void func_00239870(void*);
-void func_0019f9a8(void*);
+void func_0019f9a8(void*);  // array8_free_slots
 void func_001c0248(void*);
-void func_00319fb0(void*);
+void func_00319fb0(void*);  // big_obj_dtor
 void func_00105110(void*);
 
 extern u8* D_01d9e6e0;
@@ -321,7 +321,7 @@ f32 func_00207260(void) {
 
 void func_0021f5d8(u8* p) {
     D_01d9e6e0[168] = 2;
-    func_002f4000(p + 64);
+    func_002f4000(p + 64);  // vu_store_w_splat
     *(f32*)(p + 172) = 1.0f;
 }
 
@@ -424,7 +424,7 @@ void func_002eb9d8(u32, u8* o, s32 k) {
 }
 
 void func_002ed508(u8* p, u8* q, u32 c, u32 d, u32 e) {
-    func_001c1748(p, *(u32*)(q + 2548), d, e);
+    func_001c1748(p, *(u32*)(q + 2548), d, e);  // obj_init_from_src
     *(u32*)(p + 80) = c;
     func_00190128(p + 100);
     *(u32*)(p + 120) = 0;
@@ -464,9 +464,9 @@ void func_0031d978(void** p) {
 
 void func_00324b08(void** p) {
     *p = D_0034ee08;
-    func_0019f9a8((u8*)p + 2568);
+    func_0019f9a8((u8*)p + 2568);  // array8_free_slots
     func_001c0248((u8*)p + 2640);
-    func_00319fb0(p);
+    func_00319fb0(p);  // big_obj_dtor
     func_00105110(p);
 }
 }
@@ -480,7 +480,7 @@ void u_tail0_0014d008(void) {
 }
 
 void f17f488(s32 a, s32 b, f32 x, f32 y) {
-    func_0017f380(a);
+    func_0017f380(a);  // obj_walk_children
     func_0017f268(a, b, x, y);
 }
 
@@ -496,7 +496,7 @@ void EFFECT_kill(void* e) {
     *(u32*)(p + 8) |= 0x10001;
     if (*(u32*)(p + 28)) {
         func_001e2c00(*(u32*)(p + 28));
-        func_001e6c00(*(u32*)(p + 28));
+        func_001e6c00(*(u32*)(p + 28));  // alloc_336_align_171
         *(u32*)(p + 28) = 0;
     }
 }

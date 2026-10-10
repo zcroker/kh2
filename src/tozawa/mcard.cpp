@@ -5,7 +5,7 @@ namespace Tz {
 extern u32 D_0035ec94 asm("D_0035ec94");
 extern u32 D_0035ec88 asm("D_0035ec88");
 extern u32 D_0035ec8c asm("D_0035ec8c");
-extern "C" void func_002ff3fc(...);
+extern "C" void func_002ff3fc(...);  // strlen
 extern "C" void func_002feee8(...);
 extern "C" u32 func_00234630(...);
 extern "C" u32 func_00234650(...);
@@ -49,7 +49,7 @@ u32 MCard::ChgDir(s32 doSync) {
     u32 t6 = D_0035ec8c;
     *(u8*)(t6 + 1) = 0;
     if (doSync == 0) {
-        func_002ff3fc(D_0035ec88);
+        func_002ff3fc(D_0035ec88);  // strlen
         func_002feee8(D_0035ec8c, D_0035ec88);
     }
     u8* q = (u8*)D_0035ec94;
@@ -57,7 +57,7 @@ u32 MCard::ChgDir(s32 doSync) {
 }
 
 u32 MCard::MakeDir() {
-    func_002ff3fc(D_0035ec88);
+    func_002ff3fc(D_0035ec88);  // strlen
     u32 t5 = D_0035ec8c;
     *(u8*)(t5 + 0) = 47;
     u32 t6 = D_0035ec8c;

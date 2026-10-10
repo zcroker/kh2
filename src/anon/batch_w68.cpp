@@ -54,18 +54,18 @@ void func_00137890(u8* p, u32 a1, u32 a2, u32 a3) {
 /* ---- 0013d2d0 ---- */
 struct Pair1 { u32 a, b; };
 extern Pair1 D_00348578[];
-u8* func_0013cb80(void);
+u8* func_0013cb80(void);  // get_global_358050
 s32 func_0013cb90(void);
 u32 func_0013cb30(void);
 void func_001386e0(void*, u32, u32, void*, u32, u32);
 void func_00138c40(void*, u32, u32);
-f32 func_0013b2a8(void*);
+f32 func_0013b2a8(void*);  // mul_float684_692
 void func_00138d48(void*, f32, f32, f32, f32);
 void func_0013d1d0(void*);
 
 void func_0013d2d0(u8* p) {
     u8* s = p + 260;
-    u8* a = func_0013cb80();
+    u8* a = func_0013cb80();  // get_global_358050
     s32 i = func_0013cb90();
     func_001386e0(s, 5301, func_0013cb30(), a + 32, D_00348578[i].b, 1);
     func_00138c40(s, 28, 322);
@@ -97,8 +97,8 @@ s32 func_00146c08(f32* pl, f32* box) {
 
 /* ---- 001519f8 ---- */
 s32 func_0023aa98(void*);
-f32 func_00151690(void*);
-void func_00239f18(void*, f32);
+f32 func_00151690(void*);  // scale_ratio_2888_2880
+void func_00239f18(void*, f32);  // obj_set_float312_and_flags
 void func_00138c68(void*, s32, u32);
 
 void func_001519f8(u8* p) {
@@ -106,8 +106,8 @@ void func_001519f8(u8* p) {
     u8* b = p + 1680;
     u8* c = p + 2064;
     f32 n = (f32)func_0023aa98(p + 2088);
-    func_00239f18(a, func_00151690(p));
-    func_00239f18(b, 1.0f - func_00151690(p));
+    func_00239f18(a, func_00151690(p));  // obj_set_float312_and_flags
+    func_00239f18(b, 1.0f - func_00151690(p));  // obj_set_float312_and_flags
     func_00138c68(c, (s32)(func_00151690(p) * n), 0);
 }
 
@@ -142,7 +142,7 @@ void ctarget0_0015c0f8(void* p) {
 struct Node2 { Node2* next; u32 busy; u8 data[1]; };
 extern Node2* D_0034d840;
 void func_0030edb0(void);
-void func_0030ee00(void);
+void func_0030ee00(void);  // ee_intr_get_enable
 u32 func_001ae1e0(void*);
 static inline Node2* Next2(Node2* n) { if (!n) return D_0034d840; return n->next; }
 
@@ -156,7 +156,7 @@ Node2* func_00168218(void) {
         if (n->busy) continue;
         if (best == 0 || v < bestv) { bestv = v; best = n; }
     }
-    func_0030ee00();
+    func_0030ee00();  // ee_intr_get_enable
     return best;
 }
 
@@ -165,12 +165,12 @@ extern u8 D_01f18000[];
 extern u8 D_01fc0000[];
 void func_002fde18(void*, u32, u32);
 extern Alloc1* D_0032b91c_a asm("D_0032b91c");
-void func_00168958(void*, u32, u32);
+void func_00168958(void*, u32, u32);  // obj_init_name_string
 
 void func_00168548(u32 a0, u32 a1, u32 a2) {
     func_002fde18(D_01f18000, 0, D_01fc0000 - D_01f18000);
     u8* o = (u8*)D_0032b91c_a->vt[0](D_0032b91c_a, 76, (u32)__builtin_return_address(0));
-    func_00168958(o, 2, a0);
+    func_00168958(o, 2, a0);  // obj_init_name_string
     *(u8**)(o + 52) = D_01f18000;
     *(u32*)(o + 56) = a1;
     *(u32*)(o + 60) = a2;
@@ -179,7 +179,7 @@ void func_00168548(u32 a0, u32 a1, u32 a2) {
 /* ---- 001849d8 ---- */
 struct Bits3 { u64 lo:3; u64 kind:4; u64 mid:26; u64 dirty:1; };
 struct Ent3 { u8 pad[1528]; f32 val; u32 pad2; union { u64 raw; Bits3 b; } u; };
-void* func_0016c028(Ent3*);
+void* func_0016c028(Ent3*);  // obj_get_attach_or_alt
 s32 func_001a7610(void*, f32*, s32, f32, f32);
 static inline bool clean3(Ent3* e) { return !e->u.b.dirty; }
 
@@ -220,16 +220,16 @@ s32 func_00191ab8(void) {
 struct Slot4 { void* obj; u32 val; };
 extern Slot4 D_01c61970[];
 struct Prop4 { u32 f0, f4, val; };
-Prop4* func_00168b38(void*, u32, u32);
+Prop4* func_00168b38(void*, u32, u32);  // entry_array_find_nth
 void func_001aadb0(u32);
 static inline bool has4(Prop4* p) { return p && p->val; }
 
 void func_00191f78(s32 idx, void* obj) {
     Slot4* s = &D_01c61970[idx];
     s->obj = obj;
-    Prop4* p = func_00168b38(obj, 2, 0);
+    Prop4* p = func_00168b38(obj, 2, 0);  // entry_array_find_nth
     if (has4(p)) s->val = p->val; else s->val = 0;
-    p = func_00168b38(obj, 24, 0);
+    p = func_00168b38(obj, 24, 0);  // entry_array_find_nth
     if (has4(p)) func_001aadb0(p->val);
 }
 
@@ -265,7 +265,7 @@ s32 func_0019bb98(u8* p) {
 }
 
 /* ---- 001c2858 ---- */
-void func_001c2858(f32* o, void* a, void* b, s32 n) {
+void func_001c2858(f32* o, void* a, void* b, s32 n) {  // copy_2quads_and_ratio
     asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(o), "r"(a) : "$8", "memory");
     asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(o + 4), "r"(b) : "$8", "memory");
     f32 r = o[6] / o[4];
@@ -457,7 +457,7 @@ void func_0028c4f8(void);
 void func_0023ede8(void);
 void func_00288b78(void);
 void func_0023ed38(void);
-void func_00287c20(void);
+void func_00287c20(void);  // clear_global_flag_return_m1
 void func_00287f30(void);
 struct VObj { void (**vt)(VObj*); };
 extern s32 D_0035f2ec;
@@ -476,7 +476,7 @@ void func_00287a28(void) {
     D_0035f318 = 0;
     D_0035f2f0 = 0;
     D_0035f2f4 = 0;
-    func_00287c20();
+    func_00287c20();  // clear_global_flag_return_m1
     if (D_0035f31c) {
         D_0035f31c->vt[4](D_0035f31c);
         D_0035f31c = 0;
@@ -493,7 +493,7 @@ struct T18 { s32 n; E18 e[1]; };
 extern T18* D_0035f608;
 extern void* D_0035f200;
 s32 func_0028afa8(void*);
-void func_0028afd0(void*, s32);
+void func_0028afd0(void*, s32);  // obj_set_signed18
 
 void func_002a9048(void) {
     s32 sel;
@@ -509,7 +509,7 @@ void func_002a9048(void) {
         sel = i;
         if (sel >= func_0028afa8(D_0035f200)) sel = func_0028afa8(D_0035f200) - 1;
     }
-    func_0028afd0(D_0035f200, sel);
+    func_0028afd0(D_0035f200, sel);  // obj_set_signed18
 }
 
 /* ---- 002ad1b0 ---- */
@@ -533,7 +533,7 @@ s32 func_002ad1b0(s32 id) {
 /* ---- 002b1a00 ---- */
 struct E19 { u16 a; s16 b; };
 extern E19 D_00374c68[];
-u32* func_002b23e0(s32);
+u32* func_002b23e0(s32);  // list_entry_by_index_checked
 void func_00276c50(s32, u32);
 
 void func_002b1a00(void) {
@@ -550,11 +550,11 @@ void func_002b1a00(void) {
 }
 
 /* ---- 002dda88 ---- */
-void func_002cfeb0(void*, void*, u32, u32);
+void func_002cfeb0(void*, void*, u32, u32);  // obj_init_field1416_bit800
 extern void* D_00362b68;
 union U20 { u32 id; f32 f; };
 void func_002dda88(u8* o, U20* a1, u32 a2) {
-    func_002cfeb0(o, a1, 3, a2);
+    func_002cfeb0(o, a1, 3, a2);  // obj_init_field1416_bit800
     *(u32*)o = (u32)&D_00362b68;
     *(f32*)(o + 2840) = 300.0f;
     switch (a1->id) {
@@ -603,7 +603,7 @@ Vec128* func_002eae08(Vec128* out, u32 a1, u32 a2) {
 /* ---- 002f13b0 ---- */
 union F25 { f32 f; u8 c; };
 extern F25 D_00349e10;
-s32 func_001ba028(u32);
+s32 func_001ba028(u32);  // list_contains_ptr
 f32 func_0017ce10(f32);
 void func_0016aeb8(u32, f32);
 struct O21 { u32 f0; u32 h; f32 time; f32 dflt; f32 speed; f32 val; };
@@ -650,7 +650,7 @@ done:
 }
 
 /* ---- 00134030: wait for VIF1 / GIF / VU0 / IPU idle ---- */
-s32 func_00134030(void) {
+s32 func_00134030(void) {  // poll_timer_status
     if (*(volatile u32*)0x10009000 & 0x100) {
         // spin on COP0 condition (hand-written padding)
         asm volatile("1:\n\tnop\n\tnop\n\tnop\n\tnop\n\tnop\n\tnop\n\tnop\n\tbc0f 1b\n\tnop");
@@ -687,7 +687,7 @@ Vec128* func_001b2578(Path29* p, Vec128* pos) {
 /* ---- 0031f6d8: destructor body ---- */
 extern void* D_00350bb0;
 extern void* D_0034e8a8;
-void func_00239848(void*);
+void func_00239848(void*);  // set_vtbl_36eb28_then_call
 void func_001ac5b8(void*);
 void func_00105110(void*);
 void func_0031f6d8(u8* o) {
@@ -706,7 +706,7 @@ done:
     func_00239870(o + 848);
     func_00239870(o + 484);
     *(void**)(o + 132) = &D_0034e8a8;
-    func_00239848(o + 132);
+    func_00239848(o + 132);  // set_vtbl_36eb28_then_call
     func_001ac5b8(o);
     func_00105110(o);
 }

@@ -60,15 +60,15 @@ void func_001058f8(int a, int b)
     NoTail nt;
     if (b == 0xffff && a == 1) {
         u8* s = D_0032bb30;
-        func_00319bd0(s + 12);
+        func_00319bd0(s + 12);  // clear_18x64_entries
         func_00188e08(s + 9456);
-        func_00319870(s + 16364);
+        func_00319870(s + 16364);  // init_18x4_entries
         func_00319930(s + 16808);
-        func_00319d20(s + 18904);
+        func_00319d20(s + 18904);  // zero_two_words
         func_00319d30(s + 18912);
-        func_00319d58(s + 18928);
+        func_00319d58(s + 18928);  // store_zero_byte
         func_003199d0(s + 18932);
-        func_00319a60(s + 19512);
+        func_00319a60(s + 19512);  // clear_fixed_blocks
         func_002e7768(s + 21920);
         func_001e0868(s + 0x100e0);
     }
@@ -170,7 +170,7 @@ void func_00113628(Obj*);
 void func_0031a060(void*);
 FU* func_00114490(Obj*, s32);
 void func_0011b6a8(void*);
-void func_00117910(Obj*, s32);
+void func_00117910(Obj*, s32);  // entry64_clear_fields
 void func_00117b38(Obj* o)
 {
     func_00113628(o);
@@ -189,7 +189,7 @@ void func_00117b38(Obj* o)
     o->f1576 = 15.0f;
     o->f1580 = 0.19634955f;
     func_0011b6a8(o->sub1728);
-    for (s32 i = 0; i < 24; i++) func_00117910(o, i);
+    for (s32 i = 0; i < 24; i++) func_00117910(o, i);  // entry64_clear_fields
     o->f1568 = 0;
     o->f1928 = 0;
 }
@@ -205,13 +205,13 @@ struct Elem { s32 vt; };
 struct Obj { void* vt; u32* tbl; u8 p8[8]; s32 n; s32 a[3]; s32 b[3]; };
 extern "C" {
 extern u8 D_00347a90[];
-void func_0011ee18(Obj*);
+void func_0011ee18(Obj*);  // obj_ctor_347940
 void func_0011f2f0(Elem*);
 void func_00123ac0(Obj* o)
 {
     s32 a = 0;
     s32 b = 0;
-    func_0011ee18(o);
+    func_0011ee18(o);  // obj_ctor_347940
     u32* t = o->tbl;
     o->n = 0;
     o->vt = D_00347a90;
@@ -260,13 +260,13 @@ struct Cam { u8 p0[32]; Mtx m; };
 struct Mats { u8 p0[16]; Mtx m; };
 extern "C" {
 extern Cam* D_00347f80;
-Mtx* func_00106a18(s32);
-Mats* func_00106a60(s32);
+Mtx* func_00106a18(s32);  // buffer_get_256
+Mats* func_00106a60(s32);  // buffer_get_by_index
 void func_00139c90(void)
 {
     Mtx* d = &D_00347f80->m;
-    Mtx* a = func_00106a18(0);
-    Mats* b = func_00106a60(0);
+    Mtx* a = func_00106a18(0);  // buffer_get_256
+    Mats* b = func_00106a60(0);  // buffer_get_by_index
     *d = Mul(*a, b ? b->m : *(Mtx*)0);
 }
 }
@@ -291,7 +291,7 @@ s32 func_00147050(Graph* g, s32 idx, u8* c, s32 depth, s32* best)
     for (s32 i = 0; i < 8; i++) {
         s32 k = *l++;
         if (k == -1) break;
-        s32 r = func_00147050(g, k, c, depth + 1, best);
+        s32 r = func_00147050(g, k, c, depth + 1, best);  // entry48_process_5args
         if (r) found = r;
     }
     return found;
@@ -303,7 +303,7 @@ s32 func_00147050(Graph* g, s32 idx, u8* c, s32 depth, s32* best)
 namespace n0014ae10 {
 extern "C" {
 extern u8 D_003495c0[], D_003496d0[], D_003497e0[], D_003498f0[], D_00349a00[], D_003494b0[];
-void func_0014a988(void*);
+void func_0014a988(void*);  // clear_fields_244_260
 void func_0014ad58(void);
 void func_00102c18(s32, s32, void (*)(void));
 void func_0014ac48(void);
@@ -312,12 +312,12 @@ void func_0014ac90(void);
 void func_0014acb0(void);
 void func_0014ae10(void)
 {
-    func_0014a988(D_003495c0);
-    func_0014a988(D_003496d0);
-    func_0014a988(D_003497e0);
-    func_0014a988(D_003498f0);
-    func_0014a988(D_00349a00);
-    func_0014a988(D_003494b0);
+    func_0014a988(D_003495c0);  // clear_fields_244_260
+    func_0014a988(D_003496d0);  // clear_fields_244_260
+    func_0014a988(D_003497e0);  // clear_fields_244_260
+    func_0014a988(D_003498f0);  // clear_fields_244_260
+    func_0014a988(D_00349a00);  // clear_fields_244_260
+    func_0014a988(D_003494b0);  // clear_fields_244_260
     func_0014ad58();
     func_00102c18(0, 80000, func_0014ac48);
     func_00102c18(0, 80000, func_0014ac68);
@@ -338,7 +338,7 @@ void func_0016cab8(void*);
 void func_0016c7d8(void*);
 void func_001de450(void*);
 void func_001dde40(void*);
-void func_0016a2b0(Obj*);
+void func_0016a2b0(Obj*);  // clear_15_words_at1976
 s32 func_001c0cd8(Obj*);
 void func_001c0e60(Obj*);
 void func_0016b668(Obj* o)
@@ -358,7 +358,7 @@ void func_0016b668(Obj* o)
         s = &o->f156;
         func_001de450(s);
         func_001dde40(s);
-        func_0016a2b0(o);
+        func_0016a2b0(o);  // clear_15_words_at1976
     }
     if (func_001c0cd8(o)) func_001c0e60(o);
     o->f264 |= 0x80000;
@@ -388,8 +388,8 @@ static inline bool Flag(Obj* o)
     return r;
 }
 extern "C" {
-double func_00313b80(f32);
-s32 func_003142e0(double, double);
+double func_00313b80(f32);  // float_to_double
+s32 func_003142e0(double, double);  // double_compare
 s32 func_00175bb8(Obj* o)
 {
     QWord v = o->pos;
@@ -493,7 +493,7 @@ Q* func_001050d8(s32);
 void func_0018d238(Q*, s32, s32, s32, s32, s32, s32);
 Res* func_0018da18(Q*, Tgt*, s32, s32);
 Res* func_0018db38(Q*, Tgt*, s32, s32);
-void func_0018ca10(Res*);
+void func_0018ca10(Res*);  // alloc_from_pool_magic
 void func_0018f028(Q*);
 s32 func_0018ee60(s32 a, s32 b, Tgt* t, QWord* v, u8 flag)
 {
@@ -507,7 +507,7 @@ s32 func_0018ee60(s32 a, s32 b, Tgt* t, QWord* v, u8 flag)
         r = (res->f24 & 1) ^ 1;
         res->q = *v;
         t->vt[25](t, res);
-        func_0018ca10(res);
+        func_0018ca10(res);  // alloc_from_pool_magic
     }
     func_0018f028(q);
     return r;
@@ -544,8 +544,8 @@ void func_00195d00(Obj* o, Ent* e)
 // ---- 001a2a50 / 001a2d78: apply to one target or to every party slot
 namespace n001a2a50 {
 extern "C" {
-void* func_001a80c8(s32);
-s32 func_001a3888(s32);
+void* func_001a80c8(s32);  // table24_find_by_id
+s32 func_001a3888(s32);  // id_in_range_5_7_131
 void* func_001a8bd0(s32);
 s32 func_001a8c10(void*, s32);
 void func_001a2b50(void*, s32, s32, s32);
@@ -553,8 +553,8 @@ s32 func_001a2e50(void*, s32);
 s32 func_001a2a50(s32 id, s32 a, s32 b, s32 c)
 {
     s32 r = 0;
-    void* w = func_001a80c8(id);
-    if (!func_001a3888(id)) {
+    void* w = func_001a80c8(id);  // table24_find_by_id
+    if (!func_001a3888(id)) {  // id_in_range_5_7_131
         func_001a2b50(w, a, b, c);
         if (a != b) r = 1;
     } else {
@@ -572,8 +572,8 @@ s32 func_001a2a50(s32 id, s32 a, s32 b, s32 c)
 s32 func_001a2d78(s32 id, s32 a)
 {
     s32 r = 0;
-    void* w = func_001a80c8(id);
-    if (!func_001a3888(id)) {
+    void* w = func_001a80c8(id);  // table24_find_by_id
+    if (!func_001a3888(id)) {  // id_in_range_5_7_131
         r = func_001a2e50(w, a);
     } else {
         void* g = func_001a8bd0(-1);
@@ -604,7 +604,7 @@ extern "C" {
 void* func_001b7998(void*, void*);
 void func_0018a7d0(void*, void*, QWord*);
 void func_001b7b10(void*, List*, QWord*, QWord*);
-void func_001b7958(void*, QWord*);
+void func_001b7958(void*, QWord*);  // add_vec_to_records
 void func_001b7a18(void* o, List* l, QWord* acc)
 {
     QWord t;
@@ -615,7 +615,7 @@ void func_001b7a18(void* o, List* l, QWord* acc)
             func_0018a7d0(x, l->items[i].p0, &t);
             func_001b7b10(o, l, acc, &t);
             Scale(&s, &t, -1.0f);
-            func_001b7958(o, &s);
+            func_001b7958(o, &s);  // add_vec_to_records
             SubIn(acc, &t);
         }
     }
@@ -662,14 +662,14 @@ static inline f32 Length(const QWord& v)
 extern "C" {
 extern void* D_0034e948;
 s32 func_0019ba60(void*);
-QWord* func_0016c028(void*);
-f32 func_002f8870(f32);
+QWord* func_0016c028(void*);  // obj_get_attach_or_alt
+f32 func_002f8870(f32);  // fabsf
 s32 func_001da070(void* o)
 {
     void* p = D_0034e948;
     if (!func_0019ba60(p)) return 0;
-    QWord* a = func_0016c028(p);
-    QWord d = Sub(*a, *func_0016c028(o));
+    QWord* a = func_0016c028(p);  // obj_get_attach_or_alt
+    QWord d = Sub(*a, *func_0016c028(o));  // obj_get_attach_or_alt
     d.y += -50.0f;
     if (func_002f8870(d.y) > 90.0f) return 0;
     *(u32*)&d.y = 0;
@@ -687,14 +687,14 @@ extern MP D_01d9e6e8;
 extern f32 D_00354be0[];
 extern f32 D_01d9e840[];
 extern u8 D_01d9e8c0[];
-void func_002f3f40(void*, void*, f32);
+void func_002f3f40(void*, void*, f32);  // vec_scale_by_f12
 void func_002f3f28(void*, void*, f32*);
 void func_002f3d08(void*, void*, void*);
 void func_001eb368(void)
 {
-    func_002f3f40(D_01d9e6e8.p->r0, D_01d9e6e8.p->a, D_00354be0[0]);
-    func_002f3f40(D_01d9e6e8.p->r1, D_01d9e6e8.p->b, D_00354be0[1]);
-    func_002f3f40(D_01d9e6e8.p->r2, D_01d9e6e8.p->c, D_00354be0[2]);
+    func_002f3f40(D_01d9e6e8.p->r0, D_01d9e6e8.p->a, D_00354be0[0]);  // vec_scale_by_f12
+    func_002f3f40(D_01d9e6e8.p->r1, D_01d9e6e8.p->b, D_00354be0[1]);  // vec_scale_by_f12
+    func_002f3f40(D_01d9e6e8.p->r2, D_01d9e6e8.p->c, D_00354be0[2]);  // vec_scale_by_f12
     func_002f3f28(D_01d9e6e8.p->t, D_01d9e6e8.p->d, D_00354be0);
     D_01d9e6e8.p->t[0] += D_01d9e840[12];
     D_01d9e6e8.p->t[1] += D_01d9e840[13];
@@ -715,9 +715,9 @@ struct Obj { u8 p0[8]; AP act; };
 extern "C" {
 extern Tbl* D_0035de50;
 extern s32 D_0035de20;
-s32 func_00225b00(s32);
+s32 func_00225b00(s32);  // flag_query_by_index
 Obj* func_00227d10(s32);
-s32 func_001ba028(Act*);
+s32 func_001ba028(Act*);  // list_contains_ptr
 s32 func_00227d58(s32);
 void func_0022ca00(void)
 {
@@ -753,7 +753,7 @@ extern "C" {
 extern Tbl* D_0035de4c;
 s32 func_002baa20(s32);
 void func_002baa48(s32);
-void func_00232718(void);
+void func_00232718(void);  // decrement_global_clamped
 void func_002278e0(Obj*);
 void func_00232988(void)
 {
@@ -767,7 +767,7 @@ void func_00232988(void)
         if (o->type != 3) continue;
         if (func_002baa20(o->f20) == 1) {
             func_002baa48(o->f20);
-            func_00232718();
+            func_00232718();  // decrement_global_clamped
         }
         func_002278e0(o);
     }
@@ -783,7 +783,7 @@ extern char D_00371370[];
 extern char D_00371378[];
 extern char D_00371380[];
 char* func_002feee8(char*, const char*);
-void func_002ff3fc(char*);
+void func_002ff3fc(char*);  // strlen
 char* func_002330c8(const char* path, const char* name)
 {
     char buf[48];
@@ -806,8 +806,8 @@ char* func_002330c8(const char* path, const char* name)
     func_002feee8(D_01dadbd8, name);
     func_002feee8(D_01dadbd8, p);
     func_002feee8(D_01dadbd8, D_00371380);
-    func_002ff3fc(D_01dadbd8);
-    func_002ff3fc(buf);
+    func_002ff3fc(D_01dadbd8);  // strlen
+    func_002ff3fc(buf);  // strlen
     return D_01dadbd8;
 }
 }
@@ -820,7 +820,7 @@ struct Ent { s32 f0; s32 idx; s32 arg; s32 add; u8 p16[8]; };
 struct Item { u8 p0[344]; };
 struct Obj { u8 p0[16]; Ent* ents; Grp* grps; u8 p24[20]; Item* items; };
 extern "C" {
-s32 func_00239b50(Item*, s32);
+s32 func_00239b50(Item*, s32);  // find_entry_in_group
 s32 func_0023c5f0(Obj* o, s32 g)
 {
     Grp* gp = &o->grps[g];
@@ -915,8 +915,8 @@ extern s8* D_0035f1fc;
 void func_00293bd0(s32, s32, s32);
 s32 func_002953c8(s32);
 s32 func_002941d8(s32);
-s32 func_00296f90(void);
-s32 func_00296f80(void);
+s32 func_00296f90(void);  // get_global_36f598
+s32 func_00296f80(void);  // get_global_36f594
 void func_00274cf0(s32 m)
 {
     switch (m) {
@@ -1011,7 +1011,7 @@ namespace n00285d58 {
 struct Rec { u8 f0, f1, kind; };
 extern "C" {
 extern u32* D_0035f2e4;
-Rec* func_001a80c8(s32);
+Rec* func_001a80c8(s32);  // table24_find_by_id
 s32 func_00285d18(u8);
 s32 func_00285d58(s32 id)
 {
@@ -1065,13 +1065,13 @@ struct Def { s16 anim; s16 f2; s16 f4; };
 union N16 { s16 v; s32 i; };
 struct Obj { u8 p0[4]; N16 n; u8 p8[6]; s16 f14; u8 p16[24]; Spr** sprs; };
 extern "C" {
-Def* func_0028ac98(Obj*, s32);
+Def* func_0028ac98(Obj*, s32);  // lookup_by_index_align
 void func_00138c10(Spr*, s32);
 void func_0028a980(Obj* o)
 {
     for (s32 i = 0; i < o->n.v; i++) {
         if (!o->sprs[i]) continue;
-        Def* d = func_0028ac98(o, i);
+        Def* d = func_0028ac98(o, i);  // lookup_by_index_align
         if (d) {
             func_00138c10(o->sprs[i], d->anim);
             o->sprs[i]->f392 = d->f4;
@@ -1220,19 +1220,19 @@ static inline f32 Length(const QWord& v)
 struct Pt { QWord pos; QWord dir; };
 struct Obj { u8 p0[8]; s32 f8; };
 extern "C" {
-QWord* func_002cb828(Obj*, QWord*);
+QWord* func_002cb828(Obj*, QWord*);  // ring_advance_index
 Pt* func_002cb8e0(Obj*);
-s32 func_002cb920(Obj*);
+s32 func_002cb920(Obj*);  // get_sum_fields_minus1
 void func_002cd428(Obj* o, QWord* p)
 {
     if (!o->f8) {
-        func_002cb828(o, p);
+        func_002cb828(o, p);  // ring_advance_index
         return;
     }
     QWord d = Sub(func_002cb8e0(o)->pos, *p);
     if (Length(d) < 100.0f) return;
     Pt* t = func_002cb8e0(o);
-    QWord* q = func_002cb828(o, p);
+    QWord* q = func_002cb828(o, p);  // ring_advance_index
     t->dir = Sub(*q, t->pos);
     t->dir.v[3] = func_002cb920(o) - 1;
 }

@@ -50,7 +50,7 @@ void func_0013d750(u32 a) {
 
 struct E20 { u8 pad[16]; u8 flag; u8 id; u8 pad2[2]; };
 // Flags every 20-byte entry whose id matches.
-void func_00141928(u8* o, u8 id) {
+void func_00141928(u8* o, u8 id) {  // mark_records_by_index
     s32 n = *(s32*)(o + 36);
     s32 i;
     for (i = 0; i < n; i++) {
@@ -159,13 +159,13 @@ void func_0019da20(u8* o, u32 a) {
 }
 
 void func_00239700(void*);
-u32 func_001ab810(void);
+u32 func_001ab810(void);  // get_global_1c7cec0
 u32 func_001ab800(void);
 void func_00239988(void*, u32, u32);
 void func_001abfd8(u8* o) {
     o[0] = 0;
     func_00239700(o + 4);
-    u32 x = func_001ab810();
+    u32 x = func_001ab810();  // get_global_1c7cec0
     u32 y = func_001ab800();
     func_00239988(o + 4, x, y);
 }
@@ -237,7 +237,7 @@ void func_001d14e0(u8* o, u32 a, u32 b, u32 c) {
 }
 
 u8 func_001ddef0(u32**, u8*);
-u32 func_001de168(u32** o, u32 id) {
+u32 func_001de168(u32** o, u32 id) {  // scan_list_by_half
     u32 r = 0;
     s32 n = (*o)[2];
     s32 i;
@@ -253,11 +253,11 @@ u32 func_001de168(u32** o, u32 id) {
 
 extern u8 D_00354bc0;
 extern u8 D_00354be0;
-u8 func_002f3f88(void*, void*);
+u8 func_002f3f88(void*, void*);  // memcpy16
 s32 func_002006b0(u8* a, u8* b) {
     u8* s = a + *(s32*)(*(u8**)(b + 12) + 4);
-    func_002f3f88(s + 160, &D_00354bc0);
-    return func_002f3f88(s + 176, &D_00354be0);
+    func_002f3f88(s + 160, &D_00354bc0);  // memcpy16
+    return func_002f3f88(s + 176, &D_00354be0);  // memcpy16
 }
 
 // Clears a 256-entry u64 table; the original has a 3-nop pad in the loop (asm).
@@ -309,7 +309,7 @@ void func_00284ea8(void) {
 
 s32 func_00181500(u16);
 s32 func_001a3570(u16);
-s32 func_00294480(u16* o) {
+s32 func_00294480(u16* o) {  // record_lookup_success
     s32 r = 0;
     if (((s8*)o)[6] != 2) {
         if (func_00181500(o[0])) r = 1;
@@ -367,7 +367,7 @@ extern u8 D_003637e0;
 struct C4 { u8 r, g, b, a; };
 struct O2ed { void* vt; u32 a, b, c, d, e; C4 col; u32 f; };
 // Constructor: zeroed fields, colour 128/128/128/128.
-void func_002edf28(O2ed* o) {
+void func_002edf28(O2ed* o) {  // obj_ctor_3637e0
     o->a = 0;
     o->c = 0;
     o->vt = &D_003637e0;

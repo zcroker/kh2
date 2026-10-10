@@ -8,10 +8,10 @@ extern u8 D_01d9e360[];
 extern M* D_01d9e6e0;
 extern s32 D_01d9ea9c;
 extern "C" {
-void func_002f3f10(void*, void*, void*);
-f32 func_002229a0(void*);
-void func_002f3d98(void*, void*);
-void func_002f3f40(void*, void*, f32);
+void func_002f3f10(void*, void*, void*);  // vec4_sub
+f32 func_002229a0(void*);  // vec3_length
+void func_002f3d98(void*, void*);  // vec4_normalize
+void func_002f3f40(void*, void*, f32);  // vec_scale_by_f12
 void func_00222750(void*, void*, void*);
 void func_001fbfd8(u8* a, K* k, X* x) {
     u8 buf[16];
@@ -30,11 +30,11 @@ void func_001fbfd8(u8* a, K* k, X* x) {
     if (s == (S*)D_01d9e360) return;
     XC* c = (XC*)x->c;
     u8* d = a + c->o4 + 160;
-    func_002f3f10(buf, s->p8, a + c->o0 + 160);
-    f32 len = func_002229a0(buf);
-    func_002f3d98(buf, buf);
+    func_002f3f10(buf, s->p8, a + c->o0 + 160);  // vec4_sub
+    f32 len = func_002229a0(buf);  // vec3_length
+    func_002f3d98(buf, buf);  // vec4_normalize
     if (len < s->f0) {
-        func_002f3f40(buf, buf, (1.0f - len / s->f0) * s->f4);
+        func_002f3f40(buf, buf, (1.0f - len / s->f0) * s->f4);  // vec_scale_by_f12
         func_00222750(d, d, buf);
     }
 }
@@ -67,9 +67,9 @@ struct O { u8 pad[16]; QV v16; QV v32; };
 struct GP { f32 f0, f4, f8, f12, f16, f20, f24, f28, g32; };
 extern GP D_00363630;
 extern "C" {
-u64 func_00313b80(f32);
-s32 func_003142e0(u64, u64);
-void func_00183768(O*, QV*, f32);
+u64 func_00313b80(f32);  // float_to_double
+s32 func_003142e0(u64, u64);  // double_compare
+void func_00183768(O*, QV*, f32);  // copy_quad_at16_and_len
 QV func_00184540(O*, f32, f32);
 void func_00184ad0(O*, QV*);
 QV func_002ede48(O*, QV*, f32, f32);
@@ -78,8 +78,8 @@ QV func_002ed068(void* unused, O* o) {
     r = o->v32;
     f32 len = normalize(&r);
     r.w = len;
-    if (func_003142e0(0, func_00313b80(o->v16.w)) < 0 && o->v16.w <= len) {
-        func_00183768(o, &o->v16, len);
+    if (func_003142e0(0, func_00313b80(o->v16.w)) < 0 && o->v16.w <= len) {  // double_compare
+        func_00183768(o, &o->v16, len);  // copy_quad_at16_and_len
     }
     f32 t = (D_00363630.f24 < o->v16.w) ? D_00363630.f16 : D_00363630.f20;
     r = func_00184540(o, D_00363630.f12, 1.0f - t);

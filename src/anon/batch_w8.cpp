@@ -26,14 +26,14 @@ void func_0011c7f8(u8* self, u32 x) {
     ((VF3)(*(void***)o)[16])(o, *(u32*)(self + 260), x);
 }
 
-void** func_00124748(void*, u32);
+void** func_00124748(void*, u32);  // list_nth_node_rel
 void func_00123d10(void* p) {
-    void** o = func_00124748(p, 0);
+    void** o = func_00124748(p, 0);  // list_nth_node_rel
     ((VFn)(*(void***)o)[3])(o);
 }
 
 // 64-byte (matrix) copy src -> dst unless they are the same.
-void func_00146680(u8* dst, u8* src) {
+void func_00146680(u8* dst, u8* src) {  // copy_quad4_if_diff
     if (dst != src) {
         asm volatile(
             "lq $8, 0(%1)\n\tlq $9, 16(%1)\n\tlq $10, 32(%1)\n\tlq $11, 48(%1)\n\t"
@@ -48,7 +48,7 @@ void* func_0016b040(void* r, u8* p) {
     return r;
 }
 
-u32 func_0016f770(s32 x) {
+u32 func_0016f770(s32 x) {  // in_id_special_range
     switch ((u32)x) {
     case 793:
     case 794:
@@ -212,7 +212,7 @@ void func_002345c0(u32 a, u32 b, u32 c, u32 d, u32 e) {
 }
 
 struct P23 { s16 a; s16 pad[3]; s16 b; };
-void func_0023e738(u8* p, u32 i, s16 a, s16 b) {
+void func_0023e738(u8* p, u32 i, s16 a, s16 b) {  // store_2halfwords_2928
     u8* q = (u8*)(i * 2) + (u32)p;
     P23* r = (P23*)(q + 2928);
     r->a = a;
@@ -261,12 +261,12 @@ void func_0027b4e8(void) {
 }
 
 extern s32 D_0035f2f8;
-void func_00287c20(void);
+void func_00287c20(void);  // clear_global_flag_return_m1
 void func_00287c78(s32);
 void next_mode_to_mode(s32 mode, s32 next) asm("_ZN2Tz8MenuBase14NextModeToModeEz");
 void next_mode_to_mode(s32 mode, s32 next) {
     D_0035f2f8 = mode;
-    func_00287c20();
+    func_00287c20();  // clear_global_flag_return_m1
     func_00287c78(next);
 }
 

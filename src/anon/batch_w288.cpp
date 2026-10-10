@@ -8,9 +8,9 @@ void func_002ce958(void*, s32, u32, s32);
 void f2e34b8(void*) asm("_Z13func_002e34b8Pv");
 void mg_make_data_path(void*, char*, char*) asm("_ZN2Ti8MiniGame14make_data_pathEPcS1_");
 void* cb_alloc(char*, s32) asm("_ZN2YS10CACHE_BUFF5AllocEPKci");
-Blk_d7128* func_00168b38(void*, s32, s32);
+Blk_d7128* func_00168b38(void*, s32, s32);  // entry_array_find_nth
 void f2e34c0(void*, u32) asm("_Z13func_002e34c0Pvi");
-void* func_002e34c8(void*);
+void* func_002e34c8(void*);  // obj_get_field8_by_vtable
 void* area_get_allocator(void) asm("_ZN4AREA12GetAllocatorEv");
 void* tz_load_data_alloc(u32, void*) asm("_ZN2Tz13LoadDataAllocEjj");
 void func_002e6fc0(void*, u32);
@@ -35,15 +35,15 @@ void u_tail4_002d7128(u32 a0, u32 a1, u32 a2, u32 a3) {
     mg_make_data_path(p, buf, D_00375b68);
     void* cb = cb_alloc(buf, -1);
     p->f60 = cb;
-    func_00168b38(cb, 42, 0);
+    func_00168b38(cb, 42, 0);  // entry_array_find_nth
     p->fcc = func_00168b38(cb, 42, 0)->data + 16;
-    func_00168b38(cb, 42, 1);
-    f2e34c0(&p->fbc, func_00168b38(cb, 42, 1)->data);
-    func_00168b38(cb, 42, 2);
+    func_00168b38(cb, 42, 1);  // entry_array_find_nth
+    f2e34c0(&p->fbc, func_00168b38(cb, 42, 1)->data);  // entry_array_find_nth
+    func_00168b38(cb, 42, 2);  // entry_array_find_nth
     p->f9c = func_00168b38(cb, 42, 2)->data;
-    func_00168b38(cb, 42, p->f98 + 3);
+    func_00168b38(cb, 42, p->f98 + 3);  // entry_array_find_nth
     p->f5c = func_00168b38(cb, 42, p->f98 + 3)->data;
-    p->f94 = func_002e34c8(&p->fbc);
+    p->f94 = func_002e34c8(&p->fbc);  // obj_get_field8_by_vtable
     void* d = tz_load_data_alloc(12, area_get_allocator());
     func_002e6fc0(d, p->f9c);
     p->fa0 = d;
@@ -74,7 +74,7 @@ void dk_setOffsetPos(void*, s32, s32) asm("_ZN2dk6Sprite12setOffsetPosEii");
 void dk_getSeqPraramXYOff(void*) asm("_ZN2dk5Obj2D17getSeqPraramXYOffEv");
 void tz_SetMsgId(s32, s32) asm("_ZN2Tz7SelHist8SetMsgIdEii");
 void func_0028d1c0(void*, s32, s32, s32, void*, void*, s32);
-void func_0028d660(void*, void*);
+void func_0028d660(void*, void*);  // record_set_value_refresh
 struct Ent884 { u8 p[436]; u8 sub[444]; u32 f880; };
 void func_0028f4d8(s32 idx, s32 msg, u8 sel) {
     u8* e = BASE + idx * 884;
@@ -92,6 +92,6 @@ void func_0028f4d8(s32 idx, s32 msg, u8 sel) {
     s32 off = idx * 884;
     *(u32*)(e + 408) = ((Ent884*)D_0035f480)[idx].f880;
     func_0028d1c0(BASE + off + 436, D_0035f3d4 + 1, D_0035f45c, D_0035f458, (void*)D_0035f460, D_0035f478, 0);
-    func_0028d660(BASE + off + 436, e);
+    func_0028d660(BASE + off + 436, e);  // record_set_value_refresh
 }
 }

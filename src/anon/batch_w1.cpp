@@ -161,7 +161,7 @@ void func_00222770(f32* d, f32* a, f32* b) {
                  : : "r"(d), "r"(a), "r"(b) : "memory");
 }
 
-s32 func_002282d8(void) {
+s32 func_002282d8(void) {  // limit_15000_or_25000
     return D_0035db18 == 0 ? 25000 : 15000;
 }
 
@@ -175,7 +175,7 @@ void func_00263188(void) {
     func_0028da70((u8*)func_00257770() + 408, 300);
 }
 
-void func_0026dd18(s32 a0, s32 a1, s32 a2) {
+void func_0026dd18(s32 a0, s32 a1, s32 a2) {  // store_session_globals
     D_0035f118 = a0;
     D_0035f11c = a1;
     if (a2 >= 0) D_0035f120 = a2;
@@ -197,13 +197,13 @@ void func_002eac70(f32 a, f32 b, f32 c, f32 d) {
 }
 
 // VU0: d = a / s.
-void func_002f3e90(f32* d, f32* a, f32 s) {
+void func_002f3e90(f32* d, f32* a, f32 s) {  // vec4_scale_by_1_f12
     asm volatile("lqc2 $vf4, 0(%1)\n\tmfc1 $8, %2\n\tqmtc2 $8, $vf5\n\tvdiv Q, $vf0w, $vf5x\n\tvwaitq\n\tvmulq.xyzw $vf4, $vf4, Q\n\tsqc2 $vf4, 0(%0)"
                  : : "r"(d), "r"(a), "f"(s) : "$8", "memory");
 }
 
 // VU0: d = a + b.
-void func_002f3ef8(f32* d, f32* a, f32* b) {
+void func_002f3ef8(f32* d, f32* a, f32* b) {  // vec4_add
     asm volatile("lqc2 $vf4, 0(%1)\n\tlqc2 $vf5, 0(%2)\n\tvadd.xyzw $vf6, $vf4, $vf5\n\tsqc2 $vf6, 0(%0)"
                  : : "r"(d), "r"(a), "r"(b) : "memory");
 }
@@ -214,13 +214,13 @@ void func_002f3fc0(s32* d, f32* a) {
 }
 
 // VU0: d = clamp(a, lo, hi) per component.
-void func_002f42e8(f32* d, f32* a, f32 lo, f32 hi) {
+void func_002f42e8(f32* d, f32* a, f32 lo, f32 hi) {  // vec4_clamp_to_range
     asm volatile("mfc1 $8, %2\n\tmfc1 $9, %3\n\tlqc2 $vf6, 0(%1)\n\tqmtc2 $8, $vf4\n\tqmtc2 $9, $vf5\n\tvmaxx.xyzw $vf6, $vf6, $vf4x\n\tvminix.xyzw $vf6, $vf6, $vf5x\n\tsqc2 $vf6, 0(%0)"
                  : : "r"(d), "r"(a), "f"(lo), "f"(hi) : "$8", "$9", "memory");
 }
 
 // fabsf by clearing the sign bit.
-f32 func_002f8870(f32 f) {
+f32 func_002f8870(f32 f) {  // fabsf
     *(u32*)&f &= 0x7fffffff;
     return f;
 }

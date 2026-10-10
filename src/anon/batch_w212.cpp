@@ -3,9 +3,9 @@
 typedef unsigned int u128 __attribute__((mode(TI)));
 
 extern "C" {
-extern u8* func_0016c028(u32);
+extern u8* func_0016c028(u32);  // obj_get_attach_or_alt
 extern s32 func_001a6d08(s32) asm("_ZN2YS8MENUFLAG5CheckEi");
-extern void func_002dea00(f32, f32);
+extern void func_002dea00(f32, f32);  // obj_init_with_floats
 
 struct W212P { u32 a, b; void clr() { this->a = 0; this->b = 0; } };
 struct W212R { f32 f; u32 pad; W212P p; };
@@ -17,7 +17,7 @@ extern u32 D_00362c18;
 
 // 16-byte copy done with lq/sq through t0, as the original
 void func_00159ce0(u8* a0, u128* a1) {
-    u128* r = (u128*)func_0016c028(*(u32*)(a0 + 68));
+    u128* r = (u128*)func_0016c028(*(u32*)(a0 + 68));  // obj_get_attach_or_alt
     if (a1 != r) asm("lq $8,0(%1)\n\tsq $8,0(%0)" :: "r"(a1), "r"(r) : "$8", "memory");
     ((f32*)a1)[1] -= 170.0f;
 }
@@ -42,13 +42,13 @@ u32 func_00244938(u32 x) {
 }
 
 void func_002dfac0(u32* t) {
-    func_002dea00(0.0f, 50.0f);
+    func_002dea00(0.0f, 50.0f);  // obj_init_with_floats
     t[2] |= 0x800;
     t[0] = (u32)&D_00362c18;
 }
 
 void func_002dfb10(u32* t) {
-    func_002dea00(0.0f, 50.0f);
+    func_002dea00(0.0f, 50.0f);  // obj_init_with_floats
     t[2] |= 0x800;
     t[0] = (u32)&D_00362c18;
 }

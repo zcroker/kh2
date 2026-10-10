@@ -5,12 +5,12 @@ s32 func_002282f0(u16);
 void func_00225530(void);
 s32 func_002ba200(void);
 void func_002259f0(void);
-void func_00225a00(void);
+void func_00225a00(void);  // zero_global_byte_e
 void func_00102448(s32, s32);
 void func_002ba220(u8, s32, s32, s32, s32, s32);
 void func_002ba830(u8, s32, s32);
 s32 func_002b7148(s32);
-void func_00136b78(u8, s32);
+void func_00136b78(u8, s32);  // entry16_set_field8
 extern s32 D_00370d88[];
 extern s32 D_00370d78[];
 void func_002253a0(u8* p, s32 arg) {
@@ -22,27 +22,27 @@ void func_002253a0(u8* p, s32 arg) {
             func_002259f0();
             func_00102448(arg, 0);
         }
-        func_00225a00();
+        func_00225a00();  // zero_global_byte_e
         func_002ba220(p[11], 12288, 12288, 0, 0, 0);
-        func_00136b78(p[11], 12288);
+        func_00136b78(p[11], 12288);  // entry16_set_field8
     } else if (m == 257) {
         while (func_002ba200()) {
             func_002259f0();
             func_00102448(arg, 0);
         }
-        func_00225a00();
+        func_00225a00();  // zero_global_byte_e
         if (func_002b7148(0)) func_002ba830(p[11], 6144, 6144);
         else func_002ba220(p[11], 6144, 6144, 0, 0, 0);
-        func_00136b78(p[11], 6144);
+        func_00136b78(p[11], 6144);  // entry16_set_field8
     } else {
         s32 a = D_00370d88[p[9]];
         func_002ba830(p[11], a, D_00370d78[p[10]]);
-        func_00136b78(p[11], a);
+        func_00136b78(p[11], a);  // entry16_set_field8
     }
 }
 
 // ---- f3.cpp
-u8* func_001a1658(s32, s32);
+u8* func_001a1658(s32, s32);  // state_dispatch_0_1_14
 void func_001a17c8(u8*);
 bool func_001a1de0(u8*);
 bool func_001a2758(u8*);
@@ -54,7 +54,7 @@ static inline bool HasC(u8* p) { return p[433] < p[434]; }
 static inline bool IsFullB(u8* p) { return !func_001a1de0(p) && *(s32*)(p + 384) >= *(s32*)(p + 388); }
 bool func_001a2e50(u16* req, s32 id) {
     bool r = false;
-    u8* p = func_001a1658(id, -1);
+    u8* p = func_001a1658(id, -1);  // state_dispatch_0_1_14
     if (!p) return false;
     switch (*req) {
     case 1: case 2: case 5:
@@ -81,7 +81,7 @@ bool func_001a2e50(u16* req, s32 id) {
 // ---- f4.cpp
 s32 func_001a9528(u8*);
 void func_001dddd0(s32, s32);
-s32 func_001de168(s32, s32, s32, s32, s32, s32);
+s32 func_001de168(s32, s32, s32, s32, s32, s32);  // scan_list_by_half
 void func_001a9560(u8* self, s32 a1, s32 a2, s32* out) {
     s32 v = func_001a9528(self);
     if (!v) return;
@@ -90,17 +90,17 @@ void func_001a9560(u8* self, s32 a1, s32 a2, s32* out) {
     s32 i;
     switch (*(u16*)(o + 76)) {
     case 5013:
-        for (i = 0; i < 3; i++) out[i] = func_001de168(a2, i, 0, 1, 0, a1);
+        for (i = 0; i < 3; i++) out[i] = func_001de168(a2, i, 0, 1, 0, a1);  // scan_list_by_half
         break;
     case 1016:
     case 5002:
         *out = func_001de168(a2, 0, 0, 1, 0, a1);
         break;
     case 5026:
-        for (i = 0; i < 9; i++) out[i] = func_001de168(a2, i, 0, 1, 0, a1);
+        for (i = 0; i < 9; i++) out[i] = func_001de168(a2, i, 0, 1, 0, a1);  // scan_list_by_half
         break;
     case 5066:
-        for (i = 0; i < 14; i++) out[i] = func_001de168(a2, i, 0, 1, 0, a1);
+        for (i = 0; i < 14; i++) out[i] = func_001de168(a2, i, 0, 1, 0, a1);  // scan_list_by_half
         break;
     default:
         switch (*(u32*)o) {
@@ -108,7 +108,7 @@ void func_001a9560(u8* self, s32 a1, s32 a2, s32* out) {
             *out = func_001de168(a2, 0, 0, 1, 0, a1);
             break;
         case 2185:
-            for (i = 0; i < 4; i++) out[i] = func_001de168(a2, i, 0, 1, 0, a1);
+            for (i = 0; i < 4; i++) out[i] = func_001de168(a2, i, 0, 1, 0, a1);  // scan_list_by_half
             break;
         }
         break;
@@ -123,13 +123,13 @@ extern char D_0036edb0[];
 extern char D_0036edc0[];
 extern char D_0036ede0[];
 extern u8 D_01d9e450[];
-u32 func_002fdfc8(const char*, ...);
+u32 func_002fdfc8(const char*, ...);  // device_vprintf_va
 void func_002f28b8(void*, s32, s32, s32, s32, s32, s32, s32);
 void func_003058a0(s32);
 void func_002f2be0(void*, void*);
 static inline void assert_fail_1e52b8(const char* e, const char* f, s32 l) {
-    func_002fdfc8(D_0036e978, e);
-    func_002fdfc8(D_0036e998, f, l);
+    func_002fdfc8(D_0036e978, e);  // device_vprintf_va
+    func_002fdfc8(D_0036e998, f, l);  // device_vprintf_va
     asm volatile("break");
 }
 struct NoTail52b8 { ~NoTail52b8() {} };
@@ -157,7 +157,7 @@ void func_001e52b8(u8* p, s16 off) {
 }
 
 // ---- f8.cpp
-void func_00236d60(u8*);
+void func_00236d60(u8*);  // clear_64_entries_24
 s32 func_00139d78(u8*);
 void func_00139510(u8*);
 s32 func_00139538(u8*);
@@ -177,7 +177,7 @@ void func_002c14e8(u8* self) {
     s32 ids[3];
     s32 ids2[2];
     s32 a, b, c, d;
-    func_00236d60(self);
+    func_00236d60(self);  // clear_64_entries_24
     if (((F2c14e8*)(self + 24))->f) {
         if (func_00139d78(self + 28)) func_00139510(self + 28);
         (*(VFn2c14e8*)(*(u8**)self + 20))(self);
@@ -225,7 +225,7 @@ extern void* D_003486d8[];
 extern void* D_00347f98[];
 extern void* D_00347e60[];
 extern void* D_00348608[];
-void func_0031d6b0(u8*);
+void func_0031d6b0(u8*);  // set_vtbl_3486a8_c
 void func_00239870(u8*);
 void func_0031cec0(u8*);
 typedef void (*Dtor31d290)(u8*);
@@ -244,7 +244,7 @@ static inline __attribute__((always_inline)) void Body31d290(u8* p) {
     DestroyArr31d290(p + 13232, p + 15600, 592);
     *(void***)(p + 12896) = D_00348678;
     *(void***)(p + 12928) = D_003486d8;
-    func_0031d6b0(p + 12928);
+    func_0031d6b0(p + 12928);  // set_vtbl_3486a8_c
     *(void***)(p + 12896) = D_00347f98;
     DestroyArr31d290(p + 6704, p + 12884, 412);
     DestroyArr31d290(p + 5008, p + 6704, 848);
@@ -346,21 +346,21 @@ void func_00276690(s32);
 void func_00287c30(void);
 void func_0028af18(s32, s32);
 void func_0028b1e8(s32, s32);
-void func_00274cf0(s32);
+void func_00274cf0(s32);  // state_dispatch_0_1_2
 void func_002925c0(void);
 s32 func_00276358(void);
 void func_00276220(s32, s32);
 void func_002958b0(void);
 s32 func_00289310(s32);
-s32 func_00276398(void);
+s32 func_00276398(void);  // state_is_150
 void func_00275b60(void);
 void func_00287c90(s32);
 s32 func_00287df0(s32, s32, s32, s32, s32);
 s32 func_00242848(s32);
 void func_00287da0(void);
 s32 func_00288040(void);
-void func_00288018(void);
-void func_0028f6f0(s32);
+void func_00288018(void);  // global_zero_4dwords
+void func_0028f6f0(s32);  // record884_refresh_by_index
 void func_00297008(void);
 void func_00276dc0(void);
 void func_00287c00(s32);
@@ -384,19 +384,19 @@ void func_00297630(void) {
         s32 b = func_00287bc0();
         func_0028af18(D_0035f200, 115);
         func_0028b1e8(D_0035f200, 1);
-        func_00274cf0(b);
+        func_00274cf0(b);  // state_dispatch_0_1_2
         func_002925c0();
         func_00276220(func_00276358(), 0);
         if (b == st) func_002958b0();
         return;
     }
     if (a != -1 || func_00289310(D_0035f200)) {
-        if (!func_00276398()) {
+        if (!func_00276398()) {  // state_is_150
             func_00276220(0, 2);
             func_00275b60();
         }
     }
-    if (st == 0 && func_00276398()) func_00287c90(1);
+    if (st == 0 && func_00276398()) func_00287c90(1);  // state_is_150
     if (!func_00242848(func_00287df0(a, func_00289310(D_0035f200), 1, 0, 1))) {
         switch (a) {
         case -4:
@@ -405,7 +405,7 @@ void func_00297630(void) {
         case -1:
             break;
         case -2:
-            func_0028f6f0(0);
+            func_0028f6f0(0);  // record884_refresh_by_index
             func_00297008();
             func_00276dc0();
             func_00276220(1, 1);
@@ -623,12 +623,12 @@ struct V4dcf90 { f32 x, y, z, w; } __attribute__((aligned(16)));
 struct V3dcf90 { f32 x, y, z; };
 void func_002dcf90_i(u8* self) asm("_Z13func_002dcf90i");
 void func_002dcf18(u8*);
-s32 func_002dc7f8(u8*);
-s32 func_00106a18(s32);
+s32 func_002dc7f8(u8*);  // get_global_35e958
+s32 func_00106a18(s32);  // buffer_get_256
 void func_00106de8(s32, s32, f32);
 void func_00106c08(s32);
-s32 func_00106a60(s32);
-V4dcf90* func_0016c028(s32);
+s32 func_00106a60(s32);  // buffer_get_by_index
+V4dcf90* func_0016c028(s32);  // obj_get_attach_or_alt
 u8* func_002dc7c8(u8*);
 f32 func_002dceb0(u8*);
 f32 func_002f8960(f32);
@@ -644,12 +644,12 @@ void func_002dcf90_i(u8* self) {
     if (!func_002dc7f8(self)) return;
     V4dcf90 v;
     V4dcf90* dst = &v;
-    s32 m = func_00106a18(1);
+    s32 m = func_00106a18(1);  // buffer_get_256
     func_00106de8(m, 1, *(f32*)(self + 100));
     func_00106c08(m);
-    s32 cam = func_00106a60(1);
+    s32 cam = func_00106a60(1);  // buffer_get_by_index
     pos.z = 0.0f;
-    V4dcf90* src = func_0016c028(func_002dc7f8(self));
+    V4dcf90* src = func_0016c028(func_002dc7f8(self));  // obj_get_attach_or_alt
     // 128-bit copy of the source position (lq/sq through t0).
     asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(dst), "r"(src) : "$8", "memory");
     ref.z = 0.0f;

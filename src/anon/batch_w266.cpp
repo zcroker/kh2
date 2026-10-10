@@ -41,7 +41,7 @@ union UUd098 { f32* p; s16 h; u32 u; u8 c; };
 struct P22d098 { u8 pad[4]; s16 h4; s16 h6; u8 x8[4]; u8 x12[4]; };
 extern "C" {
 extern S3188 D_0032e020;
-R3188* func_001a80c8(void*, s32);
+R3188* func_001a80c8(void*, s32);  // table24_find_by_id
 s32 func_001a3018(void*, s32, s32);
 void func_001a32c8(void*, s32);
 void* func_00188fe0(void*, s32);
@@ -49,7 +49,7 @@ void func_00188a28(void*, void*);
 void func_00188b68(void*, void*, u8);
 void func_001a39c8(void*);
 s32 func_001a3188(void* a0, s32 a1, u8 a2) {
-    R3188* r = func_001a80c8(a0, a1);
+    R3188* r = func_001a80c8(a0, a1);  // table24_find_by_id
     S3188* g = &D_0032e020;
     s32 n = func_001a3018(a0, a1, 1);
     u32 one = 1;
@@ -91,18 +91,18 @@ s32 func_001ccc38(ObjH* a0) {
 void func_0022d000(u32);
 void func_0022d068(u32*);
 s32 func_002282f0(s32);
-s32 func_002282d8(void);
-s32 func_00225b00(s32);
+s32 func_002282d8(void);  // limit_15000_or_25000
+s32 func_00225b00(s32);  // flag_query_by_index
 void func_0015c880(f32);
 u8* func_00102c18(s32, s32, void*);
 u32 func_001050c8(void);
 f32* func_001063c0(s32, u32);
 f32 func_00227c78(void*);
-void func_0014f030(void*, f32, f32, f32);
+void func_0014f030(void*, f32, f32, f32);  // obj_set_lerp_params
 void func_0022d098(P22d098* p) {
     if (func_002282f0(p->h4)) return;
-    s32 id = func_002282d8();
-    if (!func_00225b00(p->h4)) {
+    s32 id = func_002282d8();  // limit_15000_or_25000
+    if (!func_00225b00(p->h4)) {  // flag_query_by_index
         u8* s1 = func_00102c18(1, id, (void*)func_0022d000);
         *(void**)(s1 + 48) = (void*)func_0022d068;
         f32* o = func_001063c0(12, func_001050c8());
@@ -111,7 +111,7 @@ void func_0022d098(P22d098* p) {
         f32 a = ((UUd098*)&p->h6)->h;
         f32 x = func_00227c78(p->x8);
         a = a + a;
-        func_0014f030(o, x, func_00227c78(p->x12), a);
+        func_0014f030(o, x, func_00227c78(p->x12), a);  // obj_set_lerp_params
     } else {
         func_0015c880(func_00227c78(p->x12));
     }

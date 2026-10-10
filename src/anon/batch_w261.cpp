@@ -29,12 +29,12 @@ extern u8 D_00362bf8[];
 extern "C" {
 int func_0010cc80(void*);
 int func_001b58a8(void);
-int func_00112720(void*);
+int func_00112720(void*);  // check_2924_lt14
 
 int func_0010d188(W261A* p) {
     if (!func_0010cc80(p)) return 1;
     if (func_001b58a8()) return 1;
-    if (func_00112720(p)) {
+    if (func_00112720(p)) {  // check_2924_lt14
         return (p->*D_00345ad0[*(int*)((char*)p + 0xb6c) - 8].f)();
     }
     int i = (*(int (**)(void*))(*(u32*)p + 152))(p);
@@ -77,7 +77,7 @@ W261En* func_001a6658(s32 id) {
     return best;
 }
 
-W261Inf* func_001a80c8(u32);
+W261Inf* func_001a80c8(u32);  // table24_find_by_id
 u32 func_00192048(u32);
 u32 func_0016a070(void*);
 s32 func_001a3018(u32, u32, u32);
@@ -90,7 +90,7 @@ u32 wtarget_001a82f0(W261Src* s) {
     W261Ent* e = (W261Ent*)(b + 8);
     void* o = D_0034e948;
     s32 r = 100;
-    W261Inf* inf = func_001a80c8(s->id);
+    W261Inf* inf = func_001a80c8(s->id);  // table24_find_by_id
     ((W261U*)(b + 8))->v = func_00192048(inf->a);
     e->b.v = func_00192048(inf->b);
     e->c.v = inf->c;
@@ -103,7 +103,7 @@ u32 wtarget_001a82f0(W261Src* s) {
 
 void func_002de698(u32);
 void func_0017f488(u8*, u32, f32, f32);
-s32 func_002ddbb8(u32);
+s32 func_002ddbb8(u32);  // get_bit0_of_field2808
 void* func_0016b740(s32);
 void func_002e7568(void*, s32, void*, f32);
 void func_002dfe38(W261Act* o, u8* a1, u32 a2, u32 a3, f32 f) {
@@ -117,7 +117,7 @@ void func_002dfe38(W261Act* o, u8* a1, u32 a2, u32 a3, f32 f) {
     o->f40 = 0.0f;
     o->f44 = 0.0f;
     o->f28 = -(o->f76 + D_00375d40) * 0.01f;
-    if (func_002ddbb8(o->f72)) {
+    if (func_002ddbb8(o->f72)) {  // get_bit0_of_field2808
         void* p = func_0016b740(1635);
         if (p) func_002e7568(p, 2, D_00362bf8, 1.0f);
     }

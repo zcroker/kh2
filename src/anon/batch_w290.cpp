@@ -46,7 +46,7 @@ extern "C" {
 void* func_001050d8(u32);
 void func_002cb5d8(void*, f32);
 s32 func_0018ac80(void*, s32);
-void func_002cb828(void*, f32*);
+void func_002cb828(void*, f32*);  // ring_advance_index
 void func_002cc7d0(void*);
 void func_002ce870(void*, void*);
 void func_002ce598(void*, void*);
@@ -67,7 +67,7 @@ W290Cd* func_002cd018(u8* act, W290Dat* d, void* a2, f32 f) {
         if (s4) t[1] = d->e[0].b;
         t[2] = d->e[i].c;
         t[3] = 1.0f;
-        func_002cb828(p, t);
+        func_002cb828(p, t);  // ring_advance_index
     }
     p->b16 = d->b4 & 1;
     f32 z = 0.0f;
@@ -94,8 +94,8 @@ extern u8 D_0035eb98[];
 extern u32 D_00361dd8;
 void func_00170950(u32);
 void func_00239870(void*);
-void func_0023c098(void*);
-void func_002369f0(void*);
+void func_0023c098(void*);  // set_vtbl_36eae8_then_call
+void func_002369f0(void*);  // set_vtbl_36eac8_then_call
 void func_00105110(void*);
 struct W290VE { virtual void f0(); virtual void f1(); virtual void f2(); virtual ~W290VE(); u8 pad[404]; };
 struct W290B0 { u32 vt; ~W290B0() { vt = (u32)D_00347f98; } };
@@ -137,15 +137,15 @@ extern u32 D_0034a3f0;
 extern f32 D_0034a3f8;
 extern f32 D_004f3584;
 extern f32 D_004f3580;
-W290Q* func_0016c028(u32);
+W290Q* func_0016c028(u32);  // obj_get_attach_or_alt
 f32 func_002f8ad0(f32, f32);
 f32 func_0017ce10(f32);
-void* func_00106a18(s32);
+void* func_00106a18(s32);  // buffer_get_256
 f32 func_00106f30(void*, s32);
 struct W290Cam { u8 p[192]; f32 yaw; f32 pitch; };
 void func_0014e6f8(W290Cam* c) {
     W290Q* a = D_0034a3f4;
-    W290Q* b = func_0016c028(D_0034a3f0);
+    W290Q* b = func_0016c028(D_0034a3f0);  // obj_get_attach_or_alt
     W290Q d;
     asm volatile("lqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 0(%2)\n\tvsub.wxyz $vf1, $vf1, $vf2\n\tsqc2 $vf1, 0(%0)" : : "r"(&d), "r"(a), "r"(b) : "memory");
     d.y += D_0034a3f8;
@@ -166,13 +166,13 @@ void func_0014e6f8(W290Cam* c) {
 extern W290V D_01d49590[];
 extern W290M D_01d49610;
 extern W290V D_00352a60;
-s32 func_001c4160(W290Fx*);
+s32 func_001c4160(W290Fx*);  // get_global_byte_35d60c
 void func_001c4188(W290Fx*, f32);
 void func_001c4e30(W290Fx* o) {
     W290V l;
     o->pos = o->v48 + D_01d49590[o->idx];
     l = D_01d49610 * o->v48;
-    if (func_001c4160(o)) func_001c4188(o, (o->pos - D_00352a60).LengthSq());
+    if (func_001c4160(o)) func_001c4188(o, (o->pos - D_00352a60).LengthSq());  // get_global_byte_35d60c
     if (o->cnt) { o->cnt--; return; }
     if (l.z < 300.0f) { o->f21 = 0; return; }
     l = o->pos - D_00352a60;

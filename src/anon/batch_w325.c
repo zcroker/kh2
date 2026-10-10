@@ -3,13 +3,13 @@
 extern s32 D_01da8cd0[8];
 extern s32 D_00352c40, D_01d9e6c4;
 extern char D_01d9e5b0[], D_0036eef0[];
-u64 func_00313b80(f32);
+u64 func_00313b80(f32);  // float_to_double
 s32 wsprintf_002fee78(char*, const char*, ...) asm("_Z16wtarget_002fee78jjjj");
 
 char* func_001e6188(void) {
     char* buf = D_01d9e5b0;
     s32* s = D_01da8cd0;
-    u64 d = func_00313b80((f32)D_01d9e6c4 / (f32)D_00352c40 * 100.0f);
+    u64 d = func_00313b80((f32)D_01d9e6c4 / (f32)D_00352c40 * 100.0f);  // float_to_double
     wsprintf_002fee78(buf, D_0036eef0, s[4], s[0], s[5], s[1], s[6], s[2], d);
     return buf;
 }
@@ -41,7 +41,7 @@ Q128* func_0021c810(Q128* p, s32 a, s32 b) {
     return p;
 }
 
-void func_002fdfc8(const char*, ...);
+void func_002fdfc8(const char*, ...);  // device_vprintf_va
 void func_001e2ad8(const char*, const char*, s32, const char*);
 extern char D_0036e978[], D_0036e998[], D_0036e9d0[];
 extern char D_0036ec40[], D_0036ec58[], D_0036ec70[], D_0036ec80[], D_0036ec98[];
@@ -50,8 +50,8 @@ extern W325E8 D_00353e48[];
 
 /* RyjAssert: "RyjAssertion failed: %s\n" then "   File %s, Line %u\n", break. */
 static inline void ryjAssert5(const char* a, const char* e, const char* b, const char* f, s32 l) {
-    func_002fdfc8(a, e);
-    func_002fdfc8(b, f, l);
+    func_002fdfc8(a, e);  // device_vprintf_va
+    func_002fdfc8(b, f, l);  // device_vprintf_va
     asm volatile("break");
 }
 #define RYJ_ASSERT(c, e, l) if (!(c)) ryjAssert5(D_0036e978, e, D_0036e998, D_0036e9d0, l)

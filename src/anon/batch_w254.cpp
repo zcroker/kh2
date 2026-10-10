@@ -4,8 +4,8 @@ extern "C" {
 extern s32 D_0034e948;
 s32 func_0019ba60(s32);
 void* func_001a8bd0(s32);
-s32 func_001a8bf8(void*, s32);
-u8* func_001a8b28(void);
+s32 func_001a8bf8(void*, s32);  // get_bits5_at
+u8* func_001a8b28(void);  // get_data_1c7cc10
 u8* func_0017e4f8(u16, s32, f32, f32, f32);
 void func_001ad990(u8*, f32, f32, f32);
 
@@ -44,12 +44,12 @@ void func_00302e10(u8*);
 s32 func_001069e8(void);
 void func_0015cff0(void);
 f32 func_0017ce10(f32);
-u8* func_00106a60(s32);
+u8* func_00106a60(s32);  // buffer_get_by_index
 void func_0013f9e0(u8*, u8*, u8*, u8, s32);
 void func_0015d058(u8*, u8*);
 void func_0015d208(f32*, f32*);
-void func_00107300(u8*, u8*, u8*, f32);
-u8* func_00106a18(s32);
+void func_00107300(u8*, u8*, u8*, f32);  // copy_blocks_and_store_float
+u8* func_00106a18(s32);  // buffer_get_256
 void func_00106de8(u8*, u8*, f32);
 
 // Member lookup: find slot of id a0 in party (1..2), spawn its object, start its fade unless flagged.
@@ -148,13 +148,13 @@ void func_0015d2e8(u8* a0, u8* a1, u8* a2, u8 a3, u8 a4, u8 a5, f32 f0, f32 f1) 
     if (m != 1) return;
     func_0015cff0();
     f0 = func_0017ce10(f0);
-    c = func_00106a60(1);
+    c = func_00106a60(1);  // buffer_get_by_index
     if (a3 == m) func_0013f9e0(a0, a1, a0, a4, 0);
     if (a5 == m) {
         func_0015d058(a0, a1);
         func_0015d208(&f1, &f0);
     }
-    func_00107300(c, a0, a1, f0);
+    func_00107300(c, a0, a1, f0);  // copy_blocks_and_store_float
     func_00106de8(func_00106a18(1), a2, f1);
 }
 struct W254PE { s32 key; u8 pad[16]; };
@@ -214,21 +214,21 @@ static inline void MtxInverseOrtho(Mtx* m) {
 }
 extern "C" {
 extern f32 D_00362d70;
-u8* func_00106a18(s32);
+u8* func_00106a18(s32);  // buffer_get_256
 void func_00106de8(u8*, s32, f32);
 void func_00106c08(u8*);
-u8* func_00106a60(s32);
+u8* func_00106a60(s32);  // buffer_get_by_index
 void func_002e71a0(Mtx*, u32, u8, s32);
 
 void wtarget_002e1178(u8* a0, u32, u32, u32) asm("_Z16wtarget_002e1178jjjj");
 // Set camera FOV from degrees, rebuild projection, then store the inverse of a fresh view matrix.
 void wtarget_002e1178(u8* a0, u32, u32, u32) {
-    u8* v = func_00106a18(1);
+    u8* v = func_00106a18(1);  // buffer_get_256
     Mtx tmp;
     Mtx* d;
     func_00106de8(v, 1, D_00362d70 * 0.017453292f);
     func_00106c08(v);
-    u8* c = func_00106a60(1);
+    u8* c = func_00106a60(1);  // buffer_get_by_index
     func_002e71a0(&tmp, *(u32*)(a0 + 112), (*(u8**)(a0 + 100))[8], 1);
     d = (Mtx*)(c + 16);
     MtxCopy(d, &tmp);

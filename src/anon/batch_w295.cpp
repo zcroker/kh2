@@ -70,7 +70,7 @@ s32 mb_gm(void) asm("_ZN2Tz8MenuBase7GetModeEv");
 s32 cm_gsp(s32) asm("_ZN2Tz5CmTop12GetSelectPosEi");
 void func_0027aed8(s32, s32*, s32*);
 s32 func_0028d008(void*);
-s32 func_0027af58(void);
+s32 func_0027af58(void);  // check_state16_then_loop
 void pz_cfo(void*, s32, s32, s32, s32, s32, s32, s32) asm("_ZN2Tz5Pause16CreateFadeObjectEz");
 void mc_as(void*, void*) asm("_ZN2Tz10MenuCursor12AttachSpriteEz");
 u8* mc_gs(void*) asm("_ZN2Tz10MenuCursor9GetSpriteEi");

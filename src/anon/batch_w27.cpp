@@ -41,7 +41,7 @@ void wtarget_00102c90(u32 a, u32 b, u32, u32) {
 }
 
 struct Entry108930 { u32 mask; u32 data; };
-void* func_00108930(u8* p, s32 bit) {
+void* func_00108930(u8* p, s32 bit) {  // test_bit_of_field44
     Entry108930* e = *(Entry108930**)(p + 44);
     if (e != 0 && bit >= 0 && bit < 32) {
         u32 m = 1 << bit;
@@ -123,13 +123,13 @@ void func_00171518(u32** p) {
     *p = d;
 }
 
-void func_0016b010(void*, void*);
+void func_0016b010(void*, void*);  // obj_set_float1644_from_pair
 void func_00198690(void*);
 void func_00175b68(void** o) {
     u32 t[4] __attribute__((aligned(16)));
     if ((*(s32 (**)(void*))(*(u8**)o + 132))(o)) {
         asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(t), "r"((u8*)o + 16) : "$8", "memory");
-        func_0016b010(o, t);
+        func_0016b010(o, t);  // obj_set_float1644_from_pair
     }
     func_00198690(o);
 }
@@ -154,10 +154,10 @@ s32 func_00196618(s32 a, s32 b) {
     return -1;
 }
 
-s32 func_0019c090(void*);
+s32 func_0019c090(void*);  // obj_is_enabled
 s32 func_0019c0f8(u8* p) {
     s32 r = 0;
-    if (func_0019c090(p)) {
+    if (func_0019c090(p)) {  // obj_is_enabled
         if (!(*(u32*)(p + 352) & 0x20)) {
             u32 m = *(u32*)(*(u8**)(p + 12) + 8) & 0x200;
             r = m == 0;
@@ -190,10 +190,10 @@ void func_0019d438(u8* p) {
     }
 }
 
-u8* func_001a80c8(void);
+u8* func_001a80c8(void);  // table24_find_by_id
 s32 func_001a67b0(u32);
 s32 func_001a3820(void) {
-    u8* r = func_001a80c8();
+    u8* r = func_001a80c8();  // table24_find_by_id
     switch (r[2]) {
     case 0: return *(u16*)(r + 16);
     case 18: return func_001a67b0(*(u16*)(r + 4));
@@ -202,13 +202,13 @@ s32 func_001a3820(void) {
 }
 
 void func_00239700(void*);
-u32 func_001ab810(void);
+u32 func_001ab810(void);  // get_global_1c7cec0
 u32 func_001ab800(void);
 void func_00239988(void*, u32, u32);
 void func_001ac208(u32* p) {
     p[0] = 0;
     func_00239700(p + 3);
-    u32 a = func_001ab810();
+    u32 a = func_001ab810();  // get_global_1c7cec0
     u32 b = func_001ab800();
     func_00239988(p + 3, a, b);
 }
@@ -228,7 +228,7 @@ out:
     return r;
 }
 
-void func_001dca30(u32, u32, u32);
+void func_001dca30(u32, u32, u32);  // obj_set48_52_flag40000
 void func_001c16a0(u32* p, u32 x) {
     switch (p[1]) {
     case 0: func_001dca30(p[0], p[12], x); break;
@@ -273,7 +273,7 @@ void u_call0_001d3b68(void) {
     }
 }
 
-s32 func_001d3f38(u8* p) {
+s32 func_001d3f38(u8* p) {  // type_is_282_344_484
     switch (*(u16*)(p + 40)) {
     case 282:
     case 344:
@@ -286,14 +286,14 @@ s32 func_001d3f38(u8* p) {
 void func_00106420(void*);
 
 
-void func_002f3f88(void*, void*);
+void func_002f3f88(void*, void*);  // memcpy16
 extern u32 D_00354bc0;
 extern u32 D_00354be0;
 void func_00209e80(u8* a, u8* b) {
     NoTail g;
     u8* s = a + *(s32*)(*(u8**)(b + 12) + 4);
-    func_002f3f88(s + 224, &D_00354bc0);
-    func_002f3f88(s + 240, &D_00354be0);
+    func_002f3f88(s + 224, &D_00354bc0);  // memcpy16
+    func_002f3f88(s + 240, &D_00354be0);  // memcpy16
 }
 
 extern u8 D_0035daec;
@@ -404,15 +404,15 @@ void func_002ceaa8(u8* p) {
 }
 
 extern u32 D_0034ee08;
-void func_0019f9a8(void*);
+void func_0019f9a8(void*);  // array8_free_slots
 void func_001c0248(void*);
-void func_00319fb0(void*);
+void func_00319fb0(void*);  // big_obj_dtor
 void func_002cffe0(u8* p) {
     NoTail g;
     *(void**)p = &D_0034ee08;
-    func_0019f9a8(p + 2568);
+    func_0019f9a8(p + 2568);  // array8_free_slots
     func_001c0248(p + 2640);
-    func_00319fb0(p);
+    func_00319fb0(p);  // big_obj_dtor
 }
 
 extern u32 D_003625a8;
@@ -485,22 +485,22 @@ char* func_002ff918(char* s, char* sub) {
 
 extern u32 D_0035eb98;
 extern u32 D_00347f98;
-void func_0023c098(void*);
-void func_002369f0(void*);
+void func_0023c098(void*);  // set_vtbl_36eae8_then_call
+void func_002369f0(void*);  // set_vtbl_36eac8_then_call
 void func_0023ee68(void*);
 void func_0031cdd8(u8* p) {
     *(void**)p = &D_0035eb98;
-    func_0023c098(p + 48);
-    func_002369f0(p + 24);
+    func_0023c098(p + 48);  // set_vtbl_36eae8_then_call
+    func_002369f0(p + 24);  // set_vtbl_36eac8_then_call
     *(void**)p = &D_00347f98;
     func_0023ee68(p);
 }
 
 void func_0031f340(u8* p) {
     *(void**)p = &D_0034ee08;
-    func_0019f9a8(p + 2568);
+    func_0019f9a8(p + 2568);  // array8_free_slots
     func_001c0248(p + 2640);
-    func_00319fb0(p);
+    func_00319fb0(p);  // big_obj_dtor
     func_00105110(p);
 }
 

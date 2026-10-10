@@ -74,7 +74,7 @@ struct KG { u8 pad[16]; struct K36* f16; u8 pad20[4]; struct KE* f24; };
 extern "C" {
 void func_001ae590(void*, u32);
 void func_001ae4c0(u32, u32, void*);
-char** func_00105c48(s32);
+char** func_00105c48(s32);  // entry12_34cae4
 s32 func_002ff538(const void*, const void*, u32);
 void func_00105af8(s32);
 extern u32 D_0033caf8;
@@ -132,7 +132,7 @@ void func_001a5928(void);
 void func_001b24c0(void);
 void func_00182b18(void);
 s32 func_00143d10(Q16Pair*, Q16*, void*, s32*);
-Q16* func_0016c028(void*);
+Q16* func_0016c028(void*);  // obj_get_attach_or_alt
 s32 func_0019b3d0(void*, Q16*);
 void func_0018c438(void*);
 s32 func_0019b308(void*);
@@ -153,7 +153,7 @@ void func_0014f668(u8);
 void func_00242500(u8);
 s32 func_002f79c8(s32);
 s32 func_002f7be8(u32, u32, void*, void*);
-void func_001ae678(void);
+void func_001ae678(void);  // to_306698_arg10
 void func_001ae620(void);
 s32 func_002f7dc8(void);
 void func_001ae650(void);
@@ -179,15 +179,15 @@ s32 func_00257088(s32);
 s32 func_0028afa8(u32);
 s32 func_002892f8(u32);
 void func_002891f0(u32, s32, s32, s32, s32);
-void func_0028afd0(u32, s32);
+void func_0028afd0(u32, s32);  // obj_set_signed18
 extern u32 D_0035f01c;
-void func_00178cf8(void*, void*);
+void func_00178cf8(void*, void*);  // clear_vecs_three
 void func_00178cf8_1(void*) asm("func_00178cf8");
 u32 func_0016a020(u32);
 s32 func_002c5d38(void*, u32);
 void func_002c8648(void);
 void func_002ca0a8(void);
-void func_00190388(Q16*, void*);
+void func_00190388(Q16*, void*);  // vec4_from_arg
 void func_0016aef0(void*, Q16*);
 void func_002c5190(void*);
 void func_002c17a0(void);
@@ -195,7 +195,7 @@ extern void* D_00361f60;
 u8* func_002d1878(void*);
 void func_00187750(void*);
 extern f32 D_00349e10;
-f32 func_002f8870(f32);
+f32 func_002f8870(f32);  // fabsf
 void func_00144450(f32*);
 void func_001b7c80(void*, f32*);
 void func_0016af58(Q16*, void*);
@@ -246,11 +246,11 @@ extern struct KG* D_01d9e6e4;
 union FH { f32 f; s16 h; };
 void func_002f3cd8(union FH*, void*, union FH*);
 void* func_0014e638(void*);
-void* func_0014e648(void*);
+void* func_0014e648(void*);  // ptr_add752
 void func_00166968(void*, s32, s32, s32, s32, s32, s32, s32);
 void func_0014db78(void*, s32, s32, s32, s32, s32, s32);
-void func_0014dd60(void*, s32, s32, s32);
-void func_0014dda0(void*, s32);
+void func_0014dd60(void*, s32, s32, s32);  // store_3bytes_470
+void func_0014dda0(void*, s32);  // store_byte_473
 void func_0014dd18(void*);
 void func_0014e2c0(void*);
 void func_00102788(u32, s32, s32, void (*)(void));
@@ -259,7 +259,7 @@ extern u8 D_00349f00[];
 extern u32 D_0032b91c;
 void func_00157990(u32);
 void func_00138c10(u32, u32);
-u32 func_00155d58(u32, s32);
+u32 func_00155d58(u32, s32);  // table_word_indexed_by_3
 void func_001543a0(u32, s32, u32);
 s32 func_001581a8(u32);
 s32 func_002ba358(void);
@@ -385,7 +385,7 @@ void func_00159240(Q16* out, Q16* in) {
 }
 
 void func_0018b7f8(u8* p) {
-    Q16 pos = *func_0016c028(p);
+    Q16 pos = *func_0016c028(p);  // obj_get_attach_or_alt
     void* t;
     s32 id;
     ((f32*)&pos)[1] -= 10.0f;
@@ -398,7 +398,7 @@ void func_0018b7f8(u8* p) {
         if (q[48] == 0) {
             func_0018c438(q);
             if (id != 0) {
-                Q16* v = func_0016c028(p);
+                Q16* v = func_0016c028(p);  // obj_get_attach_or_alt
                 void* tt = *(void**)(p + 2072);
                 u32 k = *(u16*)(*(u8**)((u8*)tt + 8) + 10);
                 func_0018c650(q, v, k, func_0019b308(tt), id, *(f32*)(p + 2856), *(f32*)(p + 2860));
@@ -442,7 +442,7 @@ void func_001a52a8(void* a0, void** o, u8* c) {
 void func_001ae4c0(u32 a, u32 b, void* c) {
     for (;;) {
         if (func_002f79c8(1) != 2 || func_002f7be8(a, b, c, D_00350ca0) != 1) {
-            func_001ae678();
+            func_001ae678();  // to_306698_arg10
             continue;
         }
         func_001ae620();
@@ -479,7 +479,7 @@ void func_0027c2f8(void) {
         top = 0;
     }
     func_002891f0(D_0035f01c, sel, 0, -1, -1);
-    func_0028afd0(D_0035f01c, top);
+    func_0028afd0(D_0035f01c, top);  // obj_set_signed18
 }
 
 void func_002c5c50(void* a, u32* b) {
@@ -492,9 +492,9 @@ void func_002c5c50(void* a, u32* b) {
     {
         Q16 d;
         Q16 t;
-        func_00190388(&t, b);
+        func_00190388(&t, b);  // vec4_from_arg
         asm volatile("lqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 0(%2)\n\tvsub.wxyz $vf1, $vf1, $vf2\n\tsqc2 $vf1, 0(%0)"
-                     : : "r"(&d), "r"(&t), "r"(func_0016c028(a)) : "memory");
+                     : : "r"(&d), "r"(&t), "r"(func_0016c028(a)) : "memory");  // obj_get_attach_or_alt
         ((s32*)&d)[1] = 0;
         asm volatile("lqc2 $vf1, 0(%0)\n\tvmul.xyz $vf2, $vf1, $vf1\n\tvaddy.x $vf2, $vf2, $vf2y\n\t"
                      "vaddz.x $vf2, $vf2, $vf2z\n\tvsqrt Q, $vf2x\n\tvwaitq\n\tcfc2.ni $8, $vi22\n\t"
@@ -567,7 +567,7 @@ Q16* func_002d38e8(Q16* out, u8* o) {
 Q16* func_0018d840(Q16* out, u8* o, void* a) {
     if (*(u8**)(o + 12) != 0) {
         Q16 d;
-        vu0_sub(d, *func_0016c028(a), *(Q16*)(*(u8**)(o + 12) + 1840));
+        vu0_sub(d, *func_0016c028(a), *(Q16*)(*(u8**)(o + 12) + 1840));  // obj_get_attach_or_alt
         *out = d;
         ((s32*)out)[1] = 0;
         vu0_normalize_f1(*out);
@@ -854,11 +854,11 @@ void func_001e9c28(u8* base, u8* a1, u8* a2) {
 
 void u_call0_0014dfa8() {
     void* a = func_0014e638(D_00349f00);
-    void* b = func_0014e648(D_00349f00);
+    void* b = func_0014e648(D_00349f00);  // ptr_add752
     func_00166968(a, 1, 1, 0, 512, 448, 0, 0);
     func_0014db78(b, 0, 216, 512, 416, 49, 112);
-    func_0014dd60(b, 0, 0, 0);
-    func_0014dda0(b, 1);
+    func_0014dd60(b, 0, 0, 0);  // store_3bytes_470
+    func_0014dda0(b, 1);  // store_byte_473
     func_0014dd18(b);
     func_0014e2c0(D_00349f00);
     func_00102788(D_0032b91c, 0, 100000, func_0014df48);

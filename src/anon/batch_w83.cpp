@@ -31,7 +31,7 @@ struct NoTail { ~NoTail() {} };
 extern "C" {
 extern u32 D_0034d850[];
 void func_001a17c8(void*);
-void func_001b78b8(void*);
+void func_001b78b8(void*);  // to_105110
 void func_002cb708(void*);
 void func_00105110(void*);
 void func_001b3098(void*);
@@ -46,8 +46,8 @@ void func_0016a420(u8* p) {
     NoTail nt;
     *(u32*)p = (u32)D_0034d850;
     if (*(void**)(p + 1164)) func_001a17c8(*(void**)(p + 1164));
-    if (*(void**)(p + 2088)) func_001b78b8(*(void**)(p + 2088));
-    if (*(void**)(p + 1296)) func_001b78b8(*(void**)(p + 1296));
+    if (*(void**)(p + 2088)) func_001b78b8(*(void**)(p + 2088));  // to_105110
+    if (*(void**)(p + 1296)) func_001b78b8(*(void**)(p + 1296));  // to_105110
     void* s = *(void**)(p + 1288);
     if (s) {
         func_002cb708(s);
@@ -130,7 +130,7 @@ void func_00170c00(void*);
 s32 func_00105140(const char*, s32);
 void func_002fee78(char*, const char*, ...);
 s32 func_001688c8(const char*);
-void* func_00170b30(s32);
+void* func_00170b30(s32);  // alloc_align128
 void func_001684c0(const char*, void*, s32, s32);
 
 // Load a named file into a 2 KB-aligned buffer unless it is already loaded.
@@ -139,7 +139,7 @@ void func_00181ad0(const char* name) {
     if (func_001051a0(&D_01c60530, name)) return;
     if (D_0034ecf4) func_00170c00(D_0034ecf4);
     func_002fee78(buf, D_0036c7b8, func_00105140(name, 0));
-    D_0034ecf4 = func_00170b30((func_001688c8(buf) + 2047) & ~2047);
+    D_0034ecf4 = func_00170b30((func_001688c8(buf) + 2047) & ~2047);  // alloc_align128
     func_001684c0(buf, D_0034ecf4, 0, 0);
     D_01c60530 = *(const Name10*)name;
 }
@@ -153,7 +153,7 @@ void* func_0016bc20(void*, void*, s32);
 void func_0018a818(Info32*, void*, void*);
 void* func_001b9bc8(void*);
 s32 func_0016bff0(void*);
-s32 func_0018a550(Info32*, Info32*);
+s32 func_0018a550(Info32*, Info32*);  // state_dispatch_0_1_3
 
 void* func_0018bc60(void* a, void* b) {
     void* v = func_0016bc20(a, b, -1);
@@ -196,14 +196,14 @@ void func_001903d0(void** p, u8* out) {
 
 struct VTest { virtual void f0(); virtual void f4(); virtual s32 test(QWord*); u8 pad[92]; VTest* next; };
 u8* func_00186078(u8*);
-QWord* func_0016c028(u8*);
+QWord* func_0016c028(u8*);  // obj_get_attach_or_alt
 void func_001991a8(s32, u32);
 
 void func_0019b180(u8* p) {
     QWord v;
     u8* it = 0;
     while ((it = func_00186078(it))) {
-        v = *func_0016c028(it);
+        v = *func_0016c028(it);  // obj_get_attach_or_alt
         VTest* o = 0;
         while ((o = !o ? *(VTest**)(p + 12) : o->next)) {
             if (o->test(&v)) {
@@ -263,18 +263,18 @@ Vec4 func_001a0a48(void* a, u8* o) {
 
 struct Rgba8 { s8 r, g, b, a; };
 extern Rgba8 D_0036da98;
-void* func_00168b88(void*, s32, u32, s32);
+void* func_00168b88(void*, s32, u32, s32);  // find_entry16_by_half_word
 void func_001bdb70(void*, void*, void*, void*, s32);
 static inline u32 packRgba(const Rgba8& c) { return c.r | (c.g << 8) | (c.b << 16) | (c.a << 24); }
 struct R8 { u8 pad[8]; void* p; };
 struct Obj1b5708 { u32 pad; void* d; };
 
 void func_001b5708(Obj1b5708* p, void* a) {
-    R8* r0 = (R8*)func_00168b88(p->d, 24, packRgba(D_0036da98), 0);
+    R8* r0 = (R8*)func_00168b88(p->d, 24, packRgba(D_0036da98), 0);  // find_entry16_by_half_word
     void* d = p->d;
     u32 c = packRgba(D_0036da98);
     void* v0 = r0->p;
-    R8* r1 = (R8*)func_00168b88(d, 25, c, 0);
+    R8* r1 = (R8*)func_00168b88(d, 25, c, 0);  // find_entry16_by_half_word
     func_001bdb70(*(void**)(*(u8**)((u8*)p + 12) + 2884), a, v0, r1->p, 0);
     *(u32*)((u8*)p + 64) |= 8;
     *(s32*)((u8*)p + 60) += 1;
@@ -284,7 +284,7 @@ extern u8 D_01d49520[];
 extern u32 D_00351408[];
 void func_001980d0(void*, void*, s32, void*, f32);
 void* func_001de168b(void*, void*, s32, s32, s32, s32) asm("func_001de168");
-void func_001dcc00(void*, void*);
+void func_001dcc00(void*, void*);  // to_1e34e0_field28
 void* func_001050d8(u32);
 void func_001c1308(void*, void*, void*, void*, void*);
 
@@ -294,15 +294,15 @@ void func_001c23a8(u8* p, void* a1, void* a2, void* a3, void* t0, void* t1, void
     *(u32*)p = (u32)D_00351408;
     *(u32*)(p + 1416) |= 0x100000;
     void* h = func_001de168b(p + 156, a2, 0, 1, 0, 0);
-    func_001dcc00(h, a3);
+    func_001dcc00(h, a3);  // to_1e34e0_field28
     void* o = func_001050d8(56);
     func_001c1308(o, h, t0, t1, t2);
     *(void**)(p + 2548) = o;
 }
 
 s32 func_00186ce8(u8*);
-s32 func_00186d18(u8*);
-s32 func_001c7950(void*, void*, f32, f32);
+s32 func_00186d18(u8*);  // check_size140to150
+s32 func_001c7950(void*, void*, f32, f32);  // copy_quad_if_flag
 void func_001c79a0(void*, void*, s32);
 void func_001d86a0(s32, s32);
 struct Fl40 { u32 on:1; u32 rest:31; };
@@ -375,7 +375,7 @@ extern s32 D_01d9eab4;
 extern s32 D_01d9ea9c;
 extern u8* D_01d9e6e0;
 void func_001f5f10();
-s32 func_00222568(void);
+s32 func_00222568(void);  // vu_const_5f_d
 void func_0021ee48(void*, void*, void (*)(), void*, s32, u32, u32);
 
 void func_001f6030(u8* p, u8* e, u8* c) {
@@ -408,10 +408,10 @@ void func_00201208(u8* p, u8* c) {
 
 s32 func_002282f0(s32);
 u8* func_00227d10(s32);
-void func_001ba028(void*);
-double func_00313b80(f32);
+void func_001ba028(void*);  // list_contains_ptr
+double func_00313b80(f32);  // float_to_double
 double func_002f83f0(double);
-f32 func_003144b0(double);
+f32 func_003144b0(double);  // double_trunc
 struct Rot { s16 pad0, pad1; s16 a, b, nx, ny, nz; };
 struct Hold { u8 pad[8]; f32* o; };
 
@@ -419,15 +419,15 @@ struct Hold { u8 pad[8]; f32* o; };
 void func_0022e4f0(Rot* r) {
     if (func_002282f0(r->a)) return;
     Hold* v = (Hold*)func_00227d10(r->b);
-    func_001ba028(v->o);
+    func_001ba028(v->o);  // list_contains_ptr
     f32* o = v->o;
-    o[12] = func_003144b0(func_002f83f0(func_00313b80(o[12])));
+    o[12] = func_003144b0(func_002f83f0(func_00313b80(o[12])));  // double_trunc
     if (r->nx) { v->o[12] = -v->o[12]; asm volatile("" ::: "memory"); }
     o = v->o;
-    o[13] = func_003144b0(func_002f83f0(func_00313b80(o[13])));
+    o[13] = func_003144b0(func_002f83f0(func_00313b80(o[13])));  // double_trunc
     if (r->ny) { v->o[13] = -v->o[13]; asm volatile("" ::: "memory"); }
     o = v->o;
-    o[14] = func_003144b0(func_002f83f0(func_00313b80(o[14])));
+    o[14] = func_003144b0(func_002f83f0(func_00313b80(o[14])));  // double_trunc
     if (r->nz) v->o[14] = -v->o[14];
 }
 
@@ -840,7 +840,7 @@ void func_0031d0f8(u8* p) {
 extern u32 D_00350ab0[];
 extern u32 D_00350bb0[];
 extern u32 D_0034e8a8[];
-void func_00239848(void*);
+void func_00239848(void*);  // set_vtbl_36eb28_then_call
 void func_001ac5b8(void*);
 
 // Deleting destructor.
@@ -868,7 +868,7 @@ void func_0031fb90(u8* p) {
     func_00239870(p + 848);
     func_00239870(p + 484);
     *(u32*)(p + 132) = (u32)D_0034e8a8;
-    func_00239848(p + 132);
+    func_00239848(p + 132);  // set_vtbl_36eb28_then_call
     func_001ac5b8(p);
     func_00105110(p);
 }

@@ -1,0 +1,1919 @@
+addr	name	source	confidence	reason
+0016c028	obj_get_attach_or_alt	deepseek-verified	confirmed	returns this+112 or this+1344 based on 0x1c0cd8
+002fdfc8	device_vprintf_va	deepseek-verified	confirmed	varargs wrapper: builds arg block then calls 0x2ffd00
+00168b38	entry_array_find_nth	deepseek-verified	confirmed	16-byte entries, halfword match, returns nth hit
+002f3f88	memcpy16	deepseek-verified	confirmed	copies exactly 16 bytes with lq/sq
+00313b80	float_to_double	deepseek-verified	corrected	unpacks float bits then builds double via 0x314480
+002f3f40	vec_scale_by_f12	deepseek-verified	confirmed	VU wxyz quad multiply by scalar f12
+002f8870	fabsf	deepseek-verified	confirmed	clears sign bit of float arg, returns |f12|
+00168b88	find_entry16_by_half_word	deepseek-verified	corrected	16-byte entries match halfword+word, 4th arg nth
+003142e0	double_compare	deepseek-verified	corrected	unpacks two doubles and compares via 0x314830
+0030ee00	ee_intr_get_enable	deepseek-verified	confirmed	reads Status IE, enables interrupts, returns old
+001a80c8	table24_find_by_id	deepseek-verified	confirmed	scans 24-byte records for halfword id, returns record
+00106a60	buffer_get_by_index	deepseek-verified	confirmed	record = global index*144 into one of two buffers
+00203a40	vu_const_5f	deepseek-verified	confirmed	VU chain builds constant 5.0f in $f0
+001d5718	list_free_nodes	deepseek-verified	confirmed	thunk to 0x1d5730 which frees list nodes
+0019f9a8	array8_free_slots	deepseek-verified	confirmed	frees 8 pointer slots 8 bytes apart, clears each
+00313f40	double_mul	deepseek-verified	corrected	unpacks two doubles, multiplies, repacks to double
+002f3d98	vec4_normalize	deepseek-verified	confirmed	sqrts xyz length and scales VU quad by 1/len
+002369a0	obj_ctor_36eac8	deepseek-verified	corrected	zeroes fields 4..20, sets vtable 0x36eac8
+0028f6f0	record884_refresh_by_index	deepseek-verified	confirmed	884-byte record: refresh when type differs
+0023c008	obj_ctor_36eae8	deepseek-verified	corrected	zeroes fields 4..88, sets vtable 0x36eae8
+002ff3fc	strlen	deepseek-verified	confirmed	word-at-a-time zero byte scan, returns length
+00276398	state_is_150	deepseek-verified	corrected	syncs then returns (global+388 == 0x98)
+002f4000	vu_store_w_splat	deepseek-verified	corrected	builds w splat quad and stores 4 quads descending
+0031e938	store_zero_u32	deepseek-verified	confirmed	writes 0 to (a0) and returns
+00263c60	sync_global_index_if_changed	deepseek-verified	corrected	sets global +388 index when it differs, clears +392
+00313bc0	ldexpf	deepseek-verified	unsure	float-to-int with exponent scale and clamping path
+002226b8	vec3_copy	deepseek-verified	confirmed	copies xyz of VU quad a1->a0, keeps w
+002f3f10	vec4_sub	deepseek-verified	confirmed	VU quad subtraction a1-a2 stored to a0
+001ba028	list_contains_ptr	deepseek-verified	confirmed	walks singly linked list, returns match found
+00319fb0	big_obj_dtor	deepseek-verified	confirmed	frees node range, destroys sub-objects, base dtor
+002fd188	pool_alloc_block	deepseek-verified	confirmed	walks free list of 136-byte blocks, unlinks one
+00313e80	double_div	deepseek-verified	corrected	unpacks two doubles, divides, repacks to double
+00106a18	buffer_get_256	deepseek-verified	confirmed	region = global index*256 into one of two buffers
+0028cf28	record408_set_and_refresh	deepseek-verified	confirmed	sets record +396 then refreshes twice
+0019c090	obj_is_enabled	deepseek-verified	corrected	tests flag words +8,+352,+264 to decide enabled
+001a8bf8	get_bits5_at	deepseek-verified	confirmed	returns low 5 bits of byte at a0+a1
+00190388	vec4_from_arg	deepseek-verified	confirmed	calls 0x1902a8 into stack then copies 16 bytes out
+0028af90	obj_set_field22_from_arg	deepseek-verified	corrected	stores a1 or default at +4 into field 22
+00236d60	clear_64_entries_24	deepseek-verified	corrected	zeros 64 entries of 24 bytes (1536 bytes)
+00316f38	varint64_decode	deepseek-verified	confirmed	7-bit varint decode into u64 out pointer
+0028af78	obj_test_flag_mask	deepseek-verified	corrected	returns nonzero when field 52 AND a1
+002369f0	set_vtbl_36eac8_then_call	deepseek-verified	corrected	sets vtable 0x36eac8 then calls 0x236c38
+0020b410	vu_const_5f_b	deepseek-verified	confirmed	VU chain builds constant 5.0f in $f0
+00124748	list_nth_node_rel	deepseek-verified	corrected	walks relative-offset linked list a1 steps, returns node
+002ff1a4	strcmp	deepseek-verified	corrected	subtracts words, returns 0 on equal else byte diff
+0023c098	set_vtbl_36eae8_then_call	deepseek-verified	corrected	sets vtable 0x36eae8 then calls 0x23c300
+001de168	scan_list_by_half	deepseek-verified	confirmed	walks nodes comparing halfword +2, calls 0x1ddef0
+002cb890	hash_bucket_get	deepseek-verified	confirmed	remainder of a1 mod field 12 indexes 32-byte entries
+0028b218	obj_set_flag39_bits3000	deepseek-verified	corrected	stores byte 39 and toggles bits 0x3000 in field 52
+00225b00	flag_query_by_index	deepseek-verified	corrected	checks global count/buffer for index a0, -1 reads flag
+002f3ef8	vec4_add	deepseek-verified	confirmed	VU quad addition a1+a2 stored to a0
+0028b248	set_field28_half	deepseek-verified	corrected	stores halfword a1 at offset 28
+003144b0	double_trunc	deepseek-verified	confirmed	unpacks double, passes truncated mantissa to 0x314698
+0028cdb8	record408_alloc_init	deepseek-verified	confirmed	gets/creates 408-byte record then runs vtable slot
+001e7698	alloc_aligned16	deepseek-verified	confirmed	rounds size up to 16 then allocates block
+0028d660	record_set_value_refresh	deepseek-verified	confirmed	sets field 396, flag 413, refreshes record
+00240bd0	get_global_byte1	deepseek-verified	confirmed	returns signed byte 1 of global -4972 record
+0023fd30	global_flag_nonzero	deepseek-verified	confirmed	returns (global_36ebdc != 0)
+001d1678	obj_init_28bytes	deepseek-verified	confirmed	sets field16=arg, field12=1, zeroes 40/4/24
+001064a8	int_to_float_scaled	deepseek-verified	corrected	converts a0 to float then scales/rounds via 0x2fea18
+002b23e0	list_entry_by_index_checked	deepseek-verified	corrected	indexes 36-byte list entries, error 28 if negative
+0028dd90	mod10_classify_012	deepseek-verified	corrected	returns 0/1/2 by (a0 % 10) against 1 and 2
+0028afd0	obj_set_signed18	deepseek-verified	confirmed	stores sign-extended a1 at +18 then updates cell
+00170b30	alloc_align128	deepseek-verified	confirmed	aligns a0 up to 128 then carves from block
+0010f8c0	test_field2940_bit2	deepseek-verified	corrected	returns bit 2 of field at offset 2940
+0028ce98	slot_set_and_refresh	deepseek-verified	corrected	stores a1 into slot table and refreshes record
+002cfeb0	obj_init_field1416_bit800	deepseek-verified	corrected	sets vtable, inits +2800 object, sets bit 0x800
+00274cf0	state_dispatch_0_1_2	deepseek-verified	confirmed	switch on a0 handling states 0,1,2
+00133bb8	forward_sub24_to_133848	deepseek-verified	corrected	advances a0 by 24 then tail-calls 0x133848
+002924d0	find_or_default_offset	deepseek-verified	corrected	looks up a1 in table, else returns a0+11068
+00222790	vec2_add_round_pack	deepseek-verified	corrected	adds xy pairs, rounds to packed ints in $f0
+002f4870	vec3_scale_by_f12	deepseek-verified	confirmed	scales xyz of VU quad at a1 by scalar f12
+00287d68	copy_globals_3words	deepseek-verified	corrected	copies 3 global words to 3 other globals
+00273180	state_dispatch_2_3	deepseek-verified	corrected	switch on state a0 values 2 and 3
+00209fb8	vu_const_5f_c	deepseek-verified	confirmed	VU chain builds constant 5.0f in $f0
+001c1130	copy_record_block_to_table	deepseek-verified	corrected	indexes table by record byte 36, copies 64 bytes
+00133c60	forward_sub24_to_133980	deepseek-verified	corrected	advances a0 by 24 then tail-calls 0x133980
+0011c050	float_bucket_index	deepseek-verified	corrected	maps f12 through thresholds into a bucket index
+00314190	double_add	deepseek-verified	corrected	unpacks two doubles, adds, repacks to double
+00239f18	obj_set_float312_and_flags	deepseek-verified	corrected	stores f12 at +312 and updates flags when equal
+00239848	set_vtbl_36eb28_then_call	deepseek-verified	corrected	sets vtable 0x36eb28 then calls 0x237238
+002367c8	obj_dispatch_bitfield64	deepseek-verified	corrected	calls 0x2f2be0 when bits 32/33 of field48 clear
+001b9d40	vtable_call_slot64_flags	deepseek-verified	corrected	calls vtable slot 64 then tests flags at +352
+0018a550	state_dispatch_0_1_3	deepseek-verified	corrected	switch on word at a0 for states 0,1,3
+002f8b00	to_2f9a38	deepseek-verified	confirmed	thunk: sets frame then tail-calls 0x2f9a38
+002f3fd0	vec4_ftoi0_trunc	deepseek-verified	corrected	VU truncating float-to-int of whole quad
+0027af58	check_state16_then_loop	deepseek-verified	corrected	calls 0x287bc0, if 16 loops over list
+002229a0	vec3_length	deepseek-verified	confirmed	sqrt of xyz sum of squares, returns in $f0
+00222568	vu_const_5f_d	deepseek-verified	corrected	builds 5.0f VU constant then scales and converts
+001e6000	obj_dec_timer	deepseek-verified	corrected	byte at +12 decremented, wraps 0xff -> 60
+001b6d70	table_entry_ptr_b	deepseek-verified	confirmed	returns 0x33fb1c + a0*4
+001ab810	get_global_1c7cec0	deepseek-verified	confirmed	loads word from 0x1c7cec0
+00192498	read_u16_be	deepseek-verified	confirmed	sign-extended big-endian halfword at a0+a1
+00192388	skip_control_codes	deepseek-verified	corrected	skips bytes below 32 using class table 0x37cec0
+0016b010	obj_set_float1644_from_pair	deepseek-verified	corrected	calls 0x2f8ad0 on a1 floats, stores at +1644
+00141988	collect_entry_ptrs_by_halves	deepseek-verified	corrected	writes 16-byte entry pointers indexed by a1 halves
+00107368	vec_copy_at80_if_diff	deepseek-verified	confirmed	copies 16 bytes from a0+80 unless dst same
+00106ab8	noop_ret	deepseek-verified	confirmed	function that only returns
+00288018	global_zero_4dwords	deepseek-verified	corrected	zeroes four dwords of global object
+001e3650	ptr_add4	deepseek-verified	confirmed	returns a0+4
+0016f6f8	check_flag_4000_type	deepseek-verified	corrected	returns type id when a0 bit 0x4000 set
+00155d58	table_word_indexed_by_3	deepseek-verified	corrected	reads word table indexed by field24 + a1*3
+0010e7e0	float2_get_by_index	deepseek-verified	corrected	returns float field 272/276 selected by a1 1/2
+00100920	classify_subtype	deepseek-verified	corrected	id 255 skips; else classifies masked a0 into groups
+00303c18	push_entry_onto_slot_list	deepseek-verified	corrected	links a1 onto slot list indexed by a1 field 4
+002edf28	obj_ctor_3637e0	deepseek-verified	corrected	zeroes 4..28, sets four bytes 0x80, vtable 3637e0
+002a01c8	obj4_entry_by_index	deepseek-verified	corrected	gets type-4 object, returns entry a0*8 at +16
+00258068	get_global_bit	deepseek-verified	corrected	returns bit a0 of global halfword 0x36ef70
+00240440	round_up_1024	deepseek-verified	confirmed	returns (a0 + 1023) >> 10
+00240108	get_global_36eb68	deepseek-verified	corrected	loads word from 0x36eb68
+002282d8	limit_15000_or_25000	deepseek-verified	corrected	returns 15000 when global flag set else 25000
+001d9e30	record_range_check_or_first	deepseek-verified	corrected	returns first record or range check on a0
+001a1658	state_dispatch_0_1_14	deepseek-verified	corrected	switch on a0 0/1/14 then tail-calls 0x1a1540
+00192440	is_byte_lt25	deepseek-verified	confirmed	returns (*(a0+a1) < 25)
+0017d160	vec3_dot_clamped	deepseek-verified	corrected	dot product xyz then clamps through constants
+001070c8	set_vtbl_34cc50	deepseek-verified	corrected	stores vtable 0x34cc50 at offset 0
+0031bb08	set_vtbl_3486a8	deepseek-verified	corrected	stores vtable 0x3486a8 at offset 0
+003167f8	set_vtbl_367910	deepseek-verified	corrected	stores vtable 0x367910 at offset 0
+002f3e20	convert_vectors_to_scalar	deepseek-verified	corrected	unpacks VU quads into scalar register array
+002e7328	to_2e7458	deepseek-verified	confirmed	thunk: sets frame then tail-calls 0x2e7458
+002dea80	set_vtbl_362d20	deepseek-verified	corrected	stores vtable 0x362d20 at offset 0
+002cb920	get_sum_fields_minus1	deepseek-verified	corrected	returns field4 + field8 - 1
+002943b0	test_bit_global_array	deepseek-verified	corrected	tests bit a0[4] in word array from global -2696
+00288008	get_global_36f7d4	deepseek-verified	confirmed	returns word at 0x36f7d4
+00237458	entry20_accumulate	deepseek-verified	corrected	indexes 20-byte entry, accumulates a3 into field 8
+001ad9c8	float_accumulate_clamped	deepseek-verified	corrected	adds f4*const into f0, clamps at zero, returns hit
+001a8b28	get_data_1c7cc10	deepseek-verified	confirmed	returns 0x1c7cc10
+001a2478	count_div4_compare	deepseek-verified	corrected	compares (field4 rounded to /4) against field 0
+0016a9a0	to_16a950	deepseek-verified	confirmed	thunk: sets frame then tail-calls 0x16a950
+00120800	obj_get_sub_ptr_by12	deepseek-verified	corrected	returns base + offset field12, or 0 when offset 0
+0011ee58	set_vtbl_347940	deepseek-verified	corrected	stores vtable 0x347940 at offset 0
+00102670	to_1025f8	deepseek-verified	confirmed	thunk: sets frame then tail-calls 0x1025f8
+00316f70	varint64_encode	deepseek-verified	unsure	decodes 7-bit varint into u64 (naming kept)
+00304468	cmp_entries_16_then_words	deepseek-verified	corrected	compares field16 then word arrays, lexicographic
+002f3e90	vec4_scale_by_1_f12	deepseek-verified	corrected	divides each quad lane by scalar f12
+002f3d50	vec3_cross	deepseek-verified	confirmed	VU outer product of a1 and a2 (cross product)
+0028b160	find_index_in_array	deepseek-verified	corrected	scans word array for a1, returns index or 0
+002374c8	entry20_accumulate_b	deepseek-verified	corrected	accumulates a3 into field 4, returns delta at 8
+001e6c00	alloc_336_align_171	deepseek-verified	corrected	allocates 336 bytes aligned 171 then inits object
+0016f770	in_id_special_range	deepseek-verified	corrected	a0<793, or 793..794, or ==1006
+001391a8	vec_copy_at416_if_diff	deepseek-verified	corrected	copies 16 bytes to a1 unless a0+416 equals it
+0010f6b8	count_reached_threshold	deepseek-verified	corrected	field0 < (int)(f12 * field+4) of obj at +1164
+0010aed8	table_entry_word_34edc	deepseek-verified	confirmed	returns word 0x34edc[a0]
+0010ae90	get_table_34ed8	deepseek-verified	confirmed	returns table base 0x34ed8
+00108398	clear_quads_set_flags	deepseek-verified	corrected	zeroes +0/+64/+80 then sets flag bits
+003060f0	ee_intr_disabled	deepseek-verified	corrected	returns NOT of CP0 Status IE bit (disabled)
+002fd3e8	pool_free_block	deepseek-verified	corrected	pushes block onto global free list via 0x2fd680
+002f42e8	vec4_clamp_to_range	deepseek-verified	corrected	clamps each quad lane between f12 and f13
+002f3ed0	vec4_lerp	deepseek-verified	corrected	computes a1*f12 + a2*(1-f12) per lane
+002e34c8	obj_get_field8_by_vtable	deepseek-verified	corrected	returns word at offset 8 of a0[0] pointer
+002bb100	next_global_id	deepseek-verified	corrected	stores and increments global id, skips zero
+00240bb0	global_store_half2	deepseek-verified	confirmed	stores halfword a0 at global -4972 +2
+00236788	to_236830	deepseek-verified	confirmed	thunk: sets frame then tail-calls 0x236830
+00224910	get_global_36dac4	deepseek-verified	confirmed	loads word from 0x36dac4
+001db888	record_index_calc	deepseek-verified	corrected	decrements field8, returns field12 + field20*entry
+001c10f8	request_pool_block64	deepseek-verified	corrected	requests 64-byte block from pool via 0x2fd248
+001aa6d0	obj_set48_and_tailcall	deepseek-verified	corrected	stores a1 at +48 then tail-calls 0x1aa388
+001a8c60	masked_byte_store	deepseek-verified	corrected	stores a2 with bit 5 masked at a0+a1
+001a8bb8	obj_set_header_bytes	deepseek-verified	corrected	writes bytes 0,18,18,18 at offsets 0..3
+001667d0	ilog2	deepseek-verified	corrected	returns integer log2 of a0 (0 when a0<=1)
+00154ee8	field24_state_code	deepseek-verified	corrected	maps field24 state 0/1/2 to 72/67/72
+0013cb80	get_global_358050	deepseek-verified	confirmed	loads word from 0x358050
+00136b78	entry16_set_field8	deepseek-verified	corrected	stores a1 at entry[a0]+8 of 16-byte table
+00132c98	entry144_sub_ptr	deepseek-verified	corrected	returns nth 144-byte record +48
+00132018	entry_ptr_from_header	deepseek-verified	corrected	resolves record pointer from header flags/index
+00117b20	entry64_set_bit10	deepseek-verified	corrected	sets bit 0x10 in 64-byte entry field at +32
+00117910	entry64_clear_fields	deepseek-verified	corrected	writes -1 and 0 into 64-byte entry fields +36/+40
+0010f660	cvt_20001_scaled	deepseek-verified	corrected	converts 20001 and scales by constant at 0x37
+0010aba8	get_global_34ed4	deepseek-verified	confirmed	loads word from 0x34ed4
+0010a7d8	store_triple_bytes	deepseek-verified	corrected	stores 3 bytes into global buffer at 0x34ed0
+0031bae0	memcpy64	deepseek-verified	confirmed	copies 64 bytes with lq/sq pairs
+00314a50	classify_subtype_b	deepseek-verified	corrected	same subtype classifier as 0x100920
+002f3d70	vec3_dot	deepseek-verified	confirmed	dot product of two xyz vectors into $f0
+002f1fa8	get_363c40	deepseek-verified	corrected	returns 0x363c40
+002e34d8	list_walk_stride12	deepseek-verified	corrected	walks entries advancing by byte10*12+64 steps
+002d0e10	float_bucket_index_b	deepseek-verified	corrected	same bucket mapping as 0x11c050 for f12
+002cf308	table_word_361fb0	deepseek-verified	corrected	returns word 0x361fb0[a0]
+002bc9a8	find_entry12_set_field	deepseek-verified	corrected	scans 12-byte entries at a0..a0+324, stores a2 at +4
+002b60e8	slot8_store_pair	deepseek-verified	corrected	stores a2 and a3 into 8-byte slots at index a0*5+a1
+0028dfe8	obj_ctor_36f440	deepseek-verified	corrected	zeroes fields 12,56 and sets vtable 0x36f440
+00267248	global_ptr_by_flag32	deepseek-verified	corrected	returns one of two globals keyed by byte at +32
+002538f8	entry16_get_flag_bit	deepseek-verified	corrected	returns bit 0 of entry[a0]+4 in 16-byte table
+00253818	entry16_find_free	deepseek-verified	corrected	scans 16-byte table entries for unused slot
+002347e8	get_global_1dbe460	deepseek-verified	confirmed	loads word from 0x1dbe460
+002347d8	get_global_1dbe45c	deepseek-verified	confirmed	loads word from 0x1dbe45c
+002347b8	get_global_1dbe454	deepseek-verified	confirmed	loads word from 0x1dbe454
+0022f8f0	vec4_dot	deepseek-verified	corrected	returns 4-component dot product of two float vecs
+00227120	get_data_1dbd8f8	deepseek-verified	confirmed	returns 0x1dbd8f8
+00222800	vec2_ftoi_round_pack	deepseek-verified	corrected	rounds xy to ints and packs with offset math
+0021ead0	table_float_pair_lookup	deepseek-verified	corrected	indexes two float tables by a1 and a1+16384
+0021ea50	table_float_pair_lookup_b	deepseek-verified	corrected	same dual float table indexing, different constant
+0021e9d0	table_float_pair_lookup_c	deepseek-verified	corrected	same dual float table indexing, different constant
+001e7470	dma_wait_and_send	deepseek-verified	corrected	polls DMA reg 0x1000a000 bit 0x100 then writes
+001e7188	fill_words	deepseek-verified	corrected	fills a1 into (a2+1) words starting at a0
+001dd1b0	to_1e7018	deepseek-verified	confirmed	thunk: sets frame then tail-calls 0x1e7018
+001d56f0	zero_three_words	deepseek-verified	confirmed	writes zero to a0+0,+4,+8
+001cbf50	float_bucket_index_c	deepseek-verified	corrected	same bucket mapping for f12 as 0x11c050
+001c7950	copy_quad_if_flag	deepseek-verified	corrected	copies quad to stack and adds when bit0 of +40 set
+001c4170	global_pair_diff	deepseek-verified	corrected	returns difference of two globals at 0x35d604
+001c1748	obj_init_from_src	deepseek-verified	corrected	builds record from a1/a2 config pointers
+001c0298	state_check5or6	deepseek-verified	corrected	checks byte 4 in {5,6} then tests a bit
+001bcf38	state_in_set_5_10_13to18	deepseek-verified	corrected	tests state against 5,10 and 13..18
+001b78b8	to_105110	deepseek-verified	confirmed	thunk: sets frame then tail-calls 0x105110
+001aec40	get_global_1c9408c	deepseek-verified	confirmed	loads word from 0x1c9408c
+001ae678	to_306698_arg10	deepseek-verified	corrected	thunk passing 10 to tail-called 0x306698
+001aae28	obj_init_from_6args	deepseek-verified	corrected	stores a1..a3,t0..t3 and stack args into object
+001a91f8	obj_init_24bytes	deepseek-verified	confirmed	sets field0=-1 and zeroes 4,12,16,20
+00186d18	check_size140to150	deepseek-verified	corrected	returns true when child field20 in 140..150
+0017f380	obj_walk_children	deepseek-verified	corrected	zeroes fields 60/64 then walks child list
+0014a988	clear_fields_244_260	deepseek-verified	confirmed	zeroes fields 244..260 of object
+00146680	copy_quad4_if_diff	deepseek-verified	corrected	copies 64 bytes when a0 != a1
+0013f5f0	copy_float_220_to_48	deepseek-verified	confirmed	copies floats 220/224 to 48/52
+001344f8	get_data_347c88	deepseek-verified	confirmed	returns 0x347c88
+001322f0	set_vtbl_347c00	deepseek-verified	corrected	stores vtable 0x347c00 at offset 0
+00124c08	set_vtbl_347b88	deepseek-verified	corrected	stores vtable 0x347b88 at offset 0
+0011ee18	obj_ctor_347940	deepseek-verified	corrected	stores a1 at +4, zeroes 8/12, vtable 0x347940
+00112720	check_2924_lt14	deepseek-verified	confirmed	returns !(field2924 < 14)
+0010a8a8	store_global_float_pair	deepseek-verified	confirmed	stores f12/f13 at 0x34ec98 and +4
+00107478	vec_copy_at96_if_diff	deepseek-verified	corrected	copies 16 bytes from a0+96 unless dst same
+001069b8	swap_global_word	deepseek-verified	corrected	swaps a0 into 0x34cc78 and old value to 0x34cc7c
+00102a38	list_contains_id	deepseek-verified	corrected	walks list from a0+8 testing first word == a1
+0031e208	gpr_field_update	deepseek-verified	corrected	copies field when bits 0x78 clear, sets flags
+00316e10	get_data_369928	deepseek-verified	confirmed	returns 0x369928
+00314b00	varint32_encode	deepseek-verified	unsure	decodes 7-bit varint into u32 (naming kept)
+002ffd00	fprintf_stream_va	deepseek-verified	corrected	writes formatted varargs to stream at +84
+002fb850	float_round_abs	deepseek-verified	confirmed	rounds float magnitude adjusting exponent by a0
+002f8ae8	to_2f97c8	deepseek-verified	confirmed	thunk: sets frame then tail-calls 0x2f97c8
+002f8ab8	to_2f9268	deepseek-verified	confirmed	thunk: sets frame then tail-calls 0x2f9268
+002e64b8	list_advance_count	deepseek-verified	corrected	advances a1 by node length field a0 times
+002bb180	obj_init_with_temp_blocks	deepseek-verified	corrected	calls two helpers with temp blocks, stores at +24
+0028b4f0	copy_3halfwords_422	deepseek-verified	corrected	copies 3 halfwords into a0+422
+0028b4c0	copy_3halfwords_416	deepseek-verified	corrected	copies 3 halfwords into a0+416 indexed
+0028b1c0	test_bit_field32	deepseek-verified	corrected	returns whether bit a1 set in field 32
+0028b078	obj_setup_from_args	deepseek-verified	corrected	sets flag37, halfwords 24/26 from args, calls helper
+0028ac98	lookup_by_index_align	deepseek-verified	corrected	picks table at +48 or +44 by alignment flag
+002827e0	get_indexed_word	deepseek-verified	confirmed	returns word at a0 + a1*4 + 4112
+002817d8	store_globals_quad	deepseek-verified	corrected	stores a0..a3 into globals then loops over args
+00257fa8	nth_set_bit_index	deepseek-verified	corrected	returns index of a0-th set bit in global halfword
+00234888	entry32_word	deepseek-verified	corrected	indexes 32-byte entries at 0x1dbe480 by a0,a1
+002249b8	get_global_36dac0	deepseek-verified	confirmed	loads word from 0x36dac0
+00222868	vec2_normalize	deepseek-verified	corrected	normalizes xy vector by its length in VU
+0021e9a8	select_vif_regs	deepseek-verified	corrected	toggles flag and returns VIF0 or VIF1 base
+0021e998	get_vif1_regs	deepseek-verified	confirmed	returns 0x70002f00
+0021e988	get_vif0_regs	deepseek-verified	confirmed	returns 0x70001e00
+001e7538	hw_regs_setup	deepseek-verified	confirmed	sets up 0x1000xxxx DMA register bases and bits
+001e0cc8	entry64_by_field32	deepseek-verified	corrected	indexes 64-byte entries by field at +32, +48 base
+001e09a0	entry64_by_3index	deepseek-verified	corrected	computes 64-byte entry index from a1*3 and flags
+001dca30	obj_set48_52_flag40000	deepseek-verified	corrected	stores a1/a2 at +48/+52 and sets bit 0x40000
+001d1fa8	obj_ctor_3525c8	deepseek-verified	corrected	zeroes fields, sets vtable 0x3525c8, inits parts
+001ce300	to_1ce2a0_index_minus1	deepseek-verified	corrected	tail-calls 0x1ce2a0 with index a0-1 and global
+001b0320	is_field16_set	deepseek-verified	confirmed	returns (a0->field16 != 0)
+001a3888	id_in_range_5_7_131	deepseek-verified	corrected	true when a0 in 5..7 or equals 131
+00198580	check_div1000_500	deepseek-verified	corrected	divides a1 by 1000, special-cases quotient 500
+00192fb8	mul_float4x8	deepseek-verified	confirmed	returns a0[4] * a0[8] as float
+0018ca10	alloc_from_pool_magic	deepseek-verified	corrected	allocates 16-byte slot using /3 magic indexing
+00182f28	store_global_35ed04	deepseek-verified	confirmed	stores a0 at 0x35ed04
+0017d130	sqrt_scaled_double	deepseek-verified	corrected	computes sqrt(2*f12 / constant)
+0017cb78	handle_field256_eq4	deepseek-verified	corrected	when field256==4 calls 0x17f488 with constant
+0017cb48	can_run_when_268_bit0	deepseek-verified	corrected	requires bit0 +268, field256>=0, bit4 +360 clear
+00177a28	set_bytes_2820_2821	deepseek-verified	confirmed	sets bytes at +2820 and +2821 to 1
+00167bf0	entry384_get	deepseek-verified	corrected	indexes 384-byte entries from table 0x35d3c0
+0014e648	ptr_add752	deepseek-verified	confirmed	returns a0+752
+001466b0	mat4_transform_vecs	deepseek-verified	corrected	VU 4x4 matrix-vector transform with clip test
+001422a0	find_record16_and_copy	deepseek-verified	corrected	indexes 16-byte records, copies to a0 when different
+00141970	vtable_get12	deepseek-verified	confirmed	returns vtable slot 12 of a0
+00141928	mark_records_by_index	deepseek-verified	corrected	writes 1 at +16 of 20-byte records matching a1
+00138c90	sum_fields_to_out	deepseek-verified	confirmed	writes field368+376 and 372+380 to a1,a2
+00135c88	find_word_index	deepseek-verified	corrected	scans 4-byte words for a1, returns index or -1
+0010f8d0	is_field912_set	deepseek-verified	confirmed	returns (a0->field912 != 0)
+00109360	get_global_entry8	deepseek-verified	corrected	indexes 8-byte global entry list, version checked
+0031e158	obj_init_large	deepseek-verified	corrected	zeroes field0, inits parts at +8/+208 and floats
+00319d20	zero_two_words	deepseek-verified	confirmed	writes zero to a0+0 and a0+4
+00319a60	clear_fixed_blocks	deepseek-verified	corrected	zeroes 16-word and 16-word blocks at +0/+64
+00316e00	get_367918	deepseek-verified	confirmed	returns 0x367918
+00316d08	get_global_365c48	deepseek-verified	corrected	loads word from 0x365c48
+002fb460	float_to_int	deepseek-verified	confirmed	converts float to int with range and rounding fixup
+002faaf0	float_to_int_b	deepseek-verified	confirmed	same float-to-int conversion as 0x2fb460
+002ee840	get_data_1e2c088	deepseek-verified	confirmed	returns 0x1e2c088
+002deac0	set_float24_scaled	deepseek-verified	corrected	stores f12 at +24 scaled when f12 == f13
+002dea00	obj_init_with_floats	deepseek-verified	corrected	sets fields 4..56, vtable, and float fields
+002dc7f8	get_global_35e958	deepseek-verified	confirmed	loads word from 0x35e958
+002da110	is_field340_eq14	deepseek-verified	confirmed	returns (a0->field340 == 14)
+002d5578	is_field340_eq151	deepseek-verified	confirmed	returns (a0->field340 == 0x97)
+002cf938	count_entries_masked	deepseek-verified	corrected	loops global entry count with byte-masked a0
+002cd910	split_float_call	deepseek-verified	corrected	splits float into int+frac, calls 0x2cd878
+002c9e90	halfword_375540	deepseek-verified	confirmed	signed halfword at 0x375540[a1*2]
+002c83a8	halfword_375540_b	deepseek-verified	confirmed	same halfword table read as 0x2c9e90
+002bce10	find_entry12_set_flag	deepseek-verified	corrected	matches first word of 12-byte entry, sets +8 = 1
+002aaa38	test_bit_global_a	deepseek-verified	corrected	tests bit a0 of bit array at global+132
+002aa2f8	test_bit_global_b	deepseek-verified	corrected	tests bit a0 of bit array at global+316
+0028cf10	get_table_entry	deepseek-verified	confirmed	returns word table[a0] from global -3064
+00287c20	clear_global_flag_return_m1	deepseek-verified	corrected	sets global -3328 to -1 and returns -1
+00281e70	store_global_and_clear_flag	deepseek-verified	corrected	stores a0 in global and clears byte flag
+00281128	get_entry20_field16	deepseek-verified	corrected	returns word at a0 + a1*20 + 16
+00253928	entry16_get_bit1	deepseek-verified	corrected	returns bit 1 of entry[a0]+4 in 16-byte table
+002413f0	find_next_free_slot	deepseek-verified	corrected	scans 32-byte slots from byte counter for free flag
+00229430	to_1391c8_arg11	deepseek-verified	corrected	tail-calls 0x1391c8 with a2=11
+00222898	mat4_transform_vec	deepseek-verified	confirmed	4x4 matrix transform with perspective divide
+00220088	list_set_flag_clear	deepseek-verified	corrected	walks list at +24 setting bit 8 and clearing word
+001ef578	fix16_mul	deepseek-verified	corrected	returns fixed-point product of sign-extended a0 and f12
+001ef370	fix16_mul_b	deepseek-verified	corrected	same fixed-point product as 0x1ef578
+001ef170	fix16_mul_sub	deepseek-verified	corrected	sign-extends a0, returns f12*x - x as int
+001eef68	fix8_mul	deepseek-verified	corrected	returns fixed-point product of sign-extended byte a0
+001eed60	fix8_mul_b	deepseek-verified	corrected	same fixed-point byte product as 0x1eef68
+001eeb60	fix8_mul_sub	deepseek-verified	corrected	returns f12*x - x as signed byte
+001ee400	fix16_mul_c	deepseek-verified	corrected	same fixed-point halfword product as 0x1ef578
+001ee238	fix16_mul_d	deepseek-verified	corrected	same fixed-point halfword product as 0x1ef578
+001ee070	fix16_mul_e	deepseek-verified	corrected	fixed-point halfword product with subtract variant
+001edea8	fix8_mul_c	deepseek-verified	corrected	same fixed-point byte product as 0x1eef68
+001edce0	fix8_mul_d	deepseek-verified	corrected	same fixed-point byte product as 0x1eef68
+001edb18	fix8_mul_e	deepseek-verified	corrected	fixed-point byte product with subtract variant
+001da4d8	stream_op_by_subtype	deepseek-verified	corrected	selects stream operation by a1>>6 subtype
+001da458	stream_init_fields	deepseek-verified	corrected	stores a1 at +4, zeroes 4 words, then processes
+001da3d8	stream_append_unaligned	deepseek-verified	corrected	copies unaligned word into stream buffer, advances
+001d7f40	find_slot_by_byte	deepseek-verified	corrected	scans 68-byte slots for byte a1, returns index or -1
+001d3f38	type_is_282_344_484	deepseek-verified	corrected	true when halfword +40 is 282, 344 or 484
+001c0150	obj_init_fields_1c0150	deepseek-verified	corrected	stores a1 at 0, zeroes 4..48, inits 3 words
+001b7ff8	bump_field8_alloc	deepseek-verified	corrected	advances field8 by a1*16 and stores, returns new
+001b1ab8	alloc_from_pool_magic_b	deepseek-verified	corrected	allocates 16-byte slot via /10 magic indexing
+001a1aa0	ring_buffer_index	deepseek-verified	corrected	byte counter +a1 wraps modulo max byte at +434
+0019f550	test_bit_addressable	deepseek-verified	corrected	tests bit a1 of words at a0+4
+00192f78	obj_init_float_const	deepseek-verified	corrected	zeroes +12 and stores float constant at 4/8/20
+0018f070	list_contains_ptr_b	deepseek-verified	corrected	walks list from global 0x1c60d98 matching a0
+0018a1b8	find_byte1_entry	deepseek-verified	corrected	scans 20-byte entries for byte at +4 equal 1
+00178cf8	clear_vecs_three	deepseek-verified	corrected	zeroes quads at a0+16, a0+32 and +2884+2608
+0016fa98	set_table_word	deepseek-verified	corrected	stores a1 into word table 0x1c6f460[a0]
+00168958	obj_init_name_string	deepseek-verified	corrected	stores a1 at +48, zeroes fields, copies name
+001666f0	obj_store_masked	deepseek-verified	confirmed	stores word and 3 masked halfwords into object
+001666a0	zero_fields_0_4_6_8	deepseek-verified	corrected	zeroes word at 0 and halfwords at 4,6,8
+0015cc80	test_float12_zero_and_bits	deepseek-verified	corrected	tests float +12 zero then bit masks on +0
+00154288	state_index_0_1_2	deepseek-verified	corrected	maps a1 0/1/2 to 0/1/2, else 3
+0014f030	obj_set_lerp_params	deepseek-verified	corrected	stores f12,f13 and (f13-f12)/f14 ratio
+0014df98	zero_global_byte	deepseek-verified	confirmed	stores zero at global 0x35a3e0
+0014b258	copy_halfwords_8_10	deepseek-verified	confirmed	copies halfwords +8,+10 to *a1,*a2
+0014b150	obj_init_fields_14b150	deepseek-verified	corrected	sets vtable 0x3486a8 and constants 512/416/flags
+0014abc8	get_data_359950	deepseek-verified	confirmed	returns 0x359950
+0014abb8	get_data_359840	deepseek-verified	confirmed	returns 0x359840
+0014a248	zero_global_byte_b	deepseek-verified	confirmed	stores zero at global 0x359289
+00149320	get_entry12_field124	deepseek-verified	confirmed	returns word at a0 + a1*12 + 124
+00147c78	copy_bytes_232_to_12	deepseek-verified	corrected	copies 4 bytes from +232 to +12
+00144e30	zero_6_halfwords	deepseek-verified	corrected	zeroes halfwords at 0..10
+001418e8	clear_records_by_index	deepseek-verified	corrected	clears byte 16 of matching 20-byte records
+0013dc08	list_contains_id_b	deepseek-verified	corrected	walks 3-entry list at a0 matching a1
+00133be8	forward_sub24_to_1338e8	deepseek-verified	corrected	advances a0 by 24 then tail-calls 0x1338e8
+00133ba0	forward_sub24_to_1337f0	deepseek-verified	corrected	advances a0 by 24 then tail-calls 0x1337f0
+00132270	obj_ctor_347c00	deepseek-verified	corrected	stores a1 at +4, zeroes 8..28, vtable 0x347c00
+00132068	entry_get_by_index	deepseek-verified	corrected	returns entry[a1] word when header is -1
+00124bb8	obj_ctor_347b88	deepseek-verified	corrected	stores a1 at +4, zeroes 8..20, vtable 0x347b88
+00116990	float_table_lookup_a	deepseek-verified	corrected	indexes float table 0x3476b8 via 0x10f648(6)
+00116938	float_table_lookup_b	deepseek-verified	corrected	indexes float table 0x347688 via 0x10f648(6)
+001142c0	get_float_104	deepseek-verified	confirmed	returns float at (a0->field8)+104
+00112740	get_field2940	deepseek-verified	confirmed	returns word at offset 2940
+0010f8a8	get_float_3284	deepseek-verified	confirmed	returns float at offset 3284
+0010f6f8	count_reached_threshold_b	deepseek-verified	corrected	tests flag 4 then compares count at +1164 object
+00109340	to_109450_zero	deepseek-verified	corrected	tail-calls 0x109450 with a0=0, a1=512
+00109330	set_global_3756_return	deepseek-verified	corrected	sets global 3756 to -1 and returns it
+00105c48	entry12_34cae4	deepseek-verified	confirmed	returns 0x34cae4 + a0*12
+00103ea0	set_hook_ptr	deepseek-verified	confirmed	stores a0 in global 0x33ba74
+00323af8	obj_copy_48_bytes	deepseek-verified	corrected	copies 32 bytes then a quad and sets two words
+00321ce8	list_unlink_node	deepseek-verified	corrected	unlinks a1 from singly linked list at a0
+00321198	zero_3_words	deepseek-verified	corrected	zeroes three consecutive words
+00320730	zero_halfword	deepseek-verified	confirmed	stores zero halfword at a0
+0031baa8	set_vtbl_3486a8_b	deepseek-verified	corrected	stores vtable 0x3486a8 at offset 0
+00319bd0	clear_18x64_entries	deepseek-verified	corrected	zeroes 18 blocks of 64 6-byte entries
+00319870	init_18x4_entries	deepseek-verified	corrected	zeroes 18 four-byte entries then sets fields
+00316e88	classify_subtype_c	deepseek-verified	corrected	same subtype classifier as 0x100920
+003155e8	set_vtbl_367878	deepseek-verified	corrected	stores vtable 0x367878 at offset 0
+00314b38	varint64_decode_b	deepseek-verified	corrected	7-bit varint decode into u64 with sign handling
+00303e80	count_leading_zeros	deepseek-verified	corrected	counts leading zero bits of a0
+002f47d8	mat4_transform_perspective	deepseek-verified	confirmed	4x4 matrix transform with perspective divide
+002f4028	build_transform_matrix	deepseek-verified	corrected	builds VU transform matrix from global constants
+002edfd8	list_unlink_and_clear	deepseek-verified	corrected	unlinks a1 from list and clears interface pointers
+002e4a90	in_even_range	deepseek-verified	corrected	true when a0 in even-aligned 16..-16 ranges
+002ddbb8	get_bit0_of_field2808	deepseek-verified	corrected	returns bit 0 of halfword at (a0+2808)+18
+002d8898	invert_byte192	deepseek-verified	confirmed	returns inverted byte at offset 192
+002d1f30	ptr_add304	deepseek-verified	confirmed	returns a0+304
+002d1f00	ptr_add160	deepseek-verified	confirmed	returns a0+160
+002cebb0	get_global_361f60	deepseek-verified	corrected	loads word from 0x361f60
+002cb828	ring_advance_index	deepseek-verified	corrected	increments ring index field8 mod field12, returns slot
+002be0b0	quad_entry_process	deepseek-verified	corrected	indexes 4-byte slots at +44 and processes entry
+002b6338	hash_with_seed_choice	deepseek-verified	confirmed	hashes a2 with 0xB7D4/B7D5 seed by a3
+002b50f8	zero_global_byte_c	deepseek-verified	confirmed	stores zero at global 0x36f6d0
+002b50e8	get_global_byte_c	deepseek-verified	corrected	loads signed byte at 0x36f6d0
+002b4af0	store_global_word	deepseek-verified	confirmed	stores a0 at global 0x36f6c4
+002b4ae0	store_global_word_b	deepseek-verified	confirmed	stores a0 at global 0x36f640
+002b4ac8	store_globals_two_b	deepseek-verified	confirmed	stores a0 at -2496 and a1 at -2492
+002b3b60	halfword_table_374cb0	deepseek-verified	corrected	returns halfword 0x374cb0[a0*4]
+002ab100	test_bit_global_c	deepseek-verified	corrected	tests bit a0 of bit array at global+136
+002aacd8	test_bit_global_d	deepseek-verified	corrected	tests bit a0 of bit array at global+148
+00294480	record_lookup_success	deepseek-verified	corrected	returns false when byte6==2 else result of 0x181500
+002927b8	clear_globals_init	deepseek-verified	corrected	zeroes several globals then initializes structures
+0028f690	record884_type_index	deepseek-verified	corrected	compares record +388 against 3-entry type table
+002839f0	entry416_by_masked_index	deepseek-verified	corrected	refreshes record at +416 when byte arg set
+00281f48	memset_1920	deepseek-verified	corrected	clears field0 then memsets 1920 bytes with 0
+002811f8	find_halfword_index	deepseek-verified	corrected	scans 20-byte records for halfword a1, index or -1
+00276fa8	global_ptr_by_flag2	deepseek-verified	corrected	returns one of two pointers by byte at +2
+0026dd18	store_session_globals	deepseek-verified	corrected	stores a0/a1 in globals, byte a2 when >= 0
+002671e8	find_free_bit_index	deepseek-verified	corrected	scans 10-entry bit array of global, index or -1
+00263ea8	get_global_36f1d0	deepseek-verified	confirmed	loads word from 0x36f1d0
+00263960	store_globals_and_init	deepseek-verified	corrected	stores 3 args then calls 0x263bb0 with 460
+002530c8	set_state_30012	deepseek-verified	corrected	sets global -3116=30012 and calls 0x28d068
+0024f2b8	word_table_372368	deepseek-verified	confirmed	returns word 0x372368[a0*4]
+0024efc0	to_28dbf8_entry6	deepseek-verified	corrected	tail-calls 0x28dbf8 with 6-byte entry pointers
+00242418	crc_byte_update	deepseek-verified	corrected	updates CRC state over a1 bytes of a0
+00242408	set_global_crc_m1	deepseek-verified	corrected	sets global -4924 to -1 and returns it
+002419d0	store_global_bool_converted	deepseek-verified	corrected	stores (a0 != 0) byte into global record +4
+0023f7a8	copy_3halfwords_50	deepseek-verified	corrected	copies 3 halfwords into a0+50
+0023f778	copy_3halfwords_44	deepseek-verified	corrected	copies 3 halfwords into a0+44
+0023ed90	set_global_byte1	deepseek-verified	corrected	sets byte global -5247 to 1
+0023eac0	store_byte_2912	deepseek-verified	confirmed	stores a2 at offset 2912 of a0+a1
+0023e738	store_2halfwords_2928	deepseek-verified	confirmed	stores two sign-extended halfwords at +2928
+0023d2e0	store_global_test_result	deepseek-verified	corrected	stores NOR test of global -5304 into *a0
+0023d1e0	zero_global_d	deepseek-verified	confirmed	stores zero at 0x36eb34
+0023d1d0	set_global_word1	deepseek-verified	corrected	sets global -5324 to 1
+00239b50	find_entry_in_group	deepseek-verified	corrected	indexes 36-byte entries, scans 144-byte record list
+00239558	copy_4halfwords_and_set_flag	deepseek-verified	corrected	sets bit 0x40 then copies 4 halfword pairs
+00237a68	set_float124_128	deepseek-verified	confirmed	stores f12/f13/f14 and two products
+00237578	entry20_field12_minus4	deepseek-verified	corrected	indexes 20-byte entry, returns field12 - field4
+00237508	entry20_field8_minus0	deepseek-verified	corrected	indexes 20-byte entry, returns field8 - field0
+00236428	obj_set32_then_call	deepseek-verified	confirmed	stores a1 at +32 then tail-calls 0x236560
+00236410	obj_set4_then_call	deepseek-verified	confirmed	stores a1 at +4 then tail-calls 0x236560
+00232718	decrement_global_clamped	deepseek-verified	corrected	decrements global -8660, skipping below zero
+00225a00	zero_global_byte_e	deepseek-verified	confirmed	stores zero at global 0x36daf0
+00224860	get_global_36daf4	deepseek-verified	confirmed	loads word from 0x36daf4
+00222978	vu_sqrt_f12	deepseek-verified	corrected	returns square root of f12 via VU Q register
+001ee980	float_mul	deepseek-verified	confirmed	returns f12*f13
+001ee7a0	float_mul_b	deepseek-verified	confirmed	returns f12*f13
+001ee5c8	float_mul_sub	deepseek-verified	confirmed	returns f12*f13 - f12
+001ed978	int_float_mul_m1	deepseek-verified	confirmed	returns (int)((float)a0 * f12)
+001ed7d8	int_float_mul_m1_b	deepseek-verified	confirmed	same int-scale conversion as 0x1ed978
+001ed638	int_float_mul_sub	deepseek-verified	confirmed	returns (int)(x*f12 - x) for int a0
+001ed488	float_mul_c	deepseek-verified	confirmed	returns f12*f13
+001ed2d8	float_mul_d	deepseek-verified	confirmed	returns f12*f13
+001ed130	float_mul_sub_b	deepseek-verified	confirmed	returns f12*f13 - f12
+001e5970	obj_clear_header	deepseek-verified	corrected	zeroes 0..18 with byte16 = -1
+001e0ce8	entry64_by_field32_b	deepseek-verified	corrected	indexes 64-byte entries by field +32, base +32
+001dca20	get_bit20_of_field8	deepseek-verified	corrected	returns bit 20 of word at +8
+001dc738	state_gate_flags	deepseek-verified	corrected	tests bit 22 of +8 plus globals, bit 26
+001d4808	is_halfword42_zero	deepseek-verified	confirmed	returns (a0->halfword42 == 0)
+001d2648	clear_fields_0_4_32	deepseek-verified	corrected	zeroes fields 0,4,32 then tail-calls 0x1d2690
+001ca448	type_is_16_44_161	deepseek-verified	corrected	true when field340 is 16, 44 or 161
+001c9958	state_pair_check	deepseek-verified	corrected	checks a0<7 with a1 pair conditions
+001c90f0	id_in_201_204	deepseek-verified	corrected	returns 1 when field340 in 201..204
+001c4160	get_global_byte_35d60c	deepseek-verified	confirmed	returns byte at 0x35d60c
+001c2858	copy_2quads_and_ratio	deepseek-verified	corrected	copies two quads and computes field24/field16
+001c0cc8	get_global_35c63c	deepseek-verified	confirmed	loads word from 0x35c63c
+001c0058	clear_bit_in_array	deepseek-verified	corrected	clears bit a0 in word array at 0x1d59328
+001bd370	clear_4words_plus2240	deepseek-verified	corrected	zeroes 4 words at +2536 and word at +2240
+001bbb50	type_is_2_or_25	deepseek-verified	corrected	reads global type byte, tests against 2 and 25
+001b86e0	alloc_from_pool_magic_c	deepseek-verified	corrected	allocates 16-byte slot using /5 magic indexing
+001b8218	zero_global_byte_f	deepseek-verified	confirmed	stores zero at global 0x3591c1
+001b7958	add_vec_to_records	deepseek-verified	corrected	adds VU quad a1 into count records at +32
+001b73e8	compute_avg_state	deepseek-verified	corrected	scales byte 7 by 1.5 when state and a1 match
+001b0498	obj_check_ready_flags	deepseek-verified	corrected	requires field0, byte8==1, and vtable bit 0x400
+001aaf98	bounds_check_ranges	deepseek-verified	corrected	checks sums and args against 0x9000/0x8d00 bounds
+001a8ff8	swap_bytes	deepseek-verified	corrected	swaps bytes at a0+a1 and a0+a2
+001a8f10	arg_map_0_1_2	deepseek-verified	corrected	code for a0 0->3, 1->0, 2->1, 3->2
+001a8510	mod8_of_difference	deepseek-verified	corrected	returns (field - field4) mod 8 signed
+001a84f0	compare_two_globals	deepseek-verified	corrected	returns (two global words equal) as bool
+001a6c90	set_bit_in_array_b	deepseek-verified	corrected	sets bit a0 in word array at 0x33dec0
+001a1910	entry12_add_clamped	deepseek-verified	corrected	indexes 12-byte entries, adds a1 clamped
+0019f5d8	find_entry12_pair	deepseek-verified	corrected	scans 12-byte entries matching words 0 and 4
+0019f528	test_bit_by_index	deepseek-verified	confirmed	tests bit a1 of words at a0
+0019bb18	obj_is_blocked	deepseek-verified	corrected	tests flags 2,0x1000 and child count to block
+001940b8	obj_set_bytes_and_lerp	deepseek-verified	corrected	stores 3 bytes at +1664 and calls 0x1ad990
+0018f010	byte4_is_2_or_3	deepseek-verified	corrected	returns ((byte at (field40)+4) - 2) < 2
+00183768	copy_quad_at16_and_len	deepseek-verified	corrected	copies quad to a0+16 and computes its length
+001826e0	global_float_diff	deepseek-verified	corrected	returns difference of two float globals
+0017fdf8	clear_vec_at160	deepseek-verified	confirmed	zeroes 16 bytes at a0+160
+0016f7a0	get_bit28	deepseek-verified	confirmed	returns bit 28 of a0
+0016a2b0	clear_15_words_at1976	deepseek-verified	confirmed	zeroes 15 consecutive words from a0+1976
+0016a090	get_byte74	deepseek-verified	confirmed	returns byte 74 of pointer at a0+8
+00168ad8	scan_entries_to_out	deepseek-verified	confirmed	scans 16-byte entries, writes match count to *a1
+00162b18	vec3_dot_plus_scale	deepseek-verified	corrected	dot xyz plus a1[12], stores to a2 and clamps
+00162058	to_161f48_arg1	deepseek-verified	corrected	tail-calls 0x161f48 with a0=1
+00161530	noop_ret_b	deepseek-verified	confirmed	function that only returns
+00160488	mix_color_channels	deepseek-verified	corrected	scales 3 masked colour channels by 7-bit factors
+0015f718	test_bit_global64	deepseek-verified	confirmed	returns bit a0 of 64-bit global 0x35c710
+0015ce90	zero_global_byte_g	deepseek-verified	confirmed	stores zero at global 0x35af48
+00156080	state_code_is_3	deepseek-verified	corrected	byte 431 of obj at +1164 equals 3
+00156058	state_code_is_2	deepseek-verified	corrected	byte 431 of obj at +1164 equals 2
+00155ee8	state_dispatch_0_4	deepseek-verified	corrected	switches on byte 431 of obj at +1164 (0..4)
+001558b8	entry592_process	deepseek-verified	confirmed	indexes 592-byte entries by a2 and processes
+00151690	scale_ratio_2888_2880	deepseek-verified	corrected	returns f2888 / f2880
+0014fdd0	entry_clear_by_fields	deepseek-verified	confirmed	indexes 2-byte table by fields 24,28 and zeroes entry
+0014dda0	store_byte_473	deepseek-verified	confirmed	stores masked a1 at offset 473
+0014dd60	store_3bytes_470	deepseek-verified	corrected	stores 3 masked bytes at +470..+472
+0014ca10	get_global_359e0c	deepseek-verified	corrected	loads word from 0x359e0c
+0014abf8	get_data_3596b0	deepseek-verified	confirmed	returns 0x3596b0
+0014abe8	get_data_3595a0	deepseek-verified	confirmed	returns 0x3595a0
+00147050	entry48_process_5args	deepseek-verified	corrected	indexes 48-byte entries by a1, uses a2+208
+00145580	cmp_halfword_triples	deepseek-verified	confirmed	compares three halfword pairs of a0 against a1
+00142b70	len_sq_compare_at80	deepseek-verified	corrected	computes squared length at a0+80 and compares limit
+0013ef80	get_global_byte_358700	deepseek-verified	confirmed	returns byte at 0x358700
+0013bc40	is_zero_arg	deepseek-verified	confirmed	returns (a1 < 1) as 0/1
+0013b988	table_by_arg_flags	deepseek-verified	corrected	selects table entry by masked arg flags
+0013b808	entry168_by_index	deepseek-verified	corrected	indexes entries using word table 0x4573c0[a1]
+0013b2a8	mul_float684_692	deepseek-verified	confirmed	returns a0[684] * a0[692]
+001384c0	get_global_347e08	deepseek-verified	corrected	loads word from 0x347e08
+00136b90	entry16_get_field8	deepseek-verified	corrected	returns word at entry[a0]+8 of 16-byte table
+00136b48	entry16_set_word0	deepseek-verified	corrected	stores a1 at entry[a0] of 16-byte table
+00134030	poll_timer_status	deepseek-verified	corrected	polls register 0x10009000 bit 0x100 then reads
+00133898	entry16_init_flag96	deepseek-verified	corrected	zeroes entry byte2, stores args, flag 96
+00133848	entry16_init_flag16	deepseek-verified	corrected	zeroes entry byte2, stores args, flag 16
+00132338	get_field8	deepseek-verified	confirmed	returns word at offset 8
+001320b0	read_u32_be	deepseek-verified	corrected	reads big-endian word, unaligned fallback
+0011eef8	obj_init_and_call	deepseek-verified	corrected	zeroes fields 8/12, stores a0, tail-calls 0x11ee98
+0011c2d0	obj_clear_16_onwards	deepseek-verified	corrected	zeroes many object fields 16..260 and sets vtable
+001142e0	entry8_float_by_flags	deepseek-verified	corrected	selects float at entry[a1]+32/64 by flags
+001142d0	get_float_at_ptr108	deepseek-verified	corrected	float at (a0->field8)+108
+00111808	obj_update_sprite_floats	deepseek-verified	corrected	calls 0x1142e0 then scales sprite floats
+0010fa28	ptr_add3072	deepseek-verified	confirmed	returns a0+3072
+0010f8e0	get_bit3_of_field2940	deepseek-verified	corrected	returns bit 3 of field at offset 2940
+0010cac8	set_bit_and_fields	deepseek-verified	corrected	sets high bit of 64-bit +3120 and stores args
+0010abb8	get_and_set_global_34ed4	deepseek-verified	corrected	loads old 0x34ed4 then stores a0
+0010a800	copy_global_3bytes	deepseek-verified	corrected	copies 3 bytes of global buffer to *a0,*a1,*a2
+00109050	get_field16_64	deepseek-verified	confirmed	returns 64-bit field at offset 16
+00108930	test_bit_of_field44	deepseek-verified	corrected	tests bit a1 (0..31) in bit array at +44
+00107300	copy_blocks_and_store_float	deepseek-verified	corrected	copies blocks to +80/+96, stores float +128
+00103c90	get_hook_ptr	deepseek-verified	confirmed	loads word from 0x33ba6c
+00103c70	clear_hook_ptr	deepseek-verified	confirmed	stores zero at 0x33ba6c
+00100430	varint64_decode_c	deepseek-verified	corrected	7-bit varint decode into u64 output pointer
+001003c8	classify_arg_masked3	deepseek-verified	corrected	checks 4-bit subfield of byte arg against 2/3
+00100228	align_and_zero_fill	deepseek-verified	corrected	aligns v0 to 16 bytes zeroing, then fills
+00239700	obj_big_ctor_vtbl_36dce8	deepseek-pass1	low	parent ctor + clears 176..332 then sets vtable
+00190128	struct4_init_m1	deepseek-pass1	low	sets four int fields to 0,0,0,-1
+001386e0	init_then_setup8	deepseek-pass1	low	calls two inits then tail-calls with 8 args
+0017f488	float_pair_forward_pair	deepseek-pass1	low	forwards a0,a1 plus f12,f13 to two callees
+0011b6a8	blit_64bytes_from_34f8f0	deepseek-pass1	low	copies 64-byte constant struct into a0
+00276220	global_id_lookup_setup	deepseek-pass1	low	looks up table entry by a0/a1 then calls 0x28d8c0
+0028d008	table_entry_flags_test	deepseek-pass1	low	indexes array of 408-byte structs, tests bitmask
+002f8960	float_mag_check_dispatch	deepseek-pass1	low	branches on |f12| vs 0x3f49fd8 into two float paths
+00134428	wrapper_133ac8_const	deepseek-pass1	low	tail-calls 0x133ac8 with fixed data at 0x347c88
+00207260	vif_unpack_count	deepseek-pass1	low	VU macro chain, builds a float count from integer
+002282f0	state_wait_check	deepseek-pass1	low	loops while state==3 and index below limit, returns bool
+001c0248	panic_stub_1d59310	deepseek-pass1	low	loads fixed string 0x1d59310 and tail-calls 0x320828
+002f87c0	scalbn_variant_tailcall	deepseek-pass1	low	tail-calls 0x2faaf0/0x2fb460 like ldexp
+0018a818	obj_init_from_config	deepseek-pass1	low	ints at cfg+8/10/12/16/18 to floats, transform via VU matrix
+00113668	obj_set_vtbl_3423800	deepseek-pass1	low	stores fixed vtable pointer at offset 0
+001b0188	obj_ctor_vtbl_353e78	deepseek-pass1	low	sets vtable at 0x353e78 then calls 0x1b0330
+00276dc0	global_error_146	deepseek-pass1	low	calls handler 0x28dac8 with code 146 if global set
+0028f930	bit_index_scan	deepseek-pass1	low	loops over bit positions comparing against a0 while zeroing
+0023ee30	vtable_call_a2_ra	deepseek-pass1	low	calls vtable slot via global -5240 passing a2=ra
+0028f4d8	record884_big_update	deepseek-pass1	low	884-byte record update with 3 args, long body
+00288be8	vtable_call_ra_ptr	deepseek-pass1	low	indirect call via global -3252 with a2=ra
+00113628	obj_init_vtbl_3423800_fields	deepseek-pass1	low	sets vtable and stores a1,a2 then zeroes fields
+0031acc0	obj_set_vtbl_chain	deepseek-pass1	low	sets vtable, destroys embedded object at +24
+0028d7f0	handler_dispatch_6args	deepseek-pass1	low	6-argument handler; long body, calls 0x1396b0 family
+00288c20	vtable_call_if_ptr	deepseek-pass1	low	conditional indirect call via global -3252 slot 4
+00313ed8	double_cmp_to_float	deepseek-pass1	low	unpacks two doubles then compares and converts result
+002ffc08	obj_release_slot	deepseek-pass1	low	clears field 4 or calls 0x3032d0 when field 8 set
+002889f0	obj_init_mid	deepseek-pass1	low	sets many shorts and copies args into mid object
+0016bc20	loop_call_16bba8	deepseek-pass1	low	loops calling 0x16bba8 with -1 bounds
+002b6adc	wrapper_2b6708_args	deepseek-pass1	low	calls 0x2b6708(3,6,a1,a0)
+002361d0	obj_set_vtbl_36eae8	deepseek-pass1	low	stores vtable pointer 0x36eae8 at offset 0
+002cff98	big_obj_dtor_chain	deepseek-pass1	low	sets vtable then destroys sub-objects 2568/2640
+0016b740	get_global_or_16e920	deepseek-pass1	low	returns global when a0==566 else result of 0x16e920
+0027aed8	get_pair_or_zero	deepseek-pass1	low	zeroes two outputs when a0 null else reads fields
+0031a840	obj_set_vtbl_347f98	deepseek-pass1	low	stores vtable 0x347f98 at offset 0
+001991a8	char_classify_switch	deepseek-pass1	low	120-case switch on (a0-19) after call 0x1993a0
+00158050	obj_init_via_1386e0	deepseek-pass1	low	calls 0x1386e0 with args then stores at offset 408
+001039f8	call_hook_33ba74	deepseek-pass1	low	calls function pointer global, then 0x103ea0(NULL)
+00319f88	obj_ctor_vtbl_353e60	deepseek-pass1	low	sets vtable 0x353e60 then calls 0x1b0188
+002fd248	job_schedule_multi	deepseek-pass1	low	6-arg scheduler-ish body, 200 bytes
+002b4c88	global_setup_2b6418	deepseek-pass1	low	calls 0x2b6418 then touches several globals
+0028bae0	big_handler_640	deepseek-pass1	low	very large 6-arg routine
+00276888	resource_alloc_init	deepseek-pass1	low	checks global -3556 via 0x139d78 then sets up
+001bc780	big_loop_4args	deepseek-pass1	low	large 4-argument routine
+001a98e8	obj_init_from_args	deepseek-pass1	low	stores a2..a3/t0 into object after call 0x1aae68
+00288e88	loop_over_records	deepseek-pass1	low	iterates records using field 4 count and field 40
+00275b60	global_reset_54	deepseek-pass1	low	frees/refreshes global +872 when state is 54
+00170cd0	check_then_2ba200	deepseek-pass1	low	calls 0x1688b8 then 0x2ba200 conditionally
+0023acd8	obj_update_scale_pos	deepseek-pass1	low	mixes floats from +68/+256 with constant at +4
+001ad990	clamp_delta_write	deepseek-pass1	low	if f14>0 stores 0 at +4 else delta at +0
+002fd160	init_call_pair	deepseek-pass1	low	calls 0x2fed10(6) then 0x1002a0(1)
+00240360	state_switch_v2	deepseek-pass1	low	switch-like code starting at case -5/-4
+00184540	float_routine_352	deepseek-pass1	low	352-byte float-heavy routine
+001e7a98	big_routine_1da	deepseek-pass1	low	large routine using data at 0x1da0000
+00113fb0	obj_setup_flag	deepseek-pass1	low	288-byte setup taking bool in t0
+0031abd8	obj_set_vtbl_chain_b	deepseek-pass1	low	sets vtable 0x347f98, destroys embedded at +24
+002f5c48	vprintf_alt_argblock	deepseek-pass1	low	saves varargs regs and calls writer
+00239988	obj_reset_flags	deepseek-pass1	low	clears flag bits at +16 and +184
+00163650	vec3_diff_quads	deepseek-pass1	low	VU subtract of two vectors into stack
+00283ab8	big_routine_283ab8	deepseek-pass1	low	192-byte routine using table 0x3742c8
+001a4db0	obj_init_vtbl_35_7a0	deepseek-pass1	low	calls 0x1c6e58 then sets vtable-ish at +?
+001a3188	big_routine_1a3188	deepseek-pass1	low	320-byte routine with 2 args
+0016cab8	node_teardown	deepseek-pass1	low	frees node field at +36 via 0x16c... chain
+00134408	wrapper_133a18_const	deepseek-pass1	low	tail-calls 0x133a18 with fixed data 0x347c88
+00132c68	release_child	deepseek-pass1	low	frees child pointer at +16 via 0x132170
+00102818	routine_102818	deepseek-pass1	low	152-byte routine with 4+ args
+0031e7f8	obj_ctor_vtbl_353e78	deepseek-pass1	low	sets vtable 0x353e78 then calls 0x1b0188
+002cea28	obj_init_vtbl_36_1f70	deepseek-pass1	low	sets vtable 0x361f70 then calls 0x2cf3f8
+001a17c8	routine_float_const	deepseek-pass1	low	120-byte routine loading float constants
+00190730	init_or_lookup	deepseek-pass1	low	checks field 0 then fills in from a1
+001398d0	table_iter	deepseek-pass1	low	116-byte loop over table at 0x34xxxx
+00177dc8	routine_4args_388	deepseek-pass1	low	388-byte routine with 4 args
+0026a178	routine_clamp_args	deepseek-pass1	low	188-byte routine handling signed a1
+002469a0	loop_count_3	deepseek-pass1	low	zeroes counters then loops
+0023d820	big_routine_23d820	deepseek-pass1	low	480-byte routine, many callee saves
+002338a8	obj_float_exp_pack	deepseek-pass1	low	compares f12 to constant then manipulates bits
+001ddd88	log_fmt_1d9	deepseek-pass1	low	passes format 0x1d9e358 to 0x321cb0
+001bb4b0	check_then_global	deepseek-pass1	low	calls 0x1bb4a0 then reads global -27872
+001b7f30	obj_teardown_vtbl	deepseek-pass1	low	guards on field 0 then touches vtables
+00168388	routine_168388	deepseek-pass1	low	136-byte routine with globals
+0014c050	huge_routine_768	deepseek-pass1	low	768-byte routine around sub-object at +640
+00112d90	check_190140	deepseek-pass1	low	calls 0x190140 then branches
+00104f58	routine_104f58	deepseek-pass1	low	352-byte routine with globals 0x3a
+002cedd0	loop_positive_a0	deepseek-pass1	low	loops while a0>0 over a1
+0028de08	routine_28de08	deepseek-pass1	low	232-byte routine with 2+ args
+00240e10	call_240360_then_global	deepseek-pass1	low	calls 0x240360 then reads global -4972
+0020eaf8	routine_20eaf8	deepseek-pass1	low	116-byte routine using global arrays
+001bd3e0	obj_flag_200	deepseek-pass1	low	tests bit 0x200 on field at +1416
+001a7610	routine_output16	deepseek-pass1	low	180-byte routine with stack output buffer
+00180378	routine_float_180378	deepseek-pass1	low	140-byte float routine
+0016be98	routine_16be98	deepseek-pass1	low	132-byte routine passing -1 bound
+0014b4b0	routine_masked16	deepseek-pass1	low	many args masked to 16 bits
+00303c48	routine_303c48	deepseek-pass1	low	260-byte routine using a1+20
+002bc470	routine_2bc470	deepseek-pass1	low	164-byte routine
+00286418	routine_286418	deepseek-pass1	low	220-byte routine
+0023fad0	call_170950_field4	deepseek-pass1	low	calls 0x170950 with field at +4
+0023eea0	routine_23eea0	deepseek-pass1	low	172-byte routine with 3 args
+001dde40	routine_1dde40	deepseek-pass1	low	172-byte routine with 0x1da data
+001b80d8	routine_1b80d8	deepseek-pass1	low	268-byte routine
+001902a8	routine_1902a8	deepseek-pass1	low	224-byte routine, fills 16-byte output
+0017d538	routine_float_17d538	deepseek-pass1	low	176-byte float routine
+0016cd48	routine_16cd48	deepseek-pass1	low	328-byte routine
+0014b668	init_via_14b290	deepseek-pass1	low	calls 0x14b290 then sets vtable from 0x35
+002c5238	loop_digits	deepseek-pass1	low	loop with base-10 constants
+002beb90	routine_2beb90	deepseek-pass1	low	calls with constant 0x375400
+002baf48	routine_2baf48	deepseek-pass1	low	uses constant 0x1e3a5d8
+002b4fb8	global_check_zero	deepseek-pass1	low	returns 0 unless global -2476 set
+002670a0	global_halfword_lookup	deepseek-pass1	low	reads halfword at global+28
+00257970	routine_257970	deepseek-pass1	low	108-byte routine
+00257610	routine_257610	deepseek-pass1	low	calls 0x2576d0 then branches
+00253330	global_short_check	deepseek-pass1	low	reads signed halfword at 0x3726d0
+0023f6c0	routine_23f6c0	deepseek-pass1	low	52-byte routine
+0023c3e0	routine_23c3e0	deepseek-pass1	low	212-byte loop over count at +36
+001b7508	routine_signed_count	deepseek-pass1	low	guards on signed a1
+001a8190	byte_field_check	deepseek-pass1	low	checks byte at +2 less than 2
+00192e50	routine_192e50	deepseek-pass1	low	260-byte routine
+00186078	check_via_1b9bc8	deepseek-pass1	low	calls 0x1b9bc8 then branches
+00168aa0	find_entry_pos	deepseek-pass1	low	scans 16-byte entries while count>0
+0014b468	entry_masked16	deepseek-pass1	low	masks args to 16 bits and scales
+00138650	routine_138650	deepseek-pass1	low	72-byte routine
+001145b0	routine_1145b0	deepseek-pass1	low	uses table at 0x345d30
+00106de8	routine_float_106de8	deepseek-pass1	low	324-byte float routine
+001065a8	routine_float_1065a8	deepseek-pass1	low	48-byte float routine
+002f8a18	float_mag_dispatch_b	deepseek-pass1	low	float magnitude dispatch like 0x2f87c0
+002e70b0	free_field4	deepseek-pass1	low	frees pointer at +4 if set
+002c6420	obj_init_field84	deepseek-pass1	low	zeroes +84 then initializes
+002a6368	routine_2a6368	deepseek-pass1	low	52-byte routine
+00256ef0	call_257770	deepseek-pass1	low	calls 0x257770 then branches
+00244ee8	guard_null_arg	deepseek-pass1	low	checks a0 then proceeds
+0023f1e0	routine_23f1e0	deepseek-pass1	low	348-byte routine
+0023f0c8	routine_23f0c8	deepseek-pass1	low	52-byte routine
+001e8fe0	big_stack_routine	deepseek-pass1	low	304-byte stack frame
+001b1490	routine_1b1490	deepseek-pass1	low	72-byte routine
+00199718	routine_199718	deepseek-pass1	low	164-byte routine
+00167f38	routine_167f38	deepseek-pass1	low	uses table at 0x35d788
+0013e0f8	routine_13e0f8	deepseek-pass1	low	204-byte routine
+00134450	wrapper_133a18_masked	deepseek-pass1	low	masks a0 to a byte then tail-calls 0x133ac8
+00106c08	routine_106c08	deepseek-pass1	low	308-byte routine with 160-byte frame
+002e7568	routine_float_2e7568	deepseek-pass1	low	168-byte float routine
+002bb8b0	routine_2bb8b0	deepseek-pass1	low	156-byte routine with constant 3
+002ac420	routine_2ac420	deepseek-pass1	low	280-byte routine
+002a43f0	check_via_287bc0	deepseek-pass1	low	calls 0x287bc0 then branches
+002278e0	routine_2278e0	deepseek-pass1	low	80-byte routine using global 0x36
+001de4b0	scan_list_by_index	deepseek-pass1	low	walks list with index a1
+001c79a0	routine_1c79a0	deepseek-pass1	low	276-byte routine
+001ac970	routine_1ac970	deepseek-pass1	low	296-byte routine
+0019cc20	routine_19cc20	deepseek-pass1	low	104-byte routine
+0017d050	routine_17d050	deepseek-pass1	low	148-byte routine
+0017bf40	obj_init_zero_half	deepseek-pass1	low	zeroes halfword at 0 then initializes
+0017a538	routine_17a538	deepseek-pass1	low	84-byte routine
+001700e8	routine_1700e8	deepseek-pass1	low	120-byte routine using global -9056
+0016adc8	routine_16adc8	deepseek-pass1	low	76-byte routine
+00167ea8	routine_167ea8	deepseek-pass1	low	calls with table base 0x35
+00167448	call_with_zero_args	deepseek-pass1	low	passes zero a1/a2 then calls
+0014c350	routine_14c350	deepseek-pass1	low	180-byte routine reading halfword +10
+00144d10	compare_float12	deepseek-pass1	low	compares float at +12 against a1[0]
+00141010	routine_float_141010	deepseek-pass1	low	96-byte float routine
+0013fd10	routine_13fd10	deepseek-pass1	low	100-byte routine
+0013f6e8	routine_vu_13f6e8	deepseek-pass1	low	320-byte VU routine
+0013e4b8	routine_13e4b8	deepseek-pass1	low	104-byte routine
+0011e260	routine_11e260	deepseek-pass1	low	240-byte routine storing at +52
+00109008	routine_109008	deepseek-pass1	low	56-byte routine
+002f8420	big_float_720	deepseek-pass1	low	720-byte float routine
+002e51b0	routine_float_2e51b0	deepseek-pass1	low	204-byte float routine
+002c6280	index_words4	deepseek-pass1	low	scales a1 by 4 and indexes
+002c1750	routine_2c1750	deepseek-pass1	low	80-byte routine with global 6800
+002bc608	routine_2bc608	deepseek-pass1	low	128-byte routine
+002bc188	routine_2bc188	deepseek-pass1	low	92-byte routine
+002ba220	routine_2ba220	deepseek-pass1	low	120-byte routine
+002b7148	routine_2b7148	deepseek-pass1	low	292-byte routine with frame pointer
+002b3fb0	routine_2b3fb0	deepseek-pass1	low	192-byte routine
+002b3df8	routine_2b3df8	deepseek-pass1	low	248-byte routine, clears field 0
+002aa098	routine_2aa098	deepseek-pass1	low	172-byte routine
+002a99c8	routine_2a99c8	deepseek-pass1	low	448-byte routine
+0029aa30	check_via_287bc0_b	deepseek-pass1	low	calls 0x287bc0 then branches
+00288670	routine_288670	deepseek-pass1	low	224-byte routine
+002831e0	routine_2831e0	deepseek-pass1	low	80-byte routine
+00281d48	routine_float_281d48	deepseek-pass1	low	216-byte float routine
+00257158	routine_257158	deepseek-pass1	low	132-byte routine
+00252110	guard_positive	deepseek-pass1	low	checks a0 > 0
+0024ac88	routine_24ac88	deepseek-pass1	low	196-byte routine using table 0x371f30
+002474e0	routine_2474e0	deepseek-pass1	low	160-byte routine
+002431d0	routine_2431d0	deepseek-pass1	low	92-byte routine
+00243150	global_short_check_b	deepseek-pass1	low	reads signed halfword at 0x372840
+002408d0	routine_2408d0	deepseek-pass1	low	232-byte routine
+0023fcd0	routine_23fcd0	deepseek-pass1	low	96-byte routine
+0023fc40	routine_23fc40	deepseek-pass1	low	140-byte routine
+00236148	routine_236148	deepseek-pass1	low	56-byte routine using global -7312
+00227a28	routine_227a28	deepseek-pass1	low	56-byte routine using global -8976
+002233f0	routine_2233f0	deepseek-pass1	low	88-byte routine using table 0x37
+0021ebe8	big_stack_routine_b	deepseek-pass1	low	304-byte stack frame
+0020ebd8	loop_over_global_count	deepseek-pass1	low	loops using global -26752 count
+001b5858	call_1d3f80_field0	deepseek-pass1	low	calls 0x1d3f80 with field at 0
+001a8c78	routine_1a8c78	deepseek-pass1	low	84-byte routine over byte buffer
+001a35f8	routine_1a35f8	deepseek-pass1	low	232-byte routine with constant 100
+0017edf0	routine_17edf0	deepseek-pass1	low	120-byte routine
+0017c030	routine_17c030	deepseek-pass1	low	112-byte routine
+00176b58	routine_176b58	deepseek-pass1	low	136-byte routine
+0016b478	routine_float_16b478	deepseek-pass1	low	156-byte float routine
+0014ca80	routine_14ca80	deepseek-pass1	low	216-byte routine
+0014b950	sign_extend_args	deepseek-pass1	low	sign/zero extends multiple args
+0014a950	call_14b638	deepseek-pass1	low	calls 0x14b638 then processes
+0013ee88	call_13e8c0	deepseek-pass1	low	calls 0x13e8c0 then processes
+0010a828	routine_float_10a828	deepseek-pass1	low	92-byte float routine
+00108698	routine_108698	deepseek-pass1	low	148-byte routine clearing a0
+001024b0	vtable_call_ra	deepseek-pass1	low	indirect call passing ra as a2
+00102180	loop_global_39	deepseek-pass1	low	loops using data at 0x39
+001009a0	routine_1009a0	deepseek-pass1	low	212-byte routine with constant 122
+0031b9e0	obj_clear_flags	deepseek-pass1	low	clears bit ranges of fields 112/116
+003166f0	routine_3166f0	deepseek-pass1	low	calls 0x316af8 then processes
+00315768	obj_set_vtbl_367818	deepseek-pass1	low	sets vtable 0x367818 then calls
+00315440	call_315418	deepseek-pass1	low	calls 0x315418 then processes
+00304308	routine_304308	deepseek-pass1	low	348-byte routine
+002e6fc0	routine_2e6fc0	deepseek-pass1	low	152-byte routine storing a1 at 0
+002d0ea8	shuffle_args_call	deepseek-pass1	low	shuffles args then calls
+002cd518	huge_vu_routine	deepseek-pass1	low	600-byte VU routine
+002cb708	routine_2cb708	deepseek-pass1	low	56-byte routine
+002bb510	routine_2bb510	deepseek-pass1	low	148-byte routine
+002ba2b0	call_by_second_arg	deepseek-pass1	low	calls with a0=a1
+002b2380	routine_2b2380	deepseek-pass1	low	92-byte routine
+002ac800	routine_2ac800	deepseek-pass1	low	224-byte routine
+002ab8e8	routine_2ab8e8	deepseek-pass1	low	220-byte routine
+002ab540	routine_2ab540	deepseek-pass1	low	220-byte routine
+002a4990	routine_2a4990	deepseek-pass1	low	108-byte routine with global -2588
+0029da68	routine_29da68	deepseek-pass1	low	56-byte routine
+002953c8	routine_2953c8	deepseek-pass1	low	100-byte routine
+00290580	routine_290580	deepseek-pass1	low	56-byte routine
+00290488	routine_290488	deepseek-pass1	low	128-byte routine
+0028ff68	routine_28ff68	deepseek-pass1	low	128-byte routine
+0028ba80	call_28be58	deepseek-pass1	low	calls 0x28be58 then processes
+0028b300	routine_28b300	deepseek-pass1	low	192-byte routine
+00285e30	routine_285e30	deepseek-pass1	low	284-byte routine
+00285d58	routine_285d58	deepseek-pass1	low	216-byte routine
+0027ae78	loop_over_global	deepseek-pass1	low	loops using global -3536
+00276150	routine_276150	deepseek-pass1	low	208-byte routine
+00259350	call_2538f8	deepseek-pass1	low	calls 0x2538f8 then processes
+002579e0	call_257a00	deepseek-pass1	low	calls 0x257a00 then returns
+00241608	routine_241608	deepseek-pass1	low	100-byte routine
+002415a0	routine_2415a0	deepseek-pass1	low	100-byte routine
+00241568	routine_241568	deepseek-pass1	low	52-byte routine
+0023f688	routine_23f688	deepseek-pass1	low	52-byte routine
+002368e8	routine_2368e8	deepseek-pass1	low	144-byte float routine
+001e2c00	guard_null_b	deepseek-pass1	low	checks a0 then branches
+001e2ad8	routine_1e2ad8	deepseek-pass1	low	116-byte routine using table 0x37
+001de450	routine_1de450	deepseek-pass1	low	96-byte routine
+001dd1e8	masked_call	deepseek-pass1	low	masks args then calls
+001d7cd0	routine_1d7cd0	deepseek-pass1	low	152-byte routine passing 3
+001c9b90	routine_1c9b90	deepseek-pass1	low	112-byte routine
+001c23a8	routine_1c23a8	deepseek-pass1	low	232-byte routine
+001bd618	routine_1bd618	deepseek-pass1	low	routine using base a0+2536
+001b8800	routine_1b8800	deepseek-pass1	low	uses table 0x1d5
+001ad0f8	routine_1ad0f8	deepseek-pass1	low	92-byte routine
+001aad28	routine_1aad28	deepseek-pass1	low	132-byte routine with sign extension
+0019c218	big_routine_19c218	deepseek-pass1	low	400-byte routine
+00196e98	routine_196e98	deepseek-pass1	low	104-byte routine
+00185ed8	call_1980d0	deepseek-pass1	low	calls 0x1980d0 then processes
+00170dd0	routine_170dd0	deepseek-pass1	low	72-byte routine
+0016c2b0	routine_16c2b0	deepseek-pass1	low	128-byte routine passing -1
+0016b7a0	routine_16b7a0	deepseek-pass1	low	92-byte routine
+0014fc40	routine_14fc40	deepseek-pass1	low	148-byte routine
+0014f0e0	float_compare_call	deepseek-pass1	low	compares float at a0 then calls
+001415e8	routine_1415e8	deepseek-pass1	low	396-byte routine with 144-byte frame
+0010cc80	routine_10cc80	deepseek-pass1	low	92-byte routine
+00108c00	routine_108c00	deepseek-pass1	low	360-byte routine
+00103428	global_short_check_c	deepseek-pass1	low	reads signed halfword at 0x379db8
+0031e668	obj_set_vtbl_3538a8	deepseek-pass1	low	sets vtable 0x3538a8 then calls
+002fea70	routine_2fea70	deepseek-pass1	low	80-byte routine using 0x38 data
+002dd250	call_2dc7c8	deepseek-pass1	low	calls 0x2dc7c8 then processes
+002bd260	call_with_arg37	deepseek-pass1	low	calls with constant 0x37 base
+002bc158	guard_null_call	deepseek-pass1	low	checks a0 then calls
+002b6f78	routine_2b6f78	deepseek-pass1	low	152-byte routine with frame pointer
+002b6418	routine_2b6418	deepseek-pass1	low	172-byte routine
+002aecf0	check_via_287bc0_c	deepseek-pass1	low	calls 0x287bc0 then branches
+002ae1b0	routine_2ae1b0	deepseek-pass1	low	208-byte routine using 16
+002ac538	routine_2ac538	deepseek-pass1	low	320-byte routine
+002aa148	routine_2aa148	deepseek-pass1	low	212-byte routine
+002a9f50	routine_2a9f50	deepseek-pass1	low	244-byte routine
+002a4430	check_via_287bc0_d	deepseek-pass1	low	calls 0x287bc0 then branches
+0029e2f8	call_2766d0	deepseek-pass1	low	calls 0x2766d0 then processes
+00292a90	loop_global_count	deepseek-pass1	low	loops while global -2864 > 0
+00290060	routine_290060	deepseek-pass1	low	56-byte routine
+0028b9b0	routine_28b9b0	deepseek-pass1	low	112-byte routine with constant 60
+002877a0	routine_2877a0	deepseek-pass1	low	224-byte routine
+002864f8	call_2859a0	deepseek-pass1	low	calls 0x2859a0 then processes
+0027a7e0	routine_27a7e0	deepseek-pass1	low	180-byte routine
+00272340	call_257770_b	deepseek-pass1	low	calls 0x257770 then processes
+0026b448	call_26b470	deepseek-pass1	low	calls 0x26b470 then processes
+0021edb0	stack_routine_304	deepseek-pass1	low	304-byte stack frame routine
+0021ec80	stack_routine_304_b	deepseek-pass1	low	304-byte stack frame routine
+0021eb50	stack_routine_304_c	deepseek-pass1	low	304-byte stack frame routine
+0021cda0	guard_then_table33	deepseek-pass1	low	branches and uses table at 0x33
+001e7cc0	routine_1e7cc0	deepseek-pass1	low	96-byte routine
+001dbd68	routine_1dbd68	deepseek-pass1	low	272-byte routine using 0x1d6 data
+001d5518	routine_1d5518	deepseek-pass1	low	336-byte routine
+001cbab0	routine_1cbab0	deepseek-pass1	low	104-byte routine
+001ca9c0	call_2cf1b8	deepseek-pass1	low	calls 0x2cf1b8 then returns
+001ca910	routine_1ca910	deepseek-pass1	low	64-byte routine using 0x35
+001c3748	routine_1c3748	deepseek-pass1	low	264-byte routine
+001c3618	routine_1c3618	deepseek-pass1	low	68-byte routine
+001ae590	routine_1ae590	deepseek-pass1	low	140-byte routine
+001ae460	routine_1ae460	deepseek-pass1	low	88-byte routine using 0x1c7
+001a3820	lookup_via_1a80c8	deepseek-pass1	low	calls 0x1a80c8 then processes
+0019dbc0	routine_19dbc0	deepseek-pass1	low	332-byte routine
+0019bb98	routine_19bb98	deepseek-pass1	low	160-byte routine
+00198450	routine_198450	deepseek-pass1	low	100-byte routine with base a0+320
+00195700	call_195530_field	deepseek-pass1	low	calls 0x195530 with field 2080
+00192b80	routine_192b80	deepseek-pass1	low	188-byte routine
+0018db38	routine_18db38	deepseek-pass1	low	156-byte routine
+0018d420	routine_18d420	deepseek-pass1	low	224-byte routine with table 0x35ef18
+0018cb30	routine_18cb30	deepseek-pass1	low	500-byte routine
+001860b0	routine_1860b0	deepseek-pass1	low	92-byte routine
+00180ce0	routine_180ce0	deepseek-pass1	low	96-byte routine reading field 328
+0017e280	call_19ba60	deepseek-pass1	low	calls 0x19ba60 then processes
+0017ce80	routine_float_17ce80	deepseek-pass1	low	128-byte float routine
+0017c870	routine_17c870	deepseek-pass1	low	128-byte routine using 0x35
+0016f470	call_with_a0_plus8	deepseek-pass1	low	calls with a0+8 as a2
+00167ee0	routine_167ee0	deepseek-pass1	low	56-byte routine with 0x35 base
+00161000	call_161030	deepseek-pass1	low	calls 0x161030 then processes
+0014ce60	float_global_load	deepseek-pass1	low	loads float constant and global
+00143ae0	routine_143ae0	deepseek-pass1	low	128-byte routine
+0013f888	routine_13f888	deepseek-pass1	low	340-byte routine with 144-byte frame
+0013dd78	call_with_a1	deepseek-pass1	low	forwards a1 as a2 then calls
+0013dd48	call_with_a1_b	deepseek-pass1	low	forwards a1 as a2 then calls
+001397d8	routine_1397d8	deepseek-pass1	low	124-byte routine
+0011f270	routine_11f270	deepseek-pass1	low	128-byte routine
+00106558	call_2fea18	deepseek-pass1	low	calls 0x2fea18 with float args
+001033d8	global_short_check_d	deepseek-pass1	low	reads signed halfword at 0x379da0
+0031cec0	obj_set_vtbl_34a800	deepseek-pass1	low	sets vtable 0x34a800 then calls
+0031cd50	obj_set_vtbl_347f98_b	deepseek-pass1	low	sets vtable 0x347f98 then destroys
+00302e10	obj_init_vtbl_302dd0	deepseek-pass1	low	clears field 472 and sets vtable 0x302dd0
+00302b18	routine_302b18	deepseek-pass1	low	268-byte routine
+002fe0a0	call_global_stream	deepseek-pass1	low	calls with global stream pointer
+002fdf30	intr_enable_wrap	deepseek-pass1	low	calls 0x3060f0 then processes
+002ee040	routine_2ee040	deepseek-pass1	low	108-byte routine
+002eb3b8	routine_2eb3b8	deepseek-pass1	low	164-byte routine
+002e97b8	routine_2e97b8	deepseek-pass1	low	128-byte routine using 0x1e3 data
+002e9610	routine_2e9610	deepseek-pass1	low	128-byte routine
+002e10d0	call_with_flag1	deepseek-pass1	low	calls with a3=1
+002dd2d8	sub_at256	deepseek-pass1	low	processes object at a0+256
+002d8120	call_with_a1_plus272	deepseek-pass1	low	calls with a1+272 as a3
+002cd770	float_square_routine	deepseek-pass1	low	squares f12 then processes with constants
+002c6490	routine_2c6490	deepseek-pass1	low	360-byte routine
+002be770	routine_2be770	deepseek-pass1	low	72-byte routine
+002bbf68	routine_2bbf68	deepseek-pass1	low	44-byte routine
+002bbda0	loop_list_1e3	deepseek-pass1	low	walks list using 0x1e3 data
+002bb5a8	routine_2bb5a8	deepseek-pass1	low	76-byte routine
+002ba7c8	routine_2ba7c8	deepseek-pass1	low	72-byte routine
+002ba298	call_no_args	deepseek-pass1	low	calls with no extra args
+002b7fbc	routine_2b7fbc	deepseek-pass1	low	64-byte routine with frame pointer
+002b6ab8	frame_routine_2b6ab8	deepseek-pass1	low	36-byte routine using frame pointer
+002b3ae8	routine_2b3ae8	deepseek-pass1	low	120-byte routine
+002b2428	routine_2b2428	deepseek-pass1	low	160-byte routine
+002b2338	global_list_scan	deepseek-pass1	low	scans using global -2512
+002b1a00	routine_2b1a00	deepseek-pass1	low	156-byte routine
+002adcb0	routine_2adcb0	deepseek-pass1	low	220-byte routine
+002adaf0	routine_2adaf0	deepseek-pass1	low	224-byte routine
+002ad950	routine_2ad950	deepseek-pass1	low	168-byte routine
+002ad7d0	routine_2ad7d0	deepseek-pass1	low	168-byte routine
+002abff0	routine_2abff0	deepseek-pass1	low	284-byte routine
+002ab2b0	routine_2ab2b0	deepseek-pass1	low	180-byte routine
+002a9e98	routine_2a9e98	deepseek-pass1	low	184-byte routine
+002a9b88	routine_2a9b88	deepseek-pass1	low	184-byte routine
+002a8870	routine_2a8870	deepseek-pass1	low	176-byte routine
+002a74c0	call_1058e8	deepseek-pass1	low	calls 0x1058e8 then processes
+002a7490	call_1058e8_b	deepseek-pass1	low	calls 0x1058e8 then processes
+002a4a00	routine_2a4a00	deepseek-pass1	low	212-byte routine
+002a45a0	routine_2a45a0	deepseek-pass1	low	124-byte routine
+0029e258	routine_29e258	deepseek-pass1	low	60-byte routine
+0029aac0	routine_29aac0	deepseek-pass1	low	316-byte routine
+0029a5f0	routine_29a5f0	deepseek-pass1	low	292-byte routine with 128-byte frame
+00293fc0	routine_293fc0	deepseek-pass1	low	64-byte routine
+00293e00	routine_293e00	deepseek-pass1	low	176-byte routine
+00292870	call_253b00	deepseek-pass1	low	calls 0x253b00 then processes
+002926c0	routine_2926c0	deepseek-pass1	low	244-byte routine using 0x37 data
+00291288	routine_291288	deepseek-pass1	low	204-byte routine
+0028f878	routine_28f878	deepseek-pass1	low	180-byte routine
+0028e748	routine_28e748	deepseek-pass1	low	80-byte routine
+00286ec8	routine_286ec8	deepseek-pass1	low	348-byte routine
+00286068	routine_286068	deepseek-pass1	low	248-byte routine
+002812e0	call_1058e8_c	deepseek-pass1	low	calls 0x1058e8 then processes
+0027ae20	loop_over_global_b	deepseek-pass1	low	loops using global -3536
+0027a990	routine_27a990	deepseek-pass1	low	128-byte routine
+0027a108	routine_27a108	deepseek-pass1	low	120-byte routine
+00276b90	routine_276b90	deepseek-pass1	low	136-byte routine
+00276a90	routine_276a90	deepseek-pass1	low	124-byte routine
+00276a18	routine_276a18	deepseek-pass1	low	116-byte routine
+00272538	routine_272538	deepseek-pass1	low	160-byte routine
+00269fc0	routine_269fc0	deepseek-pass1	low	156-byte routine
+00263cc0	routine_263cc0	deepseek-pass1	low	100-byte routine
+00259570	routine_259570	deepseek-pass1	low	68-byte routine with masked arg
+00258ce8	global_lookup	deepseek-pass1	low	looks up globals when a0 zero
+00257388	routine_257388	deepseek-pass1	low	208-byte routine
+0024e008	routine_24e008	deepseek-pass1	low	80-byte routine
+0024dfe0	check_global_null	deepseek-pass1	low	checks global -4620 then branches
+0024b1a0	routine_24b1a0	deepseek-pass1	low	84-byte routine with constant 1
+002468a0	routine_2468a0	deepseek-pass1	low	72-byte routine
+00246868	call_246840	deepseek-pass1	low	calls 0x246840 then returns
+00241528	routine_241528	deepseek-pass1	low	60-byte routine
+00241358	routine_241358	deepseek-pass1	low	148-byte routine
+00240fd8	guard_negative_global	deepseek-pass1	low	uses global -4972 when a0 negative
+002402e0	call_105c30	deepseek-pass1	low	calls 0x105c30 then processes
+00232328	call_228378	deepseek-pass1	low	calls 0x228378 then returns
+0022e0a8	routine_22e0a8	deepseek-pass1	low	100-byte routine
+002294c8	routine_2294c8	deepseek-pass1	low	428-byte routine
+0021ed18	stack_routine_304_d	deepseek-pass1	low	304-byte stack frame routine
+0020b458	routine_float_20b458	deepseek-pass1	low	92-byte float routine
+0020a000	routine_float_20a000	deepseek-pass1	low	92-byte float routine
+002072a8	routine_2072a8	deepseek-pass1	low	96-byte routine
+00203a88	routine_float_203a88	deepseek-pass1	low	92-byte float routine
+001ef5a0	vu_convert_byte	deepseek-pass1	low	VU byte conversion plus constant add
+001ef398	vu_convert_byte_b	deepseek-pass1	low	VU byte conversion plus constant add
+001ef1a0	vu_convert_byte_c	deepseek-pass1	low	VU byte conversion plus constant add
+001eef90	vu_convert_byte_d	deepseek-pass1	low	VU byte conversion plus constant add
+001eed88	vu_convert_byte_e	deepseek-pass1	low	VU byte conversion plus constant add
+001eeb90	vu_convert_byte_f	deepseek-pass1	low	VU byte conversion plus constant add
+001e8c28	routine_1e8c28	deepseek-pass1	low	268-byte routine
+001dbc58	routine_1dbc58	deepseek-pass1	low	116-byte routine
+001dba18	routine_1dba18	deepseek-pass1	low	108-byte routine
+001d5b78	routine_1d5b78	deepseek-pass1	low	64-byte routine using 0x1d6
+001d3f98	routine_1d3f98	deepseek-pass1	low	68-byte routine using 0x34
+001d1720	call_with_a1	deepseek-pass1	low	calls with a1 argument
+001c7fb8	routine_1c7fb8	deepseek-pass1	low	168-byte routine
+001c5f90	routine_1c5f90	deepseek-pass1	low	376-byte routine using 0x1d5
+001c5f38	routine_1c5f38	deepseek-pass1	low	64-byte routine using 0x35
+001c2c00	routine_1c2c00	deepseek-pass1	low	148-byte routine using 0x1d5
+001bd668	routine_1bd668	deepseek-pass1	low	64-byte routine
+001bd5b0	routine_1bd5b0	deepseek-pass1	low	routine using base a0+2536
+001bbe18	guard_null_c	deepseek-pass1	low	checks a0 then calls
+001b7f88	routine_1b7f88	deepseek-pass1	low	72-byte routine
+001b1448	routine_1b1448	deepseek-pass1	low	72-byte routine
+001ae650	call_2f7e60	deepseek-pass1	low	calls 0x2f7e60 then processes
+001ae620	call_2f71b0	deepseek-pass1	low	calls 0x2f71b0 then processes
+001a9458	routine_1a9458	deepseek-pass1	low	204-byte routine
+001a37e8	routine_1a37e8	deepseek-pass1	low	56-byte routine
+001a24a0	routine_1a24a0	deepseek-pass1	low	216-byte routine
+0019d4a8	routine_19d4a8	deepseek-pass1	low	80-byte routine
+0019cc88	routine_19cc88	deepseek-pass1	low	184-byte routine
+0019bd08	routine_19bd08	deepseek-pass1	low	188-byte routine
+00198738	routine_198738	deepseek-pass1	low	108-byte routine
+00197cc0	call_14f2b0	deepseek-pass1	low	calls 0x14f2b0 then processes
+00196388	loop_1c6_data	deepseek-pass1	low	loops using 0x1c6 data at +6916
+00195750	call_const_0x35	deepseek-pass1	low	calls helper with constant 0x35 base
+001906f0	routine_1906f0	deepseek-pass1	low	64-byte routine
+00190570	routine_190570	deepseek-pass1	low	272-byte routine
+001904a8	routine_1904a8	deepseek-pass1	low	72-byte routine
+0018d238	routine_18d238	deepseek-pass1	low	484-byte routine
+0018d050	routine_18d050	deepseek-pass1	low	484-byte routine
+0018c420	thunk_routine	deepseek-pass1	low	small thunk routine
+0018a7d0	routine_18a7d0	deepseek-pass1	low	72-byte routine
+00184ad0	routine_float_184ad0	deepseek-pass1	low	224-byte float routine
+00180c88	routine_180c88	deepseek-pass1	low	72-byte routine
+001806f8	routine_1806f8	deepseek-pass1	low	116-byte routine
+0017fef0	routine_17fef0	deepseek-pass1	low	120-byte routine
+0017ebc8	call_1a9780	deepseek-pass1	low	calls 0x1a9780 then returns
+00179a68	routine_179a68	deepseek-pass1	low	252-byte routine
+00177ab8	routine_177ab8	deepseek-pass1	low	232-byte routine
+0016a0a0	float_const_compare	deepseek-pass1	low	loads float constant and compares
+00168548	routine_168548	deepseek-pass1	low	164-byte routine
+001684c0	routine_1684c0	deepseek-pass1	low	136-byte routine using 0x33
+00162bb0	routine_162bb0	deepseek-pass1	low	116-byte routine with float arg
+001608c0	routine_1608c0	deepseek-pass1	low	124-byte routine with stack arg
+00159ce0	routine_159ce0	deepseek-pass1	low	80-byte routine
+00158548	routine_158548	deepseek-pass1	low	88-byte routine
+001584f8	routine_1584f8	deepseek-pass1	low	76-byte routine
+00144b38	routine_float_144b38	deepseek-pass1	low	168-byte float routine
+00143dd0	routine_143dd0	deepseek-pass1	low	128-byte routine
+00143b88	routine_143b88	deepseek-pass1	low	224-byte routine
+00143520	routine_143520	deepseek-pass1	low	120-byte routine with 176-byte frame
+0013f828	routine_13f828	deepseek-pass1	low	92-byte routine
+0013f608	routine_13f608	deepseek-pass1	low	60-byte routine
+0013f050	guard_negative	deepseek-pass1	low	branches on a0 negative
+0013efe8	routine_13efe8	deepseek-pass1	low	56-byte routine using 0x35
+0013ea50	routine_13ea50	deepseek-pass1	low	176-byte routine
+0013e610	routine_13e610	deepseek-pass1	low	100-byte routine using 0x35
+0013b570	call_103b38	deepseek-pass1	low	calls 0x103b38 then processes
+00139b28	routine_139b28	deepseek-pass1	low	116-byte routine
+001387f8	routine_1387f8	deepseek-pass1	low	72-byte routine
+001367e0	routine_1367e0	deepseek-pass1	low	96-byte routine
+00134490	call_const_347c88	deepseek-pass1	low	calls helper with constant 0x347c88
+001342c8	call_with_a1_b	deepseek-pass1	low	forwards a1 then calls
+00132180	routine_132180	deepseek-pass1	low	136-byte routine
+00129008	routine_129008	deepseek-pass1	low	84-byte routine
+001285f8	routine_1285f8	deepseek-pass1	low	216-byte routine
+0011f3b8	routine_11f3b8	deepseek-pass1	low	36-byte routine
+0011c7f8	call_with_a2	deepseek-pass1	low	forwards a1 as a2 then calls
+0011c4e8	routine_float_11c4e8	deepseek-pass1	low	448-byte float routine
+0011c4b0	routine_11c4b0	deepseek-pass1	low	56-byte routine
+00112d28	routine_112d28	deepseek-pass1	low	104-byte routine
+0010fea0	routine_10fea0	deepseek-pass1	low	100-byte routine
+0010f880	routine_10f880	deepseek-pass1	low	40-byte routine
+0010eee8	routine_10eee8	deepseek-pass1	low	64-byte routine with constant 2
+00109fe8	routine_109fe8	deepseek-pass1	low	484-byte routine
+00108ae0	routine_108ae0	deepseek-pass1	low	288-byte routine
+00103500	routine_103500	deepseek-pass1	low	80-byte routine
+001029e8	call_zero_arg	deepseek-pass1	low	calls with a1=0
+00320fa8	routine_320fa8	deepseek-pass1	low	176-byte routine
+0031a1a0	routine_31a1a0	deepseek-pass1	low	188-byte routine
+003181f8	huge_stack_routine	deepseek-pass1	low	2944-byte stack frame routine
+003181a0	routine_3181a0	deepseek-pass1	low	88-byte routine
+00313498	call_3134b8	deepseek-pass1	low	calls 0x3134b8 then returns
+0030ad00	huge_routine_30ad00	deepseek-pass1	low	572-byte routine
+0030ab88	huge_routine_30ab88	deepseek-pass1	low	376-byte routine
+0030a8f8	huge_routine_30a8f8	deepseek-pass1	low	656-byte routine
+00306698	routine_306698	deepseek-pass1	low	200-byte routine
+00304200	routine_304200	deepseek-pass1	low	260-byte routine
+00303ff8	routine_303ff8	deepseek-pass1	low	516-byte routine
+00303fc0	routine_303fc0	deepseek-pass1	low	52-byte routine
+002fded8	routine_2fded8	deepseek-pass1	low	88-byte routine
+002f2508	routine_2f2508	deepseek-pass1	low	148-byte routine
+002ef8d0	routine_2ef8d0	deepseek-pass1	low	84-byte routine
+002ef7f0	routine_2ef7f0	deepseek-pass1	low	160-byte routine
+002eda90	routine_float_2eda90	deepseek-pass1	low	100-byte float routine
+002e7768	routine_2e7768	deepseek-pass1	low	48-byte routine
+002e4588	routine_float_2e4588	deepseek-pass1	low	324-byte float routine
+002df140	routine_2df140	deepseek-pass1	low	28-byte routine
+002deb18	routine_2deb18	deepseek-pass1	low	132-byte routine
+002db530	obj_set_vtbl_36	deepseek-pass1	low	sets vtable from 0x36 then calls
+002d2a08	obj_set_vtbl_36_b	deepseek-pass1	low	sets vtable from 0x36 then calls
+002d1d30	routine_2d1d30	deepseek-pass1	low	212-byte routine
+002ceef8	routine_2ceef8	deepseek-pass1	low	92-byte routine with a1+1856
+002cdb60	routine_2cdb60	deepseek-pass1	low	372-byte routine
+002c2288	guard_null_d	deepseek-pass1	low	checks a0 then calls
+002c2168	routine_2c2168	deepseek-pass1	low	108-byte routine using 0x1e3
+002c20f8	routine_2c20f8	deepseek-pass1	low	108-byte routine using 0x1e3
+002be908	routine_2be908	deepseek-pass1	low	84-byte routine
+002bd760	call_with_a2_b	deepseek-pass1	low	forwards a0 as a2 then calls
+002bd310	routine_2bd310	deepseek-pass1	low	552-byte routine
+002bd2f0	call_halfword6	deepseek-pass1	low	passes halfword at +6 to callee
+002ba1b8	routine_2ba1b8	deepseek-pass1	low	72-byte routine
+002ba188	call_zero_a3	deepseek-pass1	low	calls with a3=0
+002b9b78	call_zero_a2	deepseek-pass1	low	calls with a2=0
+002b8694	routine_2b8694	deepseek-pass1	low	136-byte routine with frame pointer
+002b2c80	routine_2b2c80	deepseek-pass1	low	196-byte routine
+002b28b0	routine_2b28b0	deepseek-pass1	low	360-byte routine starting with -1
+002b2840	routine_2b2840	deepseek-pass1	low	108-byte routine
+002adf60	loop_over_global_c	deepseek-pass1	low	loops using global -2528
+002ad1b0	routine_2ad1b0	deepseek-pass1	low	168-byte routine
+002ab368	routine_2ab368	deepseek-pass1	low	220-byte routine
+002aaf40	routine_2aaf40	deepseek-pass1	low	220-byte routine
+002aad58	routine_2aad58	deepseek-pass1	low	216-byte routine
+002aaab8	routine_2aaab8	deepseek-pass1	low	216-byte routine
+002aa378	routine_2aa378	deepseek-pass1	low	216-byte routine
+002a3aa8	routine_2a3aa8	deepseek-pass1	low	256-byte routine
+002a1c68	routine_2a1c68	deepseek-pass1	low	108-byte routine
+002a1bc0	routine_2a1bc0	deepseek-pass1	low	56-byte routine
+002a17e8	routine_2a17e8	deepseek-pass1	low	228-byte routine
+002a16b8	routine_2a16b8	deepseek-pass1	low	300-byte routine
+002a07f0	routine_2a07f0	deepseek-pass1	low	112-byte routine
+0029ee38	check_via_287bc0_e	deepseek-pass1	low	calls 0x287bc0 then branches
+002995a8	check_via_287bc0_f	deepseek-pass1	low	calls 0x287bc0 then branches
+00297e00	routine_297e00	deepseek-pass1	low	100-byte routine
+002969e0	routine_2969e0	deepseek-pass1	low	204-byte routine
+00295868	check_via_287bc0_g	deepseek-pass1	low	calls 0x287bc0 then branches
+00295158	routine_295158	deepseek-pass1	low	204-byte routine
+002945a8	check_via_287bc0_h	deepseek-pass1	low	calls 0x287bc0 then branches
+00294288	routine_294288	deepseek-pass1	low	188-byte routine
+00293cb8	routine_293cb8	deepseek-pass1	low	200-byte routine
+002911f8	routine_2911f8	deepseek-pass1	low	140-byte routine
+0028e798	routine_28e798	deepseek-pass1	low	64-byte routine
+0028e710	routine_28e710	deepseek-pass1	low	52-byte routine
+0028b8a0	routine_28b8a0	deepseek-pass1	low	44-byte routine
+00286160	routine_286160	deepseek-pass1	low	284-byte routine
+00284538	routine_284538	deepseek-pass1	low	276-byte routine
+00281f70	call_zero_a1	deepseek-pass1	low	calls with a1=0
+00281cf0	routine_281cf0	deepseek-pass1	low	72-byte routine using 0x37
+00281be0	routine_281be0	deepseek-pass1	low	76-byte routine using 0x36
+0027d5d8	huge_routine_27d5d8	deepseek-pass1	low	564-byte routine
+0027d540	routine_27d540	deepseek-pass1	low	84-byte routine using 0x36
+00275f68	routine_275f68	deepseek-pass1	low	284-byte routine
+00271e08	routine_271e08	deepseek-pass1	low	120-byte routine
+0026e140	routine_26e140	deepseek-pass1	low	160-byte routine with constant 436
+00269ef8	routine_269ef8	deepseek-pass1	low	96-byte routine
+00267398	routine_267398	deepseek-pass1	low	112-byte routine
+00265ab8	routine_265ab8	deepseek-pass1	low	208-byte routine
+00265a30	routine_265a30	deepseek-pass1	low	136-byte routine
+00265580	routine_265580	deepseek-pass1	low	104-byte routine
+002637e8	routine_2637e8	deepseek-pass1	low	112-byte routine
+002635d8	routine_2635d8	deepseek-pass1	low	132-byte routine using 0x37
+00262e30	routine_262e30	deepseek-pass1	low	228-byte routine
+0025a1d0	call_2b4b00	deepseek-pass1	low	calls 0x2b4b00 then returns
+00257000	routine_257000	deepseek-pass1	low	76-byte routine using 0x36f788
+00252020	routine_252020	deepseek-pass1	low	116-byte routine
+00252000	routine_252000	deepseek-pass1	low	32-byte routine using 0x36
+0024f1a0	routine_24f1a0	deepseek-pass1	low	160-byte routine
+0024e058	check_global_null_b	deepseek-pass1	low	checks global -4620 then branches
+00244938	routine_244938	deepseek-pass1	low	80-byte routine
+00242d58	call_1058e8_d	deepseek-pass1	low	calls 0x1058e8 then processes
+00242ce8	call_1058e8_e	deepseek-pass1	low	calls 0x1058e8 then processes
+002416d8	routine_2416d8	deepseek-pass1	low	104-byte routine
+00240118	routine_240118	deepseek-pass1	low	296-byte routine
+0023f820	obj_set_vtbl_36_ebd8	deepseek-pass1	low	sets vtable 0x36ebd8 then calls
+0023e700	call_1064a8_b	deepseek-pass1	low	calls 0x1064a8 then processes
+0023aab8	huge_routine_23aab8	deepseek-pass1	low	544-byte routine
+00232db0	loop_entries_global	deepseek-pass1	low	loops over entries using global
+00232348	call_105c30_b	deepseek-pass1	low	calls 0x105c30 then processes
+0022f4f0	loop_global_d	deepseek-pass1	low	loops using global -8964
+0022e330	loop_global_e	deepseek-pass1	low	loops using global -8972
+0022c758	routine_22c758	deepseek-pass1	low	100-byte routine
+0022b688	routine_22b688	deepseek-pass1	low	148-byte routine using 0x34
+0022af48	routine_22af48	deepseek-pass1	low	84-byte routine
+0022ae98	routine_22ae98	deepseek-pass1	low	84-byte routine
+00227a60	routine_227a60	deepseek-pass1	low	160-byte routine
+00224600	routine_224600	deepseek-pass1	low	380-byte routine
+001ee988	vu_convert_byte_g	deepseek-pass1	low	VU byte conversion routine
+001ee7a8	vu_convert_byte_h	deepseek-pass1	low	VU byte conversion routine
+001ee5d8	vu_convert_byte_i	deepseek-pass1	low	VU byte conversion routine
+001e8bb8	routine_1e8bb8	deepseek-pass1	low	108-byte routine
+001e7be0	routine_1e7be0	deepseek-pass1	low	224-byte routine
+001e41e0	routine_1e41e0	deepseek-pass1	low	104-byte routine
+001e0868	routine_1e0868	deepseek-pass1	low	96-byte routine with constant 19
+001e0058	routine_1e0058	deepseek-pass1	low	84-byte routine
+001dda78	routine_1dda78	deepseek-pass1	low	180-byte routine using 0x35
+001dd208	masked_call_b	deepseek-pass1	low	masks a0 then calls
+001dcc60	routine_1dcc60	deepseek-pass1	low	104-byte routine
+001dc558	routine_1dc558	deepseek-pass1	low	152-byte float routine
+001dc488	call_with_a1_c	deepseek-pass1	low	forwards a0 as a1 then calls
+001db5a8	routine_1db5a8	deepseek-pass1	low	104-byte routine with constant 92
+001d9630	routine_1d9630	deepseek-pass1	low	88-byte routine
+001d6da8	routine_1d6da8	deepseek-pass1	low	96-byte routine
+001d6a80	routine_1d6a80	deepseek-pass1	low	44-byte routine
+001d5370	routine_1d5370	deepseek-pass1	low	116-byte routine
+001ceb40	routine_1ceb40	deepseek-pass1	low	108-byte routine
+001ce328	call_with_a1_d	deepseek-pass1	low	forwards a0 as a1 then calls
+001cbc50	routine_1cbc50	deepseek-pass1	low	156-byte routine
+001c9e50	routine_1c9e50	deepseek-pass1	low	80-byte routine
+001c9df8	routine_1c9df8	deepseek-pass1	low	84-byte routine
+001c1890	routine_1c1890	deepseek-pass1	low	64-byte routine
+001c0320	routine_1c0320	deepseek-pass1	low	236-byte routine
+001bde58	routine_1bde58	deepseek-pass1	low	44-byte routine
+001bdcd0	routine_1bdcd0	deepseek-pass1	low	80-byte routine
+001bd918	routine_1bd918	deepseek-pass1	low	112-byte routine
+001bc730	routine_1bc730	deepseek-pass1	low	68-byte routine
+001bc6a8	routine_1bc6a8	deepseek-pass1	low	84-byte routine
+001bbb28	guard_global_1d5	deepseek-pass1	low	guards on global 0x1d59320
+001bb890	routine_1bb890	deepseek-pass1	low	96-byte routine using 0x1d5
+001ba598	routine_1ba598	deepseek-pass1	low	184-byte routine
+001b8680	routine_1b8680	deepseek-pass1	low	92-byte routine using 0x1d5
+001b81e8	call_1b7f88	deepseek-pass1	low	calls 0x1b7f88 then processes
+001b7c80	routine_1b7c80	deepseek-pass1	low	364-byte routine
+001b7998	routine_1b7998	deepseek-pass1	low	128-byte routine
+001b6d00	routine_1b6d00	deepseek-pass1	low	64-byte routine
+001b6ab8	routine_1b6ab8	deepseek-pass1	low	84-byte routine
+001b58f0	shuffle_args_call_b	deepseek-pass1	low	shuffles args then calls
+001b5460	routine_1b5460	deepseek-pass1	low	296-byte routine
+001b4f40	routine_1b4f40	deepseek-pass1	low	364-byte routine with constant 0xfffe
+001b3098	routine_1b3098	deepseek-pass1	low	128-byte routine
+001b2210	routine_1b2210	deepseek-pass1	low	244-byte routine
+001b1c10	call_with_f14	deepseek-pass1	low	moves f12 to f14 then calls
+001afe30	loop_1c9_table	deepseek-pass1	low	loops over table at 0x1c94090
+001ae4c0	routine_1ae4c0	deepseek-pass1	low	204-byte routine
+001ae308	routine_1ae308	deepseek-pass1	low	340-byte routine
+001ad330	routine_1ad330	deepseek-pass1	low	176-byte routine
+001aa8a8	routine_1aa8a8	deepseek-pass1	low	72-byte routine
+001a9560	routine_1a9560	deepseek-pass1	low	500-byte routine
+001a78c0	routine_float_1a78c0	deepseek-pass1	low	88-byte float routine
+001a7588	routine_1a7588	deepseek-pass1	low	80-byte routine
+001a6d68	routine_1a6d68	deepseek-pass1	low	44-byte routine
+001a6658	routine_1a6658	deepseek-pass1	low	296-byte routine using 0x1c7
+001a5e38	routine_1a5e38	deepseek-pass1	low	132-byte routine using 0x1c7
+001a58f8	routine_1a58f8	deepseek-pass1	low	44-byte routine using 0x35
+001a4ff8	routine_float_1a4ff8	deepseek-pass1	low	324-byte float routine
+001a3b48	routine_1a3b48	deepseek-pass1	low	168-byte routine
+001a1b68	routine_float_1a1b68	deepseek-pass1	low	200-byte float routine
+001a1a20	routine_1a1a20	deepseek-pass1	low	48-byte routine reading field 604
+0019ed48	routine_19ed48	deepseek-pass1	low	44-byte routine with constant -2
+0019d720	routine_19d720	deepseek-pass1	low	40-byte routine
+0019d548	routine_19d548	deepseek-pass1	low	60-byte routine
+0019c8a8	call_16a070	deepseek-pass1	low	calls 0x16a070 then processes
+0019c590	routine_19c590	deepseek-pass1	low	64-byte routine reading field 1416
+00199cd0	routine_199cd0	deepseek-pass1	low	100-byte routine
+00199098	routine_199098	deepseek-pass1	low	132-byte routine
+00198c28	routine_198c28	deepseek-pass1	low	144-byte routine using 0x1c6
+00197800	guard_global_field	deepseek-pass1	low	guards on global at +892
+00196f00	routine_196f00	deepseek-pass1	low	296-byte routine
+00196e00	routine_196e00	deepseek-pass1	low	136-byte routine
+001956e8	call_field2080	deepseek-pass1	low	calls with field 2080 as a0
+00193be8	vec_op_2args	deepseek-pass1	low	VU operation on two vector args
+00192a80	routine_192a80	deepseek-pass1	low	176-byte routine
+001903d0	routine_1903d0	deepseek-pass1	low	216-byte routine
+0018e040	routine_18e040	deepseek-pass1	low	152-byte routine
+0018da18	routine_18da18	deepseek-pass1	low	288-byte routine
+00188e08	routine_188e08	deepseek-pass1	low	440-byte routine
+00188ac8	routine_188ac8	deepseek-pass1	low	156-byte routine
+00188398	routine_188398	deepseek-pass1	low	60-byte routine reading field 136
+00185920	routine_185920	deepseek-pass1	low	104-byte routine using 0x1c6
+00184eb8	routine_184eb8	deepseek-pass1	low	216-byte routine
+001835a0	routine_float_1835a0	deepseek-pass1	low	84-byte float routine
+001829b0	routine_1829b0	deepseek-pass1	low	196-byte routine
+00180770	call_180698	deepseek-pass1	low	calls 0x180698 then processes
+00180698	routine_180698	deepseek-pass1	low	96-byte routine
+00180408	routine_180408	deepseek-pass1	low	64-byte routine
+001801b0	routine_1801b0	deepseek-pass1	low	296-byte routine
+0017ff68	routine_float_17ff68	deepseek-pass1	low	140-byte float routine with a1+160
+0017fe10	routine_float_17fe10	deepseek-pass1	low	224-byte float routine
+0017f5f8	call_17f3d8	deepseek-pass1	low	calls 0x17f3d8 then processes
+0017f4e0	routine_17f4e0	deepseek-pass1	low	96-byte routine
+0017ee68	routine_17ee68	deepseek-pass1	low	124-byte routine
+0017eb98	routine_17eb98	deepseek-pass1	low	44-byte routine
+0017e358	routine_17e358	deepseek-pass1	low	96-byte routine
+0017c578	routine_17c578	deepseek-pass1	low	232-byte routine with 0x1 constant
+00179e18	routine_179e18	deepseek-pass1	low	48-byte routine
+00170c50	call_170c38	deepseek-pass1	low	calls 0x170c38 then processes
+0016f930	loop_4f_table	deepseek-pass1	low	loops using data at 0x4f63d8
+0016f520	routine_16f520	deepseek-pass1	low	240-byte routine
+0016f4b8	call_with_a0_plus8_b	deepseek-pass1	low	calls with a0+8 as a2
+0016c568	call_with_a0_1304	deepseek-pass1	low	calls using a0+1304
+0016c060	routine_16c060	deepseek-pass1	low	264-byte routine
+0016b518	routine_16b518	deepseek-pass1	low	60-byte routine reading field 1416
+00168808	routine_168808	deepseek-pass1	low	148-byte routine with constant -1
+00165ef0	global_check_arg	deepseek-pass1	low	checks global 0x4f41c0 and a0
+001623b0	call_102c80	deepseek-pass1	low	calls 0x102c80 then returns
+001618f0	call_1617c8	deepseek-pass1	low	calls 0x1617c8 then processes
+0015c4b8	call_stack_arg	deepseek-pass1	low	calls with stack argument at sp+1
+0015b4f8	routine_15b4f8	deepseek-pass1	low	128-byte routine
+001584a0	routine_1584a0	deepseek-pass1	low	88-byte routine
+00158450	routine_158450	deepseek-pass1	low	76-byte routine
+001547e0	routine_float_1547e0	deepseek-pass1	low	196-byte float routine
+00152820	routine_152820	deepseek-pass1	low	236-byte routine
+001527b8	routine_1527b8	deepseek-pass1	low	104-byte routine
+00152688	routine_152688	deepseek-pass1	low	144-byte routine
+0014f8d0	routine_14f8d0	deepseek-pass1	low	212-byte routine
+0014dd18	routine_14dd18	deepseek-pass1	low	68-byte routine
+0014d8d0	routine_14d8d0	deepseek-pass1	low	64-byte routine
+0014d478	routine_14d478	deepseek-pass1	low	108-byte routine using 0x35
+00146088	routine_146088	deepseek-pass1	low	120-byte routine
+00144be0	routine_float_144be0	deepseek-pass1	low	304-byte float routine
+001445e8	thunk_routine_b	deepseek-pass1	low	small thunk routine
+00143c68	routine_143c68	deepseek-pass1	low	164-byte routine
+00142940	routine_142940	deepseek-pass1	low	560-byte routine
+00141080	call_1410b8	deepseek-pass1	low	calls 0x1410b8 then processes
+0013fdf0	routine_float_13fdf0	deepseek-pass1	low	208-byte float routine
+0013f648	routine_13f648	deepseek-pass1	low	156-byte routine
+0013d4c8	routine_13d4c8	deepseek-pass1	low	132-byte routine using 0x45
+0013c7d0	routine_13c7d0	deepseek-pass1	low	80-byte routine using 0x35
+0013b508	call_1398d0	deepseek-pass1	low	calls 0x1398d0 then processes
+00138840	routine_138840	deepseek-pass1	low	324-byte routine
+00138210	routine_138210	deepseek-pass1	low	164-byte routine using 0x34
+001369d0	global_init_3c	deepseek-pass1	low	initializes globals with -1 at 0x3c8b20
+00136840	routine_136840	deepseek-pass1	low	56-byte routine using 0x34
+00132d60	release_child_b	deepseek-pass1	low	calls 0x132c68 then cleans up
+00132d30	release_child_c	deepseek-pass1	low	calls 0x132c68 then cleans up
+00132d00	release_child_d	deepseek-pass1	low	calls 0x132c68 then cleans up
+00132cd0	release_child_e	deepseek-pass1	low	calls 0x132c68 then cleans up
+00132130	routine_132130	deepseek-pass1	low	60-byte routine
+00127cf8	guard_then_process	deepseek-pass1	low	checks a0 then processes fields
+00127a88	routine_127a88	deepseek-pass1	low	488-byte routine
+0011f2f0	routine_11f2f0	deepseek-pass1	low	200-byte routine with a0+144
+0011ea40	routine_float_11ea40	deepseek-pass1	low	84-byte float routine
+0011e880	routine_11e880	deepseek-pass1	low	152-byte routine
+0011d6c0	routine_11d6c0	deepseek-pass1	low	80-byte routine
+0011c8f8	routine_11c8f8	deepseek-pass1	low	292-byte routine
+0011c7c8	call_with_a2_c	deepseek-pass1	low	forwards a1 as a2 then calls
+00116d08	routine_116d08	deepseek-pass1	low	168-byte routine with a0+1600
+001168c0	routine_1168c0	deepseek-pass1	low	120-byte routine
+00112df0	routine_112df0	deepseek-pass1	low	404-byte routine
+00110500	routine_110500	deepseek-pass1	low	280-byte routine with a0+2944
+00108998	routine_108998	deepseek-pass1	low	116-byte routine with constant 14
+00103e78	call_const_0x33	deepseek-pass1	low	calls helper with constant 0x33 base
+00103b48	call_with_a0	deepseek-pass1	low	calls using a0 then returns
+00102c48	call_with_a0_b	deepseek-pass1	low	calls using a0 then returns
+00325840	list_unlink_off32	deepseek-pass2	medium	unlinks a1 from list using next field at +32
+00324718	list_contains_id	deepseek-pass2	medium	walks list from a0 testing first word == a1
+00323e98	routine_323e98	deepseek-pass2	low	320-byte routine with several sub-objects
+00322ba8	obj_dtor_parts	deepseek-pass2	medium	destroys parts at +56 and +192
+00321c50	list_unlink_off40	deepseek-pass2	medium	unlinks a1 from list using next field at +40
+0031fe00	list_unlink_off124	deepseek-pass2	medium	unlinks a1 from list using next field at +124
+0031ee68	list_unlink_off192	deepseek-pass2	medium	unlinks a1 from list using next field at +192
+0031e590	big_obj_dtor_b	deepseek-pass2	medium	sets vtable 0x35_0bb0, destroys parts at +2920
+0031e328	list_unlink_off60	deepseek-pass2	medium	unlinks a1 from list using next field at +60
+0031e268	obj_init_float_bytes	deepseek-pass2	medium	sets floats and bytes 128 across 8 entries
+0031dd50	obj_ctor_35b810	deepseek-pass2	medium	sets vtable, clears +4, inits block at +1072
+0031d6b0	set_vtbl_3486a8_c	deepseek-pass2	high	stores vtable 0x3486a8 at offset 0
+0031c9f8	vtable_dtor_347e40	deepseek-pass2	medium	sets vtable 0x347e40 then calls 0x31cd50
+0031c980	vtable_dtor_347e40_b	deepseek-pass2	medium	same vtable/teardown as 0x31c9f8
+0031c8e8	obj_dtor_parts_b	deepseek-pass2	medium	sets vtable, destroys part +24, base dtor
+0031bd98	routine_31bd98	deepseek-pass2	low	212-byte routine setting two vtables
+0031bbc8	set_vtbl_348c08_b	deepseek-pass2	high	stores vtable 0x3486a8 at offset 0
+0031bab8	obj_ctor_3486a8	deepseek-pass2	medium	sets vtable 0x349d70 then calls 0x31baa8
+0031b910	set_vtbl_3486a8_d	deepseek-pass2	high	stores vtable 0x3486a8 at offset 0
+0031b3b8	routine_31b3b8	deepseek-pass2	low	312-byte constructor routine
+0031a508	vtable_dtor_347e40_c	deepseek-pass2	medium	sets vtable then destroys part +24
+0031a3d8	routine_31a3d8	deepseek-pass2	low	136-byte constructor routine
+00319d58	store_zero_byte	deepseek-pass2	high	stores zero byte at a0
+00319d30	zero_4_words	deepseek-pass2	medium	zeroes four consecutive words
+003199d0	clear_fields_and_blocks	deepseek-pass2	medium	zeroes fields 0..12 and 3 blocks from +16
+00319930	clear_20words_blocks	deepseek-pass2	medium	zeroes 20 words then 3 words at +80
+003191d0	store_dword_at_ptr	deepseek-pass2	medium	stores a2 dword at pointer list[a0+a1*4]
+00318908	huge_stack_routine	deepseek-pass2	low	2960-byte stack frame routine
+00316a50	lookup_via_316e00	deepseek-pass2	low	calls 0x316e00/0x316e10 and processes result
+003160e0	compare_field4	deepseek-pass2	medium	compares field4 of two structs, fills a3 when equal
+00314640	unpack_float	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+0030af40	huge_routine_30af40	deepseek-pass2	low	620-byte routine using 0x1e3 data
+00305110	routine_305110	deepseek-pass2	low	calls 0x305d18 with 4 args after clearing global
+00304fb0	alloc_sized_block	deepseek-pass2	medium	allocates a1*a2 bytes via 0x2fd680 and sizes
+00303f00	decode_bitfield_flags	deepseek-pass2	medium	inspects low 3 bits of word and returns code
+00302c28	obj_init_with_handlers	deepseek-pass2	medium	stores halfwords 12/14, a3 at +84, handlers 32/36
+002ff8b0	fill_blocks_64	deepseek-pass2	medium	fills 64-byte blocks until a1 bytes covered via 0x2ff014
+002ff014	memset	deepseek-pass2	high	byte fill with word-at-a-time loop, returns dest
+002fd408	pool_free_block_b	deepseek-pass2	medium	frees block to global pool via 0x302e90
+002fd348	pool_alloc_from_list	deepseek-pass2	medium	searches global free list for suitable block
+002f8888	float_to_int_round	deepseek-pass2	medium	converts float to int honouring rounding mode
+002f3fc0	vec4_ftoi4_round	deepseek-pass2	medium	VU round-to-nearest float to int of quad
+002f3f28	vec4_mul	deepseek-pass2	medium	VU quad multiplication a1*a2 to a0
+002f19c8	free_ptr_field0	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002eff58	check_halfwindow	deepseek-pass2	medium	tests (f272+f276)*0.5 <= f28
+002ef988	switch_two_codes	deepseek-pass2	medium	calls 0x105c30 then selects 21333 or 20554
+002ef180	obj_flush_field12	deepseek-pass2	low	calls 0x18a008 on object at +12
+002eeee8	obj_init_fields	deepseek-pass2	medium	stores a1 at +4, zeroes 0,8,16..28
+002eedd8	to_2eefc8_sub456	deepseek-pass2	high	reviewed disassembly; behaviour as named
+002ee8a8	huge_routine_2ee8a8	deepseek-pass2	low	468-byte routine using table 0x37_61b0
+002edf68	obj_ctor_3637e0_b	deepseek-pass2	medium	same ctor as 0x2edf28 (vtable 0x3637e0)
+002ede48	routine_float_2ede48	deepseek-pass2	low	224-byte float routine
+002ed720	sub_float88	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002ebac0	obj_set_floats_272_276	deepseek-pass2	medium	stores two float constants, calls with 254
+002eba78	obj_set_floats_272_276_b	deepseek-pass2	medium	stores two float constants, calls with 253
+002eb6f8	obj_update_at320	deepseek-pass2	low	processes object at a0+320 with signed a1
+002eaf48	routine_2eaf48	deepseek-pass2	low	288-byte routine with 3 args
+002e9a38	scan_records_by_pair	deepseek-pass2	medium	scans records matching fields at +28 and +32
+002e93a0	clear_fields_28_48_60	deepseek-pass2	high	zeroes fields 28, 48 and 60
+002e76b0	to_2e76c8	deepseek-pass2	medium	thunk: sets frame then tail-calls 0x2e76c8
+002e7670	to_2e7688	deepseek-pass2	medium	thunk: sets frame then tail-calls 0x2e7688
+002e7108	find_entry_by_float	deepseek-pass2	medium	scans entries for field matching f12
+002e5f70	obj_clear_two_quads	deepseek-pass2	medium	clears quads at +16 and +288 then zeroes fields
+002e3f78	obj_init_floats_a	deepseek-pass2	medium	zeroes floats 0..8 and stores constant at +12
+002e3f58	obj_init_floats_b	deepseek-pass2	medium	zeroes words 0..8 and stores constant at +12
+002e3260	lookup_entry_by_half	deepseek-pass2	medium	scans entries at +16 matching masked a1
+002e2930	ptr_add176	deepseek-pass2	low	reviewed briefly; uncertain detail
+002e24e0	obj_process_at176	deepseek-pass2	low	calls 0x2e7108 with field108/260 then processes
+002e1140	obj_call_2e71a0	deepseek-pass2	low	calls 0x2e71a0 with fields 100/112 and byte 8
+002e0870	scale_float_sq	deepseek-pass2	medium	stores field32^2 / (2*a3[0]) into a1
+002df1a8	to_2dd348_global	deepseek-pass2	low	tail-calls 0x2dd348 with global field 8032
+002def70	obj_vtable_walk	deepseek-pass2	low	calls vtable slot 48 then walks object at a1+320
+002de6e8	obj_init_via_16bc20	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002dd700	obj_ctor_3620c0	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002dd280	get_float_indexed	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002dc248	const_minus_field112	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002dbca0	routine_2dbca0	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002db4b0	obj_ctor_2cfeb0_alias	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002da520	routine_2da520	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002d9730	obj_ctor_3625e0	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002d8110	ptr_add272	deepseek-pass2	low	reviewed briefly; uncertain detail
+002d7630	clear_obj_fields	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002d6600	routine_2d6600	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002d5c40	state_code_by_fields	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002d48b8	float_bucket_index_d	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002d3f18	obj_init_sub2800_variant	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002d38e8	routine_2d38e8	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002d2660	slot_get_by_index	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002d1f20	ptr_add288	deepseek-pass2	low	reviewed briefly; uncertain detail
+002d1f10	ptr_add224	deepseek-pass2	low	reviewed briefly; uncertain detail
+002d1bf8	routine_vu_2d1bf8	deepseek-pass2	low	308-byte VU routine with quad loads
+002d0bd8	obj_init_via_16ace0	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002d0200	classify_record_type	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002cff00	obj_ctor_2cfeb0_alias	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002cf638	routine_2cf638	deepseek-pass2	low	276-byte routine
+002cee58	routine_2cee58	deepseek-pass2	low	160-byte routine calling 0x2d0718 and 0x11b6a8
+002cebc8	call_global_vtable16	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002cda68	obj_process_float_a	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002cd878	obj_process_float_b	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002cd428	ring_insert_entry	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002cd3e0	obj_insert_quad	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002cd018	huge_routine_2cd018	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002cb800	next_flag_pair	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002c85c8	check_via_2c5150	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002c54c8	obj_ctor_361c40	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002c2688	search_list_by_key	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002c2598	search_list_first	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002c22b8	request_pool_block16	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002c2268	to_160fd0_if_nonzero	deepseek-pass2	high	reviewed disassembly; behaviour as named
+002c2248	to_15ee10_if_nonzero	deepseek-pass2	high	reviewed disassembly; behaviour as named
+002c2228	to_15ee90_if_nonzero	deepseek-pass2	high	reviewed disassembly; behaviour as named
+002bfd48	routine_2bfd48	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002be9b0	routine_2be9b0	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002bd7d8	global_cleanup	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002bd788	start_async_task	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002bd230	store_global_pair_bool	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002bd030	release_two_entries	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002bcfe8	copy_global_entries_300	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002bcfa0	release_14_entries	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002bcf58	copy_global_entries_132	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002bce50	init_block_and_copy	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002bce40	clear_fields_324_336	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002bc708	routine_2bc708	deepseek-pass2	low	128-byte routine using 0x1e3 data
+002bc398	routine_2bc398	deepseek-pass2	low	calls 0x2bbda0 then 0x2bb5a8 on result
+002bb950	routine_2bb950	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002baa08	to_2b788c	deepseek-pass2	medium	thunk: sets frame then tail-calls 0x2b788c
+002ba610	zero_global_byte_1e3	deepseek-pass2	high	stores zero at global 0x1e3a5c0
+002ba3e8	huge_routine_2ba3e8	deepseek-pass2	low	488-byte routine with 6 args
+002ba3b8	wrapper_2ba3e8_sub	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002ba0f8	snprintf_buf_a	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002ba0b0	snprintf_buf_b	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002b9e80	obj_reset_and_init	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002b9ab8	to_2b6b84	deepseek-pass2	medium	thunk: sets frame then tail-calls 0x2b6b84
+002b740c	store_args_return_zero	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002b73ac	call_2b6708_6_22	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002b6bc4	call_2b6708_2_9	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002b5658	global_obj_teardown	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002b4f50	global_obj_call20	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002b4b00	routine_2b4b00	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002b2f28	record408_update	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002b2da8	record408_update_b	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002b1af0	routine_2b1af0	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002b1aa0	classify_id_20690	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002b1660	check_global_blocks	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002ae660	obj_type9_process	deepseek-pass2	low	calls 0x294000(9) then processes result
+002ad660	obj_type6_scan	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002ad4a8	obj_type2_process	deepseek-pass2	low	calls 0x294000(2) then processes
+002ad338	bit_scan_global_316	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002acf48	clear_globals_and_init	deepseek-pass2	low	zeroes globals -2516/-2520 then initializes
+002acda8	clear_globals_and_call	deepseek-pass2	low	zeroes globals then calls 0x103b38
+002aa048	clear_bit_via_2a9d68	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002a92a0	obj_type8_entry	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002a8a88	state_10_or_35	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002a8920	is_byte_at_1d6f2c_ge2	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002a7f20	obj_type7_entry	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002a7760	state_11_or_36	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002a7530	check_any_2a7490	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002a6a18	state_39_dispatch	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002a6718	routine_2a6718	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002a65a0	select_id_by_state	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002a4b78	state_26_33_34	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002a4470	routine_2a4470	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002a40c8	routine_2a40c8	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002a3910	select_id_by_check	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002a1220	routine_2a1220	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002a03a0	select_id_by_state_b	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002a0360	check_global_byte_result	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+0029fbf0	obj_type4_scan	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+0029ec40	find_halfword_in_table	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+0029e298	entry408_by_index	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+0029e0f8	refresh_block_18528	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+0029e050	report_error_block	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+0029dd00	build_request_4	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+0029c9d8	entry_range_check	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00299260	select_id_by_state_c	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00296f90	get_global_36f598	deepseek-pass2	high	loads word from 0x36f598
+00296f80	get_global_36f594	deepseek-pass2	high	loads word from 0x36f594
+00296b08	flags_check_2672	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00294e48	call_pair_and_process	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00294408	record_lookup_success_b	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002937c0	clear_flag_and_check	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00293148	scan_entries_flag0	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002914a8	lookup_record_by_arg	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00290a10	obj_call_1708f8	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00290610	obj_ctor_347e40_b	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00290508	obj_process_arg	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00290368	routine_290368	deepseek-pass2	low	180-byte routine with 4 args
+00290300	obj_release_via_vtable	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00290198	routine_290198	deepseek-pass2	low	256-byte routine using 0x34 data
+0028ffe8	obj_process_field0	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+0028fe38	routine_28fe38	deepseek-pass2	low	196-byte routine with 3 args
+0028fdd0	obj_release_b	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+0028fc78	routine_28fc78	deepseek-pass2	low	240-byte routine using 0x34 data
+0028eb88	obj_set_floats_pair	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+0028e8b8	entry_alloc_3args	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+0028e560	entry_alloc_4args	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+0028e4c8	entry380_by_index	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+0028e438	entry_alloc_3args_b	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+0028e0d8	routine_28e0d8	deepseek-pass2	low	184-byte routine with many args
+0028db48	obj_alloc_check	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+0028c3f0	routine_28c3f0	deepseek-pass2	low	260-byte routine
+0028b6f0	copy_3halfwords_444	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+0028b120	entry_mod_index	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00288c58	alloc_two_fields	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00288088	check_global_block_flag	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00287f30	global_ptr_range_check	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00287ec8	get_global_byte_36f320	deepseek-pass2	high	reviewed disassembly; behaviour as named
+00287d08	zero_globals_pair	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00287c78	store_global_m1_pair	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00287b30	reset_globals_pair	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00287ad0	reset_globals_chain	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00287a28	init_chain_5calls	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00287910	routine_287910	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002878c8	loop_call_287880	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00287760	obj_call_vtable20	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002875e8	routine_2875e8	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00285f50	clear_bit_via_2859a0	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002854d8	huge_routine_2854d8	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00283f50	routine_283f50	deepseek-pass2	low	176-byte frame routine using global -3404
+00282d70	routine_282d70	deepseek-pass2	low	332-byte routine with 0x1a8110 call
+00282cb8	bound_check_8448	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00282620	loop_6_via_1058e8	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00281ec8	init_chain_3	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002817b8	reset_globals_set	deepseek-pass2	low	reviewed briefly; uncertain detail
+002811e0	get_entry20_half8	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002810c8	obj_wrap_281008	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002806a0	refresh_block_896	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002804f0	clear_global_call6	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00280368	refresh_blocks_24	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+0027e770	huge_routine_27e770	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+0027c118	entry_by_index_15_8	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+0027bf20	entry8_halfword_calc	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+0027a898	refresh_chain_28be58	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+0027a180	check_via_2579e0	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00276e28	check_global_3556_then_276df8	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00276df8	refresh_block_3812	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00276438	routine_276438	deepseek-pass2	low	116-byte routine with global -3584
+00275e68	handle_negative_arg	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00275dd0	report_49_52	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00275980	obj_update_via_28d008	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00274e50	flag_bits_4_2	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00274e08	call_192290_when_bit2	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00273cb8	routine_273cb8	deepseek-pass2	low	296-byte routine with 0x287bc0
+00273c40	entry25_via_281180	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00272468	routine_272468	deepseek-pass2	low	208-byte routine with state -26
+00272428	check_via_271ec8	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002723e0	check_via_271e80	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00271ec8	call_257780	deepseek-pass2	medium	calls 0x257780 then returns
+00271e80	check_via_2579e0_b	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00271b58	call_270c70_then_2713c8	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+0026d560	init_via_256b68	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+0026c470	huge_routine_26c470	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+0026c048	routine_26c048	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00269f58	check_via_257780	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002677d8	to_2817b8	deepseek-pass2	medium	thunk: sets frame then tail-calls 0x2817b8
+002674b8	first_clear_bit_index	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002670f8	first_set_bit_index	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002655e8	obj_process_via_257770	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002641c8	routine_2641c8	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002639f8	reset_globals_init_b	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002636b0	compare_global_count	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00263688	check_halfword_via_1a3888	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00263660	is_halfword14_set	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00263160	is_field796_eq300	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00262f18	check_state_129_and	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00262af8	routine_262af8	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00262820	huge_routine_262820	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00262300	init_via_256b68_b	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+0025f588	state_1_and_12	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+0025dba8	call_pair_2b4b00	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00259510	scan_halfword_table_11	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002594b8	find_halfword_index_2c20	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00257458	obj_lookup_by_index	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00256f18	routine_256f18	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00256b80	record408_by_index_b	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00256aa0	obj_process_via_287dc0	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00254e60	report_error_48	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00254ab8	huge_routine_254ab8	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00253b00	get_global_ptr_1dae6c0	deepseek-pass2	high	reviewed disassembly; behaviour as named
+00253948	round_up_64	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002535d0	scan_byte_table_9928	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00253578	get_global_36ee90	deepseek-pass2	high	reviewed disassembly; behaviour as named
+00253410	check_byte37	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00252d88	routine_252d88	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00252ce0	call_pair_23f100	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00252660	entry432_by_index	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00252618	call_252110_via_2891e8	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00252540	routine_252540	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002520f0	call_252098_arg1	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00251fe0	report_error_22	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00251ec8	routine_251ec8	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00251e90	to_28dbf8_entry8_b	deepseek-pass2	high	reviewed disassembly; behaviour as named
+002519b0	report_error_9	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00250928	routine_250928	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+0024fd28	routine_24fd28	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+0024f2d0	refresh_global_record	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+0024e530	routine_24e530	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+0024d4a0	routine_24d4a0	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+0024c828	loop2_global_record	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+0024bbb0	refresh_global_4688	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+0024ac38	entry36_by_index	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+0024a048	refresh_global_4744	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00249358	loop2_global_record_b	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00248720	refresh_global_4780	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00246f80	huge_routine_246f80	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00246708	teardown_global_4832	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00245be8	refresh_global_4824	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00244db8	loop1_global_record	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00243e30	refresh_global_4880	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00242fa0	set_state_30012_b	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00242dc8	get_bits9_10	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00242a68	get_bits1_2	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00242a28	update_flag_word	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002425d0	scan_6halfwords_scaled	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002421e8	call_2efa40_field4	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002420d8	toggle_flag_bit0_sets or clears bit 0 of global -4936 by a1	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00241a00	find_entry_with_bit10	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00241850	entry32_by_index	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00241770	get_shifted_field_32	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00241670	checksum_2pass	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00241320	clear_40_bytes	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00241008	routine_241008	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00240a08	record_update_a	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002409b8	record_checksum_a	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00240450	routine_240450	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+0023fb90	vtable_call_if_ptr	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+0023fb58	vtable_call_slot0_flags	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+0023f7e0	obj_set_vtbl_36ebd8_then	deepseek-pass2	low	reviewed briefly; uncertain detail
+0023f740	entry_set_field68	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+0023f5b8	entry_refresh_guarded	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+0023f168	entry_reset_48	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+0023ec18	entry320_offset_calc	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+0023eae0	entry_range_op	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+0023e9e0	store_word_5328	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+0023e958	store_3bytes_312	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+0023dd28	routine_float_23dd28	deepseek-pass2	low	216-byte float routine with offsets +2048
+0023d7c8	init_if_unset	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+0023d4f8	obj_init_4blocks	deepseek-pass2	low	192-byte routine zeroing +12 and initializing
+0023d320	copy_globals_init	deepseek-pass2	low	copies global float and byte into globals
+0023d2c8	store_globals_two_c	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+0023c6f8	entry_init_flag56	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+0023c5f0	entry20_loop	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00239eb8	obj_set_float308	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002395b8	sprite_ctor_36dce8	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00237ad8	store_field156	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00237740	obj_set_floats_116_120	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002376d8	entry_set_index104	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002375b0	entry20_get_field4	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00237540	entry20_get_field0	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002373a8	clear_field80	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00237068	sprite_base_ctor_36eae8	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00236490	entry_match_by_field28	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00234868	entry32_field4	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00234848	entry32_field0	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002347c8	get_global_1dbe470	deepseek-pass2	high	reviewed disassembly; behaviour as named
+002347a8	get_global_1dbe468	deepseek-pass2	high	reviewed disassembly; behaviour as named
+002314c0	copy_floats_to_global	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+0022f6b8	flag_80000_process	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+0022f5a0	call_16ed50_flag	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+0022c4b8	routine_22c4b8	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+0022bd80	zero_global_byte_36e2cc	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+0022b930	to_1397d8_arg11	deepseek-pass2	high	reviewed disassembly; behaviour as named
+0022b7f0	snprintf_buf_c	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+0022b028	check_state_3	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+0022afe8	check_state_5	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+0022afa0	convert_and_scale	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+0022aef0	obj_copy_quad_via_22b688	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+0022ab80	is_field5496_eq4	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+0022a5c8	huge_routine_22a5c8	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+0022a3d0	huge_routine_22a3d0	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00228490	routine_228490	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00228240	check_globals_8644	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00227bd8	scan_for_pair	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00226fc8	reset_and_init	deepseek-pass2	low	176-byte routine clearing globals then 0x22d7c8
+00226fa8	clear_and_call	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00226f90	zero_global_block	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00225eb8	aligned_alloc_list	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00225a10	set_global_byte1_F	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002259f0	set_global_byte1_E	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002256c8	routine_2256c8	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00225540	get_global_byte_36de29	deepseek-pass2	high	reviewed disassembly; behaviour as named
+00225530	set_global_byte1_D	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00224c20	routine_224c20	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002249e8	get_global_byte_36dad6	deepseek-pass2	high	reviewed disassembly; behaviour as named
+00224988	get_global_byte_36dad5	deepseek-pass2	high	reviewed disassembly; behaviour as named
+00224950	store_global_flag_word	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002248f8	add_global_9524	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002248c0	zero_global_9524	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002247d8	get_global_36dad0	deepseek-pass2	high	reviewed disassembly; behaviour as named
+00222770	vec2_dst_sub	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00222750	vec3_dst_add	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00222730	vec3_dst_sub	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00222710	vec2_dst_add	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+002226a0	vec2_copy_into	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00222678	vec2_max_element	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00221f98	pop_free_node	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00221ed0	routine_221ed0	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+0021fe40	huge_routine_21fe40	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+0021fbd8	huge_routine_21fbd8	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+0021fa10	obj_ctor_1da2360	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+0021f5d8	obj_init_via_2f4000	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+0020b4b8	check_flags_242	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+0020a060	check_flags_182	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00207308	check_flags_262	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00205040	routine_205040	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00203ae8	byte_state_1_3_2	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00201bb0	routine_201bb0	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001ea458	routine_1ea458	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001ea100	routine_1ea100	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001e6648	init_chain_3b	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001e52b8	routine_1e52b8	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001e4f40	routine_1e4f40	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001e3898	scan_until_4	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001e18d8	free_fields_3540	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001e1500	obj_copy_via_1e0cc8	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001e1350	huge_routine_1e1350	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001e0dc8	clear_entry_field60	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001e09d0	routine_float_1e09d0	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001e08c8	copy_80_bytes_unaligned	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001e02f8	store_global_object	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001e01b8	vtable_call_slot4_b	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001e0188	vtable_call_slot0_b	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001e0158	vtable_call_slot4_c	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001e0128	vtable_call_slot0_c	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001de948	vtable_call_slot0_d	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001de910	release_global_via_1dced0	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001de7d8	set_global_and_release	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001de590	routine_1de590	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001de228	routine_1de228	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001ddef0	routine_1ddef0	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001dd568	routine_1dd568	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001dd1c8	to_1e7030_masked	deepseek-pass2	high	reviewed disassembly; behaviour as named
+001dcc00	to_1e34e0_field28	deepseek-pass2	high	reviewed disassembly; behaviour as named
+001dcb98	routine_1dcb98	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001dca70	flag_40000_op	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001dc790	check_via_1dc738	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001dc700	set_flag_bit22	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001dc698	set_flag_bit21	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001dbb38	routine_1dbb38	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001dbad0	routine_1dbad0	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001dba88	inc_field2552	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001db9a8	routine_1db9a8	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001db610	routine_1db610	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001d9768	clear_halfwords_6	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001d7ec8	call_1d7f10_index	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001d7940	init_obj_via_1ba158	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001d7638	entry16_lookup	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001d6d00	scan_by_1d6cc8	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001d5ec0	halfword_table_lookup	deepseek-pass2	high	reviewed disassembly; behaviour as named
+001d5cd0	routine_1d5cd0	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001d5c10	routine_1d5c10	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001d5868	dispatch_by_halfword	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001d5460	is_byte8_eq30	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001d4d28	obj_ctor_3525c8_b	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001d4570	update_max_halfword	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001d3fe0	routine_1d3fe0	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001d3e40	routine_1d3e40	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001d3c18	call_170530	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001d3878	call_3216c8_const	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001d36e8	dispatch_by_field16	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001d30f8	store_pair	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001d30c0	request_pool_block8	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001d3000	pick_float_by_range	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001d2180	obj_reset_flags	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001d2048	obj_ctor_35_25e8	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001d1f08	call_14fb40_field48	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001cf9e0	dispatch_by_a1	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001cf0b0	float2608_negative	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001ce378	obj_init_via_1980d0	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001ce0a8	routine_1ce0a8	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001cd520	copy_9_bytes_const	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001ccac0	routine_1ccac0	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001ca8f8	store_two_floats_globals	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001c9c00	routine_1c9c00	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001c9b38	dispatch_halfword_4_72	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001c99b0	routine_1c99b0	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001c98f0	routine_float_1c98f0	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001c97b0	routine_float_1c97b0	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001c9100	is_field340_eq195	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001c8e90	call_if_global_byte	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001c7440	routine_float_1c7440	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001c7148	copy_quad_or_read	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001c6e58	call_with_flags	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001c6748	set_byte80_handler	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001c6310	set_handler_84	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001c5f78	is_vtable_field_eq_5bd	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001c5c08	routine_1c5c08	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001c3ba8	routine_1c3ba8	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001c3888	test_bit_by_halfword	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001c3150	huge_switch_1c3150	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001c1a30	routine_1c1a30	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001c18d0	call_handler_field16	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001c16a0	dispatch_field4	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001c11e0	find_free_slot_64	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001c1060	call_1b9bc8_zero	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001c0c80	entry12_by_index	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001c0c18	get_global_35c638	deepseek-pass2	high	reviewed disassembly; behaviour as named
+001c0458	set_bit_by_field28	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001bffd8	routine_1bffd8	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001bfcc8	routine_1bfcc8	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001bfca0	is_result_0x883	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001bf270	routine_1bf270	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001befd8	obj_set2728_calls	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001be540	routine_1be540	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001bdd20	flag_10_and_global	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001bdb70	routine_1bdb70	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001bdab0	obj_clear_at2536_b	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001bd418	entry36_by_index_b	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001bd3a0	init_6_entries	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001bce90	routine_1bce90	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001bc0d0	store_field728	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001bbfd0	check_then_1bbcb0	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001bbf40	check_then_1bbcb0_b	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001bba30	obj_init_from_field72	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001bb9f0	check_then_global	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001bb7f8	call_1bb4a0_8	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001ba138	to_2fd310_block	deepseek-pass2	high	reviewed disassembly; behaviour as named
+001b9420	huge_routine_1b9420	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001b9380	scan_global_list	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001b90f0	routine_1b90f0	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001b90a8	halfword_table_3948	deepseek-pass2	high	reviewed disassembly; behaviour as named
+001b8d60	scan_global_bytes	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001b8988	store_global_byte_1d58d4	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001b8838	routine_1b8838	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001b83f0	to_2fd248_block8	deepseek-pass2	high	reviewed disassembly; behaviour as named
+001b82d8	call_105ee8_global	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001b7fd0	check_two_globals	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001b75b0	index_by_arg_table	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001b7428	call_1a3a78_thunk	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001b6dd0	obj_push_quad	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001b6d88	increment_byte_mod3	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001b6070	check_via_1b58a8	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001b5cf8	huge_routine_1b5cf8	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001b5ce8	store_3words	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001b5c60	to_1bbf80_field28	deepseek-pass2	high	reviewed disassembly; behaviour as named
+001b5a10	release_global_29520	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001b4d70	release_field12_1156	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001b4d10	release_field16_1156	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001b4c48	routine_1b4c48	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001b4198	routine_1b4198	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001b3e88	routine_1b3e88	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001b2d10	obj_update_via_16c028	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001b2b58	float_compare_global	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001b2028	decrement_refcount	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001b1ff0	set_global_state2	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001b1fc8	check_global_state	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001b1d20	init_via_185b00	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001b0580	routine_1b0580	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001b0448	call_with_a1_neg	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001afa88	routine_1afa88	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001af778	call_1708f8_global	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001af0c0	routine_1af0c0	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001aefa0	routine_1aefa0	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001adc08	sum_offsets	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001ad280	obj_init_at3280	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001acdc0	routine_1acdc0	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001ac258	obj_ctor_1ac258	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001ac028	obj_ctor_1ac028	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001abd90	obj_ctor_1abd90	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001abb28	obj_ctor_1abb28	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001ab820	dispatch_by_state	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001aae90	get_byte_from_global	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001aae80	get_byte_at_field28	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001aa6f0	mix_alpha_channel	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001a9970	obj_scale_by_arg	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001a9780	get_flag_bit0	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001a93b0	obj_init_via_1a9350	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001a8f68	obj_dispatch_via_1a8f10	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001a84b0	index12_mod	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001a8258	scan_record_list	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001a81f0	scan_record_list_b	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001a7790	routine_1a7790	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001a74f8	init_via_1b8e88	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001a6d98	call_1b84b8_field4	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001a6850	routine_1a6850	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001a5c48	list_insert_node	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001a5af0	get_byte_global_table	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001a5880	routine_1a5880	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001a5380	routine_1a5380	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001a2e50	routine_1a2e50	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001a2a50	routine_1a2a50	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001a1c30	compare_float_fields	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001a1490	routine_1a1490	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+0019fdb0	get_field340_plus1	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+0019f740	find_entry12_flag	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+0019f6f0	find_entry12_flag_b	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+0019f5a8	find_empty_entry12	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+0019f490	set_bit_in_array_c	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+0019ee80	set_bit_in_table	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+0019d380	match_global_entry	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+0019d228	release_field24	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+0019cbe8	release_field32	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+0019ca28	obj_init_from_a1	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+0019c838	check_via_19bad8	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+0019c778	obj_update_via_1b9d40	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+0019c650	flag_bits_80_200	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+0019c498	check_flags_80_4000	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+0019bf50	obj_init_at1424	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+0019be88	vtable_call64_then	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+0019b380	entry12_scan_byte5	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+0019b328	entry12_find_by_index	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+0019b0e8	routine_float_19b0e8	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+0019afd8	routine_19afd8	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+0019ae60	increment_byte32	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+0019ab30	call_195700_block	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+0019aa00	flag_bit0_process	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+0019a9e0	byte48_ge100	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00199890	routine_199890	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00198ee8	routine_198ee8	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00198d00	call_198bd0_bool	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00198660	to_1b0250_field	deepseek-pass2	high	reviewed disassembly; behaviour as named
+00197c28	byte_state_1_2	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00196aa0	routine_196aa0	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001969c0	entry8_lookup	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001967f0	routine_1967f0	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00196698	clear_halfword_table	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00196618	scan_global_records	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001957e8	obj_init_float_consts	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00195558	routine_195558	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00195530	call_195468_inverted	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001948c0	call_194830_arg2	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00194668	clear_flags_268	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001943e8	obj_init_floats_at48	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00193d38	routine_193d38	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00192f98	copy_float20_set8	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00192800	to_192528	deepseek-pass2	high	reviewed disassembly; behaviour as named
+001922c8	entry8_lookup_1c6	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00191f20	routine_191f20	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00191a50	flag_bits_2_100	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001919f8	flag_800_and_global	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001919d0	flag_8_and_global	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+001906c0	call_190208_zero	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+0018efe8	set_flag_80_when_ne2	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+0018ef68	call_with_a2_shuffled	deepseek-pass2	medium	reviewed disassembly; behaviour as named

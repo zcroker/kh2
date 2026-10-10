@@ -52,7 +52,7 @@ namespace n00140e30 {
 extern "C" {
 void wtarget_00140e30(u32 a, u32 b, u32 c, u32 d) asm("_Z16wtarget_00140e30jjjj");
 extern f32 D_004573f8[];
-void func_0013f5f0(u8*);
+void func_0013f5f0(u8*);  // copy_float_220_to_48
 void func_0013f608(u8*);
 void func_0013fd78(u8*);
 static inline f32 Get(s32 i)
@@ -65,7 +65,7 @@ void wtarget_00140e30(u32 a, u32 b, u32 c, u32 d)
     s32 i = b * 6;
     *(f32*)(p + 220) = Get(i);
     *(f32*)(p + 224) = 0.0f;
-    func_0013f5f0(p);
+    func_0013f5f0(p);  // copy_float_220_to_48
     func_0013f608(p);
     *(f32*)(p + 200) = Get(i + 1);
     *(f32*)(p + 204) = Get(i + 2);
@@ -147,7 +147,7 @@ extern "C" {
 u8* func_0013d7f0(void);
 s32 func_0013dda0(s32);
 void func_00138c10(u8*, s32);
-u32 func_00154ee8(u8*);
+u32 func_00154ee8(u8*);  // field24_state_code
 u32 func_0023aa98(u8*);
 void func_00138c40(u8*, s32, u32);
 void func_00155568(u8* p)
@@ -184,7 +184,7 @@ extern "C" {
 void func_00139598(u8*);
 void func_001395a8(u8*);
 s32 func_00155830(u32, f32*, f32*, f32*);
-void func_00239f18(u8*, f32);
+void func_00239f18(u8*, f32);  // obj_set_float312_and_flags
 void func_00138d30(u8*, f32);
 void func_00138c68(u8*, s32, s32);
 void func_001559e8(u8* p, u32 a, s32 idx)
@@ -193,7 +193,7 @@ void func_001559e8(u8* p, u32 a, s32 idx)
     f32 x, y, z;
     func_00139598(e + 6704);
     if (func_00155830(a, &x, &y, &z)) return;
-    func_00239f18(e + 6728, x);
+    func_00239f18(e + 6728, x);  // obj_set_float312_and_flags
     func_001395a8(e + 6704);
     if (idx == 4) {
         func_00138d30(p + 9588, z);
@@ -211,7 +211,7 @@ typedef void (*RelFn)(VObj*, u32);
 struct Node { u8 pad[20]; u32 h20; u32 h24; u8 pad28[8]; u32 f36; Node* next; Node* child; u8 pad48[4]; u32 f52; };
 extern VObj* D_004f6288;
 extern u8 D_0034dbf8;
-void func_001da458(Node*, u32, s32, s32);
+void func_001da458(Node*, u32, s32, s32);  // stream_init_fields
 void func_001da558(Node*, void*, s32, s32);
 void func_0016c7d8(Node*);
 void func_0016d1f0(u32);
@@ -227,7 +227,7 @@ static inline void Kill(Node* c)
 void func_0016cab8(Node* p)
 {
     if (p->f36) {
-        func_001da458(p, p->f36, 0, 0);
+        func_001da458(p, p->f36, 0, 0);  // stream_init_fields
         func_001da558(p, &D_0034dbf8, 0, 0);
     }
     Node* c = p->child;
@@ -253,7 +253,7 @@ extern u8* D_00352130;
 u32 func_001a8bd0(s32);
 u32 func_001a8c10(u32, s32);
 s32 func_0017e668(u32);
-u8* func_001a1658(u32, s32);
+u8* func_001a1658(u32, s32);  // state_dispatch_0_1_14
 void func_001a1950(u8*, s32, s32, s32);
 void func_001a17c8(u8*);
 void func_0017e720(void)
@@ -263,7 +263,7 @@ void func_0017e720(void)
         for (s32 i = 1; i < 4; i++) {
             u32 o = func_001a8c10(h, i);
             if (o && !func_0017e668(o)) {
-                u8* q = func_001a1658(o, -1);
+                u8* q = func_001a1658(o, -1);  // state_dispatch_0_1_14
                 if (*(u32*)(q + 476) & 0x10) func_001a1950(q, 1, 0, 0);
                 func_001a17c8(q);
             }
@@ -441,8 +441,8 @@ struct Obj;
 typedef u32 (*MkFn)(Obj*, s32, u32);
 struct Obj { void** vt; u32 f4; s32 id; u32 f12; u32 h16; u32 f20; u32 h24; };
 void func_001b0330(Obj*);
-s32 func_001b0320(Obj*);
-u32 func_0016c028(u32);
+s32 func_001b0320(Obj*);  // is_field16_set
+u32 func_0016c028(u32);  // obj_get_attach_or_alt
 s32 func_002bc420(u32);
 s32 func_0019ba60(u32);
 void func_002bc398(u32, u32);
@@ -451,7 +451,7 @@ void func_001b0250(Obj* o)
     s32 id = o->id;
     if (id >= 0) {
         func_001b0330(o);
-        o->h16 = ((MkFn)o->vt[2])(o, id, func_0016c028(o->h24));
+        o->h16 = ((MkFn)o->vt[2])(o, id, func_0016c028(o->h24));  // obj_get_attach_or_alt
         return;
     }
     if (!func_001b0320(o)) return;
@@ -602,7 +602,7 @@ namespace n001fbb98 {
 extern "C" {
 extern u8* D_01d9e6e0;
 extern u8 D_00354be0;
-void func_002f3f88(u8*, void*);
+void func_002f3f88(u8*, void*);  // memcpy16
 void func_001fbab8(u8*, s32, s32);
 void func_001fbb98(u8* a, u8* col, u8* c)
 {
@@ -612,7 +612,7 @@ void func_001fbb98(u8* a, u8* col, u8* c)
     s[37] = (s32)(col[9] * *(f32*)(D_01d9e6e0 + 52));
     s[38] = (s32)(col[10] * *(f32*)(D_01d9e6e0 + 56));
     s[39] = (s32)(col[11] * *(f32*)(D_01d9e6e0 + 60));
-    func_002f3f88(d + 176, &D_00354be0);
+    func_002f3f88(d + 176, &D_00354be0);  // memcpy16
     func_001fbab8(s, 0, 0);
 }
 }
@@ -743,7 +743,7 @@ namespace n00227b00 {
 extern "C" {
 struct Ent { u32 type; s32 state; u8 pad[24]; char name[16]; char sub[16]; u8 pad2[20]; };
 extern Ent* D_0035dcf0;
-s32 func_002ff1a4(const char*, const char*);
+s32 func_002ff1a4(const char*, const char*);  // strcmp
 Ent* func_00227b00(const char* name, u32 type, const char* sub)
 {
     for (s32 i = 0; i < 128; i++) {
@@ -767,7 +767,7 @@ extern u32 D_0035edd4;
 extern u32 D_0035edd8;
 extern u32 D_0035eddc;
 s32 func_00287bc0(void);
-void func_00287d68(void);
+void func_00287d68(void);  // copy_globals_3words
 s32 func_00287db0(void);
 s32 func_0028acc8(u32);
 s32 func_00139d78(u32);
@@ -777,7 +777,7 @@ void func_0024d7a0(void);
 s32 func_0024d6c8(void)
 {
     s32 st = func_00287bc0();
-    func_00287d68();
+    func_00287d68();  // copy_globals_3words
     if (func_00287db0()) {
         if (func_0028acc8(D_0035edcc) || func_0028acc8(D_0035edd0) || func_00139d78(D_0035edd4) || func_00139d78(D_0035edd8) || func_00139d78(D_0035eddc)) return 0;
         func_001039f8();
@@ -858,8 +858,8 @@ s8* func_00276568(void);
 s32 func_00287bc0(void);
 u32 func_002953c8(s32);
 s32 func_002941d8(u32);
-u32 func_00296f90(void);
-u32 func_00296f80(void);
+u32 func_00296f90(void);  // get_global_36f598
+u32 func_00296f80(void);  // get_global_36f594
 u32 func_00293db8(s32, u32);
 void func_0023fa08(u32, u32);
 void func_002969e0(void)
@@ -872,7 +872,7 @@ void func_002969e0(void)
             if (c == 1 && func_002941d8(func_002953c8(1))) v = func_00296f90();
             else v = func_002953c8(c) + 1;
         } else {
-            v = func_00296f80();
+            v = func_00296f80();  // get_global_36f594
         }
         func_0023fa08(D_0035f58c, func_00293db8(2, v));
         D_0035f590 = 1;
@@ -959,7 +959,7 @@ void func_0028d980(u8*, s32, u32, u32, u32, s32, s32, s32, s32);
 void func_00139620(u8*);
 void func_0028dcc0(u8*, u32);
 u32 func_00192048(s32);
-u16* func_002b23e0(s32);
+u16* func_002b23e0(s32);  // list_entry_by_index_checked
 u32 func_001a37e8(u16, s32);
 void func_00192e50(u32, u8*, s32, u32);
 void func_002b1af0(void)
@@ -982,13 +982,13 @@ void func_002b1af0(void)
 namespace n002bed48 {
 extern "C" {
 extern u8 D_00361980[];
-void func_002edf28(u8*);
+void func_002edf28(u8*);  // obj_ctor_3637e0
 u8* func_001050d8(s32);
 void func_001ad0f8(u8*, u32, s32);
 void func_001ad330(u8*, u32);
 void func_002bed48(u8* p, s32 kind, u32 c)
 {
-    func_002edf28(p);
+    func_002edf28(p);  // obj_ctor_3637e0
     *(u32*)(p + 40) = 0;
     *(u32*)p = (u32)D_00361980;
     switch (kind) {
@@ -1021,27 +1021,27 @@ extern u8 D_003619a8[];
 extern u8* D_00361998;
 extern u8 D_002bf308;
 u32 func_001050c8(void);
-void func_002edf28(u8*);
-void func_002369a0(u8*);
-void func_0023c008(u8*);
+void func_002edf28(u8*);  // obj_ctor_3637e0
+void func_002369a0(u8*);  // obj_ctor_36eac8
+void func_0023c008(u8*);  // obj_ctor_36eae8
 u32 func_002beb90(void);
 u32 func_001708f8(u32, s32);
-u8* func_00168b38(u32, s32, s32);
+u8* func_00168b38(u32, s32, s32);  // entry_array_find_nth
 void func_002ef1f8(u8*, u32, u32);
 void func_00102c18(s32, s32, void*);
 void func_002bf098(u8* p)
 {
     u32 m = func_001050c8();
-    func_002edf28(p);
+    func_002edf28(p);  // obj_ctor_3637e0
     *(u32*)(p + 36) = m;
     *(u32*)p = (u32)D_00363880;
-    func_002369a0(p + 40);
-    func_0023c008(p + 64);
+    func_002369a0(p + 40);  // obj_ctor_36eac8
+    func_0023c008(p + 64);  // obj_ctor_36eae8
     *(u8**)p = D_003619a8;
     D_00361998 = p;
     *(u32*)(p + 156) = func_001708f8(func_002beb90(), -1);
-    u8* a = func_00168b38(*(u32*)(p + 156), 28, 0);
-    u8* b = func_00168b38(*(u32*)(p + 156), 29, 0);
+    u8* a = func_00168b38(*(u32*)(p + 156), 28, 0);  // entry_array_find_nth
+    u8* b = func_00168b38(*(u32*)(p + 156), 29, 0);  // entry_array_find_nth
     func_002ef1f8(p, *(u32*)(a + 8), *(u32*)(b + 8));
     *(u32*)(p + 4) |= 1;
     func_00102c18(1, 0x19258, &D_002bf308);

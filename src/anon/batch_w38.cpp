@@ -41,7 +41,7 @@ struct Obj287f30 {
     static void operator delete(void* p) { func_00106420(p); }
 };
 
-void func_001064a8(void*) asm("_Z13func_001064a8Pv");
+void func_001064a8(void*) asm("_Z13func_001064a8Pv");  // int_to_float_scaled
 
 extern "C" {
 
@@ -77,7 +77,7 @@ void func_00287f30(void) {
 }
 
 // Scales n by a random fraction.
-void func_001064a8(void* n) {
+void func_001064a8(void* n) {  // int_to_float_scaled
     NoTail g;
     f32 x = (f32)(u32)n;
     s32 r = func_002fea18();
@@ -126,9 +126,9 @@ void func_00149ec0(void* p) {
     func_00149de0(p);
 }
 
-void func_001666f0(u8*, u16, u32, u16, u16);
+void func_001666f0(u8*, u16, u32, u16, u16);  // obj_store_masked
 void func_0014dca8(u8* p, u16 a, u32 b, u16 c, u16 d, u16 e, u32 f) {
-    func_001666f0(p, a, b, c, d);
+    func_001666f0(p, a, b, c, d);  // obj_store_masked
     *(u32*)(p + 464) = f;
     *(u16*)(p + 468) = e;
     p[470] = 0;
@@ -138,7 +138,7 @@ void func_0014dca8(u8* p, u16 a, u32 b, u16 c, u16 d, u16 e, u32 f) {
 }
 
 void func_00166808(u8* p, u8 k, u16 a, u32 b, u16 c, u16 d, s16 x, s16 y) {
-    func_001666f0(p, a, b, c, d);
+    func_001666f0(p, a, b, c, d);  // obj_store_masked
     *(s16*)(p + 10) = x;
     *(s16*)(p + 12) = y;
     p[14] = k;
@@ -283,7 +283,7 @@ void func_001d2930(void* a, s32 n) {
 
 extern const char D_0036e598[];
 extern u32 D_0035276c;
-u8* func_00168b88(u32, s32, u32, s32);
+u8* func_00168b88(u32, s32, u32, s32);  // find_entry16_by_half_word
 void func_001c10b8(u32);
 void func_001d53e8(void) {
     u32 v = func_001b1490((const char*)D_0035276c);
@@ -444,7 +444,7 @@ u32 func_002bc2e8(u32 a, u32 b, u32 c) {
 }
 
 void func_001dc978(void*, f32);
-void* func_001de168(u32, u32, s32, s32, s32, void*);
+void* func_001de168(u32, u32, s32, s32, s32, void*);  // scan_list_by_half
 void func_002c5658(u8* p, u32 a, u32 b) {
     if (*(void**)(p + 2552)) func_001dc978(*(void**)(p + 2552), 10.0f);
     *(void**)(p + 2552) = func_001de168(a, b, 0, 1, 0x9c41, p);
@@ -453,7 +453,7 @@ void func_002c5658(u8* p, u32 a, u32 b) {
 // Pushes a 16-byte value into a ring buffer, overwriting the oldest when full.
 struct Ent2cb828 { Q128 v; u8 pad[16]; };
 struct Ring2cb828 { u32 f0; s32 head; s32 cnt; s32 cap; u8 pad[112]; Ent2cb828* buf; };
-Ent2cb828* func_002cb828(Ring2cb828* r, Q128* src) {
+Ent2cb828* func_002cb828(Ring2cb828* r, Q128* src) {  // ring_advance_index
     s32 cnt = r->cnt;
     s32 head = r->head;
     s32 idx = (head + cnt) % r->cap;
@@ -464,12 +464,12 @@ Ent2cb828* func_002cb828(Ring2cb828* r, Q128* src) {
 }
 
 void func_00110500(u8*);
-Q128* func_0010fa28(u8*);
+Q128* func_0010fa28(u8*);  // ptr_add3072
 Q128* func_0010fa58(u8*);
 void func_002f0af0(u8** p) {
     u8* o = *(u8**)(*p + 4);
     func_00110500(o);
-    qcopy(o + 16, func_0010fa28(o));
+    qcopy(o + 16, func_0010fa28(o));  // ptr_add3072
     qcopy(o + 32, func_0010fa58(o));
 }
 
@@ -507,13 +507,13 @@ void func_001fbb20(u8* p, In1fbb20* q, u8* r) {
     }
 }
 
-void* func_001d9e30(void*);
+void* func_001d9e30(void*);  // record_range_check_or_first
 s32 func_001d9d48(void*);
 s32 func_00276c18(void);
 s32 func_002b3ae8(void) {
     void* p = 0;
     s32 found = 0;
-    while ((p = func_001d9e30(p)) != 0) {
+    while ((p = func_001d9e30(p)) != 0) {  // record_range_check_or_first
         if (func_001d9d48(p)) {
             found = 1;
             break;

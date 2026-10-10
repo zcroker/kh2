@@ -110,26 +110,26 @@ QV257 func_002cd950(void* self, f32 t, const QV257* p, const QV257* q) {
 }
 extern s8 D_01e2bd80;
 extern QV257 D_01e2bd90;
-void func_00178cf8(u8*);
-QV257 func_00190388(u32*);
-QV257* func_0016c028(u8*);
+void func_00178cf8(u8*);  // clear_vecs_three
+QV257 func_00190388(u32*);  // vec4_from_arg
+QV257* func_0016c028(u8*);  // obj_get_attach_or_alt
 void func_0016aef0(u8*, QV257*);
 void func_002c6118(void);
-void func_002fd188(void (*)(void));
+void func_002fd188(void (*)(void));  // pool_alloc_block
 void func_002cb0e8(u32*, QV257*, f32);
 u32 func_002c1b48(u32);
 void func_002cab98(u32);
 void func_002c17a0(void);
 void func_002c5dc0(u8* a0, u32* a1) {
-    func_00178cf8(a0);
-    QV257 d = func_00190388(a1) - *func_0016c028(a0);
+    func_00178cf8(a0);  // clear_vecs_three
+    QV257 d = func_00190388(a1) - *func_0016c028(a0);  // vec4_from_arg
     d.y = 0.0f;
     normalize257(&d);
     func_0016aef0(a0, &d);
     if (!D_01e2bd80) {
         D_01e2bd80 = 1;
         set4_257(&D_01e2bd90, 0.0f, 0.0f, 1.0f, 0.0f);
-        func_002fd188(func_002c6118);
+        func_002fd188(func_002c6118);  // pool_alloc_block
     }
     func_002cb0e8(a1, &D_01e2bd90, 0.0f);
     func_002cab98(func_002c1b48(*a1));

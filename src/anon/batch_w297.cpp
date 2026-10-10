@@ -59,13 +59,13 @@ s32 func_0023aa38(void*);
 void func_00288ce0(void*, void*, s32, void*, void*);
 void func_00239870(void*);
 void func_002891f0(void*, s32, s32, s32, s32);
-void func_0028b078(void*, s32, s32);
-void func_0028af90(void*, s32);
+void func_0028b078(void*, s32, s32);  // obj_setup_from_args
+void func_0028af90(void*, s32);  // obj_set_field22_from_arg
 void func_00288f48(void*, s32, s32, s32, s32);
 void func_0028d068(s32, s32);
 void func_0028d1c0(void*, s32, s32, s32, void*, void*, s32);
 s32 func_002891d0(void*);
-void func_0028d660(void*, s32);
+void func_0028d660(void*, s32);  // record_set_value_refresh
 void func_001396b0(void*);
 void func_002c4ca8(u8* p) {
     D_0035f3d4 = 30020;
@@ -90,11 +90,11 @@ void func_002c4ca8(u8* p) {
     }
     func_002891f0(g, 0, 1, 0, 2);
     { s32 b = 2; func_0028b078(g, 1, b); }
-    func_0028af90(g, 2);
+    func_0028af90(g, 2);  // obj_set_field22_from_arg
     func_00288f48(g, 16, 32, 64, 128);
     func_0028d068(30040, -1);
     func_0028d1c0(p + 876, 30050, 1, 1, p + 28, D_00375598, 0);
-    func_0028d660(p + 876, func_002891d0(g));
+    func_0028d660(p + 876, func_002891d0(g));  // record_set_value_refresh
     func_001396b0(p + 876);
 }
 }

@@ -9,14 +9,14 @@ u32 func_001051a0(u32 a0, u32 a1, u32 a2, u32 a3) {
     return r2;
 }
 
-u32 func_00112720(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_00112720(u32 a0, u32 a1, u32 a2, u32 a3) {  // check_2924_lt14
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u;
     r2 = *(u32*)((u32)r4 + (s32)(2924));
     r2 = ((s32)r2 >= (14));
     return r2;
 }
 
-u32 func_00120800(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_00120800(u32 a0, u32 a1, u32 a2, u32 a3) {  // obj_get_sub_ptr_by12
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u, r15 = 0u;
     r2 = *(u32*)((u32)r4 + (s32)(4));
     r15 = *(u32*)((u32)r2 + (s32)(12));
@@ -63,7 +63,7 @@ u32 func_0018ac80(u32 a0, u32 a1, u32 a2, u32 a3) {
     return r2;
 }
 
-u32 func_0019f550(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_0019f550(u32 a0, u32 a1, u32 a2, u32 a3) {  // test_bit_addressable
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u, r14 = 0u, r15 = 0u;
     r15 = (u32)(r5 >> 5);
     r14 = (u32)((s32)0u + (1));
@@ -86,7 +86,7 @@ u32 func_0019ff78(u32 a0, u32 a1, u32 a2, u32 a3) {
     return r2;
 }
 
-u32 func_0021e9a8(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_0021e9a8(u32 a0, u32 a1, u32 a2, u32 a3) {  // select_vif_regs
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u, r13 = 0u, r14 = 0u, r15 = 0u;
     r13 = (u32)(0x01dau << 16);
     r14 = (u32)(0x7000u << 16);

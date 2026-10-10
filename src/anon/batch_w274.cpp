@@ -117,10 +117,10 @@ extern u8 D_0035de26;
 s32 func_002283b0(void);
 s32 func_002283c8(void);
 OO* func_00227cd8(s32);
-void* func_00106a60(s32);
-void func_00107368(void*, V4*);
-void func_00107478(void*, V4*);
-s32 func_001ba028(u8*);
+void* func_00106a60(s32);  // buffer_get_by_index
+void func_00107368(void*, V4*);  // vec_copy_at80_if_diff
+void func_00107478(void*, V4*);  // vec_copy_at96_if_diff
+s32 func_001ba028(u8*);  // list_contains_ptr
 void func_001072d0(void*, V4*, V4*);
 void func_001024a8(void*);
 void func_00232150(void* self) {
@@ -130,11 +130,11 @@ void func_00232150(void* self) {
     else o = func_00227cd8(572);
     if (D_0035de26 == 1) {
         V4 a, b;
-        void* c = func_00106a60(1);
-        func_00107368(c, &a);
-        func_00107478(c, &b);
+        void* c = func_00106a60(1);  // buffer_get_by_index
+        func_00107368(c, &a);  // vec_copy_at80_if_diff
+        func_00107478(c, &b);  // vec_copy_at96_if_diff
         if (o) {
-            if (func_001ba028((u8*)o->u.p)) {
+            if (func_001ba028((u8*)o->u.p)) {  // list_contains_ptr
                 a.w = 1.0f;
                 a = o->u.p->m * a;
                 b.w = 1.0f;
@@ -147,8 +147,8 @@ void func_00232150(void* self) {
 extern f32 D_00349e10;
 void func_002c6420(C6490*);
 f32 func_002f8960(f32);
-void* func_00106a18(s32);
-void func_00107300(void*, V4*, V4*, f32);
+void* func_00106a18(s32);  // buffer_get_256
+void func_00107300(void*, V4*, V4*, f32);  // copy_blocks_and_store_float
 void func_00106de8(void*, s32, f32);
 s32 func_002c6490(C6490* p) {
     u32 m = p->flags & 1;
@@ -163,12 +163,12 @@ s32 func_002c6490(C6490* p) {
             b = Lerp(p->b0, p->b1, s);
         }
     }
-    func_00107300(func_00106a60(1), &a, &b, 0.0f);
+    func_00107300(func_00106a60(1), &a, &b, 0.0f);  // copy_blocks_and_store_float
     func_00106de8(func_00106a18(1), 0, p->f80);
     p->flags |= 1;
     return 1;
 }
-V4* func_0016c028(u8*);
+V4* func_0016c028(u8*);  // obj_get_attach_or_alt
 extern u8* D_0034a990;
 extern f32 D_0034a994;
 extern f32 D_0034a998;
@@ -177,7 +177,7 @@ extern V4 D_0034a9a0;
 void func_00158708(C8708* o) {
     V4 a;
     V4 d;
-    a = *func_0016c028(D_0034a990);
+    a = *func_0016c028(D_0034a990);  // obj_get_attach_or_alt
     a.y -= D_0034a994;
     d = a - D_0034a9a0;
     Normalize(&d);
@@ -188,7 +188,7 @@ void func_00158708(C8708* o) {
     o->p0 = D_0034a9a0;
 }
 extern u8* D_00361f60;
-s32 func_001b9d40(void);
+s32 func_001b9d40(void);  // vtable_call_slot64_flags
 s32 func_002d5588(C5088*);
 u8* func_002d1878(u8*);
 void func_002d5088(C5088* p) {
@@ -220,7 +220,7 @@ void func_00191cd8(void) {
     D_0034f240 &= ~0x10000;
     u8* pl = D_0034e948;
     if (!func_0019ba60(pl)) return;
-    V4 a = *func_0016c028(pl);
+    V4 a = *func_0016c028(pl);  // obj_get_attach_or_alt
     u8* e = 0;
     while ((e = func_00185da8(e)) != 0) {
         if (*(u32*)(e + 1416) & 0x400) { D_0034f240 |= 0x10000; return; }
