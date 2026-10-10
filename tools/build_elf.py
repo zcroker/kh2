@@ -802,11 +802,15 @@ _LO16_ACCESS_SIZE = {0x20: 1, 0x24: 1, 0x28: 1, 0x21: 2, 0x25: 2, 0x29: 2,
                      0x37: 8, 0x3F: 8, 0x1E: 16, 0x1F: 16}  # lb/lbu/sb, lh/lhu/sh, ld/sd, lq/sq; else 4
 
 
-def retarget_local_data_refs(obj: Path, sym_name: str, code: bytes, orig_code: bytes, orig_image) -> bytes:
+def retarget_local_data_refs(obj: Path, sym_name: str, code: bytes, orig_code: bytes, orig_image,
+                             func_addr: int | None = None) -> bytes:
     """Compiler-generated anonymous data (float literal pools, string literals) is linked far from
     its original address, so its %hi/%lo pairs never match. For each HI16/LO16 pair in this function
     that targets a section symbol of .sdata/.rodata*/.lit*, take the original's immediates when the
-    original instructions are otherwise identical AND the original address holds the same bytes."""
+    original instructions are otherwise identical AND the original address holds the same bytes.
+    Switch jump tables are words with R_MIPS_32 relocations against this function's own text
+    section: they count as the same bytes when every entry, relocated to the function's original
+    address (func_addr), equals the original table."""
     data = obj.read_bytes()
     u32 = lambda o: int.from_bytes(data[o : o + 4], "little")
     shoff, shnum, shstrndx = u32(0x20), int.from_bytes(data[0x30:0x32], "little"), int.from_bytes(data[0x32:0x34], "little")
@@ -827,6 +831,28 @@ def retarget_local_data_refs(obj: Path, sym_name: str, code: bytes, orig_code: b
     ow = lambda x: u32(text_off + base + x)
     sext = lambda v: v - 0x10000 if v & 0x8000 else v
     out = bytearray(code)
+
+    def jump_table_matches(shndx: int, src: int, dst: int) -> bool:
+        # R_MIPS_32 relocs in this data section, keyed by offset -> symbol index.
+        if func_addr is None:
+            return False
+        words = {}
+        for drel in (s for s in secs if s[1] == 9 and s[7] == shndx):
+            for o in range(drel[4], drel[4] + drel[5], 8):
+                if u32(o + 4) & 0xFF == 2:  # R_MIPS_32
+                    words[u32(o)] = u32(o + 4) >> 8
+        sec_off = secs[shndx][4]
+        count = 0
+        while (src + 4 * count) in words:
+            sym = syms[words[src + 4 * count]]
+            if (sym[2] & 0xF) != 3 or sym[3] != func[3]:  # next function's table starts here
+                break
+            label = u32(sec_off + src + 4 * count) - base + func_addr
+            if read_elf_vaddr(orig_image, dst + 4 * count, 4) != label.to_bytes(4, "little"):
+                return False
+            count += 1
+        return count > 0
+
     for rel in (s for s in secs if s[1] == 9 and s[7] == func[3]):  # SHT_REL for this text section
         hi = None
         pend: list = []  # HI16s since the last LO16 (gcc may duplicate a lui into a delay slot)
@@ -852,7 +878,8 @@ def retarget_local_data_refs(obj: Path, sym_name: str, code: bytes, orig_code: b
             size = _LO16_ACCESS_SIZE.get(ow(l) >> 26, 4)
             sec = secs[shndx]
             want = data[sec[4] + src : sec[4] + src + size]
-            if len(want) != size or read_elf_vaddr(orig_image, dst, size) != want:
+            if (len(want) != size or read_elf_vaddr(orig_image, dst, size) != want) \
+                    and not jump_table_matches(shndx, src, dst):
                 continue
             for x in (h, l):
                 out[x : x + 4] = orig_code[x : x + 4]
@@ -966,7 +993,7 @@ def normalize_final_elf(linked_elf: Path, out_elf: Path) -> int:
                 norm = compiled
 
             foff = addr_to_file_offset(addr)
-            norm = retarget_local_data_refs(obj, obj_sym.name, norm, orig_data[foff : foff + b.size], orig_image)
+            norm = retarget_local_data_refs(obj, obj_sym.name, norm, orig_data[foff : foff + b.size], orig_image, addr)
             out_data[foff : foff + b.size] = norm
 
     if errors:
