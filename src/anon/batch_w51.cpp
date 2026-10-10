@@ -162,7 +162,7 @@ void func_0016dd28(u32* p) {
     u32 seed = D_0034d8a8 * 0x10dcd;
     u32 n = *p;
     D_0034d8a8 = seed;
-    *p = func_00312db8(seed, func_00312db8((u64)(n - 1) + 0x100000000ull, n));
+    *p = (u64)seed / (((u64)(n - 1) + 0x100000000ull) / n);
 }
 
 struct Pad10 {
