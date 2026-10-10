@@ -533,6 +533,8 @@ def collect_source_addr_aliases() -> list[SymbolAlias]:
 LIBGCC_ALIASES = (
     ("__divdi3", 0x003125C0),
     ("__udivdi3", 0x00312DB8),
+    ("__umoddi3", 0x00313498),
+    ("__muldi3", 0x00311AA0),
 )
 
 

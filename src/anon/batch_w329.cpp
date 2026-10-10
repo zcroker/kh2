@@ -57,8 +57,6 @@ Z* func_001d45a0(void* self, u32 id) {
 struct _reent { s32 _errno; };
 extern "C" {
 extern u8 D_00377b68[];
-u64 func_00313498(u64, u64) __attribute__((const));
-u64 w329_muldi3(u64, u64) asm("_Z13func_00311aa0xx") __attribute__((const));
 s64 strtoll_r_w(struct _reent* rptr, const char* nptr, char** endptr, s32 base) asm("_Z16wtarget_002ff970jjjj");
 s64 strtoll_r_w(struct _reent* rptr, const char* nptr, char** endptr, s32 base)
 {
@@ -85,7 +83,7 @@ s64 strtoll_r_w(struct _reent* rptr, const char* nptr, char** endptr, s32 base)
     if (base == 0)
         base = c == '0' ? 8 : 10;
     cutoff = neg ? -(u64)(-0x7fffffffffffffffLL - 1) : 0x7fffffffffffffffLL;
-    cutlim = func_00313498(cutoff, (u64)base);
+    cutlim = cutoff % (u64)base;
     cutoff /= (u64)base;
     for (acc = 0, any = 0;; c = *s++) {
         if (D_00377b68[c] & 4)
@@ -100,7 +98,7 @@ s64 strtoll_r_w(struct _reent* rptr, const char* nptr, char** endptr, s32 base)
             any = -1;
         else {
             any = 1;
-            acc = w329_muldi3(acc, base);
+            acc = acc * base;
             acc += c;
         }
     }
