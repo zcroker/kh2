@@ -21,6 +21,8 @@ KH2_PS2_IMAGE ?= kh2-local/ps2-compiler:3.2-ee-040921-objdiff
 PS2_PREP := $(ROOT)/docker/ps2/prepare.sh
 
 CXXFLAGS := -O2 -g0 -x c++ -fno-exceptions -fno-rtti -fpermissive -ffunction-sections
+# Code the original wrote in C (partMng.c, pppPart.c, ...) goes in *.c files.
+CFLAGS := -O2 -g0 -x c -ffunction-sections
 ASFLAGS := -G0
 VERIFY_AUTODIFF_COUNT ?= 3
 VERIFY_SMALL_DIFF_MAX ?= 32
@@ -104,10 +106,15 @@ inner-all: $(GEN)/objects.mk $(ORDERED_OBJS)
 
 # Functions the original built without optimisation (fp/s8 frame) live in *_O0.cpp.
 out/build/%_O0.o: CXXFLAGS := $(subst -O2,-O0,$(CXXFLAGS))
+out/build/%_O0.o: CFLAGS := $(subst -O2,-O0,$(CFLAGS))
 
 out/build/%.o: %.cpp
 	@mkdir -p $(dir $@)
 	@/opt/ps2/gcc/bin/ee-g++ $(CXXFLAGS) -c -o $@ $<
+
+out/build/%.o: %.c
+	@mkdir -p $(dir $@)
+	@/opt/ps2/gcc/bin/ee-gcc $(CFLAGS) -c -o $@ $<
 
 out/build/%.o: %.s
 	@mkdir -p $(dir $@)

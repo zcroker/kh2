@@ -477,7 +477,7 @@ def collect_source_addr_aliases() -> list[SymbolAlias]:
         return []
 
     source_paths: list[Path] = []
-    for pattern in ("*.cpp", "*.hpp", "*.h"):
+    for pattern in ("*.cpp", "*.c", "*.hpp", "*.h"):
         source_paths.extend(src_root.rglob(pattern))
 
     for src in sorted(set(source_paths)):
