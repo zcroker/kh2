@@ -1,13 +1,52 @@
 # Kingdom Hearts 2: Final Mix Decomp
 
-![SLPM_666.75's progress](https://img.shields.io/endpoint?url=https://govanify.github.io/kh2/badges/main-elf.json)
+This repo contains a (WIP) **matching decompilation** of Kingdom Hearts 2 Final Mix's
+main ELF, nicknamed "dasein": C/C++ source that compiles back into a byte-for-byte
+identical copy of the original executable.
 
-This repo contains a (WIP) decompilation of Kingdom Hearts 2 Final Mix's main
-ELF, nicknamed "dasein".
-
-It builds the current executable: 
+It builds the current executable:
 
 * SLPM\_666.75: sha256sum: `d869ce4b8edd61cb978c4ff9ede595fe4d7d7b21cbb96a145275217120d8bc87`
+
+> **About this fork.** This project is built on [GovanifY's original work](https://github.com/GovanifY/kh2)
+> (the build system, tooling, recovered symbols and file layout, and the first several
+> thousand matched functions). All credit for that foundation goes to GovanifY.
+>
+> **AI disclosure.** The work in this fork since October 2026 is being done by AI: Anthropic's
+> Claude (via Claude Code) writes and tests the matching code and tooling, directed and
+> reviewed by the repository owner. Every function is only accepted when the full rebuild
+> is byte-identical to the original, but the source itself is machine-written, so names,
+> types and structure may be less idiomatic than hand-written decomp code.
+>
+> This is an unofficial fan project, not affiliated with or endorsed by Square Enix or Sony.
+> It contains no game data: you need your own copy of the game to build it.
+
+## Status (October 2026)
+
+| Measure | Progress |
+|---|---|
+| Functions matched | **9,243 / 11,286 (81.9%)** |
+| Code matched (by size) | **49.1%** |
+| Source-file chunks fully matched ("linked" groundwork) | 12 of 140, with 46 at 90% or more |
+
+Every commit keeps the rebuilt `kh2.elf` byte-identical to the retail executable.
+
+What's left is mostly the hard part: large functions, register-allocation near-misses,
+Sony PS2 SDK library code (Runtime Library 3.0.0, built with an older compiler), and
+hand-written assembly.
+
+### Roadmap
+
+1. **Linked build:** split the game back into its original source files (boundaries recovered
+   from the static-initializer table) and build by compiling and linking them, the way
+   finished decomps are built.
+2. **Tooling:** [m2c](https://github.com/matt-kempster/m2c) for first drafts,
+   [decomp-permuter](https://github.com/simonlindholm/decomp-permuter) for near-misses,
+   and shared headers for the game's data types.
+3. **Remaining code:** deep work on large functions; matching the Sony SDK libraries with
+   the compiler they were built with; keeping genuinely hand-written assembly as `.s` files.
+4. **Data and names:** data sections as source; real names for functions (a set of
+   machine-suggested names lives in `notes/function_names.tsv`).
 
 ## Setup
 
@@ -45,6 +84,8 @@ to work collaboratively on a function.
 
 
 ## Symbols and file layout
+
+_(From the original README.)_
 
 Symbols and file layout have been mostly recovered from the E3 kiosk demo PS3 port
 of KH2. While there is obvious drift in the overall logic, this should be a good
