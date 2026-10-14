@@ -9,3 +9,6 @@ __pycache__/
 *.tmp
 *.log
 objdiff.json
+
+# crash dumps
+core
