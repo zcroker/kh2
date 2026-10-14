@@ -25,7 +25,7 @@ typedef struct Node { char pad[60]; struct Node *next; } Node;
 typedef struct { int pad0; int ok; int pad8; Node *free; } Pool;
 extern void func_0030edb0(void);
 extern void func_0030ee00(void);
-Node *func_00309988(Pool *q)
+Node* func_00309988(Pool *q)
 {
     Node *p;
     func_0030edb0();
