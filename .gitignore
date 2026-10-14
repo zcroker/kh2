@@ -12,3 +12,5 @@ objdiff.json
 
 # crash dumps
 core
+# downloaded compilers
+/tools/compilers/

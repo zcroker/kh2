@@ -15,6 +15,17 @@ if [[ ! -f "${SCRIPT_DIR}/ee-gcc3.2-040921-full.tar.gz" ]]; then
   exit 1
 fi
 
+# Sony PS2 SDK libraries (Runtime Library 3.0.0) were built with ee-gcc 2.9-991111.
+# Fetch it from decomp.me's compiler releases into tools/compilers/ (not committed).
+SDK_CC_DIR="${SCRIPT_DIR}/../../tools/compilers/ee-gcc2.9-991111"
+if [[ ! -x "${SDK_CC_DIR}/bin/ee-gcc" ]]; then
+  echo "fetching ee-gcc2.9-991111 (Sony SDK compiler) from decompme/compilers releases" >&2
+  mkdir -p "${SDK_CC_DIR}"
+  curl -sSL "https://github.com/decompme/compilers/releases/download/compilers/ee-gcc2.9-991111.tar.xz" \
+    | tar xJ -C "${SDK_CC_DIR}"
+  chmod +x "${SDK_CC_DIR}"/bin/* || true
+fi
+
 case "${MODE}" in
   ensure)
     if docker image inspect "${IMAGE}" >/dev/null 2>&1; then

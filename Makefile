@@ -23,6 +23,9 @@ PS2_PREP := $(ROOT)/docker/ps2/prepare.sh
 CXXFLAGS := -O2 -g0 -x c++ -fno-exceptions -fno-rtti -fpermissive -ffunction-sections
 # Code the original wrote in C (partMng.c, pppPart.c, ...) goes in *.c files.
 CFLAGS := -O2 -g0 -x c -ffunction-sections
+# Sony PS2 SDK library code (src/sdk/**/*.c) was built with an older compiler: ee-gcc 2.9-991111 -O2 -G0.
+SDK_CC := /work/tools/compilers/ee-gcc2.9-991111/bin/ee-gcc
+SDK_CFLAGS := -O2 -G0 -g0 -x c -ffunction-sections
 ASFLAGS := -G0
 VERIFY_AUTODIFF_COUNT ?= 3
 VERIFY_SMALL_DIFF_MAX ?= 32
@@ -111,6 +114,10 @@ out/build/%_O0.o: CFLAGS := $(subst -O2,-O0,$(CFLAGS))
 out/build/%.o: %.cpp
 	@mkdir -p $(dir $@)
 	@/opt/ps2/gcc/bin/ee-g++ $(CXXFLAGS) -c -o $@ $<
+
+out/build/src/sdk/%.o: src/sdk/%.c
+	@mkdir -p $(dir $@)
+	@$(SDK_CC) $(SDK_CFLAGS) -c -o $@ $<
 
 out/build/%.o: %.c
 	@mkdir -p $(dir $@)
