@@ -61,7 +61,7 @@ int func_00310990(void)
 }
 
 extern void func_002f40a0(void *, float);
-extern void *func_002f41f0(void *, void *, float);
+extern void* func_002f41f0(void *, void *, float);
 extern void func_002f4148(void *, void *, float);
 void func_002f4298(void *a, void *b, float *v)
 {

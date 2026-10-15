@@ -1,7 +1,7 @@
 /* Sony PS2 Runtime Library 3.0.0: libkernl (EE kernel wrappers). Built with ee-gcc 2.9-991111 -O2 -G0. */
 typedef unsigned int u32;
 
-extern int *func_00316d08(void);
+extern int* func_00316d08(void);
 int func_00305e48(void) { *func_00316d08() = 5; return -1; }
 
 extern void func_00305650(int);

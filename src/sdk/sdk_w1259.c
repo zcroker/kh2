@@ -55,7 +55,7 @@ void func_003096f8(L *a, int b)
 
 typedef struct M { char pad[0x38]; struct M *next; } M;
 typedef struct { int a, b; M *head; } MH;
-M *func_00309860(M *a, MH *l)
+M* func_00309860(M *a, MH *l)
 {
     M *p;
     func_0030edb0();
@@ -73,7 +73,7 @@ M *func_00309860(M *a, MH *l)
 }
 
 typedef struct { short s0; short s2; int f4; int f8; int fc; } P;
-extern P *func_002f1fa8(void);
+extern P* func_002f1fa8(void);
 extern void func_00306100(int);
 extern void func_00305320(int, int);
 extern int func_00305300(int, int, int);

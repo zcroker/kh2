@@ -60,7 +60,7 @@ typedef struct Obj
 } Obj;
 void _ZN2YS12COMMAND_MENU5clearEv(Tbl *);
 PR *_ZN2YS5PARTY11get_partramEv(void *);
-R *func_001a80c8(u32);
+R* func_001a80c8(u32);
 void func_001bc780(Tbl *, u32, s32, s32);
 void func_001bce00(Tbl *);
 void func_001be9a0(Obj *o)

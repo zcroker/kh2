@@ -4,7 +4,7 @@ void func_00308da0(Sem *s) { s->p18 = 0; s->flags &= ~1; }
 
 typedef struct { int a; int b; int *c; int *d; int buf[1]; } Hdr;
 extern Hdr D_01e352c0;
-Hdr *func_00306900(int x)
+Hdr* func_00306900(int x)
 {
     Hdr *h = &D_01e352c0;
     h->a = x;
@@ -44,5 +44,5 @@ int func_00305df8(int a, int b)
     return 0;
 }
 
-extern int *func_00316d08(void);
+extern int* func_00316d08(void);
 int func_00305e20(void) { *func_00316d08() = 5; return -1; }

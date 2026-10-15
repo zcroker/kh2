@@ -65,7 +65,7 @@ int func_002f5c70(void)
 }
 
 typedef struct { char pad[0x1c]; char *tab; int n; } Tbl;
-extern void *func_00308dc0(Tbl *, int);
+extern void* func_00308dc0(Tbl *, int);
 void* func_00308df0(Tbl *t, int i)
 {
     if (i < 0 || i >= t->n) return func_00308dc0(t, i);

@@ -177,7 +177,7 @@ void func_00306e80(int c)
 
 extern char *D_003660cc;
 extern unsigned int func_00305600(void);
-extern int *func_00316d08(void);
+extern int* func_00316d08(void);
 void* func_00305d20(int incr)
 {
     int st, x;

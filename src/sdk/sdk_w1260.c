@@ -10,7 +10,7 @@ extern int func_003096b8(void *);
 extern void func_00306698(int);
 extern int func_0030dd70(void);
 extern int func_0030de70(void);
-extern char *func_002ff6f0(char *d, const char *s, int n);
+extern char* func_002ff6f0(char *d, const char *s, int n);
 extern int func_003094b8(void *cd, unsigned int fno, unsigned int mode, void *send, int ssize, void *recv, int rsize, void *end, void *endp);
 extern unsigned long func_00312db8(unsigned long a, unsigned long b);
 extern int D_00363de0;

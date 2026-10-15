@@ -1,5 +1,5 @@
 /* Sony PS2 Runtime Library 3.0.0: libkernl. Built with ee-gcc 2.9-991111 -O2 -G0. */
-extern int *func_00316d08(void);
+extern int* func_00316d08(void);
 int func_00305ce0(void) { *func_00316d08() = 5; return -1; }
 
 typedef struct { int size; int count; int pad8; char *wp; char buf[1]; } Ring;

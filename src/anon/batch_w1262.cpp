@@ -10,13 +10,13 @@ s32 func_00289310_a(s32) asm("func_00289310");
 s32 func_002891e8_a(s32) asm("func_002891e8");
 void func_002890e0(s32, s32, s32, s32, s32);
 void func_00289038(s32, s32, s32, s32, s32, s32, s32);
-s16 *func_0024e008(s32);
+s16* func_0024e008(s32);
 void func_0023f070(s32, s32, s32);
 void func_0024e5b0(void);
 s32 func_0028d008(s32);
 s32 func_002891d0(s32);
 void func_0028cf28(s32, s32);
-u8 *func_0024e058(void);
+u8* func_0024e058(void);
 void func_002b4388(s32, void *, s32);
 void func_0024e228(void);
 void func_0024dd68(s32 a0, s32 a1, s32 a2)
@@ -59,8 +59,8 @@ void func_0024dd68(s32 a0, s32 a1, s32 a2)
 s32 func_001a3570(u32);
 s32 func_001c99b0(u32);
 s32 func_00181500(u32);
-u8 *func_001b90c8(u32);
-u8 *func_00189200(void *, u32);
+u8* func_001b90c8(u32);
+u8* func_00189200(void *, u32);
 f32 func_002f8b30(f32, f32);
 extern u8 D_0032e020[];
 extern u8 *D_00352130;
@@ -122,7 +122,7 @@ struct T446
 };
 extern T446 D_003742c8[];
 extern u8 *D_0035f2b4;
-u8 *func_00258048(void);
+u8* func_00258048(void);
 void func_002fde18(void *, s32, s32);
 s32 func_00181500_c(u16) asm("func_00181500");
 inline u8 *inline_fn(u8 *arg0)

@@ -54,7 +54,7 @@ int func_00308310(int a, int b)
 extern char D_01e33a40[];
 extern int D_00365950;
 extern unsigned int func_002ff3fc(char *);
-extern char *func_002fdd68(char *, char *, unsigned int);
+extern char* func_002fdd68(char *, char *, unsigned int);
 extern void func_00305650(int);
 void func_002fc7d8(char *buf)
 {
