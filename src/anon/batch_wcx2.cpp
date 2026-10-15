@@ -418,7 +418,7 @@ void func_001b8838(s32 code)
 
 extern f32 D_00349e14;
 void func_0023aab8(u8*);
-void func_00237ae8(u8*);
+void func_00237ae8_x421(u8*) asm("func_00237ae8");
 void func_0023acd8(u8* p)
 {
     f32 d = D_00349e14 * *(f32*)(p + 68);
@@ -428,7 +428,7 @@ void func_0023acd8(u8* p)
         *(f32*)(p + 260) = 0.0f;
         *(s32*)(p + 252) = 2;
         func_0023aab8(p);
-        func_00237ae8(p);
+        func_00237ae8_x421(p);
         *(s32*)(p + 272) = 0;
         break;
     case 2:
@@ -448,7 +448,7 @@ void func_0023acd8(u8* p)
             }
         }
         func_0023aab8(p);
-        func_00237ae8(p);
+        func_00237ae8_x421(p);
         break;
     case 0:
     default:
@@ -13821,7 +13821,7 @@ struct UCtx3189e0 {
     UWord3189e0 args_size;
 };
 struct UExc3189e0 { u64 exception_class; void (*cleanup)(int, UExc3189e0*); UWord3189e0 private_1; UWord3189e0 private_2; };
-int func_00317d80(UCtx3189e0* context, FState3189e0* fs);
+int func_00317d80_x13824(UCtx3189e0* context, FState3189e0* fs) asm("func_00317d80");
 void func_003181a0(UCtx3189e0* context, FState3189e0* fs);
 void func_003181f8(UCtx3189e0* context, void* outer_cfa, void* outer_ra);
 int func_00318908(UExc3189e0* exc, UCtx3189e0* context);
@@ -13840,7 +13840,7 @@ int func_003189e0(UExc3189e0* exc)
     {
       FState3189e0 fs;
 
-      code = func_00317d80 (&cur_context, &fs);
+      code = func_00317d80_x13824 (&cur_context, &fs);
 
       if (code == 5)
 	return 5;
@@ -13939,6 +13939,1495 @@ void func_0010abf0(void* key, Mtx10abf0* m1, BlkU10abf0* blk, Id10abf0* ids, Mtx
     e->m2 = *m2;
     e->m3 = *m3;
     e->f272 = v;
+}
+
+// --------------------
+// Quantise six floats to s16 with the per-mode bias/scale tables.
+extern f32 D_00348d30[];
+extern f32 D_00348d40[];
+#define Q144e50(f) do { \
+    if (!(-32768.0f < (f))) { \
+        (f) = ((f) < -32767.0f) ? -32767.0f : ((32767.0f < (f)) ? 32767.0f : (f)); \
+    } \
+} while (0)
+#define R144e50(f) do { \
+    if (!((f) < 32768.0f)) { \
+        (f) = ((f) < -32767.0f) ? -32767.0f : ((32767.0f < (f)) ? 32767.0f : (f)); \
+    } \
+} while (0)
+union O144e50 { s16 v; u8 c; };
+void func_00144e50(O144e50* out, f32* in, s32 mode)
+{
+    f32 b = D_00348d30[mode];
+    f32 s = D_00348d40[mode];
+    f32 f;
+    f = in[0] - b; if (mode) f *= s; Q144e50(f); out[0].v = (s32)f;
+    f = in[1] - b; if (mode) f *= s; Q144e50(f); out[1].v = (s32)f;
+    f = in[2] - b; if (mode) f *= s; Q144e50(f); out[2].v = (s32)f;
+    f = in[3] + b; if (mode) f *= s; R144e50(f); out[3].v = (s32)f;
+    f = in[4] + b; if (mode) f *= s; R144e50(f); out[4].v = (s32)f;
+    f = in[5] + b; if (mode) f *= s; R144e50(f); out[5].v = (s32)f;
+}
+
+// --------------------
+// Effect particle: integrate motion, apply the per-frame delta, then emit its sprite.
+struct Gs1f7398 { u8 pad[16]; u8* ent; u8 pad2[148]; u64 st; };
+struct Idx1f7398 { s32 f0; s32 f4; s32 f8; };
+struct Ctx1f7398 { u8 pad[12]; Idx1f7398* idx; };
+struct Mot1f7398 { f32 x, vx, ax, pad; f32 y, vy, ay, z, vz, az; };
+struct Req1f7398 {
+    s32 id; s32 tex; f32 dx, dvx, dax; s32 sx; s32 sy; u8 frame; u8 pad29[3];
+    f32 dy, dvy, day, dz, dvz, daz; u8 f56;
+};
+struct Tex1f7398 { u8 pad[16]; u32 bits; u8 pad2[16]; };
+extern s32 D_01d9ea9c;
+extern Gs1f7398* D_01d9e6e0_x13984 asm("D_01d9e6e0");
+extern Gs1f7398* D_01d9e6e4;
+extern u8* D_01d9eaa4;
+union IdU1f7398 { s32 v; u8 c; };
+union TagU1f7398 { u64 v; u8 c; };
+union PkU1f7398 { u8* p; u8 c; };
+void func_002f28b8(u8* p, u32 a, s32 b, u32 c, s32 d, s32 e, s32 f, s32 g);
+void func_00222aa8(s32 a, s32 b, u8* p, f32 x);
+void func_0020e7a8(u8* p, s32 a, s32 b, s32 c);
+void func_00222d40(s32 tex, u8* pos, u32 frame, s32 y, s32 z, s32 a, s32 b);
+void func_001f7398(u8* o, Req1f7398* r, Ctx1f7398* c)
+{
+    Mot1f7398* m = (Mot1f7398*)(o + c->idx->f8 + 160);
+    if (D_01d9ea9c == 0 && !(D_01d9e6e0_x13984->st & 0xff0000ff00ULL)) {
+        m->vx += m->ax;
+        m->vy += m->ay;
+        m->vz += m->az;
+        m->x += m->vx;
+        m->y += m->vy;
+        m->z += m->vz;
+        if (((IdU1f7398*)(o + 12))->v == ((IdU1f7398*)&r->id)->v) {
+            m->x += r->dx;
+            m->vx += r->dvx;
+            m->ax += r->dax;
+            m->y += r->dy;
+            m->vy += r->dvy;
+            m->ay += r->day;
+            m->z += r->dz;
+            m->vz += r->dvz;
+            m->az += r->daz;
+        }
+    }
+    if (r->tex == 0xffff) return;
+    {
+        s32 off = r->tex * 36;
+        u32 frame = r->frame * 4;
+        u8* p = D_01d9eaa4 + 16;
+        u32 bits = ((Tex1f7398*)(D_01d9e6e4->ent + off))->bits;
+        u8* q;
+        func_002f28b8(p, ((bits >> 5) & 0x3fff) + frame, 4, (bits >> 19) & 0xf, 0, 0, 16, 16);
+        ((TagU1f7398*)(p + 80))->v = 0x0800000000008100ULL;
+        q = ((PkU1f7398*)&D_01d9eaa4)->p;
+        func_00222aa8(r->sx, r->sy, q + 112, m->x);
+        func_0020e7a8(D_01d9eaa4, 263, 0, 0);
+        ((PkU1f7398*)&D_01d9eaa4)->p = q + 4208;
+        func_00222d40(r->tex, o + c->idx->f0 + 160, frame, (s32)m->y, (s32)m->z, 1, 0);
+    }
+}
+
+// --------------------
+// Effect particle: integrate motion, apply the per-frame delta, then emit its sprite.
+struct Gs1f7878 { u8 pad[16]; u8* ent; u8 pad2[148]; u64 st; };
+struct Idx1f7878 { s32 f0; s32 f4; s32 f8; };
+struct Ctx1f7878 { u8 pad[12]; Idx1f7878* idx; };
+struct Mot1f7878 { f32 x, vx, ax, pad; f32 y, vy, ay, z, vz, az; };
+struct Req1f7878 {
+    s32 id; s32 tex; f32 dx, dvx, dax; s32 sx; s32 sy; u8 frame; u8 pad29[3];
+    f32 dy, dvy, day, dz, dvz, daz; u8 f56;
+};
+struct Tex1f7878 { u8 pad[16]; u32 bits; u8 pad2[16]; };
+extern s32 D_01d9ea9c;
+extern Gs1f7878* D_01d9e6e0_x14045 asm("D_01d9e6e0");
+extern Gs1f7878* D_01d9e6e4_x14046 asm("D_01d9e6e4");
+extern u8* D_01d9eaa4;
+union IdU1f7878 { s32 v; u8 c; };
+union TagU1f7878 { u64 v; u8 c; };
+union PkU1f7878 { u8* p; u8 c; };
+void func_002f28b8(u8* p, u32 a, s32 b, u32 c, s32 d, s32 e, s32 f, s32 g);
+void func_00222aa8(s32 a, s32 b, u8* p, f32 x);
+void func_0020e7a8(u8* p, s32 a, s32 b, s32 c);
+void func_00222d40(s32 tex, u8* pos, u32 frame, s32 y, s32 z, s32 a, s32 b);
+void func_001f7878(u8* o, Req1f7878* r, Ctx1f7878* c)
+{
+    Mot1f7878* m = (Mot1f7878*)(o + c->idx->f8 + 160);
+    if (D_01d9ea9c == 0 && !(D_01d9e6e0_x14045->st & 0xff0000ff00ULL)) {
+        m->vx += m->ax;
+        m->vy += m->ay;
+        m->vz += m->az;
+        m->x += m->vx;
+        m->y += m->vy;
+        m->z += m->vz;
+        if (((IdU1f7878*)(o + 12))->v == ((IdU1f7878*)&r->id)->v) {
+            m->x += r->dx;
+            m->vx += r->dvx;
+            m->ax += r->dax;
+            m->y += r->dy;
+            m->vy += r->dvy;
+            m->ay += r->day;
+            m->z += r->dz;
+            m->vz += r->dvz;
+            m->az += r->daz;
+        }
+    }
+    if (r->tex == 0xffff) return;
+    {
+        s32 off = r->tex * 36;
+        u32 frame = r->frame * 4;
+        u8* p = D_01d9eaa4 + 16;
+        u32 bits = ((Tex1f7878*)(D_01d9e6e4_x14046->ent + off))->bits;
+        u8* q;
+        func_002f28b8(p, ((bits >> 5) & 0x3fff) + frame, 4, (bits >> 19) & 0xf, 0, 0, 16, 16);
+        ((TagU1f7878*)(p + 80))->v = 0x0800000000008100ULL;
+        q = ((PkU1f7878*)&D_01d9eaa4)->p;
+        func_00222aa8(r->sx, r->sy, q + 112, m->x);
+        func_0020e7a8(D_01d9eaa4, 263, 0, 0);
+        ((PkU1f7878*)&D_01d9eaa4)->p = q + 4208;
+        func_00222d40(r->tex, o + c->idx->f0 + 160, frame, (s32)m->y, (s32)m->z, r->f56, 0);
+    }
+}
+
+// --------------------
+// Effect particle: integrate motion, apply the per-frame delta, then emit its sprite.
+struct Gs1fe398 { u8 pad[16]; u8* ent; u8 pad2[148]; u64 st; };
+struct Idx1fe398 { s32 f0; s32 f4; s32 f8; s32 f12; };
+struct Ctx1fe398 { u8 pad[12]; Idx1fe398* idx; };
+struct Mot1fe398 { f32 x, vx, ax, pad; f32 y, vy, ay, z, vz, az; };
+struct Req1fe398 {
+    s32 id; s32 tex; f32 dx, dvx, dax; s32 sx; s32 sy; u8 frame; u8 pad29[3];
+    f32 dy, dvy, day, dz, dvz, daz; u8 b56, b57, b58, b59, b60;
+};
+struct Tex1fe398 { u8 pad[16]; u32 bits; u8 pad2[16]; };
+extern s32 D_01d9ea9c;
+extern Gs1fe398* D_01d9e6e0_x14106 asm("D_01d9e6e0");
+extern Gs1fe398* D_01d9e6e4_x14107 asm("D_01d9e6e4");
+extern u8* D_01d9eaa4;
+union IdU1fe398 { s32 v; u8 c; };
+union TagU1fe398 { u64 v; u8 c; };
+union PkU1fe398 { u8* p; u8 c; };
+void func_002f28b8(u8* p, u32 a, s32 b, u32 c, s32 d, s32 e, s32 f, s32 g);
+void func_00222aa8(s32 a, s32 b, u8* p, f32 x);
+void func_0020e7a8(u8* p, s32 a, s32 b, s32 c);
+void func_00222d40_x14115(s32 tex, u8* pos, u32 frame, s32 y, s32 z, s32 a, u8* b) asm("func_00222d40");
+void func_001fe398(u8* o, Req1fe398* r, Ctx1fe398* c)
+{
+    Mot1fe398* m = (Mot1fe398*)(o + c->idx->f8 + 160);
+    if (D_01d9ea9c == 0 && !(D_01d9e6e0_x14106->st & 0xff0000ff00ULL)) {
+        m->vx += m->ax;
+        m->vy += m->ay;
+        m->vz += m->az;
+        m->x += m->vx;
+        m->y += m->vy;
+        m->z += m->vz;
+        if (((IdU1fe398*)(o + 12))->v == ((IdU1fe398*)&r->id)->v) {
+            m->x += r->dx;
+            m->vx += r->dvx;
+            m->ax += r->dax;
+            m->y += r->dy;
+            m->vy += r->dvy;
+            m->ay += r->day;
+            m->z += r->dz;
+            m->vz += r->dvz;
+            m->az += r->daz;
+        }
+    }
+    if (r->tex == 0xffff) return;
+    {
+        s32 off = r->tex * 36;
+        u32 frame = r->frame * 4;
+        u8* p = D_01d9eaa4 + 16;
+        u32 bits = ((Tex1fe398*)(D_01d9e6e4_x14107->ent + off))->bits;
+        u8* q;
+        func_002f28b8(p, ((bits >> 5) & 0x3fff) + frame, 4, (bits >> 19) & 0xf, 0, 0, 16, 16);
+        ((TagU1fe398*)(p + 80))->v = 0x0800000000008100ULL;
+        q = ((PkU1fe398*)&D_01d9eaa4)->p;
+        func_00222aa8(r->sx, r->sy, q + 112, m->x);
+        func_0020e7a8(D_01d9eaa4, 263, 0, 0);
+        ((PkU1fe398*)&D_01d9eaa4)->p = q + 4208;
+        func_00222d40_x14115(r->tex, o + c->idx->f0 + 160, frame, (s32)m->y, (s32)m->z, (r->b56 | r->b60) | (r->b58 | r->b57) | r->b59, o + c->idx->f12 + 160);
+    }
+}
+
+// --------------------
+// newlib malloc_extend_top (dlmalloc 2.6.x; no mmap; EE: 64-bit long).
+typedef struct MChunk2fd428 MChunk2fd428;
+struct MChunk2fd428 { u32 prev_size; u32 size; MChunk2fd428* fd; MChunk2fd428* bk; };
+typedef MChunk2fd428* mchunkptr2fd428;
+extern u8 D_00365c50[];
+void func_002fded8__2fd428(void*) asm("func_002fded8");
+void func_002fdf30__2fd428(void*) asm("func_002fdf30");
+#define M_SIZE_SZ 4
+#define M_ALIGN_MASK 15
+#define M_MINSIZE 16
+#define M_PREV_INUSE 1
+#define M_SIZE_BITS 3
+#define M_MAX_SMALLBIN 63
+#define M_MAX_SMALLBIN_SIZE 512
+#define M_SMALLBIN_WIDTH 8
+#define M_BINBLOCKWIDTH 4
+#define bin_at(i) ((mchunkptr2fd428)(D_00365c50 + 8 * (i)))
+#define next_bin(b) ((mchunkptr2fd428)((char*)(b) + 8))
+#define prev_bin(b) ((mchunkptr2fd428)((char*)(b) - 8))
+#define first(b) ((b)->fd)
+#define last(b) ((b)->bk)
+#define top (bin_at(0)->fd)
+#define last_remainder (bin_at(1))
+#define binblocks (bin_at(0)->size)
+#define chunksize(p) ((p)->size & ~(M_SIZE_BITS))
+#define chunk2mem(p) ((void*)((char*)(p) + 2 * M_SIZE_SZ))
+#define chunk_at_offset(p, s) ((mchunkptr2fd428)(((char*)(p)) + (s)))
+#define set_head(p, s) ((p)->size = (s))
+#define set_foot(p, s) (((mchunkptr2fd428)((char*)(p) + (s)))->prev_size = (s))
+#define set_inuse_bit_at_offset(p, s) (((mchunkptr2fd428)(((char*)(p)) + (s)))->size |= M_PREV_INUSE)
+#define request2size(req) (((long)((req) + (M_SIZE_SZ + M_ALIGN_MASK)) < (long)(M_MINSIZE + M_ALIGN_MASK)) ? M_MINSIZE : \
+    (((req) + (M_SIZE_SZ + M_ALIGN_MASK)) & ~(M_ALIGN_MASK)))
+#define is_small_request(nb) (nb < M_MAX_SMALLBIN_SIZE - M_SMALLBIN_WIDTH)
+#define smallbin_index(sz) (((unsigned long)(sz)) >> 3)
+#define bin_index(sz) \
+(((((unsigned long)(sz)) >> 9) ==    0) ?       (((unsigned long)(sz)) >>  3): \
+ ((((unsigned long)(sz)) >> 9) <=    4) ?  56 + (((unsigned long)(sz)) >>  6): \
+ ((((unsigned long)(sz)) >> 9) <=   20) ?  91 + (((unsigned long)(sz)) >>  9): \
+ ((((unsigned long)(sz)) >> 9) <=   84) ? 110 + (((unsigned long)(sz)) >> 12): \
+ ((((unsigned long)(sz)) >> 9) <=  340) ? 119 + (((unsigned long)(sz)) >> 15): \
+ ((((unsigned long)(sz)) >> 9) <= 1364) ? 124 + (((unsigned long)(sz)) >> 18): \
+                                          126)
+#define idx2binblock(ix) ((unsigned long)1 << (ix / M_BINBLOCKWIDTH))
+#define mark_binblock(ii) (binblocks |= idx2binblock(ii))
+#define unlink(P, BK, FD) { BK = P->bk; FD = P->fd; FD->bk = BK; BK->fd = FD; }
+#define link_last_remainder(P) { last_remainder->fd = last_remainder->bk = P; P->fd = P->bk = last_remainder; }
+#define clear_last_remainder (last_remainder->fd = last_remainder->bk = last_remainder)
+#define long_sub_size_t(x, y) (((x) < (y)) ? -(long)((y) - (x)) : (long)((x) - (y)))
+#define frontlink(P, S, IDX, BK, FD) \
+{ \
+  if (S < M_MAX_SMALLBIN_SIZE) \
+  { \
+    IDX = smallbin_index(S); \
+    mark_binblock(IDX); \
+    BK = bin_at(IDX); \
+    FD = BK->fd; \
+    P->bk = BK; \
+    P->fd = FD; \
+    FD->bk = BK->fd = P; \
+  } \
+  else \
+  { \
+    IDX = bin_index(S); \
+    BK = bin_at(IDX); \
+    FD = BK->fd; \
+    if (FD == BK) mark_binblock(IDX); \
+    else \
+    { \
+      while (FD != BK && S < chunksize(FD)) FD = FD->fd; \
+      BK = FD->bk; \
+    } \
+    P->bk = BK; \
+    P->fd = FD; \
+    FD->bk = BK->fd = P; \
+  } \
+}
+extern u64 D_00366060;
+extern char* D_00366068;
+extern u64 D_00366070;
+extern u64 D_00366078;
+extern s32 D_00366080;
+char* func_002fea70(void* reent, s32 size);
+void wtarget_00302e90(void* reent_ptr, void* mem) asm("_Z16wtarget_00302e90jjjj");
+#define top_pad D_00366060
+#define sbrk_base D_00366068
+#define max_sbrked_mem D_00366070
+#define max_total_mem D_00366078
+#define sbrked_mem D_00366080
+#define initial_top ((mchunkptr2fd428)(bin_at(0)))
+void func_002fd428(void* reent_ptr, u32 nb)
+{
+  char*     brk;
+  u32 front_misalign;
+  u32 correction;
+  int correction_failed = 0;
+  char*     new_brk;
+  u32 top_size;
+
+  mchunkptr2fd428 old_top     = top;
+  u32 old_top_size = chunksize(old_top);
+  char*     old_end      = (char*)(chunk_at_offset(old_top, old_top_size));
+
+  u32    sbrk_size     = nb + top_pad + M_MINSIZE;
+  unsigned long pagesz    = 4096;
+
+  if (sbrk_base != (char*)(-1))
+    sbrk_size = (sbrk_size + (pagesz - 1)) & ~(pagesz - 1);
+
+  brk = (char*)(func_002fea70 (reent_ptr, sbrk_size));
+
+  if (brk == (char*)(-1) ||
+      (brk < old_end && old_top != initial_top))
+    return;
+
+  sbrked_mem += sbrk_size;
+
+  if (brk == old_end
+      && ((unsigned long)old_end & (pagesz - 1)) == 0)
+  {
+    top_size = sbrk_size + old_top_size;
+    set_head(top, top_size | M_PREV_INUSE);
+  }
+  else
+  {
+    if (sbrk_base == (char*)(-1))
+      sbrk_base = brk;
+    else
+      sbrked_mem += brk - (char*)old_end;
+
+    front_misalign = (unsigned long)chunk2mem(brk) & M_ALIGN_MASK;
+    if (front_misalign > 0)
+    {
+      correction = (M_ALIGN_MASK + 1) - front_misalign;
+      brk += correction;
+    }
+    else
+      correction = 0;
+
+    correction += pagesz - ((unsigned long)(brk + sbrk_size) & (pagesz - 1));
+
+    new_brk = (char*)(func_002fea70 (reent_ptr, correction));
+    if (new_brk == (char*)(-1))
+      {
+        correction = 0;
+        correction_failed = 1;
+        new_brk = brk;
+      }
+
+    sbrked_mem += correction;
+
+    top = (mchunkptr2fd428)brk;
+    top_size = new_brk - brk + correction;
+    set_head(top, top_size | M_PREV_INUSE);
+
+    if (old_top != initial_top)
+    {
+      if (old_top_size < M_MINSIZE)
+      {
+        set_head(top, M_PREV_INUSE);
+        return;
+      }
+
+      old_top_size = (old_top_size - 3*M_SIZE_SZ) & ~M_ALIGN_MASK;
+      old_top->size = (old_top->size & M_PREV_INUSE) | old_top_size;
+      chunk_at_offset(old_top, old_top_size          )->size =
+        M_SIZE_SZ|M_PREV_INUSE;
+      chunk_at_offset(old_top, old_top_size + M_SIZE_SZ)->size =
+        M_SIZE_SZ|M_PREV_INUSE;
+      if (old_top_size >= M_MINSIZE)
+        wtarget_00302e90 (reent_ptr, chunk2mem(old_top));
+    }
+  }
+
+  if ((unsigned long)sbrked_mem > (unsigned long)max_sbrked_mem)
+    max_sbrked_mem = sbrked_mem;
+  if ((unsigned long)(sbrked_mem + 0) > (unsigned long)max_total_mem)
+    max_total_mem = sbrked_mem + 0;
+}
+#undef top_pad
+#undef sbrk_base
+#undef max_sbrked_mem
+#undef max_total_mem
+#undef sbrked_mem
+#undef initial_top
+#undef M_SIZE_SZ
+#undef M_ALIGN_MASK
+#undef M_MINSIZE
+#undef M_PREV_INUSE
+#undef M_SIZE_BITS
+#undef M_MAX_SMALLBIN
+#undef M_MAX_SMALLBIN_SIZE
+#undef M_SMALLBIN_WIDTH
+#undef M_BINBLOCKWIDTH
+#undef bin_at
+#undef next_bin
+#undef prev_bin
+#undef first
+#undef last
+#undef top
+#undef last_remainder
+#undef binblocks
+#undef chunksize
+#undef chunk2mem
+#undef chunk_at_offset
+#undef set_head
+#undef set_foot
+#undef set_inuse_bit_at_offset
+#undef request2size
+#undef is_small_request
+#undef smallbin_index
+#undef bin_index
+#undef idx2binblock
+#undef mark_binblock
+#undef unlink
+#undef link_last_remainder
+#undef clear_last_remainder
+#undef long_sub_size_t
+#undef frontlink
+
+// --------------------
+// Fade controller: advance the timer for the current fade state and update the output level.
+struct Fade237ae8 {
+    u8 pad[68]; f32 speed; f32 time; u8 pad76[4]; s32 state; f32 t; f32 dur; f32 wait;
+    s32 dur_init; s32 wait_init; u8 pad104[4]; f32 out;
+};
+extern f32 D_00349e14;
+f32 func_002f8960(f32 x);
+void func_00237ae8(Fade237ae8* p)
+{
+    f32 dt = D_00349e14 * p->speed;
+    p->time += dt;
+    switch (p->state) {
+    case 0:
+        p->state = 1;
+        p->out = 1.0f;
+        break;
+    case 1:
+        break;
+    case 2:
+        p->state = 3;
+        if (p->dur_init != -1) {
+            p->t = 0.0f;
+            p->dur = p->dur_init;
+            p->out = 1.0f;
+        }
+        if (p->wait_init != -1) p->wait = p->wait_init;
+    case 3:
+        if (0.0f < p->wait) {
+            p->wait -= dt;
+            break;
+        }
+        p->t += dt;
+        if (p->dur < p->t) {
+            p->t = p->dur;
+            p->state = 1;
+        }
+        p->out = (p->dur - p->t) / p->dur;
+        break;
+    case 4:
+        p->state = 5;
+        if (p->dur_init != -1) {
+            p->t = 0.0f;
+            p->dur = p->dur_init;
+            p->out = 0.0f;
+        }
+        if (p->wait_init != -1) p->wait = p->wait_init;
+    case 5:
+        if (0.0f < p->wait) {
+            p->wait -= dt;
+            break;
+        }
+        p->t += dt;
+        if (p->dur < p->t) {
+            p->t = p->dur;
+            p->state = 1;
+        }
+        p->out = p->t / p->dur;
+        break;
+    case 6:
+        p->state = 7;
+        if (p->dur_init != -1) {
+            p->t = 0.0f;
+            p->dur = p->dur_init;
+            p->out = 1.0f;
+        }
+        if (p->wait_init != -1) p->wait = p->wait_init;
+    case 7:
+        if (0.0f < p->wait) {
+            p->wait -= dt;
+            break;
+        }
+        p->t += dt;
+        if (p->dur < p->t) p->t = 0.0f;
+        p->out = func_002f8960(p->t / p->dur * 3.14159274f);
+        break;
+    }
+}
+
+// --------------------
+// newlib dtoa.c quorem (Pack_32, IEEE_8087).
+struct Bigint301708 { Bigint301708* _next; s32 _k, _maxwds, _sign, _wds; u32 _x[1]; };
+s32 func_00304468(Bigint301708* a, Bigint301708* b);
+#define Storeinc301708(a, b, c) (((unsigned short*)a)[1] = (unsigned short)b, ((unsigned short*)a)[0] = (unsigned short)c, a++)
+s32 func_00301708(Bigint301708* b, Bigint301708* S)
+{
+  int n;
+  s32 borrow, y;
+  u32 carry, q, ys;
+  u32 *bx, *bxe, *sx, *sxe;
+  s32 z;
+  u32 si, zs;
+
+  n = S->_wds;
+  if (b->_wds < n)
+    return 0;
+  sx = S->_x;
+  sxe = sx + --n;
+  bx = b->_x;
+  bxe = bx + n;
+  q = *bxe / (*sxe + 1);
+  if (q)
+    {
+      borrow = 0;
+      carry = 0;
+      do
+        {
+          si = *sx++;
+          ys = (si & 0xffff) * q + carry;
+          zs = (si >> 16) * q + (ys >> 16);
+          carry = zs >> 16;
+          y = (*bx & 0xffff) - (ys & 0xffff) + borrow;
+          borrow = y >> 16;
+          z = (*bx >> 16) - (zs & 0xffff) + borrow;
+          borrow = z >> 16;
+          Storeinc301708 (bx, z, y);
+        }
+      while (sx <= sxe);
+      if (!*bxe)
+        {
+          bx = b->_x;
+          while (--bxe > bx && !*bxe)
+            --n;
+          b->_wds = n;
+        }
+    }
+  if (func_00304468 (b, S) >= 0)
+    {
+      q++;
+      borrow = 0;
+      carry = 0;
+      bx = b->_x;
+      sx = S->_x;
+      do
+        {
+          si = *sx++;
+          ys = (si & 0xffff) + carry;
+          zs = (si >> 16) + (ys >> 16);
+          carry = zs >> 16;
+          y = (*bx & 0xffff) - (ys & 0xffff) + borrow;
+          borrow = y >> 16;
+          z = (*bx >> 16) - (zs & 0xffff) + borrow;
+          borrow = z >> 16;
+          Storeinc301708 (bx, z, y);
+        }
+      while (sx <= sxe);
+      bx = b->_x;
+      bxe = bx + n;
+      if (!*bxe)
+        {
+          while (--bxe > bx && !*bxe)
+            --n;
+          b->_wds = n;
+        }
+    }
+  return q;
+}
+#undef Storeinc301708
+
+// --------------------
+// libgcc fp-bit.c _fpadd_parts (DFmode; GCC 3.2).
+typedef enum { CLASS_SNAN313c58, CLASS_QNAN313c58, CLASS_ZERO313c58, CLASS_NUMBER313c58, CLASS_INFINITY313c58 } fp_class313c58;
+struct Fp313c58 {
+    u32 fclass;
+    unsigned int sign;
+    int normal_exp;
+    union { u64 ll; u32 l[2]; } fraction;
+};
+extern const Fp313c58 D_00378498;
+static inline int isnan313c58(Fp313c58* x) { return x->fclass == CLASS_SNAN313c58 || x->fclass == CLASS_QNAN313c58; }
+static inline int isinf313c58(Fp313c58* x) { return x->fclass == CLASS_INFINITY313c58; }
+static inline int iszero313c58(Fp313c58* x) { return x->fclass == CLASS_ZERO313c58; }
+#define LSHIFT313c58(a) { a = (a & 1) | (a >> 1); }
+#define IMPLICIT_1_313c58 ((u64)1 << 60)
+#define IMPLICIT_2_313c58 ((u64)1 << 61)
+Fp313c58* func_00313c58(Fp313c58* a, Fp313c58* b, Fp313c58* tmp)
+{
+  s64 tfraction;
+  int a_normal_exp;
+  int b_normal_exp;
+  u64 a_fraction;
+  u64 b_fraction;
+
+  if (isnan313c58 (a))
+    return a;
+  if (isnan313c58 (b))
+    return b;
+  if (isinf313c58 (a))
+    {
+      if (isinf313c58 (b) && a->sign != b->sign)
+        return (Fp313c58*)&D_00378498;
+      return a;
+    }
+  if (isinf313c58 (b))
+    return b;
+  if (iszero313c58 (b))
+    {
+      if (iszero313c58 (a))
+        {
+          *tmp = *a;
+          tmp->sign = a->sign & b->sign;
+          return tmp;
+        }
+      return a;
+    }
+  if (iszero313c58 (a))
+    return b;
+
+  {
+    int diff;
+
+    a_normal_exp = a->normal_exp;
+    b_normal_exp = b->normal_exp;
+    a_fraction = a->fraction.ll;
+    b_fraction = b->fraction.ll;
+
+    diff = a_normal_exp - b_normal_exp;
+
+    if (diff < 0)
+      diff = -diff;
+    if (diff < 64)
+      {
+        while (a_normal_exp > b_normal_exp)
+          {
+            b_normal_exp++;
+            LSHIFT313c58 (b_fraction);
+          }
+        while (b_normal_exp > a_normal_exp)
+          {
+            a_normal_exp++;
+            LSHIFT313c58 (a_fraction);
+          }
+      }
+    else
+      {
+        if (a_normal_exp > b_normal_exp)
+          {
+            b_normal_exp = a_normal_exp;
+            b_fraction = 0;
+          }
+        else
+          {
+            a_normal_exp = b_normal_exp;
+            a_fraction = 0;
+          }
+      }
+  }
+
+  if (a->sign != b->sign)
+    {
+      if (a->sign)
+        tfraction = -a_fraction + b_fraction;
+      else
+        tfraction = a_fraction - b_fraction;
+      if (tfraction >= 0)
+        {
+          tmp->sign = 0;
+          tmp->normal_exp = a_normal_exp;
+          tmp->fraction.ll = tfraction;
+        }
+      else
+        {
+          tmp->sign = 1;
+          tmp->normal_exp = a_normal_exp;
+          tmp->fraction.ll = -tfraction;
+        }
+      while (tmp->fraction.ll < IMPLICIT_1_313c58 && tmp->fraction.ll)
+        {
+          tmp->fraction.ll <<= 1;
+          tmp->normal_exp--;
+        }
+    }
+  else
+    {
+      tmp->sign = a->sign;
+      tmp->normal_exp = a_normal_exp;
+      tmp->fraction.ll = a_fraction + b_fraction;
+    }
+  tmp->fclass = CLASS_NUMBER313c58;
+  if (tmp->fraction.ll >= IMPLICIT_2_313c58)
+    {
+      LSHIFT313c58 (tmp->fraction.ll);
+      tmp->normal_exp++;
+    }
+  return tmp;
+}
+#undef LSHIFT313c58
+#undef IMPLICIT_1_313c58
+#undef IMPLICIT_2_313c58
+
+// --------------------
+// libgcc fp-bit.c _fpmul_parts (DFmode; GCC 3.2).
+typedef enum { CLASS_SNAN313f98, CLASS_QNAN313f98, CLASS_ZERO313f98, CLASS_NUMBER313f98, CLASS_INFINITY313f98 } fp_class313f98;
+struct Fp313f98 {
+    u32 fclass;
+    unsigned int sign;
+    int normal_exp;
+    union { u64 ll; u32 l[2]; } fraction;
+};
+extern const Fp313f98 D_00378498_x14674 asm("D_00378498");
+static inline int isnan313f98(Fp313f98* x) { return x->fclass == CLASS_SNAN313f98 || x->fclass == CLASS_QNAN313f98; }
+static inline int isinf313f98(Fp313f98* x) { return x->fclass == CLASS_INFINITY313f98; }
+static inline int iszero313f98(Fp313f98* x) { return x->fclass == CLASS_ZERO313f98; }
+#define LSHIFT313f98(a) { a = (a & 1) | (a >> 1); }
+#define IMPLICIT_1_313f98 ((u64)1 << 60)
+#define IMPLICIT_2_313f98 ((u64)1 << 61)
+Fp313f98* func_00313f98(Fp313f98* a, Fp313f98* b, Fp313f98* tmp)
+{
+  u64 low = 0;
+  u64 high = 0;
+
+  if (isnan313f98 (a))
+    {
+      a->sign = a->sign != b->sign;
+      return a;
+    }
+  if (isnan313f98 (b))
+    {
+      b->sign = a->sign != b->sign;
+      return b;
+    }
+  if (isinf313f98 (a))
+    {
+      if (iszero313f98 (b))
+        return (Fp313f98*)&D_00378498_x14674;
+      a->sign = a->sign != b->sign;
+      return a;
+    }
+  if (isinf313f98 (b))
+    {
+      if (iszero313f98 (a))
+        {
+          return (Fp313f98*)&D_00378498_x14674;
+        }
+      b->sign = a->sign != b->sign;
+      return b;
+    }
+  if (iszero313f98 (a))
+    {
+      a->sign = a->sign != b->sign;
+      return a;
+    }
+  if (iszero313f98 (b))
+    {
+      b->sign = a->sign != b->sign;
+      return b;
+    }
+
+  {
+    {
+      u32 nl = a->fraction.ll;
+      u32 nh = a->fraction.ll >> 32;
+      u32 ml = b->fraction.ll;
+      u32 mh = b->fraction.ll >> 32;
+      u64 pp_ll = (u64) ml * nl;
+      u64 pp_hl = (u64) mh * nl;
+      u64 pp_lh = (u64) ml * nh;
+      u64 pp_hh = (u64) mh * nh;
+      u64 res2 = 0;
+      u64 res0 = 0;
+      u64 ps_hh__ = pp_hl + pp_lh;
+      if (ps_hh__ < pp_hl)
+        res2 += (u64)1 << 32;
+      pp_hl = (u64)(u32)ps_hh__ << 32;
+      res0 = pp_ll + pp_hl;
+      if (res0 < pp_ll)
+        res2++;
+      res2 += (ps_hh__ >> 32) + pp_hh;
+      high = res2;
+      low = res0;
+    }
+  }
+
+  tmp->normal_exp = a->normal_exp + b->normal_exp;
+  tmp->sign = a->sign != b->sign;
+  tmp->normal_exp += 4;
+  while (high >= IMPLICIT_2_313f98)
+    {
+      tmp->normal_exp++;
+      if ((int)(high & 1))
+        {
+          low >>= 1;
+          low |= (u64)1 << 63;
+        }
+      high >>= 1;
+    }
+  while (high < IMPLICIT_1_313f98)
+    {
+      tmp->normal_exp--;
+
+      high <<= 1;
+      if (low & ((u64)1 << 63))
+        high |= 1;
+      low <<= 1;
+    }
+  tmp->fraction.ll = high;
+  tmp->fclass = CLASS_NUMBER313f98;
+  return tmp;
+}
+#undef LSHIFT313f98
+#undef IMPLICIT_1_313f98
+#undef IMPLICIT_2_313f98
+
+// --------------------
+// libgcc unwind-dw2.c uw_update_context_1 (GCC 3.2).
+typedef u64 UWord317fc8;
+typedef s64 USword317fc8;
+struct RegInfo317fc8 {
+    struct {
+        union { UWord317fc8 reg; USword317fc8 offset; const unsigned char* exp; } loc;
+        u32 how;
+    } reg[177];
+    RegInfo317fc8* prev;
+};
+struct UCtx317fc8;
+struct UExc317fc8;
+typedef int (*UPers317fc8)(int, int, u64, UExc317fc8*, UCtx317fc8*);
+struct FState317fc8 {
+    RegInfo317fc8 regs;
+    USword317fc8 cfa_offset;
+    UWord317fc8 cfa_reg;
+    const unsigned char* cfa_exp;
+    int cfa_how;
+    void* pc;
+    UPers317fc8 personality;
+    USword317fc8 data_align;
+    UWord317fc8 code_align;
+    unsigned char retaddr_column;
+    unsigned char fde_encoding;
+    unsigned char lsda_encoding;
+    unsigned char saw_z;
+    void* eh_ptr;
+};
+struct UBases317fc8 { void* tbase; void* dbase; void* func; };
+struct UCtx317fc8 {
+    void* reg[177];
+    void* cfa;
+    void* ra;
+    void* lsda;
+    UBases317fc8 bases;
+    UWord317fc8 args_size;
+};
+struct UExc317fc8 { u64 exception_class; void (*cleanup)(int, UExc317fc8*); UWord317fc8 private_1; UWord317fc8 private_2; };
+const unsigned char* func_00316f38(const unsigned char*, UWord317fc8*);
+UWord317fc8 func_003172f0_x14819(const unsigned char* op_ptr, const unsigned char* op_end, UCtx317fc8* context, UWord317fc8 initial) asm("func_003172f0");
+void func_002fd160__317fc8(void) asm("func_002fd160") __attribute__((noreturn));
+static inline UWord317fc8 _Unwind_GetGR317fc8 (UCtx317fc8 *context, int index)
+{
+  return * (UWord317fc8 *) context->reg[index];
+}
+void func_00317fc8(UCtx317fc8* context, FState317fc8* fs)
+{
+  UCtx317fc8 orig_context = *context;
+  void *cfa;
+  long i;
+
+  switch (fs->cfa_how)
+    {
+    case 1:
+      if (context->reg[fs->cfa_reg] == 0)
+        cfa = context->cfa;
+      else
+        cfa = (void *) (u32) _Unwind_GetGR317fc8 (context, fs->cfa_reg);
+      cfa = (char*)cfa + fs->cfa_offset;
+      break;
+
+    case 2:
+      {
+        const unsigned char *exp = fs->cfa_exp;
+        UWord317fc8 len;
+
+        exp = func_00316f38 (exp, &len);
+        cfa = (void *) (u32)
+          func_003172f0_x14819 (exp, exp + len, context, 0);
+        break;
+      }
+
+    default:
+      func_002fd160__317fc8 ();
+    }
+  context->cfa = cfa;
+
+  i = 0;
+  do
+    switch (fs->regs.reg[i].how)
+      {
+      case 0:
+        break;
+      case 1:
+        context->reg[i] = (char*)cfa + fs->regs.reg[i].loc.offset;
+        break;
+      case 2:
+        context->reg[i] = orig_context.reg[fs->regs.reg[i].loc.reg];
+        break;
+      case 3:
+        {
+          const unsigned char *exp = fs->regs.reg[i].loc.exp;
+          UWord317fc8 len;
+          u32 val;
+
+          exp = func_00316f38 (exp, &len);
+          val = func_003172f0_x14819 (exp, exp + len, &orig_context,
+                               (u32) cfa);
+          context->reg[i] = (void *) val;
+        }
+        break;
+      }
+  while (++i < 176 + 1);
+}
+
+// --------------------
+// libgcc unwind.inc _Unwind_Resume (GCC 3.2).
+typedef u64 UWord318fc0;
+typedef s64 USword318fc0;
+struct RegInfo318fc0 {
+    struct {
+        union { UWord318fc0 reg; USword318fc0 offset; const unsigned char* exp; } loc;
+        int how;
+    } reg[177];
+    RegInfo318fc0* prev;
+};
+struct UCtx318fc0;
+struct UExc318fc0;
+typedef int (*UPers318fc0)(int, int, u64, UExc318fc0*, UCtx318fc0*);
+struct FState318fc0 {
+    RegInfo318fc0 regs;
+    USword318fc0 cfa_offset;
+    UWord318fc0 cfa_reg;
+    const unsigned char* cfa_exp;
+    int cfa_how;
+    void* pc;
+    UPers318fc0 personality;
+    USword318fc0 data_align;
+    UWord318fc0 code_align;
+    unsigned char retaddr_column;
+    unsigned char fde_encoding;
+    unsigned char lsda_encoding;
+    unsigned char saw_z;
+    void* eh_ptr;
+};
+struct UBases318fc0 { void* tbase; void* dbase; void* func; };
+struct UCtx318fc0 {
+    void* reg[177];
+    void* cfa;
+    void* ra;
+    void* lsda;
+    UBases318fc0 bases;
+    UWord318fc0 args_size;
+};
+struct UExc318fc0 { u64 exception_class; void (*cleanup)(int, UExc318fc0*); UWord318fc0 private_1; UWord318fc0 private_2; };
+void func_003181f8_x14925(UCtx318fc0* context, void* outer_cfa, void* outer_ra) asm("func_003181f8");
+int func_00318908_x14926(UExc318fc0* exc, UCtx318fc0* context) asm("func_00318908");
+int func_00318ca0(UExc318fc0* exc, UCtx318fc0* context);
+long func_00318290__318fc0(UCtx318fc0* current, UCtx318fc0* target) asm("func_00318290");
+void func_002fd160__318fc0(void) asm("func_002fd160") __attribute__((noreturn));
+void func_00318fc0(UExc318fc0* exc)
+{
+  UCtx318fc0 this_context, cur_context;
+  int code;
+
+  __builtin_unwind_init ();
+  func_003181f8_x14925 (&this_context, __builtin_dwarf_cfa (), __builtin_return_address (0));
+  __builtin_memcpy (&cur_context, &this_context, sizeof (cur_context));
+
+  if (exc->private_1 == 0)
+    code = func_00318908_x14926 (exc, &cur_context);
+  else
+    code = func_00318ca0 (exc, &cur_context);
+
+  if (code != 7)
+    func_002fd160__318fc0 ();
+
+  {
+    long offset = func_00318290__318fc0 (&this_context, &cur_context);
+    void *handler = __builtin_frob_return_addr (cur_context.ra);
+    __builtin_eh_return (offset, handler);
+  }
+}
+
+// --------------------
+// Model instance setup: construct members, point at the model data tables and reset the bounds.
+struct Hdr145830 { u8 pad[20]; s32 o20; u32 n24; s32 o28; u32 n32; s32 o36; u32 n40; };
+union P145830 { u8* p; u8 c; };
+union H145830 { struct Hdr145830* p; u8 c; };
+struct E8_145830 { s32 a; u32 b; };
+struct Obj145830 {
+    H145830 hdr; P145830 t4; P145830 t8; P145830 t12; u32 n16, n20, n24, f28;
+    u8 m32[256]; u8 m288[1624]; u8 f1912; u8 f1913; u8 pad1914[22]; u8 m1936[1232];
+    u8 e3168[16][880]; E8_145830 e17248[512];
+    s32 f21344, f21348, f21352, f21356, f21360, f21364, f21368, f21372;
+};
+void func_00106ab8(u8* p);
+void func_001070c8(u8* p);
+void func_0015e4e0(u8* p);
+void func_0015e9e0(u8* p);
+void func_0031a830(u32* p);
+void func_001447c0_x14971(u8* p, f32 a, f32 b, f32 c, f32 d, f32 e, f32 f) asm("func_001447c0");
+void func_00145b90(Obj145830* o, s32 a);
+void func_00146d28(Obj145830* o);
+void func_00145830(Obj145830* o, Hdr145830* h, u8 flag, s32 a)
+{
+    s32 i;
+    o->t4.p = 0;
+    o->t8.p = 0;
+    o->t12.p = 0;
+    o->n16 = 0;
+    o->n20 = 0;
+    o->n24 = 0;
+    o->f28 = 0;
+    func_00106ab8(o->m32);
+    func_001070c8(o->m288);
+    o->f1912 = flag;
+    o->f1913 = 0;
+    func_0015e4e0(o->m1936);
+    {
+        u8* p = o->e3168[0];
+        for (i = 15; i != -1; i--, p += 880) func_0015e9e0(p);
+    }
+    {
+        E8_145830* e = o->e17248;
+        i = 511;
+        do {
+            u32* q;
+            e->a = 0;
+            e->b = 0;
+            q = &e->b;
+            i--;
+            e++;
+            func_0031a830(q);
+        } while (i != -1);
+    }
+    o->hdr.p = h;
+    o->f21348 = 0;
+    o->f21356 = 0;
+    o->f21360 = 0;
+    o->f21364 = 0;
+    o->f21368 = 0;
+    o->f21372 = 0;
+    o->t4.p = (u8*)h + h->o20;
+    o->t8.p = (u8*)h + h->o28;
+    o->t12.p = (u8*)h + h->o36;
+    o->n16 = h->n24 / 48;
+    o->n20 = h->n32 / 28;
+    o->n24 = h->n40 / 52;
+    o->f1912 = flag;
+    func_001447c0_x14971(o->t4.p + 16, -100000000.0f, -100000000.0f, -100000000.0f, 100000000.0f, 100000000.0f, 100000000.0f);
+    func_00145b90(o, a);
+    func_00146d28(o);
+}
+
+// --------------------
+// Copy constructor: base part, vtable, then the member data.
+union W324bc0 { s32 v; u8 c; };
+struct Obj324bc0 {
+    u32 vt;
+    u8 pad4[172];
+    s32 f176;
+    s32 f180;
+    W324bc0 a184[13];
+    s32 f236;
+    s32 f240;
+    s32 f244;
+    s32 f248;
+    s32 f252;
+    f32 f256;
+    f32 f260;
+    f32 f264;
+    s32 f268;
+    s32 f272;
+    s32 f276;
+    f32 f280;
+    f32 f284;
+    f32 f288;
+    f32 f292;
+    f32 f296;
+    f32 f300;
+    f32 f304;
+    f32 f308;
+    f32 f312;
+    f32 f316;
+    s32 f320;
+    s32 f324;
+    s32 f328;
+    s32 f332;
+    s32 f336;
+    s32 f340;
+};
+extern u8 D_0035eaf8[];
+void func_00324d50(Obj324bc0* d, Obj324bc0* s);
+void func_00324bc0(Obj324bc0* d, Obj324bc0* s)
+{
+    func_00324d50(d, s);
+    d->vt = (u32)D_0035eaf8;
+    d->f176 = s->f176;
+    d->f180 = s->f180;
+    d->a184[0].v = s->a184[0].v;
+    d->a184[1].v = s->a184[1].v;
+    d->a184[2].v = s->a184[2].v;
+    d->a184[3].v = s->a184[3].v;
+    d->a184[4].v = s->a184[4].v;
+    d->a184[5].v = s->a184[5].v;
+    d->a184[6].v = s->a184[6].v;
+    d->a184[7].v = s->a184[7].v;
+    d->a184[8].v = s->a184[8].v;
+    d->a184[9].v = s->a184[9].v;
+    d->a184[10].v = s->a184[10].v;
+    d->a184[11].v = s->a184[11].v;
+    d->a184[12].v = s->a184[12].v;
+    d->f236 = s->f236;
+    d->f240 = s->f240;
+    d->f244 = s->f244;
+    d->f248 = s->f248;
+    d->f252 = s->f252;
+    d->f256 = s->f256;
+    d->f260 = s->f260;
+    d->f264 = s->f264;
+    d->f268 = s->f268;
+    d->f272 = s->f272;
+    d->f276 = s->f276;
+    d->f280 = s->f280;
+    d->f284 = s->f284;
+    d->f288 = s->f288;
+    d->f292 = s->f292;
+    d->f296 = s->f296;
+    d->f300 = s->f300;
+    d->f304 = s->f304;
+    d->f308 = s->f308;
+    d->f312 = s->f312;
+    d->f316 = s->f316;
+    d->f320 = s->f320;
+    d->f324 = s->f324;
+    d->f328 = s->f328;
+    d->f332 = s->f332;
+    d->f336 = s->f336;
+    d->f340 = s->f340;
+}
+
+// --------------------
+// dk::Camera::draw2Camera: lazily construct the two full-screen fade sprites, then draw them.
+extern s8 D_004f3b50;
+extern s8 D_004f3b58;
+extern u8 D_004f3b60[];
+extern u8 D_004f3e70[];
+extern u8 D_0034c768;
+extern u8 D_0034c76c;
+void func_0014c050(u8* s);
+void func_002fd188(void (*fn)(void));
+void func_001623d8(void);
+void func_001623f0(void);
+void func_0014b5e0(u8* s, s32 tex);
+void func_0014b630(u8* s, s32 a);
+void func_0014b208(u8* s, u16 w, u16 h);
+void func_0014b5e8(u8* s, u64 uv0, u64 uv1);
+void func_0014b628(u8* s, u64 a);
+void func_0014b220(u8* s, u8 r, u8 g, u8 b, u8 a);
+void func_0014c350(u8* s);
+void func_0014e098(s32 a);
+void draw2Camera_161aa8(void) asm("_ZN2dk6Camera11draw2CameraEv");
+void draw2Camera_161aa8(void)
+{
+    u8* s0;
+    u8* s1;
+    if (!D_004f3b50) {
+        func_0014c050(D_004f3b60);
+        D_004f3b50 = 1;
+        func_002fd188(func_001623d8);
+    }
+    if (!D_004f3b58) {
+        func_0014c050(D_004f3e70);
+        D_004f3b58 = 1;
+        func_002fd188(func_001623f0);
+    }
+    s0 = D_004f3b60;
+    s1 = D_004f3e70;
+    func_0014b5e0(s0, 342);
+    func_0014b630(s0, 0);
+    func_0014b208(s0, 512, 416);
+    func_0014b5e8(s0, 0x80008, 0x1a082008);
+    func_0014b628(s0, 0x2000000264121b00ULL);
+    func_0014b220(s0, 128, 128, 128, D_0034c76c);
+    func_0014c350(s0);
+    func_0014e098(320);
+    func_0014b5e0(s1, 342);
+    func_0014b630(s1, 0);
+    func_0014b208(s1, 512, 416);
+    func_0014b5e8(s1, 0x80008, 0x1a082008);
+    func_0014b628(s1, 0x2000000264122800ULL);
+    func_0014b220(s1, 128, 128, 128, D_0034c768);
+    func_0014c350(s1);
+}
+
+// --------------------
+// libgcc unwind-dw2.c uw_frame_state_for (GCC 3.2).
+typedef u64 UWord317d80;
+typedef s64 USword317d80;
+struct RegInfo317d80 {
+    struct {
+        union { UWord317d80 reg; USword317d80 offset; const unsigned char* exp; } loc;
+        u32 how;
+    } reg[177];
+    RegInfo317d80* prev;
+};
+struct UCtx317d80;
+struct UExc317d80;
+typedef int (*UPers317d80)(int, int, u64, UExc317d80*, UCtx317d80*);
+struct FState317d80 {
+    RegInfo317d80 regs;
+    USword317d80 cfa_offset;
+    UWord317d80 cfa_reg;
+    const unsigned char* cfa_exp;
+    int cfa_how;
+    void* pc;
+    UPers317d80 personality;
+    USword317d80 data_align;
+    UWord317d80 code_align;
+    unsigned char retaddr_column;
+    unsigned char fde_encoding;
+    unsigned char lsda_encoding;
+    unsigned char saw_z;
+    void* eh_ptr;
+};
+struct UBases317d80 { void* tbase; void* dbase; void* func; };
+struct UCtx317d80 {
+    void* reg[177];
+    void* cfa;
+    void* ra;
+    void* lsda;
+    UBases317d80 bases;
+    UWord317d80 args_size;
+};
+struct UExc317d80 { u64 exception_class; void (*cleanup)(int, UExc317d80*); UWord317d80 private_1; UWord317d80 private_2; };
+struct Fde317d80 { u32 length; s32 CIE_delta; unsigned char pc_begin[1]; };
+struct Cie317d80 { u32 length; s32 CIE_id; u8 version; unsigned char augmentation[1]; };
+void* func_002fde18__317d80(void* p, s32 c, u32 n) asm("func_002fde18");
+Fde317d80* func_00101698(void* pc, UBases317d80* bases);
+const unsigned char* func_00317140(Cie317d80* cie, UCtx317d80* context, FState317d80* fs);
+void func_00317868__317d80(const unsigned char* insn, const unsigned char* end, UCtx317d80* context, FState317d80* fs) asm("func_00317868");
+u32 func_00316e20(unsigned char encoding);
+const unsigned char* func_00316f38(const unsigned char*, UWord317d80*);
+u32 func_00316e88__317d80(unsigned char, UCtx317d80*) asm("func_00316e88");
+const unsigned char* func_00316fc8(unsigned char, u32, const unsigned char*, u32*);
+static inline const unsigned char* read_encoded_value317d80(UCtx317d80* context, unsigned char encoding, const unsigned char* p, u32* val)
+{
+  return func_00316fc8 (encoding, func_00316e88__317d80 (encoding, context), p, val);
+}
+static inline Cie317d80* get_cie317d80(Fde317d80* f)
+{
+  return (Cie317d80*) ((char*) &f->CIE_delta - f->CIE_delta);
+}
+int func_00317d80(UCtx317d80* context, FState317d80* fs)
+{
+  Fde317d80 *fde;
+  Cie317d80 *cie;
+  const unsigned char *aug, *insn, *end;
+
+  func_002fde18__317d80 (fs, 0, sizeof (*fs));
+  context->args_size = 0;
+  context->lsda = 0;
+
+  fde = func_00101698 ((char*)context->ra - 1, &context->bases);
+  if (fde == 0)
+    return 5;
+
+  fs->pc = context->bases.func;
+
+  cie = get_cie317d80 (fde);
+  insn = func_00317140 (cie, context, fs);
+  if (insn == 0)
+    return 3;
+
+  end = (unsigned char *) cie + cie->length + sizeof (cie->length);
+  func_00317868__317d80 (insn, end, context, fs);
+
+  aug = (unsigned char *) fde + 8;
+  aug += 2 * func_00316e20 (fs->fde_encoding);
+  insn = 0;
+  if (fs->saw_z)
+    {
+      UWord317d80 i;
+      aug = func_00316f38 (aug, &i);
+      insn = aug + i;
+    }
+  if (fs->lsda_encoding != 0xff)
+    aug = read_encoded_value317d80 (context, fs->lsda_encoding, aug, (u32 *) &context->lsda);
+
+  if (!insn)
+    insn = aug;
+  end = (unsigned char *) fde + fde->length + sizeof (fde->length);
+  func_00317868__317d80 (insn, end, context, fs);
+
+  return 0;
+}
+
+// --------------------
+// Menu teardown: free the windows, delete the helper objects and the item panel array.
+struct VObj00247e80 { struct { void* f0; void* f4; void* f8; void (*dtor)(VObj00247e80*); void (*del)(VObj00247e80*); }* vt; };
+struct Panel00247e80 { struct { void* f0; void* f4; void* f8; void (*dtor)(Panel00247e80*); }* vt; u8 pad[404]; };
+struct Alloc00247e80 { struct { void* f0; void (*free)(Alloc00247e80*, void*); }* vt; };
+struct Heap00247e80 { u8 pad[20]; Alloc00247e80* a; };
+extern void* D_0035ed4c_x15274 asm("D_0035ed4c");
+extern void* D_0035ed50;
+extern VObj00247e80* D_0035ed54_x15276 asm("D_0035ed54");
+extern VObj00247e80* D_0035ed58;
+extern VObj00247e80* D_0035ed5c;
+extern void* D_0035ed60;
+extern Panel00247e80* D_0035ed64_x15280 asm("D_0035ed64");
+extern Alloc00247e80* D_0032ba14_x15281 asm("D_0032ba14");
+extern Heap00247e80* D_00347f80_x15282 asm("D_00347f80");
+void func_00288b00(void* w);
+void func_00288c20(void* w);
+void func_002b3fb0(void* o);
+void func_00247e80(void)
+{
+    void* w;
+    if ((w = D_0035ed4c_x15274) != 0) { func_00288b00(w); func_00288c20(w); D_0035ed4c_x15274 = 0; }
+    if ((w = D_0035ed50) != 0) { func_00288b00(w); func_00288c20(w); D_0035ed50 = 0; }
+    if (D_0035ed54_x15276) { D_0035ed54_x15276->vt->del(D_0035ed54_x15276); D_0035ed54_x15276 = 0; }
+    if (D_0035ed58) { D_0035ed58->vt->del(D_0035ed58); D_0035ed58 = 0; }
+    if (D_0035ed5c) { D_0035ed5c->vt->del(D_0035ed5c); D_0035ed5c = 0; }
+    if ((w = D_0035ed60) != 0) { func_002b3fb0(w); D_0032ba14_x15281->vt->free(D_0032ba14_x15281, w); D_0035ed60 = 0; }
+    if (D_0035ed64_x15280) {
+        Panel00247e80* e = D_0035ed64_x15280 + ((s32*)D_0035ed64_x15280)[-1];
+        Panel00247e80* q;
+        for (;;) {
+            q = D_0035ed64_x15280;
+            if (q == e) break;
+            e--;
+            e->vt->dtor(e);
+        }
+        D_00347f80_x15282->a->vt->free(D_00347f80_x15282->a, (s32*)q - 1);
+        D_0035ed64_x15280 = 0;
+    }
+}
+
+// --------------------
+
+// --------------------
+
+// --------------------
+// Menu teardown: free the windows, delete the helper objects and the item panel array.
+struct VObj0024b3a0 { struct { void* f0; void* f4; void* f8; void (*dtor)(VObj0024b3a0*); void (*del)(VObj0024b3a0*); }* vt; };
+struct Panel0024b3a0 { struct { void* f0; void* f4; void* f8; void (*dtor)(Panel0024b3a0*); }* vt; u8 pad[404]; };
+struct Alloc0024b3a0 { struct { void* f0; void (*free)(Alloc0024b3a0*, void*); }* vt; };
+struct Heap0024b3a0 { u8 pad[20]; Alloc0024b3a0* a; };
+extern void* D_0035eda8_x15319 asm("D_0035eda8");
+extern void* D_0035edac;
+extern VObj0024b3a0* D_0035edb0_x15321 asm("D_0035edb0");
+extern VObj0024b3a0* D_0035edb4;
+extern VObj0024b3a0* D_0035edb8;
+extern void* D_0035edc0;
+extern Panel0024b3a0* D_0035edbc_x15325 asm("D_0035edbc");
+extern Alloc0024b3a0* D_0032ba14_x15326 asm("D_0032ba14");
+extern Heap0024b3a0* D_00347f80_x15327 asm("D_00347f80");
+void func_00288b00(void* w);
+void func_00288c20(void* w);
+void func_002b3fb0(void* o);
+void func_0024b3a0(void)
+{
+    void* w;
+    if ((w = D_0035eda8_x15319) != 0) { func_00288b00(w); func_00288c20(w); D_0035eda8_x15319 = 0; }
+    if ((w = D_0035edac) != 0) { func_00288b00(w); func_00288c20(w); D_0035edac = 0; }
+    if (D_0035edb0_x15321) { D_0035edb0_x15321->vt->del(D_0035edb0_x15321); D_0035edb0_x15321 = 0; }
+    if (D_0035edb4) { D_0035edb4->vt->del(D_0035edb4); D_0035edb4 = 0; }
+    if (D_0035edb8) { D_0035edb8->vt->del(D_0035edb8); D_0035edb8 = 0; }
+    if ((w = D_0035edc0) != 0) { func_002b3fb0(w); D_0032ba14_x15326->vt->free(D_0032ba14_x15326, w); D_0035edc0 = 0; }
+    if (D_0035edbc_x15325) {
+        Panel0024b3a0* e = D_0035edbc_x15325 + ((s32*)D_0035edbc_x15325)[-1];
+        Panel0024b3a0* q;
+        for (;;) {
+            q = D_0035edbc_x15325;
+            if (q == e) break;
+            e--;
+            e->vt->dtor(e);
+        }
+        D_00347f80_x15327->a->vt->free(D_00347f80_x15327->a, (s32*)q - 1);
+        D_0035edbc_x15325 = 0;
+    }
+}
+
+// --------------------
+// Menu teardown: free the windows, delete the helper objects and the item panel array.
+struct VObj0024f528 { struct { void* f0; void* f4; void* f8; void (*dtor)(VObj0024f528*); void (*del)(VObj0024f528*); }* vt; };
+struct Panel0024f528 { struct { void* f0; void* f4; void* f8; void (*dtor)(Panel0024f528*); }* vt; u8 pad[404]; };
+struct Alloc0024f528 { struct { void* f0; void (*free)(Alloc0024f528*, void*); }* vt; };
+struct Heap0024f528 { u8 pad[20]; Alloc0024f528* a; };
+extern void* D_0035ee34_x15360 asm("D_0035ee34");
+extern void* D_0035ee38_x15361 asm("D_0035ee38");
+extern VObj0024f528* D_0035ee3c_x15362 asm("D_0035ee3c");
+extern VObj0024f528* D_0035ee40;
+extern VObj0024f528* D_0035ee44;
+extern void* D_0035ee4c_x15365 asm("D_0035ee4c");
+extern Panel0024f528* D_0035ee48_x15366 asm("D_0035ee48");
+extern Alloc0024f528* D_0032ba14_x15367 asm("D_0032ba14");
+extern Heap0024f528* D_00347f80_x15368 asm("D_00347f80");
+void func_00288b00(void* w);
+void func_00288c20(void* w);
+void func_002b3fb0(void* o);
+void func_0024f528(void)
+{
+    void* w;
+    if ((w = D_0035ee34_x15360) != 0) { func_00288b00(w); func_00288c20(w); D_0035ee34_x15360 = 0; }
+    if ((w = D_0035ee38_x15361) != 0) { func_00288b00(w); func_00288c20(w); D_0035ee38_x15361 = 0; }
+    if (D_0035ee3c_x15362) { D_0035ee3c_x15362->vt->del(D_0035ee3c_x15362); D_0035ee3c_x15362 = 0; }
+    if (D_0035ee40) { D_0035ee40->vt->del(D_0035ee40); D_0035ee40 = 0; }
+    if (D_0035ee44) { D_0035ee44->vt->del(D_0035ee44); D_0035ee44 = 0; }
+    if ((w = D_0035ee4c_x15365) != 0) { func_002b3fb0(w); D_0032ba14_x15367->vt->free(D_0032ba14_x15367, w); D_0035ee4c_x15365 = 0; }
+    if (D_0035ee48_x15366) {
+        Panel0024f528* e = D_0035ee48_x15366 + ((s32*)D_0035ee48_x15366)[-1];
+        Panel0024f528* q;
+        for (;;) {
+            q = D_0035ee48_x15366;
+            if (q == e) break;
+            e--;
+            e->vt->dtor(e);
+        }
+        D_00347f80_x15368->a->vt->free(D_00347f80_x15368->a, (s32*)q - 1);
+        D_0035ee48_x15366 = 0;
+    }
+}
+
+// --------------------
+// Build an object's world matrix: rotation (fixed-point angles), per-axis scale, translation, then the height offset.
+struct Src20c860 { f32 pos[4]; u8 pad16[24]; union { u64 xy; s32 r[2]; } rot; s32 rz; u8 pad52[32]; f32 scl[3]; };
+struct Par20c860 { u8 pad[224]; f32 hs; f32 ho; };
+extern u8 D_01d9ea40[];
+extern u8 D_01d9e730[];
+extern u8 D_01d9e8c0[];
+void func_002f4000_x15402(f32* m) asm("func_002f4000");
+void func_002f4298(f32* o, void* a, f32* v);
+void func_002f3d08_x15404(f32* o, void* a, void* b) asm("func_002f3d08");
+void func_002f3f40(f32* o, f32* a, f32 s);
+void func_002f3f88_x15406(f32* o, Src20c860* a) asm("func_002f3f88");
+void func_002f3cd8_x15407(f32* o, void* a, f32* b) asm("func_002f3cd8");
+f32 func_0020c860(void* self, f32* m, Par20c860* par, void* a3, Src20c860* src)
+{
+    f32 rm[16];
+    f32 ang[4];
+    s32 i;
+    f32* row;
+    f32 z;
+    func_002f4000_x15402(m);
+    if (src->rot.xy || src->rz) {
+        for (i = 0; i < 3; i++)
+            ang[i] = (f32)src->rot.r[i] * 3.1415927f * 3.0517578125e-05f;
+        func_002f4298(rm, D_01d9ea40, ang);
+        func_002f3d08_x15404(m, m, rm);
+    }
+    for (i = 0; i < 3; i++)
+        func_002f3f40(m + i * 4, m + i * 4, src->scl[i]);
+    func_002f3f88_x15406(m + 12, src);
+    func_002f3cd8_x15407(m + 12, D_01d9e730, m + 12);
+    m[13] *= par->hs;
+    z = m[14];
+    m[13] += par->ho;
+    func_002f3d08_x15404(m, D_01d9e8c0, m);
+    return z;
 }
 
 } // extern "C"
