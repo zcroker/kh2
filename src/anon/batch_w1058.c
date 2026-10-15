@@ -1,3 +1,6 @@
+/* Reconstruction of newlib's _vfprintf_r (newlib/libc/stdio/vfprintf.c), which the game links.
+ * newlib is (c) The Regents of the University of California and other contributors, BSD-licensed;
+ * see https://sourceware.org/newlib/ for its license terms. */
 #include "../common/types.h"
 #include <stdarg.h>
 
