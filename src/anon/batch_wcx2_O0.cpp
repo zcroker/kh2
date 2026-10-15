@@ -114,4 +114,7 @@ s32 wt_002b70b8(u32 a0, u32 a1, u32 a2) {
     return func_002b6708_6f28(4, 17, a0, a1, a2);
 }
 
+// ---- 002b8214
+s32 func_002b8214(s32 a) { return 0; }
+
 } // extern "C"

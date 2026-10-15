@@ -12561,8 +12561,8 @@ static inline unsigned long read_8s3172f0(const void* p) { const Unal3172f0* up 
 const unsigned char* func_00316f38__3172f0(const unsigned char*, UWord3172f0*) asm("func_00316f38");
 const unsigned char* func_00316f70__3172f0(const unsigned char*, USword3172f0*) asm("func_00316f70");
 void func_002fd160__3172f0(void) asm("func_002fd160") __attribute__((noreturn));
-s64 func_00311dd0__3172f0(s64, s64) asm("func_00311dd0");
-s64 func_003125c0__3172f0(s64, s64) asm("func_003125c0");
+s64 func_00311dd0(s64, s64);
+s64 func_003125c0(s64, s64);
 #define read_uleb128 func_00316f38__3172f0
 #define read_sleb128 func_00316f70__3172f0
 #define abort func_002fd160__3172f0
@@ -12786,13 +12786,13 @@ UWord3172f0 func_003172f0(const unsigned char* op_ptr, const unsigned char* op_e
 		result = second & first;
 		break;
 	      case 0x1b:
-		result = func_00311dd0__3172f0((USword3172f0)second, (USword3172f0)first);
+		result = func_00311dd0((USword3172f0)second, (USword3172f0)first);
 		break;
 	      case 0x1c:
 		result = second - first;
 		break;
 	      case 0x1d:
-		result = func_003125c0__3172f0((USword3172f0)second, (USword3172f0)first);
+		result = func_003125c0((USword3172f0)second, (USword3172f0)first);
 		break;
 	      case 0x1e:
 		result = second * first;
@@ -12876,5 +12876,1069 @@ UWord3172f0 func_003172f0(const unsigned char* op_ptr, const unsigned char* op_e
 #undef read_uleb128
 #undef read_sleb128
 #undef abort
+
+// --------------------
+// libgcc unwind-dw2.c execute_cfa_program (GCC 3.2).
+typedef u64 UWord317868;
+typedef s64 USword317868;
+struct RegInfo317868 {
+    struct {
+        union { UWord317868 reg; USword317868 offset; const unsigned char* exp; } loc;
+        int how;
+    } reg[177];
+    RegInfo317868* prev;
+};
+struct FState317868 {
+    RegInfo317868 regs;
+    USword317868 cfa_offset;
+    UWord317868 cfa_reg;
+    const unsigned char* cfa_exp;
+    int cfa_how;
+    void* pc;
+    void* personality;
+    USword317868 data_align;
+    UWord317868 code_align;
+    unsigned char retaddr_column;
+    unsigned char fde_encoding;
+    unsigned char lsda_encoding;
+    unsigned char saw_z;
+    void* eh_ptr;
+};
+struct UCtx317868 { void* reg[178]; void* ra; u8 pad[20]; UWord317868 args_size; };
+union Unal317868 {
+    void* p;
+    unsigned u2 __attribute__((mode(HI)));
+    unsigned u4 __attribute__((mode(SI)));
+} __attribute__((packed));
+static inline int read_1u317868(const void* p) { return *(const unsigned char*)p; }
+static inline int read_2u317868(const void* p) { const Unal317868* up = (const Unal317868*)p; return up->u2; }
+static inline unsigned int read_4u317868(const void* p) { const Unal317868* up = (const Unal317868*)p; return up->u4; }
+const unsigned char* func_00316f38(const unsigned char*, UWord317868*);
+const unsigned char* func_00316f70(const unsigned char*, USword317868*);
+u32 func_00316e88(unsigned char, UCtx317868*);
+const unsigned char* func_00316fc8(unsigned char, u32, const unsigned char*, u32*);
+void func_002fd160__317868(void) asm("func_002fd160") __attribute__((noreturn));
+static inline const unsigned char* read_encoded_value317868(UCtx317868* context, unsigned char encoding,
+                                                            const unsigned char* p, u32* val)
+{
+    return func_00316fc8(encoding, func_00316e88(encoding, context), p, val);
+}
+#define read_uleb128 func_00316f38
+#define read_sleb128 func_00316f70
+#define abort func_002fd160__317868
+void func_00317868(const unsigned char* insn_ptr, const unsigned char* insn_end, UCtx317868* context, FState317868* fs)
+{
+  RegInfo317868* unused_rs = 0;
+
+  fs->regs.prev = 0;
+
+  while (insn_ptr < insn_end && fs->pc < context->ra)
+    {
+      unsigned char insn = *insn_ptr++;
+      UWord317868 reg, utmp;
+      USword317868 offset, stmp;
+
+      if ((insn & 0xc0) == 0x40)
+	fs->pc = (char*)fs->pc + (insn & 0x3f) * fs->code_align;
+      else if ((insn & 0xc0) == 0x80)
+	{
+	  reg = insn & 0x3f;
+	  insn_ptr = read_uleb128 (insn_ptr, &utmp);
+	  offset = (USword317868) utmp * fs->data_align;
+	  fs->regs.reg[reg].how = 1;
+	  fs->regs.reg[reg].loc.offset = offset;
+	}
+      else if ((insn & 0xc0) == 0xc0)
+	{
+	  reg = insn & 0x3f;
+	  fs->regs.reg[reg].how = 0;
+	}
+      else switch (insn)
+	{
+	case 0x01:
+	  insn_ptr = read_encoded_value317868 (context, fs->fde_encoding, insn_ptr, (u32*) &fs->pc);
+	  break;
+
+	case 0x02:
+	  fs->pc = (char*)fs->pc + read_1u317868 (insn_ptr) * fs->code_align;
+	  insn_ptr += 1;
+	  break;
+	case 0x03:
+	  fs->pc = (char*)fs->pc + read_2u317868 (insn_ptr) * fs->code_align;
+	  insn_ptr += 2;
+	  break;
+	case 0x04:
+	  fs->pc = (char*)fs->pc + read_4u317868 (insn_ptr) * fs->code_align;
+	  insn_ptr += 4;
+	  break;
+
+	case 0x05:
+	  insn_ptr = read_uleb128 (insn_ptr, &reg);
+	  insn_ptr = read_uleb128 (insn_ptr, &utmp);
+	  offset = (USword317868) utmp * fs->data_align;
+	  fs->regs.reg[reg].how = 1;
+	  fs->regs.reg[reg].loc.offset = offset;
+	  break;
+
+	case 0x06:
+	  insn_ptr = read_uleb128 (insn_ptr, &reg);
+	  fs->regs.reg[reg].how = 0;
+	  break;
+
+	case 0x07:
+	case 0x08:
+	case 0x00:
+	  break;
+
+	case 0x09:
+	  {
+	    UWord317868 reg2;
+	    insn_ptr = read_uleb128 (insn_ptr, &reg);
+	    insn_ptr = read_uleb128 (insn_ptr, &reg2);
+	    fs->regs.reg[reg].how = 2;
+	    fs->regs.reg[reg].loc.reg = reg2;
+	  }
+	  break;
+
+	case 0x0a:
+	  {
+	    RegInfo317868* new_rs;
+	    if (unused_rs)
+	      {
+		new_rs = unused_rs;
+		unused_rs = unused_rs->prev;
+	      }
+	    else
+	      new_rs = (RegInfo317868*)__builtin_alloca (sizeof (RegInfo317868));
+
+	    *new_rs = fs->regs;
+	    fs->regs.prev = new_rs;
+	  }
+	  break;
+
+	case 0x0b:
+	  {
+	    RegInfo317868* old_rs = fs->regs.prev;
+	    fs->regs = *old_rs;
+	    old_rs->prev = unused_rs;
+	    unused_rs = old_rs;
+	  }
+	  break;
+
+	case 0x0c:
+	  insn_ptr = read_uleb128 (insn_ptr, &fs->cfa_reg);
+	  insn_ptr = read_uleb128 (insn_ptr, &utmp);
+	  fs->cfa_offset = utmp;
+	  fs->cfa_how = 1;
+	  break;
+
+	case 0x0d:
+	  insn_ptr = read_uleb128 (insn_ptr, &fs->cfa_reg);
+	  fs->cfa_how = 1;
+	  break;
+
+	case 0x0e:
+	  insn_ptr = read_uleb128 (insn_ptr, &utmp);
+	  fs->cfa_offset = utmp;
+	  break;
+
+	case 0x0f:
+	  insn_ptr = read_uleb128 (insn_ptr, &utmp);
+	  fs->cfa_exp = insn_ptr;
+	  fs->cfa_how = 2;
+	  insn_ptr += utmp;
+	  break;
+
+	case 0x10:
+	  insn_ptr = read_uleb128 (insn_ptr, &reg);
+	  insn_ptr = read_uleb128 (insn_ptr, &utmp);
+	  fs->regs.reg[reg].how = 3;
+	  fs->regs.reg[reg].loc.exp = insn_ptr;
+	  insn_ptr += utmp;
+	  break;
+
+	case 0x11:
+	  insn_ptr = read_uleb128 (insn_ptr, &reg);
+	  insn_ptr = read_sleb128 (insn_ptr, &stmp);
+	  offset = stmp * fs->data_align;
+	  fs->regs.reg[reg].how = 1;
+	  fs->regs.reg[reg].loc.offset = offset;
+	  break;
+
+	case 0x12:
+	  insn_ptr = read_uleb128 (insn_ptr, &fs->cfa_reg);
+	  insn_ptr = read_sleb128 (insn_ptr, &fs->cfa_offset);
+	  fs->cfa_how = 1;
+	  break;
+
+	case 0x13:
+	  insn_ptr = read_sleb128 (insn_ptr, &fs->cfa_offset);
+	  break;
+
+	case 0x2d:
+	  for (reg = 16; reg < 32; ++reg)
+	    {
+	      fs->regs.reg[reg].how = 1;
+	      fs->regs.reg[reg].loc.offset = (reg - 16) * sizeof (void*);
+	    }
+	  break;
+
+	case 0x2e:
+	  insn_ptr = read_uleb128 (insn_ptr, &context->args_size);
+	  break;
+
+	case 0x2f:
+	  insn_ptr = read_uleb128 (insn_ptr, &reg);
+	  insn_ptr = read_uleb128 (insn_ptr, &utmp);
+	  offset = (UWord317868) utmp * fs->data_align;
+	  fs->regs.reg[reg].how = 1;
+	  fs->regs.reg[reg].loc.offset = -offset;
+	  break;
+
+	default:
+	  abort ();
+	}
+    }
+}
+#undef read_uleb128
+#undef read_sleb128
+#undef abort
+
+// --------------------
+// newlib (BSD) __sfvwrite: write a uio scatter list to a stdio stream.
+struct Siov3032d0 { const char* iov_base; u32 iov_len; };
+struct Suio3032d0 { Siov3032d0* uio_iov; s32 uio_iovcnt; s32 uio_resid; };
+struct Sbuf3032d0 { u8* _base; s32 _size; };
+struct File3032d0 {
+    u8* _p; s32 _r; s32 _w; s16 _flags; s16 _file; Sbuf3032d0 _bf; s32 _lbfsize;
+    void* _cookie; s32 (*_read)(void*, char*, s32); s32 (*_write)(void*, const char*, s32);
+};
+s32 func_003015f8(File3032d0*);
+s32 func_00302b18(File3032d0*);
+void* func_00303a68(void*, const void*, u32);
+void* func_00303988(const void*, s32, u32);
+s32 func_003032d0(File3032d0* fp, Suio3032d0* uio)
+{
+    u32 len;
+    const char* p;
+    Siov3032d0* iov;
+    s32 w, s;
+    char* nl;
+    s32 nlknown, nldist;
+
+    if ((len = uio->uio_resid) == 0)
+        return 0;
+    if (((fp->_flags & 0x0008) == 0 || fp->_bf._base == 0) && func_003015f8(fp))
+        return -1;
+    iov = uio->uio_iov;
+    len = 0;
+    if (fp->_flags & 0x0002) {
+        do {
+            while (len == 0) { p = iov->iov_base; len = iov->iov_len; iov++; }
+            w = fp->_write(fp->_cookie, p, len < 1024 ? len : 1024);
+            if (w <= 0)
+                goto err;
+            p += w;
+            len -= w;
+        } while ((uio->uio_resid -= w) != 0);
+    } else if ((fp->_flags & 0x0001) == 0) {
+        do {
+            while (len == 0) { p = iov->iov_base; len = iov->iov_len; iov++; }
+            w = fp->_w;
+            if (fp->_flags & 0x0200) {
+                if (len < (u32)w)
+                    w = len;
+                func_00303a68(fp->_p, p, w);
+                fp->_w -= w;
+                fp->_p += w;
+                w = len;
+            } else if (fp->_p > fp->_bf._base && len > (u32)w) {
+                func_00303a68(fp->_p, p, w);
+                fp->_p += w;
+                if (func_00302b18(fp))
+                    goto err;
+            } else if (len >= (u32)(w = fp->_bf._size)) {
+                w = fp->_write(fp->_cookie, p, w);
+                if (w <= 0)
+                    goto err;
+            } else {
+                w = len;
+                func_00303a68(fp->_p, p, w);
+                fp->_w -= w;
+                fp->_p += w;
+            }
+            p += w;
+            len -= w;
+        } while ((uio->uio_resid -= w) != 0);
+    } else {
+        nlknown = 0;
+        do {
+            while (len == 0) { nlknown = 0; p = iov->iov_base; len = iov->iov_len; iov++; }
+            if (!nlknown) {
+                nl = (char*)func_00303988(p, '\n', len);
+                nldist = nl ? nl + 1 - p : len + 1;
+                nlknown = 1;
+            }
+            s = len < (u32)nldist ? len : nldist;
+            w = fp->_w + fp->_bf._size;
+            if (fp->_p > fp->_bf._base && s > w) {
+                func_00303a68(fp->_p, p, w);
+                fp->_p += w;
+                if (func_00302b18(fp))
+                    goto err;
+            } else if (s >= (w = fp->_bf._size)) {
+                w = fp->_write(fp->_cookie, p, w);
+                if (w <= 0)
+                    goto err;
+            } else {
+                w = s;
+                func_00303a68(fp->_p, p, w);
+                fp->_w -= w;
+                fp->_p += w;
+            }
+            if ((nldist -= w) == 0) {
+                if (func_00302b18(fp))
+                    goto err;
+                nlknown = 0;
+            }
+            p += w;
+            len -= w;
+        } while ((uio->uio_resid -= w) != 0);
+    }
+    return 0;
+err:
+    fp->_flags |= 0x0040;
+    return -1;
+}
+
+// --------------------
+// fdlibm/newlib __ieee754_rem_pio2f, EE build (_FLT_LARGEST_EXPONENT_IS_NORMAL: no inf/NaN case).
+// npio2_hw is D_003775c8, two_over_pi is D_003772b0.
+extern const s32 D_003775c8[];
+extern const s32 D_003772b0[];
+typedef union { f32 value; u32 word; } FloatShapeRp;
+#define GET_FLOAT_WORD_RP(i, d) do { FloatShapeRp gf_u; gf_u.value = (d); (i) = gf_u.word; } while (0)
+#define SET_FLOAT_WORD_RP(d, i) do { FloatShapeRp sf_u; sf_u.word = (i); (d) = sf_u.value; } while (0)
+static const f32 zero_rp = 0.0f, half_rp = 5.0000000000e-01f, two8_rp = 2.5600000000e+02f,
+    invpio2_rp = 6.3661980629e-01f,
+    pio2_1_rp = 1.5707855225e+00f, pio2_1t_rp = 1.0804333214764483e-05f,
+    pio2_2_rp = 1.0804272278619464e-05f, pio2_2t_rp = 6.0770999344e-11f,
+    pio2_3_rp = 6.0770943833e-11f, pio2_3t_rp = 6.123233601181349e-17f;
+s32 func_002fa678(f32 x, f32 *y)
+{
+    f32 z, w, t, r, fn;
+    f32 tx[3];
+    s32 i, j, n, ix, hx;
+    s32 e0, nx;
+
+    GET_FLOAT_WORD_RP(hx, x);
+    ix = hx & 0x7fffffff;
+    if (ix <= 0x3f490fd8) { y[0] = x; y[1] = 0; return 0; }
+    if (ix < 0x4016cbe4) {
+        if (hx > 0) {
+            z = x - pio2_1_rp;
+            if ((ix & 0xfffffff0) != 0x3fc90fd0) {
+                y[0] = z - pio2_1t_rp;
+                y[1] = (z - y[0]) - pio2_1t_rp;
+            } else {
+                z -= pio2_2_rp;
+                y[0] = z - pio2_2t_rp;
+                y[1] = (z - y[0]) - pio2_2t_rp;
+            }
+            return 1;
+        } else {
+            z = x + pio2_1_rp;
+            if ((ix & 0xfffffff0) != 0x3fc90fd0) {
+                y[0] = z + pio2_1t_rp;
+                y[1] = (z - y[0]) + pio2_1t_rp;
+            } else {
+                z += pio2_2_rp;
+                y[0] = z + pio2_2t_rp;
+                y[1] = (z - y[0]) + pio2_2t_rp;
+            }
+            return -1;
+        }
+    }
+    if (ix <= 0x43490f80) {
+        t = func_002f8870(x);
+        n = (s32)(t * invpio2_rp + half_rp);
+        fn = (f32)n;
+        r = t - fn * pio2_1_rp;
+        w = fn * pio2_1t_rp;
+        if (n < 32 && (ix & 0xffffff00) != D_003775c8[n - 1]) {
+            y[0] = r - w;
+        } else {
+            u32 high;
+            j = ix >> 23;
+            y[0] = r - w;
+            GET_FLOAT_WORD_RP(high, y[0]);
+            i = j - ((high >> 23) & 0xff);
+            if (i > 8) {
+                t = r;
+                w = fn * pio2_2_rp;
+                r = t - w;
+                w = fn * pio2_2t_rp - ((t - r) - w);
+                y[0] = r - w;
+                GET_FLOAT_WORD_RP(high, y[0]);
+                i = j - ((high >> 23) & 0xff);
+                if (i > 25) {
+                    t = r;
+                    w = fn * pio2_3_rp;
+                    r = t - w;
+                    w = fn * pio2_3t_rp - ((t - r) - w);
+                    y[0] = r - w;
+                }
+            }
+        }
+        y[1] = (r - y[0]) - w;
+        if (hx < 0) { y[0] = -y[0]; y[1] = -y[1]; return -n; }
+        else return n;
+    }
+    e0 = (s32)((ix >> 23) - 134);
+    SET_FLOAT_WORD_RP(z, ix - ((s32)(e0 << 23)));
+    for (i = 0; i < 2; i++) {
+        tx[i] = (f32)((s32)(z));
+        z = (z - tx[i]) * two8_rp;
+    }
+    tx[2] = z;
+    nx = 3;
+    while (tx[nx - 1] == zero_rp) nx--;
+    n = func_002fac40(tx, y, e0, nx, 2, D_003772b0);
+    if (hx < 0) { y[0] = -y[0]; y[1] = -y[1]; return -n; }
+    return n;
+}
+
+// --------------------
+// Sort the item list by kind, then by id within each kind; build per-kind groups and page counts.
+struct Item2a2ff8 { u8 kind; u8 b1; u8 b2; u8 b3; u16 id; u16 x6; };
+struct Grp2a2ff8 { u8 count; u8 pages; u16 pad; Item2a2ff8* first; };
+struct Mgr2a2ff8 { Item2a2ff8 items[512]; Grp2a2ff8 grp[15]; s32 num; s32 x4220; s32 total; };
+union MgrP2a2ff8 { Mgr2a2ff8* p; u32 u; u8 c; };
+extern MgrP2a2ff8 D_0035f5e4;
+#define G2a2ff8 D_0035f5e4.p
+s32 func_002a43f0(void);
+s32 func_002a4380(s32 i);
+s32 func_002954e0(s32 i);
+void func_002a2ff8(void)
+{
+    s32 i, j, n;
+    Item2a2ff8 t;
+
+    for (i = 0; i < G2a2ff8->num; i++) {
+        for (j = i + 1; j < G2a2ff8->num; j++) {
+            if (G2a2ff8->items[i].kind > G2a2ff8->items[j].kind) {
+                t = G2a2ff8->items[i];
+                G2a2ff8->items[i] = G2a2ff8->items[j];
+                G2a2ff8->items[j] = t;
+            }
+        }
+    }
+    for (i = 0; i < G2a2ff8->num; i++) {
+        for (j = i + 1; j < G2a2ff8->num; j++) {
+            if (G2a2ff8->items[i].kind != G2a2ff8->items[j].kind) break;
+            if (G2a2ff8->items[i].id > G2a2ff8->items[j].id) {
+                t = G2a2ff8->items[i];
+                G2a2ff8->items[i] = G2a2ff8->items[j];
+                G2a2ff8->items[j] = t;
+            }
+        }
+    }
+    for (i = 0; i < G2a2ff8->num; i += n) {
+        u8 k = G2a2ff8->items[i].kind;
+        G2a2ff8->grp[k].first = &G2a2ff8->items[i];
+        n = 1;
+        for (j = i + 1; j < G2a2ff8->num; j++) {
+            if (G2a2ff8->items[i].kind != G2a2ff8->items[j].kind) break;
+            n++;
+        }
+        G2a2ff8->grp[k].count = n;
+        G2a2ff8->grp[k].pages = n / 8;
+        if (n % 8) G2a2ff8->grp[k].pages++;
+    }
+    for (i = 0; i < 15; i++) {
+        if (func_002a43f0() && func_002a4380(i)) continue;
+        if (G2a2ff8->grp[i].pages == 0) {
+            if (func_002954e0(i)) G2a2ff8->grp[i].pages = 1;
+        }
+        G2a2ff8->total += G2a2ff8->grp[i].pages;
+    }
+}
+
+// --------------------
+// Assign ring slots to the requested ids that are not already resident.
+union Ent292b40 { s16 v; u8 c; };
+union Slot292b40 { u32 w; struct { u16 id; u16 slot; } h; };
+struct Res292b40 { s32 id; s32 used; s32 pad[2]; };
+union U0035f4bc { s32 v; u8 c; };
+extern U0035f4bc D_0035f4bc;
+union U0035f4d0 { s32 v; u8 c; };
+extern U0035f4d0 D_0035f4d0;
+union U0035f4d4 { Res292b40* v; u8 c; };
+extern U0035f4d4 D_0035f4d4;
+union U0035f4d8 { s16 v; u8 c; };
+extern U0035f4d8 D_0035f4d8;
+union U0035f4dc { Slot292b40* v; u8 c; };
+extern U0035f4dc D_0035f4dc;
+union U0035f4e0 { s16 v; u8 c; };
+extern U0035f4e0 D_0035f4e0;
+s32 func_00292a90(s16 id);
+s32 func_00292af0(s16 id);
+void func_00292998(void);
+void func_00292eb0(void);
+void func_00292b40(s16* list, s32 n)
+{
+    Ent292b40 buf[D_0035f4bc.v];
+    s32 cnt, i, k;
+    s32 mask;
+
+    cnt = 0;
+    for (i = 0; i < n; i++) {
+        if (func_00292a90(list[i])) continue;
+        if (func_00292af0(list[i])) continue;
+        buf[cnt++].v = list[i];
+    }
+    if (cnt + D_0035f4e0.v > D_0035f4d0.v) {
+        for (i = 0; i < n; i++) {
+            for (k = 0; k < D_0035f4e0.v; k++) {
+                if (D_0035f4dc.v[k].h.id == list[i]) {
+                    buf[cnt++].v = list[i];
+                    break;
+                }
+            }
+        }
+        func_00292998();
+    }
+    mask = 0;
+    for (i = 0; i < D_0035f4d0.v; i++) {
+        k = 0;
+        if (D_0035f4d4.v[i].used) {
+            for (k = 0; k < n; k++) {
+                if (D_0035f4d4.v[i].id == list[k]) break;
+            }
+        }
+        if (!D_0035f4d4.v[i].used || k >= n) mask |= 1 << i;
+    }
+    for (i = 0; i < cnt; i++) {
+        for (k = 0; k < D_0035f4d0.v; k++) {
+            s32 p = D_0035f4d8.v + k;
+            if (p >= D_0035f4d0.v) p = 0;
+            if ((mask >> p) & 1) {
+                D_0035f4d8.v = p;
+                mask &= ~(1 << p);
+                break;
+            }
+        }
+        {
+            s16 b = buf[i].v;
+            s32 e = D_0035f4e0.v++;
+            Slot292b40* tab = D_0035f4dc.v;
+            u16 d = D_0035f4d8.v++;
+            tab[e].w = (d << 16) | (u16)b;
+        }
+        if (D_0035f4d8.v >= D_0035f4d0.v) D_0035f4d8.v = 0;
+    }
+    func_00292eb0();
+}
+
+// --------------------
+// Pick the offset position for the given mode (random for unknown modes).
+struct Obj1169e8 { u8 pad[1600]; f32 dir; u8 pad2[12]; f32 x; f32 y; f32 z; };
+void func_00116938(Obj1169e8* p, f32* px, f32* py);
+void func_00116990(Obj1169e8* p, f32* px, f32* py);
+f32 func_0010f660(void);
+u32 func_0010f648(s32 n);
+void func_001169e8(Obj1169e8* p, s32 mode)
+{
+    f32 r;
+    f32* px = &p->x;
+    p->z = 1024.0f;
+    switch (mode) {
+    case 0:
+        p->x = -135.0f;
+        p->y = 110.0f;
+    case 1:
+        p->x = -260.0f;
+        p->y = -180.0f;
+        break;
+    case 2:
+        p->x = 260.0f;
+        p->y = -180.0f;
+        break;
+    case 3:
+        p->x = 260.0f;
+        p->y = 180.0f;
+        break;
+    case 4:
+        p->x = -260.0f;
+        p->y = 180.0f;
+        break;
+    case 5:
+        p->x = 0.0f;
+        p->y = 0.0f;
+        break;
+    case 6:
+        p->x = -230.0f;
+        p->y = 90.0f;
+        break;
+    case 7:
+        p->x = 138.0f;
+        p->y = 106.0f;
+        break;
+    default:
+        if (func_0010f660() < 0.5f) {
+            if (p->dir < 0.0f) func_00116938(p, px, &p->y);
+            else func_00116990(p, px, &p->y);
+            break;
+        }
+        r = (func_0010f660() * 0.5f + 0.5f) * 60.0f;
+        switch (func_0010f648(4)) {
+        case 3:
+            if (p->dir < 0.0f) func_00116938(p, px, &p->y);
+            else func_00116990(p, px, &p->y);
+            p->y -= 640.0f;
+            break;
+        case 2:
+            if (p->dir < 0.0f) func_00116938(p, px, &p->y);
+            else func_00116990(p, px, &p->y);
+            p->y += 640.0f - r;
+            break;
+        case 0:
+            if (p->dir < 0.0f) {
+                func_00116990(p, px, &p->y);
+                p->x -= r;
+            } else {
+                func_00116938(p, px, &p->y);
+                p->x += r;
+            }
+            break;
+        case 1:
+            if (p->dir < 0.0f) {
+                func_00116990(p, px, &p->y);
+                p->x -= 800.0f;
+            } else {
+                func_00116938(p, px, &p->y);
+                p->x += 800.0f;
+            }
+            break;
+        }
+        break;
+    }
+}
+
+// --------------------
+// Sort the slot list by kind, then by the order the ids appear in the 0x13-type entry list.
+struct Item279a10 { u16 id; u8 b2; u8 b3; s8 kind; u8 pad[3]; };
+struct Mgr279a10 { u8 pad[7]; s8 count; u8 pad2[4]; Item279a10 items[1]; };
+struct Ent279a10 { u16 id; u8 type; };
+union MgrP279a10 { Mgr279a10* p; u32 u; u8 c; };
+extern MgrP279a10 D_0035f230;
+Ent279a10* func_001a8110_x13535(Ent279a10* p) asm("func_001a8110");
+void func_00279a10(void)
+{
+    s16 order[80];
+    Item279a10 t;
+    Ent279a10* p;
+    s32 i, j, n;
+    s16 o;
+
+    p = 0;
+    if (D_0035f230.p->count == 0) return;
+    for (i = 0; i < D_0035f230.p->count; i++) order[i] = -1;
+    for (i = 0; i < D_0035f230.p->count; i++) {
+        for (j = i + 1; j < D_0035f230.p->count; j++) {
+            if (D_0035f230.p->items[i].kind > D_0035f230.p->items[j].kind) {
+                t = D_0035f230.p->items[i];
+                D_0035f230.p->items[i] = D_0035f230.p->items[j];
+                D_0035f230.p->items[j] = t;
+            }
+        }
+    }
+    n = 0;
+    for (;;) {
+        p = func_001a8110_x13535(p);
+        if (p == 0) break;
+        if (p->type == 19) {
+            for (i = 0; i < D_0035f230.p->count; i++) {
+                if (D_0035f230.p->items[i].id == p->id) order[i] = n;
+            }
+        }
+        n++;
+    }
+    for (i = 0; i < D_0035f230.p->count; i++) {
+        if (D_0035f230.p->items[i].kind == 3) continue;
+        for (j = i + 1; j < D_0035f230.p->count; j++) {
+            if (D_0035f230.p->items[i].kind != D_0035f230.p->items[j].kind) break;
+            if (order[i] > order[j]) {
+                t = D_0035f230.p->items[i];
+                D_0035f230.p->items[i] = D_0035f230.p->items[j];
+                D_0035f230.p->items[j] = t;
+                o = order[i];
+                order[i] = order[j];
+                order[j] = o;
+            }
+        }
+    }
+}
+
+// --------------------
+// newlib _free_r (dlmalloc 2.6.x fREe; no mmap; EE: 64-bit long).
+typedef struct MChunk302e90 MChunk302e90;
+struct MChunk302e90 { u32 prev_size; u32 size; MChunk302e90* fd; MChunk302e90* bk; };
+typedef MChunk302e90* mchunkptr302e90;
+extern u8 D_00365c50[];
+void func_002fded8__302e90(void*) asm("func_002fded8");
+void func_002fdf30__302e90(void*) asm("func_002fdf30");
+#define M_SIZE_SZ 4
+#define M_ALIGN_MASK 15
+#define M_MINSIZE 16
+#define M_PREV_INUSE 1
+#define M_SIZE_BITS 3
+#define M_MAX_SMALLBIN 63
+#define M_MAX_SMALLBIN_SIZE 512
+#define M_SMALLBIN_WIDTH 8
+#define M_BINBLOCKWIDTH 4
+#define bin_at(i) ((mchunkptr302e90)(D_00365c50 + 8 * (i)))
+#define next_bin(b) ((mchunkptr302e90)((char*)(b) + 8))
+#define prev_bin(b) ((mchunkptr302e90)((char*)(b) - 8))
+#define first(b) ((b)->fd)
+#define last(b) ((b)->bk)
+#define top (bin_at(0)->fd)
+#define last_remainder (bin_at(1))
+#define binblocks (bin_at(0)->size)
+#define chunksize(p) ((p)->size & ~(M_SIZE_BITS))
+#define chunk2mem(p) ((void*)((char*)(p) + 2 * M_SIZE_SZ))
+#define chunk_at_offset(p, s) ((mchunkptr302e90)(((char*)(p)) + (s)))
+#define set_head(p, s) ((p)->size = (s))
+#define set_foot(p, s) (((mchunkptr302e90)((char*)(p) + (s)))->prev_size = (s))
+#define set_inuse_bit_at_offset(p, s) (((mchunkptr302e90)(((char*)(p)) + (s)))->size |= M_PREV_INUSE)
+#define request2size(req) (((long)((req) + (M_SIZE_SZ + M_ALIGN_MASK)) < (long)(M_MINSIZE + M_ALIGN_MASK)) ? M_MINSIZE : \
+    (((req) + (M_SIZE_SZ + M_ALIGN_MASK)) & ~(M_ALIGN_MASK)))
+#define is_small_request(nb) (nb < M_MAX_SMALLBIN_SIZE - M_SMALLBIN_WIDTH)
+#define smallbin_index(sz) (((unsigned long)(sz)) >> 3)
+#define bin_index(sz) \
+(((((unsigned long)(sz)) >> 9) ==    0) ?       (((unsigned long)(sz)) >>  3): \
+ ((((unsigned long)(sz)) >> 9) <=    4) ?  56 + (((unsigned long)(sz)) >>  6): \
+ ((((unsigned long)(sz)) >> 9) <=   20) ?  91 + (((unsigned long)(sz)) >>  9): \
+ ((((unsigned long)(sz)) >> 9) <=   84) ? 110 + (((unsigned long)(sz)) >> 12): \
+ ((((unsigned long)(sz)) >> 9) <=  340) ? 119 + (((unsigned long)(sz)) >> 15): \
+ ((((unsigned long)(sz)) >> 9) <= 1364) ? 124 + (((unsigned long)(sz)) >> 18): \
+                                          126)
+#define idx2binblock(ix) ((unsigned long)1 << (ix / M_BINBLOCKWIDTH))
+#define mark_binblock(ii) (binblocks |= idx2binblock(ii))
+#define unlink(P, BK, FD) { BK = P->bk; FD = P->fd; FD->bk = BK; BK->fd = FD; }
+#define link_last_remainder(P) { last_remainder->fd = last_remainder->bk = P; P->fd = P->bk = last_remainder; }
+#define clear_last_remainder (last_remainder->fd = last_remainder->bk = last_remainder)
+#define long_sub_size_t(x, y) (((x) < (y)) ? -(long)((y) - (x)) : (long)((x) - (y)))
+#define frontlink(P, S, IDX, BK, FD) \
+{ \
+  if (S < M_MAX_SMALLBIN_SIZE) \
+  { \
+    IDX = smallbin_index(S); \
+    mark_binblock(IDX); \
+    BK = bin_at(IDX); \
+    FD = BK->fd; \
+    P->bk = BK; \
+    P->fd = FD; \
+    FD->bk = BK->fd = P; \
+  } \
+  else \
+  { \
+    IDX = bin_index(S); \
+    BK = bin_at(IDX); \
+    FD = BK->fd; \
+    if (FD == BK) mark_binblock(IDX); \
+    else \
+    { \
+      while (FD != BK && S < chunksize(FD)) FD = FD->fd; \
+      BK = FD->bk; \
+    } \
+    P->bk = BK; \
+    P->fd = FD; \
+    FD->bk = BK->fd = P; \
+  } \
+}
+extern u64 D_00366058;
+extern u64 D_00366060;
+s32 func_00303170__302e90(void*, u32) asm("func_00303170");
+#define trim_threshold D_00366058
+#define top_pad D_00366060
+void wtarget_00302e90(void* reent_ptr, void* mem) asm("_Z16wtarget_00302e90jjjj");
+void wtarget_00302e90(void* reent_ptr, void* mem)
+{
+  mchunkptr302e90 p;
+  u32 hd;
+  u32 sz;
+  int idx;
+  mchunkptr302e90 next;
+  u32 nextsz;
+  u32 prevsz;
+  mchunkptr302e90 bck;
+  mchunkptr302e90 fwd;
+  int islr;
+
+  if (mem == 0)
+    return;
+
+  func_002fded8__302e90(reent_ptr);
+
+  p = (mchunkptr302e90)((char*)mem - 2 * M_SIZE_SZ);
+  hd = p->size;
+
+  sz = hd & ~M_PREV_INUSE;
+  next = chunk_at_offset(p, sz);
+  nextsz = chunksize(next);
+
+  if (next == top)
+  {
+    sz += nextsz;
+
+    if ((hd & M_PREV_INUSE) == 0)
+    {
+      prevsz = p->prev_size;
+      p = chunk_at_offset(p, -prevsz);
+      sz += prevsz;
+      unlink(p, bck, fwd);
+    }
+
+    set_head(p, sz | M_PREV_INUSE);
+    top = p;
+    if ((unsigned long)(sz) >= (unsigned long)trim_threshold)
+      func_00303170__302e90(reent_ptr, top_pad);
+    func_002fdf30__302e90(reent_ptr);
+    return;
+  }
+
+  set_head(next, nextsz);
+
+  islr = 0;
+
+  if ((hd & M_PREV_INUSE) == 0)
+  {
+    prevsz = p->prev_size;
+    p = chunk_at_offset(p, -prevsz);
+    sz += prevsz;
+
+    if (p->fd == last_remainder)
+      islr = 1;
+    else
+      unlink(p, bck, fwd);
+  }
+
+  if ((((mchunkptr302e90)(((char*)(next)) + (nextsz)))->size & M_PREV_INUSE) == 0)
+  {
+    sz += nextsz;
+
+    if (!islr && next->fd == last_remainder)
+    {
+      islr = 1;
+      link_last_remainder(p);
+    }
+    else
+      unlink(next, bck, fwd);
+  }
+
+  set_head(p, sz | M_PREV_INUSE);
+  set_foot(p, sz);
+  if (!islr)
+    frontlink(p, sz, idx, bck, fwd);
+
+  func_002fdf30__302e90(reent_ptr);
+}
+#undef trim_threshold
+#undef top_pad
+#undef M_SIZE_SZ
+#undef M_ALIGN_MASK
+#undef M_MINSIZE
+#undef M_PREV_INUSE
+#undef M_SIZE_BITS
+#undef M_MAX_SMALLBIN
+#undef M_MAX_SMALLBIN_SIZE
+#undef M_SMALLBIN_WIDTH
+#undef M_BINBLOCKWIDTH
+#undef bin_at
+#undef next_bin
+#undef prev_bin
+#undef first
+#undef last
+#undef top
+#undef last_remainder
+#undef binblocks
+#undef chunksize
+#undef chunk2mem
+#undef chunk_at_offset
+#undef set_head
+#undef set_foot
+#undef set_inuse_bit_at_offset
+#undef request2size
+#undef is_small_request
+#undef smallbin_index
+#undef bin_index
+#undef idx2binblock
+#undef mark_binblock
+#undef unlink
+#undef link_last_remainder
+#undef clear_last_remainder
+#undef long_sub_size_t
+#undef frontlink
+
+// --------------------
+// libgcc unwind.inc _Unwind_RaiseException (GCC 3.2).
+typedef u64 UWord3189e0;
+typedef s64 USword3189e0;
+struct RegInfo3189e0 {
+    struct {
+        union { UWord3189e0 reg; USword3189e0 offset; const unsigned char* exp; } loc;
+        int how;
+    } reg[177];
+    RegInfo3189e0* prev;
+};
+struct UCtx3189e0;
+struct UExc3189e0;
+typedef int (*UPers3189e0)(int, int, u64, UExc3189e0*, UCtx3189e0*);
+struct FState3189e0 {
+    RegInfo3189e0 regs;
+    USword3189e0 cfa_offset;
+    UWord3189e0 cfa_reg;
+    const unsigned char* cfa_exp;
+    int cfa_how;
+    void* pc;
+    UPers3189e0 personality;
+    USword3189e0 data_align;
+    UWord3189e0 code_align;
+    unsigned char retaddr_column;
+    unsigned char fde_encoding;
+    unsigned char lsda_encoding;
+    unsigned char saw_z;
+    void* eh_ptr;
+};
+struct UBases3189e0 { void* tbase; void* dbase; void* func; };
+struct UCtx3189e0 {
+    void* reg[177];
+    void* cfa;
+    void* ra;
+    void* lsda;
+    UBases3189e0 bases;
+    UWord3189e0 args_size;
+};
+struct UExc3189e0 { u64 exception_class; void (*cleanup)(int, UExc3189e0*); UWord3189e0 private_1; UWord3189e0 private_2; };
+int func_00317d80(UCtx3189e0* context, FState3189e0* fs);
+void func_003181a0(UCtx3189e0* context, FState3189e0* fs);
+void func_003181f8(UCtx3189e0* context, void* outer_cfa, void* outer_ra);
+int func_00318908(UExc3189e0* exc, UCtx3189e0* context);
+long func_00318290__3189e0(UCtx3189e0* current, UCtx3189e0* target) asm("func_00318290");
+static inline u32 uw_identify_context3189e0 (UCtx3189e0 *context) { return (u32)context->ra; }
+int func_003189e0(UExc3189e0* exc)
+{
+  UCtx3189e0 this_context, cur_context;
+  int code;
+
+  __builtin_unwind_init ();
+  func_003181f8 (&this_context, __builtin_dwarf_cfa (), __builtin_return_address (0));
+  __builtin_memcpy (&cur_context, &this_context, sizeof (cur_context));
+
+  while (1)
+    {
+      FState3189e0 fs;
+
+      code = func_00317d80 (&cur_context, &fs);
+
+      if (code == 5)
+	return 5;
+
+      if (code != 0)
+	return 3;
+
+      if (fs.personality)
+	{
+	  code = (*fs.personality) (1, 1, exc->exception_class, exc, &cur_context);
+	  if (code == 6)
+	    break;
+	  else if (code != 8)
+	    return 3;
+	}
+
+      func_003181a0 (&cur_context, &fs);
+    }
+
+  exc->private_1 = 0;
+  exc->private_2 = uw_identify_context3189e0 (&cur_context);
+
+  __builtin_memcpy (&cur_context, &this_context, sizeof (cur_context));
+  code = func_00318908 (exc, &cur_context);
+  if (code != 7)
+    return code;
+
+  {
+    long offset = func_00318290__3189e0 (&this_context, &cur_context);
+    void *handler = __builtin_frob_return_addr (cur_context.ra);
+    __builtin_eh_return (offset, handler);
+  }
+}
+
+// --------------------
+// 4x4 matrix copy: hand-written lq/sq through t0-t3 (as in the original).
+#define MCOPY10abf0(d, s) asm volatile("lq $8, 0(%1)\n\tlq $9, 16(%1)\n\tlq $10, 32(%1)\n\tlq $11, 48(%1)\n\t" \
+    "sq $8, 0(%0)\n\tsq $9, 16(%0)\n\tsq $10, 32(%0)\n\tsq $11, 48(%0)" : : "r"(d), "r"(s) : "$8", "$9", "$10", "$11", "memory")
+struct Mtx10abf0 {
+    f32 m[16];
+    Mtx10abf0& operator=(const Mtx10abf0& o) {
+        if (this != &o) MCOPY10abf0(this, &o);
+        return *this;
+    }
+} __attribute__((aligned(16)));
+struct Blk10abf0 { u32 flags; u32 f4; u64 q[6]; };
+union BlkU10abf0 { Blk10abf0 b; u8 c; };
+union LP10abf0 { u32* p; u8 c; };
+union Id10abf0 { s16 v; u8 c; };
+union IP10abf0 { Id10abf0* p; u8 c; };
+struct Ent10abf0 {
+    LP10abf0 list;
+    union { void* p; u8 c; } key;
+    IP10abf0 ids;
+    u32 pad12;
+    Blk10abf0 blk;
+    u8 pad72[8];
+    Mtx10abf0 m1;
+    Mtx10abf0 m2;
+    Mtx10abf0 m3;
+    u32 f272;
+    u8 pad276[12];
+};
+extern u32 D_0033cc68_x13907 asm("D_0033cc68");
+extern Ent10abf0* D_0033cc70_x13908 asm("D_0033cc70");
+void* func_0010abc8(u32 size);
+void func_0010abf0(void* key, Mtx10abf0* m1, BlkU10abf0* blk, Id10abf0* ids, Mtx10abf0* m2, Mtx10abf0* m3, u32* list, u32 v)
+{
+    u32 i;
+    s32 n, k;
+    Ent10abf0* e;
+
+    for (i = 0; i < D_0033cc68_x13907; i++) {
+        if (D_0033cc70_x13908[i].key.p == 0) break;
+    }
+    e = &D_0033cc70_x13908[i];
+    e->key.p = key;
+    n = 0;
+    if (list[0] != 0) {
+        do n++; while (list[n] != 0);
+    }
+    if (n == 0) return;
+    e->list.p = (u32*)func_0010abc8(n * 4 + 4);
+    for (k = 0; k < n; k++) e->list.p[k] = list[k];
+    e->list.p[k] = 0;
+    n = 0;
+    if (ids[0].v != -1) {
+        do n++; while (ids[n].v != -1);
+    }
+    e->ids.p = (Id10abf0*)func_0010abc8(n * 2 + 2);
+    for (k = 0; k < n; k++) e->ids.p[k].v = ids[k].v;
+    e->ids.p[k].v = -1;
+    e->blk = blk->b;
+    e->blk.flags |= 0x10000;
+    e->m1 = *m1;
+    e->m2 = *m2;
+    e->m3 = *m3;
+    e->f272 = v;
+}
 
 } // extern "C"
