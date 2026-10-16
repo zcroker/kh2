@@ -15430,4 +15430,709 @@ f32 func_0020c860(void* self, f32* m, Par20c860* par, void* a3, Src20c860* src)
     return z;
 }
 
+// --------------------
+s32 func_001c0cd8(u8*);
+s32 func_001c0ce8(u8*);
+s32 func_002e9a78(void* self, u8* o, s32 k) {
+    if (func_001c0cd8(o) && func_001c0ce8(o)) return 0;
+    switch (k) {
+    case 0: { u32 m = *(u32*)(o + 0x588) & 0x10; return m != 0; }
+    case 1: { u32 m = *(u32*)(o + 0x588) & 4; return m != 0; }
+    case 2: { u32 m = *(u32*)(o + 0x588) & 4; return m != 0; }
+    }
+    return 1;
+}
+
+// --------------------
+// lq/sq 128-bit copy (hand-written VU-style copy), source operand first
+#define QCOPYS_2c6780(d, s) asm volatile("lq $8, 0(%0)\n\tsq $8, 0(%1)" : : "r"(s), "r"(d) : "$8", "memory")
+union UA_002c6780 { u32 i; f32 f; u8* p; };
+extern u8 D_00361dc8[];
+extern UA_002c6780 D_00361db8;
+extern u8 D_01e2bdd0[];
+extern u8 D_01e2bdc0[];
+void func_002c6780(u8* p, u32 a1, u32 a2) {
+    *(u32*)p = (u32)D_00361da8;
+    func_0031cc28(p + 84);
+    ((UA_002c6780*)(p + 92))->i = 0;
+    func_002c6420(p);
+    *(u32*)p = (u32)D_00361dc8;
+    ((UA_002c6780*)(p + 96))->i = a1;
+    ((UA_002c6780*)(p + 100))->i = a2;
+    QCOPYS_2c6780(p + 112, D_01e2bdd0);
+    QCOPYS_2c6780(p + 128, D_01e2bdc0);
+    D_00361db8.p = p;
+    ((UA_002c6780*)(p + 92))->f = 60.0f;
+    ((UA_002c6780*)(p + 84))->i |= 1;
+    ((UA_002c6780*)(p + 144))->f = 65.0f;
+    ((UA_002c6780*)(p + 88))->f = 60.0f;
+}
+
+// --------------------
+// lq/sq 128-bit copy and VU0 vf0 store (hand-written VU idioms)
+#define QCOPY_15eba8(d, s) asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(d), "r"(s) : "$8", "memory")
+struct V15eba8 {
+    f32 x, y, z, w;
+    V15eba8() {}
+    V15eba8(const V15eba8& o) { QCOPY_15eba8(this, &o); }
+    void Set15eba8(const V15eba8& o) { QCOPY_15eba8(this, &o); }
+} __attribute__((aligned(16)));
+static inline void Unit15eba8(V15eba8* v) { asm volatile("sqc2 $vf0, 0(%0)" : : "r"(v) : "memory"); }
+struct A15eba8;
+struct AV15eba8 { void* (*alloc)(A15eba8*, u32, void*); };
+struct A15eba8 { AV15eba8* vt; };
+extern A15eba8* D_0034c738;
+void func_0015f288();
+void func_001612b8(u8*, u8*);
+void func_00142c90(u8*, u8*, u8, u64);
+void func_0015f8d8(void*, s32, V15eba8*, V15eba8*, V15eba8*, s32, s32);
+void func_0015c2a0(s32, u64);
+u32 func_001492e0(u8*);
+void func_001dddd0(u8*, u32);
+void func_001de228(u8*, s32, s32, s32, s32, s32);
+void func_0015eba8(u8* o, u8* x, u8 flag, u64 mask)
+{
+    func_0015f288();
+    D_0034c710 = mask;
+    func_001612b8(x, o);
+    func_00142c90(o, x, flag, mask);
+    V15eba8 a, b, c;
+    Unit15eba8(&a);
+    Unit15eba8(&b);
+    c.x = 1.0f; c.y = 1.0f; c.z = 1.0f; c.w = 1.0f;
+    s32 n0 = *(s32*)(o + 0x6c);
+    s32 made = 0;
+    if (n0 == 1) {
+        void* p = D_0034c738->vt->alloc(D_0034c738, 752, __builtin_return_address(0));
+        V15eba8 ta(a), tb(b), tc(c);
+        func_0015f8d8(p, 0, &ta, &tb, &tc, 0, 0);
+        made = 1;
+    }
+    s32 n1 = *(s32*)(o + 0x70);
+    if (n1 == 1) {
+        void* p = D_0034c738->vt->alloc(D_0034c738, 752, __builtin_return_address(0));
+        V15eba8 tc, tb, ta;
+        ta.Set15eba8(a); tb.Set15eba8(b); tc.Set15eba8(c);
+        func_0015f8d8(p, made, &ta, &tb, &tc, made, 1);
+    }
+    func_0015c2a0(n0 + n1, mask);
+    D_0034c70c = 0;
+    if (func_001492e0(o)) {
+        func_001dddd0(D_0034c6f0, func_001492e0(o));
+        D_0034c70c = 1;
+        u64 one = 1;
+        for (s32 i = 0; i < 64; i++) {
+            if (mask & (one << i)) func_001de228(D_0034c6f0, i, 1, 2, 0, 0);
+        }
+    }
+}
+
+// --------------------
+// VU0 macro-mode vector helpers (hand-written vu0 library idioms) and lq/sq copy
+struct V1d38a0 {
+    f32 x, y, z, w;
+    V1d38a0() {}
+    V1d38a0& operator=(const V1d38a0& o)
+    {
+        if (this != &o) asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(this), "r"(&o) : "$8", "memory");
+        return *this;
+    }
+} __attribute__((aligned(16)));
+static inline void VSub1d38a0(V1d38a0* d, const V1d38a0* a, const V1d38a0* b)
+{
+    asm volatile("lqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 0(%2)\n\tvsub.xyzw $vf1, $vf1, $vf2\n\tsqc2 $vf1, 0(%0)"
+                 : : "r"(d), "r"(a), "r"(b) : "memory");
+}
+static inline void VAdd1d38a0(V1d38a0* d, const V1d38a0* a, const V1d38a0* b)
+{
+    asm volatile("lqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 0(%2)\n\tvadd.xyzw $vf1, $vf1, $vf2\n\tsqc2 $vf1, 0(%0)"
+                 : : "r"(d), "r"(a), "r"(b) : "memory");
+}
+static inline void VScale1d38a0(V1d38a0* d, const V1d38a0* a, f32 k)
+{
+    asm volatile("lqc2 $vf1, 0(%1)\n\tmfc1 $8, %2\n\tqmtc2 $8, $vf2\n\tvmulx.xyzw $vf1, $vf1, $vf2x\n\tsqc2 $vf1, 0(%0)"
+                 : : "r"(d), "r"(a), "f"(k) : "$8", "memory");
+}
+static inline f32 VNormalize1d38a0(V1d38a0* v)
+{
+    f32 len;
+    asm volatile("lqc2 $vf1, 0(%1)\n\tvmul.xyz $vf2, $vf1, $vf1\n\tvaddy.x $vf2, $vf2, $vf2y\n\tvaddz.x $vf2, $vf2, $vf2z\n\t"
+                 "vsqrt Q, $vf2x\n\tvwaitq\n\tcfc2.ni $8, $vi22\n\tvaddq.x $vf2, $vf0, Q\n\tmtc1 $8, %0\n\tvnop\n\t"
+                 "vdiv Q, $vf0w, $vf2x\n\tvwaitq\n\tvmulq.xyz $vf1, $vf1, Q\n\tsqc2 $vf1, 0(%1)"
+                 : "=f"(len) : "r"(v) : "$8", "memory");
+    return len;
+}
+struct F1d38a0 { V1d38a0 pos; u32 mask; f32 f14, f18, f1c, f20, f24, f28, f2c; };
+s32 func_0019bb98(u8*);
+s32 func_0016a040(u8*);
+V1d38a0* func_0016c028_1d38a0(u8*) asm("func_0016c028");
+f32 func_0016a0a0(u8*);
+void func_0017d538(f32, V1d38a0*, V1d38a0*);
+void func_001d38a0(F1d38a0* f, V1d38a0* vel, u8* t)
+{
+    if (func_0019bb98(t)) return;
+    if (f->mask & (1 << func_0016a040(t))) return;
+    V1d38a0 d, b, a;
+    VSub1d38a0(&d, &f->pos, func_0016c028_1d38a0(t));
+    d.y = 0.0f;
+    d.w = VNormalize1d38a0(&d);
+    if (f->f14 != 0.0f && f->f14 <= d.w) return;
+    f32 s = f->f18 * (func_0016a0a0(t) / 100.0f);
+    s = s < f->f1c ? f->f1c : (f->f20 < s ? f->f20 : s);
+    f32 k = (d.w - f->f28) * f->f2c;
+    if (k < -1.0f) k = -1.0f;
+    else if (1.0f < k) k = 1.0f;
+    VScale1d38a0(&a, &d, s);
+    VScale1d38a0(&b, &a, k);
+    VAdd1d38a0(vel, vel, &b);
+    if (f->f24 == 0.0f) return;
+    func_0017d538(1.5707964f, &b, &d);
+    d = b;
+    VScale1d38a0(&b, &d, f->f24);
+    VAdd1d38a0(vel, vel, &b);
+}
+
+// --------------------
+// VU0 macro-mode vector helpers (hand-written vu0 library idioms) and lq/sq copy
+#define QCOPY_2e87e0(d, s) asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(d), "r"(s) : "$8", "memory")
+struct V2e87e0 {
+    f32 x, y, z, w;
+    V2e87e0() {}
+    V2e87e0(const V2e87e0& o) { QCOPY_2e87e0(this, &o); }
+    V2e87e0& operator=(const V2e87e0& o) { if (this != &o) QCOPY_2e87e0(this, &o); return *this; }
+} __attribute__((aligned(16)));
+static inline V2e87e0 Cross2e87e0(const V2e87e0& a, const V2e87e0& b)
+{
+    V2e87e0 r;
+    asm volatile(".set noreorder\n\tlqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 0(%2)\n\tvsub.xyzw $vf3, $vf0, $vf0\n\t"
+                 "vopmula.xyz ACC, $vf1, $vf2\n\tvopmsub.xyz $vf3, $vf2, $vf1\n\tsqc2 $vf3, 0(%0)\n\t.set reorder"
+                 : : "r"(&r), "r"(&a), "r"(&b) : "memory");
+    return r;
+}
+static inline V2e87e0 Scale2e87e0(const V2e87e0& a, f32 k)
+{
+    V2e87e0 r;
+    asm volatile("lqc2 $vf1, 0(%1)\n\tmfc1 $8, %2\n\tqmtc2 $8, $vf2\n\tvmulx.xyzw $vf1, $vf1, $vf2x\n\tsqc2 $vf1, 0(%0)"
+                 : : "r"(&r), "r"(&a), "f"(k) : "$8", "memory");
+    return r;
+}
+static inline f32 Normalize2e87e0(V2e87e0* v)
+{
+    f32 len;
+    asm volatile("lqc2 $vf1, 0(%1)\n\tvmul.xyz $vf2, $vf1, $vf1\n\tvaddy.x $vf2, $vf2, $vf2y\n\tvaddz.x $vf2, $vf2, $vf2z\n\t"
+                 "vsqrt Q, $vf2x\n\tvwaitq\n\tcfc2.ni $8, $vi22\n\tvaddq.x $vf2, $vf0, Q\n\tmtc1 $8, %0\n\tvnop\n\t"
+                 "vdiv Q, $vf0w, $vf2x\n\tvwaitq\n\tvmulq.xyz $vf1, $vf1, Q\n\tsqc2 $vf1, 0(%1)"
+                 : "=f"(len) : "r"(v) : "$8", "memory");
+    return len;
+}
+struct M2e87e0 { V2e87e0 r[4]; V2e87e0 t; };
+struct A2e87e0 { V2e87e0* dir; V2e87e0* up; };
+extern V2e87e0 D_01e2bf80;
+void func_0011b6a8_2e87e0(M2e87e0*) asm("func_0011b6a8");
+void func_0011bac8(M2e87e0*, V2e87e0*);
+void func_002e87e0(A2e87e0* a)
+{
+    M2e87e0 m;
+    V2e87e0& r1 = m.r[1];
+    V2e87e0& r2 = m.r[2];
+    V2e87e0 z(*a->dir);
+    V2e87e0* up = a->up;
+    Normalize2e87e0(&z);
+    Normalize2e87e0(up);
+    z.w = 0.0f;
+    up->w = 0.0f;
+    if (up == &z) {
+        z.z = z.w;
+        z.y = -1.0f;
+        z.x = z.w;
+    }
+    func_0011b6a8_2e87e0(&m);
+    m.r[0] = Cross2e87e0(*up, z);
+    Normalize2e87e0(&m.r[0]);
+    m.r[0].w = 0.0f;
+    r2 = Scale2e87e0(z, -1.0f);
+    r2.w = 0.0f;
+    *up = Cross2e87e0(z, m.r[0]);
+    r1 = Cross2e87e0(r2, m.r[0]);
+    Normalize2e87e0(&r1);
+    r1.w = 0.0f;
+    asm volatile("vsub.xyzw $vf1, $vf0, $vf0\n\tsqc2 $vf1, 0(%0)" : : "r"(&D_01e2bf80) : "memory");
+    func_0011bac8(&m, &D_01e2bf80);
+    a->dir = &D_01e2bf80;
+}
+
+// --------------------
+// VU0 macro-mode vector helpers (hand-written vu0 library idioms) and lq/sq copy
+struct V2e9d08 {
+    f32 x, y, z, w;
+    V2e9d08() {}
+    V2e9d08& operator=(const V2e9d08& o)
+    {
+        if (this != &o) asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(this), "r"(&o) : "$8", "memory");
+        return *this;
+    }
+} __attribute__((aligned(16)));
+static inline V2e9d08 Sub2e9d08(const V2e9d08& a, const V2e9d08& b)
+{
+    V2e9d08 r;
+    asm volatile(".set noreorder\n\tlqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 0(%2)\n\tvsub.xyzw $vf1, $vf1, $vf2\n\tsqc2 $vf1, 0(%0)\n\t.set reorder"
+                 : : "r"(&r), "r"(&a), "r"(&b) : "memory");
+    return r;
+}
+static inline f32 Length2e9d08(const V2e9d08& v)
+{
+    f32 len;
+    asm volatile("lqc2 $vf1, 0(%1)\n\tvmul.xyz $vf1, $vf1, $vf1\n\tvaddy.x $vf1, $vf1, $vf1y\n\tvaddz.x $vf1, $vf1, $vf1z\n\t"
+                 "vsqrt Q, $vf1x\n\tvwaitq\n\tcfc2.ni $8, $vi22\n\tmtc1 $8, %0"
+                 : "=f"(len) : "r"(&v) : "$8", "memory");
+    return len;
+}
+struct B2e9d08 { f32 a, y, c; u32 d; V2e9d08 pos; };
+struct S2e9d08 { u8 pad[4]; u32 flags; u8 pad8[4]; s32 fc; f32 minDist, maxDist, maxAng; };
+void func_0018a818_2e9d08(B2e9d08*, u8*, u8*) asm("func_0018a818");
+void func_00190128_2e9d08(u32*) asm("func_00190128");
+void func_00190878_2e9d08(u32*, u8*, u8) asm("func_00190878");
+u8* func_001b9bc8(u8*);
+s32 func_002e9a38(S2e9d08*, u8*, u8);
+s32 func_002e9c58(S2e9d08*, u8*);
+void func_002e9c98(S2e9d08*, u32*);
+f32 func_002f8ad0(f32, f32);
+f32 func_0017ce10(f32);
+void func_002e9d08(S2e9d08* s, u32* res, V2e9d08* origin, V2e9d08* dir, u8 nearest, u8 flat, u8 check)
+{
+    B2e9d08 b;
+    V2e9d08 d;
+    f32 best = 0.0f;
+    u8* o = 0;
+    b.d = 0;
+    func_00190128_2e9d08(res);
+    ((u8*)s)[5] = 0;
+    while ((o = func_001b9bc8(o)) != 0) {
+        if (!func_002e9a78(s, o, s->fc)) continue;
+        if ((s->flags & 0x10000) && (*(u32*)(o + 0x108) & 0x8000)) continue;
+        if (!func_002e9c58(s, o)) continue;
+        u8* e = 0;
+        f32 k = 3.1415925f;
+        while ((e = func_0016bba8(o, 3, e)) != 0) {
+            ((u8*)s)[5]++;
+            if (check && func_002e9a38(s, o, *e)) continue;
+            func_0018a818_2e9d08(&b, o, e);
+            d = Sub2e9d08(b.pos, *origin);
+            if (flat) d.y = 0.0f;
+            f32 len = Length2e9d08(d);
+            f32 v = len;
+            if (len < s->minDist) continue;
+            if (s->maxDist < len) continue;
+            if (s->maxAng < k) {
+                f32 a = func_002f8ad0(dir->x, dir->z) - func_002f8ad0(d.x, d.z);
+                a = func_0017ce10(a);
+                if (func_003142e0(func_00313b80(a), 0.0) < 0) a = -a;
+                if (s->maxAng <= a) continue;
+            }
+            if (!nearest) v = -len;
+            if (*res == 0 || v < best) {
+                best = v;
+                func_00190878_2e9d08(res, o, *e);
+            }
+        }
+    }
+    if (*res != 0 && check) func_002e9c98(s, res);
+}
+
+// --------------------
+extern u8 D_00350758[];
+void func_0018d050(u8*, u8*, u32, u32, u32, s32, u32);
+static inline u32 K1a3f08(u8* p)
+{
+    u8* q;
+    if (p != 0 && (q = *(u8**)(p + 0x48c)) != 0) return q[0x24c];
+    return 0;
+}
+void func_001a3f08(u8* o, u8* p, u32 a2, u32 a3, u32 x, u32 y, u32 z)
+{
+    func_0018d050(o, p, a2, a3, K1a3f08(p), -1, y);
+    *(u32*)(o + 0xc4) = z;
+    *(u32*)(o + 0x2d0) = x;
+    *(u32*)o = (u32)D_00350758;
+    if (!(*(*(u8**)(o + 0x28) + 0x12) & 0xa)) *(u32*)(o + 0x24) = *(u32*)(o + 0x10) + 128;
+}
+
+// --------------------
+struct N170a90 { u8 pad0[4]; char name[0x24]; s32 f28; u8 pad2c[0x10]; N170a90* next; };
+extern N170a90* D_0034dca0;
+s32 func_002ff1a4(const char*, const char*);
+void func_001700e8(N170a90*, s32);
+static inline N170a90* Next170a90(N170a90* n) { if (n == 0) return D_0034dca0; return n->next; }
+static inline bool Ok170a90(N170a90* n) { return n->f28 >= 10000; }
+void func_00170a90(const char* name)
+{
+    N170a90* n = 0;
+    while ((n = Next170a90(n)) != 0) {
+        if (func_002ff1a4(n->name, name) == 0 && Ok170a90(n)) {
+            func_001700e8(n, 1);
+            return;
+        }
+    }
+}
+
+// --------------------
+// libgcc fp-bit.c (double): float_to_si / float_to_usi
+enum FpC3143e0 { FPC_SNAN, FPC_QNAN, FPC_ZERO, FPC_NUMBER, FPC_INFINITY };
+struct FpN3143e0 { FpC3143e0 cls; u32 sign; s32 normal_exp; u64 fraction; };
+static inline s32 iszero3143e0(FpN3143e0* x) { return x->cls == FPC_ZERO; }
+static inline s32 isnan3143e0(FpN3143e0* x) { return x->cls == FPC_SNAN || x->cls == FPC_QNAN; }
+static inline s32 isinf3143e0(FpN3143e0* x) { return x->cls == FPC_INFINITY; }
+void func_003147a0_3143e0(u64*, FpN3143e0*) asm("func_003147a0");
+s32 func_003143e0(u64 arg_a)
+{
+    FpN3143e0 a;
+    s32 tmp;
+    u64 au = arg_a;
+    func_003147a0_3143e0(&au, &a);
+    if (iszero3143e0(&a)) return 0;
+    if (isnan3143e0(&a)) return 0;
+    if (isinf3143e0(&a)) return a.sign ? (-0x7fffffff) - 1 : 0x7fffffff;
+    if (a.normal_exp < 0) return 0;
+    if (a.normal_exp > 30) return a.sign ? (-0x7fffffff) - 1 : 0x7fffffff;
+    tmp = a.fraction >> (60 - a.normal_exp);
+    return a.sign ? (-tmp) : (tmp);
+}
+u32 func_00314508(u64 arg_a)
+{
+    FpN3143e0 a;
+    u64 au = arg_a;
+    func_003147a0_3143e0(&au, &a);
+    if (iszero3143e0(&a)) return 0;
+    if (isnan3143e0(&a)) return 0;
+    if (a.sign) return 0;
+    if (isinf3143e0(&a)) return 0xffffffff;
+    if (a.normal_exp < 0) return 0;
+    if (a.normal_exp > 31) return 0xffffffff;
+    else if (a.normal_exp > 60) return a.fraction << (a.normal_exp - 60);
+    else return a.fraction >> (60 - a.normal_exp);
+}
+
+// --------------------
+// Wait for VIF1 DMA / GIF DMA / VIF1 / VU1 idle, then start VIF1 DMA (chain mode) at tadr.
+void func_001e75a8(u32 tadr)
+{
+    s32 busy;
+    do {
+        u32 m = *(volatile u32*)0x10009000 & 0x100;
+        busy = m != 0;
+        if (*(volatile u32*)0x1000a000 & 0x100) busy = 2;
+        if (*(volatile u32*)0x10003c00 & 0x1f000003) busy = 4;
+        u32 st;
+        asm volatile("cfc2.ni %0, $vi29" : "=r"(st));  // VPU_STAT
+        if (st & 0x100) busy = 8;
+    } while (busy);
+    *(volatile u32*)0x10009020 = 0;
+    *(volatile u32*)0x10009030 = tadr;
+    *(volatile u32*)0x1000e010 = 2;
+    *(volatile u32*)0x10009000 = 0x145;
+    asm volatile(".set noreorder\n\t.set reorder");  // original leaves the return delay slot empty
+}
+
+// --------------------
+struct R2e2728 { s32 a, b; };
+struct O2e2728 { u8 pad[0x64]; R2e2728* r; u8 m68[0x98]; s32 idx; f32 v; s32 n; u8 pad10c[4]; s32 state; };
+void func_002e34c8(u8*);
+R2e2728* func_002e34d8(u8*, s32);
+void func_002e2728(O2e2728* o, s32 idx, u8 b)
+{
+    if (o->state != 0) return;
+    o->idx = idx;
+    if (idx >= 0) func_002e34c8(o->m68);
+    R2e2728* r = func_002e34d8(o->m68, o->idx);
+    o->r = r;
+    f32 v = (f32)(b ? r->a : r->b);
+    o->state = b ? 1 : 2;
+    o->v = v;
+    s32 n = o->idx;
+    if (b) n = n + 1;
+    o->n = n;
+}
+
+// --------------------
+// lq/sq 128-bit copy (hand-written VU-style copy)
+#define QCOPY_11bfa0(d, s) asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(d), "r"(s) : "$8", "memory")
+struct V11bfa0 {
+    f32 x, y, z, w;
+    void Set(f32 a, f32 b, f32 c, f32 d) { x = a; y = b; z = c; w = d; }
+    V11bfa0& operator=(const V11bfa0& o) { if (this != &o) QCOPY_11bfa0(this, &o); return *this; }
+} __attribute__((aligned(16)));
+struct M11bfa0 { V11bfa0 r[4]; };
+extern M11bfa0 D_003478f0;
+void wtarget_0011bfa0(s32 init, s32 prio, u32, u32) asm("_Z16wtarget_0011bfa0jjjj");
+void wtarget_0011bfa0(s32 init, s32 prio, u32, u32)
+{
+    if (prio == 0xffff && init == 1) {
+        M11bfa0 m;
+        m.r[0].Set(1.0f, 0.0f, 0.0f, 0.0f);
+        m.r[1].Set(0.0f, 1.0f, 0.0f, 0.0f);
+        m.r[2].Set(0.0f, 0.0f, 1.0f, 0.0f);
+        m.r[3].Set(0.0f, 0.0f, 0.0f, 1.0f);
+        QCOPY_11bfa0(&D_003478f0.r[0], &m.r[0]);
+        QCOPY_11bfa0(&D_003478f0.r[1], &m.r[1]);
+        QCOPY_11bfa0(&D_003478f0.r[2], &m.r[2]);
+        QCOPY_11bfa0(&D_003478f0.r[3], &m.r[3]);
+    }
+}
+
+// --------------------
+struct P1eaf50 { f32 x, y, z; };
+struct M1eaf50 { u8 pad[16]; f32 m[4][4]; };
+union G1eaf50 { M1eaf50* p; u32 u; };
+extern G1eaf50 D_01d9e6e8_1eaf50 asm("D_01d9e6e8");
+struct O1eaf50 { u32 a; u32 b; };
+struct H1eaf50 { u8 pad[0xc]; O1eaf50* ofs; };
+void func_002f4000(f32 (*)[4]);
+void func_001eaf50(u8* base, u32, H1eaf50* h)
+{
+    O1eaf50* o = h->ofs;
+    u8* r = base + o->a;
+    u8* q = base + o->b;
+    P1eaf50* s = (P1eaf50*)(q + 160);
+    func_002f4000(D_01d9e6e8_1eaf50.p->m);
+    P1eaf50* t = (P1eaf50*)(r + 160);
+    D_01d9e6e8_1eaf50.p->m[0][0] = s->x;
+    D_01d9e6e8_1eaf50.p->m[1][1] = s->y;
+    D_01d9e6e8_1eaf50.p->m[2][2] = s->z;
+    D_01d9e6e8_1eaf50.p->m[3][0] = t->x;
+    D_01d9e6e8_1eaf50.p->m[3][1] = t->y;
+    D_01d9e6e8_1eaf50.p->m[3][2] = t->z;
+}
+
+// --------------------
+struct E295430 { s8 key; u8 pad[3]; u16 a, b; u8 pad8[2]; u16 c, d; u8 pade[2]; };
+struct T295430 { u8 pad[8]; s32 n; u8 pad2[4]; E295430 e[1]; };
+T295430* func_00294000_295430(s32) asm("func_00294000");
+s32 func_002941d8(E295430*);
+u16 func_00295430(s32 key, u8 alt)
+{
+    T295430* t = func_00294000_295430(0);
+    s32 idx = -1;
+    E295430* e = t->e;
+    for (s32 i = 0; i < t->n; i++) {
+        if (e[i].key == key) {
+            idx = i;
+            break;
+        }
+    }
+    if (alt) {
+        E295430* r = &e[idx];
+        return func_002941d8(r) ? r->d : r->b;
+    } else {
+        E295430* r = &e[idx];
+        return func_002941d8(r) ? r->c : r->a;
+    }
+}
+
+// --------------------
+struct E2a9c40 { u16 a; u16 id; u8 pad[12]; };
+struct T2a9c40 { u8 pad[8]; s32 n; u8 pad2[4]; E2a9c40 e[1]; };
+T2a9c40* func_00294000_2a9c40(s32) asm("func_00294000");
+s32 func_002a99c8(E2a9c40*);
+s32 func_002a9c40(u32 id)
+{
+    s32 i = 0;
+    s32 r = 0;
+    T2a9c40* t = func_00294000_2a9c40(8);
+    E2a9c40* e = t->e;
+    for (; i < t->n; i++) {
+        if (id != e[i].id) continue;
+        s32 k = func_002a99c8(&e[i]);
+        if (k == 1 || k == 2) {
+            r = 1;
+            break;
+        }
+    }
+    return r;
+}
+
+// --------------------
+struct E2ae280 { u8 b[12]; };
+struct T2ae280 { u8 pad[8]; s32 n; u8 pad2[4]; E2ae280 e[1]; };
+T2ae280* func_00294000_2ae280(s32) asm("func_00294000");
+s32 func_00294480(E2ae280*);
+void func_002ae280(s32* cnt, s32* total)
+{
+    s32 i = 0;
+    T2ae280* t = func_00294000_2ae280(5);
+    *total += t->n;
+    E2ae280* e = t->e;
+    for (; i < t->n; i++) {
+        if (func_00294480(&e[i])) (*cnt)++;
+    }
+}
+
+// --------------------
+struct I1de328 { u16 a; u16 id; };
+struct N1de328 { u8 pad[0x40]; u32 f40; I1de328* info; u8 pad48[0x18]; N1de328* next; };
+struct L1de328 { N1de328* head; N1de328* tail; };
+struct O1de328 { u8 pad[0xc]; L1de328 list; };
+void func_001dc920(u32);
+void func_001e0058(N1de328*);
+void func_001de328(O1de328* o, u32 id)
+{
+    N1de328* head = o->list.head;
+    N1de328* n = head;
+    while (n != 0) {
+        N1de328* next = n->next;
+        if (n->info->id == id) {
+            N1de328* p;
+            L1de328* l = &o->list;
+            if (n == head) {
+                l->head = next;
+                p = 0;
+            } else {
+                p = head;
+                while (p->next != n) p = p->next;
+                p->next = next;
+            }
+            if (n == l->tail) l->tail = p;
+            n->next = 0;
+            func_001dc920(n->f40);
+            func_001e0058(n);
+            return;
+        }
+        n = next;
+    }
+}
+
+// --------------------
+struct E2417a0 { u8 pad[8]; u32 f8; u8 pad2[20]; };
+struct T2417a0 { u8 pad[2]; s16 lim; u8 pad4; s8 b5; };
+union G2417a0 { T2417a0* p; u32 u; };
+extern G2417a0 D_0035ec94;
+s32 func_002408d0(s32);
+void func_002417a0()
+{
+    T2417a0* t = D_0035ec94.p;
+    if (t == 0) return;
+    s16 lim = t->lim;
+    if (lim < 0) return;
+    if (t->b5) {
+        if (lim >= func_002408d0(1)) return;
+    } else {
+        if (lim >= func_002408d0(0)) return;
+    }
+    {
+        for (s32 i = 0; i < 99; i++) {
+            E2417a0* e = (E2417a0*)D_0035ec94.p;
+            if (e[i].f8 == 0) e[i].f8 = 64;
+        }
+    }
+}
+
+// --------------------
+// libgcc fp-bit.c (double): si_int_to_float
+enum FpC314330 { FPC2_SNAN, FPC2_QNAN, FPC2_ZERO, FPC2_NUMBER, FPC2_INFINITY };
+struct FpN314330 { FpC314330 cls; u32 sign; s32 normal_exp; u64 fraction; };
+u64 func_003146c8_314330(FpN314330*) asm("func_003146c8");
+u64 func_00314330(s32 arg_a)
+{
+    FpN314330 in;
+    in.cls = FPC2_NUMBER;
+    in.sign = arg_a < 0;
+    if (!arg_a) {
+        in.cls = FPC2_ZERO;
+    } else {
+        in.normal_exp = 60;
+        if (in.sign) {
+            if (arg_a == (-0x7fffffff - 1)) return 0xc1e0000000000000ULL;
+            in.fraction = (s32)(-arg_a);
+        } else {
+            in.fraction = arg_a;
+        }
+        while (in.fraction < ((u64)1 << 60)) {
+            in.fraction <<= 1;
+            in.normal_exp -= 1;
+        }
+    }
+    return func_003146c8_314330(&in);
+}
+
+// --------------------
+struct E2abf40 { s8 key; u8 pad[11]; };
+struct T2abf40 { u8 pad[8]; s32 n; u8 pad2[4]; E2abf40 e[1]; };
+T2abf40* func_00294000_2abf40(s32) asm("func_00294000");
+s32 func_002abf40(s32 key, s32 nth)
+{
+    bool found = false;
+    T2abf40* t = func_00294000_2abf40(1);
+    s32 r = -1;
+    s32 i = 0;
+    E2abf40* e = t->e;
+    for (; i < t->n; i++, e++) {
+        if (key != e->key) {
+            r = -1;
+            if (found) break;
+        } else {
+            if (!found) {
+                found = true;
+                r = 0;
+            }
+            if (i == nth) break;
+            r++;
+        }
+    }
+    if (i >= t->n) r = -1;
+    return r;
+}
+
+// --------------------
+struct E2aa5b8 { s8 key; u8 pad[11]; };
+struct T2aa5b8 { u8 pad[8]; s32 n; u8 pad2[4]; E2aa5b8 e[1]; };
+T2aa5b8* func_00294000_2aa5b8(s32) asm("func_00294000");
+s32 func_002aa5b8(s32 key, s32 nth)
+{
+    bool found = false;
+    T2aa5b8* t = func_00294000_2aa5b8(2);
+    s32 r = -1;
+    s32 i = 0;
+    E2aa5b8* e = t->e;
+    for (; i < t->n; i++, e++) {
+        if (key != e->key) {
+            r = -1;
+            if (found) break;
+        } else {
+            if (!found) {
+                found = true;
+                r = 0;
+            }
+            if (i == nth) break;
+            r++;
+        }
+    }
+    if (i >= t->n) r = -1;
+    return r;
+}
+
+// --------------------
+struct E2aae88 { u16 id; u8 pad[14]; };
+struct T2aae88 { u8 pad[8]; s32 n; u8 pad2[4]; E2aae88 e[1]; };
+T2aae88* func_00294000_2aae88(s32) asm("func_00294000");
+s32 func_002aacd8(s32);
+extern u8* D_0035f610_2aae88 asm("D_0035f610");
+s32 func_002aae88(s32 id)
+{
+    s32 r = 0;
+    T2aae88* t = func_00294000_2aae88(8);
+    E2aae88* e = t->e;
+    if (id < 0) {
+        r = func_002aacd8(-1);
+    } else {
+        for (s32 i = 0; i < t->n; i++) {
+            if (e[i].id != id) continue;
+            u32* bits = (u32*)(D_0035f610_2aae88 + 148);
+            if (bits[(u32)i >> 5] & (1 << (i & 31))) {
+                r = 1;
+                break;
+            }
+        }
+    }
+    return r;
+}
+
 } // extern "C"
