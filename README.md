@@ -8,6 +8,13 @@ It builds the current executable:
 
 * SLPM\_666.75: sha256sum: `d869ce4b8edd61cb978c4ff9ede595fe4d7d7b21cbb96a145275217120d8bc87`
 
+> [!IMPORTANT]
+> This repository does **not** contain any game data: no executable, disc image or assets.
+> A legally obtained copy of the game is required to build it. This project is not, and
+> will not produce, a PC port or any other port. It is an unofficial fan project, not
+> affiliated with or endorsed by Square Enix, Disney or Sony Interactive Entertainment.
+> See [Legal](#legal).
+
 > **About this fork.** This project is built on [GovanifY's original work](https://github.com/GovanifY/kh2)
 > (the build system, tooling, recovered symbols and file layout, and the first several
 > thousand matched functions). All credit for that foundation goes to GovanifY.
@@ -17,9 +24,6 @@ It builds the current executable:
 > reviewed by the repository owner. Every function is only accepted when the full rebuild
 > is byte-identical to the original, but the source itself is machine-written, so names,
 > types and structure may be less idiomatic than hand-written decomp code.
->
-> This is an unofficial fan project, not affiliated with or endorsed by Square Enix or Sony.
-> It contains no game data: you need your own copy of the game to build it.
 
 ## Status (October 2026)
 
@@ -106,3 +110,48 @@ matching.
 
 * `nonmatchings`: This folder is not rigged up at all in the build system and is
   mostly used as a dump of functions that aren't yet matching.
+
+## Legal
+
+This is an unofficial, non-commercial fan project for preservation, education and
+research. It is not affiliated with, endorsed by or sponsored by Square Enix, Disney or
+Sony Interactive Entertainment.
+
+Kingdom Hearts is a trademark of Disney Enterprises, Inc. and Square Enix Holdings Co., Ltd.
+PlayStation is a trademark of Sony Interactive Entertainment Inc. All other trademarks
+belong to their owners. Their use here identifies the game only.
+
+### What this repository contains
+
+* Source code written by contributors. When compiled, it produces the same machine code as
+  the original program.
+* Build tools, notes and a GCC compiler toolchain. GCC keeps its own license (GNU GPL).
+
+### What this repository does not contain
+
+* The game's executable (`SLPM_666.75`), disc image, or any graphics, models, music, sound
+  or other asset files.
+* Leaked, stolen or confidential material from Square Enix, Sony or anyone else.
+
+The build reads the executable from your own copy of the game. It does not download it,
+and the build output stays on your computer. You must not distribute the executable that
+you build.
+
+### Rules for contributors and users
+
+* Do not ask for, share or link to game files, disc images or download sites in issues,
+  pull requests or discussions. We remove such content.
+* Do not contribute leaked, stolen or confidential code or documents, and do not
+  contribute work that you do not have the right to share.
+* Contributions are accepted under the [MIT License](LICENSE).
+
+### License
+
+The MIT License covers only the original work of this project's contributors. It gives no
+rights to the original game, its assets or the trademarks above.
+
+### Contact
+
+If you hold rights in the game and have a concern about this repository, open an issue
+on this repository and we will respond promptly.
+
