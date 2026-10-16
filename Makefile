@@ -107,6 +107,11 @@ inner-all: $(GEN)/objects.mk $(ORDERED_OBJS)
 		python3 $(TOOLS)/build_elf.py normalize --linked-elf $(TMP_LINK_ELF) --out-elf $(TARGET); \
 	fi
 
+# Functions the original built with debug info (-g) live in *_g.cpp. -g keeps gcc from moving
+# prologue register saves into a call's delay slot (jal; nop). Mostly src/tozawa (0x241fd0-0x2bac78).
+out/build/%_g.o: CXXFLAGS := $(subst -g0,-g,$(CXXFLAGS))
+out/build/%_g.o: CFLAGS := $(subst -g0,-g,$(CFLAGS))
+
 # Functions the original built without optimisation (fp/s8 frame) live in *_O0.cpp.
 out/build/%_O0.o: CXXFLAGS := $(subst -O2,-O0,$(CXXFLAGS))
 out/build/%_O0.o: CFLAGS := $(subst -O2,-O0,$(CFLAGS))
