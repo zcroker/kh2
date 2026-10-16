@@ -16135,4 +16135,530 @@ s32 func_002aae88(s32 id)
     return r;
 }
 
+// --------------------
+extern u8* D_0035f610_2ac748 asm("D_0035f610");
+u8* func_001d9e30(u8*);
+s32 func_002764b0(u8);
+s32 func_002ac748(s32 key)
+{
+    u8* e = 0;
+    s32 r = 0;
+    for (;;) {
+        e = func_001d9e30(e);
+        if (e == 0) break;
+        if (key >= 0 && func_002764b0(e[4]) != key) continue;
+        u8 b = e[1];
+        u32* bits = (u32*)(D_0035f610_2ac748 + e[0] * 8 + 404);
+        if (bits[b >> 5] & (1 << (b & 31))) {
+            r = 1;
+            break;
+        }
+    }
+    return r;
+}
+
+// --------------------
+struct O2e50f8 { u8 pad[4]; f32 w; u8 pad8[0x1148]; f32 tbl[22]; };
+f32 func_002e51b0(O2e50f8*, f32);
+f32 func_002e50f8(O2e50f8* o, f32 a, f32 b)
+{
+    f32 h = 0.5f;
+    f32 v = func_002e51b0(o, a);
+    if (func_002f8870(b) > o->w * h) return v;
+    b = func_002f8870(b * h);
+    return v * o->tbl[(s32)(b * 21.0f / o->w + h)];
+}
+
+// --------------------
+struct E131e80 { u8 pad[0x74]; u32 ptr; u8 pad78[0x18]; };
+struct N131e80 { s16 type; u16 done; u32 nkids; s32 last; u8 padc[8]; u32 tbl; };
+N131e80* Reloc131e80(N131e80* n) asm("func_00131e80");
+N131e80* Reloc131e80(N131e80* n)
+{
+    s16 t = n->type;
+    if (t != -1) {
+        if (t != 0) return n;
+        E131e80* e = (E131e80*)((u8*)n + n->tbl);
+        for (s32 i = 0; i <= n->last; i++, e++) e->ptr = (u32)n + e->ptr;
+    } else {
+        u32* p = (u32*)((u8*)n + 8);
+        for (u32 i = 0; i < n->nkids; i++) Reloc131e80((N131e80*)((u8*)n + *p++));
+    }
+    n->done = 0;
+    return n;
+}
+
+// --------------------
+struct A31a6d0 { u8 b[476]; };
+struct B31a6d0 { u8 b[1328]; };
+void func_0031a508(A31a6d0*);
+void func_0031a3d8(B31a6d0*);
+struct SB31a6d0 { u8 pad[16]; B31a6d0 b[8]; };
+struct SA31a6d0 { u8 pad[8]; A31a6d0 a[16]; };
+struct O31a6d0 { u32 vt; u8 pad[44]; SB31a6d0 sb; u8 pad2[4]; SA31a6d0 sa; };
+static inline __attribute__((always_inline)) void DelA31a6d0(SA31a6d0* s)
+{
+    if (s->a != 0) {
+        A31a6d0* p = s->a + 16;
+        A31a6d0* b = s->a;
+        for (;;) {
+            if (b == p) break;
+            --p;
+            func_0031a508(p);
+        }
+    }
+}
+static inline __attribute__((always_inline)) void DelB31a6d0(SB31a6d0* s)
+{
+    if (s->b != 0) {
+        B31a6d0* p = s->b + 8;
+        B31a6d0* b = s->b;
+        for (;;) {
+            if (b == p) break;
+            --p;
+            func_0031a3d8(p);
+        }
+    }
+}
+struct AL31a6d0;
+struct ALV31a6d0 { void* f0; void (*free)(AL31a6d0*, void*); };
+struct AL31a6d0 { ALV31a6d0* vt; };
+union G31a6d0 { u8* p; u32 u; };
+extern G31a6d0 D_00347f80_31a6d0 asm("D_00347f80");
+extern u8 D_00347d70_31a6d0[] asm("D_00347d70");
+extern u8 D_00347f98_31a6d0[] asm("D_00347f98");
+void func_0031a6d0(O31a6d0* o)
+{
+    o->vt = (u32)D_00347d70_31a6d0;
+    DelA31a6d0(&o->sa);
+    DelB31a6d0(&o->sb);
+    o->vt = (u32)D_00347f98_31a6d0;
+    AL31a6d0* al = *(AL31a6d0**)(D_00347f80_31a6d0.p + 20);
+    al->vt->free(al, o);
+}
+
+// --------------------
+struct E31c450;
+struct EV31c450 { void* f[3]; void (*dtor)(E31c450*); };
+struct E31c450 { EV31c450* vt; u8 pad[404]; };
+struct O31c450 { u32 vt; u8 pad4[44]; u32 vt2; u8 pad34[28]; u8 m50[416]; E31c450 b[10]; E31c450 a[4]; u8 m1840[4]; };
+extern u8 D_0034a5b0_31c450[] asm("D_0034a5b0");
+extern u8 D_00347e80_31c450[] asm("D_00347e80");
+extern u8 D_00347f98_31c450[] asm("D_00347f98");
+void func_00239870(u8*);
+void func_002361d0(u8*);
+static inline __attribute__((always_inline)) void DelA31c450(O31c450* o)
+{
+    if ((u8*)o + 4576 != 0) {
+        E31c450* p = o->a + 4;
+        E31c450* b = o->a;
+        for (;;) {
+            if (b == p) break;
+            --p;
+            p->vt->dtor(p);
+        }
+    }
+}
+static inline __attribute__((always_inline)) void DelB31c450(O31c450* o)
+{
+    if ((u8*)o + 496 != 0) {
+        E31c450* p = o->b + 10;
+        E31c450* b = o->b;
+        for (;;) {
+            if (b == p) break;
+            --p;
+            p->vt->dtor(p);
+        }
+    }
+}
+void func_0031c450(O31c450* o)
+{
+    o->vt = (u32)D_0034a5b0_31c450;
+    func_00239870(o->m1840);
+    DelA31c450(o);
+    DelB31c450(o);
+    o->vt2 = (u32)D_00347e80_31c450;
+    func_002361d0(o->m50);
+    o->vt2 = (u32)D_00347f98_31c450;
+    o->vt = (u32)D_00347f98_31c450;
+}
+
+// --------------------
+struct F11c148 { u64 lo : 51; u64 b51 : 1; u64 b52 : 1; u64 b53 : 1; u64 hi : 10; };
+struct O11c148 { u8 pad[0x10]; F11c148 fl; f32 k; u16 h; u16 id; };
+u16 func_0011f238(u32, u32);
+void func_0011c148(O11c148* o, u32 a, u32 id, u8 x, u8 y, f32 k)
+{
+    u16 h = func_0011f238(a, id);
+    o->k = k;
+    o->id = id;
+    o->fl.b52 = x != 0;
+    o->fl.b51 = y != 0;
+    o->fl.b53 = 0;
+    o->h = h;
+}
+
+// --------------------
+struct A196ca8 { u8 a, b, c; };
+struct X196ca8 { u16 d, e, f; };
+struct O196ca8 {
+    u32 f0; union { u32 u; u16 h; u8 b; } f4; u32 f8; u8 m0c[4]; A196ca8 bytes; u8 pad13; X196ca8 shorts; u8 pad1a[0x12];
+    u8 m2c[0x10]; u32 f3c, f40; u8 pad44[0xc]; u8 m50[0x44]; u32 f94, f98, f9c, fa0;
+};
+void func_0019ef70(u8*);
+u32 func_001d30c0(u32);
+void func_0011b6a8_196ca8(u8*) asm("func_0011b6a8");
+void func_00138480(u32);
+static inline void Init196ca8(X196ca8* x, s32 v)
+{
+    A196ca8* p = (A196ca8*)((u8*)x - 4);
+    p->a = v; p->b = v; p->c = v; x->d = v; x->e = v; x->f = v;
+}
+void func_00196ca8(u8* p, s32 flags, u32 v)
+{
+    O196ca8* o = (O196ca8*)p;
+    o->f4.u = v;
+    o->f0 = 0;
+    o->f8 = 0;
+    Init196ca8(&o->shorts, 0xffff);
+    u8* m = o->m0c;
+    func_0031cc28(o->m2c);
+    func_0019ef70(m);
+    o->f3c = func_001d30c0(flags & 0x3f);
+    o->f40 = 1;
+    func_0011b6a8_196ca8(o->m50);
+    o->f98 = 0;
+    o->f9c = -1;
+    o->fa0 = -1;
+    o->f94 = 0;
+    if (flags & 0x80) func_00138480(1);
+}
+
+// --------------------
+// libgcc fp-bit.c (double): pack_d (no rounding, denormals flushed)
+union FpU3146c8 { u64 value; struct { u64 fraction : 52; u32 exp : 11; u32 sign : 1; } bits; };
+static inline s32 isnan_3146c8(FpN314330* x) { return x->cls == FPC2_SNAN || x->cls == FPC2_QNAN; }
+static inline s32 isinf_3146c8(FpN314330* x) { return x->cls == FPC2_INFINITY; }
+static inline s32 iszero_3146c8(FpN314330* x) { return x->cls == FPC2_ZERO; }
+u64 func_003146c8(FpN314330* src)
+{
+    FpU3146c8 dst;
+    u64 fraction = src->fraction;
+    s32 sign = src->sign;
+    s32 exp = 0;
+    if (isnan_3146c8(src)) {
+        exp = 2047;
+        fraction |= (u64)1 << 51;
+    } else if (isinf_3146c8(src)) {
+        exp = 2047;
+        fraction = 0;
+    } else if (iszero_3146c8(src)) {
+        fraction = 0;
+    } else if (fraction == 0) {
+        exp = 0;
+    } else if (src->normal_exp < -1022) {
+        fraction = 0;
+    } else if (src->normal_exp > 1023) {
+        exp = 2047;
+        fraction = 0;
+    } else {
+        exp = src->normal_exp + 1023;
+        fraction >>= 8;
+    }
+    dst.bits.fraction = fraction;
+    dst.bits.exp = exp;
+    dst.bits.sign = sign;
+    return dst.value;
+}
+
+// --------------------
+struct V2e2350 {
+    f32 x, y, z, w;
+    V2e2350() {}
+    V2e2350(f32 a, f32 b, f32 c, f32 d) { x = a; y = b; z = c; w = d; }
+    // 128-bit lq/sq copy (hand-written)
+    V2e2350& operator=(const V2e2350& s) { if (this != &s) QCOPY(this, &s); return *this; }
+} __attribute__((aligned(16)));
+union U2e2350 { s32* p; s32 i; u32 u; };
+struct O2e2350 {
+    u8 pad[100]; U2e2350 cur; u8 b104[152]; u32 f256; f32 f260; u32 f264; u8 f268; u8 p269[3];
+    U2e2350 f272; U2e2350 f276; u8 p280[8]; V2e2350 v288; V2e2350 v304;
+};
+extern "C" {
+s32* func_002e34d8_2e2350(u8*, s32) asm("func_002e34d8");
+void func_002e24e0(O2e2350*);
+void Init2e2350(O2e2350* o) asm("func_002e2350");
+void Init2e2350(O2e2350* o)
+{
+    o->f264 = 0;
+    o->f256 = 0;
+    s32* c = func_002e34d8_2e2350(o->b104, 0);
+    o->cur.p = c;
+    o->f260 = (f32)*c;
+    func_002e24e0(o);
+    o->f268 = 1;
+    o->f276.i = -1;
+    o->f272.u = 0;
+    o->v288 = V2e2350(130.0f, 180.0f, 0.0f, 0.0f);
+    o->v304 = V2e2350(140.0f, 150.0f, 0.0f, 0.0f);
+}
+}
+
+// --------------------
+struct AVt322c98 { void* alloc; void (*free)(void* self, void* p); };
+struct AO322c98 { AVt322c98* vt; };
+struct H322c98 { u8 pad[20]; AO322c98* al; };
+union HU322c98 { H322c98* h; u32 u; };
+extern HU322c98 D_00347f80_322c98 asm("D_00347f80");
+extern u8 D_0035eb60_322c98[] asm("D_0035eb60");
+extern u8 D_00348698_322c98[] asm("D_00348698");
+extern u8 D_00347f98_322c98[] asm("D_00347f98");
+void func_0023d7c8(void*);
+void func_001070e8(u8*);
+void func_00106ac8(void*);
+struct EA322c98 { u8 pad[256]; u8 m[144]; };
+struct EB322c98 { u8 pad[192]; u8 m[128]; };
+struct O322c98 { u32 vt; u8 pad4[28]; EA322c98 a[4]; EB322c98 b[4]; u8 pad2[32]; u32 v1; u8 p1[780]; u32 v2; u8 p2[780]; u32 v3; };
+static inline __attribute__((always_inline)) void DelB322c98(O322c98* o)
+{
+    if ((u8*)o + 1632 != 0) {
+        EB322c98* p = o->b + 4;
+        EB322c98* b = o->b;
+        for (;;) {
+            if (b == p) break;
+            --p;
+            func_001ddd88(p->m);
+        }
+    }
+}
+static inline __attribute__((always_inline)) void DelA322c98(O322c98* o)
+{
+    if ((u8*)o + 32 != 0) {
+        EA322c98* p = o->a + 4;
+        EA322c98* b = o->a;
+        for (;;) {
+            if (b == p) break;
+            --p;
+            func_001070e8(p->m);
+            func_00106ac8(p);
+        }
+    }
+}
+void func_00322c98(O322c98* o)
+{
+    o->vt = (u32)D_0035eb60_322c98;
+    func_0023d7c8(o);
+    o->v3 = (u32)D_00348698_322c98;
+    o->v2 = (u32)D_00348698_322c98;
+    o->v1 = (u32)D_00348698_322c98;
+    DelB322c98(o);
+    DelA322c98(o);
+    o->vt = (u32)D_00347f98_322c98;
+    AO322c98* al = D_00347f80_322c98.h->al;
+    al->vt->free(al, o);
+}
+
+// --------------------
+u8* func_002a9d68_2ab180() asm("func_002a9d68");
+extern u8* D_0035f610_2ab180 asm("D_0035f610");
+s32 func_002ab180(s32 id)
+{
+    u8* save = func_002a9d68_2ab180();
+    s32 r = 1;
+    if (id < 0) {
+        u32* g = (u32*)(D_0035f610_2ab180 + 136);
+        u32* sv = (u32*)(save + 136);
+        for (s32 i = 0; i < 96; i++) {
+            u32 m = 1 << (i & 31);
+            if (g[(u32)i >> 5] & m) {
+                r = (sv[(u32)i >> 5] & m) != 0;
+                if (!r) break;
+            }
+        }
+    } else {
+        u32 m = 1 << (id & 31);
+        u32 w = ((u32)id >> 5) * 4;
+        s32 x = 0;
+        if (*(u32*)(D_0035f610_2ab180 + w + 136) & m)
+            x = (*(u32*)(save + w + 136) & m) != 0;
+        r = x;
+    }
+    return r;
+}
+
+// --------------------
+struct E2aa220 { u8 d[8]; };
+struct T2aa220 { u8 pad[8]; s32 n; u8 pad2[4]; E2aa220 e[1]; };
+T2aa220* func_00294000_2aa220(s32) asm("func_00294000");
+u8* func_002a9d68_2aa220() asm("func_002a9d68");
+s32 func_002943e8_2aa220(E2aa220*) asm("func_002943e8");
+extern u8* D_0035f610_2aa220 asm("D_0035f610");
+void func_002aa220()
+{
+    s32 i = 0;
+    u8* save = func_002a9d68_2aa220();
+    T2aa220* t = func_00294000_2aa220(4);
+    E2aa220* e = t->e;
+    for (; i < t->n; i++) {
+        if (func_002943e8_2aa220(&e[i])) {
+            u32 m = 1 << (i & 31);
+            u32* sb = (u32*)(save + 316);
+            if (!(sb[(u32)i >> 5] & m)) {
+                u32* gb = (u32*)(D_0035f610_2aa220 + 316);
+                u32* q = &gb[(u32)i >> 5];
+                *q |= m;
+            }
+        }
+    }
+}
+
+// --------------------
+struct E2aa960 { u8 d[8]; };
+struct T2aa960 { u8 pad[8]; s32 n; u8 pad2[4]; E2aa960 e[1]; };
+T2aa960* func_00294000_2aa960(s32) asm("func_00294000");
+u8* func_002a9d68_2aa960() asm("func_002a9d68");
+s32 func_002944d0_2aa960(E2aa960*) asm("func_002944d0");
+extern u8* D_0035f610_2aa960 asm("D_0035f610");
+void func_002aa960()
+{
+    s32 i = 0;
+    u8* save = func_002a9d68_2aa960();
+    T2aa960* t = func_00294000_2aa960(6);
+    E2aa960* e = t->e;
+    for (; i < t->n; i++) {
+        if (func_002944d0_2aa960(&e[i])) {
+            u32 m = 1 << (i & 31);
+            u32* sb = (u32*)(save + 132);
+            if (!(sb[(u32)i >> 5] & m)) {
+                u32* gb = (u32*)(D_0035f610_2aa960 + 132);
+                u32* q = &gb[(u32)i >> 5];
+                *q |= m;
+            }
+        }
+    }
+}
+
+// --------------------
+struct E2ad258 { u8 d[8]; };
+struct T2ad258 { u8 pad[8]; s32 n; u8 pad2[4]; E2ad258 e[1]; };
+T2ad258* func_00294000_2ad258(s32) asm("func_00294000");
+u8* func_002a9d68_2ad258() asm("func_002a9d68");
+s32 func_002943e8_2ad258(E2ad258*) asm("func_002943e8");
+extern u8* D_0035f620;
+union C2ad258 { s32 i; u32 u; };
+extern C2ad258 D_0035f628;
+extern s32 D_0035f62c;
+void func_002ad258()
+{
+    s32 i = 0;
+    T2ad258* t = func_00294000_2ad258(4);
+    D_0035f628.i += t->n;
+    E2ad258* e = t->e;
+    for (; i < t->n; i++) {
+        if (func_002943e8_2ad258(&e[i])) {
+            u32* gb = (u32*)(D_0035f620 + 316);
+            u32 m = 1 << (i & 31);
+            u32* q = &gb[(u32)i >> 5];
+            *q |= m;
+            D_0035f62c++;
+        }
+    }
+}
+
+// --------------------
+struct E2ad580 { u8 d[8]; };
+struct T2ad580 { u8 pad[8]; s32 n; u8 pad2[4]; E2ad580 e[1]; };
+T2ad580* func_00294000_2ad580(s32) asm("func_00294000");
+u8* func_002a9d68_2ad580() asm("func_002a9d68");
+s32 func_002944d0_2ad580(E2ad580*) asm("func_002944d0");
+extern u8* D_0035f620_2ad580 asm("D_0035f620");
+union C2ad580 { s32 i; u32 u; };
+extern C2ad580 D_0035f628_2ad580 asm("D_0035f628");
+extern s32 D_0035f62c_2ad580 asm("D_0035f62c");
+void func_002ad580()
+{
+    s32 i = 0;
+    T2ad580* t = func_00294000_2ad580(6);
+    D_0035f628_2ad580.i += t->n;
+    E2ad580* e = t->e;
+    for (; i < t->n; i++) {
+        if (func_002944d0_2ad580(&e[i])) {
+            u32* gb = (u32*)(D_0035f620_2ad580 + 132);
+            u32 m = 1 << (i & 31);
+            u32* q = &gb[(u32)i >> 5];
+            *q |= m;
+            D_0035f62c_2ad580++;
+        }
+    }
+}
+
+// --------------------
+u8* func_002a9d68_2abac8() asm("func_002a9d68");
+extern u8* D_0035f610_2abac8 asm("D_0035f610");
+u8* func_001a82b0_2abac8(u8*) asm("func_001a82b0");
+u8* func_001a80c8_2abac8(u16) asm("func_001a80c8");
+s32 func_002764b0_2abac8(u8) asm("func_002764b0");
+void func_002abac8(s32 key)
+{
+    u8* e = 0;
+    s32 i = 0;
+    u8* save = func_002a9d68_2abac8();
+    u32* sb = (u32*)(save + 300);
+    for (;;) {
+        e = func_001a82b0_2abac8(e);
+        if (e == 0) break;
+        if (func_001a80c8_2abac8(*(u16*)(e + 2))[2] != 22) continue;
+        if (func_002764b0_2abac8(e[5]) != key) { i++; continue; }
+        {
+            u32* gb = (u32*)(D_0035f610_2abac8 + 300);
+            u32 m = 1 << (i & 31);
+            if (gb[(u32)i >> 5] & m) {
+                if (!(sb[(u32)i >> 5] & m)) sb[(u32)i >> 5] |= m;
+            }
+        }
+        i++;
+    }
+}
+
+// --------------------
+extern u8* D_0035f610_2ac8e0 asm("D_0035f610");
+u8* func_001d9e30_2ac8e0(u8*) asm("func_001d9e30");
+s32 func_002764b0_2ac8e0(u8) asm("func_002764b0");
+u8* func_002a9d68_2ac8e0() asm("func_002a9d68");
+void func_002ac8e0(s32 key)
+{
+    u8* save = func_002a9d68_2ac8e0();
+    u8* e = 0;
+    for (;;) {
+        e = func_001d9e30_2ac8e0(e);
+        if (e == 0) break;
+        if (func_002764b0_2ac8e0(e[4]) != key) continue;
+        u8 b = e[1];
+        u32* gb = (u32*)(D_0035f610_2ac8e0 + e[0] * 8 + 404);
+        u32 m = 1 << (b & 31);
+        if (gb[b >> 5] & m) {
+            u32* d = (u32*)(save + e[0] * 8 + 404);
+            if (!(d[b >> 5] & m)) d[b >> 5] |= m;
+        }
+    }
+}
+
+// --------------------
+struct O28d1c0 { u8 pad[392]; s32 f392; u8 pad2[10]; s16 h[3]; };
+void func_0028d6e8(O28d1c0*);
+u32 func_0023c4b8(u8*, u32);
+u8* func_00236ca8_28d1c0(u32, u32) asm("func_00236ca8");
+void func_0028d188(O28d1c0*);
+void func_001386e0_28d1c0(O28d1c0*, s32, u32, u8*, s32, s32) asm("func_001386e0");
+void func_0028d1c0(O28d1c0* o, s32 id, u32 a, u32 b, u32 bank, s16* src)
+{
+    func_0028d6e8(o);
+    u32 h = func_0023c4b8(func_0023f1b0(bank), a);
+    u8* w = func_00236ca8_28d1c0(*(u32*)(func_0023f1b0(bank) + 40), b);
+    func_0028d188(o);
+    for (s32 i = 0; i < 3; i++) o->h[i] = src[i];
+    func_001386e0_28d1c0(o, id, h, w, o->h[0], 0);
+    o->f392 = o->h[2];
+}
+
 } // extern "C"
