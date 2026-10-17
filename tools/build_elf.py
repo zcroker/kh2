@@ -853,6 +853,8 @@ def retarget_local_data_refs(obj: Path, sym_name: str, code: bytes, orig_code: b
             count += 1
         return count > 0
 
+    patched_hi: dict = {}  # (r_sym, compiled lui word) -> original lui word, for retargeted pairs
+    all_hi: list = []      # every HI16 against local data: (offset, r_sym)
     for rel in (s for s in secs if s[1] == 9 and s[7] == func[3]):  # SHT_REL for this text section
         hi = None
         pend: list = []  # HI16s since the last LO16 (gcc may duplicate a lui into a delay slot)
@@ -864,6 +866,7 @@ def retarget_local_data_refs(obj: Path, sym_name: str, code: bytes, orig_code: b
             if (info & 0xF) != 3 or not sname(secs[shndx]).startswith(LOCAL_DATA_PREFIXES):
                 continue
             if r_type == 5:  # R_MIPS_HI16
+                all_hi.append((r_off, r_sym))
                 hi = (r_off, r_sym)
                 pend.append(hi)
                 continue
@@ -883,12 +886,19 @@ def retarget_local_data_refs(obj: Path, sym_name: str, code: bytes, orig_code: b
                 continue
             for x in (h, l):
                 out[x : x + 4] = orig_code[x : x + 4]
+            patched_hi[(r_sym, ow(h))] = w(orig_code, h)
             # Duplicates of this same lui (identical compiled and original instruction words
             # apart from the immediate, and the same immediates as the paired one) get it too.
             for x in extra:
                 if (ow(x) == ow(h)) and ((w(orig_code, x) ^ w(orig_code, h)) & 0xFFFF0000) == 0 \
                         and (w(orig_code, x) & 0xFFFF) == (w(orig_code, h) & 0xFFFF):
                     out[x : x + 4] = orig_code[x : x + 4]
+    # A lui that gcc duplicated into a delay slot can be attached by gas to an earlier %lo of the same
+    # literal that belongs to a different lui (other register), so the pairing above misses it.
+    # Give it the original immediate when an identical lui of the same literal was retargeted to it.
+    for x, xs in all_hi:
+        if out[x : x + 4] != orig_code[x : x + 4] and patched_hi.get((xs, ow(x))) == w(orig_code, x):
+            out[x : x + 4] = orig_code[x : x + 4]
     return bytes(out)
 
 
