@@ -115,6 +115,10 @@ out/build/%_g.o: CFLAGS := $(subst -g0,-g,$(CFLAGS))
 # libgcc's 64-bit divide helpers (__udivmoddi4 copies in _divdi3.o/_moddi3.o) were built with
 # -fnon-call-exceptions (gcc's LIB2_DIVMOD_EXCEPTION_FLAGS); that C code lives in *_nce.c.
 out/build/%_nce.o: CFLAGS := $(CFLAGS) -fnon-call-exceptions
+# Some code was built without strict aliasing (gcc then shares stack slots between differently-typed
+# temporaries). Functions that only match that way live in *_nsa.cpp / *_nsa.c.
+out/build/%_nsa.o: CXXFLAGS := $(CXXFLAGS) -fno-strict-aliasing
+out/build/%_nsa.o: CFLAGS := $(CFLAGS) -fno-strict-aliasing
 
 # Functions the original built without optimisation (fp/s8 frame) live in *_O0.cpp.
 out/build/%_O0.o: CXXFLAGS := $(subst -O2,-O0,$(CXXFLAGS))
