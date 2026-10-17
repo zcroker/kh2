@@ -119,6 +119,9 @@ out/build/%_nce.o: CFLAGS := $(CFLAGS) -fnon-call-exceptions
 # temporaries). Functions that only match that way live in *_nsa.cpp / *_nsa.c.
 out/build/%_nsa.o: CXXFLAGS := $(CXXFLAGS) -fno-strict-aliasing
 out/build/%_nsa.o: CFLAGS := $(CFLAGS) -fno-strict-aliasing
+# Both -g and no strict aliasing.
+out/build/%_gnsa.o: CXXFLAGS := $(subst -g0,-g,$(CXXFLAGS)) -fno-strict-aliasing
+out/build/%_gnsa.o: CFLAGS := $(subst -g0,-g,$(CFLAGS)) -fno-strict-aliasing
 
 # Functions the original built without optimisation (fp/s8 frame) live in *_O0.cpp.
 out/build/%_O0.o: CXXFLAGS := $(subst -O2,-O0,$(CXXFLAGS))
