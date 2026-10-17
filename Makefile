@@ -112,6 +112,10 @@ inner-all: $(GEN)/objects.mk $(ORDERED_OBJS)
 out/build/%_g.o: CXXFLAGS := $(subst -g0,-g,$(CXXFLAGS))
 out/build/%_g.o: CFLAGS := $(subst -g0,-g,$(CFLAGS))
 
+# libgcc's 64-bit divide helpers (__udivmoddi4 copies in _divdi3.o/_moddi3.o) were built with
+# -fnon-call-exceptions (gcc's LIB2_DIVMOD_EXCEPTION_FLAGS); that C code lives in *_nce.c.
+out/build/%_nce.o: CFLAGS := $(CFLAGS) -fnon-call-exceptions
+
 # Functions the original built without optimisation (fp/s8 frame) live in *_O0.cpp.
 out/build/%_O0.o: CXXFLAGS := $(subst -O2,-O0,$(CXXFLAGS))
 out/build/%_O0.o: CFLAGS := $(subst -O2,-O0,$(CFLAGS))
