@@ -667,3 +667,67 @@ void func_002d5200(O2d5200* o, Hit2d5200* h)
     o2d5200_00186a90(o, &d, func_002f8870(o2d5200_config(g)->knock));
 }
 }
+
+extern "C" {
+// --------------------
+// 002d9220: Ti::MGHachimitsuPo honey-pot round start (spawn pot, Pooh and the pot object, reset them, start motions)
+struct V2d9220 {
+    f32 x, y, z, w;
+    V2d9220(f32 ax, f32 ay, f32 az, f32 aw) { x = ax; y = ay; z = az; w = aw; }
+} __attribute__((aligned(16)));
+struct Obj2d9220 { u8 pad[320]; u8 motion[16]; };
+struct O2d9220 { u8 pad[172]; s32 f172; u8 pad2[200 - 176]; u8 attached; u8 started; };
+extern void* g2d9220_player asm("D_0034e948");
+Obj2d9220* o2d9220_0016b740(s32) asm("func_0016b740");
+Obj2d9220* func_0016f000(s32, const V2d9220&, f32);
+s32 o2d9220_is_attach(Obj2d9220*) asm("_ZN2YS3OBJ9is_attachEv");
+void o2d9220_stop_voice(Obj2d9220*) asm("_ZN2Ti14MGHachimitsuPo19stop_interval_voiceEv");
+void o2d9220_detach(Obj2d9220*) asm("_ZN2YS3OBJ6detachEv");
+void o2d9220_0016b070(Obj2d9220*, const V2d9220&) asm("_Z16wtarget_0016b070jjjj");
+void o2d9220_set_pos(Obj2d9220*, const V2d9220&) asm("_ZN2YS3OBJ7set_posERKN2kn7FVectorE");
+void o2d9220_001987a8(Obj2d9220*, const char*, s32) asm("_Z16wtarget_001987a8jjjj");
+void func_00180378(void*, void*, s32, f32);
+void func_0017f488(void*, s32, f32, f32);
+void o2d9220_texanm_stop(Obj2d9220*, s32) asm("_ZN2YS3OBJ11texanm_stopEi");
+struct Names2d9220 { const char* n[2]; };
+// the {"00", "10"} initialiser table the compiler placed in .rodata
+extern const Names2d9220 D_00375cb0;
+void func_002d9220(O2d9220* o, s32 mode)
+{
+    o->f172 = 0;
+    o->started = 1;
+    void* pl = g2d9220_player;
+    Obj2d9220* a = o2d9220_0016b740(1630);
+    Obj2d9220* b = o2d9220_0016b740(1633);
+    Obj2d9220* c = func_0016f000(mode ? 2035 : 2034, V2d9220(0.0f, 0.0f, 0.0f, 0.0f), 0.0f);
+    o->attached = o2d9220_is_attach(a);
+    o2d9220_stop_voice(a);
+    if (o2d9220_is_attach(a)) o2d9220_detach(a);
+    if (o2d9220_is_attach(b)) o2d9220_detach(b);
+    o2d9220_0016b070(a, V2d9220(0.0f, 0.0f, 0.0f, 0.0f));
+    o2d9220_set_pos(a, V2d9220(0.0f, 0.0f, 0.0f, 0.0f));
+    o2d9220_0016b070(b, V2d9220(0.0f, 0.0f, 0.0f, 0.0f));
+    o2d9220_set_pos(b, V2d9220(0.0f, 0.0f, 0.0f, 0.0f));
+    o2d9220_0016b070(c, V2d9220(0.0f, 0.0f, 0.0f, 0.0f));
+    o2d9220_set_pos(c, V2d9220(0.0f, 0.0f, 0.0f, 0.0f));
+    Names2d9220 names = D_00375cb0;
+    switch (mode) {
+    case 0:
+        o2d9220_001987a8(a, names.n[0], 0);
+        func_00180378(a->motion, pl, 252, 0.0f);
+        func_0017f488(a->motion, 171, 0.0f, 0.0f);
+        func_0017f488(b->motion, 171, 0.0f, 0.0f);
+        func_0017f488(c->motion, 161, 0.0f, 0.0f);
+        o2d9220_texanm_stop(a, 12);
+        break;
+    case 1:
+        o2d9220_001987a8(a, names.n[1], 0);
+        func_00180378(a->motion, pl, 253, 0.0f);
+        func_0017f488(a->motion, 172, 0.0f, 0.0f);
+        func_0017f488(b->motion, 172, 0.0f, 0.0f);
+        func_0017f488(c->motion, 170, 0.0f, 0.0f);
+        o2d9220_texanm_stop(a, 12);
+        break;
+    }
+}
+}
