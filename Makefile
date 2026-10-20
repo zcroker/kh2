@@ -122,6 +122,10 @@ out/build/%_nsa.o: CFLAGS := $(CFLAGS) -fno-strict-aliasing
 # Both -g and no strict aliasing.
 out/build/%_gnsa.o: CXXFLAGS := $(subst -g0,-g,$(CXXFLAGS)) -fno-strict-aliasing
 out/build/%_gnsa.o: CFLAGS := $(subst -g0,-g,$(CFLAGS)) -fno-strict-aliasing
+# -g, no strict aliasing and no GCSE: gcse's partial redundancy elimination would merge repeated
+# reloads of one flags word that the original keeps (001de9a8, 001dea80).
+out/build/%_gnsa_nogcse.o: CXXFLAGS := $(subst -g0,-g,$(CXXFLAGS)) -fno-strict-aliasing -fno-gcse
+out/build/%_gnsa_nogcse.o: CFLAGS := $(subst -g0,-g,$(CFLAGS)) -fno-strict-aliasing -fno-gcse
 
 # Functions the original built without optimisation (fp/s8 frame) live in *_O0.cpp.
 out/build/%_O0.o: CXXFLAGS := $(subst -O2,-O0,$(CXXFLAGS))
