@@ -126,6 +126,9 @@ belong to their owners. Their use here identifies the game only.
 * Source code written by contributors. When compiled, it produces the same machine code as
   the original program.
 * Build tools, notes and a GCC compiler toolchain. GCC keeps its own license (GNU GPL).
+* Rebuilt copies of library routines that the game links: parts of newlib and of GCC's runtime
+  libraries (libgcc, libsupc++). Each file that holds them starts with a notice. That code keeps
+  its original license (the newlib notices, or the GNU GPL with the GCC runtime library exception).
 
 ### What this repository does not contain
 
@@ -148,7 +151,8 @@ you build.
 ### License
 
 The MIT License covers only the original work of this project's contributors. It gives no
-rights to the original game, its assets or the trademarks above.
+rights to the original game, its assets or the trademarks above. It does not cover the library code
+that carries its own notice (see above).
 
 ### Contact
 

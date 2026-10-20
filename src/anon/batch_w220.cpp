@@ -1,16 +1,7 @@
 #include "../common/types.h"
 
-// func_001e7470, func_002f1fb8: hand-written MMIO/VU0-control asm (whole body).
+// func_002f1fb8: hand-written MMIO/VU0-control asm (whole body). func_001e7470 is now C in batch_owner1021_g.cpp.
 extern u8 D_00363c50[];
-asm(".section .text.func_001e7470,\"ax\",@progbits\n"
-".align 3\n.globl func_001e7470\n.type func_001e7470,@function\nfunc_001e7470:\n"
-".set noreorder\n.set noat\n"
-"lui $14,0x1000\n ori $14,$14,0xa000\n"
-"1: lw $15,0($14)\n andi $15,$15,0x100\n nop\n nop\n nop\n bnez $15,1b\n lui $15,0x1000\n"
-"lui $12,0x1000\n ori $15,$15,0xa020\n lui $14,0x8000\n sw $0,0($15)\n or $14,$4,$14\n ori $12,$12,0xa030\n"
-"lui $13,0x1000\n sw $14,0($12)\n li $15,2\n ori $13,$13,0xe010\n sw $15,0($13)\n"
-"lui $14,0x1000\n ori $14,$14,0xa000\n li $15,325\n sw $15,0($14)\n jr $31\n nop\n"
-".set reorder\n.set at\n.size func_001e7470,.-func_001e7470\n.text\n");
 asm(".section .text.func_002f1fb8,\"ax\",@progbits\n"
 ".align 3\n.globl func_002f1fb8\n.type func_002f1fb8,@function\nfunc_002f1fb8:\n"
 ".set noreorder\n.set noat\n"
