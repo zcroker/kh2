@@ -438,3 +438,232 @@ void func_002d3b78(O2d3b78* o, Hit2d3b78* h)
     }
 }
 }
+
+// --------------------
+// 002d4b40: Ti::MGOarashi player-side update: project the player into the minigame plane, then pick the lock-on target
+#define W2d4b40_QCOPY(d, s) asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(d), "r"(s) : "$8", "memory")
+struct W2d4b40Vec {
+    f32 x, y, z, w;
+    W2d4b40Vec() {}
+    W2d4b40Vec(const W2d4b40Vec& o) { W2d4b40_QCOPY(this, &o); }
+    W2d4b40Vec& operator=(const W2d4b40Vec& o) { if (this != &o) W2d4b40_QCOPY(this, &o); return *this; }
+} __attribute__((aligned(16)));
+struct W2d4b40Mtx {
+    W2d4b40Vec r0, r1, r2, r3;
+    W2d4b40Mtx() {}
+    W2d4b40Mtx(const W2d4b40Mtx& o) {
+        asm volatile("lq $8, 0(%1)\n\tlq $9, 16(%1)\n\tlq $10, 32(%1)\n\tlq $11, 48(%1)\n\t"
+                     "sq $8, 0(%0)\n\tsq $9, 16(%0)\n\tsq $10, 32(%0)\n\tsq $11, 48(%0)"
+                     : : "r"(this), "r"(&o) : "$8", "$9", "$10", "$11", "memory");
+    }
+    W2d4b40Mtx& operator=(const W2d4b40Mtx& o) {
+        if (this != &o) {
+            asm volatile("lq $8, 0(%1)\n\tlq $9, 16(%1)\n\tlq $10, 32(%1)\n\tlq $11, 48(%1)\n\t"
+                         "sq $8, 0(%0)\n\tsq $9, 16(%0)\n\tsq $10, 32(%0)\n\tsq $11, 48(%0)"
+                         : : "r"(this), "r"(&o) : "$8", "$9", "$10", "$11", "memory");
+        }
+        return *this;
+    }
+    // inverse of a rigid (orthonormal) transform in place: transpose + negated translation
+    void invOrtho() {
+        asm volatile(".set noreorder\n\t"
+                 "lq $8, 0(%0)\n\tlq $9, 16(%0)\n\tlq $10, 32(%0)\n\tqmfc2 $11, $vf0\n\tlqc2 $vf4, 48(%0)\n\t"
+            "pextlw $12, $9, $8\n\tpextuw $13, $9, $8\n\tpextlw $14, $11, $10\n\tpextuw $15, $11, $10\n\t"
+            "pcpyld $8, $14, $12\n\tpcpyud $9, $12, $14\n\tpcpyld $10, $15, $13\n\t"
+            "qmtc2 $8, $vf1\n\tqmtc2 $9, $vf2\n\tqmtc2 $10, $vf3\n\t"
+            "vmulax.xyz ACC, $vf1, $vf4x\n\tvmadday.xyz ACC, $vf2, $vf4y\n\tvmaddz.xyz $vf4, $vf3, $vf4z\n\t"
+            "vsub.xyz $vf4, $vf0, $vf4\n\t"
+            "sq $8, 0(%0)\n\tsq $9, 16(%0)\n\tsq $10, 32(%0)\n\tsqc2 $vf4, 48(%0)\n\t.set reorder"
+            : : "r"(this) : "$8", "$9", "$10", "$11", "$12", "$13", "$14", "$15", "memory");
+    }
+    // VU0 matrix * column vector.
+    W2d4b40Vec operator*(const W2d4b40Vec& v) const {
+        W2d4b40Vec o;
+        asm volatile(".set noreorder\n\tlqc2 $vf5, 0(%2)\n\tlqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 16(%1)\n\tlqc2 $vf3, 32(%1)\n\tlqc2 $vf4, 48(%1)\n\tvmulax.wxyz ACC, $vf1, $vf5x\n\tvmadday.wxyz ACC, $vf2, $vf5y\n\tvmaddaz.wxyz ACC, $vf3, $vf5z\n\tvmaddw.wxyz $vf5, $vf4, $vf5w\n\tsqc2 $vf5, 0(%0)\n\t.set reorder" : : "r"(&o), "r"(this), "r"(&v) : "memory");
+        return o;
+    }
+} __attribute__((aligned(16)));
+extern "C" {
+struct O2d4b40 { u8 pad0[2884]; s32 f2884; u8 pad1[3092 - 2888]; void* h3092; void* h3096; void* f3100; u8 pad2[3128 - 3104]; void* f3128; s32 f3132; };
+extern void* D_00361f60;
+void func_002d10a0(O2d4b40*);
+W2d4b40Vec* func_0016c028(O2d4b40*);
+W2d4b40Mtx* func_002d1f10(void*);
+W2d4b40Mtx* func_002d1f00(void*);
+void o2d4b40_set_pos(O2d4b40*, W2d4b40Vec*) asm("_ZN2YS3OBJ7set_posERKN2kn7FVectorE");
+void* func_0016b740(s32);
+s32 func_002d5588(O2d4b40*);
+s32 func_002d56a0(O2d4b40*);
+s32 o2d4b40_is_attach(void*) asm("_ZN2YS3OBJ9is_attachEv");
+struct Tgt2d4b40;
+void func_00190128(Tgt2d4b40*);
+void o2d4b40_set_obj(Tgt2d4b40*, void*, s32) asm("_ZN2YS6TARGET7set_objEPNS_3OBJEi");
+struct Tgt2d4b40 {
+    u8 pad[64];
+    Tgt2d4b40(void* obj) { func_00190128(this); o2d4b40_set_obj(this, obj, 0); }
+};
+void func_001bd3e0(s32, s32, s32, Tgt2d4b40*, s32, s32);
+s32 func_002d55b8(O2d4b40*);
+void* func_002d2660(void*, s32);
+void func_002d4b40(O2d4b40* o)
+{
+    func_002d10a0(o);
+    void* g = D_00361f60;
+    if (!g) return;
+    {
+    W2d4b40Vec p(*func_0016c028(o));
+    W2d4b40Mtx m(*func_002d1f10(g));
+    m.invOrtho();
+    p.w = 1.0f;
+    W2d4b40Vec a = m * p;
+    a.z = 0.0f;
+    W2d4b40Vec b = *func_002d1f00(g) * a;
+    b.z = 0.0f;
+    o2d4b40_set_pos(o, &b);
+    }
+    if (!o->h3092) o->h3092 = func_0016b740(1565);
+    if (!o->h3096) o->h3096 = func_0016b740(1628);
+    if (func_002d5588(o)) return;
+    if (func_002d56a0(o) && o->h3092 && o2d4b40_is_attach(o->h3092)) {
+        Tgt2d4b40 t(o->f3100);
+        func_001bd3e0(o->f2884, 1, 497, &t, 1, 100);
+        return;
+    }
+    if (func_002d55b8(o)) {
+        Tgt2d4b40 t(o->h3092);
+        func_001bd3e0(o->f2884, 1, 496, &t, 1, 100);
+        return;
+    }
+    void* r = func_002d2660(g, 0);
+    if (r) {
+        Tgt2d4b40 t(r);
+        func_001bd3e0(o->f2884, 1, 578, &t, 1, 100);
+        o->f3128 = r;
+        o->f3132 = 0;
+        return;
+    }
+    r = func_002d2660(g, 1);
+    if (r) {
+        Tgt2d4b40 t(r);
+        func_001bd3e0(o->f2884, 1, 579, &t, 1, 100);
+        o->f3128 = r;
+        o->f3132 = 1;
+    }
+}
+}
+
+extern "C" {
+// --------------------
+// 002d5200: Ti::MGOarashi player bumped into an object (stop motions, prize/effect, knock-back)
+struct V2d5200 {
+    f32 x, y, z, w;
+    V2d5200() {}
+    void Set(f32 ax, f32 ay, f32 az, f32 aw) { x = ax; y = ay; z = az; w = aw; }
+    void Zero() { asm volatile(".set noreorder\n\tvsub.wxyz $vf1, $vf0, $vf0\n\tsqc2 $vf1, 0(%0)\n\t.set reorder" : : "r"(this) : "memory"); }
+    void Set3(f32 ax, f32 ay, f32 az) { x = ax; y = ay; z = az; w = 0.0f; }
+    V2d5200(f32 ax, f32 ay, f32 az, f32 aw) { x = ax; y = ay; z = az; w = aw; }
+    V2d5200(const V2d5200& o) { asm volatile(".set noreorder\n\tlq $8, 0(%1)\n\tsq $8, 0(%0)\n\t.set reorder" : : "r"(this), "r"(&o) : "$8", "memory"); }
+    V2d5200 operator+(const V2d5200& b) const
+    {
+        V2d5200 r;
+        asm volatile(".set noreorder\n\tlqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 0(%2)\n\tvadd.wxyz $vf1, $vf1, $vf2\n\tsqc2 $vf1, 0(%0)\n\t.set reorder" : : "r"(&r), "r"(this), "r"(&b) : "memory");
+        return r;
+    }
+    V2d5200& operator+=(const V2d5200& b)
+    {
+        asm volatile(".set noreorder\n\tlqc2 $vf1, 0(%0)\n\tlqc2 $vf2, 0(%1)\n\tvadd.wxyz $vf1, $vf1, $vf2\n\tsqc2 $vf1, 0(%0)\n\t.set reorder" : : "r"(this), "r"(&b) : "memory");
+        return *this;
+    }
+    V2d5200& operator*=(f32 k)
+    {
+        asm volatile(".set noreorder\n\tlqc2 $vf1, 0(%0)\n\tmfc1 $8, %1\n\tqmtc2 $8, $vf2\n\tvmulx.wxyz $vf1, $vf1, $vf2x\n\tsqc2 $vf1, 0(%0)\n\t.set reorder" : : "r"(this), "f"(k) : "$8", "memory");
+        return *this;
+    }
+    V2d5200& operator=(const V2d5200& o)
+    {
+        if (this != &o) asm volatile(".set noreorder\n\tlq $8, 0(%1)\n\tsq $8, 0(%0)\n\t.set reorder" : : "r"(this), "r"(&o) : "$8", "memory");
+        return *this;
+    }
+    V2d5200 operator-(const V2d5200& b) const
+    {
+        V2d5200 r;
+        asm volatile(".set noreorder\n\tlqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 0(%2)\n\tvsub.wxyz $vf1, $vf1, $vf2\n\tsqc2 $vf1, 0(%0)\n\t.set reorder" : : "r"(&r), "r"(this), "r"(&b) : "memory");
+        return r;
+    }
+    f32 normalize()
+    {
+        f32 len;
+        asm volatile(".set noreorder\n\tlqc2 $vf1, 0(%1)\n\tvmul.xyz $vf2, $vf1, $vf1\n\tvaddy.x $vf2, $vf2, $vf2y\n\tvaddz.x $vf2, $vf2, $vf2z\n\tvsqrt Q, $vf2x\n\tvwaitq\n\tcfc2.ni $8, $vi22\n\tvaddq.x $vf2, $vf0, Q\n\tmtc1 $8, %0\n\tvnop\n\tvdiv Q, $vf0w, $vf2x\n\tvwaitq\n\tvmulq.xyz $vf1, $vf1, Q\n\tsqc2 $vf1, 0(%1)\n\t.set reorder" : "=f"(len) : "r"(this) : "$8", "memory");
+        return len;
+    }
+} __attribute__((aligned(16)));
+struct Cfg2d5200 { u8 pad[136]; f32 knock; };
+struct O2d5200;
+struct O2d5200Vt { void* f[24]; s32 (*busy)(O2d5200*); };
+struct O2d5200 {
+    O2d5200Vt* vt;
+    u8 pad1[316];
+    u8 motion[1416 - 320];
+    u32 flags;
+    u8 pad2[2780 - 1420];
+    f32 height;
+    u8 pad3[2800 - 2784];
+    u8 lflag[3092 - 2800];
+    O2d5200* h3092;
+    O2d5200* h3096;
+    bool InAir() { return 0.0f < height; }
+};
+struct G2d5200 { u8 pad[320]; u8 f320; };
+struct Hit2d5200 { u8 pad[16]; O2d5200* other; u8 pad2[8]; s32 f28; };
+extern G2d5200* g2d5200_game asm("D_00361f60");
+extern V2d5200 g2d5200_zero asm("D_0034eef0");
+V2d5200 o2d5200_0016bda8(O2d5200*) asm("_Z16ctarget_0016bda8jjjj");
+s32 func_002d51f0(O2d5200*);
+void func_0017f488(void*, s32, f32, f32);
+void o2d5200_push(void*, s32, f32, f32, void*) asm("_ZN2YS6MOTION4pushEiffPFvPNS_3OBJEE");
+s32 o2d5200_is_attach(void*) asm("_ZN2YS3OBJ9is_attachEv");
+void func_002d6600(O2d5200*, V2d5200*);
+void* o2d5200_start_effect(O2d5200*, s32, s32, s32) asm("_ZN2YS3OBJ12start_effectEiii");
+V2d5200* o2d5200_effect_pos(void*) asm("_ZN3ryj6EFFECT3posEv");
+void o2d5200_set(void*, u32, s32) asm("_Z16wtarget_002cf280jjjj");
+void func_002d3f18(O2d5200*);
+Cfg2d5200* o2d5200_config(void*) asm("_ZN2Ti9MGOarashi6configEv");
+void o2d5200_00186a90(O2d5200*, V2d5200*, f32) asm("_Z16ctarget_00186a90jjjj");
+f32 func_002f8870(f32);
+void func_002d5200(O2d5200* o, Hit2d5200* h)
+{
+    G2d5200* g = g2d5200_game;
+    if (!g) return;
+    if (o->vt->busy(o)) return;
+    V2d5200 d = o2d5200_0016bda8(o) - o2d5200_0016bda8(h->other);
+    d.z = 0.0f;
+    if (d.normalize() < 0.01f) {
+        f32 zero = 0.0f;
+        d.x = 1.0f; d.z = zero; d.y = zero;
+    }
+    if (!func_002d51f0(o)) {
+        O2d5200* t = h->other;
+        if (t && (t->flags & 0x08000000) && t->InAir()) return;
+        func_0017f488(o->motion, 14, 0.0f, 0.0f);
+        o2d5200_push(o->motion, 0, 0.0f, 0.0f, 0);
+        if (o->h3096) {
+            func_0017f488(o->h3096->motion, 14, 0.0f, 0.0f);
+            o2d5200_push(o->h3096->motion, 0, 0.0f, 0.0f, 0);
+        }
+        if (o->h3092 && o2d5200_is_attach(o->h3092)) {
+            g->f320 = 1;
+            func_002d6600(o->h3092, &d);
+        }
+        if (h->f28) {
+            void* e = o2d5200_start_effect(h->other, 1, 1, 0);
+            if (e) *o2d5200_effect_pos(e) = g2d5200_zero;
+        }
+        if (h->other && (h->other->flags & 0x08000000)) {
+            o2d5200_set(h->other->lflag, 256, 0);
+            func_002d3f18(h->other);
+        }
+    }
+    if (o2d5200_config(g)->knock < 0.0f) d.Zero();
+    o2d5200_00186a90(o, &d, func_002f8870(o2d5200_config(g)->knock));
+}
+}
