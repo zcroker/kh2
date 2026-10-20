@@ -17459,4 +17459,144 @@ void func_0015e070(Owner15e070* o)
     b15e_0014c350(&o->rect2);
 }
 
+
+// --------------------
+// 001a9c20: message window text layout: walk the encoded string, run control codes (colour, scale, icons, line feeds) and place characters
+struct Font1a9c20 { s32 kind; u8 pad[13]; u8 height; u8 pad2[2]; s32 lineGap; bool IsRuby() { return kind == 4; } };
+struct Style1a9c20 { s32 a; f32 scale; f32 alpha; s32 shift; s32 e, f; };
+struct Ctx1a9c20 {
+    Font1a9c20* font;
+    s32 lines;
+    s32 x;
+    u32 y;
+    s32 color;
+    u8 pad0[4];
+    f32 width;
+    s32 count;
+    Style1a9c20 style;
+    s32 tab;
+};
+struct Cb1a9c20;
+struct Cb1a9c20Vt { void* f[6]; void (*icon)(Cb1a9c20*, s32, s32, s32, u32); void* f7[4]; void (*sprite)(Cb1a9c20*, s32, s32, s32); void (*mark)(Cb1a9c20*, s32, u32, s32); };
+struct Cb1a9c20 { Cb1a9c20Vt* vt; };
+struct Out1a9c20 { s32 a, lines; };
+struct Win1a9c20 {
+    u32 flags;
+    s32 msg;
+    u8 pad0[16];
+    Cb1a9c20* cb;
+    u8 pad1[32];
+    s32 defColor;
+    u8 pad2[4];
+    s32 baseX;
+    u32 baseY;
+    u8 pad3[16];
+    f32 charW;
+};
+void func_00192818(u8*, s32, Style1a9c20*, Out1a9c20*);
+s32 func_00192440(u8*, s32);
+u8* func_00192388(u8*);
+s32 func_001aa310(Win1a9c20*, Ctx1a9c20*, s32);
+void func_00192f98(Style1a9c20*);
+s32* w1a9c20_FontStyleGet(s32, s32) asm("_ZN2YS9FONTSTYLE3GetEii");
+s32 func_001aa6f0(Win1a9c20*, s32);
+s32 func_001aa940(Ctx1a9c20*, s32, u32, s32, s32);
+s32 func_001aae90(s32);
+s32 func_00192498(u8*, s32);
+s32 func_00192450(u8*, s32);
+f32 func_00192fb8(Style1a9c20*);
+s32 func_001aa0a8(Win1a9c20*, Ctx1a9c20*, s32, u32, s32);
+u8* func_001a9c20(Win1a9c20* w, Ctx1a9c20* c, u8* p)
+{
+    s32 prev = -1;
+    Out1a9c20 out;
+    Style1a9c20 st = c->style;
+    out.a = 0;
+    out.lines = 0;
+    func_00192818(p, w->msg, &st, &out);
+    s32 x = c->x;
+    u32 y = c->y += out.lines * 16;
+    while (p) {
+        if (c->width < 0.0f) return 0;
+        if (func_00192440(p, 0)) {
+            switch (*p) {
+            case 0:
+            case 16:
+                w->flags |= 1;
+                return 0;
+            case 1:
+                x = func_001aa310(w, c, x);
+                break;
+            case 2:
+                c->y += (c->font->lineGap + c->style.shift) * 16;
+                return func_00192388(p);
+            case 3:
+                c->color = w->defColor;
+                func_00192f98(&c->style);
+                break;
+            case 4:
+                c->color = func_001aa6f0(w, *w1a9c20_FontStyleGet(p[1], -1));
+                break;
+            case 7:
+                c->color = func_001aa6f0(w, p[1] | p[2] << 8 | p[3] << 16 | p[4] << 24);
+                break;
+            case 9: {
+                s32 ch = p[1];
+                if (!c->font->IsRuby() && func_001aa940(c, x, y, c->color, ch)) c->lines++;
+                x += func_001aae90(ch) * 16;
+                c->width -= w->charW;
+                break;
+            }
+            case 10:
+                c->style.scale = (f32)p[1] / (f32)c->font->height;
+                break;
+            case 11:
+                c->style.alpha = p[1] / 100.0f;
+                break;
+            case 12:
+                c->style.shift = p[1];
+                break;
+            case 14:
+                c->tab = p[1] * 8;
+                break;
+            case 15:
+                if (w->cb) {
+                    s32 a = p[1];
+                    s32 b = func_00192498(p, 2);
+                    w->cb->vt->sprite(w->cb, a, b, func_00192498(p, 4));
+                }
+                break;
+            case 17:
+                c->x = x = w->baseX + func_00192498(p, 1) * 16;
+                c->y = y = w->baseY + func_00192498(p, 3) * 16 - out.lines * 16;
+                break;
+            case 20:
+                c->width -= (f32)func_00192498(p, 1);
+                break;
+            case 21:
+                x += 512;
+                if (w->cb) w->cb->vt->icon(w->cb, c->count, func_00192498(p, 1), (x - 0x7000) >> 4, (y - ((u32)(out.lines << 4) >> 1) - 0x7300) >> 4);
+                c->count++;
+                break;
+            case 22:
+                if (w->cb) w->cb->vt->mark(w->cb, x, y, p[1]);
+                x += 512;
+                break;
+            }
+        } else {
+            s32 ch = func_00192450(p, 0);
+            if (ch == 70 && prev == 70) {
+                ch = 71;
+                x -= (s32)(func_00192fb8(&c->style) * 32.0f);
+            } else {
+                prev = ch;
+            }
+            x = func_001aa0a8(w, c, x, y, ch);
+            c->width -= w->charW;
+        }
+        p = func_00192388(p);
+    }
+    return p;
+}
+
 } // extern "C"
