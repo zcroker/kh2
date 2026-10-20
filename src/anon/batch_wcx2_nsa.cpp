@@ -954,4 +954,99 @@ void func_002db210(O2db210* o)
     o->f2840 = 1;
     o2db210_002d9208(g, 0);
 }
+
+// --------------------
+// 002e0898: jumping object update: sample ground height at three points, wait on the ground, launch, then fall back and land
+struct P2e0898;
+struct O2e0898 {
+    virtual void s0(); virtual void s1(); virtual void s2(); virtual void s3(); virtual void s4();
+    virtual void s5(); virtual void s6(); virtual void s7(); virtual void s8(); virtual void s9();
+    virtual void s10(); virtual void s11(); virtual void s12();
+    virtual void land(P2e0898*);
+    virtual void s14();
+    virtual void jump(P2e0898*, s32);
+    virtual s32 ready(P2e0898*, f32);
+    virtual void wait(P2e0898*, f32, f32, f32);
+    u8 pad0[8];
+    f32 f12;
+    u8 pad1[8];
+    f32 top;
+    f32 base;
+    f32 v0;
+    f32 y;
+    f32 vel;
+    f32 time;
+    u8 onGround;
+    u8 big;
+    u8 pad2[38];
+    f32 grav;
+    f32 f92;
+    f32 dur;
+};
+struct G2e0898 { u8 pad[3072]; f32 speed; };
+extern void* g2e0898_game asm("D_00361f60");
+extern G2e0898* g2e0898_gs asm("D_0034e948");
+extern f32 g2e0898_one asm("D_00349e10");
+void* func_002df140(void);
+f32 func_002e51b0(void*, f32);
+void func_002e5010(void*, f32, f32);
+f32 func_002f8870(f32);
+f32 func_002dd250(void*, s32);
+f32 func_002dd280(void*, s32);
+void func_002e0870(O2e0898*, f32*, f32*, f32*);
+void func_002e0898(O2e0898* o, P2e0898* p, f32 x)
+{
+    void* g = g2e0898_game;
+    x *= 0.01f;
+    void* fld = func_002df140();
+    f32 h = func_002e51b0(fld, x);
+    f32 h1 = func_002e51b0(fld, x + 0.2f);
+    f32 h2 = func_002e51b0(fld, x - 0.2f);
+    if (h < h1) h = h1;
+    if (h < h2) h = h2;
+    f32 bounce = func_002f8870(o->vel * o->f12) * 0.3f;
+    if (o->onGround) {
+        o->wait(p, o->time, x, bounce);
+        if (o->ready(p, o->time)) {
+            s32 big = o->big != 0;
+            o->base = h;
+            o->onGround = 0;
+            o->top = func_002dd250(g, big) * 0.01f;
+            f32 dist = o->top - o->base;
+            o->v0 = func_002dd280(g, big);
+            func_002e0870(o, &o->grav, &o->v0, &dist);
+            o->vel = 0.0f;
+            o->y = o->base;
+            o->time = 0.0f;
+            o->dur = o->v0 / o->grav;
+            o->jump(p, o->big != 0);
+        } else {
+            o->y = h;
+            o->time += g2e0898_one;
+        }
+        return;
+    }
+    f32 t = o->time / 60.0f;
+    G2e0898* gs = g2e0898_gs;
+    f32 rate = 1.0f;
+    if (o->dur < t) {
+        rate = gs->speed;
+        f32 dt = t - o->dur;
+        o->vel = -o->f92 * dt;
+        o->y = o->top - o->f92 * 0.5f * dt * dt;
+    } else {
+        gs->speed = rate;
+        o->vel = o->v0 - o->grav * t;
+        o->y = o->base + (o->v0 * t - o->grav * 0.5f * t * t);
+    }
+    o->time += g2e0898_one * rate;
+    if (o->vel < 0.0f && o->y <= h) {
+        o->y = h;
+        func_002e5010(fld, x, -bounce);
+        o->time = 0.0f;
+        o->onGround = 1;
+        o->land(p);
+        o->big = 0;
+    }
+}
 }
