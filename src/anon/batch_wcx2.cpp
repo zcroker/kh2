@@ -17205,4 +17205,32 @@ W28c198* func_0028c198(u32 id, u32 a, u32 b, u32 bank, u32 c, u32 d)
     return w;
 }
 
+
+// --------------------
+// 001cc220: find the first object in range that can be targeted and hand it over
+struct O1cc220 { u8 pad[0x588]; u32 flags; u8 pad2[0x7f8 - 0x58c]; u32 flags2; };
+s32 o1cc220_get_entry_id(void*) asm("_ZN2YS3OBJ12get_entry_idEv");
+O1cc220* func_00186078(O1cc220*);
+s32 c1cc220_00186ce8(O1cc220*) asm("_Z16ctarget_00186ce8jjjj");
+s32 func_00186d18(O1cc220*);
+s32 c1cc220_001c7950(void*, O1cc220*, f32, f32) asm("func_001c7950");
+s32 func_001cc310(O1cc220*, void*);
+extern f32 D_0036d4a8;
+s32 func_001cc220(void* self, void* target)
+{
+    bool special = o1cc220_get_entry_id(self) == 0x898;
+    O1cc220* p = 0;
+    while ((p = func_00186078(p)) != 0) {
+        if (!(p->flags & 0x80)) {
+            if (!(p->flags & 0x10)) continue;
+            if (!special) continue;
+        }
+        if (p->flags2 & 4) continue;
+        if (c1cc220_00186ce8(p)) continue;
+        if (func_00186d18(p)) continue;
+        if (!c1cc220_001c7950(target, p, D_0036d4a8, 0.0f)) continue;
+        return func_001cc310(p, target);
+    }
+}
+
 } // extern "C"
