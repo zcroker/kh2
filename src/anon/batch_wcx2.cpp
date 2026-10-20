@@ -7946,7 +7946,7 @@ const u8* func_00100430(const u8* p, u64* val);
 const u8* func_00100468(const u8* p, s64* val);
 void func_002fd160(void) __attribute__((noreturn));
 
-const u8* func_001004c0(u8 encoding, u32 base, const u8* p, u32* val) {
+const u8* func_001004c0(u8 encoding, u32 base, const u8* p, u32* val) {  // text_arg_fetch
     const union unaligned* u = (const union unaligned*)p;
     u32 result;
 
@@ -8276,7 +8276,7 @@ void func_00182280(void* unused, u8* p) {
 
 // --------------------
 s32 func_00301550(char*, const char*, va_list);
-char* func_00192cc0(char* buf, const char* fmt, ...) {
+char* func_00192cc0(char* buf, const char* fmt, ...) {  // text_format_font
     va_list ap;
     va_start(ap, fmt);
     s32 n = func_00301550(buf, fmt, ap);
@@ -9186,7 +9186,7 @@ const u8* func_00316f38(const u8* p, u64* val);
 const u8* func_00316f70(const u8* p, s64* val);
 void func_002fd160(void) __attribute__((noreturn));
 
-const u8* func_00316fc8(u8 encoding, u32 base, const u8* p, u32* val) {
+const u8* func_00316fc8(u8 encoding, u32 base, const u8* p, u32* val) {  // fmt_arg_fetch
     const union unaligned3* u = (const union unaligned3*)p;
     u32 result;
 

@@ -231,7 +231,7 @@ void func_0011f120(void* o, u8* p) {
 }
 
 // Wraps an angle into [-pi, pi].
-f32 func_00127de8(f32 a) {
+f32 func_00127de8(f32 a) {  // clampf
     if (a > 0.0f) {
         while (a > 3.1415927f) a -= 6.2831855f;
     } else {

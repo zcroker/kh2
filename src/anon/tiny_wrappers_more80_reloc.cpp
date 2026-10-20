@@ -139,7 +139,7 @@ u32 func_00105d78(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_00102788(((u32)(*(u32*)((u32)((u32)&D_00340000) - 13436u))), a0, a1, a2);
 }
 
-u32 func_0010a5f0(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_0010a5f0(u32 a0, u32 a1, u32 a2, u32 a3) {  // register_static_buffer
     return func_001342c8((u32)&D_00340f30, 0x0000000au, 0x13000000u, a3);
 }
 
@@ -236,7 +236,7 @@ u32 func_00143398(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_00146f28(((u32)(*(u32*)((u32)((u32)&D_00350000) - 30720u))), a0, 0x00000001u, a3);
 }
 
-u32 func_001433c0(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_001433c0(u32 a0, u32 a1, u32 a2, u32 a3) {  // state_set_slot
     return func_00146e70(((u32)(*(u32*)((u32)((u32)&D_00350000) - 30720u))), a0, a1, a3);
 }
 

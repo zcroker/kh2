@@ -571,7 +571,7 @@ u32 func_002db680(u32 a0, u32 a1, u32 a2, u32 a3) {
     return r2;
 }
 
-u32 func_002db6b0(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_002db6b0(u32 a0, u32 a1, u32 a2, u32 a3) {  // obj_ctor_basic
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u, r15 = 0u, r16 = 0u;
     r16 = r4;
     r2 = func_002db4b0(r4, r5, r6, r7);
@@ -609,7 +609,7 @@ u32 func_002de750(u32 a0, u32 a1, u32 a2, u32 a3) {
     return r2;
 }
 
-u32 func_002de788(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_002de788(u32 a0, u32 a1, u32 a2, u32 a3) {  // obj_ctor_arg
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u, r15 = 0u, r16 = 0u;
     r7 = r6;
     r6 = 0u;

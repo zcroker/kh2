@@ -30,7 +30,7 @@ extern u32 D_00348810;
 extern u8 D_0034881f;
 
 /* wrap a signed index into [0, n) and fetch that slot */
-s32 func_00135d00(u8* p, s32 i) {
+s32 func_00135d00(u8* p, s32 i) {  // wrap_index
     s32 n = *(s32*)(p + 12);
     if (n == 0) return 0;
     while (i < 0) {

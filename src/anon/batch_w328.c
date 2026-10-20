@@ -1,6 +1,6 @@
 #include "../common/types.h"
 
-void func_001e7798(u32* h, u32 q) {
+void func_001e7798(u32* h, u32 q) {  // heap_free
     u32* t = (u32*)(q - 16);
     u32* n;
     t[2] = 0;

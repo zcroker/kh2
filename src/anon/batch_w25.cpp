@@ -9,7 +9,7 @@ void u_call0_00233c98(void) asm("_Z16u_call0_00233c98v");
 void LayFileReset(void) asm("_ZN2Tz12LayFileResetEv");
 
 // Signed LEB128 decode; returns the pointer past the encoded value.
-u8* func_00100468(u8* p, s64* val) {
+u8* func_00100468(u8* p, s64* val) {  // leb128_decode
     u32 shift = 0;
     u64 result = 0;
     u8 byte;

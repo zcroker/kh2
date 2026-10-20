@@ -156,7 +156,7 @@ u32 func_00170950(u32 a0, u32 a1, u32 a2, u32 a3) {
     return r2;
 }
 
-u32 func_00170d18(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_00170d18(u32 a0, u32 a1, u32 a2, u32 a3) {  // obj_get_payload
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u;
     r2 = func_001702e0(r4, r5, r6, r7);
     r2 = (u32)((s32)r2 + (56));

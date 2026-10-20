@@ -13,7 +13,7 @@ struct W1521Node { void* vt; u8 pad[0x78]; W1521Node* next; };
 struct W1521NodeList { W1521Node* first; W1521Node* cur; };
 extern W1521NodeList D_01c6ced0;
 extern u8 D_00350c50;
-void func_001ac5b8(W1521Node* p) {
+void func_001ac5b8(W1521Node* p) {  // list_unlink_node_2
     W1521Node* prev;
     p->vt = &D_00350c50;
     if (p == D_01c6ced0.first) {

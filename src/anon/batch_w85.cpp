@@ -534,7 +534,7 @@ void func_00288e88(Obj288* o) {
 void func_0028eb88(u32, s32, f32, f32);
 void func_0028e8b8(u32, s32, s32, s32);
 struct Bar28b { u32 h; u8 p4[28]; s32 cur; s32 max; u8 p40[4]; s32 a; s32 b; };
-void func_0028bfc0(Bar28b* o, s32 v) {
+void func_0028bfc0(Bar28b* o, s32 v) {  // int_to_float_clamp
     f32 r, s;
     o->cur = v < o->max ? o->max : v;
     r = (f32)o->max / (f32)v;

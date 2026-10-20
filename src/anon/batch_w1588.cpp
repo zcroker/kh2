@@ -34,26 +34,26 @@ void func_002a9570(void) {
     }
 }
 
-void func_0029edf8(void) {
+void func_0029edf8(void) {  // release_global_obj
     if (D_0035f5d0) {
         func_00106420(D_0035f5d0);
         D_0035f5d0 = 0;
     }
 }
 
-void func_0029edb8(void) {
+void func_0029edb8(void) {  // alloc_global_obj
     D_0035f5d0 = func_001063c0(20, func_00103570());
     func_002fde18(D_0035f5d0, 0, 20);
 }
 
-void func_00264388(void) {
+void func_00264388(void) {  // alloc_global_buffer
     void* p = func_001063c0(2116, func_00103570());
     D_0035f0e4 = p;
     func_002fde18(p, 0, 2116);
     D_0035f0e8 = 0;
 }
 
-s32 func_00285d18(s32 x) {
+s32 func_00285d18(s32 x) {  // byte_list_contains
     s32 r = 0;
     s32 i;
     for (i = 0; D_003743c0[i] >= 0; i++) {

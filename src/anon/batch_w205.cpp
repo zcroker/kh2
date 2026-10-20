@@ -10,7 +10,7 @@ u32 func_002eff58(char* a0) {
     return t <= *(f32*)(a0 + 28);
 }
 
-void func_002be2d8(char* a0, s32 a1, V205* a2) {
+void func_002be2d8(char* a0, s32 a1, V205* a2) {  // entry_set_vec3
     O205* o = *(O205**)(a0 + a1 * 4 + 44);
     o->v.x = a2->x;
     V205* q = &o->v;

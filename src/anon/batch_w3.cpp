@@ -35,7 +35,7 @@ void func_001056e8(u32 value) { D_003a7b60[--D_0032bb28] = value; }
 
 // Bump allocator: returns the current pointer, advances it by size rounded up to 4.
 extern u32 D_00340ea8;
-u32 func_0010abc8(u32 size) {
+u32 func_0010abc8(u32 size) {  // bump_alloc
     u32 p = D_00340ea8;
     D_00340ea8 = p + ((size + 3) & ~3);
     return p;

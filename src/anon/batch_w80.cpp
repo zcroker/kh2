@@ -459,7 +459,7 @@ void func_00159fd0(U0_Body* b, U0_Inp* in, f32 dt) {
     D_0034aa40 = 0;
 }
 // unlink n from the active list and return it to the pool
-void func_00165768(U0_Link* n) {
+void func_00165768(U0_Link* n) {  // list_pop_head
     U0_Link* prev;
     U0_LinkPool* pool;
     s32 k;
@@ -816,7 +816,7 @@ void func_00252540(void) {
 }
 
 
-s32 func_0027ed48(s32 key) {
+s32 func_0027ed48(s32 key) {  // copy_static_data
     U15_IdMapTbl t = D_00374008;
     s32 i;
     s32 r = -1;

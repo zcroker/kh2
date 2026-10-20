@@ -15,7 +15,7 @@ void func_00319d20(void*);  // zero_two_words
 void func_00321198(void*);  // zero_3_words
 void func_00319d58(void*);  // store_zero_byte
 void func_00319a60(void*);  // clear_fixed_blocks
-void func_00321068(u8* p) {
+void func_00321068(u8* p) {  // clear_19_words
     W262S* s = (W262S*)p;
     W262In* in = &s->in;
     W262Q* q;

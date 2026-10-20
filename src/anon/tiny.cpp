@@ -1800,7 +1800,7 @@ void func_0013a9e8(u32 a0, u32 a1, u32 a2, u32 a3) {
     *(u8*)&D_00347ffd = (u8)v;
 }
 
-u32 func_0013ba50(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_0013ba50(u32 a0, u32 a1, u32 a2, u32 a3) {  // obj_state_is_5
     (void)a1;
     (void)a2;
     (void)a3;
@@ -2236,7 +2236,7 @@ u32 func_002d1f30(u32 a0, u32 a1, u32 a2, u32 a3) {  // ptr_add304
     return (u32)((s32)a0 + (304));
 }
 
-u32 func_002d51f0(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_002d51f0(u32 a0, u32 a1, u32 a2, u32 a3) {  // obj_state_is_14
     (void)a1;
     (void)a2;
     (void)a3;
@@ -2257,7 +2257,7 @@ u32 func_002d8110(u32 a0, u32 a1, u32 a2, u32 a3) {
     return (u32)((s32)a0 + (272));
 }
 
-u32 func_002d8900(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_002d8900(u32 a0, u32 a1, u32 a2, u32 a3) {  // obj_state_is_4
     (void)a1;
     (void)a2;
     (void)a3;
@@ -2314,7 +2314,7 @@ u32 func_002ee530(u32 a0, u32 a1, u32 a2, u32 a3) {
     return (D_003637f8 != 0);
 }
 
-u32 func_002ee6d8(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_002ee6d8(u32 a0, u32 a1, u32 a2, u32 a3) {  // obj_state_is_2
     (void)a1;
     (void)a2;
     (void)a3;
@@ -2768,7 +2768,7 @@ void func_00143298(u32 a0, u32 a1, u32 a2, u32 a3) {
     *(u8*)&D_0034881f = (u8)v;
 }
 
-u32 func_00149308(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_00149308(u32 a0, u32 a1, u32 a2, u32 a3) {  // entry_get_78
     (void)a2;
     (void)a3;
     return *(u32*)((u32)a0 + ((u32)a1 * (12)) + (120));
@@ -2780,7 +2780,7 @@ u32 func_00149320(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_entry12_field124
     return *(u32*)((u32)a0 + ((u32)a1 * (12)) + (124));
 }
 
-u32 func_00149338(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_00149338(u32 a0, u32 a1, u32 a2, u32 a3) {  // entry_get_80
     (void)a2;
     (void)a3;
     return *(u32*)((u32)a0 + ((u32)a1 * (12)) + (128));
@@ -3217,7 +3217,7 @@ void func_002bea10(u32 a0, u32 a1, u32 a2, u32 a3) {
     *(u8*)&D_00361899 = (u8)v;
 }
 
-u32 func_002c5140(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_002c5140(u32 a0, u32 a1, u32 a2, u32 a3) {  // obj_test_bit2
     (void)a1;
     (void)a2;
     (void)a3;

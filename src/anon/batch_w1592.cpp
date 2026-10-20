@@ -8,7 +8,7 @@ union U1592W { u32 w; u8 c; };
 union U1592H { u16 h; u8 c; };
 struct S1592 { u8 p0[4]; s16 n; u8 p6[8]; s16 e; u8 p10[6]; s16 m; u8 p18[0x10]; U1592W* a; U1592H* b; U1592H* c; };
 
-void func_00288ce0(S1592* s, u32 x, s32 i, u16* p, u16* q) {
+void func_00288ce0(S1592* s, u32 x, s32 i, u16* p, u16* q) {  // anim_add_key
     s32 j;
     s->a[i].w = x;
     if (i >= s->n) s->n = i + 1;
@@ -96,7 +96,7 @@ struct O1592 { u8 p[0x188]; s32 v; };
 struct S1592b { u8 p0[0x28]; O1592** a; s16 (*b)[4]; s16 (*c)[4]; };
 void func_00138c10(O1592*, s32);
 
-void func_00289038(S1592b* s, s32 i, u8 sel, u8 f1, s32 x, u8 f2, s32 y) {
+void func_00289038(S1592b* s, s32 i, u8 sel, u8 f1, s32 x, u8 f2, s32 y) {  // anim_apply_child_key
     O1592* o = s->a[i];
     if (o) {
         s16* t = (sel ? s->c : s->b)[i];

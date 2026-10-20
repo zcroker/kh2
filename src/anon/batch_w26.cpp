@@ -175,7 +175,7 @@ struct Ent28 { u8 flag; u8 id; u8 pad[26]; };
 struct EntList { u8 pad[8]; Ent28* ents; u8 pad2[8]; s32 count; };
 
 // Sets the flag of every entry with the given id.
-void func_00145c68(EntList* l, u8 id) {
+void func_00145c68(EntList* l, u8 id) {  // array_find_byte
     s32 n = l->count;
     s32 i;
     for (i = 0; i < n; i++) {

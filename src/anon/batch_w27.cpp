@@ -83,7 +83,7 @@ void func_0014a188(void) {
     func_002bea00();
 }
 
-s32 func_00163268(f32* a, f32* b, f32* out) {
+s32 func_00163268(f32* a, f32* b, f32* out) {  // vec3_distance
     u32 t[4] __attribute__((aligned(16)));
     f32 d;
     asm volatile("lqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 0(%2)\n\tvsub.xyzw $vf1, $vf1, $vf2\n\tsqc2 $vf1, 0(%0)" : : "r"(t), "r"(a), "r"(b) : "memory");
@@ -457,7 +457,7 @@ void func_002e37c0(u32** p) {
 }
 
 // 4x4 matrix transpose (MMI): d = transpose(s).
-void func_002f3dd8(void* d, void* s) {
+void func_002f3dd8(void* d, void* s) {  // memcpy64_2
     asm volatile(
         "lq $8, 0(%1)\n\tlq $9, 16(%1)\n\tlq $10, 32(%1)\n\tlq $11, 48(%1)\n\t"
         "pextlw $12, $9, $8\n\tpextuw $13, $9, $8\n\tpextlw $14, $11, $10\n\tpextuw $15, $11, $10\n\t"

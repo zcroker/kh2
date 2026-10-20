@@ -465,7 +465,7 @@ f32 func_0016a0a0(u32 a0) {
     return ret;
 }
 
-void func_0016ced0(u32 a0) {
+void func_0016ced0(u32 a0) {  // list_append
     u32 list = (u32)&D_004f6290;
     u32 tail = *(u32 *)(list + 4);
     if (tail != 0) {
@@ -935,7 +935,7 @@ void func_002f5c48(u32, ...) {
     (void)pad;
 }
 
-u32 func_00282228(u32 a0, u32 a1, u32 a2) {
+u32 func_00282228(u32 a0, u32 a1, u32 a2) {  // bit_test_idx
     u32 mask = 1;
     mask <<= a1;
     a2 &= mask;

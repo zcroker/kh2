@@ -138,7 +138,7 @@ static inline f32 Normalize(QWord* v)
 }
 
 extern "C" {
-void func_00128d40(const QWord* fwd, const QWord* up, QWord* out) {
+void func_00128d40(const QWord* fwd, const QWord* up, QWord* out) {  // vec4_copy_normalize
     asm volatile(".set noreorder\n\t.set reorder"); // keeps gas from moving the prologue into the first branch delay slot
     out[0] = *fwd;
     Normalize(&out[0]);

@@ -107,7 +107,7 @@ u32 func_0014ca20(void) {
     return r;
 }
 
-u32 func_00152598(u32 a0, s32 i, s32 second, Pair32* tbl) {
+u32 func_00152598(u32 a0, s32 i, s32 second, Pair32* tbl) {  // pair_get
     if (!second) return tbl[i].a;
     return tbl[i].b;
 }

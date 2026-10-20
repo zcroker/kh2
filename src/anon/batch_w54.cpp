@@ -564,7 +564,7 @@ void func_002dba40(u8* p) {
 }
 
 // wrap an angle into [-pi, pi]
-f32 func_002de968(f32 a) {
+f32 func_002de968(f32 a) {  // clamp_angle
     if (a > 0.0f) {
         if (a > 3.1415927f) {
             do a -= 6.2831855f;

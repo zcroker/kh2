@@ -288,7 +288,7 @@ void func_00169030(u32 a) {
 }
 
 // ---- 001840c0
-Vq func_001840c0(u8* o, Vq* v) {
+Vq func_001840c0(u8* o, Vq* v) {  // vec4_normalize_ptr
     f32 len = vnormalize(v);
     const Vq& up = *(Vq*)(o + 1584);
     Vq c;

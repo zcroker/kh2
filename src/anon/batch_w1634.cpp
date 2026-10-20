@@ -103,7 +103,7 @@ static inline __attribute__((always_inline)) void* W1634Create(W1634CharaData* c
 extern "C" {
 // Creates the object for chara id at pos with rotation rot (class picked by the chara data type).
 // The original keeps the result in the id register, so id doubles as the result variable here.
-void* func_0016f000(u32 id, void* pos, f32 rot) {
+void* func_0016f000(u32 id, void* pos, f32 rot) {  // entity_spawn
     W1634CharaData* cd;
     if (func_0016f6f8(id)) {
         cd = W1634_GetCharaData(id);

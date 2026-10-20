@@ -193,7 +193,7 @@ union FU { f32 f; struct { u32 frac : 23; u32 exp : 8; u32 sign : 1; } b; };
 static inline int fpn_isnan(Fpn* x) { return x->cls < 2; }
 static inline int fpn_isinf(Fpn* x) { return x->cls == 4; }
 static inline int fpn_iszero(Fpn* x) { return x->cls == 2; }
-f32 func_00314930(Fpn* s) {
+f32 func_00314930(Fpn* s) {  // dbl_cmp
     FU dst;
     u32 frac = s->frac;
     s32 sign = s->sign;

@@ -70,7 +70,7 @@ union UP6 { P6* p; s16 h; };
 extern UP6 D_0035f4ec_ asm("D_0035f4ec");
 #define D_0035f4ec D_0035f4ec_.p
 
-void func_002933d8(s32 a0, s32 a1, s32 a2, P6* a3) {
+void func_002933d8(s32 a0, s32 a1, s32 a2, P6* a3) {  // table_find_pair
     s32 i;
     s32 found = -1;
     if (!a3) a3 = D_0035f4e8;

@@ -31,7 +31,7 @@ void func_00139a38(s32 id) {
     while ((o = nextNode(o)) != 0)
         if (o->id == id) func_001396d0(o);
 }
-void func_00139ab0(s32 id) {
+void func_00139ab0(s32 id) {  // list_find_by_key
     Node139* o = 0;
     while ((o = nextNode(o)) != 0)
         if (o->id == id) func_001396e0(o);

@@ -104,7 +104,7 @@ void* func_00123dd0(void* a) {
     return (*(void* (**)(void*))(*(u8**)o + 28))(o);
 }
 
-void func_00135ff0(u8* p) {
+void func_00135ff0(u8* p) {  // clear_array_32
     s32 i;
     *(u32*)(p + 12) = 0;
     for (i = 31; i >= 0; i--) {
@@ -122,7 +122,7 @@ void Timer_setCountDown(u32 n) {
     D_00349df4 = n;
 }
 
-void func_0015cbb8(u8 a, u8 b, u8 c, u8 d) {
+void func_0015cbb8(u8 a, u8 b, u8 c, u8 d) {  // set_global_rgba
     D_004f3700.a = a;
     D_004f3700.b = b;
     D_004f3700.c = c;
@@ -349,7 +349,7 @@ void func_002f05d8(void* p) {
     func_0016bd60(p, 63);
 }
 
-bool func_002f1ae0(u32 n) {
+bool func_002f1ae0(u32 n) {  // bitmask_test
     return (D_0033cae8[n >> 5] & (1 << (n & 31))) != 0;
 }
 

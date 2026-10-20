@@ -34,7 +34,7 @@ void func_001344b8(u32 a) {
     func_00133bb8(D_00347c88, 0, a | 0x3000000, ((1024 - a) >> 1) | 0x2000000);  // forward_sub24_to_133848
 }
 
-void func_00135cc8(u8* p, u32 a, u32 b) {
+void func_00135cc8(u8* p, u32 a, u32 b) {  // array_set_by_key
     s32 n = *(s32*)(p + 12);
     for (s32 i = 0; i < n; i++) {
         if (*(u32*)(p + 16) == a) { *(u32*)(p + 16) = b; return; }

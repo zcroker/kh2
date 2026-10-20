@@ -64,7 +64,7 @@ s32 func_00196768(s32 a, s32 b) {
 }
 
 // Facing vector (struct return): from the angle of -(x, z) when active, else the stored one.
-W1545V4 func_0016af58(W1545OK* o) {
+W1545V4 func_0016af58(W1545OK* o) {  // obj_get_rotation
     if (func_001c0cd8((u8*)o) != 0) {
         f32 z = -o->z;
         f32 x = -o->x;
@@ -78,7 +78,7 @@ W1545V4 func_0016af58(W1545OK* o) {
 }
 
 // Normalises *v, stores v * v.w at +32, s at +240, then state 5.
-void func_0019fdc0(u8* self, W1545V4* v, f32 s) {
+void func_0019fdc0(u8* self, W1545V4* v, f32 s) {  // vec4_normalize_2
     f32 w = v->w;
     w1545_vnorm(v);
     W1545V4* d = (W1545V4*)(self + 32);

@@ -1917,3 +1917,164 @@ addr	name	source	confidence	reason
 001906c0	call_190208_zero	deepseek-pass2	medium	reviewed disassembly; behaviour as named
 0018efe8	set_flag_80_when_ne2	deepseek-pass2	medium	reviewed disassembly; behaviour as named
 0018ef68	call_with_a2_shuffled	deepseek-pass2	medium	reviewed disassembly; behaviour as named
+00192cc0	text_format_font	deepseek-verified3	corrected	vsprintf-like formatter; remaps ASCII digits into game font encoding
+002891f0	anim_set_frame	deepseek-verified3	confirmed	selects frame; applies per-child keyframe entries to child objects
+0016af58	obj_get_rotation	deepseek-verified3	confirmed	builds rotation vec4 from entity facing angle via atan2
+0023ef50	list_enable_all	deepseek-verified3	confirmed	loops children; sets enable byte 400 on each
+00309d60	sceSifCallRpc	deepseek-verified3	confirmed	retries RPC up to 100 times with exponential delay
+002f3918	obj_set_dma_buffer	deepseek-verified3	confirmed	initialises object; stores pointer converted to DMA address in field 48
+001e7798	heap_free	deepseek-verified3	confirmed	returns block to heap free list; merges neighbours; adjusts used count
+00289038	anim_apply_child_key	deepseek-verified3	confirmed	applies keyframe table value to child object; optionally stores at 392
+001ac5b8	list_unlink_node_2	deepseek-verified3	confirmed	unlinks node from global list; clears vtable and next pointer
+001004c0	text_arg_fetch	deepseek-verified3	confirmed	decodes format byte; fetches matching vararg; returns advanced args pointer
+003147a0	dbl_unpack	deepseek-verified3	confirmed	splits IEEE double into class, sign, exponent, mantissa fields
+00308b30	sceSifInitRpc	deepseek-verified3	confirmed	one-time SIF init; resets rpc then sets up queues and handlers
+002f2be0	sceSifSetDma	deepseek-verified3	corrected	waits for DMA idle; programs SIF DMA tag and address registers
+00295430	id_table_lookup	deepseek-verified3	confirmed	scans 16-byte-stride table for matching id byte; returns entry
+00308150	sprintf	deepseek-verified3	confirmed	saves varargs; formats into caller buffer via vsnprintf engine
+0016f000	entity_spawn	deepseek-verified3	confirmed	allocates 2496 bytes and initialises a new entity of type 6
+003143e0	dbl_to_int	deepseek-verified3	confirmed	unpacks double then converts to int with saturation; handles inf/nan
+003088b8	sif_send_cmd	deepseek-verified3	corrected	forwards SIF command packet to lower-level sender with zero second argument
+00288ce0	anim_add_key	deepseek-verified3	confirmed	stores pointer and short values into animation key tables at index
+00314508	dbl_to_llong	deepseek-verified3	confirmed	unpacks double then converts to 64-bit integer with range checks
+002f4298	obj_set_vec3	deepseek-verified3	confirmed	calls per-axis setters in z, y, x order with vec3 components
+003146c8	dbl_pack	deepseek-verified3	confirmed	rebuilds IEEE double bit pattern from sign, exponent and mantissa fields
+002abf40	id_table_index	deepseek-verified3	confirmed	searches 16-byte-stride table for matching id; returns index or -1
+002aa5b8	id_table2_index	deepseek-verified3	confirmed	searches table 2 12-byte-stride entries for matching id; returns index
+002f3490	wait_busy_clear	deepseek-verified3	confirmed	polls object busy flag with timeout; on expiry logs and cleans up
+002f3588	addr_to_bus	deepseek-verified3	confirmed	converts uncached 0x7xxxxxxx pointer to 0x80000000 bus address
+002f71b0	sif_wait	deepseek-verified3	confirmed	polls pending transfer flag; sleeps 4000us until SIF operation finishes
+00139ab0	list_find_by_key	deepseek-verified3	confirmed	walks global list comparing key field 16; invokes callback per match
+0030fc28	list_remove	deepseek-verified3	confirmed	unlinks node from doubly linked list and returns previous node
+0030f468	thread_exit	deepseek-verified3	corrected	cleanup call then syscall 4 (exit thread)
+00308dc0	ring_alloc	deepseek-verified3	confirmed	returns next 64-byte ring slot and advances modulo counter
+002abc60	flag_test	deepseek-verified3	confirmed	tests bit in global mask words; negative index scans for any set
+0019fdc0	vec4_normalize_2	deepseek-verified3	confirmed	normalises vec4 xyz via VU sqrt and reciprocal divide; stores result
+00316fc8	fmt_arg_fetch	deepseek-verified3	confirmed	printf argument extractor mirroring 001004c0: decodes format byte, fetches value
+002fa678	atanf	deepseek-verified3	confirmed	atan implementation; pi/4 range reduction and polynomial evaluation of float argument
+00285d18	byte_list_contains	deepseek-verified3	confirmed	searches negative-terminated global signed-byte list; returns whether found
+001dc278	obj_ctor_vtable	deepseek-verified3	confirmed	sets vtable and zeroes/copies initial object fields; constructor
+00198dc0	obj_reset_fields	deepseek-verified3	confirmed	fills object fields with sentinel values; initialisation routine
+00301550	vsprintf	deepseek-verified3	confirmed	builds printf context from buffer, format and va_list; formats text
+00301480	itoa	deepseek-verified3	confirmed	converts signed int to decimal string with optional sign prefix
+00302c88	alloc_88_array	deepseek-verified3	confirmed	allocates header plus array of 88-byte entries; zeroes entries
+00303988	memchr	deepseek-verified3	corrected	finds first matching byte using 16-byte zero-detection blocks; returns pointer or null
+00181cc0	chunk_find	deepseek-verified3	confirmed	walks size-prefixed chunk list comparing two-byte ids; returns following chunk
+00308df0	ring_alloc_checked	deepseek-verified3	confirmed	bounds-checks index then returns ring slot or allocates next
+002f3c28	sif_wait_ready	deepseek-verified3	confirmed	masks SIF interrupt; polls SIF status register until ready
+002933d8	table_find_pair	deepseek-verified3	confirmed	searches short-pair table for matching two ids; stores value
+001d2110	obj_set_clamped_index	deepseek-verified3	confirmed	clamps value into object range and stores it at offset 44
+001a4498	obj_ctor_derived	deepseek-verified3	corrected	derived constructor: base init, own vtable, sub-object and flag
+0018ee10	get_current_entity	deepseek-verified3	confirmed	returns default global entity or field 192 of argument
+0018a970	obj_get_distance	deepseek-verified3	corrected	offset minus point; per-type radius scaling; returns distance value
+001840c0	vec4_normalize_ptr	deepseek-verified3	corrected	normalises vec4 given by pointer argument using VU sqrt and divide
+00182780	pool_alloc	deepseek-verified3	corrected	returns next 12-byte pool entry then increments the global counter
+0017d930	digit_count	deepseek-verified3	corrected	counts decimal digits by comparing value against increasing powers of ten
+0017aab8	table_word_get	deepseek-verified3	confirmed	returns word from global table indexed by argument
+00177a38	obj_inc_counter	deepseek-verified3	confirmed	increments byte counter at 2820 while below one hundred
+00170d18	obj_get_payload	deepseek-verified3	corrected	calls getter then returns pointer plus 56-byte payload offset
+0016f460	obj_test_byte_40	deepseek-verified3	confirmed	returns whether signed byte field 40 is positive
+0016d1f0	ref_release	deepseek-verified3	confirmed	decrements reference count; when zero invokes release callback
+0016cfa0	obj_list_insert	deepseek-verified3	corrected	creates entry then links it into circular list at object offset 44
+0016ced0	list_append	deepseek-verified3	confirmed	appends node to global doubly linked list tail
+0016c750	list_init_global	deepseek-verified3	confirmed	sets global list head and clears tail links
+00167c90	flag_test_table	deepseek-verified3	confirmed	walks mask/value pairs; ORs values whose mask matches object field
+00167ad0	sif_send_tag	deepseek-verified3	corrected	queues static SIF DMA tag descriptor with a one-word payload
+00166cf0	obj_has_flag4	deepseek-verified3	confirmed	returns true when object exists and flag bit four is set
+001666d0	vec3_set_shorts	deepseek-verified3	confirmed	stores word and three masked shorts into struct
+00165768	list_pop_head	deepseek-verified3	confirmed	pops node from global list head and clears its links
+00163268	vec3_distance	deepseek-verified3	confirmed	VU subtract then sqrt of squared components; writes distance to out pointer
+0015cbb8	set_global_rgba	deepseek-verified3	confirmed	stores four byte arguments into global colour array
+0015c450	flag_test_global	deepseek-verified3	confirmed	tests bit index against global 64-bit mask word
+00152598	pair_get	deepseek-verified3	confirmed	returns first or second word of indexed pair by flag
+0014fbf8	sum_table_shorts	deepseek-verified3	confirmed	sums shorts fetched through table over counted entries
+00149338	entry_get_80	deepseek-verified3	confirmed	returns word field 128 of 12-byte-stride entry index
+00149308	entry_get_78	deepseek-verified3	confirmed	returns word field 120 of 12-byte-stride entry index
+00146100	array_push_short	deepseek-verified3	confirmed	appends short to dynamic array and increments count
+00145c68	array_find_byte	deepseek-verified3	confirmed	searches counted entries for matching byte; marks entries
+00144d90	aabb_overlap	deepseek-verified3	confirmed	compares float extents of two boxes; returns overlap boolean
+001433c0	state_set_slot	deepseek-verified3	corrected	stores value into one of two global state slots selected by flag
+00143348	state_get_entry	deepseek-verified3	corrected	calls global state accessor with zero index and stack output buffer
+0013fdc8	obj_clamp_max	deepseek-verified3	confirmed	clamps float field 72 down to field 212; returns whether changed
+0013fda0	obj_clamp_min	deepseek-verified3	corrected	raises float field 72 to field 208; returns whether changed
+0013c698	obj_has_sub	deepseek-verified3	confirmed	true when sub-object exists and its short at 2590 is nonzero
+0013ba50	obj_state_is_5	deepseek-verified3	confirmed	returns whether state field 236 equals five
+0013a178	mat4_mul	deepseek-verified3	confirmed	VU multiply of two 4x4 matrices with perspective divide
+00139dc0	entry_select	deepseek-verified3	confirmed	selects 112-byte entry and sets global current pointer
+00135ff0	clear_array_32	deepseek-verified3	confirmed	clears thirty two consecutive 8-byte entries
+00135d00	wrap_index	deepseek-verified3	confirmed	wraps negative and large index into count range
+00135cc8	array_set_by_key	deepseek-verified3	confirmed	stores value at matching key position in counted array
+00134d10	obj_init_floats	deepseek-verified3	corrected	zeroes words and writes constant floats into object fields
+001333f8	int_to_float_pair	deepseek-verified3	confirmed	converts integer arguments and object field 36 to floats
+00128d40	vec4_copy_normalize	deepseek-verified3	confirmed	copies vec4 then normalises it in place
+00127de8	clampf	deepseek-verified3	confirmed	clamps float argument between zero and an upper constant
+0011c138	vec4_zero	deepseek-verified3	confirmed	zeroes two quadwords of a vec4
+0011bd70	mat3_det	deepseek-verified3	corrected	determinant of a 3x3 float matrix (9 floats)
+0010f9f0	obj_set_vec_flag	deepseek-verified3	corrected	copies vec4 into object field 3072 and sets or clears flag bit
+0010c7b0	obj_get_sub_lazy	deepseek-verified3	corrected	lazily initialises field 2908 then returns the sub-object pointer
+0010b620	obj_set_delta	deepseek-verified3	corrected	subtracts two vec4s and stores difference into object fields
+0010abc8	bump_alloc	deepseek-verified3	corrected	bump allocator aligning size to four then advancing global pointer
+0010a5f0	register_static_buffer	deepseek-verified3	corrected	registers static buffer with global pool, size ten and tag
+00100468	leb128_decode	deepseek-verified3	confirmed	decodes variable-length integer from seven-bit chunks
+00325320	list_remove_by_ptr	deepseek-verified3	confirmed	unlinks matching pointer from object list and clears its link
+00321728	table_find_or_add	deepseek-verified3	corrected	searches entries by byte and short keys; inserts when absent
+00321068	clear_19_words	deepseek-verified3	confirmed	zeroes nineteen words of structure starting at offset 12
+00320c18	table_find_short	deepseek-verified3	confirmed	searches counted 8-byte entries for matching short; returns pointer or null
+0031a068	memcpy_unaligned	deepseek-verified3	confirmed	copies 56 bytes using unaligned load and store pairs
+00314930	dbl_cmp	deepseek-verified3	confirmed	compares two unpacked doubles and returns ordering
+00310890	time_to_ticks	deepseek-verified3	confirmed	converts time units by multiplying with constant and dividing
+0030ee18	build_thread_param	deepseek-verified3	confirmed	builds thread parameter block from static data
+00306f30	putc_newline	deepseek-verified3	confirmed	translates newline to carriage return plus newline; else passes char
+00306900	ringbuf_init	deepseek-verified3	confirmed	sets up static ring buffer links and head pointer
+00305dd8	task_param_init	deepseek-verified3	confirmed	sets count 8192 and clears a field in parameter block
+00305d20	intr_disable_block	deepseek-verified3	confirmed	disables interrupts via CP0 status and restores on exit
+002fd220	strtol10	deepseek-verified3	confirmed	parses integer with base ten and sign-extends result
+002fb900	copysignf	deepseek-verified3	confirmed	combines magnitude bits of one float with sign bit of another
+002fb558	float_round	deepseek-verified3	confirmed	rounds float to integer using magic constant addition
+002f86f0	float_to_int_2	deepseek-verified3	confirmed	converts float to integer using exponent bias arithmetic
+002f5c70	slots_reset	deepseek-verified3	confirmed	clears static slot table entries and sets global flag
+002f4a20	sif_cmd_desc	deepseek-verified3	confirmed	builds descriptor with fixed command id and issues it
+002f3dd8	memcpy64_2	deepseek-verified3	confirmed	copies 64 bytes using paired extend and move instructions
+002f35b0	bzero	deepseek-verified3	confirmed	zeroes exactly count bytes at pointer; returns nothing
+002f1ae0	bitmask_test	deepseek-verified3	corrected	tests bit index in global mask array; returns boolean
+002f1ac8	entry_ptr	deepseek-verified3	confirmed	returns pointer to 64-byte entry plus eight-byte header
+002ee6d8	obj_state_is_2	deepseek-verified3	confirmed	returns whether field 36 equals two
+002e73d8	timer_decrement	deepseek-verified3	confirmed	subtracts constant from timer field and invokes helper
+002e49a8	vec4_dot_2	deepseek-verified3	corrected	computes dot product of four float components
+002e44c0	vec4_scale	deepseek-verified3	confirmed	multiplies all four components by float argument and stores back
+002de968	clamp_angle	deepseek-verified3	corrected	clamps float angle between zero and pi
+002de788	obj_ctor_arg	deepseek-verified3	corrected	calls base constructor with argument then sets vtable
+002db6b0	obj_ctor_basic	deepseek-verified3	corrected	calls base constructor then sets vtable pointer
+002d8900	obj_state_is_4	deepseek-verified3	confirmed	returns whether field 164 equals four
+002d5c20	vec4_clear	deepseek-verified3	confirmed	zeroes four float fields and returns pointer
+002d51f0	obj_state_is_14	deepseek-verified3	confirmed	returns whether field 340 equals fourteen
+002cb7c8	copy_vec4_result	deepseek-verified3	confirmed	calls helper and copies returned vec4 to output
+002c55b0	obj_release_sub	deepseek-verified3	corrected	releases sub-object field and clears pointer when release succeeds
+002c5140	obj_test_bit2	deepseek-verified3	confirmed	returns whether bit two of field 24 is set
+002be340	alloc_and_start_task	deepseek-verified3	corrected	allocates 108 bytes, initialises it, then starts timed callback
+002be318	entry_set_vec4	deepseek-verified3	confirmed	copies vec4 into indexed entry at offset 528
+002be2d8	entry_set_vec3	deepseek-verified3	confirmed	stores three floats into indexed entry at offset 544
+002bca48	table_find_word	deepseek-verified3	corrected	scans 12-byte entries for key word; returns value word or minus one
+002bca10	table_find_two_words	deepseek-verified3	corrected	scans 12-byte entries matching two key words
+002bb0a0	divmod_1000	deepseek-verified3	confirmed	divides argument by thousand; stores quotient and remainder through pointers
+002b6118	entry_ptr_12	deepseek-verified3	confirmed	returns pointer to 12-byte entry by index
+002b5b10	entry_get_short	deepseek-verified3	confirmed	returns short from table selected by flag; default nine
+0029edf8	release_global_obj	deepseek-verified3	corrected	releases global object and clears its pointer
+0029edb8	alloc_global_obj	deepseek-verified3	corrected	allocates twenty bytes, stores in global, then zeroes it
+0029ec98	table_contains_short	deepseek-verified3	confirmed	searches short table returning whether value found
+0029e7b0	short_table_lookup	deepseek-verified3	corrected	scans short key/value pairs; returns value for matching key or minus one
+0028e510	entry_ptr_large	deepseek-verified3	corrected	indexes 380-byte entries by second argument after lookup
+0028bfc0	int_to_float_clamp	deepseek-verified3	confirmed	converts integer to float and clamps against object fields
+0028b720	anim_copy3	deepseek-verified3	confirmed	copies three shorts from argument into object table at 450
+00288fd8	anim_store4	deepseek-verified3	confirmed	stores short into four animation table slots
+00288f60	anim_copy4	deepseek-verified3	confirmed	copies four shorts into object interpolation tables
+00282228	bit_test_idx	deepseek-verified3	confirmed	returns selected bit of provided mask value
+00281158	entry_short_at	deepseek-verified3	corrected	reads short field six of 20-byte entry then converts it
+0027ed48	copy_static_data	deepseek-verified3	confirmed	copies 48 bytes of static data to stack buffer
+0027dc08	set_pair_globals	deepseek-verified3	confirmed	stores two arguments into fixed global variables
+0027c508	release_global_slots	deepseek-verified3	corrected	frees global slot array used by per-index dispatchers then clears it
+002643d0	release_global_buffer	deepseek-verified3	corrected	frees global buffer object then clears its pointer
+00264388	alloc_global_buffer	deepseek-verified3	corrected	allocates 2116 bytes, stores in global, then zeroes it
+00258d40	set_short_pair	deepseek-verified3	confirmed	stores two short arguments into global variables
+002467b8	queue_push_word	deepseek-verified3	corrected	pushes computed pointer into queue with size four
+00324bc0	obj_ctor_copy	deepseek-verified3	confirmed	sets vtable then copies object fields from source; copy constructor

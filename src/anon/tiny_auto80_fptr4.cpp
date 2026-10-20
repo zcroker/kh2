@@ -716,7 +716,7 @@ u32 func_001524e8(u32 a0, u32 a1, u32 a2, u32 a3) {
 }
 
 
-u32 func_00166cf0(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_00166cf0(u32 a0, u32 a1, u32 a2, u32 a3) {  // obj_has_flag4
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2, r15;
     r2 = 0u;
     if (r4 != 0u) {
@@ -1885,7 +1885,7 @@ u32 func_002a43d0(u32 a0, u32 a1, u32 a2, u32 a3) {
     return r2;
 }
 
-u32 func_002b5b10(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_002b5b10(u32 a0, u32 a1, u32 a2, u32 a3) {  // entry_get_short
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2, r15;
     r4 = (u32)(r4 << 1);
     r2 = (u32)((s32)0u + (9));

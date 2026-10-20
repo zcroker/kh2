@@ -94,7 +94,7 @@ void* AREA_Alloc(u32 size) {
     return (*(AllocFn*)*h)(h, size, __builtin_return_address(0));
 }
 
-u32 func_0010c7b0(u8* p) {
+u32 func_0010c7b0(u8* p) {  // obj_get_sub_lazy
     if (*(u32*)(p + 2908) == 0) func_00135dc8(p + 2908);
     return *(u32*)(p + 2908);
 }

@@ -198,7 +198,7 @@ void func_001781e8(u8* p) {
 }
 
 // Number of decimal digits of n (0 for n <= 0).
-s32 func_0017d930(s32 n) {
+s32 func_0017d930(s32 n) {  // digit_count
     s32 c = 0;
     s32 t = 1;
     while (t <= n) {

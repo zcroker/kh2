@@ -10,7 +10,7 @@ struct W1530_C {
 extern "C" {
 void func_0031cc28(void*);
 void func_0019ef70(void*);
-void func_00198dc0(W1530_C* p) {
+void func_00198dc0(W1530_C* p) {  // obj_reset_fields
     s32 m = -1;
     u32 f = 0xffff;
     p->x0 = m;

@@ -16,7 +16,7 @@ extern "C" {
 char* GetImage_w1517(void* t, s32 i) asm("_ZN2YI12IMAGE_FREEZE8GetImageEi");
 struct ImgSub_w1517 { u8 pad[0x28]; void* img; char* Get(s32 i) { return GetImage_w1517(img, i); } };
 struct T_0023ef50 { u8 pad[0x28]; s32 n; u8 p2[4]; ImgSub_w1517 sub; };
-void func_0023ef50(T_0023ef50* a0) {
+void func_0023ef50(T_0023ef50* a0) {  // list_enable_all
     s32 n = a0->n;
     for (s32 i = 0; i < n; i++) {
         a0->sub.Get(i)[400] = 1;

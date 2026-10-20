@@ -278,7 +278,7 @@ void func_002f0948(u32* p) {
 
 // atoi: (int)strtol(s, 0, 10).
 s64 func_002ffbb0(const char*, char**, s32);
-s32 func_002fd220(const char* s) {
+s32 func_002fd220(const char* s) {  // strtol10
     return (s32)func_002ffbb0(s, 0, 10);
 }
 

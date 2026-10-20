@@ -46,7 +46,7 @@ void func_00134508(s32 a, s32 b) {
 // Transforms v by the 4x4 matrix m, divides by w and converts to integer
 // screen coordinates (offset by 1792/1840) in a static buffer.
 extern s32 D_003b8b40[4];
-s32* func_0013a178(Vec4* v, Vec4* m) {
+s32* func_0013a178(Vec4* v, Vec4* m) {  // mat4_mul
     s32* d = D_003b8b40;
     asm volatile("lqc2 $vf4,0(%1)\n\tlqc2 $vf5,16(%1)\n\tlqc2 $vf6,32(%1)\n\tlqc2 $vf7,48(%1)\n\tlqc2 $vf8,0(%2)\n\t"
         "vmulax.wxyz ACC,$vf4,$vf8x\n\tvmadday.wxyz ACC,$vf5,$vf8y\n\tvmaddaz.wxyz ACC,$vf6,$vf8z\n\tvmaddw.wxyz $vf12,$vf7,$vf8w\n\t"

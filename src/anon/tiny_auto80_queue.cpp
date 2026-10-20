@@ -2457,7 +2457,7 @@ extern "C" u32 func_00257770(...);
 
 extern "C" u32 func_00106420(...);
 
-void func_002643d0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
+void func_002643d0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {  // release_global_buffer
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r15, r16;
     r16 = (u32)(0x0036u << 16);
     r15 = *(volatile u32*)((u32)r16 + (s32)(-3868));
@@ -2505,7 +2505,7 @@ void func_00277070(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a
 
 extern "C" u32 func_00106450(...);
 
-void func_0027c508(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
+void func_0027c508(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {  // release_global_slots
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r15, r16;
     r16 = (u32)(0x0036u << 16);
     r15 = *(volatile u32*)((u32)r16 + (s32)(-3532));
@@ -6961,7 +6961,7 @@ void func_0013b5a8(void) {
 extern u8 D_004573c0;
 
 
-u32 func_0013c698(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
+u32 func_0013c698(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {  // obj_has_sub
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r2, r14, r15;
     r14 = *(volatile u32*)((u32)r4 + (s32)(668));
     r2 = 0u;
@@ -9968,7 +9968,7 @@ void func_0013fcd8(u32 a0, f32* a1) {
     func_002f8ad0(f0, f1);
 }
 
-u32 func_0013fda0(u32 a0) {
+u32 func_0013fda0(u32 a0) {  // obj_clamp_min
     f32 f0 = *(f32*)((u32)a0 + (s32)(72));
     f32 f1 = *(f32*)((u32)a0 + (s32)(208));
     u32 r2 = 0u;
@@ -9979,7 +9979,7 @@ u32 func_0013fda0(u32 a0) {
     return r2;
 }
 
-u32 func_0013fdc8(u32 a0) {
+u32 func_0013fdc8(u32 a0) {  // obj_clamp_max
     f32 f0 = *(f32*)((u32)a0 + (s32)(72));
     f32 f1 = *(f32*)((u32)a0 + (s32)(212));
     u32 r2 = 0u;
@@ -10610,7 +10610,7 @@ void func_0014f890(u32 a0) {
 
 extern u8 D_0034a458;
 
-u32 func_0014fbf8(u32 a0) {
+u32 func_0014fbf8(u32 a0) {  // sum_table_shorts
     s32 t7 = *(s32*)((u32)a0 + (s32)(24));
     if (t7 <= 0) {
         return 0u;
@@ -11197,7 +11197,7 @@ u32 func_00167228(u32 a0) {
 extern "C" u32 func_002f65a8(...);
 extern u8 D_0034d7f0;
 
-u32 func_00167ad0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
+u32 func_00167ad0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {  // sif_send_tag
     u32 p0 = a1;
     return func_002f65a8(
         *(u32*)((u32)a0 + (s32)(76)),
@@ -11211,7 +11211,7 @@ u32 func_00167ad0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7
     );
 }
 
-u64 func_00167c90(u32 a0, u32 a1) {
+u64 func_00167c90(u32 a0, u32 a1) {  // flag_test_table
     u64 t5 = *(u64*)((u32)*(u32*)((u32)a0 + (s32)(68)) + (s32)(0));
     u64 v0 = 0ull;
     u64 t6 = *(u64*)((u32)a1 + (s32)(0));
@@ -11416,7 +11416,7 @@ void func_0016ce90(u32 a0) {
 
 extern "C" u32 func_0016cf00(...);
 
-void func_0016cfa0(u32 a0) {
+void func_0016cfa0(u32 a0) {  // obj_list_insert
     u32 s0 = a0;
     u32 v0 = func_0016cf00(a0);
     u32 t7 = (u32)((s32)s0 + (44));
@@ -11445,7 +11445,7 @@ void func_0016d1a0(u32 a0) {
     *(u32*)((u32)r + (s32)(0)) = 0u;
 }
 
-void func_0016d1f0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
+void func_0016d1f0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {  // ref_release
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r14, r15;
     r5 = r4;
     r15 = ((u32*)(u32)r4)[0];
@@ -12746,7 +12746,7 @@ u32 duplicate_unplaced_0018cae0(u32 a0) {
 }
 
 
-u32 func_0018ee10(u32 a0) {
+u32 func_0018ee10(u32 a0) {  // get_current_entity
     if (a0 == 0u) {
         u32 t7 = (u32)(0x01c6u << 16);
         return *(u32*)((u32)t7 + (s32)(3288));
@@ -15230,7 +15230,7 @@ void func_002449c0() {
     }
 }
 
-void func_002467b8() {
+void func_002467b8() {  // queue_push_word
     func_0023fd30();  // global_flag_nonzero
     u32 v0 = func_002891e8(D_0035ed20);
     func_0023fc40(&v0, 4);
@@ -16006,7 +16006,7 @@ void func_0028b6f0(void* a0, void* a1) {
     }
 }
 
-void func_0028b720(void* a0, void* a1) {
+void func_0028b720(void* a0, void* a1) {  // anim_copy3
     u8* p0 = (u8*)a0 + 450;
     u8* p1 = (u8*)a1;
     s32 i = 0;
@@ -16387,7 +16387,7 @@ nonzero:
     *(u32*)(base + 4) = a0;
 }
 
-void func_002bb0a0(s32 a0, s32* a1, s32* a2) {
+void func_002bb0a0(s32 a0, s32* a1, s32* a2) {  // divmod_1000
     s32 q = a0 / 1000;
     s32 r = a0 % 1000;
     *a2 = r;
@@ -16441,7 +16441,7 @@ void func_002bc9a8(s32 a0, u32 a1, u32 a2) {  // find_entry12_set_field
     }
 }
 
-s32 func_002bca48(s32 a0, u32 a1) {
+s32 func_002bca48(s32 a0, u32 a1) {  // table_find_word
     s32 end = a0 + 324;
 
     while (1) {
@@ -16663,7 +16663,7 @@ void func_002bd838() {
     }
 }
 
-void func_002be318(u32 a0, u32 a1, kn::FVector* a2) {
+void func_002be318(u32 a0, u32 a1, kn::FVector* a2) {  // entry_set_vec4
     u32 p = (a1 << 2) + a0;
     kn::FVector* dst = (kn::FVector*)(*(u32*)(p + 44) + 0x210);
     *dst = *a2;
@@ -16860,7 +16860,7 @@ void duplicate_unplaced_002c5418(u32 a0) {
     obj[1] = a0;
 }
 
-void func_002c55b0(u32 a0) {
+void func_002c55b0(u32 a0) {  // obj_release_sub
     u32 v = *(u32*)(a0 + 2552);
     if (v != 0) {
         if (func_001dc9e0(v) == 0) {
@@ -17323,7 +17323,7 @@ void func_002e40a8(u32 a0, u32 a1) {
     *(volatile f32*)(a0 + 8) = f3;
 }
 
-u32 func_002e44c0(u32 a0, f32 a1) {
+u32 func_002e44c0(u32 a0, f32 a1) {  // vec4_scale
     *(f32*)(a0 + 0) *= a1;
     *(f32*)(a0 + 4) *= a1;
     *(f32*)(a0 + 8) *= a1;
@@ -17331,7 +17331,7 @@ u32 func_002e44c0(u32 a0, f32 a1) {
     return a0;
 }
 
-f32 func_002e49a8(u32 a0, u32 a1) {
+f32 func_002e49a8(u32 a0, u32 a1) {  // vec4_dot_2
     f32* p = (f32*)a0;
     f32* q = (f32*)a1;
     return p[0] * q[0] + p[1] * q[1] + p[2] * q[2] + p[3] * q[3];

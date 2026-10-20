@@ -417,7 +417,7 @@ void func_0029dda8(void) {
     func_0029dd60();
 }
 
-void func_002be340(u32 a) {
+void func_002be340(u32 a) {  // alloc_and_start_task
     void* o = func_001050d8(108);
     func_002bd998(o, a);
     u8* r = func_00102c48(1, 15000, (void*)func_002be3a8, 8192);

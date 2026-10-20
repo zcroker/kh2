@@ -63,7 +63,7 @@ void func_002df040(u8* a0, u8* a1) {
 
 /* libgcc fp-bit unpack_d (double) */
 struct Fpn_3147a0 { s32 cls; u32 sign; s32 normal_exp; s32 pad; u64 ll; };
-void func_003147a0(u64* src, Fpn_3147a0* dst) {
+void func_003147a0(u64* src, Fpn_3147a0* dst) {  // dbl_unpack
     u64 fraction = *src & ((((u64)1) << 52) - 1);
     s32 exp = ((s32)(*src >> 52)) & 0x7ff;
     s32 sign = (s32)(*src >> 63);

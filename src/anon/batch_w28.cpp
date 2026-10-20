@@ -435,7 +435,7 @@ void func_002f47d8(void* d, void* m, void* v, u32 f) {  // mat4_transform_perspe
 
 // vsprintf-style: format into buf through a string FILE.
 struct StrFile { u8* p; u32 r; u32 w; u16 flags; u16 file; u8* base; u32 size; u32 pad[15]; u32 data; u32 pad2[2]; };
-s32 func_00301550(u8* buf, u32 fmt, u32 ap) {
+s32 func_00301550(u8* buf, u32 fmt, u32 ap) {  // vsprintf
     StrFile f;
     f.p = buf;
     f.w = 0x7fffffff;

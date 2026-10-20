@@ -3,7 +3,7 @@
 extern "C" {
 
 // Clears two quadwords.
-void func_0011c138(void* p) {
+void func_0011c138(void* p) {  // vec4_zero
     asm volatile(".set noreorder\n\tsq $0, 0(%0)\n\tsq $0, 16(%0)\n\t.set reorder" : : "r"(p) : "memory");
 }
 

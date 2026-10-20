@@ -123,7 +123,7 @@ u32 func_0013dd18(u32 a0, u32 a1, u32 a2, u32 a3) {
     return r2;
 }
 
-void func_00146100(u32 a0, u32 a1, u32 a2, u32 a3) {
+void func_00146100(u32 a0, u32 a1, u32 a2, u32 a3) {  // array_push_short
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r13 = 0u, r14 = 0u, r15 = 0u;
     r14 = *(u32*)((u32)r5 + (s32)(0));
     r6 = (u32)(r6 << 16);
@@ -171,7 +171,7 @@ u32 func_0016d1d8(u32 a0, u32 a1, u32 a2, u32 a3) {
     return r2;
 }
 
-u32 func_0016f460(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_0016f460(u32 a0, u32 a1, u32 a2, u32 a3) {  // obj_test_byte_40
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u;
     r2 = (u32)(s32)(*(s8*)((u32)r4 + (s32)(40)));
     r2 = ((u32)0u < (u32)r2);
@@ -493,7 +493,7 @@ void func_002eda10(u32 a0, u32 a1, u32 a2, u32 a3) {
     *(u32*)((u32)r15 + (s32)(14288)) = r4;
 }
 
-u32 func_002f1ac8(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 func_002f1ac8(u32 a0, u32 a1, u32 a2, u32 a3) {  // entry_ptr
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u, r15 = 0u;
     r15 = (u32)(0x0036u << 16);
     r4 = (u32)(r4 << 6);

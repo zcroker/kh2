@@ -1682,7 +1682,7 @@ u32 func_00144d10(f32* a0, f32* a1) {
     return 1;
 }
 
-u32 func_00144d90(f32* a0, f32* a1) {
+u32 func_00144d90(f32* a0, f32* a1) {  // aabb_overlap
     f32 f1 = a0[0];
     f32 f0 = a1[0];
     if (f0 < f1) {
@@ -13648,7 +13648,7 @@ void func_002e4010(f32* a0, f32* a1, f32 a2) {
     a0[2] = a1[2] * s;
 }
 
-void func_002e73d8(u32 a0) {
+void func_002e73d8(u32 a0) {  // timer_decrement
     f32 t = *(f32*)(a0 + 28) - D_00349e10;
     *(f32*)(a0 + 28) = t;
     if (t <= 0.0f) {
@@ -13913,7 +13913,7 @@ void func_002fed98(u32* a0, u32 a1, u32 a2) {
     }
 }
 
-u32 func_00302c88(u32 a0, u32 a1) {
+u32 func_00302c88(u32 a0, u32 a1) {  // alloc_88_array
     u32 size = 88u * a1;
     u32 h = func_002fd680(a0, size + 12u);
     if (h == 0u) {
@@ -15766,7 +15766,7 @@ u32 func_00325298(u32 self) {
     return func_00105110(s2);
 }
 
-void func_00325320(u32 a0, u32 a1) {
+void func_00325320(u32 a0, u32 a1) {  // list_remove_by_ptr
     u32 t7 = *(u32*)a0;
     u32 t5;
 

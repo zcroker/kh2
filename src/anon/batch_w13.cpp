@@ -357,7 +357,7 @@ void func_002bd538(void) {
     D_003617e8 = 1;
 }
 
-Q128* func_002cb7c8(Q128* out, void* a, void* b) {
+Q128* func_002cb7c8(Q128* out, void* a, void* b) {  // copy_vec4_result
     Q128* s = func_002cb890(a, b);  // hash_bucket_get
     asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(out), "r"(s) : "$8", "memory");
     return out;

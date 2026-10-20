@@ -70,7 +70,7 @@ struct W270It { u8 pad[8]; u16 h8; };
 extern W270Lt* D_0035f5e4;
 extern u8* D_0035f5e8;
 extern "C" {
-f32 func_0018a970(W270Sh* s, const W270V* q) {
+f32 func_0018a970(W270Sh* s, const W270V* q) {  // obj_get_distance
     f32 r = 0.0f;
     W270V d;
     W270V u;

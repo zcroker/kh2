@@ -68,7 +68,7 @@ u32 func_00158548(u64* p) {
     return (*p & D_0034a970[i + 2]) != 0;
 }
 
-void func_0015c450(u32 n) {
+void func_0015c450(u32 n) {  // flag_test_global
     if ((u8)((D_0034af30 >> n) & 1)) func_00160e50(n);
     else func_0015c2a0(D_0034af28, 1ull << n);
 }

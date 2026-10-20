@@ -92,7 +92,7 @@ void func_00174e10(Q16** pp) {
 }
 
 // Increment a saturating (max 100) byte counter.
-void func_00177a38(u8* p) {
+void func_00177a38(u8* p) {  // obj_inc_counter
     if (p[0xb04] < 100) p[0xb04]++;
 }
 

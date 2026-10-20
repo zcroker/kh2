@@ -110,7 +110,7 @@ void func_001623b0(void) {
     func_00102688(*(u32*)((u8*)func_00102c80() + 4), 5, 5);
 }
 
-void func_0016c750(u32 a) {
+void func_0016c750(u32 a) {  // list_init_global
     D_004f6288 = a;
     D_004f6290.b = 0;
     D_004f6290.a = 0;
@@ -242,7 +242,7 @@ void func_002c5460(u32 a) {
     func_00104f58(a, 1, 0, 0, 0);
 }
 
-f32* func_002d5c20(f32* v) {
+f32* func_002d5c20(f32* v) {  // vec4_clear
     v[3] = v[2] = v[1] = v[0] = 0.0f;
     return v;
 }
@@ -290,7 +290,7 @@ void func_002f3f40(void* d, void* a, f32 s) {  // vec_scale_by_f12
 }
 
 // Library code: the original compiler allocated v0 for the temporary.
-s32 func_00305dd8(u32 a, u8* p) {
+s32 func_00305dd8(u32 a, u8* p) {  // task_param_init
     register u32 t asm("$2") = 0x2000;
     *(u64*)(p + 72) = 0;
     *(u32*)(p + 4) = t;

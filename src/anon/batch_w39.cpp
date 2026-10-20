@@ -501,7 +501,7 @@ void func_00276438(void) {
 // --- 00288fd8
 // Fills the 4 entries of row i of both tables (second one with w, or v if w is 0).
 struct S288 { u8 pad[44]; u16* volatile a; u16* volatile b; };
-void func_00288fd8(S288* p, int i, int v, int w) {
+void func_00288fd8(S288* p, int i, int v, int w) {  // anim_store4
     for (int j = 0; j < 4; j++) p->a[i * 4 + j] = v;
     for (int j = 0; j < 4; j++) p->b[i * 4 + j] = w ? w : v;
 }

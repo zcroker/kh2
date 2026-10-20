@@ -5,7 +5,7 @@
 extern "C" {
 
 // 3x3 determinant of a row-major matrix.
-f32 func_0011bd70(f32* m) {
+f32 func_0011bd70(f32* m) {  // mat3_det
     f32 a = m[4] * m[8] - m[5] * m[7];
     f32 b = m[3] * m[8] - m[5] * m[6];
     f32 c = m[3] * m[7] - m[4] * m[6];

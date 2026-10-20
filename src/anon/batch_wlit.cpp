@@ -63,7 +63,7 @@ void func_00132270(u32* p, u32 a) {  // obj_ctor_347c00
     ((f32*)p)[6] = 1.0f;
 }
 
-void func_00134d10(f32* p) {
+void func_00134d10(f32* p) {  // obj_init_floats
     p[0] = 0;
     p[1] = -1e7f;
     p[2] = 0;

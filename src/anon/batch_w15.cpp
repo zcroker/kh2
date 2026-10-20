@@ -377,7 +377,7 @@ void func_003207c8(void** self) {
 }
 
 struct Ent8 { u16 id; u16 _2; u32 _4; };
-Ent8* func_00320c18(u8* p, u32 id) {
+Ent8* func_00320c18(u8* p, u32 id) {  // table_find_short
     int n = *(int*)(p + 4);
     Ent8* e = (Ent8*)(p + 8);
     for (int i = 0; i < n; i++, e++) {

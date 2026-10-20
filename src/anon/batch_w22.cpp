@@ -28,7 +28,7 @@ void func_0010c7f0(u8* p) {
 }
 
 // --- 0010f9f0
-void func_0010f9f0(u8* p, u8* src, u8 flag) {
+void func_0010f9f0(u8* p, u8* src, u8 flag) {  // obj_set_vec_flag
     u8* dst = p + 3072;
     if (dst != src) {
         asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(dst), "r"(src) : "$8", "memory");
@@ -397,7 +397,7 @@ void MenuSound_StopBgSeHandle(u32 a, u32 b) {
 
 // --- 002bca10
 struct E2bc { s32 b; s32 a; s32 c; };
-s32 func_002bca10(E2bc* t, s32 a, s32 b) {
+s32 func_002bca10(E2bc* t, s32 a, s32 b) {  // table_find_two_words
     E2bc* e = t;
     do {
         if (e->a == a && e->b == b) return b;

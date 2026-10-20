@@ -2,7 +2,7 @@
 extern void* D_00352ae0[2];
 extern s32 D_00352ae8;
 extern u8 D_00352b48;
-void func_001dc278(u8* p, s32 a1, s32 a2) {
+void func_001dc278(u8* p, s32 a1, s32 a2) {  // obj_ctor_vtable
     *(s32*)(p + 0xc) = 0;
     *(s32*)(p + 0x10) = 0;
     *(u32*)p = (u32)&D_00352b48;

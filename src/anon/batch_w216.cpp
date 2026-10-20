@@ -13,7 +13,7 @@ s32 func_001317a8(W216Holder* a, float x) {
 
 struct W216Pair { s16 k; s16 v; };
 extern W216Pair D_00374a08[];
-s32 func_0029e7b0(s32 k) {
+s32 func_0029e7b0(s32 k) {  // short_table_lookup
     s32 r = -1;
     for (s32 i = 0; D_00374a08[i].k > 0; i++) {
         if (D_00374a08[i].k == k) { r = D_00374a08[i].v; break; }

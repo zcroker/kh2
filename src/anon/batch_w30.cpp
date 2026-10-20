@@ -152,7 +152,7 @@ static inline bool in_1_6(s32 a) { return a != 0 && a < 7; }
 
 extern "C" {
 
-void func_00143348(u8* p) {
+void func_00143348(u8* p) {  // state_get_entry
     s16 t[2];
     *(s32*)t = 0;
     *(s16*)(p + 0x118) = func_00147050(D_00348800, 0, p, 0, t);
