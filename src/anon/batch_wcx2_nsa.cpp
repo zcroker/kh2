@@ -731,3 +731,121 @@ void func_002d9220(O2d9220* o, s32 mode)
     }
 }
 }
+
+// --------------------
+// 002d9810: Ti::MGHachimitsu player update (spawn pot/Pooh, lock-on target, project into the play plane, pose matrix)
+#define W2d9810_QCOPY(d, s) asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(d), "r"(s) : "$8", "memory")
+struct W2d9810Vec {
+    f32 x, y, z, w;
+    W2d9810Vec() {}
+    W2d9810Vec(const W2d9810Vec& o) { W2d9810_QCOPY(this, &o); }
+    W2d9810Vec& operator=(const W2d9810Vec& o) { if (this != &o) W2d9810_QCOPY(this, &o); return *this; }
+} __attribute__((aligned(16)));
+struct W2d9810Mtx {
+    W2d9810Vec r0, r1, r2, r3;
+    W2d9810Mtx() {}
+    W2d9810Mtx(const W2d9810Mtx& o) {
+        asm volatile("lq $8, 0(%1)\n\tlq $9, 16(%1)\n\tlq $10, 32(%1)\n\tlq $11, 48(%1)\n\t"
+                     "sq $8, 0(%0)\n\tsq $9, 16(%0)\n\tsq $10, 32(%0)\n\tsq $11, 48(%0)"
+                     : : "r"(this), "r"(&o) : "$8", "$9", "$10", "$11", "memory");
+    }
+    W2d9810Mtx& operator=(const W2d9810Mtx& o) {
+        if (this != &o) {
+            asm volatile("lq $8, 0(%1)\n\tlq $9, 16(%1)\n\tlq $10, 32(%1)\n\tlq $11, 48(%1)\n\t"
+                         "sq $8, 0(%0)\n\tsq $9, 16(%0)\n\tsq $10, 32(%0)\n\tsq $11, 48(%0)"
+                         : : "r"(this), "r"(&o) : "$8", "$9", "$10", "$11", "memory");
+        }
+        return *this;
+    }
+    // inverse of a rigid (orthonormal) transform in place: transpose + negated translation
+    void invOrtho() {
+        asm volatile(".set noreorder\n\t"
+                 "lq $8, 0(%0)\n\tlq $9, 16(%0)\n\tlq $10, 32(%0)\n\tqmfc2 $11, $vf0\n\tlqc2 $vf4, 48(%0)\n\t"
+            "pextlw $12, $9, $8\n\tpextuw $13, $9, $8\n\tpextlw $14, $11, $10\n\tpextuw $15, $11, $10\n\t"
+            "pcpyld $8, $14, $12\n\tpcpyud $9, $12, $14\n\tpcpyld $10, $15, $13\n\t"
+            "qmtc2 $8, $vf1\n\tqmtc2 $9, $vf2\n\tqmtc2 $10, $vf3\n\t"
+            "vmulax.xyz ACC, $vf1, $vf4x\n\tvmadday.xyz ACC, $vf2, $vf4y\n\tvmaddz.xyz $vf4, $vf3, $vf4z\n\t"
+            "vsub.xyz $vf4, $vf0, $vf4\n\t"
+            "sq $8, 0(%0)\n\tsq $9, 16(%0)\n\tsq $10, 32(%0)\n\tsqc2 $vf4, 48(%0)\n\t.set reorder"
+            : : "r"(this) : "$8", "$9", "$10", "$11", "$12", "$13", "$14", "$15", "memory");
+    }
+    // VU0 matrix * column vector.
+    W2d9810Vec operator*(const W2d9810Vec& v) const {
+        W2d9810Vec o;
+        asm volatile(".set noreorder\n\tlqc2 $vf5, 0(%2)\n\tlqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 16(%1)\n\tlqc2 $vf3, 32(%1)\n\tlqc2 $vf4, 48(%1)\n\tvmulax.wxyz ACC, $vf1, $vf5x\n\tvmadday.wxyz ACC, $vf2, $vf5y\n\tvmaddaz.wxyz ACC, $vf3, $vf5z\n\tvmaddw.wxyz $vf5, $vf4, $vf5w\n\tsqc2 $vf5, 0(%0)\n\t.set reorder" : : "r"(&o), "r"(this), "r"(&v) : "memory");
+        return o;
+    }
+} __attribute__((aligned(16)));
+extern "C" {
+struct Tgt2d9810;
+void o2d9810_00190128(Tgt2d9810*) asm("func_00190128");
+void o2d9810_set_obj(Tgt2d9810*, void*, s32) asm("_ZN2YS6TARGET7set_objEPNS_3OBJEi");
+struct Tgt2d9810 {
+    s32 f0, f4, f8, f12, f16;
+    Tgt2d9810(void* obj) { o2d9810_00190128(this); o2d9810_set_obj(this, obj, 0); }
+};
+struct G2d9810 { u8 pad[201]; u8 over; u8 pad2[336 - 202]; W2d9810Mtx view; };
+struct O2d9810 {
+    u8 pad0[2884]; s32 f2884; u8 pad1[3056 - 2888];
+    void* pot; void* pooh; f32 f3064; u8 f3068; u8 pad2[3]; f32 f3072; bool f3076; u8 pad3[11];
+    W2d9810Mtx m;
+};
+extern G2d9810* g2d9810_game asm("D_00361f60");
+extern f32 D_00349e10;
+void o2d9810_002d10a0(O2d9810*) asm("func_002d10a0");
+void* o2d9810_0016b740(s32) asm("func_0016b740");
+void func_002dbca0(void*, bool);
+s32 o2d9810_is_attach(void*) asm("_ZN2YS3OBJ9is_attachEv");
+void o2d9810_001c0d38(void*, O2d9810*, s32, s32) asm("_Z16u_tail4_001c0d38jjjj");
+s32 func_002da308(O2d9810*);
+void* o2d9810_get_gopher(G2d9810*) asm("_ZN2Ti12MGHachimitsu10get_gopherEv");
+s32 func_002da238(O2d9810*);
+s32 func_002d8898(G2d9810*);
+s32 o2d9810_IsExec(void) asm("_ZN2YS5EVENT6IsExecEv");
+void o2d9810_001bd3e0(s32, s32, s32, Tgt2d9810*, s32, s32) asm("func_001bd3e0");
+W2d9810Vec* o2d9810_0016c028(O2d9810*) asm("func_0016c028");
+void o2d9810_0011b6a8(W2d9810Mtx*) asm("func_0011b6a8");
+W2d9810Vec* o2d9810_get_xyzrot(O2d9810*) asm("_ZN2YS3OBJ10get_xyzrotEv");
+void o2d9810_rotateXYZ(W2d9810Mtx*, W2d9810Vec*) asm("_ZN2kn7FMatrix9rotateXYZERKNS_7FVectorE");
+void func_002d9810(O2d9810* o)
+{
+    o2d9810_002d10a0(o);
+    G2d9810* g = g2d9810_game;
+    if (g->over) return;
+    void* pot = o->pot;
+    if (pot || (o->pot = pot = o2d9810_0016b740(1630)) != 0) {
+        if (o->f3076) {
+            func_002dbca0(pot, !o->f3076);
+            o->f3076 = 0;
+        }
+    }
+    void* pooh = o->pooh;
+    if (pooh || (o->pooh = pooh = o2d9810_0016b740(1633)) != 0) {
+        if (!o2d9810_is_attach(pooh)) o2d9810_001c0d38(o->pooh, o, 0x4000, 0);
+    }
+    if (func_002da308(o)) {
+        Tgt2d9810 t(o2d9810_get_gopher(g));
+        o2d9810_001bd3e0(o->f2884, 1, 498, &t, 1, 100);
+    } else if (func_002da238(o) && func_002d8898(g) && !o2d9810_IsExec()) {
+        Tgt2d9810 t(o->pot);
+        o2d9810_001bd3e0(o->f2884, 1, 461, &t, 1, 100);
+    }
+    o->f3064 = 0.0f;
+    if (!o->f3068) {
+        W2d9810Mtx m(g->view);
+        m.invOrtho();
+        W2d9810Vec p(*o2d9810_0016c028(o));
+        p.w = 1.0f;
+        W2d9810Vec q = m * p;
+        q.w = 1.0f;
+        o->f3064 = q.x;
+        q.y = 0.0f;
+        q.z = 0.0f;
+    }
+    o2d9810_0011b6a8(&o->m);
+    o2d9810_rotateXYZ(&o->m, o2d9810_get_xyzrot(o));
+    o->m.r3 = *o2d9810_0016c028(o);
+    o->m.r3.w = 1.0f;
+    if (0.0f < o->f3072) o->f3072 -= D_00349e10;
+}
+}
