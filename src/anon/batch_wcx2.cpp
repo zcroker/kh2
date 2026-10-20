@@ -17599,4 +17599,125 @@ u8* func_001a9c20(Win1a9c20* w, Ctx1a9c20* c, u8* p)
     return p;
 }
 
+
+
+// --------------------
+// 0010e368: camera/look-direction update by state (aim at a point or follow the message direction, zoom level hysteresis)
+// VU0 macro-mode vector helpers (hand-written asm in the original math library)
+struct V10e368 {
+    f32 x, y, z, w;
+    V10e368() {}
+    V10e368& operator=(const V10e368& o)
+    {
+        if (this != &o) asm volatile(".set noreorder\n\tlq $8, 0(%1)\n\tsq $8, 0(%0)\n\t.set reorder" : : "r"(this), "r"(&o) : "$8", "memory");
+        return *this;
+    }
+    V10e368 operator-(const V10e368& b) const
+    {
+        V10e368 r;
+        asm volatile(".set noreorder\n\tlqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 0(%2)\n\tvsub.wxyz $vf1, $vf1, $vf2\n\tsqc2 $vf1, 0(%0)\n\t.set reorder" : : "r"(&r), "r"(this), "r"(&b) : "memory");
+        return r;
+    }
+    V10e368 operator*(f32 k) const
+    {
+        V10e368 r;
+        asm volatile(".set noreorder\n\tlqc2 $vf1, 0(%1)\n\tmfc1 $8, %2\n\tqmtc2 $8, $vf2\n\tvmulx.wxyz $vf1, $vf1, $vf2x\n\tsqc2 $vf1, 0(%0)\n\t.set reorder" : : "r"(&r), "r"(this), "f"(k) : "$8", "memory");
+        return r;
+    }
+    V10e368& operator+=(const V10e368& b)
+    {
+        asm volatile(".set noreorder\n\tlqc2 $vf1, 0(%0)\n\tlqc2 $vf2, 0(%1)\n\tvadd.wxyz $vf1, $vf1, $vf2\n\tsqc2 $vf1, 0(%0)\n\t.set reorder" : : "r"(this), "r"(&b) : "memory");
+        return *this;
+    }
+    f32 dot(const V10e368& o) const
+    {
+        f32 r;
+        asm volatile(".set noreorder\n\tlqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 0(%2)\n\tvmul.xyz $vf1, $vf1, $vf2\n\tvaddy.x $vf1, $vf1, $vf1y\n\tvaddz.x $vf1, $vf1, $vf1z\n\tqmfc2 $8, $vf1\n\tmtc1 $8, %0\n\t.set reorder" : "=f"(r) : "r"(this), "r"(&o) : "$8");
+        return r;
+    }
+    f32 normalize()
+    {
+        f32 len;
+        asm volatile(".set noreorder\n\tlqc2 $vf1, 0(%1)\n\tvmul.xyz $vf2, $vf1, $vf1\n\tvaddy.x $vf2, $vf2, $vf2y\n\tvaddz.x $vf2, $vf2, $vf2z\n\tvsqrt Q, $vf2x\n\tvwaitq\n\tcfc2.ni $8, $vi22\n\tvaddq.x $vf2, $vf0, Q\n\tmtc1 $8, %0\n\tvnop\n\tvdiv Q, $vf0w, $vf2x\n\tvwaitq\n\tvmulq.xyz $vf1, $vf1, Q\n\tsqc2 $vf1, 0(%1)\n\t.set reorder" : "=f"(len) : "r"(this) : "$8", "memory");
+        return len;
+    }
+} __attribute__((aligned(16)));
+struct Msg10e368 { f32 x; u8 pad[12]; V10e368 dir; V10e368 up; };
+struct St10e368 { s32 f0; u32 state; };
+struct O10e368 {
+    u8 pad0[12];
+    St10e368* st;
+    u8 pad1[1360 - 16];
+    V10e368 fwd;
+    u8 pad2[2912 - 1376];
+    s32 f2912;
+    u8 pad3[2928 - 2916];
+    s32 point;
+    u8 pad4[4];
+    s32 level;
+    u32 flags;
+    Msg10e368 msg;
+    u8 pad5[3072 - 2992];
+    V10e368 dir;
+};
+extern V10e368 D_00341720[];
+void func_0010cac8(O10e368*, s32, f32);
+V10e368* f10e368_attach(O10e368*) asm("func_0016c028");
+f32 func_00114328(s32, s32, s32, s32);
+f32 func_001142e0(s32, s32, s32, s32);
+f32 func_0010e7e0(O10e368*, s32);
+s32 func_0010e368(O10e368* o, Msg10e368* m)
+{
+    if (!o->st) return 0;
+    switch (o->st->state) {
+    case 1:
+        break;
+    case 0:
+        return 0;
+    case 2:
+        o->dir.x = o->dir.z = 0.0f;
+        if (m->x < 0.0f) {
+            o->dir.w = 0.0f;
+            o->dir.y = -1.0f;
+        } else {
+            func_0010cac8(o, 3, 0.0f);
+        }
+        break;
+    case 31:
+    case 32: {
+        s32 mode = func_001917c0();
+        bool self = m == &o->msg;
+        if (self && !(o->flags & 0x10)) {
+            o->dir = D_00341720[o->point] - *f10e368_attach(o);
+            o->dir.normalize();
+        } else {
+            o->dir = m->dir;
+        }
+        V10e368* d = &m->dir;
+        if (func_00114328(o->f2912, o->level, mode, self) < d->w) {
+            if (o->level < 2) o->level++;
+        } else if (d->w < func_001142e0(o->f2912, o->level, mode, self)) {
+            if (o->level > 0) o->level--;
+        }
+        f32 f = func_0010e7e0(o, o->level);
+        o->dir.w = f;
+        if (self && f == 0.0f) {
+            if (o->flags & 0x10) {
+                o->dir += o->fwd * 0.8f;
+                o->dir.normalize();
+                o->dir.w = func_0010e7e0(o, 1) * 0.2f;
+                if (0.97f < o->fwd.dot(m->up)) o->flags &= ~0x10;
+            } else {
+                if (o->fwd.dot(m->up) <= 0.5f) o->flags |= 0x10;
+            }
+            o->flags &= ~0x40;
+        } else {
+            o->flags &= ~0x10;
+        }
+        break;
+    }
+    }
+    return 1;
+}
+
 } // extern "C"
