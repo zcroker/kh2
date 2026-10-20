@@ -17720,4 +17720,85 @@ s32 func_0010e368(O10e368* o, Msg10e368* m)
     return 1;
 }
 
+
+// --------------------
+// 001112a8: party member AI tick (state fixups, choose a target, copy the camera vectors)
+struct V1112a8 {
+    f32 x, y, z, w;
+    V1112a8& operator=(const V1112a8& o)
+    {
+        if (this != &o) asm volatile(".set noreorder\n\tlq $8, 0(%1)\n\tsq $8, 0(%0)\n\t.set reorder" : : "r"(this), "r"(&o) : "$8", "memory");
+        return *this;
+    }
+} __attribute__((aligned(16)));
+struct St1112a8 { s32 f0; u32 state; };
+struct Fr1112a8 {
+    u8 pad0[12];
+    St1112a8* st;
+    V1112a8 pos;
+    V1112a8 rot;
+    u8 pad1[352 - 48];
+    u32 f352;
+    u8 pad2[1632 - 356];
+    u64 f1632;
+    u8 pad3[2040 - 1640];
+    u32 f2040;
+    u8 pad4[2064 - 2044];
+    s32 f2064;
+    u8 pad5[2924 - 2068];
+    s32 f2924;
+    u8 pad6[2940 - 2928];
+    u32 flags;
+    f32 f2944;
+    u8 pad7[3072 - 2948];
+    V1112a8 dir;
+    u8 pad8[3104 - 3088];
+    V1112a8 up;
+    u8 pad9[3288 - 3120];
+    s32 f3288;
+    bool isA() { if (f352 & 4) return true; return false; }
+    bool isB() { if (f352 & 8) return true; return false; }
+    bool isC() { if (f352 & 0x10) return true; return false; }
+    bool busy() { return isA() || isB() || isC(); }
+};
+extern Fr1112a8* g1112a8_leader asm("D_00341708");
+void f1112a8_setState(Fr1112a8*, s32) asm("func_0016bd60");
+s32 func_00111278(Fr1112a8*);
+s32 func_0010f8d0(Fr1112a8*);
+void func_0010e130(Fr1112a8*, s32);
+f32 func_002f8870(f32);
+s32 func_001917c0(void);
+void func_001111c8(Fr1112a8*);
+void func_0010fa68(Fr1112a8*);
+s32 func_0010fb10(Fr1112a8*);
+void func_0010ff08(Fr1112a8*);
+void func_00110500(Fr1112a8*);
+void func_001106a0(Fr1112a8*);
+void func_00140dc0(void);
+void func_001112a8(Fr1112a8* o)
+{
+    if ((o->f2040 & 4) && o->f2924 == 12 && o->st->state - 31 < 2) f1112a8_setState(o, 0);
+    if (!o->busy() && !(o->f352 & 0x40000000)) return;
+    if (o->busy() && !(o->flags & 0x80000000)) o->flags |= 0x80000000;
+    if (func_00111278(o)) {
+        if (!func_0010f8d0(o) && o->st->state == 32) f1112a8_setState(o, 31);
+        if (!(o->f2040 & 4) && !(o->st->state - 31 < 3)) f1112a8_setState(o, 31);
+    }
+    func_0010e130(o, 0);
+    if (o->f1632 & 4) o->f3288++;
+    if (g1112a8_leader->f2064) o->f3288++;
+    if (400.0f < func_002f8870(o->f2944)) o->f3288++;
+    if (func_001917c0() && !(o->f352 & 0x40000000)) {
+        func_001111c8(o);
+        func_0010fa68(o);
+        if (!func_0010fb10(o)) func_0010ff08(o);
+    } else {
+        func_00110500(o);
+    }
+    if (!(o->flags & 0x80)) func_001106a0(o);
+    func_00140dc0();
+    o->pos = o->dir;
+    o->rot = o->up;
+}
+
 } // extern "C"
