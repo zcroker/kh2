@@ -233,3 +233,63 @@ void g2d1908(G2d1550* g)
     g->v288 = g->m0.r[3] - g->m1.r[3];
 }
 }
+
+// --------------------
+// 00103ca0: field mode step: per-mode handling, then warp to the pending location (10-byte location record)
+struct Ids103ca0 { u16 x, y, z; };
+struct Loc103ca0 {
+    u8 a, b, c, pad;
+    Ids103ca0 ids;
+    Loc103ca0() { Fill(0xffff); }
+    void Fill(s32 v) { a = v; b = v; c = v; ids.x = v; ids.y = v; ids.z = v; }
+};
+struct Cur103ca0 { u8 type; u8 a, b, c; Ids103ca0 ids; u8 f10; };
+extern "C" {
+extern s32 D_0032ba2c;
+extern s32 D_0032ba24;
+extern Cur103ca0 D_0032ba38;
+void func_00103c70(void);
+void func_00103e78(void);
+void func_00149fe0(s32, u32);
+s32 func_0014aba8(void);
+void func_0014aa58(s32, s32, s32);
+void func_0014a138(s32);
+Loc103ca0 func_001cd520(void);
+Loc103ca0 func_00199718(u8, s32);
+void func_00104f58(Loc103ca0*, s32, s32, s32, s32);
+void func_00103ca0(void)
+{
+    s32 mode = D_0032ba2c;
+    Loc103ca0 l;
+    func_00103c70();
+    switch (mode) {
+    case 1:
+        func_00149fe0(-1, 0x80000000);
+        break;
+    case 3:
+        func_0014aa58(func_0014aba8(), 1, 0);
+        func_0014a138(0);
+        break;
+    case 2:
+        if (D_0032ba24 == 1) {
+            if (D_0032ba38.type == 0) {
+                l = func_001cd520();
+                func_00104f58(&l, 1, 0, 1, 0);
+            } else {
+                if (D_0032ba38.type == D_0032ba24) {
+                    l.a = D_0032ba38.a;
+                    l.b = D_0032ba38.b;
+                    l.c = D_0032ba38.c;
+                    l.ids = D_0032ba38.ids;
+                } else {
+                    l = func_00199718(D_0032ba38.f10, -1);
+                    l.c = D_0032ba38.c;
+                }
+                func_00104f58(&l, 1, 0, 0, 0);
+            }
+        }
+        break;
+    }
+    func_00103e78();
+}
+}
