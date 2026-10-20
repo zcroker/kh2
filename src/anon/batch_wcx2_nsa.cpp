@@ -293,3 +293,148 @@ void func_00103ca0(void)
     func_00103e78();
 }
 }
+
+extern "C" {
+// --------------------
+// 002d3b78: Ti::MGOarashi object hit by the player (count hits, prize, knock-back)
+struct V2d3b78 {
+    f32 x, y, z, w;
+    V2d3b78() {}
+    void Set(f32 ax, f32 ay, f32 az, f32 aw) { x = ax; y = ay; z = az; w = aw; }
+    void Zero() { asm volatile(".set noreorder\n\tvsub.wxyz $vf1, $vf0, $vf0\n\tsqc2 $vf1, 0(%0)\n\t.set reorder" : : "r"(this) : "memory"); }
+    void Set3(f32 ax, f32 ay, f32 az) { x = ax; y = ay; z = az; w = 0.0f; }
+    V2d3b78(f32 ax, f32 ay, f32 az, f32 aw) { x = ax; y = ay; z = az; w = aw; }
+    V2d3b78(const V2d3b78& o) { asm volatile(".set noreorder\n\tlq $8, 0(%1)\n\tsq $8, 0(%0)\n\t.set reorder" : : "r"(this), "r"(&o) : "$8", "memory"); }
+    V2d3b78 operator+(const V2d3b78& b) const
+    {
+        V2d3b78 r;
+        asm volatile(".set noreorder\n\tlqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 0(%2)\n\tvadd.wxyz $vf1, $vf1, $vf2\n\tsqc2 $vf1, 0(%0)\n\t.set reorder" : : "r"(&r), "r"(this), "r"(&b) : "memory");
+        return r;
+    }
+    V2d3b78& operator+=(const V2d3b78& b)
+    {
+        asm volatile(".set noreorder\n\tlqc2 $vf1, 0(%0)\n\tlqc2 $vf2, 0(%1)\n\tvadd.wxyz $vf1, $vf1, $vf2\n\tsqc2 $vf1, 0(%0)\n\t.set reorder" : : "r"(this), "r"(&b) : "memory");
+        return *this;
+    }
+    V2d3b78& operator*=(f32 k)
+    {
+        asm volatile(".set noreorder\n\tlqc2 $vf1, 0(%0)\n\tmfc1 $8, %1\n\tqmtc2 $8, $vf2\n\tvmulx.wxyz $vf1, $vf1, $vf2x\n\tsqc2 $vf1, 0(%0)\n\t.set reorder" : : "r"(this), "f"(k) : "$8", "memory");
+        return *this;
+    }
+    V2d3b78& operator=(const V2d3b78& o)
+    {
+        if (this != &o) asm volatile(".set noreorder\n\tlq $8, 0(%1)\n\tsq $8, 0(%0)\n\t.set reorder" : : "r"(this), "r"(&o) : "$8", "memory");
+        return *this;
+    }
+    V2d3b78 operator-(const V2d3b78& b) const
+    {
+        V2d3b78 r;
+        asm volatile(".set noreorder\n\tlqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 0(%2)\n\tvsub.wxyz $vf1, $vf1, $vf2\n\tsqc2 $vf1, 0(%0)\n\t.set reorder" : : "r"(&r), "r"(this), "r"(&b) : "memory");
+        return r;
+    }
+    f32 normalize()
+    {
+        f32 len;
+        asm volatile(".set noreorder\n\tlqc2 $vf1, 0(%1)\n\tvmul.xyz $vf2, $vf1, $vf1\n\tvaddy.x $vf2, $vf2, $vf2y\n\tvaddz.x $vf2, $vf2, $vf2z\n\tvsqrt Q, $vf2x\n\tvwaitq\n\tcfc2.ni $8, $vi22\n\tvaddq.x $vf2, $vf0, Q\n\tmtc1 $8, %0\n\tvnop\n\tvdiv Q, $vf0w, $vf2x\n\tvwaitq\n\tvmulq.xyz $vf1, $vf1, Q\n\tsqc2 $vf1, 0(%1)\n\t.set reorder" : "=f"(len) : "r"(this) : "$8", "memory");
+        return len;
+    }
+} __attribute__((aligned(16)));
+struct Cfg2d3b78 { u8 pad[40]; u8 tab40[24]; s32 f64; u8 pad2[216 - 68]; u8 tab216[4]; };
+struct O2d3b78 {
+    u8 pad0[8];
+    s32* kind;
+    u8 pad1[320 - 12];
+    u8 motion[1416 - 320];
+    u32 flags;
+    u8 pad2[2040 - 1420];
+    u32 f2040;
+    u8 pad3[2092 - 2044];
+    u8 f2092[2924 - 2092];
+    s32 f2924;
+    s32 hits;
+    s32* tbl;
+    f32 f2936;
+    u8 pad4[4];
+    u8 f2944;
+};
+struct Hit2d3b78 { u8 pad[16]; O2d3b78* other; u8 pad2[8]; s32 f28; };
+extern void* D_00361f60;
+extern V2d3b78 D_0034eef0;
+void func_002d39c8(O2d3b78*, Hit2d3b78*);
+void* o2d3b78_current(void) asm("_ZN2Ti8MGPlayer7currentEv");
+s32 func_002d5c40(void*);
+void func_001b3e88(O2d3b78*, Hit2d3b78*);
+void* o2d3b78_start_effect(O2d3b78*, s32, s32, s32) asm("_ZN2YS3OBJ12start_effectEiii");
+V2d3b78* o2d3b78_effect_pos(void*) asm("_ZN3ryj6EFFECT3posEv");
+s32 o2d3b78_appear_prize_ok(void*) asm("_ZN2Ti15MGOarashiPlayer15appear_prize_okEv");
+Cfg2d3b78* o2d3b78_config(void*) asm("_ZN2Ti9MGOarashi6configEv");
+void func_002d3128(O2d3b78*, s32);
+void func_002d3568(O2d3b78*, void*, s32);
+void func_001ad990(void*, f32, f32, f32);
+s32 func_0016ac38(O2d3b78*, s32, s32, s32, s32);
+void o2d3b78_00186a90(O2d3b78*, V2d3b78*, f32) asm("_Z16ctarget_00186a90jjjj");
+V2d3b78 o2d3b78_0016bda8(O2d3b78*) asm("_Z16ctarget_0016bda8jjjj");
+void func_0017f488(void*, s32, f32, f32);
+void o2d3b78_push(void*, s32, f32, f32, void*) asm("_ZN2YS6MOTION4pushEiffPFvPNS_3OBJEE");
+f32 func_002f8870(f32);
+void func_002d3b78(O2d3b78* o, Hit2d3b78* h)
+{
+    void* g = D_00361f60;
+    if (o->f2924 >= 0) return;
+    if (o->f2944) return;
+    O2d3b78* t = h->other;
+    if (t && !(t->flags & 0x80)) {
+        if ((t->flags & 0x08000000) && t->f2924 < 0) {
+            func_002d39c8(o, h);
+            return;
+        }
+    }
+    s32 done = 0;
+    s32 kind = func_002d5c40(o2d3b78_current());
+    func_001b3e88(o, h);
+    o->hits++;
+    s32 eff = -1;
+    s32 need;
+    if (kind == 2) {
+        eff = 1;
+        need = o->tbl[1];
+    } else if (kind == 3) {
+        eff = 2;
+        need = o->tbl[2];
+    } else {
+        need = o->tbl[0];
+    }
+    if (eff >= 0 && h->f28) {
+        void* e = o2d3b78_start_effect(h->other, eff, 1, 0);
+        if (e) *o2d3b78_effect_pos(e) = D_0034eef0;
+    }
+    if (o2d3b78_appear_prize_ok(o2d3b78_current())) {
+        if (*o->kind == 1629 || (need > 0 && !(o->hits < need))) done = 1;
+    }
+    if (done) {
+        if (*o->kind == 1629) func_002d3128(o, o2d3b78_config(g)->f64);
+        else if (*o->kind == 1627) func_002d3568(o, o2d3b78_config(g)->tab216, 0);
+        else func_002d3568(o, o2d3b78_config(g)->tab40, 2);
+    }
+    if (need > 0 && !(o->hits < need)) {
+        if (!(o->f2040 & 0x10)) func_001ad990(o->f2092, 1.0f, 0.0f, 0.0f);
+        func_0016ac38(o, 0, 1, 0, 0);
+        o->f2944 = 1;
+    } else if (*o->kind != 1626) {
+        func_0017f488(o->motion, 14, 0.0f, 0.0f);
+        o2d3b78_push(o->motion, 0, 0.0f, 0.0f, 0);
+    }
+    if (!h->other) return;
+    if (*o->kind == 1627 || *o->kind == 1629) {
+        V2d3b78 v;
+        v.Set(1.0f, 0.0f, 0.0f, 0.0f);
+        o2d3b78_00186a90(o, &v, func_002f8870(o->f2936));
+    } else {
+        V2d3b78 v = o2d3b78_0016bda8(o) - o2d3b78_0016bda8(h->other);
+        v.z = 0.0f;
+        v.normalize();
+        if (o->f2936 < 0.0f) v.Zero();
+        o2d3b78_00186a90(o, &v, func_002f8870(o->f2936));
+    }
+}
+}
