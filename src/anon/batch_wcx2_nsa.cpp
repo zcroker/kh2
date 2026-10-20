@@ -849,3 +849,109 @@ void func_002d9810(O2d9810* o)
     if (0.0f < o->f3072) o->f3072 -= D_00349e10;
 }
 }
+
+// --------------------
+// 002db210: Ti::MGHachimitsu honey pot thrown (release holder, place the pot, launch velocity from angle/speed)
+#define W2db210_QCOPY(d, s) asm volatile(".set noreorder\n\tlq $8, 0(%1)\n\tsq $8, 0(%0)\n\t.set reorder" : : "r"(d), "r"(s) : "$8", "memory")
+struct W2db210Vec {
+    f32 x, y, z, w;
+    W2db210Vec() {}
+    W2db210Vec(f32 ax, f32 ay, f32 az, f32 aw) { x = ax; y = ay; z = az; w = aw; }
+    W2db210Vec operator*(f32 k) const
+    {
+        W2db210Vec r;
+        asm volatile(".set noreorder\n\tlqc2 $vf1, 0(%1)\n\tmfc1 $8, %2\n\tqmtc2 $8, $vf2\n\tvmulx.wxyz $vf1, $vf1, $vf2x\n\tsqc2 $vf1, 0(%0)\n\t.set reorder" : : "r"(&r), "r"(this), "f"(k) : "$8", "memory");
+        return r;
+    }
+    void Zero() { asm volatile(".set noreorder\n\tvsub.wxyz $vf1, $vf0, $vf0\n\tsqc2 $vf1, 0(%0)\n\t.set reorder" : : "r"(this) : "memory"); }
+    W2db210Vec(const W2db210Vec& o) { W2db210_QCOPY(this, &o); }
+    W2db210Vec& operator=(const W2db210Vec& o) { if (this != &o) W2db210_QCOPY(this, &o); return *this; }
+} __attribute__((aligned(16)));
+struct W2db210Mtx {
+    W2db210Vec r0, r1, r2, r3;
+    W2db210Mtx() {}
+    W2db210Mtx(const W2db210Mtx& o) {
+        asm volatile("lq $8, 0(%1)\n\tlq $9, 16(%1)\n\tlq $10, 32(%1)\n\tlq $11, 48(%1)\n\t"
+                     "sq $8, 0(%0)\n\tsq $9, 16(%0)\n\tsq $10, 32(%0)\n\tsq $11, 48(%0)"
+                     : : "r"(this), "r"(&o) : "$8", "$9", "$10", "$11", "memory");
+    }
+    W2db210Mtx& operator=(const W2db210Mtx& o) {
+        if (this != &o) {
+            asm volatile("lq $8, 0(%1)\n\tlq $9, 16(%1)\n\tlq $10, 32(%1)\n\tlq $11, 48(%1)\n\t"
+                         "sq $8, 0(%0)\n\tsq $9, 16(%0)\n\tsq $10, 32(%0)\n\tsq $11, 48(%0)"
+                         : : "r"(this), "r"(&o) : "$8", "$9", "$10", "$11", "memory");
+        }
+        return *this;
+    }
+    // inverse of a rigid (orthonormal) transform in place: transpose + negated translation
+    void invOrtho() {
+        asm volatile(".set noreorder\n\t"
+                 "lq $8, 0(%0)\n\tlq $9, 16(%0)\n\tlq $10, 32(%0)\n\tqmfc2 $11, $vf0\n\tlqc2 $vf4, 48(%0)\n\t"
+            "pextlw $12, $9, $8\n\tpextuw $13, $9, $8\n\tpextlw $14, $11, $10\n\tpextuw $15, $11, $10\n\t"
+            "pcpyld $8, $14, $12\n\tpcpyud $9, $12, $14\n\tpcpyld $10, $15, $13\n\t"
+            "qmtc2 $8, $vf1\n\tqmtc2 $9, $vf2\n\tqmtc2 $10, $vf3\n\t"
+            "vmulax.xyz ACC, $vf1, $vf4x\n\tvmadday.xyz ACC, $vf2, $vf4y\n\tvmaddz.xyz $vf4, $vf3, $vf4z\n\t"
+            "vsub.xyz $vf4, $vf0, $vf4\n\t"
+            "sq $8, 0(%0)\n\tsq $9, 16(%0)\n\tsq $10, 32(%0)\n\tsqc2 $vf4, 48(%0)\n\t.set reorder"
+            : : "r"(this) : "$8", "$9", "$10", "$11", "$12", "$13", "$14", "$15", "memory");
+    }
+    // VU0 matrix * column vector.
+    W2db210Vec operator*(const W2db210Vec& v) const {
+        W2db210Vec o;
+        asm volatile(".set noreorder\n\tlqc2 $vf5, 0(%2)\n\tlqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 16(%1)\n\tlqc2 $vf3, 32(%1)\n\tlqc2 $vf4, 48(%1)\n\tvmulax.wxyz ACC, $vf1, $vf5x\n\tvmadday.wxyz ACC, $vf2, $vf5y\n\tvmaddaz.wxyz ACC, $vf3, $vf5z\n\tvmaddw.wxyz $vf5, $vf4, $vf5w\n\tsqc2 $vf5, 0(%0)\n\t.set reorder" : : "r"(&o), "r"(this), "r"(&v) : "memory");
+        return o;
+    }
+} __attribute__((aligned(16)));
+static inline W2db210Vec operator*(f32 k, const W2db210Vec& v) { return v * k; }
+extern "C" {
+struct Cfg2db210 { u8 pad[44]; f32 f44; u8 pad2[8]; f32 speed; f32 angle; };
+struct H2db210;
+struct H2db210Vt { void* f[8]; void (*kill)(H2db210*); };
+struct H2db210 { H2db210Vt* vt; };
+struct O2db210 {
+    u8 pad0[320]; u8 motion[2800 - 320];
+    u8 lflag[36]; H2db210* holder; u8 f2840; u8 pad1[3]; s32 thrown;
+    W2db210Vec vel; W2db210Vec acc; W2db210Vec pos; W2db210Vec rot;
+};
+extern void* g2db210_game asm("D_00361f60");
+extern void* g2db210_player asm("D_0034e948");
+void o2db210_detach(void*) asm("_ZN2YS3OBJ6detachEv");
+void o2db210_set(void*, u32, s32) asm("_Z16wtarget_002cf280jjjj");
+s32 o2db210_alive(H2db210*) asm("_Z16ctarget_0019ba60jjjj");
+s32 o2db210_is_attach(void*) asm("_ZN2YS3OBJ9is_attachEv");
+void o2db210_change(void*, s32, f32, f32) asm("_ZN2YS6MOTION6changeEiff");
+W2db210Mtx* o2db210_002d8110(void*) asm("func_002d8110");
+W2db210Vec* o2db210_0016c028(O2db210*) asm("func_0016c028");
+W2db210Vec* o2db210_get_xyzrot(void*) asm("_ZN2YS3OBJ10get_xyzrotEv");
+s32 func_001064a8(s32);
+Cfg2db210* o2db210_002d73f0(void*) asm("func_002d73f0");
+f32 func_002f87c0(f32);
+f32 func_002f8960(f32);
+void o2db210_002d9208(void*, s32) asm("_Z13func_002d9208Pvi");
+void func_002db210(O2db210* o)
+{
+    o2db210_detach(o);
+    o2db210_set(o->lflag, 1, 0);
+    if (o->holder && o2db210_alive(o->holder)) {
+        if (o2db210_is_attach(o->holder)) o2db210_detach(o->holder);
+        o->holder->vt->kill(o->holder);
+    }
+    void* g = g2db210_game;
+    o2db210_change(o->motion, 151, 0.0f, 0.0f);
+    if (!o->thrown) {
+        W2db210Mtx m(*o2db210_002d8110(g));
+        m.invOrtho();
+        o->pos = m * *o2db210_0016c028(o);
+    } else {
+        o->rot = *o2db210_get_xyzrot(g2db210_player);
+        o->pos = *o2db210_0016c028(o);
+    }
+    f32 ang;
+    if (func_001064a8(2)) ang = o2db210_002d73f0(g)->angle;
+    else ang = 3.1415927f - o2db210_002d73f0(g)->f44;
+    o->vel = o2db210_002d73f0(g)->speed * W2db210Vec(func_002f87c0(ang), func_002f8960(ang), 0.0f, 0.0f);
+    o->acc.Zero();
+    o->f2840 = 1;
+    o2db210_002d9208(g, 0);
+}
+}
