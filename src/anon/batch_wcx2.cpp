@@ -17233,4 +17233,61 @@ s32 func_001cc220(void* self, void* target)
     }
 }
 
+
+// --------------------
+// 0014a500: per-frame update of the full-screen Ft4 sprite (store/load image, UVs, rotation)
+extern u8 D_00349270[];
+extern f32 D_00349390;
+extern s32 D_00349394;
+extern f32 D_00349398;
+extern u8 D_0034939c;
+extern u8 D_0034939d;
+extern u8 D_0034939e;
+extern f32 D_00349e10;
+void f14a500_setRot(void*, f32) asm("_ZN2dk7Ft4Base6setRotEf");
+f32 func_0013edd8(void*);
+void f14a500_setGsTex0(void*, u64) asm("_ZN2dk7Ft4Base9setGsTex0Ey");
+void func_0013ee30(void*, s64);
+void f14a500_setGsUV(void*, u64, u64, u64, u64) asm("_ZN2dk7Ft4Base7setGsUVEyyyy");
+void func_0013eeb8(void*);
+void f14a500_setXY(void*, s16, s16) asm("_ZN2dk13RectParamBase5setXYEss");
+void f14a500_loadImage(u32) asm("_ZN2dk9loadImageEj");
+void f14a500_storeImage(void) asm("_ZN2dk10storeImageEv");
+f32 f14a500_FixRadian(f32) asm("_ZN2YS4MATH9FixRadianEf");
+void func_0014a500(void)
+{
+    if (!D_0034939c) {
+        D_0034939e = 1;
+        return;
+    }
+    if (D_0034939d == 1) {
+        if (D_0034939e == 1) {
+            f14a500_storeImage();
+            D_0034939e = 0;
+        }
+        f14a500_loadImage(320);
+        f14a500_setGsUV(D_00349270, 0x80008, 0x82008, 0x1a080008, 0x1a082008);
+        f14a500_setGsTex0(D_00349270, 0x2000000264122800ULL);
+        func_0013ee30(D_00349270, 0);
+    } else {
+        f14a500_setGsUV(D_00349270, 0x80008, 0x82008, 0x1c080008, 0x1c082008);
+        f14a500_setGsTex0(D_00349270, 0x2000000264120000ULL);
+        func_0013ee30(D_00349270, 96);
+    }
+    f14a500_setXY(D_00349270, 256, 208);
+    f32 rot;
+    if (D_00349390 == 0.0f) rot = 0.0f;
+    else {
+        rot = func_0013edd8(D_00349270);
+        if ((s32)D_00349398 < D_00349394) {
+            rot += D_00349390 * D_00349e10;
+            rot = f14a500_FixRadian(rot);
+            D_00349398 += D_00349e10;
+        }
+    }
+    f14a500_setRot(D_00349270, rot);
+    func_0013eeb8(D_00349270);
+    if (D_0034939d == 1) f14a500_storeImage();
+}
+
 } // extern "C"
