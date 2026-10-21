@@ -1199,3 +1199,113 @@ void func_001df670(O1df670* o)
     }
 }
 }
+
+// --------------------
+// 001c6460: ambient node update (distance from the player, cool-down, drift back home)
+// VU0 macro-mode vector/matrix helpers (hand-written asm in the original math library)
+struct V1c6460 {
+    f32 x, y, z, w;
+    V1c6460() {}
+    V1c6460& operator=(const V1c6460& o)
+    {
+        if (this != &o) asm volatile(".set noreorder\n\tlq $8, 0(%1)\n\tsq $8, 0(%0)\n\t.set reorder" : : "r"(this), "r"(&o) : "$8", "memory");
+        return *this;
+    }
+    V1c6460 operator-(const V1c6460& b) const
+    {
+        V1c6460 r;
+        asm volatile(".set noreorder\n\tlqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 0(%2)\n\tvsub.wxyz $vf1, $vf1, $vf2\n\tsqc2 $vf1, 0(%0)\n\t.set reorder" : : "r"(&r), "r"(this), "r"(&b) : "memory");
+        return r;
+    }
+    V1c6460 operator+(const V1c6460& b) const
+    {
+        V1c6460 r;
+        asm volatile(".set noreorder\n\tlqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 0(%2)\n\tvadd.wxyz $vf1, $vf1, $vf2\n\tsqc2 $vf1, 0(%0)\n\t.set reorder" : : "r"(&r), "r"(this), "r"(&b) : "memory");
+        return r;
+    }
+    V1c6460& operator+=(const V1c6460& b)
+    {
+        asm volatile(".set noreorder\n\tlqc2 $vf1, 0(%0)\n\tlqc2 $vf2, 0(%1)\n\tvadd.wxyz $vf1, $vf1, $vf2\n\tsqc2 $vf1, 0(%0)\n\t.set reorder" : : "r"(this), "r"(&b) : "memory");
+        return *this;
+    }
+    V1c6460 operator*(f32 k) const
+    {
+        V1c6460 r;
+        asm volatile(".set noreorder\n\tlqc2 $vf1, 0(%1)\n\tmfc1 $8, %2\n\tqmtc2 $8, $vf2\n\tvmulx.wxyz $vf1, $vf1, $vf2x\n\tsqc2 $vf1, 0(%0)\n\t.set reorder" : : "r"(&r), "r"(this), "f"(k) : "$8", "memory");
+        return r;
+    }
+    f32 lengthSq() const
+    {
+        f32 r;
+        asm volatile(".set noreorder\n\tlqc2 $vf1, 0(%1)\n\tvmul.xyz $vf1, $vf1, $vf1\n\tvaddy.x $vf1, $vf1, $vf1y\n\tvaddz.x $vf1, $vf1, $vf1z\n\tqmfc2 $8, $vf1\n\tmtc1 $8, %0\n\t.set reorder" : "=f"(r) : "r"(this) : "$8");
+        return r;
+    }
+    f32 normalize()
+    {
+        f32 len;
+        asm volatile(".set noreorder\n\tlqc2 $vf1, 0(%1)\n\tvmul.xyz $vf2, $vf1, $vf1\n\tvaddy.x $vf2, $vf2, $vf2y\n\tvaddz.x $vf2, $vf2, $vf2z\n\tvsqrt Q, $vf2x\n\tvwaitq\n\tcfc2.ni $8, $vi22\n\tvaddq.x $vf2, $vf0, Q\n\tmtc1 $8, %0\n\tvnop\n\tvdiv Q, $vf0w, $vf2x\n\tvwaitq\n\tvmulq.xyz $vf1, $vf1, Q\n\tsqc2 $vf1, 0(%1)\n\t.set reorder" : "=f"(len) : "r"(this) : "$8", "memory");
+        return len;
+    }
+} __attribute__((aligned(16)));
+struct M1c6460 {
+    V1c6460 r[4];
+    V1c6460 operator*(const V1c6460& v) const {
+        V1c6460 o;
+        asm volatile(".set noreorder\n\tlqc2 $vf5, 0(%2)\n\tlqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 16(%1)\n\tlqc2 $vf3, 32(%1)\n\tlqc2 $vf4, 48(%1)\n\tvmulax.wxyz ACC, $vf1, $vf5x\n\tvmadday.wxyz ACC, $vf2, $vf5y\n\tvmaddaz.wxyz ACC, $vf3, $vf5z\n\tvmaddw.wxyz $vf5, $vf4, $vf5w\n\tsqc2 $vf5, 0(%0)\n\t.set reorder" : : "r"(&o), "r"(this), "r"(&v) : "memory");
+        return o;
+    }
+} __attribute__((aligned(16)));
+extern "C" {
+struct N1c6460 {
+    V1c6460 pos;
+    u8 pad0[5];
+    u8 active;
+    u8 pad1[26];
+    V1c6460 home;
+    u8 pad2[12];
+    f32 timer;
+    u8 cool;
+};
+extern V1c6460 D_00352a60;
+extern M1c6460 D_01d497f0;
+extern f32 D_00349e10;
+s32 func_001c5f38(N1c6460*);
+s32 func_001c5c08(N1c6460*);
+void func_001c6310(N1c6460*);
+s32 func_001dbd68(N1c6460*);
+void func_001c5f90(N1c6460*);
+double func_00313b80(f32);
+s32 func_003142e0(double, double);
+void func_001c6460(N1c6460* n)
+{
+    if (func_001c5f38(n)) return;
+    if (func_001c5c08(n)) return;
+    V1c6460 d, p;
+    d = n->pos - D_00352a60;
+    d.y = 0.0f;
+    f32 dist = d.normalize();
+    if (n->cool) {
+        if (1400.0f < dist) n->cool = 1;
+        if (--n->cool == 0) n->active = 0;
+        return;
+    }
+    p = D_01d497f0 * n->pos;
+    if (p.z < 1000.0f && p.lengthSq() < 90000.0f) {
+        n->active = 0;
+        return;
+    }
+    if (__builtin_expect(n->active != 0, 1)) {
+        n->timer -= D_00349e10;
+        n->pos += d * D_00349e10 * -30.0f;
+        n->pos.w = 1.0f;
+        if (func_003142e0(func_00313b80(n->timer), 0.0) > 0) return;
+        func_001c6310(n);
+    } else if (860.0f < dist) {
+        n->pos = n->home + d * 12.0f * 30.0f;
+        n->timer = 12.0f;
+        n->active = 0x80;
+    } else if (400.0f < dist) {
+        if (func_001dbd68(n)) func_001c5f90(n);
+    }
+}
+}
