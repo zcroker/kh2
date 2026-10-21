@@ -17934,4 +17934,137 @@ void func_0010a1d0(E10a1d0* e)
     }
 }
 
+
+// --------------------
+// 00115c08: decompose a model node into screen-space scale / rotation / position (inverse node * matrix, view, camera)
+#define W115c08_QCOPY(d, s) asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(d), "r"(s) : "$8", "memory")
+struct W115c08Vec {
+    f32 x, y, z, w;
+    W115c08Vec() {}
+    W115c08Vec(const W115c08Vec& o) { W115c08_QCOPY(this, &o); }
+    W115c08Vec& operator=(const W115c08Vec& o) { if (this != &o) W115c08_QCOPY(this, &o); return *this; }
+    void zero() { asm volatile(".set noreorder\n\tvsub.wxyz $vf1, $vf0, $vf0\n\tsqc2 $vf1, 0(%0)\n\t.set reorder" : : "r"(this) : "memory"); }
+    void unit() { asm volatile("sqc2 $vf0, 0(%0)" : : "r"(this) : "memory"); }
+    f32 normalize()
+    {
+        f32 len;
+        asm volatile(".set noreorder\n\tlqc2 $vf1, 0(%1)\n\tvmul.xyz $vf2, $vf1, $vf1\n\tvaddy.x $vf2, $vf2, $vf2y\n\tvaddz.x $vf2, $vf2, $vf2z\n\tvsqrt Q, $vf2x\n\tvwaitq\n\tcfc2.ni $8, $vi22\n\tvaddq.x $vf2, $vf0, Q\n\tmtc1 $8, %0\n\tvnop\n\tvdiv Q, $vf0w, $vf2x\n\tvwaitq\n\tvmulq.xyz $vf1, $vf1, Q\n\tsqc2 $vf1, 0(%1)\n\t.set reorder" : "=f"(len) : "r"(this) : "$8", "memory");
+        return len;
+    }
+} __attribute__((aligned(16)));
+struct W115c08Mtx {
+    W115c08Vec r0, r1, r2, r3;
+    W115c08Mtx() {}
+    W115c08Mtx(const W115c08Mtx& o) {
+        asm volatile("lq $8, 0(%1)\n\tlq $9, 16(%1)\n\tlq $10, 32(%1)\n\tlq $11, 48(%1)\n\t"
+                     "sq $8, 0(%0)\n\tsq $9, 16(%0)\n\tsq $10, 32(%0)\n\tsq $11, 48(%0)"
+                     : : "r"(this), "r"(&o) : "$8", "$9", "$10", "$11", "memory");
+    }
+    W115c08Mtx& operator=(const W115c08Mtx& o) {
+        if (this != &o) {
+            asm volatile("lq $8, 0(%1)\n\tlq $9, 16(%1)\n\tlq $10, 32(%1)\n\tlq $11, 48(%1)\n\t"
+                         "sq $8, 0(%0)\n\tsq $9, 16(%0)\n\tsq $10, 32(%0)\n\tsq $11, 48(%0)"
+                         : : "r"(this), "r"(&o) : "$8", "$9", "$10", "$11", "memory");
+        }
+        return *this;
+    }
+    // inverse of a rigid (orthonormal) transform in place: transpose + negated translation
+    void invOrtho() {
+        asm volatile(".set noreorder\n\t"
+                 "lq $8, 0(%0)\n\tlq $9, 16(%0)\n\tlq $10, 32(%0)\n\tqmfc2 $11, $vf0\n\tlqc2 $vf4, 48(%0)\n\t"
+            "pextlw $12, $9, $8\n\tpextuw $13, $9, $8\n\tpextlw $14, $11, $10\n\tpextuw $15, $11, $10\n\t"
+            "pcpyld $8, $14, $12\n\tpcpyud $9, $12, $14\n\tpcpyld $10, $15, $13\n\t"
+            "qmtc2 $8, $vf1\n\tqmtc2 $9, $vf2\n\tqmtc2 $10, $vf3\n\t"
+            "vmulax.xyz ACC, $vf1, $vf4x\n\tvmadday.xyz ACC, $vf2, $vf4y\n\tvmaddz.xyz $vf4, $vf3, $vf4z\n\t"
+            "vsub.xyz $vf4, $vf0, $vf4\n\t"
+            "sq $8, 0(%0)\n\tsq $9, 16(%0)\n\tsq $10, 32(%0)\n\tsqc2 $vf4, 48(%0)\n\t.set reorder"
+            : : "r"(this) : "$8", "$9", "$10", "$11", "$12", "$13", "$14", "$15", "memory");
+    }
+    // VU0 matrix * matrix (each column of b transformed by this).
+    W115c08Mtx operator*(const W115c08Mtx& b) const {
+        W115c08Mtx o;
+        const W115c08Mtx& a = *this;
+        asm volatile(".set noreorder\n\t"
+                     "lqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 16(%1)\n\tlqc2 $vf3, 32(%1)\n\tlqc2 $vf4, 48(%1)\n\t"
+                     "lqc2 $vf5, 0(%2)\n\tlqc2 $vf6, 16(%2)\n\tlqc2 $vf7, 32(%2)\n\tlqc2 $vf8, 48(%2)\n\t"
+                     "vmulax.wxyz ACC, $vf1, $vf5x\n\tvmadday.wxyz ACC, $vf2, $vf5y\n\tvmaddaz.wxyz ACC, $vf3, $vf5z\n\tvmaddw.wxyz $vf5, $vf4, $vf5w\n\t"
+                     "vmulax.wxyz ACC, $vf1, $vf6x\n\tvmadday.wxyz ACC, $vf2, $vf6y\n\tvmaddaz.wxyz ACC, $vf3, $vf6z\n\tvmaddw.wxyz $vf6, $vf4, $vf6w\n\t"
+                     "vmulax.wxyz ACC, $vf1, $vf7x\n\tvmadday.wxyz ACC, $vf2, $vf7y\n\tvmaddaz.wxyz ACC, $vf3, $vf7z\n\tvmaddw.wxyz $vf7, $vf4, $vf7w\n\t"
+                     "vmulax.wxyz ACC, $vf1, $vf8x\n\tvmadday.wxyz ACC, $vf2, $vf8y\n\tvmaddaz.wxyz ACC, $vf3, $vf8z\n\tvmaddw.wxyz $vf8, $vf4, $vf8w\n\t"
+                     "sqc2 $vf5, 0(%0)\n\tsqc2 $vf6, 16(%0)\n\tsqc2 $vf7, 32(%0)\n\tsqc2 $vf8, 48(%0)\n\t.set reorder"
+                     : : "r"(&o), "r"(&a), "r"(&b) : "memory");
+        return o;
+    }
+    // general 4x4 inverse in place (affine: cofactors via outer products, 1/det in Q)
+    void inverse() {
+        asm volatile(".set noreorder\n\t"
+            "lqc2 $vf1, 0(%0)\n\tlqc2 $vf2, 16(%0)\n\tlqc2 $vf3, 32(%0)\n\tlqc2 $vf4, 48(%0)\n\t"
+            "vopmula.xyz ACC, $vf2, $vf3\n\tvopmsub.xyz $vf5, $vf3, $vf2\n\t"
+            "vopmula.xyz ACC, $vf3, $vf1\n\tvopmsub.xyz $vf6, $vf1, $vf3\n\t"
+            "vopmula.xyz ACC, $vf1, $vf2\n\tvopmsub.xyz $vf7, $vf2, $vf1\n\t"
+            "vmul.xyz $vf8, $vf1, $vf5\n\tvmul.xyz $vf1, $vf4, $vf5\n\tvmul.xyz $vf2, $vf4, $vf6\n\tvmul.xyz $vf3, $vf4, $vf7\n\t"
+            "vaddy.x $vf8, $vf8, $vf8y\n\tvaddy.x $vf1, $vf1, $vf1y\n\tvaddx.y $vf2, $vf2, $vf2x\n\tvaddx.z $vf3, $vf3, $vf3x\n\t"
+            "vaddz.x $vf8, $vf8, $vf8z\n\tvaddz.x $vf4, $vf1, $vf1z\n\tvaddz.y $vf4, $vf2, $vf2z\n\tvaddy.z $vf4, $vf3, $vf3y\n\t"
+            "vdiv Q, $vf0w, $vf8x\n\t"
+            "qmfc2 $8, $vf5\n\tqmfc2 $9, $vf6\n\tqmfc2 $10, $vf7\n\tqmfc2 $11, $vf0\n\t"
+            "pextlw $12, $9, $8\n\tpextuw $13, $9, $8\n\tpextlw $14, $11, $10\n\tpextuw $15, $11, $10\n\t"
+            "pcpyld $8, $14, $12\n\tpcpyud $9, $12, $14\n\tpcpyld $10, $15, $13\n\t"
+            "qmtc2 $8, $vf1\n\tqmtc2 $9, $vf2\n\tqmtc2 $10, $vf3\n\t"
+            "vsub.xyz $vf4, $vf0, $vf4\n\tvwaitq\n\t"
+            "vmulq.wxyz $vf1, $vf1, Q\n\tvmulq.wxyz $vf2, $vf2, Q\n\tvmulq.wxyz $vf3, $vf3, Q\n\tvmulq.xyz $vf4, $vf4, Q\n\t"
+            "sqc2 $vf1, 0(%0)\n\tsqc2 $vf2, 16(%0)\n\tsqc2 $vf3, 32(%0)\n\tsqc2 $vf4, 48(%0)\n\t.set reorder"
+            : : "r"(this) : "$8", "$9", "$10", "$11", "$12", "$13", "$14", "$15", "memory");
+    }
+    // VU0 matrix * column vector.
+    W115c08Vec operator*(const W115c08Vec& v) const {
+        W115c08Vec o;
+        asm volatile(".set noreorder\n\tlqc2 $vf5, 0(%2)\n\tlqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 16(%1)\n\tlqc2 $vf3, 32(%1)\n\tlqc2 $vf4, 48(%1)\n\tvmulax.wxyz ACC, $vf1, $vf5x\n\tvmadday.wxyz ACC, $vf2, $vf5y\n\tvmaddaz.wxyz ACC, $vf3, $vf5z\n\tvmaddw.wxyz $vf5, $vf4, $vf5w\n\tsqc2 $vf5, 0(%0)\n\t.set reorder" : : "r"(&o), "r"(this), "r"(&v) : "memory");
+        return o;
+    }
+} __attribute__((aligned(16)));
+struct O115c08 { u8 pad0[4]; void* model; u8 pad1[1656]; W115c08Mtx view; };
+void f115c08_node(void*, s32, W115c08Mtx*) asm("func_0016b0e0");
+s32 func_00106a18(u8);
+f32 func_001070a0(s32);
+u8* func_00106a60(u8);
+void f115c08_euler(W115c08Mtx*, W115c08Vec*) asm("func_0011bac8");
+f32 func_0017ce10(f32);
+void func_00115c08(O115c08* o, W115c08Mtx* m, W115c08Vec* scaleOut, W115c08Vec* rotOut, W115c08Vec* posOut, u8 cam)
+{
+    W115c08Vec scale, rot, pos;
+    W115c08Mtx a, b;
+    f115c08_node(o->model, 0x4002, &a);
+    a.inverse();
+    a = a * *m;
+    a = o->view * a;
+    a.r3.x = a.r3.x * 1024.0f / a.r3.z;
+    a.r3.y = a.r3.y * 1024.0f / a.r3.z;
+    a.r3.z = func_001070a0(func_00106a18(cam));
+    u8* p = func_00106a60(cam);
+    b = *(W115c08Mtx*)(p ? p + 16 : 0);
+    b.inverse();
+    a = b * a;
+    scale.x = a.r0.normalize();
+    scale.y = a.r1.normalize();
+    scale.z = a.r2.normalize();
+    rot.zero();
+    f115c08_euler(&a, &rot);
+    rot.x = func_0017ce10(rot.x);
+    rot.y = func_0017ce10(rot.y);
+    rot.z = func_0017ce10(rot.z);
+    pos = a.r3;
+    if (scaleOut) {
+        scale.w = scaleOut->w;
+        *scaleOut = scale;
+    }
+    if (rotOut) {
+        rot.w = rotOut->w;
+        *rotOut = rot;
+    }
+    if (posOut) {
+        pos.w = posOut->w;
+        *posOut = pos;
+    }
+}
+
 } // extern "C"
