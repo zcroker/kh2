@@ -18392,4 +18392,96 @@ Res11ca20* func_0011ca20(Self11ca20* s, const M11ca20* w, const M11ca20* l, s32 
     return r;
 }
 
+struct V125860 { f32 x, y, z, w; } __attribute__((aligned(16)));
+struct M125860 { V125860 r[4]; };
+static inline void lerp125860(V125860* d, const V125860* a, const V125860* b, f32 t)
+{
+    asm volatile(".set noreorder
+	lqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 0(%2)\n\tmfc1 $8, %3\n\tqmtc2 $8, $vf3\n\tvaddw.x $vf4, $vf0, $vf0w\n\tvsub.x $vf4, $vf4, $vf3\n\tvmulax.wxyz ACC, $vf2, $vf3x\n\tvmaddx.wxyz $vf1, $vf1, $vf4x\n\tsqc2 $vf1, 0(%0)\n\t.set reorder"
+                 : : "r"(d), "r"(a), "r"(b), "f"(t) : "$8", "memory");
+}
+static inline f32 dot125860(const V125860* a, const V125860* b)
+{
+    f32 r;
+    asm volatile(".set noreorder
+	lqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 0(%2)\n\tvmul.xyz $vf1, $vf1, $vf2\n\tvaddy.x $vf1, $vf1, $vf1y\n\tvaddz.x $vf1, $vf1, $vf1z\n\tqmfc2 $8, $vf1\n\tmtc1 $8, %0\n\t.set reorder" : "=f"(r) : "r"(a), "r"(b) : "$8");
+    return r;
+}
+static inline f32 norm125860(V125860* v)
+{
+    f32 r;
+    asm volatile(".set noreorder
+	lqc2 $vf1, 0(%1)\n\tvmul.xyz $vf2, $vf1, $vf1\n\tvaddy.x $vf2, $vf2, $vf2y\n\tvaddz.x $vf2, $vf2, $vf2z\n\tvsqrt Q, $vf2x\n\tvwaitq\n\tcfc2.ni $8, $vi22\n\tvaddq.x $vf2, $vf0, Q\n\tmtc1 $8, %0\n\tvnop\n\tvdiv Q, $vf0w, $vf2x\n\tvwaitq\n\tvmulq.xyz $vf1, $vf1, Q\n\tsqc2 $vf1, 0(%1)\n\t.set reorder"
+                 : "=f"(r) : "r"(v) : "$8", "memory");
+    return r;
+}
+static inline void cross125860(V125860* d, const V125860* a, const V125860* b)
+{
+    asm volatile(".set noreorder
+	lqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 0(%2)\n\tvsub.wxyz $vf3, $vf0, $vf0\n\tvopmula.xyz ACC, $vf1, $vf2\n\tvopmsub.xyz $vf3, $vf2, $vf1\n\tsqc2 $vf3, 0(%0)\n\t.set reorder"
+                 : : "r"(d), "r"(a), "r"(b) : "memory");
+}
+void func_00125860(M125860* d, const M125860* a, const M125860* b, f32 t)
+{
+    lerp125860(&d->r[3], &a->r[3], &b->r[3], t);
+    f32 d0 = dot125860(&a->r[0], &b->r[0]);
+    f32 d1 = dot125860(&a->r[1], &b->r[1]);
+    f32 d2 = dot125860(&a->r[2], &b->r[2]);
+    if (d1 <= d0 && d2 <= d0) {
+        lerp125860(&d->r[0], &a->r[0], &b->r[0], t);
+        norm125860(&d->r[0]);
+        if (d2 <= d1) {
+            lerp125860(&d->r[1], &a->r[1], &b->r[1], t);
+            norm125860(&d->r[1]);
+            cross125860(&d->r[2], &d->r[0], &d->r[1]);
+            norm125860(&d->r[2]);
+            cross125860(&d->r[1], &d->r[2], &d->r[0]);
+            norm125860(&d->r[1]);
+        } else {
+            lerp125860(&d->r[2], &a->r[2], &b->r[2], t);
+            norm125860(&d->r[2]);
+            cross125860(&d->r[1], &d->r[2], &d->r[0]);
+            norm125860(&d->r[1]);
+            cross125860(&d->r[2], &d->r[0], &d->r[1]);
+            norm125860(&d->r[2]);
+        }
+    } else if (d2 <= d1 && d0 <= d1) {
+        lerp125860(&d->r[1], &a->r[1], &b->r[1], t);
+        norm125860(&d->r[1]);
+        if (d2 <= d0) {
+            lerp125860(&d->r[0], &a->r[0], &b->r[0], t);
+            norm125860(&d->r[0]);
+            cross125860(&d->r[2], &d->r[0], &d->r[1]);
+            norm125860(&d->r[2]);
+            cross125860(&d->r[0], &d->r[1], &d->r[2]);
+            norm125860(&d->r[0]);
+        } else {
+            lerp125860(&d->r[2], &a->r[2], &b->r[2], t);
+            norm125860(&d->r[2]);
+            cross125860(&d->r[0], &d->r[1], &d->r[2]);
+            norm125860(&d->r[0]);
+            cross125860(&d->r[2], &d->r[0], &d->r[1]);
+            norm125860(&d->r[2]);
+        }
+    } else {
+        lerp125860(&d->r[2], &a->r[2], &b->r[2], t);
+        norm125860(&d->r[2]);
+        if (d1 <= d0) {
+            lerp125860(&d->r[0], &a->r[0], &b->r[0], t);
+            norm125860(&d->r[0]);
+            cross125860(&d->r[1], &d->r[2], &d->r[0]);
+            norm125860(&d->r[1]);
+            cross125860(&d->r[0], &d->r[1], &d->r[2]);
+            norm125860(&d->r[0]);
+        } else {
+            lerp125860(&d->r[1], &a->r[1], &b->r[1], t);
+            norm125860(&d->r[1]);
+            cross125860(&d->r[0], &d->r[1], &d->r[2]);
+            norm125860(&d->r[0]);
+            cross125860(&d->r[1], &d->r[2], &d->r[0]);
+            norm125860(&d->r[1]);
+        }
+    }
+}
+
 } // extern "C"
