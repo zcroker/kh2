@@ -18274,4 +18274,122 @@ void func_00119830(Who119830* w, s32 kind)
 }
 
 
+struct V11ca20 {
+    f32 x, y, z, w;
+    V11ca20() {}
+    V11ca20(const V11ca20& o) { asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(this), "r"(&o) : "$8", "memory"); }
+    V11ca20& operator*=(f32 s) {
+        asm volatile("lqc2 $vf1, 0(%0)\n\tmfc1 $8, %1\n\tqmtc2 $8, $vf2\n\tvmulx.wxyz $vf1, $vf1, $vf2x\n\tsqc2 $vf1, 0(%0)" : : "r"(this), "f"(s) : "$8", "memory");
+        return *this;
+    }
+} __attribute__((aligned(16)));
+struct M11ca20 {
+    V11ca20 r[4];
+    M11ca20() {}
+    M11ca20(const M11ca20& o) {
+        asm volatile("lq $8, 0(%1)\n\tlq $9, 16(%1)\n\tlq $10, 32(%1)\n\tlq $11, 48(%1)\n\tsq $8, 0(%0)\n\tsq $9, 16(%0)\n\tsq $10, 32(%0)\n\tsq $11, 48(%0)"
+                     : : "r"(this), "r"(&o) : "$8", "$9", "$10", "$11", "memory");
+    }
+    M11ca20& operator=(const M11ca20& o) {
+        if (this != &o)
+            asm volatile("lq $8, 0(%1)\n\tlq $9, 16(%1)\n\tlq $10, 32(%1)\n\tlq $11, 48(%1)\n\tsq $8, 0(%0)\n\tsq $9, 16(%0)\n\tsq $10, 32(%0)\n\tsq $11, 48(%0)"
+                         : : "r"(this), "r"(&o) : "$8", "$9", "$10", "$11", "memory");
+        return *this;
+    }
+    static void mul(M11ca20* o, const M11ca20* a, const M11ca20* b) {
+        asm volatile("lqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 16(%1)\n\tlqc2 $vf3, 32(%1)\n\tlqc2 $vf4, 48(%1)\n\tlqc2 $vf5, 0(%2)\n\tlqc2 $vf6, 16(%2)\n\tlqc2 $vf7, 32(%2)\n\tlqc2 $vf8, 48(%2)\n\t"
+            "vmulax.wxyz ACC, $vf1, $vf5x\n\tvmadday.wxyz ACC, $vf2, $vf5y\n\tvmaddaz.wxyz ACC, $vf3, $vf5z\n\tvmaddw.wxyz $vf5, $vf4, $vf5w\n\t"
+            "vmulax.wxyz ACC, $vf1, $vf6x\n\tvmadday.wxyz ACC, $vf2, $vf6y\n\tvmaddaz.wxyz ACC, $vf3, $vf6z\n\tvmaddw.wxyz $vf6, $vf4, $vf6w\n\t"
+            "vmulax.wxyz ACC, $vf1, $vf7x\n\tvmadday.wxyz ACC, $vf2, $vf7y\n\tvmaddaz.wxyz ACC, $vf3, $vf7z\n\tvmaddw.wxyz $vf7, $vf4, $vf7w\n\t"
+            "vmulax.wxyz ACC, $vf1, $vf8x\n\tvmadday.wxyz ACC, $vf2, $vf8y\n\tvmaddaz.wxyz ACC, $vf3, $vf8z\n\tvmaddw.wxyz $vf8, $vf4, $vf8w\n\t"
+            "sqc2 $vf5, 0(%0)\n\tsqc2 $vf6, 16(%0)\n\tsqc2 $vf7, 32(%0)\n\tsqc2 $vf8, 48(%0)" : : "r"(o), "r"(a), "r"(b) : "memory");
+    }
+    M11ca20 operator*(const M11ca20& b) const {
+        M11ca20 o;
+        mul(&o, this, &b);
+        return o;
+    }
+} __attribute__((aligned(16)));
+struct XfB11ca20 {
+    u32 vt;
+    M11ca20 m;
+    XfB11ca20(const XfB11ca20& o) : m(o.m) { vt = (u32)&D_0033cc50; }
+};
+struct Xf11ca20 : XfB11ca20 {
+    V11ca20 a, b, c;
+    f32 s;
+};
+struct Hdr11ca20 { s16 kind; u8 pad[2]; u32 count; s32 off[1]; };
+struct Res11ca20 { u8 pad0[60]; Hdr11ca20* hdr; u8 b64; u8 pad1[11]; M11ca20* xf; };
+struct Seq11ca20 { s32 id; };
+struct Mdl11ca20;
+struct Mdl11ca20 {
+    virtual void f0(); virtual void f1(); virtual void f2(); virtual void f3(); virtual void f4(); virtual void f5();
+    virtual void f6(); virtual void f7(); virtual void f8(); virtual void f9(); virtual void f10(); virtual void f11();
+    virtual void f12(); virtual void f13(); virtual void f14(); virtual void f15(); virtual void f16(); virtual void f17();
+    virtual void f18(); virtual void f19(); virtual void f20(); virtual void f21(); virtual void f22();
+    virtual s32 frames(s32);
+    Seq11ca20* seq;
+    u8 pad[4];
+    u32 flags;
+};
+struct Self11ca20 {
+    u8 pad0[20];
+    Mdl11ca20* mdl;
+    u8 pad1[64 - 24];
+    M11ca20 world;
+    M11ca20 local;
+    M11ca20 xf;
+    u8 pad2[256 - 256];
+    s32 nframes;
+    s32 base;
+    s32* tbl;
+};
+Mdl11ca20* func_00124748(Mdl11ca20*, u32);
+s32 func_00124788(Mdl11ca20*, u32);
+Res11ca20* func_00109d00(Self11ca20*, s32, Mdl11ca20*, s32*, s32);
+Xf11ca20* f11ca20_get(s32) asm("func_00106a60");
+void f11ca20_submit(Xf11ca20*) asm("func_001070e8");
+Res11ca20* func_0011ca20(Self11ca20* s, const M11ca20* w, const M11ca20* l, s32 arg, u32 idx)
+{
+    s->local = *l;
+    s->local.r[1] *= -1.0f;
+    s->local.r[2] *= -1.0f;
+    s->world = *w * s->local;
+    Mdl11ca20* m = s->mdl;
+    Mdl11ca20* o = m;
+    s32 multi = 0;
+    s32* tbl = s->tbl;
+    s32 base = s->base;
+    if (m->seq->id == -1) {
+        m = func_00124748(m, idx);
+        multi = 1;
+        s32 k = func_00124788(o, idx);
+        tbl = s->tbl + k;
+        base = s->base + k;
+    }
+    Res11ca20* r = func_00109d00(s, arg, m, tbl, base);
+    if (!r->xf && (m->flags & 2)) {
+        Xf11ca20 x(*f11ca20_get(1));
+        M11ca20::mul(&s->xf, &x.m, &s->local);
+        r->xf = &s->xf;
+        f11ca20_submit(&x);
+    }
+    s->nframes = m->frames(s->base);
+    if (r && r->hdr) {
+        Hdr11ca20* h = r->hdr;
+        if (h->kind == -1) {
+            if (multi) {
+                if (idx >= h->count) idx = h->count - 1;
+                r->hdr = (Hdr11ca20*)((u8*)h + h->off[idx]);
+            } else if (r->b64 == 0) {
+                r->hdr = (Hdr11ca20*)((u8*)h + h->off[0]);
+            } else if (r->b64 == 255) {
+                r->hdr = (Hdr11ca20*)((u8*)h + h->off[1]);
+            }
+        }
+    }
+    return r;
+}
+
 } // extern "C"
