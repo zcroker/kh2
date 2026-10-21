@@ -18200,4 +18200,77 @@ void func_001161c8(O1161c8* o, W1161c8Mtx* m, W1161c8Vec* scaleOut, W1161c8Vec* 
     }
 }
 
+
+// --------------------
+// 00119830: spawn the attack effects for a party move kind and scatter extra hits around the camera target
+struct V119830 {
+    f32 x, y, z, w;
+    V119830() {}
+    V119830(const V119830& o) { asm volatile(".set noreorder\n\tlq $8, 0(%1)\n\tsq $8, 0(%0)\n\t.set reorder" : : "r"(this), "r"(&o) : "$8", "memory"); }
+    V119830& operator=(const V119830& o)
+    {
+        if (this != &o) asm volatile(".set noreorder\n\tlq $8, 0(%1)\n\tsq $8, 0(%0)\n\t.set reorder" : : "r"(this), "r"(&o) : "$8", "memory");
+        return *this;
+    }
+} __attribute__((aligned(16)));
+struct Handle119830;
+s32 f119830_ok(Handle119830*) asm("func_00190140");
+s32 func_001901c0(Handle119830*);
+struct Handle119830 {
+    s32 id;
+    bool valid() { return f119830_ok(this) && id != 0; }
+};
+struct Model119830 { u8 pad0[268]; u32 f268; u8 pad1[2548 - 272]; Handle119830 h; };
+struct Who119830 { u8 pad0[4]; Model119830* model; u8 pad1[1928 - 8]; s32 count; };
+void* func_00111e38(s32);
+void* func_00117970(Who119830*, s32, void*, s32, s32, s32, s32, s32);
+void func_00117b20(Who119830*, void*);
+void func_00118da0(Who119830*);
+void* f119830_cam(s32) asm("func_00106a60");
+void func_00107368(void*, V119830*);
+f32 func_0010f660(void);
+void func_00113338(Model119830*, V119830*, Handle119830*, s32, s32, s32);
+void func_00119830(Who119830* w, s32 kind)
+{
+    s32 n = 0;
+    void* leader = func_00111e38(0);
+    switch (kind) {
+    case 0:
+    case 2:
+        func_00117b20(w, func_00117970(w, 1, w->model, 108, -1, 0, 1, 0));
+        n = 1;
+        if ((w->model->f268 & 0x10000) && kind != 2) {
+            func_00117b20(w, func_00117970(w, 1, leader, 0x4003, -1, 0, 1, 0));
+            n = 2;
+        }
+        break;
+    case 1:
+    case 3:
+        func_00117b20(w, func_00117970(w, 1, w->model, 54, -1, 0, 1, 0));
+        n = 1;
+        if ((w->model->f268 & 0x10000) && kind != 3) {
+            func_00117b20(w, func_00117970(w, 1, leader, 0x4003, -1, 0, 1, 0));
+            n = 2;
+        }
+        break;
+    }
+    if (w->model->f268 & 0x10000) {
+        if (!(w->model->h.valid() && func_001901c0(&w->model->h))) func_00118da0(w);
+        if (w->model->h.valid() && func_001901c0(&w->model->h)) {
+            V119830 base;
+            func_00107368(f119830_cam(1), &base);
+            while (n-- > 0) {
+                V119830 p;
+                p = base;
+                p.x += (func_0010f660() - 0.5f) * 2.0f * 200.0f;
+                p.y += (func_0010f660() - 0.5f) * 2.0f * 200.0f;
+                V119830 q(p);
+                func_00113338(w->model, &q, &w->model->h, 883, -1, 2);
+            }
+        }
+    } else if (!kind) {
+        w->count++;
+    }
+}
+
 } // extern "C"
