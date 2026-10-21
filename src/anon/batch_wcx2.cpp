@@ -18574,4 +18574,123 @@ void c14e8b8_def(Cam14e8b8* c)
     c->eye = c->pos;
 }
 
+// Static init/destroy of six 2-element global arrays (gcc's __static_initialization_and_destruction_0).
+struct W1633Big { u8 pad[256]; };                       // ctor 00106ab8, dtor 00106ac8
+struct W1633Virt { void (**vtbl)(W1633Virt*); u8 pad[140]; }; // ctor 001070c8, virtual dtor
+extern W1633Big w1633_003a7b70[2] asm("D_003a7b70");
+extern W1633Big w1633_003a7d70[2] asm("D_003a7d70");
+extern W1633Virt w1633_003a7f70[2] asm("D_003a7f70");
+extern W1633Virt w1633_003a8090[2] asm("D_003a8090");
+extern W1633Big w1633_003a81b0[2] asm("D_003a81b0");
+extern W1633Virt w1633_003a83b0[2] asm("D_003a83b0");
+void w1633_00106ab8(W1633Big*) asm("func_00106ab8");
+void w1633_00106ac8(W1633Big*) asm("func_00106ac8");
+void w1633_001070c8(W1633Virt*) asm("func_001070c8");
+
+void func_00107d20(int init, int prio) asm("_Z13func_00107d20ii");
+void func_00107d20(int init, int prio) {
+    if (prio == 0xffff && init == 1) {
+        w1633_00106ab8(&w1633_003a7b70[0]);
+        w1633_00106ab8(&w1633_003a7b70[1]);
+    }
+    if (prio == 0xffff && init == 1) {
+        w1633_00106ab8(&w1633_003a7d70[0]);
+        w1633_00106ab8(&w1633_003a7d70[1]);
+    }
+    if (prio == 0xffff && init == 1) {
+        w1633_001070c8(&w1633_003a7f70[0]);
+        w1633_001070c8(&w1633_003a7f70[1]);
+    }
+    if (prio == 0xffff && init == 1) {
+        w1633_001070c8(&w1633_003a8090[0]);
+        w1633_001070c8(&w1633_003a8090[1]);
+    }
+    if (prio == 0xffff && init == 1) {
+        w1633_00106ab8(&w1633_003a81b0[0]);
+        w1633_00106ab8(&w1633_003a81b0[1]);
+    }
+    if (prio == 0xffff && init == 1) {
+        w1633_001070c8(&w1633_003a83b0[0]);
+        w1633_001070c8(&w1633_003a83b0[1]);
+    }
+    if (prio == 0xffff && init == 0) {
+        u32 t = (u32)w1633_003a83b0;
+        if (t != 0) {
+            W1633Virt* p = (W1633Virt*)(t + 288);
+            W1633Virt* base = (W1633Virt*)t;
+        loop_D_003a83b0:
+            if (p == base) goto done_D_003a83b0;
+            --p;
+            p->vtbl[0](p);
+            goto loop_D_003a83b0;
+        done_D_003a83b0:;
+        }
+    }
+    if (prio == 0xffff && init == 0) {
+        u32 t = (u32)w1633_003a81b0;
+        if (t != 0) {
+            W1633Big* p = (W1633Big*)(t + 512);
+            W1633Big* base = (W1633Big*)t;
+        loop_D_003a81b0:
+            if (p == base) goto done_D_003a81b0;
+            --p;
+            w1633_00106ac8(p);
+            goto loop_D_003a81b0;
+        done_D_003a81b0:;
+        }
+    }
+    if (prio == 0xffff && init == 0) {
+        u32 t = (u32)w1633_003a8090;
+        if (t != 0) {
+            W1633Virt* p = (W1633Virt*)(t + 288);
+            W1633Virt* base = (W1633Virt*)t;
+        loop_D_003a8090:
+            if (p == base) goto done_D_003a8090;
+            --p;
+            p->vtbl[0](p);
+            goto loop_D_003a8090;
+        done_D_003a8090:;
+        }
+    }
+    if (prio == 0xffff && init == 0) {
+        u32 t = (u32)w1633_003a7f70;
+        if (t != 0) {
+            W1633Virt* p = (W1633Virt*)(t + 288);
+            W1633Virt* base = (W1633Virt*)t;
+        loop_D_003a7f70:
+            if (p == base) goto done_D_003a7f70;
+            --p;
+            p->vtbl[0](p);
+            goto loop_D_003a7f70;
+        done_D_003a7f70:;
+        }
+    }
+    if (prio == 0xffff && init == 0) {
+        u32 t = (u32)w1633_003a7d70;
+        if (t != 0) {
+            W1633Big* p = (W1633Big*)(t + 512);
+            W1633Big* base = (W1633Big*)t;
+        loop_D_003a7d70:
+            if (p == base) goto done_D_003a7d70;
+            --p;
+            w1633_00106ac8(p);
+            goto loop_D_003a7d70;
+        done_D_003a7d70:;
+        }
+    }
+    if (prio == 0xffff && init == 0) {
+        u32 t = (u32)w1633_003a7b70;
+        if (t != 0) {
+            W1633Big* p = (W1633Big*)(t + 512);
+            W1633Big* base = (W1633Big*)t;
+        loop_D_003a7b70:
+            if (p == base) goto done_D_003a7b70;
+            --p;
+            w1633_00106ac8(p);
+            goto loop_D_003a7b70;
+        done_D_003a7b70:;
+        }
+    }
+}
+
 } // extern "C"
