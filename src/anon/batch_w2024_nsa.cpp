@@ -1,0 +1,67 @@
+#include "../common/types.h"
+struct W2024c_V4 { f32 x, y, z, w; W2024c_V4() {} W2024c_V4(const W2024c_V4& o) { asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(this), "r"(&o) : "$8", "memory"); } } __attribute__((aligned(16)));
+struct W2024c_Ent { u8 pad[8]; s32 h; };
+struct W2024c_P3 { s32 a; s32 b; f32 c; };
+struct W2024c_Tk { u8 pad[4]; s32 f4; W2024c_P3* p0; W2024c_P3* p1; W2024c_P3* p2; u8 pad2[0x1c]; void* f30; };
+struct W2024c_Ev { u8 pad[4]; s16 id; u16 key; u8 v0[0x24]; u16 n; };
+f32 W2024c_ev_get_float(void*) asm("_ZN2sa5EVENT9get_floatEPv");
+W2024c_Ent* W2024c_ev_entry_work_get(s32) asm("_ZN2sa5EVENT14entry_work_getEi");
+W2024c_Tk* W2024c_field_create_task(s32, s32, void (*)(void*)) asm("_ZN5FIELD10CreateTaskEiiPFvP4TASKE");
+void* W2024c_area_get_alloc(void) asm("_ZN4AREA12GetAllocatorEv");
+W2024c_P3* W2024c_tz_alloc(u32, void*) asm("_ZN2Tz13LoadDataAllocEjj");
+extern "C" {
+s32 func_002282f0(u16);
+s32 func_00225b00(u16);
+void func_001ba028(s32);
+void func_0016adc8(s32, W2024c_V4);
+void func_0022f6b8(s32, W2024c_V4*);
+s32 func_002282d8(void);
+void func_002309c8(void*);
+void func_00230ae8(void*);
+void func_0014f030(W2024c_P3*, f32, f32, f32);
+void func_00230b50(W2024c_Ev* e) {
+    W2024c_V4 a, c, b;
+    W2024c_Ent* en;
+    W2024c_Tk* t;
+    void* al;
+    W2024c_P3* p0;
+    W2024c_P3* p1;
+    W2024c_P3* p2;
+    f32 one;
+    if (func_002282f0(e->key) != 0) return;
+    if (func_00225b00(e->key) != 0) return;
+    one = 1.0f;
+    en = W2024c_ev_entry_work_get(e->id);
+    func_001ba028(en->h);
+    a.x = W2024c_ev_get_float(e->v0 + 0);
+    a.y = W2024c_ev_get_float(e->v0 + 4);
+    a.z = W2024c_ev_get_float(e->v0 + 8);
+    a.w = one;
+    func_0016adc8(en->h, a);
+    b.x = W2024c_ev_get_float(e->v0 + 0x18);
+    b.y = W2024c_ev_get_float(e->v0 + 0x1c);
+    b.z = W2024c_ev_get_float(e->v0 + 0x20);
+    b.w = one;
+    func_0022f6b8(en->h, &b);
+    c.x = W2024c_ev_get_float(e->v0 + 0xc);
+    c.y = W2024c_ev_get_float(e->v0 + 0x10);
+    c.z = W2024c_ev_get_float(e->v0 + 0x14);
+    c.w = one;
+    t = W2024c_field_create_task(1, func_002282d8(), func_002309c8);
+    t->f30 = (void*)func_00230ae8;
+    t->f4 = en->h;
+    al = W2024c_area_get_alloc();
+    p0 = W2024c_tz_alloc(12, al);
+    p0->a = 0; p0->b = 0; p0->c = one;
+    p1 = W2024c_tz_alloc(12, al);
+    p1->a = 0; p1->b = 0; p1->c = one;
+    p2 = W2024c_tz_alloc(12, al);
+    p2->a = 0; p2->b = 0; p2->c = one;
+    t->p0 = p0;
+    t->p1 = p1;
+    t->p2 = p2;
+    func_0014f030(p0, a.x, c.x, (f32)e->n * 2.0f);
+    func_0014f030(p1, a.y, c.y, (f32)e->n * 2.0f);
+    func_0014f030(p2, a.z, c.z, (f32)e->n * 2.0f);
+}
+}
