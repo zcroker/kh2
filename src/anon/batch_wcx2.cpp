@@ -18273,4 +18273,5 @@ void func_00119830(Who119830* w, s32 kind)
     }
 }
 
+
 } // extern "C"
