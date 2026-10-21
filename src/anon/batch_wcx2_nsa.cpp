@@ -1309,3 +1309,90 @@ void func_001c6460(N1c6460* n)
     }
 }
 }
+
+// --------------------
+// 002ebc80: minigame player motion select (idle/walk/turn left/right from speed and heading change)
+extern "C" {
+struct V2ebc80 {
+    f32 x, y, z, w;
+    V2ebc80() {}
+    V2ebc80& operator=(const V2ebc80& o)
+    {
+        if (this != &o) asm volatile(".set noreorder\n\tlq $8, 0(%1)\n\tsq $8, 0(%0)\n\t.set reorder" : : "r"(this), "r"(&o) : "$8", "memory");
+        return *this;
+    }
+    f32 length() const
+    {
+        f32 r;
+        asm volatile(".set noreorder\n\tlqc2 $vf1, 0(%1)\n\tvmul.xyz $vf1, $vf1, $vf1\n\tvaddy.x $vf1, $vf1, $vf1y\n\tvaddz.x $vf1, $vf1, $vf1z\n\tvsqrt Q, $vf1x\n\tvwaitq\n\tcfc2.ni $8, $vi22\n\tmtc1 $8, %0\n\t.set reorder" : "=f"(r) : "r"(this) : "$8", "memory");
+        return r;
+    }
+} __attribute__((aligned(16)));
+struct O2ebc80 {
+    u8 pad0[16];
+    f32 x, y, z, w;
+    f32 tx, ty, tz, tw;
+    u8 pad1[320 - 48];
+    struct { u8 pad[20]; s32 id; } mot;
+    s32 motion() { return mot.id; }
+    u8 pad2[8];
+    u32 flags;
+    u8 pad3[2144 - 356];
+    V2ebc80 vel;
+};
+extern s32 D_00363540;
+extern f32 D_01e2c044;
+void func_002eb1e8(O2ebc80*);
+s32 func_002eb3b8(O2ebc80*);
+void func_002eba30(void*, O2ebc80*);
+void func_002eba78(void*, O2ebc80*);
+void func_002ebac0(void*, O2ebc80*);
+void func_002eb778(O2ebc80*, s32, s32, f32);
+f32 func_002f8ad0(f32, f32);
+f32 func_0017ce10(f32);
+void func_002ebc80(void* c, O2ebc80* o)
+{
+    func_002eb1e8(o);
+    if (func_002eb3b8(o)) return;
+    V2ebc80 v;
+    v = o->vel;
+    v.y = 0.0f;
+    f32 spd = v.length();
+    if (o->w == v.y) {
+        if (spd < 2.0f) {
+            func_002eba30(c, o);
+            return;
+        }
+        if (o->w == 0.0f) {
+            if (o->motion() == 253 || o->motion() == 252 || (o->flags & 2)) {
+                func_002eb778(o, 254, 0, 8.0f);
+                if (spd < 16.0f) D_00363540 = 0;
+            } else if (o->motion() == 262 || o->motion() == 261) {
+                func_002eb778(o, 254, 0, 16.0f);
+            }
+            return;
+        }
+    }
+    typeof(o->mot)* mo = &o->mot;
+    if (mo->id == 252) {
+        func_002eba78(c, o);
+        return;
+    }
+    if (mo->id == 253) {
+        if (!(o->flags & 2)) return;
+        if (++D_00363540 <= 0) return;
+        if (8.0f <= spd) func_002ebac0(c, o);
+        return;
+    }
+    if (D_00363540 > 0) {
+        s32 next = 254;
+        f32 d = func_0017ce10(func_002f8ad0(o->tx, o->tz) - func_002f8ad0(o->x, o->z));
+        if (D_01e2c044 * 0.6f < d) next = 261;
+        else if (d < D_01e2c044 * -0.6f) next = 262;
+        if (__builtin_expect(mo->id == 253, 1)) func_002eb778(o, next, 0, 4.0f);
+        else func_002eb778(o, next, 0, 16.0f);
+    } else {
+        func_002eba78(c, o);
+    }
+}
+}
