@@ -1050,3 +1050,152 @@ void func_002e0898(O2e0898* o, P2e0898* p, f32 x)
     }
 }
 }
+
+// --------------------
+// 001df670: effect object attach step (follow a model node, sync the two end points, or copy a fixed matrix)
+#define W1df670_QCOPY(d, s) asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(d), "r"(s) : "$8", "memory")
+struct W1df670Vec {
+    f32 x, y, z, w;
+    W1df670Vec() {}
+    W1df670Vec(const W1df670Vec& o) { W1df670_QCOPY(this, &o); }
+    W1df670Vec& operator=(const W1df670Vec& o) { if (this != &o) W1df670_QCOPY(this, &o); return *this; }
+    void unit() { asm volatile("sqc2 $vf0, 0(%0)" : : "r"(this) : "memory"); }
+    W1df670Vec& operator+=(const W1df670Vec& b)
+    {
+        asm volatile(".set noreorder\n\tlqc2 $vf1, 0(%0)\n\tlqc2 $vf2, 0(%1)\n\tvadd.wxyz $vf1, $vf1, $vf2\n\tsqc2 $vf1, 0(%0)\n\t.set reorder" : : "r"(this), "r"(&b) : "memory");
+        return *this;
+    }
+} __attribute__((aligned(16)));
+struct W1df670Mtx {
+    W1df670Vec r0, r1, r2, r3;
+    W1df670Mtx() {}
+    W1df670Mtx(const W1df670Mtx& o) {
+        asm volatile("lq $8, 0(%1)\n\tlq $9, 16(%1)\n\tlq $10, 32(%1)\n\tlq $11, 48(%1)\n\t"
+                     "sq $8, 0(%0)\n\tsq $9, 16(%0)\n\tsq $10, 32(%0)\n\tsq $11, 48(%0)"
+                     : : "r"(this), "r"(&o) : "$8", "$9", "$10", "$11", "memory");
+    }
+    W1df670Mtx& operator=(const W1df670Mtx& o) {
+        if (this != &o) {
+            asm volatile("lq $8, 0(%1)\n\tlq $9, 16(%1)\n\tlq $10, 32(%1)\n\tlq $11, 48(%1)\n\t"
+                         "sq $8, 0(%0)\n\tsq $9, 16(%0)\n\tsq $10, 32(%0)\n\tsq $11, 48(%0)"
+                         : : "r"(this), "r"(&o) : "$8", "$9", "$10", "$11", "memory");
+        }
+        return *this;
+    }
+    // inverse of a rigid (orthonormal) transform in place: transpose + negated translation
+    void invOrtho() {
+        asm volatile(".set noreorder\n\t"
+                 "lq $8, 0(%0)\n\tlq $9, 16(%0)\n\tlq $10, 32(%0)\n\tqmfc2 $11, $vf0\n\tlqc2 $vf4, 48(%0)\n\t"
+            "pextlw $12, $9, $8\n\tpextuw $13, $9, $8\n\tpextlw $14, $11, $10\n\tpextuw $15, $11, $10\n\t"
+            "pcpyld $8, $14, $12\n\tpcpyud $9, $12, $14\n\tpcpyld $10, $15, $13\n\t"
+            "qmtc2 $8, $vf1\n\tqmtc2 $9, $vf2\n\tqmtc2 $10, $vf3\n\t"
+            "vmulax.xyz ACC, $vf1, $vf4x\n\tvmadday.xyz ACC, $vf2, $vf4y\n\tvmaddz.xyz $vf4, $vf3, $vf4z\n\t"
+            "vsub.xyz $vf4, $vf0, $vf4\n\t"
+            "sq $8, 0(%0)\n\tsq $9, 16(%0)\n\tsq $10, 32(%0)\n\tsqc2 $vf4, 48(%0)\n\t.set reorder"
+            : : "r"(this) : "$8", "$9", "$10", "$11", "$12", "$13", "$14", "$15", "memory");
+    }
+    // VU0 matrix * matrix (each column of b transformed by this).
+    W1df670Mtx operator*(const W1df670Mtx& b) const {
+        W1df670Mtx o;
+        asm volatile(".set noreorder\n\t"
+                     "lqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 16(%1)\n\tlqc2 $vf3, 32(%1)\n\tlqc2 $vf4, 48(%1)\n\t"
+                     "lqc2 $vf5, 0(%2)\n\tlqc2 $vf6, 16(%2)\n\tlqc2 $vf7, 32(%2)\n\tlqc2 $vf8, 48(%2)\n\t"
+                     "vmulax.wxyz ACC, $vf1, $vf5x\n\tvmadday.wxyz ACC, $vf2, $vf5y\n\tvmaddaz.wxyz ACC, $vf3, $vf5z\n\tvmaddw.wxyz $vf5, $vf4, $vf5w\n\t"
+                     "vmulax.wxyz ACC, $vf1, $vf6x\n\tvmadday.wxyz ACC, $vf2, $vf6y\n\tvmaddaz.wxyz ACC, $vf3, $vf6z\n\tvmaddw.wxyz $vf6, $vf4, $vf6w\n\t"
+                     "vmulax.wxyz ACC, $vf1, $vf7x\n\tvmadday.wxyz ACC, $vf2, $vf7y\n\tvmaddaz.wxyz ACC, $vf3, $vf7z\n\tvmaddw.wxyz $vf7, $vf4, $vf7w\n\t"
+                     "vmulax.wxyz ACC, $vf1, $vf8x\n\tvmadday.wxyz ACC, $vf2, $vf8y\n\tvmaddaz.wxyz ACC, $vf3, $vf8z\n\tvmaddw.wxyz $vf8, $vf4, $vf8w\n\t"
+                     "sqc2 $vf5, 0(%0)\n\tsqc2 $vf6, 16(%0)\n\tsqc2 $vf7, 32(%0)\n\tsqc2 $vf8, 48(%0)\n\t.set reorder"
+                     : : "r"(&o), "r"(this), "r"(&b) : "memory");
+        return o;
+    }
+    // rotate v in place by the 3x3 part
+    void rot(W1df670Vec& v) const {
+        asm volatile(".set noreorder\n\tlqc2 $vf4, 0(%0)\n\tlqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 16(%1)\n\tlqc2 $vf3, 32(%1)\n\t"
+                     "vmulax.xyz ACC, $vf1, $vf4x\n\tvmadday.xyz ACC, $vf2, $vf4y\n\tvmaddz.xyz $vf4, $vf3, $vf4z\n\tsqc2 $vf4, 0(%0)\n\t.set reorder"
+                     : : "r"(&v), "r"(this) : "memory");
+    }
+    // VU0 matrix * column vector.
+    W1df670Vec operator*(const W1df670Vec& v) const {
+        W1df670Vec o;
+        asm volatile(".set noreorder\n\tlqc2 $vf5, 0(%2)\n\tlqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 16(%1)\n\tlqc2 $vf3, 32(%1)\n\tlqc2 $vf4, 48(%1)\n\tvmulax.wxyz ACC, $vf1, $vf5x\n\tvmadday.wxyz ACC, $vf2, $vf5y\n\tvmaddaz.wxyz ACC, $vf3, $vf5z\n\tvmaddw.wxyz $vf5, $vf4, $vf5w\n\tsqc2 $vf5, 0(%0)\n\t.set reorder" : : "r"(&o), "r"(this), "r"(&v) : "memory");
+        return o;
+    }
+} __attribute__((aligned(16)));
+extern "C" {
+struct Def1df670 { u8 pad[6]; u16 node; u8 pad1[20]; f32 a[3]; f32 b[3]; u8 pad2[12]; u16 nodeA; u16 nodeB; f32 lenA; f32 lenB; u8 on; };
+struct Pair1df670 { W1df670Vec a, b; };
+struct Model1df670 { void* skel; u8 pad[60]; W1df670Mtx m; u8 pad2[268 - 128]; u32 f268; };
+struct O1df670 {
+    W1df670Mtx mtx;
+    void* h;
+    Def1df670* def;
+    Model1df670* model;
+    u8 pad[12];
+    Pair1df670* pair;
+    u32 flags;
+};
+extern s32 D_00352b50;
+s32 func_0019ba60(Model1df670*);
+s32 func_0019c6f0(Model1df670*);
+void func_001dc700(void*, s32);
+void func_001dcc30(void*);
+void func_001dcc48(void*);
+void func_0016b0e0(Model1df670*, u16, W1df670Mtx*);
+W1df670Vec func_0016b478(Model1df670*, u16, f32);
+W1df670Mtx func_0023ec48(Model1df670*, u16);
+void func_0011d6c0(void*, u16, W1df670Mtx*);
+void func_001df670(O1df670* o)
+{
+    switch (D_00352b50) {
+    case 1:
+        if (!func_0019ba60(o->model)) {
+            o->flags |= 0x10;
+            func_001dc700(o->h, 0);
+            return;
+        }
+        func_001dc700(o->h, func_0019c6f0(o->model));
+        if (o->model->f268 & 0x80) func_001dcc30(o->h);
+        else func_001dcc48(o->h);
+        func_0016b0e0(o->model, o->def->node, &o->mtx);
+        if (!(o->flags & 4)) return;
+        o->pair->a = func_0016b478(o->model, o->def->nodeA, o->def->lenA);
+        o->pair->b = func_0016b478(o->model, o->def->nodeB, o->def->lenB);
+        if (!o->def->on) return;
+        {
+            W1df670Vec t;
+            W1df670Mtx m;
+            t.x = o->def->a[0];
+            t.y = o->def->a[1];
+            t.z = o->def->a[2];
+            *(s32*)&t.w = 0;
+            func_0016b0e0(o->model, o->def->nodeA, &m);
+            m.r3.unit();
+            m.rot(t);
+            o->pair->a += t;
+            t.x = o->def->b[0];
+            t.y = o->def->b[1];
+            t.z = o->def->b[2];
+            *(s32*)&t.w = 0;
+            func_0016b0e0(o->model, o->def->nodeB, &m);
+            m.r3.unit();
+            m.rot(t);
+            o->pair->b += t;
+        }
+        break;
+    case 2: {
+        Model1df670* mdl = o->model;
+        if (mdl->skel) {
+            W1df670Mtx m;
+            func_0011d6c0(mdl->skel, o->def->node, &m);
+            o->mtx = mdl->m * m;
+        } else {
+            o->mtx = mdl->m;
+        }
+        break;
+    }
+    case 3:
+        o->mtx = func_0023ec48(o->model, o->def->node);
+        break;
+    }
+}
+}
