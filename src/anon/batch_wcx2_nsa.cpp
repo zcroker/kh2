@@ -1643,4 +1643,93 @@ void func_001253c0(Self1253c0* s, s32 a1, s32 a2, s32 a3, s32 a4, s32 a5, s32 id
         idx = bones[idx].sibling;
     }
 }
+
+struct V1e1988 {
+    f32 x, y, z, w;
+    V1e1988() {}
+    V1e1988& operator=(const V1e1988& o) {
+        if (this != &o) asm volatile(".set noreorder\n\tlq $8, 0(%1)\n\tsq $8, 0(%0)\n\t.set reorder" : : "r"(this), "r"(&o) : "$8", "memory");
+        return *this;
+    }
+    V1e1988 operator-(const V1e1988& o) const {
+        V1e1988 r;
+        asm volatile(".set noreorder\n\tlqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 0(%2)\n\tvsub.wxyz $vf1, $vf1, $vf2\n\tsqc2 $vf1, 0(%0)\n\t.set reorder" : : "r"(&r), "r"(this), "r"(&o) : "memory");
+        return r;
+    }
+    void zero() { asm volatile(".set noreorder\n\tsqc2 $vf0, 0(%0)\n\t.set reorder" : : "r"(this) : "memory"); }
+    f32 normalize() {
+        f32 r;
+        asm volatile(".set noreorder\n\tlqc2 $vf1, 0(%1)\n\tvmul.xyz $vf2, $vf1, $vf1\n\tvaddy.x $vf2, $vf2, $vf2y\n\tvaddz.x $vf2, $vf2, $vf2z\n\tvsqrt Q, $vf2x\n\tvwaitq\n\tcfc2.ni $8, $vi22\n\tvaddq.x $vf2, $vf0, Q\n\tmtc1 $8, %0\n\tvnop\n\tvdiv Q, $vf0w, $vf2x\n\tvwaitq\n\tvmulq.xyz $vf1, $vf1, Q\n\tsqc2 $vf1, 0(%1)\n\t.set reorder"
+                     : "=f"(r) : "r"(this) : "$8", "memory");
+        return r;
+    }
+} __attribute__((aligned(16)));
+struct M1e1988 {
+    V1e1988 r[4];
+    V1e1988 operator*(const V1e1988& v) const {
+        V1e1988 o;
+        asm volatile(".set noreorder\n\tlqc2 $vf5, 0(%2)\n\tlqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 16(%1)\n\tlqc2 $vf3, 32(%1)\n\tlqc2 $vf4, 48(%1)\n\tvmulax.wxyz ACC, $vf1, $vf5x\n\tvmadday.wxyz ACC, $vf2, $vf5y\n\tvmaddaz.wxyz ACC, $vf3, $vf5z\n\tvmaddw.wxyz $vf5, $vf4, $vf5w\n\tsqc2 $vf5, 0(%0)\n\t.set reorder" : : "r"(&o), "r"(this), "r"(&v) : "memory");
+        return o;
+    }
+} __attribute__((aligned(16)));
+struct Self1e1988 {
+    u8 pad0[3524];
+    M1e1988* mats;
+    u8* items;
+    s32 nitems;
+    void* res;
+    void* o3540;
+    void* o3544;
+    void* o3548;
+    void* o3552;
+};
+void* func_0016abf8(void*, s32, s32, s32);
+void func_001dca50(void*, M1e1988*, s32);
+void func_001dca30(void*, void*, s32);
+f32 func_002f87c0(f32);
+void func_0011b6a8(M1e1988*);
+void func_0011b720(M1e1988*, f32);
+void func_001e0de8(void*);
+void func_001e1988(Self1e1988* s)
+{
+    s32 n = 6;
+    s32 idx = 0;
+    f32 y = -700.0f;
+    f32 a = 1.483529806137085f;
+    f32 da = -0.09890198707580566f;
+    f32 dy = -46.666664123535156f;
+    s->o3540 = func_0016abf8(s->res, 14, 0, 0);
+    func_001dca50(s->o3540, s->mats, s->nitems);
+    s->o3544 = func_0016abf8(s->res, 70, 0, 0);
+    func_001dca30(s->o3544, s, 10);
+    s->o3548 = func_0016abf8(s->res, 69, 0, 0);
+    func_001dca30(s->o3548, (u8*)s + 160, 10);
+    s->o3552 = func_0016abf8(s->res, 70, 0, 0);
+    func_001dca30(s->o3552, (u8*)s + 320, 200);
+    for (s32 r = 14; r >= 0; r--) {
+        for (s32 i = 0; i < n; i++, idx++) {
+            V1e1988 p, d, c;
+            M1e1988 m;
+            p.zero();
+            p.z = func_002f87c0(a) * 700.0f;
+            p.y = y;
+            func_0011b6a8(&m);
+            func_0011b720(&m, 6.2831854820251465f / (f32)n * (f32)i);
+            p = m * p;
+            p.w = 0.0f;
+            c.zero();
+            c.y = -100.0f;
+            d = c - p;
+            d.normalize();
+            d.w = 0.0f;
+            func_0011b6a8(&s->mats[idx]);
+            s->mats[idx].r[2] = d;
+            s->mats[idx].r[3] = p;
+        }
+        y -= dy;
+        a += da;
+        n += 3;
+    }
+    for (s32 i = 0; i < s->nitems; i++) func_001e0de8(s->items + i * 48);
+}
 }
