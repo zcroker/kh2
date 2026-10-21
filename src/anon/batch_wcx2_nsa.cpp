@@ -1396,3 +1396,112 @@ void func_002ebc80(void* c, O2ebc80* o)
     }
 }
 }
+
+// --------------------
+// 00193330: rebuild the object world bounding box from its shape bounds (or radius) and its matrix
+extern "C" {
+struct V193330 {
+    f32 x, y, z, w;
+    ~V193330() {}
+    V193330& operator=(const V193330& o)
+    {
+        if (this != &o) asm volatile(".set noreorder\n\tlq $8, 0(%1)\n\tsq $8, 0(%0)\n\t.set reorder" : : "r"(this), "r"(&o) : "$8", "memory");
+        return *this;
+    }
+} __attribute__((aligned(16)));
+struct M193330 {
+    V193330 r[4];
+    // out = this * v (full 4x4)
+    V193330 operator*(const V193330& v) const
+    {
+        V193330 o;
+        V193330* out = &o;
+        asm volatile(".set noreorder\n\tlqc2 $vf5, 0(%2)\n\tlqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 16(%1)\n\tlqc2 $vf3, 32(%1)\n\tlqc2 $vf4, 48(%1)\n\tvmulax.wxyz ACC, $vf1, $vf5x\n\tvmadday.wxyz ACC, $vf2, $vf5y\n\tvmaddaz.wxyz ACC, $vf3, $vf5z\n\tvmaddw.wxyz $vf5, $vf4, $vf5w\n\tsqc2 $vf5, 0(%0)\n\t.set reorder" : : "r"(out), "r"(this), "r"(&v) : "memory");
+        return o;
+    }
+};
+struct Box193330;
+void func_00144450(Box193330*);
+struct Box193330 {
+    f32 minx, miny, minz, maxx, maxy, maxz;
+    Box193330() { func_00144450(this); }
+    void init(const V193330& p)
+    {
+        maxx = minx = p.x;
+        maxy = miny = p.y;
+        maxz = minz = p.z;
+    }
+    void grow(const V193330& t)
+    {
+        if (t.x < minx) minx = t.x;
+        else if (maxx < t.x) maxx = t.x;
+        if (t.y < miny) miny = t.y;
+        else if (maxy < t.y) maxy = t.y;
+        if (t.z < minz) minz = t.z;
+        else if (maxz < t.z) maxz = t.z;
+    }
+};
+struct Shape193330 {
+    virtual void s0(); virtual void s1(); virtual void s2();
+    virtual f32 radius();
+    virtual void bounds(V193330*, V193330*);
+    virtual void s5(); virtual void s6();
+    virtual s32 kind();
+};
+struct O193330 {
+    u8 pad0[64];
+    M193330 mtx;
+    u8 pad1[536 - 128];
+    Box193330 local;
+    const Box193330& getLocal() const { return local; }
+    u8 pad2[1856 - 560];
+    Box193330 world;
+    u8 pad3[2088 - 1880];
+    void* p2088;
+    u8 pad4[2224 - 2092];
+    Shape193330* shape;
+};
+void func_001b7c80(void*, Box193330*);
+s32 func_00180cd0(void*);
+void func_00144be0(Box193330*, V193330*);
+void func_00193330(O193330* o)
+{
+    Box193330 box;
+    V193330 t;
+    V193330 corners[8];
+    if (!o->shape) {
+        if (o->p2088) func_001b7c80(o->p2088, &o->world);
+    } else {
+        if (func_00180cd0((u8*)o + 320) && o->shape->kind() < 2) {
+            V193330 p, q;
+            o->shape->bounds(&p, &q);
+            box.minx = p.x;
+            box.miny = p.y;
+            box.minz = p.z;
+            box.maxx = q.x;
+            box.maxy = q.y;
+            box.maxz = q.z;
+        } else {
+            box = o->getLocal();
+            f32 r = o->shape->radius();
+            box.minx -= r;
+            box.miny -= r;
+            box.minz -= r;
+            box.maxx += r;
+            box.maxy += r;
+            box.maxz += r;
+        }
+        func_00144be0(&box, corners);
+        o->world.init(o->mtx * corners[0]);
+        for (s32 i = 1; i < 8; i++) {
+            t = o->mtx * corners[i];
+            if (t.x < o->world.minx) o->world.minx = t.x;
+            else if (o->world.maxx < t.x) o->world.maxx = t.x;
+            if (t.y < o->world.miny) o->world.miny = t.y;
+            else if (o->world.maxy < t.y) o->world.maxy = t.y;
+            if (t.z < o->world.minz) o->world.minz = t.z;
+            else if (o->world.maxz < t.z) o->world.maxz = t.z;
+        }
+    }
+}
+}
