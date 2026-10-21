@@ -18484,4 +18484,94 @@ void func_00125860(M125860* d, const M125860* a, const M125860* b, f32 t)
     }
 }
 
+struct V14e8b8 {
+    f32 x, y, z, w;
+    V14e8b8() {}
+    V14e8b8& operator=(const V14e8b8& o) {
+        if (this != &o) asm volatile(".set noreorder\n\tlq $8, 0(%1)\n\tsq $8, 0(%0)\n\t.set reorder" : : "r"(this), "r"(&o) : "$8", "memory");
+        return *this;
+    }
+    V14e8b8 operator+(const V14e8b8& o) const {
+        V14e8b8 r;
+        asm volatile(".set noreorder\n\tlqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 0(%2)\n\tvadd.wxyz $vf1, $vf1, $vf2\n\tsqc2 $vf1, 0(%0)\n\t.set reorder" : : "r"(&r), "r"(this), "r"(&o) : "memory");
+        return r;
+    }
+} __attribute__((aligned(16)));
+struct M14e8b8 {
+    V14e8b8 r[4];
+    V14e8b8 operator*(const V14e8b8& v) const {
+        V14e8b8 o;
+        asm volatile(".set noreorder\n\tlqc2 $vf5, 0(%2)\n\tlqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 16(%1)\n\tlqc2 $vf3, 32(%1)\n\tlqc2 $vf4, 48(%1)\n\tvmulax.wxyz ACC, $vf1, $vf5x\n\tvmadday.wxyz ACC, $vf2, $vf5y\n\tvmaddaz.wxyz ACC, $vf3, $vf5z\n\tvmaddw.wxyz $vf5, $vf4, $vf5w\n\tsqc2 $vf5, 0(%0)\n\t.set reorder" : : "r"(&o), "r"(this), "r"(&v) : "memory");
+        return o;
+    }
+} __attribute__((aligned(16)));
+struct Pad14e8b8 { u8 pad0[8]; u64 flags; u8 pad1[36 - 16]; f32 stick; u8 pad2[4]; f32 scale; };
+struct Cam14e8b8 {
+    V14e8b8 eye;
+    V14e8b8 at;
+    u8 pad32[76 - 32];
+    f32 f76;
+    f32 f80;
+    u8 pad84[96 - 84];
+    V14e8b8 tgt;
+    u8 pad112[128 - 112];
+    V14e8b8 pos;
+    u8 pad144[192 - 144];
+    f32 yaw;
+    f32 pitch;
+};
+extern void* D_0034a3f0;
+extern f32 D_0034a3f8;
+extern f32 D_00349e10;
+s32 c14e8b8_19ba60(void*) asm("func_0019ba60");
+void func_0014ebd8();
+void func_0013f5f0(Cam14e8b8*);
+V14e8b8* c14e8b8_16c028(void*) asm("func_0016c028");
+Pad14e8b8* c14e8b8_167f18(s32) asm("func_00167f18");
+void func_0014e658(Cam14e8b8*);
+void func_0014e6f8(Cam14e8b8*);
+void c14e8b8_11b6a8(M14e8b8*) asm("func_0011b6a8");
+void c14e8b8_11b6d8(M14e8b8*, f32) asm("func_0011b6d8");
+void c14e8b8_11b720(M14e8b8*, f32) asm("func_0011b720");
+s32 func_001584f8(Pad14e8b8*);
+s32 func_00158548(Pad14e8b8*);
+s32 func_00158450(Pad14e8b8*);
+s32 func_001584a0(Pad14e8b8*);
+f32 func_0017ce10(f32);
+f32 func_002f8870(f32);
+void c14e8b8_def(Cam14e8b8* c) asm("func_0014e8b8");
+void c14e8b8_def(Cam14e8b8* c)
+{
+    if (!c14e8b8_19ba60(D_0034a3f0)) {
+        func_0014ebd8();
+        return;
+    }
+    func_0013f5f0(c);
+    c->tgt = *c14e8b8_16c028(D_0034a3f0);
+    c->tgt.y -= D_0034a3f8;
+    Pad14e8b8* pad = c14e8b8_167f18(0);
+    if (pad->flags & 0x20000) {
+        func_0014e658(c);
+    } else {
+        f32 dt = D_00349e10;
+        if (func_001584f8(pad)) c->yaw = func_0017ce10(c->yaw - dt * 0.05235987901687622f);
+        else if (func_00158548(pad)) c->yaw = func_0017ce10(c->yaw + dt * 0.05235987901687622f);
+        c->f76 = c->f80 = func_0017ce10(c->yaw - 3.1415927410125732f);
+        if (func_00158450(pad)) c->pitch = func_0017ce10(c->pitch + func_002f8870(pad->stick * pad->scale) * 0.05235987901687622f * dt);
+        else if (func_001584a0(pad)) c->pitch = func_0017ce10(c->pitch - func_002f8870(pad->stick * pad->scale) * 0.05235987901687622f * dt);
+    }
+    func_0014e6f8(c);
+    V14e8b8 v;
+    v.w = v.y = v.x = 0.0f;
+    v.z = 100.0f;
+    M14e8b8 m;
+    c14e8b8_11b6a8(&m);
+    c14e8b8_11b6d8(&m, c->pitch);
+    c14e8b8_11b720(&m, c->yaw);
+    v = m * v;
+    c->pos = c->tgt + v;
+    c->at = c->tgt;
+    c->eye = c->pos;
+}
+
 } // extern "C"
