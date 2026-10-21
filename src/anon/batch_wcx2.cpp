@@ -17864,4 +17864,74 @@ void func_001dfa38(O1dfa38* o)
     o->time += D_00349e10;
 }
 
+
+// --------------------
+// 0010a1d0: draw queued 2D image entries (GS alpha/test setup with libgraph-style register packing, pre/post callbacks)
+#define GS_SET_RGBAQ(r, g, b, a, q) ((u64)(r) | ((u64)(g) << 8) | ((u64)(b) << 16) | ((u64)(a) << 24) | ((u64)(q) << 32))
+#define GS_SET_FOGCOL(r, g, b) ((u64)(r) | ((u64)(g) << 8) | ((u64)(b) << 16))
+struct L4_10a1d0 { u8 pad[4]; s32 id; };
+struct L3_10a1d0 { u8 pad[4]; L4_10a1d0* l4; };
+struct Img10a1d0 { u8 pad[20]; L3_10a1d0* l3; };
+struct E10a1d0;
+typedef void (*Cb10a1d0)(E10a1d0*, s32);
+struct E10a1d0 {
+    Img10a1d0* img;
+    s32 f4, f8, f12;
+    E10a1d0* next;
+    u8 pad0[4];
+    s32 f24;
+    u8 r, g, b, a;
+    u8 fr, fg, fb;
+    u8 pad1[5];
+    u64 alpha;
+    u64 test;
+    u8 pad2[24];
+    Cb10a1d0 pre;
+    Cb10a1d0 post;
+};
+extern s32 D_00340ed4;
+extern u8 D_00340ed8[];
+u32 f10a1d0_w(s32, s32, u8) asm("func_00109f58");
+u32 f10a1d0_h(s32, s32, u8) asm("func_00109ea8");
+void func_00108c00(u8*, s32, u64, u64, u32, u32, u64, u64);
+s32 f10a1d0_draw(Img10a1d0*, s32*, s32, s32, s32, s32) asm("func_0011c8f8");
+void func_00134490(void);
+void func_0010a1d0(E10a1d0* e)
+{
+    for (; e; e = e->next) {
+        if (e->img) {
+            if ((s8)e->a >= 0) {
+                u32 w = f10a1d0_w(D_00340ed4, e->img->l3->l4->id, e->a);
+                u32 h = f10a1d0_h(D_00340ed4, e->img->l3->l4->id, e->a);
+                func_00108c00(D_00340ed8, 63, e->alpha, e->test & ~((u64)1 << 32), h, w,
+                              GS_SET_FOGCOL(e->fr, e->fg, e->fb), GS_SET_RGBAQ(e->r, e->g, e->b, e->a, 0x3f800000));
+                Img10a1d0* img = e->img;
+                if (e->pre) e->pre(e, 0);
+                if (f10a1d0_draw(e->img, &e->f24, 0, e->f4, e->f8, e->f12)) img = 0;
+                if (e->post) e->post(e, 0);
+                e->img = img;
+            }
+            if (!e->img) {
+                e->img = 0;
+            } else {
+                if ((s8)e->a >= 0) func_00134490();
+                u32 w = f10a1d0_w(D_00340ed4, e->img->l3->l4->id, e->a);
+                u32 h = f10a1d0_h(D_00340ed4, e->img->l3->l4->id, e->a);
+                func_00108c00(D_00340ed8, 63, e->alpha | ((u64)0xff << 56), e->test | ((u64)1 << 32), h, w,
+                              GS_SET_FOGCOL(e->fr, e->fg, e->fb), GS_SET_RGBAQ(e->r, e->g, e->b, e->a, 0x3f800000));
+                if (e->pre) e->pre(e, 1);
+                f10a1d0_draw(e->img, &e->f24, 1, e->f4, e->f8, e->f12);
+                if (e->post) e->post(e, 1);
+                e->img = 0;
+            }
+        } else {
+            if (!e->f4) {
+                if (e->pre) e->pre(e, 1);
+                if (e->post) e->post(e, 1);
+            }
+        }
+        func_00134490();
+    }
+}
+
 } // extern "C"
