@@ -1504,4 +1504,75 @@ void func_00193330(O193330* o)
         }
     }
 }
+
+struct Alloc123e30 {
+    virtual u8* alloc(u32 size, void* ra);
+};
+struct Hdr123e30 { u8 pad[16]; u16 cnt; };
+struct Mdl123e30 {
+    virtual void f0(); virtual void f1(); virtual void f2(); virtual void f3(); virtual void f4(); virtual void f5();
+    virtual void f6(); virtual void f7(); virtual void f8(); virtual void f9(); virtual void f10(); virtual void f11();
+    virtual s32 parts();
+    Hdr123e30* hdr;
+    u8 pad[8];
+    s32 n;
+    s32 a[3];
+    s32 b[3];
+};
+struct Obj123e30 {
+    u8 pad0[16];
+    Alloc123e30* al;
+    u8 pad1[8];
+    u8* p28;
+    u8* p32;
+    u8* p36;
+    u8* p40;
+    u8* p44;
+    u8* p48;
+    u8 pad2[260 - 52];
+    u8* vis;
+    u8* p264;
+    u8* p268;
+};
+Mdl123e30* func_00124748(Mdl123e30*, s32);
+void func_0011c2d0(Obj123e30*);
+u8* func_00120a20(Mdl123e30*, Obj123e30*, u8*, u8*, s32);
+void func_0011eef8(Mdl123e30*, Obj123e30*);
+Obj123e30* func_00123e30(Mdl123e30* mdl, Alloc123e30* al)
+{
+    s32 i = 0;
+    Hdr123e30* h = func_00124748(mdl, 0)->hdr;
+    u32 off = (mdl->b[mdl->n - 1] + 15) & ~15;
+    Obj123e30* o = (Obj123e30*)al->alloc(304 + off + h->cnt * 48 + mdl->a[mdl->n - 1] * 2, __builtin_return_address(0));
+    func_0011c2d0(o);
+    o->vis = (u8*)o + 304;
+    for (i = 0; i < mdl->parts(); i++) o->vis[i] = 1;
+    u8* p = o->vis + off;
+    o->p28 = p;
+    p += h->cnt * 16;
+    o->p32 = p;
+    p += h->cnt * 16;
+    o->p36 = p;
+    u8* q = al->alloc(h->cnt * 192, __builtin_return_address(0));
+    o->p40 = q;
+    q += h->cnt * 64;
+    o->p44 = q;
+    q += h->cnt * 64;
+    o->al = al;
+    o->p48 = q;
+    s32 tot = 0;
+    for (i = 0; i < mdl->n; i++) tot += func_00124748(mdl, i)->parts();
+    o->p264 = o->p36 + h->cnt * 16;
+    o->p268 = o->p264 + tot * 4;
+    u8* d = (u8*)(((u32)(o->p268 + tot * 4) + 15) & ~15);
+    tot = 0;
+    for (i = 0; i < mdl->n; i++) {
+        Mdl123e30* s = func_00124748(mdl, i);
+        d = func_00120a20(s, o, o->p264 + tot * 4, d, 0);
+        d = func_00120a20(s, o, o->p268 + tot * 4, d, 1);
+        tot += s->parts();
+    }
+    func_0011eef8(mdl, o);
+    return o;
+}
 }
