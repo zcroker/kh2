@@ -7303,7 +7303,7 @@ void func_001b14d8() {
 // ---- 001de590
 extern u8* D_00352b58;
 s32 func_001dc9e0(u8*);
-void func_001dfa38(u8*);
+void f1de590_update(u8*) asm("func_001dfa38");
 void func_001de590(u8* p) {
     u8* o = *(u8**)(p + 12);
     while (o) {
@@ -7312,7 +7312,7 @@ void func_001de590(u8* p) {
             u8 b = (*(s32*)(*(u8**)(o + 64) + 8) >> 26) & 1;
             if (!b) {
                 D_00352b58 = o;
-                func_001dfa38(o);
+                f1de590_update(o);
                 D_00352b58 = 0;
             }
         }
@@ -17799,6 +17799,69 @@ void func_001112a8(Fr1112a8* o)
     func_00140dc0();
     o->pos = o->dir;
     o->rot = o->up;
+}
+
+
+// --------------------
+// 001dfa38: effect object per-frame update (attach/transform, spawn the linked effect after the delay, end conditions)
+struct H1dfa38 { u8 pad[8]; s32 bits; };
+struct Def1dfa38 { u8 pad[16]; u32 flags; u8 pad2[4]; s32 effect; };
+struct Src1dfa38 { u16 f0; u16 flags; };
+struct O1dfa38 {
+    u8 pad[64];
+    H1dfa38* h;
+    Def1dfa38* def;
+    s32 f72;
+    f32 time;
+    f32 delay;
+    s32 effect;
+    Src1dfa38* src;
+    union { u32 flags; struct { u32 local : 1; u32 rest : 31; } fb; };
+};
+void func_001df2c0(O1dfa38*);
+void func_001df670(O1dfa38*);
+void func_001dee88(O1dfa38*);
+s32 func_001dc9f0(H1dfa38*);
+void func_001dfca8(O1dfa38*, s32);
+void func_001dfe88(O1dfa38*, s32);
+void func_001dfdb8(O1dfa38*);
+void func_001e00b0(O1dfa38*);
+void* f1dfa38_pos(H1dfa38*) asm("func_001dc5f8");
+s32 f1dfa38_effect(s32, void*) asm("func_002bc188");
+s32 func_001dffd8(O1dfa38*);
+void func_001df9c8(O1dfa38*);
+void func_001dfa38(O1dfa38* o)
+{
+    if (o->flags & 2) {
+        func_001df2c0(o);
+    } else if (o->fb.local) {
+        if (!(o->flags & 0x10)) {
+            if (o->time <= 0.0f) {
+                func_001df670(o);
+                func_001dee88(o);
+            } else if (func_001dc9f0(o->h) || !(((o->flags & 8) ? o->src->flags : o->def->flags) & 2)) {
+                func_001dee88(o);
+                func_001df670(o);
+            }
+        }
+    }
+    if (o->def->flags & 8) {
+        if (o->fb.local) func_001dfca8(o, 0);
+        else func_001dfe88(o, 0);
+    } else if (o->def->flags & 0x10) {
+        if (o->fb.local) func_001dfca8(o, 1);
+        else func_001dfe88(o, 1);
+    }
+    if ((o->def->flags & 0x800) && o->fb.local) func_001dfdb8(o);
+    func_001e00b0(o);
+    if (!(o->flags & 0x40) && o->delay <= o->time && o->def->effect > 0) {
+        o->effect = f1dfa38_effect(o->def->effect, f1dfa38_pos(o->h));
+        o->flags |= 0x40;
+    }
+    if (o->f72 && !(o->flags & 8)) {
+        if (((o->flags & 0x10) && (o->def->flags & 0x200)) || (u8)((o->h->bits >> 25) & 1) || ((o->def->flags & 0x400) && func_001dffd8(o))) func_001df9c8(o);
+    }
+    o->time += D_00349e10;
 }
 
 } // extern "C"
