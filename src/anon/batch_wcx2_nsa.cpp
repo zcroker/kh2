@@ -1575,4 +1575,72 @@ Obj123e30* func_00123e30(Mdl123e30* mdl, Alloc123e30* al)
     func_0011eef8(mdl, o);
     return o;
 }
+
+struct V1253c0 {
+    f32 x, y, z, w;
+    V1253c0& operator=(const V1253c0& o) {
+        if (this != &o) asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(this), "r"(&o) : "$8", "memory");
+        return *this;
+    }
+} __attribute__((aligned(16)));
+struct M1253c0 {
+    V1253c0 r[4];
+    M1253c0& operator=(const M1253c0& o) {
+        if (this != &o)
+            asm volatile("lq $8, 0(%1)\n\tlq $9, 16(%1)\n\tlq $10, 32(%1)\n\tlq $11, 48(%1)\n\tsq $8, 0(%0)\n\tsq $9, 16(%0)\n\tsq $10, 32(%0)\n\tsq $11, 48(%0)"
+                         : : "r"(this), "r"(&o) : "$8", "$9", "$10", "$11", "memory");
+        return *this;
+    }
+    M1253c0 operator*(const M1253c0& b) const {
+        M1253c0 o;
+        asm volatile("lqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 16(%1)\n\tlqc2 $vf3, 32(%1)\n\tlqc2 $vf4, 48(%1)\n\tlqc2 $vf5, 0(%2)\n\tlqc2 $vf6, 16(%2)\n\tlqc2 $vf7, 32(%2)\n\tlqc2 $vf8, 48(%2)\n\t"
+            "vmulax.wxyz ACC, $vf1, $vf5x\n\tvmadday.wxyz ACC, $vf2, $vf5y\n\tvmaddaz.wxyz ACC, $vf3, $vf5z\n\tvmaddw.wxyz $vf5, $vf4, $vf5w\n\t"
+            "vmulax.wxyz ACC, $vf1, $vf6x\n\tvmadday.wxyz ACC, $vf2, $vf6y\n\tvmaddaz.wxyz ACC, $vf3, $vf6z\n\tvmaddw.wxyz $vf6, $vf4, $vf6w\n\t"
+            "vmulax.wxyz ACC, $vf1, $vf7x\n\tvmadday.wxyz ACC, $vf2, $vf7y\n\tvmaddaz.wxyz ACC, $vf3, $vf7z\n\tvmaddw.wxyz $vf7, $vf4, $vf7w\n\t"
+            "vmulax.wxyz ACC, $vf1, $vf8x\n\tvmadday.wxyz ACC, $vf2, $vf8y\n\tvmaddaz.wxyz ACC, $vf3, $vf8z\n\tvmaddw.wxyz $vf8, $vf4, $vf8w\n\t"
+            "sqc2 $vf5, 0(%0)\n\tsqc2 $vf6, 16(%0)\n\tsqc2 $vf7, 32(%0)\n\tsqc2 $vf8, 48(%0)" : : "r"(&o), "r"(this), "r"(&b) : "memory");
+        return o;
+    }
+    V1253c0 operator*(const V1253c0& v) const {
+        V1253c0 o;
+        asm volatile("lqc2 $vf5, 0(%2)\n\tlqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 16(%1)\n\tlqc2 $vf3, 32(%1)\n\tlqc2 $vf4, 48(%1)\n\tvmulax.wxyz ACC, $vf1, $vf5x\n\tvmadday.wxyz ACC, $vf2, $vf5y\n\tvmaddaz.wxyz ACC, $vf3, $vf5z\n\tvmaddw.wxyz $vf5, $vf4, $vf5w\n\tsqc2 $vf5, 0(%0)" : : "r"(&o), "r"(this), "r"(&v) : "memory");
+        return o;
+    }
+    void scale(const V1253c0& s) {
+        asm volatile("lqc2 $vf4, 0(%1)\n\tlqc2 $vf1, 0(%0)\n\tlqc2 $vf2, 16(%0)\n\tlqc2 $vf3, 32(%0)\n\tvmulx.wxyz $vf1, $vf1, $vf4x\n\tvmuly.wxyz $vf2, $vf2, $vf4y\n\tvmulz.wxyz $vf3, $vf3, $vf4z\n\tsqc2 $vf1, 0(%0)\n\tsqc2 $vf2, 16(%0)\n\tsqc2 $vf3, 32(%0)" : : "r"(this), "r"(&s) : "memory");
+    }
+} __attribute__((aligned(16)));
+struct Bone1253c0 { u8 pad0[2]; s16 sibling; s16 parent; s16 child; u32 w8; u32 hasParent : 1; u32 rest : 31; u8 pad[48]; } __attribute__((aligned(16)));
+struct Skel1253c0 {
+    virtual void f0(); virtual void f1(); virtual void f2(); virtual void f3(); virtual void f4(); virtual void f5(); virtual void f6();
+    virtual s32 count();
+    virtual Bone1253c0* bones();
+};
+struct Self1253c0 { u8 pad0[20]; Skel1253c0* skel; u8 pad1[16]; M1253c0* local; M1253c0* world; };
+extern M1253c0 D_003a99f0[];
+s32 func_0011f270(Skel1253c0*, s32);
+void func_001253c0(Self1253c0* s, s32 a1, s32 a2, s32 a3, s32 a4, s32 a5, s32 idx, f32 f)
+{
+    Bone1253c0* bones = s->skel->bones();
+    M1253c0* mats = D_003a99f0;
+    V1253c0* scales = (V1253c0*)&mats[s->skel->count()];
+    while (idx >= 0) {
+        V1253c0 t;
+        s32 parent;
+        if (!bones[idx].hasParent) parent = func_0011f270(s->skel, idx);
+        else parent = bones[idx].parent;
+        if (parent < 0) {
+            mats[idx] = s->local[idx];
+            t = s->local[idx].r[3];
+        } else {
+            mats[idx] = mats[parent] * s->local[idx];
+            t = s->world[parent] * s->local[idx].r[3];
+        }
+        s->world[idx] = mats[idx];
+        s->world[idx].scale(scales[idx]);
+        s->world[idx].r[3] = t;
+        if (bones[idx].child >= 0) func_001253c0(s, a1, a2, a3, a4, a5, bones[idx].child, f);
+        idx = bones[idx].sibling;
+    }
+}
 }
