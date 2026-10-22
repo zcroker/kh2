@@ -1815,3 +1815,17 @@ void func_002b5188(s32 arg0, s32 arg1) {
     func_00287cc0(0);
 }
 }
+
+struct Obj1db808 { void** vt; };
+struct B1db808 { void* vt; Obj1db808* o; u32 p8; s32 c; };
+typedef void (*Fn1db808)(Obj1db808*, s32);
+extern "C" {
+void func_00106420(void*);
+extern void* D_00352a38;
+void func_001db808(B1db808* b) {
+    b->vt = &D_00352a38;
+    Obj1db808* o = b->o;
+    ((Fn1db808)o->vt[1])(o, b->c);
+    func_00106420(b);
+}
+}
