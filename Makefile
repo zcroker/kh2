@@ -127,6 +127,11 @@ out/build/%_gnsa.o: CFLAGS := $(subst -g0,-g,$(CFLAGS)) -fno-strict-aliasing
 out/build/%_gnsa_nogcse.o: CXXFLAGS := $(subst -g0,-g,$(CXXFLAGS)) -fno-strict-aliasing -fno-gcse
 out/build/%_gnsa_nogcse.o: CFLAGS := $(subst -g0,-g,$(CFLAGS)) -fno-strict-aliasing -fno-gcse
 
+# Some code was built without interblock scheduling (sched1 never hoists an instruction speculatively
+# above a branch into another block). Functions that only match that way live in *_nsi.cpp.
+out/build/%_nsi.o: CXXFLAGS := $(CXXFLAGS) -fno-sched-interblock
+out/build/%_nsi.o: CFLAGS := $(CFLAGS) -fno-sched-interblock
+
 # Functions the original built without optimisation (fp/s8 frame) live in *_O0.cpp.
 out/build/%_O0.o: CXXFLAGS := $(subst -O2,-O0,$(CXXFLAGS))
 out/build/%_O0.o: CFLAGS := $(subst -O2,-O0,$(CFLAGS))
