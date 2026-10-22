@@ -18693,4 +18693,56 @@ void func_00107d20(int init, int prio) {
     }
 }
 
+
+} // extern "C"
+
+extern "C" {
+struct Font1aa0a8 { s32 kind; bool IsRuby() { return kind == 4; } };
+struct Style1aa0a8 { s32 a; f32 scale; f32 alpha; s32 shift; s32 e, f; };
+struct Ctx1aa0a8 {
+    Font1aa0a8* font;
+    s32 lines;
+    s32 x;
+    u32 y;
+    u32 color;
+    u32 shadow;
+    f32 width;
+    s32 count;
+    Style1aa0a8 style;
+};
+struct Win1aa0a8 { u8 pad[76]; f32 fade; };
+extern s32 D_00350a18[4];
+s32 a0a8_001aa310(Win1aa0a8*, Ctx1aa0a8*, s32) asm("func_001aa310");
+s32 func_001aa8a8(Ctx1aa0a8*, s32, u32, u32, s32);
+s32 func_001aa8f0(Ctx1aa0a8*, s32, u32, u32, s32);
+u32 func_001aae80(Font1aa0a8*, s32);
+f32 a0a8_00192fb8(Style1aa0a8*) asm("func_00192fb8");
+u32 func_00313bc0(f32);
+s32 func_001aa0a8(Win1a9c20* w_, Ctx1a9c20* c_, s32 x, u32 y, s32 ch)
+{
+    Win1aa0a8* w = (Win1aa0a8*)w_;
+    Ctx1aa0a8* c = (Ctx1aa0a8*)c_;
+    u32 color = c->color;
+    if (ch == 0) return a0a8_001aa310(w, c, x);
+    Font1aa0a8* font = c->font;
+    switch (font->kind) {
+    case 2:
+        for (s32 i = 0; i < 4; i++) {
+            if (func_001aa8a8(c, x + D_00350a18[i], y + D_00350a18[(i + 1) & 3], c->shadow, ch)) c->lines++;
+        }
+        font = c->font;
+        break;
+    case 1:
+        { s32 rr = func_001aa8a8(c, x + 32, y + 32, c->shadow, ch); font = c->font; if (rr) c->lines++; }
+        break;
+    }
+    if (0.0f < w->fade && c->width / w->fade < 1.0f) {
+        color = (color & 0xffffff) | (func_00313bc0(c->width / w->fade * 128.0f) << 24);
+    }
+    s32 r;
+    if (font->IsRuby()) r = func_001aa8f0(c, x, y, color, ch);
+    else r = func_001aa8a8(c, x, y, color, ch);
+    if (r) c->lines++;
+    return x + (s32)(func_001aae80(c->font, ch) * a0a8_00192fb8(&c->style) + 0.5f) * 16;
+}
 } // extern "C"
