@@ -148,3 +148,122 @@ s32 func_00203408(u8* base, Ent203408* e, Ctx203408* c)
     }
     if (set->w0 == set->w8 * 2 + 2) func_00202ce0(set, e, st);
 }
+
+/* 001e6280: partMng particle update (assert line 2137). */
+typedef struct { s32 start; s32 cur; s32 max; } PartTime1e6280;
+typedef struct { u8 pad0[248]; u8 hide; } PartOwn1e6280;
+typedef struct {
+    u8 pad0[88];
+    void* p88;
+    u8 pad1[96 - 92];
+    s32 steps;
+    u8 pad2[134 - 100];
+    u16 flags;
+    s32 id;
+    PartOwn1e6280* own;
+    u8 on;
+    u8 pad3[147 - 145];
+    u8 sub;
+    u8 pad4[152 - 148];
+    f32 acc;
+    u8 pad5[164 - 156];
+    f32 wait;
+    u64 b168 : 8, stopA : 8, b170 : 8, dead : 8, stopB : 8, b173 : 24;
+    u8 pad6[208 - 176];
+    PartTime1e6280 tUpdate;
+    u8 pad7[256 - 220];
+    PartTime1e6280 tTotal;
+    u8 pad8[288 - 268];
+    PartTime1e6280 tDraw;
+} Part1e6280;
+typedef struct { s32 id; s32 sub; } PartLast1e6280;
+extern Part1e6280* D_01d9e6e0;
+extern s32 D_01d9ea9c;
+extern f32 D_00352be0;
+extern PartLast1e6280 D_00354690;
+extern char D_0036e978[];
+extern char D_0036e998[];
+extern char D_0036e9c0[];
+extern char D_0036e9d0[];
+void func_002fdfc8(const char*, ...);
+void func_001e6038(Part1e6280*);
+void func_001e41e0(Part1e6280*);
+void func_001e8bb8(Part1e6280*);
+s32 func_001e8c28(Part1e6280*, s32);
+void func_001e7cc0(Part1e6280*);
+static inline void timeEnd1e6280(PartTime1e6280* t)
+{
+    t->cur += *(volatile s32*)0x10000000 - t->start;
+    if (t->max < t->cur) t->max = t->cur;
+}
+static inline void timeSub1e6280(PartTime1e6280* t)
+{
+    t->cur -= t->start;
+    if (t->max < t->cur) t->max = t->cur;
+}
+static inline void ryjAssert1e6280(const char* e, const char* f, u32 l)
+{
+    func_002fdfc8(D_0036e978, e);
+    func_002fdfc8(D_0036e998, f, l);
+    asm volatile("break"); /* assert trap */
+}
+s32 func_001e6280(Part1e6280* p, s32 force)
+{
+    s32 ret = 1;
+    s32 stop;
+    s32 same;
+    if (!p) ryjAssert1e6280(D_0036e9c0, D_0036e9d0, 2137);
+    D_01d9e6e0 = p;
+    func_001e6038(p);
+    if (!D_01d9ea9c && !D_01d9e6e0->stopA && !D_01d9e6e0->stopB && !(p->flags & 8)) {
+        if (0.0f < p->wait) p->wait -= D_00352be0;
+    }
+    if (0.0f < p->wait) return ret;
+    if (p->p88 && !p->dead && force) p->on = 1;
+    else p->on = 0;
+    if (p->on && p->own->hide) goto done;
+    p->tDraw.start = 0;
+    p->tTotal.start = *(volatile s32*)0x10000000;
+    p->tUpdate.start = *(volatile s32*)0x10000000;
+    same = 0;
+    if (D_00354690.id == p->id) same = D_00354690.sub == p->sub;
+    if (!same) func_001e41e0(p);
+    p->acc += D_00352be0;
+    if (2.0f <= p->acc) {
+        p->stopB = 0;
+        stop = 0;
+        while (__builtin_expect(p->steps > 0, 0)) {
+            func_001e8bb8(p);
+            if (func_001e8c28(p, 0)) {
+                func_001e7cc0(p);
+                stop = 1;
+                ret = 0;
+                break;
+            }
+            p->steps--;
+        }
+        if (!stop) {
+            for (p->acc -= 2.0f; 2.0f <= p->acc; p->acc -= 2.0f) {
+                func_001e8bb8(p);
+                if (func_001e8c28(p, 0)) {
+                    func_001e7cc0(p);
+                    stop = 1;
+                    ret = 0;
+                    break;
+                }
+            }
+        }
+        if (!stop) func_001e8bb8(p);
+    } else {
+        p->stopB = 1;
+        func_001e8bb8(p);
+    }
+    D_00354690.id = p->id;
+    D_00354690.sub = p->sub;
+    timeEnd1e6280(&p->tUpdate);
+    timeEnd1e6280(&p->tTotal);
+    timeSub1e6280(&p->tDraw);
+done:
+    D_01d9e6e0 = 0;
+    return ret;
+}
