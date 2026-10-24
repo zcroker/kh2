@@ -402,15 +402,9 @@ void func_00192f98(u32 a0) {
     *(f32 *)(a0 + 8) = f0;
 }
 
-u32 func_00192498(u32 a0, u32 a1) {  // read_u16_be
-    register u32 p1 asm("$14") = a1 + a0;
-    asm volatile("" : "+r"(a0), "+r"(p1));
-    register u32 p0 asm("$4") = a0 + a1;
-    asm volatile("" : "+r"(p1), "+r"(p0));
-    u32 hi = *(u8 *)(p1 + 1);
-    u32 lo = *(u8 *)p0;
-    u32 v = lo | (hi << 8);
-    return (s16)v;
+u32 func_00192498(u8* p, s32 i) {  // read_u16_be
+    s32 j = i + 1;
+    return (s16)(p[i] | p[j] << 8);
 }
 
 u32 ctarget_00189200(u32 a0, u32 a1, u32, u32) {
