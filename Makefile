@@ -132,6 +132,18 @@ out/build/%_gnsa_nogcse.o: CFLAGS := $(subst -g0,-g,$(CFLAGS)) -fno-strict-alias
 out/build/%_nsi.o: CXXFLAGS := $(CXXFLAGS) -fno-sched-interblock
 out/build/%_nsi.o: CFLAGS := $(CFLAGS) -fno-sched-interblock
 
+# Some code was built without loop strength reduction (loop.c then does not unroll small
+# constructor loops, e.g. static-init array ctors). Those functions live in *_nsr.cpp / *_nsr.c.
+out/build/%_nsr.o: CXXFLAGS := $(CXXFLAGS) -fno-strength-reduce
+out/build/%_nsr.o: CFLAGS := $(CFLAGS) -fno-strength-reduce
+# Some code was built without the first scheduling pass (sched1). Those functions live in
+# *_nosched.cpp / *_nosched.c (e.g. the three copies of the atan2 helper).
+out/build/%_nosched.o: CXXFLAGS := $(CXXFLAGS) -fno-schedule-insns
+out/build/%_nosched.o: CFLAGS := $(CFLAGS) -fno-schedule-insns
+# GCC's libsupc++ was built with exception support; code whose catch landing pads survive
+# (eh_terminate.cc __terminate) lives in *_eh.cpp. Its unwind tables are discarded in kh2.ld.
+out/build/%_eh.o: CXXFLAGS := $(subst -fno-exceptions,-fexceptions,$(CXXFLAGS))
+
 # Functions the original built without optimisation (fp/s8 frame) live in *_O0.cpp.
 out/build/%_O0.o: CXXFLAGS := $(subst -O2,-O0,$(CXXFLAGS))
 out/build/%_O0.o: CFLAGS := $(subst -O2,-O0,$(CFLAGS))

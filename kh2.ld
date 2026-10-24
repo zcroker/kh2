@@ -58,6 +58,8 @@ SECTIONS {
     *(.comment)
     *(.pdr)
     *(.mdebug*)
+    *(.eh_frame)
+    *(.gcc_except_table)
     *(.gnu.attributes)
   }
 }
