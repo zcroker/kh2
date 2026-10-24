@@ -798,6 +798,7 @@ def try_fast_link(linked_elf: Path, out_elf: Path, full_linked_elf: Path = FULL_
 
 
 LOCAL_DATA_PREFIXES = (".sdata", ".rodata", ".lit4", ".lit8")
+ORIG_GP = 0x0037A800  # the game's gp (main sets it); target of R_MIPS_GPREL16 immediates
 _LO16_ACCESS_SIZE = {0x20: 1, 0x24: 1, 0x28: 1, 0x21: 2, 0x25: 2, 0x29: 2,
                      0x37: 8, 0x3F: 8, 0x1E: 16, 0x1F: 16}  # lb/lbu/sb, lh/lhu/sh, ld/sd, lq/sq; else 4
 
@@ -853,6 +854,8 @@ def retarget_local_data_refs(obj: Path, sym_name: str, code: bytes, orig_code: b
             count += 1
         return count > 0
 
+    reginfo = next((sec for sec in secs if sname(sec) == ".reginfo"), None)
+    gp0 = u32(reginfo[4] + 20) if reginfo and reginfo[5] >= 24 else 0
     patched_hi: dict = {}  # (r_sym, compiled lui word) -> original lui word, for retargeted pairs
     all_hi: list = []      # every HI16 against local data: (offset, r_sym)
     for rel in (s for s in secs if s[1] == 9 and s[7] == func[3]):  # SHT_REL for this text section
@@ -864,6 +867,20 @@ def retarget_local_data_refs(obj: Path, sym_name: str, code: bytes, orig_code: b
                 continue
             _name, _val, info, shndx = syms[r_sym]
             if (info & 0xF) != 3 or not sname(secs[shndx]).startswith(LOCAL_DATA_PREFIXES):
+                continue
+            if r_type == 7:  # R_MIPS_GPREL16: short literal in .sdata, addressed from gp
+                # The link uses its own _gp; take the original immediate when the original
+                # instruction is otherwise identical and gp + its offset holds the same string.
+                x = r_off
+                if not (w(orig_code, x) ^ ow(x)) & 0xFFFF0000:
+                    sec = secs[shndx]
+                    # gas stores the offset minus the object's gp0 (.reginfo ri_gp_value).
+                    src = sext(ow(x) & 0xFFFF) + gp0
+                    dst = ORIG_GP + sext(w(orig_code, x) & 0xFFFF)
+                    end = data.find(b"\0", sec[4] + src)
+                    want = data[sec[4] + src : end + 1] if 0 <= src and end >= 0 else b""
+                    if want and read_elf_vaddr(orig_image, dst, len(want)) == want:
+                        out[x : x + 4] = orig_code[x : x + 4]
                 continue
             if r_type == 5:  # R_MIPS_HI16
                 all_hi.append((r_off, r_sym))
