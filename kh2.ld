@@ -28,6 +28,9 @@ SECTIONS {
     *(.gnu.linkonce.r*)
   }
 
+  /* Link-time gp for the few gp-relative (.sdata) references; build_elf.py retargets their
+     immediates to the game's gp (0x37A800) when the original address holds the same bytes. */
+  _gp = ALIGN(16) + 0x7FF0;
   .cxx_data : {
     *(.data)
     *(.data.*)
