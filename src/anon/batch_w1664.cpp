@@ -23,6 +23,7 @@ void func_001ae4b8(void) {}
 void wtarget_001dbb98(u32, u32, u32, u32) asm("_Z16wtarget_001dbb98jjjj");
 void wtarget_001dbb98(u32, u32, u32, u32) {}
 void wtarget_001dbf78(u32, u32, u32, u32) asm("_Z16wtarget_001dbf78jjjj");
+// 001dbf78: static initialiser, now made by gcc in src/anon/unit_001dbbe0.cpp
 void wtarget_001dbf78(u32, u32, u32, u32) {}
 void wtarget_001e0c50(u32, u32, u32, u32) asm("_Z16wtarget_001e0c50jjjj");
 void wtarget_001e0c50(u32, u32, u32, u32) {}

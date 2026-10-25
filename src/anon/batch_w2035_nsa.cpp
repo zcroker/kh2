@@ -18,28 +18,7 @@ void func_001a7790(Box1dbd68*);
 void Aabbox_1dbd68(Box1dbd68*, const V1dbd68*, const V1dbd68*) asm("_ZN2dk6AabboxC1ERKN2kn7FVectorES4_");
 /* Two function-local statics (guard byte + vector, destructor thunk registered
    with atexit), written out by hand so the thunks keep their own addresses. */
-void func_001dbd68(V1dbd68* p) {
-    if (!D_01d5bac0) {
-        V1dbd68* v = &D_01d5bad0;
-        f32 x = -256.0f, y = -512.0f, z = -256.0f, w = 0.0f;
-        D_01d5bac0 = 1;
-        v->w = w; v->x = x; v->y = y; v->z = z;
-        func_002fd188(func_001dbf80);
-    }
-    if (!D_01d5bac8) {
-        V1dbd68* v = &D_01d5bae0;
-        f32 x = 256.0f, y = 0.0f, z = 256.0f, w = 0.0f;
-        v->y = y; v->x = x; v->z = z; v->w = w;
-        D_01d5bac8 = 1;
-        func_002fd188(func_001dbf88);
-    }
-    Box1dbd68 box;
-    V1dbd68 b, a;
-    VAdd1dbd68(&b, p, &D_01d5bae0);
-    VAdd1dbd68(&a, p, &D_01d5bad0);
-    Aabbox_1dbd68(&box, &a, &b);
-    func_001a7790(&box);
-}
+// 001dbd68: moved to src/anon/unit_001dbbe0.cpp
 }
 
 /* 001f1728 left out: its VU0 copies need tag comments that only stop gcc cross-jumping (owner rule). */

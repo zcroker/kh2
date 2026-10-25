@@ -477,19 +477,7 @@ extern f32 D_00352ad0;
 static inline u32 Rand() { D_003638d0 *= 0x10dcd; return D_003638d0; }
 static inline f32 Rand1() { return (f32)Rand() * 2.3283064365386963e-10f; }
 static inline f32 RandR(f32 lo, f32 w) { return lo + Rand1() * w; }
-u8* func_001dbe78(u8* o, FV* dir)
-{
-    FV t;
-    t = *(FV*)o;
-    t.y += *(f32*)(*(u8**)(o + 92) + 8);
-    f32 h = func_002f8ad0(dir->x, dir->z);
-    u8* r = func_0016f000(*(u32*)(*(u8**)(o + 92) + 4), &t, h);
-    if (r) {
-        func_0016c018(r, 1, *(u32*)(o + 88));
-        D_00352ad0 = RandR(8.0f, 22.0f);
-    }
-    return r;
-}
+// 001dbe78: moved to src/anon/unit_001dbbe0.cpp
 
 union PtrF { u8* p; f32 f; };
 extern PtrF D_01d9e6e8;

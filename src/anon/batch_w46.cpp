@@ -330,10 +330,7 @@ void func_001df9c8(u8* p) {
 extern u8 D_00352b60[];
 void func_001e03b0(u8*);
 void func_001e03d0(u8*);
-void wtarget_001e0750(u32 a, u32 b, u32, u32) {
-    if (b == 0xffff && a == 1) func_001e03b0(D_00352b60);
-    if (b == 0xffff && a == 0) func_001e03d0(D_00352b60);
-}
+// 001e0750: static initialiser, now made by gcc in src/anon/unit_001e0398.cpp
 
 // ---- 001fcb18
 extern u8* D_01d9e6e8;

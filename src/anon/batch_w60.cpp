@@ -541,8 +541,8 @@ u8* func_002ef660(u8* out, u8* p) {
 
 struct Blk2fd { Blk2fd* next; s32 n; u32 items[32]; };
 Blk2fd* func_002fd3e8(u32);  // pool_free_block
-// Appends x to a chain of 32-entry blocks.
-s32 func_002fd188(u32 x) {  // pool_alloc_block
+// newlib atexit: appends x to the chain of 32-entry exit-function blocks.
+s32 atexit(u32 x) {
     Blk2fd* b = *(Blk2fd**)(D_00365c48 + 328);
     if (!b) {
         b = (Blk2fd*)(D_00365c48 + 332);

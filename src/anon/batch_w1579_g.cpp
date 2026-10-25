@@ -8,17 +8,7 @@ s32 func_00102180(T6b8**);
 O6b8* func_00102788(s32, s32, s32, void*);
 void func_001e0670(void);
 extern char D_001e0690[];
-void func_001e06b8(void) {
-    T6b8* m0 = func_00102c80();
-    T6b8* m1 = func_00104190();
-    T6b8* list[4];
-    func_00102180(list);
-    if (list[0] == m0) {
-        func_00102788(list[0]->x4, 1, 0x1fbd0, (void*)func_001e0670)->x30 = D_001e0690;
-    } else if (list[0] == m1) {
-        func_00102788(m1->x4, 0, 0x222e0, (void*)func_001e0670)->x30 = D_001e0690;
-    }
-}
+// 001e06b8: moved to src/anon/unit_001e0398.cpp
 s32 func_00287bc0(void);
 void func_00287d68(void);
 void func_00252020(void);
