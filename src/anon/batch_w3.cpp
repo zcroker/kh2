@@ -62,12 +62,7 @@ void func_00154af0(u8* p) {
     func_00139ba0(6);
 }
 
-// Copy a 16-byte vector into D_0034a9a0 unless it is the source.
-extern u8 D_0034a9a0[];
-void func_00158920(u8* src) {
-    if (src != D_0034a9a0)
-        asm volatile("lq $8, 0(%0)\n\tsq $8, 0(%1)" : : "r"(src), "r"(D_0034a9a0) : "$8", "memory");
-}
+// 00158920: moved to src/yasui/libys/light.cpp
 
 void func_0014e0d8(void*);
 void func_001024a8(void*);

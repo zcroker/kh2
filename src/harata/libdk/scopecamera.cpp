@@ -1,20 +1,4 @@
 #include "scopecamera.hpp"
 
-namespace dk {
-
-
-
-extern "C" u32 func_00140dc0(...);
-extern "C" u32 func_00140dd0(...);
-extern "C" u32 func_00140df0(...);
-
-void ScopeCamera::destroy() {
-    u32 s0 = func_00140df0();
-    u32 v0 = func_00140dc0();
-    if (v0 == 7u) {
-        func_00140dd0(s0);
-        return;
-    }
-}
-
-}  // namespace dk
+// dk::ScopeCamera::destroy (0x158940) is compiled in src/yasui/libys/light.cpp, where it sits
+// in the original layout.
