@@ -11,7 +11,7 @@ void wtarget_00127de0(u32, u32, u32, u32) asm("_Z16wtarget_00127de0jjjj");
 void wtarget_00127de0(u32, u32, u32, u32) {}
 void func_001391f8(void) {}
 void wtarget_00158988(u32, u32, u32, u32) asm("_Z16wtarget_00158988jjjj");
-void wtarget_00158988(u32, u32, u32, u32) {}
+// 00158988: static initialiser, now made by gcc in src/yasui/libys/light.cpp
 void wtarget_0015d3f8(u32, u32, u32, u32) asm("_Z16wtarget_0015d3f8jjjj");
 // 0015d3f8: static initialiser, now made by gcc in src/anon/unit_0015cdb0.cpp
 void wtarget_00175520(u32, u32, u32, u32) asm("_Z16wtarget_00175520jjjj");

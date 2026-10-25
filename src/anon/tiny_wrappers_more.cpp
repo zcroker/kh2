@@ -606,9 +606,7 @@ u32 func_00158030(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_00158000(0x00000001u, 0x0000ffffu, a2, a3);
 }
 
-u32 func_00158990(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_00158988(0x00000001u, 0x0000ffffu, a2, a3);
-}
+// 00158990: _GLOBAL__I_ stub, now made by gcc in src/yasui/libys/light.cpp
 
 u32 func_00159030(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_00158fd8(0x00000001u, 0x0000ffffu, a2, a3);
