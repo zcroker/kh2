@@ -10862,11 +10862,7 @@ void func_002cd260(u8* p) {
 }
 
 // --------------------
-extern f32 D_003634f0;
-void wtarget_002eaee8(u32, u32, u32, u32) asm("_Z16wtarget_002eaee8jjjj");
-void wtarget_002eaee8(u32 a0, u32 a1, u32, u32) {
-    if (a1 == 0xffff && a0 == 1) D_003634f0 = 0.392699063f;
-}
+// 002eaee8: static initialiser, now made by gcc in src/anon/unit_002eae08.cpp
 
 // --------------------
 s32 func_00186110(void*, u8* p) {

@@ -590,15 +590,7 @@ void f_002e7458(N23* n) {
     n->next = 0;
 }
 
-/* ---- 002eae08 ---- */
-extern f32 D_003634f4, D_003634f8, D_003634fc, D_00363500;
-Vec128 func_00184540(u32, f32, f32);
-Vec128 func_002ede48(u32, Vec128*, f32, f32);
-Vec128* func_002eae08(Vec128* out, u32 a1, u32 a2) {
-    *out = func_00184540(a2, D_003634f4, 1.0f - D_003634f8);
-    *out = func_002ede48(a2, out, D_003634fc, D_00363500);
-    return out;
-}
+/* 002eae08: moved to src/anon/unit_002eae08.cpp */
 
 /* ---- 002f13b0 ---- */
 union F25 { f32 f; u8 c; };
