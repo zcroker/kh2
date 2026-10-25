@@ -198,9 +198,7 @@ void func_002bd5c8(BD_VALUE* bd) { func_002b83b4(bd); }
 void func_002dabd0(BD_VALUE* bd) { func_0016a9a0(bd); }
 void func_002e7310(BD_VALUE* bd) { func_002e7458(bd); }
 void func_002e7328(BD_VALUE* bd) { func_002e7458(bd); }
-void func_002e7670(BD_VALUE* bd) { func_002e7688(bd); }
-void func_002e7698(BD_VALUE* bd) { func_002e76c8(bd); }
-void func_002e76b0(BD_VALUE* bd) { func_002e76c8(bd); }
+// 002e7670, 002e7698, 002e76b0: moved to src/anon/unit_002e7658.cpp
 void func_002f8ab8(BD_VALUE* bd) { func_002f9268(bd); }
 void func_002f8b30(BD_VALUE* bd) { func_002f9e78(bd); }
 void func_002fd3d0(BD_VALUE* bd) { func_002ff014(bd); }
@@ -250,19 +248,12 @@ void func_00149f68(BD_VALUE* bd) { func_00149f30(1, 0xffff); }
 void func_0014a8d8(BD_VALUE* bd) { func_0014a868(1, 0xffff); }
 void func_0014b110(BD_VALUE* bd) { func_0014aed0(1, 0xffff); }
 void func_0014e280(BD_VALUE* bd) { func_0014e1f0(1, 0xffff); }
-void func_00159220(BD_VALUE* bd) { func_001591e8(1, 0xffff); }
+// 00159220: _GLOBAL__I_ stub, now made by gcc in src/harata/libdk/lightcyclecamera.cpp
 void func_00159cc0(BD_VALUE* bd) { func_00159c58(1, 0xffff); }
 void func_0015a7d0(BD_VALUE* bd) { func_0015a768(1, 0xffff); }
 
 // merged from: tiny_patterns.cpp
-u32 func_00102e90(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a0;
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    u32 b = (0x0033u << 16);
-    return (u32)(*(u32*)((u32)b + (-17972)));
-}
+// 00102e90: moved to src/common/title.cpp
 
 u32 func_00103560(u32 a0, u32 a1, u32 a2, u32 a3) {
     (void)a0;
@@ -315,28 +306,11 @@ void func_00103ea0(u32 a0, u32 a1, u32 a2, u32 a3) {  // set_hook_ptr
     *(u32*)((u32)b + (-17868)) = (u32)a0;
 }
 
-u32 func_001041a0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a0;
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    u32 b = (0x0033u << 16);
-    return (u32)(*(u32*)((u32)b + (-17796)));
-}
+// 001041a0: moved to src/common/gumibattle.cpp
 
-void func_001041f0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 b = (0x0033u << 16);
-    *(u32*)((u32)b + (-17796)) = (u32)a0;
-}
+// 001041f0: moved to src/common/gumibattle.cpp
 
-u32 func_00104288(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a0;
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    u32 b = (0x0033u << 16);
-    return (u32)(*(u32*)((u32)b + (-17804)));
-}
+// 00104288: moved to src/common/gumibattle.cpp
 
 u32 func_00104600(u32 a0, u32 a1, u32 a2, u32 a3) {
     (void)a0;
@@ -1628,13 +1602,7 @@ u32 func_00102c80(u32 a0, u32 a1, u32 a2, u32 a3) {
     return (u32)&D_0032b968;
 }
 
-u32 func_00103070(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a0;
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    return (u32)&D_0032b9a0;
-}
+// 00103070: moved to src/common/title.cpp
 
 u32 func_00103c90(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_hook_ptr
     (void)a0;
@@ -1652,13 +1620,7 @@ u32 func_00103eb0(u32 a0, u32 a1, u32 a2, u32 a3) {
     return (u32)&D_0032b9e8;
 }
 
-u32 func_00104190(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a0;
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    return (u32)&D_0032ba48;
-}
+// 00104190: moved to src/common/gumibattle.cpp
 
 u32 func_001045f0(u32 a0, u32 a1, u32 a2, u32 a3) {
     (void)a0;
@@ -3246,13 +3208,7 @@ void func_002d1f40(u32 a0, u32 a1, u32 a2, u32 a3) {
     *(u8*)((u32)a0 + (88)) = (u8)v;
 }
 
-void func_002e7688(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    u32 v = (u32)((s32)1);
-    *(u8*)((u32)a0 + (0)) = (u8)v;
-}
+// 002e7688: moved to src/anon/unit_002e7658.cpp
 
 void func_0031e938(u32 a0, u32 a1, u32 a2, u32 a3) {  // store_zero_u32
     (void)a1;

@@ -115,9 +115,7 @@ u32 func_00102c18(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_00102788(((u32)(*(u32*)((u32)((u32)&D_00330000) - 18068u))), a0, a1, a2);
 }
 
-u32 func_00102f08(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_00102788(((u32)(*(u32*)((u32)((u32)&D_00330000) - 18012u))), a0, a1, a2);
-}
+// 00102f08: moved to src/common/title.cpp
 
 u32 func_001031b0(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_00102508((u32)&D_0039ea50, 0x00008000u, a2, a3);

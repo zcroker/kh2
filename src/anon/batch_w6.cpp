@@ -14,10 +14,7 @@ u32 ys_can_end(void) asm("_ZN2YS9SACRIFICE6CanEndEv");
 
 // Forward a to the global object's second virtual method.
 extern VObj* D_0032b9cc;
-void func_00102ed8(u32 a) {
-    VObj* o = D_0032b9cc;
-    ((void (*)(VObj*, u32))o->vt[1])(o, a);
-}
+// 00102ed8: moved to src/common/title.cpp
 
 // True when the state at +0xb6c is 16, 12 or 15.
 u32 func_00111278(u8* p) {
@@ -260,11 +257,7 @@ u32 func_002b16d8(void) {
 void func_002e7670(u8*);
 void func_002e76b0(u8*);
 void func_002e77a8(u8*);
-void func_002e7768(u8* p) {
-    func_002e7670(p);
-    func_002e76b0(p + 4);
-    func_002e77a8(p);
-}
+// 002e7768: moved to src/anon/unit_002e7658.cpp
 
 void func_0016c568(u32, u32, f32);
 void func_002e7c78(u32* p) {

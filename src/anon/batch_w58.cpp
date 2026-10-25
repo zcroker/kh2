@@ -26,24 +26,7 @@ VObj* func_001045f0(void);
 void func_00105fc8(void);
 u32 func_0014aba8(void);
 void func_0014aa58(u32, s32, s32);
-void func_00104108(void) {
-    switch ((s8)func_001040f8()[3]) {
-    case 0:
-    case 1:
-        return;
-    case 2: {
-        VObj* o = func_001045f0();
-        ((VFn)o->vt[0])(o);
-        break;
-    }
-    case 3:
-        func_00105fc8();
-        break;
-    default:
-        return;
-    }
-    func_0014aa58(func_0014aba8(), 15, 0);
-}
+// 00104108: moved to src/common/gumibattle.cpp
 
 // Returns one of two 144-byte table entries indexed by the current slot.
 extern u8 D_0033cc44;

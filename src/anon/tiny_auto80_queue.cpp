@@ -5670,14 +5670,7 @@ extern u8 D_0032b9d8;
 
 extern u8 D_0032b9cc;
 
-u32 func_00102ea0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32 r5 = a0;
-    u32 r6 = (u32)__builtin_return_address(0);
-    u32 r4 = *(volatile u32*)((u32)&D_0032b9cc + (s32)(0));
-    u32 r15 = *(volatile u32*)((u32)r4 + (s32)(0));
-    u32 r2 = *(volatile u32*)((u32)r15 + (s32)(0));
-    return ((u32(*)(u32, u32, u32))r2)(r4, r5, r6);
-}
+// 00102ea0: moved to src/common/title.cpp
 
 extern u8 D_00103f68;
 extern u8 D_00104018;
@@ -10773,31 +10766,9 @@ extern "C" u32 func_00140dc0(...);
 extern "C" u32 func_00140dd0(...);
 extern "C" u32 func_00140df0(...);
 
-void func_001591a0() {
-    u32 s0 = func_00140df0();
-    u32 v0 = func_00140dc0();
-    if (v0 == 3u) {
-        func_00140dd0(s0);
-        return;
-    }
-}
+// 001591a0 dk::LightCycleCamera::create: moved to src/harata/libdk/lightcyclecamera.cpp
 
-extern "C" u32 func_00190128(...);
-extern u8 D_0034a9f0;
-
-void func_001591e8(u32 a0, u32 a1) {
-    u32 t7 = 0xffffu;
-    if (a1 != t7) {
-        return;
-    }
-    t7 = 1u;
-    if (a0 != t7) {
-        return;
-    }
-    u32 t0 = (u32)&D_0034a9f0;
-    a0 = t0;
-    func_00190128(a0);
-}
+// 001591e8: static initialiser, now made by gcc in src/harata/libdk/lightcyclecamera.cpp
 
 extern "C" u32 func_00140df0(...);
 extern u8 D_0034aa08;

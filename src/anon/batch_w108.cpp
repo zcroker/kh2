@@ -109,21 +109,7 @@ static inline void SetVec(Vec4f* v, f32 x, f32 y, f32 z, f32 w)
     v->w = w;
 }
 
-void wtarget_002e7870(u32, u32, u32, u32) asm("_Z16wtarget_002e7870jjjj");
-// Static initializer for the axis-vector and +-pi/2 constants.
-void wtarget_002e7870(u32 init, u32 prio, u32, u32)
-{
-    if (prio == 0xffff && init == 1) SetVec(&D_01e2bf10, 0.0f, 1.0f, 0.0f, 0.0f);
-    if (prio == 0xffff && init == 1) SetVec(&D_01e2bf20, 0.0f, -1.0f, 0.0f, 0.0f);
-    if (prio == 0xffff && init == 1) SetVec(&D_01e2bf30, -1.0f, 0.0f, 0.0f, 0.0f);
-    if (prio == 0xffff && init == 1) SetVec(&D_01e2bf40, 1.0f, 0.0f, 0.0f, 0.0f);
-    if (prio == 0xffff && init == 1) SetVec(&D_01e2bf50, 0.0f, 0.0f, 1.0f, 0.0f);
-    if (prio == 0xffff && init == 1) SetVec(&D_01e2bf60, 0.0f, 0.0f, -1.0f, 0.0f);
-    if (prio == 0xffff && init == 1) D_01e2bf70 = 1.5707963f;
-    if (prio == 0xffff && init == 1) D_01e2bf74 = -1.5707963f;
-    if (prio == 0xffff && init == 1) D_01e2bf78 = -1.5707963f;
-    if (prio == 0xffff && init == 1) D_01e2bf7c = 1.5707963f;
-}
+// 002e7870: static initialiser, now made by gcc in src/anon/unit_002e7658.cpp
 
 extern "C" {
 struct Msg24a { u8 data[36]; };

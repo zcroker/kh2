@@ -11205,32 +11205,7 @@ s32 func_002c62c8(O2c62c8* o)
 }
 
 // --------------------
-struct V159070 { f32 x, y, z, w; } __attribute__((aligned(16)));
-struct C159070;
-struct VTC159070 { u8 pad[64]; s32 (*f64)(C159070*); };
-struct C159070 { VTC159070* vt; };
-struct O159070 { u8 pad[68]; C159070* c; };
-s32 func_001b9d40__159070(C159070*) asm("func_001b9d40");
-s32 func_00190140__159070(void*) asm("func_00190140");
-void func_001591a0__159070(void) asm("func_001591a0");
-V159070 func_001904a8__159070(void*) asm("func_001904a8");
-void func_0015a260__159070(O159070*, V159070*, f32) asm("func_0015a260");
-u32 func_00167f18__159070(u32) asm("func_00167f18");
-void func_0015a158__159070(u32, O159070*) asm("func_0015a158");
-void func_0015a528__159070(O159070*) asm("func_0015a528");
-extern u8 D_0034a9f0[];
-void func_00159070(O159070* o)
-{
-    if (func_001b9d40__159070(o->c) || !func_00190140__159070(D_0034a9f0)) {
-        func_001591a0__159070();
-    } else {
-        V159070 v = func_001904a8__159070(D_0034a9f0);
-        func_0015a260__159070(o, &v, 1.0f);
-        u32 k = func_00167f18__159070(0);
-        if (o->c->vt->f64(o->c)) func_0015a158__159070(k, o);
-        func_0015a528__159070(o);
-    }
-}
+// 00159070: moved to src/harata/libdk/lightcyclecamera.cpp
 
 // --------------------
 struct E1a6a20 { u32 key; u8* buf; };

@@ -17,16 +17,7 @@ extern "C" {
 // Empty function that still saves ra (the clobber forces the frame).
 void func_001003b0() { asm volatile("" ::: "$31"); }
 
-// One-shot latch: returns the flag, setting it to 1 the first time.
-extern s32 D_0032ba84;
-s32 func_001041c0() {
-    s32 v = D_0032ba84;
-    if (v == 0) {
-        D_0032ba84 = 1;
-        v = 1;
-    }
-    return v;
-}
+// 001041c0: moved to src/common/gumibattle.cpp
 
 // Push onto a downward-growing stack of words.
 extern s32 D_0032bb28;

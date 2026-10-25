@@ -185,14 +185,7 @@ extern u8 D_01d5ba20;
 extern u8 D_01d9e348;
 extern u8 D_01d9e6f0;
 
-void func_00102f80(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r13, r14, r15;
-    r15 = (u32)(0x0033u << 16);
-    r13 = (u32)((s32)0u + (-2));
-    r14 = *(u32*)((u32)r15 + (s32)(-17960));
-    r14 = (u32)(r14 & r13);
-    *(u32*)((u32)r15 + (s32)(-17960)) = r14;
-}
+// 00102f80: moved to src/common/title.cpp
 
 u32 func_001063c0(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2, r14, r15;

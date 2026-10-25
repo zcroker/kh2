@@ -16,6 +16,7 @@ class ObjCamera {
 public:
     static ObjCamera* getInstance();
     static s32 getMode();
+    void returnMode();
     void initRadius();
     void initLockRadius();
 };
