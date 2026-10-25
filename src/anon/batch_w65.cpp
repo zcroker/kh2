@@ -203,14 +203,7 @@ struct Ent12 { u32 a, b, c; };
 extern s32 D_0034ed00;
 extern Ent12 D_01c60588[];
 u32 func_0019b380(u32, u32);
-u32 func_00182e98(u32 x) {
-    s32 i;
-    for (i = 0; i < D_0034ed00; i++) {
-        u32 r = func_0019b380(D_01c60588[i].c, x);
-        if (r) return r;
-    }
-    return 0;
-}
+// 00182e98: moved to src/anon/unit_00182780.cpp
 
 s32 func_0018b198(void*);
 void func_001ad9c8(void*);  // float_accumulate_clamped

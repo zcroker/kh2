@@ -125,12 +125,7 @@ struct S182 {
     u32 type;
     u32 arg;
 };
-void func_00182838(S182* p, u32 value, u32 arg, u8 flag) {
-    p->value = value;
-    p->type = 1;
-    p->arg = arg;
-    if (flag) p->type = 3;
-}
+// 00182838 YS::UNIT::UNIT: moved to src/anon/unit_00182780.cpp
 
 u8 func_0019c898(u32);
 u32 func_0016a070();

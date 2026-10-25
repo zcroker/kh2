@@ -417,18 +417,7 @@ Item* func_00199970(s32);
 void func_00199aa0(Item*, void*, u8*);
 void* func_00182780(s32);
 void func_001827e8(void*, void*, Item*, u8);
-void func_001829b0(void* o, u8 f)
-{
-    Hdr* h = func_00181ba8(o);
-    if (!h) return;
-    u8* p = h->data;
-    for (s32 i = 0; i < h->n; i++) {
-        Item* it = func_00199970(56);
-        func_00199aa0(it, o, p);
-        func_001827e8(func_00182780(12), o, it, f);
-        p = it->f52 + it->def->f12 * 8;
-    }
-}
+// 001829b0: moved to src/anon/unit_00182780.cpp
 }
 }
 

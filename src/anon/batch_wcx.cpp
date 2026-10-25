@@ -750,14 +750,7 @@ extern s32 D_0034ed00;
 void func_00182c60(void);
 void func_00102c18(s32, s32, void (*)(void));
 void func_00182940(E12*);
-void func_00182b18(void)
-{
-    func_00102c18(1, 12000, func_00182c60);
-    for (s32 i = 0; i < D_0034ed00; i++) {
-        u32 off = i * 12;
-        if (!(*(u32*)(off + (u8*)&D_01c60588[0].flags) & 2)) func_00182940((E12*)(off + (u8*)D_01c60588));
-    }
-}
+// 00182b18: moved to src/anon/unit_00182780.cpp
 struct B32 { f32 a, y, c; u32 d; V4 pos; };
 void func_0019cbe8(u8*);
 u32* func_00177860(u8*);
@@ -2666,12 +2659,7 @@ struct E12 { u32 a; u32 flags; u32 c; };
 extern E12 D_01c60588[];
 extern s32 D_0034ed00;
 void func_00182940(E12*);
-void func_00182bc0(s8* k)
-{
-    u32 key = k[0] | k[1] << 8 | k[2] << 16 | k[3] << 24;
-    for (s32 i = 0; i < D_0034ed00; i++)
-        if (D_01c60588[i].a == key) func_00182940(&D_01c60588[i]);
-}
+// 00182bc0: moved to src/anon/unit_00182780.cpp
 f32 func_0017ce10(f32);
 void func_0017d1d8(M4*, u32, f32);
 struct B32 { f32 a, y, c; u32 d; V4 pos; };

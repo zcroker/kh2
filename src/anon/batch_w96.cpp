@@ -323,30 +323,7 @@ void func_0015e9e0(u32 p) {
     func_0014b628(s2, 0x2006a00664022800ULL);
 }
 
-void func_00182c60(void) {
-    u8* n = 0;
-    while ((n = func_00186078(n)) != 0) {
-        *(u32*)(n + 2728) |= 0x10000;
-    }
-    if (func_0019ba60(D_0034ed04) && !(*(u32*)(D_0034ed04 + 2040) & 4)) {
-        Q16 q;
-        Q16* v = func_0016c028(D_0034ed04);  // obj_get_attach_or_alt
-        s32 i;
-        if (&q != v) QCOPY(&q, v);
-        if (*(u32*)(D_0034ed04 + 1416) & 0x80) {
-            *(s32*)(D_0034ed04 + 2892) = -1;
-        }
-        for (i = 0; i < D_0034ed00; i++) {
-            func_00182980(&D_01c60588[i], &q);
-        }
-    }
-    n = 0;
-    while ((n = func_00186078(n)) != 0) {
-        if (*(u32*)(n + 2728) & 0x10000) {
-            *(s32*)(n + 2728) = -1;
-        }
-    }
-}
+// 00182c60: moved to src/anon/unit_00182780.cpp
 
 // Is point p within (radius r, height h) of actor o?
 s32 func_001a4ff8(u8* o, Vq_w96* p, f32 r, f32 h) {

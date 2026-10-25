@@ -12195,45 +12195,16 @@ void func_001826c8(f32 f12) {
 
 extern "C" u32 func_00199d38(...);
 
-void func_00182910(u32 a0) {
-    u32 t7 = *(u32*)((u32)a0 + (s32)(4));
-    t7 = (u32)(t7 & 1u);
-    if (t7 == 0u) {
-        a0 = *(u32*)((u32)a0 + (s32)(8));
-        func_00199d38(a0);
-        return;
-    }
-}
+// 00182910 YS::UNIT::update: moved to src/anon/unit_00182780.cpp
 
 extern "C" u32 func_00196908(...);
 extern "C" u32 func_00199dc0(...);
 
-void func_00182940(u32 a0) {
-    u32 t7 = (u32)-3;
-    u32 t6 = *(u32*)((u32)a0 + (s32)(4));
-    t7 = (u32)(t6 & t7);
-    t6 = (u32)(t6 & 1u);
-    *(u32*)((u32)a0 + (s32)(4)) = t7;
-    if (t6 != 0u) {
-        u32 n = *(u32*)((u32)a0 + (s32)(8));
-        func_00196908(n);
-        return;
-    }
-    u32 n = *(u32*)((u32)a0 + (s32)(8));
-    func_00199dc0(n);
-}
+// 00182940 YS::UNIT::activate: moved to src/anon/unit_00182780.cpp
 
 extern "C" u32 func_0019a048(...);
 
-void func_00182980(u32 a0) {
-    u32 t7 = *(u32*)((u32)a0 + (s32)(4));
-    t7 = (u32)(t7 & 1u);
-    if (t7 == 0u) {
-        a0 = *(u32*)((u32)a0 + (s32)(8));
-        func_0019a048(a0);
-        return;
-    }
-}
+// 00182980 YS::UNIT::draw: moved to src/anon/unit_00182780.cpp
 
 void func_001842c0(u32 a0) {
     f32 f12 = 0.0f;

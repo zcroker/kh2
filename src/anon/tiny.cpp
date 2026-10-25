@@ -663,15 +663,9 @@ void func_00167218(u32 a0, u32 a1, u32 a2, u32 a3) {
     *(u8*)((u32)b + (16960)) = (u8)0;
 }
 
-void func_00182df0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 b = (0x0035u << 16);
-    *(u32*)((u32)b + (-4860)) = (u32)0;
-}
+// 00182df0: moved to src/anon/unit_00182780.cpp
 
-void func_00182f28(u32 a0, u32 a1, u32 a2, u32 a3) {  // store_global_35ed04
-    u32 b = (0x0035u << 16);
-    *(u32*)((u32)b + (-4860)) = (u32)a0;
-}
+// 00182f28: moved to src/anon/unit_00182780.cpp
 
 void func_00185880(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 b = (0x01c6u << 16);

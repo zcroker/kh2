@@ -3850,33 +3850,9 @@ void func_00181d30(u32 a0, u32 a1, u32 a2) {
     }
 }
 
-void func_00182860(u32 a0) {
-    u32 t7 = *(u32 *)(a0 + 4);
-    t7 &= 1;
-    if (t7 != 0) {
-        return;
-    }
-    u32 p = *(u32 *)(a0 + 8);
-    if (p == 0) {
-        return;
-    }
-    func_00199cd0(p);
-    func_00199998(p);
-}
+// 00182860 YS::UNIT::~UNIT: moved to src/anon/unit_00182780.cpp
 
-void func_001828b8(u32 a0) {
-    u32 t7 = *(u32 *)(a0 + 4);
-    t7 &= 1;
-    if (t7 != 0) {
-        return;
-    }
-    u32 p = *(u32 *)(a0 + 8);
-    if (p == 0) {
-        return;
-    }
-    func_00199cd0(p);
-    func_00199998(p);
-}
+// 001828b8 YS::UNIT::~UNIT: moved to src/anon/unit_00182780.cpp
 
 u32 func_001844e8(u32 a0) {
     u32 s0 = a0;

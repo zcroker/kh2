@@ -11050,20 +11050,7 @@ static inline void Del182fa0(E182fa0* a)
     }
 }
 void wtarget_00182fa0(s32 init, s32 prio, u32, u32) asm("_Z16wtarget_00182fa0jjjj");
-void wtarget_00182fa0(s32 init, s32 prio, u32, u32)
-{
-    if (prio == 0xffff && init == 1) {
-        E182fa0* p = D_01c60588;
-        s32 n;
-        for (n = 63; n != -1; n--) {
-            p->b = 0;
-            p++;
-        }
-    }
-    if (prio == 0xffff && init == 0) {
-        Del182fa0(D_01c60588);
-    }
-}
+// 00182fa0: static initialiser, now made by gcc in src/anon/unit_00182780.cpp
 
 // --------------------
 extern u8 D_00351e18[];

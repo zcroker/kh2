@@ -196,15 +196,7 @@ void func_001786e0(u8* p) {
 
 }
 
-void u_call0_00182d80() {
-    for (s32 i = D_0034ed00 - 1; i >= 0; i--) {
-        W41E12* e = &D_01c60588[i];
-        if (e) {
-            func_001828b8(e);
-            func_001827a8(e);
-        }
-    }
-}
+// 00182d80: moved to src/anon/unit_00182780.cpp
 
 extern "C" {
 

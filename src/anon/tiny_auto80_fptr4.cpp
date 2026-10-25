@@ -830,38 +830,11 @@ u32 func_00181a70(u32 a0, u32 a1, u32 a2, u32 a3) {
     return r2;
 }
 
-void func_001827a8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r14, r15;
-    r14 = (u32)(0x0035u << 16);
-    r15 = *(u32*)((u32)r14 + (s32)(-4864));
-    r15 = (u32)((s32)r15 + (-1));
-    *(u32*)((u32)r14 + (s32)(-4864)) = r15;
-}
+// 001827a8 YS::UNIT::operator delete: moved to src/anon/unit_00182780.cpp
 
-void func_001827e8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r15;
-    *(u32*)((u32)r4 + (s32)(0)) = r5;
-    r7 = (u32)(r7 & 0x00ffu);
-    *(u32*)((u32)r4 + (s32)(8)) = r6;
-    *(u32*)((u32)r4 + (s32)(4)) = 0u;
-    if (r7 != 0u) {
-        r15 = (u32)((s32)0u + (2));
-        *(u32*)((u32)r4 + (s32)(4)) = r15;
-    }
-}
+// 001827e8 YS::UNIT::UNIT: moved to src/anon/unit_00182780.cpp
 
-u32 func_00182a78(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2, r16;
-    r16 = r4;
-    r4 = (u32)((s32)0u + (12));
-    u32 (*fp_call4_00182780)(u32, u32, u32, u32) = func_00182780;
-    r2 = fp_call4_00182780(r4, r5, r6, r7);
-    r6 = r16;
-    r4 = r2;
-    r5 = 0u;
-    r7 = 0u;
-    return func_00182838(r4, r5, r6, r7);
-}
+// 00182a78: moved to src/anon/unit_00182780.cpp
 
 u32 func_001872e0(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2;
