@@ -5668,62 +5668,11 @@ u32 func_001b7850(u32 a0, u32 a1, u32 a2) {
     return t6;
 }
 
-void func_001b8348() {
-    u32 buf[12];
-    func_001b82d8(buf);
+// 001b8348 YS::LIBRETTO::Init: moved to src/anon/unit_001b82d8.cpp
 
-    u32 v0 = func_001708f8(buf, -1);
-    D_01d48cc0 = v0;
-    v0 = func_00168b38(v0, 2, 0);  // entry_array_find_nth
-    D_01d48cc4 = *(u32*)(v0 + 8);
+// 001b8450: moved to src/anon/unit_001b82d8.cpp
 
-    u32 t4 = 0;
-    u32* t7 = &D_01d48cc8;
-    u32* t6 = t7 + 40;
-    do {
-        *t6 = t4;
-        t4 = t4 + 1;
-        t6 = t6 + 1;
-    } while ((s32)t4 < 8);
-
-    D_01d48d88 = 8;
-}
-
-void func_001b8450(u32 a0, u32 a1, u32 a2) {
-    u32 s1 = a0;
-    u32 s0 = a1;
-    u32 s2 = a2;
-    u32 v0 = func_001b83f0(s0);  // to_2fd248_block8
-    *(u32*)(s1 + 0) = s0;
-    if (v0 != 0) {
-        *(u32*)(s1 + 4) = *(u16*)(v0 + 2);
-    } else {
-        *(u32*)(s1 + 4) = 0;
-    }
-    *(u32*)(s1 + 12) = s2;
-    *(u32*)(s1 + 8) = 0;
-    *(u32*)(s1 + 16) = 0;
-}
-
-void func_001b8718(u32 a0, u32 a1) {
-    if (a1 != 0xffff) {
-        return;
-    }
-    if (a0 != 1) {
-        return;
-    }
-
-    u32* p = &D_01d48cc8;
-    s32 i = 7;
-    do {
-        *(u32*)((u8*)p + 0) = 0;
-        *(u32*)((u8*)p + 4) = 0;
-        i = i - 1;
-        p = (u32*)((u8*)p + 20);
-    } while (i != -1);
-
-    func_00320418((u32)&D_01d48cc8);
-}
+// 001b8718: static initialiser, now made by gcc in src/anon/unit_001b82d8.cpp
 
 void func_001b8bf8(u32 a0, u32 a1) {
     u32 s1 = 0;

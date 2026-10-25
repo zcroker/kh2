@@ -222,11 +222,7 @@ void func_001b8228(void) {
 struct E20 { u32 w[5]; };
 struct G1d48cc8 { E20 e[8]; s32 list[8]; s32 n; };
 extern G1d48cc8 D_01d48cc8;
-void func_001b86e0(E20* e) {  // alloc_from_pool_magic_c
-    s32 n = D_01d48cc8.n;
-    D_01d48cc8.n = n + 1;
-    D_01d48cc8.list[n] = e - D_01d48cc8.e;
-}
+// 001b86e0: moved to src/anon/unit_001b82d8.cpp
 
 // --- 001c0458
 // Clear bit o->id in the bitset at bits+4.

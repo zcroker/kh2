@@ -13535,19 +13535,7 @@ void func_001bb438(void) {
 extern "C" u32 func_001d3328(...);
 extern u8 D_01d5ba10;
 
-void func_001d3588(u32 a0, u32 a1) {
-    u32 t7 = 0xffffu;
-    if (a1 != t7) {
-        return;
-    }
-    t7 = 1u;
-    if (a0 != t7) {
-        return;
-    }
-    u32 t0 = (u32)&D_01d5ba10;
-    a0 = t0;
-    func_001d3328(a0);
-}
+// 001d3588: static initialiser, now made by gcc in src/anon/unit_001d30b0.cpp
 
 extern "C" u32 func_001d6a80(...);
 extern u8 D_003527e0;
@@ -19105,19 +19093,9 @@ s32 func_001b7818(s32 a0) {
     return a0;
 }
 
-u32 func_001b82d8(u32 a0) {
-    u32 s0 = a0;
-    u8* p = (u8*)0x00330000;
-    u32 v0 = func_00105ee8(p[-17696]);
-    u32* q = (u32*)0x00350000;
-    return func_002fee78(s0, q[1137], v0);
-}
+// 001b82d8: moved to src/anon/unit_001b82d8.cpp
 
-void func_001b8318() {
-    u8 buf[48];
-    func_001b82d8((u32)buf);
-    func_00170518(buf, 1040, 0);
-}
+// 001b8318: moved to src/anon/unit_001b82d8.cpp
 
 void func_001bae08() {
     u32** g = (u32**)0x01d50000;
@@ -19575,26 +19553,9 @@ void* func_001d2e28(void* a0, u32 a1, u32 a2) {
     return a0;
 }
 
-void func_001d32e8(u8* a0, u32 a1, u32 a2) {
-    if (*(u32*)(a0 + 4) == a1) {
-        *(u32*)(a0 + 4) = a2;
-    }
-}
+// 001d32e8: moved to src/anon/unit_001d30b0.cpp
 
-u32 func_001d3558(u8* a0, u8* a1) {
-    u8* t7 = a0 + 8;
-    u32 t7b = ((u32)a1 < (u32)t7);
-    if (t7b != 0) {
-        return 0;
-    }
-
-    s32 t7i = *(s32*)(a0 + 4);
-    s32 t6 = 96;
-    t7i = t7i * t6;
-    u8* t7p = a0 + t7i;
-    t7p = t7p + 8;
-    return ((u32)a1 < (u32)t7p);
-}
+// 001d3558: moved to src/anon/unit_001d30b0.cpp
 
 void* func_001d3698(void* a0, u8* a1) {
     u32 t7 = *(u32*)(a1 + 16);

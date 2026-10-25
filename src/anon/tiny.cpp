@@ -919,10 +919,7 @@ void func_001d23d0(u32 a0, u32 a1, u32 a2, u32 a3) {
     *(u32*)((u32)b + (-17916)) = (u32)a0;
 }
 
-void func_001d30b0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 b = (0x01d6u << 16);
-    *(u32*)((u32)b + (-17908)) = (u32)a0;
-}
+// 001d30b0: moved to src/anon/unit_001d30b0.cpp
 
 void func_001d3c08(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 b = (0x01d6u << 16);
@@ -2008,11 +2005,7 @@ void func_001d16e8(u32 a0, u32 a1, u32 a2, u32 a3) {
     *(u32*)((u32)a0 + (36)) = a2;
 }
 
-void func_001d30f8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a3;
-    *(u32*)((u32)a0 + (0)) = a1;
-    *(u32*)((u32)a0 + (4)) = a2;
-}
+// 001d30f8: moved to src/anon/unit_001d30b0.cpp
 
 u32 func_001dc9e0(u32 a0, u32 a1, u32 a2, u32 a3) {
     (void)a1;

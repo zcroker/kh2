@@ -96,7 +96,7 @@ void func_00198e48(void* self, s32 v) { *(s32*)((char*)self + 12) = v; }
 
 void func_001b24c0(void* self) {}
 
-void func_001d3388(void* self) {}
+// 001d3388: moved to src/anon/unit_001d30b0.cpp
 
 void func_001d3b60(void* self) {}
 

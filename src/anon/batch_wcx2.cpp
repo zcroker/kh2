@@ -8455,37 +8455,7 @@ s32 func_001991a8(s32, s32);
 s32 func_0014aba8_x8455() asm("func_0014aba8");
 void func_0014aa58_x8456(s32, s32, s32) asm("func_0014aa58");
 void func_0014aa80_x8457(s32, s32, s32) asm("func_0014aa80");
-s32 func_001b8520(C1b8520* c, X1b8520* x) {
-    s32 t;
-    switch (c->type) {
-    case 2:
-        func_00102470_x8453(c->v.f, x->id);
-        return 1;
-    case 3:
-        func_001991a8(c->v.i, 0);
-        return 1;
-    case 4:
-        return 0;
-    case 5:
-        t = (s32)(c->v.f * 0.5f);
-        func_0014aa58_x8456(func_0014aba8_x8455(), t, 0);
-        return 1;
-    case 6:
-        t = (s32)(c->v.f * 0.5f);
-        func_0014aa80_x8457(func_0014aba8_x8455(), t, 0);
-        return 1;
-    case 7:
-        t = (s32)(c->v.f * 0.5f);
-        func_0014aa58_x8456(func_0014aba8_x8455(), t, 1);
-        return 1;
-    case 8:
-        t = (s32)(c->v.f * 0.5f);
-        func_0014aa80_x8457(func_0014aba8_x8455(), t, 1);
-        return 1;
-    default:
-        return x->fn(c, x);
-    }
-}
+// 001b8520: moved to src/anon/unit_001b82d8.cpp
 
 // --------------------
 struct C1bb2c8 { u16 type; u16 pad; union { f32 f; s32 i; } a; s32 b; s32 c; u16 n; };
@@ -9291,34 +9261,7 @@ s32 func_0019ba60(u8*);
 V1d3148* func_0016c028_x9291(u8*) asm("func_0016c028");
 s32 func_001dc9e0(u8*);
 V1d3148* func_001dc5f8_x9293(u8*) asm("func_001dc5f8");
-void func_001d3148(O1d3148* o) {
-    switch (o->state) {
-    case 2:
-        if (func_0019ba60(o->obj)) o->m = *(M1d3148*)(o->obj + 1712);
-        o->state = 0;
-        break;
-    case 3:
-        if (func_0019ba60(o->obj)) o->m = *(M1d3148*)(o->obj + 64);
-        o->state = 7;
-    case 7:
-        if (!func_0019ba60(o->obj)) {
-            o->state = 0;
-            break;
-        }
-        (o->m.t = *func_0016c028_x9291(o->obj)).f[3] = 1.0f;
-        break;
-    case 4:
-        if (func_0019ba60(D_00350cc8)) o->m = *(M1d3148*)(D_00350cc8 + 64);
-        o->state = 8;
-    case 8:
-        if (!D_00350ccc || !func_001dc9e0(D_00350ccc)) {
-            o->state = 0;
-            break;
-        }
-        (o->m.t = *func_001dc5f8_x9293(D_00350ccc)).f[3] = 1.0f;
-        break;
-    }
-}
+// 001d3148: moved to src/anon/unit_001d30b0.cpp
 
 // --------------------
 struct S227e30 { u8* base; s32 pad; s32 ofs; };

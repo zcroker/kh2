@@ -1074,14 +1074,7 @@ void func_001a98e8(u32 *a0, u32 a1, u32 a2, u32 a3, u32 a4) {
     func_001a9970(a0, a3);
 }
 
-void func_001d3328(u32 *a0) {
-    s32 t7 = 2;
-    do {
-        *a0 = 0;
-        t7 -= 1;
-        a0 += 1;
-    } while (t7 >= 0);
-}
+// 001d3328: moved to src/anon/unit_001d30b0.cpp
 
 u32 func_001b3bb8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6,
                   u32 a7) {

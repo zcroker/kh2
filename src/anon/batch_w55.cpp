@@ -482,17 +482,7 @@ void func_001d2690(RingW55* r, u32 b, f32 f) {
     e->f = f * 60.0f;
 }
 
-void* func_001d34d0(void* p) {
-    void** t = D_01d5ba10;
-    s32 i;
-    for (i = 0; i < 3; i++, t++) {
-        if (*t && (!p || func_001d3558(*t, p))) {
-            p = func_001d3498(*t, p);
-            if (p) return p;
-        }
-    }
-    return 0;
-}
+// 001d34d0: moved to src/anon/unit_001d30b0.cpp
 
 void func_001e9078(u8* a, u8* b, u8* c) {
     *(u32*)(a + **(s32**)(c + 12) + 160) = *(u32*)(b + 4);

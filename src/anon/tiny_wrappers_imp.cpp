@@ -199,12 +199,7 @@ u32 func_001afa30(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_001afa50(r4, r5, r6, r7);
 }
 
-u32 func_001b83d0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r15 = 0u;
-    r15 = (u32)(0x01d5u << 16);
-    r4 = *(u32*)((u32)r15 + (s32)(-29504));
-    return func_00170950(r4, r5, r6, r7);
-}
+// 001b83d0 YS::LIBRETTO::Ensure: moved to src/anon/unit_001b82d8.cpp
 
 u32 func_001c8cd8(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r15 = 0u;

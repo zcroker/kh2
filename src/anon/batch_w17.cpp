@@ -194,10 +194,7 @@ void func_0016ed50(u32, u32, u32);
 extern u8* D_01d5ba0c;
 u8 func_002fd248_u8(u32, void*, u32, u32, void*) asm("func_002fd248");
 extern u32 D_003216a8;
-u8 func_001d30c0(u32 a) {
-    u8* d = D_01d5ba0c;
-    return func_002fd248_u8(a, d + 8, *(u32*)(d + 4), 8, &D_003216a8);
-}
+// 001d30c0: moved to src/anon/unit_001d30b0.cpp
 
 extern u8* D_01d5ba98;
 

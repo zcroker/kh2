@@ -19,3 +19,5 @@ src/anon/unit_002e7658.cpp	002e7658	002e7ae0	.data@01e2bf10,.rodata@00376070	-G0
 src/common/title.cpp	00102d10	00103100	.data@0032b9a0,.rodata@00369d88	-G0 -g
 src/anon/unit_001dbbe0.cpp	001dbbe0	001dbfd0	.data@00352ad0,.bss@01d5bab0,.rodata@0036e7b0	-G0
 src/anon/unit_001e0398.cpp	001e0398	001e0808	.data@00352b60,.rodata@0036e854	-G0 -g -fno-strict-aliasing
+src/anon/unit_001b82d8.cpp	001b82d8	001b87a0	.bss@01d48cc0,.rodata@0036db48	-G0
+src/anon/unit_001d30b0.cpp	001d30b0	001d35e0	.bss@01d5ba0c,.rodata@0036e3fc	-G0
