@@ -506,9 +506,7 @@ u32 func_00138d48(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_00239fd0(((u32)(a0) + 24u), a1, a2, a3);
 }
 
-u32 func_0013a898(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_0013a820(0x00000001u, 0x0000ffffu, a2, a3);
-}
+// 0013a898: _GLOBAL__I_ stub, now made by gcc in src/harata/libdk/field2dd.cpp
 
 u32 func_0013df98(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_0013df48(0x00000001u, 0x0000ffffu, a2, a3);

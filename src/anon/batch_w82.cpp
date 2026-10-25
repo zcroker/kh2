@@ -84,23 +84,7 @@ s32 func_0016f460(u32);
 void func_0031e328(void*, Node0017*);
 void func_00170188(Node0017*);
 
-// Builds the table of (25, 24) resource entries from the resource at D_004193c0.
-void func_0013a368(void)
-{
-    s32 i;
-    D_00347fd8.res = (u32)D_004193c0;
-    D_00347fd8.count = func_00168aa0(D_004193c0, 25);
-    for (i = 0; i < D_00347fd8.count; i++) {
-        D_00347fd8.e[i].a = *(u32*)(func_00168b38((void*)D_00347fd8.res, 25, i) + 8);  // entry_array_find_nth
-        if (func_00168b38((void*)D_00347fd8.res, 24, 0))
-            D_00347fd8.e[i].b = *(u32*)(func_00168b38((void*)D_00347fd8.res, 24, i) + 8);  // entry_array_find_nth
-        else
-            D_00347fd8.e[i].b = 0;
-    }
-    if (func_0013d498()) return;
-    func_0013b3f8();
-    func_0013a4a8();
-}
+// 0013a368: moved to src/harata/libdk/field2dd.cpp
 
 void func_0013fdf0(u8* o, u8* p, f32 s)
 {
