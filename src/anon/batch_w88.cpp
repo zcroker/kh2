@@ -189,13 +189,7 @@ s32 func_00133078(void* a, u32* tab, u32, u32 n, u32 x) {
 
 // 0013a6f8: moved to src/harata/libdk/field2dd.cpp
 
-void func_001589d0(u8* p) {
-    M4* m = (M4*)(D_004f35a0 + 64);
-    ApplyTo((V4*)(p + 96), m, (V4*)(D_004f35a0 + 2928));
-    ApplyTo((V4*)(p + 128), m, (V4*)(D_004f35a0 + 2944));
-    VAssign((V4*)(p + 16), (V4*)(p + 96));
-    VAssign((V4*)p, (V4*)(p + 128));
-}
+// 001589d0: moved to src/harata/libdk/bookcamera.cpp
 
 void func_0015b680(V4* pos, u32 a, u32 b) {
     u8* o = func_001063c0(2880, func_001050c8());

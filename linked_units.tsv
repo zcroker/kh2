@@ -26,3 +26,4 @@ src/anon/unit_0015cdb0.cpp	0015cdb0	0015d440	.data@0034af38,.bss@004f3760,.rodat
 src/yasui/libys/status.cpp	00191758	00191f20	.data@0034f240,.bss@01c61958,.rodata@0036cd58	-G0
 src/anon/unit_00182780.cpp	00182780	00183088	.data@0034ed00,.bss@01c60588	-G0
 src/yasui/libys/light.cpp	00158900	001589d0	.data@0034a998	-G0
+src/harata/libdk/bookcamera.cpp	001589d0	00159070	.data@0034a9b0,.bss@004f35a0,.rodata@0036b314	-G0 -fno-strict-aliasing

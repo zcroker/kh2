@@ -246,22 +246,7 @@ extern V4 D_0034a9b0;
 void func_0011b6a8(M4*);
 void func_0011b720(M4*, f32);
 f32 func_0017ce80(f32, f32, f32);
-void func_00158c88(u8* p) {
-    VAssign((V4*)(p + 0x80), &D_0034a9b0);
-    f32 d = *(f32*)(p + 0x48) - *(f32*)(p + 0xd0);
-    f32 dt = D_00349e10;
-    f32 h = *(f32*)(p + 0xd8) * (d * d);
-    *(f32*)(p + 0x4c) = func_0017ce80(*(f32*)(p + 0x4c), *(f32*)(p + 0x50), D_004f35a8 * dt);
-    V4 v;
-    v.w = v.y = v.x = 0.0f;
-    v.z = *(f32*)(p + 0x48);
-    M4 m;
-    func_0011b6a8(&m);
-    func_0011b720(&m, *(f32*)(p + 0x4c));
-    ApplyTo(&v, &m, &v);
-    VAddTo((V4*)(p + 0x60), (V4*)(p + 0x80), &v);
-    *(f32*)(p + 0x64) = *(f32*)(p + 0x84) - -220.0f - h;
-}
+// 00158c88: moved to src/harata/libdk/bookcamera.cpp
 
 // GS register setup for two draw contexts (constructor).
 extern u8 D_0034c6e0[];

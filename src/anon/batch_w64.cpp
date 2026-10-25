@@ -164,12 +164,7 @@ extern V16 D_0034a9d0;
 extern f32 D_0034a9e0;
 extern f32 D_0034a9e4;
 
-void func_00158ac8(u8* p) {
-    vcopy(&D_0034a9c0, p + 144);
-    vcopy(&D_0034a9d0, p + 112);
-    D_0034a9e0 = *(f32*)(p + 72);
-    D_0034a9e4 = *(f32*)(p + 80);
-}
+// 00158ac8: moved to src/harata/libdk/bookcamera.cpp
 
 // ---------------------------------------------------------------------------
 extern u8* D_004f3b38;

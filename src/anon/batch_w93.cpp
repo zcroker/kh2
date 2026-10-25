@@ -151,23 +151,7 @@ f32 func_0017ce10(f32);
 void func_00158c88(W93B*);
 
 // Steps the value toward its target (or snaps it while the hold flag is set).
-void func_00158b78(W93A* a, W93B* b)
-{
-    f32 k = D_00349e10;
-    if (a->flags & 0x20000) {
-        b->out = func_0013fd10(b);
-        func_0013fd78(b);
-        W93Copy(&b->cur, &b->tgt);
-    } else if (func_001584f8(a)) {
-        b->val += D_004f35a4 * a->speed * k;
-        b->out = b->val = func_0017ce10(b->val);
-    } else if (func_00158548(a)) {
-        b->val -= D_004f35a4 * a->speed * k;
-        b->out = b->val = func_0017ce10(b->val);
-    }
-    if (!func_0019c4d0(b->f68)) func_0013fdf0(b, a, k);
-    func_00158c88(b);
-}
+// 00158b78: moved to src/harata/libdk/bookcamera.cpp
 
 struct W93Orb { u8 pad[4]; f32 dist; f32 radius; u8 p2[4]; W93V center; };
 struct W93Pos { u8 pad[32]; W93V pos; };
