@@ -116,10 +116,7 @@ u32 func_001b7fd0(void) {
 void func_002fd248(u32, void*, u32, u32, void*);
 extern u32* D_01d48cc4;
 extern u8 D_00320408;
-void func_001b83f0(u32 a) {  // to_2fd248_block8
-    u32* p = D_01d48cc4;
-    func_002fd248(a, p + 2, p[1], 8, &D_00320408);
-}
+// 001b83f0: moved to src/anon/unit_001b82d8.cpp
 
 void func_001be4e0(u8*, u32);
 void func_002ba2e8(u32, u32);

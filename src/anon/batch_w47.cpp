@@ -213,14 +213,7 @@ struct S1b8 { u32 f0; u32 f4; u32 f8; u32 pad; u32 f16; };
 u32 func_001b8420(u32);
 u32 func_001db610(u32, void*, S1b8*);
 extern u8 D_001b8520[];
-u32 func_001b84b8(u32 a, u32 b, u32, u32) {
-    S1b8* p = (S1b8*)a;
-    if (!p->f4) return 0;
-    p->f16 = b;
-    if (!p->f8) p->f8 = func_001b8420(p->f0);
-    p->f8 = func_001db610(p->f8, D_001b8520, p);
-    return p->f8 != 0;
-}
+// 001b84b8: moved to src/anon/unit_001b82d8.cpp
 
 s32 func_001b9d40(u8* p) {  // vtable_call_slot64_flags
     s32 r = 0;

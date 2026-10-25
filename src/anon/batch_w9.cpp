@@ -313,12 +313,4 @@ void wtarget_0016b070(u32 a0, u32 a1, u32, u32) {
     *(u32*)(p + 2040) |= 8;
 }
 
-u32 ctarget_001d3350(u32 a0, u32 a1, u32, u32) {
-    u32* p = (u32*)a0;
-    s32 i;
-    for (i = 0; i < 3; i++) {
-        if (*p == a1) return (u32)p;
-        p++;
-    }
-    return 0;
-}
+// 001d3350: moved to src/anon/unit_001d30b0.cpp

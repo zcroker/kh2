@@ -185,11 +185,7 @@ void func_001d28f0(void** p) {
     func_00105110(p);
 }
 
-u8* func_001d3498(u8* p, u8* cur) {
-    if (!cur) return p + 8;
-    if (cur == p + 8 + (*(s32*)(p + 4) - 1) * 96) return 0;
-    return cur + 96;
-}
+// 001d3498: moved to src/anon/unit_001d30b0.cpp
 
 struct Ent1d7 { u32 a; u32 b; };
 struct Obj1d7 { u32 hdr; Ent1d7 e[4]; };

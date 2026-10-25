@@ -212,12 +212,7 @@ void* func_001b5a10(void) {
 }
 
 // Takes a slot from the free list and initialises it.
-void* func_001b8680(u32 a, u32 b) {
-    SlotPool* pool = &D_01d48cc8;
-    Slot20* s = &pool->slot[pool->free[--pool->nfree]];
-    func_001b8450(s, a, b);
-    return s;
-}
+// 001b8680: moved to src/anon/unit_001b82d8.cpp
 
 void func_001ced10(u8* p, u32 a, u32 b, u32 c) {
     func_00177dc8(p, a, 0, b, c);

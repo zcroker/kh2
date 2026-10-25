@@ -326,12 +326,7 @@ void func_001c4498(u8* p, u32 a1) {
 u32* func_001d3350(void*, s32);
 void func_001d3388(u32);
 extern u8 D_01d5ba10[];
-u32 func_001d3390(u32 a) {
-    u32* r = func_001d3350(D_01d5ba10, 0);
-    func_001d3388(a);
-    *r = a;
-    return a;
-}
+// 001d3390: moved to src/anon/unit_001d30b0.cpp
 
 void func_001d6a28(u8*);
 void func_0019ca20(u8*);

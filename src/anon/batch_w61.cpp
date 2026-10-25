@@ -262,17 +262,7 @@ void func_001cfe18(u8* p) {
 u32 func_002fd248(u32, u8*, u32, u32, void*);
 extern u8* D_01d5ba10[3];
 extern u8 D_003216b8[];
-u32 func_001d3408(u32 a0) {
-    u8** pp = D_01d5ba10;
-    for (s32 i = 0; i < 3; i++) {
-        u8* e = *pp++;
-        if (e) {
-            u32 v = func_002fd248(a0, e + 8, *(u32*)(e + 4), 96, D_003216b8);
-            if (v) return v;
-        }
-    }
-    return 0;
-}
+// 001d3408: moved to src/anon/unit_001d30b0.cpp
 
 u32* func_001ba158(void);
 void func_001963c8(u32);
