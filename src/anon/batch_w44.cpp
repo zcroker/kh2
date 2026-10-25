@@ -180,23 +180,7 @@ struct Pair { u32 a, b; };
 struct S347fb0 { u32 x, y; Pair e[4]; };
 extern S347fb0 D_00347fb0;
 extern Pair D_00347fd8[2];
-void wtarget_0013a820(u32 a, u32 b, u32, u32) {
-    if (b == 0xffff && a == 1) {
-        D_00347fb0.x = 0;
-        D_00347fb0.y = 0;
-        for (s32 i = 0; i < 4; i++) {
-            D_00347fb0.e[i].a = 0;
-            D_00347fb0.e[i].b = 0;
-        }
-    }
-    if (b == 0xffff && a == 1) {
-        Pair* q = D_00347fd8;
-        q[0].a = 0;
-        q[1].b = 0;
-        q[1].a = 0;
-        q[0].b = 0;
-    }
-}
+// 0013a820: static initialiser, now made by gcc in src/harata/libdk/field2dd.cpp
 
 // Default material check: no alpha offset, 255 scale, neutral 0x808080 colour.
 extern u8 D_00340eb0;

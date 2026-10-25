@@ -697,28 +697,7 @@ void func_002fee78(char*, const char*, ...);
 void func_002ff3fc(char*);  // strlen
 void func_001688c8(char*);
 void func_001684c0(char*, u8*, s32, s32);
-s32 func_0013a4c8(void)
-{
-    if (func_00242ea8()) return 0;
-    if (func_0014a1f0()) return 0;
-    if (!func_00242c70()) {
-        if (!D_00347fec) return 0;
-        D_00347fec = 0;
-        D_00347ff0 = -1;
-        func_002fee78(D_003b8ba0, D_0036acb0, D_0033caf4);
-    } else {
-        u32 room = D_0032bae0;
-        s32 n = func_00194a08();
-        if (room == D_00347fec && n == D_00347ff0) return 0;
-        D_00347ff0 = n;
-        D_00347fec = room;
-        func_002fee78(D_003b8ba0, D_0036acd0, D_0033caf4, func_00105ee8(room), n);
-    }
-    func_002ff3fc(D_003b8ba0);  // strlen
-    func_001688c8(D_003b8ba0);
-    func_001684c0(D_003b8ba0, D_004193c0, 0, 0);
-    return 1;
-}
+// 0013a4c8: moved to src/harata/libdk/field2dd.cpp
 
 extern u32 D_00348470[][3];
 extern u32 D_00348440[][3];

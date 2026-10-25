@@ -477,28 +477,11 @@ void func_00139740(u32 a0, u32 a1, u32 a2, u32 a3) {
     *(u32*)((u32)a0 + (12)) = t;
 }
 
-void func_0013a4a8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 b = (0x0034u << 16);
-    *(u8*)((u32)b + (32756)) = (u8)0;
-}
+// 0013a4a8: moved to src/harata/libdk/field2dd.cpp
 
-u32 func_0013a4b8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a0;
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    u32 b = (0x0034u << 16);
-    return (u32)(*(u8*)((u32)b + (32756)));
-}
+// 0013a4b8: moved to src/harata/libdk/field2dd.cpp
 
-u32 func_0013a800(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a0;
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    u32 b = (0x0034u << 16);
-    return (u32)(*(u32*)((u32)b + (32736)));
-}
+// 0013a800: moved to src/harata/libdk/field2dd.cpp
 
 u32 func_0013cb80(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_global_358050
     (void)a0;

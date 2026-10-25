@@ -187,18 +187,7 @@ s32 func_00133078(void* a, u32* tab, u32, u32 n, u32 x) {
     return total;
 }
 
-void func_0013a6f8(void) {
-    D_00347fb0.data = (u32)D_003b8bc0;
-    D_00347fb0.count = func_00168aa0((u32)D_003b8bc0, 25);
-    for (s32 i = 0; i < D_00347fb0.count; i++) {
-        D_00347fb0.e[i].y = *(u32*)(func_00168b38(D_00347fb0.data, 25, i) + 8);  // entry_array_find_nth
-        if (func_00168b38(D_00347fb0.data, 24, 0))
-            D_00347fb0.e[i].x = *(u32*)(func_00168b38(D_00347fb0.data, 24, i) + 8);  // entry_array_find_nth
-        else
-            D_00347fb0.e[i].x = 0;
-    }
-    func_0031ae58(D_00347fd8, D_004193c0);
-}
+// 0013a6f8: moved to src/harata/libdk/field2dd.cpp
 
 void func_001589d0(u8* p) {
     M4* m = (M4*)(D_004f35a0 + 64);

@@ -114,14 +114,7 @@ u32 func_00105ee8(u32);
 void func_002fee78(void*, const char*, u32, u32);
 void func_001688c8(void*);
 void func_001684c0(void*, void*, s32, s32);
-void func_0013a600(void) {
-    u32 v = D_0032bae0;
-    if (v == D_00347fe8) return;
-    D_00347fe8 = v;
-    func_002fee78(D_003b8b80, D_0036acf0, D_0033caf4, func_00105ee8(v));
-    func_001688c8(D_003b8b80);
-    func_001684c0(D_003b8b80, D_003b8bc0, 0, 0);
-}
+// 0013a600: moved to src/harata/libdk/field2dd.cpp
 
 extern f32 D_0034a9e0;
 extern f32 D_0034a9e4;
