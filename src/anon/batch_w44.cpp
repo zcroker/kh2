@@ -256,15 +256,7 @@ void func_001877a0(u8* o, u32 a, u32 b) {
 extern void* D_0034e948;
 extern u32 D_01c61960;
 extern u32 D_0034f240;
-s32 func_001918c8(void) {
-    if (!func_0019ba60(D_0034e948)) {
-        D_01c61960 = 0;
-        return 0;
-    }
-    if (func_001b58a8()) return 1;
-    if (D_0034f240 & 0x10000) return 1;
-    return func_001a6850() != 0;
-}
+// 001918c8: moved to src/yasui/libys/status.cpp
 
 extern Pair D_00350338[8];
 void func_00196a40(void) {

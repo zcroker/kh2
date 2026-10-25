@@ -216,19 +216,5 @@ extern u8* D_0034e948;
 s32 func_0019ba60(u8*);
 u8* func_00185da8(u8*);
 s32 func_0019c8a8(u8*);
-void func_00191cd8(void) {
-    D_0034f240 &= ~0x10000;
-    u8* pl = D_0034e948;
-    if (!func_0019ba60(pl)) return;
-    V4 a = *func_0016c028(pl);  // obj_get_attach_or_alt
-    u8* e = 0;
-    while ((e = func_00185da8(e)) != 0) {
-        if (*(u32*)(e + 1416) & 0x400) { D_0034f240 |= 0x10000; return; }
-        if (!IsMode2(e)) continue;
-        if (func_0019c8a8(e)) { D_0034f240 |= 0x10000; return; }
-        V4 d = *func_0016c028(e) - a;
-        d.y = 0.0f;
-        if (Length(&d) < 1200.0f) { D_0034f240 |= 0x10000; return; }
-    }
-}
+// 00191cd8: moved to src/yasui/libys/status.cpp
 }

@@ -202,19 +202,7 @@ void* func_00176b20(s32);
 s32 func_0019ba60(void*);
 s32 func_00185ac0(void*);
 
-s32 func_00191ab8(void) {
-    s32 i, j;
-    for (i = 0; i < 3; i++) {
-        u8* p = (u8*)func_00176b20(i);
-        if (!func_0019ba60(p)) continue;
-        void** q = (void**)(p + 2808);
-        for (j = 0; j < 2; j++) {
-            void* c = *q++;
-            if (func_0019ba60(c) && !func_00185ac0(c)) return 1;
-        }
-    }
-    return 0;
-}
+// 00191ab8: moved to src/yasui/libys/status.cpp
 
 /* ---- 00191f78 ---- */
 struct Slot4 { void* obj; u32 val; };

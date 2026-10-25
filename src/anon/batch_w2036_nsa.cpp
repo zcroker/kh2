@@ -14,15 +14,7 @@ extern V15d058 D_004f3760, D_004f3770, D_004f3780, D_004f3790, D_004f37a0, D_004
 V15d058 s15d058_spring(V15d058, V15d058, V15d058, f32, f32, f32, f32) asm("func_0013f6e8");
 static inline void U15d058(V15d058& cur, V15d058& goal, V15d058& vel, f32 dt) { cur = s15d058_spring(cur, goal, vel, dt, 2.5f, 0.5f, 1.0f); }
 
-void func_0015d058(V15d058* a, V15d058* b)
-{
-    D_004f37a0 = *b;
-    D_004f3780 = *a;
-    D_004f3760 = s15d058_spring(D_004f3760, D_004f37a0, D_004f37b0, 0.099999994f /* 0x3dcccccc */, 2.5f, 0.5f, 1.0f);
-    *b = D_004f3760;
-    U15d058(D_004f3770, D_004f3780, D_004f3790, 0.07f);
-    *a = D_004f3770;
-}
+// 0015d058: moved to src/anon/unit_0015cdb0.cpp
 }
 extern "C" {
 struct V158dc0 {

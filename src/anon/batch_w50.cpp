@@ -258,20 +258,7 @@ void func_0013f0d0(void) {
     }
 }
 
-void func_0015cde0(u8 a) {
-    u8 b[16];
-    u8 c[16];
-    func_001069b8(0);  // swap_global_word
-    func_00140f78(c, b);
-    if (a == 1) {
-        D_0034af38 = a;
-        void* v = func_00106a60(1);  // buffer_get_by_index
-        func_00107368(v, D_004f3800);  // vec_copy_at80_if_diff
-        func_00107478(v, D_004f37f0);  // vec_copy_at96_if_diff
-        D_004f3814 = func_001074b8(v);
-        D_004f3810 = func_00106f30(func_00106a18(1), 0);
-    }
-}
+// 0015cde0: moved to src/anon/unit_0015cdb0.cpp
 
 void func_00160ac0(u32 a, u32 b) {
     u8* v = (u8*)func_00102788(D_004f3b30, 0, b, (void*)func_001609e0);

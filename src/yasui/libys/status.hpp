@@ -8,6 +8,7 @@ namespace YS {
     public:
         static u32 GetMode();
         static u32 IsBattleMode();
+        static void CageOn();
         static void SetPrizeRatio(f32);
         static f32 GetLockOnRatio();
         static f32 GetLockOutRange();

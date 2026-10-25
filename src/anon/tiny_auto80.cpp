@@ -43,14 +43,7 @@ u32 func_00188fc0(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_001b87b0();
 }
 
-u32 func_001919a8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2, r15;
-    r4 = 0u;
-    r2 = func_00191938(r4, r5, r6, r7);
-    r15 = (u32)(0x01c6u << 16);
-    *(u32*)((u32)r15 + (s32)(6496)) = 0u;
-    return func_001917d0();
-}
+// 001919a8: moved to src/yasui/libys/status.cpp
 
 u32 func_001e2a50(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2;

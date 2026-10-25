@@ -57,10 +57,7 @@ void func_0015b7a0(void) {
 
 // Copy the constant quadword D_004f37f0 to dst; returns dst.
 extern Q16 D_004f37f0;
-void* func_0015ceb8(void* dst) {
-    asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(dst), "r"(&D_004f37f0) : "$8", "memory");
-    return dst;
-}
+// 0015ceb8: moved to src/anon/unit_0015cdb0.cpp
 
 u32* func_00102c80(void);
 void func_00102688(u32, u32, u32);

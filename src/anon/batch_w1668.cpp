@@ -4,7 +4,7 @@ extern "C" {
 
 extern u32 D_0034f240;
 void w191ee0(u32, u32, u32, u32) asm("_Z16wtarget_00191ee0jjjj");
-void w191ee0(u32 a, u32 b, u32, u32) { if (b == 0xffff && a == 1) D_0034f240 = 0; }
+// 00191ee0: static initialiser, now made by gcc in src/yasui/libys/status.cpp
 
 extern u32 D_01d49970;
 void w1c8d40(u32, u32, u32, u32) asm("_Z16wtarget_001c8d40jjjj");

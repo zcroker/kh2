@@ -140,18 +140,7 @@ extern u32 D_0034f240;
 s32 func_00197920(void);
 s32 func_001c8db8(void*, u32);
 extern u8 D_00351ec8[];
-s32 func_00191a50(void) {
-    u32 f = D_0034f240;
-    s32 r = 0;
-    if (f & 0x100) goto one;
-    if (f & 2) { r = 1; goto out; }
-    if (func_00197920()) goto one;
-    if (!func_001c8db8(D_00351ec8, 0)) goto out;
-one:
-    r = 1;
-out:
-    return r;
-}
+// 00191a50: moved to src/yasui/libys/status.cpp
 
 s32 func_001a2478(void*);  // count_div4_compare
 u8 func_0019e848(void*, void*, void*, u32);

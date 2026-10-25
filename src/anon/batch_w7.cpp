@@ -151,10 +151,7 @@ void func_0018fde0(Args* a) {
     func_001b50e0(p, a->b, a->c, a->d != 0);
 }
 
-void func_00191bf0(f32 x) {
-    D_01c61968 = x;
-    func_00191c30(*(f32*)(D_00352130 + 80) * x);
-}
+// 00191bf0: moved to src/yasui/libys/status.cpp
 
 u32 func_001979d8(u32 a0) {
     return func_0019f2a8(D_0035037c + 12, a0);

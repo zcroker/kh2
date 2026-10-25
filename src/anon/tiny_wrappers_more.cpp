@@ -626,9 +626,7 @@ u32 func_0015cd90(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_0015ccf0(0x00000001u, 0x0000ffffu, a2, a3);
 }
 
-u32 func_0015d400(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_0015d3f8(0x00000001u, 0x0000ffffu, a2, a3);
-}
+// 0015d400: _GLOBAL__I_ stub, now made by gcc in src/anon/unit_0015cdb0.cpp
 
 u32 func_0015d7e8(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_0015d730(0x00000001u, 0x0000ffffu, a2, a3);
@@ -784,13 +782,9 @@ u32 func_00191738(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_00191658(0x00000001u, 0x0000ffffu, a2, a3);
 }
 
-u32 func_00191990(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_00191938(0x00000002u, a1, a2, a3);
-}
+// 00191990 YS::STATUS::CageOn: moved to src/yasui/libys/status.cpp
 
-u32 func_00191f00(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_00191ee0(0x00000001u, 0x0000ffffu, a2, a3);
-}
+// 00191f00: _GLOBAL__I_ stub, now made by gcc in src/yasui/libys/status.cpp
 
 u32 func_00193018(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_00192fc8(0x00000001u, 0x0000ffffu, a2, a3);
