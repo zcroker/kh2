@@ -340,6 +340,4 @@ u32 wtarget_001da420(u32 a, u32 key, u32, u32) {
     return 0;
 }
 
-void wtarget_002ee850(u32 a, u32 b, u32, u32) {
-    if (b == 0xffff && a == 1) func_002ee730(D_01e2c088);
-}
+// 002ee850: static initialiser, now made by gcc in src/menu/tutorial_widget.cpp

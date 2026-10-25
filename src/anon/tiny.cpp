@@ -2314,20 +2314,9 @@ u32 func_002ee530(u32 a0, u32 a1, u32 a2, u32 a3) {
     return (D_003637f8 != 0);
 }
 
-u32 func_002ee6d8(u32 a0, u32 a1, u32 a2, u32 a3) {  // obj_state_is_2
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    return ((*(u32*)((u32)a0 + (36)) ^ 0x0002u) == 0);
-}
+// 002ee6d8: moved to src/menu/tutorial_widget.cpp
 
-u32 func_002ee840(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_data_1e2c088
-    (void)a0;
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    return (u32)&D_01e2c088;
-}
+// 002ee840: moved to src/menu/tutorial_widget.cpp
 
 u32 func_002f1fa8(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_363c40
     (void)a0;

@@ -4426,34 +4426,11 @@ extern "C" u32 func_0014c9d8(...);
 extern "C" u32 func_0014df88(...);
 extern "C" u32 func_0014e0d8(...);
 
-u32 func_002ee7c0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r2, r14, r15, r16;
-    r16 = r4;
-    r4 = (u32)((s32)0u + (1));
-    r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_0014c9d8)(r4, r5, r6, r7, r8, r9, r10, r11);
-    r2 = ((u32(*)())func_0014df88)();
-    r2 = ((u32(*)())func_0014e0d8)();
-    r14 = *(volatile u32*)((u32)r16 + (s32)(44));
-    r15 = (u32)((s32)0u + (2));
-    if (r14 != 0u) {
-        *(volatile u32*)((u32)r14 + (s32)(28)) = r15;
-    }
-    return r2;
-}
+// 002ee7c0 menu::Mode::initialize: moved to src/menu/tutorial_widget.cpp
 
 extern "C" u32 func_0014df98(...);  // zero_global_byte
 
-u32 func_002ee808(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r2, r14, r15, r16;
-    r16 = r4;
-    r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_0014df98)(r4, r5, r6, r7, r8, r9, r10, r11);
-    r14 = *(volatile u32*)((u32)r16 + (s32)(44));
-    r15 = (u32)((s32)0u + (1));
-    if (r14 != 0u) {
-        *(volatile u32*)((u32)r14 + (s32)(28)) = r15;
-    }
-    return r2;
-}
+// 002ee808: moved to src/menu/tutorial_widget.cpp
 
 extern "C" u32 func_002eefa8(...);
 

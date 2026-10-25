@@ -364,18 +364,7 @@ void func_002ece98(u32, u8* o) {
     *(f32*)(o + 240) = *(f32*)(o + 296);
 }
 
-// menu::Mode::start
-void menu_mode_start(void*) asm("_ZN4menu4Mode5startEv");
-u32 func_00102210(void);
-void func_00102080(void*);
-u8* func_002ee840(void);  // get_data_1e2c088
-u32 func_001031b0(void);
-void menu_mode_start(void* self) {
-    *(u32*)((u8*)self + 44) = func_00102210();
-    func_00102080(self);
-    u8* s = func_002ee840();  // get_data_1e2c088
-    *(u32*)(s + 4) = func_001031b0();
-}
+// 002ee778 menu::Mode::start: moved to src/menu/tutorial_widget.cpp
 
 struct P2 { u32 a; u32 b; };
 struct P3 { P2* p; s32 n; u32 v; };

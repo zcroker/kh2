@@ -510,18 +510,7 @@ void func_002e9610(Vq* a, Vq* b) {
     if (o && func_001dc9e0(o)) *func_001dc5f8(*(u32*)((u8*)a + 60)) = *b;
 }
 
-extern u8 D_00363848[];
-void func_002ee730(u32* p) {
-    p[1] = 0;
-    *(u8*)(p + 2) = 77;
-    p[5] = 2;
-    p[7] = 0;
-    p[6] = 0x222e0;
-    p[8] = 0;
-    p[9] = 0;
-    p[10] = 4096;
-    p[0] = (u32)D_00363848;
-}
+// 002ee730: moved to src/menu/tutorial_widget.cpp
 
 extern u8 D_00347f98[];
 extern u8 D_00347e60[];

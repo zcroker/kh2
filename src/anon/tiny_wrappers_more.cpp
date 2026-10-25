@@ -1708,9 +1708,7 @@ u32 func_002ee568(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_002ee540(0x00000001u, 0x0000ffffu, a2, a3);
 }
 
-u32 func_002ee888(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_002ee850(0x00000001u, 0x0000ffffu, a2, a3);
-}
+// 002ee888: _GLOBAL__I_ stub, now made by gcc in src/menu/tutorial_widget.cpp
 
 u32 func_002eedc0(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_002eefa8(((u32)(a0) + 456u), a1, a2, a3);
