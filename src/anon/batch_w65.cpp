@@ -120,12 +120,7 @@ extern f32 D_0034a9e0;
 extern f32 D_0034a9e4;
 extern Vq D_0034a9c0;
 extern Vq D_0034a9d0;
-void func_00158b20(u8* p) {
-    *(f32*)(p + 72) = D_0034a9e0;
-    *(f32*)(p + 80) = D_0034a9e4;
-    *(Vq*)(p + 144) = D_0034a9c0;
-    *(Vq*)(p + 112) = D_0034a9d0;
-}
+// 00158b20: moved to src/harata/libdk/bookcamera.cpp
 
 // Pop a free 16-byte slot from the pool and initialise it.
 struct Pool16 { u8 e[64][16]; s32 idx[64]; s32 n; };

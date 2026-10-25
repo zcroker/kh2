@@ -159,16 +159,7 @@ u32 func_00147210(u32 a0, u32 a1, u32 a2, u32 a3) {
     return r2;
 }
 
-u32 func_00158a90(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u, r14 = 0u, r15 = 0u, r16 = 0u;
-    r16 = r4;
-    r2 = dk_ObjCamera_getInstance(r4, r5, r6, r7);
-    r15 = (u32)((s32)0u + (10));
-    *(u32*)((u32)r2 + (s32)(64)) = r15;
-    r14 = (u32)(0x004fu << 16);
-    *(u32*)((u32)r14 + (s32)(13728)) = r16;
-    return r2;
-}
+// 00158a90 dk::BookCamera::create: moved to src/harata/libdk/bookcamera.cpp
 
 u32 func_0015bc50(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u, r15 = 0u, r16 = 0u;

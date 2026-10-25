@@ -5,10 +5,7 @@ extern "C" {
 extern float D_004f35a4;
 extern float D_004f35a8;
 void wtarget_00158fd8(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z16wtarget_00158fd8jjjj");
-void wtarget_00158fd8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    if (a1 == 0xffff && a0 == 1) D_004f35a4 = 0.0523598753f;
-    if (a1 == 0xffff && a0 == 1) D_004f35a8 = 0.174532920f;
-}
+// 00158fd8 (static initialiser, now made by gcc): moved to src/harata/libdk/bookcamera.cpp
 
 struct S146 { u8 pad[235]; u8 b; u8 pad2[12]; u32 w; };
 u32 func_00146ed8(void* a0, S146* p) {

@@ -41,34 +41,5 @@ V158dc0 func_0016c2b0(Tgt158dc0*);
 V158dc0* func_0016c028(Tgt158dc0*);
 s32 func_00143d10(Seg158dc0*, V158dc0*, f32*, s32*);
 f32 func_0013fd10(C158dc0*);
-void func_00158dc0(C158dc0* c)
-{
-    s32 mode = func_00167f18(0);
-    if (!c->target->vt->IsValid(c->target)) return;
-    func_00158ac8(c);
-    if (D_0034a9e8 == 1) {
-        V158dc0 pos = func_0016c2b0(c->target);
-        Seg158dc0 seg;
-        V158dc0* pa = &seg.a;
-        V158dc0& r = *func_0016c028(c->target);
-        V158dc0* pb = &seg.b;
-        *pa = r;
-        *pb = pos;
-        V158dc0 hit;
-        f32 t;
-        s32 n = 0;
-        f32* pt = &t;
-        if (func_00143d10(&seg, &hit, pt, &n)) D_0034a9b0 = hit;
-        else D_0034a9b0 = pos;
-        c->dist = func_0013fd10(c);
-        D_0034a9e8 = 0;
-    } else {
-        func_00158b78(mode, c);
-        if (func_0013f9e0(&c->v112, &c->v128, &c->v96, 1, 1)) {
-            func_00158b20(c);
-            func_00158c88(c);
-            func_0013f9e0(&c->v112, &c->v128, &c->v96, 1, 1);
-        }
-    }
-}
+// 00158dc0: moved to src/harata/libdk/bookcamera.cpp
 }

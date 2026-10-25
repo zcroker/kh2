@@ -5,13 +5,7 @@ void func_00141010(float);
 void* func_00140df0(void);
 void func_00140dc0(void);
 extern u8 D_0034a9e8;
-void func_00158f40(void) {
-    func_00141010(30.0f);
-    u8* p = (u8*)func_00140df0();
-    func_00140dc0();
-    *(s32*)(p + 0x40) = 6;
-    D_0034a9e8 = 1;
-}
+// 00158f40: moved to src/harata/libdk/bookcamera.cpp
 
 struct LNode_w1671 { u8 pad[0x7c]; LNode_w1671* next; };
 struct LList_w1671 { LNode_w1671* head; LNode_w1671* tail; };

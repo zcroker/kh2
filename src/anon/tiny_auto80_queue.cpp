@@ -10745,14 +10745,7 @@ extern "C" u32 func_00140dc0(...);
 extern "C" u32 func_00140dd0(...);
 extern "C" u32 func_00140df0(...);
 
-void func_00158f90() {
-    u32 s0 = func_00140df0();
-    u32 v0 = func_00140dc0();
-    if (v0 == 6u) {
-        func_00140dd0(s0);
-        return;
-    }
-}
+// 00158f90: moved to src/harata/libdk/bookcamera.cpp
 
 extern "C" u32 func_00140dc0(...);
 extern "C" u32 func_00140dd0(...);
