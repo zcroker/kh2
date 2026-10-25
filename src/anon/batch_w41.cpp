@@ -319,14 +319,7 @@ u128* func_0016c028(u32);  // obj_get_attach_or_alt
 extern u128 D_01d5bab0;
 extern f32 D_00352ad0;
 extern f32 D_00349e10;
-void func_001dbcd0(void) {
-    if (func_0019ba60(D_0034e948)) {
-        u128* s = func_0016c028(D_0034e948);  // obj_get_attach_or_alt
-        if (s != &D_01d5bab0)
-            asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(&D_01d5bab0), "r"(s) : "$8", "memory");
-    }
-    D_00352ad0 -= D_00349e10;
-}
+// 001dbcd0: moved to src/anon/unit_001dbbe0.cpp
 
 void func_001e01b8(void*);
 struct W41Own { u8 pad[0x58]; W41Outer* obj; u32 flags; };

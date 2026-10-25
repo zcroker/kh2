@@ -1068,9 +1068,7 @@ u32 func_001dbba0(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_001dbb98(0x00000001u, 0x0000ffffu, a2, a3);
 }
 
-u32 func_001dbf90(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_001dbf78(0x00000001u, 0x0000ffffu, a2, a3);
-}
+// 001dbf90: _GLOBAL__I_ stub, now made by gcc in src/anon/unit_001dbbe0.cpp
 
 u32 func_001dcc00(u32 a0, u32 a1, u32 a2, u32 a3) {  // to_1e34e0_field28
     return func_001e34e0(((u32)(*(u32*)((u32)(a0) + 28u))), a1, a2, a3);
@@ -1116,9 +1114,7 @@ u32 func_001e0378(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_001e0348(0x00000001u, 0x0000ffffu, a2, a3);
 }
 
-u32 func_001e07c8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_001e0750(0x00000001u, 0x0000ffffu, a2, a3);
-}
+// 001e07c8: _GLOBAL__I_ stub, now made by gcc in src/anon/unit_001e0398.cpp
 
 u32 func_001e0b20(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_0016b070(((u32)(*(u32*)((u32)(((u32)(*(u32*)((u32)(a0) + 0u)))) + 4u))), ((u32)(*(u32*)((u32)(a0) + 4u))), a2, a3);

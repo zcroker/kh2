@@ -268,17 +268,7 @@ void ctarget_001c8948(u32, u32, u32, u32) {
     }
 }
 
-void func_001dbc58(u8* a0, u32 a1, u8* a2, u8* a3) {
-    func_001c1748(a0, a1, a2, (void*)func_001dbd38);  // obj_init_from_src
-    asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(a0 + 48), "r"(a2) : "$8", "memory");
-    a0[80] = 0;
-    *(u8**)(a0 + 92) = a3;
-    a0[22] = 0xff;
-    a0[81] = 0;
-    *(u32*)(a0 + 84) = 0;
-    *(u32*)(a0 + 88) = 0;
-    a0[20] = *a3;
-}
+// 001dbc58: moved to src/anon/unit_001dbbe0.cpp
 
 // init a node from a data block and append it to the global list
 void wtarget_001dddd0(u32, u32, u32, u32) asm("_Z16wtarget_001dddd0jjjj");

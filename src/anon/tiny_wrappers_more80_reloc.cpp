@@ -334,13 +334,9 @@ u32 func_001d9ad8(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_001d9a18((u32)&D_01d5baa0, a0, a2, a3);
 }
 
-u32 func_001e0428(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_001e0400((u32)&D_00352b60, a1, a2, a3);
-}
+// 001e0428: moved to src/anon/unit_001e0398.cpp
 
-u32 func_001e0670(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_001e0448((u32)&D_00352b60, a1, a2, a3);
-}
+// 001e0670: moved to src/anon/unit_001e0398.cpp
 
 u32 func_001eb2a0(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_002f3d08(((u32)(((u32)(*(u32*)((u32)((u32)&D_01da0000) - 6424u)))) + 80u), (u32)&D_01d9e900, ((u32)(((u32)(*(u32*)((u32)((u32)&D_01da0000) - 6424u)))) + 16u), a3);

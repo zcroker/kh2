@@ -3,17 +3,7 @@
 // and the hand-written VU0 rotation routines 002f4148/002f41f0.
 extern "C" {
 
-// ---- 001e03b0 / 001e03c8 / 001e03d0 / 001e03d8
-struct S1e03d8 { u32 a[9]; };
-void func_001e03d8(S1e03d8* p);
-void func_001e03b0(S1e03d8* p) { func_001e03d8(p); }
-void func_001e03c8(void*) {}
-void func_001e03d0(void*) {}
-void func_001e03d8(S1e03d8* p)
-{
-    p->a[0] = 0; p->a[2] = 0; p->a[1] = 0; p->a[4] = 0;
-    p->a[3] = 0; p->a[5] = 0; p->a[6] = 0; p->a[7] = 0; p->a[8] = 0;
-}
+// 001e03b0, 001e03c8, 001e03d0, 001e03d8 (PadWave): moved to src/anon/unit_001e0398.cpp
 
 // ---- 0014b290 / 0014b2c8: two identical copies (C1/C2 of one constructor)
 void func_0014b150(void*);
