@@ -19420,25 +19420,7 @@ void func_001c8d08() {
     func_00102670(*(u32*)((u8*)&D_00350000 + 4628u), t6);  // to_1025f8
 }
 
-u32 func_001c8db8(u32* a0, u32 a1) {
-    if (a1 != 0) {
-        goto has_bit;
-    }
-
-    {
-        u32 t7 = *a0;
-        return t7 != 0;
-    }
-
-has_bit:
-    {
-        u32 t6 = *a0;
-        u32 t7 = 1;
-        t7 = t7 << a1;
-        t6 = t6 & t7;
-        return t6 != 0;
-    }
-}
+// 001c8db8 YS::MUTEX::is_lock: moved to src/yasui/libys/mutex.cpp (linked unit).
 
 void duplicate_unplaced_001c8de0() {
     *(u32*)((u8*)&D_00350000 + 7864u) = 0;

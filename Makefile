@@ -73,7 +73,7 @@ $(BOUNDARIES):
 	@echo "error: missing $(BOUNDARIES)" >&2
 	@exit 1
 
-$(GEN)/objects.mk $(GEN)/layout_status.tsv $(GEN)/symbols.ld: $(BOUNDARIES) $(ROOT)/functions.tsv $(TOOLS)/build_elf.py $(TOOLS)/common.py
+$(GEN)/objects.mk $(GEN)/layout_status.tsv $(GEN)/symbols.ld: $(BOUNDARIES) $(ROOT)/functions.tsv $(ROOT)/linked_units.tsv $(TOOLS)/build_elf.py $(TOOLS)/common.py
 	@mkdir -p $(GEN)
 	@python3 $(TOOLS)/build_elf.py objects
 
@@ -88,7 +88,7 @@ $(TMP_LD): $(ROOT)/kh2.ld $(GEN)/cxx_sections.ld
 	@sed -e '/\/\* @CXX_SECTIONS@ \*\//r $(GEN)/cxx_sections.ld' \
 	     -e '/\/\* @CXX_SECTIONS@ \*\//d' $(ROOT)/kh2.ld > $@
 
-$(TARGET): $(SLPM) $(BOUNDARIES) $(GEN)/objects.mk $(GEN)/layout_status.tsv $(GEN)/symbols.ld $(ROOT)/functions.tsv $(ROOT)/kh2.ld \
+$(TARGET): $(SLPM) $(BOUNDARIES) $(ROOT)/linked_units.tsv $(GEN)/objects.mk $(GEN)/layout_status.tsv $(GEN)/symbols.ld $(ROOT)/functions.tsv $(ROOT)/kh2.ld \
            $(TOOLS)/build_elf.py $(TOOLS)/common.py $(BUILD_INPUTS_STAMP)
 	@$(PS2_PREP)
 	@$(DOCKER_RUN_PS2) bash -lc '/usr/bin/make -j"$(MAKE_JOBS)" inner-all'
@@ -106,6 +106,8 @@ inner-all: $(GEN)/objects.mk $(ORDERED_OBJS)
 		/opt/ps2/gcc/bin/ee-ld --no-check-sections -T $(TMP_LD) -T $(LINK_RSP) -o $(TMP_LINK_ELF) -L/opt/ps2/gcc/lib/gcc-lib/ee/3.2-ee-040921 -lgcc; \
 		python3 $(TOOLS)/build_elf.py normalize --linked-elf $(TMP_LINK_ELF) --out-elf $(TARGET); \
 	fi
+
+# UNIT_FLAGS: extra flags for linked units (linked_units.tsv), set per object in out/generated/objects.mk.
 
 # Functions the original built with debug info (-g) live in *_g.cpp. -g keeps gcc from moving
 # prologue register saves into a call's delay slot (jal; nop). Mostly src/tozawa (0x241fd0-0x2bac78).
@@ -150,7 +152,7 @@ out/build/%_O0.o: CFLAGS := $(subst -O2,-O0,$(CFLAGS))
 
 out/build/%.o: %.cpp
 	@mkdir -p $(dir $@)
-	@/opt/ps2/gcc/bin/ee-g++ $(CXXFLAGS) -c -o $@ $<
+	@/opt/ps2/gcc/bin/ee-g++ $(CXXFLAGS) $(UNIT_FLAGS) -c -o $@ $<
 
 out/build/src/sdk/%.o: src/sdk/%.c
 	@mkdir -p $(dir $@)
@@ -158,7 +160,7 @@ out/build/src/sdk/%.o: src/sdk/%.c
 
 out/build/%.o: %.c
 	@mkdir -p $(dir $@)
-	@/opt/ps2/gcc/bin/ee-gcc $(CFLAGS) -c -o $@ $<
+	@/opt/ps2/gcc/bin/ee-gcc $(CFLAGS) $(UNIT_FLAGS) -c -o $@ $<
 
 out/build/%.o: %.s
 	@mkdir -p $(dir $@)
