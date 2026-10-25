@@ -284,15 +284,7 @@ void func_001882a8(u8* p) {
     }
 }
 
-void func_00191758(void) {
-    D_0034f240 = 0;
-    func_00191938(0);
-    f32 a = 1.0f;
-    D_01c61960 = 0;
-    D_01c6195c = 30.0f;
-    D_01c61964 = a;
-    func_00191bf0(a);
-}
+// 00191758: moved to src/yasui/libys/status.cpp
 
 // Add d to a 0..99 sub-counter at +432, carrying into the level at +433 (capped by +434).
 void func_001a1aa0(u8* p, s32 d) {  // ring_buffer_index

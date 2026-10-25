@@ -140,12 +140,7 @@ void func_00146390(Tree146* t, s32 idx, u32 arg) {
 // --- 0015cef0: copy three vectors into the triple-buffered globals
 extern Vq81 D_004f3760, D_004f3770, D_004f3780, D_004f3790, D_004f37a0, D_004f37b0, D_004f37c0, D_004f37d0, D_004f37e0;
 Vq81* func_00140df0(void);
-void func_0015cef0(void) {
-    Vq81* v = func_00140df0();
-    D_004f37b0 = D_004f37a0 = D_004f3760 = v[0];
-    D_004f3790 = D_004f3780 = D_004f3770 = v[1];
-    D_004f37e0 = D_004f37d0 = D_004f37c0 = v[2];
-}
+// 0015cef0: moved to src/anon/unit_0015cdb0.cpp
 
 // --- 00165a10: any eligible entity in range? (stores the offset to it)
 struct Ent165 { u32 id; u32 obj; u32 flags; };

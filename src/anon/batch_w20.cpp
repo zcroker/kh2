@@ -171,11 +171,7 @@ u32 target_is_exist(const u8* t) {
     return r;
 }
 
-u32 func_00191c50(void) {
-    u32 r = 0;
-    if (D_0032bae0 == 5906 || (D_0034f240 & 0x2000)) r = 1;
-    return r;
-}
+// 00191c50: moved to src/yasui/libys/status.cpp
 
 u32 func_001ac1d0(u8* p) {
     if (!p[0]) return 0;

@@ -701,18 +701,5 @@ void wtarget_0017a7e0(u32 init, u32 prio, u32, u32) {
     }
 }
 
-void u_tail0_001917d0(void) {
-    func_00191cd8();
-    if (D_01c61958 == 2) return;
-    s32 n = func_001918c8();
-    if (0.0f < D_01c6195c) D_01c6195c -= D_00349e10;
-    if (D_01c61958 != n) {
-        if (0.0f < D_01c6195c || (D_01c61960 -= D_00349e10) <= 0.0f) func_00191938(n);
-    }
-    if (D_01c61958 == n) {
-        if (n == 1) D_01c61960 = 120.0f;
-        else D_01c61960 = 45.0f;
-    }
-    if (D_01c61958 == 0) func_001a3710();
-}
+// 001917d0: moved to src/yasui/libys/status.cpp
 

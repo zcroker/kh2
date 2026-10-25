@@ -4142,24 +4142,7 @@ out:
     return s2;
 }
 
-f32 func_00191b70() {
-    s32 s1 = 0;
-    u32 base = 0x01c60000;
-    f32 s = *(f32*)(base + 6500);
-loop:
-    u32 s0 = func_00176b20(s1);
-    s1 += 1;
-    if (func_0019ba60(s0) != 0) {
-        if (*(u32*)(s0 + 1164) != 0) {
-            u32 p = func_00177860(s0);
-            s += *(f32*)(p + 100);
-        }
-    }
-    if (s1 < 3) {
-        goto loop;
-    }
-    return s;
-}
+// 00191b70: moved to src/yasui/libys/status.cpp
 
 u32 func_001923c8(u32 a0) {
     if (a0 == 0) {

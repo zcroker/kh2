@@ -10904,12 +10904,7 @@ u32 func_00141010(f32);
 extern "C" u32 func_0015ce90(...);  // zero_global_byte_g
 extern "C" u32 func_0015cef0(...);
 
-void func_0015cdb0(void) {
-    func_0015ce90();  // zero_global_byte_g
-    func_00141010(0.0f);
-    func_001069b8(1u);  // swap_global_word
-    func_0015cef0();
-}
+// 0015cdb0 dk::EventCamera::start: moved to src/anon/unit_0015cdb0.cpp
 
 extern "C" u32 func_0015de98(...);
 extern "C" u32 func_0015e018(...);
@@ -12844,41 +12839,17 @@ u32 func_00190680(u32 a0, u32 a1) {
 extern u8 D_0034e948;
 extern u8 D_0034f240;
 
-u32 func_001919d0(void) {
-    u32 v0 = 0u;
-    if ((*(u32*)((u32)&D_0034f240 + (s32)(0)) & 0x0008u) != 0u) {
-        v0 = (u32)(0u < *(u32*)((u32)&D_0034e948 + (s32)(0)));
-    }
-    return v0;
-}
+// 001919d0: moved to src/yasui/libys/status.cpp
 
 extern u8 D_0034e948;
 extern u8 D_0034f240;
 
-u32 func_001919f8(void) {
-    u32 v0 = 0u;
-    if ((*(u32*)((u32)&D_0034f240 + (s32)(0)) & 0x0800u) != 0u) {
-        v0 = (u32)(0u < *(u32*)((u32)&D_0034e948 + (s32)(0)));
-    }
-    return v0;
-}
+// 001919f8: moved to src/yasui/libys/status.cpp
 
 extern "C" u32 func_001917b0(...);
 extern u8 D_0034f240;
 
-u32 func_00191c88(void) {
-    u32 s0 = 0u;
-    if ((*(u32*)((u32)&D_0034f240 + (s32)(0)) & 0x8000u) == 0u) {
-        u32 v0 = func_001917b0();
-        v0 = (u32)(v0 ^ 0x0002u);
-        if (v0 == 0u) {
-            s0 = 1u;
-        }
-    } else {
-        s0 = 1u;
-    }
-    return s0;
-}
+// 00191c88: moved to src/yasui/libys/status.cpp
 
 extern "C" u32 func_00170518(...);
 extern "C" u32 func_001921d8(...);

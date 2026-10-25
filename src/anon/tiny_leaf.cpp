@@ -192,13 +192,7 @@ void func_00188948(u32 a0, u32 a1, u32 a2, u32 a3) {
     *(u16*)((u32)r4 + (s32)(2)) = (u16)r6;
 }
 
-void func_00191a20(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r14 = 0u, r15 = 0u;
-    r14 = (u32)(0x0035u << 16);
-    r15 = *(u32*)((u32)r14 + (s32)(-3520));
-    r15 = (u32)(r15 | 0x0020u);
-    *(u32*)((u32)r14 + (s32)(-3520)) = r15;
-}
+// 00191a20: moved to src/yasui/libys/status.cpp
 
 u32 func_00192440(u32 a0, u32 a1, u32 a2, u32 a3) {  // is_byte_lt25
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u;

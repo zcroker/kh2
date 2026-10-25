@@ -142,21 +142,7 @@ s32 func_00302b18(W254File* fp) {
 }
 
 // Camera-mode-1 update: fix radian, optional helper calls, then apply to camera.
-void func_0015d2e8(u8* a0, u8* a1, u8* a2, u8 a3, u8 a4, u8 a5, f32 f0, f32 f1) {
-    s32 m = func_001069e8();
-    u8* c;
-    if (m != 1) return;
-    func_0015cff0();
-    f0 = func_0017ce10(f0);
-    c = func_00106a60(1);  // buffer_get_by_index
-    if (a3 == m) func_0013f9e0(a0, a1, a0, a4, 0);
-    if (a5 == m) {
-        func_0015d058(a0, a1);
-        func_0015d208(&f1, &f0);
-    }
-    func_00107300(c, a0, a1, f0);  // copy_blocks_and_store_float
-    func_00106de8(func_00106a18(1), a2, f1);
-}
+// 0015d2e8: moved to src/anon/unit_0015cdb0.cpp
 struct W254PE { s32 key; u8 pad[16]; };
 struct W254Pool { W254PE e[128]; s32 idx[128]; s32 count; };
 extern W254Pool D_01c60d50;

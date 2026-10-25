@@ -101,10 +101,7 @@ void func_0015b780(void) {
     func_00139ab0(15);
 }
 
-void* func_0015cea0(void* dst) {
-    asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(dst), "r"(&D_004f3800) : "$8", "memory");
-    return dst;
-}
+// 0015cea0: moved to src/anon/unit_0015cdb0.cpp
 
 void func_001623b0(void) {
     func_00102688(*(u32*)((u8*)func_00102c80() + 4), 5, 5);

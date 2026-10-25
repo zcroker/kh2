@@ -163,14 +163,7 @@ extern V4 D_004f37c0;
 extern V4 D_004f37d0;
 extern V4 D_004f37e0;
 V4 func_0013f6e8(V4, V4, V4, f32, f32, f32, f32);
-void func_0015d208(f32* a, f32* b)
-{
-    D_004f37d0.x = *a;
-    D_004f37d0.y = *b;
-    D_004f37c0 = func_0013f6e8(D_004f37c0, D_004f37d0, D_004f37e0, 0.07f, 2.5f, 0.5f, 0.001f);
-    *a = D_004f37c0.x;
-    *b = D_004f37c0.y;
-}
+// 0015d208: moved to src/anon/unit_0015cdb0.cpp
 
 void func_001da458(u8*, u32, u32, u32);  // stream_init_fields
 void func_001da558(u8*, void*, u32, u32);

@@ -121,13 +121,7 @@ void wtarget_00191938(s32, u32, u32, u32) asm("_Z16wtarget_00191938jjjj");
 void func_001c1130(s32);  // copy_record_block_to_table
 void func_001c11a8(s32);
 extern s32 D_01c61958;
-void wtarget_00191938(s32 v, u32, u32, u32) {
-    switch (v) {
-    case 0: func_001c11a8(6); break;
-    case 1: case 2: func_001c1130(6); break;
-    }
-    D_01c61958 = v;
-}
+// 00191938: moved to src/yasui/libys/status.cpp
 
 s32 func_00197c28(u32*);
 void func_00196e88(u32*, s32, s32, f32);

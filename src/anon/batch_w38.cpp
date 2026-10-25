@@ -173,11 +173,7 @@ extern Q128 D_004f37b0, D_004f37a0, D_004f3790, D_004f3780, D_004f37e0, D_004f37
 static inline void qcopy(void* d, const void* s) {
     if (d != s) asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(d), "r"(s) : "$8", "memory");
 }
-void func_0015cff0(void) {
-    qcopy(&D_004f37b0, &D_004f37a0);
-    qcopy(&D_004f3790, &D_004f3780);
-    qcopy(&D_004f37e0, &D_004f37d0);
-}
+// 0015cff0: moved to src/anon/unit_0015cdb0.cpp
 
 // Finds the next entry, optionally with a matching id (-1 = any).
 u8* func_0016bba8(void*, void*, u8*);

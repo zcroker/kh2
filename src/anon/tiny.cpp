@@ -585,19 +585,9 @@ void func_0015b770(u32 a0, u32 a1, u32 a2, u32 a3) {
     (void)a3;
 }
 
-u32 func_0015ce80(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a0;
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    u32 b = (0x0035u << 16);
-    return (u32)(*(u8*)((u32)b + (-20680)));
-}
+// 0015ce80: moved to src/anon/unit_0015cdb0.cpp
 
-void func_0015ce90(u32 a0, u32 a1, u32 a2, u32 a3) {  // zero_global_byte_g
-    u32 b = (0x0035u << 16);
-    *(u8*)((u32)b + (-20680)) = (u8)0;
-}
+// 0015ce90: moved to src/anon/unit_0015cdb0.cpp
 
 u32 func_0015f268(u32 a0, u32 a1, u32 a2, u32 a3) {
     (void)a0;
@@ -2766,21 +2756,9 @@ void func_0014df88(u32 a0, u32 a1, u32 a2, u32 a3) {
     *(u8*)&D_0034a3e0 = (u8)v;
 }
 
-f32 func_0015ced0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a0;
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    return *(f32*)&D_004f3810;
-}
+// 0015ced0: moved to src/anon/unit_0015cdb0.cpp
 
-f32 func_0015cee0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a0;
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    return *(f32*)&D_004f3814;
-}
+// 0015cee0: moved to src/anon/unit_0015cdb0.cpp
 
 void func_0015f278(u32 a0, u32 a1, u32 a2, u32 a3) {
     (void)a1;
@@ -2820,12 +2798,7 @@ void func_0018c480(u32 a0, u32 a1, u32 a2, u32 a3) {
     *(u8*)((u32)a0 + (48)) = (u8)v;
 }
 
-void func_00191c30(f32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    *(f32*)&D_01c6196c = a0;
-}
+// 00191c30: moved to src/yasui/libys/status.cpp
 
 void func_0019ef60(u32 a0, u32 a1, u32 a2, u32 a3) {
     (void)a0;
