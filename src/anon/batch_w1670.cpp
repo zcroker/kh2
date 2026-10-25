@@ -56,10 +56,7 @@ void func_00188490(s32 a, s32 b, f32 c) {
     } while (i < 64);
 }
 
-void func_002eaea8(f32 a, f32 b, f32 c, f32 d, f32 e, f32 f, f32 g) {
-    D_003634e8 = a; D_003634ec = b; D_003634f0 = c; D_003634f4 = d;
-    D_003634f8 = e; D_003634fc = f; D_00363500 = g;
-}
+// 002eaea8: moved to src/anon/unit_002eae08.cpp
 
 void wtarget_00194710(u32 a, u32 b, u32, u32) asm("_Z16wtarget_00194710jjjj");
 void wtarget_00194710(u32 a, u32 b, u32, u32) {
