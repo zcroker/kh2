@@ -1311,23 +1311,9 @@ u32 duplicate_unplaced_00102c48(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, 
     return ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_00102818)(r4, r5, r6, r7, r8, r9, r10, r11);
 }
 
-void func_00102e18(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32* p = (u32*)&D_0032b9a0;
-    u32 hi = (u32)&D_00102dc0;
-    u32 lo = (u32)&D_00102d10;
-    p[8] = lo;
-    p[9] = hi;
-}
+// 00102e18: moved to src/common/title.cpp
 
-u32 func_00102e40(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32 flags = D_0032b9d8;
-    flags |= 1;
-    flags &= (u32)-5;
-    flags &= (u32)-9;
-    flags &= (u32)-17;
-    D_0032b9d8 = flags;
-    return ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_002fde18)((u32)&D_0032b9d0, 0, 8, a3, a4, a5, a6, a7);
-}
+// 00102e40: moved to src/common/title.cpp
 
 u32 duplicate_unplaced_00102ed8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r2, r14, r15;
@@ -1392,13 +1378,7 @@ u32 duplicate_unplaced_00103b78(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, 
     return ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_00102818)(r4, r5, r6, r7, r8, r9, r10, r11);
 }
 
-void func_00104080(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32* p = (u32*)&D_0032ba48;
-    u32 hi = (u32)func_00104018;
-    u32 lo = (u32)&D_00103f68;
-    p[8] = lo;
-    p[9] = hi;
-}
+// 00104080: moved to src/common/gumibattle.cpp
 
 void func_00104560(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
     u32* p = (u32*)&D_0032ba90;
@@ -15466,13 +15446,7 @@ u32 duplicate_unplaced_002e7768(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, 
     return ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_002e77a8)(r4, r5, r6, r7, r8, r9, r10, r11);
 }
 
-u32 func_002e77a8(u32 a0) {
-    u32 s0 = a0;
-    ((u32(*)(u32))func_002e7688)(a0);
-    ((u32(*)(u32))func_002e76c8)(s0 + 4);
-    ((u32(*)(u32, u32, u32))func_002fde18)(s0 + 352, 0, 32544);
-    return ((u32(*)(u32, u32, u32))func_002fde18)(s0 + 0x8080, 0, 10944);
-}
+// 002e77a8: moved to src/anon/unit_002e7658.cpp
 
 u32 duplicate_unplaced_002e7850(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r2;

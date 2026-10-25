@@ -48,9 +48,7 @@ void func_002eb868(void* p) { D_00363540 = 0; func_002eb778(p, 252, 0); }
 struct S8 { u32 a, b; void (*fn)(u32, void*); };
 void func_00319190(S8* p) { p->fn(1, p); }
 
-struct BF { u32 x : 2; u32 b : 1; };
-extern BF D_0032b9d8;
-void func_00102ff0(u8 v) { D_0032b9d8.b = v != 0; }
+// 00102ff0: moved to src/common/title.cpp
 
 /* the original has three nops in the loop body (hand-placed delay padding) */
 void func_001879f0(u32* p) {

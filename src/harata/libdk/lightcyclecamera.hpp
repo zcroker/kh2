@@ -9,7 +9,7 @@ namespace dk {
     class LightCycleCamera {
     public:
      void update(ObjCamera* a0);
-     s32 create(void);
+     static void create(void);
     };
 
 }  // namespace dk

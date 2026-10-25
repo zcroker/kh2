@@ -13,3 +13,7 @@ source	text_start	text_end	sections	flags
 src/yasui/libys/mutex.cpp	001c8d80	001c8e80	.data@00351eb8	-G0
 src/anon/unit_002eae08.cpp	002eae08	002eaf38	.data@003634e8,.rodata@003760d8	-G0
 src/menu/tutorial_widget.cpp	002ee588	002ee8a8	.data@01e2c088	-G0
+src/harata/libdk/lightcyclecamera.cpp	00159070	00159240	.data@0034a9f0,.rodata@0036b324	-G0
+src/common/gumibattle.cpp	00103f68	00104318	.data@0032ba48,.rodata@00369e18	-G0 -fno-strict-aliasing
+src/anon/unit_002e7658.cpp	002e7658	002e7ae0	.data@01e2bf10,.rodata@00376070	-G0
+src/common/title.cpp	00102d10	00103100	.data@0032b9a0,.rodata@00369d88	-G0 -g

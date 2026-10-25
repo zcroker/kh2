@@ -752,13 +752,7 @@ void func_00198630(void *a0) {
     }
 }
 
-void func_00190128(u32 a0) {
-    u32 neg = 0xffffffffu;
-    *(u32 *)(a0 + 4) = 0;
-    *(u32 *)(a0 + 12) = neg;
-    *(u32 *)(a0 + 8) = 0;
-    *(u32 *)a0 = 0;
-}
+// 00190128: YS::TARGET::TARGET(), moved to src/yasui/libys/target.cpp
 
 void func_00194668(u32 a0) {
     u32 v0 = *(u32 *)(a0 + 268);

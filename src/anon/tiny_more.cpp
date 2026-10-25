@@ -18,7 +18,7 @@ extern u32 D_0035f1fc;
 extern u32 D_0035f5ac;
 extern u32 D_00363c2c;
 
-u32 func_00102f70(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a0; (void)a1; (void)a2; (void)a3; u32 v = D_0032b9d8; return v & 0x1u; }
+// 00102f70: moved to src/common/title.cpp
 
 f32 func_001070a8(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a1; (void)a2; (void)a3; return *(f32*)((u32)a0 + (108)); }
 

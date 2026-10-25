@@ -146,11 +146,7 @@ void func_0014d478(void) {
     }
 }
 
-void func_00159130(W41S20* a) {
-    func_00141010(30.0f);
-    *(u32*)(func_00140df0() + 64) = 3;
-    D_0034a9f0 = *a;
-}
+// 00159130: moved to src/harata/libdk/lightcyclecamera.cpp
 
 W41Ent16* func_00168b88(W41Tbl* t, s32 id, s32 val, s32 k) {  // find_entry16_by_half_word
     for (s32 i = 0; i < t->n; i++) {

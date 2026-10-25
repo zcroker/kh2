@@ -6,14 +6,7 @@ extern u32 D_0032b930;
 struct S104298 { u32 vt; u32 a; u8 b; u8 pb[11]; u32 c, d, e, f, g, h; };
 extern S104298 D_0032ba48;
 void wtarget_00104298(u32 a0, u32 a1, u32, u32) asm("_Z16wtarget_00104298jjjj");
-void wtarget_00104298(u32 a0, u32 a1, u32, u32) {
-    if (a1 == 0xffff && a0 == 1) {
-        S104298* p = &D_0032ba48;
-        p->a = 0; p->e = 0; p->f = 0; p->g = 0;
-        p->h = 0x4000; p->b = 71; p->d = 0x29810; p->c = a0;
-        D_0032ba48.vt = (u32)&D_0032b930;
-    }
-}
+// 00104298: static initialiser, now made by gcc in src/common/gumibattle.cpp
 
 extern f32 D_00340eb4, D_00340eb8, D_00340ebc, D_00340ec0;
 void func_0010a828(f32 a, f32 b) {

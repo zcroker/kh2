@@ -278,11 +278,7 @@ u32 func_002d5dd0(u8* p) {
     return func_002cff98(p);
 }
 
-void func_002e7738(u8* p) {
-    func_002e7670(p);
-    func_002e76b0(p + 4);
-    func_002e77a8(p);
-}
+// 002e7738: moved to src/anon/unit_002e7658.cpp
 
 // Returns the callee's result when p[2] == 8 (result undefined otherwise, as in the original).
 s32 func_002ef1b8(u8* p) {

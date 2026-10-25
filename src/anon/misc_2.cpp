@@ -116,7 +116,7 @@ f32 func_002e4af0(void* self) { return (f32)(*(f32*)((char*)self + 0)); }
 
 void func_002e7308(void* self) {}
 
-void func_002e77a0(void* self) {}
+// 002e77a0: moved to src/anon/unit_002e7658.cpp
 
 void func_002eaf38(void* self) {}
 

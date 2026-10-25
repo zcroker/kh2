@@ -4,9 +4,7 @@ extern "C" {
 
 extern u32 D_0032b9a4;
 void func_00102818(u32, u32, u32, u32, u32);
-void func_00102f38(u32 a, u32 b, u32 c, u32 d) {
-    func_00102818(D_0032b9a4, a, b, c, d);
-}
+// 00102f38: moved to src/common/title.cpp
 
 extern u32 D_0032b91c;
 extern u8 D_0032ba28;

@@ -108,17 +108,7 @@ void func_00103bb0(s32 a0) {
     }
 }
 
-void func_00104018(void) {
-    func_003058a0(2u);
-    func_01f18014(1u, (u32)&D_0032ba48);
-    func_00106420(D_0032ba78);
-
-    u32 v = D_0032ba74;
-    D_0032ba78 = 0;
-    func_00170c00(v);
-    func_00170320(0u);
-    D_0032ba74 = 0;
-}
+// 00104018 GUMIBATTLE::Ensure: moved to src/common/gumibattle.cpp
 
 void func_00104e98(S00104e98* self) {
     s32 t = self->counter;

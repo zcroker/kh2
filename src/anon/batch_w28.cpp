@@ -106,19 +106,7 @@ extern u8 D_00347f98[];
 extern u8 D_0034ee08[];
 
 // Initialise a fixed descriptor when called with (1, 0xffff).
-void wtarget_00103080(u32 a, u32 b, u32, u32) {
-    if (b == 0xffff && a == 1) {
-        D_0032b9a0.vt = D_0032b930;
-        D_0032b9a0.f28 = 0x1000;
-        D_0032b9a0.f1c = 0;
-        D_0032b9a0.f8 = 0x54;
-        D_0032b9a0.f20 = 0;
-        D_0032b9a0.f18 = 0x1fbd0;
-        D_0032b9a0.f14 = a;
-        D_0032b9a0.f24 = 0;
-        D_0032b9a0.f4 = 0;
-    }
-}
+// 00103080: static initialiser, now made by gcc in src/common/title.cpp
 
 // Append a packet header of n quadwords to a packet cursor; returns its payload.
 struct Pk { u16 h0; u8 b2; u8 b3; u32 f4; u32 f8; u32 fc; };

@@ -9,7 +9,7 @@ extern u32 D_0035eee0;
 extern u32 D_0035f068;
 extern u32 D_0035f6d0;
 
-u32 func_00102fa0(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a0; (void)a1; (void)a2; (void)a3; s32 v=*(s8*)&D_0032b9dc; return (v!=0); }
+// 00102fa0: moved to src/common/title.cpp
 
 u32 func_0010abb8(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a1; (void)a2; (void)a3; u32 old=D_00340ed4; D_00340ed4=a0; return old; }
 

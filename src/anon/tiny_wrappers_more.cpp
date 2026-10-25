@@ -398,17 +398,13 @@ u32 func_00102cf0(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_00102c90(0x00000001u, 0x0000ffffu, a2, a3);
 }
 
-u32 func_001030e0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_00103080(0x00000001u, 0x0000ffffu, a2, a3);
-}
+// 001030e0: _GLOBAL__I_ stub, now made by gcc in src/common/title.cpp
 
 u32 func_00103f48(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_00103ec0(0x00000001u, 0x0000ffffu, a2, a3);
 }
 
-u32 func_001042f8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_00104298(0x00000001u, 0x0000ffffu, a2, a3);
-}
+// 001042f8: _GLOBAL__I_ stub, now made by gcc in src/common/gumibattle.cpp
 
 u32 func_001048d0(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_00104640(0x00000001u, 0x0000ffffu, a2, a3);
@@ -1558,9 +1554,7 @@ u32 func_002e7638(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_002e7610(0x00000001u, 0x0000ffffu, a2, a3);
 }
 
-u32 func_002e7aa0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_002e7870(0x00000001u, 0x0000ffffu, a2, a3);
-}
+// 002e7aa0: _GLOBAL__I_ stub, now made by gcc in src/anon/unit_002e7658.cpp
 
 u32 func_002e7c00(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_002e9fa8(((u32)(*(u32*)((u32)(a0) + 0u))), a1, a2, a3);

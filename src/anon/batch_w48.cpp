@@ -528,30 +528,4 @@ s32 func_00304468(Bigint* a, Bigint* b) {  // cmp_entries_16_then_words
 }
 }
 
-void func_002e76c8_(void* v) asm("_Z13func_002e76c8Pv");
-void func_002e76c8_(void* v) {
-    u8* p = (u8*)v;
-    p[0] = 1;
-    p[1] = 0;
-    p[2] = 0;
-    p[138] = 0;
-    p[139] = 1;
-    p[140] = 1;
-    u8* q = p;
-    s32 i = 15;
-    do {
-        q[154] = 0;
-        i--;
-        q[170] = 0;
-        asm volatile("nop\n\tnop"); /* R5900 short-loop padding */
-        q++;
-    } while (i >= 0);
-    p += 186;
-    s32 j = 127;
-    do {
-        *p = 0;
-        j--;
-        asm volatile("nop\n\tnop\n\tnop"); /* R5900 short-loop padding */
-        p++;
-    } while (j >= 0);
-}
+// 002e76c8: moved to src/anon/unit_002e7658.cpp
