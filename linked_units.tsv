@@ -24,3 +24,4 @@ src/anon/unit_001d30b0.cpp	001d30b0	001d35e0	.bss@01d5ba0c,.rodata@0036e3fc	-G0
 src/harata/libdk/field2dd.cpp	0013a368	0013a8b8	.data@00347fb0,.rodata@0036acb0	-G0
 src/anon/unit_0015cdb0.cpp	0015cdb0	0015d440	.data@0034af38,.bss@004f3760,.rodata@0036b400	-G0 -fno-strict-aliasing
 src/yasui/libys/status.cpp	00191758	00191f20	.data@0034f240,.bss@01c61958,.rodata@0036cd58	-G0
+src/anon/unit_00182780.cpp	00182780	00183088	.data@0034ed00,.bss@01c60588	-G0

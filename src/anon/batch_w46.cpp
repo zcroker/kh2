@@ -208,9 +208,7 @@ struct E182 { u32 a, b, c; };
 extern s32 D_0034ed00;
 extern E182 D_01c60588[];
 void func_0019a308(u32);
-void func_00182f38(void) {
-    for (s32 i = 0; i < D_0034ed00; i++) func_0019a308(D_01c60588[i].c);
-}
+// 00182f38: moved to src/anon/unit_00182780.cpp
 
 // ---- 0018a4d8: do two spheres overlap?
 struct Sph18a { u32 pad; f32 r; u32 pad2[2]; Vq c; };

@@ -97,9 +97,7 @@ extern s32 D_0034ed00;
 struct E1c60588 { u32 a, b, c; };
 extern E1c60588 D_01c60588[];
 void func_00182910(E1c60588*);
-void func_00182ab0(void) {
-    for (s32 i = 0; i < D_0034ed00; i++) func_00182910(&D_01c60588[i]);
-}
+// 00182ab0: moved to src/anon/unit_00182780.cpp
 
 typedef s32 (*Fn184478)(void*);
 s32 func_00184478(u8* o) {

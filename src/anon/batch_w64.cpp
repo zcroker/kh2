@@ -251,13 +251,7 @@ extern Ent82e08 D_01c60588[];
 extern s32 D_0034ed00;
 u32 func_0019b328(u32, u32);
 
-u32 func_00182e08(u32 a0) {
-    for (s32 i = 0; i < D_0034ed00; i++) {
-        u32 r = func_0019b328(D_01c60588[i].c, a0);
-        if (r) return r;
-    }
-    return 0;
-}
+// 00182e08: moved to src/anon/unit_00182780.cpp
 
 // ---------------------------------------------------------------------------
 void func_0016bd60(u8*, s32);

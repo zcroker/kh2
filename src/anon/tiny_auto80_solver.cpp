@@ -6453,13 +6453,7 @@ u32 duplicate_unplaced_00181a90(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, 
     return r2;
 }
 
-u32 func_00182780(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {  // pool_alloc
-    u32 base = 0x0035u << 16;
-    u32 idx = *(volatile u32*)((s32)base - 4864);
-    u32 ret = (u32)&D_01c60588 + idx * 12;
-    *(volatile u32*)((s32)base - 4864) = idx + 1;
-    return ret;
-}
+// 00182780 YS::UNIT::operator new: moved to src/anon/unit_00182780.cpp
 
 void duplicate_unplaced_00182838(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r15;
