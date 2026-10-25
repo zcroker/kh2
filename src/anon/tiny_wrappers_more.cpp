@@ -1022,9 +1022,7 @@ u32 func_001c8d60(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_001c8d40(0x00000001u, 0x0000ffffu, a2, a3);
 }
 
-u32 func_001c8e60(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_001c8e00(0x00000001u, 0x0000ffffu, a2, a3);
-}
+// 001c8e60 _GLOBAL__I_ (static-init stub): moved to src/yasui/libys/mutex.cpp (linked unit).
 
 u32 func_001cd620(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_001cd548(0x00000001u, 0x0000ffffu, a2, a3);

@@ -131,12 +131,7 @@ s32 func_00112a58(s32 a0) {
 extern s32 D_00351eb8;
 extern s32 D_00351ec0;
 extern s32 D_00351ec8;
-void wt_001c8e00(u32 a0, u32 a1, u32, u32) asm("_Z16wtarget_001c8e00jjjj");
-void wt_001c8e00(u32 a0, u32 a1, u32, u32) {
-    if (a1 == 0xffff && a0 == 1) D_00351eb8 = 0;
-    if (a1 == 0xffff && a0 == 1) D_00351ec0 = 0;
-    if (a1 == 0xffff && a0 == 1) D_00351ec8 = 0;
-}
+// 001c8e00 static initialiser: moved to src/yasui/libys/mutex.cpp (linked unit).
 
 struct VObj_w1671 { void** vt; };
 s32 func_0011f078(void*, s32);

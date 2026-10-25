@@ -1,0 +1,13 @@
+# Linked units: whole source files that are compiled as one object (no -ffunction-sections)
+# and linked at their original address, in source order. The build copies each unit's whole
+# text range from the link, with no per-function placement and no immediate patching.
+# Columns:
+#   source      the unit's source file
+#   text_start  address of its first function
+#   text_end    end of its last function, including the alignment padding (exclusive)
+#   sections    other sections of the object and their original addresses, e.g. .data@00351eb8
+#               ("-" for none). The unit's .ctors entry goes to the game's .ctors table by itself.
+#   flags       extra compiler flags for this file only ("-" for none)
+# How to convert another file: notes/linking.md
+source	text_start	text_end	sections	flags
+src/yasui/libys/mutex.cpp	001c8d80	001c8e80	.data@00351eb8	-G0

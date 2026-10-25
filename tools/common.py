@@ -18,6 +18,7 @@ OUT_DIR = ROOT / "out"
 GENERATED_DIR = OUT_DIR / "generated"
 BOUNDARIES_TSV = ROOT / "layout.tsv"
 REGISTRY_TSV = ROOT / "functions.tsv"
+UNITS_TSV = ROOT / "linked_units.tsv"
 TARGET_PATH = ROOT / "kh2.elf"
 PS2_DOCKER_PREPARE = ROOT / "docker" / "ps2" / "prepare.sh"
 PS2_DOCKER_IMAGE = os.environ.get(
@@ -605,6 +606,45 @@ def load_symbol_aliases(path: Path = REGISTRY_TSV) -> List[SymbolAlias]:
     out = [SymbolAlias(name=n, addr=a) for n, a in aliases.items()]
     out.sort(key=lambda x: (x.addr, x.name))
     return out
+
+
+@dataclass(frozen=True)
+class LinkedUnit:
+    source: str
+    start: int
+    end: int
+    sections: Tuple[Tuple[str, int], ...]
+    flags: str
+
+    def contains(self, addr: int) -> bool:
+        return self.start <= addr < self.end
+
+
+def load_units(path: Path = UNITS_TSV) -> List[LinkedUnit]:
+    """Rows of linked_units.tsv: source files linked whole at their original address."""
+    units: List[LinkedUnit] = []
+    if not path.exists():
+        return units
+    for lineno, parts in _iter_registry_parts(path):
+        if parts[0] == "source":
+            continue
+        if len(parts) != 5:
+            raise ValueError(f"{path}:{lineno}: expected source, text_start, text_end, sections, flags")
+        source, start, end, sections, flags = (p.strip() for p in parts)
+        secs: List[Tuple[str, int]] = []
+        if sections != "-":
+            for item in sections.split(","):
+                name, _, addr = item.partition("@")
+                secs.append((name.strip(), parse_hex_addr(addr)))
+        unit = LinkedUnit(source, parse_hex_addr(start), parse_hex_addr(end), tuple(secs),
+                          "" if flags == "-" else flags)
+        if unit.end <= unit.start:
+            raise ValueError(f"{path}:{lineno}: empty range")
+        for other in units:
+            if unit.start < other.end and other.start < unit.end:
+                raise ValueError(f"{path}:{lineno}: overlaps {other.source}")
+        units.append(unit)
+    return units
 
 
 def src_to_obj(source: str) -> str:

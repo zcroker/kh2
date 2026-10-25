@@ -130,11 +130,7 @@ void func_001ac778(void) {
     D_01c6ced0.b = 0;
 }
 
-void func_001c8de0(void) {
-    D_00351eb8 = 0;
-    D_00351ec0 = 0;
-    D_00351ec8 = 0;
-}
+// 001c8de0 func_001c8de0: moved to src/yasui/libys/mutex.cpp (linked unit).
 
 void func_001fae80(u8* p, u8* q) {
     func_00220070(p + **(s32**)(q + 12) + 160);
