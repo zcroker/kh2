@@ -665,13 +665,7 @@ void func_002e6fc0(u32* p, u32 b) {
 
 }
 
-void TutorialWidgetCtor(u8* self, s32 a) {
-    func_002edf28(self);  // obj_ctor_3637e0
-    *(s32*)(self + 40) = a;
-    *(u32*)(self + 36) = 0;
-    *(u32*)self = (u32)D_00363828;
-    func_001ad330(self + 44, a);
-}
+// 002ee5d8: moved to src/menu/tutorial_widget.cpp
 
 extern "C" {
 

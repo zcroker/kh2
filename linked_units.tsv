@@ -12,3 +12,4 @@
 source	text_start	text_end	sections	flags
 src/yasui/libys/mutex.cpp	001c8d80	001c8e80	.data@00351eb8	-G0
 src/anon/unit_002eae08.cpp	002eae08	002eaf38	.data@003634e8,.rodata@003760d8	-G0
+src/menu/tutorial_widget.cpp	002ee588	002ee8a8	.data@01e2c088	-G0
