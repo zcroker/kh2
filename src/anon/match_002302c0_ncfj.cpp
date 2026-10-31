@@ -1,8 +1,6 @@
 // 002302c0: built with -fno-cse-follow-jumps (_ncfj); with it on, cse2 follows the type-test jump and folds the loop start to p+56.
-// -O2 -fno-cse-follow-jumps gives a full match (no such build rule).
-// 002302c0 near-miss (80 diff lines, all register rotation + lerp schedule). Spline arc-length lookup:
+// Spline arc-length lookup:
 // t in [0,100] -> distance along spline; walks keys (dist = cumulative length at +0x24), samples 0022fe08
-// at 0.025 steps, lerps inside the step. Want ints s1=&p1 s2=tmp s3=i (got i,&p1,tmp); floats f20=pos f21=acc f22=s (got s,pos,acc).
 #include "../common/types.h"
 struct Vec {
     f32 x, y, z, w;
