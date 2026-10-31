@@ -39,7 +39,7 @@ void func_003154a8(int, W2374UnwindException*);   // __gxx_exception_cleanup
 W2374EhGlobals* func_00316af8(void);              // __cxa_get_globals
 int func_003189e0(W2374UnwindException*);        // _Unwind_RaiseException
 void* func_003166f0(void*);                       // __cxa_begin_catch
-void func_00315440(void) __attribute__((noreturn)); // std::terminate
+__attribute__((noreturn)) void func_00315440(void); // std::terminate
 
 // 00315500: __cxa_throw
 void func_00315500(void* obj, void* tinfo, void (*dest)(void*))

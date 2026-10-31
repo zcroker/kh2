@@ -10,9 +10,15 @@ extern "C" {
 typedef void (*W2361Handler)(void);
 extern W2361Handler D_003677a8;  // __terminate_handler
 extern W2361Handler D_003677ac;  // __unexpected_handler
-void func_00315440(void) __attribute__((noreturn));
-void func_00315458(W2361Handler handler) __attribute__((noreturn));
-void func_00315470(void) __attribute__((noreturn));
+__attribute__((noreturn)) void func_00315440(void);
+__attribute__((noreturn)) void func_00315418(W2361Handler);  // __cxxabiv1::__terminate
+__attribute__((noreturn)) void func_00315458(W2361Handler handler);
+__attribute__((noreturn)) void func_00315470(void);
+
+/* std::terminate: calls __terminate with the current handler. */
+void func_00315440(void) {
+    func_00315418(D_003677a8);
+}
 
 void func_00315458(W2361Handler handler) {
     handler();

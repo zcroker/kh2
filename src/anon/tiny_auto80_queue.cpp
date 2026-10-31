@@ -17667,11 +17667,6 @@ void func_00314698(u32 a0, u32 a1, u32 a2, u32 a3) {
     func_00314930((u32)args);
 }
 
-void func_00315440() {
-    u32* p = (u32*)0x00360000;
-    func_00315418(p[0x77a8 / 4]);
-}
-
 void duplicate_unplaced_003191d0(u32* a0, u32 a1, unsigned long long a2) {
     *(unsigned long long*)a0[a1] = a2;
 }
