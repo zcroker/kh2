@@ -145,6 +145,13 @@ out/build/%_nosched.o: CFLAGS := $(CFLAGS) -fno-schedule-insns
 # GCC's libsupc++ was built with exception support; code whose catch landing pads survive
 # (eh_terminate.cc __terminate) lives in *_eh.cpp. Its unwind tables are discarded in kh2.ld.
 out/build/%_eh.o: CXXFLAGS := $(subst -fno-exceptions,-fexceptions,$(CXXFLAGS))
+# Some code was built with -fmove-all-movables (loop.c hoists every loop-invariant constant, even
+# ones it judges not worth it). Functions that only match that way live in *_mam.cpp / *_mam.c.
+out/build/%_mam.o: CXXFLAGS := $(CXXFLAGS) -fmove-all-movables
+out/build/%_mam.o: CFLAGS := $(CFLAGS) -fmove-all-movables
+# Some code was built without -fcse-follow-jumps. Those functions live in *_ncfj.cpp / *_ncfj.c.
+out/build/%_ncfj.o: CXXFLAGS := $(CXXFLAGS) -fno-cse-follow-jumps
+out/build/%_ncfj.o: CFLAGS := $(CFLAGS) -fno-cse-follow-jumps
 
 # Functions the original built without optimisation (fp/s8 frame) live in *_O0.cpp.
 out/build/%_O0.o: CXXFLAGS := $(subst -O2,-O0,$(CXXFLAGS))
