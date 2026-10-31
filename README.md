@@ -25,13 +25,13 @@ It builds the current executable:
 > is byte-identical to the original, but the source itself is machine-written, so names,
 > types and structure may be less idiomatic than hand-written decomp code.
 
-## Status (October 2026)
+## Status (November 2026)
 
 | Measure | Progress |
 |---|---|
-| Functions matched | **11,023 / 11,509 (95.8%)** |
-| Code matched (by size) | **82.3%** |
-| Source-file chunks fully matched ("linked" groundwork) | 58 of 140, with 134 at 90% or more |
+| Functions matched | **11,047 / 11,509 (96.0%)** |
+| Code matched (by size) | **82.7%** |
+| Source-file chunks fully matched ("linked" groundwork) | 59 of 140, with 134 at 90% or more |
 
 Every commit keeps the rebuilt `kh2.elf` byte-identical to the retail executable.
 
