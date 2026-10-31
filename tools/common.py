@@ -331,7 +331,11 @@ def _build_addr_source_fallback_map(
     out: Dict[int, str] = {}
     for addr, files in hits.items():
         uniq = sorted({f.relative_to(ROOT).as_posix() for f in files})
-        if len(uniq) == 1:
+        # An asm label is a definition for sure; the C regex also matches multi-line calls ending in '{'.
+        asm_only = sorted({u for u in uniq if u.endswith((".s", ".S"))})
+        if len(asm_only) == 1:
+            out[addr] = asm_only[0]
+        elif len(uniq) == 1:
             out[addr] = uniq[0]
     return out
 
