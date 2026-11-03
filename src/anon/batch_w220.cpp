@@ -1,14 +1,6 @@
 #include "../common/types.h"
 
-// func_002f1fb8: hand-written MMIO/VU0-control asm (whole body). func_001e7470 is now C in batch_owner1021_g.cpp.
-extern u8 D_00363c50[];
-asm(".section .text.func_002f1fb8,\"ax\",@progbits\n"
-".align 3\n.globl func_002f1fb8\n.type func_002f1fb8,@function\nfunc_002f1fb8:\n"
-".set noreorder\n.set noat\n"
-"lui $2,0x1000\n li $7,1\n ori $2,$2,0x3c10\n lui $3,0x1000\n sw $7,0($2)\n ori $3,$3,0x3c20\n li $2,2\n move $4,$0\n sw $2,0($3)\n"
-"sync\n cfc2.ni $4,$28\n ori $4,$4,0x200\n ctc2.ni $4,$28\n sync.p\n"
-"lui $5,%hi(D_00363c50)\n lui $6,0x1000\n addiu $5,$5,%lo(D_00363c50)\n ori $6,$6,0x5000\n lq $4,0($5)\n lui $3,0x1000\n ori $3,$3,0x3000\n sq $4,0($6)\n lq $2,16($5)\n sq $2,0($6)\n jr $31\n sw $7,0($3)\n"
-".set reorder\n.set at\n.size func_002f1fb8,.-func_002f1fb8\n.text\n");
+// func_002f1fb8 is now C in src/sdk/sdk_w3687.c. func_001e7470 is now C in batch_owner1021_g.cpp.
 
 extern "C" {
 extern u8 D_0022b108[];
