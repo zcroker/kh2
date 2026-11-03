@@ -29,7 +29,7 @@ It builds the current executable:
 
 | Measure | Progress |
 |---|---|
-| Functions matched | **11,156 / 11,509 (96.9%)** |
+| Functions matched | **11,159 / 11,509 (97.0%)** |
 | Code matched (by size) | **84.8%** |
 | Source-file chunks fully matched ("linked" groundwork) | 72 of 140, with 136 at 90% or more |
 
