@@ -152,6 +152,10 @@ out/build/%_mam.o: CFLAGS := $(CFLAGS) -fmove-all-movables
 # Some code was built without -fcse-follow-jumps. Those functions live in *_ncfj.cpp / *_ncfj.c.
 out/build/%_ncfj.o: CXXFLAGS := $(CXXFLAGS) -fno-cse-follow-jumps
 out/build/%_ncfj.o: CFLAGS := $(CFLAGS) -fno-cse-follow-jumps
+# Some code was built with -falign-jumps=1 (no nop padding before jump-only labels, e.g. 001bc2a8).
+# Those functions live in *_aj1.cpp / *_aj1.c.
+out/build/%_aj1.o: CXXFLAGS := $(CXXFLAGS) -falign-jumps=1
+out/build/%_aj1.o: CFLAGS := $(CFLAGS) -falign-jumps=1
 
 # Functions the original built without optimisation (fp/s8 frame) live in *_O0.cpp.
 out/build/%_O0.o: CXXFLAGS := $(subst -O2,-O0,$(CXXFLAGS))
