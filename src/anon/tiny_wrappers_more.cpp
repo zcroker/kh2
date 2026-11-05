@@ -1212,10 +1212,6 @@ u32 func_0023fa70(u32 a0, u32 a1, u32 a2, u32 a3) {
     return YS_CACHE_BUFF_ReadRequest(a1, a2, 0x00000000u, a3);
 }
 
-u32 func_00241f78(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_00241f20(0x00000001u, 0x0000ffffu, a2, a3);
-}
-
 u32 func_002422a0(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_002efb88(((u32)(*(u32*)((u32)(a0) + 4u))), a1, a2, a3);
 }
