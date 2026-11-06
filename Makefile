@@ -159,6 +159,9 @@ out/build/%_aj1.o: CFLAGS := $(CFLAGS) -falign-jumps=1
 # Both no strict aliasing and -fmove-all-movables (00141c38, 0020ab48). Those live in *_nsamam.cpp / *_nsamam.c.
 out/build/%_nsamam.o: CXXFLAGS := $(CXXFLAGS) -fno-strict-aliasing -fmove-all-movables
 out/build/%_nsamam.o: CFLAGS := $(CFLAGS) -fno-strict-aliasing -fmove-all-movables
+# The same with -g (002793b0: -g keeps the first jal delay slot a nop). Those live in *_gnsamam.cpp / *_gnsamam.c.
+out/build/%_gnsamam.o: CXXFLAGS := $(subst -g0,-g,$(CXXFLAGS)) -fno-strict-aliasing -fmove-all-movables
+out/build/%_gnsamam.o: CFLAGS := $(subst -g0,-g,$(CFLAGS)) -fno-strict-aliasing -fmove-all-movables
 
 # Functions the original built without optimisation (fp/s8 frame) live in *_O0.cpp.
 out/build/%_O0.o: CXXFLAGS := $(subst -O2,-O0,$(CXXFLAGS))
