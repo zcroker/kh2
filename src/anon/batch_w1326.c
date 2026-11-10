@@ -81,10 +81,10 @@ struct _reent {
 extern struct _reent* D_00365c48;                          /* _impure_ptr */
 extern int D_00378ae4;                                     /* errno */
 extern const char D_003778d8[];                            /* "\n" */
-u32  func_002ff3fc(const char* s);                         /* strlen */
-s32  func_003032d0(struct __sFILE* fp, struct __suio* uio);/* __sfvwrite */
+u32  strlen(const char* s);                         /* strlen */
+s32  __sfvwrite(struct __sFILE* fp, struct __suio* uio);/* __sfvwrite */
 void func_00302e10(struct _reent* s);                      /* __sinit */
-void func_00302e90(struct _reent* ptr, void* p);           /* _free_r */
+void _free_r(struct _reent* ptr, void* p);           /* _free_r */
 void func_00303808(struct __sFILE* fp);                    /* __smakebuf */
 int  func_00305c68(int fd, void* buf, u32 cnt);            /* _read */
 
@@ -102,15 +102,15 @@ int  func_00305c68(int fd, void* buf, u32 cnt);            /* _read */
 #define HASUB(fp) ((fp)->_ub._base != NULL)
 #define FREEUB(fp) { \
     if ((fp)->_ub._base != (fp)->_ubuf) \
-      func_00302e90((fp)->_data, (char *)(fp)->_ub._base); \
+      _free_r((fp)->_data, (char *)(fp)->_ub._base); \
     (fp)->_ub._base = NULL; \
   }
 
 /* 002fe018: _puts_r (newlib/libc/stdio/puts.c) */
-int func_002fe018(struct _reent* ptr, const char* s) asm("_Z16wtarget_002fe018jjjj");
-int func_002fe018(struct _reent* ptr, const char* s)
+int _puts_r(struct _reent* ptr, const char* s) asm("_Z7_puts_rjjjj");
+int _puts_r(struct _reent* ptr, const char* s)
 {
-  u32 c = func_002ff3fc(s);
+  u32 c = strlen(s);
   struct __suio uio;
   struct __siov iov[2];
 
@@ -122,11 +122,11 @@ int func_002fe018(struct _reent* ptr, const char* s)
   uio.uio_iov = &iov[0];
   uio.uio_iovcnt = 2;
 
-  return (func_003032d0(ptr->_stdout, &uio) ? EOF : '\n');
+  return (__sfvwrite(ptr->_stdout, &uio) ? EOF : '\n');
 }
 
 /* 003015f8: __swsetup (newlib/libc/stdio/wsetup.c; this version has no __SSTR test) */
-int func_003015f8(struct __sFILE* fp)
+int __swsetup(struct __sFILE* fp)
 {
   CHECK_INIT (fp);
 
@@ -161,7 +161,7 @@ int func_003015f8(struct __sFILE* fp)
 }
 
 /* 00305168: _read_r (newlib/libc/reent/readr.c); _ssize_t is long */
-long func_00305168(struct _reent* ptr, int fd, void* buf, u32 cnt)
+long _read_r(struct _reent* ptr, int fd, void* buf, u32 cnt)
 {
   long ret;
 

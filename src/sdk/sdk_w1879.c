@@ -41,7 +41,7 @@ typedef struct {
     u_long trxdir;
     long trxdiraddr;
 } sceGsStoreImage;
-int func_002f2aa0(sceGsStoreImage *sp, short sbp, short sbw, short spsm, short x, short y, short w, short h)
+int sceGsSetDefStoreImage(sceGsStoreImage *sp, short sbp, short sbw, short spsm, short x, short y, short w, short h)
 {
     sp->vifcode[0] = 0;
     sp->vifcode[1] = 0x06008000;

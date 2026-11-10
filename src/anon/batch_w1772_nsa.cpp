@@ -9,7 +9,7 @@ void func_001980d0(u8*, u32, u32, u32);
 void func_00190128(u8*);
 void func_0019f950(u8*, u8*);
 extern u8 D_0034ee08;
-void func_002f25a0(s32, s32);
+void sceGsSyncPath(s32, s32);
 void FlushCache(s32);
 void func_002f3918(s32, void*);
 extern s32 D_003591c8;
@@ -61,9 +61,9 @@ void func_0020e0a0(void) {
     p[3] = s[9];
     p[4] = s[6];
     p[5] = s[7];
-    func_002f25a0(0, 0);
+    sceGsSyncPath(0, 0);
     FlushCache(0);
     func_002f3918(D_003591c8, &k);
-    func_002f25a0(0, 0);
+    sceGsSyncPath(0, 0);
 }
 }

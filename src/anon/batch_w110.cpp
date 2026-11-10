@@ -201,7 +201,7 @@ extern QU D_01d9ea80;
 struct NoTail { ~NoTail() {} };
 void func_001e2bc8(u32, u32, u32, u32);
 void func_001e7650(Obj6*, u32, u32);
-void func_002f4000(void*);  // vu_store_w_splat
+void sceVu0UnitMatrix(void*);  // vu_store_w_splat
 void func_001e2b50(u32, u32);
 void func_001e5fd8(void);
 // Stores the draw parameters into the global state block, then resets and starts the pass.
@@ -233,7 +233,7 @@ void func_001e6d38(u32 a0, u32 a1, u32 a2, u32 a3, u32 t0, u32 t1, u32 t2, u32 t
     D_01d9e6b8.f24 = D_00354248;
     D_01d9e6e4 = &D_01d9e6b8;
     D_01d9eaa0 = 0;
-    func_002f4000(D_01d9ea40);  // vu_store_w_splat
+    sceVu0UnitMatrix(D_01d9ea40);  // vu_store_w_splat
     D_01d9ea80.q = 0;
     D_01d9ea80.f[3] = 1.0f;
     func_001e2b50(a2, a3);
@@ -243,9 +243,9 @@ void func_001e6d38(u32 a0, u32 a1, u32 a2, u32 a3, u32 t0, u32 t1, u32 t2, u32 t
 struct Bigint { Bigint* next; s32 k, maxwds, sign, wds; u32 x[1]; };
 #define Storeinc(a, b, c) (((u16*)a)[1] = (u16)b, ((u16*)a)[0] = (u16)c, a++)
 extern "C" {
-Bigint* func_00303b70(void* ptr, s32 k);
+Bigint* _Balloc(void* ptr, s32 k);
 // newlib mprec.c multiply(): c = a * b
-Bigint* func_00303ff8(void* ptr, Bigint* a, Bigint* b) {
+Bigint* __multiply(void* ptr, Bigint* a, Bigint* b) {
     Bigint* c;
     s32 k, wa, wb, wc;
     u32 carry, y, z;
@@ -262,7 +262,7 @@ Bigint* func_00303ff8(void* ptr, Bigint* a, Bigint* b) {
     wb = b->wds;
     wc = wa + wb;
     if (wc > a->maxwds) k++;
-    c = func_00303b70(ptr, k);
+    c = _Balloc(ptr, k);
     for (x = c->x, xa = x + wc; x < xa; x++) *x = 0;
     xa = a->x;
     xae = xa + wa;
@@ -320,7 +320,7 @@ struct UwFrameState {
 };
 union Unaligned { void* p; } __attribute__((packed));
 extern "C" {
-u32 func_002ff3fc(const u8*);  // strlen
+u32 strlen(const u8*);  // strlen
 const u8* func_00316f38(const u8*, u64*);  // varint64_decode
 const u8* func_00316f70(const u8*, s64*);
 u32 func_00316e88(u8, void*);  // classify_subtype_c
@@ -330,7 +330,7 @@ static inline const u8* read_encoded_value(void* context, u8 encoding, const u8*
 }
 const u8* func_00317140(DwCie* cie, void* context, UwFrameState* fs) {
     const u8* aug = cie->augmentation;
-    const u8* p = aug + func_002ff3fc(aug) + 1;
+    const u8* p = aug + strlen(aug) + 1;
     const u8* ret = 0;
     u64 utmp;
 
@@ -828,9 +828,9 @@ extern "C" {
 extern Model D_01d9e360;
 struct CamBlk { u8 pad[48]; f32 pos[3]; };
 extern CamBlk D_01d9e840;
-void func_002f3f88(V4r*, V4r*);  // memcpy16
-void func_002f3f40(V4r*, V4r*, f32);  // vec_scale_by_f12
-void func_002f3d08(M4r*, void*, M4r*);
+void sceVu0CopyVector(V4r*, V4r*);  // memcpy16
+void sceVu0ScaleVector(V4r*, V4r*, f32);  // vec_scale_by_f12
+void sceVu0MulMatrix(M4r*, void*, M4r*);
 void func_0021efc0(DrawReq*);
 void func_0021f060(DrawReq*);
 // Builds a billboard matrix from the model rows (scaled by size/length) and queues the draw request.
@@ -842,22 +842,22 @@ void func_0021fbd8(DrawArg* a, u32 id) {
     if (md == &D_01d9e360) return;
     if (!src->tex) return;
     if (md->scale == 0.0f) return;
-    func_002f3f88(&m.r[0], &md->rows[1]);  // memcpy16
-    func_002f3f88(&m.r[1], &md->rows[2]);  // memcpy16
-    func_002f3f88(&m.r[2], &md->rows[3]);  // memcpy16
-    func_002f3f88(&m.r[3], &md->rows[0]);  // memcpy16
+    sceVu0CopyVector(&m.r[0], &md->rows[1]);  // memcpy16
+    sceVu0CopyVector(&m.r[1], &md->rows[2]);  // memcpy16
+    sceVu0CopyVector(&m.r[2], &md->rows[3]);  // memcpy16
+    sceVu0CopyVector(&m.r[3], &md->rows[0]);  // memcpy16
     f32 k = a->len * md->size / (f32)a->div;
-    func_002f3f40(&m.r[0], &m.r[0], -k);  // vec_scale_by_f12
-    func_002f3f40(&m.r[1], &m.r[1], k);  // vec_scale_by_f12
+    sceVu0ScaleVector(&m.r[0], &m.r[0], -k);  // vec_scale_by_f12
+    sceVu0ScaleVector(&m.r[1], &m.r[1], k);  // vec_scale_by_f12
     if (!md->noOffset) {
         m.r[3].x = D_01d9e840.pos[0] + md->off[0];
         m.r[3].y = D_01d9e840.pos[1] + md->off[1];
         m.r[3].z = D_01d9e840.pos[2] + md->off[2];
     }
-    func_002f3f40(&m.r[0], &m.r[0], a->scl[0]);  // vec_scale_by_f12
-    func_002f3f40(&m.r[1], &m.r[1], a->scl[1]);  // vec_scale_by_f12
-    func_002f3f40(&m.r[2], &m.r[2], a->scl[2]);  // vec_scale_by_f12
-    func_002f3d08(&m, a->mtx, &m);
+    sceVu0ScaleVector(&m.r[0], &m.r[0], a->scl[0]);  // vec_scale_by_f12
+    sceVu0ScaleVector(&m.r[1], &m.r[1], a->scl[1]);  // vec_scale_by_f12
+    sceVu0ScaleVector(&m.r[2], &m.r[2], a->scl[2]);  // vec_scale_by_f12
+    sceVu0MulMatrix(&m, a->mtx, &m);
     req.color = a->color;
     k = md->size / (f32)a->h;
     f32 lim = 1.0f;

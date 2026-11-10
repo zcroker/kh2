@@ -316,17 +316,28 @@ def _build_addr_source_fallback_map(
         re.M,
     )
     asm_re = re.compile(r"^\s*func_([0-9a-fA-F]{8})\s*:\s*(?:[#;].*)?$", re.M)
+    # A renamed asm function (tools/rename_fn.py) keeps its ".section .text.func_ADDR" line, so
+    # the section name still records the address once the func_ADDR label itself is gone.
+    asm_sec_re = re.compile(r"^\s*\.section\s+\.text\.func_([0-9a-fA-F]{8})\s*(?:,|$)", re.M)
     hits: Dict[int, List[Path]] = {}
+    sec_hits: Dict[int, List[Path]] = {}
     for p in src_files:
         text = texts[p]
         if p.suffix in {".s", ".S"}:
             for m in asm_re.finditer(text):
                 addr = int(m.group(1), 16)
                 hits.setdefault(addr, []).append(p)
+            for m in asm_sec_re.finditer(text):
+                addr = int(m.group(1), 16)
+                sec_hits.setdefault(addr, []).append(p)
         else:
             for m in def_re.finditer(text):
                 addr = int(m.group(1), 16)
                 hits.setdefault(addr, []).append(p)
+    # Section names only count for addresses that no func_ADDR label or definition claims.
+    for addr, files in sec_hits.items():
+        if addr not in hits:
+            hits[addr] = files
 
     out: Dict[int, str] = {}
     for addr, files in hits.items():
@@ -555,6 +566,7 @@ def load_registry(path: Path = REGISTRY_TSV) -> Dict[int, RegistryEntry]:
     defs_by_name = _build_func_name_source_map(src_files, texts)
     asm_alias_sources = _build_asm_alias_source_map(src_files, texts)
 
+    alias_by_qual: Optional[Dict[str, set]] = None
     for addr, symbol in sorted(symbols_by_addr.items()):
         alias_candidates = sorted(set(asm_alias_sources.get(symbol, [])))
         if len(alias_candidates) == 1:
@@ -571,6 +583,21 @@ def load_registry(path: Path = REGISTRY_TSV) -> Dict[int, RegistryEntry]:
         if source:
             entries[addr] = RegistryEntry(addr=addr, mode="cxx", source=source, symbol=symbol)
             continue
+        if (SYM_RE.match(symbol) and not symbol.startswith("_Z")
+                and not re.search(r"[0-9a-fA-F]{8}$", symbol)):
+            # A plain name (renamed by tools/rename_fn.py) whose definition carries a mangled
+            # asm("_Z<n>name...") alias: match the alias by its unmangled name.
+            if alias_by_qual is None:
+                alias_by_qual = {}
+                for key, ps in asm_alias_sources.items():
+                    q = _symbol_to_qualified_name(key) if key.startswith("_Z") else None
+                    if q:
+                        alias_by_qual.setdefault(q, set()).update(ps)
+            qual_alias = sorted(alias_by_qual.get(symbol, ()))
+            if len(qual_alias) == 1:
+                entries[addr] = RegistryEntry(
+                    addr=addr, mode="cxx", source=qual_alias[0].relative_to(ROOT).as_posix(), symbol=symbol)
+                continue
         fallback = addr_fallback.get(addr)
         if fallback:
             entries[addr] = RegistryEntry(addr=addr, mode="cxx", source=fallback, symbol=symbol)

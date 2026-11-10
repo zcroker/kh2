@@ -26,7 +26,7 @@ static inline W1836DItype w1836_negdi2(W1836DItype u)
     return w.ll;
 }
 
-W1836DItype func_003125c0(W1836DItype u, W1836DItype v)
+W1836DItype __moddi3(W1836DItype u, W1836DItype v)
 {
     int c = 0;
     W1836DWunion uu, vv;

@@ -29,8 +29,8 @@ static inline f32 maxf(f32 x, f32 lo) { return x > lo ? x : lo; }
 
 extern "C" {
 void func_00166c80(s16, s16);
-void func_002f8870(f32);
-f32 func_002f8960(f32);
+void fabsf(f32);
+f32 sinf(f32);
 extern f32 D_00349e10;  // frame time
 }
 
@@ -96,10 +96,10 @@ void PadWave::update() {
     a1 = clampf(a1, 0.0f, 16.0f);
     a2 += v2 * D_00349e10;
     a2 = clampf(a2, 0.0f, 16.0f);
-    a = func_002f8960(ph1 / p1 * 3.1415927f * 2.0f - 3.1415927f) * a1;
-    b = func_002f8960(ph2 / per2 * 3.1415927f * 2.0f - 3.1415927f) * a2;
-    func_002f8870(a);
-    func_002f8870(b);
+    a = sinf(ph1 / p1 * 3.1415927f * 2.0f - 3.1415927f) * a1;
+    b = sinf(ph2 / per2 * 3.1415927f * 2.0f - 3.1415927f) * a2;
+    fabsf(a);
+    fabsf(b);
     func_00166c80((s16)(s32)a, (s16)(s32)b);
     t -= D_00349e10;
     t = maxf(t, 0.0f);

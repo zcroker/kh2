@@ -67,8 +67,8 @@ struct Obj4f0 { u8 pad[16]; Vec4f0 v10; Vec4f0 v20; u8 pad2[284 - 48]; f32 f11c;
 Vec4f0 func_0016af58(Obj4f0*);
 void func_00184ad0(Obj4f0*, Vec4f0*, f32);
 void func_00184540(u8*, u32, f32, f32);
-f32 func_002f87c0(f32);
-f32 func_002f8870(f32);
+f32 cosf(f32);
+f32 fabsf(f32);
 u64 func_00313b80(f32) __attribute__((const));
 s32 func_003142e0(u64, u64) __attribute__((const));
 extern s8 D_01e2c068;
@@ -99,7 +99,7 @@ static inline f32 v4f0_dot(const Vec4f0& a, const Vec4f0& b) {
 }
 u8* func_002eb4f0(u8* ret, Obj4f0* o) {
     if (!D_01e2c068) {
-        D_01e2c070 = func_002f87c0(0.34906584f);
+        D_01e2c070 = cosf(0.34906584f);
         D_01e2c068 = 1;
     }
     Vec4f0 a;
@@ -114,7 +114,7 @@ u8* func_002eb4f0(u8* ret, Obj4f0* o) {
     a = o->v20;
     v4f0_norm(&a);
     Vec4f0 b = func_0016af58(o);
-    f32 d = func_002f8870(v4f0_dot(a, b));
+    f32 d = fabsf(v4f0_dot(a, b));
     f32 k = d < D_01e2c070 ? 0.1f : 0.015f;
     func_00184540(ret, (u32)o, 0.4f, 1.0f - k);
     return ret;

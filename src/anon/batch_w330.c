@@ -18,9 +18,9 @@ void func_001e6688(void) {
 }
 
 /* func_001e6ed8 */
-void f3f98(void*, void*) asm("_Z16u_call4_002f3f98jjjj");
-void f3d08(void*, void*, void*) asm("_Z16wtarget_002f3d08jjjj");
-void func_002f3e20(void*, void*);  // convert_vectors_to_scalar
+void f3f98(void*, void*) asm("_Z16sceVu0CopyMatrixjjjj");
+void f3d08(void*, void*, void*) asm("_Z15sceVu0MulMatrixjjjj");
+void sceVu0InversMatrix(void*, void*);  // convert_vectors_to_scalar
 extern u128 D_01d9e730, D_01d9e740, D_01d9e750, D_01d9e760;
 extern u128 D_01d9e770[4];
 extern u128 D_01d9e7b0[4];
@@ -43,7 +43,7 @@ void func_001e6ed8(u128* a, u128* b, u128* c, u128* d) {
     D_01d9e7f0 = *c;
     D_01d9e800 = *d;
     D_01d9e830.f = 53.0f;
-    func_002f3e20(D_01d9e7b0, &D_01d9e730);  // convert_vectors_to_scalar
+    sceVu0InversMatrix(D_01d9e7b0, &D_01d9e730);  // convert_vectors_to_scalar
     f3d08(D_01d9ea00, &D_01d9e8c0, &D_01d9e730);
 }
 

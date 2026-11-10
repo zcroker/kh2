@@ -2,7 +2,7 @@
 
 extern "C" {
 f32 func_002f8a18(f32);
-f32 func_002f8420(f32);
+f32 atanf(f32);
 struct W235A { u8 p[76]; f32 w; f32 h; };
 f32 func_00106f40(W235A* o, f32 x) {
     f32 a = 512.0f / o->w;
@@ -12,7 +12,7 @@ f32 func_00106f40(W235A* o, f32 x) {
     f32 b = 416.0f / o->h;
     b = b * 0.5f;
     b = b / a;
-    f32 r = func_002f8420(b);
+    f32 r = atanf(b);
     return r + r;
 }
 

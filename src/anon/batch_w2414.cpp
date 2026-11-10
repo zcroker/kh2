@@ -27,7 +27,7 @@ f32 func_00192fb8(MsgStyle*);           // scale * width
 s32 func_001aae80(MsgFont*, s32);       // glyph width
 s32 func_001aae90(u8);
 s32 func_001ab820(MsgFont*);
-u32 func_00313bc0(f32);                 // __fixunssfsi
+u32 __fixunssfsi(f32);                 // __fixunssfsi
 
 u8* func_00192528(u8* p, MsgFont* font, MsgStyle* st, MsgSize* out) asm("_Z13func_00192528Pv");
 u8* func_00192528(u8* p, MsgFont* font, MsgStyle* st, MsgSize* out) {
@@ -51,7 +51,7 @@ u8* func_00192528(u8* p, MsgFont* font, MsgStyle* st, MsgSize* out) {
                 break;
             case 9: {
                 out->w += func_001aae90(p[1]);
-                u32 h = func_00313bc0((f32)font->height * st->scale);
+                u32 h = __fixunssfsi((f32)font->height * st->scale);
                 out->h = h < out->h ? out->h : h;
                 break;
             }
@@ -69,7 +69,7 @@ u8* func_00192528(u8* p, MsgFont* font, MsgStyle* st, MsgSize* out) {
                 break;
             case 22: {
                 out->w += 32;
-                u32 h = func_00313bc0((f32)font->height * st->scale);
+                u32 h = __fixunssfsi((f32)font->height * st->scale);
                 out->h = h < out->h ? out->h : h;
                 break;
             }

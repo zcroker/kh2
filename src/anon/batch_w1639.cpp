@@ -125,8 +125,8 @@ s32 func_001a8bd0(s32);
 void func_001a8d40(s32, s32);
 void func_001a9110(s32*);
 void func_001bb288(s32, s32*);
-s32 func_002ff3fc(const char*);
-s32 func_002ff538(const char*, const char*, s32);
+s32 strlen(const char*);
+s32 strncmp(const char*, const char*, s32);
 void func_002fee78(char*, const char*, ...);
 void func_00170518(char*, s32, s32);
 s32 W1639_CheckFlag(s32) asm("_ZN2YS8PROGRESS9CheckFlagEi");
@@ -211,7 +211,7 @@ s32 func_00181da0(void* self, W1639Code* code)
         break;
     case 22: {
         const char* s = (const char*)code->arg;
-        if (func_002ff538(s, D_0034ecf8, func_002ff3fc(D_0034ecf8)) == 0)
+        if (strncmp(s, D_0034ecf8, strlen(D_0034ecf8)) == 0)
             func_002fee78(D_01c60560, s, D_0033caf0);
         else
             func_002fee78(D_01c60560, s, D_0033caf4);

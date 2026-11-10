@@ -41,8 +41,8 @@ void func_00101050(EhObj* ob, EhAccu* accu, EhFde* this_fde)
 struct EhObj2 { u32 pc_begin; u32 tbase; u32 dbase; u32 u; union { struct { unsigned long sorted:1; unsigned long from_array:1; unsigned long mixed_encoding:1; unsigned long encoding:8; unsigned long count:21; } b; u32 i; } s; EhObj* next; };
 struct EhBases { u32 tbase; u32 dbase; u32 func; };
 EhFde* func_00101388(EhObj*, void*);
-s32 func_0030edb0(void);
-void func_0030ee00(void);  // ee_intr_get_enable
+s32 DIntr(void);
+void EIntr(void);  // ee_intr_get_enable
 extern s32 D_0037aa2c;
 extern EhObj* D_0037aa30;
 extern EhObj* D_0037aa34;
@@ -51,7 +51,7 @@ EhFde* func_00101698(void* pc, EhBases* bases)
 {
     EhObj* ob;
     EhFde* f = 0;
-    D_0037aa2c = func_0030edb0();
+    D_0037aa2c = DIntr();
     for (ob = D_0037aa34; ob; ob = ob->next)
         if ((u32)pc >= ob->pc_begin) {
             f = func_00101388(ob, pc);
@@ -69,7 +69,7 @@ EhFde* func_00101698(void* pc, EhBases* bases)
         if (f) goto fini;
     }
 fini:
-    if (D_0037aa2c) func_0030ee00();  // ee_intr_get_enable
+    if (D_0037aa2c) EIntr();  // ee_intr_get_enable
     if (f) {
         int encoding;
         bases->tbase = ob->tbase;
@@ -204,7 +204,7 @@ struct Dst12 { V12* pos; union { M12* mtx; f32 fx; }; u8 pad[4]; union { s32 f12
 extern "C" {
 void func_00124828(Dst12*);
 void* func_00124c48(Src12Sub*, s32);
-void func_002fdd68(void*, void*, s32);
+void memcpy(void*, void*, s32);
 Dst12* func_00127a88(Src12* o, Heap12* heap) asm("_Z13func_00127a88Pv");
 typedef s32 (*CountFn12)(Src12Sub*);
 typedef s32 (*SubFn12)(Src12Sub*, Src12*, Heap12*);
@@ -233,7 +233,7 @@ Dst12* func_00127a88(Src12* o, Heap12* heap)
         if (t) {
             s32 sz = t->n * 4;
             r->tbl = ((AllocFn12)heap->vt[0])(heap, sz + 4, 0);
-            func_002fdd68(r->tbl, t->data, sz);
+            memcpy(r->tbl, t->data, sz);
             s16* e = (s16*)(sz + (u32)r->tbl);
             e[1] = -1;
             e[0] = -1;
@@ -821,9 +821,9 @@ void func_00274fa8(void)
 }
 
 extern "C" {
-u64 func_00313ed8(u64, u64);
+u64 __subdf3(u64, u64);
 s32 func_003142e0(u64, u64);  // double_compare
-char* func_00301938(void*, u64, s32, s32, s32*, s32*, char**);
+char* _dtoa_r(void*, u64, s32, s32, s32*, s32*, char**);
 // cvt (newlib vfprintf): convert a double to digits for %e/%f/%g.
 char* func_003012d8(void* data, u64 value, s32 ndigits, s32 flags, char* sign, s32* decpt, s32 ch, s32* length)
 {
@@ -836,11 +836,11 @@ char* func_003012d8(void* data, u64 value, s32 ndigits, s32 flags, char* sign, s
         mode = 2;
     }
     if ((s32)(value >> 32) < 0) {
-        value = func_00313ed8(0, value);
+        value = __subdf3(0, value);
         *sign = '-';
     } else
         *sign = '\0';
-    digits = func_00301938(data, value, mode, ndigits, decpt, &dsgn, &rve);
+    digits = _dtoa_r(data, value, mode, ndigits, decpt, &dsgn, &rve);
     if ((ch != 'g' && ch != 'G') || (flags & 1) == 1) {
         bp = digits + ndigits;
         if (ch == 'f') {

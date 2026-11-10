@@ -7,8 +7,8 @@ extern U1885 D_01d9e6e8;
 extern M1885 D_00354bd0;
 extern f32 D_00354bc0[3];
 void func_0021ed18(M1885*, void*);
-void func_002f3e20(M1885*, M1885*);
-void func_002f3d08(M1885*, M1885*, void*);
+void sceVu0InversMatrix(M1885*, M1885*);
+void sceVu0MulMatrix(M1885*, M1885*, void*);
 
 static inline void ScaleRow1885(f32* row, f32 s)
 {
@@ -33,9 +33,9 @@ void func_00201510(u8* p, u32, u8* a2)
     t.m[12] = D_00354bc0[0];
     t.m[13] = D_00354bc0[1];
     t.m[14] = D_00354bc0[2];
-    func_002f3e20(&t, &t);
-    func_002f3d08(&D_01d9e6e8.p->mtx, &D_01d9e6e8.p->mtx, m);
-    func_002f3d08(&D_01d9e6e8.p->mtx, &t, &D_01d9e6e8.p->mtx);
+    sceVu0InversMatrix(&t, &t);
+    sceVu0MulMatrix(&D_01d9e6e8.p->mtx, &D_01d9e6e8.p->mtx, m);
+    sceVu0MulMatrix(&D_01d9e6e8.p->mtx, &t, &D_01d9e6e8.p->mtx);
     ScaleRow1885(&D_01d9e6e8.p->mtx.m[0], scl[0]);
     ScaleRow1885(&D_01d9e6e8.p->mtx.m[4], scl[1]);
     ScaleRow1885(&D_01d9e6e8.p->mtx.m[8], scl[2]);

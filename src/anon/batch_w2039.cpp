@@ -33,7 +33,7 @@ struct Obj_b { u8 b0, b1, b2, b3; };
 extern "C" {
 extern f32 D_00362e60;
 f32 func_002f8a18(f32);
-f32 func_002f8870(f32);
+f32 fabsf(f32);
 Obj_b* func_001b6d70(u16);
 void func_001b6d88(Obj_b*, s32);
 void func_001b8bf8(Cmd_b*, s32);
@@ -51,7 +51,7 @@ void func_002e2a30(Obj_x* o, QV_x* v, const QV_x* lo, const QV_x* hi)
     v->w = 1.0f;
     *v = inv * *v;
     f32 t = func_002f8a18(D_00362e60 * 0.5f * 0.017453292f);
-    t = t * func_002f8870(v->z);
+    t = t * fabsf(v->z);
     f32 h = t * 4.0f / 3.0f;
     f32 a = h - hi->x;
     if (a < v->x) v->x = a;

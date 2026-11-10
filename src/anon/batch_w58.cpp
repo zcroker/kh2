@@ -270,10 +270,10 @@ void func_001a4388(void) {
 }
 
 // CRC-16/CCITT of a string, processed from the last character backwards.
-u32 func_002ff3fc(const char*);  // strlen
+u32 strlen(const char*);  // strlen
 u16 func_001ae270(const char* s) {
     u16 crc = 0xffff;
-    u32 n = func_002ff3fc(s);  // strlen
+    u32 n = strlen(s);  // strlen
     const s8* p = (const s8*)s + n - 1;
     for (u32 i = 0; i < n; i++) {
         crc ^= *p-- << 8;

@@ -69,11 +69,11 @@ u8* func_00227d10(s16);
 f32 func_00227c78(u8*);
 u32 func_00227ca8(u8*);
 u32 func_0016f000(u32, V4*, f32);
-f32 func_002f8960(f32);
-f32 func_002f87c0(f32);
+f32 sinf(f32);
+f32 cosf(f32);
 s32 func_00240440(u32);  // round_up_1024
 u32 func_001058e8(void);
-void func_002fdd68(void*, u32, u32);
+void memcpy(void*, u32, u32);
 u8 func_00241e18(void);
 u32 func_00241ed8(u8);
 u32 func_002409b8(u8*);
@@ -350,12 +350,12 @@ void func_00233490(u8* p) {
 
 void func_00237988(u8* p, f32 z) {
     *(f32*)(p + 120) = z;
-    f32 a = func_002f8960(*(f32*)(p + 112));
-    f32 b = func_002f87c0(*(f32*)(p + 112));
-    f32 c = func_002f8960(*(f32*)(p + 116));
-    f32 d = func_002f87c0(*(f32*)(p + 116));
-    f32 e = func_002f8960(*(f32*)(p + 120));
-    f32 f = func_002f87c0(*(f32*)(p + 120));
+    f32 a = sinf(*(f32*)(p + 112));
+    f32 b = cosf(*(f32*)(p + 112));
+    f32 c = sinf(*(f32*)(p + 116));
+    f32 d = cosf(*(f32*)(p + 116));
+    f32 e = sinf(*(f32*)(p + 120));
+    f32 f = cosf(*(f32*)(p + 120));
     f32 ac = a * c;
     *(f32*)(p + 28) = d * f;
     *(f32*)(p + 32) = d * -e;
@@ -384,7 +384,7 @@ s32 func_002408d0(u32 mode) {
 
 void func_00240a70(u8* p) {
     if (!p) p = D_0035ec90;
-    func_002fdd68(p, func_001058e8(), 0x10fc0);
+    memcpy(p, func_001058e8(), 0x10fc0);
     p[16796] = func_00241e18();
     ((B240*)(p + 16792))->f = func_00241ed8(p[12]) != 0;
     *(S84*)(p + 9284) = D_0035ec30;
@@ -607,7 +607,7 @@ u8* func_0028def0(u8* dst, s32 n) {
     if (!ok) n = 5;
     for (s32 i = 0; i < n; i++) {
         if (i + 1 >= n) len++;
-        func_002fdd68(q, (u32)buf, len);
+        memcpy(q, (u32)buf, len);
         q += len;
     }
     return dst;

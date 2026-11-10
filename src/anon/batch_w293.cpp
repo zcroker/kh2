@@ -210,7 +210,7 @@ static inline void AddTo(QWord* r, const QWord& a, const QWord& b)
 extern "C" {
 extern f32 D_00349e10;
 s32 func_0019ba60(u32);
-f32 func_002f8960(f32);
+f32 sinf(f32);
 void func_0016af58(QWord*, u8*);
 void func_0016aeb8(u8*, f32);
 void func_0016be98(QWord*, u32);
@@ -226,11 +226,11 @@ void func_001bfa08(u8* a0, u8* p)
         f32 t = r / *(f32*)(p + 2496);
         f32 one = 1.0f;
         f32 pi = 3.14159274f;
-        t = one - func_002f8960((one - t) * pi * 0.5f);
+        t = one - sinf((one - t) * pi * 0.5f);
         QWord v, s, w;
         ScaleTo(&s, *(QWord*)(p + 2512), t);
         v = s;
-        v.v[1] -= func_002f8960(t * pi) * 50.0f;
+        v.v[1] -= sinf(t * pi) * 50.0f;
         func_0016af58(&s, p);
         func_0016aeb8(p, s.v[3] + (one - t) * 0.52359873f);
         func_0016be98(&w, *(u32*)(p + 2536));

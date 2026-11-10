@@ -30,11 +30,11 @@ void func_00306968(Ring *r)
 }
 
 extern int func_00308780(int, int, int, int, int, int, int);
-int func_003088b8(int a, int b, int c, int d, int e, int f)
+int sceSifSendCmd(int a, int b, int c, int d, int e, int f)
 {
     return func_00308780(a, 0, b, c, d, e, f);
 }
-int func_003088f8(int a, int b, int c, int d, int e, int f)
+int isceSifSendCmd(int a, int b, int c, int d, int e, int f)
 {
     return func_00308780(a, 1, b, c, d, e, f);
 }
@@ -75,23 +75,23 @@ void* func_00308df0(Tbl *t, int i)
 typedef struct { char pad[0x24]; int x, y, z; } Arg;
 int func_00308f00(int a, int b, int c, Arg *d)
 {
-    if (func_003088f8(0x80000008, (int)d, 64, d->x, d->y, d->z)) return 0;
+    if (isceSifSendCmd(0x80000008, (int)d, 64, d->x, d->y, d->z)) return 0;
     return 0x800;
 }
 int func_003091c8(int a, int b, int c, int d)
 {
-    if (func_003088f8(0x80000008, d, 64, 0, 0, 0)) return 0;
+    if (isceSifSendCmd(0x80000008, d, 64, 0, 0, 0)) return 0;
     return 0x800;
 }
 
 extern int func_00309988(int);
-extern void func_003099e0(int);
+extern void sceSifExecRequest(int);
 extern void func_00305540(void);
 void func_00309ba8(int a)
 {
     int r;
     for (;;) {
-        while ((r = func_00309988(a)) != 0) func_003099e0(r);
+        while ((r = func_00309988(a)) != 0) sceSifExecRequest(r);
         func_00305540();
     }
 }

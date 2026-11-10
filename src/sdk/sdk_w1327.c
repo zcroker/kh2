@@ -31,17 +31,17 @@ int func_00310330(unsigned int id)
     return 1;
 }
 
-extern int func_0030edb0(void);
-extern void func_0030ee00(void);
+extern int DIntr(void);
+extern void EIntr(void);
 
 long func_00310448(unsigned int id, long val)
 {
     Ctr *c = (Ctr *)((id >> 10) << 6);
-    int st = func_0030edb0();
+    int st = DIntr();
     long old, now;
     if ((int)id < 0 || (id & 0x3ff) != c->id || D_00367118.cur == id) {
         if (st)
-            func_0030ee00();
+            EIntr();
         return -1;
     }
     old = c->total;
@@ -53,7 +53,7 @@ long func_00310448(unsigned int id, long val)
     } else
         c->total = val;
     if (st)
-        func_0030ee00();
+        EIntr();
     return old;
 }
 
@@ -121,7 +121,7 @@ extern int D_0036594c;
 extern int D_00365948;
 extern int func_00305670(int);
 extern int func_00305640(int);
-extern int func_003094b8(void *, int, int, void *, int, void *, int, void (*)(void *), void *);
+extern int sceSifCallRpc(void *, int, int, void *, int, void *, int, void (*)(void *), void *);
 extern void func_002fbba8(void *);
 
 int func_002fc9a8(int a, int b)
@@ -132,7 +132,7 @@ int func_002fc9a8(int a, int b)
         return -200;
     D_01e33500.a = a;
     D_01e33500.b = b;
-    if (func_003094b8(&D_01e33480, 16, 1, &D_01e33500, 48, D_01e34a40, 4, func_002fbba8, 0) != 0) {
+    if (sceSifCallRpc(&D_01e33480, 16, 1, &D_01e33500, 48, D_01e34a40, 4, func_002fbba8, 0) != 0) {
         func_00305640(D_0036594c);
         return -91;
     }
@@ -148,7 +148,7 @@ int func_002fcf80(int a, int b)
         return -200;
     D_01e33500.a = a;
     D_01e33500.b = b;
-    if (func_003094b8(&D_01e33480, 17, 1, &D_01e33500, 48, D_01e34a40, 4, func_002fbba8, 0) != 0) {
+    if (sceSifCallRpc(&D_01e33480, 17, 1, &D_01e33500, 48, D_01e34a40, 4, func_002fbba8, 0) != 0) {
         func_00305640(D_0036594c);
         return -91;
     }
@@ -156,7 +156,7 @@ int func_002fcf80(int a, int b)
     return 0;
 }
 
-extern void *func_002fdd68(void *, const void *, int);
+extern void *memcpy(void *, const void *, int);
 typedef struct { u8 b0, b1, off, len; int x4; int pad[5]; u8 data[1]; } Pkt;
 typedef struct { int x0, x4, x8, xc, x10; u8 rest[800]; } Port;
 extern Port D_01e2fe48[];
@@ -177,7 +177,7 @@ int func_002f5f50(int port, void *buf)
     p = func_002f6378(port);
     n = p->len;
     if (n && p->data) {
-        func_002fdd68(buf, (u8 *)(p->off + (int)p) + 28, n);
+        memcpy(buf, (u8 *)(p->off + (int)p) + 28, n);
         func_002f6440(p->data + p->off, &D_01e2fe48[port].x10 + 1);
     }
     if (p->x4 == 0)
@@ -188,7 +188,7 @@ int func_002f5f50(int port, void *buf)
 typedef struct { int x0, x4, x8, xc, x10, x14, x18, x1c, x20, x24, x28; } Pk;
 extern Pk *func_00308dc0(int);
 extern Pk *func_00309178(int, int);
-extern int func_003088f8(unsigned int, Pk *, int, int, int, int);
+extern int isceSifSendCmd(unsigned int, Pk *, int, int, int, int);
 extern int func_00310b70(int, void (*)(void), Pk *);
 extern void func_003091c8(void);
 
@@ -208,6 +208,6 @@ void func_00309208(Pk *r, int a)
         p->x24 = (int)q;
         p->x28 = q->x8;
     }
-    if (func_003088f8(0x80000008, p, 64, 0, 0, 0) == 0)
+    if (isceSifSendCmd(0x80000008, p, 64, 0, 0, 0) == 0)
         func_00310b70(2048, func_003091c8, p);
 }

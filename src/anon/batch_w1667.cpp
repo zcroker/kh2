@@ -2,10 +2,10 @@
 
 extern "C" {
 void func_0013d798(void);
-void func_002f8b48(void);
+void __ieee754_sqrt(void);
 void wtarget_00239bf8(u8*) asm("_Z16wtarget_00239bf8jjjj");
 void func_00303698(u32, void*);
-void func_00302b18(void);
+void fflush(void);
 void func_001cd690(void*, u32, u32);
 extern u32 D_00352bd0;
 extern u32 D_0034dbf8[];
@@ -19,7 +19,7 @@ void func_00198a90(void) { func_0013d798(); }
 
 void func_001e2ac0(void) { *(s32*)(D_00352bd0 + 0xdc0) = 7; }
 
-void func_002f8a88(void) { func_002f8b48(); }
+void func_002f8a88(void) { __ieee754_sqrt(); }
 
 void func_00113438(u8* p) { *(u32*)(p + 0xb7c) &= ~0x20000; }
 
@@ -57,7 +57,7 @@ void func_002f4820(f32* d, f32* s) {
     d[2] = s[2];
 }
 
-void func_00302dd0(u32 a) { func_00303698(a, (void*)func_00302b18); }
+void func_00302dd0(u32 a) { func_00303698(a, (void*)fflush); }
 
 void wtarget_00167268(u32 a, u32 b, u32 c, u32 d) asm("_Z16wtarget_00167268jjjj");
 void wtarget_00167268(u32 a, u32 b, u32 c, u32 d) {

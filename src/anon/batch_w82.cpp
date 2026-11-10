@@ -485,21 +485,21 @@ extern f32 D_00354bc0[3];
 extern u8* D_01d9e6e8;
 
 extern "C" {
-void func_002f3f40(u8*, u8*, f32);  // vec_scale_by_f12
-void func_002f3cd8(u8*, u8*, u8*);
-void func_002f3f98(u8*, u8*);
-void func_002f3d08(u8*, u8*, u8*);
+void sceVu0ScaleVector(u8*, u8*, f32);  // vec_scale_by_f12
+void sceVu0ApplyMatrix(u8*, u8*, u8*);
+void sceVu0CopyMatrix(u8*, u8*);
+void sceVu0MulMatrix(u8*, u8*, u8*);
 void func_0021ec80(u8*, s32*);
 
 void func_001fcb90(u8* a0, u32, u8* a2)
 {
     u8* p = a0 + *(u32*)(*(u8**)(a2 + 12) + 4) + 160;
-    func_002f3f40(D_01d9e6e8 + 80, D_01d9e6e8 + 16, D_00354be0[0]);  // vec_scale_by_f12
-    func_002f3f40(D_01d9e6e8 + 96, D_01d9e6e8 + 32, D_00354be0[1]);  // vec_scale_by_f12
-    func_002f3f40(D_01d9e6e8 + 112, D_01d9e6e8 + 48, D_00354be0[2]);  // vec_scale_by_f12
-    func_002f3cd8(D_01d9e6e8 + 128, D_01d9e840, D_01d9e6e8 + 64);
-    func_002f3f98(p, D_01d9e6e8 + 80);
-    func_002f3d08(D_01d9e6e8 + 80, D_01d9e8c0, D_01d9e6e8 + 80);
+    sceVu0ScaleVector(D_01d9e6e8 + 80, D_01d9e6e8 + 16, D_00354be0[0]);  // vec_scale_by_f12
+    sceVu0ScaleVector(D_01d9e6e8 + 96, D_01d9e6e8 + 32, D_00354be0[1]);  // vec_scale_by_f12
+    sceVu0ScaleVector(D_01d9e6e8 + 112, D_01d9e6e8 + 48, D_00354be0[2]);  // vec_scale_by_f12
+    sceVu0ApplyMatrix(D_01d9e6e8 + 128, D_01d9e840, D_01d9e6e8 + 64);
+    sceVu0CopyMatrix(p, D_01d9e6e8 + 80);
+    sceVu0MulMatrix(D_01d9e6e8 + 80, D_01d9e8c0, D_01d9e6e8 + 80);
 }
 
 // Converts the global euler angles (radians) to 16-bit fixed angles and applies them.
@@ -828,7 +828,7 @@ static inline void VAdd82(void* d, const void* a, const void* b) { asm volatile(
 extern "C" {
 void func_002e2a30(u8*, Vec82*, u8*, u8*);
 f32 func_002edd20(u32);
-f32 func_002f8870(f32);  // fabsf
+f32 fabsf(f32);  // fabsf
 double func_00313b80(f32);  // float_to_double
 double func_00313e80(double, double);  // double_div
 s32 func_003142e0(double, double);  // double_compare
@@ -855,7 +855,7 @@ Vec82* func_002ede48(Vec82* a0, u32 a1, Vec82* a2, f32 f12, f32 f13)
     f32 step;
     double dx;
     *a0 = *a2;
-    dx = func_00313b80(func_002f8870(diff));  // float_to_double
+    dx = func_00313b80(fabsf(diff));  // float_to_double
     step = f13 * D_00349e10;
     if (func_003142e0(func_00313e80(func_00313b80(step), 10.0), dx) < 0) {  // double_compare
         if (func_003142e0(func_00313b80(diff), 0.0) < 0) a0->y -= step;
@@ -874,7 +874,7 @@ extern "C" {
 typedef s32 (*Cmp82)(const void*, const void*);
 
 // floorf (newlib, no-denormal / largest-exponent-is-normal configuration).
-f32 func_002f8888(f32 x)
+f32 floorf(f32 x)
 {
     s32 i0, j0;
     u32 i, ix;

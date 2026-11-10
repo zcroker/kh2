@@ -50,11 +50,11 @@ struct W1833Prm { u8 pad[8]; f32 scale; u8 padc[4]; s32 idx; s32 o20; u8 pad18[4
 extern W1833Mgr* D_01d9e6e0;
 extern W1833Cam* D_01d9e6e8;
 W1833Ent* func_001e7a98(W1833Mgr*, u8*);
-void func_002f3cd8(W1833Vec*, void*, W1833Vec*);
+void sceVu0ApplyMatrix(W1833Vec*, void*, W1833Vec*);
 void func_002226b8(void*, W1833Vec*);
-void func_002f3f10(W1833Vec*, W1833Vec*, void*);
-void func_002f3d98(W1833Vec*, W1833Vec*);
-void func_002f3f40(W1833Vec*, W1833Vec*, f32);
+void sceVu0SubVector(W1833Vec*, W1833Vec*, void*);
+void sceVu0Normalize(W1833Vec*, W1833Vec*);
+void sceVu0ScaleVector(W1833Vec*, W1833Vec*, f32);
 
 void func_001f5cc8(void* owner, W1833Prm* prm, s16* pos) {
     W1833Ent* e = 0;
@@ -70,11 +70,11 @@ void func_001f5cc8(void* owner, W1833Prm* prm, s16* pos) {
     v.y = pos[1];
     v.z = pos[2];
     v.w = 1.0f;
-    func_002f3cd8(&v, D_01d9e6e8->m0, &v);
+    sceVu0ApplyMatrix(&v, D_01d9e6e8->m0, &v);
     func_002226b8(p0, &v);
-    func_002f3f10(&v, &v, D_01d9e6e8->m1);
-    func_002f3d98(&v, &v);
-    func_002f3f40(&v, &v, prm->scale);
+    sceVu0SubVector(&v, &v, D_01d9e6e8->m1);
+    sceVu0Normalize(&v, &v);
+    sceVu0ScaleVector(&v, &v, prm->scale);
     func_002226b8(p1, &v);
 }
 void func_001f6648(void* owner, W1833Prm* prm, s16* pos) {
@@ -91,11 +91,11 @@ void func_001f6648(void* owner, W1833Prm* prm, s16* pos) {
     v.y = pos[1];
     v.z = pos[2];
     v.w = 1.0f;
-    func_002f3cd8(&v, D_01d9e6e8->m0, &v);
+    sceVu0ApplyMatrix(&v, D_01d9e6e8->m0, &v);
     func_002226b8(p0, &v);
-    func_002f3f10(&v, &v, D_01d9e6e8->m1);
-    func_002f3d98(&v, &v);
-    func_002f3f40(&v, &v, prm->scale);
+    sceVu0SubVector(&v, &v, D_01d9e6e8->m1);
+    sceVu0Normalize(&v, &v);
+    sceVu0ScaleVector(&v, &v, prm->scale);
     func_002226b8(p1, &v);
 }
 }

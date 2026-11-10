@@ -17,8 +17,8 @@ struct S1a7da8 {
 };
 extern u32 D_003638d0;
 f32 func_0017ce10(f32);
-f32 func_002f8960(f32);
-f32 func_002f87c0(f32);
+f32 sinf(f32);
+f32 cosf(f32);
 s32 func_001a75d8(S1a7da8*, V1a7da8*, s32);
 static inline void vmul(V1a7da8* r, const V1a7da8* a, f32 s) {
     asm volatile("lqc2 $vf1, 0(%1)\n\tmfc1 $8, %2\n\tqmtc2 $8, $vf2\n\tvmulx.wxyz $vf1, $vf1, $vf2x\n\tsqc2 $vf1, 0(%0)"
@@ -47,8 +47,8 @@ V1a7da8 func_001a7da8(S1a7da8* s, f32 lo, f32 hi)
         V1a7da8* pu = &tsum;
         s->count++;
         f32 a = func_0017ce10(s->angle + (f32)s->count * step);
-        f32 sx = func_002f8960(a);
-        f32 cz = func_002f87c0(a);
+        f32 sx = sinf(a);
+        f32 cz = cosf(a);
         v.x = sx; v.z = cz; v.y = zero; v.w = zero;
         vmul(pm, &v, s->top);
         vadd(pu, &s->pos, pm);

@@ -23,7 +23,7 @@ void func_0014b2c8(u32* self) {
 
 // Hand-written VU0 macro code (libvu0-style rotation matrix: calls func_002f4028
 // with a non-standard convention, saves ra in a2, trapping addi); kept as asm.
-void func_002f4148(u32, u32, f32) {
+void sceVu0RotMatrixX(u32, u32, f32) {
     asm volatile(
         ".set noreorder\n\t"
         ".set noat\n\t"
@@ -75,8 +75,8 @@ void func_002f4148(u32, u32, f32) {
         : : : "$1", "$4", "$5", "$6", "$7", "$8", "memory");
 }
 
-// Sibling of func_002f4148 (rotation about another axis); hand-written, kept as asm.
-void func_002f41f0(u32, u32, f32) {
+// Sibling of sceVu0RotMatrixX (rotation about another axis); hand-written, kept as asm.
+void sceVu0RotMatrixY(u32, u32, f32) {
     asm volatile(
         ".set noreorder\n\t"
         ".set noat\n\t"

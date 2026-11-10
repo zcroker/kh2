@@ -5,13 +5,13 @@
 	.set nomacro
 	.section .text.func_00305270,"ax",@progbits
 	.align 2
-	.globl func_00305270
-	.type func_00305270, @function
-	.ent func_00305270
-func_00305270:
+	.globl _ExecPS2
+	.type _ExecPS2, @function
+	.ent _ExecPS2
+_ExecPS2:
 	li	$3,7
 	syscall
 	jr	$31
 	nop
-	.end func_00305270
-	.size func_00305270, 16
+	.end _ExecPS2
+	.size _ExecPS2, 16

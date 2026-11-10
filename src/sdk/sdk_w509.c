@@ -43,13 +43,13 @@ void func_00306f30(int c)
         func_00306e48(c);
 }
 
-extern int func_003061d0(int);
+extern int DisableDmac(int);
 extern int func_00305350(int, int);
 extern int D_01e357d4;
 extern int D_003660d8;
 void func_00308650(void)
 {
-    func_003061d0(5);
+    DisableDmac(5);
     func_00305350(5, D_01e357d4);
     D_003660d8 = 0;
 }

@@ -113,10 +113,10 @@ extern s8 D_0035da60[];
 
 void* func_0020eaf8(s32);
 void func_0020ebd8(s32);
-void func_002f3f10(V222aa8*, V222aa8*, V222aa8*);
-void func_002f3e90(V222aa8*, V222aa8*, f32);
-void func_002f3ef8(V222aa8*, V222aa8*, V222aa8*);
-u32 func_00313bc0(f32); /* __fixunssfsi in the game image */
+void sceVu0SubVector(V222aa8*, V222aa8*, V222aa8*);
+void sceVu0DivVector(V222aa8*, V222aa8*, f32);
+void sceVu0AddVector(V222aa8*, V222aa8*, V222aa8*);
+u32 __fixunssfsi(f32); /* __fixunssfsi in the game image */
 void func_00222aa8(u32 colA, u32 colB, u32* clut, f32 pos)
 {
     Swz222aa8* sw = (Swz222aa8*)func_0020eaf8(32);
@@ -156,11 +156,11 @@ void func_00222aa8(u32 colA, u32 colB, u32* clut, f32 pos)
     d.y = ((u8*)&colA)[1];
     d.z = ((u8*)&colA)[2];
     d.w = ((u8*)&colA)[3];
-    func_002f3f10(&d, &d, &c);
-    func_002f3e90(&d, &d, len);
+    sceVu0SubVector(&d, &d, &c);
+    sceVu0DivVector(&d, &d, len);
     for (; i < n; i++) {
-        *p = (func_00313bc0(c.w) << 24 | func_00313bc0(c.y) << 8) | (func_00313bc0(c.x) | func_00313bc0(c.z) << 16);
-        func_002f3ef8(&c, &c, &d);
+        *p = (__fixunssfsi(c.w) << 24 | __fixunssfsi(c.y) << 8) | (__fixunssfsi(c.x) | __fixunssfsi(c.z) << 16);
+        sceVu0AddVector(&c, &c, &d);
         p += sw->v[i & 31];
     }
     func_0020ebd8(32);

@@ -7,15 +7,15 @@ extern int func_00305640(int);
 extern int func_00305660(int);
 extern int func_003080d0(const char *, ...);
 extern void func_00308b30(int);
-extern int func_003092d8(struct CD *, unsigned int, int);
-extern int func_003094b8(void *cd, int fno, int mode, void *send, int ssize, void *recv, int rsize, void *end, void *endp);
+extern int sceSifBindRpc(struct CD *, unsigned int, int);
+extern int sceSifCallRpc(void *cd, int fno, int mode, void *send, int ssize, void *recv, int rsize, void *end, void *endp);
 extern void func_002fc378(int, int, int);
 extern int D_0036594c;
 extern int D_00365950;
 extern struct CD D_01e33480;
 extern int D_01e33500[];
 extern int D_01e34a40[];
-int func_002fb928(void)
+int sceMcInit(void)
 {
     struct SemaParam sp;
     int i, j, r;
@@ -42,7 +42,7 @@ int func_002fb928(void)
     func_00305660(D_0036594c);
     func_00308b30(0);
     for (;;) {
-        if (func_003092d8(&D_01e33480, 0x80000400, 0) < 0) {
+        if (sceSifBindRpc(&D_01e33480, 0x80000400, 0) < 0) {
             func_003080d0("bind error libmc \n");
             while (1)
                 ;
@@ -57,7 +57,7 @@ int func_002fb928(void)
             return -91;
         }
     }
-    r = func_003094b8(&D_01e33480, 254, 0, D_01e33500, 48, D_01e34a40, 12, 0, 0);
+    r = sceSifCallRpc(&D_01e33480, 254, 0, D_01e33500, 48, D_01e34a40, 12, 0, 0);
     func_00305640(D_0036594c);
     if (r < 0) {
         D_01e33480.serve = 0;

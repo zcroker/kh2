@@ -922,24 +922,24 @@ u32 func_002ef988(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_002efa98(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_002efb08(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_002f17e0(u32, u32, u32, u32, u32, u32, u32, u32);
-u32 func_002f25a0(u32, u32, u32, u32, u32, u32, u32, u32);
-u32 func_002f2be0(u32, u32, u32, u32, u32, u32, u32, u32);
+u32 sceGsSyncPath(u32, u32, u32, u32, u32, u32, u32, u32);
+u32 sceGsExecLoadImage(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_002f3490(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_002f35e8(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_002f3918(u32, u32, u32, u32, u32, u32, u32, u32);
-u32 func_002f3f88(u32, u32, u32, u32, u32, u32, u32, u32);  // memcpy16
+u32 sceVu0CopyVector(u32, u32, u32, u32, u32, u32, u32, u32);  // memcpy16
 u32 func_002f71b0(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_002f79c8(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_002f7e60(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_002fbd38(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_002fd248(u32, u32, u32, u32, u32, u32, u32, u32);
-u32 func_002fdd68(u32, u32, u32, u32, u32, u32, u32, u32);
+u32 memcpy(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_002fde18(u32, u32, u32, u32, u32, u32, u32, u32);
-void func_002fea00(u32, u32, u32, u32, u32, u32, u32, u32);
+void srand(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_002fee78(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_002ff2e8(u32, u32, u32, u32, u32, u32, u32, u32);
-u32 func_002ff3fc(u32, u32, u32, u32, u32, u32, u32, u32);  // strlen
-u32 func_002ffbb0(u32, u32, u32, u32, u32, u32, u32, u32);
+u32 strlen(u32, u32, u32, u32, u32, u32, u32, u32);  // strlen
+u32 strtol(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_003037b0(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_00305240(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_00305260(u32, u32, u32, u32, u32, u32, u32, u32);
@@ -952,12 +952,12 @@ u32 func_00305660(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_003058a0(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_00305a30(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_00305a40(u32, u32, u32, u32, u32, u32, u32, u32);
-u32 func_003061d0(u32, u32, u32, u32, u32, u32, u32, u32);
+u32 DisableDmac(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_00306e80(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_00306f30(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_00308650(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_00308780(u32, u32, u32, u32, u32, u32, u32, u32);
-u32 func_003088f8(u32, u32, u32, u32, u32, u32, u32, u32);
+u32 isceSifSendCmd(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_0030a278(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_0030e548(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_0030f290(u32, u32, u32, u32, u32, u32, u32, u32);
@@ -1539,7 +1539,7 @@ u32 duplicate_unplaced_001060e0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, 
 
 u32 duplicate_unplaced_00106490(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7;
-    return ((u32(*)())func_002fea00)();
+    return ((u32(*)())srand)();
 }
 
 void duplicate_unplaced_001069b8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
@@ -4134,13 +4134,13 @@ u32 func_00149370(u32 a0, u32 a1) {
     u32 v0 = ((u32(*)(u32, u32))func_00105140)(a0, 0);
     u32 a2 = *(u32*)((u32)&D_00340000 - 13580);
     ((u32(*)(u32, u32, u32, u32))func_002fee78)(s0, (u32)&D_0036afb8, a2, v0);
-    return ((u32(*)(u32))func_002ff3fc)(s0);
+    return ((u32(*)(u32))strlen)(s0);
 }
 
 u32 func_001493e8(u32 a0, u32 a1) {
     u32 s1 = a0;
     u32 s0 = a1;
-    ((u32(*)(u32))func_002ff3fc)(a1);
+    ((u32(*)(u32))strlen)(a1);
     return ((u32(*)(u32, u32))func_002ff2e8)(s1, s0);
 }
 
@@ -4547,7 +4547,7 @@ u32 duplicate_unplaced_0014d8d0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, 
     r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_003058a0)(r4, r5, r6, r7, r8, r9, r10, r11);
     r4 = 0u;
     r5 = 0u;
-    r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_002f25a0)(r4, r5, r6, r7, r8, r9, r10, r11);
+    r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))sceGsSyncPath)(r4, r5, r6, r7, r8, r9, r10, r11);
     r5 = r16;
     r15 = (u32)(0x0035u << 16);
     r4 = *(volatile u32*)((u32)r15 + (s32)(-24840));
@@ -4559,7 +4559,7 @@ u32 duplicate_unplaced_0014d910(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, 
     r5 = 0u;
     r16 = r4;
     r4 = 0u;
-    r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_002f25a0)(r4, r5, r6, r7, r8, r9, r10, r11);
+    r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))sceGsSyncPath)(r4, r5, r6, r7, r8, r9, r10, r11);
     r5 = r16;
     r15 = (u32)(0x0035u << 16);
     r4 = *(volatile u32*)((u32)r15 + (s32)(-24840));
@@ -6847,7 +6847,7 @@ u32 func_00192c40(u32 a0, u32 a1) {
     u32 s0 = a1;
     u32 s2 = a0;
     u32 s1 = ((u32(*)(u32))func_00192b30)(a0);
-    ((u32(*)(u32, u32, u32))func_002fdd68)(s0, s2, s1);
+    ((u32(*)(u32, u32, u32))memcpy)(s0, s2, s1);
     return s1;
 }
 
@@ -10456,12 +10456,12 @@ u32 duplicate_unplaced_002006b0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, 
     r5 = (u32)&D_00354bc0;
     r16 = (u32)(r4 + r14);
     r4 = (u32)((s32)r16 + (160));
-    r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_002f3f88)(r4, r5, r6, r7, r8, r9, r10, r11);
+    r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))sceVu0CopyVector)(r4, r5, r6, r7, r8, r9, r10, r11);
     r16 = (u32)((s32)r16 + (176));
     r5 = (u32)(0x0035u << 16);
     r4 = r16;
     r5 = (u32)((s32)r5 + (19424));
-    r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_002f3f88)(r4, r5, r6, r7, r8, r9, r10, r11);
+    r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))sceVu0CopyVector)(r4, r5, r6, r7, r8, r9, r10, r11);
     return r2;
 }
 
@@ -10472,12 +10472,12 @@ u32 duplicate_unplaced_002007e0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, 
     r5 = (u32)&D_00354bc0;
     r16 = (u32)(r4 + r14);
     r4 = (u32)((s32)r16 + (160));
-    r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_002f3f88)(r4, r5, r6, r7, r8, r9, r10, r11);
+    r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))sceVu0CopyVector)(r4, r5, r6, r7, r8, r9, r10, r11);
     r16 = (u32)((s32)r16 + (176));
     r5 = (u32)(0x0035u << 16);
     r4 = r16;
     r5 = (u32)((s32)r5 + (19424));
-    r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_002f3f88)(r4, r5, r6, r7, r8, r9, r10, r11);
+    r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))sceVu0CopyVector)(r4, r5, r6, r7, r8, r9, r10, r11);
     return r2;
 }
 
@@ -10488,21 +10488,21 @@ u32 duplicate_unplaced_00209e80(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, 
     r5 = (u32)&D_00354bc0;
     r16 = (u32)(r4 + r14);
     r4 = (u32)((s32)r16 + (224));
-    r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_002f3f88)(r4, r5, r6, r7, r8, r9, r10, r11);
+    r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))sceVu0CopyVector)(r4, r5, r6, r7, r8, r9, r10, r11);
     r16 = (u32)((s32)r16 + (240));
     r5 = (u32)(0x0035u << 16);
     r4 = r16;
     r5 = (u32)((s32)r5 + (19424));
-    r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_002f3f88)(r4, r5, r6, r7, r8, r9, r10, r11);
+    r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))sceVu0CopyVector)(r4, r5, r6, r7, r8, r9, r10, r11);
     return r2;
 }
 
 u32 func_0020e758(void) {
-    ((u32(*)(u32, u32))func_002f25a0)(0, 0);
+    ((u32(*)(u32, u32))sceGsSyncPath)(0, 0);
     ((u32(*)(u32))func_003058a0)(0);
-    ((u32(*)(u32, u32))func_002f25a0)(0, 0);
+    ((u32(*)(u32, u32))sceGsSyncPath)(0, 0);
     ((u32(*)(u32, u32))func_002f3918)(*(u32*)((u8*)&D_00360000 - 28216), (u32)&D_01dac450);
-    return ((u32(*)(u32, u32))func_002f25a0)(0, 0);
+    return ((u32(*)(u32, u32))sceGsSyncPath)(0, 0);
 }
 
 void duplicate_unplaced_0020ea48(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
@@ -10536,7 +10536,7 @@ u32 duplicate_unplaced_0020f118(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, 
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r2, r15;
     r4 = 0u;
     r5 = 0u;
-    r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_002f25a0)(r4, r5, r6, r7, r8, r9, r10, r11);
+    r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))sceGsSyncPath)(r4, r5, r6, r7, r8, r9, r10, r11);
     r15 = (u32)(0x0036u << 16);
     r5 = (u32)(0x0036u << 16);
     r4 = *(volatile u32*)((u32)r15 + (s32)(-28216));
@@ -10549,7 +10549,7 @@ u32 duplicate_unplaced_0020f150(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, 
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r2, r15;
     r4 = 0u;
     r5 = 0u;
-    r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_002f25a0)(r4, r5, r6, r7, r8, r9, r10, r11);
+    r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))sceGsSyncPath)(r4, r5, r6, r7, r8, r9, r10, r11);
     r15 = (u32)(0x0036u << 16);
     r5 = (u32)(0x0036u << 16);
     r4 = *(volatile u32*)((u32)r15 + (s32)(-28216));
@@ -10800,7 +10800,7 @@ u32 duplicate_unplaced_0022b7f0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, 
     r4 = r16;
     r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_002fee78)(r4, r5, r6, r7, r8, r9, r10, r11);
     r4 = r16;
-    r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_002ff3fc)(r4, r5, r6, r7, r8, r9, r10, r11);
+    r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))strlen)(r4, r5, r6, r7, r8, r9, r10, r11);
     r2 = r16;
     return r2;
 }
@@ -10861,7 +10861,7 @@ u32 duplicate_unplaced_0022c4b8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, 
     r4 = r16;
     r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_002fee78)(r4, r5, r6, r7, r8, r9, r10, r11);
     r4 = r16;
-    r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_002ff3fc)(r4, r5, r6, r7, r8, r9, r10, r11);
+    r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))strlen)(r4, r5, r6, r7, r8, r9, r10, r11);
     r2 = r16;
     return r2;
 }
@@ -10996,11 +10996,11 @@ u32 duplicate_unplaced_002368b0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, 
     r16 = r4;
     r5 = *(volatile u32*)((u32)r4 + (s32)(56));
     r4 = (u32)((s32)r4 + (64));
-    r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_002f2be0)(r4, r5, r6, r7, r8, r9, r10, r11);
+    r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))sceGsExecLoadImage)(r4, r5, r6, r7, r8, r9, r10, r11);
     r5 = *(volatile u32*)((u32)r16 + (s32)(60));
     r16 = (u32)((s32)r16 + (160));
     r4 = r16;
-    return ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_002f2be0)(r4, r5, r6, r7, r8, r9, r10, r11);
+    return ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))sceGsExecLoadImage)(r4, r5, r6, r7, r8, r9, r10, r11);
 }
 
 void func_002369a0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {  // obj_ctor_36eac8
@@ -11614,7 +11614,7 @@ u32 duplicate_unplaced_00240b48(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, 
     r6 = (u32)(0x0001u << 16);
     r4 = r2;
     r6 = (u32)(r6 | 0x0fc0u);
-    return ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_002fdd68)(r4, r5, r6, r7, r8, r9, r10, r11);
+    return ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))memcpy)(r4, r5, r6, r7, r8, r9, r10, r11);
 }
 
 u32 duplicate_unplaced_00240e10(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
@@ -11664,7 +11664,7 @@ u32 duplicate_unplaced_00241528(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, 
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r2, r14, r15, r16;
     r16 = (u32)(0x0036u << 16);
     r4 = *(volatile u32*)((u32)r16 + (s32)(-4984));
-    r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_002ff3fc)(r4, r5, r6, r7, r8, r9, r10, r11);
+    r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))strlen)(r4, r5, r6, r7, r8, r9, r10, r11);
     r15 = (u32)(0x0036u << 16);
     r5 = *(volatile u32*)((u32)r16 + (s32)(-4984));
     r14 = *(volatile u32*)((u32)r15 + (s32)(-4972));
@@ -13900,7 +13900,7 @@ u32 duplicate_unplaced_002ba0b0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, 
     r4 = r16;
     r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_002fee78)(r4, r5, r6, r7, r8, r9, r10, r11);
     r4 = r16;
-    r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_002ff3fc)(r4, r5, r6, r7, r8, r9, r10, r11);
+    r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))strlen)(r4, r5, r6, r7, r8, r9, r10, r11);
     r2 = r16;
     return r2;
 }
@@ -13913,7 +13913,7 @@ u32 duplicate_unplaced_002ba0f8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, 
     r4 = r16;
     r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_002fee78)(r4, r5, r6, r7, r8, r9, r10, r11);
     r4 = r16;
-    r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_002ff3fc)(r4, r5, r6, r7, r8, r9, r10, r11);
+    r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))strlen)(r4, r5, r6, r7, r8, r9, r10, r11);
     r2 = r16;
     return r2;
 }
@@ -14086,7 +14086,7 @@ u32 duplicate_unplaced_002bd260(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, 
     r4 = r16;
     r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_002fee78)(r4, r5, r6, r7, r8, r9, r10, r11);
     r4 = r16;
-    r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_002ff3fc)(r4, r5, r6, r7, r8, r9, r10, r11);
+    r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))strlen)(r4, r5, r6, r7, r8, r9, r10, r11);
     r2 = r16;
     return r2;
 }
@@ -14094,7 +14094,7 @@ u32 duplicate_unplaced_002bd260(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, 
 u32 func_002bd2a8(u32 a0) {
     u32 s0 = (u32)&D_01e2bbe0;
     ((u32(*)(u32, u32, u32))func_002fee78)(s0, (u32)&D_00374fc0, a0);
-    ((u32(*)(u32))func_002ff3fc)(s0);
+    ((u32(*)(u32))strlen)(s0);
     return s0;
 }
 
@@ -15900,7 +15900,7 @@ u32 duplicate_unplaced_002eee68(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, 
     r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_0011cdf0)(r4, r5, r6, r7, r8, r9, r10, r11);
     r4 = 0u;
     r5 = 0u;
-    r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_002f25a0)(r4, r5, r6, r7, r8, r9, r10, r11);
+    r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))sceGsSyncPath)(r4, r5, r6, r7, r8, r9, r10, r11);
     return r2;
 }
 
@@ -16276,13 +16276,13 @@ u32 duplicate_unplaced_002fd220(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, 
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r2;
     r5 = 0u;
     r6 = (u32)((s32)0u + (10));
-    r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_002ffbb0)(r4, r5, r6, r7, r8, r9, r10, r11);
+    r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))strtol)(r4, r5, r6, r7, r8, r9, r10, r11);
     r2 = (u32)((u64)r2 << 32);
     r2 = (u32)((s64)(u64)r2 >> 32);
     return r2;
 }
 
-void func_002fea00(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
+void srand(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r14, r15;
     u64 r4w;
     r15 = (u32)(0x0036u << 16);
@@ -16441,7 +16441,7 @@ u32 duplicate_unplaced_00308200(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, 
 u32 duplicate_unplaced_00308650(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r2, r3;
     r4 = (u32)((s32)0u + (5));
-    r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_003061d0)(r4, r5, r6, r7, r8, r9, r10, r11);
+    r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))DisableDmac)(r4, r5, r6, r7, r8, r9, r10, r11);
     r3 = (u32)(0x01e3u << 16);
     r4 = (u32)((s32)0u + (5));
     r5 = *(volatile u32*)((u32)r3 + (s32)(22484));
@@ -16509,7 +16509,7 @@ u32 duplicate_unplaced_00308f00(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, 
     r7 = *(volatile u32*)((u32)r5 + (s32)(36));
     r8 = *(volatile u32*)((u32)r5 + (s32)(40));
     r9 = *(volatile u32*)((u32)r5 + (s32)(44));
-    r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_003088f8)(r4, r5, r6, r7, r8, r9, r10, r11);
+    r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))isceSifSendCmd)(r4, r5, r6, r7, r8, r9, r10, r11);
     r3 = (u32)((s32)0u + (2048));
     if (r2 != 0u) r3 = 0u;
     r2 = r3;
@@ -16525,7 +16525,7 @@ u32 duplicate_unplaced_003091c8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, 
     r7 = 0u;
     r8 = 0u;
     r9 = 0u;
-    r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_003088f8)(r4, r5, r6, r7, r8, r9, r10, r11);
+    r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))isceSifSendCmd)(r4, r5, r6, r7, r8, r9, r10, r11);
     r3 = (u32)((s32)0u + (2048));
     if (r2 != 0u) r3 = 0u;
     r2 = r3;

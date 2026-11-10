@@ -76,9 +76,9 @@ void func_0016a9a0(void*);  // to_16a950
 void func_002e7458(void*);
 void func_002e7688(void*);
 void func_002e76c8(void*);
-void func_002f9268(void*);
-void func_002f9e78(void*);
-void func_002ff014(void*);  // memset
+void __ieee754_asinf(void*);
+void __ieee754_powf(void*);
+void strchr(void*);  // memset
 void func_00139858(s32);
 void func_00139dc0(s32);
 void func_001393f8(s32);
@@ -87,7 +87,7 @@ void func_00109e30(s32);
 void func_001069f8(s32);
 void func_00161f48(s32);
 void func_00306698(s32);
-void func_002f2508(s32);
+void sceGsSyncV(s32);
 void func_001397d8(s32);
 void func_002634c8(s32);
 namespace Tz {}
@@ -199,9 +199,9 @@ void func_002dabd0(BD_VALUE* bd) { func_0016a9a0(bd); }
 void func_002e7310(BD_VALUE* bd) { func_002e7458(bd); }
 void func_002e7328(BD_VALUE* bd) { func_002e7458(bd); }
 // 002e7670, 002e7698, 002e76b0: moved to src/anon/unit_002e7658.cpp
-void func_002f8ab8(BD_VALUE* bd) { func_002f9268(bd); }
-void func_002f8b30(BD_VALUE* bd) { func_002f9e78(bd); }
-void func_002fd3d0(BD_VALUE* bd) { func_002ff014(bd); }
+void func_002f8ab8(BD_VALUE* bd) { __ieee754_asinf(bd); }
+void func_002f8b30(BD_VALUE* bd) { __ieee754_powf(bd); }
+void func_002fd3d0(BD_VALUE* bd) { strchr(bd); }
 
 void func_00138128(BD_VALUE* bd) { func_00139858(13); }
 void func_001393c8(BD_VALUE* bd) { func_00139dc0(0); }
@@ -217,7 +217,7 @@ void func_00161a28(BD_VALUE* bd) { kn::setCameraNumber(1); }
 void func_00162058(BD_VALUE* bd) { func_00161f48(1); }
 void func_00162070(BD_VALUE* bd) { func_00161f48(0); }
 void func_001ae678(BD_VALUE* bd) { func_00306698(10); }
-void func_001ae690(BD_VALUE* bd) { func_002f2508(0); }
+void func_001ae690(BD_VALUE* bd) { sceGsSyncV(0); }
 void func_00225248(BD_VALUE* bd) { func_001398d0(11); }
 void func_0022b930(BD_VALUE* bd) { func_001397d8(11); }
 void func_0025f698(BD_VALUE* bd) { func_002634c8(0); }
@@ -2240,7 +2240,7 @@ u32 func_002ee530(u32 a0, u32 a1, u32 a2, u32 a3) {
 
 // 002ee840: moved to src/menu/tutorial_widget.cpp
 
-u32 func_002f1fa8(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_363c40
+u32 sceGsGetGParam(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_363c40
     (void)a0;
     (void)a1;
     (void)a2;

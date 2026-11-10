@@ -1,6 +1,6 @@
 #include "../common/types.h"
 
-// func_002f1fb8 is now C in src/sdk/sdk_w3687.c. func_001e7470 is now C in batch_owner1021_g.cpp.
+// sceGsResetPath is now C in src/sdk/sdk_w3687.c. func_001e7470 is now C in batch_owner1021_g.cpp.
 
 extern "C" {
 extern u8 D_0022b108[];

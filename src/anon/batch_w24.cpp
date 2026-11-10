@@ -362,18 +362,18 @@ void func_002ece98(u32, u8* o) {
 
 struct P2 { u32 a; u32 b; };
 struct P3 { P2* p; s32 n; u32 v; };
-u32 func_002ff3fc(void);  // strlen
-void func_003032d0(u32, P3*);
+u32 strlen(void);  // strlen
+void __sfvwrite(u32, P3*);
 void func_00316d18(u32 a, u32 b) {
     P3 s;
     P2 x;
     x.a = a;
-    u32 v = func_002ff3fc();  // strlen
+    u32 v = strlen();  // strlen
     s.v = v;
     x.b = v;
     s.p = &x;
     s.n = 1;
-    func_003032d0(b, &s);
+    __sfvwrite(b, &s);
 }
 
 struct VObj { void** vt; };

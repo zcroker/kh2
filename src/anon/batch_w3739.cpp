@@ -8,7 +8,7 @@ extern u8 D_0035ef58;
 extern u8 D_01dae6c0[];
 extern s32 D_0035eec0[];
 void func_002fde18(void*, s32, s32);
-s32 func_002ff3fc(s32);
+s32 strlen(s32);
 char* func_00253b30(char*, s32);
 s32 func_00168328(char*, u8*);
 s32 func_00253948(s32);
@@ -26,7 +26,7 @@ void func_00253638(void) {
     s32 i;
     for (i = 0; i < 2; i++) {
         s32 h = D_0035eec0[i];
-        if (h != 0 && func_002ff3fc(h) != 0) {
+        if (h != 0 && strlen(h) != 0) {
             Ent* e = &D_0035eee0[i];
             s32 v = func_00168328(func_00253b30(buf, h), dst);
             e->p = dst;

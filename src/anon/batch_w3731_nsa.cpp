@@ -56,7 +56,7 @@ V2cbf70 func_002cd910(Path2cbf70*, f32);
 f32 func_002ce598(Path2cbf70*, V2cbf70*);
 void func_002cb800(Path2cbf70*, V2cbf70*);
 void func_002ce6b8(Path2cbf70*, V2cbf70*, f32);
-f32 func_002f8870(f32);
+f32 fabsf(f32);
 
 s32 func_002cbf70(Path2cbf70* p, V2cbf70* out, V2cbf70* pos0, f32 dist)
 {
@@ -77,7 +77,7 @@ s32 func_002cbf70(Path2cbf70* p, V2cbf70* out, V2cbf70* pos0, f32 dist)
         V2cbf70 d2 = *pos - b;
         f32 l1 = d1.length();
         f32 l2 = d2.length();
-        if (func_002f8870(l2 - l1) < (l1 + l2) * 0.0001f) {
+        if (fabsf(l2 - l1) < (l1 + l2) * 0.0001f) {
             p->t0 = t0;
             *pos = a;
         }

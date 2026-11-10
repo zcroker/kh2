@@ -103,8 +103,8 @@ static inline QWord MulV(const QMat& m, const QWord& v)
     return r;
 }
 extern "C" {
-f32 func_002f8960(f32);
-f32 func_002f87c0(f32);
+f32 sinf(f32);
+f32 cosf(f32);
 QMat func_0011b558(const QWord*);
 void func_001074c0(u8* o, s32 mode, f32 ang)
 {
@@ -117,8 +117,8 @@ void func_001074c0(u8* o, s32 mode, f32 ang)
     d = Sub(*pos, *ctr);
     switch (mode) {
     case 0: {
-        f32 s = func_002f8960(ang);
-        f32 c = func_002f87c0(ang);
+        f32 s = sinf(ang);
+        f32 c = cosf(ang);
         f32 x = c * d.f[0] + s * d.f[2];
         f32 z = -s * d.f[0] + c * d.f[2];
         *(f32*)(o + 80) = *(f32*)(o + 96) + x;

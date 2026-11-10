@@ -121,7 +121,7 @@ union UL2222b8 { N2222b8* p; u64 v; };
 struct C2222b8 { s32 a; N2222b8* n; u8* p; s32 d; s32 c; U2222b8* flag; u64 e; u64 f; };
 extern "C" {
 s32 func_00220da0(C2222b8*);
-void func_002f25a0(s32, s32);
+void sceGsSyncPath(s32, s32);
 s32 func_002f35e8(s32);
 void func_002f3918(s32, u8*);
 void func_003058a0(s32);
@@ -134,7 +134,7 @@ void func_002222b8(N2222b8** list, s32 a1, s32 a2, s32 a3, U2222b8* pp, u64 e, u
     c.e = e;
     c.f = f;
     N2222b8* n = ((UL2222b8*)list)->p;
-    func_002f25a0(0, 0);
+    sceGsSyncPath(0, 0);
     for (; n; n = n->next) {
         c.n = n;
         c.p = pp->p + 16;
@@ -146,7 +146,7 @@ void func_002222b8(N2222b8** list, s32 a1, s32 a2, s32 a3, U2222b8* pp, u64 e, u
             *(u16*)q = ((u32)(c.p - pp->p) >> 4) - 1;
             func_003058a0(0);
             func_002f3918(id, q);
-            func_002f25a0(0, 0);
+            sceGsSyncPath(0, 0);
         }
     }
 }
@@ -279,8 +279,8 @@ extern u8 D_01d9e7b0[];
 extern "C" {
 f32 func_0020b410();
 void func_0020b4e8(M20bdb0*, I20bdb0*, u8*);
-void func_002f3cd8(void*, void*, void*);
-void func_002f3d98(void*, void*);
+void sceVu0ApplyMatrix(void*, void*, void*);
+void sceVu0Normalize(void*, void*);
 void func_002fde18(void*, s32, u32);
 void func_0020bdb0(void* self, void* mv, void* itv, u8* buf) {
     M20bdb0* m = (M20bdb0*)mv;
@@ -292,7 +292,7 @@ void func_0020bdb0(void* self, void* mv, void* itv, u8* buf) {
     v.y = m->y;
     v.z = m->z;
     v.w = 1.0f;
-    func_002f3d98(&it->q, &v);
+    sceVu0Normalize(&it->q, &v);
     f32 r = m->r0 + m->r1;
     f32 d = r + r;
     f32 len;
@@ -311,7 +311,7 @@ void func_0020bdb0(void* self, void* mv, void* itv, u8* buf) {
             "qmfc2 %0,$vf10\n" : "=r"(len) : "r"(it));
     } while (r < len);
     it->pos.w = 1.0f;
-    func_002f3cd8(it, D_01d9e7b0, it);
+    sceVu0ApplyMatrix(it, D_01d9e7b0, it);
     func_0020b4e8(m, it, buf);
 }
 }
@@ -331,7 +331,7 @@ void func_0020a510(void* self, void* mv, void* itv, u8* buf) {
     v.y = m->y;
     v.z = m->z;
     v.w = 1.0f;
-    func_002f3d98(&it->q, &v);
+    sceVu0Normalize(&it->q, &v);
     f32 r = m->r0 + m->r1;
     f32 d = r + r;
     f32 len;
@@ -350,7 +350,7 @@ void func_0020a510(void* self, void* mv, void* itv, u8* buf) {
             "qmfc2 %0,$vf10\n" : "=r"(len) : "r"(it));
     } while (r < len);
     it->pos.w = 1.0f;
-    func_002f3cd8(it, D_01d9e7b0, it);
+    sceVu0ApplyMatrix(it, D_01d9e7b0, it);
     func_0020a090(m, it, buf);
 }
 }

@@ -12,7 +12,7 @@ struct Obj17c930 {
 
 extern "C" {
 V4c17c930* func_0016c028(Obj17c930*);
-f32 func_002f8960(f32);
+f32 sinf(f32);
 extern f32 D_00349e10;
 
 static inline u32 flag20(Obj17c930* o) { return o->flags & 0x20; }
@@ -22,7 +22,7 @@ static inline bool frozen(Obj17c930* o) { return flag20(o) || flag1000000(o); }
 static inline bool stopped(Obj17c930* o) { return frozen(o) || flag40(o); }
 static inline bool moving(Obj17c930* o) { return !stopped(o); }
 
-/* 0017c930: offset that follows func_002f8960(func_002f8960(t*pi/2)*pi/2) while t < len and a parabola
+/* 0017c930: offset that follows sinf(sinf(t*pi/2)*pi/2) while t < len and a parabola
    after it, measured from the current position (func_0016c028()->y) and clamped to scale * D_00349e10. */
 f32 func_0017c930(void* self, Obj17c930* o) {
     if (moving(o)) {
@@ -30,7 +30,7 @@ f32 func_0017c930(void* self, Obj17c930* o) {
         f32 a = o->t; f32 b = o->len;
         if (a < b) {
             f32 t = a / b;
-            t = func_002f8960(func_002f8960(t * 3.14159274f * 0.5f) * 3.14159274f * 0.5f);
+            t = sinf(sinf(t * 3.14159274f * 0.5f) * 3.14159274f * 0.5f);
             r = o->base + o->amp * t;
         } else {
             f32 t = a - b;

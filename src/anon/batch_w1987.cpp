@@ -11,7 +11,7 @@ struct Ent21987 { u8 pad[12]; s32* offs; };
 struct V41987 { f32 x, y, z, w; } __attribute__((aligned(16)));
 extern Mgr1987* D_01d9e6e0;
 extern Body1987 D_01d9e360;
-f32 func_002f3d70(Body1987*, V41987*);
+f32 sceVu0InnerProduct(Body1987*, V41987*);
 void func_001ef8e0(u8* base, Ent1987* e, Ent21987* e2)
 {
     Body1987* a = &((Nd1987*)(base + e2->offs[0]))->b;
@@ -30,7 +30,7 @@ void func_001ef8e0(u8* base, Ent1987* e, Ent21987* e2)
                  "vmulq.xyz $vf9, $vf8, Q\n\tsqc2 $vf9, 0(%1)"
                  : "=r"(len) : "r"(&d) : "memory");
     if (len < b0->r) {
-        f32 t = func_002f3d70(b0, &d);
+        f32 t = sceVu0InnerProduct(b0, &d);
         if (b0->f14 < t) {
             Body1987* c = &((Nd1987*)(base + e2->offs[1]))->b;
             f32 k = b0->f18 * ((t - b0->f14) / (1.0f - b0->f14)) * ((b0->r - len) / b0->r) / e->f14;

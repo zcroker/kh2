@@ -67,7 +67,7 @@ extern int func_002f5c48(const char *, ...);
 extern int func_003080d0(const char *, ...);
 extern int func_002f71b0(int);
 extern void func_00308b30(int);
-extern int func_003092d8(CdRpc *, unsigned int, int);
+extern int sceSifBindRpc(CdRpc *, unsigned int, int);
 
 int func_002f6fc0(int cmd)
 {
@@ -86,7 +86,7 @@ int func_002f6fc0(int cmd)
     func_00308b30(0);
     if (D_00363dbc < 0) {
         while (1) {
-            if (func_003092d8(&D_00364f50, 0x80000595, 0) < 0) {
+            if (sceSifBindRpc(&D_00364f50, 0x80000595, 0) < 0) {
                 if (D_00363d90 > 0) func_003080d0("Libcdvd bind err N CMD\n");
                 i = 0x100000; while (i--) ;
                 continue;
@@ -121,7 +121,7 @@ int func_002f72c0(int cmd)
     func_00308b30(0);
     if (D_00363dd4 < 0) {
         while (1) {
-            if (func_003092d8(&D_00365900, 0x80000593, 0) < 0) {
+            if (sceSifBindRpc(&D_00365900, 0x80000593, 0) < 0) {
                 if (D_00363d90 > 0) func_003080d0("Libcdvd bind err S cmd\n");
                 i = 0x100000; while (i--) ;
                 continue;

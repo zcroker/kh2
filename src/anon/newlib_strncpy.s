@@ -6,10 +6,10 @@
 	.set noat
 	.section .text.func_002ff6f0,"ax",@progbits
 	.align 2
-	.globl func_002ff6f0
-	.type func_002ff6f0, @function
-	.ent func_002ff6f0
-func_002ff6f0:
+	.globl strncpy
+	.type strncpy, @function
+	.ent strncpy
+strncpy:
 	move	$8,$4
 	or	$7,$5,$4
 	li	$10,16
@@ -128,4 +128,4 @@ func_002ff6f0:
 	jr	$31
 	move	$2,$8
 	nop
-	.end func_002ff6f0
+	.end strncpy

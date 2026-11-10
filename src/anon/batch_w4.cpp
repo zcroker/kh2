@@ -259,7 +259,7 @@ void func_002e9c98(u32 x, Pair* p) {
 }
 
 // Dot product of a.xyz and b.xyz (VU0 macro mode).
-f32 func_002f3d70(void* a, void* b) {  // vec3_dot
+f32 sceVu0InnerProduct(void* a, void* b) {  // vec3_dot
     f32 r;
     asm volatile("lqc2 $vf4, 0(%1)\n\t"
                  "lqc2 $vf5, 0(%2)\n\t"
@@ -275,7 +275,7 @@ f32 func_002f3d70(void* a, void* b) {  // vec3_dot
 }
 
 // d = a * s (VU0 macro mode).
-void func_002f3f40(void* d, void* a, f32 s) {  // vec_scale_by_f12
+void sceVu0ScaleVector(void* d, void* a, f32 s) {  // vec_scale_by_f12
     asm volatile("lqc2 $vf4, 0(%1)\n\t"
                  "mfc1 $8, %2\n\t"
                  "qmtc2 $8, $vf5\n\t"
@@ -294,7 +294,7 @@ s32 func_00305dd8(u32 a, u8* p) {  // task_param_init
     return 0;
 }
 
-void func_003062e0(void) {
+void iEnableDmac(void) {
     func_003053e0();
     asm volatile("sync");
 }

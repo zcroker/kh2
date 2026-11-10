@@ -271,7 +271,7 @@ void func_002f0a38(u32* p) {
 }
 
 // VU0 vector blend: d = a*t + b*(1-t).
-void func_002f3ed0(f32* d, f32* a, f32* b, f32 t) {  // vec4_lerp
+void sceVu0InterVector(f32* d, f32* a, f32* b, f32 t) {  // vec4_lerp
     asm volatile(
         "lqc2 $vf4, 0(%1)\n\t"
         "lqc2 $vf5, 0(%2)\n\t"

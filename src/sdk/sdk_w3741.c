@@ -61,7 +61,7 @@ extern char D_003763f0[], D_00376420[], D_00376450[], D_00376478[];
 #define PR(f, a) { register char *a0_ asm("$4") = (f); register unsigned int *v0_ asm("$2") = (unsigned int *)(a); asm("" : "+r"(v0_)); \
     asm volatile(".set noreorder\n\tjal func_003080d0\n\tlw $5,0(%0)\n\t.set reorder" : "+r"(v0_), "+r"(a0_) : : "$3","$5","$6","$7","$8","$9","$10","$11","$12","$13","$14","$15","$24","$25","$31","memory"); }
 
-int func_002f25a0(int mode, unsigned short timeout)
+int sceGsSyncPath(int mode, unsigned short timeout)
 {
     unsigned int cnt = 0;
     int ret;

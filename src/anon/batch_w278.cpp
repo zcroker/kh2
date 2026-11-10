@@ -87,16 +87,16 @@ void func_002b2da8(s32 idx) {
 }
 struct Big278 { Big278* next; s32 k, maxwds, sign, wds; u32 x[1]; };
 extern "C" {
-s32 func_00304468(Big278*, Big278*);  // cmp_entries_16_then_words
-Big278* func_00303b70(void*, s32);
-Big278* func_003044d0(void* ptr, Big278* a, Big278* b) {
+s32 __mcmp(Big278*, Big278*);  // cmp_entries_16_then_words
+Big278* _Balloc(void*, s32);
+Big278* __mdiff(void* ptr, Big278* a, Big278* b) {
     Big278* c;
     s32 i, wa, wb;
     s32 borrow, y, z;
     u32 *xa, *xae, *xb, *xbe, *xc;
-    i = func_00304468(a, b);  // cmp_entries_16_then_words
+    i = __mcmp(a, b);  // cmp_entries_16_then_words
     if (!i) {
-        c = func_00303b70(ptr, 0);
+        c = _Balloc(ptr, 0);
         c->wds = 1;
         c->x[0] = 0;
         return c;
@@ -106,7 +106,7 @@ Big278* func_003044d0(void* ptr, Big278* a, Big278* b) {
         i = 1;
     } else
         i = 0;
-    c = func_00303b70(ptr, a->k);
+    c = _Balloc(ptr, a->k);
     c->sign = i;
     wa = a->wds;
     xa = a->x;
@@ -150,7 +150,7 @@ extern Res278 D_01c940d0;
 void func_001b13d0();
 void func_002fd188(void (*)());  // pool_alloc_block
 s32 func_001b0498(Src278*);  // obj_check_ready_flags
-f32 func_002f87c0(f32);
+f32 cosf(f32);
 Res278* func_001b0580(Src278* s) {
     if (!D_01c940c0) {
         D_01c940c0 = 1;
@@ -163,14 +163,14 @@ Res278* func_001b0580(Src278* s) {
     case 1:
     case 2:
         D_01c940d0.v = s->v;
-        D_01c940d0.v.w = (1.0f - func_002f87c0(s->t * 3.1415927f)) * 0.5f;
+        D_01c940d0.v.w = (1.0f - cosf(s->t * 3.1415927f)) * 0.5f;
         asm volatile("" ::: "memory");
         D_01c940d0.id = s->id;
         D_01c940d0.flag = 0;
         break;
     case 3:
         D_01c940d0.v = s->v;
-        D_01c940d0.v.w = (1.0f - func_002f87c0(s->t * 3.1415927f)) * 0.5f;
+        D_01c940d0.v.w = (1.0f - cosf(s->t * 3.1415927f)) * 0.5f;
         asm volatile("" ::: "memory");
         D_01c940d0.id = s->id;
         D_01c940d0.flag = 1;

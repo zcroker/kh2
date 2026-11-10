@@ -194,7 +194,7 @@ void func_00138c40(Spr*, s32, s32);
 f32 func_0013b298(u8*);
 void func_001395d0(Spr*);
 void func_001395e8(Spr*);
-s32 func_00313bc0(f32);
+s32 __fixunssfsi(f32);
 void func_00138d48(Spr*, f32, f32, f32, f32);
 
 // Takes the next sprite slot of list idx (creating the sprite on first use), positions it,
@@ -226,7 +226,7 @@ Spr* func_0013b5d0(u8* self, s32 idx, s32 c, SprInfo* info, u8 changed, s32 x, s
     f32 r = func_0013b298(self);
     if (r < 1.0f) func_001395d0(e); else func_001395e8(e);
     col &= 0xffffff;
-    col |= func_00313bc0(r * 128.0f) << 24;
+    col |= __fixunssfsi(r * 128.0f) << 24;
     e->col = col;
     func_00138d48(e, scale, scale, scale, r);
     ((SprRow*)((u8*)&((SprPool*)self)->rows[idx] + n))->flag[0] = flag;

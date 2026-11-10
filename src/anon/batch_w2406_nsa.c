@@ -96,8 +96,8 @@ extern u16 D_0034c872;
 extern u16 D_0034c874;
 extern u16 D_0034c876;
 void func_00242980(s32*, s32*);
-void func_002f20d0(sceGsDispEnv*, s16, s16, s16, s16, s16);
-void func_002f2448(sceGsDispEnv*);
+void sceGsSetDefDispEnv(sceGsDispEnv*, s16, s16, s16, s16, s16);
+void sceGsPutDispEnv(sceGsDispEnv*);
 void func_001669e0(Screen1669e0* s)
 {
     sceGsDispEnv env;
@@ -108,9 +108,9 @@ void func_001669e0(Screen1669e0* s)
     D_0034c870 = dx;
     D_0034c872 = dy;
     *(u64*)0x120000d0 = 0;
-    func_002f20d0(&env, s->psm, s->w, s->h, D_0034c874 + (s->x + dx), D_0034c876 + (s->y + dy));
+    sceGsSetDefDispEnv(&env, s->psm, s->w, s->h, D_0034c874 + (s->x + dx), D_0034c876 + (s->y + dy));
     env.dispfb.FBP = s->fbp;
-    func_002f2448(&env);
+    sceGsPutDispEnv(&env);
     if (s->direct) {
         *(u64*)0x12000000 = 0x7f23;
         *(u64*)0x12000070 = SCE_GS_SET_DISPFB(s->fbp, (u16)s->w >> 6, (u16)s->psm, 0, 0);

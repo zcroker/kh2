@@ -3,7 +3,7 @@
 extern "C" {
 struct Pak { u8 magic[8]; u16 pad8; u16 f10; s32 count; };
 extern s32 D_0032b920;
-s32 func_002ff1a4(const void*, const char*);
+s32 strcmp(const void*, const char*);
 void func_002fdfc8(const char*, ...);
 void func_002b6550(void*, s32);
 s32 func_002b9404(void* data, s32 idx, u32* size, u16* kind)
@@ -12,7 +12,7 @@ s32 func_002b9404(void* data, s32 idx, u32* size, u16* kind)
     u32* p;
     s32 off;
     h = (Pak*)data;
-    if (func_002ff1a4(h, "IopVoice")) {
+    if (strcmp(h, "IopVoice")) {
         func_002fdfc8("\x1b[44m%06d:\x1b[0m", D_0032b920);
         func_002fdfc8("Vsb data error ee_buff(%08x)no(%2d)\n", data, idx);
         func_002fdfc8("\x1b[41m");

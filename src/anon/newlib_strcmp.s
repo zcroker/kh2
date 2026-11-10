@@ -6,10 +6,10 @@
 	.set noat
 	.section .text.func_002ff1a4,"ax",@progbits
 	.align 2
-	.globl func_002ff1a4
-	.type func_002ff1a4, @function
-	.ent func_002ff1a4
-func_002ff1a4:
+	.globl strcmp
+	.type strcmp, @function
+	.ent strcmp
+strcmp:
 	or	$8,$4,$5
 	andi	$2,$8,0x7
 	bnezl	$2,.Ls130
@@ -99,6 +99,6 @@ func_002ff1a4:
 	lbu	$2,0($5)
 	jr	$31
 	subu	$2,$3,$2
-	.end func_002ff1a4
+	.end strcmp
 	.set reorder
 	.set at

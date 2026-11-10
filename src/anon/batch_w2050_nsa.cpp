@@ -96,7 +96,7 @@ void func_0031a260(u8*, s32);
 void func_0031ac78(u8*, s32);
 u64 func_00313b80(f32);
 u64 func_00314190(u64, u64) __attribute__((const));
-f32 func_003144b0(u64);
+f32 __truncdfsf2(u64);
 extern s32 D_0035f270;
 extern s32 D_0035f274;
 extern s32 D_0035f278;
@@ -148,7 +148,7 @@ void func_002818b8(s32 arg0) {
     *(u32*)(s + 0xb8) |= 8;
     u64 d = func_00313b80((f32)n);
     u8* q = D_0035f290;
-    *(f32*)(q + 0x180) = func_003144b0(func_00314190(d, 0x4059000000000000ULL));
+    *(f32*)(q + 0x180) = __truncdfsf2(func_00314190(d, 0x4059000000000000ULL));
     D_0035f290[0x195] = 1;
     func_001396b0(D_0035f290);
 }

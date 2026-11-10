@@ -7,9 +7,9 @@
  * (p1..p11, w); written that way here because it decides the address base/offset split. */
 
 asm("dpcmp = func_003142e0");
-asm("dpsub = func_00313ed8");
+asm("dpsub = __subdf3");
 asm("fptodp = func_00313b80");
-asm("dptofp = func_003144b0");
+asm("dptofp = __truncdfsf2");
 
 typedef struct EffVtx EffVtx; struct EffVtx { s16 x, y, z; };
 
@@ -118,14 +118,14 @@ typedef struct EffColor EffColor; struct EffColor {
 
 f32 func_00207260(void);
 s8 func_002072a8(u8);
-void func_002f4000(void*);
-void func_002f4298(void*, void*, void*);
-void func_002f3d50(void*, void*, void*);
-void func_002f3d98(void*, void*);
+void sceVu0UnitMatrix(void*);
+void sceVu0RotMatrix(void*, void*, void*);
+void sceVu0OuterProduct(void*, void*, void*);
+void sceVu0Normalize(void*, void*);
 void func_002f4870(f32, void*, void*);
 void eff_memset(void*, s32, u32) asm("_Z16wtarget_002fde18jjjj");
-void eff_mulvec(void*, void*, void*) asm("_Z16wtarget_002f3cd8jjjj");
-void eff_f3f98(void*, void*) asm("_Z16u_call4_002f3f98jjjj");
+void eff_mulvec(void*, void*, void*) asm("_Z17sceVu0ApplyMatrixjjjj");
+void eff_f3f98(void*, void*) asm("_Z16sceVu0CopyMatrixjjjj");
 extern EffData* D_01d9e6e4;
 extern EffCtx* D_01d9e6e8;
 extern u8 D_01d9e6f0[];
@@ -143,7 +143,7 @@ void func_00207350(EffObj* obj, EffDesc* desc, u8* a2, EffOut* out, void* p40, E
     eff_memset(out, 0, 0xb0);
     if (p40) eff_memset(p40, 0, 0x40);
     if (pcol) eff_memset(pcol, 0, 0x20);
-    func_002f4000(out);
+    sceVu0UnitMatrix(out);
 
     if (desc->type < 8) {
         t[0] = desc->dir[0];
@@ -157,17 +157,17 @@ void func_00207350(EffObj* obj, EffDesc* desc, u8* a2, EffOut* out, void* p40, E
             t[4] = 0;
             t[5] = 0;
         }
-        func_002f4000(mtx);
-        func_002f4298(mtx, mtx, &t[4]);
+        sceVu0UnitMatrix(mtx);
+        sceVu0RotMatrix(mtx, mtx, &t[4]);
         eff_mulvec(out->m1, mtx, t);
         out->m1[0] *= desc->scale[0];
         out->m1[1] *= desc->scale[1];
         out->m1[2] *= desc->scale[2];
-        func_002f3d98(out->m1, out->m1);
-        func_002f3d50(out->m2, out->m1, out->m0);
-        func_002f3d98(out->m2, out->m2);
-        func_002f3d50(out->m0, out->m2, out->m1);
-        func_002f3d98(out->m0, out->m0);
+        sceVu0Normalize(out->m1, out->m1);
+        sceVu0OuterProduct(out->m2, out->m1, out->m0);
+        sceVu0Normalize(out->m2, out->m2);
+        sceVu0OuterProduct(out->m0, out->m2, out->m1);
+        sceVu0Normalize(out->m0, out->m0);
     }
 
     switch (desc->type) {
@@ -282,15 +282,15 @@ void func_00207350(EffObj* obj, EffDesc* desc, u8* a2, EffOut* out, void* p40, E
             out->pos[2] = (f32)v.z * desc->scale[2];
             out->pos[3] = 1.0f;
             if ((u32)(desc->type - 8) < 2) {
-                func_002f3d98(out->m1, out->pos);
+                sceVu0Normalize(out->m1, out->pos);
                 out->m1[0] *= desc->scale[0];
                 out->m1[1] *= desc->scale[1];
                 out->m1[2] *= desc->scale[2];
-                func_002f3d98(out->m1, out->m1);
-                func_002f3d50(out->m2, out->m1, out->m0);
-                func_002f3d98(out->m2, out->m2);
-                func_002f3d50(out->m0, out->m2, out->m1);
-                func_002f3d98(out->m0, out->m0);
+                sceVu0Normalize(out->m1, out->m1);
+                sceVu0OuterProduct(out->m2, out->m1, out->m0);
+                sceVu0Normalize(out->m2, out->m2);
+                sceVu0OuterProduct(out->m0, out->m2, out->m1);
+                sceVu0Normalize(out->m0, out->m0);
             }
         }
         break;

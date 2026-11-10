@@ -652,7 +652,7 @@ extern "C" {
 extern void* D_0034e948;
 s32 func_0019ba60(void*);
 QWord* func_0016c028(void*);  // obj_get_attach_or_alt
-f32 func_002f8870(f32);  // fabsf
+f32 fabsf(f32);  // fabsf
 s32 func_001da070(void* o)
 {
     void* p = D_0034e948;
@@ -660,7 +660,7 @@ s32 func_001da070(void* o)
     QWord* a = func_0016c028(p);  // obj_get_attach_or_alt
     QWord d = Sub(*a, *func_0016c028(o));  // obj_get_attach_or_alt
     d.y += -50.0f;
-    if (func_002f8870(d.y) > 90.0f) return 0;
+    if (fabsf(d.y) > 90.0f) return 0;
     *(u32*)&d.y = 0;
     return Length(d) <= 80.0f;
 }
@@ -676,20 +676,20 @@ extern MP D_01d9e6e8;
 extern f32 D_00354be0[];
 extern f32 D_01d9e840[];
 extern u8 D_01d9e8c0[];
-void func_002f3f40(void*, void*, f32);  // vec_scale_by_f12
-void func_002f3f28(void*, void*, f32*);
-void func_002f3d08(void*, void*, void*);
+void sceVu0ScaleVector(void*, void*, f32);  // vec_scale_by_f12
+void sceVu0MulVector(void*, void*, f32*);
+void sceVu0MulMatrix(void*, void*, void*);
 void func_001eb368(void)
 {
-    func_002f3f40(D_01d9e6e8.p->r0, D_01d9e6e8.p->a, D_00354be0[0]);  // vec_scale_by_f12
-    func_002f3f40(D_01d9e6e8.p->r1, D_01d9e6e8.p->b, D_00354be0[1]);  // vec_scale_by_f12
-    func_002f3f40(D_01d9e6e8.p->r2, D_01d9e6e8.p->c, D_00354be0[2]);  // vec_scale_by_f12
-    func_002f3f28(D_01d9e6e8.p->t, D_01d9e6e8.p->d, D_00354be0);
+    sceVu0ScaleVector(D_01d9e6e8.p->r0, D_01d9e6e8.p->a, D_00354be0[0]);  // vec_scale_by_f12
+    sceVu0ScaleVector(D_01d9e6e8.p->r1, D_01d9e6e8.p->b, D_00354be0[1]);  // vec_scale_by_f12
+    sceVu0ScaleVector(D_01d9e6e8.p->r2, D_01d9e6e8.p->c, D_00354be0[2]);  // vec_scale_by_f12
+    sceVu0MulVector(D_01d9e6e8.p->t, D_01d9e6e8.p->d, D_00354be0);
     D_01d9e6e8.p->t[0] += D_01d9e840[12];
     D_01d9e6e8.p->t[1] += D_01d9e840[13];
     D_01d9e6e8.p->t[2] += D_01d9e840[14];
     D_01d9e6e8.p->t[3] = 1.0f;
-    func_002f3d08(D_01d9e6e8.p->r0, D_01d9e8c0, D_01d9e6e8.p->r0);
+    sceVu0MulMatrix(D_01d9e6e8.p->r0, D_01d9e8c0, D_01d9e6e8.p->r0);
 }
 }
 }
@@ -772,7 +772,7 @@ extern char D_00371370[];
 extern char D_00371378[];
 extern char D_00371380[];
 char* func_002feee8(char*, const char*);
-void func_002ff3fc(char*);  // strlen
+void strlen(char*);  // strlen
 char* func_002330c8(const char* path, const char* name)
 {
     char buf[48];
@@ -795,8 +795,8 @@ char* func_002330c8(const char* path, const char* name)
     func_002feee8(D_01dadbd8, name);
     func_002feee8(D_01dadbd8, p);
     func_002feee8(D_01dadbd8, D_00371380);
-    func_002ff3fc(D_01dadbd8);  // strlen
-    func_002ff3fc(buf);  // strlen
+    strlen(D_01dadbd8);  // strlen
+    strlen(buf);  // strlen
     return D_01dadbd8;
 }
 }

@@ -64,11 +64,11 @@ void func_00230260(W2367Vec3* a, W2367Vec3* b, W2367Vec3* out) {
 }
 
 // libsupc++ __cxa_end_catch (eh_catch.cc, GCC 3.2).
-W2367CxaEhGlobals* func_00316a50(void);              // __cxa_get_globals_fast
+W2367CxaEhGlobals* __cxa_get_globals_fast(void);              // __cxa_get_globals_fast
 void func_00319190(W2367UnwindException*);           // _Unwind_DeleteException
 void func_002fd160(void) __attribute__((noreturn));  // std::terminate
-void func_00316750(void) {
-    W2367CxaEhGlobals* globals = func_00316a50();
+void __cxa_end_catch(void) {
+    W2367CxaEhGlobals* globals = __cxa_get_globals_fast();
     W2367CxaException* header = globals->caughtExceptions;
     int count = header->handlerCount;
 

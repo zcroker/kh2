@@ -74,7 +74,7 @@ f32 func_0017ce10(f32);
 W1dee88Vec* func_001dc620(void*);
 double func_00313b80(f32);
 s32 func_003142e0(double, double);
-void func_002f3f88(void*, void*);
+void sceVu0CopyVector(void*, void*);
 static inline void xform1dee88(W1dee88Vec* out, const W1dee88Mtx* m, const W1dee88Vec* v)
 {
     asm volatile(".set noreorder\n\tlqc2 $vf5, 0(%2)\n\tlqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 16(%1)\n\tlqc2 $vf3, 32(%1)\n\tlqc2 $vf4, 48(%1)\n\tvmulax.xyz ACC, $vf1, $vf5x\n\tvmadday.xyz ACC, $vf2, $vf5y\n\tvmaddaz.xyz ACC, $vf3, $vf5z\n\tvmaddw.xyz $vf5, $vf4, $vf0w\n\tsqc2 $vf5, 0(%0)\n\t.set reorder" : : "r"(out), "r"(m), "r"(v) : "memory");
@@ -154,8 +154,8 @@ void func_001dee88(O1dee88* o)
     }
 tail:
     if (o->flags & 4) {
-        func_002f3f88((u8*)o->key + 32, o->key);
-        func_002f3f88((u8*)o->key + 48, (u8*)o->key + 16);
+        sceVu0CopyVector((u8*)o->key + 32, o->key);
+        sceVu0CopyVector((u8*)o->key + 48, (u8*)o->key + 16);
     }
 }
 }

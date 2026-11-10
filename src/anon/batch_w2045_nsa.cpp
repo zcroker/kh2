@@ -11,7 +11,7 @@ void* func_00227a28(void);
 void func_002ba630(s32, s32, s32, s32);
 void func_002ba7c8(void*);
 s32 func_002fee78(char*, const char*, ...);
-void func_002ff3fc(char*);
+void strlen(char*);
 extern s32 D_0035e35c;
 extern char D_00371340[];
 extern char D_00371350[];
@@ -34,7 +34,7 @@ void func_00232a48(W2045_Arg* p, void* q) {
         e1->type = 4;
         func_002fee78(e1->name, D_00371340, p->a);
         func_002fee78(buf, D_00371350, e1->name);
-        func_002ff3fc(buf);
+        strlen(buf);
         r1 = func_001688c8(buf);
         e1->h = func_00227870(buf, e1, 0);
         func_00168388(buf, e1->h, func_00226030, e1);
@@ -43,7 +43,7 @@ void func_00232a48(W2045_Arg* p, void* q) {
             e1->type = 5;
             func_002fee78(e2->name, D_00371358, p->b);
             func_002fee78(buf2, D_00371350, e2->name);
-            func_002ff3fc(buf2);
+            strlen(buf2);
             r2 = func_001688c8(buf2);
             e2->h = func_00227870(buf2, e2, 0);
             func_00168388(buf2, e2->h, func_00226030, e2);

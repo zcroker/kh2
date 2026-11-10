@@ -66,7 +66,7 @@ extern u32 D_0033caf4;
 extern char D_01dad960[];
 extern char D_00371190[];
 void func_002fee78(char*, const char*, ...);
-void func_002ff3fc(char*);  // strlen
+void strlen(char*);  // strlen
 }
 
 // Queue a target-event entry into the 64-slot ring; returns its serial number.
@@ -301,7 +301,7 @@ void func_002233f0(u32 a, u32 b, u32 c) {
 
 char* func_0022c4b8(u32 x) {
     func_002fee78(D_01dad960, D_00371190, D_0033caf4, x);
-    func_002ff3fc(D_01dad960);  // strlen
+    strlen(D_01dad960);  // strlen
     return D_01dad960;
 }
 
@@ -342,7 +342,7 @@ u32 func_002b1aa0(void) {
 
 char* func_002ba0f8(u32 x) {
     func_002fee78(D_01e2a5a8, D_00374f80, x);
-    func_002ff3fc(D_01e2a5a8);  // strlen
+    strlen(D_01e2a5a8);  // strlen
     return D_01e2a5a8;
 }
 

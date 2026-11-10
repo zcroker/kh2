@@ -39,7 +39,7 @@ static inline void w1972_vzero(W1972Vq* v) {
 extern "C" {
 void func_001c7148(W1972Ent*);
 void func_002bc188(s32, W1972Ent*);
-f32 func_002f8870(f32);
+f32 fabsf(f32);
 
 void func_001c71f8(W1972Ent* o, f32 k) {
     func_001c7148(o);
@@ -57,8 +57,8 @@ void func_001c71f8(W1972Ent* o, f32 k) {
     W1972Vq d;
     d = w1972_vsub(D_01d498d0.res, D_01d498d0.a);
     f32 lim = 0.1f;
-    if (lim < func_002f8870(d.x - o->vel.x)) o->vel.x = -o->vel.x;
-    if (lim < func_002f8870(d.z - o->vel.z)) o->vel.z = -o->vel.z;
+    if (lim < fabsf(d.x - o->vel.x)) o->vel.x = -o->vel.x;
+    if (lim < fabsf(d.z - o->vel.z)) o->vel.z = -o->vel.z;
     o->pos = D_01d498d0.res;
     o->pos.y -= o->own->y;
     f32 v = o->vel.y + 3.0f;

@@ -12,8 +12,8 @@ struct Ob_784 {
 };
 extern "C" {
 V4_784 func_00178330(V4_784*) asm("_Z16ctarget_00178330jjjj");
-f32 func_002f8960(f32);  // sinf
-f32 func_002f87c0(f32);  // cosf
+f32 sinf(f32);  // sinf
+f32 cosf(f32);  // cosf
 
 /* 001784a8: aim direction toward the target if it has one (w > 0), else from the facing angle.
    The inline V4::set in the else branch leaves its `this` copy's save slot (unused s1) behind. */
@@ -22,7 +22,7 @@ void func_001784a8(Ob_784* o) {
         o->dir = func_00178330(&o->target->pos);
         o->dir.w = (o->dir.w < 0.8f) ? o->f110 : o->f114;
     } else {
-        o->dir.set(func_002f8960(o->angle), 0.0f, func_002f87c0(o->angle), 0.0f);
+        o->dir.set(sinf(o->angle), 0.0f, cosf(o->angle), 0.0f);
     }
 }
 }

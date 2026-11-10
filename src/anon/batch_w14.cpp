@@ -31,10 +31,10 @@ s32 func_001bb4a0(void);
 void func_001c6fa8(void*, void*, void*, void*, void*);
 void func_001a4e30(void*);
 void func_001d2710(void*);
-void func_002f25a0(s32, s32);
+void sceGsSyncPath(s32, s32);
 u8 func_002f3918(void*, void*);
 void func_00228918(void*);
-void func_002f2be0(void*, void*);
+void sceGsExecLoadImage(void*, void*);
 void func_0023c300(void*);
 u8* func_001058e8(void);
 void func_002fde18(void*, s32, s32);
@@ -283,7 +283,7 @@ void func_001ddc08(void) {
 }
 
 s32 func_0020f118(void) {
-    func_002f25a0(0, 0);
+    sceGsSyncPath(0, 0);
     return func_002f3918(D_003591c8, D_003598e0);
 }
 
@@ -293,8 +293,8 @@ void func_002289c0(void** p) {
 }
 
 void func_002368b0(u8* p) {
-    func_002f2be0(p + 64, *(void**)(p + 56));
-    func_002f2be0(p + 160, *(void**)(p + 60));
+    sceGsExecLoadImage(p + 64, *(void**)(p + 56));
+    sceGsExecLoadImage(p + 160, *(void**)(p + 60));
 }
 
 void func_00237458(u8* p, u32 i, s32 j, s32 v) {  // entry20_accumulate

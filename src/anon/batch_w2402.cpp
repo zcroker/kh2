@@ -29,8 +29,8 @@ static inline V7b operator+(const V7b& a, const V7b& b) {
 static inline __attribute__((always_inline)) f32 subh(f32 y, f32 h) { return y - h; }
 extern "C" {
 f32 func_0017ce10(f32);
-f32 func_002f8960(f32);
-f32 func_002f87c0(f32);
+f32 sinf(f32);
+f32 cosf(f32);
 s32 func_001a7610(const V7b&, V7b*, s32, f32, f32);
 s32 func_001a75d8(O7b*, V7b*, s32);
 /* near-miss: frame/slots right; 100.0f not hoisted twice (orig f24+f26 copy), temp slot order sum/scale swapped */
@@ -40,8 +40,8 @@ V7b func_001a7b78(O7b* o) {
         f32 a;
         o->cnt++;
         a = func_0017ce10(o->f18 + (f32)o->cnt * 0.7853982f);
-        f32 s = func_002f8960(a);
-        V7b d(s, 0.0f, func_002f87c0(a), 0.0f);
+        f32 s = sinf(a);
+        V7b d(s, 0.0f, cosf(a), 0.0f);
         if (func_001a7610(o->pos + d * o->f14, &ret, o->x20, 1000.0f, 200.0f)) {
             d = o->pos + d * (o->f14 + 20.0f);
             d.y = subh(ret.y, 100.0f);

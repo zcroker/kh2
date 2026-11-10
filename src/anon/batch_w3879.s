@@ -1,5 +1,5 @@
 # Kept as assembly (last step of the match ladder): func_001ab260 (slanted-glyph GS packet, _nsa C draft 5 lines off on t1/t2) and
-# func_002f74c8 (SDK sceCdInit, ee-gcc 2.9 C draft 5-10 lines off on register ties). C drafts: coord/best/001ab260_w3879.cpp, 002f74c8_w3879.c.
+# sceCdInit (SDK sceCdInit, ee-gcc 2.9 C draft 5-10 lines off on register ties). C drafts: coord/best/001ab260_w3879.cpp, 002f74c8_w3879.c.
 	.set noreorder
 	.set noat
 	.set nomacro
@@ -222,10 +222,10 @@ func_001ab260:
 
 	.section .text.func_002f74c8,"ax",@progbits
 	.align 3
-	.globl func_002f74c8
-	.type func_002f74c8, @function
-	.ent func_002f74c8
-func_002f74c8:
+	.globl sceCdInit
+	.type sceCdInit, @function
+	.ent sceCdInit
+sceCdInit:
 	addiu	$29,$29,-176
 	sd	$19,64($29)
 	move	$19,$4
@@ -426,6 +426,6 @@ func_002f74c8:
 	ld	$16,16($29)
 	jr	$31
 	addiu	$29,$29,176
-	.end func_002f74c8
-	.size func_002f74c8, .-func_002f74c8
+	.end sceCdInit
+	.size sceCdInit, .-sceCdInit
 

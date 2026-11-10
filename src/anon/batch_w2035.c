@@ -9,7 +9,7 @@
 asm("fptodp = func_00313b80");
 asm("dpcmp = func_003142e0");
 asm("dpmul = func_00313f40");
-asm("dpsub = func_00313ed8");
+asm("dpsub = __subdf3");
 asm("dpadd = func_00313e80");
 asm("dptoul = func_00314508");
 asm("__floatdidf = func_003145a8");

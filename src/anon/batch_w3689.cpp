@@ -13,7 +13,7 @@ extern u64 D_0036b1a0[];
 extern u64 D_0036b120[];
 extern u64 D_0036b160[];
 void func_0014d8d0(GsPkHdr14d*);
-void func_002f25a0(s32, s32);
+void sceGsSyncPath(s32, s32);
 void func_0014dd60(Spr14d*, u32, u32, u32);
 void func_0014dda0(Spr14d*, u32);
 void func_0014dd18(Spr14d*);
@@ -48,7 +48,7 @@ static inline __attribute__((always_inline)) void gsInit14d() {
     hdr.data = pk;
     func_0014d8d0(&hdr);
     register s32 a1 asm("$5") = 0; // pinned: the original sets a1 before a0
-    func_002f25a0(0, a1);
+    sceGsSyncPath(0, a1);
 }
 // GS init packet, then two sprite objects drawn with a path sync after each.
 void func_0014d6b0(void) {
@@ -58,13 +58,13 @@ void func_0014d6b0(void) {
     func_0014dda0(&a, 1);
     func_0014dd18(&a);
     func_0014ddb0(&a);
-    func_002f25a0(0, 0);
+    sceGsSyncPath(0, 0);
     Spr14d b(0, 216, 512, 416, 49, 112);
     func_0014dd60(&b, 0, 0, 0);
     func_0014dda0(&b, 1);
     func_0014dd18(&b);
     func_0014ddb0(&b);
-    func_002f25a0(0, 0);
+    sceGsSyncPath(0, 0);
 }
 }
 extern "C" {

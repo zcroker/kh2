@@ -17,7 +17,7 @@ void func_00101b98(W1657Obj*, W1657FdeCmp, W1657FdeVec*, W1657FdeVec*);  // fde_
 int func_00100a78(W1657Obj*, W1657Fde*, W1657Fde*);  // fde_unencoded_compare
 int func_00100aa0(W1657Obj*, W1657Fde*, W1657Fde*);  // fde_single_encoding_compare
 int func_00100b70(W1657Obj*, W1657Fde*, W1657Fde*);  // fde_mixed_encoding_compare
-void* func_002fd3e8(u32);  // malloc
+void* malloc(u32);  // malloc
 void func_002fd408(void*);  // free
 u32 func_00100920(u8, W1657Obj*);  // base_from_object
 s32 func_001009a0(u8*);  // get_cie_encoding
@@ -153,9 +153,9 @@ static inline __attribute__((always_inline)) int start_fde_sort(W1657Accu* accu,
     u32 size;
     if (!count) return 0;
     size = sizeof(void*) + sizeof(u32) + sizeof(W1657Fde*) * count;
-    if ((accu->linear = (W1657FdeVec*)func_002fd3e8(size))) {
+    if ((accu->linear = (W1657FdeVec*)malloc(size))) {
         accu->linear->count = 0;
-        if ((accu->erratic = (W1657FdeVec*)func_002fd3e8(size))) accu->erratic->count = 0;
+        if ((accu->erratic = (W1657FdeVec*)malloc(size))) accu->erratic->count = 0;
         return 1;
     } else
         return 0;

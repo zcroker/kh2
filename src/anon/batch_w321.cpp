@@ -24,8 +24,8 @@ extern G0* D_01d9e6e0;
 extern G4b* D_01d9e6e4;
 extern G8* D_01d9e6e8;
 extern V16 D_01d9e6f0;
-void func_002f3cd8(V16*, V16*, V16*);
-void func_002f3f88(V16*, V16*);  // memcpy16
+void sceVu0ApplyMatrix(V16*, V16*, V16*);
+void sceVu0CopyVector(V16*, V16*);  // memcpy16
 void func_002226b8(V16*, V16*);  // vec3_copy
 
 void func_001f85b8(A0* a, A1* b, A2* c)
@@ -39,14 +39,14 @@ void func_001f85b8(A0* a, A1* b, A2* c)
     if (D_01d9e6e0->f168 & 0xff0000ff00LL) return;
     e = (E2*)((u8*)a + *c->fc + 160);
     if (a->fc == 0 && a->f157 == 0) {
-        if (b->f30 != 0) { func_002f3cd8(&tmp, &D_01d9e6f0, &D_01d9e6e8->f64); tmp.w = 1.0f; }
-        else { func_002f3f88(&tmp, &D_01d9e6e8->f64); tmp.w = 1.0f; }
-        for (i = e->n, p = e->arr; i > 0; i--, p++) func_002f3f88(p, &tmp);  // memcpy16
+        if (b->f30 != 0) { sceVu0ApplyMatrix(&tmp, &D_01d9e6f0, &D_01d9e6e8->f64); tmp.w = 1.0f; }
+        else { sceVu0CopyVector(&tmp, &D_01d9e6e8->f64); tmp.w = 1.0f; }
+        for (i = e->n, p = e->arr; i > 0; i--, p++) sceVu0CopyVector(p, &tmp);  // memcpy16
     }
     if (e->cur == 0) e->cur = e->n;
     e->cur--;
     if (b->f30 != 0) {
-        func_002f3cd8(&e->arr[e->cur], &D_01d9e6f0, &D_01d9e6e8->f64);
+        sceVu0ApplyMatrix(&e->arr[e->cur], &D_01d9e6f0, &D_01d9e6e8->f64);
         e->arr[e->cur].w = 1.0f;
     } else {
         func_002226b8(&e->arr[e->cur], &D_01d9e6e8->f64);  // vec3_copy
@@ -74,14 +74,14 @@ void func_001f8dd0(A0* a, A1* b, A2* c)
     if (D_01d9e6e0->f168 & 0xff0000ff00LL) return;
     e = (E2*)((u8*)a + *c->fc + 160);
     if (a->fc == 0 && a->f157 == 0) {
-        if (b->f35 != 0) { func_002f3cd8(&tmp, &D_01d9e6f0, &D_01d9e6e8->f64); tmp.w = 1.0f; }
-        else { func_002f3f88(&tmp, &D_01d9e6e8->f64); tmp.w = 1.0f; }
-        for (i = e->n, p = e->arr; i > 0; i--, p++) func_002f3f88(p, &tmp);  // memcpy16
+        if (b->f35 != 0) { sceVu0ApplyMatrix(&tmp, &D_01d9e6f0, &D_01d9e6e8->f64); tmp.w = 1.0f; }
+        else { sceVu0CopyVector(&tmp, &D_01d9e6e8->f64); tmp.w = 1.0f; }
+        for (i = e->n, p = e->arr; i > 0; i--, p++) sceVu0CopyVector(p, &tmp);  // memcpy16
     }
     if (e->cur == 0) e->cur = e->n;
     e->cur--;
     if (b->f35 != 0) {
-        func_002f3cd8(&e->arr[e->cur], &D_01d9e6f0, &D_01d9e6e8->f64);
+        sceVu0ApplyMatrix(&e->arr[e->cur], &D_01d9e6f0, &D_01d9e6e8->f64);
         e->arr[e->cur].w = 1.0f;
     } else {
         func_002226b8(&e->arr[e->cur], &D_01d9e6e8->f64);  // vec3_copy
@@ -110,14 +110,14 @@ void func_001ff110(A0* a, A1* b, A2* c)
     if (D_01d9e6e0->f168 & 0xff0000ff00LL) return;
     e = (E2*)((u8*)a + *c->fc + 160);
     if (a->fc == 0 && a->f157 == 0) {
-        if (b->f38 != 0) { func_002f3cd8(&tmp, &D_01d9e6f0, &D_01d9e6e8->f64); tmp.w = 1.0f; }
-        else { func_002f3f88(&tmp, &D_01d9e6e8->f64); tmp.w = 1.0f; }
-        for (i = e->n, p = e->arr; i > 0; i--, p++) func_002f3f88(p, &tmp);  // memcpy16
+        if (b->f38 != 0) { sceVu0ApplyMatrix(&tmp, &D_01d9e6f0, &D_01d9e6e8->f64); tmp.w = 1.0f; }
+        else { sceVu0CopyVector(&tmp, &D_01d9e6e8->f64); tmp.w = 1.0f; }
+        for (i = e->n, p = e->arr; i > 0; i--, p++) sceVu0CopyVector(p, &tmp);  // memcpy16
     }
     if (e->cur == 0) e->cur = e->n;
     e->cur--;
     if (b->f38 != 0) {
-        func_002f3cd8(&e->arr[e->cur], &D_01d9e6f0, &D_01d9e6e8->f64);
+        sceVu0ApplyMatrix(&e->arr[e->cur], &D_01d9e6f0, &D_01d9e6e8->f64);
         e->arr[e->cur].w = 1.0f;
     } else {
         func_002226b8(&e->arr[e->cur], &D_01d9e6e8->f64);  // vec3_copy

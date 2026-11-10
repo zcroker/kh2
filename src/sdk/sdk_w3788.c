@@ -21,7 +21,7 @@ extern int func_00305640(int);
 extern int func_00305660(int);
 extern int func_00309d60(void *, int, int, void *, int, void *, int, void *, void *, int);
 
-int func_0030a8f8(const char *name, int flags, ...)
+int sceOpen(const char *name, int flags, ...)
 {
     OpenPk *p = &D_01e37280;
     SemaParam sp;

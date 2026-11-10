@@ -51,8 +51,8 @@ extern u8 D_00354bd0[];
 extern f32 D_00354bc0[3];
 void func_0021ebe8(void*, void*);
 void func_0021edb0(void*, void*);
-void func_002f3e20(M_w271*, M_w271*);  // convert_vectors_to_scalar
-void func_002f3d08(void*, void*, void*);
+void sceVu0InversMatrix(M_w271*, M_w271*);  // convert_vectors_to_scalar
+void sceVu0MulMatrix(void*, void*, void*);
 }
 static inline void ScaleRow_w271(void* row, f32 s) {
     asm volatile("qmtc2 %1, $vf9\n\tlqc2 $vf10, 0(%0)\n\tvmulx.xyz $vf10, $vf10, $vf9x\n\tsqc2 $vf10, 0(%0)" : : "r"(row), "r"(s) : "memory");
@@ -71,9 +71,9 @@ static inline void ScaleRow_w271(void* row, f32 s) {
     m.t[0] = D_00354bc0[0]; \
     m.t[1] = D_00354bc0[1]; \
     m.t[2] = D_00354bc0[2]; \
-    func_002f3e20(&m, &m); \
-    func_002f3d08(D_01d9e6e8.p + 16, D_01d9e6e8.p + 16, mtx); \
-    func_002f3d08(D_01d9e6e8.p + 16, &m, D_01d9e6e8.p + 16); \
+    sceVu0InversMatrix(&m, &m); \
+    sceVu0MulMatrix(D_01d9e6e8.p + 16, D_01d9e6e8.p + 16, mtx); \
+    sceVu0MulMatrix(D_01d9e6e8.p + 16, &m, D_01d9e6e8.p + 16); \
     ScaleRow_w271(D_01d9e6e8.p + 16, scl[0]); \
     ScaleRow_w271(D_01d9e6e8.p + 32, scl[1]); \
     ScaleRow_w271(D_01d9e6e8.p + 48, scl[2]);

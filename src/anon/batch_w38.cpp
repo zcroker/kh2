@@ -52,7 +52,7 @@ void Select_End(void*) asm("_ZN2Tz6Select3EndEv");
 void MenuCursor_AttachSprite(u8*, u32) asm("_ZN2Tz10MenuCursor12AttachSpriteEz");
 
 s32 func_002fea18(void);
-void func_00313bc0(f32);
+void __fixunssfsi(f32);
 
 // Deleting destructor.
 void func_001a4060(Obj1a4060* p) {
@@ -81,7 +81,7 @@ void func_001064a8(void* n) {  // int_to_float_scaled
     NoTail g;
     f32 x = (f32)(u32)n;
     s32 r = func_002fea18();
-    func_00313bc0(x * (f32)r / 2147483520.0f);
+    __fixunssfsi(x * (f32)r / 2147483520.0f);
 }
 
 extern "C" {

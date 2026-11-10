@@ -49,7 +49,7 @@ s32 func_00112d90(W1680Tgt*);
 void* func_00106a18(s32);
 W1680Cam* func_00106a60(s32);
 W1680QW func_00190388(W1680Tgt*);
-f32 func_002f8870(f32);
+f32 fabsf(f32);
 void func_0011a938(W1680Self2* self, W1680Tgt* out, f32 fx, f32 fy) {
     out->clear();
     f32 sz = W1680_getScreenZ(func_00106a18(0));
@@ -76,8 +76,8 @@ void func_0011a938(W1680Self2* self, W1680Tgt* out, f32 fx, f32 fy) {
         W1680_mul(p2, *pm, func_00190388(&it));
         s = p2 * (sz / p2.z);
         W1680QW d = s - center;
-        if (!(func_002f8870(d.x) <= fx)) continue;
-        if (!(func_002f8870(d.y) <= fy)) continue;
+        if (!(fabsf(d.x) <= fx)) continue;
+        if (!(fabsf(d.y) <= fy)) continue;
         W1680_zw(&d, 0.0f);
         f32 len;
         asm volatile("lqc2 $vf1, 0(%1)\n\tvmul.xyz $vf1, $vf1, $vf1\n\tvaddy.x $vf1, $vf1, $vf1y\n\tvaddz.x $vf1, $vf1, $vf1z\n\tqmfc2 $8, $vf1\n\tmtc1 $8, %0" : "=f"(len) : "r"(&d) : "$8", "memory");

@@ -16,7 +16,7 @@ s32 func_00103b38(s32);
 s32 func_0010cc80(void*);
 void func_0014cfc8(void);
 void func_0014c908(void);
-void func_002f33f0(void*);
+void sceGsSyncVCallback(void*);
 void func_0014d308(void);
 void func_0014cf18(void);
 void func_0014cf88(void);
@@ -237,7 +237,7 @@ void func_001e60b0(void) {
     }
 }
 
-void func_002f4000(void*);  // vu_store_w_splat
+void sceVu0UnitMatrix(void*);  // vu_store_w_splat
 s32 func_00139d78(void*);
 void func_0023f0c8(void*, s32);
 u8* func_001058e8(void);
@@ -316,7 +316,7 @@ f32 func_00207260(void) {
 
 void func_0021f5d8(u8* p) {
     D_01d9e6e0[168] = 2;
-    func_002f4000(p + 64);  // vu_store_w_splat
+    sceVu0UnitMatrix(p + 64);  // vu_store_w_splat
     *(f32*)(p + 172) = 1.0f;
 }
 
@@ -469,7 +469,7 @@ void func_00324b08(void** p) {
 void u_tail0_0014d008(void) {
     func_0014cfc8();
     func_0014c908();
-    func_002f33f0((void*)func_0014cf18);
+    sceGsSyncVCallback((void*)func_0014cf18);
     func_0014d308();
     func_00102788(D_0032b91c, 0, 0xc3500, (void*)func_0014cf88);
 }

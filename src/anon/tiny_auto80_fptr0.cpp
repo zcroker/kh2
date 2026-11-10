@@ -340,7 +340,7 @@ u32 func_002c23d8(u32, u32, u32, u32);
 u32 func_002dea80(u32, u32, u32, u32);  // set_vtbl_362d20
 u32 func_002f17e0(u32, u32, u32, u32);
 u32 func_002fbd38(u32, u32, u32, u32);
-u32 func_002fdd68(u32, u32, u32, u32);
+u32 memcpy(u32, u32, u32, u32);
 u32 func_002fee78(u32, u32, u32, u32);
 u32 func_00306e80(u32, u32, u32, u32);
 u32 func_00306f30(u32, u32, u32, u32);

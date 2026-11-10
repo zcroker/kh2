@@ -4,14 +4,14 @@
 typedef struct { int pad[9]; int p24; } R0030d820;
 extern R0030d820 D_01e38a80;
 extern int D_0036617c;
-extern int func_003092d8(void *, int, int);
+extern int sceSifBindRpc(void *, int, int);
 
 /* Waits until the RPC server is bound (p24 set), then clears D_0036617c. */
 int func_0030d820(void)
 {
     int i;
     while (1) {
-        if (func_003092d8(&D_01e38a80, 0x80000003, 0) < 0) return -1;
+        if (sceSifBindRpc(&D_01e38a80, 0x80000003, 0) < 0) return -1;
         if (D_01e38a80.p24) break;
         i = 0x100000;
         do {

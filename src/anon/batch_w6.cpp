@@ -267,9 +267,9 @@ void func_002f0948(u32* p) {
 }
 
 // atoi: (int)strtol(s, 0, 10).
-s64 func_002ffbb0(const char*, char**, s32);
-s32 func_002fd220(const char* s) {  // strtol10
-    return (s32)func_002ffbb0(s, 0, 10);
+s64 strtol(const char*, char**, s32);
+s32 atoi(const char* s) {  // strtol10
+    return (s32)strtol(s, 0, 10);
 }
 
 }
@@ -292,7 +292,7 @@ void wtarget_001ad948(u32 a0, u32 a1, u32, u32) {
 }
 
 // dst = mat * vec (VU0 COP2 macro sequence, written as asm).
-void wtarget_002f3cd8(u32 a0, u32 a1, u32 a2, u32) {
+void sceVu0ApplyMatrix(u32 a0, u32 a1, u32 a2, u32) {
     asm volatile(
         "lqc2 $vf4, 0(%1)\n\t"
         "lqc2 $vf5, 16(%1)\n\t"

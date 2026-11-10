@@ -61,7 +61,7 @@ extern char D_00369e60[];
 extern char D_00369e70[];
 s32 func_00105140(void*, s32);
 s32 func_002fee78(char*, const char*, ...);
-s32 func_002ff3fc(const char*);  // strlen
+s32 strlen(const char*);  // strlen
 struct Dt {
     u8 a, b, c, pad;
     u16 x, y, z;
@@ -69,9 +69,9 @@ struct Dt {
 char* func_001051b8(Dt* p) {
     func_002fee78(D_003a7b20, D_00369e58, func_00105140(p, 0), p->c);
     if (p->x < 25 && p->y < 25 && p->z < 25) {
-        func_002fee78(D_003a7b20 + func_002ff3fc(D_003a7b20), D_00369e60, p->x + 97, p->y + 97, p->z + 97);
+        func_002fee78(D_003a7b20 + strlen(D_003a7b20), D_00369e60, p->x + 97, p->y + 97, p->z + 97);
     } else {
-        func_002fee78(D_003a7b20 + func_002ff3fc(D_003a7b20), D_00369e70, p->x, p->y, p->z);
+        func_002fee78(D_003a7b20 + strlen(D_003a7b20), D_00369e70, p->x, p->y, p->z);
     }
     return D_003a7b20;
 }
@@ -381,26 +381,26 @@ void func_00201438(u8* a, u8* c) {
 extern u8* D_01d9e6e8;
 extern u8 D_01d9e730[];
 extern u8 D_01d9e8c0[];
-void func_002f4000(void*);  // vu_store_w_splat
-void func_002f3d08(void*, void*, void*);
-void func_002f3f40(void*, void*, f32);  // vec_scale_by_f12
-void func_002f3cd8(void*, void*, void*);
-void func_002f3f98(void*, void*);
+void sceVu0UnitMatrix(void*);  // vu_store_w_splat
+void sceVu0MulMatrix(void*, void*, void*);
+void sceVu0ScaleVector(void*, void*, f32);  // vec_scale_by_f12
+void sceVu0ApplyMatrix(void*, void*, void*);
+void sceVu0CopyMatrix(void*, void*);
 void func_00209ed0(u8* a, u32, u8* c) {
     f32 m[16] __attribute__((aligned(16)));
     u8* s = a + *(u32*)(*(u8**)(c + 12) + 4);
-    func_002f4000(m);  // vu_store_w_splat
+    sceVu0UnitMatrix(m);  // vu_store_w_splat
     f32* v = (f32*)(s + 160);
     m[12] = v[16];
     m[13] = v[17];
     m[14] = v[18];
-    func_002f3d08(m, D_01d9e730, m);
-    func_002f3f40(D_01d9e6e8 + 80, D_01d9e6e8 + 16, v[20]);  // vec_scale_by_f12
-    func_002f3f40(D_01d9e6e8 + 96, D_01d9e6e8 + 32, v[21]);  // vec_scale_by_f12
-    func_002f3f40(D_01d9e6e8 + 112, D_01d9e6e8 + 48, v[22]);  // vec_scale_by_f12
-    func_002f3cd8(D_01d9e6e8 + 128, m, D_01d9e6e8 + 64);
-    func_002f3f98(v, D_01d9e6e8 + 80);
-    func_002f3d08(D_01d9e6e8 + 80, D_01d9e8c0, D_01d9e6e8 + 80);
+    sceVu0MulMatrix(m, D_01d9e730, m);
+    sceVu0ScaleVector(D_01d9e6e8 + 80, D_01d9e6e8 + 16, v[20]);  // vec_scale_by_f12
+    sceVu0ScaleVector(D_01d9e6e8 + 96, D_01d9e6e8 + 32, v[21]);  // vec_scale_by_f12
+    sceVu0ScaleVector(D_01d9e6e8 + 112, D_01d9e6e8 + 48, v[22]);  // vec_scale_by_f12
+    sceVu0ApplyMatrix(D_01d9e6e8 + 128, m, D_01d9e6e8 + 64);
+    sceVu0CopyMatrix(v, D_01d9e6e8 + 80);
+    sceVu0MulMatrix(D_01d9e6e8 + 80, D_01d9e8c0, D_01d9e6e8 + 80);
 }
 
 s32 func_00289310(u32);
@@ -779,7 +779,7 @@ void func_00227130(u8* p) {
 cont:
     for (s32 i = 0; i < 32; i++) D_01dad918[i] = 0;
     func_002ff2e8(D_01dad918, (char*)p + 10);
-    func_002ff3fc(D_01dad918);  // strlen
+    strlen(D_01dad918);  // strlen
     {
         u32 x = *(u32*)(p + 4);
         D_0035db18 = x;
@@ -827,19 +827,19 @@ extern u8 D_01d9e940[];
 void func_00200a78(u8* a, u32, u8* c) {
     f32 m[16] __attribute__((aligned(16)));
     u8* s = a + *(u32*)(*(u8**)(c + 12) + 4);
-    func_002f4000(m);  // vu_store_w_splat
+    sceVu0UnitMatrix(m);  // vu_store_w_splat
     f32* v = (f32*)(s + 160);
     m[12] = v[0];
     m[13] = v[1];
     m[14] = v[2];
-    func_002f3d08(m, D_01d9e730, m);
-    func_002f3d08(m, D_01d9e8c0, m);
-    func_002f3f40(D_01d9e6e8u.p + 80, D_01d9e6e8u.p + 16, v[4]);  // vec_scale_by_f12
-    func_002f3f40(D_01d9e6e8u.p + 96, D_01d9e6e8u.p + 32, v[5]);  // vec_scale_by_f12
-    func_002f3f40(D_01d9e6e8u.p + 112, D_01d9e6e8u.p + 48, v[6]);  // vec_scale_by_f12
+    sceVu0MulMatrix(m, D_01d9e730, m);
+    sceVu0MulMatrix(m, D_01d9e8c0, m);
+    sceVu0ScaleVector(D_01d9e6e8u.p + 80, D_01d9e6e8u.p + 16, v[4]);  // vec_scale_by_f12
+    sceVu0ScaleVector(D_01d9e6e8u.p + 96, D_01d9e6e8u.p + 32, v[5]);  // vec_scale_by_f12
+    sceVu0ScaleVector(D_01d9e6e8u.p + 112, D_01d9e6e8u.p + 48, v[6]);  // vec_scale_by_f12
     *(u128*)(D_01d9e6e8u.p + 128) = *(u128*)(D_01d9e6e8u.p + 64);
-    func_002f3d08(D_01d9e6e8u.p + 80, D_01d9e940, D_01d9e6e8u.p + 80);
-    func_002f3cd8(D_01d9e6e8u.p + 128, m, D_01d9e6e8u.p + 64);
+    sceVu0MulMatrix(D_01d9e6e8u.p + 80, D_01d9e940, D_01d9e6e8u.p + 80);
+    sceVu0ApplyMatrix(D_01d9e6e8u.p + 128, m, D_01d9e6e8u.p + 64);
 }
 
 // Linear interpolation over a table of 96-byte keys (40 steps).

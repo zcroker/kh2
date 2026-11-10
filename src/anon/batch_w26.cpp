@@ -64,7 +64,7 @@ s32 mission_get_count(s32) asm("_ZN2YS7MISSION8GetCountEi");
 void func_00177dc8(void*, void*, s32, void*, void*);
 void func_001befd8(void*, void*, s32);
 s32 func_001d7f10(s32);
-u8 func_002f3f88(void*, void*);  // memcpy16
+u8 sceVu0CopyVector(void*, void*);  // memcpy16
 u8* minigame_get_score(s32) asm("_ZN2YS8MINIGAME8GetScoreEi");
 s32 jiminy_is_full_open(void) asm("_ZN2Tz6Jiminy10isFullOpenEv");
 s32 select_get_current(void*) asm("_ZN2Tz6Select10GetCurrentEv");
@@ -86,10 +86,10 @@ void LoadDataFree(...) asm("_ZN2Tz12LoadDataFreeEz");
 u8 func_002cea28(void*);
 void func_002d0ea8(void*);
 s32 func_003060f0(void);  // ee_intr_disabled
-void func_0030ee00(void);  // ee_intr_get_enable
+void EIntr(void);  // ee_intr_get_enable
 void func_0031cd50(void*);
 void ctrl_sel(void) asm("_ZN2Tz4LMMU7CtrlSelEv");
-void wtarget_002f3d08(u32, u32, u32, u32) asm("_Z16wtarget_002f3d08jjjj");
+void sceVu0MulMatrix(u32, u32, u32, u32) asm("_Z15sceVu0MulMatrixjjjj");
 
 extern u8 D_0032b950[];
 struct Pair { u32 a, b; };
@@ -334,8 +334,8 @@ void* func_001de4b0(DList* l, s32 type, void* prev) {
 
 u8 func_002007e0(u8* p, u8* q) {
     u8* b = p + *(s32*)(*(u8**)(q + 12) + 4);
-    func_002f3f88(b + 160, D_00354bc0);  // memcpy16
-    return func_002f3f88(b + 176, D_00354be0);  // memcpy16
+    sceVu0CopyVector(b + 160, D_00354bc0);  // memcpy16
+    return sceVu0CopyVector(b + 176, D_00354be0);  // memcpy16
 }
 
 void func_002349e8(void) {
@@ -445,7 +445,7 @@ void func_002d96d8(u8* o) {
 }
 
 // Hand-written VU0 routine: transforms four vectors by a 4x4 matrix.
-void wtarget_002f3d08(u32 d, u32 m, u32 v, u32 n) {
+void sceVu0MulMatrix(u32 d, u32 m, u32 v, u32 n) {
     asm volatile(
         ".set noreorder\n\t"
         "lqc2 $vf4, 0($5)\n\t"
@@ -468,12 +468,12 @@ void wtarget_002f3d08(u32 d, u32 m, u32 v, u32 n) {
         : : : "memory");
 }
 
-void func_002fdf30(void) {
+void __malloc_unlock(void) {
     if (func_003060f0() != 1) {  // ee_intr_disabled
         if (--D_003660a8 == 0) {
             if (D_003660ac) {
                 D_003660ac = 0;
-                func_0030ee00();  // ee_intr_get_enable
+                EIntr();  // ee_intr_get_enable
             }
         }
     }

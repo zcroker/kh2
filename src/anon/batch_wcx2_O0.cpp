@@ -54,7 +54,7 @@ s32 func_002b7440(s32 a, s32 b, s32 c) {
 
 // ---- 002b8c78
 struct Hdr78 { u8 pad0[12]; s32 f12; u8 pad1[4]; s32 f20; s32 f24; u8 pad2; u8 f29; };
-void func_002fdd68(void*, void*, u32);
+void memcpy(void*, void*, u32);
 s32 func_002b8694(s32);
 s32 func_002b6708(s32, s32, void*, s32, u32, u32, s32, s32);
 void func_002b8c78(Obj78* o)
@@ -72,13 +72,13 @@ void func_002b8c78(Obj78* o)
                 else o->ctl.f12 = func_002b8694(h->f24) / 28 * o->ctl.f20 * 16 + 128;
                 o->ctl.f48 = o->ctl.f8 & -0x8000;
             }
-            func_002fdd68((u8*)o + o->ctl.f4 + 0x8000, o, 0x8000);
+            memcpy((u8*)o + o->ctl.f4 + 0x8000, o, 0x8000);
             o->ctl.f4 = (o->ctl.f4 + 0x8000) % 0x40000;
             o->ctl.f44 += o->ctl.f24 / 2048;
             break;
         case 2:
             for (i = 0; i < o->ctl.f24 / 16; i++) {
-                func_002fdd68((u8*)o + o->ctl.f4 + 0x8000, (u8*)o + (o->ctl.f52 + i * 16), 16);
+                memcpy((u8*)o + o->ctl.f4 + 0x8000, (u8*)o + (o->ctl.f52 + i * 16), 16);
                 o->ctl.f4 = (o->ctl.f4 + 16) % 0x40000;
             }
             o->ctl.f44 += 16;

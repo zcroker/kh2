@@ -23,10 +23,10 @@ void func_001e5610(s32* p) {
 }
 // newlib __multadd
 struct Bigint_w252 { Bigint_w252* next; s32 k, maxwds, sign, wds; u32 x[1]; };
-Bigint_w252* func_00303b70(void*, s32);
-void* memcpy_w252(void*, const void*, u32) asm("func_002fdd68");
-void func_00303c18(void*, Bigint_w252*);  // push_entry_onto_slot_list
-Bigint_w252* func_00303c48(void* ptr, Bigint_w252* b, s32 m, s32 a) {
+Bigint_w252* _Balloc(void*, s32);
+void* memcpy_w252(void*, const void*, u32) asm("memcpy");
+void _Bfree(void*, Bigint_w252*);  // push_entry_onto_slot_list
+Bigint_w252* __multadd(void* ptr, Bigint_w252* b, s32 m, s32 a) {
     s32 i, wds;
     u32* x;
     u32 carry, y, z, xi;
@@ -44,9 +44,9 @@ Bigint_w252* func_00303c48(void* ptr, Bigint_w252* b, s32 m, s32 a) {
     } while (++i < wds);
     if (carry) {
         if (wds >= b->maxwds) {
-            b1 = func_00303b70(ptr, b->k + 1);
+            b1 = _Balloc(ptr, b->k + 1);
             memcpy_w252((char*)&b1->sign, (char*)&b->sign, b->wds * sizeof(s32) + 2 * sizeof(s32));
-            func_00303c18(ptr, b);  // push_entry_onto_slot_list
+            _Bfree(ptr, b);  // push_entry_onto_slot_list
             b = b1;
         }
         b->x[wds++] = carry;

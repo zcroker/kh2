@@ -34,15 +34,15 @@ u8* func_00102818(void** heap, u32 a1, u32 a2, u32 a3, u32 size) {
 }
 
 // ---------------------------------------------------------------------------
-s32 func_002ff3fc(void*);  // strlen
-s32 func_002ff538(void*, u32, s32);
+s32 strlen(void*);  // strlen
+s32 strncmp(void*, u32, s32);
 extern u32 D_0033cbb8[];
 
 // Returns the index of the first of 19 table entries the check rejects (0 if none).
 s32 func_00105f00(void* p) {
-    if (func_002ff3fc(p) == 2) {  // strlen
+    if (strlen(p) == 2) {  // strlen
         for (s32 i = 0; i < 19; i++) {
-            if (func_002ff538(p, D_0033cbb8[i], 2) == 0) return i;
+            if (strncmp(p, D_0033cbb8[i], 2) == 0) return i;
         }
     }
     return 0;
@@ -350,11 +350,11 @@ u8* ys_light_create(s32 t) {
 extern u8 D_003511c0;
 extern u32 D_003511b8;
 extern u32 D_01d48cb8;
-void func_002f25a0(s32, s32);
+void sceGsSyncPath(s32, s32);
 
 void func_001b7f88(void) {
     if (D_003511c0) {
-        func_002f25a0(0, 0);
+        sceGsSyncPath(0, 0);
         D_01d48cb8 = D_003511b8;
     }
     D_003511c0 = 0;
@@ -467,16 +467,16 @@ void func_001fb928(u8* p, u32* q, u8* r) {
 extern u8* D_01d9e6e8;
 extern char D_01d9e730[];
 extern char D_01d9e8c0[];
-void func_002f3d08(void*, void*, void*);
-void func_002f3f98(void*, void*);
+void sceVu0MulMatrix(void*, void*, void*);
+void sceVu0CopyMatrix(void*, void*);
 
 void func_00209df0(u8* p, u32 a1, u8* r) {
     NoTail nt;
     u8* b = p + *(s32*)(*(u8**)(r + 12) + 4);
-    func_002f3d08(D_01d9e6e8 + 80, b + 224, D_01d9e6e8 + 16);
-    func_002f3d08(D_01d9e6e8 + 80, D_01d9e730, D_01d9e6e8 + 80);
-    func_002f3f98(b + 160, D_01d9e6e8 + 80);
-    func_002f3d08(D_01d9e6e8 + 80, D_01d9e8c0, D_01d9e6e8 + 80);
+    sceVu0MulMatrix(D_01d9e6e8 + 80, b + 224, D_01d9e6e8 + 16);
+    sceVu0MulMatrix(D_01d9e6e8 + 80, D_01d9e730, D_01d9e6e8 + 80);
+    sceVu0CopyMatrix(b + 160, D_01d9e6e8 + 80);
+    sceVu0MulMatrix(D_01d9e6e8 + 80, D_01d9e8c0, D_01d9e6e8 + 80);
 }
 
 // ---------------------------------------------------------------------------

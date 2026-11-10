@@ -259,30 +259,30 @@ void func_001e78e0(Mgr1e7* p) {
     }
 }
 
-void func_002f4000(void*);  // vu_store_w_splat
-void func_002f3d08(void*, void*, void*);
+void sceVu0UnitMatrix(void*);  // vu_store_w_splat
+void sceVu0MulMatrix(void*, void*, void*);
 extern u8* D_01d9e6e0;
 extern u8* D_01d9e6e8;
 void func_001eb0c8(void* unused, f32* s) {
     f32 m[16];
-    func_002f4000(m);  // vu_store_w_splat
+    sceVu0UnitMatrix(m);  // vu_store_w_splat
     f32 base = *(f32*)(D_01d9e6e0 + 64);
     f32 lim = s[2];
     u8* t = D_01d9e6e8 + 16;
     m[0] = base + base * s[1];
     if (lim < m[0]) m[0] = lim;
     m[10] = m[0];
-    func_002f3d08(t, m, t);
+    sceVu0MulMatrix(t, m, t);
 }
 
 void func_001fa950(void*, void*, void*);
 
-void func_00313bc0(f32);
+void __fixunssfsi(f32);
 // Local with a non-trivial destructor: keeps the call a jal instead of a sibling call.
 struct NoTail { ~NoTail() {} };
 void func_00233ac0(u32 a) {
     NoTail g;
-    func_00313bc0((f32)a / 216000.0f);
+    __fixunssfsi((f32)a / 216000.0f);
 }
 
 struct Ev234 { s32 type; s32 seq; u32 a, b, c, d, e, f; };
@@ -436,7 +436,7 @@ s32 func_002ee040(u8* p) {
     return r;
 }
 
-void func_002f3f88(void*, u32);  // memcpy16
+void sceVu0CopyVector(void*, u32);  // memcpy16
 
 s32 func_003160e0(void*, u32, u32, u32);
 typedef s32 (*VFn4)(void*, u32, u32, u32);

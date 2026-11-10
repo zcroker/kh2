@@ -250,7 +250,7 @@ func_002e5518:
 	mov.s	$f12,$f0
 	lui	$14,0x37
 	addiu	$14,$14,24616
-	jal	func_002f8870
+	jal	fabsf
 	lwc1	$f22,0($14)
 	nop
 	nop
@@ -450,7 +450,7 @@ func_002e5518:
 	move	$4,$2
 	jal	func_00313e80
 	dsll32	$5,$5,0x10
-	jal	func_003144b0
+	jal	__truncdfsf2
 	move	$4,$2
 	mov.s	$f2,$f0
 	lw	$13,120($29)

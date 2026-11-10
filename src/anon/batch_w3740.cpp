@@ -27,7 +27,7 @@ s32 func_00106a60(s32);
 void func_00107368(s32, QV*);
 f32 func_001074b8(s32);
 void func_0011b6a8(QM*);
-void func_002f40a0(QM*, QM*, f32);
+void sceVu0RotMatrixZ(QM*, QM*, f32);
 void func_00107330(s32, f32, f32, f32);
 extern f32 D_00349e10;
 static inline f32 rnd_h(f32 a) { return (f32)func_002fea18() / 2147483520.0f * a - a * 0.5f; }
@@ -54,7 +54,7 @@ s32 func_002f1480(Obj* o, f32 s)
     v.z = z;
     v.w = 1.0f;
     func_0011b6a8(&m);
-    func_002f40a0(&m, &m, a);
+    sceVu0RotMatrixZ(&m, &m, a);
     v = m * v;
     o->pos = c + v;
     func_00107330(cam, o->pos.x, o->pos.y, o->pos.z);

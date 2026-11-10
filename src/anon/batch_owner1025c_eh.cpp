@@ -9,7 +9,7 @@
  * landing pad (__cxa_begin_catch, then abort) only exists with exception support. */
 extern "C" {
 __attribute__((noreturn)) void func_002fd160(void) throw();   // abort
-void* __cxa_begin_catch(void*) throw() asm("func_003166f0"); // the game's __cxa_begin_catch
+void* __cxa_begin_catch(void*) throw() asm("__cxa_begin_catch"); // the game's __cxa_begin_catch
 
 // libsupc++ eh_terminate.cc (gcc 3.2): __cxxabiv1::__terminate.
 void func_00315418(void (*handler)(void)) {

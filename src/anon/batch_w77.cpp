@@ -602,7 +602,7 @@ namespace n001fbb98 {
 extern "C" {
 extern u8* D_01d9e6e0;
 extern u8 D_00354be0;
-void func_002f3f88(u8*, void*);  // memcpy16
+void sceVu0CopyVector(u8*, void*);  // memcpy16
 void func_001fbab8(u8*, s32, s32);
 void func_001fbb98(u8* a, u8* col, u8* c)
 {
@@ -612,7 +612,7 @@ void func_001fbb98(u8* a, u8* col, u8* c)
     s[37] = (s32)(col[9] * *(f32*)(D_01d9e6e0 + 52));
     s[38] = (s32)(col[10] * *(f32*)(D_01d9e6e0 + 56));
     s[39] = (s32)(col[11] * *(f32*)(D_01d9e6e0 + 60));
-    func_002f3f88(d + 176, &D_00354be0);  // memcpy16
+    sceVu0CopyVector(d + 176, &D_00354be0);  // memcpy16
     func_001fbab8(s, 0, 0);
 }
 }
@@ -623,7 +623,7 @@ namespace n00201bb0 {
 extern "C" {
 extern u8* D_01d9e6e8;
 extern u8 D_01d9e6f0;
-void func_002f3cd8(f32*, void*, f32*);
+void sceVu0ApplyMatrix(f32*, void*, f32*);
 void func_00201bb0(u8* p, f32* v1, f32* v2)
 {
     f32 t[4];
@@ -633,12 +633,12 @@ void func_00201bb0(u8* p, f32* v1, f32* v2)
     t[1] = a * k;
     t[2] = 0;
     t[3] = 1.0f;
-    func_002f3cd8(v1, D_01d9e6e8 + 16, t);
+    sceVu0ApplyMatrix(v1, D_01d9e6e8 + 16, t);
     t[1] = -a * k;
-    func_002f3cd8(v2, D_01d9e6e8 + 16, t);
+    sceVu0ApplyMatrix(v2, D_01d9e6e8 + 16, t);
     if (p[21]) {
-        func_002f3cd8(v1, &D_01d9e6f0, v1);
-        func_002f3cd8(v2, &D_01d9e6f0, v2);
+        sceVu0ApplyMatrix(v1, &D_01d9e6f0, v1);
+        sceVu0ApplyMatrix(v2, &D_01d9e6f0, v2);
     }
 }
 }
@@ -743,14 +743,14 @@ namespace n00227b00 {
 extern "C" {
 struct Ent { u32 type; s32 state; u8 pad[24]; char name[16]; char sub[16]; u8 pad2[20]; };
 extern Ent* D_0035dcf0;
-s32 func_002ff1a4(const char*, const char*);  // strcmp
+s32 strcmp(const char*, const char*);  // strcmp
 Ent* func_00227b00(const char* name, u32 type, const char* sub)
 {
     for (s32 i = 0; i < 128; i++) {
         if (D_0035dcf0[i].type != type) continue;
         if (D_0035dcf0[i].state != 3) continue;
-        if (func_002ff1a4(D_0035dcf0[i].name, name)) continue;
-        if (func_002ff1a4(D_0035dcf0[i].sub, sub)) continue;
+        if (strcmp(D_0035dcf0[i].name, name)) continue;
+        if (strcmp(D_0035dcf0[i].sub, sub)) continue;
         return &D_0035dcf0[i];
     }
     return 0;

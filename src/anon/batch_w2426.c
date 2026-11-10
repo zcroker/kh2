@@ -13,11 +13,11 @@ typedef union { float value; __uint32_t word; } ieee_float_shape_type;
 #define GET_FLOAT_WORD(i,d) do { ieee_float_shape_type gf_u; gf_u.value = (d); (i) = gf_u.word; } while (0)
 #define SET_FLOAT_WORD(d,i) do { ieee_float_shape_type sf_u; sf_u.word = (i); (d) = sf_u.value; } while (0)
 
-float fabsf(float) asm("func_002f8870");
-float __ieee754_sqrtf(float) asm("_Z13func_002faa10f");
+float fabsf(float) asm("fabsf");
+float __ieee754_sqrtf(float) asm("_Z15__ieee754_sqrtff");
 
 /* __ieee754_asinf; the game symbol is a C++-style placeholder name, bound with an asm label. */
-float func_002f9268(float x) asm("_Z13func_002f9268Pv");
+float __ieee754_asinf(float x) asm("_Z15__ieee754_asinfPv");
 
 static const float
 one = 1.000000000e+00f,
@@ -36,7 +36,7 @@ qS2 = 2.020945549e+00f,
 qS3 = -6.882839203e-01f,
 qS4 = 7.703814656e-02f;
 
-float func_002f9268(float x)
+float __ieee754_asinf(float x)
 {
 	float t,w,p,q,c,r,s;
 	__int32_t hx,ix;

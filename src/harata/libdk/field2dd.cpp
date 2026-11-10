@@ -46,7 +46,7 @@ s32 func_00242c70(void) asm("_ZN2Tz6Config12isCommandKH2Ev");
 s32 func_00194a08(void);
 u32 func_00105ee8(u32);
 void func_002fee78(char*, const char*, ...);  // sprintf
-void func_002ff3fc(char*);  // strlen
+void strlen(char*);  // strlen
 void func_001688c8(void*);
 void func_001684c0(void*, u8*, s32, s32);
 void func_0031ae58(void*, void*);
@@ -109,7 +109,7 @@ s32 func_0013a4c8(void) {
         D_00347fec = room;
         func_002fee78(D_003b8ba0, "field2d/%s/%s%1dcommand.2dd", D_0033caf4, func_00105ee8(room), n);
     }
-    func_002ff3fc(D_003b8ba0);
+    strlen(D_003b8ba0);
     func_001688c8(D_003b8ba0);
     func_001684c0(D_003b8ba0, D_004193c0, 0, 0);
     return 1;

@@ -96,8 +96,8 @@ s32 func_001d5868(void*);
 s32 func_001d58f0(void*);
 void func_001d5800(void*);
 void func_001a3188(u16, s32, s32);
-f32 func_002f3d70(void*);  // vec3_dot
-void func_002f3d98(void*, void*);  // vec4_normalize
+f32 sceVu0InnerProduct(void*);  // vec3_dot
+void sceVu0Normalize(void*, void*);  // vec4_normalize
 void func_0021fe08(void*, u32);
 s32 func_00257070(s32);
 u8* func_00281180(u32, s32);
@@ -119,8 +119,8 @@ void func_002c53c8();
 void func_0017c030(void*, void*, void*, u8);
 void func_0017c4c8(void*, void*);
 u32 func_0023a918(void*);
-s32 func_0030edb0(void);
-void func_0030ee00(void);  // ee_intr_get_enable
+s32 DIntr(void);
+void EIntr(void);  // ee_intr_get_enable
 void func_002fd408(void*);
 
 // Is `id` in the -1-terminated id table?
@@ -423,10 +423,10 @@ void func_001e2660(u8* p, u8* v) {
 
 // Normalised direction (xyz) and length (w); +z when the length is zero.
 void func_001e7d20(f32* out, void* v) {
-    f32 l = func_002f3d70(v);  // vec3_dot
+    f32 l = sceVu0InnerProduct(v);  // vec3_dot
     if (0.0f < l) {
         f32 s = __builtin_sqrtf(l);
-        func_002f3d98(out, v);  // vec4_normalize
+        sceVu0Normalize(out, v);  // vec4_normalize
         out[3] = s;
     } else {
         out[0] = 0.0f;
@@ -540,7 +540,7 @@ u8* func_002ef660(u8* out, u8* p) {
 }
 
 struct Blk2fd { Blk2fd* next; s32 n; u32 items[32]; };
-Blk2fd* func_002fd3e8(u32);  // pool_free_block
+Blk2fd* malloc(u32);  // pool_free_block
 // newlib atexit: appends x to the chain of 32-entry exit-function blocks.
 s32 atexit(u32 x) {
     Blk2fd* b = *(Blk2fd**)(D_00365c48 + 328);
@@ -550,7 +550,7 @@ s32 atexit(u32 x) {
     }
     s32 n = b->n;
     if (n >= 32) {
-        b = func_002fd3e8(136);  // pool_free_block
+        b = malloc(136);  // pool_free_block
         if (!b) return -1;
         b->n = 0;
         b->next = *(Blk2fd**)(D_00365c48 + 328);
@@ -563,14 +563,14 @@ s32 atexit(u32 x) {
 }
 
 // Frees a block: 1 KB pool blocks clear their used bit, others go to the heap.
-void func_00316658(u8* p) {
+void __cxa_free_exception(u8* p) {
     if (p >= D_01e3c780 && p < D_01e3c780 + 0x10000) {
         u32 i = (u32)(p - D_01e3c780) >> 10;
-        s32 r = func_0030edb0();
+        s32 r = DIntr();
         D_01e4c780 &= ~(1ull << i);
         D_01e3c770 = r;
         if (r) {
-            func_0030ee00();  // ee_intr_get_enable
+            EIntr();  // ee_intr_get_enable
             asm volatile(""); // keeps the call from becoming a tail call
         }
         return;

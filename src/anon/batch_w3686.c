@@ -16,14 +16,14 @@ extern V20a658 D_01d9e7f0;
 extern V20a658 D_01da8b90;
 extern M20a658 D_01d9ea40;
 void func_002f4870(V20a658*, V20a658*, f32);
-void func_002f3ef8(V20a658*, V20a658*, V20a658*);
-void func_002f3f10(V20a658*, V20a658*, V20a658*);
-void func_002f3d98(V20a658*, V20a658*);
-f32 func_002f3d70(V20a658*, V20a658*);
+void sceVu0AddVector(V20a658*, V20a658*, V20a658*);
+void sceVu0SubVector(V20a658*, V20a658*, V20a658*);
+void sceVu0Normalize(V20a658*, V20a658*);
+f32 sceVu0InnerProduct(V20a658*, V20a658*);
 f32 func_00209fb8(void);
-void func_002f4298(M20a658*, M20a658*, V20a658*);
-void func_002f3cd8(V20a658*, M20a658*, V20a658*);
-void func_002f3f40(V20a658*, V20a658*, f32);
+void sceVu0RotMatrix(M20a658*, M20a658*, V20a658*);
+void sceVu0ApplyMatrix(V20a658*, M20a658*, V20a658*);
+void sceVu0ScaleVector(V20a658*, V20a658*, f32);
 void func_0020a090(Src20a658*, Dst20a658*, f32*);
 void func_0020a658(void* unused, Src20a658* s, Dst20a658* d, void* unused2, Cf20a658* cf)
 {
@@ -59,10 +59,10 @@ void func_0020a658(void* unused, Src20a658* s, Dst20a658* d, void* unused2, Cf20
     }
     d->f80 += s->f140;
     func_002f4870(&n, &d->vel, d->f80);
-    func_002f3ef8(&d->pos, &d->pos, &n);
+    sceVu0AddVector(&d->pos, &d->pos, &n);
     d->pos.w = 1.0f;
-    func_002f3f10(&v, &d->pos, &D_01d9e7f0);
-    func_002f3d98(&n, &v);
+    sceVu0SubVector(&v, &d->pos, &D_01d9e7f0);
+    sceVu0Normalize(&n, &v);
     n.w = 1.0f;
     {
         union { s32 i; f32 f; } r;
@@ -107,16 +107,16 @@ asm volatile("" : : "r"(d->f.cnt), "f"(one));
     }
     if (s->f156 + s->f160 < dist) d->f84 = 0.0f;
     else if (s->f156 < dist) d->f84 *= 1.0f - (dist - s->f156) / s->f152;
-    if (func_002f3d70(&n, &D_01da8b90) < 0.0f) d->f.all |= 0x100;
+    if (sceVu0InnerProduct(&n, &D_01da8b90) < 0.0f) d->f.all |= 0x100;
     else d->f.all &= ~0x100;
     {
         f32 far = s->f156 + s->f160;
         if (far < dist) {
             for (i = 0; i < 3; i++) (&t.x)[i] = func_00209fb8() * 1.2566371f - 0.62831855f;
-            func_002f4298(&m, &D_01d9ea40, &t);
-            func_002f3cd8(&t, &m, &n);
-            func_002f3f40(&t, &t, -far);
-            func_002f3ef8(&d->pos, &D_01d9e7f0, &t);
+            sceVu0RotMatrix(&m, &D_01d9ea40, &t);
+            sceVu0ApplyMatrix(&t, &m, &n);
+            sceVu0ScaleVector(&t, &t, -far);
+            sceVu0AddVector(&d->pos, &D_01d9e7f0, &t);
             d->pos.w = 1.0f;
             func_0020a090(s, d, (f32*)cf);
         }

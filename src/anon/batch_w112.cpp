@@ -4,7 +4,7 @@
 struct Vec4 { f32 x, y, z, w; } __attribute__((aligned(16)));
 extern "C" {
 Vec4* func_0016c028(void*);  // obj_get_attach_or_alt
-f32 func_002f8870(f32);  // fabsf
+f32 fabsf(f32);  // fabsf
 }
 
 // ---- 001011e0
@@ -84,7 +84,7 @@ s32 func_00110b00(u8* o, Vec4* pos, u32 a2) {
     k = *(f32*)(o + 2944);
     if (0.0f < d.y * k) return 0;
     d.y = 0.0f;
-    if (func_002f8870(k) < 1000.0f) {  // fabsf
+    if (fabsf(k) < 1000.0f) {  // fabsf
         if (0.0f < vdot((Vec4*)(o + 2976), &d)) return 0;
     } else {
         if (-0.5f < vdot((Vec4*)(o + 2976), &d)) return 0;

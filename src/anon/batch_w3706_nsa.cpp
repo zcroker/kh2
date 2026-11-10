@@ -71,8 +71,8 @@ V2d31b0* func_002d1f20(void*);
 V2d31b0 func_002d2870(void*, O2d31b0*);
 void func_002d36f0(O2d31b0*);
 f32 func_002d48b8(f32);
-f32 func_002f87c0(f32);
-f32 func_002f8960(f32);
+f32 cosf(f32);
+f32 sinf(f32);
 // Moves the object: attach check, circular path around "to", pending timers, bobbing.
 void func_002d31b0(O2d31b0* o)
 {
@@ -101,8 +101,8 @@ void func_002d31b0(O2d31b0* o)
         w.x += v.x;
         c += w;
         o->ang = func_002d48b8(o->ang + o->angVel * D_00349e10);
-        f32 cs = func_002f87c0(o->ang);
-        V2d31b0 r(cs, func_002f8960(o->ang), 0.0f, 0.0f);
+        f32 cs = cosf(o->ang);
+        V2d31b0 r(cs, sinf(o->ang), 0.0f, 0.0f);
         r *= o->radius;
         o->pos = c + r;
         o->pos.y += o->bob;
@@ -120,7 +120,7 @@ void func_002d31b0(O2d31b0* o)
         f32 a = o->phase * 6.2831855f / o->period;
         o->phase += D_00349e10;
         while (o->period < o->phase) o->phase -= o->period;
-        o->bob = func_002f8960(a) * o->f2908;
+        o->bob = sinf(a) * o->f2908;
     }
 }
 

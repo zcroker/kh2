@@ -32,10 +32,10 @@ void func_0013fd78(u8*);
 void func_0013f558(u8*);
 void func_00140b68(u8*, u32);
 extern u8 D_004574d0[];
-void func_002f2aa0(u8*, s16, u32, u32, u32, u32, s16, s16);
+void sceGsSetDefStoreImage(u8*, s16, u32, u32, u32, u32, s16, s16);
 void func_003058a0(u32);
-void func_002f25a0(u32, u32);
-void func_002f2d60(u8*, u32);
+void sceGsSyncPath(u32, u32);
+void sceGsExecStoreImage(u8*, u32);
 
 struct Node11c {
     u8 pad[12];
@@ -102,10 +102,10 @@ void func_00140f78(u8* a, u8* b) {
 }
 
 void func_0014dec0(s16* a, u32 b) {
-    func_002f2aa0(D_004574d0, (u16)a[0] << 5, (u16)a[2] >> 6, 1, 0, 0, a[2], a[3]);
+    sceGsSetDefStoreImage(D_004574d0, (u16)a[0] << 5, (u16)a[2] >> 6, 1, 0, 0, a[2], a[3]);
     func_003058a0(0);
-    func_002f25a0(0, 0);
-    func_002f2d60(D_004574d0, b);
+    sceGsSyncPath(0, 0);
+    sceGsExecStoreImage(D_004574d0, b);
 }
 
 struct Job168 {
@@ -315,13 +315,13 @@ s32 func_001dc558(u32* p, f32 f) {
     return ok;
 }
 
-void func_002fe0a0(const char*);
+void puts(const char*);
 void func_002fd348(s32) __attribute__((noreturn));
 extern char D_00370748[];
 void func_0020e2e8(u32, u8, u16, u32);
 void func_0020e548(u8* p, u32 b) {
     if (!*(u32*)(p + 4)) {
-        func_002fe0a0(D_00370748);
+        puts(D_00370748);
         func_002fd348(1);
     }
     func_0020e2e8(*(u32*)(p + 4), p[9], *(u16*)p, b);

@@ -28,8 +28,8 @@ s32 func_001ca9c0(S*);
 s32 func_001cbab0(S*);
 f32 func_001cbf50(f32);
 ObjA* func_002d1260();
-f32 func_002f87c0(f32);
-f32 func_002f8960(f32);
+f32 cosf(f32);
+f32 sinf(f32);
 
 static inline __attribute__((always_inline)) void scl(V4* v, f32 s) {
     asm volatile(".set noreorder\n\tlqc2 $vf1, 0(%0)\n\tmfc1 $8, %1\n\tqmtc2 $8, $vf2\n\tvmulx.wxyz $vf1, $vf1, $vf2x\n\tsqc2 $vf1, 0(%0)\n\t.set reorder"
@@ -61,8 +61,8 @@ s32 func_001cb8c0(S* o) {
         o->fac += o->fb4 * D_00349e10;
     }
     f32 a = func_001cbf50(o->fa0);
-    o->v.x = func_002f87c0(a);
-    o->v.y = func_002f8960(a);
+    o->v.x = cosf(a);
+    o->v.y = sinf(a);
     *(s32*)&o->v.z = 0;
     asm ("" : "=r"(d));
     scl(&o->v, o->fac);

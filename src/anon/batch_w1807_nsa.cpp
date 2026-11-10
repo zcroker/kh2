@@ -6,7 +6,7 @@ extern "C" {
 extern u8* D_01d9e6e8;
 extern u8 D_01d9e840[];
 extern u8 D_01d9e8c0[];
-void func_002f3cd8(void*, void*, void*);
+void sceVu0ApplyMatrix(void*, void*, void*);
 void func_002226b8(u8*, void*);
 void func_0021f0d8(void*);
 struct W1807V4 { f32 x, y, z, w; };
@@ -18,7 +18,7 @@ void func_001fa668(u8* a, u32 a1, u8* c) {
     if (s[143]) {
         *(w1807_u128*)&v = 0;
         v.w = v.z = 1.0f;
-        func_002f3cd8(&v, D_01d9e6e8 + 16, &v);
+        sceVu0ApplyMatrix(&v, D_01d9e6e8 + 16, &v);
         func_002226b8(d + 304, &v);
     }
     *(f32*)(s + 128) = *(f32*)(D_01d9e6e8 + 64);

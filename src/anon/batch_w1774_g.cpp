@@ -1,7 +1,7 @@
 #include "../common/types.h"
 extern "C" {
 
-void func_002f25a0(s32, s32);
+void sceGsSyncPath(s32, s32);
 s32 func_00133d38(void);
 void func_003058a0(s32);
 s32 func_00133f60(void);
@@ -13,7 +13,7 @@ extern u8 D_00347c88[];
 
 /* sync.p is the EE pipeline barrier; gcc has no C form for it. */
 s32 func_00133f80(void) {
-    func_002f25a0(0, 0);
+    sceGsSyncPath(0, 0);
     D_00347cac = func_00133d38();
     *(volatile u32*)0x10003010 = 1;
     asm volatile("sync.p");

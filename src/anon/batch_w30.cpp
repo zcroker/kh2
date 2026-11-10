@@ -27,7 +27,7 @@ extern u8 D_00352a78[];
 extern u64 D_01da8bb0[];
 extern u64 D_00359940[];
 extern u32 D_003591c8;
-void func_002f25a0(u32, u32);
+void sceGsSyncPath(u32, u32);
 u8 func_002f3918(u32, void*);
 extern u8 D_0035de54;
 extern s32 D_0035de20;
@@ -60,7 +60,7 @@ void func_002bd140(void*);
 extern u8 D_01e2a568[];
 extern u8 D_00374f70[];
 void func_002fee78(void*, void*, u32);
-void func_002ff3fc(void*);  // strlen
+void strlen(void*);  // strlen
 extern u8 D_0034ee08[];
 void func_0019f9a8(void*);  // array8_free_slots
 void func_001c0248(void*);
@@ -276,7 +276,7 @@ void func_001db950(u8* p, u32 a, u32 b, u32 c) {
 s32 func_0020f188(void) {
     D_00359940[4] = D_01da8bb0[8];
     D_00359940[5] = D_01da8bb0[9];
-    func_002f25a0(0, 0);
+    sceGsSyncPath(0, 0);
     return func_002f3918(D_003591c8, D_00359940);
 }
 
@@ -346,7 +346,7 @@ void func_002b9ed0(void) {
 
 void* func_002ba0b0(u32 a) {
     func_002fee78(D_01e2a568, D_00374f70, a);
-    func_002ff3fc(D_01e2a568);  // strlen
+    strlen(D_01e2a568);  // strlen
     return D_01e2a568;
 }
 
@@ -394,7 +394,7 @@ void func_003147a0(void*, FpNum*);
 f32 func_00314698(s32, u32, s32, u32);
 
 // Software double -> float (libgcc fp-bit __truncdfsf2).
-f32 func_003144b0(u64 a) {  // double_trunc
+f32 __truncdfsf2(u64 a) {  // double_trunc
     FpNum in;
     u64 au = a;
     func_003147a0(&au, &in);

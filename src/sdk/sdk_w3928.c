@@ -4,26 +4,26 @@
  * Partial inline asm only where the original is hand-written: sync/nop around the INTC_STAT wait,
  * the 128-bit sq clear of a new thread's saved context, and the t0-t2 timer read. */
 typedef unsigned int u32;
-extern int func_0030edb0(void);
-extern int func_0030ee00(void);
+extern int DIntr(void);
+extern int EIntr(void);
 
 void func_00305ab0(void)
 {
     int s;
     u32 x;
-    s = func_0030edb0();
+    s = DIntr();
     *(volatile u32 *)0x1000f000 = 4;
     asm volatile("sync");
-    if (s) func_0030ee00();
+    if (s) EIntr();
     /* hand-written: sync after the INTC_STAT write, nop padding in the poll loop */
     do {
         x = *(volatile u32 *)0x1000f000 & 4;
         asm volatile("nop");
     } while (!x);
-    s = func_0030edb0();
+    s = DIntr();
     *(volatile u32 *)0x1000f000 = 4;
     asm volatile("sync");
-    if (s) func_0030ee00();
+    if (s) EIntr();
 }
 
 extern unsigned long D_00367118;
@@ -31,7 +31,7 @@ unsigned long func_0030ff58(void)
 {
     int s;
     unsigned long r;
-    s = func_0030edb0();
+    s = DIntr();
     /* hand-written timer read (original inline asm block) */
     asm volatile(
         ".set noreorder\n\t"
@@ -51,7 +51,7 @@ unsigned long func_0030ff58(void)
         "dsllv %0,%0,$9\n\t"
         ".set reorder"
         : "=&r"(r) : "r"((volatile unsigned int *)0x10001000), "m"(D_00367118) : "$8", "$9", "$10");
-    if (s) func_0030ee00();
+    if (s) EIntr();
     return r;
 }
 
@@ -66,15 +66,15 @@ int func_00306760(int tid, int arg)
     char *p;
     if (func_003060f0())
         return -1;
-    if (!func_0030edb0())
+    if (!DIntr())
         return -1;
     r = func_00305520(tid, &st);
     if (r < 0) {
-        func_0030ee00();
+        EIntr();
         return r;
     }
     if (st.status != 16) {
-        func_0030ee00();
+        EIntr();
         return -1;
     }
     p = st.stack + st.stackSize - 0x2a0;
@@ -131,6 +131,6 @@ int func_00306760(int tid, int arg)
         "sd $8,496(%0)\n\t"
         "sd $0,504(%0)\n\t"
         : : "r"(p), "r"(arg) : "$8", "memory");
-    func_0030ee00();
+    EIntr();
     return func_00305440(tid, arg);
 }

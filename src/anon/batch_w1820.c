@@ -8,7 +8,7 @@
  * The soft-double libcalls bind to the game's copies. */
 asm("dpcmp = func_003142e0");
 asm("dpmul = func_00313f40");
-asm("dpsub = func_00313ed8");
+asm("dpsub = __subdf3");
 asm("dpadd = func_00313e80");
 asm("dptoul = func_00314508");
 asm("__floatdidf = func_003145a8");
@@ -16,7 +16,7 @@ asm("__floatdidf = func_003145a8");
 #define WORD_SIZE 32
 #define HIGH_WORD_COEFF (((u64) 1) << WORD_SIZE)
 
-u64 func_00311bb8(double a)
+u64 __fixunsdfdi(double a)
 {
     double b;
     u64 v;

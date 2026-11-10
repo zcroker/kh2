@@ -134,14 +134,14 @@ void* func_001659b8(u32 a, u32 b) {
 }
 
 extern u8 D_0034c7b0[];
-void func_002f28b8(void*, s32, s32, s32, s32, s32, s32, s32);
+void sceGsSetDefLoadImage(void*, s32, s32, s32, s32, s32, s32, s32);
 void func_003058a0(s32);
-void func_002f2be0(void*, u32);
+void sceGsExecLoadImage(void*, u32);
 void func_00166618(u32 a, s16 b, s16 c, s16 d, s16 e, s16 f, s32 i) {
     u8* s = D_0034c7b0 + i * 96;
-    func_002f28b8(s, c, d >> 6, b, 0, f, d, e);
+    sceGsSetDefLoadImage(s, c, d >> 6, b, 0, f, d, e);
     func_003058a0(0);
-    func_002f2be0(s, a);
+    sceGsExecLoadImage(s, a);
 }
 
 extern u32 D_0034f240;

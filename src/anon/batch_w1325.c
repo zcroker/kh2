@@ -62,36 +62,36 @@ union double_union { double d; u32 i[2]; };
 #define Int_max    14
 #define n_bigtens  5
 
-_Bigint* func_00303b70(struct _reent_dtoa* p, s32 k) asm("_Z16ctarget_00303b70jjjj"); // Balloc
-void     func_00303c18(struct _reent_dtoa* p, _Bigint* v);                 // Bfree
-_Bigint* func_00303c48(struct _reent_dtoa* p, _Bigint* b, s32 m, s32 a);  // multadd
+_Bigint* _Balloc(struct _reent_dtoa* p, s32 k) asm("_Z7_Ballocjjjj"); // Balloc
+void     _Bfree(struct _reent_dtoa* p, _Bigint* v);                 // Bfree
+_Bigint* __multadd(struct _reent_dtoa* p, _Bigint* b, s32 m, s32 a);  // multadd
 s32      func_00303e80(u32 x);                                             // hi0bits
-_Bigint* func_00303fc0(struct _reent_dtoa* p, s32 i);                      // i2b
-_Bigint* func_00303ff8(struct _reent_dtoa* p, _Bigint* a, _Bigint* b);    // mult
-_Bigint* func_00304200(struct _reent_dtoa* p, _Bigint* b, s32 k);         // pow5mult
-_Bigint* func_00304308(struct _reent_dtoa* p, _Bigint* b, s32 k);         // lshift
-s32      func_00304468(_Bigint* a, _Bigint* b);                            // cmp
-_Bigint* func_003044d0(struct _reent_dtoa* p, _Bigint* a, _Bigint* b);    // diff
-_Bigint* func_003048b8(struct _reent_dtoa* p, double d, s32* e, s32* bits); // d2b
+_Bigint* __i2b(struct _reent_dtoa* p, s32 i);                      // i2b
+_Bigint* __multiply(struct _reent_dtoa* p, _Bigint* a, _Bigint* b);    // mult
+_Bigint* __pow5mult(struct _reent_dtoa* p, _Bigint* b, s32 k);         // pow5mult
+_Bigint* __lshift(struct _reent_dtoa* p, _Bigint* b, s32 k);         // lshift
+s32      __mcmp(_Bigint* a, _Bigint* b);                            // cmp
+_Bigint* __mdiff(struct _reent_dtoa* p, _Bigint* a, _Bigint* b);    // diff
+_Bigint* __d2b(struct _reent_dtoa* p, double d, s32* e, s32* bits); // d2b
 s32      func_00301708(_Bigint* b, _Bigint* S);                            // quorem
-void*    func_002fdd68(void* dst, const void* src, u32 n);                 // memcpy
+void*    memcpy(void* dst, const void* src, u32 n);                 // memcpy
 
-#define Balloc   func_00303b70
-#define Bfree    func_00303c18
-#define multadd  func_00303c48
+#define Balloc   _Balloc
+#define Bfree    _Bfree
+#define multadd  __multadd
 #define hi0bits  func_00303e80
-#define i2b      func_00303fc0
-#define mult     func_00303ff8
-#define pow5mult func_00304200
-#define lshift   func_00304308
-#define cmp      func_00304468
-#define diff     func_003044d0
-#define d2b      func_003048b8
+#define i2b      __i2b
+#define mult     __multiply
+#define pow5mult __pow5mult
+#define lshift   __lshift
+#define cmp      __mcmp
+#define diff     __mdiff
+#define d2b      __d2b
 #define quorem   func_00301708
-#define Bcopy(x,y) func_002fdd68((char *)&x->_sign, (char *)&y->_sign, y->_wds*sizeof(s32) + 2*sizeof(int))
+#define Bcopy(x,y) memcpy((char *)&x->_sign, (char *)&y->_sign, y->_wds*sizeof(s32) + 2*sizeof(int))
 
 asm("dpcmp = func_003142e0");
-asm("dpsub = func_00313ed8");
+asm("dpsub = __subdf3");
 asm("dpadd = func_00313e80");
 asm("dpmul = func_00313f40");
 asm("dpdiv = func_00314190");
@@ -106,7 +106,7 @@ extern const char D_00377c80[];     // "0"
 #define tens D_00377d10
 #define bigtens D_00377dd8
 
-char* func_00301938(struct _reent_dtoa* ptr, double _d, s32 mode, s32 ndigits,
+char* _dtoa_r(struct _reent_dtoa* ptr, double _d, s32 mode, s32 ndigits,
                     s32* decpt, s32* sign, char** rve)
 {
     s32 bbits, b2, b5, be, dig, i, ieps, ilim, ilim0, ilim1, j, j1, k, k0,

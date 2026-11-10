@@ -22,16 +22,16 @@ extern f32 D_00354be0[3];
 extern f32 D_00354bd0[3];
 extern u8 D_00354bc0[];
 extern u8 D_01d9e720[];
-void func_002f4000(M1e7da8*);
-void func_002f4148(M1e7da8*, M1e7da8*, f32);
-void func_002f41f0(M1e7da8*, M1e7da8*, f32);
-void func_002f40a0(M1e7da8*, M1e7da8*, f32);
+void sceVu0UnitMatrix(M1e7da8*);
+void sceVu0RotMatrixX(M1e7da8*, M1e7da8*, f32);
+void sceVu0RotMatrixY(M1e7da8*, M1e7da8*, f32);
+void sceVu0RotMatrixZ(M1e7da8*, M1e7da8*, f32);
 void func_001e8fe0(M1e7da8*, void*);
-void func_002f3d08(M1e7da8*, M1e7da8*, M1e7da8*);
+void sceVu0MulMatrix(M1e7da8*, M1e7da8*, M1e7da8*);
 void func_001e7d20(V1e7da8*, V1e7da8*);
 f32 func_002f8ad0(f32, f32);
 f32 func_002f8ab8(f32);
-void func_002f3f88(void*, void*);
+void sceVu0CopyVector(void*, void*);
 /* libvu0 sceVu0ScaleVectorXYZ (VU0 macro code) */
 static inline void scale1e7da8(V1e7da8* d, V1e7da8* v, f32 s)
 {
@@ -43,10 +43,10 @@ void func_001e7da8(Part1e7da8* p)
     M1e7da8 o;
     f32 ang[3];
     s32 i;
-    func_002f4000(m);
-    func_002f4148(m, m, p->rz);
-    func_002f41f0(m, m, p->rx);
-    func_002f40a0(m, m, p->ry);
+    sceVu0UnitMatrix(m);
+    sceVu0RotMatrixX(m, m, p->rz);
+    sceVu0RotMatrixY(m, m, p->rx);
+    sceVu0RotMatrixZ(m, m, p->ry);
     scale1e7da8(&m->r[0], &m->r[0], p->sx);
     scale1e7da8(&m->r[1], &m->r[1], p->sy);
     scale1e7da8(&m->r[2], &m->r[2], p->sz);
@@ -65,7 +65,7 @@ void func_001e7da8(Part1e7da8* p)
     o.r[3].x = p->own->tx;
     o.r[3].y = p->own->ty;
     o.r[3].z = p->own->tz;
-    func_002f3d08(m, m, &o);
+    sceVu0MulMatrix(m, m, &o);
     if (p->offset) {
         V1e7da8* off = &D_01d9e7f0;
         f32 mx;
@@ -93,5 +93,5 @@ void func_001e7da8(Part1e7da8* p)
     ang[1] = func_002f8ab8(-o.r[2].z);
     ang[2] = func_002f8ad0(o.r[2].y, o.r[2].x);
     for (i = 0; i < 3; i++) D_00354bd0[i] = ang[i];
-    func_002f3f88(D_00354bc0, D_01d9e720);
+    sceVu0CopyVector(D_00354bc0, D_01d9e720);
 }

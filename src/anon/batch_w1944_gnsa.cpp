@@ -122,8 +122,8 @@ extern f32 D_00351fd8;
 W1944Cam* func_002d1260();
 s32 func_0019ba60(W1944Cam*);
 f32 func_001cbf50(f32);
-f32 func_002f87c0(f32);
-f32 func_002f8960(f32);
+f32 cosf(f32);
+f32 sinf(f32);
 
 s32 func_001cb720(W1944Fx* o)
 {
@@ -133,8 +133,8 @@ s32 func_001cb720(W1944Fx* o)
     o->ang += o->angVel * D_00349e10;
     f32 r = o->time / D_00351fd8;
     f32 a = func_001cbf50(o->ang);
-    o->v.x = func_002f87c0(a);
-    o->v.y = func_002f8960(a);
+    o->v.x = cosf(a);
+    o->v.y = sinf(a);
     o->v.z = 0.0f;
     o->v *= o->scale * r;
     W1944QV t = o->ofs;

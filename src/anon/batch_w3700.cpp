@@ -15,7 +15,7 @@ extern "C" {
 void ctarget_0016bda8(QW2d3*, Act2d3*) asm("_Z16ctarget_0016bda8jjjj");
 void ctarget_00186a90(Act2d3*, QW2d3*, f32) asm("_Z16ctarget_00186a90jjjj");
 void func_0016ac38(Act2d3*, s32, s32, s32, s32);
-f32 func_002f8870(f32);
+f32 fabsf(f32);
 void func_002d39c8(Act2d3* a, Hit2d3* h) {
     QW2d3 d, pa, pb;
     Act2d3* b = h->other;
@@ -43,7 +43,7 @@ void func_002d39c8(Act2d3* a, Hit2d3* h) {
                      : "=f"(r) : "r"(&d) : "$8", "memory");
     }
     if (a->fb78 < 0.0f) asm volatile("vsub.wxyz $vf1, $vf0, $vf0\n\tsqc2 $vf1, 0(%0)" : : "r"(&d) : "memory");
-    ctarget_00186a90(a, &d, func_002f8870(a->fb78));
+    ctarget_00186a90(a, &d, fabsf(a->fb78));
 }
 }
 

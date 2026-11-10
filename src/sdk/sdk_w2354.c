@@ -27,14 +27,14 @@ extern DbcClient D_01e2d980;
 extern DbcClient D_01e2d9d0;
 extern DbcClient D_01e2d9f8[2];
 extern int func_00308b30(int);
-extern int func_003092d8(DbcClient *, unsigned int, int);
+extern int sceSifBindRpc(DbcClient *, unsigned int, int);
 extern int func_002f4a20(void);
 extern int func_003080d0(const char *, ...);
 extern int func_002f5c48(const char *, ...);
 extern int func_00305620(struct DbcSema *);
-extern int func_002f4dc0(void *);
+extern int sceDbcSetWorkAddr(void *);
 /* sceDbcInit: bind the dbcman RPC servers, check the module version, create the semaphore. */
-int func_002f4a78(void)
+int sceDbcInit(void)
 {
     struct DbcSema s;
     int i;
@@ -45,7 +45,7 @@ int func_002f4a78(void)
     D_01e2fe40 = 0;
     func_00308b30(0);
     while (1) {
-        if (func_003092d8(&D_01e2d980, 0x80001300, 0) < 0)
+        if (sceSifBindRpc(&D_01e2d980, 0x80001300, 0) < 0)
             {
                 func_002f5c48("libdbc: bind failed\n");
                 return 0;
@@ -63,7 +63,7 @@ int func_002f4a78(void)
         return 0;
     }
     while (1) {
-        if (func_003092d8(&D_01e2d9d0, 0x8000131c, 0) < 0)
+        if (sceSifBindRpc(&D_01e2d9d0, 0x8000131c, 0) < 0)
             {
                 func_002f5c48("libdbc: bind failed\n");
                 return 0;
@@ -76,7 +76,7 @@ int func_002f4a78(void)
     }
     for (j = 0; j < 2; j++) {
         while (1) {
-            if (func_003092d8(&D_01e2d9f8[j], 0x8000131e + j, 0) < 0)
+            if (sceSifBindRpc(&D_01e2d9f8[j], 0x8000131e + j, 0) < 0)
                 {
                 func_002f5c48("libdbc: bind failed\n");
                 return 0;
@@ -97,7 +97,7 @@ int func_002f4a78(void)
     for (i = 15; i >= 0; i--)
         D_01e2fe00[i] = 0;
     func_002f5c48("libdbc: SifDmaAddr %08x\n", D_01e2fd80);
-    func_002f4dc0(D_01e2fd80);
+    sceDbcSetWorkAddr(D_01e2fd80);
     D_00363d10 = 1;
     return 1;
 }

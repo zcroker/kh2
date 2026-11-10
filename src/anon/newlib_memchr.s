@@ -7,10 +7,10 @@
 	.set nomacro
 	.section .text.func_00303988,"ax",@progbits
 	.align 2
-	.globl func_00303988
-	.type func_00303988, @function
-	.ent func_00303988
-func_00303988:
+	.globl memchr
+	.type memchr, @function
+	.ent memchr
+memchr:
 	sltiu	$2,$6,16
 	bnez	$2,.L00303a28
 	andi	$5,$5,0xff
@@ -72,5 +72,5 @@ func_00303988:
 .L00303a60:
 	jr	$31
 	move	$2,$4
-	.end func_00303988
-	.size func_00303988, 224
+	.end memchr
+	.size memchr, 224

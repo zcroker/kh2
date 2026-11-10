@@ -3,20 +3,20 @@ extern "C" {
 extern char D_0036b600[];
 char* func_002ff2e8(char*, const char*);
 char* func_002feee8(char*, const char*);
-s32 func_002ff3fc(const char*);  // strlen
-s32 func_002ffbe0(s32 c);
+s32 strlen(const char*);  // strlen
+s32 toupper(s32 c);
 s32 func_0030e770(char*, u32, u32);
 void wtarget_00167358(u32 a0, u32 a1, u32 a2, u32) asm("_Z16wtarget_00167358jjjj");
 void wtarget_00167358(u32 a0, u32 a1, u32 a2, u32) {
   char buf[256];
   func_002ff2e8(buf, D_0036b600);
   func_002feee8(buf, (const char*)a0);
-  s32 n0 = func_002ff3fc(D_0036b600);  // strlen
-  s32 n = func_002ff3fc(buf);  // strlen
+  s32 n0 = strlen(D_0036b600);  // strlen
+  s32 n = strlen(buf);  // strlen
   for (s32 i = n0; i < n; i++) {
     char* p = &buf[i];
     if (*p == '/') *p = '\\';
-    else *p = func_002ffbe0(*p);
+    else *p = toupper(*p);
   }
   while (func_0030e770(buf, a1, a2) < 0) {}
 }

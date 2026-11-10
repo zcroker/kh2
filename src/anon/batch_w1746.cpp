@@ -30,7 +30,7 @@ void func_00165968(void) {
     }
 }
 
-W1746DItype muldi3_00311aa0(W1746DItype u, W1746DItype v) asm("_Z13func_00311aa0xx");
+W1746DItype muldi3_00311aa0(W1746DItype u, W1746DItype v) asm("_Z8__muldi3xx");
 W1746DItype muldi3_00311aa0(W1746DItype u, W1746DItype v)
 {
     W1746DWunion w;

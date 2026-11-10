@@ -9,9 +9,9 @@ extern int func_002f5c48(const char *, ...);
 extern int func_00305660(int);
 extern int func_00305640(int);
 extern int func_003096b8(void *);
-extern int func_003094b8(void *, int, int, void *, int, void *, int, void *, void *);
+extern int sceSifCallRpc(void *, int, int, void *, int, void *, int, void *, void *);
 
-int func_002f5818(int a, int t, int *sz, char *data)
+int sceDbcSendData2(int a, int t, int *sz, char *data)
 {
     Pkt1951 *p;
     int i;
@@ -33,7 +33,7 @@ int func_002f5818(int a, int t, int *sz, char *data)
         func_00305640(D_01e2fe40);
         return 0;
     }
-    if (func_003094b8(D_01e2d9f8[D_00363d14], D_00363d14, 1, &D_01e2fc00[D_00363d14], 144, &D_01e2fc00[D_00363d14], 144, 0, 0) < 0) {
+    if (sceSifCallRpc(D_01e2d9f8[D_00363d14], D_00363d14, 1, &D_01e2fc00[D_00363d14], 144, &D_01e2fc00[D_00363d14], 144, 0, 0) < 0) {
         func_002f5c48("sceDbcSendData2: rpc error\n");
         func_00305640(D_01e2fe40);
         return 0;

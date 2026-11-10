@@ -112,10 +112,10 @@ struct T1882 {
 struct O1882 { u8 p0[15]; u8 b15; T1882 t; };
 extern "C" {
 extern u8 D_00359100[];
-void func_002f28b8(B1882*, s32, s32, u8, s32, s32, s32, s32);
-void func_002f25a0(s32, s32);
+void sceGsSetDefLoadImage(B1882*, s32, s32, u8, s32, s32, s32, s32);
+void sceGsSyncPath(s32, s32);
 void func_003058a0(s32);
-void func_002f2be0(B1882*, u8*);
+void sceGsExecLoadImage(B1882*, u8*);
 void func_0020e198(O1882* o) {
     T1882* t = &o->t;
     u8* p = 0;
@@ -129,10 +129,10 @@ void func_0020e198(O1882* o) {
         } else {
             a2 = t->h20 >> 6; t0 = 0; t1 = 0;
         }
-        func_002f28b8(&a, a1, a2, a3, t0, t1, (s16)t->h20, t->h22);
-        func_002f25a0(0, 0);
+        sceGsSetDefLoadImage(&a, a1, a2, a3, t0, t1, (s16)t->h20, t->h22);
+        sceGsSyncPath(0, 0);
         func_003058a0(0);
-        func_002f2be0(&a, p = (u8*)t + 48);
+        sceGsExecLoadImage(&a, p = (u8*)t + 48);
     }
     if (t->w4) {
         u8 i3 = t->b18;
@@ -141,11 +141,11 @@ void func_0020e198(O1882* o) {
         u32 c1 = w & 0x3fff;
         s16 c3x = t->bf4.f;
         asm("" : "+r"(c1) : "r"(w));
-        func_002f28b8(&b, c1, 1, c3, 0, 0, 16, c3x);
-        func_002f25a0(0, 0);
+        sceGsSetDefLoadImage(&b, c1, 1, c3, 0, 0, 16, c3x);
+        sceGsSyncPath(0, 0);
         func_003058a0(0);
         p += t->w8;
-        func_002f2be0(&b, p);
+        sceGsExecLoadImage(&b, p);
     }
 }
 }

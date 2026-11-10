@@ -18,10 +18,10 @@ extern int D_00366170;
 extern char D_00309ec0[];
 extern char D_0030a3b0[];
 extern void func_00308b30(int);
-extern int func_0030edb0(void);
-extern int func_0030ee00(void);
+extern int DIntr(void);
+extern int EIntr(void);
 extern void func_003086b8(unsigned int, void *, void *);
-extern int func_003092d8(void *, unsigned int, int);
+extern int sceSifBindRpc(void *, unsigned int, int);
 extern void func_00309be8(void);
 extern int func_00305640(int);
 extern int func_00305660(int);
@@ -39,13 +39,13 @@ int func_0030a3f8(void)
     func_00308b30(0);
     D_01e38a00.a = 0;
     q->b = 0;
-    s = func_0030edb0();
+    s = DIntr();
     func_003086b8(0x80000011, D_00309ec0, D_01e389c0);
     func_003086b8(0x80000013, D_0030a3b0, q);
     if (s)
-        func_0030ee00();
+        EIntr();
     while (1) {
-        if (func_003092d8(D_01e38980, 0x80000001, 0) < 0)
+        if (sceSifBindRpc(D_01e38980, 0x80000001, 0) < 0)
             return -22;
         if (*(int *)(D_01e38980 + 36) != 0)
             break;

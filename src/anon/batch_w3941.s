@@ -307,7 +307,7 @@ func_0029af20:
 	.end func_0029af20
 	.size func_0029af20, 1108
 
-# func_00205d60: partMng sprite emitter: per-emitter scale matrices (func_002f4000/func_002f3f40), then one
+# func_00205d60: partMng sprite emitter: per-emitter scale matrices (sceVu0UnitMatrix/sceVu0ScaleVector), then one
 #   sprite packet per live point of D_00354680 (VU0 random start frame, VU0 model matrix, func_0021cdd0) and
 #   frame advance unless paused (D_01d9ea9c / D_01d9e6e0 flags).
 #   The float literal-pool words 0x00370508 (255.0f) and 0x0037050c (1.0f) have no D_ symbol, so their lui/addiu
@@ -367,21 +367,21 @@ func_00205d60:
 	swc1	$f0,8($18)	# 205e04
 	move	$4,$16	# 205e08
 .L00205e0c:
-	jal	func_002f4000	# 205e0c
+	jal	sceVu0UnitMatrix	# 205e0c
 	addiu	$19,$19,-1	# 205e10
 	lwc1	$f12,8($17)	# 205e14
 	move	$4,$16	# 205e18
-	jal	func_002f3f40	# 205e1c
+	jal	sceVu0ScaleVector	# 205e1c
 	move	$5,$16	# 205e20
 	addiu	$4,$16,16	# 205e24
 	lwc1	$f12,8($17)	# 205e28
-	jal	func_002f3f40	# 205e2c
+	jal	sceVu0ScaleVector	# 205e2c
 	move	$5,$4	# 205e30
 	lwc1	$f12,8($17)	# 205e34
 	addiu	$4,$16,32	# 205e38
 	addiu	$16,$16,64	# 205e3c
 	move	$5,$4	# 205e40
-	jal	func_002f3f40	# 205e44
+	jal	sceVu0ScaleVector	# 205e44
 	addiu	$17,$17,12	# 205e48
 	bgez	$19, .L00205e0c	# 205e4c
 	move	$4,$16	# 205e50

@@ -13,8 +13,8 @@ extern "C" {
 s32 func_001a1de0(void*);
 s32 func_0023aa98(s32);
 void func_00138c68(s32, s32, s32);
-s32 func_0030edb0(void);
-void func_0030ee00(void);
+s32 DIntr(void);
+void EIntr(void);
 void func_00316998(void);
 void* func_001e2760(s32, s32);
 }
@@ -22,9 +22,9 @@ void* func_001e2760(s32, s32);
 /* libsupc++ (eh_globals.cc style): __gthread_once with the game's lock helpers. */
 static inline s32 w1766_once(s32* o, void (*f)(void)) {
     s32 first = 0;
-    s32 r = func_0030edb0();
+    s32 r = DIntr();
     if (*o == 0) { *o = 1; first = 1; }
-    if (r) func_0030ee00();
+    if (r) EIntr();
     if (first) f();
     return 0;
 }

@@ -12,9 +12,9 @@ struct Sl_w1970 { void* p; u8 q[4]; f32 f; };
 extern "C" Obj_w1970* func_001e7a98(Mgr_w1970*, El_w1970*);
 extern "C" void func_002226b8(void*, void*);
 extern "C" void func_00222750(void*, V4_w1970*, V4_w1970*);
-extern "C" void func_002f3f10(V4_w1970*, void*, V4_w1970*);
-extern "C" void func_002f3f40(f32, V4_w1970*, V4_w1970*);
-extern "C" void func_002f3f88(V4_w1970*, void*);
+extern "C" void sceVu0SubVector(V4_w1970*, void*, V4_w1970*);
+extern "C" void sceVu0ScaleVector(f32, V4_w1970*, V4_w1970*);
+extern "C" void sceVu0CopyVector(V4_w1970*, void*);
 static inline u8* getp_w1970(Mgr_w1970* m, s32 a, X_w1970* x) {
     Obj_w1970* v = 0;
     El_w1970* el = &m->arr[x->idx];
@@ -30,13 +30,13 @@ void func_001f6c58(s32 a, X_w1970* x, Y_w1970* y) {
         s->f = 1.0f / (f32)(x->n + 1);
     } else {
         V4_w1970 m; V4_w1970 b; V4_w1970 c;
-        func_002f3f88(&m, s->p);
-        func_002f3f10(&b, s3, &m);
+        sceVu0CopyVector(&m, s->p);
+        sceVu0SubVector(&b, s3, &m);
         f32 t = (f32)x->n;
         f32 f = s->f;
         while (0.0f < t) {
             u8* p = getp_w1970(D_01d9e6e0_b, a, x);
-            func_002f3f40(f * t, &c, &b);
+            sceVu0ScaleVector(f * t, &c, &b);
             t -= 1.0f;
             func_00222750(p, &m, &c);
         }

@@ -45,12 +45,12 @@ u32 func_002bdb70(u32, u32, u32, u32);
 u32 func_002dc7e8(u32, u32, u32, u32);
 u32 func_002dd348(u32, u32, u32, u32);
 u32 func_002eda40(u32, u32, u32, u32);
-u32 func_002f3cd8(u32, u32, u32, u32);
-u32 func_002fd680(u32, u32, u32, u32);
-u32 func_002fe018(u32, u32, u32, u32);
+u32 sceVu0ApplyMatrix(u32, u32, u32, u32);
+u32 _malloc_r(u32, u32, u32, u32);
+u32 _puts_r(u32, u32, u32, u32);
 u32 func_002feac0(u32, u32, u32, u32);
 u32 func_002febb0(u32, u32, u32, u32);
-u32 func_00302e90(u32, u32, u32, u32);
+u32 _free_r(u32, u32, u32, u32);
 u32 func_003037b0(u32, u32, u32, u32);
 
 u32 func_0013a218(u32 a0, u32 a1, u32 a2, u32 a3) {
@@ -245,7 +245,7 @@ u32 func_001eb000(u32 a0, u32 a1, u32 a2, u32 a3) {
     r4 = (u32)((s32)r4 + (64));
     r5 = (u32)((s32)r5 + (16));
     r6 = r4;
-    return func_002f3cd8(r4, r5, r6, r7);
+    return sceVu0ApplyMatrix(r4, r5, r6, r7);
 }
 
 u32 func_00225e28(u32 a0, u32 a1, u32 a2, u32 a3) {
@@ -425,12 +425,12 @@ u32 func_002edb90(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_002eda40(r4, r5, r6, r7);
 }
 
-u32 func_002fd3e8(u32 a0, u32 a1, u32 a2, u32 a3) {  // pool_free_block
+u32 malloc(u32 a0, u32 a1, u32 a2, u32 a3) {  // pool_free_block
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r15 = 0u;
     r5 = r4;
     r15 = (u32)(0x0036u << 16);
     r4 = *(u32*)((u32)r15 + (s32)(23624));
-    return func_002fd680(r4, r5, r6, r7);
+    return _malloc_r(r4, r5, r6, r7);
 }
 
 u32 func_002fd408(u32 a0, u32 a1, u32 a2, u32 a3) {
@@ -438,15 +438,15 @@ u32 func_002fd408(u32 a0, u32 a1, u32 a2, u32 a3) {
     r5 = r4;
     r15 = (u32)(0x0036u << 16);
     r4 = *(u32*)((u32)r15 + (s32)(23624));
-    return func_00302e90(r4, r5, r6, r7);
+    return _free_r(r4, r5, r6, r7);
 }
 
-u32 func_002fe0a0(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 puts(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r15 = 0u;
     r5 = r4;
     r15 = (u32)(0x0036u << 16);
     r4 = *(u32*)((u32)r15 + (s32)(23624));
-    return func_002fe018(r4, r5, r6, r7);
+    return _puts_r(r4, r5, r6, r7);
 }
 
 u32 func_002fed10(u32 a0, u32 a1, u32 a2, u32 a3) {

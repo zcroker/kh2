@@ -229,13 +229,13 @@ s32 func_00100ec8(W279Obj* obj, u32* list) {
     return cnt;
 }
 
-// ---- func_003048b8
+// ---- __d2b
 struct W279Big { W279Big* next; s32 k, maxwds, sign, wds; u32 x[1]; };
-W279Big* w279_balloc(void*, s32) asm("_Z16ctarget_00303b70jjjj");
+W279Big* w279_balloc(void*, s32) asm("_Z7_Ballocjjjj");
 s32 func_00303e80(u32);  // count_leading_zeros
 s32 func_00303f00(u32*);
 union W279Dbl { double d; u32 w[2]; };
-W279Big* func_003048b8(void* ptr, double dd, s32* e, s32* bits) {
+W279Big* __d2b(void* ptr, double dd, s32* e, s32* bits) {
     W279Dbl d;
     W279Big* b;
     s32 de, i, k;

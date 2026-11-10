@@ -42,7 +42,7 @@ W1647Obj* func_0016b7a0(u16);
 W1647V4* func_0016c028(void*);
 void func_0016af58(W1647V4*, void*);
 s32 func_00195700(void*, u16);
-f32 func_002f8870(f32);
+f32 fabsf(f32);
 void W1647_appear(W1647Unit*, W1647Group*) asm("_ZNK2YS13UNIT_DATA_OBJ6appearEPNS_10UNIT_GROUPE");
 extern void* D_0034e948;
 extern u8 D_0034f250[];
@@ -59,7 +59,7 @@ void func_0019b668(W1647Group* g)
         W1647Obj* o = func_0016b7a0(u->id);
         if (o != 0) {
             d = *func_0016c028(o) - *func_0016c028(player);
-            f32 dist = func_002f8870((func_002f8870(d.x) > func_002f8870(d.z)) ? d.x : d.z);
+            f32 dist = fabsf((fabsf(d.x) > fabsf(d.z)) ? d.x : d.z);
             if (g->hdr->range < dist) {
                 o->vt->kill(o);
             } else if (1000.0f < dist) {
@@ -72,10 +72,10 @@ void func_0019b668(W1647Group* g)
             f32 px = u->pos.x, py = u->pos.y, pz = u->pos.z;
             d.x = px; d.y = py; d.z = pz; d.w = 0.0f;
             d -= *func_0016c028(player);
-            if (func_002f8870(d.x) > func_002f8870(d.z)) {
-                if (!(func_002f8870(d.x) < g->hdr->range)) goto next;
+            if (fabsf(d.x) > fabsf(d.z)) {
+                if (!(fabsf(d.x) < g->hdr->range)) goto next;
             } else {
-                if (!(func_002f8870(d.z) < g->hdr->range)) goto next;
+                if (!(fabsf(d.z) < g->hdr->range)) goto next;
             }
             {
                 d.normalize();

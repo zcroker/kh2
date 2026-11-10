@@ -15,11 +15,11 @@ typedef void (*BdHook)(BdVM*, s32, void*);
 void func_001da3d8(BdVM*, BdVal*);
 void func_001da3f8(BdVM*, BdVal*);
 u32 func_001da4d8(BdVM*, BdOpF);
-void func_002fdd68(void*, void*, u32); // memcpy
-static inline void BdCopy(void* d, void* s, u32 n) { func_002fdd68(d, s, n); }
+void memcpy(void*, void*, u32); // memcpy
+static inline void BdCopy(void* d, void* s, u32 n) { memcpy(d, s, n); }
 f32 func_002f8b00(f32, f32); // fmodf
-f32 func_002f8960(f32);
-f32 func_002f87c0(f32);
+f32 sinf(f32);
+f32 cosf(f32);
 // Bytecode interpreter: fetch a 16-bit opcode (code:4 type:2 arg:10) and run it on the VM
 // value stack (001da3d8 push, 001da3f8 pop, 001da4d8 operand address); hook runs after every op.
 s32 BdExecVM(BdVM* vm, BdFunc** fns, BdHook hook, void* arg)
@@ -60,7 +60,7 @@ s32 BdExecVM(BdVM* vm, BdFunc** fns, BdHook hook, void* arg)
         case 2: {
             func_001da3f8(vm, &tmp);
             n = vm->prog->code[vm->pc++];
-            func_002fdd68((void*)func_001da4d8(vm, op.f), (void*)tmp.u, n);
+            memcpy((void*)func_001da4d8(vm, op.f), (void*)tmp.u, n);
             break;
         }
         case 3:
@@ -208,12 +208,12 @@ s32 BdExecVM(BdVM* vm, BdFunc** fns, BdHook hook, void* arg)
                 break;
             case 6:
                 func_001da3f8(vm, &v[0]);
-                v[0].f = func_002f8960(func_002f8b00(v[0].f + 3.1415925f, 6.283185f) - 3.1415925f);
+                v[0].f = sinf(func_002f8b00(v[0].f + 3.1415925f, 6.283185f) - 3.1415925f);
                 func_001da3d8(vm, &v[0]);
                 break;
             case 7:
                 func_001da3f8(vm, &v[0]);
-                v[0].f = func_002f87c0(func_002f8b00(v[0].f + 3.1415925f, 6.283185f) - 3.1415925f);
+                v[0].f = cosf(func_002f8b00(v[0].f + 3.1415925f, 6.283185f) - 3.1415925f);
                 func_001da3d8(vm, &v[0]);
                 break;
             case 8:

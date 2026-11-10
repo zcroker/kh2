@@ -219,7 +219,7 @@ void func_002ea2d8(u32* p) {
 }
 
 // VU0 macro code: dst = a x b (outer product), dst.w = 0.
-void func_002f3d50(void* dst, void* a, void* b) {  // vec3_cross
+void sceVu0OuterProduct(void* dst, void* a, void* b) {  // vec3_cross
     asm volatile(
         "lqc2 $vf4, 0(%1)\n\tlqc2 $vf5, 0(%2)\n\t"
         "vopmula.xyz ACC, vf4, vf5\n\tvopmsub.xyz $vf6, $vf5, $vf4\n\t"
@@ -236,7 +236,7 @@ void func_002f4870(void* dst, void* v, f32 s) {  // vec3_scale_by_f12
 }
 
 void func_003053f0(void);
-void func_00306300(void) {
+void iDisableDmac(void) {
     func_003053f0();
     asm volatile("sync");
 }
@@ -314,7 +314,7 @@ void worldmap_closeup_end(void) {
 }
 
 // 64-byte (matrix) copy through four quadword registers.
-void u_call4_002f3f98(u32 dst, u32 src, u32 a2, u32 a3) {
+void sceVu0CopyMatrix(u32 dst, u32 src, u32 a2, u32 a3) {
     asm volatile(
         "lq $6, 0(%1)\n\tlq $7, 16(%1)\n\tlq $8, 32(%1)\n\tlq $9, 48(%1)\n\t"
         "sq $6, 0(%0)\n\tsq $7, 16(%0)\n\tsq $8, 32(%0)\n\tsq $9, 48(%0)"

@@ -18,8 +18,8 @@ struct W3800_Item {
 
 extern "C" {
 void W3800_memset(void*, s32, u32) asm("_Z16wtarget_002fde18jjjj");
-s32 func_002ff3fc(const char*);
-void func_002fdd68(void*, const void*, u32);
+s32 strlen(const char*);
+void memcpy(void*, const void*, u32);
 s32 func_00240108(void);
 s32 W3800_GetGameLevel(W3800_SaveRam*) asm("_ZN7SAVERAM12GetGameLevelEPv");
 W3800_SaveRam* W3800_getSaveRam(void) asm("_Z10getSaveRamv");
@@ -39,7 +39,7 @@ void func_002405a8(char* buf, s32 slot)
 {
     W3800_SaveRam* save = &D_0032bb30;
     W3800_memset(buf, 0, 0x40);
-    s32 r = func_002ff3fc(D_0035ec0c);
+    s32 r = strlen(D_0035ec0c);
     s32 len;
     {
         // Partial asm: argument pins plus a hand-written copy of the length so the
@@ -48,20 +48,20 @@ void func_002405a8(char* buf, s32 slot)
         register s32 a2 asm("$6") = r;
         asm("" : "+r"(a2) : "r"(a0));
         asm("move %0,$2" : "=r"(len) : "r"(a0), "r"(a2));
-        func_002fdd68(a0, D_0035ec0c, a2);
+        memcpy(a0, D_0035ec0c, a2);
     }
     if (func_00240108() == 0) {
-        func_002fdd68(buf + len - 4, D_0035ec18[W3800_GetGameLevel(save)], 2);
+        memcpy(buf + len - 4, D_0035ec18[W3800_GetGameLevel(save)], 2);
         if (W3800_isGameComplete(W3800_getSaveRam())) {
-            func_002fdd68(buf + len - 2, D_0035ec2c, 2);
+            memcpy(buf + len - 2, D_0035ec2c, 2);
         }
     }
     if (func_00240108()) {
-        func_002fdd68(buf + len, D_0035ec14, len);
+        memcpy(buf + len, D_0035ec14, len);
         return;
     }
     register char* line asm("$16") = buf + len; // pin: keeps the digit cursor in s1
-    func_002fdd68(line, D_0035ec10, len);
+    memcpy(line, D_0035ec10, len);
     char* p = line + 3;
     s32 v;
     u32 u;
@@ -81,10 +81,10 @@ void func_002405a8(char* buf, s32 slot)
     p += 4;
     u32 hour = h;
     s32 big = 0;
-    u = hour / 100; if (u) { *p = u + *p; big = 1; } else { func_002fdd68(p - 1, D_0035ec28, 2); }
+    u = hour / 100; if (u) { *p = u + *p; big = 1; } else { memcpy(p - 1, D_0035ec28, 2); }
     hour %= 100;
     p += 2;
-    u = hour / 10; if (u || big) { *p = u + *p; } else { func_002fdd68(p - 1, D_0035ec28, 2); }
+    u = hour / 10; if (u || big) { *p = u + *p; } else { memcpy(p - 1, D_0035ec28, 2); }
     p += 2;
     v = hour % 10; if (v) { *p = v + *p; }
     p += 4;

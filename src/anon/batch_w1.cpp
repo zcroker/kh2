@@ -193,30 +193,30 @@ void func_002eac70(f32 a, f32 b, f32 c, f32 d) {
 }
 
 // VU0: d = a / s.
-void func_002f3e90(f32* d, f32* a, f32 s) {  // vec4_scale_by_1_f12
+void sceVu0DivVector(f32* d, f32* a, f32 s) {  // vec4_scale_by_1_f12
     asm volatile("lqc2 $vf4, 0(%1)\n\tmfc1 $8, %2\n\tqmtc2 $8, $vf5\n\tvdiv Q, $vf0w, $vf5x\n\tvwaitq\n\tvmulq.xyzw $vf4, $vf4, Q\n\tsqc2 $vf4, 0(%0)"
                  : : "r"(d), "r"(a), "f"(s) : "$8", "memory");
 }
 
 // VU0: d = a + b.
-void func_002f3ef8(f32* d, f32* a, f32* b) {  // vec4_add
+void sceVu0AddVector(f32* d, f32* a, f32* b) {  // vec4_add
     asm volatile("lqc2 $vf4, 0(%1)\n\tlqc2 $vf5, 0(%2)\n\tvadd.xyzw $vf6, $vf4, $vf5\n\tsqc2 $vf6, 0(%0)"
                  : : "r"(d), "r"(a), "r"(b) : "memory");
 }
 
 // VU0: float vector -> 12.4 fixed-point ints.
-void func_002f3fc0(s32* d, f32* a) {
+void sceVu0FTOI4Vector(s32* d, f32* a) {
     asm volatile("lqc2 $vf4, 0(%1)\n\tvftoi4.xyzw $vf5, $vf4\n\tsqc2 $vf5, 0(%0)" : : "r"(d), "r"(a) : "memory");
 }
 
 // VU0: d = clamp(a, lo, hi) per component.
-void func_002f42e8(f32* d, f32* a, f32 lo, f32 hi) {  // vec4_clamp_to_range
+void sceVu0ClampVector(f32* d, f32* a, f32 lo, f32 hi) {  // vec4_clamp_to_range
     asm volatile("mfc1 $8, %2\n\tmfc1 $9, %3\n\tlqc2 $vf6, 0(%1)\n\tqmtc2 $8, $vf4\n\tqmtc2 $9, $vf5\n\tvmaxx.xyzw $vf6, $vf6, $vf4x\n\tvminix.xyzw $vf6, $vf6, $vf5x\n\tsqc2 $vf6, 0(%0)"
                  : : "r"(d), "r"(a), "f"(lo), "f"(hi) : "$8", "$9", "memory");
 }
 
 // fabsf by clearing the sign bit.
-f32 func_002f8870(f32 f) {  // fabsf
+f32 fabsf(f32 f) {  // fabsf
     *(u32*)&f &= 0x7fffffff;
     return f;
 }

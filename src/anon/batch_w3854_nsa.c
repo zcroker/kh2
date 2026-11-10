@@ -14,8 +14,8 @@ extern s32 D_01d9ea9c;
 extern Mgr95d8* D_01d9e6e0;
 extern Cam95d8* D_01d9e6e8;
 extern u8 D_01d9e6f0[];
-void func_002f3cd8(Vec95d8*, void*, Vec95d8*);
-void func_002f3f88(Vec95d8*, Vec95d8*);
+void sceVu0ApplyMatrix(Vec95d8*, void*, Vec95d8*);
+void sceVu0CopyVector(Vec95d8*, Vec95d8*);
 
 /* 001f95d8 (partMng): records the camera-relative position into a 28-entry position history ring
  * (filling the whole ring on first use), then accumulates the u16 colour sums (c2+=c3, c0+=c2,
@@ -30,18 +30,18 @@ void func_001f95d8(Own95d8* o, Prm95d8* p, Ctx95d8* c)
     if (D_01d9e6e0->flags & 0xff0000ff00ULL) return;
     t = (Trail95d8*)((u8*)o + *c->ofs + 160);
     if (o->id == 0 && o->hide == 0) {
-        if (p->world) { func_002f3cd8(&v, D_01d9e6f0, &D_01d9e6e8->pos); v.w = 1.0f; }
-        else { func_002f3f88(&v, &D_01d9e6e8->pos); v.w = 1.0f; }
+        if (p->world) { sceVu0ApplyMatrix(&v, D_01d9e6f0, &D_01d9e6e8->pos); v.w = 1.0f; }
+        else { sceVu0CopyVector(&v, &D_01d9e6e8->pos); v.w = 1.0f; }
         q = t->hist;
-        for (i = 28; i > 0; i--) { func_002f3f88(q, &v); q++; }
+        for (i = 28; i > 0; i--) { sceVu0CopyVector(q, &v); q++; }
     }
     if (t->cur == 0) t->cur = 28;
     t->cur--;
     if (p->world) {
-        func_002f3cd8(&t->hist[t->cur], D_01d9e6f0, &D_01d9e6e8->pos);
+        sceVu0ApplyMatrix(&t->hist[t->cur], D_01d9e6f0, &D_01d9e6e8->pos);
         ((f32*)&t->hist[t->cur])[3] = 1.0f;
     } else {
-        func_002f3f88(&t->hist[t->cur], &D_01d9e6e8->pos);
+        sceVu0CopyVector(&t->hist[t->cur], &D_01d9e6e8->pos);
     }
     t->h.c[2].r += t->h.c[3].r;
     t->h.c[0].r += t->h.c[2].r;

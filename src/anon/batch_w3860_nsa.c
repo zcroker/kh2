@@ -11,8 +11,8 @@ extern s32 D_01d9ea9c;
 extern PCam* D_01d9e6e0;
 extern u8* D_01d9e6e8;
 extern f32 D_01d9e6f0[4][4];
-void func_002f3cd8(Vq* out, f32 (*m)[4], Vq* in);
-void func_002f3f88(Vq* d, Vq* s);
+void sceVu0ApplyMatrix(Vq* out, f32 (*m)[4], Vq* in);
+void sceVu0CopyVector(Vq* d, Vq* s);
 typedef struct { s32 frame:32; u8 pad[28]; R4 d[6]; u8 pad2[3]; u8 local; } PPrm;
 
 
@@ -26,14 +26,14 @@ void func_001ff958(u8* obj, PPrm* prm, PWork* wk)
     if (D_01d9e6e0->flags & 0xff0000ff00ULL) return;
     t = (Trail*)(obj + *wk->ofs + 160);
     if (*(s32*)(obj + 12) == 0 && obj[157] == 0) {
-        if (prm->local) { func_002f3cd8(&tmp, D_01d9e6f0, (Vq*)(D_01d9e6e8 + 64)); tmp.w = 1.0f; }
-        else { func_002f3f88(&tmp, (Vq*)(D_01d9e6e8 + 64)); tmp.w = 1.0f; }
-        { Vq* p = t->q; for (i = 28; i > 0; i--) { func_002f3f88(p, &tmp); p++; } }
+        if (prm->local) { sceVu0ApplyMatrix(&tmp, D_01d9e6f0, (Vq*)(D_01d9e6e8 + 64)); tmp.w = 1.0f; }
+        else { sceVu0CopyVector(&tmp, (Vq*)(D_01d9e6e8 + 64)); tmp.w = 1.0f; }
+        { Vq* p = t->q; for (i = 28; i > 0; i--) { sceVu0CopyVector(p, &tmp); p++; } }
     }
     if (t->idx == 0) t->idx = 28;
     t->idx--;
-    if (prm->local) { func_002f3cd8(&t->q[t->idx], D_01d9e6f0, (Vq*)(D_01d9e6e8 + 64)); t->q[t->idx].w = 1.0f; }
-    else func_002f3f88(&t->q[t->idx], (Vq*)(D_01d9e6e8 + 64));
+    if (prm->local) { sceVu0ApplyMatrix(&t->q[t->idx], D_01d9e6f0, (Vq*)(D_01d9e6e8 + 64)); t->q[t->idx].w = 1.0f; }
+    else sceVu0CopyVector(&t->q[t->idx], (Vq*)(D_01d9e6e8 + 64));
     t->r[2].x += t->r[3].x; t->r[0].x += t->r[2].x;
     t->r[2].y += t->r[3].y; t->r[0].y += t->r[2].y;
     t->r[2].z += t->r[3].z; t->r[0].z += t->r[2].z;

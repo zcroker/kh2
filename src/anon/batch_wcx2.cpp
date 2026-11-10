@@ -192,7 +192,7 @@ void func_00179cb8(u8* p)
 }
 
 extern f32 D_00349e10;
-f32 func_002f8870(f32);  // fabsf
+f32 fabsf(f32);  // fabsf
 // VU0 helpers (hand-written asm in the original)
 static inline void vu_Scale11(Vec4* s, Vec4* d, f32 f)
 {
@@ -216,7 +216,7 @@ u32 func_00184540(u32 out, u32 a1, f32 t, f32 s)
 {
     Obj11* p = (Obj11*)a1;
     if (t != 0.0f) {
-        if (func_002f8870(p->pos.x) < 100000000.0f && func_002f8870(p->pos.y) < 100000000.0f && func_002f8870(p->pos.z) < 100000000.0f) {  // fabsf
+        if (fabsf(p->pos.x) < 100000000.0f && fabsf(p->pos.y) < 100000000.0f && fabsf(p->pos.z) < 100000000.0f) {  // fabsf
         }
     }
     Vec4 r, b, a;
@@ -514,14 +514,14 @@ void func_00252208(void)
 }
 
 f32 func_002f8a18(f32);
-f32 func_002f8870(f32);  // fabsf
+f32 fabsf(f32);  // fabsf
 // 002d1bf8: clamp v (relative to the camera at +208) inside the view frustum, with margins lo/hi
 void func_002d1bf8(u8* cam, Vec4* v, f32* hi, f32* lo)
 {
     Vec4* c = (Vec4*)(cam + 208);
     asm volatile("lqc2 $vf1, 0(%0)\n\tlqc2 $vf2, 0(%1)\n\tvsub.xyzw $vf1, $vf1, $vf2\n\tsqc2 $vf1, 0(%0)" : : "r"(v), "r"(c) : "memory");
     f32 h = func_002f8a18(*(f32*)(cam + 112) * 0.5f * 0.017453292f);
-    h *= func_002f8870(v->z);  // fabsf
+    h *= fabsf(v->z);  // fabsf
     f32 w = h * 4.0f / 3.0f;
     if (w - lo[0] < v->x) v->x = w - lo[0];
     if (v->x < hi[0] - w) v->x = hi[0] - w;
@@ -569,7 +569,7 @@ void func_002e9fe0(It36* it, u8* obj, Vec4* pos)
 }
 
 // fdlibm __kernel_cosf
-f32 func_002faaf0(f32 x, f32 y)
+f32 __kernel_cosf(f32 x, f32 y)
 {
     union { f32 f; s32 i; } u;
     f32 a, hz, z, r, qx;
@@ -694,7 +694,7 @@ s32 func_00242c70(void);
 s32 func_00194a08(void);
 u32 func_00105ee8(u32);
 void func_002fee78(char*, const char*, ...);
-void func_002ff3fc(char*);  // strlen
+void strlen(char*);  // strlen
 void func_001688c8(char*);
 void func_001684c0(char*, u8*, s32, s32);
 // 0013a4c8: moved to src/harata/libdk/field2dd.cpp
@@ -834,7 +834,7 @@ s32 func_001b7fd0(Pkt15*);
 u32 func_002f35e8(s32);
 void func_002f3918(u32, u64*);
 void func_003058a0(s32);
-void func_002f25a0(s32, s32);
+void sceGsSyncPath(s32, s32);
 static inline u64 Tag15(s32 qwc, s32 irq)
 {
     return (s64)qwc | (u64)(s64)irq << 63 | 0x70000000;
@@ -856,7 +856,7 @@ void func_001b80d8(Pkt15* p)
     } else {
         func_003058a0(0);
         func_002f3918(func_002f35e8(2), p->start);
-        func_002f25a0(0, 0);
+        sceGsSyncPath(0, 0);
     }
 }
 
@@ -939,24 +939,24 @@ bool func_001d9b40(void)
 extern f32 D_00354be0[3];
 extern u8 D_01d9e730[];
 extern u8 D_01d9e8c0[];
-void func_002f4000(f32 (*)[4]);  // vu_store_w_splat
-void func_002f40a0(f32 (*)[4], f32 (*)[4], f32);
-void func_002f3f88(f32*, u8*);  // memcpy16
-void func_002f3cd8(f32*, u8*, f32*);
-void func_002f3d08(f32 (*)[4], u8*, f32 (*)[4]);
+void sceVu0UnitMatrix(f32 (*)[4]);  // vu_store_w_splat
+void sceVu0RotMatrixZ(f32 (*)[4], f32 (*)[4], f32);
+void sceVu0CopyVector(f32*, u8*);  // memcpy16
+void sceVu0ApplyMatrix(f32*, u8*, f32*);
+void sceVu0MulMatrix(f32 (*)[4], u8*, f32 (*)[4]);
 f32 func_0020aec8(u32 a0, f32 (*m)[4], u8* a2, u32 a3, u8* s)
 {
-    func_002f4000(m);  // vu_store_w_splat
+    sceVu0UnitMatrix(m);  // vu_store_w_splat
     m[0][0] = *(f32*)(s + 56) * D_00354be0[0];
     m[1][1] = *(f32*)(s + 60) * D_00354be0[1];
     m[2][2] = *(f32*)(s + 56) * D_00354be0[0];
-    if (*(f32*)(s + 44) != 0.0f) func_002f40a0(m, m, *(f32*)(s + 44) * 3.14159274f / 180.0f);
-    func_002f3f88(m[3], s);  // memcpy16
-    func_002f3cd8(m[3], D_01d9e730, m[3]);
+    if (*(f32*)(s + 44) != 0.0f) sceVu0RotMatrixZ(m, m, *(f32*)(s + 44) * 3.14159274f / 180.0f);
+    sceVu0CopyVector(m[3], s);  // memcpy16
+    sceVu0ApplyMatrix(m[3], D_01d9e730, m[3]);
     f32 z = m[3][2];
     m[3][1] *= *(f32*)(a2 + 164);
     m[3][1] += *(f32*)(a2 + 168);
-    func_002f3d08(m, D_01d9e8c0, m);
+    sceVu0MulMatrix(m, D_01d9e8c0, m);
     return z;
 }
 
@@ -2442,8 +2442,8 @@ void func_0014aa80(u32, s32, s32);
 void func_00226ed0(void);
 void func_002fee78(char*, const char*, ...);
 void func_0022bd80(void);
-s32 func_002ff538(const char*, const char*, s32);
-void func_002ff3fc(char*);  // strlen
+s32 strncmp(const char*, const char*, s32);
+void strlen(char*);  // strlen
 s32 func_002ef7a0(s32, char*);
 void func_0014a1f0__77693(void) asm("func_0014a1f0");
 void func_00102448(u32, s32);
@@ -2459,8 +2459,8 @@ void func_0022bc08(Obj48* o, u32 w)
     char buf[48];
     func_002fee78(buf, D_00371150, D_0033caf0, name);
     func_0022bd80();
-    if (!func_002ff538(name, D_00371168, 3) || !func_002ff538(name, D_00371170, 4)) D_0035e2ec = 1;
-    func_002ff3fc(buf);  // strlen
+    if (!strncmp(name, D_00371168, 3) || !strncmp(name, D_00371170, 4)) D_0035e2ec = 1;
+    strlen(buf);  // strlen
     func_002ef7a0(0, buf);
     while (func_002ef7a0(5, 0) != 2) {
         func_0014a1f0__77693();
@@ -3226,7 +3226,7 @@ s32 func_001b8d60(u8*);
 void func_00102448(u32, s32);
 Ent81* func_001b8800_101452(u8) asm("func_001b8800");
 void func_001b8988(Ent81*, s32);
-void func_002fe0c0(void*, s32, s32, void*);
+void qsort(void*, s32, s32, void*);
 s32 func_002bfcf8(const void*, const void*);
 void func_002bfb90(Obj81* o)
 {
@@ -3241,7 +3241,7 @@ void func_002bfb90(Obj81* o)
         s32 i;
         s32 cnt = 0;
         for (i = 0; i < n; i++) func_001b8988(func_001b8800_101452(ids[i]), 1);
-        func_002fe0c0(ids, n, 1, (void*)func_002bfcf8);
+        qsort(ids, n, 1, (void*)func_002bfcf8);
         for (s32 j = 0; j < n; j++) {
             Ent81* e = func_001b8800_101452(ids[j]);
             u32 k = e->k;
@@ -4922,13 +4922,13 @@ void func_002a0cb8(void) {
 }
 
 // ---- 002f8e58
-f32 func_002faa10(f32 x);
+f32 __ieee754_sqrtf(f32 x);
 typedef union { f32 value; u32 word; } FloatShape2f8;
 #define GET_FLOAT_WORD_2F8(i, d) do { FloatShape2f8 gf_u; gf_u.value = (d); (i) = gf_u.word; } while (0)
 #define SET_FLOAT_WORD_2F8(d, i) do { FloatShape2f8 sf_u; sf_u.word = (i); (d) = sf_u.value; } while (0)
-f32 acosf_2f8e58(f32 x) asm("_Z16wtarget_002f8e58jjjj");
+f32 acosf_2f8e58(f32 x) asm("_Z15__ieee754_acosfjjjj");
 
-// fdlibm/newlib __ieee754_acosf (sqrtf is func_002faa10).
+// fdlibm/newlib __ieee754_acosf (sqrtf is __ieee754_sqrtf).
 static const f32 one = 1.0f, pi = 3.1415925f, pio2_hi = 1.57079625f, pio2_lo = 7.54978942e-08f,
     pS0 = 0.166666657f, pS1 = -0.325565785f, pS2 = 0.201212525f, pS3 = -0.0400555357f,
     pS4 = 0.000791535014f, pS5 = 3.47933092e-05f, qS1 = -2.4033947f, qS2 = 2.02094555f,
@@ -4956,14 +4956,14 @@ f32 acosf_2f8e58(f32 x) {
         z = (one + x) * 0.5f;
         p = z * (pS0 + z * (pS1 + z * (pS2 + z * (pS3 + z * (pS4 + z * pS5)))));
         q = one + z * (qS1 + z * (qS2 + z * (qS3 + z * qS4)));
-        s = func_002faa10(z);
+        s = __ieee754_sqrtf(z);
         r = p / q;
         w = r * s - pio2_lo;
         return pi - 2.0f * (s + w);
     } else {
         s32 idf;
         z = (one - x) * 0.5f;
-        s = func_002faa10(z);
+        s = __ieee754_sqrtf(z);
         df = s;
         GET_FLOAT_WORD_2F8(idf, df);
         SET_FLOAT_WORD_2F8(df, idf & 0xfffff000);
@@ -5519,7 +5519,7 @@ static inline __attribute__((always_inline)) char *qs_med3(char *a, char *b, cha
           :(cmp(b, c) > 0 ? b : (cmp(a, c) < 0 ? a : c ));
 }
 // newlib qsort (med3/swapfunc inlined)
-void qsort_2fe0c0(void *a, unsigned int n, unsigned int es, qs_cmp_t *cmp) asm("func_002fe0c0");
+void qsort_2fe0c0(void *a, unsigned int n, unsigned int es, qs_cmp_t *cmp) asm("qsort");
 void qsort_2fe0c0(void *a, unsigned int n, unsigned int es, qs_cmp_t *cmp)
 {
     char *pa, *pb, *pc, *pd, *pl, *pm, *pn;
@@ -5958,13 +5958,13 @@ void func_003191f8(void) {
 }
 
 // ---- 002fac40
-f32 func_002fb850(f32, s32);  // float_round_abs
-f32 func_002f8888(f32);
+f32 scalbnf(f32, s32);  // float_round_abs
+f32 floorf(f32);
 extern const s32 D_003776e0[];
 extern const f32 D_003776f0[];
 static const f32 zero_krp = 0.0f, one_krp = 1.0f, two8 = 2.5600000000e+02f, twon8 = 3.9062500000e-03f;
-// fdlibm/newlib __kernel_rem_pio2f (scalbnf is func_002fb850, floorf is func_002f8888).
-s32 func_002fac40(f32 *x, f32 *y, s32 e0, s32 nx, s32 prec, const s32 *ipio2)
+// fdlibm/newlib __kernel_rem_pio2f (scalbnf is scalbnf, floorf is floorf).
+s32 __kernel_rem_pio2f(f32 *x, f32 *y, s32 e0, s32 nx, s32 prec, const s32 *ipio2)
 {
     s32 jz, jx, jv, jp, jk, carry, n, iq[20], i, j, k, m, q0, ih;
     f32 z, fw, f[20], fq[20], q[20];
@@ -5991,8 +5991,8 @@ recompute:
         z     = q[j - 1] + fw;
     }
 
-    z  = func_002fb850(z, (s32)q0);  // float_round_abs
-    z -= (f32)8.0 * func_002f8888(z * (f32)0.125);
+    z  = scalbnf(z, (s32)q0);  // float_round_abs
+    z -= (f32)8.0 * floorf(z * (f32)0.125);
     n  = (s32)z;
     z -= (f32)n;
     ih = 0;
@@ -6024,7 +6024,7 @@ recompute:
         }
         if (ih == 2) {
             z = one_krp - z;
-            if (carry != 0) z -= func_002fb850(one_krp, (s32)q0);  // float_round_abs
+            if (carry != 0) z -= scalbnf(one_krp, (s32)q0);  // float_round_abs
         }
     }
 
@@ -6048,7 +6048,7 @@ recompute:
         jz -= 1; q0 -= 8;
         while (iq[jz] == 0) { jz--; q0 -= 8; }
     } else {
-        z = func_002fb850(z, -(s32)q0);  // float_round_abs
+        z = scalbnf(z, -(s32)q0);  // float_round_abs
         if (z >= two8) {
             fw = (f32)((s32)(twon8 * z));
             iq[jz] = (s32)(z - two8 * fw);
@@ -6057,7 +6057,7 @@ recompute:
         } else iq[jz] = (s32)z;
     }
 
-    fw = func_002fb850(one_krp, (s32)q0);  // float_round_abs
+    fw = scalbnf(one_krp, (s32)q0);  // float_round_abs
     for (i = jz; i >= 0; i--) {
         q[i] = fw * (f32)iq[i]; fw *= twon8;
     }
@@ -6104,9 +6104,9 @@ recompute:
 }
 
 // ---- 002f9e78
-f32 func_002faa10(f32 x);
-f32 func_002f8870(f32 x);  // fabsf
-f32 func_002fb850(f32 x, s32 n);  // float_round_abs
+f32 __ieee754_sqrtf(f32 x);
+f32 fabsf(f32 x);  // fabsf
+f32 scalbnf(f32 x, s32 n);  // float_round_abs
 extern const f32 D_003771b0[];
 extern const f32 D_003771b8[];
 extern const f32 D_003771c0[];
@@ -6146,7 +6146,7 @@ ivln2_h_pw  =  1.4426879883e+00,
 ivln2_l_pw  =  7.0526075433e-06;
 
 // fdlibm/newlib __ieee754_powf, EE build (_FLT_NO_DENORMALS, _FLT_LARGEST_EXPONENT_IS_NORMAL).
-f32 powf_2f9e78(f32 x, f32 y) asm("_Z13func_002f9e78Pv");
+f32 powf_2f9e78(f32 x, f32 y) asm("_Z14__ieee754_powfPv");
 f32 powf_2f9e78(f32 x, f32 y)
 {
     f32 z, ax, z_h, z_l, p_h, p_l;
@@ -6176,10 +6176,10 @@ f32 powf_2f9e78(f32 x, f32 y)
     if (hy == 0x40000000) return x * x;
     if (hy == 0x3f000000) {
         if (hx >= 0)
-            return func_002faa10(x);
+            return __ieee754_sqrtf(x);
     }
 
-    ax = func_002f8870(x);  // fabsf
+    ax = fabsf(x);  // fabsf
     if (ix < 0x00800000 || ix == 0x3f800000) {
         z = ax;
         if (hy < 0) z = one_pw / z;
@@ -6293,7 +6293,7 @@ f32 powf_2f9e78(f32 x, f32 y)
     z  = one_pw - (r - z);
     GET_FLOAT_WORD_PW(j, z);
     j += (n << 23);
-    if ((j >> 23) <= 0) z = func_002fb850(z, (s32)n);  // float_round_abs
+    if ((j >> 23) <= 0) z = scalbnf(z, (s32)n);  // float_round_abs
     else SET_FLOAT_WORD_PW(z, j);
     return s * z;
 }
@@ -6499,7 +6499,7 @@ Lg7_lg = 1.4798198640e-01;
 static const f32 zero_lg = 0.0;
 
 // fdlibm/newlib __ieee754_logf, EE build (_FLT_NO_DENORMALS, _FLT_LARGEST_EXPONENT_IS_NORMAL).
-f32 logf_2f9bc0(f32 x) asm("_Z16wtarget_002f9bc0jjjj");
+f32 logf_2f9bc0(f32 x) asm("_Z14__ieee754_logfjjjj");
 f32 logf_2f9bc0(f32 x)
 {
     f32 hfsq, f, s, z, R, w, t1, t2, dk;
@@ -6682,7 +6682,7 @@ ln2HI0_ex = 6.9313812256e-01,
 ln2LO0_ex = 9.0580006145e-06;
 
 // fdlibm/newlib __ieee754_expf, EE build (_FLT_NO_DENORMALS, _FLT_LARGEST_EXPONENT_IS_NORMAL).
-f32 expf_2f97c8(f32 x) asm("_Z16wtarget_002f97c8jjjj");
+f32 expf_2f97c8(f32 x) asm("_Z14__ieee754_expfjjjj");
 f32 expf_2f97c8(f32 x)
 {
     f32 y, hi, lo, c, t;
@@ -6738,7 +6738,7 @@ f32 expf_2f97c8(f32 x)
 typedef union { f32 value; u32 word; } FloatShapeTn;
 #define GET_FLOAT_WORD_TN(i, d) do { FloatShapeTn gf_u; gf_u.value = (d); (i) = gf_u.word; } while (0)
 #define SET_FLOAT_WORD_TN(d, i) do { FloatShapeTn sf_u; sf_u.word = (i); (d) = sf_u.value; } while (0)
-f32 func_002f8870(f32 x);  // fabsf
+f32 fabsf(f32 x);  // fabsf
 static const f32
 one_tn   =  1.0000000000e+00,
 pio4_tn  =  7.8539812565e-01,
@@ -6759,8 +6759,8 @@ T_tn[] = {
   2.5907305826e-05,
 };
 
-// fdlibm/newlib __kernel_tanf (fabsf is func_002f8870).
-f32 func_002fb558(f32 x, f32 y, s32 iy)
+// fdlibm/newlib __kernel_tanf (fabsf is fabsf).
+f32 __kernel_tanf(f32 x, f32 y, s32 iy)
 {
     f32 z, r, v, w, s;
     s32 ix, hx;
@@ -6768,7 +6768,7 @@ f32 func_002fb558(f32 x, f32 y, s32 iy)
     ix = hx & 0x7fffffff;
     if (ix < 0x31800000)
         {if ((int)x == 0) {
-            if ((ix | (iy + 1)) == 0) return one_tn / func_002f8870(x);  // fabsf
+            if ((ix | (iy + 1)) == 0) return one_tn / fabsf(x);  // fabsf
             else return (iy == 1) ? x : -one_tn / x;
         }
         }
@@ -6863,7 +6863,7 @@ void func_001219b8(u8* p, u32 a1, u32 a2, u8* q, u32 a4, u8 flag, u32 a6, u32 a7
 // ---- 002f8420
 typedef union { f32 value; u32 word; } FloatShapeAt;
 #define GET_FLOAT_WORD_AT(i, d) do { FloatShapeAt gf_u; gf_u.value = (d); (i) = gf_u.word; } while (0)
-f32 func_002f8870(f32 x);  // fabsf
+f32 fabsf(f32 x);  // fabsf
 extern const f32 D_00376ed8[];
 extern const f32 D_00376ee8[];
 #define atanhi_at D_00376ed8
@@ -6884,8 +6884,8 @@ static const f32 aT_at[] = {
 };
 static const f32 one_at = 1.0, huge_at = 1.0e30;
 
-// fdlibm/newlib atanf (fabsf is func_002f8870), EE build.
-f32 func_002f8420(f32 x)
+// fdlibm/newlib atanf (fabsf is fabsf), EE build.
+f32 atanf(f32 x)
 {
     f32 w, s1, s2, z;
     s32 ix, hx, id;
@@ -6901,7 +6901,7 @@ f32 func_002f8420(f32 x)
         }
         id = -1;
     } else {
-    x = func_002f8870(x);  // fabsf
+    x = fabsf(x);  // fabsf
     if (ix < 0x3f980000) {
         if (ix < 0x3f300000) {
             id = 0; x = ((f32)2.0 * x - one_at) / ((f32)2.0 + x);
@@ -7588,10 +7588,10 @@ void func_002c0370(u8* p, u32 a1, UA_002c0370* a2) {
 }
 
 // ---- 002fb850
-f32 func_002fb900(f32, f32);
+f32 copysignf(f32, f32);
 union FW_002fb850 { f32 f; s32 i; };
 static const f32 huge_002fb850 = 1.0e+30, tiny_002fb850 = 1.0e-30;
-f32 func_002fb850(f32 x, s32 n) {  // float_round_abs
+f32 scalbnf(f32 x, s32 n) {  // float_round_abs
     s32 k, ix;
     u32 hx;
     FW_002fb850 u; u.f = x; ix = u.i;
@@ -7599,10 +7599,10 @@ f32 func_002fb850(f32 x, s32 n) {  // float_round_abs
     k = hx >> 23;
     if (hx < 0x00800000) return x;
     k = k + n;
-    if (k > 255) return huge_002fb850 * func_002fb900(huge_002fb850, x);
+    if (k > 255) return huge_002fb850 * copysignf(huge_002fb850, x);
     if (k > 0) { FW_002fb850 v; v.i = (ix & 0x807fffff) | (k << 23); return v.f; }
-    if (n > 50000) return huge_002fb850 * func_002fb900(huge_002fb850, x);
-    return tiny_002fb850 * func_002fb900(tiny_002fb850, x);
+    if (n > 50000) return huge_002fb850 * copysignf(huge_002fb850, x);
+    return tiny_002fb850 * copysignf(tiny_002fb850, x);
 }
 
 // ---- 001091c8
@@ -7675,11 +7675,11 @@ void func_0028f6f0(s32 i) {  // record884_refresh_by_index
 }
 
 // ---- 00304fb0
-void* func_002fd680(void*, u32);
+void* _malloc_r(void*, u32);
 void* func_002fde18_4fb0(void*, s32, u32) asm("func_002fde18");
 void* calloc_r_00304fb0(void* ptr, u32 n, u32 elem) asm("func_00304fb0");
 void* calloc_r_00304fb0(void* ptr, u32 n, u32 elem) {
-    u32* mem = (u32*)func_002fd680(ptr, n * elem);
+    u32* mem = (u32*)_malloc_r(ptr, n * elem);
     if (mem == 0) return 0;
     u32 csz = mem[-1] & ~3;
     u32 mzsz = csz - 4;
@@ -7729,21 +7729,21 @@ void func_001cedc0(u8* p) {
 }
 // ---- 002f8960 (newlib sinf)
 f32 func_002fb460(f32, f32, s32);  // float_to_int
-f32 func_002faaf0(f32, f32);  // float_to_int_b
-s32 func_002fa678(f32, f32*);
+f32 __kernel_cosf(f32, f32);  // float_to_int_b
+s32 __ieee754_rem_pio2f(f32, f32*);
 union FWs_2f8960 { f32 f; s32 i; };
-f32 func_002f8960(f32 x) {
+f32 sinf(f32 x) {
     f32 y[2], z = 0.0;
     s32 n, ix;
     FWs_2f8960 u; u.f = x; ix = u.i;
     ix &= 0x7fffffff;
     if (ix <= 0x3f490fd8) return func_002fb460(x, z, 0);  // float_to_int
-    n = func_002fa678(x, y);
+    n = __ieee754_rem_pio2f(x, y);
     switch (n & 3) {
     case 0: return func_002fb460(y[0], y[1], 1);  // float_to_int
-    case 1: return func_002faaf0(y[0], y[1]);  // float_to_int_b
+    case 1: return __kernel_cosf(y[0], y[1]);  // float_to_int_b
     case 2: return -func_002fb460(y[0], y[1], 1);  // float_to_int
-    default: return -func_002faaf0(y[0], y[1]);  // float_to_int_b
+    default: return -__kernel_cosf(y[0], y[1]);  // float_to_int_b
     }
 }
 
@@ -8571,8 +8571,8 @@ void func_001e2298(u8* p) {
 // --------------------
 extern u8 D_01d9e840[];
 extern u8* D_01d9e6e8;
-void func_002f4000_x8625(void*, u8*, u8*) asm("func_002f4000");
-void func_002f3d08_x8626(void*, u8*, u8*) asm("func_002f3d08");
+void func_002f4000_x8625(void*, u8*, u8*) asm("sceVu0UnitMatrix");
+void func_002f3d08_x8626(void*, u8*, u8*) asm("sceVu0MulMatrix");
 void func_00208978(void* a, u8* b, u8* c) {
     s32 n = *(s32*)(c + 20);
     func_002f4000_x8625(a, b, c);
@@ -11750,8 +11750,8 @@ typedef struct MChunk2fd680 MChunk2fd680;
 struct MChunk2fd680 { u32 prev_size; u32 size; MChunk2fd680* fd; MChunk2fd680* bk; };
 typedef MChunk2fd680* mchunkptr2fd680;
 extern u8 D_00365c50[];
-void func_002fded8__2fd680(void*) asm("func_002fded8");
-void func_002fdf30__2fd680(void*) asm("func_002fdf30");
+void func_002fded8__2fd680(void*) asm("__malloc_lock");
+void func_002fdf30__2fd680(void*) asm("__malloc_unlock");
 void func_002fd428(void*, u32);
 #define M_SIZE_SZ 4
 #define M_ALIGN_MASK 15
@@ -11822,8 +11822,8 @@ void func_002fd428(void*, u32);
     FD->bk = BK->fd = P; \
   } \
 }
-void* wtarget_002fd680(void* reent_ptr, u32 bytes) asm("_Z16wtarget_002fd680jjjj");
-void* wtarget_002fd680(void* reent_ptr, u32 bytes)
+void* _malloc_r(void* reent_ptr, u32 bytes) asm("_Z9_malloc_rjjjj");
+void* _malloc_r(void* reent_ptr, u32 bytes)
 {
   mchunkptr2fd680 victim;
   u32 victim_size;
@@ -12212,10 +12212,10 @@ extern u8 D_01e4c865;
 extern u8 D_01e4c866;
 extern u8 D_01e4c867;
 extern s32 D_00369d50;
-s32 func_0030edb0__318290(void) asm("func_0030edb0");
-void func_0030ee00__318290(void) asm("func_0030ee00");
+s32 func_0030edb0__318290(void) asm("DIntr");
+void func_0030ee00__318290(void) asm("EIntr");
 extern u8 D_003191f0[];
-void func_002fdd68__318290(void*, void*, u32) asm("func_002fdd68");
+void func_002fdd68__318290(void*, void*, u32) asm("memcpy");
 s64 func_00318290(Ctx318290* dst, Ctx318290* src)
 {
     s32 first = 0;
@@ -12442,7 +12442,7 @@ const unsigned char* func_00316f38__3172f0(const unsigned char*, UWord3172f0*) a
 const unsigned char* func_00316f70__3172f0(const unsigned char*, USword3172f0*) asm("func_00316f70");
 void func_002fd160__3172f0(void) asm("func_002fd160") __attribute__((noreturn));
 s64 func_00311dd0(s64, s64);
-s64 func_003125c0(s64, s64);
+s64 __moddi3(s64, s64);
 #define read_uleb128 func_00316f38__3172f0
 #define read_sleb128 func_00316f70__3172f0
 #define abort func_002fd160__3172f0
@@ -12672,7 +12672,7 @@ UWord3172f0 func_003172f0(const unsigned char* op_ptr, const unsigned char* op_e
 		result = second - first;
 		break;
 	      case 0x1d:
-		result = func_003125c0((USword3172f0)second, (USword3172f0)first);
+		result = __moddi3((USword3172f0)second, (USword3172f0)first);
 		break;
 	      case 0x1e:
 		result = second * first;
@@ -12993,11 +12993,11 @@ struct File3032d0 {
     u8* _p; s32 _r; s32 _w; s16 _flags; s16 _file; Sbuf3032d0 _bf; s32 _lbfsize;
     void* _cookie; s32 (*_read)(void*, char*, s32); s32 (*_write)(void*, const char*, s32);
 };
-s32 func_003015f8(File3032d0*);
-s32 func_00302b18(File3032d0*);
-void* func_00303a68(void*, const void*, u32);
-void* func_00303988(const void*, s32, u32);
-s32 func_003032d0(File3032d0* fp, Suio3032d0* uio)
+s32 __swsetup(File3032d0*);
+s32 fflush(File3032d0*);
+void* memmove(void*, const void*, u32);
+void* memchr(const void*, s32, u32);
+s32 __sfvwrite(File3032d0* fp, Suio3032d0* uio)
 {
     u32 len;
     const char* p;
@@ -13008,7 +13008,7 @@ s32 func_003032d0(File3032d0* fp, Suio3032d0* uio)
 
     if ((len = uio->uio_resid) == 0)
         return 0;
-    if (((fp->_flags & 0x0008) == 0 || fp->_bf._base == 0) && func_003015f8(fp))
+    if (((fp->_flags & 0x0008) == 0 || fp->_bf._base == 0) && __swsetup(fp))
         return -1;
     iov = uio->uio_iov;
     len = 0;
@@ -13028,14 +13028,14 @@ s32 func_003032d0(File3032d0* fp, Suio3032d0* uio)
             if (fp->_flags & 0x0200) {
                 if (len < (u32)w)
                     w = len;
-                func_00303a68(fp->_p, p, w);
+                memmove(fp->_p, p, w);
                 fp->_w -= w;
                 fp->_p += w;
                 w = len;
             } else if (fp->_p > fp->_bf._base && len > (u32)w) {
-                func_00303a68(fp->_p, p, w);
+                memmove(fp->_p, p, w);
                 fp->_p += w;
-                if (func_00302b18(fp))
+                if (fflush(fp))
                     goto err;
             } else if (len >= (u32)(w = fp->_bf._size)) {
                 w = fp->_write(fp->_cookie, p, w);
@@ -13043,7 +13043,7 @@ s32 func_003032d0(File3032d0* fp, Suio3032d0* uio)
                     goto err;
             } else {
                 w = len;
-                func_00303a68(fp->_p, p, w);
+                memmove(fp->_p, p, w);
                 fp->_w -= w;
                 fp->_p += w;
             }
@@ -13055,16 +13055,16 @@ s32 func_003032d0(File3032d0* fp, Suio3032d0* uio)
         do {
             while (len == 0) { nlknown = 0; p = iov->iov_base; len = iov->iov_len; iov++; }
             if (!nlknown) {
-                nl = (char*)func_00303988(p, '\n', len);
+                nl = (char*)memchr(p, '\n', len);
                 nldist = nl ? nl + 1 - p : len + 1;
                 nlknown = 1;
             }
             s = len < (u32)nldist ? len : nldist;
             w = fp->_w + fp->_bf._size;
             if (fp->_p > fp->_bf._base && s > w) {
-                func_00303a68(fp->_p, p, w);
+                memmove(fp->_p, p, w);
                 fp->_p += w;
-                if (func_00302b18(fp))
+                if (fflush(fp))
                     goto err;
             } else if (s >= (w = fp->_bf._size)) {
                 w = fp->_write(fp->_cookie, p, w);
@@ -13072,12 +13072,12 @@ s32 func_003032d0(File3032d0* fp, Suio3032d0* uio)
                     goto err;
             } else {
                 w = s;
-                func_00303a68(fp->_p, p, w);
+                memmove(fp->_p, p, w);
                 fp->_w -= w;
                 fp->_p += w;
             }
             if ((nldist -= w) == 0) {
-                if (func_00302b18(fp))
+                if (fflush(fp))
                     goto err;
                 nlknown = 0;
             }
@@ -13104,7 +13104,7 @@ static const f32 zero_rp = 0.0f, half_rp = 5.0000000000e-01f, two8_rp = 2.560000
     pio2_1_rp = 1.5707855225e+00f, pio2_1t_rp = 1.0804333214764483e-05f,
     pio2_2_rp = 1.0804272278619464e-05f, pio2_2t_rp = 6.0770999344e-11f,
     pio2_3_rp = 6.0770943833e-11f, pio2_3t_rp = 6.123233601181349e-17f;
-s32 func_002fa678(f32 x, f32 *y)
+s32 __ieee754_rem_pio2f(f32 x, f32 *y)
 {
     f32 z, w, t, r, fn;
     f32 tx[3];
@@ -13140,7 +13140,7 @@ s32 func_002fa678(f32 x, f32 *y)
         }
     }
     if (ix <= 0x43490f80) {
-        t = func_002f8870(x);
+        t = fabsf(x);
         n = (s32)(t * invpio2_rp + half_rp);
         fn = (f32)n;
         r = t - fn * pio2_1_rp;
@@ -13183,7 +13183,7 @@ s32 func_002fa678(f32 x, f32 *y)
     tx[2] = z;
     nx = 3;
     while (tx[nx - 1] == zero_rp) nx--;
-    n = func_002fac40(tx, y, e0, nx, 2, D_003772b0);
+    n = __kernel_rem_pio2f(tx, y, e0, nx, 2, D_003772b0);
     if (hx < 0) { y[0] = -y[0]; y[1] = -y[1]; return -n; }
     return n;
 }
@@ -13466,8 +13466,8 @@ typedef struct MChunk302e90 MChunk302e90;
 struct MChunk302e90 { u32 prev_size; u32 size; MChunk302e90* fd; MChunk302e90* bk; };
 typedef MChunk302e90* mchunkptr302e90;
 extern u8 D_00365c50[];
-void func_002fded8__302e90(void*) asm("func_002fded8");
-void func_002fdf30__302e90(void*) asm("func_002fdf30");
+void func_002fded8__302e90(void*) asm("__malloc_lock");
+void func_002fdf30__302e90(void*) asm("__malloc_unlock");
 #define M_SIZE_SZ 4
 #define M_ALIGN_MASK 15
 #define M_MINSIZE 16
@@ -13539,11 +13539,11 @@ void func_002fdf30__302e90(void*) asm("func_002fdf30");
 }
 extern u64 D_00366058;
 extern u64 D_00366060;
-s32 func_00303170__302e90(void*, u32) asm("func_00303170");
+s32 func_00303170__302e90(void*, u32) asm("_malloc_trim_r");
 #define trim_threshold D_00366058
 #define top_pad D_00366060
-void wtarget_00302e90(void* reent_ptr, void* mem) asm("_Z16wtarget_00302e90jjjj");
-void wtarget_00302e90(void* reent_ptr, void* mem)
+void _free_r(void* reent_ptr, void* mem) asm("_Z7_free_rjjjj");
+void _free_r(void* reent_ptr, void* mem)
 {
   mchunkptr302e90 p;
   u32 hd;
@@ -13867,7 +13867,7 @@ extern u8* D_01d9eaa4;
 union IdU1f7398 { s32 v; u8 c; };
 union TagU1f7398 { u64 v; u8 c; };
 union PkU1f7398 { u8* p; u8 c; };
-void func_002f28b8(u8* p, u32 a, s32 b, u32 c, s32 d, s32 e, s32 f, s32 g);
+void sceGsSetDefLoadImage(u8* p, u32 a, s32 b, u32 c, s32 d, s32 e, s32 f, s32 g);
 void func_00222aa8(s32 a, s32 b, u8* p, f32 x);
 void func_0020e7a8(u8* p, s32 a, s32 b, s32 c);
 void func_00222d40(s32 tex, u8* pos, u32 frame, s32 y, s32 z, s32 a, s32 b);
@@ -13900,7 +13900,7 @@ void func_001f7398(u8* o, Req1f7398* r, Ctx1f7398* c)
         u8* p = D_01d9eaa4 + 16;
         u32 bits = ((Tex1f7398*)(D_01d9e6e4->ent + off))->bits;
         u8* q;
-        func_002f28b8(p, ((bits >> 5) & 0x3fff) + frame, 4, (bits >> 19) & 0xf, 0, 0, 16, 16);
+        sceGsSetDefLoadImage(p, ((bits >> 5) & 0x3fff) + frame, 4, (bits >> 19) & 0xf, 0, 0, 16, 16);
         ((TagU1f7398*)(p + 80))->v = 0x0800000000008100ULL;
         q = ((PkU1f7398*)&D_01d9eaa4)->p;
         func_00222aa8(r->sx, r->sy, q + 112, m->x);
@@ -13928,7 +13928,7 @@ extern u8* D_01d9eaa4;
 union IdU1f7878 { s32 v; u8 c; };
 union TagU1f7878 { u64 v; u8 c; };
 union PkU1f7878 { u8* p; u8 c; };
-void func_002f28b8(u8* p, u32 a, s32 b, u32 c, s32 d, s32 e, s32 f, s32 g);
+void sceGsSetDefLoadImage(u8* p, u32 a, s32 b, u32 c, s32 d, s32 e, s32 f, s32 g);
 void func_00222aa8(s32 a, s32 b, u8* p, f32 x);
 void func_0020e7a8(u8* p, s32 a, s32 b, s32 c);
 void func_00222d40(s32 tex, u8* pos, u32 frame, s32 y, s32 z, s32 a, s32 b);
@@ -13961,7 +13961,7 @@ void func_001f7878(u8* o, Req1f7878* r, Ctx1f7878* c)
         u8* p = D_01d9eaa4 + 16;
         u32 bits = ((Tex1f7878*)(D_01d9e6e4_x14046->ent + off))->bits;
         u8* q;
-        func_002f28b8(p, ((bits >> 5) & 0x3fff) + frame, 4, (bits >> 19) & 0xf, 0, 0, 16, 16);
+        sceGsSetDefLoadImage(p, ((bits >> 5) & 0x3fff) + frame, 4, (bits >> 19) & 0xf, 0, 0, 16, 16);
         ((TagU1f7878*)(p + 80))->v = 0x0800000000008100ULL;
         q = ((PkU1f7878*)&D_01d9eaa4)->p;
         func_00222aa8(r->sx, r->sy, q + 112, m->x);
@@ -13989,7 +13989,7 @@ extern u8* D_01d9eaa4;
 union IdU1fe398 { s32 v; u8 c; };
 union TagU1fe398 { u64 v; u8 c; };
 union PkU1fe398 { u8* p; u8 c; };
-void func_002f28b8(u8* p, u32 a, s32 b, u32 c, s32 d, s32 e, s32 f, s32 g);
+void sceGsSetDefLoadImage(u8* p, u32 a, s32 b, u32 c, s32 d, s32 e, s32 f, s32 g);
 void func_00222aa8(s32 a, s32 b, u8* p, f32 x);
 void func_0020e7a8(u8* p, s32 a, s32 b, s32 c);
 void func_00222d40_x14115(s32 tex, u8* pos, u32 frame, s32 y, s32 z, s32 a, u8* b) asm("func_00222d40");
@@ -14022,7 +14022,7 @@ void func_001fe398(u8* o, Req1fe398* r, Ctx1fe398* c)
         u8* p = D_01d9eaa4 + 16;
         u32 bits = ((Tex1fe398*)(D_01d9e6e4_x14107->ent + off))->bits;
         u8* q;
-        func_002f28b8(p, ((bits >> 5) & 0x3fff) + frame, 4, (bits >> 19) & 0xf, 0, 0, 16, 16);
+        sceGsSetDefLoadImage(p, ((bits >> 5) & 0x3fff) + frame, 4, (bits >> 19) & 0xf, 0, 0, 16, 16);
         ((TagU1fe398*)(p + 80))->v = 0x0800000000008100ULL;
         q = ((PkU1fe398*)&D_01d9eaa4)->p;
         func_00222aa8(r->sx, r->sy, q + 112, m->x);
@@ -14038,8 +14038,8 @@ typedef struct MChunk2fd428 MChunk2fd428;
 struct MChunk2fd428 { u32 prev_size; u32 size; MChunk2fd428* fd; MChunk2fd428* bk; };
 typedef MChunk2fd428* mchunkptr2fd428;
 extern u8 D_00365c50[];
-void func_002fded8__2fd428(void*) asm("func_002fded8");
-void func_002fdf30__2fd428(void*) asm("func_002fdf30");
+void func_002fded8__2fd428(void*) asm("__malloc_lock");
+void func_002fdf30__2fd428(void*) asm("__malloc_unlock");
 #define M_SIZE_SZ 4
 #define M_ALIGN_MASK 15
 #define M_MINSIZE 16
@@ -14115,7 +14115,7 @@ extern u64 D_00366070;
 extern u64 D_00366078;
 extern s32 D_00366080;
 char* func_002fea70(void* reent, s32 size);
-void wtarget_00302e90(void* reent_ptr, void* mem) asm("_Z16wtarget_00302e90jjjj");
+void _free_r(void* reent_ptr, void* mem) asm("_Z7_free_rjjjj");
 #define top_pad D_00366060
 #define sbrk_base D_00366068
 #define max_sbrked_mem D_00366070
@@ -14202,7 +14202,7 @@ void func_002fd428(void* reent_ptr, u32 nb)
       chunk_at_offset(old_top, old_top_size + M_SIZE_SZ)->size =
         M_SIZE_SZ|M_PREV_INUSE;
       if (old_top_size >= M_MINSIZE)
-        wtarget_00302e90 (reent_ptr, chunk2mem(old_top));
+        _free_r (reent_ptr, chunk2mem(old_top));
     }
   }
 
@@ -14259,7 +14259,7 @@ struct Fade237ae8 {
     s32 dur_init; s32 wait_init; u8 pad104[4]; f32 out;
 };
 extern f32 D_00349e14;
-f32 func_002f8960(f32 x);
+f32 sinf(f32 x);
 void func_00237ae8(Fade237ae8* p)
 {
     f32 dt = D_00349e14 * p->speed;
@@ -14326,7 +14326,7 @@ void func_00237ae8(Fade237ae8* p)
         }
         p->t += dt;
         if (p->dur < p->t) p->t = 0.0f;
-        p->out = func_002f8960(p->t / p->dur * 3.14159274f);
+        p->out = sinf(p->t / p->dur * 3.14159274f);
         break;
     }
 }
@@ -14334,7 +14334,7 @@ void func_00237ae8(Fade237ae8* p)
 // --------------------
 // newlib dtoa.c quorem (Pack_32, IEEE_8087).
 struct Bigint301708 { Bigint301708* _next; s32 _k, _maxwds, _sign, _wds; u32 _x[1]; };
-s32 func_00304468(Bigint301708* a, Bigint301708* b);
+s32 __mcmp(Bigint301708* a, Bigint301708* b);
 #define Storeinc301708(a, b, c) (((unsigned short*)a)[1] = (unsigned short)b, ((unsigned short*)a)[0] = (unsigned short)c, a++)
 s32 func_00301708(Bigint301708* b, Bigint301708* S)
 {
@@ -14378,7 +14378,7 @@ s32 func_00301708(Bigint301708* b, Bigint301708* S)
           b->_wds = n;
         }
     }
-  if (func_00304468 (b, S) >= 0)
+  if (__mcmp (b, S) >= 0)
     {
       q++;
       borrow = 0;
@@ -15279,12 +15279,12 @@ struct Par20c860 { u8 pad[224]; f32 hs; f32 ho; };
 extern u8 D_01d9ea40[];
 extern u8 D_01d9e730[];
 extern u8 D_01d9e8c0[];
-void func_002f4000_x15402(f32* m) asm("func_002f4000");
-void func_002f4298(f32* o, void* a, f32* v);
-void func_002f3d08_x15404(f32* o, void* a, void* b) asm("func_002f3d08");
-void func_002f3f40(f32* o, f32* a, f32 s);
-void func_002f3f88_x15406(f32* o, Src20c860* a) asm("func_002f3f88");
-void func_002f3cd8_x15407(f32* o, void* a, f32* b) asm("func_002f3cd8");
+void func_002f4000_x15402(f32* m) asm("sceVu0UnitMatrix");
+void sceVu0RotMatrix(f32* o, void* a, f32* v);
+void func_002f3d08_x15404(f32* o, void* a, void* b) asm("sceVu0MulMatrix");
+void sceVu0ScaleVector(f32* o, f32* a, f32 s);
+void func_002f3f88_x15406(f32* o, Src20c860* a) asm("sceVu0CopyVector");
+void func_002f3cd8_x15407(f32* o, void* a, f32* b) asm("sceVu0ApplyMatrix");
 f32 func_0020c860(void* self, f32* m, Par20c860* par, void* a3, Src20c860* src)
 {
     f32 rm[16];
@@ -15296,11 +15296,11 @@ f32 func_0020c860(void* self, f32* m, Par20c860* par, void* a3, Src20c860* src)
     if (src->rot.xy || src->rz) {
         for (i = 0; i < 3; i++)
             ang[i] = (f32)src->rot.r[i] * 3.1415927f * 3.0517578125e-05f;
-        func_002f4298(rm, D_01d9ea40, ang);
+        sceVu0RotMatrix(rm, D_01d9ea40, ang);
         func_002f3d08_x15404(m, m, rm);
     }
     for (i = 0; i < 3; i++)
-        func_002f3f40(m + i * 4, m + i * 4, src->scl[i]);
+        sceVu0ScaleVector(m + i * 4, m + i * 4, src->scl[i]);
     func_002f3f88_x15406(m + 12, src);
     func_002f3cd8_x15407(m + 12, D_01d9e730, m + 12);
     m[13] *= par->hs;
@@ -15640,7 +15640,7 @@ void func_001a3f08(u8* o, u8* p, u32 a2, u32 a3, u32 x, u32 y, u32 z)
 // --------------------
 struct N170a90 { u8 pad0[4]; char name[0x24]; s32 f28; u8 pad2c[0x10]; N170a90* next; };
 extern N170a90* D_0034dca0;
-s32 func_002ff1a4(const char*, const char*);
+s32 strcmp(const char*, const char*);
 void func_001700e8(N170a90*, s32);
 static inline N170a90* Next170a90(N170a90* n) { if (n == 0) return D_0034dca0; return n->next; }
 static inline bool Ok170a90(N170a90* n) { return n->f28 >= 10000; }
@@ -15648,7 +15648,7 @@ void func_00170a90(const char* name)
 {
     N170a90* n = 0;
     while ((n = Next170a90(n)) != 0) {
-        if (func_002ff1a4(n->name, name) == 0 && Ok170a90(n)) {
+        if (strcmp(n->name, name) == 0 && Ok170a90(n)) {
             func_001700e8(n, 1);
             return;
         }
@@ -15766,14 +15766,14 @@ union G1eaf50 { M1eaf50* p; u32 u; };
 extern G1eaf50 D_01d9e6e8_1eaf50 asm("D_01d9e6e8");
 struct O1eaf50 { u32 a; u32 b; };
 struct H1eaf50 { u8 pad[0xc]; O1eaf50* ofs; };
-void func_002f4000(f32 (*)[4]);
+void sceVu0UnitMatrix(f32 (*)[4]);
 void func_001eaf50(u8* base, u32, H1eaf50* h)
 {
     O1eaf50* o = h->ofs;
     u8* r = base + o->a;
     u8* q = base + o->b;
     P1eaf50* s = (P1eaf50*)(q + 160);
-    func_002f4000(D_01d9e6e8_1eaf50.p->m);
+    sceVu0UnitMatrix(D_01d9e6e8_1eaf50.p->m);
     P1eaf50* t = (P1eaf50*)(r + 160);
     D_01d9e6e8_1eaf50.p->m[0][0] = s->x;
     D_01d9e6e8_1eaf50.p->m[1][1] = s->y;
@@ -16044,8 +16044,8 @@ f32 func_002e50f8(O2e50f8* o, f32 a, f32 b)
 {
     f32 h = 0.5f;
     f32 v = func_002e51b0(o, a);
-    if (func_002f8870(b) > o->w * h) return v;
-    b = func_002f8870(b * h);
+    if (fabsf(b) > o->w * h) return v;
+    b = fabsf(b * h);
     return v * o->tbl[(s32)(b * 21.0f / o->w + h)];
 }
 
@@ -17272,7 +17272,7 @@ void r15e608_setTex0(Rect15e608*, u64) asm("_ZN2dk8RectBase9setGsTex0Ey");
 void b15e_0014b838(Rect15e608*) asm("func_0014b838");
 void b15e_0014c350(Rect15e608*) asm("func_0014c350");
 u64 b15e_00166148(u8*, s32, s32) asm("func_00166148");
-u32 b15e_00313bc0(f32) asm("func_00313bc0");
+u32 b15e_00313bc0(f32) asm("__fixunssfsi");
 void func_0015e608(Owner15e608* o)
 {
     b15e_0014c350(&D_004f3820);
@@ -17646,7 +17646,7 @@ void f1112a8_setState(Fr1112a8*, s32) asm("func_0016bd60");
 s32 func_00111278(Fr1112a8*);
 s32 func_0010f8d0(Fr1112a8*);
 void func_0010e130(Fr1112a8*, s32);
-f32 func_002f8870(f32);
+f32 fabsf(f32);
 s32 func_001917c0(void);
 void func_001111c8(Fr1112a8*);
 void func_0010fa68(Fr1112a8*);
@@ -17667,7 +17667,7 @@ void func_001112a8(Fr1112a8* o)
     func_0010e130(o, 0);
     if (o->f1632 & 4) o->f3288++;
     if (g1112a8_leader->f2064) o->f3288++;
-    if (400.0f < func_002f8870(o->f2944)) o->f3288++;
+    if (400.0f < fabsf(o->f2944)) o->f3288++;
     if (func_001917c0() && !(o->f352 & 0x40000000)) {
         func_001111c8(o);
         func_0010fa68(o);
@@ -18418,7 +18418,7 @@ s32 func_00158548(Pad14e8b8*);
 s32 func_00158450(Pad14e8b8*);
 s32 func_001584a0(Pad14e8b8*);
 f32 func_0017ce10(f32);
-f32 func_002f8870(f32);
+f32 fabsf(f32);
 void c14e8b8_def(Cam14e8b8* c) asm("func_0014e8b8");
 void c14e8b8_def(Cam14e8b8* c)
 {
@@ -18437,8 +18437,8 @@ void c14e8b8_def(Cam14e8b8* c)
         if (func_001584f8(pad)) c->yaw = func_0017ce10(c->yaw - dt * 0.05235987901687622f);
         else if (func_00158548(pad)) c->yaw = func_0017ce10(c->yaw + dt * 0.05235987901687622f);
         c->f76 = c->f80 = func_0017ce10(c->yaw - 3.1415927410125732f);
-        if (func_00158450(pad)) c->pitch = func_0017ce10(c->pitch + func_002f8870(pad->stick * pad->scale) * 0.05235987901687622f * dt);
-        else if (func_001584a0(pad)) c->pitch = func_0017ce10(c->pitch - func_002f8870(pad->stick * pad->scale) * 0.05235987901687622f * dt);
+        if (func_00158450(pad)) c->pitch = func_0017ce10(c->pitch + fabsf(pad->stick * pad->scale) * 0.05235987901687622f * dt);
+        else if (func_001584a0(pad)) c->pitch = func_0017ce10(c->pitch - fabsf(pad->stick * pad->scale) * 0.05235987901687622f * dt);
     }
     func_0014e6f8(c);
     V14e8b8 v;
@@ -18597,7 +18597,7 @@ s32 func_001aa8a8(Ctx1aa0a8*, s32, u32, u32, s32);
 s32 func_001aa8f0(Ctx1aa0a8*, s32, u32, u32, s32);
 u32 func_001aae80(Font1aa0a8*, s32);
 f32 a0a8_00192fb8(Style1aa0a8*) asm("func_00192fb8");
-u32 func_00313bc0(f32);
+u32 __fixunssfsi(f32);
 s32 func_001aa0a8(Win1a9c20* w_, Ctx1a9c20* c_, s32 x, u32 y, s32 ch)
 {
     Win1aa0a8* w = (Win1aa0a8*)w_;
@@ -18617,7 +18617,7 @@ s32 func_001aa0a8(Win1a9c20* w_, Ctx1a9c20* c_, s32 x, u32 y, s32 ch)
         break;
     }
     if (0.0f < w->fade && c->width / w->fade < 1.0f) {
-        color = (color & 0xffffff) | (func_00313bc0(c->width / w->fade * 128.0f) << 24);
+        color = (color & 0xffffff) | (__fixunssfsi(c->width / w->fade * 128.0f) << 24);
     }
     s32 r;
     if (font->IsRuby()) r = func_001aa8f0(c, x, y, color, ch);

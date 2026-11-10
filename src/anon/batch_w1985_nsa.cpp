@@ -137,8 +137,8 @@ extern f32 D_00351fd8;
 extern W1985Mgr* D_00361f60;
 W1985Vec* func_002d1f30(W1985Mgr*);
 f32 func_001cbf50(f32);
-f32 func_002f87c0(f32);
-f32 func_002f8960(f32);
+f32 cosf(f32);
+f32 sinf(f32);
 s32 func_001cbab0(W1985Self*);
 W1985Pl* func_002d1260(void);
 void func_001ca910(W1985Self*);
@@ -156,8 +156,8 @@ u32 u_call4_001cb278(W1985Self* self, u32, u32, u32)
     }
     if (D_00361f60) w1985_vadd((W1985Vec*)self->v70, func_002d1f30(D_00361f60));
     a = func_001cbf50(self->fa0);
-    self->pos.x = func_002f87c0(a);
-    self->pos.y = func_002f8960(a);
+    self->pos.x = cosf(a);
+    self->pos.y = sinf(a);
     self->pos.z = 0.0f;
     w1985_vscale(&self->pos, self->fac);
     w1985_vadd(&self->pos, (W1985Vec*)self->v70);

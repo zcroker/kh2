@@ -54,10 +54,10 @@ void func_0019d5f8(W260Ent* e, W260Hdr* h)
     func_0019d588(e, h->b5 == 8 ? 0 : z->b36);
 }
 
-u8 func_002f3f88(void*, void*);  // memcpy16
-void func_002f3d98(W260Q*, W260Q*);  // vec4_normalize
-void func_002f3d50(W260Q*, W260Q*, W260Q*);  // vec3_cross
-void w260_mtx(void*, void*, void*) asm("_Z16wtarget_002f3d08jjjj");
+u8 sceVu0CopyVector(void*, void*);  // memcpy16
+void sceVu0Normalize(W260Q*, W260Q*);  // vec4_normalize
+void sceVu0OuterProduct(W260Q*, W260Q*, W260Q*);  // vec3_cross
+void w260_mtx(void*, void*, void*) asm("_Z15sceVu0MulMatrixjjjj");
 extern u8 D_00354bc0[];
 extern u8 D_00354be0[];
 extern W260Cam D_01d9e840;
@@ -68,22 +68,22 @@ void func_00200950(u8* p, u8* q)
 {
     W260Q a, b, c;
     u8* s = p + *(s32*)(*(u8**)(q + 12) + 4);
-    func_002f3f88(s + 160, D_00354bc0);  // memcpy16
-    func_002f3f88(s + 176, D_00354be0);  // memcpy16
+    sceVu0CopyVector(s + 160, D_00354bc0);  // memcpy16
+    sceVu0CopyVector(s + 176, D_00354be0);  // memcpy16
     b.x = D_01d9e840.x; b.w = 0; b.y = D_01d9e840.y; b.z = D_01d9e840.z;
-    func_002f3d98(&b, &b);  // vec4_normalize
+    sceVu0Normalize(&b, &b);  // vec4_normalize
     D_01d9e890 = b;
     a.x = b.y; a.y = -b.x; a.z = 0; a.w = 0;
-    func_002f3d98(&a, &a);  // vec4_normalize
+    sceVu0Normalize(&a, &a);  // vec4_normalize
     D_01d9e880 = a;
-    func_002f3d50(&c, &a, &b);  // vec3_cross
-    func_002f3d98(&c, &c);  // vec4_normalize
+    sceVu0OuterProduct(&c, &a, &b);  // vec3_cross
+    sceVu0Normalize(&c, &c);  // vec4_normalize
     D_01d9e8a0 = c;
     D_01d9e8b0 = D_01d9e870;
     w260_mtx(D_01d9e940, D_01d9e8c0, &D_01d9e880);
 }
 
-f32 func_002f87c0(f32);
+f32 cosf(f32);
 W260V func_0016af58(int);
 W260V func_0017d538(const W260V&, f32);
 
@@ -91,7 +91,7 @@ int func_0018e698(W260Ctl* c, W260Tgt** t)
 {
     u8 b = c->own->p40->b34;
     if (!b) return 1;
-    f32 lim = -func_002f87c0((f32)b * 0.017453292f);
+    f32 lim = -cosf((f32)b * 0.017453292f);
     W260V d;
     d = func_0016af58(c->own->f12);
     s8 e = c->own->p40->b35;

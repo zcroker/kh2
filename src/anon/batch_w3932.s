@@ -2,7 +2,7 @@
 # Both functions were near misses in C/C++ after several sessions; see coord attempts.tsv
 # and best/0027d008_w3808.cpp, best/002f20d0_w3918.c. Replace with C/C++ after 100%.
 #   func_0027d008: menu cell/label setup (loop.c will not hoist the inner D[r].n load into s8 nor reduce the store giv separately from c)
-#   func_002f20d0: sceGsSetDefDispEnv (Sony libgraph, ee-gcc 2.9): MAGH<<23 temp register and non-interlace OR/load order
+#   sceGsSetDefDispEnv: sceGsSetDefDispEnv (Sony libgraph, ee-gcc 2.9): MAGH<<23 temp register and non-interlace OR/load order
 	.set noreorder
 	.set noat
 	.set nomacro
@@ -216,10 +216,10 @@ func_0027d008:
 
 	.section .text.func_002f20d0,"ax",@progbits
 	.align 2
-	.globl func_002f20d0
-	.type func_002f20d0, @function
-	.ent func_002f20d0
-func_002f20d0:
+	.globl sceGsSetDefDispEnv
+	.type sceGsSetDefDispEnv, @function
+	.ent sceGsSetDefDispEnv
+sceGsSetDefDispEnv:
 	addiu	$29,$29,-144
 	sll	$5,$5,0x10
 	sd	$22,112($29)
@@ -239,7 +239,7 @@ func_002f20d0:
 	sd	$31,128($29)
 	sra	$21,$8,0x10
 	sra	$20,$9,0x10
-	jal	func_002f1fa8
+	jal	sceGsGetGParam
 	move	$19,$4
 	move	$17,$2
 	lhu	$4,2($17)
@@ -458,5 +458,5 @@ func_002f20d0:
 	ld	$16,16($29)
 	jr	$31
 	addiu	$29,$29,144
-	.end func_002f20d0
-	.size func_002f20d0, 884
+	.end sceGsSetDefDispEnv
+	.size sceGsSetDefDispEnv, 884

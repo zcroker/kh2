@@ -1,7 +1,7 @@
 #include "../common/types.h"
-// func_002f1fb8 is whole-body asm that links elsewhere: C++ linkage makes the call bind to
-// the absolute alias _Z13func_002f1fb8v.
-void func_002f1fb8();
+// sceGsResetPath is whole-body asm that links elsewhere: C++ linkage makes the call bind to
+// the absolute alias _Z14sceGsResetPathv.
+void sceGsResetPath();
 extern "C" {
 
 // --- 002d5588: true when the linked object's id is 0x38 or 0x37
@@ -29,7 +29,7 @@ void func_002f1e18(s32, s32, s32, s32);
 void func_0014d6b0();
 void u_call0_0014d680(void) asm("_Z16u_call0_0014d680v");
 void u_call0_0014d680(void) {
-    func_002f1fb8();
+    sceGsResetPath();
     func_002f1e18(0, 1, 2, 0);
     func_0014d6b0();
 }

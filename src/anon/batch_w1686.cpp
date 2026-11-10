@@ -49,7 +49,7 @@ s32 func_001dc9d0(void*) asm("_ZN3ryj6EFFECT8is_aliveEv");
 W1686Vec* func_001dc5f8(void*) asm("_ZN3ryj6EFFECT3posEv");
 void func_001a48c0(W1686Magic*, W1686Vec*);
 void func_0018f028(W1686Magic*) asm("_ZN2YS6ATTACK7destroyEv");
-f32 func_002f8960(f32);
+f32 sinf(f32);
 void func_0018a958(W1686Col*, s32, f32, f32) asm("_ZN2YS9COLLISION4makeEiff");
 s32 func_0018eaf8(void*, W1686Work*);
 void func_0018dc28(W1686Magic*, W1686Vec*, W1686Vec*);
@@ -107,7 +107,7 @@ void func_001a45b8(W1686Magic* self, void* mgr) {
             self->time += D_00349e10;
             if (self->time_max < self->time) { func_0018f028(self); return; }
         }
-        size = w1686_lerp(self->size_start, self->size, func_002f8960(self->time / self->time_max * 3.1415927f * 0.5f));
+        size = w1686_lerp(self->size_start, self->size, sinf(self->time / self->time_max * 3.1415927f * 0.5f));
     } else {
         size = self->size;
     }

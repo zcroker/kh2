@@ -5,9 +5,9 @@ struct NoTail_w3727 { ~NoTail_w3727() {} };
 struct WHdr_w3727 { u8 pad[12]; s32 count; };
 
 extern "C" {
-void func_002f28b8(void*, s16, s16, s16, s16, s16, s16, s16);
+void sceGsSetDefLoadImage(void*, s16, s16, s16, s16, s16, s16, s16);
 void func_003058a0(s32);
-void func_002f2be0(void*, void*);
+void sceGsExecLoadImage(void*, void*);
 void func_001e50a8(u32, s32);
 extern u8 D_01d9e3f0;
 
@@ -16,9 +16,9 @@ void func_001e5220(s16* p, s16 d) {
     NoTail_w3727 nt;
     s16 a = p[0];
     if (a >= 12288) a = a + d - 12288; else a = a + d - 10752;
-    func_002f28b8(&D_01d9e3f0, a, p[2], p[3], p[4], p[5], p[6], p[7]);
+    sceGsSetDefLoadImage(&D_01d9e3f0, a, p[2], p[3], p[4], p[5], p[6], p[7]);
     func_003058a0(0);
-    func_002f2be0(&D_01d9e3f0, p + 16);
+    sceGsExecLoadImage(&D_01d9e3f0, p + 16);
 }
 
 void wtarget_001dc140(u32* a0, u32 a1, u32 a2, u32 a3) asm("_Z16wtarget_001dc140jjjj");

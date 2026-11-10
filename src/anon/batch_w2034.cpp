@@ -8,21 +8,21 @@ extern s32 D_01e3c770;
 extern u8 D_01e3c780[64][1024];
 extern u64 D_01e4c780;
 extern "C" {
-void* func_002fd3e8(u32);
+void* malloc(u32);
 void func_002fde18(void*, s32, u32);
-s32 func_0030edb0();
-void func_0030ee00();
+s32 DIntr();
+void EIntr();
 void func_00315440();
 /* libsupc++ eh_alloc.cc __cxa_allocate_exception (gcc 3.2-ee-040921): GCC library code.
  * 0x50 = sizeof(__cxa_exception); 64 emergency buffers of 1024 bytes with a 64-bit used mask.
  * The gthread mutex lock/unlock is replaced by the game's interrupt-state calls
- * (func_0030edb0 result kept in D_01e3c770, func_0030ee00 restores it). func_00315440 = std::terminate. */
-void* func_00316560(u32 thrown_size) {
+ * (DIntr result kept in D_01e3c770, EIntr restores it). func_00315440 = std::terminate. */
+void* __cxa_allocate_exception(u32 thrown_size) {
     void* ret;
     thrown_size += 0x50;
-    ret = func_002fd3e8(thrown_size);
+    ret = malloc(thrown_size);
     if (!ret) {
-        D_01e3c770 = func_0030edb0();
+        D_01e3c770 = DIntr();
         u64 used = D_01e4c780;
         u32 which = 0;
         if (thrown_size > 1024) goto failed;
@@ -33,7 +33,7 @@ void* func_00316560(u32 thrown_size) {
         D_01e4c780 |= (u64)1 << which;
         ret = &D_01e3c780[which][0];
     failed:;
-        if (D_01e3c770) func_0030ee00();
+        if (D_01e3c770) EIntr();
         if (!ret) func_00315440();
     }
     func_002fde18(ret, 0, 0x50);

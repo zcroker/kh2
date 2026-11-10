@@ -117,8 +117,8 @@ extern void* D_00361f60;
 void func_002d38e8(W1986Tmp*, void*);
 W1986Cfg* func_002d1878(void*);
 W1986Obj* func_001cbe30(W1986Tmp*, s32, s32);
-f32 func_002f8960(f32);
-f32 func_002f87c0(f32);
+f32 sinf(f32);
+f32 cosf(f32);
 
 void func_002d36f0(void* a)
 {
@@ -137,8 +137,8 @@ void func_002d36f0(void* a)
             W1986Obj* o = func_001cbe30(&t, 1, 1);
             if (o) {
                 f32 ang = (wd * (f32)i) / (f32)(n - 1) - wd * 0.5f;
-                f32 cs = func_002f8960(ang);
-                o->v90 = W1986V4(cs, -func_002f87c0(ang), 0, w);
+                f32 cs = sinf(ang);
+                o->v90 = W1986V4(cs, -cosf(ang), 0, w);
                 o->v80 = W1986V4(0, h, 0, 0);
                 o->f60 = z;
                 o->f64 = 120.0f;

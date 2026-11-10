@@ -75,7 +75,7 @@ extern "C" {
 void func_001ae590(void*, u32);
 void func_001ae4c0(u32, u32, void*);
 char** func_00105c48(s32);  // entry12_34cae4
-s32 func_002ff538(const void*, const void*, u32);
+s32 strncmp(const void*, const void*, u32);
 void func_00105af8(s32);
 extern u32 D_0033caf8;
 void func_0013a6f8(void);
@@ -195,7 +195,7 @@ extern void* D_00361f60;
 u8* func_002d1878(void*);
 void func_00187750(void*);
 extern f32 D_00349e10;
-f32 func_002f8870(f32);  // fabsf
+f32 fabsf(f32);  // fabsf
 void func_00144450(f32*);
 void func_001b7c80(void*, f32*);
 void func_0016af58(Q16*, void*);
@@ -244,7 +244,7 @@ void* func_0016bc20(u32, s32, s32);
 void func_001ad990(void*, f32, f32, f32);
 extern struct KG* D_01d9e6e4;
 union FH { f32 f; s16 h; };
-void func_002f3cd8(union FH*, void*, union FH*);
+void sceVu0ApplyMatrix(union FH*, void*, union FH*);
 void* func_0014e638(void*);
 void* func_0014e648(void*);  // ptr_add752
 void func_00166968(void*, s32, s32, s32, s32, s32, s32, s32);
@@ -306,9 +306,9 @@ void func_00105b58(void) {
     func_001ae590(info, D_0033caf8);
     func_001ae4c0(info[0], (info[1] + 2047) >> 11, buf);
     for (i = 1; i < 9; i++) {
-        if (func_002ff538(buf + 16, func_00105c48(i)[0], 4) == 0 &&
-            func_002ff538(buf + 21, func_00105c48(i)[1], 3) == 0 &&
-            func_002ff538(buf + 25, func_00105c48(i)[2], 2) == 0) {
+        if (strncmp(buf + 16, func_00105c48(i)[0], 4) == 0 &&
+            strncmp(buf + 21, func_00105c48(i)[1], 3) == 0 &&
+            strncmp(buf + 25, func_00105c48(i)[2], 2) == 0) {
             func_00105af8(i);
             return;
         }
@@ -535,7 +535,7 @@ void func_002daee8(u8* p) {
     v = *(f32*)(p + 2852) - D_00349e10 * 0.16666666f;
     *(f32*)(p + 2852) = v;
     if (v < 0.0f) {
-        if (func_002f8870(*(f32*)(p + 2868) < 0.1f ? 1.0f : 0.0f) == 0.0f) return;
+        if (fabsf(*(f32*)(p + 2868) < 0.1f ? 1.0f : 0.0f) == 0.0f) return;
         p[2840] = 0;
         (*(VF0*)(*(u8**)p + 32))(p);
         asm volatile("vsub.wxyz $vf1, $vf0, $vf0\n\tsqc2 $vf1, 0(%0)" : : "r"(p + 2864) : "memory");
@@ -839,7 +839,7 @@ void func_001e9c28(u8* base, u8* a1, u8* a2) {
         v[1].f = p[1];
         v[2].f = p[2];
         v[3].f = 1.0f;
-        func_002f3cd8(v, *(u8**)(base + 4) + 16, v);
+        sceVu0ApplyMatrix(v, *(u8**)(base + 4) + 16, v);
         d[0] = *(volatile f32*)&v[0].f;
         {
             f32 z = *(volatile f32*)&v[2].f;

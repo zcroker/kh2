@@ -146,7 +146,7 @@ void func_00232150(void* self) {
 }
 extern f32 D_00349e10;
 void func_002c6420(C6490*);
-f32 func_002f8960(f32);
+f32 sinf(f32);
 void* func_00106a18(s32);  // buffer_get_256
 void func_00107300(void*, V4*, V4*, f32);  // copy_blocks_and_store_float
 void func_00106de8(void*, s32, f32);
@@ -158,7 +158,7 @@ s32 func_002c6490(C6490* p) {
     if (p->t < p->dur) {
         p->t += D_00349e10;
         if (p->t < p->dur) {
-            f32 s = func_002f8960(p->t / p->dur * 1.5707964f);
+            f32 s = sinf(p->t / p->dur * 1.5707964f);
             a = Lerp(p->a0, p->a1, s);
             b = Lerp(p->b0, p->b1, s);
         }

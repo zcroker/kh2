@@ -21,7 +21,7 @@ extern int func_00305660(int);
 extern void func_00308a80(void *, int);
 extern int func_00309d60(void *, int, int, void *, int, void *, int, void *, void *, int);
 
-int func_0030af40(int fd, void *buf, int len)
+int sceRead(int fd, void *buf, int len)
 {
     SemaParam sp;
     int res;
@@ -87,7 +87,7 @@ int func_0030af40(int fd, void *buf, int len)
     return res;
 }
 
-int func_0030b1b0(int fd, void *buf, int len)
+int sceWrite(int fd, void *buf, int len)
 {
     SemaParam sp;
     int res;
@@ -120,7 +120,7 @@ int func_0030b1b0(int fd, void *buf, int len)
     if (nw) {
         func_00305660(D_00366174);
         asm volatile("");
-        { int *t = D_003660e0; asm("" : "+r"(t)); i = 0; asm volatile(""); nr = nw; } /* Partial asm: see func_0030af40. */
+        { int *t = D_003660e0; asm("" : "+r"(t)); i = 0; asm volatile(""); nr = nw; } /* Partial asm: see sceRead. */
         for (; i < 32; i++) {
             if (D_003660e0[i] == -1) {
                 D_003660e0[i] = q->sema;

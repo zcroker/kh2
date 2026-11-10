@@ -98,14 +98,14 @@ void func_0015def8(void)
 struct L168 { L168* next; u32 f4; u8 lay[40]; u32 f48; u8 pad[16]; u32 f68; u16 pad72; u16 f74; };
 struct List168 { L168* head; L168* tail; };
 extern List168 D_0034d840;
-void func_002ff3fc(void*);  // strlen
+void strlen(void*);  // strlen
 void func_00168958(L168* p, u32 a1, void* data)
 {
     p->f48 = a1;
     p->f4 = 0;
     p->f68 = 0;
     p->f74 = 0;
-    func_002ff3fc(data);  // strlen
+    strlen(data);  // strlen
     lay_file_build_data(p->lay, data);
     if (!D_0034d840.head) {
         D_0034d840.tail = p;
@@ -317,7 +317,7 @@ extern u8 D_00354650[];
 void func_001e5990(void*);
 void func_001e5610(u32);
 void func_001e5898(u32);
-void func_002f25a0(u32, u32);
+void sceGsSyncPath(u32, u32);
 void FlushCache(s32);
 void func_002f3918(u32, void*);
 void func_001e65d0(void)
@@ -325,7 +325,7 @@ void func_001e65d0(void)
     func_001e5990(D_00354698);
     func_001e5610(D_00354648);
     func_001e5898(D_00354648);
-    func_002f25a0(0, 0);
+    sceGsSyncPath(0, 0);
     FlushCache(0);
     func_002f3918(D_003591c8, D_00354650);
 }

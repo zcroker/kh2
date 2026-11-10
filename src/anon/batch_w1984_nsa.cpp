@@ -138,7 +138,7 @@ extern u8* D_01d9eaa4;
 union F7IdU { s32 v; u8 c; };
 union F7TagU { u64 v; u8 c; };
 union F7PkU { u8* p; u8 c; };
-void func_002f28b8(u8* p, u32 a, s32 b, u32 c, s32 d, s32 e, s32 f, s32 g);
+void sceGsSetDefLoadImage(u8* p, u32 a, s32 b, u32 c, s32 d, s32 e, s32 f, s32 g);
 void func_00222aa8(s32 a, s32 b, u8* p, f32 x);
 void func_0020e7a8(u8* p, s32 a, s32 b, s32 c);
 void func_00222d40(s32 tex, u8* pos, u32 frame, s32 y, s32 z, s32 a, s32 b);
@@ -161,7 +161,7 @@ void func_001f7180(u8* o, F7Req* r, F7Ctx* c)
         u8* p = D_01d9eaa4 + 16;
         u32 bits = ((F7Tex*)(D_01d9e6e4->ent + off))->bits;
         u8* q;
-        func_002f28b8(p, ((bits >> 5) & 0x3fff) + frame, 4, (bits >> 19) & 0xf, 0, 0, 16, 16);
+        sceGsSetDefLoadImage(p, ((bits >> 5) & 0x3fff) + frame, 4, (bits >> 19) & 0xf, 0, 0, 16, 16);
         ((F7TagU*)(p + 80))->v = 0x0800000000008100ULL;
         q = ((F7PkU*)&D_01d9eaa4)->p;
         func_00222aa8(r->sx, r->sy, q + 112, m->x);
@@ -189,7 +189,7 @@ void func_001f7660(u8* o, F7Req* r, F7Ctx* c)
         u8* p = D_01d9eaa4 + 16;
         u32 bits = ((F7Tex*)(D_01d9e6e4->ent + off))->bits;
         u8* q;
-        func_002f28b8(p, ((bits >> 5) & 0x3fff) + frame, 4, (bits >> 19) & 0xf, 0, 0, 16, 16);
+        sceGsSetDefLoadImage(p, ((bits >> 5) & 0x3fff) + frame, 4, (bits >> 19) & 0xf, 0, 0, 16, 16);
         ((F7TagU*)(p + 80))->v = 0x0800000000008100ULL;
         q = ((F7PkU*)&D_01d9eaa4)->p;
         func_00222aa8(r->sx, r->sy, q + 112, m->x);

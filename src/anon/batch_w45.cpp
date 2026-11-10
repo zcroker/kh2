@@ -66,8 +66,8 @@ u8* func_00102788(u32, u32, u32, void*);
 void func_001de690(void);
 void func_001de6d0(void);
 void func_001de710(void);
-void func_002f4000(f32*);  // vu_store_w_splat
-void func_002f3d08(u8*, f32*, u8*);
+void sceVu0UnitMatrix(f32*);  // vu_store_w_splat
+void sceVu0MulMatrix(u8*, f32*, u8*);
 extern u8* D_01d9e6e0;
 extern u8* D_01d9e6e8;
 f32 func_00207260(void);
@@ -299,7 +299,7 @@ void func_001de8a8(u32 a0, u32 a1, u32 a2, u32 a3) {
 // scale matrix (clamped) applied to the global transform
 void func_001eb228(u32 a0, f32* a1) {
     f32 m[16] __attribute__((aligned(16)));
-    func_002f4000(m);  // vu_store_w_splat
+    sceVu0UnitMatrix(m);  // vu_store_w_splat
     f32 s = *(f32*)(D_01d9e6e0 + 64);
     f32 v = s + s * a1[1];
     m[0] = v;
@@ -307,7 +307,7 @@ void func_001eb228(u32 a0, f32* a1) {
     m[10] = m[0];
     m[5] = m[0];
     u8* p = D_01d9e6e8 + 16;
-    func_002f3d08(p, m, p);
+    sceVu0MulMatrix(p, m, p);
 }
 
 // random value in about [-n/2, 3n/2)

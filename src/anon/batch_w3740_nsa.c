@@ -32,7 +32,7 @@ extern s32 D_01d9eaa8;
 extern f32 D_00354be0[];
 extern s32 D_00352be4, D_00352be8, D_00352bec, D_00352bf0, D_00352bf8, D_00352bfc;
 extern u64 D_00352c18;
-void func_002f3f40(V1f7b40*, V1f7b40*, f32);
+void sceVu0ScaleVector(V1f7b40*, V1f7b40*, f32);
 void func_001f7e90(Req1f7b40*);
 void func_001f7b40(u8 *base, Ent1f7b40 *e, Ctx1f7b40 *c)
 {
@@ -71,7 +71,7 @@ void func_001f7b40(u8 *base, Ent1f7b40 *e, Ctx1f7b40 *c)
   v.y = col[9];
   v.z = col[10];
   v.w = col[11];
-  func_002f3f40(&v, &v, 0.00392156839f);
+  sceVu0ScaleVector(&v, &v, 0.00392156839f);
   r.p16 = D_01d9e8c0;
   r.p20 = p2;
   r.w24 = D_01d9eaa4;

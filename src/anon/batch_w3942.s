@@ -158,7 +158,7 @@ func_001faea8:
 	addu	$13,$23,$13
 	sw	$12,36($29)
 	sw	$15,40($29)
-	jal	func_002f3fc0
+	jal	sceVu0FTOI4Vector
 	sw	$13,44($29)
 	lbu	$11,192($19)
 	lw	$12,4($29)
@@ -254,16 +254,16 @@ func_001faea8:
 	li	$7,49
 	sll	$5,$5,0x5
 	move	$17,$2
-	jal	func_002f2aa0
+	jal	sceGsSetDefStoreImage
 	addiu	$4,$29,48
 	addiu	$17,$17,96
 	jal	func_003058a0
 	move	$4,$0
 	addiu	$4,$29,48
-	jal	func_002f2d60
+	jal	sceGsExecStoreImage
 	move	$5,$17
 	move	$4,$0
-	jal	func_002f25a0
+	jal	sceGsSyncPath
 	move	$5,$0
 	lw	$15,8($29)
 	blez	$21,.L001fb2c4

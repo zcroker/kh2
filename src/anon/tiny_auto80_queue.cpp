@@ -605,14 +605,14 @@ extern "C" void func_002eda30(...);
 extern "C" void func_002ef708(...);
 extern "C" u32 func_002ef9e0(...);
 extern "C" u32 func_002efc10(...);
-extern "C" void func_002f3f10(...);  // vec4_sub
+extern "C" void sceVu0SubVector(...);  // vec4_sub
 f32 func_002f86f0(f32);
-extern "C" void func_002fdd68(...);
+extern "C" void memcpy(...);
 extern "C" void func_002fed10(...);
 extern "C" u32 func_002fee78(...);
-extern "C" void func_002ff3fc(...);  // strlen
+extern "C" void strlen(...);  // strlen
 extern "C" u32 func_002ffd00(...);  // fprintf_stream_va
-extern "C" u32 func_002ffd78(...);
+extern "C" u32 _vfprintf_r(...);
 extern "C" s32 func_00305d08(...);
 extern "C" s32 func_00305d20(...);
 extern "C" void func_0030df38(...);
@@ -637,7 +637,7 @@ extern "C" u32 func_001041a0(...);
 extern u8 D_0036a070;
 
 
-extern "C" u32 func_002fea00(...);
+extern "C" u32 srand(...);
 
 
 extern "C" u32 func_0019ba60(...);
@@ -4646,7 +4646,7 @@ void func_002f1a00(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a
 extern "C" u32 func_003037b0(...);
 
 
-extern "C" u32 func_00302e90(...);
+extern "C" u32 _free_r(...);
 
 u32 func_00304b60(u32 a0, u32 a1) {
     u32 r4 = a0, r5 = a1, r2, r15, r16, r17;
@@ -4659,7 +4659,7 @@ u32 func_00304b60(u32 a0, u32 a1) {
     }
     r4 = r17;
     r5 = r16;
-    return ((u32(*)(u32,u32))func_00302e90)(r4, r5);
+    return ((u32(*)(u32,u32))_free_r)(r4, r5);
 }
 
 extern "C" u32 func_0030e548(...);
@@ -6247,13 +6247,13 @@ u32 func_0011a7a0(u32 a0) {
 }
 
 extern "C" f32 func_0011c050(...);  // float_bucket_index
-extern "C" u32 func_002f4148(...);
+extern "C" u32 sceVu0RotMatrixX(...);
 
 extern "C" f32 func_0011c050(...);  // float_bucket_index
-extern "C" u32 func_002f41f0(...);
+extern "C" u32 sceVu0RotMatrixY(...);
 
 extern "C" f32 func_0011c050(...);  // float_bucket_index
-extern "C" u32 func_002f40a0(...);
+extern "C" u32 sceVu0RotMatrixZ(...);
 
 void duplicate_unplaced_0011c210(u32 a0) {
     u64 r15 = *(volatile u64*)((u32)a0 + (s32)(16));
@@ -7104,7 +7104,7 @@ u32 duplicate_unplaced_0014cf88(u32 a0) {
 extern u8 D_00349e48;
 
 
-extern "C" u32 func_002f25a0(...);
+extern "C" u32 sceGsSyncPath(...);
 extern "C" u32 func_002f3918(...);
 extern "C" u32 func_003058a0(...);
 
@@ -7115,14 +7115,14 @@ u32 duplicate_unplaced_0014d8d0(u32 a0, u32 a1) {
     r2 = ((u32(*)(u32,u32))func_003058a0)(r4, r5);
     r4 = 0u;
     r5 = 0u;
-    r2 = ((u32(*)(u32,u32))func_002f25a0)(r4, r5);
+    r2 = ((u32(*)(u32,u32))sceGsSyncPath)(r4, r5);
     r5 = r16;
     r15 = (u32)(0x0035u << 16);
     r4 = *(volatile u32*)((u32)r15 + (s32)(-24840));
     return ((u32(*)(u32,u32))func_002f3918)(r4, r5);
 }
 
-extern "C" u32 func_002f25a0(...);
+extern "C" u32 sceGsSyncPath(...);
 extern "C" u32 func_002f3918(...);
 
 u32 duplicate_unplaced_0014d910(u32 a0, u32 a1) {
@@ -7130,7 +7130,7 @@ u32 duplicate_unplaced_0014d910(u32 a0, u32 a1) {
     r5 = 0u;
     r16 = r4;
     r4 = 0u;
-    r2 = ((u32(*)(u32,u32))func_002f25a0)(r4, r5);
+    r2 = ((u32(*)(u32,u32))sceGsSyncPath)(r4, r5);
     r5 = r16;
     r15 = (u32)(0x0035u << 16);
     r4 = *(volatile u32*)((u32)r15 + (s32)(-24840));
@@ -8958,7 +8958,7 @@ u32 duplicate_unplaced_001e0f90(u32 a0, u32 a1) {
     return r2;
 }
 
-extern "C" u32 func_002f25a0(...);
+extern "C" u32 sceGsSyncPath(...);
 extern "C" u32 func_002f3918(...);
 extern u8 D_003598e0;
 
@@ -8966,7 +8966,7 @@ u32 duplicate_unplaced_0020f118(u32 a0, u32 a1) {
     u32 r4 = a0, r5 = a1, r2, r15;
     r4 = 0u;
     r5 = 0u;
-    u32 (*fp_call4_002f25a0)(u32, u32) = (u32(*)(u32,u32))func_002f25a0;
+    u32 (*fp_call4_002f25a0)(u32, u32) = (u32(*)(u32,u32))sceGsSyncPath;
     r2 = fp_call4_002f25a0(r4, r5);
     r15 = (u32)(0x0036u << 16);
     r5 = (u32)&D_003598e0;
@@ -8976,7 +8976,7 @@ u32 duplicate_unplaced_0020f118(u32 a0, u32 a1) {
     return r2;
 }
 
-extern "C" u32 func_002f25a0(...);
+extern "C" u32 sceGsSyncPath(...);
 extern "C" u32 func_002f3918(...);
 extern u8 D_00359910;
 
@@ -8984,7 +8984,7 @@ u32 duplicate_unplaced_0020f150(u32 a0, u32 a1) {
     u32 r4 = a0, r5 = a1, r2, r15;
     r4 = 0u;
     r5 = 0u;
-    u32 (*fp_call4_002f25a0)(u32, u32) = (u32(*)(u32,u32))func_002f25a0;
+    u32 (*fp_call4_002f25a0)(u32, u32) = (u32(*)(u32,u32))sceGsSyncPath;
     r2 = fp_call4_002f25a0(r4, r5);
     r15 = (u32)(0x0036u << 16);
     r5 = (u32)&D_00359910;
@@ -9076,18 +9076,18 @@ u32 duplicate_unplaced_002367a0(u32 a0, u32 a1) {
     return ((u32(*)(u32,u32))func_002f3918)(r4, r5);
 }
 
-extern "C" u32 func_002f2be0(...);
+extern "C" u32 sceGsExecLoadImage(...);
 
 u32 duplicate_unplaced_002368b0(u32 a0, u32 a1) {
     u32 r4 = a0, r5 = a1, r2, r16;
     r16 = r4;
     r5 = *(volatile u32*)((u32)r4 + (s32)(56));
     r4 = (u32)((s32)r4 + (64));
-    r2 = ((u32(*)(u32,u32))func_002f2be0)(r4, r5);
+    r2 = ((u32(*)(u32,u32))sceGsExecLoadImage)(r4, r5);
     r5 = *(volatile u32*)((u32)r16 + (s32)(60));
     r16 = (u32)((s32)r16 + (160));
     r4 = r16;
-    return ((u32(*)(u32,u32))func_002f2be0)(r4, r5);
+    return ((u32(*)(u32,u32))sceGsExecLoadImage)(r4, r5);
 }
 
 extern "C" u32 func_00106420(...);
@@ -11388,12 +11388,12 @@ void func_0016d1f0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a
     }
 }
 
-f32 func_002f8870(f32);  // fabsf
+f32 fabsf(f32);  // fabsf
 
 void func_0016d310(u32 a0) {
     f32 f12 = *(f32*)((u32)a0 + (s32)(0));
     u32 s0 = a0;
-    f32 f0 = func_002f8870(f12);  // fabsf
+    f32 f0 = fabsf(f12);  // fabsf
     *(f32*)((u32)s0 + (s32)(0)) = f0;
 }
 
@@ -11955,17 +11955,17 @@ u32 func_0017cb48(u32 a0, u32 a1) {  // can_run_when_268_bit0
 }
 
 extern "C" u32 func_0017ce10(...);
-extern "C" u32 func_002f87c0(...);
-extern "C" u32 func_002f8960(...);
+extern "C" u32 cosf(...);
+extern "C" u32 sinf(...);
 
 u32 func_0017d0e8(u32 a0) {
     u32 s0 = a0;
     f32 f12 = ((f32(*)(u32))func_0017ce10)(a0);
     *(f32*)((u32)s0 + (s32)(12)) = f12;
-    f32 f0 = ((f32(*)(f32))func_002f8960)(f12);
+    f32 f0 = ((f32(*)(f32))sinf)(f12);
     *(f32*)((u32)s0 + (s32)(0)) = f0;
     *(u32*)((u32)s0 + (s32)(4)) = 0u;
-    f0 = ((f32(*)(f32))func_002f87c0)(*(f32*)((u32)s0 + (s32)(12)));
+    f0 = ((f32(*)(f32))cosf)(*(f32*)((u32)s0 + (s32)(12)));
     *(f32*)((u32)s0 + (s32)(8)) = f0;
     return s0;
 }
@@ -13993,7 +13993,7 @@ void func_00220088(u8* a0, u32 a1) {  // list_set_flag_clear
 
 void func_00222a00(u32 a0, u32 a1) {
     V4_222a00 tmp;
-    func_002f3f10((u32)&tmp, a0, a1);  // vec4_sub
+    sceVu0SubVector((u32)&tmp, a0, a1);  // vec4_sub
     (void)func_002229a0((u32)&tmp);  // vec3_length
 }
 
@@ -14277,7 +14277,7 @@ tail:
 u32 duplicate_unplaced_0022b7f0() {
     u32 s0 = (u32)D_01dad938;
     func_002fee78(s0, (u32)(D_00370000 + 4408), *(u32*)(D_00340000 - 13580));
-    func_002ff3fc(s0);  // strlen
+    strlen(s0);  // strlen
     return s0;
 }
 
@@ -14300,7 +14300,7 @@ void func_0022beb0(u8* a0) {
 u32 duplicate_unplaced_0022c4b8(u32 a0) {
     u32 s0 = (u32)D_01dad960;
     func_002fee78(s0, (u32)(D_00370000 + 4496), *(u32*)(D_00340000 - 13580), a0);
-    func_002ff3fc(s0);  // strlen
+    strlen(s0);  // strlen
     return s0;
 }
 
@@ -14853,7 +14853,7 @@ void duplicate_unplaced_00240b48(u32 a0) {
         s0 = D_0035ec90;
     }
     a0 = func_001058e8();
-    func_002fdd68(a0, s0, 0x10FC0);
+    memcpy(a0, s0, 0x10FC0);
 }
 
 void duplicate_unplaced_00240e10() {
@@ -14889,7 +14889,7 @@ void duplicate_unplaced_00241320() {
 }
 
 void duplicate_unplaced_00241528() {
-    func_002ff3fc(D_0035ec88);  // strlen
+    strlen(D_0035ec88);  // strlen
     u32 a1 = D_0035ec88;
     u32 t6 = D_0035ec94;
     u32 a0 = (u32)*(s8*)t6;
@@ -16471,7 +16471,7 @@ u32 duplicate_unplaced_002bd260(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 p = (u32)&func_01e2bba0;
     u32 x = (u32)&func_00374fa8;
     wtarget_002fee78(p, x, a0, a3);
-    func_002ff3fc(p);  // strlen
+    strlen(p);  // strlen
     return p;
 }
 
@@ -17525,7 +17525,7 @@ void func_002fd310(u8* a0, u32 a1) {
 u32 func_002fdf88(void* a0, u32 a1, ...) {
     va_list ap;
     va_start(ap, a1);
-    u32 v0 = func_002ffd78((u32)a0, *(u32*)((u8*)a0 + 8), a1, (void*)ap);
+    u32 v0 = _vfprintf_r((u32)a0, *(u32*)((u8*)a0 + 8), a1, (void*)ap);
     va_end(ap);
     return v0;
 }
@@ -17635,7 +17635,7 @@ void func_003111f0(u32 a0) {
     func_00305a50(16, args);
 }
 
-u64 func_00313498(u32 a0, u32 a1) {
+u64 __umoddi3(u32 a0, u32 a1) {
     u64 out;
     func_003134b8(a0, a1, &out);
     return out;

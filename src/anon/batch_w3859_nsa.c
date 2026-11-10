@@ -20,15 +20,15 @@ typedef struct {
 typedef struct { ObjF0d8* obj; f32* pos; f32 (*mat)[4]; } ArgF0d8;
 extern f32 D_01d9e840[4][4];
 extern f32 D_01d9e8c0[4][4];
-void func_002f3f98(f32 (*)[4], f32 (*)[4]);
-void func_002f3cd8(f32*, f32 (*)[4], f32*);
-void func_002f3f40(f32*, f32*, f32);
-void func_002f3f10(f32*, f32*, f32*);
-void func_002f4000(f32 (*)[4]);
-void func_002f3f88(f32*, f32*);
-void func_002f3d98(f32*, f32*);
-f32 func_002f3d70(f32*, f32*);
-void func_002f3d08(f32 (*)[4], f32 (*)[4], f32 (*)[4]);
+void sceVu0CopyMatrix(f32 (*)[4], f32 (*)[4]);
+void sceVu0ApplyMatrix(f32*, f32 (*)[4], f32*);
+void sceVu0ScaleVector(f32*, f32*, f32);
+void sceVu0SubVector(f32*, f32*, f32*);
+void sceVu0UnitMatrix(f32 (*)[4]);
+void sceVu0CopyVector(f32*, f32*);
+void sceVu0Normalize(f32*, f32*);
+f32 sceVu0InnerProduct(f32*, f32*);
+void sceVu0MulMatrix(f32 (*)[4], f32 (*)[4], f32 (*)[4]);
 f32 func_002229a0(f32*);
 f32 func_002229d8(f32*);
 
@@ -42,41 +42,41 @@ void func_0021f0d8(ArgF0d8* a)
     ObjF0d8* o;
     f32 k, d, t;
     o = a->obj;
-    func_002f3f98(l, a->mat);
+    sceVu0CopyMatrix(l, a->mat);
     if (o->mode) {
-        func_002f3f98(m, l);
+        sceVu0CopyMatrix(m, l);
         m[3][0] = 0.0f;
         m[3][1] = 0.0f;
         m[3][2] = 0.0f;
-        func_002f3cd8(va, m, a->pos);
-        func_002f3f40(vb, l[3], -1.0f);
-        func_002f3f10(vc, vb, va);
+        sceVu0ApplyMatrix(va, m, a->pos);
+        sceVu0ScaleVector(vb, l[3], -1.0f);
+        sceVu0SubVector(vc, vb, va);
     } else {
         k = 1.0f;
         *(u128*)va = 0;
         *(u128*)vb = 0;
         va[3] = k;
         vb[3] = k;
-        func_002f4000(m);
+        sceVu0UnitMatrix(m);
         m[3][0] = D_01d9e840[3][0] + o->ofs[0];
         m[3][1] = D_01d9e840[3][1] + o->ofs[1];
         m[3][2] = D_01d9e840[3][2] + o->ofs[2];
-        func_002f3d08(m, D_01d9e8c0, m);
-        func_002f3cd8(va, m, va);
-        func_002f3f40(va, va, k / va[3]);
-        func_002f4000(m);
-        func_002f3f88(m[3], D_01d9e840[3]);
-        func_002f3d08(m, D_01d9e8c0, m);
-        func_002f3cd8(vb, m, vb);
+        sceVu0MulMatrix(m, D_01d9e8c0, m);
+        sceVu0ApplyMatrix(va, m, va);
+        sceVu0ScaleVector(va, va, k / va[3]);
+        sceVu0UnitMatrix(m);
+        sceVu0CopyVector(m[3], D_01d9e840[3]);
+        sceVu0MulMatrix(m, D_01d9e8c0, m);
+        sceVu0ApplyMatrix(vb, m, vb);
         k = k / vb[3];
-        func_002f3f40(vb, vb, k);
-        func_002f3f10(vc, vb, va);
+        sceVu0ScaleVector(vb, vb, k);
+        sceVu0SubVector(vc, vb, va);
         vc[2] = 512.0f;
     }
-    func_002f4000(o->m);
-    func_002f3cd8(o->m[3], l, a->pos);
+    sceVu0UnitMatrix(o->m);
+    sceVu0ApplyMatrix(o->m[3], l, a->pos);
     if (vc[0] == 0.0f && vc[1] == 0.0f) {
-        func_002f3f88(o->v, o->m[3]);
+        sceVu0CopyVector(o->v, o->m[3]);
     } else {
         asm volatile(
             "lqc2 $vf18, 0(%0)\n"
@@ -106,26 +106,26 @@ void func_0021f0d8(ArgF0d8* a)
     } else {
         o->v[2] = (D_01d9e840[3][2] + o->ofs[2]) * 0.001953125f;
     }
-    func_002f3d98(vc, vc);
+    sceVu0Normalize(vc, vc);
     o->v[0] = vc[0] * o->v[2];
     o->v[1] = vc[1] * o->v[2];
-    func_002f3f10(vb, vb, va);
+    sceVu0SubVector(vb, vb, va);
     d = func_002229a0(vb);
     o->len = func_002229d8(vb);
-    func_002f3d98(va, vb);
+    sceVu0Normalize(va, vb);
     if (o->mode) {
         vb[0] = 0.0f;
         vb[1] = 0.0f;
         vb[2] = k = 1.0f;
-        vb[0] = (k - (k - func_002f3d70(vb, va)) * 0.5f) / 0.3f;
+        vb[0] = (k - (k - sceVu0InnerProduct(vb, va)) * 0.5f) / 0.3f;
         o->v[3] = (k < vb[0]) ? 0.0f : k - vb[0];
         if (o->dir[3] >= 0.0f) {
-            func_002f3f98(m, l);
+            sceVu0CopyMatrix(m, l);
             m[3][0] = 0.0f;
             m[3][1] = 0.0f;
             m[3][2] = 0.0f;
-            func_002f3cd8(vb, m, vb);
-            vb[0] = (1.0f - func_002f3d70(o->dir, va)) * 0.5f;
+            sceVu0ApplyMatrix(vb, m, vb);
+            vb[0] = (1.0f - sceVu0InnerProduct(o->dir, va)) * 0.5f;
             vb[0] = vb[0] / o->dir[3];
             vb[0] = (1.0f < vb[0]) ? 0.0f : 1.0f - vb[0];
             o->v[3] = o->v[3] * vb[0];

@@ -123,7 +123,7 @@ u32* func_00316e00();  // get_367918
 u32* func_00316e10();  // get_data_369928
 s32 func_003060f0();  // ee_intr_disabled
 s32 func_00305510();
-u32 func_00316a50() {
+u32 __cxa_get_globals_fast() {
     if (D_00367920) {
         s32 s = D_01e4c7a0;
         u32* a = func_00316e00();  // get_367918

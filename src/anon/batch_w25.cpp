@@ -61,12 +61,12 @@ void func_00141928(u8* o, u8 id) {  // mark_records_by_index
 
 struct S384 { u8 d[384]; };
 extern S384 D_0034d3c0[];
-void func_002f4a78(void);
+void sceDbcInit(void);
 void func_002f5c70(u32);
 void func_00167728(S384*, s32);
 void func_00167b98(void) {
     s32 i;
-    func_002f4a78();
+    sceDbcInit();
     func_002f5c70(0);
     for (i = 0; i < 2; i++) func_00167728(&D_0034d3c0[i], i);
 }
@@ -253,21 +253,21 @@ u32 func_001de168(u32** o, u32 id) {  // scan_list_by_half
 
 extern u8 D_00354bc0;
 extern u8 D_00354be0;
-u8 func_002f3f88(void*, void*);  // memcpy16
+u8 sceVu0CopyVector(void*, void*);  // memcpy16
 s32 func_002006b0(u8* a, u8* b) {
     u8* s = a + *(s32*)(*(u8**)(b + 12) + 4);
-    func_002f3f88(s + 160, &D_00354bc0);  // memcpy16
-    return func_002f3f88(s + 176, &D_00354be0);  // memcpy16
+    sceVu0CopyVector(s + 160, &D_00354bc0);  // memcpy16
+    return sceVu0CopyVector(s + 176, &D_00354be0);  // memcpy16
 }
 
 // Clears a 256-entry u64 table; the original has a 3-nop pad in the loop (asm).
 extern u64 D_01dadc00[];
-void func_002fb928(void);
+void sceMcInit(void);
 void func_00233ce0(void);
 void u_call0_00233c98(void) {
     s32 i;
     u64* p;
-    func_002fb928();
+    sceMcInit();
     p = D_01dadc00;
     i = 256;
     do {

@@ -274,10 +274,10 @@ s32 func_001d5d20(void) {
 
 extern u8 D_01d9e370[];
 extern u8 D_01d9e6f0[];
-void func_002f3cd8(void*, void*, void*);
+void sceVu0ApplyMatrix(void*, void*, void*);
 u8* func_001e3468(u8* o) {
     u8* b = *(u8**)(o + 140);
-    for (s32 i = 0; i < 8; i++) func_002f3cd8(D_01d9e370 + i * 16, D_01d9e6f0, b + i * 16);
+    for (s32 i = 0; i < 8; i++) sceVu0ApplyMatrix(D_01d9e370 + i * 16, D_01d9e6f0, b + i * 16);
     return D_01d9e370;
 }
 
@@ -512,7 +512,7 @@ void func_002e7c18(u32* o) {
 
 struct Bigint { void* next; s32 k; s32 maxwds; s32 sign; s32 wds; u32 x[1]; };
 /* newlib __mcmp: compare two bigints */
-s32 func_00304468(Bigint* a, Bigint* b) {  // cmp_entries_16_then_words
+s32 __mcmp(Bigint* a, Bigint* b) {  // cmp_entries_16_then_words
     u32 *xa, *xa0, *xb, *xb0;
     s32 i = a->wds, j = b->wds;
     if ((i -= j)) return i;

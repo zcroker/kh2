@@ -2,7 +2,7 @@
 typedef unsigned char u8;
 typedef struct { int count; int max_count; int init_count; int wait_threads; unsigned int attr; unsigned int option; } SemaParam;
 struct SifClient { u8 pad[0x24]; void *serve; };
-extern int func_003094b8(void *, int, int, void *, int, void *, int, void *, void *);
+extern int sceSifCallRpc(void *, int, int, void *, int, void *, int, void *, void *);
 extern int func_002f5c48(const char *, ...);
 extern int func_00305660(int);
 extern int func_00305640(int);
@@ -10,8 +10,8 @@ extern int func_00305670(int);
 extern int func_003058a0(int);
 extern int func_00305620(SemaParam *);
 extern int func_00305630(int);
-extern int func_0030edb0(void);
-extern void func_0030ee00(void);
+extern int DIntr(void);
+extern void EIntr(void);
 
 /* libdbc: sceDbcSendData3 */
 extern int func_003096b8(void *);
@@ -19,7 +19,7 @@ extern char D_01e2d9d0[];
 extern int D_01e2fe40;
 typedef struct { int a; int b; int size; unsigned char data[8324]; } DbcSend3;
 extern DbcSend3 D_01e2db40;
-int func_002f59c8(int a, int b, int *size, unsigned char *buf, void *end)
+int sceDbcSendData3(int a, int b, int *size, unsigned char *buf, void *end)
 {
     DbcSend3 *s;
     int i;
@@ -39,7 +39,7 @@ int func_002f59c8(int a, int b, int *size, unsigned char *buf, void *end)
     s->size = *size;
     for (i = 0; i < *size; i++)
         s->data[i] = buf[i];
-    if (func_003094b8(D_01e2d9d0, 0x8000131c, 1, &D_01e2db40, 8336, &D_01e2db40, 8336, end, 0) < 0) {
+    if (sceSifCallRpc(D_01e2d9d0, 0x8000131c, 1, &D_01e2db40, 8336, &D_01e2db40, 8336, end, 0) < 0) {
         func_00305640(D_01e2fe40);
         return 0;
     }
@@ -58,7 +58,7 @@ extern struct Name32 D_01e334c0;
 extern u8 D_01e34a40[];
 extern int D_00365948;
 extern int D_0036594c;
-extern char *func_002ff6f0(char *, const char *, unsigned int);
+extern char *strncpy(char *, const char *, unsigned int);
 extern void func_002fbba8(void *);
 int func_002fc200(int a, u8 *buf, int size)
 {
@@ -81,7 +81,7 @@ int func_002fc200(int a, u8 *buf, int size)
     for (i = 0; i < D_01e33500.n; i++)
         D_01e33500.data[i] = buf[i];
     func_003058a0(0);
-    if (func_003094b8(&D_01e33480, 6, 1, &D_01e33500, 48, D_01e34a40, 4, func_002fbba8, 0) != 0) {
+    if (sceSifCallRpc(&D_01e33480, 6, 1, &D_01e33500, 48, D_01e34a40, 4, func_002fbba8, 0) != 0) {
         func_00305640(D_0036594c);
         return -91;
     }
@@ -100,12 +100,12 @@ int func_002fce28(int a, int b, const char *name, const char *name2)
     D_01e33530.a = a;
     s->b = b;
     s->c = 16;
-    func_002ff6f0(s->name, name, 1023);
+    strncpy(s->name, name, 1023);
     s->name[1023] = 0;
-    func_002ff6f0(D_01e334c0.name, name2, 32);
+    strncpy(D_01e334c0.name, name2, 32);
     s->ptr = &D_01e334c0;
     func_003058a0(0);
-    if (func_003094b8(cd, 14, 1, s, 1044, D_01e34a40, 4, func_002fbba8, 0) != 0) {
+    if (sceSifCallRpc(cd, 14, 1, s, 1044, D_01e34a40, 4, func_002fbba8, 0) != 0) {
         func_00305640(D_0036594c);
         return -91;
     }
@@ -120,8 +120,8 @@ extern char D_01e37200[];
 extern char D_003780d0[];
 extern RpcPkt *func_00308cf8(void *);
 extern void func_00308da0(void *);
-extern int func_003088b8(unsigned int, void *, int, void *, int, void *);
-int func_00309010(RpcCmd *cd, int a, int b, int c, int mode)
+extern int sceSifSendCmd(unsigned int, void *, int, void *, int, void *);
+int sceSifGetOtherData(RpcCmd *cd, int a, int b, int c, int mode)
 {
     SemaParam sp;
     RpcPkt *p = func_00308cf8(D_01e37200);
@@ -143,7 +143,7 @@ int func_00309010(RpcCmd *cd, int a, int b, int c, int mode)
             func_00308da0(p);
             return -3;
         }
-        if (func_003088b8(0x8000000c, p, 64, 0, 0, 0) == 0) {
+        if (sceSifSendCmd(0x8000000c, p, 64, 0, 0, 0) == 0) {
             func_00308da0(p);
             func_00305630(cd->sema);
             return -2;
@@ -153,7 +153,7 @@ int func_00309010(RpcCmd *cd, int a, int b, int c, int mode)
         return 0;
     }
     cd->sema = -1;
-    if (func_003088b8(0x8000000c, p, 64, 0, 0, 0) == 0) {
+    if (sceSifSendCmd(0x8000000c, p, 64, 0, 0, 0) == 0) {
         func_00308da0(p);
         return -2;
     }
@@ -174,7 +174,7 @@ extern FdEnt *func_00309e50(int);
 extern int func_0030a2d0(int);
 extern void func_0030a300(void);
 extern int func_00309d60(void *, int, int, void *, int, void *, int, void *, void *, int);
-int func_0030c220(int fd)
+int sceDclose(int fd)
 {
     SemaParam sp;
     int res;
@@ -213,7 +213,7 @@ int func_0030c220(int fd)
     return 0;
 }
 
-int func_0030ab88(int fd)
+int sceClose(int fd)
 {
     SemaParam sp;
     int res;
@@ -260,7 +260,7 @@ typedef struct { u64 w[10]; u64 giftag1; u64 x58; } GsLoadImage;
 #define D2_CHCR ((volatile unsigned int *)0x1000a000)
 #define D2_MADR ((volatile unsigned int *)0x1000a010)
 #define D2_QWC  ((volatile unsigned int *)0x1000a020)
-int func_002f2be0(GsLoadImage *lp, void *src)
+int sceGsExecLoadImage(GsLoadImage *lp, void *src)
 {
     unsigned int i = 0;
     while (*D2_CHCR & 0x100) {

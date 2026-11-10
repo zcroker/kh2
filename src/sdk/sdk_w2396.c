@@ -15,7 +15,7 @@ typedef struct {
     sceGifTag giftag1;
 } sceGsLoadImage;
 extern int func_003080d0(const char *, ...);
-int func_002f28b8(sceGsLoadImage *lp, short dbp, short dbw, short dpsm, short x, short y, short w, short h)
+int sceGsSetDefLoadImage(sceGsLoadImage *lp, short dbp, short dbw, short dpsm, short x, short y, short w, short h)
 {
     int qwc = 0;
     switch (dpsm) {

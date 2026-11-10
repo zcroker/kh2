@@ -111,10 +111,10 @@ using namespace w320_c;
 extern "C" {
 extern Model D_01d9e360;
 extern CamBlk D_01d9e840;
-void func_002f3f98(M4r*, Model*);
-void func_002f4000(M4r*);  // vu_store_w_splat
-void func_002f3f40(V4r*, V4r*, f32);  // vec_scale_by_f12
-void func_002f3d08(M4r*, void*, M4r*);
+void sceVu0CopyMatrix(M4r*, Model*);
+void sceVu0UnitMatrix(M4r*);  // vu_store_w_splat
+void sceVu0ScaleVector(V4r*, V4r*, f32);  // vec_scale_by_f12
+void sceVu0MulMatrix(M4r*, void*, M4r*);
 void func_0021efc0(DrawReq*);
 void func_0021f060(DrawReq*);
 void func_0021fe40(DrawArg* a, u32 id) {
@@ -129,9 +129,9 @@ void func_0021fe40(DrawArg* a, u32 id) {
     f32 k = md->size / (f32)a->div;
     if (!(1.0f < k)) lim = 1.0f - k;
     if (md->noOffset) {
-        func_002f3f98(&m, md);
+        sceVu0CopyMatrix(&m, md);
     } else {
-        func_002f4000(&m);  // vu_store_w_splat
+        sceVu0UnitMatrix(&m);  // vu_store_w_splat
         m.r[3].x = D_01d9e840.pos[0] + md->off[0];
         m.r[3].y = D_01d9e840.pos[1] + md->off[1];
         m.r[3].z = D_01d9e840.pos[2] + md->off[2];
@@ -147,9 +147,9 @@ void func_0021fe40(DrawArg* a, u32 id) {
     case 1: m.r[1].y = s * lim; break;
     case 2: m.r[1].y = s * (k + 1.0f); break;
     }
-    func_002f3f40(&m.r[0], &m.r[0], a->scl[0]);  // vec_scale_by_f12
-    func_002f3f40(&m.r[1], &m.r[1], a->scl[1]);  // vec_scale_by_f12
-    func_002f3d08(&m, a->mtx, &m);
+    sceVu0ScaleVector(&m.r[0], &m.r[0], a->scl[0]);  // vec_scale_by_f12
+    sceVu0ScaleVector(&m.r[1], &m.r[1], a->scl[1]);  // vec_scale_by_f12
+    sceVu0MulMatrix(&m, a->mtx, &m);
     req.color = a->color;
     req.c[3] = (s32)(req.c[3] * md->scale * lim);
     req.tex = src->tex;

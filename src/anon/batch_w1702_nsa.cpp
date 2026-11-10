@@ -50,9 +50,9 @@ struct W1702Seq {
 
 extern "C" {
 /* the game's own __fixunssfsi (float to u32); const like the libcall */
-u32 func_00313bc0(f32) __attribute__((const));
-f32 func_002f8960(f32); /* sinf */
-f32 func_002f87c0(f32); /* cosf */
+u32 __fixunssfsi(f32) __attribute__((const));
+f32 sinf(f32); /* sinf */
+f32 cosf(f32); /* cosf */
 
 /* Finds the active key at seq->time and evaluates color, scale and position. */
 
@@ -88,13 +88,13 @@ void func_0023a0d8(W1702Seq* seq) {
         if (mode & 4) {
             u32 c;
             if ((flags & 0x80) == 0) {
-                c = func_00313bc0((k->col[0][0] + (s32)((k->col[1][0] - k->col[0][0]) * t)) * seq->colScale[0])
-                  | (func_00313bc0((k->col[0][1] + (s32)((k->col[1][1] - k->col[0][1]) * t)) * seq->colScale[1]) << 8)
-                  | (func_00313bc0((k->col[0][2] + (s32)((k->col[1][2] - k->col[0][2]) * t)) * seq->colScale[2]) << 16)
-                  | (func_00313bc0((k->col[0][3] + (s32)((k->col[1][3] - k->col[0][3]) * t)) * seq->colScale[3]) << 24);
+                c = __fixunssfsi((k->col[0][0] + (s32)((k->col[1][0] - k->col[0][0]) * t)) * seq->colScale[0])
+                  | (__fixunssfsi((k->col[0][1] + (s32)((k->col[1][1] - k->col[0][1]) * t)) * seq->colScale[1]) << 8)
+                  | (__fixunssfsi((k->col[0][2] + (s32)((k->col[1][2] - k->col[0][2]) * t)) * seq->colScale[2]) << 16)
+                  | (__fixunssfsi((k->col[0][3] + (s32)((k->col[1][3] - k->col[0][3]) * t)) * seq->colScale[3]) << 24);
             } else {
-                c = func_00313bc0(k->col[0][0] * seq->colScale[0]) | (func_00313bc0(k->col[0][1] * seq->colScale[1]) << 8)
-                  | (func_00313bc0(k->col[0][2] * seq->colScale[2]) << 16) | (func_00313bc0(k->col[0][3] * seq->colScale[3]) << 24);
+                c = __fixunssfsi(k->col[0][0] * seq->colScale[0]) | (__fixunssfsi(k->col[0][1] * seq->colScale[1]) << 8)
+                  | (__fixunssfsi(k->col[0][2] * seq->colScale[2]) << 16) | (__fixunssfsi(k->col[0][3] * seq->colScale[3]) << 24);
             }
             seq->rgba = c;
         } else if ((flags & 0x80) == 0) {
@@ -130,12 +130,12 @@ void func_0023a0d8(W1702Seq* seq) {
             f32 ay = k->ampY[0] + (k->ampY[1] - k->ampY[0]) * t;
             if ((k->flags & 8) == 0) {
                 f32 a = t * 3.1415927f;
-                x += (s32)(ax * func_002f8960(a * k->freqX));
-                y += (s32)(ay * func_002f8960(a * k->freqY));
+                x += (s32)(ax * sinf(a * k->freqX));
+                y += (s32)(ay * sinf(a * k->freqY));
             } else {
                 f32 a = t * 3.1415927f;
-                x += (s32)(ax * func_002f87c0(a * k->freqX));
-                y += (s32)(ay * func_002f87c0(a * k->freqY));
+                x += (s32)(ax * cosf(a * k->freqX));
+                y += (s32)(ay * cosf(a * k->freqY));
             }
         }
 
@@ -164,12 +164,12 @@ void func_0023a0d8(W1702Seq* seq) {
             seq->posY = y + (s32)oy;
             return;
         }
-        f32 sa = func_002f8960(rx);
-        f32 ca = func_002f87c0(rx);
-        f32 sb = func_002f8960(ry);
-        f32 cb = func_002f87c0(ry);
-        f32 sc = func_002f8960(rz);
-        f32 cc = func_002f87c0(rz);
+        f32 sa = sinf(rx);
+        f32 ca = cosf(rx);
+        f32 sb = sinf(ry);
+        f32 cb = cosf(ry);
+        f32 sc = sinf(rz);
+        f32 cc = cosf(rz);
         f32 sasb = sa * sb;
         f32 nsc = -sc;
         f32 m00 = cb * cc;
