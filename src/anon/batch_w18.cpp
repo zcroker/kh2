@@ -120,11 +120,7 @@ void func_0018f9b8(Arg18f* p) {
 
 struct Node1995 { u8 pad[12]; u32 key; u32 pad2; Node1995* next; };
 extern Node1995* D_01c62140;
-void func_001995b8(u32 a, u32 b) {
-    for (Node1995* n = 0; (n = !n ? *(Node1995* volatile*)&D_01c62140 : n->next) != 0; ) {
-        if (n->key == a) n->key = b;
-    }
-}
+// 001995b8: moved to src/anon/unit_001991a8.cpp
 
 void func_001a9350(void*);
 void func_001a9218(void*);

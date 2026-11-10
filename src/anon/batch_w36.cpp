@@ -174,13 +174,7 @@ void func_0018fe80(u32* p) {
     p[0] = (u32)v;
 }
 
-void func_00199548(void) {
-    s32 i;
-    for (i = 0; i < 4; i++) D_01c620c8.a[i] = i;
-    D_01c62138 = 4;
-    pair_clear(&D_01c62140);
-    func_00102c18(1, 14500, (void*)func_00199280);
-}
+// 00199548: moved to src/anon/unit_001991a8.cpp
 
 s32 func_0019eeb8(s32 a, u32 b) {
     if (func_00194878(b, a)) return 1;

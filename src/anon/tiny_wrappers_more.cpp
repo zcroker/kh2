@@ -828,9 +828,7 @@ u32 func_00199188(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_00199120(0x00000001u, 0x0000ffffu, a2, a3);
 }
 
-u32 func_00199668(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_001995f8(0x00000001u, 0x0000ffffu, a2, a3);
-}
+// 00199668: _GLOBAL__I_ stub, now made by gcc in src/anon/unit_001991a8.cpp
 
 u32 func_0019b4d0(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_001cec70(a1, ((u32)(*(u32*)((u32)(((u32)(*(u32*)((u32)(a0) + 8u)))) + 28u))), ((u32)(((u32)(*(u32*)((u32)(((u32)(*(u32*)((u32)(a1) + 108u)))) + 40u)))) & 0x1u), a3);

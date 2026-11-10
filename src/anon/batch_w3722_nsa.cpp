@@ -77,13 +77,7 @@ static inline __attribute__((always_inline)) void rm1993a0(E1993a0* n) {
     D_01c620c8.freeIdx[D_01c620c8.n++] = (s32)(n - D_01c620c8.e);
 }
 // Remove every node with this key from the D_01c62140 list, returning its slot to the pool free list.
-void func_001993a0(u32 key) {
-    E1993a0* c; E1993a0* n;
-    for (c = D_01c62140.head; __builtin_expect(c != 0,0); c = n) {
-        n = c->next;
-        if (c->key == key) rm1993a0(c);
-    }
-}
+// 001993a0: moved to src/anon/unit_001991a8.cpp
 }
 
 #define QC(d, s) asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(d), "r"(s) : "$8", "memory")

@@ -391,25 +391,7 @@ union H199468 { E199468* p; s32 i; };
 struct L199468 { H199468 head; E199468* tail; };
 extern P199468 D_01c620c8;
 extern L199468 D_01c62140;
-void func_00199468(u32 a, u32 b, u32 c, f32 f) {
-    P199468* P = &D_01c620c8;
-    s32 n = --P->n;
-    E199468* e = &P->e[P->freeIdx[n]];
-    E199468* h = D_01c62140.head.p;
-    e->f4 = b;
-    e->f8 = c;
-    e->f12 = a;
-    e->f16 = f;
-    e->f0 = 0;
-    if (!h) {
-        D_01c62140.tail = e;
-        D_01c62140.head.p = e;
-        e->next = 0;
-    } else {
-        e->next = h;
-        D_01c62140.head.p = e;
-    }
-}
+// 00199468: moved to src/anon/unit_001991a8.cpp
 
 struct NoTail { ~NoTail() {} };
 
