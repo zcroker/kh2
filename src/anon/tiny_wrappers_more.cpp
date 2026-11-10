@@ -622,9 +622,7 @@ u32 func_0015cd90(u32 a0, u32 a1, u32 a2, u32 a3) {
 
 // 0015d400: _GLOBAL__I_ stub, now made by gcc in src/anon/unit_0015cdb0.cpp
 
-u32 func_0015d7e8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_0015d730(0x00000001u, 0x0000ffffu, a2, a3);
-}
+// 0015d7e8: _GLOBAL__I_ stub, now made by gcc in src/anon/unit_0015d440.cpp
 
 u32 func_0015eb68(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_0015eaf8(0x00000001u, 0x0000ffffu, a2, a3);

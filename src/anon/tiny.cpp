@@ -2056,6 +2056,7 @@ u32 func_0022ab80(u32 a0, u32 a1, u32 a2, u32 a3) {
     return ((*(u32*)((u32)a0 + (5496)) ^ 0x0004u) == 0);
 }
 
+void func_002361d0(u32 a0, u32 a1, u32 a2, u32 a3) asm("_ZN2YI5IMAGED1Ev");  // YI::IMAGE::~IMAGE
 void func_002361d0(u32 a0, u32 a1, u32 a2, u32 a3) {
     (void)a1;
     (void)a2;

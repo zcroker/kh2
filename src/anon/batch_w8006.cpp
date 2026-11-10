@@ -27,22 +27,9 @@ extern u8 D_0034af40[];
 extern u8 D_0034b0e0[];
 extern O161030* D_004f3b38;
 
-void func_0015d540(void) {
-    func_0013efe8();
-    func_00102818(*(s32*)((u8*)c8006_getFieldMode() + 4), 0, 0x1d4c0, func_0015d4e8, 0x1000);
-    func_002362b0(D_0034af40, c8006_getImd(2));
-    func_00239988(D_0034b0e0, c8006_getSqd(2), D_0034af40);
-    c8006_239bf8(D_0034b0e0, 1);
-}
+// 0015d540: moved to src/anon/unit_0015d440.cpp
 
-void func_0015d690(void) {
-    c8006_clear();
-    c8006_create_task(*(void**)((u8*)c8006_getFieldMode() + 4), 1, 0x1D4C0, (void*)func_0015d5d0);
-    func_0014aa80(c8006_getAllFade(), 1, 0);
-    func_002362b0(D_0034af40, c8006_getImd(2));
-    func_00239988(D_0034b0e0, c8006_getSqd(2), D_0034af40);
-    c8006_239bf8(D_0034b0e0, 0);
-}
+// 0015d690: moved to src/anon/unit_0015d440.cpp
 
 static inline O161030* next_161030(O161030* p) {
     if (p == 0) return D_004f3b38;
