@@ -13683,11 +13683,7 @@ u32 duplicate_unplaced_001e0188(u32 a0) {
 
 // 001e0400: moved to src/anon/unit_001e0398.cpp
 
-u32 func_001e0a90(void) {
-    s32 v0 = (s32)func_001e09d0();
-    v0 = (s32)(v0 ^ 0x64);
-    return (u32)(((u32)v0 < 1u) ? 1u : 0u);
-}
+// 001e0a90: moved to src/rikeda/saveram_gumibattle.cpp
 
 void duplicate_unplaced_001e0dc8(u32 a0) {
     u32 t7 = *(u32*)((u32)a0 + (s32)(32));

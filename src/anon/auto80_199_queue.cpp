@@ -7624,35 +7624,9 @@ void func_001de3d8(u32 a0, u32 a1) {
     }
 }
 
-void func_001e0868(u32 a0) {
-    s32 t6 = 19;
-    u32 t7 = a0 + 3712;
-    do {
-        *(u32*)(t7 + 0) = 0;
-        t6 = t6 - 1;
-        t7 = t7 + 4;
-    } while (t6 >= 0);
+// 001e0868: moved to src/rikeda/saveram_gumibattle.cpp
 
-    *(u32*)(a0 + 3792) = 0;
-    *(u32*)(a0 + 3796) = 0;
-    *(u32*)(a0 + 3800) = 0;
-    *(u32*)(a0 + 3804) = 0;
-    func_001e08c8(a0);
-    func_001e0958(a0);
-}
-
-void func_001e0ac0(u32 a0) {
-    u8 spv[64];
-    u32 s1 = a0;
-    u32 t7 = *(u32*)(a0 + 0);
-    u32 s0 = *(u32*)(t7 + 4);
-    func_00190128((u32)&spv[0]);
-    func_00190878((u32)&spv[0], s0, 0);
-    *(u32*)(&spv[44]) = 0;
-    func_001902a8((u32)&spv[0], (u32)&spv[32]);
-    f32 f0 = *(f32*)(&spv[36]);
-    *(f32*)(s1 + 0) = f0;
-}
+// 001e0ac0: moved to src/rikeda/saveram_gumibattle.cpp
 
 void func_001e16c0(u32 a0) {
     u32 s0 = a0;

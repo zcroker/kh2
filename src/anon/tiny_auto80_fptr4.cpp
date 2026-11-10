@@ -1481,20 +1481,7 @@ u32 func_001de568(u32 a0, u32 a1, u32 a2, u32 a3) {
     return r2;
 }
 
-u32 func_001e09a0(u32 a0, u32 a1, u32 a2, u32 a3) {  // entry64_by_3index
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2, r14, r15;
-    r15 = (u32)(r5 << 1);
-    r6 = (u32)((s32)r6 + (-1));
-    r15 = (u32)(r15 + r5);
-    r7 = (u32)(r7 & 0x00ffu);
-    r15 = (u32)(r15 + r6);
-    r14 = (u32)((s32)r15 + (27));
-    if (r7 != 0u) r15 = r14;
-    r15 = (u32)(r15 << 6);
-    r4 = (u32)(r4 + r15);
-    r2 = r4;
-    return r2;
-}
+// 001e09a0: moved to src/rikeda/saveram_gumibattle.cpp
 
 u32 func_00200608(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2, r14, r15;

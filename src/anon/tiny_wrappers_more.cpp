@@ -1098,13 +1098,9 @@ u32 func_001e0378(u32 a0, u32 a1, u32 a2, u32 a3) {
 
 // 001e07c8: _GLOBAL__I_ stub, now made by gcc in src/anon/unit_001e0398.cpp
 
-u32 func_001e0b20(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_0016b070(((u32)(*(u32*)((u32)(((u32)(*(u32*)((u32)(a0) + 0u)))) + 4u))), ((u32)(*(u32*)((u32)(a0) + 4u))), a2, a3);
-}
+// 001e0b20: moved to src/rikeda/saveram_gumibattle.cpp
 
-u32 func_001e0c58(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_001e0c50(0x00000001u, 0x0000ffffu, a2, a3);
-}
+// 001e0c58: _GLOBAL__I_ stub, now made by gcc in src/rikeda/saveram_gumibattle.cpp
 
 u32 func_001e2620(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_001e2450(a0, a0, 0x0000000au, a3);

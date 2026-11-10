@@ -228,17 +228,7 @@ void func_001d89e8(s32 digit, s32 val, s32 idx) {
     func_001d1b60(e, cur + (val - cur / m % 10) * m);
 }
 
-u8* func_001e09a0(void*, s32, s32, s32);  // entry64_by_3index
-f32 func_001e09d0(void* o) {
-    f32 sum = 0.0f, cnt = 0.0f;
-    s32 i, j;
-    for (j = 0; j < 9; j++)
-        for (i = 1; i < 4; i++) {
-            cnt += 100.0f;
-            sum += *(f32*)(func_001e09a0(o, j, i, 0) + 32);  // entry64_by_3index
-        }
-    return sum / cnt * 100.0f;
-}
+// 001e09d0: moved to src/rikeda/saveram_gumibattle.cpp
 
 struct V3f { f32 x, y, z; };
 extern V3f D_00354bd0;
