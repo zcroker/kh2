@@ -224,29 +224,7 @@ extern "C" {
 void wt_0014d530(u32 init, u32 prio, u32, u32) asm("_Z16wtarget_0014d530jjjj");
 // static init/teardown for a config record and a 2-entry table
 void wt_0014d530(u32 init, u32 prio, u32, u32) ;
-void wt_0014d530(u32 init, u32 prio, u32, u32) {
-    if (prio == 0xffff && init == 1) new (&D_00349e28) S14d;
-    if (prio == 0xffff && init == 1) {
-        B14d* p = D_00349e48;
-        for (s32 i = 1; i != -1; i--) {
-            p->f8 = 0; p->f12 = 0; p->f16 = 0; p->f24 = 0; p->f20 = (u32)&D_0037a800; p->f4 = 0; p->f28 = 0; p->f32 = 0; p->f36 = 0; p->f40 = 0; p->f44 = 0; p->f48 = 0;
-            new (&p->s) S14d;
-            p++;
-        }
-    }
-    if (prio == 0xffff && init == 0) {
-        B14d* p = D_00349e48;
-        if (p) {
-            B14d* base = p;
-            p += 2;
-        loop:
-            if (p == base) goto out;
-            p--;
-            goto loop;
-        out:;
-        }
-    }
-}
+// 0014d530: static initialiser, now made by gcc in src/anon/unit_0014d298.cpp
 }
 
 // ---- 1571c0 ----
