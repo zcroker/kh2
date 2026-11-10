@@ -7341,19 +7341,7 @@ u32 duplicate_unplaced_001586b8(u32 a0, u32 a1) {
 extern "C" u32 func_0013fca8(...);
 extern "C" u32 func_00159790(...);
 
-u32 func_00159b00(u32 a0) {
-    u32 r4 = a0, r2, r13, r14, r15, r16;
-    r13 = (u32)(0x0035u << 16);
-    r15 = (u32)((s32)0u + (1));
-    r14 = (u32)(*(u8*)((u32)r13 + (s32)(-22000)));
-    r16 = r4;
-    if (r14 == r15) {
-        *(u8*)((u32)r13 + (s32)(-22000)) = (u8)0u;
-        r2 = ((u32(*)(u32))func_00159790)(r4);
-    }
-    r4 = r16;
-    return ((u32(*)(u32))func_0013fca8)(r4);
-}
+// 00159b00: moved to src/harata/libdk/talkcamera.cpp
 
 extern "C" u32 func_001024a8(...);
 extern "C" u32 func_00140dd0(...);

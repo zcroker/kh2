@@ -484,7 +484,4 @@ void func_0014a868(int a, int b) {
 }
 
 extern "C" { extern f32 D_004f3600; extern u8 D_0034aa18[]; void func_00190128(void*); }
-void func_00159c58(int a, int b) {
-    if (b == 0xffff && a == 1) D_004f3600 = 1.04719746f;
-    if (b == 0xffff && a == 1) func_00190128(D_0034aa18);
-}
+// 00159c58: static initialiser, now made by gcc in src/harata/libdk/talkcamera.cpp

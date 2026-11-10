@@ -133,11 +133,7 @@ void COUNTER_alertLoop(u8* self) {
     func_00138c10(self + 1248, 7);
 }
 
-void TalkCamera_ensureTask(void* self, void* task) {
-    func_00140f10(func_00140df0());
-    func_00140dd0(func_00140df0());
-    func_001024a8(self);
-}
+// 00159be0: moved to src/harata/libdk/talkcamera.cpp
 
 void func_0015a810(void) {
     void* a = func_001050c8();

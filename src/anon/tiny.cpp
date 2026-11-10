@@ -249,7 +249,7 @@ void func_0014a8d8(BD_VALUE* bd) { func_0014a868(1, 0xffff); }
 void func_0014b110(BD_VALUE* bd) { func_0014aed0(1, 0xffff); }
 void func_0014e280(BD_VALUE* bd) { func_0014e1f0(1, 0xffff); }
 // 00159220: _GLOBAL__I_ stub, now made by gcc in src/harata/libdk/lightcyclecamera.cpp
-void func_00159cc0(BD_VALUE* bd) { func_00159c58(1, 0xffff); }
+// 00159cc0: _GLOBAL__I_ stub, now made by gcc in src/harata/libdk/talkcamera.cpp
 void func_0015a7d0(BD_VALUE* bd) { func_0015a768(1, 0xffff); }
 
 // merged from: tiny_patterns.cpp

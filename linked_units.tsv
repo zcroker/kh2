@@ -35,3 +35,4 @@ src/anon/unit_0014d298.cpp	0014d298	0014d680	.data@00349e28	-G0 -fno-strict-alia
 src/anon/unit_0015d440.cpp	0015d540	0015d828	.data@0034af40	-G0
 src/anon/unit_002bac78.cpp	002bac78	002bb070	.bss@01e2a5e8	-G0 -fno-strict-aliasing
 src/yasui/libys/damage.cpp	0018c8b8	0018d050	.bss@01c60bf0,.rodata@0036cc28	-G0 -fno-strict-aliasing -finline-limit=1000
+src/harata/libdk/talkcamera.cpp	00159790	00159ce0	.data@0034aa10,.bss@004f3600,.rodata@0036b364	-G0 -fno-strict-aliasing
