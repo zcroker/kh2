@@ -26,14 +26,7 @@ void func_0010cae8(u8* a0, u8* a1) {
     else a0[0xc35] = 0;
 }
 
-void func_001994d8(s32 a0, s32 a1, s32 a2) {
-    W2031_Pool* P = &D_01c620c8; W2031_PL* L = &D_01c62140;
-    s32 i = --P->n;
-    W2031_PE* e = &P->e[P->fr[i]];
-    e->a = 1; e->b = a1; e->c = a2; e->d = a0;
-    if (L->head == 0) { L->tail = e; L->head = e; e->next = 0; }
-    else { e->next = L->head; L->head = e; }
-}
+// 001994d8: moved to src/anon/unit_001991a8.cpp
 
 void func_001ba168(W2031_N* n, s32 a1, s32 a2, s32 a3) {
     n->b = a2; n->a = a1; n->t = 30.0f;

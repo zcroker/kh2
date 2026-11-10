@@ -8331,29 +8331,7 @@ s32 func_0016b7a0(s32);
 void func_00196b28(s32, s32);
 void func_0016bb38(s32, s32);
 s32 func_00198cb8(s32, s32);
-s32 func_001991a8(s32 n, s32 a) {
-    s32 r = 1;
-    func_001993a0(n, a);
-    switch (n) {
-    case 19:
-    case 102: case 103: case 104: case 105: case 106: case 107: case 108: case 109:
-    case 110: case 111: case 112: case 113: case 114: case 115: case 116: case 117:
-    case 131: case 132: case 133: case 138:
-        func_00105de0(n);
-        break;
-    case 22: case 70: case 79: case 87: case 88: case 89: case 98: case 100: case 101:
-    case 118: case 129:
-        func_002430b0(n);
-        break;
-    default:
-        if ((n == 8 || n == 130) && a != 0) D_00350438 = func_0016b7a0(a);
-        func_00196b28(n, a);
-        func_0016bb38(n, a);
-        r = func_00198cb8(n, a);
-        break;
-    }
-    return r;
-}
+// 001991a8: moved to src/anon/unit_001991a8.cpp
 
 // --------------------
 struct S19ef90 { u8 a; u8 b; u8 c; u8 pad; s16 x; s16 y; s16 z; };
