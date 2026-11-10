@@ -756,9 +756,7 @@ u32 func_0018c898(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_0018c868(0x00000001u, 0x0000ffffu, a2, a3);
 }
 
-u32 func_0018d010(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_0018cf18(0x00000001u, 0x0000ffffu, a2, a3);
-}
+// 0018d010: moved to src/yasui/libys/damage.cpp
 
 u32 func_0018f1e0(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_001b3c58(((u32)(*(u32*)((u32)(((u32)(*(u32*)((u32)(a0) + 0u)))) + 4u))), ((u32)(*(u32*)((u32)(a0) + 4u))), a2, a3);

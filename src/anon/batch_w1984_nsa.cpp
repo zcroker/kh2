@@ -29,38 +29,7 @@ extern u32 D_003638d0;
 s32 func_0018ca48(u8);
 CbV* func_0016c028(u32);
 void func_0018cd28(CbSelf*, f32*, f32*);
-f32 func_0018cb30(CbSelf* self)
-{
-    CbV v;
-    CbV* pv = &v;
-    f32 r = D_00352130->f30;
-    switch (func_0018ca48(self->f27)) {
-    case 4:
-        func_0018cd28(self, &pv->y, &pv->z);
-        pv->x = 0.0f;
-        r = pv->length() * D_00352130->f2c;
-        break;
-    case 5: {
-        f32 len;
-        f32 lo, hi;
-        *pv = self->f1c->vt[2](self->f1c) - *func_0016c028(self->f14);
-        pv->y = 0.0f;
-        len = pv->length();
-        lo = (f32)self->f20->lo;
-        hi = (f32)self->f20->hi;
-        D_003638d0 *= 0x10dcd;
-        r = -(len - (lo + (f32)D_003638d0 * 2.3283064365386963e-10f * (hi - lo)));
-        break;
-    }
-    case 3:
-        r = D_00352130->f34;
-    default:
-        if (self->f20 && self->f20->lo != 0x7fff) r = (f32)self->f20->lo;
-        break;
-    }
-    if (self->f26 == 12 || self->f26 == 13) r *= 0.5f;
-    return r;
-}
+// 0018cb30: moved to src/yasui/libys/damage.cpp
 
 // 0019dd10
 struct TgtD { u8 pad[32]; };
