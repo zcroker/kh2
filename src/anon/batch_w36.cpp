@@ -475,10 +475,7 @@ void func_002b6338(u32 a, u32 b, u32 c, u32 d) {  // hash_with_seed_choice
     func_00192e50(x, a, b, func_00192048(id));
 }
 
-void func_002baf48(u32 a, u32 b, u32 c, u32 d, u32 e, u32 f) {
-    s32 n = --D_01e2a5f8.n;
-    func_002bac78(&D_01e2a5f8.e[D_01e2a5f8.free[n]], a, b, c, d, e, f);
-}
+// 002baf48: moved to src/anon/unit_002bac78.cpp
 
 // dst = src * s (VU0), then kick a motion.
 void func_002c18e0(u32, u8* p) {

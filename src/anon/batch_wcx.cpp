@@ -1057,26 +1057,7 @@ extern D8 D_01e2a5f0;
 struct T32 { u8 pad[1024]; s32 v[32]; s32 n; };
 extern T32 D_01e2a5f8;
 void wtarget_002bafb0(u32, u32, u32, u32) asm("_Z16wtarget_002bafb0jjjj");
-void wtarget_002bafb0(u32 a, u32 b, u32, u32)
-{
-    if (b == 0xffff && a == 1) { D_01e2a5e8.a = 0; D_01e2a5e8.b = 0; }
-    if (b == 0xffff && a == 1) { D_01e2a5f0.a = 0; D_01e2a5f0.b = 0; }
-    if (b == 0xffff && a == 1) {
-        T32* t = &D_01e2a5f8;
-        s32 i = 0;
-        bool c;
-        s32* w = t->v;
-        do {
-            *w = i;
-            i++;
-            c = i < 32;
-            // R5900 short-loop padding
-            asm volatile("nop\n\tnop");
-            w++;
-        } while (c);
-        t->n = 32;
-    }
-}
+// 002bafb0: static initialiser, now made by gcc in src/anon/unit_002bac78.cpp
 
 s32 func_00197920(u8*);
 void func_002e2728(u8*, s32, u8);

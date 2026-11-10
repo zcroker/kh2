@@ -23,11 +23,7 @@ void func_002bad20(void);
 void func_00102818(s32, s32, s32, void (*)(void), s32);
 s32* func_002e34d8(W2030Q*, s32);
 
-void func_002bacc0(void) {
-    D_01e2a5e8.Clear();
-    D_01e2a5f0.Clear();
-    func_00102818(D_0032b91c, 0, 0x7a508, func_002bad20, 0x1800);
-}
+// 002bacc0: moved to src/anon/unit_002bac78.cpp
 
 void func_002e0fa0(W2030P* p, s32 a) {
     p->a = a;
