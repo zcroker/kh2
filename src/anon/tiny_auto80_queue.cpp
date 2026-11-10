@@ -10411,36 +10411,13 @@ extern u8 D_00349e28;
 extern "C" u32 func_00305660(...);
 extern u8 D_00349e7c;
 
-void func_0014d430() {
-    u32 t7 = (u32)&D_00349e7c;
-    u32 s0 = (u32)((s32)t7 + (24));
-    s32 s1 = 1;
-    while (1) {
-        func_00305660(*(u32*)((u32)s0 + (s32)(0)));
-        s1 = (s32)(s1 + (-1));
-        if (s1 < 0) break;
-        s0 = (u32)((s32)s0 + (88));
-    }
-}
+// 0014d430: moved to src/anon/unit_0014d298.cpp
 
 extern "C" u32 func_00305650(...);
 extern "C" u32 func_003056a0(...);
 extern u8 D_00349e28;
 
-void func_0014d4e8() {
-    struct {
-        u32 w0;
-        u32 w1;
-        u32 w2;
-        u32 w3;
-        u32 pad;
-    } sp;
-    u32 s0 = (u32)&D_00349e28;
-    func_003056a0(*(u32*)((u32)s0 + (s32)(24)), (u32)&sp);
-    if (sp.w3 != 0u) {
-        func_00305650(*(u32*)((u32)s0 + (s32)(24)));
-    }
-}
+// 0014d4e8: moved to src/anon/unit_0014d298.cpp
 
 extern "C" u32 func_0014d948(...);
 extern "C" u32 func_0014da40(...);

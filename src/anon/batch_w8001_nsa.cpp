@@ -24,25 +24,7 @@ s32 func_00305620(SP14d358*) asm("CreateSema");
 s32 func_00305420(TP14d358*) asm("CreateThread");
 void func_00306760(s32, s32);
 
-void func_0014d358(void* stack, s32 size, void (*func)(void*), void* arg)
-{
-    s32 i; s32 off;
-    for (i = 0, off = 0; i < 2; i++, off += 88) {
-        E14d358* e = &D_00349e48[i];
-        if (e->func == 0) {
-            e->func = func;
-            e->arg = arg;
-            e->sema = func_00305620((SP14d358*)((u8*)&D_00349e48[0].sp + off));
-            e->tp.func = func_0014d298;
-            e->tp.stack = stack;
-            e->tp.size = size;
-            e->tp.prio = i + 40;
-            e->tid = func_00305420(&e->tp);
-            func_00306760(e->tid, i);
-            return;
-        }
-    }
-}
+// 0014d358: moved to src/anon/unit_0014d298.cpp
 
 // The s32 return keeps v live past its store to 2852, so sched1 keeps the
 // original store order (v0 already holds v on every path).

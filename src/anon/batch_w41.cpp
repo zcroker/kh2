@@ -137,14 +137,7 @@ void func_00139b28(u32 key) {
     }
 }
 
-void func_0014d478(void) {
-    s32 st[8];
-    func_00305660(D_00349e40);
-    for (W41Sema* e = D_00349e7c; (s32)e < (s32)(D_00349e7c + 2); e++) {
-        func_00305690(e->sema, st);
-        if (st[3]) func_00305640(e->sema);
-    }
-}
+// 0014d478: moved to src/anon/unit_0014d298.cpp
 
 // 00159130: moved to src/harata/libdk/lightcyclecamera.cpp
 
