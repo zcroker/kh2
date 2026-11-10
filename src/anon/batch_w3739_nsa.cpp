@@ -83,45 +83,5 @@ C0031a9d8* func_0031a9d8(C0031a9d8* d, C0031a9d8* s) {
     d->f8c = x8c; d->f90 = x90; d->f94 = x94; d->f98 = x98; d->f9c = x9c; d->fa4 = xa4; d->fac = xac;
     return d; }
 
-void func_00159790(C159790* c)
-{
-    S159790 s;
-    s.flag = 0;
-    func_001904f0(&D_0034aa18, &s);
-    c->v128 = s.pos;
-    if (D_0034aa11 == 1) {
-        V159790 a, b;
-        V159790& t = *func_0016c028(c->target);
-        V159790 d;
-        b = c->v128;
-        d = t;
-        V159790 e, f;
-        e = b;
-        f = d - b;
-        f.w = 1.0f;
-        e.w = 1.0f;
-        a = f;
-        f32 ang = func_0017ce10(func_002f8ad0(a.x, a.z));
-        V159790 r(0.0f, 0.0f, s.dist, 0.0f);
-        M159790 m;
-        func_0011b6a8(&m);
-        func_0011b720(&m, ang);
-        a = m * r;
-        c->v96 = c->v128 + a;
-        c->v96.y -= s.height;
-    } else {
-        M159790 m1; M159790 m2; V159790 p; V159790 q;
-        m1 = D_0034aa18->mtx;
-        m2 = m1;
-        V159790 u(0.0f, 0.0f, -s.dist, 0.0f);
-        m2.invOrtho();
-        q = m2 * s.pos;
-        p = q + u;
-        p.y -= s.height;
-        c->v96 = m1 * p;
-    }
-    c->f48 = D_004f3600;
-    c->x52 = 0;
-    func_0013f648(c);
-}
+// 00159790: moved to src/harata/libdk/talkcamera.cpp
 }

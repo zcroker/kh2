@@ -148,14 +148,7 @@ struct S20 { u32 w[5]; };
 extern S20 D_0034aa18;
 extern u8 D_0034aa11;
 extern u8 D_0034aa10;
-void func_00159b40(S20* a, u8 b) {
-    func_00141010(30.0f);
-    *(u32*)(func_00140df0() + 64) = 4;
-    D_0034aa18 = *a;
-    func_00162058(8.0f);  // to_161f48_arg1
-    D_0034aa10 = 1;
-    D_0034aa11 = b;
-}
+// 00159b40: moved to src/harata/libdk/talkcamera.cpp
 // ---- 00178100
 extern s32 D_0034ece8;
 u32 func_00194898(void);

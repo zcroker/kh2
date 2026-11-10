@@ -23,10 +23,7 @@ void func_00152ab8(W203C* a, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32
   func_00152508(a, 108, a2, a3, a7);
 }
 
-void func_00159c20(void) {
-  w203_createTask(1, 25990, w203_ensureTask);
-  func_00162058(8.0f);  // to_161f48_arg1
-}
+// 00159c20: moved to src/harata/libdk/talkcamera.cpp
 
 void u_call4_0023f8c8(u8* a) asm("_Z16u_call4_0023f8c8jjjj");
 void u_call4_0023f8c8(u8* a) {
