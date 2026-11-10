@@ -28,49 +28,7 @@ void func_002ba1b8(s32, s32, s32);
 /* Loader task: runs each pending request, waits until it is done, then
    unlinks the finished requests and returns them to the pool. The list
    links are held as integers: pointer-typed links change branch layout. */
-void func_002bad20(s32 task)
-{
-    for (;;) {
-        D_01e2a5f0.tail = 0;
-        D_01e2a5f0.head = 0;
-        u32 r = 0;
-        while ((r = !r ? D_01e2a5e8.head : R(r)->next) != 0) {
-            switch (R(r)->type) {
-            case 0: func_002ba1b8(R(r)->a, R(r)->b, R(r)->c); break;
-            case 1: func_002ba188(R(r)->a, R(r)->b, R(r)->c); break;
-            case 2: func_002ba1a0(R(r)->a, R(r)->b, R(r)->c); break;
-            case 3: func_002ba140(R(r)->a, R(r)->b, R(r)->c); break;
-            }
-            while (func_002b6f78()) func_00102448(task, 0);
-            if (D_01e2a5f0.tail == 0) {
-                D_01e2a5f0.tail = r;
-                D_01e2a5f0.head = r;
-                R(r)->doneNext = 0;
-            } else {
-                R(D_01e2a5f0.tail)->doneNext = r;
-                R(r)->doneNext = 0;
-                D_01e2a5f0.tail = r;
-            }
-            s32 arg = R(r)->arg;
-            if (R(r)->cb) R(r)->cb(arg);
-        }
-        while ((r = !r ? D_01e2a5f0.head : R(r)->doneNext) != 0) {
-            u32 prev;
-            if (r == D_01e2a5e8.head) {
-                prev = 0;
-                D_01e2a5e8.head = R(r)->next;
-            } else {
-                prev = D_01e2a5e8.head;
-                while (R(prev)->next != r) prev = R(prev)->next;
-                R(prev)->next = R(r)->next;
-            }
-            if (r == D_01e2a5e8.tail) D_01e2a5e8.tail = prev;
-            R(r)->next = 0;
-            D_01e2a5f8.free[D_01e2a5f8.n++] = R(r) - D_01e2a5f8.ent;
-        }
-        func_00102448(task, 0);
-    }
-}
+// 002bad20: moved to src/anon/unit_002bac78.cpp
 
 #undef R
 

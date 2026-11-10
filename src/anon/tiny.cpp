@@ -2107,13 +2107,7 @@ void func_00287eb8(u32 a0, u32 a1, u32 a2, u32 a3) {
 }
 
 
-u32 func_002baf38(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a0;
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    return (D_01e2a5e8 != 0);
-}
+// 002baf38: moved to src/anon/unit_002bac78.cpp
 
 u32 func_002bfdf8(u32 a0, u32 a1, u32 a2, u32 a3) {
     (void)a0;

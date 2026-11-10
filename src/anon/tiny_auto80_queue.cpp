@@ -16187,31 +16187,7 @@ void func_002bac08(u32 a0, u32 a1) {
     }
 }
 
-void func_002bac78(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6) {
-    *(u32*)(a0 + 20) = a2;
-    *(u32*)(a0 + 16) = a1;
-    *(u32*)(a0 + 24) = a3;
-    *(u32*)(a0 + 28) = a4;
-    *(u32*)(a0 + 0) = a5;
-    *(u32*)(a0 + 4) = a6;
-
-    u32 base = (u32)&D_01e2a5e8;
-    u32 p = *(u32*)(base + 4);
-
-    if (p != 0) {
-        *(u32*)(p + 8) = a0;
-        goto nonzero;
-    }
-
-    *(u32*)(base + 4) = a0;
-    *(u32*)(base + 0) = a0;
-    *(u32*)(a0 + 8) = 0;
-    return;
-
-nonzero:
-    *(u32*)(a0 + 8) = 0;
-    *(u32*)(base + 4) = a0;
-}
+// 002bac78: moved to src/anon/unit_002bac78.cpp
 
 void func_002bb0a0(s32 a0, s32* a1, s32* a2) {  // divmod_1000
     s32 q = a0 / 1000;
