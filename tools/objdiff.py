@@ -30,7 +30,9 @@ from common import (
     REGISTRY_TSV,
     ROOT,
     SLPM_PATH,
+    SYM_RE,
     TARGET_PATH,
+    _symbol_to_qualified_name,
     addr_to_file_offset,
     load_boundaries,
     load_elf_image,
@@ -564,6 +566,14 @@ def choose_group_entry_symbols(
                 if max(sym.size for sym in vals) != size:
                     continue
                 if any(token in sym.name for sym in vals):
+                    match = vals
+                    break
+        if match is None and SYM_RE.match(spec_sym) and not spec_sym.startswith("_Z"):
+            # Renamed from func_ADDR with C++ linkage: the object symbol is the mangled form.
+            for vals in sized_groups:
+                if max(sym.size for sym in vals) != size:
+                    continue
+                if any(_symbol_to_qualified_name(sym.name) == spec_sym for sym in vals):
                     match = vals
                     break
         if match is None:

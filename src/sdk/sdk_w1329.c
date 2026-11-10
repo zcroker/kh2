@@ -45,7 +45,7 @@ int func_003063f8(void)
     return D_003660d0;
 }
 
-extern int func_003094b8(void *cd, int fno, int mode, void *send, int ssize, void *recv, int rsize, void *end, void *endp);
+extern int sceSifCallRpc(void *cd, int fno, int mode, void *send, int ssize, void *recv, int rsize, void *end, void *endp);
 extern int func_00306698(int);
 int func_00309d60(void *cd, int fno, int mode, void *send, int ssize, void *recv, int rsize, void *end, void *endp, int noretry)
 {
@@ -53,7 +53,7 @@ int func_00309d60(void *cd, int fno, int mode, void *send, int ssize, void *recv
     i = 0;
     d = 1;
     do {
-        r = (unsigned int)func_003094b8(cd, fno, mode, send, ssize, recv, rsize, end, endp) >> 31;
+        r = (unsigned int)sceSifCallRpc(cd, fno, mode, send, ssize, recv, rsize, end, endp) >> 31;
         if (r == 0)
             break;
         if (noretry)
@@ -76,7 +76,7 @@ int func_0030e900(unsigned int addr, void *data, unsigned int size)
         return 0xfffefffe;
     D_01e38c40_u[0] = addr;
     D_01e38c40_u[1] = size;
-    if (func_003094b8(D_01e38e40, 3, 0, D_01e38c40_u, 32, D_01e38c40_u, 32, 0, 0) < 0)
+    if (sceSifCallRpc(D_01e38e40, 3, 0, D_01e38c40_u, 32, D_01e38c40_u, 32, 0, 0) < 0)
         return 0xfffeffff;
     if (size == 0) {
         *(unsigned char *)data = D_01e38c40_u[0];
@@ -142,7 +142,7 @@ int func_0030da30(const char *name, int arg)
     }
     D_01e38b40.arg = arg;
     D_01e38b40.name[251] = 0;
-    if (func_003094b8(D_01e38a80, 3, 0, &D_01e38b40, i + 5, D_01e38ac0, 4, 0, 0) < 0)
+    if (sceSifCallRpc(D_01e38a80, 3, 0, &D_01e38b40, i + 5, D_01e38ac0, 4, 0, 0) < 0)
         return -1;
     return D_01e38ac0[0];
 }
@@ -221,16 +221,16 @@ int func_00310b70(int a0, int a1, int a2)
 
 struct B64 { unsigned char b[64]; };
 extern void func_00305f18(void *, void *);
-extern int func_0030edb0(void);
-extern void func_0030ee00(void);
+extern int DIntr(void);
+extern void EIntr(void);
 extern struct B64 D_01e2fd80;
 extern struct B64 D_01e2fe00;
 int func_002f5190(int port)
 {
     func_00305f18(&D_01e2fd80, (char *)&D_01e2fd80 + 128);
-    func_0030edb0();
+    DIntr();
     D_01e2fe00 = D_01e2fd80;
-    func_0030ee00();
+    EIntr();
     return ((int *)&D_01e2fe00)[port] == 1 ? 1 : 3;
 }
 
@@ -261,7 +261,7 @@ void func_0030ef58(void)
     D_00366188 = pa;
 }
 
-extern int func_003092d8(void *cd, unsigned int rpc, int mode);
+extern int sceSifBindRpc(void *cd, unsigned int rpc, int mode);
 struct CD { int pad[9]; void *serve; int pad2[2]; };
 struct B4 { char b[4]; };
 extern int D_00366180;
@@ -273,11 +273,11 @@ int func_0030dd70(void)
     int i;
     if (D_00366180 < 0) {
     retry:
-        if (func_003092d8(&D_01e38e40_cd, 0x80000006, 0) < 0)
+        if (sceSifBindRpc(&D_01e38e40_cd, 0x80000006, 0) < 0)
             return -1;
         if (D_01e38e40_cd.serve != 0) {
             D_00366180 = 0;
-            if (func_003094b8(&D_01e38e40_cd, 255, 0, 0, 0, &D_01e38c40_b4, 4, 0, 0) < 0)
+            if (sceSifCallRpc(&D_01e38e40_cd, 255, 0, 0, 0, &D_01e38c40_b4, 4, 0, 0) < 0)
                 return 0xfffeffff;
             D_01e38e68 = D_01e38c40_b4;
             return 0;
@@ -289,7 +289,7 @@ int func_0030dd70(void)
 }
 
 extern int func_0030de70(void);
-extern char *func_002ff6f0(char *d, const char *s, int n);
+extern char *strncpy(char *d, const char *s, int n);
 struct FB { int r0; int r1; char a[252]; char b[252]; };
 extern struct FB D_01e38c40_fb asm("D_01e38c40");
 extern char D_01e38e40[];
@@ -300,11 +300,11 @@ int u_call4_0030e7b0(const char *s1, const char *s2, int *out, int fno)
         return 0xffff0000;
     if (func_0030de70())
         return 0xfffefffc;
-    func_002ff6f0(D_01e38c40_fb.a, s1, 252);
+    strncpy(D_01e38c40_fb.a, s1, 252);
     D_01e38c40_fb.a[251] = 0;
-    func_002ff6f0(D_01e38c40_fb.b, s2, 252);
+    strncpy(D_01e38c40_fb.b, s2, 252);
     D_01e38c40_fb.b[251] = 0;
-    if (func_003094b8(D_01e38e40, fno, 0, &D_01e38c40_fb, 512, &D_01e38c40_fb, 16, 0, 0) < 0)
+    if (sceSifCallRpc(D_01e38e40, fno, 0, &D_01e38c40_fb, 512, &D_01e38c40_fb, 16, 0, 0) < 0)
         return 0xfffeffff;
     if (D_01e38c40_fb.r0 == 0)
         return 0xfffefffd;

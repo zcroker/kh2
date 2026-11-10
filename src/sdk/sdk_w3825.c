@@ -7,11 +7,11 @@
  * libgcc copies directly. */
 typedef char *va_list;
 typedef int (*OutFn)(void *, int *, int);
-extern long func_003125c0(long, long);
+extern long __moddi3(long, long);
 extern long func_00311dd0(long, long);
-extern unsigned long func_00313498(unsigned long, unsigned long);
+extern unsigned long __umoddi3(unsigned long, unsigned long);
 extern unsigned long func_00312db8(unsigned long, unsigned long);
-extern float func_003144b0(double);
+extern float __truncdfsf2(double);
 extern double func_00313b80(float);
 extern int func_00306ff8(OutFn, void *, int *, double);
 
@@ -175,7 +175,7 @@ int func_003071d0(OutFn fn, void *arg, int size, const char *fmt, va_list ap)
                 if ((long)uv < 0)
                     uv = -uv;
                 while (uv != 0) {
-                    *p-- = func_003125c0(uv, 10) + '0';
+                    *p-- = __moddi3(uv, 10) + '0';
                     uv = func_00311dd0(uv, 10);
                 }
             }
@@ -195,7 +195,7 @@ int func_003071d0(OutFn fn, void *arg, int size, const char *fmt, va_list ap)
                     *p-- = '0';
             } else {
                 do {
-                    *p-- = func_00313498(uv, 10) + '0';
+                    *p-- = __umoddi3(uv, 10) + '0';
                     uv = func_00312db8(uv, 10);
                 } while (uv != 0);
             }
@@ -204,7 +204,7 @@ int func_003071d0(OutFn fn, void *arg, int size, const char *fmt, va_list ap)
             goto outn;
         case 'e':
         case 'f':
-            f = func_003144b0(*(double *)((ap += 8) - 8));
+            f = __truncdfsf2(*(double *)((ap += 8) - 8));
             /* the original's assembler emitted no hazard nop between mtc1 and c.eq.s here */
             __asm__ volatile (".set noreorder\n\tmtc1 $0,%0\n\t.set reorder" : "=f"(z));
             if (f == z) {

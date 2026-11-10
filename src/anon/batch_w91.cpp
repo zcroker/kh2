@@ -49,15 +49,15 @@ void func_00139510(void*);
 
 // --- 0010c9f8
 // Sets a direction vector from a yaw (degrees, relative to the current one) and resets motion.
-f32 func_002f8960(f32);
-f32 func_002f87c0(f32);
+f32 sinf(f32);
+f32 cosf(f32);
 void func_001b2210(u8*, Vc, f32, f32);
 void func_0017f488(u8*, s32, f32, f32);
 void func_0010c9f8(u8* p, f32 a, f32 b, f32 c, f32 d, f32 e) {
     a = *(f32*)(p + 1372) + a * 0.017453292f;
     Vc v;
-    v.x = func_002f8960(a);
-    v.z = func_002f87c0(a);
+    v.x = sinf(a);
+    v.z = cosf(a);
     v.y = b;
     v.w = c;
     func_001b2210(p, v, e, d);
@@ -474,7 +474,7 @@ void func_001f6778(u8* base, A1f* a1, u8* a2) {
 // --- 001fb790
 // Sets the RGBA bytes of a node from 0..255 inputs scaled by the global colour.
 extern f32 D_00354be0[];
-void func_002f3f88(u8*, f32*);  // memcpy16
+void sceVu0CopyVector(u8*, f32*);  // memcpy16
 void func_001fb6c8(u8*, u32, u32);
 void func_001fb790(u8* base, u8* c, u8* a2) {
     u8* s = base + **(u32**)(a2 + 12) + 160;
@@ -482,7 +482,7 @@ void func_001fb790(u8* base, u8* c, u8* a2) {
     s[73] = (s32)(c[9] * *(f32*)(D_01d9e6e0 + 52));
     s[74] = (s32)(c[10] * *(f32*)(D_01d9e6e0 + 56));
     s[75] = (s32)(c[11] * *(f32*)(D_01d9e6e0 + 60));
-    func_002f3f88(s + 48, D_00354be0);  // memcpy16
+    sceVu0CopyVector(s + 48, D_00354be0);  // memcpy16
     func_001fb6c8(s, 0, 0);
 }
 
@@ -491,16 +491,16 @@ extern u8 D_01dad890[];
 extern u8 D_01dad8d0[];
 extern u8 D_01d9e840[];
 extern u8 D_01d9e8c0[];
-void func_002f3d08(u8*, u8*, u8*);
-void func_002f3f40(u8*, u8*, f32);  // vec_scale_by_f12
-void func_002f3cd8(u8*, u8*, u8*);
+void sceVu0MulMatrix(u8*, u8*, u8*);
+void sceVu0ScaleVector(u8*, u8*, f32);  // vec_scale_by_f12
+void sceVu0ApplyMatrix(u8*, u8*, u8*);
 void func_001fcd70(void) {
-    func_002f3d08(D_01dad890, D_01d9e840, D_01dad8d0);
-    func_002f3f40(D_01d9e6e8.p + 80, D_01d9e6e8.p + 16, D_00354be0[0]);  // vec_scale_by_f12
-    func_002f3f40(D_01d9e6e8.p + 96, D_01d9e6e8.p + 32, D_00354be0[1]);  // vec_scale_by_f12
-    func_002f3f40(D_01d9e6e8.p + 112, D_01d9e6e8.p + 48, D_00354be0[2]);  // vec_scale_by_f12
-    func_002f3cd8(D_01d9e6e8.p + 128, D_01d9e840, D_01d9e6e8.p + 64);
-    func_002f3d08(D_01d9e6e8.p + 80, D_01d9e8c0, D_01d9e6e8.p + 80);
+    sceVu0MulMatrix(D_01dad890, D_01d9e840, D_01dad8d0);
+    sceVu0ScaleVector(D_01d9e6e8.p + 80, D_01d9e6e8.p + 16, D_00354be0[0]);  // vec_scale_by_f12
+    sceVu0ScaleVector(D_01d9e6e8.p + 96, D_01d9e6e8.p + 32, D_00354be0[1]);  // vec_scale_by_f12
+    sceVu0ScaleVector(D_01d9e6e8.p + 112, D_01d9e6e8.p + 48, D_00354be0[2]);  // vec_scale_by_f12
+    sceVu0ApplyMatrix(D_01d9e6e8.p + 128, D_01d9e840, D_01d9e6e8.p + 64);
+    sceVu0MulMatrix(D_01d9e6e8.p + 80, D_01d9e8c0, D_01d9e6e8.p + 80);
 }
 
 // --- 0024a270

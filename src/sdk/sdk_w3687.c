@@ -8,7 +8,7 @@ extern unsigned int D_00363c50[];
  * sends the two init quadwords to the VIF1 FIFO and resets GIF (GIF_CTRL = 1).
  * The last store goes through a plain pointer pinned to v1 after a memory barrier: a volatile
  * store never fills the jr ra delay slot under 2.9, the original's does (partial asm, see asm_review.tsv). */
-void func_002f1fb8(void)
+void sceGsResetPath(void)
 {
     register unsigned int *gif_ctrl asm("$3");
     *(volatile unsigned int *)0x10003c10 = 1;

@@ -6,13 +6,13 @@ typedef struct { f32 x, y, z, w; } Vq __attribute__((aligned(16)));
 typedef struct { u32 cur; u8 cnt; u8 on; u8 pad[2]; Vq (*key)[2]; } TrSt;
 typedef struct { u8 pad[8]; s32 n; u8 pad2[8]; s16 (*out)[2][3]; u8 pad3[4]; s32* poly; } TrObj;
 typedef struct { u8 pad0; s8 type; s16 count; u8 pad[12]; } PolyHdr;
-void func_002f3f88(Vq* d, Vq* s);
-void func_002f3f10(Vq* d, Vq* a, Vq* b);
+void sceVu0CopyVector(Vq* d, Vq* s);
+void sceVu0SubVector(Vq* d, Vq* a, Vq* b);
 void func_002029e8(Vq* in, s32 n, Vq* out);
 void func_00202ba0(Vq* o, Vq* a, Vq* b, f32 t);
-void func_002f3ed0(Vq* d, Vq* a, Vq* b, f32 t);
+void sceVu0InterVector(Vq* d, Vq* a, Vq* b, f32 t);
 void func_00202c20(u8* prm, s32* x, s32* w, s32* y, s32* h);
-void func_002fe0a0(const char*);
+void puts(const char*);
 extern Vq* D_00354680;
 extern s32 D_01d9ea9c;
 typedef struct { u8 pad[168]; u64 flags; } PCam;
@@ -37,14 +37,14 @@ void func_00202ce0(TrObj* obj, u8* prm, TrSt* st)
     s16 (*out)[2][3];
     s32 i, k, off;
     Vq* p;
-    func_002f3f88(key[cur], D_00354680);
-    func_002f3f88(&key[cur][1], D_00354680 + 1);
+    sceVu0CopyVector(key[cur], D_00354680);
+    sceVu0CopyVector(&key[cur][1], D_00354680 + 1);
     out = obj->out;
     for (k = 0, off = 0; k < 2; k++) {
         for (i = 0; i < cnt; ) {
             s32 idx = cur - i;
             if (idx < 0) idx += cnt;
-            func_002f3f10(&tmp[i++], &(*key)[idx * 2 + k], D_00354680);
+            sceVu0SubVector(&tmp[i++], &(*key)[idx * 2 + k], D_00354680);
         }
         asm("" :: "r"(i), "r"(i));
         func_002029e8(tmp, cnt, coef);
@@ -77,7 +77,7 @@ void func_00202ce0(TrObj* obj, u8* prm, TrSt* st)
                 v[k].y = o[i][k][1];
                 v[k].z = o[i][k][2];
             }
-            func_002f3ed0(&v[0], &v[0], &v[1], a);
+            sceVu0InterVector(&v[0], &v[0], &v[1], a);
             a -= da;
             o[i][0][0] = v[0].x;
             o[i][0][1] = v[0].y;
@@ -108,7 +108,7 @@ void func_00202ce0(TrObj* obj, u8* prm, TrSt* st)
             sz = 0;
             switch (rec->type) {
             case 0: case 1: case 2: case 3: case 5: case 7:
-                func_002fe0a0(D_00370378);
+                puts(D_00370378);
                 func_002233f0(D_00370390, D_00370398, 448);
                 return;
             case 4: {
@@ -172,6 +172,6 @@ void func_00202ce0(TrObj* obj, u8* prm, TrSt* st)
                 st->cur = 0;
             }
         }
-        func_002f3f88((Vq*)D_01d9e6e0, D_00354680);
+        sceVu0CopyVector((Vq*)D_01d9e6e0, D_00354680);
     }
 }

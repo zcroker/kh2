@@ -66,7 +66,7 @@ void func_0011b6d8(M09*, f32);
 void func_0011b720(M09*, f32);
 void func_0011b768(M09*, f32);
 f32 func_0017d160(V09, V09);
-f32 func_002f8870(f32);
+f32 fabsf(f32);
 f32 func_002f8ad0(f32, f32);
 
 f32 dotr(const V09&, const V09&) asm("func_0017d160");
@@ -105,7 +105,7 @@ void func_001b0940(Obj09* o, V09* target)
         func_0011b720(&m, o->angle);
         ch = m * bh;
     }
-    f = func_002f8870(func_0017d160(ch, dh));
+    f = fabsf(func_0017d160(ch, dh));
     if (lim < f) {
         a = lim;
         V09 c = ch ^ dh;
@@ -115,7 +115,7 @@ void func_001b0940(Obj09* o, V09* target)
         func_0011b720(&m, a);
         dh = m * ch;
     }
-    f = func_002f8870(func_0017d160(bh, dh));
+    f = fabsf(func_0017d160(bh, dh));
     if (maxYaw < f) {
         a = maxYaw;
         V09 c = bh ^ dh;
@@ -125,7 +125,7 @@ void func_001b0940(Obj09* o, V09* target)
         func_0011b720(&m, a);
         dh = m * bh;
     }
-    f32 f3 = func_002f8870(func_0017d160(cv, dv));
+    f32 f3 = fabsf(func_0017d160(cv, dv));
     if (lim3 < f3) {
         a = lim3;
         V09 c = cv ^ dv;
@@ -137,7 +137,7 @@ void func_001b0940(Obj09* o, V09* target)
     } else {
         dv = cv;
     }
-    f = func_002f8870(func_0017d160(bv, dv));
+    f = fabsf(func_0017d160(bv, dv));
     if (maxPitch < f) {
         a = maxPitch;
         V09 c = bv ^ dv;

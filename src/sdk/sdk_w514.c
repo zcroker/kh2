@@ -41,14 +41,14 @@ int func_00307f90(void *a, void *b, int *n, const char *fmt, ...)
     return r;
 }
 
-extern int func_0030edb0(void);
+extern int DIntr(void);
 extern int func_0030ffd8(void);
-extern void func_0030ee00(void);
+extern void EIntr(void);
 int func_00310048(void)
 {
-    int s = func_0030edb0();
+    int s = DIntr();
     int r = func_0030ffd8();
-    if (s) func_0030ee00();
+    if (s) EIntr();
     return r;
 }
 

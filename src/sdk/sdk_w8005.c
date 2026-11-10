@@ -33,7 +33,7 @@ extern AddDrvSend D_01e37280;
 extern int D_01e37ec0;
 extern char D_01e38980[];
 extern int func_00309d60(void *cd, unsigned int fno, unsigned int mode, void *send, int ssize, void *recv, int rsize, void *end, void *endp, int x);
-int func_0030c008(int arg)
+int sceAddDrv(int arg)
 {
     SemaParam p;
     int ret;

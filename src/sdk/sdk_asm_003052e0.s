@@ -5,13 +5,13 @@
 	.set nomacro
 	.section .text.func_003052e0,"ax",@progbits
 	.align 2
-	.globl func_003052e0
-	.type func_003052e0, @function
-	.ent func_003052e0
-func_003052e0:
+	.globl SetVCommonHandler
+	.type SetVCommonHandler, @function
+	.ent SetVCommonHandler
+SetVCommonHandler:
 	li	$3,14
 	syscall
 	jr	$31
 	nop
-	.end func_003052e0
-	.size func_003052e0, 16
+	.end SetVCommonHandler
+	.size SetVCommonHandler, 16

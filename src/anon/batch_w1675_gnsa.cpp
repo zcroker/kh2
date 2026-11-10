@@ -137,7 +137,7 @@ void func_001841f0(W1675Obj*);
 W1675Vec func_001840c0(W1675Obj*, const W1675Vec&);
 W1675Collider* func_001cecc8(void);
 W1675Vec func_0016af58(W1675Obj*);
-f32 func_002f8870(f32);
+f32 fabsf(f32);
 s32 func_0019c170(W1675Obj*);
 s32 func_0019bf50(W1675Obj*, const W1675Vec&);
 
@@ -169,7 +169,7 @@ void func_00183918(W1675Obj* self, W1675Vec acc, W1675Vec a, W1675Vec b)
                 if (c) {
                     if (!c->vt->hit(c, self->pos + mv)) {
                         W1675Vec n = func_0016af58(self);
-                        if (func_002f8870(n.x) > func_002f8870(n.z)) mv.z = 0.0f;
+                        if (fabsf(n.x) > fabsf(n.z)) mv.z = 0.0f;
                         else mv.x = 0.0f;
                     }
                 }

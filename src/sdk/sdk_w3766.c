@@ -9,13 +9,13 @@ typedef struct SD_w3766 {
 extern char D_01e37200[];
 extern Rend_w3766 *func_00308df0(void *, int);
 extern Rend_w3766 *func_00308dc0(void *);
-extern int func_0030edb0(void);
-extern int func_0030ee00(void);
+extern int DIntr(void);
+extern int EIntr(void);
 extern void func_00308a80(void *, int);
-extern int func_003088b8(int, void *, int, void *, void *, int);
+extern int sceSifSendCmd(int, void *, int, void *, void *, int);
 extern int func_00308310(DmaData_w3766 *, int);
 /* sceSifExecRequest: run an RPC server function, write back its buffers, then send the reply packet (and receive data) to the IOP by DMA. */
-void func_003099e0(SD_w3766 *sd)
+void sceSifExecRequest(SD_w3766 *sd)
 {
     Rend_w3766 *rend; int size = 0; void *rec; DmaData_w3766 dma[2]; int i, j, id;
     rec = sd->func(sd->fno, sd->buff, sd->size);
@@ -25,16 +25,16 @@ void func_003099e0(SD_w3766 *sd)
         func_00308a80(sd->buff, sd->size);
     if (size > 0)
         func_00308a80(rec, size);
-    func_0030edb0();
+    DIntr();
     if (sd->rid & 4)
         rend = func_00308df0(D_01e37200, sd->rid >> 16);
     else
         rend = func_00308dc0(D_01e37200);
-    func_0030ee00();
+    EIntr();
     rend->cid = 0x8000000a;
     rend->client = sd->client;
     if (sd->rmode) {
-        while (!func_003088b8(0x80000008, rend, 64, rec, sd->receive, size))
+        while (!sceSifSendCmd(0x80000008, rend, 64, rec, sd->receive, size))
             ;
         return;
     }

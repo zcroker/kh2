@@ -473,7 +473,7 @@ void func_002db610(u8* p, s32 id) {
 
 // Inverts an orthonormal 4x4 matrix (transpose 3x3, negate rotated translation).
 // Hand-written VU0/MMI asm in the original.
-void func_002f3e20(f32* d, f32* s) {  // convert_vectors_to_scalar
+void sceVu0InversMatrix(f32* d, f32* s) {  // convert_vectors_to_scalar
     asm volatile(
         "lq $8, 0(%1)\n\t"
         "lq $9, 16(%1)\n\t"

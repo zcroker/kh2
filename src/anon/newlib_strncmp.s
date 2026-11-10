@@ -7,10 +7,10 @@
 	.set nomacro
 	.section .text.func_002ff538,"ax",@progbits
 	.align 2
-	.globl func_002ff538
-	.type func_002ff538, @function
-	.ent func_002ff538
-func_002ff538:
+	.globl strncmp
+	.type strncmp, @function
+	.ent strncmp
+strncmp:
 	bnez	$6,.L002ff548
 	or	$3,$4,$5
 .L002ff540:
@@ -132,5 +132,5 @@ func_002ff538:
 	lbu	$3,0($4)
 	jr	$31
 	subu	$2,$3,$2
-	.end func_002ff538
-	.size func_002ff538, 440
+	.end strncmp
+	.size strncmp, 440

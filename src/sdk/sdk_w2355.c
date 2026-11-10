@@ -9,8 +9,8 @@ extern int func_00305640(int s);
 extern int func_002f71b0(int m);
 extern void func_00308b30(int m);
 extern int func_00308a80(void *p, int n);
-extern int func_003092d8(CdClient *cd, unsigned int rpc, int mode);
-extern int func_003094b8(CdClient *cd, int fno, int mode, void *sb, int ss, void *rb, int rs, void *ef, void *ea);
+extern int sceSifBindRpc(CdClient *cd, unsigned int rpc, int mode);
+extern int sceSifCallRpc(CdClient *cd, int fno, int mode, void *sb, int ss, void *rb, int rs, void *ef, void *ea);
 extern int D_00363d90;
 extern int D_00363d9c;
 extern volatile int D_00363da8;
@@ -19,8 +19,8 @@ extern SearchArg D_01e33240;
 extern int D_01e33380[4];
 extern CdClient D_01e333c0;
 
-int u_call4_002f6ca0(CdlFILE *fp, const char *name, int x) asm("_Z16u_call4_002f6ca0jjjj");
-int u_call4_002f6ca0(CdlFILE *fp, const char *name, int x)
+int sceCdSearchFile(CdlFILE *fp, const char *name, int x) asm("_Z15sceCdSearchFilejjjj");
+int sceCdSearchFile(CdlFILE *fp, const char *name, int x)
 {
     int i;
     int j;
@@ -36,7 +36,7 @@ int u_call4_002f6ca0(CdlFILE *fp, const char *name, int x)
     func_00308b30(0);
     if (D_00363dcc < 0) {
         while (1) {
-            if (func_003092d8(&D_01e333c0, 0x80000597, 0) < 0) {
+            if (sceSifBindRpc(&D_01e333c0, 0x80000597, 0) < 0) {
                 if (D_00363d90 > 0)
                     func_003080d0("Libcdvd bind err CdSearchFile\n");
                 j = 0x100000;
@@ -63,7 +63,7 @@ int u_call4_002f6ca0(CdlFILE *fp, const char *name, int x)
     D_01e33240.x128 = x;
     D_01e33240.buf = &D_01e33240;
     func_00308a80(&D_01e33240, 300);
-    if (func_003094b8(&D_01e333c0, 0, 0, &D_01e33240, 300, D_01e33380, 4, 0, 0) < 0) {
+    if (sceSifCallRpc(&D_01e333c0, 0, 0, &D_01e33240, 300, D_01e33380, 4, 0, 0) < 0) {
         func_00305640(D_00363da8);
         return 0;
     }

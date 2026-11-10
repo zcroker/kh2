@@ -2,10 +2,10 @@
 extern int func_002f3588(int a);
 extern void func_002f3490(void *p);
 extern void func_002fde18(void *, int, int);
-extern int func_0030edb0(void);
-extern void func_0030ee00(void);
+extern int DIntr(void);
+extern void EIntr(void);
 extern void func_003086b8(int n, void *fn, void *arg);
-extern int func_003094b8(void *cd, unsigned int fno, unsigned int mode, void *send, int ssize, void *recv, int rsize, void *end, void *endp);
+extern int sceSifCallRpc(void *cd, unsigned int fno, unsigned int mode, void *send, int ssize, void *recv, int rsize, void *end, void *endp);
 extern int func_00310090(int a);
 extern void func_00305e70(unsigned int a, unsigned int b);
 extern void func_00305fb0(unsigned int a, unsigned int b);
@@ -77,10 +77,10 @@ int func_002f6c28(void)
 {
     int st;
     D_00363da4 = 1;
-    st = func_0030edb0();
+    st = DIntr();
     func_003086b8(0x80000012, D_002f6bd0, 0);
     if (st)
-        func_0030ee00();
+        EIntr();
     D_00363da4 = 0;
     D_00363dc8 = 1;
     return 1;
@@ -92,7 +92,7 @@ int u_call4_0030d998(int a)
     if (D_0036617c < 0)
         return 0;
     D_01e38b00[0] = a;
-    if (func_003094b8(D_01e38a80, 2, 0, D_01e38b00, 4, D_01e38ac0, 4, 0, 0) < 0)
+    if (sceSifCallRpc(D_01e38a80, 2, 0, D_01e38b00, 4, D_01e38ac0, 4, 0, 0) < 0)
         return -1;
     return D_01e38ac0[0];
 }
@@ -121,10 +121,10 @@ void func_00305f18(unsigned int a, unsigned int b)
     asm volatile("mfc0 %0, $12" : "=r"(st));
     st &= 0x10000;
     if (st)
-        func_0030edb0();
+        DIntr();
     func_00305e70(a & 0xffffffc0, b & 0xffffffc0);
     if (st)
-        func_0030ee00();
+        EIntr();
 }
 
 void func_00306058(unsigned int a, unsigned int b)
@@ -133,8 +133,8 @@ void func_00306058(unsigned int a, unsigned int b)
     asm volatile("mfc0 %0, $12" : "=r"(st));
     st &= 0x10000;
     if (st)
-        func_0030edb0();
+        DIntr();
     func_00305fb0(a & 0xffffffc0, b & 0xffffffc0);
     if (st)
-        func_0030ee00();
+        EIntr();
 }

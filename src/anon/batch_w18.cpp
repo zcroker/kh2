@@ -53,11 +53,11 @@ void func_0013efe8(void) {
 
 extern void* D_00349ef8;
 void func_003058a0(u32);
-void func_002f25a0(u32, u32);
+void sceGsSyncPath(u32, u32);
 void func_002f3918(void*, void*);
 void func_0014d8d0(void* p) {
     func_003058a0(0);
-    func_002f25a0(0, 0);
+    sceGsSyncPath(0, 0);
     func_002f3918(D_00349ef8, p);
 }
 

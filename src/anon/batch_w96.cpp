@@ -70,7 +70,7 @@ static inline f32 vlen_w96(const Vq_w96& a) {
     return r;
 }
 u8* func_00177860(void);
-f32 func_002f8870(f32);  // fabsf
+f32 fabsf(f32);  // fabsf
 void func_002fee78(char*, const char*, ...);
 u32 func_00170b30(u32);  // alloc_align128
 void func_00168328(char*, u32);
@@ -184,8 +184,8 @@ void func_002eef08(Seq_w96*, u32, f32);
 void func_00189f20(u32, void (*)(void), u32, f32);
 void func_002ef148(void);
 struct Bigint_w96 { Bigint_w96* next; s32 k; s32 maxwds; s32 sign; s32 wds; u32 x[1]; };
-Bigint_w96* func_00303b70(void*, s32);
-void func_00303c18(void*, Bigint_w96*);  // push_entry_onto_slot_list
+Bigint_w96* _Balloc(void*, s32);
+void _Bfree(void*, Bigint_w96*);  // push_entry_onto_slot_list
 
 // Builds the widget: icons, 7 child panels, then hands off to the shared init.
 void wtarget_001521c8(u32 a0, u32 a1, u32, u32) asm("_Z16wtarget_001521c8jjjj");
@@ -337,7 +337,7 @@ s32 func_001a4ff8(u8* o, Vq_w96* p, f32 r, f32 h) {
     if (*(u8**)(o + 1164)) r = r + *(f32*)(*(u8**)(o + 1164) + 452);
     if (h <= 0.0f) h = 30.0f;
     d = vsubn_w96(*p, *(Vq_w96*)func_0016c028(o));  // obj_get_attach_or_alt
-    if (h < func_002f8870(d.y)) return 0;
+    if (h < fabsf(d.y)) return 0;
     d.y = 0.0f;
     if (vlen_w96(d) <= r) return 1;
     return 0;
@@ -634,7 +634,7 @@ void func_002ef028(Seq_w96* s, f32 dt) {
 }
 
 // newlib mprec __lshift: b << k as a new Bigint (frees b).
-Bigint_w96* func_00304308(void* ptr, Bigint_w96* b, s32 k) {
+Bigint_w96* __lshift(void* ptr, Bigint_w96* b, s32 k) {
     s32 i, k1, n, n1;
     Bigint_w96* b1;
     u32 *x, *x1, *xe, z;
@@ -644,7 +644,7 @@ Bigint_w96* func_00304308(void* ptr, Bigint_w96* b, s32 k) {
     n1 = n + b->wds + 1;
     for (i = b->maxwds; n1 > i; i <<= 1)
         k1++;
-    b1 = func_00303b70(ptr, k1);
+    b1 = _Balloc(ptr, k1);
     x1 = b1->x;
     for (i = 0; i < n; i++)
         *x1++ = 0;
@@ -664,7 +664,7 @@ Bigint_w96* func_00304308(void* ptr, Bigint_w96* b, s32 k) {
             *x1++ = *x++;
         while (x < xe);
     b1->wds = n1 - 1;
-    func_00303c18(ptr, b);  // push_entry_onto_slot_list
+    _Bfree(ptr, b);  // push_entry_onto_slot_list
     return b1;
 }
 

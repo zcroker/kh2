@@ -7,10 +7,10 @@
 	.set nomacro
 	.section .text.func_002ff3fc,"ax",@progbits
 	.align 2
-	.globl func_002ff3fc
-	.type func_002ff3fc, @function
-	.ent func_002ff3fc
-func_002ff3fc:
+	.globl strlen
+	.type strlen, @function
+	.ent strlen
+strlen:
 	andi	$2,$4,0x7
 	bnez	$2,.L002ff510
 	move	$7,$4
@@ -93,5 +93,5 @@ func_002ff3fc:
 	addiu	$4,$4,1
 	jr	$31
 	subu	$2,$4,$7
-	.end func_002ff3fc
-	.size func_002ff3fc, 312
+	.end strlen
+	.size strlen, 312

@@ -140,7 +140,7 @@ extern u8 D_01d9e980[];
 extern u8 D_01d9e9c0[];
 extern s32 D_01d9eaa4;
 extern u8 D_01d9eac0[];
-void func_002f3d08(void*, void*, void*);
+void sceVu0MulMatrix(void*, void*, void*);
 s32 func_0020f1e0(u32*, Param*, s32);
 
 /* 00222d40: builds a draw parameter block for sprite idx (colour col, position x/y, flags fl) and submits it. */
@@ -167,7 +167,7 @@ void func_00222d40(s32 idx, u16* col, s32 z, s32 x, s32 y, u8 fl, s32 extra)
     if (fl & 0x10) {
         p.flags |= 0x2000;
         p.p30 = buf;
-        func_002f3d08(buf, D_01d9e840, D_01d9e6e8->a);
+        sceVu0MulMatrix(buf, D_01d9e840, D_01d9e6e8->a);
     }
     p.f44 = (fl & 0x20) ? extra : 0;
     /* These two go through casts: as field stores gcc lets the global loads below move above them. */

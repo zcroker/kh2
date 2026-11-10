@@ -64,9 +64,9 @@ void func_00237740(SprAnim*, f32, f32, f32);
 void func_00237a68(SprAnim*, f32, f32, f32);
 void func_00238570(SprAnim*, s32, s32, s32, s32);
 void func_00238c90(SprAnim*, s32, s32, s32, s32);
-f32 func_002f8960(f32);
-f32 func_002f87c0(f32);
-u32 func_00313bc0(f32) __attribute__((const)); // __fixunssfsi (float -> u32)
+f32 sinf(f32);
+f32 cosf(f32);
+u32 __fixunssfsi(f32) __attribute__((const)); // __fixunssfsi (float -> u32)
 
 extern u8 D_0035e3c0[];
 extern u8 D_01dae590[][0x30];
@@ -172,17 +172,17 @@ void func_0023ade0(SprAnim* o)
                 o->color = o->baseColor;
             } else {
                 if (k->flags & 0x80) {
-                    u32 r = func_00313bc0((f32)k->rgba[0][0] * o->colorMul[0]);
-                    r |= func_00313bc0((f32)k->rgba[0][3] * o->colorMul[3]) << 24;
-                    u32 b = func_00313bc0((f32)k->rgba[0][2] * o->colorMul[2]) << 16;
-                    b |= func_00313bc0((f32)k->rgba[0][1] * o->colorMul[1]) << 8;
+                    u32 r = __fixunssfsi((f32)k->rgba[0][0] * o->colorMul[0]);
+                    r |= __fixunssfsi((f32)k->rgba[0][3] * o->colorMul[3]) << 24;
+                    u32 b = __fixunssfsi((f32)k->rgba[0][2] * o->colorMul[2]) << 16;
+                    b |= __fixunssfsi((f32)k->rgba[0][1] * o->colorMul[1]) << 8;
                     r |= b;
                     o->color = r;
                 } else {
-                    u32 r = func_00313bc0((f32)ILERP(k->rgba[0][0], k->rgba[1][0], t) * o->colorMul[0]);
-                    r |= func_00313bc0((f32)ILERP(k->rgba[0][3], k->rgba[1][3], t) * o->colorMul[3]) << 24;
-                    u32 b = func_00313bc0((f32)ILERP(k->rgba[0][2], k->rgba[1][2], t) * o->colorMul[2]) << 16;
-                    b |= func_00313bc0((f32)ILERP(k->rgba[0][1], k->rgba[1][1], t) * o->colorMul[1]) << 8;
+                    u32 r = __fixunssfsi((f32)ILERP(k->rgba[0][0], k->rgba[1][0], t) * o->colorMul[0]);
+                    r |= __fixunssfsi((f32)ILERP(k->rgba[0][3], k->rgba[1][3], t) * o->colorMul[3]) << 24;
+                    u32 b = __fixunssfsi((f32)ILERP(k->rgba[0][2], k->rgba[1][2], t) * o->colorMul[2]) << 16;
+                    b |= __fixunssfsi((f32)ILERP(k->rgba[0][1], k->rgba[1][1], t) * o->colorMul[1]) << 8;
                     r |= b;
                     o->color = r;
                 }
@@ -209,12 +209,12 @@ void func_0023ade0(SprAnim* o)
                 f32 ay = FLERP(k->amp[1][0], k->amp[1][1], t);
                 if (!(k->flags & 8)) {
                     f32 a = t * 3.1415927f;
-                    x += (s32)(ax * func_002f8960(a * (f32)k->freq[0]));
-                    y += (s32)(ay * func_002f8960(a * (f32)k->freq[1]));
+                    x += (s32)(ax * sinf(a * (f32)k->freq[0]));
+                    y += (s32)(ay * sinf(a * (f32)k->freq[1]));
                 } else {
                     f32 a = t * 3.1415927f;
-                    x += (s32)(ax * func_002f87c0(a * (f32)k->freq[0]));
-                    y += (s32)(ay * func_002f87c0(a * (f32)k->freq[1]));
+                    x += (s32)(ax * cosf(a * (f32)k->freq[0]));
+                    y += (s32)(ay * cosf(a * (f32)k->freq[1]));
                 }
             }
         }

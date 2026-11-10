@@ -245,12 +245,12 @@ void func_001e1ce0(u8* p) {
     *(u32*)(p + 3556) = 0;
 }
 
-void func_002f25a0(u32, u32);
+void sceGsSyncPath(u32, u32);
 u8 func_002f3918(u32, void*);
 extern u32 D_003591c8;
 extern u8 D_00359910;
 u8 func_0020f150(void) {
-    func_002f25a0(0, 0);
+    sceGsSyncPath(0, 0);
     return func_002f3918(D_003591c8, &D_00359910);
 }
 
@@ -280,12 +280,12 @@ void func_0023edb0(u32 x) {
     D_0035eb84++;
 }
 
-void func_002ff3fc(u32);  // strlen
+void strlen(u32);  // strlen
 void func_002346a0(s32, u32, u32);
 extern u32 D_0035ec88;
 extern s8* D_0035ec94;
 void func_00241528(void) {
-    func_002ff3fc(D_0035ec88);  // strlen
+    strlen(D_0035ec88);  // strlen
     func_002346a0(*D_0035ec94, D_0035ec88, 0);
 }
 

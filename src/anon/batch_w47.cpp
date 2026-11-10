@@ -410,13 +410,13 @@ void func_002eed48(u8* p) {
     func_00106420(p);
 }
 
-// strrchr-style: last match of c in s (func_002ff014 is strchr).
-char* func_002ff014(char*, s32);  // memset
+// strrchr-style: last match of c in s (strchr is strchr).
+char* strchr(char*, s32);  // memset
 char* func_002ff8b0(char* s, s32 c) {
     char* r = 0;
     if (c != 0) {
-        while ((s = func_002ff014(s, c)) != 0) { r = s; s++; }
-    } else r = func_002ff014(s, c);  // memset
+        while ((s = strchr(s, c)) != 0) { r = s; s++; }
+    } else r = strchr(s, c);  // memset
     return r;
 }
 void wtarget_001124f8(u32, u32, u32, u32) asm("_Z16wtarget_001124f8jjjj");

@@ -581,8 +581,8 @@ extern U200e D_01d9e6e8;
 extern M200e D_00354bd0;
 extern f32 D_00354bc0[3];
 void func_0021eb50(M200e*, void*);
-void func_002f3e20(M200e*, M200e*);  // convert_vectors_to_scalar
-void func_002f3d08(M200e*, M200e*, void*);
+void sceVu0InversMatrix(M200e*, M200e*);  // convert_vectors_to_scalar
+void sceVu0MulMatrix(M200e*, M200e*, void*);
 
 static inline void ScaleRow200e(f32* row, f32 s)
 {
@@ -606,9 +606,9 @@ void func_00200e80(u8* p, u32, u8* a2)
     t.m[12] = D_00354bc0[0];
     t.m[13] = D_00354bc0[1];
     t.m[14] = D_00354bc0[2];
-    func_002f3e20(&t, &t);  // convert_vectors_to_scalar
-    func_002f3d08(&D_01d9e6e8.p->mtx, &D_01d9e6e8.p->mtx, m);
-    func_002f3d08(&D_01d9e6e8.p->mtx, &t, &D_01d9e6e8.p->mtx);
+    sceVu0InversMatrix(&t, &t);  // convert_vectors_to_scalar
+    sceVu0MulMatrix(&D_01d9e6e8.p->mtx, &D_01d9e6e8.p->mtx, m);
+    sceVu0MulMatrix(&D_01d9e6e8.p->mtx, &t, &D_01d9e6e8.p->mtx);
     ScaleRow200e(&D_01d9e6e8.p->mtx.m[0], scl[0]);
     ScaleRow200e(&D_01d9e6e8.p->mtx.m[4], scl[1]);
     ScaleRow200e(&D_01d9e6e8.p->mtx.m[8], scl[2]);
@@ -624,7 +624,7 @@ struct N2221 {
 struct H2221 { N2221* first; u8 flags; };
 struct C2221 { H2221* head; u32 a; void* b; N2221* list; u32 c; u32 d; };
 struct W2221 { u8 pad[64]; N2221* node; u32 a; u32 l; void* b; };
-void func_002f4000(W2221*);  // vu_store_w_splat
+void sceVu0UnitMatrix(W2221*);  // vu_store_w_splat
 void func_002226b8(void*, u32);  // vec3_copy
 void func_00221348(W2221*);
 void func_00221ed0(N2221*);
@@ -638,7 +638,7 @@ void func_00222170(C2221* c)
         fl = 32;
         h->flags &= ~2;
     }
-    func_002f4000(&w);  // vu_store_w_splat
+    sceVu0UnitMatrix(&w);  // vu_store_w_splat
     w.a = c->a;
     w.l = (u32)c->list;
     w.b = c->b;

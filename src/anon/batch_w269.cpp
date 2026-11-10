@@ -113,16 +113,16 @@ struct SS269 { s16 dev; s16 ino; u32 mode; u8 pad[104]; };
 extern "C" {
 
 void func_0011b6a8(f32*);
-f32 func_002f8960(f32);
-f32 func_002f87c0(f32);
+f32 sinf(f32);
+f32 cosf(f32);
 void func_0011b408(f32* m, const QV269* a) {
     func_0011b6a8(m);
     QV269 v;
     v = *a;
     normalize269(&v);
     f32 x = v.x, y = v.y, z = v.z;
-    f32 s = func_002f8960(a->w);
-    f32 c = func_002f87c0(a->w);
+    f32 s = sinf(a->w);
+    f32 c = cosf(a->w);
     f32 t = 1.0f - c;
     f32 xy = x * y, yz = y * z, zx = z * x;
     f32 xs = x * s, ys = y * s, zs = z * s;
@@ -142,8 +142,8 @@ void func_0011b558(f32* m, const QV269* a) {
     v = *a;
     normalize269(&v);
     f32 x = v.x, y = v.y, z = v.z;
-    f32 s = func_002f8960(a->w);
-    f32 c = func_002f87c0(a->w);
+    f32 s = sinf(a->w);
+    f32 c = cosf(a->w);
     f32 t = 1.0f - c;
     f32 xy = x * y, yz = y * z, zx = z * x;
     f32 xs = x * s, ys = y * s, zs = z * s;
@@ -372,7 +372,7 @@ void wt269(NO269* a0, u32, u32, u32) {
 }
 
 s32 func_003050b8(u8*, s32, SS269*);
-void* mal269(u8*, u32) asm("_Z16wtarget_002fd680jjjj");
+void* mal269(u8*, u32) asm("_Z9_malloc_rjjjj");
 s32 isatty269(s32) asm("_Z13func_00305dd0xxxx");
 void func_00302dd0(void);
 s32 func_00304ec8(void*, s32, s32);

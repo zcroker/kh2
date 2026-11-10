@@ -1,17 +1,17 @@
 /* Sony PS2 Runtime Library 3.0.0: libdbc (sceDbc*Socket/GetDeviceStatus), libvu0 (CameraMatrix), libpad2, libkernl (sbrk, printf buffer, thread/sema helpers). ee-gcc 2.9-991111 -O2 -G0. */
-extern int func_003094b8(void *, int, int, void *, int, void *, int, void *, void *);
+extern int sceSifCallRpc(void *, int, int, void *, int, void *, int, void *, void *);
 extern int func_002f5c48(const char *, ...);
 extern int func_00305660(int);
 extern int func_00305640(int);
 extern int D_01e2fe40;
 extern char D_01e2d980[];
 extern int D_01e2da80[];
-int func_002f5288(int x)
+int sceDbcInitSocket(int x)
 {
     int r;
     func_00305660(D_01e2fe40);
     D_01e2da80[0] = x;
-    if (func_003094b8(D_01e2d980, 0x80001315, 0, D_01e2da80, 144, D_01e2da80, 144, 0, 0) < 0) {
+    if (sceSifCallRpc(D_01e2d980, 0x80001315, 0, D_01e2da80, 144, D_01e2da80, 144, 0, 0) < 0) {
         func_002f5c48("sceDbcInitSocket: rpc error\n");
         func_00305640(D_01e2fe40);
         return 0;
@@ -21,12 +21,12 @@ int func_002f5288(int x)
     return r;
 }
 
-int func_002f5338(int x)
+int sceDbcResetSocket(int x)
 {
     int r;
     func_00305660(D_01e2fe40);
     D_01e2da80[0] = x;
-    if (func_003094b8(D_01e2d980, 0x80001316, 0, D_01e2da80, 144, D_01e2da80, 144, 0, 0) < 0) {
+    if (sceSifCallRpc(D_01e2d980, 0x80001316, 0, D_01e2da80, 144, D_01e2da80, 144, 0, 0) < 0) {
         func_002f5c48("sceDbcResetSocket: rpc error\n");
         func_00305640(D_01e2fe40);
         return 0;
@@ -36,12 +36,12 @@ int func_002f5338(int x)
     return r;
 }
 
-int func_002f53e8(int x)
+int sceDbcGetDeviceStatus(int x)
 {
     int r;
     func_00305660(D_01e2fe40);
     D_01e2da80[0] = x;
-    if (func_003094b8(D_01e2d980, 0x80001317, 0, D_01e2da80, 144, D_01e2da80, 144, 0, 0) < 0) {
+    if (sceSifCallRpc(D_01e2d980, 0x80001317, 0, D_01e2da80, 144, D_01e2da80, 144, 0, 0) < 0) {
         func_002f5c48("sceDbcGetDeviceStatus: rpc error\n");
         func_00305640(D_01e2fe40);
         return 0;
@@ -86,22 +86,22 @@ int func_002f6440(unsigned char *bits, E *e)
 }
 
 typedef float V4[4] __attribute__((aligned(16)));
-extern void func_002f4000(V4 *);
-extern void func_002f3d50(float *, float *, float *);
-extern void func_002f3d98(float *, float *);
-extern void func_002f3f58(V4 *, V4 *, float *);
-extern void func_002f3e20(V4 *, V4 *);
+extern void sceVu0UnitMatrix(V4 *);
+extern void sceVu0OuterProduct(float *, float *, float *);
+extern void sceVu0Normalize(float *, float *);
+extern void sceVu0TransMatrix(V4 *, V4 *, float *);
+extern void sceVu0InversMatrix(V4 *, V4 *);
 void func_002f4310(V4 *m, float *p, float *zd, float *yd)
 {
     V4 m0[4];
     V4 xd;
-    func_002f4000(m0);
-    func_002f3d50(xd, yd, zd);
-    func_002f3d98(m0[0], xd);
-    func_002f3d98(m0[2], zd);
-    func_002f3d50(m0[1], m0[2], m0[0]);
-    func_002f3f58(m0, m0, p);
-    func_002f3e20(m, m0);
+    sceVu0UnitMatrix(m0);
+    sceVu0OuterProduct(xd, yd, zd);
+    sceVu0Normalize(m0[0], xd);
+    sceVu0Normalize(m0[2], zd);
+    sceVu0OuterProduct(m0[1], m0[2], m0[0]);
+    sceVu0TransMatrix(m0, m0, p);
+    sceVu0InversMatrix(m, m0);
 }
 
 typedef struct { int a, b; } P;

@@ -138,7 +138,7 @@ void func_00146128(u8* self, s32* cnt, s16 idx)
 
 // 0014ca80: split a 60 Hz frame counter into hours/minutes/seconds/hundredths.
 u32 func_0014ca78(u32);
-s32 func_00313bc0(f32);
+s32 __fixunssfsi(f32);
 void func_0014ca80(u32 a0, u32* h, u32* m, u32* s, s32* cs)
 {
     u32 t = func_0014ca78(a0);
@@ -148,7 +148,7 @@ void func_0014ca80(u32 a0, u32* h, u32* m, u32* s, s32* cs)
     f32 k = 1.6666666f;
     f32 x = t;
     x *= k;
-    *cs = func_00313bc0(x);
+    *cs = __fixunssfsi(x);
 }
 
 // 0015d5d0
@@ -405,7 +405,7 @@ void func_001e2130(u8* self)
 
 // 001fb5b8: scale an RGBA byte colour by the global colour multipliers.
 extern u8* D_01d9e6e0;
-void func_002f3f88(void*, void*);  // memcpy16
+void sceVu0CopyVector(void*, void*);  // memcpy16
 void func_001fb508(void*, s32, s32);
 extern u8 D_00354be0[];
 void func_001fb5b8(u8* base, u8* c, u8* a2)
@@ -416,7 +416,7 @@ void func_001fb5b8(u8* base, u8* c, u8* a2)
     p[37] = (s32)(c[9] * *(f32*)(D_01d9e6e0 + 52));
     p[38] = (s32)(c[10] * *(f32*)(D_01d9e6e0 + 56));
     p[39] = (s32)(c[11] * *(f32*)(D_01d9e6e0 + 60));
-    func_002f3f88(base + 176, D_00354be0);  // memcpy16
+    sceVu0CopyVector(base + 176, D_00354be0);  // memcpy16
     func_001fb508(p, 0, 0);
 }
 

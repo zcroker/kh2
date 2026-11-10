@@ -26,8 +26,8 @@ void func_001adc48(s32 x) {
 }
 
 void func_001fa668(u8*, s32, void*);
-void W1786_wtarget(W1786Vn*, void*, W1786Vn*) asm("_Z16wtarget_002f3cd8jjjj");
-void func_002f3f40(void*, W1786Vn*, f32);
+void W1786_wtarget(W1786Vn*, void*, W1786Vn*) asm("_Z17sceVu0ApplyMatrixjjjj");
+void sceVu0ScaleVector(void*, W1786Vn*, f32);
 void func_001faea8(void*, s32, s32);
 extern u8* D_01d9e6e8;
 void func_001fb3c8(u8* a0, s32 a1, W1786A1fb* a2) {
@@ -39,7 +39,7 @@ void func_001fb3c8(u8* a0, s32 a1, W1786A1fb* a2) {
     f32 one = 1.0f;
     v.x = 0; v.y = 0; v.z = 0; v.w = one;
     W1786_wtarget(&v, D_01d9e6e8 + 0x50, &v);
-    func_002f3f40(pb, &v, one / v.w);
+    sceVu0ScaleVector(pb, &v, one / v.w);
     func_001faea8(pa, 0, 0);
 }
 }

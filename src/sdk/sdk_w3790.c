@@ -24,7 +24,7 @@ extern int func_00305660(int);
 extern void func_00308a80(void *, int);
 extern int func_00309d60(void *, int, int, void *, int, void *, int, void *, void *, int);
 
-int func_0030b470(int fd, int req, void *arg)
+int sceIoctl(int fd, int req, void *arg)
 {
     IoctlPk *p = &D_01e37280;
     SemaParam sp;

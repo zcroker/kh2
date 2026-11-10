@@ -69,10 +69,10 @@ void func_0013f608(f32* p) {
 
 // --- 0014d910
 extern u32 D_00349ef8;
-void func_002f25a0(u32, u32);
+void sceGsSyncPath(u32, u32);
 void func_002f3918(u32, u32);
 void func_0014d910(u32 a) {
-    func_002f25a0(0, 0);
+    sceGsSyncPath(0, 0);
     func_002f3918(D_00349ef8, a);
 }
 

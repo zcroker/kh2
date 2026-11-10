@@ -155,7 +155,7 @@ void func_00158c88(W93B*);
 
 struct W93Orb { u8 pad[4]; f32 dist; f32 radius; u8 p2[4]; W93V center; };
 struct W93Pos { u8 pad[32]; W93V pos; };
-f32 func_002f8870(f32);  // fabsf
+f32 fabsf(f32);  // fabsf
 // Places a point on the orb around o->center at the height of p, clamped to the radius.
 W93V func_0018e160(const W93Pos* p, const W93Orb* o)
 {
@@ -168,7 +168,7 @@ W93V func_0018e160(const W93Pos* p, const W93Orb* o)
     if (d.y < -r) y = -r;
     else if (r < d.y) y = r;
     else y = d.y;
-    f32 c = func_002f8870(y / r);  // fabsf
+    f32 c = fabsf(y / r);  // fabsf
     f32 s = __builtin_sqrtf(1.0f - c * c);
     d.y = 0;
     asm volatile("lqc2 $vf1, 0(%0)\n\tvmul.xyz $vf2, $vf1, $vf1\n\tvaddy.x $vf2, $vf2, $vf2y\n\tvaddz.x $vf2, $vf2, $vf2z\n\t"

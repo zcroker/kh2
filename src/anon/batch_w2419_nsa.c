@@ -63,11 +63,11 @@ extern s32 D_01d9ea9c;
 extern u8* D_01d9eaa4;
 extern FMTX65b D_01d9e730;
 extern FMTX65b D_01d9e8c0;
-void func_002f3cd8(f32* out, f32 (*m)[4], f32* in);
-void func_002f3d08(f32 (*out)[4], f32 (*a)[4], f32 (*b)[4]);
-void func_002f3f88(f32* out, f32* in);
-void func_002f3f98(f32 (*out)[4], f32 (*in)[4]);
-void func_002f4000(f32 (*m)[4]);
+void sceVu0ApplyMatrix(f32* out, f32 (*m)[4], f32* in);
+void sceVu0MulMatrix(f32 (*out)[4], f32 (*a)[4], f32 (*b)[4]);
+void sceVu0CopyVector(f32* out, f32* in);
+void sceVu0CopyMatrix(f32 (*out)[4], f32 (*in)[4]);
+void sceVu0UnitMatrix(f32 (*m)[4]);
 u8* func_0021d048(u8* data, DrawParam65b* p, s32 x);
 void func_002065b0(List65b* list) {
     DrawParam65b p;
@@ -96,22 +96,22 @@ void func_002065b0(List65b* list) {
         Frame65b* fr = &anim->frames[frame];
         u8* data = (u8*)anim + fr->dataOfs;
         p.localMtx = 0;
-        func_002f4000(D_01d9e6e8->view);
+        sceVu0UnitMatrix(D_01d9e6e8->view);
         D_01d9e6e8->view[0][0] = e->scale[0];
         D_01d9e6e8->view[1][1] = e->scale[1];
         D_01d9e6e8->view[2][2] = e->scale[2];
-        func_002f3f98(D_01d9e6e8->world, D_01d9e6e8->view);
-        func_002f3f88(D_01d9e6e8->world[3], s->pos);
-        { f32 (*m)[4] = D_01d9e730; func_002f3cd8(D_01d9e6e8->view[3], m, s->pos); }
+        sceVu0CopyMatrix(D_01d9e6e8->world, D_01d9e6e8->view);
+        sceVu0CopyVector(D_01d9e6e8->world[3], s->pos);
+        { f32 (*m)[4] = D_01d9e730; sceVu0ApplyMatrix(D_01d9e6e8->view[3], m, s->pos); }
         if (e->hasOffset) {
-            func_002f3f98(local, D_01d9e6e8->view);
+            sceVu0CopyMatrix(local, D_01d9e6e8->view);
             local[3][0] += e->offset[0];
             local[3][1] += e->offset[1];
             local[3][2] += e->offset[2];
-            func_002f3d08(local, D_01d9e8c0, local);
+            sceVu0MulMatrix(local, D_01d9e8c0, local);
             p.localMtx = local;
         }
-        func_002f3d08(D_01d9e6e8->view, D_01d9e8c0, D_01d9e6e8->view);
+        sceVu0MulMatrix(D_01d9e6e8->view, D_01d9e8c0, D_01d9e6e8->view);
         p.packet = D_01d9eaa4;
         D_01d9eaa4 = func_0021d048(data, &p, ref->x4);
         if (D_01d9ea9c != 0) continue;
@@ -196,8 +196,8 @@ extern FMTX206 D_01d9e730;
 extern FMTX206 D_01d9e8c0;
 extern FMTX206 D_01d9ea00;
 void func_001e8fe0(f32 (*m)[4], f32* rot);
-void func_002f3d08(f32 (*out)[4], f32 (*a)[4], f32 (*b)[4]); // sceVu0MulMatrix
-void func_002f3f88(f32* out, f32* in);                  // sceVu0CopyVector
+void sceVu0MulMatrix(f32 (*out)[4], f32 (*a)[4], f32 (*b)[4]); // sceVu0MulMatrix
+void sceVu0CopyVector(f32* out, f32* in);                  // sceVu0CopyVector
 u8* func_0020f1e0(Model206* m, DrawParam206* p, s32 x);
 
 void func_002068d0(List206* list) {
@@ -225,19 +225,19 @@ void func_002068d0(List206* list) {
         scaleRow206(D_e6e8_206->world[0], e->scale[0]);
         scaleRow206(D_e6e8_206->world[1], e->scale[1]);
         scaleRow206(D_e6e8_206->world[2], e->scale[2]);
-        func_002f3f88(D_e6e8_206->world[3], slot->pos);
+        sceVu0CopyVector(D_e6e8_206->world[3], slot->pos);
         if (e->hasOffset) {
-            func_002f3d08(local, D_01d9e730, D_e6e8_206->world);
+            sceVu0MulMatrix(local, D_01d9e730, D_e6e8_206->world);
             m8 = D_01d9e8c0;
             local[3][0] += e->offset[0];
             local[3][1] += e->offset[1];
             local[3][2] += e->offset[2];
-            func_002f3d08(local, m8, local);
+            sceVu0MulMatrix(local, m8, local);
             p.localMtx = local;
         } else {
             p.localMtx = 0;
         }
-        func_002f3d08(D_e6e8_206->view, D_01d9ea00, D_e6e8_206->world);
+        sceVu0MulMatrix(D_e6e8_206->view, D_01d9ea00, D_e6e8_206->world);
         ModelEnt206* me = &D_e6e4_206->ents[e->model];
         Model206* mdl = me->model;
         p.flags = 0;

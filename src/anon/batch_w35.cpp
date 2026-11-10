@@ -253,10 +253,10 @@ extern char D_01dad938[];
 extern char D_00371138[];
 extern u32 D_0033caf4;
 void func_002fee78(char*, const char*, ...);
-void func_002ff3fc(char*);  // strlen
+void strlen(char*);  // strlen
 char* func_0022b7f0(void) {
     func_002fee78(D_01dad938, D_00371138, D_0033caf4);
-    func_002ff3fc(D_01dad938);  // strlen
+    strlen(D_01dad938);  // strlen
     return D_01dad938;
 }
 
@@ -303,7 +303,7 @@ extern char D_01e2bba0[];
 extern char D_00374fa8[];
 char* func_002bd260(u32 a) {
     func_002fee78(D_01e2bba0, D_00374fa8, a);
-    func_002ff3fc(D_01e2bba0);  // strlen
+    strlen(D_01e2bba0);  // strlen
     return D_01e2bba0;
 }
 

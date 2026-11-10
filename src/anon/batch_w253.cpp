@@ -34,7 +34,7 @@ void u_tail4(u32 a0, u8 a1) {
 }
 
 
-u32 func_00313bc0(f32);
+u32 __fixunssfsi(f32);
 void wt239(u8* a0, f32 r, f32 g, f32 b, f32 a) asm("_Z16wtarget_00239fd0jjjj");
 void wt239(u8* a0, f32 r, f32 g, f32 b, f32 a) {
     *(f32*)(a0 + 280) = r;
@@ -43,7 +43,7 @@ void wt239(u8* a0, f32 r, f32 g, f32 b, f32 a) {
     *(f32*)(a0 + 292) = a;
     if (r != 1.0f || g != 1.0f || b != 1.0f || a != 1.0f) {
         *(u32*)(a0 + 184) |= 4;
-        *(u32*)(a0 + 208) = func_00313bc0(r * 128.0f) | (func_00313bc0(g * 128.0f) << 8) | (func_00313bc0(b * 128.0f) << 16) | (func_00313bc0(a * 128.0f) << 24);
+        *(u32*)(a0 + 208) = __fixunssfsi(r * 128.0f) | (__fixunssfsi(g * 128.0f) << 8) | (__fixunssfsi(b * 128.0f) << 16) | (__fixunssfsi(a * 128.0f) << 24);
     } else {
         *(u32*)(a0 + 184) &= ~4;
     }
@@ -101,7 +101,7 @@ void func_0031dee8(u8* a0) {
     ((void (*)(VObj*, u8*))o->vt[1])(o, a0);
 }
 
-f32 func_002f8870(f32);  // fabsf
+f32 fabsf(f32);  // fabsf
 static inline W253Vec vsub(const f32* a, const f32* b) {
     W253Vec r;
     asm volatile(".set noreorder\n\tlqc2 vf1,0(%1)\n\tlqc2 vf2,0(%2)\n\tvsub.xyzw vf1,vf1,vf2\n\tsqc2 vf1,0(%0)\n\t.set reorder" : : "r"(&r), "r"(a), "r"(b) : "memory");
@@ -116,7 +116,7 @@ s32 func_0018a318(u8* a0, u8* a1) {
     W253Vec d;
     d = vsub((f32*)(a1 + 16), (f32*)(a0 + 16));
     f32 dy;
-    dy = func_002f8870(d.y);  // fabsf
+    dy = fabsf(d.y);  // fabsf
     f32 r1 = *(f32*)(a1 + 8);
     f32 r0 = *(f32*)(a0 + 8);
     if (r0 + r1 <= dy) return 0;

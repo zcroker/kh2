@@ -19,14 +19,14 @@ extern Q16_fc7 D_0035da50;
 extern s8 D_0035da60[];
 void* func_0020eaf8(s32);
 void func_0020ebd8(s32);
-void func_002f3f10(void*, void*, void*);
-void func_002f3e90(void*, void*, f32);
-void func_002f3ef8(void*, void*, void*);
-u32 func_00313bc0(f32);
-void func_002f28b8(void*, s16, s32, s16, s32, s32, s32, s32);
+void sceVu0SubVector(void*, void*, void*);
+void sceVu0DivVector(void*, void*, f32);
+void sceVu0AddVector(void*, void*, void*);
+u32 __fixunssfsi(f32);
+void sceGsSetDefLoadImage(void*, s16, s32, s16, s32, s32, s32, s32);
 void func_003058a0(s32);
-void func_002f2be0(void*, void*);
-void func_002f25a0(s32, s32);
+void sceGsExecLoadImage(void*, void*);
+void sceGsSyncPath(s32, s32);
 
 void func_001fc720(u8* o, Req_fc7* r, Ctx_fc7* c)
 {
@@ -91,21 +91,21 @@ void func_001fc720(u8* o, Req_fc7* r, Ctx_fc7* c)
         a.y = (f32)(s32)((c0 >> 8) & 0xff);
         a.z = (f32)(s32)((c0 >> 16) & 0xff);
         a.w = (f32)(s32)(c0 >> 24);
-        func_002f3f10(&a, &a, &d);
-        func_002f3e90(&a, &a, f);
+        sceVu0SubVector(&a, &a, &d);
+        sceVu0DivVector(&a, &a, f);
         if (i < n) {
             do {
-                u32 v = func_00313bc0(d.w) << 24 | func_00313bc0(d.x);
-                *p = v | (func_00313bc0(d.y) << 8 | func_00313bc0(d.z) << 16);
-                func_002f3ef8(&d, &d, &a);
+                u32 v = __fixunssfsi(d.w) << 24 | __fixunssfsi(d.x);
+                *p = v | (__fixunssfsi(d.y) << 8 | __fixunssfsi(d.z) << 16);
+                sceVu0AddVector(&d, &d, &a);
                 p += b->u.step[i & 0x1f];
                 i++;
             } while (i < n);
         }
-        func_002f28b8(pk, (u16)((bits >> 37) & 0x3fff), 4, (u16)((bits >> 51) & 0xf), 0, 0, 16, 16);
+        sceGsSetDefLoadImage(pk, (u16)((bits >> 37) & 0x3fff), 4, (u16)((bits >> 51) & 0xf), 0, 0, 16, 16);
         func_003058a0(0);
-        func_002f2be0(pk, b);
-        func_002f25a0(0, 0);
+        sceGsExecLoadImage(pk, b);
+        sceGsSyncPath(0, 0);
         func_0020ebd8(0x420);
     }
 }

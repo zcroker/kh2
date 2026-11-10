@@ -1,63 +1,63 @@
 /* Sony PS2 Runtime Library 3.0.0: libkernl. Built with ee-gcc 2.9-991111 -O2 -G0. */
-extern int func_0030edb0(void);
-extern void func_0030ee00(void);
+extern int DIntr(void);
+extern void EIntr(void);
 extern int func_00305370(int);
-int func_00306100(int a)
+int DisableIntc(int a)
 {
     int st, r;
     asm volatile("mfc0 %0, $12" : "=r"(st));
     st &= 0x10000;
     if (st)
-        func_0030edb0();
+        DIntr();
     r = func_00305370(a);
     asm volatile("sync");
     if (st)
-        func_0030ee00();
+        EIntr();
     return r;
 }
 
 extern int func_00305360(int);
-int func_00306168(int a)
+int EnableIntc(int a)
 {
     int st, r;
     asm volatile("mfc0 %0, $12" : "=r"(st));
     st &= 0x10000;
     if (st)
-        func_0030edb0();
+        DIntr();
     r = func_00305360(a);
     asm volatile("sync");
     if (st)
-        func_0030ee00();
+        EIntr();
     return r;
 }
 
 extern int func_00305390(int);
-int func_003061d0(int a)
+int DisableDmac(int a)
 {
     int st, r;
     asm volatile("mfc0 %0, $12" : "=r"(st));
     st &= 0x10000;
     if (st)
-        func_0030edb0();
+        DIntr();
     r = func_00305390(a);
     asm volatile("sync");
     if (st)
-        func_0030ee00();
+        EIntr();
     return r;
 }
 
 extern int func_00305380(int);
-int func_00306238(int a)
+int EnableDmac(int a)
 {
     int st, r;
     asm volatile("mfc0 %0, $12" : "=r"(st));
     st &= 0x10000;
     if (st)
-        func_0030edb0();
+        DIntr();
     r = func_00305380(a);
     asm volatile("sync");
     if (st)
-        func_0030ee00();
+        EIntr();
     return r;
 }
 
@@ -73,13 +73,13 @@ void func_002f3918(int *p, int b)
     p[0] = (p[0] & ~0xc) | 0x105;
 }
 
-extern void func_002f3f88(int, int);
+extern void sceVu0CopyVector(int, int);
 void func_002f4480(int p, int a, int b, int c, int d)
 {
-    func_002f3f88(p, a);
-    func_002f3f88(p + 16, b);
-    func_002f3f88(p + 32, c);
-    func_002f3f88(p + 48, d);
+    sceVu0CopyVector(p, a);
+    sceVu0CopyVector(p + 16, b);
+    sceVu0CopyVector(p + 32, c);
+    sceVu0CopyVector(p + 48, d);
 }
 
 extern void func_003056d0(unsigned int *);
@@ -121,12 +121,12 @@ int func_002f6698(int a)
     int old, s;
     if (func_002f71b0(1) != 0)
         return 0;
-    s = func_0030edb0();
+    s = DIntr();
     old = D_01e331c0;
     D_01e331c0 = a;
     asm volatile("sw $gp, %0" : "=m"(D_01e331c4));
     if (s)
-        func_0030ee00();
+        EIntr();
     return old;
 }
 

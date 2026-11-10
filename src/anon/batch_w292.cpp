@@ -182,7 +182,7 @@ struct Obj142 {
     u8 pad[20]; f32 rad; u8 pad2[48 - 24]; QV142 pos; u8 pad3[104 - 64]; f32 f104; f32 h;
     u64 lo : 3; u64 kind : 4; u64 mid : 26; u64 miss : 1; u64 hi : 30;
 };
-f32 func_002f8870(f32);  // fabsf
+f32 fabsf(f32);  // fabsf
 void func_00141c18(void*, s32, s32, s32, s32);
 s32 func_00141ff0(void*, Seg142*, QV142*, s16*, s32);
 void func_001419f8(void*, u16, Obj142*, QV142);
@@ -191,7 +191,7 @@ s32 func_001424c0(void* self, Obj142* o)
 {
     QV142 p(o->pos);
     QV142 q(o->pos);
-    f32 r = func_002f8870(o->rad);  // fabsf
+    f32 r = fabsf(o->rad);  // fabsf
     if (o->kind == 0) r = clamp142(r, 0.0f, 100.0f);
     p.y = p.y - o->h - r;
     q.y = q.y + o->h * 3.0f;

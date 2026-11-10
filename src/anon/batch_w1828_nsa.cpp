@@ -64,9 +64,9 @@ extern M1f5* D_01d9e6e0;
 extern u8* D_01d9e6e8;
 R1f5* func_001e7a98(M1f5*, u8*);
 void func_002226b8(void*, f32*);
-void func_002f3cd8(f32*, void*, f32*);
-void func_002f3f10(f32*, f32*, void*);
-void func_002f3d98(f32*, f32*);
+void sceVu0ApplyMatrix(f32*, void*, f32*);
+void sceVu0SubVector(f32*, f32*, void*);
+void sceVu0Normalize(f32*, f32*);
 struct S8 { s16 a, b, c, d; };
 union US8 { S8 s; u32 u; };
 u8 func_00263cc0(void);
@@ -144,10 +144,10 @@ void func_001f5f10(s32 id, A1f5* a, S1f5* s) {
     v[1] = s->y;
     v[2] = s->z;
     v[3] = 1.0f;
-    func_002f3cd8(v, D_01d9e6e8 + 16, v);
+    sceVu0ApplyMatrix(v, D_01d9e6e8 + 16, v);
     func_002226b8(d0, v);
-    func_002f3f10(v, v, D_01d9e6e8 + 64);
-    func_002f3d98(v, v);
+    sceVu0SubVector(v, v, D_01d9e6e8 + 64);
+    sceVu0Normalize(v, v);
     func_002226b8(d1, v);
 }
 

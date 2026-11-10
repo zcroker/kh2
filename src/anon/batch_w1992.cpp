@@ -162,8 +162,8 @@ u32 func_0016b0a0(u32);
 void func_0011b7b0(MT2dbd30*, u32);
 QW2dbd30* func_0016c028(Ob2dbd30*);
 Cfg2dbd30* func_002d73f0(s32);
-f32 func_002f87c0(f32);
-f32 func_002f8960(f32);
+f32 cosf(f32);
+f32 sinf(f32);
 void func_002e7568(Ob2dbd30*, s32, void*, f32);
 void func_002db968(Ob2dbd30*, s32);
 }
@@ -174,7 +174,7 @@ static inline void w1992_scale(QW2dbd30& d, const QW2dbd30& a, f32 s) {
 static inline void w1992_zero(QW2dbd30* d) { asm volatile("vsub.wxyz $vf1, $vf0, $vf0\n\tsqc2 $vf1, 0(%0)" : : "r"(d) : "memory"); }
 static inline void w1992_setdir(QW2dbd30& out, f32 a, f32 r) {
     QW2dbd30 res;
-    QW2dbd30 v(func_002f87c0(a), func_002f8960(a), 0.0f, 0.0f);
+    QW2dbd30 v(cosf(a), sinf(a), 0.0f, 0.0f);
     w1992_scale(res, v, r);
     out = res;
 }

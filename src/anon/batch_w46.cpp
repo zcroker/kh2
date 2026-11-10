@@ -334,13 +334,13 @@ void func_001e03d0(u8*);
 extern u8* D_01d9e6e8;
 extern u8 D_01d9e840[];
 extern u8 D_01d9e8c0[];
-void func_002f3d08(u8*, u8*, u8*);
-void func_002f3f98(u8*, u8*);
+void sceVu0MulMatrix(u8*, u8*, u8*);
+void sceVu0CopyMatrix(u8*, u8*);
 void func_001fcb18(u8* p, u32, u8* const q) {
     u8* s = p + *(u32*)(*(u8**)(q + 12) + 4) + 160;
-    func_002f3d08(D_01d9e6e8 + 80, D_01d9e840, D_01d9e6e8 + 16);
-    func_002f3f98(s, D_01d9e6e8 + 80);
-    func_002f3d08(D_01d9e6e8 + 80, D_01d9e8c0, D_01d9e6e8 + 80);
+    sceVu0MulMatrix(D_01d9e6e8 + 80, D_01d9e840, D_01d9e6e8 + 16);
+    sceVu0CopyMatrix(s, D_01d9e6e8 + 80);
+    sceVu0MulMatrix(D_01d9e6e8 + 80, D_01d9e8c0, D_01d9e6e8 + 80);
 }
 
 // ---- 002256c8
@@ -380,14 +380,14 @@ extern char D_003712e8[];
 u32 func_00232348(char*);
 void func_002fee78(char*, char*, u32);
 void func_002feee8(char*, char*);
-void func_002ff3fc(char*);  // strlen
+void strlen(char*);  // strlen
 char* func_00232498(char* name) {
     D_01dadbb0[0] = 0;
     u32 v = func_00232348(name);
     func_002fee78(D_01dadbb0, D_003712d8, v);
     func_002feee8(D_01dadbb0, name);
     func_002feee8(D_01dadbb0, D_003712e8);
-    func_002ff3fc(D_01dadbb0);  // strlen
+    strlen(D_01dadbb0);  // strlen
     return D_01dadbb0;
 }
 

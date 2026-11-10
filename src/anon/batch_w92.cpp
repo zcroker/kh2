@@ -2,8 +2,8 @@
 
 // ---- 1007c0 ----
 extern "C" {
-u32 func_0030edb0(void);
-void func_0030ee00(void);  // ee_intr_get_enable
+u32 DIntr(void);
+void EIntr(void);  // ee_intr_get_enable
 void func_002fd160(void) __attribute__((noreturn));
 void func_002fd408(void*);
 
@@ -26,7 +26,7 @@ void* f_001007c0(void* begin) {
     Obj100* ob = 0;
     if (*(u32*)begin == 0)
         return ob;
-    D_0037aa2c = func_0030edb0();
+    D_0037aa2c = DIntr();
     for (p = &D_0037aa30; *p; p = &(*p)->next)
         if ((*p)->u.single == begin) {
             ob = *p;
@@ -48,10 +48,10 @@ void* f_001007c0(void* begin) {
                 goto out;
             }
         }
-    if (D_0037aa2c) func_0030ee00();  // ee_intr_get_enable
+    if (D_0037aa2c) EIntr();  // ee_intr_get_enable
     func_002fd160();
 out:
-    if (D_0037aa2c) func_0030ee00();  // ee_intr_get_enable
+    if (D_0037aa2c) EIntr();  // ee_intr_get_enable
     return ob;
 }
 }

@@ -9,7 +9,7 @@
 asm("dpadd = func_00313e80");
 asm("dpmul = func_00313f40");
 asm("litodp = func_00314330");
-asm("dptofp = func_003144b0");
+asm("dptofp = __truncdfsf2");
 
 #define WORD_SIZE 32
 #define HIGH_HALFWORD_COEFF (((u64) 1) << (WORD_SIZE / 2))
@@ -19,7 +19,7 @@ asm("dptofp = func_003144b0");
 #define SF_SIZE 24
 #define REP_BIT ((u64) 1 << (DI_SIZE - DF_SIZE))
 
-float func_00311af0(s64 u)
+float __floatdisf(s64 u)
 {
     double f;
 

@@ -563,7 +563,7 @@ void func_00314640(f32*, FpNum*);
 static inline int fp_iszero(FpNum* x) { return x->cls == 2; }
 static inline int fp_isnan(FpNum* x) { return x->cls < 2; }
 static inline int fp_isinf(FpNum* x) { return x->cls == 4; }
-u32 func_00313bc0(f32 f) {
+u32 __fixunssfsi(f32 f) {
     FpNum a;
     f32 u = f;
     func_00314640(&u, &a);

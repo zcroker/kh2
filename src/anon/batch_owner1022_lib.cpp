@@ -7,10 +7,10 @@
 extern "C" {
 // libsupc++ eh_catch.cc: std::uncaught_exception()
 struct EhGlobals3167d0 { void* caughtExceptions; u32 uncaughtExceptions; };
-EhGlobals3167d0* func_00316af8(void); // __cxa_get_globals
+EhGlobals3167d0* __cxa_get_globals(void); // __cxa_get_globals
 bool func_003167d0(void)
 {
-    EhGlobals3167d0* g = func_00316af8();
+    EhGlobals3167d0* g = __cxa_get_globals();
     return g->uncaughtExceptions != 0;
 }
 }

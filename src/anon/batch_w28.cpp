@@ -49,7 +49,7 @@ u32 func_0022b688(u32);
 void func_001391a8(u32, Q16*);  // vec_copy_at416_if_diff
 void func_002251c8(u32);
 u32 func_001058e8(void);
-void func_002fdd68(u32, u32, u32);
+void memcpy(u32, u32, u32);
 void func_0028d188(void*);
 u32 func_001a80c8(u32);  // table24_find_by_id
 u8* func_001a8190(u32);
@@ -305,7 +305,7 @@ u32 func_0022ae98(Q16* v) {
 
 void func_00240b48(u32 a) {
     if (!a) a = D_0035ec90;
-    func_002fdd68(func_001058e8(), a, 0x10fc0);
+    memcpy(func_001058e8(), a, 0x10fc0);
 }
 
 // Index of the n-th set bit (of 8) in the mask, or -1.

@@ -4,11 +4,11 @@ extern int func_00305620(SemaParam *p);
 extern int func_00305630(int id);
 extern int func_002fc378(int a, int b, int c);
 extern int func_00305f18(void *a, void *b);
-extern int func_003094b8(void *cd, unsigned int fno, unsigned int mode, void *send, int ssize, void *recv, int rsize, void *end, void *endp);
+extern int sceSifCallRpc(void *cd, unsigned int fno, unsigned int mode, void *send, int ssize, void *recv, int rsize, void *end, void *endp);
 extern int func_003052d0(int n, void *h);
 extern void func_00311740(void);
-extern int func_0030edb0(void);
-extern int func_0030ee00(void);
+extern int DIntr(void);
+extern int EIntr(void);
 extern int func_00310180(int a, int b);
 
 typedef struct { char pad[0x7c]; int x7c; } Pad;
@@ -80,10 +80,10 @@ int func_002f63e0(int port)
 
 int func_003101d0(int a, int b)
 {
-    int s = func_0030edb0();
+    int s = DIntr();
     int r = func_00310180(a, b);
     if (s)
-        func_0030ee00();
+        EIntr();
     return r;
 }
 
@@ -104,7 +104,7 @@ int func_003109e0(unsigned int a, int b, int c, Node* n)
 
 int func_002f4d60(void)
 {
-    if (func_003094b8(D_01e2d980, 0x80001305, 0, D_01e2da80, 144, D_01e2da80, 144, 0, 0) < 0)
+    if (sceSifCallRpc(D_01e2d980, 0x80001305, 0, D_01e2da80, 144, D_01e2da80, 144, 0, 0) < 0)
         return 0;
     return D_01e2da80[1];
 }

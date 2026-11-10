@@ -7,7 +7,7 @@ typedef struct { int flag; int a; int b; int c; Name n; } P1;
 typedef struct { int flag; int one; int a; int b; int c; Name n; } P2;
 typedef struct { int a; int b; int c; int d; void *e; char pad[800]; } Pad;
 extern Pad D_01e2fe48[];
-extern int func_002f4e30(P2 *, unsigned int, unsigned int);
+extern int sceDbcCreateSocket(P2 *, unsigned int, unsigned int);
 extern void func_002f6240(int);
 extern void func_003080d0(const char *, ...);
 
@@ -37,7 +37,7 @@ int ctarget_002f5d18(P1 *p, unsigned int buf)
     }
     q.one = 1;
     q.flag |= 1;
-    r = func_002f4e30(&q, buf, buf + 0x80);
+    r = sceDbcCreateSocket(&q, buf, buf + 0x80);
     if (r < 0) return r;
     D_01e2fe48[r].a = 1;
     D_01e2fe48[r].e = (void *)buf;

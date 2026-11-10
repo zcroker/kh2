@@ -21,12 +21,12 @@ struct __suio { struct __siov* uio_iov; s32 uio_iovcnt; s32 uio_resid; };
 struct lconv { char* decimal_point; };
 
 struct lconv* func_003037e8(void);                              // localeconv
-s32 func_003015f8(struct __sFILE* fp);                          // __swsetup
+s32 __swsetup(struct __sFILE* fp);                          // __swsetup
 s32 func_002ffc50(struct __sFILE* fp, const char* fmt, va_list ap); // __sbprintf
 s32 func_002ffc08(struct __sFILE* fp, struct __suio* uio);      // __sprint
 s32 func_00303958(void* r, s32* pwc, const char* s, s32 n, s32* state); // _mbtowc_r
-u32 func_002ff3fc(const char* s);                               // strlen
-void* func_00303988(const void* s, s32 c, u32 n);               // memchr
+u32 strlen(const char* s);                               // strlen
+void* memchr(const void* s, s32 c, u32 n);               // memchr
 char* func_003012d8(void* data, double value, s32 ndigits, s32 flags, char* sign,
                     s32* decpt, s32 ch, s32* length);           // cvt
 s32 func_00301480(char* p0, s32 exp, s32 fmtch);                // exponent
@@ -105,7 +105,7 @@ extern const char D_00377978[];     // "(null)"
      flags & SHORTINT ? (u64)(u16)va_arg(ap, s32) : \
      (u64)va_arg(ap, u32))
 
-s32 func_002ffd78(void* data, struct __sFILE* fp, const char* fmt0, va_list ap)
+s32 _vfprintf_r(void* data, struct __sFILE* fp, const char* fmt0, va_list ap)
 {
     char* fmt;
     s32 ch;
@@ -137,7 +137,7 @@ s32 func_002ffd78(void* data, struct __sFILE* fp, const char* fmt0, va_list ap)
     char ox[2];
     s32 state = 0;
 
-    if (((fp->_flags & 0x8) == 0 || fp->_bf._base == 0) && func_003015f8(fp))
+    if (((fp->_flags & 0x8) == 0 || fp->_bf._base == 0) && __swsetup(fp))
         return -1;
 
     if ((fp->_flags & 0x1a) == 0x0a && fp->_file >= 0)
@@ -340,7 +340,7 @@ reswitch:
             if ((cp = va_arg(ap, char*)) == 0)
                 cp = (char*)D_00377978;
             if (prec >= 0) {
-                char* p = (char*)func_00303988(cp, 0, prec);
+                char* p = (char*)memchr(cp, 0, prec);
                 if (p != 0) {
                     size = p - cp;
                     if (size > prec)
@@ -348,7 +348,7 @@ reswitch:
                 } else
                     size = prec;
             } else
-                size = func_002ff3fc(cp);
+                size = strlen(cp);
             sign = '\0';
             break;
         case 'U':
@@ -397,7 +397,7 @@ number:     if ((dprec = prec) >= 0)
                     break;
                 default:
                     cp = (char*)D_00377908;
-                    size = func_002ff3fc(cp);
+                    size = strlen(cp);
                     goto skipsize;
                 }
             } else if (base == OCT && (flags & ALT))

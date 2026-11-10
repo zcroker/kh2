@@ -6,10 +6,10 @@
 	.set noat
 	.section .text.func_002ff014,"ax",@progbits
 	.align 2
-	.globl func_002ff014
-	.type func_002ff014, @function
-	.ent func_002ff014
-func_002ff014:
+	.globl strchr
+	.type strchr, @function
+	.ent strchr
+strchr:
 	andi	$2,$4,0x7
 	bnez	$2,.L170
 	andi	$5,$5,0xff
@@ -117,4 +117,4 @@ func_002ff014:
 	xor	$3,$3,$5
 	jr	$31
 	movz	$2,$4,$3
-	.end func_002ff014
+	.end strchr

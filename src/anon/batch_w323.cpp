@@ -210,7 +210,7 @@ extern u8* D_00361f60;
 QV323& func_0016c028(void);  // obj_get_attach_or_alt
 QV323 func_002d1d30(u8*, const QV323&);
 f32 rnd2d4548(f32, f32) asm("_Z13func_001065a8jjjjjjjj");
-f32 func_002f8870(f32);  // fabsf
+f32 fabsf(f32);  // fabsf
 void func_002d4548(u8* self) {
     u8* cam = D_00361f60;
     f32 save = *(f32*)(self + 2876);
@@ -222,11 +222,11 @@ void func_002d4548(u8* self) {
         do {
             a = rnd2d4548(-1.0f, 1.0f);
             b = rnd2d4548(-1.0f, 1.0f);
-        } while (func_002f8870(a) < 0.001f && func_002f8870(b) < 0.001f);  // fabsf
-        if (0.7f < r.x) a = -func_002f8870(a);  // fabsf
-        if (r.x < -0.7f) a = func_002f8870(a);  // fabsf
-        if (0.7f < r.y) b = -func_002f8870(b);  // fabsf
-        if (r.y < -0.7f) b = func_002f8870(b);  // fabsf
+        } while (fabsf(a) < 0.001f && fabsf(b) < 0.001f);  // fabsf
+        if (0.7f < r.x) a = -fabsf(a);  // fabsf
+        if (r.x < -0.7f) a = fabsf(a);  // fabsf
+        if (0.7f < r.y) b = -fabsf(b);  // fabsf
+        if (r.y < -0.7f) b = fabsf(b);  // fabsf
         *(f32*)(self + 2864) = a;
         *(f32*)(self + 2868) = b;
         *(f32*)(self + 2872) = 0.0f;

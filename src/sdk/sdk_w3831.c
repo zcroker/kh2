@@ -14,11 +14,11 @@ extern char D_01e2d980[];
 extern DbcSocketRpc D_01e2da80;
 extern int func_00305660(int);
 extern int func_00305640(int);
-extern int func_003094b8(void *, int, int, void *, int, void *, int, void *, void *);
+extern int sceSifCallRpc(void *, int, int, void *, int, void *, int, void *, void *);
 extern int func_002f5c48(const char *, ...);
 
 /* sceDbcCreateSocket: copies the socket parameters into the RPC packet and calls the IOP. */
-int func_002f4e30(DbcSocketParam *p, void *sbuf, void *rbuf)
+int sceDbcCreateSocket(DbcSocketParam *p, void *sbuf, void *rbuf)
 {
     int i;
     int r;
@@ -36,7 +36,7 @@ int func_002f4e30(DbcSocketParam *p, void *sbuf, void *rbuf)
     s->c = p->c;
     for (i = 0; i < 16; i++)
         s->name[i] = p->name[i];
-    if (func_003094b8(D_01e2d980, 0x80001301, 0, &D_01e2da80, 144, &D_01e2da80, 144, 0, 0) < 0) {
+    if (sceSifCallRpc(D_01e2d980, 0x80001301, 0, &D_01e2da80, 144, &D_01e2da80, 144, 0, 0) < 0) {
         func_002f5c48("sceDbcCreateSocket: rpc error\n");
         func_00305640(D_01e2fe40);
         return 0;

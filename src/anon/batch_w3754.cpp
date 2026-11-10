@@ -8,8 +8,8 @@ void func_002e44c0(Q1987*, f32);
 void func_002e3f58(Q1987*);
 void f2e44b8_1987(Q1987*) asm("_Z13func_002e44b8Pv");
 f32 acos1987(f32) asm("_ZN3Axa15InnerProductXYZERKNS_8FVECTOR4ES2_");
-f32 func_002f8960(f32);
-f32 func_002f8870(f32);
+f32 sinf(f32);
+f32 fabsf(f32);
 Q1987* func_002e47a8(Q1987* out, Q1987* a, Q1987* b, f32 tp)
 {
     Q1987 q;
@@ -25,10 +25,10 @@ Q1987* func_002e47a8(Q1987* out, Q1987* a, Q1987* b, f32 tp)
     if (1.0f < c) c = 1.0f;
     om = acos1987(c);
     u = 1.0f - t;
-    s = func_002f8960(om);
-    s0 = func_002f8960(om * u);
-    s1 = func_002f8960(om * t);
-    if (func_002f8870(s) < 1e-05f) {
+    s = sinf(om);
+    s0 = sinf(om * u);
+    s1 = sinf(om * t);
+    if (fabsf(s) < 1e-05f) {
         out->x = a->x * u + q.x * t;
         out->y = a->y * u + q.y * t;
         out->z = a->z * u + q.z * t;

@@ -11,7 +11,7 @@ extern int D_00365948;
 extern int func_00305670(int);
 extern int func_00305640(int);
 extern void func_00308a80(void *, int);
-extern int func_003094b8(void *, int, int, void *, int, void *, int, void *, void *);
+extern int sceSifCallRpc(void *, int, int, void *, int, void *, int, void *, void *);
 extern char D_002fc440[];
 int func_002fc498(int a0, int a1, int a2, int a3, int a4)
 {
@@ -29,7 +29,7 @@ int func_002fc498(int a0, int a1, int a2, int a3, int a4)
     D_01e334ac = a3;
     D_01e334b0 = a4;
     func_00308a80(D_01e33980, 192);
-    if (func_003094b8(&D_01e33480, 1, 1, &D_01e33500, 48, D_01e34a40, 4, D_002fc440, D_01e33980) != 0) {
+    if (sceSifCallRpc(&D_01e33480, 1, 1, &D_01e33500, 48, D_01e34a40, 4, D_002fc440, D_01e33980) != 0) {
         func_00305640(D_0036594c);
         return -91;
     }
@@ -46,7 +46,7 @@ extern int func_00305660(int);
 extern int func_00305640(int);
 
 extern int func_002f5c48(const char *, ...);
-int func_002f5558(int a, int b, int *n1, char *s, int *n2, char *r)
+int sceDbcSRData(int a, int b, int *n1, char *s, int *n2, char *r)
 {
     int i;
     int res;
@@ -59,7 +59,7 @@ int func_002f5558(int a, int b, int *n1, char *s, int *n2, char *r)
     p->n2 = *n2;
     for (i = 0; i < *n1; i++)
         p->s[i] = s[i];
-    if (func_003094b8(D_01e2d980, 0x80001318, 0, &D_01e2da80, 144, &D_01e2da80, 144, 0, 0) < 0) {
+    if (sceSifCallRpc(D_01e2d980, 0x80001318, 0, &D_01e2da80, 144, &D_01e2da80, 144, 0, 0) < 0) {
         func_002f5c48("sceDbcSRData: rpc error\n");
         func_00305640(D_01e2fe40);
         return 0;
@@ -76,18 +76,18 @@ int func_002f5558(int a, int b, int *n1, char *s, int *n2, char *r)
 }
 
 typedef struct { short inter; short omode; short ffmode; short version; int f8; int fc; } GP;
-extern GP *func_002f1fa8(void);
+extern GP *sceGsGetGParam(void);
 extern void func_00305220(short, short, short);
 extern int func_00305320(int, int);
 extern int func_00305960(int);
-extern int func_00306100(int);
+extern int DisableIntc(int);
 #define CSR ((volatile unsigned long *)0x12001000)
 void func_002f1e18(short mode, short inter, short omode, short ffmode)
 {
     GP *p;
     switch (mode) {
     case 0:
-        p = func_002f1fa8();
+        p = sceGsGetGParam();
         *CSR = 0x200;
         p->inter = inter;
         p->omode = omode;
@@ -95,7 +95,7 @@ void func_002f1e18(short mode, short inter, short omode, short ffmode)
         func_00305960(0xff00);
         p->ffmode = ffmode != 0;
         if (p->f8) {
-            func_00306100(2);
+            DisableIntc(2);
             func_00305320(2, p->fc);
             p->f8 = 0;
             p->fc = 0;
@@ -106,7 +106,7 @@ void func_002f1e18(short mode, short inter, short omode, short ffmode)
         *CSR = 0x100;
         break;
     case 5:
-        p = func_002f1fa8();
+        p = sceGsGetGParam();
         p->ffmode = ffmode != 0;
         p->inter = inter;
         p->omode = omode;
@@ -171,27 +171,27 @@ extern RD D_01e37200;
 extern char D_01e35a00[], D_01e36200[], D_01e36a00[];
 extern char D_00308e30[], D_00309208[], D_00309428[], D_00308f40[];
 extern int D_003660dc;
-extern int func_0030edb0(void);
-extern int func_0030ee00(void);
+extern int DIntr(void);
+extern int EIntr(void);
 extern void func_003083d0(void);
 extern int func_003086b8(int, void *, void *);
 extern int func_00305a30(int);
 extern int func_00305a20(int, int);
-extern int func_003088b8(int, void *, int, void *, void *, int);
+extern int sceSifSendCmd(int, void *, int, void *, void *, int);
 extern int func_00308200(int);
 #define UC(p) ((void *)((unsigned int)(p) | 0x20000000))
 void func_00308b30(void)
 {
     int *cmd;
-    func_0030edb0();
+    DIntr();
     if (D_003660dc) {
-        func_0030ee00();
+        EIntr();
         return;
     }
     D_003660dc = 1;
-    func_0030ee00();
+    EIntr();
     func_003083d0();
-    func_0030edb0();
+    DIntr();
     D_01e37200.pkt = UC(D_01e35a00);
     D_01e37200.pktlen = 32;
     D_01e37200.u0c = 0;
@@ -206,12 +206,12 @@ void func_00308b30(void)
     func_003086b8(0x80000009, D_00309208, &D_01e37200);
     func_003086b8(0x8000000a, D_00309428, &D_01e37200);
     func_003086b8(0x8000000c, D_00308f40, &D_01e37200);
-    func_0030ee00();
+    EIntr();
     if (func_00305a30(0x80000002))
         return;
     cmd = (int *)(D_01e35a00 + 64);
     cmd[3] = 1;
-    func_003088b8(0x80000002, cmd, 16, 0, 0, 0);
+    sceSifSendCmd(0x80000002, cmd, 16, 0, 0, 0);
     while (!func_00308200(0))
         ;
     func_00305a20(0x80000002, 1);
@@ -233,7 +233,7 @@ extern int func_00309d60(void *cd, int fno, int mode, void *send, int ssize, voi
 typedef struct { int sema; int *res; int rsize; char name[1024]; } NamePk;
 typedef struct { int sema; int *res; int rsize; int mode; unsigned char name[1024]; } ModePk;
 typedef struct { int sema; int *res; int rsize; int mode; char name[1024]; } ModePk2;
-int func_0030cb10(const char *name, int mode)
+int sceSync(const char *name, int mode)
 {
     OpenPk *p = &D_01e37280;
     SemaParam sp;
@@ -311,7 +311,7 @@ int u_call4_0030b9e0(const char *name, int fno)
     return res;
 }
 
-int func_0030c4e0(const unsigned char *name, int mode)
+int sceGetstat(const unsigned char *name, int mode)
 {
     ModePk *p = (ModePk *)&D_01e37280;
     SemaParam sp;
@@ -351,7 +351,7 @@ int func_0030c4e0(const unsigned char *name, int mode)
     return res;
 }
 
-int func_0030bbb0(const char *name, int mode)
+int sceMkdir(const char *name, int mode)
 {
     ModePk2 *p = (ModePk2 *)&D_01e37280;
     SemaParam sp;

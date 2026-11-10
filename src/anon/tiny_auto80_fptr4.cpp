@@ -70,8 +70,8 @@ u32 func_002eec58(u32, u32, u32, u32);
 u32 func_002ef9e0(u32, u32, u32, u32);
 u32 func_002efc10(u32, u32, u32, u32);
 u32 func_002efc70(u32, u32, u32, u32);
-u32 func_002f3f98(u32, u32, u32, u32);
-u32 func_002f6ca0(u32, u32, u32, u32);
+u32 sceVu0CopyMatrix(u32, u32, u32, u32);
+u32 sceCdSearchFile(u32, u32, u32, u32);
 u32 func_0030b9e0(u32, u32, u32, u32);
 u32 func_0030d998(u32, u32, u32, u32);
 u32 func_0030df38(u32, u32, u32, u32);
@@ -1503,7 +1503,7 @@ u32 func_00200608(u32 a0, u32 a1, u32 a2, u32 a3) {
     r5 = (u32)&D_01d9e6f0;
     r4 = (u32)(r4 + r14);
     r4 = (u32)((s32)r4 + (160));
-    u32 (*fp_call4_002f3f98)(u32, u32, u32, u32) = func_002f3f98;
+    u32 (*fp_call4_002f3f98)(u32, u32, u32, u32) = sceVu0CopyMatrix;
     r2 = fp_call4_002f3f98(r4, r5, r6, r7);
     return r2;
 }
@@ -1515,7 +1515,7 @@ u32 func_00209dc0(u32 a0, u32 a1, u32 a2, u32 a3) {
     r5 = (u32)&D_01d9e6f0;
     r4 = (u32)(r4 + r14);
     r4 = (u32)((s32)r4 + (224));
-    u32 (*fp_call4_002f3f98)(u32, u32, u32, u32) = func_002f3f98;
+    u32 (*fp_call4_002f3f98)(u32, u32, u32, u32) = sceVu0CopyMatrix;
     r2 = fp_call4_002f3f98(r4, r5, r6, r7);
     return r2;
 }
@@ -2139,12 +2139,12 @@ u32 func_002f11b0(u32 a0, u32 a1, u32 a2, u32 a3) {
 u32 func_002f6fa0(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2;
     r6 = 0u;
-    u32 (*fp_call4_002f6ca0)(u32, u32, u32, u32) = func_002f6ca0;
+    u32 (*fp_call4_002f6ca0)(u32, u32, u32, u32) = sceCdSearchFile;
     r2 = fp_call4_002f6ca0(r4, r5, r6, r7);
     return r2;
 }
 
-void func_00303c18(u32 a0, u32 a1, u32 a2, u32 a3) {  // push_entry_onto_slot_list
+void _Bfree(u32 a0, u32 a1, u32 a2, u32 a3) {  // push_entry_onto_slot_list
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r13, r14, r15;
     if (r5 != 0u) {
         r15 = *(u32*)((u32)r5 + (s32)(4));
@@ -2502,7 +2502,7 @@ u32 func_002c23d8(u32, u32, u32, u32);
 u32 func_002dea80(u32, u32, u32, u32);  // set_vtbl_362d20
 u32 func_002f17e0(u32, u32, u32, u32);
 u32 func_002fbd38(u32, u32, u32, u32);
-u32 func_002fdd68(u32, u32, u32, u32);
+u32 memcpy(u32, u32, u32, u32);
 u32 func_002fee78(u32, u32, u32, u32);
 u32 func_00306e80(u32, u32, u32, u32);
 u32 func_00306f30(u32, u32, u32, u32);

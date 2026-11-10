@@ -9,7 +9,7 @@ extern B1088 D_01e37f00[];
 extern int D_00366160;
 extern int D_00366168;
 extern int D_003660e0[32];
-extern void *func_002fdd68(void *, const void *, unsigned int);
+extern void *memcpy(void *, const void *, unsigned int);
 extern int func_00305650(int);
 
 /* sce fileio RPC end callback: copies each request's results back to the caller (by fno, jump
@@ -29,7 +29,7 @@ void func_00309ec0(int *arg)
     __builtin_memcpy(&h.dst, b + 8, 4);
     __builtin_memcpy(&h.size, b + 12, 4);
     if (h.sema >= 0)
-        func_002fdd68(h.dst, b + 16, h.size);
+        memcpy(h.dst, b + 16, h.size);
     switch (h.fno) {
     case 2: {
         RdTail *t = (RdTail *)(b + 20);
@@ -70,7 +70,7 @@ void func_00309ec0(int *arg)
             h.len = 1024;
             s = 1024;
         }
-        func_002fdd68(h.p, b + 28, s);
+        memcpy(h.p, b + 28, s);
         break;
     }
     if (h.sema < 0) {

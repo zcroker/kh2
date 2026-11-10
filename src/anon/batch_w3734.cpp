@@ -26,7 +26,7 @@ struct W1634MotObj {
 extern "C" {
 extern s32 D_003638d8[3][6];   // motion id tables: idle, idle2, stop, turn right, turn left
 s32 func_0016a070(W1634MotObj*);   // YS::OBJ::get_part_num
-f32 func_002f8870(f32);            // fabsf
+f32 fabsf(f32);            // fabsf
 s32 func_002eff58(W1634MotObj*);
 void func_0016af58(W1634Vec*, W1634MotObj*);
 f32 func_002f8aa0(f32);
@@ -92,7 +92,7 @@ void func_002eff90(void* self, W1634MotObj* obj) {
     cur = mot->id;
     next = 0;
     if (cur != 0 && !W1634InTable(cur, tbl)) return;
-    if (1.0f < obj->vel.w && func_002f8870(obj->vel.y) < 0.8f) {
+    if (1.0f < obj->vel.w && fabsf(obj->vel.y) < 0.8f) {
         if (cur == 0) {
             if (func_002eff58(obj)) {
                 next = tbl[1];

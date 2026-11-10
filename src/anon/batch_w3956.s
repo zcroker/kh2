@@ -200,14 +200,14 @@ func_00221348:
 	lwc1	$f0,20($20)
 	swc1	$f0,152($29)
 	lwc1	$f1,12($20)
-	jal	func_002f3f88
+	jal	sceVu0CopyVector
 	swc1	$f1,156($29)
 	addiu	$4,$29,80
 	jal	func_002226b8
 	move	$5,$17
 	sw	$0,92($29)
 	addiu	$4,$29,96
-	jal	func_002f3f88
+	jal	sceVu0CopyVector
 	move	$5,$19
 	lw	$15,232($29)
 	andi	$14,$15,0x120
@@ -216,7 +216,7 @@ func_00221348:
 	mtc1	$0,$f20
 	addiu	$5,$29,112
 	addiu	$6,$29,96
-	jal	func_002f3f10
+	jal	sceVu0SubVector
 	addiu	$4,$29,64
 	jal	func_002229a0
 	addiu	$4,$29,64
@@ -240,17 +240,17 @@ func_00221348:
 	swc1	$f2,136($29)
 .L00221688:
 	addiu	$4,$29,64
-	jal	func_002f3d98
+	jal	sceVu0Normalize
 	move	$5,$4
 	addiu	$4,$29,80
 	lwc1	$f12,136($29)
 	addiu	$5,$29,64
-	jal	func_002f3ed0
+	jal	sceVu0InterVector
 	move	$6,$4
 	lw	$10,268($29)
 	beqz	$10,.L002216bc
 	addiu	$4,$29,80
-	jal	func_002f3d98
+	jal	sceVu0Normalize
 	move	$5,$4
 .L002216bc:
 	jal	func_00222568
@@ -287,19 +287,19 @@ func_00221348:
 	lw	$5,224($29)
 	addiu	$4,$29,80
 	move	$5,$29
-	jal	func_002f3cd8
+	jal	sceVu0ApplyMatrix
 	move	$6,$4
 	lw	$13,224($29)
 	addiu	$4,$29,80
 	move	$6,$17
 	move	$5,$4
 	lw	$15,76($13)
-	jal	func_002f3ed0
+	jal	sceVu0InterVector
 	lwc1	$f12,36($15)
 	lw	$14,268($29)
 	beqz	$14,.L00221778
 	addiu	$4,$29,80
-	jal	func_002f3d98
+	jal	sceVu0Normalize
 	move	$5,$4
 .L00221778:
 	mtc1	$0,$f20
@@ -307,7 +307,7 @@ func_00221348:
 	addiu	$5,$29,112
 .L00221780:
 	addiu	$6,$29,96
-	jal	func_002f3f10
+	jal	sceVu0SubVector
 	addiu	$4,$29,64
 	jal	func_002229a0
 	addiu	$4,$29,64
@@ -403,7 +403,7 @@ func_00221348:
 	b	.L0022188c
 	sh	$0,60($12)
 .L002218dc:
-	jal	func_002f3f88
+	jal	sceVu0CopyVector
 	addiu	$4,$29,112
 	bnezl	$23,.L002218f8
 	lwc1	$f0,16($20)
@@ -431,18 +431,18 @@ func_00221348:
 	move	$30,$0
 .L0022193c:
 	addiu	$5,$29,96
-	jal	func_002f3f88
+	jal	sceVu0CopyVector
 	addiu	$4,$29,176
 	addiu	$4,$29,160
 	jal	func_002226b8
 	addiu	$5,$29,80
 	lwc1	$f12,128($29)
 	addiu	$4,$29,192
-	jal	func_002f3f40
+	jal	sceVu0ScaleVector
 	addiu	$5,$29,80
 	addiu	$4,$29,96
 	addiu	$6,$29,192
-	jal	func_002f3ef8
+	jal	sceVu0AddVector
 	move	$5,$4
 	move	$4,$19
 	jal	func_002226b8
@@ -466,17 +466,17 @@ func_00221348:
 	swc1	$f2,136($29)
 .L002219c4:
 	addiu	$4,$29,64
-	jal	func_002f3d98
+	jal	sceVu0Normalize
 	move	$5,$4
 	addiu	$4,$29,80
 	lwc1	$f12,136($29)
 	addiu	$5,$29,64
-	jal	func_002f3ed0
+	jal	sceVu0InterVector
 	move	$6,$4
 	lw	$15,268($29)
 	beqz	$15,.L002219f8
 	addiu	$4,$29,80
-	jal	func_002f3d98
+	jal	sceVu0Normalize
 	move	$5,$4
 .L002219f8:
 	jal	func_00222568
@@ -514,7 +514,7 @@ func_00221348:
 	lw	$5,224($29)
 	addiu	$4,$29,80
 	move	$5,$29
-	jal	func_002f3cd8
+	jal	sceVu0ApplyMatrix
 	move	$6,$4
 	lw	$14,248($29)
 	slt	$15,$14,$23
@@ -526,12 +526,12 @@ func_00221348:
 	move	$5,$4
 	lw	$15,76($10)
 	move	$6,$22
-	jal	func_002f3ed0
+	jal	sceVu0InterVector
 	lwc1	$f12,36($15)
 	lw	$12,268($29)
 	beqz	$12,.L00221acc
 	addiu	$4,$29,80
-	jal	func_002f3d98
+	jal	sceVu0Normalize
 	move	$5,$4
 .L00221acc:
 	mtc1	$16,$f0

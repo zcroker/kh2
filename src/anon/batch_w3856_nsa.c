@@ -3,7 +3,7 @@
 typedef unsigned int u128_46 __attribute__((mode(TI)));
 asm("dpmul = func_00313f40");
 asm("litodp = func_00314330");
-asm("dptofp = func_003144b0");
+asm("dptofp = __truncdfsf2");
 
 typedef struct { u16 r, g, b, a; } C46;
 typedef struct { u8 pad[0x80]; u8* tbl; u8 pad84[0x24]; u64 flags; } M46;
@@ -92,10 +92,10 @@ extern M46* D_01d9e6e0;
 extern K46* D_01d9e6e8;
 extern u8 D_01d9e360[];
 extern s32 D_00352c38;
-void func_002f3f98(f32*, f32*);
-void func_002f3cd8(f32*, f32*, void*);
-void func_002f3d98(f32*, f32*);
-void func_002f3f88(f32*, f32*);
+void sceVu0CopyMatrix(f32*, f32*);
+void sceVu0ApplyMatrix(f32*, f32*, void*);
+void sceVu0Normalize(f32*, f32*);
+void sceVu0CopyVector(f32*, f32*);
 void func_00222080(E46*, u8*, f32*, f32*);
 void func_00222170(A46*);
 
@@ -122,13 +122,13 @@ void func_001f46f8(O46* owner, P46* prm, X46* ctx)
     void* src = (u8*)owner + ofs[2] + 160;
     if (D_01d9ea9c != 0) return;
     if (D_01d9e6e0->flags & 0xff0000ff00ULL) return;
-    func_002f3f98(m, D_01d9e6e8->m0);
+    sceVu0CopyMatrix(m, D_01d9e6e8->m0);
     *(u128_46*)&m[12] = 0;
     m[15] = 1.0f;
-    func_002f3cd8(dir, m, src);
+    sceVu0ApplyMatrix(dir, m, src);
     }
-    func_002f3d98(dir, dir);
-    func_002f3f88(pos, D_01d9e6e8->m1);
+    sceVu0Normalize(dir, dir);
+    sceVu0CopyVector(pos, D_01d9e6e8->m1);
     if (owner->id == prm->id) {
         if (owner->id == 0) {
             u8* d = (u8*)owner + ctx->ofs[1] + 160;

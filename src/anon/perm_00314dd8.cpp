@@ -19,11 +19,11 @@ union BD_VALUE
   u32 u;
 };
 u32 func_003149e8(u8);
-s64 func_00311aa0(s32, u64);
+s64 __muldi3(s32, u64);
 volatile char func_00314b90(u8, s32, s32, void *);
 inline s64 inline_fn(s32 arg0, u8 *arg1)
 {
-  return func_00311aa0(arg0, func_003149e8(arg1[0x14]));
+  return __muldi3(arg0, func_003149e8(arg1[0x14]));
 }
 
 s32 func_00314dd8(u8 *a0, s32 a1)

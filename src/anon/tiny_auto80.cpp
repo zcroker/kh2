@@ -84,7 +84,7 @@ u32 func_002c23d8(u32, u32, u32, u32);
 u32 func_002dea80(u32, u32, u32, u32);  // set_vtbl_362d20
 u32 func_002f17e0(u32, u32, u32, u32);
 u32 func_002fbd38(u32, u32, u32, u32);
-u32 func_002fdd68(u32, u32, u32, u32);
+u32 memcpy(u32, u32, u32, u32);
 u32 func_002fee78(u32, u32, u32, u32);
 u32 func_00306e80(u32, u32, u32, u32);
 u32 func_00306f30(u32, u32, u32, u32);
@@ -874,23 +874,23 @@ u32 func_002ef988(u32, u32, u32, u32);
 u32 func_002efa98(u32, u32, u32, u32);
 u32 func_002efb08(u32, u32, u32, u32);
 u32 func_002f17e0(u32, u32, u32, u32);
-u32 func_002f25a0(u32, u32, u32, u32);
-u32 func_002f2be0(u32, u32, u32, u32);
+u32 sceGsSyncPath(u32, u32, u32, u32);
+u32 sceGsExecLoadImage(u32, u32, u32, u32);
 u32 func_002f3490(u32, u32, u32, u32);
 u32 func_002f35e8(u32, u32, u32, u32);
 u32 func_002f3918(u32, u32, u32, u32);
-u32 func_002f3f88(u32, u32, u32, u32);  // memcpy16
+u32 sceVu0CopyVector(u32, u32, u32, u32);  // memcpy16
 u32 func_002f71b0(u32, u32, u32, u32);
 u32 func_002f79c8(u32, u32, u32, u32);
 u32 func_002f7e60(u32, u32, u32, u32);
 u32 func_002fbd38(u32, u32, u32, u32);
 u32 func_002fd248(u32, u32, u32, u32);
-u32 func_002fdd68(u32, u32, u32, u32);
+u32 memcpy(u32, u32, u32, u32);
 u32 func_002fde18(u32, u32, u32, u32);
 u32 func_002fee78(u32, u32, u32, u32);
 u32 func_002ff2e8(u32, u32, u32, u32);
-u32 func_002ff3fc(u32, u32, u32, u32);  // strlen
-u32 func_002ffbb0(u32, u32, u32, u32);
+u32 strlen(u32, u32, u32, u32);  // strlen
+u32 strtol(u32, u32, u32, u32);
 u32 func_00305240(u32, u32, u32, u32);
 u32 func_00305260(u32, u32, u32, u32);
 u32 func_00305350(u32, u32, u32, u32);
@@ -902,11 +902,11 @@ u32 func_00305660(u32, u32, u32, u32);
 u32 func_003058a0(u32, u32, u32, u32);
 u32 func_00305a30(u32, u32, u32, u32);
 u32 func_00305a40(u32, u32, u32, u32);
-u32 func_003061d0(u32, u32, u32, u32);
+u32 DisableDmac(u32, u32, u32, u32);
 u32 func_00306e80(u32, u32, u32, u32);
 u32 func_00306f30(u32, u32, u32, u32);
 u32 func_00308650(u32, u32, u32, u32);
-u32 func_003088f8(u32, u32, u32, u32);
+u32 isceSifSendCmd(u32, u32, u32, u32);
 u32 func_0030a278(u32, u32, u32, u32);
 u32 func_0030e548(u32, u32, u32, u32);
 u32 func_0030f290(u32, u32, u32, u32);

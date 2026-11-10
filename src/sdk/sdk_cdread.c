@@ -18,7 +18,7 @@ extern void func_00308a80(void *, int);
 extern void func_003080d0(void *);
 extern int func_00305640(int s);
 extern void func_002f6910(void *);
-extern int func_003094b8(void *cd, unsigned int fno, unsigned int mode, void *send, int ssize, void *recv, int rsize, void *end, void *endp);
+extern int sceSifCallRpc(void *cd, unsigned int fno, unsigned int mode, void *send, int ssize, void *recv, int rsize, void *end, void *endp);
 int func_002f7be8(unsigned int lsn, unsigned int sec, void *buf, RMode *mode)
 {
     int size;
@@ -50,7 +50,7 @@ int func_002f7be8(unsigned int lsn, unsigned int sec, void *buf, RMode *mode)
         func_003080d0(D_00376d78);
     (*(volatile int*)&D_00363de0) = 1;
     (*(volatile int*)&D_00363db4) = 1;
-    if (func_003094b8(D_00364f50, 1, 1, p, 24, 0, 0, func_002f6910, D_00364e80) < 0) {
+    if (sceSifCallRpc(D_00364f50, 1, 1, p, 24, 0, 0, func_002f6910, D_00364e80) < 0) {
         (*(volatile int*)&D_00363de0) = 0;
         __asm__ volatile("" ::: "memory");
         (*(volatile int*)&D_00363db4) = 0;

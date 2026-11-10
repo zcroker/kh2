@@ -57,7 +57,7 @@ W1655Elem* W1655_each_collision(W1655Obj*, s32, W1655Elem*) asm("_ZN2YS3OBJ14eac
 void W1655_set_obj(W1655Tgt*, W1655Obj*, s32) asm("_ZN2YS6TARGET7set_objEPNS_3OBJEi");
 f32 W1655_FixRadian(f32) asm("_ZN2YS4MATH9FixRadianEf");
 f32 f_atan2f(f32, f32);
-f32 func_002f8870(f32);  // fabsf
+f32 fabsf(f32);  // fabsf
 s32 func_0019bc38(W1655Obj*);
 s32 func_0019bb58(W1655Obj*);
 void func_0018a818(W1655Hit*, W1655Obj*, W1655Elem*);
@@ -138,7 +138,7 @@ void func_00190f80(W1655Tgt* t, W1655Obj* self, f32 limit) {
                 if (hi + hit.height < dy) continue;
                 if (limit < len - hit.radius) continue;
             }
-            len += func_002f8870(dy) * prm->yscale;
+            len += fabsf(dy) * prm->yscale;
             f32 dot = w1655_vdot(&func_0016af58(self), &h);
             len *= (one - dot) * half * (one - prm->dirmin) + prm->dirmin;
             if (t->obj != 0 && !(len < best)) continue;

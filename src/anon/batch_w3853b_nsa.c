@@ -7,13 +7,13 @@ typedef struct { u32 cur; u8 cnt; u8 on; u8 pad[2]; Vq (*key)[2]; } TrSt;
 typedef struct { u8 pad[8]; s32 n; u8 pad2[8]; s16 (*out)[2][3]; u8 pad3[4]; s32* poly; } TrObj;
 typedef struct { u8 pad0; s8 type; s16 count; u8 pad[12]; } PolyHdr;
 void func_00201bb0(u8* prm, Vq* a, Vq* b);
-void func_002f3f88(Vq* d, Vq* s);
-void func_002f3f10(Vq* d, Vq* a, Vq* b);
+void sceVu0CopyVector(Vq* d, Vq* s);
+void sceVu0SubVector(Vq* d, Vq* a, Vq* b);
 void func_00201978(Vq* in, s32 n, Vq* out);
 void func_00201b30(Vq* o, Vq* a, Vq* b, f32 t);
-void func_002f3ed0(Vq* d, Vq* a, Vq* b, f32 t);
+void sceVu0InterVector(Vq* d, Vq* a, Vq* b, f32 t);
 void func_00201ca0(u8* prm, s32* x, s32* w, s32* y, s32* h);
-void func_002fe0a0(const char*);
+void puts(const char*);
 extern Vq D_00354bc0;
 extern char D_003702e0[];
 
@@ -38,8 +38,8 @@ void func_00201d60(TrObj* obj, u8* prm, TrSt* st)
         for (i = 0; i < cnt; i++) {
             s32 idx = cur - i;
             if (idx < 0) idx += cnt;
-            func_002f3f88(&tmp[i], &(*key)[idx * 2 + k]);
-            if (prm[21]) func_002f3f10(&tmp[i], &tmp[i], &D_00354bc0);
+            sceVu0CopyVector(&tmp[i], &(*key)[idx * 2 + k]);
+            if (prm[21]) sceVu0SubVector(&tmp[i], &tmp[i], &D_00354bc0);
             asm("" :: "r"(i), "r"(i));
         }
         func_00201978(tmp, cnt, coef);
@@ -72,7 +72,7 @@ void func_00201d60(TrObj* obj, u8* prm, TrSt* st)
                 v[k].y = o[i][k][1];
                 v[k].z = o[i][k][2];
             }
-            func_002f3ed0(&v[0], &v[0], &v[1], a);
+            sceVu0InterVector(&v[0], &v[0], &v[1], a);
             a -= da;
             o[i][0][0] = v[0].x;
             o[i][0][1] = v[0].y;
@@ -103,7 +103,7 @@ void func_00201d60(TrObj* obj, u8* prm, TrSt* st)
             sz = 0;
             switch (rec->type) {
             case 0: case 1: case 2: case 3: case 5: case 7:
-                func_002fe0a0(D_003702e0);
+                puts(D_003702e0);
                 return;
             case 4: {
                 u8* e = (u8*)(rec + 1);

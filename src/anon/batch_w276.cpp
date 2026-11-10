@@ -8,10 +8,10 @@ extern u8 D_01d9e360[];
 extern M* D_01d9e6e0;
 extern s32 D_01d9ea9c;
 extern "C" {
-void func_002f3f10(void*, void*, void*);  // vec4_sub
+void sceVu0SubVector(void*, void*, void*);  // vec4_sub
 f32 func_002229a0(void*);  // vec3_length
-void func_002f3d98(void*, void*);  // vec4_normalize
-void func_002f3f40(void*, void*, f32);  // vec_scale_by_f12
+void sceVu0Normalize(void*, void*);  // vec4_normalize
+void sceVu0ScaleVector(void*, void*, f32);  // vec_scale_by_f12
 void func_00222750(void*, void*, void*);
 void func_001fbfd8(u8* a, K* k, X* x) {
     u8 buf[16];
@@ -30,11 +30,11 @@ void func_001fbfd8(u8* a, K* k, X* x) {
     if (s == (S*)D_01d9e360) return;
     XC* c = (XC*)x->c;
     u8* d = a + c->o4 + 160;
-    func_002f3f10(buf, s->p8, a + c->o0 + 160);  // vec4_sub
+    sceVu0SubVector(buf, s->p8, a + c->o0 + 160);  // vec4_sub
     f32 len = func_002229a0(buf);  // vec3_length
-    func_002f3d98(buf, buf);  // vec4_normalize
+    sceVu0Normalize(buf, buf);  // vec4_normalize
     if (len < s->f0) {
-        func_002f3f40(buf, buf, (1.0f - len / s->f0) * s->f4);  // vec_scale_by_f12
+        sceVu0ScaleVector(buf, buf, (1.0f - len / s->f0) * s->f4);  // vec_scale_by_f12
         func_00222750(d, d, buf);
     }
 }

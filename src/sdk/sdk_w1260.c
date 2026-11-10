@@ -2,16 +2,16 @@
 extern int func_00305650(int s);
 extern int func_00305640(int s);
 extern int func_00305630(int s);
-extern int func_0030edb0(void);
-extern int func_0030ee00(void);
+extern int DIntr(void);
+extern int EIntr(void);
 extern void func_00308730(int);
 extern void func_003080d0(void *);
 extern int func_003096b8(void *);
 extern void func_00306698(int);
 extern int func_0030dd70(void);
 extern int func_0030de70(void);
-extern char* func_002ff6f0(char *d, const char *s, int n);
-extern int func_003094b8(void *cd, unsigned int fno, unsigned int mode, void *send, int ssize, void *recv, int rsize, void *end, void *endp);
+extern char* strncpy(char *d, const char *s, int n);
+extern int sceSifCallRpc(void *cd, unsigned int fno, unsigned int mode, void *send, int ssize, void *recv, int rsize, void *end, void *endp);
 extern unsigned long func_00312db8(unsigned long a, unsigned long b);
 extern int D_00363de0;
 extern int D_00363de4;
@@ -58,10 +58,10 @@ void func_002f6ab0(void)
     func_00305630(D_00363dac);
     func_00305630(D_00363db0);
     func_00305630(D_00363da0);
-    s = func_0030edb0();
+    s = DIntr();
     func_00308730(0x80000012);
     if (s != 0)
-        func_0030ee00();
+        EIntr();
 }
 
 int func_002f71b0(int mode)
@@ -88,9 +88,9 @@ int func_0030e3d8(const char *name)
         return 0xffff0000;
     if (func_0030de70() != 0)
         return 0xfffefffc;
-    func_002ff6f0(D_01e38c40.name, name, 252);
+    strncpy(D_01e38c40.name, name, 252);
     D_01e38c40.name[251] = 0;
-    if (func_003094b8(D_01e38e40, 9, 0, &D_01e38c40, 512, &D_01e38c40, 4, 0, 0) < 0)
+    if (sceSifCallRpc(D_01e38e40, 9, 0, &D_01e38c40, 512, &D_01e38c40, 4, 0, 0) < 0)
         return 0xfffeffff;
     return D_01e38c40.ret;
 }

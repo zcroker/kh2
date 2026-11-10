@@ -11,8 +11,8 @@ struct Munny {
 }
 
 extern "C" {
-u32 func_0030edb0(void);
-void func_0030ee00(void);  // ee_intr_get_enable
+u32 DIntr(void);
+void EIntr(void);  // ee_intr_get_enable
 extern u32 D_0037aa2c;
 extern void* D_0037aa30;
 u8* func_0016a070(void);
@@ -506,11 +506,11 @@ void wtarget_00100700(u32 a, u32 b, u32 c, u32 d) {
     p->u.q |= 0x7fa;
     p->c = d;
     p->d = a;
-    u32 s = func_0030edb0();
+    u32 s = DIntr();
     D_0037aa2c = s;
     p->next = D_0037aa30;
     D_0037aa30 = p;
-    if (s) func_0030ee00();  // ee_intr_get_enable
+    if (s) EIntr();  // ee_intr_get_enable
 }
 
 void wtarget_0015eaf8(u32 a, u32 b, u32, u32) {

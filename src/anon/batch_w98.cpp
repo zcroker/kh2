@@ -2,7 +2,7 @@
 
 extern "C" {
 f32 func_002f8a18(f32);
-f32 func_002f8420(f32);
+f32 atanf(f32);
 
 struct Proj106 { u8 pad[64]; f32 dist; f32 fovx; f32 fovy; f32 w; f32 h; };
 
@@ -12,11 +12,11 @@ void func_00106de8(Proj106* p, s32 vert, f32 fov) {
         f32 d = 512.0f / p->w * 0.5f / func_002f8a18(fov * 0.5f);
         p->fovx = fov;
         p->dist = d;
-        p->fovy = func_002f8420(416.0f / p->h * 0.5f / d) * 2;
+        p->fovy = atanf(416.0f / p->h * 0.5f / d) * 2;
     } else {
         f32 d = 416.0f / p->h * 0.5f / func_002f8a18(fov * 0.5f);
         p->dist = d;
-        f32 r = func_002f8420(512.0f / p->w * 0.5f / d) * 2;
+        f32 r = atanf(512.0f / p->w * 0.5f / d) * 2;
         p->fovy = fov;
         p->fovx = r;
     }
@@ -25,10 +25,10 @@ void func_00106de8(Proj106* p, s32 vert, f32 fov) {
 struct ImgHdr166 { u8 pad[12]; u16 dataOff; u8 pad2[5]; u8 kind; u16 w; u16 h; };
 extern u8 D_004f41d0[];
 void func_00166148(u8*, s32, s32);
-void func_002f2aa0(void*, s32, s16, s32, s32, s32, s16, s16);
+void sceGsSetDefStoreImage(void*, s32, s16, s32, s32, s32, s16, s16);
 void func_003058a0(s32);
-void func_002f25a0(s32, s32);
-void func_002f2d60(void*, u8*);
+void sceGsSyncPath(s32, s32);
+void sceGsExecStoreImage(void*, u8*);
 
 // Uploads an image once, converting kinds 4/5 to their uploaded kinds 6/7.
 void func_001664c0(u8* p) {
@@ -51,10 +51,10 @@ void func_001664c0(u8* p) {
         h->kind = 7;
         break;
     }
-    func_002f2aa0(D_004f41d0, 10240, x, 0, 0, 0, y, z);
+    sceGsSetDefStoreImage(D_004f41d0, 10240, x, 0, 0, 0, y, z);
     func_003058a0(0);
-    func_002f25a0(0, 0);
-    func_002f2d60(D_004f41d0, data);
+    sceGsSyncPath(0, 0);
+    sceGsExecStoreImage(D_004f41d0, data);
 }
 
 struct M174 { f32 m[4][4]; } __attribute__((aligned(16)));
@@ -329,7 +329,7 @@ void func_001b5460(u8* o) {
     func_001b5588(D_01d48cb0);
 }
 
-void func_002f25a0(s32, s32);
+void sceGsSyncPath(s32, s32);
 extern u32 D_01d9e6b4;
 
 static inline s32 PathBusy1e7(void) {
@@ -345,7 +345,7 @@ static inline s32 PathBusy1e7(void) {
 
 // Kicks a GIF PATH3 transfer of the given packet once all paths are idle (skips if already sent).
 void func_001e72a8(u32 addr) {
-    func_002f25a0(0, 0);
+    sceGsSyncPath(0, 0);
     if (D_01d9e6b4 != addr) {
         while (PathBusy1e7()) {}
         *(volatile u32*)0x10009020 = 0;
@@ -427,8 +427,8 @@ extern CamP200 D_01d9e6e8;
 extern u8 D_00354bd0[];
 extern f32 D_00354bc0[4];
 void func_001e8fe0(void*, void*);
-void func_002f3e20(M200*, M200*);  // convert_vectors_to_scalar
-void func_002f3d08(void*, void*, void*);
+void sceVu0InversMatrix(M200*, M200*);  // convert_vectors_to_scalar
+void sceVu0MulMatrix(void*, void*, void*);
 static inline void ScaleRow(f32* row, u32 k) {
     asm volatile("qmtc2 %1, $vf9\n\tlqc2 $vf10, 0(%0)\n\tvmulx.xyz $vf10, $vf10, $vf9x\n\tsqc2 $vf10, 0(%0)" : : "r"(row), "r"(k) : "memory");
 }
@@ -449,9 +449,9 @@ void func_00200c50(u8* base, u8*, u8* c) {
     m.m[3][0] = D_00354bc0[0];
     m.m[3][1] = D_00354bc0[1];
     m.m[3][2] = D_00354bc0[2];
-    func_002f3e20(&m, &m);  // convert_vectors_to_scalar
-    func_002f3d08(&D_01d9e6e8.p->mat, &D_01d9e6e8.p->mat, sc);
-    func_002f3d08(&D_01d9e6e8.p->mat, &m, &D_01d9e6e8.p->mat);
+    sceVu0InversMatrix(&m, &m);  // convert_vectors_to_scalar
+    sceVu0MulMatrix(&D_01d9e6e8.p->mat, &D_01d9e6e8.p->mat, sc);
+    sceVu0MulMatrix(&D_01d9e6e8.p->mat, &m, &D_01d9e6e8.p->mat);
     ScaleRow(D_01d9e6e8.p->mat.m[0], scale[0]);
     ScaleRow(D_01d9e6e8.p->mat.m[1], scale[1]);
     ScaleRow(D_01d9e6e8.p->mat.m[2], scale[2]);

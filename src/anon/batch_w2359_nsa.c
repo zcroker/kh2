@@ -30,16 +30,16 @@ extern Bk203b48* D_01d9e6e4;
 f32 func_00203a40(void);
 s8 func_00203a88(u8);
 void func_001e7188(void*, s32, s32);
-void func_002f4000(f32*);
-void func_002f4298(f32*, f32*, f32*);
-void func_002f3cd8(f32*, f32*, f32*);
-void func_002f3d98(f32*, f32*);
+void sceVu0UnitMatrix(f32*);
+void sceVu0RotMatrix(f32*, f32*, f32*);
+void sceVu0ApplyMatrix(f32*, f32*, f32*);
+void sceVu0Normalize(f32*, f32*);
 void func_002f4870(f32, f32*, f32*);
-void func_002f3f98(f32*, f32*);
-void func_002f3d08(f32*, f32*, f32*);
+void sceVu0CopyMatrix(f32*, f32*);
+void sceVu0MulMatrix(f32*, f32*, f32*);
 double func_00313b80(f32);
-double func_00313ed8(double, double);
-f32 func_003144b0(double);
+double __subdf3(double, double);
+f32 __truncdfsf2(double);
 
 void func_00203b48(void* e, Ob203b48* ob, Pr203b48* p, u8* col, Pt203b48* pt, f32* base, Cf203b48* cf)
 {
@@ -67,13 +67,13 @@ void func_00203b48(void* e, Ob203b48* ob, Pr203b48* p, u8* col, Pt203b48* pt, f3
             ang[0] = 0.0f;
             ang[1] = 0.0f;
         }
-        func_002f4000(mtx);
-        func_002f4298(mtx, mtx, ang);
-        func_002f3cd8(pt->vel, mtx, dir);
+        sceVu0UnitMatrix(mtx);
+        sceVu0RotMatrix(mtx, mtx, ang);
+        sceVu0ApplyMatrix(pt->vel, mtx, dir);
         pt->vel[0] *= p->f188;
         pt->vel[1] *= p->f192;
         pt->vel[2] *= p->f196;
-        func_002f3d98(pt->vel, pt->vel);
+        sceVu0Normalize(pt->vel, pt->vel);
         pt->vel[3] = 0.0f;
     }
     switch (p->b38) {
@@ -171,7 +171,7 @@ void func_00203b48(void* e, Ob203b48* ob, Pr203b48* p, u8* col, Pt203b48* pt, f3
             r = func_00203a40();
             r = r * func_00203a40();
             r = r * func_00203a40();
-            r = func_003144b0(func_00313ed8(1.0, func_00313b80(r)));
+            r = __truncdfsf2(__subdf3(1.0, func_00313b80(r)));
             goto pick;
         case 4:
             r = func_00203a40();
@@ -185,7 +185,7 @@ void func_00203b48(void* e, Ob203b48* ob, Pr203b48* p, u8* col, Pt203b48* pt, f3
             r = r * func_00203a40();
             r = r * func_00203a40();
             r = r * func_00203a40();
-            r = func_003144b0(func_00313ed8(1.0, func_00313b80(r)));
+            r = __truncdfsf2(__subdf3(1.0, func_00313b80(r)));
         pick:
             if (!(ob->h98 < vs->count)) ob->h98 = 0;
             vx = ((Vx203b48*)verts)[vs->idx[(s32)(r * vs->count)]];
@@ -195,7 +195,7 @@ void func_00203b48(void* e, Ob203b48* ob, Pr203b48* p, u8* col, Pt203b48* pt, f3
         pt->pos[1] = vx.y * p->f192;
         pt->pos[2] = vx.z * p->f196;
         if ((u8)(p->b38 - 8) < 2) {
-            func_002f3d98(pt->vel, pt->pos);
+            sceVu0Normalize(pt->vel, pt->pos);
             pt->vel[3] = 0.0f;
         }
         break;
@@ -287,13 +287,13 @@ void func_00203b48(void* e, Ob203b48* ob, Pr203b48* p, u8* col, Pt203b48* pt, f3
     pt->b44 = 0;
     switch (p->b204) {
     case 1:
-        func_002f3f98(base, (f32*)ob);
+        sceVu0CopyMatrix(base, (f32*)ob);
         break;
     case 2:
-        func_002f3f98(base, D_01d9e6e8->v16);
+        sceVu0CopyMatrix(base, D_01d9e6e8->v16);
         break;
     case 3:
-        func_002f3d08(base, (f32*)ob, D_01d9e6e8->v16);
+        sceVu0MulMatrix(base, (f32*)ob, D_01d9e6e8->v16);
         break;
     }
     if (cf) {

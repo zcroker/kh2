@@ -882,7 +882,7 @@ struct Ctx304 {
     u8 pad88[240]; Node304* f328; Node304 f332; u8 pad336[136]; u32 f472;
 };
 extern Ctx304* D_00365c48;
-void func_00302e90(Ctx304*, void*);
+void _free_r(Ctx304*, void*);
 void func_00304b60(Ctx304*, u32);
 void func_00304ba8(Ctx304* c) {
     if (c == D_00365c48) return;
@@ -892,20 +892,20 @@ void func_00304ba8(Ctx304* c) {
             while (n) {
                 Node304* cur = n;
                 n = n->next;
-                func_00302e90(c, cur);
+                _free_r(c, cur);
             }
         }
-        func_00302e90(c, c->f76);
+        _free_r(c, c->f76);
     }
     if (c->f328 && c->f328 != &c->f332) {
         Node304* n = c->f328;
         do {
             Node304* cur = n;
             n = n->next;
-            func_00302e90(c, cur);
+            _free_r(c, cur);
         } while (n != &c->f332);
     }
-    if (c->f84) func_00302e90(c, c->f84);
+    if (c->f84) _free_r(c, c->f84);
     if (!c->f56) return;
     c->f60(c);
     if (c->f472) func_00304b60(c, c->f472);

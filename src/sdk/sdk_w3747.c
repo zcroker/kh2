@@ -20,7 +20,7 @@ extern int func_00305660(int);
 extern FdEnt *func_00309e50(int);
 extern int func_00309d60(void *cd, int fno, int mode, void *send, int ssize, void *recv, int rsize, void *end, void *endp, int noretry);
 
-int func_0030ad00(int fd, int off, int whence)
+int sceLseek(int fd, int off, int whence)
 {
     LsPk *q = &D_01e37280;
     SemaParam sp;

@@ -83,8 +83,8 @@ extern char D_00370398[];
 extern char D_00370378[];
 void* func_001e7698(Res203408*, s32);
 void func_002233f0(char*, char*, s32);
-void func_002f3f88(V203408*, V203408*);
-s32 func_002fe0a0(char*);
+void sceVu0CopyVector(V203408*, V203408*);
+s32 puts(char*);
 void func_00202ce0(Set203408*, Ent203408*, St203408*);
 s32 func_00203408(u8* base, Ent203408* e, Ctx203408* c)
 {
@@ -102,8 +102,8 @@ s32 func_00203408(u8* base, Ent203408* e, Ctx203408* c)
         st->hist = func_001e7698(D_01d9e6e4, n * 32);
         if (st->hist == 0) func_002233f0(D_003703e0, D_00370398, 551);
         for (i = 0; i < st->n; i++) {
-            func_002f3f88(&st->hist[i * 2], &D_00354680[0]);
-            func_002f3f88(&st->hist[i * 2 + 1], &D_00354680[1]);
+            sceVu0CopyVector(&st->hist[i * 2], &D_00354680[0]);
+            sceVu0CopyVector(&st->hist[i * 2 + 1], &D_00354680[1]);
         }
     }
     set = (Set203408*)(D_01d9e6e4->sets + e->set * 36);
@@ -113,7 +113,7 @@ s32 func_00203408(u8* base, Ent203408* e, Ctx203408* c)
         size = 0;
         switch (h->type) {
         case 0: case 1: case 2: case 3: case 5: case 7:
-            return func_002fe0a0(D_00370378);
+            return puts(D_00370378);
         case 4:
             r = (R203408*)(h + 1);
             for (j = 0; j < h->count; j++, k++) {

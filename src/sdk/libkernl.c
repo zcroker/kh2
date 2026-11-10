@@ -23,12 +23,12 @@ int func_00308398(int a, int b)
 
 typedef struct Node { char pad[60]; struct Node *next; } Node;
 typedef struct { int pad0; int ok; int pad8; Node *free; } Pool;
-extern void func_0030edb0(void);
-extern void func_0030ee00(void);
+extern void DIntr(void);
+extern void EIntr(void);
 Node* func_00309988(Pool *q)
 {
     Node *p;
-    func_0030edb0();
+    DIntr();
     p = q->free;
     if (p == 0)
         q->ok = 0;
@@ -36,7 +36,7 @@ Node* func_00309988(Pool *q)
         q->ok = 1;
         q->free = p->next;
     }
-    func_0030ee00();
+    EIntr();
     return p;
 }
 

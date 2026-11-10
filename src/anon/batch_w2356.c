@@ -6,7 +6,7 @@
 #include "../common/types.h"
 /* The soft-double libcalls bind to the game's copies. */
 asm("dpcmp = func_003142e0");
-asm("dpsub = func_00313ed8");
+asm("dpsub = __subdf3");
 asm("dpadd = func_00313e80");
 asm("dpmul = func_00313f40");
 asm("dpdiv = func_00314190");
@@ -43,7 +43,7 @@ static const double aT[] = {
 static const double one = 1.0, huge = 1.0e300;
 
 /* atan(double) (fdlibm s_atan.c). */
-double func_002f8010(double x)
+double atan(double x)
 {
 	double w,s1,s2,z;
 	s32 ix,hx,id;

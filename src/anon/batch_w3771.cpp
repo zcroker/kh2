@@ -64,7 +64,7 @@ s32 func_0019ba60(void*);
 W1636V4* func_0016c028(void*);  // obj_get_attach_or_alt
 W1636Flags* func_001b6d70(s32);  // table_entry_ptr_b
 void* func_0016b740(s32);
-f32 func_002f8960(f32);
+f32 sinf(f32);
 s32 func_002c6490(W1636Cam*);
 
 // Worldmap camera target update (blends the a/b offsets by distance to object 1110 and by depth).
@@ -87,7 +87,7 @@ s32 func_002c68f0(W1636Cam* pp)
         asm volatile("lqc2 $vf1, 0(%1)\n\tvmul.xyz $vf1, $vf1, $vf1\n\tvaddy.x $vf1, $vf1, $vf1y\n\tvaddz.x $vf1, $vf1, $vf1z\n\tvsqrt Q, $vf1x\n\tvwaitq\n\tcfc2.ni $8, $vi22\n\tmtc1 $8, %0" : "=f"(len) : "r"(&d) : "$8", "memory");
         register f32 lo asm("$f0") = d.y;
         f32 t = W1636Clamp((len - 5000.0f) / 8000.0f, lo, 1.0f);
-        f32 s = func_002f8960(t * 3.1415927f * 0.5f);
+        f32 s = sinf(t * 3.1415927f * 0.5f);
         a = W1636Lerp(D_01e2bdf0, D_01e2bdd0, s);
         b = W1636Lerp(D_01e2bde0, D_01e2bdc0, s);
     } else {
@@ -96,7 +96,7 @@ s32 func_002c68f0(W1636Cam* pp)
     }
     if (pos.z < -8000.0f) {
         f32 t = W1636Clamp((pos.z - -14000.0f) / 6000.0f, 0.0f, 1.0f);
-        f32 s = func_002f8960(t * 3.1415927f * 0.5f);
+        f32 s = sinf(t * 3.1415927f * 0.5f);
         W1636V4 e;
         W1636LerpTo(&e, D_01e2be00, a, s);
         a = e;

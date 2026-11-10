@@ -18,7 +18,7 @@ typedef union { float value; __uint32_t word; } ieee_float_shape_type;
 #define FLT_UWORD_IS_SUBNORMAL(x) 0
 static	const float	one	= 1.0, tiny=1.0e-30;
 
-float func_002faa10(float x)
+float __ieee754_sqrtf(float x)
 {
 	float z;
 	__uint32_t r,hx;

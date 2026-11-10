@@ -497,26 +497,26 @@ union XfMatPtr { XfMat* p; f32 f; };
 extern XfMatPtr D_01d9e6e8;
 extern M4 D_01d9e730;
 extern M4 D_01d9e8c0;
-void func_002f4000(M4*);  // vu_store_w_splat
-void func_002f3d08(void*, void*, void*);
-void func_002f3f40(f32*, f32*, f32);  // vec_scale_by_f12
-void func_002f3f28(f32*, f32*, f32*);
+void sceVu0UnitMatrix(M4*);  // vu_store_w_splat
+void sceVu0MulMatrix(void*, void*, void*);
+void sceVu0ScaleVector(f32*, f32*, f32);  // vec_scale_by_f12
+void sceVu0MulVector(f32*, f32*, f32*);
 void func_00200830(u8* base, u32, XfCtx* c) {
     XfRec* r = (XfRec*)(base + c->offs[1] + 160);
     M4 m;
-    func_002f4000(&m);  // vu_store_w_splat
+    sceVu0UnitMatrix(&m);  // vu_store_w_splat
     m.r[3].x = r->x;
     m.r[3].y = r->y;
     m.r[3].z = r->z;
-    func_002f3d08(&m, &D_01d9e730, &m);
-    func_002f3f40(D_01d9e6e8.p->m0, D_01d9e6e8.p->r0, r->rx);  // vec_scale_by_f12
-    func_002f3f40(D_01d9e6e8.p->m1, D_01d9e6e8.p->r1, r->ry);  // vec_scale_by_f12
-    func_002f3f40(D_01d9e6e8.p->m2, D_01d9e6e8.p->r2, r->rz);  // vec_scale_by_f12
-    func_002f3f28(D_01d9e6e8.p->m3, D_01d9e6e8.p->r3, &r->rx);
+    sceVu0MulMatrix(&m, &D_01d9e730, &m);
+    sceVu0ScaleVector(D_01d9e6e8.p->m0, D_01d9e6e8.p->r0, r->rx);  // vec_scale_by_f12
+    sceVu0ScaleVector(D_01d9e6e8.p->m1, D_01d9e6e8.p->r1, r->ry);  // vec_scale_by_f12
+    sceVu0ScaleVector(D_01d9e6e8.p->m2, D_01d9e6e8.p->r2, r->rz);  // vec_scale_by_f12
+    sceVu0MulVector(D_01d9e6e8.p->m3, D_01d9e6e8.p->r3, &r->rx);
     D_01d9e6e8.p->m3[0] += m.r[3].x;
     D_01d9e6e8.p->m3[1] += m.r[3].y;
     D_01d9e6e8.p->m3[2] += m.r[3].z;
-    func_002f3d08(D_01d9e6e8.p->m0, &D_01d9e8c0, D_01d9e6e8.p->m0);
+    sceVu0MulMatrix(D_01d9e6e8.p->m0, &D_01d9e8c0, D_01d9e6e8.p->m0);
 }
 
 extern u32 D_01d9ea9c;
@@ -586,20 +586,20 @@ extern u8 D_00371738[];
 extern u8 D_00371768[];
 extern u8 D_00371798[];
 void func_002fde18(void*, s32, u32);
-void func_002fdd68(void*, const void*, u32);
+void memcpy(void*, const void*, u32);
 void func_002405a8(u8*, s32);
 s32 func_00240108(void);  // get_global_36eb68
 void func_002ff2e8(char*, const char*);
 void func_00240450(u8* p, s32 n) {
     if (!p) p = D_0035ec90;
     func_002fde18(p, 0, 964);
-    func_002fdd68(p, D_003716c0, 4);
+    memcpy(p, D_003716c0, 4);
     *(u16*)(p + 6) = 32;
     *(u32*)(p + 12) = 96;
-    func_002fdd68(p + 16, D_003716f8, 64);
-    func_002fdd68(p + 80, D_00371738, 48);
-    func_002fdd68(p + 128, D_00371768, 48);
-    func_002fdd68(p + 176, D_00371798, 16);
+    memcpy(p + 16, D_003716f8, 64);
+    memcpy(p + 80, D_00371738, 48);
+    memcpy(p + 128, D_00371768, 48);
+    memcpy(p + 176, D_00371798, 16);
     func_002405a8(p + 192, n + 1);
     char* s = func_00240108() ? D_0035ec00 : D_0035ebfc;
     func_002ff2e8((char*)p + 260, s);
@@ -616,7 +616,7 @@ extern char D_003716e8[];
 void func_00240360(s32);
 s32 func_002349c8(s32, u32);
 void func_002fde18(void*, s32, u32);
-s32 func_002ff1a4(const char*, const char*);  // strcmp
+s32 strcmp(const char*, const char*);  // strcmp
 void func_002ff2e8(char*, const char*);
 // Build the list of save files from the directory listing (skipping "." and "..").
 s32 func_00241008(void) {
@@ -626,7 +626,7 @@ s32 func_00241008(void) {
     func_002fde18(D_0035ec98, 0, 4);
     D_0035ec98->n = n;
     for (s32 i = 0; i < n; i++, e++) {
-        if (func_002ff1a4(e->name, D_003716e0) && func_002ff1a4(e->name, D_003716e8)) {  // strcmp
+        if (strcmp(e->name, D_003716e0) && strcmp(e->name, D_003716e8)) {  // strcmp
             func_002ff2e8(D_0035ec98->rec[i].name, e->name);
             if (e->attr & 0x20) D_0035ec98->rec[i].type = 1;
             else D_0035ec98->rec[i].type = 2;
@@ -957,32 +957,32 @@ u32 ctarget_002ed8e0(u32 a, u32, u32, u32) {
 extern "C" {
 
 extern const s32 D_00377d00[3];
-Bigint* func_00303c48(Reent*, Bigint*, s32, s32);
-Bigint* func_00303fc0(Reent*, s32);
-Bigint* func_00303ff8(Reent*, Bigint*, Bigint*);
-void func_00303c18(Reent*, Bigint*);  // push_entry_onto_slot_list
+Bigint* __multadd(Reent*, Bigint*, s32, s32);
+Bigint* __i2b(Reent*, s32);
+Bigint* __multiply(Reent*, Bigint*, Bigint*);
+void _Bfree(Reent*, Bigint*);  // push_entry_onto_slot_list
 // newlib mprec: __pow5mult (b * 5^k).
-Bigint* func_00304200(Reent* ptr, Bigint* b, s32 k) {
+Bigint* __pow5mult(Reent* ptr, Bigint* b, s32 k) {
     Bigint *b1, *p5, *p51;
     s32 i;
     if ((i = k & 3) != 0)
-        b = func_00303c48(ptr, b, D_00377d00[i - 1], 0);
+        b = __multadd(ptr, b, D_00377d00[i - 1], 0);
     if (!(k >>= 2))
         return b;
     if (!(p5 = ptr->p5s)) {
-        p5 = ptr->p5s = func_00303fc0(ptr, 625);
+        p5 = ptr->p5s = __i2b(ptr, 625);
         p5->next = 0;
     }
     for (;;) {
         if (k % 2) {
-            b1 = func_00303ff8(ptr, b, p5);
-            func_00303c18(ptr, b);  // push_entry_onto_slot_list
+            b1 = __multiply(ptr, b, p5);
+            _Bfree(ptr, b);  // push_entry_onto_slot_list
             b = b1;
         }
         if (!(k >>= 1))
             break;
         if (!(p51 = p5->next)) {
-            p51 = p5->next = func_00303ff8(ptr, p5, p5);
+            p51 = p5->next = __multiply(ptr, p5, p5);
             p51->next = 0;
         }
         p5 = p51;

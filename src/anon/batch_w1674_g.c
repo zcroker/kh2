@@ -82,7 +82,7 @@ ret_d:
 }
 
 asm("dpcmp = func_003142e0");
-asm("dpsub = func_00313ed8");
+asm("dpsub = __subdf3");
 asm("dpadd = func_00313e80");
 asm("dpmul = func_00313f40");
 asm("dpdiv = func_00314190");
@@ -96,7 +96,7 @@ typedef union {
 
 static const double one = 1.0, tiny = 1.0e-300;
 
-double func_002f8b48(double x)
+double __ieee754_sqrt(double x)
 {
     double z;
     s32 sign = (int)0x80000000;

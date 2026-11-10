@@ -12,14 +12,14 @@ int func_002f4d18(void)
     return 1;
 }
 
-extern int func_003094b8(void *, int, int, void *, int, void *, int, void *, void *);
+extern int sceSifCallRpc(void *, int, int, void *, int, void *, int, void *, void *);
 extern int func_002f5c48(const char *, ...);
 extern char D_01e2d980[];
 extern int D_01e2da80[];
-int func_002f4dc0(int x)
+int sceDbcSetWorkAddr(int x)
 {
     D_01e2da80[1] = x;
-    if (func_003094b8(D_01e2d980, 0x80001304, 0, D_01e2da80, 144, D_01e2da80, 144, 0, 0) < 0) {
+    if (sceSifCallRpc(D_01e2d980, 0x80001304, 0, D_01e2da80, 144, D_01e2da80, 144, 0, 0) < 0) {
         func_002f5c48("sceDbcSetWorkAddr: rpc error\n");
         return 0;
     }

@@ -20,7 +20,7 @@ extern int func_00305660(int);
 extern FdEnt *func_00309e50(int);
 extern int func_00309d60(void *cd, int fno, int mode, void *send, int ssize, void *recv, int rsize, void *end, void *endp, int noretry);
 
-s64 func_0030cf60(int fd, s64 off, int whence)
+s64 sceLseek64(int fd, s64 off, int whence)
 {
     Ls64Pk *q = (Ls64Pk *)&D_01e37280;
     SemaParam sp;

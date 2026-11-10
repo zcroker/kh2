@@ -202,13 +202,13 @@ extern Pair00116990 D_003476b8[];
 
 f32 func_0011c050(f32 a0);
 
-u32 func_002f4148(u32 a0, u32 a1, f32 a2);
+u32 sceVu0RotMatrixX(u32 a0, u32 a1, f32 a2);
 
-u32 func_002f41f0(u32 a0, u32 a1, f32 a2);
+u32 sceVu0RotMatrixY(u32 a0, u32 a1, f32 a2);
 
-u32 func_002f40a0(u32 a0, u32 a1, f32 a2);
+u32 sceVu0RotMatrixZ(u32 a0, u32 a1, f32 a2);
 
-u32 func_002f4298(u32 a0, u32 a1, void* a2);
+u32 sceVu0RotMatrix(u32 a0, u32 a1, void* a2);
 
 f32 func_0011bd70(void* a0);
 
@@ -228,7 +228,7 @@ void func_00132f38(u32 a0);
 
 void func_0011ecc8();
 
-u32 func_002fdd68(u32 a0, u32 a1, u32 a2);
+u32 memcpy(u32 a0, u32 a1, u32 a2);
 
 typedef u32 (*FnAlloc)(u32, u32, u32);
 
@@ -264,7 +264,7 @@ void func_00133be8(u32 a0, u32 a1, u32 a2, u32 a3);
 
 void func_00133690(u32 a0);
 
-u32 func_002f25a0(...);
+u32 sceGsSyncPath(...);
 
 u32 func_00133d38(void);
 
@@ -862,7 +862,7 @@ u32 func_00185920(u32, u32, u32);
 
 u32 func_00170518(...);
 
-u32 func_002ff3fc(...);
+u32 strlen(...);
 
 u32 func_002ff2e8(...);
 
@@ -1396,9 +1396,9 @@ void func_00192f78(void* a0);
 
 void func_001a9970(void* a0, u32 a1);
 
-void func_002f28b8(void* a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);
+void sceGsSetDefLoadImage(void* a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);
 
-u32 func_002f2be0(...);
+u32 sceGsExecLoadImage(...);
 
 void func_001ac728(u32 a0);
 
@@ -2122,7 +2122,7 @@ void func_0021ead0(void* a0, u32 a1);
 
 void func_0021ea50(void* a0, u32 a1);
 
-void func_002f3d08(u32 a0, u32 a1, u32 a2);
+void sceVu0MulMatrix(u32 a0, u32 a1, u32 a2);
 
 void func_0021e9d0(void* a0, u32 a1);
 
@@ -2135,11 +2135,11 @@ void func_0021f908(u32 a0, u32 a1, u32 a2);
 
 void func_001fa7b0(u32 a0, u32 a1, u32 a2);
 
-void func_002f3d98(u32 a0, u32 a1);
+void sceVu0Normalize(u32 a0, u32 a1);
 
-void func_002f3cd8(u32 a0, u32 a1, u32 a2);
+void sceVu0ApplyMatrix(u32 a0, u32 a1, u32 a2);
 
-void func_002f3f88(u32 a0, u32 a1);
+void sceVu0CopyVector(u32 a0, u32 a1);
 
 f32 func_00203a40();
 
@@ -2161,13 +2161,13 @@ void func_00224358(u32 a0, u32 a1, u32 a2, u32 a3);
 
 void func_00223af8(u32 a0, u32 a1, u32 a2, u32 a3);
 
-s32 func_0030a8f8(u32 a0, u32 a1);
+s32 sceOpen(u32 a0, u32 a1);
 
-s32 func_0030ad00(s32 a0, u32 a1, u32 a2);
+s32 sceLseek(s32 a0, u32 a1, u32 a2);
 
-s32 func_0030af40(s32 a0, u32 a1, s32 a2);
+s32 sceRead(s32 a0, u32 a1, s32 a2);
 
-void func_0030ab88(s32 a0);
+void sceClose(s32 a0);
 
 struct S64 { u8 b[64]; };
 
@@ -2827,7 +2827,7 @@ u32 v12;
 
 u32 func_00253948(u32);
 
-u32 func_002ff1a4(...);
+u32 strcmp(...);
 
 extern u32 D_0035eed4;
 
@@ -4518,7 +4518,7 @@ void func_002cd770(f32, u32, u32, u32, u32);
 
 void func_002cd950(f32, u32, u32, u32, u32);
 
-f32 func_002f8888(u32);
+f32 floorf(u32);
 
 u32 func_002cda68(u32, u32, s32, f32);
 
@@ -4601,9 +4601,9 @@ u32 func_0019b260(u32);
 
 u32 func_00184eb8(u32, s32, u32);
 
-f32 func_002f87c0(u32, u32);
+f32 cosf(u32, u32);
 
-f32 func_002f8960(f32);
+f32 sinf(f32);
 
 void func_002e73a8(u32 a0);
 
@@ -4636,13 +4636,13 @@ u32 func_0010c7e8(u32 a0);
 
 u32 func_00117970(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);
 
-u32 func_002fa678(void* out2);
+u32 __ieee754_rem_pio2f(void* out2);
 
-f32 func_002fb558(s32 a0, f32 a1, f32 a2);
+f32 __kernel_tanf(s32 a0, f32 a1, f32 a2);
 
-s64 func_00311aa0(s64 a0, s64 a1);
+s64 __muldi3(s64 a0, s64 a1);
 
-u32 func_002fd680(u32 a0, u32 a1);
+u32 _malloc_r(u32 a0, u32 a1);
 
 s32 func_00305df8(u32 a0, u32 a1);
 
@@ -4674,7 +4674,7 @@ void func_00311368();
 
 void func_00310d80();
 
-u32 func_00316af8();
+u32 __cxa_get_globals();
 
 void func_00317fc8(u32);
 

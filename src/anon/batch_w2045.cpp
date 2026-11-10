@@ -74,7 +74,7 @@ extern "C" {
 W2045_V4b* func_0016c028(void);
 f32 func_001065a8(f32, f32);
 void func_002d1d30(W2045_V4b*, void*, W2045_V4b*);
-f32 func_002f8870(f32);
+f32 fabsf(f32);
 extern void* D_00361f60;
 }
 // VU0 normalize xyz in place
@@ -188,11 +188,11 @@ void func_002d62d0(W2045_Self* self) {
         do {
             a = func_001065a8(-1.0f, 1.0f);
             b = func_001065a8(-1.0f, 1.0f);
-        } while (func_002f8870(a) < 0.001f && func_002f8870(b) < 0.001f);
-        if (o.x > 0.7f) a = -func_002f8870(a);
-        if (o.x < -0.7f) a = func_002f8870(a);
-        if (o.y > 0.7f) b = -func_002f8870(b);
-        if (o.y < -0.7f) b = func_002f8870(b);
+        } while (fabsf(a) < 0.001f && fabsf(b) < 0.001f);
+        if (o.x > 0.7f) a = -fabsf(a);
+        if (o.x < -0.7f) a = fabsf(a);
+        if (o.y > 0.7f) b = -fabsf(b);
+        if (o.y < -0.7f) b = fabsf(b);
         self->dir.x = a;
         self->dir.y = b;
         self->dir.z = 0.0f;

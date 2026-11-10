@@ -21,8 +21,8 @@ static inline f32 w2041_maxf(f32 x, f32 lo) { return x > lo ? x : lo; }
 
 extern "C" {
 void func_00166c80(s16, s16);
-void func_002f8870(f32);
-f32 func_002f8960(f32);
+void fabsf(f32);
+f32 sinf(f32);
 extern f32 D_00349e10;
 
 void w2041_wtarget(u32 arg0, u32, u32, u32) asm("_Z16wtarget_001e0448jjjj");

@@ -141,8 +141,8 @@ void ctarget0_0015c0f8(void* p) {
 /* ---- 00168218: pick the idle node with the smallest key ---- */
 struct Node2 { Node2* next; u32 busy; u8 data[1]; };
 extern Node2* D_0034d840;
-void func_0030edb0(void);
-void func_0030ee00(void);  // ee_intr_get_enable
+void DIntr(void);
+void EIntr(void);  // ee_intr_get_enable
 u32 func_001ae1e0(void*);
 static inline Node2* Next2(Node2* n) { if (!n) return D_0034d840; return n->next; }
 
@@ -150,13 +150,13 @@ Node2* func_00168218(void) {
     Node2* best = 0;
     Node2* n = 0;
     u32 bestv = -1;
-    func_0030edb0();
+    DIntr();
     while ((n = Next2(n))) {
         u32 v = func_001ae1e0(n->data);
         if (n->busy) continue;
         if (best == 0 || v < bestv) { bestv = v; best = n; }
     }
-    func_0030ee00();  // ee_intr_get_enable
+    EIntr();  // ee_intr_get_enable
     return best;
 }
 

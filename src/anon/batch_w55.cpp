@@ -173,7 +173,7 @@ extern u8 D_00363828[];
 u32 func_0010c7e8(u32);
 void func_0011a900(Q16*, u32);
 extern Q16 D_01e2c0c0;
-s32 func_002ff1a4(const char*, const char*);  // strcmp
+s32 strcmp(const char*, const char*);  // strcmp
 extern char D_00377cf8[];
 extern char D_00377cc0[];
 void func_003147a0(void*, FpW55*);
@@ -686,7 +686,7 @@ u32 func_00303698(u8* p, u32 (*fn)(ItemW55*)) {
 const char* wtarget_00303728(u32 a, u32 b, u32 c, u32) {
     const char* s = (const char*)c;
     if (s) {
-        if (func_002ff1a4(s, D_00377cf8) && func_002ff1a4(s, D_00377cc0)) return 0;
+        if (strcmp(s, D_00377cf8) && strcmp(s, D_00377cc0)) return 0;
         *(u32*)(a + 48) = b;
         *(u32*)(a + 52) = c;
     }

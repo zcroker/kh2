@@ -8,9 +8,9 @@ struct W1836EbArg1 { s32 pad0; s32 idx; s32 ofs; u8 reset; u8 cnt; };
 struct W1836V3c { f32 x, y, z; };
 extern "C" {
 void func_001e7da8(void);
-void func_002f3d08(void*, void*, void*);
-void func_002f3d50(void*, void*, void*);
-void func_002f3d98(void*, void*);
+void sceVu0MulMatrix(void*, void*, void*);
+void sceVu0OuterProduct(void*, void*, void*);
+void sceVu0Normalize(void*, void*);
 extern u8 D_01d9e6f0[];
 extern u8 D_01d9e730[];
 extern float D_01d9e840[];
@@ -30,25 +30,25 @@ void func_001e3330(void)
     W1836Vec w;
 
     func_001e7da8();
-    func_002f3d08(D_01d9e840, D_01d9e730, D_01d9e6f0);
-    func_002f3d08(D_01d9e900, D_01d9e8c0, D_01d9e840);
+    sceVu0MulMatrix(D_01d9e840, D_01d9e730, D_01d9e6f0);
+    sceVu0MulMatrix(D_01d9e900, D_01d9e8c0, D_01d9e840);
     t.x = D_01d9e840[4];
     t.y = D_01d9e840[5];
     t.z = D_01d9e840[6];
     *(s32*)&t.w = 0;
-    func_002f3d98(&t, &t);
+    sceVu0Normalize(&t, &t);
     D_01d9e890 = t;
     u.x = t.y;
     u.y = -t.x;
     *(s32*)&u.z = 0;
     *(s32*)&u.w = 0;
-    func_002f3d98(&u, &u);
+    sceVu0Normalize(&u, &u);
     D_01d9e880 = u;
-    func_002f3d50(&w, &u, &t);
-    func_002f3d98(&w, &w);
+    sceVu0OuterProduct(&w, &u, &t);
+    sceVu0Normalize(&w, &w);
     D_01d9e8a0 = w;
     D_01d9e8b0 = D_01d9e870;
-    func_002f3d08(D_01d9e940, D_01d9e8c0, &D_01d9e880);
+    sceVu0MulMatrix(D_01d9e940, D_01d9e8c0, &D_01d9e880);
 }
 
 u8* func_001e7a98(W1836Ebc*, u8*);

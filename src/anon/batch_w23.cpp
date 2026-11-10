@@ -322,7 +322,7 @@ void trap_chickenlittle_set_shoot_target(u32** bd) {
 }
 
 // Normalise a 3-vector (VU0 macro code)
-void func_002f3d98(f32* d, const f32* s) {  // vec4_normalize
+void sceVu0Normalize(f32* d, const f32* s) {  // vec4_normalize
     asm volatile(
         "lqc2 $vf4, 0(%1)\n\t"
         "vmul.xyz $vf5, $vf4, $vf4\n\t"
@@ -343,7 +343,7 @@ void func_002f3d98(f32* d, const f32* s) {  // vec4_normalize
 
 typedef union { f32 value; u32 word; } ieee_float_shape_type;
 // copysignf
-f32 func_002fb900(f32 x, f32 y) {  // copysignf
+f32 copysignf(f32 x, f32 y) {  // copysignf
     u32 ix, iy;
     { ieee_float_shape_type gf_u; gf_u.value = x; ix = gf_u.word; }
     { ieee_float_shape_type gf_u; gf_u.value = y; iy = gf_u.word; }

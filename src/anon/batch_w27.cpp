@@ -286,14 +286,14 @@ s32 func_001d3f38(u8* p) {  // type_is_282_344_484
 void func_00106420(void*);
 
 
-void func_002f3f88(void*, void*);  // memcpy16
+void sceVu0CopyVector(void*, void*);  // memcpy16
 extern u32 D_00354bc0;
 extern u32 D_00354be0;
 void func_00209e80(u8* a, u8* b) {
     NoTail g;
     u8* s = a + *(s32*)(*(u8**)(b + 12) + 4);
-    func_002f3f88(s + 224, &D_00354bc0);  // memcpy16
-    func_002f3f88(s + 240, &D_00354be0);  // memcpy16
+    sceVu0CopyVector(s + 224, &D_00354bc0);  // memcpy16
+    sceVu0CopyVector(s + 240, &D_00354be0);  // memcpy16
 }
 
 extern u8 D_0035daec;
@@ -457,7 +457,7 @@ void func_002e37c0(u32** p) {
 }
 
 // 4x4 matrix transpose (MMI): d = transpose(s).
-void func_002f3dd8(void* d, void* s) {  // memcpy64_2
+void sceVu0TransposeMatrix(void* d, void* s) {  // memcpy64_2
     asm volatile(
         "lq $8, 0(%1)\n\tlq $9, 16(%1)\n\tlq $10, 32(%1)\n\tlq $11, 48(%1)\n\t"
         "pextlw $12, $9, $8\n\tpextuw $13, $9, $8\n\tpextlw $14, $11, $10\n\tpextuw $15, $11, $10\n\t"

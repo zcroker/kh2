@@ -31,7 +31,7 @@ struct W1624Ft4 {
 #define W1624_GS_XYZ(x, y, z) ((u64)(x) | ((u64)(y) << 16) | ((u64)(z) << 32))
 extern "C" {
 void func_0011b6a8(W1624Mat*);
-void func_002f40a0(f32, W1624Mat*, W1624Mat*);
+void sceVu0RotMatrixZ(f32, W1624Mat*, W1624Mat*);
 void func_0013ea50(W1624Ft4*, W1624Mat*, W1624Vec, s32*, s32*);
 void func_0013eb00(W1624Ft4* p)
 {
@@ -44,7 +44,7 @@ void func_0013eb00(W1624Ft4* p)
     W1624Mat mc;
     s32 x, y;
     func_0011b6a8(&m);
-    func_002f40a0(p->rot, &m, &m);
+    sceVu0RotMatrixZ(p->rot, &m, &m);
     v.x = left; v.y = top;
     mc = m;
     func_0013ea50(p, &mc, v, &x, &y);

@@ -354,7 +354,7 @@ bool func_002f1ae0(u32 n) {  // bitmask_test
 }
 
 // Store a 4x4 identity matrix at m (rows written last-to-first).
-void func_002f4000(void* m) {  // vu_store_w_splat
+void sceVu0UnitMatrix(void* m) {  // vu_store_w_splat
     asm volatile(
         "vsub.xyzw $vf4, $vf0, $vf0\n\t"
         "vadd.w $vf4, $vf4, $vf0\n\t"

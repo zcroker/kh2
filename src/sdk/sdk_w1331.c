@@ -46,12 +46,12 @@ typedef struct { void *pkt_addr; int rpc_id; int sema_id; int mode; int command;
 typedef struct { int hdr[4]; int rec_id; int pkt_addr; int rpc_id; int client; int fno; } BindPkt;
 extern BindPkt *func_00308cf8(void *);
 extern void func_00308da0(void *);
-extern int func_003088b8(unsigned int, void *, int, void *, void *, int);
+extern int sceSifSendCmd(unsigned int, void *, int, void *, void *, int);
 extern int func_00305630(int);
 extern int func_00305660(int);
 extern char D_01e37200[];
 extern int func_00305620(SemaParam *);
-int func_003092d8(RpcClient *cd, int sid, int mode)
+int sceSifBindRpc(RpcClient *cd, int sid, int mode)
 {
     SemaParam sp;
     BindPkt *bind;
@@ -74,7 +74,7 @@ int func_003092d8(RpcClient *cd, int sid, int mode)
             func_00308da0(bind);
             return -3;
         }
-        if (func_003088b8(0x80000009, bind, 64, 0, 0, 0) == 0) {
+        if (sceSifSendCmd(0x80000009, bind, 64, 0, 0, 0) == 0) {
             func_00308da0(bind);
             func_00305630(cd->sema_id);
             return -2;
@@ -84,7 +84,7 @@ int func_003092d8(RpcClient *cd, int sid, int mode)
         return 0;
     }
     cd->sema_id = -1;
-    if (func_003088b8(0x80000009, bind, 64, 0, 0, 0) == 0) {
+    if (sceSifSendCmd(0x80000009, bind, 64, 0, 0, 0) == 0) {
         func_00308da0(bind);
         return -2;
     }
@@ -133,7 +133,7 @@ int func_0030a6c8(unsigned int addr, unsigned int size)
 
 typedef struct { int fd; int valid; } FioFile;
 extern FioFile *func_00309e50(int);
-int func_0030c388(int fd, void *buf)
+int sceDread(int fd, void *buf)
 {
     SemaParam sp;
     int res;
@@ -182,12 +182,12 @@ extern void func_002fde18(void *, int, int);
 extern void func_00310990(void);
 extern int func_00305310(int, void *, int, void *);
 extern int func_0030fc60();
-extern int func_0030edb0(void);
-extern void func_0030ee00(void);
+extern int DIntr(void);
+extern void EIntr(void);
 extern void func_0030f690(int);
 extern void func_0030f6a0(int);
 extern void func_0030f6b0(int);
-extern void func_00306168(int);
+extern void EnableIntc(int);
 int func_0030f6c0(int mode)
 {
     TMgr *m = &D_00367118;
@@ -210,7 +210,7 @@ int func_0030f6c0(int mode)
     if (h < 0)
         return 0x80009021;
     D_00367118.handler = h;
-    intr = func_0030edb0();
+    intr = DIntr();
     t = *(volatile unsigned int *)0x10001010;
     t = (t & ~3) | mode;
     t |= 0x300;
@@ -220,9 +220,9 @@ int func_0030f6c0(int mode)
         func_0030f6b0(0xffff);
     }
     func_0030f6a0(t);
-    func_00306168(11);
+    EnableIntc(11);
     if (intr)
-        func_0030ee00();
+        EIntr();
     return 0;
 }
 
@@ -279,8 +279,8 @@ extern int D_0036594c;
 extern int D_00365948;
 extern int func_00305670(int);
 extern int func_00305640(int);
-extern char *func_002ff6f0(char *, const char *, int);
-extern int func_003094b8(void *cd, int fno, int mode, void *send, int ssize, void *recv, int rsize, void *end, void *endp);
+extern char *strncpy(char *, const char *, int);
+extern int sceSifCallRpc(void *cd, int fno, int mode, void *send, int ssize, void *recv, int rsize, void *end, void *endp);
 extern void func_002fbba8(void *);
 extern void func_002fc7d8(void *);
 int func_002fc688(int port, int slot, const char *name, int mode, int maxent, void *table)
@@ -298,11 +298,11 @@ int func_002fc688(int port, int slot, const char *name, int mode, int maxent, vo
     D_01e33530.mode = mode;
     D_01e33530.maxent = maxent;
     D_01e33530.table = table;
-    func_002ff6f0(D_01e33530.name, name, 1023);
+    strncpy(D_01e33530.name, name, 1023);
     D_01e33530.name[1023] = 0;
     if (maxent >= 0)
         func_00308a80(table, maxent << 6);
-    if (func_003094b8(&D_01e33480, 13, 1, &D_01e33530, 1044, D_01e34a40, 4, func_002fbba8, 0)) {
+    if (sceSifCallRpc(&D_01e33480, 13, 1, &D_01e33530, 1044, D_01e34a40, 4, func_002fbba8, 0)) {
         func_00305640(D_0036594c);
         return -91;
     }
@@ -323,10 +323,10 @@ int func_002fc868(int port, int slot, const char *name, void *endp)
     D_01e33530.port = port;
     D_01e33530.slot = slot;
     D_01e33530.table = D_01e33a40;
-    func_002ff6f0(D_01e33530.name, name, 1023);
+    strncpy(D_01e33530.name, name, 1023);
     D_01e33530.name[1023] = 0;
     func_00308a80(D_01e33a40, 1024);
-    if (func_003094b8(&D_01e33480, 12, 1, &D_01e33530, 1044, D_01e34a40, 4, func_002fc7d8, endp)) {
+    if (sceSifCallRpc(&D_01e33480, 12, 1, &D_01e33530, 1044, D_01e34a40, 4, func_002fc7d8, endp)) {
         func_00305640(D_0036594c);
         return -91;
     }
@@ -342,7 +342,7 @@ extern int func_002f62b8(int);
 extern int func_002f63e0(int);
 extern unsigned char *func_002f6378(int);
 extern void func_002f6240(int);
-extern int func_002f5b20(int, int, int *, unsigned char *);
+extern int sceDbcReceiveData(int, int, int *, unsigned char *);
 int func_002f6020(int port)
 {
     PadCmd cmd;
@@ -367,7 +367,7 @@ int func_002f6020(int port)
         cmd.s.b = 2;
         cmd.s.c = 1;
         cmd.s.d = 1;
-        if (func_002f5b20(port, cmd.i, &tmp, &res) >= 0)
+        if (sceDbcReceiveData(port, cmd.i, &tmp, &res) >= 0)
             goto out;
     }
 fail:

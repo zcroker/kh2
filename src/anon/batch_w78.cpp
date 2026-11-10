@@ -34,7 +34,7 @@ static inline f32 vlength(const W78Vec* v) {
 
 // ---- c1
 extern "C" {
-u32 func_002ff3fc(const u8*);  // strlen
+u32 strlen(const u8*);  // strlen
 u8* func_00100430(u8*, u64*);  // varint64_decode_c
 u8* func_00100468(u8*, s64*);
 u8* func_001004c0(u8, u32, u8*, u32*);
@@ -66,7 +66,7 @@ s32 func_001009a0(u8* cie) {
     u8* aug = cie + 9;
     u8* p;
     if (aug[0] != 'z') return 0;
-    p = aug + func_002ff3fc(aug) + 1;
+    p = aug + strlen(aug) + 1;
     p = func_00100430(p, &utmp);  // varint64_decode_c
     p = func_00100468(p, &stmp);
     p++;
@@ -454,26 +454,26 @@ static inline void w78_scale(u8* v, u32 s) {
     asm volatile("qmtc2 %1, $vf9\n\tlqc2 $vf10, 0(%0)\n\tvmulx.xyz $vf10, $vf10, $vf9x\n\tsqc2 $vf10, 0(%0)" : : "r"(v), "r"(s) : "memory");
 }
 
-void func_002f4000(W78Vec*);  // vu_store_w_splat
-void func_002f3d08(W78Vec*, void*, W78Vec*);
-void func_002f3f40(u8*, u8*, f32);  // vec_scale_by_f12
-void func_002f3cd8(u8*, W78Vec*, u8*);
+void sceVu0UnitMatrix(W78Vec*);  // vu_store_w_splat
+void sceVu0MulMatrix(W78Vec*, void*, W78Vec*);
+void sceVu0ScaleVector(u8*, u8*, f32);  // vec_scale_by_f12
+void sceVu0ApplyMatrix(u8*, W78Vec*, u8*);
 extern u8 D_01d9e730[];
 extern u8 D_01d9e8c0[];
 void func_00200700(u8* o, u32 a1, u8* a2) {
     W78Vec m[4];
     u8* p = o + (*(u32**)(a2 + 12))[1];
-    func_002f4000(m);  // vu_store_w_splat
+    sceVu0UnitMatrix(m);  // vu_store_w_splat
     f32* s = (f32*)(p + 160);
     m[3].x = s[0];
     m[3].y = s[1];
     m[3].z = s[2];
-    func_002f3d08(m, D_01d9e730, m);
-    func_002f3f40(D_01d9e6e8 + 80, D_01d9e6e8 + 16, s[4]);  // vec_scale_by_f12
-    func_002f3f40(D_01d9e6e8 + 96, D_01d9e6e8 + 32, s[5]);  // vec_scale_by_f12
-    func_002f3f40(D_01d9e6e8 + 112, D_01d9e6e8 + 48, s[6]);  // vec_scale_by_f12
-    func_002f3cd8(D_01d9e6e8 + 128, m, D_01d9e6e8 + 64);
-    func_002f3d08((W78Vec*)(D_01d9e6e8 + 80), D_01d9e8c0, (W78Vec*)(D_01d9e6e8 + 80));
+    sceVu0MulMatrix(m, D_01d9e730, m);
+    sceVu0ScaleVector(D_01d9e6e8 + 80, D_01d9e6e8 + 16, s[4]);  // vec_scale_by_f12
+    sceVu0ScaleVector(D_01d9e6e8 + 96, D_01d9e6e8 + 32, s[5]);  // vec_scale_by_f12
+    sceVu0ScaleVector(D_01d9e6e8 + 112, D_01d9e6e8 + 48, s[6]);  // vec_scale_by_f12
+    sceVu0ApplyMatrix(D_01d9e6e8 + 128, m, D_01d9e6e8 + 64);
+    sceVu0MulMatrix((W78Vec*)(D_01d9e6e8 + 80), D_01d9e8c0, (W78Vec*)(D_01d9e6e8 + 80));
 }
 
 void func_00228240(void);
@@ -539,7 +539,7 @@ extern char D_00371300[];
 extern char D_00371320[];
 u32 func_00232348(void);
 void func_002fee78(char*, const char*, ...);
-s32 func_002ff538(const char*, const char*, s32);
+s32 strncmp(const char*, const char*, s32);
 void func_002baa08(u32, u32, s32, s32);
 // Plays the title voice lines when the event name matches.
 s32 func_002325f0(u8* o) {
@@ -547,12 +547,12 @@ s32 func_002325f0(u8* o) {
     s32 r = 0;
     if (D_0035e359 == 1) {
     func_002fee78(buf, D_00371300, func_00232348());
-    if (!func_002ff538((char*)(o + 48), buf, 24)) {
+    if (!strncmp((char*)(o + 48), buf, 24)) {
         r = 1;
         func_002baa08(*(u32*)(o + 20), *(u32*)(o + 28), 16383, 0);
     }
     func_002fee78(buf, D_00371320, func_00232348());
-    if (!func_002ff538((char*)(o + 48), buf, 24)) {
+    if (!strncmp((char*)(o + 48), buf, 24)) {
         r = 1;
         func_002baa08(*(u32*)(o + 20), *(u32*)(o + 28), 16383, 127);
     }
@@ -806,7 +806,7 @@ void wtarget_002c5298(u32 a, u32 b) asm("_Z16wtarget_002c5298jjjj");
 // ---- c9
 extern "C" {
 f32 func_002f8a18(f32);
-f32 func_002f8870(f32);  // fabsf
+f32 fabsf(f32);  // fabsf
 struct W78VecC2 {
     f32 x, y, z, w;
     W78VecC2& operator=(const W78VecC2& o) {
@@ -818,7 +818,7 @@ W78VecC2* func_002d1d30(W78VecC2* out, u8* cam, W78VecC2* pos) {
     *out = *pos;
     vsub((W78Vec*)out, (W78Vec*)out, (W78Vec*)(cam + 208));
     f32 t = func_002f8a18(*(f32*)(cam + 112) * 0.5f * 0.01745329238474369f);
-    t *= func_002f8870(out->z);  // fabsf
+    t *= fabsf(out->z);  // fabsf
     out->z = 0.0f;
     out->x = out->x / (t * 4.0f / 3.0f);
     out->y = out->y / t;

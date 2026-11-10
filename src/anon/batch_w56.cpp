@@ -213,7 +213,7 @@ void func_001aa8f0(u8* p, u32 a1, u32 a2, u32 a3, u32 a4)
 struct P1ae { const char* a[2]; };
 extern P1ae D_0036d850;
 char* func_002ff8b0(const char*, s32);
-s32 func_002ff1a4(const char*, const char*);  // strcmp
+s32 strcmp(const char*, const char*);  // strcmp
 s32 func_001ae010(const char* s)
 {
     P1ae t = D_0036d850;
@@ -221,7 +221,7 @@ s32 func_001ae010(const char* s)
     if (e) {
         e++;
         for (s32 i = 0; i < 2; i++)
-            if (func_002ff1a4(e, t.a[i]) == 0) return 1;
+            if (strcmp(e, t.a[i]) == 0) return 1;
     }
     return 0;
 }
@@ -477,7 +477,7 @@ void func_002d3128(u8* p, s32 n)
 
 // 003015a8: vsprintf-style formatting into a string through a fake FILE
 struct StrFile { u8* p; s32 r; s32 w; s16 flags; s16 file; u8* base; s32 size; u8 pad[60]; void* data; u8 pad2[8]; };
-s32 func_002ffd78(void*, StrFile*, const char*, void*);
+s32 _vfprintf_r(void*, StrFile*, const char*, void*);
 s32 func_003015a8(void* ptr, u8* str, const char* fmt, void* ap)
 {
     StrFile f;
@@ -485,7 +485,7 @@ s32 func_003015a8(void* ptr, u8* str, const char* fmt, void* ap)
     f.base = f.p = str;
     f.size = f.w = 0x7fffffff;
     f.data = ptr;
-    s32 r = func_002ffd78(ptr, &f, fmt, ap);
+    s32 r = _vfprintf_r(ptr, &f, fmt, ap);
     *f.p = 0;
     return r;
 }

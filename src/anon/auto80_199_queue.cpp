@@ -693,19 +693,19 @@ u32 func_0011b7b0(u32 a0, f32* a1) {
     f32 v = a1[0];
     if (v != zero) {
         v = func_0011c050(v);  // float_bucket_index
-        ((u32(*)(u32, u32, f32))func_002f4148)(a0, a0, v);
+        ((u32(*)(u32, u32, f32))sceVu0RotMatrixX)(a0, a0, v);
     }
 
     v = a1[1];
     if (v != zero) {
         v = func_0011c050(v);  // float_bucket_index
-        ((u32(*)(u32, u32, f32))func_002f41f0)(a0, a0, v);
+        ((u32(*)(u32, u32, f32))sceVu0RotMatrixY)(a0, a0, v);
     }
 
     v = a1[2];
     if (v != zero) {
         v = func_0011c050(v);  // float_bucket_index
-        ((u32(*)(u32, u32, f32))func_002f40a0)(a0, a0, v);
+        ((u32(*)(u32, u32, f32))sceVu0RotMatrixZ)(a0, a0, v);
     }
 
     return a0;
@@ -716,7 +716,7 @@ u32 func_0011b868(u32 a0, f32* a1) {
     v[0] = func_0011c050(a1[0]);  // float_bucket_index
     v[1] = func_0011c050(a1[1]);  // float_bucket_index
     v[2] = func_0011c050(a1[2]);  // float_bucket_index
-    func_002f4298(a0, a0, v);
+    sceVu0RotMatrix(a0, a0, v);
     return a0;
 }
 
@@ -872,7 +872,7 @@ void func_0011ec28(u8* a0, u32 a1, u32 a2, u32 a3) {
     *(u32*)(v0 + 0x4) = s1;
     *(u32*)(v0 + 0x8) = 0;
     *(u32*)(v0 + 0xc) = 0;
-    func_002fdd68(v0 + 0x10, s4, s1);
+    memcpy(v0 + 0x10, s4, s1);
 
     *(u32*)(v0 + 0x8) = 0;
     *(u32*)(v0 + 0xc) = *(u32*)(s2 + 0x124);
@@ -1005,7 +1005,7 @@ void func_00133598(u32 a0, u32 a1, u32 a2) {
 }
 
 void func_00133de8(void) {
-    func_002f25a0(0, 0);
+    sceGsSyncPath(0, 0);
     func_00133d18();
 
     u32 v0 = func_00133d38();
@@ -2978,7 +2978,7 @@ void func_0016fb30(u8* a0, u32 a1, u32 a2, u32 a3) {
     *(u32*)(s0 + 48) = 0;
     *(u32*)(s0 + 52) = 0;
 
-    func_002ff3fc(s2);  // strlen
+    strlen(s2);  // strlen
     *(u32*)(s0 + 56) = s1;
 
     func_002ff2e8(s0 + 4, s2);
@@ -2998,7 +2998,7 @@ void func_0016fba0(u8* a0, u32 a1, u32 a2, u32 a3) {
     *(u32*)(s0 + 48) = 0;
     *(u32*)(s0 + 52) = 0;
 
-    func_002ff3fc(s2);  // strlen
+    strlen(s2);  // strlen
     *(u32*)(s0 + 56) = s1;
 
     func_002ff2e8(s0 + 4, s2);
@@ -4990,10 +4990,10 @@ void func_001aa850(s32* a0, s32 a1) {
 
 void func_001aad28(s16 a0, s16 a1, s16 a2, s16 a3, s16 a4, u32 a5) {
     u8 stack_70[96];
-    func_002f28b8(stack_70, (u32)a0, (u32)a1, (u32)a2, 0, 0, (u32)a3, (u32)a4);
+    sceGsSetDefLoadImage(stack_70, (u32)a0, (u32)a1, (u32)a2, 0, 0, (u32)a3, (u32)a4);
     func_003058a0(0);
-    func_002f2be0(stack_70, a5);
-    func_002f25a0(0, 0);
+    sceGsExecLoadImage(stack_70, a5);
+    sceGsSyncPath(0, 0);
 }
 
 u32 func_001ab820(u32 a0) {
@@ -7766,9 +7766,9 @@ void func_001e8fe0(u32 a0, u32 a1) {
 
     func_0021ead0(&b0, *(u32*)(s0 + 8));  // table_float_pair_lookup
     func_0021ea50(&b1, *(u32*)(s0 + 4));  // table_float_pair_lookup_b
-    func_002f3d08((u32)&b2, (u32)&b0, (u32)&b1);
+    sceVu0MulMatrix((u32)&b2, (u32)&b0, (u32)&b1);
     func_0021e9d0(&b3, *(u32*)(s0 + 0));  // table_float_pair_lookup_c
-    func_002f3d08(a0, (u32)&b2, (u32)&b3);
+    sceVu0MulMatrix(a0, (u32)&b2, (u32)&b3);
 }
 
 void func_001f00f8(s32* a0) {
@@ -7961,21 +7961,21 @@ void func_001fc678(u32 a0) {
     u32 s2 = s0 + 16;
     u32 s3 = (u32)buf + 64;
 
-    func_002f3d98((u32)buf, s2);  // vec4_normalize
-    func_002f3d98((u32)buf + 16, s0 + 32);  // vec4_normalize
+    sceVu0Normalize((u32)buf, s2);  // vec4_normalize
+    sceVu0Normalize((u32)buf + 16, s0 + 32);  // vec4_normalize
     u32 a0c = (u32)buf + 32;
     u32 a1c = s0 + 48;
     s0 = a1c;
-    func_002f3d98(a0c, a1c);  // vec4_normalize
+    sceVu0Normalize(a0c, a1c);  // vec4_normalize
 
     u32 t6 = gp[-1606];
-    func_002f3cd8(s3, s2, t6 + 64);
+    sceVu0ApplyMatrix(s3, s2, t6 + 64);
 
     u32 t4 = gp[-1606] + 16;
-    func_002f3d08(t4, (u32)buf, t4);
+    sceVu0MulMatrix(t4, (u32)buf, t4);
 
     u32 t5 = gp[-1606] + 64;
-    func_002f3f88(t5, s3);  // memcpy16
+    sceVu0CopyVector(t5, s3);  // memcpy16
 }
 
 s32 func_00203a88(u32 a0) {
@@ -7998,8 +7998,8 @@ void func_00204fe0(u32 a0, u32 a1, u32 a2, u32 a3) {
     if (*(u8*)(t6 + 204) != 0) {
         return;
     }
-    func_002f3d08(a1, a3, a1 + 256);
-    func_002f3d08(s0 + 64, s0 + 128, s0);
+    sceVu0MulMatrix(a1, a3, a1 + 256);
+    sceVu0MulMatrix(s0 + 64, s0 + 128, s0);
 }
 
 void func_002070d0(u32 a0, u32 a1, u32 a2) {
@@ -8158,21 +8158,21 @@ void func_0020ced0(u32 a0, u32 a1) {
 
 u32 func_0020ecc8(u32 a0, u32 a1) {
     u32 s18 = a1;
-    s32 s17 = func_0030a8f8(a0, 1);
+    s32 s17 = sceOpen(a0, 1);
     if (s17 < 0) {
         *(volatile u32*)0 = 0;
         return 0;
     }
 
-    s32 s16 = func_0030ad00(s17, 0, 2);
-    func_0030ad00(s17, 0, 0);
+    s32 s16 = sceLseek(s17, 0, 2);
+    sceLseek(s17, 0, 0);
 
-    s32 t = func_0030af40(s17, s18, s16);
+    s32 t = sceRead(s17, s18, s16);
     if ((s16 ^ t) != 0) {
         s16 = 0;
     }
 
-    func_0030ab88(s17);
+    sceClose(s17);
     func_003058a0(0);
     return (u32)s16;
 }
@@ -8186,9 +8186,9 @@ void func_0021eb50(void* a0, u32 a1) {
 
     func_0021ea50(&b0, *(u32*)(s0 + 4));  // table_float_pair_lookup_b
     func_0021ead0(&b1, *(u32*)(s0 + 8));  // table_float_pair_lookup
-    func_002f3d08((u32)&b2, (u32)&b0, (u32)&b1);
+    sceVu0MulMatrix((u32)&b2, (u32)&b0, (u32)&b1);
     func_0021e9d0(&b3, *(u32*)(s0 + 0));  // table_float_pair_lookup_c
-    func_002f3d08((u32)a0, (u32)&b2, (u32)&b3);
+    sceVu0MulMatrix((u32)a0, (u32)&b2, (u32)&b3);
 }
 
 void func_0021ebe8(void* a0, u32 a1) {
@@ -8200,9 +8200,9 @@ void func_0021ebe8(void* a0, u32 a1) {
 
     func_0021e9d0(&b0, *(u32*)(s0 + 0));  // table_float_pair_lookup_c
     func_0021ead0(&b1, *(u32*)(s0 + 8));  // table_float_pair_lookup
-    func_002f3d08((u32)&b2, (u32)&b0, (u32)&b1);
+    sceVu0MulMatrix((u32)&b2, (u32)&b0, (u32)&b1);
     func_0021ea50(&b3, *(u32*)(s0 + 4));  // table_float_pair_lookup_b
-    func_002f3d08((u32)a0, (u32)&b2, (u32)&b3);
+    sceVu0MulMatrix((u32)a0, (u32)&b2, (u32)&b3);
 }
 
 void func_0021ec80(void* a0, u32 a1) {
@@ -8214,9 +8214,9 @@ void func_0021ec80(void* a0, u32 a1) {
 
     func_0021ead0(&b0, *(u32*)(s0 + 8));  // table_float_pair_lookup
     func_0021e9d0(&b1, *(u32*)(s0 + 0));  // table_float_pair_lookup_c
-    func_002f3d08((u32)&b2, (u32)&b0, (u32)&b1);
+    sceVu0MulMatrix((u32)&b2, (u32)&b0, (u32)&b1);
     func_0021ea50(&b3, *(u32*)(s0 + 4));  // table_float_pair_lookup_b
-    func_002f3d08((u32)a0, (u32)&b2, (u32)&b3);
+    sceVu0MulMatrix((u32)a0, (u32)&b2, (u32)&b3);
 }
 
 void func_0021ed18(void* a0, u32 a1) {
@@ -8228,9 +8228,9 @@ void func_0021ed18(void* a0, u32 a1) {
 
     func_0021ea50(&b0, *(u32*)(s0 + 4));  // table_float_pair_lookup_b
     func_0021e9d0(&b1, *(u32*)(s0 + 0));  // table_float_pair_lookup_c
-    func_002f3d08((u32)&b2, (u32)&b0, (u32)&b1);
+    sceVu0MulMatrix((u32)&b2, (u32)&b0, (u32)&b1);
     func_0021ead0(&b3, *(u32*)(s0 + 8));  // table_float_pair_lookup
-    func_002f3d08((u32)a0, (u32)&b2, (u32)&b3);
+    sceVu0MulMatrix((u32)a0, (u32)&b2, (u32)&b3);
 }
 
 void func_0021edb0(void* a0, u32 a1) {
@@ -8242,9 +8242,9 @@ void func_0021edb0(void* a0, u32 a1) {
 
     func_0021e9d0(&b0, *(u32*)(s0 + 0));  // table_float_pair_lookup_c
     func_0021ea50(&b1, *(u32*)(s0 + 4));  // table_float_pair_lookup_b
-    func_002f3d08((u32)&b2, (u32)&b0, (u32)&b1);
+    sceVu0MulMatrix((u32)&b2, (u32)&b0, (u32)&b1);
     func_0021ead0(&b3, *(u32*)(s0 + 8));  // table_float_pair_lookup
-    func_002f3d08((u32)a0, (u32)&b2, (u32)&b3);
+    sceVu0MulMatrix((u32)a0, (u32)&b2, (u32)&b3);
 }
 
 void func_00221fb8(u32 a0, u32 a1, u32 a2) {
@@ -9286,13 +9286,13 @@ void func_00236830(void* a0) {
     t6 = *(u64*)((u8*)a0 + 0x30);
     t7 = ((s32)(t6 >> 32)) & 1;
     if (t7 != 0) {
-        func_002f2be0((u8*)a0 + 0x40, *(u32*)((u8*)a0 + 0x38));
+        sceGsExecLoadImage((u8*)a0 + 0x40, *(u32*)((u8*)a0 + 0x38));
         t6 = *(u64*)((u8*)a0 + 0x30);
     }
 
     t7 = ((s32)(t6 >> 33)) & 1;
     if (t7 != 0) {
-        func_002f2be0((u8*)a0 + 0xa0, *(u32*)((u8*)a0 + 0x3c));
+        sceGsExecLoadImage((u8*)a0 + 0xa0, *(u32*)((u8*)a0 + 0x3c));
     }
 }
 
@@ -9561,7 +9561,7 @@ void func_0023eb50(void* a0, u32 a1, s32 a2) {
 u32 func_0023fc40(u32 a0, u32 a1) {
     u32 s1 = a1;
     u32 t7 = D_0035ebe8;
-    u32 v0 = func_002fdd68(t7, a0, s1);
+    u32 v0 = memcpy(t7, a0, s1);
 
     u32 t5 = D_0035ebe8;
     u32 t6 = D_0035ebec;
@@ -9921,7 +9921,7 @@ u32 func_00253b30(u32 a0, u32 a1) {
     u32 s0 = a0;
     u32 s1 = a1;
 
-    if (func_002ff1a4(D_0035eed4) == 0) {  // strcmp
+    if (strcmp(D_0035eed4) == 0) {  // strcmp
         func_002fee78(s0, &D_00372858, D_0033caf4, s1);
         return s0;
     }
@@ -11921,8 +11921,8 @@ void func_002911f8(u32 self) {
 
 void func_002931a8(u32 a0) {
     u32 s16 = a0;
-    func_002ff3fc();  // strlen
-    if (func_002ff1a4(D_0035f4e4, s16) != 0) {  // strcmp
+    strlen();  // strlen
+    if (strcmp(D_0035f4e4, s16) != 0) {  // strcmp
         func_00292a58();
     }
     func_002ff2e8(D_0035f4e4, s16);
@@ -13183,7 +13183,7 @@ u32 func_002cdb00(u32 a0, u32 a1, f32 a2) {
     u32 s0 = a1;
     u32 s1 = a0;
 
-    f32 f0 = func_002f8888(a0);
+    f32 f0 = floorf(a0);
     f20 = f20 - f0;
     s32 t6 = (s32)f0;
 
@@ -13527,9 +13527,9 @@ void func_002e3de0(u32 a0) {
 }
 
 void func_002e3fa0(f32* a0, f32* a1, f32 a2) {
-    f32 v = func_002f87c0((u32)a0, (u32)a1);
+    f32 v = cosf((u32)a0, (u32)a1);
     a0[3] = v;
-    f32 s = func_002f8960(a2);
+    f32 s = sinf(a2);
 
     a0[0] = a1[0] * s;
     a0[1] = a1[1] * s;
@@ -13537,9 +13537,9 @@ void func_002e3fa0(f32* a0, f32* a1, f32 a2) {
 }
 
 void func_002e4010(f32* a0, f32* a1, f32 a2) {
-    f32 v = func_002f87c0((u32)a0, (u32)a1);
+    f32 v = cosf((u32)a0, (u32)a1);
     a0[3] = v;
-    f32 s = func_002f8960(a2);
+    f32 s = sinf(a2);
 
     a0[0] = a1[0] * s;
     a0[1] = a1[1] * s;
@@ -13758,13 +13758,13 @@ f32 func_002f8a18(f32 a0) {
 
     s32 abits = (s32)(bits.u & 0x7FFFFFFFu);
     if (!((s32)0x3F490FDA < abits)) {
-        return func_002fb558(1, a0, 0.0f);
+        return __kernel_tanf(1, a0, 0.0f);
     }
 
     f32 tmp[2];
-    s32 q = (s32)(func_002fa678((void*)tmp) & 1u);
+    s32 q = (s32)(__ieee754_rem_pio2f((void*)tmp) & 1u);
     s32 s = 1 - (q << 1);
-    return func_002fb558(s, tmp[0], tmp[1]);
+    return __kernel_tanf(s, tmp[0], tmp[1]);
 }
 
 s32 func_002fea18() {
@@ -13775,7 +13775,7 @@ s32 func_002fea18() {
     s64 step = *(s64*)(base37 + 0x78E0u);
     s64 cur = *(s64*)(root + 168u);
 
-    s64 v = func_00311aa0(cur, step) + 1ll;
+    s64 v = __muldi3(cur, step) + 1ll;
     *(s64*)(root + 168u) = v;
 
     u64 hi = (u64)v >> 32;
@@ -13787,7 +13787,7 @@ s32 func_002fea18() {
 
 s32 func_002feac0(u32 a0) {
     if (*(u32*)(a0 + 468u) == 0u) {
-        u32 p = func_002fd680(a0, 128u);
+        u32 p = _malloc_r(a0, 128u);
         *(u32*)(a0 + 468u) = p;
         if (p == 0u) {
             return -1;
@@ -13813,7 +13813,7 @@ void func_002fed98(u32* a0, u32 a1, u32 a2) {
 
 u32 func_00302c88(u32 a0, u32 a1) {  // alloc_88_array
     u32 size = 88u * a1;
-    u32 h = func_002fd680(a0, size + 12u);
+    u32 h = _malloc_r(a0, size + 12u);
     if (h == 0u) {
         return 0u;
     }
@@ -13972,9 +13972,9 @@ void func_0030f068() {
     func_00310d80();
 }
 
-u32 func_003166f0(u32 a0) {
+u32 __cxa_begin_catch(u32 a0) {
     u32 s0 = a0 - 48u;
-    u32 v0 = func_00316af8();
+    u32 v0 = __cxa_get_globals();
 
     s32 t14 = *(s32*)(s0 + 20u);
     u32 t13 = *(u32*)(v0 + 0u);

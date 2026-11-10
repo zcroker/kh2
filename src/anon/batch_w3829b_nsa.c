@@ -15,8 +15,8 @@ extern W2417Tab* D_01d9e6e4;
 extern W2417Cam* D_01d9e6e8;
 s32 func_00222568(void);
 W2417Ent* func_001e7a98(W2417Mgr*, u8*);
-void func_002f3f98(f32*, f32*);
-void func_002f3cd8(void*, void*, W2417Vec*);
+void sceVu0CopyMatrix(f32*, f32*);
+void sceVu0ApplyMatrix(void*, void*, W2417Vec*);
 void func_00222730(void*, W2417Vec*, void*);
 
 // 001f59b0: particle emitter variant (partMng): picks a point index (random or sequential), spawns an
@@ -56,7 +56,7 @@ void func_001f59b0(void* owner, W2417Prm* prm_, W2417Ctx* c)
     if (p0 == 0) p0 = D_01d9e6e4->mdl[g->a].pts;
     rnd = prm->rnd;
     v.w = 1.0f;
-    func_002f3f98(m, D_01d9e6e8->m0);
+    sceVu0CopyMatrix(m, D_01d9e6e8->m0);
     if (rnd != 0) idx = r % g->cnt;
     else idx = *slot;
     for (n = prm->n; n > 0; n--) {
@@ -82,12 +82,12 @@ void func_001f59b0(void* owner, W2417Prm* prm_, W2417Ctx* c)
         v.x = *(s16*)(pp + 0);
         v.y = *(s16*)(pp + 2);
         v.z = *(s16*)(pp + 4);
-        func_002f3cd8(a, cam->m0, &v);
+        sceVu0ApplyMatrix(a, cam->m0, &v);
         }
         v.x = *(s16*)((u8*)p1 + k + 0);
         v.y = *(s16*)((u8*)p1 + k + 2);
         v.z = *(s16*)((u8*)p1 + k + 4);
-        func_002f3cd8(&v, m, &v);
+        sceVu0ApplyMatrix(&v, m, &v);
         func_00222730(q, &v, D_01d9e6e8->m1);
         if (rnd != 0) {
             idx = func_00222568() % g->cnt;

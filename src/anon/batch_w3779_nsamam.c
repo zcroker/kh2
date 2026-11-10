@@ -99,11 +99,11 @@ s32 func_00222568(void);
 W2426Ent *func_001e7a98(W2426Mgr *, u8 *);
 void func_001f6148(void *, W2426Prm *, s16 *);
 void func_0021ee48(void *, W2426Prm *, W2426CB, u16 *, s16, u8, u8);
-void func_002f3cd8(void *, void *, void *);
+void sceVu0ApplyMatrix(void *, void *, void *);
 void func_002226b8(void *, void *);
-void func_002f3f10(void *, void *, void *);
-void func_002f3d98(void *, void *);
-void func_002f3f40(void *, void *, f32);
+void sceVu0SubVector(void *, void *, void *);
+void sceVu0Normalize(void *, void *);
+void sceVu0ScaleVector(void *, void *, f32);
 void func_001f6298(void *owner, W2426Prm *prm, W2426Ctx *c)
 {
   W2426Grp *g;
@@ -207,12 +207,12 @@ void func_001f6298(void *owner, W2426Prm *prm, W2426Ctx *c)
     v.y = p->y;
     v.z = p->z;
     v.w = w;
-    func_002f3cd8(&v, D_01d9e6e8->m0, &v);
+    sceVu0ApplyMatrix(&v, D_01d9e6e8->m0, &v);
     func_002226b8(p0, &v);
-    func_002f3f10(&v, &v, D_01d9e6e8->m1);
-    func_002f3d98(&v, &v);
+    sceVu0SubVector(&v, &v, D_01d9e6e8->m1);
+    sceVu0Normalize(&v, &v);
     func_002226b8(p1, &v);
-    func_002f3f40(&v, &v, prm->scale);
+    sceVu0ScaleVector(&v, &v, prm->scale);
     func_002226b8(p2, &v);
     if (rnd != 0)
     {

@@ -41,13 +41,13 @@ void func_001d22e0(void* a, Ch* c) {
     if (c->flags & 4) func_0017f540(p, id, 20.0f, 0.0f);
 }
 
-void func_002fe0a0(const char*);
+void puts(const char*);
 void func_002fd348(s32) __attribute__((noreturn));
 extern char D_00370720[];
-void func_002f28b8(void*, s32, s32, s32, s32, s32, s32, s32);
-void func_002f25a0(s32, s32);
+void sceGsSetDefLoadImage(void*, s32, s32, s32, s32, s32, s32, s32);
+void sceGsSyncPath(s32, s32);
 void func_003058a0(s32);
-void func_002f2be0(void*, u32);
+void sceGsExecLoadImage(void*, u32);
 struct Tex {
     u16 w : 14;
     u16 pad0 : 2;
@@ -65,14 +65,14 @@ struct Tex {
 void func_0020e490(Tex* t, u32 flag) {
     u8 buf[96];
     if (!t->data) {
-        func_002fe0a0(D_00370720);
+        puts(D_00370720);
         func_002fd348(1);
     }
-    func_002f28b8(buf, (s16)t->w, t->b10 >> 2, t->b24, t->b8 << 4, t->b9 << 4, t->h12, t->h14);
-    func_002f25a0(0, 0);
+    sceGsSetDefLoadImage(buf, (s16)t->w, t->b10 >> 2, t->b24, t->b8 << 4, t->b9 << 4, t->h12, t->h14);
+    sceGsSyncPath(0, 0);
     func_003058a0(0);
-    func_002f2be0(buf, t->data);
-    if (flag) func_002f25a0(0, 0);
+    sceGsExecLoadImage(buf, t->data);
+    if (flag) sceGsSyncPath(0, 0);
 }
 
 }

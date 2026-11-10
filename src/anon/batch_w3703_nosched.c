@@ -40,13 +40,13 @@ extern FMTX208 D_01d9e840;
 extern FMTX208 D_01d9e880;
 extern FMTX208 D_01d9e8c0;
 extern u8* D_01d9e6e8;
-void func_002f3cd8(f32* out, f32 (*m)[4], f32* in);       // sceVu0ApplyMatrix
-void func_002f3d08(f32 (*out)[4], f32 (*a)[4], f32 (*b)[4]); // sceVu0MulMatrix
-void func_002f3f40(f32* out, f32* in, f32 s);           // sceVu0ScaleVector
-void func_002f3f88(f32* out, f32* in);                  // sceVu0CopyVector
-void func_002f3f98(f32 (*out)[4], f32 (*in)[4]);         // sceVu0CopyMatrix
-void func_002f4000(f32 (*m)[4]);                        // sceVu0UnitMatrix
-void func_002f4298(f32 (*out)[4], f32 (*in)[4], f32* rot); // sceVu0RotMatrix
+void sceVu0ApplyMatrix(f32* out, f32 (*m)[4], f32* in);       // sceVu0ApplyMatrix
+void sceVu0MulMatrix(f32 (*out)[4], f32 (*a)[4], f32 (*b)[4]); // sceVu0MulMatrix
+void sceVu0ScaleVector(f32* out, f32* in, f32 s);           // sceVu0ScaleVector
+void sceVu0CopyVector(f32* out, f32* in);                  // sceVu0CopyVector
+void sceVu0CopyMatrix(f32 (*out)[4], f32 (*in)[4]);         // sceVu0CopyMatrix
+void sceVu0UnitMatrix(f32 (*m)[4]);                        // sceVu0UnitMatrix
+void sceVu0RotMatrix(f32 (*out)[4], f32 (*in)[4], f32* rot); // sceVu0RotMatrix
 
 
 // Builds an object's local matrix (copy or unit + translation, optional rotation from 16-bit angles, per-axis scale),
@@ -62,42 +62,42 @@ void func_00208a30(f32 (*view)[4], f32 (*m)[4], Obj208* o, Xform208* x, f32 (*pa
     u8 um = o->useMatrix;
     vw.p = view;
     if (um) {
-        func_002f3f98(m, x->m);
+        sceVu0CopyMatrix(m, x->m);
     } else {
         register f32 (*a0)[4] asm("$4") = m;
         f32* m3 = m[3];
-        func_002f4000(a0);
-        func_002f3f88(m3, x->m[3]);
+        sceVu0UnitMatrix(a0);
+        sceVu0CopyVector(m3, x->m[3]);
     }
     if (*(u64*)x->rot != 0 || x->rot[2] != 0) {
         for (i = 0; i < 3; i++) r[i] = x->rot[i] * 3.1415927f * 3.0517578125e-05f;
-        func_002f4000(rot);
+        sceVu0UnitMatrix(rot);
         { register f32 (*q4)[4] asm("$4") = rot; register f32* q6 asm("$6") = r; register f32 (*q5)[4] asm("$5") = rot;
-        func_002f4298(q4, q5, q6); }
-        func_002f3d08(m, m, rot);
+        sceVu0RotMatrix(q4, q5, q6); }
+        sceVu0MulMatrix(m, m, rot);
     }
-    for (i = 0; i < 3; i++) func_002f3f40(m[i], m[i], x->scale[i]);
+    for (i = 0; i < 3; i++) sceVu0ScaleVector(m[i], m[i], x->scale[i]);
     switch (o->mode) {
     default:
         if (parent == 0) {
-            func_002f3f88(v, m[3]);
-            func_002f3d08(m, D_01d9e840, m);
-            func_002f3cd8(m[3], vw.p, v);
+            sceVu0CopyVector(v, m[3]);
+            sceVu0MulMatrix(m, D_01d9e840, m);
+            sceVu0ApplyMatrix(m[3], vw.p, v);
         } else {
             { register f32 (*w5)[4] asm("$5") = parent; register f32 (*w4)[4] asm("$4") = tmp; register f32 (*w6)[4] asm("$6") = (f32 (*)[4])(D_01d9e6e8 + 16);
-            func_002f3d08(w4, w5, w6); }
-            func_002f3d08(tmp, D_01d9e730, tmp);
-            func_002f3f88(v, m[3]);
-            func_002f3d08(m, D_01d9e840, m);
-            func_002f3cd8(m[3], tmp, v);
+            sceVu0MulMatrix(w4, w5, w6); }
+            sceVu0MulMatrix(tmp, D_01d9e730, tmp);
+            sceVu0CopyVector(v, m[3]);
+            sceVu0MulMatrix(m, D_01d9e840, m);
+            sceVu0ApplyMatrix(m[3], tmp, v);
         }
         break;
     case 1: case 3: case 5: case 7: case 9:
-        func_002f3cd8(v, vw.p, m[3]);
-        func_002f3d08(m, D_01d9e880, m);
-        func_002f3f88(m[3], v);
+        sceVu0ApplyMatrix(v, vw.p, m[3]);
+        sceVu0MulMatrix(m, D_01d9e880, m);
+        sceVu0CopyVector(m[3], v);
         break;
     }
-    if (doSave) func_002f3f98(save, m);
-    func_002f3d08(m, D_01d9e8c0, m);
+    if (doSave) sceVu0CopyMatrix(save, m);
+    sceVu0MulMatrix(m, D_01d9e8c0, m);
 }

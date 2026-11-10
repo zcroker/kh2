@@ -91,13 +91,13 @@ func_00166148:
 	move	$8,$0
 	move	$9,$0
 	move	$5,$17
-	jal	func_002f28b8
+	jal	sceGsSetDefLoadImage
 	move	$4,$16
 	addiu	$19,$16,-96
 	jal	func_003058a0
 	move	$4,$0
 	move	$4,$16
-	jal	func_002f2be0
+	jal	sceGsExecLoadImage
 	move	$5,$30
 	move	$5,$17
 	move	$9,$18
@@ -106,7 +106,7 @@ func_00166148:
 	move	$10,$22
 	move	$4,$19
 	move	$8,$0
-	jal	func_002f28b8
+	jal	sceGsSetDefLoadImage
 	move	$11,$18
 	jal	func_003058a0
 	move	$4,$0
@@ -115,7 +115,7 @@ func_00166148:
 	srl	$5,$5,0x1
 	addu	$5,$30,$5
 .L001662c8:
-	jal	func_002f2be0
+	jal	sceGsExecLoadImage
 	nop
 	lw	$14,16($29)
 	addiu	$15,$14,-19
@@ -153,12 +153,12 @@ func_00166148:
 	move	$6,$0
 	move	$7,$0
 	move	$8,$0
-	jal	func_002f28b8
+	jal	sceGsSetDefLoadImage
 	move	$9,$0
 	jal	func_003058a0
 	move	$4,$0
 	lw	$5,8($29)
-	jal	func_002f2be0
+	jal	sceGsExecLoadImage
 	move	$4,$16
 .L00166370:
 	lw	$15,24($29)
@@ -215,7 +215,7 @@ func_00166148:
 	sra	$7,$7,0x10
 	move	$4,$16
 	move	$8,$0
-	jal	func_002f28b8
+	jal	sceGsSetDefLoadImage
 	move	$9,$0
 	jal	func_003058a0
 	move	$4,$0
@@ -420,7 +420,7 @@ func_001c51d8:
 	nop
 	lwc1	$f12,4($23)
 	lwc1	$f0,84($29)
-	jal	func_002f8870
+	jal	fabsf
 	sub.s	$f12,$f12,$f0
 	c.le.s	$f0,$f20
 	srl	$15,$17,0x5

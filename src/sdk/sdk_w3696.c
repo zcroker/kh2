@@ -57,7 +57,7 @@ extern u_long128 D_00363c70;
 #define GS_CSR ((volatile u_long *)0x12001000)
 #define GS_BUSDIR ((volatile u_long *)0x12001040)
 /* sceGsExecStoreImage: reads an image back from GS local memory into dstaddr over DMA Ch.1 (GS->MEM). */
-int func_002f2d60(sceGsStoreImage *sp, u_long128 *dstaddr)
+int sceGsExecStoreImage(sceGsStoreImage *sp, u_long128 *dstaddr)
 {
     int w, h, psm, hh;
     int bytes, qwc;

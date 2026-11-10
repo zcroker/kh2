@@ -17,9 +17,9 @@ typedef union { float value; __uint32_t word; } ieee_float_shape_type;
 #define FLT_UWORD_IS_ZERO(x) ((x)<0x00800000L)
 
 /* __ieee754_atan2f; the game symbol is a C++-style placeholder name, bound with an asm label. */
-float wtarget_002f9600(float y, float x) __asm__("_Z16wtarget_002f9600jjjj");
-float atanf(float) __asm__("func_002f8420");
-float fabsf(float) __asm__("func_002f8870");
+float __ieee754_atan2f(float y, float x) __asm__("_Z16__ieee754_atan2fjjjj");
+float atanf(float) __asm__("atanf");
+float fabsf(float) __asm__("fabsf");
 
 static const float
 tiny  = 1.0e-30,
@@ -29,7 +29,7 @@ pi_o_2  = 1.5707963705e+00, /* 0x3fc90fdb */
 pi      = 3.1415925026e+00, /* 0x40490fda */
 pi_lo   = 1.5099578832e-07; /* 0x34222168 */
 
-float wtarget_002f9600(float y, float x)
+float __ieee754_atan2f(float y, float x)
 {
 	float z;
 	__int32_t k,m,hx,hy,ix,iy;

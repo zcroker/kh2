@@ -95,16 +95,16 @@ void func_001c0690(u8* p, Obj1c0* o) {
     if (o->f604) func_001b7428(o->f604);
     func_001b7658(buf, p[1], D_0032f230);
 }
-f32 func_002f8960(f32);
-f32 func_002f87c0(f32);
+f32 sinf(f32);
+f32 cosf(f32);
 void func_0011b6a8(void*) asm("_Z13func_0011b6a8Pv");
 M299* func_0011b8d0(M299* m, const V299& axis, f32 ang) {
     V299 v;
     v = axis;
     v.Normalize();
     f32 x = v.x, y = v.y, z = v.z;
-    f32 s = func_002f8960(ang);
-    f32 c = func_002f87c0(ang);
+    f32 s = sinf(ang);
+    f32 c = cosf(ang);
     M299 r;
     func_0011b6a8(&r);
     f32 t = 1.0f - c;
@@ -131,7 +131,7 @@ void setdir2d6(Act2d6*, V299*, f32) asm("_Z16ctarget_00186a90jjjj");
 void wt2cf280(void*, s32, s32) asm("_Z16wtarget_002cf280jjjj");
 void func_002d6600(Act2d6*, V299*);
 void func_002d3f18(Act2d6*);
-f32 func_002f8870(f32);  // fabsf
+f32 fabsf(f32);  // fabsf
 static inline u8 pos2d6(Act2d6* t) { return 0.0f < t->f2780; }
 void func_002d6750(Act2d6* a, Ctx2d6* c) {
     Mg2d6* g = D_00361f60;
@@ -155,7 +155,7 @@ void func_002d6750(Act2d6* a, Ctx2d6* c) {
         func_002d6600(a, &d);
     } else {
         if (config2d6(g)->f140 < 0.0f) d.Zero();
-        setdir2d6(a, &d, func_002f8870(config2d6(g)->f140));  // fabsf
+        setdir2d6(a, &d, fabsf(config2d6(g)->f140));  // fabsf
     }
     wt2cf280((u8*)c->f16 + 2800, 256, 0);
     func_002d3f18(c->f16);

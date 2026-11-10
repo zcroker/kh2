@@ -5,10 +5,10 @@
 	.set nomacro
 	.section .text.func_0030edb0,"ax",@progbits
 	.align 2
-	.globl func_0030edb0
-	.type func_0030edb0, @function
-	.ent func_0030edb0
-func_0030edb0:
+	.globl DIntr
+	.type DIntr, @function
+	.ent DIntr
+DIntr:
 	mfc0	$3,$12
 	lui	$2,0x1
 	and	$3,$3,$2
@@ -31,5 +31,5 @@ func_0030edb0:
 	move	$4,$0
 	jr	$31
 	move	$2,$4
-	.end func_0030edb0
-	.size func_0030edb0, 80
+	.end DIntr
+	.size DIntr, 80

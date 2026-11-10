@@ -19,7 +19,7 @@ struct W1758CxaExc {
 
 extern "C" {
 void func_00315418(w1758_th_t) __attribute__((noreturn)); /* __cxxabiv1::__terminate */
-void func_00316658(void*);                                /* __cxa_free_exception */
+void __cxa_free_exception(void*);                                /* __cxa_free_exception */
 
 void func_003154a8(int code, u8* exc) {
     W1758CxaExc* h = (W1758CxaExc*)(exc - 48);
@@ -27,6 +27,6 @@ void func_003154a8(int code, u8* exc) {
         func_00315418(h->terminateHandler);
     if (h->exceptionDestructor)
         h->exceptionDestructor(h + 1);
-    func_00316658(h + 1);
+    __cxa_free_exception(h + 1);
 }
 }

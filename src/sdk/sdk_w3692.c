@@ -5,16 +5,16 @@
  * emits two nops before div.s (ee-gcc 2.96 does); ee-gcc 2.9 does not, so only the divide is asm.
  * The u64 -> float conversion calls libgcc's __floatdisf at 0x311af0 directly (gcc's own expansion
  * would link to a different copy). */
-extern float func_00311af0(long);
+extern float __floatdisf(long);
 float func_00310900(unsigned long x)
 {
     float d;
     float n = 147456000.0f;
     float r;
     if ((long)x >= 0)
-        d = func_00311af0(x);
+        d = __floatdisf(x);
     else {
-        d = func_00311af0((x & 1) | (x >> 1));
+        d = __floatdisf((x & 1) | (x >> 1));
         d = d + d;
     }
     __asm__(".set noreorder\n\tnop\n\tnop\n\tdiv.s %0,%1,%2\n\t.set reorder" : "=f"(r) : "f"(n), "f"(d));

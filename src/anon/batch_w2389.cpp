@@ -62,7 +62,7 @@ void** func_00316e00(void);            // __gthread_get_ee_key_value
 s32* func_00316e10(void);              // __gthread_get_ee_key_use
 s32 func_003060f0(void);               // QueryIntrContext
 s32 func_00305510(void);               // GetThreadId
-void* func_002fd3e8(u32);              // malloc
+void* malloc(u32);              // malloc
 void func_00315440(void) __attribute__((noreturn)); // std::terminate
 
 static inline s32 w2389_tid(void)
@@ -88,7 +88,7 @@ static inline s32 w2389_setspecific(s32 key, const void* ptr)
     return 0;
 }
 
-W2389EhGlobals* func_00316af8(void)
+W2389EhGlobals* __cxa_get_globals(void)
 {
     W2389EhGlobals* g;
     if (D_00367920 == 0) return &D_01e4c798;
@@ -98,7 +98,7 @@ W2389EhGlobals* func_00316af8(void)
     }
     g = (W2389EhGlobals*)w2389_getspecific(D_01e4c7a0);
     if (!g) {
-        if ((g = (W2389EhGlobals*)func_002fd3e8(sizeof(W2389EhGlobals))) == 0
+        if ((g = (W2389EhGlobals*)malloc(sizeof(W2389EhGlobals))) == 0
             || w2389_setspecific(D_01e4c7a0, (void*)g) != 0)
             func_00315440();
         g->caughtExceptions = 0;

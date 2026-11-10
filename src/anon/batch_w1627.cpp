@@ -56,7 +56,7 @@ void* func_00317120(void*);                 /* _Unwind_GetLanguageSpecificData *
 W1627UnwindPtr func_003191e8(void*);        /* _Unwind_GetIP */
 
 extern "C" {
-void* func_003166f0(void*);                 /* __cxa_begin_catch */
+void* __cxa_begin_catch(void*);                 /* __cxa_begin_catch */
 void func_003191d0(void*, int, W1627UnwindWord); /* _Unwind_SetGR */
 void func_003191f0(void*, W1627UnwindPtr);  /* _Unwind_SetIP */
 W1627UnwindPtr func_00314a50(unsigned char, void*); /* base_of_encoded_value */
@@ -74,7 +74,7 @@ static inline const unsigned char* read_encoded_value(void* context, unsigned ch
     return func_00314b90(encoding, func_00314a50(encoding, context), p, val);
 }
 
-int func_00314ee8(int version, int actions, unsigned long exception_class,
+int __gxx_personality_v0(int version, int actions, unsigned long exception_class,
                  W1627UnwindException* ue_header, void* context)
 {
     W1627CxaException* xh = (W1627CxaException*)(ue_header + 1) - 1;
@@ -215,7 +215,7 @@ do_something:
 
 install_context:
     if (found_type == found_terminate) {
-        func_003166f0(&xh->unwindHeader);
+        __cxa_begin_catch(&xh->unwindHeader);
         func_00315418(xh->terminateHandler);
     }
 

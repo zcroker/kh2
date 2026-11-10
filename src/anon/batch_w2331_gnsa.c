@@ -30,7 +30,7 @@ extern u32 D_01d9eaa8;
 extern f32 D_00354be0[];
 extern s32 D_00352be4, D_00352be8, D_00352bec, D_00352bf0, D_00352bf8, D_00352bfc;
 extern u64 D_00352c18;
-void func_002f3cd8(V1fa2b0*, V1fa2b0*, V1fa2b0*);
+void sceVu0ApplyMatrix(V1fa2b0*, V1fa2b0*, V1fa2b0*);
 void func_00222f88(Req1fa2b0*);
 s32 func_002231b8(Req1fa2b0*);
 void func_0020e7a8(u32, u32, s32, s32);
@@ -83,7 +83,7 @@ void func_001fa2b0(u8* base, Ent1fa2b0* e, Ctx1fa2b0* c)
     r.q72 = D_00352c18;
     r.b.x = r.b.z = r.b.w = 0.0f;
     r.b.y = -pos[0];
-    func_002f3cd8(&r.b, m, &r.b);
+    sceVu0ApplyMatrix(&r.b, m, &r.b);
     *(s32*)&r.b.w = e->b25;
     func_00222f88(&r);
     if (func_002231b8(&r)) {

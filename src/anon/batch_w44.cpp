@@ -60,8 +60,8 @@ void func_001dc4b8(void*);
 void* func_00106a18(s32);  // buffer_get_256
 void* func_00106a60(s32);  // buffer_get_by_index
 void func_001dd320(void*, void*, s32);
-void func_002f4000(void*);  // vu_store_w_splat
-void func_002f3d08(void*, void*, void*);
+void sceVu0UnitMatrix(void*);  // vu_store_w_splat
+void sceVu0MulMatrix(void*, void*, void*);
 void func_002247e8(s32);
 s32 func_002249b8(void);  // get_global_36dac0
 void func_002248f8(s32);
@@ -350,25 +350,25 @@ extern u8* D_01d9e6e0;
 extern u8* D_01d9e6e8;
 void func_001eb140(void*, f32* v) {
     f32 m[4][4];
-    func_002f4000(m);  // vu_store_w_splat
+    sceVu0UnitMatrix(m);  // vu_store_w_splat
     f32 h = *(f32*)(D_01d9e6e0 + 68);
     f32 y = h + h * v[1];
     m[1][1] = y;
     if (v[2] < y) m[1][1] = v[2];
     u8* p = D_01d9e6e8 + 16;
-    func_002f3d08(p, m, p);
+    sceVu0MulMatrix(p, m, p);
 }
 
 void func_001eb1b0(void*, f32* v) {
     f32 m[4][4];
-    func_002f4000(m);  // vu_store_w_splat
+    sceVu0UnitMatrix(m);  // vu_store_w_splat
     f32 h = *(f32*)(D_01d9e6e0 + 68);
     f32 y = h + h * v[1];
     m[1][1] = y;
     if (v[2] < y) m[1][1] = v[2];
     m[0][0] = m[1][1] = m[2][2];
     u8* p = D_01d9e6e8 + 16;
-    func_002f3d08(p, m, p);
+    sceVu0MulMatrix(p, m, p);
 }
 
 s32 func_0022b028(s32 n) {

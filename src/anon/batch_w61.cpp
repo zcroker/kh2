@@ -442,9 +442,9 @@ s32 func_002d0200(u8* p) {
     return 0;
 }
 
-void func_002f40a0(void*, f32);
-void func_002f41f0(void*, void*, f32);
-void func_002f4148(void*, void*, f32);
+void sceVu0RotMatrixZ(void*, f32);
+void sceVu0RotMatrixY(void*, void*, f32);
+void sceVu0RotMatrixX(void*, void*, f32);
 
 union DW { double d; u64 u; struct { u32 lo; s32 hi; } w; };
 // fdlibm isinf
@@ -462,8 +462,8 @@ u64 func_00314330(s32);
 u64 func_00313f40(u64, u64);  // double_mul
 u64 func_00313e80(u64, u64);  // double_div
 
-s32 func_0030edb0(void);
-void func_0030ee00(void);  // ee_intr_get_enable
+s32 DIntr(void);
+void EIntr(void);  // ee_intr_get_enable
 void func_00316998(void);
 extern s32 D_00367924;
 extern s32 D_00367920;

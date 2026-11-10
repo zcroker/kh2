@@ -51,11 +51,11 @@ extern G292p D_0035f4d4;
 extern G292p D_0035f4c0;
 extern G292p D_0035f4c8;
 extern u8 D_0035f4e2;
-void func_002ff3fc(void*);  // strlen
+void strlen(void*);  // strlen
 void func_00168410(void*, s32, s32, u16, void*, void*);
 void func_00292e60(void);
 s32 func_00292fe8(void) {
-    func_002ff3fc(D_0035f4e4.v);  // strlen
+    strlen(D_0035f4e4.v);  // strlen
     s32 v = *D_0035f4dc.q;
     s32 hi = v >> 16;
     s32 lo = v & 0xffff;

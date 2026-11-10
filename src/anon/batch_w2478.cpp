@@ -108,15 +108,15 @@ static inline MotMtx* motWorld(MotCtx* ctx, MotPose* pose, s32 i) {
 extern "C" {
 
 extern f32 D_00347b70;
-f32 func_002f8960(f32);
-f32 func_002f87c0(f32);
+f32 sinf(f32);
+f32 cosf(f32);
 f32 func_002f8a18(f32);
 f32 func_002f8ab8(f32);
 f32 acos_2f8aa0(f32) asm("_ZN3Axa15InnerProductXYZERKNS_8FVECTOR4ES2_");
-f32 func_002f8420(f32);
+f32 atanf(f32);
 f32 func_002f8b18(f32);
 f32 func_002f8ae8(f32);
-f32 func_002f8870(f32);
+f32 fabsf(f32);
 f32 f_powf(f32, f32);
 f32 func_002f8b00(f32, f32);
 void func_0011bac8(MotMtx*, MotVec*);
@@ -131,15 +131,15 @@ f32 func_00129060(MotCtx* ctx, MotPose* pose, u16 idx) {
         MotNode* nodes = (MotNode*)((u8*)hdr + hdr->nodeOff);
         MotNode* n = &nodes[idx];
         switch (n->op) {
-        case 0: return func_002f8960(func_00129060(ctx, pose, n->a) * 0.017453292f);
-        case 1: return func_002f87c0(func_00129060(ctx, pose, n->a) * 0.017453292f);
+        case 0: return sinf(func_00129060(ctx, pose, n->a) * 0.017453292f);
+        case 1: return cosf(func_00129060(ctx, pose, n->a) * 0.017453292f);
         case 2: return func_002f8a18(func_00129060(ctx, pose, n->a) * 0.017453292f);
         case 3: return func_002f8ab8(func_00129060(ctx, pose, n->a)) * 57.295776f;
         case 4: return acos_2f8aa0(func_00129060(ctx, pose, n->a)) * 57.295776f;
-        case 5: return func_002f8420(func_00129060(ctx, pose, n->a)) * 57.295776f;
+        case 5: return atanf(func_00129060(ctx, pose, n->a)) * 57.295776f;
         case 6: return func_002f8b18(func_00129060(ctx, pose, n->a));
         case 7: return func_002f8ae8(func_00129060(ctx, pose, n->a));
-        case 8: return func_002f8870(func_00129060(ctx, pose, n->a));
+        case 8: return fabsf(func_00129060(ctx, pose, n->a));
         case 9: {
             f32 a = func_00129060(ctx, pose, n->a);
             return f_powf(a, func_00129060(ctx, pose, n->b));

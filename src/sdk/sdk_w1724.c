@@ -17,7 +17,7 @@ extern int func_00305660(int);
 extern void func_00308a80(void *, int);
 extern int func_00309d60(void *, int, int, void *, int, void *, int, void *, void *, int);
 
-int func_0030bd88(const char *name, const char *name2, const char *arg, int arglen)
+int sceFormat(const char *name, const char *name2, const char *arg, int arglen)
 {
     DevPk *p = &D_01e37280.dev;
     SemaParam sp;
@@ -71,7 +71,7 @@ int func_0030bd88(const char *name, const char *name2, const char *arg, int argl
     return res;
 }
 
-int func_0030ccc0(const char *name, const char *name2, int flag, const char *arg, int arglen)
+int sceMount(const char *name, const char *name2, int flag, const char *arg, int arglen)
 {
     MntPk *p = &D_01e37280.mnt;
     SemaParam sp;
@@ -122,7 +122,7 @@ int func_0030ccc0(const char *name, const char *name2, int flag, const char *arg
     return res;
 }
 
-int func_0030d1a0(const char *name, int cmd, void *arg, unsigned int arglen, void *buf, unsigned int buflen)
+int sceDevctl(const char *name, int cmd, void *arg, unsigned int arglen, void *buf, unsigned int buflen)
 {
     DctlPk *p = &D_01e37280.dctl;
     SemaParam sp;

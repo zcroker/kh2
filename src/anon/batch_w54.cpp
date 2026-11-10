@@ -369,14 +369,14 @@ void* func_001ce488(void* a0, void* a1, f32 f) {
     return o;
 }
 
-void func_002f4000(f32*);  // vu_store_w_splat
-void func_002f3d08(void*, f32*, void*);
+void sceVu0UnitMatrix(f32*);  // vu_store_w_splat
+void sceVu0MulMatrix(void*, f32*, void*);
 extern u8* D_01d9e6e0;
 extern u8* D_01d9e6e8;
 // scale matrix built from two clamped factors
 void func_001eb030(void* a0, f32* s) {
     f32 m[16];
-    func_002f4000(m);  // vu_store_w_splat
+    sceVu0UnitMatrix(m);  // vu_store_w_splat
     f32 k = s[1];
     f32 mx = s[2];
     u8* t = D_01d9e6e0;
@@ -387,7 +387,7 @@ void func_001eb030(void* a0, f32* s) {
     f32 y = *(f32*)(t + 68);
     m[5] = y + y * k;
     if (mx < m[5]) m[5] = mx;
-    func_002f3d08(D_01d9e6e8 + 16, m, D_01d9e6e8 + 16);
+    sceVu0MulMatrix(D_01d9e6e8 + 16, m, D_01d9e6e8 + 16);
 }
 
 // VU0 random float in [0,1) (R register); one or two samples
@@ -618,12 +618,12 @@ void func_002ef8d0(void** p, void* a1) {
 }
 
 s32 func_003060f0(void);  // ee_intr_disabled
-s32 func_0030edb0(void);
+s32 DIntr(void);
 extern s32 D_003660a8;
 extern s32 D_003660ac;
-void func_002fded8(void) {
+void __malloc_lock(void) {
     if (func_003060f0() != 1) {  // ee_intr_disabled
-        if (D_003660a8 == 0) D_003660ac = func_0030edb0();
+        if (D_003660a8 == 0) D_003660ac = DIntr();
         D_003660a8++;
     }
 }

@@ -152,8 +152,8 @@ extern f32 D_00351fd8;
 Tgt1941* func_002d1260(void);
 s32 func_0019ba60(Tgt1941*);
 f32 func_001cbf50(f32);
-f32 func_002f87c0(f32);
-f32 func_002f8960(f32);
+f32 cosf(f32);
+f32 sinf(f32);
 s32 func_001cad60(Ob1941* self) {
     Tgt1941* t = func_002d1260();
     self->f64 -= D_00349e10;
@@ -161,8 +161,8 @@ s32 func_001cad60(Ob1941* self) {
     self->f160 += self->f168 * D_00349e10;
     f32 k = self->f64 / D_00351fd8;
     f32 a = func_001cbf50(self->f160);
-    self->pos.x = func_002f87c0(a);
-    self->pos.y = func_002f8960(a);
+    self->pos.x = cosf(a);
+    self->pos.y = sinf(a);
     self->pos.z = 0.0f;
     qmuls1941(&self->pos, self->f172 * k);
     Q1941 v = self->v112;

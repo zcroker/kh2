@@ -84,7 +84,7 @@ u64 func_00109ea8(u32 mode, s32 flag, u8 v)
     return 0x5000d;
 }
 
-void func_002f25a0(s32, s32);
+void sceGsSyncPath(s32, s32);
 void func_003058a0(s32);
 void func_002f3918(void*, void*);
 struct Pkt20 { u128 tag; u8 pad[112]; u64 rgb; u64 reg; };
@@ -99,9 +99,9 @@ void func_0020dff0(void*)
     D_01da8c40.tag = 0x70000008;
     D_01da8c40.rgb = D_00359150[0] | ((u64)D_00359150[1] << 8) | ((u64)D_00359150[2] << 16);
     D_01da8c40.reg = 61;
-    func_002f25a0(0, 0);
+    sceGsSyncPath(0, 0);
     func_003058a0(0);
     func_002f3918(D_003591c8, &D_01da8c40);
-    func_002f25a0(0, 0);
+    sceGsSyncPath(0, 0);
     D_01da8c40.tag = save;
 }

@@ -72,7 +72,7 @@ struct Ae9 { u8 p0[0xc]; s32 idx; s32 f10; };
 extern Oe9* D_01d9e6e0;
 extern u8* D_01d9e6e8;
 Re9* func_001e7a98(Oe9*, void*);
-void func_002f3cd8(V4e9*, void*, V4e9*);
+void sceVu0ApplyMatrix(V4e9*, void*, V4e9*);
 void func_001e9d48(s32 a0, Ae9* a1, s16* a2) {
     if (a1->idx != -1) {
         Re9* r = 0;
@@ -84,7 +84,7 @@ void func_001e9d48(s32 a0, Ae9* a1, s16* a2) {
         }
         V4e9 v;
         v.x = a2[0]; v.y = a2[1]; v.z = a2[2]; v.w = 1.0f;
-        func_002f3cd8(&v, D_01d9e6e8 + 16, &v);
+        sceVu0ApplyMatrix(&v, D_01d9e6e8 + 16, &v);
         V3e9* d = (V3e9*)((u8*)r + a1->f10 + 0xa0);
         d->x = v.x; d->y = v.y; d->z = v.z;
     }

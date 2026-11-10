@@ -164,7 +164,7 @@ struct W1957Who { u8 pad[48]; W1957V pos; u8 pad40[44]; f32 height; };
 
 void func_00141988(W1957Map*, W1957Face*, W1957Hit*);
 s32 func_00162408(W1957Hit*, W1957V*);
-f32 func_002f8870(f32);
+f32 fabsf(f32);
 
 static inline f32 w1957_dot(const W1957V& a, const W1957V& b) {
     f32 r;
@@ -189,7 +189,7 @@ s32 func_00142688(W1957Map* map, f32* out, s32 n, W1957Who* who) {
         func_00141988(map, f, &hit);
         if (!func_00162408(&hit, &v)) continue;
         f32 y = (-pl->w - (pl->x * v.x + pl->z * v.z)) / pl->y;
-        f32 a = func_002f8870(t.y - y);
+        f32 a = fabsf(t.y - y);
         if (a < best) {
             best = a;
             res = id;

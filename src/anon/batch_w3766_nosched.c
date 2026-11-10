@@ -26,8 +26,8 @@ typedef struct {
 void* func_0020eaf8(s32);
 void* func_0020eaf8(s32);
 void func_0020ebd8(s32);
-void func_002f28b8(void*, s32, s32, s32, s32, s32, s32, s32);
-void func_002f25a0(s32, s32);
+void sceGsSetDefLoadImage(void*, s32, s32, s32, s32, s32, s32, s32);
+void sceGsSyncPath(s32, s32);
 
 /* Hand-written DMA tag macros: clear the quadword, then write the tag word (and the address word). */
 #define DMA_TAG(T, id) do { u32 _k; asm volatile("sq $0, %0\n\tli %2, %3\n\tsw %2, %1" : "=m"((T).q), "=m"((T).w[0]), "=r"(_k) : "i"(id)); } while (0)
@@ -62,7 +62,7 @@ void func_0020e2e8(u32 addr, s32 n, u16 dbp, s32 sync)
     volatile Tag* t;
     if (n > 16) return;
     p = func_0020eaf8(2048);
-    func_002f28b8(p, (s16)dbp, 1, 0, 0, 0, 16, 16);
+    sceGsSetDefLoadImage(p, (s16)dbp, 1, 0, 0, 0, 16, 16);
     t = (Tag*)&p->tag;
     asm("" : "+r"(t));
     t->w[0] = 0x30000005;
@@ -72,6 +72,6 @@ void func_0020e2e8(u32 addr, s32 n, u16 dbp, s32 sync)
     fill_0020e2e8(addr, dbp, &p->li, n);
     while (*(volatile u32*)0x1000a000 & 0x100);
     asm volatile("lui $2, 0x1000\n\tori $2, $2, 0x8000\n\tli $3, 4\n\tli $4, 0x105\n\tsw $0, 0x2020($2)\n\tsw %0, 0x2030($2)\n\tsw $4, 0x2000($2)" : : "r"((u32)&p->tag + 0x80000000) : "$2", "$3", "$4", "memory");
-    if (sync) func_002f25a0(0, 0);
+    if (sync) sceGsSyncPath(0, 0);
     func_0020ebd8(2048);
 }

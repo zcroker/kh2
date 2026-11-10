@@ -44,7 +44,7 @@ u32 func_00192cc0(u8*, u8*);
 s32 func_00192b30(u32);
 u32 func_00192048(s32);
 s32 func_00192c90(u32, u8*);
-void func_002fdd68(u8*, u8*, s32);
+void memcpy(u8*, u8*, s32);
 s32 func_00139d78(u8*);
 void func_0028d980(u8*, u32, u32, u32, u32, s32, s32, s32, s32);
 void func_00256cc0(s32 a, s32 b, s32 c)
@@ -59,14 +59,14 @@ void func_00256cc0(s32 a, s32 b, s32 c)
     }
     if (b >= 0) {
         if (len != 0) {
-            func_002fdd68(buf + len, sep, seplen);
+            memcpy(buf + len, sep, seplen);
             len += seplen;
         }
         len = len + func_00192c90(func_00192048(b), buf + len) - 1;
     }
     if (a >= 0) {
         if (len != 0) {
-            func_002fdd68(buf + len, sep, seplen);
+            memcpy(buf + len, sep, seplen);
             len += seplen;
         }
         func_00192c90(func_00192048(a), buf + len);

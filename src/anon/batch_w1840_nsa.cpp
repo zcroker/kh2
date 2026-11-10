@@ -115,13 +115,13 @@ extern f32 D_01e2c060;
 extern W1840Vec D_00363550;
 u64 func_00313b80(f32);
 u64 func_00313f40(u64, u64);
-f32 func_003144b0(u64);
-f32 func_002f8960(f32);
+f32 __truncdfsf2(u64);
+f32 sinf(f32);
 W1840Vec* func_0016c028(W1840PathOwner*);
 
 W1840Vec* func_002ecb90(W1840Vec* r, void* self, W1840PathOwner* o) {
     f32 s = D_01e2c060 / 10.0f;
-    s = func_002f8960(func_003144b0(func_00313f40(func_00313b80(s * 3.14159274f), 0x3fe0000000000000ULL)));
+    s = sinf(__truncdfsf2(func_00313f40(func_00313b80(s * 3.14159274f), 0x3fe0000000000000ULL)));
     W1840Vec p;
     p = w1840_get_current_pos(o->path);
     *r = p - D_00363550;

@@ -51,7 +51,7 @@ extern int D_00365948;
 extern int func_00305670(int);
 extern int func_00305640(int);
 extern void func_00308a80(void *, int);
-extern int func_003094b8(void *cd, unsigned int fno, unsigned int mode, void *send, int ssize, void *recv, int rsize, void *end, void *endp);
+extern int sceSifCallRpc(void *cd, unsigned int fno, unsigned int mode, void *send, int ssize, void *recv, int rsize, void *end, void *endp);
 extern void func_002fc038(void *);
 int func_002fc0e8(int a, void *buf, int size)
 {
@@ -65,7 +65,7 @@ int func_002fc0e8(int a, void *buf, int size)
     D_01e33500.rdata = D_01e33980;
     func_00308a80(buf, size);
     func_00308a80(D_01e33980, 192);
-    if (func_003094b8(&D_01e33480, 5, 1, &D_01e33500, 48, D_01e34a40, 4, func_002fc038, D_01e33980)) {
+    if (sceSifCallRpc(&D_01e33480, 5, 1, &D_01e33500, 48, D_01e34a40, 4, func_002fc038, D_01e33980)) {
         func_00305640(D_0036594c);
         return -91;
     }
@@ -77,7 +77,7 @@ extern int D_003674b8;
 extern int D_00366968[2];
 extern void func_0030f280(int, int);
 extern int func_0030f240(int, void *, int);
-extern int func_002ff3fc(const char *);
+extern int strlen(const char *);
 int func_0030f290(const char *name, int argc, char **argv)
 {
     int area = D_003674b8;
@@ -90,13 +90,13 @@ int func_0030f290(const char *name, int argc, char **argv)
         argc = 15;
     func_0030f240(area, &p, 4);
     area += 4;
-    len = func_002ff3fc(name) + 1;
+    len = strlen(name) + 1;
     func_0030f240(p, (void *)name, len);
     p += len;
     for (i = 0; i < argc; i++) {
         func_0030f240(area, &p, 4);
         area += 4;
-        len = func_002ff3fc(argv[i]) + 1;
+        len = strlen(argv[i]) + 1;
         func_0030f240(p, argv[i], len);
         p += len;
     }
@@ -105,7 +105,7 @@ int func_0030f290(const char *name, int argc, char **argv)
 
 typedef struct { int port; int slot; int c; int d; int e; char name[1024]; } SendDir;
 extern SendDir D_01e33530;
-extern char *func_002ff6f0(char *, const char *, int);
+extern char *strncpy(char *, const char *, int);
 extern void func_002fbba8(void *);
 int func_002fca78(int port, int slot, const char *name)
 {
@@ -117,12 +117,12 @@ int func_002fca78(int port, int slot, const char *name)
         func_00305640(D_0036594c);
         return -210;
     }
-    func_002ff6f0(D_01e33530.name, name, 1023);
+    strncpy(D_01e33530.name, name, 1023);
     D_01e33530.port = port;
     D_01e33530.slot = slot;
     D_01e33530.name[1023] = 0;
     D_01e33530.c = 0;
-    if (func_003094b8(&D_01e33480, 15, 1, &D_01e33530, 1044, D_01e34a40, 4, func_002fbba8, 0)) {
+    if (sceSifCallRpc(&D_01e33480, 15, 1, &D_01e33530, 1044, D_01e34a40, 4, func_002fbba8, 0)) {
         func_00305640(D_0036594c);
         return -91;
     }
@@ -140,12 +140,12 @@ int func_002fbd38(int port, int slot, const char *name, int mode)
         func_00305640(D_0036594c);
         return -210;
     }
-    func_002ff6f0(D_01e33530.name, name, 1023);
+    strncpy(D_01e33530.name, name, 1023);
     D_01e33530.port = port;
     D_01e33530.c = mode;
     D_01e33530.slot = slot;
     D_01e33530.name[1023] = 0;
-    if (func_003094b8(&D_01e33480, 2, 1, &D_01e33530, 1044, D_01e34a40, 4, func_002fbba8, 0)) {
+    if (sceSifCallRpc(&D_01e33480, 2, 1, &D_01e33530, 1044, D_01e34a40, 4, func_002fbba8, 0)) {
         func_00305640(D_0036594c);
         return -91;
     }
@@ -161,7 +161,7 @@ extern DbcRecv D_01e2da80;
 extern int func_00305660(int);
 extern int func_00305640(int);
 extern int func_002f5c48(const char *, ...);
-int func_002f56e8(int a, int b, int *size, unsigned char *buf)
+int sceDbcSendData(int a, int b, int *size, unsigned char *buf)
 {
     DbcRecv *s;
     int r;
@@ -173,7 +173,7 @@ int func_002f56e8(int a, int b, int *size, unsigned char *buf)
     s->size = *size;
     for (i = 0; i < *size; i++)
         s->data[i] = buf[i];
-    if (func_003094b8(D_01e2d980, 0x80001319, 0, &D_01e2da80, 144, &D_01e2da80, 144, 0, 0) < 0) {
+    if (sceSifCallRpc(D_01e2d980, 0x80001319, 0, &D_01e2da80, 144, &D_01e2da80, 144, 0, 0) < 0) {
         func_002f5c48("sceDbcSendData: rpc error\n");
         func_00305640(D_01e2fe40);
         return 0;
@@ -185,7 +185,7 @@ int func_002f56e8(int a, int b, int *size, unsigned char *buf)
     return r;
 }
 
-int func_002f5b20(int a, int b, int *size, unsigned char *buf)
+int sceDbcReceiveData(int a, int b, int *size, unsigned char *buf)
 {
     DbcRecv *s;
     int r;
@@ -195,7 +195,7 @@ int func_002f5b20(int a, int b, int *size, unsigned char *buf)
     D_01e2da80.a = a;
     s->b = b;
     s->size = *size;
-    if (func_003094b8(D_01e2d980, 0x8000131a, 0, &D_01e2da80, 144, &D_01e2da80, 144, 0, 0) < 0) {
+    if (sceSifCallRpc(D_01e2d980, 0x8000131a, 0, &D_01e2da80, 144, &D_01e2da80, 144, 0, 0) < 0) {
         func_002f5c48("sceDbcReceiveData: rpc error\n");
         func_00305640(D_01e2fe40);
         return 0;

@@ -355,13 +355,13 @@ u32 func_002f0598(u32, u32, u32, u32);
 u32 func_002f1268(u32, u32, u32, u32);
 u32 func_002f1900(u32, u32, u32, u32);
 u32 func_002f1a38(u32, u32, u32, u32);
-u32 func_002f8e58(u32, u32, u32, u32);
-u32 func_002f9600(u32, u32, u32, u32);
-u32 func_002f97c8(u32, u32, u32, u32);
-u32 func_002f9a38(u32, u32, u32, u32);
-u32 func_002f9bc0(u32, u32, u32, u32);
+u32 __ieee754_acosf(u32, u32, u32, u32);
+u32 __ieee754_atan2f(u32, u32, u32, u32);
+u32 __ieee754_expf(u32, u32, u32, u32);
+u32 __ieee754_fmodf(u32, u32, u32, u32);
+u32 __ieee754_logf(u32, u32, u32, u32);
 u32 func_002fde18(u32, u32, u32, u32);
-u32 func_002fea00(u32, u32, u32, u32);
+u32 srand(u32, u32, u32, u32);
 u32 func_00324750(u32, u32, u32, u32);
 u32 func_01f18014(u32, u32, u32, u32);
 
@@ -423,7 +423,7 @@ u32 func_00105ec8(u32 a0, u32 a1, u32 a2, u32 a3) {
 }
 
 u32 func_00106490(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_002fea00(a0, a1, a2, a3);
+    return srand(a0, a1, a2, a3);
 }
 
 u32 func_00108068(u32 a0, u32 a1, u32 a2, u32 a3) {
@@ -1739,23 +1739,23 @@ u32 func_002f1270(u32 a0, u32 a1, u32 a2, u32 a3) {
 }
 
 u32 func_002f8aa0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_002f8e58(a0, a1, a2, a3);
+    return __ieee754_acosf(a0, a1, a2, a3);
 }
 
 u32 func_002f8ad0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_002f9600(a0, a1, a2, a3);
+    return __ieee754_atan2f(a0, a1, a2, a3);
 }
 
 u32 func_002f8ae8(u32 a0, u32 a1, u32 a2, u32 a3) {  // to_2f97c8
-    return func_002f97c8(a0, a1, a2, a3);
+    return __ieee754_expf(a0, a1, a2, a3);
 }
 
 u32 func_002f8b00(u32 a0, u32 a1, u32 a2, u32 a3) {  // to_2f9a38
-    return func_002f9a38(a0, a1, a2, a3);
+    return __ieee754_fmodf(a0, a1, a2, a3);
 }
 
 u32 func_002f8b18(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_002f9bc0(a0, a1, a2, a3);
+    return __ieee754_logf(a0, a1, a2, a3);
 }
 
 u32 func_0031a030(u32 a0, u32 a1, u32 a2, u32 a3) {

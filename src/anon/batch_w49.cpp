@@ -456,10 +456,10 @@ void func_001e8bb8(u8* p) {
     func_001e8330(p);
 }
 
-void func_002f2be0(u8*, u32);
+void sceGsExecLoadImage(u8*, u32);
 void func_002367c8(u8* p) {  // obj_dispatch_bitfield64
-    if (((s32)(*(s64*)(p + 48) >> 32) & 1) == 0) func_002f2be0(p + 64, *(u32*)(p + 56));
-    if (((*(u64*)(p + 48) >> 33) & 1) == 0) func_002f2be0(p + 160, *(u32*)(p + 60));
+    if (((s32)(*(s64*)(p + 48) >> 32) & 1) == 0) sceGsExecLoadImage(p + 64, *(u32*)(p + 56));
+    if (((*(u64*)(p + 48) >> 33) & 1) == 0) sceGsExecLoadImage(p + 160, *(u32*)(p + 60));
 }
 
 // Returns 1 if the current id is in the -1-terminated list.

@@ -225,7 +225,7 @@ u8* func_001d6cc8(u8*);
 s32 func_001a3570(u16);
 s32 func_002283e0(void);
 u32 func_00227120(void);  // get_data_1dbd8f8
-s32 func_002ff538(u32, const char*, u32);
+s32 strncmp(u32, const char*, u32);
 extern const char D_003712f0[];
 extern u8 D_0035e359;
 extern s32 D_0035e360;
@@ -294,7 +294,7 @@ void func_001e7878(Mgr* p) {
 void func_00232590(void) {
     D_0035e359 = 0;
     if (func_002283e0()) {
-        if (func_002ff538(func_00227120(), D_003712f0, 12) == 0) D_0035e359 = 1;
+        if (strncmp(func_00227120(), D_003712f0, 12) == 0) D_0035e359 = 1;
     }
 }
 
@@ -398,14 +398,14 @@ void func_001d14b0(u8*, u32);
 void func_0017c578(u32, u8*);
 u32 func_002f3588(u32);
 void func_002f3490(u32*);
-s32 func_0030edb0(void);
-void func_0030ee00(void);  // ee_intr_get_enable
+s32 DIntr(void);
+void EIntr(void);  // ee_intr_get_enable
 void func_003086b8(u32, void*, u32);
 void func_002f6bd0(void);
 extern s32 D_00363da4;
 extern s32 D_00363dc8;
 extern u8* D_00365c48;
-s32 func_002ffd78(u8*, u8*, const char*, va_list);
+s32 _vfprintf_r(u8*, u8*, const char*, va_list);
 void func_00302e10(u8*);
 union FLO;
 struct FPN;
@@ -537,14 +537,14 @@ s32 wtarget_002fee78(u8* buf, const char* fmt, ...) {
 s32 func_002ffd00(u8* fp, const char* fmt, va_list ap) {  // fprintf_stream_va
     if (*(u8**)(fp + 84) == 0) *(u8**)(fp + 84) = D_00365c48;
     if (*(u32*)(*(u8**)(fp + 84) + 56) == 0) func_00302e10(*(u8**)(fp + 84));
-    return func_002ffd78(*(u8**)(fp + 84), fp, fmt, ap);
+    return _vfprintf_r(*(u8**)(fp + 84), fp, fmt, ap);
 }
 
 struct FPN { s32 cls; s32 sign; s32 exp; u64 frac; };
 union FLO { double v; u64 u; };
 
 // Soft-float double subtract: a + (-b).
-double func_00313ed8(double a, double b) {
+double __subdf3(double a, double b) {
     FPN x, y, t;
     FLO au, bu;
     au.v = a;

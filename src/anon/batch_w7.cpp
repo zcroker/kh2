@@ -295,7 +295,7 @@ void func_002f0798(u32* a0) {
 
 // d = m translated by v: copies rows 0-2, row 3 = m.row3 + v (xyz).
 // 128-bit moves and the VU0 macro op are written as asm.
-void func_002f3f58(void* d, void* m, void* v) {
+void sceVu0TransMatrix(void* d, void* m, void* v) {
     asm volatile(
         "lqc2 $vf4, 0(%2)\n\t"
         "lqc2 $vf5, 48(%1)\n\t"

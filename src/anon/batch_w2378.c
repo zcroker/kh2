@@ -57,7 +57,7 @@ int func_00317d80(struct _Unwind_Context *, _Unwind_FrameState *);
 #define memset func_002fde18
 
 struct frame_state *
-func_00317ee8 (void *pc_target, struct frame_state *state_in)
+__frame_state_for (void *pc_target, struct frame_state *state_in)
 {
   struct _Unwind_Context context;
   _Unwind_FrameState fs;

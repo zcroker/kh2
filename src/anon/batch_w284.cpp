@@ -88,7 +88,7 @@ void wtarget_002c6cd8(u32 a, u32 b, u32, u32) {
 
 // ---- 002cbd20: step *t along a path until the travelled distance reaches dist
 void func_002cd910(QV284*, u8*, f32);  // split_float_call
-f32 func_002f8870(f32);  // fabsf
+f32 fabsf(f32);  // fabsf
 s32 func_002cb920(u8*);  // get_sum_fields_minus1
 s32 wtarget_002cbd20(u8*, f32*, f32) asm("_Z16wtarget_002cbd20jjjj");
 s32 wtarget_002cbd20(u8* obj, f32* t, f32 dist) {
@@ -104,7 +104,7 @@ s32 wtarget_002cbd20(u8* obj, f32* t, f32 dist) {
         f32 prev = acc;
         acc += vlen284(&d);
         if (dist <= acc) {
-            if (func_002f8870(prev - dist) < func_002f8870(acc - dist)) *t = t0;
+            if (fabsf(prev - dist) < fabsf(acc - dist)) *t = t0;
             break;
         }
         a = b;

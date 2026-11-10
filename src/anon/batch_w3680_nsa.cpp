@@ -29,8 +29,8 @@ extern McDirEnt* D_0035ec9c;
 extern char D_003716d8[];
 s32 YI_MCARD_GetFileTableMax(s32, s32) asm("_ZN2YI5MCARD15GetFileTableMaxEii");
 void func_002fde18(void*, s32, u32) asm("_Z16wtarget_002fde18jjjj");
-s32 func_002ff1a4(const char*, const char*);
-s32 func_002ff3fc(const char*);
+s32 strcmp(const char*, const char*);
+s32 strlen(const char*);
 
 static inline s32 num2(u8 a, u8 b) { return (a - '0') * 10 + (b - '0'); }
 s32 func_00240e50(void) {
@@ -42,8 +42,8 @@ s32 func_00240e50(void) {
     D_0035ec94->dirty = 0;
     for (i = 0; i < n; i++, ent++) {
         if (ent->attr & 0x20) {
-            s32 len = func_002ff3fc(ent->fname);
-            if (len == 18 && func_002ff1a4(ent->fname + 0xf, D_003716d8) == 0) {
+            s32 len = strlen(ent->fname);
+            if (len == 18 && strcmp(ent->fname + 0xf, D_003716d8) == 0) {
                 D_0035ec94->hasSystem = 1;
             } else if (len == 17) {
                 // The empty asm hides that c is a zero-extended byte, so the

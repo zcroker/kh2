@@ -52,7 +52,7 @@ void func_001e5f40(u8*, Part1e66e8*);
 void func_001e5f88(u8*, Part1e66e8*);
 void func_001e5458(s32, u8*, s32);
 void func_001e5718(s32, u8*, s32);
-void func_002f25a0(s32, s32);
+void sceGsSyncPath(s32, s32);
 void func_003058a0(s32);
 void func_002f3918(s32, u8*);
 void func_001e3c18(Part1e66e8*);
@@ -120,7 +120,7 @@ s32 func_001e66e8(Part1e66e8* p)
             if (p->u.h.h158) func_001e5718(p->id, p->own->m176, p->u.h.h158);
             timeEnd1e66e8(ts);
             if (p->u.gs & 0xffffffff00000000ULL) {
-                func_002f25a0(0, 0);
+                sceGsSyncPath(0, 0);
                 func_003058a0(0);
                 func_002f3918(D_003591c8, D_00354650);
             }

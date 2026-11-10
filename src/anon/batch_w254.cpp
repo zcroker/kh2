@@ -116,11 +116,11 @@ void func_002d0a78(void) {
 }
 
 // newlib fflush(fp): NULL flushes all via _fwalk; otherwise write out the buffer.
-s32 func_00302b18(W254File* fp) {
+s32 fflush(W254File* fp) {
     u8* p;
     s32 n;
     s32 t;
-    if (fp == 0) return func_00303698(D_00365c48, func_00302b18);
+    if (fp == 0) return func_00303698(D_00365c48, fflush);
     if (fp->data == 0) fp->data = D_00365c48;
     if (*(s32*)(fp->data + 56) == 0) func_00302e10(fp->data);
     t = fp->flags;

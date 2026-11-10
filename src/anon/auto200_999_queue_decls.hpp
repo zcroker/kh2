@@ -172,7 +172,7 @@ void func_002bd7d8(void);
 
 void func_002f8aa0(f32);
 
-void func_002f87c0(f32);
+void cosf(f32);
 
 void func_0016f448(u32);
 
@@ -196,4 +196,4 @@ void func_00134428(u32, u64);
 
 void func_00134450(u32);
 
-f32 func_002f8870(f32);
+f32 fabsf(f32);

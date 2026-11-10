@@ -25,7 +25,7 @@ void func_wt119b10(u32 a0, u32 a1, u32 a2, u32 a3) {
     }
 }
 void* func_00304fb0(void*, u32, u32);
-E* f303b70(O* o, u32 idx) asm("_Z16ctarget_00303b70jjjj");
+E* f303b70(O* o, u32 idx) asm("_Z7_Ballocjjjj");
 E* f303b70(O* o, u32 idx) {
     E** t = o->tbl;
     if (!t) {

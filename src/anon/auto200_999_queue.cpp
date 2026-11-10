@@ -136,7 +136,7 @@ void func_00105a20(void) {
     func_002bd7d8();
 
     func_002f8aa0(f20);
-    func_002f87c0(f20);
+    cosf(f20);
 
     func_0016f448(0);
     func_002fd3d0(0, 0);
@@ -280,7 +280,7 @@ after_ok_check:
         if (!(f1 < *(f32*)(a2 + 52))) {
             return 1;
         }
-        f32 v = func_002f8870(*(f32*)(a1 + 0));  // fabsf
+        f32 v = fabsf(*(f32*)(a1 + 0));  // fabsf
         if (*(f32*)(a2 + 56) < v) {
             return 0;
         }

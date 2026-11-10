@@ -19,11 +19,11 @@ extern "C" {
 extern u8* D_01d9e6e0;
 extern s32 D_01d9ea9c;
 extern W317Y D_01d9e360;
-void func_002f3f10(void*, void*, void*);  // vec4_sub
-void func_002f3f88(void*, void*);  // memcpy16
+void sceVu0SubVector(void*, void*, void*);  // vec4_sub
+void sceVu0CopyVector(void*, void*);  // memcpy16
 s32 func_002225a8(void*);
-void func_002f3f40(void*, void*, f32);  // vec_scale_by_f12
-void func_002f3ef8(void*, void*, void*);  // vec4_add
+void sceVu0ScaleVector(void*, void*, f32);  // vec_scale_by_f12
+void sceVu0AddVector(void*, void*, void*);  // vec4_add
 void func_00222730(void*, void*, void*);
 void func_001fc320(u8* self, W317P* p, W317Q* q) {
     W317X* x = (W317X*)(self + q->of->o8 + 160);
@@ -49,16 +49,16 @@ void func_001fc320(u8* self, W317P* p, W317Q* q) {
     u8* s3 = self + q->of->o4 + 160;
     if (f == 0.0f) return;
     l.t = f;
-    func_002f3f10(&l, s4, y->m4.p);  // vec4_sub
-    func_002f3f88(l.b, s3);  // memcpy16
+    sceVu0SubVector(&l, s4, y->m4.p);  // vec4_sub
+    sceVu0CopyVector(l.b, s3);  // memcpy16
     if (!func_002225a8(&l)) return;
     f32 u = l.u;
     if (u < 0.0f) return;
     if (1.0f < u) return;
     x->flags |= 1;
-    func_002f3f40(l.c, l.b, u);  // vec_scale_by_f12
-    func_002f3ef8(l.c, l.c, &l);  // vec4_add
-    func_002f3ef8(x, ((W317Y*)x->y)->m4.p, l.c);  // vec4_add
+    sceVu0ScaleVector(l.c, l.b, u);  // vec_scale_by_f12
+    sceVu0AddVector(l.c, l.c, &l);  // vec4_add
+    sceVu0AddVector(x, ((W317Y*)x->y)->m4.p, l.c);  // vec4_add
     if (x->flags & 2) {
         func_00222730(s3, x, s4);
         *(s32*)(self + 12) = 0xffff0000;

@@ -10,10 +10,10 @@ extern struct RpcSend D_01e33530;
 extern u8 D_01e34a40[];
 extern s32 D_00365948;
 extern s32 D_0036594c;
-char* func_002ff6f0(char* d, const char* s, u32 n);     /* strncpy */
+char* strncpy(char* d, const char* s, u32 n);     /* strncpy */
 s32 SignalSema(s32 sid);
 s32 PollSema(s32 sid);
-s32 func_003094b8(struct SifClient* cd, s32 fno, u32 mode, void* send, s32 ssize,
+s32 sceSifCallRpc(struct SifClient* cd, s32 fno, u32 mode, void* send, s32 ssize,
                   void* recv, s32 rsize, void (*end)(void*), void* endp);   /* sceSifCallRpc */
 void func_002fbba8(void*);
 
@@ -25,9 +25,9 @@ s32 func_002fd050(s32 a, s32 b, const char* name)
   if (name == 0 || *name == 0) { SignalSema(D_0036594c); return -210; }
   D_01e33530.a = a;
   D_01e33530.b = b;
-  func_002ff6f0(D_01e33530.name, name, 1023);
+  strncpy(D_01e33530.name, name, 1023);
   D_01e33530.name[1023] = 0;
-  if (func_003094b8(&D_01e33480, 18, 1, &D_01e33530, 1044, D_01e34a40, 4, func_002fbba8, 0) != 0) {
+  if (sceSifCallRpc(&D_01e33480, 18, 1, &D_01e33530, 1044, D_01e34a40, 4, func_002fbba8, 0) != 0) {
     SignalSema(D_0036594c);
     return -91;
   }

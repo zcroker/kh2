@@ -48,9 +48,9 @@ struct W1831Body {
 extern "C" {
 // Soft-float double helpers (game copies). Declared const so gcc treats them like its own libcalls.
 u64 func_00313b80(f32) __attribute__((const));
-u64 func_00313ed8(u64, u64) __attribute__((const));
+u64 __subdf3(u64, u64) __attribute__((const));
 u64 func_00313e80(u64, u64) __attribute__((const));
-f32 func_003144b0(u64) __attribute__((const));
+f32 __truncdfsf2(u64) __attribute__((const));
 s32 func_003142e0(u64, u64) __attribute__((const));
 
 W1831QV* func_0016c028(W1831Obj*);
@@ -67,8 +67,8 @@ f32 func_002edd20(W1831Obj* o) {
     W1831QV* pd = &s.b;
     *pa = *func_0016c028(o);
     *pb = *pa;
-    a.y = func_003144b0(func_00313ed8(func_00313b80(a.y), 0x4069000000000000ULL));
-    b.y = func_003144b0(func_00313e80(func_00313b80(b.y), 0x40c3ec0000000000ULL));
+    a.y = __truncdfsf2(__subdf3(func_00313b80(a.y), 0x4069000000000000ULL));
+    b.y = __truncdfsf2(func_00313e80(func_00313b80(b.y), 0x40c3ec0000000000ULL));
     *pc = *pa;
     *pd = *pb;
     if (func_00143b60(s, &hit, o->kind & 0xf)) return -(func_0016c028(o)->y - hit.y);

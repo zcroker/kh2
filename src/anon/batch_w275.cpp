@@ -31,15 +31,15 @@ static inline V7e operator-(const V7e& a, const V7e& b) {
     return r;
 }
 extern "C" {
-f32 func_002f8960(f32);
-f32 func_002f87c0(f32);
+f32 sinf(f32);
+f32 cosf(f32);
 f32* func_0017d1d8(f32* m, f32* a, f32 ang) {
     V4b v;
     v.x = a[0]; v.y = a[1]; v.z = a[2];
     nrm(&v);
     f32 x = v.x, y = v.y, z = v.z;
-    f32 s = func_002f8960(ang);
-    f32 c = func_002f87c0(ang);
+    f32 s = sinf(ang);
+    f32 c = cosf(ang);
     f32 t = 1.0f - c;
     m[0] = x * x * t + c;
     m[1] = x * y * t + z * s;

@@ -363,12 +363,12 @@ void func_001db5a8(int id) {
 extern u8* D_01d9e6e8;
 extern u8 D_01d9e730[];
 extern u8 D_01d9e8c0[];
-void func_002f3d08(u8*, u8*, u8*);
+void sceVu0MulMatrix(u8*, u8*, u8*);
 void func_00200638(u8* a, u32 unused, u8* c) {
     NoTail nt;
-    func_002f3d08(D_01d9e6e8 + 80, D_01d9e730, a + *(s32*)(*(u8**)(c + 12) + 4) + 160);
-    func_002f3d08(D_01d9e6e8 + 80, D_01d9e8c0, D_01d9e6e8 + 80);
-    func_002f3d08(D_01d9e6e8 + 80, D_01d9e6e8 + 80, D_01d9e6e8 + 16);
+    sceVu0MulMatrix(D_01d9e6e8 + 80, D_01d9e730, a + *(s32*)(*(u8**)(c + 12) + 4) + 160);
+    sceVu0MulMatrix(D_01d9e6e8 + 80, D_01d9e8c0, D_01d9e6e8 + 80);
+    sceVu0MulMatrix(D_01d9e6e8 + 80, D_01d9e6e8 + 80, D_01d9e6e8 + 16);
 }
 
 // --- 00222800
@@ -412,13 +412,13 @@ extern char D_01dadac0[];
 extern char D_003711e8[];
 extern char D_003711f8[];
 void func_002feee8(char*, const char*);
-void func_002ff3fc(char*);  // strlen
+void strlen(char*);  // strlen
 char* func_0022e188(const char* s) {
     D_01dadac0[0] = 0;
     func_002feee8(D_01dadac0, D_003711e8);
     func_002feee8(D_01dadac0, s);
     func_002feee8(D_01dadac0, D_003711f8);
-    func_002ff3fc(D_01dadac0);  // strlen
+    strlen(D_01dadac0);  // strlen
     return D_01dadac0;
 }
 
@@ -442,10 +442,10 @@ struct S23f { u32 a; u32 b; };
 extern u32 D_0035ebe8;
 extern s32 D_0035ebec;
 extern S23f* D_0035ebf0;
-void func_002fdd68(u32, u32, u32);
+void memcpy(u32, u32, u32);
 void func_0023fcd0(u32 x) {
     S23f* e = &D_0035ebf0[D_0035ebec];
-    func_002fdd68(x, e[-1].a, e[-1].b);
+    memcpy(x, e[-1].a, e[-1].b);
     D_0035ebe8 = e[-1].a;
     D_0035ebec--;
 }
@@ -618,9 +618,9 @@ void func_002f0b60(u8** pp) {
 // --- 00304de8
 // newlib __sread: read through the reentrant hook, track the offset.
 struct File304 { u8 pad[12]; u16 flags; s16 file; u8 pad2[80 - 16]; s32 offset; u32 data; };
-long func_00305168(u32, int, void*, int);
-int func_00304de8(File304* fp, void* buf, int n) {
-    int ret = func_00305168(fp->data, fp->file, buf, n);
+long _read_r(u32, int, void*, int);
+int __sread(File304* fp, void* buf, int n) {
+    int ret = _read_r(fp->data, fp->file, buf, n);
     if (ret >= 0) fp->offset += ret;
     else fp->flags &= ~0x1000;
     return ret;
@@ -653,7 +653,7 @@ void func_00302c28(File302* f, int flags, int file, void* data) {
     f->size = 0;
     f->lbfsize = 0;
     f->cookie = f;
-    f->rd = func_00304de8;
+    f->rd = __sread;
     f->wr = func_00304e48;
     f->sk = func_00304ec8;
     f->cl = func_00304f30;

@@ -66,7 +66,7 @@ void func_00283c50(void) {
 /* 002dbad8 */
 extern f32 D_00349e10;
 void func_00187750(void*);
-f32 func_002f8870(f32);
+f32 fabsf(f32);
 struct Obj2dbad8 {
     u8 pad0[0xbc0];
     u8 flag;          /* bc0 */
@@ -84,7 +84,7 @@ void func_002dbad8(Obj2dbad8* p) {
         p->v[1] += p->a * d;
         p->a -= p->c * D_00349e10;
         if (p->a < 0.0f) {
-            if (func_002f8870(p->v[1] < 0.1f ? 1.0f : 0.0f) != 0.0f) {
+            if (fabsf(p->v[1] < 0.1f ? 1.0f : 0.0f) != 0.0f) {
                 p->flag = 0;
                 /* VU0 vector zero (vsub vf1,vf0,vf0 + sqc2) */
                 asm volatile("vsub.xyzw $vf1, $vf0, $vf0\n\tsqc2 $vf1, 0(%0)" :: "r"(p->v) : "memory");

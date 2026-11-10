@@ -57,7 +57,7 @@ Z* func_001d45a0(void* self, u32 id) {
 struct _reent { s32 _errno; };
 extern "C" {
 extern u8 D_00377b68[];
-s64 strtoll_r_w(struct _reent* rptr, const char* nptr, char** endptr, s32 base) asm("_Z16wtarget_002ff970jjjj");
+s64 strtoll_r_w(struct _reent* rptr, const char* nptr, char** endptr, s32 base) asm("_Z9_strtol_rjjjj");
 s64 strtoll_r_w(struct _reent* rptr, const char* nptr, char** endptr, s32 base)
 {
     register const char* s = nptr;

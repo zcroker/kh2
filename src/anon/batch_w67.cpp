@@ -336,24 +336,24 @@ void func_002a8948(void)
     D_0035f60c = arr;
 }
 
-f32 func_002faaf0(f32, f32);  // float_to_int_b
+f32 __kernel_cosf(f32, f32);  // float_to_int_b
 f32 func_002fb460(f32, f32, s32);  // float_to_int
-s32 func_002fa678(f32, f32*);
+s32 __ieee754_rem_pio2f(f32, f32*);
 union FloatWord { f32 f; s32 i; };
 
 // 002f87c0: cosf (fdlibm, without the inf/nan check)
-f32 func_002f87c0(f32 x)
+f32 cosf(f32 x)
 {
     f32 y[2];
     FloatWord u;
     u.f = x;
     s32 ix = u.i & 0x7fffffff;
-    if (ix <= 0x3f490fd8) return func_002faaf0(x, 0.0f);  // float_to_int_b
-    s32 n = func_002fa678(x, y);
+    if (ix <= 0x3f490fd8) return __kernel_cosf(x, 0.0f);  // float_to_int_b
+    s32 n = __ieee754_rem_pio2f(x, y);
     switch (n & 3) {
-    case 0: return func_002faaf0(y[0], y[1]);  // float_to_int_b
+    case 0: return __kernel_cosf(y[0], y[1]);  // float_to_int_b
     case 1: return -func_002fb460(y[0], y[1], 1);  // float_to_int
-    case 2: return -func_002faaf0(y[0], y[1]);  // float_to_int_b
+    case 2: return -__kernel_cosf(y[0], y[1]);  // float_to_int_b
     default: return func_002fb460(y[0], y[1], 1);  // float_to_int
     }
 }

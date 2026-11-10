@@ -7,11 +7,11 @@ extern "C" {
 extern St6148* D_01d9e6e0;
 extern u8* D_01d9e6e8;
 R6148* func_001e7a98(St6148*, u8*);
-void func_002f3cd8(void*, void*, void*);
+void sceVu0ApplyMatrix(void*, void*, void*);
 void func_002226b8(void*, void*);
-void func_002f3f10(void*, void*, void*);
-void func_002f3d98(void*, void*);
-void func_002f3f40(void*, void*, f32);
+void sceVu0SubVector(void*, void*, void*);
+void sceVu0Normalize(void*, void*);
+void sceVu0ScaleVector(void*, void*, f32);
 // Spawns an effect object from the manager table and runs a point through three matrix stages,
 // storing results into three of the object's slots.
 void func_001f6148(s32 a0, A6148* a, s16* pos)
@@ -24,12 +24,12 @@ void func_001f6148(s32 a0, A6148* a, s16* pos)
     u8* p0 = (u8*)r + a->f14 + 160;
     u8* p2 = (u8*)r + a->f1c + 160;
     u8* p1 = (u8*)r + a->f24 + 160;
-    func_002f3cd8(&v, D_01d9e6e8 + 16, &v);
+    sceVu0ApplyMatrix(&v, D_01d9e6e8 + 16, &v);
     func_002226b8(p0, &v);
-    func_002f3f10(&v, &v, D_01d9e6e8 + 64);
-    func_002f3d98(&v, &v);
+    sceVu0SubVector(&v, &v, D_01d9e6e8 + 64);
+    sceVu0Normalize(&v, &v);
     func_002226b8(p1, &v);
-    func_002f3f40(&v, &v, a->f8);
+    sceVu0ScaleVector(&v, &v, a->f8);
     func_002226b8(p2, &v);
 }
 }

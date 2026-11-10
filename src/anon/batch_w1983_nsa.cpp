@@ -19,12 +19,12 @@ extern "C" {
 s32 func_00222568(void);
 void func_002226b8(void*, void*);
 f32 func_002229a0(void*);
-void func_002f3d98(void*, void*);
-void func_002f3ed0(void*, void*, void*, f32);
-void func_002f3ef8(void*, void*, void*);
-void func_002f3f10(void*, void*, void*);
-void func_002f3f40(void*, void*, f32);
-void func_002f3f88(void*, void*);
+void sceVu0Normalize(void*, void*);
+void sceVu0InterVector(void*, void*, void*, f32);
+void sceVu0AddVector(void*, void*, void*);
+void sceVu0SubVector(void*, void*, void*);
+void sceVu0ScaleVector(void*, void*, f32);
+void sceVu0CopyVector(void*, void*);
 extern char D_01d9e360[];
 extern G_w1983* D_01d9e6e0;
 extern s32 D_01d9ea9c;
@@ -63,18 +63,18 @@ void func_001fbd78(A0_w1983* a0, A1_w1983* a1, A2_w1983* a2) {
     {
         Tbl_w1983* t = a2->t;
         char* p2 = (char*)a0 + t->o4 + 0xa0;
-        func_002f3f10(&v, s->p4, (char*)a0 + t->o0 + 0xa0);
-        func_002f3d98(&v, &v);
-        func_002f3f88(&u, p2);
+        sceVu0SubVector(&v, s->p4, (char*)a0 + t->o0 + 0xa0);
+        sceVu0Normalize(&v, &v);
+        sceVu0CopyVector(&u, p2);
         f32 len = func_002229a0(&u);
-        func_002f3d98(&u, &u);
-        func_002f3ef8(&r, &u, &v);
+        sceVu0Normalize(&u, &u);
+        sceVu0AddVector(&r, &u, &v);
         if (r.a == 0 && r.b == 0) {
             (&v.x)[func_00222568() % 3] += 0.05f;
         }
-        func_002f3ed0(&v, &v, &u, s->f0);
-        func_002f3d98(&v, &v);
-        func_002f3f40(&v, &v, len);
+        sceVu0InterVector(&v, &v, &u, s->f0);
+        sceVu0Normalize(&v, &v);
+        sceVu0ScaleVector(&v, &v, len);
         func_002226b8(p2, &v);
     }
 }

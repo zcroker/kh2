@@ -246,13 +246,13 @@ struct VObj {
 void func_002ecdb0(VObj* o) { o->v9(); }
 
 // dst = a * b, componentwise (VU0).
-void func_002f3f28(void* dst, void* a, void* b) {
+void sceVu0MulVector(void* dst, void* a, void* b) {
     asm volatile("lqc2 $vf4, 0(%1)\n\tlqc2 $vf5, 0(%2)\n\tvmul.xyzw $vf6, $vf4, $vf5\n\tsqc2 $vf6, 0(%0)"
                  : : "r"(dst), "r"(a), "r"(b) : "memory");
 }
 
 // 16-byte copy.
-void func_002f3f88(void* dst, void* src) {  // memcpy16
+void sceVu0CopyVector(void* dst, void* src) {  // memcpy16
     asm volatile("lq $6, 0(%1)\n\tsq $6, 0(%0)" : : "r"(dst), "r"(src) : "$6", "memory");
 }
 
@@ -264,7 +264,7 @@ s32 func_003060f0() {  // ee_intr_disabled
 }
 
 void func_003053d0();
-void func_003062c0() {
+void iDisableIntc() {
     func_003053d0();
     asm volatile("sync");
 }
@@ -272,7 +272,7 @@ void func_003062c0() {
 // libkernel: enable interrupts, return whether EIE was already set.
 // The mfc0/lui/and sequence is in asm: this area is hand-written / other-compiler
 // code that uses v0/v1 as scratch.
-s32 func_0030ee00() {  // ee_intr_get_enable
+s32 EIntr() {  // ee_intr_get_enable
     register u32 r asm("$2");
     register u32 m asm("$3");
     asm volatile("mfc0 %0, $12\n\tlui %1, 1\n\tand %0, %0, %1" : "=r"(r), "=r"(m));

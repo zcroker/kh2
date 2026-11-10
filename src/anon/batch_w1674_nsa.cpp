@@ -60,11 +60,11 @@ extern u8* D_01d9eaa4;
 extern FMTX206 D_01d9e730;
 extern FMTX206 D_01d9e8c0;
 extern f32 D_00359a20[];
-void func_002f3cd8(f32* out, f32 (*m)[4], f32* in);       // sceVu0ApplyMatrix
-void func_002f3d08(f32 (*out)[4], f32 (*a)[4], f32 (*b)[4]); // sceVu0MulMatrix
-void func_002f3f88(f32* out, f32* in);                  // sceVu0CopyVector
-void func_002f3f98(f32 (*out)[4], f32 (*in)[4]);         // sceVu0CopyMatrix
-void func_002f4000(f32 (*m)[4]);                        // sceVu0UnitMatrix
+void sceVu0ApplyMatrix(f32* out, f32 (*m)[4], f32* in);       // sceVu0ApplyMatrix
+void sceVu0MulMatrix(f32 (*out)[4], f32 (*a)[4], f32 (*b)[4]); // sceVu0MulMatrix
+void sceVu0CopyVector(f32* out, f32* in);                  // sceVu0CopyVector
+void sceVu0CopyMatrix(f32 (*out)[4], f32 (*in)[4]);         // sceVu0CopyMatrix
+void sceVu0UnitMatrix(f32 (*m)[4]);                        // sceVu0UnitMatrix
 u8* func_0021d048(u8* data, DrawParam206b* p, s32 x);
 
 void func_00206be8(List206b* list) {
@@ -110,22 +110,22 @@ void func_00206be8(List206b* list) {
         Frame206b* fr = &anim->frames[frame];
         u8* data = (u8*)anim + fr->dataOfs;
         p.localMtx = 0;
-        func_002f4000(D_01d9e6e8->view);
+        sceVu0UnitMatrix(D_01d9e6e8->view);
         D_01d9e6e8->view[0][0] = e->scale[0];
         D_01d9e6e8->view[1][1] = e->scale[1];
         D_01d9e6e8->view[2][2] = e->scale[2];
-        func_002f3f98(D_01d9e6e8->world, D_01d9e6e8->view);
-        func_002f3f88(D_01d9e6e8->world[3], s->pos);
-        func_002f3cd8(D_01d9e6e8->view[3], D_01d9e730, s->pos);
+        sceVu0CopyMatrix(D_01d9e6e8->world, D_01d9e6e8->view);
+        sceVu0CopyVector(D_01d9e6e8->world[3], s->pos);
+        sceVu0ApplyMatrix(D_01d9e6e8->view[3], D_01d9e730, s->pos);
         if (e->hasOffset) {
-            func_002f3f98(local, D_01d9e6e8->view);
+            sceVu0CopyMatrix(local, D_01d9e6e8->view);
             local[3][0] += e->offset[0];
             local[3][1] += e->offset[1];
             local[3][2] += e->offset[2];
-            func_002f3d08(local, D_01d9e8c0, local);
+            sceVu0MulMatrix(local, D_01d9e8c0, local);
             p.localMtx = local;
         }
-        func_002f3d08(D_01d9e6e8->view, D_01d9e8c0, D_01d9e6e8->view);
+        sceVu0MulMatrix(D_01d9e6e8->view, D_01d9e8c0, D_01d9e6e8->view);
         p.packet = D_01d9eaa4;
         D_01d9eaa4 = func_0021d048(data, &p, ref->x4);
         if (D_01d9ea9c != 0) continue;

@@ -1,8 +1,8 @@
 #include "../common/types.h"
 extern "C" {
 void func_00167448(const char*);
-void func_002f6870(s32, void*, s32);
-void func_002f74c8(s32);
+void sceCdInitEeCB(s32, void*, s32);
+void sceCdInit(s32);
 void func_002f7f18(s32);
 void func_00308b30(s32);
 void func_0030a690();
@@ -15,13 +15,13 @@ extern u8 D_004f4250[];
 void func_001674c8(void) {
     func_00308b30(0);
     func_0030a690();
-    func_002f74c8(0);
+    sceCdInit(0);
     func_002f7f18(2);
     while (func_0030eca0("cdrom0:\\IOPRP300.IMG") == 0) {}
     while (func_0030ec50() == 0) {}
     func_00308b30(0);
-    func_002f74c8(0);
-    func_002f6870(10, D_004f4250, 0x1000);
+    sceCdInit(0);
+    sceCdInitEeCB(10, D_004f4250, 0x1000);
     func_002f7f18(2);
     func_00167448("sio2man.irx");
     func_00167448("sio2d.irx");

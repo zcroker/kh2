@@ -39,8 +39,8 @@ PW* func_0021e988(void);
 PW* func_0021e998(void);
 PO* func_0020eaf8(s32);
 void func_0020ebd8(s32);
-void u4_f3f98(void*, void*) asm("_Z16u_call4_002f3f98jjjj");
-void func_002f3f88(void*, void*);
+void u4_f3f98(void*, void*) asm("_Z16sceVu0CopyMatrixjjjj");
+void sceVu0CopyVector(void*, void*);
 void func_00204fe0(u8*, PO*, PEnt*, PS*);
 PW* func_0021e9a8(void);
 void func_00205798(u8*, PO*, void*, PEnt*, PS*, P96*, M64*);
@@ -88,7 +88,7 @@ void func_00205178(u8* base, PEnt* ent, PCtx* ctx)
     u4_f3f98(o->m80, D_01d9e730);
     u4_f3f98(o->mc0, D_01d9e8c0);
     u4_f3f98(o->m100, D_01d9e6e8 + 16);
-    func_002f3f88(o->v1b0, D_00354be0);
+    sceVu0CopyVector(o->v1b0, D_00354be0);
     func_00204fe0(base, o, ent, s);
     te = &D_01d9e6e4->tbl[ent->id * 2];
     {

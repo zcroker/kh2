@@ -18,7 +18,7 @@ int func_00306e48(int c)
 }
 
 typedef struct { u_int data, addr; int size, mode; } SifDmaData_w3695;
-extern void *func_002fdd68(void *, const void *, int);
+extern void *memcpy(void *, const void *, int);
 extern int func_003059e0(SifDmaData_w3695 *, int);
 extern int func_003059f0(SifDmaData_w3695 *, int);
 extern int D_003780c0;
@@ -31,7 +31,7 @@ int func_00308248(SifDmaData_w3695 *src, int n, int mode)
 {
     SifDmaData_w3695 d[32];
     if (n < 32) {
-        func_002fdd68(d, src, n * 16);
+        memcpy(d, src, n * 16);
         d[n].data = (u_int)&D_003780c0;
         d[n].addr = D_01e357e0;
         d[n].size = 16;

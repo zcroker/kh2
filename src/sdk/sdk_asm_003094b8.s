@@ -5,10 +5,10 @@
 	.set nomacro
 	.section .text.func_003094b8,"ax",@progbits
 	.align 2
-	.globl func_003094b8
-	.type func_003094b8, @function
-	.ent func_003094b8
-func_003094b8:
+	.globl sceSifCallRpc
+	.type sceSifCallRpc, @function
+	.ent sceSifCallRpc
+sceSifCallRpc:
 	addiu	$29,$29,-192
 	sd	$17,48($29)
 	move	$17,$4
@@ -148,5 +148,5 @@ func_003094b8:
 	ld	$16,32($29)
 	jr	$31
 	addiu	$29,$29,192
-	.end func_003094b8
-	.size func_003094b8, 512
+	.end sceSifCallRpc
+	.size sceSifCallRpc, 512

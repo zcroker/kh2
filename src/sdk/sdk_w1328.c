@@ -1,7 +1,7 @@
 /* libcdvd / libmc / libpad / libkernl / libdma misc (Sony PS2 Runtime Library 3.0.0) */
 typedef unsigned int u32;
 
-extern int func_003094b8(void *cd, int fno, int mode, void *send, int ssize, void *recv, int rsize, void *end, void *endp);
+extern int sceSifCallRpc(void *cd, int fno, int mode, void *send, int ssize, void *recv, int rsize, void *end, void *endp);
 extern int func_00305640(int);
 extern void func_00308a80(void *, int);
 extern int func_002f72c0(int);
@@ -19,7 +19,7 @@ int func_002f7f18(int a)
     if (!func_002f72c0(34)) return 0;
     *p = a;
     func_00308a80(p, 4);
-    if (func_003094b8(D_00365900, D_00365928, 0, p, D_0036592c, D_00364f80, D_00365930, 0, 0) < 0) {
+    if (sceSifCallRpc(D_00365900, D_00365928, 0, p, D_0036592c, D_00364f80, D_00365930, 0, 0) < 0) {
         func_00305640(D_00363dac);
         return 0;
     }
@@ -50,7 +50,7 @@ typedef struct { int pad[4]; unsigned int x10; int x14; int x18; int x1c; int x2
 typedef struct { int pad[5]; int x14; int x18; int x1c; int x20; int x24; int x28; int x2c; } P1328;
 extern P1328 *func_00308df0(int, unsigned int);
 extern P1328 *func_00308dc0(int);
-extern int func_003088f8(int, P1328 *, int, int, int, int);
+extern int isceSifSendCmd(int, P1328 *, int, int, int, int);
 extern void func_00310b70(int, void *, P1328 *);
 extern void D_00308f00(void);
 void func_00308f40(R1328 *r, int a)
@@ -67,7 +67,7 @@ void func_00308f40(R1328 *r, int a)
     p->x24 = r->x20;
     p->x28 = r->x24;
     p->x2c = r->x28;
-    if (func_003088f8(0x80000008, p, 0x40, r->x20, r->x24, r->x28) == 0)
+    if (isceSifSendCmd(0x80000008, p, 0x40, r->x20, r->x24, r->x28) == 0)
         func_00310b70(0x800, D_00308f00, p);
 }
 
@@ -76,7 +76,7 @@ typedef struct { unsigned char x0, x1, x2, x3; int x4; int pad[5]; unsigned char
 extern E1328 D_01e2fe48[];
 extern int func_002f62b8(int);
 extern F1328 *func_002f6310(int);
-extern void *func_002fdd68(void *, void *, int);
+extern void *memcpy(void *, void *, int);
 extern int func_002f6440(void *, void *);
 int func_002f5e78(int port, void *buf)
 {
@@ -87,7 +87,7 @@ int func_002f5e78(int port, void *buf)
     p = func_002f6310(port);
     n = p->x2;
     if (n != 0 && p->x1c != 0) {
-        func_002fdd68(buf, p->x1c, n);
+        memcpy(buf, p->x1c, n);
         func_002f6440(p->x1c + p->x2, D_01e2fe48[port].x14);
     }
     if (p->x4 == 0) return -1;
@@ -120,7 +120,7 @@ typedef struct { int a; int type; union { unsigned char b; unsigned short h; int
 extern I1328 D_01e38c40;
 extern char D_01e38e40[];
 extern int func_0030dd70(void);
-extern int func_003094b8(void *, int, int, void *, int, void *, int, void *, void *);
+extern int sceSifCallRpc(void *, int, int, void *, int, void *, int, void *, void *);
 int func_0030e9f0(int a, void *val, int type)
 {
     if (func_0030dd70() < 0) return 0xffff0000;
@@ -130,7 +130,7 @@ int func_0030e9f0(int a, void *val, int type)
     else if (type == 1) D_01e38c40.v.h = *(unsigned short *)val;
     else if (type == 2) D_01e38c40.v.w = *(int *)val;
     else return 0xfffefffe;
-    if (func_003094b8(D_01e38e40, 2, 0, &D_01e38c40, 32, &D_01e38c40, 16, 0, 0) < 0) return 0xfffeffff;
+    if (sceSifCallRpc(D_01e38e40, 2, 0, &D_01e38c40, 32, &D_01e38c40, 16, 0, 0) < 0) return 0xfffeffff;
     return 0;
 }
 
@@ -144,7 +144,7 @@ extern int D_00365948;
 extern void D_002fbba8(void *);
 extern int func_00305670(int);
 extern int func_00305640(int);
-extern int func_003094b8(void *, int, int, void *, int, void *, int, void *, void *);
+extern int sceSifCallRpc(void *, int, int, void *, int, void *, int, void *, void *);
 int func_002fbf58(int a, int b, int c)
 {
     if (D_01e33480.x24 == 0) return -100;
@@ -152,7 +152,7 @@ int func_002fbf58(int a, int b, int c)
     D_01e33500.x0 = a;
     D_01e33500.x10 = b;
     D_01e33500.x14 = c;
-    if (func_003094b8(&D_01e33480, 4, 1, &D_01e33500, 48, D_01e34a40, 4, D_002fbba8, 0) != 0) {
+    if (sceSifCallRpc(&D_01e33480, 4, 1, &D_01e33500, 48, D_01e34a40, 4, D_002fbba8, 0) != 0) {
         func_00305640(D_0036594c);
         return -91;
     }

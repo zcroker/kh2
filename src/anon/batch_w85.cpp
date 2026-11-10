@@ -262,18 +262,18 @@ void func_00201668(u8* o, u8* a1) {
 }
 
 char* func_00227120(void);  // get_data_1dbd8f8
-s32 func_002ff538(const char*, const char*, s32);
+s32 strncmp(const char*, const char*, s32);
 extern char D_00370cd8[];
 extern char D_00370ce8[];
 extern char D_00370cf8[];
 extern char D_00370d08[];
 extern char D_00370d18[];
 s32 func_00224c20(void) {
-    if (!func_002ff538(func_00227120(), D_00370cd8, 12)) return 1;
-    if (!func_002ff538(func_00227120(), D_00370ce8, 12)) return 2;
-    if (!func_002ff538(func_00227120(), D_00370cf8, 12)) return 3;
-    if (!func_002ff538(func_00227120(), D_00370d08, 12)) return 4;
-    if (!func_002ff538(func_00227120(), D_00370d18, 12)) return 5;
+    if (!strncmp(func_00227120(), D_00370cd8, 12)) return 1;
+    if (!strncmp(func_00227120(), D_00370ce8, 12)) return 2;
+    if (!strncmp(func_00227120(), D_00370cf8, 12)) return 3;
+    if (!strncmp(func_00227120(), D_00370d08, 12)) return 4;
+    if (!strncmp(func_00227120(), D_00370d18, 12)) return 5;
     return -1;
 }
 
@@ -354,8 +354,8 @@ s32 func_0022f5e8(void) {
     return r;
 }
 
-f32 func_002f8960(f32);
-f32 func_002f87c0(f32);
+f32 sinf(f32);
+f32 cosf(f32);
 struct Rot237 { u8 p0[28]; f32 m28, m32, m36, m40; u8 p44[68]; f32 x, y, z; };
 // sets euler angles and rebuilds the matrix rows that depend on them
 void func_00237740(Rot237* r, f32 x, f32 y, f32 z) {
@@ -363,12 +363,12 @@ void func_00237740(Rot237* r, f32 x, f32 y, f32 z) {
     r->y = y;
     r->z = z;
     r->x = x;
-    sx = func_002f8960(r->x);
-    cx = func_002f87c0(r->x);
-    sy = func_002f8960(r->y);
-    cy = func_002f87c0(r->y);
-    sz = func_002f8960(r->z);
-    cz = func_002f87c0(r->z);
+    sx = sinf(r->x);
+    cx = cosf(r->x);
+    sy = sinf(r->y);
+    cy = cosf(r->y);
+    sz = sinf(r->z);
+    cz = cosf(r->z);
     sxsy = sx * sy;
     r->m28 = cy * cz;
     r->m36 = sxsy * cz + cx * sz;
@@ -639,7 +639,7 @@ struct Ctx302 { s32 err; u8 p4[52]; s32 inited; u8 p60[412]; Glue302 glue; };
 void func_00302e10(Ctx302*);
 Glue302* func_00302c88(Ctx302*, s32);
 // newlib __sfp: find (or make room for) a free FILE slot
-File302* func_00302cf8(Ctx302* d) {
+File302* __sfp(Ctx302* d) {
     File302* fp;
     s32 n;
     Glue302* g;

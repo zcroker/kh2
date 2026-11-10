@@ -181,7 +181,7 @@ void func_001863a8(u8* p, s32 a, f32 x) {
 
 // ---- 0x192e50: expands '\r' markers in a string with formatted varargs ----
 s32 func_00192440(char*, s32);  // is_byte_lt25
-void func_002fdd68(char*, char*, s32);
+void memcpy(char*, char*, s32);
 s32 func_00192c40(s32, char*);
 char* func_00192388(char*);  // skip_control_codes
 char* func_00192e50(char* s, char* out, s32 unused, ...) {
@@ -198,7 +198,7 @@ char* func_00192e50(char* s, char* out, s32 unused, ...) {
                     if (c == 13) {
                         n = s - start;
                         if (n > 0) {
-                            func_002fdd68(out, start, n);
+                            memcpy(out, start, n);
                             out += n;
                         }
                         out += func_00192c40(va_arg(ap, s32), out);
@@ -206,7 +206,7 @@ char* func_00192e50(char* s, char* out, s32 unused, ...) {
                     }
                 } else {
                     n = s - start + 1;
-                    func_002fdd68(out, start, n);
+                    memcpy(out, start, n);
                     out += n;
                 }
             }
@@ -325,16 +325,16 @@ void func_00222080(u8* list, u8* a1, s32 a2, s32 a3) {
 }
 
 // ---- 0x2378c8: rotation matrix rows from Euler angles at +112 ----
-f32 func_002f8960(f32);
-f32 func_002f87c0(f32);
+f32 sinf(f32);
+f32 cosf(f32);
 void func_002378c8(f32* p, f32 z) {
     p[29] = z;
-    f32 sx = func_002f8960(p[28]);
-    f32 cx = func_002f87c0(p[28]);
-    f32 sy = func_002f8960(p[29]);
-    f32 cy = func_002f87c0(p[29]);
-    f32 sz = func_002f8960(p[30]);
-    f32 cz = func_002f87c0(p[30]);
+    f32 sx = sinf(p[28]);
+    f32 cx = cosf(p[28]);
+    f32 sy = sinf(p[29]);
+    f32 cy = cosf(p[29]);
+    f32 sz = sinf(p[30]);
+    f32 cz = cosf(p[30]);
     p[7] = cy * cz;
     p[9] = sx * sy * cz + cx * sz;
     p[8] = cy * -sz;

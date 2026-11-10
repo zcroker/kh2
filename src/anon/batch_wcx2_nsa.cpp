@@ -36,7 +36,7 @@ extern "C" {
 Tgt1b1100* func_0016bc20(Obj1b1100*, s32, s32);
 f32 func_0017d160(V1b1100, V1b1100);
 Pair1b1100 func_0018a818(Obj1b1100*, Tgt1b1100*);
-f32 func_002f8870(f32);
+f32 fabsf(f32);
 bool t1b1100(Obj1b1100*, V1b1100*) asm("_Z16ctarget_001b1100jjjj");
 bool t1b1100(Obj1b1100* o, V1b1100* target)
 {
@@ -47,7 +47,7 @@ bool t1b1100(Obj1b1100* o, V1b1100* target)
         V1b1100 v;
         v.x = d.x; v.z = d.z; v.w = v.y = 0.0f;
         v.normalize();
-        return func_002f8870(func_0017d160(v, o->dir)) < 0.26179937f;
+        return fabsf(func_0017d160(v, o->dir)) < 0.26179937f;
     } else {
         Pair1b1100 p = func_0018a818(o, t);
         d = *target - p.b;
@@ -55,7 +55,7 @@ bool t1b1100(Obj1b1100* o, V1b1100* target)
         V1b1100 v;
         v.x = d.x; v.z = d.z; v.w = v.y = 0.0f;
         v.normalize();
-        return func_002f8870(func_0017d160(v, o->dir)) <= t->range * 0.017453292f;
+        return fabsf(func_0017d160(v, o->dir)) <= t->range * 0.017453292f;
     }
 }
 
@@ -199,7 +199,7 @@ void g2d1908_00106c08(void*) asm("func_00106c08");
 void g2d1908_002e6ab0(s32, f32, M2d1550*) asm("func_002e6ab0");
 void func_002e6930(f32, s32, V2d1550*);
 f32* g2d1908_config(G2d1550*) asm("_ZN2Ti9MGOarashi6configEv");
-f32 g2d1908_fabsf(f32) asm("func_002f8870");
+f32 g2d1908_fabsf(f32) asm("fabsf");
 void g2d1908(G2d1550*) asm("_Z16wtarget_002d1908jjjj");
 void g2d1908(G2d1550* g)
 {
@@ -376,7 +376,7 @@ void o2d3b78_00186a90(O2d3b78*, V2d3b78*, f32) asm("_Z16ctarget_00186a90jjjj");
 V2d3b78 o2d3b78_0016bda8(O2d3b78*) asm("_Z16ctarget_0016bda8jjjj");
 void func_0017f488(void*, s32, f32, f32);
 void o2d3b78_push(void*, s32, f32, f32, void*) asm("_ZN2YS6MOTION4pushEiffPFvPNS_3OBJEE");
-f32 func_002f8870(f32);
+f32 fabsf(f32);
 void func_002d3b78(O2d3b78* o, Hit2d3b78* h)
 {
     void* g = D_00361f60;
@@ -428,13 +428,13 @@ void func_002d3b78(O2d3b78* o, Hit2d3b78* h)
     if (*o->kind == 1627 || *o->kind == 1629) {
         V2d3b78 v;
         v.Set(1.0f, 0.0f, 0.0f, 0.0f);
-        o2d3b78_00186a90(o, &v, func_002f8870(o->f2936));
+        o2d3b78_00186a90(o, &v, fabsf(o->f2936));
     } else {
         V2d3b78 v = o2d3b78_0016bda8(o) - o2d3b78_0016bda8(h->other);
         v.z = 0.0f;
         v.normalize();
         if (o->f2936 < 0.0f) v.Zero();
-        o2d3b78_00186a90(o, &v, func_002f8870(o->f2936));
+        o2d3b78_00186a90(o, &v, fabsf(o->f2936));
     }
 }
 }
@@ -629,7 +629,7 @@ void o2d5200_set(void*, u32, s32) asm("_Z16wtarget_002cf280jjjj");
 void func_002d3f18(O2d5200*);
 Cfg2d5200* o2d5200_config(void*) asm("_ZN2Ti9MGOarashi6configEv");
 void o2d5200_00186a90(O2d5200*, V2d5200*, f32) asm("_Z16ctarget_00186a90jjjj");
-f32 func_002f8870(f32);
+f32 fabsf(f32);
 void func_002d5200(O2d5200* o, Hit2d5200* h)
 {
     G2d5200* g = g2d5200_game;
@@ -664,7 +664,7 @@ void func_002d5200(O2d5200* o, Hit2d5200* h)
         }
     }
     if (o2d5200_config(g)->knock < 0.0f) d.Zero();
-    o2d5200_00186a90(o, &d, func_002f8870(o2d5200_config(g)->knock));
+    o2d5200_00186a90(o, &d, fabsf(o2d5200_config(g)->knock));
 }
 }
 
@@ -925,8 +925,8 @@ W2db210Vec* o2db210_0016c028(O2db210*) asm("func_0016c028");
 W2db210Vec* o2db210_get_xyzrot(void*) asm("_ZN2YS3OBJ10get_xyzrotEv");
 s32 func_001064a8(s32);
 Cfg2db210* o2db210_002d73f0(void*) asm("func_002d73f0");
-f32 func_002f87c0(f32);
-f32 func_002f8960(f32);
+f32 cosf(f32);
+f32 sinf(f32);
 void o2db210_002d9208(void*, s32) asm("_Z13func_002d9208Pvi");
 void func_002db210(O2db210* o)
 {
@@ -949,7 +949,7 @@ void func_002db210(O2db210* o)
     f32 ang;
     if (func_001064a8(2)) ang = o2db210_002d73f0(g)->angle;
     else ang = 3.1415927f - o2db210_002d73f0(g)->f44;
-    o->vel = o2db210_002d73f0(g)->speed * W2db210Vec(func_002f87c0(ang), func_002f8960(ang), 0.0f, 0.0f);
+    o->vel = o2db210_002d73f0(g)->speed * W2db210Vec(cosf(ang), sinf(ang), 0.0f, 0.0f);
     o->acc.Zero();
     o->f2840 = 1;
     o2db210_002d9208(g, 0);
@@ -990,7 +990,7 @@ extern f32 g2e0898_one asm("D_00349e10");
 void* func_002df140(void);
 f32 func_002e51b0(void*, f32);
 void func_002e5010(void*, f32, f32);
-f32 func_002f8870(f32);
+f32 fabsf(f32);
 f32 func_002dd250(void*, s32);
 f32 func_002dd280(void*, s32);
 void func_002e0870(O2e0898*, f32*, f32*, f32*);
@@ -1004,7 +1004,7 @@ void func_002e0898(O2e0898* o, P2e0898* p, f32 x)
     f32 h2 = func_002e51b0(fld, x - 0.2f);
     if (h < h1) h = h1;
     if (h < h2) h = h2;
-    f32 bounce = func_002f8870(o->vel * o->f12) * 0.3f;
+    f32 bounce = fabsf(o->vel * o->f12) * 0.3f;
     if (o->onGround) {
         o->wait(p, o->time, x, bounce);
         if (o->ready(p, o->time)) {
@@ -1686,7 +1686,7 @@ struct Self1e1988 {
 void* func_0016abf8(void*, s32, s32, s32);
 void func_001dca50(void*, M1e1988*, s32);
 void func_001dca30(void*, void*, s32);
-f32 func_002f87c0(f32);
+f32 cosf(f32);
 void func_0011b6a8(M1e1988*);
 void func_0011b720(M1e1988*, f32);
 void func_001e0de8(void*);
@@ -1711,7 +1711,7 @@ void func_001e1988(Self1e1988* s)
             V1e1988 p, d, c;
             M1e1988 m;
             p.zero();
-            p.z = func_002f87c0(a) * 700.0f;
+            p.z = cosf(a) * 700.0f;
             p.y = y;
             func_0011b6a8(&m);
             func_0011b720(&m, 6.2831854820251465f / (f32)n * (f32)i);

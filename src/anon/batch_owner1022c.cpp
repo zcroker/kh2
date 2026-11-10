@@ -3,7 +3,7 @@ extern "C" {
 void func_002f4028(u32, u32, u32, u32);
 
 // Hand-written VU0 macro code (saves ra in a2 around the jal, trapping addi loop); kept as asm.
-void func_002f40a0(void* dst, const void* src, f32 angle) {
+void sceVu0RotMatrixZ(void* dst, const void* src, f32 angle) {
     asm volatile(
         ".set noreorder\n\t"
         ".set noat\n\t"

@@ -6,7 +6,7 @@
     ((u64)(cpsm) << 51) | ((u64)(csm) << 55) | ((u64)(csa) << 56) | ((u64)(cld) << 61))
 
 extern "C" {
-void func_002f28b8(void*, s16, s16, s16, s16, s16, s16, s16);
+void sceGsSetDefLoadImage(void*, s16, s16, s16, s16, s16, s16, s16);
 void func_003058a0(s32);
 
 // Texture + CLUT upload descriptor followed by a GIF packet that sets TEX0/TEX1/TEX2.
@@ -24,7 +24,7 @@ void u_tail0_00236560(TexUpload2351* p) {
     s32 cbp = p->cbp;
     s32 tbp = p->tbp;
     s32 tbw, psm, w, h;
-    func_002f28b8(p->clutXfer, cbp, p->clutW, p->u.s.cpsm, 0, 0, p->clutX, p->clutY);
+    sceGsSetDefLoadImage(p->clutXfer, cbp, p->clutW, p->u.s.cpsm, 0, 0, p->clutX, p->clutY);
     tbw = p->tbw; psm = p->psm; w = p->w; h = p->h;
     if (p->u.q & (1ULL << 34)) {
         // 8/4-bit textures are uploaded as PSMCT32
@@ -33,7 +33,7 @@ void u_tail0_00236560(TexUpload2351* p) {
         case 20: tbw /= 2; w /= 2; h /= 4; psm = 0; break;
         }
     }
-    func_002f28b8(p->texXfer, tbp, tbw, psm, 0, 0, w, h);
+    sceGsSetDefLoadImage(p->texXfer, tbp, tbw, psm, 0, 0, w, h);
     p->g[0] = 0x70000008;
     p->g[2] = (7ULL << 60) | 0x8001;
     p->g[3] = 0xeeeeeee;

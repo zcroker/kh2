@@ -260,24 +260,24 @@ void func_002ead20(void** o, u32 a1) {
 }
 
 // VU0 macro: d = a - b.
-void func_002f3f10(void* d, void* a, void* b) {  // vec4_sub
+void sceVu0SubVector(void* d, void* a, void* b) {  // vec4_sub
     asm volatile("lqc2 $vf4, 0(%0)\n\tlqc2 $vf5, 0(%1)\n\tvsub.xyzw $vf6, $vf4, $vf5\n\tsqc2 $vf6, 0(%2)"
                  : : "r"(a), "r"(b), "r"(d) : "memory");
 }
 
 // VU0 macro: d = ftoi0(s).
-void func_002f3fd0(void* d, void* s) {  // vec4_ftoi0_trunc
+void sceVu0FTOI0Vector(void* d, void* s) {  // vec4_ftoi0_trunc
     asm volatile("lqc2 $vf4, 0(%0)\n\tvftoi0.xyzw $vf5, $vf4\n\tsqc2 $vf5, 0(%1)" : : "r"(s), "r"(d) : "memory");
 }
 
 // Lower-case to upper-case through the ctype table.
-s32 func_002ffbe0(s32 c) {
+s32 toupper(s32 c) {
     if (D_00377b68[c] & 2) c -= 32;
     return c;
 }
 
 // EnableIntc followed by sync.l.
-void func_003062a0(u32 n) {
+void iEnableIntc(u32 n) {
     func_003053c0(n);
     asm volatile("sync.l");
 }

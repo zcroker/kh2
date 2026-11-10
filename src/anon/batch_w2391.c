@@ -18,14 +18,14 @@ typedef union { float value; __uint32_t word; } ieee_float_shape_type;
 #define FLT_UWORD_IS_SUBNORMAL(x) 0
 
 /* __ieee754_fmodf; the game symbol is a C++-style placeholder name, bound with an asm label. */
-float wtarget_002f9a38(float x, float y) __asm__("_Z16wtarget_002f9a38jjjj");
+float __ieee754_fmodf(float x, float y) __asm__("_Z15__ieee754_fmodfjjjj");
 
 static const float one = 1.0;
 /* Zero[] = {0.0, -0.0} is the original table at 0x377140 */
 extern const float D_00377140[];
 #define Zero D_00377140
 
-float wtarget_002f9a38(float x, float y)
+float __ieee754_fmodf(float x, float y)
 {
 	__int32_t n,hx,hy,hz,ix,iy,sx,i;
 

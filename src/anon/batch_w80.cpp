@@ -330,8 +330,8 @@ void func_0021efa8(U6_Osc*, u32);
 s32 func_002282f0(s32);
 s32 func_002baa20(u32);
 void func_002b797c(u32, u32, s32);
-f32 func_002f8960(f32);
-f32 func_002f87c0(f32);
+f32 sinf(f32);
+f32 cosf(f32);
 s32 func_00287bc0(void);
 void func_00287d68(void);  // copy_globals_3words
 s32 func_00287db0(void);
@@ -706,12 +706,12 @@ void func_002328c0(U7_SeReq* r) {
 void func_00237808(U8_Rot3* o, f32 rx) {
     f32 sx, cx, sy, cy, sz, cz, sxsy;
     o->rx = rx;
-    sx = func_002f8960(o->rx);
-    cx = func_002f87c0(o->rx);
-    sy = func_002f8960(o->ry);
-    cy = func_002f87c0(o->ry);
-    sz = func_002f8960(o->rz);
-    cz = func_002f87c0(o->rz);
+    sx = sinf(o->rx);
+    cx = cosf(o->rx);
+    sy = sinf(o->ry);
+    cy = cosf(o->ry);
+    sz = sinf(o->rz);
+    cz = cosf(o->rz);
     sxsy = sx * sy;
     o->m00 = cy * cz;
     o->m02 = sxsy * cz + cx * sz;

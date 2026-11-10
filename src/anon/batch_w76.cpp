@@ -523,7 +523,7 @@ void func_001f6b68(u8* base, u8* in, u8* desc)
 }
 
 extern u8 D_00354be0[];
-void func_002f3f88(u8*, void*);  // memcpy16
+void sceVu0CopyVector(u8*, void*);  // memcpy16
 void func_001fb8b8(u8*, s32, s32);
 void func_001fb9a8(u8* base, u8* in, u8* desc)
 {
@@ -533,7 +533,7 @@ void func_001fb9a8(u8* base, u8* in, u8* desc)
     q[37] = (s32)(in[9] * *(f32*)(D_01d9e6e0 + 52));
     q[38] = (s32)(in[10] * *(f32*)(D_01d9e6e0 + 56));
     q[39] = (s32)(in[11] * *(f32*)(D_01d9e6e0 + 60));
-    func_002f3f88(p + 176, D_00354be0);  // memcpy16
+    sceVu0CopyVector(p + 176, D_00354be0);  // memcpy16
     func_001fb8b8(q, 0, 0);
 }
 
@@ -649,7 +649,7 @@ s32 func_00105c30(void);
 extern char D_00374470[];
 u32 func_00192cc0(char*, const char*);
 s32 func_00192b30(u32);
-void func_002fdd68(u8*, char*, s32);
+void memcpy(u8*, char*, s32);
 u8* func_0028de08(u32 id, u8* buf)
 {
     char tmp[32];
@@ -661,7 +661,7 @@ u8* func_0028de08(u32 id, u8* buf)
     s32 len = func_00192b30(func_00192cc0(tmp, D_00374470));
     for (s32 i = 0; i < n; i++) {
         if (i + 1 >= n) len++;
-        func_002fdd68(p, tmp, len);
+        memcpy(p, tmp, len);
         p += len;
     }
     return buf;

@@ -124,9 +124,9 @@ extern char D_0036edc0[];
 extern char D_0036ede0[];
 extern u8 D_01d9e450[];
 u32 func_002fdfc8(const char*, ...);  // device_vprintf_va
-void func_002f28b8(void*, s32, s32, s32, s32, s32, s32, s32);
+void sceGsSetDefLoadImage(void*, s32, s32, s32, s32, s32, s32, s32);
 void func_003058a0(s32);
-void func_002f2be0(void*, void*);
+void sceGsExecLoadImage(void*, void*);
 static inline void assert_fail_1e52b8(const char* e, const char* f, s32 l) {
     func_002fdfc8(D_0036e978, e);  // device_vprintf_va
     func_002fdfc8(D_0036e998, f, l);  // device_vprintf_va
@@ -144,16 +144,16 @@ void func_001e52b8(u8* p, s16 off) {
     if (v + *(s16*)(p + 30) > 16384) assert_fail_1e52b8(D_0036ede0, D_0036e9d0, 1533);
     switch (*(s16*)(p + 6)) {
     case 19:
-        func_002f28b8(D_01d9e450, v, 1, 0, 0, 0, 16, 16);
+        sceGsSetDefLoadImage(D_01d9e450, v, 1, 0, 0, 0, 16, 16);
         break;
     case 20:
-        func_002f28b8(D_01d9e450, v, 1, 0, 0, 0, 8, 2);
+        sceGsSetDefLoadImage(D_01d9e450, v, 1, 0, 0, 0, 8, 2);
         break;
     default:
         return;
     }
     func_003058a0(0);
-    func_002f2be0(D_01d9e450, p + *(s32*)(p + 24) + 32);
+    sceGsExecLoadImage(D_01d9e450, p + *(s32*)(p + 24) + 32);
 }
 
 // ---- f8.cpp
@@ -631,8 +631,8 @@ s32 func_00106a60(s32);  // buffer_get_by_index
 V4dcf90* func_0016c028(s32);  // obj_get_attach_or_alt
 u8* func_002dc7c8(u8*);
 f32 func_002dceb0(u8*);
-f32 func_002f8960(f32);
-f32 func_002f87c0(f32);
+f32 sinf(f32);
+f32 cosf(f32);
 void func_00107340_c(s32, f32, f32, f32) asm("_ZN2kn6Camera12setReferenceEfff");
 void func_00107330_c(s32, f32, f32, f32) asm("_ZN2kn6Camera11setPositionEfff");
 // Sets the view reference point and orbit position from the interpolated angle.
@@ -660,8 +660,8 @@ void func_002dcf90_i(u8* self) {
     f32 t = func_002dceb0(self);
     f32 lo = *(f32*)(p0 + 168);
     f32 ang = (*(f32*)(p1 + 164) - lo) * t + lo;
-    pos.y = y - func_002f8960(ang) * *(f32*)(self + 104);
-    pos.z = -func_002f87c0(ang) * *(f32*)(self + 104);
+    pos.y = y - sinf(ang) * *(f32*)(self + 104);
+    pos.z = -cosf(ang) * *(f32*)(self + 104);
     ref.x = pos.x = v.x * *(f32*)(self + 108);
     ref.y -= 300.0f;
     pos.y -= 300.0f;

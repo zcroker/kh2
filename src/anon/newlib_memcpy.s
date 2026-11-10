@@ -6,10 +6,10 @@
 	.set noat
 	.section .text.func_002fdd68,"ax",@progbits
 	.align 2
-	.globl func_002fdd68
-	.type func_002fdd68, @function
-	.ent func_002fdd68
-func_002fdd68:
+	.globl memcpy
+	.type memcpy, @function
+	.ent memcpy
+memcpy:
 	daddu	$8,$4,$0
 	sltiu	$2,$6,32
 	bnez	$2,.Lm7c
@@ -60,7 +60,7 @@ func_002fdd68:
 .Lma8:
 	jr	$31
 	daddu	$2,$8,$0
-	.end func_002fdd68
-	.size func_002fdd68, .-func_002fdd68
+	.end memcpy
+	.size memcpy, .-memcpy
 	.set reorder
 	.set at

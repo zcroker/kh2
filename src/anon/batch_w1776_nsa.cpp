@@ -44,16 +44,16 @@ void func_001c7048(W1776Obj* o, W1776Src* s, u8* p, u32 a, u32 b) {
 }
 
 void strcpy_w1776(char*, const char*) asm("_ZN2Tz16LayFileBuildDataEPvj");
-s32 func_002ff3fc(const char*);
+s32 strlen(const char*);
 void func_00240118(char*, u32, u32);
 
 // Builds "/" + func_00240118's text in a buffer and copies it twice to dst.
 void func_00240240(char* dst, u32 a, u32 b) {
     char buf[80];
     strcpy_w1776(buf, D_00371698);
-    s32 l = func_002ff3fc(buf);
+    s32 l = strlen(buf);
     func_00240118(&buf[l], a, b);
-    l = func_002ff3fc(buf);
+    l = strlen(buf);
     for (s32 i = 0; i < 2; i++)
         strcpy_w1776(&dst[l * i], buf);
 }

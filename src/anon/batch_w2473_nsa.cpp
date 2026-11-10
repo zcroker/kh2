@@ -70,8 +70,8 @@ s32 func_0016ac38(O2d2b50*, s32, s32, s32, s32);
 void o2d2b50_0016b070(O2d2b50*, V2d2b50*) asm("_Z16wtarget_0016b070jjjj");
 void o2d2b50_set(void*, u32, s32) asm("_Z16wtarget_002cf280jjjj");
 Cfg2d2b50* o2d2b50_config(void*) asm("_ZN2Ti9MGOarashi6configEv");
-f32 func_002f87c0(f32);
-f32 func_002f8960(f32);
+f32 cosf(f32);
+f32 sinf(f32);
 f32 o2d2b50_atan2f(f32, f32) asm("f_atan2f");
 // Ti::MGOarashi object init: action, dir/to vectors, turn/side/kind setup
 void func_002d2b50(O2d2b50* o)
@@ -83,8 +83,8 @@ void func_002d2b50(O2d2b50* o)
     f32 ang;
     if (o->rec->angle == 0x7fff) ang = o->pt->angle;
     else ang = o->rec->angle * 3.1415927f * 0.0625f;
-    f32 c = func_002f87c0(ang);
-    o->dir = V2d2b50(c, -func_002f8960(ang), 0.0f, o->rec->height);
+    f32 c = cosf(ang);
+    o->dir = V2d2b50(c, -sinf(ang), 0.0f, o->rec->height);
     V2d2b50 p(o->pt->x, o->pt->y, o->pt->z, 0.0f);
     o->to = o->pos - p;
     V2d2b50 n(o->to);
@@ -268,7 +268,7 @@ Mdl11cdf0* func_00124748(Mdl11cdf0*, u32);
 s32 func_00124788(Mdl11cdf0*, u32);
 Xf11cdf0* func_00106a60(s32);
 void func_001070e8(Xf11cdf0*);
-void func_002f25a0(s32, s32);
+void sceGsSyncPath(s32, s32);
 s32 func_00134278();
 void func_00109330();
 void func_00109340();
@@ -304,7 +304,7 @@ void func_0011cdf0(Self11cdf0* s, const M11cdf0* w, const M11cdf0* l, Desc11cdf0
         if (idx >= h->count) idx = h->count - 1;
         d.hdr = (Hdr11cdf0*)((u8*)h + h->off[idx]);
     }
-    func_002f25a0(0, 0);
+    sceGsSyncPath(0, 0);
     s32 saved = func_00134278();
     func_00109330();
     func_00109340();
@@ -351,6 +351,6 @@ void func_0011cdf0(Self11cdf0* s, const M11cdf0* w, const M11cdf0* l, Desc11cdf0
     func_001342a8();
     func_0010abb8(old);
     func_002f3918(func_00133d38(), saved);
-    func_002f25a0(0, 0);
+    sceGsSyncPath(0, 0);
 }
 }

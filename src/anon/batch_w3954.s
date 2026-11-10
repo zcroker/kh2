@@ -575,7 +575,7 @@ func_0020d528:
 	lw	$14,0($29)
 	li	$4,1
 .L0020dd70:
-	jal	func_002f25a0
+	jal	sceGsSyncPath
 	move	$5,$0
 	andi	$2,$2,0x10
 	bnez	$2,.L0020dd70
@@ -594,7 +594,7 @@ func_0020d528:
 	j	func_0020ebd8
 	addiu	$29,$29,96
 .L0020ddb8:
-	jal	func_002f25a0
+	jal	sceGsSyncPath
 	move	$5,$0
 	andi	$2,$2,0x10
 	bnez	$2,.L0020ddb8

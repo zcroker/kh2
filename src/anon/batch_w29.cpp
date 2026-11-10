@@ -81,7 +81,7 @@ void func_00106420(void*);
 u8 func_002cea28(void*);
 void func_0017c4c8(void*, Q16*);
 void func_0016bd60(void*, s32);
-u32 func_003032d0(u32, u32*);
+u32 __sfvwrite(u32, u32*);
 void func_003147a0(void*, void*);
 void* func_003141e8(void*, void*);
 u64 func_003146c8(void*);
@@ -410,7 +410,7 @@ u32 func_002ffc08(u32 a, u32* p) {
         p[1] = 0;
         return 0;
     }
-    u32 r = func_003032d0(a, p);
+    u32 r = __sfvwrite(a, p);
     p[2] = 0;
     p[1] = 0;
     return r;

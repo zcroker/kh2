@@ -1,29 +1,29 @@
 /* Sony PS2 Runtime Library 3.0.0: libkernl (DMA/intc/thread lists), libpad2/libdbc helpers, libcdvd/sif rpc wrappers. ee-gcc 2.9-991111 -O2 -G0. */
 typedef unsigned int u32;
-extern int func_0030edb0(void);
-extern void func_0030ee00(void);
+extern int DIntr(void);
+extern void EIntr(void);
 extern void func_0030f6a0(int);
 extern int func_0030ff08(void);
 extern void func_0030fa10(int);
 
 int func_0030f900(void)
 {
-    int st = func_0030edb0();
+    int st = DIntr();
     u32 v = *(volatile u32 *)0x10001010;
     if (v & 0x80) {
-        if (st) func_0030ee00();
+        if (st) EIntr();
         return 1;
     }
     func_0030f6a0((v & ~0xc00) | 0x80);
     func_0030fa10(func_0030ff08());
-    if (st) func_0030ee00();
+    if (st) EIntr();
     return 0;
 }
 
 int func_002f3c28(volatile u32 *p)
 {
     int st; u32 v, old, c, m;
-    st = func_0030edb0();
+    st = DIntr();
     v = *(volatile u32 *)0x1000f520;
     if (!(v & 0x10000)) *(volatile u32 *)0x1000f590 = v | 0x10000;
     m = 0xfffffeff;
@@ -31,7 +31,7 @@ int func_002f3c28(volatile u32 *p)
     old = *p;
     *p = old & m;
     *(volatile u32 *)0x1000f590 = v;
-    if (st) func_0030ee00();
+    if (st) EIntr();
     return old;
 }
 
@@ -41,7 +41,7 @@ extern LH D_01e37200;
 void func_003096f8(L *a, int b)
 {
     L *p;
-    func_0030edb0();
+    DIntr();
     a->f0 = b; a->f4 = 0; a->f8 = 0; a->fc = 0; a->f10 = 0; a->next = 0;
     if (D_01e37200.head == 0) {
         D_01e37200.head = a;
@@ -50,7 +50,7 @@ void func_003096f8(L *a, int b)
         while (p->next) p = p->next;
         p->next = a;
     }
-    func_0030ee00();
+    EIntr();
 }
 
 typedef struct M { char pad[0x38]; struct M *next; } M;
@@ -58,7 +58,7 @@ typedef struct { int a, b; M *head; } MH;
 M* func_00309860(M *a, MH *l)
 {
     M *p;
-    func_0030edb0();
+    DIntr();
     p = l->head;
     if (p == a) {
         l->head = p->next;
@@ -68,43 +68,43 @@ M* func_00309860(M *a, MH *l)
             p = p->next;
         }
     }
-    func_0030ee00();
+    EIntr();
     return p;
 }
 
 typedef struct { short s0; short s2; int f4; int f8; int fc; } P;
-extern P* func_002f1fa8(void);
-extern void func_00306100(int);
+extern P* sceGsGetGParam(void);
+extern void DisableIntc(int);
 extern void func_00305320(int, int);
 extern int func_00305300(int, int, int);
-extern void func_00306168(int);
-int func_002f33f0(int a)
+extern void EnableIntc(int);
+int sceGsSyncVCallback(int a)
 {
-    P *p = func_002f1fa8();
+    P *p = sceGsGetGParam();
     int old = p->f8;
     if (a == 0) {
-        func_00306100(2);
+        DisableIntc(2);
         func_00305320(2, p->fc);
         p->fc = 0;
         p->f8 = 0;
     } else {
         if (old) {
-            func_00306100(2);
+            DisableIntc(2);
             func_00305320(2, p->fc);
         }
         p->f8 = a;
         p->fc = func_00305300(2, a, -1);
-        func_00306168(2);
+        EnableIntc(2);
     }
     return old;
 }
 
 extern void func_00305ab0(void);
 extern long func_00305b40(void);
-int func_002f2508(int x) asm("_Z13func_002f2508i") __attribute__((section(".text._Z13func_002f2508i")));
-int func_002f2508(int x)
+int sceGsSyncV(int x) asm("_Z10sceGsSyncVi") __attribute__((section(".text._Z13func_002f2508i")));
+int sceGsSyncV(int x)
 {
-    P *p = func_002f1fa8();
+    P *p = sceGsGetGParam();
     long r;
     if (p->f8 == 0) {
         func_00305ab0();
@@ -118,7 +118,7 @@ int func_002f2508(int x)
 
 extern int func_002f6fc0(int);
 extern int func_002f72c0(int);
-extern int func_003094b8(void *, int, int, void *, int, void *, int, void *, void *);
+extern int sceSifCallRpc(void *, int, int, void *, int, void *, int, void *, void *);
 extern void func_00305640(int);
 extern char D_00364f50[];
 extern char D_00363e00[];
@@ -127,7 +127,7 @@ int func_002f7118(void)
 {
     int r;
     if (!func_002f6fc0(2)) return 0;
-    if (func_003094b8(D_00364f50, 14, 0, 0, 0, D_00363e00, 4, 0, 0) < 0) {
+    if (sceSifCallRpc(D_00364f50, 14, 0, 0, 0, D_00363e00, 4, 0, 0) < 0) {
         func_00305640(D_00363da8);
         return 0;
     }
@@ -143,7 +143,7 @@ int func_002f7dc8(void)
 {
     int r;
     if (!func_002f72c0(3)) return -1;
-    if (func_003094b8(D_00365900, 4, 0, 0, 0, D_00364f80, 4, 0, 0) < 0) {
+    if (sceSifCallRpc(D_00365900, 4, 0, 0, 0, D_00364f80, 4, 0, 0) < 0) {
         func_00305640(D_00363dac);
         return -1;
     }
@@ -160,7 +160,7 @@ extern char D_00376b70[];
 extern int func_00305420(TP *);
 extern void func_00306760(int, int);
 extern void func_003054b0(int, int);
-int func_002f6870(int prio, void *stack, int size)
+int sceCdInitEeCB(int prio, void *stack, int size)
 {
     int r;
     r = 1;
@@ -180,10 +180,10 @@ int func_002f6870(int prio, void *stack, int size)
     return r;
 }
 
-extern int func_0030a8f8(void *, int);
-extern int func_0030af40(int, void *, int);
-extern int func_0030ab88(int);
-extern int func_002fd220(char *);
+extern int sceOpen(void *, int);
+extern int sceRead(int, void *, int);
+extern int sceClose(int);
+extern int atoi(char *);
 extern char D_003762c8[];
 int func_002f2020(void)
 {
@@ -191,12 +191,12 @@ int func_002f2020(void)
     char *p;
     u32 i;
     int fd;
-    fd = func_0030a8f8(D_003762c8, 1);
+    fd = sceOpen(D_003762c8, 1);
     if (fd < 0) return -1;
     for (i = 0, p = buf; i < 256; i++) {
-        func_0030af40(fd, p, 1);
+        sceRead(fd, p, 1);
         if (*p++ == 0) break;
     }
-    func_0030ab88(fd);
-    return func_002fd220(&buf[i - 9]) > 0x1315670;
+    sceClose(fd);
+    return atoi(&buf[i - 9]) > 0x1315670;
 }
