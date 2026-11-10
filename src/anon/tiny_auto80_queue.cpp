@@ -1431,17 +1431,7 @@ extern "C" u32 func_00182838(...);
 
 extern "C" u32 func_001849b8(u32, u32, u32, u32, u32, u32, u32, u32) asm("_ZN2YS3OBJ10get_groundEv");
 
-u32 func_0018cef8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r2, r14, r15;
-    r14 = *(volatile u32*)((u32)r4 + (s32)(16));
-    r2 = 0u;
-    if (r14 != 0u) {
-        r15 = *(volatile u32*)((u32)r14 + (s32)(1416));
-        r15 = (u32)(r15 & 0x0080u);
-        r2 = ((u32)0u < (u32)r15);
-    }
-    return r2;
-}
+// 0018cef8: moved to src/yasui/libys/damage.cpp
 
 extern "C" u32 func_001a3a78(...);
 
@@ -12598,20 +12588,7 @@ void func_0018c570(u32 a0) {
     }
 }
 
-u32 func_0018ca90(u32 a0) {
-    u32 t6;
-    u32 t7 = (u32)((s32)a0 < 6);
-    if (t7 != 0u) goto L0;
-    t6 = (u32)((s32)a0 < 8);
-    if (t6 != 0u) goto L1;
-    t7 = (u32)((s32)a0 + (-10));
-    t7 = (u32)(t7 < 2u);
-    if (t7 == 0u) goto L0;
-L1:
-    return 1u;
-L0:
-    return 0u;
-}
+// 0018ca90: moved to src/yasui/libys/damage.cpp
 
 u32 duplicate_unplaced_0018cae0(u32 a0) {
     u32 t7 = *(u32*)((u32)a0 + (s32)(32));

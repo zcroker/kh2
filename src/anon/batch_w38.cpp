@@ -222,11 +222,7 @@ void func_00180ce0(u8* p) {
 
 void* func_0018c8b8(void);
 void func_0018c960(void*, u32, u32, u32, u32);
-void* func_0018c8f0(u32 a, u32 b, u32 c, u32 d) {
-    void* v = func_0018c8b8();
-    func_0018c960(v, a, b, c, d);
-    return v;
-}
+// 0018c8f0: moved to src/yasui/libys/damage.cpp
 
 struct Pair192320 { u32 a; u32 b; };
 extern Pair192320 D_01c61970[3];

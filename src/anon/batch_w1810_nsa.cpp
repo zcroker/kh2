@@ -92,15 +92,5 @@ void func_00176168(W1810Obj* o, u32 id, int n)
 }
 
 struct W1810Item { W1810Vec v; int m10; int m14; int m18; W1810Src* src; u8 p20[6]; u8 kind; };
-void func_0018ce08(W1810Item* o)
-{
-    if (o->kind == 5) {
-        W1810Vec* p = func_0016c028(o->m14);
-        o->v = *p - o->src->get();
-        o->v.y = 0;
-        w1810_norm(&o->v);
-    } else {
-        o->v = o->src->get(o->m14);
-    }
-}
+// 0018ce08: moved to src/yasui/libys/damage.cpp
 }

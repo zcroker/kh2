@@ -45,12 +45,5 @@ s32 func_0018c528(u32 a) {
 }
 
 s32 YS_DAMAGE_GetReactionType(s32 a) asm("_ZN2YS6DAMAGE15GetReactionTypeEi");
-s32 YS_DAMAGE_GetReactionType(s32 a) {
-    switch (a) {
-    case 1: case 12: return 1;
-    default: return a;
-    case 4: case 7: case 9: case 11: case 15: case 17: return 4;
-    case 3: case 6: case 8: case 10: case 13: case 16: case 18: return 3;
-    }
-}
+// 0018ca48: moved to src/yasui/libys/damage.cpp
 }

@@ -6,22 +6,7 @@ struct G18cf18 { E18cf18 e[4]; s32 idx[4]; s32 n; };
 extern G18cf18 D_01c60bf0;
 void wtarget_0018cf18(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z16wtarget_0018cf18jjjj");
 // Static init/destroy (priority 0xffff); the empty destructor loop gets the r5900 short-loop nop padding.
-void wtarget_0018cf18(u32 a0, u32 a1, u32 a2, u32 a3) {
-    if (a1 == 0xffff && a0 == 1) {
-        E18cf18* p = D_01c60bf0.e;
-        s32 i = 3;
-        do { func_0031e2b8(p->m); i--; p++; } while (i != -1);
-        G18cf18* d = &D_01c60bf0;
-        for (s32 j = 0; j < 4; j++) d->idx[j] = j;
-        d->n = 4;
-    }
-    if (a1 == 0xffff && a0 == 0) {
-        if (D_01c60bf0.e) {
-            E18cf18* e = D_01c60bf0.e + 4;
-            for (;;) { e->~E18cf18(); if (e == D_01c60bf0.e) break; --e; }
-        }
-    }
-}
+// 0018cf18: moved to src/yasui/libys/damage.cpp
 
 struct B178 { u16 id; u16 pad; u32 flags; };
 struct D178 { u32 a; B178 b; };

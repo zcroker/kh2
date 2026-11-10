@@ -7529,16 +7529,7 @@ void func_00176f00(u8* p) {
 union UP_0018cd28 { u8* p; f32 f; };
 extern UP_0018cd28 D_00352130_cd28 asm("D_00352130");
 s32 func_0018ca48(u8);
-void func_0018cd28(u8* p, f32* x, f32* y) {
-    *x = *(f32*)(D_00352130_cd28.p + 36);
-    *y = *(f32*)(D_00352130_cd28.p + 40);
-    if (func_0018ca48(p[39]) != 4) return;
-    UP_0018cd28* f = (UP_0018cd28*)(p + 32);
-    if (!f->p) return;
-    if (!*(u32*)(f->p + 12)) return;
-    *x = (f32)*(s16*)(f->p + 12);
-    *y = (f32)*(s16*)(f->p + 14);
-}
+// 0018cd28: moved to src/yasui/libys/damage.cpp
 
 // ---- 001ab750
 void func_001b7e68(u8*, u32);
@@ -10713,15 +10704,7 @@ void wtarget_0018c868(u32 a0, u32 a1, u32, u32) {
 // --------------------
 struct YS_DAMAGE { u8 pad[39]; u8 type; };
 s32 YS_DAMAGE_is_normal(const YS_DAMAGE*) asm("_ZNK2YS6DAMAGE9is_normalEv");
-s32 YS_DAMAGE_is_normal(const YS_DAMAGE* d) {
-    switch (d->type) {
-    case 0: case 1: case 3: case 4: case 6: case 7: case 15: case 16:
-        return 1;
-    case 2: case 5: case 8: case 9: case 10: case 11: case 12: case 13: case 14:
-        return 0;
-    }
-    return 0;
-}
+// 0018caf8: moved to src/yasui/libys/damage.cpp
 
 // --------------------
 void func_001ad990(u8*, f32, f32, f32);

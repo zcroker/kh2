@@ -365,14 +365,7 @@ u32 func_001493b8(u32 a0, u32 a1, u32 a2, u32 a3) {
     }
 }
 
-u32 func_0018cae0(u32 a0) {
-    u32 p = *(u32 *)(a0 + 32);
-    u32 v = *(u8 *)(p + 18);
-    v >>= 5;
-    v &= 1;
-    u8 ret = (u8)v;
-    return ret;
-}
+// 0018cae0: moved to src/yasui/libys/damage.cpp
 
 u32 func_0018f010(u32 a0) {  // byte4_is_2_or_3
     u32 p = *(u32 *)(a0 + 40);
@@ -526,41 +519,9 @@ u32 func_00187e20(u32 a0) {
     return ret;
 }
 
-u32 func_0018c8b8(u32) {
-    register u32 base asm("$13") = (u32)&D_01c60bf0;
-    asm volatile("" : "+r"(base));
-    register u32 n asm("$15") = *(u32 *)(base + 208);
-    n -= 1;
-    register u32 off asm("$14") = n << 2;
-    *(u32 *)(base + 208) = n;
-    asm volatile("" : "+r"(off), "+r"(base));
-    off += base;
-    u32 ret = *(u32 *)(off + 192);
-    asm volatile("" : "+r"(ret));
-    register u32 scale asm("$15") = 48;
-    asm volatile("" : "+r"(ret), "+r"(scale));
-    ret *= scale;
-    ret += base;
-    *(u32 *)(ret + 24) = 0;
-    return ret;
-}
+// 0018c8b8: moved to src/yasui/libys/damage.cpp
 
-void func_0018ca10(u32 a0) {  // alloc_from_pool_magic
-    register u32 base asm("$12") = (u32)&D_01c60bf0;
-    register u32 magic asm("$13") = 0xaaaaaaab;
-    a0 -= base;
-    asm volatile("" : "+r"(a0), "+r"(base));
-    register u32 count asm("$15") = *(u32 *)(base + 208);
-    asm volatile("" : "+r"(count), "+r"(a0));
-    a0 = (s32)a0 >> 4;
-    a0 *= magic;
-    asm volatile("" : "+r"(a0), "+r"(count));
-    register u32 off asm("$14") = count << 2;
-    count += 1;
-    off += base;
-    *(u32 *)(base + 208) = count;
-    *(u32 *)(off + 192) = a0;
-}
+// 0018ca10: moved to src/yasui/libys/damage.cpp
 
 void YS_TARGET_free(u32 a0) asm("_ZN2YS6TARGET4freeEv");
 void YS_TARGET_free(u32 a0) {
