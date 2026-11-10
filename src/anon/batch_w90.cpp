@@ -164,17 +164,7 @@ s32 func_00239d10(void*);
 u8* func_0014aba8(void);
 void func_0023acd8(void*);
 void func_0023ade0(void*);
-void func_0015d5d0(u32 a0)
-{
-    if (!func_0013ef80(a0)) { func_001024a8(a0); func_0013f048(); }
-    func_00236788(D_0034af40);  // to_236830
-    if (!(u8)func_00239d30(&D_0034b0e0, D_0034b0e0.f276) && !func_00239d10(&D_0034b0e0)
-        && !*(s32*)(func_0014aba8() + 252)) { func_001024a8(a0); func_0013f048(); }
-    func_0023acd8(&D_0034b0e0);
-    D_0034b0e0.f328 = 0;
-    D_0034b0e0.f332 = 0;
-    func_0023ade0(&D_0034b0e0);
-}
+// 0015d5d0: moved to src/anon/unit_0015d440.cpp
 
 // 0017e138
 void func_0017f488(void*, s32, f32, f32);

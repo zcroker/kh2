@@ -12,6 +12,7 @@ struct S239 {
   u8 c212; char p2[3];
   u32 a216, a220, a224, a228, a232, a236, a240, a244, a248, a252, a256, a260, a264, a268, a272, a276, a280, a284, a288, a292, a296, a300, a304, a308, a312, a316, a320, a324, a328, a332;
 };
+void func_00239700(S239* p) asm("_ZN2YI8SEQUENCEC1Ev");  // YI::SEQUENCE::SEQUENCE
 void func_00239700(S239* p) {
   func_00237068(p); p->vt = D_0035eaf8;
 

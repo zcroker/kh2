@@ -136,13 +136,7 @@ void func_00239700(u8*);
 void func_00239870(u8*);
 void func_002361d0(u8*);
 void wtarget_0015d730(u32, u32, u32, u32) asm("_Z16wtarget_0015d730jjjj");
-void wtarget_0015d730(u32 a, u32 b, u32, u32)
-{
-    if (b == 0xffff && a == 1) func_002361a0(D_0034af40);
-    if (b == 0xffff && a == 1) func_00239700(D_0034b0e0);
-    if (b == 0xffff && a == 0) func_00239870(D_0034b0e0);
-    if (b == 0xffff && a == 0) func_002361d0(D_0034af40);
-}
+// 0015d730: static initialiser, now made by gcc in src/anon/unit_0015d440.cpp
 
 extern u8 D_003502d8[];
 extern u8 D_0032bae0[];
