@@ -394,18 +394,7 @@ u32 func_001da4d8(Reader1da* s, u16 k) {  // stream_op_by_subtype
     return r + v;
 }
 
-struct Adj1e0 { s32 off; s32 add; };
-struct AdjTbl1e0 { Adj1e0 e[10]; };
-extern const AdjTbl1e0 D_0036e860;
-void func_001e08c8(u8* p) {
-    AdjTbl1e0 t = D_0036e860;
-    s32 i;
-    for (i = 0; t.e[i].off; i++) {
-        s32 a = t.e[i].add;
-        u8* b = p + 3456;
-        b[t.e[i].off] += a;
-    }
-}
+// 001e08c8: moved to src/rikeda/saveram_gumibattle.cpp
 
 void func_001e2660(u8* p, u8* v) {
     s32 i;

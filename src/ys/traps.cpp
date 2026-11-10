@@ -473,9 +473,7 @@ void trap_obj_hide_part(BD_VALUE* bd) {
 
 namespace ryj {
 
-void trap_player_push_ability_button(BD_VALUE* bd) {
-    func_001e29e0(*(void**)((char*)bd->i + 4));
-}
+// 001e0b60: moved to src/rikeda/saveram_gumibattle.cpp
 
 }  // namespace ryj
 

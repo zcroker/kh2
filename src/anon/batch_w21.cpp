@@ -366,16 +366,5 @@ void func_00236d60(void) {  // clear_64_entries_24
     }
 }
 
-struct E64 { u8 pad[24]; u8 a; u8 b; u8 pad2[38]; };
-// Number a 9x3 grid of 64-byte cells: row index and 1-based column.
-void func_001e0958(E64* p) {
-    s32 i, j;
-    for (i = 0; i < 9; i++) {
-        for (j = 0; j < 3; j++) {
-            p->a = i;
-            p->b = j + 1;
-            p++;
-        }
-    }
-}
+// 001e0958: moved to src/rikeda/saveram_gumibattle.cpp
 }

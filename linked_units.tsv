@@ -29,3 +29,4 @@ src/yasui/libys/light.cpp	00158900	001589d0	.data@0034a998	-G0
 src/harata/libdk/bookcamera.cpp	001589d0	00159070	.data@0034a9b0,.bss@004f35a0,.rodata@0036b314	-G0 -fno-strict-aliasing
 src/anon/unit_00241f20.cpp	00241f20	00241f98	.bss@01dae688	-G0
 src/anon/unit_002200c0.c	002200c0	00221348	.rodata@00370b80	-G0 -fno-strict-aliasing
+src/rikeda/saveram_gumibattle.cpp	001e0808	001e0c98	.data@00352b88,.bss@01d9e350,.rodata@0036e860	-G0

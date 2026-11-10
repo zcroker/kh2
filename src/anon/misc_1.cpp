@@ -106,7 +106,7 @@ s32 func_001dc5f0(void* self) { return (s32)(*(s32*)((char*)self + 20)); }
 
 void func_001e0370(void* self) {}
 
-void func_001e0998(void* self) {}
+// 001e0998: moved to src/rikeda/saveram_gumibattle.cpp
 
 void func_001e1df0(void* self) {}
 
