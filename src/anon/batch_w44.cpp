@@ -304,15 +304,7 @@ void func_001ad4a8(u8* o, u32 a) {
     func_001aa388(b, *(u32*)(b + 12));
 }
 
-void func_001b0728(u8* o, Q16* q, u32 c, f32 f) {
-    if (*(s32*)(o + 12) >= 0) {
-        *(u32*)(o + 4) = 1;
-        Q16* d = (Q16*)(o + 32);
-        if (d != q) asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(d), "r"(q) : "$8", "memory");
-        func_001ad990(o + 16, 0.0f, 1.0f, f);
-        *(u32*)(o + 8) = c;
-    }
-}
+// 001b0728: moved to src/yasui/libys/lookat.cpp
 
 u8 func_001d5868(u16* p) {
     switch (p[0]) {

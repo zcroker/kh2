@@ -38,26 +38,7 @@ f32 func_0017d160(V1b1100, V1b1100);
 Pair1b1100 func_0018a818(Obj1b1100*, Tgt1b1100*);
 f32 fabsf(f32);
 bool t1b1100(Obj1b1100*, V1b1100*) asm("_Z16ctarget_001b1100jjjj");
-bool t1b1100(Obj1b1100* o, V1b1100* target)
-{
-    V1b1100 d;
-    Tgt1b1100* t = func_0016bc20(o, 20, -1);
-    if (!t) {
-        d = *target - o->pos;
-        V1b1100 v;
-        v.x = d.x; v.z = d.z; v.w = v.y = 0.0f;
-        v.normalize();
-        return fabsf(func_0017d160(v, o->dir)) < 0.26179937f;
-    } else {
-        Pair1b1100 p = func_0018a818(o, t);
-        d = *target - p.b;
-        d.normalize();
-        V1b1100 v;
-        v.x = d.x; v.z = d.z; v.w = v.y = 0.0f;
-        v.normalize();
-        return fabsf(func_0017d160(v, o->dir)) <= t->range * 0.017453292f;
-    }
-}
+// 001b1100: moved to src/yasui/libys/lookat.cpp
 
 // --------------------
 // 002d1550: Ti::MGOarashi set-up (base init, "po_06" data, Afp resources, start pose)

@@ -18527,9 +18527,7 @@ void func_001af9f8() {
     func_00102670(g[-4517], a1);  // to_1025f8
 }
 
-void func_001b0700(u8* a0, f32 a1) {
-    func_001ad990((u32)(a0 + 16), *(f32*)(a0 + 16), 0.0f, a1);
-}
+// 001b0700: moved to src/yasui/libys/lookat.cpp
 
 void func_001b1328(u32 a0);
 

@@ -780,24 +780,7 @@ s32 func_002952f8(s32 id) {
     return r;
 }
 
-void func_001b0798(OBv* o, s32 a, s32 b, f32 t) {
-    VB* v;
-    Q16 tmp;
-    if (*(s32*)((u8*)o + 12) < 0) return;
-    v = (VB*)func_0016bc20(o->f0, 20, -1);
-    if (v == 0) return;
-    {
-    Q16* d = &o->v64;
-    o->f12 = v->d;
-    o->f4 = 2;
-    o->f48 = a;
-    func_0016af58(&tmp, (void*)a);
-    *d = tmp;
-    }
-    *(f32*)&o->f80 = 0.0f;
-    func_001ad990(&o->f8 + 2, *(f32*)&o->f80, 1.0f, t);
-    o->f8 = b;
-}
+// 001b0798: moved to src/yasui/libys/lookat.cpp
 
 void func_001e9c28(u8* base, u8* a1, u8* a2) {
     union FH v[4];

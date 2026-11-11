@@ -4999,41 +4999,7 @@ void func_001b03b0(s32 a0, s32 a1) {
     }
 }
 
-void func_001b04d8(u32 a0) {
-    u32 s0 = a0;
-
-    if (func_001b0498(s0) == 0) {  // obj_check_ready_flags
-        const f32 z = 0.0f;
-        u32 t7 = 1;
-        if (*(f32*)(s0 + 20) == z) {
-            t7 = 0;
-        }
-        u32 t6 = t7 & 0xff;
-        if (t6 != 0) {
-            *(f32*)(s0 + 16) = z;
-        }
-        return;
-    }
-
-    func_001ad9c8(s0 + 16);  // float_accumulate_clamped
-
-    if (*(f32*)(s0 + 16) == 0.0f) {
-        *(u32*)(s0 + 4) = 0;
-    }
-
-    if (*(u32*)(s0 + 4) != 2) {
-        return;
-    }
-
-    u32 v0 = func_0019ba60(*(u32*)(s0 + 48));
-    if (v0 != 0) {
-        u8 tmp[16];
-        func_0016c2b0(tmp, *(u32*)(s0 + 48));
-        func_001b0940(s0, tmp);
-    } else {
-        *(u32*)(s0 + 4) = 0;
-    }
-}
+// 001b04d8: moved to src/yasui/libys/lookat.cpp
 
 void func_001b1da0(u32 a0) {
     u32 s0 = a0;
