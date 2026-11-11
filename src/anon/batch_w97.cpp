@@ -111,29 +111,7 @@ void func_00167ea8(void);
 void func_00104e98(void);
 Task104* func_00102788(u32, u32, u32, void (*)(void));
 void func_001c8d80(char*, s32);
-void func_00104f58(const Pos10* pos, u32 id, u32 mode, u8 flag, u32 snd) {
-    if (D_003a7b00) {
-        func_0013f050(id | 0x80000000);
-        D_003a7b08 = *pos;
-        if (snd) func_001ada38(snd);
-        return;
-    }
-    func_00167ea8();
-    Task104* t = func_00102788(D_0032b96c, 0, 0x493e0, func_00104e98);
-    D_0032bb20 = t;
-    t->f4 = mode;
-    D_0032bb20->f8 = flag;
-    D_0032bb20->f12 = id;
-    if (mode == 0) {
-        D_0032bb20->f16 = snd;
-        func_0013f050(id);
-    } else {
-        func_001ada38(snd);
-        D_0032bb20->f16 = 0;
-    }
-    func_001c8d80(D_00351ec8, 2);
-    D_0032baf0 = *pos;
-}
+// 00104f58: moved to src/common/area.cpp
 
 // ---- 0010d038
 Vq func_00190388(const void*);  // vec4_from_arg

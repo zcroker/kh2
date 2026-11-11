@@ -12,12 +12,7 @@ extern void* D_0032bb1c;
 void func_00109280(void*);
 void func_00170c00(void*);
 void func_00170320(void*);
-void AREA_DestroyAllocator(void) {
-    func_00109280(D_0032bb1c);
-    func_00170c00(D_0032bb1c);
-    func_00170320(0);
-    D_0032bb1c = 0;
-}
+// 001053c0: moved to src/common/area.cpp
 
 extern u32 D_003461e8;
 void func_00113668(void*);

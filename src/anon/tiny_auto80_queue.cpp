@@ -5695,25 +5695,7 @@ u32 duplicate_unplaced_00104da0(u32 a0) {
 
 extern "C" u32 func_00104da0(...);
 
-u32 func_00104de0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    struct {
-        u8 a;
-        u8 b;
-        u8 c;
-        u8 p;
-        u16 x;
-        u16 y;
-        u16 z;
-    } s;
-    u32 m = (u32)(0u | 0xffffu);
-    s.a = (u8)a0;
-    s.b = (u8)a1;
-    s.c = (u8)a2;
-    s.x = (u16)m;
-    s.y = (u16)m;
-    s.z = (u16)m;
-    return ((u32(*)(u32))func_00104da0)((u32)&s);
-}
+// 00104de0: moved to src/common/area.cpp
 
 extern "C" u32 func_00109280(...);
 extern "C" u32 func_00170320(...);

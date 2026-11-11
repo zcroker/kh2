@@ -11,11 +11,7 @@ void func_001052a8(void);
 void func_00104a48(void);
 void func_00102818(u32, u32, u32, void (*)(void), u32);
 void GUMIMENU_CreateThread(int, int, void (*)(TASK*), int) asm("_ZN8GUMIMENU12CreateThreadEiiPFvP4TASKEi");
-void GUMIMENU_CreateThread(int, int, void (*)(TASK*), int) {
-    D_003a7b00 = 0;
-    func_001052a8();
-    func_00102818(D_0032b96c, 1, 5000, func_00104a48, 8192);
-}
+// 00104da0: moved to src/common/area.cpp
 
 // --- 0010c7f0
 void func_0017dbb8(void*);

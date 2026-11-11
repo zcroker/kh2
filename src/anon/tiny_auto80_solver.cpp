@@ -1411,12 +1411,7 @@ u32 duplicate_unplaced_00104da0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, 
     return ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_00102818)(r4, r5, r6, r7, r8, r9, r10, r11);
 }
 
-u32 func_00105110(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32 base = 0x0033u << 16;
-    u32 obj = *(u32*)((u32)base + (s32)-17636);
-    void (**vt)() = *(void (***)())obj;
-    ((void (*)(u32, u32, u32, u32, u32, u32, u32, u32))vt[1])(obj, a0, a2, a3, a4, a5, a6, a7);
-}
+// 00105110: moved to src/common/area.cpp
 
 u32 duplicate_unplaced_00105370(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r2, r15, r16, r17;

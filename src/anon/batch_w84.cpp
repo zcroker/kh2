@@ -66,15 +66,7 @@ struct Dt {
     u8 a, b, c, pad;
     u16 x, y, z;
 };
-char* func_001051b8(Dt* p) {
-    func_002fee78(D_003a7b20, D_00369e58, func_00105140(p, 0), p->c);
-    if (p->x < 25 && p->y < 25 && p->z < 25) {
-        func_002fee78(D_003a7b20 + strlen(D_003a7b20), D_00369e60, p->x + 97, p->y + 97, p->z + 97);
-    } else {
-        func_002fee78(D_003a7b20 + strlen(D_003a7b20), D_00369e70, p->x, p->y, p->z);
-    }
-    return D_003a7b20;
-}
+// 001051b8: moved to src/common/area.cpp
 
 // Destructor: release the 24 slot objects, then the member array and base.
 extern void* D_003476f0[];
