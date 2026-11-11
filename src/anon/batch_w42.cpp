@@ -467,13 +467,7 @@ void func_002dd448(u8* p, s32 mul, s32 idx)
 double func_00313b80(f32);  // float_to_double
 s32 func_003142e0(double, double);  // double_compare
 struct C2e { u8 pad[16]; u8 col[36]; f32 x; f32 y; };
-void func_002e95a0(C2e* p, f32 x, f32 y)
-{
-    p->y = y;
-    p->x = x;
-    if (func_003142e0(0.0, func_00313b80(y)) < 0) collision_make(p->col, 0, x, y);  // double_compare
-    else collision_make(p->col, 3, x, x);
-}
+// 002e95a0: moved to src/sugi/flare.cpp
 
 // 002ec9d0
 void func_0017c4c8(void*, void*);

@@ -657,17 +657,7 @@ void* func_0016bba8(void*, s32, void*);
 void func_0018a818(u8*, void*, void*);
 
 // 002e9248: collect the list entries into 32-byte records
-void func_002e9248(void)
-{
-    void* x = 0;
-    D_01e2bfb0 = 0;
-    void* s = D_0034e948;
-    if (!func_0019ba60(s)) return;
-    while ((x = func_0016bba8(s, 4, x))) {
-        func_0018a818(D_01e2bfc0 + D_01e2bfb0 * 32, s, x);
-        D_01e2bfb0++;
-    }
-}
+// 002e9248: moved to src/sugi/flare.cpp
 
 Vec4 func_0017c030(u8*, s32*, u8);
 

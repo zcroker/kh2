@@ -45,30 +45,5 @@ extern FlarePool1832* D_01e2bfa0;
 extern s32 D_01e2bfa4;
 // Ts::FLARE::Init()
 void FlareInit1832(void) asm("_ZN2Ts5FLARE4InitEv");
-void FlareInit1832(void) {
-    if (D_003633c8 == 0) {
-        u8* t = CreateTask1832(1, 0x501e, func_002e92e8);
-        D_003633c8 = t;
-        *(void (**)(void*))(t + 0x30) = func_002e9338;
-        FlarePool1832** pp = &D_01e2bfa0;
-        Heap1832* h = GetAllocator1832();
-        FlarePool1832* p = (FlarePool1832*)((AllocFn1832)h->vt[0])(h, 0x800, 0);
-        FlareItem1832* it = p->item;
-        s32 n = 29;
-        do {
-            func_002e93a0(it);
-            n--;
-            it++;
-        } while (n != -1);
-        s32 i;
-        for (i = 0; i < 30; i++) p->free[i] = i;
-        p->count = 30;
-        *pp = p;
-    }
-    FlarePool1832* q = D_01e2bfa0;
-    D_01e2bfa4 = 0;
-    s32 j;
-    for (j = 0; j < 30; j++) q->free[j] = j;
-    q->count = 30;
-}
+// 002e9690: moved to src/sugi/flare.cpp
 }

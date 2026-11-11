@@ -16,21 +16,7 @@ void func_00105110(void*);
 
 // static init/destruction of a 4-element array of 32-byte objects (ctor clears +0xc, empty dtor)
 void wtarget_002e98f0(u32 a, u32 b) asm("_Z16wtarget_002e98f0jjjj");
-void wtarget_002e98f0(u32 a, u32 b) {
-    if (b == 0xffff && a == 1) {
-        W1566H* h = &D_01e2bfb0;
-        W1566E32* p = h->arr;
-        s32 n = 3;
-        do { p->d = 0; n--; p++; } while (n != -1);
-    }
-    if (b == 0xffff && a == 0) {
-        W1566H* h = &D_01e2bfb0;
-        if (h->arr) {
-            W1566E32* p = h->arr + 4;
-            for (;;) { if (p == h->arr) break; p--; }
-        }
-    }
-}
+// 002e98f0: static initialiser, now made by gcc in src/sugi/flare.cpp
 
 // deleting destructor: three vtable levels, member array of 16-byte objects, then operator delete
 void func_00319df8(u8* p) {

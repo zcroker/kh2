@@ -363,15 +363,7 @@ u8* func_002e34d8(u8** p, s32 n) {  // list_walk_stride12
 }
 
 // Returns a 64-byte block to the pool's free list.
-void func_002e98b0(u8* e) {
-    u8* b = D_01e2bfa0;
-    D_01e2bfa4--;
-    s32 n = *(s32*)(b + 2040);
-    u8* s = (u8*)(n * 4) + (u32)b;
-    n++;
-    *(s32*)(b + 2040) = n;
-    *(s32*)(s + 1920) = (e - b) >> 6;
-}
+// 002e98b0: moved to src/sugi/flare.cpp
 
 // Reads a 7-bit varint; returns the pointer past it.
 u8* func_00314b00(u8* p, s64* out) {

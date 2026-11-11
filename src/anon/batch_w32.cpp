@@ -311,11 +311,7 @@ void func_002e70b0(u8* o) {
     delete[] *(Elem64**)(o + 4);
 }
 
-void func_002e9338(void) {
-    delete (Elem64x30*)D_01e2bfa0;
-    D_01e2bfa0 = 0;
-    D_003633c8 = 0;
-}
+// 002e9338: moved to src/sugi/flare.cpp
 
 // Advances a byte counter and wraps it into [0, max).
 struct WrapCtr { s32 max; u8 cur; };
