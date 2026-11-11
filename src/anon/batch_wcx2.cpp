@@ -18349,39 +18349,7 @@ s32 func_001584a0(Pad14e8b8*);
 f32 func_0017ce10(f32);
 f32 fabsf(f32);
 void c14e8b8_def(Cam14e8b8* c) asm("func_0014e8b8");
-void c14e8b8_def(Cam14e8b8* c)
-{
-    if (!c14e8b8_19ba60(D_0034a3f0)) {
-        func_0014ebd8();
-        return;
-    }
-    func_0013f5f0(c);
-    c->tgt = *c14e8b8_16c028(D_0034a3f0);
-    c->tgt.y -= D_0034a3f8;
-    Pad14e8b8* pad = c14e8b8_167f18(0);
-    if (pad->flags & 0x20000) {
-        func_0014e658(c);
-    } else {
-        f32 dt = D_00349e10;
-        if (func_001584f8(pad)) c->yaw = func_0017ce10(c->yaw - dt * 0.05235987901687622f);
-        else if (func_00158548(pad)) c->yaw = func_0017ce10(c->yaw + dt * 0.05235987901687622f);
-        c->f76 = c->f80 = func_0017ce10(c->yaw - 3.1415927410125732f);
-        if (func_00158450(pad)) c->pitch = func_0017ce10(c->pitch + fabsf(pad->stick * pad->scale) * 0.05235987901687622f * dt);
-        else if (func_001584a0(pad)) c->pitch = func_0017ce10(c->pitch - fabsf(pad->stick * pad->scale) * 0.05235987901687622f * dt);
-    }
-    func_0014e6f8(c);
-    V14e8b8 v;
-    v.w = v.y = v.x = 0.0f;
-    v.z = 100.0f;
-    M14e8b8 m;
-    c14e8b8_11b6a8(&m);
-    c14e8b8_11b6d8(&m, c->pitch);
-    c14e8b8_11b720(&m, c->yaw);
-    v = m * v;
-    c->pos = c->tgt + v;
-    c->at = c->tgt;
-    c->eye = c->pos;
-}
+// 0014e8b8: moved to src/harata/libdk/fpscamera.cpp
 
 // Static init/destroy of six 2-element global arrays (gcc's __static_initialization_and_destruction_0).
 struct W1633Big { u8 pad[256]; };                       // ctor 00106ab8, dtor 00106ac8

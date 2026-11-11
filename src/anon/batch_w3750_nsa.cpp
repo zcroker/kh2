@@ -47,52 +47,5 @@ struct CopyPkt {
 extern "C" {
 u64 func_00166730(TexInfo*);
 
-void func_0014e2c0(CopyPkt* p)
-{
-    Env* env = &p->env;
-    TexInfo* tex = &p->tex;
-    Pkt* g = &p->pkt;
-    s32 n = env->w >> 5;
-    g->giftag[1] = 0xeeeeeeeeeULL;
-    g->zbuf = GS_ZBUF(0x70, 0x31, 1);
-    g->zbufReg = 0x4e;
-    g->giftag[0] = GIF_TAG(1, 0, 0, 0, 0, 9);
-    g->frame = GS_FRAME(env->fbp, (u16)(env->w >> 6), env->psm, 0);
-    g->frameReg = 0x4c;
-    g->tex0 = func_00166730(tex);
-    g->tex0Reg = 6;
-    g->tex1 = 0x60;
-    g->tex1Reg = 0x14;
-    g->test = 0x30000;
-    g->testReg = 0x47;
-    g->alpha = 0x44;
-    g->alphaReg = 0x42;
-    g->scissor = GS_SCISSOR(0, env->w - 1, 0, env->h - 1);
-    g->scissorReg = 0x40;
-    g->xyoffset = GS_XYOFFSET((2048 - (env->w >> 1)) << 4, (2048 - (env->h >> 1)) << 4);
-    g->xyoffsetReg = 0x18;
-    g->clamp = 5;
-    g->clampReg = 8;
-    g->giftag2[0] = GIF_TAG(1, 0, 0, 0, 1, 2) | 1;
-    g->giftag2[1] = 0x10;
-    g->prim = 0x116;
-    g->rgbaq = GS_RGBAQ(p->bright, p->bright, p->bright, 0x80, 1);
-    g->giftag3[0] = GIF_TAG(n, 1, 0, 0, 1, 4);
-    g->giftag3[1] = 0x5353;
-    s32 q = tex->w / n;
-    s32 h = env->h;
-    u64 tx = (u64)(2048 - (env->w >> 1)) << 4;
-    s32 ofx = tx;
-    u64 ty = (u64)(2048 - (env->h >> 1)) << 4;
-    s32 ofy = ty; u16 hh = h;
-    u16 th = tex->h;
-    for (s32 i = 0; i < n; i++) {
-        Strip* s = &g->strip[i];
-        s->uv0 = GS_UV(((i * q) << 4) + 8, 8);
-        s->xyz0 = GS_XYZ((u32)(ofx + (i << 9)), (u32)ofy, 0);
-        s->uv1 = GS_UV((((i + 1) * q) << 4) + 8, (th << 4) + 8);
-        s->xyz1 = GS_XYZ((u32)(ofx + ((i + 1) << 9)), (u32)(ofy + (hh << 4)), 0);
-    }
-    p->tag.Set((n * 32 + 208) >> 4, g->giftag);
-}
+// 0014e2c0: moved to src/harata/libdk/fpscamera.cpp
 }

@@ -120,24 +120,12 @@ extern f32 D_0034a3f8;
 f32* func_0016c028(u32);  // obj_get_attach_or_alt
 f32 func_002f8ad0(f32, f32);
 // Yaw/pitch (atan2) of the offset between two points.
-void func_0014e658(u8* p) {
-    f32 d[4] __attribute__((aligned(16)));
-    f32* a = D_0034a3f4;
-    f32* b = func_0016c028(D_0034a3f0);  // obj_get_attach_or_alt
-    asm volatile("lqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 0(%2)\n\tvsub.xyzw $vf1, $vf1, $vf2\n\tsqc2 $vf1, 0(%0)"
-                 : : "r"(d), "r"(a), "r"(b) : "memory");
-    d[1] += D_0034a3f8;
-    *(f32*)(p + 192) = func_002f8ad0(d[0], d[2]);
-    *(f32*)(p + 196) = -func_002f8ad0(d[1], __builtin_sqrtf(d[0] * d[0] + d[2] * d[2]));
-}
+// 0014e658: moved to src/harata/libdk/fpscamera.cpp
 
 extern f32 D_004f3580;
 extern f32 D_004f3584;
 void wtarget_0014ec40(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z16wtarget_0014ec40jjjj");
-void wtarget_0014ec40(u32 a0, u32 a1, u32 a2, u32 a3) {
-    if (a1 == 0xffff && a0 == 1) D_004f3580 = -0.523598731f;
-    if (a1 == 0xffff && a0 == 1) D_004f3584 = 1.22173035f;
-}
+// 0014ec40: static initialiser, now made by gcc in src/harata/libdk/fpscamera.cpp
 
 void func_00159ce0(u8*, Vq*);
 void func_0013f888(u8*, Vq*, u32);

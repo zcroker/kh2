@@ -252,7 +252,7 @@ class FPSCamera {
 };
 
 void Area::init() { GAUGE::init(); }
-void FPSCamera::adjust() { func_0014e658(ObjCamera::getInstance()); }
+// 0014ec20: moved to src/harata/libdk/fpscamera.cpp
 } // namespace dk
 
 // YS OBJ ControlOn(int), declared by asm label (no qualified name in this file)

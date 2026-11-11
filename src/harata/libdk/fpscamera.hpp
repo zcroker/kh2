@@ -7,6 +7,7 @@ namespace dk {
     class FPSCamera {
     public:
         static void destroy();
+        static void adjust();
     };
 
 }  // namespace dk
