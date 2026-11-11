@@ -34,25 +34,5 @@ f32 cosf(f32);
 s32 func_001a7610(const V7b&, V7b*, s32, f32, f32);
 s32 func_001a75d8(O7b*, V7b*, s32);
 /* near-miss: frame/slots right; 100.0f not hoisted twice (orig f24+f26 copy), temp slot order sum/scale swapped */
-V7b func_001a7b78(O7b* o) {
-    V7b ret;
-    while (o->f14 >= o->f10) {
-        f32 a;
-        o->cnt++;
-        a = func_0017ce10(o->f18 + (f32)o->cnt * 0.7853982f);
-        f32 s = sinf(a);
-        V7b d(s, 0.0f, cosf(a), 0.0f);
-        if (func_001a7610(o->pos + d * o->f14, &ret, o->x20, 1000.0f, 200.0f)) {
-            d = o->pos + d * (o->f14 + 20.0f);
-            d.y = subh(ret.y, 100.0f);
-            if (func_001a75d8(o, &d, o->x20)) return ret;
-        }
-        if (o->cnt >= 8) {
-            o->cnt = 0;
-            o->f14 = subh(o->f14, 100.0f);
-        }
-    }
-    func_001a7610(o->pos, &ret, o->x20, 1000.0f, 200.0f);
-    return ret;
-}
+// 001a7b78: moved to src/yasui/libys/bg.cpp
 }

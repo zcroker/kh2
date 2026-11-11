@@ -856,9 +856,7 @@ u32 func_001a7568(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_001a7530(0x00000001u, 0x0000ffffu, a2, a3);
 }
 
-u32 func_001a8058(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_001a8020(0x00000001u, 0x0000ffffu, a2, a3);
-}
+// 001a8058: _GLOBAL__I_ stub, now made by gcc in src/yasui/libys/bg.cpp
 
 // 001a8438: moved to src/anon/unit_001a82f0.cpp
 

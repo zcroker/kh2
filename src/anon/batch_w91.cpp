@@ -281,19 +281,7 @@ void wtarget_001a1840(u8* p, u32, u32, u32) {
 // Tests a vertical segment through the point; on no hit, copies the point out.
 struct Seg91 { Vk a, b; };
 u32 func_00143a48(Seg91*);
-u32 func_001a76c8(Vk* a, Vk* out) {
-    Vk v0, v1;
-    Seg91 s;
-    v0 = *a;
-    v0.y -= 50.0f;
-    v1 = *a;
-    v1.y += 100.0f;
-    s.a = v0;
-    s.b = v1;
-    if (func_00143a48(&s)) return 1;
-    *out = *a;
-    return 0;
-}
+// 001a76c8: moved to src/yasui/libys/bg.cpp
 
 // --- 001be060
 struct E1be { s32 type; };
@@ -873,16 +861,7 @@ static inline void mmul91(Mc* r, Mc* a, Mc* b) {
                  "sqc2 $vf5, 0(%0)\n\tsqc2 $vf6, 16(%0)\n\tsqc2 $vf7, 32(%0)\n\tsqc2 $vf8, 48(%0)"
                  : : "r"(r), "r"(a), "r"(b) : "memory");
 }
-u32 func_001a7790(u8* a) {
-    Ob64 ob;
-    Mc m(*func_00106ad0(func_00106a18(1)));
-    u8* t = func_00106a60(1);  // buffer_get_by_index
-    Mc* n = t ? (Mc*)(t + 16) : 0;
-    Mc r;
-    mmul91(&r, &m, n);
-    func_00146680(&ob, &r);  // copy_quad4_if_diff
-    return func_00146730(&ob, a) == 0;
-}
+// 001a7790: moved to src/yasui/libys/bg.cpp
 
 // --- 002e3318
 // Collects the values of all items with `key` in the block tagged (c0, c1), up to max.

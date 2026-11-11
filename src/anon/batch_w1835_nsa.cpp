@@ -32,16 +32,7 @@ static inline f32 W1835Rnd()
 static inline f32 W1835RandF(f32 r) __attribute__((always_inline));
 static inline f32 W1835RandF(f32 r) { return W1835Rnd() * r; }
 
-void func_001a7a48(W1835Spark* s, W1835Vec* v, f32 lo, f32 hi, s32 n) {
-    W1835Copy(&s->pos, v);
-    s->lo = lo;
-    s->val = lo + W1835Rnd() * (hi - lo);
-    s->n = n;
-    s->zero = 0;
-    f32 k = 0.78539818525f;
-    s->ang = (f32)(((D_003509a0 & 4) >> 2) | (D_003509a0 << 1)) * k + W1835RandF(k);
-    D_003509a0 = (D_003509a0 + 1) % 8;
-}
+// 001a7a48: moved to src/yasui/libys/bg.cpp
 
 void func_0022d880(W1835Req* a) {
     s32 i;
