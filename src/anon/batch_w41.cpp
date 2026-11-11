@@ -84,13 +84,7 @@ static inline W41Node* w41NextNode(W41List* l, W41Node* n) { if (n == 0) return 
 
 extern "C" {
 
-void func_00105de0(u32 a) {
-    if (func_00103b38(a) == 0 && (D_0032b984 ^ 2) != 0) {
-        D_0033cbb0 = 1;
-        D_0033cbac = a;
-        func_00102080(D_0033cb80);
-    }
-}
+// 00105de0: moved to src/common/shop.cpp
 
 struct W41S10 { u8 a, b, c; u16 d, e, f; };
 static inline void w41InitS10(W41S10* s, u16 v) { s->a = v; s->b = v; s->c = v; s->d = v; s->e = v; s->f = v; }

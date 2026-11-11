@@ -299,21 +299,7 @@ static inline void sub_clamp(u8* e, s32 d) {
     *(s32*)(e + 4) = x;
 }
 
-void func_00105b58(void) {
-    u32 info[12];
-    u8 buf[2048];
-    s32 i;
-    func_001ae590(info, D_0033caf8);
-    func_001ae4c0(info[0], (info[1] + 2047) >> 11, buf);
-    for (i = 1; i < 9; i++) {
-        if (strncmp(buf + 16, func_00105c48(i)[0], 4) == 0 &&
-            strncmp(buf + 21, func_00105c48(i)[1], 3) == 0 &&
-            strncmp(buf + 25, func_00105c48(i)[2], 2) == 0) {
-            func_00105af8(i);
-            return;
-        }
-    }
-}
+// 00105b58: moved to src/common/region.cpp
 
 void func_00149cb8(void) {
     func_0013a6f8();
