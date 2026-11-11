@@ -217,14 +217,7 @@ void func_00152688(u8* a, void* b, void* c, void* d) {
     func_001a9ae8(obj, b, c, d);
 }
 
-void func_00159308(u8* p) {
-    if (*(u64*)(p + 8) & 0x400000) {
-        if (!func_00162098()) {
-            D_0034aa08 ^= 1;
-            func_00162058(12.0f);  // to_161f48_arg1
-        }
-    }
-}
+// 00159308: moved to src/anon/unit_00159240.cpp
 
 void func_001608c0(u8* p) {
     u32 tmp[4] __attribute__((aligned(16)));

@@ -608,9 +608,7 @@ u32 func_00158030(u32 a0, u32 a1, u32 a2, u32 a3) {
 
 // 00159030: _GLOBAL__I_ stub, now made by gcc in src/harata/libdk/bookcamera.cpp
 
-u32 func_00159770(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_00159728(0x00000001u, 0x0000ffffu, a2, a3);
-}
+// 00159770: _GLOBAL__I_ stub, now made by gcc in src/anon/unit_00159240.cpp
 
 u32 func_0015c4a0(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_00160de0(a0, a1, a2, a3);

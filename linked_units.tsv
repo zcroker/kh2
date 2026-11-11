@@ -37,3 +37,4 @@ src/anon/unit_002bac78.cpp	002bac78	002bb070	.bss@01e2a5e8	-G0 -fno-strict-alias
 src/yasui/libys/damage.cpp	0018c8b8	0018d050	.bss@01c60bf0,.rodata@0036cc28	-G0 -fno-strict-aliasing -finline-limit=1000
 src/harata/libdk/talkcamera.cpp	00159790	00159ce0	.data@0034aa10,.bss@004f3600,.rodata@0036b364	-G0 -fno-strict-aliasing
 src/harata/libdk/targetcamera.cpp	00159ce0	0015a810	.data@0034aa30,.bss@004f3604,.rodata@0036b378	-G0
+src/anon/unit_00159240.cpp	00159240	00159790	.data@0034aa08,.bss@004f35b0,.rodata@0036b32c	-G0 -fno-strict-aliasing
