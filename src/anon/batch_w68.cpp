@@ -146,19 +146,7 @@ void EIntr(void);  // ee_intr_get_enable
 u32 func_001ae1e0(void*);
 static inline Node2* Next2(Node2* n) { if (!n) return D_0034d840; return n->next; }
 
-Node2* func_00168218(void) {
-    Node2* best = 0;
-    Node2* n = 0;
-    u32 bestv = -1;
-    DIntr();
-    while ((n = Next2(n))) {
-        u32 v = func_001ae1e0(n->data);
-        if (n->busy) continue;
-        if (best == 0 || v < bestv) { bestv = v; best = n; }
-    }
-    EIntr();  // ee_intr_get_enable
-    return best;
-}
+// 00168218: moved to src/yasui/libys/file.cpp
 
 /* ---- 00168548 ---- */
 extern u8 D_01f18000[];
@@ -167,14 +155,7 @@ void func_002fde18(void*, u32, u32);
 extern Alloc1* D_0032b91c_a asm("D_0032b91c");
 void func_00168958(void*, u32, u32);  // obj_init_name_string
 
-void func_00168548(u32 a0, u32 a1, u32 a2) {
-    func_002fde18(D_01f18000, 0, D_01fc0000 - D_01f18000);
-    u8* o = (u8*)D_0032b91c_a->vt[0](D_0032b91c_a, 76, (u32)__builtin_return_address(0));
-    func_00168958(o, 2, a0);  // obj_init_name_string
-    *(u8**)(o + 52) = D_01f18000;
-    *(u32*)(o + 56) = a1;
-    *(u32*)(o + 60) = a2;
-}
+// 00168548: moved to src/yasui/libys/file.cpp
 
 /* ---- 001849d8 ---- */
 struct Bits3 { u64 lo:3; u64 kind:4; u64 mid:26; u64 dirty:1; };

@@ -90,23 +90,7 @@ struct L168 { L168* next; u32 f4; u8 lay[40]; u32 f48; u8 pad[16]; u32 f68; u16 
 struct List168 { L168* head; L168* tail; };
 extern List168 D_0034d840;
 void strlen(void*);  // strlen
-void func_00168958(L168* p, u32 a1, void* data)
-{
-    p->f48 = a1;
-    p->f4 = 0;
-    p->f68 = 0;
-    p->f74 = 0;
-    strlen(data);  // strlen
-    lay_file_build_data(p->lay, data);
-    if (!D_0034d840.head) {
-        D_0034d840.tail = p;
-        D_0034d840.head = p;
-        p->next = 0;
-    } else {
-        p->next = D_0034d840.head;
-        D_0034d840.head = p;
-    }
-}
+// 00168958: moved to src/yasui/libys/file.cpp
 
 // 0016a158: start a script VM for this object and run its entry
 void func_0016a158(u8* self, void* code)

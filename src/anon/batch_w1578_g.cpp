@@ -87,11 +87,7 @@ s32 func_00134278(void) {
     return r;
 }
 
-s32 func_001682b8(void) {
-    s32 r = func_001adf00();
-    FlushCache(0);
-    return r;
-}
+// 001682b8: moved to src/yasui/libys/file.cpp
 
 void func_001a5928(void) {
     func_001c70e8();

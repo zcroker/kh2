@@ -149,7 +149,7 @@ void func_0015ef38(BD_VALUE* bd) { func_00143318(bd); }
 void func_0015f6e8(BD_VALUE* bd) { func_001431e8(bd); }
 void func_0015f700(BD_VALUE* bd) { func_00143208(bd); }
 void func_001616d8(BD_VALUE* bd) { func_0011b6a8(bd); }
-void func_001688a0(BD_VALUE* bd) { func_001adea8(bd); }
+// 001688a0: moved to src/yasui/libys/file.cpp
 void func_00179ea0(BD_VALUE* bd) { func_001781e8(bd); }
 void func_00186008(BD_VALUE* bd) { func_001984b8(bd); }
 void func_00187850(BD_VALUE* bd) { func_00187868(bd); }
@@ -1820,13 +1820,7 @@ u32 func_0015cc60(u32 a0, u32 a1, u32 a2, u32 a3) {
     return (u32)&D_004f36ec;
 }
 
-u32 func_001688b8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a0;
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    return (D_0034d840 != 0);
-}
+// 001688b8: moved to src/yasui/libys/file.cpp
 
 void func_00198e50(u32 a0, u32 a1, u32 a2, u32 a3) {
     (void)a3;

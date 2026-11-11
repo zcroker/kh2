@@ -125,19 +125,7 @@ u32 func_001682f0(void*, u32, u32, u32);
 u32 func_001682b8(void*, u32);
 
 // Worker loop: runs queued jobs forever.
-void func_001685f0(void) {
-    for (;;) {
-        func_003058a0(0);
-        Job168* j;
-        while ((j = func_00168218()) != 0) {
-            j->state = 1;
-            if (j->n) j->result = func_001682f0(j->ctx, j->f52, j->f68, j->n);
-            else j->result = func_001682b8(j->ctx, j->f52);
-            j->state = 2;
-        }
-        func_0014d430();
-    }
-}
+// 001685f0: moved to src/yasui/libys/file.cpp
 
 void func_0016ace0(u8*);
 void func_0016adc8(u8* p) {
