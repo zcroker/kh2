@@ -94,30 +94,7 @@ extern void* D_0032bac8;
 extern u8 D_0032bad0[];
 extern u8 D_0032ba90[];
 void func_01f18014(s32, void*);
-void D_001043e8(u32 a) {
-    func_00167f38(4);
-    func_00168548(D_00369e30, 0, 0);
-    func_00170888(a);
-    func_003058a0(2);
-    func_001688a0();
-    func_00170888(a);
-    D_0032babc = func_00106178(func_00170b30(0xb00000), 0xb00000);
-    u8* p = func_00170b30(0x1e0000);  // alloc_align128
-    D_0032bac0 = func_00106178(p, 0x40000);
-    p += 0x40000;
-    D_0032bac4 = func_00106178(p, 0x180000);
-    p += 0x180000;
-    D_0032bac8 = func_00106178(p, 0x20000);
-    s32 i = 0;
-    do {
-        *(u8*)(i + (u32)D_0032bad0) = 0;
-        i++;
-        s32 c = i < 3;
-        asm volatile("nop\n\tnop" : "+r"(c));
-        if (!c) break;
-    } while (1);
-    func_01f18014(0, D_0032ba90);
-}
+// 001043e8: moved to src/common/gumimenu.cpp
 
 // ---- 00104f58
 struct Pos10 { s16 v[5]; };

@@ -92,9 +92,7 @@ void* get_weapon_entry(const void* self, s32 i) asm("_ZNK2YS8OBJENTRY16get_weapo
 void trap_treasure_get(u32* v) asm("_ZN2YS17trap_treasure_getEP8BD_VALUE");
 void trap_stitch_shot_effect(u32* v) asm("_ZN2kn23trap_stitch_shot_effectEP8BD_VALUE");
 
-void func_001045b8(u32 a, u32 b, u32 c, u32 d) {
-    func_00102818(D_0032ba94, a, b, c, d);
-}
+// 001045b8: moved to src/common/gumimenu.cpp
 
 void func_0010f960(u8* p) {
     if (*(s32*)(*(u8**)(p + 12) + 4) == 31) {

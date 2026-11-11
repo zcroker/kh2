@@ -47,7 +47,7 @@ extern u32 D_01c60528;
 extern u32 D_01d9eaac;
 extern u32 D_01d9eab0;
 
-u32 func_00104340(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a1; (void)a2; (void)a3; return *(u8*)((u32)&D_0032bad0 + (u32)a0 + (0)); }
+// 00104340: moved to src/common/gumimenu.cpp
 
 u32 func_00105f80(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a1; (void)a2; (void)a3; return *(u32*)((u32)&D_00369ff8 + ((u32)a0 << 2) + (0)); }
 

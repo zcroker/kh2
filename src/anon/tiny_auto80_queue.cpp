@@ -5662,32 +5662,12 @@ extern u8 D_0032ba48;
 extern "C" u32 func_00104340(...);
 extern u8 D_003a6b00;
 
-u32 func_00104370(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r2, r15;
-    r4 = 0u;
-    r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_00104340)(r4, r5, r6, r7, r8, r9, r10, r11);
-    r15 = 0u;
-    if (r2 != 0u) {
-    r15 = (u32)&D_003a6b00;
-    }
-    r2 = r15;
-    return r2;
-}
+// 00104370: moved to src/common/gumimenu.cpp
 
 extern "C" u32 func_00104340(...);
 extern u8 D_003a7300;
 
-u32 func_001043a0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32 s0 = a0;
-    u32 r2 = func_00104340(a0 + 1, a1, a2, a3, a4, a5, a6, a7);
-    u32 r4 = 0u;
-    if (r2 != 0u) {
-        u32 t7 = (u32)&D_003a7300;
-        u32 t6 = (u32)(s0 << 10);
-        r4 = (u32)(t6 + t7);
-    }
-    return r4;
-}
+// 001043a0: moved to src/common/gumimenu.cpp
 
 extern u8 D_001043e8;
 extern u8 D_001044f0;

@@ -23,17 +23,7 @@ extern u8 D_0032ba90[];
 extern u32 D_0032bac0;
 extern u32 D_0032babc;
 extern u32 D_0032bac4;
-void D_001044f0(void) {
-    func_00170dd0();
-    func_003058a0(2);
-    func_01f18014(1, D_0032ba90);
-    func_00170c00(D_0032bac0);
-    func_00170c00(D_0032babc);
-    func_00170320(0);
-    D_0032bac4 = 0;
-    D_0032bac0 = 0;
-    D_0032babc = 0;
-}
+// 001044f0: moved to src/common/gumimenu.cpp
 
 extern u8 D_00347c88[];
 void func_00133570(void*);
