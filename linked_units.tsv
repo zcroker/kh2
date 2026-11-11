@@ -48,3 +48,5 @@ src/yasui/libys/file.cpp	00168218	00168aa0	.data@0034d800,.bss@004f5280	-G0 -g -
 src/harata/libdk/fpscamera.cpp	0014e2c0	0014ecb8	.data@0034a3f0,.bss@004f3580,.rodata@0036b1e0	-G0 -fno-strict-aliasing
 src/sugi/flare.cpp	002e9248	002e99c8	.data@01e2bfa0,.rodata@00376090	-G0 -fno-strict-aliasing
 src/yasui/libys/bg.cpp	001a7588	001a8098	.data@00350990,.rodata@0036d5d0	-G0 -fno-strict-aliasing -fmove-all-movables
+src/yasui/libys/worldwork.cpp	001ba138	001ba168	.bss@01d48dc0	-G0
+src/yasui/libys/itemeffect.cpp	001ba168	001ba7e0	.bss@01d48de0,.rodata@0036dbe0	-G0 -fno-strict-aliasing

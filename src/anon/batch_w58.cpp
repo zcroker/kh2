@@ -281,17 +281,7 @@ struct L20 { Nd20* head; Nd20* tail; };
 extern L20 D_01d48de0;
 u32 func_0016a070(u32);
 s32 func_001a3888(u32);  // id_in_range_5_7_131
-void func_001ba1f8(Nd20* n, u32 a1, u32 a2, u32 a3) {
-    n->f4 = a2;
-    n->f8 = a1;
-    n->f0 = 30.0f;
-    n->f12 = func_0016a070(a1);
-    if (func_001a3888(n->f4)) a3 = 0;
-    asm volatile("" ::: "memory");
-    n->f16 = a3;
-    if (!D_01d48de0.tail) { D_01d48de0.tail = n; D_01d48de0.head = n; n->next = 0; }
-    else { D_01d48de0.tail->next = n; n->next = 0; D_01d48de0.tail = n; }
-}
+// 001ba1f8: moved to src/yasui/libys/itemeffect.cpp
 
 u32 func_001b8e88(u16);
 void func_001bd918(u8*, u32, s32);

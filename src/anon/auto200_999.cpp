@@ -1274,7 +1274,7 @@ void func_0031f298(u32 a0, u32 a1) { UNLINK_BODY(12) }
 void func_0031fe00(u32 a0, u32 a1) { UNLINK_BODY(124) }
 void func_003201e8(u32 a0, u32 a1) { UNLINK_BODY(24) }
 void func_00320468(u32 a0, u32 a1) { UNLINK_BODY(2232) }
-void func_003204c8(u32 a0, u32 a1) { UNLINK_BODY(20) }
+// 003204c8: LIST<YS::ITEM_EFFECT>::Remove, now made by gcc in src/yasui/libys/itemeffectlist.cpp
 void wtarget_00320828(u32 a0, u32 a1, u32 a2, u32 a3) { UNLINK_BODY(80) }
 void func_003208a8(u32 a0, u32 a1) { UNLINK_BODY(36) }
 void u_call4_003216c8(u32 a0, u32 a1, u32 a2, u32 a3) { UNLINK_BODY(48) }

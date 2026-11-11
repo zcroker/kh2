@@ -5633,67 +5633,13 @@ void func_001b9b28(u32 a0) {
     *(u32*)(a0 + 2040) = t7 | 0x500;
 }
 
-u32 func_001ba528(u32 a0, u32 a1, u32 a2) {
-    (void)a0;
-    u32 s1 = a1;
-    u32 s0 = func_00176b58(a2);
-    if (s0 == 0) {
-        return;
-    }
-    u32 v0 = func_001a3a78();
-    return func_001de168(v0, s1, 1, 1, 10002, s0);  // scan_list_by_half
-}
+// 001ba528: moved to src/yasui/libys/itemeffect.cpp
 
-void func_001ba650(u32 a0) {
-    u32 s0 = a0;
-    if (func_00176e78(a0, *(u16*)(a0 + 2860), *(u16*)(a0 + 2862)) == 0) {
-        return;
-    }
+// 001ba650: moved to src/yasui/libys/itemeffect.cpp
 
-    u32 v0 = func_001050d8(24);
-    return func_001ba1f8(v0, s0, *(u16*)(s0 + 2860), *(u32*)(s0 + 2864));
-}
+// 001ba6b0: moved to src/yasui/libys/itemeffect.cpp
 
-void func_001ba6b0() {
-    u32 s0 = D_01d48de0;
-    if (s0 == 0) {
-        return;
-    }
-
-    while (1) {
-        u32 s1 = *(u32*)(s0 + 20);
-        if (func_001ba408(s0) == 0) {
-            if (s0 != 0) {
-                func_001ba310(s0);
-                func_00105110(s0);
-            }
-        }
-
-        if (s1 == 0) {
-            return;
-        }
-        s0 = s1;
-    }
-}
-
-void func_001ba740() {
-    u32 s0 = D_01d48de0;
-    if (s0 == 0) {
-        return;
-    }
-
-    while (1) {
-        u32 s1 = *(u32*)(s0 + 20);
-        if (s0 != 0) {
-            func_001ba310(s0);
-            func_00105110(s0);
-        }
-        if (s1 == 0) {
-            return;
-        }
-        s0 = s1;
-    }
-}
+// 001ba740: moved to src/yasui/libys/itemeffect.cpp
 
 void func_001bb020(u32 a0) {
     u32 s0 = a0;

@@ -1273,29 +1273,7 @@ void func_001ba598(Fx16*);
 u8* func_00176b20(s32);
 s32 func_0019ba60(u8*);
 u32 func_0016a070(u8*);
-s32 func_001ba408(Fx16* p)
-{
-    B16 b;
-    f32 t = p->t;
-    b.d.u = 0;
-    if (30.0f <= t) func_001ba340_x1290(p);
-    p->t -= D_00349e10;
-    if (p->t <= 0.0f) {
-    u8* d = func_001a80c8(p->id);  // table24_find_by_id
-    if (p->target) {
-        func_001ba528(p, *(u16*)(d + 6), p->target);
-    } else {
-        for (s32 i = 0; i < 3; i++) {
-            u8* o = func_00176b20(i);
-            if (func_0019ba60(o) && !(*(u32*)(o + 1416) & 0x400000))
-                func_001ba528(p, *(u16*)(d + 6), func_0016a070(o));
-        }
-    }
-    func_001ba598(p);
-    return 0;
-    }
-    return 1;
-}
+// 001ba408: moved to src/yasui/libys/itemeffect.cpp
 
 struct Task2 { s32 state; u8 pad[36]; u32 flags; u8 pad2[12]; Task2* next; };
 struct Mgr2 { u8 pad[8]; Task2* head; u8 pad2[4]; Task2* cur; u8 pad3[252]; Task2* it; };
@@ -11131,19 +11109,7 @@ void* func_0016bc20__1ba340(u8*, u32, s32) asm("func_0016bc20");
 void func_0018a818__1ba340(Hit1ba340*, u8*, void*) asm("func_0018a818");
 V1ba340* func_001dc5f8__1ba340(u32) asm("func_001dc5f8");
 V1ba340* func_0016c028__1ba340(u8*) asm("func_0016c028");
-void func_001ba340(O1ba340* o)
-{
-    Hit1ba340 h;
-    h.n = 0;
-    u32 m = func_001de168__1ba340(func_001a3a78__1ba340(), 0, 1, 1, 10002, 0);
-    void* nd = func_0016bc20__1ba340(o->e, 8, -1);
-    if (nd) {
-        func_0018a818__1ba340(&h, o->e, nd);
-        *func_001dc5f8__1ba340(m) = h.pos;
-    } else {
-        *func_001dc5f8__1ba340(m) = *func_0016c028__1ba340(o->e);
-    }
-}
+// 001ba340: moved to src/yasui/libys/itemeffect.cpp
 
 // --------------------
 extern u64 D_0034c710;
