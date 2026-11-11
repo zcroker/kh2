@@ -173,11 +173,7 @@ u32 func_001abf00(s32* p) {
 }
 
 struct Ref0498 { u8* o; u32 x; bool f; };
-bool func_001b0498(Ref0498* p) {  // obj_check_ready_flags
-    u8* o = p->o;
-    if (!o) return false;
-    return (u8)(!p->f & 1) || (*(u32*)(o + 352) & 0x4000000) != 0;
-}
+// 001b0498: moved to src/yasui/libys/lookat.cpp
 
 // 001bbcc0: moved to src/yasui/libys/mission.cpp
 

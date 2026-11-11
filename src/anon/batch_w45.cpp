@@ -219,14 +219,7 @@ void func_001aeb80(void) {
     }
 }
 
-void func_001b0858(u8* a0, f32 f, u32 a1, u32 a2) {
-    if (*(s32*)(a0 + 12) >= 0) {
-        *(u32*)(a0 + 4) = 3;
-        func_001b08e8(a0, a1);
-        func_001ad990(a0 + 16, 0.0f, 1.0f, f);
-        *(u32*)(a0 + 8) = a2;
-    }
-}
+// 001b0858: moved to src/yasui/libys/lookat.cpp
 
 // start the task for id unless it is invalid or already current
 void func_001b1e80(s32 id) {

@@ -151,33 +151,7 @@ void func_001b13d0();
 void func_002fd188(void (*)());  // pool_alloc_block
 s32 func_001b0498(Src278*);  // obj_check_ready_flags
 f32 cosf(f32);
-Res278* func_001b0580(Src278* s) {
-    if (!D_01c940c0) {
-        D_01c940c0 = 1;
-        func_002fd188(func_001b13d0); /* static local dtor registration */
-    }
-    if (!func_001b0498(s)) return 0;
-    switch (s->type) {
-    case 0:
-        return 0;
-    case 1:
-    case 2:
-        D_01c940d0.v = s->v;
-        D_01c940d0.v.w = (1.0f - cosf(s->t * 3.1415927f)) * 0.5f;
-        asm volatile("" ::: "memory");
-        D_01c940d0.id = s->id;
-        D_01c940d0.flag = 0;
-        break;
-    case 3:
-        D_01c940d0.v = s->v;
-        D_01c940d0.v.w = (1.0f - cosf(s->t * 3.1415927f)) * 0.5f;
-        asm volatile("" ::: "memory");
-        D_01c940d0.id = s->id;
-        D_01c940d0.flag = 1;
-        break;
-    }
-    return &D_01c940d0;
-}
+// 001b0580: moved to src/yasui/libys/lookat.cpp
 }
 struct ITbl278 { s16 max; u8 pad[18]; };
 extern "C" {

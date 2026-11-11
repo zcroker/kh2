@@ -305,11 +305,7 @@ void func_001ad1d0(u8* p, s32 a1) {
     *(void**)p = D_00350af0;
 }
 
-void func_001b08e8(u8* p, const Q16* v) {
-    Q16* d = (Q16*)(p + 32);
-    *d = *v;
-    vu0_normalize_nr(*d);
-}
+// 001b08e8: moved to src/yasui/libys/lookat.cpp
 
 void func_001c0ae0(void*);
 void func_001c0ca0(s32);

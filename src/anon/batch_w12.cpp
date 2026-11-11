@@ -195,11 +195,7 @@ s32 func_001b0148(s32 x, s32 a, s32 v, s32 b) {
     return v;
 }
 
-void ctarget_001b1328(u32 a, u32 b, u32 c, u32 d) {
-    u8 buf[16];
-    func_0016c2b0(buf);
-    func_001b1100(a, buf);
-}
+// 001b1328: moved to src/yasui/libys/lookat.cpp
 
 void func_001b2f10(void) {
     D_01d48c90 = 1;

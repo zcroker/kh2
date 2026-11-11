@@ -253,12 +253,7 @@ extern T1a8* D_01c6cb98;
 
 // ---- 001b1360
 u8* func_001b9bc8(u8*);
-void func_001b1360(s32 from, s32 to) {
-    u8* o = 0;
-    while ((o = func_001b9bc8(o))) {
-        if (*(s32*)(o + 1188) == 2 && *(s32*)(o + 1232) == from) *(s32*)(o + 1232) = to;
-    }
-}
+// 001b1360: moved to src/yasui/libys/lookat.cpp
 
 // ---- 001b2380: init a buffer and append it to the global list
 struct Buf1b2 { u32 n; u32 f4; u32 f8; u32 fc; f32 f10; void* data; Buf1b2* next; };

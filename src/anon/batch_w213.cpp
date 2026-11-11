@@ -32,9 +32,6 @@ float GetRestTime_00197b98() {
 struct S1b0 { u32 a; u32 pad[2]; u32 b; };
 struct R16 { u8 pad[6]; u16 h; };
 extern R16* func_0016bc20(u32, u32, s32);
-void func_001b0448(S1b0* a0, u32 a1) {
-    R16* v = func_0016bc20(a1, 12, -1);
-    if (v) { a0->a = a1; asm volatile("" ::: "memory"); a0->b = v->h; }
-}
+// 001b0448: moved to src/yasui/libys/lookat.cpp
 
 }
