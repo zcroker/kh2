@@ -31,40 +31,5 @@ static inline void vadd(V1a7da8* r, const V1a7da8* a, const V1a7da8* b) {
 static inline void vcpy(V1a7da8* d, const V1a7da8* s) {
     if (d != s) asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(d), "r"(s) : "$8", "memory");
 }
-V1a7da8 func_001a7da8(S1a7da8* s, f32 lo, f32 hi)
-{
-    V1a7da8 v;
-    V1a7da8 p;
-    V1a7da8 tsum;
-    V1a7da8 tmul;
-    while (s->top >= s->bottom) {
-        f32 step = 0.7853981852531433f;
-        f32 zero = 0.0f;
-        f32 scale = 2.3283064365386963e-10f;
-        f32 up = 20.0f;
-        V1a7da8* pp = &p;
-        V1a7da8* pm = &tmul;
-        V1a7da8* pu = &tsum;
-        s->count++;
-        f32 a = func_0017ce10(s->angle + (f32)s->count * step);
-        f32 sx = sinf(a);
-        f32 cz = cosf(a);
-        v.x = sx; v.z = cz; v.y = zero; v.w = zero;
-        vmul(pm, &v, s->top);
-        vadd(pu, &s->pos, pm);
-        vcpy(pp, pu);
-        D_003638d0 *= 0x10dcd;
-        p.y -= lo + (f32)D_003638d0 * scale * (hi - lo);
-        vmul(pm, &v, s->top + up);
-        vadd(pu, &s->pos, pm);
-        vcpy(&v, pu);
-        v.y = p.y - 100.0f;
-        if (func_001a75d8(s, &v, s->arg)) return p;
-        if (s->count >= 8) {
-            s->count = 0;
-            s->top -= 100.0f;
-        }
-    }
-    return s->pos;
-}
+// 001a7da8: moved to src/yasui/libys/bg.cpp
 }

@@ -193,12 +193,7 @@ void* func_001a07b0(void* p, u32 a, u32 b) {
     return p;
 }
 
-void* func_001a78c0(void* out, u32 a, int b, f32 x, f32 y, f32 z, f32 w) {
-    u8 tmp[48];
-    func_001a7a48(tmp, a, b, x, y);
-    func_001a7da8(out, tmp, z, w);
-    return out;
-}
+// 001a78c0: moved to src/yasui/libys/bg.cpp
 
 // Find the 24-byte table entry whose u16 id matches.
 // 001a80c8: moved to src/anon/unit_001a8098.cpp

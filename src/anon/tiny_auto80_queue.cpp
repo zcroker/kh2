@@ -18378,29 +18378,11 @@ void func_001a6d98(u32 a0, u32 a1, u32 a2, u32 a3) {
     }
 }
 
-u32 func_001a75d8(u32 a0, u32 a1, u32 a2) {
-    u8 tmp[32];
-    u32 r = func_001d35e0(tmp, a0, a1, a2);
-    return (r ^ 1u) & 0xFFu;
-}
+// 001a75d8: moved to src/yasui/libys/bg.cpp
 
-u32 func_001a7888(u32 a0) {
-    u8 tmp[48];
-    func_001a7a48(tmp);
-    func_001a7b78(a0, tmp);
-    return a0;
-}
+// 001a7888: moved to src/yasui/libys/bg.cpp
 
-void func_001a8020(u32 a0, u32 a1) {
-    if ((a1 == 0xFFFFu) && (a0 == 1u)) {
-        f32 z = 0.0f;
-        volatile f32* p = (volatile f32*)&D_00350990;
-        p[3] = z;
-        p[0] = z;
-        p[1] = z;
-        p[2] = z;
-    }
-}
+// 001a8020: static initialiser, now made by gcc in src/yasui/libys/bg.cpp
 
 // 001a8110: moved to src/anon/unit_001a8098.cpp
 

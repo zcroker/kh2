@@ -108,18 +108,4 @@ void func_0018b010(void* a, W1788V4* p, void* c) {
 }
 }
 
-s32 func_001a7610(unsigned int a0, unsigned int a1, unsigned int a2, float f, float g) {
-    W1788V4 p, q;
-    W1788Hit h2;
-    W1788Hit out;
-    p = *(W1788V4*)a0;
-    p.y -= g;
-    q = *(W1788V4*)a0;
-    q.y += f + g;
-    if (func_001d35e0(&out, &p, &q, a2)) {
-        *(W1788V4*)a1 = out.pos;
-        return 1;
-    }
-    *(W1788V4*)a1 = *(W1788V4*)a0;
-    return 0;
-}
+// 001a7610: moved to src/yasui/libys/bg.cpp

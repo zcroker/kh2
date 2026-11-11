@@ -182,13 +182,7 @@ u32 func_00188758(B156* t) {
 struct Q16 { u32 w[4]; } __attribute__((aligned(16)));
 #define QCOPY(d, s) asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(d), "r"(s) : "$8", "memory")
 void* func_001d35e0(void*, void*, u32);
-u32 func_001a7588(void* p, u32 a1, Q16* out) {
-    u32 tmp[8] __attribute__((aligned(16)));
-    if (func_001d35e0(tmp, p, a1)) {
-        if (out != (Q16*)tmp) { QCOPY(out, tmp); }
-    }
-    return tmp[5];
-}
+// 001a7588: moved to src/yasui/libys/bg.cpp
 
 // Out-of-range test against the 0x7000/0x9000/0x7300/0x8d00 screen limits.
 u32 func_001aaf98(u32 z, s32 a, s32 b, s32 c, s32 d) {  // bounds_check_ranges
