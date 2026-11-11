@@ -131,9 +131,7 @@ u32 func_00103e78(u32 a0, u32 a1, u32 a2, u32 a3) {
 
 // 00104588: moved to src/common/gumimenu.cpp
 
-u32 func_00105d78(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_00102788(((u32)(*(u32*)((u32)((u32)&D_00340000) - 13436u))), a0, a1, a2);
-}
+// 00105d78: moved to src/common/shop.cpp
 
 u32 func_0010a5f0(u32 a0, u32 a1, u32 a2, u32 a3) {  // register_static_buffer
     return func_001342c8((u32)&D_00340f30, 0x0000000au, 0x13000000u, a3);

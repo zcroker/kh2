@@ -99,18 +99,7 @@ struct C105_w1671 { void* vt; s32 f4; u8 f8; u8 p9[0xb]; s32 f14; s32 f18; s32 f
 extern C105_w1671 D_0033cb80;
 extern u8 D_0032b930;
 void wt_00105e68(u32 a0, u32 a1, u32, u32) asm("_Z16wtarget_00105e68jjjj");
-void wt_00105e68(u32 a0, u32 a1, u32, u32) {
-    if (a1 == 0xffff && a0 == 1) {
-        C105_w1671* p = &D_0033cb80;
-        p->vt = &D_0032b930;
-        p->f4 = 0;
-        p->f8 = 84;
-        p->f14 = 2;
-        p->f18 = 0x222e0;
-        p->f1c = 0; p->f20 = 0; p->f24 = 0;
-        p->f28 = 4096;
-    }
-}
+// 00105e68: static initialiser, now made by gcc in src/common/shop.cpp
 
 extern s32 D_003417a8;
 extern s32 D_00341788[];

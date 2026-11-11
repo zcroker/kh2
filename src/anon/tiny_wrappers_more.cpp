@@ -414,9 +414,7 @@ u32 func_00105530(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_00105400(0x00000001u, 0x0000ffffu, a2, a3);
 }
 
-u32 func_00105ec8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_00105e68(0x00000001u, 0x0000ffffu, a2, a3);
-}
+// 00105ec8: _GLOBAL__I_ stub, now made by gcc in src/common/shop.cpp
 
 u32 func_00106490(u32 a0, u32 a1, u32 a2, u32 a3) {
     return srand(a0, a1, a2, a3);

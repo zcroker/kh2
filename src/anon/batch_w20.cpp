@@ -82,9 +82,7 @@ extern void* D_00350388[];
 extern void* D_00362398[];
 extern void* D_00362908[];
 
-void func_00105da8(u32 a, u32 b, u32 c, u32 d) {
-    func_00102818(D_0033cb84, a, b, c, d);
-}
+// 00105da8: moved to src/common/shop.cpp
 
 // Returns the i-th 32-byte entry of the table hanging off p->f8, or 0 when out of range.
 u8* func_00113808(u8* p, s32 i) {

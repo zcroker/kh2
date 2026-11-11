@@ -325,14 +325,7 @@ void func_00105a10(u32 a0, u32 a1, u32 a2, u32 a3) {
     (void)a3;
 }
 
-u32 func_00105c30(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a0;
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    u32 b = (0x0034u << 16);
-    return (u32)(*(u32*)((u32)b + (-13572)));
-}
+// 00105c30: moved to src/common/region.cpp
 
 u32 func_001069a8(u32 a0, u32 a1, u32 a2, u32 a3) {
     (void)a0;

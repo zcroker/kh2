@@ -42,3 +42,5 @@ src/anon/unit_001a8098.cpp	001a8098	001a82b0	.data@01c6cb90	-G0 -fno-strict-alia
 src/anon/unit_001a82f0.cpp	001a82f0	001a85b8	.bss@01c6cba0	-G0 -fno-strict-aliasing
 src/common/gumimenu.cpp	00104318	00104910	.data@0032ba90,.bss@003a6a80,.rodata@00369e30	-G0
 src/common/area.cpp	00104910	00105400	.data@0032bad8,.bss@003a7b00,.rodata@00369e50	-G0
+src/common/region.cpp	00105af8	00105c68	.data@0033caf0,.rodata@00369e88	-G0
+src/common/shop.cpp	00105c68	00105ee8	.data@0033cb80,.rodata@00369f50	-G0

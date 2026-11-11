@@ -56,17 +56,7 @@ void func_00102448(u32, s32);
 void func_003058a0(s32, s32);
 extern u8 D_0033cb80[];
 void func_01f18014(s32, void*);
-void D_00105c68(u32 a) {
-    func_00167ea8(a);
-    func_0014c9d8(1);
-    func_0014df88();
-    func_0014e0d8();
-    if (D_0032b968.f28) D_0032b968.f28 = 2;
-    func_00168548(D_00369f50, 0, 0);
-    while (func_001688b8()) func_00102448(a, 0);
-    func_003058a0(2, 0);
-    func_01f18014(0, D_0033cb80);
-}
+// 00105c68: moved to src/common/shop.cpp
 // ---- 0010a4d0
 struct E10a { u32 f0; u32 f4; u32 f8; u32 pad; u8 v16[64]; u8 v80[64]; u8 v144[64]; u8 v208[64]; u32 f272; u32 pad2[3]; };
 extern u32 D_0033cc68;

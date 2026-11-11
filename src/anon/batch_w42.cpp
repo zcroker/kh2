@@ -30,16 +30,7 @@ extern u32 D_0033cafc;
 extern u32 D_0033caf0;
 extern u32 D_0033caf4;
 extern u32 D_0033cb00[];
-void func_00105af8(s32 mode)
-{
-    D_0033cafc = mode;
-    D_0033caf0 = D_0033cb00[mode - 1];
-    switch (mode) {
-    case 3: D_0033caf4 = D_0033cb00[1]; break;
-    case 8: D_0033caf4 = D_0033cb00[0]; break;
-    default: D_0033caf4 = D_0033caf0; break;
-    }
-}
+// 00105af8: moved to src/common/region.cpp
 
 // 00109360: switch to entry `id`, issuing its command pair if both are set
 struct Pair109 { u32 a; u32 b; };
