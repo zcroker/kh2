@@ -184,11 +184,7 @@ void func_001940b8(u8* p, u32 a, u32 b, u32 c, f32 x, f32 y) {  // obj_set_bytes
     func_001ad990((u32)(p + 2240), *(f32*)(p + 2240), x, y);
 }
 
-void YS_EFFECT_Ensure(void) {
-    func_001de450(D_01c6cae0);
-    func_001dde40(D_01c6cae0);
-    func_00170950(D_01c6cafc);
-}
+// 001a3b08: moved to src/yasui/libys/effect.cpp
 
 void func_001ad990(u32 p, f32 a, f32 b, f32 t) {
     f32* o = (f32*)p;

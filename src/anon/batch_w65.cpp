@@ -270,15 +270,7 @@ extern u32 D_01c6cb10;
 u32 func_001708f8(u32, s32);
 u8* func_00168b38(u32, s32, s32);  // entry_array_find_nth
 void func_001dddd0(void*, u32);
-void func_001a3a88(void) {
-    u32 v = func_001708f8(D_00350748, -1);
-    D_01c6cafc = v;
-    func_001dddd0(D_01c6cae0, *(u32*)(func_00168b38(v, 18, 0) + 8));
-    s32 i;
-    u32* q = D_01c6cb00;
-    for (i = 3; i >= 0; i--) *q++ = 0;
-    D_01c6cb10 = 0;
-}
+// 001a3a88: moved to src/yasui/libys/effect.cpp
 
 void func_00165768(u32);
 void func_001b3018(u32* p) {

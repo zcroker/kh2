@@ -1820,13 +1820,7 @@ void func_00198e60(u32 a0, u32 a1, u32 a2, u32 a3) {
 
 extern "C" u32 func_0019f060(u32, u32, u32, u32) asm("_ZN2YS6JUMPER7is_jumpEv");
 
-u32 func_001a3a78(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a0;
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    return (u32)&D_01c6cae0;
-}
+// 001a3a78: moved to src/yasui/libys/effect.cpp
 
 u32 func_001a8b28(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_data_1c7cc10
     (void)a0;

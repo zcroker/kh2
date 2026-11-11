@@ -4642,33 +4642,9 @@ u32 func_001a3788(u8* a0, u32 a1, s32 a2) {
     return r2 + 2;
 }
 
-u32 func_001a3bf0(u32 a0, u32, u32 a2, u32 a3, u32 a4, u32 a5) {
-    u32 s0 = a0;
-    u32 s1 = a3;
-    u32 s2 = a4;
-    u32 s3 = a5;
-    u32 s4 = a2;
-    s32 r = func_001de2e0(s0);
-    if (r < 0) {
-        return 0;
-    }
-    return func_001de168(s0, (u32)r, s1, s2, s3, s4);  // scan_list_by_half
-}
+// 001a3bf0: moved to src/yasui/libys/effect.cpp
 
-void func_001a3c88() {
-    u32* s0 = &D_01c70000[-3392];
-    s32 s1 = 3;
-    do {
-        u32 p = *s0;
-        if (p) {
-            if (!func_001dc9d0(p)) {
-                *s0 = 0;
-            }
-        }
-        s1 = s1 - 1;
-        s0 = s0 + 1;
-    } while (s1 >= 0);
-}
+// 001a3c88: moved to src/yasui/libys/effect.cpp
 
 u32 func_001a4550(u32 a0, u32 a1) {
     u32 s1 = func_001050d8(320);

@@ -385,14 +385,7 @@ u8* func_0019b0e8(u8* a, u32 b, u32 c, f32 f, f32 g) {
 }
 
 // Keeps the last four dead effects; the oldest is released when replaced.
-void AddDeadEffect(void* e) {
-    if (!e) return;
-    DeadRingW55* r = &D_01c6cb00;
-    void* old = r->e[r->idx];
-    if (old) func_001dc978(old, 4.0f);
-    r->e[r->idx] = e;
-    r->idx = (r->idx + 1) % 4;
-}
+// 001a3ce0: moved to src/yasui/libys/effect.cpp
 
 extern "C" {
 

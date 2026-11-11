@@ -290,9 +290,7 @@ u32 func_001913b8(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_001cd660((u32)&D_01c60d10, a1, a2, a3);
 }
 
-u32 func_001a3a50(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_00170518(((u32)(*(u32*)((u32)((u32)&D_00350000) + 1864u))), 0x000003e8u, 0x00000000u, a3);
-}
+// 001a3a50: moved to src/yasui/libys/effect.cpp
 
 // 001ba138: moved to src/yasui/libys/worldwork.cpp
 
