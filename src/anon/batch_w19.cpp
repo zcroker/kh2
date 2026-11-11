@@ -179,16 +179,10 @@ bool func_001b0498(Ref0498* p) {  // obj_check_ready_flags
     return (u8)(!p->f & 1) || (*(u32*)(o + 352) & 0x4000000) != 0;
 }
 
-s32 func_001bbcc0(void) {
-    if (func_001bb4a0()) return *(*(u8**)((u8*)func_001bbcb0() + 8) + 14);
-    return 1;
-}
+// 001bbcc0: moved to src/yasui/libys/mission.cpp
 
 struct Flags1bc { u16 a : 14; u16 b : 1; u16 c : 1; };
-bool func_001bc050(void) {
-    if (!func_001bb4a0()) return 0;
-    return ((Flags1bc*)(*(u8**)((u8*)func_001bbcb0() + 8) + 4))->b;
-}
+// 001bc050: moved to src/yasui/libys/mission.cpp
 
 void func_001d4dc0(u32* p, u32 a, u32 b, u32 c) {
     p[0x238 / 4] = a;

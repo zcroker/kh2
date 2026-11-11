@@ -184,14 +184,7 @@ void func_001b8258(void) {
 
 int func_001bb4a0(void);
 u8* func_001bbcb0(void);
-u32 func_001bbec0(void) {
-    u32 r = 0;
-    if (func_001bb4a0()) {
-        u32 h = *(u16*)(*(u8**)(func_001bbcb0() + 8) + 4);
-        r = (h >> 11) & 1;
-    }
-    return r;
-}
+// 001bbec0: moved to src/yasui/libys/mission.cpp
 
 void func_001c6fa8(u8*, u32, u32, u32, u32);
 void func_001ca988(u8* p, u32 a1, u32 a2, u32 a3, u32 a4, u32 x) {

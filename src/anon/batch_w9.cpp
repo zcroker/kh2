@@ -147,12 +147,7 @@ u16 func_001b5af0(void) {
     return *(u16*)(*(u8**)p + 40);
 }
 
-u32 func_001bbb28(void) {
-    u8* p = D_01d49320;
-    if (p == 0) return 0;
-    if (*(u16*)(*(u8**)(p + 8) + 4) & 0x400) return 1;
-    return 0;
-}
+// 001bbb28: moved to src/yasui/libys/mission.cpp
 
 void reset_special_command(u8* c) {
     func_001d48b0(c + 2496);

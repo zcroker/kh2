@@ -370,11 +370,7 @@ void func_001b3098(Arr144* s) {
     s->hdr = 0;
 }
 
-s32 func_001bb7f8(void) {
-    s32 r = 0;
-    if (func_001bb4a0() && (func_00198d00(8, -1) || *(u32*)(D_01d49320 + 172))) r = 1;
-    return r;
-}
+// 001bb7f8: moved to src/yasui/libys/mission.cpp
 
 void func_001bd4e8(u8* o, u32* v, u32 c) {
     if (*(u32*)(*(u8**)(o + 2528) + 1416) & 0x2000000) return;

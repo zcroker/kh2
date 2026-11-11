@@ -215,18 +215,7 @@ void func_001ac208(u32* p) {
 
 s32 func_001bb4a0(void);
 u8* func_001bbcb0(void);
-s32 func_001bc130(void) {
-    s32 r = 0;
-    if (func_001bb4a0() == 0) goto yes;
-    {
-        u8 f = (*(u16*)(*(u8**)(func_001bbcb0() + 8) + 4) >> 2) & 1;
-        if (!f) goto out;
-    }
-yes:
-    r = 1;
-out:
-    return r;
-}
+// 001bc130: moved to src/yasui/libys/mission.cpp
 
 void func_001dca30(u32, u32, u32);  // obj_set48_52_flag40000
 void func_001c16a0(u32* p, u32 x) {

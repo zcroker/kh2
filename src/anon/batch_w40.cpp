@@ -195,16 +195,7 @@ void func_001d6c58(void);
 void func_001c11a8(u32);
 void func_001c1130(u32);  // copy_record_block_to_table
 void func_001af9f8(void);
-void func_001bb890(void) {
-    D_01d49320.p->flags |= 4;
-    D_01d49320.p->flags |= 0x10;
-    func_0014ca20();
-    D_0034f240 |= 2;
-    func_001d6c58();
-    func_001c11a8(8);
-    func_001c1130(5);  // copy_record_block_to_table
-    func_001af9f8();
-}
+// 001bb890: moved to src/yasui/libys/mission.cpp
 
 void func_001d5f30(u8*, u32);
 void func_001d6148(u8* p, s32 id) {

@@ -213,11 +213,7 @@ u8 func_001b8800(u32 a) {
     return func_002fd248(a, p + 2, p[1], 16, &D_00320448);
 }
 
-u32 func_001bbf00(void) {
-    if (!func_001bb4a0()) return 0;
-    u32 v = *(u16*)(*(u8**)(func_001bbcb0() + 8) + 4);
-    return (v >> 12) & 1;
-}
+// 001bbf00: moved to src/yasui/libys/mission.cpp
 
 void func_001cced8(void* p) {
     *(void**)p = &D_003520d0;

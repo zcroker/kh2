@@ -294,9 +294,7 @@ u32 func_001913b8(u32 a0, u32 a1, u32 a2, u32 a3) {
 
 // 001ba138: moved to src/yasui/libys/worldwork.cpp
 
-u32 func_001bb740(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_001bb4f0(((u32)(*(u32*)((u32)((u32)&D_01d50000) - 27872u))), 0x00000010u, a0, a3);
-}
+// 001bb740: moved to src/yasui/libys/mission.cpp
 
 u32 func_001c0248(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_00320828((u32)&D_01d49350, a0, a2, a3);

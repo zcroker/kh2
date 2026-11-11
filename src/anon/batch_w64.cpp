@@ -369,23 +369,7 @@ void func_001bb468(void);
 void func_00199098(u8*, s32);
 void func_0019f070(u8*, u32);
 
-void func_001bbba8(s32 m) {
-    s32 id = -1;
-    u8 buf[48];
-    switch (m) {
-    case 3:
-        if (func_001d5460(D_01d49324)) func_001d7940();
-        id = 139;
-        break;
-    case 4:
-        func_001ada38(9);
-        id = 141;
-        break;
-    }
-    func_001bb468();
-    func_00199098(buf, id);
-    func_0019f070(buf, 0x40000000);
-}
+// 001bbba8: moved to src/yasui/libys/mission.cpp
 
 // ---------------------------------------------------------------------------
 extern char D_00352360[];

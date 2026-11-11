@@ -166,23 +166,11 @@ void func_001bb890(s32);
 void func_001bb468(void);
 void func_001991a8(s32, s32);
 void MissionExit(s32 a) asm("_ZN2YS7MISSION4ExitEi");
-void MissionExit(s32 a) {
-    func_001bb890(a);
-    func_001bb468();
-    func_001991a8(15, a);
-}
+// 001bb858: moved to src/yasui/libys/mission.cpp
 
 u32 func_001bb4a0(void);
 u8* func_001bbcb0(void);
-u32 func_001bbf40(void) {
-    u32 r = 0;
-    if (func_001bb4a0()) {
-        u8* v = func_001bbcb0();
-        u32 x = *(u16*)(*(u8**)(v + 8) + 4);
-        r = (x >> 1) & 1;
-    }
-    return r;
-}
+// 001bbf40: moved to src/yasui/libys/mission.cpp
 
 u32 func_001d01e0(void);
 void func_00170320(u32);

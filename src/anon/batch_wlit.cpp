@@ -69,10 +69,7 @@ void func_00134d10(f32* p) {  // obj_init_floats
     p[7] = 1.0f;
 }
 
-f32 func_001bbfd0(void) {
-    if (func_001bb4a0()) return *(f32*)(func_001bbcb0() + 1328);
-    return 1.0f;
-}
+// 001bbfd0: moved to src/yasui/libys/mission.cpp
 
 // Vector (0, 0, 0, 1).
 void func_002e3f58(u32* p) { p[0] = 0; p[1] = 0; p[2] = 0; ((f32*)p)[3] = 1.0f; }

@@ -1752,16 +1752,8 @@ extern "C" u32 func_001b83f0(...);  // to_2fd248_block8
 
 extern "C" u32 func_001bb020(...);
 
-void func_001bb468(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r15, r16;
-    r16 = (u32)(0x01d5u << 16);
-    r15 = *(volatile u32*)((u32)r16 + (s32)(-27872));
-    r4 = r15;
-    if (r15 != 0u) {
-        ((void(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_001bb020)(r4, r5, r6, r7, r8, r9, r10, r11);
-        *(volatile u32*)((u32)r16 + (s32)(-27872)) = 0u;
-    }
-}
+// 001bb468: moved to src/yasui/libys/mission.cpp
+void func_001bb468(void);
 
 
 extern "C" u32 func_001bd570(...);
@@ -8362,19 +8354,7 @@ extern "C" u32 func_001bb4a0(...);
 extern "C" u32 func_001bbcb0(...);
 extern "C" u32 func_001d5460(...);
 
-u32 func_001bc090(u32 a0) {
-    u32 r4 = a0, r2, r15;
-    r2 = ((u32(*)())func_001bb4a0)();
-    r15 = 0u;
-    if (r2 != 0u) {
-        r2 = ((u32(*)())func_001bbcb0)();
-        r4 = *(volatile u32*)((u32)r2 + (s32)(8));
-        r2 = ((u32(*)(u32))func_001d5460)(r4);
-        r15 = ((u32)0u < (u32)r2);
-    }
-    r2 = r15;
-    return r2;
-}
+// 001bc090: moved to src/yasui/libys/mission.cpp
 
 extern "C" u32 func_001bd668(...);
 
@@ -13341,12 +13321,7 @@ extern u8 D_001ba6b0;
 extern "C" u32 func_001bae38(...);
 extern u8 D_01d49320;
 
-void func_001bb438(void) {
-    u32 t6 = *(u32*)((u32)&D_01d49320 + (s32)(0));
-    if (t6 != 0u) {
-        func_001bae38(t6);
-    }
-}
+// 001bb438: moved to src/yasui/libys/mission.cpp
 
 extern "C" u32 func_001d3328(...);
 extern u8 D_01d5ba10;
@@ -18792,43 +18767,15 @@ void func_001bae08() {
     }
 }
 
-void func_001bbe18(void* a0) {
-    if (a0 != 0) {
-        func_002bc1e8();
-    }
-}
+// 001bbe18: moved to src/yasui/libys/mission.cpp
 
-void func_001bbe38(u32 a0) {
-    u32 s0 = a0;
-    if (func_001bb4a0() != 0) {
-        u32 v0 = func_001bbcb0();
-        u32 t7 = *(u32*)(v0 + 1320);
-        t7 |= s0;
-        *(u32*)(v0 + 1320) = t7;
-    }
-}
+// 001bbe38: moved to src/yasui/libys/mission.cpp
+void func_001bbe38(u32);
 
-void func_001bbe78(u32 a0) {
-    u32 s0 = a0;
-    if (func_001bb4a0() != 0) {
-        u32 v0 = func_001bbcb0();
-        u32 t7 = *(u32*)(v0 + 1320);
-        u32 t6 = ~s0;
-        t7 &= t6;
-        *(u32*)(v0 + 1320) = t7;
-    }
-}
+// 001bbe78: moved to src/yasui/libys/mission.cpp
+void func_001bbe78(u32);
 
-u32 func_001bbf80(u32 a0) {
-    u32 s0 = a0;
-    if (func_001bb4a0() != 0) {
-        u32 p = func_001bbcb0();
-        if (*(u32*)(p + 1324) != 0) {
-            return *(u32*)(func_001bbcb0() + 1324);
-        }
-    }
-    return s0;
-}
+// 001bbf80: moved to src/yasui/libys/mission.cpp
 
 u32 func_001bcf18(u32* a0) {
     u32 a = *a0;
