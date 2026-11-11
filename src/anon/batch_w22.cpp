@@ -82,19 +82,15 @@ void func_00153310(u32 a, u32 b, u32 c, u32 d, u32 e) {
 // --- 00154b40
 u32 func_0013d810(void);
 void func_00154450(u32, u32, u32);
-void func_00154b40(u32 a, u32 b) {
-    func_00154450(func_0013d810(), a, b);
-}
+// 00154b40: moved to src/anon/unit_00153ea0.cpp
+void func_00154b40(u32 a, u32 b);
 
 // --- 00157068
 u32 func_00155f40(void*);
 void func_00138c10(void*, u32);
 void func_00156408(void*);
 void GAUGE_PLAYER_update(u8*) asm("_ZN2dk12GAUGE_PLAYER6updateEv");
-void GAUGE_PLAYER_update(u8* self) {
-    func_00138c10(self + 11648, func_00155f40(self));
-    func_00156408(self);
-}
+// 00157068: moved to src/anon/unit_00153ea0.cpp
 
 // --- 00168008
 extern s32 D_0034d780;

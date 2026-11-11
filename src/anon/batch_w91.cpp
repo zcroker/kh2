@@ -178,18 +178,8 @@ void func_0013edd0(u8*, f32);
 void func_0014b1e0(u8*, s16, s16);
 void func_0014b208(u8*, u16, u16);
 extern f32 D_0034a838;
-void func_00154de8(u8* p, f32 t) {
-    s32 w, h, x, y;
-    if (t < D_0034a838) { w = 64; h = 64; x = 0; y = -64; }
-    else { w = 1; h = 1; x = -64; y = 0; }
-    f32 s = (1.0f - t) * 3.1415925f;
-    s = func_0017ce10(s);
-    u_call4_00139d78(p + 4944);
-    func_0013edd0(p + 4976, s);
-    u_call4_00139d78(p + 4944);
-    func_0014b1e0(p + 5264, x, y);
-    func_0014b208(p + 5264, w, h);
-}
+// 00154de8: moved to src/anon/unit_00153ea0.cpp
+void func_00154de8(u8* p, f32 t);
 
 // --- 00177ab8
 // Picks the matching special-state handler for the party member; clears a flag on success.

@@ -557,26 +557,20 @@ u32 func_00150dc0(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_00150e00(a0, a1, a2, a3);
 }
 
-u32 func_00155460(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_00155390(a0, 0x00000046u, a2, a3);
-}
+// 00155460: moved to src/anon/unit_00153ea0.cpp
+u32 func_00155460(u32 a0, u32 a1, u32 a2, u32 a3);
 
-u32 func_00155478(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_00155390(a0, 0x00000045u, a2, a3);
-}
+// 00155478: moved to src/anon/unit_00153ea0.cpp
+u32 func_00155478(u32 a0, u32 a1, u32 a2, u32 a3);
 
-u32 func_00155490(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_00155390(a0, 0x00000044u, a2, a3);
-}
+// 00155490: moved to src/anon/unit_00153ea0.cpp
+u32 func_00155490(u32 a0, u32 a1, u32 a2, u32 a3);
 
-u32 func_001565a8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return dk_Obj2D_localHide(((u32)(a0) + 1324u), a1, a2, a3);
-}
+// 001565a8: moved to src/anon/unit_00153ea0.cpp
+u32 func_001565a8(u32 a0, u32 a1, u32 a2, u32 a3);
 
-u32 func_001574d8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    *(u8*)((u32)(a0) + 15610u) = (u8)(0x00000000u);
-    return func_001572e8(a0, 0x0000009cu, 0xffffffffu, a3);
-}
+// 001574d8: moved to src/anon/unit_00153ea0.cpp
+u32 func_001574d8(u32 a0, u32 a1, u32 a2, u32 a3);
 
 u32 func_001576a0(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_001574f8(a0, 0x00000086u, a2, a3);

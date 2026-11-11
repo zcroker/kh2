@@ -101,12 +101,8 @@ f32 func_00153610(f32 x) {
     return r;
 }
 
-void func_001542c8(u8* p, u32 a, u32 b) {
-    u32 v = 0;
-    if (func_001541d8(p, &v, a) == 1) {
-        func_001387f8(p, v, p + 416, func_00154288(p, b));
-    }
-}
+// 001542c8: moved to src/anon/unit_00153ea0.cpp
+void func_001542c8(u8* p, u32 a, u32 b);
 
 void func_0015aaf8(u8* p) {
     if (func_00197920(p)) {

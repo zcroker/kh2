@@ -100,17 +100,8 @@ extern s32 D_0034a7e8[];
 u32 func_0013d7e0(void*);
 s32 func_00236490(u32);
 s32 func_002364f8(u32);
-void func_00154100(u8* p, s32* a, s32* b) {
-    *a = 0;
-    *b = 0;
-    for (s32 i = 0; i < *(s32*)(p + 832); i++) {
-        *a += D_0034a7d8[i];
-        *b += D_0034a7e8[i];
-    }
-    u32 o = func_0013d7e0(p);
-    *a += func_00236490(o) + 13568;
-    *b += func_002364f8(o) + 10240;
-}
+// 00154100: moved to src/anon/unit_00153ea0.cpp
+void func_00154100(u8* p, s32* a, s32* b);
 
 void func_00158300(void*);
 void func_00157758(void*);

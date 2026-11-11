@@ -175,17 +175,7 @@ void func_00151f40(u8* p) {
 
 void* cam_sxfs(u32, u32) asm("_ZN2dk6Camera20singleCrossFadeStartEf");
 // Allocates and constructs a 164-byte cross-fade object.
-void* cam_sxfs(u32 a0, u32 a1) {
-    u8* p = (u8*)func_0023ee30(164);
-    *(void**)p = D_00347f98;
-    func_0031a838(p + 12);
-    *(void**)p = D_0035eb98;
-    func_002369a0(p + 24);  // obj_ctor_36eac8
-    func_0023c008(p + 48);  // obj_ctor_36eae8
-    *(void**)p = D_0034a7a0;
-    func_00153ea0(p, a0, 4800, a1, 0);
-    return p;
-}
+// 00153f08: moved to src/anon/unit_00153ea0.cpp
 
 // Formats v as decimal and maps each digit through tbl; returns digit count.
 s32 func_0015b4f8(s32* tbl, s32 v, s32* out) {

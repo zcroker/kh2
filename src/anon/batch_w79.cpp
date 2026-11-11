@@ -821,14 +821,4 @@ void u_call0_0014dfa8() {
     func_00102788(D_0032b91c, 0, 100000, func_0014df48);
 }
 
-void wtarget_001574f8(u32 a, u32 b, u32, u32) {
-    u32 o;
-    func_00157990(a);
-    o = a + 6704;
-    func_00138c10(o, b);
-    *(u32*)(o + 392) = func_00155d58(a, 0);
-    func_00138c10(a + 7116, func_00155d58(a, 1));
-    func_00138c10(a + 8352, func_00155d58(a, 2));
-    func_001543a0(a + 64, 1, *(u32*)(a + 24));
-    if (func_001581a8(a) != 0 && func_002ba358() == 0) func_002ba368();
-}
+// 001574f8: moved to src/anon/unit_00153ea0.cpp

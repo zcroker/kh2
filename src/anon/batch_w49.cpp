@@ -63,15 +63,8 @@ void func_00153948(u8 id) {
 }
 
 void func_00138c10(u8*, s32);
-void func_00154b98(u8* p, s32 n) {
-    s32 m = *(s32*)(p + 15556);
-    if (m < n) n = m;
-    *(s32*)(p + 15552) = n;
-    *(s32*)(p + 15564) = n;
-    *(s32*)(p + 15560) = n;
-    s32 k = (n - 1) / 200;
-    for (s32 i = 0; i < k; i++) func_00138c10(p + 2904 + i * 816, 44);
-}
+// 00154b98: moved to src/anon/unit_00153ea0.cpp
+void func_00154b98(u8* p, s32 n);
 
 struct Node161248 { u8 pad[128]; Node161248* next; };
 extern Node161248* D_004f3b38;

@@ -221,31 +221,8 @@ void wtarget_001521c8(u32 self, u32 id, u32, u32) {
     func_0014fc40(self, 14, func_0023aa78(self + 72), 4500, 7, 0);
 }
 
-void func_001558b8(u32 self, u32 a1, s32 idx) {  // entry592_process
-    u32 e = self + idx * 592;
-    u32 obj = e + 13232;
-    u32 s7 = e + 13552;
-    s32 x, y, w, h;
-    f32 f;
-    func_00139598(obj);
-    if (func_00155758(a1, &x, &y, &w, &h, &f) == 0) {
-        f32 scale = f;
-        s32 sx, sy, sw, sh;
-        func_00139d78((u8*)obj);
-        func_0013edd0(e + 13264, scale);
-        sx = x;
-        sy = y;
-        sw = w;
-        sh = h;
-        func_00139d78((u8*)obj);
-        func_0014b1e0(s7, sx, sy);
-        func_0014b208(s7, (u16)sw, (u16)sh);
-        func_001395a8(obj);
-        if (idx == 1) {
-            func_00138d30(self + 9588, -f);
-        }
-    }
-}
+// 001558b8: moved to src/anon/unit_00153ea0.cpp
+void func_001558b8(u32 self, u32 a1, s32 idx);
 
 // Sets up a row of up to 8 child panels and centres them horizontally.
 void func_0015b368(u32 self, u32 a1, u32 a2, u32 a3) {

@@ -82,11 +82,8 @@ void func_00150de0(u8* p, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5) {
     func_00150e00(p, a1, a2, a3, a4, -1);
 }
 
-void func_00154b18(u8* p) {
-    p[0x3ce0] = 0;
-    func_001399c0(6);
-    func_00139b28(6);
-}
+// 00154b18: moved to src/anon/unit_00153ea0.cpp
+void func_00154b18(u8* p);
 
 // Clamp to [0, 128].
 void func_00161a58(s32 v) {

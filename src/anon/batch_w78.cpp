@@ -113,31 +113,12 @@ struct W78World { u8 pad[3168]; W78Grp grp[4]; };
 struct W78Pair { u32 a, b; u32 c[19]; };
 struct W78Loc { u32 a, b; s32 i; u32 n; };
 
-s32 func_00155758(s32 n, f32* a, s32* b, s32* c, s32* d, f32* ang) {
-    if (n >= 60) return 1;
-    *a = 0.0f;
-    *ang = (f32)n * D_004f3588;
-    *ang = func_0017ce10(*ang);
-    if (n < 20) { *c = 64; *d = 100; *b = -50; }
-    else if (n < 40) { *c = 64; *d = 50; *b = 0; }
-    else { *c = 0; *d = 0; *b = 50; }
-    return 0;
-}
+// 00155758: moved to src/anon/unit_00153ea0.cpp
+s32 func_00155758(s32 n, f32* a, s32* b, s32* c, s32* d, f32* ang);
 }
 
 void wtarget_001575c0(u8* p) asm("_Z16wtarget_001575c0jjjj");
-void wtarget_001575c0(u8* p) {
-    u32 v = **(u32**)(*(u8**)(p + 52) + 1164);
-    u8 c = p[15611];
-    *(u32*)(p + 40) = v;
-    *(u32*)(p + 36) = v;
-    if (c == 0) p[15611] = 1;
-    else func_00138c10((u32)(p + 6704), func_00155d58((u32)p, 0));
-    func_00138c10((u32)(p + 7116), func_00155d58((u32)p, 1));
-    func_00138c10((u32)(p + 8352), func_00155d58((u32)p, 2));
-    func_00154408((u32)(p + 64), *(u32*)(p + 24));
-    if (func_001581d0((u32)p) && func_002ba358()) func_002ba390();
-}
+// 001575c0: moved to src/anon/unit_00153ea0.cpp
 
 // ---- c2
 extern "C" {

@@ -102,20 +102,8 @@ void func_00144be0(f32* b, V4f* v)
 
 void func_00158050(u8*, s32, u32, u32, s32, s32, u32);
 void func_00139598(u8*);
-void func_00156880(u8* p, u32 a1, u32 a2, u32 a3)
-{
-    func_00158050(p + 10000, 7000, a1, a2, 116, 0, a3);
-    func_00158050(p + 10412, 7000, a1, a2, 119, 0, a3);
-    func_00158050(p + 10824, 7000, a1, a2, 115, 0, a3);
-    func_00158050(p + 11236, 7000, a1, a2, 120, 0, a3);
-    u8* o = *(u8**)(p + 52);
-    if (o && (*(u32*)(*(u8**)(o + 1164) + 592) & 4)) {
-        func_00139598(p + 10000);
-        func_00139598(p + 10412);
-        func_00139598(p + 10824);
-        func_00139598(p + 11236);
-    }
-}
+// 00156880: moved to src/anon/unit_00153ea0.cpp
+void func_00156880(u8* p, u32 a1, u32 a2, u32 a3);
 
 u8* func_00177860(u8*);
 void func_00176970(u8*);
@@ -1391,28 +1379,8 @@ void func_00139598(u8*);
 void func_001544b0(Pg7*);
 void func_001547e0(Pg7*, s32, s32);
 void func_001548a8(Pg7*, s32);
-void func_00154950(Pg7* p)
-{
-    func_00139948(6);
-    s32 c = p->count;
-    p->page = (c - 1) / 200;
-    p->n0 = c - p->page * 200;
-    s32 a = func_00154910(p);
-    p->n2 = p->total - a * 200;
-    s32 b = func_00154930(p);
-    p->n1 = p->last - b * 200;
-    if (p->n2 > p->n0) p->n0 = 200;
-    if (p->page != a) p->n0 = 200;
-    if (b != a) p->n1 = 200;
-    p->one = 0;
-    if (a == p->page && a != 0) p->one = 1;
-    if (!p->one) func_00139598((u8*)p + 456);
-    func_001544b0(p);
-    func_001547e0(p, p->n0, 2);
-    func_001547e0(p, p->n1, 4);
-    func_001547e0(p, p->n2, 5);
-    func_001548a8(p, b);
-}
+// 00154950: moved to src/anon/unit_00153ea0.cpp
+void func_00154950(Pg7* p);
 
 struct Sub4 { u8 pad[396]; void* owner; s32 f400; };
 extern f32 D_00349e14;
@@ -8032,23 +8000,8 @@ s32 func_00155d80_r(u8*) asm("func_00155d80");
 extern s32 D_0034a8f0[];
 extern s32 D_0034a8a0[];
 extern s32 D_0034a8c8[];
-s32 func_00155e30(u8* p) {
-    u8* o = *(u8**)(p + 52);
-    if (o != 0) {
-        switch (*(*(u8**)(o + 1164) + 431)) {
-        case 2:
-            func_00155d80_r(p);
-            return D_0034a8f0[func_00155d80_r(p)];
-        case 0: case 1: case 4:
-            break;
-        case 3:
-            func_00155d80_r(p);
-            return D_0034a8a0[func_00155d80_r(p)];
-        }
-    }
-    func_00155d80_r(p);
-    return D_0034a8c8[func_00155d80_r(p)];
-}
+// 00155e30: moved to src/anon/unit_00153ea0.cpp
+s32 func_00155e30(u8* p);
 
 // --------------------
 struct Rel168Ent { u16 type; u16 flags; u32 pad; u32 ofs; u32 size; };
@@ -10724,17 +10677,8 @@ void func_00230838(s32 v) {
 }
 
 // --------------------
-s32 func_00155fc0(u8* p) {
-    u8* o = *(u8**)(p + 52);
-    if (o) {
-        switch ((*(u8**)(o + 1164))[431]) {
-        case 2: return 49;
-        case 3: return 139;
-        case 0: case 1: case 4: break;
-        }
-    }
-    return 25;
-}
+// 00155fc0: moved to src/anon/unit_00153ea0.cpp
+s32 func_00155fc0(u8* p);
 
 // --------------------
 struct E230878 { u8* a; u8* b; };
@@ -10767,19 +10711,8 @@ void func_00287ed8(s32 a) {
 }
 
 // --------------------
-s32 func_00155ee8(u8* p) {
-    u8* o = *(u8**)(p + 52);
-    if (!o) goto def;
-    switch ((*(u8**)(o + 1164))[431]) {
-    case 4: return 18;
-    case 0: case 1:
-    def:
-        return 21;
-    case 2: return 50;
-    case 3: return 140;
-    }
-    return 21;
-}
+// 00155ee8: moved to src/anon/unit_00153ea0.cpp
+s32 func_00155ee8(u8* p);
 
 // --------------------
 void func_001e0fe0(u8*);

@@ -112,62 +112,7 @@ inline static void W1633_setParent(W1633Sprite *obj, W1633Sprite *parent)
   }
 }
 
-void func_001569d8(W1633Hud *self, W1633Owner *owner)
-{
-  u32 a;
-  u32 b;
-  u32 c;
-  s32 j;
-  W1633Sprite *top = &self->spr[0];
-  W1633Sprite *sub;
-  W1633Gauge *g;
-  func_00158138(self, owner, 0, 0);
-  a = func_0013a7e8(1);
-  b = func_0013d7e0();
-  c = func_00158290(self);
-  self->b3cf6 = 0;
-  self->b3cf4 = -1;
-  self->b3cf5 = -1;
-  self->b3cf7 = 0;
-  self->b3cf8 = 0;
-  self->b3cf9 = 0;
-  self->f3cf0 = 0;
-  self->b3cfa = 0;
-  self->b3cfb = 0;
-  func_00158050(top, 7000, a, b, 136, 0, c);
-  func_0013e0f8(&self->gauge[0], 7000, 0, c);
-  func_00139d78(&self->gauge[0]);
-  func_0014b200(self->gauge[0].barA, 0);
-  func_0014b200(self->gauge[0].barB, 0);
-  func_001581f8(self);
-  func_001565c0(self, a, b, c);
-  func_00153fa0(&self->header, 7000, 0, self->owner, self->f18, c);
-  func_00156880(self, a, b, c);
-  for (s32 i = 0; i < 12; i++)
-  {
-    W1633_setParent(&self->spr[i], top);
-    func_001395e8(&self->spr[i]);
-    func_00139610(&self->spr[i]);
-  }
-
-  for (j = 0; j < 4; j++)
-  {
-    g = &self->gauge[j];
-    func_00139d78(g);
-    g->parent = top;
-  }
-
-  W1633_setParent(&self->header, top);
-  sub = &self->spr[8];
-  W1633_setParent(&self->spr[9], sub);
-  W1633_setParent(&self->spr[10], sub);
-  W1633_setParent(&self->spr[11], sub);
-  W1633_setParent(top, 0);
-  top->id = func_00155d58(self, 0);
-  sub->id = 117;
-  func_00156130(self, a, b, c);
-  func_001564b0(self, a, b, c);
-  func_001582a8(self);
-}
+// 001569d8: moved to src/anon/unit_00153ea0.cpp
+void func_001569d8(W1633Hud *self, W1633Owner *owner);
 
 }

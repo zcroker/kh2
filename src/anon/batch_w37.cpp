@@ -80,13 +80,8 @@ void func_0014dc48(u8* p, u16 a, u32 b, u16 c, u16 d, u16 e, u32 f) {
     p[473] = 0;
 }
 
-void func_001548a8(u8* p, s32 n) {
-    if (*(u32*)(p + 15568)) {
-        for (s32 i = 0; i < n; i++) {
-            if (i < 16) func_001395a8(p + 2904 + i * 816);
-        }
-    }
-}
+// 001548a8: moved to src/anon/unit_00153ea0.cpp
+void func_001548a8(u8* p, s32 n);
 
 struct Obj160 { void** vt; u8 _4[128]; Obj160* next; u8 _88[248]; u32 flags; };
 extern struct { Obj160* head; u32 tail; } D_004f3b40;

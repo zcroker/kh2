@@ -156,19 +156,8 @@ void dk_MapColor_getOnColorTable(u32 a0, u32 a1) {
     *(u8 *)(a0 + 1) = p[7];
 }
 
-u32 func_001570a0(u8 *a0) {
-    u32 t4 = *(u32 *)(a0 + 15600);
-    u32 v0 = 0;
-    if (t4 != 4) {
-        u32 p15 = *(u32 *)(a0 + 52);
-        u32 p14 = *(u32 *)(p15 + 1164);
-        if (*(u8 *)(p14 + 431) == 4) {
-            return 1;
-        }
-        v0 = 0;
-    }
-    return v0;
-}
+// 001570a0: moved to src/anon/unit_00153ea0.cpp
+u32 func_001570a0(u8 *a0);
 
 u32 func_001665d8(u32 a0, u32 *a1, u32 *a2, u32 *a3, u32 *a4, u32 *a5,
                   u32 *a6) {

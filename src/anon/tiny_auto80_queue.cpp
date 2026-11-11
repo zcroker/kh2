@@ -7240,44 +7240,14 @@ u32 duplicate_unplaced_00154b18(u32 a0) {
     return ((u32(*)(u32))func_00139b28)(r4);
 }
 
-u32 func_00156030(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r2, r14, r15;
-    r14 = *(volatile u32*)((u32)r4 + (s32)(52));
-    r2 = 0u;
-    if (r14 != 0u) {
-        r14 = *(volatile u32*)((u32)r14 + (s32)(1164));
-        r15 = (u32)(*(u8*)((u32)r14 + (s32)(431)));
-        r15 = (u32)(r15 ^ 0x0004u);
-        r2 = ((u32)r15 < 0x00000001u);
-    }
-    return r2;
-}
+// 00156030: moved to src/anon/unit_00153ea0.cpp
+u32 func_00156030(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);
 
-u32 func_00156058(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {  // state_code_is_2
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r2, r14, r15;
-    r14 = *(volatile u32*)((u32)r4 + (s32)(52));
-    r2 = 0u;
-    if (r14 != 0u) {
-        r14 = *(volatile u32*)((u32)r14 + (s32)(1164));
-        r15 = (u32)(*(u8*)((u32)r14 + (s32)(431)));
-        r15 = (u32)(r15 ^ 0x0002u);
-        r2 = ((u32)r15 < 0x00000001u);
-    }
-    return r2;
-}
+// 00156058: moved to src/anon/unit_00153ea0.cpp
+u32 func_00156058(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);
 
-u32 func_00156080(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {  // state_code_is_3
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r2, r14, r15;
-    r14 = *(volatile u32*)((u32)r4 + (s32)(52));
-    r2 = 0u;
-    if (r14 != 0u) {
-        r14 = *(volatile u32*)((u32)r14 + (s32)(1164));
-        r15 = (u32)(*(u8*)((u32)r14 + (s32)(431)));
-        r15 = (u32)(r15 ^ 0x0003u);
-        r2 = ((u32)r15 < 0x00000001u);
-    }
-    return r2;
-}
+// 00156080: moved to src/anon/unit_00153ea0.cpp
+u32 func_00156080(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);
 
 extern "C" u32 func_00140df0(...);
 extern "C" u32 func_00140e30(...);
@@ -10522,47 +10492,25 @@ u32 func_00153e28(f32 a0, f32 a1) {
 
 extern "C" u32 func_00138840(...);
 
-void func_00154330(u32 a0) {
-    if (*(u8*)((u32)a0 + (s32)(836)) != 0u) {
-        func_00138840(a0);
-        return;
-    }
-}
+// 00154330: moved to src/anon/unit_00153ea0.cpp
+void func_00154330(u32 a0);
 
 extern "C" u32 func_00138988(...);
 extern "C" u32 func_00236788(...);  // to_236830
 
-void func_00154358(u32 a0) {
-    u32 s0 = a0;
-    if (*(u8*)((u32)s0 + (s32)(836)) != 0u) {
-        func_00236788((u32)((s32)a0 + (416)));  // to_236830
-        func_00138988(s0);
-        return;
-    }
-}
+// 00154358: moved to src/anon/unit_00153ea0.cpp
+void func_00154358(u32 a0);
 
 extern "C" u32 func_00154288(...);  // state_index_0_1_2
 
-void func_00154408(u32 a0, u32 a1) {
-    u32 s0 = a0;
-    if (*(u8*)((u32)a0 + (s32)(836)) != 0u) {
-        u32 v0 = func_00154288(a0, a1);  // state_index_0_1_2
-        func_00138c10(s0, v0);
-        return;
-    }
-}
+// 00154408: moved to src/anon/unit_00153ea0.cpp
+void func_00154408(u32 a0, u32 a1);
 
-u32 func_00154910(u32 a0) {
-    u32 v0 = *(volatile u32*)((u32)a0 + (s32)(15552));
-    v0 = (u32)((s32)v0 + (-1));
-    return (u32)((s32)v0 / (s32)200);
-}
+// 00154910: moved to src/anon/unit_00153ea0.cpp
+u32 func_00154910(u32 a0);
 
-u32 func_00154930(u32 a0) {
-    u32 v0 = *(volatile u32*)((u32)a0 + (s32)(15560));
-    v0 = (u32)((s32)v0 + (-1));
-    return (u32)((s32)v0 / (s32)200);
-}
+// 00154930: moved to src/anon/unit_00153ea0.cpp
+u32 func_00154930(u32 a0);
 
 extern "C" u32 func_0013d810(...);
 extern "C" u32 func_00154450(...);
@@ -10585,16 +10533,8 @@ u32 duplicate_unplaced_00155528(u32 a0) {
     return func_00138c10(s1, v0);
 }
 
-u32 func_00156010(u32 a0) {
-    u32 t7 = *(volatile u32*)((u32)a0 + (s32)(52));
-    u32 v0 = 0u;
-    if (t7 != 0u) {
-        u32 p = *(volatile u32*)((u32)t7 + (s32)(1164));
-        u32 t6 = (u32)(*(u8*)((u32)p + (s32)(431)));
-        v0 = (u32)(t6 < 1u);
-    }
-    return v0;
-}
+// 00156010: moved to src/anon/unit_00153ea0.cpp
+u32 func_00156010(u32 a0);
 
 extern "C" u32 func_00155f40(...);
 extern "C" u32 func_00156408(...);
@@ -10608,13 +10548,8 @@ u32 duplicate_unplaced_00157068(u32 a0) {
 
 extern "C" u32 func_001572e8(...);
 
-void func_001574a0(u32 a0) {
-    if (*(u8*)((u32)a0 + (s32)(15610)) != 1u) {
-        *(u8*)((u32)a0 + (s32)(15610)) = (u8)1u;
-        func_001572e8(a0, 154u, 155u);
-        return;
-    }
-}
+// 001574a0: moved to src/anon/unit_00153ea0.cpp
+void func_001574a0(u32 a0);
 
 extern "C" u32 func_00242b58(...) asm("_ZN2Tz6Config12isCameraAutoEv");
 
@@ -17986,47 +17921,14 @@ void duplicate_unplaced_00155410(u8* a0) {
     func_00154408((u32)(a0 + 64), *(u32*)(a0 + 24));
 }
 
-u32 func_001570d0(u8* a0) {
-    u32 t4 = *(u32*)(a0 + 15600);
-    u32 v0 = 0;
-    if (t4 == 4) {
-        u32 p15 = *(u32*)(a0 + 52);
-        u32 p14 = *(u32*)(p15 + 1164);
-        if (*(u8*)(p14 + 431) != t4) {
-            return 1;
-        }
-        v0 = 0;
-    }
-    return v0;
-}
+// 001570d0: moved to src/anon/unit_00153ea0.cpp
+u32 func_001570d0(u8* a0);
 
-u32 func_00157100(u8* a0) {
-    u32 t4 = *(u32*)(a0 + 15600);
-    u32 v0 = 0;
-    if (t4 != 3) {
-        u32 p15 = *(u32*)(a0 + 52);
-        u32 p14 = *(u32*)(p15 + 1164);
-        if (*(u8*)(p14 + 431) == 3) {
-            return 1;
-        }
-        v0 = 0;
-    }
-    return v0;
-}
+// 00157100: moved to src/anon/unit_00153ea0.cpp
+u32 func_00157100(u8* a0);
 
-u32 func_00157130(u8* a0) {
-    u32 t4 = *(u32*)(a0 + 15600);
-    u32 v0 = 0;
-    if (t4 == 3) {
-        u32 p15 = *(u32*)(a0 + 52);
-        u32 p14 = *(u32*)(p15 + 1164);
-        if (*(u8*)(p14 + 431) != t4) {
-            return 1;
-        }
-        v0 = 0;
-    }
-    return v0;
-}
+// 00157130: moved to src/anon/unit_00153ea0.cpp
+u32 func_00157130(u8* a0);
 
 // 00159f50: moved to src/harata/libdk/targetcamera.cpp
 

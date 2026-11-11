@@ -129,14 +129,8 @@ void func_00153100(void) {
     }
 }
 
-s32 func_00154288(u32, s32 a) {  // state_index_0_1_2
-    switch (a) {
-    case 0: return 3;
-    case 1: return 0;
-    case 2: return 2;
-    }
-    return 3;
-}
+// 00154288: moved to src/anon/unit_00153ea0.cpp
+s32 func_00154288(u32, s32 a);
 
 // Run func_00167e28 on both 96-byte entries of D_0034d6c0.
 void func_00167ee0(void) {

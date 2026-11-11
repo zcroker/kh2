@@ -141,19 +141,8 @@ void func_0014b1e0(u8*, s16, s16);
 void func_0014b208(u8*, u16, u16);
 u8 u_call4_00139d78(void*) asm("_Z16u_call4_00139d78jjjj");
 extern f32 D_0034a838;
-void func_00154cd0(u8* p, s32 i, f32 t) {
-    s32 w, h, x, y;
-    if (t < D_0034a838) { w = 64; h = 64; x = -64; y = -64; }
-    else { w = 0; h = 0; x = 0; y = 0; }
-    
-    f32 s = t * 3.1415925f + -1.5707963f;
-    s = func_0017ce10(s);
-    u_call4_00139d78(p + i*592 + 2576);
-    func_0013edd0(p + i*592 + 2608, s);
-    u_call4_00139d78(p + i*592 + 2576);
-    func_0014b1e0(p + i*592 + 2896, x, y);
-    func_0014b208(p + i*592 + 2896, w, h);
-}
+// 00154cd0: moved to src/anon/unit_00153ea0.cpp
+void func_00154cd0(u8* p, s32 i, f32 t);
 
 // ---- 00158300
 struct Menu158;
