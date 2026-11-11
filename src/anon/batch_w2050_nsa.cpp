@@ -217,44 +217,5 @@ void func_001400b0(f32, TCam_w2050c*);
 void func_00159ce0(TCam_w2050c*, V4_w2050c*);
 void func_0015a118(TCam_w2050c*);
 
-void func_0015a260(TCam_w2050c* self, V4_w2050c* target, f32 t) {
-    V4_w2050c cur;
-    func_00159d30(self, target, &cur, t);
-    func_00159ef8(self);
-    V4_w2050c pos = *func_0016c028(self->target);
-    pos.y -= 100.0f;
-    s32 id0 = func_00159dc0(*target, &D_0034aa30);
-    s32 id1 = func_00159dc0(pos, &D_0034aa30);
-    s32 vis0 = func_00159f50(self, id0);
-    s32 vis1 = func_00159f50(self, id1);
-    func_0013fda0(self);
-    func_0013fdc8(self);
-    V4_w2050c dir;
-    V4_w2050c a; a = cur;
-    V4_w2050c b; b = pos;
-    V4_w2050c c; c = a;
-    V4_w2050c e; e = dir.sub(b, a);
-    e.w = 1.0f;
-    c.w = 1.0f;
-    dir.normalize(e);
-    if (e.length() > 300.0f && dir.y > 0.5f) {
-        func_00159ce0(self, &cur);
-    } else {
-        if (vis0 == 0 && vis1 == 0) func_001400b0(D_00349e10, self);
-        s32 id;
-        if (id0 != 0) {
-            id = id0;
-        } else {
-            if (id1 == 0) goto set_eye;
-            id = id1;
-        }
-        if (func_00159f90(self, id)) {
-            self->eye = cur;
-            func_0015a118(self);
-        }
-        return;
-    }
-set_eye:
-    self->eye = cur;
-}
+// 0015a260: moved to src/harata/libdk/targetcamera.cpp
 }

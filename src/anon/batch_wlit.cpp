@@ -22,12 +22,7 @@ u8* func_001bbcb0(void);
 
 void func_0014ce60(void) { D_00349e0c = 1.0f; }
 
-s32 func_00159f90(u32 a0, u32 flags) {
-    D_0034aa44 = 0.0f;
-    if (flags & 4) D_0034aa44 = 0.34906584f;        // 20 degrees
-    else if (flags & 8) D_0034aa44 = -0.34906584f;
-    return 1;
-}
+// 00159f90: moved to src/harata/libdk/targetcamera.cpp
 
 void func_0028d188(u8* p) {
     p[412] = 0;

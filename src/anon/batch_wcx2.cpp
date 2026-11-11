@@ -10932,16 +10932,7 @@ static inline V15a098 Sub15a098(const V15a098& a, const V15a098& b)
 f32 func_002f8ad0__15a098(f32, f32) asm("func_002f8ad0");
 extern V15a098 D_0034aa50[2];
 static inline f32 Yaw15a098(V15a098 v) { return func_002f8ad0__15a098(v.x, v.z); }
-void func_0015a098(void)
-{
-    V15a098 a, d;
-    V15a098* p = D_0034aa50;
-    a = p[0];
-    d = Sub15a098(p[1], p[0]);
-    d.w = 1.0f;
-    a.w = 1.0f;
-    Yaw15a098(d);
-}
+// 0015a098: moved to src/harata/libdk/targetcamera.cpp
 
 // --------------------
 struct V2e2f08 {

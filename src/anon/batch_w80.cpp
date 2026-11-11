@@ -448,16 +448,7 @@ void func_0013d550(u32 a, u32 b) {
     D_003484a0->f652 = D_00348578.f12;
     func_0013b2d8(0.0f);
 }
-void func_00159fd0(U0_Body* b, U0_Inp* in, f32 dt) {
-    if (func_00158450(in)) {
-        D_0034aa84 = b->y -= in->speed * 8.0f * dt;
-        func_0013fda0(b);
-    } else if (func_001584a0(in)) {
-        D_0034aa84 = b->y += in->speed * 8.0f * dt;
-        func_0013fdc8(b);
-    } else return;
-    D_0034aa40 = 0;
-}
+// 00159fd0: moved to src/harata/libdk/targetcamera.cpp
 // unlink n from the active list and return it to the pool
 void func_00165768(U0_Link* n) {  // list_pop_head
     U0_Link* prev;

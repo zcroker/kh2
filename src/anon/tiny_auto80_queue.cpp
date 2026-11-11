@@ -10722,17 +10722,7 @@ void duplicate_unplaced_00159700(void) {
 extern "C" u32 func_0013f9e0(...);
 extern "C" u32 func_00159ce0(...);
 
-void func_0015a4e0(u32 a0) {
-    struct {
-        u32 w0;
-        u32 w1;
-        u32 w2;
-        u32 w3;
-    } sp;
-    u32 s0 = a0;
-    func_00159ce0(a0, (u32)&sp);
-    func_0013f9e0((u32)((s32)s0 + (112)), (u32)&sp, (u32)((s32)s0 + (16)), 1u, 0u);
-}
+// 0015a4e0: moved to src/harata/libdk/targetcamera.cpp
 
 extern u8 D_0034aa40;
 extern u8 D_0034aa70;
@@ -18114,18 +18104,7 @@ u32 func_00157130(u8* a0) {
     return v0;
 }
 
-u32 func_00159f50(u8* a0, u32 a1) {
-    f32 f1 = D_00349e10;
-    if ((a1 & 1u) != 0) {
-        return 0;
-    }
-    if ((a1 & 2u) == 0) {
-        return 0;
-    }
-    f1 = f1 + f1;
-    *(f32*)(a0 + 72) = *(f32*)(a0 + 72) - f1;
-    return 1;
-}
+// 00159f50: moved to src/harata/libdk/targetcamera.cpp
 
 void duplicate_unplaced_0015a810() {
     Obj0015a810* o = func_001050c8();

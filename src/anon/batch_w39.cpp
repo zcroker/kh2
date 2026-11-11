@@ -143,11 +143,7 @@ extern f32 D_004f3604;
 extern u8 D_0034aa70[];
 void func_00190128(void*);
 void func_0015a768(int a, int b) asm("_Z13func_0015a768ii");
-void func_0015a768(int a, int b) {
-    NoTail nt;
-    if (b == 0xffff && a == 1) D_004f3604 = 0.052359875f;  // 3 degrees
-    if (b == 0xffff && a == 1) func_00190128(D_0034aa70);
-}
+// 0015a768: static initialiser, now made by gcc in src/harata/libdk/targetcamera.cpp
 
 // --- 00166880
 void func_001666f0(u8*, u16, u32, u16, u16);  // obj_store_masked

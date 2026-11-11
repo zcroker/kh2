@@ -38,14 +38,7 @@ void func_0014e140(u8 a, u8 b, u8 c) {
 
 extern Q16 D_0034aa50[2];
 Q16* func_0016c028(u32);  // obj_get_attach_or_alt
-void func_00159ef8(u8* p) {
-    Q16* src = (Q16*)(p + 128);
-    Q16* v = func_0016c028(*(u32*)(p + 68));  // obj_get_attach_or_alt
-    Q16* d = D_0034aa50;
-    if (d != src) asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(d), "r"(src) : "$8", "memory");
-    d++;
-    if (v != d) asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(d), "r"(v) : "$8", "memory");
-}
+// 00159ef8: moved to src/harata/libdk/targetcamera.cpp
 
 // Scales the base colour at +420 by (r, g, b)/128 into +680.
 void func_00160488(u8* p, u8 r, u8 g, u8 b) {  // mix_color_channels

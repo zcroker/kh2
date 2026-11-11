@@ -76,9 +76,7 @@ extern f32 D_0034aa44;
 f32 func_0015a098(void*);
 f32 func_0017ce10(f32);
 struct P15a { u8 pad[80]; f32 v; };
-void func_0015a118(P15a* p) {
-    p->v = func_0017ce10(func_0015a098(p) + D_0034aa44);
-}
+// 0015a118: moved to src/harata/libdk/targetcamera.cpp
 
 struct RadarS { u8 pad[2928]; void* data; s32 n; };
 void func_0015b7f8(void*);

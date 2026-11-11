@@ -175,16 +175,7 @@ void func_0014fc40(u8* p, s32 a1, s32 a2, s32 a3, s32 t0, s32 t1) {
 
 void func_00159ce0(void*, Q16*);
 // out = from + (to - from) * t
-void func_00159d30(void* a0, const Q16* to, Q16* out, f32 t) {
-    Q16 from;
-    func_00159ce0(a0, &from);
-    Q16 d;
-    vu0_sub(d, *to, from);
-    vu0_scale(d, t);
-    Q16 r;
-    vu0_add(r, from, d);
-    *out = r;
-}
+// 00159d30: moved to src/harata/libdk/targetcamera.cpp
 
 void func_0015b7c0(void*, s32);
 void func_0015c068(void*, s32);

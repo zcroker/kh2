@@ -287,15 +287,7 @@ void func_00151aa8(u8* p) {
     *(f32*)(p + 2892) = *(f32*)(p + 2888);
 }
 
-void func_0015a5a8(u8* p) {
-    u8 buf[16];
-    func_001904a8(buf, D_0034aa70);
-    func_0015a260(p, buf, 0.3f);
-    u32 s = func_00167f18(0);
-    void* o = *(void**)(p + 68);
-    if ((*(s32 (**)(void*))(*(u8**)o + 64))(o)) func_0015a158(s, p);
-    func_0015a528(p);
-}
+// 0015a5a8: moved to src/harata/libdk/targetcamera.cpp
 
 static inline void vcall8(u8* o) { (*(void (**)(void*))(*(u8**)o + 8))(o); }
 
