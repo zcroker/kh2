@@ -144,9 +144,7 @@ void func_001a49a0(u8* p, u8* a, u8* b) {
 }
 
 extern s32 D_01c6cba0[2];
-s32 func_001a8510(void) {  // mod8_of_difference
-    return (D_01c6cba0[0] - D_01c6cba0[1] + 8) % 8;
-}
+// 001a8510: moved to src/anon/unit_001a82f0.cpp
 
 extern u32 D_00350c50;
 extern u8 D_01c6ced0;

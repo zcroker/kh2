@@ -120,10 +120,7 @@ void func_0018f2d0(BD_VALUE* bd) {
     func_00186378(o, i, bd[2].f);
 }
 
-void func_001a8548(void) {
-    u32* v = func_001a84b0();
-    func_00138190(v[0], v[2]);
-}
+// 001a8548: moved to src/anon/unit_001a82f0.cpp
 
 void func_001ac778(void) {
     D_01c6ced0.a = 0;

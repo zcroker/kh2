@@ -249,14 +249,7 @@ void Activate46(char*) {
 struct E1a8 { u8 pad[4]; u8 used, a, b, c; u8 pad2[4]; };
 struct T1a8 { u16 pad; u16 n; E1a8 e[1]; };
 extern T1a8* D_01c6cb98;
-E1a8* func_001a81f0(u32 a, u32 b, u32 c) {
-    s32 i;
-    E1a8* e = D_01c6cb98->e;
-    for (i = 0; i < D_01c6cb98->n; i++, e++) {
-        if (!e->used && e->a == a && e->b == b && e->c == c) return e;
-    }
-    return 0;
-}
+// 001a81f0: moved to src/anon/unit_001a8098.cpp
 
 // ---- 001b1360
 u8* func_001b9bc8(u8*);

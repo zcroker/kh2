@@ -163,10 +163,7 @@ void func_0019fd88(void** o, u32 a) {
     ((void (*)(void*, u32, u32))((void**)*o)[9])(o, a, 0);
 }
 
-void func_001a8498(void) {
-    D_01c6cba0.a = 0;
-    D_01c6cba0.b = 0;
-}
+// 001a8498: moved to src/anon/unit_001a82f0.cpp
 
 u32 func_001bbb08(void) {
     u32* p = D_01d49320;

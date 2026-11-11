@@ -83,23 +83,7 @@ u32 func_0016a070(void*);
 s32 func_001a3018(u32, u32, u32);
 void func_001a3188(u32, s32, u32);
 u32 wtarget_001a82f0(W261Src* s) asm("_Z16wtarget_001a82f0jjjj");
-u32 wtarget_001a82f0(W261Src* s) {
-    s32 i = D_01c6cba0.idx.v;
-    D_01c6cba0.idx.v = (i + 1) % 8;
-    u8* b = (u8*)&D_01c6cba0 + i * 12;
-    W261Ent* e = (W261Ent*)(b + 8);
-    void* o = D_0034e948;
-    s32 r = 100;
-    W261Inf* inf = func_001a80c8(s->id);  // table24_find_by_id
-    ((W261U*)(b + 8))->v = func_00192048(inf->a);
-    e->b.v = func_00192048(inf->b);
-    e->c.v = inf->c;
-    if (o) r = func_001a3018(s->id, func_0016a070(o), 1);
-    func_001a3188(s->id, r, 0);
-    u32 f = s->flag;
-    if (f) D_0032dedc[f >> 5] |= 1 << (f & 31);
-    return e->c.v;
-}
+// 001a82f0: moved to src/anon/unit_001a82f0.cpp
 
 void func_002de698(u32);
 void func_0017f488(u8*, u32, f32, f32);
