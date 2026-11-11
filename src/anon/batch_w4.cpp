@@ -91,10 +91,7 @@ void func_001391a8(u8* p, void* src) {  // vec_copy_at416_if_diff
     }
 }
 
-void func_00159700(void) {
-    D_0034aa08 = 0;
-    *(u32*)((u8*)func_00140df0() + 64) = 5;
-}
+// 00159700: moved to src/anon/unit_00159240.cpp
 
 void func_0015b780(void) {
     func_00139858(15);

@@ -370,19 +370,7 @@ void func_00169210(void) {
     func_00182b18();
 }
 
-void func_00159240(Q16* out, Q16* in) {
-    s32 y = 0;
-    Q16 x;
-    Q16 lo = *in;
-    Q16 hi = *in;
-    Q16Pair seg;
-    Q16* ph = &seg.v[1];
-    ((f32*)&lo)[1] -= 100.0f;
-    ((f32*)&hi)[1] += 10000.0f;
-    seg.v[0] = lo;
-    *ph = hi;
-    if (!func_00143d10(&seg, out, &x, &y)) *out = *in;
-}
+// 00159240: moved to src/anon/unit_00159240.cpp
 
 void func_0018b7f8(u8* p) {
     Q16 pos = *func_0016c028(p);  // obj_get_attach_or_alt
