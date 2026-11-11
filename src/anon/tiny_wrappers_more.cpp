@@ -848,9 +848,7 @@ u32 func_001a5b38(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_001a5b08(0x00000001u, 0x0000ffffu, a2, a3);
 }
 
-u32 func_001a69d0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_001a68e0(0x00000001u, 0x0000ffffu, a2, a3);
-}
+// 001a69d0: _GLOBAL__I_ stub, now made by gcc in src/yasui/libys/magic.cpp
 
 u32 func_001a7568(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_001a7530(0x00000001u, 0x0000ffffu, a2, a3);

@@ -18302,13 +18302,7 @@ s32 func_001a5bd0(f32 a0, u32 a1, u32 a2) {
 }
 
 extern "C" void func_001826c8(...);
-void func_001a6490(f32 a0, u32 a1) {
-    if (!(0.0f < a0)) {
-        return;
-    }
-    *(f32*)(a1 + 8) = a0;
-    func_001826c8();
-}
+// 001a6490: moved to src/yasui/libys/magic.cpp
 
 void duplicate_unplaced_001a6c90(u32 a0) {
     u32* p = (u32*)((u8*)&D_0032dec0 + ((a0 >> 5) << 2));
@@ -18317,45 +18311,11 @@ void duplicate_unplaced_001a6c90(u32 a0) {
     func_001d59b0();
 }
 
-void func_001a64c0(void) {
-    s32 i = 0;
-    do {
-        u32 p = func_001a6658((u32)i);
-        i += 1;
-        if (p != 0u) {
-            func_00170518(p + 4, 0x3F2, 0);
-        }
-    } while (i < 6);
-}
+// 001a64c0: moved to src/yasui/libys/magic.cpp
 
-u32 func_001a67b0(u32 a0) {
-    u32 off = a0 * 44u;
-    u8* p = &D_00350800 + off;
-    u32 n = *(u32*)(p + 40);
-    if (n == 0u) {
-        return 0;
-    }
-    return *(u16*)(n + 38);
-}
+// 001a67b0: moved to src/yasui/libys/magic.cpp
 
-void func_001a5c48(u32* a0, u32 a1, u32 a2) {
-    a0[0] = a1;
-    a0[1] = a2;
-    a0[2] = 0;
-
-    u32* base = &D_01c6cb20;
-    u32 tail = base[1];
-    if (tail == 0u) {
-        base[1] = (u32)a0;
-        base[0] = (u32)a0;
-        a0[3] = 0;
-        return;
-    }
-
-    *(u32*)(tail + 12) = (u32)a0;
-    a0[3] = 0;
-    base[1] = (u32)a0;
-}
+// 001a5c48: moved to src/yasui/libys/magic.cpp
 
 void func_001a6d38(u32 a0) {
     u32 p = *(u32*)(a0 + 4);

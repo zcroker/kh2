@@ -4709,61 +4709,13 @@ u32 func_001a5b68(u32 a0) {
     return v0;
 }
 
-void func_001a5d48(u32 a0) {
-    f32 f0 = *(f32*)(a0 + 8);
-    if (f0 > 0.0f) {
-        func_001826c8(-f0);
-    }
+// 001a5d48: moved to src/yasui/libys/magic.cpp
 
-    u32 p = *(u32*)a0;
-    if (p != 0) {
-        func_0016cab8(p);
-        func_0016c7d8(p);
-    }
+// 001a5ec0: moved to src/yasui/libys/magic.cpp
 
-    func_0031f298((u32)&D_01c6cb20, a0);
-}
+// 001a6118: moved to src/yasui/libys/magic.cpp
 
-void func_001a5ec0(void) {
-    func_001a5e38();
-
-    s32 i = 5;
-    u32 off = 0;
-    u32 base = (u32)&D_00350800;
-    u32 base2 = base + 12;
-    while (1) {
-        u32 p = off + base;
-        if (*(u32*)p != 0) {
-            u32 q = off + base2;
-            if (*(u32*)q != 0) {
-                func_001dde40(q);
-            }
-            func_00170950(*(u32*)p);
-        }
-        i -= 1;
-        if (i < 0) {
-            return;
-        }
-        off += 44;
-    }
-}
-
-u32 func_001a6118(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4) {
-    u32 s1 = func_0016cf00(a0, 0, a1, a2, a3);
-    u32 s0 = func_001050d8(16);
-    func_001a5c48(s0, s1, 0);
-    return s0;
-}
-
-u32 func_001a6598(u32 a0) {
-    u8* p = func_001b8e88(func_001a67b0(a0));
-    u32 bit = a0 & 0x1Fu;
-    u32 mask = 1u << bit;
-    if (*(u8*)(p + 28) >= 255u) {
-        return 2u;
-    }
-    return (D_0032f274[a0 >> 5] & mask) == 0;
-}
+// 001a6598: moved to src/yasui/libys/magic.cpp
 
 void func_001a6e88(u32 a0, u32 a1, u32 a2) {
     func_001c1130(12);  // copy_record_block_to_table

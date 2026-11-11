@@ -57,25 +57,7 @@ static inline W261En* W261Find(s32 id) {
     }
     return 0;
 }
-W261En* func_001a6658(s32 id) {
-    W261En* e = W261Find(id);
-    W261En* best = e;
-    if (!e) return 0;
-    s32 lv = 0;
-    if (e->req) {
-        lv = func_001a3570(e->req);
-        if (!lv) return 0;
-    }
-    W261Tb* t = D_01c6cb28;
-    W261En* end = &t->e[t->n];
-    u8 k = D_0032bae0;
-    W261En* p = e + 1;
-    while (p < end && p->id == best->id && p->lv <= lv) {
-        if (p->kind == 0 || p->kind == k) best = p;
-        p++;
-    }
-    return best;
-}
+// 001a6658: moved to src/yasui/libys/magic.cpp
 
 W261Inf* func_001a80c8(u32);  // table24_find_by_id
 u32 func_00192048(u32);

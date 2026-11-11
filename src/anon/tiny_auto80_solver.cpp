@@ -7453,35 +7453,9 @@ u32 duplicate_unplaced_001a5928(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, 
     return ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_001a4df0)(r4, r5, r6, r7, r8, r9, r10, r11);
 }
 
-void func_001a6510(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32 idx = a0 >> 5;
-    u32 base = (u32)&D_0032f274;
-    idx <<= 2;
-    idx += base;
-    a0 &= 31;
-    u32 mask = 1;
-    u32 val = *(volatile u32*)idx;
-    mask <<= a0;
-    mask = ~mask;
-    val &= mask;
-    *(volatile u32*)idx = val;
-}
+// 001a6510: moved to src/yasui/libys/magic.cpp
 
-u32 func_001a6548(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32 s = a0;
-    u32 ret = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_001a6598)(a0, a1, a2, a3, a4, a5, a6, a7);
-    u32 idx = s >> 5;
-    u32 base = (u32)&D_0032f274;
-    idx <<= 2;
-    s &= 31;
-    idx += base;
-    u32 val = *(volatile u32*)idx;
-    u32 mask = 1;
-    mask <<= s;
-    val |= mask;
-    *(volatile u32*)idx = val;
-    return ret;
-}
+// 001a6548: moved to src/yasui/libys/magic.cpp
 
 u32 duplicate_unplaced_001a6c38(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r2;

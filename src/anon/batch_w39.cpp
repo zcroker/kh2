@@ -256,18 +256,7 @@ struct Node1a6 { u8 pad[12]; Node1a6* next; };
 extern Node1a6* D_01c6cb20;
 void func_001a5d48(Node1a6*);
 void func_00105110(void*);
-void func_001a67e0(Node1a6* n) {
-    NoTail nt;
-    if (!n) return;
-    Node1a6* it = 0;
-    while ((it = it ? it->next : D_01c6cb20) != 0) {
-        if (it == n) break;
-    }
-    if (n) {
-        func_001a5d48(n);
-        func_00105110(n);
-    }
-}
+// 001a67e0: moved to src/yasui/libys/magic.cpp
 
 // --- 001aea00
 // Constructor: base ctor, vtable, flags and a sub-object's defaults.

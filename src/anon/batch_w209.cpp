@@ -30,7 +30,7 @@ void func_0016d800(VP209* a) {
 // --- 001a6600
 extern f32 func_001826e0(void);  // global_float_diff
 u32 cac209(f32 f) asm("_ZN2YS5MAGIC10CanAddCostEf");
-u32 cac209(f32 f) { return f <= func_001826e0() + 2.0f; }
+// 001a6600: moved to src/yasui/libys/magic.cpp
 
 // --- 001a8450
 extern u32 D_0032dedc[];

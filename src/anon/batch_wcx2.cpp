@@ -11189,26 +11189,7 @@ static inline void Del1a68e0(E1a68e0* a)
     }
 }
 void wtarget_001a68e0(s32 init, s32 prio, u32, u32) asm("_Z16wtarget_001a68e0jjjj");
-void wtarget_001a68e0(s32 init, s32 prio, u32, u32)
-{
-    if (prio == 0xffff && init == 1) {
-        D_01c6cb20.a = 0;
-        D_01c6cb20.b = 0;
-    }
-    if (prio == 0xffff && init == 1) {
-        E1a68e0* p = D_00350800;
-        s32 n;
-        for (n = 5; n != -1; n--) {
-            p->f0 = 0;
-            func_001ddd10__1a68e0(p->m);
-            p->f40 = 0;
-            p++;
-        }
-    }
-    if (prio == 0xffff && init == 0) {
-        Del1a68e0(D_00350800);
-    }
-}
+// 001a68e0: static initialiser, now made by gcc in src/yasui/libys/magic.cpp
 
 // --------------------
 struct C102350 { u8 pad[240]; u8 started; u8 pad2[3]; s32 wait; f32 timer; s32 size; u8 stack[1]; };
