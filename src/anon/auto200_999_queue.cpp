@@ -76,46 +76,7 @@ void func_00103a40(void) {
     *(u32*)(s0 + 28) = 1;
 }
 
-void func_00104910(void) {
-    D_0032bad8 = 1;
-    func_001021f0();
-
-    func_001cd168();
-
-    u32 v0 = func_0014ac08();
-    func_0014aa80(v0, 0, 0);
-
-    v0 = func_0014abb8();  // get_data_359840
-    func_0014aa80(v0, 0, 0);
-
-    v0 = func_0014abc8();  // get_data_359950
-    func_0014aa80(v0, 0, 0);
-
-    v0 = func_0014abe8();  // get_data_3595a0
-    func_0014aa80(v0, 0, 0);
-
-    v0 = func_0014abf8();  // get_data_3596b0
-    func_0014aa80(v0, 0, 0);
-
-    v0 = func_0014abd8();
-    func_0014aa80(v0, 0, 0);
-
-    v0 = func_0014aba8();
-    func_0014aa80(v0, 0, 0);
-
-    v0 = func_001050c8();
-    func_001de7d8(v0, D_0034ecec, D_0034ecf0);
-
-    func_001e06b8();
-    func_00149c40(*(u64*)&D_0034ecc0);
-    func_00169210();
-    func_00108068();
-    func_00149cb8();
-    func_00226a78();
-    func_00136fa8();
-    func_0013f0d0();
-    func_001bb438();
-}
+// 00104910: moved to src/common/area.cpp
 
 void func_00105a20(void) {
     volatile u8 pad[64];

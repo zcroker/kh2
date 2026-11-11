@@ -32,12 +32,7 @@ void func_00104d30(u8*, u32);
 extern u8 D_0032bae0[];
 extern u8 D_0032bb30[];
 
-void func_001052a8(u32 a) {
-    func_00104d30(D_0032bae0, a);
-    D_0032bb30[12] = D_0032bae0[0];
-    D_0032bb30[13] = D_0032bae0[1];
-    D_0032bb30[14] = D_0032bae0[2];
-}
+// 001052a8: moved to src/common/area.cpp
 
 void func_0010a800(u8*, u8*, u8*);  // copy_global_3bytes
 void func_00108600(u8* p) {

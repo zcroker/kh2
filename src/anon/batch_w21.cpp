@@ -82,17 +82,10 @@ void kn_trap_friend_get_player_attacker(BD_VALUE*) asm("_ZN2kn31trap_friend_get_
 void kn_trap_friend_get_action_param(BD_VALUE*) asm("_ZN2kn28trap_friend_get_action_paramEP8BD_VALUE");
 void worldmap_ObjWidget_D0(void**) asm("_ZN8worldmap9ObjWidgetD0Ev");
 
-void func_00104cf0(u16* d, u16* s) {
-    if (s[0] != 0xffff) d[0] = s[0];
-    if (s[1] != 0xffff) d[1] = s[1];
-    if (s[2] != 0xffff) d[2] = s[2];
-}
+// 00104cf0: moved to src/common/area.cpp
 
 typedef void* (*AllocFn)(void*, u32, void*);
-void* AREA_Alloc(u32 size) {
-    void** h = D_0032bb1c;
-    return (*(AllocFn*)*h)(h, size, __builtin_return_address(0));
-}
+// 001050d8: moved to src/common/area.cpp
 
 u32 func_0010c7b0(u8* p) {  // obj_get_sub_lazy
     if (*(u32*)(p + 2908) == 0) func_00135dc8(p + 2908);

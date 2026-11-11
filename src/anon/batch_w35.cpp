@@ -9,11 +9,7 @@ void func_001091c8(void*, u32, u32);
 extern void* D_0032bb1c;
 
 // Allocates a heap of `size` bytes and installs it.
-void func_00105370(u32 size, u32 a1) {
-    void* h = func_00106178(func_00170b30(size), size);
-    D_0032bb1c = h;
-    func_001091c8(h, 256, a1);
-}
+// 00105370: moved to src/common/area.cpp
 
 f32 func_001142e0(u8* p, s32 i, u8 a, u8 b) {  // entry8_float_by_flags
     if (a) {

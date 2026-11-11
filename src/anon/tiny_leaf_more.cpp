@@ -1,13 +1,6 @@
 #include "../common/types.h"
 
-u32 func_001051a0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u, r15 = 0u;
-    r2 = (u32)(*(u16*)((u32)r4 + (s32)(0)));
-    r15 = (u32)(*(u16*)((u32)r5 + (s32)(0)));
-    r2 = (u32)(r2 ^ r15);
-    r2 = ((u32)r2 < 0x00000001u);
-    return r2;
-}
+// 001051a0: moved to src/common/area.cpp
 
 u32 func_00112720(u32 a0, u32 a1, u32 a2, u32 a3) {  // check_2924_lt14
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u;

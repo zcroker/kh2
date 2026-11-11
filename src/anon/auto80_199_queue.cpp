@@ -110,70 +110,11 @@ void func_00103bb0(s32 a0) {
 
 // 00104018 GUMIBATTLE::Ensure: moved to src/common/gumibattle.cpp
 
-void func_00104e98(S00104e98* self) {
-    s32 t = self->counter;
-    if (t > 0) {
-        t -= 1;
-        self->counter = t;
-        if (t > 0) {
-            return;
-        }
-        func_0013f050(self->ptrC);
-    }
+// 00104e98: moved to src/common/area.cpp
 
-    if (func_00103b38() != 0) {
-        return;
-    }
-    if (func_002ee530() != 0) {
-        return;
-    }
+// 00105140: moved to src/common/area.cpp
 
-    if (self->ptr10 != 0) {
-        func_001ada38(self->ptr10);
-    }
-
-    func_00104e18();
-
-    if (self->flag8 != 0) {
-        func_001cd388();
-        D_0032bb10 = -1;
-    }
-
-    func_00104da0((void*)((s32)&D_0032bb10 - 32));
-    func_001050b8();
-    func_001024a8(self);
-}
-
-void* func_00105140(const u8* src, void* dst) {
-    const u8* s1 = src;
-    if (dst == 0) {
-        dst = (void*)((s32)&D_003a0000 + 31512);
-    }
-    void* s0 = dst;
-    u32 t = func_00105ee8(s1[0]);
-    u32 a0 = (u32)s0;
-    u32 a2 = t + (a0 & 0u);
-    u32 r = func_002fee78(a0, (u32)((s32)&D_00370000 - 25008), a2, s1[1]);
-    (void)r;
-    return s0;
-}
-
-u32 func_00105310(u32 a0, u32 a1) {
-    u32 s0 = a0;
-    u32 s1 = a1;
-    u32 s2 = 0;
-
-    if (func_001d50b8(s0, s1) != 0) {
-        goto set_one;
-    }
-    if (func_001d5a58(s0, s1) == 0) {
-        goto out;
-    }
-set_one:
-    s2 = 1;
-out:
-    return s2;
-}
+// 00105310: moved to src/common/area.cpp
 
 u32 func_00105870() {
     s32 v = func_00105c30();

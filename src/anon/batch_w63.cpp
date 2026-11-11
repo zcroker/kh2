@@ -116,20 +116,7 @@ extern u8 D_003628f0;
 extern f32 D_01e2c044;
 
 // Frame/system reset sequence.
-void func_00104e18(void) {
-    D_0032bad8 = 0;
-    func_00167ea8();
-    func_00169308();
-    func_00108080();
-    func_00149db8();
-    func_00102688(D_0032b96c, 1, 1);
-    func_00169350();
-    func_00149ec0(&D_0032baf0);
-    func_001de910();
-    func_0013a958(&D_0032baf0);
-    func_00181ba0();
-    func_001053c0();
-}
+// 00104e18: moved to src/common/area.cpp
 
 // Scales x by a random integer normalised to [0, 1].
 f32 func_00106558(f32 x) {

@@ -314,19 +314,9 @@ void func_00103ea0(u32 a0, u32 a1, u32 a2, u32 a3) {  // set_hook_ptr
 
 // 00104600: moved to src/common/gumimenu.cpp
 
-void func_001050b8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 b = (0x0033u << 16);
-    *(u32*)((u32)b + (-17632)) = (u32)0;
-}
+// 001050b8: moved to src/common/area.cpp
 
-u32 func_001050c8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a0;
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    u32 b = (0x0033u << 16);
-    return (u32)(*(u32*)((u32)b + (-17636)));
-}
+// 001050c8: moved to src/common/area.cpp
 
 void func_00105a10(u32 a0, u32 a1, u32 a2, u32 a3) {
     (void)a0;
@@ -1578,13 +1568,7 @@ u32 func_00103eb0(u32 a0, u32 a1, u32 a2, u32 a3) {
 
 // 001045f0: moved to src/common/gumimenu.cpp
 
-u32 func_00105300(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a0;
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    return (D_0032bb20 != 0);
-}
+// 00105300: moved to src/common/area.cpp
 
 u32 func_001058e8(u32 a0, u32 a1, u32 a2, u32 a3) {
     (void)a0;
