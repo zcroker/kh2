@@ -181,15 +181,8 @@ void func_001890a8(void*, u32);
 void func_001d7e78(void*);
 extern u8* D_01c608b8;
 extern u8 D_0032e020[];
-void func_00185d10(u8* a0) {
-    if (func_0019ba60(*(void**)(a0 + 2788))) {
-        D_01c608b8 = *(u8**)(a0 + 2788);
-        u8* s = *(u8**)(a0 + 2788);
-        if (*(u32*)(s + 1416) & 0x80) func_001d6088(func_0016a070(a0), s);
-    }
-    func_001890a8(D_0032e020, func_0016a070(a0));
-    func_001d7e78(a0);
-}
+// 00185d10: moved to src/anon/unit_00185d10.cpp
+void func_00185d10(u8* a0);
 
 void func_0018eb98(void*, void*);
 struct S18 {

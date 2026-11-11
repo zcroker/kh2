@@ -288,20 +288,7 @@ static inline void Scale(FV* d, const FV* s, f32 k)
 void func_0017a9e8(u32, u8*);
 void btl_blow(u8* self, const FV& v) asm("_ZN2YS6BTLOBJ4blowERKN2kn7FVectorE");
 /* knock-back: horizontal unit direction scaled by v.w */
-void btl_blow(u8* self, const FV& v)
-{
-    *(u32*)(self + 268) &= ~0x20000;
-    FV t;
-    t = v;
-    t.y = 0.0f;
-    Normalize(&t);
-    FV* dir = (FV*)(self + 32);
-    FV r;
-    Scale(&r, &t, v.w);
-    *dir = r;
-    *(f32*)(self + 36) = -v.y;
-    func_0017a9e8(*(u32*)(self + 12), self);
-}
+// 00186888: moved to src/anon/unit_00185d10.cpp
 
 extern struct { u32 a, b; } D_01d44100;
 extern u8 D_01d44108[];

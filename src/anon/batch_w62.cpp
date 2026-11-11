@@ -235,16 +235,7 @@ Pri* func_00187ab8(u32);
 void func_00187f90(Act*);
 void func_00187fd8(Act*, Pri*);
 void act_pri_start(Act* a) asm("_ZN2YS3ACT9pri_startEPc");
-void act_pri_start(Act* a) {
-    u32 m = a->f9c & 1;
-    u8 on = m;
-    if (on) return;
-    Pri* r = func_00187ab8(a->f8c);
-    if (!r) return;
-    if (r->h4 < a->f98) return;
-    func_00187f90(a);
-    func_00187fd8(a, r);
-}
+// 00188170: moved to src/anon/unit_00185d10.cpp
 
 s32 func_001c0cd8(u8*);
 // Parity of negative components, combined recursively with the linked object.

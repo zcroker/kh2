@@ -78,27 +78,8 @@ void func_00170188(W1788Node* n) {
     W1788_link(n, prev);
 }
 
-s32 func_00187be8(W1788Q* q) {
-    s32 r;
-    if (q->wr != q->rd) {
-        r = 0;
-        if (!q->busy) {
-            s32 i = q->wr;
-            q->wr = (i + 1) % 16;
-            W1788QEnt* e = &q->e[i];
-            s32 m = e->flags & 1;
-            if (m) {
-                void* p = func_002edbf8(1);
-                if (p) func_001880b0((u8*)p + 0x300, *e->p);
-                r = func_00187be8(q);
-            } else {
-                func_00187fd8(q, e->p);
-                r = 1;
-            }
-        }
-    } else r = 0;
-    return r;
-}
+// 00187be8: moved to src/anon/unit_00185d10.cpp
+s32 func_00187be8(W1788Q* q);
 
 void func_0018b010(void* a, W1788V4* p, void* c) {
     W1788V4 d;

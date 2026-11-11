@@ -83,14 +83,8 @@ s32 func_001819c0(void) {
 }
 
 void func_0016af58(void*, u32);
-s32 func_001860b0(u32 a, f32* b) {
-    f32 tmp[4] __attribute__((aligned(16)));
-    f32 d;
-    func_0016af58(tmp, a);
-    asm volatile("lqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 0(%2)\n\tvmul.xyz $vf1, $vf1, $vf2\n\tvaddy.x $vf1, $vf1, $vf1y\n\tvaddz.x $vf1, $vf1, $vf1z\n\tqmfc2 $8, $vf1\n\tmtc1 $8, %0"
-        : "=f"(d) : "r"(tmp), "r"(b) : "$8", "memory");
-    return d < 0.0f;
-}
+// 001860b0: moved to src/anon/unit_00185d10.cpp
+s32 func_001860b0(u32 a, f32* b);
 
 // Puts an ability (15-bit id + enabled bit) into the first free slot of the 80-entry list.
 struct AbilitySlot { u16 id : 15; u16 on : 1; };

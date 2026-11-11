@@ -238,10 +238,8 @@ f32 func_00183768(u8* p, u128* v, f32 x) {  // copy_quad_at16_and_len
 u32 func_00185da8(u32);
 void func_0016c568(u32, u32, f32);
 
-void func_00185e20(u32 a0) {
-    u32 o = 0;
-    while ((o = func_00185da8(o)) != 0) func_0016c568(o, a0, 0.0f);
-}
+// 00185e20: moved to src/anon/unit_00185d10.cpp
+void func_00185e20(u32 a0);
 
 void func_001ba028(u32);  // list_contains_ptr
 u32 func_0018db38(u32, void*, u32, u32);

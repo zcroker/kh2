@@ -282,29 +282,8 @@ void func_0019d3f8(u8*, s32, s32);
 void func_0019d3b8(u8*, s32, s32);
 void func_00187818(u8*);
 
-s32 func_00187520(u8* self, s32 n, s32 idx, u8 flag) {
-    E187* t = *(E187**)(self + 1164);
-    if (!t || !t[idx].f4) return 0;
-    if (*(u32*)(self + 1416) & 0x4000) {
-        if (n > 0) {
-            if (*(u32*)(self + 2040) & 4) {
-                n = func_0017e138(self, n);
-            } else if (flag) {
-                (*(void (**)(u8*, s32, s32))(*(u8**)self + 84))(self, 20, 0);
-            }
-        }
-    }
-    if (*(u32*)(self + 2040) & 4) return 0;
-    s32 r = func_001a1910(*(E187**)(self + 1164), n, idx);  // entry12_add_clamped
-    if (n > 0) {
-        func_0013def8(self);
-        func_0019d3f8(self, idx, r);
-    } else {
-        func_0019d3b8(self, idx, r);
-    }
-    if (!r && !idx) func_00187818(self);
-    return r;
-}
+// 00187520: moved to src/anon/unit_00185d10.cpp
+s32 func_00187520(u8* self, s32 n, s32 idx, u8 flag);
 }
 
 // ---- 196f00 ----

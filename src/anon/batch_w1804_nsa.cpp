@@ -20,21 +20,8 @@ W1804CntP* func_001058e8(void);
 extern s32 D_0032b984;
 extern u8 D_0032bae0;
 
-void func_00187fd8(W1804Obj* o, W1804Desc* d)
-{
-    if (!(o->m88->p->p->flags & 2)) {
-    func_00187b90(o);
-    W1804Loc l;
-    l.p = o->m88; o->m94 = func_0016cf00(l.p->p->p, 0, d->m8, &l, 1);
-    o->m90 = d;
-    o->m98 = d->m4;
-    o->m9c = 0;
-    if (d->m6 & 2) o->m9c = 1;
-    if (!(d->b6 & 1)) o->m9c |= 4;
-    o->m9c |= 2;
-    func_00188398(o, d->m16, &l, 1);
-    }
-}
+// 00187fd8: moved to src/anon/unit_00185d10.cpp
+void func_00187fd8(W1804Obj* o, W1804Desc* d);
 
 // Saturating counters (limit 0xCDFE5C3) kept in volatile locals.
 void func_0014ccb8(void)

@@ -91,26 +91,6 @@ void func_0016af58(QW187*, Obj187*);
 void func_00186c58(Obj187*, QW187*, f32);
 void ctarget_00186a90_187(Obj187*, QW187*, f32) asm("_Z16ctarget_00186a90jjjj");
 static inline void Back187(QW187* t, Obj187* self) { QW187 v; func_0016af58(&v, self); Scale187(t, &v, -1.0f); }
-void func_00187018(Obj187* self, Ev187* ev, s32 a2, s32 mot, f32 spd) {
-    QW187 t;
-    if (ev->flags & 0x40) return;
-    u32 d = self->kind->type ^ 0x17; if (d == 0) { func_001cf320(self, ev, a2, mot, spd); return; }
-    if (spd < 0.0f) spd = 50.0f;
-    if (func_0019c090(self)) {
-        f17f488_187(self->mot, mot < 0 ? 43 : mot, 0.0f, 0.0f);
-        push_187(self->mot, 4, 0.0f, 0.0f, 0);
-        if (spd > 0.0f) {
-            Back187(&t, self);
-            func_00186c58(self, &t, spd);
-        }
-    } else {
-        f17f488_187(self->mot, mot < 0 ? 41 : mot, 0.0f, 0.0f);
-        if (spd > 0.0f) {
-            Back187(&t, self);
-            ctarget_00186a90_187(self, &t, spd);
-        }
-        push_187(self->mot, 0, 0.0f, 0.0f, 0);
-    }
-    ev->flags |= 0x40;
-}
+// 00187018: moved to src/anon/unit_00185d10.cpp
+void func_00187018(Obj187* self, Ev187* ev, s32 a2, s32 mot, f32 spd);
 }

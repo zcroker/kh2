@@ -252,20 +252,8 @@ Q16* func_0017c870(Q16* ret, u8* a1, u8* a2) {
 }
 
 // Push a new entry onto the 16-slot ring buffer at +8.
-void func_001882a8(u8* p) {
-    u32 v = func_00187ab8(*(u32*)(p + 140));
-    if (v) {
-        ctarget0_00187b90(p);
-        Pair t;
-        t.a = v;
-        t.b = 0;
-        *(s32*)(p + 4) = (*(s32*)(p + 4) + 15) % 16;
-        Pair* e = (Pair*)(p + 8) + *(s32*)(p + 4);
-        func_0031cc28(&t.b);
-        *e = t;
-        *(u32*)(p + 152) = 0;
-    }
-}
+// 001882a8: moved to src/anon/unit_00185d10.cpp
+void func_001882a8(u8* p);
 
 // 00191758: moved to src/yasui/libys/status.cpp
 

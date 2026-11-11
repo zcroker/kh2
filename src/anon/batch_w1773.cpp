@@ -19,12 +19,7 @@ struct W1773Link { u32 x0; W1773Tgt* t; };
 struct W1773Obj { u8 pad[0x88]; W1773Link* l; u8 pad2[0x9c - 0x8c]; u32 off : 1; u32 rest : 31; };
 s32 ctarget_00186ce8(W1773Tgt*) asm("_Z16ctarget_00186ce8jjjj");
 s32 func_00186d18(W1773Tgt*);
-s32 func_00187e58(W1773Obj* a) {
-    if ((u8)a->off) return 0;
-    if ((a->l->t->flags & 2) && (ctarget_00186ce8(a->l->t) || func_00186d18(a->l->t))) return 1;
-    W1773Tgt* t = a->l->t;
-    if (t->flags & 8) return t->kind == 0x32;
-    return 0;
-}
+// 00187e58: moved to src/anon/unit_00185d10.cpp
+s32 func_00187e58(W1773Obj* a);
 
 }

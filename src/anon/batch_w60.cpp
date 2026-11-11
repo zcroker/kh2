@@ -285,17 +285,8 @@ void func_001814b8(s32 id) {
     *r &= ~(1 << (id & 31));
 }
 
-s32 func_001874a0(void* a, f32 f) {
-    u8* o = D_0034e948;
-    s32 r;
-    if (!func_0019ba60(o) || !*(void**)(o + 2880)) {
-        r = 0;
-    } else {
-        func_0019d358(*(void**)(o + 2880));
-        r = func_00187300(a, *(u8**)(o + 2880) + 4, f);
-    }
-    return r;
-}
+// 001874a0: moved to src/anon/unit_00185d10.cpp
+s32 func_001874a0(void* a, f32 f);
 
 u8* func_0018db38(void* a, u8* b, s32 c, void* d) {
     u8 flag[16];

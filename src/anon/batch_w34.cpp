@@ -114,13 +114,8 @@ void func_00180c88(u8* p, u32 a, f32 x) {
     else func_001802d8(*(u32*)(p + 252), t, *(u32*)(p + 240), *(u32*)(p + 8), a, 0);
 }
 
-void func_00185e78(u32 a) {
-    u8* e = 0;
-    while ((e = (u8*)func_00185da8(e)) != 0) {
-        u32 t = *(u32*)(e + 2088);
-        if (t) func_001b7df0(t, a);
-    }
-}
+// 00185e78: moved to src/anon/unit_00185d10.cpp
+void func_00185e78(u32 a);
 
 s32 func_001997c0(u32* p) {
     switch (func_0016e920(*p)[4]) {

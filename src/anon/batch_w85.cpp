@@ -825,22 +825,8 @@ s32 func_001db368(u8* o, const Vec4* in) {
 f32 func_002f8b30(f32, f32);
 static inline u32 pos186(f32 f) { return 0.0f < f; }
 // decaying knockback velocity
-Vec4* func_00186b90(Vec4* out, u8* o) {
-    f32 f = *(f32*)(o + 2780);
-    if ((u8)pos186(f)) {
-        if (f < 1.0f) {
-            *(f32*)(o + 2780) = 0.0f;
-        } else {
-            Vec4 t;
-            vu_scale_to(&t, o + 2768, f * D_00349e10);
-            *out = t;
-            *(f32*)(o + 2780) *= func_002f8b30(0.9f, D_00349e10);
-            return out;
-        }
-    }
-    vu_zero(out);
-    return out;
-}
+// 00186b90: moved to src/anon/unit_00185d10.cpp
+Vec4* func_00186b90(Vec4* out, u8* o);
 
 void func_0017c400(u8*, s32);
 // launches along a direction: flattened, normalised, with the given speed and height

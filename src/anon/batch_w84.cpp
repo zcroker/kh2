@@ -718,22 +718,8 @@ void func_0016aef0(u8*, Vq*);
 void func_0017f488(void*, s32, f32, f32);
 void func_0017f5e0(void*, s32, s32, f32, f32);
 void func_00186a90(u8*, Mv*, f32);
-void func_00186988(u8* p, Mv* m, f32 f) {
-    Vq t;
-    s32 k;
-    if (func_001860b0(p, m)) {
-        k = 23;
-        t = VScale(m->v, -1.0f);
-    } else {
-        k = 24;
-        t = m->v;
-    }
-    func_0016aef0(p, &t);
-    func_0017f488(p + 320, k, 0.0f, 0.0f);
-    func_0017f5e0(p + 320, 0, 0, 0.0f, 0.0f);
-    func_00186a90(p, m, f);
-    m->flags |= 1;
-}
+// 00186988: moved to src/anon/unit_00185d10.cpp
+void func_00186988(u8* p, Mv* m, f32 f);
 
 s32 func_002e9a38(u8*, u32, s32);
 u8* func_0016bba8(u32, s32, u8*);

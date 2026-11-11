@@ -156,15 +156,8 @@ void PARTY_hook(u8* self, void* vm) {
     *(void**)(self + 2796) = vm;
 }
 
-s32 func_00188398(u8* o, void* a, void* b, void* c) {
-    void* w;
-    u8* x = *(u8**)(o + 136);
-    w = *(void**)(*(u8**)(x + 4) + 1156);
-    if (w) {
-        if (a) { func_0016cc18(w, a, b, c, 0); return 1; }
-    }
-    return 0;
-}
+// 00188398: moved to src/anon/unit_00185d10.cpp
+s32 func_00188398(u8* o, void* a, void* b, void* c);
 
 void func_00198aa8(u8* o, s32 i, s32 v, s32 id) {
     s32 val;

@@ -137,14 +137,8 @@ u32 func_0017eb68(u32 a0) {
 }
 
 // True when the entry at +320 is set and its id (+20) is in [140, 151).
-bool func_00186d18(u8* a0) {  // check_size140to150
-    u32* p = (u32*)(a0 + 320);
-    if (*p == 0) return false;
-    s32 v = p[5];
-    if (v < 140) return false;
-    if (v < 151) return true;
-    return false;
-}
+// 00186d18: moved to src/anon/unit_00185d10.cpp
+bool func_00186d18(u8* a0);
 
 void func_0018fde0(Args* a) {
     u32 p = a->a;

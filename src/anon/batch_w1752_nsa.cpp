@@ -31,14 +31,5 @@ struct W1752C0 { u8 pad[0x88]; u32 v88; u8 pad2[4]; u8* p90; u32 p94; };
 void func_00188398(W1752C0*, u32, u32*, s32);
 void func_0016ced0(u32);
 void w1752_ct0_00187b90(W1752C0* c) asm("_Z17ctarget0_00187b90v");
-void w1752_ct0_00187b90(W1752C0* c) {
-    if (c->p94) {
-        u8* p = c->p90;
-        u32 t = c->v88;
-        func_00188398(c, *(u16*)(p + 10), &t, 1);
-        func_0016ced0(c->p94);
-        c->p94 = 0;
-        c->p90 = 0;
-    }
-}
+// 00187b90: moved to src/anon/unit_00185d10.cpp
 }

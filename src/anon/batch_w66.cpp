@@ -158,17 +158,8 @@ u8* func_00187ab8(u32, u32);
 u8* func_00187b30(u32);
 struct S187 { u32 f0; s16 lo; s16 hi; s16 d; u16 v[11]; };
 // Finds (or allocates) a record and fills it.
-void func_00187a18(u32 a, u32 b, s32 c, s32 d, u32* src) {
-    S187* v = (S187*)func_00187ab8(a, b);
-    if (!v) {
-        v = (S187*)func_00187b30(a);
-        v->f0 = b;
-    }
-    v->d = d;
-    v->hi = c >> 16;
-    v->lo = c;
-    for (s32 i = 0; i < 11; i++) v->v[i] = src[i];
-}
+// 00187a18: moved to src/anon/unit_00185d10.cpp
+void func_00187a18(u32 a, u32 b, s32 c, s32 d, u32* src);
 
 // ---- 00314930: packs an unpacked float (class/sign/exp/fraction) into an f32.
 struct Fpn { u32 cls; s32 sign; s32 exp; u32 frac; };

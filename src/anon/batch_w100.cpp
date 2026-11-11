@@ -278,27 +278,8 @@ void func_001884d0(u8*, E11*);
 }
 
 extern "C" {
-void func_00188550(void) {
-    E11* e = D_01c608c0;
-    s32 i;
-    for (i = 0; i < 64; i++, e++) {
-        u8* p;
-        if (!e->a) return;
-        p = 0;
-        while ((p = func_001b9bc8(p)) != 0) {
-            if (e->t <= 0.0f) {
-                func_001884d0(p + 768, e);
-                continue;
-            }
-            u32 a = e->a, b = e->b;
-            *(u32*)(p + 928) = a;
-            *(u32*)(p + 932) = b;
-            D_003638d0 *= 0x10dcd;
-            *(f32*)(p + 936) = (f32)D_003638d0 * 2.3283064365386963e-10f * e->t;
-        }
-        e->a = 0;
-    }
-}
+// 00188550: moved to src/anon/unit_00188550.cpp
+void func_00188550(void);
 }
 
 }

@@ -8,15 +8,8 @@ void func_0017f5e0(u8*, u32, s32, f32, f32);
 extern u16 D_0034edf8[];
 
 // Pick one of four motions (by facing and a second check, flip if unavailable) and play it.
-void func_00186478(u8* a, u8* b) {
-    s32 i;
-    if (func_001860b0(a, b)) i = 0; else i = 2;
-    if (!func_00186110(a, b)) i++;
-    if (!func_0017f4e0(a + 320, D_0034edf8[i])) i ^= 1;
-    func_0017f488(a + 320, D_0034edf8[i], 0.0f, 0.0f);
-    func_0017f5e0(a + 320, 0, 0, 0.0f, 0.0f);
-    *(u32*)(b + 24) |= 1;
-}
+// 00186478: moved to src/anon/unit_00185d10.cpp
+void func_00186478(u8* a, u8* b);
 struct Rec_195360 { u8 pad[8]; s32 v; };
 struct Pair_195360 { s32 a, b; };
 Rec_195360* func_00168b88(s32, s32, s32, s32);

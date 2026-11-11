@@ -209,14 +209,8 @@ void func_0015b680(V4* pos, u32 a, u32 b) {
 
 static inline bool Bit187920(u32 x, u32 m) { return (x & m) != 0; }
 // Nonzero when any blocking flag/condition is set.
-s32 func_00187920(u8* p) {
-    s32 r = 0;
-    if (Bit187920(*(u32*)(p + 264), 0x100) || Bit187920(*(u32*)(p + 352), 0x400000) || func_001d7ba8(p + 1304) ||
-        Bit187920(*(u32*)(p + 264), 0x10000000) || Bit187920(*(u32*)(p + 264), 0x80000) || Bit187920(*(u32*)(p + 2040), 0x10) ||
-        Bit187920(*(u32*)(p + 2040), 0x200) || func_00105300() || func_001c8db8(D_00351ec8, 0))
-        r = 1;
-    return r;
-}
+// 00187920: moved to src/anon/unit_00185d10.cpp
+s32 func_00187920(u8* p);
 
 void func_001a1b68(u8* p, f32 d) {
     func_0019ba60(*(u32*)(p + 604));

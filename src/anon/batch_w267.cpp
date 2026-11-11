@@ -157,25 +157,6 @@ void func_0017f488(u8*, u32, f32, f32);
 void func_00186888(u8*, QV267*);
 s32 func_0018cac0(V186*);
 void func_001bfcc8(u8*, s32);
-void func_00186740(u8* p, V186* v, u32 a2, u32 a3, f32 y, f32 w) {
-  QV267 c;
-  QV267 b;
-  u32 m;
-  if (func_001860b0(p, v, a2, a3)) {
-    m = a2;
-    b = ScaleQ267(v->v, -1.0f);
-  } else {
-    m = a3;
-    b = v->v;
-  }
-  func_0016aef0(p, &b);
-  c = v->v;
-  c.y = y;
-  c.w = w;
-  func_0017f488(p + 320, m, 0.0f, 0.0f);
-  func_00186888(p, &c);
-  if (func_0018cac0(v)) *(u32*)(p + 268) |= 0x20000;
-  v->f24 |= 1;
-  if (*(u32*)(p + 1416) & 0x80) func_001bfcc8(p, 1);
-}
+// 00186740: moved to src/anon/unit_00185d10.cpp
+void func_00186740(u8* p, V186* v, u32 a2, u32 a3, f32 y, f32 w);
 }

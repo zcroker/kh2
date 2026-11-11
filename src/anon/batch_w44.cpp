@@ -248,10 +248,8 @@ void func_00177540(u8* o) {
     func_00177638(o);
 }
 
-void func_001877a0(u8* o, u32 a, u32 b) {
-    if (*(void**)(o + 2784)) func_001dc978(*(void**)(o + 2784), 10.0f);
-    *(void**)(o + 2784) = func_001de168(a, b, 0, 1, 10000, o);
-}
+// 001877a0: moved to src/anon/unit_00185d10.cpp
+void func_001877a0(u8* o, u32 a, u32 b);
 
 extern void* D_0034e948;
 extern u32 D_01c61960;

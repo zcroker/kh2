@@ -165,18 +165,8 @@ void func_0017ee68(u8* t) {
 struct B156 { u8 p[156]; u32 bit:1; };
 u32 func_00187e20(void);
 u32 func_00187e58(void*);
-u32 func_00188758(B156* t) {
-    u32 r = 0;
-    if (*(u32*)((u8*)t + 140)) {
-        u8 b = t->bit;
-        if (!b) {
-            if (!func_00187e20()) {
-                if (*(s32*)((u8*)t + 152) >= 300 || !func_00187e58(t)) r = 1;
-            }
-        }
-    }
-    return r;
-}
+// 00188758: moved to src/anon/unit_00188550.cpp
+u32 func_00188758(B156* t);
 
 // Fetch a 16-byte result; copy it out when the lookup succeeds.
 struct Q16 { u32 w[4]; } __attribute__((aligned(16)));

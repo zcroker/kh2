@@ -15,38 +15,12 @@ void func_002f3918(s32, void*);
 extern s32 D_003591c8;
 extern u64 D_01da8c40[];
 
-void func_00185ed8(u8* p, u32 a1, u32 a2, u32 a3) {
-    func_001980d0(p, a1, a2, a3);
-    *(u32*)p = (u32)&D_0034ee08;
-    func_00190128(p + 2548);
-    func_0019f950(p + 2568, p);
-    *(s32*)(p + 2724) = 0;
-    *(s32*)(p + 2728) = -1;
-    *(s32*)(p + 2732) = 0;
-    new (p + 2748) V3_w1772;
-    *(s32*)(p + 2760) = 0;
-    *(s32*)(p + 2764) = 0;
-    new (p + 2768) F4_w1772;
-    *(s32*)(p + 2784) = 0;
-    *(u32*)(p + 1416) |= 2;
-}
+// 00185ed8: moved to src/anon/unit_00185d10.cpp
+void func_00185ed8(u8* p, u32 a1, u32 a2, u32 a3);
 
 // Byte-identical twin of func_00185ed8 (a second class with the same ctor).
-void func_00185f70(u8* p, u32 a1, u32 a2, u32 a3) {
-    func_001980d0(p, a1, a2, a3);
-    *(u32*)p = (u32)&D_0034ee08;
-    func_00190128(p + 2548);
-    func_0019f950(p + 2568, p);
-    *(s32*)(p + 2724) = 0;
-    *(s32*)(p + 2728) = -1;
-    *(s32*)(p + 2732) = 0;
-    new (p + 2748) V3_w1772;
-    *(s32*)(p + 2760) = 0;
-    *(s32*)(p + 2764) = 0;
-    new (p + 2768) F4_w1772;
-    *(s32*)(p + 2784) = 0;
-    *(u32*)(p + 1416) |= 2;
-}
+// 00185f70: moved to src/anon/unit_00185d10.cpp
+void func_00185f70(u8* p, u32 a1, u32 a2, u32 a3);
 
 // GIF packet: 128-bit tag, GIFtag (NLOOP=1, EOP, NREG=2, REGS=A+D,A+D), two A+D pairs.
 struct Pkt_w1772 { u128 tag; u64 a; u64 b; u64 c[4]; };
