@@ -408,9 +408,7 @@ u32 func_00103f48(u32 a0, u32 a1, u32 a2, u32 a3) {
 
 // 001048d0: _GLOBAL__I_ stub, now made by gcc in src/common/gumimenu.cpp
 
-u32 func_001048f0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_00104640(0x00000000u, 0x0000ffffu, a2, a3);
-}
+// 001048f0: _GLOBAL__D_ stub, now made by gcc in src/common/gumimenu.cpp
 
 u32 func_00105530(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_00105400(0x00000001u, 0x0000ffffu, a2, a3);

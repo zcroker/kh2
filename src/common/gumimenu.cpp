@@ -1,6 +1,6 @@
 #include "./types.h"
 
-// Gumi menu mode (0x104318-0x1048f0): loads the ovl_gumimenu.x overlay, gives it three work
+// Gumi menu mode (0x104318-0x104910): loads the ovl_gumimenu.x overlay, gives it three work
 // buffers, and holds the mode object that the task manager runs. The overlay's own code
 // (gm::GUMI_MENU, gumimenu.hpp) is not part of this file.
 
@@ -34,6 +34,7 @@ struct GumiMenuMode {
 struct Vec4f {
     f32 x, y, z, w;
     Vec4f(f32 ax, f32 ay, f32 az, f32 aw) { x = ax; y = ay; z = az; w = aw; }
+    ~Vec4f() {}
 };
 
 static inline f32 half_pi() { return 1.5707963f; }
