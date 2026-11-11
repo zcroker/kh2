@@ -161,14 +161,7 @@ void func_00151b40(u8* p) {
 }
 
 // Copies the new target into the camera state and flags the change.
-void TargetCamera_change(u32* t) {
-    D_0034aa70[0] = t[0];
-    D_0034aa70[1] = t[1];
-    D_0034aa70[2] = t[2];
-    D_0034aa70[3] = t[3];
-    D_0034aa70[4] = t[4];
-    D_0034aa40.changed = 1;
-}
+// 0015a6c8: moved to src/harata/libdk/targetcamera.cpp
 
 void func_001668f8(u8* p) {
     func_001666a0(p);  // zero_fields_0_4_6_8

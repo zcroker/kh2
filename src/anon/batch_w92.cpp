@@ -286,20 +286,7 @@ static inline void mulmat159(M159* d, const void* a, const void* b) {
 }
 
 // projects through the current view matrices and returns screen-clip outcode bits
-u32 func_00159dc0(void* obj, s32* rc) {
-    M159 m;
-    u8* a = func_00106a18(1);  // buffer_get_256
-    u8* b = func_00106a60(1);  // buffer_get_by_index
-    mulmat159(&m, a, b ? b + 16 : 0);
-    s32* r = func_0013a178(obj, &m);
-    u32 f = (r[0] < rc[0]) << 2;
-    if (rc[1] < r[0]) f |= 8;
-    f |= r[1] < rc[2];
-    if (rc[3] < r[1]) f |= 2;
-    if (r[2] <= 0) f |= 0x10;
-    if (r[2] > 4000000) f |= 0x20;
-    return f;
-}
+// 00159dc0: moved to src/harata/libdk/targetcamera.cpp
 }
 
 // ---- 187520 ----

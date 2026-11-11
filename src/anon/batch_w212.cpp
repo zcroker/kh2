@@ -16,11 +16,7 @@ extern W212P D_01d49350;
 extern u32 D_00362c18;
 
 // 16-byte copy done with lq/sq through t0, as the original
-void func_00159ce0(u8* a0, u128* a1) {
-    u128* r = (u128*)func_0016c028(*(u32*)(a0 + 68));  // obj_get_attach_or_alt
-    if (a1 != r) asm("lq $8,0(%1)\n\tsq $8,0(%0)" :: "r"(a1), "r"(r) : "$8", "memory");
-    ((f32*)a1)[1] -= 170.0f;
-}
+// 00159ce0: moved to src/harata/libdk/targetcamera.cpp
 
 void func_0018f0b0(s32 a, s32 b) {
     if (b == 0xffff) { if (a == 1) { D_01c60cd0.f = 0.7853981256484985f; } }

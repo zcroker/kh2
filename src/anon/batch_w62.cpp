@@ -142,33 +142,14 @@ void wtarget_0014ec40(u32 a0, u32 a1, u32 a2, u32 a3) {
 void func_00159ce0(u8*, Vq*);
 void func_0013f888(u8*, Vq*, u32);
 void func_0013fca8(u8*);
-void func_0015a528(u8* p) {
-    Vq* q = (Vq*)(p + 128);
-    Vq saved(*q);
-    Vq v;
-    func_00159ce0(p, &v);
-    func_0013f888(p, &v, 0);
-    *q = v;
-    func_0013fca8(p);
-    *q = saved;
-}
+// 0015a528: moved to src/harata/libdk/targetcamera.cpp
 
 void func_00141010(f32);
 u8* func_00140df0(void);
 s32 func_00140dc0(void);
 void func_0015a6c8(u8*);
 extern f32 D_0034aa84;
-void func_0015a638(u8* p) {
-    func_00141010(30.0f);
-    u8* o = func_00140df0();
-    o[59] = 1;
-    s32 m = func_00140dc0();
-    if (m == 6 || m == 8) return;
-    f32 x = *(f32*)(o + 72);
-    *(u32*)(o + 64) = 2;
-    D_0034aa84 = x;
-    func_0015a6c8(p);
-}
+// 0015a638: moved to src/harata/libdk/targetcamera.cpp
 
 extern u8 D_0034c70c;
 extern u8 D_0034c6f0[];

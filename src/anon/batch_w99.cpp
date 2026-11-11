@@ -246,24 +246,7 @@ void func_00159fd0(O15a1*, P15a1*, f32);
 f32 func_0015a098(void);
 void func_0013fd90(O15a1*);
 
-void func_0015a158(P15a1* p, O15a1* o)
-{
-    f32 k = D_00349e10;
-    if (func_001584f8(p)) {
-        o->f76 += D_004f3604 * p->speed * k;
-        o->f80 = o->f76 = func_0017ce10(o->f76);
-    } else if (func_00158548(p)) {
-        o->f76 -= D_004f3604 * p->speed * k;
-        o->f80 = o->f76 = func_0017ce10(o->f76);
-    }
-    if (!func_0019c4d0(o->w68)) func_00159fd0(o, p, k);
-    else if (p->f0 & 0x100000000ull) func_00159fd0(o, p, k);
-    if (p->f8 & 0x20000) {
-        o->f80 = func_0015a098();
-        func_0013fd90(o);
-        D_0034aa84 = o->f72;
-    }
-}
+// 0015a158: moved to src/harata/libdk/targetcamera.cpp
 }
 
 // ---- 001791e8

@@ -2518,24 +2518,7 @@ void func_00158658(u32 a0) {
     return func_0013fca8(s0);
 }
 
-void func_0015a708() {
-    u32 s0;
-    u32 v0;
-
-    s0 = func_00140df0();
-    *(u8*)(s0 + 59) = 0;
-    v0 = func_00140dc0();
-    if (v0 == 6) {
-        return;
-    }
-    if (v0 == 8) {
-        return;
-    }
-    if (v0 != 2) {
-        return;
-    }
-    return func_00140dd0(s0);
-}
+// 0015a708: moved to src/harata/libdk/targetcamera.cpp
 
 void func_0015ad28(u32 a0) {
     u32 s0 = a0;
