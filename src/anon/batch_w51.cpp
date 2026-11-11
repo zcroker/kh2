@@ -300,22 +300,7 @@ struct Ent44 { u32 w0; u8 pad[40]; };
 extern Ent44 D_0035080c[6];
 void func_001de450(Ent44*);
 
-void func_001a5e38(void) {
-    LNode* n = D_01c6cb20;
-    if (n) {
-        do {
-            LNode* next = n->next;
-            if (n) {
-                func_001a5d48(n);
-                func_00105110(n);
-            }
-            n = next;
-        } while (n);
-    }
-    for (s32 i = 0; i < 6; i++) {
-        if (D_0035080c[i].w0) func_001de450(&D_0035080c[i]);
-    }
-}
+// 001a5e38: moved to src/yasui/libys/magic.cpp
 
 void func_001b3b70(void*, u32, u32, u32);
 extern u8 D_00351078[];

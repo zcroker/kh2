@@ -309,18 +309,7 @@ void func_001a1aa0(u8* p, s32 d) {  // ring_buffer_index
     p[432] = v;
 }
 
-u32 func_001a6850(void) {
-    for (u8** n = (u8**)D_01c6cb20; n; n = (u8**)n[3]) {
-        u8* o = n[0];
-        if (*(u32*)(o + 28) & 4) continue;
-        u8* a = *(u8**)(o + 56);
-        if (!func_0019ba60(a)) continue;
-        u32 fl = *(u32*)(a + 1416);
-        if (!(fl & 0x4000)) continue;
-        if (!(fl & 0x400000)) return 1;
-    }
-    return 0;
-}
+// 001a6850: moved to src/yasui/libys/magic.cpp
 
 // Allocate an id 1..255 from a 256-bit bitmap, round-robin.
 u32 func_001bffd8(void) {

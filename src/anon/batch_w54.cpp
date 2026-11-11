@@ -278,10 +278,7 @@ void func_001a5380(void* a0, void* a1, void* a2) {
 
 void func_00177998(void*);
 void func_0016cbc8(void*, s32, s32, s32);
-void func_001a6440(void** p) {
-    if (*(u32*)((u8*)p[1] + 1416) & 4) func_00177998(p[1]);
-    func_0016cbc8(p[0], 21, 0, 0);
-}
+// 001a6440: moved to src/yasui/libys/magic.cpp
 
 s32 func_001a8f10(void*);  // arg_map_0_1_2
 s32 func_001a8bf8(void*, s32);  // get_bits5_at

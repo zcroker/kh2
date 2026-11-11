@@ -415,22 +415,7 @@ struct Obj { Node* node; u8 pad[4]; f32 f8; Obj* next; };
 struct List { Obj* head; Obj* tail; };
 extern List D_01c6cb20;
 void func_001826c8(f32);
-void func_001a5c88(Obj* o)
-{
-    if (o->f8 > 0.0f) func_001826c8(-o->f8);
-    delete o->node;
-    Obj* prev;
-    if (o == D_01c6cb20.head) {
-        D_01c6cb20.head = o->next;
-        prev = 0;
-    } else {
-        prev = D_01c6cb20.head;
-        while (prev->next != o) prev = prev->next;
-        prev->next = o->next;
-    }
-    if (o == D_01c6cb20.tail) D_01c6cb20.tail = prev;
-    o->next = 0;
-}
+// 001a5c88: moved to src/yasui/libys/magic.cpp
 }
 }
 

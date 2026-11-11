@@ -19,34 +19,5 @@ static inline bool Has1a5f50(Res1a5f50* r) { return r && r->val != 0; }
 
 // YS::MAGIC init: create the magic task, then load each of the 6 magic entries' cache/resources.
 // Each field is walked by its own stepping pointer (matches the original's 5 separate stride-44 registers).
-void func_001a5f50(void)
-{
-    t1a5f50_CreateTask(1, 0x5014, func_001a5db8)->fin = t1a5f50_Finalizer;
-    Pair1a5f50* z = &D_01c6cb20;
-    z->b = 0;
-    z->a = 0;
-    Ent1a5f50* base = D_00350800;
-    u8* pa = base->arg;
-    Ent1a5f50* pc = base;
-    Data1a5f50** pd = &base->data;
-    Ent1a5f50* pr = base;
-    Ent1a5f50* pe = base;
-    for (s32 i = 0; i < 6; i++) {
-        Data1a5f50* d = func_001a6658(i);
-        if (d) {
-            s32 c = t1a5f50_Alloc(d->name, -1);
-            pc->cache = c;
-            s32* e = pr->res;
-            for (s32 k = 0; k < 2; k++) {
-                Res1a5f50* r = func_00168b38(c, 3, k);
-                e[k] = Has1a5f50(r) ? r->val : 0;
-            }
-            t1a5f50_001dddd0(pa, func_00168b38(c, 18, 0)->val);
-        } else {
-            pe->cache = 0;
-        }
-        *pd = d;
-        pa += 44; pd = (Data1a5f50**)((u8*)pd + 44); pe++; pc++; pr++;
-    }
-}
+// 001a5f50: moved to src/yasui/libys/magic.cpp
 }

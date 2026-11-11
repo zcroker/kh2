@@ -678,10 +678,7 @@ void func_001a5b58(u32 a0, u32 a1, u32 a2, u32 a3) {
     *(u32*)((u32)b + (-13540)) = (u32)a0;
 }
 
-void func_001a6648(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 b = (0x01c7u << 16);
-    *(u32*)((u32)b + (-13528)) = (u32)a0;
-}
+// 001a6648: moved to src/yasui/libys/magic.cpp
 
 void func_001a6a10(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 b = (0x01c7u << 16);

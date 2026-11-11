@@ -290,6 +290,8 @@ u32 ctarget_001d9148(u32 i, u32, u32, u32) {
     return 0;
 }
 
+// ryj::PAX::~PAX() (D1), called by the static destructors of PAX members.
+void func_001ddd88(void* p) asm("_ZN3ryj3PAXD1Ev");
 void func_001ddd88(void* p) {
     if (func_00321cb0(D_01d9e348, p)) func_001dde40(p);
 }

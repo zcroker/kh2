@@ -1270,7 +1270,7 @@ void func_0031e328(u32 a0, u32 a1) {
     *(u32 *)(a1 + (link_offset)) = 0;
 
 void func_0031ee68(u32 a0, u32 a1) { UNLINK_BODY(192) }
-void func_0031f298(u32 a0, u32 a1) { UNLINK_BODY(12) }
+// 0031f298: LIST<YS::MAGIC>::Remove, now made by gcc in src/yasui/libys/magiclist.cpp
 void func_0031fe00(u32 a0, u32 a1) { UNLINK_BODY(124) }
 void func_003201e8(u32 a0, u32 a1) { UNLINK_BODY(24) }
 void func_00320468(u32 a0, u32 a1) { UNLINK_BODY(2232) }

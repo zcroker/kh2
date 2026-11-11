@@ -195,11 +195,7 @@ struct S1a6 { u8 pad[40]; u32 v; };
 extern S1a6 D_00350800[];
 u32 func_001a6658(s32);
 void func_001bdff0(void);
-void func_001a60c8(void)
-{
-    for (s32 i = 0; i < 6; i++) D_00350800[i].v = func_001a6658(i);
-    func_001bdff0();
-}
+// 001a60c8: moved to src/yasui/libys/magic.cpp
 
 // 001aa8f0
 void func_001ab260(u32, u8*, u32, u32, u32, u32, u32, f32, f32);
