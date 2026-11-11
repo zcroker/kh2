@@ -2174,20 +2174,7 @@ u8* func_001a1490(s32 k)
 s32 func_001de2e0(u32, u32);
 u8* func_001de168(u32, s32, u32, u32, u32, s32);  // scan_list_by_half
 V4* func_001dc5f8(u8*);
-u8* func_001a3b48(u32 a, u32 b, V4* v, u32 c, u32 d, u32 e)
-{
-    s32 id = func_001de2e0(a, b);
-    u8* r = 0;
-    if (id >= 0) {
-        u8* o = func_001de168(a, id, c, d, e, 0);  // scan_list_by_half
-        if (o) {
-            V4* dst = func_001dc5f8(o);
-            if (dst != v) asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(dst), "r"(v) : "$8", "memory");
-        }
-        r = o;
-    }
-    return r;
-}
+// 001a3b48: moved to src/yasui/libys/effect.cpp
 s32 func_001d35e0(V4*, V4*, V4*, u32);
 s32 func_001a7610(V4*, V4*, u32, f32, f32) asm("_Z13func_001a7610jjjff");
 }
