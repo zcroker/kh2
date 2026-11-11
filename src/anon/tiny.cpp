@@ -312,14 +312,7 @@ void func_00103ea0(u32 a0, u32 a1, u32 a2, u32 a3) {  // set_hook_ptr
 
 // 00104288: moved to src/common/gumibattle.cpp
 
-u32 func_00104600(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a0;
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    u32 b = (0x0033u << 16);
-    return (u32)(*(u32*)((u32)b + (-17732)));
-}
+// 00104600: moved to src/common/gumimenu.cpp
 
 void func_001050b8(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 b = (0x0033u << 16);
@@ -1583,13 +1576,7 @@ u32 func_00103eb0(u32 a0, u32 a1, u32 a2, u32 a3) {
 
 // 00104190: moved to src/common/gumibattle.cpp
 
-u32 func_001045f0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a0;
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    return (u32)&D_0032ba90;
-}
+// 001045f0: moved to src/common/gumimenu.cpp
 
 u32 func_00105300(u32 a0, u32 a1, u32 a2, u32 a3) {
     (void)a0;

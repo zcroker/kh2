@@ -11327,30 +11327,7 @@ extern C104640 D_0032ba90;
 extern u8 D_0032b930[];
 static inline void Set104640(V104640* v, f32 a, f32 b, f32 c, f32 d) { v->x = a; v->y = b; v->z = c; v->w = d; }
 void wtarget_00104640(s32 init, s32 prio, u32, u32) asm("_Z16wtarget_00104640jjjj");
-void wtarget_00104640(s32 init, s32 prio, u32, u32)
-{
-    if (prio == 0xffff && init == 1) Set104640(&D_003a6a80, 0.0f, 1.0f, 0.0f, 0.0f);
-    if (prio == 0xffff && init == 1) Set104640(&D_003a6a90, 0.0f, -1.0f, 0.0f, 0.0f);
-    if (prio == 0xffff && init == 1) Set104640(&D_003a6aa0, -1.0f, 0.0f, 0.0f, 0.0f);
-    if (prio == 0xffff && init == 1) Set104640(&D_003a6ab0, 1.0f, 0.0f, 0.0f, 0.0f);
-    if (prio == 0xffff && init == 1) Set104640(&D_003a6ac0, 0.0f, 0.0f, 1.0f, 0.0f);
-    if (prio == 0xffff && init == 1) Set104640(&D_003a6ad0, 0.0f, 0.0f, -1.0f, 0.0f);
-    if (prio == 0xffff && init == 1) D_003a6ae0 = 1.5707962f;
-    if (prio == 0xffff && init == 1) D_003a6ae4 = -1.5707962f;
-    if (prio == 0xffff && init == 1) D_003a6ae8 = -1.5707962f;
-    if (prio == 0xffff && init == 1) D_003a6aec = 1.5707962f;
-    if (prio == 0xffff && init == 1) {
-        D_0032ba90.vt = (u32)D_0032b930;
-        D_0032ba90.f4 = 0;
-        D_0032ba90.b8 = 71;
-        D_0032ba90.f20 = init;
-        D_0032ba90.f24 = 160000;
-        D_0032ba90.f28 = 0;
-        D_0032ba90.f32 = 0;
-        D_0032ba90.f36 = 0;
-        D_0032ba90.f40 = 12288;
-    }
-}
+// 00104640: static initialiser, now made by gcc in src/common/gumimenu.cpp
 
 // --------------------
 // Bind the battle/system table entries (BAR tags) to their owners.
