@@ -394,32 +394,7 @@ u32 func_00198d00(u32, s32);
 void func_001d5518(u32*, u8*, u32);
 void func_001bc0d0(Obj1bb*);
 void wtarget_001bb4f0(Obj1bb* o, u32 id, u32 arg, u32) asm("_Z16wtarget_001bb4f0jjjj");
-void wtarget_001bb4f0(Obj1bb* o, u32 id, u32 arg, u32) {
-    u8 snd = o->info->snd;
-    if (snd) func_001c0890(snd);
-    u32* q = (u32*)((u8*)o + 740);
-    if (o->f752 & 4) {
-        if (func_001d83c0(0) > 0) func_001d4fd0(q);
-        func_001d4ff0(q);
-    }
-    func_001bbe18(o->info->f20);
-    func_001bb890();
-    u32* m = &o->f104;
-    if (m[1]) {
-        u32 v = func_00198d00(id, -1);
-        if (id == 16 || id == 156 || (v && !(o->info->flags & 0x40))) {
-            func_001d5518(m, (u8*)o + 12, 0);
-            o->f728 = 2;
-        } else {
-            func_001d5518(m, (u8*)o + 12, v);
-            func_001bc0d0(o);
-        }
-        o->f732 = id;
-        o->f736 = arg;
-    } else {
-        func_001bb630(id, arg);
-    }
-}
+// 001bb4f0: moved to src/yasui/libys/mission.cpp
 
 // ---- 001bee78
 s32 func_001b6070(u8*);

@@ -479,12 +479,7 @@ void f17f488(s32 a, s32 b, f32 x, f32 y) {
     func_0017f268(a, b, x, y);
 }
 
-void MISSION_Activate2d(void* m) {
-    if (func_001bb4a0()) {
-        u8 c = *(*(u8**)(D_01d49320 + 8) + 8);
-        if (c) func_001c11a8(c);
-    }
-}
+// 001bbac0: moved to src/yasui/libys/mission.cpp
 
 void EFFECT_kill(void* e) {
     u8* p = (u8*)e;

@@ -172,25 +172,11 @@ void func_001abfd8(u8* o) {
 
 void func_001d5370(u32*, u32, s32);
 void func_002534e0(u32, u32);
-s32 func_001bba30(u8* o) {
-    u32 buf[2];
-    buf[0] = 0;
-    buf[1] = 0;
-    u32 a = *(u32*)(o + 72);
-    u8 c;
-    if (!a || (c = (*(u8**)(o + 8))[12]) == 0) return 0;
-    func_001d5370(buf, a, c - 1);
-    func_002534e0(buf[1], buf[0]);
-    return 1;
-}
+// 001bba30: moved to src/yasui/libys/mission.cpp
 
 s32 func_001bb4a0(void);
 u8* func_001bbcb0(void);
-s32 func_001bc0e0(void) {
-    s32 r = 0;
-    if (!func_001bb4a0() || !(*(u32*)(func_001bbcb0() + 4) & 0x10)) r = 1;
-    return r;
-}
+// 001bc0e0: moved to src/yasui/libys/mission.cpp
 
 struct O1bc { u16 f0; u16 f2; u8 f4; u8 f5; u16 pad; u32 f8; };
 u8 func_001bc2a8(u16*, u32, u32);

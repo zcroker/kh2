@@ -231,11 +231,7 @@ void func_001b58b8(void* a, void* b, void* c) {
 
 struct Flags16 { u16 lo:9; u16 bit9:1; u16 hi:6; };
 
-u8 func_001bb9f0(void) {
-    u8 r = 0;
-    if (func_001bb4a0()) r = ((Flags16*)(*(u8**)(D_01d49320 + 8) + 4))->bit9;
-    return r;
-}
+// 001bb9f0: moved to src/yasui/libys/mission.cpp
 
 void func_001ca950(u8* p, void* a, void* b, void* c, void* d, u32 e) {
     func_001c6fa8(p, a, b, c, d);

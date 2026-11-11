@@ -258,17 +258,7 @@ void func_001ac028(u8* p) {
     func_00239988(p + 4, a, font_get_image());
 }
 
-s32 func_001bbb50(void) {  // type_is_2_or_25
-    void* p = D_01d49320;
-    if (!p) return 0;
-    switch (*(u8*)(*(u8**)((u8*)p + 8) + 8)) {
-    case 2:
-    case 25:
-    case 32:
-        return 1;
-    }
-    return 0;
-}
+// 001bbb50: moved to src/yasui/libys/mission.cpp
 
 s32 func_001c0ce8(u8* o) {
     s32 r = 0;

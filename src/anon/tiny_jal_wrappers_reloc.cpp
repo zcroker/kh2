@@ -281,17 +281,7 @@ u32 func_001b1d60(u32 a0, u32 a1, u32 a2, u32 a3) {
     return r2;
 }
 
-u32 func_001bb288(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u, r15 = 0u, r16 = 0u;
-    r6 = r5;
-    r5 = r4;
-    r16 = (u32)&D_01d48de8;
-    r4 = r16;
-    r2 = func_001baa58(r4, r5, r6, r7);
-    r15 = (u32)(0x01d5u << 16);
-    *(u32*)((u32)r15 + (s32)(-27872)) = r16;
-    return r2;
-}
+// 001bb288: moved to src/yasui/libys/mission.cpp
 
 u32 func_001c11a8(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u, r14 = 0u, r15 = 0u;

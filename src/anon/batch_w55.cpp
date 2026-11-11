@@ -419,19 +419,7 @@ void func_001b24c8(void) {
 }
 
 #define MISSION_W55 ((u8*)D_01d49320)
-void MissionFailed(void) {
-    func_001bbe18(*(u32*)(*(u8**)(MISSION_W55 + 8) + 24));
-    *(u32*)(MISSION_W55 + 180) = 2;
-    func_001d5518(MISSION_W55 + 160, MISSION_W55 + 12, 0);
-    func_001bb890();
-    if (func_001bb7f8()) {
-        *(u32*)(MISSION_W55 + 732) = 8;
-        *(s32*)(MISSION_W55 + 736) = -1;
-        func_001bc0d0(MISSION_W55);
-        return;
-    }
-    func_001bbc30();
-}
+// 001bb768: moved to src/yasui/libys/mission.cpp
 
 extern "C" {
 

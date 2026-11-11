@@ -235,14 +235,7 @@ void func_001b2488(u8* p) {
     func_003201e8(&D_01d48c80, p);
 }
 
-s32 func_001bb9b0(void) {
-    s32 r = 0;
-    if (func_001bb4a0()) {
-        u32 h = *(u16*)(*(u8**)(D_01d49320 + 8) + 4);
-        r = (h >> 4) & 1;
-    }
-    return r;
-}
+// 001bb9b0: moved to src/yasui/libys/mission.cpp
 
 void MANAGER_exec_zsort(u8* self) {
     func_0016a9a0(self);  // to_16a950

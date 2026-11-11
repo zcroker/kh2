@@ -152,24 +152,13 @@ void u_call4_001b0330(u32 a0, u32 a1, u32 a2, u32 a3) {
 
 extern u8* D_01d49320;
 u32 func_001bb4a0(void);
-u32 func_001bb4b0(void) {
-    u32 r = 0;
-    if (func_001bb4a0()) { u32 m = *(u32*)(D_01d49320 + 4) & 4; r = m == 0; }
-    return r;
-}
+// 001bb4b0: moved to src/yasui/libys/mission.cpp
 
 u8 func_001bba30(void*);
-u8 func_001bba88(void) {
-    if (func_001bb4a0()) return func_001bba30(D_01d49320);
-    return 0;
-}
+// 001bba88: moved to src/yasui/libys/mission.cpp
 
 u8* func_001bbcb0(void);
-u32 func_001bc010(void) {
-    u32 r = 0;
-    if (func_001bb4a0()) { u32 h = *(u16*)(*(u8**)(func_001bbcb0() + 8) + 4); r = (h >> 13) & 1; }
-    return r;
-}
+// 001bc010: moved to src/yasui/libys/mission.cpp
 
 extern void* D_00352678;
 extern void* D_00352668;

@@ -12,13 +12,7 @@ void func_00133ea8(void);
 void func_00109330(void);
 void func_00109340(void);
 
-void func_001bb958(s32 n) {
-    if (n == 0) {
-        if (!w1758_ys_mission_isexec()) return;
-        n = *(u16*)(*(u8**)(D_01d49320 + 8) + 6);
-    }
-    if (n > 0) func_0014f578(w1758_tail4_192048(n));
-}
+// 001bb958: moved to src/yasui/libys/mission.cpp
 }
 
 s32 func_00109e30(int a) {

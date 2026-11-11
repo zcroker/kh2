@@ -329,15 +329,7 @@ s32 func_001bb4a0(u32);
 u8* func_001bbcb0(void);
 void func_001d4fa8(void*, u32);
 
-s32 func_001bbdb8(u32 a0) {
-    if (func_001bb4a0(a0)) {
-        if (*(u32*)(func_001bbcb0() + 752) & 4) {
-            func_001d4fa8(func_001bbcb0() + 740, a0);
-            return 1;
-        }
-    }
-    return 0;
-}
+// 001bbdb8: moved to src/yasui/libys/mission.cpp
 
 struct LItem { u8 pad[12]; LItem* head; LItem* tail; u8 pad2[8]; LItem* owner; u32 pad3; LItem* next; };
 struct LItemList { LItem* head; LItem* tail; };

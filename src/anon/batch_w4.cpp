@@ -165,11 +165,7 @@ void func_0019fd88(void** o, u32 a) {
 
 // 001a8498: moved to src/anon/unit_001a82f0.cpp
 
-u32 func_001bbb08(void) {
-    u32* p = D_01d49320;
-    if (p == 0) return 0;
-    return *p;
-}
+// 001bbb08: moved to src/yasui/libys/mission.cpp
 
 s32 func_001c4170(void) {  // global_pair_diff
     return D_00351604 - D_00351608;

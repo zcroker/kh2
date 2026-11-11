@@ -52,7 +52,7 @@ u32 func_0017fd20(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a1; (void)a2; (void)a3; u
 
 u32 func_0019fdb0(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a1; (void)a2; (void)a3; u32 v = *(u32*)((u32)a0 + (340)); return (u32)((s32)v + (1)); }
 
-void func_001bc0d0(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a1; (void)a2; (void)a3; u32 v = (u32)((s32)4); *(u32*)((u32)a0 + (728)) = v; }
+// 001bc0d0: moved to src/yasui/libys/mission.cpp
 
 u32 func_001c5f78(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a1; (void)a2; (void)a3; u32 p = *(u32*)((u32)a0 + (92)); u32 v = *(u32*)((u32)p + (4)); v ^= 0x5bdu; return (v < 1u); }
 

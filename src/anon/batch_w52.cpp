@@ -257,20 +257,7 @@ extern u8** D_01d49320;
 void func_001bb468(void);
 void func_001af2e8(void);
 void func_001af360(u32);
-void func_001bbc30(void) {
-    u8 k = (*(u8**)(D_01d49320 + 2))[8];
-    func_001bb468();
-    switch (k) {
-    case 2:
-    case 30:
-    case 35:
-        func_001af360(0);
-        break;
-    default:
-        func_001af2e8();
-        break;
-    }
-}
+// 001bbc30: moved to src/yasui/libys/mission.cpp
 
 s32 func_001c8bb8(s8*);
 u64 func_00312db8(u64, u64);  // libgcc 64-bit unsigned divide

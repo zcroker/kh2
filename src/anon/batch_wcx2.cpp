@@ -8396,56 +8396,7 @@ void func_001d5370_x8499(u8*, s32, s32) asm("func_001d5370");
 void func_001d4dc0(u8*, s32, s32, s32);
 void func_0019ba60_x8501(u8*) asm("func_0019ba60");
 void func_001a1aa0(u8*, s32);
-s32 func_001bb2c8(C1bb2c8* c, u8* x) {
-    switch (c->type) {
-    case 1:
-        func_001d5470_x8493(x + 76, *(s32*)(x + 72), c);
-        break;
-    case 2:
-        func_001d5470_x8493(x + 104, *(s32*)(x + 72), c);
-        break;
-    case 3:
-        func_001d5470_x8493(x + 160, *(s32*)(x + 72), c);
-        break;
-    case 4:
-        func_001d8248(x, c);
-        break;
-    case 5:
-        func_001d8550(x, c);
-        break;
-    case 6:
-        func_001d8b68(x, c);
-        break;
-    case 7:
-        func_001d9028(x, c);
-        break;
-    case 8: {
-        u8* q = x + 740;
-        func_001d5370_x8499(x + 744, *(s32*)(x + 72), c->n - 1);
-        func_001d4dc0(q, c->a.i, c->b, c->c);
-        break;
-    }
-    case 9:
-        func_001d93f0(x, c);
-        break;
-    case 10:
-        *(s32*)(x + 1324) = c->a.i;
-        break;
-    case 11:
-        *(f32*)(x + 1328) = c->a.f;
-        break;
-    case 12: {
-        u8* o = D_0034e948;
-        func_0019ba60_x8501(o);
-        if ((*(u8**)(o + 1164))[431] == 1) func_001a1aa0(*(u8**)(o + 1164), c->a.i);
-        break;
-    }
-    case 13:
-        func_001d5470_x8493(x + 132, *(s32*)(x + 72), c);
-        break;
-    }
-    return 1;
-}
+// 001bb2c8: moved to src/yasui/libys/mission.cpp
 
 // --------------------
 struct V1cd078 { f32 x, y, z, w; };

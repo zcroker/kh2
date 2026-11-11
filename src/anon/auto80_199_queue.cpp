@@ -5581,90 +5581,15 @@ void func_001bb020(u32 a0) {
     return ((void(*)())func_001bbb50)();
 }
 
-void func_001bb630(u32 a0, u32 a1) {
-    u32 s0 = a0;
-    u32 s1 = a1;
-    if (func_001bbb50() == 0) {  // type_is_2_or_25
-        if (s0 != 156) {
-            goto L001bb684;
-        }
-    }
-L001bb660:
-    {
-        u32 v0 = func_001c10f8(26);  // request_pool_block64
-        return func_00253410(v0, 0);
-    }
+// 001bb630: moved to src/yasui/libys/mission.cpp
 
-L001bb684:
-    if (func_001991a8(s0, s1) != 0) {
-        return func_001bb468();
-    }
-    if (s0 == 8) {
-        return func_001bbc30();
-    }
-    (void)s1;
-}
+// 001bb6d0: moved to src/yasui/libys/mission.cpp
 
-void func_001bb6d0(u32 a0) {
-    u32 s0 = a0;
-    u32 a1_live = s0;
-    u32 v0 = func_001bc090(a0);
-    if (v0 != 0) {
-        v0 = func_00198bd0(7, a1_live);
-        if (v0 != 0) {
-            u32 t6 = *(u32*)(v0 + 8);
-            if (t6 != 0xffff) {
-                if (func_00181500(t6) != 0) {
-                    return func_001bb4f0(D_01d49320, 156, s0);
-                }
-            }
-        }
-    }
+// 001bb8f0: moved to src/yasui/libys/mission.cpp
 
-    return func_001bb4f0(D_01d49320, 7, s0);
-}
+// 001bbcf8: moved to src/yasui/libys/mission.cpp
 
-void func_001bb8f0() {
-    u32 g = D_01d49320;
-    *(u32*)(g + 4) &= 0xffffffef;
-    func_001919a8();
-
-    D_0034f240 &= 0xfffffffd;
-    func_001d6c88();
-    func_001bbac0();
-    func_002bc798();
-    return func_001c8d98((u32)&D_00351ec8, 0);
-}
-
-void func_001bbcf8(u32 a0) {
-    u32 s0 = a0;
-    if (func_001bb4a0(a0) == 0) {
-        return;
-    }
-
-    u32 v0 = func_001bbcb0();
-    if ((*(u32*)(v0 + 752) & 4) == 0) {
-        return;
-    }
-
-    v0 = func_001bbcb0();
-    return func_001d4e50(v0 + 740, s0);
-}
-
-void func_001bbd58(u32 a0) {
-    u32 s0 = a0;
-    if (func_001bb4a0(a0) == 0) {
-        return;
-    }
-
-    u32 v0 = func_001bbcb0();
-    if ((*(u32*)(v0 + 752) & 4) == 0) {
-        return;
-    }
-
-    v0 = func_001bbcb0();
-    return func_001d4ef0(v0 + 740, s0);
-}
+// 001bbd58: moved to src/yasui/libys/mission.cpp
 
 void func_001bc990(u32 a0, u32 a1) {
     u32 s0 = a1;
