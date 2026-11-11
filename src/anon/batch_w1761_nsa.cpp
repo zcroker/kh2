@@ -51,11 +51,5 @@ static inline W1761Ent64* w1761_pop(W1761Pool30* p) {
     return &p->e[p->idx[p->n]];
 }
 
-W1761Ent64* func_002e9850(void) {
-    W1761Ent64* r;
-    D_01e2bfa4++;
-    r = w1761_pop(D_01e2bfa0);
-    func_002e93a0(r);
-    return r;
-}
+// 002e9850: moved to src/sugi/flare.cpp
 }

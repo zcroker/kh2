@@ -560,16 +560,5 @@ void func_002e7108(List64* l, f32 x) {
 }
 
 // Next 64-byte slot after p (or the first) whose index is not in the in-use list.
-Slot* func_002e97b8(Slot* p) {
-    Slot* base = (Slot*)D_01e2bfa0;
-    Slot* q = p ? p + 1 : base;
-    while (q < base + 30) {
-        s32 idx = q - base;
-        s32 n = *(s32*)((u8*)base + 2040);
-        s32 j;
-        for (j = 0; j < n; j++) if (((s32*)((u8*)base + 1920))[j] == idx) { q++; break; }
-        if (j == n) return q;
-    }
-    return 0;
-}
+// 002e97b8: moved to src/sugi/flare.cpp
 }

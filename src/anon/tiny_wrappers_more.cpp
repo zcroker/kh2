@@ -1592,9 +1592,7 @@ u32 func_002e9208(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_002e9200(0x00000001u, 0x0000ffffu, a2, a3);
 }
 
-u32 func_002e9988(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_002e98f0(0x00000001u, 0x0000ffffu, a2, a3);
-}
+// 002e9988: _GLOBAL__I_ stub, now made by gcc in src/sugi/flare.cpp
 
 u32 func_002eab70(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_002eaab0(a1, a2, a2, a3);

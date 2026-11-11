@@ -122,26 +122,7 @@ s32 func_0018a550(W1980Col80*, W1980Col80*);
 void func_0018a7d0(W1980Col80*, W1980Col80*, W1980V80*);
 void func_002e9610(W1980Obj80*, const W1980V80&);
 extern W1980ColList80 D_01e2bfb0;
-void func_002e93b0(W1980Obj80* self) {
-    func_002e97b8(0);
-    if (self->eff != 0 && !W1980Eff80_is_active(self->eff)) self->eff = 0;
-    W1980V80 push;
-    W1980Obj80* o = 0;
-    while ((o = func_002e97b8(o)) != 0) {
-        if (o != self && func_0018a550(&self->col, &o->col)) {
-            func_0018a7d0(&self->col, &o->col, &push);
-            func_002e9610(o, W1980V80(o->pos) + push * 0.5f);
-            func_002e9610(self, W1980V80(self->pos) + push * -0.5f);
-        }
-    }
-    s32 i;
-    for (i = 0; i < D_01e2bfb0.count; i++) {
-        if (func_0018a550(&self->col, &D_01e2bfb0.e[i])) {
-            func_0018a7d0(&self->col, &D_01e2bfb0.e[i], &push);
-            func_002e9610(self, W1980V80(self->pos) - push);
-        }
-    }
-}
+// 002e93b0: moved to src/sugi/flare.cpp
 
 s32 func_001a0920(W1980Ent81*, void*);
 s32 func_001a0800(W1980Ent81*, void*, W1980Tgt81*, f32, f32, f32);

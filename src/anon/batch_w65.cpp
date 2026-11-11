@@ -484,12 +484,7 @@ void func_002e24e0(u8* p) {
 
 u32 func_001dc9e0(u32);
 Vq* func_001dc5f8(u32);
-void func_002e9610(Vq* a, Vq* b) {
-    a[0] = *b;
-    a[2] = *b;
-    u32 o = *(u32*)((u8*)a + 60);
-    if (o && func_001dc9e0(o)) *func_001dc5f8(*(u32*)((u8*)a + 60)) = *b;
-}
+// 002e9610: moved to src/sugi/flare.cpp
 
 // 002ee730: moved to src/menu/tutorial_widget.cpp
 
