@@ -657,13 +657,9 @@ u32 func_001681d8(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_00168068(0x00000001u, 0x0000ffffu, a2, a3);
 }
 
-u32 func_001688c8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_001ae1b0(a0, a1, a2, a3);
-}
+// 001688c8: moved to src/yasui/libys/file.cpp
 
-u32 func_00168a80(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_00168a58(0x00000001u, 0x0000ffffu, a2, a3);
-}
+// 00168a80: _GLOBAL__I_ stub, now made by gcc in src/yasui/libys/file.cpp
 
 u32 func_0016a140(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_00180828(((u32)(a0) + 320u), a1, a2, a3);

@@ -727,17 +727,7 @@ extern "C" {
 typedef u8* (*AllocFn)(u8*, s32, void*);
 extern u8* D_0032b91c;
 void func_00168958(u8*, s32, u32);  // obj_init_name_string
-void func_00168410(u32 a, u32 b, u32 c, u16 d, u32 e, u32 f)
-{
-    u8* al = D_0032b91c;
-    u8* o = (**(AllocFn**)al)(al, 76, __builtin_return_address(0));
-    func_00168958(o, 0, a);  // obj_init_name_string
-    *(u32*)(o + 52) = b;
-    *(u32*)(o + 56) = e;
-    *(u32*)(o + 60) = f;
-    *(u32*)(o + 68) = c;
-    *(u16*)(o + 74) = d;
-}
+// 00168410: moved to src/yasui/libys/file.cpp
 struct E12 { u32 a; u32 flags; u32 c; };
 extern E12 D_01c60588[];
 extern s32 D_0034ed00;

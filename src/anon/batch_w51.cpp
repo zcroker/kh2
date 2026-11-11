@@ -146,13 +146,7 @@ struct Allocator { AllocVt* vt; };
 extern Allocator* D_0032b91c;
 void func_00168958(void*, u32, u32);  // obj_init_name_string
 
-void func_001684c0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u8* o = (u8*)D_0032b91c->vt->alloc(D_0032b91c, 76, __builtin_return_address(0));
-    func_00168958(o, 1, a0);  // obj_init_name_string
-    *(u32*)(o + 52) = a1;
-    *(u32*)(o + 56) = a2;
-    *(u32*)(o + 60) = a3;
-}
+// 001684c0: moved to src/yasui/libys/file.cpp
 
 extern u32 D_0034d8a8;
 u64 func_00312db8(u64, u64);

@@ -11086,24 +11086,11 @@ extern "C" u32 func_00168be8(...);
 
 extern "C" u32 func_001ae4b8(...);
 
-u32 func_00168370(void) {
-    return func_001ae4b8();
-}
+// 00168370: moved to src/yasui/libys/file.cpp
 
 extern u8 D_0034d840;
 
-void func_00168a30(void) {
-    u32 t6 = 0u;
-    u32 t5 = *(u32*)((u32)&D_0034d840 + (s32)(0));
-    while (1) {
-        u32 t7 = t5;
-        if (t6 != 0u) {
-            t7 = *(u32*)((u32)t6 + (s32)(0));
-        }
-        if (t7 == 0u) break;
-        t6 = t7;
-    }
-}
+// 00168a30: moved to src/yasui/libys/file.cpp
 
 void func_0016a2b0(u32 a0) {  // clear_15_words_at1976
     u32 t7 = (u32)((s32)0u + (15));

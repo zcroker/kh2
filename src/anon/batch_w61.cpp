@@ -147,14 +147,7 @@ extern u8 D_00168678[];
 extern u32 D_0032b91c;
 struct E16 { u32 a, b, c, d; };
 extern E16 D_0034d800[];
-void func_00168808(s32 a) {
-    if (a == -1) {
-        func_0014d358(D_004f5280, 4096, D_001685f0, 0);
-        func_00102788(D_0032b91c, 0, 0x61a80, D_00168678);
-        for (s32 i = 0; i < 4; i++) D_0034d800[i].c = 0;
-    }
-    func_001adcf8(a);
-}
+// 00168808: moved to src/yasui/libys/file.cpp
 
 u8* func_00176fb0(u8*, u32);
 s32 func_001a0920(u8*, u8*);

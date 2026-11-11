@@ -267,14 +267,7 @@ void func_00160ac0(u32 a, u32 b) {
 }
 
 // Allocates a 76-byte object from the heap (tagged with the caller) and initialises it.
-void func_00168388(u32 a, u32 b, u32 c, u32 d) {
-    void* h = D_0032b91c;
-    u8* o = (u8*)(*(AllocFn*)(*(u8**)h))(h, 76, __builtin_return_address(0));
-    func_00168958(o, 0, a);  // obj_init_name_string
-    *(u32*)(o + 52) = b;
-    *(u32*)(o + 56) = c;
-    *(u32*)(o + 60) = d;
-}
+// 00168388: moved to src/yasui/libys/file.cpp
 
 // YS::OBJ::scatter_prize(int)
 void YS_OBJ_scatter_prize(u8* self, s32 n) {

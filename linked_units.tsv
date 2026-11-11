@@ -44,3 +44,4 @@ src/common/gumimenu.cpp	00104318	00104910	.data@0032ba90,.bss@003a6a80,.rodata@0
 src/common/area.cpp	00104910	00105400	.data@0032bad8,.bss@003a7b00,.rodata@00369e50	-G0
 src/common/region.cpp	00105af8	00105c68	.data@0033caf0,.rodata@00369e88	-G0
 src/common/shop.cpp	00105c68	00105ee8	.data@0033cb80,.rodata@00369f50	-G0
+src/yasui/libys/file.cpp	00168218	00168aa0	.data@0034d800,.bss@004f5280	-G0 -g -fmove-all-movables -fno-strict-aliasing
