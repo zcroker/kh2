@@ -138,13 +138,8 @@ void func_00152508(u8* p, u32 a, u32 b, u32 c, u32 d) {
 u8* func_0017df58(u32);
 void func_001574a0(u32);
 void func_001024a8(u8*);
-void func_00157160(u8* p) {
-    u8* o = func_0017df58(0);
-    if (o && (*(u32*)(o + 1416) & 0x400000)) {
-        func_001574a0(*(u32*)(p + 4));
-        func_001024a8(p);
-    }
-}
+// 00157160: moved to src/anon/unit_00153ea0.cpp
+void func_00157160(u8* p);
 
 // --- 0015ee10
 // Clear the group's bit in the hidden-group mask and refresh.

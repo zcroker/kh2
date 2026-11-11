@@ -38,38 +38,6 @@ void func_0014b200(void*, u32);
 void func_00139598(void*);
 
 // HUD gauge panel (owner of 3 gauges + icon sprites): create gauge bars and icons.
-void func_001565c0(W1633Hud* self, u32 a1, u32 a2, u32 a3) {
-    func_0013e0f8(&self->gauge[1], 7000, 1, a3);
-    func_00158050(&self->spr[1], 7000, a1, a2, 121, 100, a3);
-    func_0013e0f8(&self->gauge[2], 7000, 1, a3);
-    func_00158050(&self->spr[2], 7000, a1, a2, 121, 500, a3);
-    func_0013e0f8(&self->gauge[3], 7000, 1, a3);
-    func_00158050(&self->spr[3], 7000, a1, a2, 128, 1000, a3);
-    func_00158050(&self->spr[4], 7000, a1, a2, 124, 0, a3);
-    func_00158050(&self->spr[5], 7000, a1, a2, 127, 0, a3);
-    func_00158050(&self->spr[6], 7000, a1, a2, 129, 0, a3);
-    func_00158050(&self->spr[7], 7000, a1, a2, 123, 0, a3);
-    func_00139d78(&self->gauge[1]);
-    func_0014b200(self->gauge[1].barA, 200);
-    func_0014b200(self->gauge[1].barB, 200);
-    func_00139d78(&self->gauge[2]);
-    func_0014b200(self->gauge[2].barA, 600);
-    func_0014b200(self->gauge[2].barB, 600);
-    func_00139d78(&self->gauge[3]);
-    func_0014b200(self->gauge[3].barA, 2000);
-    func_0014b200(self->gauge[3].barB, 2000);
-    if (self->owner != 0 && (self->owner->sub->flags & 2)) {
-        func_00139598(&self->gauge[0]);
-        func_00139598(&self->gauge[1]);
-        func_00139598(&self->spr[1]);
-        func_00139598(&self->gauge[2]);
-        func_00139598(&self->spr[2]);
-        func_00139598(&self->gauge[3]);
-        func_00139598(&self->spr[3]);
-        func_00139598(&self->spr[4]);
-        func_00139598(&self->spr[5]);
-        func_00139598(&self->spr[6]);
-        func_00139598(&self->spr[7]);
-    }
-}
+// 001565c0: moved to src/anon/unit_00153ea0.cpp
+void func_001565c0(W1633Hud* self, u32 a1, u32 a2, u32 a3);
 }

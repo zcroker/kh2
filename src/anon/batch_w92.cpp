@@ -245,25 +245,8 @@ u32 func_00155f40(u8*);
 u32 func_00155fc0(u8*);
 void func_00138c10(void*, s32);
 
-void func_001571c0(u8* p) {
-    func_00102c18(1, 0x19258, func_00157160)->f4 = p;
-    if (func_00156030(p)) return;
-    u32 c = func_00158290(p);
-    u32 a = func_0013a7e8(1);
-    u32 b = func_0013d7e0();
-    Q157* q = (Q157*)(p + 3364) + func_00139c18(p + 3364);
-    func_001386e0(q, 7000, a, b, 130, c);
-    q->f396 = p + 6704;
-    func_001396b0(q);
-    if (q->f396) {
-        q->f400 = 0;
-        func_001396b0(q);
-        if (q->f400) func_0031a260(q, 0);
-    }
-    func_00138c10(p + 11648, func_00155f40(p));
-    func_00138c10(p + 12060, func_00155fc0(p));
-    p[15607] = 1;
-}
+// 001571c0: moved to src/anon/unit_00153ea0.cpp
+void func_001571c0(u8* p);
 }
 
 // ---- 159dc0 ----

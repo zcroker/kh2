@@ -43,21 +43,8 @@ f32 func_0017ce10(f32);
 u8 u_call4_00139d78(void*) asm("_Z16u_call4_00139d78jjjj");
 void func_0013edd0(u8*, f32);
 void func_0014b1e0(u8*, s32, s32);
-void func_00155bf0(u8* p, s32 a)
-{
-    if (D_004f3590 == 0) {
-        D_004f3590 = 1;
-        D_004f3598 = 0.00401425688f;
-    }
-    f32 x;
-    if (a == 100) x = 200.0f * D_004f3598;
-    else x = (f32)a * D_004f3598;
-    x = func_0017ce10(x);
-    u_call4_00139d78(p + 12896);
-    func_0013edd0(p + 12928, x);
-    u_call4_00139d78(p + 12896);
-    func_0014b1e0(p + 12928, 50, 100);
-}
+// 00155bf0: moved to src/anon/unit_00153ea0.cpp
+void func_00155bf0(u8* p, s32 a);
 
 void func_00185118(Obj1792*, QW1792*);
 void func_00143928(QW1792*);

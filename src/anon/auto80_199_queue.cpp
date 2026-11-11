@@ -1989,296 +1989,44 @@ void func_00153cc8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4) {
     func_0023f848(ctx);
 }
 
-void func_00153ea0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4) {
-    u32 s0 = a0;
-    u32 s1 = a2;
-    u32 s2 = a3;
-    u32 s3 = a4;
+// 00153ea0: moved to src/anon/unit_00153ea0.cpp
+void func_00153ea0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4);
 
-    u32 v = func_001708f8(a1, 0xFFFFFFFFu);
-    func_00153cc8(s0, v, s1, s2, s3);
-}
+// 001541d8: moved to src/anon/unit_00153ea0.cpp
+u32 func_001541d8(u32 a0, u32 a1, u32 a2);
 
-u32 func_001541d8(u32 a0, u32 a1, u32 a2) {
-    *(u8*)(a0 + 836) = 0;
+// 001543a0: moved to src/anon/unit_00153ea0.cpp
+void func_001543a0(u32 a0, u32 a1, u32 a2);
 
-    u32 s1 = a0;
-    u32 p = a1;
-    u32 kind = a2;
+// 00154450: moved to src/anon/unit_00153ea0.cpp
+u32 func_00154450(u32 a0, u32 a1, u32 a2);
 
-    u32 tmp0;
-    u32 tmp1;
-    u32 tmp2;
+// 00154a88: moved to src/anon/unit_00153ea0.cpp
+void func_00154a88(u32 a0);
 
-    if (kind != 0) {
-        u32 s2 = func_0016c060(kind, (u32)&tmp0, p);
-        u32 p1 = (u32)&tmp1;
-        u32 p2 = (u32)&tmp2;
-        if (s2 == 1) {
-            u32 s0 = s1 + 416;
-            func_00154100(s1, p1, p2);
-            func_002362b0(s0, tmp0);
-            func_00236410(s0, tmp1);  // obj_set4_then_call
-            func_00236428(s0, tmp2);  // obj_set32_then_call
-            func_002367c8(s0);  // obj_dispatch_bitfield64
-            *(u8*)(s1 + 836) = (u8)s2;
-            return 1;
-        }
-    }
+// 00155300: moved to src/anon/unit_00153ea0.cpp
+void func_00155300(u32 a0);
 
-    return 0;
-}
+// 00155390: moved to src/anon/unit_00153ea0.cpp
+void func_00155390(u32 a0, u32 a1);
 
-void func_001543a0(u32 a0, u32 a1, u32 a2) {
-    u32 s0 = a0;
-    u32 s1 = a2;
+// 001554c0: moved to src/anon/unit_00153ea0.cpp
+void func_001554c0(u32 a0);
 
-    if (*(u8*)(a0 + 836) != 0) {
-        if (a1 == 1) {
-            func_00138c10(a0, a1);
-            *(u32*)(s0 + 392) = func_00154288(s0, s1);
-            return;
-        }
-        func_00138c10(a0, a1);
-    }
-}
+// 001556f0: moved to src/anon/unit_00153ea0.cpp
+void func_001556f0(u32 a0);
 
-u32 func_00154450(u32 a0, u32 a1, u32 a2) {
-    *(u32*)(a0 + 15556) = a2;
+// 00155d80: moved to src/anon/unit_00153ea0.cpp
+u32 func_00155d80(u32 a0);
 
-    u32 s0 = a0;
-    *(u32*)(s0 + 15552) = a1;
-    u32 s1 = a1;
-    *(u32*)(s0 + 15560) = a1;
-    *(u32*)(s0 + 15564) = a1;
+// 00156408: moved to src/anon/unit_00153ea0.cpp
+void func_00156408(u32 a0);
 
-    func_00154af0(s0);
-    func_00154b98(s0, s1);
+// 001564b0: moved to src/anon/unit_00153ea0.cpp
+u32 func_001564b0(u32 a0, u32 a1, u32 a2, u32 a3);
 
-    u32 vtbl = *(u32*)s0;
-    u32 fn = *(u32*)(vtbl + 4);
-    ((void (*)(u32))fn)(s0);
-
-    return s0;
-}
-
-void func_00154a88(u32 a0) {
-    u32 s0 = a0;
-
-    if (*(u8*)(a0 + 15584) != 0) {
-        if ((*(u32*)(a0 + 12) & 0x100) == 0) {
-            func_0014fcd8(a0);
-            ((dk::Sprite*)(u32)(s0 + 48))->setPos(*(u32*)(s0 + 32), *(u32*)(s0 + 36));
-            func_00154950(s0);
-        }
-    }
-}
-
-void func_00155300(u32 a0) {
-    u32 s0 = a0;
-    u32 s1 = func_0013dda0(*(u32*)(s0 + 48) + 1);
-    u32 p;
-    *(u32*)(s0 + 52) = s1;
-
-    if (*(u8*)(s0 + 5538) != 0) {
-        goto L_call_55528;
-    }
-    *(u8*)(s0 + 5538) = 1;
-L_after_flag:
-    func_001542c8(s0 + 64, s1, *(u32*)(s0 + 24));
-    *(u8*)(s0 + 5536) = 1;
-
-    p = *(u32*)(s0 + 52);
-    if (p != 0) {
-        u32 v = *(u32*)(*(u32*)(p + 1164));
-        *(u32*)(s0 + 40) = v;
-        *(u32*)(s0 + 36) = v;
-    }
-    return;
-
-L_call_55528:
-    func_00155528(s0);
-    goto L_after_flag;
-}
-
-void func_00155390(u32 a0, u32 a1) {
-    u32 s0 = a0;
-    u32 s1 = s0 + 916;
-    u32 s2 = a1;
-
-    *(u32*)(s0 + 36) = *(u32*)(a0 + 40);
-    *(u32*)(s0 + 40) = *(u32*)(*(u32*)(*(u32*)(s0 + 52) + 1164));
-
-    func_00138c10(a0 + 1328, 64);
-    func_00138c10(s1, s2);
-    *(u32*)(s1 + 392) = func_00154ee8(s0);
-    func_001543a0(s0 + 64, 1, *(u32*)(s0 + 24));
-}
-
-void func_001554c0(u32 a0) {
-    u32 s0 = a0;
-    if (*(u8*)(s0 + 32) != 0) {
-        return;
-    }
-
-    if (func_0013c7d0() != 0) {
-        func_00138c10(s0 + 916, func_00154ee8(s0));
-        *(u8*)(s0 + 32) = 1;
-        return;
-    }
-
-    if (*(u8*)(s0 + 1320) != 0) {
-        *(u8*)(s0 + 32) = 1;
-    }
-}
-
-void func_001556f0(u32 a0) {
-    u32 s0 = a0;
-    func_00158300(s0);
-    if (*(u32*)(s0 + 52) == 0) {
-        return;
-    }
-    if ((*(u32*)(s0 + 12) & 0x100) != 0) {
-        return;
-    }
-    func_001554c0(s0);
-    func_00155568(s0);
-    func_00155658(s0);
-    return func_001556c0(s0);
-}
-
-u32 func_00155d80(u32 a0) {
-    u32 s0 = a0;
-    u32 sp0;
-    u32 sp4;
-    u32 v0;
-    u32 p;
-    u32 cur;
-    u32 old;
-    if (func_00156058(s0) != 0) {  // state_code_is_2
-        sp0 = 0;
-        goto L_common;
-    }
-    if (func_00156080(s0) == 0) {  // state_code_is_3
-        goto L_path2;
-    }
-    sp0 = 0;
-
-L_common:
-    sp4 = 0;
-    v0 = func_001560a8(s0, (u32)&sp0, (u32)&sp4);
-    old = (u32)*(u8*)(s0 + 15605);
-    if (old != v0) {
-        if (old < v0) {
-            *(u8*)(s0 + 15608) = 1;
-        }
-        *(u8*)(s0 + 15605) = (u8)v0;
-        *(u8*)(s0 + 15607) = 1;
-    }
-    goto L_end;
-
-L_path2:
-    p = *(u32*)(s0 + 52);
-    if (p == 0) {
-        v0 = 0;
-        goto L_end;
-    }
-    v0 = (u32)*(u8*)(*(u32*)(p + 1164) + 433);
-    cur = (u32)*(u8*)(s0 + 15604);
-    if (cur != v0) {
-        if (cur < v0) {
-            *(u8*)(s0 + 15608) = 1;
-        }
-        *(u8*)(s0 + 15604) = (u8)v0;
-        *(u8*)(s0 + 15606) = 1;
-    }
-
-L_end:
-    return v0;
-}
-
-void func_00156408(u32 a0) {
-    u32 s0 = a0;
-    s32 s1;
-
-    if (func_00156010(s0) != 0) {
-        s1 = 12;
-        s0 = s0 + 11648;
-        do {
-            func_00139598(s0);
-            s1 = s1 + 1;
-            if (s1 < 15) {
-                s0 = s0 + 412;
-            } else {
-                break;
-            }
-        } while (1);
-        return;
-    }
-
-    if (func_00156030(s0) == 0) {
-        goto L_after_56030;
-    }
-    s0 = s0 + 12060;
-    {
-        s1 = 13;
-        do {
-            func_00139598(s0);
-            s1 = s1 + 1;
-            if (s1 < 15) {
-                s0 = s0 + 412;
-            } else {
-                break;
-            }
-        } while (1);
-        return;
-    }
-
-L_after_56030:
-    s0 = s0 + 12060;
-    s1 = 1;
-    do {
-        func_001395a8(s0);
-        s1 = s1 - 1;
-        if (s1 >= 0) {
-            s0 = s0 + 412;
-        } else {
-            break;
-        }
-    } while (1);
-}
-
-u32 func_001564b0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 s16 = a0 + 1324;
-    u32 s17 = a0;
-
-    func_001386e0(s16, 7005, a1, a2, 27, a3);
-    *(u32*)(s16 + 396) = s17 + 6704;
-    func_001396b0(s16);
-
-    if (*(u32*)(s16 + 396) != 0) {
-        *(u32*)(s16 + 400) = 0;
-        func_001396b0(s16);
-        if (*(u32*)(s16 + 400) != 0) {
-            func_0031a260(s16, 0);
-        }
-    }
-
-    return func_001565a8(s17);
-}
-
-u32 func_00156540(u32 a0) {
-    u32 s0 = a0;
-    u32 s1;
-    func_001565a8(s0);
-    s1 = s0 + 1324;
-    func_00138c10(s1, 27);
-    u32 v0 = func_00155ee8(s0);  // state_dispatch_0_4
-    if (v0 == 21) {
-        return func_001395a8(s1);
-    }
-    return v0;
-}
+// 00156540: moved to src/anon/unit_00153ea0.cpp
+u32 func_00156540(u32 a0);
 
 void func_00157758(u32 a0) {
     u32 s0 = a0;

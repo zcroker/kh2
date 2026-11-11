@@ -160,14 +160,8 @@ void func_00154cd0(void*, s32, f32);
 struct In155658 { u8 pad[4]; u32 f4; };
 struct Ob155658 { u8 pad[1164]; In155658* f1164; };
 struct P155658 { u8 pad[36]; void* f36; u8 pad2[12]; Ob155658* f52; };
-void func_00155658(P155658* p) {
-    f32 a = func_00166d38(p->f52);
-    Ob155658* o = p->f52;
-    void* q = p->f36;
-    f32 b = func_00166d10(q, o->f1164->f4);
-    func_00154cd0(p, 1, b);
-    func_00154cd0(p, 2, a);
-}
+// 00155658: moved to src/anon/unit_00153ea0.cpp
+void func_00155658(P155658* p);
 
 extern Q128 D_004f37b0, D_004f37a0, D_004f3790, D_004f3780, D_004f37e0, D_004f37d0;
 static inline void qcopy(void* d, const void* s) {

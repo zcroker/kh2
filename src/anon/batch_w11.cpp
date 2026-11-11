@@ -67,10 +67,7 @@ void func_00150578(u8* p) {
 void func_001581f8(void*);
 s32 func_00154ee8(void*);  // field24_state_code
 void GAUGE_FRIEND_reload(u8*) asm("_ZN2dk12GAUGE_FRIEND6reloadEv");
-void GAUGE_FRIEND_reload(u8* self) {
-    func_001581f8(self);
-    func_00138c10(self + 916, func_00154ee8(self));
-}
+// 00155528: moved to src/anon/unit_00153ea0.cpp
 
 extern f32 D_0034aa44;
 f32 func_0015a098(void*);

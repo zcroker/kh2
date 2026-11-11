@@ -217,25 +217,8 @@ void func_0014e1f0(s32 a, s32 b) {
 }
 
 // Split a gauge into segments: *outB = size per segment, *outA = fill of the current one.
-u8 func_001560a8(u8* o, s32* outA, s32* outB) {
-    u8* x = *(u8**)(*(u8**)(o + 52) + 1164);
-    u8 n = x[435];
-    s32 per = (s32)(*(f32*)(x + 440) / n);
-    s32 cur = (s32)*(f32*)(x + 436);
-    *outB = per;
-    if (per == 0) {
-        *outA = 0;
-        return 0;
-    }
-    s32 q = cur / per;
-    if (q == n) {
-        *outA = per;
-        q--;
-    } else {
-        *outA = cur % per;
-    }
-    return q;
-}
+// 001560a8: moved to src/anon/unit_00153ea0.cpp
+u8 func_001560a8(u8* o, s32* outA, s32* outB);
 
 void func_0016c358(u8* p) {
     if (*(u32*)(p + 2224)) {

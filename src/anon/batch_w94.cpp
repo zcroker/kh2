@@ -212,26 +212,8 @@ void func_001386e0(u8*, s32, u32, u32, s32, u32);
 void func_001396b0(u8*);
 void func_0031a260(u8*, s32);
 
-void func_00156d20(u8* p) {
-    u8* q = p + 11648;
-    u32 a = func_00158290(p);
-    u32 b = func_0013a7e8(1);
-    u32 c = func_0013d7e0();
-    func_00138c10(q, func_00155f40(p));
-    func_00138c10(p + 12060, func_00155fc0(p));
-    p[15606] = 1;
-    if (p[15611] == 1) {
-        u8* e = p + func_00139c18(p + 4180) * 408 + 4180;
-        func_001386e0(e, 7000, b, c, 53, a);
-        *(u8**)(e + 396) = q;
-        func_001396b0(e);
-        if (*(u32*)(e + 396)) {
-            *(u32*)(e + 400) = 0;
-            func_001396b0(e);
-            if (*(u32*)(e + 400)) func_0031a260(e, 0);
-        }
-    }
-}
+// 00156d20: moved to src/anon/unit_00153ea0.cpp
+void func_00156d20(u8* p);
 }
 // ---- 0015bab8
 extern "C" {

@@ -140,14 +140,8 @@ void func_001450e8(HalfOrFloat6* src, s32 idx, HalfOrFloat6* out)
 
 void func_00239f18(u8*, f32);  // obj_set_float312_and_flags
 void func_00138c68(u8*, s32, s32);
-void func_001547e0(u8* a, s32 b, s32 c)
-{
-    f32 v = b;
-    func_00239f18(a + c * 408 + 72, v / 100.0f);  // obj_set_float312_and_flags
-    s32 n = (s32)-v;
-    func_00138c68(a + c * 408 + 48, n, 0);
-    if (c == 2) func_00138c68(a + 1272, n, 0);
-}
+// 001547e0: moved to src/anon/unit_00153ea0.cpp
+void func_001547e0(u8* a, s32 b, s32 c);
 
 struct V4 {
     f32 x, y, z, w;

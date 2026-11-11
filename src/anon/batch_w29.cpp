@@ -148,13 +148,8 @@ void func_0014f4d8(void) {
     func_00139ab0(10);
 }
 
-u32 func_00154ee8(u8* p) {  // field24_state_code
-    switch (*(s32*)(p + 24)) {
-    case 1: return 67;
-    case 0: case 2: return 72;
-    default: return 72;
-    }
-}
+// 00154ee8: moved to src/anon/unit_00153ea0.cpp
+u32 func_00154ee8(u8* p);
 
 u32 isManual(u64* pad) {
     u32 r = 1;

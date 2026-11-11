@@ -39,34 +39,6 @@ static inline void W1632_setParent(W1632Sprite* obj, W1632Sprite* parent) {
         }
     }
 }
-void func_00154558(W1632Menu* self) {
-    u32 tex, img;
-    s32 i, row, pos;
-    func_00154b18(self);
-    func_0014fc40(self, 18, 0, 7000, 6, 1);
-    self->x = 0;
-    tex = func_0013a7e8(1);
-    img = func_0013d7e0();
-    func_001386e0(&self->parts[0], 7000, tex, img, 38, 6);
-    func_001386e0(&self->parts[1], 7000, tex, img, 42, 6);
-    func_001386e0(&self->parts[2], 7000, tex, img, 39, 6);
-    func_001386e0(&self->parts[3], 7000, tex, img, 40, 6);
-    func_001386e0(&self->parts[4], 7000, tex, img, 41, 6);
-    func_001386e0(&self->parts[5], 7000, tex, img, 43, 6);
-    for (i = 0; i < 6; i++) {
-        W1632_setParent(&self->parts[i], &self->parts[0]);
-    }
-    W1632_setParent(&self->parts[0], 0);
-    pos = 0;
-    for (row = 0; row < 16; row++) {
-        for (s32 j = 0; j < 2; j++) {
-            W1632Sprite* p = &self->grid[row][j];
-            func_001386e0(p, 7000, tex, img, j == 0 ? 45 : 44, 6);
-            W1632_setParent(p, &self->parts[0]);
-            func_00138c68(p, pos, 0);
-        }
-        pos -= func_0023aa98(&self->grid[row][0].seq);
-    }
-    func_001399c0(6);
-}
+// 00154558: moved to src/anon/unit_00153ea0.cpp
+void func_00154558(W1632Menu* self);
 }

@@ -31,25 +31,8 @@ static inline s32 w1766_once(s32* o, void (*f)(void)) {
 
 extern "C" {
 
-s32 func_00155f40(u8* p) {
-    u8* q = *(u8**)(p + 0x34);
-    s32 r;
-    if (q) {
-        switch (*(*(u8**)(q + 0x48c) + 0x1af)) {
-        case 4: r = 0x13; break;
-        default:
-        case 0: case 1:
-            if (func_001a1de0(*(void**)(q + 0x48c))) { r = 0x1a; break; }
-            goto none;
-        case 2: r = 0x33; break;
-        case 3: r = 0x8d; break;
-        }
-    } else {
-    none:
-        r = 0x17;
-    }
-    return r;
-}
+// 00155f40: moved to src/anon/unit_00153ea0.cpp
+s32 func_00155f40(u8* p);
 
 void func_001e0fe8(u8* p) {
     u8* r = (u8*)func_001e2760(D_00352bd0, *(s32*)(p + 0x20));

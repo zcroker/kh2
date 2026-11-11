@@ -56,11 +56,8 @@ void func_00147c78(u32, u8* p) {  // copy_bytes_232_to_12
 
 void func_00139948(s32);
 void func_00139ba0(s32);
-void func_00154af0(u8* p) {
-    p[15584] = 1;
-    func_00139948(6);
-    func_00139ba0(6);
-}
+// 00154af0: moved to src/anon/unit_00153ea0.cpp
+void func_00154af0(u8* p);
 
 // 00158920: moved to src/yasui/libys/light.cpp
 

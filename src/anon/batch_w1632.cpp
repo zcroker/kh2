@@ -78,67 +78,8 @@ static inline void W1632_setParent2b(W1632Sprite2* obj, W1632Sprite2* parent) {
     }
 }
 
-void func_00154f30(W1632Party* self, u32 a1, u32 a2) {
-    u32 tex, img, grp;
-    s32 i, j;
-    W1632Sprite2* root = &self->spr[0];
-    W1632Gauge* g;
-    func_00158138(self, a1, a2, 1);
-    tex = func_0013a7e8(1);
-    img = func_0013d7e0();
-    grp = func_00158290(self);
-    self->b[0] = 0;
-    self->b[1] = 0;
-    self->b[2] = 0;
-    func_00158050(&self->spr[0], 7000, tex, img, 71, 0, grp);
-    func_0013e0f8(&self->g[0], 7000, 0, grp);
-    func_0013e0f8(&self->g[1], 7000, 1, grp);
-    func_00158050(&self->spr[1], 7000, tex, img, 64, 100, grp);
-    func_0013e0f8(&self->g[2], 7000, 1, grp);
-    func_00158050(&self->spr[2], 7000, tex, img, 65, 1000, grp);
-    func_0013e0f8(&self->g[3], 7000, 0, grp);
-    func_0013e0f8(&self->g[4], 7000, 1, grp);
-    func_00158050(&self->spr[3], 7000, tex, img, 66, 10000, grp);
-    func_001581f8(self);
-    {
-        s32 c = self->f24;
-        func_00153fa0(&self->head, 7000, self->f48 + 1, self->f52, c, grp);
-    }
-    func_00139d78(&self->g[0]);
-    func_0014b208(&self->g[0].r1, 64, 64);
-    func_00139d78(&self->g[3]);
-    func_0014b208(&self->g[3].r1, 64, 64);
-    func_00139d78(&self->g[0]);
-    func_0014b200(&self->g[0].r1, 0);
-    func_0014b200(&self->g[0].r2, 0);
-    func_00139d78(&self->g[3]);
-    func_0014b200(&self->g[3].r1, 0);
-    func_0014b200(&self->g[3].r2, 0);
-    func_00139d78(&self->g[1]);
-    func_0014b200(&self->g[1].r1, 200);
-    func_0014b200(&self->g[1].r2, 200);
-    func_00139d78(&self->g[2]);
-    func_0014b200(&self->g[2].r1, 2000);
-    func_0014b200(&self->g[2].r2, 2000);
-    func_00139d78(&self->g[4]);
-    func_0014b200(&self->g[4].r1, 20000);
-    func_0014b200(&self->g[4].r2, 20000);
-    for (i = 0; i < 4; i++) {
-        W1632_setParent2(&self->spr[i], root);
-        func_001395e8(&self->spr[i]);
-        func_00139610(&self->spr[i]);
-    }
-    for (j = 0; j < 5; j++) {
-        g = &self->g[j];
-        func_00139d78(g);
-        g->owner = root;
-    }
-    W1632_setParent2b(&self->head, root);
-    W1632_setParent2(root, 0);
-    root->f392 = func_00154ee8(self);
-    func_00138c40(root, 0, func_0023aa98(&self->spr[0].seq) * self->f48);
-    func_001582a8(self);
-}
+// 00154f30: moved to src/anon/unit_00153ea0.cpp
+void func_00154f30(W1632Party* self, u32 a1, u32 a2);
 
 struct W1632Sprite {
     u8 pad0[24];
@@ -209,38 +150,6 @@ static inline void W1632_link(W1632Sprite* obj, void* parent) {
     }
 }
 
-void func_00156130(W1632Panel* self, u32 tex, u32 img, u32 grp) {
-    s32 i;
-    s32 x, y;
-    W1632Sprite2* head;
-    W1632Bar* bar;
-    func_00158050(head = &self->spr[0], 7000, tex, img, func_00155ee8(self), 0, grp);
-    bar = &self->bar;
-    func_0013dfb8(bar, 7000, grp);
-    func_00158050(&self->spr[1], 7000, tex, img, func_00155fc0(self), 5000, grp);
-    func_00158050(&self->spr[2], 7000, tex, img, func_00155e30(self), 0, grp);
-    func_001386e0(&self->icon, 7010, tex, img, 20, grp);
-    func_00139d78(bar);
-    func_0014b200(&bar->r, 6000);
-    for (i = 0; i < 3; i++) {
-        W1632_link2(&self->spr[i], &self->frame);
-        func_001395e8(&self->spr[i]);
-        func_00139610(&self->spr[i]);
-    }
-    W1632_link2(&self->spr[1], head);
-    W1632_link2(&self->spr[2], head);
-    func_00139d78(bar);
-    bar->owner = head;
-    W1632_link(&self->icon, head);
-    func_00139598(&self->icon);
-    x = func_0023aa18(&self->spr[0].seq);
-    y = func_0023aa38(&self->spr[0].seq);
-    func_00138c68(&self->spr[2], x, y);
-    head->f392 = func_00155f40(self);
-    if (func_00156030(self)) {
-        func_00138c10(head, 18);
-        head->f392 = func_00155f40(self);
-    }
-    func_00156408(self);
-}
+// 00156130: moved to src/anon/unit_00153ea0.cpp
+void func_00156130(W1632Panel* self, u32 tex, u32 img, u32 grp);
 }

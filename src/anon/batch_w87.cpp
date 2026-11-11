@@ -133,25 +133,8 @@ void func_00138c10(void*, s32);
 s32 func_00154910(void*);
 s32 func_00154930(void*);
 struct P154 { u8 pad[15552]; s32 a; s32 pad2; s32 b; s32 c; };
-void func_00154c10(u8* p, s32 n) {
-    s32 i = 0;
-    if (n < 0) n = 0;
-    P154* s = (P154*)p;
-    s->a = n;
-    s->b = s->c;
-    s->c = n;
-    func_00138c10(p + 1680, 41);
-    s32 a = func_00154910(p);
-    s32 cnt = func_00154930(p);
-    if (cnt > 0) {
-        p += 2904;
-        do {
-            func_00138c10(p, i < a ? 44 : 46);
-            i++;
-            p += 816;
-        } while (i < cnt);
-    }
-}
+// 00154c10: moved to src/anon/unit_00153ea0.cpp
+void func_00154c10(u8* p, s32 n);
 
 // ---- 0x1863a8 ----
 void func_001866f0(void*, s32, f32);

@@ -130,51 +130,6 @@ void func_00156408(void*);
 void func_001581f8(void*);
 void func_001542c8(void*, s32, s32);
 void func_001575c0(void*);
-void func_00156e48(u8* p) {
-    L318* t;
-    s32 a = func_0013dda0(0);
-    s32 b = func_00158290(p);
-    s32 c = func_0013a7e8(1);
-    s32 d = func_0013d7e0();
-    K318* k;
-    if (func_00156030(p)) goto out;
-    k = (K318*)(p + 11648);
-    {
-    s32 v1 = k->f388;
-    if (v1 == func_00155f40(p)) goto out;
-    }
-    {
-    s32 v2 = k->f388;
-    if (v2 == func_00155ee8(p)) goto out;
-    }
-    {
-        if (p[15611] == 1) {
-            int i = func_00139c18(p + 3364);
-            void* q = p + 6704;
-            t = &((L318*)(p + 3364))[i];
-            func_001386e0(t, 7000, c, d, 130, b);
-            t->f396 = q;
-            func_001396b0(t);
-            if (t->f396) {
-                t->f400 = 0;
-                func_001396b0(t);
-                if (t->f400) func_0031a260(t, 0);
-            }
-            if (func_001396c0(q)) func_00139570(&((L318*)(p + 3364))[i]);
-        }
-        if (func_00156058(p) || func_00156080(p)) {  // state_code_is_2
-            func_00138c10(k, func_00155f40(p));
-            func_00138c10(p + 12060, func_00155fc0(p));
-            p[15607] = 1;
-        } else {
-            func_00156d20(p);
-        }
-    }
-out:
-    func_00156408(p);
-    *(s32*)(p + 52) = a;
-    func_001581f8(p);
-    func_001542c8(p + 64, a, *(s32*)(p + 24));
-    if (*(s32*)(p + 52)) func_001575c0(p);
-}
+// 00156e48: moved to src/anon/unit_00153ea0.cpp
+void func_00156e48(u8* p);
 }

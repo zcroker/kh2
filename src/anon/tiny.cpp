@@ -143,8 +143,10 @@ void func_0014f238(BD_VALUE* bd) { func_0014f4d8(bd); }
 void func_0014f250(BD_VALUE* bd) { func_0014f528(bd); }
 void func_00150648(BD_VALUE* bd) { func_001505b0(bd); }
 void func_00153c80(BD_VALUE* bd) { func_0023ede8(bd); }
-void func_00154b80(BD_VALUE* bd) { func_00154b18(bd); }
-void func_001554a8(BD_VALUE* bd) { func_00155410(bd); }
+// 00154b80: moved to src/anon/unit_00153ea0.cpp
+void func_00154b80(BD_VALUE* bd);
+// 001554a8: moved to src/anon/unit_00153ea0.cpp
+void func_001554a8(BD_VALUE* bd);
 void func_0015ef38(BD_VALUE* bd) { func_00143318(bd); }
 void func_0015f6e8(BD_VALUE* bd) { func_001431e8(bd); }
 void func_0015f700(BD_VALUE* bd) { func_00143208(bd); }

@@ -58,9 +58,8 @@ void func_00177678(u8* p) {
     u32 x = *(u32*)(p + 0x48c);
     if (x) func_001a1460(x);
 }
-void func_001556c0(u8* p) {
-    func_00154de8(p, func_00166d70(*(u32*)(p + 0x34)));
-}
+// 001556c0: moved to src/anon/unit_00153ea0.cpp
+void func_001556c0(u8* p);
 void func_0019d518(u8* p) {
     func_001bc688(p + 36);
     func_00190128(p + 12);
