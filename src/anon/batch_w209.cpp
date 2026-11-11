@@ -35,17 +35,7 @@ u32 cac209(f32 f) { return f <= func_001826e0() + 2.0f; }
 // --- 001a8450
 extern u32 D_0032dedc[];
 u32 call4_209(u8* a, u32 b, u32 c, u32 d) asm("_Z16u_call4_001a8450jjjj");
-u32 call4_209(u8* a, u32 b, u32 c, u32 d) {
-    u32 r = 0;
-    if (a) {
-        u32 t = *(u16*)(a + 10);
-        u32 bit = t & 0x1f;
-        u32 idx = t >> 5;
-        if (t)
-            r = (D_0032dedc[idx] & (1 << bit)) != 0;
-    }
-    return r;
-}
+// 001a8450: moved to src/anon/unit_001a82f0.cpp
 
 // --- 001db250
 extern u8* D_0034e948;

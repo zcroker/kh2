@@ -103,13 +103,7 @@ void func_001a25c8(Obj1a2* o, s32 n) {
 struct Ent1a8 { u16 id; u16 pad; u8 type; u8 pad2[7]; };
 struct Tbl1a8 { u16 pad; u16 count; Ent1a8 e[1]; };
 extern Tbl1a8* D_01c6cb98;
-Ent1a8* func_001a8258(u32 id) {
-    Tbl1a8* t = D_01c6cb98;
-    Ent1a8* e = t->e;
-    for (s32 i = 0; i < t->count; i++, e++)
-        if (e->type == 1 && e->id == id) return e;
-    return 0;
-}
+// 001a8258: moved to src/anon/unit_001a8098.cpp
 
 void func_00239bf8(u8*, u32);
 void wtarget_001ac078(u32 a, u32 b, u32 c, u32 d) asm("_Z16wtarget_001ac078jjjj");

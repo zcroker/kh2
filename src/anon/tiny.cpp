@@ -712,10 +712,7 @@ void func_001a6a10(u32 a0, u32 a1, u32 a2, u32 a3) {
     *(u32*)((u32)b + (-13456)) = (u32)0;
 }
 
-void func_001a81e0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 b = (0x01c7u << 16);
-    *(u32*)((u32)b + (-13416)) = (u32)a0;
-}
+// 001a81e0: moved to src/anon/unit_001a8098.cpp
 
 void func_001a97e8(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 b = (0x01c7u << 16);

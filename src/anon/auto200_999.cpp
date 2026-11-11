@@ -827,11 +827,7 @@ L_zero:
     return 0;
 }
 
-u32 func_001a84f0() {  // compare_two_globals
-    u32 *p = &D_01c6cba0;
-    u32 v = p[1] ^ p[0];
-    return v < 1;
-}
+// 001a84f0: moved to src/anon/unit_001a82f0.cpp
 
 void func_001a8ff8(u32 a0, u32 a1, u32 a2) {  // swap_bytes
     u8 *p1 = (u8 *)(a0 + a1);

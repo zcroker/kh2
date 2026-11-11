@@ -201,15 +201,7 @@ void* func_001a78c0(void* out, u32 a, int b, f32 x, f32 y, f32 z, f32 w) {
 }
 
 // Find the 24-byte table entry whose u16 id matches.
-u8* func_001a80c8(int id) {  // table24_find_by_id
-    u8* t = D_01c6cb90;
-    s32 n = *(s32*)(t + 4);
-    u8* e = t + 8;
-    for (s32 i = 0; i < n; i++, e += 24) {
-        if (*(u16*)e == id) return e;
-    }
-    return 0;
-}
+// 001a80c8: moved to src/anon/unit_001a8098.cpp
 
 void func_001ad5a8(void** p) {
     func_001ad280(p);

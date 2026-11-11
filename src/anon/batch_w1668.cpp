@@ -18,7 +18,7 @@ struct W2 { u32 a; u32 b; };
 
 extern W2 D_01c6cba0;
 void w1a8570(u32, u32, u32, u32) asm("_Z16wtarget_001a8570jjjj");
-void w1a8570(u32 a, u32 b, u32, u32) { if (b == 0xffff && a == 1) { D_01c6cba0.a = 0; D_01c6cba0.b = 0; } }
+// 001a8570: static initialiser, now made by gcc in src/anon/unit_001a82f0.cpp
 
 extern W2 D_01d48de0;
 void w1ba798(u32, u32, u32, u32) asm("_Z16wtarget_001ba798jjjj");

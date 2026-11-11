@@ -18453,33 +18453,10 @@ void func_001a8020(u32 a0, u32 a1) {
     }
 }
 
-u32 func_001a8110(u32 a0) {
-    if (a0 == 0u) {
-        return D_01c6cb90 + 8;
-    }
+// 001a8110: moved to src/anon/unit_001a8098.cpp
 
-    u32 base = D_01c6cb90;
-    u32 count = *(u32*)(base + 4);
-    u32 end = base + count * 24u + 8u;
-    a0 += 24u;
-    if (end <= a0) {
-        return 0u;
-    }
-    return a0;
-}
-
-u8* func_001a84b0(void) {
-    u32* p = &D_01c6cba0;
-    s32 idx = (s32)p[1];
-    u32 out_off = (u32)(idx * 12);
-    s32 next = idx + 1;
-    s32 t = idx + 8;
-    if (next >= 0) {
-        t = next;
-    }
-    p[1] = (u32)(next - ((t >> 3) << 3));
-    return (u8*)p + out_off + 8;
-}
+// 001a84b0: moved to src/anon/unit_001a82f0.cpp
+u8* func_001a84b0(void);
 
 // func_001a84b0 returns u8* but callers treat return value as u32 (pointer-as-integer).
 // Provide a u32-returning wrapper used by subsequent callers via macro.
