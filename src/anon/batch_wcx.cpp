@@ -1392,16 +1392,7 @@ s32 func_0019ba60(u8*);
 u8* func_00177860(u8*);
 s32 func_001a2a50(u32, u32, u32, s32);
 void func_001d97c8(void);
-void func_001ba598(u32* p)
-{
-    if (!p[1]) return;
-    if (p[3] == 4) { func_001d02c8(p[2]); p[1] = 0; return; }
-    s32 pri = 100;
-    u8* o = func_00176b58(p[3]);
-    if (func_0019ba60(o)) pri = *(u16*)(func_00177860(o) + 80) + 100;
-    if (func_001a2a50(p[1], p[4], p[3], pri) && p[3] == 1) func_001d97c8();
-    p[1] = 0;
-}
+// 001ba598: moved to src/yasui/libys/itemeffect.cpp
 u32 func_001050c8(void);
 void func_001db710(u32*, u32, u32, u32);
 u32 func_001050d8(s32);

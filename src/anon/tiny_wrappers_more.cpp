@@ -932,9 +932,7 @@ u32 func_001ba0f8(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_001ba060(0x00000001u, 0x0000ffffu, a2, a3);
 }
 
-u32 func_001ba7c0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_001ba798(0x00000001u, 0x0000ffffu, a2, a3);
-}
+// 001ba7c0: _GLOBAL__I_ stub, now made by gcc in src/yasui/libys/itemeffect.cpp
 
 u32 func_001bc268(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_001bc188(0x00000001u, 0x0000ffffu, a2, a3);

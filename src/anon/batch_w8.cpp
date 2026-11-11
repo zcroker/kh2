@@ -150,10 +150,7 @@ void func_001ba598(void*);
 void func_003204c8(void*, void*);
 extern u8 D_01d48de0;
 void item_effect_dtor(void* self) asm("_ZN2YS11ITEM_EFFECTD1Ev");
-void item_effect_dtor(void* self) {
-    func_001ba598(self);
-    func_003204c8(&D_01d48de0, self);
-}
+// 001ba310: moved to src/yasui/libys/itemeffect.cpp
 
 // Is bit o->field_1c clear in the bit set (words from +4)?
 u32 func_001c0268(u32* bits, u8* o) {

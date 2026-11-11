@@ -28,12 +28,6 @@ void func_0010cae8(u8* a0, u8* a1) {
 
 // 001994d8: moved to src/anon/unit_001991a8.cpp
 
-void func_001ba168(W2031_N* n, s32 a1, s32 a2, s32 a3) {
-    n->b = a2; n->a = a1; n->t = 30.0f;
-    n->r = get_part_num_0016a070(a1);
-    n->c = func_001a3888(n->b) ? 0 : a3;
-    if (D_01d48de0.tail == 0) { D_01d48de0.tail = n; D_01d48de0.head = n; n->next = 0; }
-    else { D_01d48de0.tail->next = n; n->next = 0; D_01d48de0.tail = n; }
-}
+// 001ba168: moved to src/yasui/libys/itemeffect.cpp
 
 }
