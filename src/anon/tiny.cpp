@@ -1790,19 +1790,9 @@ u32 func_0014e088(u32 a0, u32 a1, u32 a2, u32 a3) {
     return (u32)&D_00349f00;
 }
 
-u32 func_0014e638(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    return (u32)((s32)a0 + (736));
-}
+// 0014e638: moved to src/harata/libdk/fpscamera.cpp
 
-u32 func_0014e648(u32 a0, u32 a1, u32 a2, u32 a3) {  // ptr_add752
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    return (u32)((s32)a0 + (752));
-}
+// 0014e648: moved to src/harata/libdk/fpscamera.cpp
 
 u32 func_0015cc50(u32 a0, u32 a1, u32 a2, u32 a3) {
     (void)a0;

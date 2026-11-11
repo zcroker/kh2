@@ -544,13 +544,9 @@ u32 func_0014d278(u32 a0, u32 a1, u32 a2, u32 a3) {
 
 // 0014d640: _GLOBAL__I_ stub, now made by gcc in src/anon/unit_0014d298.cpp
 
-u32 func_0014e620(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_0014ddb0(((u32)(a0) + 752u), a1, a2, a3);
-}
+// 0014e620: moved to src/harata/libdk/fpscamera.cpp
 
-u32 func_0014ec98(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_0014ec40(0x00000001u, 0x0000ffffu, a2, a3);
-}
+// 0014ec98: _GLOBAL__I_ stub, now made by gcc in src/harata/libdk/fpscamera.cpp
 
 u32 func_0014f1c8(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_0015af48(a0, a1, a2, a3);

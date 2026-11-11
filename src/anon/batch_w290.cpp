@@ -143,25 +143,7 @@ f32 func_0017ce10(f32);
 void* func_00106a18(s32);  // buffer_get_256
 f32 func_00106f30(void*, s32);
 struct W290Cam { u8 p[192]; f32 yaw; f32 pitch; };
-void func_0014e6f8(W290Cam* c) {
-    W290Q* a = D_0034a3f4;
-    W290Q* b = func_0016c028(D_0034a3f0);  // obj_get_attach_or_alt
-    W290Q d;
-    asm volatile("lqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 0(%2)\n\tvsub.wxyz $vf1, $vf1, $vf2\n\tsqc2 $vf1, 0(%0)" : : "r"(&d), "r"(a), "r"(b) : "memory");
-    d.y += D_0034a3f8;
-    f32 t = func_002f8ad0(d.x, d.z);
-    f32 r = func_0017ce10(c->yaw - t);
-    f32 lim = func_00106f30(func_00106a18(1), 0) * 0.5f - 0.17453292f;
-    if (r < -lim) c->yaw = func_0017ce10(t - lim);
-    else if (lim < r) c->yaw = func_0017ce10(t + lim);
-    t = -func_002f8ad0(d.y, __builtin_sqrtf(d.x * d.x + d.z * d.z));
-    r = func_0017ce10(c->pitch - t);
-    lim = func_00106f30(func_00106a18(1), 1) * 0.5f - 0.17453292f;
-    if (r < -lim) c->pitch = func_0017ce10(t - lim);
-    else if (lim < r) c->pitch = func_0017ce10(t + lim);
-    if (D_004f3584 < c->pitch) c->pitch = D_004f3584;
-    else if (c->pitch < D_004f3580) c->pitch = D_004f3580;
-}
+// 0014e6f8: moved to src/harata/libdk/fpscamera.cpp
 
 extern W290V D_01d49590[];
 extern W290M D_01d49610;

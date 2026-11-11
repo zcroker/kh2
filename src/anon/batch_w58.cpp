@@ -134,17 +134,7 @@ void func_0014e8b8(u8*);
 extern u32 D_0034a3f4;
 extern u32 D_0034a3f0;
 extern f32 D_0034a3f8;
-void func_0014eb48(u32 a, u32 b, f32 c) {
-    func_00141010(30.0f);
-    u8* o = func_00140df0();
-    *(s32*)(o + 64) = 9;
-    D_0034a3f0 = a;
-    D_0034a3f4 = b;
-    D_0034a3f8 = c;
-    func_0014e658(o);
-    func_0014e6f8(o);
-    func_0014e8b8(o);
-}
+// 0014eb48: moved to src/harata/libdk/fpscamera.cpp
 
 // Init a node and append it to the global list.
 struct Nd12 { u32 f0; void* f4; u32 f8; Nd12* next; };
