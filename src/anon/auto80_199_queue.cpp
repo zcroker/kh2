@@ -4698,16 +4698,7 @@ void func_001a5990(u32 a0, u32 a1, f32 a2) {
     func_001d8d08(a1, a2);
 }
 
-u32 func_001a5b68(u32 a0) {
-    u32 s1 = D_01c6cb1c;
-    u32 s0 = (u32)&D_0031f288;
-    u32 v0 = func_002fd248(a0, s1 + 8, *(u32*)(s1 + 4), 24, s0);
-    if (v0 == 0) {
-        u32 p = D_01c6cb1c;
-        v0 = func_002fd248(72, p + 8, *(u32*)(p + 4), 24, s0);
-    }
-    return v0;
-}
+// 001a5b68: moved to src/yasui/libys/prizetable.cpp
 
 // 001a5d48: moved to src/yasui/libys/magic.cpp
 

@@ -18295,11 +18295,7 @@ void func_001a4d78(u32 a0, f32 a1, f32 a2, f32 a3) {
     *(f32*)(a0 + 0xD4) = a3;
 }
 
-s32 func_001a5bd0(f32 a0, u32 a1, u32 a2) {
-    f32 k = (f32)(u32)(*(u8*)(a1 + a2 + 2));
-    f32 v = func_002f86f0(k * a0);
-    return (s32)v;
-}
+// 001a5bd0: moved to src/yasui/libys/prizetable.cpp
 
 extern "C" void func_001826c8(...);
 // 001a6490: moved to src/yasui/libys/magic.cpp

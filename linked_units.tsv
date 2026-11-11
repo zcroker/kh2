@@ -51,3 +51,4 @@ src/yasui/libys/bg.cpp	001a7588	001a8098	.data@00350990,.rodata@0036d5d0	-G0 -fn
 src/yasui/libys/worldwork.cpp	001ba138	001ba168	.bss@01d48dc0	-G0
 src/yasui/libys/itemeffect.cpp	001ba168	001ba7e0	.bss@01d48de0,.rodata@0036dbe0	-G0 -fno-strict-aliasing
 src/yasui/libys/magic.cpp	001a5c08	001a6a10	.data@00350800,.bss@01c6cb20,.rodata@0036d5c0	-G0 -fno-strict-aliasing -fmove-all-movables
+src/yasui/libys/prizetable.cpp	001a5b58	001a5c08	.bss@01c6cb1c	-G0
