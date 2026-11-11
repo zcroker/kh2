@@ -3549,60 +3549,20 @@ u32 func_00185be0(u32 a0, u32 a1, float a2) {
     return s0;
 }
 
-void func_00186020(u32 a0) {
-    u32 s0 = a0;
-    if ((*(u32*)(s0 + 264) & 0x10000000) == 0) {
-        func_0019f9a8(s0 + 2568);  // array8_free_slots
-        u32 t7 = *(u32*)(s0 + 2784);
-        if (t7 != 0) {
-            func_001dc920(t7);
-            *(u32*)(s0 + 2784) = 0;
-        }
-    }
-    func_0016b5b8(s0);
-}
+// 00186020: moved to src/anon/unit_00185d10.cpp
+void func_00186020(u32 a0);
 
-void func_00187890(u32 a0) {
-    u32 s0 = a0;
-    if ((*(u32*)(a0 + 2040) & 4) != 0) return;
-    u32 t7 = *(u32*)(a0 + 2072);
-    if (t7 != 0) func_0019aa00(t7, s0);
-    func_00187868(s0);
-}
+// 00187890: moved to src/anon/unit_00185d10.cpp
+void func_00187890(u32 a0);
 
-void func_001881f8(u32 a0, u32 a1) {
-    u32 s0 = a0;
-    if ((*(u32*)(a0 + 156) & 1) != 0) return;
-    u32 v0 = func_00187ab8(*(u32*)(a0 + 140), a1);
-    if (v0 == 0) return;
-    func_00187ef0(s0, v0);
-}
+// 001881f8: moved to src/anon/unit_00185d10.cpp
+void func_001881f8(u32 a0, u32 a1);
 
-void func_001880b0(u32 a0, u32 a1) {
-    u32 s0 = a0;
-    if ((*(u32*)(a0 + 156) & 1) != 0) return;
-    u32 s1 = func_00187ab8(*(u32*)(a0 + 140), a1);
-    if (s1 == 0) return;
-    func_00187f90(s0);
-    func_00187fd8(s0, s1);
-}
+// 001880b0: moved to src/anon/unit_00185d10.cpp
+void func_001880b0(u32 a0, u32 a1);
 
-void func_00188250(u32 a0, u32 a1) {
-    u32 s0 = a0;
-    func_001881f8(s0, a1);
-
-    s32 t15 = *(s32*)(s0 + 0);
-    s32 t14 = t15 + 15;
-    s32 t13 = 0;
-    if (t14 < 0) t13 = 1;
-    t15 = t15 + 30;
-    if (t13 == 0) t15 = t14;
-    t15 = (t15 >> 4) << 4;
-    t14 = t14 - t15;
-
-    u32 p = s0 + ((u32)t14 << 3);
-    *(u32*)(p + 12) |= 1;
-}
+// 00188250: moved to src/anon/unit_00185d10.cpp
+void func_00188250(u32 a0, u32 a1);
 
 void func_00189258(u32 a0) {
     u32 s0 = a0;

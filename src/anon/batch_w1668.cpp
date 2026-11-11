@@ -51,10 +51,8 @@ void func_00319190(S8* p) { p->fn(1, p); }
 // 00102ff0: moved to src/common/title.cpp
 
 /* the original has three nops in the loop body (hand-placed delay padding) */
-void func_001879f0(u32* p) {
-    s32 i = 127;
-    do { *p = 0; i--; asm volatile("nop\n\tnop\n\tnop"); p += 8; } while (i >= 0);
-}
+// 001879f0: moved to src/anon/unit_00185d10.cpp
+void func_001879f0(u32* p);
 
 void func_001bf118(u8* p, s32 b) {
     if (b == 0) { *(u32*)(p + 0xab0) = 0; return; }

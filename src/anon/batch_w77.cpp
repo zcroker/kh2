@@ -300,19 +300,7 @@ struct Ent { u8 pad[1164]; u8* tgt; u8 pad2[2768 - 1168]; QWord dir; f32 f2784; 
 extern "C" {
 void ctarget_00186a90(Ent* p, QWord* v, f32 k) asm("_Z16ctarget_00186a90jjjj");
 s32 func_0019c838(Ent*);
-void ctarget_00186a90(Ent* p, QWord* v, f32 k)
-{
-    if (!func_0019c838(p)) return;
-    if (k < 0.0f) {
-        k = -k;
-        p->dir = Scale(*v, -1.0f);
-    } else {
-        p->dir = *v;
-    }
-    if (p->tgt) k += *(f32*)(p->tgt + 456);
-    Normalize(&p->dir);
-    *(f32*)((u8*)p + 2780) = k * 0.1f;
-}
+// 00186a90: moved to src/anon/unit_00185d10.cpp
 }
 }
 

@@ -67,15 +67,7 @@ void func_00184ad0(W1816Ob*, W1816V*, f32);
 static inline W1816V W1816Pos(W1816Tg* t) { W1816V r; func_00190388(&r, t); return r; }
 extern "C" {
 s32 u_call4_00187300(W1816Ob* self, W1816Tg* t, f32 r) asm("_Z16u_call4_00187300jjjj");
-s32 u_call4_00187300(W1816Ob* self, W1816Tg* t, f32 r) {
-    if (!func_00190180(t)) return 0;
-    if (t->owner != self) {
-        W1816V v; v = W1816Pos(t) - (*func_0016c028(self) + self->pos);
-        v.y = 0.0f;
-        if (50.0f < W1816Len(v)) func_00184ad0(self, &v, r);
-    }
-    return 1;
-}
+// 00187300: moved to src/anon/unit_00185d10.cpp
 
 extern W1816Act* D_0034e948;
 s32 func_0019ba60(W1816Act*);

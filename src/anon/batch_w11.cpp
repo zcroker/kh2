@@ -115,10 +115,8 @@ void f17a8f8(void*, void* o, Q16* q) {
 
 s32 func_001860b0(void*);
 void func_001c1b08(void*, u32, s32);
-void func_00186948(void* a, u8* b) {
-    s32 v = func_001860b0(a);
-    func_001c1b08(a, *(u32*)(b + 28), v);
-}
+// 00186948: moved to src/anon/unit_00185d10.cpp
+void func_00186948(void* a, u8* b);
 
 struct Obj198 { u8 pad[1416]; u32 active : 1; };
 Obj198* func_001b9bc8(Obj198*);

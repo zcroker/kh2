@@ -332,12 +332,7 @@ void func_00320c80(void* p) {
 }  // extern "C"
 
 // Walks to the next object whose flag 0x10 (at +1416) is set.
-u32 ctarget_00185da8(u32 a0, u32, u32, u32) {
-    u32 p = a0;
-    while ((p = func_001b9bc8(p)) && !(*(u32*)(p + 1416) & 0x10)) {
-    }
-    return p;
-}
+// 00185da8: moved to src/anon/unit_00185d10.cpp
 
 // Offset table lookup: entry a1 if in range and non-zero, else entry a2.
 u32 wtarget_001ce2a0(u32 a0, u32 a1, u32 a2, u32) {

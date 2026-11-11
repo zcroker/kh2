@@ -56,3 +56,5 @@ src/yasui/libys/effect.cpp	001a3a50	001a3d70	.data@00350748,.bss@01c6cae0,.rodat
 src/yasui/libys/mission.cpp	001bb270	001bc188	.rodata@0036dc0c	-G0 -g
 src/yasui/libys/lookat.cpp	001b0448	001b13d8	.rodata@0036d960	-G0 -fno-strict-aliasing
 src/anon/unit_00153ea0.cpp	00153ea0	00157688	.rodata@0036b270	-G0
+src/anon/unit_00185d10.cpp	00185d10	00188550	.rodata@0036c908	-G0 -fno-strict-aliasing
+src/anon/unit_00188550.cpp	00188550	00188848	.rodata@0036c9b0	-G0

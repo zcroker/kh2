@@ -47,14 +47,8 @@ s32 func_00119f08(u8* p) {
     return 0;
 }
 
-void func_00188490(s32 a, s32 b, f32 c) {
-    s32 i = 0;
-    E12_1c608c0* e = D_01c608c0;
-    do {
-        if (e->a == 0) { e->a = a; e->b = b; e->c = c; return; }
-        i++; e++;
-    } while (i < 64);
-}
+// 00188490: moved to src/anon/unit_00185d10.cpp
+void func_00188490(s32 a, s32 b, f32 c);
 
 // 002eaea8: moved to src/anon/unit_002eae08.cpp
 

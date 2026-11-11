@@ -195,13 +195,8 @@ u32 func_00180408(void* a0, void* a1) {
     return 0;
 }
 
-void func_00188430(u8* p, u32 a1, u32 a2) {
-    u32* t = D_01c60bd0;
-    t[0] = *(u32*)(p + 136);
-    t[1] = a1;
-    t[2] = a2;
-    func_00188340(p, 7, t, 3);
-}
+// 00188430: moved to src/anon/unit_00185d10.cpp
+void func_00188430(u8* p, u32 a1, u32 a2);
 
 void func_0019c970(void* p) {
     func_0019cc20(p);

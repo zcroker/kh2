@@ -717,18 +717,14 @@ u32 func_00182760(u32 a0, u32 a1, u32 a2, u32 a3) {
 
 // 00183048: _GLOBAL__I_ stub, now made by gcc in src/anon/unit_00182780.cpp
 
-u32 func_00186148(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_00196b58(a0, a1, a2, a3);
-}
+// 00186148: moved to src/anon/unit_00185d10.cpp
+u32 func_00186148(u32 a0, u32 a1, u32 a2, u32 a3);
 
-u32 func_00187868(u32 a0, u32 a1, u32 a2, u32 a3) {
-    *(u32*)((u32)(a0) + 2040u) = (u32)(((u32)(((u32)(*(u32*)((u32)(a0) + 2040u)))) | 0x4u));
-    return func_001d7a50(((u32)(a0) + 1304u), a1, a2, a3);
-}
+// 00187868: moved to src/anon/unit_00185d10.cpp
+u32 func_00187868(u32 a0, u32 a1, u32 a2, u32 a3);
 
-u32 func_00188828(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_001887d8(0x00000001u, 0x0000ffffu, a2, a3);
-}
+// 00188828: moved to src/anon/unit_00188550.cpp
+u32 func_00188828(u32 a0, u32 a1, u32 a2, u32 a3);
 
 u32 func_0018c898(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_0018c868(0x00000001u, 0x0000ffffu, a2, a3);

@@ -244,22 +244,7 @@ void func_0017f488(u8*, u16, f32, f32);
 void func_0017f5e0(u8*, u32, s32, f32, f32);
 
 // Optionally negate a direction, apply it, then pick motion 15/14 (flip if unavailable) and play it.
-void func_00186590(u8* a0, Vec* a1, u32 a2) {
-    Vec v;
-    s32 i;
-    v = *a1;
-    if (func_001860b0()) {
-        i = 0;
-        VecScale(&v, -1.0f);
-    } else {
-        i = 1;
-    }
-    func_0016aef0(a0, &v);
-    a0 += 320;
-    if (!func_0017f4e0(a0, D_0036c970[i])) i ^= 1;
-    func_0017f488(a0, D_0036c970[i], 0.0f, 0.0f);
-    func_0017f5e0(a0, a2, 0, 0.0f, 0.0f);
-    *(u32*)((u8*)a1 + 24) |= 1;
-}
+// 00186590: moved to src/anon/unit_00185d10.cpp
+void func_00186590(u8* a0, Vec* a1, u32 a2);
 }
 }

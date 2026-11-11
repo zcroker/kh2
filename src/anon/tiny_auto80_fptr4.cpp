@@ -836,21 +836,11 @@ u32 func_00181a70(u32 a0, u32 a1, u32 a2, u32 a3) {
 
 // 00182a78: moved to src/anon/unit_00182780.cpp
 
-u32 func_001872e0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2;
-    r5 = (u32)((s32)r4 + (2548));
-    u32 (*fp_call4_001871c8)(u32, u32, u32, u32) = func_001871c8;
-    r2 = fp_call4_001871c8(r4, r5, r6, r7);
-    return r2;
-}
+// 001872e0: moved to src/anon/unit_00185d10.cpp
+u32 func_001872e0(u32 a0, u32 a1, u32 a2, u32 a3);
 
-u32 func_00187400(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2;
-    r5 = (u32)((s32)r4 + (2548));
-    u32 (*fp_call4_00187300)(u32, u32, u32, u32) = func_00187300;
-    r2 = fp_call4_00187300(r4, r5, r6, r7);
-    return r2;
-}
+// 00187400: moved to src/anon/unit_00185d10.cpp
+u32 func_00187400(u32 a0, u32 a1, u32 a2, u32 a3);
 
 void func_00188bf8(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r14, r15;

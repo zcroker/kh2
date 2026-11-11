@@ -136,16 +136,8 @@ union U188 { u16 h; u32 w; };
 extern u32 D_01c60be0[];
 u8* func_00187ab8(void*, u32);
 void func_00188398(u8*, u16, u32*, s32);
-void func_001884d0(u8* a, u32* b)
-{
-    void* q = *(void**)(a + 140);
-    if (!q) return;
-    u8* r = func_00187ab8(q, b[0]);
-    if (!r) return;
-    D_01c60be0[0] = *(u32*)(a + 136);
-    D_01c60be0[1] = b[1];
-    func_00188398(a, ((U188*)(r + 20))->h, D_01c60be0, 2);
-}
+// 001884d0: moved to src/anon/unit_00185d10.cpp
+void func_001884d0(u8* a, u32* b);
 
 // 00196e00
 struct Fl196 { u16 h0; u16 b0 : 1; u16 b1 : 4; u16 b5 : 1; };

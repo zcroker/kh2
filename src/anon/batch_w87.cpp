@@ -147,20 +147,8 @@ static inline bool flags_2_and_40(u32 fl) {
     if (fl & 2) { u32 m = fl & 0x40; b = m != 0; }
     return b;
 }
-void func_001863a8(u8* p, s32 a, f32 x) {
-    if (*(u32*)(*(u8**)(p + 12) + 8) & 0x10) {
-        func_001866f0(p, a, x);
-        return;
-    }
-    s32 r = func_0019c090(p);  // obj_is_enabled
-    if (r) {
-        func_001866a0(p, a, x);
-        return;
-    }
-    u32 fl = *(u32*)(*(u8**)(p + 12) + 8);
-    if (flags_2_and_40(fl)) func_001a2a18(p);
-    func_00186548(p, a, x);
-}
+// 001863a8: moved to src/anon/unit_00185d10.cpp
+void func_001863a8(u8* p, s32 a, f32 x);
 
 // ---- 0x192e50: expands '\r' markers in a string with formatted varargs ----
 s32 func_00192440(char*, s32);  // is_byte_lt25

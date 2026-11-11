@@ -482,31 +482,10 @@ void func_0017c400(u32 a0, u32 a1) {
     *(volatile u32 *)(a0 + 204) = 0;
 }
 
-void wtarget_001878e8(u32 a0, u32, u32, u32) {
-    register u32 p asm("$14") = a0 + 2640;
-    asm volatile("" : "+r"(p));
-    u32 v = *(u32 *)(a0 + 2732);
-    if (v != 0) {
-        func_001c0458(p, v);
-    }
-}
+// 001878e8: moved to src/anon/unit_00185d10.cpp
 
-u32 func_00187e20(u32 a0) {
-    register u32 v asm("$15") = *(u32 *)(a0 + 156);
-    v &= 1;
-    v &= 0xff;
-    asm volatile("" : "+r"(v));
-    u32 ret = 0;
-    if (v == 0) {
-        register u32 p asm("$14") = *(u32 *)(a0 + 136);
-        register u32 q asm("$13") = *(u32 *)(p + 4);
-        v = *(u32 *)(q + 352);
-        register u32 mask asm("$14") = 0x40000;
-        v &= mask;
-        ret = v != 0;
-    }
-    return ret;
-}
+// 00187e20: moved to src/anon/unit_00185d10.cpp
+u32 func_00187e20(u32 a0);
 
 // 0018c8b8: moved to src/yasui/libys/damage.cpp
 

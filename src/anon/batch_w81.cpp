@@ -252,22 +252,7 @@ void func_0017a2d0(u8* o) {
 void func_00187728(u8*, f32);
 s32 func_001a1990(u8*, s32);
 s32 ctarget_00187650(u8* o, s32 n, u32 flag, u32) asm("_Z16ctarget_00187650jjjj");
-s32 ctarget_00187650(u8* o, s32 n, u32 flag, u32) {
-    u8* t = *(u8**)(o + 1164);
-    s32 r = 0;
-    flag &= 0xff;
-    if (t == 0 || (*(u32*)(o + 2040) & 4)) return 0;
-    if ((*(u32*)(o + 1416) & 0x4000) && n > 0 && flag && !(*(u32*)(o + 352) & 0x4000)) {
-        ((VObjV81*)o)->vt[21](o, 20, 0);
-        t = *(u8**)(o + 1164);
-    }
-    if (*(s32*)(t + 384) + n < 0) {
-        func_00187728(o, 1.0f);
-    } else {
-        r = func_001a1990(t, n);
-    }
-    return r;
-}
+// 00187650: moved to src/anon/unit_00185d10.cpp
 
 // --- 0018ed18
 struct Ent18e { u8* obj; u8 pad[12]; u8 x[32]; };

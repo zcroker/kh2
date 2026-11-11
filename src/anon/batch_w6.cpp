@@ -274,14 +274,7 @@ s32 atoi(const char* s) {  // strtol10
 
 }
 
-u32 ctarget_00186ce8(u32 a0, u32, u32, u32) {
-    u32* p = (u32*)(a0 + 320);
-    if (p[0] == 0) return 0;
-    s32 v = p[5];
-    if (v < 10) return 0;
-    if (v < 40) return 1;
-    return 0;
-}
+// 00186ce8: moved to src/anon/unit_00185d10.cpp
 
 extern Pair D_01c6ced0;
 void wtarget_001ad948(u32 a0, u32 a1, u32, u32) {

@@ -127,14 +127,8 @@ void func_001817f0(s32 id) {
 
 s32 func_001c0cd8(void*);
 s32 func_0019c090(void*);  // obj_is_enabled
-s32 func_001886d0(u8* o) {
-    s32 r = 0;
-    if (func_001c0cd8(*(void**)(*(u8**)(o + 136) + 4)) != 0 || func_0019c090(*(void**)(*(u8**)(o + 136) + 4)) == 0) {
-        u32 m = *(u32*)(*(u8**)(*(u8**)(o + 136) + 4) + 352) & 0x200;
-        r = m == 0;
-    }
-    return r;
-}
+// 001886d0: moved to src/anon/unit_00188550.cpp
+s32 func_001886d0(u8* o);
 }
 
 f32* func_001ce328(u32);

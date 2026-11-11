@@ -72,11 +72,8 @@ u32 func_00167618(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_00167e70();
 }
 
-u32 func_00188738(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u;
-    r2 = func_00187b90();
-    return func_0016d110();
-}
+// 00188738: moved to src/anon/unit_00188550.cpp
+u32 func_00188738(u32 a0, u32 a1, u32 a2, u32 a3);
 
 u32 func_001947a0(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u, r15 = 0u;

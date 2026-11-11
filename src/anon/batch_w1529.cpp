@@ -24,16 +24,6 @@ s32 func_002eedf0(W1529Obj* p) {
     return 1;
 }
 
-s32 func_00187420(s32 a, f32 f) {
-    u8* s = D_0034e948;
-    s32 ok = func_0019ba60(s);
-    s32 r = 0;
-    if (ok != 0) {
-        if (*(s32*)(s + 0xb40) != 0) {
-            func_0019d358(*(s32*)(s + 0xb40));
-            r = func_001871c8(a, *(s32*)(s + 0xb40) + 4, f);
-        }
-    }
-    return r;
-}
+// 00187420: moved to src/anon/unit_00185d10.cpp
+s32 func_00187420(s32 a, f32 f);
 }

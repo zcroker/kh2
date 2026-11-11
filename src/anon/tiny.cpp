@@ -153,8 +153,10 @@ void func_0015f700(BD_VALUE* bd) { func_00143208(bd); }
 void func_001616d8(BD_VALUE* bd) { func_0011b6a8(bd); }
 // 001688a0: moved to src/yasui/libys/file.cpp
 void func_00179ea0(BD_VALUE* bd) { func_001781e8(bd); }
-void func_00186008(BD_VALUE* bd) { func_001984b8(bd); }
-void func_00187850(BD_VALUE* bd) { func_00187868(bd); }
+// 00186008: moved to src/anon/unit_00185d10.cpp
+void func_00186008(BD_VALUE* bd);
+// 00187850: moved to src/anon/unit_00185d10.cpp
+void func_00187850(BD_VALUE* bd);
 void func_0018c420(BD_VALUE* bd) { func_0018c438(bd); }
 void func_00192800(BD_VALUE* bd) { func_00192528(bd); }
 void func_00195738(BD_VALUE* bd) { func_00195750(bd); }
@@ -655,10 +657,8 @@ void func_00185910(u32 a0, u32 a1, u32 a2, u32 a3) {
     *(u32*)((u32)b + (2188)) = (u32)a0;
 }
 
-void func_00185d98(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 b = (0x01c6u << 16);
-    *(u32*)((u32)b + (2232)) = (u32)0;
-}
+// 00185d98: moved to src/anon/unit_00185d10.cpp
+void func_00185d98(u32 a0, u32 a1, u32 a2, u32 a3);
 
 void func_00194790(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 b = (0x01c6u << 16);

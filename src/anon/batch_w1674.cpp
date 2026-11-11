@@ -72,45 +72,6 @@ void func_00186988(Obj186*, Msg186*, f32);
 void func_001cd078(Msg186*);
 
 static inline bool isType17(Obj186* o) { return o->info->kind == 0x17; }
-void func_00186160(Obj186* obj, Msg186* msg) {
-    u32 fl = msg->flags & 1;
-    if ((u8)fl) return;
-    if (!func_001d7b90(obj->sub518)) return;
-    if (isType17(obj)) {
-        func_001cf0d8(obj, msg);
-        return;
-    }
-    if ((u32)(msg->type - 15) < 4) {
-        msg->dir = *func_0016c028(D_0034e948) - *func_0016c028(obj);
-        msg->dir.y = 0;
-        msg->dir.normalize();
-    }
-    u32 mode = func_0018ca48(msg->action);
-    if (func_001c0cd8(obj) && mode != 0 && mode != 2) func_001c0e60(obj);
-    switch (mode) {
-    case 1:
-        func_00186378(obj, msg, func_0018cb30(msg));
-        break;
-    case 2:
-        func_00186478(obj, msg);
-        break;
-    case 3:
-        func_001863a8(obj, msg, func_0018cb30(msg));
-        break;
-    case 4: {
-        f32 a, b;
-        func_0018cd28(msg, &a, &b);
-        func_00186740(obj, msg, 16, 18, a, b);
-        break;
-    }
-    case 5:
-        func_00186948(obj, msg);
-        break;
-    case 14:
-        func_00186988(obj, msg, func_0018cb30(msg));
-        break;
-    }
-    func_001cd078(msg);
-    msg->flags |= 1;
-}
+// 00186160: moved to src/anon/unit_00185d10.cpp
+void func_00186160(Obj186* obj, Msg186* msg);
 }

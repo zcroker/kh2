@@ -99,22 +99,8 @@ struct W1825Obj {
 struct W1825Oth { u8 pad0[16]; W1825Obj* owner; u8 pad1[37 - 20]; u8 b37; u8 b38; };
 extern "C" {
 s32 func_0018cae0(W1825Oth*);
-s32 func_00186ec0(W1825Obj* o, W1825Oth* p)
-{
-    u32 m = o->fl();
-    if (m & 0x200) return 1;
-    if (m & 0x400) {
-        if ((m & 0x80000) || !p->b37) {
-            if (!func_0018cae0(p)) return 1;
-        }
-    }
-    if ((o->fl() & 0x800) || p->b37) {
-        if (!func_0018cae0(p) && !(p->owner->f1416 & 0x80)) return 1;
-    }
-    if (!(o->f1416 & 0x80)) return 0;
-    if ((o->f352 & 0x4000) && !p->b38) return 1;
-    return 0;
-}
+// 00186ec0: moved to src/anon/unit_00185d10.cpp
+s32 func_00186ec0(W1825Obj* o, W1825Oth* p);
 }
 
 // 001cd690
@@ -182,22 +168,5 @@ W1825V func_00190388(W1825Tgt*);
 W1825V* func_0016c028(W1825Act*);
 void func_0016b010(W1825Act*, W1825V);
 s32 u_call4_001871c8(W1825Act* o, W1825Tgt* t, f32 r) asm("_Z16u_call4_001871c8jjjj");
-s32 u_call4_001871c8(W1825Act* o, W1825Tgt* t, f32 r)
-{
-    s32 res;
-    if (0.0f < r) {
-        res = func_00187300(o, t, r);
-    } else if (!func_00190180(t)) {
-        res = 0;
-    } else {
-        if (t->owner != o) {
-            W1825V d;
-            d = func_00190388(t) - (*func_0016c028(o) + o->pos);
-            d.y = 0.0f;
-            if (50.0f < d.length()) func_0016b010(o, d);
-        }
-        res = 1;
-    }
-    return res;
-}
+// 001871c8: moved to src/anon/unit_00185d10.cpp
 }

@@ -335,15 +335,8 @@ void func_001835a0(u8* o, f32 d) {
     *(f32*)(o + 1644) = func_0017ce10(*(f32*)(o + 1644) + d);
 }
 
-void func_00186c58(u8* o, Q16* v, f32 s) {
-    if (!func_0019c838(o)) return;
-    Q16 t;
-    QCOPY(&t, v);
-    VP* h = *(VP**)(o + 12);
-    t.w = s * *(f32*)(D_00352130 + 56);
-    t.y = 50.0f;
-    (*(VFn3*)(h->vt + 8))(h, o, &t);
-}
+// 00186c58: moved to src/anon/unit_00185d10.cpp
+void func_00186c58(u8* o, Q16* v, f32 s);
 
 void func_00194930(void) {
     u8* v = func_001947c0(D_0032bae0[1], D_0032bae0[0]);

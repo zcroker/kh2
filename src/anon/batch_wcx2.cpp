@@ -10630,15 +10630,8 @@ void func_002cd260(u8* p) {
 // 002eaee8: static initialiser, now made by gcc in src/anon/unit_002eae08.cpp
 
 // --------------------
-s32 func_00186110(void*, u8* p) {
-    switch (p[36]) {
-    case 0: case 2: case 3: case 4: case 5:
-        return 1;
-    case 1: case 6: case 7: case 8: case 9:
-        return 0;
-    }
-    return 0;
-}
+// 00186110: moved to src/anon/unit_00185d10.cpp
+s32 func_00186110(void*, u8* p);
 
 // --------------------
 struct E256a58 { u8 pad[20]; u16 id; u8 pad2[14]; };

@@ -33,33 +33,8 @@ static inline u8 w1937_isKind(W1937Kind* k) { return k->k == 5 || k->k == 6; }
 extern "C" {
 s32 func_0018caf8(W1937Arg*);
 s32 func_0018cef8(W1937Arg*);
-void func_00186d48(W1937Obj* self, W1937Arg* a) {
-    if (a->flags & 2) return;
-    a->flags |= 2;
-    W1937Ent* e0 = self->ents;
-    if (e0 == 0) return;
-    W1937Kind* k = a->kind;
-    s32 v = a->val;
-    s32 f;
-    if (w1937_isKind(k)) {
-        f = 0;
-        if (a->own->o != self) { u32 t = k->fl; f = (t >> 4) & 1; }
-        self->vt->f78(self, v, a->idx, f);
-    } else {
-        W1937Ent* e = &e0[a->idx];
-        if (e->c >= e->a - v && self->vt->f58(self)) {
-            v = e->a - e->c - 1;
-            if (v < 0) v = 0;
-        }
-        if (v >= 2) {
-            W1937Msk* m = &self->m;
-            if (((m->m0 | m->m1) & ~m->m2 & 0x8000) && func_0018caf8(a)) {
-                if (!func_0018cef8(a)) v = 1;
-            }
-        }
-        self->vt->f78(self, -v, a->idx, 0);
-    }
-}
+// 00186d48: moved to src/anon/unit_00185d10.cpp
+void func_00186d48(W1937Obj* self, W1937Arg* a);
 }
 }
 

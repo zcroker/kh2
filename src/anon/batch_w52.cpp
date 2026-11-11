@@ -196,18 +196,8 @@ void func_001846a0(u8* p, Vec4* v, f32 f) {
 }
 
 u32 func_00188398(u8*, u32, u32*, u32);
-u32 func_00188340(u8* p, s32 i, u32* a2, u32 a3) {
-    u8* t = *(u8**)(p + 144);
-    if (!t) return 0;
-    if (*(u32*)(p + 156) & 4) return 0;
-    u32 tmp;
-    if (!a2) {
-        tmp = *(u32*)(p + 136);
-        a2 = &tmp;
-        a3 = 1;
-    }
-    return func_00188398(p, *(u16*)(t + i * 2 + 10), a2, a3);
-}
+// 00188340: moved to src/anon/unit_00185d10.cpp
+u32 func_00188340(u8* p, s32 i, u32* a2, u32 a3);
 
 void func_00195430(u8*);
 void func_00195558(u8* p) {

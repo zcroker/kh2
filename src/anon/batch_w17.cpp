@@ -101,26 +101,16 @@ extern void* D_01c608b8;
 u32 func_0019ba60(void*);
 void* func_0016b0d0(void);
 void* ctarget_00185de0(u32, u32, u32, u32) asm("_Z16ctarget_00185de0jjjj");
-void* ctarget_00185de0(u32, u32, u32, u32) {
-    if (func_0019ba60(D_01c608b8)) return D_01c608b8;
-    return func_0016b0d0();
-}
+// 00185de0: moved to src/anon/unit_00185d10.cpp
 
 u8* func_001b9bc8(void*);
-u8* func_00186078(u8* p) {
-    do {
-        p = func_001b9bc8(p);
-    } while (p && !(*(u32*)(p + 1416) & 2));
-    return p;
-}
+// 00186078: moved to src/anon/unit_00185d10.cpp
+u8* func_00186078(u8* p);
 
 extern u32 D_01c60bc8[2];
 void func_00188340(void*, u32, void*, u32);
-void func_001883f8(u8* p, u32 a) {
-    D_01c60bc8[0] = *(u32*)(p + 136);
-    D_01c60bc8[1] = a;
-    func_00188340(p, 3, D_01c60bc8, 2);
-}
+// 001883f8: moved to src/anon/unit_00185d10.cpp
+void func_001883f8(u8* p, u32 a);
 
 extern void* D_0035037c;
 void func_00196e00(void*);

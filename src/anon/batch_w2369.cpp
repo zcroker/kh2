@@ -7,19 +7,8 @@ extern "C" {
 void func_0031cc28(s32*);
 
 // Push v into a 16-entry ring buffer (if not full); the entry's second word is filled by func_0031cc28.
-void func_00187ef0(Ring16* r, s32 v) {
-    s32 i = r->head;
-    s32 c = (i - r->tail + 16) % 16;
-    if (c < 15) {
-        RingEnt* p = &r->ent[i];
-        r->head = (i + 1) % 16;
-        RingEnt e;
-        e.v = v;
-        e.t = 0;
-        func_0031cc28(&e.t);
-        *p = e;
-    }
-}
+// 00187ef0: moved to src/anon/unit_00185d10.cpp
+void func_00187ef0(Ring16* r, s32 v);
 }
 
 struct FindEnt { u8 pad[12]; s32 flags; u8 pad2[34 - 16]; u16 id; };

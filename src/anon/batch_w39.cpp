@@ -218,11 +218,8 @@ extern S188 D_01c608c0[];
 extern u32 D_01c60bc0;
 extern u32 D_00351214;
 void func_00188550(void);
-void func_00188670(void) {
-    for (int i = 0; i < 64; i++) D_01c608c0[i].a = 0;
-    D_01c60bc0 = 0;
-    func_00102788(D_00351214, 0, 0, func_00188550);
-}
+// 00188670: moved to src/anon/unit_00188550.cpp
+void func_00188670(void);
 
 // --- 00196b88
 extern u8 D_00350378;
