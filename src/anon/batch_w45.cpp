@@ -506,15 +506,7 @@ void func_002e7f80(u32* a0) {
 }
 
 void u_call4_002eec58(u32, u32, u32, u32) asm("_Z16u_call4_002eec58jjjj");
-void u_call4_002eec58(u32 x, u32, u32, u32) {
-    u8* a0 = (u8*)x;
-    *(void**)a0 = D_00363860;
-    u8* o = func_001a93e8(a0 + 44);
-    (*(VFn3*)(*(u8**)o + 40))(o, *(u32*)(a0 + 40), *(u32*)(a0 + 68));
-    func_00106ac8(a0 + 80);
-    func_001a9350(a0 + 44);
-    *(void**)a0 = D_003637e0;
-}
+// 002eec58: moved to src/anon/unit_002ee8a8.cpp
 
 // 002f0640: moved to src/anon/unit_002efd68.cpp
 

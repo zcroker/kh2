@@ -7353,15 +7353,7 @@ void func_0028e2a8(u8* p, s32 n) {
 s32 func_002ef7b8();
 void func_002ef7a0_f7f0(u32, u32) asm("func_002ef7a0");
 extern s8 D_003638c8;
-void func_002ef7f0(s32 on) {
-    if (!func_002ef7b8()) return;
-    if (on) {
-        if (D_003638c8 == 0) func_002ef7a0_f7f0(3, 0);
-        D_003638c8++;
-    } else if (D_003638c8 != 0) {
-        if (--D_003638c8 == 0) func_002ef7a0_f7f0(4, 0);
-    }
-}
+// 002ef7f0: moved to src/anon/unit_002ef6b0.cpp
 
 // ---- 00176f00
 s32 func_001a1de0(u32);

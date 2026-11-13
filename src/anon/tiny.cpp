@@ -1360,19 +1360,9 @@ void func_002eda30(u32 a0, u32 a1, u32 a2, u32 a3) {
     *(u32*)((u32)b + (14288)) = (u32)0;
 }
 
-void func_002ef618(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 b = (0x0036u << 16);
-    *(u32*)((u32)b + (14488)) = (u32)0;
-}
+// 002ef618: moved to src/anon/unit_002ef1f8.cpp
 
-u32 func_002ef7b8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a0;
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    u32 b = (0x0036u << 16);
-    return (u32)(*(u8*)((u32)b + (14528)));
-}
+// 002ef7b8: moved to src/anon/unit_002ef6b0.cpp
 
 // 002efa88: moved to src/anon/unit_002ef938.cpp
 

@@ -28,6 +28,9 @@ src/sasa/event_movie.cpp	0022ba08	0022bda0	.data@0035e2ec,.rodata@00371150	-G0
 src/sasa/event_countdown.cpp	0022bda0	0022c4b8	.data@0035e2f0,.rodata@00371178	-G0
 src/sasa/event_layout.cpp	0022c4b8	0022d358	.bss@01dad960,.rodata@00371190	-G0
 src/anon/unit_002eae08.cpp	002eae08	002eaf38	.data@003634e8,.rodata@003760d8	-G0
+src/anon/unit_002ee8a8.cpp	002ee8a8	002ef1f8	.rodata@003761b0	-G0 -fno-strict-aliasing
+src/anon/unit_002ef1f8.cpp	002ef1f8	002ef6b0	.rodata@0037620c	-G0 -fno-strict-aliasing
+src/anon/unit_002ef6b0.cpp	002ef6b0	002ef8d0	.data@003638c0,.rodata@00376210	-G0
 src/anon/unit_002ef8d0.cpp	002ef8d0	002ef938	-	-G0 -fno-strict-aliasing
 src/anon/unit_002ef938.cpp	002ef938	002efbb8	-	-G0
 src/anon/unit_002efbb8.cpp	002efbb8	002efcc0	-	-G0

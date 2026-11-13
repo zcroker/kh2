@@ -335,14 +335,7 @@ void func_00103590(u32, void*);
 extern void* D_003638c4;
 extern u8 D_003638c0;
 extern u8 D_003638c8;
-void func_002ef6b0(void) {
-    func_00103bb0(5);
-    void* h = func_00106178(func_00170b30(0xa0000), 0xa0000);
-    D_003638c4 = h;
-    func_00103590(1, h);
-    D_003638c0 = 0;
-    D_003638c8 = 0;
-}
+// 002ef6b0: moved to src/anon/unit_002ef6b0.cpp
 
 extern u32 D_00363c20;
 extern u32 D_00363c24;

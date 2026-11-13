@@ -1575,29 +1575,17 @@ u32 func_002ee568(u32 a0, u32 a1, u32 a2, u32 a3) {
 
 // 002ee888: _GLOBAL__I_ stub, now made by gcc in src/menu/tutorial_widget.cpp
 
-u32 func_002eedc0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_002eefa8(((u32)(a0) + 456u), a1, a2, a3);
-}
+// 002eedc0: moved to src/anon/unit_002ee8a8.cpp
 
-u32 func_002eedd8(u32 a0, u32 a1, u32 a2, u32 a3) {  // to_2eefc8_sub456
-    return func_002eefc8(((u32)(a0) + 456u), a1, a2, a3);
-}
+// 002eedd8: moved to src/anon/unit_002ee8a8.cpp
 
-u32 func_002eeeb0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_0011ea98(((u32)(*(u32*)((u32)(a0) + 68u))), a1, a2, a3);
-}
+// 002eeeb0: moved to src/anon/unit_002ee8a8.cpp
 
-u32 func_002ef328(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_0023ca80(((u32)(a0) + 64u), a1, a2, a3);
-}
+// 002ef328: moved to src/anon/unit_002ef1f8.cpp
 
-u32 func_002ef7a0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_01f18014(a0, a1, a2, a3);
-}
+// 002ef7a0: moved to src/anon/unit_002ef6b0.cpp
 
-u32 func_002ef8b0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_002ef890(0x00000001u, 0x0000ffffu, a2, a3);
-}
+// 002ef8b0: moved to src/anon/unit_002ef6b0.cpp
 
 // 002f06b0: moved to src/anon/unit_002efd68.cpp
 

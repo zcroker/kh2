@@ -411,14 +411,7 @@ void func_002ed508(u8* p, u8* q, u32 c, u32 d, u32 e) {
     *(u32*)(p + 120) = 0;
 }
 
-void func_002ef708(void) {
-    func_00103748();
-    func_00170c00(D_003638c4);
-    D_003638c4 = 0;
-    func_00103bb0(-1);
-    D_003638c0 = 0;
-    D_003638c8 = 0;
-}
+// 002ef708: moved to src/anon/unit_002ef6b0.cpp
 
 // Region code: 'US', 'JP' or 'EU'.
 // 002efbb8: moved to src/anon/unit_002efbb8.cpp

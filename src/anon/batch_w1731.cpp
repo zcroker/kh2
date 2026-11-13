@@ -19,10 +19,7 @@ struct A_w1731 { u32 x, y; };
 struct B_w1731 { u16 z, w; };
 void func_0023cc18(void*);
 void func_002ef618();
-void func_002ef340(u8* t, A_w1731 a, B_w1731 b) {
-    func_0023cc18(t + 0x40);
-    func_002ef618();
-}
+// 002ef340: moved to src/anon/unit_002ef1f8.cpp
 
 // --- 0014d680
 void func_002f1e18(s32, s32, s32, s32);

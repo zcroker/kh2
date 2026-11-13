@@ -506,14 +506,7 @@ struct VObj2ee { void (**vt)(VObj2ee*, u32, u32); };
 VObj2ee* func_001a93e8(u8*);
 void func_00106ac8(u8*);
 void func_001a9350(u8*);
-void func_002eecd0(u8* p) {
-    *(u32*)p = (u32)D_00363860;
-    VObj2ee* v = func_001a93e8(p + 44);
-    v->vt[10](v, *(u32*)(p + 40), *(u32*)(p + 68));
-    func_00106ac8(p + 80);
-    func_001a9350(p + 44);
-    *(u32*)p = (u32)D_003637e0;
-}
+// 002eecd0: moved to src/anon/unit_002ee8a8.cpp
 
 // ---- 0031e520
 s32 func_002ee6d8(u8*);

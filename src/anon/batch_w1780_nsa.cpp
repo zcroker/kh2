@@ -11,14 +11,7 @@ Ent* func_00168b38(u32, s32, s32);
 void func_002ef180(void*, f32, f32);
 struct E2 { u8 pad[8]; VObj* o; u32 c; f32 f; f32 g; };
 
-void func_002eef08(E2* e, u32 a, f32 f) {
-    e->o = (VObj*)func_00168b38(a, 9, 0)->v;
-    e->c = func_00168b38(a, 16, 0)->v;
-    VObj* o = e->o;
-    e->f = f;
-    e->g = (f32)o->vt->get(o);
-    func_002ef180(e, f, -1.0f);
-}
+// 002eef08: moved to src/anon/unit_002ee8a8.cpp
 
 /* 00160388 */
 struct Alloc;
