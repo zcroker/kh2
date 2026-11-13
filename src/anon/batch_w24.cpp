@@ -250,9 +250,7 @@ s32 func_001dccc8(u32* p, u8 flag) {
 s32 func_002f1670(void*);
 void func_001024a8(u32);
 extern u8 D_01dad990;
-void func_0022cf18(u32 a) {
-    if (!func_002f1670(&D_01dad990)) func_001024a8(a);
-}
+void func_0022cf18(u32 a);  // 0022cf18: moved to src/sasa/event_layout.cpp (linked unit)
 
 struct Bits { u32 b0 : 1; u32 m : 2; u32 rest : 29; };
 struct Blk { u32 _0; Bits f; };

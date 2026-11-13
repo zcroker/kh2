@@ -475,22 +475,7 @@ static inline void Settle228(u8* m) {
 }
 
 // Init: sets up the two model slots, links the second to the first and settles them.
-void func_00228ab0(u8* o) {
-    u8* m1 = o + 432;
-    u8* m2 = o + 24;
-    func_00229430(o, 2800);  // to_1391c8_arg11
-    u32 a = func_0022b9e0();
-    u32 b = func_0022b720();
-    func_001386e0(m2, 2800, a, b, 28, 11);
-    *(u32*)(m2 + 392) = 29;
-    func_001386e0(m1, 2800, a, b, 23, 11);
-    *(u8**)(m1 + 396) = m2;
-    Settle228(m1);
-    *(u32*)(m2 + 396) = 0;
-    Settle228(m2);
-    *(f32*)(o + 1248) = *(f32*)(o + 1252) = 0.0f;
-    *(u32*)(o + 1256) = func_00224910();
-}
+void func_00228ab0(u8* o);  // 00228ab0: moved to src/anon/unit_00228618.cpp (linked unit)
 
 struct O208 { u8 pad[16]; u8* items; u8* b; u8* c; s32 n; u16 f32; };
 struct A208 { u8 pad[30]; u16 max; u16 delay; };

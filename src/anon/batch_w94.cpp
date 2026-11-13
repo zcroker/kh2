@@ -294,19 +294,7 @@ struct Obj198 {
     s16 nents;
 };
 
-void func_00198ee8(Obj198* o) {
-    if (o->se != 0xffff && !func_00181500(o->se)) func_00181178(o->se);
-    if (o->bgm >= 0) func_001a6c90(o->bgm);  // set_bit_in_array_b
-    if (o->nres > 0)
-        for (s32 i = 0; i < o->nres; i++) func_001a8438(func_001a8258(o->res[i]));
-    for (s32 i = 0; i < o->nents; i++) {
-        switch (o->ents[i].type) {
-        case 0: func_0019b2d8(o->ents[i].id); break;
-        case 1: func_0019b2b0(o->ents[i].id); break;
-        }
-    }
-    o->state = -1;
-}
+// 00198ee8: moved to src/anon/unit_00198e40.cpp
 }
 // ---- 001bf168
 extern "C" {

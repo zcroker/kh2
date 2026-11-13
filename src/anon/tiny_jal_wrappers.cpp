@@ -201,12 +201,7 @@ u32 func_00195530(u32 a0, u32 a1, u32 a2, u32 a3) {
     return r2;
 }
 
-u32 func_00198d00(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u;
-    r2 = func_00198bd0(r4, r5, r6, r7);
-    r2 = ((u32)0u < (u32)r2);
-    return r2;
-}
+// 00198d00: moved to src/anon/unit_00198b88.cpp
 
 u32 func_0019c470(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u;
@@ -391,15 +386,7 @@ u32 func_002cef58(u32 a0, u32 a1, u32 a2, u32 a3) {
     r2 = ((u32)0u < (u32)r2);
     return r2;
 }
-u32 func_0022bb38(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u;
-    r4 = (u32)((s32)0u + (5));
-    r5 = 0u;
-    r2 = func_002ef7a0(r4, r5, r6, r7);
-    r2 = (u32)(r2 ^ 0x0005u);
-    r2 = ((u32)r2 < 0x00000001u);
-    return r2;
-}
+u32 func_0022bb38(u32 a0, u32 a1, u32 a2, u32 a3);  // 0022bb38: moved to src/sasa/event_movie.cpp (linked unit)
 u32 func_001bd590(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u;
     r5 = (u32)((s32)0u + (3));

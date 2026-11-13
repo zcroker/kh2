@@ -1337,41 +1337,13 @@ void func_002223e0(u32 a0, u32 a1, u32 a2, u32 a3) {
     *(volatile u32*)((u32)r4 + (s32)(0)) = 0u;
 }
 
-void func_002284e8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r14, r15;
-    if (r4 != 0u) {
-        r15 = *(volatile u32*)((u32)r4 + (s32)(0));
-        r14 = *(volatile u32*)((u32)r15 + (s32)(16));
-        ((void(*)(u32,u32,u32,u32))(u32)r14)(r4, r5, r6, r7);
-    }
-}
+void func_002284e8(u32 a0, u32 a1, u32 a2, u32 a3);  // 002284e8: moved to src/anon/unit_00228490.cpp (linked unit)
 
-void func_002296f8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r14, r15;
-    if (r4 != 0u) {
-        r15 = *(volatile u32*)((u32)r4 + (s32)(0));
-        r14 = *(volatile u32*)((u32)r15 + (s32)(16));
-        ((void(*)(u32,u32,u32,u32))(u32)r14)(r4, r5, r6, r7);
-    }
-}
+void func_002296f8(u32 a0, u32 a1, u32 a2, u32 a3);  // 002296f8: moved to src/sasa/musical_score.cpp (linked unit)
 
-void func_0022b5c0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r14, r15;
-    if (r4 != 0u) {
-        r15 = *(volatile u32*)((u32)r4 + (s32)(0));
-        r14 = *(volatile u32*)((u32)r15 + (s32)(16));
-        ((void(*)(u32,u32,u32,u32))(u32)r14)(r4, r5, r6, r7);
-    }
-}
+void func_0022b5c0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0022b5c0: moved to src/sasa/musical_target.cpp (linked unit)
 
-void func_0022c410(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r14, r15;
-    if (r4 != 0u) {
-        r15 = *(volatile u32*)((u32)r4 + (s32)(0));
-        r14 = *(volatile u32*)((u32)r15 + (s32)(16));
-        ((void(*)(u32,u32,u32,u32))(u32)r14)(r4, r5, r6, r7);
-    }
-}
+void func_0022c410(u32 a0, u32 a1, u32 a2, u32 a3);  // 0022c410: moved to src/sasa/event_countdown.cpp (linked unit)
 
 void func_0023f8a8(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3;

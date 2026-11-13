@@ -136,34 +136,7 @@ struct W2023SelfB {
     s32 b98;
 };
 
-void func_00229b28(W2023Self* s, s32 i, u32 z1, u32 z2, f32 x)
-{
-    s32 h;
-    f32 rot;
-    s32 a, b, c, d, e, f, g;
-    W2023_hide(s->e[i].obj);
-    switch (func_0022a3d0(s->b98, x, &a, &b, &c, &d, &e, &f, &g, &h, &rot)) {
-    case 0:
-        break;
-    case 1:
-        s->e[i].setZ(z1);
-        break;
-    case 2:
-        s->e[i].setZ(z1);
-        break;
-    case 3:
-        s->e[i].setZ(z1);
-        break;
-    case 4:
-        s->e[i].setZ(z2);
-        break;
-    }
-    W2023Ent* p = &s->e[i];
-    p->setRot(rot);
-    W2023Ent::rect(p->obj, p->r1, a, b, c, d);
-    W2023Ent::rect(p->obj, p->r2, e, f, g, h);
-    W2023_show(p->obj);
-}
+void func_00229b28(W2023Self* s, s32 i, u32 z1, u32 z2, f32 x);  // 00229b28: moved to src/sasa/musical_combo.cpp (linked unit)
 
 void func_0022a5c8(W2023SelfB* s, s32 i, u32 z1, u32 z2, f32 x)
 {

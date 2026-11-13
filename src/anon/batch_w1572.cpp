@@ -149,36 +149,5 @@ s32 func_0022b720(void);
 s32 func_00139d78(W1572_Obj*);
 void func_001386e0(W1572_Obj*, s32, s32, s32, s32, s32);
 void func_00138c10(W1572_Obj*, s32);
-void func_002291d0(W1572_Mgr* m) {
-    m->vt->fn(m);
-    s32 v = func_00224860();
-    if (m->cur != v) {
-        s32 a = func_0022b9e0();
-        s32 b = func_0022b720();
-        s32 i;
-        s32 n = 6 - v;
-        i = 1;
-        if (i < n) {
-            W1572_Obj* o = m->objs;
-            s32 j = 0;
-            i = n - 1;
-            do {
-                if (func_00139d78(o) == 0) {
-                    func_001386e0(o, 0xaf0, a, b, D_0035e118[j], 11);
-                    o->val = D_0035e130[j];
-                } else if (o->id == D_0035e148[j]) {
-                    func_00138c10(o, D_0035e118[j]);
-                    o->val = D_0035e130[j];
-                }
-                j++; o++;
-            } while (--i != 0);
-        }
-        s32 k;
-        for (k = m->cur; k < v; k++) {
-            if (k >= 5) break;
-            func_00138c10(&m->objs[4 - k], D_0035e148[4 - k]);
-        }
-    }
-    m->cur = v;
-}
+void func_002291d0(W1572_Mgr* m);  // 002291d0: moved to src/sasa/musical_score.cpp (linked unit)
 }

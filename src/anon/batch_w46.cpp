@@ -338,11 +338,7 @@ void func_002256c8(u8* p, u32 b) {
 s32 func_002282f0(s32);
 u32 func_00227ca8(u8*);
 void func_0015c958(u32, u32, u32, u32, u32, u32);
-void func_0022d1d8(u8* p) {
-    if (func_002282f0(*(s16*)(p + 4))) return;
-    u32 v = func_00227ca8(p + 8);
-    func_0015c958(v, p[12], p[13], p[14], p[6], p[7]);
-}
+void func_0022d1d8(u8* p);  // 0022d1d8: moved to src/sasa/event_layout.cpp (linked unit)
 
 // ---- 0022e0a8
 u32 func_001de4b0(u8*, u32, u32);

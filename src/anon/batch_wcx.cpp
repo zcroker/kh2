@@ -871,19 +871,7 @@ void func_002249f8(s32);
 u32 func_002282d8(void);  // limit_15000_or_25000
 void func_0022c840(void);
 u8* func_00102c18(s32, u32, void (*)(void));
-void func_0022c8f8(s32 a)
-{
-    switch (a) {
-    case 101: func_001991a8(135, 0); break;
-    case 100: func_002249f8(135); break;
-    case 200: {
-        u8* o = func_00102c18(1, func_002282d8(), func_0022c840);
-        *(f32*)(o + 4) = 64.0f;
-        *(f32*)(o + 8) = -6850.0f;
-        break;
-    }
-    }
-}
+void func_0022c8f8(s32 a);  // 0022c8f8: moved to src/sasa/event_layout.cpp (linked unit)
 
 struct E40 { u32 a; u32 b; u8* o; u8 pad[28]; };
 extern E40* volatile D_0035dcfc;
@@ -1418,14 +1406,7 @@ s32 func_00225b00(s16);  // flag_query_by_index
 void func_002f1460(u8*, s32, f32, f32, f32, f32);
 void func_0022cf18(void);
 void func_00102c18(s32, s32, void (*)(void));
-void func_0022cf60(s16* p)
-{
-    if (func_002282f0(p[2])) return;
-    if (func_00225b00(p[2])) return;
-    f32 h = (f32)p[6];
-    func_002f1460(D_01dad990, p[7], (f32)p[3], (f32)p[4], (f32)p[5], h + h);
-    func_00102c18(1, 29999, func_0022cf18);
-}
+void func_0022cf60(s16* p);  // 0022cf60: moved to src/sasa/event_layout.cpp (linked unit)
 struct R32 { u32 a; u32 id; u8 pad[24]; };
 extern R32 D_01dadc00[64];
 extern s32 D_0035e364;
@@ -3311,17 +3292,7 @@ struct Seg { V4 a, b; };
 void func_00144490(Seg*, f32, f32, f32, f32, f32, f32);
 void func_001d6790(Seg*);
 void func_001024a8(u8*);
-void func_0022c840(u8* p)
-{
-    Seg s;
-    f32 z = 0.0f;
-    f32 y = *(f32*)(p + 8);
-    func_00144490(&s, -18000.0f, z, y - 187.5f, 18000.0f, z, y + 187.5f);
-    func_001d6790(&s);
-    *(f32*)(p + 8) -= 375.0f;
-    *(f32*)(p + 4) -= D_00349e10;
-    if (*(f32*)(p + 4) < z) func_001024a8(p);
-}
+void func_0022c840(u8* p);  // 0022c840: moved to src/sasa/event_layout.cpp (linked unit)
 }
 
 }

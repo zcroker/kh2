@@ -33,5 +33,5 @@ void u_call4_0023f8c8(u8* a) {
 
 float func_002dc248(void) { return -300.0f - w203_config()->f; }
 
-void func_002e8ca8(W203Vq** a) { W203Vq t(**a); D_01e2bf90 = t; *a = &D_01e2bf90; }
+// 002e8ca8: moved to src/anon/unit_002e8b50.cpp
 }

@@ -687,18 +687,6 @@ void func_0014a7e8(s32);
 void func_0014a7f8(s32);
 
 // 0022cd48
-void func_0022cd48(u8* o)
-{
-    if (func_002282f0(*(s16*)(o + 4))) return;
-    s32 a;
-    if (!o[6]) {
-        func_0014a768(o[7]);
-        func_0014a788(*(s16*)(o + 12) >> 1, *(s16*)(o + 14) >> 1);
-        if (func_00227c78(o + 8) != 0.0f) func_0014a7b8(*(s16*)(o + 16), func_00227c78(o + 8));
-        func_0014a7e8(1);
-        a = 1;
-    } else a = 0;
-    func_0014a7f8(a);
-}
+void func_0022cd48(u8* o);  // 0022cd48: moved to src/sasa/event_layout.cpp (linked unit)
 
 }

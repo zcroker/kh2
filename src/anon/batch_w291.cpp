@@ -35,31 +35,7 @@ s32 func_002282f0(s32); s32 func_00225b00(s32); s32 func_0022c758();
 s32 func_001de168(W291W22*, s32, s32, s32, s32, s32);  // scan_list_by_half
 s32 func_001dc9d0(s32); s32 func_001dc9e0(s32); s32 func_001dc7e8(s32);
 void func_001dc840(s32); void func_001dc920(s32); void func_001dc978(s32, f32);
-void func_0022c590(W291S22* s)
-{
-    if (func_002282f0(s->a)) return;
-    if (func_00225b00(s->a)) return;
-    W291W22* w = D_0035de84;
-    if (!w) return;
-    if (!w->x) return;
-    switch (s->c) {
-    case 0:
-        D_0035de88 = func_001de168(w, s->b, 1, 3, 0x9c41, 0);  // scan_list_by_half
-        break;
-    case 1:
-        if (D_0035de88 && func_0022c758() && func_001dc9d0(D_0035de88) && func_001dc9e0(D_0035de88) && func_001dc7e8(D_0035de88))
-            func_001dc840(D_0035de88);
-        break;
-    case 2:
-        if (D_0035de88 && func_0022c758() && func_001dc9d0(D_0035de88) && func_001dc9e0(D_0035de88))
-            func_001dc978(D_0035de88, 8.0f);
-        break;
-    case 3:
-        if (D_0035de88 && func_0022c758() && func_001dc9d0(D_0035de88) && func_001dc9e0(D_0035de88))
-            func_001dc920(D_0035de88);
-        break;
-    }
-}
+void func_0022c590(W291S22* s);  // 0022c590: moved to src/sasa/event_layout.cpp (linked unit)
 
 extern u8 D_0035f0b0;
 s32 func_00240ba0(); s32 func_00287cd0(); s32 func_002b4ff8(); void func_00287cc0(s32);

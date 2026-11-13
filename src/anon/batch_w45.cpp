@@ -344,13 +344,7 @@ void func_00222790(void* d, const void* a, const void* b) {  // vec2_add_round_p
         : : "r"(d), "r"(a), "r"(b) : "$2", "memory");
 }
 
-s32 func_0022c758(void) {
-    u32 v = 0;
-    while ((v = func_001de4b0(D_0035de84, 0, v)) != 0) {
-        if (D_0035de88 == v) return 1;
-    }
-    return 0;
-}
+s32 func_0022c758(void);  // 0022c758: moved to src/sasa/event_layout.cpp (linked unit)
 
 void func_0022e6b0(s32 which, u8* a1, f32 f) {
     func_001ba028(a1);  // list_contains_ptr

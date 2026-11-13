@@ -1062,24 +1062,11 @@ void func_00227108(u32 a0, u32 a1, u32 a2, u32 a3) {
     *(u32*)((u32)b + (-9460)) = (u32)a0;
 }
 
-void func_0022bd80(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 b = (0x0036u << 16);
-    *(u8*)((u32)b + (-7444)) = (u8)0;
-}
+void func_0022bd80(u32 a0, u32 a1, u32 a2, u32 a3);  // 0022bd80: moved to src/sasa/event_movie.cpp (linked unit)
 
-u32 func_0022bd90(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a0;
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    u32 b = (0x0036u << 16);
-    return (u32)(*(u8*)((u32)b + (-7444)));
-}
+u32 func_0022bd90(u32 a0, u32 a1, u32 a2, u32 a3);  // 0022bd90: moved to src/sasa/event_movie.cpp (linked unit)
 
-void func_0022c9f0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 b = (0x0036u << 16);
-    *(u32*)((u32)b + (-8624)) = (u32)a0;
-}
+void func_0022c9f0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0022c9f0: moved to src/sasa/event_layout.cpp (linked unit)
 
 void func_0022d7c8(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 b = (0x0036u << 16);
@@ -1792,17 +1779,9 @@ u32 func_0015cc60(u32 a0, u32 a1, u32 a2, u32 a3) {
 
 // 001688b8: moved to src/yasui/libys/file.cpp
 
-void func_00198e50(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a3;
-    *(u32*)((u32)a0 + (16)) = a1;
-    *(u32*)((u32)a0 + (20)) = a2;
-}
+// 00198e50: moved to src/anon/unit_00198e40.cpp
 
-void func_00198e60(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a3;
-    *(u32*)((u32)a0 + (24)) = a1;
-    *(u32*)((u32)a0 + (28)) = a2;
-}
+// 00198e60: moved to src/anon/unit_00198e40.cpp
 
 extern "C" u32 func_0019f060(u32, u32, u32, u32) asm("_ZN2YS6JUMPER7is_jumpEv");
 

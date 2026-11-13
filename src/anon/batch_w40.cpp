@@ -156,15 +156,7 @@ bool func_00197c28(u8* p) {
 void func_00197930(u32, u32, u8*);
 void func_0019f070(u8*, u32);
 u8 func_0019f060(u8*);
-s32 func_00199030(u8* p) {
-    if (p[48]) return 1;
-    if (*(u32*)(p + 16)) {
-        func_00197930(*(u32*)(p + 16), *(u32*)(p + 20), p + 52);
-        return 1;
-    }
-    func_0019f070(p + 52, 0);
-    return func_0019f060(p + 52);
-}
+// 00199030: moved to src/anon/unit_00198e40.cpp
 
 s32 func_001ab820(u32);
 f32 func_00192fb8(u32*);  // mul_float4x8

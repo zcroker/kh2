@@ -31,22 +31,6 @@ typedef struct S4
   u8 b7;
   u8 p8[4];
 } S4;
-void func_0022cea0(S4 *p)
-{
-  int new_var;
-  if (func_002282f0(p->h) == 0)
-  {
-    if (p->b6 == 0)
-    {
-      u8 b = p->b7;
-      new_var = b == 0;
-      func_001671e8(func_00227ca8(&p->p8), new_var);
-    }
-    else
-    {
-      func_00167218();
-    }
-  }
-}
+void func_0022cea0(S4 *p);  // 0022cea0: moved to src/sasa/event_layout.cpp (linked unit)
 
 }

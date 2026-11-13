@@ -269,9 +269,7 @@ void wtarget_00228420(u32 a, u32 b, u32, u32) {
     }
 }
 
-void func_0022c508(void) {
-    func_00170518(func_0022c4b8(), -200, 0);
-}
+void func_0022c508(void);  // 0022c508: moved to src/sasa/event_layout.cpp (linked unit)
 
 void func_002346c0(void* a, void* b, void* c, void* d, void* e) {
     func_00234400(a, 0, b, c, d, e);
@@ -330,11 +328,7 @@ void func_002e1f40(void* a) {
     func_002e20d8(func_001050d8(320), a);
 }
 
-void func_002e8c28(u8* p) {
-    u32 tmp[4] __attribute__((aligned(16)));
-    asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(tmp), "r"(*(void**)(p + 4)) : "$8", "memory");
-    func_002e9610(*(void**)p, tmp);
-}
+// 002e8c28: moved to src/anon/unit_002e8b50.cpp
 
 void func_002ef7c8(void) {
     if (func_002ef7b8()) {

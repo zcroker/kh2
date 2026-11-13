@@ -208,9 +208,7 @@ void func_001e01b8(u32 a0) {
     ((void (*)(VObj*, u32))o->vtbl[1])(o, a0);
 }
 
-void func_00229d40(u8* a0) {
-    func_00229b28((u32)a0, 1, 200, 0, (f32)*(s32*)(a0 + 2972));
-}
+void func_00229d40(u8* a0);  // 00229d40: moved to src/sasa/musical_combo.cpp (linked unit)
 
 void func_00234590(u32 a0, u32 a1, u32 a2, u32 a3, u32 t0) {
     func_002340f0(a0, 0, a1, a2, a3, t0);

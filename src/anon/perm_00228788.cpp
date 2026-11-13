@@ -51,25 +51,6 @@ inline static void Upd_w(W_w *w)
   }
 }
 
-void func_00228788(O_w3 *o)
-{
-  func_00229430(o, 2800);
-  W_w *w1 = &o->w[1];
-  W_w *w2 = &o->w[2];
-  s32 a = func_0022b9e0();
-  s32 b = func_0022b720();
-  W_w *w0 = &o->w[0];
-  func_001386e0(w0, 2800, a, b, 32, 11);
-  w0->x188 = 33;
-  w0->x18c = 0;
-  Upd_w(w0);
-  func_001386e0(w1, 2800, a, b, 30, 11);
-  w1->x18c = w0;
-  Upd_w(w1);
-  func_001386e0(w2, 2800, a, b, 35, 11);
-  w2->x188 = 36;
-  w2->x18c = 0;
-  Upd_w(w2);
-}
+void func_00228788(O_w3 *o);  // 00228788: moved to src/anon/unit_00228618.cpp (linked unit)
 
 }

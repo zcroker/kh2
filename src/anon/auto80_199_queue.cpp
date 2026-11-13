@@ -7657,168 +7657,19 @@ void func_002280f8() {
     D_0035db10 = 0;
 }
 
-u32 func_00228490(u32 a0, u32 a1) {
-    u32 s0;
-    u32 v0;
+u32 func_00228490(u32 a0, u32 a1);  // 00228490: moved to src/anon/unit_00228490.cpp (linked unit)
 
-    s0 = func_0022b9e0(a0);
-    v0 = func_0022b720();
-    return func_001386e0(a0, 3000, s0, v0, a1, 11);
-}
+u32 func_00228518();  // 00228518: moved to src/anon/unit_00228490.cpp (linked unit)
 
-u32 func_00228518() {
-    u32 p;
-    u32 a0;
-    u32 vtbl;
-    u32 fnp;
-    u32 obj;
-    u32 table_a;
-    u32 table_b;
-    u32 (*fn)(u32, u32, u32);
+u32 func_00228590();  // 00228590: moved to src/anon/unit_00228490.cpp (linked unit)
 
-    p = *(u32*)((u32)&D_00340000 + 32640);
-    a0 = *(u32*)(p + 20);
-    vtbl = *(u32*)(a0 + 0);
-    fnp = *(u32*)(vtbl + 0);
-    fn = (u32 (*)(u32, u32, u32))fnp;
-    obj = fn(a0, 408, 0);
-    *(u32*)(obj + 12) = 0;
+u32 func_00229370();  // 00229370: moved to src/sasa/musical_score.cpp (linked unit)
 
-    table_a = (u32)&D_00340000 + 32352;
-    *(u32*)(obj + 0) = table_a;
-    func_00239700(obj + 24);
+void func_00229678(u32 a0, u32 a1, u32 a2);  // 00229678: moved to src/sasa/musical_score.cpp (linked unit)
 
-    table_b = (u32)&D_0035df98;
-    *(u32*)(obj + 0) = table_b;
-    func_00228490(obj, 143);
-    return func_002251c8(12020);
-}
+u32 func_00229840(u32 a0);  // 00229840: moved to src/sasa/musical_combo.cpp (linked unit)
 
-u32 func_00228590() {
-    u32 p;
-    u32 a0;
-    u32 vtbl;
-    u32 fnp;
-    u32 obj;
-    u32 (*fn)(u32, u32, u32);
-
-    p = *(u32*)((u32)&D_00340000 + 32640);
-    a0 = *(u32*)(p + 20);
-    vtbl = *(u32*)(a0 + 0);
-    fnp = *(u32*)(vtbl + 0);
-    fn = (u32 (*)(u32, u32, u32))fnp;
-    obj = fn(a0, 408, 0);
-    *(u32*)(obj + 0) = (u32)&D_00347f98;
-    func_0031a838(obj + 12);
-    *(u32*)(obj + 0) = (u32)&D_00347e60;
-    func_00239700(obj + 24);
-    *(u32*)(obj + 0) = (u32)&D_0035df98;
-    func_00228490(obj, 144);
-    return func_002251c8(12021);
-}
-
-u32 func_00229370() {
-    u32 p;
-    u32 a0;
-    u32 vtbl;
-    u32 fnp;
-    u32 (*fn)(u32, u32, u32);
-    u32 s16;
-    s32 s17;
-    u32 s18;
-    u32 s19;
-    u32 s20;
-    s32 s21;
-
-    p = *(u32*)((u32)&D_00340000 + 32640);
-    a0 = *(u32*)(p + 20);
-    vtbl = *(u32*)(a0 + 0);
-    fnp = *(u32*)(vtbl + 0);
-    fn = (u32 (*)(u32, u32, u32))fnp;
-    s17 = 5;
-    s18 = fn(a0, 2476, 0);
-    s21 = -1;
-    *(u32*)(s18 + 12) = 0;
-    *(u32*)(s18 + 0) = (u32)&D_0035e168;
-    s20 = (u32)&D_00347f98;
-    s16 = s18 + 24;
-    s19 = (u32)&D_00347e60;
-LOOP:
-    *(u32*)(s16 + 0) = s20;
-    func_0031a838(s16 + 12);
-    *(u32*)(s16 + 0) = s19;
-    func_00239700(s16 + 24);
-    s17 = s17 - 1;
-    if (s17 != s21) {
-        s16 = s16 + 408;
-        goto LOOP;
-    }
-    return func_00229120(s18);
-}
-
-void func_00229678(u32 a0, u32 a1, u32 a2) {
-    u32 s16;
-    u32 s17;
-    u32 s18;
-    u32 t;
-
-    s16 = a0 + 24;
-    s17 = a0;
-    *(u32*)(s16 + 396) = a1;
-    s18 = a2;
-    func_001396b0(s16);
-    if (*(u32*)(s16 + 396) != 0) {
-        *(u32*)(s16 + 400) = 0;
-        func_001396b0(s16);
-        if (*(u32*)(s16 + 400) != 0) {
-            func_0031a260(s16, 0);
-        }
-    }
-
-    t = s17 + 2896;
-    *(u32*)(s17 + 2896) = s18;
-    *(u32*)(s17 + 2880) = t;
-    return;
-}
-
-u32 func_00229840(u32 a0) {
-    u32 p;
-    u32 a1;
-    u32 vtbl;
-    u32 fnp;
-    u32 obj;
-    u32 (*fn)(u32, u32, u32);
-
-    p = *(u32*)((u32)&D_00340000 + 32640);
-    a1 = *(u32*)(p + 20);
-    vtbl = *(u32*)(a1 + 0);
-    fnp = *(u32*)(vtbl + 0);
-    fn = (u32 (*)(u32, u32, u32))fnp;
-    obj = fn(a1, 2992, 0);
-    func_00322418(obj);
-    func_002298a8(obj, a0);
-    return obj;
-}
-
-u32 func_00229d90(u32 a0) {
-    u32 s16;
-    u32 s17;
-    s32 s18;
-
-    s16 = a0;
-    s17 = a0;
-    func_00229d90_call20(a0);
-    func_00229d90_call20(s17 + 440);
-
-    s18 = 1;
-    do {
-        func_00229d90_call20(s16 + 864);
-        s18 = s18 - 1;
-        s16 = s16 + 848;
-    } while (s18 >= 0);
-
-    return func_00139510(s17 + 2560);
-}
+u32 func_00229d90(u32 a0);  // 00229d90: moved to src/sasa/musical_combo.cpp (linked unit)
 
 u32 func_0022a368(u32 a0) {
     u32 p;
@@ -7918,246 +7769,29 @@ u32 func_0022b0a0(u32 a0, u32 a1) {
     return func_0022ad88(s16, v0);
 }
 
-u32 func_0022b688(u32 a0) {
-    u32 p;
-    u32 a1;
-    u32 vtbl;
-    u32 fnp;
-    u32 obj;
-    u32 (*fn)(u32, u32, u32);
-    u32 v;
-
-    p = *(u32*)((u32)&D_00340000 + 32640);
-    a1 = *(u32*)(p + 20);
-    vtbl = *(u32*)(a1 + 0);
-    fnp = *(u32*)(vtbl + 0);
-    fn = (u32 (*)(u32, u32, u32))fnp;
-    obj = fn(a1, 448, 0);
-
-    *(u32*)(obj + 12) = 0;
-    *(u32*)(obj + 0) = (u32)&D_00347e60;
-    func_00239700(obj + 24);
-    *(u32*)(obj + 432) = 0;
-    *(u8*)(obj + 436) = 0;
-    *(u32*)(obj + 0) = (u32)&D_0035e2a8;
-
-    v = D_0035e298;
-    func_0022b558(obj, a0, v + 32);
-    return obj;
-}
+u32 func_0022b688(u32 a0);  // 0022b688: moved to src/sasa/musical_target.cpp (linked unit)
 
 u32 func_0022b838();  // 0022b838: moved to src/sasa/musical_2d.cpp (linked unit)
 
-void func_0022ba08(u32 a0, u32 a1) {
-    u32 s16;
+void func_0022ba08(u32 a0, u32 a1);  // 0022ba08: moved to src/sasa/event_movie.cpp (linked unit)
 
-    s16 = a1;
-    func_002bbed0(a0);
-    func_0014a4b0();
-    func_0015e038();
-    func_002ef6b0();
-    func_002ef750();
-    while (1) {
-        if (func_002ef7b8() != 0) {
-            break;
-        }
-        func_0014a1f0();
-        func_00102448(s16, 0);
-    }
-    func_0022d6d8();
-    func_001ddb58();
-    func_00143268();
-    return;
-}
+void func_0022ba88(u32 a0);  // 0022ba88: moved to src/sasa/event_movie.cpp (linked unit)
 
-void func_0022ba88(u32 a0) {
-    u32 s16;
-    u32 p;
-    u64 q;
+void func_0022bda0(u32 a0, u32 a1, u32 a2);  // 0022bda0: moved to src/sasa/event_countdown.cpp (linked unit)
 
-    s16 = a0;
-    if (func_002ef7b8(a0) == 0) {
-        func_001024a8(s16, 0);
-        return;
-    }
+void func_0022c440(u32 a0);  // 0022c440: moved to src/sasa/event_countdown.cpp (linked unit)
 
-    p = func_002ef7a0(6);
-    if (p == 0) {
-        return;
-    }
+void func_0022c530(u32 a0);  // 0022c530: moved to src/sasa/event_layout.cpp (linked unit)
 
-    func_0014d910(p);
-    if (func_0014a1f0() == 0) {
-        return;
-    }
+void func_0022c7c0(u32 a0);  // 0022c7c0: moved to src/sasa/event_layout.cpp (linked unit)
 
-    p = func_00167f18(0);
-    if (D_0035de20 < 10) {
-        return;
-    }
-    q = *(u64*)p;
-    if (q == 0) {
-        return;
-    }
-    if (func_00225e48() != 0) {
-        return;
-    }
-    func_00225e28();
-    return;
-}
+void func_0022c998(u32 a0);  // 0022c998: moved to src/sasa/event_layout.cpp (linked unit)
 
-void func_0022bda0(u32 a0, u32 a1, u32 a2) {
-    u32 s16;
-    u32 s17;
-    u32 s18;
-    u32 p;
-    u32 v;
+void func_0022cba0(u32 a0);  // 0022cba0: moved to src/sasa/event_layout.cpp (linked unit)
 
-    a2 = a2 & 0xFF;
-    s17 = a1;
-    s18 = a0;
-    *(u8*)(a0 + 864) = a2;
-    s16 = func_00197df8();
+void func_0022d000(u32 a0);  // 0022d000: moved to src/sasa/event_layout.cpp (linked unit)
 
-    v = *(u32*)(s16 + 0);
-    func_00138650(s18 + 416, 26000, v, 16);
-
-    v = *(u32*)(s16 + 4);
-    func_001386e0(s18, 26000, v, s18 + 448, s17, 16);
-
-    p = func_00239cf0(s18 + 24, s17);
-    if (p != 0) {
-        *(u8*)(s18 + 864) = 0;
-    }
-    return;
-}
-
-void func_0022c440(u32 a0) {
-    u32 s16;
-    u32 s17;
-    s32 s18;
-    u32 obj;
-    u32 vt;
-    u32 fp;
-    void (*fn)(u32);
-
-    if (func_00139d78(*(u32*)(a0 + 24)) != 0) {
-        return;
-    }
-
-    s17 = a0;
-    s18 = 2;
-    do {
-        s16 = s17 + 28;
-        if (func_00139d78(s16) != 0) {
-            obj = *(u32*)(s17 + 28);
-            fp = *(u32*)(obj + 20);
-            fn = (void (*)(u32))fp;
-            fn(s16);
-        }
-        s18 = s18 - 1;
-        s17 = s17 + 408;
-    } while (s18 >= 0);
-    return;
-}
-
-void func_0022c530(u32 a0) {
-    if (func_002282f0(*(s16*)(a0 + 4)) != 0) {
-        return;
-    }
-    if (func_00225b00(*(s16*)(a0 + 4)) != 0) {  // flag_query_by_index
-        return;
-    }
-    func_00153f08(func_0022c4b8(a0 + 8), *(u16*)(a0 + 6));
-}
-
-void func_0022c7c0(u32 a0) {
-    s32 v0;
-    u32 fp;
-    void (*fn)(u32);
-
-    if (func_002282f0(*(s16*)(a0 + 4)) != 0) {
-        return;
-    }
-    if (func_00225b00(*(s16*)(a0 + 4)) != 0) {  // flag_query_by_index
-        return;
-    }
-    v0 = func_00227ca8(a0 + 8);
-    if (v0 >= 100) {
-        func_0022c8f8(v0);
-        return;
-    }
-    fp = D_0035de8c;
-    if (fp == 0) {
-        return;
-    }
-    fn = (void (*)(u32))fp;
-    fn(v0);
-}
-
-void func_0022c998(u32 a0) {
-    if (func_002282f0(*(s16*)(a0 + 4)) != 0) {
-        return;
-    }
-    if (func_00225b00(*(s16*)(a0 + 4)) != 0) {  // flag_query_by_index
-        return;
-    }
-    func_001a84f0();  // compare_two_globals
-    dk::TREASURE_INFO::openEventInfo(*(u16*)(a0 + 6));
-}
-
-void func_0022cba0(u32 a0) {
-    u32 s17 = a0;
-    u32 s16 = *(u32*)(a0 + 8);
-    u32 vt;
-    u32 fp;
-    void (*fn)(u32);
-
-    if (func_0023d240(a0) != 0) {
-        return;
-    }
-    if (s16 != 0) {
-        vt = *(u32*)(s16 + 0);
-        fp = *(u32*)(vt + 4);
-        fn = (void (*)(u32))fp;
-        fn(s16);
-    }
-    *(u32*)(s17 + 8) = 0;
-    func_001024a8(s17);
-}
-
-void func_0022d000(u32 a0) {
-    u32 s17 = a0;
-    u32 s16 = *(u32*)(a0 + 8);
-    f32 f12;
-
-    if (func_0014f0e0(s16) != 0) {
-        goto L0022d054;
-    }
-    f12 = *(f32*)(s16 + 0);
-    func_0015c880(f12);
-    func_00106420(s16);
-    *(u32*)(s17 + 8) = 0;
-    func_001024a8(s17);
-    return;
-
-L0022d054:
-    f12 = *(f32*)(s16 + 0);
-    func_0015c880(f12);
-}
-
-void func_0022d288(u32 a0) {
-    u32 s16v = a0;
-
-    if (func_002282f0(*(s16*)(a0 + 4)) != 0) {
-        return;
-    }
-    if (*(s16*)(s16v + 6) == 0) {
-        func_001b9ee8(2000);
-        return;
-    }
-    func_001b9f80(2000);
-}
+void func_0022d288(u32 a0);  // 0022d288: moved to src/sasa/event_layout.cpp (linked unit)
 
 void func_0022d3c8(u32 a0) {
     u32 s17 = a0;

@@ -908,48 +908,13 @@ u32 func_002e86c0(u32 a0, u32 a1, u32 a2, u32 a3) {
     return r2;
 }
 
-u32 func_002e8f58(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u, r15 = 0u, r16 = 0u;
-    r16 = r4;
-    r15 = *(u32*)((u32)r4 + (s32)(0));
-    r5 = *(u32*)((u32)r4 + (s32)(4));
-    r4 = *(u32*)((u32)r15 + (s32)(4));
-    r2 = func_00112760(r4, r5, r6, r7);
-    *(u32*)((u32)r16 + (s32)(0)) = r2;
-    return r2;
-}
+// 002e8f58: moved to src/anon/unit_002e8b50.cpp
 
-u32 func_002e8f90(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u, r15 = 0u, r16 = 0u;
-    r16 = r4;
-    r15 = *(u32*)((u32)r4 + (s32)(0));
-    r4 = *(u32*)((u32)r15 + (s32)(4));
-    r2 = kn_Friend_getToScript(r4, r5, r6, r7);
-    *(u32*)((u32)r16 + (s32)(0)) = r2;
-    return r2;
-}
+// 002e8f90: moved to src/anon/unit_002e8b50.cpp
 
-u32 func_002e8fc0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u, r15 = 0u, r16 = 0u;
-    r16 = r4;
-    r15 = *(u32*)((u32)r4 + (s32)(0));
-    r5 = *(u32*)((u32)r4 + (s32)(4));
-    r4 = *(u32*)((u32)r15 + (s32)(4));
-    r5 = ((u32)0u < (u32)r5);
-    r2 = func_0010e130(r4, r5, r6, r7);
-    *(u32*)((u32)r16 + (s32)(0)) = r2;
-    return r2;
-}
+// 002e8fc0: moved to src/anon/unit_002e8b50.cpp
 
-u32 func_002e9158(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u, r15 = 0u, r16 = 0u;
-    r16 = r4;
-    r15 = *(u32*)((u32)r4 + (s32)(0));
-    r4 = *(u32*)((u32)r15 + (s32)(4));
-    r2 = func_002ed8e0(r4, r5, r6, r7);
-    *(u32*)((u32)r16 + (s32)(0)) = r2;
-    return r2;
-}
+// 002e9158: moved to src/anon/unit_002e8b50.cpp
 
 u32 func_002eaa70(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u, r14 = 0u, r15 = 0u, r16 = 0u;

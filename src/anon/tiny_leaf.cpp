@@ -348,12 +348,7 @@ u32 func_00227858(u32 a0, u32 a1, u32 a2, u32 a3) {
     return r2;
 }
 
-void func_00229830(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r14 = 0u, r15 = 0u;
-    r15 = *(u32*)((u32)r4 + (s32)(2892));
-    r14 = *(u32*)((u32)r15 + (s32)(48));
-    *(u32*)((u32)r4 + (s32)(416)) = r14;
-}
+void func_00229830(u32 a0, u32 a1, u32 a2, u32 a3);  // 00229830: moved to src/sasa/musical_score.cpp (linked unit)
 
 void func_00231928(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r13 = 0u, r14 = 0u, r15 = 0u;

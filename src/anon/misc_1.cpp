@@ -90,9 +90,9 @@ void func_0017ebe8(void* self, s32 v) { *(s32*)((char*)self + 0) = v; }
 
 void func_0018b008(void* self) {}
 
-void func_00198e40(void* self, s32 v) { *(s32*)((char*)self + 8) = v; }
+// 00198e40: moved to src/anon/unit_00198e40.cpp
 
-void func_00198e48(void* self, s32 v) { *(s32*)((char*)self + 12) = v; }
+// 00198e48: moved to src/anon/unit_00198e40.cpp
 
 void func_001b24c0(void* self) {}
 

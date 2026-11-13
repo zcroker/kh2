@@ -233,27 +233,5 @@ static inline void setParent_2294c8(Nd94* n, Nd94* p) {
     if (n->x190) func_0031a260(n, 0);
   }
 }
-void func_002294c8(Ow94* o, s32 n, s32 b, Desc94* d) {
-  s32 i = 0;
-  s32 r1 = func_0022b9e0();
-  s32 r2 = func_0022b720();
-  o->xb48 = n;
-  o->xb40 = b;
-  o->xb4c = (u32)d;
-  func_001386e0(&o->root, 2800, r1, r2, d->x2c, 11);
-  s32 k = o->xb48 - 1;
-  for (; i < o->xb48; i++, k--) {
-    Nd94* e = &o->elems[i];
-    func_001386e0(e, 2800, r1, r2, *(s32*)o->xb4c, 11);
-    setParent_2294c8(e, &o->root);
-    func_001396b0(e);
-    func_00139660(e);
-    func_00139688(e);
-    func_00138c68(e, k * func_0023aa98((u8*)o + 456), 0);
-  }
-  func_00229430(o, 2800);  // to_1391c8_arg11
-  setParent_2294c8(&o->root, 0);
-  func_00229830(o);
-  o->xb44 = -1;
-}
+void func_002294c8(Ow94* o, s32 n, s32 b, Desc94* d);  // 002294c8: moved to src/sasa/musical_score.cpp (linked unit)
 }

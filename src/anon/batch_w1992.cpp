@@ -123,14 +123,7 @@ void w1992_tail4_16eb48(u32 a0, u32 a1, u32 a2, u32 a3) {
     }
 }
 
-void func_00228f18() {
-    Outer0228f18* a = new Outer0228f18;
-    func_002294c8(a, 3, func_00224870(), D_0035e070);
-    Outer228f18* b = new Outer228f18;
-    func_002294c8(b, 3, func_00224880(), D_0035e0a8);
-    Outer228f18* c = new Outer228f18;
-    func_002294c8(c, 3, D_0035e114, D_0035e0e0);
-}
+void func_00228f18();  // 00228f18: moved to src/sasa/musical_score.cpp (linked unit)
 
 }
 

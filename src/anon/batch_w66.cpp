@@ -424,20 +424,7 @@ void func_001396b0(u8*);
 void func_0031a260(u8*, s32);
 struct S229 { u8 pad[392]; s32 f392; u32 f396; u32 f400; };
 static inline void init229(S229* s, u32 x, u32 y) { func_001386e0((u8*)s, 2800, x, y, 21, 11); s->f396 = 0; s->f392 = 22; }
-void func_00229120(u8* p) {
-    func_00229430(p, 2800);  // to_1391c8_arg11
-    *(u32*)(p + 2472) = func_00224860();
-    u32 x = func_0022b9e0();
-    u32 y = func_0022b720();
-    S229* s = (S229*)(p + 24);
-    init229(s, x, y);
-    func_001396b0((u8*)s);
-    if (!s->f396) return;
-    s->f400 = 0;
-    func_001396b0((u8*)s);
-    if (!s->f400) return;
-    func_0031a260((u8*)s, 0);
-}
+void func_00229120(u8* p);  // 00229120: moved to src/sasa/musical_score.cpp (linked unit)
 // ---- 0022cae8
 s32 func_002282f0(s16);
 s32 func_00225b00(s16);  // flag_query_by_index
@@ -449,16 +436,7 @@ u32 func_001050c8(void);
 u8* func_001063c0(s32, u32);
 void func_0023cd68(u8*);
 void func_0023cde8(u8*);
-void func_0022cae8(u8* p) {
-    if (func_002282f0(*(s16*)(p + 4))) return;
-    if (func_00225b00(*(s16*)(p + 4))) return;
-    u8* o = func_00102c18(1, func_002282d8(), (void*)func_0022cba0);
-    *(void**)(o + 48) = (void*)func_0022cc08;
-    u8* z = func_001063c0(4, func_001050c8());
-    func_0023cd68(z);
-    *(u8**)(o + 8) = z;
-    func_0023cde8(p + 8);
-}
+void func_0022cae8(u8* p);  // 0022cae8: moved to src/sasa/event_layout.cpp (linked unit)
 // ---- 00249098 / 002b6418
 s32 func_002892f8(u32);
 s32 func_0028acc8(u32);
