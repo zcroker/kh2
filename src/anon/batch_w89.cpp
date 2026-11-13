@@ -310,16 +310,7 @@ extern u8 D_0032e020;
 extern u8 D_0032f056;
 void u_tail0_001d7880(void) asm("_Z16u_tail0_001d7880v");
 // Sets flag 104 once all listed conditions are met.
-void u_tail0_001d7880(void) {
-    if (func_001a6d08(104)) return;
-    u16* p = D_0036e628;
-    for (u32 i = 0; i < 11; i++)
-        if (!func_00181500(*p++)) return;
-    for (s32 j = 1; j < 6; j++)
-        if (func_00189200(&D_0032e020, j)[2] < 7) return;
-    if (D_0032f056 < 7) return;
-    func_001a6c90(104);  // set_bit_in_array_b
-}
+void u_tail0_001d7880(void);  // 0x001d7880: definition moved into src/anon/unit_001d7458.cpp
 }
 }
 

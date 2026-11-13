@@ -317,13 +317,7 @@ extern u8 D_00352878[];
 void func_001b3b70(void*, void*, s32, u32);
 s32 func_0019c8a8(void*);
 struct Bits1536 { u32 lo:3; u32 v:4; u32 hi:25; };
-void func_001d7cd0(u8* p, u8* q, u32 c) {
-    func_001b3b70(p, q, 3, c);
-    *(u32*)p = (u32)D_00352878;
-    *(u32*)(p + 1416) |= 0x20000;
-    if (!func_0019c8a8(p)) *(s32*)(p + 944) = 2;
-    ((Bits1536*)(p + 1536))->v = (*(u16*)(q + 72) >> 3 & 1) ? 2 : 1;
-}
+void func_001d7cd0(u8* p, u8* q, u32 c);  // 0x001d7cd0: definition moved into src/anon/unit_001d7458.cpp
 
 // Y-axis rotation matrix from the sine table (angle in 1/65536 turns).
 extern f32 D_00359a20[];

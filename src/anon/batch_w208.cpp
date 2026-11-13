@@ -11,10 +11,5 @@ void func_00242b10(u8 a) {
 }
 u8 func_001c71f8(u32 p, f32 f);
 void ctarget_001d7730(u32, u32, u32, u32) asm("_Z16ctarget_001d7730jjjj");
-void ctarget_001d7730(u32 a, u32, u32, u32) {
-    O80_208* s = (O80_208*)a;
-    func_001c71f8(a, -0.8f);
-    Obj208* o = s->o;
-    o->vt->fn(o, s);
-}
+void ctarget_001d7730(u32 a, u32, u32, u32);  // 0x001d7730: definition moved into src/anon/unit_001d7458.cpp
 }

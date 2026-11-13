@@ -17,13 +17,6 @@ void func_0018e0d8(W2361Mode* p, s32 mode) {
 }
 
 // Iterator: first entry for 0, else the next entry, 0 past the end.
-W2361Ent* func_001d6cc8(W2361Ent* e) {
-    if (!e) e = D_01d5ba98->e;
-    else {
-        e++;
-        if (!(e < D_01d5ba98->e + D_01d5ba98->n)) e = 0;
-    }
-    return e;
-}
+W2361Ent* func_001d6cc8(W2361Ent* e);  // 0x001d6cc8: definition moved into src/anon/unit_001d68e0.cpp
 
 }

@@ -210,17 +210,7 @@ void func_001d1b60(void*, s32);
 struct Dig1d8 { u8 p0[12]; u32 flags; u8 p16[28]; s32 cur; };
 static inline u32 dig1d8_on(Dig1d8* e) { return e->flags & 1; }
 // replaces one decimal digit of an entry's value
-void func_001d89e8(s32 digit, s32 val, s32 idx) {
-    Dig1d8* e;
-    s32 m, n, cur;
-    if (!func_001bb4a0()) return;
-    if (!(u8)dig1d8_on((Dig1d8*)(func_001bbcb0() + idx * 56 + 232))) return;
-    e = (Dig1d8*)(func_001bbcb0() + idx * 56 + 232);
-    m = 1;
-    cur = e->cur;
-    if (digit > 0) { n = digit; do { m *= 10; } while (--n); }
-    func_001d1b60(e, cur + (val - cur / m % 10) * m);
-}
+void func_001d89e8(s32 digit, s32 val, s32 idx);  // 0x001d89e8: definition moved into src/anon/unit_001d7458.cpp
 
 // 001e09d0: moved to src/rikeda/saveram_gumibattle.cpp
 

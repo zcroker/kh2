@@ -599,30 +599,7 @@ void func_00189028(void*, s32, s32, s32);
 extern s32 D_0034ece8;
 extern u8 D_0032e020;
 
-void func_001d7098(s32 id) {
-    switch (id) {
-    case 12:
-        func_001ada38(1);
-        D_0034ece8 = 4;
-        func_002bea20();
-        break;
-    case 50: case 51: case 52:
-        D_0034ece8 = 3;
-        break;
-    case 176: case 179: case 184:
-        func_00188bf8(func_00188fe0(&D_0032e020, 1), 41);
-        break;
-    case 182: case 183: case 186: case 296: case 297: case 298:
-        func_00188bf8(func_00188fe0(&D_0032e020, 1), 384);
-        break;
-    case 187:
-        func_00189028(&D_0032e020, 1, 41, 0);
-        break;
-    case 189:
-        func_00188bf8(func_00188fe0(&D_0032e020, 1), 43);
-        break;
-    }
-}
+void func_001d7098(s32 id);  // 0x001d7098: definition moved into src/anon/unit_001d68e0.cpp
 }
 
 // ---- 1dfca8 ----

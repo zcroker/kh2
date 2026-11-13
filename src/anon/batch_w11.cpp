@@ -181,9 +181,7 @@ s32 func_001c5f38(u8* p) {
 
 extern u16 D_0032fafe[];
 // Bump a saturating counter (max 999).
-void func_001d97f0(s32 i) {
-    if (D_0032fafe[i + 3] < 999) D_0032fafe[i + 3]++;
-}
+void func_001d97f0(s32 i);  // 0x001d97f0: definition moved into src/anon/unit_001d7458.cpp
 
 extern u32 D_00352970;
 extern void* D_00352960;

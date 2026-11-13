@@ -295,13 +295,7 @@ extern T64* D_01d5ba28;
 // Finds the first valid 64-byte entry whose id matches.
 u8* func_001d3fe0(u32 id);  // 0x001d3fe0: definition moved into src/anon/unit_001d3c08.cpp
 
-void func_001d7f80(u8* p) {
-    for (s32 i = 0; i < *(s32*)(p + 712); i++) {
-        u8* o = ((u8**)(p + 676))[i];
-        if (!(*(u32*)(o + 12) & 0x10)) (*(VFn*)(*(u8**)o + 4))(o);
-    }
-    *(u32*)(p + 4) |= 1;
-}
+void func_001d7f80(u8* p);  // 0x001d7f80: definition moved into src/anon/unit_001d7458.cpp
 
 void func_001e6b00(u8* p) {
     func_002fde18(p, 0, 336);

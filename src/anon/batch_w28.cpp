@@ -251,23 +251,11 @@ void func_001c2c98(u8* p) {
 
 u8* func_001d3f98(u8* p);  // 0x001d3f98: definition moved into src/anon/unit_001d3c08.cpp
 
-void func_001d6e08(u8* p) {
-    u32* q = (u32*)(p + 4);
-    for (s32 i = 1; i >= 0; i--) {
-        u32 x = *q++;
-        if (x) func_0016ed50(x, -1, 30);
-    }
-}
+void func_001d6e08(u8* p);  // 0x001d6e08: definition moved into src/anon/unit_001d68e0.cpp
 
 struct E64 { u8 pad[0x26c]; u32 on : 1; u32 : 31; };
 static inline bool entry_on(u32 o) { return ((E64*)(func_001bbcb0() + o))->on; }
-u32 ctarget_001d9148(u32 i, u32, u32, u32) {
-    u32 o = i << 6;
-    if (func_001bb4a0()) {
-        if (entry_on(o)) return *(u32*)(func_001bbcb0() + o + 0x298);
-    }
-    return 0;
-}
+u32 ctarget_001d9148(u32 i, u32, u32, u32);  // 0x001d9148: definition moved into src/anon/unit_001d7458.cpp
 
 // ryj::PAX::~PAX() (D1), called by the static destructors of PAX members.
 void func_001ddd88(void* p) asm("_ZN3ryj3PAXD1Ev");

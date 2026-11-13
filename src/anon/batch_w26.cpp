@@ -266,11 +266,7 @@ void func_001d1540(u8* o, void* a, void* b, void* c) {
     func_001befd8(*(void**)(o + 2884), D_0036e3a8, 2);
 }
 
-u8* func_001d7ec8(s32 i) {
-    if (!func_001d7f10(i)) return 0;
-    u8* b = D_003528f8;
-    return b + ((u32*)b)[i + 2];
-}
+u8* func_001d7ec8(s32 i);  // 0x001d7ec8: definition moved into src/anon/unit_001d7458.cpp
 
 struct DEnt { u8 pad[64]; void* val; u8* info; u8 pad2[24]; DEnt* next; };
 struct DList { u8 pad[12]; DEnt* head; };

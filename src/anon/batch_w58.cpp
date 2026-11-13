@@ -265,14 +265,7 @@ void func_0019ca20(u8*);
 void func_0013dde8(s32);
 void func_001befa8(u8*);
 extern u32 D_003527e0;
-void func_001d69d0(u8* p) {
-    func_001d6a28(p);
-    func_0019ca20(p + 2752);
-    if (*(u32*)(*(u8**)(p + 2804) + 1164)) func_0013dde8(0);
-    func_001befa8(p);
-    *(u32*)(p + 2804) = 0;
-    D_003527e0 = 0;
-}
+void func_001d69d0(u8* p);  // 0x001d69d0: definition moved into src/anon/unit_001d68e0.cpp
 
 struct E16b { u8 pad[16]; };
 extern E16b D_0036e600[];
@@ -282,26 +275,10 @@ u8* func_001a5420(u32, void*, u32);
 void func_001d76c8(void);
 void func_001d8718(u32, s32);
 u8* func_001ba158(void);
-void func_001d7638(u32 a0, s32 i) {
-    u8* r = func_001a5420(D_003527e4, &D_0036e600[i], a0);
-    if (!r) return;
-    u32 v = D_0036e620[i];
-    *(void**)(r + 16) = (void*)func_001d76c8;
-    if (!func_001bb4a0()) return;
-    func_001d8718(v, 0);
-    *(u32*)(func_001ba158() + 4) += v;
-}
+void func_001d7638(u32 a0, s32 i);  // 0x001d7638: definition moved into src/anon/unit_001d7458.cpp
 
 u8* func_001bbcb0(void);
-void func_001d8fa8(u8 on, s32 i) {
-    if (!func_001bb4a0()) return;
-    u8* e = func_001bbcb0() + i * 52;
-    u8 f = *(volatile u32*)(e + 412) & 1;
-    if (!f) return;
-    VObj* o = (VObj*)(e + 400);
-    if (on) ((VFn)o->vt[3])(o);
-    else ((VFn)o->vt[4])(o);
-}
+void func_001d8fa8(u8 on, s32 i);  // 0x001d8fa8: definition moved into src/anon/unit_001d7458.cpp
 
 void func_001dcfb0(void);
 void func_001dd208(s32);

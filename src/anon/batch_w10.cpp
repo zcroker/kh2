@@ -206,14 +206,7 @@ void func_001ce458(u8* p) {
     func_0016b5b8(p);
 }
 
-void func_001d7940(void) {
-    u8* v = func_001ba158();
-    *(u32*)(v + 4) = 0;
-    *(u32*)(v + 12) = 0;
-    *(u32*)(v + 20) = 0;
-    *(u32*)(v + 24) = 0;
-    func_001ada38(12);
-}
+void func_001d7940(void);  // 0x001d7940: definition moved into src/anon/unit_001d7458.cpp
 
 void EFFECT_color(void* e) {
     func_001dc9e0(e);

@@ -157,21 +157,9 @@ void wtarget_001c4080(u32 a, u32 b, u32, u32) {
 
 struct E68 { u8 id; u8 pad[67]; };
 struct T1d7 { s32 n; E68 e[1]; };
-s32 func_001d7f40(T1d7* t, u32 id) {  // find_slot_by_byte
-    s32 i;
-    for (i = 0; i < t->n; i++) {
-        if (t->e[i].id == id) return i;
-    }
-    return -1;
-}
+s32 func_001d7f40(T1d7* t, u32 id);  // 0x001d7f40: definition moved into src/anon/unit_001d7458.cpp
 
-s32 func_001d9c68(u8* p) {
-    s32 i;
-    for (i = 0; i < 5; i++) {
-        if (p[i] != 1) return 0;
-    }
-    return 1;
-}
+s32 func_001d9c68(u8* p);  // 0x001d9c68: definition moved into src/anon/unit_001d7458.cpp
 
 extern s32 D_00359780;
 extern s32 D_00359788[];

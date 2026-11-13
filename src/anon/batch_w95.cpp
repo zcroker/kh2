@@ -414,27 +414,7 @@ void func_001a8c60(u32*, s32, s32);  // masked_byte_store
 u32 func_001a8c10(u32*, s32);
 u8* func_00188fe0(u8*, u32);
 void func_001d9630(u8*, u32);
-void func_001d94f8(u32 a, u32* other) {
-    u32 p = a;
-    for (s32 i = 0; i < 4; i++) {
-        func_001a8bf8(&p, i);  // get_bits5_at
-        for (s32 j = 0; j < 4; j++) {
-            if (func_001a8bf8(&p, i) == func_001a8bf8(other, j)) {  // get_bits5_at
-                func_001a8c60(&p, i, 18);  // masked_byte_store
-                break;
-            }
-        }
-    }
-    for (s32 i = 0; i < 4; i++) {
-        if (func_001a8bf8(&p, i) == 18) continue;
-        u8* e = func_00188fe0(D_0032e020, func_001a8c10(&p, i));
-        func_001d9630(e + 20, 8);
-        func_001d9630(e + 36, 8);
-        func_001d9630(e + 52, 8);
-        u16* q = (u16*)(e + 80);
-        for (s32 n = 0; n < 80; n++) q[n + 2] &= 0x7fff;
-    }
-}
+void func_001d94f8(u32 a, u32* other);  // 0x001d94f8: definition moved into src/anon/unit_001d7458.cpp
 
 extern f32 D_00349e10;
 f32 func_00184a90(u8*);

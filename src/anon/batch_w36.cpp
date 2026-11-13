@@ -233,13 +233,7 @@ void func_001ce378(u8* p, u32 a, u32 b) {
     *(void**)(p + 2552) = D_01d5b9e0;
 }
 
-s32 func_001d6ec8(void) {
-    s32 n = 2;
-    u8* p = 0;
-    while ((p = func_001d6cc8(p)) != 0) n += func_001a3570(*(u16*)(p + 2)) > 0;
-    if (n == 6) n++;
-    return n;
-}
+s32 func_001d6ec8(void);  // 0x001d6ec8: definition moved into src/anon/unit_001d68e0.cpp
 
 struct Comp { u8 pad[20]; VFn f; };
 struct Mgr { u8 pad[100]; s32 n; u8 pad2[16]; Comp** c; };

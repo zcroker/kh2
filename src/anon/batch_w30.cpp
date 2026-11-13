@@ -98,18 +98,7 @@ void wtarget_0013b4b0(u32, u32, u32, u32);  // 0x0013b4b0: definition moved into
 // 00185050: moved to src/anon/unit_00183088.cpp
 
 // Clears the first of four slots whose id matches.
-void wtarget_001d7a08(u32 a, u32 b, u32, u32) {
-    u32* p = (u32*)a;
-    s32 i;
-    for (i = 3; i >= 0; i--) {
-        if (p[1] == b) {
-            p[1] = 0;
-            func_001d7b10(a, b);
-            return;
-        }
-        p += 2;
-    }
-}
+void wtarget_001d7a08(u32 a, u32 b, u32, u32);  // 0x001d7a08: definition moved into src/anon/unit_001d7458.cpp
 
 void trap_camera_at(void** v) {
     func_00107478(func_00106a60(1), D_01c5f480);  // vec_copy_at96_if_diff

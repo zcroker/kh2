@@ -6,25 +6,11 @@ extern s8* D_0035f12c;
 void func_00181d30(s16*, s16*, s16*);
 
 struct W1519E38 { u8 pad[0xf4]; u32 on : 1; u32 : 31; };
-u32 func_001d8898(s32 i) {
-    if (func_001bb4a0()) {
-        u32 b = func_001bbcb0();
-        u32 o = i * 0x38;
-        if ((u8)((W1519E38*)(b + o))->on) { u32 m = *(u32*)(func_001bbcb0() + o + 0xf4) & 8; return m != 0; }
-    }
-    return 0;
-}
+u32 func_001d8898(s32 i);  // 0x001d8898: definition moved into src/anon/unit_001d7458.cpp
 
 struct W1519E34 { u8 pad[0x19c]; u32 on : 1; u32 : 31; };
 u32 IsGaugeWarning_w1519(s32 i) asm("_ZN2YS7MISSION14IsGaugeWarningEi");
-u32 IsGaugeWarning_w1519(s32 i) {
-    if (func_001bb4a0()) {
-        u32 b = func_001bbcb0();
-        u32 o = i * 0x34;
-        if ((u8)((W1519E34*)(b + o))->on) { u32 m = *(u32*)(func_001bbcb0() + o + 0x19c) & 8; return m != 0; }
-    }
-    return 0;
-}
+u32 IsGaugeWarning_w1519(s32 i);  // 0x001d8f38: definition moved into src/anon/unit_001d7458.cpp
 
 s32 func_00272c20(u32 i) {
     s32 r = -1;

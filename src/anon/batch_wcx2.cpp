@@ -757,24 +757,7 @@ s32 func_001d9af8(void);
 u64 func_00312db8(u64, u64);
 s32 func_001d9c68(u8*);
 void func_001d9ad8(s32);
-bool func_001d9b40(void)
-{
-    s32 k = func_001d9af8();
-    bool r = D_01d5baa0[k] == 2;
-    D_01d5baa0[k] = 1;
-    u8 buf[5];
-    s32 n = 0;
-    for (s32 i = 0; i < 5; i++) {
-        if (!D_01d5baa0[i]) buf[n++] = i;
-    }
-    if (n > 0) {
-        u32 seed = D_003638d0 *= 0x10dcd;
-        u64 step = func_00312db8((u32)(n - 1) + 0x100000000ULL, (u32)n);
-        D_01d5baa0[(s8)buf[(s32)func_00312db8(seed, step)]] = 2;
-    }
-    if (func_001d9c68(D_01d5baa0)) func_001d9ad8(k);
-    return r;
-}
+bool func_001d9b40(void);  // 0x001d9b40: definition moved into src/anon/unit_001d7458.cpp
 
 extern f32 D_00354be0[3];
 extern u8 D_01d9e730[];
@@ -2553,29 +2536,7 @@ void func_002bea88(void);
 void func_001cebb0(void);
 void func_002e0bb0(s32);
 void func_002e1f40(s32);
-void func_001d7218(s32 k)
-{
-    switch (k) {
-    case 3: func_002d1270(1, 0); break;
-    case 4: func_002d6f28(1, 0); break;
-    case 5: func_002dc278(1, 0); break;
-    case 12: func_002bea88(); break;
-    case 50:
-    case 51:
-    case 52: func_001cebb0(); break;
-    case 58: func_002d1270(0, 0); break;
-    case 59: func_002d6f28(0, 0); break;
-    case 60: func_002dc278(0, 0); break;
-    case 226: func_002e0bb0(0); break;
-    case 255: func_002d1270(2, 0); break;
-    case 256: func_002d6f28(2, 0); break;
-    case 257: func_002dc278(2, 0); break;
-    case 271:
-    case 310: func_002e1f40(0); break;
-    case 349: func_002dc278(2, 0); break;
-    case 367: func_002e0bb0(0); break;
-    }
-}
+void func_001d7218(s32 k);  // 0x001d7218: definition moved into src/anon/unit_001d68e0.cpp
 
 extern s8 D_0035ed9c;
 extern u8* D_0035ed8c;
@@ -6524,17 +6485,7 @@ s32 func_001d5cd0();  // 0x001d5cd0: definition moved into src/anon/unit_001d4f4
 struct E_001d79b8 { s32 key; f32 v; };
 struct P_001d79b8 { u32 x; E_001d79b8 e[4]; };
 void func_001d7b10(P_001d79b8*);
-void func_001d79b8(P_001d79b8* p, s32 key, f32 v) {
-    E_001d79b8* r = 0;
-    s32 i;
-    for (i = 0; i < 4; i++) {
-        if (p->e[i].key == key) { r = &p->e[i]; break; }
-        if (p->e[i].key == 0) r = &p->e[i];
-    }
-    r->key = key;
-    r->v = v;
-    func_001d7b10(p);
-}
+void func_001d79b8(P_001d79b8* p, s32 key, f32 v);  // 0x001d79b8: definition moved into src/anon/unit_001d7458.cpp
 
 // ---- 001ddd30
 struct Nd_001ddd30 { u8 pad[20]; Nd_001ddd30* next; };

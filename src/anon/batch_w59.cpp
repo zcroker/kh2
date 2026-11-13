@@ -295,33 +295,12 @@ struct Ent1d6 { u8 d[64]; };
 struct Tbl1d6 { u8 hdr[8]; Ent1d6 e[1]; };
 extern Tbl1d6* D_01d5ba98;
 u16* func_001d6cc8(u16*);
-s32 func_001d6d00(u32 id) {
-    u16* e = 0;
-    while ((e = func_001d6cc8(e))) {
-        if (*e == id) return (Ent1d6*)e - D_01d5ba98->e + 1;
-    }
-    return 0;
-}
+s32 func_001d6d00(u32 id);  // 0x001d6d00: definition moved into src/anon/unit_001d68e0.cpp
 
 // --- 001d8ad8
 u8* func_001bbcb0(void);
 u32 func_001bb4a0(void);
-void func_001d8ad8(s32 idx, u8 flag) {
-    u8* b = func_001bbcb0() + idx * 56;
-    if (func_001bb4a0()) {
-        u8* o = b + 232;
-        u32 f = *(u32*)(b + 244);
-        u8 on = f & 1;
-        if (on) {
-            typedef void (*Fn)(u8*);
-            if (flag) {
-                if (!(f & 8)) (*(Fn*)(*(u8**)o + 12))(o);
-            } else {
-                if (f & 8) (*(Fn*)(*(u8**)o + 16))(o);
-            }
-        }
-    }
-}
+void func_001d8ad8(s32 idx, u8 flag);  // 0x001d8ad8: definition moved into src/anon/unit_001d7458.cpp
 
 // --- 001da458
 struct P1da { u32 a; u32 b; u32 cur; };

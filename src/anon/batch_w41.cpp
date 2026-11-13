@@ -230,14 +230,7 @@ extern "C" {
 u32 func_001bb4a0(void);
 u8* func_001bbcb0(void);
 void WarningComboCounter(s32 i) asm("_ZN2YS7MISSION19WarningComboCounterEi");
-void WarningComboCounter(s32 i) {
-    u8* e = func_001bbcb0() + i * 64;
-    W41VO* o = (W41VO*)(e + 608);
-    if (func_001bb4a0()) {
-        u32 f = *(u32*)(e + 620);
-        if ((u8)(f & 1) && !(f & 8)) ((void (*)(W41VO*))o->vt[3])(o);
-    }
-}
+void WarningComboCounter(s32 i);  // 0x001d9320: definition moved into src/anon/unit_001d7458.cpp
 
 u32 func_001dba18(u32, u32, u32);
 u32 func_001050d8(u32);

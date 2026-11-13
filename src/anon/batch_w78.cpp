@@ -343,23 +343,7 @@ void func_001d7000(u8, u8*);
 void func_001b7468(u32);
 extern u8 D_0032e020[];
 extern u32 D_0034e948;
-void func_001d6f28(s32 n) {
-    if (n <= 0) return;
-    if (func_001bbb28()) return;
-    u8* g = D_0032e020;
-    s32 up = 0;
-    *(s32*)(g + 4596) += n;
-    while (1) {
-        u8* e = func_001d5cd0();
-        if (!e) { *(s32*)(g + 4596) = 0; break; }
-        if (*(s32*)(g + 4596) < *(s32*)(e + 4)) break;
-        up = 1;
-        u8 lv = ++g[4150];
-        *(s32*)(g + 4596) -= *(s32*)(e + 4);
-        func_001d7000(lv, e);
-    }
-    if (up) func_001b7468(D_0034e948);
-}
+void func_001d6f28(s32 n);  // 0x001d6f28: definition moved into src/anon/unit_001d68e0.cpp
 
 void func_002fdfc8(const char*, ...);  // device_vprintf_va
 u8* func_001e3650(void*);  // ptr_add4

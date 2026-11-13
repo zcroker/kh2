@@ -301,11 +301,7 @@ u16 func_001d5ec0(u16* p, int n, int a, int b);  // 0x001d5ec0: definition moved
 struct S1d6 { u32 a; u32 n; };
 extern S1d6* D_01d5ba98;
 void func_001d6da8(u16*);
-int func_001d6e60(void) {
-    u16 buf[D_01d5ba98->n + 1];
-    func_001d6da8(buf);
-    return buf[0] != 0;
-}
+int func_001d6e60(void);  // 0x001d6e60: definition moved into src/anon/unit_001d68e0.cpp
 
 // --- 001db5a8
 struct S1db { u32 a; u32 n; u8 data[1]; };

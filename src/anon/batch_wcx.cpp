@@ -764,20 +764,7 @@ void func_001d5370b(u8*, u32, s32) asm("func_001d5370");
 void func_001d16e8(u8*, u8, s32);
 struct Ow { u8 pad[72]; u32 k; u8 pad2[600]; u8* arr[9]; s32 n; };
 void u_tail4_001d8190(u32, u32, u32, u32) asm("_Z16u_tail4_001d8190jjjj");
-void u_tail4_001d8190(u32 a, u32 b, u32 c, u32)
-{
-    Ow* p = (Ow*)a; u8* d = (u8*)b; u8* o = (u8*)c;
-    (**(VF0**)o)(o, d[19]);
-    (*(VF5*)(*(u8**)o + 20))(o, *(u32*)(d + 4), *(u32*)(d + 8), *(u32*)(d + 12));
-    if (p->k) {
-        u16 k = *(u16*)(d + 16);
-        if (k) {
-            func_001d5370b(o + 4, p->k, k - 1);
-            func_001d16e8(o, d[18], p->n + 3);
-        }
-    }
-    p->arr[p->n++] = o;
-}
+void u_tail4_001d8190(u32 a, u32 b, u32 c, u32);  // 0x001d8190: definition moved into src/anon/unit_001d7458.cpp
 extern u8* D_0035dcf0;
 s32 strcmp(u8*, u32);  // strcmp
 struct E84 { s32 id; u32 used; u8 pad[40]; u8 name[36]; };
@@ -1270,20 +1257,7 @@ void func_0019d188(u8*);
 void func_001bd6a8(u8*);
 void func_001d6ab0(u8*);
 typedef s32 (*Fn64)(u8*);
-void func_001d6ba0(u8* p)
-{
-    if (!*(u8**)(p + 2804)) return;
-    struct BF { u32 on : 1; };
-    if ((u8)((BF*)(p + 2800))->on) func_0019d188(p + 2752);
-    func_001bd6a8(p);
-    u8 c = p[2808];
-    if (!c) return;
-    if (c < 2) {
-        u8* o = *(u8**)(p + 2804);
-        if (!(*(Fn64*)(*(u8**)o + 64))(o)) return;
-    }
-    if (--p[2808] == 0) func_001d6ab0(p);
-}
+void func_001d6ba0(u8* p);  // 0x001d6ba0: definition moved into src/anon/unit_001d68e0.cpp
 extern u8 D_01dad990[];
 s32 func_002282f0(s16);
 s32 func_00225b00(s16);  // flag_query_by_index
@@ -2001,16 +1975,7 @@ s32 func_00143ae0(V4*, Hit*, u16*);
 s32 func_001bb4a0(void);
 u8* func_001bbcb0(void);
 void func_001d1b60(u8*, s32);
-void func_001d8718(s32 base, s32 i)
-{
-    if (!func_001bb4a0()) return;
-    struct BF { u32 on : 1; };
-    u8* t = func_001bbcb0();
-    t += i * 56;
-    if (!(u8)((BF*)(t + 244))->on) return;
-    u8* e = func_001bbcb0() + i * 56;
-    func_001d1b60(e + 232, *(s32*)(i * 56 + func_001bbcb0() + 276) + base);
-}
+void func_001d8718(s32 base, s32 i);  // 0x001d8718: definition moved into src/anon/unit_001d7458.cpp
 extern f32 D_00349e10;
 V4* func_001e0cc8(u8*);  // entry64_by_field32
 V4* func_001e0ce8(u8*);  // entry64_by_field32_b

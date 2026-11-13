@@ -526,20 +526,7 @@ u32 ctarget_0019c440(u32 a0, u32, u32, u32) {
     return ret;
 }
 
-u32 func_001d7f10(u32 a0) {
-    u32 base_addr = 0x00350000u;
-    register u32 off asm("$14") = a0 << 2;
-    register u32 base asm("$13") = *(u32 *)(base_addr + 10488);
-    u32 ret = 0;
-    u32 count = *(u32 *)(base + 4);
-    u32 ok = (s32)a0 < (s32)count;
-    off += base;
-    if (ok != 0) {
-        u32 v = *(u32 *)(off + 8);
-        ret = v != 0;
-    }
-    return ret;
-}
+u32 func_001d7f10(u32 a0);  // 0x001d7f10: definition moved into src/anon/unit_001d7458.cpp
 
 void func_001c7ee0() {
     u32 p = D_00351d98;

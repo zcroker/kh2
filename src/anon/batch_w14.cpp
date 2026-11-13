@@ -234,9 +234,7 @@ void u_call4_001d2210(u32 a0, u32, u32, u32) {
 }
 
 // Increments the counter, saturating at 999.
-void func_001d97c8(void) {
-    if (D_0032fafe[1] < 999) D_0032fafe[1]++;
-}
+void func_001d97c8(void);  // 0x001d97c8: definition moved into src/anon/unit_001d7458.cpp
 
 void func_001ddc08(void) {
     u8* p;

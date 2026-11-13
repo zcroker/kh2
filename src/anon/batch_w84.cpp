@@ -819,19 +819,7 @@ s32 wtarget_002ad018(u32, u32, u32, u32) {
 // Clears 5 slots and marks one at random (avoiding slot n when n >= 0).
 extern u32 D_003638d0;
 static inline u32 Rand() { return D_003638d0 = D_003638d0 * 69069; }
-void wtarget_001d9a18(u32 a0, u32 a1, u32, u32) {
-    u8* p = (u8*)a0;
-    s32 n = a1;
-    for (s32 i = 0; i < 5; i++) p[i] = 0;
-    s32 r;
-    if (n < 0) {
-        r = func_00312db8(Rand(), 0x33333334);
-    } else {
-        r = (s32)((s64)((u64)Rand() << 2) >> 32);
-        if (!(r < n)) r++;
-    }
-    p[r] = 2;
-}
+void wtarget_001d9a18(u32 a0, u32 a1, u32, u32);  // 0x001d9a18: definition moved into src/anon/unit_001d7458.cpp
 
 extern u8 D_01c6cae0[];
 extern u32 D_01c6cb00[];

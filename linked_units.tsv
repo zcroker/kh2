@@ -61,6 +61,8 @@ src/anon/unit_001d35e0.cpp	001d35e0	001d3c08	.bss@01d5ba20,.rodata@0036e424	-G0 
 src/anon/unit_001d3c08.cpp	001d3c08	001d4f40	.rodata@0036e454	-G0
 src/anon/unit_001d4f40.cpp	001d4f40	001d63a8	.rodata@0036e530	-G0
 src/anon/unit_001d63a8.cpp	001d63a8	001d68e0	.rodata@0036e5d8	-G0
+src/anon/unit_001d68e0.cpp	001d68e0	001d7418	-	-G0
+src/anon/unit_001d7458.cpp	001d7458	001d9d00	.rodata@0036e5f8	-G0
 src/harata/libdk/field2dd.cpp	0013a368	0013a8b8	.data@00347fb0,.rodata@0036acb0	-G0
 src/anon/unit_0013a8b8.cpp	0013a8b8	0013dfb8	.rodata@0036ad08	-G0 -fno-strict-aliasing -fmove-all-movables
 src/anon/unit_00134668.cpp	00134668	001357c8	.data@00347cc0,.bss@003b8ae0,.rodata@0036ac38	-G0 -fno-strict-aliasing

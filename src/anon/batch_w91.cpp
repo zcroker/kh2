@@ -289,16 +289,7 @@ f32 func_00191b70(void);
 s32 func_001a5bd0(u8*, s32, f32);
 void func_001d7638(u8*, s32);
 s32 func_001d9228(s32);
-void func_001d7538(u8* p, u8* q) {
-    if (!D_003527e4) return;
-    f32 x = func_00191b70();
-    if ((s32)func_001ba158()[5] > 0) x += x;
-    for (s32 k = 0; k < 9; k++)
-        for (s32 j = 0; j < func_001a5bd0(q, k, x); j++) func_001d7638(p, 1);
-    s32 n = func_001d9228(0) / 2;
-    if (n >= 7) n = 6;
-    for (s32 i = 0; i < n; i++) func_001d7638(p, 0);
-}
+void func_001d7538(u8* p, u8* q);  // 0x001d7538: definition moved into src/anon/unit_001d7458.cpp
 
 // --- 001e1070
 u8* func_001050d8(u32);

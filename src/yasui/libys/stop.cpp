@@ -1,18 +1,3 @@
 #include "stop.hpp"
 
-namespace YS {
-
-
-
-u32 STOP::is_stop() {
-    u32 v = *(u16*)((u32)this + 0);
-    return v & 0x1u;
-}
-
-u32 STOP::is_star() {
-    u32 v = *(u16*)((u32)this + 0);
-    v >>= 2;
-    return v & 0x1u;
-}
-
-}  // namespace YS
+// YS::STOP::is_stop (0x001d7b80) and is_star (0x001d7ba8) are now in the linked unit src/anon/unit_001d7458.cpp.
