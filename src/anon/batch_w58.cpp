@@ -53,47 +53,13 @@ void* func_00132180(void* p, u32 tag) {
 
 extern u8 D_00348590[];
 void func_00239700(void*);
-void func_0013b088(u8* p) {
-    *(void**)p = D_00348590;
-    *(u32*)(p + 12) = 0;
-    *(s32*)(p + 236) = -1;
-    *(u32*)(p + 240) = 0;
-    *(s32*)(p + 244) = -1;
-    *(s32*)(p + 248) = -1;
-    p[252] = 0;
-    p[253] = 0;
-    p[254] = 0;
-    p[255] = 0;
-    *(u32*)(p + 256) = 0;
-    *(void**)(p + 260) = D_00347e60;
-    *(u32*)(p + 272) = 0;
-    func_00239700(p + 284);
-    *(u32*)(p + 668) = 0;
-    *(u32*)(p + 672) = 0;
-    *(u32*)(p + 676) = 0;
-    p[680] = 0;
-    p[681] = 0;
-    *(f32*)(p + 684) = 1.0f;
-    *(u32*)(p + 688) = 0;
-    *(f32*)(p + 692) = 1.0f;
-}
+void func_0013b088(u8* p);  // 0x0013b088: definition moved into src/anon/unit_0013a8b8.cpp
 
 VObj* func_0016b0d0(void);
 u8* func_00167f18(s32);
 s32 func_0013c698(u8*);
 s32 func_0013c8b0(u8*);
-s32 func_0013c738(u8* p) {
-    if (!p[681]) {
-        p[681] = 1;
-        return 0;
-    }
-    VObj* o = func_0016b0d0();
-    if (o && ((s32 (*)(void*))o->vt[16])(o)) {
-        if (*(u64*)(func_00167f18(0) + 8)) return 1;
-    }
-    if (func_0013c698(p)) return 1;
-    return func_0013c8b0(p) != 0;
-}
+s32 func_0013c738(u8* p);  // 0x0013c738: definition moved into src/anon/unit_0013a8b8.cpp
 
 // Axis-aligned box (min xyz, max xyz) around a sphere (center xyz, radius at +16).
 void func_00144570(f32* box, u8* s) {

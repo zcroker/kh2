@@ -38,17 +38,7 @@ void func_00139620(u8*);
 void func_00239988(u8*, u32, u32);
 void func_0013ac60(u8*, u32, u32);
 
-void func_0013aa78(u8* p, u32 x, u32 y, u32 z, u32 w, u32 v, u32 u)
-{
-    func_00138d60(p, 5303, y, z, x, 0, v);
-    *(s32*)(p + 412) = 10;
-    *(s32*)(p + 416) = -7;
-    *(s32*)(p + 424) = 14;
-    *(s32*)(p + 428) = 1;
-    func_00139620(p);
-    func_00239988(p + 436, y, z);
-    func_0013ac60(p, u, w);
-}
+void func_0013aa78(u8* p, u32 x, u32 y, u32 z, u32 w, u32 v, u32 u);  // 0x0013aa78: definition moved into src/anon/unit_0013a8b8.cpp
 
 s32 func_0013d390(void);
 void func_00139a38(s32);
@@ -59,21 +49,7 @@ void func_0013b2d8(f32);
 f32 func_0013b2a8(u8*);  // mul_float684_692
 void func_00138d48(u8*, f32, f32, f32, f32);
 
-void func_0013d3f8(u8* p)
-{
-    if (!p[253]) {
-        if (func_0013d390() == 0) {
-            func_00139a38(2);
-            func_001399c0(2);
-        } else {
-            p[253] = 1;
-            func_0013b2d8(1.0f);
-            func_00139ab0(2);
-            func_00139948(2);
-        }
-    }
-    func_00138d48(p + 260, 1.0f, 1.0f, 1.0f, func_0013b2a8(p));
-}
+void func_0013d3f8(u8* p);  // 0x0013d3f8: definition moved into src/anon/unit_0013a8b8.cpp
 
 f32 fabsf(f32);  // fabsf
 void func_0013fda0(u8*);
@@ -537,17 +513,7 @@ void func_0013d4c8(void);
 u8* func_0013cb80(void);  // get_global_358050
 void func_001387f8(u8*, u32, u8*, u32);
 void func_0013b2d8(f32);
-void func_0013d6b0(u32 a, u32 b)
-{
-    if (!D_003484a0) func_0013b348(0);
-    func_00138698(D_00348050, a);
-    *(u32*)(D_003484a0 + 676) = b;
-    func_0013d4c8();
-    u8* r = func_0013cb80();  // get_global_358050
-    func_001387f8(D_003484a0 + 260, b, r + 32, D_00348578.a);
-    *(u32*)(D_003484a0 + 652) = D_00348578.b;
-    func_0013b2d8(0.0f);
-}
+void func_0013d6b0(u32 a, u32 b);  // 0x0013d6b0: definition moved into src/anon/unit_0013a8b8.cpp
 
 void sceVu0ApplyMatrix(f32*);
 

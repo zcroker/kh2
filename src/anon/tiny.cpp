@@ -407,28 +407,11 @@ void func_00139740(u32 a0, u32 a1, u32 a2, u32 a3) {
 
 // 0013a800: moved to src/harata/libdk/field2dd.cpp
 
-u32 func_0013cb80(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_global_358050
-    (void)a0;
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    u32 b = (0x0035u << 16);
-    return (u32)(*(u32*)((u32)b + (-32688)));
-}
+u32 func_0013cb80(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0013cb80: definition moved into src/anon/unit_0013a8b8.cpp
 
-void func_0013d7d0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 b = (0x0035u << 16);
-    *(u8*)((u32)b + (-31580)) = (u8)0;
-}
+void func_0013d7d0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0013d7d0: definition moved into src/anon/unit_0013a8b8.cpp
 
-u32 func_0013d810(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a0;
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    u32 b = (0x0035u << 16);
-    return (u32)(*(u32*)((u32)b + (-31240)));
-}
+u32 func_0013d810(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0013d810: definition moved into src/anon/unit_0013a8b8.cpp
 
 u32 func_0013ef80(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_global_byte_358700
     (void)a0;
@@ -1514,20 +1497,9 @@ u32 func_001384c0(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_global_347e08
     return (D_00347e08 != 0);
 }
 
-void func_0013a9e8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    u32 v = a0 & 0xffu;
-    *(u8*)&D_00347ffd = (u8)v;
-}
+void func_0013a9e8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0013a9e8: definition moved into src/anon/unit_0013a8b8.cpp
 
-u32 func_0013ba50(u32 a0, u32 a1, u32 a2, u32 a3) {  // obj_state_is_5
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    return ((*(u32*)((u32)a0 + (236)) ^ 0x0005u) == 0);
-}
+u32 func_0013ba50(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0013ba50: definition moved into src/anon/unit_0013a8b8.cpp
 
 u32 func_001410b8(u32 a0, u32 a1, u32 a2, u32 a3) {
     (void)a0;
@@ -2321,13 +2293,7 @@ void func_00139718(u32 a0, u32 a1, u32 a2, u32 a3) {
     *(u32*)((u32)a0 + (12)) = v;
 }
 
-void func_0013d7c0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    u32 v = (u32)((s32)1);
-    *(u8*)&D_003484a4 = (u8)v;
-}
+void func_0013d7c0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0013d7c0: definition moved into src/anon/unit_0013a8b8.cpp
 
 void func_0013ef70(u32 a0, u32 a1, u32 a2, u32 a3) {
     (void)a1;

@@ -1,21 +1,3 @@
 #include "command_one.hpp"
 
-namespace dk {
-
-extern u8 D_00348000 asm("D_00348000");
-extern u8 D_0034805c asm("D_0034805c");
-
-
-
-extern "C" u32 func_00138840(...);
-extern "C" u32 func_0023acd8(...);
-void COMMAND_ONE::update() {
-    u32 s0 = (u32)this;
-    func_00138840((u32)this);
-    if (*(s32*)((u32)this + (s32)(780)) >= *(s32*)((u32)&D_0034805c + (s32)(0))) {
-        func_0023acd8((u32)((s32)s0 + (436)));
-        return;
-    }
-}
-
-}  // namespace dk
+// The functions of this file (dk::COMMAND_ONE::update) are now in the linked unit src/anon/unit_0013a8b8.cpp.

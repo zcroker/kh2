@@ -248,16 +248,7 @@ void* func_00132390(void* a, void* b, u32 c, u32 d, u32 e) {
     return 0;
 }
 
-void func_0013d620(void) {
-    func_00138698(D_00348050, func_0013a800());
-    *(u32*)(D_003484a0 + 672) = 0;
-    func_0013d4c8();
-    u32 s = func_0013a810();
-    u32 v = func_0013cb80();  // get_global_358050
-    func_001387f8((u32)(D_003484a0 + 260), s, v + 32, D_00348578[0]);
-    *(u32*)(D_003484a0 + 652) = D_00348578[1];
-    func_0013b2d8(0.0f);
-}
+void func_0013d620(void);  // 0x0013d620: definition moved into src/anon/unit_0013a8b8.cpp
 
 void func_001407d0(u8* p) {
     if (!func_0015ce80()) return;

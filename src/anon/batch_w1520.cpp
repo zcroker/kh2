@@ -50,9 +50,5 @@ void destroyAll(void) asm("_ZN2YS10CACHE_BUFF10DestroyAllEv");
 extern s32 D_00347ff8;
 extern u8 D_00347ffc;
 static inline s32 conv2(s32 v) { if (v == 0xffff) v = -1; return v; }
-void func_0013a958(u8* p) {
-    bool ok = func_001948c0(conv2(p[1]), conv2(p[0]));
-    if (D_00347ff8 == 1 && !ok) { func_0013a690_x(); func_0013a9e8(1); destroyAll(); }
-    D_00347ffc = 0;
-}
+void func_0013a958(u8* p);  // 0x0013a958: definition moved into src/anon/unit_0013a8b8.cpp
 }

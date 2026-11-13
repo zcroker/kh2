@@ -77,23 +77,7 @@ void func_002be630(void) {
     func_0017f488(o + 320, 156, 0.0f, 0.0f);
 }
 
-void func_0013aba8(W1790Obj* o) {
-    s32 x = 0, y = 0;
-    void* m = o->seq;
-    func_00138988(o);
-    func_00138de0(o);
-    if (o->v30c >= D_0034805c) {
-        seq_GetActiveXY(m, &x, &y);
-        x += seq_GetParamX(m);
-        y += seq_GetParamY(m);
-        W1790Pos* p = &o->pos;
-        s32 a = o->a170 + x;
-        s32 b = o->a174 + y;
-        p->y = b;
-        p->x = a;
-        func_0023ade0(p);
-    }
-}
+void func_0013aba8(W1790Obj* o);  // 0x0013aba8: definition moved into src/anon/unit_0013a8b8.cpp
 
 void func_00148470(W1790Mgr* g, W1790Node* n) {
     u16 i = n->h11c;

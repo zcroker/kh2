@@ -62,6 +62,7 @@ src/anon/unit_001d3c08.cpp	001d3c08	001d4f40	.rodata@0036e454	-G0
 src/anon/unit_001d4f40.cpp	001d4f40	001d63a8	.rodata@0036e530	-G0
 src/anon/unit_001d63a8.cpp	001d63a8	001d68e0	.rodata@0036e5d8	-G0
 src/harata/libdk/field2dd.cpp	0013a368	0013a8b8	.data@00347fb0,.rodata@0036acb0	-G0
+src/anon/unit_0013a8b8.cpp	0013a8b8	0013dfb8	.rodata@0036ad08	-G0 -fno-strict-aliasing -fmove-all-movables
 src/anon/unit_00134668.cpp	00134668	001357c8	.data@00347cc0,.bss@003b8ae0,.rodata@0036ac38	-G0 -fno-strict-aliasing
 src/naka/libkn/obj_observer.cpp	001357c8	00135d78	.data@00347cf0,.gnu.linkonce.d._ZTVN2kn11ObjObserverE@00347cf8	-G0 -fno-strict-aliasing
 src/naka/libkn/effect_observer.cpp	00135d78	001363a0	.data@00347d08,.gnu.linkonce.d._ZTVN2kn14EffectObserverE@00347d10	-G0 -fno-strict-aliasing

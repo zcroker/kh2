@@ -26,21 +26,7 @@ void func_00132cb8(u32 a0, u32 a1, u32 a2, u32 a3) {
     *(u32*)((u32)r4 + (s32)(624)) = r15;
 }
 
-u32 func_0013dce8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u, r15 = 0u;
-    r5 = (u32)(r5 << 2);
-    r15 = (u32)(r6 >> 5);
-    r4 = (u32)(r4 + r5);
-    r15 = (u32)(r15 << 2);
-    r4 = (u32)(r4 + r15);
-    r6 = (u32)(r6 & 0x001fu);
-    r2 = *(u32*)((u32)r4 + (s32)(12));
-    r15 = (u32)((s32)0u + (1));
-    r15 = (u32)(r15 << (r6 & 31));
-    r2 = (u32)(r2 & r15);
-    r2 = ((u32)0u < (u32)r2);
-    return r2;
-}
+u32 func_0013dce8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0013dce8: definition moved into src/anon/unit_0013a8b8.cpp
 
 u32 func_0018ac80(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u, r14 = 0u, r15 = 0u;

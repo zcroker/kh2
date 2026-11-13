@@ -91,29 +91,7 @@ extern u8* D_00348058;
 extern u8* D_00348054;
 void func_00106420(void*);
 
-void func_0013aed8(void)
-{
-    if (D_00348050) {
-        (*(VFn*)(*(u8**)D_00348050 + 16))(D_00348050);
-        D_00348050 = 0;
-    }
-    u8* p = D_00348058;
-    if (p) {
-        u8* q = p + 28224;
-    l1: if (p == q) goto d1; q -= 784; (*(VFn*)(*(u8**)q + 12))(q); goto l1;
-    d1:
-        func_00106420(p);
-        D_00348058 = 0;
-    }
-    p = D_00348054;
-    if (p) {
-        u8* q = p + 13056;
-    l2: if (p == q) goto d2; q -= 408; (*(VFn*)(*(u8**)q + 12))(q); goto l2;
-    d2:
-        func_00106420(p);
-        D_00348054 = 0;
-    }
-}
+void func_0013aed8(void);  // 0x0013aed8: definition moved into src/anon/unit_0013a8b8.cpp
 
 extern f32 D_00348d30[];
 union HalfOrFloat6 { s16 h[6]; f32 f[6]; };

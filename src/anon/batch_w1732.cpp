@@ -23,7 +23,5 @@ void func_00226ee8(void* p) {
 
 struct T0013d1d0 { u8 pad[0x20]; u32 flags; };
 struct S0013d1d0 { u8 pad[0x104]; u8 sub[0x198]; T0013d1d0* q; };
-void func_0013d1d0(S0013d1d0* p) {
-    if (__builtin_expect(p->q && (p->q->flags & 8), 0)) func_00139598(p->sub);
-}
+void func_0013d1d0(S0013d1d0* p);  // 0x0013d1d0: definition moved into src/anon/unit_0013a8b8.cpp
 }

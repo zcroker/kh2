@@ -72,15 +72,7 @@ extern u32 D_00348400[];
 extern u32 D_00348410[];
 s32 func_0013b9e0(s32, s32);
 s32 func_0013ba50(s32);
-s32 func_0013ba60(s32 a0, s32 a1, s32 a2, u8* a3, s32 a4, u32* a5, u32* a6)
-{
-    *a5 = D_00348060[a4][a2];
-    if (a1) return 0;
-    if (func_0013b9e0(a0, a4)) { *a3 = 1; *a5 = D_003483f0[a2]; }
-    else if (!func_0013ba50(a0)) { *a5 = D_00348400[a2]; }
-    *a6 = D_00348410[a2];
-    return 1;
-}
+s32 func_0013ba60(s32 a0, s32 a1, s32 a2, u8* a3, s32 a4, u32* a5, u32* a6);  // 0x0013ba60: definition moved into src/anon/unit_0013a8b8.cpp
 
 // 001403b0: per-frame update using the global time step.
 extern f32 D_00349e10;

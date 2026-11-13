@@ -66,27 +66,7 @@ struct T13a {
 };
 extern u8 D_00348590, D_00347e60;
 u32 func_00239700(void*);
-void func_0013afe8(T13a* t) {
-    t->vtbl = &D_00348590;
-    t->fec = -1;
-    t->ff4 = -1;
-    t->ff8 = -1;
-    t->f104 = &D_00347e60;
-    t->f0c = 0;
-    t->ff0 = 0;
-    t->b0 = 0; t->b1 = 0; t->b2 = 0; t->b3 = 0;
-    t->f100 = 0;
-    t->f110 = 0;
-    func_00239700(&t->f11c);
-    t->f29c = 0;
-    t->f2a0 = 0;
-    t->f2a4 = 0;
-    t->b2a8 = 0;
-    t->b2a9 = 0;
-    t->f2ac = 1.0f;
-    t->f2b0 = 0;
-    t->f2b4 = 1.0f;
-}
+void func_0013afe8(T13a* t);  // 0x0013afe8: definition moved into src/anon/unit_0013a8b8.cpp
 
 extern u32 D_00348804;
 void func_00141c18(u32, u32, u32, u32, u32);

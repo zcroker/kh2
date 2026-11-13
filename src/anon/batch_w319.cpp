@@ -11,31 +11,7 @@ u32 func_00192048(u32);
 u8* func_0013b5d0(void*, s32, s32, void*, u8, s32, s32, u32, f32, u32, s32);
 void func_0013bc50(void*, void*, s32, s32, u8, u32, u8*, u8*);
 
-void func_0013c190(u8* p, u8* a1, s32 a2, s32 a3, u8 t0, s32 t1, s32 t2, s32 t3, u8* s6) {
-    u8 flag;
-    s32 w20;
-    s32 w24;
-    s32 s4 = *(s32*)(a1 + 108);
-    u32 s8 = func_0013b988(p, a1, s6[5], s4, 1, 0);  // table_by_arg_flags
-    u8* v;
-    u8* r;
-    flag = 0;
-    { u32 x = *(u32*)(a1 + 8); if (*(u32*)(p + a2 * 4 + 220) != x) flag = 1; }
-    if (*(s32*)(p + a2 * 4 + 204) != s4) flag = 1;
-    w24 = -1;
-    w20 = D_00348060[t1 * 12 + a3 + 3];
-    if (t0 == 1) {
-        flag = t0;
-        if (*(s32*)a1 == 0 || *(s32*)a1 == 6) w20 = D_00348420[a3];
-    }
-    func_0013c080(p, s6, a2, a3, &flag, 1, &w20, &w24);
-    if (func_0013bc40(p, a2) && func_0013b9e0(p, t1)) flag = 1;
-    v = func_001b8e88(*(u16*)(a1 + s4 * 12 + 14));
-    r = func_0013b5d0(p, a2, w20, s6, flag, t2 + 8, t3, func_00192048(*(u32*)(v + 8)), 1.0f, s8, 2);
-    if (w24 != -1) *(s32*)(r + 392) = w24;
-    func_0013bc50(p, a1, a2, a3, flag, s8, v, r);
-    *(s32*)(p + a2 * 4 + 204) = s4;
-}
+void func_0013c190(u8* p, u8* a1, s32 a2, s32 a3, u8 t0, s32 t1, s32 t2, s32 t3, u8* s6);  // 0x0013c190: definition moved into src/anon/unit_0013a8b8.cpp
 
 s32 func_002384f8(...);
 

@@ -94,12 +94,5 @@ void func_00147e80(u8* o) {
 }
 
 void wtarget_0013df48(u32 a, u32 b, u32, u32) asm("_Z16wtarget_0013df48jjjj");
-void wtarget_0013df48(u32 a, u32 b, u32, u32) {
-    if (b == 0xffff && a == 1) {
-        S_348638* s = &D_00348638;
-        s32* p = s->d;
-        s32 i = 2;
-        do { *p++ = 0; } while (--i != -1);
-    }
-}
+void wtarget_0013df48(u32 a, u32 b, u32, u32);  // 0x0013df48: definition moved into src/anon/unit_0013a8b8.cpp
 }

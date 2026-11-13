@@ -11,10 +11,5 @@ void func_001db8b8(W2029_Q* q, int v) {
     q->n = n + 1;
 }
 
-s32 func_0013aa38(s32 a) {
-    s32 old = D_00347ff8;
-    D_00347ff8 = a;
-    if (a == 1) func_001dd208(a); else func_001dd208(0);
-    return old;
-}
+s32 func_0013aa38(s32 a);  // 0x0013aa38: definition moved into src/anon/unit_0013a8b8.cpp
 }

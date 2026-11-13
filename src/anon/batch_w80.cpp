@@ -435,19 +435,7 @@ void func_00131da8(U0_Node* n) {
         for (i = 0; i < n->count; i++, o++) func_00131da8((U0_Node*)((u8*)n + *o));
     }
 }
-void func_0013d550(u32 a, u32 b) {
-    u8* s;
-    if (!D_003484a0) func_0013b348(0);
-    s = D_00348050 + 32;
-    func_002362b0(s, a);
-    if (func_0013a9d0()) func_002368e8(s, 0.95f);
-    func_002367c8(s);  // obj_dispatch_bitfield64
-    D_003484a0->f672 = b;
-    func_0013d4c8();
-    func_001387f8(D_003484a0->sub, b, func_0013cb80() + 32, D_00348578.f8);
-    D_003484a0->f652 = D_00348578.f12;
-    func_0013b2d8(0.0f);
-}
+void func_0013d550(u32 a, u32 b);  // 0x0013d550: definition moved into src/anon/unit_0013a8b8.cpp
 // 00159fd0: moved to src/harata/libdk/targetcamera.cpp
 // unlink n from the active list and return it to the pool
 void func_00165768(U0_Link* n) {  // list_pop_head

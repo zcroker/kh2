@@ -199,38 +199,5 @@ void func_00138d48(Spr*, f32, f32, f32, f32);
 
 // Takes the next sprite slot of list idx (creating the sprite on first use), positions it,
 // sets its alpha from the fade level and records the info flag for the slot.
-Spr* func_0013b5d0(u8* self, s32 idx, s32 c, SprInfo* info, u8 changed, s32 x, s32 y, s32 tag, f32 scale, u32 col, s32 mode) {
-    u8 flag;
-    u8 kind;
-    if (info == 0) {
-        flag = 0;
-        kind = 0;
-    } else {
-        kind = info->kind;
-        flag = info->flags & 1;
-    }
-    s32 n = D_004573c0[idx];
-    Spr** slot = (Spr**)((idx * 9 + n) * 4 + (u32)self + 0x18);
-    Spr* e = *slot;
-    s32 s2 = func_0013cb90();
-    if (e == 0) {
-        s32 s0 = func_0013cb30();
-        e = func_0013aca0(c, s0, func_0013cb80(), s2, mode, kind);
-        *slot = e;
-    } else {
-        if (changed == 1) func_00138c10(e, c);
-        func_0013ac60(e, kind, s2);
-    }
-    e->tag = tag;
-    func_00138c40(e, x, y);
-    f32 r = func_0013b298(self);
-    if (r < 1.0f) func_001395d0(e); else func_001395e8(e);
-    col &= 0xffffff;
-    col |= __fixunssfsi(r * 128.0f) << 24;
-    e->col = col;
-    func_00138d48(e, scale, scale, scale, r);
-    ((SprRow*)((u8*)&((SprPool*)self)->rows[idx] + n))->flag[0] = flag;
-    D_004573c0[idx]++;
-    return e;
-}
+Spr* func_0013b5d0(u8* self, s32 idx, s32 c, SprInfo* info, u8 changed, s32 x, s32 y, s32 tag, f32 scale, u32 col, s32 mode);  // 0x0013b5d0: definition moved into src/anon/unit_0013a8b8.cpp
 }

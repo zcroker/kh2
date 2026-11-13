@@ -116,20 +116,7 @@ void func_00138c40(u8*, u32, u32);
 f32 func_0013b2a8(u8*);  // mul_float684_692
 void func_00138d48(u8*, f32, f32, f32, f32);
 void func_0013d1d0(u8*);
-void func_0013d208(u8* o) {
-    s32 a = func_0013cb80();  // get_global_358050
-    u8* s = o + 260;
-    s32 b = func_0013cb90();
-    a += 32;
-    u32 c = func_0013cb30();
-    Pair8* e = &D_00348578[b];
-    func_001386e0(s, 5301, c, a, e->x, 1);
-    func_00138c40(s, 28, 322);
-    *(u32*)(s + 392) = e->y;
-    f32 r = func_0013b2a8(o);  // mul_float684_692
-    func_00138d48(s, 1.0f, 1.0f, 1.0f, r);
-    func_0013d1d0(o);
-}
+void func_0013d208(u8* o);  // 0x0013d208: definition moved into src/anon/unit_0013a8b8.cpp
 }
 }
 

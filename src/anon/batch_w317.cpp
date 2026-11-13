@@ -73,34 +73,7 @@ void func_0013b5d0(u8*, s32, s32, void*, u32, s32, s32, u32, f32, u32, s32);
 void func_0013c820(u8*, s32);
 void func_0013ce08(u8*, s32);
 extern s32 D_00348520[][5];
-void func_0013cbb8(u8* self, W317H* h, u8 a2) {
-    self[255] = 1;
-    s32 idx = func_0013cb90();
-    s32 c0 = D_00348520[idx][0];
-    if (h->kind == 10) c0 = 8;
-    func_0013b5d0(self, 0, c0, 0, a2, 28, 388 - h->count * 22, 0, 1.0f, 0x80b4b4b4, 2);
-    s32 y = 410 - h->count * 22;
-    s32 i = 0;
-    if (h->count > 0) {
-        W317E* e = h->e;
-        W317H* p = h;
-        do {
-            u8* q = (u8*)func_001b8e88(p->e[0].id);
-            s32 c = 0;
-            s32 r = func_0013b988(self, h, p->e[0].b, i++, 0, 1);  // table_by_arg_flags
-            if (p->e[0].c) c = D_00348520[idx][p->e[0].c];
-            p = (W317H*)((u8*)p + 12);
-            u32 t = func_00192048(*(u32*)(q + 8));
-            func_0013b5d0(self, 0, c, e, a2, 28, y, t, 1.0f, r, 2);
-            y += 22;
-            e++;
-        } while (i < h->count);
-    }
-    *(s32*)(self + 220) = h->count;
-    for (s32 j = h->count; j < 7; j++) func_0013c820(self, 0);
-    __asm__("" : "+r"(self));
-    func_0013ce08(self, h->count);
-}
+void func_0013cbb8(u8* self, W317H* h, u8 a2);  // 0x0013cbb8: definition moved into src/anon/unit_0013a8b8.cpp
 
 s32 func_00139d78(W317Obj*);
 extern W317G* D_0035ed40;

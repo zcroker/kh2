@@ -117,65 +117,6 @@ static inline __attribute__((always_inline)) W1640Spr* W1640_Alloc(void)
     return (W1640Spr*)((u8*)o + o->freeIdx[o->nFree] * 0x198);
 }
 
-void func_0013ce08(W1640Cmd* self, s32 n)
-{
-    s32 y = 377 - n * 22;
-    s32 idx = func_0013cb90();
-    W1640Info* info = &self->owner->info;
-    u32 id = info->id;
-    u8 kind = info->kind;
-    u32 changed = 0;
-    if (info->flags & 2) changed = 1;
-    if (self->lastId != id) changed = 1;
-    s32 c;
-    void* p;
-    if (id) {
-        self->active = 1;
-        u8* item = func_001b8e88(id);
-        s32 r = idx * 6;
-        c = ((s32*)D_00348548)[r];
-        if (kind == 7) c = D_00348548[idx][1];
-        else if ((u8)((*(s32*)(item + 12) >> 3) & 1)) c = D_00348548[idx][2];
-        if (c != self->lastCol) changed = 1;
-        u32 t = func_00192048(*(u32*)(item + 8));
-        self->tag = t;
-        asm("" : "+r"(changed)); // no code: sched2 order of the arg moves (partial asm, see asm_review.tsv)
-        p = func_0013b5d0(self, 0, c, info, changed, 36, y, t, D_0036ad70[kind], D_003484f8[kind], 2);
-        func_00139580(p);
-        if (!self->flash) self->tag = 0;
-    } else {
-        if (self->tag == 0) c = D_00348548[idx][3];
-        else c = D_00348548[idx][4];
-        p = func_0013b5d0(self, 0, c, info, changed, 36, y, self->tag, 1.0f, 0x80e6e6e6, 2);
-        func_00139740(p);
-        if (changed != 1) {
-            if (self->active != 1) goto hide;
-            if (func_001396c0(p)) goto clr;
-        }
-        func_00139580(p);
-        goto common;
-    clr:
-        self->active = 0;
-    hide:
-        func_00139570(p);
-    }
-common:
-    func_0013cdc8(self, p);
-    self->lastId = id;
-    self->lastCol = c;
-    if (self->flash == 1) {
-        W1640Spr* s = W1640_Alloc();
-        s32 z = func_0013cb80() + 32;
-        func_001386e0(s, 5303, func_0013cb30(), z, D_00348548[idx][5], 2);
-        func_00138c40(s, 36, y);
-        func_00138d48(1.0f, 1.0f, 1.0f, func_0013b2e8(), s);
-        self->flash = 0;
-        if (self->unk2A4 && s->unk110 >= 100) {
-            s = W1640_Alloc();
-            func_001386e0(s, 5400, func_0013cb30(), z, 99, 2);
-            func_00138c40(s, 28, 322);
-        }
-    }
-}
+void func_0013ce08(W1640Cmd* self, s32 n);  // 0x0013ce08: definition moved into src/anon/unit_0013a8b8.cpp
 
 }

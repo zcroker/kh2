@@ -59,7 +59,7 @@ void func_0013a1e8(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a0; (void)a1; (void)a2; 
 
 // 0013a6b8: moved to src/harata/libdk/field2dd.cpp
 
-void func_0013c720(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a0; (void)a1; (void)a2; (void)a3; u32 p=D_003484a0; *(u8*)((u32)p + (254)) = (u8)((u32)((s32)1)); }
+void func_0013c720(u32 a0,u32 a1,u32 a2,u32 a3);  // 0x0013c720: definition moved into src/anon/unit_0013a8b8.cpp
 
 void func_00150660(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a1; (void)a2; (void)a3; *(u32*)((u32)a0 + (1232)) = (u32)((s32)4); *(u32*)((u32)a0 + (1640)) = (u32)((s32)10); }
 
