@@ -19,40 +19,7 @@ s32 func_001bc2a8(Z*, void*, s32);
 }
 static inline bool Near(Z* z, void* a) { return func_001bc2a8(z, a, 0) < 4; }
 extern "C" {
-Z* func_001d45a0(void* self, u32 id) {
-    if (!func_001d4420()) return 0;
-    s32 cnt = 0;
-    Z* arr[D_01d5ba28->n];
-
-    for (s32 i = 0; i < D_01d5ba28->n; i++) {
-        E* e = &D_01d5ba28->e[i];
-        if (e->b1 == 1) continue;
-        if (!func_001d3c78(e)) continue;
-        if (!func_001d3e40(e)) continue;
-        void* o = func_0017e668(e->b1);
-        if (!(func_00177860(o)->w10 & 2)) continue;
-        V4* p1 = func_0016c028(o);  // obj_get_attach_or_alt
-        V4* p2 = func_0016c028(self);  // obj_get_attach_or_alt
-        V4 d;
-        asm volatile("lqc2 $vf1, 0(%0)\n\tlqc2 $vf2, 0(%1)\n\tvsub.xyzw $vf1, $vf1, $vf2\n\tsqc2 $vf1, 0(%2)" : : "r"(p1), "r"(p2), "r"(&d) : "memory");
-        d.y = 0.0f;
-        f32 len;
-        asm volatile("lqc2 $vf1, 0(%1)\n\tvmul.xyz $vf1, $vf1, $vf1\n\tvaddy.x $vf1, $vf1, $vf1y\n\tvaddz.x $vf1, $vf1, $vf1z\n\tvsqrt Q, $vf1x\n\tvwaitq\n\tcfc2.ni $8, $vi22\n\tmtc1 $8, %0" : "=f"(len) : "r"(&d) : "$8", "memory");
-        if (len > 500.0f) continue;
-        Z* z = func_001b8e88(e->h28);
-        if (!Near(z, self)) continue;
-        if (z->h0 == id) return z;
-        arr[cnt] = z;
-        cnt++;
-    }
-    if (cnt > 0) {
-        D_003638d0 *= 0x10dcd;
-        u32 m = cnt;
-        s32 idx = (u64)D_003638d0 / ((0x100000000ull + (m - 1)) / m);
-        return arr[idx];
-    }
-    return 0;
-}
+Z* func_001d45a0(void* self, u32 id);  // 0x001d45a0: definition moved into src/anon/unit_001d3c08.cpp
 }
 struct _reent { s32 _errno; };
 extern "C" {

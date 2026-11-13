@@ -46,13 +46,7 @@ s32 func_001bb4a0(void);
 void func_00199098(Blk36*, s32);
 
 // If both flags are set and func_001bb4a0() reports 0, fill *out via func_00199098 and return 1.
-s32 func_001d5a58(void* self, Blk36* out) {
-    if (D_00352770 == 0 || D_00350379 == 0 || func_001bb4a0() != 0) return 0;
-    Blk36 t;
-    func_00199098(&t, 0);
-    *out = t;
-    return 1;
-}
+s32 func_001d5a58(void* self, Blk36* out);  // 0x001d5a58: definition moved into src/anon/unit_001d4f40.cpp
 }
 
 struct CallSub { f32 a; u32 b; u32 c; u32 d; u32 e; };

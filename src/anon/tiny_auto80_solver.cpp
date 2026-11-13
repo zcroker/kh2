@@ -9309,13 +9309,7 @@ u32 duplicate_unplaced_001d4528(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, 
     return r2;
 }
 
-void func_001d4bb8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r14, r15;
-    r15 = (u32)&D_01d5ba58;
-    r4 = (u32)(r4 << 2);    r14 = (u32)((s32)0u + (488));
-    r4 = (u32)(r4 + r15);
-    *(volatile u16*)((u32)r4 + (s32)(0)) = (u16)r14;
-}
+void func_001d4bb8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);  // 0x001d4bb8: definition moved into src/anon/unit_001d3c08.cpp
 
 u32 duplicate_unplaced_001d4dc0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r2, r13, r14;
@@ -9331,21 +9325,7 @@ u32 duplicate_unplaced_001d4dc0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, 
     return r2;
 }
 
-u32 func_001d4e00(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32 s0 = a0;
-    ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_001d16f8)(a0, a1, a2, a3, a4, a5, a6, a7);
-    u32 r4 = *(u32*)(s0 + 4);
-    u32 r9 = s0 + 44;
-    u32 r5 = *(u32*)(s0 + 8);
-    u32 r10 = s0 + 24;
-    u32 r6 = *(u32*)(s0 + 32);
-    u32 r7 = 0;
-    u32 r11 = *(u32*)(s0 + 36);
-    u32 r8 = 4;
-    u32 ret = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_0014f8d0)(r4, r5, r6, r7, r8, r9, r10, r11);
-    *(u32*)(s0 + 48) = ret;
-    return ret;
-}
+u32 func_001d4e00(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);  // 0x001d4e00: definition moved into src/anon/unit_001d3c08.cpp
 
 u32 duplicate_unplaced_001d4ef0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r2, r15, r16, r17;
@@ -9363,14 +9343,7 @@ u32 duplicate_unplaced_001d4ef0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, 
     return ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_001d4f40)(r4, r5, r6, r7, r8, r9, r10, r11);
 }
 
-u32 func_001d4fa8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32 offset = a1;
-    u32 stride = *(u32*)(a0 + 568);
-    u32 base = *(u32*)(a0 + 44);
-    offset *= stride;
-    base += offset;
-    return func_001d1b60(a0, base, a2, a3, a4, a5, a6, a7);
-}
+u32 func_001d4fa8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);  // 0x001d4fa8: definition moved into src/anon/unit_001d4f40.cpp
 
 u32 duplicate_unplaced_001d5030(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r2, r14, r15;

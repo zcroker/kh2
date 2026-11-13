@@ -271,14 +271,7 @@ struct T1d5 { u8 key; u8 val; u16 arg; };
 extern T1d5 D_0036e538[];
 u32* func_001ba158(u8*);
 void func_00181178(u16);
-void func_001d5198(u8* p)
-{
-    if (p[0] != 16) return;
-    u32* r = func_001ba158(p);
-    for (u32 i = 0; i < 4; i++) {
-        if (D_0036e538[i].key == p[1]) { *r = D_0036e538[i].val; func_00181178(D_0036e538[i].arg); return; }
-    }
-}
+void func_001d5198(u8* p);  // 0x001d5198: definition moved into src/anon/unit_001d4f40.cpp
 
 // 001d77a0
 s32 func_001a6d08(s32);

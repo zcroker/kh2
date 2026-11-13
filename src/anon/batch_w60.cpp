@@ -306,9 +306,7 @@ void PrizeTrGetAll(void* o) {
     }
 }
 
-void func_001d5960(void* p) {
-    if (!func_001d5868(p) && func_001d58f0(p)) func_001d5800(p);
-}
+void func_001d5960(void* p);  // 0x001d5960: definition moved into src/anon/unit_001d4f40.cpp
 
 void func_001d9630(u16* p, s32 n) {
     s32 i;

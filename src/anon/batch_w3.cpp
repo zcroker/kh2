@@ -136,7 +136,7 @@ void func_001aeae0() {
 }
 
 s32 func_001a35f8(u16, u8);
-u32 func_001d4528(u8* p) { return func_001a35f8(*(u16*)(p + 42), p[1]) > 0; }
+u32 func_001d4528(u8* p);  // 0x001d4528: definition moved into src/anon/unit_001d3c08.cpp
 
 // Append 4 (unaligned) bytes to a write cursor.
 struct Bytes4 {

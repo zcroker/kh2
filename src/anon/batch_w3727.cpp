@@ -64,20 +64,5 @@ s32 func_001a1de0(s32);
 
 // Chain of checks on the current object. All exits go through one return label placed before the
 // body (goto form): gcc then merges the epilogue there, as in the original layout.
-s32 func_001d4420() {
-    O_w3727* o = D_0034e948;
-    s32 r;
-    if (func_0019ba60(o) && o->x) goto body;
-fail:
-    r = 0;
-done:
-    return r;
-body:
-    if (func_001b58a8()) goto fail;
-    if (func_001c8ab0() != 2) { bool b = !func_001c8db8(&D_00351eb8, 0); if (!b) goto fail; }
-    if (func_001410c8()) goto fail;
-    if (!func_001917c0()) { r = 0; goto done; }
-    r = !func_001a1de0(o->x);
-    goto done;
-}
+s32 func_001d4420();  // 0x001d4420: definition moved into src/anon/unit_001d3c08.cpp
 }

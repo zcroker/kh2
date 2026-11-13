@@ -206,22 +206,7 @@ void func_001be890(void* o, void* b) {
 
 u8* func_001d5b78(s32, s32);
 /* sum of the 'count' fields of the first n-1 entries; the nops are the R5900 short-loop padding */
-s32 func_001d5d20(void) {
-    u8* e = func_001d5b78(0, 1);
-    s32 v = D_0032bb30.total;
-    s32 n = D_0032bb30.n;
-    s32 i = 1;
-    if (i < n) {
-        i = n - 1;
-        do {
-            v += *(s32*)(e + 4);
-            i--;
-            asm volatile("nop\n\tnop");
-            e += 8;
-        } while (i != 0);
-    }
-    return v;
-}
+s32 func_001d5d20(void);  // 0x001d5d20: definition moved into src/anon/unit_001d4f40.cpp
 
 extern u8 D_01d9e370[];
 extern u8 D_01d9e6f0[];

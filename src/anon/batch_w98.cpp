@@ -273,28 +273,7 @@ extern u32 D_00352738[4];
 void func_001d3c18(E1d4*);
 
 // Activates the first table entry matching the id (id 609 activates the four preset ids).
-void func_001d4078(u32 id) {
-    s32 i, j;
-    if (id == 609) {
-        for (i = 0; i < 4; i++) {
-            for (j = 0; j < D_01d5ba28->n; j++) {
-                E1d4* e = &D_01d5ba28->e[j];
-                if (e->id == D_00352738[i]) {
-                    func_001d3c18(e);
-                    break;
-                }
-            }
-        }
-        return;
-    }
-    for (i = 0; i < D_01d5ba28->n; i++) {
-        E1d4* e = &D_01d5ba28->e[i];
-        if (e->id == id) {
-            func_001d3c18(e);
-            return;
-        }
-    }
-}
+void func_001d4078(u32 id);  // 0x001d4078: definition moved into src/anon/unit_001d3c08.cpp
 
 struct Ent1d4 { u8 pad[2]; u16 id; u8 cnt; u8 kind; u8 pad2[6]; };
 struct List1d4 { u8 pad[8]; s32 n; Ent1d4 e[1]; };
@@ -309,24 +288,7 @@ s32 func_001d3e40(E1d4*);
 
 void wtarget_001d42d0(List1d4*, u32, u32, u32) asm("_Z16wtarget_001d42d0jjjj");
 // Adds one list entry per active table group (first entry of each kind), marking non-special ones kind 5.
-void wtarget_001d42d0(List1d4* L, u32, u32, u32) {
-    u32 mask = 0;
-    s32 x = func_001d4420();
-    func_001bc778(L);
-    if (func_001b58a8()) return;
-    for (s32 i = 0; i < D_01d5ba28->n; i++) {
-        E1d4* e = &D_01d5ba28->e[i];
-        if (func_001d3f80(e)) continue;
-        if (func_001d4808(e)) continue;
-        if (!func_001d3c78(e)) continue;
-        u32 b = 1 << e->kind;
-        if (mask & b) continue;
-        mask |= b;
-        func_001bc780(L, e->id, 0, 1);
-        if (x && func_001d3e40(e)) continue;
-        *(s8*)&L->e[L->n - 1].kind = 5;
-    }
-}
+void wtarget_001d42d0(List1d4* L, u32, u32, u32);  // 0x001d42d0: definition moved into src/anon/unit_001d3c08.cpp
 
 struct M200 { f32 m[4][4]; } __attribute__((aligned(16)));
 struct Cam200 { u8 pad[16]; M200 mat; };

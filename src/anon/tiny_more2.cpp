@@ -77,7 +77,7 @@ u32 func_001bdfe0(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a1; (void)a2; (void)a3; r
 
 void func_001bf100(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a2; (void)a3; u32 v=*(u32*)((u32)a0 + (2736)); u32 bit=1u<<a1; v|=bit; *(u32*)((u32)a0 + (2736)) = v; }
 
-void func_001d56f0(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a1; (void)a2; (void)a3; *(u32*)((u32)a0 + (0)) = 0; *(u32*)((u32)a0 + (4)) = 0; *(u32*)((u32)a0 + (8)) = 0; }
+void func_001d56f0(u32 a0,u32 a1,u32 a2,u32 a3);  // 0x001d56f0: definition moved into src/anon/unit_001d4f40.cpp
 
 void func_001e2b50(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a2; (void)a3; D_01d9eaac = a0; D_01d9eab0 = a1; }
 

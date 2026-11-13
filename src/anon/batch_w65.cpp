@@ -311,20 +311,7 @@ void func_00320400(void*);
 void func_001d1678(void*, s32);  // obj_init_28bytes
 void func_001d19e8(void*, s32);
 void func_001d16e8(void*, s32, s32);
-void func_001d4d28(u32* p) {
-    p[1] = 0;
-    p[0] = (u32)D_003525c8;
-    p[2] = 0;
-    func_00320400(p + 3);
-    func_001d1678(p, -1);  // obj_init_28bytes
-    p[12] = 0;
-    p[0] = (u32)D_00352750;
-    u8* q = (u8*)p + 57;
-    s32 i;
-    for (i = 127; i >= 0; i--) { *q = 0; q += 4; }
-    func_001d19e8(p, -1);
-    func_001d16e8(p, 0, 12);
-}
+void func_001d4d28(u32* p);  // 0x001d4d28: definition moved into src/anon/unit_001d3c08.cpp
 
 extern u8 D_00352878[];
 void func_001b3b70(void*, void*, s32, u32);

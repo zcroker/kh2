@@ -253,12 +253,7 @@ u8 func_001c9958(s32 a, s32 b) {  // state_pair_check
     return 1;
 }
 
-void func_001d4ef0(u8* p, u8* a) {
-    u8* v = func_00321728(p + 56, 1, a[0]);
-    u32 c = v[1];
-    v[1] = c + 1;
-    func_001d4f40(p, *(u16*)(a + 0x42), c);
-}
+void func_001d4ef0(u8* p, u8* a);  // 0x001d4ef0: definition moved into src/anon/unit_001d3c08.cpp
 
 void func_001db950(u8* p, u32 a, u32 b, u32 c) {
     func_001c23a8(p, a, b, 0, 0, 96, c);

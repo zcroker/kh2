@@ -254,10 +254,7 @@ void func_001c2c98(u8* p) {
     *(u32*)(p + 0xabc) |= 4;
 }
 
-u8* func_001d3f98(u8* p) {
-    func_002fee78(D_01d5ba30, D_0036e448, D_0033caf0, p + 4);
-    return D_01d5ba30;
-}
+u8* func_001d3f98(u8* p);  // 0x001d3f98: definition moved into src/anon/unit_001d3c08.cpp
 
 void func_001d6e08(u8* p) {
     u32* q = (u32*)(p + 4);

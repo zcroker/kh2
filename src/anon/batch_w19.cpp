@@ -169,19 +169,9 @@ struct Ref0498 { u8* o; u32 x; bool f; };
 struct Flags1bc { u16 a : 14; u16 b : 1; u16 c : 1; };
 // 001bc050: moved to src/yasui/libys/mission.cpp
 
-void func_001d4dc0(u32* p, u32 a, u32 b, u32 c) {
-    p[0x238 / 4] = a;
-    p[0x18 / 4] = 9999;
-    p[0x23c / 4] = b;
-    p[0x240 / 4] = c;
-    p[0x2c / 4] = 0;
-    ((void (*)(u32*))((u32*)p[0])[1])(p);
-}
+void func_001d4dc0(u32* p, u32 a, u32 b, u32 c);  // 0x001d4dc0: definition moved into src/anon/unit_001d3c08.cpp
 
-void func_001d5030(u32 a) {
-    D_00352768 = a;
-    D_01d5ba68 = *(u32*)((u8*)func_00168b38(a, 2, 0) + 8);  // entry_array_find_nth
-}
+void func_001d5030(u32 a);  // 0x001d5030: definition moved into src/anon/unit_001d4f40.cpp
 
 void func_001d9ef0(u8* p, u32 a, u32 b) {
     func_001980d0(p, a, 10, b);

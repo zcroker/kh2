@@ -322,30 +322,7 @@ void func_001d30f8(void*, s32, s32);
 u32 func_00185de0(void);
 extern u32 D_00350438;
 // Spawns an effect object from its spec and attaches the kind-specific resource.
-void func_001d5518(W93Spec* s, u32 a, u8 flag)
-{
-    if (s->f4 == 0) return;
-    W93Ef* o = (W93Ef*)func_001050d8(176);
-    func_00196ca8(o, s->f0, s->f4);
-    o->f8 = a;
-    if (flag) o->flags |= 8;
-    o->f148 = s->f12;
-    o->f152 = s->f16;
-    if (s->f24) {
-        o->f156 = 2;
-        o->f160 = s->f24;
-    } else if (s->f20) {
-        o->f156 = s->f20;
-    }
-    switch (s->kind) {
-    case 0: break;
-    case 902: func_00196e98(o, func_00185de0()); break;
-    case 1679: func_001d30f8(o->f64, 4, 0); break;
-    case 1726: func_00196e98(o, D_00350438); break;
-    default: func_00196e98(o, func_0016b740(s->kind)); break;
-    }
-    func_00196f00(o);
-}
+void func_001d5518(W93Spec* s, u32 a, u8 flag);  // 0x001d5518: definition moved into src/anon/unit_001d4f40.cpp
 
 struct W93Dr;
 struct W93DrVt { void* a; void* b; void (*draw)(W93Dr*); };

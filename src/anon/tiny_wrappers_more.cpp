@@ -910,17 +910,11 @@ u32 func_001d3090(u32 a0, u32 a1, u32 a2, u32 a3) {
 
 // 001d3be8 (_GLOBAL__I_ stub): moved to src/anon/unit_001d35e0.cpp
 
-u32 func_001d4fd0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_001d1b60(a0, ((u32)(((u32)(*(u32*)((u32)(a0) + 44u)))) + (u32)(((u32)(*(u32*)((u32)(a0) + 576u))))), a2, a3);
-}
+u32 func_001d4fd0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001d4fd0: definition moved into src/anon/unit_001d4f40.cpp
 
-u32 func_001d5a20(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_001d5a48(a0, a1, a2, a3);
-}
+u32 func_001d5a20(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001d5a20: definition moved into src/anon/unit_001d4f40.cpp
 
-u32 func_001d68c0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_001d6850(0x00000001u, 0x0000ffffu, a2, a3);
-}
+u32 func_001d68c0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001d68c0: definition moved into src/anon/unit_001d63a8.cpp
 
 u32 func_001d9ce0(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_001d9ca0(0x00000001u, 0x0000ffffu, a2, a3);

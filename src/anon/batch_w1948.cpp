@@ -31,23 +31,7 @@ void func_001dbc58(O1d65f8*, T1d65f8*, V1d65f8*, V1d65f8*);
 void func_001ce618(void);
 extern V1d65f8 D_01d5ba78;
 extern V1d65f8 D_01d5ba88;
-void func_001d65f8(T1d65f8* self, void* a, void* b) {
-    u8 obj[80];
-    V1d65f8 v;
-    func_001c2858(obj, func_0016c028(self), a, b);
-    T1d65f8* s = self->p9f4->p9f4;
-    while (func_001c28f8(obj, &v, 1)) {
-    V1d65f8* sel = rnd_1d65f8(2) == 0 ? &D_01d5ba78 : &D_01d5ba88;
-    func_001a7610((u32)&v, (u32)&v, 4, 1000.0f, 200.0f);
-    v.y -= sel->z;
-    O1d65f8* o = func_001db888((u8*)s + 20, 96, __builtin_return_address(0));
-    func_001dbc58(o, s, &v, sel);
-    o->v40 = sub_1d65f8(v, *func_0016c028(self));
-    o->v40.w = 1.0f;
-    o->owner = self;
-    o->cb = (void*)func_001ce618;
-    }
-}
+void func_001d65f8(T1d65f8* self, void* a, void* b);  // 0x001d65f8: definition moved into src/anon/unit_001d63a8.cpp
 }
 
 extern "C" {

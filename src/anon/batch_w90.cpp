@@ -322,23 +322,7 @@ u32 func_0017df58(s32);
 s32 func_0017e280(u32);
 u8* func_00176b58(u8);
 s32 func_0017e310(void*);
-s32 func_001d3e40(u8* self)
-{
-    if (func_00170978(func_001d3f98(self)) != 2) return 0;
-    if (*(u32*)(self + 36) && !func_001a9758(*(u32*)(self + 36), 0)) return 0;
-    for (s32 i = 0; i < 2; i++) {
-        u32 o = func_0017df58(i);
-        if (func_0019ba60((void*)o) && !func_0017e280(o)) return 0;
-    }
-    for (s32 i = 0; i < 3; i++) {
-        u8 c = self[1 + i];
-        if (c) {
-            u8* p = func_00176b58(c);
-            if ((*(u32*)(p + 1416) & 0x4000) && !func_0017e310(p)) return 0;
-        }
-    }
-    return 1;
-}
+s32 func_001d3e40(u8* self);  // 0x001d3e40: definition moved into src/anon/unit_001d3c08.cpp
 
 // 001d5f30: add points and level up while the next threshold is reached.
 s32 func_001bbb28(void*);
@@ -348,23 +332,7 @@ Level* func_00189200(void*, u32);
 Level* func_001d5c10(u32, Level*);
 void func_001d5d80(void*, u32);
 void func_001b7468(void*);
-void func_001d5f30(u8* self, s32 add)
-{
-    if (func_001bbb28(self)) return;
-    u32 k = *(u32*)(self + 2896);
-    s32 up = 0;
-    Level* e = func_00189200(D_0032e020, k);
-    e->v += add;
-    for (;;) {
-        Level* nx = func_001d5c10(k, e);
-        if (!nx) { e->v = 0; break; }
-        if (e->v < nx->v) break;
-        func_001d5d80(self, k);
-        up = 1;
-        e->v -= nx->v;
-    }
-    if (up) func_001b7468(self);
-}
+void func_001d5f30(u8* self, s32 add);  // 0x001d5f30: definition moved into src/anon/unit_001d4f40.cpp
 
 // 001e2130
 void func_001e0e50(void*);

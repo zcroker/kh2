@@ -186,11 +186,7 @@ void func_001bde58(u8* p) {
     func_00190128(p + 12);
 }
 
-void func_001d6538(void** p) {
-    func_001ce378(p);
-    *p = D_00352780;
-    *(void**)((u8*)p + 0x9f8) = D_01d5ba78;
-}
+void func_001d6538(void** p);  // 0x001d6538: definition moved into src/anon/unit_001d63a8.cpp
 
 u8 func_001d7980(u32 a) {
     u8* t = D_01d5ba9c;
