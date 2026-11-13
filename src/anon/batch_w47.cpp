@@ -89,16 +89,7 @@ void func_00173f08(u32* p) {
 s32 func_0017df70(void);
 u8* func_0016e920(s32);
 u32 func_0016f7d0(s32, u8*);
-s32 func_0017dfc8(void) {
-    s32 r = func_0017df70();
-    if (r) {
-        u8* o = func_0016e920(r);
-        if (*(u16*)(o + 76) == 8) {
-            if (func_0016f7d0(r, o) < 2) r = 2077;
-        }
-    }
-    return r;
-}
+// 0017dfc8: moved to src/yasui/libys/friend.cpp
 
 void func_002cbca0(Vec4*, u32, Vec4*, u8*);
 Vec4* func_001850a0(Vec4* out, u8* p) {
@@ -352,24 +343,11 @@ s32 func_002ceb28(u32, u8*);
 extern void* D_0034e948;
 void func_0016ace0(u8*, Vec4*);
 void func_0016aeb8(u8*, f32);
-void func_002e31f0(u32 a, u8* b) {
-    if (!func_002ceb28(a, b)) return;
-    func_0016ace0(b, func_0016c028(D_0034e948));
-    func_0016aeb8(b, 3.1415927f);
-}
+// 002e31f0: moved to src/anon/unit_002e2f08.cpp
 
 extern Vec4 D_01e2be20;
 Vec4* func_002cb8e0(u8*);
-void func_002e3d48(u8** p) {
-    u8* o = *(u8**)(p[0] + 4);
-    if (!o) return;
-    o = *(u8**)(o + 1288);
-    if (!o) return;
-    Vec4* v = func_002cb8e0(o);
-    Vec4* d = &D_01e2be20;
-    if (v != d) QCOPY(d, v);
-    *p = (u8*)d;
-}
+// 002e3d48: moved to src/anon/unit_002e2f08.cpp
 
 // Destructor body: restores the two vtables around member teardown.
 extern u8 D_00363860[];

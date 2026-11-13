@@ -30,24 +30,7 @@ extern Ctl1 D_0032ba3c;
 void wtarget_00103ec0(u32, u32, u32, u32) asm("_Z16wtarget_00103ec0jjjj");
 void ctarget0_001a5a48(void) asm("_Z17ctarget0_001a5a48v");
 
-void wtarget_00103ec0(u32 a, u32 b, u32, u32) {
-    if (b == 0xffff && a == 1) {
-        D_0032b9e8.p = D_0032b930;
-        D_0032b9e8.f4 = 0;
-        D_0032b9e8.f8 = 77;
-        D_0032b9e8.f20 = 2;
-        D_0032b9e8.f24 = 0x222e0;
-        D_0032b9e8.f28 = 0;
-        D_0032b9e8.f32 = 0;
-        D_0032b9e8.f36 = 0;
-        D_0032b9e8.f40 = 4096;
-    }
-    if (b == 0xffff && a == 1) {
-        D_0032ba3c.a = 0;
-        D_0032ba3c.b = 0;
-        D_0032ba3c.c = 0;
-    }
-}
+// 00103ec0: static init, moved to src/common/unit_001031b0.cpp
 
 // GS GIFtag (two 64-bit words, bitfields).
 struct GifTag {
@@ -295,26 +278,9 @@ void func_001722e8(S172* s) {
     }
 }
 
-// Direction vector -> (pitch, yaw, 0, 1) angles.
-Vec4* func_0017d050(Vec4* out, Vec4* in) {
-    Vec4 t;
-    t = *in;
-    f32 len;
-    t.y = 0;
-    asm volatile("lqc2 $vf1, 0(%1)\n\tvmul.xyz $vf1, $vf1, $vf1\n\tvaddy.x $vf1, $vf1, $vf1y\n\tvaddz.x $vf1, $vf1, $vf1z\n\tvsqrt Q, $vf1x\n\tvwaitq\n\tcfc2.ni $8, $vi22\n\tmtc1 $8, %0"
-                 : "=f"(len) : "r"(&t) : "$8", "memory");
-    out->x = func_002f8ad0(-in->y, len);
-    out->y = func_002f8ad0(in->x, in->z);
-    out->z = 0;
-    out->w = 1.0f;
-    return out;
-}
+// 0017d050: moved to src/anon/unit_0017c400.cpp
 
-s32 func_00181a18(void) {
-    s32 r = 0;
-    if (!func_00181500(2071) || func_00181500(5163) || func_00181500(8216)) r = 1;
-    return r;
-}
+// 00181a18: moved to src/yasui/libys/progress.cpp
 
 void func_001835a0(u8* o, f32 d) {
     if (func_0019c400(o)) return;

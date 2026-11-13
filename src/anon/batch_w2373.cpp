@@ -20,17 +20,7 @@ extern s32 D_00361f60;
 extern u8 D_003628e8[];
 extern u8 D_003628f8[];
 
-/* 0017ca88: true when p has state flag 4/8/0x10, is not blocked (1416&2 && 2040&4), and the height at +208
-   exceeds 15 (or the reference at +212 plus 6 when that is set). */
-s32 func_0017ca88(void* self, u8* p)
-{
-    u8 m = ca88_anyFlag(*(u32*)(p + 352));
-    if (!m) return 0;
-    if ((*(u32*)(p + 1416) & 2) && (*(u32*)(p + 2040) & 4)) return 0;
-    f32 h = *(f32*)(p + 212);
-    if (h == 0.0f) return 15.0f < *(f32*)(p + 208);
-    return h + 6.0f < *(f32*)(p + 208);
-}
+// 0017ca88: moved to src/anon/unit_0017c400.cpp
 
 /* The always_inline helper (argument b = a + 0xba0 passed in) reproduces the original's saved-but-unused s4. */
 static inline __attribute__((always_inline)) void db968_draw(s32 b, s32 a, s32 mode, void* tex, s32 g) {

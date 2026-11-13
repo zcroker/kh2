@@ -28,6 +28,7 @@ src/sasa/musical_target.cpp	0022b558	0022b7f0	.data@0035e298,.rodata@00371134	-G
 src/sasa/event_movie.cpp	0022ba08	0022bda0	.data@0035e2ec,.rodata@00371150	-G0
 src/sasa/event_countdown.cpp	0022bda0	0022c4b8	.data@0035e2f0,.rodata@00371178	-G0
 src/sasa/event_layout.cpp	0022c4b8	0022d358	.bss@01dad960,.rodata@00371190	-G0
+src/anon/unit_002e2f08.cpp	002e2f08	002e3f38	.data@00362f48,.bss@01e2be20,.rodata@00375f60	-G0
 src/anon/unit_002eae08.cpp	002eae08	002eaf38	.data@003634e8,.rodata@003760d8	-G0
 src/anon/unit_002eaf38.cpp	002eaf38	002ec5f8	.rodata@003760e0	-G0 -fno-strict-aliasing
 src/anon/unit_002ec5f8.cpp	002ec5f8	002ecd98	.bss@01e2c040,.rodata@00376160	-G0
@@ -47,6 +48,7 @@ src/anon/unit_002e7658.cpp	002e7658	002e7ae0	.data@01e2bf10,.rodata@00376070	-G0
 src/global/unit_001022c0.cpp	001022c0	00102a70	-	-G0
 src/common/unit_00102a70.cpp	00102a70	00102d10	-	-G0 -fno-strict-aliasing
 src/common/title.cpp	00102d10	00103100	.data@0032b9a0,.rodata@00369d88	-G0 -g
+src/common/unit_001031b0.cpp	001031b0	00103f68	-	-G0 -fno-strict-aliasing
 src/anon/unit_001dbbe0.cpp	001dbbe0	001dbfd0	.data@00352ad0,.bss@01d5bab0,.rodata@0036e7b0	-G0
 src/anon/unit_001e0398.cpp	001e0398	001e0808	.data@00352b60,.rodata@0036e854	-G0 -g -fno-strict-aliasing
 src/anon/unit_001b82d8.cpp	001b82d8	001b87a0	.bss@01d48cc0,.rodata@0036db48	-G0
@@ -90,6 +92,14 @@ src/common/shop.cpp	00105c68	00105ee8	.data@0033cb80,.rodata@00369f50	-G0
 src/harata/libdk/mapfile.cpp	001491a8	00149be8	.rodata@0036afb8	-G0
 src/harata/libdk/area.cpp	00149be8	00149fa8	.data@00348d68	-G0
 src/yasui/libys/file.cpp	00168218	00168aa0	.data@0034d800,.bss@004f5280	-G0 -g -fmove-all-movables -fno-strict-aliasing
+src/yasui/libys/party.cpp	00175670	00177dc8	.rodata@0036c4ac	-G0 -fno-strict-aliasing
+src/anon/unit_0017bf40.cpp	0017bf40	0017c290	.rodata@0036c500	-G0
+src/anon/unit_0017c400.cpp	0017c400	0017d968	.rodata@0036c50c	-G0 -fno-strict-aliasing
+src/yasui/libys/friend.cpp	0017d968	0017e858	.bss@01c60520,.rodata@0036c578	-G0 -g
+src/yasui/libys/motion.cpp	0017eb68	00180378	.data@0034ec60,.rodata@0036c5a0	-G0 -fno-strict-aliasing
+src/anon/unit_00180408.cpp	00180408	00180f28	.rodata@0036c5b8	-G0
+src/yasui/libys/progress.cpp	00180f28	00181ad0	.data@0034ec68,.rodata@0036c5f0	-G0 -fno-strict-aliasing
+src/yasui/libys/areadata.cpp	00181ad0	00182780	.data@0034ecc0,.bss@01c60530,.rodata@0036c7b8	-G0
 src/harata/libdk/fpscamera.cpp	0014e2c0	0014ecb8	.data@0034a3f0,.bss@004f3580,.rodata@0036b1e0	-G0 -fno-strict-aliasing
 src/harata/libdk/map.cpp	0015eba8	0015efa0	.rodata@0036b468	-G0
 src/harata/libdk/map_effect.cpp	0015f268	0015f7f0	.data@0034c6f0	-G0

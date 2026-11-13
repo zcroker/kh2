@@ -168,10 +168,7 @@ void func_001735b0(u8* p) {
     *(u8**)p = d;
 }
 
-// YS PARTY: play a party member's voice.
-void voice_part(void* self, int n) {
-    func_00198630(self, func_001afee8(func_0016a070(self), n), 0);
-}
+// 00176d68: moved to src/yasui/libys/party.cpp
 
 typedef int (*VFn4)(void*, u32, int, int);
 int func_00179f80(u8* p) {

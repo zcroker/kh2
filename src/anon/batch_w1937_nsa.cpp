@@ -42,18 +42,6 @@ namespace w1937_b {
 struct W1937V4 { f32 v[4]; };
 extern "C" {
 f32 func_002f8b30(f32, f32);
-f32* func_0017d748(f32* out, W1937V4* p, f32 t) {
-    s32 i = 0;
-    f32* p0 = p[0].v; f32* p1 = p[1].v; f32* p2 = p[2].v; f32* p3 = p[3].v;
-    f32 u = 1.0f - t;
-    for (; i < 3; i++) {
-        f32* o = &out[i];
-        *o = p0[i] * func_002f8b30(u, 3.0f)
-               + p1[i] * 3.0f * func_002f8b30(u, 2.0f) * t
-               + p2[i] * 3.0f * u * func_002f8b30(t, 2.0f)
-               + p3[i] * func_002f8b30(t, 3.0f);
-    }
-    return out;
-}
+// 0017d748: moved to src/anon/unit_0017c400.cpp
 }
 }

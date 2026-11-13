@@ -20,57 +20,7 @@ static inline u32 W1621A(u8* p) { return *(u32*)(p + 0x160) & 4; }
 static inline u32 W1621B(u8* p) { return *(u32*)(p + 0x160) & 8; }
 static inline u32 W1621C(u8* p) { return *(u32*)(p + 0x160) & 0x10; }
 static inline bool W1621Any(u8* p) { return W1621A(p) || W1621B(p) || W1621C(p); }
-W1621Ent* func_00175c88(u8* p, W1621Msg* m)
-{
-    u8 buf[16];  /* unused local: the original frame has 16 bytes of locals (debug buffer?) */
-    *(u32*)(p + 0x10c) &= ~0x40000;
-    if (m->flags & 2) {
-        if (W1621Any(p) || *(s32*)(p + 0x154) == 5) {
-            W1621Obj* o = *(W1621Obj**)(p + 12);
-            ((W1621VFn)o->vt[8])(o, p, 1);
-        }
-    }
-    if (*(u32*)(p + 0x108) & 0x20000) {
-        if ((m->flags & 1) == 0)
-            *(u32*)(p + 0x108) = (*(u32*)(p + 0x108) & ~0x20000) | 0x40000;
-    }
-    if (*(u32*)(p + 0x10c) & 4) {
-        if (!(m->flags & 4))
-            *(u32*)(p + 0x10c) &= ~4;
-    }
-    if (func_00176868(p, m)) return 0;
-    if (m->flags & 8) {
-        if (((W1621Obj*)p)->vt[32](p)) return 0;
-    }
-    W1621Ent* r = p175c88_lookup(m->id);
-    if (r->kind == 0) return 0;
-    *(W1621Rec20*)(p + 0x9f4) = m->rec;
-    if (*(u32*)(p + 0x588) & 0x80) func_00178a50(p, r);
-    switch (r->kind) {
-    case 1: {
-        u8 x = (*(u32*)(p + 0x108) & 0x2000000) || (*(u32*)(p175c88_get_ability(p) + 0x14) & 0x2000);
-        if (func_00177ab8(p, x)) { ((W1621VFn)((W1621Obj*)p)->vt[31])(p); break; }
-        return 0;
-    }
-    case 0x16d:
-        if (func_00177ab8(p, 1)) { ((W1621VFn)((W1621Obj*)p)->vt[31])(p); break; }
-        return 0;
-    case 3:
-        func_00176dd8(p, r, &m->rec, 1);
-        break;
-    case 2:
-        if (!func_00177ab8(p, 1)) return 0;
-        *(u32*)(p + 0x490) = m->arg;
-        p[0xaf4] = ((u8*)m)[5];
-        func_0017a590(p, m->id);
-        break;
-    default:
-        ((W1621VFn)((W1621Obj*)p)->vt[38])(p, r);
-        break;
-    }
-    *(u32*)(p + 0x108) &= ~0x2000000;
-    return r;
-}
+// 00175c88: moved to src/yasui/libys/party.cpp
 }
 
 extern "C" {

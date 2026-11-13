@@ -187,49 +187,5 @@ void* func_001a90f0(u32);
 s32 func_0016f930(void*);
 
 static inline s32 W1986_hid(W1986Ob* o) { return o->p9b4 ? *o->p9b4 : -1; }
-void wtarget_00175f68(u32 a, u32 b, u32 c, u32 d) asm("_Z16wtarget_00175f68jjjj");
-void wtarget_00175f68(u32 a, u32 b, u32 c, u32 d)
-{
-    s32 nb = 0;
-    W1986Tg* t = func_00176b58(b);
-    s32 r;
-    s32 h;
-    u32 id;
-    s32 q;
-    if (t != 0) {
-        W1986Ob* o = t->obj[c];
-        r = o->vt->get(o);
-        h = W1986_hid(o);
-        nb = func_0019c5d0(o);
-        func_00185a28(o);
-        *(u32*)&t->obj[c] = 0;
-        id = t->ch->id;
-        if (id != 53 && (t->flags & 0x1000000) && c == 0) {
-            id = func_0016e920(func_001d1438(0))->id;
-        }
-    } else {
-        q = (s32)func_001a90f0(b);
-        r = func_0016f930((void*)q);
-        switch (r) {
-        case 2410:
-            h = 5;
-            break;
-        case 2420:
-            h = 6;
-            break;
-        default:
-            return;
-        }
-        r++;
-        id = func_0016e920((void*)q)->id;
-    }
-    func_001703a8(r);
-    q = func_00185890(id, d);
-    func_0016ef58(id, c, q, r, h);
-    func_00170888(a);
-    if (t == 0) return;
-    func_00176168(t, q, c);
-    if (nb == 0) t->obj[c]->vt->act(t->obj[c]);
-    if (func_00103b38()) func_001617d8();
-}
+// 00175f68: moved to src/yasui/libys/party.cpp
 }

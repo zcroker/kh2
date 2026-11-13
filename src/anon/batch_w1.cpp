@@ -101,10 +101,7 @@ void func_00172830(BD_VALUE* bd) {
     func_001b0700(*(u8**)((u8*)bd[0].p + 4) + 1184, bd[1].f);
 }
 
-// Decrement a byte counter, saturating at 0.
-void func_00177a58(u8* p) {
-    if (p[0xb04] != 0) p[0xb04]--;
-}
+// 00177a58: moved to src/yasui/libys/party.cpp
 
 void func_00179f58(void* p) {
     func_00179f10(p);
@@ -218,9 +215,7 @@ void func_00366db0(u32 a0) {
 }
 }
 
-f32 func_001826f8(u32, u32, u32, u32, u32, u32, u32, u32) {
-    return D_01c60540 / D_01c6053c;
-}
+// 001826f8: moved to src/yasui/libys/areadata.cpp
 
 void u_tail0_0015e038() {
     u8* p = D_0034b240;

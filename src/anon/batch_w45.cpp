@@ -152,47 +152,13 @@ void func_00171fa8(u32* a0) {
     func_00177460(s, func_0016cf00(D_0034d8a0, 0, a0[1], buf, n));
 }
 
-// count down a timer; release the handle when it expires (or when forced by flag 0x4000)
-void func_00176c68(u8* a0) {
-    u32 h = *(u32*)(a0 + 2788);
-    if (h) {
-        f32 t = *(f32*)(a0 + 2792) - D_00349e10;
-        *(f32*)(a0 + 2792) = t;
-        if ((*(u32*)(a0 + 352) & 0x4000) || t <= 0.0f) {
-            func_001dc840(h);
-            *(u32*)(a0 + 2788) = 0;
-        }
-    }
-}
+// 00176c68: moved to src/yasui/libys/party.cpp
 
-u8* func_0017c030(u8* out, u8* obj, void* a2, u8 flag) {
-    u8* src = obj + 16;
-    if (out != src) asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(out), "r"(src) : "$8", "memory");
-    *(f32*)(out + 4) = func_0016c460(obj, a2);
-    if (flag) *(u32*)(obj + 264) |= 0x10000;
-    return out;
-}
+// 0017c030: moved to src/anon/unit_0017bf40.cpp
 
-void func_0017c0a0(u32 a0, u8* obj, u8 flag) {
-    u8 tmp[16] __attribute__((aligned(16)));
-    u8 v[16] __attribute__((aligned(16)));
-    u32 w;
-    func_0017c030(tmp, obj, &w, flag);
-    asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(v), "r"(tmp) : "$8", "memory");
-    func_0017c4c8(obj, v);
-    func_0017f488(obj + 320, w, 0.0f, 0.0f);
-    *(u32*)(obj + 256) = 4;
-    *(u32*)(obj + 260) = 5;
-}
+// 0017c0a0: moved to src/anon/unit_0017bf40.cpp
 
-u32 func_0017edf0(u32* a0, s32 a1) {
-    if (a1 < 0 || a0[0] == 0) return 0;
-    if (a0[1]) {
-        u32 r = func_001a97b8(a0[1], a1);
-        if (r) return r;
-    }
-    return func_001a97b8(a0[0], a1);
-}
+// 0017edf0: moved to src/yasui/libys/motion.cpp
 
 void func_0019aa00(BF* a0, u8* a1) {
     if ((u8)a0->flag) return;
@@ -480,18 +446,7 @@ u8* func_002d6ec8(u8* out, u32 a1, u32 a2) {
     return out;
 }
 
-void func_002e3a78(u8** a0) {
-    u8* t = *(u8**)(a0[0] + 4);
-    if (t) {
-        u32 x = *(u32*)(t + 1288);
-        if (x) {
-            u8 tmp[16] __attribute__((aligned(16)));
-            func_002cbf08(tmp, x);
-            if (D_01e2be20 != tmp) asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(D_01e2be20), "r"(tmp) : "$8", "memory");
-            a0[0] = D_01e2be20;
-        }
-    }
-}
+// 002e3a78: moved to src/anon/unit_002e2f08.cpp
 
 void func_002e7f80(u32* a0) {
     u8 m[32] __attribute__((aligned(16)));

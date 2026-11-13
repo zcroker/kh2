@@ -240,16 +240,7 @@ void func_0017a600(u8* p) {
     }
 }
 
-Q16* func_0017c870(Q16* ret, u8* a1, u8* a2) {
-    union UF { u32 u; f32 f; };
-    ((UF*)(a2 + 208))->f += D_00349e10;
-    ((UF*)(a2 + 20))->u = 0;
-    Q16 t;
-    func_00184540(&t, a2);
-    if (ret != &t) QCOPY(ret, &t);
-    *(f32*)&ret->w[1] = func_0017c930(a1, a2);
-    return ret;
-}
+// 0017c870: moved to src/anon/unit_0017c400.cpp
 
 // Push a new entry onto the 16-slot ring buffer at +8.
 // 001882a8: moved to src/anon/unit_00185d10.cpp

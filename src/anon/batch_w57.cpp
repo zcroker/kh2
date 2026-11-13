@@ -145,17 +145,7 @@ void CacheBuffClear(s32 n) {
 
 void* func_001050c8(void);
 void func_00127c70(u32, void*, u32);
-void func_0017ee68(u8* t) {
-    u32 s = *(u32*)(*(u8**)(t + 8) + 1648);
-    if (*(u32*)(t + 208)) {
-        func_00127c70(s, func_001050c8(), *(u32*)(t + 208));
-        *(u32*)(t + 208) = 0;
-    }
-    if (*(u32*)(t + 212)) {
-        func_00127c70(s, func_001050c8(), *(u32*)(t + 212));
-        *(u32*)(t + 212) = 0;
-    }
-}
+// 0017ee68: moved to src/yasui/libys/motion.cpp
 
 struct B156 { u8 p[156]; u32 bit:1; };
 u32 func_00187e20(void);

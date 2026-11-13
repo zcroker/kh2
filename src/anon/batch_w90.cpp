@@ -171,19 +171,7 @@ void func_0017f488(void*, s32, f32, f32);
 void func_0017f5e0(void*, s32, s32, f32, f32);
 u8* func_00177860(void*);
 extern u8* D_00352130;
-s32 func_0017e138(u8* self, s32 n)
-{
-    *(u32*)(self + 2040) &= ~4;
-    u8* m = self + 320;
-    if (*(s32*)(m + 20) == 54) {
-        func_0017f488(m, 55, 8.0f, 0.0f);
-        func_0017f5e0(m, 0, 0, 0.0f, 0.0f);
-    }
-    u8* p = func_00177860(self);
-    f32 k = 1.0f;
-    if (!(*(u32*)(p + 16) & 8)) k = *(f32*)(D_00352130 + 84);
-    return (s32)((f32)n * k);
-}
+// 0017e138: moved to src/yasui/libys/friend.cpp
 
 // 00194318: step a fade level by +-16 (clamped 0..128) and apply it to two colour entries.
 u8* func_001bfd60(void*, u32);

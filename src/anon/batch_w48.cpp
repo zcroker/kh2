@@ -98,11 +98,7 @@ void func_00178220(void) {
 
 struct E1817 { s32 id; s32 a; s32 b; };
 extern E1817 D_0036c710[14];
-void func_001817f0(s32 id) {
-    for (E1817* e = D_0036c710; (s32)e < (s32)(D_0036c710 + 14); e++) {
-        if (e->id == id) func_0019ee80(e->a, e->b);
-    }
-}
+// 001817f0: moved to src/yasui/libys/progress.cpp
 
 s32 func_001c0cd8(void*);
 s32 func_0019c090(void*);  // obj_is_enabled
@@ -449,14 +445,7 @@ s32 func_002df0d8(VObj* o, u8* b) {
 
 Vq func_002cb7c8(u32, u32);
 extern Vq D_01e2be20;
-void func_002e3b88(u32* o) {
-    u8* p = *(u8**)(o[0] + 4);
-    if (!p) return;
-    u32 q = *(u32*)(p + 1288);
-    if (!q) return;
-    D_01e2be20 = func_002cb7c8(q, o[1]);
-    o[0] = (u32)&D_01e2be20;
-}
+// 002e3b88: moved to src/anon/unit_002e2f08.cpp
 
 void func_002e9d08(u32, u32, const Vq&, const Vq&, s32, s32, s32);
 void func_002e7c18(u32* o) {

@@ -112,36 +112,7 @@ static inline bool Is984Two() { return D_0032b984 == 2; }
 static inline bool Is9bcTwo() { return D_0032b9bc == 2; }
 static inline bool Isa64Two() { return D_0032ba64 == 2; }
 // Mode-dependent setup step, then common tail work.
-void func_001037f8(void* a0)
-{
-    s32 skip = 0;
-    func_00103ea0(0);  // set_hook_ptr
-    if (IsMode156(D_0032ba24) && Is984Two()) skip = 1;
-    else if (D_0032ba24 == 4 && Is9bcTwo()) skip = 1;
-    else if (D_0032ba24 == 2) skip = Isa64Two();
-    if (!skip) {
-        s32 r;
-        func_0014c9d8(1);
-        if (IsMode156(D_0032ba24)) {
-            if (D_003a6a50 != 10) { func_0014df88(); func_0014e0d8(); }
-            if (D_0032b968.f28) D_0032b968.f28 = 2;
-        } else if (D_0032ba24 == 2) {
-            func_0014df88(); func_0014e0d8();
-            if (D_0032ba48.f28) D_0032ba48.f28 = 2;
-        }
-        func_0023ed90();  // set_global_byte1
-        if (IsMode156(D_0032ba24)) r = func_001050c8();
-        else if (D_0032ba24 == 2) r = func_00104288();
-        else if (D_0032ba24 == 3) r = func_00104600();
-        else r = func_00102e90();
-        func_0023fb00(r);
-        func_00103c70();  // clear_hook_ptr
-        func_00103e78();
-    }
-    func_00102080(D_0032b9e8);
-    func_00167ea8();
-    func_001024a8(a0);
-}
+// 001037f8: moved to src/common/unit_001031b0.cpp
 }
 
 typedef unsigned int u128 __attribute__((mode(TI)));
@@ -430,29 +401,7 @@ s32 func_0017ca88(void*, Obj17*);
 s32 func_001958d0(Obj17*);
 s32 func_0017cb48(void*, Obj17*);  // can_run_when_268_bit0
 void func_0017cb78(void*, Obj17*);  // handle_field256_eq4
-// Animation-window step: fires the motor callbacks when the play time enters / leaves the active windows.
-void func_0017c690(void* self, Obj17* o)
-{
-    u64 unused[2]; // keeps the original's 48-byte frame
-    if ((o->mode & 4) && func_0017ca88(self, o) && func_001958d0(o)) return;
-    if (6.0f < o->t && o->t < o->end) {
-        if (o->flags & 0x400000) {
-            if (func_0017cb48(self, o)) func_0017cb78(self, o);  // can_run_when_268_bit0
-            ((MotorFn17)o->motor->vt[3])(o->motor, o, 0.0f);
-            o->fb.b17 = 0;
-            o->fb.b18 = 0;
-            if (o->mode & 4) o->f2480 = D_00352130->f4;
-        }
-    }
-    if ((o->flags & 0x40000) && 6.0f < o->t && o->t < o->end - 5.0f) {
-        if (func_0017cb48(self, o)) func_0017cb78(self, o);  // can_run_when_268_bit0
-        ((MotorFn17)o->motor->vt[3])(o->motor, o, 5.10204f);
-        o->fb.b18 = 0;
-    } else if (o->end <= o->t + 5.0f) {
-        if (func_0017cb48(self, o)) func_0017cb78(self, o);  // can_run_when_268_bit0
-        o->fb.b17 = 0;
-    }
-}
+// 0017c690: moved to src/anon/unit_0017c400.cpp
 }
 
 struct E18a { u8 b[276]; };

@@ -178,22 +178,12 @@ void func_0017a418(u8* p, s32 m) {
 
 // ---- 0017ce10: wrap an angle into [-pi, pi] (func_002f8b00 = fmodf)
 f32 func_002f8b00(f32, f32);  // to_2f9a38
-f32 FixRadian46(f32 x) {
-    if (0.0f < x) return func_002f8b00(x + 3.1415927f, 6.2831855f) - 3.1415927f;
-    return 3.1415927f - func_002f8b00(3.1415927f - x, 6.2831855f);  // to_2f9a38
-}
+// 0017ce10: moved to src/anon/unit_0017c400.cpp
 
 // ---- 0017fef0: move to the new position, accumulating the delta into rot and wrapping rot.w
 struct Obj17f { u8 pad[160]; Vq pos; Vq rot; };
 Vq func_0017fe10(Obj17f*);
-void func_0017fef0(Obj17f* p) {
-    Vq t = func_0017fe10(p);
-    Vq* rot = &p->rot;
-    Vq d = vsub46(t, p->pos);
-    vaddto46(*rot, d);
-    p->rot.w = FixRadian46(p->rot.w);
-    p->pos = t;
-}
+// 0017fef0: moved to src/yasui/libys/motion.cpp
 
 // ---- 00182f38
 struct E182 { u32 a, b, c; };
@@ -483,13 +473,7 @@ void func_002dd730(u8* p) {
 // ---- 002e3ce8
 extern Vq D_01e2be20;
 Vq* func_002cb8b8(u32);
-void func_002e3ce8(u8** p) {
-    u8* a = *(u8**)(*p + 4);
-    if (a && *(u32*)(a + 1288)) {
-        D_01e2be20 = *func_002cb8b8(*(u32*)(a + 1288));
-        *(Vq**)p = &D_01e2be20;
-    }
-}
+// 002e3ce8: moved to src/anon/unit_002e2f08.cpp
 
 // ---- 002eecd0: destructor body (derived vtable, cleanup, base vtable)
 extern u8 D_00363860[];

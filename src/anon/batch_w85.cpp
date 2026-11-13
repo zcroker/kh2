@@ -770,22 +770,7 @@ static inline u32 it180_on(It180* e) { return e->flags & 1; }
 s32 func_0011c230(It180*);
 u16 func_0011c228(It180*);
 void func_0016c698(void*, u16, It180*);
-void func_00180a10(Obj180* o, It180* it) {
-    u16 old[16];
-    s32 i, j, n = o->n;
-    for (i = 0; i < n; i++) old[i] = o->ids[i];
-    o->n = 0;
-    while (!func_0011c230(it)) {
-        if ((u8)it180_on(it)) {
-            u16 id = func_0011c228(it);
-            o->ids[o->n++] = id;
-            for (j = 0; j < n; j++) if (old[j] == id) goto next;
-            func_0016c698(o->f8, id, it);
-        }
-    next:
-        it++;
-    }
-}
+// 00180a10: moved to src/anon/unit_00180408.cpp
 
 extern u8* D_00352130;
 u32 func_0019fdb0(u8*);

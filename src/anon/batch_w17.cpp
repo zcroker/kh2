@@ -10,10 +10,7 @@ extern u32 D_0032b91c;
 extern u8 D_0032ba28;
 void func_00102788(u32, u32, u32, void*);
 void func_001037f8(void);
-void func_001037b8(void) {
-    func_00102788(D_0032b91c, 0, 0x50910, (void*)func_001037f8);
-    D_0032ba28 = 1;
-}
+// 001037b8: moved to src/common/unit_001031b0.cpp
 
 extern u32 D_00346e80;
 void func_00113668(void*);

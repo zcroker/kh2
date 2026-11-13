@@ -532,14 +532,7 @@ Vec4 func_002cba88(u32, s32, const Vec4&, f32, f32);
 extern Vec4 D_01e2be20;
 
 // 002e3540
-void func_002e3540(u8** o)
-{
-    u8* s = *(u8**)(*o + 4);
-    if (!*(u32*)(s + 1288)) return;
-    s32 v = func_0016c028(s);  // obj_get_attach_or_alt
-    D_01e2be20 = func_002cba88(*(u32*)(s + 1288), v, func_0016af58(s), *(f32*)(o + 1), 1.0f);
-    *o = (u8*)&D_01e2be20;
-}
+// 002e3540: moved to src/anon/unit_002e2f08.cpp
 
 s32 func_00253918(void);
 s32 func_002537c8(s32);

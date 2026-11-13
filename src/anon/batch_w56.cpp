@@ -123,13 +123,7 @@ void func_0016e000(f32* a)
 // 0017cb78
 void func_0017f488(u8*, s32, f32, f32);
 void func_00180c88(u8*, s32, f32);
-void func_0017cb78(void* unused, u8* p)
-{
-    s32 s = *(s32*)(p + 256);
-    if (s == 4) func_0017f488(p + 320, 4, 8.0f, 0.0f);
-    else if (s >= 0) func_00180c88(p + 320, s, 8.0f);
-    *(u32*)(p + 268) &= ~1;
-}
+// 0017cb78: moved to src/anon/unit_0017c400.cpp
 
 // 001884d0
 union U188 { u16 h; u32 w; };

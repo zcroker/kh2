@@ -22,29 +22,6 @@ V1893 func_001a7888(V1893*, s32, f32, f32);
 s32 func_001050d8(s32);
 f32 func_002f8ad0(f32, f32);
 void func_0010c078(f32, s32, s32, V1893*);
-s32 func_0017e4f8(void* a, V1893* t, f32 h, f32 x, f32 y) {
-    V1893 p;
-    V1893 q;
-    V1893 r;
-    V1893* pq = &q;
-    if (a == 0) return 0;
-    s32 k = func_0016e920();
-    p = *func_0016c028(D_0034e948);
-    p.y -= h;
-    if (t != 0) {
-        *pq = *t;
-        pq->y -= h;
-        if (func_001a75d8(&p, pq, 0x10000)) {
-            *pq = *t;
-            goto done;
-        }
-    }
-    *pq = func_001a7888(&p, 0x10000, x, y);
-done:
-    r = p - *pq;
-    s32 o = func_001050d8(0xd00);
-    func_0010c078(func_002f8ad0(r.x, r.z), o, k, pq);
-    return o;
-}
+// 0017e4f8: moved to src/yasui/libys/friend.cpp
 
 }

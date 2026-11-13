@@ -36,21 +36,10 @@ struct W1784It { u8 b0; u8 b1; u8 f : 1; u8 : 7; bool ok() { return !f; } };
 struct W1784Iter { void* p; u32 type; };
 extern "C" {
 void func_0017c430(W1784C4*, f32);
-void func_0017c4c8(W1784C4* c, W1784QV* v) {
-    func_0017c430(c, v->y);
-    v->y = 0.0f;
-    f32 w = v->w;
-    w1784_norm(v);
-    c->dir = w1784_scale(v, w);
-    c->dir.w = 1.0f;
-}
+// 0017c4c8: moved to src/anon/unit_0017c400.cpp
 f32 func_0017ce10(void);
 W1784QM func_0017d1d8(f32, void*);
-W1784QV func_0017d698(const W1784QV& v, void* p) {
-    W1784QM m;
-    m = func_0017d1d8(func_0017ce10(), p);
-    return m * v;
-}
+// 0017d698: moved to src/anon/unit_0017c400.cpp
 void* func_001b9bc8(void*);
 s32 func_0019bc38(void*);
 W1784It* func_0016bba8(void*, s32, W1784It*);

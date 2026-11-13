@@ -75,14 +75,7 @@ void func_00103ea0(s32);  // set_hook_ptr
 extern void (*D_0032ba34)(void);
 extern s32 D_0032ba04;
 // run the registered hook if any, otherwise set the state to 3
-void func_001039f8(void) {
-    if (D_0032ba34) {
-        D_0032ba34();
-        func_00103ea0(0);  // set_hook_ptr
-        return;
-    }
-    D_0032ba04 = 3;
-}
+// 001039f8: moved to src/common/unit_001031b0.cpp
 
 struct Link64 {
     s16 a;
@@ -226,14 +219,7 @@ void func_0017a718(void* p) {
 }
 
 f32 func_0017ce10(f32);
-f32 func_0017ce80(f32 a, f32 b, f32 c) {
-    f32 d = b - a;
-    f32 x;
-    if (func_0017ce10(d) < -c) x = a - c;
-    else if (c < func_0017ce10(d)) x = a + c;
-    else x = a + func_0017ce10(d);
-    return func_0017ce10(x);
-}
+// 0017ce80: moved to src/anon/unit_0017c400.cpp
 
 f32 func_001db510(void*);
 s32 func_0018c490(u8* p) {

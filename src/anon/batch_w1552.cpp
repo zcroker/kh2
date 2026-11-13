@@ -93,19 +93,6 @@ void func_00325158(u8* p) {
 f32 func_0017d130(f32);
 void func_0017c400(u8*, s32);
 struct J_17c430 { u8 pad[0xd0]; f32 d0, d4, d8, dc; };
-void func_0017c430(J_17c430* a0, f32 x) {
-    if (0.0f <= x) {
-        a0->d0 = 0.0f;
-        a0->d8 = 0.0f;
-        a0->dc = -x;
-        a0->d4 = func_0017d130(x);
-    } else {
-        a0->dc = 0.0f;
-        a0->d0 = __builtin_sqrtf(x * -2.0f / 0.40816325f);
-        a0->d8 = x;
-        a0->d4 = 0.0f;
-    }
-    func_0017c400((u8*)a0, 1);
-}
+// 0017c430: moved to src/anon/unit_0017c400.cpp
 
 }

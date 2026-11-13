@@ -39,42 +39,7 @@ void func_00101d68(void) {
     }
 }
 
-void func_00103a40(void) {
-    u8* s0;
-
-    if (func_00105300() == 0) {
-        if (func_00103c90() == 0) {  // get_hook_ptr
-            u32 t = D_0032ba24;
-            if (t == 1 || t == 5 || t == 6) {
-                if (D_003a6a50 != 10) {
-                    func_0014df98();  // zero_global_byte
-                }
-            }
-        }
-    }
-
-    func_0023fb28();
-    D_0032ba1c = func_001384c0();  // get_global_347e08
-    func_001ddc48();
-    func_001e0328();
-
-    if (func_00103c90() != 0) {  // get_hook_ptr
-        func_00103ca0();
-        func_00167ea8();
-    }
-
-    s0 = (u8*)&D_0032b968;
-    if (*(u32*)(s0 + 28) == 0) {
-        s0 = (u8*)&D_0032ba48;
-        if (*(u32*)(s0 + 28) == 0) {
-            return;
-        }
-    }
-
-    func_0023d368();
-    func_00167ea8();
-    *(u32*)(s0 + 28) = 1;
-}
+// 00103a40: MENU::finalize, moved to src/common/unit_001031b0.cpp
 
 // 00104910: moved to src/common/area.cpp
 

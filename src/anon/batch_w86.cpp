@@ -356,19 +356,7 @@ static inline bool Flag(Obj* o)
 extern "C" {
 double func_00313b80(f32);  // float_to_double
 s32 func_003142e0(double, double);  // double_compare
-s32 func_00175bb8(Obj* o)
-{
-    QWord v = o->pos;
-    bool ok = false;
-    if (0.0f < v.v[3] && (func_003142e0(func_00313b80(v.v[0]), 0.0) != 0 || v.v[2] != 0.0f)) ok = true;
-    bool no = !ok;
-    if (no) return 0;
-    if (Flag(o)) return 1;
-    if (!(o->info->f8 & 0x100)) return 0;
-    s32 zero = 0;
-    s32 neg = o->f352 < zero;
-    return neg == 0;
-}
+// 00175bb8: moved to src/yasui/libys/party.cpp
 }
 }
 

@@ -153,10 +153,7 @@ void func_00172a10(u32* p) {
     func_0016c018(*(u32*)(p[0] + 4), p[1], p[2]);
 }
 
-void func_00177a78(u8* p) {
-    func_00177a38(p);
-    if (p[2821] < 100) p[2821]++;
-}
+// 00177a78: moved to src/yasui/libys/party.cpp
 
 void func_0018fe48(u32* p) {
     p[0] = func_001b58f0(p[0], p[1], p[2], 0);

@@ -18,24 +18,7 @@ u32 mo_start_num_w256(M256*, s32) asm("_ZN2YS6MOTION9start_numEiff");
 s32 mo_is_exist_w256(M256*, s32) asm("_ZN2YS6MOTION8is_existEi");
 s32 mo_push_w256(M256*, s32, f32, f32, void*) asm("_ZN2YS6MOTION4pushEiffPFvPNS_3OBJEE");
 
-s32 func_0017f268(M256* m, s32 a1, f32 x, f32 y) {
-  s32 k = func_0017ec98(m, a1);
-  if (func_0017ebc8(m) && !a1) {
-    u32 v = mo_start_num_w256(m, k);
-    u32 t = m->i28;
-    if ((t < 2 && v - 2 < 2) || (t - 2 < 2 && v < 2)) {
-      if (mo_is_exist_w256(m, 6)) {
-        func_0017f268(m, 6, 0.0f, 0.0f);
-        mo_push_w256(m, 0, 0.0f, 0.0f, 0);
-        goto one;
-      }
-    }
-  }
-  if (!func_0017f178(m, k, x, y)) return 0;
-  m->i20 = a1;
-one:
-  return 1;
-}
+// 0017f268: moved to src/yasui/libys/motion.cpp
 
 
 extern u32 D_0035ee60, D_0035ee68, D_0035ee6c, D_0035ee7c, D_0035ee78, D_0035ee80;

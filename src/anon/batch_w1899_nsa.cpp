@@ -123,45 +123,7 @@ u32 func_001b0580(u8*);
 void func_0011c4e8(u32, u8*, W1638Anim*, u32, W1638Node*, u32, f32);
 void func_00180b98(W1638Motion*);
 void func_00180e28(W1638Motion*);
-void func_0017f938(W1638Motion* m) {
-    u32 model = *(u32*)(m->obj + 0x670);
-    if (m->fstop) {
-        func_0017ee68(m);
-        if (m->has_hold()) {
-            W1638Mtx mtx;
-            W1638Node nodes[16];
-            if (m->f104 & 2) {
-                m->fd0 = W1638_copy_pose(model, W1638_get_allocator());
-                W1638_identity(&mtx);
-                mtx.t.x = -m->prev.x;
-                mtx.t.y = m->prev.y;
-                mtx.t.z = m->prev.z;
-                mtx = W1638_rotateY(&mtx, m->prev.w);
-                func_00124b10(m->fd0, &mtx);
-            }
-            func_001808c0(m, nodes);
-            func_0011c4e8(model, m->obj + 0x40, m->anim, func_001b0580(m->obj + 0x4a0), nodes, 0, m->loop_start);
-            m->fd4 = W1638_copy_pose(model, W1638_get_allocator());
-            if (!(m->f104 & 2)) m->fd0 = W1638_copy_pose(model, W1638_get_allocator());
-            W1638_matrix_swap(model);
-        } else {
-            func_0017fff8(m);
-        }
-        func_0017fdf8(m);
-        m->fstop = 0;
-    }
-    func_0017fef0(m, m->time);
-    m->prev = m->pos;
-    m->fb7 = 1;
-    func_00180b98(m);
-    func_00180e28(m);
-    if (m->fb13) {
-        m->fb13 = 0;
-        m->fb12 = 1;
-    } else {
-        m->fb12 = 0;
-    }
-}
+// 0017f938: moved to src/yasui/libys/motion.cpp
 }
 
 extern "C" {

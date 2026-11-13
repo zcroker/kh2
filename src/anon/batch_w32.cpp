@@ -117,12 +117,7 @@ void AreaExit(void) {
     func_00197be8();
 }
 
-// min(count, limit) with the limit re-fetched.
-s32 func_00177ba0(u8* p) {
-    u8 v = p[0xb04];
-    if (v < func_00177860(p)->limit) return p[0xb04];
-    return func_00177860(p)->limit;
-}
+// 00177ba0: moved to src/yasui/libys/party.cpp
 
 void wtarget_00178280(void*, u32, u32, u32) asm("_Z16wtarget_00178280jjjj");
 void wtarget_00178280(void* a0, u32, u32, u32) {

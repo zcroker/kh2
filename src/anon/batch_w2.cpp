@@ -306,12 +306,7 @@ namespace YS {
 struct OBJ;
 }  // namespace YS
 
-// YS::OBJ::VTABLE<YS::FRIEND>::pre_exec(YS::OBJ*): common pre-step + PARTY pre_exec.
-void friend_pre_exec(YS::OBJ* o) asm("_ZN2YS3OBJ6VTABLEINS_6FRIENDEE8pre_execEPS0_");
-void friend_pre_exec(YS::OBJ* o) {
-    func_0017dcc0(o);
-    func_00175af8(o);  // YS::PARTY::_OVR_pre_exec
-}
+// 0017dc98: moved to src/yasui/libys/friend.cpp
 
 namespace YS {
 // Virtual slot 8 (byte offset 32) of the message object.
@@ -329,9 +324,7 @@ s32 trap_attack_get_type(BD_VALUE* v) {
 // 001a3868 (ITEM::GetCommandElem): moved to src/anon/unit_001a2a50.cpp
 }  // namespace YS
 
-f32 func_001826e0() {  // global_float_diff
-    return D_01c6053c - D_01c60540;
-}
+// 001826e0: moved to src/yasui/libys/areadata.cpp
 
 struct Vec3f { f32 x, y, z; };
 void wtarget_001efb18(u32 a0, u32 a1, u32, u32) {

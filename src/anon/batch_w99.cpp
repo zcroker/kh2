@@ -311,32 +311,7 @@ u8* func_001a1540(u32);
 u32 func_0016f6a0(u32, s32);
 void func_00176168(u8*, u32, s32);
 
-void func_0017da90(u8* p, u32 a, u32 b)
-{
-    s32 i = 0;
-    func_00175670(p, a, 1, b);
-    *(u32*)(p + 2872) = 0;
-    *(u32*)(p + 2880) = 0;
-    *(u32*)(p + 2884) = 0;
-    *(u8**)p = D_0034ebc8;
-    p[2892] = 0;
-    for (; i < 2; i++) {
-        if (!D_01c60528[i]) break;
-    }
-    *(s32*)(p + 2888) = i;
-    D_01c60528[i] = (u32)p;
-    *(u32*)(p + 1416) |= 0x4000;
-    u8* r = func_001a1540(func_0016a070(p));
-    *(u8**)(p + 1164) = r;
-    if (r) *(u8**)(r + 604) = p;
-    f32 c = D_01c60520;
-    *(f32*)(p + 2876) = (c + c) * (f32)i - c;
-    for (i = 0; i < 2; i++) {
-        u32 v = func_0016f6a0(a, i);
-        if (v) func_00176168(p, v, i);
-    }
-    *(u32*)(p + 1896) |= 0x10;
-}
+// 0017da90: moved to src/yasui/libys/friend.cpp
 }
 
 // ---- 00180058
@@ -345,27 +320,7 @@ u8* func_00168b88(u32, s32, s32, s32);  // find_entry16_by_half_word
 void func_0017efa0(u8*, u32, f32, f32);
 void func_00180800(u8*, s32);
 
-void func_00180058(u8* p, u32 res, s8* id, u32 a, u32 b, s32* ref, f32 s)
-{
-    s32 i;
-    for (i = 0; i < 4; i++) {
-        u8* e = func_00168b88(res, -1, id[0] | (id[1] << 8) | (id[2] << 16) | (id[3] << 24), i);  // find_entry16_by_half_word
-        if (e && *(u32*)(e + 8)) {
-            *(u32*)(p + 240) = a;
-            *(u32*)(p + 36) |= 4;
-            *(u32*)(p + 252) = b;
-            *(u32*)(p + 256) = 0;
-            func_0017efa0(p, *(u32*)(e + 8), s, 0.0f);
-            func_00180800(p, i);
-            if (ref) {
-                *(u32*)(p + 328) = (u32)ref;
-                (*ref)++;
-            }
-            return;
-        }
-    }
-    func_0017efa0(p, 0, 0.0f, 0.0f);
-}
+// 00180058: moved to src/yasui/libys/motion.cpp
 }
 
 // ---- 00185770

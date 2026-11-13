@@ -174,15 +174,7 @@ void func_00173dc0(u32* v) {
 }
 
 // Story progress flag test (0xffff = none).
-u32 progress_CheckFlag(s32 f) {
-    u32 r = 0;
-    if (f != 0xffff) {
-        u32* row = D_0032d7c0[f >> 10];
-        f &= 0x3ff;
-        r = (row[(u32)f >> 5] & (1 << (f & 31))) != 0;
-    }
-    return r;
-}
+// 00181500: moved to src/yasui/libys/progress.cpp
 
 // 00198bd0: moved to src/anon/unit_00198b88.cpp
 

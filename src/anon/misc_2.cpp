@@ -106,9 +106,9 @@ u8 func_002df198(void* self) { return (u8)(*(u8*)((char*)self + 48)); }
 
 f32 func_002df1a0(void* self) { return (f32)(*(f32*)((char*)self + 36)); }
 
-void func_002e34b8(void* self) { *(s32*)((char*)self + 0) = 0; }
+// 002e34b8: moved to src/anon/unit_002e2f08.cpp
 
-void func_002e34c0(void* self, s32 v) { *(s32*)((char*)self + 0) = v; }
+// 002e34c0: moved to src/anon/unit_002e2f08.cpp
 
 void func_002e44b8(void* self) {}
 

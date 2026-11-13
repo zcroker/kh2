@@ -445,14 +445,7 @@ void func_002c5850(u8* p, u32 a, u32 b, u32 c) {
     *(u32*)(p + 2748) |= 0x10;
 }
 
-Ent32* func_002e3260(u8* p, u32 key, u32 id) {
-    s32 n = *(s32*)(p + 8);
-    Ent32* e = (Ent32*)(p + 16);
-    for (s32 i = 0; i < n; i++, e++) {
-        if (!key || !e->key || ((e->key & 0xffff0000) == (key & 0xffff0000) && e->id == id)) return e;
-    }
-    return 0;
-}
+// 002e3260: moved to src/anon/unit_002e2f08.cpp
 
 // 002eca38: moved to src/anon/unit_002ec5f8.cpp
 

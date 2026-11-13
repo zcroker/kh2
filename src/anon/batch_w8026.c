@@ -42,13 +42,4 @@ s32 func_0017ec98(struct Obj180*, s32);
 s32 func_0017edf0(struct Obj180*, s32);
 struct VObj* func_00180408(struct Obj180*, s32);
 f32 func_002f8b00(f32, f32);
-f32 func_00180448(struct Obj180* o, s32 n, f32 x, f32 y) {
-    s32 ok = (u32)(n - 1) < 2;
-    if ((u32)(o->mode - 1) < 2 && ok) {
-        f32 t = (o->base + D_00349e10 + x) / o->div;
-        struct VObj* v = func_00180408(o, func_0017edf0(o, func_0017ec98(o, n)));
-        f32 c = v->vt->get(v);
-        return func_002f8b00(c * t, c);
-    }
-    return y;
-}
+// 00180448: moved to src/anon/unit_00180408.cpp

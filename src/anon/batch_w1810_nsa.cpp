@@ -74,22 +74,7 @@ struct W1810Sub { u8 pad[0x14]; int a; u8 p2[4]; int b; u8 p3[0x10]; float f; };
 struct W1810Obj;
 struct W1810VT { void* p[15]; int (*f3c)(W1810Obj*); };
 struct W1810Obj { W1810VT* vt; u8 pad[4]; W1810S8* s8; };
-void func_00176168(W1810Obj* o, u32 id, int n)
-{
-    W1810Sub* s = (W1810Sub*)((u8*)o + 0x140);
-    int k;
-    if ((*(u32*)((u8*)o + 0x588) & 0x80) && func_0017a538(o) != 0 && n == 0) {
-        k = 2301;
-    } else {
-        k = o->vt->f3c(o);
-        k += n + 1;
-    }
-    u8* p = (u8*)w1810_area_alloc(0xa10);
-    func_00185468(p, w1810_getcharadata(id), o, o->s8->h, n, k);
-    ((u8**)((u8*)o + 0xaf8))[n] = p;
-    w1810_set_mode(p + 0x140, s->b);
-    func_0017f488((int)(p + 0x140), s->a, 0.0f, s->f);
-}
+// 00176168: moved to src/yasui/libys/party.cpp
 
 struct W1810Item { W1810Vec v; int m10; int m14; int m18; W1810Src* src; u8 p20[6]; u8 kind; };
 // 0018ce08: moved to src/yasui/libys/damage.cpp

@@ -239,31 +239,7 @@ static inline bool l287_idle(u8* o) {
     if (func_0019c090(o) || l287_flag(o)) b = true;
     return !b;
 }
-void func_0017dcc0(u8* o) {
-    R287 res;
-    if (*(u32*)(o + 2040) & 4) {
-        f32 dt = D_00349e10;
-        if (!func_001917b0()) dt *= *(f32*)(D_00352130 + 92);
-        *(f32*)(o + 2880) -= dt;
-        if (*(f32*)(o + 2880) <= 0.0f) func_0017de70(o);
-    }
-    if ((*(u32*)(o + 2040) & 4) && func_001b9d40(o)) {  // vtable_call_slot64_flags
-        if (l287_idle(o)) {
-            if (*(s32*)(o + 2884) == 0) *(s32*)(o + 2884) = func_001de168(func_001a3a78(), 14, 1, 1, 0, 0);  // scan_list_by_half
-            func_0017f540(o + 320, 54, 0.0f, 0.0f);
-            goto out;
-        }
-    }
-    if (*(s32*)(o + 340) != 54 && *(s32*)(o + 2884)) {
-        func_001dc818(*(s32*)(o + 2884));
-        *(s32*)(o + 2884) = 0;
-    }
-out:
-    if (*(s32*)(o + 2884)) {
-        func_0018a818(&res, o, func_0016bc20(o, 16, -1));
-        *func_001dc5f8(*(s32*)(o + 2884)) = res.b;
-    }
-}
+// 0017dcc0: moved to src/yasui/libys/friend.cpp
 }
 
 struct M287 {

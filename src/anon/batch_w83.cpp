@@ -103,23 +103,7 @@ s32 func_001a3570(s32);
 void func_00181178(s32);
 extern u8 D_0032f05a;
 
-void func_00181670(void) {
-    if (!func_00181500(11302)) {
-        if (func_00181500(11313) && func_001a3570(87) > 0) func_00181178(11302);
-        return;
-    }
-    if (!func_00181500(11303)) {
-        if (func_00181500(11316) && D_0032f05a >= 5) func_00181178(11303);
-        return;
-    }
-    if (!func_00181500(11304)) {
-        if (func_00181500(11319) && func_001a3570(87) >= 2) func_00181178(11304);
-        return;
-    }
-    if (!func_00181500(11309)) {
-        if (func_00181500(11322) && func_001a3570(23) >= 3) func_00181178(11309);
-    }
-}
+// 00181670: moved to src/yasui/libys/progress.cpp
 
 struct Name10 { u16 c[5]; };
 extern Name10 D_01c60530;
@@ -134,15 +118,7 @@ void* func_00170b30(s32);  // alloc_align128
 void func_001684c0(const char*, void*, s32, s32);
 
 // Load a named file into a 2 KB-aligned buffer unless it is already loaded.
-void func_00181ad0(const char* name) {
-    char buf[48];
-    if (func_001051a0(&D_01c60530, name)) return;
-    if (D_0034ecf4) func_00170c00(D_0034ecf4);
-    func_002fee78(buf, D_0036c7b8, func_00105140(name, 0));
-    D_0034ecf4 = func_00170b30((func_001688c8(buf) + 2047) & ~2047);  // alloc_align128
-    func_001684c0(buf, D_0034ecf4, 0, 0);
-    D_01c60530 = *(const Name10*)name;
-}
+// 00181ad0: moved to src/yasui/libys/areadata.cpp
 
 struct Info32 {
     u32 f0, f4, f8, f12;

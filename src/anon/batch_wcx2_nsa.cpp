@@ -238,41 +238,7 @@ void func_0014a138(s32);
 Loc103ca0 func_001cd520(void);
 Loc103ca0 func_00199718(u8, s32);
 void func_00104f58(Loc103ca0*, s32, s32, s32, s32);
-void func_00103ca0(void)
-{
-    s32 mode = D_0032ba2c;
-    Loc103ca0 l;
-    func_00103c70();
-    switch (mode) {
-    case 1:
-        func_00149fe0(-1, 0x80000000);
-        break;
-    case 3:
-        func_0014aa58(func_0014aba8(), 1, 0);
-        func_0014a138(0);
-        break;
-    case 2:
-        if (D_0032ba24 == 1) {
-            if (D_0032ba38.type == 0) {
-                l = func_001cd520();
-                func_00104f58(&l, 1, 0, 1, 0);
-            } else {
-                if (D_0032ba38.type == D_0032ba24) {
-                    l.a = D_0032ba38.a;
-                    l.b = D_0032ba38.b;
-                    l.c = D_0032ba38.c;
-                    l.ids = D_0032ba38.ids;
-                } else {
-                    l = func_00199718(D_0032ba38.f10, -1);
-                    l.c = D_0032ba38.c;
-                }
-                func_00104f58(&l, 1, 0, 0, 0);
-            }
-        }
-        break;
-    }
-    func_00103e78();
-}
+// 00103ca0: moved to src/common/unit_001031b0.cpp
 }
 
 extern "C" {

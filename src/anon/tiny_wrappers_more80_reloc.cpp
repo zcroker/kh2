@@ -115,17 +115,11 @@ extern u8 D_01e2a410;
 
 // 00102f08: moved to src/common/title.cpp
 
-u32 func_001031b0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_00102508((u32)&D_0039ea50, 0x00008000u, a2, a3);
-}
+// 001031b0: MENU::CreateTaskManager, moved to src/common/unit_001031b0.cpp
 
-u32 func_00103b48(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_00102788(((u32)(*(u32*)((u32)((u32)&D_00330000) - 17940u))), a0, a1, a2);
-}
+// 00103b48: moved to src/common/unit_001031b0.cpp
 
-u32 func_00103e78(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_002fde18((u32)&D_0032ba38, 0x00000000u, 0x0000000cu, a3);
-}
+// 00103e78: moved to src/common/unit_001031b0.cpp
 
 // 00104588: moved to src/common/gumimenu.cpp
 

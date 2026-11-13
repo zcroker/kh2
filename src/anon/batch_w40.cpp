@@ -16,18 +16,7 @@ extern u8 D_0032ba28;
 extern s32 D_0032ba20;
 extern u8 D_0032ba1c;
 
-void func_00103480(void) {
-    D_0032ba28 = 0;
-    func_00103ea0(0);  // set_hook_ptr
-    D_0032b9e8.f20 = (void*)func_00103100;
-    D_0032b9e8.f24 = (void*)func_001031d0;
-    func_00103500(-1);
-    func_00103c70();  // clear_hook_ptr
-    func_00103e78();
-    func_0023ed90();  // set_global_byte1
-    D_0032ba20 = -1;
-    D_0032ba1c = func_001384c0();  // get_global_347e08
-}
+// 00103480: moved to src/common/unit_001031b0.cpp
 
 void func_0014b290(u8*);
 extern void* D_00349da8[];

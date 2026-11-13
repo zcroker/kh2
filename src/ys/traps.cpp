@@ -479,7 +479,7 @@ namespace ryj {
 
 namespace Ti {
 
-void trap_eh22_path_move_before(BD_VALUE* bd) { Ti_MG_EHSidecar_MoveToBeforePoint(bd); }
+// 002e3e50: moved to src/anon/unit_002e2f08.cpp
 
 }  // namespace Ti
 
@@ -686,7 +686,7 @@ void trap_score_get(BD_VALUE* bd) { bd->i = YS_MINIGAME_GetScore(bd->i); }
 
 namespace Ti {
 
-void trap_eh22_path_get_point(BD_VALUE* bd) { bd->i = Ti_MG_EHSidecar_GetCurrentPoint(); }
+// 002e3ea8: moved to src/anon/unit_002e2f08.cpp
 
 }  // namespace Ti
 

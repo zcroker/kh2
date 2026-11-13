@@ -183,11 +183,7 @@ no:
     return r;
 }
 
-u32 func_00180408(void* a0, void* a1) {
-    u8* v;
-    if (a1 && (v = (u8*)func_00168b38(a1, 9, 0)) != 0) return *(u32*)(v + 8);  // entry_array_find_nth
-    return 0;
-}
+// 00180408: moved to src/anon/unit_00180408.cpp
 
 // 00188430: moved to src/anon/unit_00185d10.cpp
 void func_00188430(u8* p, u32 a1, u32 a2);

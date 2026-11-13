@@ -145,11 +145,7 @@ void trap_treasure_get(u32* v) {
     func_001382b8(func_001a8510());
 }
 
-void func_001775f8(void* p) {
-    func_001940f0(p, 2);
-    func_001940f0(p, 12);
-    func_001940f0(p, 22);
-}
+// 001775f8: moved to src/yasui/libys/party.cpp
 
 struct Args18 { u32* a; u32 b, c, d; f32 e, f; };
 void func_0018f248(Args18* p) {

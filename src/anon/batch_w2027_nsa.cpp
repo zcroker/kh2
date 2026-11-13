@@ -26,17 +26,7 @@ void func_002bef78(W2027Owner* p, W2027Pair v, W2027Tag w) {
 }
 
 /* Linked-list search: returns 1 when t is in the list at p+0x94. */
-u8 func_0017fdc0(u8* p, W2027Node* t) {
-    W2027List* l = (W2027List*)(p + 0x94);
-    W2027Node* n = 0;
-    s32 r;
-    while ((n = l->nx(n)) != 0) {
-        if (n == t) { r = 1; goto out; }
-    }
-    r = 0;
-out:
-    return r;
-}
+// 0017fdc0: moved to src/yasui/libys/motion.cpp
 
 /* func_00253b30 is a (char*, const char*) copy. Declaring it as the strcpy
    builtin gives the original argument order (a0 set before a1). */

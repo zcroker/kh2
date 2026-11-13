@@ -27,11 +27,7 @@ void func_0013f828(u32* t) {
 
 void func_00177a58(u32*);
 void func_00187018(u32*, u32, f32, u32, u32);
-void func_00176620(u32* a, u32 b) {
-    a[66] |= 0x2000000;
-    func_00177a58(a);
-    return func_00187018(a, b, -1.0f, 0, -1);
-}
+// 00176620: moved to src/yasui/libys/party.cpp
 
 extern u32 D_00350b70;
 void func_001ac970(u32*, u32, u32, u32, u32, u32, u32, u32);

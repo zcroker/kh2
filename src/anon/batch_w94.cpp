@@ -14,31 +14,7 @@ extern u8 D_01f18014[];
 extern u8 D_01f4a014[];
 
 // Sets up the menu allocator: uses the given buffer, or picks one by menu mode.
-void func_00103590(s32 lock, void* buf) {
-    if (buf) {
-        D_0032ba14 = buf;
-        D_0032ba30 = 1;
-        return;
-    }
-    s32 m = D_0032ba24;
-    u8* p;
-    if ((m == 1 && D_003a6a50 != 6) || m == 6) {
-        p = D_01f18014;
-        func_001036d0(p, 0xa0000);
-    } else if (D_003a6a50 == 6) {
-        p = D_01f4a014;
-        D_0032ba14 = func_00106178(p, 0x40000);
-        D_0032ba18 = func_00106178(p + 0x40000, 0x2e000);
-    } else if (m == 2) {
-        D_0032ba14 = func_00104288();
-        D_0032ba18 = 0;
-    } else {
-        p = func_00170b30(0xa0000);  // alloc_align128
-        D_0032ba14 = func_00106178(p, 0x38000);
-        D_0032ba18 = func_00106178(p + 0x38000, 0x68000);
-    }
-    D_0032ba30 = lock != 0;
-}
+// 00103590: moved to src/common/unit_001031b0.cpp
 }
 // ---- 00110500
 extern "C" {

@@ -1360,70 +1360,19 @@ extern "C" u32 func_001a9780(...);
 
 extern "C" u32 func_00170950(...);
 
-void func_0017ebf0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r15, r16;
-    r16 = r4;
-    r15 = *(volatile u32*)((u32)r4 + (s32)(0));
-    r4 = r15;
-    if (r15 != 0u) {
-        ((void(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_00170950)(r4, r5, r6, r7, r8, r9, r10, r11);
-        *(volatile u32*)((u32)r16 + (s32)(0)) = 0u;
-    }
-}
+// 0017ebf0: moved to src/yasui/libys/motion.cpp
 
 extern "C" u32 func_00168b88(...);  // find_entry16_by_half_word
 
-u32 func_00181ba8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r2, r15;
-    r15 = (u32)(0x0035u << 16);
-    r6 = r4;
-    r5 = (u32)((s32)0u + (12));
-    r7 = 0u;
-    r4 = *(volatile u32*)((u32)r15 + (s32)(-4876));
-    r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_00168b88)(r4, r5, r6, r7, r8, r9, r10, r11);
-    r15 = 0u;
-    if (r2 != 0u) {
-        r15 = *(volatile u32*)((u32)r2 + (s32)(8));
-    }
-    r2 = r15;
-    return r2;
-}
+// 00181ba8: moved to src/yasui/libys/areadata.cpp
 
 extern "C" u32 func_00168b88(...);  // find_entry16_by_half_word
 
-u32 func_00181be8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r2, r15;
-    r15 = (u32)(0x0035u << 16);
-    r6 = r4;
-    r5 = (u32)((s32)0u + (3));
-    r7 = 0u;
-    r4 = *(volatile u32*)((u32)r15 + (s32)(-4876));
-    r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_00168b88)(r4, r5, r6, r7, r8, r9, r10, r11);
-    r15 = 0u;
-    if (r2 != 0u) {
-        r15 = *(volatile u32*)((u32)r2 + (s32)(8));
-    }
-    r2 = r15;
-    return r2;
-}
+// 00181be8: moved to src/yasui/libys/areadata.cpp
 
 extern "C" u32 func_00168b88(...);  // find_entry16_by_half_word
 
-u32 func_00181c80(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r2, r15;
-    r15 = (u32)(0x0035u << 16);
-    r6 = r4;
-    r5 = (u32)((s32)0u + (22));
-    r7 = 0u;
-    r4 = *(volatile u32*)((u32)r15 + (s32)(-4876));
-    r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_00168b88)(r4, r5, r6, r7, r8, r9, r10, r11);
-    r15 = 0u;
-    if (r2 != 0u) {
-        r15 = *(volatile u32*)((u32)r2 + (s32)(8));
-    }
-    r2 = r15;
-    return r2;
-}
+// 00181c80: moved to src/yasui/libys/areadata.cpp
 
 extern "C" u32 func_00182780(...);
 extern "C" u32 func_00182838(...);
@@ -7420,25 +7369,12 @@ u32 duplicate_unplaced_001754d0(u32 a0) {
     return ((u32(*)(u32))func_001382b8)(r4);
 }
 
-void func_00176a60(u32 a0, u32 a1, u32 a2, f32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    *(volatile f32*)((u32)a0 + (s32)(2816)) = a3;
-}
+// 00176a60: moved to src/yasui/libys/party.cpp
 
 extern "C" u32 func_0016c7d8(...);
 extern "C" u32 func_0016cab8(...);
 
-void func_00177498(u32 a0) {
-    u32 r4 = a0, r16, r17;
-    r17 = r4;
-    r16 = *(volatile u32*)((u32)r4 + (s32)(2796));
-    r4 = r16;
-    if (r16 != 0u) {
-        ((void(*)(u32))func_0016cab8)(r4);
-        r4 = r16;
-        ((void(*)(u32))func_0016c7d8)(r4);
-        *(volatile u32*)((u32)r17 + (s32)(2796)) = 0u;
-    }
-}
+// 00177498: moved to src/yasui/libys/party.cpp
 
 
 u32 duplicate_unplaced_001775f8(u32 a0, u32 a1) {
@@ -11478,24 +11414,12 @@ void duplicate_unplaced_001751f8(u32 a0) {
 
 extern f32 D_00349e10;
 
-void func_00176a68(u32 a0) {
-    f32 f1 = *(f32*)((u32)a0 + (s32)(2816));
-    if (0.0f < f1) {
-        f32 f0 = *(f32*)((u32)&D_00349e10 + (s32)(0));
-        f0 = (f32)(f1 - f0);
-        *(f32*)((u32)a0 + (s32)(2816)) = f0;
-    }
-}
+// 00176a68: moved to src/yasui/libys/party.cpp
 
 extern "C" u32 func_0017df58(...);
 extern u8 D_0034e948;
 
-u32 func_00176b20(u32 a0) {
-    if (a0 != 0u) {
-        return func_0017df58((u32)((s32)a0 + (-1)));
-    }
-    return *(u32*)&D_0034e948;
-}
+// 00176b20: moved to src/yasui/libys/party.cpp
 
 extern "C" u32 func_0016a070(...);
 extern "C" u32 func_00198630(...);
@@ -11513,87 +11437,28 @@ void duplicate_unplaced_00176d68(u32 a0, u32 a1) {
 extern "C" u32 func_0016a070(...);
 extern "C" u32 func_001a3458(...);
 
-u32 func_00176e78(u32 a0, u32 a1, u32 a2) {
-    u32 v0 = 1u;
-    u32 t6 = *(u32*)((u32)a0 + (s32)(1416));
-    t6 = (u32)(t6 & 0x00400000u);
-    if (t6 == 0u) {
-        u32 s0 = a1;
-        if (a2 != 0u) {
-            v0 = func_001a3458(s0, func_0016a070());
-        }
-    }
-    return v0;
-}
+// 00176e78: moved to src/yasui/libys/party.cpp
 
 extern "C" u32 func_00185770(...);
 
-void func_001775a8(u32 a0) {
-    u32* s0 = (u32*)((u32)a0 + (s32)(2808));
-    for (s32 s1 = 1; s1 >= 0; --s1, ++s0) {
-        u32 t7 = s0[0];
-        if (t7 != 0u) {
-            func_00185770(t7);
-        }
-    }
-}
+// 001775a8: moved to src/yasui/libys/party.cpp
 
 extern "C" u32 func_00176b20(...);
 
-void func_001776a8(void) {
-    u32 s0 = 0u;
-    do {
-        u32 v0 = func_00176b20(s0);
-        s0 = (u32)(s0 + 1u);
-        if (v0 != 0u) {
-            u32 t7 = *(u32*)((u32)v0 + (s32)(0));
-            u32 t6 = *(u32*)((u32)t7 + (s32)(140));
-            ((void(*)(u32))(u32)t6)(v0);
-        }
-    } while ((s32)s0 < 3);
-}
+// 001776a8: moved to src/yasui/libys/party.cpp
 
 extern "C" u32 func_00176b20(...);
 
-void func_00177710(void) {
-    u32 s0 = 0u;
-    do {
-        u32 v0 = func_00176b20(s0);
-        s0 = (u32)(s0 + 1u);
-        if (v0 != 0u) {
-            u32 t7 = *(u32*)((u32)v0 + (s32)(0));
-            u32 t6 = *(u32*)((u32)t7 + (s32)(136));
-            ((void(*)(u32))(u32)t6)(v0);
-        }
-    } while ((s32)s0 < 3);
-}
+// 00177710: moved to src/yasui/libys/party.cpp
 
 extern "C" u32 func_00177860(...);
 extern "C" u32 func_001a1de0(...);
 
-u32 func_00177870(u32 a0) {
-    u32 s0 = a0;
-    u32 s1 = 0u;
-    u32 t7 = *(u32*)((u32)func_00177860() + (s32)(12));
-    t7 = (u32)(t7 & 0x0800u);
-    if (t7 != 0u) {
-        s1 = (u32)(0u < func_001a1de0(*(u32*)((u32)s0 + (s32)(1164))));
-    }
-    return s1;
-}
+// 00177870: moved to src/yasui/libys/party.cpp
 
 extern "C" u32 func_001778c0(...);
 
-u32 func_00177958(u32 a0) {
-    u32 s0 = a0;
-    u32 r = 0u;
-    if (func_001778c0(a0, 0u) != 0u) {
-        u32 t7 = *(u8*)((u32)s0 + (s32)(2821));
-        t7 = (u32)(t7 < 2u);
-        r = (u32)(t7 < 1u);
-    }
-    return r;
-}
+// 00177958: moved to src/yasui/libys/party.cpp
 
 extern "C" u32 func_001d6ba0(...);
 
@@ -11619,36 +11484,13 @@ u32 duplicate_unplaced_00179f80(u32 a0) {
     return ((u32(*)(u32,u32,u32,u32))*(u32*)((u32)t6 + (s32)(120)))(a0, a1, a2, 0u);
 }
 
-u32 func_0017cb48(u32 a0, u32 a1) {  // can_run_when_268_bit0
-    u32 v0 = 0u;
-    u32 t7 = *(u32*)((u32)a1 + (s32)(268));
-    t7 = (u32)(t7 & 1u);
-    if (t7 != 0u) {
-        t7 = *(u32*)((u32)a1 + (s32)(256));
-        if ((s32)t7 >= 0) {
-            t7 = *(u32*)((u32)a1 + (s32)(360));
-            t7 = (u32)(t7 & 0x10u);
-            v0 = (u32)(t7 < 1u);
-        }
-    }
-    return v0;
-}
+// 0017cb48: moved to src/anon/unit_0017c400.cpp
 
 extern "C" u32 func_0017ce10(...);
 extern "C" u32 cosf(...);
 extern "C" u32 sinf(...);
 
-u32 func_0017d0e8(u32 a0) {
-    u32 s0 = a0;
-    f32 f12 = ((f32(*)(u32))func_0017ce10)(a0);
-    *(f32*)((u32)s0 + (s32)(12)) = f12;
-    f32 f0 = ((f32(*)(f32))sinf)(f12);
-    *(f32*)((u32)s0 + (s32)(0)) = f0;
-    *(u32*)((u32)s0 + (s32)(4)) = 0u;
-    f0 = ((f32(*)(f32))cosf)(*(f32*)((u32)s0 + (s32)(12)));
-    *(f32*)((u32)s0 + (s32)(8)) = f0;
-    return s0;
-}
+// 0017d0e8: moved to src/anon/unit_0017c400.cpp
 
 extern "C" u32 func_001c9770(...);
 extern u32 D_01c60528;
@@ -11662,70 +11504,21 @@ void duplicate_unplaced_0017dec0() {
 
 extern "C" u32 func_0017e280(...);
 
-u32 func_0017e310(u32 a0) {
-    u32 s0 = a0;
-    u32 s1 = 0u;
-    if (func_0017e280(a0) != 0u) {
-        u32 t7 = *(volatile u32*)((u32)s0 + (s32)(2040));
-        t7 = (u32)(t7 & 4u);
-        s1 = (u32)(t7 < 1u);
-    }
-    return s1;
-}
+// 0017e310: moved to src/yasui/libys/friend.cpp
 
 extern "C" u32 func_0017df58(...);
 
-u32 func_0017e6d8() {
-    u32 s0 = 0u;
-    u32 t6;
-    do {
-        u32 v0 = func_0017df58(s0);
-        s0 = (u32)((s32)s0 + 1);
-        if (v0 != 0u) {
-            t6 = 1u;
-            break;
-        }
-        t6 = 0u;
-    } while ((s32)s0 < 2);
-    return t6;
-}
+// 0017e6d8: moved to src/yasui/libys/friend.cpp
 
 extern "C" u32 func_0017ec28(...);
 extern "C" u32 func_0017ec98(...);
 extern "C" u32 func_001a97b8(...);
 
-void func_0017ec30(u32 a0) {
-    u32 s0 = a0;
-    u32 v0 = func_0017ec98(a0);
-    v0 = func_001a97b8(*(u32*)((u32)s0 + (s32)(0)), v0);
-    a0 = s0;
-    if (v0 != 0u) {
-        func_0017ec28(a0, v0);
-        return;
-    }
-}
+// 0017ec30: moved to src/yasui/libys/motion.cpp
 
 extern "C" u32 func_0017ebc8(...);
 
-u32 func_0017eda8(u32 a0, u32 a1) {
-    u32 s0 = a1;
-    u32 v0 = func_0017ebc8(a0, a1);
-    u32 t6 = 0u;
-    if ((s32)s0 < 0) {
-        t6 = 1u;
-    }
-    u32 t7 = (u32)((s32)s0 + 3);
-    if (t6 == 0u) {
-        t7 = s0;
-    }
-    t6 = (u32)-1;
-    if (v0 != 0u) {
-        t7 = (u32)((s32)t7 >> 2);
-        t7 = (u32)(t7 << 2);
-        t6 = (u32)((s32)s0 - (s32)t7);
-    }
-    return t6;
-}
+// 0017eda8: moved to src/yasui/libys/motion.cpp
 
 extern "C" void func_0017fd30(u32, u32) asm("_ZN2YS6MOTION4syncEPS0_");
 
@@ -11742,89 +11535,29 @@ void duplicate_unplaced_001805e8(u32 a0) {
 
 extern "C" u32 func_00189d18(...);
 
-void func_001807a0(u32 a0) {
-    u32 a1 = a0;
-    u32 t7 = *(u32*)((u32)a0 + (s32)(16));
-    if (t7 != 0u) {
-        func_00189d18(t7, a1);
-    }
-}
+// 001807a0: moved to src/anon/unit_00180408.cpp
 
 extern "C" u32 func_001892b8(...);
 
-void func_001807d0(u32 a0) {
-    u32 a1 = a0;
-    u32 t7 = *(u32*)((u32)a0 + (s32)(16));
-    if (t7 != 0u) {
-        func_001892b8(t7, a1);
-    }
-}
+// 001807d0: moved to src/anon/unit_00180408.cpp
 
 extern "C" u32 func_002bc358(...);
 
-void func_00180c38(u32 a0) {
-    u32 s0 = (u32)((s32)a0 + (256));
-    s32 s1 = 7;
-    do {
-        u32 t7 = *(u32*)((u32)s0 + (s32)(8));
-        if (t7 != 0u) {
-            func_002bc358(t7, 10u);
-            *(u32*)((u32)s0 + (s32)(8)) = 0u;
-        }
-        s1 = (s32)(s1 - 1);
-        s0 = (u32)((s32)s0 + (8));
-    } while (s1 >= 0);
-}
+// 00180c38: moved to src/anon/unit_00180408.cpp
 
-void func_00180df8(u32 a0, u32 a1) {
-    u32 t7 = (u32)((s32)a0 + (396));
-    u32 t6 = *(u32*)((u32)t7 + (s32)(4));
-    if (t6 == 0u) {
-        *(u32*)((u32)t7 + (s32)(4)) = a1;
-        *(u32*)((u32)a0 + (s32)(396)) = a1;
-        *(u32*)((u32)a1 + (s32)(44)) = 0u;
-        return;
-    }
-    *(u32*)((u32)t6 + (s32)(44)) = a1;
-    *(u32*)((u32)a1 + (s32)(44)) = 0u;
-    *(u32*)((u32)t7 + (s32)(4)) = a1;
-}
+// 00180df8: moved to src/anon/unit_00180408.cpp
 
 extern "C" u32 func_00181500(...);
 
-u32 func_00181858(void) {
-    s32 s0 = (u32)0u;
-    if (func_00181500(2071u) == 0u) goto L1;
-    if (func_00181500(2076u) == 0u) goto L0;
-L1:
-    s0 = 1u;
-L0:
-    return (u32)s0;
-}
+// 00181858: moved to src/yasui/libys/progress.cpp
 
 extern "C" u32 func_00181500(...);
 
-u32 func_001818a0(void) {
-    s32 s0 = (u32)0u;
-    if (func_00181500(2071u) == 0u) goto L1;
-    if (func_00181500(2081u) == 0u) goto L0;
-L1:
-    s0 = 1u;
-L0:
-    return (u32)s0;
-}
+// 001818a0: moved to src/yasui/libys/progress.cpp
 
 extern "C" u32 func_00181500(...);
 
-u32 func_001818e8(void) {
-    s32 s0 = (u32)0u;
-    if (func_00181500(2071u) == 0u) goto L1;
-    if (func_00181500(2121u) == 0u) goto L0;
-L1:
-    s0 = 1u;
-L0:
-    return (u32)s0;
-}
+// 001818e8: moved to src/yasui/libys/progress.cpp
 
 extern "C" u32 func_00181500(...);
 
@@ -11850,21 +11583,11 @@ u32 duplicate_unplaced_00181a90(u32 a0) {
 
 f32 func_001826e0();  // global_float_diff
 
-u32 func_00182690(f32 f12) {
-    f32 f20 = f12;
-    if (f20 <= func_001826e0()) {  // global_float_diff
-        return 1u;
-    }
-    return 0u;
-}
+// 00182690: moved to src/yasui/libys/areadata.cpp
 
 extern u8 D_01c60540;
 
-void func_001826c8(f32 f12) {
-    f32 f0 = *(f32*)((u32)&D_01c60540 + (s32)(0));
-    f0 = (f32)(f0 + f12);
-    *(f32*)((u32)&D_01c60540 + (s32)(0)) = f0;
-}
+// 001826c8: moved to src/yasui/libys/areadata.cpp
 
 extern "C" u32 func_00199d38(...);
 
@@ -16467,65 +16190,13 @@ void func_002e13d8(u32 a0) {
     func_002e7108(*(u32*)(a0 + 112), *(f32*)(a0 + 120));
 }
 
-void func_002e3980(u32 a0) {
-    u32 t = *(u32*)(*(u32*)a0 + 4);
-    if (t != 0) {
-        u32 p = *(u32*)(t + 1288);
-        if (p != 0) {
-            ((void(*)(u32, f32))func_002cbd08)(p, *(f32*)(a0 + 4));
-        }
-    }
-}
+// 002e3980: moved to src/anon/unit_002e2f08.cpp
 
-void func_002e3b08(u32 a0) {
-    u32 p = *(u32*)(*(u32*)a0 + 4);
-    if (p == 0) {
-        return;
-    }
+// 002e3b08: moved to src/anon/unit_002e2f08.cpp
 
-    u32 q = *(u32*)(p + 1288);
-    if (q == 0) {
-        return;
-    }
+// 002e3b48: moved to src/anon/unit_002e2f08.cpp
 
-    if (*(u8*)(q + 135) == 0) {
-        return;
-    }
-
-    func_002cd290(q, p, 0);
-}
-
-void func_002e3b48(u32 a0) {
-    u32 p = *(u32*)(*(u32*)a0 + 4);
-    if (p == 0) {
-        return;
-    }
-
-    u32 q = *(u32*)(p + 1288);
-    if (q == 0) {
-        return;
-    }
-
-    func_002cb7c0(q, p, *(u32*)(a0 + 4));
-}
-
-void func_002e3be8(u32 a0) {
-    u32 p = *(u32*)(*(u32*)a0 + 4);
-    if (p == 0) {
-        return;
-    }
-
-    u32 q = *(u32*)(p + 1288);
-    if (q == 0) {
-        return;
-    }
-
-    if (*(u8*)(q + 135) == 0) {
-        return;
-    }
-
-    func_002cd260(q);
-}
+// 002e3be8: moved to src/anon/unit_002e2f08.cpp
 
 void func_002e40a8(u32 a0, u32 a1) {
     volatile f32* s = (volatile f32*)a1;
@@ -17044,16 +16715,7 @@ void func_00102158(u32* a0, u32 a1) {
     }
 }
 
-u32 func_001033b0(s32 a0) {
-    u32 v0 = 0;
-    if (a0 >= 100) {
-        v0 = 1;
-        if (a0 >= 900) {
-            v0 = 2;
-        }
-    }
-    return v0;
-}
+// 001033b0: Tz::MenuBase::Reset, moved to src/common/unit_001031b0.cpp
 
 void duplicate_unplaced_0010a800(u8* a0, u8* a1, u8* a2) {
     *a0 = D_00340ed0[0];

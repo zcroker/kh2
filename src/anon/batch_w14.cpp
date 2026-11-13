@@ -182,20 +182,9 @@ void func_001781e8(u8* p) {
     *(void**)(p + 2876) = 0;
 }
 
-// Number of decimal digits of n (0 for n <= 0).
-s32 func_0017d930(s32 n) {  // digit_count
-    s32 c = 0;
-    s32 t = 1;
-    while (t <= n) {
-        t *= 10;
-        c++;
-    }
-    return c;
-}
+// 0017d930: moved to src/anon/unit_0017c400.cpp
 
-s32 MOTION_is_exist(void* m, s32 i) {
-    return func_00180408(m, func_0017edf0(m, func_0017ec98(m, i))) != 0;
-}
+// 001805a8: moved to src/anon/unit_00180408.cpp
 
 void func_00189028(void* a, void* b, void* c, void* d) {
     func_00188948(func_00188fe0(a, b), c, d);
@@ -333,14 +322,7 @@ void func_002d4200(u8* p, void* a, void* b) {
 }
 
 // Skips n variable-length records (64 bytes + 12 per sub-entry) after a 16-byte header.
-u8* func_002e34d8(u8** p, s32 n) {  // list_walk_stride12
-    u8* q = *p;
-    q += 16;
-    if (n > 0) do {
-        q += q[10] * 12 + 64;
-    } while (--n);
-    return q;
-}
+// 002e34d8: moved to src/anon/unit_002e2f08.cpp
 
 // Returns a 64-byte block to the pool's free list.
 // 002e98b0: moved to src/sugi/flare.cpp

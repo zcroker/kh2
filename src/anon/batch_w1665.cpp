@@ -10,7 +10,7 @@ void wt_2cebc0(u32 a, u32 b, u32 c, u32 d) asm("_Z16wtarget_002cebc0jjjj");
 void wt_2dcea8(u32 a, u32 b, u32 c, u32 d) asm("_Z16wtarget_002dcea8jjjj");
 void wt_2dcea8(u32 a, u32 b, u32 c, u32 d) {}
 void wt_2e3ef0(u32 a, u32 b, u32 c, u32 d) asm("_Z16wtarget_002e3ef0jjjj");
-void wt_2e3ef0(u32 a, u32 b, u32 c, u32 d) {}
+// 002e3ef0: moved to src/anon/unit_002e2f08.cpp
 void wt_2e8b08(u32 a, u32 b, u32 c, u32 d) asm("_Z16wtarget_002e8b08jjjj");
 void wt_2e8b08(u32 a, u32 b, u32 c, u32 d) {}
 void wt_2e9200(u32 a, u32 b, u32 c, u32 d) asm("_Z16wtarget_002e9200jjjj");

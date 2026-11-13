@@ -22,25 +22,5 @@ static inline bool frozen(Obj17c930* o) { return flag20(o) || flag1000000(o); }
 static inline bool stopped(Obj17c930* o) { return frozen(o) || flag40(o); }
 static inline bool moving(Obj17c930* o) { return !stopped(o); }
 
-/* 0017c930: offset that follows sinf(sinf(t*pi/2)*pi/2) while t < len and a parabola
-   after it, measured from the current position (func_0016c028()->y) and clamped to scale * D_00349e10. */
-f32 func_0017c930(void* self, Obj17c930* o) {
-    if (moving(o)) {
-        f32 r;
-        f32 a = o->t; f32 b = o->len;
-        if (a < b) {
-            f32 t = a / b;
-            t = sinf(sinf(t * 3.14159274f * 0.5f) * 3.14159274f * 0.5f);
-            r = o->base + o->amp * t;
-        } else {
-            f32 t = a - b;
-            r = o->base + o->amp + t * 0x1.a1f58cp-2f * t * 0.5f;
-        }
-        f32 v = r - func_0016c028(o)->y;
-        f32 lim = o->scale * D_00349e10;
-        if (v < lim) return r - func_0016c028(o)->y;
-        return lim;
-    }
-    return 0.0f;
-}
+// 0017c930: moved to src/anon/unit_0017c400.cpp
 }

@@ -60,11 +60,5 @@ struct W230A { char p[4]; u16 h4; };
 void* func_0016a070(void*);
 void func_0017f488(void*, int, f32, f32);
 void func_0017f5e0(void*, int, int, f32, f32);
-void func_00176dd8(W230T* t, W230A* a1, void** a2, u32 a3) {
-  t->h2c.h = a1->h4;
-  if (*a2) t->w30 = func_0016a070(*a2); else t->w30 = 0;
-  t->h2e = a3;
-  func_0017f488((char*)t + 320, 9, 8.0f, 0.0f);
-  func_0017f5e0((char*)t + 320, 0, 0, 0.0f, 0.0f);
-}
+// 00176dd8: moved to src/yasui/libys/party.cpp
 }

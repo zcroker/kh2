@@ -344,25 +344,7 @@ void func_0013de08(ActObj*);
 void func_0013de58(ActObj*);
 void func_0013dea8(ActObj*);
 void func_00186148(ActObj*, HitEv*);
-void func_001762f8(ActObj* o, HitEv* e) {
-    if ((o->flags & 4) || o->vt->canHit(o)) {
-        if (!IsGuardKind(e)) return;
-    }
-    ActMask* m = &o->mask;
-    func_001c20e8((o->mask.a | m->b) & ~m->c, e, o);
-    func_00186d48(o, e);
-    if (!IsGuardKind(e)) {
-        if (o->flags & 4) func_0013dea8(o);
-        else switch (func_0018ca48(e->type)) {
-        case 3: func_0013de58(o); break;
-        case 4: func_0013dea8(o); break;
-        case 0: if (e->power > 0) func_0013de08(o); break;
-        default: func_0013de08(o); break;
-        }
-    }
-    o->vt->onHit(o, e);
-    func_00186148(o, e);
-}
+// 001762f8: moved to src/yasui/libys/party.cpp
 
 Vq func_0016be98(u32);
 void func_002bc188(u32, Vq*);

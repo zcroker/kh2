@@ -1886,17 +1886,7 @@ extern V4 D_01e2be20;
 V4* func_0016c028(u8*);  // obj_get_attach_or_alt
 void func_0016af58(V4*, u8*);
 void func_002cba88(V4*, u32, V4*, V4*, f32, f32);
-void func_002e35e8(u8** p)
-{
-    u8* o = *(u8**)(p[0] + 4);
-    if (!*(u32*)(o + 1288)) return;
-    V4* a = func_0016c028(o);  // obj_get_attach_or_alt
-    V4 r, b;
-    func_0016af58(&b, o);
-    func_002cba88(&r, *(u32*)(o + 1288), a, &b, ((f32*)p)[1], ((f32*)p)[2]);
-    if (&D_01e2be20 != &r) asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(&D_01e2be20), "r"(&r) : "$8", "memory");
-    p[0] = (u8*)&D_01e2be20;
-}
+// 002e35e8: moved to src/anon/unit_002e2f08.cpp
 typedef s32 (*Fn8)(u8*);
 void func_002c65f8(u8*, s32);
 void func_002c6280(u8*, s32);
@@ -2027,22 +2017,8 @@ void func_0011b6a8(M4*);
 M4* func_0011b6d8(M4*, f32);
 M4* func_0011b720(M4*, f32);
 f32 func_0017ce10(f32);
-V4* func_0017d5e8(V4* out, V4* in, f32 ang)
-{
-    M4 m;
-    func_0011b6a8(&m);
-    CopyM(&m, func_0011b6d8(&m, func_0017ce10(ang)));
-    ApplyM(out, &m, in);
-    return out;
-}
-V4* func_0017d538(V4* out, V4* in, f32 ang)
-{
-    M4 m;
-    func_0011b6a8(&m);
-    CopyM(&m, func_0011b720(&m, func_0017ce10(ang)));
-    ApplyM(out, &m, in);
-    return out;
-}
+// 0017d5e8: moved to src/anon/unit_0017c400.cpp
+// 0017d538: moved to src/anon/unit_0017c400.cpp
 typedef void (*Fn20)(u8*, f32*, f32*);
 V4* func_0016c028(u8*);  // obj_get_attach_or_alt
 s32 func_002bc420(u8*);

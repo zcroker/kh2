@@ -187,32 +187,7 @@ u8* func_00177860(u8*);
 void func_00177a78(u8*);
 void func_00177a38(u8*);
 void func_00177a28(u8*);  // set_bytes_2820_2821
-u8 func_00177ab8(u8* p, u8 force) {
-    u32 f;
-    if ((*(u32*)(p + 360) & 0x20) && force) {
-        u8 lv = p[2821];
-        if (lv < func_00177860(p)[46]) {
-            func_00177a78(p);
-            goto done;
-        }
-    }
-    f = *(u32*)(p + 352);
-    if ((f & 0x400) && force) {
-        func_00177a38(p);
-        goto done;
-    }
-    {
-        s32 b = 0;
-        if (f & 4) goto one;
-        if (f & 8) goto one;
-        if (f & 0x10) one: b = 1;
-        if (!(u8)b) return 0;
-    }
-    func_00177a28(p);  // set_bytes_2820_2821
-done:
-    *(u32*)(p + 264) &= ~0x02000000;
-    return 1;
-}
+// 00177ab8: moved to src/yasui/libys/party.cpp
 
 // --- 00184f90
 // Replaces the lock-on effect with one for the new target.
@@ -845,20 +820,6 @@ static inline void mmul91(Mc* r, Mc* a, Mc* b) {
 // Collects the values of all items with `key` in the block tagged (c0, c1), up to max.
 struct It8 { u16 key; u16 pad; u32 val; };
 struct Hd8 { u8 c0; u8 c1; u16 n:16; It8 it[1]; };
-s32 func_002e3318(u8* p, u32* out, s32 max, u32 key, u32 c0, u32 c1) {
-    s32 n = 0;
-    if (*(s32*)(p + 8) == 0) return 0;
-    Hd8* h = (Hd8*)(p + 16);
-    for (s32 i = 0; i < *(s32*)(p + 8); i++) {
-        if (h->c0 == c0 && h->c1 == c1) {
-            for (s32 j = 0; j < h->n; j++) {
-                It8* it = &h->it[j];
-                if (it->key == key && n < max) out[n++] = it->val;
-            }
-        }
-        h = (Hd8*)((u8*)h + h->n * 8 + 4);
-    }
-    return n;
-}
+// 002e3318: moved to src/anon/unit_002e2f08.cpp
 
 }

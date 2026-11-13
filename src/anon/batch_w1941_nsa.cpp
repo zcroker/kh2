@@ -121,30 +121,7 @@ void func_00180a10(Obj1941*, E1941*);
 s32 func_001b0580(void*);
 void func_0011c6a8(f32, void*, s32, s32, s32, s32, E1941*, s32);
 void func_0011c4e8(f32, void*, s32, s32, s32, E1941*, s32);
-void func_0017fba0(Obj1941* self, s32 a) {
-    void* h = self->sub->p1648;
-    self->flags32 &= ~0x80;
-    self->flags260 = (self->flags260 | 1) & ~2;
-    if (h != 0) {
-        if (func_00180cd0(self) == 0) {
-            E1941 arr[16];
-            func_001808c0(self, arr);
-            s32 r = func_001b0580(self->sub->m);
-            f32 d = self->f52;
-            bool pos = gt0_1941(d);
-            if (pos) {
-                func_0011c6a8(self->f48 / d, h, a, self->v208, self->v212, r, arr, 0);
-            } else {
-                s32 v = self->v12;
-                func_0011c4e8(self->f48, h, a, v, r, arr, 0);
-            }
-            func_00180a10(self, arr);
-            self->flags260 |= 2;
-        } else {
-            func_0011c4b0(h);
-        }
-    }
-}
+// 0017fba0: moved to src/yasui/libys/motion.cpp
 
 // --- 001cad60: count down the timer, then orbit around the target and set the fade byte
 extern f32 D_00349e10;

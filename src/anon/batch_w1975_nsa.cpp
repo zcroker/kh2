@@ -115,25 +115,7 @@ void func_001b0858(u8*, f32, W1975V*, s32);
 
 static inline f32 W1975_clampf(f32 v, f32 lo, f32 hi) { if (hi < v) v = hi; else if (v < lo) v = lo; return v; }
 
-// Rotates a toward b by at most t * D_00349e10 radians.
-W1975V func_0017d348(const W1975V& a, const W1975V& b, f32 t) {
-    W1975V axis;
-    W1975V na;
-    W1975V nb;
-    W1975M m;
-    na = a;
-    na.normalize();
-    nb = b;
-    nb.normalize();
-    f32 ang;
-    { W1975V c1 = na; W1975V c2 = nb; ang = func_0017d160(&c1, &c2); }
-    t = t * D_00349e10;
-    ang = W1975_clampf(ang, -t, t);
-    axis = W1975_cross(na, nb);
-    axis.normalize();
-    m = func_0017d1d8(axis, ang);
-    return m.apply3(na);
-}
+// 0017d348: moved to src/anon/unit_0017c400.cpp
 
 void func_001bd6a8(W1975Self* self) {
     if (self->ai == 0) return;

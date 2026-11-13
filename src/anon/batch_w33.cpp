@@ -7,12 +7,7 @@ struct NoTail { ~NoTail() {} };
 struct KeyVal { s16 key; s16 val; };
 extern KeyVal D_00369da8[];
 s32 lookup_001033d8(void* k) asm("_Z13func_001033d8Pv");
-s32 lookup_001033d8(void* k) {
-    s32 r = -1;
-    for (s32 i = 0; D_00369da8[i].key >= 0; i++)
-        if (D_00369da8[i].key == (s32)k) r = D_00369da8[i].val;
-    return r;
-}
+// 001033d8: moved to src/common/unit_001031b0.cpp
 
 struct Buf256 { u8 b[256]; };
 extern Buf256 D_003a7b70[];
@@ -49,37 +44,20 @@ void func_0016dbe0(s32* p) {
 struct Lim177 { u8 pad[45]; s8 max; };
 struct Obj177 { u8 pad[2820]; u8 n; };
 Lim177* func_00177860(Obj177*);
-s32 func_00177bf8(Obj177* p) {
-    if (p->n < func_00177860(p)->max) return p->n;
-    return func_00177860(p)->max;
-}
+// 00177bf8: moved to src/yasui/libys/party.cpp
 
 struct Cfg17d { u8 pad[88]; f32 scale; };
 extern Cfg17d* D_00352130;
 struct Val17d { s32 a; s32 b; };
 struct Obj17d { void** vt; u8 pad[1160]; Val17d* v; };
-s32 func_0017de70(Obj17d* o) {
-    return ((s32 (*)(Obj17d*, s32, s32, s32))o->vt[30])(o, (s32)((f32)o->v->b * D_00352130->scale), 0, 0);
-}
+// 0017de70: moved to src/yasui/libys/friend.cpp
 
 struct Node17f { u8 pad[60]; s32 a; s32 b; u8 pad2[148 - 68]; Node17f* child; u8 pad3[4]; Node17f* next; };
-// Clear two fields on a node and, recursively, on all its children.
-void func_0017f380(Node17f* n) {  // obj_walk_children
-    n->a = 0;
-    n->b = 0;
-    Node17f* c = 0;
-    while ((c = !c ? n->child : c->next) != 0) func_0017f380(c);  // obj_walk_children
-}
+// 0017f380: moved to src/yasui/libys/motion.cpp
 
 s32 func_00181500(void*);
 void func_00181178(void*);
-s32 func_00181570(void* a, void* b) {
-    if (!func_00181500(a) && func_00181500(b)) {
-        func_00181178(a);
-        return 1;
-    }
-    return 0;
-}
+// 00181570: moved to src/yasui/libys/progress.cpp
 
 struct Sub1a2 { u8 pad[10]; u8 v; };
 struct Obj1a2 { u8 pad[394]; u16 a; u8 pad2[6]; u16 b; u8 pad3[580 - 404]; Sub1a2* s; };

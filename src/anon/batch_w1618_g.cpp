@@ -50,21 +50,5 @@ void W1618_set_dir(W1618Ob*, const W1618V4&) asm("_ZN2YS3OBJ7set_dirERKN2kn7FVec
 
 // Re-projects the object's position through the minigame's two frames
 // (flattening it onto the plane z = D_00362e78) and aligns its facing.
-void func_002e2f90(u32 self, W1618Ob* o) {
-    if (W1618_IsExec()) return;
-    W1618MG* mg = D_00361f60;
-    if (!W1618_be_ready()) return;
-    W1618M4 a(*func_002e2930(mg));
-    W1618M4 b(*func_002e2920(mg));
-    b.invOrtho();
-    W1618V4 p = b * *func_0016c028(o);
-    p.z = D_00362e78;
-    W1618V4 q = a * p;
-    W1618M4 c(a);
-    c.invOrtho();
-    W1618V4 r = c * q;
-    q = a * r;
-    W1618_set_pos(o, q);
-    W1618_set_dir(o, a.r[2]);
-}
+// 002e2f90: moved to src/anon/unit_002e2f08.cpp
 }

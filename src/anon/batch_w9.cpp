@@ -112,12 +112,7 @@ void trap_player_capture_form(u32* v) {
     func_001b6bd8(func_001d14a0(), v[0]);
 }
 
-void reset_anmatr_flag(u8* m) {
-    *(u32*)(m + 40) = 0;
-    *(u32*)(m + 32) &= 0x7183;
-    *(u32*)(m + 36) &= ~1;
-    *(u32*)(m + 36) &= ~2;
-}
+// 001805e8: moved to src/anon/unit_00180408.cpp
 
 void group_enable(void* g, s32 i) {
     u8* u = func_0019b260(g, i);

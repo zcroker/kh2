@@ -15,17 +15,7 @@ void func_00172fb0(u8* p) {
 struct W1752Ent { u32 a; f32 x; f32 y; s32 z; u32 w; };
 struct W1752Ring { s32 idx; u32 pad; W1752Ent e[4]; };
 struct W1752Q { u8 pad[0x3c]; W1752Ring r; };
-W1752Ent* w1752_wt_0017f3d8(W1752Q* q, u32 a, f32 x, f32 y, s32 z) asm("_Z16wtarget_0017f3d8jjjj");
-W1752Ent* w1752_wt_0017f3d8(W1752Q* q, u32 a, f32 x, f32 y, s32 z) {
-    W1752Ring* r = &q->r;
-    s32 n = r->idx;
-    r->idx = (n + 1) % 4;
-    W1752Ent* e = &r->e[n];
-    e->x = x; e->y = y; e->z = z;
-    r->e[n].a = a;
-    r->e[n].w = 0;
-    return e;
-}
+// 0017f3d8: moved to src/yasui/libys/motion.cpp
 
 struct W1752C0 { u8 pad[0x88]; u32 v88; u8 pad2[4]; u8* p90; u32 p94; };
 void func_00188398(W1752C0*, u32, u32*, s32);
