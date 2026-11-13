@@ -250,13 +250,9 @@ u32 func_00143f50(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_001423c0(((u32)(*(u32*)((u32)((u32)&D_00350000) - 30716u))), ((u32)(a0) & 0xffffu), a1, a3);
 }
 
-u32 func_00149350(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_00149370((u32)&D_0032bae0, a1, a2, a3);
-}
+// 00149350: moved to src/harata/libdk/mapfile.cpp
 
-u32 func_00149be8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_001493e8((u32)&D_00348d68, a0, a2, a3);
-}
+// 00149be8: moved to src/harata/libdk/area.cpp
 
 u32 func_0014a768(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_0014b248((u32)&D_00349270, ((u32)(a0) & 0xffu), a2, a3);

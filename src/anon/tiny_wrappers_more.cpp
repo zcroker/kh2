@@ -530,13 +530,9 @@ u32 func_001445e8(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_00144630(a0, a1, a2, a3);
 }
 
-u32 func_00149428(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return YS_CACHE_BUFF_ReadRequest(a0, 0x0000042eu, 0x00000000u, a3);
-}
+// 00149428: moved to src/harata/libdk/mapfile.cpp
 
-u32 func_00149bd0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return YS_CACHE_BUFF_Free(((u32)(*(u32*)((u32)(a0) + 32u))), a1, a2, a3);
-}
+// 00149bd0: moved to src/harata/libdk/mapfile.cpp
 
 u32 func_0014d278(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_0014d240(0x00000001u, 0x0000ffffu, a2, a3);

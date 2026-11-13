@@ -113,18 +113,7 @@ void func_00165968(void);
 void func_00149bd0(void*);
 void func_00149de0(void*);
 extern u8 D_00348d68[];
-void func_00149ec0(void* p) {
-    func_0015a850();
-    func_00153c80();
-    func_0014f148();
-    func_0014f220();
-    func_0014f1e0();
-    func_0014f288();
-    func_0015edb8();
-    func_00165968();
-    func_00149bd0(D_00348d68);
-    func_00149de0(p);
-}
+// 00149ec0: moved to src/harata/libdk/area.cpp
 
 void func_001666f0(u8*, u16, u32, u16, u16);  // obj_store_masked
 void func_0014dca8(u8* p, u16 a, u32 b, u16 c, u16 d, u16 e, u32 f) {

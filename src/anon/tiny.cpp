@@ -135,7 +135,7 @@ void func_001390a8(BD_VALUE* bd) { func_00138840(bd); }
 void func_001444b0(BD_VALUE* bd) { dk_Aabbox_set_vectors(bd); }
 void func_001444f8(BD_VALUE* bd) { func_00144860(bd); }
 void func_00146bd8(BD_VALUE* bd) { func_00146ab0(bd); }
-void func_001491c0(BD_VALUE* bd) { func_001491d8(bd); }
+// 001491c0: moved to src/harata/libdk/mapfile.cpp
 void func_0014f1e0(BD_VALUE* bd) { func_0015b100(bd); }
 void func_0014f208(BD_VALUE* bd) { func_0014f300(bd); }
 void func_0014f220(BD_VALUE* bd) { func_0014f428(bd); }
@@ -248,7 +248,7 @@ void func_00135788(BD_VALUE* bd) { func_00135690(1, 0xffff); }
 void func_0013a328(BD_VALUE* bd) { func_0013a240(1, 0xffff); }
 void func_00141418(BD_VALUE* bd) { func_00141100(1, 0xffff); }
 void func_00149188(BD_VALUE* bd) { func_00149150(1, 0xffff); }
-void func_00149f68(BD_VALUE* bd) { func_00149f30(1, 0xffff); }
+// 00149f68: _GLOBAL__I_ stub, now made by gcc in src/harata/libdk/area.cpp
 void func_0014a8d8(BD_VALUE* bd) { func_0014a868(1, 0xffff); }
 void func_0014b110(BD_VALUE* bd) { func_0014aed0(1, 0xffff); }
 void func_0014e280(BD_VALUE* bd) { func_0014e1f0(1, 0xffff); }
@@ -2603,23 +2603,11 @@ void func_00143298(u32 a0, u32 a1, u32 a2, u32 a3) {
     *(u8*)&D_0034881f = (u8)v;
 }
 
-u32 func_00149308(u32 a0, u32 a1, u32 a2, u32 a3) {  // entry_get_78
-    (void)a2;
-    (void)a3;
-    return *(u32*)((u32)a0 + ((u32)a1 * (12)) + (120));
-}
+// 00149308: moved to src/harata/libdk/mapfile.cpp
 
-u32 func_00149320(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_entry12_field124
-    (void)a2;
-    (void)a3;
-    return *(u32*)((u32)a0 + ((u32)a1 * (12)) + (124));
-}
+// 00149320: moved to src/harata/libdk/mapfile.cpp
 
-u32 func_00149338(u32 a0, u32 a1, u32 a2, u32 a3) {  // entry_get_80
-    (void)a2;
-    (void)a3;
-    return *(u32*)((u32)a0 + ((u32)a1 * (12)) + (128));
-}
+// 00149338: moved to src/harata/libdk/mapfile.cpp
 
 void func_0014a238(u32 a0, u32 a1, u32 a2, u32 a3) {
     (void)a1;

@@ -40,33 +40,33 @@ void func_00146078(void* self, s32 v) { *(s32*)((char*)self + 21352) = v; }
 
 void func_00146080(void* self, s32 v) { *(s32*)((char*)self + 21348) = v; }
 
-s32 func_00149288(void* self) { return (s32)(*(s32*)((char*)self + 36)); }
+// 00149288: moved to src/harata/libdk/mapfile.cpp
 
-s32 func_00149290(void* self) { return (s32)(*(s32*)((char*)self + 40)); }
+// 00149290: moved to src/harata/libdk/mapfile.cpp
 
-s32 func_00149298(void* self) { return (s32)(*(s32*)((char*)self + 44)); }
+// 00149298: moved to src/harata/libdk/mapfile.cpp
 
-s32 func_001492a0(void* self) { return (s32)(*(s32*)((char*)self + 48)); }
+// 001492a0: moved to src/harata/libdk/mapfile.cpp
 
-s32 func_001492a8(void* self) { return (s32)(*(s32*)((char*)self + 52)); }
+// 001492a8: moved to src/harata/libdk/mapfile.cpp
 
-s32 func_001492b0(void* self) { return (s32)(*(s32*)((char*)self + 56)); }
+// 001492b0: moved to src/harata/libdk/mapfile.cpp
 
-s32 func_001492b8(void* self) { return (s32)(*(s32*)((char*)self + 60)); }
+// 001492b8: moved to src/harata/libdk/mapfile.cpp
 
-s32 func_001492c0(void* self) { return (s32)(*(s32*)((char*)self + 64)); }
+// 001492c0: moved to src/harata/libdk/mapfile.cpp
 
-s32 func_001492c8(void* self) { return (s32)(*(s32*)((char*)self + 68)); }
+// 001492c8: moved to src/harata/libdk/mapfile.cpp
 
-s32 func_001492d0(void* self) { return (s32)(*(s32*)((char*)self + 72)); }
+// 001492d0: moved to src/harata/libdk/mapfile.cpp
 
-s32 func_001492d8(void* self) { return (s32)(*(s32*)((char*)self + 76)); }
+// 001492d8: moved to src/harata/libdk/mapfile.cpp
 
-s32 func_001492e0(void* self) { return (s32)(*(s32*)((char*)self + 80)); }
+// 001492e0: moved to src/harata/libdk/mapfile.cpp
 
-s32 func_001492f8(void* self) { return (s32)(*(s32*)((char*)self + 100)); }
+// 001492f8: moved to src/harata/libdk/mapfile.cpp
 
-s32 func_00149300(void* self) { return (s32)(*(s32*)((char*)self + 104)); }
+// 00149300: moved to src/harata/libdk/mapfile.cpp
 
 typedef s64 (*Func4)(s64, s64, s64, s64);
 

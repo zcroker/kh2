@@ -112,12 +112,7 @@ void func_001385c0(void) {
     func_00102c48(1, 0x4baf0, (void*)func_001384d0, 0x1000);
 }
 
-void dk_area_readData(void) {
-    func_0013a600();
-    func_0013a4c8();
-    func_001493b8(D_00348d68);
-    func_00149428(D_00348d68);
-}
+// 00149c08: moved to src/harata/libdk/area.cpp
 
 void func_001514e8(u8* p) {
     func_00138c10(p + 496, 3);

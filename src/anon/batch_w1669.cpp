@@ -38,10 +38,7 @@ void wtarget_0014d240(u32 a0, u32 a1, u32, u32) {
     if (a1 == 0xffff && a0 == 1) { D_004574b8.a = 0; D_004574b8.b = 0; D_004574b8.c = 1.0f; }
 }
 void func_00149f30(int a0, int a1) asm("_Z13func_00149f30ii");
-void func_00149f30(int a0, int a1) {
-    W1669NoTail nt;
-    if (a1 == 0xffff && a0 == 1) func_001491c0(D_00348d68);
-}
+// 00149f30: static initialiser, now made by gcc in src/harata/libdk/area.cpp
 void func_00323ad0(u32* p) {
     s32 i = 19;
     do { *p = 0; i--; __asm__ volatile("nop\n\tnop\n\tnop"); p++; } while (i >= 0);
