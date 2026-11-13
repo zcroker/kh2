@@ -741,20 +741,7 @@ u32 func_0016ef28(u32 a0, u32 a1, u32 a2, u32 a3) {
 
 // 00176db0: moved to src/yasui/libys/party.cpp
 
-u32 func_00179dd0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2, r15, r16, r17;
-    r17 = r4;
-    r16 = r5;
-    r4 = r5;
-    u32 (*fp_call4_001b8e88)(u32, u32, u32, u32) = func_001b8e88;
-    r2 = fp_call4_001b8e88(r4, r5, r6, r7);
-    r15 = *(u32*)((u32)r2 + (s32)(12));
-    r15 = (u32)((s32)r15 >> 9);
-    r15 = (u32)(r15 & 0x0001u);
-    if (r15 != 0u) r16 = 0u;
-    *(u32*)((u32)r17 + (s32)(2888)) = r16;
-    return r2;
-}
+// 00179dd0: moved to src/yasui/libys/player.cpp
 
 // 0017c660: moved to src/anon/unit_0017c400.cpp
 

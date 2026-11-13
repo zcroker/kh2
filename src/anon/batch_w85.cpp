@@ -141,13 +141,7 @@ struct Obj184vt { u8 pad[44]; void (*f44)(Obj184*); };
 struct Sub184vt { u8 pad[16]; void (*f16)(void*, Obj184*); };
 struct Sub184 { Sub184vt* vt; };
 struct Obj184 { Obj184vt* vt; u8 p4[8]; Sub184* f12; u8 p16[248]; u32 flags; u8 p268[500]; u8 f768[388]; void* f1156; };
-void func_001841f0(Obj184* o) {
-    o->flags &= ~0x04000000;
-    func_00188340(o->f768, 1, 0, 0);
-    if (!(o->flags & 0x04000000) && o->f1156) func_0016cce8(o->f1156, 13, 0, 0, 0);
-    if (!(o->flags & 0x04000000)) o->f12->vt->f16(o->f12, o);
-    if (!(o->flags & 0x04000000)) o->vt->f44(o);
-}
+// 001841f0: moved to src/anon/unit_00183088.cpp
 
 u32 func_001a80c8(u32);  // table24_find_by_id
 u8* func_001a8190(u32);

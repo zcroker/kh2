@@ -41,30 +41,7 @@ struct CamBase { u8 pad[16]; };
 struct Cam : CamBase, Mtx {};
 extern "C" {
 Cam* func_00106a60(s32);
-QWord* ctarget_00178330(QWord* out, const QWord* in) asm("_Z16ctarget_00178330jjjj");
-QWord* ctarget_00178330(QWord* out, const QWord* in) {
-    if (in->f[3] > 0.0f) {
-        Mtx m;
-        QWord v;
-        v.f[0] = in->f[0];
-        v.f[1] = 0.0f;
-        v.f[2] = -in->f[1];
-        v.f[3] = 0.0f;
-        Cam* c = func_00106a60(1);
-        // Partial asm (no instructions): the original saves s2 without using it (a pseudo dropped after
-        // reload); an empty asm writing $18 reproduces the save.
-        { register u32 r18 asm("$18"); asm volatile("" : "=r"(r18)); }
-        m = *static_cast<Mtx*>(c);
-        m.transpose();
-        *out = m * v;
-        out->f[1] = 0.0f;
-        Normalize(out);
-        out->f[3] = in->f[3];
-    } else {
-        asm volatile("vsub.wxyz $vf1, $vf0, $vf0\n\tsqc2 $vf1, 0(%0)" : : "r"(out) : "memory");
-    }
-    return out;
-}
+// 00178330: moved to src/yasui/libys/player.cpp
 
 }
 

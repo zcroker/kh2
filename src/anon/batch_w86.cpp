@@ -386,14 +386,7 @@ struct Obj { OFn* vt; u8 p4[8]; Ctl* ctl; u8 p16[248]; u32 f264; u8 p268[500]; u
 extern "C" {
 void func_00188340(void*, s32, s32, s32);
 void func_0016cce8(void*, s32, s32, s32, s32);
-void func_00184308(Obj* o)
-{
-    o->f264 &= ~0x08000000;
-    func_00188340(o->sub768, 2, 0, 0);
-    if (!(o->f264 & 0x08000000) && o->f1156) func_0016cce8(o->f1156, 14, 0, 0, 0);
-    if (!(o->f264 & 0x08000000)) o->ctl->vt[5](o->ctl, o);
-    if (!(o->f264 & 0x08000000)) o->vt[12](o);
-}
+// 00184308: moved to src/anon/unit_00183088.cpp
 }
 }
 

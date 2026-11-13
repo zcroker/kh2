@@ -164,19 +164,7 @@ void* func_0016c028(Ent3*);  // obj_get_attach_or_alt
 s32 func_001a7610(void*, f32*, s32, f32, f32);
 static inline bool clean3(Ent3* e) { return !e->u.b.dirty; }
 
-f32 f_001849d8(Ent3* e) asm("_Z13func_001849d8j");
-f32 f_001849d8(Ent3* e) {
-    if (!clean3(e)) {
-        f32 out[4];
-        if (func_001a7610(func_0016c028(e), out, (s32)(e->u.raw >> 3) & 0xf, 100000.0f, 200.0f)) {
-            e->val = out[1];
-            e->u.b.dirty = 0;
-        } else {
-            e->val = ((f32*)func_0016c028(e))[1];
-        }
-    }
-    return e->val;
-}
+// 001849d8: moved to src/anon/unit_00183088.cpp
 
 /* ---- 00191ab8 ---- */
 void* func_00176b20(s32);

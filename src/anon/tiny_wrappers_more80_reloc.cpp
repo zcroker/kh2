@@ -266,13 +266,9 @@ u32 func_0016e0c8(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_00189028((u32)&D_0032e020, ((u32)(*(u32*)((u32)(a0) + 0u))), ((u32)(*(u32*)((u32)(a0) + 4u))), ((u32)(*(u32*)((u32)(a0) + 8u))));
 }
 
-u32 func_00179bc8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_001d68e0((u32)&D_01c5f530, a1, a2, a3);
-}
+// 00179bc8: moved to src/yasui/libys/player.cpp
 
-u32 func_00179be8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_001d68f8((u32)&D_01c5f530, a1, a2, a3);
-}
+// 00179be8: moved to src/yasui/libys/player.cpp
 
 u32 func_001913b8(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_001cd660((u32)&D_01c60d10, a1, a2, a3);

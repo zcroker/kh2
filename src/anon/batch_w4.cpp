@@ -137,11 +137,7 @@ void func_00175480(u32* p) {
     func_00153e28(p[0], ((f32*)p)[1], ((f32*)p)[2]);
 }
 
-// Virtual call: (*(p+0x9f4))->vfunc[19]().
-void func_00185a98(u8* p) {
-    void** o = *(void***)(p + 2548);
-    ((void (*)(void*))((void**)*o)[19])(o);
-}
+// 00185a98: moved to src/anon/unit_001855e0.cpp
 
 void func_0018fcc0(ArgsUF* p) {
     u32 a = p->a;

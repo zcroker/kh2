@@ -171,12 +171,7 @@ void func_001735b0(u8* p) {
 // 00176d68: moved to src/yasui/libys/party.cpp
 
 typedef int (*VFn4)(void*, u32, int, int);
-int func_00179f80(u8* p) {
-    func_00179f10(p);
-    func_001d6ab0(*(u32*)(p + 2876));
-    u32 a = *(u32*)(*(u8**)(p + 1164) + 4);
-    return (*(VFn4*)(*(u8**)p + 120))(p, a, 0, 0);
-}
+// 00179f80: moved to src/yasui/libys/player.cpp
 
 typedef void (*VFn3)(void*, void*, u32);
 void* func_001a07b0(void* p, u32 a, u32 b) {

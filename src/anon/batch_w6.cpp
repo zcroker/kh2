@@ -63,12 +63,7 @@ void func_00172f00(u32* p) {
     func_00187a18(p[0], p[1], p[2], p[3], p + 4);
 }
 
-// Zero three VU0 vectors.
-void func_00178cf8(u8* p) {  // clear_vecs_three
-    asm volatile("vsub.xyzw $vf1, $vf0, $vf0\n\tsqc2 $vf1, 0(%0)" : : "r"(p + 32) : "memory");
-    asm volatile("vsub.xyzw $vf1, $vf0, $vf0\n\tsqc2 $vf1, 0(%0)" : : "r"(*(u8**)(p + 0xb44) + 0xa30) : "memory");
-    asm volatile(".set noreorder\n\tvsub.xyzw $vf1, $vf0, $vf0\n\tsqc2 $vf1, 0(%0)\n\t.set reorder" : : "r"(p + 16) : "memory");
-}
+// 00178cf8: moved to src/yasui/libys/player.cpp
 
 u32 func_001a6a20(u32, u32);
 void func_0018fd10(u32* p) {

@@ -141,18 +141,5 @@ void func_0022ee30(A22e* a) {
 }
 
 W259V4 func_00178330(void*);
-void func_001785b8(O178* o) {
-    w259_vzero(&o->v);
-    if (0.0f < o->f2872->f60) {
-        o->v = func_00178330(o->f2872->m48);
-        f32 k = (o->f2872->f60 < 0.8f) ? o->f272 : o->f276;
-        w259_vscale(&o->v, &o->v, k);
-    }
-    u64 fl = o->f2872->fl;
-    if (!(fl & (1ull << 32))) {
-        if (fl & 0x20000000) o->v.y = -o->f292;
-        else if (fl & 0x40000000) o->v.y = o->f292;
-    }
-    o->v.w = w259_vnorm(&o->v);
-}
+// 001785b8: moved to src/yasui/libys/player.cpp
 }

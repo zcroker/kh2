@@ -119,27 +119,9 @@ void AreaExit(void) {
 
 // 00177ba0: moved to src/yasui/libys/party.cpp
 
-void wtarget_00178280(void*, u32, u32, u32) asm("_Z16wtarget_00178280jjjj");
-void wtarget_00178280(void* a0, u32, u32, u32) {
-    u8* p = (u8*)a0;
-    *(u32*)&D_0034e948 = 0;
-    func_001781e8(p);
-    void* e = *(void**)(p + 0xb60);
-    if (e) {
-        func_001dc920(e);
-        *(void**)(p + 0xb60) = 0;
-    }
-    func_00175928(p);
-}
+// 00178280: moved to src/yasui/libys/player.cpp
 
-u32 func_0017a6c8(void) {
-    u32 r = 0;
-    if (func_0019ba60(D_0034e948)) {
-        u32 m = *(u32*)((u8*)D_0034e948 + 0x160) & 0x4000;
-        r = m != 0;
-    }
-    return r;
-}
+// 0017a6c8: moved to src/yasui/libys/player.cpp
 
 // Replaces every entry's key `key` with `val`.
 void func_0018ef98(s32 key, s32 val) {

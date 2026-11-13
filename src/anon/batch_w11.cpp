@@ -100,13 +100,7 @@ void func_00173808(P173* p) {
 
 void func_0017c4c8(void*, Q16*);
 void func_0016bd60(void*, s32);
-void f17a8f8(void*, void*, Q16*) asm("_Z13func_0017a8f8Pv");
-void f17a8f8(void*, void* o, Q16* q) {
-    Q16 t;
-    asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(&t), "r"(q) : "$8", "memory");
-    func_0017c4c8(o, &t);
-    func_0016bd60(o, 1);
-}
+// 0017a8f8: moved to src/anon/unit_0017a8f8.cpp
 
 s32 func_001860b0(void*);
 void func_001c1b08(void*, u32, s32);

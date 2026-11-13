@@ -90,11 +90,7 @@ extern S10 D_0032bae0;
 extern S10 D_0032bb10;
 void func_0019ee80(s32, s32);
 void func_001d5198(S10*);
-void func_00178220(void) {
-    func_0019ee80(D_0032bae0.a, D_0032bae0.b);
-    D_0032bb10 = D_0032bae0;
-    func_001d5198(&D_0032bae0);
-}
+// 00178220: moved to src/yasui/libys/player.cpp
 
 struct E1817 { s32 id; s32 a; s32 b; };
 extern E1817 D_0036c710[14];

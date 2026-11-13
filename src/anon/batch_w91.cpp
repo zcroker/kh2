@@ -197,23 +197,7 @@ u8* func_0019b380(u8*, u32);
 u8* func_00182e98(u32);
 u32 func_0016c028(u8*);  // obj_get_attach_or_alt
 u8* func_002cd018(u8*, u8*, u32, f32);
-u32 ctarget_00184f90(u8* p, u32 a1, u32, u32) asm("_Z16ctarget_00184f90jjjj");
-u32 ctarget_00184f90(u8* p, u32 a1, u32, u32) {
-    u8* h = *(u8**)(p + 1288);
-    if (h) {
-        func_002cb708(h);
-        func_00105110(h);
-        *(u8**)(p + 1288) = 0;
-    }
-    u8* t;
-    if (*(u8**)(p + 2072)) t = func_0019b380(*(u8**)(p + 2072), a1); else t = 0;
-    if (!t && (*(u32*)(p + 1416) & 0x80)) t = func_00182e98(a1);
-    if (t) {
-        *(u8**)(p + 1288) = func_002cd018(p, t, func_0016c028(p), 8.0f);
-        return 1;
-    }
-    return 0;
-}
+// 00184f90: moved to src/anon/unit_00183088.cpp
 
 // --- 001a1840
 // Mirrors this object's colour/params into its two linked records.

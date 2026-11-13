@@ -282,11 +282,7 @@ void func_001722e8(S172* s) {
 
 // 00181a18: moved to src/yasui/libys/progress.cpp
 
-void func_001835a0(u8* o, f32 d) {
-    if (func_0019c400(o)) return;
-    func_0016ae58(o, *(f32*)(o + 1372) + d);
-    *(f32*)(o + 1644) = func_0017ce10(*(f32*)(o + 1644) + d);
-}
+// 001835a0: moved to src/anon/unit_00183088.cpp
 
 // 00186c58: moved to src/anon/unit_00185d10.cpp
 void func_00186c58(u8* o, Q16* v, f32 s);

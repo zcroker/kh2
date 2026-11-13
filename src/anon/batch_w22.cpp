@@ -122,12 +122,7 @@ void func_00173518(f32* p) {
 // --- 0017a1c8
 void func_001762f8(void*);
 void func_00112ab8(u32, void*);
-void BTLOBJ_exec_damage(u8*, void*) asm("_ZN2YS6BTLOBJ6VTABLEINS_6PLAYEREE11exec_damageEPS0_PNS_6DAMAGEE");
-void BTLOBJ_exec_damage(u8* o, void* dmg) {
-    *(u32*)(o + 268) &= ~2;
-    func_001762f8(o);
-    func_00112ab8(0, dmg);
-}
+// 0017a1c8: moved to src/yasui/libys/player.cpp
 
 // --- 00192290
 u32 func_001921d8(void);

@@ -103,13 +103,7 @@ void wtarget_0013b4b0(u32, u32, u32, u32) {
     }
 }
 
-// Lazily creates the object at +0x508, otherwise forwards to it.
-void wtarget_00185050(u32 a, u32 b, u32, u32) {
-    u8* p = (u8*)a;
-    u32 o = *(u32*)(p + 0x508);
-    if (!o) *(u32*)(p + 0x508) = func_002cd1d8(p, b);
-    else func_002cd290(o, p, b);
-}
+// 00185050: moved to src/anon/unit_00183088.cpp
 
 // Clears the first of four slots whose id matches.
 void wtarget_001d7a08(u32 a, u32 b, u32, u32) {

@@ -229,16 +229,7 @@ void func_0016c358(u8* p) {
     }
 }
 
-void func_0017a600(u8* p) {
-    u8* s = p + 2548;
-    if (!func_00190140(s)) {
-        func_00190f80(s, p, 0.0f);
-        if (func_00190140(s)) {
-            func_0019ca90(*(u32*)(p + 2880), 1, s);
-            func_0019d358(*(u32*)(p + 2880));
-        }
-    }
-}
+// 0017a600: moved to src/yasui/libys/player.cpp
 
 // 0017c870: moved to src/anon/unit_0017c400.cpp
 

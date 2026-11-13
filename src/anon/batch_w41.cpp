@@ -169,17 +169,7 @@ void func_00173918(u8** p) {
     *p = (u8*)&D_01c5f500;
 }
 
-void func_001786e0(u8* p) {
-    Vec16 t;
-    u8* d = p + 16;
-    asm volatile(".set noreorder\n\tvsub.xyzw $vf1, $vf0, $vf0\n\tsqc2 $vf1, 0(%0)\n\t.set reorder" : : "r"(d) : "memory");
-    if (func_002cebb0()) {  // get_global_361f60
-        W41VObj2* o = D_00361f60_obj;
-        ((void (*)(Vec16*, W41VObj2*, u32))o->vt[9])(&t, o, *(u32*)(p + 0xb38) + 48);
-        if (d != (u8*)&t)
-            asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(d), "r"(&t) : "$8", "memory");
-    }
-}
+// 001786e0: moved to src/yasui/libys/player.cpp
 
 }
 

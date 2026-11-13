@@ -143,17 +143,7 @@ void func_001739b8(u128** out)
 // 00185c48: count down a timer, then run the base pre-exec
 s32 func_00188758(void*);
 extern f32 D_00349e10;
-void func_00185c48(u8* p)
-{
-    if (func_00188758(p + 768) && !(*(u32*)(p + 924) & 4)) {
-        f32* t = (f32*)(p + 2800);
-        if (0.0f < *t) {
-            *t -= D_00349e10;
-            if (*t < 0.0f) *t = 0.0f;
-        }
-    }
-    btlobj_pre_exec(p);
-}
+// 00185c48: moved to src/anon/unit_001855e0.cpp
 
 // 0018a1b8: next entry after `e` whose bit is in `mask`
 struct E20 { u32 a; u8 bit; u8 pad[15]; };

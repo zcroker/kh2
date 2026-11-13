@@ -101,35 +101,7 @@ void func_001bbd58(u8*);
 void func_00178e80(void);
 extern u8* D_00351068;
 
-// Picks or builds the effect entry for this object, then applies it.
-void func_00178d28(u8* p) {
-    u8* m = p + 320;
-    u8* e = 0;
-    if (*(s32*)(m + 20) == 42) {
-        e = func_00176fb0(p, 39);
-        if (e && !func_001a0920(e, p)) e = 0;
-    }
-    u32 k = *(u32*)(*(u8**)(p + 12) + 4);
-    if ((k ^ 0x16) == 0 || (k ^ 0x1a) == 0) {
-        e = func_00176fb0(p, 41);
-        if (e && !func_001a0920(e, p)) e = 0;
-    }
-    if (!e) {
-        Tmp178 t;
-        func_001cda88(&t, p, *(u32*)(p + 2880) + 4);
-        e = func_001cde58(&t);
-    }
-    func_00177008(p, e, *(u32*)(p + 2880) + 4);
-    if (*(u32*)(*(u8**)(p + 12) + 8) & 0x20) {
-        u16 id = *(u16*)(e + 8);
-        if (id > 210) {
-        func_0017f488(D_00351068 + 320, id, 0.0f, 0.0f);
-        func_0017f5e0(D_00351068 + 320, 0, 0, 0.0f, 0.0f);
-        *(void**)(m + 404) = (void*)func_00178e80;
-        }
-    }
-    func_001bbd58(e);
-}
+// 00178d28: moved to src/yasui/libys/player.cpp
 
 extern u32 D_01c60528[2];
 extern f32 D_01c60520;
@@ -163,28 +135,7 @@ u32 func_001762c0(u8*, u32);
 void func_001c0d38(u8*, u8*, u32, s32);
 extern u32 D_0034ed18[];
 
-// Constructor: base init, owner link and initial effect attachment.
-void func_00185468(u8* p, u32 a1, u8* owner, u32 a3, u32 t0, u32 t1) {
-    V185 v;
-    v.w = v.z = v.y = v.x = 0.0f;
-    func_001980d0(p, a1, 12, &v, 3.1415927f);
-    *(u32*)p = (u32)D_0034ed18;
-    *(u32*)(p + 1416) |= 0x40;
-    *(u32*)(p + 264) |= 2;
-    *(u32*)(p + 944) = 1;
-    *(u8**)(p + 2548) = owner;
-    *(u32*)(p + 2552) = 0;
-    *(u32*)(p + 2556) = t0;
-    *(u32*)(p + 2560) = t1;
-    func_001a93b0(p + 1952, t1);
-    u8* r = func_00185920(a3, t0, 0);
-    if (r) {
-        func_0017ebe8(p + 320, func_001708f8(r, -1));
-        func_0017fd30(owner + 320, p + 320);
-        func_001c0d38(p, owner, func_001762c0(owner, t0), 0);
-    }
-    *(u32*)(p + 268) |= 0x700;
-}
+// 00185468: moved to src/anon/unit_00183088.cpp
 
 static inline u32 ActFlags18d(u8* a) {
     u32* f = (u32*)(a + 2748);

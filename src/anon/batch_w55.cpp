@@ -320,28 +320,11 @@ void func_0016df70(f32* p) {
     func_0014aa80(func_0014aba8(), n, 1);
 }
 
-void func_00179648(u32 a, u32 b) {
-    func_001ada38(7);
-    func_00177710();
-    u8* s = D_0032bb30;
-    s[14] = func_0016c008(b, 1);
-    if (func_0016a070(a) == 14) *(u32*)(s + 9372) |= 1;
-    else *(u32*)(s + 9372) &= ~1;
-    func_00253180(1, func_0016a020(b) == 0x239 ? 0 : 2);
-}
+// 00179648: moved to src/yasui/libys/player.cpp
 
 }
 
-// Function-local static zero vector, returned by value.
-Q16* ctarget_0017a968(Q16* out) {
-    if (!D_01c60500) {
-        D_01c60510.w = D_01c60510.z = D_01c60510.y = D_01c60510.x = 0.0f;
-        D_01c60500 = 1;
-        func_002fd188(func_0017bef8);  // pool_alloc_block
-    }
-    copyQ(out, &D_01c60510);
-    return out;
-}
+// 0017a968: moved to src/anon/unit_0017a8f8.cpp
 
 // 00180618: moved to src/anon/unit_00180408.cpp
 

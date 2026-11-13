@@ -110,41 +110,7 @@ W279Vq octree_get_normal(u16, bool) asm("_ZN2dk6Octree9getNormalEtb");
 W279Vq func_0017d050(const W279Vq&);
 extern f32 D_00349e10;
 typedef void (*W279VFn1)(u8*, s32);
-void func_00179718(u8* o) {
-    if (!map_is_pax_exist()) return;
-    if (*(void**)(o + 2900)) {
-        if (!effect_is_alive(*(void**)(o + 2900))) {
-            effect_kill(*(void**)(o + 2900));
-            *(void**)(o + 2900) = 0;
-        }
-    }
-    u32 id = *(u16*)(o + 1522);
-    if (id != 0xffff) {
-        if (*(void**)(o + 2900) == 0 && id != *(s32*)(o + 2904)) {
-            s32 k = pax_search_id(map_get_pax(), 1);
-            if (k >= 0) {
-                void* h = func_001de168(map_get_pax(), k, 0, 2, 40000, 0);  // scan_list_by_half
-                *(void**)(o + 2900) = h;
-                if (h) {
-                    W279Vq n = octree_get_normal(id, 0);
-                    *effect_pos(*(void**)(o + 2900)) = *(W279Vq*)(o + 1488);
-                    *effect_angle(*(void**)(o + 2900)) = func_0017d050(n);
-                }
-            }
-            s32 v = *(u16*)(o + 1522);
-            *(s32*)(o + 2904) = v;
-            (*(W279VFn1**)o)[37](o, v);
-        }
-        *(f32*)(o + 2908) = 30.0f;
-    } else {
-        f32 t = *(f32*)(o + 2908);
-        if (0.0f < t) {
-            f32 t2 = t - D_00349e10;
-            *(f32*)(o + 2908) = t2;
-            if (t2 <= 0.0f) *(s32*)(o + 2904) = id;
-        }
-    }
-}
+// 00179718: moved to src/yasui/libys/player.cpp
 
 // ---- func_0022e818
 s32 func_002282f0(s32);

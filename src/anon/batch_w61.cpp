@@ -145,15 +145,7 @@ u8* func_00176fb0(u8*, u32);
 s32 func_001a0920(u8*, u8*);
 s32 func_001b9d40(u8*);  // vtable_call_slot64_flags
 void func_00177008(u8*, u8*, u32);
-s32 func_001790c0(u8* a0) {
-    u8* v = func_00176fb0(a0, 11);
-    if (v && func_001a0920(v, a0) && func_001b9d40(a0)) {
-        func_00177008(a0, v, *(u32*)(a0 + 2880) + 4);
-        asm volatile("vsub.xyzw $vf1, $vf0, $vf0\n\tsqc2 $vf1, 0(%0)" : : "r"(a0 + 16) : "memory");
-        return 1;
-    }
-    return 0;
-}
+// 001790c0: moved to src/yasui/libys/player.cpp
 
 s32 func_0019ba60(void*);
 s32 func_0019c6f0(void*);

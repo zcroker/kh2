@@ -74,11 +74,7 @@ static inline Node161248* next161248(Node161248* n) {
 
 u8* func_001a6a20(u32, u32);
 s32 func_00176a90(u32);
-s32 func_00179b68(u32 a) {
-    s32 r = 0;
-    if (*(u32*)(func_001a6a20(0x10002, 12) + 4) || func_00176a90(a)) r = 1;
-    return r;
-}
+// 00179b68: moved to src/yasui/libys/player.cpp
 
 extern s32 D_0034ed00;
 struct E1c60588 { u32 a, b, c; };
@@ -87,13 +83,7 @@ void func_00182910(E1c60588*);
 // 00182ab0: moved to src/anon/unit_00182780.cpp
 
 typedef s32 (*Fn184478)(void*);
-s32 func_00184478(u8* o) {
-    s32 r = 0;
-    if ((*(Fn184478*)(*(u8**)o + 64))(o)) {
-        if (*(f32*)(o + 2112) != *(f32*)(o + 1344) || *(f32*)(o + 2120) != *(f32*)(o + 1352)) r = 1;
-    }
-    return r;
-}
+// 00184478: moved to src/anon/unit_00183088.cpp
 
 
 
