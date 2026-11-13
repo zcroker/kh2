@@ -9962,139 +9962,19 @@ u32 func_002ba848(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7
     return func_002b83b4();
 }
 
-u32 func_002bb1c8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    (void)a3;
-    (void)a4;
-    (void)a5;
-    (void)a6;
-    (void)a7;
+u32 func_002bb1c8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);  // 0x002bb1c8: definition moved into src/anon/unit_002bb070.cpp
 
-    u32 s16 = a0;
-    u32 s18 = a1;
-    u32 s17 = a2;
+u32 func_002bb2b8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);  // 0x002bb2b8: definition moved into src/anon/unit_002bb070.cpp
 
-    func_002bb100(s16, 1, 0);  // next_global_id
-    func_002bb5a8(s16, s17);
-    func_002bb180(s16, s18);  // obj_init_with_temp_blocks
-    return func_002bb0e0(s16);
-}
+u32 func_002bb310(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);  // 0x002bb310: definition moved into src/anon/unit_002bb070.cpp
 
-u32 func_002bb2b8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    (void)a4;
-    (void)a5;
-    (void)a6;
-    (void)a7;
+u32 func_002bb378(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);  // 0x002bb378: definition moved into src/anon/unit_002bb070.cpp
 
-    u32 s16 = a0;
-    u32 s17 = a1;
-    u32 s18 = a2;
+void func_002bb950(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);  // 0x002bb950: definition moved into src/anon/unit_002bb8b0.cpp
 
-    func_002bb100(s16, a3, 2);  // next_global_id
-    func_002bb180(s16, s17);  // obj_init_with_temp_blocks
-    *(u32*)(s16 + 24) = s18;
-    return func_002bb0e0(s16);
-}
+u32 func_002bc288(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);  // 0x002bc288: definition moved into src/anon/unit_002bb8b0.cpp
 
-u32 func_002bb310(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    (void)a4;
-    (void)a5;
-    (void)a6;
-    (void)a7;
-
-    u32 s16 = a0;
-    u32 s17 = a1;
-    u32 s18 = a2;
-    u32 s19 = a3;
-
-    func_002bb100(s16, 0, 4);  // next_global_id
-    func_002bb180(s16, s17);  // obj_init_with_temp_blocks
-    *(u32*)(s16 + 24) = s18;
-    *(u16*)(s16 + 46) = (u16)s19;
-    return func_002bb0e0(s16);
-}
-
-u32 func_002bb378(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    (void)a5;
-    (void)a6;
-    (void)a7;
-
-    u32 s16 = a0;
-    u32 s18 = a1;
-    u32 s19 = a2;
-    u32 s17 = a3;
-    u32 s20 = a4;
-
-    func_002bb100(s16, 1, 5);  // next_global_id
-    func_002bb5a8(s16, s17);
-    *(u32*)(s16 + 24) = s18;
-    *(u32*)(s16 + 16) = s19;
-    *(u16*)(s16 + 42) = (u16)s20;
-    return func_002bb0e0(s16);
-}
-
-void func_002bb950(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    (void)a4;
-    (void)a5;
-    (void)a6;
-    (void)a7;
-
-    u32 s16 = a0;
-    u8 tmp;
-
-    u32 ok = func_0014ee28(*(u16*)(s16 + 46), s16, (u32)&tmp);
-    if (ok != 0) {
-        func_002bb5f8(s16);
-        if (tmp == 1) {
-            *(u16*)(s16 + 44) = 64;
-        }
-        return;
-    }
-
-    *(u16*)(s16 + 40) = 0;
-    *(u16*)(s16 + 44) = 64;
-}
-
-u32 func_002bc288(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    (void)a2;
-    (void)a3;
-    (void)a4;
-    (void)a5;
-    (void)a6;
-    (void)a7;
-
-    u32 s16 = a0;
-    u32 s17 = a1;
-    u32 s18 = func_002bc158();
-
-    if (s18 == 0) {
-        return 0;
-    }
-
-    func_002bb2b8(s18, s16, s17, 0);
-    return *(u32*)(s18 + 20);
-}
-
-u32 func_002bc588(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    (void)a5;
-    (void)a6;
-    (void)a7;
-
-    u32 s16 = a0;
-    u32 s17 = a1;
-    u32 s18 = a2;
-    u32 s19 = a3;
-
-    u32 s20 = func_002bc0f0();
-    if (s20 == 0) {
-        return 0;
-    }
-
-    func_002bb378(s20, s16, s17, s18, s19);
-    return *(u32*)(s20 + 20);
-}
+u32 func_002bc588(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);  // 0x002bc588: definition moved into src/anon/unit_002bb8b0.cpp
 
 u32 func_002bcb60(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
     (void)a3;

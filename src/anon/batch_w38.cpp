@@ -386,19 +386,9 @@ u8* func_002bc158_0(void) asm("func_002bc158");
 u8* func_002bc158_1(u32) asm("func_002bc158");
 void func_002bb1c8(void*, u32, u32);
 void func_002bb310(void*, u32, u32, u32);
-u32 func_002bc188(u32 a, u32 b) {
-    u8* v = func_002bc158_0();
-    if (!v) return 0;
-    func_002bb1c8(v, a, b);
-    return *(u32*)(v + 20);
-}
+u32 func_002bc188(u32 a, u32 b);  // 0x002bc188: definition moved into src/anon/unit_002bb8b0.cpp
 
-u32 func_002bc2e8(u32 a, u32 b, u32 c) {
-    u8* v = func_002bc158_1(a);
-    if (!v) return 0;
-    func_002bb310(v, a, b, c);
-    return *(u32*)(v + 20);
-}
+u32 func_002bc2e8(u32 a, u32 b, u32 c);  // 0x002bc2e8: definition moved into src/anon/unit_002bb8b0.cpp
 
 void func_001dc978(void*, f32);
 void* func_001de168(u32, u32, s32, s32, s32, void*);  // scan_list_by_half

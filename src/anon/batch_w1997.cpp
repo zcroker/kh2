@@ -10,49 +10,7 @@ void func_002bb5f8(Snd9b8*);
 s32 func_002bb8b0(Snd9b8*);
 void func_002bb950(Snd9b8*);
 void StopBg9b8(s32, s32) asm("_ZN2Tz9MenuSound14StopBgSeHandleEz");
-void func_002bb9b8(Snd9b8* s) {
-    s32 r;
-    switch (s->b30) {
-    case 0:
-        return;
-    case 1:
-        switch (s->b31) {
-        case 1: case 2: case 3: func_002b726c(s->f18, s->f10, s->f14, func_002bb8b0(s), s->f2c); s->b30 = 2; break;
-        case 4: func_002bb950(s); func_002b726c(s->f18, s->f10, s->f14, func_002bb8b0(s), s->f2c); s->b30 = 2; break;
-        default: func_002bb5f8(s); func_002b726c(s->f18, s->f10, s->f14, func_002bb8b0(s), s->f2c); s->b30 = 2; break;
-        }
-        break;
-    case 2:
-        if ((s->f24 & 2) && func_002bb510(s) == 0) {
-            StopBg9b8(s->f14, 1);
-            return;
-        }
-        switch (s->b31) {
-        case 2:
-            func_002b73ac(s->f18, s->f10, s->f14, func_002bb8b0(s), 30);
-            return;
-        case 4:
-            func_002bb950(s);
-            r = func_002bb8b0(s);
-            if (r == 0) {
-                if (func_002bb510(s)) wt72e4(s->f18, s->f10, s->f14);
-                return;
-            }
-            if (func_002bb510(s)) func_002b7334(s->f18, s->f10, s->f14, r, s->f2c);
-            else func_002b726c(s->f18, s->f10, s->f14, r, s->f2c);
-            return;
-        default:
-            func_002bb5f8(s);
-        case 1: case 3:
-            r = func_002bb8b0(s);
-            func_002b7334(s->f18, s->f10, s->f14, r, s->f2c);
-            return;
-        }
-    case 3:
-        StopBg9b8(s->f14, 1);
-        return;
-    }
-}
+void func_002bb9b8(Snd9b8* s);  // 0x002bb9b8: definition moved into src/anon/unit_002bb8b0.cpp
 
 struct Vec4f0 {
     f32 x, y, z, w;

@@ -3274,67 +3274,21 @@ extern u8 D_01e2a400;
 extern "C" u32 func_002bb228(...);
 extern "C" u32 func_002bc158(...);
 
-u32 func_002bc1e8(u32 a0, u32 a1) {
-    u32 r4 = a0, r5 = a1, r2, r16, r17;
-    r16 = r4;
-    r2 = ((u32(*)(u32,u32))func_002bc158)(r4, r5);
-    r17 = r2;
-    r4 = r2;
-    r5 = r16;
-    r2 = 0u;
-    if (r17 != 0u) {
-        r2 = ((u32(*)(u32,u32))func_002bb228)(r4, r5);
-        r2 = *(volatile u32*)((u32)r17 + (s32)(20));
-    }
-    return r2;
-}
+u32 func_002bc1e8(u32 a0, u32 a1);  // 0x002bc1e8: definition moved into src/anon/unit_002bb8b0.cpp
 
 extern "C" u32 func_002bb270(...);
 extern "C" u32 func_002bc158(...);
 
-u32 func_002bc238(u32 a0, u32 a1) {
-    u32 r4 = a0, r5 = a1, r2, r16, r17;
-    r16 = r4;
-    r2 = ((u32(*)(u32,u32))func_002bc158)(r4, r5);
-    r17 = r2;
-    r4 = r2;
-    r5 = r16;
-    r2 = 0u;
-    if (r17 != 0u) {
-        r2 = ((u32(*)(u32,u32))func_002bb270)(r4, r5);
-        r2 = *(volatile u32*)((u32)r17 + (s32)(20));
-    }
-    return r2;
-}
+u32 func_002bc238(u32 a0, u32 a1);  // 0x002bc238: definition moved into src/anon/unit_002bb8b0.cpp
 
 extern "C" u32 func_002bbda0(...);
 
-u32 func_002bc3f0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r2, r15;
-    r2 = ((u32(*)())func_002bbda0)();
-    if (r2 != 0u) {
-        r15 = ((u32*)(u32)r2)[9];
-        r15 = (u32)(r15 | 0x0008u);
-        ((u32*)(u32)r2)[9] = r15;
-    }
-    return r2;
-}
+u32 func_002bc3f0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);  // 0x002bc3f0: definition moved into src/anon/unit_002bb8b0.cpp
 
 extern "C" u32 func_002bb510(...);
 extern "C" u32 func_002bbda0(...);
 
-u32 func_002bc420(u32 a0) {
-    u32 r4 = a0, r2, r15;
-    r2 = ((u32(*)())func_002bbda0)();
-    r4 = r2;
-    r15 = 0u;
-    if (r2 != 0u) {
-        r2 = ((u32(*)(u32))func_002bb510)(r4);
-        r15 = r2;
-    }
-    r2 = r15;
-    return r2;
-}
+u32 func_002bc420(u32 a0);  // 0x002bc420: definition moved into src/anon/unit_002bb8b0.cpp
 
 extern "C" u32 func_002bb0c8(...);
 
@@ -15211,44 +15165,13 @@ void func_002bac08(u32 a0, u32 a1) {
 
 // 002bac78: moved to src/anon/unit_002bac78.cpp
 
-void func_002bb0a0(s32 a0, s32* a1, s32* a2) {  // divmod_1000
-    s32 q = a0 / 1000;
-    s32 r = a0 % 1000;
-    *a2 = r;
-    *a1 = q;
-}
+void func_002bb0a0(s32 a0, s32* a1, s32* a2);  // 0x002bb0a0: definition moved into src/anon/unit_002bb070.cpp
 
-void func_002bb0e0(u32 a0) {
-    if (*(u32*)(a0 + 24) == 0xffffffffu) {
-        *(u8*)(a0 + 48) = 3;
-    }
-}
+void func_002bb0e0(u32 a0);  // 0x002bb0e0: definition moved into src/anon/unit_002bb070.cpp
 
-void func_002bb180(u32 a0, u32 a1) {  // obj_init_with_temp_blocks
-    *(u16*)(a0 + 42) = 0;
+void func_002bb180(u32 a0, u32 a1);  // 0x002bb180: definition moved into src/anon/unit_002bb070.cpp
 
-    u32 s0 = a0;
-    u32 out0;
-    u32 out1;
-
-    ((void(*)(u32, u32*, u32*))func_002bb0a0)(a1, &out0, &out1);
-    u32 v0 = func_002ba810(out0);
-    u32 t7 = out1;
-
-    *(u32*)(s0 + 16) = t7;
-    *(u32*)(s0 + 24) = v0;
-}
-
-void func_002bb5a8(void* a0, void* a1) {
-    u32 s0 = (u32)a0;
-    u32 s1 = (u32)a1;
-
-    func_00324718((u32)&D_01e2aa80, s0);
-
-    if (s0 != s1) {
-        *(kn::FVector*)s0 = *(kn::FVector*)s1;
-    }
-}
+void func_002bb5a8(void* a0, void* a1);  // 0x002bb5a8: definition moved into src/anon/unit_002bb070.cpp
 
 void func_002bc9a8(s32 a0, u32 a1, u32 a2) {  // find_entry12_set_field
     s32 end = a0 + 324;

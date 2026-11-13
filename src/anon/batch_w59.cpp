@@ -449,14 +449,7 @@ static inline u8* Next2bc(u8* o) {
     if (!o) return D_01e2aa80;
     return *(u8**)(o + 28);
 }
-void func_002bc608(u32 key) {
-    u8* o = 0;
-    while ((o = Next2bc(o))) {
-        if (*(u32*)(o + 24) != key) continue;
-        if (o[49] != 5) continue;
-        func_002bbf68(o, 1);
-    }
-}
+void func_002bc608(u32 key);  // 0x002bc608: definition moved into src/anon/unit_002bb8b0.cpp
 
 // --- 002c1aa0
 // Constructor: base init, then vtable and flags.

@@ -435,12 +435,7 @@ static inline u8* nextNode2bc(u8* n) {
     if (!n) return D_01e2aa80;
     return *(u8**)(n + 28);
 }
-void func_002bc708(s32 id) {
-    u8* n = 0;
-    while ((n = nextNode2bc(n))) {
-        if (*(s32*)(n + 24) == id && n[49] == 6) func_002bbf68(n, 1);
-    }
-}
+void func_002bc708(s32 id);  // 0x002bc708: definition moved into src/anon/unit_002bb8b0.cpp
 
 void func_002c5418(u32 x) {
     *(u32*)(func_00102788(D_0032b96c, 0, 0x493e0, func_002c53c8) + 4) = x;

@@ -331,14 +331,7 @@ static inline u8* nextNode(u8* p) {
     return *(u8**)(p + 28);
 }
 
-s32 func_002bc7a8(u32 k) {
-    s32 n = 0;
-    u8* p = 0;
-    while ((p = nextNode(p)) != 0) {
-        if (p[49] == k) n++;
-    }
-    return n;
-}
+s32 func_002bc7a8(u32 k);  // 0x002bc7a8: definition moved into src/anon/unit_002bb8b0.cpp
 
 typedef void (*VFn)(void*);
 struct EvSub {

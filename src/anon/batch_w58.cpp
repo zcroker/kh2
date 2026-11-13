@@ -492,20 +492,7 @@ struct Nd28 { u8 pad[20]; s32 id; u8 pad2[4]; Nd28* next; u8 pad3[4]; s32 f36; u
 struct L28 { Nd28* head; Nd28* tail; };
 extern L28 D_01e2aa80;
 extern s32 D_003616e8;
-void func_002bb100(Nd28* n, s32 a1, s32 a2) {  // next_global_id
-    s32 id = D_003616e8;
-    n->id = id;
-    D_003616e8 = ++id;
-    if (id == 0) D_003616e8 = 1;
-    n->b49 = a2;
-    n->f36 = 0;
-    n->b48 = 1;
-    if (a1 == 1) n->f36 = 2;
-    n->h40 = 16383;
-    n->h44 = 64;
-    L28* L = &D_01e2aa80;
-    if (!L->tail) { L->tail = n; L->head = n; n->next = 0; } else { L->tail->next = n; n->next = 0; L->tail = n; }
-}
+void func_002bb100(Nd28* n, s32 a1, s32 a2);  // 0x002bb100: definition moved into src/anon/unit_002bb070.cpp
 
 void func_002be770(u8*);
 extern u8 D_00361b20[];

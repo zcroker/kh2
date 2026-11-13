@@ -235,11 +235,7 @@ void jm_unload(u8* j) {
     j[16] = 0;
 }
 
-u32 func_002bc158(s32 a) {
-    if (a == 0) return 0;
-    if (a < 0) return 0;
-    return func_002bc0f0(a);
-}
+u32 func_002bc158(s32 a);  // 0x002bc158: definition moved into src/anon/unit_002bb8b0.cpp
 
 void func_002e0bb0(u32 a) {
     func_002e0d28(func_001050d8(240), a);

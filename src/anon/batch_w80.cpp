@@ -828,29 +828,7 @@ void func_002b2c80(void) {
 }
 
 
-void func_002bbc90(U20_Fade* f) {
-    switch (f->state) {
-    case 0:
-        break;
-    case 1:
-        func_002bb8b0(f);
-        func_002b95e8(f->f24, f->f16, f->f40, f->f44);
-        f->state = 2;
-        break;
-    case 2:
-        if (!func_002bb510(f)) {
-            func_002bc358(f->f20, 1);
-            break;
-        }
-        func_002bb5f8(f);
-        func_002bb8b0(f);
-        func_002b9728(f->f24, f->f16, f->f40, f->f44);
-        break;
-    case 3:
-        func_002bc358(f->f20, 1);
-        break;
-    }
-}
+void func_002bbc90(U20_Fade* f);  // 0x002bbc90: definition moved into src/anon/unit_002bb8b0.cpp
 
 
 void func_003259a0(u8* o) {

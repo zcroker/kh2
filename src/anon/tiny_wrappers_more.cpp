@@ -1188,13 +1188,9 @@ u32 func_002bac58(u32 a0, u32 a1, u32 a2, u32 a3) {
 
 // 002bb050: _GLOBAL__I_ stub, now made by gcc in src/anon/unit_002bac78.cpp
 
-u32 func_002bc458(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_002bb0c8(a0, a1, a2, a3);
-}
+u32 func_002bc458(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002bc458: definition moved into src/anon/unit_002bb8b0.cpp
 
-u32 func_002bc938(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_002bc7f0(0x00000001u, 0x0000ffffu, a2, a3);
-}
+u32 func_002bc938(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002bc938: definition moved into src/anon/unit_002bb8b0.cpp
 
 u32 func_002bc990(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_00324750(a0, 0xffffffffu, a2, a3);
