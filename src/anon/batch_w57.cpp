@@ -219,7 +219,7 @@ struct C160 {
         (*(VF160*)((u8*)*owner + 40))(owner, *(void**)&D_0034c738, *(u32*)((u8*)this + 448));
     }
 };
-void func_00160268(C160* t) { t->~C160(); }
+// 00160268: moved to src/harata/libdk/bgobj.cpp
 
 // Destructor with a base chain and a 2-element array member.
 void func_001d5718(void*);  // list_free_nodes

@@ -25,7 +25,7 @@ void func_00236d60(void);
 s32 func_002ee040(Drw2bf3*);
 
 /* Destructor body: needs -fno-strict-aliasing for the virtual call argument order. */
-void func_001602f8(O1602* o) { o->~O1602(); }
+// 001602f8: moved to src/harata/libdk/bgobj.cpp
 
 /* Needs -fno-strict-aliasing so the stack arguments are stored before the object reload. */
 void func_002bf308(void) {

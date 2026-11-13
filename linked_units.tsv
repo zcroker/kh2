@@ -90,6 +90,8 @@ src/yasui/libys/file.cpp	00168218	00168aa0	.data@0034d800,.bss@004f5280	-G0 -g -
 src/harata/libdk/fpscamera.cpp	0014e2c0	0014ecb8	.data@0034a3f0,.bss@004f3580,.rodata@0036b1e0	-G0 -fno-strict-aliasing
 src/harata/libdk/map.cpp	0015eba8	0015efa0	.rodata@0036b468	-G0
 src/harata/libdk/map_effect.cpp	0015f268	0015f7f0	.data@0034c6f0	-G0
+src/harata/libdk/bgobj.cpp	0015f7f0	001610c0	.data@0034c738,.rodata@0036b470	-G0 -g -fno-strict-aliasing
+src/anon/unit_001611a8.cpp	001611a8	001614a8	.bss@004f3b30	-G0 -g -fno-strict-aliasing
 src/anon/unit_002e8b50.cpp	002e8b50	002e9248	.bss@01e2bf90,.rodata@00376088	-G0 -fno-strict-aliasing
 src/sugi/flare.cpp	002e9248	002e99c8	.data@01e2bfa0,.rodata@00376090	-G0 -fno-strict-aliasing
 src/anon/unit_001cc048.cpp	001cc048	001cc3b8	.rodata@0036e1c0	-G0 -g

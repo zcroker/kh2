@@ -2034,22 +2034,7 @@ void func_0015b5d8(u32 a0) {
 
 // 0015f738: moved to src/harata/libdk/map_effect.cpp
 
-void func_00160960(u8* a0) {
-    if ((*(u32*)(a0 + 384) & 2u) != 0u) {
-        func_001606e0(a0);
-        u32 t = *(u32*)(a0 + 696) & 1u;
-        if (t != 0u) {
-            func_001608c0(a0);
-        }
-        return func_00143398(a0 + 448);
-    }
-
-    u32 t = *(u32*)(a0 + 696) & 1u;
-    if (t != 0u) {
-        func_001608c0(a0);
-    }
-    return func_00143328(a0 + 448);
-}
+// 00160960: moved to src/harata/libdk/bgobj.cpp
 
 void func_00161668(u8* a0, f32 a1) {
     if (*(u32*)(a0 + 72) == 0) {

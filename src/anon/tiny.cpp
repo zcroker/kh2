@@ -555,29 +555,13 @@ void func_0015b770(u32 a0, u32 a1, u32 a2, u32 a3) {
 
 // 0015f288: moved to src/harata/libdk/map_effect.cpp
 
-void func_001604f0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a0;
-    (void)a1;
-    (void)a2;
-    (void)a3;
-}
+// 001604f0: moved to src/harata/libdk/bgobj.cpp
 
-void func_00160d18(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 t = *(u32*)((u32)a0 + (384));
-    t |= 0x0001u;
-    *(u32*)((u32)a0 + (384)) = t;
-}
+// 00160d18: moved to src/harata/libdk/bgobj.cpp
 
-void func_00160d28(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 t = *(u32*)((u32)a0 + (384));
-    t |= 0x0004u;
-    *(u32*)((u32)a0 + (384)) = t;
-}
+// 00160d28: moved to src/harata/libdk/bgobj.cpp
 
-void func_00161228(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 b = (0x0035u << 16);
-    *(u8*)((u32)b + (-14528)) = (u8)0;
-}
+// 00161228: moved to src/anon/unit_001611a8.cpp
 
 void func_00161530(u32 a0, u32 a1, u32 a2, u32 a3) {  // noop_ret_b
     (void)a0;
@@ -2566,14 +2550,7 @@ void func_0014df88(u32 a0, u32 a1, u32 a2, u32 a3) {
 
 // 0015f278: moved to src/harata/libdk/map_effect.cpp
 
-void func_00160d38(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    u32 v = *(u32*)((u32)a0 + (384));
-    v &= (u32)((s32)-5);
-    *(u32*)((u32)a0 + (384)) = v;
-}
+// 00160d38: moved to src/harata/libdk/bgobj.cpp
 
 void func_001617c8(u32 a0, u32 a1, u32 a2, u32 a3) {
     (void)a1;

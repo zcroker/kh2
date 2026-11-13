@@ -36,15 +36,5 @@ static inline O161030* next_161030(O161030* p) {
     return p->next;
 }
 
-O161030* func_00161030(s32 n) {
-    O161030* p = 0;
-    s32 i = 0;
-    while ((p = next_161030(p)) != 0) {
-        if (p->f1b0 == 0) {
-            if (i == n) return p;
-            i++;
-        }
-    }
-    return 0;
-}
+// 00161030: moved to src/harata/libdk/bgobj.cpp
 }

@@ -185,22 +185,6 @@ void bx_init(Box*) asm("_ZN2dk6Aabbox4initEv");
 void bx_set(Box*, f32, f32, f32, f32, f32, f32) asm("_ZN2dk6Aabbox3setEffffff");
 void func_00144b38(Box*, QMat*);
 void func_001605a0(Ob*, QMat);
-void func_001606e0(Ob* o) {
-    Box b;
-    bx_init(&b);
-    QMat m;
-    QWord& r1 = m.r[1]; QWord& r2 = m.r[2]; QWord& r3 = m.r[3];
-    m = o->m16;
-    f32 k = -1.0f;
-    ScaleIn2(r1, r1, k);
-    ScaleIn(r2, k);
-    { QMat n = o->m272; MulIn(m, n); }
-    o->v640 = r3;
-    f32* f = o->f;
-    f32 d = o->src->vt[3](o->src);
-    bx_set(&b, f[0] - d, f[1] - d, f[2] - d, f[3] + d, f[4] + d, f[5] + d);
-    func_00144b38(&b, &o->m144);
-    func_001605a0(o, m);
-}
+// 001606e0: moved to src/harata/libdk/bgobj.cpp
 }
 }

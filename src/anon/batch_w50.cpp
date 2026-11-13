@@ -251,11 +251,7 @@ void func_0013f0d0(void) {
 
 // 0015cde0: moved to src/anon/unit_0015cdb0.cpp
 
-void func_00160ac0(u32 a, u32 b) {
-    u8* v = (u8*)func_00102788(D_004f3b30, 0, b, (void*)func_001609e0);
-    *(u32*)(v + 4) = a;
-    *(void**)(v + 48) = (void*)func_00160a90;
-}
+// 00160ac0: moved to src/harata/libdk/bgobj.cpp
 
 // Allocates a 76-byte object from the heap (tagged with the caller) and initialises it.
 // 00168388: moved to src/yasui/libys/file.cpp

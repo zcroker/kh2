@@ -147,27 +147,5 @@ void func_0018d620(void) {
     delete c;
 }
 
-void func_001612b8(s32 a0, s32 a1) {
-    D_0034c73c = a1;
-    D_0034c738 = a0;
-    func_00161228();
-    W1578Mode* f = W1578_getFieldMode();
-    W1578Mode* g = W1578_getGumiBattleMode();
-    W1578Mode* cur;
-    func_00102180(&cur);
-    W1578Mode* c = cur;
-    if (c == f) {
-        *(s32*)((u8*)W1578_FIELD_CreateTask(1, 28000, func_00160b88) + 0x30) = (s32)func_00160bb8;
-        *(s32*)((u8*)W1578_FIELD_CreateTask(1, 0x16378, func_00160bd8) + 0x30) = (s32)func_00160cf0;
-        s32 t = func_001024b0(D_0034c738);
-        D_004f3b30 = t;
-        W1578_TM_create_task(t, 0, 28000, func_00160b10);
-    } else if (c == g) {
-        *(s32*)((u8*)W1578_TM_create_task(g->id, 0, 0xabe0, func_00160b88) + 0x30) = (s32)func_00160bb8;
-        *(s32*)((u8*)W1578_TM_create_task(g->id, 0, 0x11558, func_00160bd8) + 0x30) = (s32)func_00160cf0;
-        s32 t = func_001024b0(D_0034c738);
-        D_004f3b30 = t;
-        W1578_TM_create_task(t, 0, 0xabe0, func_00160b10);
-    }
-}
+// 001612b8: moved to src/anon/unit_001611a8.cpp
 }

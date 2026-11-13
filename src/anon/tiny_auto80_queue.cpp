@@ -10690,24 +10690,12 @@ void duplicate_unplaced_00160ac0(u32 a0, u32 a1) {
 extern "C" u32 func_00160d38(...);
 extern "C" u32 func_00161030(...);
 
-void func_00160fd0() {
-    u32 v0 = func_00161030();
-    if (v0 == 0u) {
-        return;
-    }
-    func_00160d38(v0);
-}
+// 00160fd0: moved to src/harata/libdk/bgobj.cpp
 
 extern "C" u32 func_00160d28(...);
 extern "C" u32 func_00161030(...);
 
-void func_00161000() {
-    u32 v0 = func_00161030();
-    if (v0 == 0u) {
-        return;
-    }
-    func_00160d28(v0);
-}
+// 00161000: moved to src/harata/libdk/bgobj.cpp
 
 extern "C" u32 func_00144450(...);
 extern "C" u32 func_001616d8(...);

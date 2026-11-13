@@ -595,17 +595,11 @@ u32 func_0015eb68(u32 a0, u32 a1, u32 a2, u32 a3) {
 
 // 0015f7b0: moved to src/harata/libdk/map_effect.cpp
 
-u32 func_001604d8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_00161538(((u32)(a0) + 272u), a1, a2, a3);
-}
+// 001604d8: moved to src/harata/libdk/bgobj.cpp
 
-u32 func_00160940(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_0011e9a8(((u32)(*(u32*)((u32)(a0) + 448u))), a1, 0x00000000u, 0x00000000u);
-}
+// 00160940: moved to src/harata/libdk/bgobj.cpp
 
-u32 func_00161488(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_00161410(0x00000001u, 0x0000ffffu, a2, a3);
-}
+// 00161488: moved to src/anon/unit_001611a8.cpp
 
 u32 func_00165f50(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_00165f28(0x00000001u, 0x0000ffffu, a2, a3);

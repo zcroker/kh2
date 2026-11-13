@@ -168,22 +168,7 @@ extern u8 D_0034c720[];
 void func_0015f9c8(u8*, u32, u32, QWord, QWord, QWord, u32, s32, u32, u32, u32);
 void func_001433c0(u8*, u32);
 // Constructor: base init with three vectors by value, then own vtable and defaults.
-void func_0015f8d8(u8* o, u32 a1, const QWord& a, const QWord& b, const QWord& c, u32 t1, u32 t2) {
-    func_0015f9c8(o, 0, a1, a, b, c, t1, -1, 0, 0, 0);
-    *(u32*)o = (u32)D_0034c720;
-    if (!t2) {
-        *(u32*)(o + 456) |= 2;
-        o[466] = 0x80;
-        o[465] = 0x80;
-        o[464] = 0x80;
-        o[467] = 0xff;
-    }
-    func_001433c0(o + 448, t2);
-    *(u32*)(o + 500) = 0;
-    *(u32*)(o + 432) = 1;
-    *(u32*)(o + 696) &= ~0x80;
-    *(u32*)(o + 696) &= ~0x100;
-}
+// 0015f8d8: moved to src/harata/libdk/bgobj.cpp
 }
 }
 

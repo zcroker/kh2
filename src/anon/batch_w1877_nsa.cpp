@@ -38,21 +38,7 @@ extern "C" {
 void func_001447e0(void*, QV1877*, QV1877*);
 
 // Transform the 8 box corners in place and compute their min/max.
-void func_001605a0(Box1877* self, QM1877* m) {
-    QV1877 mn, mx, p;
-    for (s32 i = 0; i < 8; i++) {
-        self->c[i] = *m * self->c[i];
-        p = self->c[i];
-        if (i == 0) {
-            mn = mx = p;
-        } else {
-            if (p.x < mn.x) mn.x = p.x; else if (mx.x < p.x) mx.x = p.x;
-            if (p.y < mn.y) mn.y = p.y; else if (mx.y < p.y) mx.y = p.y;
-            if (p.z < mn.z) mn.z = p.z; else if (mx.z < p.z) mx.z = p.z;
-        }
-    }
-    func_001447e0(self->box, &mn, &mx);
-}
+// 001605a0: moved to src/harata/libdk/bgobj.cpp
 
 void u_call0_0020de30() asm("_Z16u_call0_0020de30v");
 void u_call0_0020de30() {
