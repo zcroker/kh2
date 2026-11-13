@@ -10747,22 +10747,11 @@ extern "C" u32 func_0011e9a8(...);
 extern "C" u32 func_00143318(...);
 extern "C" u32 func_00161248(...);
 
-void func_0015ef50(u32 a0, f32 a1) {
-    f32 f20 = a1;
-    u32 s0 = a0;
-    u32 v0 = func_00143318(a0);
-    ((void(*)(u32, u32, u32, u32, f32))func_0011e9a8)(v0, s0, 0u, 0u, f20);
-    ((void(*)(u32, f32))func_00161248)(s0, f20);
-}
+// 0015ef50: moved to src/harata/libdk/map.cpp
 
 extern u8 D_0034c710;
 
-u32 func_0015f718(u32 a0) {  // test_bit_global64
-    u64 v0 = *(volatile u64*)(u32)&D_0034c710;
-    v0 = (u64)(v0 >> a0);
-    u8 r = (u8)(v0 & 1u);
-    return r;
-}
+// 0015f718: moved to src/harata/libdk/map_effect.cpp
 
 extern "C" u32 func_00102788(...);
 extern u8 D_001609e0;

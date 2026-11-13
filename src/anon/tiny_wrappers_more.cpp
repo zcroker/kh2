@@ -606,9 +606,7 @@ u32 func_0015eb68(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_0015eaf8(0x00000001u, 0x0000ffffu, a2, a3);
 }
 
-u32 func_0015f7b0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_0015f738(0x00000001u, 0x0000ffffu, a2, a3);
-}
+// 0015f7b0: moved to src/harata/libdk/map_effect.cpp
 
 u32 func_001604d8(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_00161538(((u32)(a0) + 272u), a1, a2, a3);

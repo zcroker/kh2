@@ -13,6 +13,7 @@ struct AnimationWorkLayout {
 
     class AnimationWork {
     public:
+        enum TYPE { };
         s32 getNext() const;
         void setNext(AnimationWork* v);
     };

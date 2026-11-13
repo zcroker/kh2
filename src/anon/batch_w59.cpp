@@ -150,13 +150,7 @@ void func_001de3d8(void*, u32);
 extern u64 D_0034c710;
 extern u8 D_0034c70c;
 extern u8 D_0034c6f0[];
-void setHideGroup(u32 g) {
-    D_0034c710 = ~(1ULL << g) & D_0034c710;
-    func_00143060();
-    func_001538d8(g);
-    func_0015c4a0(g);
-    if (D_0034c70c == 1) func_001de3d8(D_0034c6f0, g);
-}
+// 0015ee10: moved to src/harata/libdk/map.cpp
 
 // --- 00167cd0
 u32 func_00167c90(u8*, void*);

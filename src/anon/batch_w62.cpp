@@ -144,13 +144,7 @@ extern u8 D_0034c6f0[];
 s32 func_001de568(u8*);
 void func_001dde40(u8*);
 void func_00142f50(void);
-void func_0015edb8(void) {
-    if (D_0034c70c == 1) {
-        if (func_001de568(D_0034c6f0)) func_001dde40(D_0034c6f0);
-    }
-    D_0034c70c = 0;
-    func_00142f50();
-}
+// 0015edb8: moved to src/harata/libdk/map.cpp
 
 struct Blk64 {
     u128 q[4];
