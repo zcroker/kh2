@@ -41,12 +41,7 @@ struct Node135 { void* vt; u32 pad; Node135* next; };
 extern u32 D_00347d00;
 extern Node135* D_00347cf0;
 void func_00135aa0(void*);
-void func_001358c0(Node135* p) {
-    p->vt = &D_00347d00;
-    func_00135aa0(p);
-    p->next = D_00347cf0;
-    D_00347cf0 = p;
-}
+// 001358c0: moved to src/naka/libkn/obj_observer.cpp
 
 extern u8 D_0034926a;
 extern u32 D_0032b91c;

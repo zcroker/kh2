@@ -78,37 +78,7 @@ void func_00103a40(void) {
 
 // 00104910: moved to src/common/area.cpp
 
-void func_00105a20(void) {
-    volatile u8 pad[64];
-
-    func_002bd260(0);
-
-    f32 f20 = 0.0f;
-    func_002bd310(0);
-
-    func_002ba220(0, 12288, 12288, 0, 0, 0);
-
-    func_00106048();
-    func_00105fc8();
-
-    func_002bd788(0);
-    func_002bd730(0, 0, 0, 0);
-    func_002bd760(720);
-    func_002bd7d8();
-
-    func_002f8aa0(f20);
-    cosf(f20);
-
-    func_0016f448(0);
-    func_002fd3d0(0, 0);
-
-    func_00170b30(0);  // alloc_align128
-    func_00170c00(0);
-    func_00170320(0);
-
-    func_00102f70();
-    func_00102f80();
-}
+// 00105a20: moved to src/common/unit_00105a10.cpp
 
 void func_00108ae0(u64* a0, u32 a1, u64 a2, u64 a3, u64 a4, u64 a5, u64 a6, u64 a7) {
     func_00109008();

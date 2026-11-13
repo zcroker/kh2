@@ -117,25 +117,7 @@ s32 func_001dca20(void*);  // get_bit20_of_field8
 u32 func_001dc5f0(void*);
 
 // drops dead/stale entries from a 32-slot handle list
-void func_00136020(List* l) {
-    Ent tmp[32];
-    s32 n = 0;
-    s32 i;
-    for (i = 0; i < l->count; i++) {
-        void* o = l->e[i].obj;
-        u32 id = l->e[i].id;
-        if (o && !func_001dca20(o) && func_001dc5f0(o) == id) {  // get_bit20_of_field8
-            tmp[n] = l->e[i];
-            n++;
-        }
-    }
-    for (i = 0; i < n; i++) l->e[i] = tmp[i];
-    for (; i < 32; i++) {
-        l->e[i].obj = 0;
-        l->e[i].id = 0;
-    }
-    l->count = n;
-}
+// 00136020: moved to src/naka/libkn/effect_observer.cpp
 }
 
 // ---- 140618 ----

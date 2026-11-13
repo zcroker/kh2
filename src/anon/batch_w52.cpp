@@ -73,15 +73,7 @@ struct Stack135 {
     u32 items[32];
 };
 // Pushes v; when full (32), flushes first.
-void func_00135bd0(Stack135* p, u32 v) {
-    func_00135c50((u8*)p, v);
-    s32 n = p->count;
-    if (n == 32) {
-        func_00135ad0((u8*)p);
-        if (p->count == n) func_00135c50((u8*)p, p->items[0]);
-    }
-    p->items[p->count++] = v;
-}
+// 00135bd0: moved to src/naka/libkn/obj_observer.cpp
 
 void func_00138650(u8* p, u32 a, u32 b, u32 c) {
     func_001391c8(p, a, c);

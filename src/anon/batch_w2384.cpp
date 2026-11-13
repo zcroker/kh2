@@ -48,37 +48,6 @@ extern s32 D_00347d44;
 extern s8 D_00347d54;
 
 // Push the two requested pad states to the driver when they changed.
-void func_00137058(s32* arg0) {
-    if (func_002b7148(1) != 0) {
-        func_002ba2b0(0xF0, 1);
-    }
-    D_00347d54 = 0;
-    PadState* d = D_00347d30;
-    s32 i = 0;
-    s32* p = arg0;
-    PadState* e = d;
-    do {
-        s32 v = *p;
-        if (__builtin_expect(e->a != v, 0) || __builtin_expect(e->b != v, 0)) {
-            e->a = v;
-            func_002ba2b0(0xF0, i);
-            if (i == 0) {
-                if (*arg0 != 0) {
-                    d->f |= 2;
-                    if (d->b != *arg0 || d->b != func_002bd250()) {
-                        d->b = *arg0;
-                        d->f |= 1;
-                    }
-                } else {
-                    func_00136b78(0, 0);
-                }
-            }
-        }
-        i++;
-        p++;
-        e++;
-    } while (i < 2);
-    D_00347d44 = 0;
-}
+// 00137058: moved to src/harata/libdk/bgm.cpp
 
 }

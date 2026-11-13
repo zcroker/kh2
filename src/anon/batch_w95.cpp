@@ -141,17 +141,7 @@ void func_002bb070(u32, u32, u32, u32, u32);
 s32 func_002ba200(void);
 void func_00102448(u32, u32);
 // Load a file into a temporary 64-byte aligned buffer, process it, free.
-void func_00136ba8(u32 a) {
-    Heap* h = func_001050c8();
-    u32 size = func_001688c8(D_0036ac80);
-    void* mem = h->vt->alloc(h, (size + 0x83f) & ~0x7ff, 0);
-    u32 buf = ((u32)mem + 63) & ~63;
-    func_00168388(D_0036ac80, buf, 0, 0);
-    while (func_00170cd0()) func_00102448(a, 0);
-    func_002bb070(1, buf, size, 0, 0);
-    while (func_002ba200()) func_00102448(a, 0);
-    h->vt->free(h, mem);
-}
+// 00136ba8: moved to src/harata/libdk/bgm.cpp
 
 extern f32 D_00349e10;
 extern f32 D_004573dc;

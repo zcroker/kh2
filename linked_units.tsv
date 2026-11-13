@@ -48,6 +48,10 @@ src/anon/unit_001b82d8.cpp	001b82d8	001b87a0	.bss@01d48cc0,.rodata@0036db48	-G0
 src/anon/unit_001d30b0.cpp	001d30b0	001d35e0	.bss@01d5ba0c,.rodata@0036e3fc	-G0
 src/harata/libdk/field2dd.cpp	0013a368	0013a8b8	.data@00347fb0,.rodata@0036acb0	-G0
 src/anon/unit_00134668.cpp	00134668	001357c8	.data@00347cc0,.bss@003b8ae0,.rodata@0036ac38	-G0 -fno-strict-aliasing
+src/naka/libkn/obj_observer.cpp	001357c8	00135d78	.data@00347cf0,.gnu.linkonce.d._ZTVN2kn11ObjObserverE@00347cf8	-G0 -fno-strict-aliasing
+src/naka/libkn/effect_observer.cpp	00135d78	001363a0	.data@00347d08,.gnu.linkonce.d._ZTVN2kn14EffectObserverE@00347d10	-G0 -fno-strict-aliasing
+src/harata/libdk/bgse.cpp	001363a0	00136a98	.data@00347d20,.bss@003b8b20	-G0
+src/harata/libdk/bgm.cpp	00136a98	00137458	.data@00347d30	-G0
 src/anon/unit_0015cdb0.cpp	0015cdb0	0015d440	.data@0034af38,.bss@004f3760,.rodata@0036b400	-G0 -fno-strict-aliasing
 src/yasui/libys/status.cpp	00191758	00191f20	.data@0034f240,.bss@01c61958,.rodata@0036cd58	-G0
 src/anon/unit_00182780.cpp	00182780	00183088	.data@0034ed00,.bss@01c60588	-G0
@@ -74,6 +78,7 @@ src/anon/unit_001a8098.cpp	001a8098	001a82b0	.data@01c6cb90	-G0 -fno-strict-alia
 src/anon/unit_001a82f0.cpp	001a82f0	001a85b8	.bss@01c6cba0	-G0 -fno-strict-aliasing
 src/common/gumimenu.cpp	00104318	00104910	.data@0032ba90,.bss@003a6a80,.rodata@00369e30	-G0
 src/common/area.cpp	00104910	00105400	.data@0032bad8,.bss@003a7b00,.rodata@00369e50	-G0
+src/common/unit_00105a10.cpp	00105a10	00105af8	-	-G0
 src/common/region.cpp	00105af8	00105c68	.data@0033caf0,.rodata@00369e88	-G0
 src/common/shop.cpp	00105c68	00105ee8	.data@0033cb80,.rodata@00369f50	-G0
 src/harata/libdk/mapfile.cpp	001491a8	00149be8	.rodata@0036afb8	-G0
@@ -90,6 +95,7 @@ src/anon/unit_001cd078.cpp	001cd078	001cd548	.rodata@0036e238	-G0 -g
 src/yasui/libys/bg.cpp	001a7588	001a8098	.data@00350990,.rodata@0036d5d0	-G0 -fno-strict-aliasing -fmove-all-movables
 src/yasui/libys/worldwork.cpp	001ba138	001ba168	.bss@01d48dc0	-G0
 src/yasui/libys/itemeffect.cpp	001ba168	001ba7e0	.bss@01d48de0,.rodata@0036dbe0	-G0 -fno-strict-aliasing
+src/anon/unit_001ba7e0.cpp	001ba7e0	001bb270	.rodata@0036dc00	-G0 -fno-strict-aliasing
 src/yasui/libys/magic.cpp	001a5c08	001a6a10	.data@00350800,.bss@01c6cb20,.rodata@0036d5c0	-G0 -fno-strict-aliasing -fmove-all-movables
 src/yasui/libys/prizetable.cpp	001a5b58	001a5c08	.bss@01c6cb1c	-G0
 src/yasui/libys/effect.cpp	001a3a50	001a3d70	.data@00350748,.bss@01c6cae0,.rodata@0036d478	-G0

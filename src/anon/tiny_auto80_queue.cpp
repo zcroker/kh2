@@ -6472,15 +6472,7 @@ u32 func_001336f8(u32 a0) {
 extern "C" u32 func_00135ad0(...);
 extern u8 D_00347cf0;
 
-void func_001357d8(void) {
-    u32 s0 = *(volatile u32*)((u32)&D_00347cf0 + (s32)(0));
-    if (s0 != 0u) {
-        do {
-            func_00135ad0(s0);
-            s0 = *(volatile u32*)((u32)s0 + (s32)(8));
-        } while (s0 != 0u);
-    }
-}
+// 001357d8: moved to src/naka/libkn/obj_observer.cpp
 
 extern "C" u32 func_00135aa0(...);
 extern u8 D_00347cf0;
@@ -6524,15 +6516,7 @@ void duplicate_unplaced_00135c50(u32 a0, u32 a1) {
 extern "C" u32 func_00136020(...);
 extern u8 D_00347d08;
 
-void func_00135d88(void) {
-    u32 s0 = *(volatile u32*)((u32)&D_00347d08 + (s32)(0));
-    if (s0 != 0u) {
-        do {
-            func_00136020(s0);
-            s0 = *(volatile u32*)((u32)s0 + (s32)(8));
-        } while (s0 != 0u);
-    }
-}
+// 00135d88: moved to src/naka/libkn/effect_observer.cpp
 
 extern "C" u32 func_001050d8(...);
 extern "C" u32 func_00135e50(...);
@@ -6582,25 +6566,13 @@ void duplicate_unplaced_00136790(u32 a0, u32 a1) {
 extern "C" u32 func_002bc358(...);
 extern u8 D_00347d24;
 
-void func_00136840(void) {
-    u32 t6 = *(volatile u32*)((u32)&D_00347d24 + (s32)(0));
-    u32 t7 = (u32)-1;
-    if (t6 != t7) {
-        func_002bc358(t6, 480u);
-    }
-}
+// 00136840: moved to src/harata/libdk/bgse.cpp
 
 extern "C" u32 func_00136a50(...);
 extern "C" u32 func_002ba040(...);
 extern u8 D_00347d28;
 
-void func_00136a60(void) {
-    u32 t6 = 1u;
-    u8 t5 = *(u8*)((u32)&D_00347d28 + (s32)(0));
-    if ((u32)t5 != t6) return;
-    func_002ba040();
-    func_00136a50();
-}
+// 00136a60: moved to src/harata/libdk/bgse.cpp
 
 extern u8 D_00347d50;
 extern u8 D_00347d54;
@@ -6617,25 +6589,14 @@ extern "C" u32 func_002ba848(...);
 
 extern "C" u32 func_00136ba8(...);
 
-void func_00136cc8(u32 a0, u32 a1) {
-    if (a1 == (u32)((s32)0u + (118))) {
-        func_00136ba8();
-    }
-}
+// 00136cc8: moved to src/harata/libdk/bgm.cpp
 
 extern "C" u32 func_00136b78(...);  // entry16_set_field8
 extern "C" u32 func_002b7148(...);
 extern "C" u32 func_002ba2b0(...);
 extern u8 D_00347d40;
 
-void func_00136cf0(void) {
-    if (func_002b7148(1u) != 0u) {
-        if (*(volatile u32*)((u32)&D_00347d40 + (s32)(0)) != 0u) {
-            func_002ba2b0(240u, 1u);
-            func_00136b78(1u, 0u);  // entry16_set_field8
-        }
-    }
-}
+// 00136cf0: moved to src/harata/libdk/bgm.cpp
 
 void func_001380e8(void) {
     u32 s0 = (u32)(0x0034u << 16);
@@ -18264,13 +18225,7 @@ s32 func_001b7818(s32 a0) {
 
 // 001b8318: moved to src/anon/unit_001b82d8.cpp
 
-void func_001bae08() {
-    u32** g = (u32**)0x01d50000;
-    u32* p = g[-6968];
-    if (p != 0) {
-        func_001d71f0(p[0]);
-    }
-}
+// 001bae08: moved to src/anon/unit_001ba7e0.cpp
 
 // 001bbe18: moved to src/yasui/libys/mission.cpp
 

@@ -31,40 +31,6 @@ extern P137180 D_00347d30[2];
 extern u8 D_00347d54;
 void func_002ba2b0(s32, s32);
 void func_00136b78(s32, s32);
-void func_00137180(u32 *in)
-{
-  P137180 *p;
-  s32 i;
-  u32 v;
-  u32 f;
-  v = 1;
-  D_00347d54 = v;
-  p = D_00347d30;
-  for (i = 0; i < 2; i++, in++, p++)
-  {
-    v = *in;
-    if ((p->cur == v) && (p->prev == v))
-    {
-      continue;
-    }
-    p->cur = v;
-    func_002ba2b0(240, i);
-    if ((*in) != 0)
-    {
-      f = p->flags;
-      p->flags = f | 2;
-      if (p->prev != (*in))
-      {
-        p->prev = *in;
-        p->flags = f | 3;
-      }
-    }
-    else
-    {
-      func_00136b78(i, 0);
-    }
-  }
-
-}
+// 00137180: moved to src/harata/libdk/bgm.cpp
 
 }

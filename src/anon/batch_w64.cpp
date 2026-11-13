@@ -85,18 +85,7 @@ void func_00137058(Pair36fd0*);
 void func_00137180(Pair36fd0*);
 union Half36fd0 { u16 h[2]; u32 w; };
 
-void func_00136fd0(void) {
-    Half36fd0* v = (Half36fd0*)func_001a9130();
-    union { u32 w[2]; u16 h; } s;
-    s.w[0] = v->h[0];
-    s.w[1] = v->h[1];
-    for (s32 i = 0; i < 2; i++) {
-        D_00347d30[i].f0 = 0;
-        D_00347d30[i].f1 = 0;
-    }
-    if (s.w[0] == s.w[1]) func_00137058((Pair36fd0*)&s);
-    else func_00137180((Pair36fd0*)&s);
-}
+// 00136fd0: moved to src/harata/libdk/bgm.cpp
 
 // ---------------------------------------------------------------------------
 void func_00139598(u8*);

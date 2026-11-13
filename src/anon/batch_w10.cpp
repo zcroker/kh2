@@ -104,15 +104,7 @@ void* func_00123dd0(void* a) {
     return (*(void* (**)(void*))(*(u8**)o + 28))(o);
 }
 
-void func_00135ff0(u8* p) {  // clear_array_32
-    s32 i;
-    *(u32*)(p + 12) = 0;
-    for (i = 31; i >= 0; i--) {
-        *(u32*)(p + 16) = 0;
-        *(u32*)(p + 20) = 0;
-        p += 8;
-    }
-}
+// 00135ff0: moved to src/naka/libkn/effect_observer.cpp
 
 void Timer_setCountDown(u32 n) {
     n *= 60;

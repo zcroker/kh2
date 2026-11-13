@@ -3271,14 +3271,7 @@ u32 duplicate_unplaced_001344b8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, 
     return ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_00133bb8)(r4, r5, r6, r7, r8, r9, r10, r11);
 }
 
-u32 func_00135878(u32 a0) {
-    u32 s1 = a0;
-    u32 s0 = ((u32(*)(u32))func_001050d8)(144);
-    u32 v0 = ((u32(*)(u32))func_00135900)(s0);
-    *(u32*)(s0 + 4) = s1;
-    *(u32*)s1 = s0;
-    return v0;
-}
+// 00135878: moved to src/naka/libkn/obj_observer.cpp
 
 u32 duplicate_unplaced_001358c0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r2, r14, r15, r16;
@@ -3341,25 +3334,9 @@ u32 duplicate_unplaced_00135e10(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, 
     return r2;
 }
 
-u32 func_00135e50(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32 r16 = a0;
-    *(volatile u32*)a0 = (u32)&D_00347d18;
-    u32 r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_00135ff0)(a0, a1, a2, a3, a4, a5, a6, a7);
-    u32 base = 0x00340000u;
-    u32 old = *(volatile u32*)(base + 32008);
-    *(volatile u32*)(r16 + 8) = old;
-    *(volatile u32*)(base + 32008) = r16;
-    return r2;
-}
+// 00135e50: moved to src/naka/libkn/effect_observer.cpp
 
-u32 func_00136778(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r2, r15;
-    r15 = (u32)((s32)0u + (1000));
-    r4 = (u32)(r4 * r15);
-    r4 = (u32)(r4 + r5);
-    r2 = r4;
-    return r2;
-}
+// 00136778: moved to src/harata/libdk/bgse.cpp
 
 u32 duplicate_unplaced_00136790(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r2, r15, r16;
@@ -3395,25 +3372,9 @@ u32 duplicate_unplaced_00136968(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, 
     return ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_00136a50)(r4, r5, r6, r7, r8, r9, r10, r11);
 }
 
-void func_001369d0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r14, r15;
-    r15 = (u32)&D_003b8b20;
-    r14 = (u32)((s32)0u + (-1));    *(volatile u16*)((u32)r15 + (s32)(4)) = (u16)r14;
-    *(volatile u16*)((u32)r15 + (s32)(10)) = (u16)r14;
-    *(volatile u16*)((u32)r15 + (s32)(8)) = (u16)r14;
-    *(volatile u16*)((u32)r15 + (s32)(6)) = (u16)r14;
-}
+// 001369d0: moved to src/harata/libdk/bgse.cpp
 
-void func_001369f0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r14, r15;
-    r15 = (u32)&D_003b8b20;
-    r14 = (u32)((s32)0u + (-1));    *(volatile u16*)((u32)r15 + (s32)(12)) = (u16)r14;
-    *(volatile u16*)((u32)r15 + (s32)(22)) = (u16)r14;
-    *(volatile u16*)((u32)r15 + (s32)(20)) = (u16)r14;
-    *(volatile u16*)((u32)r15 + (s32)(18)) = (u16)r14;
-    *(volatile u16*)((u32)r15 + (s32)(16)) = (u16)r14;
-    *(volatile u16*)((u32)r15 + (s32)(14)) = (u16)r14;
-}
+// 001369f0: moved to src/harata/libdk/bgse.cpp
 
 void duplicate_unplaced_00136a98(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r14, r15;

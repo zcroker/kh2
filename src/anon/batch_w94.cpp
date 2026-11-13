@@ -86,25 +86,7 @@ void func_001367c8(void*);
 void func_001364b8(void*, s32, s32);
 extern s16 D_003b8b2c[];
 
-void func_00136560(void* self) {
-    s16* v = func_001aec40();  // get_global_1c9408c
-    if (v[6] != D_003b8b2c[0]) {
-        void* a = func_002ba0f8(v[6]);
-        u32 n;
-        void* b = func_00136790(a, &n);
-        if (n) {
-            func_001367e0(self, a, b);
-            func_002ba5d0(b, n);
-            func_002ba7c8(self);
-        }
-        func_001367c8(b);
-    }
-    if (v[7] != -1 && v[7] != D_003b8b2c[1]) func_001364b8(self, v[7], 10);
-    if (v[8] != -1 && v[8] != D_003b8b2c[2]) func_001364b8(self, v[8], 11);
-    if (v[9] != -1 && v[9] != D_003b8b2c[3]) func_001364b8(self, v[9], 12);
-    if (v[10] != -1 && v[10] != D_003b8b2c[4]) func_001364b8(self, v[10], 13);
-    if (v[11] != -1 && v[11] != D_003b8b2c[5]) func_001364b8(self, v[11], 14);
-}
+// 00136560: moved to src/harata/libdk/bgse.cpp
 }
 // ---- 00137fb8
 extern "C" {

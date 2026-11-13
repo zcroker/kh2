@@ -110,23 +110,7 @@ extern u8 D_0032bae0;
 extern u32 D_00347d20;
 
 // 001366b8
-void func_001366b8(void* a)
-{
-    s16* r = func_001aec40(a);  // get_global_1c9408c
-    if (!r) return;
-    if (r[0] == -1) func_002b9ab8(20);
-    else func_002b9ab8(r[0]);
-    func_002bc458(r[1]);
-    if (D_0032bae0 != D_00347d20) {
-        func_001369d0();
-        func_001369f0();
-        D_00347d20 = D_0032bae0;
-        func_002b9ed0();
-    }
-    func_00136a60();
-    func_001363a0(a);
-    func_00136560(a);
-}
+// 001366b8: moved to src/harata/libdk/bgse.cpp
 
 s32 func_00165db8(s32, s32, s32*, s32, s32, s32, s32*, s32, s32);
 void func_00141c18(u32, s32, s32, s32, s32);
