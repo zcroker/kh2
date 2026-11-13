@@ -29,22 +29,7 @@ u8* func_00106a60(s32);
 NM1567 func_002e71a0(s32, u8, s32);
 void func_001072d0(u8*, u8*, QV1567*);
 void wt1567(u8* a0, u32, u32, u32) asm("_Z16wtarget_002e27c8jjjj");
-void wt1567(u8* a0, u32, u32, u32) {
-    if (func_00197920() == 0) {
-        s32 b = func_00106a18(1);
-        func_00106de8(D_00362e60 * 0.017453292f, b, 1);
-        func_00106c08(b);
-        u8* cam = func_00106a60(1);
-        NM1567 m = func_002e71a0(*(s32*)(a0 + 0x6c), (*(u8**)(a0 + 0x64))[8], 1);
-        asm volatile("lqc2 $vf1, 48(%0)\n\tlqc2 $vf2, 0(%1)\n\tvadd.xyz $vf1, $vf1, $vf2\n\tsqc2 $vf1, 48(%0)" : : "r"(&m), "r"(a0 + 0xf0) : "memory");
-        NM1567* d = (NM1567*)(cam + 0x10);
-        *d = m;
-        QV1567 t;
-        asm volatile("lqc2 $vf1, 0(%0)\n\tlqc2 $vf2, 0(%1)\n\tvadd.wxyz $vf1, $vf1, $vf2\n\tsqc2 $vf1, 0(%2)" : : "r"(cam + 0x40), "r"(cam + 0x30), "r"(&t) : "memory");
-        func_001072d0(cam, cam + 0x40, &t);
-        d->invOrtho();
-    }
-}
+// 002e27c8: moved to src/anon/unit_002e1908.cpp
 }
 
 struct QV1567b {

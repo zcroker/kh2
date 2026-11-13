@@ -588,18 +588,7 @@ void func_00184540(V16*, u32, f32, f32);
 void func_002e10d0(V16*, u32);
 
 // Builds a vector, sets w = 0 and transforms it by the current view matrix.
-V16* func_002e1908(V16* out, u32 a1, u32 a2) {
-    V16 m[4];
-    V16 t;
-    func_00184540(out, a2, 0.800000012f, 0.800000012f);
-    func_002e10d0(m, D_00361f60);
-    ((u32*)out)[3] = 0;
-    asm volatile("lqc2 $vf5, 0(%1)\n\tlqc2 $vf1, 0(%2)\n\tlqc2 $vf2, 16(%2)\n\tlqc2 $vf3, 32(%2)\n\tlqc2 $vf4, 48(%2)\n\t"
-                 "vmulax.xyzw ACC, $vf1, $vf5x\n\tvmadday.xyzw ACC, $vf2, $vf5y\n\tvmaddaz.xyzw ACC, $vf3, $vf5z\n\tvmaddw.xyzw $vf5, $vf4, $vf5w\n\t"
-                 "sqc2 $vf5, 0(%0)" : : "r"(&t), "r"(out), "r"(m) : "memory");
-    vcopy(out, &t);
-    return out;
-}
+// 002e1908: moved to src/anon/unit_002e1908.cpp
 
 // ---------------------------------------------------------------------------
 struct Words9 { u32 w[9]; };

@@ -309,11 +309,7 @@ void func_002ddb80(void** p) {
     func_00105110(p);
 }
 
-bool func_002e2dd8(void) {
-    u8* p = D_00361f60;
-    if (p) func_002ceb08();
-    return *(s32*)(p + 272) != 0;
-}
+// 002e2dd8: moved to src/anon/unit_002e2d18.cpp
 
 void func_002eaaf0(void* p) {
     func_0017c430(p);

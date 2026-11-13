@@ -84,42 +84,7 @@ void func_002e7768(void*);
 void func_001e0868(void*);
 void f_002e77a0(void*) asm("_Z13func_002e77a0Pv");
 void wt_001cd548(u32 init, u32 prio, u32, u32) asm("_Z16wtarget_001cd548jjjj");
-void wt_001cd548(u32 init, u32 prio, u32, u32)
-{
-    if (prio == 0xffff && init == 1) {
-        /* member constructors */
-        G1cd548* g = &D_01d499b0;
-        asm("" : "+r"(g));
-        func_00319bd0(&g->a);
-        func_00188e08(&g->b);
-        func_00319870(&g->c);
-        func_00321068(&g->d);
-        func_002e7768(&g->e);
-        func_001e0868(&g->f);
-        /* the two id structs' ctors fill a, b, c with 0xffff (prio); the store
-           order (c, c, a, a, b, b) needs hand-written instructions */
-        register u32 t4 asm("$12");
-        register u32 t5 asm("$13");
-        register u32 t6 asm("$14");
-        register u32 t7 asm("$15");
-        asm volatile("lui %0,%%hi(D_01d5a970)" : "=r"(t6));
-        asm volatile("lui %0,%%hi(D_01d5a974)" : "=r"(t7));
-        asm volatile("addiu %0,%1,%%lo(D_01d5a970)" : "=r"(t5) : "r"(t6));
-        asm volatile("addiu %0,%1,%%lo(D_01d5a974)" : "=r"(t4) : "r"(t7));
-        asm volatile("sb %0,2(%1)" : : "r"(prio), "r"(t5) : "memory");
-        asm volatile("sh %0,4(%1)" : : "r"(prio), "r"(t4) : "memory");
-        asm volatile("sh %0,%%lo(D_01d5a974)(%1)" : : "r"(prio), "r"(t7) : "memory");
-        asm volatile("sb %0,%%lo(D_01d5a970)(%1)" : : "r"(prio), "r"(t6) : "memory");
-        asm volatile("sb %0,1(%1)" : : "r"(prio), "r"(t5) : "memory");
-        asm volatile("sh %0,2(%1)" : : "r"(prio), "r"(t4) : "memory");
-    }
-    struct NoTail { ~NoTail() {} } nt;
-    if (prio == 0xffff && init == 0) {
-        G1cd548* g = &D_01d499b0;
-        asm("" : "+r"(g));
-        f_002e77a0(&g->e);
-    }
-}
+// 001cd548: static init of the prize work object, moved to src/anon/unit_001cd548.cpp
 
 void* func_001e3650(void*);
 void* f_001e3660(void*, s32) asm("_Z13func_001e3660ji");

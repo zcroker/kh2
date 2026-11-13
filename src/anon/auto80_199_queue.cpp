@@ -11282,42 +11282,11 @@ void func_002e0f20(u32 a0) {
     func_00105110(a0);
 }
 
-void func_002e22f0(u32 a0) {
-    *(u32*)a0 = (u32)&D_00362eb8;
-    u32 p = *(u32*)(a0 + 108);
-    if (p != 0) {
-        func_002e70b0(p);
-        func_00106420(p);
-    }
-    func_002cea28(a0);
-    func_00105110(a0);
-}
+// 002e22f0: moved to src/anon/unit_002e1908.cpp
 
-void func_002e2660(u32 a0) {
-    if (*(u32*)(a0 + 272) != 0) {
-        return;
-    }
+// 002e2660: moved to src/anon/unit_002e1908.cpp
 
-    s32 a1 = (s32)*(u32*)(a0 + 264) - 1;
-    if (a1 < 0) {
-        a1 = (s32)func_002e34c8(a0 + 104) - 1;
-    }
-
-    func_002e2728(a0, a1, 0);
-}
-
-void func_002e26c0(u32 a0) {
-    if (*(u32*)(a0 + 272) != 0) {
-        return;
-    }
-
-    s32 s = *(s32*)(a0 + 264);
-    if ((s32)func_002e34c8(a0 + 104) < s) {  // obj_get_field8_by_vtable
-        s = 0;
-    }
-
-    func_002e2728(a0, s, 1);
-}
+// 002e26c0: moved to src/anon/unit_002e1908.cpp
 
 // 002e3688: moved to src/anon/unit_002e2f08.cpp
 

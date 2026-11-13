@@ -12,6 +12,7 @@
 source	text_start	text_end	sections	flags
 src/anon/unit_001056e8.cpp	001056e8	00105748	.data@0032bb28,.bss@003a7b60	-G0
 src/anon/unit_0014b150.cpp	0014b150	0014b518	-	-G0
+src/anon/unit_0014b518.c	0014b518	0014b5e0	-	-G0
 src/harata/libdk/rect.cpp	0014b5e0	0014b638	-	-G0
 src/anon/unit_00157688.cpp	00157688	00158050	.bss@004f3588,.rodata@0036b300	-G0
 src/anon/unit_00158050.cpp	00158050	00158450	-	-G0
@@ -30,6 +31,8 @@ src/sasa/event_movie.cpp	0022ba08	0022bda0	.data@0035e2ec,.rodata@00371150	-G0
 src/sasa/event_countdown.cpp	0022bda0	0022c4b8	.data@0035e2f0,.rodata@00371178	-G0
 src/sasa/event_layout.cpp	0022c4b8	0022d358	.bss@01dad960,.rodata@00371190	-G0
 src/anon/unit_002e2f08.cpp	002e2f08	002e3f38	.data@00362f48,.bss@01e2be20,.rodata@00375f60	-G0
+src/anon/unit_002e1908.cpp	002e1908	002e2c98	.rodata@00375f08	-G0 -fno-strict-aliasing
+src/anon/unit_002e2d18.cpp	002e2d18	002e2ed0	.data@00362e70,.rodata@00375f50	-G0 -fno-strict-aliasing
 src/anon/unit_002eae08.cpp	002eae08	002eaf38	.data@003634e8,.rodata@003760d8	-G0
 src/anon/unit_002eaf38.cpp	002eaf38	002ec5f8	.rodata@003760e0	-G0 -fno-strict-aliasing
 src/anon/unit_002ec5f8.cpp	002ec5f8	002ecd98	.bss@01e2c040,.rodata@00376160	-G0
@@ -111,6 +114,7 @@ src/sugi/flare.cpp	002e9248	002e99c8	.data@01e2bfa0,.rodata@00376090	-G0 -fno-st
 src/anon/unit_001cc048.cpp	001cc048	001cc3b8	.rodata@0036e1c0	-G0 -g
 src/anon/unit_001cc868.cpp	001cc868	001cd078	.rodata@0036e1fc	-G0 -g
 src/anon/unit_001cd078.cpp	001cd078	001cd548	.rodata@0036e238	-G0 -g
+src/anon/unit_001cd548.cpp	001cd548	001cd660	-	-G0
 src/yasui/libys/bg.cpp	001a7588	001a8098	.data@00350990,.rodata@0036d5d0	-G0 -fno-strict-aliasing -fmove-all-movables
 src/yasui/libys/worldwork.cpp	001ba138	001ba168	.bss@01d48dc0	-G0
 src/yasui/libys/itemeffect.cpp	001ba168	001ba7e0	.bss@01d48de0,.rodata@0036dbe0	-G0 -fno-strict-aliasing

@@ -489,12 +489,7 @@ void func_002df470(u8* p, u32 b) {
 }
 
 extern Vec4 D_00362e70;
-void wtarget_002e2e50(u32 a, u32 b, u32, u32) {
-    if (b == 0xffff && a == 1) {
-        D_00362e70.x = D_00362e70.y = D_00362e70.w = 0.0f;
-        D_00362e70.z = 1000.0f;
-    }
-}
+// 002e2e50: moved to src/anon/unit_002e2d18.cpp
 
 void func_002ed5a8(u8* p) {
     *(u32*)(p + 96) = 0;

@@ -459,12 +459,7 @@ void func_002bce50(u8* p) {
 
 void func_002e7108(u32, f32);
 Mq func_002e71a0(u32, u32, s32);
-void func_002e24e0(u8* p) {
-    Mq* d = (Mq*)(p + 176);
-    func_002e7108(*(u32*)(p + 108), *(f32*)(p + 260));
-    *d = func_002e71a0(*(u32*)(p + 108), *(u8*)(*(u32*)(p + 100) + 8), 1);
-    asm volatile("lqc2 $vf1, 48(%0)\n\tlqc2 $vf2, 0(%1)\n\tvadd.xyz $vf1, $vf1, $vf2\n\tsqc2 $vf1, 48(%0)" : : "r"(d), "r"(p + 240) : "memory");
-}
+// 002e24e0: moved to src/anon/unit_002e1908.cpp
 
 u32 func_001dc9e0(u32);
 Vq* func_001dc5f8(u32);

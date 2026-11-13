@@ -362,15 +362,7 @@ void func_002daa98(u8* p, u32 a, u32 b) {
     func_002cf280(p + 2800, 1, 0);
 }
 
-s32 func_002e2240(u8* p) {
-    *(void**)p = D_00362eb8;
-    void* o = *(void**)(p + 0x6c);
-    if (o) {
-        func_002e70b0(o);
-        func_00106420(o);
-    }
-    return func_002cea28(p);
-}
+// 002e2240: moved to src/anon/unit_002e1908.cpp
 
 void func_002ecdf8(u8* p, u8* a) {
     func_00195858(a + 272, 60);

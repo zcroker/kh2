@@ -284,11 +284,7 @@ void func_002d5d50(u8* p, u32 a, u32 b) {
 extern u8* D_00361f60;
 void func_002ceb08(void);
 u32 GetCurrentPoint(void* self) asm("_ZN2Ti12MG_EHSidecar15GetCurrentPointEv");
-u32 GetCurrentPoint(void* self) {
-    u8* s = D_00361f60;
-    if (s) func_002ceb08();
-    return *(u32*)(s + 264);
-}
+// 002e2e18: moved to src/anon/unit_002e2d18.cpp
 
 void* func_001050d8(u32);
 void* func_0016e920(u32);

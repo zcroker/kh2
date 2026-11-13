@@ -2623,33 +2623,7 @@ void func_002cedd0(s32, u8*);
 void func_0016bd60(u8*, s32);
 u8* func_0016b740(s32);
 void func_002e2350(Obj57*);
-void func_002e1f70(Obj57* o, u32 a)
-{
-    func_002ce958(o, 5, a, 0);
-    o->vt = (u32)D_00362eb8;
-    func_002e34b8(o->sub);
-    char name[64];
-    func_002ceae8(o, name, D_00375f18);
-    u32 h = func_001708f8(name, -1);
-    o->h = h;
-    func_00168b38(h, 42, 0);  // entry_array_find_nth
-    func_002e34c0(o->sub, func_00168b38(h, 42, 0)->v);
-    func_00168b38(h, 42, 1);  // entry_array_find_nth
-    u32 x = func_00168b38(h, 42, 1)->v;
-    func_002e64b0(x);
-    void* m = func_001063c0(12, func_001050c8());
-    func_002e6fc0(m, x);
-    o->m = m;
-    func_002cedd0(3, D_00362e80);
-    u8* p = D_0034e948;
-    func_0016bd60(p, 53);
-    *(u32*)(p + 264) |= 1;
-    p = func_0016b740(2113);
-    func_0016bd60(p, 54);
-    *(u32*)(p + 264) |= 1;
-    func_002e2350(o);
-    o->b88 = 1;
-}
+// 002e1f70: moved to src/anon/unit_002e1908.cpp
 
 V33 func_00163650(const V33*, const V33*, const V33*);
 void func_001468f0(V33* out, V33* p)
@@ -3120,33 +3094,7 @@ void func_002cedd0(s32, u8*);
 void func_0016bd60(u8*, s32);
 u8* func_0016b740(s32);
 void func_002e2350_102666(Obj83*) asm("func_002e2350");
-void func_002e20d8(Obj83* o, u32 a)
-{
-    func_002ce958_102666(o, 5, a, 0);
-    o->vt = (u32)D_00362eb8;
-    func_002e34b8(o->sub);
-    char name[64];
-    func_002ceae8_102666(o, name, D_00375f18);
-    u32 h = func_001708f8(name, -1);
-    o->h = h;
-    func_00168b38_102666(h, 42, 0);
-    func_002e34c0(o->sub, func_00168b38_102666(h, 42, 0)->v);
-    func_00168b38_102666(h, 42, 1);
-    u32 x = func_00168b38_102666(h, 42, 1)->v;
-    func_002e64b0(x);
-    void* m = func_001063c0(12, func_001050c8());
-    func_002e6fc0(m, x);
-    o->m = m;
-    func_002cedd0(3, D_00362e80);
-    u8* p = D_0034e948;
-    func_0016bd60(p, 53);
-    *(u32*)(p + 264) |= 1;
-    p = func_0016b740(2113);
-    func_0016bd60(p, 54);
-    *(u32*)(p + 264) |= 1;
-    func_002e2350_102666(o);
-    o->b88 = 1;
-}
+// 002e20d8: moved to src/anon/unit_002e1908.cpp
 
 struct Pr84 { s32 x, y; };
 struct St84 {
@@ -14989,20 +14937,7 @@ struct R2e2728 { s32 a, b; };
 struct O2e2728 { u8 pad[0x64]; R2e2728* r; u8 m68[0x98]; s32 idx; f32 v; s32 n; u8 pad10c[4]; s32 state; };
 void func_002e34c8(u8*);
 R2e2728* func_002e34d8(u8*, s32);
-void func_002e2728(O2e2728* o, s32 idx, u8 b)
-{
-    if (o->state != 0) return;
-    o->idx = idx;
-    if (idx >= 0) func_002e34c8(o->m68);
-    R2e2728* r = func_002e34d8(o->m68, o->idx);
-    o->r = r;
-    f32 v = (f32)(b ? r->a : r->b);
-    o->state = b ? 1 : 2;
-    o->v = v;
-    s32 n = o->idx;
-    if (b) n = n + 1;
-    o->n = n;
-}
+// 002e2728: moved to src/anon/unit_002e1908.cpp
 
 // --------------------
 // lq/sq 128-bit copy (hand-written VU-style copy)
@@ -15538,21 +15473,7 @@ struct O2e2350 {
 extern "C" {
 s32* func_002e34d8_2e2350(u8*, s32) asm("func_002e34d8");
 void func_002e24e0(O2e2350*);
-void Init2e2350(O2e2350* o) asm("func_002e2350");
-void Init2e2350(O2e2350* o)
-{
-    o->f264 = 0;
-    o->f256 = 0;
-    s32* c = func_002e34d8_2e2350(o->b104, 0);
-    o->cur.p = c;
-    o->f260 = (f32)*c;
-    func_002e24e0(o);
-    o->f268 = 1;
-    o->f276.i = -1;
-    o->f272.u = 0;
-    o->v288 = V2e2350(130.0f, 180.0f, 0.0f, 0.0f);
-    o->v304 = V2e2350(140.0f, 150.0f, 0.0f, 0.0f);
-}
+void Init2e2350(O2e2350* o) asm("func_002e2350");// 002e2350: moved to src/anon/unit_002e1908.cpp
 }
 
 // --------------------
