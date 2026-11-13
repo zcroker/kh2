@@ -319,10 +319,7 @@ void func_001c6400(u8* p, Q16* v) {
     *(void**)(p + 84) = (void*)func_001c6320;
 }
 
-void func_0022afa0(s32 a) {
-    func_00224828(a);
-    func_0022afe8((s32)((f32)a * 1.5f));
-}
+void func_0022afa0(s32 a);  // 0022afa0: moved to src/sasa/musical_input.cpp (linked unit)
 
 void func_002368e8(u8* p, f32 x) {
     if (**(s8**)(p + 408) == 0 && *(u32*)(p + 48) == 0) {

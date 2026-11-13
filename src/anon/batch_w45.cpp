@@ -516,18 +516,7 @@ void u_call4_002eec58(u32 x, u32, u32, u32) {
     *(void**)a0 = D_003637e0;
 }
 
-void func_002f0640(u32 a0, u8* obj, u8 flag) {
-    u8 tmp[16] __attribute__((aligned(16)));
-    u8 v[16] __attribute__((aligned(16)));
-    u32 w;
-    func_0017c030(tmp, obj, &w, flag);
-    asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(v), "r"(tmp) : "$8", "memory");
-    func_0017c4c8(obj, v);
-    obj[1300] = 9;
-    func_0017f488(obj + 320, w, 0.0f, 0.0f);
-    *(u32*)(obj + 256) = 4;
-    *(u32*)(obj + 260) = 5;
-}
+// 002f0640: moved to src/anon/unit_002efd68.cpp
 
 // destructor chain: three vtables, two embedded members
 void func_0031b7e8(u8* a0) {

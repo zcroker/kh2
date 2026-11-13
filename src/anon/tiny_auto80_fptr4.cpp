@@ -2055,21 +2055,9 @@ u32 func_002ed8c0(u32 a0, u32 a1, u32 a2, u32 a3) {
     return r2;
 }
 
-u32 func_002f0e40(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3;
-    r5 = *(u32*)((u32)r4 + (s32)(4));
-    r4 = *(u32*)((u32)r4 + (s32)(0));
-    r5 = ((u32)0u < (u32)r5);
-    return func_001128d0(r4, r5, r6, r7);
-}
+// 002f0e40: moved to src/naka/libkn/trapfunctions.cpp
 
-u32 func_002f11b0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3;
-    r5 = *(u32*)((u32)r4 + (s32)(4));
-    r4 = *(u32*)((u32)r4 + (s32)(0));
-    r5 = ((u32)0u < (u32)r5);
-    return func_002e9fb8(r4, r5, r6, r7);
-}
+// 002f11b0: moved to src/naka/libkn/trapfunctions.cpp
 
 u32 func_002f6fa0(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2;

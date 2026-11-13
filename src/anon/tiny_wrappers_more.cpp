@@ -1605,41 +1605,23 @@ u32 func_002ef8b0(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_002ef890(0x00000001u, 0x0000ffffu, a2, a3);
 }
 
-u32 func_002f06b0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_002f0598(a1, a2, a2, a3);
-}
+// 002f06b0: moved to src/anon/unit_002efd68.cpp
 
-u32 func_002f06e8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_0017cc30(a0, a1, 0x0000003eu, a3);
-}
+// 002f06e8: moved to src/anon/unit_002efd68.cpp
 
-u32 func_002f0850(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return YS_STDOBJ_set_special_command(((u32)(*(u32*)((u32)(((u32)(*(u32*)((u32)(a0) + 0u)))) + 4u))), ((u32)(*(u32*)((u32)(a0) + 4u))), a2, a3);
-}
+// 002f0850: moved to src/naka/libkn/trapfunctions.cpp
 
-u32 func_002f0870(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_00198970(((u32)(*(u32*)((u32)(((u32)(*(u32*)((u32)(a0) + 0u)))) + 4u))), a1, a2, a3);
-}
+// 002f0870: moved to src/naka/libkn/trapfunctions.cpp
 
-u32 func_002f0ce0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_0010f918(((u32)(*(u32*)((u32)(((u32)(*(u32*)((u32)(a0) + 0u)))) + 4u))), a1, a2, a3);
-}
+// 002f0ce0: moved to src/naka/libkn/trapfunctions.cpp
 
-u32 func_002f0f30(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return kn_Friend_setLastAction(((u32)(*(u32*)((u32)(((u32)(*(u32*)((u32)(a0) + 0u)))) + 4u))), 0x00000000u, 0x00000000u, a3);
-}
+// 002f0f30: moved to src/naka/libkn/trapfunctions.cpp
 
-u32 func_002f0f98(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_00112c58(((u32)(*(u32*)((u32)(((u32)(*(u32*)((u32)(a0) + 0u)))) + 4u))), a1, a2, a3);
-}
+// 002f0f98: moved to src/naka/libkn/trapfunctions.cpp
 
-u32 func_002f1030(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_001133f8(((u32)(*(u32*)((u32)(((u32)(*(u32*)((u32)(a0) + 0u)))) + 4u))), a1, a2, a3);
-}
+// 002f1030: moved to src/naka/libkn/trapfunctions.cpp
 
-u32 func_002f1270(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_002f1268(0x00000001u, 0x0000ffffu, a2, a3);
-}
+// 002f1270: moved to src/naka/libkn/trapfunctions.cpp
 
 u32 func_002f8aa0(u32 a0, u32 a1, u32 a2, u32 a3) {
     return __ieee754_acosf(a0, a1, a2, a3);

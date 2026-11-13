@@ -305,13 +305,9 @@ s32 func_002dc748(void** p) {
 void* func_0010c7e8(u32);
 u32 func_0011a408(void*);
 void func_0011a918(void*, u32);
-void trap_peterpan_receive_notify_player_target(u32** bd) {
-    *(u32*)bd = func_0011a408(func_0010c7e8(bd[0][1]));
-}
+// 002f0c58: moved to src/naka/libkn/trapfunctions.cpp
 
-void trap_chickenlittle_set_shoot_target(u32** bd) {
-    func_0011a918(func_0010c7e8(bd[0][1]), (u32)bd[1]);
-}
+// 002f1230: moved to src/naka/libkn/trapfunctions.cpp
 
 // Normalise a 3-vector (VU0 macro code)
 void sceVu0Normalize(f32* d, const f32* s) {  // vec4_normalize

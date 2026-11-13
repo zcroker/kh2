@@ -20,10 +20,4 @@ u32 func_001745a0(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_00190920(p0, p1, p2, p3);
 }
 
-u32 func_002f1208(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 p0 = ((u32)(*(u32*)((u32)(((u32)(*(u32*)((u32)(a0) + 0u)))) + 4u)));
-    u32 p1 = ((u32)(*(u32*)((u32)(a0) + 4u)));
-    u32 p2 = ((u32)(*(u32*)((u32)(a0) + 8u)));
-    u32 p3 = a3;
-    return func_00113450(p0, p1, p2, p3);
-}
+// 002f1208: moved to src/naka/libkn/trapfunctions.cpp

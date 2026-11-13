@@ -301,10 +301,7 @@ u32 func_002eb068(u8* p) {
 }
 
 void** func_0010c7e8(u32);
-void func_002f07c8(u32** p) {
-    void** o = func_0010c7e8(p[0][1]);
-    ((VFn)(*(void***)o)[11])(o);
-}
+// 002f07c8: moved to src/naka/libkn/trapfunctions.cpp
 
 // Never returns: func_00315440 does not come back.
 void func_00316d18(void*, u32);

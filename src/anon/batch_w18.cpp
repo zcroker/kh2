@@ -310,9 +310,7 @@ void TrinityShot_Init(void* self) {
 void* func_0010c7e8(void*);
 void func_00119e60(void*, u32);
 void trap_genie_change_form(u8** v) asm("_ZN2kn22trap_genie_change_formEP8BD_VALUE");
-void trap_genie_change_form(u8** v) {
-    func_00119e60(func_0010c7e8(*(void**)(v[0] + 4)), (u32)v[1]);
-}
+// 002f08d8: moved to src/naka/libkn/trapfunctions.cpp
 
 extern u32 D_003677b8;
 void func_00315768(void*);

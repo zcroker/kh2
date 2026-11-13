@@ -361,19 +361,7 @@ void func_001eb1b0(void*, f32* v) {
     sceVu0MulMatrix(p, m, p);
 }
 
-s32 func_0022b028(s32 n) {
-    func_002247e8(n);
-    if (func_002249b8() == 3) {  // get_global_36dac0
-        n = -n;
-        func_002248f8(n);
-    } else if (func_002249b8() == 5) {  // get_global_36dac0
-        n = -n;
-        if (n > 0) func_002248f8(n);
-    } else {
-        n = 0;
-    }
-    return n;
-}
+s32 func_0022b028(s32 n);  // 0022b028: moved to src/sasa/musical_input.cpp (linked unit)
 
 void func_0022bb60(void* p);  // 0022bb60: moved to src/sasa/event_movie.cpp (linked unit)
 

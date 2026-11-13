@@ -272,14 +272,7 @@ void func_0020cf60(u32 a, u8* e) {
         func_00223e98(*(u32*)(e + 4), e + 8, e[28], e[29], *(f32*)(e + 12), *(f32*)(e + 16), *(u32*)(e + 20));
 }
 
-u32 func_0022aef0(Q16* q) {
-    u32 v = func_0022b688(141);
-    Q16 t;
-    QCOPY(&t, q);
-    func_001391a8(v, &t);  // vec_copy_at416_if_diff
-    func_002251c8(12102);
-    return v;
-}
+u32 func_0022aef0(Q16* q);  // 0022aef0: moved to src/sasa/musical_input.cpp (linked unit)
 
 // Any of the 99 32-byte entries has flag 0x10 set.
 u32 func_00241a00(void) {

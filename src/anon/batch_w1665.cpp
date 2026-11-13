@@ -16,7 +16,7 @@ void wt_2e8b08(u32 a, u32 b, u32 c, u32 d) {}
 void wt_2e9200(u32 a, u32 b, u32 c, u32 d) asm("_Z16wtarget_002e9200jjjj");
 // 002e9200 (static init): moved to src/anon/unit_002e8b50.cpp
 void wt_2f1268(u32 a, u32 b, u32 c, u32 d) asm("_Z16wtarget_002f1268jjjj");
-void wt_2f1268(u32 a, u32 b, u32 c, u32 d) {}
+// 002f1268: moved to src/naka/libkn/trapfunctions.cpp
 u32 func_00317130(u8* p) { return *(u32*)(p + 724); }
 u32 func_00317138(u8* p) { return *(u32*)(p + 720); }
 // 00104200: moved to src/common/gumibattle.cpp

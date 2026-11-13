@@ -402,28 +402,19 @@ u32 func_002dc708(void** p) {
 // --- 002efb60
 void func_002efb08(void*);
 void func_002efa98(void*);
-void func_002efb60(void* p) {
-    func_002efb08(p);
-    func_002efa98(p);
-}
+// 002efb60: moved to src/anon/unit_002ef938.cpp
 
 // --- 002f10c0
 u32 func_0010c7e8(u32);
 void func_0011a938(u32, u32, f32, f32);
 struct P2f1 { u32* a; u32 b; f32 x; f32 y; };
-void func_002f10c0(P2f1* p) {
-    u32 v = func_0010c7e8(p->a[1]);
-    u32 b = p->b;
-    func_0011a938(v, b, p->x, p->y);
-}
+// 002f10c0: moved to src/naka/libkn/trapfunctions.cpp
 
 // --- 002f1130
 u32 func_0010c7b0(u32);
 u32 func_00136158(u32, u32);
 u32 trap_btlobj_is_reflect_motion(u32**) asm("_ZN2kn29trap_btlobj_is_reflect_motionEP8BD_VALUE");
-u32 trap_btlobj_is_reflect_motion(u32** p) {
-    return func_00136158(func_0010c7b0(p[0][1]), (u32)p[1]);
-}
+// 002f1130: moved to src/naka/libkn/trapfunctions.cpp
 
 // --- 0031f4b8
 extern u32 D_00350bf0;

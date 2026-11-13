@@ -13831,26 +13831,9 @@ void duplicate_unplaced_00228e28(u32 a0) {
 
 void func_00229448(u32 a0);  // 00229448: moved to src/sasa/musical_score.cpp (linked unit)
 
-void func_0022ab90(u8* a0) {
-    u8* s0 = a0;
-    s32 v = func_0022ab80((u32)a0);
-    s0 += 5072;
-    if (v != 0) {
-        func_00138c10((u32)s0, 98);
-    }
-}
+void func_0022ab90(u8* a0);  // 0022ab90: moved to src/sasa/musical_input.cpp (linked unit)
 
-s32 func_0022afe8(s32 a0) {
-    s32 s0 = a0;
-    s32 v = func_002249b8();  // get_global_36dac0
-    if (v == 5) {
-        if (s0 <= 0) {
-            s0 = 0;
-        }
-    }
-    func_002248f8((u32)s0);
-    return s0;
-}
+s32 func_0022afe8(s32 a0);  // 0022afe8: moved to src/sasa/musical_input.cpp (linked unit)
 
 void func_0022b5f0(u8* a0);  // 0022b5f0: moved to src/sasa/musical_target.cpp (linked unit)
 
@@ -16874,42 +16857,11 @@ L_c4:
     *(u32*)(a1 + 28) = (u32)a0;
 }
 
-u32 func_002efa40(u32 a0) {
-    u32 s0 = a0;
-    u32 s1 = 0;
-    if (func_002ef9e0(s0) != 0) {
-        u32 t7 = *(u32*)(s0 + 16);
-        t7 = t7 & 1;
-        s1 = (0u < t7);
-    }
-    return s1;
-}
+// 002efa40: moved to src/anon/unit_002ef938.cpp
 
-void func_002efb88(u8* a0, u32* a1) {
-    u32* src = (u32*)(a0 + 20);
-    s32 i = 151;
-    while (i >= 0) {
-        u32 t6 = *a1;
-        u32 t7 = *src;
-        t6 = t6 | t7;
-        *a1 = t6;
-        src = src + 1;
-        a1 = a1 + 1;
-        i = i - 1;
-    }
-}
+// 002efb88: moved to src/anon/unit_002ef938.cpp
 
-u32 func_002efc70(u32 a0) {
-    u32 s0 = a0;
-    u32 s1 = 0;
-    if (func_002efc10(s0) != 0) {
-        u32 t7 = *(u32*)(s0 + 16);
-        t7 = t7 & 3;
-        t7 = t7 ^ 3;
-        s1 = (t7 < 1);
-    }
-    return s1;
-}
+// 002efc70: moved to src/anon/unit_002efbb8.cpp
 
 void duplicate_unplaced_002f0798(u32* a0) {
     u32 t7 = a0[0];
@@ -16928,19 +16880,9 @@ void duplicate_unplaced_002f07c8(u32* a0) {
 }
 
 extern "C" u32 func_0011a430(...);
-void func_002f0c90(u32* a0) {
-    u32 t7 = a0[0];
-    u32 s0 = func_0010c7e8(*(u32*)(t7 + 4));
-    if (func_0011a408(s0) != 0) {
-        func_0011a430(s0);
-    }
-}
+// 002f0c90: moved to src/naka/libkn/trapfunctions.cpp
 
-void func_002f11d0(u32* a0) {
-    f32 f12 = *(f32*)((u8*)a0 + 4);
-    u32 a = a0[0];
-    func_00111000(a, f12);
-}
+// 002f11d0: moved to src/naka/libkn/trapfunctions.cpp
 
 void func_002f1460(u32* a0, u32 a1, f32 f12, f32 f13, f32 f14, f32 f15) {
     a0[3] = a1;
@@ -19091,29 +19033,9 @@ u32 u_call4_001a1de0(u32 a0, u32 a1, u32 a2, u32 a3) {
 extern "C" u32 func_002ef988(...);
 extern "C" u32 func_002efbb8(...);
 
-u32 u_call4_002ef9e0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 s0 = a0;
-    u32 s1 = 0;
-    if (*(u32*)s0 == 0x5332484bu) {
-        u32 r = func_002ef988(s0);
-        if (*(u16*)(s0 + 4u) == r) {
-            s1 = (*(u16*)(s0 + 6u) == 1u) ? 1u : 0u;
-        }
-    }
-    return s1;
-}
+// 002ef9e0: moved to src/anon/unit_002ef938.cpp
 
-u32 u_call4_002efc10(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 s0 = a0;
-    u32 s1 = 0;
-    if (*(u32*)s0 == 0x004d4f43u) {
-        u32 r = func_002efbb8(s0);
-        if (*(u16*)(s0 + 4u) == r) {
-            s1 = (*(u16*)(s0 + 6u) == 1u) ? 1u : 0u;
-        }
-    }
-    return s1;
-}
+// 002efc10: moved to src/anon/unit_002efbb8.cpp
 
 extern "C" u32 func_0028b040(...);
 

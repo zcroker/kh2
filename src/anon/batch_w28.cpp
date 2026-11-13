@@ -296,14 +296,7 @@ void func_001ddd88(void* p) {
     if (func_00321cb0(D_01d9e348, p)) func_001dde40(p);
 }
 
-u32 func_0022ae98(Q16* v) {
-    u32 r = func_0022b688(142);
-    Q16 t;
-    QCOPY(&t, v);
-    func_001391a8(r, &t);  // vec_copy_at416_if_diff
-    func_002251c8(12101);
-    return r;
-}
+u32 func_0022ae98(Q16* v);  // 0022ae98: moved to src/sasa/musical_input.cpp (linked unit)
 
 void func_00240b48(u32 a) {
     if (!a) a = D_0035ec90;

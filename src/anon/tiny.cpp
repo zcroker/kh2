@@ -1374,11 +1374,7 @@ u32 func_002ef7b8(u32 a0, u32 a1, u32 a2, u32 a3) {
     return (u32)(*(u8*)((u32)b + (14528)));
 }
 
-void func_002efa88(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 t = *(u32*)((u32)a0 + (16));
-    t |= 0x0001u;
-    *(u32*)((u32)a0 + (16)) = t;
-}
+// 002efa88: moved to src/anon/unit_002ef938.cpp
 
 u32 func_002f1888(u32 a0, u32 a1, u32 a2, u32 a3) {
     (void)a0;
@@ -1938,12 +1934,7 @@ u32 func_00227120(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_data_1dbd8f8
     return (u32)&D_01dad918;
 }
 
-u32 func_0022ab80(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    return ((*(u32*)((u32)a0 + (5496)) ^ 0x0004u) == 0);
-}
+u32 func_0022ab80(u32 a0, u32 a1, u32 a2, u32 a3);  // 0022ab80: moved to src/sasa/musical_input.cpp (linked unit)
 
 void func_002361d0(u32 a0, u32 a1, u32 a2, u32 a3) asm("_ZN2YI5IMAGED1Ev");  // YI::IMAGE::~IMAGE
 void func_002361d0(u32 a0, u32 a1, u32 a2, u32 a3) {

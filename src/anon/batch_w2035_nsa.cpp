@@ -30,24 +30,5 @@ extern f32 D_00349e10;
 f32 func_001806f8(M2efe18*, s32);
 f32 func_00180770(M2efe18*, s32);
 f32 func_002f8b00(f32, f32);
-f32 func_002efe18(O2efe18* o, s32 id, f32 dt) {
-    M2efe18* m = &o->mot;
-    f32 t = m->time + D_00349e10 + dt;
-    f32 s0 = func_001806f8(m, -1);
-    f32 e0 = func_00180770(m, -1);
-    f32 s1 = func_001806f8(m, id);
-    f32 e1 = func_00180770(m, id);
-    f32 r;
-    if (e0 < s0 && e1 < s1) {
-        if (e0 < t) {
-            f32 d = s1 - e1;
-            r = (t - e0) / (s0 - e0);
-            return e1 + func_002f8b00(d * r, d);
-        }
-        r = t / e0;
-        return func_002f8b00(e1 * r, e1);
-    }
-    r = t / s0;
-    return func_002f8b00(s1 * r, s1);
-}
+// 002efe18: moved to src/anon/unit_002efd68.cpp
 }

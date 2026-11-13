@@ -301,9 +301,7 @@ void func_002eb4b0(u8* p) {
 u32 func_0010c7e8(u32);
 void func_00117808(u32, u32);
 void trap_empty_func(u32** p) asm("_ZN2kn15trap_empty_funcEP8BD_VALUE");
-void trap_empty_func(u32** p) {
-    func_00117808(func_0010c7e8(p[0][1]), (u32)p[1]);
-}
+// 002f0708: moved to src/naka/libkn/trapfunctions.cpp
 
 extern u32 D_003677e8;
 void func_00315768(void*);

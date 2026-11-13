@@ -626,12 +626,7 @@ void func_002e6fc0(u32* p, u32 b) {
 
 extern "C" {
 
-void func_002f07f8(u32* p) {
-    Q16 t;
-    func_0011a900(&t, func_0010c7e8(*(u32*)(p[0] + 4)));
-    if (&D_01e2c0c0 != &t) copyQ(&D_01e2c0c0, &t);
-    p[0] = (u32)&D_01e2c0c0;
-}
+// 002f07f8: moved to src/naka/libkn/trapfunctions.cpp
 
 // ORs fn() over every active item of every block in the chain.
 u32 func_00303698(u8* p, u32 (*fn)(ItemW55*)) {

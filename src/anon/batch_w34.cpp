@@ -421,13 +421,7 @@ void func_002ef708(void) {
 }
 
 // Region code: 'US', 'JP' or 'EU'.
-u32 func_002efbb8(void) {
-    switch (func_00105c30()) {
-    case 2: return 21333;
-    case 1: case 8: return 20554;
-    }
-    return 21829;
-}
+// 002efbb8: moved to src/anon/unit_002efbb8.cpp
 
 void func_0031afa8(void** p) {
     *p = D_003485b0;
