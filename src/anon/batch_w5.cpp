@@ -27,12 +27,7 @@ void func_0011f3b8(void** obj) {
     (*(VFn**)obj)[0](obj);
 }
 
-// Copy one quadword src -> dst (unless they are the same).
-void func_00134d78(u8* src, u8* dst) {
-    if (dst != src) {
-        asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(dst), "r"(src) : "$8", "memory");
-    }
-}
+// 00134d78: moved to src/anon/unit_00134668.cpp
 
 void func_0013d750(void);
 void func_00102c18(u32, u32, void (*)(void));

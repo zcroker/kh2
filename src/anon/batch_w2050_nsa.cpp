@@ -46,37 +46,7 @@ void func_00134d78(Node_w2050a*, V4_w2050a*);
 void func_00134db0(Node_w2050a*, V4_w2050a*);
 void func_00135670(void*);
 
-void func_00134730(Obj_w2050a* self, const M4_w2050a& src, Node_w2050a* a, Node_w2050a* b, Node_w2050a* c)
-{
-    M4_w2050a m(src);
-    V4_w2050a v;
-    V4_w2050a t;
-    Node_w2050a* n[3] = { a, b, c };
-    Zero_w2050a(&self->ax[0]);
-    V4_w2050a* a1 = &self->ax[1];
-    Zero_w2050a(a1);
-    V4_w2050a* a2 = &self->ax[2];
-    Zero_w2050a(a2);
-    Inverse_w2050a(&m);
-    for (s32 i = 0; i < 3; i++) {
-        if (n[i]) {
-            func_00134d78(n[i], &v);
-            ApplyPoint_w2050a(&t, &m, &v);
-            t.y = -t.y;
-            t.z = -t.z;
-            t.w = 0;
-            Normalize_w2050a(&t);
-            s32 o = i * 4;
-            *(f32*)((u8*)self + o) = t.x;
-            *(f32*)((u8*)a1 + o) = t.y;
-            *(f32*)((u8*)a2 + o) = t.z;
-            func_00134db0(n[i], &self->pos[i]);
-        } else {
-            Zero_w2050a(&self->pos[i]);
-        }
-    }
-    func_00135670(self->sub);
-}
+// 00134730: moved to src/anon/unit_00134668.cpp
 }
 
 extern "C" {

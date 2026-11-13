@@ -22,11 +22,6 @@ void func_001069b8(u32 v) {  // swap_global_word
     D_0033cc38 = v;
 }
 
-// Quadword copy unless source and destination are the same.
-void func_00134d60(void* dst, void* src) {
-    if (dst != src) {
-        asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(dst), "r"(src) : "$8", "memory");
-    }
-}
+// 00134d60: moved to src/anon/unit_00134668.cpp
 
 }

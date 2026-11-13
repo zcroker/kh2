@@ -47,25 +47,5 @@ static inline f32 w2048_vnorm(f32* v) {
     return len;
 }
 
-// builds a 3-row normal basis from the inverse of m and copies 4 points
-void func_001349a8(W2048Dst* d, W2048M4* sm, W2048Src* s) {
-    W2048M4 m; w2048_mcopy(&m, sm);
-    W2048V4 v, o;
-    f32* r0 = d->r[0]; w2048_vzero(r0);
-    f32* r1 = d->r[1]; w2048_vzero(r1);
-    f32* r2 = d->r[2]; w2048_vzero(r2);
-    w2048_vinv(&m, &m);
-    W2048V4* p = d->p;
-    v[3] = 1.0f;
-    for (s32 i = 0; i < 3; i++) {
-        v[0] = s->a[i].x; v[1] = s->a[i].y; v[2] = s->a[i].z;
-        w2048_vapply(o, &m, v);
-        o[1] = -o[1]; o[2] = -o[2]; o[3] = 0.0f;
-        w2048_vnorm(o);
-        s32 k = i * 4;
-        *(f32*)((u8*)r0 + k) = o[0]; *(f32*)((u8*)r1 + k) = o[1]; *(f32*)((u8*)r2 + k) = o[2];
-        p[i][0] = s->b[i].x; p[i][1] = s->b[i].y; p[i][2] = s->b[i].z; p[i][3] = 1.0f;
-    }
-    d->p[3][0] = s->b[3].x; d->p[3][1] = s->b[3].y; d->p[3][2] = s->b[3].z; d->p[3][3] = 1.0f;
-}
+// 001349a8: moved to src/anon/unit_00134668.cpp
 }

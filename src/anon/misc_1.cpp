@@ -24,7 +24,7 @@ void func_00132368(void* self, s32 v) { *(s32*)((char*)self + 32) = v; }
 
 s32 func_00133718(void* self) { return (s32)(*(s32*)((char*)self + 24)); }
 
-void func_00134d58(void* self) {}
+// 00134d58: moved to src/anon/unit_00134668.cpp
 
 void func_0013b258(void* self, s32 v) { *(s32*)((char*)self + 668) = v; }
 

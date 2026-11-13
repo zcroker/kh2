@@ -61,17 +61,5 @@ V11a858 func_0011a858(void) {
     return r;
 }
 
-void func_00134668(O134668* o) {
-    Q134668* b = &o->b; Q134668* c = &o->c; Q134668* d = &o->d; Q134668* e = &o->e; Q134668* f = &o->f; Q134668* g = &o->g;
-    o->a.Zero();
-    b->Zero();
-    c->Zero();
-    o->b.z = 1.0f;
-    o->b.y = 1.0f;
-    o->b.x = 1.0f;
-    *f = Q134668(1.0f, 1.0f, 1.0f, 1.0f);
-    *e = *f;
-    *d = *e;
-    *g = D_00347ce0;
-}
+// 00134668: moved to src/anon/unit_00134668.cpp
 }

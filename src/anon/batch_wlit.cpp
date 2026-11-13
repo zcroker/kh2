@@ -58,16 +58,7 @@ void func_00132270(u32* p, u32 a) {  // obj_ctor_347c00
     ((f32*)p)[6] = 1.0f;
 }
 
-void func_00134d10(f32* p) {  // obj_init_floats
-    p[0] = 0;
-    p[1] = -1e7f;
-    p[2] = 0;
-    p[3] = 1.0f;
-    p[4] = 1.0f;
-    p[5] = 1.0f;
-    p[6] = 1.0f;
-    p[7] = 1.0f;
-}
+// 00134d10: moved to src/anon/unit_00134668.cpp
 
 // 001bbfd0: moved to src/yasui/libys/mission.cpp
 

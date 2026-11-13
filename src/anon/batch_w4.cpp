@@ -75,13 +75,7 @@ void func_00107368(u8* p, void* dst) {  // vec_copy_at80_if_diff
     }
 }
 
-// Quadword copy of a global into dst.
-void func_00135670(void* dst) {
-    void* src = &D_00347ce0;
-    if (dst != src) {
-        asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(dst), "r"(src) : "$8", "memory");
-    }
-}
+// 00135670: moved to src/anon/unit_00134668.cpp
 
 // Quadword copy of src into p+0x1a0.
 void func_001391a8(u8* p, void* src) {  // vec_copy_at416_if_diff

@@ -81,14 +81,7 @@ s32 func_001009a0(u8* cie) {
     }
 }
 
-void func_00134c00(W78Vec* v, u32 a) {
-    W78Vec* d = func_00133bb8(a, 3, 0x01000101, 0x6c034005);  // forward_sub24_to_133848
-    d[0] = v[0];
-    d[1] = v[1];
-    d[2] = v[2];
-    W78Mtx* m = (W78Mtx*)func_00133bb8(a, 4, 0x01000101, 0x6c04400a);  // forward_sub24_to_133848
-    *m = *(W78Mtx*)(v + 3);
-}
+// 00134c00: moved to src/anon/unit_00134668.cpp
 
 struct W78Ent { u8 b; u8 pad[15]; };
 struct W78Hit { u8 pad[12]; u8* tbl; };

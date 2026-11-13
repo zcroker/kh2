@@ -85,17 +85,9 @@ void func_0010a7d8(u8 r, u8 g, u8 b) {  // store_triple_bytes
     c[2] = b;
 }
 
-// Copy the 16-byte block at src+16 to dst unless they alias.
-void func_00134db0(u8* src, u8* dst) {
-    src += 16;
-    if (dst != src) {
-        asm volatile("lq $8, 0(%0)\n\tsq $8, 0(%1)" : : "r"(src), "r"(dst) : "$8", "memory");
-    }
-}
+// 00134db0: moved to src/anon/unit_00134668.cpp
 
-void func_00134dd0(u32 a0, u32 a1, u32 a2) {
-    func_00134730(a2, a1, a0, 0, 0);
-}
+// 00134dd0: moved to src/anon/unit_00134668.cpp
 
 u8 func_00143448(u16 id) {
     return func_00141778(D_00348804, id);
