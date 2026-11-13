@@ -537,11 +537,7 @@ void func_002de8e8(u8* p) {
 
 extern f32 D_01e2c040;
 void func_002eb9d8(u8*, u8*, u32, f32);
-void func_002eba78(u8* a, u8* b) {
-    *(f32*)(b + 276) = *(f32*)(b + 272) = 16.0f;
-    *(f32*)(b + 284) = D_01e2c040;
-    func_002eb9d8(a, b, 253, 8.0f);
-}
+// 002eba78: moved to src/anon/unit_002eaf38.cpp
 
 void func_002fde18(void*, s32, u32);
 struct UwCtx { u8 pad[708]; void* cfa; u32 ra; u8 pad2[28]; };

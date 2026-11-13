@@ -97,26 +97,5 @@ static inline f32 v4f0_dot(const Vec4f0& a, const Vec4f0& b) {
         : "=f"(r) : "r"(&a), "r"(&b) : "$8", "memory");
     return r;
 }
-u8* func_002eb4f0(u8* ret, Obj4f0* o) {
-    if (!D_01e2c068) {
-        D_01e2c070 = cosf(0.34906584f);
-        D_01e2c068 = 1;
-    }
-    Vec4f0 a;
-    if (func_003142e0(0, func_00313b80(o->v10.w)) < 0) {
-        func_00184ad0(o, &o->v10, o->f11c);
-        a = func_0016af58(o);
-        f32 l = v4f0_len(o->v20);
-        o->v20 = v4f0_scale(a, l);
-        a.w = o->v10.w;
-        o->v10 = a;
-    }
-    a = o->v20;
-    v4f0_norm(&a);
-    Vec4f0 b = func_0016af58(o);
-    f32 d = fabsf(v4f0_dot(a, b));
-    f32 k = d < D_01e2c070 ? 0.1f : 0.015f;
-    func_00184540(ret, (u32)o, 0.4f, 1.0f - k);
-    return ret;
-}
+// 002eb4f0: moved to src/anon/unit_002eaf38.cpp
 }

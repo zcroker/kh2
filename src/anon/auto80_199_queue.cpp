@@ -11947,36 +11947,9 @@ void func_002e73d8(u32 a0) {  // timer_decrement
     }
 }
 
-void func_002eb920(u32 a0, u32 a1, f32 a2) {
-    u32 s1 = a0;
-    u32 s0 = a1;
-    f32 s20 = a2;
+// 002eb920: moved to src/anon/unit_002eaf38.cpp
 
-    func_002eaf38(s1);
-    func_002eb778(s1, s0, 1, s20);
-
-    u32 t14 = *(u32*)(s1 + 12);
-    u32 t15 = *(u32*)(t14 + 4) ^ 0x31;
-    if (t15 == 0) {
-        u32 v = *(u32*)(s1 + 268);
-        v = v & 0xFFFFFFFEu;
-        *(u32*)(s1 + 268) = v;
-    }
-}
-
-void func_002ec1d0(u32 a0, u32 a1) {
-    (void)a0;
-    u32 s0 = a1;
-    f32 z = 0.0f;
-
-    func_002eb778(s0, *(u32*)(s0 + 260), 1, z);
-    func_002eb7f0(s0, 252, z);
-    func_0016bd60(s0, 48);
-
-    *(u32*)(s0 + 264) = *(u32*)(s0 + 264) | 0x08000000u;
-
-    func_002edaf8(D_003637d0);
-}
+// 002ec1d0: moved to src/anon/unit_002eaf38.cpp
 
 void func_002edb38(void) {
     if (D_003637d0 != 0) {

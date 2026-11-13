@@ -286,12 +286,7 @@ void func_002e8290(S2e8290* p) {
 }
 
 // Is o->field_c->field_4 one of 0x33 / 0x3d?
-u32 func_002eb068(u8* p) {
-    s32 t = *(s32*)(*(u8**)(p + 12) + 4);
-    u32 r = 0;
-    if ((t ^ 0x3d) == 0 || (t ^ 0x33) == 0) r = 1;
-    return r;
-}
+// 002eb068: moved to src/anon/unit_002eaf38.cpp
 
 void** func_0010c7e8(u32);
 // 002f07c8: moved to src/naka/libkn/trapfunctions.cpp

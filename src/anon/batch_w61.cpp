@@ -480,8 +480,4 @@ u32 ctarget_00188fe0(u32 a0, u32 a1, u32, u32) {
 extern "C" f32 D_01e2c040;
 extern "C" f32 D_01e2c044;
 extern "C" f32 D_01e2c048;
-void wtarget_002eccd0(u32 a0, u32 a1, u32, u32) {
-    if (a1 == 0xffff && a0 == 1) D_01e2c040 = 0.10471975f;
-    if (a1 == 0xffff && a0 == 1) D_01e2c044 = 0.13089968f;
-    if (a1 == 0xffff && a0 == 1) D_01e2c048 = 0.13089968f;
-}
+// 002eccd0: moved to src/anon/unit_002ec5f8.cpp

@@ -16627,40 +16627,13 @@ void duplicate_unplaced_002ead20(u32 a0, u32 a1) {
 }
 
 extern "C" u32 func_002cbed8(...);
-void func_002eb1a0(u32 a0) {
-    u32 s0 = a0;
-    u8 tmp[16];
-    func_002cbed8(tmp, *(u32*)(s0 + 1288));
-    func_0016ace0(s0, tmp);
-    func_0016bd60(s0, 51);
-}
+// 002eb1a0: moved to src/anon/unit_002eaf38.cpp
 
-void func_002eb990(u32 a0, u32 a1, f32 f12) {
-    f32 f20 = f12;
-    u32 s0 = a0;
-    u32 s1 = a1;
-    func_002eaf38(s0, s1);
-    ((void(*)(u32, u32, f32))func_002eb7f0)(s0, s1, f20);
-}
+// 002eb990: moved to src/anon/unit_002eaf38.cpp
 
-void func_002ebc38(u32 a0, u32 a1) {
-    u32 t5 = *(u32*)a0;
-    Fn_002ebc38 fn = *(Fn_002ebc38*)(t5 + 12);
-    u32 s0 = a1;
-    fn(a0, s0, 0.0f);
-    u32 t7 = *(u32*)(s0 + 264);
-    t7 = t7 | 0x04000000;
-    *(u32*)(s0 + 264) = t7;
-}
+// 002ebc38: moved to src/anon/unit_002eaf38.cpp
 
-void func_002ec5b0(u32 a0, u32 a1) {
-    (void)a0;
-    u32 s0 = a1;
-    ((void(*)(u32, u32, u32, f32))func_002eb778)(s0, 269, 0, 0.0f);
-    u32 t7 = *(u32*)(s0 + 264);
-    t7 = t7 | 0x08000000;
-    *(u32*)(s0 + 264) = t7;
-}
+// 002ec5b0: moved to src/anon/unit_002eaf38.cpp
 
 void duplicate_unplaced_002ecdb0(u32 a0) {
     u32 t6 = *(u32*)a0;

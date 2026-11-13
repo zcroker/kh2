@@ -118,6 +118,6 @@ void func_002e7308(void* self) {}
 
 // 002e77a0: moved to src/anon/unit_002e7658.cpp
 
-void func_002eaf38(void* self) {}
+// 002eaf38: moved to src/anon/unit_002eaf38.cpp
 
-s32 func_002eaf40(void* self) { return (s32)(*(s32*)((char*)self + 572)); }
+// 002eaf40: moved to src/anon/unit_002eaf38.cpp

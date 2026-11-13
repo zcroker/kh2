@@ -448,16 +448,7 @@ struct C2e { u8 pad[16]; u8 col[36]; f32 x; f32 y; };
 // 002ec9d0
 void func_0017c4c8(void*, void*);
 void func_002eb6f8(void*, s32, f32);
-void func_002ec9d0(u8* p, u128* v, s32 n)
-{
-    u128 tmp;
-    asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(&tmp), "r"(v) : "$8", "memory");
-    func_0017c4c8(p, &tmp);
-    p[1300] = 8;
-    func_002eb6f8(p, n, 0.0f);
-    *(s32*)(p + 256) = n + 1;
-    *(s32*)(p + 260) = n + 2;
-}
+// 002ec9d0: moved to src/anon/unit_002ec5f8.cpp
 
 // 00321728: cache lookup; on miss reuse the entry with the lowest age
 struct E4 { u8 a; u8 age; u16 key; };

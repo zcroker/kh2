@@ -68,18 +68,5 @@ W1821Vec func_0017c030(W1821Obj*, s32*, u8);
 void func_0017c4c8(W1821Obj*, W1821Vec);
 void func_002eb778(W1821Obj*, u32, s32, f32);
 
-void func_002ec850(void* unused, W1821Obj* p, u8 c) {
-    W1821Vec v = p->p20;
-    s32 k;
-    f32 len = w1821_norm(&v);
-    v.w = len;
-    if (p->p10.w < len) p->p10 = v;
-    v = func_0017c030(p, &k, c);
-    v.y = 385.0f;
-    func_0017c4c8(p, v);
-    p->b514 = 8;
-    func_002eb778(p, 255, 1, 0.0f);
-    p->w100 = 0x100;
-    p->w104 = 0x101;
-}
+// 002ec850: moved to src/anon/unit_002ec5f8.cpp
 }

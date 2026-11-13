@@ -291,12 +291,7 @@ void func_002d5d10(u8* p, u32 a, u32 b) {
 
 void func_0017c430(void*);
 void func_0016bd60(void*, u32);
-void func_002eb4b0(u8* p) {
-    func_0017c430(p);
-    *(u32*)(p + 256) = 256;
-    *(u32*)(p + 260) = 257;
-    func_0016bd60(p, 49);
-}
+// 002eb4b0: moved to src/anon/unit_002eaf38.cpp
 
 u32 func_0010c7e8(u32);
 void func_00117808(u32, u32);

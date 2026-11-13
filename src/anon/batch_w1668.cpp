@@ -43,7 +43,7 @@ void func_001e2a78(void) { dkMap_setVisibleGroup(0); func_0015f6e8(); func_0015e
 
 extern u32 D_00363540;
 void func_002eb778(void*, u32, u32);
-void func_002eb868(void* p) { D_00363540 = 0; func_002eb778(p, 252, 0); }
+// 002eb868: moved to src/anon/unit_002eaf38.cpp
 
 struct S8 { u32 a, b; void (*fn)(u32, void*); };
 void func_00319190(S8* p) { p->fn(1, p); }

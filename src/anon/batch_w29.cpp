@@ -367,14 +367,7 @@ u8 func_002e0ec8(u8* p) {
     return func_002cea28(p);
 }
 
-void wtarget_002eb460(u8* o, Q16* q) {
-    Q16 t;
-    QCOPY(&t, q);
-    func_0017c4c8(o, &t);
-    *(u32*)(o + 256) = 256;
-    *(u32*)(o + 260) = 257;
-    func_0016bd60(o, 49);
-}
+// 002eb460: moved to src/anon/unit_002eaf38.cpp
 
 u32 func_002ffc08(u32 a, u32* p) {
     if (p[2] == 0) {

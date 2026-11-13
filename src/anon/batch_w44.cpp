@@ -517,10 +517,7 @@ void func_002e3a18(Q16** o) {
     }
 }
 
-void func_002eb7f0(void* o, s32 n, f32 f) {
-    func_0017f5f8((u8*)o + 320, n, 0, f, 0.0f);
-    func_0017f5e0(func_002eaf40(o) + 320, n - 101, 0, f, 0.0f);
-}
+// 002eb7f0: moved to src/anon/unit_002eaf38.cpp
 
 u32 u_call4_002ed830(u32 a, u32, u32, u32) {
     u8* o = (u8*)a;

@@ -128,19 +128,7 @@ void func_002edb38(void);
 void set_special_command_w1672(u32, s32) asm("_ZN2YS6STDOBJ19set_special_commandEi");
 void change_action_w1672(u8*, u32) asm("_ZN2YS3OBJ13change_actionENS_6ACTION2IDE");
 void func_002eb868(u8*, f32);
-void func_002eb890(u8* p, u32 b) {
-    Q16w1672 z;
-    asm volatile("vsub.xyzw $vf1,$vf0,$vf0\n sqc2 $vf1,0(%0)" : : "r"(&z) : "memory");
-    *(Q16w1672*)(p + 32) = z;
-    *(u32*)(p + 0x100) = 4;
-    *(u32*)(p + 0x104) = 5;
-    D_00363544 = 0;
-    D_00363560 = 0;
-    func_002edb38();
-    set_special_command_w1672(b, 2);
-    change_action_w1672(p, 48);
-    func_002eb868(p, 0.0f);
-}
+// 002eb890: moved to src/anon/unit_002eaf38.cpp
 
 void motion_push_w1672(u8*, u32, f32, f32, u32) asm("_ZN2YS6MOTION4pushEiffPFvPNS_3OBJEE");
 u32 member_Get_w1672(s32) asm("_ZN2YS6MEMBER3GetEi");

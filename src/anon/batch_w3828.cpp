@@ -42,37 +42,5 @@ static inline __attribute__((always_inline)) f32 vlen(const V3* v) {
 
 V3* func_002cbed8r(V3*, void*) asm("func_002cbed8");
 V3* func_002eaf48r(V3*, u8*, s32) asm("func_002eaf48");
-void func_002eb1e8(u8* self) {
-    
-    if (func_002eb068(self)) return;
-    void* t = func_0019b260(F3(self, 0xb4c, s32));
-    if (!t) return;
-    if (!func_00184eb8(self, -1, t)) return;
-    register void* m asm("$17") = F3(self, 0x508, void*);
-    V3 d, B, A;
-    register V3* ta asm("$20") = &A; asm("" : "+r"(ta));
-    register V3* tb asm("$19") = &B;
-    func_002cbec0(m, func_0016c028(self));
-    { void* mm = m; asm("" : "+r"(mm)); func_002cbed8r(ta, mm); }
-    asm volatile("" : "+r"(tb));
-    vsub(ta, func_0016c028(self), tb);
-    d = *tb;
-    f32 len = vlen(&d);
-    asm("" : "+r"(ta));
-    func_002eaf48r(ta, self, 0);
-    vsub(ta, func_0016c028(self), tb);
-    d = *tb;
-    if (func_003142e0(func_00313b80(len), 300.0) >= 0) return;
-    if (!(300.0f < vlen(&d))) return;
-    {
-    register s32 o asm("$18") = F3(D_0034e948, 0xb44, s32);
-    register s32 e asm("$17") = func_002eaf40(self);
-    B3 b;
-    register void* tc asm("$16") = &b;
-    func_00190128((B3*)tc);
-    func_00190878((B3*)tc, e, 0);
-    func_001bd3e0(o, 1, 523, (B3*)tc, 1, 100);
-    register int ph asm("$21"); asm volatile("" : "=r"(ph));
-    }
-}
+// 002eb1e8: moved to src/anon/unit_002eaf38.cpp
 }

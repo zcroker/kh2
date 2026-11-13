@@ -462,12 +462,7 @@ Ent32* func_002e3260(u8* p, u32 key, u32 id) {
     return 0;
 }
 
-void func_002eca38(u32, u32 b) {
-    func_002eb6f8(b, 269, 0.0f);
-    D_01e2c060 = 0.0f;
-    V4* v = func_0016c028_v(b);
-    if (v != &D_00363550) cpq(&D_00363550, v);
-}
+// 002eca38: moved to src/anon/unit_002ec5f8.cpp
 
 }
 
@@ -518,11 +513,4 @@ void wtarget_0015eaf8(u32 a, u32 b, u32, u32) {
     if (b == 0xffff && a == 0) *(void***)D_004f3820 = D_00348698;
 }
 
-void wtarget_002ec960(u32 a, u32, u32, u32) {
-    u32 s = *(u32*)(a + 1288);
-    func_002cbec0(s, func_0016c028((void*)a));
-    V4 t;
-    func_002eaf48(&t, a, 1);
-    if (&t != &D_01e2c050) cpq(&D_01e2c050, &t);
-    func_0016bd60(a, 61);
-}
+// 002ec960: moved to src/anon/unit_002ec5f8.cpp

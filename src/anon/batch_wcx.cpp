@@ -388,20 +388,7 @@ s32 func_0019c090(u8*);  // obj_is_enabled
 void func_0017c430(u8*, s32, f32);
 void func_0016bd60(u8*, s32);
 
-s32 func_002eb3b8(u8* p)
-{
-    u32 r = func_002eaf40(p);
-    u8* q = p + 320;
-    if ((*(u32*)(p + 352) & 0x4000) && func_001c0cd8(r)) return 0;
-    if (*(u32*)(p + 352) & 0x4000) func_0017f488(q, 0, 0.0f, 0.0f);
-    if (func_0019c090(p)) {  // obj_is_enabled
-        func_0017c430(p, 0, 0.0f);
-        func_0016bd60(p, 1);
-    } else {
-        func_0016bd60(p, 0);
-    }
-    return 1;
-}
+// 002eb3b8: moved to src/anon/unit_002eaf38.cpp
 
 }
 

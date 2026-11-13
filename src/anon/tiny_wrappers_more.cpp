@@ -1549,25 +1549,15 @@ u32 func_002ead78(u32 a0, u32 a1, u32 a2, u32 a3) {
 
 // 002eaf18: _GLOBAL__I_ stub, now made by gcc in src/anon/unit_002eae08.cpp
 
-u32 func_002ebc00(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_002eb460(a1, a2, a2, a3);
-}
+// 002ebc00: moved to src/anon/unit_002eaf38.cpp
 
-u32 func_002ec138(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_002eb460(a1, a2, a2, a3);
-}
+// 002ec138: moved to src/anon/unit_002eaf38.cpp
 
-u32 func_002ec560(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_002eb460(a1, a2, a2, a3);
-}
+// 002ec560: moved to src/anon/unit_002eaf38.cpp
 
-u32 func_002ecaa8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_002eb460(a1, a2, a2, a3);
-}
+// 002ecaa8: moved to src/anon/unit_002ec5f8.cpp
 
-u32 func_002ecd58(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_002eccd0(0x00000001u, 0x0000ffffu, a2, a3);
-}
+// 002ecd58: moved to src/anon/unit_002ec5f8.cpp
 
 u32 func_002ee568(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_002ee540(0x00000001u, 0x0000ffffu, a2, a3);

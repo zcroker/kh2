@@ -7198,12 +7198,7 @@ void func_002e0698(VT_002e0698** o, u8* p) {
 // ---- 002eb6f8
 u8* func_002eaf40(u8*);
 void func_0017f488(u8*, s32, f32, f32);
-void func_002eb6f8(u8* p, s32 id, f32 x) {
-    if (id < 0) return;
-    func_00180c88(p + 320, id, x);
-    func_002eaf40(p);
-    func_0017f488(func_002eaf40(p) + 320, id - 101, x, 0.0f);
-}
+// 002eb6f8: moved to src/anon/unit_002eaf38.cpp
 
 // ---- 0011f4b8
 union UC_0011f4b8 { u16 h; u32 i; };
