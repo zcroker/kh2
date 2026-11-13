@@ -12102,57 +12102,13 @@ void func_002edfd8(u32 a0, u32 a1) {  // list_unlink_and_clear
     *(u32*)(a1 + 28) = 0;
 }
 
-void func_002eefc8(u32 a0, u32 a1, float a2) {
-    u32 t2 = a0 + 24;
-    if (*(u32*)(a0 + 8) == 0) {
-        func_002eef08(a0, a1, a2);
-        return;
-    }
+// 002eefc8: moved to src/anon/unit_002ee8a8.cpp
 
-    s32 idx = *(s32*)(a0 + 24);
-    s32 next = idx + 1;
-    s32 q = next;
-    if (next < 0) {
-        q = next + 3;
-    }
-    q >>= 2;
-    q <<= 2;
-    next -= q;
-    u32 entry = t2 + ((u32)idx << 3);
-    *(volatile s32*)(a0 + 24) = next;
-    *(volatile float*)(entry + 12) = a2;
-    *(volatile u32*)(entry + 8) = a1;
-}
+// 002ef1f8: moved to src/anon/unit_002ef1f8.cpp
 
-u32 func_002ef1f8(u32 a0, u32 a1, u32 a2) {
-    func_00236a58(a0 + 40, a2, *(u32*)(a0 + 36));
-    return func_0023c100(a0 + 64, a1, a0 + 40, *(u32*)(a0 + 36));
-}
+// 002ef370: moved to src/anon/unit_002ef1f8.cpp
 
-u32 func_002ef370(u32 a0, u32 a1) {
-    u32 s0 = a0;
-    u32 s1 = a0 + 48;
-    u32 t6 = a1;
-
-    u32 v = *(u32*)a1;
-    *(u32*)(s0 + 36) = v;
-    *(u32*)(s0 + 40) = *(u32*)(t6 + 4);
-    func_002362b0(s1, v);
-
-    *(u32*)(s0 + 464) = s1;
-    return func_00239988(s0 + 468, *(u32*)(s0 + 40), s1);
-}
-
-u32 func_002ef3c8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 s0 = a0;
-    u32 s1 = a1;
-    u32 s2 = a0 + 468;
-    u32 s3 = a3;
-
-    *(u32*)(s0 + 464) = func_00236ca8(*(u32*)(a1 + 40), a2);
-    u32 v0 = func_0023c4b8(s1, s3);
-    return func_00239988(s2, v0, *(u32*)(s0 + 464));
-}
+// 002ef3c8: moved to src/anon/unit_002ef1f8.cpp
 
 // 002efa98: moved to src/anon/unit_002ef938.cpp
 

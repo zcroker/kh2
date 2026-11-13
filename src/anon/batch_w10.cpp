@@ -330,13 +330,7 @@ void func_002e1f40(void* a) {
 
 // 002e8c28: moved to src/anon/unit_002e8b50.cpp
 
-void func_002ef7c8(void) {
-    if (func_002ef7b8()) {
-        func_001b8228();
-    } else {
-        func_001b8258();
-    }
-}
+// 002ef7c8: moved to src/anon/unit_002ef6b0.cpp
 
 // 002f05d8: moved to src/anon/unit_002efd68.cpp
 

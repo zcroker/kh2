@@ -383,15 +383,7 @@ u8* func_001a93e8(u8*);
 void func_00106ac8(u8*);
 void func_001a9350(u8*);
 void func_00106420(u8*);
-void func_002eed48(u8* p) {
-    *(u32*)p = (u32)D_00363860;
-    u8* o = func_001a93e8(p + 44);
-    (*(void (**)(u8*, u32, u32))(*(u8**)o + 40))(o, *(u32*)(p + 40), *(u32*)(p + 68));
-    func_00106ac8(p + 80);
-    func_001a9350(p + 44);
-    *(u32*)p = (u32)D_003637e0;
-    func_00106420(p);
-}
+// 002eed48: moved to src/anon/unit_002ee8a8.cpp
 
 // strrchr-style: last match of c in s (strchr is strchr).
 char* strchr(char*, s32);  // memset

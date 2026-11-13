@@ -13,9 +13,5 @@ void func_0019d4f8(u8* p) {
     func_0019d518(p);
 }
 
-void func_002ef5a8(u8* p) {
-    *(u32*)(p + 812) = 0;
-    *(u32*)(p + 816) = 0;
-    func_002ef5c8(p);
-}
+// 002ef5a8: moved to src/anon/unit_002ef1f8.cpp
 }

@@ -38,7 +38,7 @@ void func_001e0310(u32 a) {
     D_00352b50 = a;
 }
 
-void func_002ef5c8(u8* p) { wtarget_00239bf8(p + 468); }
+// 002ef5c8: moved to src/anon/unit_002ef1f8.cpp
 
 void func_0014dd80(u8* p, u8* a, u8* b, u8* c) {
     *a = p[470];

@@ -929,17 +929,7 @@ u32 func_002eaa70(u32 a0, u32 a1, u32 a2, u32 a3) {
     return r2;
 }
 
-u32 func_002ef628(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u, r16 = 0u;
-    r6 = (u32)((s32)r4 + (4));
-    r5 = (u32)((s32)r5 + (468));
-    r16 = r4;
-    r4 = r5;
-    r5 = r16;
-    r2 = YI_SEQUENCE_GetActiveXY(r4, r5, r6, r7);
-    r2 = r16;
-    return r2;
-}
+// 002ef628: moved to src/anon/unit_002ef1f8.cpp
 
 // 002f0c20: moved to src/naka/libkn/trapfunctions.cpp
 

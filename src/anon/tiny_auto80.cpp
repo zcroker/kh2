@@ -1401,23 +1401,9 @@ void func_002e9fa8(u32 a0, u32 a1, u32 a2, u32 a3) {
     *(volatile u32*)((u32)r4 + (s32)(8)) = 0u;
 }
 
-void func_002eeee8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3;
-    *(volatile u32*)((u32)r4 + (s32)(4)) = r5;
-    *(volatile u32*)((u32)r4 + (s32)(28)) = 0u;
-    *(volatile u32*)((u32)r4 + (s32)(0)) = 0u;
-    *(volatile u32*)((u32)r4 + (s32)(8)) = 0u;
-    *(volatile u32*)((u32)r4 + (s32)(16)) = 0u;
-    *(volatile u32*)((u32)r4 + (s32)(20)) = 0u;
-    *(volatile u32*)((u32)r4 + (s32)(24)) = 0u;
-}
+// 002eeee8: moved to src/anon/unit_002ee8a8.cpp
 
-u32 func_002eefa8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3;
-    *(volatile u32*)((u32)r4 + (s32)(28)) = 0u;
-    *(volatile u32*)((u32)r4 + (s32)(24)) = 0u;
-    return ((u32(*)(u32,u32,u32,u32))func_002eef08)(r4, r5, r6, r7);
-}
+// 002eefa8: moved to src/anon/unit_002ee8a8.cpp
 
 void func_00319d20(u32 a0, u32 a1, u32 a2, u32 a3) {  // zero_two_words
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3;

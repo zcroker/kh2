@@ -494,9 +494,7 @@ void func_002caa50(u8* p, u32 a, u32 b) {
 
 // Class with a vtable: implicit assignment copies every field but the vptr.
 struct C2ef258 { virtual void f(); u32 a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14; f32 b, c, d, e; u32 g; u8 h; u32 i, j; };
-void func_002ef258(u8* d, C2ef258* s) {
-    *(C2ef258*)(d + 64) = *s;
-}
+// 002ef258: moved to src/anon/unit_002ef1f8.cpp
 
 static inline void Dtor1cb58a(u8* self) {
     if (self + 8 != 0) {

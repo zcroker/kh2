@@ -586,29 +586,7 @@ void func_002baa78(void) {
 }
 
 // Advances a queued sequence by dt, pulling the next queued entry when the current one ends.
-void func_002ef028(Seq_w96* s, f32 dt) {
-    if (!s->src) return;
-    if (!s->busy) {
-        f32 old = s->t;
-        s->t = old + dt;
-        func_002ef180(s, old, s->t);
-        if (s->t >= s->len) {
-            SeqQ_w96* q = &s->queue;
-            s32 h = q->head;
-            if (h != q->tail) {
-                q->head = (h + 1) % 4;
-                QEnt_w96* e = q->q + h;
-                func_002eef08(s, e->id, e->len);
-            } else {
-                f32 l = (*(LenFn_w96*)(*(u8**)s->src + 28))(s->src);
-                s->t = s->t - s->len + l;
-                func_002ef180(s, l, s->t);
-            }
-        }
-    }
-    if (s->target) func_00189f20(s->target, func_002ef148, s->user, dt);
-    s->busy = 0;
-}
+// 002ef028: moved to src/anon/unit_002ee8a8.cpp
 
 // newlib mprec __lshift: b << k as a new Bigint (frees b).
 Bigint_w96* __lshift(void* ptr, Bigint_w96* b, s32 k) {

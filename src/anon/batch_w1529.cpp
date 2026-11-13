@@ -13,16 +13,7 @@ extern f32 D_00349e10;
 struct W1529Sub { u8 pad[8]; s32 x8; u8 p2[4]; f32 x10; };
 struct W1529Obj { u8 pad[0x44]; s32 x44; u8 p2[0x150 - 0x48]; u8 x150[0x78]; W1529Sub s; };
 
-s32 func_002eedf0(W1529Obj* p) {
-    f32 t = D_00349e10;
-    W1529Sub* s = &p->s;
-    func_002ef028(t, s);
-    func_0011ea40(p->x44, t);
-    f32 y = s->x10;
-    s32 x = s->x8;
-    func_0011c4e8(p->x44, p->x150, x, 0, 0, 0, y);
-    return 1;
-}
+// 002eedf0: moved to src/anon/unit_002ee8a8.cpp
 
 // 00187420: moved to src/anon/unit_00185d10.cpp
 s32 func_00187420(s32 a, f32 f);

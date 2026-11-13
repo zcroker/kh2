@@ -274,10 +274,7 @@ s32 func_002db8a8(void** p) {
     return func_002cff98(p);
 }
 
-void func_002ef180(u8* p) {
-    u32 c = *(u32*)(p + 12);
-    if (c) func_0018a008(c, (void*)func_002ef1b8, p);
-}
+// 002ef180: moved to src/anon/unit_002ee8a8.cpp
 
 // 002f0598: moved to src/anon/unit_002efd68.cpp
 

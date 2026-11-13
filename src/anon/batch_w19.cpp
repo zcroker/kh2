@@ -269,11 +269,7 @@ u32 func_002d5dd0(u8* p) {
 // 002e7738: moved to src/anon/unit_002e7658.cpp
 
 // Returns the callee's result when p[2] == 8 (result undefined otherwise, as in the original).
-s32 func_002ef1b8(u8* p) {
-    s32 r;
-    if (p[2] == 8) r = func_002bc1e8(*(u16*)(p + 4) * 1000 + *(u16*)(p + 6));
-    return r;
-}
+// 002ef1b8: moved to src/anon/unit_002ee8a8.cpp
 
 // 002f09d8: moved to src/naka/libkn/trapfunctions.cpp
 

@@ -6,7 +6,4 @@ typedef struct W8013Y { u16 a; u8 b; } W8013Y;
 void func_0011cdf0(s32, void*, void*, void*, s32);
 void sceGsSyncPath(s32, s32);
 
-void func_002eee68(u8* p, W8013X x, W8013Y y) {
-    func_0011cdf0(*(s32*)(p + 0x44), p + 0x50, p + 0x150, p + 0x190, 0);
-    sceGsSyncPath(0, 0);
-}
+// 002eee68: moved to src/anon/unit_002ee8a8.cpp

@@ -12,7 +12,7 @@ void w1c8d40(u32 a, u32 b, u32, u32) { if (b == 0xffff && a == 1) D_01d49970 = 0
 
 extern u32 D_003638d0;
 void w2ef890(u32, u32, u32, u32) asm("_Z16wtarget_002ef890jjjj");
-void w2ef890(u32 a, u32 b, u32, u32) { if (b == 0xffff && a == 1) D_003638d0 = a; }
+// 002ef890: moved to src/anon/unit_002ef6b0.cpp
 
 struct W2 { u32 a; u32 b; };
 

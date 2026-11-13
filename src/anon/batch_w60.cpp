@@ -503,14 +503,7 @@ void func_002eabe8(void* self, u8* o, u8 c) {
 }
 
 // Unpacks a 32-bit RGBA value into bytes.
-u8* func_002ef660(u8* out, u8* p) {
-    u32 v = func_0023a918(p + 468);
-    out[0] = v;
-    out[1] = v >> 8;
-    out[2] = v >> 16;
-    out[3] = v >> 24;
-    return out;
-}
+// 002ef660: moved to src/anon/unit_002ef1f8.cpp
 
 struct Blk2fd { Blk2fd* next; s32 n; u32 items[32]; };
 Blk2fd* malloc(u32);  // pool_free_block
