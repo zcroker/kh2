@@ -218,17 +218,7 @@ f32 func_001d3000(f32 x) {
 void func_001d3878(void*);
 void func_00105110(void*);
 extern u8* D_01d5ba20;
-void u_call0_001d3b68(void) {
-    u8* n = D_01d5ba20;
-    while (n != 0) {
-        u8* next = *(u8**)(n + 48);
-        if (n != 0) {
-            func_001d3878(n);
-            func_00105110(n);
-        }
-        n = next;
-    }
-}
+// 001d3b68: moved to src/anon/unit_001d35e0.cpp
 
 s32 func_001d3f38(u8* p) {  // type_is_282_344_484
     switch (*(u16*)(p + 40)) {

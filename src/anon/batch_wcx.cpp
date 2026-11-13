@@ -772,15 +772,7 @@ extern u8* D_01d5ba20;
 extern f32 D_00349e10;
 static inline u8* NextC(u8* n) { if (!n) return D_01d5ba20; return *(u8**)(n + 48); }
 void func_001d38a0(u8*, V4*, u32);
-V4* func_001d3ac0(V4* out, u32 b)
-{
-    V4 acc;
-    acc.w = acc.z = acc.y = acc.x = 0.0f;
-    u8* n = 0;
-    while ((n = NextC(n))) func_001d38a0(n, &acc, b);
-    asm volatile("lqc2 $vf1, 0(%1)\n\tmfc1 $8, %2\n\tqmtc2 $8, $vf2\n\tvmulx.wxyz $vf1, $vf1, $vf2x\n\tsqc2 $vf1, 0(%0)" : : "r"(out), "r"(&acc), "f"(D_00349e10) : "$8", "memory");
-    return out;
-}
+// 001d3ac0: moved to src/anon/unit_001d35e0.cpp
 
 struct E8 { u16 id; u8 v[3]; u8 pad; u16 res; };
 extern E8 D_0036e568[4];

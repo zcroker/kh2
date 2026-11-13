@@ -18085,34 +18085,9 @@ void* func_001d2e28(void* a0, u32 a1, u32 a2) {
 
 // 001d3558: moved to src/anon/unit_001d30b0.cpp
 
-void* func_001d3698(void* a0, u8* a1) {
-    u32 t7 = *(u32*)(a1 + 16);
-    void* s0 = a0;
+// 001d3698: moved to src/anon/unit_001d35e0.cpp
 
-    if (t7 == 0) {
-        u32 a5 = *(u16*)(a1 + 20);
-        func_00143e50(s0, a5, 0);
-        return s0;
-    }
-
-    u32 a6 = *(u16*)(a1 + 20);
-    u32 a5 = *(u32*)(t7 + 4);
-    func_001422a0(s0, a5, a6);  // find_record16_and_copy
-    return s0;
-}
-
-u32 func_001d36e8(u8* a0) {
-    u32 t7 = *(u32*)(a0 + 16);
-    if (t7 != 0) {
-        u32 a5 = *(u16*)(a0 + 20);
-        u32* v0 = func_00142398(*(u32*)(t7 + 4), a5);
-        u32 v = *v0;
-        return v & 0xF;
-    }
-
-    u32 a4 = *(u16*)(a0 + 20);
-    return func_00143f28(a4, 0);
-}
+// 001d36e8: moved to src/anon/unit_001d35e0.cpp
 
 u32 duplicate_unplaced_001d3f98(u8* a0) {
     u8* s0 = D_01d5ba30;

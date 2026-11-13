@@ -14467,29 +14467,7 @@ s32 func_0016a040(u8*);
 V1d38a0* func_0016c028_1d38a0(u8*) asm("func_0016c028");
 f32 func_0016a0a0(u8*);
 void func_0017d538(f32, V1d38a0*, V1d38a0*);
-void func_001d38a0(F1d38a0* f, V1d38a0* vel, u8* t)
-{
-    if (func_0019bb98(t)) return;
-    if (f->mask & (1 << func_0016a040(t))) return;
-    V1d38a0 d, b, a;
-    VSub1d38a0(&d, &f->pos, func_0016c028_1d38a0(t));
-    d.y = 0.0f;
-    d.w = VNormalize1d38a0(&d);
-    if (f->f14 != 0.0f && f->f14 <= d.w) return;
-    f32 s = f->f18 * (func_0016a0a0(t) / 100.0f);
-    s = s < f->f1c ? f->f1c : (f->f20 < s ? f->f20 : s);
-    f32 k = (d.w - f->f28) * f->f2c;
-    if (k < -1.0f) k = -1.0f;
-    else if (1.0f < k) k = 1.0f;
-    VScale1d38a0(&a, &d, s);
-    VScale1d38a0(&b, &a, k);
-    VAdd1d38a0(vel, vel, &b);
-    if (f->f24 == 0.0f) return;
-    func_0017d538(1.5707964f, &b, &d);
-    d = b;
-    VScale1d38a0(&b, &d, f->f24);
-    VAdd1d38a0(vel, vel, &b);
-}
+// 001d38a0: moved to src/anon/unit_001d35e0.cpp
 
 // --------------------
 // VU0 macro-mode vector helpers (hand-written vu0 library idioms) and lq/sq copy

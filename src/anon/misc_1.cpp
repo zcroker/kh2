@@ -98,7 +98,7 @@ void func_001b24c0(void* self) {}
 
 // 001d3388: moved to src/anon/unit_001d30b0.cpp
 
-void func_001d3b60(void* self) {}
+// 001d3b60: moved to src/anon/unit_001d35e0.cpp
 
 void func_001d5458(void* self) {}
 
