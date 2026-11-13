@@ -647,11 +647,7 @@ extern "C" {
 
 extern u32 D_00361f60;
 
-s32 func_002cf1f8(u8* a, u8* b) {
-    if (D_00361f60 && (*(u32*)(a + 1416) & 0x8000000) && (*(u32*)(b + 1416) & 0x8000000))
-        return *(u32*)(a + 2804) == *(u32*)(b + 2804);
-    return 1;
-}
+s32 func_002cf1f8(u8* a, u8* b);  // 002cf1f8: moved to src/taito/minigame_base.cpp (linked unit)
 
 struct Vec4f { f32 x, y, z, w; };
 extern Vec4f D_00362d80;

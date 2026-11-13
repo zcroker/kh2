@@ -474,16 +474,7 @@ void func_002c6420(u8* p) {
 struct Obj2ce { void (**vt)(Obj2ce*); u8 pad[92]; u32 f60; };
 extern Obj2ce* D_00361f60;
 void func_00170950(u32);
-void func_002ceb48(void) {
-    if (!D_00361f60) return;
-    if (D_00361f60->f60) {
-        func_00170950(D_00361f60->f60);
-        D_00361f60->f60 = 0;
-        asm volatile("" ::: "memory");
-    }
-    if (D_00361f60) D_00361f60->vt[1](D_00361f60);
-    D_00361f60 = 0;
-}
+void func_002ceb48(void);  // 002ceb48: moved to src/taito/minigame_base.cpp (linked unit)
 
 // ---- 002dd730
 void func_001780d8(u8*);

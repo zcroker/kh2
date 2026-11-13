@@ -457,29 +457,9 @@ u32 func_002c9ed8(u32 a0, u32 a1, u32 a2, u32 a3) {
     return r2;
 }
 
-u32 func_002cea28(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u, r15 = 0u, r16 = 0u;
-    r15 = (u32)&D_00361f70;
-    *(u32*)((u32)r4 + (s32)(0)) = r15;
-    r16 = r4;
-    r2 = func_002cf3f8(r4, r5, r6, r7);
-    r15 = (u32)(0x0036u << 16);
-    *(u32*)((u32)r15 + (s32)(8032)) = 0u;
-    *(u8*)((u32)r16 + (s32)(88)) = (u8)0u;
-    return r2;
-}
+u32 func_002cea28(u32 a0, u32 a1, u32 a2, u32 a3);  // 002cea28: moved to src/taito/minigame_base.cpp (linked unit)
 
-u32 func_002cea68(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u, r15 = 0u, r16 = 0u;
-    r15 = (u32)&D_00361f70;
-    *(u32*)((u32)r4 + (s32)(0)) = r15;
-    r16 = r4;
-    r2 = func_002cf3f8(r4, r5, r6, r7);
-    r15 = (u32)(0x0036u << 16);
-    *(u32*)((u32)r15 + (s32)(8032)) = 0u;
-    *(u8*)((u32)r16 + (s32)(88)) = (u8)0u;
-    return r2;
-}
+u32 func_002cea68(u32 a0, u32 a1, u32 a2, u32 a3);  // 002cea68: moved to src/taito/minigame_base.cpp (linked unit)
 
 u32 func_002d6990(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u, r15 = 0u, r16 = 0u;

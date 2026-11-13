@@ -541,22 +541,7 @@ void func_001449a8(void*, Mtx*);
 s32 func_002cec08(void*, void*);
 
 // 002cee58
-s32 func_002cee58(void* a, u8* o)
-{
-    u8 buf[32] __attribute__((aligned(16)));
-    func_002d0718(buf);
-    Mtx m;
-    func_0011b6a8(&m);
-    func_0011b720(&m, *(f32*)(o + 20));
-    Vec4 t;
-    t.x = *(f32*)(o + 4);
-    t.y = *(f32*)(o + 8);
-    t.z = *(f32*)(o + 12);
-    t.w = 0.0f;
-    asm volatile("lqc2 $vf1, 48(%0)\n\tlqc2 $vf2, 0(%1)\n\tvadd.xyz $vf1, $vf1, $vf2\n\tsqc2 $vf1, 48(%0)" : : "r"(&m), "r"(&t) : "memory");
-    func_001449a8(buf, &m);
-    return func_002cec08(a, buf) != 0;
-}
+s32 func_002cee58(void* a, u8* o);  // 002cee58: moved to src/taito/minigame_base.cpp (linked unit)
 
 Vec4 func_0016af58(u8*);
 Vec4 func_002cba88(u32, s32, const Vec4&, f32, f32);

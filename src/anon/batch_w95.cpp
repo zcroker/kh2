@@ -891,14 +891,7 @@ u32 func_00106a18(u32);  // buffer_get_256
 M4* func_00106ad0(u32);
 u8* func_00106a60(u32);  // buffer_get_by_index
 void func_00146680(u8*, M4*);  // copy_quad4_if_diff
-void func_002cec88(MdlRef* r) {
-    u8* mdl = r->mdl + 16;
-    M4 m;
-    MCOPY(&m, func_00106ad0(func_00106a18(1)));
-    MMulTo(&m, &m, (M4*)(func_00106a60(1) + 16));  // buffer_get_by_index
-    func_00146680(mdl, &m);  // copy_quad4_if_diff
-    if (D_00361f60 && D_00361f60->active) D_00361f60->drawn = 1;
-}
+void func_002cec88(MdlRef* r);  // 002cec88: moved to src/taito/minigame_base.cpp (linked unit)
 
 extern u32 D_003637b0[8];
 extern u32 D_003638d0;

@@ -16,19 +16,7 @@ void func_0011b6a8(Mat2c*);
 void func_001449a8(Box2c*, Mat2c*);
 s32 func_002cec08(void*, Box2c*);
 extern void* D_00361f60;
-u8 func_002cef80(void* a0, V2c* pos) {
-  V2c lo(-100.0f, -100.0f, -100.0f, 0.0f);
-  V2c hi(100.0f, 100.0f, 100.0f, 0.0f);
-  Box2c box;
-  Mat2c m;
-  V2c* r3 = &m.r[3];
-  func_001444c8(&box, &lo, &hi);
-  func_0011b6a8(&m);
-  *r3 = *pos;
-  m.r[3].w = 1.0f;
-  func_001449a8(&box, &m);
-  return func_002cec08(D_00361f60, &box) != 0;
-}
+u8 func_002cef80(void* a0, V2c* pos);  // 002cef80: moved to src/taito/minigame_base.cpp (linked unit)
 // register pins reproduce the original's counter/temp allocation
 struct Hdr1e { s16 a; s16 b; s16 c; s16 fmt; u8 pad[16]; s32 off; };
 Hdr1e** func_001e4248(s32* p) {

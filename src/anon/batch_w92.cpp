@@ -1108,29 +1108,7 @@ static inline void trans2cf(M2cf* m, V2cf* v) {
     asm volatile("lqc2 $vf1,48(%0)\n\tlqc2 $vf2,0(%1)\n\tvadd.xyz $vf1,$vf1,$vf2\n\tsqc2 $vf1,48(%0)" : : "r"(m), "r"(v) : "memory");
 }
 
-void wt_002cf058(u8* self, u8* obj) {
-    T2cf* t = *(T2cf**)(obj + 108);
-    if (t->kind != 3) return;
-    f32 zero = 0.0f;
-    V2cf v(t->x, t->y, t->z, zero);
-    M2cf m;
-    func_0011b6a8(&m);
-    trans2cf(&m, &v);
-    V2cf lo, hi;
-    Box2cf box;
-    lo.x = 1.0f;
-    lo.y = 1.0f;
-    hi.x = -1.0f;
-    hi.y = -1.0f;
-    lo.z = 1.0f;
-    lo.w = zero;
-    hi.z = -1.0f;
-    hi.w = zero;
-    func_001444c8(&box, &hi, &lo);
-    func_001449a8(&box, &m);
-    if (func_002cec08(self, &box)) *(u32*)(obj + 104) |= 1;
-    else *(u32*)(obj + 104) &= ~1;
-}
+void wt_002cf058(u8* self, u8* obj);  // 002cf058: moved to src/taito/minigame_base.cpp (linked unit)
 }
 
 // ---- 2d00e0 ----
