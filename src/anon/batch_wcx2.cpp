@@ -8359,32 +8359,7 @@ s32 func_001d87b8(s32);
 void func_001d86a0_x8559(s32, s32) asm("func_001d86a0");
 void func_0016be98(V1cd078*, u8*);
 void func_001ccf18(V1cd078*, s32, s32);
-void func_001cd078(u8* p) {
-    V1cd078 v;
-    s32 n, a, b;
-    if (D_003520c0 == 0) return;
-    n = 0;
-    if (*(u32*)(*(u8**)(p + 20) + 1416) & 0x80) {
-        a = 0;
-        b = 0;
-    } else {
-        a = 1;
-        b = 2;
-    }
-    switch (func_0018ca48_x8557(p[38])) {
-    case 0: case 2: case 3:
-        n = 3;
-        break;
-    case 4: case 5: case 14:
-        n = 15;
-        break;
-    }
-    if (func_001d87b8(a) < n) n = func_001d87b8(a);
-    if (n <= 0) return;
-    func_001d86a0_x8559(-n, a);
-    func_0016be98(&v, *(u8**)(p + 20));
-    func_001ccf18(&v, b, n);
-}
+// 001cd078: moved to src/anon/unit_001cd078.cpp
 
 // --------------------
 extern f32 D_00349e10;
@@ -16796,22 +16771,7 @@ s32 func_00186d18(O1cc220*);
 s32 c1cc220_001c7950(void*, O1cc220*, f32, f32) asm("func_001c7950");
 s32 func_001cc310(O1cc220*, void*);
 extern f32 D_0036d4a8;
-s32 func_001cc220(void* self, void* target)
-{
-    bool special = o1cc220_get_entry_id(self) == 0x898;
-    O1cc220* p = 0;
-    while ((p = func_00186078(p)) != 0) {
-        if (!(p->flags & 0x80)) {
-            if (!(p->flags & 0x10)) continue;
-            if (!special) continue;
-        }
-        if (p->flags2 & 4) continue;
-        if (c1cc220_00186ce8(p)) continue;
-        if (func_00186d18(p)) continue;
-        if (!c1cc220_001c7950(target, p, D_0036d4a8, 0.0f)) continue;
-        return func_001cc310(p, target);
-    }
-}
+// 001cc220: moved to src/anon/unit_001cc048.cpp
 
 
 // --------------------

@@ -304,19 +304,7 @@ void func_001be060(u8* p) {
 u8* func_001c16f0(u8*, u8*);
 void func_001ccac0(u8*, u8*);
 extern u8* D_00352050;
-void func_001cc9c8(u8* o, f32 r) {
-    Vc pos(*(Vc*)func_0016c028(o));  // obj_get_attach_or_alt
-    u8* e = 0;
-    while ((e = func_001c16f0(*(u8**)(D_00352050 + 2548), e)) != 0) {
-        if (*(u32*)(e + 72)) continue;
-        Vc d;
-        f32 len;
-        asm volatile("lqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 0(%2)\n\tvsub.wxyz $vf1, $vf1, $vf2\n\tsqc2 $vf1, 0(%0)" : : "r"(&d), "r"(e), "r"(&pos) : "memory");
-        d.y = 0.0f;
-        asm volatile("lqc2 $vf1, 0(%1)\n\tvmul.xyz $vf1, $vf1, $vf1\n\tvaddy.x $vf1, $vf1, $vf1y\n\tvaddz.x $vf1, $vf1, $vf1z\n\tvsqrt Q, $vf1x\n\tvwaitq\n\tcfc2 $8, $vi22\n\tmtc1 $8, %0" : "=f"(len) : "r"(&d) : "$8");
-        if (len < r) func_001ccac0(e, o);
-    }
-}
+// 001cc9c8: moved to src/anon/unit_001cc868.cpp
 
 // --- 001d50b8
 struct B36 { u32 w[9]; };

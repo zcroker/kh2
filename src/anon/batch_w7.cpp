@@ -181,10 +181,7 @@ void func_001c90c0(u32 a0, u32 a1) {
     func_0016bd60(a1, 20);
 }
 
-Blob10* func_001cd520(Blob10* p) {
-    *p = D_01d5a970;
-    return p;
-}
+// 001cd520: moved to src/anon/unit_001cd078.cpp
 
 // Pops one entry: --count; return base + scale * table[count].
 s32 func_001db888(s32* a0) {  // record_index_calc

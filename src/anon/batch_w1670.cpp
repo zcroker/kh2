@@ -88,11 +88,7 @@ void func_001ae788(u8* p) {
     *(u32*)(p + 8) = 0;
 }
 
-void func_001cc310(u8* o, u32 b) {
-    func_001c79a0(b, o, 0);
-    (*(s32*)(o + 0xac8))++;
-    func_001991a8(0x11, 0);
-}
+// 001cc310: moved to src/anon/unit_001cc048.cpp
 
 void func_001b53b0(u8* o, f32 x) {
     u8* p = o + 0xa8;

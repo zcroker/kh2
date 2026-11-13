@@ -215,12 +215,7 @@ u8 func_001b8800(u32 a) {
 
 // 001bbf00: moved to src/yasui/libys/mission.cpp
 
-void func_001cced8(void* p) {
-    *(void**)p = &D_003520d0;
-    D_003520c0 = 0;
-    func_001a4e30(p);
-    func_00105110(p);
-}
+// 001cced8: moved to src/anon/unit_001cc868.cpp
 
 u8 func_001d23e0(u32 a) {
     u32* p = D_01d5ba04;
