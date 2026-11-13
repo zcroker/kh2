@@ -3,34 +3,7 @@ struct Rect14b { u8 pad0[4]; u16 w; u16 h; s16 x; s16 y; u8 pad1[4]; u8 r, g, b,
 #define RGBAQ(r, g, b, a, q) ((u64)(r) | ((u64)(g) << 8) | ((u64)(b) << 16) | ((u64)(a) << 24) | ((u64)(q) << 32))
 #define XYZ(x, y, z) ((u64)(x) | ((u64)(y) << 16) | ((u64)(z) << 32))
 extern "C" {
-void func_0014b300(Rect14b* p) {
-    p->pk[0] = 0x8000000000000001ULL;
-    p->pk[1] = 0xEEEEEEEEULL;
-    p->pk[2] = 0;
-    p->pk[3] = 0x3f;
-    p->pk[4] = 0x800d8;
-    p->pk[5] = 0x4c;
-    p->pk[6] = 0x31000070;
-    p->pk[7] = 0x4e;
-    p->pk[8] = 0;
-    p->pk[9] = 6;
-    p->pk[10] = 0x60;
-    p->pk[11] = 0x14;
-    p->pk[12] = 0x30000;
-    p->pk[13] = 0x47;
-    p->pk[14] = 0x44;
-    p->pk[15] = 0x42;
-    p->pk[16] = 5;
-    p->pk[17] = 8;
-    p->pk[18] = 0x6400000000008001ULL;
-    p->pk[19] = 0x535310;
-    p->pk[20] = 0x146;
-    p->pk[21] = RGBAQ(p->r, p->g, p->b, p->a, 1);
-    p->pk[22] = 0x80008;
-    p->pk[23] = XYZ(p->x * 16 + 0x7000, p->y * 16 + 0x7300, 1);
-    p->pk[24] = 0x80008;
-    p->pk[25] = XYZ((p->x + p->w) * 16 + 0x7000, (p->y + p->h) * 16 + 0x7300, 1);
-}
+// 0014b300: moved to src/anon/unit_0014b150.cpp
 }
 
 #define QCOPY186(d, s) asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(d), "r"(s) : "$8", "memory")

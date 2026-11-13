@@ -44,10 +44,7 @@ void func_00141010(f32 x) {
 
 
 void func_0014b5e8(u32, u64, u64);
-void func_0014b4b0(u32 a, u16 x0, u16 y0, u16 x1, u16 y1) {
-    func_0014b5e8(a, (u64)(s32)(x0 * 16 + 8) | ((u64)(s32)(x1 * 16 + 8) << 16),
-                     (u64)(s32)(y0 * 16 + 8) | ((u64)(s32)(y1 * 16 + 8) << 16));
-}
+// 0014b4b0: moved to src/anon/unit_0014b150.cpp
 
 
 struct E34a790 { u8 pad[48]; u8 f48; u8 pad2[15]; };

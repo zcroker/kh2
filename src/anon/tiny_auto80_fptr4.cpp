@@ -633,13 +633,7 @@ u32 func_00142278(u32 a0, u32 a1, u32 a2, u32 a3) {
 
 extern "C" u32 func_00142398(u32, u32, u32, u32) asm("_ZN2dk11OctCollFile7getAttrEt");
 
-void func_0014b208(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3;
-    r5 = (u32)(r5 & 0xffffu);
-    r6 = (u32)(r6 & 0xffffu);
-    *(u16*)((u32)r4 + (s32)(4)) = (u16)r5;
-    *(u16*)((u32)r4 + (s32)(6)) = (u16)r6;
-}
+// 0014b208: moved to src/anon/unit_0014b150.cpp
 
 u32 func_0014f870(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2;

@@ -10,16 +10,8 @@ void func_0014b150(void*);
 void func_0014b300(void*);
 extern u8 D_00349b40[];
 void ctarget_0014b290(u32* self, u32, u32, u32) asm("_Z16ctarget_0014b290jjjj");
-void ctarget_0014b290(u32* self, u32, u32, u32) {
-    func_0014b150(self);
-    *self = (u32)D_00349b40;
-    func_0014b300(self);
-}
-void func_0014b2c8(u32* self) {
-    func_0014b150(self);
-    *self = (u32)D_00349b40;
-    func_0014b300(self);
-}
+// 0014b290: moved to src/anon/unit_0014b150.cpp
+// 0014b2c8: moved to src/anon/unit_0014b150.cpp
 
 // Hand-written VU0 macro code (libvu0-style rotation matrix: calls func_002f4028
 // with a non-standard convention, saves ra in a2, trapping addi); kept as asm.

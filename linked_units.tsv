@@ -10,6 +10,8 @@
 #   flags       extra compiler flags for this file only ("-" for none)
 # How to convert another file: notes/linking.md
 source	text_start	text_end	sections	flags
+src/anon/unit_0014b150.cpp	0014b150	0014b518	-	-G0
+src/harata/libdk/rect.cpp	0014b5e0	0014b638	-	-G0
 src/anon/unit_00157688.cpp	00157688	00158050	.bss@004f3588,.rodata@0036b300	-G0
 src/anon/unit_00158050.cpp	00158050	00158450	-	-G0
 src/anon/unit_001a28f8.cpp	001a28f8	001a2a50	-	-G0
