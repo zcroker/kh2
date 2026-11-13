@@ -57,6 +57,7 @@ src/anon/unit_001dbbe0.cpp	001dbbe0	001dbfd0	.data@00352ad0,.bss@01d5bab0,.rodat
 src/anon/unit_001e0398.cpp	001e0398	001e0808	.data@00352b60,.rodata@0036e854	-G0 -g -fno-strict-aliasing
 src/anon/unit_001b82d8.cpp	001b82d8	001b87a0	.bss@01d48cc0,.rodata@0036db48	-G0
 src/anon/unit_001d30b0.cpp	001d30b0	001d35e0	.bss@01d5ba0c,.rodata@0036e3fc	-G0
+src/anon/unit_001d35e0.cpp	001d35e0	001d3c08	.bss@01d5ba20,.rodata@0036e424	-G0 -fno-strict-aliasing
 src/harata/libdk/field2dd.cpp	0013a368	0013a8b8	.data@00347fb0,.rodata@0036acb0	-G0
 src/anon/unit_00134668.cpp	00134668	001357c8	.data@00347cc0,.bss@003b8ae0,.rodata@0036ac38	-G0 -fno-strict-aliasing
 src/naka/libkn/obj_observer.cpp	001357c8	00135d78	.data@00347cf0,.gnu.linkonce.d._ZTVN2kn11ObjObserverE@00347cf8	-G0 -fno-strict-aliasing

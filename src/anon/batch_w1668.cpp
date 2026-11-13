@@ -26,7 +26,7 @@ void w1ba798(u32, u32, u32, u32) asm("_Z16wtarget_001ba798jjjj");
 
 extern W2 D_01d5ba20;
 void w1d3bc0(u32, u32, u32, u32) asm("_Z16wtarget_001d3bc0jjjj");
-void w1d3bc0(u32 a, u32 b, u32, u32) { if (b == 0xffff && a == 1) { D_01d5ba20.b = 0; D_01d5ba20.a = 0; } }
+// 001d3bc0 (static init): moved to src/anon/unit_001d35e0.cpp
 
 extern u32 D_003511b8;
 extern u32 D_01d48cb8;

@@ -1107,7 +1107,7 @@ void func_00320468(u32 a0, u32 a1) { UNLINK_BODY(2232) }
 // 003204c8: LIST<YS::ITEM_EFFECT>::Remove, now made by gcc in src/yasui/libys/itemeffectlist.cpp
 void wtarget_00320828(u32 a0, u32 a1, u32 a2, u32 a3) { UNLINK_BODY(80) }
 void func_003208a8(u32 a0, u32 a1) { UNLINK_BODY(36) }
-void u_call4_003216c8(u32 a0, u32 a1, u32 a2, u32 a3) { UNLINK_BODY(48) }
+// 003216c8: LIST<ATTRACT>::Remove, now made by gcc in src/anon/attractlist.cpp
 void func_00321c50(u32 a0, u32 a1) { UNLINK_BODY(40) }
 void func_00321ce8(u32 a0, u32 a1) { UNLINK_BODY(96) }
 

@@ -908,9 +908,7 @@ u32 func_001d3090(u32 a0, u32 a1, u32 a2, u32 a3) {
 
 // 001d35c0: _GLOBAL__I_ stub, now made by gcc in src/anon/unit_001d30b0.cpp
 
-u32 func_001d3be8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_001d3bc0(0x00000001u, 0x0000ffffu, a2, a3);
-}
+// 001d3be8 (_GLOBAL__I_ stub): moved to src/anon/unit_001d35e0.cpp
 
 u32 func_001d4fd0(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_001d1b60(a0, ((u32)(((u32)(*(u32*)((u32)(a0) + 44u)))) + (u32)(((u32)(*(u32*)((u32)(a0) + 576u))))), a2, a3);
