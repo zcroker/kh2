@@ -77,12 +77,5 @@ extern void* D_00361f60;
 int minigame_type_a0(void) asm("_ZN2Ti8MiniGame4typeEv");
 void func_002e2660(void*);
 // Runs the current minigame's type() (when one exists), then func_002e2660 on it.
-void func_002e2d50(void) {
-    void* p = D_00361f60;
-    if (p != 0) {
-        asm volatile("");
-        minigame_type_a0();
-    }
-    func_002e2660(p);
-}
+// 002e2d50: moved to src/anon/unit_002e2d18.cpp
 }

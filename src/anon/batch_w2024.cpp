@@ -92,34 +92,5 @@ void func_002e10d0(W2024b_Mtx*, W2024b_Cam*);
 void func_002e1140(W2024b_Mtx*, W2024b_Cam*);
 void func_0011b6a8(void*);
 void func_002d08b8(W2024b_Vec*, const W2024b_Mtx*);
-void func_002e1d28(void* self, W2024b_Obj* o) {
-    W2024b_Cam* c = D_00361f60;
-    W2024b_Mtx a, b, m;
-    W2024b_Vec q;
-    W2024b_Vec q2;
-    W2024b_Mtx b2;
-    if (!W2024b_mg_be_ready(self)) return;
-    if (W2024b_cam_matrix(c)) {
-        W2024b_obj_set_pos_trans(o, func_0016c028(D_0034e948));
-        func_002e10d0(&a, c);
-        func_002e1140(&b, c);
-        func_0011b6a8(&m);
-        m.m[1] = a.m[1];
-        W2024b_vouter(m.m[0], m.m[1], b.m[2], &q);
-        W2024b_vouter(m.m[2], m.m[0], m.m[1], &q);
-        W2024b_vnorm(m.m[0]);
-        W2024b_vnorm(m.m[1]);
-        W2024b_vnorm(m.m[2]);
-        m.m[0].w = 0.0f;
-        m.m[1].w = 0.0f;
-        m.m[2].w = 0.0f;
-        func_002d08b8(&q, &m);
-        W2024b_obj_set_rot(o, &q);
-    } else {
-        func_002e1140(&b2, c);
-        func_002d08b8(&q2, &b2);
-        W2024b_obj_set_rot(o, &q2);
-        W2024b_obj_set_pos(o, &b2.m[3]);
-    }
-}
+// 002e1d28: moved to src/anon/unit_002e1908.cpp
 }

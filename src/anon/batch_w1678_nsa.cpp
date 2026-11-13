@@ -75,36 +75,5 @@ void func_0011b6a8(Cam1998Mtx*);
 void func_0011b720(Cam1998Mtx*, f32);
 void func_002d08b8(Cam1998Vec*, const Cam1998Mtx&);
 
-void func_002e1998(void*, Cam1998Act* o)
-{
-    s32 cam = D_00361f60;
-    if (func_002ceb28() == 0) return;
-    Cam1998Vec pos(0.0f, 0.0f, 0.0f, 1.0f);
-    if (func_002e0fe8(cam) != 0) {
-        Cam1998Mtx view = func_002e10d0(cam);
-        Cam1998Mtx inv = func_002e10c0(cam)->inverse();
-        {
-            Cam1998Vec p = inv * *func_0016c028(o);
-            p.z = D_00362d88;
-            Cam1998Vec q = view * p;
-            Cam1998Mtx vi = view.inverse();
-            Cam1998Vec q2 = vi * q;
-            Cam1998Vec q3 = view * q2;
-            q = q3;
-            func_0016ace0(o, q);
-        }
-        func_0011b6a8(&inv);
-        func_0011b720(&inv, 3.1415927f);
-        inv = view * inv;
-        func_002d08b8(&pos, inv);
-        func_0016b070(o, &pos);
-    } else {
-        const Cam1998Mtx34 m = func_002e1108(cam);
-        func_002d08b8(&pos, *(const Cam1998Mtx*)&m);
-        func_0016b070(o, &pos);
-        const Cam1998Vec t;
-        func_0016ace0(o, t);
-        asm volatile("vsub.xyzw $vf1, $vf0, $vf0\n\tsqc2 $vf1, 0(%0)" : : "r"(&o->vel) : "memory");
-    }
-}
+// 002e1998: moved to src/anon/unit_002e1908.cpp
 }

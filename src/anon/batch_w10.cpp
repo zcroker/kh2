@@ -313,9 +313,7 @@ void func_002bd730(s32 a, void* b, void* c, void* d) {
     func_002b8824(D_003617ec, b, 64, c, d);
 }
 
-void func_002e1f40(void* a) {
-    func_002e20d8(func_001050d8(320), a);
-}
+// 002e1f40: moved to src/anon/unit_002e1908.cpp
 
 // 002e8c28: moved to src/anon/unit_002e8b50.cpp
 

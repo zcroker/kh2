@@ -17,10 +17,6 @@ extern u8* D_00361f60;
 void func_002ceb08(void);
 void func_002e26c0(void*);
 void MG_EHSidecar_MoveToBeforePoint(void* self) asm("_ZN2Ti12MG_EHSidecar17MoveToBeforePointEv");
-void MG_EHSidecar_MoveToBeforePoint(void* self) {
-    u8* s = D_00361f60;
-    if (s) func_002ceb08();
-    func_002e26c0(s);
-}
+// 002e2d18: moved to src/anon/unit_002e2d18.cpp
 
 }

@@ -686,20 +686,7 @@ void func_002d1f88(u8* o) {
 extern f32 D_00349e10;
 s32 func_00197920(u8*);
 void wtarget_002e2570(u8* o, u32, u32, u32) asm("_Z16wtarget_002e2570jjjj");
-void wtarget_002e2570(u8* o, u32, u32, u32) {
-    if (func_00197920(o)) return;
-    *(M81*)(o + 112) = *(M81*)(o + 176);
-    s32 st = *(s32*)(o + 272);
-    if (st == 1) {
-        *(f32*)(o + 260) = *(f32*)(o + 260) + D_00349e10 * 0.5f;
-        f32 lim = (f32)((IF81*)*(u8**)(o + 100))[1].i;
-        if (lim <= *(f32*)(o + 260)) { *(f32*)(o + 260) = lim; *(s32*)(o + 272) = 0; }
-    } else if (st == 2) {
-        *(f32*)(o + 260) = *(f32*)(o + 260) - D_00349e10 * 0.5f;
-        f32 lim = (f32)((IF81*)*(u8**)(o + 100))[0].i;
-        if (*(f32*)(o + 260) <= lim) { *(f32*)(o + 260) = lim; *(s32*)(o + 272) = 0; }
-    }
-}
+// 002e2570: moved to src/anon/unit_002e1908.cpp
 
 // --- 002f1670: progress value for the current fade state
 void func_002f1480(u8*, f32);

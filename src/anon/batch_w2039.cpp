@@ -44,25 +44,7 @@ void func_001c8ec0(u16);
 extern u8 D_0032fcc9;
 extern u8 D_01d48d94;
 
-void func_002e2a30(Obj_x* o, QV_x* v, const QV_x* lo, const QV_x* hi)
-{
-    QM_x inv = o->m;
-    inv.invOrtho();
-    v->w = 1.0f;
-    *v = inv * *v;
-    f32 t = func_002f8a18(D_00362e60 * 0.5f * 0.017453292f);
-    t = t * fabsf(v->z);
-    f32 h = t * 4.0f / 3.0f;
-    f32 a = h - hi->x;
-    if (a < v->x) v->x = a;
-    a = lo->x - h;
-    if (v->x < a) v->x = a;
-    f32 b = t - hi->y;
-    if (b < v->y) v->y = b;
-    f32 c = lo->y - t;
-    if (v->y < c) v->y = c;
-    *v = o->m * *v;
-}
+// 002e2a30: moved to src/anon/unit_002e1908.cpp
 
 s32 func_001b89d0(Cmd_b* p)
 {

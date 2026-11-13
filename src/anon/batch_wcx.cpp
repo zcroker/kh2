@@ -1031,25 +1031,7 @@ extern V4 D_00362e70;
 extern u8* D_0034e948;
 void func_0016ace0(u8*, V4*);
 void wtarget_002e2440(u32, u32, u32, u32) asm("_Z16wtarget_002e2440jjjj");
-void wtarget_002e2440(u32 a, u32, u32, u32)
-{
-    u8* p = (u8*)a;
-    if (func_00197920(p)) return;
-    s32 k = *(s32*)(p + 276);
-    if (k >= 0) {
-        func_002e2728(p, k, p[280]);
-        *(s32*)(p + 276) = -1;
-    }
-    asm volatile("vsub.wxyz $vf1, $vf0, $vf0\n\tsqc2 $vf1, 0(%0)" : : "r"(p + 240) : "memory");
-    func_002e24e0(p);
-    if (p[268]) {
-        V4 t;
-        asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(&t), "r"(p + 224) : "$8", "memory");
-        asm volatile("lqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 0(%2)\n\tvadd.wxyz $vf1, $vf1, $vf2\n\tsqc2 $vf1, 0(%0)" : : "r"(&t), "r"(&t), "r"(&D_00362e70) : "memory");
-        func_0016ace0(D_0034e948, &t);
-        p[268] = 0;
-    }
-}
+// 002e2440: moved to src/anon/unit_002e1908.cpp
 
 u8* func_001b9bc8(u8*);
 s32 func_0019c6f0(u32);

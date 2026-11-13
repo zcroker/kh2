@@ -797,20 +797,7 @@ double func_00313b80(f32);  // float_to_double
 double func_00313e80(double, double);  // double_div
 s32 func_003142e0(double, double);  // double_compare
 
-void func_002e2940(u8* a0, u8* a1, Vec82* a2, Vec82* a3)
-{
-    Vec82 b, a, e, d;
-    if (func_00197920((S001d*)a0)) return;
-    if (!a0[88]) return;
-    if (!(*(u32*)(a1 + 1416) & 0x80)) return;
-    VAdd82(&a, func_0016c028((u32)a1), a2);  // obj_get_attach_or_alt
-    VAdd82(&b, &a, a3);
-    QCopy82(&a, &b);
-    func_002e2a30(a0, &a, a0 + 288, a0 + 304);
-    VSub82(&d, &a, &b);
-    VAdd82(&e, &d, a3);
-    *a3 = e;
-}
+// 002e2940: moved to src/anon/unit_002e1908.cpp
 
 // Copies a2 into a0 and nudges its y toward the target height by one step.
 Vec82* func_002ede48(Vec82* a0, u32 a1, Vec82* a2, f32 f12, f32 f13)

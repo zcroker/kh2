@@ -351,16 +351,7 @@ f32 func_002dc808(u8* p) {
 
 // Empty-destructor local: keeps the final call from becoming a tail call.
 struct NoTail { ~NoTail() {} };
-void func_002e2298(void** p) {
-    NoTail g;
-    *p = D_00362eb8;
-    void* o = p[27];
-    if (o) {
-        func_002e70b0(o);
-        func_00106420(o);
-    }
-    func_002cea28(p);
-}
+// 002e2298: moved to src/anon/unit_002e1908.cpp
 
 void operator delete[](void*) asm("func_00106450");
 struct Elem64 { u8 d[64]; ~Elem64() {} } __attribute__((aligned(16)));

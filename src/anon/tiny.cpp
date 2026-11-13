@@ -1977,19 +1977,9 @@ u32 func_002e10c0(u32 a0, u32 a1, u32 a2, u32 a3) {
     return (u32)((s32)a0 + (144));
 }
 
-u32 func_002e2920(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    return (u32)((s32)a0 + (112));
-}
+// 002e2920: moved to src/anon/unit_002e1908.cpp
 
-u32 func_002e2930(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    return (u32)((s32)a0 + (176));
-}
+// 002e2930: moved to src/anon/unit_002e1908.cpp
 
 u32 func_002ee530(u32 a0, u32 a1, u32 a2, u32 a3) {
     (void)a0;

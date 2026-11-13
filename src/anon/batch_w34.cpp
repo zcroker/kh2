@@ -450,10 +450,4 @@ void Layout_setNum(void* l, s32 n, s32 m) {
     func_0023f0c8(l, m);
 }
 
-void u_tail4_002e2d88(u32 a, u32 b, u32, u32) {
-    u8 c = b;
-    u8* p = D_00361f60;
-    if (p) func_002ceb08();
-    *(u32*)(p + 276) = a;
-    p[280] = c;
-}
+// 002e2d88: moved to src/anon/unit_002e2d18.cpp

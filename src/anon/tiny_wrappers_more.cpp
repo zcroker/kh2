@@ -900,9 +900,7 @@ u32 func_001c8d60(u32 a0, u32 a1, u32 a2, u32 a3) {
 
 // 001c8e60 _GLOBAL__I_ (static-init stub): moved to src/yasui/libys/mutex.cpp (linked unit).
 
-u32 func_001cd620(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_001cd548(0x00000001u, 0x0000ffffu, a2, a3);
-}
+// 001cd620: moved to src/anon/unit_001cd548.cpp
 
 u32 func_001ce6c8(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_001ce668(0x00000001u, 0x0000ffffu, a2, a3);
@@ -1360,25 +1358,15 @@ u32 func_002e18b8(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_002e1878(0x00000001u, 0x0000ffffu, a2, a3);
 }
 
-u32 func_002e2428(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_002cebc0(a0, a1, a2, a3);
-}
+// 002e2428: moved to src/anon/unit_002e1908.cpp
 
-u32 func_002e2c50(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_002e2440(((u32)(*(u32*)((u32)(a0) + 4u))), a1, a2, a3);
-}
+// 002e2c50: moved to src/anon/unit_002e1908.cpp
 
-u32 func_002e2c68(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_002e27c8(((u32)(*(u32*)((u32)(a0) + 4u))), a1, a2, a3);
-}
+// 002e2c68: moved to src/anon/unit_002e1908.cpp
 
-u32 func_002e2c80(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_002e2570(((u32)(*(u32*)((u32)(a0) + 4u))), a1, a2, a3);
-}
+// 002e2c80: moved to src/anon/unit_002e1908.cpp
 
-u32 func_002e2e90(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_002e2e50(0x00000001u, 0x0000ffffu, a2, a3);
-}
+// 002e2e90: moved to src/anon/unit_002e2d18.cpp
 
 // 002e33d8: moved to src/anon/unit_002e2f08.cpp
 
