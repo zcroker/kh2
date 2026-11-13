@@ -80,10 +80,7 @@ void func_0014f830(void* p) {
 }
 
 void func_001386e0(u8*, u32, u32, u32, u32, u32);
-void func_00158050(u8* p, u32 a1, u32 a2, u32 a3, u32 a4, u32 x, u32 y) {
-    func_001386e0(p, a1, a2, a3, a4, y);
-    *(u32*)(p + 408) = x;
-}
+// 00158050: moved to src/anon/unit_00158050.cpp
 
 void func_00144450(void*);
 void func_001616d8(void*);
@@ -157,13 +154,7 @@ Pair12* func_0019f5d8(Pair12* e, u32 a, u32 b) {  // find_entry12_pair
 }
 
 void func_0016bd60(void*, u32);
-void func_001a2a18(u8* p) {
-    register u8* vec asm("$14") = p + 32;
-    asm volatile("vsub.xyzw $vf1, $vf0, $vf0\n\tsqc2 $vf1, 0(%0)" : : "r"(vec) : "memory");
-    register u32 flags asm("$13") = *(u32*)(p + 352);
-    if (flags & 0x40) func_0016bd60(p, 0);
-    else func_0016bd60(p, 5);
-}
+// 001a2a18: moved to src/anon/unit_001a28f8.cpp
 
 void* func_001a3a78(void*);
 void func_001de168(void*, u32, u32, u32, u32, void*);  // scan_list_by_half

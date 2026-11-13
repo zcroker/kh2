@@ -328,13 +328,7 @@ s32 trap_attack_get_type(BD_VALUE* v) {
     return func_0018e0d8(t, v[1].i);
 }
 
-class ITEM {
-public:
-    static void GetCommandElem(s32 id);
-};
-void ITEM::GetCommandElem(s32 id) {
-    func_001b8e88(*(u16*)(func_001a80c8(id) + 16));
-}
+// 001a3868 (ITEM::GetCommandElem): moved to src/anon/unit_001a2a50.cpp
 }  // namespace YS
 
 f32 func_001826e0() {  // global_float_diff

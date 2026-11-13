@@ -150,11 +150,7 @@ void func_001ac8b0(u8* p, u32 a1) {
 
 u32 func_001b1400(void*);
 void func_00168328(void*, u32);
-u32 func_001b1490(void* p) {
-    u32 v = func_001b1400(p);
-    if (v) func_00168328(p, v);
-    return v;
-}
+// 001b1490: moved to src/yasui/libys/databuff.cpp
 
 void func_001bc720(u8*);
 void func_001bc730(u8* p, s32 i) {

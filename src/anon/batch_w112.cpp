@@ -249,42 +249,7 @@ void func_001395a8(u8*);
 }
 extern "C" {
 // Picks one of two motion sets (by mode) and applies both blend slots.
-void func_00157ae0(u8* o) {
-    if (func_001a1de0((*(Wk**)(o + 52))->cfg) == 0) {
-        Cfg* c;
-        u32 b;
-        if (func_00158250(o)) {
-            func_00138c10(o + 11648, func_00155f40(o));
-            u8* s = o + 10000;
-            func_00138c10(s, 116);
-            func_00138c10(o + 10412, 119);
-            func_00138c10(o + 10824, 115);
-            func_00138c10(o + 11236, 120);
-            *(u32*)(s + 392) = 117;
-            func_001565a8(o);
-        }
-        c = (*(Wk**)(o + 52))->cfg;
-        u32 a = c->f388;
-        b = c->f384;
-        func_00155ab0(o, a, 9);
-        func_00155ab0(o, b, 10);
-    } else {
-        f32 v;
-        if (func_00158250(o)) {
-            func_00138c10(o + 11648, func_00155f40(o));
-            u8* s = o + 10000;
-            func_00138c10(s, 110);
-            func_00138c10(o + 10412, 113);
-            func_00138c10(o + 10824, 109);
-            func_00138c10(o + 11236, 114);
-            *(u32*)(s + 392) = 111;
-            func_00156540(o);
-        } else if (func_00155f40(o) == 26) func_001395a8(o + 1324);
-        v = func_001a1e00((*(Wk**)(o + 52))->cfg);
-        func_00155b58(o, 9, 1.0f);
-        func_00155b58(o, 10, v);
-    }
-}
+// 00157ae0: moved to src/anon/unit_00157688.cpp
 }
 }
 

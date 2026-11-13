@@ -18179,20 +18179,7 @@ void func_001af9f8() {
 
 void func_001b1328(u32 a0);
 
-u32 func_001b1400() {
-    u32 v = func_001688c8();
-    u32 size = (v + 63) & (u32)-64;
-    u32 out = 0;
-    if (size != 0) {
-        u32* b = (u32*)0x00350000;
-        u32 cur = b[930];
-        u32 keep = cur;
-        u32 next = cur + size;
-        b[930] = next;
-        out = keep;
-    }
-    return out;
-}
+// 001b1400: moved to src/yasui/libys/databuff.cpp
 
 u32 func_001b1b58(u8* a0) {
     u8* s0 = a0;

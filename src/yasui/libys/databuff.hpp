@@ -6,11 +6,9 @@ namespace YS {
 
     class DATABUFF {
     public:
-     void Open(void);
-     void Close(void);
-     u64 Read(char* a0);
-     u64 ReadBar(char* a0);
+     static void Open(void);
+     static void Close(void);
+     static u8* Alloc(const char* name, int);
     };
 
 }  // namespace YS
-

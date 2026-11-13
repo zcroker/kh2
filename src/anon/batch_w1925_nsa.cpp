@@ -15,36 +15,7 @@ void func_001a39c8(s32);
 void func_001a38b8(W1925_It*);
 void func_00181670(void);
 static inline bool W1925_isf(W1925_It* it) { return it->flags & 1; }
-void func_001a32c8(s32 id, s32 n)
-{
-    s32 had = 0;
-    W1925_It* it = func_001a80c8(id);
-    func_001a3168(id, 100, n);
-    W1925_G1* g = &D_0032e020;
-    if (W1925_isf(it)) {
-        u16 k = it->id;
-        u32* bits = g->bits;
-        bits[k >> 5] |= 1 << (k & 0x1f);
-    } else {
-        had = g->cnt[it->id];
-        g->cnt[it->id] += n;
-    }
-    if (id == 32) func_001815d0(-1);
-    switch (it->type) {
-    case 0: func_001a39c8(id); return;
-    case 21: func_001a38b8(it); return;
-    case 18:
-        if (had == 0) {
-            W1925_G2* g2 = &D_0032bb30;
-            W1925_G2s* s = &g2->s;
-            for (s32 i = 0; i < 3; i++) {
-                if (s->slot[i] == 0) { s->slot[i] = it->v; break; }
-            }
-        }
-        func_00181670();
-        return;
-    }
-}
+// 001a32c8: moved to src/anon/unit_001a2a50.cpp
 }
 
 /* func_0024b210 */

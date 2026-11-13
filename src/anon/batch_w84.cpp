@@ -118,29 +118,7 @@ s32 func_001570a0(void*);
 void func_00157068(void*);
 s32 func_001570d0(void*);
 void func_00157c88(void*);
-void func_00157f08(u8* p) {
-    func_00158300(p);
-    func_00157758(p);
-    func_001577c8(p);
-    if (*(u32*)(p + 52) == 0) return;
-    if (*(u32*)(p + 12) & 0x100) return;
-    func_001578d8(p);
-    func_00157a00(p);
-    func_00157ae0(p);
-    if (func_00157100(p)) {
-        func_001571c0(p);
-    } else if (func_00157130(p)) {
-        func_001574d8(p);
-        func_00156d20(p);
-    } else if (func_001570a0(p)) {
-        func_00157068(p);
-    } else if (func_001570d0(p)) {
-        func_00156d20(p);
-    } else {
-        func_00157c88(p);
-    }
-    *(u32*)(p + 15600) = *(*(u8**)(*(u8**)(p + 52) + 1164) + 431);
-}
+// 00157f08: moved to src/anon/unit_00157688.cpp
 
 // Runs every entry flagged in the 64-bit mask, then sweeps the 64 lists.
 extern u64 D_0034c710;

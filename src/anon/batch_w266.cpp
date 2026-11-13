@@ -48,32 +48,7 @@ void* func_00188fe0(void*, s32);
 void func_00188a28(void*, void*);
 void func_00188b68(void*, void*, u8);
 void func_001a39c8(void*);
-s32 func_001a3188(void* a0, s32 a1, u8 a2) {
-    R3188* r = func_001a80c8(a0, a1);  // table24_find_by_id
-    S3188* g = &D_0032e020;
-    s32 n = func_001a3018(a0, a1, 1);
-    u32 one = 1;
-    if (n == 0) return 0;
-    if (r->b3 & one) goto A;
-    if (n == 100) {
-A:
-        func_001a32c8(a0, 1);
-    } else {
-        void* v = func_00188fe0(g, n);
-        switch (r->b2) {
-        case 0:
-            func_00188a28(v, a0);
-            if (n == 1 || n == 14) func_001a39c8(a0);
-            break;
-        case 19:
-            func_00188b68(v, a0, a2);
-            break;
-        }
-    }
-    if (r->b3 & one) return 1;
-    g->bits.set(r->id);
-    return 1;
-}
+// 001a3188: moved to src/anon/unit_001a2a50.cpp
 extern f32 D_00349e10;
 VH func_0016bda8(u8*);
 // 001ccc38: moved to src/anon/unit_001cc868.cpp

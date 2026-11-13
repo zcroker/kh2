@@ -729,21 +729,7 @@ void func_001a1d40(u32 a0, f32 f12) {
     *(f32 *)(a0 + 444) = f12;
 }
 
-u32 func_001a3888(s32 a0) {  // id_in_range_5_7_131
-    if (a0 < 5) {
-        goto L_zero;
-    }
-    if (a0 < 8) {
-        goto L_one;
-    }
-    if (a0 != 131) {
-        goto L_zero;
-    }
-L_one:
-    return 1;
-L_zero:
-    return 0;
-}
+// 001a3888: moved to src/anon/unit_001a2a50.cpp
 
 // 001a84f0: moved to src/anon/unit_001a82f0.cpp
 

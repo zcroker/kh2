@@ -221,48 +221,5 @@ void func_002e1440(void* self, C2040Vec* v, C2040Vec* mn, C2040Vec* mx) {
     if (v->y < mn->y - t) v->y = mn->y - t;
     *v = m * *v;
 }
-void func_001a2b50(W2040Req* r, s32 id, s32 other, s32 pct) {
-    W2040Unit* o = func_001a1658(id, -1);
-    s32 flag;
-    s32 val;
-    s32 a, b;
-    if (o == 0) return;
-    flag = 0;
-    if (other != 0) flag = other != id;
-    val = r->val;
-    a = (o->f4 * val * pct + 9999) / 10000;
-    b = (o->f184 * val * pct + 9999) / 10000;
-    switch (r->type) {
-    case 1: case 2: case 5:
-        func_001a1950(o, a, 0, flag);
-        break;
-    case 3: case 6:
-        func_001a1a20(o, b, flag);
-        break;
-    case 4: case 7:
-        func_001a1950(o, a, 0, flag);
-        func_001a1a20(o, b, 0);
-        break;
-    case 131:
-        func_001a1950(o, o->f4, 0, flag);
-        func_001a1a20(o, b, 0);
-        break;
-    case 274: case 275:
-        func_001a1aa0(o, r->val * 100, flag);
-        break;
-    case 276:
-        func_001a2578(o, val, flag);
-        break;
-    case 277:
-        func_001a25c8(o, val, flag);
-        break;
-    case 278:
-        func_001a2618(o, val, flag);
-        break;
-    case 279:
-        func_001a2668(o, val, flag);
-        break;
-    }
-    func_001a17c8(o);
-}
+// 001a2b50: moved to src/anon/unit_001a2a50.cpp
 }

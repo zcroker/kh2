@@ -7982,12 +7982,7 @@ u32 duplicate_unplaced_001b01d8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, 
     return ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_00106420)(r4, r5, r6, r7, r8, r9, r10, r11);
 }
 
-void func_001b13d8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r14, r15;
-    r15 = (u32)&D_01c94100;
-    r14 = (u32)(0x0035u << 16);
-    *(volatile u32*)((u32)r14 + (s32)(3720)) = r15;
-}
+// 001b13d8: moved to src/yasui/libys/databuff.cpp
 
 u32 duplicate_unplaced_001b1bb8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r15;

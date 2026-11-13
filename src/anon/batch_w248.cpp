@@ -82,34 +82,7 @@ extern u8 D_0032e020[];
 W248Tbl* func_00188fe0(void*);
 u8* func_001a80c8(u32);  // table24_find_by_id
 s32 func_001a3570(u32);
-s32 func_001a35f8(u32 id, s32 mode) {
-    s32 cnt = 0;
-    if (mode == 100) {
-        cnt = func_001a3570(id);
-    } else {
-        W248Tbl* t = func_00188fe0(D_0032e020);
-        switch (func_001a80c8(id)[2]) {  // table24_find_by_id
-        case 0: {
-            s32 i;
-            for (i = 0; i < t->n; i++) {
-                if (t->a[i] == id) cnt++;
-            }
-            break;
-        }
-        case 19: {
-            s32 i;
-            for (i = 0; i < 80; i++) {
-                if ((t->b[i] & 0x7fff) == id) cnt++;
-            }
-            break;
-        }
-        default:
-            cnt = func_001a3570(id);
-            break;
-        }
-    }
-    return cnt;
-}
+// 001a35f8: moved to src/anon/unit_001a2a50.cpp
 
 extern f32 D_00349e10;
 W248V4* func_0016b0a0(W248Mv*);
