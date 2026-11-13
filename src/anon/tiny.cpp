@@ -2852,13 +2852,7 @@ void func_00241a60(u32 a0, u32 a1, u32 a2, u32 a3) {
     *(u8*)((u32)D_0035ec94 + (5)) = 0;
 }
 
-void func_00242408(u32 a0, u32 a1, u32 a2, u32 a3) {  // set_global_crc_m1
-    (void)a0;
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    D_0035ecc4 = (u32)((s32)-1);
-}
+void func_00242408(u32 a0, u32 a1, u32 a2, u32 a3);  // 00242408: moved to src/tozawa/crc.cpp (linked unit)
 
 u32 func_00281128(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_entry20_field16
     (void)a2;

@@ -303,12 +303,7 @@ void func_0023d3d0(void) {
     func_00257000();
 }
 
-void func_00242368(void* a) {
-    if (a) {
-        void** o = D_0035ecbc;
-        (*(void (**)(void*, void*))(*(u8**)o + 4))(o, a);
-    }
-}
+void func_00242368(void* a);  // 00242368: moved to src/tozawa/crc.cpp (linked unit)
 
 s32 func_00287720(u8* p) {
     func_002878c8(p);

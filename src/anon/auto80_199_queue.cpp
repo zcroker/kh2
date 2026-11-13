@@ -8157,31 +8157,7 @@ void func_00242110(u32 a0) {
     }
 }
 
-void func_002423a0(void) {
-    u32 t2 = 0x04C10000u;
-    u32 t1 = 0;
-    u32 t3 = 0x80000000u;
-    t2 = t2 | 0x1DB7u;
-    do {
-        u32 t4 = t1 << 24;
-        u32 t6 = 0;
-        do {
-            u32 t7 = t4 & t3;
-            if (t7 != 0) {
-                t7 = t4 << 1;
-                t4 = t7 ^ t2;
-            } else {
-                t4 = t4 << 1;
-            }
-            t6 += 1;
-        } while (t6 < 255);
-        u32 t15 = D_0035ecc0;
-        u32 t14 = t1 << 2;
-        t1 += 1;
-        t14 = t14 + t15;
-        *(u32*)t14 = t4;
-    } while (t1 < 256);
-}
+void func_002423a0(void);  // 002423a0: moved to src/tozawa/crc.cpp (linked unit)
 
 extern "C" void func_002436d0(u32) asm("_ZN2Tz4HEFT11PauseThreadEP4TASK");
 

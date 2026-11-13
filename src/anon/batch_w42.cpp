@@ -301,13 +301,7 @@ void func_002252b0(void)
 // 00242418: CRC32 update over a buffer
 extern u32* D_0035ecc0;
 extern u32 D_0035ecc4;
-u32 func_00242418(u8* p, s32 n)
-{
-    while (--n >= 0) {
-        D_0035ecc4 = (D_0035ecc4 << 8) ^ D_0035ecc0[(D_0035ecc4 >> 24) ^ *p++];
-    }
-    return ~D_0035ecc4;
-}
+u32 func_00242418(u8* p, s32 n);  // 00242418: moved to src/tozawa/crc.cpp (linked unit)
 
 // 00247bb0: update the four active entries
 extern u8* D_0035ed34;
