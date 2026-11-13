@@ -86,26 +86,7 @@ s32 func_001051a0(u8*, u8*);
 void func_001703a8(s32);
 void func_002bea00(void);
 void func_002bea10(void);
-void func_00149de0(u8* p)
-{
-    if (func_00242ea8()) return;
-    if (!func_001051a0(&D_0032bae0, p)) func_001703a8(1070);
-    if (*p != D_0032bae0) {
-        func_001703a8(900);
-        func_001703a8(950);
-        func_001703a8(1080);
-        func_001703a8(1090);
-    }
-    func_002bea00();
-    if (D_0032bae0 != 15) return;
-    if (*p != D_0032bae0) {
-        func_001703a8(1040);
-        func_001703a8(1040);
-        func_001703a8(2500);
-    } else {
-        func_002bea10();
-    }
-}
+// 00149de0: moved to src/harata/libdk/area.cpp
 }
 }
 

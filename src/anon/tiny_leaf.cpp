@@ -136,13 +136,7 @@ void func_00146100(u32 a0, u32 a1, u32 a2, u32 a3) {  // array_push_short
     *(u32*)((u32)r5 + (s32)(0)) = r14;
 }
 
-u32 func_001492e8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u;
-    r5 = (u32)(r5 << 2);
-    r5 = (u32)(r5 + r4);
-    r2 = *(u32*)((u32)r5 + (s32)(84));
-    return r2;
-}
+// 001492e8: moved to src/harata/libdk/mapfile.cpp
 
 void func_0014b258(u32 a0, u32 a1, u32 a2, u32 a3) {  // copy_halfwords_8_10
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r14 = 0u, r15 = 0u;

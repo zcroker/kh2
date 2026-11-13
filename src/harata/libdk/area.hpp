@@ -8,15 +8,14 @@ namespace dk {
 
 class Area {
 public:
-    void setMapFile(char* a0);
-    void readData(void);
-    void initMap(u64 a0);
-    void init(void);
-    void start(void);
-    void exit(void);
-    void cacheBuffDestroy(AREA* a0);
-    void finalizer(AREA* a0);
+    static void setMapFile(char* a0);
+    static void readData(void);
+    static void initMap(u32 a0);
+    static void init(void);
+    static void start(void);
+    static void exit(void);
+    static void cacheBuffDestroy(AREA* a0);
+    static void finalizer(AREA* a0);
 };
 
 }  // namespace dk
-

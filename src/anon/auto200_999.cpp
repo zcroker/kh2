@@ -348,11 +348,7 @@ void func_0014dd60(u32 a0, u32 a1, u32 a2, u32 a3) {  // store_3bytes_470
     *(volatile u8 *)(a0 + 471) = a2;
 }
 
-u32 func_001493b8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    if (*(s8 *)a0 == 0) {
-        return func_00149350(a0, a0, a2, a3);
-    }
-}
+// 001493b8: moved to src/harata/libdk/mapfile.cpp
 
 // 0018cae0: moved to src/yasui/libys/damage.cpp
 

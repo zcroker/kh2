@@ -301,30 +301,7 @@ static inline void sub_clamp(u8* e, s32 d) {
 
 // 00105b58: moved to src/common/region.cpp
 
-void func_00149cb8(void) {
-    func_0013a6f8();
-    func_00103bb0(-1);
-    func_00139f38(func_001050c8());
-    D_0034b278 = func_001050c8();
-    func_00153c60();
-    func_001385c0();
-    func_00109e18();
-    func_0015df68();
-    func_00140ce8();
-    func_00161ee8();
-    func_001618f0();
-    func_001618b8();
-    func_0015a810();
-    func_0014f268(D_00348d68);
-    func_0014f1c8(D_00348d68);
-    func_0014f208();
-    func_0014f118();
-    func_0013d7d0();
-    if (func_001051a0(D_0032bae0, D_0032bb10) == 0 && func_001bc130() != 0) {
-        func_0015b2d0();
-        func_0013d7c0();
-    }
-}
+// 00149cb8: moved to src/harata/libdk/area.cpp
 
 void func_00169210(void) {
     func_00192290(D_0032bae0[0], 2);

@@ -88,11 +88,7 @@ u32 wtarget_00142208(u32 a0, u32 a1, u32, u32) {
     return (u32)D_00457460;
 }
 
-void func_00149c40(u32 a) {
-    func_00149448(D_00348d68);
-    func_0015c228(func_001492c8(D_00348d68));
-    func_0015eba8(D_00348d68, func_001050c8(), 1, a);
-}
+// 00149c40: moved to src/harata/libdk/area.cpp
 
 f32 func_00153610(f32 x) {
     f32 r = 1.0f / (D_0034a780 + D_0034a784 * x + D_0034a788 * x * x);

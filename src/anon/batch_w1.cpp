@@ -248,7 +248,7 @@ class FPSCamera {
     static void adjust();
 };
 
-void Area::init() { GAUGE::init(); }
+// 00149ca0: moved to src/harata/libdk/area.cpp
 // 0014ec20: moved to src/harata/libdk/fpscamera.cpp
 } // namespace dk
 
