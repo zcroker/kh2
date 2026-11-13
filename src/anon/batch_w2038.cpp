@@ -56,27 +56,5 @@ extern s32 D_003637d0;
 extern f32 D_00349e10;
 extern EV D_01e2c050;
 
-void func_002ec5f8(EObj* self, EActor* a) {
-    EV t;
-    s32 id = a->x508;
-    if (func_002eb3b8(a)) return;
-    t = *func_0016c028(a);
-    f32 r = 24.0f;
-    a->dir = func_002cba88(id, t, func_0016af58(a), r, 0.5f);
-    a->dir.normalize();
-    a->dir.w = r;
-    e_set_dir(a, a->dir);
-    if (D_01e2c064) {
-        if (D_0036354c < 0.0f && a->x154 == 269) {
-            func_002eda90(60.0f, D_003637d0, 1);
-            D_0036354c = 12.0f;
-        } else {
-            D_0036354c -= D_00349e10;
-        }
-    }
-    t = D_01e2c050 - *func_0016c028(a);
-    t.y = 0.0f;
-    if (func_003142e0(func_00313b80(t.lensq()), 0x40e3880000000000ULL) < 0)
-        self->vt->f20(self, a, 0);
-}
+// 002ec5f8: moved to src/anon/unit_002ec5f8.cpp
 }

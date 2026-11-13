@@ -26,18 +26,5 @@ void func_0017c4c8c(Obj*, Vec*) asm("func_0017c4c8");
 void func_002eb778(Obj*, s32, s32, f32);
 void fx0017c030(Vec*, Obj*, Vec*, u32) asm("func_0017c030");
 static inline Vec get2ebf50(Obj* o, u8 k) { Vec t; Vec r; register Vec* a0 asm("$4") = &r; register Obj* a1 asm("$5") = o; register u32 a3 asm("$7") = k; register Vec* a2 asm("$6"); asm("la %0,%1" : "=r"(a2) : "m"(t), "r"(a0), "r"(a1), "r"(a3)); fx0017c030(a0, a1, a2, a3); return r; }
-void func_002ebf50(void* self, Obj* o, u8 k) {
-    Vec v = o->v32;
-    f32 len = vnorm(&v);
-    v.w = len;
-    if (o->v16.w < len) o->v16 = v;
-    func_002eda90(D_003637d0, 1, 60.0f);
-    v = get2ebf50(o, k);
-    v.y = 385.0f;
-    func_0017c4c8(o, v);
-    o->b1300 = 8;
-    func_002eb778(o, 255, 0, 0.0f);
-    o->w256 = 256;
-    o->w260 = 257;
-}
+// 002ebf50: moved to src/anon/unit_002eaf38.cpp
 }

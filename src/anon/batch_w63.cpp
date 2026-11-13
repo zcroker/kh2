@@ -451,11 +451,7 @@ void func_002dbca0(u8* p, u8 flag) {
     func_002db968(p, 1);
 }
 
-void func_002ebac0(u32 a0, u8* a1) {
-    *(f32*)(a1 + 276) = *(f32*)(a1 + 272) = 20.0f;
-    *(f32*)(a1 + 284) = D_01e2c044;
-    func_002eb9d8(a0, a1, 254, 4.0f);
-}
+// 002ebac0: moved to src/anon/unit_002eaf38.cpp
 }
 
 struct W63Vec {

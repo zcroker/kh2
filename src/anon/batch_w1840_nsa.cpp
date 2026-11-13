@@ -119,14 +119,5 @@ f32 __truncdfsf2(u64);
 f32 sinf(f32);
 W1840Vec* func_0016c028(W1840PathOwner*);
 
-W1840Vec* func_002ecb90(W1840Vec* r, void* self, W1840PathOwner* o) {
-    f32 s = D_01e2c060 / 10.0f;
-    s = sinf(__truncdfsf2(func_00313f40(func_00313b80(s * 3.14159274f), 0x3fe0000000000000ULL)));
-    W1840Vec p;
-    p = w1840_get_current_pos(o->path);
-    *r = p - D_00363550;
-    *r = D_00363550 + *r * s;
-    *r -= *func_0016c028(o);
-    return r;
-}
+// 002ecb90: moved to src/anon/unit_002ec5f8.cpp
 }

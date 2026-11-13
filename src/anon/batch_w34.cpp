@@ -393,16 +393,7 @@ void func_002e3c28(u8** a) {
     func_002cc620(z, x, y);
 }
 
-void func_002eb9d8(u32, u8* o, s32 k) {
-    u32 fl = *(u32*)(o + 352);
-    EvSub* s = (EvSub*)(o + 320);
-    if (!(fl & 4)) {
-        if (!(fl & 0x10)) return;
-        if (k == 252) return;
-    }
-    if (s->cur == k) return;
-    func_002eb6f8(o, k);
-}
+// 002eb9d8: moved to src/anon/unit_002eaf38.cpp
 
 void func_002ed508(u8* p, u8* q, u32 c, u32 d, u32 e) {
     func_001c1748(p, *(u32*)(q + 2548), d, e);  // obj_init_from_src

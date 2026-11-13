@@ -59,19 +59,6 @@ void func_002d24e8(Owner1818* s, Obj1818* o) {
 // --- 002eb098: target within +-30 height and 50 horizontal distance
 extern Vec1818* func_0016c028_a(Act1818*) asm("func_0016c028");
 extern Vec1818 func_002cbed8(u32);
-s32 func_002eb098(Act1818* a) {
-    s32 r = 0;
-    if (a->p) {
-        Vec1818 t = func_002cbed8(a->p);
-        f32 h = 30.0f;
-        if (func_0016c028_a(a)->y - h < t.y && t.y < func_0016c028_a(a)->y + h) {
-            Vec1818 d;
-            d = *func_0016c028_a(a) - t;
-            d.y = 0;
-            r = vlensq1818(d) < 2500.0f;
-        }
-    }
-    return r;
-}
+// 002eb098: moved to src/anon/unit_002eaf38.cpp
 
 }

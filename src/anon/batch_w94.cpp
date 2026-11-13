@@ -731,22 +731,7 @@ static inline f32 vdot(V4e* a, V4e* b) {
 }
 
 extern "C" {
-V4e* func_002eaf48(V4e* out, u8* obj, u8 notify) {
-    u32 h = *(u32*)(obj + 1288);
-    V4e t;
-    func_002cbf08(&t, h);
-    qcopy(out, &t);
-    *(u32*)&out->y = 0;
-    func_0016af58(&t, obj);
-    if (func_003142e0(func_00313b80(vdot(out, &t)), 0.0) < 0) {  // double_compare
-        qcopy(out, func_002cb8b8(h));
-        if (notify) func_002cb7a0(h, 0, func_0016c028(obj));
-    } else {
-        qcopy(out, func_002cb8e0(h));
-        if (notify) func_002cb7a0(h, 1, func_0016c028(obj));
-    }
-    return out;
-}
+// 002eaf48: moved to src/anon/unit_002eaf38.cpp
 }
 // ---- 002e71a0
 extern "C" {

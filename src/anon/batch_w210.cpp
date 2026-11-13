@@ -43,10 +43,5 @@ void func_002ba140(u32 a, u32 b, u32 c) {
     func_002b6f28(a, b, c);
 }
 
-void func_002eba30(u32 a, char* b) {
-    D_00363540 = 0;
-    func_002eb9d8(a, (u32)b, 252, 8.0f);
-    char* s = b + 32;
-    asm volatile("vsub.xyzw $vf1,$vf0,$vf0\n sqc2 $vf1,0(%0)" :: "r"(s) : "memory");
-}
+// 002eba30: moved to src/anon/unit_002eaf38.cpp
 }

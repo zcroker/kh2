@@ -491,13 +491,7 @@ u32 func_002c2598(u32 a, s32 n) {
     return 0;
 }
 
-void func_002ec088(u32 a, u8* p) {
-    *(f32*)(p + 276) = *(f32*)(p + 272) = 20.0f;
-    *(f32*)(p + 284) = D_01e2c048;
-    *(f32*)(p + 284) = *(f32*)(*(u8**)(p + 300) + 12);
-    func_001d14b0(p, 2);
-    func_0017c578(a, p);
-}
+// 002ec088: moved to src/anon/unit_002eaf38.cpp
 
 struct SFile { u8* p; s32 r; s32 w; s16 flags; s16 file; u8* base; s32 size; u8 pad[60]; u8* data; u8 pad2[8]; };
 

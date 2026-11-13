@@ -312,11 +312,7 @@ void func_002bf5a0(u8* p) {
 
 
 void func_002eb778(u8*, u32, s32, f32);
-void func_002ec170(u32, u8* p) {
-    func_002eb778(p, *(u32*)(p + 256), 0, 8.0f);
-    *(u32*)(p + 268) &= ~1;
-    *(u32*)(p + 264) |= 0x4000000;
-}
+// 002ec170: moved to src/anon/unit_002eaf38.cpp
 
 struct F304ec8 { u8 pad[12]; u16 flags; s16 file; u8 pad2[64]; s32 offset; u32 data; };
 long func_00305110(u32, s32, long, s32);

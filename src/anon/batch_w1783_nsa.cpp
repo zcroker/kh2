@@ -14,14 +14,6 @@ extern u8 D_01e2c064;
 extern u32 D_003637d0;
 extern f32 D_0036354c;
 
-void func_002ec4a8(u32 a0, EA* a1) {
-    func_001d14b0(a1, 3);
-    D_01e2c064 = func_002cd008(a1->_508, D_00363560) ^ 1;
-    u8 v = D_01e2c064;
-    D_00363560 = a1->_508->_90;
-    if (v) func_002eda90(D_003637d0, 20, 60.0f);
-    else func_002edaf8(D_003637d0);
-    D_0036354c = 12.0f;
-}
+// 002ec4a8: moved to src/anon/unit_002eaf38.cpp
 
 }

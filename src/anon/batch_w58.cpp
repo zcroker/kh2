@@ -551,11 +551,7 @@ s32 func_002eb098(u32);
 void func_002eb1a0(u32);
 extern f32 D_01e2c060;
 extern f32 D_00349e10;
-void func_002ecb10(u32 a0, u32 a1) {
-    if (func_002eb3b8(a1)) return;
-    D_01e2c060 += D_00349e10;
-    if (10.0f < D_01e2c060 || func_002eb098(a1)) func_002eb1a0(a1);
-}
+// 002ecb10: moved to src/anon/unit_002ec5f8.cpp
 
 extern u32 D_00363748;
 u8* func_002ed350(u32, u32, u32, Vec4*, Vec4*);
