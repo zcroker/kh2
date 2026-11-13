@@ -835,14 +835,5 @@ void wtarget_001d9a18(u32 a0, u32 a1, u32, u32) {
 
 extern u8 D_01c6cae0[];
 extern u32 D_01c6cb00[];
-void wtarget_001a3d70(u32 a0, u32 a1, u32, u32) {
-    if (a1 == 0xffff && a0 == 1) func_001ddd10(D_01c6cae0);
-    if (a1 == 0xffff && a0 == 1) {
-        u32* base = D_01c6cb00;
-        u32* q = base;
-        for (s32 i = 3; i >= 0; i--) *q++ = 0;
-        base[4] = 0;
-    }
-    if (a1 == 0xffff && a0 == 0) func_001ddd88(D_01c6cae0);
-}
+// 001a3d70: static init of the YS::EFFECT work, moved to src/anon/unit_001a3d70.cpp
 
