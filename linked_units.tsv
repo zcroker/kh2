@@ -63,3 +63,6 @@ src/anon/unit_00153ea0.cpp	00153ea0	00157688	.rodata@0036b270	-G0
 src/anon/unit_00185d10.cpp	00185d10	00188550	.rodata@0036c908	-G0 -fno-strict-aliasing
 src/anon/unit_00188550.cpp	00188550	00188848	.rodata@0036c9b0	-G0
 src/sasa/musical_2d.cpp	0022b7f0	0022ba08	.data@0035e2e8,.bss@01dad938,.rodata@00371138	-G0
+src/harata/libdk/cannoncamera.cpp	001585e8	00158708	-	-G0
+src/harata/libdk/cameraconfig.cpp	00158450	001585e8	.data@0034a970	-G0
+src/harata/libdk/scopecamera.cpp	00158708	00158900	.data@0034a990,.rodata@0036b308	-G0 -fno-strict-aliasing

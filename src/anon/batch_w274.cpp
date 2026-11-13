@@ -174,19 +174,7 @@ extern f32 D_0034a994;
 extern f32 D_0034a998;
 extern f32 D_0034a99c;
 extern V4 D_0034a9a0;
-void func_00158708(C8708* o) {
-    V4 a;
-    V4 d;
-    a = *func_0016c028(D_0034a990);  // obj_get_attach_or_alt
-    a.y -= D_0034a994;
-    d = a - D_0034a9a0;
-    Normalize(&d);
-    MulS(&d, D_0034a99c);
-    d = D_0034a9a0 + d;
-    o->p96 = Lerp(a, d, D_0034a998);
-    o->p128 = D_0034a9a0;
-    o->p0 = D_0034a9a0;
-}
+// 00158708: moved to src/harata/libdk/scopecamera.cpp
 extern u8* D_00361f60;
 s32 func_001b9d40(void);  // vtable_call_slot64_flags
 s32 func_002d5588(C5088*);

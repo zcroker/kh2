@@ -2152,17 +2152,7 @@ void func_001582a8(u32 a0) {
     }
 }
 
-void func_00158658(u32 a0) {
-    u32 s0 = a0;
-    u32 p = *(u32*)(a0 + 68);
-    u32 fn = *(u32*)(*(u32*)(p + 0) + 64);
-    if (((u32(*)(u32))fn)(p) != 0) {
-        func_001585e8(s0);
-    }
-    func_0013f828(s0);
-    func_0013f888(s0, s0 + 128, 0);
-    return func_0013fca8(s0);
-}
+// 00158658: moved to src/harata/libdk/cannoncamera.cpp
 
 // 0015a708: moved to src/harata/libdk/targetcamera.cpp
 

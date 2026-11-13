@@ -2,16 +2,14 @@
 
 #include "../../common/types.h"
 
-class OBJ;
-class ObjCamera;
+namespace YS { class OBJ; }
 
 namespace dk {
 
     class CannonCamera {
     public:
-     void update(ObjCamera* a0);
-     s32 create(OBJ* a0);
+     static void create(YS::OBJ* obj);
+     static void destroy();
     };
 
 }  // namespace dk
-

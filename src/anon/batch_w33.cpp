@@ -38,14 +38,7 @@ void func_00148a68(s32* owner, Obj148* o) {
 u8 func_00242d58(void);
 u32 func_00242ce8(void);
 extern u64 D_0034a970[];
-s32 func_001584a0(u64* p) {
-    u8 b = func_00242d58();
-    return (*p & D_0034a970[(u8)(b ^ 1)]) != 0;
-}
-s32 func_001584f8(u64* p) {
-    u32 i = func_00242ce8();
-    return (*p & D_0034a970[i + 2]) != 0;
-}
+// 001584a0, 001584f8: moved to src/harata/libdk/cameraconfig.cpp
 
 void* func_00167f18(s32);
 void func_0016dbe0(s32* p) {
