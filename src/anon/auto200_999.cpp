@@ -649,15 +649,7 @@ void func_001f0868(u32 a0, u32 a1) {
     *(volatile f32 *)(a1 + 12) = z;
 }
 
-void func_00198630(void *a0) {
-    register u32 r5 asm("$5");
-    register u32 r6 asm("$6");
-    u32 self = (u32)a0;
-    u32 p = *(u32 *)(self + 2488);
-    if (p != 0) {
-        func_001b0210(p, r5, r6, self);
-    }
-}
+// 00198630: moved to src/anon/unit_00197fe0.cpp
 
 // 00190128: YS::TARGET::TARGET(), moved to src/yasui/libys/target.cpp
 

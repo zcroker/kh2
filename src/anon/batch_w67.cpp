@@ -183,22 +183,7 @@ f32 func_001ef5a0(u8 a)
 s32 func_0016c028(void*);  // obj_get_attach_or_alt
 void func_002bc188(s32, s32);
 
-// 00198580
-void func_00198580(u8* o, s32 id)
-{
-    u8* q = 0;
-    if (id / 1000 == 500) {
-        u32 fl = *(u32*)(o + 1416);
-        if (fl & 0x40) q = o;
-        else if (fl & 4) q = *(u8**)(o + 2808);
-        if (q) {
-            s16* e = *(s16**)(q + 2484);
-            s32 k = e ? e[1] : -1;
-            if (k >= 0) id = id % 1000 + k * 1000;
-        }
-    }
-    func_002bc188(id, func_0016c028(o));
-}
+// 00198580: moved to src/anon/unit_00197fe0.cpp
 
 extern f32 D_00349e10;
 Vec4 func_00184540(u8*, f32, f32);

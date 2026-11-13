@@ -16,22 +16,7 @@ extern "C" {
 extern u8 D_0032f054;
 struct JS_198040 { u8 pad[0x26]; u16 h[7]; };
 JS_198040* func_001a8b28(void);
-u16 func_00198040(s32 a0) {
-    JS_198040* p = func_001a8b28();
-    u16 r;
-    if (a0 == 1) {
-        switch (D_0032f054) {
-        case 1: r = p->h[1]; break;
-        default: r = p->h[0]; break;
-        case 2: r = p->h[2]; break;
-        case 3: r = p->h[3]; break;
-        case 4: r = p->h[4]; break;
-        case 5: r = p->h[5]; break;
-        case 6: r = p->h[6]; break;
-        }
-    } else r = 0;
-    return r;
-}
+// 00198040: moved to src/anon/unit_00197fe0.cpp
 
 /* heap block free + coalesce with free neighbours */
 struct Blk_225fa0 { Blk_225fa0* next; Blk_225fa0* prev; u8 used; u8 pad[3]; s32 size; };

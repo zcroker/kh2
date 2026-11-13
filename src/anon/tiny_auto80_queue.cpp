@@ -12667,13 +12667,7 @@ u32 func_00197e40(void) {
 
 extern "C" u32 func_001b0250(...);
 
-void func_00198660(u32 a0, u32 a1, u32 a2, u32 a3) {  // to_1b0250_field
-    u32 t7 = *(u32*)((u32)a0 + (s32)(2488));
-    if (t7 != 0u) {
-        func_001b0250(t7, a1, a2, a3);
-        return;
-    }
-}
+// 00198660: moved to src/anon/unit_00197fe0.cpp
 
 extern "C" u32 func_00198bd0(...);
 extern "C" u32 func_00198ee8(...);

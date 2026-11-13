@@ -159,18 +159,7 @@ void PARTY_hook(u8* self, void* vm) {
 // 00188398: moved to src/anon/unit_00185d10.cpp
 s32 func_00188398(u8* o, void* a, void* b, void* c);
 
-void func_00198aa8(u8* o, s32 i, s32 v, s32 id) {
-    s32 val;
-    u8* e;
-    if (id == 0) {
-        s16* t = *(s16**)(o + 2484);
-        id = -1;
-        if (t) id = t[1];
-    }
-    val = id * 1000 + v;
-    e = o + i * 12;
-    *(s32*)(e + 2532) = val;
-}
+// 00198aa8: moved to src/anon/unit_00197fe0.cpp
 
 struct Range { s32 cur, max, min; };
 // Adds d to range i and clamps it to [min, max].

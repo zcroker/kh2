@@ -150,14 +150,7 @@ void u_call0_0018d790(void) {
 void func_00198660(u32);  // to_1b0250_field
 void func_001d5770(u8*, Vec4*);
 void func_0016a9b8(u32);
-void wtarget_00198690(u32 a, u32, u32, u32) {
-    func_00198660(a);  // to_1b0250_field
-    Vec4 v;
-    QCOPY(&v, func_0016c028((void*)a));  // obj_get_attach_or_alt
-    u8* p = (u8*)a + 2524;
-    for (s32 i = 0; i < 2; i++, p += 12) func_001d5770(p, &v);
-    func_0016a9b8(a);
-}
+// 00198690: moved to src/anon/unit_00197fe0.cpp
 
 // Calls func_0015ee10 for every bit set in the 64-bit mask.
 extern u64 D_0034ecc8;
