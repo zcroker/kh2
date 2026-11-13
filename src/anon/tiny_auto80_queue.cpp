@@ -18014,18 +18014,9 @@ void func_001b1328(u32 a0);
 
 // 001b1400: moved to src/yasui/libys/databuff.cpp
 
-u32 func_001b1b58(u8* a0) {
-    u8* s0 = a0;
-    func_001ad9c8(s0 + 8);  // float_accumulate_clamped
-    if (*(f32*)(s0 + 8) == 0.0f) {
-        return 0;
-    }
-    return 1;
-}
+// 001b1b58: moved to src/anon/unit_001b14d8.cpp
 
-void func_001b1c10(u8* a0, f32 a1) {
-    func_001ad990((u32)(a0 + 8), *(f32*)(a0 + 8), 0.0f, a1);
-}
+// 001b1c10: moved to src/anon/unit_001b14d8.cpp
 
 void func_001b2028() {
     u32* c = (u32*)0x01D40000;

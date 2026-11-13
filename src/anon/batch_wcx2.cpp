@@ -7124,14 +7124,7 @@ extern u8 D_00350e8c;
 void func_001b1560();
 void func_001b18e8();
 u8* func_00102c18_14d8(u32, u32, void (*)()) asm("func_00102c18");
-void func_001b14d8() {
-    D_01d44100.a = 0;
-    D_01d44100.b = 0;
-    for (s32 i = 0; i < 16; i++) D_01d44108.arr[i] = i;
-    D_01d443c8 = 16;
-    D_00350e8c = 0;
-    *(void (**)())(func_00102c18_14d8(1, 42000, func_001b1560) + 48) = func_001b18e8;
-}
+// 001b14d8: moved to src/anon/unit_001b14d8.cpp
 
 // ---- 001de590
 extern u8* D_00352b58;
@@ -7258,25 +7251,7 @@ void func_00180378(u8* p, u8* a1, u32 a2, f32 x) {
 // ---- 001b1a30
 struct C4_001b1a30 { u8 r, g, b, a; };
 f32* func_0015cc70();
-void func_001b1a30(u8* p, s32 a1) {
-    *(s32*)p = a1;
-    *(u32*)(p + 12) = 0;
-    s32 m = 128;
-    *(u32*)(p + 16) = 0;
-    *(f32*)(p + 8) = 1.0f;
-    C4_001b1a30* c = (C4_001b1a30*)(p + 20);
-    c->r = m;
-    c->g = m;
-    c->b = m;
-    c->a = m;
-    if (*(s32*)p == 1) {
-        f32* v = func_0015cc70();
-        *(f32*)(p + 24) = v[1];
-        *(f32*)(p + 28) = v[2];
-        *(f32*)(p + 32) = v[3];
-        *(f32*)(p + 36) = v[4];
-    }
-}
+// 001b1a30: moved to src/anon/unit_001b14d8.cpp
 
 // ---- 001c0150
 struct L_001c0150 { u8* head; u8* tail; };
@@ -10425,9 +10400,7 @@ s32 YS_DAMAGE_is_normal(const YS_DAMAGE*) asm("_ZNK2YS6DAMAGE9is_normalEv");
 
 // --------------------
 void func_001ad990(u8*, f32, f32, f32);
-void func_001b1be0(u8* p, f32 x) {
-    func_001ad990(p + 8, 0.0f, 1.0f, x);
-}
+// 001b1be0: moved to src/anon/unit_001b14d8.cpp
 
 // --------------------
 void func_001cfac0(u8* p, f32 a, f32 b, f32 c, f32 d) {
