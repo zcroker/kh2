@@ -14443,23 +14443,9 @@ void func_00242258(u32 a0) {
 }
 
 
-void func_002422f0() {
-    D_0035ecbc = 0;
-    u32 s0 = D_0035ecc0;
-    if (s0 != 0) {
-        func_00106450(s0);
-        D_0035ecc0 = 0;
-    }
-}
+void func_002422f0();  // 002422f0: moved to src/tozawa/crc.cpp (linked unit)
 
-u32 func_00242330(u32 a0) {
-    u32 a1 = a0;
-    u32 a2 = (u32)__builtin_return_address(0);
-    a0 = D_0035ecbc;
-    u32 t7 = *(u32*)a0;
-    u32 v0 = *(u32*)t7;
-    return ((u32(*)(u32, u32, u32))v0)(a0, a1, a2);
-}
+u32 func_00242330(u32 a0);  // 00242330: moved to src/tozawa/crc.cpp (linked unit)
 
 void duplicate_unplaced_00242368(u32 a0) {
     if (a0 != 0) {
