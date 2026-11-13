@@ -199,13 +199,7 @@ s32 func_001a8cd0(u32 a0, u32 a1)
 
 // 001ad020: append an entry at a 4.4 fixed-point position
 struct E344 { u8 pad[328]; s32 x; s32 y; u8 pad2[8]; };
-void func_001ad020(u8* p, s32 x, s32 y, s32 a3)
-{
-    E344* e = &((E344*)(p + 1544))[(*(s32*)(p + 2920))++];
-    wtarget_00239bf8(e, a3 + 10);
-    e->x = (x - 0x7000) >> 4;
-    e->y = (y - 0x7300) >> 4;
-}
+// 001ad020: moved to src/anon/unit_001abb28.cpp
 
 // 001be940
 s32 func_001b9d40(u32);  // vtable_call_slot64_flags

@@ -265,21 +265,7 @@ void func_00196888(void) {
 struct S36 { u32 w[9]; };
 // 00199098: moved to src/anon/unit_00198e40.cpp
 
-void func_001abe80(s32* a0, u32 a1, u8* a2) {
-    switch (*a0) {
-    case 0:
-        break;
-    case 1:
-        if (*(u64*)(a2 + 8) & 0x40c) {
-            func_002ba2e8(24, 0);
-            func_001ac728(a1);
-        }
-        break;
-    case 2:
-        func_001abbf0((u8*)a0 + 348);
-        break;
-    }
-}
+// 001abe80: moved to src/anon/unit_001abb28.cpp
 
 struct B4 { u8 c0; u8 c1; u8 c2; u8 b0 : 1; u8 rest : 7; };
 void func_001b6d88(B4* p, s32 a1) {

@@ -244,12 +244,7 @@ void func_0019ec20(void) {
     func_00102c18(1, 0xa410, func_0019ec68);
 }
 
-void func_001ac258(u8* p) {
-    *(u32*)p = 0;
-    func_00239700(p + 12);
-    u32 a = func_001ab810();  // get_global_1c7cec0
-    func_00239988(p + 12, a, func_001ab800());
-}
+// 001ac258: moved to src/anon/unit_001abb28.cpp
 
 void func_001c1060(void) {
     void* p = 0;

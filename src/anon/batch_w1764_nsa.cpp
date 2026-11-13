@@ -14,13 +14,7 @@ void func_001b7e68(W1764Pkt*, s32);
 void func_001b80d8(W1764Pkt*);
 void func_001b7f30(W1764Pkt*);
 
-void func_001ad158(u8* a0, s32 a1, s32 a2, s32 a3) {
-    W1764ObjB* o = (W1764ObjB*)W1764_AREA_Alloc(0xb6c);
-    func_001ad0f8(o, a3, 0);
-    *(W1764ObjB**)(a0 + 0x4a8) = o;
-    o->b = a1;
-    o->c = a2;
-}
+// 001ad158: moved to src/anon/unit_001abb28.cpp
 
 void func_001fb8b8(u8* o) {
     W1764Arg s;

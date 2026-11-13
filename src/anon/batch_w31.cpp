@@ -193,13 +193,7 @@ void* func_001a07b0(void* p, u32 a, u32 b) {
 // Find the 24-byte table entry whose u16 id matches.
 // 001a80c8: moved to src/anon/unit_001a8098.cpp
 
-void func_001ad5a8(void** p) {
-    func_001ad280(p);
-    *p = D_00350a70;
-    D_00350a56 = 1;
-    func_001c1130(12);  // copy_record_block_to_table
-    func_0014c9d8(8);
-}
+// 001ad5a8: moved to src/anon/unit_001abb28.cpp
 
 int func_001c9b38(u8* p) {
     int r;

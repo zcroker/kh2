@@ -314,32 +314,7 @@ u32 func_001ab800(void);
 void func_00239988(u8*, u32, u32);
 void func_00239bf8(u8*, u8);
 void func_001aa668(u8*, u8*);
-void func_001aca98(u8* p, u32 a1, u32 a2, u32 a3, s32 a4, u32 a5, u32 a6, u32 kind) {
-    func_001ac378(p, a1, a2, a3, a4, a5, a6);
-    *(u32*)p = (u32)D_00350bb0;
-    func_002395b8(p + 132);
-    *(u32*)(p + 476) = kind;
-    *(u32*)(p + 132) = (u32)D_0034e8a8;
-    func_001abd90(p + 480);
-    *(u32*)(p + 1192) = 0;
-    func_001ac028(p + 1196);
-    {
-        u8* e = p + 1544;
-        s32 i = 3;
-        do { func_00239700(e); i--; e += 344; } while (i != -1);
-    }
-    *(u32*)(p + 2920) = 0;
-    {
-        u32 x = func_001ab810();  // get_global_1c7cec0
-        func_00239988(p + 132, x, func_001ab800());
-    }
-    func_00239bf8(p + 132, D_00350a38[*(u32*)(p + 476)][0]);
-    for (s32 i = 0; i < 4; i++) {
-        u32 x = func_001ab810();  // get_global_1c7cec0
-        func_00239988(p + 1544 + i * 344, x, func_001ab800());
-    }
-    func_001aa668(p + 12, p);
-}
+// 001aca98: moved to src/anon/unit_001abb28.cpp
 
 // ---- 001bb4f0
 struct Info1bb { u8 pad0[4]; u16 flags; u8 pad6[7]; u8 snd; u8 pad14[6]; u32 f20; };

@@ -4079,29 +4079,7 @@ u32 func_001ab820(u32 a0) {
     return ((u32)*(u8*)(a0 + 0x10)) / 3;
 }
 
-void func_001ac908(u32* a0) {
-    s32 t6 = (s32)a0[28];
-    if (t6 == 1) goto L_state1;
-    if (t6 < 2) {
-        if (t6 == 0) {
-            a0[28] = 1;
-        }
-        return;
-    }
-    if (t6 == 4) {
-        a0[28] = 7;
-    }
-    return;
-
-L_state1:
-    u32 t7 = a0[3];
-    t7 = t7 & 1;
-    t7 = (u8)t7;
-    if (t7 == 0) {
-        return;
-    }
-    func_001ac728((u32)a0);
-}
+// 001ac908: moved to src/anon/unit_001abb28.cpp
 
 void func_001adea8() {
     u32* p = *(u32**)((u8*)D_01c70000 - 12364);

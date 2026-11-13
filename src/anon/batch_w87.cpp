@@ -600,39 +600,7 @@ void func_00239870(void*);
 void func_0031e668(void*);
 void func_001ac5b8(void*);
 struct NoTail { ~NoTail() {} };
-void func_001ad638(u8* p) {
-    NoTail keep_frame;
-    *(void**)p = D_00350a70;
-    D_00350a56 = 0;
-    func_001c11a8(12);
-    func_0014c9f0(8);
-    *(void**)p = D_00350ab0;
-    if (p + 3280) {
-        u8* e = p + 4656;
-        u8* b = p + 3280;
-        for (;;) {
-            if (b == e) break;
-            e -= 344;
-            (**(VFn**)e)(e);
-        }
-    }
-    func_00239870(p + 2936);
-    *(void**)p = D_00350bb0;
-    if (p + 1544) {
-        u8* e = p + 2920;
-        u8* b = p + 1544;
-        for (;;) {
-            if (b == e) break;
-            e -= 344;
-            (**(VFn**)e)(e);
-        }
-    }
-    func_00239870(p + 1200);
-    func_00239870(p + 848);
-    func_00239870(p + 484);
-    func_0031e668(p + 132);
-    func_001ac5b8(p);
-}
+// 001ad638: moved to src/anon/unit_001abb28.cpp
 
 // ---- 0x31b4f0: constructor (member arrays of 408-byte objects) ----
 extern u8 D_0034a820[];

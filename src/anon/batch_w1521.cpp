@@ -13,24 +13,7 @@ struct W1521Node { void* vt; u8 pad[0x78]; W1521Node* next; };
 struct W1521NodeList { W1521Node* first; W1521Node* cur; };
 extern W1521NodeList D_01c6ced0;
 extern u8 D_00350c50;
-void func_001ac5b8(W1521Node* p) {  // list_unlink_node_2
-    W1521Node* prev;
-    p->vt = &D_00350c50;
-    if (p == D_01c6ced0.first) {
-        prev = 0;
-        D_01c6ced0.first = p->next;
-    } else {
-        W1521Node* q; W1521Node* n;
-        prev = D_01c6ced0.first;
-        q = prev->next;
-        if (q != p) {
-            do { n = q->next; prev = q; q = n; } while (n != p);
-        }
-        prev->next = p->next;
-    }
-    if (p == D_01c6ced0.cur) D_01c6ced0.cur = prev;
-    p->next = 0;
-}
+// 001ac5b8: moved to src/anon/unit_001abb28.cpp
 
 s32 func_00287bc0(void);
 void func_00276c50(s32, s32);

@@ -103,13 +103,7 @@ void func_001abb28(u8*);
 u32 func_001ab810(void);  // get_global_1c7cec0
 u32 func_001ab800(void);
 void func_00239988(u8*, u32, u32);
-void func_001abd30(u8* p) {
-    *(u32*)p = 0;
-    func_00239700(p + 4);
-    func_001abb28(p + 348);
-    u32 a = func_001ab810();  // get_global_1c7cec0
-    func_00239988(p + 4, a, func_001ab800());
-}
+// 001abd30: moved to src/anon/unit_001abb28.cpp
 
 u8* func_001b9bc8(u8*);
 typedef void (*Fn1bf6a8)(u8*);

@@ -229,31 +229,7 @@ void func_001a1b68(u8* p, f32 d) {
     if (p[431] == 3) func_001d6f28(a - func_001a1c30(p));
 }
 
-void func_001ad738(u8* o) {
-    NoTail g;
-    *(u32*)o = (u32)D_00350a70;
-    D_00350a56 = 0;
-    func_001c11a8(12);
-    func_0014c9f0(8);
-    *(u32*)o = (u32)D_00350ab0;
-    if (o + 3280 != 0) {
-        u8* e = o + 4656;
-    l1:
-        if (o + 3280 != e) { e -= 344; (**(Dtor**)e)(e); goto l1; }
-    }
-    func_00239870(o + 2936);
-    *(u32*)o = (u32)D_00350bb0;
-    if (o + 1544 != 0) {
-        u8* e = o + 2920;
-    l2:
-        if (o + 1544 != e) { e -= 344; (**(Dtor**)e)(e); goto l2; }
-    }
-    func_00239870(o + 1200);
-    func_00239870(o + 848);
-    func_00239870(o + 484);
-    func_0031e668(o + 132);
-    func_001ac5b8(o);
-}
+// 001ad738: moved to src/anon/unit_001abb28.cpp
 
 struct E1bcc28 { u16 pad; u16 id; u8 pad2[2]; u8 kind; u8 pad3[5]; };
 struct T1bcc28 { u32 pad; u32 owner; s32 n; E1bcc28 e[8]; s32 sel; };

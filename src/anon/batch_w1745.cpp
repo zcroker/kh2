@@ -7,13 +7,5 @@ extern "C" {
 void func_0023acd8(void*);
 void func_0023ade0(void*);
 
-void func_001abba8(A_1abba8* a) {
-    Inner_1abba8* s = &a->in;
-    func_0023acd8(s);
-    s32 c = a->c;
-    s32 d = a->d;
-    s->a = c;
-    s->b = d;
-    func_0023ade0(s);
-}
+// 001abba8: moved to src/anon/unit_001abb28.cpp
 }

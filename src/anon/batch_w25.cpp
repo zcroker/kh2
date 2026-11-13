@@ -154,13 +154,7 @@ void func_00239700(void*);
 u32 func_001ab810(void);  // get_global_1c7cec0
 u32 func_001ab800(void);
 void func_00239988(void*, u32, u32);
-void func_001abfd8(u8* o) {
-    o[0] = 0;
-    func_00239700(o + 4);
-    u32 x = func_001ab810();  // get_global_1c7cec0
-    u32 y = func_001ab800();
-    func_00239988(o + 4, x, y);
-}
+// 001abfd8: moved to src/anon/unit_001abb28.cpp
 
 void func_001d5370(u32*, u32, s32);
 void func_002534e0(u32, u32);

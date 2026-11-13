@@ -163,10 +163,7 @@ void func_0019af98(u8* p) {
     *(u32*)(p + 4) |= 1;
 }
 
-u32 func_001abf00(s32* p) {
-    if (*p == 1) return func_00239d10(p + 1);
-    return 0;
-}
+// 001abf00: moved to src/anon/unit_001abb28.cpp
 
 struct Ref0498 { u8* o; u32 x; bool f; };
 // 001b0498: moved to src/yasui/libys/lookat.cpp

@@ -233,12 +233,7 @@ void* func_001a1018(void* a) {
     return s;
 }
 
-void func_001ac028(u8* p) {
-    p[0] = 0;
-    func_00239700(p + 4);
-    void* a = func_001ab810();  // get_global_1c7cec0
-    func_00239988(p + 4, a, font_get_image());
-}
+// 001ac028: moved to src/anon/unit_001abb28.cpp
 
 // 001bbb50: moved to src/yasui/libys/mission.cpp
 

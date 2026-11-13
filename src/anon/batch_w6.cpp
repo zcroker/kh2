@@ -271,12 +271,7 @@ s32 atoi(const char* s) {  // strtol10
 // 00186ce8: moved to src/anon/unit_00185d10.cpp
 
 extern Pair D_01c6ced0;
-void wtarget_001ad948(u32 a0, u32 a1, u32, u32) {
-    if (a1 == 0xffff && a0 == 1) {
-        D_01c6ced0.b = 0;
-        D_01c6ced0.a = 0;
-    }
-}
+// 001ad948: moved to src/anon/unit_001abb28.cpp
 
 // dst = mat * vec (VU0 COP2 macro sequence, written as asm).
 void sceVu0ApplyMatrix(u32 a0, u32 a1, u32 a2, u32) {

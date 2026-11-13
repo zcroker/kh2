@@ -396,12 +396,7 @@ void func_001a53d0(u32 a, u32 b, u32 c) {
 
 // 001a8190: moved to src/anon/unit_001a8098.cpp
 
-void func_001ad228(u8* p, u32 b) {
-    func_001ac970(p, 3, 4, b, 0, 256, 32, 3);
-    *(u32*)(p + 104) = 0;
-    *(u32*)(p + 100) = 2;
-    *(u32*)p = (u32)D_00350af0;
-}
+// 001ad228: moved to src/anon/unit_001abb28.cpp
 
 // Destroys and frees every node of the list.
 void func_001b24c8(void) {

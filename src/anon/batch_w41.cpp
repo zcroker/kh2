@@ -219,15 +219,7 @@ void func_001a6bc8(u8* p, u32 a, u32 b) {
 
 struct W41Rect { u32 f0, x, y; u8 pad[0x50]; u32 w, h, mode; };
 void func_001acdc0(W41Rect*, u32, u32, u32, u32, u32);
-void func_001acf38(W41Rect* r) {
-    u32 dummy;  // dead store after the second call keeps it from being a tail call
-    if (r->mode == 2) {
-        func_001acdc0(r, r->x, r->y + r->h / 2, r->x + r->w / 2, r->y + r->h, 0);
-        return;
-    }
-    func_001acdc0(r, r->x, r->y, r->x + r->w / 2, r->y + r->h / 2, 0);
-    dummy = 0;
-}
+// 001acf38: moved to src/anon/unit_001abb28.cpp
 
 void func_001bd370(u8*);  // clear_4words_plus2240
 void func_001bc720(u8*);

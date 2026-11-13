@@ -178,13 +178,7 @@ void func_001a5880(u32 a, s32 k, s32 n) {
     for (i = 0; i < n; i++) func_001a5420(D_00350790, D_0036d4e8 + k * 16, a);
 }
 
-void func_001abd90(u8* p) {
-    *(u32*)p = 0;
-    func_00239700(p + 4);
-    func_001abb28(p + 348);
-    u32 x = func_001ab810();  // get_global_1c7cec0
-    func_00239988(p + 4, x, func_001ab800());
-}
+// 001abd90: moved to src/anon/unit_001abb28.cpp
 
 Blk64* func_001c1130(void) {  // copy_record_block_to_table
     u8* p = func_001c10f8();  // request_pool_block64

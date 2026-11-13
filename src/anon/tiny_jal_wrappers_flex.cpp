@@ -575,15 +575,7 @@ u32 func_001a8b38(u32 a0, u32 a1, u32 a2, u32 a3) {
     return r2;
 }
 
-u32 func_001acd78(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u, r15 = 0u, r16 = 0u;
-    r16 = r4;
-    r4 = (u32)((s32)r4 + (480));
-    r2 = func_001abe48(r4, r5, r6, r7);
-    r15 = (u32)((s32)0u + (3));
-    *(u32*)((u32)r16 + (s32)(112)) = r15;
-    return r2;
-}
+// 001acd78: moved to src/anon/unit_001abb28.cpp
 
 u32 func_001d1408(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u, r14 = 0u, r15 = 0u, r16 = 0u;

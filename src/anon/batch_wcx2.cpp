@@ -2296,31 +2296,7 @@ void func_001ac108(u8*, u32, u32, u32, u32);
 void func_001ac6d0(Obj41*);
 void func_001abf38(u8*, u32, u32);
 void func_00239bf8(u8*, s32);
-void func_001acdc0(Obj41* o, u32 a, u32 b, u32 c, u32 d, u32 e)
-{
-    func_00236788(func_001ab800());  // to_236830
-    if (!e) e = o->p92;
-    u8* s = (u8*)o + 132;
-    func_0023bc58(s, e, o->p96);
-    func_0023acd8(s);
-    *(u32*)(s + 328) = a;
-    *(u32*)(s + 332) = b;
-    func_0023ade0(s);
-    if (o->n112 > 0) func_001ac108((u8*)o + 1196, a, b, o->p92, o->p96);
-    if ((u32)(o->n112 - 1) < 5) {
-        func_001ac6d0(o);
-        if (o->n112 >= 2) func_001abf38((u8*)o + 480, c, d);
-        s32 i;
-        for (i = 0; i < o->n2920; i++) {
-            func_0023acd8((u8*)o + 1544 + i * 344);
-            func_0023ade0((u8*)o + 1544 + i * 344);
-        }
-        for (i = o->n2920; i < 4; i++) func_00239bf8((u8*)o + 1544 + i * 344, 0);
-        o->n2920 = 0;
-    }
-    func_001ab800();
-    func_002367a0();
-}
+// 001acdc0: moved to src/anon/unit_001abb28.cpp
 
 extern u32 D_003638d0;
 struct Ent42 { s8 id; s8 w; };

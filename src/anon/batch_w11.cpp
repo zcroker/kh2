@@ -129,10 +129,7 @@ s32 func_0019d380(s32 a, s32 b) {
 
 void func_001991a8(s32, u32);
 struct P1ac { u8 pad[112]; s32 st; u8 pad2[12]; u32 id; };
-void func_001ac700(P1ac* p) {
-    p->st = 4;
-    func_001991a8(34, p->id);
-}
+// 001ac700: moved to src/anon/unit_001abb28.cpp
 
 struct E1af { u32 a; s32 key; u32 c; };
 extern E1af D_01c94090[3];

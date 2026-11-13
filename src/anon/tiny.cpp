@@ -160,7 +160,7 @@ void func_00187850(BD_VALUE* bd);
 void func_0018c420(BD_VALUE* bd) { func_0018c438(bd); }
 // 00192800: moved to src/yasui/libys/message.cpp
 void func_00195738(BD_VALUE* bd) { func_00195750(bd); }
-void func_001acda8(BD_VALUE* bd) { func_001ac700(bd); }
+// 001acda8: moved to src/anon/unit_001abb28.cpp
 void func_001b20f0(BD_VALUE* bd) { func_0017c578(bd); }
 void func_001b78b8(BD_VALUE* bd) { func_00105110(bd); }
 void func_001c8b30(BD_VALUE* bd) { func_00198630(bd); }
@@ -656,14 +656,7 @@ u32 func_001ab810(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_global_1c7cec0
     return (u32)(*(u32*)((u32)b + (-12608)));
 }
 
-u32 func_001ad938(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a0;
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    u32 b = (0x0035u << 16);
-    return (u32)(*(u8*)((u32)b + (2646)));
-}
+// 001ad938: moved to src/anon/unit_001abb28.cpp
 
 u32 func_001ae990(u32 a0, u32 a1, u32 a2, u32 a3) {
     (void)a0;
