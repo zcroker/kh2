@@ -267,20 +267,7 @@ struct Pool1b { N1b items[16]; s32 freeIdx[16]; s32 nfree; };
 struct List1b { N1b* head; N1b* tail; };
 extern Pool1b D_01d44108;
 extern List1b D_01d44100;
-void func_001b1ab8(N1b* n) {  // alloc_from_pool_magic_b
-    D_01d44108.freeIdx[D_01d44108.nfree++] = n - D_01d44108.items;
-    N1b* prev;
-    if (n == D_01d44100.head) {
-        D_01d44100.head = n->next;
-        prev = 0;
-    } else {
-        prev = D_01d44100.head;
-        while (prev->next != n) prev = prev->next;
-        prev->next = n->next;
-    }
-    if (n == D_01d44100.tail) D_01d44100.tail = prev;
-    n->next = 0;
-}
+// 001b1ab8: moved to src/anon/unit_001b14d8.cpp
 // ---- 001b9380
 struct O1b9 { u8 pad[2228]; O1b9* next; u8 pad2[245]; u8 prio; };
 struct List1b9 { O1b9* head; O1b9* tail; };

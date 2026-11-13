@@ -34,46 +34,7 @@ static inline void Mod1b1560(Col1b1560* d, const Col1b1560* s, f32 t)
     d->b = d->b * k.b >> 7;
     d->a = d->a * k.a >> 7;
 }
-void func_001b1560(void)
-{
-    Col1b1560 col;
-    col.Set(128);
-    Fog1b1560 fog;
-    Eff1b1560* e;
-    fog = *f1b1560_getFogDefault();
-    e = D_01d44100;
-    while (e) {
-        Eff1b1560* next = e->next;
-        if (func_001b1b58(e)) {
-            switch (e->type) {
-            case 0:
-                if (e->flags & 2) Mod1b1560(&col, &e->c, e->t);
-                break;
-            case 1:
-                Mod1b1560(&fog.c, &e->c, e->t);
-                fog.near += (e->near - fog.near) * e->t;
-                fog.far += (e->far - fog.far) * e->t;
-                fog.min += (e->min - fog.min) * e->t;
-                fog.max += (e->max - fog.max) * e->t;
-                break;
-            }
-        } else {
-            func_001b1ab8(e);
-        }
-        e = next;
-    }
-    func_0015efa0(col.r, col.g, col.b);
-    func_0015ca40(fog.c.r, fog.c.g, fog.c.b, fog.near, fog.far, fog.min, fog.max);
-    if (!(col.r | col.g | col.b)) {
-        if (!D_00350e8c) {
-            func_0015f618();
-            D_00350e8c = 1;
-        }
-    } else if (D_00350e8c) {
-        func_0015f548();
-        D_00350e8c = 0;
-    }
-}
+// 001b1560: moved to src/anon/unit_001b14d8.cpp
 }
 
 /* ---- 0020c9d0 ---- */

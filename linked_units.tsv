@@ -17,6 +17,7 @@ src/anon/unit_00158050.cpp	00158050	00158450	-	-G0
 src/anon/unit_001a28f8.cpp	001a28f8	001a2a50	-	-G0
 src/anon/unit_001a2a50.cpp	001a2a50	001a3a50	.bss@01c6cac0,.rodata@0036d458	-G0 -fno-strict-aliasing
 src/yasui/libys/databuff.cpp	001b13d8	001b14d8	.data@00350e88,.bss@01c94100	-G0
+src/anon/unit_001b14d8.cpp	001b14d8	001b1c38	.rodata@0036d998	-G0 -fno-strict-aliasing
 src/yasui/libys/mutex.cpp	001c8d80	001c8e80	.data@00351eb8	-G0
 src/anon/unit_00228490.cpp	00228490	00228618	-	-G0
 src/anon/unit_00228618.cpp	00228618	00228f18	.data@0035dfb0,.rodata@0037109c	-G0

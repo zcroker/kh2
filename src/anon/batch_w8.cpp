@@ -122,14 +122,7 @@ void func_0019d720(void* p) {
 
 // Set the RGBA bytes at +20 and refresh.
 void func_001b1be0(u8*);
-void func_001b1bb8(u8* p, u32 r, u32 g, u32 b, u32 a) {
-    u8* c = p + 20;
-    p[20] = r;
-    c[1] = g;
-    c[2] = b;
-    c[3] = a;
-    func_001b1be0(p);
-}
+// 001b1bb8: moved to src/anon/unit_001b14d8.cpp
 
 void func_001802d8(u32, u32, void*, u32, u32, void*);
 void func_001b50b0(u8* p, u32 a, u32 b) {

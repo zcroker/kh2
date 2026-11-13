@@ -311,20 +311,7 @@ void func_001b1a30(u8*, s32);
 u8* ys_light_create(s32 t) asm("_ZN2YS5LIGHT6CreateEi");
 
 // Takes a light from the free pool, initialises it and appends it to the active list.
-u8* ys_light_create(s32 t) {
-    s32 n = --D_01d44108.count;
-    u8* l = D_01d44108.ent[D_01d44108.idx[n]];
-    func_001b1a30(l, t);
-    if (!D_01d44100.tail) {
-        D_01d44100.tail = l;
-        D_01d44100.head = l;
-    } else {
-        *(u8**)(D_01d44100.tail + 4) = l;
-        D_01d44100.tail = l;
-    }
-    *(u8**)(l + 4) = 0;
-    return l;
-}
+// 001b1928: YS::LIGHT::Create, moved to src/anon/unit_001b14d8.cpp
 
 // ---------------------------------------------------------------------------
 extern u8 D_003511c0;
