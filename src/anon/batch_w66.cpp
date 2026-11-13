@@ -680,17 +680,7 @@ extern void* D_00348698[];
 }
 
 void func_00135690(int a, int b) asm("_Z13func_00135690ii");
-void func_00135690(int a, int b) {
-    if (b == 0xffff && a == 1) func_00134d10(D_00347cc0);
-    if (b == 0xffff && a == 1) {
-        f32 v = 0.3f;
-        D_00347ce0.x = v;
-        D_00347ce0.y = v;
-        D_00347ce0.z = v;
-        D_00347ce0.w = 1.0f;
-    }
-    if (b == 0xffff && a == 0) func_00134d58(D_00347cc0);
-}
+// 00135690: moved to src/anon/unit_00134668.cpp
 
 struct Obj1e2 {
     E16 a[10];

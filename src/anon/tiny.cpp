@@ -244,7 +244,7 @@ void func_00108028(BD_VALUE* bd) { func_00107d20(1, 0xffff); }
 void func_0010b418(BD_VALUE* bd) { func_0010aef0(1, 0xffff); }
 void func_001135e8(BD_VALUE* bd) { func_00113470(1, 0xffff); }
 void func_00134580(BD_VALUE* bd) { func_00134508(1, 0xffff); }
-void func_00135788(BD_VALUE* bd) { func_00135690(1, 0xffff); }
+// 00135788: moved to src/anon/unit_00134668.cpp
 void func_0013a328(BD_VALUE* bd) { func_0013a240(1, 0xffff); }
 void func_00141418(BD_VALUE* bd) { func_00141100(1, 0xffff); }
 void func_00149188(BD_VALUE* bd) { func_00149150(1, 0xffff); }
@@ -1649,13 +1649,7 @@ u32 func_001344f8(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_data_347c88
     return (u32)&D_00347c88;
 }
 
-u32 func_00135640(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a0;
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    return (u32)&D_00347cc0;
-}
+// 00135640: moved to src/anon/unit_00134668.cpp
 
 u32 func_001384c0(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_global_347e08
     (void)a0;
