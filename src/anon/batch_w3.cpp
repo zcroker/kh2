@@ -22,7 +22,7 @@ void func_001003b0() { asm volatile("" ::: "$31"); }
 // Push onto a downward-growing stack of words.
 extern s32 D_0032bb28;
 extern u32 D_003a7b60[];
-void func_001056e8(u32 value) { D_003a7b60[--D_0032bb28] = value; }
+// 001056e8: moved to src/anon/unit_001056e8.cpp
 
 // Bump allocator: returns the current pointer, advances it by size rounded up to 4.
 extern u32 D_00340ea8;

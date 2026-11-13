@@ -1455,15 +1455,7 @@ void duplicate_unplaced_001056e8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5,
     *(volatile u32*)((u32)r13 + (s32)(0)) = r4;
 }
 
-u32 func_00105728(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r2, r14, r15;
-    r15 = (u32)&D_0032bb28;
-    r14 = *(volatile u32*)((u32)r15 + (s32)(0));
-    r15 = (u32)&D_003a7b60;
-    r14 = (u32)(r14 << 2);    r14 = (u32)(r14 + r15);
-    r2 = *(volatile u32*)((u32)r14 + (s32)(0));
-    return r2;
-}
+// 00105728: moved to src/anon/unit_001056e8.cpp
 
 // 00105c48: moved to src/common/region.cpp
 
