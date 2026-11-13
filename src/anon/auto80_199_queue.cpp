@@ -2547,130 +2547,19 @@ void func_00174388(u32 a0) {
 
 // 00177d30: moved to src/yasui/libys/party.cpp
 
-void func_001782c8(u32 a0) {
-    u32 t6 = *(u32*)(a0 + 12);
-    u32 t7 = *(u32*)(t6 + 8);
+// 001782c8: moved to src/yasui/libys/player.cpp
 
-    if ((t7 & 8) != 0) {
-        return func_001785b8(a0);
-    }
+// 00179c08: moved to src/yasui/libys/player.cpp
 
-    t6 = *(u32*)(t6 + 4);
-    if ((t6 ^ 0x2) == 0) {
-        return func_00178570(a0);
-    }
+// 00179e48: moved to src/yasui/libys/player.cpp
 
-    u32 t5 = t6 ^ 0x18;
-    if (t5 == 0) {
-        return func_001786e0(a0);
-    }
+// 00179eb8: moved to src/yasui/libys/player.cpp
 
-    if ((t6 ^ 0x35) == 0) {
-        return func_001786e0(a0);
-    }
+// 0017a3b0: moved to src/yasui/libys/player.cpp
 
-    return func_001784a8(a0);
-}
+// 0017a480: moved to src/yasui/libys/player.cpp
 
-u32 func_00179c08(u32 a0, u32 a1) {
-    u32 s1 = a0;
-    u32 s0 = a1;
-    u32 s2 = 0;
-
-    if (func_001b90f0(s0, s1) != 0) {
-        u32 a2v = 0;
-        if (func_0019c218(s1, s0) != 0) {
-            s32 v0 = func_001bc2a8(s0, s1, a2v);
-            s2 = (u32)(v0 < 4);
-        }
-    }
-
-    return s2;
-}
-
-u32 func_00179e48() {
-    if (D_0034e94c == 0) {
-        func_0019ba60(D_0034e948);
-    }
-
-    func_00179ea0(D_0034e948);
-
-    u32 t7 = D_0034e948;
-    D_0034e948 = 0;
-    D_0034e94c = t7;
-    return t7;
-}
-
-u32 func_00179eb8() {
-    if (D_0034e948 == 0) {
-        func_0019ba60(D_0034e94c);
-    }
-
-    u32 t7 = D_0034e94c;
-    D_0034e94c = 0;
-    D_0034e948 = t7;
-
-    func_00179f58(t7);
-
-    return D_0034e948;
-}
-
-void func_0017a3b0(u32 a0) {
-    u32 s0 = a0;
-
-    if (*(u8*)(a0 + 2916) != 0) {
-        return;
-    }
-
-    u32 t7 = *(u32*)(a0 + 0);
-    u32 fn = *(u32*)(t7 + 64);
-
-    if (((u32(*)(u32))fn)(a0) != 0 || func_001ad938() != 0) {
-        return func_0017a418(s0, 1);
-    }
-}
-
-void func_0017a480(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 s0 = a0;
-    u32 s1 = a1;
-    u32 s2 = a2;
-    u32 s3 = a3 & 0xff;
-
-    u32 t5 = *(u32*)(a0 + 1164);
-    if (t5 != 0) {
-        u8 t6 = *(u8*)(t5 + 431);
-        if (t6 == 1) {
-            if ((s32)s1 < 0) {
-                u32 t7 = (u32)(-(s32)s1);
-                s32 i0 = *(s32*)(t5 + 4);
-                f32 f0 = (f32)i0;
-                f32 f20 = (f32)(s32)t7;
-                f20 = f20 / f0;
-
-                u32 v0 = func_00177860(s0);
-                f0 = *(f32*)(v0 + 84);
-                f20 = f20 * f0;
-                func_00179a68(s0, f20);
-            }
-        }
-    }
-
-    return func_00177c50(s0, s1, s2, s3);
-}
-
-void func_0017a590(u32 a0, u32 a1) {
-    u32 v0 = 0;
-    u32 s0 = a0;
-    u32 s1 = a1;
-
-    if (*(u32*)(a0 + 2896) != 7) {
-        v0 = func_001778c0(a0, 0);
-    }
-
-    v0 = func_001a6178(s0, s1, v0);
-    *(u32*)(s0 + 2856) = v0;
-    *(u32*)(s0 + 268) |= 0x00040000;
-}
+// 0017a590: moved to src/yasui/libys/player.cpp
 
 // 0017bf40: moved to src/anon/unit_0017bf40.cpp
 
@@ -2716,28 +2605,9 @@ void func_0017a590(u32 a0, u32 a1) {
 
 // 001828b8 YS::UNIT::~UNIT: moved to src/anon/unit_00182780.cpp
 
-u32 func_001844e8(u32 a0) {
-    u32 s0 = a0;
-    u32 s1 = 0;
-    if (func_00184478(s0) != 0) {
-        s1 = 1;
-    } else {
-        volatile float *p1 = (volatile float *)(s0 + 1348);
-        float f1 = *p1;
-        volatile float *p0 = (volatile float *)(s0 + 2116);
-        float f0 = *p0;
-        if (!(f0 == f1)) {
-            s1 = 1;
-        }
-    }
-    return s1;
-}
+// 001844e8: moved to src/anon/unit_00183088.cpp
 
-u32 func_00185be0(u32 a0, u32 a1, float a2) {
-    u32 s0 = func_001050d8(2816);
-    func_00185b70(s0, a0, a1, a2);
-    return s0;
-}
+// 00185be0: moved to src/anon/unit_001855e0.cpp
 
 // 00186020: moved to src/anon/unit_00185d10.cpp
 void func_00186020(u32 a0);

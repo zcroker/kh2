@@ -92,11 +92,7 @@ static inline s32 inRange(s32 v) {
     return 0;
 }
 
-s32 func_0017a538(u8* p) {
-    s32 r = 0;
-    if (func_0016a070(p) == 1) r = inRange(*(s32*)(p + 2896));
-    return r;
-}
+// 0017a538: moved to src/yasui/libys/player.cpp
 
 // 00180c88: moved to src/anon/unit_00180408.cpp
 

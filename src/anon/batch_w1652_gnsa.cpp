@@ -99,56 +99,6 @@ static inline __attribute__((always_inline)) void W1652_CopyTag(W1652Tag* d, W16
 static inline bool W1652_CtlBusy(W1652Obj* self) { return (self->ctl->flags & 2) || (self->flags160 & 0x40); }
 static inline bool W1652_CanPush(W1652Obj* self) { bool skip = false; if (func_0019c090(self) || W1652_CtlBusy(self)) skip = true; return !skip; }
 
-void func_00183088(W1652Obj* self)
-{
-    W1652Vec acc;
-    W1652Vec d;
-    W1652Vec a;
-    W1652Vec b;
-    W1652Vec u0, u1, u2, u3;
-    self->oldPos = self->pos;
-    self->flags108 &= ~0x400000;
-    if (W1652_IsAttach(self)) {
-        self->vel.zero();
-        self->tag = self->parent->tag;
-        self->b8DC = self->parent->b8DC;
-        self->unk810 = 0;
-    } else if (!(self->flags10C & 0x40)) {
-        W1652Ctl* c = self->ctl;
-        acc = ((W1652GetFn)c->vt[7])(c, self);
-        acc += func_001835f8(self);
-        if (self->flags588 & 2) acc += func_00186b90(self);
-        acc += self->v880 * (self->v880.w * D_00349e10);
-        if (func_0019bad8(self) && self->b654) {
-            if (W1652_CanPush(self)) acc += func_00184bb0(self);
-        }
-        acc += self->push;
-        acc += func_001d3ac0(self);
-        a = self->v870;
-        a.w = 1.0f;
-        s32* pu = &self->unk810;
-        if (*pu) b = func_001b3428(pu, self);
-        else b.unit();
-        self->move = (acc + a + b) * D_00349e18;
-        { W1652Vec t0(acc); W1652Vec t1(a); func_00183918(self, t0, t1, b); }
-        acc += a + b;
-        d = self->pos - self->oldPos;
-        self->height += d.y - acc.y;
-        self->vel = d * D_00349e18;
-        if (acc.y < 0.0f && d.y / acc.y < *D_00352130) self->flags108 |= 0x400000;
-    } else {
-        W1652Ctl* c = self->ctl;
-        acc = ((W1652GetFn)c->vt[7])(c, self);
-        acc += func_001835f8(self);
-        acc += self->v880 * (self->v880.w * D_00349e10);
-        self->move = acc * D_00349e18;
-        self->pos += acc;
-        d = self->pos - self->oldPos;
-        self->vel = d * D_00349e18;
-    }
-    self->v880.zero();
-    self->v870.zero();
-    self->flags7F8 &= ~0x1000;
-}
+// 00183088: moved to src/anon/unit_00183088.cpp
 
 }

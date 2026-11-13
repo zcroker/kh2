@@ -69,7 +69,7 @@ void func_001656c0(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a1; (void)a2; (void)a3; 
 
 u32 func_0016f448(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a1; (void)a2; (void)a3; return *(u32*)((u32)&D_0036c278 + ((u32)a0 << 2) + (0)); }
 
-u32 func_0017aab8(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a1; (void)a2; (void)a3; return *(u32*)((u32)&D_0034e9f8 + ((u32)a0 << 2) + (0)); }
+// 0017aab8: moved to src/anon/unit_0017a8f8.cpp
 
 u32 func_001a5af0(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a1; (void)a2; (void)a3; return *(u8*)((u32)&D_0036d4d8 + (u32)a0 + (0)); }
 

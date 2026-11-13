@@ -24,30 +24,7 @@ static inline __attribute__((always_inline)) u32 tA(u32 x) { return x & 4; }
 static inline __attribute__((always_inline)) u32 tB(u32 x) { return x & 8; }
 static inline __attribute__((always_inline)) u32 tC(u32 x) { return x & 0x10; }
 static inline __attribute__((always_inline)) bool busyC(u32 x) { return tA(x) || tB(x) || tC(x); }
-// VU0 asm: zero a 128-bit vector (vsub + sqc2), no C equivalent.
-void func_001788b8(O178* o) {
-    if (!(o->f7f8 & 4)) {
-        ((void (*)(O178*))o->vt[0x90 / 4])(o);
-        D178* p = o->b44;
-        if (p->b.id) {
-            o->b48 = 0;
-            if (p->b.flags & 0x10) func_00179dd0(o, p->b.id);
-            func_001991a8(31, o->b44->b.id);
-        }
-        void* r = func_00175c88(o, o->b44 ? &o->b44->b : 0);
-        if (r) {
-            o->f10c &= ~2;
-            func_001bbcf8(r);
-        }
-        u32 x = o->f160;
-        bool b = busyC(x);
-        if (!b && (s32)x >= 0) {
-            asm volatile("vsub.xyzw $vf1, $vf0, $vf0\n\tsqc2 $vf1, 0(%0)" :: "r"(o->v10) : "memory");
-        }
-        func_0017a2d0(o);
-    }
-    func_001774e0(o);
-}
+// 001788b8: moved to src/yasui/libys/player.cpp
 
 struct V4e9 { f32 x, y, z, w; };
 struct V3e9 { f32 x, y, z; };

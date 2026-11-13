@@ -149,60 +149,13 @@ void func_001705a8(void)
 
 static inline bool Reacts0017(u8* a1) { return (*(u32*)(*(u8**)(a1 + 12) + 8) & 2) || (*(u32*)(a1 + 352) & 0x40); }
 
-// Picks the reaction motion for the hit described by a0.
-void func_0017a9e8(u8* a0, u8* a1)
-{
-    u32 f = *(u32*)(a0 + 8);
-    if (f & 0x20) {
-        func_0016bd60(a1, 21);
-    } else if (f & 0x1000) {
-        func_0016bd60(a1, 45);
-    } else {
-        bool x = Reacts0017(a1);
-        if (x) {
-            ((FU82*)(a1 + 36))->f *= *(f32*)(D_00352130 + 68);
-            if (*(u32*)(a0 + 8) & 0x400) func_0016bd60(a1, 33);
-            else func_0016bd60(a1, 8);
-        } else {
-            func_0016bd60(a1, 4);
-        }
-    }
-    *(u32*)(a1 + 252) = *(u32*)(a1 + 340);
-}
+// 0017a9e8: moved to src/anon/unit_0017a8f8.cpp
 
 // 0017cd20: moved to src/anon/unit_0017c400.cpp
 
 // 0017e418: moved to src/yasui/libys/friend.cpp
 
-void func_00178bf0(u8* a0, u8* a1)
-{
-    u8* t;
-    if (*(u16*)(a1 + 38) && func_00181a70(a0))
-        func_00189228(D_0032e020, *(u16*)(a1 + 38));
-    if (!func_001ba028(*(u32*)(*(u8**)(a0 + 2884) + 12))) return;
-    func_00177a28(a0);  // set_bytes_2820_2821
-    switch (a1[37]) {
-    case 0:
-        break;
-    case 1:
-        if (*(u32*)(*(u8**)(a0 + 12) + 4)) func_0016bd60(a0, 0);
-        VZero82(a0 + 2768);
-        break;
-    case 2: {
-        V82z tmp;
-        VZero82(a0 + 32);
-        VZero82(&tmp);
-        {
-            u8* o = *(u8**)(a0 + 12);
-            (*(void (**)(u8*, u8*, V82z*))(*(u8**)o + 8))(o, a0, &tmp);
-        }
-        VZero82(a0 + 2768);
-        break;
-    }
-    }
-    t = *(u8**)(a0 + 2884);
-    func_0016bae8(*(u32*)(t + 12), a0, *(u16*)(t + 4), t + 12);
-}
+// 00178bf0: moved to src/yasui/libys/player.cpp
 
 void u_call4_0016a358(u32, u32, u32, u32) asm("_Z16u_call4_0016a358jjjj");
 u32 ctarget_0016f7d0(u32, u32, u32, u32) asm("_Z16ctarget_0016f7d0jjjj");

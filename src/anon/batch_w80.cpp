@@ -519,52 +519,11 @@ u32 func_00170b30(u32 size) {  // alloc_align128
     }
     return D_0034dc9c;
 }
-s32 func_00179450(U0_Act* a) {
-    if (a->state == 7) {
-        if (!func_00179450_busy(a)) return 0;
-        if (a->sub->f4 == 0 && func_001b9d40(a)) {  // vtable_call_slot64_flags
-            if (!(a->f28 > 0.0f)) return 0;
-            if (func_00177860(a)->f20 & 0x40) {
-                func_0016bd60(a, 22);
-                return 1;
-            }
-        }
-    }
-    return 0;
-}
+// 00179450: moved to src/yasui/libys/player.cpp
 
 
-// turn toward the direction v, limited by speed
-s32 func_00184ad0(U1_Turn* o, f32* v, f32 speed) {
-    s32 r = 1;
-    f32 ang, d, a;
-    if (func_0019c400(o)) return 0;
-    if (speed == 0.0f) speed = o->f284;
-    speed *= D_00349e10;
-    ang = func_002f8ad0(v[0], v[2]);
-    d = func_0017ce10(ang - o->yaw);
-    if (speed < d) a = func_0017ce10(o->yaw + speed);
-    else if (d < -speed) a = func_0017ce10(o->yaw - speed);
-    else { a = ang; r = 0; }
-    func_0016aeb8(o, a);
-    return r;
-}
-s32 func_00184eb8(U1_Eff* o, u32 id, void* t) {
-    void* s;
-    if (!t) t = o->tgt;
-    s = o->eff;
-    if (s) {
-        func_002cb708(s);
-        func_00105110(s);
-        o->eff = 0;
-    }
-    s = 0;
-    if (t) s = func_0019b328(t, id);
-    if (!s && (o->f1416 & 0x80)) s = func_00182e08(id);
-    if (!s) return 0;
-    o->eff = func_002cd018(o, s, func_0016c028(o), 8.0f);
-    return 1;
-}
+// 00184ad0: moved to src/anon/unit_00183088.cpp
+// 00184eb8: moved to src/anon/unit_00183088.cpp
 // 001920f0: moved to src/yasui/libys/message.cpp
 s32 func_0019bd08(U1_Lk* o, s32 n) {
     if (!o->lock) return 0;

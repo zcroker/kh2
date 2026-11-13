@@ -97,14 +97,7 @@ u8* func_00168b38(void*, u32, u32);  // entry_array_find_nth
 void func_001d7cd0(void*);
 s32 func_0016a090(void*);  // get_byte74
 extern u8 D_0034ed78[];
-void func_00185b70(u8* p) {
-    func_001d7cd0(p);
-    *(u32*)(p + 2800) = 0;
-    *(void**)p = D_0034ed78;
-    *(u32*)(p + 1416) |= 0x10;
-    *(f32*)(p + 2804) = 100.0f;
-    if (func_0016a090(p) == 2) *(u32*)(p + 2748) |= 0x8000;
-}
+// 00185b70: moved to src/anon/unit_001855e0.cpp
 
 void* func_00185da8(void*);
 s32 func_00186ce8(void*);

@@ -100,30 +100,7 @@ void func_0011b6a8(QM*);
 void func_0017ff68(QV*, QV*);
 f32 func_0017ce10(f32);
 void func_0011b720(QM*, f32);
-QV func_001835f8(O2* o) {
-    QV r;
-    if (func_001c0cd8(o)) { r.zero(); return r; }
-    QV* pos = &o->v320;
-    QM m;
-    QV t = o->v496;
-    r = t;
-    if (func_0019c400(o)) {
-        r.w = 0.0f;
-        mulmv(&t, &o->m64, &r);
-        r = t;
-        return r;
-    }
-    if (r.w != 0.0f) func_001835a0(o, r.w);
-    func_0011b6a8(&m);
-    f32 a = o->f1372 + 3.1415927f;
-    func_0017ff68(&t, pos);
-    a -= t.w;
-    func_0011b720(&m, func_0017ce10(a));
-    r.w = 0.0f;
-    mulmv(&t, &m, &r);
-    r = t;
-    return r;
-}
+// 001835f8: moved to src/anon/unit_00183088.cpp
 }
 
 static inline void vsub3(QV* d, const QV* a, const QV* b) {

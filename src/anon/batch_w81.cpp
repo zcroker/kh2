@@ -236,17 +236,7 @@ void func_00143e50(Vq81*, u16, u32);
 s32 func_0019c778(u8*, Vq81*);
 u32 func_00192048(u32);
 void func_0015b268(u32, f32);
-void func_0017a2d0(u8* o) {
-    u32 id = *(u16*)(o + 1524);
-    if (id == 0xffff) return;
-    if (!D_0034ece4) return;
-    Vq81 v;
-    func_00143e50(&v, id, 0);
-    v.y = 0;
-    vnorm81(v);
-    Vq81 d = vscale81(v, -1.0f);
-    if (func_0019c778(o, &d)) func_0015b268(func_00192048(D_0034ece4), 60.0f);
-}
+// 0017a2d0: moved to src/yasui/libys/player.cpp
 
 // --- 00187650
 void func_00187728(u8*, f32);

@@ -146,41 +146,5 @@ void func_00143f50(u16, W1676Pt*);
 W1676Vec W1676_GetNormal(u16, bool) asm("_ZN2dk6Octree9getNormalEtb");
 void W1676_MtxUnit(W1676Mtx*) asm("_Z13func_0011b6a8Pv");
 
-W1676Vec func_00184bb0(W1676Obj* self)
-{
-    W1676Pt pts[4];
-    W1676Vec v;
-    W1676Vec up;
-    W1676Mtx m;
-    func_00143f50(self->ground.poly, pts);
-    s32 n = 3;
-    do {
-        s32 last = -1;
-        for (s32 j = 1; j <= n; j++) {
-            if (pts[j - 1].z > pts[j].z) {
-                last = j - 1;
-                v = pts[last];
-                pts[last] = pts[j];
-                pts[j] = v;
-            }
-        }
-        n = last;
-    } while (n >= 0);
-    if (pts[0].x > pts[1].x) v = pts[1] - pts[0];
-    else v = pts[0] - pts[1];
-    v.normalize();
-    up = W1676_GetNormal(self->ground.poly, 0);
-    W1676_MtxUnit(&m);
-    m.r[0] = v.cross(up);
-    m.r[0].normalize();
-    m.r[1] = up;
-    m.r[2] = m.r[0].cross(m.r[1]);
-    m.r[2].normalize();
-    m.r[0].w = 0.0f;
-    m.r[1].w = 0.0f;
-    m.r[2].w = 0.0f;
-    v = D_00350990;
-    v.w = 0.0f;
-    return (m * v) * D_00349e10;
-}
+// 00184bb0: moved to src/anon/unit_00183088.cpp
 }

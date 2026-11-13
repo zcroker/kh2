@@ -195,18 +195,7 @@ s32 func_00170c50(void) {
 s32 func_00190140(u8*);
 void func_00159130(u8*);
 
-void func_00178a50(u8* p, u8* q) {
-    if (!func_00190140(*(u8**)(p + 2884) + 12)) return;
-    switch (q[29]) {
-    case 1:
-        func_00159130(*(u8**)(p + 2884) + 12);
-        break;
-    case 3:
-        if (*(u8**)(p + 2880) && func_00190140(*(u8**)(p + 2880) + 4))
-            func_00159130(*(u8**)(p + 2880) + 4);
-        break;
-    }
-}
+// 00178a50: moved to src/yasui/libys/player.cpp
 
 // ---------------------------------------------------------------------------
 struct Ent82e08 { u32 a, b, c; };
@@ -220,16 +209,7 @@ u32 func_0019b328(u32, u32);
 void func_0016bd60(u8*, s32);
 void ys_obj_fly_to_jump(u8* self) asm("_ZN2YS3OBJ11fly_to_jumpEv");
 
-// Sets up a ballistic jump: time from distance, initial height offset, target copy.
-void ys_obj_fly_to_jump(u8* self) {
-    func_0016bd60(self, 1);
-    f32 t = *(f32*)(self + 2148) / 0.408163249f;
-    *(u32*)(self + 220) = 0;
-    *(u32*)(self + 212) = 0;
-    *(f32*)(self + 208) = t;
-    *(f32*)(self + 216) = *(f32*)(self + 1348) - t * 0.408163249f * t * 0.5f;
-    vcopy(self + 32, self + 2144);
-}
+// 001846f8: moved to src/anon/unit_00183088.cpp
 
 // ---------------------------------------------------------------------------
 void func_001dcb98(u32, u8*);

@@ -49,21 +49,6 @@ bool fe8_is_combo_finish(Fe8Party*, s32) asm("_ZN2YS5PARTY15is_combo_finishEi");
 bool func_001a0920(Fe8Atk*, Fe8Party*);
 bool func_00177ab8(Fe8Party*, bool);
 void func_00177008(Fe8Party*, Fe8Atk*, s32);
-bool func_00178fe8(Fe8Party* self, s32 i) {
-    Fe8Atk* a = fe8_get_partyattack(self, i);
-    if (a) {
-        if (func_001a0920(a, self)) {
-            if (a->isCombo() || !fe8_is_combo_finish(self, 0)) {
-                if ((self->f160 & 0x400) || (self->f168 & 0x20)) {
-                    if (func_00177ab8(self, self->chk108(0x2000000))) {
-                        func_00177008(self, a, self->fb40 + 4);
-                        return 1;
-                    }
-                }
-            }
-        }
-    }
-    return 0;
-}
+// 00178fe8: moved to src/yasui/libys/player.cpp
 
 }

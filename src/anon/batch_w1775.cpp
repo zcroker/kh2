@@ -24,12 +24,6 @@ void func_00173878(W1775Self* s) {
     *(u32*)s = W1775_Busy(o);
 }
 
-s32 func_00179148(W1775Obj* o) {
-    if (W1775_CanAct(o)) {
-        if (func_001b9d40(o)) return func_001791e8(o, (u8*)o + 0x10);
-        return 0;
-    }
-    return 0;
-}
+// 00179148: moved to src/yasui/libys/player.cpp
 
 }

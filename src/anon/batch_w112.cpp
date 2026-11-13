@@ -267,42 +267,7 @@ void func_001ced68(void*, u32*, u32, u32, f32);
 void func_001d0980(void*, u32*, u32, u32, u32, f32);
 }
 extern "C" {
-// Creates the object class matching the spawn entry's type id.
-void* func_00179fd0(u32* info, u32 a1, u32 a2, f32 t) {
-    u32 m = func_00167f18(0);
-    void* o;
-    switch (*info) {
-    case 859:
-        o = func_001050d8(3136);
-        func_002d49c0(o, info, m, a2, t);
-        break;
-    case 860:
-        o = func_001050d8(3360);
-        func_002d9730(o, info, m, a2, t);
-        break;
-    case 861:
-        o = func_001050d8(3088);
-        func_002dd700(o, info, m, a2, t);
-        break;
-    case 958:
-        o = func_001050d8(2928);
-        func_001d1540(o, info, m, a2, t);
-        break;
-    case 968:
-        o = func_001050d8(2992);
-        func_001cf698(o, info, m, a2, t);
-        break;
-    case 1525:
-        o = func_001050d8(2944);
-        func_001ced68(o, info, m, a2, t);
-        break;
-    default:
-        o = func_001050d8(2944);
-        func_001d0980(o, info, a1, m, a2, t);
-        break;
-    }
-    return o;
-}
+// 00179fd0: moved to src/yasui/libys/player.cpp
 }
 }
 

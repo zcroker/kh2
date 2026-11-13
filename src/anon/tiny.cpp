@@ -151,8 +151,7 @@ void func_001554a8(BD_VALUE* bd);
 // 0015f6e8: moved to src/harata/libdk/map_effect.cpp
 // 0015f700: moved to src/harata/libdk/map_effect.cpp
 void func_001616d8(BD_VALUE* bd) { func_0011b6a8(bd); }
-// 001688a0: moved to src/yasui/libys/file.cpp
-void func_00179ea0(BD_VALUE* bd) { func_001781e8(bd); }
+// 00179ea0: moved to src/yasui/libys/player.cpp
 // 00186008: moved to src/anon/unit_00185d10.cpp
 void func_00186008(BD_VALUE* bd);
 // 00187850: moved to src/anon/unit_00185d10.cpp
@@ -566,15 +565,9 @@ void func_00167218(u32 a0, u32 a1, u32 a2, u32 a3) {
 
 // 00182f28: moved to src/anon/unit_00182780.cpp
 
-void func_00185880(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 b = (0x01c6u << 16);
-    *(u32*)((u32)b + (2184)) = (u32)a0;
-}
+// 00185880: moved to src/anon/unit_001855e0.cpp
 
-void func_00185910(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 b = (0x01c6u << 16);
-    *(u32*)((u32)b + (2188)) = (u32)a0;
-}
+// 00185910: moved to src/anon/unit_001855e0.cpp
 
 // 00185d98: moved to src/anon/unit_00185d10.cpp
 void func_00185d98(u32 a0, u32 a1, u32 a2, u32 a3);

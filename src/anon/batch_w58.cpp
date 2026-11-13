@@ -184,13 +184,7 @@ void func_0016b668(u8*);
 
 extern u32* D_01c60888;
 u8* func_001a80c8(u32);  // table24_find_by_id
-u32 func_00185890(s32 a, u32 b) {
-    if (a == 0 || b == 0 || D_01c60888[a] == 0) return 0;
-    u8* v = func_001a80c8(b);  // table24_find_by_id
-    u32* t = D_01c60888;
-    u32* q = &t[t[a]];
-    return q[*(u16*)(v + 4)];
-}
+// 00185890: moved to src/anon/unit_001855e0.cpp
 
 void func_00114580(u8*);
 void func_001888c8(u8* p) {

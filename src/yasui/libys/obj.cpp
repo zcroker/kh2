@@ -93,16 +93,7 @@ u32 OBJ::get_skeleton_num() {
     return *(u8*)((u32)p + 7);
 }
 
-u32 OBJ::get_ground() {
-    u32 r14 = ((u32*)(u32)this)[3];
-    u32 r15 = ((u32*)(u32)r14)[2];
-    r15 = (u32)(r15 & 0x0020u);
-    u32 r2 = (u32)((s32)0u + 18);
-    if (r15 == 0u) {
-        r2 = ((u32*)(u32)this)[402];
-    }
-    return r2;
-}
+// 001849b8 OBJ::get_ground: moved to src/anon/unit_00183088.cpp
 
 u32 OBJ::is_xyzrot() {
     u32 v = *(u32*)((u32)this + 2040);

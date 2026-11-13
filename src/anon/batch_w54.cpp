@@ -211,12 +211,7 @@ s32 func_001a35f8(u32, s32);
 void func_00194070(void*, u8);
 extern u16 D_0036c4e8[3];
 extern u8 D_0036c4f0[];
-void func_0017a718(void* p) {
-    s32 n = 0;
-    s32 i;
-    for (i = 0; i < 3; i++) n += func_001a35f8(D_0036c4e8[i], 100) > 0;
-    func_00194070(p, D_0036c4f0[n]);
-}
+// 0017a718: moved to src/yasui/libys/player.cpp
 
 f32 func_0017ce10(f32);
 // 0017ce80: moved to src/anon/unit_0017c400.cpp

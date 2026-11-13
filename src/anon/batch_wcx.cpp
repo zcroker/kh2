@@ -2980,20 +2980,7 @@ s32 func_0019c5d0(u8*);
 u32 func_0016ac38(u8*, s32, s32, s32, s32);
 s32 func_001dc9e0(u32);
 void func_001dc818(u32);
-void func_00185988(u8* p)
-{
-    u32 h = *(u32*)(p + 2552);
-    if (!h) {
-        if (func_0019c5d0(p)) return;
-        if (*(u32*)(p + 352) & 0x800) *(u32*)(p + 2552) = func_0016ac38(p, 10, 1, 0, 0);
-        return;
-    }
-    if (func_001dc9e0(h)) {
-        if (!func_0019c5d0(p) && (*(u32*)(p + 352) & 0x800)) return;
-        func_001dc818(*(u32*)(p + 2552));
-    }
-    *(u32*)(p + 2552) = 0;
-}
+// 00185988: moved to src/anon/unit_001855e0.cpp
 V4* func_0016c028(u8*);  // obj_get_attach_or_alt
 void func_0016aef0(u8*, V4*);
 s32 func_0019ba60(u8*);

@@ -92,30 +92,14 @@ u32 func_0016f7d0(s32, u8*);
 // 0017dfc8: moved to src/yasui/libys/friend.cpp
 
 void func_002cbca0(Vec4*, u32, Vec4*, u8*);
-Vec4* func_001850a0(Vec4* out, u8* p) {
-    if (!*(u32*)(p + 1288)) {
-        asm volatile("vsub.wxyz $vf1,$vf0,$vf0\n\tsqc2 $vf1,0(%0)" : : "r"(out) : "memory");
-        return out;
-    }
-    Vec4 t;
-    func_002cbca0(&t, *(u32*)(p + 1288), func_0016c028(p), p + 1360);
-    if (out != &t) QCOPY(out, &t);
-    return out;
-}
+// 001850a0: moved to src/anon/unit_00183088.cpp
 
 // Formats name [i][j] (32-byte strings, two per row) into buf (or a static buffer).
 extern u8* D_01c6088c;
 extern char D_01c60890[];
 extern char D_0036c8f0[];
 void func_002fee78(char*, const char*, ...);
-char* func_00185920(s32 i, s32 j, char* buf) {
-    u8* row = D_01c6088c + i * 64;
-    char* s = (char*)(j * 32 + (u32)row);
-    if (!*s) return 0;
-    if (!buf) buf = D_01c60890;
-    func_002fee78(buf, D_0036c8f0, s);
-    return buf;
-}
+// 00185920: moved to src/anon/unit_001855e0.cpp
 
 // Deletes every object in the list (virtual destructor, slot 1).
 struct O18d { void** vt; u8 pad[188]; O18d* next; };

@@ -66,6 +66,8 @@ src/harata/libdk/bgm.cpp	00136a98	00137458	.data@00347d30	-G0
 src/anon/unit_0015cdb0.cpp	0015cdb0	0015d440	.data@0034af38,.bss@004f3760,.rodata@0036b400	-G0 -fno-strict-aliasing
 src/yasui/libys/status.cpp	00191758	00191f20	.data@0034f240,.bss@01c61958,.rodata@0036cd58	-G0
 src/anon/unit_00182780.cpp	00182780	00183088	.data@0034ed00,.bss@01c60588	-G0
+src/anon/unit_00183088.cpp	00183088	001855e0	.rodata@0036c898	-G0 -g -fno-strict-aliasing
+src/anon/unit_001855e0.cpp	001855e0	00185d10	.rodata@0036c8e0	-G0
 src/anon/unit_00197fe0.cpp	00197fe0	00198b88	.rodata@0036d0ac	-G0
 src/yasui/libys/light.cpp	00158900	001589d0	.data@0034a998	-G0
 src/harata/libdk/bookcamera.cpp	001589d0	00159070	.data@0034a9b0,.bss@004f35a0,.rodata@0036b314	-G0 -fno-strict-aliasing
@@ -97,6 +99,8 @@ src/harata/libdk/mapfile.cpp	001491a8	00149be8	.rodata@0036afb8	-G0
 src/harata/libdk/area.cpp	00149be8	00149fa8	.data@00348d68	-G0
 src/yasui/libys/file.cpp	00168218	00168aa0	.data@0034d800,.bss@004f5280	-G0 -g -fmove-all-movables -fno-strict-aliasing
 src/yasui/libys/party.cpp	00175670	00177dc8	.rodata@0036c4ac	-G0 -fno-strict-aliasing
+src/yasui/libys/player.cpp	00177dc8	0017a7e0	.rodata@0036c4c8	-G0 -fno-strict-aliasing
+src/anon/unit_0017a8f8.cpp	0017a8f8	0017aad0	-	-G0
 src/anon/unit_0017bf40.cpp	0017bf40	0017c290	.rodata@0036c500	-G0
 src/anon/unit_0017c400.cpp	0017c400	0017d968	.rodata@0036c50c	-G0 -fno-strict-aliasing
 src/yasui/libys/friend.cpp	0017d968	0017e858	.bss@01c60520,.rodata@0036c578	-G0 -g

@@ -61,17 +61,7 @@ void func_0031c2c8(u32* p) {
     ((void(*)(Obj*, void*))o->vt[1])(o, p);
 }
 
-void func_001843d8(u8* p) {
-    u8* m = p + 320;
-    if (!(*(u32*)(p + 360) & 0x10)) {
-        if (func_001805a8(m, 5)) {
-            func_0017f488(m, 5, 0.0f, 0.0f);
-            func_0017f5e0(m, 0, 0, 0.0f, 0.0f);
-        }
-    }
-    func_0016bd60(p, 0);
-    *(u32*)(p + 264) |= 0x08000000;
-}
+// 001843d8: moved to src/anon/unit_00183088.cpp
 
 void Selector_CreateHelpGra(u8* t, u32 a1, u32 a2, u32 a3) asm("_ZN2Tz8Selector13CreateHelpGraEz");
 void Selector_CreateHelpGra(u8* t, u32 a1, u32 a2, u32 a3) {

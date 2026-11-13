@@ -193,30 +193,7 @@ extern s32 D_0036c5cc[];
 
 extern "C" {
 
-// Store v at p+16 normalized (VU0), set p+28 = x; returns the original length.
-f32 func_00183768(u8* p, u128* v, f32 x) {  // copy_quad_at16_and_len
-    u128* d = (u128*)(p + 16);
-    f32 len;
-    if (d != v) asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(d), "r"(v) : "$8", "memory");
-    asm volatile(
-        "lqc2 $vf1, 0(%1)\n\t"
-        "vmul.xyz $vf2, $vf1, $vf1\n\t"
-        "vaddy.x $vf2, $vf2, $vf2y\n\t"
-        "vaddz.x $vf2, $vf2, $vf2z\n\t"
-        "vsqrt Q, $vf2x\n\t"
-        "vwaitq\n\t"
-        "cfc2.ni $8, $vi22\n\t"
-        "vaddq.x $vf2, $vf0, Q\n\t"
-        "mtc1 $8, %0\n\t"
-        "vnop\n\t"
-        "vdiv Q, $vf0w, $vf2x\n\t"
-        "vwaitq\n\t"
-        "vmulq.xyz $vf1, $vf1, Q\n\t"
-        "sqc2 $vf1, 0(%1)"
-        : "=f"(len) : "r"(d) : "$8", "memory");
-    *(f32*)(p + 28) = x;
-    return len;
-}
+// 00183768: moved to src/anon/unit_00183088.cpp
 
 u32 func_00185da8(u32);
 void func_0016c568(u32, u32, f32);

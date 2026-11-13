@@ -214,12 +214,7 @@ void func_00174290(u8* p) {
     func_0019ca90(*(u32*)(o + 2880), *(u32*)(p + 4), buf);
 }
 
-void func_001852b8(u8* p) {
-    u8 buf[16];
-    u32 v = func_0016c028(p);  // obj_get_attach_or_alt
-    if (func_001a7610(v, buf, (((s32)(*(s64*)(p + 1536) << 29 >> 32)) & 0xf) | 0x10000, 100000.0f, 200.0f))
-        func_0016ace0(p, buf);
-}
+// 001852b8: moved to src/anon/unit_00183088.cpp
 
 void func_0018b200(u8* p) {
     u8* s = p + 768;

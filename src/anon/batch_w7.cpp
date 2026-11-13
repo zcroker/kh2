@@ -119,11 +119,7 @@ void func_00173e38(u32* a0) {
     func_00188470(*(u32*)(a0[0] + 4) + 768, a0[1], *(f32*)&a0[2]);
 }
 
-void func_00179e18(u8* a0) {
-    func_001d6a80(*(u32*)(a0 + 2876));
-    *(u32*)(a0 + 2888) = 0;
-    func_00176ec8((u32)a0);
-}
+// 00179e18: moved to src/yasui/libys/player.cpp
 
 // 0017eb68: moved to src/yasui/libys/motion.cpp
 

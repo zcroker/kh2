@@ -171,16 +171,9 @@ void func_00165830(u8* p, void* m) {
     func_00142940(*(u32*)(p + 4), tmp);
 }
 
-void func_0017a230(u8* p) {
-    func_001bdab0(*(u32*)(p + 2884));
-    func_001776f8(p);
-}
+// 0017a230: moved to src/yasui/libys/player.cpp
 
-void func_00185a28(void* p) {
-    (*(VFn*)(*(u8**)p + 68))(p);
-    (*(VFn*)(*(u8**)p + 40))(p);
-    func_0016a2e0(p);
-}
+// 00185a28: moved to src/anon/unit_001855e0.cpp
 
 struct Flags2 {
     u16 a;

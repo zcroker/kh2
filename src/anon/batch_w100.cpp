@@ -222,17 +222,7 @@ static inline bool CanAct2(u8* o) { return IsBusy3(o) == false; }
 static inline bool CanAct3(u8* o) { return !IsBusy(o); }
 
 extern "C" {
-s32 func_00179530(u8* o) {
-    s32 n = func_001c3618(func_00177860(o), 4);
-    if (n > 0 && CanAct3(o) && func_001b9d40(o)) {  // vtable_call_slot64_flags
-        func_0016aef0(o, o + 16);
-        func_0017f488(o + 320, 209, 0.0f, 0.0f);
-        func_0017f5e0(o + 320, 0, 0, 0.0f, 0.0f);
-        func_00176a60(o, *(f32*)(func_001ce300(n) + 64));
-        return 1;
-    }
-    return 0;
-}
+// 00179530: moved to src/yasui/libys/player.cpp
 }
 
 }

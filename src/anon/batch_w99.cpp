@@ -279,25 +279,7 @@ void func_0016ac38(u8*, s32, s32, s32, s32);
 void func_0016bd60(u8*, s32);
 void func_00176a60(u8*, f32);
 
-s32 func_001791e8(u8* o, V1791* v)
-{
-    s32 n = func_001c3618(func_00177860(o), 1);
-    if (n > 0) {
-    D1791* d = func_001ce300(n);  // to_1ce2a0_index_minus1
-    *(V1791*)(o + 32) = *v * d->scale;
-    *(f32*)(o + 240) = d->f20;
-    *(f32*)(o + 244) = d->f12;
-    *(f32*)(o + 248) = d->f24;
-    func_0016aef0(o, v);
-    func_0017f488(o + 320, 203, 0.0f, 0.0f);
-    if (n >= 2) func_0016ac38(o, n + 108, 1, 0, 0);
-    func_0016bd60(o, 16);
-    ((W1791*)(o + 268))->u |= 4;
-    func_00176a60(o, d->f28);
-    return 1;
-    }
-    return 0;
-}
+// 001791e8: moved to src/yasui/libys/player.cpp
 }
 
 // ---- 0017da90
@@ -336,22 +318,7 @@ void func_00177638(u32);
 
 static inline bool Flag1857(Obj1857* o) { return (o->info->bits >> 7) & 1; }
 
-void func_00185770(Obj1857* o)
-{
-    func_0016ac38_185770(o, 0, 1, 0, 0);
-    if (o->info->id == 114) {
-        func_001940b8(o, 255, 255, 255, 1.0f, 0.0f);  // obj_set_bytes_and_lerp
-    } else {
-        func_001940b8(o, 255, 255, 255, 0.0f, 0.0f);  // obj_set_bytes_and_lerp
-        func_001940b8(o, 255, 255, 255, 1.0f, 16.0f);  // obj_set_bytes_and_lerp
-    }
-    if (func_0019c650(o->w2548)) {
-        o->flags &= ~0x100;
-        o->flags &= ~0x400;
-    }
-    else o->vt->f72(o);
-    if (Flag1857(o)) func_00177638(o->w2548);
-}
+// 00185770: moved to src/anon/unit_001855e0.cpp
 }
 
 // ---- 001abbf0

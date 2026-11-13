@@ -175,12 +175,7 @@ void func_0016fa58(void) {
     func_0014d358(D_01c5c460, 0x3000, func_0016f9e8, 0);
 }
 
-void func_001781e8(u8* p) {
-    func_00140db0(p);
-    func_00182f28(0);  // store_global_35ed04
-    func_001d69d0(*(void**)(p + 2876));
-    *(void**)(p + 2876) = 0;
-}
+// 001781e8: moved to src/yasui/libys/player.cpp
 
 // 0017d930: moved to src/anon/unit_0017c400.cpp
 

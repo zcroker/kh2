@@ -103,10 +103,7 @@ void func_00172830(BD_VALUE* bd) {
 
 // 00177a58: moved to src/yasui/libys/party.cpp
 
-void func_00179f58(void* p) {
-    func_00179f10(p);
-    func_001781a8(p);
-}
+// 00179f58: moved to src/yasui/libys/player.cpp
 
 void func_0018f2d0(BD_VALUE* bd) {
     void* o = *(void**)((u8*)bd[0].p + 4);

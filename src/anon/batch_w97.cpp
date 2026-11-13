@@ -203,20 +203,7 @@ void func_00169030(u32 a) {
     func_001ada38(11);
 }
 
-// ---- 001840c0
-Vq func_001840c0(u8* o, Vq* v) {  // vec4_normalize_ptr
-    f32 len = vnormalize(v);
-    const Vq& up = *(Vq*)(o + 1584);
-    Vq c;
-    c = vcrossn(up, *v);
-    vnormalize(&c);
-    *v = vcrossn(c, up);
-    vnormalize(v);
-    vscalei(v, len);
-    Vq r;
-    vcopy(&r, v);
-    return r;
-}
+// 001840c0: moved to src/anon/unit_00183088.cpp
 
 // ---- 00185330
 extern u8 D_0034ed18[];
@@ -228,27 +215,7 @@ void func_0017ebe8(u8*, u32);
 void func_0017fd30(u8*, u8*);
 u32 func_001762c0(u8*, u32);
 void func_001c0d38(u8*, u8*, u32, s32);
-void func_00185330(u8* p, u32 a1, u8* owner, u32 a3, u32 a4, u32 a5) {
-    Vq z;
-    z.w = z.z = z.y = z.x = 0.0f;
-    func_001980d0(p, a1, 12, &z, 3.1415927f);
-    *(u32*)p = (u32)D_0034ed18;
-    *(u32*)(p + 1416) |= 0x40;
-    *(u32*)(p + 264) |= 2;
-    *(u32*)(p + 944) = 1;
-    *(u8**)(p + 2548) = owner;
-    *(u32*)(p + 2552) = 0;
-    *(u32*)(p + 2556) = a4;
-    *(u32*)(p + 2560) = a5;
-    func_001a93b0(p + 1952, a5);
-    u32 v = func_00185920(a3, a4, 0);
-    if (v) {
-        func_0017ebe8(p + 320, func_001708f8(v, -1));
-        func_0017fd30(owner + 320, p + 320);
-        func_001c0d38(p, owner, func_001762c0(owner, a4), 0);
-    }
-    *(u32*)(p + 268) |= 0x700;
-}
+// 00185330: moved to src/anon/unit_00183088.cpp
 
 // ---- 0018a550
 struct Shape18a { s32 type; };

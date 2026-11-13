@@ -89,10 +89,7 @@ u8* func_00170530(u32 a, u32 b, s32 c, u32 d) {
 }
 
 typedef void (*VFn4)(void*, u32, u32, void*);
-void func_00185a68(u8* p, u32 a, u32 b) {
-    void* o = *(void**)(p + 2548);
-    (*(VFn4*)((*(u8**)o) + 80))(o, a, b, p);
-}
+// 00185a68: moved to src/anon/unit_001855e0.cpp
 
 extern void* D_01c608b8;
 u32 func_0019ba60(void*);

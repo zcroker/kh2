@@ -229,15 +229,7 @@ E16* func_00168b38(H16* h, s32 id, s32 n) {  // entry_array_find_nth
     return 0;
 }
 
-void wtarget_001789b8(u32, u32, u32, u32) asm("_Z16wtarget_001789b8jjjj");
-void wtarget_001789b8(u32 a0, u32, u32, u32) {
-    if (func_00141080(a0) && func_001b9d40(a0)) {
-        u64 fl = **(u64**)(a0 + 2872);
-        if (fl & 0x100000) func_001835a0(a0, D_00349e10 * -0.052359879f);
-        else if (fl & 0x200000) func_001835a0(a0, D_00349e10 * 0.052359879f);
-    }
-    func_00175b68(a0);
-}
+// 001789b8: moved to src/yasui/libys/player.cpp
 
 struct TGT { u32 w[5]; };
 struct TPool { TGT items[128]; s32 freel[128]; s32 count; };
@@ -467,17 +459,7 @@ static inline f32 vnormalize(W63Vec* v) {
 struct W63Body { W63Vec pos; u8 pad[32]; W63Vec vel; };
 
 extern "C" {
-// Stores the horizontal (y = 0) unit direction from +1344 towards *target, and w.
-void func_001837c0(u8* p, const W63Vec* target, f32 w) {
-    W63Vec d;
-    W63Vec t;
-    vsub(&t, target, (W63Vec*)(p + 1344));
-    d = t;
-    d.y = 0.0f;
-    vnormalize(&d);
-    *(W63Vec*)(p + 16) = d;
-    *(f32*)(p + 28) = w;
-}
+// 001837c0: moved to src/anon/unit_00183088.cpp
 
 // Moves pos a fifth of the way towards vel, with gravity on y; returns pos.y < 0.
 // 001cc888: moved to src/anon/unit_001cc868.cpp

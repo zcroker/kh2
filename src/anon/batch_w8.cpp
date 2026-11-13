@@ -81,10 +81,7 @@ void func_00174060(S174060* p) {
 
 void func_0017c430(void*);
 void func_0016bd60(void*, u32);
-void func_0017a938(void*, void* o) {
-    func_0017c430(o);
-    func_0016bd60(o, 1);
-}
+// 0017a938: moved to src/anon/unit_0017a8f8.cpp
 
 void func_00180ce0(void*);
 u8 func_0017ee68(void*);

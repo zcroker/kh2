@@ -123,36 +123,7 @@ Vec4* func_0016c028(u8*);  // obj_get_attach_or_alt
 Vec4* func_001dc648(u32);
 void func_0016af58(Vec4*, u8*);
 void func_0017d050(Vec4*, Vec4*);
-void func_00179cb8(u8* p)
-{
-    if (func_00179c80(p)) {
-        u32 h = *(u32*)(p + 2912);
-        if (!h) {
-            u32* o = func_0015ef28();
-            if (*o) {
-                s32 k = func_001de2e0(o, 1LL << 50);
-                if (k >= 0) {
-                    h = *(u32*)(p + 2912) = func_001de168(o, k, 1, 2, 10001, 0);  // scan_list_by_half
-                    goto have;
-                }
-            }
-            h = *(u32*)(p + 2912);
-        have:
-            if (!h) return;
-        }
-        Vec4* d = func_001dc5f8(h);
-        Vec4* s = func_0016c028(p);  // obj_get_attach_or_alt
-        if (d != s) QCOPY(d, s);
-        Vec4* m = func_001dc648(*(u32*)(p + 2912));
-        Vec4 b, a;
-        func_0016af58(&a, p);
-        func_0017d050(&b, &a);
-        if (m != &b) QCOPY(m, &b);
-    } else if (*(u32*)(p + 2912)) {
-        func_001dc818(*(u32*)(p + 2912));
-        *(u32*)(p + 2912) = 0;
-    }
-}
+// 00179cb8: moved to src/yasui/libys/player.cpp
 
 extern f32 D_00349e10;
 f32 fabsf(f32);  // fabsf
@@ -174,27 +145,7 @@ static inline void vu_Copy11(Vec4* d, Vec4* s)
     if (d != s) QCOPYN(d, s);
 }
 struct Obj11 { u8 pad[16]; Vec4 dir; Vec4 pos; };
-u32 func_00184540(u32 out, u32 a1, f32 t, f32 s) asm("_Z13func_00184540jjff");
-u32 func_00184540(u32 out, u32 a1, f32 t, f32 s)
-{
-    Obj11* p = (Obj11*)a1;
-    if (t != 0.0f) {
-        if (fabsf(p->pos.x) < 100000000.0f && fabsf(p->pos.y) < 100000000.0f && fabsf(p->pos.z) < 100000000.0f) {  // fabsf
-        }
-    }
-    Vec4 r, b, a;
-    if (0.0f < p->dir.w) {
-        vu_Scale11(&p->dir, &a, p->dir.w);
-        vu_Interp11(&a, &p->pos, &b, t);
-        vu_Copy11(&r, &b);
-    } else {
-        vu_Scale11(&p->pos, &b, s);
-        vu_Copy11(&r, &b);
-    }
-    vu_Copy11(&p->pos, &r);
-    vu_Scale11(&r, (Vec4*)out, D_00349e10);
-    return out;
-}
+// 00184540: moved to src/anon/unit_00183088.cpp
 
 struct Ray12 { Vec4 a, b, c, hit; u8 pad[48]; u64 on:1; u64 mode:2; u64 rest:29; u64 hitflag:1; u64 rest2:31; u8 pad2[24]; };
 void func_00319e90(Ray12*, void*);
@@ -204,28 +155,7 @@ static inline void Copy12(Vec4* d, Vec4* s)
 {
     if (d != s) QCOPY(d, s);
 }
-s32 func_00185138(u8* p, Vec4* out, u8 flag, f32 dist)
-{
-    Ray12 r;
-    func_00319e90(&r, p + 1424);
-    Copy12(&r.a, func_0016c028(p));  // obj_get_attach_or_alt
-    asm volatile("sqc2 $vf0, 0(%0)" : : "r"(&r.b) : "memory");
-    r.mode = 2;
-    if (flag) r.on = 1; else r.on = 0;
-    s32 ret = 0;
-    f32 d = 0.0f;
-    while (d < dist) {
-        d += 100.0f;
-        if (dist < d) d = dist;
-        r.c.x = r.c.z = d;
-        func_00143928(&r);
-        if (!flag && r.hitflag) return ret;
-        Copy12(&r.a, &r.hit);
-        Copy12(out, &r.hit);
-        ret = 1;
-    }
-    return ret;
-}
+// 00185138: moved to src/anon/unit_00183088.cpp
 
 struct B32 { f32 a, y, c; u32 d; Vec4 pos; };
 struct VecD { f32 x, y, z, w; ~VecD() {} } __attribute__((aligned(16)));
@@ -718,34 +648,7 @@ void func_00179cb8(u8*);
 s32 func_001b9d40(u8*);  // vtable_call_slot64_flags
 void func_00178220(u8*);
 void func_0017a3b0(u8*);
-void func_00178758(u8* p)
-{
-    func_00175af8(p);
-    func_00179718(p);
-    if ((*(s32 (**)(u8*))(*(u8**)p + 64))(p) && *(u8**)(p + 1164) && !func_00197920()
-        && (u32)((*(u8**)(p + 1164))[431] - 2) < 2) {
-        f32 s = D_00349e10;
-        if (!func_001917c0()) s *= *(f32*)(D_00352130 + 108);
-        switch ((*(u8**)(p + 1164))[431]) {
-        case 2:
-            s *= *(f32*)(func_00177860(p) + 64);
-            break;
-        case 3:
-            s *= *(f32*)(func_00177860(p) + 108);
-            break;
-        }
-        func_001a1b68(*(u8**)(p + 1164), -s);
-    }
-    func_00179cb8(p);
-    if (func_001b9d40(p)) {  // vtable_call_slot64_flags
-        if (!(*(u32*)(p + 2040) & 0x20)) {
-            func_00178220(p);
-            *(u32*)(p + 2040) |= 0x20;
-        }
-        *(u32*)(p + 2888) = 0;
-    }
-    func_0017a3b0(p);
-}
+// 00178758: moved to src/yasui/libys/player.cpp
 
 struct Ent13 { u32 key; union { s32 v; u16 sub; }; u32 a, b; };
 struct Tbl13 { s32 n; Ent13 e[1]; };
@@ -1488,43 +1391,7 @@ static inline bool HasSub7(s32 k)
 {
     return k != 0 && k < 7;
 }
-void func_00177dc8(u8* p, u32 res, s32 kind, u32 a3, u32 t0)
-{
-    func_00175670(p, res, 0, t0);
-    *(u32*)(p + 2872) = a3;
-    *(u32*)p = (u32)D_0034e958;
-    *(s32*)(p + 2896) = kind;
-    *(u32*)(p + 2884) = (u32)D_01c5f530;
-    *(s32*)(p + 2892) = -1;
-    *(u32*)(p + 2876) = (u32)D_01c5f530;
-    *(u32*)(p + 2880) = (u32)(D_01c5f530 + 2752);
-    *(u32*)(p + 2904) = 0xffff;
-    *(u32*)(p + 1416) |= 0x80;
-    *(u32*)(p + 2888) = 0;
-    *(u32*)(p + 2900) = 0;
-    *(u32*)(p + 2912) = 0;
-    p[2916] = 0;
-    D_0034e948__48451 = (u32)p;
-    *(u32*)(p + 1896) |= 0x10;
-    u8* o = func_001a15d0(func_0016a070__48451(p), *(s32*)(p + 2896));
-    *(u32*)(p + 1164) = (u32)o;
-    if (o) {
-        *(u32*)(o + 604) = (u32)p;
-        ((u8*)*(u32*)(p + 1164))[431] = 0;
-        if (!func_001818a0()) {
-            *(u32*)(*(u32*)(p + 1164) + 592) |= 2;
-            *(u32*)(*(u32*)(p + 1164) + 592) |= 4;
-        }
-    }
-    u32 x = func_0016f6a0(res, 0);
-    if (x) func_00176168(p, x, 0);
-    s32 k = *(s32*)(p + 2896);
-    if (HasSub7(k) || k == 10) {
-        x = func_0016f6a0(res, 1);
-        if (x) func_00176168(p, x, 1);
-    }
-    func_001781a8(p);
-}
+// 00177dc8: moved to src/yasui/libys/player.cpp
 
 struct Kind9 { u8 pad[4]; u8 k; };
 struct Obj9 { u8 pad[12]; u8* owner; u8 pad2[24]; Kind9* kind; u8 team; };
@@ -1744,43 +1611,7 @@ void func_002332a8(Sn18* p)
     func_00232ea0(h, p, e, s);
 }
 
-void func_00177f50(u8* p, u32 res, s32 kind, u32 a3, u32 t0)
-{
-    func_00175670(p, res, 0, t0);
-    *(u32*)(p + 2872) = a3;
-    *(u32*)p = (u32)D_0034e958;
-    *(s32*)(p + 2896) = kind;
-    *(u32*)(p + 2884) = (u32)D_01c5f530;
-    *(s32*)(p + 2892) = -1;
-    *(u32*)(p + 2876) = (u32)D_01c5f530;
-    *(u32*)(p + 2880) = (u32)(D_01c5f530 + 2752);
-    *(u32*)(p + 2904) = 0xffff;
-    *(u32*)(p + 1416) |= 0x80;
-    *(u32*)(p + 2888) = 0;
-    *(u32*)(p + 2900) = 0;
-    *(u32*)(p + 2912) = 0;
-    p[2916] = 0;
-    D_0034e948__48451 = (u32)p;
-    *(u32*)(p + 1896) |= 0x10;
-    u8* o = func_001a15d0(func_0016a070__48451(p), *(s32*)(p + 2896));
-    *(u32*)(p + 1164) = (u32)o;
-    if (o) {
-        *(u32*)(o + 604) = (u32)p;
-        ((u8*)*(u32*)(p + 1164))[431] = 0;
-        if (!func_001818a0()) {
-            *(u32*)(*(u32*)(p + 1164) + 592) |= 2;
-            *(u32*)(*(u32*)(p + 1164) + 592) |= 4;
-        }
-    }
-    u32 x = func_0016f6a0(res, 0);
-    if (x) func_00176168(p, x, 0);
-    s32 k = *(s32*)(p + 2896);
-    if (HasSub7(k) || k == 10) {
-        x = func_0016f6a0(res, 1);
-        if (x) func_00176168(p, x, 1);
-    }
-    func_001781a8(p);
-}
+// 00177f50: moved to src/yasui/libys/player.cpp
 
 extern s8 D_0035ed69;
 extern u8* D_0035ed64;
@@ -2096,38 +1927,7 @@ void func_0016cce8__67414(u32, s32, u32*, s32, s32) asm("func_0016cce8");
 void func_00179a68(u8*, f32);
 void func_001a1b68__67414(Sub37*, f32) asm("func_001a1b68");
 void func_00177760(u8*, u8*, u32, Arg37*);
-void func_001798d8(u8* o, u8* t, u32 v, Arg37* a)
-{
-    for (s32 i = 0; i < 2; i++) {
-        u8* e = func_0017df58(i);
-        if (!e) continue;
-        if (!func_0019ba60(e)) continue;
-        if (!*(u32*)(e + 1156)) continue;
-        u32 m[2];
-        m[0] = (u32)t;
-        m[1] = v;
-        func_0016cce8__67414(*(u32*)(e + 1156), 15, m, 2, 0);
-    }
-    if (a->k && (*(u32*)(t + 1416) & 0x10)) {
-        u32 fl = *(u32*)(t + 1416);
-        f32 f = a->k;
-        Sub37* s = *(Sub37**)(o + 1164);
-        switch (s->st) {
-        case 3:
-            if (s->f436 == 0.0f) break;
-        case 1:
-            if (fl & 0x800) f *= D_00352130__67414->f96;
-            func_00179a68(o, f);
-            break;
-        case 2:
-            f = -f * D_00352130__67414->f116;
-            if (fl & 0x800) f *= D_00352130__67414->f100;
-            func_001a1b68__67414(s, f);
-            break;
-        }
-    }
-    func_00177760(o, t, v, a);
-}
+// 001798d8: moved to src/yasui/libys/player.cpp
 
 struct V38 {
     f32 x, y, z, w;

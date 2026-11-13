@@ -208,22 +208,7 @@ static inline u8 busy(u8* p) {
     return r;
 }
 
-s32 func_00179308(u8* p) {
-    s32 r = func_001c3618(func_00177860(p), 3);
-    if (r > 0 && !busy(p) && func_0019c090(p) && func_001b9d40(p)) {  // obj_is_enabled
-        u8* e = func_001ce300(r);  // to_1ce2a0_index_minus1
-        f32 d = func_00184a90(p) - *(f32*)(func_0016c028(p) + 4) > 0.0f
-                    ? func_00184a90(p) - *(f32*)(func_0016c028(p) + 4) : 0.0f;
-        if (*(f32*)(e + 52) < d) {
-            *(u8**)(p + 240) = e;
-            if (*(f32*)(p + 28) == 0.0f) func_0016bd60(p, 17);
-            else func_0016bd60(p, 18);
-            *(u32*)(p + 268) |= 4;
-            return 1;
-        }
-    }
-    return 0;
-}
+// 00179308: moved to src/yasui/libys/player.cpp
 }
 // ---- 00198ee8
 extern "C" {

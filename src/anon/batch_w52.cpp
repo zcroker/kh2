@@ -167,16 +167,7 @@ void func_00173ce8(Ref173* p) {
 u32 func_00198510(u8*);
 // 001759f0: moved to src/yasui/libys/party.cpp
 
-// Sets and normalizes the direction at +2176 (VU0), stores f at +2188.
-void func_001846a0(u8* p, Vec4* v, f32 f) {
-    Vec4* d = (Vec4*)(p + 2176);
-    if (d != v) QCOPY(d, v);
-    asm volatile("lqc2 $vf1, 0(%0)\n\tvmul.xyz $vf2, $vf1, $vf1\n\tvaddy.x $vf2, $vf2, $vf2y\n\tvaddz.x $vf2, $vf2, $vf2z\n\t"
-                 "vsqrt Q, $vf2x\n\tvwaitq\n\tcfc2.ni $8, $vi22\n\tvaddq.x $vf2, $vf0, Q\n\tmtc1 $8, $f0\n\tvnop\n\t"
-                 "vdiv Q, $vf0w, $vf2x\n\tvwaitq\n\tvmulq.xyz $vf1, $vf1, Q\n\tsqc2 $vf1, 0(%0)"
-                 : : "r"(d) : "$8", "$f0", "memory");
-    *(f32*)(p + 2188) = f;
-}
+// 001846a0: moved to src/anon/unit_00183088.cpp
 
 u32 func_00188398(u8*, u32, u32*, u32);
 // 00188340: moved to src/anon/unit_00185d10.cpp

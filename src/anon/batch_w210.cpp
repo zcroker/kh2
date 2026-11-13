@@ -25,12 +25,7 @@ void func_001712b0(A171* a) {
     if (!(o->fl & 0x10)) func_001ad990((char*)o + 2092, 0.0f, 1.0f, f);
 }
 
-void func_00178570(char* a) {
-    // VU0: zero vector store
-    asm volatile("vsub.xyzw $vf1,$vf0,$vf0\n sqc2 $vf1,0(%0)" :: "r"(a + 16) : "memory");
-    char* t = *(char**)(a + 0xb44);
-    if (0.0f < *(f32*)(t + 0xa3c) && *(f32*)(t + 0xa34) < 0.0f) *(f32*)(a + 0x14) = -1.0f;
-}
+// 00178570: moved to src/yasui/libys/player.cpp
 
 u32 func_00271828(u32 i, u32 b) {
     u32 s = b;

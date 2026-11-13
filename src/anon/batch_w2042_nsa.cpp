@@ -84,28 +84,6 @@ static inline W2042Vec w2042_add(const W2042Vec& a, const W2042Vec& b) {
     return r;
 }
 
-s32 func_00184780(W2042Obj* o, W2042Vec* dir, f32 s, f32 d, f32 e) {
-    W2042Seg seg;
-    W2042Vec A, B, C, D, o1, o2;
-    A = *func_0016c028(o);
-    B = *dir;
-    B.y = 0;
-    w2042_norm(&B);
-    C = A;
-    C.y -= d;
-    D = w2042_add(C, w2042_mul(B, s));
-    seg.a = C;
-    seg.b = D;
-    if (func_00143ae0(&seg, &o1, &o2, o->k & 0xf)) return 3;
-    C = D;
-    C.y += d + e;
-    seg.a = D;
-    seg.b = C;
-    if (!func_00143ae0(&seg, &o1, &o2, o->k & 0xf)) return 3;
-    f32 f = o->r * 0.4f;
-    if (o1.y < A.y - f) return 1;
-    if (A.y + f < o1.y) return 2;
-    return 0;
-}
+// 00184780: moved to src/anon/unit_00183088.cpp
 
 }

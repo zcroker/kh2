@@ -169,19 +169,7 @@ void trap_bg_cross_pos(u32* v) {
     v[0] = func_001a7588(v[0], b, c, v[3]);
 }
 
-s32 func_00179c80(u8* p) {
-    s32 r = 0;
-    if (*(s32*)(p + 2896) == 7) {
-        s32 x = *(s32*)(p + 340);
-        if (x == 203) goto yes;
-        if (x == 204) goto yes;
-        goto no;
-    yes:
-        r = 1;
-    }
-no:
-    return r;
-}
+// 00179c80: moved to src/yasui/libys/player.cpp
 
 // 00180408: moved to src/anon/unit_00180408.cpp
 

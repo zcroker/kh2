@@ -155,23 +155,7 @@ f32 func_001bbfd0(void);
 void func_001a1aa0(void*, s32);  // ring_buffer_index
 void func_001a1b68(void*, f32);
 static inline bool Is12(u8* p) { return *(s32*)(p + 2896) == 12; }
-void func_00179a68(u8* p, f32 f) {
-    u8* q = *(u8**)(p + 1164);
-    switch (q[431]) {
-    case 2:
-        if (Is12(p)) break;
-    case 3:
-        func_001a1b68(q, f * D_00352130->f112);
-        break;
-    case 1:
-        if (func_001a1de0(q)) {
-            f *= D_00352130->f120 * func_00177860(p)->f60;
-        }
-        f *= func_001bbfd0();
-        func_001a1aa0(*(u8**)(p + 1164), (s32)f);  // ring_buffer_index
-        break;
-    }
-}
+// 00179a68: moved to src/yasui/libys/player.cpp
 
 // Drops every node of the list at +396 that is no longer alive.
 struct LNode { u8 _0[44]; LNode* next; };
@@ -204,20 +188,7 @@ s32 func_0019bb18(u8*);  // obj_is_blocked
 s32 func_00144d10(u8*, u8*);
 s32 func_002cf1f8(u8*, u8*);
 void func_001b7a18(u32, u32, u32);
-void func_00183848(u8* a, u32 b) {
-    u8* o = 0;
-    while ((o = func_001b9bc8(o)) != 0) {
-        if (!func_0019bb18(o)) continue;
-        if (*(u8**)(a + 1392) == o) continue;
-        if (*(u8**)(o + 1392) == a) continue;
-        if (o == a) continue;
-        if (*(u32*)(a + 2224) && *(u32*)(o + 2224)) {
-            if (!func_00144d10(a + 1856, o + 1856)) continue;
-        }
-        if (!func_002cf1f8(a, o)) continue;
-        func_001b7a18(*(u32*)(a + 2088), *(u32*)(o + 2088), b);
-    }
-}
+// 00183848: moved to src/anon/unit_00183088.cpp
 
 void func_001980d0(void*);
 void func_0018c420(void*);

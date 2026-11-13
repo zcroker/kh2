@@ -145,14 +145,7 @@ u32 func_00194898(void);
 void func_00140d38(u32, s32);
 void func_001586b8(void);
 void func_00159700(void);
-void func_00178100(u32 a) {
-    switch (D_0034ece8) {
-    case 0: func_00140d38(a, func_00194898() != 0); break;
-    case 1: func_00140d38(a, 0); func_00159700(); break;
-    case 2: func_00140d38(a, 2); break;
-    case 3: func_00140d38(a, 0); func_001586b8(); break;
-    }
-}
+// 00178100: moved to src/yasui/libys/player.cpp
 // ---- 00187a18
 u8* func_00187ab8(u32, u32);
 u8* func_00187b30(u32);

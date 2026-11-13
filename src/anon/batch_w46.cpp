@@ -168,13 +168,7 @@ void func_00172a80(u8*** p) {
 // ---- 0017a418
 void func_001d6ae0(u32);
 void func_001d6b40(u32);
-void func_0017a418(u8* p, s32 m) {
-    switch (m) {
-    case 1: func_001d6ae0(*(u32*)(p + 2876)); break;
-    case 2: func_001d6b40(*(u32*)(p + 2876)); break;
-    }
-    p[2916] = m;
-}
+// 0017a418: moved to src/yasui/libys/player.cpp
 
 // ---- 0017ce10: wrap an angle into [-pi, pi] (func_002f8b00 = fmodf)
 f32 func_002f8b00(f32, f32);  // to_2f9a38
