@@ -122,7 +122,7 @@ void func_00159c58(s32, s32);
 void func_0015a768(s32, s32);
 
 void func_001008d0(BD_VALUE* bd) { func_001007c0(bd); }
-void func_00102670(BD_VALUE* bd) { func_001025f8(bd); }
+// 00102670: moved to src/global/unit_001022c0.cpp
 void func_00103398(BD_VALUE* bd) { func_001033d8(bd); }
 void func_00109e18(BD_VALUE* bd) { func_00133e50(bd); }
 void func_00109e90(BD_VALUE* bd) { func_001340e8(bd); }
@@ -1453,13 +1453,7 @@ extern u32 D_00369928;
 extern u32 D_00347f98;
 extern u32 D_00348698;
 
-u32 func_00102c80(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a0;
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    return (u32)&D_0032b968;
-}
+// 00102c80: getFieldMode, moved to src/common/unit_00102a70.cpp
 
 // 00103070: moved to src/common/title.cpp
 
@@ -2227,13 +2221,7 @@ extern u32 D_01d49324;
 extern u32 D_01dad910;
 extern u32 D_01e2a560;
 
-void func_00102b58(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    u32 v = (u32)((s32)1);
-    *(u8*)&D_0032b998 = (u8)v;
-}
+// 00102b58: moved to src/common/unit_00102a70.cpp
 
 u32 func_001058d8(u32 a0, u32 a1, u32 a2, u32 a3) {
     (void)a1;

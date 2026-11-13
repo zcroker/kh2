@@ -8,15 +8,7 @@ struct Ow223 { u32 f0; u32 f4; Ls223 l; u8 q[0x110 - 16]; Nd223* cur; };
 extern void func_001022e8(Nd223*);
 
 void func_001025f8(Ow223* o, Nd223* n) asm("_Z13func_001025f8Pv");
-void func_001025f8(Ow223* o, Nd223* n) {
-    if (n == o->cur) o->cur = n == 0 ? o->l.head : n->next;
-    Ls223* l = &o->l;
-    if (n->prev == 0) l->head = n->next; else n->prev->next = n->next;
-    asm volatile("" ::: "memory");
-    if (n->next == 0) l->tail = n->prev; else n->next->prev = n->prev;
-    n->prev = 0; n->next = 0;
-    func_001022e8(n);
-}
+// 001025f8: moved to src/global/unit_001022c0.cpp
 
 // hand-written VU0 code: 5 planes x 8 points dot-product test (whole body in asm)
 void func_00146cb0(void) __attribute__((noreturn));

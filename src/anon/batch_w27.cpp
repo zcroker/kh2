@@ -26,19 +26,7 @@ struct S102c90 {
 };
 extern S102c90 D_0032b968;
 extern u32 D_0032b930;
-void wtarget_00102c90(u32 a, u32 b, u32, u32) {
-    if (b == 0xffff && a == 1) {
-        D_0032b968.vt = &D_0032b930;
-        D_0032b968.f4 = 0;
-        D_0032b968.f8 = 70;
-        D_0032b968.f20 = a;
-        D_0032b968.f24 = 0x1fbd0;
-        D_0032b968.f28 = 0;
-        D_0032b968.f32 = 0;
-        D_0032b968.f36 = 0;
-        D_0032b968.f40 = 14336;
-    }
-}
+// 00102c90: static init of the field mode object, moved to src/common/unit_00102a70.cpp
 
 struct Entry108930 { u32 mask; u32 data; };
 void* func_00108930(u8* p, s32 bit) {  // test_bit_of_field44

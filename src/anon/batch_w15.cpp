@@ -8,13 +8,7 @@ extern "C" {
 
 struct Node38 { u32 key; u8 _4[52]; Node38* next; };
 struct List8 { u32 _0; u32 _4; Node38* head; };
-int func_00102a38(List8* list, u32 key) {  // list_contains_id
-    Node38* n = 0;
-    while ((n = !n ? list->head : n->next) != 0) {
-        if (n->key == key) return 1;
-    }
-    return 0;
-}
+// 00102a38: moved to src/global/unit_001022c0.cpp
 
 extern u8 D_00346b08;
 void func_00113668(void*);

@@ -1264,26 +1264,7 @@ static inline Task2* Next2(Mgr2* m, Task2* t, u32 mask, u32 val)
     return t;
 }
 void wtarget_001028b0(Mgr2* m, u32 mask, u32 val) asm("_Z16wtarget_001028b0jjjj");
-void wtarget_001028b0(Mgr2* m, u32 mask, u32 val)
-{
-    Task2* t = Next2(m, 0, mask, val);
-    while (t) {
-        m->it = Next2(m, t, mask, val);
-        Task2* saved = D_0032b940.p;
-        D_0032b940.p = t;
-        m->cur = t;
-        func_00102350_x1325(t);
-        D_0032b940.p = saved;
-        m->cur = 0;
-        if (!t->state) func_001025f8(m, t);
-        Task2* n = m->it;
-        if (n && (n->flags & mask) != val) {
-            n = Next2(m, n, mask, val);
-            m->it = n;
-        }
-        t = n;
-    }
-}
+// 001028b0: moved to src/global/unit_001022c0.cpp
 
 struct VObj5 { void** vt; };
 struct Snd5 { u32 a; VObj5* dev; u8 pad[128]; u32 h; };
@@ -10367,10 +10348,7 @@ void func_00298988() {
 extern f32 D_00349e10;
 void func_00105620(u8*, u8*);
 union U102470 { u8* p; f32 f; };
-void func_00102470(u8* p, f32 x) {
-    ((U102470*)(((U102470*)(p + 52))->p + 248))->f = x - D_00349e10;
-    func_00105620(((U102470*)(p + 52))->p, ((U102470*)(p + 36))->p + 32);
-}
+// 00102470: moved to src/global/unit_001022c0.cpp
 
 // --------------------
 extern u64 D_0036b0d0;
@@ -10633,15 +10611,7 @@ static inline N102688* Next102688(M102688* m, N102688* p, u32 mask, u32 v)
     return p;
 }
 void wtarget_00102688(M102688* m, u32 mask, u32 v, u32) asm("_Z16wtarget_00102688jjjj");
-void wtarget_00102688(M102688* m, u32 mask, u32 v, u32)
-{
-    N102688* p = Next102688(m, 0, mask, v);
-    while (p) {
-        N102688* n = Next102688(m, p, mask, v);
-        func_001025f8__102688(m, p);
-        p = n;
-    }
-}
+// 00102688: moved to src/global/unit_001022c0.cpp
 
 // --------------------
 struct E182fa0 { u32 a; u32 b; u32 c; };
@@ -10848,36 +10818,7 @@ s32 func_00105550__102350(u8*) asm("func_00105550");
 void func_00105710__102350(void) asm("func_00105710");
 void func_001055b8__102350(C102350*) asm("_Z13func_001055b8Pv");
 C102350* func_00105728__102350(void) asm("func_00105728");
-void func_00102350(T102350* t)
-{
-    C102350* c;
-    s32 r;
-    if (t->co == 0) {
-        t->fn(t);
-        return;
-    }
-    func_001056e8__102350(t->q + 32);
-    r = func_00105550__102350(t->q + 32);
-    if (r != 0) {
-        if (r == 1) t->fn = 0;
-    } else {
-        c = t->co;
-        if (!c->started) {
-            c->started = 1;
-            // Switch to the coroutine's own stack (hand-written stack swap).
-            asm volatile("move $sp,%0" : : "r"((u8*)t->co + t->co->size + 256));
-            t->fn(t);
-            func_001055b8__102350(func_00105728__102350());
-        } else if (c->wait > 0) {
-            c->wait--;
-        } else if (c->timer > 0.0f) {
-            c->timer -= D_00349e10;
-        } else {
-            func_001055b8__102350(c);
-        }
-    }
-    func_00105710__102350();
-}
+// 00102350: moved to src/global/unit_001022c0.cpp
 
 // --------------------
 struct A105400 { u8 a, b, c; };

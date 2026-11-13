@@ -131,16 +131,7 @@ struct Allocator { void* (**vt)(Allocator*, u32, void*); };
 struct Obj { void (**vt)(Obj*); };
 
 // Allocates a 288-byte object from the allocator and initialises it.
-u32* func_001024b0(Allocator* a) {
-    u32* p = (u32*)a->vt[0](a, 288, __builtin_return_address(0));
-    p[1] = (u32)a;
-    p[68] = 0;
-    p[3] = 0;
-    p[2] = 0;
-    p[4] = 0;
-    p[0] = (u32)D_0032b950;
-    return p;
-}
+// 001024b0: moved to src/global/unit_001022c0.cpp
 
 // Counts objects that are not culled.
 s32 func_001182d0(void) {
