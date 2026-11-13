@@ -216,13 +216,7 @@ void func_00190a28(void* t, u8* o) {
     target_set_obj(t, v, 0);
 }
 
-void func_001922c8(s32 i) {
-    void* p = D_01c61970[i * 2];
-    if (p) {
-        cache_free(p);
-        func_00192028(i);
-    }
-}
+// 001922c8: moved to src/yasui/libys/message.cpp
 
 void func_00198b88(void) {
     u8* p;

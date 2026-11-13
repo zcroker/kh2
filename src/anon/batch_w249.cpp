@@ -31,18 +31,7 @@ one:
 struct S24 { u32 w[6]; };
 struct P2 { u32 x, y; };
 void* func_00192868(void*, void*, S24*, P2*);
-void func_00192990(void* a0, void* a1, S24 c, P2* a3) {
-    P2 l;
-    l.x = 0; l.y = 0;
-    a3->x = 0; a3->y = 0;
-    while (a0) {
-        a0 = func_00192868(a0, a1, &c, &l);
-        a3->x = l.x < a3->x ? a3->x : l.x;
-        a3->y = l.y < a3->y ? a3->y : l.y;
-    }
-    a3->x = (a3->x + 1) & ~1;
-    a3->y = (a3->y + 1) & ~1;
-}
+// 00192990: moved to src/yasui/libys/message.cpp
 struct Ent292 { s32 a; s32 b; s32 c; s32 d; };
 union G292p { Ent292* p; s32* q; void* v; s32 i; u8 c; };
 extern G292p D_0035f4e4;

@@ -193,14 +193,7 @@ Prop4* func_00168b38(void*, u32, u32);  // entry_array_find_nth
 void func_001aadb0(u32);
 static inline bool has4(Prop4* p) { return p && p->val; }
 
-void func_00191f78(s32 idx, void* obj) {
-    Slot4* s = &D_01c61970[idx];
-    s->obj = obj;
-    Prop4* p = func_00168b38(obj, 2, 0);  // entry_array_find_nth
-    if (has4(p)) s->val = p->val; else s->val = 0;
-    p = func_00168b38(obj, 24, 0);  // entry_array_find_nth
-    if (has4(p)) func_001aadb0(p->val);
-}
+// 00191f78: moved to src/yasui/libys/message.cpp
 
 /* ---- 0019a610 ---- */
 struct Rec5 { s16 h[5]; };

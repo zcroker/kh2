@@ -565,16 +565,7 @@ s32 func_00184eb8(U1_Eff* o, u32 id, void* t) {
     o->eff = func_002cd018(o, s, func_0016c028(o), 8.0f);
     return 1;
 }
-void func_001920f0(u32 a) {
-    s32 i, j, k = 0;
-    for (i = 0; i < 3; i++) {
-        for (j = 0; j < 2; j++) {
-            func_00192cc0(D_01c61a88[k], D_0036cd70, func_001d96e8(i, j));
-            k++;
-        }
-    }
-    func_00192e50(a, D_01c61988, 256, D_01c61a88[0], D_01c61a88[1], D_01c61a88[2], D_01c61a88[3], D_01c61a88[4], D_01c61a88[5]);
-}
+// 001920f0: moved to src/yasui/libys/message.cpp
 s32 func_0019bd08(U1_Lk* o, s32 n) {
     if (!o->lock) return 0;
     if (func_0019f528(o->b, n)) return 1;

@@ -214,12 +214,7 @@ extern const char D_0036cda0[];
 void func_002fee78(char*, const char*, u32);
 u32 func_001b1490(const char*);
 void func_00191f78(s32, u32);
-void func_00192320(void) {
-    char buf[48];
-    for (s32 i = 0; i < 3; i++) D_01c61970[i].a = 0;
-    func_002fee78(buf, D_0036cda0, D_0033caf4);
-    func_00191f78(1, func_001b1490(buf));
-}
+// 00192320: moved to src/yasui/libys/message.cpp
 
 struct S1964d8 { u8 a, b, c; u16 d, e, f; };
 S1964d8 func_00196328(u32);

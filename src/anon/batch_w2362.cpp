@@ -22,19 +22,7 @@ void* func_0016ac38(Obj* o, s32 id, s32 a, s32 b, Obj* owner) {
     return func_001de168(e, id, a, 1, b, owner);
 }
 
-// Decodes the text code at p[i]: plain codes >= 32, two-byte codes 25..31 + next byte, else -1.
-s32 func_00192450(u8* p, s32 i) {
-    u32 c = p[i];
-    s32 r = c - 32;
-    if (c < 32) {
-        if ((u8)(c - 25) < 7) {
-            i++;
-            return ((c - 25) << 8) + p[i] + 0xe0;
-        }
-        return -1;
-    }
-    return r;
-}
+// 00192450: moved to src/yasui/libys/message.cpp
 
 // Looks up entry n (kind 9) in the holder's table and returns its value, 0 if none.
 s32 func_00161548(Holder* h, s32 n) {

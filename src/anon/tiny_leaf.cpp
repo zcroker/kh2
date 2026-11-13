@@ -188,13 +188,7 @@ void func_00188948(u32 a0, u32 a1, u32 a2, u32 a3) {
 
 // 00191a20: moved to src/yasui/libys/status.cpp
 
-u32 func_00192440(u32 a0, u32 a1, u32 a2, u32 a3) {  // is_byte_lt25
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u;
-    r4 = (u32)(r4 + r5);
-    r2 = (u32)(*(u8*)((u32)r4 + (s32)(0)));
-    r2 = ((u32)r2 < 0x00000019u);
-    return r2;
-}
+// 00192440: moved to src/yasui/libys/message.cpp
 
 void func_00197e68(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r13 = 0u, r14 = 0u, r15 = 0u;

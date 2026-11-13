@@ -158,7 +158,7 @@ void func_00186008(BD_VALUE* bd);
 // 00187850: moved to src/anon/unit_00185d10.cpp
 void func_00187850(BD_VALUE* bd);
 void func_0018c420(BD_VALUE* bd) { func_0018c438(bd); }
-void func_00192800(BD_VALUE* bd) { func_00192528(bd); }
+// 00192800: moved to src/yasui/libys/message.cpp
 void func_00195738(BD_VALUE* bd) { func_00195750(bd); }
 void func_001acda8(BD_VALUE* bd) { func_001ac700(bd); }
 void func_001b20f0(BD_VALUE* bd) { func_0017c578(bd); }

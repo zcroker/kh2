@@ -103,9 +103,7 @@ void func_00189228(u8* p, u32 i) {
 u32 func_001921d8(u32);
 void func_00170518(u32, u32, u32);
 void msg_read(u32 a, u32 b) asm("_ZN2YS7MESSAGE4ReadEii");
-void msg_read(u32 a, u32 b) {
-    func_00170518(func_001921d8(a), b, 0);
-}
+// read: moved to src/yasui/libys/message.cpp
 
 void func_001dc878(u32);
 void func_0016b668(void*);

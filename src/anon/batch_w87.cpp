@@ -155,37 +155,7 @@ s32 func_00192440(char*, s32);  // is_byte_lt25
 void memcpy(char*, char*, s32);
 s32 func_00192c40(s32, char*);
 char* func_00192388(char*);  // skip_control_codes
-char* func_00192e50(char* s, char* out, s32 unused, ...) {
-    va_list ap;
-    va_start(ap, unused);
-    char* start = s;
-    char* ret = out;
-    if (s) {
-        do {
-            if (func_00192440(s, 0)) {  // is_byte_lt25
-                u8 c = *s;
-                s32 n;
-                if (c != 0) {
-                    if (c == 13) {
-                        n = s - start;
-                        if (n > 0) {
-                            memcpy(out, start, n);
-                            out += n;
-                        }
-                        out += func_00192c40(va_arg(ap, s32), out);
-                        start = s + 1;
-                    }
-                } else {
-                    n = s - start + 1;
-                    memcpy(out, start, n);
-                    out += n;
-                }
-            }
-        } while ((s = func_00192388(s)) != 0);  // skip_control_codes
-    }
-    va_end(ap);
-    return ret;
-}
+// 00192e50: moved to src/yasui/libys/message.cpp
 
 // ---- 0x196540: id -> message ----
 void func_001963c8(s32);

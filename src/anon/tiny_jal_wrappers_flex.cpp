@@ -524,15 +524,7 @@ u32 func_0018fc80(u32 a0, u32 a1, u32 a2, u32 a3) {
     return r2;
 }
 
-u32 func_00192c90(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u, r16 = 0u;
-    r16 = r5;
-    r2 = YS_MESSAGE_copy(r4, r5, r6, r7);
-    r16 = (u32)(r16 + r2);
-    *(u8*)((u32)r16 + (s32)(0)) = (u8)0u;
-    r2 = (u32)((s32)r2 + (1));
-    return r2;
-}
+// 00192c90: moved to src/yasui/libys/message.cpp
 
 u32 func_0019fb48(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u, r16 = 0u;

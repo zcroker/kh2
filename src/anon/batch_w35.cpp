@@ -104,9 +104,7 @@ void partram_add_ability(u8* self, s32 id, u8 on) {
 
 struct S24 { u32 w[6]; };
 void func_00192868(u32, u32, S24);
-void func_00192940(u32 a, u32 b, S24 s) {
-    func_00192868(a, b, s);
-}
+// 00192940: moved to src/yasui/libys/message.cpp
 
 struct E56 { u32 a, b; u16* p; u8 pad[44]; };
 extern s32 D_00350440;
