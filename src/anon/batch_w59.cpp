@@ -403,14 +403,7 @@ u32 func_001050c8(void);
 void func_00236a58(u8*, u32, u32);
 void func_0023c100(u8*, u32, u8*, u32);
 extern u8* D_0035e2e8;
-void func_0022b898(void) {
-    func_0023fa90(D_0035e2e8, func_0022b7f0());
-    u32 a = func_0023f908(D_0035e2e8, 0);
-    u32 b = func_0023f948(D_0035e2e8, 0);
-    u32 c = func_001050c8();
-    func_00236a58(D_0035e2e8 + 120, a, c);
-    func_0023c100(D_0035e2e8 + 28, b, D_0035e2e8 + 120, c);
-}
+void func_0022b898(void);  // 0022b898: moved to src/sasa/musical_2d.cpp (linked unit)
 
 // --- 00263960
 // Store the parameters, then allocate and construct the 460-byte object.

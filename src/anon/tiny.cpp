@@ -223,7 +223,7 @@ void func_00162070(BD_VALUE* bd) { func_00161f48(0); }
 void func_001ae678(BD_VALUE* bd) { func_00306698(10); }
 void func_001ae690(BD_VALUE* bd) { sceGsSyncV(0); }
 void func_00225248(BD_VALUE* bd) { func_001398d0(11); }
-void func_0022b930(BD_VALUE* bd) { func_001397d8(11); }
+// 0022b930: moved to src/sasa/musical_2d.cpp (linked unit)
 void func_0025f698(BD_VALUE* bd) { func_002634c8(0); }
 void func_0026d168(BD_VALUE* bd) { func_00257530(1); }
 void func_0028ff00(BD_VALUE* bd) { func_00258df0(bd[1].i); }

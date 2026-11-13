@@ -263,30 +263,11 @@ u32 func_00226fa8(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_00225298(r4, r5, r6, r7);
 }
 
-u32 func_0022b948(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r15 = 0u;
-    r15 = (u32)(0x0036u << 16);
-    r4 = *(u32*)((u32)r15 + (s32)(-7448));
-    return func_0023fad0(r4, r5, r6, r7);
-}
+// 0022b948: moved to src/sasa/musical_2d.cpp (linked unit)
 
-u32 func_0022b9b8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r15 = 0u;
-    r15 = (u32)(0x0036u << 16);
-    r5 = 0u;
-    r4 = *(u32*)((u32)r15 + (s32)(-7448));
-    r4 = (u32)((s32)r4 + (120));
-    return func_00236cc0(r4, r5, r6, r7);
-}
+// 0022b9b8: moved to src/sasa/musical_2d.cpp (linked unit)
 
-u32 func_0022b9e0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r15 = 0u;
-    r15 = (u32)(0x0036u << 16);
-    r5 = 0u;
-    r4 = *(u32*)((u32)r15 + (s32)(-7448));
-    r4 = (u32)((s32)r4 + (28));
-    return func_0023c4b8(r4, r5, r6, r7);
-}
+// 0022b9e0: moved to src/sasa/musical_2d.cpp (linked unit)
 
 u32 func_00242fa0(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r14 = 0u, r15 = 0u;

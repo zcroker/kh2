@@ -237,11 +237,7 @@ extern char D_00371138[];
 extern u32 D_0033caf4;
 void func_002fee78(char*, const char*, ...);
 void strlen(char*);  // strlen
-char* func_0022b7f0(void) {
-    func_002fee78(D_01dad938, D_00371138, D_0033caf4);
-    strlen(D_01dad938);  // strlen
-    return D_01dad938;
-}
+char* func_0022b7f0(void);  // 0022b7f0: moved to src/sasa/musical_2d.cpp (linked unit)
 
 // Appends a type-9 record to the 64-entry ring buffer; returns its serial.
 struct REnt { u32 type, id, a, b, c, d; u32 pad[2]; };
