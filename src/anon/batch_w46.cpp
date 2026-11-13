@@ -151,12 +151,7 @@ static inline Node160* Next160(Node160* n) {
     if (!n) return D_004f3b38;
     return n->next;
 }
-void wtarget_00160de0(u32 id, u32, u32, u32) {
-    Node160* n = 0;
-    while ((n = Next160(n))) {
-        if (n->id == id) func_00160d28(n);
-    }
-}
+// 00160de0: moved to src/harata/libdk/bgobj.cpp
 
 // ---- 00172a80
 struct Fl172 { u32 pad; u32 on : 1; };

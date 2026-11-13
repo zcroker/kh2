@@ -70,10 +70,7 @@ static inline Node161248* next161248(Node161248* n) {
     if (!n) return D_004f3b38;
     return n->next;
 }
-void func_00161248(f32 x, u32 a) {
-    Node161248* n = 0;
-    while ((n = next161248(n)) != 0) func_00160940(n, a, x);
-}
+// 00161248: moved to src/anon/unit_001611a8.cpp
 
 u8* func_001a6a20(u32, u32);
 s32 func_00176a90(u32);

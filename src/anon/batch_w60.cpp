@@ -213,16 +213,7 @@ void func_00152688(u8* a, void* b, void* c, void* d) {
 
 // 00159308: moved to src/anon/unit_00159240.cpp
 
-void func_001608c0(u8* p) {
-    u32 tmp[4] __attribute__((aligned(16)));
-    func_00144908(p + 656, tmp);
-    if (p + 640 != (u8*)tmp) QCOPY(p + 640, tmp);
-    void* r = func_0016b0d0();
-    if (r) {
-        f32 y = func_0016c028(r)[1];
-        if (*(f32*)(p + 660) <= y && y <= *(f32*)(p + 672)) *(f32*)(p + 644) = y;
-    }
-}
+// 001608c0: moved to src/harata/libdk/bgobj.cpp
 
 struct Flags167 { u32 a : 1; u32 b : 1; };
 static inline bool flagA167(u8* p) { return ((Flags167*)(p + 72))->a; }

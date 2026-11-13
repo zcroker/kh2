@@ -3053,14 +3053,7 @@ static inline void VCopyM(M4* d, M4* s)
 }
 void func_0011b6a8(M4*);
 M4* func_0011b7b0(M4*, u8*);
-void func_001604f8(u8* p)
-{
-    M4* m = (M4*)(p + 16);
-    func_0011b6a8(m);
-    VCopyM(m, func_0011b7b0(m, p + 96));
-    asm volatile("lqc2 $vf1, 48(%0)\n\tlqc2 $vf2, 0(%1)\n\tvadd.xyz $vf1, $vf1, $vf2\n\tsqc2 $vf1, 48(%0)" : : "r"(m), "r"(p + 80) : "memory");
-    asm volatile("lqc2 $vf4, 0(%1)\n\tlqc2 $vf1, 0(%0)\n\tlqc2 $vf2, 16(%0)\n\tlqc2 $vf3, 32(%0)\n\tvmulx.wxyz $vf1, $vf1, $vf4x\n\tvmuly.wxyz $vf2, $vf2, $vf4y\n\tvmulz.wxyz $vf3, $vf3, $vf4z\n\tsqc2 $vf1, 0(%0)\n\tsqc2 $vf2, 16(%0)\n\tsqc2 $vf3, 32(%0)" : : "r"(m), "r"(p + 112) : "memory");
-}
+// 001604f8: moved to src/harata/libdk/bgobj.cpp
 s32 func_0019c5d0(u8*);
 u32 func_0016ac38(u8*, s32, s32, s32, s32);
 s32 func_001dc9e0(u32);

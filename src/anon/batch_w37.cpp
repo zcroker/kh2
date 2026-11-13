@@ -87,14 +87,7 @@ struct Obj160 { void** vt; u8 _4[128]; Obj160* next; u8 _88[248]; u32 flags; };
 extern struct { Obj160* head; u32 tail; } D_004f3b40;
 typedef void (*VFn0)(void*);
 static inline Obj160* nx160b(Obj160* o) { return !o ? D_004f3b40.head : o->next; }
-void func_00160b10(void) {
-    Obj160* o = 0;
-    while ((o = nx160b(o)) != 0) {
-        if (!(o->flags & 4)) ((VFn0)o->vt[2])(o);
-    }
-    D_004f3b40.head = 0;
-    D_004f3b40.tail = 0;
-}
+// 00160b10: moved to src/harata/libdk/bgobj.cpp
 
 void* func_0017ec98(void*);
 void* func_0017edf0(void*, void*);

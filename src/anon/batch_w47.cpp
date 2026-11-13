@@ -73,12 +73,7 @@ struct N160 { u8 pad[128]; N160* next; u8 pad2[292]; s32 key; };
 extern N160* D_004f3b38;
 void func_00160d38(N160*);
 static inline N160* Next160(N160* n) { if (!n) return D_004f3b38; return n->next; }
-void func_00160e50(s32 k) {
-    N160* n = 0;
-    while ((n = Next160(n))) {
-        if (n->key == k) func_00160d38(n);
-    }
-}
+// 00160e50: moved to src/harata/libdk/bgobj.cpp
 
 union U173 { f32 f[4]; u32 u[4]; } __attribute__((aligned(16)));
 extern U173 D_01c5f480;

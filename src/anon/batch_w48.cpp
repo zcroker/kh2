@@ -83,12 +83,7 @@ static inline u8* next160(u8* p) {
     if (!p) return D_004f3b38;
     return *(u8**)(p + 128);
 }
-void func_00160f10(s32 id) {
-    u8* p = 0;
-    while ((p = next160(p))) {
-        if (*(s32*)(p + 424) == id) func_001604d8(p);
-    }
-}
+// 00160f10: moved to src/harata/libdk/bgobj.cpp
 
 struct S10 { u8 a; u8 b; s16 c[4]; };
 extern S10 D_0032bae0;

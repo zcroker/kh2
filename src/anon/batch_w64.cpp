@@ -155,10 +155,7 @@ static inline u8* next_611a8(u8* n) {
 }
 
 // Applies func_00160488 to every node of the list.
-void func_001611a8(u8 a, u8 b, u8 c) {
-    u8* n = 0;
-    while ((n = next_611a8(n))) func_00160488(n, a, b, c);  // mix_color_channels
-}
+// 001611a8: moved to src/anon/unit_001611a8.cpp
 
 // ---------------------------------------------------------------------------
 // Sphere overlap: |a - b| <= a.r + b.r (radius in word 4).

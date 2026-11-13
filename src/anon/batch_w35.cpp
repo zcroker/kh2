@@ -37,16 +37,7 @@ Q16* func_0016c028(u32);  // obj_get_attach_or_alt
 // 00159ef8: moved to src/harata/libdk/targetcamera.cpp
 
 // Scales the base colour at +420 by (r, g, b)/128 into +680.
-void func_00160488(u8* p, u8 r, u8 g, u8 b) {  // mix_color_channels
-    u8 out[3];
-    u8* c = p + 420;
-    out[0] = (r * c[0]) >> 7;
-    out[1] = (g * c[1]) >> 7;
-    out[2] = (b * c[2]) >> 7;
-    p[680] = out[0];
-    p[681] = out[1];
-    p[682] = out[2];
-}
+// 00160488: moved to src/harata/libdk/bgobj.cpp
 
 // Plane test: d = dot(a.xyz, b.xyz) + b.w -> *out; 1 when 0 <= d <= a[4].
 s32 func_00162b18(f32* a, f32* b, f32* out) {  // vec3_dot_plus_scale

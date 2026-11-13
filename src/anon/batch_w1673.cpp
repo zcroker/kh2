@@ -201,43 +201,7 @@ struct L160bd8 { O160bd8* head; O160bd8* tail; };
 extern L160bd8 D_004f3b38;
 extern L160bd8 D_004f3b48;
 extern "C" {
-void func_00160bd8() {
-    O160bd8* p = D_004f3b48.head;
-    while (p) {
-        O160bd8* n = p->next;
-        if (p) ((void (*)(O160bd8*))p->vt[4])(p);
-        p = n;
-    }
-    D_004f3b48.head = 0;
-    D_004f3b48.tail = 0;
-    for (p = D_004f3b38.head; p; ) {
-        O160bd8* n = p->next;
-        if (p->flags) {
-            asm volatile("" ::: "memory");
-            O160bd8* prev;
-            if (p == D_004f3b38.head) {
-                prev = 0;
-                D_004f3b38.head = p->next;
-            } else {
-                prev = D_004f3b38.head;
-                while (prev->next != p) prev = prev->next;
-                prev->next = p->next;
-            }
-            if (p == D_004f3b38.tail) D_004f3b38.tail = prev;
-            p->next = 0;
-            if (!D_004f3b48.tail) {
-                D_004f3b48.tail = p;
-                D_004f3b48.head = p;
-                p->next = 0;
-            } else {
-                D_004f3b48.tail->next = p;
-                p->next = 0;
-                D_004f3b48.tail = p;
-            }
-        }
-        p = n;
-    }
-}
+// 00160bd8: moved to src/harata/libdk/bgobj.cpp
 }
 struct I20c580 { u8 pad[0x20]; u16 busy; u8 pad2[0xa0 - 0x22]; };
 struct M20c580 { I20c580* items; u8* buf; s32 n; s32 pad; u16 tick; };

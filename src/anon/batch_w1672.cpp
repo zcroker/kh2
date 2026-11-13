@@ -31,12 +31,7 @@ struct W2w1672 { u32 a; u32 b; };
 extern W2w1672 D_004f3b38;
 extern W2w1672 D_004f3b40;
 extern W2w1672 D_004f3b48;
-void wt_00161410(u32 a, u32 b, u32, u32) asm("_Z16wtarget_00161410jjjj");
-void wt_00161410(u32 a, u32 b, u32, u32) {
-    if (b == 0xffff && a == 1) { D_004f3b38.b = 0; D_004f3b38.a = 0; }
-    if (b == 0xffff && a == 1) { D_004f3b40.b = 0; D_004f3b40.a = 0; }
-    if (b == 0xffff && a == 1) { D_004f3b48.b = 0; D_004f3b48.a = 0; }
-}
+// 00161410: moved to src/anon/unit_001611a8.cpp (gcc makes the static init)
 
 /* hand-written VU0 spline interpolation */
 extern f32 D_003590a0[4];

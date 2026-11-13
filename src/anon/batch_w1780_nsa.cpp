@@ -28,15 +28,6 @@ struct Obj {
     u32 vt; Mgr* mgr; u8 pad[0x88]; V16 arr[8]; u8 m110[0xb0]; u32 h1c0;
 };
 
-void func_00160388(Obj* o) {
-    o->vt = (u32)D_0034c750;
-    Mgr* m = o->mgr; m->vt->rel(m, D_0034c738, o->h1c0);
-    func_00161530(o->m110);
-    if (o->arr) {
-        V16* p = o->arr + 8;
-        for (;;) { p->~V16(); if (o->arr == p) break; --p; }  // gcc pads this empty dtor loop with nops
-    }
-    D_0034c738->vt->free(D_0034c738, o);
-}
+// 00160388: moved to src/harata/libdk/bgobj.cpp
 
 }
