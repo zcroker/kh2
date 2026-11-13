@@ -74,53 +74,9 @@ extern W1809Heap* D_004f6288;
 void* func_0016d1a0(s32);
 void* func_0016d1d8(void*);
 
-void func_0016c808(W1809ObjC8* o, W1809InfoC8* info, void* a2, W1809RefC8* a3) {
-    o->f34 = a2;
-    o->f38 = a3;
-    o->info = info;
-    o->f1c = 0;
-    o->f20 = 0;
-    o->f24 = 0;
-    o->f30 = 0;
-    o->f2c = 0;
-    void* p = D_004f6288->vt->alloc(D_004f6288, info->sz14 + 256, __builtin_return_address(0));
-    o->f14 = p;
-    o->f8 = p;
-    p = D_004f6288->vt->alloc(D_004f6288, o->info->sz18 + 256, __builtin_return_address(0));
-    o->f18 = p;
-    o->fc = p;
-    if (o->f34 == 0) {
-        if (o->info->n10 > 0) o->f34 = func_0016d1a0(o->info->n10);
-    }
-    void* b = o->f34;
-    o->f10 = b ? func_0016d1d8(b) : 0;
-    o->f4 = 0;
-    if (o->f38) o->f38->refs++;
-}
+// 0016c808: moved to src/anon/unit_0016c770.cpp
 
-void func_0016c8f8(W1809ObjC8* o, W1809InfoC8* info, void* a2, W1809RefC8* a3) {
-    o->f34 = a2;
-    o->f38 = a3;
-    o->info = info;
-    o->f1c = 0;
-    o->f20 = 0;
-    o->f24 = 0;
-    o->f30 = 0;
-    o->f2c = 0;
-    void* p = D_004f6288->vt->alloc(D_004f6288, info->sz14 + 256, __builtin_return_address(0));
-    o->f14 = p;
-    o->f8 = p;
-    p = D_004f6288->vt->alloc(D_004f6288, o->info->sz18 + 256, __builtin_return_address(0));
-    o->f18 = p;
-    o->fc = p;
-    if (o->f34 == 0) {
-        if (o->info->n10 > 0) o->f34 = func_0016d1a0(o->info->n10);
-    }
-    void* b = o->f34;
-    o->f10 = b ? func_0016d1d8(b) : 0;
-    o->f4 = 0;
-    if (o->f38) o->f38->refs++;
-}
+// 0016c8f8: moved to src/anon/unit_0016c770.cpp
 
 extern s32 D_00361f60;
 s32 func_001c0cd8(void*);

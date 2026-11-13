@@ -252,44 +252,7 @@ s32 func_001da558(W268Vm*, void*, s32, s32);
 void func_0016ce90(W268Vm*);
 void func_0016cab8(W268Vm*);
 void func_0016c7d8(W268Vm*);
-s32 func_0016cd48(W268Vm* vm, W268Vm* parent)
-{
-    if (!(vm->flags & 2)) {
-        D_0034d8a4 = vm;
-        D_0034d8a0 = parent ? parent : vm;
-        s32 r = func_001da558(vm, D_0034dbf8, 0, 0);
-        D_0034d8a4 = 0;
-        D_0034d8a0 = 0;
-        if (r != 1) func_0016ce90(vm);
-    }
-    W268Vm* c = vm->kids.head;
-    while (c) {
-        W268Vm* nx = c->next;
-        if (func_0016cd48(c, vm) == 1) {
-            W268VmList* l = &vm->kids;
-            W268Vm* prev;
-            if (c == l->head) {
-                l->head = c->next;
-                prev = 0;
-            } else {
-                prev = l->head;
-                while (prev->next != c) prev = prev->next;
-                prev->next = c->next;
-            }
-            if (c == l->tail) l->tail = prev;
-            c->next = 0;
-            if (c) {
-                func_0016cab8(c);
-                func_0016c7d8(c);
-            }
-        }
-        c = nx;
-    }
-    if (vm->flags & 2) {
-        if (vm->kids.head == 0) return 1;
-    }
-    return 0;
-}
+// 0016cd48: moved to src/anon/unit_0016c770.cpp
 
 // VU0 macro code (sceVu0MulMatrix / sceVu0ApplyMatrix inlined) kept as inline asm.
 struct W268Mtx { f32 m[16]; } __attribute__((aligned(16)));

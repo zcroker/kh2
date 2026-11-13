@@ -10901,70 +10901,17 @@ void func_0016c698(u32 a0, u32 a1, u32 a2) {
     }
 }
 
-void func_0016ce90(u32 a0) {
-    u32 t6 = *(volatile u32*)((u32)a0 + (s32)(28));
-    u32 t7 = (u32)(t6 & 2u);
-    if (t7 != 0u) {
-        return;
-    }
-    u32 t5 = *(volatile u32*)((u32)a0 + (s32)(56));
-    if (t5 == 0u) {
-        t7 = (u32)(t6 | 2u);
-    } else {
-        t7 = *(volatile u32*)((u32)t5 + (s32)(1160));
-        t7 = (u32)((s32)t7 + (-1));
-        *(volatile u32*)((u32)t5 + (s32)(1160)) = t7;
-        t6 = *(volatile u32*)((u32)a0 + (s32)(28));
-        t7 = (u32)(t6 | 2u);
-    }
-    *(volatile u32*)((u32)a0 + (s32)(28)) = t7;
-}
+// 0016ce90: moved to src/anon/unit_0016c770.cpp
 
 extern "C" u32 func_0016cf00(...);
 
-void func_0016cfa0(u32 a0) {  // obj_list_insert
-    u32 s0 = a0;
-    u32 v0 = func_0016cf00(a0);
-    u32 t7 = (u32)((s32)s0 + (44));
-    u32 t6 = *(u32*)((u32)t7 + (s32)(4));
-    if (t6 != 0u) {
-        *(u32*)((u32)t6 + (s32)(40)) = v0;
-    } else {
-        *(u32*)((u32)t7 + (s32)(4)) = v0;
-        *(u32*)((u32)s0 + (s32)(44)) = v0;
-        *(u32*)((u32)v0 + (s32)(40)) = 0u;
-        return;
-    }
-    *(u32*)((u32)v0 + (s32)(40)) = 0u;
-    *(u32*)((u32)t7 + (s32)(4)) = v0;
-}
+// 0016cfa0: moved to src/anon/unit_0016c770.cpp
 
 extern u8 D_004f6288;
 
-void func_0016d1a0(u32 a0) {
-    u32 a1 = a0;
-    u32 a2 = (u32)__builtin_return_address(0);
-    u32 a0x = *(u32*)((u32)&D_004f6288 + (s32)(0));
-    u32 t7 = *(u32*)((u32)a0x + (s32)(0));
-    u32 v0 = *(u32*)((u32)t7 + (s32)(0));
-    u32 r = ((u32(*)(u32,u32,u32))v0)(a0x, (u32)((s32)a1 + (16)), a2);
-    *(u32*)((u32)r + (s32)(0)) = 0u;
-}
+// 0016d1a0: moved to src/anon/unit_0016c770.cpp
 
-void func_0016d1f0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {  // ref_release
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r14, r15;
-    r5 = r4;
-    r15 = ((u32*)(u32)r4)[0];
-    r15 = (u32)((s32)r15 + (-1));
-    ((u32*)(u32)r4)[0] = r15;
-    if (r15 == 0u) {
-        r15 = (u32)(0x004fu << 16);
-        r4 = ((u32*)(u32)r15)[6306];
-        r14 = ((u32*)(u32)r4)[0];
-        u32 f = ((u32*)(u32)r14)[1];
-        ((void(*)(u32,u32,u32,u32,u32,u32,u32,u32))(u32)f)(r4, r5, r6, r7, r8, r9, r10, r11);
-    }
-}
+// 0016d1f0: moved to src/anon/unit_0016c770.cpp
 
 f32 fabsf(f32);  // fabsf
 

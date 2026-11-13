@@ -12,22 +12,7 @@ extern W1531_TL D_004f6290;
 void func_0016cab8(W1531_TT*);
 void func_0016c7d8(W1531_TT*);
 
-void ttarget0_0016d110(void) asm("_Z17ttarget0_0016d110v");
-void ttarget0_0016d110(void) {
-    W1531_TT* nx;
-    W1531_TT* cur = D_004f6290.head;
-    W1531_TT* it = cur;
-    if (cur) {
-        do {
-            if (!it) nx = D_004f6290.head; else nx = it->next;
-            it = nx;
-            if (cur) { func_0016cab8(cur); func_0016c7d8(cur); }
-            cur = nx;
-        } while (nx);
-    }
-    D_004f6290.head = 0;
-    D_004f6290.count = 0;
-}
+// 0016d110: moved to src/anon/unit_0016c770.cpp
 
 extern W1531_Tab* D_01d48cb4;
 s32 func_001b7818(void*);

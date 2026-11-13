@@ -324,11 +324,7 @@ void dk::Fade::fadeOut(u32 a0, bool a1) {
 
 extern "C" void func_001da458(void*, u32);  // stream_init_fields
 extern "C" void func_0016ce90(void*, u32);
-void u_tail4_0016cba0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    *(u32*)(a0 + 28) = 0;
-    if ((s32)a1 > 0) func_001da458((void*)a0, a1);  // stream_init_fields
-    else func_0016ce90((void*)a0, a1);
-}
+// 0016cba0: moved to src/anon/unit_0016c770.cpp
 
 namespace YS {
 class SELECTOR {

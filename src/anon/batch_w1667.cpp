@@ -23,8 +23,7 @@ void func_002f8a88(void) { __ieee754_sqrt(); }
 
 void func_00113438(u8* p) { *(u32*)(p + 0xb7c) &= ~0x20000; }
 
-void wtarget_0016d0d8(u32 a, u32 b, u32 c, u32 d) asm("_Z16wtarget_0016d0d8jjjj");
-void wtarget_0016d0d8(u32 a, u32 b, u32 c, u32 d) { D_0034dbf8[a] = b; }
+// 0016d0d8: moved to src/anon/unit_0016c770.cpp
 
 u8 func_0019c158(u8* p) { return (*(u16*)(*(u8**)(p + 8) + 0x48) >> 3) & 1; }
 

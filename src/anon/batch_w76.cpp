@@ -169,23 +169,7 @@ extern void* D_004f6288;
 void func_0016d1f0(u32);
 void func_0016ce90(u8*);
 static inline void Kill(u8* n) { if (n) { func_0016cab8(n); func_0016c7d8(n); } }
-void func_0016c9e8(u8* o)
-{
-    if (*(u32*)(o + 36)) {
-        func_001da458(o, *(u32*)(o + 36), 0, 0);  // stream_init_fields
-        func_001da558(o, &D_0034dbf8, 0, 0);
-    }
-    u8* n = *(u8**)(o + 44);
-    while (n) {
-        u8* next = *(u8**)(n + 40);
-        Kill(n);
-        n = next;
-    }
-    (*(VFn2*)(*(u8**)D_004f6288 + 4))(D_004f6288, *(u32*)(o + 20));
-    (*(VFn2*)(*(u8**)D_004f6288 + 4))(D_004f6288, *(u32*)(o + 24));
-    if (*(u32*)(o + 52)) func_0016d1f0(*(u32*)(o + 52));
-    func_0016ce90(o);
-}
+// 0016c9e8: moved to src/anon/unit_0016c770.cpp
 
 s32 func_001b58a8(u8*, u32, u32, u32);
 void func_001b59c0(u8*, u32, u32, u32);

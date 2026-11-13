@@ -77,10 +77,7 @@ void func_0016ae18(u8* p) {
 
 typedef u32 (*VFn3)(void*, u32, void*);
 extern void* D_004f6288;
-u32 func_0016c7a0(u32 a) {
-    void* o = D_004f6288;
-    return (**(VFn3**)o)(o, a, __builtin_return_address(0));
-}
+// 0016c7a0: moved to src/anon/unit_0016c770.cpp
 
 void func_0016b010(void*, Vec4*);  // obj_set_float1644_from_pair
 void func_00171930(u8** p) {
