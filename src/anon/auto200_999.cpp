@@ -314,17 +314,7 @@ u32 func_0014c908() {
 
 void dk_RectParamBase_setColor(u32, u32, u32, u32,
                                u32) asm("_ZN2dk13RectParamBase8setColorEhhhh");
-void dk_RectParamBase_setColor(u32 a0, u32 a1, u32 a2, u32 a3, u32 t0) {
-    a1 &= 0xff;
-    a2 &= 0xff;
-    a3 &= 0xff;
-    asm volatile("" : "+r"(a1), "+r"(a2), "+r"(a3));
-    *(volatile u8 *)(a0 + 16) = a1;
-    t0 &= 0xff;
-    *(volatile u8 *)(a0 + 17) = a2;
-    *(volatile u8 *)(a0 + 19) = t0;
-    *(volatile u8 *)(a0 + 18) = a3;
-}
+// 0014b220: moved to src/anon/unit_0014b150.cpp
 
 void func_0014bb00(u32 a0, u32 a1, u32 a2, u32 a3, u32 t0) {
     a1 = (s16)a1;
@@ -891,10 +881,7 @@ void ObjCamera::returnMode() {
     *(u32 *)((u8 *)this + 64) = 0;
 }
 
-void RectBase::setGsUV(u64 a0, u64 a1) {
-    *(volatile u64 *)((u8 *)this + 208) = a0;
-    *(volatile u64 *)((u8 *)this + 224) = a1;
-}
+// 0014b5e8: moved to src/harata/libdk/rect.cpp
 } // namespace dk
 
 void func_0019f4b8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6,

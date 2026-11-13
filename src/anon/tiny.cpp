@@ -2576,12 +2576,7 @@ void func_0014acd8(u32 a0, u32 a1, u32 a2, u32 a3) {
     *(u8*)&D_00349b10 = (u8)v;
 }
 
-void func_0014b248(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a2;
-    (void)a3;
-    u32 v = a1 & 0x00ffu;
-    *(u8*)((u32)a0 + (19)) = (u8)v;
-}
+// 0014b248: moved to src/anon/unit_0014b150.cpp
 
 void func_0014ce50(f32 a0, u32 a1, u32 a2, u32 a3) {
     (void)a1;

@@ -4258,22 +4258,7 @@ u32 duplicate_unplaced_0014ad20(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, 
     return ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_00102788)(r4, r5, r6, r7, r8, r9, r10, r11);
 }
 
-void func_0014b150(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {  // obj_init_fields_14b150
-    Obj_0014b150* s = (Obj_0014b150*)a0;
-    s->h8 = 0;
-    s->h10 = 0;
-    s->p = (u32)&D_00348698;
-    s->h4 = 512;
-    s8 n = -128;
-    u16 k = 416;
-    u32 one = 1;
-    s->b16 = n;
-    s->h6 = k;
-    s->w12 = one;
-    s->b17 = n;
-    s->b18 = n;
-    s->b19 = n;
-}
+// 0014b150: moved to src/anon/unit_0014b150.cpp
 
 void duplicate_unplaced_0014b220(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7;

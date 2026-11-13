@@ -137,9 +137,7 @@ void func_00138140(void) {
     q->f29c8 = 0;
 }
 
-void func_0014b468(u32 a, u16 x, u16 y) {
-    func_0014b5e8(a, 0x80008, (u64)(s32)(x * 16 + 8) | ((u64)(s32)(y * 16 + 8) << 16));
-}
+// 0014b468: moved to src/anon/unit_0014b150.cpp
 
 void func_0014db78(u8* p, u16 a, u32 b, u16 c, u16 d, u16 e, u32 f) {
     func_001666d0(p, a, b, c, d);
