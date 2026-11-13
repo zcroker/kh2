@@ -2721,15 +2721,7 @@ typedef void (*VFn)(u8*);
 extern u8* D_01e2aa80;
 void func_002bbf68(u8*, s32);
 static inline u8* NextZ(u8* n) { if (!n) return D_01e2aa80; return *(u8**)(n + 28); }
-void func_002bc470(u32 id)
-{
-    u8* n = 0;
-    while ((n = NextZ(n))) {
-        if (*(u32*)(n + 24) != id) continue;
-        u8 s = n[49];
-        if (s < 3 || s == 4 || s == 3) func_002bbf68(n, 1);
-    }
-}
+void func_002bc470(u32 id);  // 0x002bc470: definition moved into src/anon/unit_002bb8b0.cpp
 extern u8* D_0034e948;
 extern s8 D_01e2bc20;
 extern V4 D_01e2bc30;

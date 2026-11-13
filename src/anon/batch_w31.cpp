@@ -316,12 +316,7 @@ static inline u8* nextNode(u8* n) {
     return *(u8**)(n + 28);
 }
 // Clear flag 4 on every list node whose type byte is 2.
-void func_002bbe80(void) {
-    u8* n = 0;
-    while ((n = nextNode(n)) != 0) {
-        if (n[49] == 2) *(u32*)(n + 36) &= ~4;
-    }
-}
+void func_002bbe80(void);  // 0x002bbe80: definition moved into src/anon/unit_002bb8b0.cpp
 
 void func_002d4828(void** p) {
     *p = D_003621a0;

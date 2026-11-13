@@ -267,9 +267,7 @@ void func_002ba5d0(u32 a, u32 b) {
     func_002baf48(10, 1, a, b, 0, 0);
 }
 
-void func_002bb070(u32 a, u32 b, u32 c, u32 d, u32 e) {
-    func_002baf48(a, 3, b, c, d, e);
-}
+void func_002bb070(u32 a, u32 b, u32 c, u32 d, u32 e);  // 0x002bb070: definition moved into src/anon/unit_002bb070.cpp
 
 void func_002eda90(u32, u32, f32);
 extern u32 D_003637d0;

@@ -365,13 +365,7 @@ void func_002aa450(u32 i) {
     if (!(bits[i >> 5] & bit)) bits[i >> 5] |= bit;
 }
 
-s32 func_002bbd58(u8* o) {
-    switch (o[49]) {
-    case 5: return func_002bbbc8(o);
-    case 6: return func_002bbc90(o);
-    }
-    return func_002bb9b8(o);
-}
+s32 func_002bbd58(u8* o);  // 0x002bbd58: definition moved into src/anon/unit_002bb8b0.cpp
 
 void func_002beea8(u8* o) {
     *(u8**)o = D_00361980;

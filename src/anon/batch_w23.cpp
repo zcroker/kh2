@@ -249,13 +249,7 @@ void LeadDataInit(void* p) {
 struct L2b { u8 pad[20]; s32 key; u8 pad2[4]; L2b* next; };
 extern L2b* D_01e2aa80;
 static inline L2b* list2b_next(L2b* n) { if (!n) return D_01e2aa80; return n->next; }
-L2b* func_002bbda0(s32 key) {
-    L2b* n = 0;
-    while ((n = list2b_next(n)) != 0) {
-        if (n->key == key) return n;
-    }
-    return 0;
-}
+L2b* func_002bbda0(s32 key);  // 0x002bbda0: definition moved into src/anon/unit_002bb8b0.cpp
 
 extern u8 D_01e2bc40[];
 extern u8 D_00375400[];

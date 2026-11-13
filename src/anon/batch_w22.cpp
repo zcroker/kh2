@@ -359,10 +359,7 @@ void func_002ba8a8(void) {
 u32 func_002bbda0(u32);
 void func_002bbf68(u32, u32);
 void MenuSound_StopBgSeHandle(u32, u32) asm("_ZN2Tz9MenuSound14StopBgSeHandleEz");
-void MenuSound_StopBgSeHandle(u32 a, u32 b) {
-    u32 h = func_002bbda0(a);
-    if (h) func_002bbf68(h, b);
-}
+// 0x002bc358: definition moved into src/anon/unit_002bb8b0.cpp
 
 // --- 002bca10
 struct E2bc { s32 b; s32 a; s32 c; };

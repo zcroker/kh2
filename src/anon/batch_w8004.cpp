@@ -9,12 +9,7 @@ typedef struct Pool { Ent64 e[64]; s32 idx[64]; s32 n; } Pool;
 extern Pool D_01e2aa90;
 static inline Ent64* pop_w8004(Pool* p) { p->n--; return &p->e[p->idx[p->n]]; }
 // Pops a 64-byte entry from the pool when the counter is below 25.
-Ent64* func_002bc0f0(void) {
-    if (D_003616f0 != 0 || D_01e2aa90.n == 0) return 0;
-    if (D_003616f4 >= 25) return 0;
-    D_003616f4++;
-    return pop_w8004(&D_01e2aa90);
-}
+Ent64* func_002bc0f0(void);  // 0x002bc0f0: definition moved into src/anon/unit_002bb8b0.cpp
 }
 
 // ---- 0028f878

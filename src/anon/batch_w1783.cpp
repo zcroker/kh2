@@ -20,17 +20,7 @@ s32 f97_s(u32, u32, s32, u32) asm("func_002b97d8");
 static inline CT* ct_next(CT* p) { return p ? p->next : D_01e2aa80; }
 
 s32 ctarget_002bb468(CT* self, u32 a1, u32 a2, u32 a3) asm("_Z16ctarget_002bb468jjjj");
-s32 ctarget_002bb468(CT* self, u32 a1, u32 a2, u32 a3) {
-    CT* p = 0;
-    while ((p = ct_next(p)) != 0) {
-        if (p == self) break;
-    }
-    switch (self->kind) {
-    case 5: return f7d_s(self->_18, self->_10, -1, a1);
-    case 6: return f97_s(self->_18, self->_10, -1, a1);
-    default: return f73_u8(self->_18, self->_10, self->_14, -1, a1);
-    }
-}
+s32 ctarget_002bb468(CT* self, u32 a1, u32 a2, u32 a3);  // 0x002bb468: definition moved into src/anon/unit_002bb070.cpp
 
 // ---- 002dd3a0
 struct S24c { u32 a, b, c, d, e, f; };

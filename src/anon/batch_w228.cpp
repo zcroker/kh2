@@ -75,18 +75,6 @@ void Selector_CreateHelpGra(u8* t, u32 a1, u32 a2, u32 a3) {
     t[405] = 1;
 }
 
-s32 func_002bb8b0(u8* p) {
-    if (p[49] == 3) return *(s16*)(p + 40);
-    func_002b740c(*(u32*)(p + 24), *(u32*)(p + 16), *(u32*)(p + 20), 0);
-    u32 fl = *(u32*)(p + 36);
-    s32 v;
-    if (fl & 4) v = (s32)((f32)*(s16*)(p + 40) * 0.8f);
-    else v = *(s16*)(p + 40);
-    if (fl & 8) {
-        func_002b740c(*(u32*)(p + 24), *(u32*)(p + 16), *(u32*)(p + 20), 1);
-        return 0;
-    }
-    return v;
-}
+s32 func_002bb8b0(u8* p);  // 0x002bb8b0: definition moved into src/anon/unit_002bb8b0.cpp
 }
 }

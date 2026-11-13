@@ -529,12 +529,7 @@ static inline Node2bc* next2bc(Node2bc* n) {
     if (!n) return D_01e2aa80;
     return n->next;
 }
-void func_002bc518(void) {
-    Node2bc* n = 0;
-    while ((n = next2bc(n)) != 0) {
-        if (n->kind == 3) func_002bbf68(n, 1);
-    }
-}
+void func_002bc518(void);  // 0x002bc518: definition moved into src/anon/unit_002bb8b0.cpp
 
 // --- 002bd7d8
 extern u32 D_003617ec;

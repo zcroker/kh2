@@ -304,13 +304,7 @@ s32 func_002adf60(s32 a) {
 
 void func_002bb100(u8*, s32, s32);  // next_global_id
 void func_002bb5a8(u8*, u32);
-void func_002bb3f0(u8* p, u32 a, u32 b, u32 c, u32 d) {
-    func_002bb100(p, 1, 6);  // next_global_id
-    func_002bb5a8(p, c);
-    *(u32*)(p + 24) = a;
-    *(u32*)(p + 16) = b;
-    *(u16*)(p + 42) = d;
-}
+void func_002bb3f0(u8* p, u32 a, u32 b, u32 c, u32 d);  // 0x002bb3f0: definition moved into src/anon/unit_002bb070.cpp
 
 void func_002d0bd8(u8*, u8*);
 static inline void mcopy(void* d, void* s) {

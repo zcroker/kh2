@@ -9,19 +9,7 @@ extern SeList2363 D_01e2aa80;
 extern SeList2363 D_01e2aa88;
 void func_002bb0c8(s32);
 void se3d_enable_w2363() asm("_ZN5SOUND10SE3DEnableEv");
-void func_002bbde0()
-{
-    D_003616f4 = 0;
-    D_003616e8 = 1;
-    func_002bb0c8(100);
-    SeList2363* a = &D_01e2aa80;
-    SeList2363* b = &D_01e2aa88;
-    a->tail = 0;
-    b->tail = 0;
-    a->head = 0;
-    *(volatile s32*)&b->head = 0;  /* volatile keeps this store last, as in the original */
-    se3d_enable_w2363();
-}
+void func_002bbde0();  // 0x002bbde0: definition moved into src/anon/unit_002bb8b0.cpp
 
 /* 00194980: set D_01c61af4 when the current entry's id has an Ansem report entry. */
 struct Entry2363 { u8 pad[50]; u16 id; };

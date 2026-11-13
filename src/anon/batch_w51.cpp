@@ -560,18 +560,7 @@ u32 func_002b79cc(u32, u32, u32);
 u32 func_002b986c(u32, u32);
 u32 func_002b7440(u32, u32, u32);
 
-u32 func_002bb510(u8* p) {
-    func_00324718(D_01e2aa80, p);
-    if (p[48] == 1) return 1;
-    switch (p[49]) {
-    case 5:
-        return func_002b79cc(*(u32*)(p + 24), *(u32*)(p + 16), 0) != 0;
-    case 6:
-        return func_002b986c(*(u32*)(p + 24), *(u32*)(p + 16)) != 0;
-    default:
-        return func_002b7440(*(u32*)(p + 24), *(u32*)(p + 16), *(u32*)(p + 20)) != 0;
-    }
-}
+u32 func_002bb510(u8* p);  // 0x002bb510: definition moved into src/anon/unit_002bb070.cpp
 
 void func_002edfd8(void*, void*);  // list_unlink_and_clear
 s32 func_002be5b8(void*);

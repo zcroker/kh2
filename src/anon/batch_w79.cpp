@@ -629,29 +629,7 @@ d2:
     (*(FreeFn*)(*(u8**)a + 4))(a, p);
 }
 
-void func_002bbbc8(struct S2bb* p) {
-    switch (p->state) {
-    case 0:
-        break;
-    case 1:
-        func_002bb8b0(p);
-        func_002b7c34(p->f24, p->f16, p->h40, p->h44);
-        p->state = 2;
-        break;
-    case 2:
-        if (func_002bb510(p) == 0) {
-            func_002bc358(p->f20, 1);
-            break;
-        }
-        func_002bb5f8(p);
-        func_002bb8b0(p);
-        func_002b7cec(p->f24, p->f16, p->h40, p->h44);
-        break;
-    case 3:
-        func_002bc358(p->f20, 1);
-        break;
-    }
-}
+void func_002bbbc8(struct S2bb* p);  // 0x002bbbc8: definition moved into src/anon/unit_002bb8b0.cpp
 
 void func_00170018(u8* p) {
     s32 i = 0;

@@ -14,43 +14,5 @@ static inline LNode* nextB(LNode* n) { return !n ? D_01e2aa88.head : n->next2; }
 
 
 
-void func_002bbf98(void) {
-    LNode* n = 0;
-    while ((n = nextA(n)) != 0) {
-        func_002bbd58(n);
-        if (n->state == 4) {
-            if (!D_01e2aa88.tail) {
-                D_01e2aa88.tail = n;
-                D_01e2aa88.head = n;
-                n->next2 = 0;
-            } else {
-                D_01e2aa88.tail->next2 = n;
-                n->next2 = 0;
-                D_01e2aa88.tail = n;
-            }
-        }
-    }
-    while ((n = nextB(n)) != 0) {
-        LNode* p = D_01e2aa80.head;
-        LNode* prev;
-        if (n == p) {
-            prev = 0;
-            D_01e2aa80.head = n->next;
-        } else {
-            prev = p;
-            LNode* h = p->next;
-            LNode* c = h;
-            p = h;
-            while (p != n) { p = c->next; prev = c; c = p; }
-            prev->next = n->next;
-        }
-        if (n == D_01e2aa80.tail) D_01e2aa80.tail = prev;
-        n->next = 0;
-        D_01e2aa90.free[D_01e2aa90.count++] = n - D_01e2aa90.nodes;
-    }
-    LList* l = &D_01e2aa88;
-    l->head = 0;
-    l->tail = 0;
-    D_003616f4 = 0;
-}
+void func_002bbf98(void);  // 0x002bbf98: definition moved into src/anon/unit_002bb8b0.cpp
 }

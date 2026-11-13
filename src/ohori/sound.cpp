@@ -20,14 +20,7 @@ u32 isSeAlertPlay() {
     return (u32)(*(u8*)((u32)b + 5860));
 }
 
-void SE3DDisable() {
-    *(u8*)&D_003616f0 = (u8)1u;
-}
-
-void SE3DEnable() {
-    u32 b = (0x0036u << 16);
-    *(u8*)((u32)b + 5872) = (u8)0u;
-}
+// 0x002bc788 SE3DDisable, 0x002bc798 SE3DEnable: definitions moved into src/anon/unit_002bb8b0.cpp
 
 void seVoicePcmStop() {
     func_002b72e4(-100, -1, 0u);

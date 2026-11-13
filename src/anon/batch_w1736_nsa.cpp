@@ -11,18 +11,8 @@ static inline w1736_Node* w1736_next(w1736_Node* p) {
     return p->next;
 }
 
-void func_002bbe38(void) {
-    w1736_Node* p = 0;
-    while ((p = w1736_next(p)) != 0) {
-        if (p->type == 2) p->flags |= 4;
-    }
-}
+void func_002bbe38(void);  // 0x002bbe38: definition moved into src/anon/unit_002bb8b0.cpp
 
-void func_002bbed0(void) {
-    w1736_Node* p = 0;
-    while ((p = w1736_next(p)) != 0) {
-        if (p->type == 2) p->flags |= 8;
-    }
-}
+void func_002bbed0(void);  // 0x002bbed0: definition moved into src/anon/unit_002bb8b0.cpp
 
 }

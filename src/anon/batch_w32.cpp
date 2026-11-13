@@ -238,13 +238,7 @@ u8* func_002b23e0(s32 i) {  // list_entry_by_index_checked
     return D_0035f630 + func_002b2338(i) * 36;
 }
 
-void func_002bc398(void* a, void* b) {
-    u8* n = (u8*)func_002bbda0(a);
-    if (n) {
-        func_002bb5a8(n, b);
-        *(u32*)(n + 36) &= ~8;
-    }
-}
+void func_002bc398(void* a, void* b);  // 0x002bc398: definition moved into src/anon/unit_002bb8b0.cpp
 
 void func_002d5e10(void** p) {
     p[0] = D_00362428;
