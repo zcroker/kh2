@@ -371,11 +371,7 @@ void func_002bfb40(void) {
     func_00139858(201);
 }
 
-u32 func_002cebc8(u32 a) {
-    u8* o = D_00361f60;
-    if (o) return (*(u32 (**)(void*, u32))(*(u8**)o + 16))(o, a);
-    return 0;
-}
+u32 func_002cebc8(u32 a);  // 002cebc8: moved to src/taito/minigame_base.cpp (linked unit)
 
 u8 func_002e0e70(u8* p) {
     *(void**)p = D_00362dc8;

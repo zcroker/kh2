@@ -403,15 +403,7 @@ void func_002ca010(u32 a) {
     func_002c90c8(m, a);
 }
 
-void func_002cedd0(s32 n, E16* e) {
-    for (s32 i = 0; i < n; i++, e++) {
-        u8* o = func_00102788(*(u32*)(func_00102c80() + 4), 1, e->a, e->b);
-        *(E16**)(o + 8) = e;
-        *(u32*)(o + 4) = D_00361f60;
-        e->obj = o;
-        if (e->c) *(u32*)(o + 48) = e->c;
-    }
-}
+void func_002cedd0(s32 n, E16* e);  // 002cedd0: moved to src/taito/minigame_base.cpp (linked unit)
 
 // Wrap an angle into [-pi, pi].
 f32 func_002d48b8(f32 x) {

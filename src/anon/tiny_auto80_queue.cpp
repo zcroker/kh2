@@ -3621,29 +3621,11 @@ u32 duplicate_unplaced_002ceaa8(u32 a0) {
     return ((u32(*)(u32))func_00105110)(r4);
 }
 
-u32 func_002ceb08(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r2, r15;
-    r15 = (u32)(0x0036u << 16);
-    r15 = ((u32*)(u32)r15)[2008];
-    r2 = (u32)((s32)0u + (6));
-    if (r15 != 0u) {
-        r2 = ((u32*)(u32)r15)[20];
-    }
-    return r2;
-}
+u32 func_002ceb08(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);  // 002ceb08: moved to src/taito/minigame_base.cpp (linked unit)
 
 extern "C" u32 func_002cec08(...);
 
-u32 func_002cec20(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r2, r15;
-    r15 = (u32)(*(u8*)((u32)r4 + (s32)(4)));
-    r2 = 0u;
-    if (r15 != 0u) {
-        r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_002cec08)(r4, r5, r6, r7, r8, r9, r10, r11);
-        r2 = ((u32)0u < (u32)r2);
-    }
-    return r2;
-}
+u32 func_002cec20(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);  // 002cec20: moved to src/taito/minigame_base.cpp (linked unit)
 
 extern "C" u32 func_002cec08(...);
 
@@ -16303,45 +16285,13 @@ u32 func_002cbed8(u32 a0, u32 a1) {
     return a0;
 }
 
-u32 func_002ceb28() {
-    u32* base = (u32*)0x00360000;
-    u32 obj = *(u32*)((u8*)base + 0x1f60);
-    if (obj == 0) {
-        return 0;
-    }
-    return *(u8*)(obj + 88);
-}
+u32 func_002ceb28();  // 002ceb28: moved to src/taito/minigame_base.cpp (linked unit)
 
-void func_002cec50(u32 a0) {
-    u32* base = (u32*)0x00360000;
-    u32 obj = *(u32*)((u8*)base + 0x1f60);
-    if (obj != 0) {
-        u32* vtbl = *(u32**)obj;
-        Fn_002cec50 fn = (Fn_002cec50)vtbl[3];
-        fn(obj, a0);
-    }
-}
+void func_002cec50(u32 a0);  // 002cec50: moved to src/taito/minigame_base.cpp (linked unit)
 
-void func_002cf170(u32 a0, u32 a1, u32 a2) {
-    u32* base = (u32*)0x00360000;
-    u32 obj = *(u32*)((u8*)base + 0x1f60);
-    if (obj != 0) {
-        u32* vtbl = *(u32**)obj;
-        Fn_002cf170 fn = (Fn_002cf170)vtbl[5];
-        fn(obj, a0, a1, a2);
-    }
-}
+void func_002cf170(u32 a0, u32 a1, u32 a2);  // 002cf170: moved to src/taito/minigame_base.cpp (linked unit)
 
-u32 func_002cf1b8(u32 a0) {
-    u32* base = (u32*)0x00360000;
-    u32 obj = *(u32*)((u8*)base + 0x1f60);
-    if (obj != 0) {
-        u32* vtbl = *(u32**)obj;
-        Fn_002cf1b8 fn = (Fn_002cf1b8)vtbl[8];
-        return fn(obj, a0);
-    }
-    return 1;
-}
+u32 func_002cf1b8(u32 a0);  // 002cf1b8: moved to src/taito/minigame_base.cpp (linked unit)
 
 void func_002cf280(u32 a0, u32 a1, u32 a2) {
     u32 t6 = a1 & a2;

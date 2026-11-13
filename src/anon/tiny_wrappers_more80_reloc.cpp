@@ -359,9 +359,7 @@ u32 func_002bd760(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_002b89e4(((u32)(*(u32*)((u32)((u32)&D_00360000) + 6124u))), 0x00000000u, a0, a3);
 }
 
-u32 func_002ceae8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_002fee78(a1, (u32)&D_00375958, a2, a3);
-}
+u32 func_002ceae8(u32 a0, u32 a1, u32 a2, u32 a3);  // 002ceae8: moved to src/taito/minigame_base.cpp (linked unit)
 
 u32 func_002f17e0(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_00170518(((u32)(*(u32*)((u32)((u32)&D_00360000) + 15392u))), 0x000003b6u, 0x00000000u, a3);

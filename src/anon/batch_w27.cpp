@@ -377,13 +377,7 @@ void func_002bfaf0(void) {
 extern u32 D_00361f70;
 extern u32 D_00361f60;
 void func_002cf3f8(void*);
-void func_002ceaa8(u8* p) {
-    *(void**)p = &D_00361f70;
-    func_002cf3f8(p);
-    D_00361f60 = 0;
-    p[88] = 0;
-    func_00105110(p);
-}
+void func_002ceaa8(u8* p);  // 002ceaa8: moved to src/taito/minigame_base.cpp (linked unit)
 
 extern u32 D_0034ee08;
 void func_0019f9a8(void*);  // array8_free_slots

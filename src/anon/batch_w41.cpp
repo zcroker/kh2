@@ -455,12 +455,7 @@ void func_002c17d8(u32, u8* p) {
 
 struct W41S24 { u32 w[6]; };
 u32 func_002cec08(u32, W41S24*);
-bool func_002ceef8(u32, u8* p) {
-    u32 d = D_00361f60;
-    W41S24* s = (W41S24*)(p + 1856);
-    W41S24 t = *s;
-    return func_002cec08(d, &t) != 0;
-}
+bool func_002ceef8(u32, u8* p);  // 002ceef8: moved to src/taito/minigame_base.cpp (linked unit)
 
 extern void* D_00362060[];
 extern void* D_0034e8b8[];

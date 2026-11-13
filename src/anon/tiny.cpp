@@ -1997,13 +1997,7 @@ u32 func_002bfdf8(u32 a0, u32 a1, u32 a2, u32 a3) {
     return (D_00361a50 != 0);
 }
 
-u32 func_002cebb0(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_global_361f60
-    (void)a0;
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    return (D_00361f60 != 0);
-}
+u32 func_002cebb0(u32 a0, u32 a1, u32 a2, u32 a3);  // 002cebb0: moved to src/taito/minigame_base.cpp (linked unit)
 
 u32 func_002d1f00(u32 a0, u32 a1, u32 a2, u32 a3) {  // ptr_add160
     (void)a1;
