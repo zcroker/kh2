@@ -10997,25 +10997,7 @@ void func_00160e50__15f548(s32) asm("func_00160e50");
 void* func_001de4b0__15f548(void*, s32, void*) asm("func_001de4b0");
 s32 func_001dc9e0__15f548(void*) asm("func_001dc9e0");
 void func_001dcc48__15f548(void*) asm("func_001dcc48");
-void func_0015f548(void)
-{
-    s32 i;
-    u64 one = 1;
-    void* p;
-    func_00143248__15f548();
-    for (i = 0; i < 64; i++) {
-        if ((D_0034c710 & (one << i)) != 0) func_00160e50__15f548(i);
-    }
-    p = 0;
-    if (D_0034c70c == 1) {
-        s32 j;
-        for (j = 0; j < 64; j++) {
-            while ((p = func_001de4b0__15f548(D_0034c6f0, j, p)) != 0) {
-                if (func_001dc9e0__15f548(p)) func_001dcc48__15f548(p);
-            }
-        }
-    }
-}
+// 0015f548: moved to src/harata/libdk/map_effect.cpp
 
 // --------------------
 struct V2e8d08 {
@@ -15123,42 +15105,7 @@ void func_0015c2a0(s32, u64);
 u32 func_001492e0(u8*);
 void func_001dddd0(u8*, u32);
 void func_001de228(u8*, s32, s32, s32, s32, s32);
-void func_0015eba8(u8* o, u8* x, u8 flag, u64 mask)
-{
-    func_0015f288();
-    D_0034c710 = mask;
-    func_001612b8(x, o);
-    func_00142c90(o, x, flag, mask);
-    V15eba8 a, b, c;
-    Unit15eba8(&a);
-    Unit15eba8(&b);
-    c.x = 1.0f; c.y = 1.0f; c.z = 1.0f; c.w = 1.0f;
-    s32 n0 = *(s32*)(o + 0x6c);
-    s32 made = 0;
-    if (n0 == 1) {
-        void* p = D_0034c738->vt->alloc(D_0034c738, 752, __builtin_return_address(0));
-        V15eba8 ta(a), tb(b), tc(c);
-        func_0015f8d8(p, 0, &ta, &tb, &tc, 0, 0);
-        made = 1;
-    }
-    s32 n1 = *(s32*)(o + 0x70);
-    if (n1 == 1) {
-        void* p = D_0034c738->vt->alloc(D_0034c738, 752, __builtin_return_address(0));
-        V15eba8 tc, tb, ta;
-        ta.Set15eba8(a); tb.Set15eba8(b); tc.Set15eba8(c);
-        func_0015f8d8(p, made, &ta, &tb, &tc, made, 1);
-    }
-    func_0015c2a0(n0 + n1, mask);
-    D_0034c70c = 0;
-    if (func_001492e0(o)) {
-        func_001dddd0(D_0034c6f0, func_001492e0(o));
-        D_0034c70c = 1;
-        u64 one = 1;
-        for (s32 i = 0; i < 64; i++) {
-            if (mask & (one << i)) func_001de228(D_0034c6f0, i, 1, 2, 0, 0);
-        }
-    }
-}
+// 0015eba8: moved to src/harata/libdk/map.cpp
 
 // --------------------
 // VU0 macro-mode vector helpers (hand-written vu0 library idioms) and lq/sq copy

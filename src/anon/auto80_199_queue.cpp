@@ -2254,37 +2254,9 @@ void func_0015b5d8(u32 a0) {
     } while (1);
 }
 
-void func_0015ee90(u32 a0) {
-    u64 t7 = 1ULL;
-    u64 t6 = D_0034c710;
-    t7 <<= a0;
-    t7 |= t6;
-    D_0034c710 = t7;
-    func_00143110(a0);
-    func_00153948(a0 & 0xff);
-    func_0015c450(a0);
-    if (D_0034c70c != 1) {
-        return;
-    }
-    return func_001de228(D_0034c6f0, a0, 1, 2, 0, 0);
-}
+// 0015ee90: moved to src/harata/libdk/map.cpp
 
-void func_0015f738(u32 a0, u32 a1) {
-    const u32 s = 0xffff;
-    if (a1 == s) {
-        if (a0 == 1u) {
-            func_001ddd10(D_0034c6f0);
-        }
-    }
-
-    if (a1 != s) {
-        return;
-    }
-    if (a0 != 0u) {
-        return;
-    }
-    return func_001ddd88(D_0034c6f0);
-}
+// 0015f738: moved to src/harata/libdk/map_effect.cpp
 
 void func_00160960(u8* a0) {
     if ((*(u32*)(a0 + 384) & 2u) != 0u) {

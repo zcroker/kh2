@@ -151,21 +151,7 @@ void func_00160de0(s32);
 void* func_001de4b0(void*, s32, void*);
 s32 func_001dc9e0(void*);
 void func_001dcc30(void*);
-void func_0015f618(void) {
-    func_00143228();
-    for (s32 i = 0; i < 64; i++) {
-        u64 m = (u64)1 << i;
-        if (D_0034c710 & m) func_00160de0(i);
-    }
-    void* o = 0;
-    if (D_0034c70c == 1) {
-        for (s32 i = 0; i < 64; i++) {
-            while ((o = func_001de4b0(D_0034c6f0, i, o)) != 0) {
-                if (func_001dc9e0(o)) func_001dcc30(o);
-            }
-        }
-    }
-}
+// 0015f618: moved to src/harata/libdk/map_effect.cpp
 
 s32 func_001c0cd8(void*);
 void func_001c0e60(void*);

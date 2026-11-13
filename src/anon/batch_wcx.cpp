@@ -2566,18 +2566,7 @@ void func_00161228(void);
 u8* func_001de4b0(u8*, s32, u8*);
 s32 func_001dc9e0(u8*);
 void func_001dc698(u8*, s32);
-void func_0015f298(void)
-{
-    u8* o = 0;
-    func_001431c0();
-    func_00161228();
-    if (D_0034c70c != 1) return;
-    for (s32 i = 0; i < 64; i++) {
-        while ((o = func_001de4b0(D_0034c6f0, i, o))) {
-            if (func_001dc9e0(o)) func_001dc698(o, 0);
-        }
-    }
-}
+// 0015f298: moved to src/harata/libdk/map_effect.cpp
 struct E12 { u32 a; u32 flags; u32 c; };
 extern E12 D_01c60588[];
 extern s32 D_0034ed00;
@@ -3138,16 +3127,7 @@ extern u8 D_0034c6f0[];
 void func_00143228(void);
 void func_0015c4a0(s32);
 void func_001de3d8(u8*, s32);
-void func_0015f4a0(void)
-{
-    func_00143228();
-    for (s32 i = 0; i < 64; i++) {
-        u64 bit = (u64)1 << i;
-        if (!(D_0034c710 & bit)) continue;
-        func_0015c4a0(i);
-        if (D_0034c70c == 1) func_001de3d8(D_0034c6f0, i);
-    }
-}
+// 0015f4a0: moved to src/harata/libdk/map_effect.cpp
 }
 
 }
