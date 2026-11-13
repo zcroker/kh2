@@ -92,6 +92,8 @@ class ElfSection:
     name: str
     size: int
     flags: int
+    addr: int = 0
+    offset: int = 0
 
 
 def parse_elf_function_symbols(path: Path, section_name: str | None = ".text") -> list[TextSym]:
@@ -286,13 +288,13 @@ def load_alloc_sections(path: Path) -> list[ElfSection]:
         sh = sh_at(i)
         if sh is None:
             continue
-        sh_name, _sh_type, sh_flags, _sh_addr, _sh_offset, sh_size, _sh_link, _sh_info = sh
+        sh_name, _sh_type, sh_flags, sh_addr, sh_offset, sh_size, _sh_link, _sh_info = sh
         if sh_size <= 0 or (sh_flags & 0x2) == 0:
             continue
         name = sec_name(sh_name)
         if not name:
             continue
-        out.append(ElfSection(name=name, size=sh_size, flags=sh_flags))
+        out.append(ElfSection(name=name, size=sh_size, flags=sh_flags, addr=sh_addr, offset=sh_offset))
     return out
 
 
@@ -1080,7 +1082,13 @@ def normalize_final_elf(linked_elf: Path, out_elf: Path) -> int:
                 print(msg)
                 errors.append(msg)
                 continue
-            linked = read_elf_vaddr(linked_image, unit.start, size)
+            # Read the unit from its own section's file offset. A section earlier in the link that
+            # overflows its slot shifts the load addresses (LMA) of later sections, so a read by
+            # program-header address can land a few bytes off (pro, 2026-11-11).
+            if sec.addr == unit.start and sec.offset + size <= len(linked_data):
+                linked = linked_data[sec.offset : sec.offset + size]
+            else:
+                linked = read_elf_vaddr(linked_image, unit.start, size)
             if linked is None or len(linked) != size:
                 msg = f"normalize-unit: ERROR {source}: no linked bytes for 0x{unit.start:08x}-0x{unit.end:08x}"
                 print(msg)
