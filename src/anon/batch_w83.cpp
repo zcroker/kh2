@@ -291,17 +291,7 @@ u8* func_001dba18(void*);
 Trig* func_001c16f0(void*, Trig*);
 
 // Bump the counter of every trigger whose XZ position lies inside box.
-void func_001d6790(f32* box) {
-    void* list = *(void**)(func_001dba18(func_0016e920(2120)) + 2548);
-    Trig* it = 0;
-    while ((it = func_001c16f0(list, it))) {
-        if (it->cnt != *it->ref) continue;
-        if (box[0] <= it->x && it->x <= box[3] && box[2] <= it->z && it->z <= box[5]) {
-            it->flag = 0;
-            it->cnt++;
-        }
-    }
-}
+void func_001d6790(f32* box);  // 0x001d6790: definition moved into src/anon/unit_001d63a8.cpp
 
 // r = m * v (4x4 matrix at m, column vectors), via VU0.
 static inline Vec4 xform(const void* m, const Vec4& v) {

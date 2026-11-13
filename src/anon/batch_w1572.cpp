@@ -34,31 +34,7 @@ s32 func_001d4ae0(void*, void*, void*);
 s32 func_001d4bd8(void*, void*, void*);
 struct S { u32 type; s32 id; s32 pad; char buf[1]; };
 struct NoTail { ~NoTail(){} };
-s32 func_001d4940(S* p, void* a1, void* a2) {
-    NoTail nt;
-    s32 r;
-    if (p->id != 0) {
-        r = 0;
-        if (func_0019ba60(p->id) == 0) return r;
-    }
-    r = 1;
-    if (p->type == 10) return r;
-    func_001bc778(a2);
-    switch (p->type) {
-    case 1: func_001bce90(a2, D_0036e490, 3, 0); break;
-    case 2: return func_001d4ae0(p, a1, a2);
-    case 3: func_001bce90(a2, D_01d5ba58, 3, 0); break;
-    case 4: func_001bce90(a2, D_0036e4e0, 2, 0); break;
-    case 5: func_001bce90(a2, D_0036e4e8, 3, 0); break;
-    case 6: func_001bce90(a2, D_0036e4f8, 1, 0); break;
-    case 7: func_001bce90(a2, D_0036e500, 1, 0); break;
-    case 8: func_001bce90(a2, D_0036e508, 1, 0); break;
-    case 9: func_001bce90(a2, D_0036e510, 3, 0); break;
-    case 11: return func_001d4bd8(p, a1, a2);
-    case 12: func_00190878(p->buf, p->id, 0); func_001bce90(a2, D_0036e520, 3, p->buf); break;
-    }
-    return 1;
-}
+s32 func_001d4940(S* p, void* a1, void* a2);  // 0x001d4940: definition moved into src/anon/unit_001d3c08.cpp
 extern s32 D_01d9ea9c;
 extern u8* D_01d9e6e0;
 extern u8 D_01d9e360[];

@@ -221,12 +221,7 @@ void func_001c2ce8(u8* p) {
     *(u32*)(p + 2748) |= 4;
 }
 
-LimitEntry* GetLimitEntry(s32 id) {
-    for (s32 i = 0; i < D_01d5ba28->count; i++) {
-        if (D_01d5ba28->e[i].id == id) return &D_01d5ba28->e[i];
-    }
-    return 0;
-}
+// 0x001d44d8 GetLimitEntry: definition moved into src/anon/unit_001d3c08.cpp
 
 u32 ctarget_001d9228(s32 i) {
     s32 o = i * 64;

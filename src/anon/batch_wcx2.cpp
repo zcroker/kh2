@@ -6533,12 +6533,7 @@ s32 func_001d6ec8();
 s32 func_001d5b78(u32, u32);
 struct G_001d5cd0 { u8 pad[4150]; u8 c; };
 extern G_001d5cd0 D_0032e020;
-s32 func_001d5cd0() {
-    G_001d5cd0* g = &D_0032e020;
-    s32 n = func_001d6ec8();
-    if (g->c < n) return func_001d5b78(0, g->c);
-    return 0;
-}
+s32 func_001d5cd0();  // 0x001d5cd0: definition moved into src/anon/unit_001d4f40.cpp
 
 // ---- 001d79b8
 struct E_001d79b8 { s32 key; f32 v; };
@@ -6996,13 +6991,7 @@ void func_001ab750(u8* p, u8* q) {
 u8* func_00168b38_5470(u32, s32, u32) asm("func_00168b38");
 void func_001d5370(u32*, u32, s32);
 union UA_001d5470 { u32 i; u16 h; u8 b; };
-void func_001d5470(u32* s, u32 a1, u8* a2) {
-    s[1] = *(u32*)(func_00168b38_5470(a1, -1, ((UA_001d5470*)(a2 + 4))->b) + 8);
-    s[2] = ((UA_001d5470*)(a2 + 6))->h;
-    if (!((UA_001d5470*)(a2 + 5))->b) return;
-    if (s[0] == 12) s[0] = 13;
-    func_001d5370(s + 3, a1, ((UA_001d5470*)(a2 + 5))->b - 1);
-}
+void func_001d5470(u32* s, u32 a1, u8* a2);  // 0x001d5470: definition moved into src/anon/unit_001d4f40.cpp
 
 // ---- 002c0370
 union UA_002c0370 { u32 i; f32 f; u8* p; };

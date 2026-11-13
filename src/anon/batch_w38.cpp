@@ -242,19 +242,13 @@ extern const char D_0036e598[];
 extern u32 D_0035276c;
 u8* func_00168b88(u32, s32, u32, s32);  // find_entry16_by_half_word
 void func_001c10b8(u32);
-void func_001d53e8(void) {
-    u32 v = func_001b1490((const char*)D_0035276c);
-    const char* s = D_0036e598;
-    func_001c10b8(*(u32*)(func_00168b88(v, -1, s[0] | (s[1] << 8) | (s[2] << 16) | (s[3] << 24), 0) + 8));
-}
+void func_001d53e8(void);  // 0x001d53e8: definition moved into src/anon/unit_001d4f40.cpp
 
 struct Item1d59b0 { u8 d[60]; };
 struct Tbl1d59b0 { u32 f0; s32 count; Item1d59b0 items[1]; };
 extern Tbl1d59b0* D_01d5ba6c;
 void func_001d5960(void*);
-void func_001d59b0(void) {
-    for (s32 i = 0; i < D_01d5ba6c->count; i++) func_001d5960(&D_01d5ba6c->items[i]);
-}
+void func_001d59b0(void);  // 0x001d59b0: definition moved into src/anon/unit_001d4f40.cpp
 
 s32 func_001db200(void*, s32);
 s32 func_001db250(void*);

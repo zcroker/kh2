@@ -652,22 +652,7 @@ void func_00170018(u8* p) {
     }
 }
 
-s32 func_001d61b8(void* a, s32 b) {
-    u8* e = func_00189200(D_0032e020, 6);
-    if (b == 5) {
-        sub_clamp(e, *(s32*)(D_00352130 + 164));
-        return 5;
-    }
-    if (!func_001d62b0(a, e)) return b;
-    if (!func_001917c0()) return b;
-    if (func_001d63a8(a)) {
-        func_001a32c8(29, 1);
-        sub_clamp(e, *(s32*)(D_00352130 + 164));
-        return 5;
-    }
-    sub_clamp(e, *(s32*)(D_00352130 + 144));
-    return 6;
-}
+s32 func_001d61b8(void* a, s32 b);  // 0x001d61b8: definition moved into src/anon/unit_001d4f40.cpp
 
 s32 func_002952f8(s32 id) {
     s32 i = 0;

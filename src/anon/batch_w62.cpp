@@ -318,39 +318,11 @@ void func_001d19e8(u8*, s32);
 void func_001d16e8(u8*, u32, u32);
 extern u8 D_003525c8[];
 extern u8 D_00352750[];
-void func_001d4c98(u8* p) {
-    *(u32*)(p + 4) = 0;
-    *(u32*)p = (u32)D_003525c8;
-    *(u32*)(p + 8) = 0;
-    *(u32*)(p + 12) = 0;
-    func_001d1678(p, -1);  // obj_init_28bytes
-    *(u32*)(p + 48) = 0;
-    *(u32*)p = (u32)D_00352750;
-    u8* e = p + 57;
-    for (s32 i = 127; i >= 0; i--) {
-        *e = 0;
-        e += 4;
-    }
-    func_001d19e8(p, -1);
-    func_001d16e8(p, 0, 12);
-}
+void func_001d4c98(u8* p);  // 0x001d4c98: definition moved into src/anon/unit_001d3c08.cpp
 
 s32 func_0019c898(u32);
 void func_001d5f30(u8*, u32);
-void func_001d6088(u32 id, u8* o) {
-    switch (*(s32*)(o + 2896)) {
-    case 2:
-        if (id - 1000 >= 1012) return;
-        if (func_0019c898(id)) return;
-        break;
-    case 5:
-        if (id - 3000 >= 1015) return;
-        break;
-    default:
-        return;
-    }
-    func_001d5f30(o, 1);
-}
+void func_001d6088(u32 id, u8* o);  // 0x001d6088: definition moved into src/anon/unit_001d4f40.cpp
 
 extern s32 D_00352b50;
 s32 func_0019ba60(u8*);

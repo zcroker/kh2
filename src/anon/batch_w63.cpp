@@ -293,13 +293,7 @@ void func_001bdc88(u8* p) {
 struct T64 { u32 f0; s32 count; u8 e[1][64]; };
 extern T64* D_01d5ba28;
 // Finds the first valid 64-byte entry whose id matches.
-u8* func_001d3fe0(u32 id) {
-    for (s32 i = 0; i < D_01d5ba28->count; i++) {
-        u8* e = D_01d5ba28->e[i];
-        if (func_001d3c78(e) && *(u16*)(e + 40) == id) return e;
-    }
-    return 0;
-}
+u8* func_001d3fe0(u32 id);  // 0x001d3fe0: definition moved into src/anon/unit_001d3c08.cpp
 
 void func_001d7f80(u8* p) {
     for (s32 i = 0; i < *(s32*)(p + 712); i++) {

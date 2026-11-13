@@ -14,18 +14,7 @@ struct W3w1672 { u32 a; u32 b; f32 c; };
 extern W3w1672 D_01d5ba78;
 extern W3w1672 D_01d5ba88;
 void wt_001d6850(u32 a, u32 b, u32, u32) asm("_Z16wtarget_001d6850jjjj");
-void wt_001d6850(u32 a, u32 b, u32, u32) {
-    if (b == 0xffff && a == 1) {
-        D_01d5ba78.a = 0;
-        D_01d5ba78.b = 0;
-        D_01d5ba78.c = 108.8f;
-    }
-    if (b == 0xffff && a == 1) {
-        D_01d5ba88.a = 3;
-        D_01d5ba88.b = 0;
-        D_01d5ba88.c = 112.0f;
-    }
-}
+void wt_001d6850(u32 a, u32 b, u32, u32);  // 0x001d6850: definition moved into src/anon/unit_001d63a8.cpp
 
 struct W2w1672 { u32 a; u32 b; };
 extern W2w1672 D_004f3b38;

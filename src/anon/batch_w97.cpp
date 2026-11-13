@@ -366,27 +366,7 @@ s32 func_001d3de0(Ent1d4*);
 void func_00170320(s32);
 void func_001d3c18(Ent1d4*);
 void func_00170888(u32);
-void func_001d4180(void) {
-    u32 mask = 0;
-    s32 n = 0;
-    s32 any = 0;
-    u8 idx[16];
-    if (func_00170cd0()) return;
-    s32 i;
-    for (i = 0; i < D_01d5ba28->count; i++) {
-        Ent1d4* e = &D_01d5ba28->ent[i];
-        if (mask & (1 << e->id)) continue;
-        if (func_001d4808(e)) continue;
-        if (!func_001d3c78(e)) continue;
-        mask |= 1 << e->id;
-        idx[n++] = i;
-        if (!func_001d3de0(e)) any = 1;
-    }
-    if (!any) return;
-    func_00170320(5000);
-    for (i = 0; i < n; i++) func_001d3c18(&D_01d5ba28->ent[idx[i]]);
-    func_00170888(0);
-}
+void func_001d4180(void);  // 0x001d4180: definition moved into src/anon/unit_001d3c08.cpp
 
 // ---- 00226bd0
 extern u8 D_0035de55;

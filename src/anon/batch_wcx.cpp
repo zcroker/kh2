@@ -778,16 +778,7 @@ struct E8 { u16 id; u8 v[3]; u8 pad; u16 res; };
 extern E8 D_0036e568[4];
 s32 func_00181500(u16);
 u32 ctarget_001d52c0(u32, u32, u32, u32) asm("_Z16ctarget_001d52c0jjjj");
-u32 ctarget_001d52c0(u32 a, u32 b, u32, u32)
-{
-    if (a != 16) return 0;
-    for (u32 i = 0; i < 4; i++) {
-        if (func_00181500(D_0036e568[i].id))
-            for (s32 j = 0; j < 3; j++)
-                if (D_0036e568[i].v[j] == b) return D_0036e568[i].res;
-    }
-    return 0;
-}
+u32 ctarget_001d52c0(u32 a, u32 b, u32, u32);  // 0x001d52c0: definition moved into src/anon/unit_001d4f40.cpp
 
 u8* func_00168b38(u32, s32, u8);  // entry_array_find_nth
 void func_001d5370(u32*, u32, s32);

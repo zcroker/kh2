@@ -220,15 +220,7 @@ void func_00105110(void*);
 extern u8* D_01d5ba20;
 // 001d3b68: moved to src/anon/unit_001d35e0.cpp
 
-s32 func_001d3f38(u8* p) {  // type_is_282_344_484
-    switch (*(u16*)(p + 40)) {
-    case 282:
-    case 344:
-    case 484:
-        return 0;
-    }
-    return 1;
-}
+s32 func_001d3f38(u8* p);  // 0x001d3f38: definition moved into src/anon/unit_001d3c08.cpp
 
 void func_00106420(void*);
 

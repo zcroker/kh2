@@ -301,19 +301,7 @@ void func_001d1fa8(u8* p) {  // obj_ctor_3525c8
 // with table[a-1][b] (keeping bit 15).
 struct Row1d5 { u16 v[5]; };
 extern Row1d5 D_0036e5a0[];
-u16 func_001d5ec0(u16* p, int n, int a, int b) {  // halfword_table_lookup
-    Row1d5* r = &D_0036e5a0[a - 1];
-    u16* e = &r->v[b];
-    u16 from = e[-1];
-    u16 to = e[0];
-    for (int i = 0; i < n; i++, p++) {
-        if ((*p & 0x7fff) == from) {
-            *p = (*p & 0x8000) | (to & 0x7fff);
-            return to;
-        }
-    }
-    return to;
-}
+u16 func_001d5ec0(u16* p, int n, int a, int b);  // 0x001d5ec0: definition moved into src/anon/unit_001d4f40.cpp
 
 // --- 001d6e60
 struct S1d6 { u32 a; u32 n; };

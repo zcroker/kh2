@@ -234,12 +234,7 @@ u32 func_001d01e0(u32 a0, u32 a1, u32 a2, u32 a3) {
     return r2;
 }
 
-u32 func_001d52a0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u;
-    r2 = func_001d52c0(r4, r5, r6, r7);
-    r2 = ((u32)0u < (u32)r2);
-    return r2;
-}
+u32 func_001d52a0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001d52a0: definition moved into src/anon/unit_001d4f40.cpp
 
 u32 func_001d76c8(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u;

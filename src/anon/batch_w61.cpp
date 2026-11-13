@@ -226,15 +226,7 @@ u32* func_001ba158(void);
 void func_001963c8(u32);
 struct Pair { s32 id; u32 val; };
 extern Pair D_0036e548[4];
-void func_001d5218(s32 id) {
-    for (u32 i = 0; i < 4; i++) {
-        if (D_0036e548[i].id == id) {
-            *func_001ba158() = D_0036e548[i].val;
-            break;
-        }
-    }
-    if (id == 16414) func_001963c8(13);
-}
+void func_001d5218(s32 id);  // 0x001d5218: definition moved into src/anon/unit_001d4f40.cpp
 
 s32 func_001d6ec8(void);
 s32 func_001d5b78(u32, u32);

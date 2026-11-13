@@ -100,7 +100,7 @@ void func_001b24c0(void* self) {}
 
 // 001d3b60: moved to src/anon/unit_001d35e0.cpp
 
-void func_001d5458(void* self) {}
+void func_001d5458(void* self);  // 0x001d5458: definition moved into src/anon/unit_001d4f40.cpp
 
 s32 func_001dc5f0(void* self) { return (s32)(*(s32*)((char*)self + 20)); }
 

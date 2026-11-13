@@ -65,51 +65,7 @@ f32 func_002f8b30(f32, f32);
 extern u8 D_0032e020[];
 extern u8 *D_00352130;
 extern u32 D_003638d0;
-s32 func_001d63a8(u8 *a0)
-{
-  float new_var;
-  u8 *q;
-  u8 *g;
-  f32 f;
-  f32 lim;
-  f32 r;
-  if (func_001a3570(29) > 0)
-  {
-    return 0;
-  }
-  if (func_001c99b0(5) != 0)
-  {
-    return 0;
-  }
-  if (func_00181500(0x4842) == 0)
-  {
-    return 0;
-  }
-  q = func_001b90c8(5);
-  if ((*((u8 **) (a0 + 1164)))[433] < q[28])
-  {
-    return 0;
-  }
-  q = func_00189200(D_0032e020, 5);
-  g = D_00352130;
-  new_var = 100.0f;
-  f = (*((f32 *) (g + 152))) * func_002f8b30(*((f32 *) (g + 156)), (f32) (*((s32 *) (q + 4))));
-  lim = *((f32 *) (D_00352130 + 160));
-  if (lim < f)
-  {
-    f = lim;
-  }
-  D_003638d0 *= 0x10dcd;
-  r = ((f32) D_003638d0) * 2.3283064365386963e-10f;
-  (*((s32 *) (q + 4)))++;
-  r = r * new_var;
-  if (f <= r)
-  {
-    return 0;
-  }
-  *((s32 *) (q + 4)) = 0;
-  return 1;
-}
+s32 func_001d63a8(u8 *a0);  // 0x001d63a8: definition moved into src/anon/unit_001d63a8.cpp
 
 
 

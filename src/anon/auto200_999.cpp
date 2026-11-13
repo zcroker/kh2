@@ -915,24 +915,9 @@ u32 func_001c09c0(u32 a0) {
     return (val & mask) != 0;
 }
 
-u32 func_001d5668(u32 a0) {
-    u32 idx = a0 >> 5;
-    u32 *p = (u32 *)((u8 *)&D_0032fae4 + (idx << 2));
-    u32 bit = a0 & 31;
-    u32 val = *p;
-    u32 mask = 1u << bit;
-    return (val & mask) != 0;
-}
+u32 func_001d5668(u32 a0);  // 0x001d5668: definition moved into src/anon/unit_001d4f40.cpp
 
-void func_001d5698(u32 a0) {
-    u32 idx = a0 >> 5;
-    u32 *p = (u32 *)((u8 *)&D_0032fae4 + (idx << 2));
-    u32 bit = a0 & 31;
-    u32 val = *p;
-    u32 mask = 1u << bit;
-    val |= mask;
-    *p = val;
-}
+void func_001d5698(u32 a0);  // 0x001d5698: definition moved into src/anon/unit_001d4f40.cpp
 
 void func_001b6038() {
     u32 t6 = *(u32 *)((u8 *)&D_00350000 + 4480u);

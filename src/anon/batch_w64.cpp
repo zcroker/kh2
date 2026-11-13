@@ -343,14 +343,7 @@ extern B4 D_01d5ba58[];
 extern B4 D_0036e4d0[];
 void func_0013d550(u32, u32);
 
-void func_001d4818(u32* p, s32 a1, u32 a2, u32 a3, u32 a4) {
-    p[0] = a1;
-    func_0013d550(a2, a3);
-    p[1] = a4;
-    if (a1 == 3) {
-        for (u32 i = 0; i < 3; i++) D_01d5ba58[i] = D_0036e4d0[i];
-    }
-}
+void func_001d4818(u32* p, s32 a1, u32 a2, u32 a3, u32 a4);  // 0x001d4818: definition moved into src/anon/unit_001d3c08.cpp
 
 // ---------------------------------------------------------------------------
 u8* func_00102788_p(void*, u32, u32, void*) asm("func_00102788");

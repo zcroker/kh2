@@ -179,14 +179,7 @@ void func_001af9f8(void);
 // 001bb890: moved to src/yasui/libys/mission.cpp
 
 void func_001d5f30(u8*, u32);
-void func_001d6148(u8* p, s32 id) {
-    if (*(s32*)(p + 2896) == 3) {
-        switch (id) {
-        case 686: case 700: case 703: case 706:
-            func_001d5f30(p, 1);
-        }
-    }
-}
+void func_001d6148(u8* p, s32 id);  // 0x001d6148: definition moved into src/anon/unit_001d4f40.cpp
 
 u8* func_001d7980(u32);
 // ORs together the flags of up to four referenced entries.

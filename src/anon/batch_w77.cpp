@@ -449,17 +449,7 @@ extern char D_0036e4b0[];
 extern char D_0036e4c0[];
 void func_00190878(u8*, u32, s32);
 void func_001bce90(u32, const char*, s32, u8*);
-s32 func_001d4ae0(u8* a, u8* b, u32 c)
-{
-    if (!(*(u32*)(b + 352) & 0x4000) || !*(s32*)(b + 2928)) return 0;
-    func_00190878(a + 12, *(u32*)(a + 4), 0);
-    switch (*(s32*)(b + 2928)) {
-    case 1: func_001bce90(c, D_0036e4a0, 3, a + 12); break;
-    case 2: func_001bce90(c, D_0036e4b0, 3, a + 12); break;
-    case 3: func_001bce90(c, D_0036e4c0, 3, a + 12); break;
-    }
-    return 1;
-}
+s32 func_001d4ae0(u8* a, u8* b, u32 c);  // 0x001d4ae0: definition moved into src/anon/unit_001d3c08.cpp
 }
 }
 

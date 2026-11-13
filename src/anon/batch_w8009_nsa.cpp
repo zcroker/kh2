@@ -53,29 +53,7 @@ void func_001a3188(s32, s32, s32);
 void func_001b76c8(Buf1d5d80*, void*, s32);
 void func_001a1460(Sub1d5d80*);
 void func_001d7778(void);
-void func_001d5d80(Obj1d5d80* o, void* a) {
-    NoTail1d5d80 nt; s32 r;
-    Buf1d5d80 b0, b1;
-    Sub1d5d80* s = o->sub;
-    Cnt1d5d80* c = s->c;
-    u8* t = s->tbl;
-    Ent1d5d80* e = func_001d5b78(a, ++c->cnt);
-    func_001b74b8(&b0);
-    func_001b74b8(&b1);
-    func_001b74c8(&b0, 0xc3f2);
-    if (((u8*)e)[-7] < e->n) {
-        r = func_001d5ec0(c->tbl, 24, a, e->n); func_001b7538(&b0, r);
-        r = func_001d5ec0(t + 84, 80, a, e->n - 1); func_001b7538(&b1, r);
-    }
-    if (e->snd) {
-        func_001a3188(e->snd, 1, 0);
-        func_001b7538(&b1, e->snd);
-    }
-    func_001b76c8(&b0, a, c->cnt);
-    func_001b76c8(&b1, 0, c->cnt);
-    func_001a1460(o->sub);
-    func_001d7778();
-}
+void func_001d5d80(Obj1d5d80* o, void* a);  // 0x001d5d80: definition moved into src/anon/unit_001d4f40.cpp
 }
 
 // 001d2e68: VU0 macro asm (vsub, normalize) and lq/sq copy. Reading the D_00352130

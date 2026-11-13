@@ -287,11 +287,7 @@ extern u32 D_00352768;
 u8* func_002fd248(u32, u8*, u32, u32, void*);
 u8* func_00168b38(u32, u32, u8);  // entry_array_find_nth
 void func_0023cde8(u32);
-void func_001d5068(u32 key) {
-    u8* t = D_01d5ba68;
-    u8* r = func_002fd248(key, t + 8, *(u32*)(t + 4), 2, D_00321790);
-    func_0023cde8(*(u32*)(func_00168b38(D_00352768, 47, r[1]) + 8));
-}
+void func_001d5068(u32 key);  // 0x001d5068: definition moved into src/anon/unit_001d4f40.cpp
 
 // --- 001d6d00
 // 1-based index of the entry with the given id, 0 if none.

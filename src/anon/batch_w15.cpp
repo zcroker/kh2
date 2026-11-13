@@ -175,10 +175,7 @@ u8 func_001d22a8(u32 a) {
 
 extern u8* D_01d5ba70;
 extern u8 D_003217a0;
-u8 func_001d5b78(u32 a, u32 b) {
-    u8* t = D_01d5ba70;
-    return func_002fd248((a << 4) | b, t + 8, *(u32*)(t + 4), 8, &D_003217a0);
-}
+u8 func_001d5b78(u32 a, u32 b);  // 0x001d5b78: definition moved into src/anon/unit_001d4f40.cpp
 
 void wtarget_impl(u32, u32, u32, u32) asm("_Z16wtarget_001e0348jjjj");
 struct W2 { u32 a; u32 b; };

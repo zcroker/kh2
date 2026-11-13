@@ -1239,15 +1239,7 @@ u32 func_001d28c0(u32 a0, u32 a1, u32 a2, u32 a3) {
 
 // 001d3878: moved to src/anon/unit_001d35e0.cpp
 
-u32 func_001d4550(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2, r14, r15;
-    r14 = (u32)(*(u8*)((u32)r4 + (s32)(0)));
-    r15 = (u32)&D_0032bb30;
-    r14 = (u32)(r14 << 1);
-    r14 = (u32)(r14 + r15);
-    r2 = (u32)(*(u16*)((u32)r14 + (s32)(15688)));
-    return r2;
-}
+u32 func_001d4550(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001d4550: definition moved into src/anon/unit_001d3c08.cpp
 
 void func_001d6ab0(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r12, r13, r14, r15;

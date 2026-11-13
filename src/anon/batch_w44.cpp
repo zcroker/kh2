@@ -259,14 +259,7 @@ extern u8 D_00350b30[];
 
 // 001b0728: moved to src/yasui/libys/lookat.cpp
 
-u8 func_001d5868(u16* p) {
-    switch (p[0]) {
-    case 1: return func_00181500(p[1]);
-    case 2: return func_001b8958(p[1]);
-    case 3: return func_001a6d08(p[1]);
-    }
-    return 0;
-}
+u8 func_001d5868(u16* p);  // 0x001d5868: definition moved into src/anon/unit_001d4f40.cpp
 
 extern u8 D_00352ae0[];
 extern s32 D_00352ae8;

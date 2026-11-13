@@ -279,14 +279,7 @@ void func_001c1748(NdB* n, LsB* l, void* src, u32 a3) {  // obj_init_from_src
     if (!L->tail) { L->tail = n; L->head = n; n->next = 0; } else { L->tail->next = n; n->next = 0; L->tail = n; }
 }
 
-void func_001d5370(u32* out, u32 a, s32 b) {
-    u8* v = (u8*)func_00168b38(a, -1, b);  // entry_array_find_nth
-    u8* w = (u8*)func_00168b38(a, -1, b + 1);  // entry_array_find_nth
-    u32 x = *(u32*)(v + 8);
-    u32 y = *(u32*)(w + 8);
-    out[0] = x;
-    out[1] = y;
-}
+void func_001d5370(u32* out, u32 a, s32 b);  // 0x001d5370: definition moved into src/anon/unit_001d4f40.cpp
 
 u8* func_001dba18(u32 id) {
     u8* v = 0;

@@ -270,20 +270,7 @@ struct B36 { u32 w[9]; };
 u32 func_001bbb08(void);
 u32* func_001ba158(void);
 void func_00199098(B36*, s32);
-u32 func_001d50b8(u8* p, B36* out) {
-    if (p[0] != 16) return 0;
-    if (func_001bbb08() != 225) return 0;
-    u32* wp = func_001ba158();
-    u32 id = p[1];
-    u32 w = *wp;
-    if (w == id || ((w == 18 || w == 21) && (id == 18 || id == 21))) {
-        B36 buf;
-        func_00199098(&buf, 7);
-        *out = buf;
-        return 1;
-    }
-    return 0;
-}
+u32 func_001d50b8(u8* p, B36* out);  // 0x001d50b8: definition moved into src/anon/unit_001d4f40.cpp
 
 // --- 001d62b0
 // Percentage roll: chance from a level table (or 100), using the game's LCG.
@@ -294,20 +281,7 @@ u8* func_00177860(u8*);
 s32 func_001bbcc0(void);
 u64 func_00312db8(u64, u64);
 extern u32 D_003638d0;
-u32 func_001d62b0(u8* who, u8* st) {
-    s32 r = 0;
-    if (func_001c99b0(6)) return r;
-    R8* e = func_001d5b78(6, 1);
-    s32 lv = *(s32*)(st + 4);
-    while (lv < e->v) e++;
-    s32 chance = 100;
-    if (!(*(u32*)(func_00177860(who) + 20) & 0x8000)) chance = e->b * func_001bbcc0();
-    D_003638d0 = D_003638d0 * 0x10dcd;
-    s32 v = func_00312db8(D_003638d0, 42949673);
-    *(s32*)(st + 4) += 1;
-    r = v < chance;
-    return r;
-}
+u32 func_001d62b0(u8* who, u8* st);  // 0x001d62b0: definition moved into src/anon/unit_001d4f40.cpp
 
 // --- 001d7538
 extern u32 D_003527e4;
