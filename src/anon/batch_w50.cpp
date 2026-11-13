@@ -224,16 +224,7 @@ s32 func_0011f270(void* o, s32 n) {
 }
 
 // Removes the entry for key (if its value is still current), then refreshes.
-void func_00136200(KVList* l, s32 key) {
-    for (s32 i = 0; i < l->count; i++) {
-        if (l->e[i].key == key && l->e[i].val == func_001dc5f0(key)) {
-            l->e[i].key = 0;
-            l->e[i].val = 0;
-            break;
-        }
-    }
-    func_00136020(l);
-}
+// 00136200: moved to src/naka/libkn/effect_observer.cpp
 
 void func_0013b1d0(void) {
     func_00138650(D_00348050, 5200, func_0013a800(), 1);

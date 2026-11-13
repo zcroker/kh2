@@ -112,18 +112,7 @@ static inline u32 addr_D_003503e0() { return (u32)&D_003503e0; }
 static inline u32 addr_D_00350e48() { return (u32)&D_00350e48; }
 static inline u32 addr_D_00350e60() { return (u32)&D_00350e60; }
 
-u32 func_00135e10(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6,
-                  u32 a7) {
-    u32 r16 = a0;
-    *(volatile u32 *)a0 = (u32)&D_00347d18;
-    u32 r2 = ((u32 (*)(u32, u32, u32, u32, u32, u32, u32, u32))func_00135ff0)(
-        a0, a1, a2, a3, a4, a5, a6, a7);
-    u32 base = 0x00340000u;
-    u32 old = *(volatile u32 *)(base + 32008);
-    *(volatile u32 *)(r16 + 8) = old;
-    *(volatile u32 *)(base + 32008) = r16;
-    return r2;
-}
+// 00135e10: moved to src/naka/libkn/effect_observer.cpp
 
 u32 func_0013e900(u32 a0) {
     u32 s0 = a0;
@@ -617,13 +606,7 @@ void func_001c7ee0() {
     }
 }
 
-void YS_MISSION_Prepare() asm("_ZN2YS7MISSION7PrepareEv");
-void YS_MISSION_Prepare() {
-    u32 p = D_01d49320;
-    if (p != 0) {
-        func_001bacd0(p);
-    }
-}
+// 001badd8: YS::MISSION::Prepare, moved to src/anon/unit_001ba7e0.cpp
 
 void func_001f0868(u32 a0, u32 a1) {
     register f32 f1 asm("$f1") = *(volatile f32 *)(a0 + 8);

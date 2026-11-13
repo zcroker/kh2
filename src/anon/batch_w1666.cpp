@@ -17,7 +17,7 @@ s32 func_0026d818(void) { return D_0035f0f8; }
 void func_00292540(void) { D_0035f4b8 = 0; }
 void func_0010f908(u8* p) { *(u32*)(p + 2940) |= 0x400; }
 u32 func_00112c70(u8* p) { return (*(s32*)(p + 2940) >> 30) & 1; }
-void func_00136a40(void) { D_00347d28 = 1; }
+// 00136a40: moved to src/harata/libdk/bgse.cpp
 void func_00161238(void) { D_0034c740 = 1; }
 u32 func_002be750(void) { return D_00361800 != 0; }
 void func_00113408(u8* p) { *(u32*)(p + 2940) &= ~0x1000; }

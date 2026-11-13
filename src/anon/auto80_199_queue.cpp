@@ -976,80 +976,15 @@ void func_00133ea8(void) {
     func_00133c60(s0, (u32)&D_0032a850, 0, 0, 0);  // forward_sub24_to_133980
 }
 
-void func_00135818(u32 a0, u32 a1) {
-    u32 s1 = a1;
-    u32 s2 = a0;
-    u32 s0 = D_00347cf0;
+// 00135818: moved to src/naka/libkn/obj_observer.cpp
 
-    if (s0 != 0) {
-        u32 a4 = s0;
-L00135844:
-        func_00135cc8(a4, s2, s1);
-        s0 = *(u32*)(s0 + 8);
-        if (s0 != 0) {
-            a4 = s0;
-            goto L00135844;
-        }
-    }
-}
+// 001364b8: moved to src/harata/libdk/bgse.cpp
 
-void func_001364b8(u32 a0, u32 a1, u32 a2) {
-    u32 s2 = a0;
-    u32 s3 = a2;
-    u32 flag;
+// 001372d8: moved to src/harata/libdk/bgm.cpp
 
-    u32 s0 = func_002ba0b0(a1);
-    u32 s1 = func_00136790(s0, (u32)&flag);
+// 00137340: moved to src/harata/libdk/bgm.cpp
 
-    if (flag != 0) {
-        func_001367e0(s2, s0, s1);
-        func_002ba3b8(s3, s1, flag, 0, 0, 0, 0);
-        func_002ba7c8(s2);
-    }
-
-    func_001367c8(s1);
-}
-
-void func_001372d8(void) {
-    D_00347d50 = 1;
-
-    if (D_00347d30 != 0) {
-        func_002ba2b0(960, 0);
-    }
-
-    if (D_00347d40 != 0) {
-        func_002ba220(1, 0, 12288, 240, 0, 240);
-        return;
-    }
-}
-
-void func_00137340(void) {
-    D_00347d50 = 0;
-
-    if (D_00347d40 != 0) {
-        func_002ba2b0(720, 1);
-    }
-
-    if (D_00347d30 != 0) {
-        func_002ba220(0, 0, 12288, 480, 1, 240);
-        return;
-    }
-}
-
-void func_001373d8(void) {
-    D_00347d54 = D_00347d56;
-    D_00347d50 = 0;
-    D_00347d55 = 0;
-
-    if (D_00347d30 != 0) {
-        func_002ba220(0, 12288, 12288, 0, 0, 0);
-        func_00136b78(0, 12288);  // entry16_set_field8
-        func_00136b78(1, 0);  // entry16_set_field8
-    }
-
-    func_00136a50();
-    func_00136878();
-}
+// 001373d8: moved to src/harata/libdk/bgm.cpp
 
 void func_00138d60(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6) {
     func_001386e0(a0, a1, a2, a3, a4, a6);
@@ -4887,26 +4822,7 @@ void func_001b9b28(u32 a0) {
 
 // 001ba740: moved to src/yasui/libys/itemeffect.cpp
 
-void func_001bb020(u32 a0) {
-    u32 s0 = a0;
-    func_001d7380(*(u32*)a0);
-    func_0014ca20();
-
-    s32 t7 = *(s32*)(s0 + 716);
-    if (t7 >= 0) {
-        func_001969c0((u32)t7);
-    }
-
-    if (*(u32*)(s0 + 72) != 0) {
-        u32 p = s0 + 12;
-        if (*(u32*)(s0 + 12) != 0) {
-            func_001dde40(p);
-        }
-        func_00170950(*(u32*)(s0 + 72));
-    }
-
-    return ((void(*)())func_001bbb50)();
-}
+// 001bb020: moved to src/anon/unit_001ba7e0.cpp
 
 // 001bb630: moved to src/yasui/libys/mission.cpp
 

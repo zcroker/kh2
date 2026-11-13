@@ -12,11 +12,5 @@ extern "C" {
 extern Slot347d30 D_00347d30[2];
 void func_00136a98(void);
 // Clears both slots, then resets the rest of the block.
-void func_00136ab8(void) {
-    D_00347d30[0].flags = 0;
-    D_00347d30[0].Clear();
-    D_00347d30[1].Clear();
-    D_00347d30[1].flags = 0;
-    func_00136a98();
-}
+// 00136ab8: moved to src/harata/libdk/bgm.cpp
 }

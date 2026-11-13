@@ -20,16 +20,7 @@ extern s32 D_00347d24;
 struct S16x2 { s16 a; s16 b; };
 extern S16x2 D_003b8b20;
 extern s32 D_003b8b38;
-void func_00136968(void) {
-    func_001369d0();
-    func_001369f0();
-    D_003b8b38 = -1;
-    D_003b8b20.b = -1;
-    D_003b8b20.a = -1;
-    D_00347d24 = -1;
-    D_00347d20 = -1;
-    func_00136a50();
-}
+// 00136968: moved to src/harata/libdk/bgse.cpp
 
 // Is node `a` linked into the current manager's list (also records it as current).
 struct LNode { u32 _0; LNode* next; };

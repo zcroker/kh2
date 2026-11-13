@@ -99,13 +99,7 @@ void func_001156b8(void** p) {
 }
 
 // Index of v in the id list at p+16 (count at p+12), or -1.
-s32 func_00135c88(u8* p, s32 v) {  // find_word_index
-    s32 n = *(s32*)(p + 12);
-    for (s32 i = 0; i < n; i++) {
-        if (((s32*)(p + 16))[i] == v) return i;
-    }
-    return -1;
-}
+// 00135c88: moved to src/naka/libkn/obj_observer.cpp
 
 void func_001385c0(void) {
     D_00347e08 = 0;

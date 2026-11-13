@@ -99,18 +99,7 @@ void func_00136840(void);
 u32 func_00136778(s32, s32);
 u32 func_002bc288(u32, u32);
 // Tracks the current position record; reloads when the area/map changes.
-void func_00136878(void) {
-    u64 unused[2]; // keeps the original's 48-byte frame
-    Pos24* p = func_001aec40();  // get_global_1c9408c
-    if (!p) return;
-    if (p->f8 == -1) func_00136840();
-    else if (p->f8 == D_003b8b20.f8 && p->f4 == D_003b8b20.f4 && p->f6 == D_003b8b20.f6) {}
-    else {
-        func_00136840();
-        D_00347d24 = func_002bc288(func_00136778(p->f6, p->f8), D_003b8b38);
-    }
-    D_003b8b20 = *p;
-}
+// 00136878: moved to src/harata/libdk/bgse.cpp
 }
 }
 

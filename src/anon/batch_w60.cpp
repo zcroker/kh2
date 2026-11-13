@@ -177,13 +177,7 @@ u8* func_00132018(u8* p) {  // entry_ptr_from_header
 
 struct KeyPair { s32 key; s32 val; };
 struct KeyTable { u8 pad[12]; s32 n; KeyPair e[1]; };
-s32 func_001362a0(KeyTable* p, s32 key) {
-    s32 i;
-    for (i = 0; i < p->n; i++) {
-        if (p->e[i].key == key && p->e[i].val == func_001dc5f0(key)) return i;
-    }
-    return -1;
-}
+// 001362a0: moved to src/naka/libkn/effect_observer.cpp
 
 void func_0013f648(QWord* p) {
     func_0013f608(p);

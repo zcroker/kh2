@@ -31,19 +31,7 @@ extern "C" {
 s32 func_0019ba60(u32);
 struct List { u8 pad[12]; s32 count; u32 items[32]; };
 
-void func_00135ad0(List* l)
-{
-    u32 tmp[32];
-    s32 n = 0;
-    s32 i;
-    for (i = 0; i < l->count; i++) {
-        if (l->items[i] && func_0019ba60(l->items[i]))
-            tmp[n++] = l->items[i];
-    }
-    for (i = 0; i < n; i++) l->items[i] = tmp[i];
-    for (; i < 32; i++) l->items[i] = 0;
-    l->count = n;
-}
+// 00135ad0: moved to src/naka/libkn/obj_observer.cpp
 }
 }
 

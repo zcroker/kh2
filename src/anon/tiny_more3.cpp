@@ -17,7 +17,7 @@ u32 func_001124e8(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a1; (void)a2; (void)a3; u
 
 void func_0011ee98(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a2; (void)a3; u32 v=*(u32*)((u32)a0+(8)); *(u32*)((u32)a1+(4))=v; *(u32*)((u32)a0+(8))=a1; }
 
-u32 func_00136b90(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a1; (void)a2; (void)a3; u32 p=(u32)&D_00347d30 + ((u32)a0 << 4); return *(u32*)((u32)p + (8)); }
+// 00136b90: moved to src/harata/libdk/bgm.cpp
 
 u32 func_002537c8(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a1; (void)a2; (void)a3; u32 p=(u32)&D_0035eee0 + ((u32)a0 << 4); return *(u32*)((u32)p + (12)); }
 

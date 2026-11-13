@@ -46,12 +46,7 @@ s32 func_00124788(u8* a) {
 // Allocate and construct an object that points back at its owner slot.
 void* func_001050d8(u32);
 void func_00135e50(void*);
-void func_00135dc8(void** out) {
-    u8* o = (u8*)func_001050d8(272);
-    func_00135e50(o);
-    *(void**)(o + 4) = out;
-    *out = o;
-}
+// 00135dc8: moved to src/naka/libkn/effect_observer.cpp
 
 u32 func_0013a7e8(u32);
 u32 func_0013d7e0(void);

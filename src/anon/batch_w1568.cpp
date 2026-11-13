@@ -122,49 +122,7 @@ void func_001d5518(Q_w1568*, void*, s32);
 void func_001d7f80(O_w1568_bb*);
 void func_002bc788(void);
 void func_002bc798(void);
-s32 func_001bb090(O_w1568_bb* o)
-{
-    func_001d21c0(o->x260);
-    switch (o->state) {
-    case 0: {
-        VObj_w1568* v = D_0034e948;
-        if (func_00197920() && func_0019ba60(v) && !v->vt->fn(v)) return 1;
-        if (!(o->flags & 2)) func_001d7f80(o);
-        o->state = 1;
-        break;
-    }
-    case 2:
-        o->state = 3;
-        break;
-    case 3:
-        if (func_00197b98() <= 4.0f) {
-            s32 a;
-            if (o->p0 == 16) a = 2;
-            else {
-                if (o->p0 == 156) {
-                    func_002bc798();
-                    func_001bbe18(7016);
-                    func_002bc788();
-                }
-                a = 1;
-            }
-            s32 r = func_00195328(a);
-            Q_w1568* q = &o->q;
-            if (q->id == 0) { q->id = r; q->kind = 566; }
-            func_001d5518(q, o->x0c, 0);
-            D_0034f240 |= 8;
-            func_001bc0d0(o);
-        }
-        break;
-    case 4:
-        if (func_00197920() == 0) {
-            func_001bb630(o->p0, o->p1);
-            return 0;
-        }
-        break;
-    }
-    return 1;
-}
+// 001bb090: moved to src/anon/unit_001ba7e0.cpp
 
 /* 001ca4a8 */
 

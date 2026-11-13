@@ -108,11 +108,7 @@ void func_00115560(void** p) {
     func_00105110(p);
 }
 
-u32 bgse_alloc(char* name, u32& size) {
-    u32 n = func_001688c8(name);
-    size = n;
-    return (u32)func_00170b30((n + 2047) & ~2047);  // alloc_align128
-}
+// 00136790: moved to src/harata/libdk/bgse.cpp
 
 void jumpeffect_outclear(void) {
     func_0013f030();

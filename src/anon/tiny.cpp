@@ -130,7 +130,7 @@ void func_0010b450(BD_VALUE* bd) { func_0010b550(bd); }
 void func_0010d900(BD_VALUE* bd) { func_0010d2b8(bd); }
 void func_0010f648(BD_VALUE* bd) { func_001064a8(bd); }
 void func_0011d710(BD_VALUE* bd) { func_00127a88(bd); }
-void func_001369b8(BD_VALUE* bd) { func_00136840(bd); }
+// 001369b8: moved to src/harata/libdk/bgse.cpp
 void func_001390a8(BD_VALUE* bd) { func_00138840(bd); }
 void func_001444b0(BD_VALUE* bd) { dk_Aabbox_set_vectors(bd); }
 void func_001444f8(BD_VALUE* bd) { func_00144860(bd); }
@@ -322,12 +322,7 @@ void func_00103ea0(u32 a0, u32 a1, u32 a2, u32 a3) {  // set_hook_ptr
 
 // 001050c8: moved to src/common/area.cpp
 
-void func_00105a10(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a0;
-    (void)a1;
-    (void)a2;
-    (void)a3;
-}
+// 00105a10: moved to src/common/unit_00105a10.cpp
 
 // 00105c30: moved to src/common/region.cpp
 
@@ -411,24 +406,11 @@ u32 func_001341e8(u32 a0, u32 a1, u32 a2, u32 a3) {
     return (u32)(*(u32*)((u32)b + (31920)));
 }
 
-void func_001357c8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 b = (0x0034u << 16);
-    *(u32*)((u32)b + (31984)) = (u32)0;
-}
+// 001357c8: moved to src/naka/libkn/obj_observer.cpp
 
-void func_00135d78(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 b = (0x0034u << 16);
-    *(u32*)((u32)b + (32008)) = (u32)0;
-}
+// 00135d78: moved to src/naka/libkn/effect_observer.cpp
 
-u32 func_00136958(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a0;
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    u32 b = (0x003cu << 16);
-    return (u32)(*(u32*)((u32)b + (-29896)));
-}
+// 00136958: moved to src/harata/libdk/bgse.cpp
 
 extern "C" void func_00136a50(u32, u32, u32, u32) asm("_ZN2dk4BGSE8clearOffEv");
 
@@ -2401,25 +2383,11 @@ f32 func_00114390(u32 a0, u32 a1, u32 a2, u32 a3) {
     return *(f32*)((u32)p + (136));
 }
 
-void func_00136b48(u32 a0, u32 a1, u32 a2, u32 a3) {  // entry16_set_word0
-    (void)a2;
-    (void)a3;
-    *(u32*)((u32)&D_00347d30 + ((u32)a0 << 4) + (0)) = a1;
-}
+// 00136b48: moved to src/harata/libdk/bgm.cpp
 
-void func_00136b60(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a2;
-    (void)a3;
-    u32 p = (u32)&D_00347d30 + ((u32)a0 << 4);
-    *(u32*)((u32)p + (4)) = a1;
-}
+// 00136b60: moved to src/harata/libdk/bgm.cpp
 
-void func_00136b78(u32 a0, u32 a1, u32 a2, u32 a3) {  // entry16_set_field8
-    (void)a2;
-    (void)a3;
-    u32 p = (u32)&D_00347d30 + ((u32)a0 << 4);
-    *(u32*)((u32)p + (8)) = a1;
-}
+// 00136b78: moved to src/harata/libdk/bgm.cpp
 
 void func_001395a8(u32 a0, u32 a1, u32 a2, u32 a3) {
     (void)a1;

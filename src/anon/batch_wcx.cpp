@@ -2410,20 +2410,7 @@ s32 func_00116d08(u8* p)
 void func_00136200(u8*, u32);
 void func_00136020(u8*);
 u32 func_001dc5f0(u32);
-void func_00136158(u8* p, u32 v)
-{
-    if (!v) return;
-    func_00136200(p, v);
-    s32 n = *(s32*)(p + 12);
-    if (n == 32) {
-        func_00136020(p);
-        if (*(s32*)(p + 12) == n) func_00136200(p, *(u32*)(p + 16));
-    }
-    ((u32*)(p + 16))[*(s32*)(p + 12) * 2] = v;
-    s32 i = *(s32*)(p + 12);
-    ((u32*)(p + 20))[i * 2] = func_001dc5f0(v);
-    (*(s32*)(p + 12))++;
-}
+// 00136158: moved to src/naka/libkn/effect_observer.cpp
 extern u8 D_003495c0[];
 extern u8 D_003496d0[];
 extern u8 D_003497e0[];

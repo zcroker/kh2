@@ -30,23 +30,7 @@ extern u32 D_00348810;
 extern u8 D_0034881f;
 
 /* wrap a signed index into [0, n) and fetch that slot */
-s32 func_00135d00(u8* p, s32 i) {  // wrap_index
-    s32 n = *(s32*)(p + 12);
-    if (n == 0) return 0;
-    while (i < 0) {
-        i += n;
-        asm volatile("nop\n\tnop\n\tnop\n\tnop\n\tnop");
-    }
-    if (i >= n) {
-        s32 below;
-        do {
-            i -= n;
-            below = i < n;
-            asm volatile("nop\n\tnop\n\tnop\n\tnop" : : "r"(below));
-        } while (!below);
-    }
-    return *(s32*)(p + 16 + i * 4);
-}
+// 00135d00: moved to src/naka/libkn/obj_observer.cpp
 
 void func_0011b038(s32 a) {
     s32 h = func_00111e38(0);

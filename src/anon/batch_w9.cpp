@@ -85,10 +85,7 @@ u32 func_001231f8(void* o, u32 a1, u32 a2, u32 a3, u32 t0, u8 t1, u32 t2) {
     return (*(u32 (**)(void*, u32, u32, u32, u32, u32, u32, u32))(*(u8**)o + 76))(o, a1, a2, a3, t0, 0, t1, t2);
 }
 
-void func_00135c50(void* p, u32 a) {
-    func_00135cc8(p, a, 0);
-    func_00135ad0(p);
-}
+// 00135c50: moved to src/naka/libkn/obj_observer.cpp
 
 void bc_make(void) {
     D_0034aa94 = func_0016c3a8(D_0034aa90, 64);

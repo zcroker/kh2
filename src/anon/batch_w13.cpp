@@ -120,13 +120,7 @@ s32 func_00123d90(void* a, s32 b) {
     return (*(VFn2*)(*(u8**)o + 24))(o, b);
 }
 
-void func_001373a0(void) {
-    D_00347d55 = 0;
-    D_00347d56 = D_00347d54;
-    D_00347d54 = 0;
-    func_002ba848(960);
-    func_00136a18();
-}
+// 001373a0: moved to src/harata/libdk/bgm.cpp
 
 void func_0013f4d8(void) {
     func_0013f030();

@@ -105,10 +105,7 @@ void func_00132ec0(u8* p, u32 id) {
 void func_00168388(u32, u32, u32, u32);
 s32 func_00170cd0(void);
 void func_00102448(u32, u32);
-void func_001367e0(u32 p, u32 a, u32 b) {
-    func_00168388(a, b, 0, 0);
-    while (func_00170cd0()) func_00102448(p, 0);
-}
+// 001367e0: moved to src/harata/libdk/bgse.cpp
 
 // ---- 001397d8: call slot 5 of every listed node with this id
 struct Node139 { void (**vt)(Node139*); Node139* next; u32 pad[2]; s32 id; };

@@ -81,24 +81,7 @@ extern W93Pair D_003b8b20;
 extern s32 D_003b8b38;
 
 // Loads and binds the two resources named by the entry unless already current.
-void func_001363a0(u32 p)
-{
-    u32 sz[2];
-    s16* v = func_001aec40(p);  // get_global_1c9408c
-    if (v[3] == D_003b8b20.a && v[2] == D_003b8b20.b) return;
-    if (v[3] == -1) return;
-    if (v[2] == -1) return;
-    u32 h0 = func_002ba0b0(v[3]);
-    u32 d0 = func_00136790(h0, &sz[0]);
-    func_001367e0(p, h0, d0);
-    u32 h1 = func_002ba0f8(v[2]);
-    u32 d1 = func_00136790(h1, &sz[1]);
-    func_001367e0(p, h1, d1);
-    func_002ba3e8(20, d0, sz[0], d1, sz[1], &D_003b8b38, 0, 0);
-    func_002ba7c8(p);
-    func_001367c8(d1);
-    func_001367c8(d0);
-}
+// 001363a0: moved to src/harata/libdk/bgse.cpp
 
 struct W93Task { u32 f0; void* owner; u8 pad[40]; void* fn; };
 struct W93G { u32 f0; u32 f4; u32 f8; u8 pad[8]; u32 f20; };
@@ -217,19 +200,7 @@ union W93UM { W93Map* p; u32 u; };
 extern W93UM D_01d49324;
 extern W93UM D_0034f240;
 // Loads the field's map resource, publishes it, and folds its flags into the global field state.
-void func_001bacd0(W93Fld* f)
-{
-    f->f72 = func_001708f8(f->f40, -1);
-    W93Map* m = func_00168b38(f->f72, 2, 0)->map;
-    func_001d5458(m);
-    f->map = m;
-    D_01d49324.p = m;
-    if (f->map->flags & 1) func_00191990();
-    if (f->map->flags & 0x20) D_0034f240.u |= 4;
-    if (f->map->flags & 0x40) D_0034f240.u |= 0x200;
-    if (f->map->flags & 0x80) D_0034f240.u |= 0x400;
-    if (f->map->flags & 0x100) D_0034f240.u |= 0x8000;
-}
+// 001bacd0: moved to src/anon/unit_001ba7e0.cpp
 
 struct W93Ob;
 struct W93ObVt { u8 pad[40]; void (*kill)(W93Ob*); u8 p2[60 - 44]; s32 (*prio)(W93Ob*); };

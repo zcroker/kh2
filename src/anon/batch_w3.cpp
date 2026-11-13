@@ -35,15 +35,11 @@ u32 func_0010abc8(u32 size) {  // bump_alloc
 extern u32 D_00347d50;
 extern u8 D_00347d54;
 extern u8 D_00347d55;
-void func_00136a98() {
-    D_00347d50 = 0;
-    D_00347d54 = 0;
-    D_00347d55 = 0;
-}
+// 00136a98: moved to src/harata/libdk/bgm.cpp
 
 void func_00102c18(s32, s32, void (*)(void*));
 void func_00137250(void*);
-void func_00136fa8() { func_00102c18(1, 300000, func_00137250); }
+// 00136fa8: moved to src/harata/libdk/bgm.cpp
 
 // Copy the RGBA bytes at +0xe8 to +0x0c.
 void func_00147c78(u32, u8* p) {  // copy_bytes_232_to_12
