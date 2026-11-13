@@ -209,14 +209,7 @@ s32 func_0011f270(void* o, s32 n) {
 // Removes the entry for key (if its value is still current), then refreshes.
 // 00136200: moved to src/naka/libkn/effect_observer.cpp
 
-void func_0013b1d0(void) {
-    func_00138650(D_00348050, 5200, func_0013a800(), 1);
-    if (func_00242c70()) return;
-    if (!func_0013a9d0()) return;
-    u8* p = D_00348050 + 32;
-    func_002368e8(p, 0.8f);
-    func_002367c8(p);  // obj_dispatch_bitfield64
-}
+void func_0013b1d0(void);  // 0x0013b1d0: definition moved into src/anon/unit_0013a8b8.cpp
 
 void func_0013f0d0(void) {
     if (func_001991a8(0, 0)) {

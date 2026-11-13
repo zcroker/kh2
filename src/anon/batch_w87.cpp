@@ -101,14 +101,7 @@ void func_001285f8(u8* p, f32 x, s32* lo, s32* hi) {
 // ---- 0x13bb58 ----
 s32 func_0013ba60(void*, s32, s32, u8*, s32, s32*, s32*);
 u8* func_0013b5d0(void*, s32, s32, s32, u8, s32, s32, s32, f32, u32, s32);
-u8* func_0013bb58(void* a0, u8* a1, s32 a2, s32 a3, u8 b, s32 c, s32 d) {
-    s32 r20 = 0;
-    s32 r24 = -1;
-    s32 ok = func_0013ba60(a0, a2, a3, &b, d, &r20, &r24);
-    u8* r = func_0013b5d0(a0, a2, r20, 0, b, c + 28, 388 - *(s32*)(a1 + 8) * 22, 0, 1.0f, 0x80b4b4b4, 2);
-    if (ok) *(s32*)(r + 392) = r24;
-    return r;
-}
+u8* func_0013bb58(void* a0, u8* a1, s32 a2, s32 a3, u8 b, s32 c, s32 d);  // 0x0013bb58: definition moved into src/anon/unit_0013a8b8.cpp
 
 // ---- 0x152820: screen rect of a sprite ----
 void func_0023a9c0(void*, s32*, s32*);

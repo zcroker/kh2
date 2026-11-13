@@ -14,35 +14,4 @@ void func_0013cbb8(P*, u32*, u32);
 u32 func_0013c888(P*, u32);
 void func_0013c3b8(P*, u32*, s32, u32, u32);
 
-void func_0013c938(P* p)
-{
-    s32 i, j, k, n;
-    u32 t, m;
-    Q* q;
-    u32* e;
-    func_0013d3f8(p);
-    t = w8019_GetMode();
-    for (j = 0; j < 4; j++) D_004573c0[j] = 0;
-    q = p->q;
-    e = q->arr[0];
-    if (q->cur) n = (q->cur - q->arr) + 1;
-    else n = 0;
-    if (q->f20 & 8) {
-        func_0013ce08(p, *e == 10 ? 0 : 4);
-    } else if (func_001bcf38(e)) {
-        func_0013c900(p, 0, e, n);
-        m = func_0013c878(p);
-        func_0013cbb8(p, e, m);
-    } else {
-        m = func_0013c888(p, t);
-        for (i = 0; i < n; i++) {
-            e = p->q->arr[i];
-            func_0013c900(p, i, e, n);
-            func_0013c3b8(p, e, i, t, m);
-        }
-        for (k = n; k < 4; k++) p->fcc[k] = -1;
-    }
-    p->fec = *p->q->arr[0];
-    func_0013b838(p);
-    p->ff8 = t;
-}
+void func_0013c938(P* p);  // 0x0013c938: definition moved into src/anon/unit_0013a8b8.cpp

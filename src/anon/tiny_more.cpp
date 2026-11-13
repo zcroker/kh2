@@ -36,9 +36,9 @@ u32 func_00139538(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a1; (void)a2; (void)a3; u
 
 extern "C" u32 func_0013a1d8(u32, u32, u32, u32) asm("_ZN2dk5Obj2D12GetAllocatorEv");
 
-void func_0013b2b8(f32 a0,u32 a1,u32 a2,u32 a3) { (void)a1; (void)a2; (void)a3; u32 p = D_003484a0; *(f32*)((u32)p + (692)) = a0; }
+void func_0013b2b8(f32 a0,u32 a1,u32 a2,u32 a3);  // 0x0013b2b8: definition moved into src/anon/unit_0013a8b8.cpp
 
-void func_0013b2d8(f32 a0,u32 a1,u32 a2,u32 a3) { (void)a1; (void)a2; (void)a3; u32 p = D_003484a0; *(f32*)((u32)p + (688)) = a0; }
+void func_0013b2d8(f32 a0,u32 a1,u32 a2,u32 a3);  // 0x0013b2d8: definition moved into src/anon/unit_0013a8b8.cpp
 
 u32 func_00141970(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a1; (void)a2; (void)a3; u32 p = *(u32*)((u32)a0 + (0)); return *(u32*)((u32)p + (12)); }
 

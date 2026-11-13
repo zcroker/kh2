@@ -63,15 +63,7 @@ f32 func_0013b2a8(void*);  // mul_float684_692
 void func_00138d48(void*, f32, f32, f32, f32);
 void func_0013d1d0(void*);
 
-void func_0013d2d0(u8* p) {
-    u8* s = p + 260;
-    u8* a = func_0013cb80();  // get_global_358050
-    s32 i = func_0013cb90();
-    func_001386e0(s, 5301, func_0013cb30(), a + 32, D_00348578[i].b, 1);
-    func_00138c40(s, 28, 322);
-    func_00138d48(s, 1.0f, 1.0f, 1.0f, func_0013b2a8(p));
-    func_0013d1d0(p);
-}
+void func_0013d2d0(u8* p);  // 0x0013d2d0: definition moved into src/anon/unit_0013a8b8.cpp
 
 /* ---- 00146c08: box vs 5 planes (VU0 dot product) ---- */
 static inline bool front2(f32 d) { return 0.0f <= d; }

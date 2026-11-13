@@ -85,10 +85,7 @@ void func_0011c7c8(u8* a0, u32 a1) {
     ((void (*)(VObj*, u32, u32))o->vtbl[15])(o, *(u32*)(a0 + 260), a1);
 }
 
-void func_0013b1a0(u32 a0) {
-    func_001391c8(a0, 5302, 1);
-    func_0013b128(a0);
-}
+void func_0013b1a0(u32 a0);  // 0x0013b1a0: definition moved into src/anon/unit_0013a8b8.cpp
 
 // 001586b8: moved to src/harata/libdk/cannoncamera.cpp
 

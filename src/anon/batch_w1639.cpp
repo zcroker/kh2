@@ -46,48 +46,7 @@ static inline __attribute__((always_inline)) void W1639_SetShow(W1639Sprite* p, 
     }
 }
 
-void func_0013bc50(W1639Cmd* self, s32* sel, s32 a2, s32 idx, u8 t0, s32 t1, u8* info, s32 show)
-{
-    if (!func_0013bc40(self, a2)) return;
-    s32 kind = (*sel == 0) ? 0x14 : 0x15;
-    s32 id;
-    switch (info[7]) {
-    case 1: id = 0x25; break;
-    default: id = -1; break;
-    case 2: id = 0x29; break;
-    case 3: id = 0x27; break;
-    case 4: id = 0x2c; break;
-    case 5: id = 0x2b; break;
-    case 6: id = 0x26; break;
-    case 7: id = 0x28; break;
-    }
-    W1639Sprite* p;
-    if (id != -1) {
-        p = func_0013b5d0(1.0f, self, a2, D_00348430[idx], 0, t0, 0, 0, 0, t1, 2);
-        if (!p) return;
-        W1639_SetShow(p, show);
-        func_00139580(p);
-        p = func_0013b5d0(1.0f, self, a2, id, 0, t0, 0, 0, 0, t1, 2);
-        W1639_SetShow(p, show);
-        func_00139580(p);
-        p = func_0013b5d0(1.0f, self, a2, kind, 0, t0, 0, 0, 0, t1, 2);
-        W1639_SetShow(p, show);
-        if (self->unkD0 == -1) func_00139580(p);
-        else func_00139570(p);
-        if (func_001bdcd0(self->unk29C)) func_00139570(p);
-    } else {
-        f32 f = 1.0f;
-        
-        p = func_0013b5d0(f, self, a2, D_00348430[idx], 0, t0, 0, 0, 0, t1, 2);
-        if (!p) return;
-        func_00139570(p);
-        func_0013c820(self, a2);
-        p = func_0013b5d0(f, self, a2, kind, 0, t0, 0, 0, 0, t1, 2);
-        W1639_SetShow(p, show);
-        if (func_001bdcd0(self->unk29C)) func_00139570(p);
-        else func_00139580(p);
-    }
-}
+void func_0013bc50(W1639Cmd* self, s32* sel, s32 a2, s32 idx, u8 t0, s32 t1, u8* info, s32 show);  // 0x0013bc50: definition moved into src/anon/unit_0013a8b8.cpp
 
 
 extern u64 D_0034ecc0;

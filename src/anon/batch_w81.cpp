@@ -107,13 +107,7 @@ extern VObj0* D_003485f0;
 extern VObj0* D_003485ec;
 extern VObj0* D_003485e8;
 void u_call0_0013d9e0(void) asm("_Z16u_call0_0013d9e0v");
-void u_call0_0013d9e0(void) {
-    if (D_003485f8) { D_003485f8->vt[4](D_003485f8); D_003485f8 = 0; }
-    if (D_003485f4) { D_003485f4->vt[4](D_003485f4); D_003485f4 = 0; }
-    if (D_003485f0) { D_003485f0->vt[4](D_003485f0); D_003485f0 = 0; }
-    if (D_003485ec) { D_003485ec->vt[4](D_003485ec); D_003485ec = 0; }
-    if (D_003485e8) { D_003485e8->vt[4](D_003485e8); D_003485e8 = 0; }
-}
+void u_call0_0013d9e0(void);  // 0x0013d9e0: definition moved into src/anon/unit_0013a8b8.cpp
 
 // --- 00146390: recursive tree walk (node test, visit items, then up to 8 children)
 struct Node146 { s16 child[8]; Vq81 v; u8 pad20[8]; s16 start, end; u8 pad[4]; };

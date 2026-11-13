@@ -132,12 +132,7 @@ void func_00132590(void* p) {
     func_00106420(p);
 }
 
-void func_0013b260(void* p) {
-    func_0013b258(p);
-    func_0013b1d0(p);
-    func_0013d208(p);
-    func_0013b1a0(p);
-}
+void func_0013b260(void* p);  // 0x0013b260: definition moved into src/anon/unit_0013a8b8.cpp
 
 // Deactivates every 28-byte entry whose id matches.
 struct Ent28 {

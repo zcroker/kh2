@@ -31,9 +31,7 @@ void func_0011f3b8(void** obj) {
 
 void func_0013d750(void);
 void func_00102c18(u32, u32, void (*)(void));
-void func_0013d798(void) {
-    func_00102c18(1, 100000, func_0013d750);
-}
+void func_0013d798(void);  // 0x0013d798: definition moved into src/anon/unit_0013a8b8.cpp
 
 void func_0014ace8(void);
 extern u32 D_003493a0;

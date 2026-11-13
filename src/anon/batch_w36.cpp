@@ -69,12 +69,7 @@ void func_00239988(u8*, u32, u32);
 u8* func_001c10f8(void);  // request_pool_block64
 extern Blk64 D_01d49388[];
 
-s32 func_0013b9e0(u8* p, s32 b) {
-    if (func_0013ba50(p, b)) return 0;
-    if (b == 0 && *(s32*)(p + 236) == 6) return 1;
-    if (b == 6 && *(s32*)(p + 236) == 0) return 1;
-    return 0;
-}
+s32 func_0013b9e0(u8* p, s32 b);  // 0x0013b9e0: definition moved into src/anon/unit_0013a8b8.cpp
 
 // Function-local static: guard byte, destructor registered once.
 u32 wtarget_00142208(u32 a0, u32 a1, u32, u32) {

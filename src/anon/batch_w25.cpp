@@ -27,26 +27,13 @@ u8* func_00100468(u8* p, s64* val) {  // leb128_decode
 extern void* D_003484a0;
 extern u8 D_003484a4;
 s32 func_0013c738(void*);
-s32 func_0013c7d0(void) {
-    void* p = D_003484a0;
-    if (p) {
-        if (func_0013c738(p)) return 1;
-        if (D_003484a4 == 1) return 1;
-    }
-    return 0;
-}
+s32 func_0013c7d0(void);  // 0x0013c7d0: definition moved into src/anon/unit_0013a8b8.cpp
 
 void func_0013d620(void);
 void func_0013b128(void*);
 void func_0013d7c0(void);
 void func_001024a8(u32);
-void func_0013d750(u32 a) {
-    func_0013d620();
-    func_0013b128(D_003484a0);
-    *(u32*)((u8*)D_003484a0 + 676) = 0;
-    func_0013d7c0();
-    func_001024a8(a);
-}
+void func_0013d750(u32 a);  // 0x0013d750: definition moved into src/anon/unit_0013a8b8.cpp
 
 struct E20 { u8 pad[16]; u8 flag; u8 id; u8 pad2[2]; };
 // Flags every 20-byte entry whose id matches.

@@ -583,20 +583,7 @@ extern u32 D_00348470[][3];
 extern u32 D_00348440[][3];
 u32 func_0013b808(u32, u32);  // entry168_by_index
 struct Fl6 { u16 on : 1; u16 rest : 15; u8 On() { return on; } };
-void func_0013c080(u32 a0, Fl6* fl, u32 a2, s32 col, u8* changed, s32 row, u32* outA, u32* outB)
-{
-    if (fl->On()) {
-        *outA = D_00348470[row][col];
-        if (func_0013b808(a0, a2) != fl->on) {  // entry168_by_index
-            *outA = D_00348440[row][col];
-            *outB = D_00348470[row][col];
-            *changed = 1;
-        }
-    }
-    if (func_0013b808(a0, a2)) {  // entry168_by_index
-        if (func_0013b808(a0, a2) != fl->on) *changed = 1;
-    }
-}
+void func_0013c080(u32 a0, Fl6* fl, u32 a2, s32 col, u8* changed, s32 row, u32* outA, u32* outB);  // 0x0013c080: definition moved into src/anon/unit_0013a8b8.cpp
 
 extern f32 D_00349e14;
 void func_0014fcd8(u8*);
@@ -6513,9 +6500,7 @@ void func_002c4e98(u8* p, u32 res, Init5_98* arg)
 // ---- 0013c820
 u32 func_0013b5d0(u32, u32, u32, u32, u32, u32, u32, u32, u32, u32, f32);
 void func_00139570_c820(u32) asm("func_00139570");
-void func_0013c820(u32 a0, u32 a1) {
-    func_00139570_c820(func_0013b5d0(a0, a1, 2, 0, 0, 0, 0, 0, 0x80e6e6e6, 2, 1.0f));
-}
+void func_0013c820(u32 a0, u32 a1);  // 0x0013c820: definition moved into src/anon/unit_0013a8b8.cpp
 
 // ---- 00176818
 void func_0017f540(u8*, u32, f32, f32);

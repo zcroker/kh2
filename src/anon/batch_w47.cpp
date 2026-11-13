@@ -51,14 +51,7 @@ s32* func_0013a178(Vec4* v, Vec4* m) {  // mat4_mul
 struct Pool13a { u8 pad[28224]; s32 free[36]; s32 n; };
 extern u8* D_00348058;
 u8* func_0013aa78(u8*, u32, u32, u32, u32, u32, u32);
-u8* func_0013aca0(u32 a, u32 b, u32 c, u32 d, u32 e, u32 f) {
-    Pool13a* p = (Pool13a*)D_00348058;
-    s32 n = p->n - 1;
-    p->n = n;
-    u8* r = (u8*)p + p->free[n] * 784;
-    func_0013aa78(r, a, b, c + 32, d, e, f);
-    return r;
-}
+u8* func_0013aca0(u32 a, u32 b, u32 c, u32 d, u32 e, u32 f);  // 0x0013aca0: definition moved into src/anon/unit_0013a8b8.cpp
 
 struct S13e { u8 pad[388]; s32 f388; u8 pad2[56]; u8 sub[16]; };
 void func_00138c10(void*, s32);

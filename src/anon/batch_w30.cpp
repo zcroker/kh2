@@ -93,15 +93,7 @@ void trap_camera_at(void**) asm("_ZN2YS14trap_camera_atEP8BD_VALUE");
 void func_00281008_impl(void*) asm("_Z13func_00281008Pv");
 }
 
-void wtarget_0013b4b0(u32, u32, u32, u32) {
-    u8* p = D_003484a0;
-    if (p && p[680]) {
-        func_00139858(2);
-        func_00139858(1);
-        func_00139ab0(2);
-        func_00139ab0(1);
-    }
-}
+void wtarget_0013b4b0(u32, u32, u32, u32);  // 0x0013b4b0: definition moved into src/anon/unit_0013a8b8.cpp
 
 // 00185050: moved to src/anon/unit_00183088.cpp
 
