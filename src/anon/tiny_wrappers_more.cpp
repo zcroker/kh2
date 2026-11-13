@@ -774,9 +774,7 @@ u32 func_001a2898(u32 a0, u32 a1, u32 a2, u32 a3) {
 
 // 001a28f8: moved to src/anon/unit_001a28f8.cpp
 
-u32 func_001a3e30(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_001a3d70(0x00000001u, 0x0000ffffu, a2, a3);
-}
+// 001a3e30: moved to src/anon/unit_001a3d70.cpp
 
 u32 func_001a5970(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_0016ed50(0x000005c3u, 0x000003fcu, 0x0000001eu, a3);

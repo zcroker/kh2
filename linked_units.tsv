@@ -126,6 +126,7 @@ src/anon/unit_001ba7e0.cpp	001ba7e0	001bb270	.rodata@0036dc00	-G0 -fno-strict-al
 src/yasui/libys/magic.cpp	001a5c08	001a6a10	.data@00350800,.bss@01c6cb20,.rodata@0036d5c0	-G0 -fno-strict-aliasing -fmove-all-movables
 src/yasui/libys/prizetable.cpp	001a5b58	001a5c08	.bss@01c6cb1c	-G0
 src/yasui/libys/effect.cpp	001a3a50	001a3d70	.data@00350748,.bss@01c6cae0,.rodata@0036d478	-G0
+src/anon/unit_001a3d70.cpp	001a3d70	001a3e70	-	-G0
 src/yasui/libys/mission.cpp	001bb270	001bc188	.rodata@0036dc0c	-G0 -g
 src/yasui/libys/lookat.cpp	001b0448	001b13d8	.rodata@0036d960	-G0 -fno-strict-aliasing
 src/anon/unit_00153ea0.cpp	00153ea0	00157688	.rodata@0036b270	-G0
