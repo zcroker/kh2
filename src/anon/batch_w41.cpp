@@ -187,12 +187,7 @@ void func_001786e0(u8* p) {
 
 extern "C" {
 
-void func_00198450(u8* p) {
-    u8* q = p + 320;
-    if (func_00180cd0(q) && func_001805a8(q, 0))
-        func_0017f488(q, 0, 0.0f, 0.0f);
-    func_00169f98(p);
-}
+// 00198450: moved to src/anon/unit_00197fe0.cpp
 
 }
 

@@ -120,13 +120,7 @@ void func_00186948(void* a, u8* b);
 
 struct Obj198 { u8 pad[1416]; u32 active : 1; };
 Obj198* func_001b9bc8(Obj198*);
-// Advance to the next object whose active bit is set.
-Obj198* func_00198700(Obj198* p) {
-    do {
-        p = func_001b9bc8(p);
-    } while (p != 0 && (u8)p->active == 0);
-    return p;
-}
+// 00198700: moved to src/anon/unit_00197fe0.cpp
 
 
 struct G19d { u32 pad0; s32 a; u8 pad8[24]; s32 v; s32 b; };

@@ -179,15 +179,7 @@ E20* func_0018a1b8(u8* p, u32 mask, E20* e)
 // 00198970
 extern u8* D_0034e948;
 void wtarget_00198970(u8* p, u32, u32, u32) asm("_Z16wtarget_00198970jjjj");
-void wtarget_00198970(u8* p, u32, u32, u32)
-{
-    if (*(u32*)(p + 268) & 0x800) {
-        u8* o = *(u8**)(D_0034e948 + 2884);
-        ((void (*)(void*))(*(void***)o)[6])(o);
-        *(s32*)(p + 1160) -= 1;
-        *(u32*)(p + 268) &= ~0x800;
-    }
-}
+// 00198970: moved to src/anon/unit_00197fe0.cpp
 
 // 001a3958: first item of a kind that has an Ansem entry; mark it
 void func_001a34e0(u32, s32);

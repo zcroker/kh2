@@ -3537,52 +3537,11 @@ void func_00197280(u32 a0) {
     func_00196e88(s0, 2, 3, 0.0f);
 }
 
-u32 func_001984b8(u32 a0) {
-    u32 s0 = a0;
-    u32 s1 = s0 + 128;
-    func_00180ce0(s0 + 320);
-    if (*(u32*)(s0 + 128) != 0) {
-        func_001de450(s1);
-        func_001dde40(s1);
-    }
-    return func_0016a328(s0);
-}
+// 001984b8: moved to src/anon/unit_00197fe0.cpp
 
-u32 func_00198510(u32 a0) {
-    u32 s0 = a0;
-    if (func_0016b638(a0) == 0) {
-        return 0;
-    }
-    u32 r = 0;
-    if (*(u32*)(s0 + 128) != 0) {
-        if (*(u32*)(s0 + 140) != 0) {
-            return r;
-        }
-    }
-    func_00198660(s0);  // to_1b0250_field
-    u32 p = *(u32*)(s0 + 2488);
-    if (p != 0) {
-        if (func_001b0320(p) != 0) {  // is_field16_set
-            return r;
-        }
-    }
-    r = 1;
-    return r;
-}
+// 00198510: moved to src/anon/unit_00197fe0.cpp
 
-u32 func_001987a8(u32 a0, u32 a1, u32 a2) {
-    u32 s0 = a2;
-    u32 s1 = a0;
-    u32 s2 = func_00198738(a0);
-    s1 += 128;
-    u32 s3 = func_001050d8(176);
-    func_00196ca8(s3, 11, s2);
-    *(u32*)(s3 + 8) = s1;
-    if (s0 != 0) {
-        func_00196e98(s3, s0);
-    }
-    return func_00196f00(s3);
-}
+// 001987a8: moved to src/anon/unit_00197fe0.cpp
 
 void func_0019ab80(u32 a0) {
     u32 t7 = *(u32*)(a0 + 4);

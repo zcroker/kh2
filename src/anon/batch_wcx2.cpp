@@ -331,20 +331,7 @@ void func_001bdb70(u8*, s32, u32, u32, u8*);
 void func_0019d720(u8*);
 #define ID4(s) ((s)[0] | ((s)[1] << 8) | ((s)[2] << 16) | ((s)[3] << 24))
 void set_special_command(u8* self, s32 cmd) asm("_ZN2YS6STDOBJ19set_special_commandEi");
-void set_special_command(u8* self, s32 cmd)
-{
-    wtarget_00198970(self);
-    u8* sub = self + 1952;
-    u8* r1 = func_00168b88(*(u32*)(sub + 16), 24, ID4(D_0036d0c8), 0);  // find_entry16_by_half_word
-    u32 h = *(u32*)(sub + 16);
-    u32 a = *(u32*)(r1 + 8);
-    u8* r2 = func_00168b88(h, 25, ID4(D_0036d0c8), 0);  // find_entry16_by_half_word
-    u8* o = *(u8**)(D_0034e948 + 2884);
-    func_001bdb70(o, cmd, a, *(u32*)(r2 + 8), self);
-    func_0019d720(o + 2552);
-    *(u32*)(self + 268) |= 0x800;
-    *(u32*)(self + 1160) += 1;
-}
+// command: moved to src/anon/unit_00197fe0.cpp
 
 extern u8 D_00350ca8[];
 extern u8 D_00350ca0[];

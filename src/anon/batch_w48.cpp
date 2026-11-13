@@ -170,12 +170,7 @@ void func_00196198(void) {
 }
 
 u8* func_00168b88(void*, s32, s32, s32);  // find_entry16_by_half_word
-s32 func_00198738(u8* o, s8* b) {
-    void* p = *(void**)(o + 1968);
-    u8* r;
-    if (p && (r = func_00168b88(p, 22, b[0] | (b[1] << 8) | (b[2] << 16) | (b[3] << 24), 0)) != 0) return *(s32*)(r + 8);  // find_entry16_by_half_word
-    return 0;
-}
+// 00198738: moved to src/anon/unit_00197fe0.cpp
 
 void func_0018f028(void*);
 void func_0019f9a8(u8* o) {  // array8_free_slots

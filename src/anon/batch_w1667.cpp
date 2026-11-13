@@ -15,7 +15,7 @@ extern u32 D_00352b54;
 extern u8 D_004f4240;
 extern u8 D_01c60d10;
 
-void func_00198a90(void) { func_0013d798(); }
+// 00198a90: moved to src/anon/unit_00197fe0.cpp
 
 void func_001e2ac0(void) { *(s32*)(D_00352bd0 + 0xdc0) = 7; }
 

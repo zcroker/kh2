@@ -124,11 +124,7 @@ u32 u_call4_00194830(u32 a, u32 b, u32 c, u32 d) {
 
 extern u8 D_00350388;
 void func_00169398(u8*, u32, u32*, u32, u32);
-void func_00197fe0(u8* o, u32* a, u32 b, u32 c) {
-    func_00169398(o, *a | 0x40000000, a, b, c);
-    *(void**)o = &D_00350388;
-    *(u32*)(o + 1416) |= 0x20;
-}
+// 00197fe0: moved to src/anon/unit_00197fe0.cpp
 
 struct O19b { u8 pad[8]; u8* hdr; u8 pad2[32]; u8* first; };
 // Walks variable-length records (12-byte units) looking for id.

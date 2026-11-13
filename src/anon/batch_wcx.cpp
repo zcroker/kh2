@@ -3011,16 +3011,7 @@ u8* func_00168b88(u32, s32, u32, s32);  // find_entry16_by_half_word
 void func_0013d6b0(u32, u32);
 static inline u32 Key4(s8* k) { return k[0] | k[1] << 8 | k[2] << 16 | k[3] << 24; }
 void STDOBJ_hook_command_image(u8*) asm("_ZN2YS6STDOBJ18hook_command_imageEv");
-void STDOBJ_hook_command_image(u8* p)
-{
-    u8* q = p + 1952;
-    u8* r1 = func_00168b88(*(u32*)(q + 16), 24, Key4(D_0036d0c8), 0);  // find_entry16_by_half_word
-    u32 k2 = Key4(D_0036d0c8);
-    u32 o = *(u32*)(q + 16);
-    u32 a = *(u32*)(r1 + 8);
-    u32 b = *(u32*)(func_00168b88(o, 25, k2, 0) + 8);  // find_entry16_by_half_word
-    func_0013d6b0(a, b);
-}
+// image: moved to src/anon/unit_00197fe0.cpp
 typedef s32 (*Fn8)(u8*, u32);
 static inline u8* NextR(u8* p, u8* n) { if (!n) return *(u8**)(p + 12); return *(u8**)(n + 96); }
 struct E56 { u32 a; u32 b; u8 pad[4]; u32 c; u32 d; u8 pad2[36]; };
@@ -3151,14 +3142,7 @@ s32 func_0019f528(u8*, u32);  // test_bit_by_index
 s32 func_0019f550(u8*, u32);  // test_bit_addressable
 void func_0019f490(u8*, u32);
 typedef void (*Fn80)(u8*, u32, u32, u8*, u32);
-void func_00198ae0(u8* p, u32 a, u32 b, u32 c)
-{
-    u8* q = p + 1148;
-    if (func_0019f528(q, b) || !func_0019f550(q, b)) {  // test_bit_by_index
-        func_0019f490(p + 1140, b);
-        (*(Fn80*)(*(u8**)p + 80))(p, a, b, p, c);
-    }
-}
+// 00198ae0: moved to src/anon/unit_00197fe0.cpp
 extern u32 D_0034f240;
 extern u8 D_0036d8b8[];
 void func_001c8ba8(void);
