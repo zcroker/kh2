@@ -182,12 +182,7 @@ s32 func_001a8c78(u8* p, s32 n) {
     return r;
 }
 
-void func_001ac858(u8* p, u32 a) {
-    func_001ac378(p, 4, 3, a, 0, 256, 365);
-    *(u32*)(p + 100) = 4;
-    *(void**)p = D_00350bf0;
-    func_001aa668(p + 12, p);
-}
+// 001ac858: moved to src/anon/unit_001abb28.cpp
 
 // 001b1448: moved to src/yasui/libys/databuff.cpp
 

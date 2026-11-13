@@ -824,19 +824,11 @@ u32 func_001aba98(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_001ab890(0x00000001u, 0x0000ffffu, a2, a3);
 }
 
-u32 func_001abb78(u32 a0, u32 a1, u32 a2, u32 a3) {
-    *(u32*)((u32)(a0) + 4u) = (u32)(0x00000000u);
-    *(u32*)((u32)(a0) + 0u) = (u32)(0x00000001u);
-    return func_00239bf8(((u32)(a0) + 20u), 0x00000001u, a2, a3);
-}
+// 001abb78: moved to src/anon/unit_001abb28.cpp
 
-u32 func_001ac6d0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_001a9ae8(((u32)(a0) + 12u), ((u32)(*(u32*)((u32)(a0) + 4u))), ((u32)(*(u32*)((u32)(a0) + 8u))), ((u32)(*(u32*)((u32)(((u32)(*(u32*)((u32)(a0) + 108u)))) + 0u))));
-}
+// 001ac6d0: moved to src/anon/unit_001abb28.cpp
 
-u32 func_001ad970(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_001ad948(0x00000001u, 0x0000ffffu, a2, a3);
-}
+// 001ad970: moved to src/anon/unit_001abb28.cpp
 
 u32 func_001b0370(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_002bc588(((u32)(*(u32*)((u32)(a0) + 28u))), a1, a2, ((u32)(*(u32*)((u32)(a0) + 20u))));

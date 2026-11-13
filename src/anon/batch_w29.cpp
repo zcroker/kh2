@@ -212,10 +212,7 @@ u8 func_001aa8a8(u32* p, u32 a, u32 b, u32 c, u32 d) {
     return func_001aafe8(p[0], p + 16, a, b, c, d, *(f32*)(p + 9), *(f32*)(p + 10));
 }
 
-void func_001ad3e0(u32* p) {
-    func_001acdc0(p, p[1], p[2], p[1] + (p[23] >> 1), p[2] + (p[24] >> 1), 432);
-    func_001ac310((u8*)p + 2924);
-}
+// 001ad3e0: moved to src/anon/unit_001abb28.cpp
 
 void func_001c2ba8(void) {
     u32* p = D_01d49530;

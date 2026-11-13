@@ -166,16 +166,7 @@ void func_0019f9a8(u8* o) {  // array8_free_slots
 
 void func_0023acd8(u8*);
 void func_0023ade0(u8*);
-void func_001ac310(u8* o) {
-    if (*(u32*)o == 0) return;
-    u8* s = o + 12;
-    func_0023acd8(s);
-    u32 a = *(u32*)(o + 4);
-    u32 b = *(u32*)(o + 8);
-    *(u32*)(s + 328) = a;
-    *(u32*)(s + 332) = b;
-    func_0023ade0(s);
-}
+// 001ac310: moved to src/anon/unit_001abb28.cpp
 
 s32 func_00181550(s32);
 s32 func_001b8958(s32);

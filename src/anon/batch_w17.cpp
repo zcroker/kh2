@@ -139,11 +139,7 @@ extern s32 D_01c6cba0[2];
 extern u32 D_00350c50;
 extern u8 D_01c6ced0;
 void func_0031fe00(void*, void*);
-void func_001ac660(void** p) {
-    *p = &D_00350c50;
-    func_0031fe00(&D_01c6ced0, p);
-    func_00105110(p);
-}
+// 001ac660: moved to src/anon/unit_001abb28.cpp
 
 void func_001b7958(s32* p, void* v) {  // add_vec_to_records
     for (s32 i = 0; i < *p; i++) {

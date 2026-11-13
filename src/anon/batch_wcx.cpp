@@ -1341,17 +1341,7 @@ void func_001ac970(u8*, s32, s32, u32, s32, s32, s32, s32);
 void func_001ac258(u8*);
 void func_00239700(u8*);
 void func_001a9970(u8*, s32);
-void func_001ad280(u8* p, u32 a)
-{
-    func_001ac970(p, 0, 6, a, 0, 256, 52, 4);
-    *(void**)p = D_00350ab0;
-    func_001ac258(p + 2924);
-    u8* q = p + 3280;
-    for (s32 k = 3; k != -1; k--) { func_00239700(q); q += 344; }
-    func_001a9970(p + 12, 16);
-    *(u32*)(p + 104) = 0;
-    *(u32*)(p + 8) += *(u32*)(p + 96) >> 1;
-}
+// 001ad280: moved to src/anon/unit_001abb28.cpp
 }
 
 }
@@ -1810,17 +1800,7 @@ void func_001ac970(u8*, s32, s32, u32, s32, s32, s32, s32);
 void func_001ac258(u8*);
 void func_00239700(u8*);
 void func_001a9970(u8*, s32);
-void func_001ad330(u8* p, u32 a)
-{
-    func_001ac970(p, 0, 6, a, 0, 256, 52, 4);
-    *(void**)p = D_00350ab0;
-    func_001ac258(p + 2924);
-    u8* q = p + 3280;
-    for (s32 k = 3; k != -1; k--) { func_00239700(q); q += 344; }
-    func_001a9970(p + 12, 16);
-    *(u32*)(p + 104) = 0;
-    *(u32*)(p + 8) += *(u32*)(p + 96) >> 1;
-}
+// 001ad330: moved to src/anon/unit_001abb28.cpp
 }
 
 }
@@ -2125,23 +2105,7 @@ static inline void VAdd(V4* d, V4* a, V4* b)
 void func_0023acd8(u8*);
 void func_0023ade0(u8*);
 void func_001abba8(u8*, u32, u32);
-void func_001abf38(s32* p, u32 a, u32 b)
-{
-    u8* q = (u8*)p + 4;
-    switch (p[0]) {
-    case 0:
-        break;
-    case 1:
-        func_0023acd8(q);
-        *(u32*)(q + 328) = a;
-        *(u32*)(q + 332) = b;
-        func_0023ade0(q);
-        break;
-    case 2:
-        func_001abba8((u8*)p + 348, a, b);
-        break;
-    }
-}
+// 001abf38: moved to src/anon/unit_001abb28.cpp
 typedef void (*CbFn)(u32, u32, s32);
 struct Rd { CbFn volatile cb; u8* obj; u32 buf; u32 size; s32 e; };
 extern Rd D_00350cb0;

@@ -249,17 +249,7 @@ extern f32 D_00350a58[4];
 void func_0023acd8(u8*);
 void func_0023ade0(u8*);
 // Positions a child widget relative to (x, y) using the alignment mode.
-void func_001ac108(W108* o, s32 x, s32 y, s32 w, s32 h) {
-    if (!o->on) return;
-    if (o->mode < 4) y -= h / 2;
-    else y += h / 2;
-    x += (s32)(w * D_00350a58[o->mode & 3]);
-    u8* p = (u8*)o + 4;
-    func_0023acd8(p);
-    *(s32*)(p + 328) = x;
-    *(s32*)(p + 332) = y;
-    func_0023ade0(p);
-}
+// 001ac108: moved to src/anon/unit_001abb28.cpp
 }
 }
 

@@ -253,15 +253,7 @@ void func_0019ca28(u8* p, u32* s) {
     *(u32*)(p + 36) = ((u8*)buf[3])[1];
 }
 
-void func_001ad430(u8* p, u32 a) {
-    func_001ac970(p, 3, 5, a, 0, 256, 336, 0);
-    *(u32*)(p + 104) = 0;
-    *(u32*)(p + 100) = 3;
-    *(void***)p = D_00350b30;
-    func_001ac078(p + 1196, 1, 1, 0);
-    u8* q = p + 12;
-    func_001aa388(q, *(u32*)(q + 12));
-}
+// 001ad430: moved to src/anon/unit_001abb28.cpp
 
 s32 func_001ad9c8(f32* p) {  // float_accumulate_clamped
     if (p[1] == 0.0f) return 0;

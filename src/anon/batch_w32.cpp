@@ -173,22 +173,9 @@ void func_001a2578(u8* p, s32 n) {
     *(u16*)(p + 400) += n;
 }
 
-void func_001abdf0(s32* p, s32 t) {
-    p[0] = t;
-    switch (t) {
-    case 0: break;
-    case 1: func_00239bf8(p + 1, 65); break;
-    case 2: func_001abb78((u8*)p + 348, 65); break;
-    }
-}
+// 001abdf0: moved to src/anon/unit_001abb28.cpp
 
-void func_001ad5f0(void** p) {
-    func_001ad280(p);
-    p[0] = D_00350a70;
-    D_00350a56 = 1;
-    func_001c1130(12);  // copy_record_block_to_table
-    func_0014c9d8(8);
-}
+// 001ad5f0: moved to src/anon/unit_001abb28.cpp
 
 // Drains two iterators.
 // 001ccda0: moved to src/anon/unit_001cc868.cpp

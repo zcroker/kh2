@@ -35,16 +35,8 @@ void func_00176620(u32* a, u32 b) {
 
 extern u32 D_00350b70;
 void func_001ac970(u32*, u32, u32, u32, u32, u32, u32, u32);
-void func_001ad098(u32* t, u32 a1, u32 a2) {
-    func_001ac970(t, 3, 5, a1, a2, 128, 104, 0);
-    *(u32*)t = (u32)&D_00350b70;
-    ((f32*)t)[26] = 1.0f;
-}
-void func_001ad0f8(u32* t, u32 a1, u32 a2) {
-    func_001ac970(t, 3, 5, a1, a2, 128, 104, 0);
-    *(u32*)t = (u32)&D_00350b70;
-    ((f32*)t)[26] = 1.0f;
-}
+// 001ad098: moved to src/anon/unit_001abb28.cpp
+// 001ad0f8: moved to src/anon/unit_001abb28.cpp
 
 // hand-written: hardware register setup (DMA/VU0 control) then lq/sq copy
 extern u32 D_00363ce0[];

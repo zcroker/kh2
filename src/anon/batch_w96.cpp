@@ -341,33 +341,7 @@ void func_001aabd8(void) {
 }
 
 // Constructor: base init, vtables, four child panels, colour from a kind table.
-void func_001ac970(u32 self, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 kind) {
-    u32 p;
-    func_001ac378(self, a1, a2, a3, a4, a5, a6);
-    *(u32*)self = (u32)D_00350bb0;
-    func_002395b8(self + 132);
-    *(u32*)(self + 476) = kind;
-    *(u32*)(self + 132) = (u32)D_0034e8a8;
-    func_001abd90(self + 480);
-    *(u32*)(self + 1192) = 0;
-    func_001ac028(self + 1196);
-    p = self + 1544;
-    for (s32 k = 3; k != -1; k--) {
-        func_00239700(p);
-        p += 344;
-    }
-    *(u32*)(self + 2920) = 0;
-    {
-        u32 a = func_001ab810();  // get_global_1c7cec0
-        func_00239988(self + 132, a, func_001ab800());
-    }
-    func_00239bf8(self + 132, D_00350a38[*(u32*)(self + 476)].c[0]);
-    for (s32 i = 0; i < 4; i++) {
-        u32 a = func_001ab810();  // get_global_1c7cec0
-        func_00239988(self + 1544 + i * 344, a, func_001ab800());
-    }
-    func_001aa668(self + 12, self);
-}
+// 001ac970: moved to src/anon/unit_001abb28.cpp
 
 // Finds the next entry of the given kind (after prev) that passes func_001c3850.
 Ent_w96* func_001c3748(u32 kind, Ent_w96* e) {

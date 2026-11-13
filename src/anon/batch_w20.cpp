@@ -160,10 +160,7 @@ u32 target_is_exist(const u8* t) {
 
 // 00191c50: moved to src/yasui/libys/status.cpp
 
-u32 func_001ac1d0(u8* p) {
-    if (!p[0]) return 0;
-    return func_00239d10(p + 4) != 0;
-}
+// 001ac1d0: moved to src/anon/unit_001abb28.cpp
 
 u8* func_001b1ff0(s32 a) {
     if (a == -1) return 0;

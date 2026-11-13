@@ -409,33 +409,7 @@ s32 func_00239d10(u8*);
 void func_001991a8(u32, s32);
 void func_001ac728(u8*);
 
-void func_001abbf0(S1abb* s, u8* q, Pad1abb* pad)
-{
-    switch (s->state) {
-    case 1: {
-        u64 t = pad->trig;
-        if (t & 4) {
-            func_002ba2e8(2, 0);
-            func_00239bf8(s->sub, 0);
-            s->state = 2;
-        } else if ((t & 0x10) && s->cur > 0) {
-            func_002ba2e8(1, 0);
-            s->cur--;
-        } else if ((t & 0x20) && s->cur + 1 < *(s32*)(q + 44)) {
-            func_002ba2e8(1, 0);
-            s->cur++;
-        }
-        break;
-    }
-    case 2:
-        if (!func_00239d10(s->sub)) {
-            func_001991a8(s->w8, 0);
-            func_001ac728(q);
-            s->state = 0;
-        }
-        break;
-    }
-}
+// 001abbf0: moved to src/anon/unit_001abb28.cpp
 }
 
 // ---- 001b72c0

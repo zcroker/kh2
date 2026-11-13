@@ -132,12 +132,7 @@ s32 func_001a8f10(s32 x) {  // arg_map_0_1_2
 void func_001ac378(void*, u32, u32, u32, u32, u32, u32);
 void func_001aa668(void*, void*);
 extern u8 D_00350bf0[];
-void func_001ac8b0(u8* p, u32 a1) {
-    func_001ac378(p, 4, 3, a1, 0, 256, 365);
-    *(u32*)(p + 100) = 4;
-    *(void**)p = D_00350bf0;
-    func_001aa668(p + 12, p);
-}
+// 001ac8b0: moved to src/anon/unit_001abb28.cpp
 
 u32 func_001b1400(void*);
 void func_00168328(void*, u32);

@@ -151,13 +151,7 @@ void func_00239700(u32*);
 s32 func_001ab810(void);  // get_global_1c7cec0
 s32 func_001ab800(void);
 void func_00239988(u32*, s32, s32);
-void func_001abb28(u32* p) {
-    p[0] = 0;
-    func_00239700(p + 5);
-    s32 a = func_001ab810();  // get_global_1c7cec0
-    s32 b = func_001ab800();
-    func_00239988(p + 5, a, b);
-}
+// 001abb28: moved to src/anon/unit_001abb28.cpp
 
 u8* func_00189200(void*, u32);
 void func_001a1cc0(u32, u32, u8);

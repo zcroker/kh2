@@ -273,34 +273,15 @@ void func_0019cc20(s32* p) {
     }
 }
 
-void wtarget_001ac2a8(u32 a, u32 b, u32 c, u32 d) {
-    u32* p = (u32*)a;
-    if (b) func_00239bf8(p + 3, b + 1);
-    p[0] = b;
-    p[1] = c;
-    p[2] = d;
-}
+// 001ac2a8: moved to src/anon/unit_001abb28.cpp
 
 // Only the first arm is a tail call: the function falls off the end otherwise.
 struct B3 { u8 a, b, c; };
 extern B3 D_00350a38[];
-s32 func_001acfb0(u8* o, s32 n) {
-    if (n == *(s32*)(o + 476)) return;
-    *(s32*)(o + 476) = n;
-    if (*(u32*)(o + 112) == 0) return func_00239bf8(o + 132, D_00350a38[n].a);
-    func_00239bf8(o + 132, D_00350a38[n].b);
-}
+// 001acfb0: moved to src/anon/unit_001abb28.cpp
 
 extern u8 D_00350b30[];
-void func_001ad4a8(u8* o, u32 a) {
-    func_001ac970(o, 3, 5, a, 0, 256, 336, 0);
-    *(u32*)(o + 104) = 0;
-    *(u32*)(o + 100) = 3;
-    *(void**)o = D_00350b30;
-    func_001ac078(o + 1196, 1, 1, 0);
-    u8* b = o + 12;
-    func_001aa388(b, *(u32*)(b + 12));
-}
+// 001ad4a8: moved to src/anon/unit_001abb28.cpp
 
 // 001b0728: moved to src/yasui/libys/lookat.cpp
 

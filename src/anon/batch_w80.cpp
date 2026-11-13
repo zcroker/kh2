@@ -910,23 +910,7 @@ void func_003259a0(u8* o) {
     *(u8**)o = D_003637e0;
     func_00106420(o);
 }
-void func_001ad838(u8* o) {
-    *(u8**)o = D_00350a70;
-    D_00350a56 = 0;
-    func_001c11a8(12);
-    func_0014c9f0(8);
-    *(u8**)o = D_00350ab0;
-    U21_W80_DTOR_ARR(o, 3280, 4)
-    func_00239870(o + 2936);
-    *(u8**)o = D_00350bb0;
-    U21_W80_DTOR_ARR(o, 1544, 4)
-    func_00239870(o + 1200);
-    func_00239870(o + 848);
-    func_00239870(o + 484);
-    func_0031e668(o + 132);
-    func_001ac5b8(o);
-    func_00105110(o);
-}
+// 001ad838: moved to src/anon/unit_001abb28.cpp
 
 
 void func_001c81d0(u8* o) {

@@ -100,16 +100,7 @@ extern Tbl1a8* D_01c6cb98;
 
 void func_00239bf8(u8*, u32);
 void wtarget_001ac078(u32 a, u32 b, u32 c, u32 d) asm("_Z16wtarget_001ac078jjjj");
-void wtarget_001ac078(u32 a, u32 b, u32 c, u32 d) {
-    u8* p = (u8*)a;
-    p[0] = b;
-    p[1] = c;
-    p[2] = d;
-    if (!b) return;
-    u32 n = (b * 4 + c) * 2;
-    n = (s32)d >= 4 ? n + 33 : n + 37;
-    func_00239bf8(p + 4, n);
-}
+// 001ac078: moved to src/anon/unit_001abb28.cpp
 
 struct St32 { u8 pad[13604]; u8 a; u8 b; };
 extern St32 D_0032bb30;

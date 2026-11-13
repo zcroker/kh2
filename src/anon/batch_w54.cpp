@@ -298,12 +298,7 @@ void func_001a8f68(void* a0, void* a1) {
 
 void func_001ac970(void*, s32, s32, s32, s32, s32, s32, s32);
 extern u8 D_00350af0[];
-void func_001ad1d0(u8* p, s32 a1) {
-    func_001ac970(p, 3, 4, a1, 0, 256, 32, 3);
-    *(s32*)(p + 104) = 0;
-    *(s32*)(p + 100) = 2;
-    *(void**)p = D_00350af0;
-}
+// 001ad1d0: moved to src/anon/unit_001abb28.cpp
 
 // 001b08e8: moved to src/yasui/libys/lookat.cpp
 

@@ -119,10 +119,7 @@ void func_0018f2d0(BD_VALUE* bd) {
 
 // 001a8548: moved to src/anon/unit_001a82f0.cpp
 
-void func_001ac778(void) {
-    D_01c6ced0.a = 0;
-    D_01c6ced0.b = 0;
-}
+// 001ac778: moved to src/anon/unit_001abb28.cpp
 
 // 001c8de0 func_001c8de0: moved to src/yasui/libys/mutex.cpp (linked unit).
 

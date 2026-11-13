@@ -9,40 +9,7 @@ s32 func_00192048(s32);
 void func_001a98e8(void*, s32, s32, s32, s32);
 s32 func_001a9808(s32, s32);
 static inline Node* nextOf(Node* p) { return p ? p->next : D_01c6ced0.head; }
-void func_001ac378(Node* self, s32 a1, s32 a2, s32 a3, s32 pri, s32 b4, s32 b8) {
-    self->f4 = b4;
-    self->f8 = b8;
-    self->vt = D_00350c50;
-    func_001a98e8(self->sub, a1, func_00192048(a3), 0, 0);
-    self->f6c = func_001a9808(a2, -1);
-    self->f64 = 3;
-    self->f80 = a3;
-    self->f70 = 0;
-    self->f74 = 0;
-    self->f78 = pri;
-    Node* p = 0;
-    Node* prev = 0;
-    for (; (p = nextOf(p)) != 0; prev = p) {
-        if (pri < p->f78) break;
-    }
-    if (prev == 0) {
-        if (D_01c6ced0.head == 0) {
-            D_01c6ced0.tail = self;
-            D_01c6ced0.head = self;
-            self->next = 0;
-        } else {
-            self->next = D_01c6ced0.head;
-            D_01c6ced0.head = self;
-        }
-    } else if (prev == D_01c6ced0.tail) {
-        prev->next = self;
-        self->next = 0;
-        D_01c6ced0.tail = self;
-    } else {
-        self->next = prev->next;
-        prev->next = self;
-    }
-}
+// 001ac378: moved to src/anon/unit_001abb28.cpp
 
 // VU0 macro asm (vector subtract, normalize, dot product), as in the original.
 extern void* D_0034e948;
