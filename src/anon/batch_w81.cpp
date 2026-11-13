@@ -284,26 +284,7 @@ void func_0018ed18(List18e* l) {
 void func_00150260(u8*, u32, s32, u32*);
 void func_00138c10(u8*, u32);
 void func_001395a8(u8*);
-void func_00229728(u8* o) {
-    u32 buf[6];
-    s32 i;
-    s32 j;
-    u32 cur = **(u32**)(o + 2880);
-    if (*(u32*)(o + 2884) != cur) {
-        func_00150260(*(u8**)(o + 2892), cur, 6, buf);
-        for (i = *(s32*)(o + 2888) - 1; i >= 0; i--) {
-            u8* e = o + 432 + i * 408;
-            func_00138c10(e, buf[i]);
-            func_001395a8(e);
-        }
-        for (j = *(s32*)(o + 2888) - 1; j > 0; j--) {
-            u8* t = *(u8**)(o + 2892);
-            if (buf[j] != *(u32*)t) break;
-            func_00138c10(o + 432 + j * 408, *(u32*)(t + 40));
-        }
-    }
-    *(u32*)(o + 2884) = cur;
-}
+void func_00229728(u8* o);  // 00229728: moved to src/sasa/musical_score.cpp (linked unit)
 
 // --- 00248828
 extern VObjV81* D_0035ed54;

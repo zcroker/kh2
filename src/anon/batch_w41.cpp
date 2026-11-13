@@ -196,15 +196,7 @@ void func_00198450(u8* p) {
 
 }
 
-void wtarget_00199120(u32 a, u32 b, u32, u32) {
-    if (b == 0xffff && a == 1) {
-        u8* p = D_01c61b48;
-        for (s32 i = 15; i != -1; i--) {
-            func_00198dc0(p);
-            p += 88;
-        }
-    }
-}
+// 00199120: moved to src/anon/unit_00198e40.cpp
 
 extern "C" {
 
@@ -336,10 +328,7 @@ void func_00223448(u32 a, u32 b, u32 c, u32 d) {
 
 u32 func_0022b9e0(u8*, u32, u32);
 void func_001386e0(u8*, u32, u32, u32, u32, u32);
-void func_0022b558(u8* p, u32 a, u32 b) {
-    func_001386e0(p, 2500, func_0022b9e0(p, a, b), b, a, 11);
-    *(f32*)(p + 384) = 1.0f;
-}
+void func_0022b558(u8* p, u32 a, u32 b);  // 0022b558: moved to src/sasa/musical_target.cpp (linked unit)
 
 u32 func_002416d8(u32, u32, u32);
 void func_002346f0(s32, u32, u32, u32, u32);

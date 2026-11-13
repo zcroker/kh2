@@ -196,10 +196,7 @@ void func_001e6250(void) {
 
 void func_00229d40(void*);
 void func_001390f0(void*);
-void func_00229d68(void* p) {
-    func_00229d40(p);
-    func_001390f0(p);
-}
+void func_00229d68(void* p);  // 00229d68: moved to src/sasa/musical_combo.cpp (linked unit)
 
 void func_00234188(u32, u32, u32, u32, u32, u32);
 void func_002345c0(u32 a, u32 b, u32 c, u32 d, u32 e) {

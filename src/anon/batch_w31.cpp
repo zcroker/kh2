@@ -281,11 +281,7 @@ void func_002233f0(u32 a, u32 b, u32 c) {
     asm volatile("break");
 }
 
-char* func_0022c4b8(u32 x) {
-    func_002fee78(D_01dad960, D_00371190, D_0033caf4, x);
-    strlen(D_01dad960);  // strlen
-    return D_01dad960;
-}
+char* func_0022c4b8(u32 x);  // 0022c4b8: moved to src/sasa/event_layout.cpp (linked unit)
 
 struct KV { s16 k; u16 v; };
 extern KV D_00372be0[];

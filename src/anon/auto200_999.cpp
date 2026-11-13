@@ -700,37 +700,9 @@ void func_001963c8(u32 a0) {
     *p = val | mask;
 }
 
-void func_00198e70(u32 a0, u32 a1) {
-    s32 idx = *(s16 *)(a0 + 46);
-    a1 &= 0x1fff;
-    a1 <<= 2;
-    s32 off = idx;
-    idx += 1;
-    off <<= 1;
-    *(u16 *)(a0 + 46) = idx;
-    a0 += off;
-    u32 v = *(u16 *)(a0 + 32);
-    v &= 0x8000;
-    v |= a1;
-    *(u16 *)(a0 + 32) = v;
-}
+// 00198e70: moved to src/anon/unit_00198e40.cpp
 
-void func_00198ea8(u32 a0, u32 a1) {
-    s32 idx = *(s16 *)(a0 + 46);
-    a1 &= 0x1fff;
-    a1 <<= 2;
-    s32 off = idx;
-    idx += 1;
-    off <<= 1;
-    *(u16 *)(a0 + 46) = idx;
-    a0 += off;
-    u32 v = *(u16 *)(a0 + 32);
-    v &= 0xfffc;
-    v |= 1;
-    v &= 0x8001;
-    v |= a1;
-    *(u16 *)(a0 + 32) = v;
-}
+// 00198ea8: moved to src/anon/unit_00198e40.cpp
 
 void func_0019f490(u32 a0, u32 a1) {
     u32 idx = a1 >> 5;

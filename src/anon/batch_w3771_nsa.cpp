@@ -51,44 +51,5 @@ static inline void W1635_setParent(W1635Sel* p, void* parent) {
 #define SETPARENT(P, PAR) do { (P)->parent = (PAR); func_001396b0(P); if ((P)->parent) { (P)->flag = 0; func_001396b0(P); if ((P)->flag) func_0031a260(P, 0); } } while (0)
 // sa::MUSICAL_COMBO set-up: builds the two parts, ring, gauge and face sprites and parents them.
 // ring is pinned to s0 (one register asm + empty tie): without it gcc rotates the saved registers.
-void func_002298a8(W1635Combo* c, s32 mode) {
-    s32 faceNo = 111;
-    s32 ringNo = 96;
-    s32 gaugeNo = 137;
-    c->mode = mode;
-    void* img = W1635_getImage();
-    void* sqd = W1635_getSqd();
-    if (mode == 1) {
-        faceNo = 110;
-        ringNo = 95;
-        gaugeNo = 135;
-    }
-    W1635ComboPart* p0 = &c->part[0];
-    func_0022a0f8(p0, 2500, 0, 11);
-    W1635ComboPart* p1 = &c->part[1];
-    register W1635Sel* ring asm("$16") = &c->ring;
-    func_0022a0f8(p1, 2500, 1, 11);
-    asm("" : "+r"(ring));
-    func_00158050(ring, 2500, sqd, img, ringNo, 100, 11);
-    W1635Sel* gauge = &c->gauge;
-    func_001386e0(gauge, 2500, sqd, img, gaugeNo, 11);
-    func_001386e0(&c->face, 2499, sqd, img, faceNo, 11);
-    W1635_hide(gauge);
-    W1635_call139d78(p0);
-    W1635_setZ(c->part[0].rect0, 0);
-    W1635_setZ(c->part[0].rect1, 0);
-    W1635_setZ(c->part[0].rect2, 0);
-    W1635_call139d78(p1);
-    W1635_setZ(c->part[1].rect0, 200);
-    W1635_setZ(c->part[1].rect1, 200);
-    W1635_setZ(c->part[1].rect2, 200);
-    SETPARENT(ring, c);
-    for (s32 i = 0; i < 2; i++) {
-        W1635ComboPart* p = &c->part[i];
-        W1635_call139d78(p);
-        p->owner = c;
-    }
-    W1635_setParent(gauge, c);
-    W1635_setParent(&c->face, 0);
-}
+void func_002298a8(W1635Combo* c, s32 mode);  // 002298a8: moved to src/sasa/musical_combo.cpp (linked unit)
 }

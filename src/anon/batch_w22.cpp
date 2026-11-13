@@ -291,10 +291,7 @@ u8* func_00227a28(void) {
 // --- 0022be28
 void func_00226e60(u32);
 void func_001024a8(u32);
-void func_0022be28(u32 a) {
-    func_00226e60(0);
-    func_001024a8(a);
-}
+void func_0022be28(u32 a);  // 0022be28: moved to src/sasa/event_countdown.cpp (linked unit)
 
 // --- 00237508
 struct E237 { s32 a, b, c, d, e; };

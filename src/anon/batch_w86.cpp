@@ -708,28 +708,7 @@ s32 func_00225b00(s32);  // flag_query_by_index
 Obj* func_00227d10(s32);
 s32 func_001ba028(Act*);  // list_contains_ptr
 s32 func_00227d58(s32);
-void func_0022ca00(void)
-{
-    Tbl* t = D_0035de50;
-    if (!t) return;
-    s32 cur = D_0035de20;
-    Ent* e = t->e;
-    s32 n = t->n;
-    for (s32 i = 0; i < n; i++, e++) {
-        s32 a = e->start;
-        void* d = e->data;
-        s32 b = e->end;
-        if (func_00225b00(a)) continue;
-        if (cur < a) continue;
-        if (!(cur < b)) continue;
-        Obj* o = func_00227d10(e->id);
-        if (!o || !o->act.p) continue;
-        if (!func_001ba028(o->act.p)) continue;
-        s32 v = func_00227d58(e->id);
-        o->act.p->f1704 = v;
-        o->act.p->f1904 = d;
-    }
-}
+void func_0022ca00(void);  // 0022ca00: moved to src/sasa/event_layout.cpp (linked unit)
 }
 }
 

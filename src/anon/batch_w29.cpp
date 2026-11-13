@@ -184,19 +184,7 @@ u32 progress_CheckFlag(s32 f) {
     return r;
 }
 
-// Finds the 88-byte entry (of 16) matching (a, b); falls back to a wildcard match.
-u8* ctarget_00198bd0(s32 a, s32 b) {
-    u8* best = 0;
-    u8* e;
-    for (e = D_01c61b48; (s32)e < (s32)(D_01c61b48 + 1408); e += 88) {
-        if (*(s32*)e == a) {
-            s32 k = *(s32*)(e + 4);
-            if (k == b) return e;
-            if (b < 0 || k < 0) best = e;
-        }
-    }
-    return best;
-}
+// 00198bd0: moved to src/anon/unit_00198b88.cpp
 
 void func_001a2710(Flag250* p) {
     if (p->on) {

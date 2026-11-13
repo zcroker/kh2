@@ -784,9 +784,7 @@ u32 func_00197f60(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_00197ea8(0x00000001u, 0x0000ffffu, a2, a3);
 }
 
-u32 func_00199188(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_00199120(0x00000001u, 0x0000ffffu, a2, a3);
-}
+// 00199188: moved to src/anon/unit_00198e40.cpp
 
 // 00199668: _GLOBAL__I_ stub, now made by gcc in src/anon/unit_001991a8.cpp
 
@@ -1108,21 +1106,13 @@ u32 func_00228450(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_00228420(0x00000001u, 0x0000ffffu, a2, a3);
 }
 
-u32 func_00229430(u32 a0, u32 a1, u32 a2, u32 a3) {  // to_1391c8_arg11
-    return dk_Obj2D_create(a0, a1, 0x0000000bu, a3);
-}
+u32 func_00229430(u32 a0, u32 a1, u32 a2, u32 a3);  // 00229430: moved to src/sasa/musical_score.cpp (linked unit)
 
-u32 func_00229e28(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return dk_Obj2D_show(((u32)(a0) + 2560u), a1, a2, a3);
-}
+u32 func_00229e28(u32 a0, u32 a1, u32 a2, u32 a3);  // 00229e28: moved to src/sasa/musical_combo.cpp (linked unit)
 
-u32 func_00229e40(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return dk_Obj2D_hide(((u32)(a0) + 2560u), a1, a2, a3);
-}
+u32 func_00229e40(u32 a0, u32 a1, u32 a2, u32 a3);  // 00229e40: moved to src/sasa/musical_combo.cpp (linked unit)
 
-u32 func_0022d318(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_0022d2e0(0x00000001u, 0x0000ffffu, a2, a3);
-}
+u32 func_0022d318(u32 a0, u32 a1, u32 a2, u32 a3);  // 0022d318: moved to src/sasa/event_layout.cpp (linked unit)
 
 u32 func_00234570(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_00234098(a0, 0x00000000u, a1, a3);
@@ -1544,29 +1534,17 @@ u32 func_002e8b10(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_002e8b08(0x00000001u, 0x0000ffffu, a2, a3);
 }
 
-u32 func_002e8b68(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_0016c640(((u32)(*(u32*)((u32)(a0) + 0u))), a1, a2, a3);
-}
+// 002e8b68: moved to src/anon/unit_002e8b50.cpp
 
-u32 func_002e8c10(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_002e98b0(((u32)(*(u32*)((u32)(a0) + 0u))), a1, a2, a3);
-}
+// 002e8c10: moved to src/anon/unit_002e8b50.cpp
 
-u32 func_002e8ff8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_002ed268(((u32)(*(u32*)((u32)(a0) + 0u))), a1, a2, a3);
-}
+// 002e8ff8: moved to src/anon/unit_002e8b50.cpp
 
-u32 func_002e9080(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_002ed478(a0, a1, a2, a3);
-}
+// 002e9080: moved to src/anon/unit_002e8b50.cpp
 
-u32 func_002e90a8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_0010f8f0(((u32)(*(u32*)((u32)(((u32)(*(u32*)((u32)(a0) + 0u)))) + 4u))), a1, a2, a3);
-}
+// 002e90a8: moved to src/anon/unit_002e8b50.cpp
 
-u32 func_002e9208(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_002e9200(0x00000001u, 0x0000ffffu, a2, a3);
-}
+// 002e9208: moved to src/anon/unit_002e8b50.cpp
 
 // 002e9988: _GLOBAL__I_ stub, now made by gcc in src/sugi/flare.cpp
 

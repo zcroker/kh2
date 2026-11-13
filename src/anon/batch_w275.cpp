@@ -183,19 +183,7 @@ static inline void elems(u8* e) {
         e += 408;
     }
 }
-void func_00228618(void) {
-    u8* o = alloc(2900);
-    *(s32*)(o + 12) = 0;
-    *(void**)o = &D_0035E190;
-    elems(o + 24);
-    func_002294c8(o, 6, func_00224930(), &D_0035DFB0);
-    o = alloc(2900);
-    *(void**)o = &D_00347F98;
-    func_0031a838(o + 12);
-    *(void**)o = &D_0035E190;
-    elems(o + 24);
-    func_002294c8(o, 6, &D_0035E01C, &D_0035DFE8);
-}
+void func_00228618(void);  // 00228618: moved to src/anon/unit_00228618.cpp (linked unit)
 void func_00237280(void*, void*);
 void func_002373a8(void*);
 void func_00239fd0(void*, f32, f32, f32, f32);

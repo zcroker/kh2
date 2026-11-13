@@ -10,6 +10,8 @@ struct W1530_C {
 extern "C" {
 void func_0031cc28(void*);
 void func_0019ef70(void*);
+// EVENT88::EVENT88() (C1), the event slot constructor (see unit_00198b88.cpp).
+void func_00198dc0(W1530_C* p) asm("_ZN7EVENT88C1Ev");
 void func_00198dc0(W1530_C* p) {  // obj_reset_fields
     s32 m = -1;
     u32 f = 0xffff;

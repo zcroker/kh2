@@ -88,21 +88,5 @@ u32 func_001050c8(void);
 f32* func_001063c0(s32, u32);
 f32 func_00227c78(void*);
 void func_0014f030(void*, f32, f32, f32);  // obj_set_lerp_params
-void func_0022d098(P22d098* p) {
-    if (func_002282f0(p->h4)) return;
-    s32 id = func_002282d8();  // limit_15000_or_25000
-    if (!func_00225b00(p->h4)) {  // flag_query_by_index
-        u8* s1 = func_00102c18(1, id, (void*)func_0022d000);
-        *(void**)(s1 + 48) = (void*)func_0022d068;
-        f32* o = func_001063c0(12, func_001050c8());
-        ((UUd098*)o)[0].u = 0; ((UUd098*)o)[1].u = 0; o[2] = 1.0f;
-        ((UUd098*)(s1 + 8))->p = o;
-        f32 a = ((UUd098*)&p->h6)->h;
-        f32 x = func_00227c78(p->x8);
-        a = a + a;
-        func_0014f030(o, x, func_00227c78(p->x12), a);  // obj_set_lerp_params
-    } else {
-        func_0015c880(func_00227c78(p->x12));
-    }
-}
+void func_0022d098(P22d098* p);  // 0022d098: moved to src/sasa/event_layout.cpp (linked unit)
 }

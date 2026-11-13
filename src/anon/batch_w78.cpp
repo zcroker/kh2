@@ -472,22 +472,7 @@ extern u8 D_00347e60[];
 void func_0031a838(u8*);
 void func_00239700(u8*);
 void func_00228788(u8*);
-void func_002289f0(void) {
-    W78Alloc* a = *(W78Alloc**)(D_00347f80 + 20);
-    u8* v = a->vt[0](a, 1248, 0);
-    *(u32*)(v + 12) = 0;
-    *(u8**)v = D_0035e028;
-    W78Item* it = (W78Item*)(v + 24);
-    s32 i = 2;
-    do {
-        it->vt = D_00347f98;
-        func_0031a838(it->m1);
-        it->vt = D_00347e60;
-        func_00239700(it->m2);
-        it++;
-    } while (--i != -1);
-    func_00228788(v);
-}
+void func_002289f0(void);  // 002289f0: moved to src/anon/unit_00228618.cpp (linked unit)
 }
 
 // ---- c6

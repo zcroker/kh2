@@ -263,11 +263,7 @@ void func_00196888(void) {
 }
 
 struct S36 { u32 w[9]; };
-S36 func_00199098(u32 a1) {
-    u8* v = func_00198bd0(a1, -1);
-    func_00198ee8(v);
-    return *(S36*)(v + 52);
-}
+// 00199098: moved to src/anon/unit_00198e40.cpp
 
 void func_001abe80(s32* a0, u32 a1, u8* a2) {
     switch (*a0) {

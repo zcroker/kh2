@@ -202,9 +202,7 @@ void func_002e7500(void) {
 }
 
 void func_002e95a0(u32, f32, f32);
-void func_002e8c58(BD_VALUE* bd) {
-    func_002e95a0(bd[0].u, bd[1].f, bd[2].f);
-}
+// 002e8c58: moved to src/anon/unit_002e8b50.cpp
 
 extern u32 D_00363410;
 void func_002ea2d8(u32* p) {

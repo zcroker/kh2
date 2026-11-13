@@ -582,43 +582,9 @@ void func_001c2f90(struct S1c2* p, u32 a) {
     p->f116 = 0;
 }
 
-void func_00228e58(void) {
-    u8* v = alloc_obj(1260);
-    u8* e;
-    s32 i;
-    *(u32*)(v + 12) = 0;
-    *(u32*)v = (u32)D_0035e050;
-    e = v + 24;
-    for (i = 2; i != -1; i--) {
-        *(u32*)e = (u32)D_00347f98;
-        func_0031a838(e + 12);
-        *(u32*)e = (u32)D_00347e60;
-        func_00239700(e + 24);
-        e += 408;
-    }
-    func_00228ab0(v);
-}
+void func_00228e58(void);  // 00228e58: moved to src/anon/unit_00228618.cpp (linked unit)
 
-void func_0022c108(void) {
-    s32 m = D_0035de64;
-    s32 mode;
-    u8* v;
-    if (m == 0) return;
-    mode = 0;
-    if (m != 1) mode = m == 2 ? 5 : 0;
-    D_0035de64 = 0;
-    v = alloc_obj(880);
-    *(u32*)v = (u32)D_00347f98;
-    func_0031a838(v + 12);
-    *(u32*)v = (u32)D_00347e60;
-    func_00239700(v + 24);
-    *(u32*)(v + 416) = (u32)D_00347f98;
-    *(u32*)v = (u32)D_0035e340;
-    func_0031a838(v + 428);
-    *(u32*)(v + 416) = (u32)D_00347e80;
-    func_002361a0(v + 448);
-    func_0022bda0(v, mode, 0);
-}
+void func_0022c108(void);  // 0022c108: moved to src/sasa/event_countdown.cpp (linked unit)
 
 void func_002b6138(s32 x, s32 y, s32 a2, s32 a3, s32 key) {
     u8 buf[96];

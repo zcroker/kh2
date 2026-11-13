@@ -487,9 +487,9 @@ namespace Ts {
 
 void trap_lockon_hide(BD_VALUE* bd) { dk_LockOn_show(bd); }
 
-void trap_attack_set_reaction_offset(BD_VALUE* bd) { Ts_FLARE_Init(bd); }
+// 002e8bd0: moved to src/anon/unit_002e8b50.cpp
 
-void trap_trinity_shot_init(BD_VALUE* bd) { Ts_TRINITY_SHOT_OBJ_Init(bd); }
+// 002e9010: moved to src/anon/unit_002e8b50.cpp
 
 }  // namespace Ts
 extern s32 YS_OBJ_GetPlayer(void) asm("_ZN2YS3OBJ9GetPlayerEv");
@@ -692,18 +692,15 @@ void trap_eh22_path_get_point(BD_VALUE* bd) { bd->i = Ti_MG_EHSidecar_GetCurrent
 
 namespace Ts {
 
-void trap_flare_is_empty(BD_VALUE* bd) { bd->i = Ts_FLARE_IsEmpty(); }
+// 002e8ce0: moved to src/anon/unit_002e8b50.cpp
 
-void trap_friend_call(BD_VALUE* bd) {
-    (void)bd;
-    bd->i = func_001b5af0();
-}
+// 002e9120: moved to src/anon/unit_002e8b50.cpp
 
 void trap_bghit_get_cross_pos(BD_VALUE* bd) { bd->i = func_001d36e8(bd->i); }
 
-void trap_attack_set_rc_owner(BD_VALUE* bd) { bd->i = (YS_SUMMON_GetMode() != 0); }
+// 002e91a0: moved to src/anon/unit_002e8b50.cpp
 
-void trap_limit_reset_hit_counter(BD_VALUE* bd) { bd->i = YS_LIMIT_reset_hit_counter(bd->i); }
+// 002e91d0: moved to src/anon/unit_002e8b50.cpp
 
 }  // namespace Ts
 

@@ -259,19 +259,7 @@ struct Slot88 { s32 a; s32 b; u8 pad[80]; };
 extern Slot88 D_01c61b48[16];
 void func_00198dc0(Slot88*);
 
-// Find the slot keyed (a, b), or claim the last free one.
-Slot88* func_00198c28(s32 a, s32 b) {
-    Slot88* fr = 0;
-    for (s32 i = 0; i < 16; i++) {
-        Slot88* e = &D_01c61b48[i];
-        if (e->a == a && e->b == b) return e;
-        if (D_01c61b48[i].a < 0) fr = &D_01c61b48[i];
-    }
-    func_00198dc0(fr);
-    fr->a = a;
-    fr->b = b;
-    return fr;
-}
+// 00198c28: moved to src/anon/unit_00198b88.cpp
 
 u32 func_001b1490(u32);
 extern u32 D_0035043c;

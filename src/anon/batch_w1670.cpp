@@ -27,16 +27,7 @@ void func_00134428(u32, u64);
 void func_00134450(u32);
 
 void wtarget_0022d2e0(u32 a, u32 b, u32, u32) asm("_Z16wtarget_0022d2e0jjjj");
-void wtarget_0022d2e0(u32 a, u32 b, u32, u32) {
-    if (b == 0xffff && a == 1) {
-        D_01dad990.a = 0;
-        D_01dad990.b = 0;
-        D_01dad990.c = 0;
-        D_01dad990.d = 0;
-        D_01dad990.e = 0;
-        D_01dad990.f = 0;
-    }
-}
+void wtarget_0022d2e0(u32 a, u32 b, u32, u32);  // 0022d2e0: moved to src/sasa/event_layout.cpp (linked unit)
 
 s32 func_00119f08(u8* p) {
     E6_347770* e = D_00347770;

@@ -14,7 +14,7 @@ void wt_2e3ef0(u32 a, u32 b, u32 c, u32 d) {}
 void wt_2e8b08(u32 a, u32 b, u32 c, u32 d) asm("_Z16wtarget_002e8b08jjjj");
 void wt_2e8b08(u32 a, u32 b, u32 c, u32 d) {}
 void wt_2e9200(u32 a, u32 b, u32 c, u32 d) asm("_Z16wtarget_002e9200jjjj");
-void wt_2e9200(u32 a, u32 b, u32 c, u32 d) {}
+// 002e9200 (static init): moved to src/anon/unit_002e8b50.cpp
 void wt_2f1268(u32 a, u32 b, u32 c, u32 d) asm("_Z16wtarget_002f1268jjjj");
 void wt_2f1268(u32 a, u32 b, u32 c, u32 d) {}
 u32 func_00317130(u8* p) { return *(u32*)(p + 724); }

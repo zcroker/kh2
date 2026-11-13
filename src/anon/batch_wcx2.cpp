@@ -2395,30 +2395,7 @@ void func_0014a1f0__77693(void) asm("func_0014a1f0");
 void func_00102448(u32, s32);
 void func_00102c18__77693(s32, s32, void*) asm("func_00102c18");
 void func_0022ba88(void);
-void func_0022bc08(Obj48* o, u32 w)
-{
-    if (func_002282f0__77693(o->id)) return;
-    if (func_00225b00(o->id)) return;
-    char* name = o->name;
-    func_0014aa58(func_0014abd8(), 0, 0);
-    func_00226ed0();
-    char buf[48];
-    func_002fee78(buf, D_00371150, D_0033caf0, name);
-    func_0022bd80();
-    if (!strncmp(name, D_00371168, 3) || !strncmp(name, D_00371170, 4)) D_0035e2ec = 1;
-    strlen(buf);  // strlen
-    func_002ef7a0(0, buf);
-    while (func_002ef7a0(5, 0) != 2) {
-        func_0014a1f0__77693();
-        func_00102448(w, 0);
-    }
-    while (func_002ef7a0(1, 0)) {
-        func_0014a1f0__77693();
-        func_00102448(w, 0);
-    }
-    func_0014aa80(func_0014abd8(), 0, 0);
-    func_00102c18__77693(1, 0x16f30, (void*)func_0022ba88);
-}
+void func_0022bc08(Obj48* o, u32 w);  // 0022bc08: moved to src/sasa/event_movie.cpp (linked unit)
 
 struct Hdr49 { u8 pad[8]; s32 n0; s32 o0; s32 n1; s32 o1; };
 struct Thr49 { u8 pad[48]; void* fn; };
@@ -8393,19 +8370,7 @@ s32 func_0014abd8_x8645() asm("func_0014abd8");
 s32 func_0014aba8_x8646() asm("func_0014aba8");
 void func_0014aa58_x8647(s32, s32, s32) asm("func_0014aa58");
 void func_0014aa80_x8648(s32, s32, s32) asm("func_0014aa80");
-void func_0022cc38(C22cc38* c) {
-    if (func_002282f0_x8643(c->id)) return;
-    switch (c->type) {
-    case 0: func_0014aa80_x8648(func_0014ac08(), c->v, 0); break;
-    case 1: func_0014aa58_x8647(func_0014ac08(), c->v, 0); break;
-    case 2: func_0014aa58_x8647(func_0014ac08(), c->v, 1); break;
-    case 3: func_0014aa80_x8648(func_0014abd8_x8645(), c->v, 0); break;
-    case 4: func_0014aa58_x8647(func_0014abd8_x8645(), c->v, 0); break;
-    case 5: func_0014aa80_x8648(func_0014ac08(), c->v, 1); break;
-    case 6: func_0014aa58_x8647(func_0014aba8_x8646(), c->v, 1); break;
-    case 7: func_0014aa80_x8648(func_0014aba8_x8646(), c->v, 1); break;
-    }
-}
+void func_0022cc38(C22cc38* c);  // 0022cc38: moved to src/sasa/event_layout.cpp (linked unit)
 
 // --------------------
 extern u8 D_0035ed0c;
@@ -10958,22 +10923,7 @@ extern V2e8d08 D_01e2bf90;
 void* func_0016bba8__2e8d08(u8*, u32, u32) asm("func_0016bba8");
 void func_0018a818__2e8d08(Hit2e8d08*, u8*, void*) asm("func_0018a818");
 V2e8d08* func_0016c028__2e8d08(u8*) asm("func_0016c028");
-void func_002e8d08(V2e8d08** out)
-{
-    Hit2e8d08 h;
-    void* nd;
-    u8* e = ((E2e8d08*)*out)->e;
-    h.n = 0;
-    nd = func_0016bba8__2e8d08(e, 0, 0);
-    if (nd || (nd = func_0016bba8__2e8d08(e, 1, 0)) != 0) {
-        func_0018a818__2e8d08(&h, e, nd);
-        D_01e2bf90 = h.pos;
-        D_01e2bf90.y -= h.f8 + 30.0f;
-    } else {
-        D_01e2bf90 = *func_0016c028__2e8d08(e);
-    }
-    *out = &D_01e2bf90;
-}
+// 002e8d08: moved to src/anon/unit_002e8b50.cpp
 
 // --------------------
 struct P1a68e0 { u32 a; u32 b; };

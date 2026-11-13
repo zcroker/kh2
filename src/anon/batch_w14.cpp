@@ -276,10 +276,7 @@ s32 func_0020f118(void) {
     return func_002f3918(D_003591c8, D_003598e0);
 }
 
-void func_002289c0(void** p) {
-    (*(void (**)(void*))(*(u8**)p + 28))(p);
-    func_00228918(p);
-}
+void func_002289c0(void** p);  // 002289c0: moved to src/anon/unit_00228618.cpp (linked unit)
 
 void func_002368b0(u8* p) {
     sceGsExecLoadImage(p + 64, *(void**)(p + 56));

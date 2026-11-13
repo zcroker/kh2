@@ -375,12 +375,7 @@ s32 func_0022b028(s32 n) {
     return n;
 }
 
-void func_0022bb60(void* p) {
-    if (p && func_002ef7b8()) {
-        func_0014aa58(func_0014abd8(), 0, 0);
-        func_002ef7a0(2, p);
-    }
-}
+void func_0022bb60(void* p);  // 0022bb60: moved to src/sasa/event_movie.cpp (linked unit)
 
 struct B8 { u8 b[8]; };
 extern u8* D_0035ec9c;

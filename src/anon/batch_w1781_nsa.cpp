@@ -13,13 +13,7 @@ static inline f32 w1781_clamp(f32 x, f32 lo, f32 hi) {
     return r;
 }
 
-void func_00228918(u8* self) {
-    f32 v = (f32)func_00224910() / 10000.0f;
-    v = w1781_clamp(v, 0.0f, 1.0f);
-    v = 1.0f - v;
-    v = w1781_clamp(v, 0.0f, 1.0f);
-    func_00239f18(self + 0x1c8, v);
-}
+void func_00228918(u8* self);  // 00228918: moved to src/anon/unit_00228618.cpp (linked unit)
 
 struct W1781VObj {
     virtual void v0(); virtual void v1(); virtual void v2(); virtual void v3(); virtual void v4();

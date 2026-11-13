@@ -59,45 +59,7 @@ static inline __attribute__((always_inline)) void c8bd8_setflag(C8BD8Sel* s, voi
 extern "C" {
 /* 00228bd8: gauge update - clamp the input to +-10000, ease the gauge position with the spring helper
    (13f6e8), and switch the selector sprites when the value changes. */
-void func_00228bd8(C8BD8O* o) {
-    s32 v = func_00224910(o);
-    s32 c = v < -10000 ? -10000 : (v > 10000 ? 10000 : v);
-    func_00224920(c);
-    v = v / 100;
-    v = v < -100 ? -100 : (v > 100 ? 100 : v);
-    QV a, b, d;
-    v = -v;
-    a.unit(); b.unit(); d.unit();
-    f32 f = o->f4e0;
-    d.x = (f32)v;
-    o->f4e4 = f;
-    a.x = f;
-    b.x = f;
-    b = func_0013f6e8(b, d, a, 0.4f, 1.2f, 0.5f, 0.1f);
-    o->f4e0 = b.x;
-    func_00138c68(&o->s1b0, 0, (s32)b.x);
-    if (o->f4e8 != c) {
-        C8BD8Sel* s1 = &o->s1b0;
-        func_00138c10(s1, o->f4e8 >= c ? 24 : 26);
-        s1->f188 = 23;
-        if (c >= 6000) {
-            C8BD8Sel* s = &o->s348;
-            if (!func_00139d78(s)) {
-                s32 r0 = func_0022b9e0();
-                s32 r1 = func_0022b720();
-                func_001386e0(s, 2800, r0, r1, 25, 11);
-                c8bd8_setflag(s, s1);
-                func_00139580(s);
-            } else {
-                func_00138c10(s, 25);
-                func_00139580(s);
-            }
-        } else {
-            if (func_00139d78(&o->s348)) func_00139570(&o->s348);
-        }
-    }
-    o->f4e8 = c;
-}
+void func_00228bd8(C8BD8O* o);  // 00228bd8: moved to src/anon/unit_00228618.cpp (linked unit)
 }
 
 
