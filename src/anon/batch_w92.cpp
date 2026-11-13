@@ -482,14 +482,7 @@ extern Dst1cd D_01d5a970;
 s32 func_001cd4c0(void);
 
 // snapshots the live game state into the backup copies
-void func_001cd168(void) {
-    if (func_001cd4c0()) {
-        D_01d499b0 = D_0032bb30;
-        D_01d5a970.a = D_0032bae0;
-        D_01d5a970.b = D_0034f250.b;
-        D_01d5a970.c = D_0034f250.c;
-    }
-}
+// 001cd168: moved to src/anon/unit_001cd078.cpp
 }
 
 // ---- 1ce930 ----

@@ -76,18 +76,7 @@ A:
 }
 extern f32 D_00349e10;
 VH func_0016bda8(u8*);
-s32 func_001ccc38(ObjH* a0) {
-    VH d = func_0016bda8(a0->owner) - a0->pos;
-    f32 len = d.Normalize();
-    d *= 20.0f;
-    a0->vel = Lerp(a0->vel, d, 0.1f);
-    a0->pos += a0->vel * D_00349e10;
-    if (len < 100.0f) {
-        ++*(s32*)(a0->owner + 2760);
-        return 0;
-    }
-    return 1;
-}
+// 001ccc38: moved to src/anon/unit_001cc868.cpp
 void func_0022d000(u32);
 void func_0022d068(u32*);
 s32 func_002282f0(s32);

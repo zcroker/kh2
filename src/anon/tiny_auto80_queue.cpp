@@ -1813,18 +1813,7 @@ extern u8 D_00352060;
 extern "C" u32 func_001a5420(...);
 extern u8 D_0036e228;
 
-u32 func_001cc128(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r2, r15;
-    r6 = r5;
-    r5 = (u32)&D_0036e228;
-    r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_001a5420)(r4, r5, r6, r7, r8, r9, r10, r11);
-    if (r2 != 0u) {
-        r15 = ((u32*)(u32)r2)[10];
-        r15 = (u32)(r15 | 0x0004u);
-        ((u32*)(u32)r2)[10] = r15;
-    }
-    return r2;
-}
+// 001cc128: moved to src/anon/unit_001cc048.cpp
 
 extern "C" u32 func_001a4db0(...);
 extern u8 D_003520d0;
@@ -18796,16 +18785,7 @@ void func_001ca910(u8* a0) {
     func_002bc188(*(u32*)(t7 + 12), tmp);
 }
 
-u32 func_001ccd78() {
-    u8* t7 = *(u8**)((u8*)&D_00350000 + 8272u);
-    if (t7 != 0) {
-        u8* t7b = *(u8**)(t7 + 2548);
-        return *(u32*)(t7b + 52);
-    }
-
-    u32 v0 = 0;
-    return v0;
-}
+// 001ccd78: moved to src/anon/unit_001cc868.cpp
 
 void func_001cd660(u8* a0) {
     s32 t7 = 7;

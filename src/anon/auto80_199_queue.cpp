@@ -5460,31 +5460,7 @@ u32 func_001cbab0(Arg* a0) {
     return t6;
 }
 
-u32 func_001cc920(u32 a0, u32 a1, s32 a2) {
-    V4 pos;
-    func_0016bda8((u32)&pos, a1);
-
-    s32 i = 0;
-    if (a2 > 0) {
-        while (1) {
-            if (*(u32*)(a1 + 2760) == 0) {
-                return 1;
-            }
-            u32 obj = func_001cc128(D_00352050, (u32)&pos);
-            if (obj == 0) {
-                return 1;
-            }
-            func_001ccac0(obj, a0);
-            i = i + 1;
-            *(u32*)(a1 + 2760) = *(u32*)(a1 + 2760) - 1;
-            if (!(i < a2)) {
-                break;
-            }
-        }
-    }
-
-    return 0;
-}
+// 001cc920: moved to src/anon/unit_001cc868.cpp
 
 void func_001ceb40(u8* a0, u32 a1) {
     s32 i = 0;

@@ -630,20 +630,7 @@ void func_001cc358(void);
 Vn81 func_0016bda8(u8*);
 u8* func_001cc128(u32, Vn81*);
 void PrizeAppear81(u8* obj, s32 n) asm("_ZN2YS8PRIZE_CA6AppearEPNS_6BTLOBJEi");
-void PrizeAppear81(u8* obj, s32 n) {
-    if (*(s32*)(obj + 2760) < n) n = *(s32*)(obj + 2760);
-    if (!D_00352050) return;
-    if (n == 0) return;
-    Vn81 pos;
-    pos = func_0016bda8(obj);
-    s32 i;
-    for (i = 0; i < n; i++) {
-        u8* p = func_001cc128(D_00352050, &pos);
-        if (!p) return;
-        *(u32*)(p + 16) = (u32)func_001cc358;
-        (*(s32*)(obj + 2760))--;
-    }
-}
+// 001cc160: moved to src/anon/unit_001cc048.cpp
 
 // --- 00200da8: rotation (radians -> 16-bit angle units) and translation into the node
 struct Tbl200 { u8 pad[12]; s32* offs; };
@@ -798,16 +785,6 @@ extern Blk1cd D_01d499b0;
 struct S1cd { u8 a, b, c, pad; Ids81 q; u8 pad2[2]; u8 s1[2088]; u8 s2[16]; };
 extern S1cd D_01d5a970;
 void func_00195558(u8*);
-void func_001cd2b8(void) {
-    D_01d499b0 = D_0032bb30;
-    S1cd* s = &D_01d5a970;
-    u8* src = (u8*)&D_0032bb30;
-    s->q.Fill81(0xffff);
-    s->a = src[12];
-    s->b = src[13];
-    s->c = src[14];
-    func_00195558(s->s1);
-    func_00195558(s->s2);
-}
+// 001cd2b8: moved to src/anon/unit_001cd078.cpp
 
 }

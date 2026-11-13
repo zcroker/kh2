@@ -197,12 +197,7 @@ void func_001ca988(u8* p, u32 a1, u32 a2, u32 a3, u32 a4, u32 x) {
 extern u8 D_00352060;
 extern void* D_00352050;
 void func_001a4e30(void*);
-void func_001cc0e8(void** self) {
-    *self = &D_00352060;
-    D_00352050 = 0;
-    func_001a4e30(self);
-    func_00105110(self);
-}
+// 001cc0e8: moved to src/anon/unit_001cc048.cpp
 
 u8 func_002fd248(u32, void*, u32, u32, void*);
 extern u8* D_01d5ba00;

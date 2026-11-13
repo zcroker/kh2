@@ -191,11 +191,7 @@ void func_001ad5f0(void** p) {
 }
 
 // Drains two iterators.
-void func_001ccda0(u8* p) {
-    func_001c6ee8(p);
-    for (void* v = 0; (v = func_001c16f0(*(void**)(p + 0x9f4), v)) != 0;) ;
-    for (void* w = 0; (w = func_00186078(w)) != 0;) ;
-}
+// 001ccda0: moved to src/anon/unit_001cc868.cpp
 
 bool func_001dc738(u32* p) {  // state_gate_flags
     u32 fl = p[2];

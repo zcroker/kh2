@@ -192,14 +192,6 @@ static inline u32 rnd(void) { return D_003638d0 *= 0x10dcd; }
 static inline f32 frnd(void) { return (f32)rnd() * 2.3283064365386963e-10f; }
 static inline f32 rng(f32 a, f32 b) { return b + frnd() * a; }
 struct V4 { f32 x, y, z, w; };
-void func_001ccac0(u8* a0, u32 a1) {
-    *(u32*)(a0 + 16) = (u32)func_001ccaa0;
-    *(u32*)(a0 + 72) = a1;
-    V4* v = (V4*)(a0 + 48);
-    f32 x = rng(20.0f, -10.0f);
-    f32 y = rng(10.0f, -30.0f);
-    f32 z = rng(20.0f, -10.0f);
-    v->x = x; v->y = y; v->z = z; v->w = 0;
-}
+// 001ccac0: moved to src/anon/unit_001cc868.cpp
 }
 }

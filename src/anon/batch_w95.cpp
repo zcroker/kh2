@@ -408,15 +408,7 @@ void func_001ba138(void);  // to_2fd310_block
 void func_00242908(void);
 void func_00168fa8(void);
 // Restore the saved copies of the game-state blocks.
-void func_001cd388(void) {
-    D_0032bb30 = D_01d499b0;
-    D_0034f250 = D_01d5a97c;
-    D_0034fa78 = D_01d5b1a4;
-    func_001ada38(8);
-    func_001ba138();  // to_2fd310_block
-    func_00242908();
-    func_00168fa8();
-}
+// 001cd388: moved to src/anon/unit_001cd078.cpp
 
 s32 func_00190140(u32);
 Vq* func_0016c028(u8*);  // obj_get_attach_or_alt

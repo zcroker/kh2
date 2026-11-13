@@ -307,21 +307,7 @@ void func_001c79a0(void*, void*, s32);
 void func_001d86a0(s32, s32);
 struct Fl40 { u32 on:1; u32 rest:31; };
 
-void func_001ccfa0(void* self, u8* a) {
-    if (((Fl40*)(a + 40))->on) {
-        u8* it = 0;
-        while ((it = func_00186078(it)) != 0) {
-            if (func_00186ce8(it)) continue;
-            if (func_00186d18(it)) continue;
-            if (*(u32*)(it + 360) & 0x40) continue;
-            if (!func_001c7950(a, it, 0.0f, 0.0f)) continue;
-            func_001c79a0(a, it, 0);
-            u32 m = *(u32*)(it + 1416) & 0x80;
-            func_001d86a0(1, m == 0);
-            return;
-        }
-    }
-}
+// 001ccfa0: moved to src/anon/unit_001cc868.cpp
 
 struct Trig { f32 x, y, z; u8 pad[8]; u8 cnt; u8 pad2[2]; u8 flag; u8 pad3[68]; s32* ref; };
 void* func_0016e920(s32);

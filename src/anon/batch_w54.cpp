@@ -333,15 +333,7 @@ void func_001c0a00(s32 a) {
 extern void* D_003520c0;
 extern u8 D_0036e278[][16];
 u8* func_001a5420(void*, void*, void*);
-void func_001ccf18(void* a0, s32 a1, s32 n) {
-    if (D_003520c0) {
-        s32 i;
-        for (i = 0; i < n; i++) {
-            u8* r = func_001a5420(D_003520c0, D_0036e278[a1], a0);
-            *(u32*)(r + 40) |= 4;
-        }
-    }
-}
+// 001ccf18: moved to src/anon/unit_001cc868.cpp
 
 s32 func_001db9a8(void*, s32, s32);
 void* func_001050d8(u32);

@@ -290,14 +290,7 @@ void func_001b27f0(u32, u8* p, u8 f) {
 s32 func_001bbf00(void);
 s32 func_001bb4a0(void);
 extern u8 D_00350378;
-s32 func_001cd4c0(void) {
-    s32 r;
-    u8* g = &D_0032bae0;
-    if (func_001bbf00()) r = 1;
-    else if (*(u16*)(g + 4) < 51 && !D_00350378 && !func_001bb4a0()) r = 1;
-    else r = 0;
-    return r;
-}
+// 001cd4c0: moved to src/anon/unit_001cd078.cpp
 
 // ---- 001df9c8
 void func_001dc840(u32);

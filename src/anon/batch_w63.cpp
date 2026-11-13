@@ -502,16 +502,7 @@ void func_001837c0(u8* p, const W63Vec* target, f32 w) {
 }
 
 // Moves pos a fifth of the way towards vel, with gravity on y; returns pos.y < 0.
-s32 func_001cc888(W63Body* b) {
-    W63Vec d;
-    W63Vec t;
-    vsub(&t, &b->vel, &b->pos);
-    vscale(&d, &t, 0.2f);
-    d.y = b->vel.y * D_00349e10;
-    b->vel.y += D_00349e10 * 0.4f;
-    vadd(&b->pos, &b->pos, &d);
-    return b->pos.y < 0.0f;
-}
+// 001cc888: moved to src/anon/unit_001cc868.cpp
 
 struct F112 { u32 b0 : 1; u32 b1 : 2; u32 b3 : 4; u32 rest : 25; };
 struct F116 { u32 c0 : 1; u32 c1 : 1; u32 c2 : 1; u32 rest : 29; };
