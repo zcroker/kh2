@@ -137,5 +137,5 @@ start	end	funcs	matched	bytes	matched_bytes	hint
 002ecdb0	002ee5d8	50	50	5512	5512	
 002ee5d8	002ee8a8	9	9	448	448	src/menu
 002ee8a8	002ef8d0	38	38	3564	3564	
-002ef8d0	002f12b0	56	56	4652	4652	src/ys
+002ef8d0	002f12b0	56	56	4652	4652	src/naka/libkn
 002f12b0	00325bcc	1106	1106	197164	197164	src/sdk
