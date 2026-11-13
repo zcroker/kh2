@@ -427,34 +427,7 @@ u32 func_0017dfc8(s32);
 void* func_001d3408(u32);
 void* GetCharaData_0016e920(u32 id) asm("_ZN2Tz6JmInfo12GetCharaDataEj");
 // Maps special chara ids (story-dependent) to their data entry.
-void* GetCharaData_0016e920(u32 id) {
-    u32 r = id;
-    switch (id & 0xfffffff) {
-    case 566:
-        {
-            u32 t = D_004f63a0;
-            if (t) { r = t; break; }
-        }
-    case 571:
-        r = func_001d1438(D_0032f054);
-        if (!r) r = func_001d1438(0);
-        break;
-    case 567: r = func_0017df70(1); break;
-    case 568: r = func_0017df70(2); break;
-    case 572: r = func_00198040(1); break;
-    case 573: r = func_0016eb18(566, 0); break;
-    case 575: r = func_0016eb18(func_001a8b28()->f18, 0); break;
-    case 576: r = func_0016eb18(func_001a8b28()->f20, 0); break;
-    case 704: r = func_0016eb18(101, 0); break;
-    case 793: r = func_0017dfc8(1); break;
-    case 794: r = func_0017dfc8(2); break;
-    case 1006: r = func_0017dfc8(3); break;
-    case 1578: r = D_00350cd0 == 1035 ? 1036 : 1035; break;
-    case 1579: r = D_00350cd0 == 1035 ? 1035 : 1036; break;
-    }
-    if (r == 0) return 0;
-    return func_001d3408(r & 0xfffffff);
-}
+void* GetCharaData_0016e920(u32 id);  // 0x0016e920: definition moved into src/anon/unit_0016e8f8.cpp
 }
 
 struct JmEnt { u32 id; u8 type; u8 pad[82]; s8 f87; };
@@ -470,37 +443,7 @@ u32 func_0016eb48(u32, u32, u32, s32);
 u32 func_0016ef28(u8);
 }
 // Requests chara data for id (special ids map to story-dependent entries); returns the request result.
-u32 wtarget_0016ed50(u32 id, u32 kind, u32 mode, u32) {
-    switch (id) {
-    case 568: return func_0016eb48(id, kind, 6, -1);
-    case 567: return func_0016eb48(id, kind, 5, -1);
-    case 566:
-        if (D_004f63a0) {
-            return func_0016eb48(D_004f63a0, kind, 4, -1);
-        } else {
-            JmEnt* e = (JmEnt*)GetCharaData_0016e920(func_001d1438(0));
-            u32 r = func_0016eb48(e->id, kind, 4, 7);
-            if (e->f87 < 7 && D_0032f054) return func_0016ef28(D_0032f054);
-            return r;
-        }
-    case 793: return func_0016eb48(0x20000237, kind, 5, -1);
-    case 794: return func_0016eb48(0x20000238, kind, 6, -1);
-    }
-    if (!func_0016f6f8(id) && !func_0016f770(id) && mode == 30) {  // check_flag_4000_type
-        JmEnt* e = (JmEnt*)GetCharaData_0016e920(id);
-        if (!e) return;
-        switch (e->type) {
-        case 1: mode = 5; break;
-        case 0: D_004f63a0 = id; mode = 4; break;
-        case 19: mode = 7; break;
-        }
-    }
-    switch (kind) {
-    case 2410: D_004f63a8 = id; break;
-    case 2420: D_004f63ac = id; break;
-    }
-    func_0016eb48(id, kind, mode, -1);
-}
+u32 wtarget_0016ed50(u32 id, u32 kind, u32 mode, u32);  // 0x0016ed50: definition moved into src/anon/unit_0016e8f8.cpp
 
 #define QCOPY(d, s) asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(d), "r"(s) : "$8", "memory")
 struct QV {

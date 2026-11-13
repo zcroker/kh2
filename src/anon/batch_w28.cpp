@@ -174,12 +174,7 @@ Q16* func_0016c508(Q16* out, u8* o) {
 }
 
 static inline bool cache_header_full(u8* h) { return *(s32*)(h + 0x28) >= 10000; }
-u32 cache_buff_alloc(const char* name, s32 n) {
-    u8* h = func_00170240(name, n);
-    if (h == 0 || cache_header_full(h)) func_00170e58();
-    (*(u16*)(h + 2))++;
-    return *(u32*)(h + 0x30);
-}
+u32 cache_buff_alloc(const char* name, s32 n);  // 0x001708f8: definition moved into src/anon/unit_0016e8f8.cpp
 
 void func_00171418(u8** p) {
     Q16* v = func_0016c028(*(u32*)(*p + 4));  // obj_get_attach_or_alt

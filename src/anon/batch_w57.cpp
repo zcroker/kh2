@@ -136,12 +136,7 @@ struct CacheNode { u8 p[40]; s32 v; u8 q[16]; CacheNode* next; };
 extern CacheNode* D_0034dca0;
 static inline CacheNode* CacheNext(CacheNode* n) { if (!n) return D_0034dca0; return n->next; }
 void CacheBuffClear(s32 n) asm("_ZN2YS10CACHE_BUFF5ClearEi");
-void CacheBuffClear(s32 n) {
-    CacheNode* cur = 0;
-    while ((cur = CacheNext(cur))) {
-        if (n >= 0 ? cur->v >= n : cur->v <= n) func_00170018(cur);
-    }
-}
+void CacheBuffClear(s32 n);  // 0x00170320: definition moved into src/anon/unit_0016e8f8.cpp
 
 void* func_001050c8(void);
 void func_00127c70(u32, void*, u32);

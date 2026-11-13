@@ -133,29 +133,11 @@ u32 func_0014d8a8(u32 a0, u32 a1, u32 a2, u32 a3) {
 
 // 0016c770: moved to src/anon/unit_0016c770.cpp
 
-u32 func_00170950(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u, r15 = 0u;
-    r2 = func_001702e0(r4, r5, r6, r7);
-    r15 = (u32)(*(u16*)((u32)r2 + (s32)(2)));
-    r15 = (u32)((s32)r15 + (-1));
-    *(u16*)((u32)r2 + (s32)(2)) = (u16)r15;
-    return r2;
-}
+u32 func_00170950(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00170950: definition moved into src/anon/unit_0016e8f8.cpp
 
-u32 func_00170d18(u32 a0, u32 a1, u32 a2, u32 a3) {  // obj_get_payload
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u;
-    r2 = func_001702e0(r4, r5, r6, r7);
-    r2 = (u32)((s32)r2 + (56));
-    return r2;
-}
+u32 func_00170d18(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00170d18: definition moved into src/anon/unit_0016e8f8.cpp
 
-u32 func_00170db0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u;
-    r5 = (u32)((s32)0u + (-1));
-    r2 = func_00170240(r4, r5, r6, r7);
-    r2 = *(u32*)((u32)r2 + (s32)(40));
-    return r2;
-}
+u32 func_00170db0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00170db0: definition moved into src/anon/unit_0016e8f8.cpp
 
 // 0017f5f8: moved to src/yasui/libys/motion.cpp
 

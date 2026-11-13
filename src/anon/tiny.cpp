@@ -2463,11 +2463,7 @@ void func_001617c8(u32 a0, u32 a1, u32 a2, u32 a3) {
     *(u8*)&D_0034c772 = (u8)v;
 }
 
-void func_0016fa98(u32 a0, u32 a1, u32 a2, u32 a3) {  // set_table_word
-    (void)a2;
-    (void)a3;
-    *(u32*)((u32)&D_01c5f460 + ((u32)a0 << 2) + (0)) = a1;
-}
+void func_0016fa98(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0016fa98: definition moved into src/anon/unit_0016e8f8.cpp
 
 void func_0018c480(u32 a0, u32 a1, u32 a2, u32 a3) {
     (void)a2;

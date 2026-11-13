@@ -631,26 +631,7 @@ d2:
 
 void func_002bbbc8(struct S2bb* p);  // 0x002bbbc8: definition moved into src/anon/unit_002bb8b0.cpp
 
-void func_00170018(u8* p) {
-    s32 i = 0;
-    s32 id = *(s32*)(p + 40);
-    s32 v;
-    if (!is_big(id)) {
-        for (; i < 2; i++) {
-            if (id == D_0034dcc0[i]) { *(s32*)(p + 40) = 29000; return; }
-        }
-        i = 0;
-        v = func_0016ffc8(p);
-        *(s32*)(p + 40) = v;
-        for (; i < 13; i++) {
-            if (v == D_0034dcc8[i]) { *(s32*)(p + 40) = i + 15400; return; }
-        }
-        if (v >= 0) *(s32*)(p + 40) = v + 10000;
-        else *(s32*)(p + 40) = 30000;
-    } else if (id < 30000) {
-        *(s32*)(p + 40) = id + 50;
-    }
-}
+void func_00170018(u8* p);  // 0x00170018: definition moved into src/anon/unit_0016e8f8.cpp
 
 s32 func_001d61b8(void* a, s32 b);  // 0x001d61b8: definition moved into src/anon/unit_001d4f40.cpp
 

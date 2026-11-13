@@ -107,19 +107,7 @@ struct Node170 { u8 pad[40]; s32 type; s32 size; s32 addr; u8 pad2[8]; Node170* 
 extern s32 D_0034dc9c;
 extern Node170* D_0034dca0;
 extern u8 D_004fa440[];
-s32 func_00170e80(void)
-{
-    s32 end = D_0034dc9c;
-    s32 start = (s32)D_004fa440;
-    Node170* n = 0;
-    while ((n = n ? n->next : D_0034dca0) != 0) {
-        bool big = n->type >= 10000;
-        if (big) continue;
-        if (n->type >= 0) start = n->addr + n->size;
-        else end = n->addr;
-    }
-    return end - start;
-}
+s32 func_00170e80(void);  // 0x00170e80: definition moved into src/anon/unit_0016e8f8.cpp
 
 // 001739b8: static 16-byte value, copied from the object's data
 extern s8 D_01c5f510;

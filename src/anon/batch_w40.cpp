@@ -83,15 +83,7 @@ s32 obj_count_entry(u32 id) {
 }
 
 extern s32 D_01c5f478;
-s32 func_00170d38(s32 x) {
-    if (x == 1010) return 1;
-    if ((u32)(x - 2300) < 100) return 2;
-    if ((u32)(x - 2410) < 10) return 3;
-    if ((u32)(x - 2420) < 10) return 4;
-    if ((u32)(x - 5000) < 100) return 5;
-    if ((u32)(x - 5100) < 100 && D_01c5f478 > 0) return 6;
-    return 0;
-}
+s32 func_00170d38(s32 x);  // 0x00170d38: definition moved into src/anon/unit_0016e8f8.cpp
 
 u8* func_001050d8(u32);
 void func_002ee220(u8*);

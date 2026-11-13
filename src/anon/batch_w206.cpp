@@ -23,13 +23,7 @@ static inline __attribute__((always_inline)) M1702e0* nxt1702e0(M1702e0* p) {
     return p->next;
 }
 M1702e0* ctarget_001702e0(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z16ctarget_001702e0jjjj");
-M1702e0* ctarget_001702e0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    M1702e0* p = 0;
-    while ((p = nxt1702e0(p))) {
-        if (p->f48 == a0) return p;
-    }
-    return 0;
-}
+M1702e0* ctarget_001702e0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001702e0: definition moved into src/anon/unit_0016e8f8.cpp
 
 // VU0 random number in [0,1) scaled to 0..32767
 s32 func_00222568(void) {  // vu_const_5f_d

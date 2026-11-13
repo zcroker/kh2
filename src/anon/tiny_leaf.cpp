@@ -146,20 +146,9 @@ extern "C" void func_0016c018(u32, u32, u32, u32) asm("_ZN2YS3OBJ12set_unit_argE
 
 // 0016d1d8: moved to src/anon/unit_0016c770.cpp
 
-u32 func_0016f460(u32 a0, u32 a1, u32 a2, u32 a3) {  // obj_test_byte_40
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u;
-    r2 = (u32)(s32)(*(s8*)((u32)r4 + (s32)(40)));
-    r2 = ((u32)0u < (u32)r2);
-    return r2;
-}
+u32 func_0016f460(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0016f460: definition moved into src/anon/unit_0016e8f8.cpp
 
-u32 func_0016f7a0(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_bit28
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u;
-    r4 = (u32)((s32)r4 >> 28);
-    r4 = (u32)(r4 & 0x0001u);
-    r2 = r4;
-    return r2;
-}
+u32 func_0016f7a0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0016f7a0: definition moved into src/anon/unit_0016e8f8.cpp
 
 void func_00188948(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3;

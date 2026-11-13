@@ -129,16 +129,9 @@ u32 func_00167e70(void) {
     return func_00167d68(D_0034d6c0 + 96);
 }
 
-void* get_weapon_entry(const void* self, s32 i) {
-    void* e = func_0016f610(self, i);
-    if (!e) return 0;
-    return func_00185890(*(const u16*)((const u8*)self + 78), e);
-}
+void* get_weapon_entry(const void* self, s32 i);  // 0x0016f6a0: definition moved into src/anon/unit_0016e8f8.cpp
 
-u32 func_0016fac8(u32 a) {
-    void* o = D_0034dc98;
-    return (*(u32 (**)(void*, u32, void*))*(u8**)o)(o, a, __builtin_return_address(0));
-}
+u32 func_0016fac8(u32 a);  // 0x0016fac8: definition moved into src/anon/unit_0016e8f8.cpp
 
 void trap_treasure_get(u32* v) {
     func_001a8418(func_001a8258(*v));

@@ -80,11 +80,7 @@ void func_0016d920(Vec4** p) {
 }
 
 // Formats the model path "obj/%s.mdlx" for an entry into buf (or a shared buffer).
-char* func_0016f470(u8* e, char* buf) {
-    if (!buf) buf = D_004f63b0;
-    func_002fee78(buf, D_0036c440, e + 8);
-    return buf;
-}
+char* func_0016f470(u8* e, char* buf);  // 0x0016f470: definition moved into src/anon/unit_0016e8f8.cpp
 
 static inline s32 inRange(s32 v) {
     if (v == 0) return 0;

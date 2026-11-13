@@ -14,21 +14,7 @@ u16* func_00188fe0(void*, u16);
 
 static inline __attribute__((always_inline)) u16 getK_0016f610(O_0016f610* o) { return o->h4c; }
 
-u16 func_0016f610(O_0016f610* o, s32 a1) {
-    u16 r;
-    u16* p;
-    if (o->h4e == 0) r = 0;
-    else {
-        if ((getK_0016f610(o) == 1 || getK_0016f610(o) == 14) && a1 == 1) {
-            p = func_00189200(D_0032e020, o->b57);
-            r = 0; if (p) r = *p;
-        } else {
-            p = func_00188fe0(D_0032e020, getK_0016f610(o));
-            r = 0; if (p) r = p[a1];
-        }
-    }
-    return r;
-}
+u16 func_0016f610(O_0016f610* o, s32 a1);  // 0x0016f610: definition moved into src/anon/unit_0016e8f8.cpp
 
 extern s32 D_0035f12c;
 extern u8 D_0035f130;

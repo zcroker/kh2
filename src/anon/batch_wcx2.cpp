@@ -14630,16 +14630,7 @@ s32 strcmp(const char*, const char*);
 void func_001700e8(N170a90*, s32);
 static inline N170a90* Next170a90(N170a90* n) { if (n == 0) return D_0034dca0; return n->next; }
 static inline bool Ok170a90(N170a90* n) { return n->f28 >= 10000; }
-void func_00170a90(const char* name)
-{
-    N170a90* n = 0;
-    while ((n = Next170a90(n)) != 0) {
-        if (strcmp(n->name, name) == 0 && Ok170a90(n)) {
-            func_001700e8(n, 1);
-            return;
-        }
-    }
-}
+void func_00170a90(const char* name);  // 0x00170a90: definition moved into src/anon/unit_0016e8f8.cpp
 
 // --------------------
 // libgcc fp-bit.c (double): float_to_si / float_to_usi

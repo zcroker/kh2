@@ -178,18 +178,7 @@ static inline u8* next_70c50(u8* n) {
     return *(u8**)(n + 60);
 }
 
-s32 func_00170c50(void) {
-    if (func_00170c38()) return 1;
-    u8* n = 0;
-    while ((n = next_70c50(n))) {
-        bool dead = !(*(s32*)(n + 40) < 10000);
-        if (dead) continue;
-        u8 k = n[1];
-        if (!k) continue;
-        if (k != 3) return 1;
-    }
-    return 0;
-}
+s32 func_00170c50(void);  // 0x00170c50: definition moved into src/anon/unit_0016e8f8.cpp
 
 // ---------------------------------------------------------------------------
 s32 func_00190140(u8*);

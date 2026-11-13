@@ -186,15 +186,7 @@ u32 func_0016b740(u32 id) {
     return (u32)v;
 }
 
-s32 func_0016f6f8(u32 id) {  // check_flag_4000_type
-    if (!(id & 0x40000000)) return 0;
-    u8* p = (u8*)func_0016e920(id);
-    if (!p) return 0;
-    switch (p[4]) {
-    case 7: case 22: case 24: return 0;
-    default: return 1;
-    }
-}
+s32 func_0016f6f8(u32 id);  // 0x0016f6f8: definition moved into src/anon/unit_0016e8f8.cpp
 
 void func_00172c38(u8* p) {
     u8* v = 0;

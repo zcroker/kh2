@@ -489,36 +489,8 @@ void func_0016a1b8(U0_Chr* c, u32 id) {
     c->f1296 = func_001b7850(c, c->id, 2);
 }
 // build a resource path into buf
-char* func_0016f520(U0_Res* r, u32 key, char* buf) {
-    if (!buf) buf = D_004f6400;
-    if (func_0016f460()) {
-        func_002fee78(buf, D_0036c460, r->f40);
-        if (func_0016f7a0(key) || (func_0016f770(key) && r->f4 && func_00170978(buf) < 2)) {  // get_bit28
-            func_002ff2e8(func_002ff8b0(buf, '.'), D_0036c468);
-        }
-        return buf;
-    }
-    if (func_0016f7a0(key)) {  // get_bit28
-        func_002fee78(buf, D_0036c478, r->f8);
-    } else buf = 0;
-    return buf;
-}
-u32 func_00170b30(u32 size) {  // alloc_align128
-    U0_Blk* b;
-    size += 127; size &= ~127;
-    D_0034dca8--;
-    D_01c5c440[D_0034dca8] = size;
-    D_0034dc9c -= size;
-    for (b = D_0034dca0; b; ) {
-        U0_Blk* next = b->next;
-        if (D_0034dc9c < b->f52 + b->f44) {
-            if (!func_00170b30_locked(b)) { b->f1 = 0; b->f52 = 0; }
-            else func_001700e8(b, 0);
-        }
-        b = next;
-    }
-    return D_0034dc9c;
-}
+char* func_0016f520(U0_Res* r, u32 key, char* buf);  // 0x0016f520: definition moved into src/anon/unit_0016e8f8.cpp
+u32 func_00170b30(u32 size);  // 0x00170b30: definition moved into src/anon/unit_0016e8f8.cpp
 // 00179450: moved to src/yasui/libys/player.cpp
 
 

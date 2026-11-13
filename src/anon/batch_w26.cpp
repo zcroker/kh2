@@ -183,16 +183,7 @@ void* func_0016b7a0(void* serial) {
     return p;
 }
 
-void func_00170ee8(s32 a, s32 b) {
-    if (b == 0xffff && a == 1) {
-        D_0034dca0.b = 0;
-        D_0034dca0.a = 0;
-    }
-    if (b == 0xffff && a == 1) {
-        D_0034dcb8.b = 0;
-        D_0034dcb8.a = 0;
-    }
-}
+void func_00170ee8(s32 a, s32 b);  // 0x00170ee8: definition moved into src/anon/unit_0016e8f8.cpp
 
 void func_00171848(void** p) {
     if (*p) ctarget_0019ba60(((void**)*p)[1]);

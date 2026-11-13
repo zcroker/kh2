@@ -119,33 +119,7 @@ static inline Node0017* Step0017(Node0017* c)
 }
 
 // Moves nodes whose value reached 10000 to the pending queue, then processes them.
-void func_001705a8(void)
-{
-    Node0017* p;
-    Node0017* n;
-    D_0034dcb8.head = 0;
-    D_0034dcb8.tail = 0;
-    p = D_0034dca0.first;
-    if (p) {
-        do {
-            n = p->next;
-            if (Expired0017(p)) {
-                func_0031e328(&D_0034dca0, p);
-                if (!D_0034dcb8.tail) {
-                    D_0034dcb8.tail = p;
-                    D_0034dcb8.head = p;
-                    p->next = 0;
-                } else {
-                    D_0034dcb8.tail->next = p;
-                    p->next = 0;
-                    D_0034dcb8.tail = p;
-                }
-            }
-            p = n;
-        } while (n);
-    }
-    for (p = D_0034dcb8.head; p; ) p = Step0017(p);
-}
+void func_001705a8(void);  // 0x001705a8: definition moved into src/anon/unit_0016e8f8.cpp
 
 static inline bool Reacts0017(u8* a1) { return (*(u32*)(*(u8**)(a1 + 12) + 8) & 2) || (*(u32*)(a1 + 352) & 0x40); }
 
@@ -184,17 +158,7 @@ void u_call4_0016a358(u32 a0, u32, u32, u32)
     func_001ddd88(o + 128);
 }
 
-u32 ctarget_0016f7d0(u32 a0, u32 a1, u32, u32)
-{
-    u32 mask;
-    if (!a1) a1 = func_0016e920();
-    mask = 1 << func_00170978(func_0016f470(a1, 0));
-    if (!func_0016f6f8(a0) && !func_0016f770(a0) && FlagOff0016(a1))
-        mask |= 1 << func_00170978(func_0016f4b8(a1, 0));
-    if (!func_0016f6f8(a0) && func_0016f460(a1))
-        mask |= 1 << func_00170978(func_0016f520(a1, a0, 0));
-    return mask;
-}
+u32 ctarget_0016f7d0(u32 a0, u32 a1, u32, u32);  // 0x0016f7d0: definition moved into src/anon/unit_0016e8f8.cpp
 
 extern const f32 D_0036cd18;
 

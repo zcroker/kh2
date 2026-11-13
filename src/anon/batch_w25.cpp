@@ -96,9 +96,7 @@ void func_0016d640(u32* p) {
 
 s32 func_00170cd0(void);
 void func_00102448(void*, u32);
-void func_00170dd0(void* a) {
-    while (func_00170cd0()) func_00102448(a, 0);
-}
+void func_00170dd0(void* a);  // 0x00170dd0: definition moved into src/anon/unit_0016e8f8.cpp
 
 extern u8 D_01c5f480;
 void func_00185138(u32, void*, s32, float);

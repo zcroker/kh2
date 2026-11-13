@@ -64,19 +64,7 @@ static inline __attribute__((always_inline)) void W1788_link(W1788Node* n, W1788
     }
 }
 
-void func_00170188(W1788Node* n) {
-    W1788Node* prev = 0;
-    W1788Node* cur;
-    while ((cur = prev ? prev->next : D_0034dca0.first) != 0) {
-        if (n->pri >= 0) {
-            if (n->pri < cur->pri) break;
-        } else {
-            if (cur->pri < 0 && n->pri < cur->pri) break;
-        }
-        prev = cur;
-    }
-    W1788_link(n, prev);
-}
+void func_00170188(W1788Node* n);  // 0x00170188: definition moved into src/anon/unit_0016e8f8.cpp
 
 // 00187be8: moved to src/anon/unit_00185d10.cpp
 s32 func_00187be8(W1788Q* q);
