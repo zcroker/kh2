@@ -135,9 +135,7 @@ u32 ys_can_end(void) {
 
 // Increment a u16 counter, saturating at 999.
 extern u16 D_0032fafe[];
-void func_001d9820(s32 i) {
-    if (D_0032fafe[i + 9] < 999) D_0032fafe[i + 9]++;
-}
+void func_001d9820(s32 i);  // 0x001d9820: definition moved into src/anon/unit_001d7458.cpp
 
 u32 func_001b1448(u32);
 extern u32 D_003528fc;

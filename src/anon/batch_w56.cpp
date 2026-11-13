@@ -279,15 +279,7 @@ u8* func_00189200(void*, s32);
 void func_001a6c90(s32);  // set_bit_in_array_b
 extern u8 D_0032e020[];
 void u_call0_001d77a0(void) asm("_Z16u_call0_001d77a0v");
-void u_call0_001d77a0(void)
-{
-    if (func_001a6d08(106)) return;
-    if (!func_001a6d08(101)) return;
-    for (s32 i = 1; i < 5; i++) {
-        if (func_00189200(D_0032e020, i)[2] < 5) return;
-    }
-    func_001a6c90(106);  // set_bit_in_array_b
-}
+void u_call0_001d77a0(void);  // 0x001d77a0: definition moved into src/anon/unit_001d7458.cpp
 
 // 001ef1a0: VU0 random number(s)
 static inline f32 vu0_rand(void)

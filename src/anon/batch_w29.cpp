@@ -223,15 +223,7 @@ void func_001c2ce8(u8* p) {
 
 // 0x001d44d8 GetLimitEntry: definition moved into src/anon/unit_001d3c08.cpp
 
-u32 ctarget_001d9228(s32 i) {
-    s32 o = i * 64;
-    if (func_001bb4a0()) {
-        u32 f = *(u32*)(o + func_001bbcb0() + 620);
-        if ((u8)(f & 1))
-            return *(u32*)(o + func_001bbcb0() + 652);
-    }
-    return 0;
-}
+u32 ctarget_001d9228(s32 i);  // 0x001d9228: definition moved into src/anon/unit_001d7458.cpp
 
 void ctarget_001db8f8(u8* p, u32 a, u32 b, u32 c) {
     func_001c23a8(p, a, b, 0, 0, 96, c);

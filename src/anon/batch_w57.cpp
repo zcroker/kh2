@@ -333,13 +333,7 @@ void func_0031a5a0(u8* t) {
 
 
 // Notify every attached listener, then clear the busy flag.
-void func_001d8070(u8* t) {
-    for (s32 i = 0; i < *(s32*)(t + 712); i++) {
-        void** o = ((void***)(t + 676))[i];
-        (*(void (**)(void*))(*(u8**)o + 8))(o);
-    }
-    *(u32*)(t + 4) &= ~1u;
-}
+void func_001d8070(u8* t);  // 0x001d8070: definition moved into src/anon/unit_001d7458.cpp
 
 // Drop every list entry whose owner is still valid.
 u32 func_001dca20(void*);  // get_bit20_of_field8

@@ -313,23 +313,9 @@ void func_001bd4e8(u8* o, u32* v, u32 c) {
     for (s32 i = 0; i < 4; i++) func_001bd3e0(o, i + 3, v[i], c, 1, 100);
 }
 
-void func_001d6938(u8* o, u8* p) {
-    D_003527e0 = o;
-    func_0019c9e0(o + 2752);
-    if (*(u32*)(p + 1164)) func_0013ddc0(0, p);
-    if (!*(u32*)(o + 2804)) func_001bdf38(o, p, *(u32*)(p + 2872));
-    else *(u8**)(o + 2528) = p;
-    *(u8**)(o + 2804) = p;
-    if (!o[2808]) func_001d6ab0(o);
-}
+void func_001d6938(u8* o, u8* p);  // 0x001d6938: definition moved into src/anon/unit_001d68e0.cpp
 
-void func_001d7d68(u8* o, u8* a, u32 b) {
-    func_001b3b70(o, a, 3, b);
-    *(u32*)o = (u32)D_00352878;
-    *(u32*)(o + 1416) |= 0x20000;
-    if (!func_0019c8a8(o)) *(u32*)(o + 944) = 2;
-    ((Bits1536*)(o + 1536))->kind = (*(u16*)(a + 72) >> 3 & 1) ? 2 : 1;
-}
+void func_001d7d68(u8* o, u8* a, u32 b);  // 0x001d7d68: definition moved into src/anon/unit_001d7458.cpp
 
 // Cubic interpolation between key pairs a[i], b[i] at fraction t (VU0).
 void func_00202ba0(Vec4* out, Vec4* a, Vec4* b, f32 t) {

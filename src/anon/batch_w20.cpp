@@ -183,10 +183,7 @@ void func_001bde58(u8* p) {
 
 void func_001d6538(void** p);  // 0x001d6538: definition moved into src/anon/unit_001d63a8.cpp
 
-u8 func_001d7980(u32 a) {
-    u8* t = D_01d5ba9c;
-    return func_002fd248(a, t + 8, *(u32*)(t + 4), 4, D_003218b8);
-}
+u8 func_001d7980(u32 a);  // 0x001d7980: definition moved into src/anon/unit_001d7458.cpp
 
 // Clears flag 0x4000000 on every node of the list at D_00352ae0 (next at +0x28).
 void func_001ddc48(void) {

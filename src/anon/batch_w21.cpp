@@ -225,17 +225,9 @@ void func_001c13a8(u32* p) {
     func_00105110((void*)p[12]);
 }
 
-void func_001d74f8(void** p) {
-    *p = &D_003527f0;
-    D_003527e4 = 0;
-    func_001a4e30(p);
-    func_00105110(p);
-}
+void func_001d74f8(void** p);  // 0x001d74f8: definition moved into src/anon/unit_001d7458.cpp
 
-void func_001d7e00(u8* p) {
-    func_00190920(p + 2548, 2, p);
-    func_00198450(p);
-}
+void func_001d7e00(u8* p);  // 0x001d7e00: definition moved into src/anon/unit_001d7458.cpp
 
 // Fill the index table with 0..n-1 and reset the count.
 void func_001db850(u8* p) {

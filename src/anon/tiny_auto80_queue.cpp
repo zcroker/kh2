@@ -1885,18 +1885,7 @@ extern "C" u32 func_001d1678(...);  // obj_init_28bytes
 extern "C" u32 func_001bb4a0(...);
 extern "C" u32 func_001bbcb0(...);
 
-u32 func_001d8158(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r2, r15;
-    r2 = ((u32(*)())func_001bb4a0)();
-    r15 = 0u;
-    if (r2 != 0u) {
-        r2 = ((u32(*)())func_001bbcb0)();
-        r15 = *(volatile u32*)((u32)r2 + (s32)(4));
-        r15 = (u32)(r15 & 0x0001u);
-    }
-    r2 = r15;
-    return r2;
-}
+u32 func_001d8158(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);  // 0x001d8158: definition moved into src/anon/unit_001d7458.cpp
 
 extern u8 D_0032dfd0;
 
@@ -8401,18 +8390,7 @@ u32 duplicate_unplaced_001d74f8(u32 a0) {
 extern "C" u32 func_0014f830(...);
 extern "C" u32 func_001d1708(...);
 
-u32 func_001d7c90(u32 a0) {
-    u32 r4 = a0, r2, r15, r16;
-    r16 = r4;
-    r15 = *(volatile u32*)((u32)r4 + (s32)(44));
-    r4 = r15;
-    if (r15 != 0u) {
-        r2 = ((u32(*)(u32))func_0014f830)(r4);
-        *(volatile u32*)((u32)r16 + (s32)(44)) = 0u;
-    }
-    r4 = r16;
-    return ((u32(*)(u32))func_001d1708)(r4);
-}
+u32 func_001d7c90(u32 a0);  // 0x001d7c90: definition moved into src/anon/unit_001d7458.cpp
 
 extern "C" u32 func_001d8190(...);
 
@@ -12388,22 +12366,12 @@ extern u8 D_01d5ba10;
 extern "C" u32 func_001d6a80(...);
 extern u8 D_003527e0;
 
-void func_001d6c58(void) {
-    u32 t6 = *(u32*)((u32)&D_003527e0 + (s32)(0));
-    if (t6 != 0u) {
-        func_001d6a80(t6);
-    }
-}
+void func_001d6c58(void);  // 0x001d6c58: definition moved into src/anon/unit_001d68e0.cpp
 
 extern "C" u32 func_001d6ab0(...);
 extern u8 D_003527e0;
 
-void func_001d6c88(void) {
-    u32 t6 = *(u32*)((u32)&D_003527e0 + (s32)(0));
-    if (t6 != 0u) {
-        func_001d6ab0(t6);
-    }
-}
+void func_001d6c88(void);  // 0x001d6c88: definition moved into src/anon/unit_001d68e0.cpp
 
 extern "C" u32 func_001b1448(...);
 
@@ -17894,30 +17862,9 @@ void duplicate_unplaced_001d5698(u32 a0) {
 
 void func_001d6110(u32 a0, u8* a1);  // 0x001d6110: definition moved into src/anon/unit_001d4f40.cpp
 
-u8* func_001d6d58(s32 a0) {
-    u8* t6;
-    if (a0 <= 0) {
-        goto ret0;
-    }
-    t6 = D_01d5ba98;
-    if (*(s32*)(t6 + 4) < a0) {
-        goto ret0;
-    }
-    return t6 + (a0 << 6) - 56;
-ret0:
-    return 0;
-}
+u8* func_001d6d58(s32 a0);  // 0x001d6d58: definition moved into src/anon/unit_001d68e0.cpp
 
-void func_001d76e8(u32 a0, u8* a1) {
-    (void)a0;
-    if (a1[68] == 0) {
-        return;
-    }
-    if (!(0.0f < *(f32*)(a1 + 52))) {
-        return;
-    }
-    func_001c79a0((u32)a1, *(u32*)&D_0034e948, 0);
-}
+void func_001d76e8(u32 a0, u8* a1);  // 0x001d76e8: definition moved into src/anon/unit_001d7458.cpp
 
 void duplicate_unplaced_001d7e00(u8* a0) {
     u8* s0 = a0;
@@ -17925,43 +17872,11 @@ void duplicate_unplaced_001d7e00(u8* a0) {
     func_00198450((u32)s0);
 }
 
-u32 func_001d8438() {
-    u32 v0 = func_001d83c0();
-    return (v0 + 59) / 60;
-}
+u32 func_001d8438();  // 0x001d8438: definition moved into src/anon/unit_001d7458.cpp
 
-u32 func_001d9850() {
-    u32 s0 = 0;
-    if (func_00181500(4215) != 0) {
-        if (func_00181500(9289) != 0) {
-            s0 = (u32)(func_00181500(11325) != 0);
-        }
-    }
-    return s0;
-}
+u32 func_001d9850();  // 0x001d9850: definition moved into src/anon/unit_001d7458.cpp
 
-u32 func_001d9af8(u8* a0) {
-    u32 t11 = a0[0];
-    u8* t12 = &D_0036e648;
-    s32 t13 = 0;
-    while (1) {
-        u32 t15 = t12[0];
-        if (t11 == t15) {
-            u32 t14 = t12[1];
-            u32 t15b = a0[1];
-            if (t15b == t14) {
-                return t13;
-            }
-        }
-        t13 += 1;
-        if (t13 < 5) {
-            t12 += 2;
-            continue;
-        }
-        break;
-    }
-    return 0;
-}
+u32 func_001d9af8(u8* a0);  // 0x001d9af8: definition moved into src/anon/unit_001d7458.cpp
 
 extern "C" u32 func_001d9e78(...);
 typedef u32 (*Func_001db610_cb)(u32, u32);

@@ -324,9 +324,7 @@ u32 wtarget_001ce2a0(u32 a0, u32 a1, u32 a2, u32) {
     return a0 + off;
 }
 
-void wtarget_001d9ca0(u32 a0, u32 a1, u32, u32) {
-    if (a1 == 0xffff && a0 == 1) func_001d9a18(&D_01d5baa0, -1);
-}
+void wtarget_001d9ca0(u32 a0, u32 a1, u32, u32);  // 0x001d9ca0: definition moved into src/anon/unit_001d7458.cpp
 
 void wtarget_002eaab0(u32 a0, u32 a1, u32, u32) {
     u32 tmp[4] __attribute__((aligned(16)));

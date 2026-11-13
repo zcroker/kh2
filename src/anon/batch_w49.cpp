@@ -159,12 +159,7 @@ void func_001c7148(u8* p) {
 
 u8* func_001d6cc8(u8*);
 s32 func_001a3570(u16);
-void func_001d6da8(u16* out) {
-    u8* n = 0;
-    while ((n = func_001d6cc8(n)) != 0)
-        if (func_001a3570(*(u16*)(n + 2)) > 0) *out++ = *(u16*)n;
-    *out = 0;
-}
+void func_001d6da8(u16* out);  // 0x001d6da8: definition moved into src/anon/unit_001d68e0.cpp
 
 void func_001e6000(u8*);  // obj_dec_timer
 

@@ -175,13 +175,7 @@ void func_001d6148(u8* p, s32 id);  // 0x001d6148: definition moved into src/ano
 
 u8* func_001d7980(u32);
 // ORs together the flags of up to four referenced entries.
-void func_001d7b10(u16* p) {
-    *p = 0;
-    u32* e = (u32*)(p + 2);
-    for (s32 i = 3; i >= 0; i--, e += 2) {
-        if (*e) *p |= *(u16*)(func_001d7980(*e) + 2);
-    }
-}
+void func_001d7b10(u16* p);  // 0x001d7b10: definition moved into src/anon/unit_001d7458.cpp
 
 s32 func_001bb4b0(void);
 s32 func_001bb4a0(void);
@@ -194,17 +188,9 @@ static inline bool mission_entry_on(s32 i) {
     return ((MissionFlag*)(b + off + 244))->on;
 }
 void mission_add_count(s32 a, s32 i) asm("_ZN2YS7MISSION8AddCountEii");
-void mission_add_count(s32 a, s32 i) {
-    if (func_001bb4b0() && mission_entry_on(i))
-        func_001d8718(a, i);
-}
+void mission_add_count(s32 a, s32 i);  // 0x001d86a0: definition moved into src/anon/unit_001d7458.cpp
 s32 mission_get_count(s32 i) asm("_ZN2YS7MISSION8GetCountEi");
-s32 mission_get_count(s32 i) {
-    if (func_001bb4a0()) {
-        if (mission_entry_on(i)) return *(s32*)(i * 56 + func_001bbcb0() + 276);
-    }
-    return 0;
-}
+s32 mission_get_count(s32 i);  // 0x001d87b8: definition moved into src/anon/unit_001d7458.cpp
 
 s32 func_0019ba60(u32);
 u8* func_0016c028(u32);  // obj_get_attach_or_alt

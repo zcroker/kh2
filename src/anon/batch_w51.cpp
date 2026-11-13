@@ -305,25 +305,7 @@ void func_00188c10(u32, u32);
 u32 func_00188fe0(void*, u32);
 extern u8 D_0032e020[];
 
-void func_001d7380(s32 a0) {
-    switch (a0) {
-    case 12:
-        func_002beb28();
-        break;
-    case 176:
-    case 181:
-    case 182:
-    case 183:
-    case 185:
-    case 186:
-    case 189:
-    case 296:
-    case 297:
-    case 298:
-        func_00188c10(func_00188fe0(D_0032e020, 1), 2);
-        break;
-    }
-}
+void func_001d7380(s32 a0);  // 0x001d7380: definition moved into src/anon/unit_001d68e0.cpp
 
 s32 func_00105868(void*);
 s32 func_00276fd0(void);
@@ -331,20 +313,7 @@ extern u8 D_0032bb30[];
 
 }
 
-u32 wtarget_001d9980(u32, u32, u32, u32) {
-    s32 v = func_00105868(D_0032bb30);
-    switch (v) {
-    case 0:
-        return 0;
-    case 1:
-        return 1;
-    case 2:
-        return func_00276fd0() == 100 ? 3 : 2;
-    case 3:
-        return func_00276fd0() == 100 ? 5 : 4;
-    }
-    return 0;
-}
+u32 wtarget_001d9980(u32, u32, u32, u32);  // 0x001d9980: definition moved into src/anon/unit_001d7458.cpp
 
 extern "C" {
 

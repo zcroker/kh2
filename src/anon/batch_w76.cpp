@@ -354,21 +354,7 @@ s32 func_00276fd0(void);
 s32 func_001e0a90(void*);
 static inline bool Is100() { return func_00276fd0() == 100; }
 bool IsFMSecretMovie(void) asm("_ZN2YS13BATTLE_REPORT15IsFMSecretMovieEv");
-bool IsFMSecretMovie(void)
-{
-    switch (func_00105868(D_0032bb30)) {
-    case 0:
-        return false;
-    case 1:
-        if (!Is100()) return false;
-        return func_001e0a90(D_0033bc10) != 0;
-    case 2:
-        return Is100();
-    case 3:
-        return func_001a35f8(593, 100) > 0 && func_001a35f8(594, 100) > 0 && func_001a35f8(595, 100) > 0;
-    }
-    return false;
-}
+// 0x001d98a0 IsFMSecretMovie: definition moved into src/anon/unit_001d7458.cpp
 
 f32 func_002f8ad0(f32, f32);
 u8* func_0016f000(u32, FV*, f32);

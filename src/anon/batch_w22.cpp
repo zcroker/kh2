@@ -233,20 +233,13 @@ void func_001c1708(u8* p) {
 // --- 001d7e78
 void func_0019aa00(u32, void*);
 void func_001b40e0(void*);
-void func_001d7e78(u8* p) {
-    u32 o = *(u32*)(p + 2072);
-    if (o) func_0019aa00(o, p);
-    func_001b40e0(p);
-}
+void func_001d7e78(u8* p);  // 0x001d7e78: definition moved into src/anon/unit_001d7458.cpp
 
 // --- 001d9688
 // Increment a [n][3] byte counter, capped at 99.
 struct R3 { u8 v[3]; };
 u8 wtarget_001d9688(R3*, u32, u32, u32) asm("_Z16wtarget_001d9688jjjj");
-u8 wtarget_001d9688(R3* a, u32 b, u32 c, u32) {
-    if (a[b].v[c] < 99) a[b].v[c]++;
-    return a[b].v[c];
-}
+u8 wtarget_001d9688(R3* a, u32 b, u32 c, u32);  // 0x001d9688: definition moved into src/anon/unit_001d7458.cpp
 
 // --- 001e0f90
 extern u32 D_00352bd0;

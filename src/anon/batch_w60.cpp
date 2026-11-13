@@ -308,15 +308,7 @@ void PrizeTrGetAll(void* o) {
 
 void func_001d5960(void* p);  // 0x001d5960: definition moved into src/anon/unit_001d4f40.cpp
 
-void func_001d9630(u16* p, s32 n) {
-    s32 i;
-    for (i = 0; i < n; i++) {
-        if (p[i]) {
-            func_001a3188(p[i], 100, 0);
-            p[i] = 0;
-        }
-    }
-}
+void func_001d9630(u16* p, s32 n);  // 0x001d9630: definition moved into src/anon/unit_001d7458.cpp
 
 union U16Any { u16 h; s32 i; };
 struct Reader1da { u8* base; s32 idx; u32 a; u32 pad; u32 b; };

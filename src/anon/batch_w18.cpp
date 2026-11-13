@@ -165,11 +165,7 @@ struct Ent1d7 { u32 a; u32 b; };
 struct Obj1d7 { u32 hdr; Ent1d7 e[4]; };
 void func_001d7b10(u32, u32, u32, u32);
 void wtarget_001d7a50(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z16wtarget_001d7a50jjjj");
-void wtarget_001d7a50(u32 a0, u32 a1, u32 a2, u32 a3) {
-    Obj1d7* o = (Obj1d7*)a0;
-    for (s32 i = 3; i >= 0; i--) o->e[3 - i].a = 0;
-    func_001d7b10(a0, a1, a2, a3);
-}
+void wtarget_001d7a50(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001d7a50: definition moved into src/anon/unit_001d7458.cpp
 
 extern u32 D_00352908;
 void func_001980d0(void*, u32, u32, u32);
