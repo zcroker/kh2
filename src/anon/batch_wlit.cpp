@@ -41,7 +41,7 @@ void func_001375f0(u8* p, u32 a, u32 b) {
     *(u32*)(p + 1304) = 0;
 }
 
-u8* func_0017c8f0(u8* p) { func_0017c870(p, 0.9f, 0.95f); return p; }
+// 0017c8f0: moved to src/anon/unit_0017c400.cpp
 
 u8* func_002c1a18(u8* p, u32 a, u32 b) { f32 f = 0.95f; func_00184540(p, b, f, f); return p; }
 
@@ -69,5 +69,4 @@ void func_002e3f78(f32* v) { v[0] = v[1] = v[2] = 0.0f; v[3] = 1.0f; }
 
 u32 u_call4_001c73e0(u32 p, u32, u32, u32) { func_001c71f8(p, -0.8f); return func_001c7440(p, 0); }
 void wtarget_001a5b08(u32 a, u32 b, u32, u32) { if (b == 0xffff && a == 1) D_01c6cb18 = 0.52359873f; }  // 30 degrees
-// 00158000: static initialiser, now made by gcc in src/anon/unit_00157688.cpp
-void wtarget_0017e808(u32 a, u32 b, u32, u32) { if (b == 0xffff && a == 1) D_01c60520 = 0.34906584f; }
+// 0017e808: moved to src/yasui/libys/friend.cpp

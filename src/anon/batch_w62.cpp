@@ -190,38 +190,11 @@ void func_00170f98(u32* p) {
 
 static inline bool isPos(f32 x) { return 0.0f < x; }
 struct S17f { u8 pad[48]; f32 f30; f32 f34; u8 pad2[104]; Vr v; };
-// Returns v scaled by f30/f34 (w cleared), or v unchanged if f34 <= 0.
-Vr func_0017ff68(S17f* s) {
-    bool pos = isPos(s->f34);
-    if (pos) {
-        Vr r;
-        Vr t;
-        f32 k = s->f30 / s->f34;
-        asm volatile("lqc2 $vf1, 0(%1)\n\tmfc1 $8, %2\n\tqmtc2 $8, $vf2\n\tvmulx.xyzw $vf1, $vf1, $vf2x\n\tsqc2 $vf1, 0(%0)"
-                     : : "r"(&t), "r"(&s->v), "f"(k) : "$8", "memory");
-        r = t;
-        r.f[3] = 0.0f;
-        return r;
-    }
-    return s->v;
-}
+// 0017ff68: moved to src/yasui/libys/motion.cpp
 
 struct Slot180 { u32 obj; u32 key; };
 u32 func_00198580(u32, u32);  // check_div1000_500
-// Ensures `key` has an object in the 8-slot table (filled into the last free slot).
-void func_00180b10(u8* t, u32 key) {
-    s32 slot = -1;
-    s32 i = 0;
-    Slot180* e = (Slot180*)(t + 256);
-    for (; i < 8; i++, e++) {
-        if (e[1].obj == 0) slot = i;
-        else if (e[1].key == key) return;
-    }
-    Slot180* s = (Slot180*)((u8*)(slot * 8) + (u32)t + 256);
-    u32 o = func_00198580(*(u32*)(t + 8), key);  // check_div1000_500
-    s[1].obj = o;
-    s[1].key = key;
-}
+// 00180b10: moved to src/anon/unit_00180408.cpp
 
 struct Act { u8 pad[140]; u32 f8c; u8 pad2[8]; s32 f98; u32 f9c; };
 struct Pri { u16 h0; u16 h2; u16 h4; };

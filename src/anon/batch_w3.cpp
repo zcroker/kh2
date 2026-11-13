@@ -102,11 +102,7 @@ void func_00175328(BD_VALUE* bd) {
     func_001a5880(a.i, bd[1].i, bd[2].i);
 }
 
-// Zero the 16-byte vector at +0xa0 (VU0).
-void func_0017fdf8(u8* p) {  // clear_vec_at160
-    asm volatile(".set noreorder\n\tvsub.xyzw $vf1, $vf0, $vf0\n\tsqc2 $vf1, 0(%0)\n\t.set reorder"
-                 : : "r"(p + 160) : "memory");
-}
+// 0017fdf8: moved to src/yasui/libys/motion.cpp
 
 struct S182 {
     u32 value;

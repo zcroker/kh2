@@ -16,8 +16,7 @@ void wtarget_0015d3f8(u32, u32, u32, u32) asm("_Z16wtarget_0015d3f8jjjj");
 // 0015d3f8: static initialiser, now made by gcc in src/anon/unit_0015cdb0.cpp
 void wtarget_00175520(u32, u32, u32, u32) asm("_Z16wtarget_00175520jjjj");
 void wtarget_00175520(u32, u32, u32, u32) {}
-void wtarget_0017ec28(u32, u32, u32, u32) asm("_Z16wtarget_0017ec28jjjj");
-void wtarget_0017ec28(u32 a0, u32 a1, u32, u32) { *(u32*)(a0 + 4) = a1; }
+// 0017ec28: moved to src/yasui/libys/motion.cpp
 void func_001a4d70(u8* p, u32 v) { *(u32*)(p + 196) = v; }
 void func_001ae4b8(void) {}
 void wtarget_001dbb98(u32, u32, u32, u32) asm("_Z16wtarget_001dbb98jjjj");

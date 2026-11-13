@@ -170,45 +170,9 @@ void func_0017a9e8(u8* a0, u8* a1)
     *(u32*)(a1 + 252) = *(u32*)(a1 + 340);
 }
 
-void func_0017cd20(u8* a0, u8* a1)
-{
-    Vec82 v;
-    u8* r;
-    s32 n = func_001c3618(func_00177860(a1), 2);
-    if (n < 5) {
-        if (!n) return;
-        if (!(*(u32*)(a1 + 268) & 2)) return;
-    }
-    r = func_001ce300(n);  // to_1ce2a0_index_minus1
-    v = *(Vec82*)(a1 + 16);
-    if (0.0f < v.w) v.w = *(f32*)(r + 8);
-    v.y = *(f32*)(r + 4);
-    func_0017f488(a1 + 320, 202, 0.0f, 0.0f);
-    {
-        u8* o = *(u8**)(a1 + 12);
-        (*(void (**)(u8*, u8*, Vec82*))(*(u8**)o + 8))(o, a1, &v);
-    }
-    *(u32*)(a1 + 264) |= 0x10000;
-    *(u32*)(a1 + 256) = 4;
-    *(u32*)(a1 + 260) = 5;
-    *(u32*)(a1 + 268) &= ~2;
-}
+// 0017cd20: moved to src/anon/unit_0017c400.cpp
 
-u32 func_0017e418(u8* a0, u32 a1, f32 f)
-{
-    void* p;
-    if (D_0032bb30[13605]) {
-        func_001c97b0(*(u16*)(a0 + 76), 15.0f);
-        return func_001c88a8(a1, f);
-    }
-    if (func_001c9958(D_0032bb30[13604], *(u16*)(a0 + 76))) {  // state_pair_check
-        func_001c97b0(*(u16*)(a0 + 76), 15.0f);
-        return 0;
-    }
-    p = func_001050d8(3328);
-    func_0010c078(p, a0, a1, f);
-    return (u32)p;
-}
+// 0017e418: moved to src/yasui/libys/friend.cpp
 
 void func_00178bf0(u8* a0, u8* a1)
 {

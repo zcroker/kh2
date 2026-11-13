@@ -86,7 +86,7 @@ void func_0014f200(void* self) {}
 
 void func_00161540(void* self, s32 v) { *(s32*)((char*)self + 64) = v; }
 
-void func_0017ebe8(void* self, s32 v) { *(s32*)((char*)self + 0) = v; }
+// 0017ebe8: moved to src/yasui/libys/motion.cpp
 
 void func_0018b008(void* self) {}
 

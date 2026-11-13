@@ -343,16 +343,7 @@ Q16* ctarget_0017a968(Q16* out) {
     return out;
 }
 
-u32 ctarget_00180618(u8* p) {
-    u32 r = 0;
-    if (!func_00180cd0(p)) {
-        if (!isPos(*(f32*)(p + 52))) {
-            u8* o = *(u8**)(p + 12);
-            if ((*(f32 (**)(void*))(*(u8**)o + 28))(o) <= *(f32*)(p + 48)) r = 1;
-        }
-    }
-    return r;
-}
+// 00180618: moved to src/anon/unit_00180408.cpp
 
 extern "C" {
 
@@ -586,24 +577,7 @@ Q16* func_002d2870(Q16* out, u8* b, u32 c) {
 }
 
 // Looks up the value stored for the key pair (b, c) in the section of kind d.
-s32 wtarget_002e3418(u32 a, u32 b, u32 c, u32 d) {
-    u8* h = (u8*)a;
-    s32 n = *(s32*)(h + 8);
-    if (!n) return -1;
-    SecW55* e = (SecW55*)(h + 16);
-    s32 i;
-    for (i = 0; i < n; i++) {
-        if (e->type == d) {
-            s32 j;
-            for (j = 0; j < e->cnt; j++) {
-                PairW55* pr = &e->p[j];
-                if (pr->a == b && pr->b == c) return pr->v;
-            }
-        }
-        e = (SecW55*)&e->p[e->cnt];
-    }
-    return -1;
-}
+// 002e3418: moved to src/anon/unit_002e2f08.cpp
 
 extern "C" {
 

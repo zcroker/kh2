@@ -138,16 +138,7 @@ void func_001739b8(u128** out)
     *out = dst;
 }
 
-// 0017d160: angle between two vectors (VU0 dot product, clamped acos)
-f32 func_0017d160(void* a, void* b)
-{
-    f32 d;
-    asm volatile("lqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 0(%2)\n\tvmul.xyz $vf1, $vf1, $vf2\n\tvaddy.x $vf1, $vf1, $vf1y\n\tvaddz.x $vf1, $vf1, $vf1z\n\tqmfc2 $8, $vf1\n\tmtc1 $8, %0"
-        : "=f"(d) : "r"(a), "r"(b) : "$8");
-    if (1.0f <= d) return 0.0f;
-    if (d <= -1.0f) return 3.1415927f;
-    return acos_2f8aa0(d);
-}
+// 0017d160: moved to src/anon/unit_0017c400.cpp
 
 // 00185c48: count down a timer, then run the base pre-exec
 s32 func_00188758(void*);

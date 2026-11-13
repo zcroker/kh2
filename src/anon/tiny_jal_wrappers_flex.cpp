@@ -441,16 +441,7 @@ u32 func_001752a0(u32 a0, u32 a1, u32 a2, u32 a3) {
     return r2;
 }
 
-u32 func_00177998(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u, r16 = 0u;
-    r6 = 0u;
-    r16 = r4;
-    r5 = (u32)(*(u8*)((u32)r4 + (s32)(2804)));
-    r5 = (u32)(0u - r5);
-    r2 = func_00187650(r4, r5, r6, r7);
-    *(u8*)((u32)r16 + (s32)(2804)) = (u8)0u;
-    return r2;
-}
+// 00177998: moved to src/yasui/libys/party.cpp
 
 u32 func_001796e8(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u, r16 = 0u;
@@ -809,57 +800,15 @@ u32 func_002e1140(u32 a0, u32 a1, u32 a2, u32 a3) {
     return r2;
 }
 
-u32 func_002e3510(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u, r15 = 0u, r16 = 0u;
-    r16 = r4;
-    r15 = *(u32*)((u32)r4 + (s32)(0));
-    r4 = *(u32*)((u32)r15 + (s32)(4));
-    r2 = func_0018bbf8(r4, r5, r6, r7);
-    *(u32*)((u32)r16 + (s32)(0)) = r2;
-    return r2;
-}
+// 002e3510: moved to src/anon/unit_002e2f08.cpp
 
-u32 func_002e3810(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u, r15 = 0u, r16 = 0u;
-    r16 = r4;
-    r15 = *(u32*)((u32)r4 + (s32)(0));
-    r4 = *(u32*)((u32)r15 + (s32)(4));
-    r2 = YS_NPC_is_rtn_change_dir(r4, r5, r6, r7);
-    *(u32*)((u32)r16 + (s32)(0)) = r2;
-    return r2;
-}
+// 002e3810: moved to src/anon/unit_002e2f08.cpp
 
-u32 func_002e3ad8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u, r15 = 0u, r16 = 0u;
-    r16 = r4;
-    r15 = *(u32*)((u32)r4 + (s32)(0));
-    r4 = *(u32*)((u32)r15 + (s32)(4));
-    r2 = YS_NPC_is_end_rtn_action(r4, r5, r6, r7);
-    *(u32*)((u32)r16 + (s32)(0)) = r2;
-    return r2;
-}
+// 002e3ad8: moved to src/anon/unit_002e2f08.cpp
 
-u32 func_002e3c70(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u, r15 = 0u, r16 = 0u;
-    r16 = r4;
-    r15 = *(u32*)((u32)r4 + (s32)(0));
-    r5 = *(u32*)((u32)r4 + (s32)(4));
-    r4 = *(u32*)((u32)r15 + (s32)(4));
-    r2 = YS_NPC_check_option_flag(r4, r5, r6, r7);
-    *(u32*)((u32)r16 + (s32)(0)) = r2;
-    return r2;
-}
+// 002e3c70: moved to src/anon/unit_002e2f08.cpp
 
-u32 func_002e3da8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u, r15 = 0u, r16 = 0u;
-    r16 = r4;
-    r15 = *(u32*)((u32)r4 + (s32)(0));
-    r5 = *(u32*)((u32)r4 + (s32)(4));
-    r4 = *(u32*)((u32)r15 + (s32)(4));
-    r2 = func_00184f90(r4, r5, r6, r7);
-    *(u32*)((u32)r16 + (s32)(0)) = r2;
-    return r2;
-}
+// 002e3da8: moved to src/anon/unit_002e2f08.cpp
 
 u32 func_002e7ca0(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u, r15 = 0u, r16 = 0u;

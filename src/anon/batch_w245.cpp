@@ -83,16 +83,7 @@ void func_00186a90(Obj*, QW*, f32);
 void func_0017f488(void*, s32, f32, f32);
 void func_0017f5e0(void*, s32, s32, f32, f32);
 void func_00176a60(Obj*, f32);
-void func_00176680(Obj* s) {
-    QW v;
-    v = func_0018df90();
-    QW t = Scale(v, -1.0f);
-    func_0016aef0(s, &t);
-    func_00186a90(s, &v, 200.0f);
-    func_0017f488(s->sub, 42, 0.0f, 0.0f);
-    func_0017f5e0(s->sub, 0, 0, 0.0f, 0.0f);
-    func_00176a60(s, 80.0f);
-}
+// 00176680: moved to src/yasui/libys/party.cpp
 }
 }
 

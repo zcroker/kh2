@@ -6,9 +6,7 @@ struct Vec4 { f32 x, y, z, w; } __attribute__((aligned(16)));
 
 extern void* D_0032b9ec;
 u32 func_00102818(void*, u32, u32, u32, u32);
-u32 func_00103b78(u32 a, u32 b, u32 c, u32 d) {
-    return func_00102818(D_0032b9ec, a, b, c, d);
-}
+// 00103b78: moved to src/common/unit_001031b0.cpp
 
 struct Obj109 { u8 pad[16]; u32 f16; };
 extern Obj109* D_0033cc90[];

@@ -22,70 +22,7 @@ void func_001384a0(s32);
 void func_00104108(void);
 
 // Per-frame update: dispatches the pending map/scene id and runs post-frame hooks.
-void func_001031d0(void)
-{
-    s32 cur;
-    s32 next;
-    s32 flag;
-    s32 mode;
-
-    func_00103a40();
-    cur = D_003a6a50;
-    if ((u32)(cur - 100) >= 800) {
-        func_002530f0(func_001033d8(cur));
-    } else {
-        func_00242fc8(func_001033d8(cur));
-    }
-    if (D_0032ba30 == 0) {
-        func_00103748();
-    }
-    flag = 0;
-    D_0032ba28 = 0;
-    if (func_00103c90()) {  // get_hook_ptr
-        func_00103ca0();
-        flag = 1;
-    }
-    mode = D_0032b984;
-    if (mode != 0 && (mode ^ 2) != 0) {
-        next = D_0032ba20;
-        if (next != -1) {
-            s32 v;
-            D_0032ba20 = -1;
-            D_003a6a50 = -1;
-            v = func_001033d8(next);
-            if ((u32)(next - 100) >= 800) {
-                func_00253180(v, -999);
-            } else {
-                func_00243020(v);
-            }
-            return;
-        }
-        D_003a6a50 = next;
-        func_0014c9f0(1);
-        if (flag) return;
-        func_00167ee0();
-        if (D_0032ba1c == 0) {
-            func_001384a0(0);
-        }
-    } else {
-        if (D_0032ba64 != 0) {
-            D_003a6a50 = -1;
-            func_0014c9f0(1);
-            func_00167ee0();
-            if (D_0032ba1c == 0) {
-                func_001384a0(0);
-            }
-            func_00104108();
-            return;
-        }
-        D_003a6a50 = -1;
-        func_0014c9f0(1);
-        func_00167ee0();
-        if (D_0032ba1c == 0) {
-            func_001384a0(0);
-        }
-    }
-}
+// 001031d0: moved to src/common/unit_001031b0.cpp
 }
 struct Vec4f {
     f32 x, y, z, w;

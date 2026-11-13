@@ -105,34 +105,15 @@ void func_0016e500(u32* p) {
     }
 }
 
-int func_00180dc0(u8* p, u32 v) {
-    u32* a = (u32*)(p + 332);
-    for (int i = 0; i < 16; i++) {
-        if (a[i] == v) return 1;
-    }
-    return 0;
-}
+// 00180dc0: moved to src/anon/unit_00180408.cpp
 
 struct Node2c { u32 _0; u32 _4; u32 flags; u8 _c[32]; Node2c* next; };
-void func_00180ef0(u8* p) {
-    Node2c* n = 0;
-    while ((n = !n ? *(Node2c**)(p + 396) : n->next) != 0) {
-        n->flags |= 0x2000000;
-    }
-    *(u32*)(p + 400) = 0;
-    *(u32*)(p + 396) = 0;
-}
+// 00180ef0: moved to src/anon/unit_00180408.cpp
 
 void set_flag_impl(void* self, int) asm("_ZN2YS13TEST_PROGRESS8set_flagEi");
 void func_00181178(u32);
 extern u8 D_0032bb30[];
-void set_flag_impl(void* self, int) {
-    func_00181178(0x4848);
-    func_00181178(0x4849);
-    D_0032bb30[12] = 18;
-    D_0032bb30[14] = 99;
-    D_0032bb30[13] = 18;
-}
+// 00181a90: moved to src/yasui/libys/progress.cpp
 
 u32 func_001b58f0(u32, u32, u32, u32);
 void func_0018fee8(u32* p) {

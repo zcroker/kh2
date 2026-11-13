@@ -191,21 +191,7 @@ s32 func_0017e668(u32);
 u8* func_001a1658(u32, s32);  // state_dispatch_0_1_14
 void func_001a1950(u8*, s32, s32, s32);
 void func_001a17c8(u8*);
-void func_0017e720(void)
-{
-    if ((D_0034ebb8 -= D_00349e10) <= 0.0f) {
-        u32 h = func_001a8bd0(-1);
-        for (s32 i = 1; i < 4; i++) {
-            u32 o = func_001a8c10(h, i);
-            if (o && !func_0017e668(o)) {
-                u8* q = func_001a1658(o, -1);  // state_dispatch_0_1_14
-                if (*(u32*)(q + 476) & 0x10) func_001a1950(q, 1, 0, 0);
-                func_001a17c8(q);
-            }
-        }
-        D_0034ebb8 = *(f32*)(D_00352130 + 360);
-    }
-}
+// 0017e720: moved to src/yasui/libys/friend.cpp
 }
 }
 
@@ -224,19 +210,7 @@ static inline Nd* Next(Nd* p, Nd* c)
     if (!c) return p->child;
     return c->next;
 }
-s32 func_0017f178(Nd* p, u32 a, f32 x, f32 y)
-{
-    if (func_001a9798(p->h)) x = 0.0f;
-    p->f252 = 0;
-    p->f256 = 0;
-    p->f240 = p->f8 + 128;
-    if (!func_0017efa0(p, func_0017edf0(p, a), x, y)) return 0;
-    p->f24 = a;
-    func_00180800(p, func_0017eda8(p, a));
-    Nd* c = 0;
-    while ((c = Next(p, c))) func_0017f178(c, a, x, y);
-    return 1;
-}
+// 0017f178: moved to src/yasui/libys/motion.cpp
 }
 }
 

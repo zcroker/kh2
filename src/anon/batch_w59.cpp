@@ -193,29 +193,12 @@ void func_00173f68(u8* p) {
 u32 func_00176b20(s32);
 s32 func_0016a070(u32);
 u32 func_001d14a0(void);
-u32 func_00176b58(s32 id) {
-    s32 i;
-    for (i = 0; i < 3; i++) {
-        u32 o = func_00176b20(i);
-        if (o && func_0016a070(o) == id) return o;
-    }
-    if (id == 1) return func_001d14a0();
-    return 0;
-}
+// 00176b58: moved to src/yasui/libys/party.cpp
 
 // --- 00180d40
 // Add b to the 16-slot table unless present (stored in the last free slot).
 struct T180 { u8 pad[332]; s32 t[16]; };
-void wtarget_00180d40(u32 a, u32 b, u32 c, u32 d) {
-    T180* o = (T180*)a;
-    s32 idx = -1;
-    s32 i;
-    for (i = 0; i < 16; i++) {
-        if (o->t[i] == (s32)b) return;
-        if (o->t[i] < 0) idx = i;
-    }
-    o->t[idx] = b;
-}
+// 00180d40: moved to src/anon/unit_00180408.cpp
 
 // --- 00188ac8
 s32 func_001a3570(u16);

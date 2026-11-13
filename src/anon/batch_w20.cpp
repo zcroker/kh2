@@ -137,11 +137,7 @@ void trap_obj_voice(u32* v) {
     (*(void (**)(u8*, u32, u32))(*(u8**)o + 84))(o, v[1], v[2]);
 }
 
-void func_00177638(void* p) {
-    func_00194108(p, 2);
-    func_00194108(p, 12);
-    func_00194108(p, 22);
-}
+// 00177638: moved to src/yasui/libys/party.cpp
 
 void func_0018e108(Q16* a, Q16* b) {
     if (a != &D_0034eef0) QCOPY(&D_0034eef0, a);

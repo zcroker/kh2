@@ -37,44 +37,5 @@ void func_0017eee8(O6*, f32, f32);
 void func_0017f938(O6*);
 void func_001807a0(O6*, f32, f32);
 
-s32 func_0017efa0(O6* o, void* r, f32 a, f32 b) {
-    if (func_0019c6f0(o->p8)) func_001d7a50((u8*)o->p8 + 0x518);
-    if (o->ref) {
-        (*o->ref)--;
-        o->ref = 0;
-    }
-    func_00180ce0(o);
-    func_00189258(o);
-    if (!r) {
-        o->fc = 0;
-        return 0;
-    }
-    R6* s = func_00168b38(r, 9, 0);
-    o->f14 = -1;
-    o->f18 = -1;
-    func_00180800(o, -1);
-    o->p8->f10c &= ~1;
-    o->fc = s->m;
-    o->f2c = (f32)o->fc->vt->get(o->fc);
-    s = func_00168b38(r, 16, 0);
-    o->f10 = ((Q6*)s)->v;
-    u32 m = o->f20 & 0x80;
-    s32 had = m != 0;
-    o->f20 = 1;
-    o->f194 = 0;
-    u32 f = o->f24;
-    o->f24 = 0;
-    if (f & 4) o->f20 = 0x4001;
-    func_001807d0(o, b);
-    if (2.0f < a && (o->f104 & 1) == 1) {
-        func_0017eee8(o, a, b);
-    } else {
-        o->f30 = b;
-        o->f34 = 0;
-        func_001807a0(o, b, -1.0f);
-    }
-    o->f20 |= 0x2000;
-    if (had) func_0017f938(o);
-    return 1;
-}
+// 0017efa0: moved to src/yasui/libys/motion.cpp
 }

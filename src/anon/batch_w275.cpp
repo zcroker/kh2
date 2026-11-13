@@ -33,30 +33,7 @@ static inline V7e operator-(const V7e& a, const V7e& b) {
 extern "C" {
 f32 sinf(f32);
 f32 cosf(f32);
-f32* func_0017d1d8(f32* m, f32* a, f32 ang) {
-    V4b v;
-    v.x = a[0]; v.y = a[1]; v.z = a[2];
-    nrm(&v);
-    f32 x = v.x, y = v.y, z = v.z;
-    f32 s = sinf(ang);
-    f32 c = cosf(ang);
-    f32 t = 1.0f - c;
-    m[0] = x * x * t + c;
-    m[1] = x * y * t + z * s;
-    m[2] = x * z * t - y * s;
-    m[3] = 0;
-    m[4] = x * y * t - z * s;
-    m[5] = y * y * t + c;
-    m[6] = y * z * t + x * s;
-    m[7] = 0;
-    m[8] = x * z * t + y * s;
-    m[9] = y * z * t - x * s;
-    m[10] = z * z * t + c;
-    m[11] = 0;
-    m[12] = 0; m[13] = 0; m[14] = 0;
-    m[15] = 1.0f;
-    return m;
-}
+// 0017d1d8: moved to src/anon/unit_0017c400.cpp
 
 extern s32 D_01D48CB0;
 extern u8 D_00351EB8;

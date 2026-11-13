@@ -38,12 +38,5 @@ s32 func_00272c20(u32 i) {
     return r;
 }
 
-void func_00181cc0(s16* base, s32 id) {  // chunk_find
-    s16* p = base;
-    while (*p != -1) {
-        s16* n = (s16*)((u8*)p + p[1]);
-        if (*p == id) { func_00181d30(base, p + 2, n); return; }
-        p = n;
-    }
-}
+// 00181cc0: moved to src/yasui/libys/areadata.cpp
 }

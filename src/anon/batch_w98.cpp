@@ -140,32 +140,7 @@ u8* func_001a1540(u8*);
 u8* func_0016f6a0(u32, s32);
 void func_00176168(u8*, u8*, s32);
 
-// Constructor: registers in the 2-slot table and attaches child parts.
-void func_0017d968(u8* p, u32 a, u32 b) {
-    s32 i = 0;
-    func_00175670(p, a, 1, b);
-    *(u32*)(p + 2872) = 0;
-    *(u32*)(p + 2880) = 0;
-    *(u32*)(p + 2884) = 0;
-    *(u32*)p = (u32)D_0034ebc8;
-    *(u8*)(p + 2892) = 0;
-    for (; i < 2; i++) {
-        if (!D_01c60528[i]) break;
-    }
-    *(s32*)(p + 2888) = i;
-    D_01c60528[i] = (u32)p;
-    *(u32*)(p + 1416) |= 0x4000;
-    u8* r = func_001a1540(func_0016a070(p));
-    *(u8**)(p + 1164) = r;
-    if (r) *(u8**)(r + 604) = p;
-    f32 w = D_01c60520;
-    *(f32*)(p + 2876) = (w + w) * i - w;
-    for (i = 0; i < 2; i++) {
-        u8* e = func_0016f6a0(a, i);
-        if (e) func_00176168(p, e, i);
-    }
-    *(u32*)(p + 1896) |= 0x10;
-}
+// 0017d968: moved to src/yasui/libys/friend.cpp
 
 struct Ent180 { u8 pad[6]; u16 id; u8 pad2[10]; s16 val; };
 struct Slot180 { u8 pad[32]; };
@@ -175,25 +150,7 @@ Ent180* func_0016bba8(u8*, s32, Ent180*);
 void func_0011c148(Slot180*, u32, u16, s32, s32, f32);
 void func_0011c210(Slot180*);
 
-// Fills buf with one slot per type-10 then type-11 child of the body, then terminates the list.
-void func_001808c0(Obj180* o, Slot180* buf) {
-    if (!o->active || (*(u32*)(o->body + 264) & 0x40000000)
-        || (!func_0019bad8(o->body) && !(*(u32*)(o->body + 1416) & 0x20))) {
-        func_0011c210(buf);
-        return;
-    }
-    s32 n = 0;
-    Ent180* e = 0;
-    while ((e = func_0016bba8(o->body, 10, e)) != 0) {
-        func_0011c148(&buf[n], *(u32*)(o->body + 2224), e->id, 0, 1, e->val);
-        n++;
-    }
-    while ((e = func_0016bba8(o->body, 11, e)) != 0) {
-        func_0011c148(&buf[n], *(u32*)(o->body + 2224), e->id, 1, 1, e->val);
-        n++;
-    }
-    func_0011c210(&buf[n]);
-}
+// 001808c0: moved to src/anon/unit_00180408.cpp
 
 struct V185 { f32 x, y, z, w; };
 void func_001980d0(u8*, u32, s32, V185*, f32);

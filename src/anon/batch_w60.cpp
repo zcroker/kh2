@@ -124,17 +124,7 @@ void EIntr(void);  // ee_intr_get_enable
 void func_002fd408(void*);
 
 // Is `id` in the -1-terminated id table?
-s32 func_00103428(s32 id) {
-    s32 i;
-    s32 r = 0;
-    for (i = 0; D_00369d98[i] >= 0; i++) {
-        if (id == D_00369d98[i]) {
-            r = 1;
-            break;
-        }
-    }
-    return r;
-}
+// 00103428: moved to src/common/unit_001031b0.cpp
 
 void func_00111060(u8* p, void* v) {
     u32 tmp[4] __attribute__((aligned(16)));
@@ -246,29 +236,12 @@ void func_00172260(Args172* s) {
     }
 }
 
-s32 func_00176a90(u8* p) {
-    s32 r = 0;
-    if (func_00187920(p) || (*(u32*)(p + 268) & 0x10000) || 0.0f < *(f32*)(p + 2816) || (D_0034f240 & 2) || func_00197e40()) r = 1;
-    return r;
-}
+// 00176a90: moved to src/yasui/libys/party.cpp
 
-void func_00176be0(u8* p, f32 v) {
-    if (*(s32*)(p + 2788) == 0 && !(*(u32*)(p + 352) & 0x4000)) {
-        s32 h = func_001de168(func_001a3a78(), 6, 0, 1, 10004, p);  // scan_list_by_half
-        *(s32*)(p + 2788) = h;
-        *(f32*)(p + 2792) = v;
-    } else if (*(f32*)(p + 2792) < v) {
-        *(f32*)(p + 2792) = v;
-    }
-}
+// 00176be0: moved to src/yasui/libys/party.cpp
 
 // Clears flag bit `id` (1024 bits per row).
-void func_001814b8(s32 id) {
-    u32* r = (u32*)((u8*)D_0032d7c0 + (id >> 10) * 32);
-    id &= 0x3ff;
-    r += (u32)id >> 5;
-    *r &= ~(1 << (id & 31));
-}
+// 001814b8: moved to src/yasui/libys/progress.cpp
 
 // 001874a0: moved to src/anon/unit_00185d10.cpp
 s32 func_001874a0(void* a, f32 f);

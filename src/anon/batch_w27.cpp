@@ -113,14 +113,7 @@ void func_00171518(u32** p) {
 
 void func_0016b010(void*, void*);  // obj_set_float1644_from_pair
 void func_00198690(void*);
-void func_00175b68(void** o) {
-    u32 t[4] __attribute__((aligned(16)));
-    if ((*(s32 (**)(void*))(*(u8**)o + 132))(o)) {
-        asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(t), "r"((u8*)o + 16) : "$8", "memory");
-        func_0016b010(o, t);  // obj_set_float1644_from_pair
-    }
-    func_00198690(o);
-}
+// 00175b68: moved to src/yasui/libys/party.cpp
 
 s32 func_00195530(void*);
 s32 func_00195468(void*, u32);
@@ -404,15 +397,7 @@ void func_002d9730(u8* p) {
 
 void func_0018c258(void*, u32);
 extern u32 D_01e2be20[4];
-void func_002e37c0(u32** p) {
-    u32 t[4] __attribute__((aligned(16)));
-    func_0018c258(t, (*p)[1]);
-    u32* d = D_01e2be20;
-    if (d != t) {
-        asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(d), "r"(t) : "$8", "memory");
-    }
-    *p = d;
-}
+// 002e37c0: moved to src/anon/unit_002e2f08.cpp
 
 // 4x4 matrix transpose (MMI): d = transpose(s).
 void sceVu0TransposeMatrix(void* d, void* s) {  // memcpy64_2

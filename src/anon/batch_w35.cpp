@@ -67,11 +67,7 @@ void func_00172440(u8* p) {
 }
 
 s32 func_00181500(s32);
-s32 func_001819c0(void) {
-    s32 r = 0;
-    if (func_00181500(2071) == 0 || func_00181500(5163) != 0 || func_00181500(8193) != 0) r = 1;
-    return r;
-}
+// 001819c0: moved to src/yasui/libys/progress.cpp
 
 void func_0016af58(void*, u32);
 // 001860b0: moved to src/anon/unit_00185d10.cpp

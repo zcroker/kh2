@@ -147,27 +147,7 @@ void func_00187018(W291A17*, W291B17*, W291B17*, s32, f32); void func_00177a58(W
 void func_00176680(W291A17*, W291B17*, W291B17*);
 static inline bool w291_h1(W291A17* s) { return (s->p12->f8 & 2) || (s->f352 & 0x40); }
 static inline bool w291_h2(W291A17* s) { return func_0019c090() || w291_h1(s); }
-void func_00176458(W291A17* s, W291B17** b, W291B17** c)
-{
-    s->f264 |= 0x2000000;
-    u8 x = (*b)->p40->b19;
-    u8 y = (*c)->p40->b20;
-    if (x == 2 || y == 2) {
-        func_0018e8f0(b, func_001a3a78(), 13, c);
-        return;
-    }
-    bool r = w291_h2(s);
-    if (r || (x == 0 && y == 0)) {
-        func_0018e8f0(b, func_001a3a78(), 13, c);
-        func_00187018(s, *b, *c, -1, -1.0f);
-        func_00177a58(s);
-        return;
-    }
-    s32 k = (s->f1416 & 0x80) ? 11 : 12;
-    func_0018e8f0(b, func_001a3a78(), k, c);
-    func_00176680(s, *b, *c);
-    (*b)->f4 |= 0x40;
-}
+// 00176458: moved to src/yasui/libys/party.cpp
 
 extern s32 D_0034e948;
 void func_002cf248(); void func_002cfb30(); W291R2d* func_002d1260(); void func_002d7698(W291O2d*);

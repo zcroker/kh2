@@ -192,46 +192,11 @@ void func_001b59c0(u8*, u32, u32, u32);
 s32 func_0019ba60(u8*);
 void func_0016cce8(u32, s32, u32*, s32, s32);
 typedef void (*VFn4)(void*, u32, u32, u32);
-void func_00177760(u8* o, u32 a, u32 b, u32 c)
-{
-    s32 r = func_001b58a8(o, a, b, c);
-    u8* sub = o + 320;
-    if (r) {
-        func_001b59c0(o, a, b, c);
-    } else if (*(u32*)(o + 352) & 0x4000) {
-        u8* t = *(u8**)(sub + 252);
-        if (func_0019ba60(t) && (*(u32*)(t + 1416) & 2))
-            (*(VFn4*)(*(u8**)t + 116))(t, a, b, c);
-    }
-    if (*(u32*)(o + 1156)) {
-        u32 buf[2];
-        buf[0] = a;
-        buf[1] = b;
-        func_0016cce8(*(u32*)(o + 1156), 15, buf, 2, 0);
-    }
-}
+// 00177760: moved to src/yasui/libys/party.cpp
 
 struct Bits8 { u32 b0 : 1; u32 hi : 31; };
 static inline bool InfoFlag(u8* info) { return ((Bits8*)(info + 8))->b0; }
-void flagupd_0017c578(void*, u8* o) asm("_Z13func_0017c578Pv");
-void flagupd_0017c578(void*, u8* o)
-{
-    u32 fl = *(u32*)(o + 264);
-    if (fl & 0x10000) *(u32*)(o + 264) = fl | 0x20000;
-    else *(u32*)(o + 264) = fl & ~0x20000;
-    *(u32*)(o + 264) &= ~0x10000;
-    f32* v = func_0016c028(o);  // obj_get_attach_or_alt
-    *(f32*)(o + 216) += v[1];
-    if (0.0f < *(f32*)(o + 204)) {
-        Q16* d = (Q16*)(o + 32);
-        Q16* s = (Q16*)(o + 192);
-        if (d != s) asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(d), "r"(s) : "$8", "memory");
-    }
-    *(u32*)(o + 264) &= ~0x800000;
-    *(u32*)(o + 268) |= 1;
-    *(u32*)(o + 264) &= ~0x1000000;
-    if (!InfoFlag(*(u8**)(o + 12))) *(u32*)(o + 268) |= 2;
-}
+// 0017c578: moved to src/anon/unit_0017c400.cpp
 
 u8 func_0019f6f0(u8*, u32, u32);
 u8 func_0019f740(u8*, u32, u32);

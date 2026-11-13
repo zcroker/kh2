@@ -158,14 +158,7 @@ s32 func_001790c0(u8* a0) {
 s32 func_0019ba60(void*);
 s32 func_0019c6f0(void*);
 u8* func_001b9bc8(u8*);
-s32 func_0017e280(u8* a0) {
-    if (!func_0019ba60(a0) || (*(u32*)(a0 + 352) & 0x4000) || func_0019c6f0(a0)) return 0;
-    u8* n = 0;
-    while ((n = func_001b9bc8(n))) {
-        if (!(*(u32*)(n + 1416) & 0x40) && *(u8**)(n + 1392) == a0) return 0;
-    }
-    return 1;
-}
+// 0017e280: moved to src/yasui/libys/friend.cpp
 
 u32 func_0016a070(void*);
 void func_001d6088(u32, u8*);

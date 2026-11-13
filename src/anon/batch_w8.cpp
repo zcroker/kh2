@@ -88,10 +88,7 @@ void func_0017a938(void*, void* o) {
 
 void func_00180ce0(void*);
 u8 func_0017ee68(void*);
-u32 func_0017eb98(void* p) {
-    func_00180ce0(p);
-    return func_0017ee68(p);
-}
+// 0017eb98: moved to src/yasui/libys/motion.cpp
 
 // Increment a 16-bit counter (table at +0x1458), saturating at 999.
 void func_00189228(u8* p, u32 i) {

@@ -83,10 +83,7 @@ void func_00174e10(Q16** pp) {
     func_00158920(&tmp);
 }
 
-// Increment a saturating (max 100) byte counter.
-void func_00177a38(u8* p) {  // obj_inc_counter
-    if (p[0xb04] < 100) p[0xb04]++;
-}
+// 00177a38: moved to src/yasui/libys/party.cpp
 
 struct Obj18f { u32 pad; s32 id; };
 void func_001863a8(s32, s32, f32);
@@ -265,11 +262,7 @@ void trap_camera_warp(BD_VALUE* bd) {
     func_00140f10(func_00140df0());
 }
 class FRIEND { public: static void Init(); };
-void FRIEND::Init() {
-    D_01c60528[0] = 0;
-    D_01c60528[1] = 0;
-    func_001c9770();
-}
+// 0017dec0: moved to src/yasui/libys/friend.cpp
 class EVENT { public: static void ControlOff(); };
 void EVENT::ControlOff() {
     func_001b9c28(0);

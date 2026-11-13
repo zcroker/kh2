@@ -129,14 +129,7 @@ s32 func_00163828(const f32* a, const f32* b, const f32* n) {
     return 2;
 }
 
-s32 func_0017e358(u32 a) {
-    s32 r = 0;
-    if (func_0017e310(a)) {
-        u32 x = func_001a8bd0(-1);
-        r = func_001a90a8(x, func_0016a070(a)) == 0;
-    }
-    return r;
-}
+// 0017e358: moved to src/yasui/libys/friend.cpp
 
 void ctarget_00185b00(u32 a0, u32, u32, u32) {
     u8* p = (u8*)a0;

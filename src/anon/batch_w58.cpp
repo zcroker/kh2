@@ -180,15 +180,7 @@ void func_00174858(u32* p) {
 }
 
 void func_0016b668(u8*);
-void func_00175a70(u8* p) {
-    if (!(*(u32*)(p + 264) & 0x10000000)) ((VFn)(*(VObj*)p).vt[8])(p);
-    VObj** a = (VObj**)(p + 2808);
-    for (s32 i = 1; i >= 0; i--) {
-        VObj* o = *a++;
-        if (o) ((VFn)o->vt[10])(o);
-    }
-    func_0016b668(p);
-}
+// 00175a70: moved to src/yasui/libys/party.cpp
 
 extern u32* D_01c60888;
 u8* func_001a80c8(u32);  // table24_find_by_id

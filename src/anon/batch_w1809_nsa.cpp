@@ -69,22 +69,7 @@ void func_0017f488(void*, s32, f32, f32);
 void func_0017f5e0(void*, s32, s32, f32, f32);
 void func_0016aef0(W1809O76*, W1809V4*);
 
-void func_00176970(W1809O76* o) {
-    W1809S76* s = o->p130;
-    func_0017f488(o->x140, 40, 0.0f, 0.0f);
-    func_0017f5e0(o->x140, 4, 0, 0.0f, 0.0f);
-    W1809V4 t;
-    if (o->v10.w > 0.0f) {
-        t = o->v10;
-        t.w = s->f54;
-        func_0016aef0(o, &o->v10);
-    } else {
-        t.zero();
-    }
-    t.y = s->f50;
-    o->p0c->fn(o, &t);
-    o->v10.zero();
-}
+// 00176970: moved to src/yasui/libys/party.cpp
 extern W1809Heap* D_004f6288;
 void* func_0016d1a0(s32);
 void* func_0016d1d8(void*);

@@ -165,16 +165,7 @@ void func_00173ce8(Ref173* p) {
 }
 
 u32 func_00198510(u8*);
-u32 func_001759f0(u8* p) {
-    if (!func_00198510(p)) return 0;
-    u32** a = (u32**)(p + 2808);
-    s32 i;
-    for (i = 0; i < 2; i++) {
-        u32* o = *a++;
-        if (o && !((u32 (*)(void*))(((u32*)*o)[9]))(o)) return 0;
-    }
-    return 1;
-}
+// 001759f0: moved to src/yasui/libys/party.cpp
 
 // Sets and normalizes the direction at +2176 (VU0), stores f at +2188.
 void func_001846a0(u8* p, Vec4* v, f32 f) {

@@ -179,14 +179,7 @@ u32 func_0016a070(void*);
 s32 func_001afe70(u32, u32, u32, u32*);
 void func_00198630(void*, s32, u32);
 
-void func_00176cd0(u8* p, u32 a1, u32 a2) {
-    if (*(u32*)(p + 2488) == 0) return;
-    u32 s2;
-    if (func_0019ba60(*(u32*)(p + 2548)) && *(u8**)(p + 2548) != p) s2 = func_0016a070(*(u8**)(p + 2548));
-    else s2 = 0;
-    s32 r = func_001afe70(func_0016a070(p), a1, s2, &a2);
-    if (r >= 0) func_00198630(p, r, a2);
-}
+// 00176cd0: moved to src/yasui/libys/party.cpp
 
 s32 func_0017ebc8(void*);
 u32 func_001a97b8(u32, s32);
@@ -196,17 +189,7 @@ extern s32 D_0036c5cc[];
 
 }
 
-u32 wtarget_00180828(u32 a0, u32, u32, u32) {
-    u32* p = (u32*)a0;
-    if (*p == 0) return 0;
-    s32* t = func_0017ebc8(p) ? D_0036c5b8 : D_0036c5cc;
-    s32 id;
-    while ((id = *t++) >= 0) {
-        u32 r = func_001a97b8(*p, id);
-        if (r) return func_00180408(p, r);
-    }
-    return 0;
-}
+// 00180828: moved to src/anon/unit_00180408.cpp
 
 extern "C" {
 

@@ -533,21 +533,7 @@ Q16* func_0018d840(Q16* out, u8* o, void* a) {
     return out;
 }
 
-f32* func_0017fe10(f32* out, u8* o, f32 t) {
-    f32 m[16];
-    u8* c;
-    if (t < 0.0f) t = *(f32*)(o + 48);
-    if (func_00180cd0(o) != 0 || is_up(o) ||
-        (c = *(u8**)(o + 12), (*(VF24*)(*(u8**)c + 24))(c, m, t) != 0)) {
-        asm volatile("vsub.wxyz $vf1, $vf0, $vf0\n\tsqc2 $vf1, 0(%0)" : : "r"(out) : "memory");
-        return out;
-    }
-    out[1] = -m[13];
-    out[0] = m[12];
-    out[2] = -m[14];
-    out[3] = -func_002f8ad0(m[8], m[10]);
-    return out;
-}
+// 0017fe10: moved to src/yasui/libys/motion.cpp
 
 void func_001c2f90(struct S1c2* p, u32 a) {
     s32 i;

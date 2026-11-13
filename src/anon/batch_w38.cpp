@@ -188,20 +188,7 @@ void func_0016f9e8(void) {
 void func_00180c38(void*);
 void func_00180ef0(void*);
 typedef void (*Fn1)(void*);
-void func_00180ce0(u8* p) {
-    s32* r = *(s32**)(p + 328);
-    if (r) {
-        (*r)--;
-        *(s32*)(p + 328) = 0;
-    }
-    func_00180c38(p);
-    func_00180ef0(p);
-    Fn1 f = *(Fn1*)(p + 404);
-    if (f) {
-        f(*(void**)(p + 8));
-        *(Fn1*)(p + 404) = 0;
-    }
-}
+// 00180ce0: moved to src/anon/unit_00180408.cpp
 
 void* func_0018c8b8(void);
 void func_0018c960(void*, u32, u32, u32, u32);

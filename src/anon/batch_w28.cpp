@@ -194,13 +194,7 @@ void func_00172890(u8** p) {
     *p = (u8*)&D_01c5f480;
 }
 
-void func_0017dbb8(u8* p) {
-    if (!(*(u32*)(p + 0x588) & 0x400000)) {
-        s32 t = *(s32*)(p + 0xb48);
-        if (t < 2) func_0013ddc0(t + 1, p);
-    }
-    func_001758b0(p);
-}
+// 0017dbb8: moved to src/yasui/libys/friend.cpp
 
 void func_00196710(u32 i) {
     func_00196698(i);
@@ -378,12 +372,7 @@ u8 func_002e0e70(u8* p) {
     return func_002cea28(p);
 }
 
-void func_002e3840(u8** p) {
-    Q16 t;
-    func_0016c2b0(&t, *(u32*)(*p + 4));
-    if (&t != &D_01e2be20) QCOPY(&D_01e2be20, &t);
-    *p = (u8*)&D_01e2be20;
-}
+// 002e3840: moved to src/anon/unit_002e2f08.cpp
 
 // d = ftoi4(project(m * v)); with f set, zw are converted with ftoi0 instead.
 void func_002f47d8(void* d, void* m, void* v, u32 f) {  // mat4_transform_perspective

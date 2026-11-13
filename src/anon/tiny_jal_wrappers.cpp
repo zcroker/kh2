@@ -165,14 +165,7 @@ u32 func_00170db0(u32 a0, u32 a1, u32 a2, u32 a3) {
     return r2;
 }
 
-u32 func_0017f5f8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u, r15 = 0u;
-    r2 = func_0017f3d8(r4, r5, r6, r7);
-    r15 = *(u32*)((u32)r2 + (s32)(16));
-    r15 = (u32)(r15 | 0x0001u);
-    *(u32*)((u32)r2 + (s32)(16)) = r15;
-    return r2;
-}
+// 0017f5f8: moved to src/yasui/libys/motion.cpp
 
 // 001883d8: moved to src/anon/unit_00185d10.cpp
 u32 func_001883d8(u32 a0, u32 a1, u32 a2, u32 a3);

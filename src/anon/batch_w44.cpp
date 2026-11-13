@@ -113,19 +113,7 @@ extern void* D_0032ba14;
 extern u32 D_0032ba18;
 
 // Frees the menu allocator unless it is locked or the menu mode is 1, 2 or 6.
-void MENU_DestoryAllocator(void) {
-    if (!D_0032ba30) {
-        s32 m = D_0032ba24;
-        if (m == 1) goto done;
-        if (m == 2) goto done;
-        if (m == 6) goto done;
-        func_00170c00(D_0032ba14);
-    }
-done:
-    D_0032ba14 = 0;
-    D_0032ba18 = 0;
-    D_0032ba30 = 0;
-}
+// 00103748: MENU::DestoryAllocator, moved to src/common/unit_001031b0.cpp
 
 s32 func_00112d28(u8* p) {
     s32 r = 0;
@@ -230,23 +218,9 @@ void func_001700e8(Node* n) {
     func_0016fb00(n);
 }
 
-s32 func_00176258(u8* o) {
-    void** p = (void**)(o + 2808);
-    for (s32 i = 0; i < 2; i++) {
-        void* e = *p++;
-        if (e && !func_0019c5d0(e)) return 1;
-    }
-    return 0;
-}
+// 00176258: moved to src/yasui/libys/party.cpp
 
-void func_00177540(u8* o) {
-    void** p = (void**)(o + 2808);
-    for (s32 i = 0; i < 2; i++) {
-        void* e = *p++;
-        if (e) (*(VFn*)(*(u8**)e + 72))(e);
-    }
-    func_00177638(o);
-}
+// 00177540: moved to src/yasui/libys/party.cpp
 
 // 001877a0: moved to src/anon/unit_00185d10.cpp
 void func_001877a0(u8* o, u32 a, u32 b);
@@ -484,19 +458,7 @@ void func_002d1028(u8* o) {
 }
 
 extern Q16 D_01e2be20;
-void func_002e3a18(Q16** o) {
-    u8* p = *(u8**)(*(u8**)o + 4);
-    if (p) {
-        void* q = *(void**)(p + 1288);
-        if (q) {
-            Q16 t;
-            func_002cbed8(&t, q);
-            Q16* d = &D_01e2be20;
-            if (&t != d) asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(d), "r"(&t) : "$8", "memory");
-            *o = d;
-        }
-    }
-}
+// 002e3a18: moved to src/anon/unit_002e2f08.cpp
 
 // 002eb7f0: moved to src/anon/unit_002eaf38.cpp
 

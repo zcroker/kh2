@@ -13,22 +13,7 @@ void cc30_17f488(u8*, s32, f32, f32) asm("_Z13func_0017f488iiff");
 void cc30_push(u8*, s32, f32, f32, void*) asm("_ZN2YS6MOTION4pushEiffPFvPNS_3OBJEE");
 s32 cc30_is_exist(u8*, s32) asm("_ZN2YS6MOTION8is_existEi");
 void cc30_change_action(Cc30Obj*, u32) asm("_ZN2YS3OBJ13change_actionENS_6ACTION2IDE");
-void wtarget_0017cc30(u32, Cc30Obj*, u32, u32) asm("_Z16wtarget_0017cc30jjjj");
-void wtarget_0017cc30(u32 a0, Cc30Obj* o, u32 act, u32 a3) {
-    u8* m = o->mot;
-    s32 a = o->action;
-    if (a >= 0 && !(o->flags168 & 0x10)) {
-        if (a != 5) {
-            func_00180c88(m, a, 0.0f);
-            cc30_push(m, 0, 0.0f, 0.0f, 0);
-        } else if (cc30_is_exist(m, 5)) {
-            cc30_17f488(m, 5, 0.0f, 0.0f);
-            cc30_push(m, 0, 0.0f, 0.0f, 0);
-        }
-    }
-    cc30_change_action(o, act);
-    o->flags108 |= 0x8000000;
-}
+// 0017cc30: moved to src/anon/unit_0017c400.cpp
 
 /* 001cb0a8 */
 void* b0a8_current(void) asm("_ZN2Ti8MGPlayer7currentEv");

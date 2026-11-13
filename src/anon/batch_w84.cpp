@@ -136,18 +136,7 @@ void func_001c0e60(void*);
 void func_00177498(void*);
 void func_001a1840(void*);
 void func_00186020(void*);
-void func_00175928(u8* p) {
-    if (*(u32*)(p + 264) & 0x10000000) return;
-    if (func_001c0cd8(p)) func_001c0e60(p);
-    func_00177498(p);
-    VObj** a = (VObj**)(p + 2808);
-    for (s32 i = 1; i >= 0; i--) {
-        VObj* o = *a++;
-        if (o) o->vt[8](o);
-    }
-    if (*(void**)(p + 1164)) func_001a1840(*(void**)(p + 1164));
-    func_00186020(p);
-}
+// 00175928: moved to src/yasui/libys/party.cpp
 
 struct Cfg {
     u8 _0[60];
@@ -208,15 +197,7 @@ static inline __attribute__((always_inline)) LNode* LNext(LOwner* o, LNode* n) {
     return n->next;
 }
 s32 func_001dc9d0(void*);
-void func_00180e28(LOwner* p) {
-    LNode* n = p->list.head;
-    LNode* it = n;
-    while (n) {
-        it = LNext(p, it);
-        if (!func_001dc9d0(n)) LRemove(&p->list, n);
-        n = it;
-    }
-}
+// 00180e28: moved to src/anon/unit_00180408.cpp
 
 u8* func_001b9bc8(u8*);
 s32 func_0019bb18(u8*);  // obj_is_blocked

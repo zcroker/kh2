@@ -144,17 +144,7 @@ s32 func_001a1de0(u32);
 u8* func_00177860(void*);
 void func_00187650(void*, s32, s32);
 void func_00187520(void*, s32, u32, u8);
-void func_00177c50(u8* o, s32 dmg, u32 c, u8 flag) {
-    u32 st = *(u32*)(o + 1164);
-    if (st && !func_001a1de0(st) && dmg < 0) {
-        f32 r = (f32)(-dmg) / (f32)*(s32*)(*(u8**)(o + 1164) + 4);
-        r *= *(f32*)(func_00177860(o) + 88);
-        s32 n = (s32)r;
-        if (n > 0) func_00187650(o, n, 0);
-    }
-    if (*(u32*)(o + 352) & 0x4000) flag = 0;
-    func_00187520(o, dmg, c, flag);
-}
+// 00177c50: moved to src/yasui/libys/party.cpp
 }
 
 s32 func_00190180(u32*);

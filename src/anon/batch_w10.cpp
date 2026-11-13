@@ -147,10 +147,7 @@ void func_00174af8(u8* p) {
     func_001b1bb8(o, *(u32*)(p + 4), *(u32*)(p + 8), *(u32*)(p + 12), 128, *(f32*)(p + 16));
 }
 
-void func_00180770(void) {
-    void* o = func_00180698();
-    (*(VFn*)(*(u8**)o + 28))(o);
-}
+// 00180770: moved to src/anon/unit_00180408.cpp
 
 void func_0018ef68(u8* p, void* a, void* b) {
     func_0016cc18(*(void**)p, *(void**)(p + 4), a, b, 0);

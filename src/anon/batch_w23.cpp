@@ -90,14 +90,7 @@ void func_00174518(P174* p) {
 
 struct Flags3 { u8 a[3]; u8 pad; u16 h[3]; };
 extern Flags3 D_01c60530;
-void wtarget_00182720(u32 a, u32 b, u32, u32) {
-    if (b == 0xffff && a == 1) {
-        u16* h = D_01c60530.h;
-        u8* c = D_01c60530.a;
-        c[1] = b; c[0] = b; c[2] = b;
-        h[0] = b; h[1] = b; h[2] = b;
-    }
-}
+// 00182720: moved to src/yasui/libys/areadata.cpp
 
 extern u8* D_0035037c;
 

@@ -326,25 +326,6 @@ static inline void W268Apply(W268V4* pr, const W268Mtx* m, const W268V4* v) {
 }
 W268Mtx* func_00106a18(s32);  // buffer_get_256
 u8* func_00106a60(s32);  // buffer_get_by_index
-W268V4 func_0017cf00(const W268V4& in)
-{
-    W268V4 r(in);
-    f32 one = 1.0f;
-    r.v[3] = one;
-    W268Mtx* a = func_00106a18(1);  // buffer_get_256
-    u8* c = func_00106a60(1);  // buffer_get_by_index
-    W268Mtx* b = c ? (W268Mtx*)(c + 16) : 0;
-    W268V4 tmp;
-    W268Mtx t;
-    W268MulMtx(&t, a, b);
-    W268Apply(&tmp, &t, &r);
-    r = tmp;
-    f32 s = one / r.v[3];
-    r.v[3] = one;
-    r.v[0] *= s;
-    r.v[1] *= s;
-    r.v[2] *= s;
-    return r;
-}
+// 0017cf00: moved to src/anon/unit_0017c400.cpp
 
 }

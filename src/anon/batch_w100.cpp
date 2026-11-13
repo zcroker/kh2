@@ -245,25 +245,7 @@ u32 func_0016a080(u8*);
 s32 func_002fee78(char*, const char*, ...);
 void func_00180058(u8*, u32, char*, u32, u32, u32, f32);
 
-s32 func_001801b0(u32 a, u32 b, u32 c, u8* o, u32 d, f32 k) {
-    char name[16];
-    u8** m;
-    s32 i;
-    func_002fee78(name, D_0036c5b0, func_0016a080(o));
-    func_00180058(o + 320, b, name, c, a, d, k);
-    if (*(u32*)(o + 1416) & 4) {
-        m = (u8**)(o + 2808);
-        for (i = 1; i >= 0; i--) {
-            u8* p;
-            name[3]++;
-            p = *m++;
-            if (p) func_00180058(p + 320, b, name, c, a, d, k);
-        }
-    }
-    if (--D_0034ec60 >= 0) D_0034ec60 = -1;
-    *(s32*)(o + 344) = D_0034ec60;
-    return D_0034ec60;
-}
+// 001801b0: moved to src/yasui/libys/motion.cpp
 }
 
 }

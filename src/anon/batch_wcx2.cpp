@@ -111,32 +111,7 @@ void func_00177a28(u8*);  // set_bytes_2820_2821
 u8* func_00176fb0(u8*, s32);
 s32 func_001a0920(u8*, u8*);
 void func_00177008(u8*, u8*, u32);
-s32 func_00176868(u8* p, u8* a1)
-{
-    u32 f = *(u32*)(*(u8**)(p + 12) + 8);
-    u8* t = *(u8**)(p + 304);
-    if (f & 0x40) {
-        if (f & 0x800) return 0;
-        if (*(f32*)(p + 248) < *(f32*)(t + 88)) return 0;
-        if (*(u32*)(p + 2040) & 4) return 0;
-        if (*(u32*)(a1 + 4) & 2) {
-            if (*(u32*)func_00177860(p) & 0x100000) {
-                func_00176970(p);
-                return 1;
-            }
-        }
-        if (!(*(u32*)(a1 + 4) & 8)) return 0;
-        func_00177a28(p);  // set_bytes_2820_2821
-        u8* q = func_00176fb0(p, 40);
-        if (q) {
-            if (func_001a0920(q, p)) {
-                func_00177008(p, q, *(u32*)(p + 2880) + 4);
-                return 1;
-            }
-        }
-    }
-    return 0;
-}
+// 00176868: moved to src/yasui/libys/party.cpp
 
 s32 func_00179c80(u8*);
 void func_001dc818(u32);
@@ -6253,43 +6228,7 @@ void func_00181cc0(u32, u16);
 void func_001955a8(void*, s32);
 void func_001c0a00(s32);
 #define FCC_3d0(s) ((s)[0] | ((s)[1] << 8) | ((s)[2] << 16) | ((s)[3] << 24))
-void func_001823d0(u16* p)
-{
-    u8* e;
-    D_0034ecd0 = 0;
-    D_01c6053c = 10000.0f;
-    D_0034ecd4 = 0;
-    D_0034ecec = 0;
-    D_0034ecf0 = 0;
-    D_0034ece4 = -1;
-    D_0034ecc0 = -1;
-    D_0034ecc8 = 0;
-    D_01c60540 = 0;
-    D_0034ecd8 = 3;
-    D_0034ecdc = 4;
-    D_0034ece0 = 0;
-    D_0034ece8 = 0;
-    D_01c60548 = 0;
-    D_01c60550 = 0;
-    D_01c60558 = 0;
-    func_00182df0();
-    if ((e = func_00168b88(D_0034ecf4, 13, FCC_3d0(D_0036c878), 0)) != 0) { u32 v = *(u32*)(e + 8); func_00181cc0(v, p[0]); }
-    if ((e = func_00168b88(D_0034ecf4, 13, FCC_3d0(D_0036c880), 0)) != 0) { u32 v = *(u32*)(e + 8); func_00181cc0(v, p[1]); }
-    if ((e = func_00168b88(D_0034ecf4, 13, FCC_3d0(D_0036c888), 0)) != 0) { u32 v = *(u32*)(e + 8); func_00181cc0(v, p[2]); }
-    if (!D_0034ecd0) D_0034ecd0 = 0x280000;
-    if (!D_0034ecd4) D_0034ecd4 = 0x100000;
-    if (!D_0034ecec) D_0034ecec = 0x80000;
-    if (!D_0034ecf0) D_0034ecf0 = 0x20000;
-    bool big = p[0] >= 51;
-    if (big) {
-        D_0034ecd8 = 0;
-        D_0034ecdc = 0;
-    }
-    func_001955a8(D_0034f250, D_0034ecd8);
-    func_001955a8(D_0034fa78, D_0034ecdc);
-    func_001c0a00(D_01c60558);
-    D_0034ecc0 = (D_0034ecc0 | D_01c60548) & ~D_01c60550;
-}
+// 001823d0: moved to src/yasui/libys/areadata.cpp
 #undef FCC_3d0
 
 // ---- 002f9bc0
@@ -6833,16 +6772,13 @@ void func_0013c820(u32 a0, u32 a1) {
 // ---- 00176818
 void func_0017f540(u8*, u32, f32, f32);
 void func_001842c0(u8*);
-void func_00176818(u8* p) {
-    if (!(*(u32*)(p + 360) & 0x10)) func_0017f540(p + 320, 4, 16.0f, 0.0f);
-    func_001842c0(p);
-}
+// 00176818: moved to src/yasui/libys/party.cpp
 
 // ---- 0017c108
 static inline __attribute__((always_inline)) void h_0017c108(u8* q, u32 f, u32 v) {
     if ((f & 4) || ((f & 0x10) && v)) func_0017f540(q, v, 8.0f, 0.0f);
 }
-void func_0017c108(u32 a0, u8* p, u32 a2) { h_0017c108(p + 320, *(u32*)(p + 352), a2); }
+// 0017c108: moved to src/anon/unit_0017bf40.cpp
 
 // ---- 001d5cd0
 s32 func_001d6ec8();
@@ -7288,15 +7224,7 @@ s32 func_001b58a8();
 u8* func_00177860(u8*);
 void func_001a1d50(u32, f32);
 extern f32 D_00349e10;
-void func_00176f00(u8* p) {
-    if (!*(u32*)(p + 1164)) return;
-    if (!func_001a1de0(*(u32*)(p + 1164))) return;
-    if (*(u32*)(p + 2040) & 4) return;
-    if ((*(u32*)(p + 1416) & 0x80) && func_001b58a8()) return;
-    f32 k = -D_00349e10;
-    u8* r = func_00177860(p);
-    func_001a1d50(*(u32*)(p + 1164), k * *(f32*)(r + 56));
-}
+// 00176f00: moved to src/yasui/libys/party.cpp
 
 // ---- 0018cd28
 union UP_0018cd28 { u8* p; f32 f; };
@@ -7956,51 +7884,7 @@ void func_0019ef90_x8227(void*, u8*) asm("func_0019ef90");
 void func_00198e40(T182280*, s32);
 void func_00198e48(T182280*, s32);
 void func_00198e60(T182280*, s32, u8*);
-void func_00182280(void* unused, u8* p) {
-    u8* end = p + *(s16*)(p + 2) * 4 + 4;
-    T182280* o = func_00198c28(*(s16*)(p + 4), *(s16*)(p + 6));
-    p += 8;
-    while (p < end) {
-        switch (*(u16*)p) {
-        case 0:
-            func_00198e50(o, *(u32*)(p + 4), *(s16*)(p + 2));
-            p += 8;
-            break;
-        case 1:
-            func_0019ef90_x8227((u8*)o + 52, p + 4);
-            p += 16;
-            break;
-        case 2:
-            func_00198e40(o, *(s16*)(p + 2));
-            p += 4;
-            break;
-        case 3:
-            func_00198e48(o, *(s16*)(p + 2));
-            p += 4;
-            break;
-        case 4:
-            o->a = *(s16*)(p + 2);
-            p += 4;
-            break;
-        case 5:
-            o->b = *(s16*)(p + 2);
-            p += 4;
-            break;
-        case 6:
-            func_00198e60(o, *(s16*)(p + 2), p + 4);
-            p = p + *(s16*)(p + 2) * 4 + 4;
-            break;
-        case 7:
-            o->c = *(s16*)(p + 2);
-            p += 4;
-            break;
-        case 8:
-            o->flags |= 1;
-            p += 4;
-            break;
-        }
-    }
-}
+// 00182280: moved to src/yasui/libys/areadata.cpp
 
 // --------------------
 s32 func_00301550(char*, const char*, va_list);
@@ -10490,18 +10374,7 @@ extern E1815d0 D_0036c668[];
 void func_001a3458(s32, s32);
 s32 func_001a3570(s32);
 void func_00181570(s32, s32);
-void func_001815d0(s32 id) {
-    switch (id) {
-    case 9225: case 9233: case 9241: case 9249: case 9256:
-        func_001a3458(32, 100);
-        return;
-    }
-    if (func_001a3570(32)) {
-        E1815d0* e = D_0036c668;
-        s32 i;
-        for (i = 4; i >= 0; i--, e++) func_00181570(e->a, e->b);
-    }
-}
+// 001815d0: moved to src/yasui/libys/progress.cpp
 
 // --------------------
 extern s32 D_0035ece0;
@@ -10566,14 +10439,7 @@ static inline V2e2f08 Mul2e2f08(const f32* m, const V2e2f08& v)
 V2e2f08 func_00184540__2e2f08(u32, f32, f32) asm("func_00184540");
 f32* func_002e2930__2e2f08(u32) asm("func_002e2930");
 extern u32 D_00361f60__2e2f08 asm("D_00361f60");
-V2e2f08 func_002e2f08(u32 self, u32 a)
-{
-    V2e2f08 v = func_00184540__2e2f08(a, 0.8f, 0.8f);
-    f32* m = func_002e2930__2e2f08(D_00361f60__2e2f08);
-    v.w = 0.0f;
-    v = Mul2e2f08(m, v);
-    return v;
-}
+// 002e2f08: moved to src/anon/unit_002e2f08.cpp
 
 // --------------------
 struct N102688 { u8 pad[40]; u32 fl; u8 pad2[12]; N102688* next; };

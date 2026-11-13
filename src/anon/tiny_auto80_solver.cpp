@@ -6034,13 +6034,7 @@ u32 duplicate_unplaced_001754d0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, 
     return ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_001382b8)(r4, r5, r6, r7, r8, r9, r10, r11);
 }
 
-u32 func_001762c0(u32 a0, u32 a1) {
-    u32 s0 = a1;
-    u32 v0 = ((u32(*)(u32))func_0016a080)(a0);
-    s0 <<= 1;
-    v0 = ((u32(*)(u32))func_001c2d48)(v0);
-    return (u32)(s32)*(s16*)(s0 + v0 + 4);
-}
+// 001762c0: moved to src/yasui/libys/party.cpp
 
 u32 duplicate_unplaced_00176d68(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r2, r16, r17;
@@ -6056,12 +6050,7 @@ u32 duplicate_unplaced_00176d68(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, 
     return ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_00198630)(r4, r5, r6, r7, r8, r9, r10, r11);
 }
 
-u32 func_00176ec8(u32 a0) {
-    u32 s0 = a0;
-    void (**vt)() = *(void (***)())a0;
-    ((void (*)(u32, u32, u32))vt[21])(a0, 2, 0);
-    return ((u32(*)(u32))func_00187850)(s0);
-}
+// 00176ec8: moved to src/yasui/libys/party.cpp
 
 u32 duplicate_unplaced_00177460(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r2, r16, r17;

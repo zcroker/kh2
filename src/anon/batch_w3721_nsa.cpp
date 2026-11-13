@@ -47,71 +47,7 @@ void func_001c0ba0(s32);
 void func_0019ef30(void);
 void func_00196540(s32);
 // Sets progress flag `flag` (world = flag >> 10) and runs the flag's script.
-void W3721_SetFlag(s32 flag) {
-    s32 world = flag >> 10;
-    u32 bit = flag & 0x3ff;
-    u32* row = D_0032d7c0[world];
-    u32* p = &row[bit >> 5];
-    *p = *p | (1 << (flag & 0x1f));
-    W3721FlagTbl* tbl = D_0034ec70[world];
-    W3721FlagCmd* c = (W3721FlagCmd*)((u8*)tbl + tbl->off[bit]);
-    while (c->op) {
-        u16* a = c->arg;
-        s32 i;
-        switch (c->op) {
-        case 1:
-            for (i = 0; i < (c->n >> 2); i++)
-                func_00104cf0(&D_0032bb40[world][a[i * 4]], &a[i * 4 + 1]);
-            break;
-        case 2:
-            func_00196670(a[0], a[1], a[2]);
-            break;
-        case 3:
-            func_00196698(a[0]);
-            break;
-        case 4:
-            func_001966b0(a[0]);
-            break;
-        case 5:
-            func_00196710(a[0]);
-            break;
-        case 6:
-            func_001a9140(world, a[0]);
-            break;
-        case 7:
-            for (i = 0; i < c->n; i++) func_001814b8(a[i]);
-            break;
-        case 8:
-            for (i = 0; i < c->n; i++) func_001a6c90(a[i]);
-            break;
-        case 9:
-            for (i = 0; i < c->n; i++) W3721_MenuFlagReset(a[i]);
-            break;
-        case 12:
-            for (i = 0; i < c->n; i++)
-                if (!W3721_CheckFlag(a[i])) W3721_SetFlag(a[i]);
-            break;
-        case 13: {
-            u8* p = func_001b6d70(world);
-            p[1] = a[0] >> 8;
-            p[2] = a[0];
-            break;
-        }
-        }
-        c = (W3721FlagCmd*)&c->arg[c->n];
-    }
-    func_001815d0(flag);
-    func_00181670();
-    func_001817f0(flag);
-    func_00181778();
-    func_001d59b0();
-    func_001d5218(flag);
-    func_001b8ce0(flag);
-    func_001c0ba0(flag);
-    W3721_ColosseumCheck();
-    if (flag == 0x8d0) func_0019ef30();
-    func_00196540(flag);
-}
+// 00181178: moved to src/yasui/libys/progress.cpp
 }
 typedef unsigned int W3721bu128 __attribute__((mode(TI)));
 struct W3721bTex { u8 pad[3]; u8 vis; };

@@ -151,10 +151,7 @@ void trap_obj_idle(u32** bd) {
     func_0016bd60((*bd)[1], 0);
 }
 
-void PARTY_hook(u8* self, void* vm) {
-    func_00177498(self);
-    *(void**)(self + 2796) = vm;
-}
+// 00177460: moved to src/yasui/libys/party.cpp
 
 // 00188398: moved to src/anon/unit_00185d10.cpp
 s32 func_00188398(u8* o, void* a, void* b, void* c);

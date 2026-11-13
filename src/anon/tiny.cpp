@@ -123,7 +123,7 @@ void func_0015a768(s32, s32);
 
 void func_001008d0(BD_VALUE* bd) { func_001007c0(bd); }
 // 00102670: moved to src/global/unit_001022c0.cpp
-void func_00103398(BD_VALUE* bd) { func_001033d8(bd); }
+// 00103398: Tz::MenuBasic::GetMenuNameId, moved to src/common/unit_001031b0.cpp
 void func_00109e18(BD_VALUE* bd) { func_00133e50(bd); }
 void func_00109e90(BD_VALUE* bd) { func_001340e8(bd); }
 void func_0010b450(BD_VALUE* bd) { func_0010b550(bd); }
@@ -259,56 +259,19 @@ void func_0014e280(BD_VALUE* bd) { func_0014e1f0(1, 0xffff); }
 // merged from: tiny_patterns.cpp
 // 00102e90: moved to src/common/title.cpp
 
-u32 func_00103560(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a0;
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    u32 b = (0x0033u << 16);
-    return (u32)(*(u32*)((u32)b + (-17888)));
-}
+// 00103560: moved to src/common/unit_001031b0.cpp
 
-u32 func_00103570(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a0;
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    u32 b = (0x0033u << 16);
-    return (u32)(*(u32*)((u32)b + (-17900)));
-}
+// 00103570: Tz::LoadDataGetSystem, moved to src/common/unit_001031b0.cpp
 
-u32 func_00103580(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a0;
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    u32 b = (0x0033u << 16);
-    return (u32)(*(u32*)((u32)b + (-17896)));
-}
+// 00103580: MENU::GetObjAllocator, moved to src/common/unit_001031b0.cpp
 
-u32 func_00103b38(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a0;
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    u32 b = (0x0033u << 16);
-    return (u32)(*(u8*)((u32)b + (-17880)));
-}
+// 00103b38: MENU::isRunning, moved to src/common/unit_001031b0.cpp
 
-void func_00103c70(u32 a0, u32 a1, u32 a2, u32 a3) {  // clear_hook_ptr
-    u32 b = (0x0033u << 16);
-    *(u32*)((u32)b + (-17876)) = (u32)0;
-}
+// 00103c70: moved to src/common/unit_001031b0.cpp
 
-void func_00103c80(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 b = (0x0033u << 16);
-    *(u32*)((u32)b + (-17876)) = (u32)a0;
-}
+// 00103c80: MENU::SetMapJump, moved to src/common/unit_001031b0.cpp
 
-void func_00103ea0(u32 a0, u32 a1, u32 a2, u32 a3) {  // set_hook_ptr
-    u32 b = (0x0033u << 16);
-    *(u32*)((u32)b + (-17868)) = (u32)a0;
-}
+// 00103ea0: moved to src/common/unit_001031b0.cpp
 
 // 001041a0: moved to src/common/gumibattle.cpp
 
@@ -1450,21 +1413,9 @@ extern u32 D_00348698;
 
 // 00103070: moved to src/common/title.cpp
 
-u32 func_00103c90(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_hook_ptr
-    (void)a0;
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    return (D_0032ba2c != 0);
-}
+// 00103c90: moved to src/common/unit_001031b0.cpp
 
-u32 func_00103eb0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a0;
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    return (u32)&D_0032b9e8;
-}
+// 00103eb0: getMenuMode, moved to src/common/unit_001031b0.cpp
 
 // 00104190: moved to src/common/gumibattle.cpp
 

@@ -424,20 +424,7 @@ void func_0016c568(u32 a0) {
     }
 }
 
-void func_0017c400(u32 a0, u32 a1) {
-    register u32 v asm("$13") = *(u32 *)(a0 + 268);
-    register u32 m asm("$15") = (u32)-2;
-    register u32 neg asm("$14") = (u32)-1;
-    asm volatile("" : "+r"(v), "+r"(m), "+r"(neg));
-    *(volatile u8 *)(a0 + 1300) = a1;
-    v &= m;
-    asm volatile("" ::: "memory");
-    *(volatile u32 *)(a0 + 256) = neg;
-    m = 5;
-    *(volatile u32 *)(a0 + 268) = v;
-    *(volatile u32 *)(a0 + 260) = m;
-    *(volatile u32 *)(a0 + 204) = 0;
-}
+// 0017c400: moved to src/anon/unit_0017c400.cpp
 
 // 001878e8: moved to src/anon/unit_00185d10.cpp
 
@@ -478,15 +465,7 @@ u32 MenuSound::GetSeId(s32 se) {
 }
 }  // namespace Tz
 
-f32 func_0017d130(f32 a0) {  // sqrt_scaled_double
-    f32 v = a0 + a0;
-    asm volatile("" : "+f"(v));
-    u32 p = (u32)&D_0036c554;
-    asm volatile("" : "+r"(p));
-    f32 d = *(f32 *)p;
-    v = v / d;
-    return __builtin_sqrtf(v);
-}
+// 0017d130: moved to src/anon/unit_0017c400.cpp
 
 u32 func_0019f528(u32 a0, u32 a1) {  // test_bit_by_index
     register u32 word asm("$14") = a1 >> 5;

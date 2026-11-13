@@ -17,23 +17,7 @@ void func_002c22a8(u32);
 
 static inline u32 TAG(const s8* s) { return s[0] | (s[1] << 8) | (s[2] << 16) | (s[3] << 24); }
 
-void func_00180f28(void)
-{
-    void* h = func_001b1490(D_0034ec68);
-    s32 i;
-    for (i = 0; i < 19; i++) {
-        Res* r = func_00168b38(h, 2, i);  // entry_array_find_nth
-        if (!r) D_0034ec70[i] = 0;
-        else D_0034ec70[i] = r->data;
-    }
-    func_00196608(func_00168b88(h, 2, TAG(D_0036c600), 0)->data);
-    func_001b87a0(func_00168b88(h, 2, TAG(D_0036c608), 0)->data);
-    func_001c3660(func_00168b88(h, 2, TAG(D_0036c610), 0)->data);
-    func_001c3f48(func_00168b88(h, 2, TAG(D_0036c618), 0)->data);
-    func_001c8e80(func_00168b38(h, 44, 0)->data);
-    func_001d58e0(func_00168b88(h, 2, TAG(D_0036c620), 0)->data);
-    func_002c22a8(func_00168b88(h, 2, TAG(D_0036c628), 0)->data);
-}
+// 00180f28: moved to src/yasui/libys/progress.cpp
 
 
 extern u32 D_0035f200;

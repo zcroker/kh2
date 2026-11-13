@@ -92,14 +92,7 @@ static inline Obj160* nx160b(Obj160* o) { return !o ? D_004f3b40.head : o->next;
 void* func_0017ec98(void*);
 void* func_0017edf0(void*, void*);
 u8* func_00168b38(void*, u32, u32);  // entry_array_find_nth
-s32 func_0017f4e0(u8* p) {
-    void* v = func_0017edf0(p, func_0017ec98(p));
-    if (v) {
-        u8* q = func_00168b38(v, 9, 0);  // entry_array_find_nth
-        if (*(u32*)(p + 12) != *(u32*)(q + 8)) return 1;
-    }
-    return 0;
-}
+// 0017f4e0: moved to src/yasui/libys/motion.cpp
 
 void func_001d7cd0(void*);
 s32 func_0016a090(void*);  // get_byte74

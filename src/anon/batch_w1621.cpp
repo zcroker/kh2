@@ -63,45 +63,5 @@ static inline u32 W1621Busy(u8* p) { return *(u32*)(*(u8**)(p + 12) + 8) & 2; }
 static inline u32 W1621Hold(u8* p) { return *(u32*)(p + 0x160) & 0x40; }
 static inline bool W1621Any2(u8* p) { return W1621Busy(p) || W1621Hold(p); }
 
-void func_00177008(u8* p, W1621Act* e, W1621Rec20* r)
-{
-    W1621V4 v;
-    u8* mot = p + 320;
-    ((W1621Pl*)p)->rec = *r;
-    f32 a = 0.0f;
-    func_0017f488(mot, e->motion, a, a);
-    if (a < e->speed) {
-        if (!func_0019c090(p)) func_00177a28(p);
-        f32 lo = e->lo;
-        f32 hi = e->hi;
-        f32 w;
-        if (W1621Valid(r)) {
-            w = e->f10;
-            if (W1621Bit1(e)) w += func_0016c4e8(p);
-            f32 base = func_001773b8(p, r, &v);
-            a = W1621CLAMP(-v.y, e->f14, w);
-            v.y = 0.0f;
-            f32 d = W1621Norm(&v) - base + e->f3c;
-            w = W1621CLAMP(d / func_0017d130(a), lo, hi);
-        } else {
-            w = hi;
-            a = e->speed;
-            v = func_0016af58(p);
-        }
-        v.w = w;
-        v.y = a;
-        W1621Ctl* o = ((W1621Pl*)p)->ctl;
-        o->vt->set(o, p, &v);
-        *(s32*)(p + 0x104) = 5;
-    } else if (W1621Any2(p)) {
-        if (W1621Valid(r)) {
-            f32 base = func_001773b8(p, r, &v);
-            f32 d = (W1621Norm(&v) - base + e->f3c) * *(f32*)(D_00352130 + 0xa8);
-            *(W1621V4*)(p + 0x20) = v * W1621CLAMP(d, e->lo, e->hi);
-        }
-    }
-    func_0017f5e0(mot, e->motion2, 0, e->f38, 0.0f);
-    func_00112ab8(1, r);
-    *(u32*)(p + 0x108) &= ~0x2000000;
-}
+// 00177008: moved to src/yasui/libys/party.cpp
 }

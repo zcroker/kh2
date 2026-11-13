@@ -125,10 +125,7 @@ void func_00179e18(u8* a0) {
     func_00176ec8((u32)a0);
 }
 
-u32 func_0017eb68(u32 a0) {
-    func_00180ce0(a0);
-    return func_0017ee68(a0);
-}
+// 0017eb68: moved to src/yasui/libys/motion.cpp
 
 // True when the entry at +320 is set and its id (+20) is in [140, 151).
 // 00186d18: moved to src/anon/unit_00185d10.cpp

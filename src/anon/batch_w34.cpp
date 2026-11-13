@@ -46,14 +46,7 @@ extern char D_004f63b0[];
 extern const char D_0036c440[];
 
 // Selects the current id; falls back to a saved slot when the id is unknown.
-void func_00103500(s32 id) {
-    if (func_00103b38(id)) {
-        if (D_0032ba20 != id) D_0032ba20 = id;
-    } else {
-        D_003a6a50 = id;
-        D_0032ba20 = -1;
-    }
-}
+// 00103500: moved to src/common/unit_001031b0.cpp
 
 s32 func_0010f600(u8* p) {
     u32* q = *(u32**)(p + 12);
@@ -105,11 +98,7 @@ s32 func_0017a538(u8* p) {
     return r;
 }
 
-void func_00180c88(u8* p, u32 a, f32 x) {
-    u32 t = *(u32*)(p + 256);
-    if (!t) f17f488((s32)p, a, x, 0.0f);
-    else func_001802d8(*(u32*)(p + 252), t, *(u32*)(p + 240), *(u32*)(p + 8), a, 0);
-}
+// 00180c88: moved to src/anon/unit_00180408.cpp
 
 // 00185e78: moved to src/anon/unit_00185d10.cpp
 void func_00185e78(u32 a);
@@ -378,15 +367,7 @@ void func_002dc278(u32 a, u32 b) {
     func_002dc4e0(func_001050d8(0x80a0), a, b);
 }
 
-void func_002e3c28(u8** a) {
-    u8* x = *(u8**)(a[0] + 4);
-    u32 y = *(u32*)(a[1] + 4);
-    if (!x) return;
-    u32 z = *(u32*)(x + 1288);
-    if (!z) return;
-    if (!y) return;
-    func_002cc620(z, x, y);
-}
+// 002e3c28: moved to src/anon/unit_002e2f08.cpp
 
 // 002eb9d8: moved to src/anon/unit_002eaf38.cpp
 
@@ -433,10 +414,7 @@ void u_tail0_0014d008(void) {
     func_00102788(D_0032b91c, 0, 0xc3500, (void*)func_0014cf88);
 }
 
-void f17f488(s32 a, s32 b, f32 x, f32 y) {
-    func_0017f380(a);  // obj_walk_children
-    func_0017f268(a, b, x, y);
-}
+// 0017f488: moved to src/yasui/libys/motion.cpp
 
 // 001bbac0: moved to src/yasui/libys/mission.cpp
 

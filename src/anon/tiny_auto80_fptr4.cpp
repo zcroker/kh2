@@ -739,14 +739,7 @@ u32 func_0016ef28(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_0016eb48(r4, r5, r6, r7);
 }
 
-u32 func_00176db0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r15;
-    r15 = (u32)(r5 << 2);
-    r15 = (u32)(r15 + r4);
-    r5 = r6;
-    r4 = *(u32*)((u32)r15 + (s32)(2808));
-    return func_0016b558(r4, r5, r6, r7);
-}
+// 00176db0: moved to src/yasui/libys/party.cpp
 
 u32 func_00179dd0(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2, r15, r16, r17;
@@ -763,66 +756,17 @@ u32 func_00179dd0(u32 a0, u32 a1, u32 a2, u32 a3) {
     return r2;
 }
 
-void func_0017c660(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r12, r13, r14, r15;
-    r15 = *(u32*)((u32)r5 + (s32)(264));
-    r13 = (u32)(0xfffeu << 16);
-    r13 = (u32)(r13 | 0xffffu);
-    r14 = (u32)(0xfffdu << 16);
-    r12 = (u32)(0xfffbu << 16);
-    r15 = (u32)(r15 & r13);
-    r14 = (u32)(r14 | 0xffffu);
-    r12 = (u32)(r12 | 0xffffu);
-    r15 = (u32)(r15 & r14);
-    r15 = (u32)(r15 & r12);
-    *(u32*)((u32)r5 + (s32)(264)) = r15;
-}
+// 0017c660: moved to src/anon/unit_0017c400.cpp
 
-u32 func_0017dc08(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r14, r15;
-    r15 = (u32)&D_01c60528;
-    r14 = *(u32*)((u32)r4 + (s32)(2888));
-    r14 = (u32)(r14 << 2);
-    r14 = (u32)(r14 + r15);
-    *(u32*)((u32)r14 + (s32)(0)) = 0u;
-    return func_00186008(r4, r5, r6, r7);
-}
+// 0017dc08: moved to src/yasui/libys/friend.cpp
 
-u32 func_0017ebc8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2;
-    r4 = *(u32*)((u32)r4 + (s32)(0));
-    u32 (*fp_call4_001a9780)(u32, u32, u32, u32) = func_001a9780;
-    r2 = fp_call4_001a9780(r4, r5, r6, r7);
-    return r2;
-}
+// 0017ebc8: moved to src/yasui/libys/motion.cpp
 
-void func_00180800(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r13, r14, r15;
-    *(u32*)((u32)r4 + (s32)(28)) = r5;
-    if (r5 == 0u) {
-        r15 = *(u32*)((u32)r4 + (s32)(8));
-        r13 = (u32)(0x0010u << 16);
-        r14 = *(u32*)((u32)r15 + (s32)(264));
-        r14 = (u32)(r14 | r13);
-        *(u32*)((u32)r15 + (s32)(264)) = r14;
-    }
-}
+// 00180800: moved to src/anon/unit_00180408.cpp
 
-u32 func_00181550(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2;
-    r4 = (u32)((s32)0u + (4139));
-    u32 (*fp_call4_00181500)(u32, u32, u32, u32) = func_00181500;
-    r2 = fp_call4_00181500(r4, r5, r6, r7);
-    return r2;
-}
+// 00181550: moved to src/yasui/libys/progress.cpp
 
-u32 func_00181a70(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2;
-    r4 = (u32)((s32)0u + (2256));
-    u32 (*fp_call4_00181500)(u32, u32, u32, u32) = func_00181500;
-    r2 = fp_call4_00181500(r4, r5, r6, r7);
-    return r2;
-}
+// 00181a70: moved to src/yasui/libys/progress.cpp
 
 // 001827a8 YS::UNIT::operator delete: moved to src/anon/unit_00182780.cpp
 
@@ -2009,13 +1953,7 @@ u32 func_002de7e8(u32 a0, u32 a1, u32 a2, u32 a3) {
     return r2;
 }
 
-u32 func_002e3ed0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3;
-    r5 = *(u32*)((u32)r4 + (s32)(8));
-    r4 = *(u32*)((u32)r4 + (s32)(4));
-    r5 = ((u32)0u < (u32)r5);
-    return func_002e2d88(r4, r5, r6, r7);
-}
+// 002e3ed0: moved to src/anon/unit_002e2f08.cpp
 
 u32 func_002ecdd8(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2;

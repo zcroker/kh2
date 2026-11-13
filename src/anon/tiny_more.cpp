@@ -48,7 +48,7 @@ u32 func_0016a090(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a1; (void)a2; (void)a3; u
 
 extern "C" u32 func_00177860(u32,u32,u32,u32) asm("_ZN2YS5PARTY11get_abilityEv");
 
-u32 func_0017fd20(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a1; (void)a2; (void)a3; u32 v = (u32)((s32)(*(u32*)((u32)a0 + (20))) + (-56)); return (v < (u32)18); }
+// 0017fd20: moved to src/yasui/libys/motion.cpp
 
 u32 func_0019fdb0(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a1; (void)a2; (void)a3; u32 v = *(u32*)((u32)a0 + (340)); return (u32)((s32)v + (1)); }
 
@@ -90,6 +90,6 @@ void func_0029e950(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a1; (void)a2; (void)a3; 
 
 u32 func_002cb920(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a1; (void)a2; (void)a3; u32 v = *(u32*)((u32)a0 + (4)) + *(u32*)((u32)a0 + (8)); return (u32)((s32)v + (-1)); }
 
-u32 func_002e34c8(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a1; (void)a2; (void)a3; u32 p = *(u32*)((u32)a0 + (0)); return *(u32*)((u32)p + (8)); }
+// 002e34c8: moved to src/anon/unit_002e2f08.cpp
 
 u32 func_002f1ab8(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a0; (void)a1; (void)a2; (void)a3; u32 p = D_00363c2c; return *(u32*)((u32)p + (4)); }

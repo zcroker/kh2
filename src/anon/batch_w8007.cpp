@@ -37,15 +37,7 @@ struct W8007V4 {
 struct W8007Obj { u8 pad[0x30]; W8007V4 v; };
 void func_0011b6a8(void*);
 void func_0011b7b0(void*, u32);
-W8007Obj* func_0017d8c0(W8007Obj* a0, W8007V4* v, W8007V4* a2) {
-    func_0011b6a8(a0);
-    u32 t = (u32)v;
-    v = &a0->v;
-    func_0011b7b0(a0, t);
-    *v = *a2;
-    v->w = 1.0f;
-    return a0;
-}
+// 0017d8c0: moved to src/anon/unit_0017c400.cpp
 
 /* 001a6fe8: open a window and wait until it closes. */
 void* w8007_Alloc(u32) asm("_ZN4AREA5AllocEj");

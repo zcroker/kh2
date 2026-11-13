@@ -21,16 +21,7 @@ void func_001902a8(u32, P*);
 s32 func_0016bc20(u32, s32, s32);
 void func_0018a818(P*, u32, s32);
 
-f32 func_001773b8(u32 a0, u32 a1, Vec* out) {
-    P p[2];
-    Vec* b1 = &p[0].b;
-    Vec* b2 = &p[1].b;
-    p[0].k = 0;
-    func_001902a8(a1, &p[0]);
-    s32 c = func_0016bc20(a0, 3, -1); P* q = &p[1]; asm("" : "+r"(q)); func_0018a818(q, a0, c);
-    *out = vsub(*b1, *b2);
-    return p[0].y + p[1].y;
-}
+// 001773b8: moved to src/yasui/libys/party.cpp
 }
 }
 
@@ -55,26 +46,6 @@ s32 func_0019c6f0(s32);
 void func_002bc398(void*, Vec*);
 void func_002bc3f0(void*, Vec*);
 s32 func_002bc420(void*);
-void func_00180b98(Obj6* o) {
-    Vec v;
-    v = *func_0016c028(o->id);
-    Grp* g = &o->g;
-    for (s32 i = 0; i < 8; i++) {
-        Slot* s = &g->slots[i];
-        if (s->p != 0) {
-            if (func_002bc420(s->p)) {
-                s32 c = func_0019c6f0(o->id);
-                register Vec* pv asm("$5") = &v;
-                if (c) {
-                    func_002bc3f0(s->p, pv);
-                } else {
-                    func_002bc398(s->p, pv);
-                }
-            } else {
-                s->p = 0;
-            }
-        }
-    }
-}
+// 00180b98: moved to src/anon/unit_00180408.cpp
 }
 }
