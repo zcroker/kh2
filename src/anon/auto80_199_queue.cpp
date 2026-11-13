@@ -8082,18 +8082,7 @@ u32 func_0022b688(u32 a0) {
     return obj;
 }
 
-u32 func_0022b838() {
-    u32 s16;
-    u32 v0;
-
-    s16 = func_001050d8(144);
-    func_0023f800(s16);
-    func_0023c008(s16 + 28);  // obj_ctor_36eae8
-    func_002369a0(s16 + 120);  // obj_ctor_36eac8
-    D_0035e2e8 = s16;
-    v0 = func_0022b7f0();
-    return func_0023fa70(D_0035e2e8, v0, -200);
-}
+u32 func_0022b838();  // 0022b838: moved to src/sasa/musical_2d.cpp (linked unit)
 
 void func_0022ba08(u32 a0, u32 a1) {
     u32 s16;

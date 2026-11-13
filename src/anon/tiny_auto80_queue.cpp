@@ -8921,25 +8921,7 @@ extern "C" u32 func_002369f0(...);  // set_vtbl_36eac8_then_call
 extern "C" u32 func_0023c098(...);  // set_vtbl_36eae8_then_call
 extern "C" u32 func_0023f848(...);
 
-void func_0022b968(u32 a0) {
-    u32 r4 = a0, r15, r16;
-    r15 = (u32)(0x0036u << 16);
-    r16 = *(volatile u32*)((u32)r15 + (s32)(-7448));
-    r4 = (u32)((s32)r16 + (120));
-    if (r16 != 0u) {
-    u32 (*fp_call4_002369f0)(u32) = (u32(*)(u32))func_002369f0;
-        ((void(*)(u32))fp_call4_002369f0)(r4);
-        r4 = (u32)((s32)r16 + (28));
-    u32 (*fp_call4_0023c098)(u32) = (u32(*)(u32))func_0023c098;
-        ((void(*)(u32))fp_call4_0023c098)(r4);
-        r4 = r16;
-    u32 (*fp_call4_0023f848)(u32) = (u32(*)(u32))func_0023f848;
-        ((void(*)(u32))fp_call4_0023f848)(r4);
-        r4 = r16;
-    u32 (*fp_call4_00105110)(u32) = (u32(*)(u32))func_00105110;
-        ((void(*)(u32))fp_call4_00105110)(r4);
-    }
-}
+// 0022b968: moved to src/sasa/musical_2d.cpp (linked unit)
 
 extern "C" u32 func_001024a8(...);
 extern "C" u32 func_00226e60(...);
