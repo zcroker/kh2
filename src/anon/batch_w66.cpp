@@ -220,19 +220,7 @@ s32 func_0018bd50(u32 a, u32 b) {
 // ---- 00192a80
 s32 func_00192440(u8*, s32);  // is_byte_lt25
 u8* func_00192388(u8*);  // skip_control_codes
-s32 func_00192a80(u8* p) {
-    s32 n = 0;
-    for (; p; p = func_00192388(p)) {  // skip_control_codes
-        if (func_00192440(p, 0)) {  // is_byte_lt25
-            switch (*p) {
-            case 16: return n;
-            case 2: return n;
-            case 9: n++; break;
-            }
-        } else n++;
-    }
-    return n;
-}
+// 00192a80: moved to src/yasui/libys/message.cpp
 // ---- 00196908
 struct E196 { u32 f0; u8* f4; };
 extern E196 D_00350338[8];

@@ -3639,40 +3639,9 @@ out:
 
 // 00191b70: moved to src/yasui/libys/status.cpp
 
-u32 func_001923c8(u32 a0) {
-    if (a0 == 0) {
-        return 0;
-    }
-    u32 s0 = a0;
-    u32 s1 = 16;
-    while (1) {
-        if (func_00192440(s0, 0) != 0) {  // is_byte_lt25
-            if (*(u8*)s0 == s1) {
-                return func_00192388(s0);  // skip_control_codes
-            }
-        }
-        u32 v = func_00192388(s0);  // skip_control_codes
-        if (v == 0) {
-            return 0;
-        }
-        s0 = v;
-    }
-}
+// 001923c8: moved to src/yasui/libys/message.cpp
 
-u32 func_001924c0(u32 a0) {
-    u32 s0 = a0;
-    u32 s1 = 1;
-    while (s0 != 0) {
-        if (func_00192440(s0, 0) != 0) {  // is_byte_lt25
-            u32 t = s1 + 1;
-            if (*(u8*)s0 == 0x10) {
-                s1 = t;
-            }
-        }
-        s0 = func_00192388(s0);  // skip_control_codes
-    }
-    return s1;
-}
+// 001924c0: moved to src/yasui/libys/message.cpp
 
 u32 func_00194010(u32 a0) {
     u32 s0 = a0;

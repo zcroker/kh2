@@ -2118,17 +2118,7 @@ u32 func_00191f20(u8*, u32);
 void func_001920f0(u32);
 void u_tail4_00192048(u32, u32, u32, u32) asm("_Z16u_tail4_00192048jjjj");
 struct NoTail { ~NoTail() {} };
-void u_tail4_00192048(u32 id, u32, u32, u32)
-{
-    NoTail g;
-    u32 r = 0;
-    for (s32 i = 0; i < 3; i++) {
-        u8* o = D_01c61970[i].p;
-        if (o && (r = func_00191f20(o, id))) break;
-    }
-    if (!r) r = func_00191f20(D_01c61970[1].p, 0x8adc);
-    if (id - 19136 < 3) func_001920f0(r);
-}
+// 00192048: moved to src/yasui/libys/message.cpp
 extern u8 D_01c62fb8[];
 extern u8 D_0032e020[];
 u8* func_0031f168(u8*, u8*);

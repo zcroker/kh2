@@ -41,42 +41,6 @@ struct R192868
 };
 u8 *func_00192800(u8 *, A192868 *, B192868 *, R192868 *);
 void func_00192388(u8 *);
-void func_00192868(u8 *n, A192868 *a, B192868 *b, R192868 *out)
-{
-  R192868 tmp;
-  s32 k;
-  s32 k2;
-  tmp.max = 0;
-  tmp.sum = 0;
-  out->max = 0;
-  out->sum = 0;
-  while (n != 0)
-  {
-    n = func_00192800(n, a, b, &tmp);
-    out->max = (tmp.max < out->max) ? (out->max) : (tmp.max);
-    k = b->c + a->x14;
-    out->sum = (out->sum + tmp.sum) + k;
-    if (n == 0)
-    {
-      break;
-    }
-    if ((*n) == 16)
-    {
-      if (a)
-      {
-        func_00192388(n);
-        break;
-      }
-      else
-      {
-        func_00192388(n);
-        break;
-      }
-    }
-  }
-
-  k2 = a->x14 + b->c;
-  out->sum -= k2;
-}
+// 00192868: moved to src/yasui/libys/message.cpp
 
 }

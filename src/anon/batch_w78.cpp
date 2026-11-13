@@ -214,23 +214,7 @@ void func_0018c150(u8* p) {
 extern "C" {
 s32 func_00192440(u8*, s32);  // is_byte_lt25
 u8* func_00192388(u8*);  // skip_control_codes
-s32 func_00192b80(u8* n) {
-    s32 depth = 1;
-    if (n) {
-        do {
-            s32 prev = depth;
-            if (func_00192440(n, 0)) {  // is_byte_lt25
-                if (*n == 2) depth++;
-                else if (*n == 0) return depth;
-            }
-            n = func_00192388(n);  // skip_control_codes
-            if (prev != depth) {
-                if (!n || (func_00192440(n, 0) && *n == 0)) depth--;
-            }
-        } while (n);
-    }
-    return depth;
-}
+// 00192b80: moved to src/yasui/libys/message.cpp
 
 struct W78Sub { u8 pad[24]; u8 kind; u8 p25; u16 id; u8 pad2[12]; };
 struct W78Ent64 { u32 x0; W78Sub s; u8 pad[20]; };

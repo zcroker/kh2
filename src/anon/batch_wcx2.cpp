@@ -8177,35 +8177,7 @@ void func_00182280(void* unused, u8* p) {
 
 // --------------------
 s32 func_00301550(char*, const char*, va_list);
-char* func_00192cc0(char* buf, const char* fmt, ...) {  // text_format_font
-    va_list ap;
-    va_start(ap, fmt);
-    s32 n = func_00301550(buf, fmt, ap);
-    s32 i;
-    for (i = 0; i < n; i++) {
-        s8 c = buf[i];
-        if ((u32)(c - '0') < 10) c = c - 15;
-        else if ((u32)(c - 'A') < 26) c = c - 19;
-        else switch (c) {
-        case ' ': c = 1; break;
-        case '!': c = 72; break;
-        case '"': c = 97; break;
-        case '%': c = 74; break;
-        case '\'': c = 87; break;
-        case '*': c = 45; break;
-        case '+': c = 43; break;
-        case '-': c = 44; break;
-        case '.': c = 79; break;
-        case '/': c = 75; break;
-        case ':': c = 82; break;
-        case '?': c = 73; break;
-        default: c = 127; break;
-        }
-        buf[i] = c;
-    }
-    buf[n] = 0;
-    return buf;
-}
+// 00192cc0: moved to src/yasui/libys/message.cpp
 
 // --------------------
 extern f32 D_00349e10;

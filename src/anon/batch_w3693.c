@@ -18,11 +18,7 @@ static inline const char* nm(s32 a) {
     return func_00105ee8();
 }
 /* the $7 pin puts "move a3,v0" before the jal and "addiu a1" into its delay slot, as the original does */
-char* func_001921d8(s32 a) {
-    register const char* s asm("$7") = nm(a);
-    func_002fee78(D_01c61ab8, D_0036cd88, D_0033caf4, s);
-    return D_01c61ab8;
-}
+// 001921d8: moved to src/yasui/libys/message.cpp
 
 /* ---- func_002b31c0 ---- */
 

@@ -7774,9 +7774,7 @@ u32 duplicate_unplaced_00192290(u32 a0, u32 a1) {
     return ((u32(*)(u32,u32))func_00191f78)(r4, r5);
 }
 
-f32 func_00192fb8(u32 a0) {  // mul_float4x8
-    return (*(f32*)((u32)a0 + (s32)(4))) * (*(f32*)((u32)a0 + (s32)(8)));
-}
+// 00192fb8: moved to src/yasui/libys/message.cpp
 
 extern "C" u32 func_0016b668(...);
 extern "C" u32 func_001dc878(...);
@@ -12503,41 +12501,11 @@ void duplicate_unplaced_00192260(u32 a0, u32 a1) {
 
 extern "C" u32 func_00192388(...);  // skip_control_codes
 
-u32 func_00192b30(u32 a0) {
-    u32 v0 = a0;
-    u32 s0 = a0;
-    u32 s1 = 0u;
-    if (a0 != 0u) {
-        do {
-            a0 = v0;
-            s1 = (u32)(v0 - s0);
-            v0 = func_00192388(a0);  // skip_control_codes
-        } while (v0 != 0u);
-    }
-    return s1;
-}
+// 00192b30: moved to src/yasui/libys/message.cpp
 
 extern u8 D_01c61970;
 
-void func_00192fc8(u32 a0, u32 a1) {
-    if (a1 != 0xffffu) {
-        return;
-    }
-    if (a0 != 1u) {
-        return;
-    }
-    u32 t7 = (u32)&D_01c61970;
-    s32 t6 = 2;
-    s32 t5 = -1;
-L0:
-    *(u32*)((u32)t7 + (s32)(0)) = 0u;
-    t6 = (s32)(t6 + (-1));
-    *(u32*)((u32)t7 + (s32)(4)) = 0u;
-    if (t6 != t5) {
-        t7 = (u32)((s32)t7 + (8));
-        goto L0;
-    }
-}
+// 00192fc8: moved to src/yasui/libys/message.cpp
 
 void func_001ad990(u32, f32, f32, f32);
 extern "C" u32 func_001bfd60(...);

@@ -173,9 +173,7 @@ struct Pair72 {
 extern Pair72 D_00354bf0[];
 
 
-void func_00192818(u32 a, u32 b, Words6 s) {
-    func_00192800(a, b, &s);  // to_192528
-}
+// 00192818: moved to src/yasui/libys/message.cpp
 
 s32 func_001a8c78(u8* p, s32 n) {
     s32 r = 0;

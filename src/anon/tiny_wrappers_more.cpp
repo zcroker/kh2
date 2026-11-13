@@ -742,9 +742,7 @@ u32 func_00191738(u32 a0, u32 a1, u32 a2, u32 a3) {
 
 // 00191f00: _GLOBAL__I_ stub, now made by gcc in src/yasui/libys/status.cpp
 
-u32 func_00193018(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_00192fc8(0x00000001u, 0x0000ffffu, a2, a3);
-}
+// 00193018: moved to src/yasui/libys/message.cpp
 
 u32 func_00194070(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_0011eb08(((u32)(*(u32*)((u32)(a0) + 1648u))), a1, a2, a3);

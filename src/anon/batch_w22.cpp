@@ -134,23 +134,12 @@ u32 func_001921d8(void);
 u32 func_001708f8(u32, s32);
 void func_00191f78(int, u32);
 void MESSAGE_Init(int, int) asm("_ZN2YS7MESSAGE4InitEii");
-void MESSAGE_Init(int a, int b) {
-    func_00191f78(b, func_001708f8(func_001921d8(), -1));
-}
+// Init: moved to src/yasui/libys/message.cpp
 
 // --- 00192388
 // Advance past one message token (control codes < 0x20 have table lengths).
 extern u8 D_0036cea0[];
-u8* func_00192388(u8* p) {  // skip_control_codes
-    u8 c = *p;
-    if (c >= 32) {
-        p++;
-    } else {
-        if (c == 0) return 0;
-        p += D_0036cea0[c];
-    }
-    return p;
-}
+// 00192388: moved to src/yasui/libys/message.cpp
 
 // --- 00195468
 s32 ctarget_00195468(u32, u32, u32, u32) asm("_Z16ctarget_00195468jjjj");

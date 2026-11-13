@@ -361,29 +361,11 @@ u32 func_0018f010(u32 a0) {  // byte4_is_2_or_3
     return ret;
 }
 
-void func_00192f78(u32 a0) {  // obj_init_float_const
-    u32 p = (u32)&D_0036ce98;
-    *(u32 *)(a0 + 12) = 0;
-    asm volatile("" : "+r"(p));
-    f32 f0 = *(f32 *)p;
-    *(volatile f32 *)(a0 + 20) = f0;
-    *(volatile f32 *)(a0 + 4) = f0;
-    *(volatile f32 *)(a0 + 8) = f0;
-}
+// 00192f78: moved to src/yasui/libys/message.cpp
 
-void func_00192f98(u32 a0) {
-    u32 p = (u32)&D_0036ce9c;
-    f32 f1 = *(f32 *)(a0 + 20);
-    asm volatile("" : "+r"(p));
-    f32 f0 = *(f32 *)p;
-    *(f32 *)(a0 + 4) = f1;
-    *(f32 *)(a0 + 8) = f0;
-}
+// 00192f98: moved to src/yasui/libys/message.cpp
 
-u32 func_00192498(u8* p, s32 i) {  // read_u16_be
-    s32 j = i + 1;
-    return (s16)(p[i] | p[j] << 8);
-}
+// 00192498: moved to src/yasui/libys/message.cpp
 
 u32 ctarget_00189200(u32 a0, u32 a1, u32, u32) {
     if (a1 - 1 < 10) {

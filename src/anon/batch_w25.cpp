@@ -110,11 +110,7 @@ void func_00171640(u32* p) {
 // bsearch over 8-byte entries; returns p + entry offset.
 extern u8 D_0031eec8;
 u8* func_002fd248(u32, void*, u32, u32, void*);
-u8* func_00191f20(u8* p, u32 key) {
-    u32* r = (u32*)func_002fd248(key & 0xffff7fff, p + 8, *(u32*)(p + 4), 8, &D_0031eec8);
-    if (r == 0) return 0;
-    return p + r[1];
-}
+// 00191f20: moved to src/yasui/libys/message.cpp
 
 u32* func_001947c0(u32, u32, u32, u32);
 u32 u_call4_00194830(u32 a, u32 b, u32 c, u32 d) {
