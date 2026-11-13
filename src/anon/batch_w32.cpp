@@ -104,11 +104,7 @@ void func_00148638(u32, u8* o, f32 x) {
     o[269] = r;
 }
 
-// Tests the flag mask for the current entry against a 64-bit flag word.
-s32 func_00158450(u64* p) {
-    s32 i = func_00242d58();
-    return (*p & D_0034a970[i]) != 0;
-}
+// 00158450: moved to src/harata/libdk/cameraconfig.cpp
 
 void AreaExit(void) asm("_ZN2YS8AreaExitEv");
 void AreaExit(void) {

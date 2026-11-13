@@ -151,12 +151,7 @@ void func_0014f4d8(void) {
 // 00154ee8: moved to src/anon/unit_00153ea0.cpp
 u32 func_00154ee8(u8* p);
 
-u32 isManual(u64* pad) {
-    u32 r = 1;
-    if (!(*pad & 0x100000000ULL)) r = 0;
-    if (!isCameraAuto()) r = !r;
-    return r;
-}
+// 001585a0: moved to src/harata/libdk/cameraconfig.cpp
 
 // Ability bit test: v[0] = party's ability bit v[1] is set.
 void func_00171a70(u32* v) {

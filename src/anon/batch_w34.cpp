@@ -63,10 +63,7 @@ s32 func_0010f600(u8* p) {
     return func_0010cc80(p) != 0;
 }
 
-u32 func_00158548(u64* p) {
-    u8 i = func_00242ce8(p) ^ 1;
-    return (*p & D_0034a970[i + 2]) != 0;
-}
+// 00158548: moved to src/harata/libdk/cameraconfig.cpp
 
 void func_0015c450(u32 n) {  // flag_test_global
     if ((u8)((D_0034af30 >> n) & 1)) func_00160e50(n);

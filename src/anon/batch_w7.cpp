@@ -90,13 +90,7 @@ void func_0013b1a0(u32 a0) {
     func_0013b128(a0);
 }
 
-// dk CannonCamera::create
-void cannon_camera_create(u32 obj) asm("_ZN2dk12CannonCamera6createEPN2YS3OBJE");
-void cannon_camera_create(u32 obj) {
-    u32 c = func_00140df0(obj);
-    *(u32*)(c + 64) = 8;
-    func_00140e30(c, 3);
-}
+// 001586b8: moved to src/harata/libdk/cannoncamera.cpp
 
 void func_0016a328(u32 a0) {
     func_001a9350(a0 + 1952);

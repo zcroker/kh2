@@ -106,15 +106,7 @@ extern f32 D_0034a994;
 extern f32 D_0034a998;
 extern f32 D_0034a99c;
 extern Vq D_0034a9a0;
-void func_00158870(s32 a, f32 f) {
-    func_00141010(30.0f);
-    *(u32*)(func_00140df0() + 64) = 7;
-    D_0034a990 = a;
-    D_0034a994 = f;
-    D_0034a998 = 0.5f;
-    D_0034a99c = 10.0f;
-    asm volatile("sqc2 $vf0, 0(%0)" : : "r"(&D_0034a9a0) : "memory");
-}
+// 00158870: moved to src/harata/libdk/scopecamera.cpp
 
 void func_001391c8(void*, u32, u32);
 void func_0015aa98(u8* p, u32 a, u32 b, f32 f) {
