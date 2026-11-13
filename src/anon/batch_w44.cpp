@@ -189,34 +189,13 @@ void func_0016bb38(u32 a, u32 b) {
 
 extern void* D_004f63a8;
 extern void* D_004f63ac;
-void func_0016f8d0(void* p) {
-    s32 v = func_0016f930((s32)p);
-    if (v == 2400) v = func_0016f930(0);
-    switch (v) {
-    case 2410: D_004f63a8 = p; break;
-    case 2420: D_004f63ac = p; break;
-    }
-}
+void func_0016f8d0(void* p);  // 0x0016f8d0: definition moved into src/anon/unit_0016e8f8.cpp
 
 // Unlinks a node from the global singly linked list, then releases it.
 struct Node { u8 pad[60]; Node* next; };
 struct List { Node* head; Node* tail; };
 extern List D_0034dca0;
-void func_001700e8(Node* n) {
-    Node* prev;
-    Node* h = D_0034dca0.head;
-    if (n == h) {
-        D_0034dca0.head = n->next;
-        prev = 0;
-    } else {
-        prev = h;
-        while (prev->next != n) prev = prev->next;
-        prev->next = n->next;
-    }
-    if (n == D_0034dca0.tail) D_0034dca0.tail = prev;
-    n->next = 0;
-    func_0016fb00(n);
-}
+void func_001700e8(Node* n);  // 0x001700e8: definition moved into src/anon/unit_0016e8f8.cpp
 
 // 00176258: moved to src/yasui/libys/party.cpp
 

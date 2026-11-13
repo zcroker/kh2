@@ -172,18 +172,7 @@ void func_003058a0(s32);
 void func_001707d8(void);
 void func_0014d430(void);
 extern volatile u8 D_0034dcac;
-void func_0016f9e8(void) {
-    for (;;) {
-        func_003058a0(0);
-        if (D_0034dcac == 1) {
-            do {
-                func_001707d8();
-                D_0034dcac = 0;
-            } while (D_0034dcac == 1);
-        }
-        func_0014d430();
-    }
-}
+void func_0016f9e8(void);  // 0x0016f9e8: definition moved into src/anon/unit_0016e8f8.cpp
 
 void func_00180c38(void*);
 void func_00180ef0(void*);

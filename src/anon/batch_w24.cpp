@@ -56,22 +56,12 @@ extern W2 D_004f6290;
 // 0016d230: moved to src/anon/unit_0016c770.cpp
 
 // Fall back to the id at +56 when it lies in one of the special ranges.
-s32 func_0016ffc8(u8* p) {
-    s32 v = *(s32*)(p + 40);
-    if (v < 0 && *p == 0) {
-        s32 id = *(s32*)(p + 56);
-        if ((u32)(id - 2300) < 100 || (u32)(id - 2410) < 10 || (u32)(id - 2420) < 10) return id;
-    }
-    return v;
-}
+s32 func_0016ffc8(u8* p);  // 0x0016ffc8: definition moved into src/anon/unit_0016e8f8.cpp
 
 u8 func_001688b8(void);
 u8 func_002ba200(void);
 u8 func_00170c50(void);
-u8 func_00170cd0(void) {
-    if (func_001688b8() || func_002ba200()) return 1;
-    return func_00170c50();
-}
+u8 func_00170cd0(void);  // 0x00170cd0: definition moved into src/anon/unit_0016e8f8.cpp
 
 // YS::FORMRAM::set_ability: store an ability id into the first free slot (bit 15 = equipped).
 struct FormRam { u8 _0[8]; u16 ab[24]; };

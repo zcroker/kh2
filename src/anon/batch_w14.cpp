@@ -171,9 +171,7 @@ void func_0016e200(void** p) {
     }
 }
 
-void func_0016fa58(void) {
-    func_0014d358(D_01c5c460, 0x3000, func_0016f9e8, 0);
-}
+void func_0016fa58(void);  // 0x0016fa58: definition moved into src/anon/unit_0016e8f8.cpp
 
 // 001781e8: moved to src/yasui/libys/player.cpp
 

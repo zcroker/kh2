@@ -147,15 +147,7 @@ W41Ent16* func_00168b88(W41Tbl* t, s32 id, s32 val, s32 k) {  // find_entry16_by
 }
 
 struct W41SP { u8 pad[72]; u8 flag; };
-char* func_0016f4b8(W41SP* p, char* buf) {
-    s32 notSet = !(p->flag & 1);
-    if (notSet) {
-        if (!buf) buf = D_004f63d8;
-        func_002fee78(buf, D_0036c450, (u8*)p + 8, D_0033caf0);
-        return buf;
-    }
-    return 0;
-}
+char* func_0016f4b8(W41SP* p, char* buf);  // 0x0016f4b8: definition moved into src/anon/unit_0016e8f8.cpp
 
 void func_00173918(u8** p) {
     // function-local static guard + atexit(dtor)

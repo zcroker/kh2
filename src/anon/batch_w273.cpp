@@ -105,41 +105,7 @@ void func_0026e1e0(void) {
 void func_001705a8(void);
 s32 func_00170d38(s32);
 void func_001700e8(N273*, s32);
-void func_00170670(void) {
-  u32 a[7];
-  s32 i;
-  s32 n = 0;
-  func_001705a8();
-  for (i = 1; i < 7; i++) a[i] = 0;
-  a[0] = (u32)D_004fa440;
-  u32 lim = D_0034dc9c;
-  N273* p = D_0034dca0;
-  while (p) {
-    s32 t = p->f40;
-    p->f36 = 0;
-    N273* nx = p->next;
-    if (t >= 0) {
-      s32 k = func_00170d38(t);
-      if (a[k] == 0) {
-        a[k] = a[0];
-        a[0] += D_01c5f460[k];
-      }
-      p->f48 = a[k];
-      a[k] += p->f44;
-      if (a[0] < a[k]) a[0] = a[k];
-      u8 big = p->f40 >= 10000;
-      if (big) {
-        if (lim < a[k] || n >= 128) func_001700e8(p, 0);
-      }
-    } else {
-      lim -= p->f44;
-      p->f48 = lim;
-    }
-    p = nx;
-    n++;
-  }
-  D_0034dcb0 = lim;
-}
+void func_00170670(void);  // 0x00170670: definition moved into src/anon/unit_0016e8f8.cpp
 
 u64_273 func_00312db8(u64_273, u64_273);
 s32 func_001b0148(void*, s32, s32, s32);

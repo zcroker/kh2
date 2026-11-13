@@ -90,38 +90,7 @@ void func_00128b38(Obj128b38* o, Out128b38* out, f32 t) {
 }
 
 void w1992_tail4_16eb48(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z16u_tail4_0016eb48jjjj");
-void w1992_tail4_16eb48(u32 a0, u32 a1, u32 a2, u32 a3) {
-    P16eb48* p = func_0016e920(a0);
-    if (p == 0) return;
-    if ((s32)a1 == -1) {
-        a1 = (u32)-200;
-        if (!func_0016f6f8(a0)) a1 = D_0036c278[p->b4];
-        if (!func_0016f770(a0) && a1 == 2400) a1 = func_0016f8d0(p->w0);
-    }
-    func_00170518(func_0016f470(p, 0), a1, 0);
-    if (!func_0016f6f8(a0)) {
-        if (!func_0016f770(a0)) {
-            if (w1992_off2(p)) func_00170530(func_0016f4b8(p, 0), a1, a2, 0);
-        }
-    }
-    if (!func_0016f6f8(a0)) {
-        u32 r = func_0016f520(p, a0, 0);
-        if (r) func_00170518(r, a1, 0);
-    }
-    if (func_0016f770(a0)) return;
-    for (s32 i = 0; i < 2; ) {
-        if ((s32)a1 >= 0) a1++;
-        u32 r = func_0016f6a0(p, i);
-        s32 k = i++;
-        u32 c = a2;
-        if ((s32)a3 >= 0) a2 = a3;
-        if (r) { r |= a0 & 0x40000000; func_0016ef58(p->h4e, k, r, a1, c); }
-    }
-    for (s32 j = 3; j >= 0; j--) {
-        u16* q = &p->sub[3 - j];
-        if (*q) w1992_tail4_16eb48(*q, a1, a2, a3);
-    }
-}
+void w1992_tail4_16eb48(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0016eb48: definition moved into src/anon/unit_0016e8f8.cpp
 
 void func_00228f18();  // 00228f18: moved to src/sasa/musical_score.cpp (linked unit)
 

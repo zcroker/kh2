@@ -80,13 +80,7 @@ u8* func_0016c028(u8* p) {  // obj_get_attach_or_alt
 }
 
 u8* func_00170400(u32, u32, u32);
-u8* func_00170530(u32 a, u32 b, s32 c, u32 d) {
-    u8* v = func_00170400(a, b, d);
-    *v = 1;
-    *(s16*)(v + 56) = c;
-    *(s16*)(v + 58) = -1;
-    return v;
-}
+u8* func_00170530(u32 a, u32 b, s32 c, u32 d);  // 0x00170530: definition moved into src/anon/unit_0016e8f8.cpp
 
 typedef void (*VFn4)(void*, u32, u32, void*);
 // 00185a68: moved to src/anon/unit_001855e0.cpp

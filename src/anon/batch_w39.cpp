@@ -183,13 +183,7 @@ extern u32 D_0034dc98;
 extern u32 D_01c5f460[];
 u32 func_00106178(void*, int);
 extern u8 D_004f6440[];
-void func_0016f970(void) {
-    D_0034dc98 = func_00106178(D_004f6440, 16384);
-    for (int i = 0; i < 7; i++) D_01c5f460[i] = 0;
-    D_01c5f460[1] = 0xe0000;
-    D_01c5f460[5] = 0x300000;
-    D_01c5f460[6] = 0xc0000;
-}
+void func_0016f970(void);  // 0x0016f970: definition moved into src/anon/unit_0016e8f8.cpp
 
 // --- 00173348
 // Lazily registers the cleanup of a static vector, fills it and hands it out.

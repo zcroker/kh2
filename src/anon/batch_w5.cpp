@@ -63,17 +63,11 @@ void func_001619e8(void) {
 u32 func_001b1448(u32);
 void func_001d3390(u32);
 extern u32 D_0034dc28;
-void func_0016e8f8(void) {
-    func_001d3390(func_001b1448(D_0034dc28));
-}
+void func_0016e8f8(void);  // 0x0016e8f8: definition moved into src/anon/unit_0016e8f8.cpp
 
 extern u32 D_004f63a8[2];
 extern u32 D_004f63a0;
-void func_0016f7b0(void) {
-    D_004f63a8[0] = 0;
-    D_004f63a0 = 0;
-    D_004f63a8[1] = 0;
-}
+void func_0016f7b0(void);  // 0x0016f7b0: definition moved into src/anon/unit_0016e8f8.cpp
 
 // Pass a stack copy of the quadword *pp to func_00158920.
 void func_00158920(Q16*);

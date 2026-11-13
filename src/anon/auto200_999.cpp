@@ -172,29 +172,7 @@ u32 func_001665d8(u32 a0, u32 *a1, u32 *a2, u32 *a3, u32 *a4, u32 *a5,
     return *(u32 *)(p + 40);
 }
 
-u32 func_00170e18() {
-    register u32 p asm("$14") = D_0034dca0;
-    u32 ret = 1;
-    if (p != 0) {
-        while (1) {
-            register s32 v asm("$15") = *(s32 *)(p + 40);
-            ret = 0;
-            v = v < 10000;
-            v ^= 1;
-            u32 next = *(u32 *)(p + 60);
-            if (v == 0) {
-                break;
-            }
-            p = next;
-            if (p != 0) {
-                continue;
-            }
-            ret = 1;
-            break;
-        }
-    }
-    return ret;
-}
+u32 func_00170e18();  // 0x00170e18: definition moved into src/anon/unit_0016e8f8.cpp
 
 void func_002edf68(u32 a0) {
     register u32 vtbl asm("$15") = (u32)&D_003637e0;

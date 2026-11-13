@@ -91,10 +91,7 @@ void bc_make(void) {
     D_0034aa94 = func_0016c3a8(D_0034aa90, 64);
 }
 
-void func_0016fb00(u32 a) {
-    void* o = D_0034dc98;
-    (*(void (**)(void*, u32))(*(u8**)o + 4))(o, a);
-}
+void func_0016fb00(u32 a);  // 0x0016fb00: definition moved into src/anon/unit_0016e8f8.cpp
 
 struct Args171690 { u32* obj; f32 f; u32 flag; };
 void func_00171690(Args171690* p) {

@@ -716,16 +716,7 @@ u32 func_00166cf0(u32 a0, u32 a1, u32 a2, u32 a3) {  // obj_has_flag4
 
 // 0016cbc8: moved to src/anon/unit_0016c770.cpp
 
-u32 func_0016ef28(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2;
-    u32 (*fp_call4_001d1438)(u32, u32, u32, u32) = func_001d1438;
-    r2 = fp_call4_001d1438(r4, r5, r6, r7);
-    r4 = r2;
-    r5 = (u32)((s32)0u + (5000));
-    r6 = (u32)((s32)0u + (4));
-    r7 = (u32)((s32)0u + (7));
-    return func_0016eb48(r4, r5, r6, r7);
-}
+u32 func_0016ef28(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0016ef28: definition moved into src/anon/unit_0016e8f8.cpp
 
 // 00176db0: moved to src/yasui/libys/party.cpp
 

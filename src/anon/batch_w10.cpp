@@ -121,9 +121,7 @@ void func_0015cbb8(u8 a, u8 b, u8 c, u8 d) {  // set_global_rgba
     D_004f3700.d = d;
 }
 
-void func_0016eb18(void* a, void* b) {
-    func_0016f6a0(func_0016e920(a, b), b);
-}
+void func_0016eb18(void* a, void* b);  // 0x0016eb18: definition moved into src/anon/unit_0016e8f8.cpp
 
 void func_00171480(u8* p) {
     u32 tmp[4] __attribute__((aligned(16)));

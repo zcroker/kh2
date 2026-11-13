@@ -1229,23 +1229,9 @@ void func_001666a0(u32 a0, u32 a1, u32 a2, u32 a3) {  // zero_fields_0_4_6_8
     *(volatile u16*)((u32)r4 + (s32)(6)) = (u16)0u;
 }
 
-void func_0016fab0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r15;
-    r15 = (u32)&D_01c5f460;
-    *(volatile u32*)((u32)r15 + (s32)(12)) = r5;
-    *(volatile u32*)((u32)r15 + (s32)(8)) = r4;
-    *(volatile u32*)((u32)r15 + (s32)(16)) = r5;
-}
+void func_0016fab0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0016fab0: definition moved into src/anon/unit_0016e8f8.cpp
 
-u32 func_00170c38(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2, r15;
-    r15 = (u32)(0x0035u << 16);
-    r2 = (u32)(*(volatile u8*)((u32)r15 + (s32)(-9044)));
-    r2 = (u32)(r2 & 0x00ffu);
-    r2 = (u32)(r2 ^ 0x0001u);
-    r2 = ((u32)r2 < 0x00000001u);
-    return r2;
-}
+u32 func_00170c38(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00170c38: definition moved into src/anon/unit_0016e8f8.cpp
 
 u32 func_001740b8(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2, r15;

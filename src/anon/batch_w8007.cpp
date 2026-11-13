@@ -9,13 +9,7 @@ struct W8007Tgt { u8 pad[0x28]; u32 id; u8 pad2[0x10]; W8007Tgt* next; };
 extern W8007Tgt* D_0034dca0;
 void func_001700e8(W8007Tgt*, s32);
 void w8007_wtarget_001703a8(u32 id) asm("_Z16wtarget_001703a8jjjj");
-void w8007_wtarget_001703a8(u32 id) {
-    W8007Tgt* n;
-    for (W8007Tgt* p = D_0034dca0; __builtin_expect(p != 0, 0); p = n) {
-        n = p->next;
-        if (p->id == id) func_001700e8(p, 1);
-    }
-}
+void w8007_wtarget_001703a8(u32 id);  // 0x001703a8: definition moved into src/anon/unit_0016e8f8.cpp
 
 /* 00172078: the float argument is declared last so it is loaded last. */
 void func_001945a0(u8*, s32, u32, f32);

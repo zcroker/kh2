@@ -125,12 +125,7 @@ s32 func_00167ea8(void) {
     return func_00167e00(D_0034d6c0 + 96);
 }
 
-s32 func_0016f930(s32 a) {
-    for (s32 i = 0; i < 2; i++) {
-        if (D_004f63a8[i] == a) return 2410 + i * 10;
-    }
-    return 2400;
-}
+s32 func_0016f930(s32 a);  // 0x0016f930: definition moved into src/anon/unit_0016e8f8.cpp
 
 void trap_obj_voice(u32* v) {
     u8* o = *(u8**)(v[0] + 4);

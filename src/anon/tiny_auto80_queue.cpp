@@ -10935,29 +10935,11 @@ void duplicate_unplaced_0016fb00(u32 a0) {
 extern "C" u32 func_001700e8(...);
 extern u8 D_0034dca0;
 
-void func_00170a50(void) {
-    u32 a0 = *(u32*)&D_0034dca0;
-    while (a0 != 0u) {
-        u32 s0 = *(u32*)((u32)a0 + (s32)(60));
-        func_001700e8(a0, 1u);
-        a0 = s0;
-    }
-}
+void func_00170a50(void);  // 0x00170a50: definition moved into src/anon/unit_0016e8f8.cpp
 
 extern u8 D_0034dca0;
 
-void func_00170e58(void) {
-    u32 t6 = 0u;
-    u32 t5 = *(u32*)((u32)&D_0034dca0 + (s32)(0));
-    while (1) {
-        u32 t7 = t5;
-        if (t6 != 0u) {
-            t7 = *(u32*)((u32)t6 + (s32)(60));
-        }
-        if (t7 == 0u) break;
-        t6 = t7;
-    }
-}
+void func_00170e58(void);  // 0x00170e58: definition moved into src/anon/unit_0016e8f8.cpp
 
 void duplicate_unplaced_00171348(u32 a0) {
     u32 t7 = *(u32*)((u32)a0 + (s32)(0));

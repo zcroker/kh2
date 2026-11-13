@@ -103,31 +103,5 @@ static inline __attribute__((always_inline)) void* W1634Create(W1634CharaData* c
 extern "C" {
 // Creates the object for chara id at pos with rotation rot (class picked by the chara data type).
 // The original keeps the result in the id register, so id doubles as the result variable here.
-void* func_0016f000(u32 id, void* pos, f32 rot) {  // entity_spawn
-    W1634CharaData* cd;
-    if (func_0016f6f8(id)) {
-        cd = W1634_GetCharaData(id);
-        id = (u32)W1634_AREA_Alloc(0x9c0);
-        func_00197fe0((void*)id, cd, 6, pos, rot);
-    } else if (func_0016f770(id)) {
-        id = 0;
-    } else if (func_0016f7a0(id)) {
-        id = 0;
-    } else if (id == 566) {
-        cd = W1634_GetCharaData(W1634_SORA_GetEntryId(0));
-        id = cd->level;
-        if (id == 0) {
-            id = D_0032f054;
-            cd = W1634_GetCharaData(W1634_SORA_GetEntryId(id));
-        }
-        id = (u32)func_00179fd0(cd, id, pos, rot);
-    } else {
-        cd = W1634_GetCharaData(id);
-        id = 0;
-        if (W1634_AREADATA_CanAddCost(cd->cost)) {
-            id = (u32)W1634Create(cd, pos, rot);
-        }
-    }
-    return (void*)id;
-}
+void* func_0016f000(u32 id, void* pos, f32 rot);  // 0x0016f000: definition moved into src/anon/unit_0016e8f8.cpp
 }

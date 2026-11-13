@@ -48,15 +48,7 @@ void* func_0016b040(void* r, u8* p) {
     return r;
 }
 
-u32 func_0016f770(s32 x) {  // in_id_special_range
-    switch ((u32)x) {
-    case 793:
-    case 794:
-    case 1006:
-        return 1;
-    }
-    return (x >> 29) & 1;
-}
+u32 func_0016f770(s32 x);  // 0x0016f770: definition moved into src/anon/unit_0016e8f8.cpp
 
 void trap_obj_show(void** p) asm("_ZN2YS13trap_obj_showEP8BD_VALUE");
 void trap_obj_show(void** p) {

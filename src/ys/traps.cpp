@@ -550,10 +550,7 @@ void trap_effect_add_dead_block(BD_VALUE* bd) { YS_EFFECT_AddDeadEffect(bd->i); 
 
 void trap_effect_set_type(BD_VALUE* bd) { bd->f = YS_MATH_FixRadian(bd->f); }
 
-void trap_sysobj_is_exist(BD_VALUE* bd) {
-    (void)bd;
-    func_00170ee8(1, 0xffff);
-}
+void trap_sysobj_is_exist(BD_VALUE* bd);  // 0x00170f38: definition moved into src/anon/unit_0016e8f8.cpp
 
 void trap_sysobj_moveto(BD_VALUE* bd) { bd->i = YS_OBJ_GetPlayer(); }
 

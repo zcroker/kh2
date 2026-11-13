@@ -73,41 +73,7 @@ static inline u8 ovl16fc10(O16fc10* o, O16fc10* a) {
     if (o->cur < a->start + a->size) ov = a->start < o->cur + o->size;
     return ov;
 }
-void func_0016fc10(O16fc10* a) {
-    O16fc10* o;
-    u32 fl = a->flags;
-    if ((fl & 1) == 1) return;
-    if (fl & 2) return;
-    a->flags = fl | 1;
-    o = 0;
-    if (a->start == a->cur) {
-        func_0016fda8(a);
-        return;
-    }
-    while ((o = nx16fc10(o)) != 0) {
-        if (o == a) continue;
-        fl = o->flags;
-        if (fl & 2) continue;
-        if (!ovl16fc10(o, a)) continue;
-        if ((fl & 1) == 1) break;
-        func_0016fc10(o);
-    }
-    if (o == 0 && a->cur != 0) {
-        if (a->size != 0) {
-            a->f1 = 1;
-            func_00168e30(a->cur);
-            func_001755a4((void*)a->start, (const void*)a->cur, a->size);
-            func_00168d08(a->start);
-            func_0016fda8(a);
-        }
-    } else if (!big16fc10(a)) {
-        a->f1 = 1;
-        func_001684c0(a->sub, a->start, &D_00170160, a);
-    } else {
-        a->flags |= 2;
-    }
-    a->cur = a->start;
-}
+void func_0016fc10(O16fc10* a);  // 0x0016fc10: definition moved into src/anon/unit_0016e8f8.cpp
 
 void func_0031cc28(void*) asm("_Z13func_0031cc28Pv");
 void func_00144490(f32, f32, f32, f32, f32, f32, void*);

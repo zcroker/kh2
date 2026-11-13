@@ -629,15 +629,7 @@ extern u8* D_0034dca0;
 s32 strcmp(u8*, u32);  // strcmp
 static inline u8* NextA(u8* n) { if (!n) return D_0034dca0; return *(u8**)(n + 60); }
 u8* ctarget_00170240(u32, u32, u32, u32) asm("_Z16ctarget_00170240jjjj");
-u8* ctarget_00170240(u32 name, u32 id, u32, u32)
-{
-    u8* n = 0;
-    while ((n = NextA(n))) {
-        if (strcmp(n + 4, name)) continue;
-        if ((s32)id == -1 || id == *(u32*)(n + 40)) return n;
-    }
-    return 0;
-}
+u8* ctarget_00170240(u32 name, u32 id, u32, u32);  // 0x00170240: definition moved into src/anon/unit_0016e8f8.cpp
 
 struct E12 { u32 a; u32 flags; u32 c; };
 extern E12 D_01c60588[];
@@ -1257,23 +1249,7 @@ extern u8* D_0034dca0;
 extern u32 D_0034dcb0;
 void func_001700e8(u8*, s32);
 void func_0016fc10(u8*);
-void func_001707d8(void)
-{
-    u32 lim = D_0034dcb0;
-    u8* n = D_0034dca0;
-    while (n) {
-        u8* nx = *(u8**)(n + 60);
-        if (*(s32*)(n + 40) >= 0 && lim < *(u32*)(n + 48) + *(u32*)(n + 44)) func_001700e8(n, 0);
-        else func_0016fc10(n);
-        n = nx;
-    }
-    n = D_0034dca0;
-    while (n) {
-        u8* nx = *(u8**)(n + 60);
-        if (*(u32*)(n + 36) & 2) func_001700e8(n, 0);
-        n = nx;
-    }
-}
+void func_001707d8(void);  // 0x001707d8: definition moved into src/anon/unit_0016e8f8.cpp
 s32 strcmp(u8*, u32);  // strcmp
 static inline u8* NextA(u8* n) { if (!n) return D_0034dca0; return *(u8**)(n + 60); }
 u8* func_0018bc60(u8*, s32);
