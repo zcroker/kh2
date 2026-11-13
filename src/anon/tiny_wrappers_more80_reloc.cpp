@@ -111,9 +111,7 @@ extern u8 D_01d9e900;
 extern u8 D_01da0000;
 extern u8 D_01e2a410;
 
-u32 func_00102c18(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_00102788(((u32)(*(u32*)((u32)((u32)&D_00330000) - 18068u))), a0, a1, a2);
-}
+// 00102c18: FIELD::CreateTask, moved to src/common/unit_00102a70.cpp
 
 // 00102f08: moved to src/common/title.cpp
 

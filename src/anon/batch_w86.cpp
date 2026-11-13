@@ -7,41 +7,7 @@ struct LHead { LNode* head; LNode* tail; };
 struct LList { u8 p0[8]; LHead ls; u8 p16[256]; LNode* cur; };
 static inline LNode* LNext(LHead* l, LNode* n) { if (!n) return l->head; return n->link[0]; }
 extern "C" void func_00102528(LList* l, LNode* n);
-void func_00102528(LList* l, LNode* n)
-{
-    LNode* pv = 0;
-    LNode* c = 0;
-    LHead* h;
-    while ((c = LNext(&l->ls, c))) {
-        if (n->key < c->key) break;
-        pv = c;
-    }
-    if (c && l->cur == c) l->cur = n;
-    h = &l->ls;
-    if (!pv) {
-        if (!l->ls.head) {
-            h->tail = n;
-            l->ls.head = n;
-            n->link[0] = 0;
-            n->link[1] = 0;
-        } else {
-            l->ls.head->link[1] = n;
-            n->link[1] = 0;
-            n->link[0] = l->ls.head;
-            l->ls.head = n;
-        }
-    } else if (pv == h->tail) {
-        pv->link[0] = n;
-        n->link[1] = h->tail;
-        n->link[0] = 0;
-        h->tail = n;
-    } else {
-        n->link[1] = pv;
-        n->link[0] = pv->link[0];
-        pv->link[0]->link[1] = n;
-        pv->link[0] = n;
-    }
-}
+// 00102528: moved to src/global/unit_001022c0.cpp
 }
 
 // ---- 001058f8

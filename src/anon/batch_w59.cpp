@@ -40,13 +40,7 @@ void func_00101ce0(void) {
 // caller's return address), construct it and link it in.
 void func_001022c0(void*, void*, int, int, void*);
 void func_00102528(void*, void*);
-void* create_task(void* self, int a, int b, void* fn) {
-    typedef void* (*AllocFn)(void*, int, void*);
-    void* t = (**(AllocFn**)self)(self, 72, __builtin_return_address(0));
-    func_001022c0(t, self, a, b, fn);
-    func_00102528(self, t);
-    return t;
-}
+// 00102788: TASK_MANAGER::create_task, moved to src/global/unit_001022c0.cpp
 
 // --- 00109140
 void func_00133de8(void);

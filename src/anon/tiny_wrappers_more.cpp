@@ -381,22 +381,13 @@ u32 func_00102278(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_00102250(0x00000001u, 0x0000ffffu, a2, a3);
 }
 
-u32 func_00102448(u32 a0, u32 a1, u32 a2, u32 a3) {
-    *(u32*)((u32)(((u32)(*(u32*)((u32)(a0) + 52u)))) + 244u) = (u32)(a1);
-    return func_00105620(((u32)(*(u32*)((u32)(a0) + 52u))), ((u32)(((u32)(*(u32*)((u32)(a0) + 36u)))) + 32u), a2, a3);
-}
+// 00102448: Tz::TaskYield, moved to src/global/unit_001022c0.cpp
 
-u32 func_00102730(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_00102688(a0, 0x00000000u, 0x00000000u, a3);
-}
+// 00102730: moved to src/global/unit_001022c0.cpp
 
-u32 func_001029e8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_001028b0(a0, 0x00000000u, 0x00000000u, a3);
-}
+// 001029e8: moved to src/global/unit_001022c0.cpp
 
-u32 func_00102cf0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_00102c90(0x00000001u, 0x0000ffffu, a2, a3);
-}
+// 00102cf0: moved to src/common/unit_00102a70.cpp
 
 // 001030e0: _GLOBAL__I_ stub, now made by gcc in src/common/title.cpp
 

@@ -290,9 +290,7 @@ class TASK_MANAGER {
 public:
     static void Create(void* mem, u32 size);
 };
-void TASK_MANAGER::Create(void* mem, u32 size) {
-    func_001024b0(func_00106178(mem, size));  // kn::MemoryAllocator::createMemoryAllocator
-}
+// 00102508: TASK_MANAGER::Create, moved to src/global/unit_001022c0.cpp
 
 namespace dk {
 class Layout {

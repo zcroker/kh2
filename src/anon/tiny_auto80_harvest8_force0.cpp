@@ -18,17 +18,7 @@ extern u8 D_00363410;
 extern u8 D_003637e0;
 extern u8 D_00367878;
 
-void func_001022c0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7;
-    *(volatile u32*)((u32)r4 + (s32)(36)) = r5;
-    *(volatile u32*)((u32)r4 + (s32)(0)) = r8;
-    *(volatile u32*)((u32)r4 + (s32)(40)) = r6;
-    *(volatile u32*)((u32)r4 + (s32)(44)) = r7;
-    *(volatile u32*)((u32)r4 + (s32)(68)) = 0u;
-    *(volatile u32*)((u32)r4 + (s32)(48)) = 0u;
-    *(volatile u32*)((u32)r4 + (s32)(52)) = 0u;
-    *(volatile u32*)((u32)r4 + (s32)(64)) = 0u;
-}
+// 001022c0: moved to src/global/unit_001022c0.cpp
 
 u32 func_00106158(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r15;

@@ -22,16 +22,7 @@ typedef u8* (*AllocFn)(void*, u32, void*);
 
 // Allocates a block (size + 256) from the heap, tagged with the caller's address,
 // then builds the object via func_00102788 and links the block to it.
-u8* func_00102818(void** heap, u32 a1, u32 a2, u32 a3, u32 size) {
-    u8* blk = (*(AllocFn*)*heap)(heap, size + 256, __builtin_return_address(0));
-    u8* r = func_00102788(heap, a1, a2, a3);
-    *(u32*)(blk + 252) = size;
-    blk[240] = 0;
-    *(u32*)(blk + 244) = 0;
-    *(u32*)(blk + 248) = 0;
-    *(u32*)(r + 52) = (u32)blk;
-    return r;
-}
+// 00102818: moved to src/global/unit_001022c0.cpp
 
 // ---------------------------------------------------------------------------
 s32 strlen(void*);  // strlen

@@ -55,25 +55,7 @@ void func_00100350(void) {
     }
 }
 
-void func_001022e8(u8* a0) {
-    Fn0 fn = (Fn0) * (u32*)(a0 + 48);
-    if (fn != 0) {
-        fn();
-    }
-
-    u32 arg = *(u32*)(a0 + 52);
-    if (arg != 0) {
-        u32 obj = *(u32*)(a0 + 36);
-        u32 vt = *(u32*)obj;
-        Fn2 m = (Fn2) * (u32*)(vt + 4);
-        m(obj, arg);
-    }
-
-    u32 obj = *(u32*)(a0 + 36);
-    u32 vt = *(u32*)obj;
-    Fn2 m = (Fn2) * (u32*)(vt + 4);
-    m(obj, (u32)a0);
-}
+// 001022e8: moved to src/global/unit_001022c0.cpp
 
 void func_00103bb0(s32 a0) {
     u32 v20 = func_00102c80();

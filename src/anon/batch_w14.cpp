@@ -89,10 +89,7 @@ void u_call4_001d2210(u32, u32, u32, u32) asm("_Z16u_call4_001d2210jjjj");
 void u_call4_00139d78(u32) asm("_Z16u_call4_00139d78jjjj");
 
 // Virtual call: slot 1 with (this, this) after a helper.
-void func_00102750(void** p) {
-    func_00102730(p);
-    (*(void (**)(void*, void*))(*(u8**)p + 4))(p, p);
-}
+// 00102750: moved to src/global/unit_001022c0.cpp
 
 // Counts the nodes of the list headed at p+8 (linked through +56).
 static inline u8* next_node(u8* p, u8* q) {
@@ -100,12 +97,7 @@ static inline u8* next_node(u8* p, u8* q) {
     return *(u8**)(q + 56);
 }
 
-s32 func_00102a08(u8* p) {
-    s32 n = 0;
-    u8* q = 0;
-    while ((q = next_node(p, q))) n++;
-    return n;
-}
+// 00102a08: moved to src/global/unit_001022c0.cpp
 
 void func_00114de0(u8* p) {
     *(u8**)p = D_00346960;

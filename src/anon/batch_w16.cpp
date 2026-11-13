@@ -104,9 +104,7 @@ extern u8 D_01d5baa0;
 extern u8 D_003520d0;
 extern void* D_003520c0;
 
-void func_00102c48(u32 a, u32 b, u32 c, u32 d) {
-    func_00102818(D_0032b96c, a, b, c, d);
-}
+// 00102c48: moved to src/common/unit_00102a70.cpp
 
 // Destructor body: set vtable, destroy members, chain to the base.
 void func_00115090(void* p) {

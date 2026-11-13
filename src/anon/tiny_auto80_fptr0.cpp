@@ -78,14 +78,7 @@ u32 func_0023cdb8();
 u32 func_00286628();
 u32 func_002c23f0();
 
-u32 func_00102b68(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2;
-    u32 (*fp_call0_002b9e80)() = func_002b9e80;
-    r2 = fp_call0_002b9e80();
-    u32 (*fp_call0_00136968)() = func_00136968;
-    r2 = fp_call0_00136968();
-    return func_00136ab8();
-}
+// 00102b68: moved to src/common/unit_00102a70.cpp
 
 u32 func_001385f8(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2;
