@@ -144,14 +144,7 @@ u32 func_0016c008(u32 a0, u32 a1, u32 a2, u32 a3) {
 
 extern "C" void func_0016c018(u32, u32, u32, u32) asm("_ZN2YS3OBJ12set_unit_argEii");
 
-u32 func_0016d1d8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u, r15 = 0u;
-    r15 = *(u32*)((u32)r4 + (s32)(0));
-    r2 = (u32)((s32)r4 + (16));
-    r15 = (u32)((s32)r15 + (1));
-    *(u32*)((u32)r4 + (s32)(0)) = r15;
-    return r2;
-}
+// 0016d1d8: moved to src/anon/unit_0016c770.cpp
 
 u32 func_0016f460(u32 a0, u32 a1, u32 a2, u32 a3) {  // obj_test_byte_40
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u;

@@ -2175,60 +2175,13 @@ u32 func_0016bda8(u32 a0, u32 a1) {
     return a0;
 }
 
-u32 func_0016cce8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4) {
-    u32 s0 = a0;
-    u32 s1 = a2;
-    u32 s2 = a3;
-    u32 s3 = a4;
+// 0016cce8: moved to src/anon/unit_0016c770.cpp
 
-    u32 v0 = func_0016cb88(s0);
-    return func_0016cc18(s0, v0, s1, s2, s3);
-}
+// 0016cf00: moved to src/anon/unit_0016c770.cpp
 
-u32 func_0016cf00(u8* a0, u32 a1, u32 a2, u32 a3, u32 a4) {
-    u32 s1 = (u32)a0;
-    u32 s2 = a2;
-    u32 s3 = a3;
-    u32 s4 = a1;
-    u32 s5 = a4;
+// 0016cff0: moved to src/anon/unit_0016c770.cpp
 
-    u32 s0 = func_0016c7a0(64);
-    func_0016c8f8(s0, *(u32*)(s1 + 0), *(u32*)(s1 + 52), *(u32*)(s1 + 56));
-
-    u32 t7 = *(u32*)(s0 + 28);
-    *(u32*)(s0 + 32) = s4;
-    *(u32*)(s0 + 28) = t7 | 1;
-
-    func_001da458(s0, s2, s3, s5);  // stream_init_fields
-    return s0;
-}
-
-void func_0016cff0(u8* a0, u32 a1, u32 a2) {
-    u32 s2 = a2;
-    u32 s3 = a1;
-    u8* s4 = a0;
-    u32 s0 = *(u32*)(a0 + 44);
-
-    while (s0 != 0) {
-        u32 s1 = *(u32*)(s0 + 40);
-        if ((*(u32*)(s0 + 32) & s3) == s2) {
-            func_0031e2c8((u32)(s4 + 44), s0);
-            if (s0 != 0) {
-                func_0016cab8(s0);
-                func_0016c7d8(s0);
-            }
-        }
-        s0 = s1;
-    }
-}
-
-u32 func_0016d080(u32 a0, u32 a1) {
-    u32 s0 = a0;
-    u32 s2 = a1;
-    u32 s1 = func_0016c7a0(64);
-    func_0016c8f8(s1, s0, 0, s2);
-    return s1;
-}
+// 0016d080: moved to src/anon/unit_0016c770.cpp
 
 void func_0016d698(u8* a0) {
     u8* s0 = a0;

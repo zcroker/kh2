@@ -714,19 +714,7 @@ u32 func_00166cf0(u32 a0, u32 a1, u32 a2, u32 a3) {  // obj_has_flag4
     return r2;
 }
 
-u32 func_0016cbc8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2, r16, r17, r18;
-    r16 = r4;
-    r17 = r6;
-    r18 = r7;
-    u32 (*fp_call4_0016cb88)(u32, u32, u32, u32) = func_0016cb88;
-    r2 = fp_call4_0016cb88(r4, r5, r6, r7);
-    r4 = r16;
-    r6 = r17;
-    r7 = r18;
-    r5 = r2;
-    return func_0016cba0(r4, r5, r6, r7);
-}
+// 0016cbc8: moved to src/anon/unit_0016c770.cpp
 
 u32 func_0016ef28(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2;

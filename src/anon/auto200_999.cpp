@@ -398,22 +398,7 @@ f32 func_0016a0a0(u32 a0) {
     return ret;
 }
 
-void func_0016ced0(u32 a0) {  // list_append
-    u32 list = (u32)&D_004f6290;
-    u32 tail = *(u32 *)(list + 4);
-    if (tail != 0) {
-        goto nonempty;
-    }
-    *(u32 *)(list + 4) = a0;
-    *(u32 *)list = a0;
-    *(u32 *)(a0 + 40) = 0;
-    return;
-
-nonempty:
-    *(u32 *)(tail + 40) = a0;
-    *(u32 *)(a0 + 40) = 0;
-    *(u32 *)(list + 4) = a0;
-}
+// 0016ced0: moved to src/anon/unit_0016c770.cpp
 
 void func_0016c568(u32 a0) {
     register u32 p asm("$14") = a0 + 1304;

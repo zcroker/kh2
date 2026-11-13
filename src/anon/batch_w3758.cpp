@@ -7,23 +7,7 @@ void func_0016c8f8(S64*, u32, u32, u32);
 void func_001da458(S64*, s32, s32, s32);
 void func_0016cd48(S64*, u32*);
 void func_0016cab8(S64*);
-void func_0016cc18(u32* p, s32 n, s32 b, s32 c, u32* q) {
-    S64 s;
-    func_0016c8f8(&s, p[0], p[13], p[14]);
-    s32 s0 = D_0034d8a4;
-    s32 s1 = D_0034d8a0;
-    s.f |= 1;
-    if (n > 0) {
-        func_001da458(&s, n, b, c);
-        // Pin: original selects directly into a1 after the call; an unpinned pseudo gets hoisted by sched1.
-        register u32* r asm("$5");
-        if (!q) r = p; else r = q;
-        func_0016cd48(&s, r);
-    }
-    D_0034d8a4 = s0;
-    D_0034d8a0 = s1;
-    func_0016cab8(&s);
-}
+// 0016cc18: moved to src/anon/unit_0016c770.cpp
 
 struct Sub3e0 { u8 pad[184]; u32 f184; };
 struct Spr3e0 { u8 pad[24]; Sub3e0 sub; u8 pad2[392-24-188]; s32 f392; u8 pad3[9]; u8 b405; u8 pad4[2]; };

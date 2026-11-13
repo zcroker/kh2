@@ -159,23 +159,7 @@ static inline void Kill(Node* c)
         func_0016c7d8(c);
     }
 }
-void func_0016cab8(Node* p)
-{
-    if (p->f36) {
-        func_001da458(p, p->f36, 0, 0);  // stream_init_fields
-        func_001da558(p, &D_0034dbf8, 0, 0);
-    }
-    Node* c = p->child;
-    while (c) {
-        Node* n = c->next;
-        Kill(c);
-        c = n;
-    }
-    ((RelFn)D_004f6288->vt[1])(D_004f6288, p->h20);
-    ((RelFn)D_004f6288->vt[1])(D_004f6288, p->h24);
-    if (p->f52) func_0016d1f0(p->f52);
-    func_0016ce90(p);
-}
+// 0016cab8: moved to src/anon/unit_0016c770.cpp
 }
 }
 

@@ -53,13 +53,7 @@ extern u32 D_004f6288;
 extern u32 D_0032b91c;
 struct W2 { u32 a; u32 b; };
 extern W2 D_004f6290;
-void wtarget_0016d230(u32 a, u32 b, u32, u32) {
-    if (b == 0xffff && a == 1) D_004f6288 = D_0032b91c;
-    if (b == 0xffff && a == 1) {
-        D_004f6290.b = 0;
-        D_004f6290.a = 0;
-    }
-}
+// 0016d230: moved to src/anon/unit_0016c770.cpp
 
 // Fall back to the id at +56 when it lies in one of the special ranges.
 s32 func_0016ffc8(u8* p) {

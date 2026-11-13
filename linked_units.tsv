@@ -98,6 +98,7 @@ src/common/shop.cpp	00105c68	00105ee8	.data@0033cb80,.rodata@00369f50	-G0
 src/harata/libdk/mapfile.cpp	001491a8	00149be8	.rodata@0036afb8	-G0
 src/harata/libdk/area.cpp	00149be8	00149fa8	.data@00348d68	-G0
 src/yasui/libys/file.cpp	00168218	00168aa0	.data@0034d800,.bss@004f5280	-G0 -g -fmove-all-movables -fno-strict-aliasing
+src/anon/unit_0016c770.cpp	0016c770	0016d2e0	-	-G0 -fno-strict-aliasing
 src/yasui/libys/party.cpp	00175670	00177dc8	.rodata@0036c4ac	-G0 -fno-strict-aliasing
 src/yasui/libys/player.cpp	00177dc8	0017a7e0	.rodata@0036c4c8	-G0 -fno-strict-aliasing
 src/anon/unit_0017a8f8.cpp	0017a8f8	0017aad0	-	-G0
