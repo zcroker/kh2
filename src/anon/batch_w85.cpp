@@ -790,16 +790,7 @@ void func_00180a10(Obj180* o, It180* it) {
 extern u8* D_00352130;
 u32 func_0019fdb0(u8*);
 void func_001a2a18(u8*);
-void func_001a2910(u32, u8* o) {
-    u8* v = o + 32;
-    vu_scale(v, *(f32*)(D_00352130 + 60));
-    if (vu_len(v) < *(f32*)(o + 244)) {
-        f32 z = 0.0f;
-        func_0017f488(o + 320, func_0019fdb0(o), z, z);
-        func_0017f5e0(o + 320, 0, 0, z, z);
-        func_001a2a18(o);
-    }
-}
+// 001a2910: moved to src/anon/unit_001a28f8.cpp
 
 // transforms a point into the volume's space and tests it against the ellipse/height bounds
 s32 func_001db368(u8* o, const Vec4* in) {

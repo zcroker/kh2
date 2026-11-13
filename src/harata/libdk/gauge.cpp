@@ -30,33 +30,6 @@ void GAUGE_DRAW::checkAlertOff() {
     }
 }
 
-u32 GAUGE_PARTY::getGroup() {
-    u32 v = *(u32*)((u32)this + 44) + *(u32*)((u32)this + 48);
-    return (u32)((s32)v + 3);
-}
-
-u32 GAUGE_PARTY::isAlertStart() {
-    u32 t4 = *(u32*)((u8*)this + 28);
-    u32 v0 = 0;
-    if (t4 != 1) {
-        if (*(u32*)((u8*)this + 24) == 1) {
-            return 1;
-        }
-        v0 = 0;
-    }
-    return v0;
-}
-
-u32 GAUGE_PARTY::isAlertEnd() {
-    u32 t4 = *(u32*)((u8*)this + 28);
-    u32 v0 = 0;
-    if (t4 == 1) {
-        if (*(u32*)((u8*)this + 24) != t4) {
-            return 1;
-        }
-        v0 = 0;
-    }
-    return v0;
-}
+// 00158290, 001581a8, 001581d0 (GAUGE_PARTY getGroup, isAlertStart, isAlertEnd): moved to src/anon/unit_00158050.cpp
 
 }  // namespace dk

@@ -191,17 +191,7 @@ void wtarget_00198970(u8* p, u32, u32, u32)
 
 // 001a3958: first item of a kind that has an Ansem entry; mark it
 void func_001a34e0(u32, s32);
-u32 func_001a3958(u32 kind)
-{
-    u8* it = 0;
-    while ((it = item_each(it)) != 0) {
-        if (it[2] == kind && has_ansem_entry(*(u16*)it) > 0) {
-            func_001a34e0(*(u16*)it, 1);
-            return *(u16*)it;
-        }
-    }
-    return 0;
-}
+// 001a3958: moved to src/anon/unit_001a2a50.cpp
 
 // 001a8cd0: slot (0-3) holding the given element, or -1
 s32 func_001a8bf8(u32, s32);  // get_bits5_at

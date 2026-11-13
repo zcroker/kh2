@@ -69,5 +69,5 @@ void func_002e3f78(f32* v) { v[0] = v[1] = v[2] = 0.0f; v[3] = 1.0f; }
 
 u32 u_call4_001c73e0(u32 p, u32, u32, u32) { func_001c71f8(p, -0.8f); return func_001c7440(p, 0); }
 void wtarget_001a5b08(u32 a, u32 b, u32, u32) { if (b == 0xffff && a == 1) D_01c6cb18 = 0.52359873f; }  // 30 degrees
-void wtarget_00158000(u32 a, u32 b, u32, u32) { if (b == 0xffff && a == 1) D_004f3588 = 0.07853981f; }
+// 00158000: static initialiser, now made by gcc in src/anon/unit_00157688.cpp
 void wtarget_0017e808(u32 a, u32 b, u32, u32) { if (b == 0xffff && a == 1) D_01c60520 = 0.34906584f; }

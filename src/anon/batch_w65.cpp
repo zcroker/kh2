@@ -252,15 +252,7 @@ void func_001966b0(s32 i) {
 void func_001a34e0(s32, s32);
 u8* func_00188fe0(void*);
 extern u8 D_0032e020[];
-s32 YS_ITEM_Reduce(s32 a, s32 b) {
-    if (b == 100) { func_001a34e0(a, 1); return 1; }
-    u8* t = func_00188fe0(D_0032e020);
-    s32 i;
-    for (i = t[18] - 1; i >= 0; i--) {
-        if (*(u16*)(t + 52 + i * 2) == a) { *(u16*)(t + 52 + i * 2) = 0; return 1; }
-    }
-    return 0;
-}
+// 001a3458: moved to src/anon/unit_001a2a50.cpp
 
 extern u32 D_00350748;
 extern u32 D_01c6cafc;

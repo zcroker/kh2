@@ -69,10 +69,7 @@ void func_001535b0(u8* p, s32 i) {
 
 s32 func_001a1de0(void*);
 void func_00138c10(void*, s32);
-void func_00157aa0(u8* p) {
-    if (!func_001a1de0(*(void**)(*(u8**)(p + 52) + 1164))) func_00138c10(p + 10000, 117);
-    else func_00138c10(p + 10000, 111);
-}
+// 00157aa0: moved to src/anon/unit_00157688.cpp
 
 struct E16 { u16 id; u8 pad[14]; };
 struct T168 { u32 pad; s32 n; u32 pad2[2]; E16 e[1]; };

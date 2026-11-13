@@ -192,14 +192,7 @@ void func_0019d438(u8* p) {
 
 u8* func_001a80c8(void);  // table24_find_by_id
 s32 func_001a67b0(u32);
-s32 func_001a3820(void) {
-    u8* r = func_001a80c8();  // table24_find_by_id
-    switch (r[2]) {
-    case 0: return *(u16*)(r + 16);
-    case 18: return func_001a67b0(*(u16*)(r + 4));
-    }
-    return 0;
-}
+// 001a3820: moved to src/anon/unit_001a2a50.cpp
 
 void func_00239700(void*);
 u32 func_001ab810(void);  // get_global_1c7cec0

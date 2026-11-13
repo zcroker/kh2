@@ -1985,172 +1985,23 @@ u32 func_001564b0(u32 a0, u32 a1, u32 a2, u32 a3);
 // 00156540: moved to src/anon/unit_00153ea0.cpp
 u32 func_00156540(u32 a0);
 
-void func_00157758(u32 a0) {
-    u32 s0 = a0;
-    u32 p = *(u32*)(a0 + 52);
-    if (p == 0) {
-        return;
-    }
+// 00157758: moved to src/anon/unit_00157688.cpp
 
-    if (func_002ba358() == 0) {
-        if (func_00166cc8(*(u32*)(s0 + 52)) == 0) {
-            return;
-        }
-        return func_001576e8(s0);
-    }
+// 001577c8: moved to src/anon/unit_00157688.cpp
 
-    if (func_00166cc8(*(u32*)(s0 + 52)) != 0) {
-        return;
-    }
-    return func_001576e8(s0);
-}
+// 00157880: moved to src/anon/unit_00157688.cpp
 
-void func_001577c8(u32 a0) {
-    u32 s0 = a0;
-    u32 p;
-    if (func_001396c0(s0) != 0) {
-        goto L_800;
-    }
+// 00157a00: moved to src/anon/unit_00157688.cpp
 
-    p = *(u32*)(s0 + 52);
-    if (p == 0) {
-        return;
-    }
-    if (func_00166cf0(p) == 0) {
-        goto L_828;
-    }
+// 00158088: moved to src/anon/unit_00158050.cpp
 
-L_800:
-    if (func_002ba358() == 0) {
-        return;
-    }
-    return func_002ba390();
+// 001580e0: moved to src/anon/unit_00158050.cpp
 
-L_828:
-    if (func_002ba358() != 0) {
-        goto L_854;
-    }
-    if (func_00166cc8(*(u32*)(s0 + 52)) == 0) {
-        return;
-    }
-    return func_002ba368();
+// 00158138: moved to src/anon/unit_00158050.cpp
 
-L_854:
-    if (func_00166cc8(*(u32*)(s0 + 52)) != 0) {
-        return;
-    }
-    func_002ba390();
-    return func_001576e8(s0);
-}
+// 001581f8: moved to src/anon/unit_00158050.cpp
 
-void func_00157880(u32 a0) {
-    u32 s0 = a0;
-    if (*(u32*)(a0 + 52) == 0) {
-        return;
-    }
-    if (func_002ba358() == 0) {
-        return;
-    }
-    if (func_00166cc8(*(u32*)(s0 + 52)) != 0) {
-        return;
-    }
-    return func_002ba390();
-}
-
-void func_00157a00(u32 a0) {
-    u32 s0 = a0;
-    u32 s1;
-    u32 s2;
-    u32 p;
-
-    func_00157990(s0);
-    p = *(u32*)(*(u32*)(s0 + 52) + 1164);
-    s1 = *(u32*)(p + 4);
-    s2 = *(u32*)(p + 0);
-
-    func_001558b8(s0, s1, 1);  // entry592_process
-    func_001559e8(s0, s1, 4);
-    func_001558b8(s0, *(u32*)(s0 + 36), 2);  // entry592_process
-    func_001559e8(s0, *(u32*)(s0 + 36), 5);
-    func_001558b8(s0, s2, 3);  // entry592_process
-    return func_001559e8(s0, s2, 6);
-}
-
-void func_00158088() {
-    u32 s[4];
-    u32 p = (u32)s;
-
-    s[2] = 0;
-    s[1] = 0;
-    func_001b7e68(p, (s[0] = 0, 16));
-    func_001b8010(p, 1, 71, 0x00070000, 0xffff);
-    func_001b80d8(p);
-    func_001b7f30(p);
-}
-
-void func_001580e0(u32 a0) {
-    u32 s0 = a0;
-    if (*(u32*)(a0 + 408) != 0) {
-        func_00158088();
-        u32 p = s0 + 24;
-        u32 m = 0xfffffffd;
-        u32 x = *(u32*)(p + 16);
-        *(u32*)(p + 16) = x & m;
-        func_00237ad8(p, *(u32*)(s0 + 408));
-    }
-    return func_00138988(s0);
-}
-
-u32 func_00158138(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 s0 = a0;
-    u32 v;
-
-    *(u32*)(a0 + 44) = a3;
-    *(u32*)(a0 + 48) = a2;
-    *(u32*)(a0 + 52) = a1;
-    *(u32*)(a0 + 28) = 0;
-    *(u32*)(a0 + 24) = 0;
-    *(u8*)(a0 + 32) = 0;
-    *(u8*)(a0 + 33) = 0;
-
-    if (a1 != 0) {
-        u32 t6 = *(u32*)(*(u32*)(a1 + 1164));
-        *(volatile u32*)(a0 + 36) = t6;
-        *(volatile u32*)(a0 + 40) = t6;
-    } else {
-        *(u32*)(a0 + 40) = 0;
-        *(u32*)(a0 + 36) = 0;
-    }
-
-    v = func_00158290(s0);
-    return func_001391c8(s0, 7000, v);
-}
-
-void func_001581f8(u32 a0) {
-    u32 s0 = a0;
-    u32 p = *(u32*)(a0 + 52);
-    *(u32*)(s0 + 28) = *(u32*)(s0 + 24);
-    if (func_00166cf0(p) != 0) {
-        *(u32*)(s0 + 24) = 2;
-        return;
-    }
-    if (func_00166cc8(*(u32*)(s0 + 52)) != 0) {
-        *(u32*)(s0 + 24) = 1;
-        return;
-    }
-    *(u32*)(s0 + 24) = 0;
-}
-
-void func_001582a8(u32 a0) {
-    u32 s0 = a0;
-    u32 v = func_00158290(s0);
-    if (*(u32*)(s0 + 52) == 0) {
-        return func_001399c0(v);
-    }
-    if (v != 3) {
-        return func_00139948(v);
-    }
-}
+// 001582a8: moved to src/anon/unit_00158050.cpp
 
 // 00158658: moved to src/harata/libdk/cannoncamera.cpp
 
@@ -4187,56 +4038,11 @@ void func_001a27f0(u32 a0, u32 a1) {
     }
 }
 
-u32 func_001a3570(u32 a0) {
-    u8* p = func_001a80c8(a0);  // table24_find_by_id
-    u32 out = 0;
-    u32 f = p[3];
-    f = f & 1;
-    if (f != 0) {
-        u32 idx = *(u16*)(p + 18);
-        u32 bit = 1u << (idx & 31);
-        u32 w = idx >> 5;
-        u32 v = *(u32*)((&D_0032f1f0) + (w << 2));
-        out = ((v & bit) != 0);
-        return out;
-    }
+// 001a3570: moved to src/anon/unit_001a2a50.cpp
 
-    u32 t = p[2];
-    if (t == 19) {
-        return out;
-    }
-    u32 idx = *(u16*)(p + 18);
-    u8* b = (&D_0032bb30) + idx;
-    out = b[13696];
-    return out;
-}
+// 001a3710: moved to src/anon/unit_001a2a50.cpp
 
-void func_001a3710() {
-    s32 s0 = 0;
-    u32 s1 = func_001a8bd0(0xffffffff);
-    do {
-        u32 v = func_001a8c10(s1, s0);
-        s0 = s0 + 1;
-        u32 p = func_00188fe0((u32)&D_0032e020, v);
-        if (p) {
-            func_00188ac8(p);
-        }
-    } while (s0 < 4);
-}
-
-u32 func_001a3788(u8* a0, u32 a1, s32 a2) {
-    u8* s1 = a0;
-    s32 s0 = a2;
-    u8* p = func_001a80c8(a1);  // table24_find_by_id
-    if (s0 < 0) {
-        s0 = p[23];
-    }
-    s1[1] = (u8)s0;
-    s1[0] = 9;
-    u32 r = func_00192048(*(u16*)(p + 8));
-    u32 r2 = func_00192c90(r, (u32)(s1 + 2));
-    return r2 + 2;
-}
+// 001a3788: moved to src/anon/unit_001a2a50.cpp
 
 // 001a3bf0: moved to src/yasui/libys/effect.cpp
 

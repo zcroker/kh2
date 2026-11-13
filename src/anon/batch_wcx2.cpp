@@ -6278,63 +6278,7 @@ u32 func_0013d7e0(void);
 s32 func_00139c18(u8*);
 s32 func_00139d78_7c88(Sub4*) asm("func_00139d78");
 void func_001386e0_7c88(Sub4*, s32, u32, u32, s32, u32) asm("func_001386e0");
-void func_00157c88(u8* p)
-{
-    func_00156408(p);
-    if (func_00156010(p)) return;
-    if (!func_00156030(p)) {
-        if (func_00156058(p) || func_00156080(p)) {  // state_code_is_2
-            s32 a = 0;
-            s32 b = 0;
-            func_00155d80(p);
-            func_001560a8(p, &a, &b);
-            func_00155cb0(p, a, b);
-            if (p[15607] == 1) {
-                p[15607] = 0;
-                func_00138c10_7c88(p + 12472, func_00155e30(p));
-            }
-        } else {
-            func_00155bf0(p, (*(u8**)(*(u8**)(p + 52) + 1164))[432]);
-            func_00155d80(p);
-            u8* q = *(u8**)(*(u8**)(p + 52) + 1164);
-            bool full = q[433] >= q[434];
-            if (full) {
-                if (!p[15609]) {
-                    if (p[15608] == 1 && !func_00105300()) func_002ba2e8(33, 0);
-                    func_00138c10_7c88(p + 916, 20);
-                    p[15609] = 1;
-                }
-                func_001395a8(p + 916);
-            } else {
-                p[15609] = 0;
-                func_00139598(p + 916);
-            }
-            u8 f = p[15606];
-            if (f != 1) return;
-            p[15606] = 0;
-            func_00138c10_7c88(p + 12472, func_00155e30(p));
-            if (p[15608] != f) return;
-            if (!p[15609]) func_002ba2e8(32, 0);
-            u32 c = func_00158290(p);
-            u32 h = func_0013a7e8(1);
-            u32 w = func_0013d7e0();
-            Sub4* s = (Sub4*)(p + func_00139c18(p + 2548) * 408 + 2548);
-            if (!func_00139d78_7c88(s)) {
-                func_001386e0_7c88(s, 7000, h, w, 22, c);
-                s->owner = p + 11648;
-                func_001396b0(s);
-                if (s->owner) {
-                    s->f400 = 0;
-                    func_001396b0(s);
-                    if (s->f400) func_0031a260(s, 0);
-                }
-            }
-            p[15608] = 0;
-            return;
-        }
-    }
-    func_00139598(p + 916);
-}
+// 00157c88: moved to src/anon/unit_00157688.cpp
 
 // ---- 001823d0
 extern s32 D_0034ecd0;

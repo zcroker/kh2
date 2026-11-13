@@ -52,31 +52,7 @@ bool func_001a27b8(u8*);
 static inline bool IsFullA(u8* p) { return *(s32*)(p + 0) >= *(s32*)(p + 4); }
 static inline bool HasC(u8* p) { return p[433] < p[434]; }
 static inline bool IsFullB(u8* p) { return !func_001a1de0(p) && *(s32*)(p + 384) >= *(s32*)(p + 388); }
-bool func_001a2e50(u16* req, s32 id) {
-    bool r = false;
-    u8* p = func_001a1658(id, -1);  // state_dispatch_0_1_14
-    if (!p) return false;
-    switch (*req) {
-    case 1: case 2: case 5:
-        r = !IsFullA(p);
-        break;
-    case 3: case 6:
-        r = !IsFullB(p);
-        break;
-    case 4: case 7: case 131:
-        r = !(IsFullA(p) && IsFullB(p));
-        break;
-    case 274: case 275:
-        r = HasC(p);
-        break;
-    case 276: r = !func_001a2758(p); break;
-    case 277: r = !func_001a2778(p); break;
-    case 278: r = !func_001a2798(p); break;
-    case 279: r = !func_001a27b8(p); break;
-    }
-    func_001a17c8(p);
-    return r;
-}
+// 001a2e50: moved to src/anon/unit_001a2a50.cpp
 
 // ---- f4.cpp
 s32 func_001a9528(u8*);

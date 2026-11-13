@@ -722,10 +722,7 @@ void func_001afae0(u32 a0, u32 a1, u32 a2, u32 a3) {
     *(u32*)((u32)b + (3576)) = (u32)0;
 }
 
-void func_001b13f0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 b = (0x0035u << 16);
-    *(u32*)((u32)b + (3720)) = (u32)0;
-}
+// 001b13f0: moved to src/yasui/libys/databuff.cpp
 
 void func_001b6fa0(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 b = (0x01d5u << 16);
@@ -2671,19 +2668,9 @@ void func_0019ef60(u32 a0, u32 a1, u32 a2, u32 a3) {
     D_01c62f98 = (u32)((s32)-1);
 }
 
-u32 func_001a36e0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    return *(u16*)((u32)&D_0036d458 + ((u32)a0 << 1) + (0));
-}
+// 001a36e0: moved to src/anon/unit_001a2a50.cpp
 
-u32 func_001a36f8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    return *(u16*)((u32)&D_0036d468 + ((u32)a0 << 1) + (0));
-}
+// 001a36f8: moved to src/anon/unit_001a2a50.cpp
 
 u32 func_001aae68(u32 a0, u32 a1, u32 a2, u32 a3) {
     (void)a1;

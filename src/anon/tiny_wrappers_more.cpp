@@ -568,21 +568,8 @@ u32 func_001565a8(u32 a0, u32 a1, u32 a2, u32 a3);
 // 001574d8: moved to src/anon/unit_00153ea0.cpp
 u32 func_001574d8(u32 a0, u32 a1, u32 a2, u32 a3);
 
-u32 func_001576a0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_001574f8(a0, 0x00000086u, a2, a3);
-}
-
-u32 func_001576b8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_001574f8(a0, 0x00000085u, a2, a3);
-}
-
-u32 func_001576d0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_001575c0(a0, a1, a2, a3);
-}
-
-u32 func_00158030(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_00158000(0x00000001u, 0x0000ffffu, a2, a3);
-}
+// 001576a0, 001576b8, 001576d0: moved to src/anon/unit_00157688.cpp
+// 00158030: _GLOBAL__I_ stub, now made by gcc in src/anon/unit_00157688.cpp
 
 // 00158990: _GLOBAL__I_ stub, now made by gcc in src/yasui/libys/light.cpp
 
@@ -812,9 +799,7 @@ u32 func_001a2898(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_001a27f0(0x00000001u, 0x0000ffffu, a2, a3);
 }
 
-u32 func_001a28f8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_001878e8(a1, a1, a2, a3);
-}
+// 001a28f8: moved to src/anon/unit_001a28f8.cpp
 
 u32 func_001a3e30(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_001a3d70(0x00000001u, 0x0000ffffu, a2, a3);

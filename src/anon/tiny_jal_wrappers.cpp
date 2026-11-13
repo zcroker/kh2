@@ -211,12 +211,7 @@ u32 func_0019c470(u32 a0, u32 a1, u32 a2, u32 a3) {
     return r2;
 }
 
-u32 func_001a3168(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u;
-    r2 = func_001a3018(r4, r5, r6, r7);
-    r2 = ((u32)0u < (u32)r2);
-    return r2;
-}
+// 001a3168: moved to src/anon/unit_001a2a50.cpp
 
 extern "C" u32 func_001a9080(u32, u32, u32, u32) asm("_ZNK2YS6MEMBER8is_existEi");
 

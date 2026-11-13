@@ -539,40 +539,8 @@ void* func_001a8bd0(s32);
 s32 func_001a8c10(void*, s32);
 void func_001a2b50(void*, s32, s32, s32);
 s32 func_001a2e50(void*, s32);
-s32 func_001a2a50(s32 id, s32 a, s32 b, s32 c)
-{
-    s32 r = 0;
-    void* w = func_001a80c8(id);  // table24_find_by_id
-    if (!func_001a3888(id)) {  // id_in_range_5_7_131
-        func_001a2b50(w, a, b, c);
-        if (a != b) r = 1;
-    } else {
-        void* g = func_001a8bd0(-1);
-        for (s32 i = 0; i < 4; i++) {
-            a = func_001a8c10(g, i);
-            if (a) {
-                func_001a2b50(w, a, b, c);
-                if (a != b) r = 1;
-            }
-        }
-    }
-    return r;
-}
-s32 func_001a2d78(s32 id, s32 a)
-{
-    s32 r = 0;
-    void* w = func_001a80c8(id);  // table24_find_by_id
-    if (!func_001a3888(id)) {  // id_in_range_5_7_131
-        r = func_001a2e50(w, a);
-    } else {
-        void* g = func_001a8bd0(-1);
-        for (s32 i = 0; i < 4; i++) {
-            a = func_001a8c10(g, i);
-            if (a) r = r || func_001a2e50(w, a);
-        }
-    }
-    return r;
-}
+// 001a2a50: moved to src/anon/unit_001a2a50.cpp
+// 001a2d78: moved to src/anon/unit_001a2a50.cpp
 }
 }
 

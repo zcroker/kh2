@@ -3078,20 +3078,7 @@ s32 func_00155fc0(u8*);
 void func_00138c10(u8*, s32);
 void func_00157aa0(u8*);
 u8 u_call4_00139d78(void*) asm("_Z16u_call4_00139d78jjjj");
-void func_001578d8(u8* p)
-{
-    if (p[32]) return;
-    if (func_0013c7d0()) {
-        u8* s = p + 12060;
-        func_00138c10(p + 6704, func_00155d58(p, 0));
-        func_00138c10(p + 11648, func_00155f40(p));
-        if (u_call4_00139d78(s)) func_00138c10(s, func_00155fc0(p));
-        func_00157aa0(p);
-        p[32] = 1;
-    } else if (p[12052]) {
-        p[32] = 1;
-    }
-}
+// 001578d8: moved to src/anon/unit_00157688.cpp
 extern u64 D_0034c710;
 extern u8 D_0034c70c;
 extern u8 D_0034c6f0[];

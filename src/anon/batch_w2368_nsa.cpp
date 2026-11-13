@@ -39,15 +39,5 @@ void func_0021efc0(W2368AnimObj* o) {
 }
 
 // Clears entry 6's field, then for item kinds 1, 4 and 5 makes sure that kind's entry has a value.
-void func_001a38b8(W2368Arg* a) {
-    W2368Ent* e = func_00189200(&D_0032e020, 6);
-    e->f4 = 0;
-    s16 k = func_001b8e88(a->id)->kind;
-    switch (k) {
-    case 1: case 4: case 5:
-        e = func_00189200(&D_0032e020, k);
-        if (e->v == 0) e->v = func_001a3958(2);
-        break;
-    }
-}
+// 001a38b8: moved to src/anon/unit_001a2a50.cpp
 }

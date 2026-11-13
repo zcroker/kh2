@@ -131,12 +131,7 @@ void func_0014ba20(u8* p) {
 u32 func_00155d58(u8*, int);  // table_word_indexed_by_3
 void func_00138c10(u8*, u32);
 void func_00154408(u8*, u32);
-void func_001576e8(u8* p) {
-    func_00138c10(p + 6704, func_00155d58(p, 0));
-    func_00138c10(p + 7116, func_00155d58(p, 1));
-    func_00138c10(p + 8352, func_00155d58(p, 2));
-    func_00154408(p + 64, *(u32*)(p + 24));
-}
+// 001576e8: moved to src/anon/unit_00157688.cpp
 
 // --- 0015a768
 extern f32 D_004f3604;

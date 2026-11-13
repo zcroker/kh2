@@ -152,35 +152,7 @@ void func_001581f8(Menu158*);
 void func_001582a8(Menu158*);
 s32 func_0013dd48(u32, s32);
 void func_0013dd78(u32, s32);
-void func_00158300(Menu158* m) {
-    u32 in = m->f44 + m->f48;
-    func_001581f8(m);
-    if (func_0013dd48(in, 0)) {
-        func_0013dd78(in, 0);
-        m->vt[6](m);
-        func_001582a8(m);
-    }
-    if (func_0013dd48(in, 1)) {
-        func_0013dd78(in, 1);
-        if (!m->f52) return;
-        m->vt[7](m);
-    }
-    if (func_0013dd48(in, 2)) {
-        func_0013dd78(in, 2);
-        if (!m->f52) return;
-        m->vt[8](m);
-    }
-    if (func_0013dd48(in, 3)) {
-        func_0013dd78(in, 3);
-        if (!m->f52) return;
-        m->vt[9](m);
-    }
-    if (func_0013dd48(in, 4)) {
-        func_0013dd78(in, 4);
-        if (!m->f52) return;
-        m->vt[10](m);
-    }
-}
+// 00158300: moved to src/anon/unit_00158050.cpp
 
 // ---- 00169030
 struct Area169 { u8 id; u8 pad[3]; u8 f4[1]; };
