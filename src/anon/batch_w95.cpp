@@ -547,25 +547,7 @@ void func_0031a838(u8*);
 void func_00239700(u8*);
 void func_002294c8(ItemPanel*, u32, s32*, u8*);
 void func_00229678(ItemPanel*, u32, s32);
-void func_0022ad88(s32 n, u32 b) {
-    if (n <= 0) return;
-    if (func_002249b8() != 5) return;
-    s32 cnt = n;
-    Heap2* h = D_00347f80.p->heap;
-    ItemPanel* o = (ItemPanel*)h->vt->alloc(h, 2900, 0);
-    o->f12 = 0;
-    o->vt = D_0035e190;
-    ItemSlot* s = o->slot;
-    for (s32 i = 6; i != -1; i--) {
-        s->vt = D_00347f98;
-        func_0031a838(s->a);
-        s->vt = D_00347e60;
-        func_00239700(s->b);
-        s++;
-    }
-    func_002294c8(o, 6, &cnt, D_0035e1f8);
-    func_00229678(o, b, cnt);
-}
+void func_0022ad88(s32 n, u32 b);  // 0022ad88: moved to src/sasa/musical_input.cpp (linked unit)
 
 extern u8* D_0035ec90;
 extern char* D_0035ec00;

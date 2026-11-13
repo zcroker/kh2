@@ -279,16 +279,9 @@ void func_002ef180(u8* p) {
     if (c) func_0018a008(c, (void*)func_002ef1b8, p);
 }
 
-void wtarget_002f0598(void* o, Q16* q) {
-    Q16 t;
-    QCOPY(&t, q);
-    func_0017c4c8(o, &t);
-    func_0016bd60(o, 63);
-}
+// 002f0598: moved to src/anon/unit_002efd68.cpp
 
-void trap_stitch_effect_kill(u32* v) {
-    func_00117aa8(func_0010c7e8(*(u32*)(v[0] + 4)), v[1]);
-}
+// 002f0a68: moved to src/naka/libkn/trapfunctions.cpp
 
 void func_0031f008(void** p) {
     *p = D_00350388;

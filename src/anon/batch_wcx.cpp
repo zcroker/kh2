@@ -1555,18 +1555,7 @@ void func_002edaf8(u32, s32, f32);
 extern u8* D_00352130;
 void func_0017f488(u8*, s32, f32, f32);
 void func_0016bd60(u8*, s32);
-void func_002f04e0(u32, u8* p)
-{
-    V4* v = (V4*)(p + 32);
-    asm volatile("lqc2 $vf1, 0(%1)\n\tmfc1 $8, %2\n\tqmtc2 $8, $vf2\n\tvmulx.wxyz $vf1, $vf1, $vf2x\n\tsqc2 $vf1, 0(%0)" : : "r"(v), "r"(v), "f"(*(f32*)(D_00352130 + 60)) : "$8", "memory");
-    f32 len;
-    asm volatile("lqc2 $vf1, 0(%1)\n\tvmul.xyz $vf1, $vf1, $vf1\n\tvaddy.x $vf1, $vf1, $vf1y\n\tvaddz.x $vf1, $vf1, $vf1z\n\tvsqrt Q, $vf1x\n\tvwaitq\n\tcfc2.ni $8, $vi22\n\tmtc1 $8, %0" : "=f"(len) : "r"(v) : "$8", "memory");
-    if (len < *(f32*)(p + 244)) {
-        asm volatile("vsub.wxyz $vf1, $vf0, $vf0\n\tsqc2 $vf1, 0(%0)" : : "r"(v) : "memory");
-        func_0017f488(p + 320, 0, 0.0f, 0.0f);
-        func_0016bd60(p, 31);
-    }
-}
+// 002f04e0: moved to src/anon/unit_002efd68.cpp
 extern u8 D_00347d70[];
 extern u8 D_00347f98[];
 void func_0031a508(u8*);

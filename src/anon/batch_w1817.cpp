@@ -9,25 +9,7 @@ void c_ftGsPrim(void*, u64) asm("_ZN2dk7Ft4Base9setGsPrimEy");
 void c_setWH(void*, u16, u16) asm("_ZN2dk13RectParamBase14setWidthHeightEtt");
 void c_rcGsPrim(void*, u64) asm("_ZN2dk8RectBase9setGsPrimEy");
 void c_rcGsTest(void*, u64) asm("_ZN2dk8RectBase9setGsTestEy");
-void func_0022a0f8(u8* p, s32 a1, s32 a2, s32 a3) {
-    c_create(p, a1, a3);
-    *(s32*)(p + 0x344) = a2;
-    c_ftGsPrim(p + 0x20, 4);
-    c_setRot(p + 0x20, 0.0f);
-    c_ftGsTest(p + 0x20, 0x32001);
-    if (a2 == 0) {
-        c_setWH(p + 0x20, 100, 100);
-        return;
-    }
-    c_setWH(p + 0x20, 64, 64);
-    c_setCenterXY(p + 0x20, -32, -32);
-    c_rcGsPrim(p + 0x140, 6);
-    c_rcGsTest(p + 0x140, 0x32001);
-    c_setWH(p + 0x140, 64, 64);
-    c_rcGsPrim(p + 0x240, 6);
-    c_rcGsTest(p + 0x240, 0x32001);
-    c_setWH(p + 0x240, 64, 64);
-}
+void func_0022a0f8(u8* p, s32 a1, s32 a2, s32 a3);  // 0022a0f8: moved to src/sasa/musical_input.cpp (linked unit)
 
 
 void func_00190a28(void*, void*);

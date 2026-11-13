@@ -275,9 +275,7 @@ s32 func_002ef1b8(u8* p) {
     return r;
 }
 
-void trap_stitch_shot_effect(u32* v) {
-    func_00119830(func_0010c7e8(((u32*)v[0])[1]), v[1]);
-}
+// 002f09d8: moved to src/naka/libkn/trapfunctions.cpp
 
 void func_0031e630(void** p) {
     *p = D_0034e8a8;

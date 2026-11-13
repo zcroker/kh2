@@ -287,14 +287,7 @@ u8 func_00225b00(s32 n) {  // flag_query_by_index
     return r;
 }
 
-void* func_0022af48(u8* p) {
-    u8 tmp[16] __attribute__((aligned(16)));
-    void* v = func_0022b688(140);
-    asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(tmp), "r"(p) : "$8", "memory");
-    func_001391a8(v, tmp);  // vec_copy_at416_if_diff
-    func_002251c8(12103);
-    return v;
-}
+void* func_0022af48(u8* p);  // 0022af48: moved to src/sasa/musical_input.cpp (linked unit)
 
 void func_00242088(u8* p) {
     u32* d = *(u32**)(p + 4);

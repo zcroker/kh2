@@ -584,14 +584,7 @@ void func_002ee448(void** p) {
 
 void* func_00102788(void*, void*, void*, void*);
 void func_002ef928(void);
-void func_002ef8d0(void** p, void* a1) {
-    if (!p[3]) {
-        void** r = (void**)func_00102788(a1, p[0], p[1], p[2]);
-        p[3] = r;
-        r[1] = p;
-        ((void**)p[3])[12] = (void*)func_002ef928;
-    }
-}
+// 002ef8d0: moved to src/anon/unit_002ef8d0.cpp
 
 s32 func_003060f0(void);  // ee_intr_disabled
 s32 DIntr(void);

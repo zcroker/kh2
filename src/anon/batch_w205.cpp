@@ -5,10 +5,7 @@ extern "C" {
 struct V205 { f32 x, y, z, w; };
 struct O205 { char pad[544]; V205 v; };
 
-u32 func_002eff58(char* a0) {
-    f32 t = (*(f32*)(a0 + 272) + *(f32*)(a0 + 276)) * 0.5f;
-    return t <= *(f32*)(a0 + 28);
-}
+// 002eff58: moved to src/anon/unit_002efd68.cpp
 
 void func_002be2d8(char* a0, s32 a1, V205* a2) {  // entry_set_vec3
     O205* o = *(O205**)(a0 + a1 * 4 + 44);

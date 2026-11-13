@@ -26,27 +26,7 @@ extern u32 D_003638d0;
 void func_0018cd28(struct O8cb*, f32*, f32*);
 extern "C" {
 f32 func_0017ce10(f32);
-s32 func_0022a3d0(s32 n, f32 x, s32* a, s32* b, s32* c, s32* d, s32* e, s32* f, s32* g, s32* h, f32* out)
-{
-    f32 r = (f32)n * 0.25f;
-    f32 ang = (x + r) * (90.0f / r * 0.017453292f);
-    *out = ang;
-    *out = func_0017ce10(ang);
-    if (x < r) {
-        *a = 0; *b = 0; *c = 64; *d = 50; *e = -64; *f = -50; *g = 64; *h = 100;
-        return 1;
-    }
-    if (x < r + r) {
-        *a = 0; *b = -50; *c = 0; *d = 0; *e = -64; *f = -50; *g = 64; *h = 100;
-        return 2;
-    }
-    if (x < r * 3.0f) {
-        *a = 0; *b = 50; *c = 0; *d = 0; *e = -64; *f = -50; *g = 64; *h = 50;
-        return 3;
-    }
-    *a = 0; *b = -50; *c = 0; *d = 0; *e = 0; *f = -50; *g = 64; *h = 50;
-    return 4;
-}
+s32 func_0022a3d0(s32 n, f32 x, s32* a, s32* b, s32* c, s32* d, s32* e, s32* f, s32* g, s32* h, f32* out);  // 0022a3d0: moved to src/sasa/musical_input.cpp (linked unit)
 
 s32 func_0016a070(u8*);
 QV298* func_0016c028(u8*);  // obj_get_attach_or_alt

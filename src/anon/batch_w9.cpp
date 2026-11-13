@@ -195,10 +195,7 @@ void func_0021cda0(s32 a) {
     else func_001e72a8(D_0032b100);
 }
 
-void func_0022acd0(void* p) {
-    func_0022ac60(p);
-    func_001390f0(p);
-}
+void func_0022acd0(void* p);  // 0022acd0: moved to src/sasa/musical_input.cpp (linked unit)
 
 void func_00234670(u32 a0, u32 a1, u32 a2, u32 a3, u32 t0) {
     func_00234348(a0, 0, a1, a2, a3, t0);
@@ -261,9 +258,7 @@ void func_002e9fb8(u8* p, u8 b) {
     ((Flags2e9fb8*)(p + 4))->flag = b != 0;
 }
 
-void func_002f0a38(u32* p) {
-    func_0017f5f8(p[0] + 320, p[1], 0, *(f32*)(p + 2), 0.0f);
-}
+// 002f0a38: moved to src/naka/libkn/trapfunctions.cpp
 
 // VU0 vector blend: d = a*t + b*(1-t).
 void sceVu0InterVector(f32* d, f32* a, f32* b, f32 t) {  // vec4_lerp

@@ -316,15 +316,9 @@ void func_002df160(f32* p) {
     p[11] = b;
 }
 
-void kn_trap_friend_get_player_attacker(BD_VALUE* bd) {
-    void* o = func_0010c7e8(*(u32*)((u8*)bd[0].p + 4));
-    func_00118d10(o, bd[1].u);
-}
+// 002f0da8: moved to src/naka/libkn/trapfunctions.cpp
 
-void kn_trap_friend_get_action_param(BD_VALUE* bd) {
-    void* o = func_0010c7e8(*(u32*)((u8*)bd[0].p + 4));
-    bd[0].u = func_00114438(o, bd[1].u);
-}
+// 002f0e60: moved to src/naka/libkn/trapfunctions.cpp
 
 void func_0031f238(void** p) {
     *p = &D_00350778;

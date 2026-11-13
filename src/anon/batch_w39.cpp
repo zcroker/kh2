@@ -585,12 +585,7 @@ struct S2f0 { u8 pad[16]; Vec4 a; Vec4 b; };
 void func_00110618(S2f0*);
 Vec4* func_0010fa28(S2f0*);  // ptr_add3072
 Vec4* func_0010fa58(S2f0*);
-void func_002f0b60(u8** pp) {
-    S2f0* s = *(S2f0**)(*pp + 4);
-    func_00110618(s);
-    s->a = *func_0010fa28(s);  // ptr_add3072
-    s->b = *func_0010fa58(s);
-}
+// 002f0b60: moved to src/naka/libkn/trapfunctions.cpp
 
 // --- 00304de8
 // newlib __sread: read through the reentrant hook, track the offset.

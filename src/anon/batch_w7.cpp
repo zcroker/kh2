@@ -271,10 +271,7 @@ void func_002e8220(Args* a) {
     func_002eb990(p, a->b, a->c);
 }
 
-void func_002f0798(u32* a0) {
-    VObj* o = (VObj*)func_0010c7e8(*(u32*)(a0[0] + 4));
-    ((void (*)(VObj*))o->vtbl[10])(o);
-}
+// 002f0798: moved to src/naka/libkn/trapfunctions.cpp
 
 // d = m translated by v: copies rows 0-2, row 3 = m.row3 + v (xyz).
 // 128-bit moves and the VU0 macro op are written as asm.

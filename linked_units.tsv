@@ -20,11 +20,18 @@ src/anon/unit_00228490.cpp	00228490	00228618	-	-G0
 src/anon/unit_00228618.cpp	00228618	00228f18	.data@0035dfb0,.rodata@0037109c	-G0
 src/sasa/musical_score.cpp	00228f18	00229840	.data@0035e070	-G0
 src/sasa/musical_combo.cpp	00229840	00229e58	.rodata@003710b4	-G0 -fno-strict-aliasing
+src/sasa/musical_input.cpp	00229e58	0022b108	.data@0035e1f8,.rodata@003710c8	-G0 -fno-strict-aliasing
 src/sasa/musical_target.cpp	0022b558	0022b7f0	.data@0035e298,.rodata@00371134	-G0 -fno-strict-aliasing
 src/sasa/event_movie.cpp	0022ba08	0022bda0	.data@0035e2ec,.rodata@00371150	-G0
 src/sasa/event_countdown.cpp	0022bda0	0022c4b8	.data@0035e2f0,.rodata@00371178	-G0
 src/sasa/event_layout.cpp	0022c4b8	0022d358	.bss@01dad960,.rodata@00371190	-G0
 src/anon/unit_002eae08.cpp	002eae08	002eaf38	.data@003634e8,.rodata@003760d8	-G0
+src/anon/unit_002ef8d0.cpp	002ef8d0	002ef938	-	-G0 -fno-strict-aliasing
+src/anon/unit_002ef938.cpp	002ef938	002efbb8	-	-G0
+src/anon/unit_002efbb8.cpp	002efbb8	002efcc0	-	-G0
+src/anon/unit_002efcc0.c	002efcc0	002efd68	-	-G0 -g -fno-strict-aliasing -fno-gcse
+src/anon/unit_002efd68.cpp	002efd68	002f0700	.rodata@00376220	-G0
+src/naka/libkn/trapfunctions.cpp	002f0700	002f12b0	.data@00363a40,.bss@01e2c0c0	-G0
 src/menu/tutorial_widget.cpp	002ee588	002ee8a8	.data@01e2c088	-G0
 src/harata/libdk/lightcyclecamera.cpp	00159070	00159240	.data@0034a9f0,.rodata@0036b324	-G0
 src/common/gumibattle.cpp	00103f68	00104318	.data@0032ba48,.rodata@00369e18	-G0 -fno-strict-aliasing

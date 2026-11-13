@@ -436,12 +436,7 @@ Ent2cb828* func_002cb828(Ring2cb828* r, Q128* src) {  // ring_advance_index
 void func_00110500(u8*);
 Q128* func_0010fa28(u8*);  // ptr_add3072
 Q128* func_0010fa58(u8*);
-void func_002f0af0(u8** p) {
-    u8* o = *(u8**)(*p + 4);
-    func_00110500(o);
-    qcopy(o + 16, func_0010fa28(o));  // ptr_add3072
-    qcopy(o + 32, func_0010fa58(o));
-}
+// 002f0af0: moved to src/naka/libkn/trapfunctions.cpp
 
 extern void* D_0034a800[];
 extern void* D_00347f98[];

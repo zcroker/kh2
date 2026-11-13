@@ -706,7 +706,7 @@ void trap_bghit_get_cross_pos(BD_VALUE* bd) { bd->i = func_001d36e8(bd->i); }
 
 namespace kn {
 
-void trap_attack_is_finish(BD_VALUE* bd) { bd->i = YS_ATTACK_is_finish(bd->i); }
+// 002f0f00: moved to src/naka/libkn/trapfunctions.cpp
 
 }  // namespace kn
 namespace YS {

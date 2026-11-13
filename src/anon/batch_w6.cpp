@@ -258,10 +258,7 @@ void func_002e7c78(u32* p) {
     u32 o = ((u32*)p[0])[1];
     func_0016c568(o, p[1], *(f32*)&p[2]);
 }
-void func_002f0948(u32* p) {
-    u32 o = ((u32*)p[0])[1];
-    func_0016c568(o, p[1], *(f32*)&p[2]);
-}
+// 002f0948: moved to src/naka/libkn/trapfunctions.cpp
 
 // atoi: (int)strtol(s, 0, 10).
 s64 strtol(const char*, char**, s32);

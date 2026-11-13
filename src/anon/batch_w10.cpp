@@ -338,10 +338,7 @@ void func_002ef7c8(void) {
     }
 }
 
-void func_002f05d8(void* p) {
-    func_0017c430(p);
-    func_0016bd60(p, 63);
-}
+// 002f05d8: moved to src/anon/unit_002efd68.cpp
 
 bool func_002f1ae0(u32 n) {  // bitmask_test
     return (D_0033cae8[n >> 5] & (1 << (n & 31))) != 0;

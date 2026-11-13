@@ -334,15 +334,7 @@ void func_002ed300(void** p, void* a, void* b) {
 
 s32 func_00105c30(void);
 // Region code from the build/region id: 'SU', 'JP' or 'EU'.
-s32 func_002ef988(void) {
-    s32 r = 0x5355;
-    switch (func_00105c30()) {
-    case 2: break;
-    case 1: case 8: r = 0x504a; break;
-    default: r = 0x5545; break;
-    }
-    return r;
-}
+// 002ef988: moved to src/anon/unit_002ef938.cpp
 
 const u8* func_00316f70(const u8* p, s64* out) {
     u32 shift = 0;
