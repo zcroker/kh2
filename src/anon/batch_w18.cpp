@@ -93,12 +93,7 @@ void func_00172e48(u8** p) {
 }
 
 Vec4* func_0016c028(void*);  // obj_get_attach_or_alt
-Vec4 func_0018d808(u8* b) {
-    Vec4 r;
-    Vec4* s = func_0016c028(*(void**)(b + 8));  // obj_get_attach_or_alt
-    asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(&r), "r"(s) : "$8", "memory");
-    return r;
-}
+Vec4 func_0018d808(u8* b);  // 0x0018d808: definition moved into src/anon/unit_0018d050.cpp
 
 struct Arg18f { void* a; u32 b; u32 c; f32 d; f32 e; };
 void func_001a4d40(void*, u32, u32, f32, f32);

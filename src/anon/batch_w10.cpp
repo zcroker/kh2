@@ -147,9 +147,7 @@ void func_00174af8(u8* p) {
 
 // 00180770: moved to src/anon/unit_00180408.cpp
 
-void func_0018ef68(u8* p, void* a, void* b) {
-    func_0016cc18(*(void**)p, *(void**)(p + 4), a, b, 0);
-}
+void func_0018ef68(u8* p, void* a, void* b);  // 0x0018ef68: definition moved into src/anon/unit_0018d050.cpp
 
 void func_0018f218(u8* p) {
     void* o = *(void**)(*(u8**)p + 4);

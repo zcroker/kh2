@@ -92,6 +92,7 @@ src/anon/unit_002bb070.cpp	002bb070	002bb5f8	-	-G0 -fno-strict-aliasing
 src/anon/unit_002bb8b0.cpp	002bb8b0	002bc978	.rodata@00374fa4	-G0 -fno-strict-aliasing
 src/taito/minigame_base.cpp	002cea28	002cf260	.data@00361f60,.rodata@00375958	-G0
 src/yasui/libys/damage.cpp	0018c8b8	0018d050	.bss@01c60bf0,.rodata@0036cc28	-G0 -fno-strict-aliasing -finline-limit=1000
+src/anon/unit_0018d050.cpp	0018d050	0018f140	.rodata@0036ccc0	-G0 -g -fno-strict-aliasing
 src/yasui/libys/message.cpp	00191f20	00193038	.bss@01c61970,.rodata@0036cd70	-G0
 src/harata/libdk/talkcamera.cpp	00159790	00159ce0	.data@0034aa10,.bss@004f3600,.rodata@0036b364	-G0 -fno-strict-aliasing
 src/harata/libdk/targetcamera.cpp	00159ce0	0015a810	.data@0034aa30,.bss@004f3604,.rodata@0036b378	-G0

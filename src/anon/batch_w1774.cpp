@@ -24,15 +24,7 @@ void func_001c0458(void*, s32);
 
 static inline W1774Node* w1774_next(W1774Node* q) { if (!q) return D_01c60cd8; return q->next; }
 
-void func_0018e040(s32 a0) {
-    u8* p = 0;
-    while ((p = func_00186078(p)) != 0) {
-        func_001c0458(p + 0xa50, a0);
-        if (*(s32*)(p + 0xaac) == a0) *(s32*)(p + 0xaac) = 0;
-    }
-    W1774Node* q = 0;
-    while ((q = w1774_next(q)) != 0) func_001c0458(q->sub, a0);
-}
+void func_0018e040(s32 a0);  // 0x0018e040: definition moved into src/anon/unit_0018d050.cpp
 
 W1774Vec func_0019fbe0r(void) asm("func_0019fbe0");
 s32 func_001b2d10(void*, W1774Vec*);

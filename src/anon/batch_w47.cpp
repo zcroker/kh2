@@ -99,16 +99,7 @@ struct O18d { void** vt; u8 pad[188]; O18d* next; };
 extern O18d* D_01c60cd8;
 extern u8 D_01c60ce0;
 static inline O18d* Next18d(O18d* n) { if (!n) return D_01c60cd8; return n->next; }
-void u_call0_0018d790(void) {
-    O18d* o = Next18d(0);
-    O18d* it = o;
-    while (o) {
-        it = Next18d(it);
-        if (o) ((void (*)(O18d*))o->vt[1])(o);
-        o = it;
-    }
-    D_01c60ce0 = 0;
-}
+void u_call0_0018d790(void);  // 0x0018d790: definition moved into src/anon/unit_0018d050.cpp
 
 void func_00198660(u32);  // to_1b0250_field
 void func_001d5770(u8*, Vec4*);

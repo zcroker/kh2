@@ -29,16 +29,7 @@ s32 func_0019ba60(w243_B*);
 s32 func_0019c6f0(w243_B*);
 static inline bool w243_kind(w243_A* a) { return (u8)(a->t->kind - 5) < 2; }
 s32 w243_ctarget(w243_A* a, w243_B* b) asm("_Z16ctarget_0018d940jjjj");
-s32 w243_ctarget(w243_A* a, w243_B* b) {
-    if (func_001af9e8(a, b)) return 0;
-    if (!func_001c0268((u8*)b + 0xa50, a)) return 0;
-    if (w243_kind(a)) return 1;
-    if (!func_0019bb58(b)) return 0;
-    if (a->c == b || a->d == b) return 0;
-    if (((a->m >> b->idx) & 1) == 0) return 0;
-    if (func_0019ba60(a->c) && func_0019c6f0(a->c)) return 0;
-    return 1;
-}
+s32 w243_ctarget(w243_A* a, w243_B* b);  // 0x0018d940: definition moved into src/anon/unit_0018d050.cpp
 
 struct w243_E2c { u8 pad[0xf8]; s32 len; u8 pad2[344 - 0xfc]; };
 struct w243_E14 { u16 h; u8 pad[18]; };

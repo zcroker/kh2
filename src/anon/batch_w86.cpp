@@ -431,23 +431,7 @@ Res* func_0018da18(Q*, Tgt*, s32, s32);
 Res* func_0018db38(Q*, Tgt*, s32, s32);
 void func_0018ca10(Res*);  // alloc_from_pool_magic
 void func_0018f028(Q*);
-s32 func_0018ee60(s32 a, s32 b, Tgt* t, QWord* v, u8 flag)
-{
-    s32 r = 0;
-    Q* q = func_001050d8(208);
-    func_0018d238(q, a, 0, b, 0, -1, -1);
-    Res* res;
-    if (flag) res = func_0018da18(q, t, q->f40, 0);
-    else res = func_0018db38(q, t, 0, 0);
-    if (res) {
-        r = (res->f24 & 1) ^ 1;
-        res->q = *v;
-        t->vt[25](t, res);
-        func_0018ca10(res);  // alloc_from_pool_magic
-    }
-    func_0018f028(q);
-    return r;
-}
+s32 func_0018ee60(s32 a, s32 b, Tgt* t, QWord* v, u8 flag);  // 0x0018ee60: definition moved into src/anon/unit_0018d050.cpp
 
 }
 }

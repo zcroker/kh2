@@ -309,14 +309,7 @@ void func_0014dd60(u32 a0, u32 a1, u32 a2, u32 a3) {  // store_3bytes_470
 
 // 0018cae0: moved to src/yasui/libys/damage.cpp
 
-u32 func_0018f010(u32 a0) {  // byte4_is_2_or_3
-    u32 p = *(u32 *)(a0 + 40);
-    u32 v = *(u8 *)(p + 4);
-    v -= 2;
-    v = v < 2;
-    u8 ret = (u8)v;
-    return ret;
-}
+u32 func_0018f010(u32 a0);  // 0x0018f010: definition moved into src/anon/unit_0018d050.cpp
 
 // 00192f78: moved to src/yasui/libys/message.cpp
 

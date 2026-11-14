@@ -140,31 +140,7 @@ struct W93Orb { u8 pad[4]; f32 dist; f32 radius; u8 p2[4]; W93V center; };
 struct W93Pos { u8 pad[32]; W93V pos; };
 f32 fabsf(f32);  // fabsf
 // Places a point on the orb around o->center at the height of p, clamped to the radius.
-W93V func_0018e160(const W93Pos* p, const W93Orb* o)
-{
-    W93V d;
-    W93V tmp;
-    asm volatile("lqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 0(%2)\n\tvsub.wxyz $vf1, $vf1, $vf2\n\tsqc2 $vf1, 0(%0)" : : "r"(&tmp), "r"(&p->pos), "r"(&o->center) : "memory");
-    W93Set(&d, &tmp);
-    f32 r = o->radius;
-    f32 y;
-    if (d.y < -r) y = -r;
-    else if (r < d.y) y = r;
-    else y = d.y;
-    f32 c = fabsf(y / r);  // fabsf
-    f32 s = __builtin_sqrtf(1.0f - c * c);
-    d.y = 0;
-    asm volatile("lqc2 $vf1, 0(%0)\n\tvmul.xyz $vf2, $vf1, $vf1\n\tvaddy.x $vf2, $vf2, $vf2y\n\tvaddz.x $vf2, $vf2, $vf2z\n\t"
-                 "vsqrt Q, $vf2x\n\tvwaitq\n\tcfc2.ni $8, $vi22\n\tvaddq.x $vf2, $vf0, Q\n\tmtc1 $8, $f2\n\tvnop\n\t"
-                 "vdiv Q, $vf0w, $vf2x\n\tvwaitq\n\tvmulq.xyz $vf1, $vf1, Q\n\tsqc2 $vf1, 0(%0)"
-                 : : "r"(&d) : "$8", "$f2", "memory");
-    f32 k = o->dist * s;
-    asm volatile("lqc2 $vf1, 0(%0)\n\tmfc1 $8, %1\n\tqmtc2 $8, $vf2\n\tvmulx.wxyz $vf1, $vf1, $vf2x\n\tsqc2 $vf1, 0(%0)" : : "r"(&d), "f"(k) : "$8", "memory");
-    d.y = y;
-    W93V out;
-    asm volatile("lqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 0(%2)\n\tvadd.wxyz $vf1, $vf1, $vf2\n\tsqc2 $vf1, 0(%0)" : : "r"(&out), "r"(&o->center), "r"(&d) : "memory");
-    return out;
-}
+W93V func_0018e160(const W93Pos* p, const W93Orb* o);  // 0x0018e160: definition moved into src/anon/unit_0018d050.cpp
 
 struct W93Hdr { u32 p0; u32 flags; };
 struct W93Act { W93Hdr* h; u8 pad[16]; f32 f20; u8 p2[8]; W93Vec pos; };
@@ -173,21 +149,7 @@ W93Vec* func_001dc5f8(void*);
 void func_001c2c00(void*);
 void func_0018efe8(W93Hdr*);
 // Pushes b out of a's radius along the line between them.
-void func_0018e8f0(W93Act* a, u32 x, u32 y, W93Act* b)
-{
-    if (a->h->flags & 0x80) return;
-    if (b->h->flags & 0x80) return;
-    void* r = func_001de168(x, y, 1, 1, 10000, 0);  // scan_list_by_half
-    if (r) {
-        W93Vec d;
-        d = b->pos - a->pos;
-        W93Normalize(&d);
-        *func_001dc5f8(r) = a->pos + d * a->f20;
-        func_001c2c00(r);
-    }
-    func_0018efe8(a->h);
-    func_0018efe8(b->h);
-}
+void func_0018e8f0(W93Act* a, u32 x, u32 y, W93Act* b);  // 0x0018e8f0: definition moved into src/anon/unit_0018d050.cpp
 
 struct W93Map { u8 pad[4]; u16 flags; };
 struct W93Res { u8 pad[8]; W93Map* map; };

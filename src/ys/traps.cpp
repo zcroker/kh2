@@ -640,10 +640,7 @@ u32 trap_picture_change(u32 a0, u32 a1, u32 a2, u32 a3) {
 
 void trap_jigsaw_get(BD_VALUE* bd) { YS_JIGSAW_Get(bd->i, bd[1].i); }
 
-void trap_btlobj_target(BD_VALUE* bd) {
-    (void)bd;
-    func_0018f0b0(1, 0xffff);
-}
+void trap_btlobj_target(BD_VALUE* bd);  // 0x0018f100: definition moved into src/anon/unit_0018d050.cpp
 
 void trap_attack_is_hit_bg(BD_VALUE* bd) { func_0018e040(bd->i); }
 

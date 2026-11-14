@@ -515,23 +515,7 @@ Q16* func_002d38e8(Q16* out, u8* o) {
 }
 
 // Flat (y = 0) unit direction from the target to the actor, or the reversed facing.
-Q16* func_0018d840(Q16* out, u8* o, void* a) {
-    if (*(u8**)(o + 12) != 0) {
-        Q16 d;
-        vu0_sub(d, *func_0016c028(a), *(Q16*)(*(u8**)(o + 12) + 1840));  // obj_get_attach_or_alt
-        *out = d;
-        ((s32*)out)[1] = 0;
-        vu0_normalize_f1(*out);
-        ((f32*)out)[3] = 1.0f;
-    } else {
-        Q16 d;
-        Q16 t;
-        func_0016af58(&t, a);
-        vu0_scaled(d, t, -1.0f);
-        *out = d;
-    }
-    return out;
-}
+Q16* func_0018d840(Q16* out, u8* o, void* a);  // 0x0018d840: definition moved into src/anon/unit_0018d050.cpp
 
 // 0017fe10: moved to src/yasui/libys/motion.cpp
 

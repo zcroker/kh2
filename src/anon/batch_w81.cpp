@@ -247,21 +247,7 @@ s32 func_0018d940(u8*, u8*);
 s32 func_0018f010(u8*);  // byte4_is_2_or_3
 u32 func_001b7998(u32, u8*);
 void func_0018e298(Ent18e*, u8*, u32);
-void func_0018ed18(List18e* l) {
-    u8* e = 0;
-    while ((e = func_00186078(e)) != 0) {
-        if (!func_0019bb58(e)) continue;
-        s32 i;
-        for (i = 0; i < l->n; i++) {
-            Ent18e* t = &l->e[i];
-            if (!func_0018d940(t->obj, e)) continue;
-            if (*(u32*)(t->obj + 4) & 0x40) continue;
-            if (func_0018f010(t->obj)) continue;
-            u32 v = func_001b7998(*(u32*)(e + 1296), t->x);
-            if (v) { func_0018e298(t, e, v); break; }
-        }
-    }
-}
+void func_0018ed18(List18e* l);  // 0x0018ed18: definition moved into src/anon/unit_0018d050.cpp
 
 
 // --- 00229728: refresh the per-slot ids when the current id changes
@@ -562,32 +548,7 @@ extern u8 D_0034ef18[];
 void func_0018e040(Node18d*);
 void func_001c0058(u32);  // clear_bit_in_array
 void func_001c0248(u8*);
-void func_0018d420(Node18d* o) {
-    NoTail81 nt;
-    o->vt = (u32)D_0034ef18;
-    if (o->a) (*(s32*)(o->a + 1160))--;
-    if (o->b) (*(s32*)(o->b + 1160))--;
-    Node18d* prev;
-    if (o == D_01c60cd8.head) {
-        prev = 0;
-        D_01c60cd8.head = o->next;
-    } else {
-        Node18d* c = D_01c60cd8.head->next;
-        prev = D_01c60cd8.head;
-        if (c != o) {
-            Node18d* n;
-            do { n = c->next; prev = c; c = n; } while (n != o);
-        }
-        prev->next = o->next;
-    }
-    if (o == D_01c60cd8.tail) D_01c60cd8.tail = prev;
-    o->next = 0;
-    if (!(o->flags & 0x400)) {
-        func_0018e040(o);
-        func_001c0058(o->h);  // clear_bit_in_array
-    }
-    func_001c0248(o->sub);
-}
+void func_0018d420(Node18d* o);  // 0x0018d420: definition moved into src/anon/unit_0018d050.cpp
 
 // --- 001cc160: spawn up to n prizes at the object's position
 extern u32 D_00352050;

@@ -27,49 +27,5 @@ void func_0017d050(W2049Q*, W2049Hit*);
 void func_001c2c00(s32);
 u64 func_00312db8(u64, u64);
 
-void func_0018e420(W2049Ctx** ctx, u8* obj, W2049Hit* hit, void* src, u64 mask)
-{
-    W2049Fx* fx = hit->fx;
-    {
-    W2049Q v = func_0018e160(ctx, src);
-    func_0018e108(&v, hit);
-    if ((*ctx)->list->n) {
-        s32 n = fx->count;
-        if (__builtin_expect(n != 0, 1)) {
-            s32 id;
-            if (hit->flags & 4) {
-                id = func_001de168(func_001a3a78(), 18, 1, 1, 10000, 0);
-                *func_001dc5f8(id) = D_0034eef0;
-            } else {
-                u32 k = fx->spread;
-                if (k) {
-                    s32 seed = D_003638d0 * 0x10dcd;
-                    u64 bit = 0x100000000ULL;
-                    s32 sh = n - 1;
-                    D_003638d0 = seed;
-                    sh += (s32)func_00312db8((u32)seed, func_00312db8((u64)(k - 1) + bit, (u64)k));
-                    bit <<= sh;
-                    mask |= bit;
-                } else {
-                    mask |= 0x100000000ULL << (n - 1);
-                }
-                id = func_001a3b48((*ctx)->list, mask, &D_0034eef0, 1, 1, 10000);
-            }
-            if (id) {
-                W2049Q* m = func_001dc648(id);
-                func_0017d050(&v, hit);
-                *m = v;
-                func_001c2c00(id);
-            }
-        }
-    }
-    }
-    u32* lst = (u32*)(obj + 0x80);
-    if (*lst && fx->slot && !(*(u32*)(obj + 0x108) & 0x200) && !(hit->flags & 4)) {
-        W2049Q v = D_0034eef0;
-        v.y -= 1.0f;
-        mask = (0x100000000ULL << (fx->slot - 1)) | 0x200;
-        func_001a3b48(lst, mask, &v, 1, 1, 10000);
-    }
-}
+void func_0018e420(W2049Ctx** ctx, u8* obj, W2049Hit* hit, void* src, u64 mask);  // 0x0018e420: definition moved into src/anon/unit_0018d050.cpp
 }

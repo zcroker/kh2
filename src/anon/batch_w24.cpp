@@ -83,14 +83,7 @@ void func_00102c18(s32, s32, void (*)(void));
 void func_0018d620(void);
 extern W2 D_01c60cd8;
 extern u8 D_01c60ce0;
-void func_0018d738(void) {
-    func_001bff88();
-    func_001c2b70();
-    D_01c60cd8.a = 0;
-    D_01c60cd8.b = 0;
-    func_00102c18(1, 21000, func_0018d620);
-    D_01c60ce0 = 1;
-}
+void func_0018d738(void);  // 0x0018d738: definition moved into src/anon/unit_0018d050.cpp
 
 void wtarget_00191938(s32, u32, u32, u32) asm("_Z16wtarget_00191938jjjj");
 void func_001c1130(s32);  // copy_record_block_to_table

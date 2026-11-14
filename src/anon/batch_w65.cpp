@@ -222,18 +222,7 @@ void func_0031ee68(void*, void*);
 void func_0018e040(void*);
 void func_001c0058(u32);  // clear_bit_in_array
 void func_001c0248(void*);
-void func_0018d590(u32* p) {
-    p[0] = (u32)D_0034ef18;
-    if (p[2]) (*(s32*)(p[2] + 1160))--;
-    if (p[4]) (*(s32*)(p[4] + 1160))--;
-    func_0031ee68(D_01c60cd8, p);
-    if (!(p[1] & 0x400)) {
-        func_0018e040(p);
-        func_001c0058(p[7]);  // clear_bit_in_array
-    }
-    func_001c0248(p + 12);
-    func_00105110(p);
-}
+void func_0018d590(u32* p);  // 0x0018d590: definition moved into src/anon/unit_0018d050.cpp
 
 struct S16x2 { s16 a, b; };
 struct Tbl7928 { u8 pad[7928]; S16x2 arr[1]; };

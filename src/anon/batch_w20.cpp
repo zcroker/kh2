@@ -134,10 +134,7 @@ void trap_obj_voice(u32* v) {
 
 // 00177638: moved to src/yasui/libys/party.cpp
 
-void func_0018e108(Q16* a, Q16* b) {
-    if (a != &D_0034eef0) QCOPY(&D_0034eef0, a);
-    if (b != &D_0034ef00) QCOPY(&D_0034ef00, b);
-}
+void func_0018e108(Q16* a, Q16* b);  // 0x0018e108: definition moved into src/anon/unit_0018d050.cpp
 
 void func_0018f858(u32* p) {
     p[0] = func_001a4550(p[0], p[1]);

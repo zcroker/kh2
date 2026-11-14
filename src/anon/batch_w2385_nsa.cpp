@@ -17,31 +17,5 @@ void func_001c0320(void*, W1833B*, void*);
 void func_0018ef68(void*, W1833Arg*, s32);
 
 // Bumps the object's counter, forwards the hit to its parts and notifies the listener at +0x98.
-void func_0018e7c0(W1833Obj** pp, W1833B** pb) {
-    u8 buf[16];
-    (*pp)->cnt++;
-    if (func_0018f010(*pb) == 0 || (*pb)->info->kind != 2) {
-        func_001c0320((*pp)->a30, *pb, buf);
-        if (!((*pp)->flags & 0x100)) {
-            func_001c0320((u8*)(*pp)->sub + 0xa50, *pb, buf);
-        }
-    }
-    if ((*pp)->info->kind != 2) {
-        (*pp)->flags |= 0x200;
-        (*pp)->v84 = (*pb)->vc;
-    }
-    if (!((*pp)->flags & 0x100)) {
-        W1833Sub* s = (*pp)->sub;
-        s->vt->fn(s, pp, pb);
-    }
-    s32* q = &(*pp)->v98;
-    if (*q != 0) {
-        W1833B* vb = *pb;
-        W1833Arg a;
-        a.a = (*pp)->va0;
-        a.o = *pp;
-        a.b = vb;
-        func_0018ef68(q, &a, 3);
-    }
-}
+void func_0018e7c0(W1833Obj** pp, W1833B** pb);  // 0x0018e7c0: definition moved into src/anon/unit_0018d050.cpp
 }

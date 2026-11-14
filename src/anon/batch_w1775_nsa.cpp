@@ -6,10 +6,5 @@ struct W1775Ent { s32 id; W1775B b; W1775Q v; };
 struct W1775List { s32 n; u8 pad[0xc]; W1775Ent e[256]; };
 extern "C" {
 void func_0018eb98(W1775List*, W1775Ent*);
-s32 func_0018eaf8(W1775List* l, W1775Ent* e) {
-    func_0018eb98(l, e);
-    if (l->n >= 256) return 0;
-    l->e[l->n++] = *e;
-    return 1;
-}
+s32 func_0018eaf8(W1775List* l, W1775Ent* e);  // 0x0018eaf8: definition moved into src/anon/unit_0018d050.cpp
 }

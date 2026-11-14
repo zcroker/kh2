@@ -10,42 +10,7 @@ void* func_0018db38(void*, void*, u32, u32);
 void func_0018e420(void*, void*, void*, void*, s32);
 void func_0018ef68(void*, void*, s32);
 void func_0018ca10(void*);  // alloc_from_pool_magic
-void func_0018e298(void** a0, void* a1, void* a2)
-{
-    s32 mode;
-    if (VT(a1, 24)(a1) != 0 || func_001c0298((u8*)a1 + 2640, *a0) == 0) {  // state_check5or6
-        mode = 4;
-    } else {
-        mode = 1;
-        F(*a0, 4, u32) |= 0x1000;
-    }
-    u8* t = F(a2, 12, u8*);
-    void* r = func_0018db38(*a0, a1, *(u16*)(t + 2), t[1]);
-    u32* f = (u32*)((u8*)a1 + 2748);
-    if (!((f[0] | f[1]) & ~f[2] & 0x2000))
-        func_0018e420(a0, a1, r, a2, mode);
-    {
-        void* c = *a0;
-        void* o = F(c, 136, void*);
-        VTv(o, 29)(o, a1, c, F(r, 32, void*));
-    }
-    if (F(*a0, 140, void*)) {
-        struct { void* a; void* b; void* c; } st;
-        st.a = F(*a0, 148, void*);
-        st.b = a1;
-        st.c = *a0;
-        func_0018ef68((u8*)*a0 + 140, &st, 3);
-    }
-    F(*a0, 4, u32) &= ~0x1000;
-    asm volatile("" ::: "memory");
-    u8 x = F(F(*a0, 40, u8*), 47, u8);
-    if (x) {
-        void* o = F(*a0, 12, void*);
-        VT(o, 30)(o, x, 0, 0);
-    }
-    VTv(a1, 25)(a1, r);
-    func_0018ca10(r);  // alloc_from_pool_magic
-}
+void func_0018e298(void** a0, void* a1, void* a2);  // 0x0018e298: definition moved into src/anon/unit_0018d050.cpp
 }
 
 namespace w280_a1 {
