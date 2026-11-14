@@ -246,14 +246,7 @@ void func_00172260(Args172* s) {
 // 001874a0: moved to src/anon/unit_00185d10.cpp
 s32 func_001874a0(void* a, f32 f);
 
-u8* func_0018db38(void* a, u8* b, s32 c, void* d) {
-    u8 flag[16];
-    if (!func_0018d940(a, b, c, d)) return 0;
-    u8* r = func_0018da18(a, b, func_001c0320(b + 2640, a, flag), d);
-    r[36] = c;
-    if (!flag[0]) *(u32*)(r + 24) |= 3;
-    return r;
-}
+u8* func_0018db38(void* a, u8* b, s32 c, void* d);  // 0x0018db38: definition moved into src/anon/unit_0018d050.cpp
 
 struct Out1904 { u32 a[3]; u32 z; QWord q; };
 QWord func_001904a8(void* x) {

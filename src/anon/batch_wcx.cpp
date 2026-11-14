@@ -2335,17 +2335,7 @@ s32 func_0018a420(B32* a, B32* b)
     return 0;
 }
 typedef void (*PosFn)(V4*, u8*);
-V4* func_0018df90(V4* out, u8* p, u8* o)
-{
-    V4 d, a;
-    u8* q = *(u8**)(p + 12) + 1840;
-    (*(PosFn*)(*(u8**)o + 8))(&a, o);
-    VSub(&d, (V4*)q, &a);
-    VCopyChk(out, &d);
-    *(u32*)&out->y = 0;
-    VNormalize(out, out);
-    return out;
-}
+V4* func_0018df90(V4* out, u8* p, u8* o);  // 0x0018df90: definition moved into src/anon/unit_0018d050.cpp
 struct S36 { u32 w[9]; };
 u8* func_001050d8(s32);
 u32 func_00181c80(u32);

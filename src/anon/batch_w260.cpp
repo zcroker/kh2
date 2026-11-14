@@ -87,18 +87,7 @@ f32 cosf(f32);
 W260V func_0016af58(int);
 W260V func_0017d538(const W260V&, f32);
 
-int func_0018e698(W260Ctl* c, W260Tgt** t)
-{
-    u8 b = c->own->p40->b34;
-    if (!b) return 1;
-    f32 lim = -cosf((f32)b * 0.017453292f);
-    W260V d;
-    d = func_0016af58(c->own->f12);
-    s8 e = c->own->p40->b35;
-    if (e) d = func_0017d538(d, (f32)(e * 2) * 0.017453292f);
-    W260V w = (*t)->vt->f12(*t, c->own->f12);
-    return W260Dot(w, d) < lim;
-}
+int func_0018e698(W260Ctl* c, W260Tgt** t);  // 0x0018e698: definition moved into src/anon/unit_0018d050.cpp
 
 W260Q func_00190388(W260Tg*);  // vec4_from_arg
 int func_0016bba8(u8*, int, int);

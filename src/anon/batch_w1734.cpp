@@ -22,12 +22,6 @@ static inline Node_18f070* next_18f070(Node_18f070* p) {
     return p->next;
 }
 
-int func_0018f070(Node_18f070* a) {
-    if (!a) return 0;
-    Node_18f070* p = 0;
-    while ((p = next_18f070(p)) != 0)
-        if (p == a) return 1;
-    return 0;
-}
+int func_0018f070(Node_18f070* a);  // 0x0018f070: definition moved into src/anon/unit_0018d050.cpp
 
 }

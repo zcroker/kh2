@@ -36,93 +36,9 @@ struct W296Obj {
 };
 struct W296List { W296Obj* head; W296Obj* tail; };
 extern W296List D_list asm("D_01c60cd8");
-void func_0018d050(W296Obj* o, u8* a1, u8* a2, s32 a3, s32 a4, s32 a5, s32 a6) {
-    s32 v;
-    *(volatile u32*)&o->flags = 0;
-    o->p10 = a2;
-    o->vt = D_0034ef18;
-    o->p8 = a1;
-    o->pc = a1;
-    o->a14 = a3;
-    o->a18 = a4;
-    o->a1c = a5 >= 0 ? a5 : func_001bffd8();
-    o->p24 = a1 ? a1 + 128 : 0;
-    o->p28 = func_0019fe90(a3, a4);
-    func_001c0150(o->sub30, 0);  // obj_init_fields_1c0150
-    o->p88 = a1;
-    o->a84 = 0;
-    o->a8c = 0;
-    o->a98 = 0;
-    o->ba4 = 0;
-    if (a5 >= 0) o->flags |= 0x400;
-    if (o->p28[8] == 0 && o->pc != 0) {
-        func_0018e0d8(o, *(u32*)(o->pc + 0x3b0));
-    } else {
-        if (o->p28[8] == 1) o->pc = D_0034e948;
-        func_0018e0d8(o, o->p28[8]);
-    }
-    if (o->p28[0x12] & 2) {
-        o->p24 = (u8*)func_001b5a10();
-    } else if (o->p28[0x12] & 8) {
-        o->p24 = (u8*)(*(s32*)(o->pc + 0x23c) + 128);
-    }
-    o->a20 = o->p28[0x2c] ? o->p28[0x2c] : (a6 >= 0 ? a6 : func_001c0090());
-    if (o->p8) (*(s32*)(o->p8 + 0x488))++;
-    if (o->p10) (*(s32*)(o->p10 + 0x488))++;
-    if (D_list.tail == 0) {
-        D_list.tail = o;
-        D_list.head = o;
-        o->next = 0;
-    } else {
-        D_list.tail->next = o;
-        o->next = 0;
-        D_list.tail = o;
-    }
-}
+void func_0018d050(W296Obj* o, u8* a1, u8* a2, s32 a3, s32 a4, s32 a5, s32 a6);  // 0x0018d050: definition moved into src/anon/unit_0018d050.cpp
 
-void func_0018d238(W296Obj* o, u8* a1, u8* a2, s32 a3, s32 a4, s32 a5, s32 a6) {
-    s32 v;
-    *(volatile u32*)&o->flags = 0;
-    o->p10 = a2;
-    o->vt = D_0034ef18;
-    o->p8 = a1;
-    o->pc = a1;
-    o->a14 = a3;
-    o->a18 = a4;
-    o->a1c = a5 >= 0 ? a5 : func_001bffd8();
-    o->p24 = a1 ? a1 + 128 : 0;
-    o->p28 = func_0019fe90(a3, a4);
-    func_001c0150(o->sub30, 0);  // obj_init_fields_1c0150
-    o->p88 = a1;
-    o->a84 = 0;
-    o->a8c = 0;
-    o->a98 = 0;
-    o->ba4 = 0;
-    if (a5 >= 0) o->flags |= 0x400;
-    if (o->p28[8] == 0 && o->pc != 0) {
-        func_0018e0d8(o, *(u32*)(o->pc + 0x3b0));
-    } else {
-        if (o->p28[8] == 1) o->pc = D_0034e948;
-        func_0018e0d8(o, o->p28[8]);
-    }
-    if (o->p28[0x12] & 2) {
-        o->p24 = (u8*)func_001b5a10();
-    } else if (o->p28[0x12] & 8) {
-        o->p24 = (u8*)(*(s32*)(o->pc + 0x23c) + 128);
-    }
-    o->a20 = o->p28[0x2c] ? o->p28[0x2c] : (a6 >= 0 ? a6 : func_001c0090());
-    if (o->p8) (*(s32*)(o->p8 + 0x488))++;
-    if (o->p10) (*(s32*)(o->p10 + 0x488))++;
-    if (D_list.tail == 0) {
-        D_list.tail = o;
-        D_list.head = o;
-        o->next = 0;
-    } else {
-        D_list.tail->next = o;
-        o->next = 0;
-        D_list.tail = o;
-    }
-}
+void func_0018d238(W296Obj* o, u8* a1, u8* a2, s32 a3, s32 a4, s32 a5, s32 a6);  // 0x0018d238: definition moved into src/anon/unit_0018d050.cpp
 
 extern u8* D_0035ee04;
 extern u8* D_0035ee08;

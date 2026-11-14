@@ -1373,27 +1373,7 @@ s32 func_0018a550(u8*, u8*);  // state_dispatch_0_1_3
 s32 func_0018e698(Ent9*, Ent9*);
 void func_0018ea40(Ent9*, Ent9*);
 void func_0018e7c0(Ent9*, Ent9*);
-void func_0018eb98(List9* l, Ent9* q)
-{
-    for (s32 i = 0; i < l->n; i++) {
-        Ent9* e = (Ent9*)((u8*)(i * 48) + (u32)l + 16);
-        Obj9* a = e->obj;
-        Obj9* b = q->obj;
-        if (a->team == b->team) continue;
-        if (!D_0036cce0[a->kind->k][b->kind->k]) continue;
-        if (!func_001c0298((u8*)a + 48, b)) continue;
-        if (!func_001c0298((u8*)q->obj + 48, e->obj)) continue;
-        if (!func_001c0298(e->obj->owner + 2640, q->obj)) continue;
-        if (!func_001c0298(q->obj->owner + 2640, e->obj)) continue;
-        if (!func_0018a550(e->sub, q->sub)) continue;
-        if (!func_0018e698(e, q)) continue;
-        if (!func_0018e698(q, e)) continue;
-        func_0018ea40(e, q);
-        func_0018ea40(q, e);
-        func_0018e7c0(e, q);
-        func_0018e7c0(q, e);
-    }
-}
+void func_0018eb98(List9* l, Ent9* q);  // 0x0018eb98: definition moved into src/anon/unit_0018d050.cpp
 
 struct Mask11 { u32 on, set, off; u32 Get() { return (on | set) & ~off; } };
 struct Hit11 { u8 pad[24]; u32 flags; u32 src; u32* def; };

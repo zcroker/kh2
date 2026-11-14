@@ -128,24 +128,7 @@ void func_001af938(void) {
     func_001373d8();
 }
 
-void func_0018d620(void) {
-    func_001c2ba8();
-    func_001c0560();
-    func_001a4388();
-    W1578Cont* c = new W1578Cont;
-    W1578Obj* o = D_01c60cd8;
-    while (o) {
-        W1578Obj* nx = o->next;
-        if (o->flags & 0x800) {
-            delete o;
-        } else {
-            o->v4(c);
-        }
-        o = nx;
-    }
-    func_0018ed18(c);
-    delete c;
-}
+void func_0018d620(void);  // 0x0018d620: definition moved into src/anon/unit_0018d050.cpp
 
 // 001612b8: moved to src/anon/unit_001611a8.cpp
 }

@@ -2279,39 +2279,7 @@ void func_0018bb70(u32 a0, u32 a1, u32 a2, u32 a3, float f12) {
 
 // 0018c960: moved to src/yasui/libys/damage.cpp
 
-void func_0018ea40(u32 a0, u32 a1) {
-    u32 o0 = *(u32*)a0;
-    if ((*(u32*)(o0 + 4) & 0x80) != 0) {
-        return;
-    }
-
-    u32 o1 = *(u32*)a1;
-    if ((*(u32*)(o1 + 4) & 0x80) != 0) {
-        return;
-    }
-
-    u32 p = *(u32*)(o0 + 36);
-    if (*(u32*)p == 0) {
-        return;
-    }
-
-    u32 q = *(u32*)(o0 + 40);
-    u32 idx = (u32)*(u8*)(q + 11);
-    if (idx == 0) {
-        return;
-    }
-
-    u64 mask = 1;
-    mask <<= 32;
-    mask <<= (idx - 1);
-    mask |= 0x10;
-    s32 r = func_001de2e0(p, mask);
-    if (r < 0) {
-        return;
-    }
-
-    func_0018e8f0(a0, *(u32*)(*(u32*)a0 + 36), (u32)r, a1);
-}
+void func_0018ea40(u32 a0, u32 a1);  // 0x0018ea40: definition moved into src/anon/unit_0018d050.cpp
 
 void func_0018f6c0(u32 a0) {
     u32 s0 = a0;

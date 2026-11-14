@@ -127,32 +127,6 @@ void func_002d5f48(u8* self) {
 s32 func_00143b88(Seg1337*, Hit1337*, u16*, s32*, s32);
 void func_0018ddc0(Obj1337*, u16, Hit1337*, s32*);
 
-s32 func_0018dc28(Obj1337* self, const QV1337* from, const QV1337* to) {
-    Seg1337 seg;
-    u16 id;
-    Hit1337 hit;
-    s32 res;
-    seg.set(*from, *to);
-    res = 0;
-    asm volatile("" ::: "memory");
-    if (self->coll->enable && !self->isBusy() && (self->b8 || !self->isB1())) {
-        if (func_00143b88(&seg, &hit, &id, &res, 4) != 0) {
-            goto found;
-        }
-        if (self->coll->height28 != 0) {
-            seg.p0 = *to;
-            seg.p1 = *to;
-            seg.p1.y += (f32)self->coll->height28;
-            seg.p1.w = 1.0f;
-            seg.p0.w = 1.0f;
-            if (func_00143b88(&seg, &hit, &id, &res, 4) != 0) {
-            found:
-                func_0018ddc0(self, id, &hit, &res);
-                return 1;
-            }
-        }
-    }
-    return 0;
-}
+s32 func_0018dc28(Obj1337* self, const QV1337* from, const QV1337* to);  // 0x0018dc28: definition moved into src/anon/unit_0018d050.cpp
 
 }

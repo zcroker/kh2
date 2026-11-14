@@ -18,10 +18,7 @@ extern u32 D_00362c18;
 // 16-byte copy done with lq/sq through t0, as the original
 // 00159ce0: moved to src/harata/libdk/targetcamera.cpp
 
-void func_0018f0b0(s32 a, s32 b) {
-    if (b == 0xffff) { if (a == 1) { D_01c60cd0.f = 0.7853981256484985f; } }
-    if (b == 0xffff) { if (a == 1) { D_01c60cd0.p.clr(); } }
-}
+void func_0018f0b0(s32 a, s32 b);  // 0x0018f0b0: definition moved into src/anon/unit_0018d050.cpp
 
 void func_001bff88() {
     for (s32 i = 7; i >= 0; i--) D_01d49328[7 - i] = 0;

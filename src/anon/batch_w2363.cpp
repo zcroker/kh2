@@ -53,5 +53,5 @@ struct ATTACK {
     bool hit_flag() const { u32 m = flags & 8; return m || (flags & 0x10); }
     bool is_hit();
 };
-bool ATTACK::is_hit() { return (flags & 2) || hit_flag() || (flags & 0x200); }
+// 0x0018dbd8 ATTACK::is_hit: definition moved into src/anon/unit_0018d050.cpp
 }

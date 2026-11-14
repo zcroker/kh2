@@ -149,23 +149,7 @@ s32 func_001de2e0(u32*, u64);
 void func_001877a0(u8*, u32*, s32);
 
 // Applies a hit result and sets the matching reaction bit.
-u8* func_0018da18(u8* o, u8* act, u8* info) {
-    u8* r = func_0018c8f0(o, info, act);
-    if (*(u8**)(o + 12)) *(u32*)(*(u8**)(o + 12) + 264) |= 0x2000000;
-    *(u32*)(o + 4) |= 2;
-    if (*(u32*)(r + 24) & 4) return r;
-    if (ActFlags18d(act) & 0x2000) return r;
-    if (*(s32*)(info + 28) >= 0) func_00198580(*(u8**)(o + 16), *(s32*)(info + 28));  // check_div1000_500
-    u32* e = *(u32**)(o + 36);
-    if (!e) return r;
-    if (!*e) return r;
-    u8 n = info[11];
-    if (!n) return r;
-    u64 bit = (u64)1 << 32 << (n - 1);
-    s32 k = func_001de2e0(e, (*(u32*)(act + 1416) & 0x80) ? bit | 0x400 : bit | 0x800);
-    if (k >= 0) func_001877a0(act, *(u32**)(o + 36), k);
-    return r;
-}
+u8* func_0018da18(u8* o, u8* act, u8* info);  // 0x0018da18: definition moved into src/anon/unit_0018d050.cpp
 
 s32 func_00192440(u8*, s32);  // is_byte_lt25
 u32 func_00192498(u8*, s32);  // read_u16_be

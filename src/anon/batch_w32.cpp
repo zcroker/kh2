@@ -124,12 +124,7 @@ void AreaExit(void) {
 // 0017a6c8: moved to src/yasui/libys/player.cpp
 
 // Replaces every entry's key `key` with `val`.
-void func_0018ef98(s32 key, s32 val) {
-    s32* it = 0;
-    while ((it = (s32*)func_0018ee10(it)) != 0) {
-        if (it[3] == key) it[3] = val;
-    }
-}
+void func_0018ef98(s32 key, s32 val);  // 0x0018ef98: definition moved into src/anon/unit_0018d050.cpp
 
 s32 func_001a1658(s32 x) {  // state_dispatch_0_1_14
     switch (x) {

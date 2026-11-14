@@ -60,34 +60,7 @@ void* func_001a3b48(W1962Cnt*, u64, W1962QVb*, s32, s32, s32);
 W1962QVb func_0017d050(const W1962QVb&);
 void func_001c2c00(void*);
 void func_00198580(W1962Pl*, s32);
-void func_0018ddc0(W1962Ob* o, u16 id, W1962QVb* pos, W1962Hit* h) {
-    W1962QVb n;
-    s32 kind;
-    if (h->t == 0) {
-        n = oc_get_normal(id, 0);
-        kind = oc_get_attr_kind(id, 0);
-    } else {
-        n = func_001422a0(h->t->f, id);
-        kind = *ocf_get_attr(h->t->f, id) & 0xf;
-    }
-    u64 t;
-    if (kind == 1) { o->fl |= 0x10; t = 0x100; }
-    else { o->fl |= 8; t = 2; }
-    o->pos = *pos;
-    if (o->cnt->n != 0) {
-        u8 lv = o->inf->lv;
-        if (lv != 0) {
-            t |= (1ULL << 32) << (lv - 1);
-            void* e = func_001a3b48(o->cnt, t, pos, 1, 1, 10000);
-            if (e != 0) {
-                *w1962_effect_angle(e) = func_0017d050(n);
-                func_001c2c00(e);
-            }
-        }
-    }
-    if (o->pl->fl & 0x40) func_00198580(o->pl, 0x7a12a);
-    if (!(o->fl & 0x100)) o->hd->vt[28](o->hd, o);
-}
+void func_0018ddc0(W1962Ob* o, u16 id, W1962QVb* pos, W1962Hit* h);  // 0x0018ddc0: definition moved into src/anon/unit_0018d050.cpp
 
 // ---- _Z16wtarget_001aa388jjjj
 void func_00192940(W1962Cmd*, u32, W1962S24, W1962S8*);
