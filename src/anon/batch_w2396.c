@@ -17,32 +17,4 @@ static __inline__ f32 VRand(void)
     asm volatile("addi $8, $0, -1\n\tqmtc2 $8, $vf2\n\tvrxor R, $vf2x\n\tvrnext.x $vf1, R\n\tvrxor R, $vf2x\n\tvrnext.x $vf1, R\n\tvrxor R, $vf2x\n\tvrnext.x $vf1, R\n\tvrxor R, $vf2x\n\tvrnext.x $vf1, R\n\tvrxor R, $vf2x\n\tvrnext.x $vf1, R\n\tvitof0.x $vf2, $vf2\n\tvadd.x $vf1, $vf1, $vf2\n\tqmfc2 %0, $vf1" : "=r"(u) : : "$8");
     return u;
 }
-void func_001ea4d8(s32 base, Obj4d8* o, Arg4d8* arg)
-{
-    Cnt4d8* c = (Cnt4d8*)(base + *arg->ofs + 0xa0);
-    s16 idx;
-    if (D_01d9ea9c != 0) return;
-    if (D_01d9e6e0->flags & 0xff0000ff00ULL) return;
-    if (D_01d9eab4 != 0) return;
-    idx = o->idx;
-    if (idx < 0) return;
-    if (c->wait == 0) {
-        s32 n = o->n;
-        Ent4d8* e = &D_01d9e6e4->tbl[idx];
-        switch (o->mode) {
-        case 0:
-            while (--n != -1) {
-                if (c->cur >= e->x2) c->cur = 0;
-                func_001ea458(base, o, c->cur++);
-            }
-            break;
-        case 1:
-            while (--n != -1) {
-                func_001ea458(base, o, (u16)(s32)(VRand() * (f32)e->x2));
-            }
-            break;
-        }
-        c->wait = o->reset;
-    }
-    c->wait--;
-}
+void func_001ea4d8(s32 base, Obj4d8* o, Arg4d8* arg);  // 0x001ea4d8: definition moved into src/anon/unit_001e8ac8.cpp

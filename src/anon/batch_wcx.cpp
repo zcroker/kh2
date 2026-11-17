@@ -1207,19 +1207,7 @@ typedef void (*Fn32)(u8*, u8*);
 extern u8* D_01d9e6e0;
 u8* func_001e7a98(u8*, u8*);
 union HF { s16 h; f32 f; };
-void func_001ea100(u32 x, u8* d, HF* v)
-{
-    s32 k = *(s32*)(d + 12);
-    if (k == -1) return;
-    u8* r = 0;
-    u8* base = D_01d9e6e0;
-    u8* a = *(u8**)(base + 128) + k * 16;
-    if (a) { r = func_001e7a98(base, a); *(u32*)(r + 4) = x; }
-    f32* q = (f32*)(r + *(s32*)(d + 16) + 160);
-    q[0] = ((HF*)((s16*)v + 0))->h;
-    q[1] = ((HF*)((s16*)v + 1))->h;
-    q[2] = ((HF*)((s16*)v + 2))->h;
-}
+void func_001ea100(u32 x, u8* d, HF* v);  // 0x001ea100: definition moved into src/anon/unit_001e8ac8.cpp
 s32 func_002282f0(s16);
 u8* func_00227d10(s16);
 void func_001ba028(u8*);  // list_contains_ptr
@@ -1903,16 +1891,7 @@ void sceVu0MulMatrix(u8*, u8*, u8*);
 void sceVu0ApplyMatrix(u8*, u8*, u8*);
 union GPV { u8* p; V4 v; };
 extern GPV D_01d9e6e8u asm("D_01d9e6e8");
-void func_001eb460(void)
-{
-    f32* s = D_00354be0;
-    sceVu0ScaleVector(D_01d9e6e8u.p + 80, D_01d9e6e8u.p + 16, s[0]);  // vec_scale_by_f12
-    sceVu0ScaleVector(D_01d9e6e8u.p + 96, D_01d9e6e8u.p + 32, s[1]);  // vec_scale_by_f12
-    sceVu0ScaleVector(D_01d9e6e8u.p + 112, D_01d9e6e8u.p + 48, s[2]);  // vec_scale_by_f12
-    *(V4*)(D_01d9e6e8u.p + 128) = *(V4*)(D_01d9e6e8u.p + 64);
-    sceVu0MulMatrix(D_01d9e6e8u.p + 80, D_01d9e940, D_01d9e6e8u.p + 80);
-    sceVu0ApplyMatrix(D_01d9e6e8u.p + 128, D_01d9e900, D_01d9e6e8u.p + 64);
-}
+void func_001eb460(void);  // 0x001eb460: definition moved into src/anon/unit_001e8ac8.cpp
 }
 
 }

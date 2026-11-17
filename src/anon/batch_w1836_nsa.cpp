@@ -29,34 +29,5 @@ u8* func_001e7a98(W1836Ebc*, u8*);
 extern s32 D_01d9ea9c;
 extern W1836Ebc* D_01d9e6e0;
 
-void func_001ebcf0(u8* a0, W1836EbArg1* a1, W1836EbArg2* a2)
-{
-    W1836EbOff* o = a2->off;
-    f32* src = (f32*)(a0 + o->a + 160);
-    u8* st = a0 + o->b + 160;
-    s32 n;
-
-    if (D_01d9ea9c != 0)
-        return;
-    if (D_01d9e6e0->flags & 0xff0000ff00LL)
-        return;
-    if (st[1] == 0) {
-        n = a1->cnt;
-        while (n-- != 0) {
-            u8* v = 0;
-            u8* t = D_01d9e6e0->tbl + a1->idx * 16;
-            if (t != 0) {
-                v = func_001e7a98(D_01d9e6e0, t);
-                *(u8**)(v + 4) = a0;
-            }
-            W1836V3c* d = (W1836V3c*)(v + a1->ofs + 160);
-            W1836V3c* sp = (W1836V3c*)src;
-            d->x = sp->x;
-            d->y = sp->y;
-            d->z = sp->z;
-        }
-        st[1] = a1->reset;
-    }
-    st[1]--;
-}
+void func_001ebcf0(u8* a0, W1836EbArg1* a1, W1836EbArg2* a2);  // 0x001ebcf0: definition moved into src/anon/unit_001e8ac8.cpp
 }

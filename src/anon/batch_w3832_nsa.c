@@ -18,37 +18,4 @@ extern u8 D_01d9eac0[];
 extern u8 D_01d9e9c0[];
 extern u8 D_01d9e980[];
 s32 func_0020f1e0(u32*, Prm*, s32);
-void func_001eb528(u8* base, Arg1* a, Arg2* b) {
-    Prm prm;
-    s32 idx = a->idx;
-    if (idx == 0xffff) return;
-    Col* c = (Col*)(base + *b->off + 0xa0);
-    prm.c27 = c->a;
-    if (prm.c27 == 0) return;
-    Slot* s = &D_01d9e6e4->slots[idx];
-    u32* h = s->h;
-    if (*h & 1) *(s32*)&prm = 128; else *(s32*)&prm = 12;
-    if (!(*h & 2)) *(s32*)&prm |= 0x10;
-    Sys2* g = D_01d9e6e8;
-    *(u16*)((u8*)&prm + 8) = ((u16*)h)[0x16 / 2];
-    prm.b10 = 0;
-    *(s32*)((u8*)&prm + 28) = 0;
-    prm.w56 = g->w144;
-    prm.w60 = g->w148;
-    prm.p4 = D_01d9eac0;
-    prm.c24 = c->r;
-    prm.c25 = c->g;
-    prm.c26 = c->b;
-    prm.p32 = g->a80;
-    prm.p36 = D_01d9e9c0;
-    prm.p40 = D_01d9e980;
-    prm.p44 = g->a16;
-    *(s32*)((u8*)&prm + 52) = D_01d9eaa4;
-    prm.w12 = 0;
-    *(s64*)((u8*)&prm + 16) = 0;
-    *(s32*)((u8*)&prm + 64) = 0;
-    prm.w68 = 0;
-    prm.b76 = 0;
-    prm.b77 = 0;
-    D_01d9eaa4 = func_0020f1e0(h, &prm, s->w32);
-}
+void func_001eb528(u8* base, Arg1* a, Arg2* b);  // 0x001eb528: definition moved into src/anon/unit_001e8ac8.cpp

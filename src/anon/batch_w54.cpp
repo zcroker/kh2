@@ -229,21 +229,7 @@ void sceVu0MulMatrix(void*, f32*, void*);
 extern u8* D_01d9e6e0;
 extern u8* D_01d9e6e8;
 // scale matrix built from two clamped factors
-void func_001eb030(void* a0, f32* s) {
-    f32 m[16];
-    sceVu0UnitMatrix(m);  // vu_store_w_splat
-    f32 k = s[1];
-    f32 mx = s[2];
-    u8* t = D_01d9e6e0;
-    f32 x = *(f32*)(t + 64);
-    m[0] = x + x * k;
-    if (mx < m[0]) m[0] = mx;
-    m[10] = m[0];
-    f32 y = *(f32*)(t + 68);
-    m[5] = y + y * k;
-    if (mx < m[5]) m[5] = mx;
-    sceVu0MulMatrix(D_01d9e6e8 + 16, m, D_01d9e6e8 + 16);
-}
+void func_001eb030(void* a0, f32* s);  // 0x001eb030: definition moved into src/anon/unit_001e8ac8.cpp
 
 // VU0 random float in [0,1) (R register); one or two samples
 f32 func_001ee5d8(u8 two) {

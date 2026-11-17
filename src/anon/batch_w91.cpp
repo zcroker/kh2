@@ -251,19 +251,7 @@ void func_0021ed18(u8*, u8*);
 static inline void vscl91(u8* m, u32 s) {
     asm volatile("qmtc2 %1, $vf9\n\tlqc2 $vf10, 0(%0)\n\tvmulx.xyz $vf10, $vf10, $vf9x\n\tsqc2 $vf10, 0(%0)" : : "r"(m), "r"(s) : "memory");
 }
-void func_001ead10(u8* base, u32, u8* a2) {
-    u32* t = *(u32**)(a2 + 12);
-    u8* m = base + t[1] + 160;
-    f32* tr = (f32*)(base + t[0] + 160);
-    u32* sc = (u32*)(base + t[2] + 160);
-    func_0021ed18(D_01d9e6e8.p + 16, m);
-    vscl91(D_01d9e6e8.p + 16, sc[0]);
-    vscl91(D_01d9e6e8.p + 32, sc[1]);
-    vscl91(D_01d9e6e8.p + 48, sc[2]);
-    *(f32*)(D_01d9e6e8.p + 64) = tr[0];
-    *(f32*)(D_01d9e6e8.p + 68) = tr[1];
-    *(f32*)(D_01d9e6e8.p + 72) = tr[2];
-}
+void func_001ead10(u8* base, u32, u8* a2);  // 0x001ead10: definition moved into src/anon/unit_001e8ac8.cpp
 
 // --- 001f6778
 extern u32 D_01d9eab4;

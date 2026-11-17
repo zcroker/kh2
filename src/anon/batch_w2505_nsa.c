@@ -23,77 +23,7 @@ static inline f32 rand1e9e48(void)
     return r;
 }
 /* partMng particle emitter: spawn e->num points per tick (sequential or VU0-random pick) */
-void func_001e9e48(u8* base, Emit1e9e48* e, EmitCtx1e9e48* c)
-{
-    EmitSt1e9e48* st = (EmitSt1e9e48*)(base + *c->off + 160);
-    EmitTbl1e9e48* t;
-    EmitPt1e9e48* src;
-    EmitPt1e9e48 pt;
-    s32 n;
-    if (D_01d9ea9c) return;
-    if (D_01d9e6e0->stopA || D_01d9e6e0->stopB) return;
-    if (D_01d9eab4) return;
-    if (e->tbl < 0) return;
-    if (st->wait == 0) {
-        t = &D_01d9e6e4->tbls[e->tbl];
-        src = D_01d9e6e8->pts;
-        if (!src) src = *(EmitPt1e9e48**)(D_01d9e6e4->sets + t->set * 36 + 20);
-        n = e->num;
-        switch (e->mode) {
-        case 0:
-            while (n--) {
-                if (st->cur >= t->count) st->cur = 0;
-                pt = src[t->idx[st->cur++]];
-                func_001e9d48(base, e, &pt);
-            }
-            break;
-        case 1:
-            while (n--) {
-                f32 r = rand1e9e48();
-                pt = src[t->idx[(s32)(r * (f32)t->count)]];
-                func_001e9d48(base, e, &pt);
-            }
-            break;
-        }
-        st->wait = e->wait;
-    }
-    st->wait--;
-}
+void func_001e9e48(u8* base, Emit1e9e48* e, EmitCtx1e9e48* c);  // 0x001e9e48: definition moved into src/anon/unit_001e8ac8.cpp
 
 /* twin of func_001e9e48 with a different spawn callee */
-void func_001ea1b0(u8* base, Emit1e9e48* e, EmitCtx1e9e48* c)
-{
-    EmitSt1e9e48* st = (EmitSt1e9e48*)(base + *c->off + 160);
-    EmitTbl1e9e48* t;
-    EmitPt1e9e48* src;
-    EmitPt1e9e48 pt;
-    s32 n;
-    if (D_01d9ea9c) return;
-    if (D_01d9e6e0->stopA || D_01d9e6e0->stopB) return;
-    if (D_01d9eab4) return;
-    if (e->tbl < 0) return;
-    if (st->wait == 0) {
-        t = &D_01d9e6e4->tbls[e->tbl];
-        src = D_01d9e6e8->pts;
-        if (!src) src = *(EmitPt1e9e48**)(D_01d9e6e4->sets + t->set * 36 + 20);
-        n = e->num;
-        switch (e->mode) {
-        case 0:
-            while (n--) {
-                if (st->cur >= t->count) st->cur = 0;
-                pt = src[t->idx[st->cur++]];
-                func_001ea100(base, e, &pt);
-            }
-            break;
-        case 1:
-            while (n--) {
-                f32 r = rand1e9e48();
-                pt = src[t->idx[(s32)(r * (f32)t->count)]];
-                func_001ea100(base, e, &pt);
-            }
-            break;
-        }
-        st->wait = e->wait;
-    }
-    st->wait--;
-}
+void func_001ea1b0(u8* base, Emit1e9e48* e, EmitCtx1e9e48* c);  // 0x001ea1b0: definition moved into src/anon/unit_001e8ac8.cpp

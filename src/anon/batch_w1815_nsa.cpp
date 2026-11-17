@@ -35,22 +35,7 @@ extern Oe9* D_01d9e6e0;
 extern u8* D_01d9e6e8;
 Re9* func_001e7a98(Oe9*, void*);
 void sceVu0ApplyMatrix(V4e9*, void*, V4e9*);
-void func_001e9d48(s32 a0, Ae9* a1, s16* a2) {
-    if (a1->idx != -1) {
-        Re9* r = 0;
-        Oe9* o = D_01d9e6e0;
-        void* p = o->f80 + a1->idx * 16;
-        if (p) {
-            r = func_001e7a98(o, p);
-            r->f4 = a0;
-        }
-        V4e9 v;
-        v.x = a2[0]; v.y = a2[1]; v.z = a2[2]; v.w = 1.0f;
-        sceVu0ApplyMatrix(&v, D_01d9e6e8 + 16, &v);
-        V3e9* d = (V3e9*)((u8*)r + a1->f10 + 0xa0);
-        d->x = v.x; d->y = v.y; d->z = v.z;
-    }
-}
+void func_001e9d48(s32 a0, Ae9* a1, s16* a2);  // 0x001e9d48: definition moved into src/anon/unit_001e8ac8.cpp
 
 struct Peb { u16 a0; u16 flags; u8 c[4]; u64 f8; u8* f10; s32 f14; u8 f18; u32 f1c; u8 pad[16]; };
 struct Teb { s32 a; s32 b; };
@@ -61,28 +46,7 @@ struct Oeb { u8 p0[0x14]; Eeb* f14; };
 extern Oeb* D_01d9e6e4;
 extern s32 D_01d9eaa4;
 s32 func_0021d048(u8*, Peb*, s32);
-void func_001ebb30(u8* a0, A1eb* a1, A2eb* a2) {
-    u8* q = a0 + a2->fc->a + 0xa0;
-    u8* t = a0 + a2->fc->b + 0xa0;
-    if (a1->f4 != 0xffff) {
-        Eeb* e = &D_01d9e6e4->f14[a1->f4];
-        Peb p;
-        p.f10 = D_01d9e6e8 + 80;
-        p.f8 = 0;
-        p.f18 = 0;
-        p.f1c = 0;
-        if (!a1->bc) p.flags = 0x80; else p.flags = 0;
-        if (a1->bd == 1) p.flags |= 0x10;
-        s32 old = D_01d9eaa4;
-        p.c[0] = t[8]; p.c[1] = t[9]; p.c[2] = t[10]; p.c[3] = t[11];
-        s32 o = *(u16*)(q + 4) * 8;
-        u8* d = e->data;
-        u8* a = d + *(s16*)(d + o + 16);
-        p.f14 = old;
-        s32 x = e->x;
-        D_01d9eaa4 = func_0021d048(a, &p, x);
-    }
-}
+void func_001ebb30(u8* a0, A1eb* a1, A2eb* a2);  // 0x001ebb30: definition moved into src/anon/unit_001e8ac8.cpp
 
 struct A23 { u32 p0; s16 s4; u8 p6[4]; u16 u10; };
 struct E23a { A23* a; void* b; s32 c; };

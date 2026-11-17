@@ -192,18 +192,7 @@ void func_001de8a8(u32 a0, u32 a1, u32 a2, u32 a3) {
 }
 
 // scale matrix (clamped) applied to the global transform
-void func_001eb228(u32 a0, f32* a1) {
-    f32 m[16] __attribute__((aligned(16)));
-    sceVu0UnitMatrix(m);  // vu_store_w_splat
-    f32 s = *(f32*)(D_01d9e6e0 + 64);
-    f32 v = s + s * a1[1];
-    m[0] = v;
-    if (a1[2] < v) m[0] = a1[2];
-    m[10] = m[0];
-    m[5] = m[0];
-    u8* p = D_01d9e6e8 + 16;
-    sceVu0MulMatrix(p, m, p);
-}
+void func_001eb228(u32 a0, f32* a1);  // 0x001eb228: definition moved into src/anon/unit_001e8ac8.cpp
 
 // random value in about [-n/2, 3n/2)
 s8 func_002072a8(u8 n) {

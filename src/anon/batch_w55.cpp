@@ -303,13 +303,7 @@ void func_001d2690(RingW55* r, u32 b, f32 f);  // 0x001d2690: definition moved i
 
 // 001d34d0: moved to src/anon/unit_001d30b0.cpp
 
-void func_001e9078(u8* a, u8* b, u8* c) {
-    *(u32*)(a + **(s32**)(c + 12) + 160) = *(u32*)(b + 4);
-    CbW55* t = (CbW55*)D_01d9eaa0;
-    if (!t) return;
-    CbW55 f = t[(*(u8**)(a + 8))[14]];
-    if (f) f(a, *(u32*)(b + 4));
-}
+void func_001e9078(u8* a, u8* b, u8* c);  // 0x001e9078: definition moved into src/anon/unit_001e8ac8.cpp
 
 // Sum of two VU0 randoms, or twice one.
 f32 func_001eeb90(u8 a) {

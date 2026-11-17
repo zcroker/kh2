@@ -205,28 +205,9 @@ void func_001dd2b8(void);  // 0x001dd2b8: definition moved into src/anon/unit_00
 
 extern u8* D_01d9e6e0;
 extern u8* D_01d9e6e8;
-void func_001eb140(void*, f32* v) {
-    f32 m[4][4];
-    sceVu0UnitMatrix(m);  // vu_store_w_splat
-    f32 h = *(f32*)(D_01d9e6e0 + 68);
-    f32 y = h + h * v[1];
-    m[1][1] = y;
-    if (v[2] < y) m[1][1] = v[2];
-    u8* p = D_01d9e6e8 + 16;
-    sceVu0MulMatrix(p, m, p);
-}
+void func_001eb140(void*, f32* v);  // 0x001eb140: definition moved into src/anon/unit_001e8ac8.cpp
 
-void func_001eb1b0(void*, f32* v) {
-    f32 m[4][4];
-    sceVu0UnitMatrix(m);  // vu_store_w_splat
-    f32 h = *(f32*)(D_01d9e6e0 + 68);
-    f32 y = h + h * v[1];
-    m[1][1] = y;
-    if (v[2] < y) m[1][1] = v[2];
-    m[0][0] = m[1][1] = m[2][2];
-    u8* p = D_01d9e6e8 + 16;
-    sceVu0MulMatrix(p, m, p);
-}
+void func_001eb1b0(void*, f32* v);  // 0x001eb1b0: definition moved into src/anon/unit_001e8ac8.cpp
 
 s32 func_0022b028(s32 n);  // 0022b028: moved to src/sasa/musical_input.cpp (linked unit)
 

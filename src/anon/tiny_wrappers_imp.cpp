@@ -123,17 +123,7 @@ u32 func_001e0328(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_001e02f8(r4, r5, r6, r7);
 }
 
-u32 func_001eb000(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r14 = 0u, r15 = 0u;
-    r14 = r4;
-    r15 = (u32)(0x01dau << 16);
-    r4 = *(u32*)((u32)r15 + (s32)(-6424));
-    r5 = *(u32*)((u32)r14 + (s32)(4));
-    r4 = (u32)((s32)r4 + (64));
-    r5 = (u32)((s32)r5 + (16));
-    r6 = r4;
-    return sceVu0ApplyMatrix(r4, r5, r6, r7);
-}
+u32 func_001eb000(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001eb000: definition moved into src/anon/unit_001e8ac8.cpp
 
 u32 func_00225e28(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r14 = 0u, r15 = 0u;

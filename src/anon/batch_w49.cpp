@@ -287,13 +287,7 @@ static inline void assert1e8bb8(const char* e, const char* f, s32 l) {
     func_002fdfc8(D_0036ef98, f, l);  // device_vprintf_va
     asm volatile("break");
 }
-void func_001e8bb8(u8* p) {
-    NoTail g;
-    if (!p) assert1e8bb8(D_0036efc8, D_0036ef88, 982);
-    func_001e7878(p);
-    func_001e8ac8(p);
-    func_001e8330(p);
-}
+void func_001e8bb8(u8* p);  // 0x001e8bb8: definition moved into src/anon/unit_001e8ac8.cpp
 
 void sceGsExecLoadImage(u8*, u32);
 void func_002367c8(u8* p) {  // obj_dispatch_bitfield64

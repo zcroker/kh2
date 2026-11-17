@@ -11688,21 +11688,7 @@ extern G1eaf50 D_01d9e6e8_1eaf50 asm("D_01d9e6e8");
 struct O1eaf50 { u32 a; u32 b; };
 struct H1eaf50 { u8 pad[0xc]; O1eaf50* ofs; };
 void sceVu0UnitMatrix(f32 (*)[4]);
-void func_001eaf50(u8* base, u32, H1eaf50* h)
-{
-    O1eaf50* o = h->ofs;
-    u8* r = base + o->a;
-    u8* q = base + o->b;
-    P1eaf50* s = (P1eaf50*)(q + 160);
-    sceVu0UnitMatrix(D_01d9e6e8_1eaf50.p->m);
-    P1eaf50* t = (P1eaf50*)(r + 160);
-    D_01d9e6e8_1eaf50.p->m[0][0] = s->x;
-    D_01d9e6e8_1eaf50.p->m[1][1] = s->y;
-    D_01d9e6e8_1eaf50.p->m[2][2] = s->z;
-    D_01d9e6e8_1eaf50.p->m[3][0] = t->x;
-    D_01d9e6e8_1eaf50.p->m[3][1] = t->y;
-    D_01d9e6e8_1eaf50.p->m[3][2] = t->z;
-}
+void func_001eaf50(u8* base, u32, H1eaf50* h);  // 0x001eaf50: definition moved into src/anon/unit_001e8ac8.cpp
 
 // --------------------
 struct E295430 { s8 key; u8 pad[3]; u16 a, b; u8 pad8[2]; u16 c, d; u8 pade[2]; };

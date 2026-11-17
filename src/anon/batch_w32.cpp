@@ -140,14 +140,7 @@ void func_001a2578(u8* p, s32 n);  // 0x001a2578: definition moved into src/anon
 
 bool func_001dc738(u32* p);  // 0x001dc738: definition moved into src/anon/unit_001dbfd8.cpp
 
-void func_001ea928(u8* a, u8* b) {
-    u8* s = a + **(s32**)(b + 12) + 160;
-    void* e = *(void**)(s + 12);
-    if (e) {
-        func_001e7798(D_01d9e6e4, e);
-        *(void**)(s + 12) = 0;
-    }
-}
+void func_001ea928(u8* a, u8* b);  // 0x001ea928: definition moved into src/anon/unit_001e8ac8.cpp
 
 void EFFECT_free(u8*) asm("_ZN3ryj6EFFECT4freeEv");
 void EFFECT_free(u8* e);  // 0x001dc878: definition moved into src/anon/unit_001dbfd8.cpp

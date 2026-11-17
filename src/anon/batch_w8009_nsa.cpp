@@ -111,37 +111,5 @@ extern u8 D_01d9e9c0[];
 extern u8 D_01d9e980[];
 extern "C" {
 s32 func_0020f1e0(u32*, Prm1eb668*, s32);
-void func_001eb668(u8* base, Arg11eb668* a, Arg21eb668* b) {
-    Prm1eb668 prm;
-    s32 idx = a->idx;
-    if (idx == 0xffff) return;
-    u8* q = base + *b->off;
-    Pos1eb668* ps = (Pos1eb668*)(q + 0xa0);
-    prm.c27 = ps->v[3] >> 7;
-    if (prm.c27 == 0) return;
-    Slot1eb668* s = &D_01d9e6e4->slots[idx];
-    u32* h = s->h;
-    prm.flags = 0x80;
-    if (!(*h & 2)) prm.flags = 0x90;
-    Sys21eb668* g = D_01d9e6e8;
-    *(u16*)((u8*)&prm + 8) = a->h8;
-    prm.b10 = 0;
-    prm.w28 = 0;
-    prm.w56 = g->w144;
-    prm.w60 = g->w148;
-    prm.p4 = D_01d9eac0;
-    prm.w12 = 0;
-    prm.d16 = 0;
-    prm.w64 = 0;
-    prm.c24 = ((Pos1eb668*)(q + 0xa0))->v[0] >> 7;
-    prm.c25 = ps->v[1] >> 7;
-    prm.c26 = ps->v[2] >> 7;
-    prm.p32 = g->a80;
-    prm.p36 = D_01d9e9c0;
-    prm.p40 = D_01d9e980;
-    prm.p44 = g->a16;
-    prm.w52 = D_01d9eaa4;
-    prm.w68 = 0;
-    D_01d9eaa4 = func_0020f1e0(h, &prm, s->w32);
-}
+void func_001eb668(u8* base, Arg11eb668* a, Arg21eb668* b);  // 0x001eb668: definition moved into src/anon/unit_001e8ac8.cpp
 }

@@ -261,22 +261,7 @@ static inline void ScaleRow(u8* row, f32 k)
         "sqc2 $vf10, 0(%0)"
         : : "r"(row), "r"(k) : "memory");
 }
-void func_001eadf8(u8* base, u32 unused, u8* desc)
-{
-    u32* d = *(u32**)(desc + 12);
-    u8* p0 = base + d[0];
-    u8* p1 = base + d[1];
-    u8* p2 = base + d[2];
-    f32* t = (f32*)(p0 + 160);
-    f32* s = (f32*)(p2 + 160);
-    func_0021edb0(D_01d9e6e8.p + 16, p1 + 160);
-    ScaleRow(D_01d9e6e8.p + 16, s[0]);
-    ScaleRow(D_01d9e6e8.p + 32, s[1]);
-    ScaleRow(D_01d9e6e8.p + 48, s[2]);
-    *(f32*)(D_01d9e6e8.p + 64) = t[0];
-    *(f32*)(D_01d9e6e8.p + 68) = t[1];
-    *(f32*)(D_01d9e6e8.p + 72) = t[2];
-}
+void func_001eadf8(u8* base, u32 unused, u8* desc);  // 0x001eadf8: definition moved into src/anon/unit_001e8ac8.cpp
 
 extern u32 D_01d9ea9c;
 extern u32 D_01d9eab4;
@@ -518,18 +503,7 @@ static inline void AssertFail(const char* expr, const char* file, u32 line)
     func_002fdfc8(D_0036ef98, file, line);  // device_vprintf_va
     asm volatile("break");
 }
-void func_001e8ac8(u8* o)
-{
-    for (s32 i = 0; i < *(s32*)(o + 104); i++) {
-        u8* e = *(u8**)(o + 128) + i * 16;
-        if (!e) AssertFail(D_0036efb8, D_0036ef88, 964);
-        if (*(s32*)(o + 88) < *(s32*)(e + 8)) continue;
-        *(s32*)(e + 8) = 0x7fffffff;
-        u8* r = func_001e7a98(o, e);
-        *(u8**)(e + 4) = r;
-        *(r + 156) = 0;
-    }
-}
+void func_001e8ac8(u8* o);  // 0x001e8ac8: definition moved into src/anon/unit_001e8ac8.cpp
 
 u8* func_001a80c8(u16);  // table24_find_by_id
 bool func_002ab8e8(s32 who);  // 0x002ab8e8: definition moved into src/anon/unit_002a99c8.cpp

@@ -12,23 +12,7 @@ extern "C" {
 extern W1944MorphMgr* D_01d9e6e4;
 extern W1944MorphOut* D_01d9e6e8;
 W1944SV* func_001e7698(W1944MorphMgr*, s32);
-void func_001ea758(u8* base, W1944MorphKeys* k, W1944MorphCtx* c)
-{
-    if (k->from == 0xffff && k->to == 0xffff) return;
-    W1944MorphState* st = (W1944MorphState*)(base + *c->offset + 0xa0);
-    W1944SV* va = D_01d9e6e4->shapes[k->from].verts;
-    W1944SV* vb = D_01d9e6e4->shapes[k->to].verts;
-    s32 n = D_01d9e6e4->shapes[k->from].count;
-    if (st->buf == 0) st->buf = func_001e7698(D_01d9e6e4, n * 6);
-    W1944SV* out = st->buf;
-    while (n--) {
-        out->x = (s16)(s32)((f32)(vb->x - va->x) * st->t + (f32)va->x);
-        out->y = (s16)(s32)((f32)(vb->y - va->y) * st->t + (f32)va->y);
-        out->z = (s16)(s32)((f32)(vb->z - va->z) * st->t + (f32)va->z);
-        va++; vb++; out++;
-    }
-    D_01d9e6e8->buf = st->buf;
-}
+void func_001ea758(u8* base, W1944MorphKeys* k, W1944MorphCtx* c);  // 0x001ea758: definition moved into src/anon/unit_001e8ac8.cpp
 }
 
 // 0029de18: the first flag store goes through an int-parameter setter (keeps the two li 1 apart).

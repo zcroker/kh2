@@ -1580,19 +1580,7 @@ void func_001e5990(u32 a0);  // 0x001e5990: definition moved into src/anon/unit_
 
 void func_001e74d8(u32 a0);  // 0x001e74d8: definition moved into src/anon/unit_001e0cb8.cpp
 
-void func_001e8fe0(u32 a0, u32 a1) {
-    u32 s0 = a1;
-    B64_001e8fe0 b0;
-    B64_001e8fe0 b1;
-    B64_001e8fe0 b2;
-    B64_001e8fe0 b3;
-
-    func_0021ead0(&b0, *(u32*)(s0 + 8));  // table_float_pair_lookup
-    func_0021ea50(&b1, *(u32*)(s0 + 4));  // table_float_pair_lookup_b
-    sceVu0MulMatrix((u32)&b2, (u32)&b0, (u32)&b1);
-    func_0021e9d0(&b3, *(u32*)(s0 + 0));  // table_float_pair_lookup_c
-    sceVu0MulMatrix(a0, (u32)&b2, (u32)&b3);
-}
+void func_001e8fe0(u32 a0, u32 a1);  // 0x001e8fe0: definition moved into src/anon/unit_001e8ac8.cpp
 
 void func_001f00f8(s32* a0) {
     s32 v = a0[0];

@@ -19,38 +19,8 @@ static inline void ScaleRow247(u8* row, f32 k)
         "sqc2 $vf10, 0(%0)"
         : : "r"(row), "r"(k) : "memory");
 }
-void func_001ea970(u8* base, u32 unused, u8* desc)
-{
-    u32* d = *(u32**)(desc + 12);
-    u8* p0 = base + d[0];
-    u8* p1 = base + d[1];
-    u8* p2 = base + d[2];
-    f32* t = (f32*)(p0 + 160);
-    f32* s = (f32*)(p2 + 160);
-    func_001e8fe0(D_01d9e6e8.p + 16, p1 + 160);
-    ScaleRow247(D_01d9e6e8.p + 16, s[0]);
-    ScaleRow247(D_01d9e6e8.p + 32, s[1]);
-    ScaleRow247(D_01d9e6e8.p + 48, s[2]);
-    *(f32*)(D_01d9e6e8.p + 64) = t[0];
-    *(f32*)(D_01d9e6e8.p + 68) = t[1];
-    *(f32*)(D_01d9e6e8.p + 72) = t[2];
-}
-void func_001eac28(u8* base, u32 unused, u8* desc)
-{
-    u32* d = *(u32**)(desc + 12);
-    u8* p0 = base + d[0];
-    u8* p1 = base + d[1];
-    u8* p2 = base + d[2];
-    f32* t = (f32*)(p0 + 160);
-    f32* s = (f32*)(p2 + 160);
-    func_0021ec80(D_01d9e6e8.p + 16, p1 + 160);
-    ScaleRow247(D_01d9e6e8.p + 16, s[0]);
-    ScaleRow247(D_01d9e6e8.p + 32, s[1]);
-    ScaleRow247(D_01d9e6e8.p + 48, s[2]);
-    *(f32*)(D_01d9e6e8.p + 64) = t[0];
-    *(f32*)(D_01d9e6e8.p + 68) = t[1];
-    *(f32*)(D_01d9e6e8.p + 72) = t[2];
-}
+void func_001ea970(u8* base, u32 unused, u8* desc);  // 0x001ea970: definition moved into src/anon/unit_001e8ac8.cpp
+void func_001eac28(u8* base, u32 unused, u8* desc);  // 0x001eac28: definition moved into src/anon/unit_001e8ac8.cpp
 void func_001efe48(u8* base, u32 unused, u8* desc)
 {
     u32* d = *(u32**)(desc + 12);

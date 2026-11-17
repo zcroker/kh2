@@ -232,17 +232,7 @@ void func_001e0de8(Vec4* p);  // 0x001e0de8: definition moved into src/anon/unit
 // --- 001ea458
 extern u8* D_01d9e6e0;
 u8* func_001e7a98(u8*, u8*);
-void func_001ea458(u32 a, u8* b, u16 c) {
-    if (*(s32*)(b + 12) == -1) return;
-    u8* m = D_01d9e6e0;
-    u8* r = 0;
-    u8* e = *(u8**)(m + 128) + *(s32*)(b + 12) * 16;
-    if (e) {
-        r = func_001e7a98(m, e);
-        *(u32*)(r + 4) = a;
-    }
-    *(u16*)(r + *(u32*)(b + 16) + 160) = c;
-}
+void func_001ea458(u32 a, u8* b, u16 c);  // 0x001ea458: definition moved into src/anon/unit_001e8ac8.cpp
 
 // --- 0022b898
 u32 func_0022b7f0(void);

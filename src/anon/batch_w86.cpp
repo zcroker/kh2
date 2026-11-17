@@ -476,18 +476,7 @@ extern u8 D_01d9e8c0[];
 void sceVu0ScaleVector(void*, void*, f32);  // vec_scale_by_f12
 void sceVu0MulVector(void*, void*, f32*);
 void sceVu0MulMatrix(void*, void*, void*);
-void func_001eb368(void)
-{
-    sceVu0ScaleVector(D_01d9e6e8.p->r0, D_01d9e6e8.p->a, D_00354be0[0]);  // vec_scale_by_f12
-    sceVu0ScaleVector(D_01d9e6e8.p->r1, D_01d9e6e8.p->b, D_00354be0[1]);  // vec_scale_by_f12
-    sceVu0ScaleVector(D_01d9e6e8.p->r2, D_01d9e6e8.p->c, D_00354be0[2]);  // vec_scale_by_f12
-    sceVu0MulVector(D_01d9e6e8.p->t, D_01d9e6e8.p->d, D_00354be0);
-    D_01d9e6e8.p->t[0] += D_01d9e840[12];
-    D_01d9e6e8.p->t[1] += D_01d9e840[13];
-    D_01d9e6e8.p->t[2] += D_01d9e840[14];
-    D_01d9e6e8.p->t[3] = 1.0f;
-    sceVu0MulMatrix(D_01d9e6e8.p->r0, D_01d9e8c0, D_01d9e6e8.p->r0);
-}
+void func_001eb368(void);  // 0x001eb368: definition moved into src/anon/unit_001e8ac8.cpp
 }
 }
 

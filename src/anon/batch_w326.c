@@ -19,23 +19,4 @@ void func_001e78e0(void*);
 extern s32 D_01d9ea9c;
 extern u8* D_01d9e6e0;
 
-s32 func_001e8c28(u8* p, void* b) {
-    s32 v, nv;
-    if (!p) ryjAssert(D_0036efc8, D_0036ef88, 1000);
-    func_001e8558(p, b);
-    func_001e78e0(p);
-    if (D_01d9ea9c != 0 || (*(u64*)(D_01d9e6e0 + 0xa8) & 0xff0000ff00ULL)) return 0;
-    v = *(s32*)(p + 0x58);
-    nv = v + 0x1000;
-    *(s32*)(p + 0x5c) = v;
-    *(s32*)(p + 0x58) = nv;
-    if (p[0x84]) {
-        if (p[0x85]) return *(s32*)(p + 0x74) == 0;
-        if (nv > 0x6fffffff) {
-            *(s32*)(p + 0x58) = 0x70000000;
-            *(s32*)(p + 0x5c) = 0x6ffff000;
-        }
-        return 0;
-    }
-    return !(nv < *(s32*)(p + 0x54));
-}
+s32 func_001e8c28(u8* p, void* b);  // 0x001e8c28: definition moved into src/anon/unit_001e8ac8.cpp

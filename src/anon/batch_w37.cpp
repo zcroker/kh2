@@ -157,17 +157,7 @@ void sceVu0UnitMatrix(void*);  // vu_store_w_splat
 void sceVu0MulMatrix(void*, void*, void*);
 extern u8* D_01d9e6e0;
 extern u8* D_01d9e6e8;
-void func_001eb0c8(void* unused, f32* s) {
-    f32 m[16];
-    sceVu0UnitMatrix(m);  // vu_store_w_splat
-    f32 base = *(f32*)(D_01d9e6e0 + 64);
-    f32 lim = s[2];
-    u8* t = D_01d9e6e8 + 16;
-    m[0] = base + base * s[1];
-    if (lim < m[0]) m[0] = lim;
-    m[10] = m[0];
-    sceVu0MulMatrix(t, m, t);
-}
+void func_001eb0c8(void* unused, f32* s);  // 0x001eb0c8: definition moved into src/anon/unit_001e8ac8.cpp
 
 void func_001fa950(void*, void*, void*);
 

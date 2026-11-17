@@ -20,25 +20,6 @@ static inline s32 inL_w1893(Fn1893 f) {
     }
     return r;
 }
-void func_001e8e28(void* a, O1893* o) {
-    Hd1893* hd = *o->x8;
-    u8** s = (u8**)((u8*)o + hd->x20);
-    D_01d9e6e8 = o;
-    for (s32 i = 0; i < hd->n; i++) {
-        E1893* e = &hd->e[i];
-        H1893* h = e->h;
-        if (h != 0) {
-            u8* p = *s;
-            if (*(s32*)(p + e->off) == o->xc) { p += e->off; *s = p; }
-            s++;
-            Fn1893 f = h->fn;
-            if (f != 0 && !inL_w1893(f)) f(o, p, e);
-        }
-    }
-    if (D_01d9ea9c == 0 && (D_01d9e6e0->xa8 & 0xff0000ff00ULL) == 0) {
-        o->xc += 0x1000;
-        if (o->xc > 0x6fffffff) o->xc = 0x6ffff000;
-    }
-}
+void func_001e8e28(void* a, O1893* o);  // 0x001e8e28: definition moved into src/anon/unit_001e8ac8.cpp
 
 }
