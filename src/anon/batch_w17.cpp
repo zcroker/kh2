@@ -212,9 +212,7 @@ u8 func_0029e2f8(s32 i);  // 0x0029e2f8: definition moved into src/anon/unit_002
 
 u32 func_00287bc0(void);
 void func_00276c50(u32, u32);
-void func_002a03a0(void) {
-    func_00276c50(func_00287bc0() == 24 ? 18668 : 18669, 0);
-}
+void func_002a03a0(void);  // 0x002a03a0: definition moved into src/anon/unit_0029f938.cpp
 
 void func_002c6380(void);
 void func_002c6190(void*);

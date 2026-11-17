@@ -729,25 +729,7 @@ extern u32 D_0035f148;
 extern u32 D_0035f210;
 static inline Sub2a1* sub2a1(u8* p) { return (Sub2a1*)(p + 840); }
 
-void func_002a10e0(void) {
-    u8* r = func_002766d0();
-    func_0028d8c0(D_0035f5d8.p + 816, 30065, D_0035f14c, D_0035f148, D_0035f210, 34, -1, 0);
-    func_0028dcc0(D_0035f5d8.p + 816, r);
-    I2a1 x, y;
-    T2a1* t = D_0035f5d4.p;
-    if (t->slot < 0) {
-        x.i = t->x0 + (t->x1 - t->x0) / 2;
-        y.i = t->y0 + (t->y1 - t->y0) / 2;
-    } else {
-        func_00138cd0(r + t->slot * 408 + 4248, &x, &y);
-    }
-    sub2a1(D_0035f5d8.p)->flags |= 8;
-    func_00138c68(D_0035f5d8.p + 816, x.i, y.i);
-    D_0035f5d4.p->x = x.i;
-    D_0035f5d4.p->y = y.i;
-    func_002a16b8();
-    func_002a1220();
-}
+void func_002a10e0(void);  // 0x002a10e0: definition moved into src/anon/unit_002a0908.cpp
 }
 
 // ---- 2ac538 ----

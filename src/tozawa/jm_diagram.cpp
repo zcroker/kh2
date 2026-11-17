@@ -14,38 +14,12 @@ extern "C" u32 func_00293de8(u32);
 extern "C" u32 func_00293db8(u32, u32);
 extern "C" void func_0023fa08(u32, u32);
 
-void JmDiagram::FileAlloc() {
-    u32* s0 = &D_0035f5dc;
-    func_0023f900(*s0);
-    if (func_00292630() != 0) {
-        return;
-    }
+// 0x002a1bf8: definition moved into src/anon/unit_002a0908.cpp
 
-    u8* t6 = D_0035f5d4;
-    u32 r = func_00293de8((s8)t6[2]);
-    u32 r2 = func_00293db8(4, r);
-    func_0023fa08(*s0, r2);
-    D_0035f5e0 = 1;
-}
-
-void JmDiagram::LeaveSeq() {
-    u32 p = D_0035f5d8 + 408;
-    if (func_00139d78(p) == 0u) {
-        return;
-    }
-    func_00139510(D_0035f5d8 + 408);
-}
+// 0x002a1398: definition moved into src/anon/unit_002a0908.cpp
 
 extern "C" u32 func_00287bc0();
 
-void JmDiagram::FadeOutAll() {
-    u32 v0 = func_00287bc0();
-    if (v0 == 6 || v0 == 12 || v0 == 40) {
-        u32* s0 = &D_0035f5d8;
-        if (func_00139d78(*s0 + 816) != 0) {
-            func_00139510(*s0 + 816);
-        }
-    }
-}
+// 0x002a0780: definition moved into src/anon/unit_0029f938.cpp
 
 }  // namespace Tz

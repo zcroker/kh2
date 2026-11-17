@@ -260,13 +260,7 @@ s32 func_00293668(void);  // 0x00293668: definition moved into src/anon/unit_002
 extern u8 D_0035f5e0;
 extern u8 D_0035f5e1;
 extern void* D_0035f5dc;
-void func_002a1c68(void) {
-    if (LoadDataIsFlushing_at()) return;
-    if (D_0035f5e0 && func_0023f900(D_0035f5dc)) func_0023fad0(D_0035f5dc);
-    func_00293d80(5101);
-    D_0035f5e0 = 0;
-    D_0035f5e1 = 0;
-}
+void func_002a1c68(void);  // 0x002a1c68: definition moved into src/anon/unit_002a0908.cpp
 
 void func_002bebd0(void*, u8* o);  // 0x002bebd0: definition moved into src/anon/unit_002bebd0.cpp
 

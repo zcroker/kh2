@@ -240,31 +240,13 @@ s32 func_0028b038(void*);
 void func_0028be78(void*, s32);
 extern void* D_0035f200;
 extern void* D_0035f214;
-void func_002a0168(void* o, s32 msg) {
-    switch (msg) {
-    case 24:
-        func_0029fcb0(o);
-        func_002a03d0();
-        break;
-    case 25:
-        func_0028be78(D_0035f214, func_0028b038(D_0035f200));
-        break;
-    }
-}
+void func_002a0168(void* o, s32 msg);  // 0x002a0168: definition moved into src/anon/unit_0029f938.cpp
 
 struct T2a1 { s16 a; s16 b; s16 c; };
 extern T2a1 D_00374b60[2];
 extern s8* D_0035f5d4;
 void* func_002766d0(void);
-void func_002a1ec8(void) {
-    u8* p = (u8*)func_002766d0() + 17304;
-    s32 idx = D_0035f5d4[2] == 16;
-    T2a1* t = &D_00374b60[idx];
-    for (s32 i = 31; i >= 0; i--) {
-        func_0028dac8(p, t->b);
-        p += 408;
-    }
-}
+void func_002a1ec8(void);  // 0x002a1ec8: definition moved into src/anon/unit_002a1d38.cpp
 
 extern u8* D_0035f638;
 s32 func_0023f900(void*);

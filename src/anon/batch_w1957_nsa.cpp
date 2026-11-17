@@ -39,46 +39,7 @@ u8 func_002764b0(u8);
 void func_002a2ff8(void);
 s32 func_002ab540(s32);
 s32 func_002ab620(s32);
-void func_002a2a80(void) {
-    ItemRec* it = 0;
-    s32 idx = 0;
-    s32 n = 0;
-    s32 cnt = 0;
-    s32 r;
-    u32 all = func_00276c18();
-    func_002fde18(D_0035f5e4.p, 0, 4316);
-    for (;;) {
-        it = func_001a82b0(it);
-        if (!it) break;
-        if (it->f4 == 0 && it->f8 != 0 && it->f8 != 2048) {
-            if (func_00181500(it->f8) || all) {
-                r = func_002a4390(it);
-                u8 v = func_002764b0(it->f5);
-                D_0035f5e4.p->list[n].f0 = v;
-                if (r) cnt++;
-                D_0035f5e4.p->list[n].f4 = idx;
-                D_0035f5e4.p->list[n].f6 = it->id;
-                D_0035f5e4.p->list[n].f1 = r != 0;
-                n++;
-            }
-        }
-        idx++;
-    }
-    D_0035f5e4.p->count = n;
-    D_0035f5e4.p->active = cnt;
-    func_002a2ff8();
-    for (s32 i = 0; i < 15; i++) {
-        r = i * 8;
-        Ent8* e = (Ent8*)(r + (u32)D_0035f5e4.p + 4096);
-        if (e->f0 == 0) {
-            e->f2 = 0;
-            D_0035f5e4.p->sub[i].f3 = 0;
-        } else {
-            e->f2 = func_002ab540(i) != 0;
-            D_0035f5e4.p->sub[i].f3 = func_002ab620(i) != 0;
-        }
-    }
-}
+void func_002a2a80(void);  // 0x002a2a80: definition moved into src/anon/unit_002a1d38.cpp
 
 
 struct W1957Range { u8 pad[12]; s16 lo, hi, z; };

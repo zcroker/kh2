@@ -2353,14 +2353,7 @@ u8* func_00273180(s32 k, s32 id);  // 0x00273180: definition moved into src/anon
 extern u8* D_0035f5d8;
 u8 u_call4_00139d78(void*) asm("_Z16u_call4_00139d78jjjj");
 void func_00139510(u8*);
-void func_002a0860(void)
-{
-    if (!D_0035f5d8) return;
-    if (u_call4_00139d78(D_0035f5d8)) func_00139510(D_0035f5d8);
-    if (u_call4_00139d78(D_0035f5d8 + 408)) func_00139510(D_0035f5d8 + 408);
-    if (u_call4_00139d78(D_0035f5d8 + 816)) func_00139510(D_0035f5d8 + 816);
-    if (u_call4_00139d78(D_0035f5d8 + 1224)) func_00139510(D_0035f5d8 + 1224);
-}
+void func_002a0860(void);  // 0x002a0860: definition moved into src/anon/unit_0029f938.cpp
 extern u8* D_0035f5f4;
 typedef void (*VFn)(u8*);
 void func_00276a18(void);

@@ -24,19 +24,7 @@ void func_002a18d0(void);
 s32 func_002a9e98(u16);
 s32 func_002a9f50(u16);
 
-s32 func_002a1b18(void) {
-    s32 i = 0; s32 r = 0;
-    func_002a18d0();
-    for (; i < D_0035f5d4->n; i++) {
-        u16 id = D_0035f5d4->e[i].id;
-        if (func_002a9e98(id)) {
-            r = 1;
-            if (!func_002a9f50(id)) break;
-            r = 2;
-        }
-    }
-    return r;
-}
+s32 func_002a1b18(void);  // 0x002a1b18: definition moved into src/anon/unit_002a0908.cpp
 
 s32 func_002538f8(void*);
 s32 func_00253928(void*);

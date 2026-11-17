@@ -43,46 +43,7 @@ u8 func_002764b0(u8);
 void func_002a2ff8(void);
 s32 func_002ac748(s32);
 s32 func_002ac800(s32);
-void func_002a2de8(void) {
-    Ent* e; s32 n; s32 cnt; s32 cnt2; s32 flag; s32 i;
-    flag = func_00276c18();
-    func_002fde18(D_0035f5e4.p, 0, 4316);
-    e = 0;
-    n = 0;
-    cnt = 0;
-    cnt2 = 0;
-top:
-    e = func_001d9e30(e);
-    if (!e) goto out;
-    if (func_001d9d88(e) || flag) {
-        if (!D_0035f5e4.p->bits[e->a].Test(e->b)) {
-            s32 r = func_002a43d0(e);
-            u8 id = func_002764b0(e->c4);
-            if (r) cnt2++;
-            D_0035f5e4.p->r[cnt].id = id;
-            D_0035f5e4.p->r[cnt].n = n;
-            D_0035f5e4.p->r[cnt].v = e->v;
-            D_0035f5e4.p->r[cnt].f = r != 0;
-            cnt++;
-            D_0035f5e4.p->bits[e->a].Set(e->b);
-        }
-    }
-    n++;
-    goto top;
-out:
-    D_0035f5e4.p->count = cnt;
-    D_0035f5e4.p->cnt2 = cnt2;
-    func_002a2ff8();
-    for (i = 0; i < 15; i++) {
-        if (!D_0035f5e4.p->r[i + 512].id) {
-            D_0035f5e4.p->r[i + 512].c2 = 0;
-            D_0035f5e4.p->r[i + 512].c3 = 0;
-        } else {
-            D_0035f5e4.p->r[i + 512].c2 = func_002ac748(i) != 0;
-            D_0035f5e4.p->r[i + 512].c3 = func_002ac800(i) != 0;
-        }
-    }
-}
+void func_002a2de8(void);  // 0x002a2de8: definition moved into src/anon/unit_002a1d38.cpp
 }
 }
 

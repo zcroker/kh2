@@ -2238,32 +2238,7 @@ s32 func_00287bc0(void);
 void func_0028d8c0_113723(u8*, s32, u32, u32, u32, u32, s32, s32) asm("func_0028d8c0");
 void func_0028dcc0_113723(u8*, u8*) asm("func_0028dcc0");
 static inline void Flag96(u8* e) { Sub96* sb = (Sub96*)(e + 24); sb->fl |= 8; }
-void func_002a1220(void)
-{
-    s32 a = func_00139d78(D_0035f5d8.p + 816);
-    s32 b = func_00139d78(D_0035f5d8.p + 408);
-    u8* w = func_002766d0();
-    if (!a) {
-        if (b) func_00139510_113723(D_0035f5d8.p + 408);
-        return;
-    }
-    if (!b) {
-        if (D_0035f5d4.p[1] < 0) return;
-        s32 id = D_0035f3d4 + 4;
-        u32 x = func_00287bc0() == 6 ? D_00374b3c : D_00374b40;
-        func_0028d8c0_113723(D_0035f5d8.p + 408, id, D_0035f14c, D_0035f148, D_0035f210, x, -1, 0);
-        Flag96(D_0035f5d8.p + 408);
-        func_0028dcc0_113723(D_0035f5d8.p + 408, w + D_0035f5d4.p[1] * 408 + 17304);
-    } else {
-        s32 k = D_0035f5d4.p[1];
-        if (k < 0) {
-            func_00139510_113723(D_0035f5d8.p + 408);
-            return;
-        }
-        func_0028dcc0_113723(D_0035f5d8.p + 408, w + k * 408 + 17304);
-        return;
-    }
-}
+void func_002a1220(void);  // 0x002a1220: definition moved into src/anon/unit_002a0908.cpp
 
 struct Ref99 { u8 pad[36]; s32 ref; };
 struct Hdr99 { u32 type; u8 pad; u8 kind; };
@@ -2877,93 +2852,7 @@ s32 func_00242848(s32 a);
 s32 func_00288040(void);
 void func_00288018(void);  // global_zero_4dwords
 
-void func_002a0cb8(void) {
-    Pad2a0* pad = func_00167f18_0cb8(0);
-    s32 st = func_00287cd0();
-    s32 mode = func_00287bc0();
-    if (st != 2) {
-        if (!D_0035f5e1) func_002a1cd8();
-        if (!D_0035f5e0) func_002a1bf8();
-        if (D_0035f5e0) func_002a1d38();
-    }
-    if (st == 2) {
-        if (func_00276368() || func_00276888()) {
-            if (pad->rep & 0x1fc) {
-                func_00287f90(0);
-                func_002a07f0(func_00287c10());
-            }
-            return;
-        }
-        if (func_00292630()) return;
-        func_002a1c68();
-        func_002a07f0(func_00287c10());
-        s32 prev = func_00287bc0();
-        func_00287c30();
-        mode = func_00287bc0();
-        func_00276220(func_00276358(), 0);
-        if (mode == 2) {
-            func_00274cf0(2);  // state_dispatch_0_1_2
-            func_002925c0();
-            func_002958b0();
-        } else if (mode == 13) {
-            func_00274cf0(13);  // state_dispatch_0_1_2
-            func_002925c0();
-            func_002995e8();
-        } else if (mode == 16) {
-            func_002aa048(D_0035f5d4_0cb8.p->ent[D_0035f5d4_0cb8.p->idx].a);
-            func_0029c880(D_0035f5d4_0cb8.p, prev);
-        }
-        return;
-    }
-    if (D_0035f5d4_0cb8.p->x == -999) {
-        union { s32 v; s16 h; } x, y;
-        func_00138cb8(D_0035f5d8_0cb8.p, &x.v, &y.v);
-        D_0035f5d4_0cb8.p->x = x.v;
-        D_0035f5d4_0cb8.p->y = y.v;
-        D_0035f5d4_0cb8.p->w = func_0023aa18_0cb8(D_0035f5d8_0cb8.p + 24);
-        D_0035f5d4_0cb8.p->h = func_0023aa38_0cb8(D_0035f5d8_0cb8.p + 24);
-    }
-    if (pad->rep & 0x1fc) {
-        if (!func_00276398()) {  // state_is_150
-            func_00276220(0, 2);
-            func_00275b60();
-        }
-    }
-    if (st == 0 && func_00276398()) {  // state_is_150
-        func_00287c90(1);
-    } else {
-        if (!func_00139d78_0cb8(D_0035f5d8_0cb8.p + 816)) func_002a10e0();
-        s8 idx = D_0035f5d4_0cb8.p->idx;
-        func_002a16b8();
-        func_002a17e8();
-        if (idx < 0 && D_0035f5d4_0cb8.p->idx != 0) func_002a1220();
-        if (pad->trig & 0xf0) {
-            func_002a13e0(pad);
-        } else if (pad->rep & 0x100) {
-            func_00242618_0cb8(5, 1);
-            func_002a1398();
-            func_00287da0();
-        } else if (pad->rep & 8) {
-            func_00242618_0cb8(3, 1);
-            func_0028f6f0(0);  // record884_refresh_by_index
-            func_002a0780();
-            func_00276dc0();
-            func_002a1398();
-            func_00276220(1, 1);
-            func_00287c00(mode == 40 ? 13 : 2);
-            func_00287cc0(2);
-        } else if (pad->rep & 4) {
-            if (func_00242848(func_00242618_0cb8(D_0035f5d4_0cb8.p->idx < 0 ? 4 : 2, 1))) return;
-            func_002a1398();
-            func_00276dc0();
-            func_002a0780();
-            func_00276220(0, 1);
-            func_00287c00(16);
-            func_00287cc0(2);
-        }
-    }
-    if (func_00288040()) func_00288018();
-}
+void func_002a0cb8(void);  // 0x002a0cb8: definition moved into src/anon/unit_002a0908.cpp
 
 // ---- 002f8e58
 f32 __ieee754_sqrtf(f32 x);
@@ -5216,20 +5105,7 @@ s32 func_00295158(s32 k);  // 0x00295158: definition moved into src/anon/unit_00
 // ---- 0029fbf0
 s32 func_002943e8(u8*);
 extern u8* D_0035f5d0;
-void func_0029fbf0() {
-    s32 i = 0;
-    s32 n = 0;
-    u8* t = func_00294000(4);
-    D_0035f5d0[0] = 0;
-    u8* base = t + 16;
-    for (; i < *(s32*)(t + 8); i++) {
-        if (func_002943e8(base + i * 8) || func_00276c18()) {
-            D_0035f5d0[n + 6] = i;
-            n++;
-        }
-    }
-    D_0035f5d0[0] = n;
-}
+void func_0029fbf0();  // 0x0029fbf0: definition moved into src/anon/unit_0029f938.cpp
 // ---- 002a5d30
 s32 func_002944d0(u8*);
 extern u8* D_0035f5ec;
@@ -6492,69 +6368,7 @@ void func_00287da0();
 void func_00276dc0();
 s32 func_00288040();
 void func_00288018();
-void func_0029f938() {
-    s32 r = func_00289380_x9795(D_0035f200_29f);
-    s32 a = func_00287cd0();
-    func_00287bc0();
-    if (a == 2) {
-        if (func_00276368() || func_0028acc8_x9799(D_0035f200_29f) || func_00276888()) {
-            if (r != -1) {
-                func_00287f90(0);
-                func_0029ee38();
-            }
-            return;
-        }
-        func_0029ee38();
-        func_00287c30();
-        s32 s = func_00287bc0();
-        func_0028af18_x9804(D_0035f200_29f, 115);
-        func_00276220(func_00276358(), 0);
-        func_00276690(0);
-        func_002766b0(1);
-        if (s == 24) {
-            func_0028b1e8(D_0035f200_29f, 1);
-            func_0029ee68();
-        } else if (s == 25) {
-            func_0029f520();
-        }
-        return;
-    }
-    if (r != -1 || func_00289310_x9812(D_0035f200_29f)) {
-        if (!func_00276398()) {
-            func_00276220(0, 2);
-            func_00275b60();
-        }
-    }
-    if (!a && func_00276398()) func_00287c90(1);
-    if (!func_00242848(func_00287df0_29f(r, func_00289310_x9812(D_0035f200_29f), 1, func_002a0518, 1))) {
-        switch (r) {
-        case -4: {
-            s32 s = func_00287bc0();
-            s32 n = func_002891e8_x9823(D_0035f200_29f);
-            func_002765e8(s, n, func_0028b038_x9824(D_0035f200_29f));
-            func_00287da0();
-            break;
-        }
-        case -9: case -8: case -7: case -6: case -5: case -3: case -1:
-            break;
-        case -11: case -10:
-            func_0029fee8(r);
-            func_0029ee30();
-            func_00276220(r != -10, 1);
-            func_00287c00(25);
-            func_00287cc0(2);
-            break;
-        case -2:
-            func_0029ee30();
-            func_00276dc0();
-            func_00276220(1, 1);
-            func_00287c00(24);
-            func_00287cc0(2);
-            break;
-        }
-    }
-    if (func_00288040()) func_00288018();
-}
+void func_0029f938();  // 0x0029f938: definition moved into src/anon/unit_0029f938.cpp
 
 // --------------------
 extern s8* D_0035f234;
@@ -9145,50 +8959,7 @@ extern MgrP2a2ff8 D_0035f5e4;
 s32 func_002a43f0(void);
 s32 func_002a4380(s32 i);
 s32 func_002954e0(s32 i);
-void func_002a2ff8(void)
-{
-    s32 i, j, n;
-    Item2a2ff8 t;
-
-    for (i = 0; i < G2a2ff8->num; i++) {
-        for (j = i + 1; j < G2a2ff8->num; j++) {
-            if (G2a2ff8->items[i].kind > G2a2ff8->items[j].kind) {
-                t = G2a2ff8->items[i];
-                G2a2ff8->items[i] = G2a2ff8->items[j];
-                G2a2ff8->items[j] = t;
-            }
-        }
-    }
-    for (i = 0; i < G2a2ff8->num; i++) {
-        for (j = i + 1; j < G2a2ff8->num; j++) {
-            if (G2a2ff8->items[i].kind != G2a2ff8->items[j].kind) break;
-            if (G2a2ff8->items[i].id > G2a2ff8->items[j].id) {
-                t = G2a2ff8->items[i];
-                G2a2ff8->items[i] = G2a2ff8->items[j];
-                G2a2ff8->items[j] = t;
-            }
-        }
-    }
-    for (i = 0; i < G2a2ff8->num; i += n) {
-        u8 k = G2a2ff8->items[i].kind;
-        G2a2ff8->grp[k].first = &G2a2ff8->items[i];
-        n = 1;
-        for (j = i + 1; j < G2a2ff8->num; j++) {
-            if (G2a2ff8->items[i].kind != G2a2ff8->items[j].kind) break;
-            n++;
-        }
-        G2a2ff8->grp[k].count = n;
-        G2a2ff8->grp[k].pages = n / 8;
-        if (n % 8) G2a2ff8->grp[k].pages++;
-    }
-    for (i = 0; i < 15; i++) {
-        if (func_002a43f0() && func_002a4380(i)) continue;
-        if (G2a2ff8->grp[i].pages == 0) {
-            if (func_002954e0(i)) G2a2ff8->grp[i].pages = 1;
-        }
-        G2a2ff8->total += G2a2ff8->grp[i].pages;
-    }
-}
+void func_002a2ff8(void);  // 0x002a2ff8: definition moved into src/anon/unit_002a1d38.cpp
 
 // --------------------
 // Assign ring slots to the requested ids that are not already resident.

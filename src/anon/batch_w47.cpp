@@ -183,13 +183,7 @@ s32 func_00292eb0(void);  // 0x00292eb0: definition moved into src/anon/unit_002
 extern s8* D_0035f5d0;
 s32 func_002a01c8(s32);  // obj4_entry_by_index
 s32 func_002943e8(s32);
-s32 func_002a00f0(void) {
-    s32 n = 0;
-    for (s32 i = 0; i < D_0035f5d0[0]; i++) {
-        if (func_002943e8(func_002a01c8(D_0035f5d0[i + 6]))) n++;
-    }
-    return n;
-}
+s32 func_002a00f0(void);  // 0x002a00f0: definition moved into src/anon/unit_0029f938.cpp
 
 // 1 if bit a (or every bit 0..3 when a < 0) is set in the mask at +320.
 extern u8* D_0035f620;

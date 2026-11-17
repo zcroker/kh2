@@ -185,10 +185,7 @@ void func_0028da70(void*, u32);
 void func_0029e3a0(s32 i);  // 0x0029e3a0: definition moved into src/anon/unit_0029d008.cpp
 
 u8* func_00294000(u32);
-u8* func_002a01c8(s32 i) {  // obj4_entry_by_index
-    u8* b = func_00294000(4) + 16;
-    return b + i * 8;
-}
+u8* func_002a01c8(s32 i);  // 0x002a01c8: definition moved into src/anon/unit_0029f938.cpp
 
 
 extern u32 D_00362158;

@@ -11,16 +11,7 @@ struct E8 { u32 a, b; };
 struct Big { u8 pad[0x108c]; E8 e[10]; };
 extern Big* D_0035f5e4;
 extern void* D_0035f5e8;
-void func_002a1f88(void) {
-    Big* p = (Big*)tz_alloc(0x10dc, tz_lsys());
-    E8* e = p->e;
-    s32 n = 9;
-    do { e->a = 0; e->b = 0; n--; e++; } while (n != -1);
-    D_0035f5e4 = p;
-    void* q = tz_alloc(0x984c, menu_alloc());
-    func_003241a0(q);
-    D_0035f5e8 = q;
-}
+void func_002a1f88(void);  // 0x002a1f88: definition moved into src/anon/unit_002a1d38.cpp
 
 /* 002a7678 */
 extern void* D_0035f600;
@@ -63,64 +54,11 @@ extern s32 D_0035f214;
 struct Lay { u8 pad[40]; void* img; };
 struct BigV { u8 pad[0x1080]; s32 v; };
 struct H2 { s16 v; H2() : v(2) {} };
-void func_002a21b0(void) {
-    u8* par = jm_parent();
-    u8* seq = jm_seqtbl();
-    if (func_002a43f0()) func_002a2a80();
-    else func_002a2c40();
-    if (!func_0028f930(0)) func_0028f4d8(0, -1, 0);
-    s16 h[4];
-    for (s32 i = 0; i < 4; i++) h[i] = 2;
-    s32 n = D_0035f3d4;
-    u8* seq2 = seq + 1224;
-    func_00276e78();
-    n--;
-    pz_cfo(seq, n, D_0035f14c, D_0035f148, D_0035f210, 59, -1, 0);
-    obj_xyoff(seq);
-    mc_as(seq, par);
-    pz_cfo(seq2, n, D_0035f14c, D_0035f148, D_0035f210, 69, -1, 0);
-    obj_xyoff(seq2);
-    mc_as(seq2, par);
-    func_002a3ba8();
-    s32 u = yi_unit(lay_get(D_0035f210), D_0035f14c);
-    s32 im = yi_img(((Lay*)lay_get(D_0035f210))->img, D_0035f148);
-    func_0028bae0(D_0035f214, n, u, im, jm_scrbar(), ((BigV*)D_0035f5e4)->v, 9, seq2, 0);
-    func_002a4b78();
-    func_002a3aa8();
-    func_002a3910();
-    sel_set(0);
-}
+void func_002a21b0(void);  // 0x002a21b0: definition moved into src/anon/unit_002a1d38.cpp
 
 /* 002a2600 */
 s32 mb_mode(void) asm("_ZN2Tz8MenuBase7GetModeEv");
 void func_002a2de8(void);
 s32 func_002b3b60(s32);
-void func_002a2600(void) {
-    s32 m = mb_mode();
-    u8* par = jm_parent();
-    u8* seq = jm_seqtbl();
-    func_002a2de8();
-    if (m == 8 && !func_0028f930(0)) func_0028f4d8(0, -1, 0);
-    if (m == 33 && !func_0028f930(1)) func_0028f4d8(1, func_002b3b60(1), 0);
-    s16 h[4];
-    for (s32 i = 0; i < 4; i++) h[i] = 2;
-    s32 n = D_0035f3d4;
-    u8* seq2 = seq + 1224;
-    func_00276e78();
-    n--;
-    pz_cfo(seq, n, D_0035f14c, D_0035f148, D_0035f210, 59, -1, 0);
-    obj_xyoff(seq);
-    mc_as(seq, par);
-    pz_cfo(seq2, n, D_0035f14c, D_0035f148, D_0035f210, 69, -1, 0);
-    obj_xyoff(seq2);
-    mc_as(seq2, par);
-    func_002a3ba8();
-    s32 u = yi_unit(lay_get(D_0035f210), D_0035f14c);
-    s32 im = yi_img(((Lay*)lay_get(D_0035f210))->img, D_0035f148);
-    func_0028bae0(D_0035f214, n, u, im, jm_scrbar(), ((BigV*)D_0035f5e4)->v, 9, seq2, 0);
-    func_002a4b78();
-    func_002a3aa8();
-    func_002a3910();
-    sel_set(0);
-}
+void func_002a2600(void);  // 0x002a2600: definition moved into src/anon/unit_002a1d38.cpp
 }

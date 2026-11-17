@@ -47,27 +47,5 @@ extern u8 D_0035f5e0;
 extern u8 D_0035f5e1;
 
 // Frees the three globals and clears two flags; the middle object's destructor is inlined.
-void func_002a06b8(void) {
-    if (D_0035f5d4) {
-        func_00106420(D_0035f5d4);
-        D_0035f5d4 = 0;
-    }
-    u8* p = D_0035f5d8;
-    if (p) {
-        func_0031acc0(p + 1224);
-        func_0031abd8(p + 816);
-        func_0031abd8(p + 408);
-        *(u32*)p = (u32)&D_00347e60;
-        func_00239870(p + 24);
-        *(u32*)p = (u32)&D_00347f98;
-        func_00106420(p);
-        D_0035f5d8 = 0;
-    }
-    if (D_0035f5dc) {
-        (*D_0035f5dc)->f(D_0035f5dc);
-        D_0035f5dc = 0;
-    }
-    D_0035f5e0 = 0;
-    D_0035f5e1 = 0;
-}
+void func_002a06b8(void);  // 0x002a06b8: definition moved into src/anon/unit_0029f938.cpp
 }

@@ -173,11 +173,7 @@ void func_0027ead0(void);  // 0x0027ead0: definition moved into src/anon/unit_00
 // Dispatches through slot 0 of the object at D_0035f34c, passing the caller's return address.
 u32 func_00288be8(u32 a);  // 0x00288be8: definition moved into src/anon/unit_00288b00.cpp
 
-void func_002a1f40(void) {
-    u32 a;
-    if (func_00287bc0() == 6) a = D_00374b44; else a = D_00374b48;
-    func_00276c50(a, 0);
-}
+void func_002a1f40(void);  // 0x002a1f40: definition moved into src/anon/unit_002a1d38.cpp
 
 u8* func_002a7f20(s32 i) {
     u8* b = func_00294000(7) + 16;

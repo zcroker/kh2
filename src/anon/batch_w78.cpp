@@ -494,29 +494,7 @@ void func_002a3318(void);
 extern u8* D_0035f5e4;
 struct W78Slot8 { u8 a, b, on, done; u8 pad[4]; };
 struct W78Tbl { u8 pad[4096]; W78Slot8 e[1]; };
-void func_002a3aa8(void) {
-    s32 id = func_002a4990(-1);
-    if (func_002a4430()) {
-        W78Slot8* e = (W78Slot8*)(id * 8 + (u32)D_0035f5e4 + 4096);
-        if (e->on && !e->done) {
-            func_002ac8e0(id);
-            ((W78Slot8*)(id * 8 + (u32)D_0035f5e4 + 4096))->done = 1;
-        }
-    } else if (func_002a43f0()) {
-        W78Slot8* e = (W78Slot8*)(id * 8 + (u32)D_0035f5e4 + 4096);
-        if (e->on && !e->done) {
-            func_002ab728(id);
-            ((W78Slot8*)(id * 8 + (u32)D_0035f5e4 + 4096))->done = 1;
-        }
-    } else {
-        W78Slot8* e = (W78Slot8*)(id * 8 + (u32)D_0035f5e4 + 4096);
-        if (e->on && !e->done) {
-            func_002abac8(id);
-            ((W78Slot8*)(id * 8 + (u32)D_0035f5e4 + 4096))->done = 1;
-        }
-    }
-    func_002a3318();
-}
+void func_002a3aa8(void);  // 0x002a3aa8: definition moved into src/anon/unit_002a3648.cpp
 
 u8* func_002a9d68(s32);
 extern u8* D_0035f610;

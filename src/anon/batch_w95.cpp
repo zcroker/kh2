@@ -543,22 +543,7 @@ u8* func_002766d0(void);
 s32 func_0023aa98(u8*);
 void func_00138c90(u8*, s32*, s32*);  // sum_fields_to_out
 // Pick the icon under the cursor.
-void func_002a16b8(void) {
-    u8* w = func_002766d0();
-    s16 x = D_0035f5d4->x;
-    s16 y = D_0035f5d4->y;
-    s32 r = func_0023aa98(w + 4272) / 2;
-    s32 i;
-    for (i = 0; i < D_0035f5d4->n; i++) {
-        s32 py, px;
-        func_00138c90(w + 4248 + i * 408, &px, &py);  // sum_fields_to_out
-        if (x < px - r || px + r < x) continue;
-        if (y < py - r || py + r < y) continue;
-        D_0035f5d4->sel = i;
-        break;
-    }
-    if (i >= D_0035f5d4->n) D_0035f5d4->sel = -1;
-}
+void func_002a16b8(void);  // 0x002a16b8: definition moved into src/anon/unit_002a0908.cpp
 
 extern u8* D_0035f634;
 extern AnmId3 D_00374cd8[];

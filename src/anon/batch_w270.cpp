@@ -105,26 +105,5 @@ void* W270_tail4(u32) asm("_Z16u_tail4_00192048jjjj");
 void W270_dup(void*, u8*) asm("_ZNK2YS7MESSAGE3dupEPc");
 void W270_ctarget2(u8*, u32, s32) asm("_Z16ctarget_001a3788jjjj");
 void W270_wtarget(u8*, u32, u32) asm("_Z16wtarget_002fde18jjjj");
-void func_002a3950(void) {
-    s32 a = func_002a4990(-1);
-    if (!D_0035f5e4->ent[a].flag) {
-        W270_wtarget(D_0035f5e8 + 0x982c, 0, 32);
-        return;
-    }
-    s32 b = func_002a4ad8(-1);
-    W270Le* e = (W270Le*)((u32)(b * 8) + (u32)D_0035f5e4->ent[a].list);
-    u32 id = e->h6;
-    if (e->b1) {
-        if (func_002a4430()) {
-            W270_dup(W270_tail4(id), D_0035f5e8 + 0x982c);
-        } else if (func_002a43f0()) {
-            W270_ctarget2(D_0035f5e8 + 0x982c, id, -1);
-        } else {
-            W270_dup(W270_tail4(func_001a80c8(id)->h8), D_0035f5e8 + 0x982c);  // table24_find_by_id
-        }
-    } else {
-        if (func_002a4430()) func_0028de08(id, D_0035f5e8 + 0x982c, 64);
-        else func_0028de08(func_001a80c8(id)->h8, D_0035f5e8 + 0x982c, 64);
-    }
-}
+void func_002a3950(void);  // 0x002a3950: definition moved into src/anon/unit_002a3648.cpp
 }

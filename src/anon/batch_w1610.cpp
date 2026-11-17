@@ -17,50 +17,7 @@ void func_00138c68(void*, s32, s32);
 void func_002a16b8(void);
 void func_002a17e8(void);
 void func_002a1220(void);
-void func_002a13e0(W1610Pad* p) {
-    if (!func_00139d78(D_0035f5d8 + 0x330)) return;
-    u64 b = p->btn;
-    s32 x = D_0035f5d4.p->x;
-    s32 y = D_0035f5d4.p->y;
-    if (b & 0x40) {
-        if (p->mag != 0.0f && p->lx < 0.0f) {
-            x += (s32)(p->lx * 6.0f - 0.5f);
-        } else {
-            if (D_0035f5d4.p->xmin < x) x -= 3;
-        }
-        if (x < D_0035f5d4.p->xmin) x = D_0035f5d4.p->xmin;
-    } else if (b & 0x80) {
-        if (p->mag != 0.0f && 0.0f < p->lx) {
-            x += (s32)(p->lx * 6.0f + 0.5f);
-        } else {
-            if (x < D_0035f5d4.p->xmax) x += 3;
-        }
-        if (D_0035f5d4.p->xmax < x) x = D_0035f5d4.p->xmax;
-    }
-    if (b & 0x10) {
-        if (p->mag != 0.0f && p->ly < 0.0f) {
-            y += (s32)(p->ly * 6.0f - 0.5f);
-        } else {
-            if (D_0035f5d4.p->ymin < y) y -= 3;
-        }
-        if (y < D_0035f5d4.p->ymin) y = D_0035f5d4.p->ymin;
-    } else if (b & 0x20) {
-        if (p->mag != 0.0f && 0.0f < p->ly) {
-            y += (s32)(p->ly * 6.0f + 0.5f);
-        } else {
-            if (y < D_0035f5d4.p->ymax) y += 3;
-        }
-        if (D_0035f5d4.p->ymax < y) y = D_0035f5d4.p->ymax;
-    }
-    if (x != D_0035f5d4.p->x || y != D_0035f5d4.p->y) {
-        func_00138c68(D_0035f5d8 + 0x330, x, y);
-        D_0035f5d4.p->x = x;
-        D_0035f5d4.p->y = y;
-    }
-    func_002a16b8();
-    func_002a17e8();
-    func_002a1220();
-}
+void func_002a13e0(W1610Pad* p);  // 0x002a13e0: definition moved into src/anon/unit_002a0908.cpp
 extern s32 D_0035f01c;
 s32 func_00289380(s32);
 s32 func_00287cd0(void);

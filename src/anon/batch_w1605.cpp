@@ -34,48 +34,5 @@ s32 func_002943e8(s32);
 extern List29f* D_0035f5d0;
 void func_002765e8(s32, s32, s32);
 void func_002a03d0(void);
-void func_0029fee8(s32 dir)
-{
-    s32 top = func_00276620(24);
-    s32 cur = func_00276638(24);
-    s32 i;
-
-    if (dir == -10) {
-        for (i = cur + 1; i < D_0035f5d0->count; i++) {
-            if (func_002943e8(func_002a01c8(D_0035f5d0->items[i]))) break;
-        }
-        if (i >= D_0035f5d0->count) {
-            for (i = 0; i < cur; i++) {
-                if (func_002943e8(func_002a01c8(D_0035f5d0->items[i]))) break;
-            }
-        }
-        if (i < D_0035f5d0->count) {
-            cur = i;
-        } else {
-            cur = 0;
-            top = 0;
-        }
-    } else {
-        for (i = cur - 1; i >= 0; i++)  /* sic: original counts up here */ {
-            if (func_002943e8(func_002a01c8(D_0035f5d0->items[i]))) break;
-        }
-        if (i < 0) {
-            for (i = D_0035f5d0->count - 1; i > cur; i--) {
-                if (func_002943e8(func_002a01c8(D_0035f5d0->items[i]))) break;
-            }
-        }
-        cur = i;
-        if (i < 0) {
-            cur = D_0035f5d0->count - 1;
-            top = D_0035f5d0->count - 11;
-        }
-    }
-    if (cur - top >= 10) {
-        top += cur - top - 9;
-    } else if (cur - top < 0) {
-        top += cur - top;
-    }
-    func_002765e8(24, cur - top, top);
-    func_002a03d0();
-}
+void func_0029fee8(s32 dir);  // 0x0029fee8: definition moved into src/anon/unit_0029f938.cpp
 }

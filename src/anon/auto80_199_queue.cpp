@@ -3826,19 +3826,7 @@ void func_0029e9d0(void) {
 
 extern "C" void func_002a0780(void) asm("_ZN2Tz9JmDiagram10FadeOutAllEv");
 
-void func_002a07f0(u32 a0) {
-    u32 s0 = a0;
-    u32 v0 = func_00287bc0();
-
-    if (v0 == 6 || v0 == 12 || v0 == 40) {
-        func_002a1c68();
-        func_00274ac8();
-        if (s0 != 16) {
-            func_0028f7e8(0);
-        }
-        func_002a0860();
-    }
-}
+void func_002a07f0(u32 a0);  // 0x002a07f0: definition moved into src/anon/unit_0029f938.cpp
 
 void func_002a45a0(void) {
     u32* s0 = &D_0035f5e8;

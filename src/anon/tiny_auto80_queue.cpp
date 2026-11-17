@@ -12577,24 +12577,7 @@ u32 duplicate_unplaced_002a0360() {
     return 1;
 }
 
-u32 func_002a3910() {
-    u32 a0;
-    u32 v0;
-
-    if (func_002a4430() != 0) {
-        a0 = 20346;
-        goto call;
-    }
-
-    v0 = func_002a43f0();
-    a0 = 18676;
-    if (v0 == 0) {
-        a0 = 18677;
-    }
-
-call:
-    return func_00276c50(a0, 0);
-}
+u32 func_002a3910();  // 0x002a3910: definition moved into src/anon/unit_002a3648.cpp
 
 u32 duplicate_unplaced_002a6368(u32 a0) {
     u32 s0 = a0;

@@ -393,44 +393,7 @@ void func_002a2ff8(void);
 s32 func_002ab8e8(s32);
 s32 func_002ab9c8(s32);
 // Rebuilds the item list table (entries of type 22) and refreshes the 15 slot flags.
-void func_002a2c40(void) {
-    ItemRec* it = 0;
-    s32 idx = 0;
-    s32 n = 0;
-    s32 cnt = 0;
-    u32 all = func_00276c18();
-    func_002fde18(D_0035f5e4.p, 0, 4316);
-    for (;;) {
-        it = func_001a82b0(it);
-        if (!it) break;
-        if (func_001a80c8(it->id)->type == 22) {  // table24_find_by_id
-            s32 r = func_002a43b0(it);
-            if (r || all) {
-                u8 v = func_002764b0(it->f5);
-                D_0035f5e4.p->list[n].f0 = v;
-                if (r) cnt++;
-                D_0035f5e4.p->list[n].f4 = idx;
-                D_0035f5e4.p->list[n].f6 = it->id;
-                D_0035f5e4.p->list[n].f1 = r != 0;
-                n++;
-            }
-        }
-        idx++;
-    }
-    D_0035f5e4.p->count = n;
-    D_0035f5e4.p->active = cnt;
-    func_002a2ff8();
-    for (s32 i = 0; i < 15; i++) {
-        Ent8* e = (Ent8*)(i * 8 + (u32)D_0035f5e4.p + 4096);
-        if (e->f0 == 0) {
-            e->f2 = 0;
-            D_0035f5e4.p->sub[i].f3 = 0;
-        } else {
-            e->f2 = func_002ab8e8(i) != 0;
-            D_0035f5e4.p->sub[i].f3 = func_002ab9c8(i) != 0;
-        }
-    }
-}
+void func_002a2c40(void);  // 0x002a2c40: definition moved into src/anon/unit_002a1d38.cpp
 }
 
 struct ReqObj { u32 f0; u32 f4; u32 f8; u32 f12; };

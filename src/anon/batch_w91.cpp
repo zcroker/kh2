@@ -401,23 +401,7 @@ u8* func_002a1bc0(u16);
 u32 func_00295430(s32, s32);
 void func_00192e50(u32, u8*, s32, u32);
 void func_002595e8(u8*, u32);
-void func_002a17e8(void) {
-    u_call4_00139d78(D_0035f5d8 + 1224);
-    s8 k = ((s8*)D_0035f5d4)[1];
-    if (k < 0) {
-        *(u32*)(D_0035f5d8 + 1632) = 0;
-        return;
-    }
-    u8* it = func_002a1bc0(*(u16*)(D_0035f5d4 + k * 8 + 80));
-    if (*(u16*)(it + 16) & 0x400) {
-        u32 m = func_00192048(*(u16*)(it + 6));
-        u32 m2 = func_00192048(func_00295430(((s8*)D_0035f5d4)[2], 1));
-        func_00192e50(m, D_0035f5d4 + 4, 64, m2);
-    } else {
-        func_002595e8(D_0035f5d4 + 4, func_00192048(*(u16*)(it + 6)));
-    }
-    *(u8**)(D_0035f5d8 + 1632) = D_0035f5d4 + 4;
-}
+void func_002a17e8(void);  // 0x002a17e8: definition moved into src/anon/unit_002a0908.cpp
 
 // --- 002ab540
 static inline bool tbit91(u32* a, u32 i) { return (a[i >> 5] & (1 << (i & 31))) != 0; }

@@ -23,49 +23,7 @@ void func_00106420(void*);
 void func_0031acc0(void*);
 void func_00239870(void*);
 
-void func_002a2010(void) {
-    if (D_0035f5e4) { func_00106420(D_0035f5e4); D_0035f5e4 = 0; }
-    u8* q = D_0035f5e8;
-    if (q) {
-        if (q + 0x88c8) {
-            El* e = (El*)(q + 0x981c);
-            El* end = (El*)(q + 0x88c8);
-        t1:
-            if (end == e) goto o1;
-            e--;
-            e->~El();
-            goto t1;
-        o1:;
-        }
-        if (q + 0x7974) {
-            El* e = (El*)(q + 0x88c8);
-            El* end = (El*)(q + 0x7974);
-        t2:
-            if (end == e) goto o2;
-            e--;
-            e->~El();
-            goto t2;
-        o2:;
-        }
-        Ab* a = (Ab*)(q + 0x72c0);
-        func_0031acc0(q + 0x77c0);
-        func_0031acc0(q + 0x760c);
-        func_0031acc0(q + 0x7458);
-        *(u8**)(q + 0x72c0) = D_00347e60;
-        func_00239870(q + 0x72d8);
-        *(u8**)(q + 0x72c0) = D_00347f98;
-        if (q) {
-        t3:
-            if ((Ab*)q == a) goto o3;
-            a--;
-            a->~Ab();
-            goto t3;
-        o3:;
-        }
-        func_00106420(q);
-        D_0035f5e8 = 0;
-    }
-}
+void func_002a2010(void);  // 0x002a2010: definition moved into src/anon/unit_002a1d38.cpp
 }
 }
 
