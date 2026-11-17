@@ -1,6 +1,6 @@
 #include "../common/types.h"
 
-// Ts target searcher (0x2e9a00-0x2ea0f0): init, the "already locked" ring of recent targets, the
+// Ts target searcher (0x2e9a00-0x2ea0f0, plus the gap fn 0x2ea0f0 at the end): init, the "already locked" ring of recent targets, the
 // target filters, the nearest/farthest search and the nearest-hit-sphere search. Each function keeps
 // the declarations of the source it was matched in (namespace nADDR); every symbol is bound by asm label.
 
@@ -343,3 +343,56 @@ void func_002e9fe0(It36* it, u8* obj, Vec4* pos)
 }
 }  // namespace n002e9fe0
 
+// 002ea0f0 (was gap, never written): count-down motion step (sin ease toward a target object, then finish via vtable slot 8)
+namespace g002ea0f0 {
+#undef QCOPY
+#define QCOPY(d, s) asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(d), "r"(s) : "$8", "memory")
+struct V {
+    f32 x, y, z, w;
+    V& operator=(const V& o) { if (this != &o) QCOPY(this, &o); return *this; }
+} __attribute__((aligned(16)));
+static inline V operator*(const V& a, f32 k) {
+    V r;
+    asm volatile(".set noreorder\n\tlqc2 $vf1, 0(%1)\n\tmfc1 $8, %2\n\tqmtc2 $8, $vf2\n\tvmulx.wxyz $vf1, $vf1, $vf2x\n\tsqc2 $vf1, 0(%0)\n\t.set reorder" : : "r"(&r), "r"(&a), "f"(k) : "$8", "memory");
+    return r;
+}
+static inline V operator+(const V& a, const V& b) {
+    V r;
+    asm volatile("lqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 0(%2)\n\tvadd.wxyz $vf1, $vf1, $vf2\n\tsqc2 $vf1, 0(%0)" : : "r"(&r), "r"(&a), "r"(&b) : "memory");
+    return r;
+}
+struct O {
+    void** vt; u8 p4[56]; f32 f3c; u8 p40[2420]; u32 f9b4; f32 f9b8; f32 t; f32 tmax; u8 p9c4[12]; V pos;
+};
+extern f32 D_00349e10 asm("D_00349e10");
+extern u8* D_0034e948 asm("D_0034e948");
+extern "C" f32 sinf(f32);
+V func_0016af58(O*) asm("func_0016af58");
+void set_rot(O*, f32) asm("_ZN2YS3OBJ7set_rotEf");
+V func_0016be98(u8*) asm("func_0016be98");
+void set_pos(O*, const V&) asm("_ZN2YS3OBJ7set_posERKN2kn7FVectorE");
+u32 func_001a37e8(u32, s32) asm("func_001a37e8");
+void func_00138210(u32) asm("func_00138210");
+void func_002ea0f0(void*, O* o) asm("func_002ea0f0");
+void func_002ea0f0(void*, O* o)
+{
+    f32 t = o->t - D_00349e10;
+    u8* tgt = D_0034e948;
+    o->t = t;
+    if (0.0f < t) {
+        f32 k = t / o->tmax;
+        f32 s = sinf((1.0f - k) * 3.1415927f * 0.5f);
+        k = 1.0f - s;
+        V v;
+        v = o->pos * k;
+        t = k * 3.1415927f;
+        v.y -= sinf(t) * 50.0f;
+        set_rot(o, func_0016af58(o).w + (1.0f - k) * 0.523598731f);
+        set_pos(o, func_0016be98(tgt) + v);
+        if (k < 0.1f) { k *= 9.999999f; o->f3c = o->f9b8 * k; }
+    } else {
+        func_00138210(func_001a37e8(o->f9b4, -1));
+        ((void (*)(O*))o->vt[8])(o);
+    }
+}
+}  // namespace g002ea0f0
