@@ -1,4 +1,4 @@
-// func_00201d60 (w3853): C, -fno-strict-aliasing (_nsa). Builds the trail strip: spline-sampled key points
+// func_00201d60 (w3853) + gap func_00202428 (trail update): C, -fno-strict-aliasing (_nsa). Builds the trail strip: spline-sampled key points
 // into obj->out, optional fade, then the alpha/colour/vertex records. Two empty asm readers (partial asm):
 // one ties the loop index i (allocation priority, i in s1), one keeps the "step = c" register copy.
 #include "../common/types.h"
@@ -13,7 +13,7 @@ void func_00201978(Vq* in, s32 n, Vq* out);
 void func_00201b30(Vq* o, Vq* a, Vq* b, f32 t);
 void sceVu0InterVector(Vq* d, Vq* a, Vq* b, f32 t);
 void func_00201ca0(u8* prm, s32* x, s32* w, s32* y, s32* h);
-void puts(const char*);
+s32 puts(const char*);
 extern Vq D_00354bc0;
 extern char D_003702e0[];
 
@@ -180,3 +180,70 @@ void func_00201d60(TrObj* obj, u8* prm, TrSt* st)
 
 
 
+
+/* 00202428 (was gap, written for the unit): trail update: allocate and fill the history samples,
+   number the strip vertices of every record (types 4 and 6), then rebuild the strip. */
+typedef struct { u64 b0 : 8; u64 b1 : 8; u64 b2 : 16; u64 b4 : 8; u64 b5 : 24; } DbgF;
+typedef struct { u8 pad0[168]; DbgF f; } Dbg;
+typedef struct { u8 pad0[16]; u8* sets; } Res;
+typedef struct { s32 w0; u8 pad4[4]; s32 w8; u8 pad12[16]; u8* data; } Set;
+typedef struct { s16 idx[4]; } RIdx;
+typedef struct { u8 pad0[12]; s32* off; } Ctx;
+extern s32 D_01d9ea9c;
+extern Dbg* D_01d9e6e0;
+extern Res* D_01d9e6e4;
+void* func_001e7698(Res*, s32);
+void func_002233f0(char*, char*, s32);
+s32 func_00202428(u8* base, u8* e, Ctx* c)
+{
+    TrSt* st = (TrSt*)(base + c->off[2] + 160);
+    Set* set;
+    PolyHdr* h;
+    s32 i, j, k, size;
+    u8* r;
+    if (D_01d9ea9c != 0 || D_01d9e6e0->f.b1 || D_01d9e6e0->f.b4) return;
+    if (*(s32*)(e + 4) == 0xffff) return;
+    set = (Set*)(D_01d9e6e4->sets + *(s32*)(e + 4) * 36);
+    if (st->key == 0) {
+        st->cnt = e[14];
+        if (st->cnt < 4) st->cnt = 4;
+        else if (st->cnt >= 32) st->cnt = 32;
+        st->key = func_001e7698(D_01d9e6e4, st->cnt * 32);
+        if (st->key == 0) func_002233f0("NULL != pVal->pvecSmp", "ryjProg/pppRyjDrawShipoly.c", 548);
+        for (i = 0; i < st->cnt; i++) func_00201bb0(e, st->key[i], &st->key[i][1]);
+    }
+    h = (PolyHdr*)(set->data + *(s32*)(set->data + 4));
+    k = 0;
+    while (h->type != -1) {
+        size = 0;
+        switch (h->type) {
+        case 0: case 1: case 2: case 3: case 5: case 7:
+            return puts(D_003702e0);
+        case 4:
+            r = (u8*)(h + 1);
+            for (j = 0; j < h->count; j++, k++) {
+                ((RIdx*)(r + 16))->idx[0] = k * 2;
+                ((RIdx*)(r + 16))->idx[1] = k * 2 + 1;
+                ((RIdx*)(r + 16))->idx[2] = k * 2 + 2;
+                ((RIdx*)(r + 16))->idx[3] = k * 2 + 3;
+                r += 24;
+            }
+            size = 24;
+            break;
+        case 6:
+            r = (u8*)(h + 1);
+            for (j = 0; j < h->count; j++, k++) {
+                ((RIdx*)(r + 16))->idx[0] = k * 2;
+                ((RIdx*)(r + 16))->idx[1] = k * 2 + 1;
+                ((RIdx*)(r + 16))->idx[2] = k * 2 + 2;
+                ((RIdx*)(r + 16))->idx[3] = k * 2 + 3;
+                r += 40;
+            }
+            size = 40;
+            break;
+        }
+        h = (PolyHdr*)((u8*)h + size * h->count);
+        h = h + 1;
+    }
+    if (set->w0 == set->w8 * 2 + 2) func_00201d60((TrObj*)set, e, st);
+}

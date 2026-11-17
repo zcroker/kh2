@@ -1,4 +1,4 @@
-// Linked unit 0x002029a0-0x00202ce0 (one namespace per old matched source; class methods in their own namespace).
+// Linked unit 0x00202978-0x00202ce0 (one namespace per old matched source; class methods in their own namespace).
 #include "../common/types.h"
 typedef unsigned int u128 __attribute__((mode(TI)));
 #include "../kn/fvector.hpp"
@@ -6,6 +6,20 @@ typedef unsigned int u128 __attribute__((mode(TI)));
 #include "../yasui/libys/areadata.hpp"
 #include "../yasui/libys/progress.hpp"
 #include <stdarg.h>
+
+// 00202978 (was gap, written for the unit): trail reset (ryjProg/pppRyjDrawShipoly.c, the init of
+// func_00202428/func_00201d60's state; same shape as func_002039c0).
+namespace n00202978 {
+struct StG { u32 cur; u8 cnt; u8 on; u8 pad6[2]; void* key; };
+void func_00202978(u8* base, u8* c) asm("func_00202978");
+void func_00202978(u8* base, u8* c) {
+    StG* s = (StG*)(base + (*(s32**)(c + 12))[2] + 160);
+    s->cur = 0;
+    s->cnt = 0;
+    s->on = 1;
+    s->key = 0;
+}
+}  // namespace n00202978
 
 // 002029a0 (was src/anon/tiny_auto80_queue.cpp)
 namespace n002029a0 {
