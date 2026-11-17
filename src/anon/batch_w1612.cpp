@@ -198,59 +198,6 @@ void func_00262af8(void);
 void func_00256cc0(s32, s32, s32);
 void func_00287cc0(s32);
 
-void func_0025f7f0(s32 sel) {
-    s32 i, k;
-    E* p;
-    s32 save;
-    Base* b = func_00257770();
-    func_0028f4d8(0, -1, 0);
-    save = D_0035f3d4;
-    D_0035f3d4 = 30017;
-    k = 0;
-    for (i = 0; i < 4; i++) {
-        if (func_00281180(D_0035f010, i)) {
-            s32 x = func_00257100(0);
-            func_00288d80(D_0035f01c, k, D_0035ef68, D_0035ef64, D_0035f03c, -1, x, func_00257100(1));
-            func_00288e08(D_0035f01c, k, 0, -1);
-            p = func_002891b8(D_0035f01c, k++);
-            func_00139620(p);
-            p->f408 = func_00281140(D_0035f010, i);
-            func_001395f8(p);
-        }
-    }
-    s32 x = func_00257100(0);
-    func_00288d80(D_0035f01c, k, D_0035ef68, D_0035ef64, D_0035f03c, -1, x, func_00257100(1));
-    func_00288e08(D_0035f01c, k, 0, -1);
-    p = func_002891b8(D_0035f01c, k);
-    func_00139620(p);
-    p->f408 = func_00192048(0x8455);
-    func_001395f8(p);
-    i = D_0035f3d4 + 1;
-    if (func_00285d58(-1)) {
-        s32 t = func_00285e30(-1) ? D_0037327c : D_00373278;
-        F* e = &b->e[k];
-        func_0028d8c0(e, i, D_0035ef68, D_0035ef64, D_0035f03c, t, -1, 0);
-        func_0028dcc0(e, p);
-        s32 y = func_0023aa18((u8*)p + 24);
-        func_00138c68(e, y, func_0023aa38((u8*)p + 24));
-    }
-    D_0035f3d4 = save;
-    s32 v = func_00257070(1);
-    if (sel >= 0 && sel != v) {
-        func_00257050(2, 0, 0);
-        func_00257050(1, sel, 0);
-        v = sel;
-    }
-    func_002891f0(D_0035f01c, v, 1, 0, 2);
-    u32 f = func_0028af88(D_0035f01c);
-    if (func_00258068(1)) f |= 0x100;
-    func_0028af18(D_0035f01c, f);
-    func_0025f7d8();
-    func_00261b30();
-    func_00261d48();
-    func_00262af8();
-    if (func_00258068(1)) func_00256cc0(0xb619, -1, -1);
-    func_00287cc0(0);
-}
+void func_0025f7f0(s32 sel);  // 0x0025f7f0: definition moved into src/anon/unit_0025f6b8.cpp
 }
 }

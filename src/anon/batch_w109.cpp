@@ -408,36 +408,7 @@ E262820* func_00281f20(s32);
 void func_0028be78(s32, s32);
 s32 func_00285d58(u16);
 s32 func_00285e30(u16);
-void func_00262820(void) {
-    s32 i;
-    u8* g = func_00257770();
-    s32 cnt = func_00281f18(func_00257130());
-    s32 n = func_002892f8(D_0035f01c);
-    for (i = 0; i < n; i++) {
-        *(s32*)(func_002891b8(D_0035f01c, i) + 408) = 0;
-        func_00138c10(g + 0x87d0 + i * 408, D_0035ef6c);
-    }
-    if (cnt == 0) {
-        func_00138c10(func_002891b8(D_0035f01c, 0), 302);
-        u8* p = func_002891b8(D_0035f01c, 0);
-        *(s32*)(p + 408) = func_00192048(0x845a);
-        *(s32*)(func_002891b8(D_0035f01c, 0) + 432) = 2;
-    } else {
-        s32 sel = func_0028b038(D_0035f01c);
-        func_002827f0(func_00257130(), sel, 18);
-        u8* b = func_00281f30(func_00257130());
-        E262820* l = func_00281f20(func_00257130());
-        func_0028be78(D_0035f04c, sel / 2);
-        u8* q = g + 0x87d0;
-        for (i = 0; i < 18; i++) {
-            if (i + sel >= cnt) break;
-            *(u8**)(func_002891b8(D_0035f01c, i) + 408) = b + 16 + i * 80;
-            if (func_00285d58(l[sel + i].id)) func_00138c10(q, func_00285e30(l[sel + i].id) ? D_0037327c : D_00373278);
-            q += 408;
-        }
-    }
-    func_00262af8();
-}
+void func_00262820(void);  // 0x00262820: definition moved into src/anon/unit_0025f6b8.cpp
 
 // ---- f20.cpp
 extern u8* D_0035f60c;

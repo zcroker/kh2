@@ -173,9 +173,7 @@ u8 func_00258158(u8* p) {
 
 u8* func_00103eb0(void);
 void func_00263db0(void);
-void func_00263d70(void) {
-    func_00102818(*(void**)(func_00103eb0() + 4), 0, 2000, (u32)func_00263db0, 4096);
-}
+void func_00263d70(void);  // 0x00263d70: definition moved into src/anon/unit_002632d0.cpp
 
 
 extern u8 D_0035f3a8[];

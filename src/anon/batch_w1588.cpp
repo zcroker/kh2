@@ -41,12 +41,7 @@ void func_0029edb8(void) {  // alloc_global_obj
     func_002fde18(D_0035f5d0, 0, 20);
 }
 
-void func_00264388(void) {  // alloc_global_buffer
-    void* p = func_001063c0(2116, func_00103570());
-    D_0035f0e4 = p;
-    func_002fde18(p, 0, 2116);
-    D_0035f0e8 = 0;
-}
+void func_00264388(void);  // 0x00264388: definition moved into src/anon/unit_002640a8.cpp
 
 s32 func_00285d18(s32 x) {  // byte_list_contains
     s32 r = 0;

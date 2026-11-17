@@ -337,16 +337,7 @@ void func_00259570(u32 a, u32 b, u8 c, u8 d);  // 0x00259570: definition moved i
 
 s32 func_0025d620(s32 a);  // 0x0025d620: definition moved into src/anon/unit_002588e8.cpp
 
-s32 func_002638e0(s32 a) {
-    s32 r = 0;
-    switch (func_00287bc0()) {
-    case 10: r = 1; break;
-    case 1: r = 1; break;
-    case 11: if (a >= 0) r = func_002637e8(a) >= 0; break;
-    default: r = 1; break;
-    }
-    return r;
-}
+s32 func_002638e0(s32 a);  // 0x002638e0: definition moved into src/anon/unit_002632d0.cpp
 
 bool func_0027a908(u8 a) {
     bool r = func_002577b0();

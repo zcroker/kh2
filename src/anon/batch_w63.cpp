@@ -295,12 +295,7 @@ s32 func_00252710(void) {
 }
 
 void cmitem_leave(void) asm("_ZN2Tz6CmItem13LeaveCategoryEv");
-void cmitem_leave(void) {
-    u8* o = func_00256b68(1);
-    if (func_00139d78(o)) (*(VFn*)(*(u8**)o + 20))(o);
-    if (func_0028acc8(D_0035f01c)) func_0028abe0(D_0035f01c);
-    if (func_0028be58(D_0035f04c)) func_0028be18(D_0035f04c);
-}
+void cmitem_leave(void);  // 0x00262208: definition moved into src/anon/unit_0025f6b8.cpp
 
 // Sets a bit in the flag array at +204 if not already set.
 void func_002865d0(u32 bit) {

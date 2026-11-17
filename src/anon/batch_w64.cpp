@@ -344,16 +344,7 @@ extern u32 D_0035f020;
 extern u32 D_0035f024;
 void func_0027e920(void);
 
-void func_002630d8(void) {
-    NoTail nt;
-    u8* o = func_00257770();
-    if (func_00139d78(o + 408)) return;
-    if (func_00139d78(o + 2068)) return;
-    if (func_00139d78(o + 1224)) return;
-    if (func_0028acc8(D_0035f020)) return;
-    if (func_0028acc8(D_0035f024)) return;
-    func_0027e920();
-}
+void func_002630d8(void);  // 0x002630d8: definition moved into src/anon/unit_0025f6b8.cpp
 
 // ---------------------------------------------------------------------------
 u8* func_00167f18(s32);

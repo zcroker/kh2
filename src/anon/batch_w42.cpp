@@ -204,25 +204,11 @@ void func_00247bb0(void)
 // 00263cc0
 extern u8* D_0035f0dc;
 extern u8* D_0035f0c0;
-u8 func_00263cc0(void)
-{
-    if (!D_0035f0dc) return 0;
-    if (!u_call4_00139d78(D_0035f0c0) && u_call4_00139d78(D_0035f0dc)) menu_help_leave();
-    return u_call4_00139d78(D_0035f0dc);
-}
+u8 func_00263cc0(void);  // 0x00263cc0: definition moved into src/anon/unit_002632d0.cpp
 
 // 00264328: index of `id` in the 128-entry table, or -1
 u8* func_00263ea8(void);  // get_global_36f1d0
-s32 func_00264328(u32 id)
-{
-    u8* h = func_00263ea8();  // get_global_36f1d0
-    u16* t = (u16*)(h + *(u32*)(h + 12));
-    s32 r = -1;
-    for (s32 i = 0; i < 128; i++) {
-        if (t[i] == id) { r = i; break; }
-    }
-    return r;
-}
+s32 func_00264328(u32 id);  // 0x00264328: definition moved into src/anon/unit_002640a8.cpp
 
 // 0028cf28
 extern u8* D_0035f3fc;

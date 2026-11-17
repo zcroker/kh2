@@ -111,24 +111,6 @@ void func_001f5f10(s32 id, A1f5* a, S1f5* s) {
     func_002226b8(d1, v);
 }
 
-void func_00263a90(u32 a0, u8 a1) {
-    if (func_00263cc0() == 0) {
-        u32 p1 = D_0035f3d4;
-        func_0028b520(G, p1, D_0035f0bc, D_0035f0b8, D_0035f0c0, &D_0035f0c8, &D_0035f0d0, D_0035f0d0.d, -1, 0);
-        *(u32*)(G + 0x198) = a0;
-        if (a1) {
-            u32 h = *(u32*)(G + 0x190);
-            u32 x = func_0023aa18(h);
-            func_00138c68(G, x, func_0023aa38(h));
-        }
-        func_001395f8(G);
-        return;
-    }
-    *(u32*)(G + 0x198) = a0;
-    if (*(s32*)(G + 0x184) != D_0035f0d0.d) {
-        func_00138c10(G, D_0035f0d0.d);
-        *(s32*)(G + 0x188) = -1;
-    }
-}
+void func_00263a90(u32 a0, u8 a1);  // 0x00263a90: definition moved into src/anon/unit_002632d0.cpp
 
 }

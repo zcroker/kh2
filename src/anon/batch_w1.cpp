@@ -125,9 +125,7 @@ void func_0023cdb8(void) {
     D_01dae680 = 0;
 }
 
-void func_00263188(void) {
-    func_0028da70((u8*)func_00257770() + 408, 300);
-}
+void func_00263188(void);  // 0x00263188: definition moved into src/anon/unit_0025f6b8.cpp
 
 void func_0026dd18(s32 a0, s32 a1, s32 a2) {  // store_session_globals
     D_0035f118 = a0;

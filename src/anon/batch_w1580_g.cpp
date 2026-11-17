@@ -115,53 +115,13 @@ void func_002534e0(void) {
     }
 }
 
-void func_002615b0(void) {
-    s32 base = (s32)func_00257770();
-    u8* p = func_002632d0(func_002570a0(10));
-    s32 a = func_00192048(0xBB90);
-    s32 b = func_00192048(func_002594b8(p[2]));
-    s32 c = func_00192048(*(u16*)(p + 8));
-    base += 0xB290;
-    func_00192e50(a, base, 0xC0, b, c);
-    func_00257458(base, 0);
-    func_002571e0(0);
-    func_00287cc0(0);
-}
+void func_002615b0(void);  // 0x002615b0: definition moved into src/anon/unit_0025f6b8.cpp
 
-void func_00261820(void) {
-    s32 base = (s32)func_00257770();
-    u8* p = func_002632d0(func_002570a0(10));
-    s32 a = func_00192048(0xB94F);
-    s32 b = func_00192048(func_002594b8(p[2]));
-    s32 c = func_00192048(*(u16*)(p + 8));
-    base += 0xB290;
-    func_00192e50(a, base, 0xC0, b, c);
-    func_00257458(base, 0);
-    func_002571e0(1);
-    func_00287cc0(0);
-}
+void func_00261820(void);  // 0x00261820: definition moved into src/anon/unit_0025f6b8.cpp
 
-void func_00261ce8(s32 a) {
-    s32 n = func_00281198(D_0035f010, a) + 5;
-    func_00282240(func_00257130(), n, 0);
-    func_002827f0(func_00257130(), 0, 0);
-}
+void func_00261ce8(s32 a);  // 0x00261ce8: definition moved into src/anon/unit_0025f6b8.cpp
 
-void func_00261fb8(void) {
-    u8* p = func_00257770();
-    func_00139d78(p);
-    func_002634d8(0);
-    s32 k = func_00257140(0);
-    s32 q = func_00281f30(func_00257130());
-    s32 n = func_00281f18(func_00257130()) < 20 ? func_00281f18(func_00257130()) : 20;
-    func_002827f0(func_00257130(), 0, n);
-    for (s32 i = 0; i < n; i++) {
-        u8* e = p + i * 0x1B4;
-        func_00138c10(e + 0x3610, 0x8F);
-        func_00138c10(e + 0x5EF0, k);
-        *(s32*)(e + 0x6088) = q + 16 + i * 0x50;
-    }
-}
+void func_00261fb8(void);  // 0x00261fb8: definition moved into src/anon/unit_0025f6b8.cpp
 
 void func_0025b5e0(void);  // 0x0025b5e0: definition moved into src/anon/unit_002588e8.cpp
 

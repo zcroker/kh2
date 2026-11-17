@@ -30,11 +30,11 @@ s32 func_002420d0(void* self) { return (s32)(*(s32*)((char*)self + 4)); }
 
 void func_0025f6b0(void* self);  // 0x0025f6b0: definition moved into src/anon/unit_0025da20.cpp
 
-void func_00263e10(void* self) {}
+void func_00263e10(void* self);  // 0x00263e10: definition moved into src/anon/unit_002632d0.cpp
 
-void func_00263e98(void* self) {}
+void func_00263e98(void* self);  // 0x00263e98: definition moved into src/anon/unit_002632d0.cpp
 
-void func_00263ea0(void* self) {}
+void func_00263ea0(void* self);  // 0x00263ea0: definition moved into src/anon/unit_002632d0.cpp
 
 void func_00281f10(void* self) {}
 

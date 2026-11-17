@@ -269,22 +269,9 @@ s32 func_0028acc8(void*);
 s32 func_0028acb8(void*);
 void func_0028aa40(void*);
 extern void* D_0035f01c;
-void CmItem_FadeOutTop(void*) {
-    u8* b = func_00257770();
-    if (func_00287bc0() == 1) {
-        func_0028dac8(b, 142);
-        if (func_0028acc8(D_0035f01c) && !func_0028acb8(D_0035f01c)) func_0028aa40(D_0035f01c);
-    }
-}
+void CmItem_FadeOutTop(void*);  // 0x002620a0: definition moved into src/anon/unit_0025f6b8.cpp
 
-void CmItem_FadeOutWarn(void*) {
-    s32 m = func_00287bc0();
-    u8* b = func_00257770();
-    if ((u32)(m - 11) < 4) {
-        func_0028dac8(b, 298);
-        func_0028dac8(b + 0xb350, 307);
-    }
-}
+void CmItem_FadeOutWarn(void*);  // 0x00262c40: definition moved into src/anon/unit_0025f6b8.cpp
 
 s32 func_00103b38(void);
 extern s8 D_0035f348;

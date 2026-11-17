@@ -167,20 +167,7 @@ u32 func_00287db0(void);
 void func_001039f8(void);
 void func_0017a798(void);
 void func_00287da0(void);
-u32 func_00263e18(void) {
-    if (!func_00138470()) {
-        if (!func_00138440()) func_001382e0();
-    }
-    if (func_00287db0()) {
-        func_001039f8();
-        return 1;
-    }
-    if (func_00138470()) {
-        func_0017a798();
-        func_00287da0();
-    }
-    return 0;
-}
+u32 func_00263e18(void);  // 0x00263e18: definition moved into src/anon/unit_002632d0.cpp
 
 // Does any of the 32 records satisfy the predicate?
 u32 func_00139d78(u32);

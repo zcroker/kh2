@@ -302,24 +302,9 @@ void func_00251ec8(s32 i) {
     }
 }
 
-s32 func_00262290(void) {
-    s32 r = func_00139d78(func_00256b68(1));
-    if (r) return r;
-    if (D_0035f01c) r = func_0028acc8(D_0035f01c) != 0;
-    if (r) return r;
-    if (D_0035f04c) r = func_0028be58(D_0035f04c) != 0;
-    return r;
-}
+s32 func_00262290(void);  // 0x00262290: definition moved into src/anon/unit_0025f6b8.cpp
 
-s32 func_002637e8(s32 a) {
-    u32 h = func_002570a0(10);
-    if (!a) a = func_002635d8(h) == 0;
-    else a = 1;
-    if (a == 1) {
-        if (!func_00263660(h)) a = -1;
-    }
-    return a;
-}
+s32 func_002637e8(s32 a);  // 0x002637e8: definition moved into src/anon/unit_002632d0.cpp
 
 // Is the current id in the -1-terminated table?
 s32 func_002812e0(void) {

@@ -338,22 +338,7 @@ void func_0028d8c0(u8*, u32, u32, u32, u32, s32, s32, s32);
 void func_0028dcc0(u8*, u32);
 
 // Shows or hides the help window for an entry.
-void func_002633a8(u32 id, u8 show) {
-    u8* base = func_00257770(id);
-    s32 k = func_00287bc0();
-    u8* m = k == 11 ? base + 816 : base + 1224;
-    if (k == 13) id = 1;
-    s32 busy = func_00139d78(m);
-    if (func_0028d008(id)) {
-        if (!busy) {
-            func_0028d8c0(m, D_0035f3d4 + 2, D_0035ef68, D_0035ef64, D_0035f03c, 290, -1, 0);
-            func_0028dcc0(m, *(u32*)(func_0028d0e0(id) + 396));
-        }
-        if (show) func_0028dcc0(m, *(u32*)(func_0028d0e0(id) + 396));
-    } else if (busy) {
-        (*(void (**)(u8*))(*(u8**)m + 20))(m);
-    }
-}
+void func_002633a8(u32 id, u8 show);  // 0x002633a8: definition moved into src/anon/unit_002632d0.cpp
 
 struct E248 { u8 pad[8]; u8 name[8]; s8 on; u8 pad2; u16 id; u8 pad3[16]; };
 extern E248 D_00371e00[];

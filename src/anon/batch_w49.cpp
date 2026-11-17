@@ -331,16 +331,7 @@ void func_002367c8(u8* p) {  // obj_dispatch_bitfield64
 // Returns 1 if the current id is in the -1-terminated list.
 u16* func_002632d0(void);
 extern s16 D_00373270[];
-s32 func_002636b0(void) {
-    u16 k = *func_002632d0();
-    s32 r = 0;
-    for (s32 i = 0; D_00373270[i] >= 0; i++)
-        if (D_00373270[i] == k) {
-            r = 1;
-            break;
-        }
-    return r;
-}
+s32 func_002636b0(void);  // 0x002636b0: definition moved into src/anon/unit_002632d0.cpp
 
 u32 func_00190140(u8*);
 u32 func_00176fb0(u8*, u32);

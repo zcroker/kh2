@@ -302,15 +302,7 @@ s32 func_00263cc0(void);
 void func_00138c10(u8*, s32);
 extern s16 D_0035f0d8;
 extern u8* D_0035f0dc;
-void func_00263c60(void) {  // sync_global_index_if_changed
-    if (func_00263cc0()) {
-        s16 v = D_0035f0d8;
-        if (*(s32*)(D_0035f0dc + 388) != v) {
-            func_00138c10(D_0035f0dc, v);
-            *(s32*)(D_0035f0dc + 392) = -1;
-        }
-    }
-}
+void func_00263c60(void);  // 0x00263c60: definition moved into src/anon/unit_002632d0.cpp
 
 // ---- 0028e350
 void ctarget_0028e350(u8* p, u32, u32, u32);  // 0028e350: moved to src/anon/unit_0028c878.cpp

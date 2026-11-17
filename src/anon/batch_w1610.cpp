@@ -194,70 +194,7 @@ void func_00287bd0(s32, s32);
 void func_002615b0(void);
 void func_00287cc0(s32);
 void func_0027e6e0(void);
-void func_002612c8(void) {
-    s32 r = func_00289380(D_0035f020);
-    s32 st = func_00287cd0();
-    if (st == 2) {
-        s32 m = func_00287c10();
-        s32 v = func_002630d8();
-        if (!v && m == 10) v = func_00262e30();
-        if (v) {
-            if (r != -1 || func_00289310(D_0035f020)) {
-                func_00287f90(0);
-                func_00262ff8();
-                if (m == 10) func_00262cb8();
-            }
-        } else {
-            func_00287c30();
-            r = func_00287bc0();
-            func_0028b1e8(D_0035f020, 0);
-            func_0028af18(D_0035f020, 115);
-            if (r == 10) func_0025ffd0();
-            else if (r == 11) func_00260808();
-        }
-        return;
-    }
-    if ((r != -1 || func_00289310(D_0035f020)) && func_00263160() == 0) {
-        func_00263188();
-    }
-    if (st == 0 && func_00263160()) {
-        func_00287c90(1);
-    }
-    if ((r >= 0 && func_002638e0(r)) || func_00242848(func_00287df0(r, func_00289310(D_0035f020), 1, (void (*)(void))func_002638e0, 1)) == 0) {
-        switch (r) {
-        case -2:
-            func_00262fa0();
-            func_00287c90(1);
-            func_00287c00(11);
-            break;
-        default:
-            if (func_00263720(r)) {
-                func_00242618(17, 1);
-                func_00263778(r);
-                func_00262fa0();
-                func_00262c40();
-                func_00287c90(1);
-                func_00257728();
-                func_00287c00(10);
-            } else {
-                func_00242618(8, 1);
-                func_00287bd0(13, 0);
-                func_002615b0();
-                func_00287cc0(1);
-            }
-            break;
-        case -4:
-            func_0027e6e0();
-            func_00287da0();
-            break;
-        case -1:
-            break;
-        }
-    }
-    if (func_00288040()) {
-        func_00288018();
-    }
-}
+void func_002612c8(void);  // 0x002612c8: definition moved into src/anon/unit_0025f6b8.cpp
 extern u8 D_00374498[];
 extern u8 D_003744a0[];
 s32 func_001a1728(s32, s32);

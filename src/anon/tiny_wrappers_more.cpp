@@ -922,9 +922,7 @@ u32 func_00258190(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_00258120(0x00000001u, 0x0000ffffu, a2, a3);
 }
 
-u32 func_0025f7d8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_002817b8(a0, a1, a2, a3);
-}
+u32 func_0025f7d8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0025f7d8: definition moved into src/anon/unit_0025f6b8.cpp
 
 
 u32 duplicate_unplaced_00276fd0(u32 a0, u32 a1, u32 a2, u32 a3) {

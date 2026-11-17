@@ -154,9 +154,7 @@ u32 func_00241770(s32 i) {
 
 void func_0025a1d0(void);  // 0x0025a1d0: definition moved into src/anon/unit_002588e8.cpp
 
-void func_002631b0(void) {
-    func_0028da70(func_00257770() + 0xb350, 307);
-}
+void func_002631b0(void);  // 0x002631b0: definition moved into src/anon/unit_0025f6b8.cpp
 
 void func_0027f9b0(void) {
     func_00280148();

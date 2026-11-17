@@ -101,20 +101,7 @@ s32 func_00257130(void);
 void func_00282240(s32, s32, s32);
 void func_00282d70(s32);
 
-void func_002634d8(s32 a) {
-    s32 n;
-    if (a < 0) a = D_0035f0b5;
-    switch (a) {
-    case 2: n = 11; break;
-    default:
-    case 0: n = 0; break;
-    case 1: n = 13; break;
-    case 3: n = 12; break;
-    case 4: n = 14; break;
-    }
-    func_00282240(func_00257130(), 0, n);
-    func_00282d70(func_00257130());
-}
+void func_002634d8(s32 a);  // 0x002634d8: definition moved into src/anon/unit_002632d0.cpp
 
 }
 

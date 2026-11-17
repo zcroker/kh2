@@ -172,11 +172,7 @@ void func_00242a28(u8 on) {
     f->on = on != 0;
 }
 
-void Tz_CMenuHelp_Create(s32 i, bool b) {
-    void* p = 0;
-    if (i >= 0) p = func_00192048(i);
-    func_00263a90(p, b);
-}
+void Tz_CMenuHelp_Create(s32 i, bool b);  // 0x00263a58: definition moved into src/anon/unit_002632d0.cpp
 
 void func_002803e0(void) {
     func_0028da70(D_0035f264 + 24, 8);

@@ -9,21 +9,7 @@ H16* func_00263ea8(void);
 u32 func_001a6d08(s32);
 void func_002641c8(u32, u8*, u32, u32);
 
-void func_002640a8(s32 a0, u16 a1, u32 a2) {
-    s32 i;
-    H16* h = func_00263ea8();
-    E24* e;
-    for (i = 0, e = h->e; i < h->count; i++, e++) {
-        if (e->id == a0) continue;
-        if (!func_001a6d08(e->k)) continue;
-        if (e->f14 & 0x80) continue;
-        Sub8* s = (Sub8*)((u8*)h + e->off);
-        s32 j;
-        for (j = 0; j < e->n; j++, s++) {
-            if (s->a < 0) func_002641c8(a2, (u8*)h + s->off, s->b, a1);
-        }
-    }
-}
+void func_002640a8(s32 a0, u16 a1, u32 a2);  // 0x002640a8: definition moved into src/anon/unit_002640a8.cpp
 
 s32 func_00287cd0(void);
 s32 func_00289310(u32);

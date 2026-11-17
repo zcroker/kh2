@@ -325,20 +325,7 @@ void func_0024eac0(void) {
 }
 
 u8* func_002632d0(void);
-s32 func_002635d8(void) {
-    s8 tbl[3] = {0, 1, -1};
-    s32 r = 0;
-    u8* v = func_002632d0();
-    u8 c = v[2];
-    s32 i;
-    for (i = 0; tbl[i] >= 0; i++) {
-        if (c == tbl[i]) {
-            r = 1;
-            break;
-        }
-    }
-    return r;
-}
+s32 func_002635d8(void);  // 0x002635d8: definition moved into src/anon/unit_002632d0.cpp
 
 extern u8* D_0035f480;
 void func_00139510(void*);

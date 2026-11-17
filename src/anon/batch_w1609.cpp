@@ -107,40 +107,5 @@ void func_00288f48(s32, s32, s32, s32, s32);
 u8* func_00281f20(s32);
 s32 func_0027ed48(u16);
 void func_0027dee8(s32, s32, s32);
-void func_00261000(void)
-{
-    s16 h[2][4];
-    s32 i, j, n, k, cnt;
-    u8* base = func_00257770();
-    for (i = 0; i < 2; i++)
-        for (j = 0; j < 4; j++)
-            h[i][j] = 291;
-    n = D_0035f3d4;
-    u8* a = base + 408;
-    u8* b = base + 2068;
-    func_0028d8c0(a, n - 1, D_0035ef68, D_0035ef64, D_0035f03c, 299, 300, 0);
-    func_0028d980(b, n, D_0035ef68, D_0035ef64, D_0035f03c, 292, -1, -1, 0);
-    func_00281f30(func_00257130());
-    func_00139620(b);
-    func_0028dcc0(b, a);
-    *(s32*)(b + 408) = func_00192048(0xb943);
-    k = func_002570a0(10);
-    if (func_00263688(k) || func_002636b0(k)) cnt = 1;
-    else cnt = func_00281100(D_0035f010);
-    for (i = 0; i < cnt; i++) {
-        func_00288d80(D_0035f020, i, D_0035ef68, D_0035ef64, D_0035f03c, -1, h[0], h[1]);
-        u8* p = func_002891b8(D_0035f020, i);
-        *(s32*)(p + 392) = -1;
-        func_00138c68(p, 0, func_0023aa78(p + 24) * i);
-        func_00139620(p);
-        func_0028dcc0(p, a);
-        *(s32*)(p + 408) = func_00263688(k) ? func_00192048(0xb944) : func_00281140(D_0035f010, i);
-    }
-    func_0028b1e8(D_0035f020, 1);
-    func_002891f0(D_0035f020, 0, 1, 0, 2);
-    func_00288f48(D_0035f020, 16, 32, 0, 0);
-    s32 t = func_0027ed48(*(u16*)(func_00281f20(func_00257130()) + k * 6));
-    func_0027dee8(1, t, func_002636b0(k) ? 0 : 4);
-    func_00287cc0(0);
-}
+void func_00261000(void);  // 0x00261000: definition moved into src/anon/unit_0025f6b8.cpp
 }

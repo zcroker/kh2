@@ -25,13 +25,6 @@ s32 func_002570a0(s32);
 u16 *func_002632d0(s32);
 s32 func_002811b0(s32, s32);
 extern s32 D_0035f010;
-void func_00263778(s32 a0)
-{
-  u16 id = *func_002632d0(func_002570a0(10));
-  s32 v = func_002811b0(D_0035f010, a0);
-  func_001a2a50(id, v, 0, 100);
-  func_001a3458(id, 100);
-  func_0013dbb0();
-}
+void func_00263778(s32 a0);  // 0x00263778: definition moved into src/anon/unit_002632d0.cpp
 
 }

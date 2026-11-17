@@ -235,11 +235,7 @@ s32 func_0028be58(void*);
 void func_0028bdb8(void*);
 extern void* D_0035f04c;
 void FadeOutCategory2621a0(void) asm("_ZN2Tz6CmItem15FadeOutCategoryEv");
-void FadeOutCategory2621a0(void) {
-    if (GetMode287bc0() != 10) return;
-    func_0028dac8(func_00256b68(1), 295);
-    if (func_0028be58(D_0035f04c)) func_0028bdb8(D_0035f04c);
-}
+void FadeOutCategory2621a0(void);  // 0x002621a0: definition moved into src/anon/unit_0025f6b8.cpp
 
 extern u8* D_0035f20c;
 s32 func_00192048(s32);

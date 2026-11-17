@@ -482,20 +482,7 @@ void func_0031fc78(u8* p) {
 // Adds each id from the list that is not present yet and passes the mask.
 u16 func_002642a8(u16);
 struct Lst { u8 _0[10]; u16 cnt; u8 _12[4]; u16 ids[1]; };
-void func_002641c8(Lst* p, u16* list, s32 n, u16 mask) {
-    for (s32 i = 0; i < n; i++) {
-        u16 id = list[i];
-        s32 j;
-        for (j = 0; j < p->cnt; j++) {
-            if (id == ((u16*)((u8*)p + 16))[j]) break;
-        }
-        if (j < p->cnt) continue;
-        if (mask & func_002642a8(id)) {
-            p->ids[p->cnt] = id;
-            p->cnt++;
-        }
-    }
-}
+void func_002641c8(Lst* p, u16* list, s32 n, u16 mask);  // 0x002641c8: definition moved into src/anon/unit_002640a8.cpp
 
 struct E12 { u32 a; s8 k; u8 pad[7]; };
 u8* func_00294000(s32);

@@ -270,21 +270,7 @@ extern u8 D_0035f360[];
 extern u32* volatile D_0035f0dc;
 void func_00263bb0(u32, u32);
 void func_00239700(u32*);
-void func_00263960(u32 a, u32 b, u32 c, u32 d, u32 e) {  // store_globals_and_init
-    D_0035f0b8 = a;
-    D_0035f0bc = b;
-    D_0035f0c0 = c;
-    func_00263bb0(d, e);
-    u8* h = *(u8**)(D_00347f80 + 20);
-    typedef u32* (*Fn)(u8*, u32, u32);
-    u32* o = (**(Fn**)h)(h, 460, 0);
-    o[3] = 0;
-    o[0] = (u32)D_00347e60;
-    func_00239700(o + 6);
-    o[102] = 0;
-    *(volatile u32*)o = (u32)D_0035f360;
-    D_0035f0dc = o;
-}
+void func_00263960(u32 a, u32 b, u32 c, u32 d, u32 e);  // 0x00263960: definition moved into src/anon/unit_002632d0.cpp
 
 // --- 0027db58
 u8* func_00167f18(u32);

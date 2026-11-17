@@ -365,15 +365,7 @@ u32 func_0024a270(void) {
 // --- 00262588  Tz::CmItem::LeaveStock
 u8* cmtop_list_buffer(void) asm("_ZN2Tz5CmTop13GetListBufferEv");
 void LeaveStock(void*) asm("_ZN2Tz6CmItem10LeaveStockEv");
-void LeaveStock(void*) {
-    u8* b = cmtop_list_buffer();
-    if (u_call4_00139d78(b + 2504)) func_00139510(b + 2504);
-    for (s32 i = 0; i < 5; i++) {
-        u8* o = b + 3376 + i * 436;
-        if (u_call4_00139d78(o)) (*(void (**)(u8*))(*(u8**)o + 20))(o);
-    }
-    if (u_call4_00139d78(b + 816)) func_00139510(b + 816);
-}
+void LeaveStock(void*);  // 0x00262588: definition moved into src/anon/unit_0025f6b8.cpp
 
 // --- 00272468
 u8* cmtop_list_buffer2(void) asm("_ZN2Tz5CmTop13GetListBufferEv");

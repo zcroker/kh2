@@ -320,42 +320,14 @@ u8 func_00139d78c(void*) asm("func_00139d78");
 u8 func_0028acc8c(void*) asm("func_0028acc8");
 
 // Is anything in this menu still busy?
-u8 func_00262e30(void) {
-    u8 r;
-    u8* s = func_00257770();
-    if ((r = func_00139d78c(s))) return r;
-    if ((r = func_00139d78c(s + 1632))) return r;
-    if ((r = func_00139d78c(s + 0xb350))) return r;
-    if ((r = func_0028acc8c(D_0035f01c))) return r;
-    if ((r = func_0028acc8c(D_0035f020))) return r;
-    if ((r = func_0028acc8c(D_0035f024))) return r;
-    s32 i;
-    u8* e;
-    for (i = 0, e = s; i < 24; i++, e += 436) {
-        if ((r = func_00139d78c(e + 3376))) return r;
-        if ((r = func_00139d78c(e + 24304))) return r;
-    }
-    r = func_00139d78c(s + 816);
-    return r;
-}
+u8 func_00262e30(void);  // 0x00262e30: definition moved into src/anon/unit_0025f6b8.cpp
 
 void func_00139510(void*);
 s32 func_0027e920(void);
 void func_0027e770(void);
 // Tz CmItem LeaveHelp
 void LeaveHelp(void*) asm("_ZN2Tz6CmItem9LeaveHelpEv");
-void LeaveHelp(void*) {
-    u8* s = func_00257770();
-    u8* w = s + 408;
-    if (func_00139d78(w)) func_00139510(w);
-    w = s + 2068;
-    if (func_00139d78(w)) func_00139510(w);
-    if (func_0028acc8(D_0035f020)) func_0028abe0(D_0035f020);
-    if (func_0028acc8(D_0035f024)) func_0028abe0(D_0035f024);
-    if (func_0027e920()) func_0027e770();
-    w = s + 1224;
-    if (func_00139d78(w)) func_00139510(w);
-}
+void LeaveHelp(void*);  // 0x00262ff8: definition moved into src/anon/unit_0025f6b8.cpp
 
 extern void* D_0035f010;
 extern void* D_0035f0ec;

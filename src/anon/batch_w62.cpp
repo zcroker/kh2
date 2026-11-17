@@ -294,14 +294,7 @@ u8* func_00257770(void);
 void func_0028dac8(u8*, u32);
 void func_0027e6e0(void);
 void cm_FadeOutStock(void* self) asm("_ZN2Tz6CmItem12FadeOutStockEv");
-void cm_FadeOutStock(void* self) {
-    s32 m = func_00287bc0();
-    u8* o = func_00257770();
-    if (m == 12) {
-        func_0028dac8(o + 408, 301);
-        func_0027e6e0();
-    }
-}
+void cm_FadeOutStock(void* self);  // 0x00262fa0: definition moved into src/anon/unit_0025f6b8.cpp
 
 extern u32 D_0035f010;
 u8* func_00281180(u32, u32);

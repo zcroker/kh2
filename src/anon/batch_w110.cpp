@@ -632,31 +632,7 @@ void func_00139620(u8*);
 s32 func_00257140(s32);
 void func_001395f8(u8*);
 // Builds the 20 grid cells (2 columns) of the window and their labels.
-void func_00261b30(void) {
-    u8* w = func_00257770();
-    func_00139d78(w);
-    func_0028d8c0(w, 30013, D_0035ef68, D_0035ef64, D_0035f03c, 140, 141, 100);
-    u8* p = w;
-    s32 i = 0;
-    do {
-        u8* cell = p + 13840;
-        func_0028d980(cell, 30014, D_0035ef68, D_0035ef64, D_0035f03c, 150, -1, -1, 100);
-        u8* label = p + 24304;
-        s32 h = func_0023aa98(p + 13864);
-        s32 wd = func_0023aa78(p + 13864);
-        p += 436;
-        func_00138c10(cell, D_0035ef6c);
-        func_00138c68(cell, (i % 2) * h, (i / 2) * wd);
-        func_0028dcc0(cell, w);
-        func_00139688(cell);
-        func_00139620(cell);
-        func_0028d980(label, 30015, D_0035ef68, D_0035ef64, D_0035f03c, func_00257140(0), -1, -1, 100);
-        func_0028dcc0(label, cell);
-        func_00139620(label);
-        func_001395f8(label);
-        i++;
-    } while (i < 20);
-}
+void func_00261b30(void);  // 0x00261b30: definition moved into src/anon/unit_0025f6b8.cpp
 }
 
 extern "C" {

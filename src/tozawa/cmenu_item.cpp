@@ -12,34 +12,8 @@ u32 CmItem::isPadHelpVisible() {
     return (u32)(*(u8*)((u32)b + (-3308)));
 }
 
-void CmItem::FadeOutAll() {
-    u32 v0 = (u32)MenuBase::GetMode();
-    if (v0 != 1 && v0 != 10 && v0 != 11 && v0 != 12 && v0 != 13 && v0 != 14) {
-        return;
-    }
-    FadeOutTop();
-    FadeOutCategory();
-    ScrollBar::FadeOut();
-    FadeOutWarn();
-    FadeOutStock();
-    FadeOutHelp();
-    if (isPadHelpVisible() != 0) {
-        CmTop::FadeOutPadHelp();
-    }
-}
+// 0x0025f6b8: definition moved into src/anon/unit_0025f6b8.cpp
 
-void CmItem::LeaveAll() {
-    u32 v0 = (u32)MenuBase::GetMode();
-    if (v0 != 1 && v0 != 10 && v0 != 11 && v0 != 12 && v0 != 13 && v0 != 14) {
-        return;
-    }
-    LeaveTop();
-    LeaveCategory();
-    LeaveStock();
-    LeaveWarn();
-    LeaveHelp();
-    LeavePopup();
-    CmTop::LeavePadHelp();
-}
+// 0x0025f750: definition moved into src/anon/unit_0025f6b8.cpp
 
 }  // namespace Tz
