@@ -5,7 +5,7 @@
  * covered by this project's MIT License. */
 #include "../common/types.h"
 
-// 00311aa0 is libgcc's __muldi3 (libgcc2.c, gcc 3.2-ee-040921), byte-identical to the toolchain's libgcc.a.
+// 00311aa0 __muldi3: moved into the linked unit src/libgcc/_muldi3.c
 typedef int W1746SItype __attribute__((mode(SI)));
 typedef unsigned int W1746USItype __attribute__((mode(SI)));
 typedef int W1746DItype __attribute__((mode(DI)));
@@ -23,15 +23,4 @@ void LoadDataFree(...) asm("_ZN2Tz12LoadDataFreeEz");
 
 void func_00165968(void);  // 0x00165968: definition moved into src/anon/unit_001656b8.cpp
 
-W1746DItype muldi3_00311aa0(W1746DItype u, W1746DItype v) asm("_Z8__muldi3xx");
-W1746DItype muldi3_00311aa0(W1746DItype u, W1746DItype v)
-{
-    W1746DWunion w;
-    W1746DWunion uu, vv;
-    uu.ll = u, vv.ll = v;
-    w.ll = (W1746UDItype)(W1746USItype)uu.s.low * (W1746USItype)vv.s.low;
-    w.s.high += ((W1746USItype)uu.s.low * (W1746USItype)vv.s.high
-                 + (W1746USItype)uu.s.high * (W1746USItype)vv.s.low);
-    return w.ll;
-}
 }
