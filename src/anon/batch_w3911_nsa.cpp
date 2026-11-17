@@ -77,30 +77,4 @@ void func_002e5518(void*, W2dc988Mtx*, s32, u64);
 
 // Minigame pot marker draw: skip when the bounding box is off screen, then
 // draw with proj * camera * (translate(0,300,0) * rotateX(pi)).
-void func_002dc988(s32 arg)
-{
-    O2dc988* o = (O2dc988*)arg;
-    {
-    W2dc988Vec mx(1000.0f, 20.0f, 1000.0f, 0.0f);
-    W2dc988Vec mn(-1000.0f, -20.0f, -1000.0f, 0.0f);
-    Box2dc988 box(mn, mx);
-    W2dc988Mtx m;
-    W2dc988Vec& t = m.r3;
-    func_0011b6a8(&m);
-    t = W2dc988Vec(0.0f, -300.0f, 0.0f, 0.0f);
-    if (!o2dc988_visible(o, &box)) return;
-    }
-    Cam2dc988* cam = func_00106a60(1);
-    W2dc988Mtx* pr = func_00106a18(1);
-    W2dc988Mtx r;
-    func_0011b6a8(&r);
-    W2dc988Vec off(0.0f, 300.0f, 0.0f, 1.0f);
-    W2dc988Vec unused; // never used; the original frame keeps a slot for it
-    r.r3.AddXYZ(off);
-    W2dc988Mtx p = *pr * cam->m;
-    o2dc988_rotateX(&r, 3.1415927f);
-    p = p * r;
-    s32 tex = func_001344f8();
-    func_002e6210(o->tex, tex, 0x3500);
-    func_002e5518(o->draw, &p, tex, o->gs);
-}
+void func_002dc988(s32 arg);  // 0x002dc988: definition moved into src/anon/unit_002da040.cpp

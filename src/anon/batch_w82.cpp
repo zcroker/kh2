@@ -428,19 +428,7 @@ s32 func_001c0cd8(u32);
 // Returns the target in slot a1 if it is within its own reach radius of this object.
 u32 func_002d2660(u8* a0, s32 a1);  // 0x002d2660: definition moved into src/anon/unit_002d2498.cpp
 
-void func_002da040(u8* a0)
-{
-    s32 i;
-    a0[3077] = 0;
-    a0[3068] = 1;
-    if (*(u8**)(a0 + 3060)) func_0017f540(*(u8**)(a0 + 3060) + 320, 0, 0.0f, 0.0f);
-    if (*(u32*)(a0 + 3056)) {
-        if (func_001c0cd8(*(u32*)(a0 + 3056))) func_0017f540(*(u8**)(a0 + 3056) + 320, 0, 0.0f, 0.0f);
-        else func_0017f540(*(u8**)(a0 + 3056) + 320, 153, 0.0f, 0.0f);
-    }
-    func_0017f540(a0 + 320, 0, 0.0f, 0.0f);
-    for (i = 0; i < 8; i++) ((Vec82*)(a0 + 3232))[i] = *func_0016c028((u32)a0);  // obj_get_attach_or_alt
-}
+void func_002da040(u8* a0);  // 0x002da040: definition moved into src/anon/unit_002da040.cpp
 }
 
 static inline void VAdd82(void* d, const void* a, const void* b) { asm volatile("lqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 0(%2)\n\tvadd.xyzw $vf1, $vf1, $vf2\n\tsqc2 $vf1, 0(%0)" : : "r"(d), "r"(a), "r"(b) : "memory"); }

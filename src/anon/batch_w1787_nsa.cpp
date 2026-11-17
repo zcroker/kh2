@@ -56,20 +56,6 @@ struct Obj2dbad8 {
     u8 pad3[4];
     f32 c;            /* bf4 */
 };
-void func_002dbad8(Obj2dbad8* p) {
-    func_00187750(p);
-    if (p->flag) {
-        f32 d = D_00349e10;
-        p->v[1] += p->a * d;
-        p->a -= p->c * D_00349e10;
-        if (p->a < 0.0f) {
-            if (fabsf(p->v[1] < 0.1f ? 1.0f : 0.0f) != 0.0f) {
-                p->flag = 0;
-                /* VU0 vector zero (vsub vf1,vf0,vf0 + sqc2) */
-                asm volatile("vsub.xyzw $vf1, $vf0, $vf0\n\tsqc2 $vf1, 0(%0)" :: "r"(p->v) : "memory");
-            }
-        }
-    }
-}
+void func_002dbad8(Obj2dbad8* p);  // 0x002dbad8: definition moved into src/anon/unit_002da040.cpp
 
 }

@@ -198,12 +198,7 @@ void ResetPauseImpl_002bd6d0(void);  // 0x002bd6d0: definition moved into src/an
 extern void* D_00362908[];
 void func_002e7328(void*);  // to_2e7458
 void func_002cff98(void*);
-void func_002db928(u8* p) {
-    *(void**)p = D_00362908;
-    func_002e7328(p + 2976);  // to_2e7458
-    func_002cff98(p);
-    func_00105110(p);
-}
+void func_002db928(u8* p);  // 0x002db928: definition moved into src/anon/unit_002da040.cpp
 
 extern void* D_00361f60;
 void func_002cf280(void*, s32, s32);

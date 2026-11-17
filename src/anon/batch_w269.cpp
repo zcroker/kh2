@@ -172,19 +172,7 @@ void func_0031a840(u8*);
 void func_0029a8e0(void);  // 0x0029a8e0: definition moved into src/anon/unit_00299920.cpp
 
 void func_002d0bd8(LO269*, const LM269*);
-void func_002da520(LO269* a0, const LM269* a1) {
-    a0->prev = a0->cur;
-    a0->cur = *a1;
-    func_002d0bd8(a0, a1);
-    LV269 a = a0->prev.r[3];
-    LV269 b = a0->cur.r[3];
-    s32 i;
-    s32 n = 8;
-    for (i = 1; i <= n; i++) {
-        f32 t = (f32)i / (f32)n;
-        a0->pts[i] = b * t + a * (1.0f - t);
-    }
-}
+void func_002da520(LO269* a0, const LM269* a1);  // 0x002da520: definition moved into src/anon/unit_002da040.cpp
 
 extern f32 D_00349e10;
 s32 func_002e34c8(u8*);  // obj_get_field8_by_vtable

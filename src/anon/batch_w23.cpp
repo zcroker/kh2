@@ -195,20 +195,12 @@ void* func_002bec38(void* a, void*, u8* c);  // 0x002bec38: definition moved int
 
 extern u32 D_00362738;
 void func_002cff98(void*);
-void func_002db580(void** p) {
-    *p = &D_00362738;
-    func_002cff98(p);
-    func_00105110(p);
-}
+void func_002db580(void** p);  // 0x002db580: definition moved into src/anon/unit_002da040.cpp
 
 extern u32 D_003629e8;
 u8 func_002e4a90(void*);  // in_even_range
 u8 func_002cea28(void*);
-s32 func_002dc748(void** p) {
-    *p = &D_003629e8;
-    func_002e4a90((u8*)p + 256);  // in_even_range
-    return func_002cea28(p);
-}
+s32 func_002dc748(void** p);  // 0x002dc748: definition moved into src/anon/unit_002da040.cpp
 
 void* func_0010c7e8(u32);
 u32 func_0011a408(void*);

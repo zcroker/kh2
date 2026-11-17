@@ -181,30 +181,5 @@ static inline void o287_tick(u8* self, f32 s) {
     *(f32*)(self + 2840) += s * D_00349e10;
     *(f32*)(self + 3056) -= D_00349e10;
 }
-f32 func_002dbf50(u8* a0) {
-    if (func_001c0cd8()) return 0.0f;
-    u8* cam = D_00361f60;
-    if (!cam) return 0.0f;
-    *(f32*)(a0 + 2840) = 0.0f;
-    M287 m = *(M287*)(cam + 336);
-    m.invert();
-    V287 p = *func_0016c028(a0);  // obj_get_attach_or_alt
-    p.w = 1.0f;
-    V287 r;
-    o287_apply(&r, &m, &p);
-    r.w = 1.0f;
-    r.y = 0.0f;
-    r.z = 0.0f;
-    if (a0[3008]) {
-        *(f32*)(a0 + 2840) = r.x + *(f32*)(a0 + 3024) * D_00349e10;
-    } else if (*(f32*)(a0 + 3056) > r.y) {
-        f32 s = *(f32*)(func_002d73f0(cam) + 48);
-        f32 dt = D_00349e10;
-        *(f32*)(a0 + 2840) = r.x + (a0[2844] ? s : -s) * dt;
-        *(f32*)(a0 + 3056) -= D_00349e10;
-    } else {
-        *(f32*)(a0 + 2840) = r.x;
-    }
-    return *(f32*)(a0 + 2840);
-}
+f32 func_002dbf50(u8* a0);  // 0x002dbf50: definition moved into src/anon/unit_002da040.cpp
 }

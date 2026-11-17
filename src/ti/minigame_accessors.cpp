@@ -3,10 +3,6 @@
 
 namespace Ti {
 
-void MGHachimitsuGopher::set_balloon(MGObj* v) {
-    reinterpret_cast<MGHachimitsuGopherLayout*>(this)->balloon = v;
-}
-u8 MGHachimitsuPo::is_separate_blow() {
-    return reinterpret_cast<MGHachimitsuPoLayout*>(this)->separate_blow;
-}
+// 0x002db208: definition moved into src/anon/unit_002da040.cpp
+// 0x002dc1b0: definition moved into src/anon/unit_002da040.cpp
 }  // namespace Ti

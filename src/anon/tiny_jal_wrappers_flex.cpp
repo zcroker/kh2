@@ -325,16 +325,7 @@ u32 func_002bbf68(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002bbf68: definition mo
 
 u32 func_002d8120(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002d8120: definition moved into src/anon/unit_002d6f70.cpp
 
-u32 func_002dd4f8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u, r15 = 0u, r16 = 0u;
-    r16 = r4;
-    r4 = 0u;
-    r2 = YS_MISSION_ResetComboCounter(r4, r5, r6, r7);
-    r15 = (u32)(0u | 0x8000u);
-    r16 = (u32)(r16 + r15);
-    *(u32*)((u32)r16 + (s32)(116)) = 0u;
-    return r2;
-}
+u32 func_002dd4f8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002dd4f8: definition moved into src/anon/unit_002da040.cpp
 
 u32 func_002e10d0(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u, r15 = 0u, r16 = 0u;

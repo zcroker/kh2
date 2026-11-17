@@ -297,12 +297,7 @@ void func_002b9f28(u8 a) {
 
 void func_002bdac8(u8* p);  // 0x002bdac8: definition moved into src/anon/unit_002bc978.cpp
 
-void func_002dbca0(u8* p, u8 flag) {
-    func_0017f540(p + 320, 0, 0.0f, 0.0f);
-    func_001c0d38(p, func_002d1260(), 67, 0);
-    if (flag) func_002e7568(p, 2, &D_003628f0, 1.0f);
-    func_002db968(p, 1);
-}
+void func_002dbca0(u8* p, u8 flag);  // 0x002dbca0: definition moved into src/anon/unit_002da040.cpp
 
 // 002ebac0: moved to src/anon/unit_002eaf38.cpp
 }

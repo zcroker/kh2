@@ -189,12 +189,7 @@ f32* func_002d6e08(f32* p, u32, u8* q);  // 0x002d6e08: definition moved into sr
 void func_002cfeb0(u8*, u32, s32, u32);  // obj_init_field1416_bit800
 u8 func_002e7308(u8*);
 extern void* D_00362908[];
-s32 func_002db858(u8* p, u32 a, u32 b) {
-    func_002cfeb0(p, a, 3, b);  // obj_init_field1416_bit800
-    *(s32*)(p + 2836) = -1;
-    *(void**)p = D_00362908;
-    return func_002e7308(p + 2976);
-}
+s32 func_002db858(u8* p, u32 a, u32 b);  // 0x002db858: definition moved into src/anon/unit_002da040.cpp
 
 void func_00195858(u8*, s32);
 void func_002ece98(u32, u8* o) {

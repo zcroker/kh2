@@ -343,37 +343,6 @@ f32 cosf(f32);
 void func_00107340_c(s32, f32, f32, f32) asm("_ZN2kn6Camera12setReferenceEfff");
 void func_00107330_c(s32, f32, f32, f32) asm("_ZN2kn6Camera11setPositionEfff");
 // Sets the view reference point and orbit position from the interpolated angle.
-void func_002dcf90_i(u8* self) {
-    V3dcf90 ref;
-    V3dcf90 pos;
-    func_002dcf18(self);
-    if (self[0x8000 + 96]) return;
-    if (!func_002dc7f8(self)) return;
-    V4dcf90 v;
-    V4dcf90* dst = &v;
-    s32 m = func_00106a18(1);  // buffer_get_256
-    func_00106de8(m, 1, *(f32*)(self + 100));
-    func_00106c08(m);
-    s32 cam = func_00106a60(1);  // buffer_get_by_index
-    pos.z = 0.0f;
-    V4dcf90* src = func_0016c028(func_002dc7f8(self));  // obj_get_attach_or_alt
-    // 128-bit copy of the source position (lq/sq through t0).
-    asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(dst), "r"(src) : "$8", "memory");
-    ref.z = 0.0f;
-    f32 y = v.y + 300.0f;
-    ref.y = y - 80.0f;
-    u8* p1 = func_002dc7c8(self);
-    u8* p0 = func_002dc7c8(self);
-    f32 t = func_002dceb0(self);
-    f32 lo = *(f32*)(p0 + 168);
-    f32 ang = (*(f32*)(p1 + 164) - lo) * t + lo;
-    pos.y = y - sinf(ang) * *(f32*)(self + 104);
-    pos.z = -cosf(ang) * *(f32*)(self + 104);
-    ref.x = pos.x = v.x * *(f32*)(self + 108);
-    ref.y -= 300.0f;
-    pos.y -= 300.0f;
-    func_00107340_c(cam, ref.x, ref.y, ref.z);
-    func_00107330_c(cam, pos.x, pos.y, pos.z);
-}
+void func_002dcf90_i(u8* self);  // 0x002dcf90: definition moved into src/anon/unit_002da040.cpp
 
 }

@@ -228,18 +228,7 @@ void func_002d7338(u8* p);  // 0x002d7338: definition moved into src/anon/unit_0
 
 extern u32 D_003625e0;
 void func_002d0ea8(void*);
-void func_002d9730(u8* p) {
-    func_002d0ea8(p);
-    *(void**)p = &D_003625e0;
-    *(u32*)(p + 3056) = 0;
-    *(u32*)(p + 3060) = 0;
-    p[3068] = 1;
-    *(u32*)(p + 3072) = 0;
-    p[3076] = 1;
-    *(u32*)(p + 3216) = 0;
-    *(u32*)(p + 3220) = 0;
-    *(u32*)(p + 3224) = 0;
-}
+void func_002d9730(u8* p);  // 0x002d9730: definition moved into src/anon/unit_002d96d8.cpp
 
 void func_0018c258(void*, u32);
 extern u32 D_01e2be20[4];

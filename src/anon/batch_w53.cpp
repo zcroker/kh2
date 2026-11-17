@@ -236,13 +236,7 @@ void func_002cedd0(s32 n, E16* e);  // 002cedd0: moved to src/taito/minigame_bas
 // Wrap an angle into [-pi, pi].
 f32 func_002d48b8(f32 x);  // 0x002d48b8: definition moved into src/anon/unit_002d4548.cpp
 
-void func_002db808(u8* p, u32 a, u32 b) {
-    NoTail g;
-    func_002cfeb0(p, a, 3, b);  // obj_init_field1416_bit800
-    *(s32*)(p + 2836) = -1;
-    *(u8**)p = D_00362908;
-    func_002e7308(p + 2976);
-}
+void func_002db808(u8* p, u32 a, u32 b);  // 0x002db808: definition moved into src/anon/unit_002da040.cpp
 
 void func_002df7d8(u8* p, u32 b) {
     func_002def70(p);

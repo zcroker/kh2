@@ -1045,21 +1045,13 @@ u32 func_002d7408(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002d7408: definition mo
 
 u32 func_002d8d08(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002d8d08: definition moved into src/anon/unit_002d6f70.cpp
 
-u32 func_002dba28(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_002e7458(((u32)(a0) + 2976u), a1, a2, a3);
-}
+u32 func_002dba28(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002dba28: definition moved into src/anon/unit_002da040.cpp
 
-u32 func_002dc7d0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_002cebc0(a0, a1, a2, a3);
-}
+u32 func_002dc7d0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002dc7d0: definition moved into src/anon/unit_002da040.cpp
 
-u32 func_002dd1b0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_002dce80(((u32)(*(u32*)((u32)(a0) + 4u))), a1, a2, a3);
-}
+u32 func_002dd1b0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002dd1b0: definition moved into src/anon/unit_002da040.cpp
 
-u32 func_002dd1d0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_002dcea8(((u32)(*(u32*)((u32)(a0) + 4u))), a1, a2, a3);
-}
+u32 func_002dd1d0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002dd1d0: definition moved into src/anon/unit_002da040.cpp
 
 u32 func_002ddbd8(u32 a0, u32 a1, u32 a2, u32 a3) {
     return Ti_MGObj_OVR_initialize(a0, a1, a2, a3);

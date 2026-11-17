@@ -8,14 +8,4 @@ void func_0016bd60(O4*, s32);
 void func_0016b070(O4*, V4*);
 void func_0017a7d8(O4*);
 static inline void vset(V4* v, f32 x, f32 y, f32 z, f32 w) { v->x = x; v->y = y; v->z = z; v->w = w; }
-void func_002d9788(O4* p) {
-    V4 v;
-    func_001780d8(p);
-    func_00198860(p, 7);
-    func_0016bd60(p, 3);
-    if (p->s) p->s->fl |= 0x800;
-    vset(&v, 0.0f, 0.0f, 0.0f, 0.0f);
-    p->fl |= 3;
-    func_0016b070(p, &v);
-    func_0017a7d8(p);
-}
+void func_002d9788(O4* p);  // 0x002d9788: definition moved into src/anon/unit_002d96d8.cpp

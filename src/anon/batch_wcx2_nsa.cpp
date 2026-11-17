@@ -502,47 +502,7 @@ W2d9810Vec* o2d9810_0016c028(O2d9810*) asm("func_0016c028");
 void o2d9810_0011b6a8(W2d9810Mtx*) asm("func_0011b6a8");
 W2d9810Vec* o2d9810_get_xyzrot(O2d9810*) asm("_ZN2YS3OBJ10get_xyzrotEv");
 void o2d9810_rotateXYZ(W2d9810Mtx*, W2d9810Vec*) asm("_ZN2kn7FMatrix9rotateXYZERKNS_7FVectorE");
-void func_002d9810(O2d9810* o)
-{
-    o2d9810_002d10a0(o);
-    G2d9810* g = g2d9810_game;
-    if (g->over) return;
-    void* pot = o->pot;
-    if (pot || (o->pot = pot = o2d9810_0016b740(1630)) != 0) {
-        if (o->f3076) {
-            func_002dbca0(pot, !o->f3076);
-            o->f3076 = 0;
-        }
-    }
-    void* pooh = o->pooh;
-    if (pooh || (o->pooh = pooh = o2d9810_0016b740(1633)) != 0) {
-        if (!o2d9810_is_attach(pooh)) o2d9810_001c0d38(o->pooh, o, 0x4000, 0);
-    }
-    if (func_002da308(o)) {
-        Tgt2d9810 t(o2d9810_get_gopher(g));
-        o2d9810_001bd3e0(o->f2884, 1, 498, &t, 1, 100);
-    } else if (func_002da238(o) && func_002d8898(g) && !o2d9810_IsExec()) {
-        Tgt2d9810 t(o->pot);
-        o2d9810_001bd3e0(o->f2884, 1, 461, &t, 1, 100);
-    }
-    o->f3064 = 0.0f;
-    if (!o->f3068) {
-        W2d9810Mtx m(g->view);
-        m.invOrtho();
-        W2d9810Vec p(*o2d9810_0016c028(o));
-        p.w = 1.0f;
-        W2d9810Vec q = m * p;
-        q.w = 1.0f;
-        o->f3064 = q.x;
-        q.y = 0.0f;
-        q.z = 0.0f;
-    }
-    o2d9810_0011b6a8(&o->m);
-    o2d9810_rotateXYZ(&o->m, o2d9810_get_xyzrot(o));
-    o->m.r3 = *o2d9810_0016c028(o);
-    o->m.r3.w = 1.0f;
-    if (0.0f < o->f3072) o->f3072 -= D_00349e10;
-}
+void func_002d9810(O2d9810* o);  // 0x002d9810: definition moved into src/anon/unit_002d96d8.cpp
 }
 
 // --------------------
@@ -623,32 +583,7 @@ Cfg2db210* o2db210_002d73f0(void*) asm("func_002d73f0");
 f32 cosf(f32);
 f32 sinf(f32);
 void o2db210_002d9208(void*, s32) asm("_Z13func_002d9208Pvi");
-void func_002db210(O2db210* o)
-{
-    o2db210_detach(o);
-    o2db210_set(o->lflag, 1, 0);
-    if (o->holder && o2db210_alive(o->holder)) {
-        if (o2db210_is_attach(o->holder)) o2db210_detach(o->holder);
-        o->holder->vt->kill(o->holder);
-    }
-    void* g = g2db210_game;
-    o2db210_change(o->motion, 151, 0.0f, 0.0f);
-    if (!o->thrown) {
-        W2db210Mtx m(*o2db210_002d8110(g));
-        m.invOrtho();
-        o->pos = m * *o2db210_0016c028(o);
-    } else {
-        o->rot = *o2db210_get_xyzrot(g2db210_player);
-        o->pos = *o2db210_0016c028(o);
-    }
-    f32 ang;
-    if (func_001064a8(2)) ang = o2db210_002d73f0(g)->angle;
-    else ang = 3.1415927f - o2db210_002d73f0(g)->f44;
-    o->vel = o2db210_002d73f0(g)->speed * W2db210Vec(cosf(ang), sinf(ang), 0.0f, 0.0f);
-    o->acc.Zero();
-    o->f2840 = 1;
-    o2db210_002d9208(g, 0);
-}
+void func_002db210(O2db210* o);  // 0x002db210: definition moved into src/anon/unit_002da040.cpp
 
 // --------------------
 // 002e0898: jumping object update: sample ground height at three points, wait on the ground, launch, then fall back and land

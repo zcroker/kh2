@@ -189,14 +189,7 @@ void func_002bc398(void* a, void* b);  // 0x002bc398: definition moved into src/
 
 void func_002d5e10(void** p);  // 0x002d5e10: definition moved into src/anon/unit_002d4548.cpp
 
-void func_002daca0(u8* p, void* b, void* c) {
-    func_002cfeb0(p, b, 3, c);  // obj_init_field1416_bit800
-    *(u32*)(p + 0xb14) = 0;
-    p[0xb18] = 0;
-    *(void**)p = D_003627c8;
-    *(u32*)(p + 0xb1c) = 0;
-    func_002cf280(p + 0xaf0, 1, 0);
-}
+void func_002daca0(u8* p, void* b, void* c);  // 0x002daca0: definition moved into src/anon/unit_002da040.cpp
 
 // delete[] of the 64-byte element array.
 void func_002e70b0(u8* o) {

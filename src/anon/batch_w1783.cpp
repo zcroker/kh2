@@ -30,13 +30,7 @@ bool fpv(u32, S24c) asm("func_00144d10");
 s32 func_002cf270(u32, s32);
 void func_002cf280(u32, s32, s32);
 
-bool func_002dd3a0(u32 a0, DE* a1) {
-    bool r = fpv(a0 + 0x8078, a1->m740.ref());
-    bool ret;
-    if (!func_002cf270((u32)a1->maf0, 2)) { if (r) func_002cf280((u32)a1->maf0, 2, 0); ret = false; }
-    else ret = !r;
-    return ret;
-}
+bool func_002dd3a0(u32 a0, DE* a1);  // 0x002dd3a0: definition moved into src/anon/unit_002da040.cpp
 
 // ---- 00102080
 struct PN {

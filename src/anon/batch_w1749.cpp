@@ -18,12 +18,6 @@ s32 func_00292af0(s32 id);  // 00292af0: moved to src/anon/unit_00292998.cpp
 struct O2da { u8 pad[0xbf4]; s32 p; };
 s32 func_0016c028(s32);
 void func_002bc188(s32, s32);
-void func_002daa00(O2da* o, u32 a)
-{
-    if (o->p) {
-        a += 0x56ab8;
-        func_002bc188(a, func_0016c028(o->p));
-    }
-}
+void func_002daa00(O2da* o, u32 a);  // 0x002daa00: definition moved into src/anon/unit_002da040.cpp
 
 }

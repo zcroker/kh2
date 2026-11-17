@@ -8,7 +8,7 @@ u32 func_001e6cd0(u32 a);  // 0x001e6cd0: definition moved into src/anon/unit_00
 void wt_2cebc0(u32 a, u32 b, u32 c, u32 d) asm("_Z16wtarget_002cebc0jjjj");
 // 002cebc0: moved to src/taito/minigame_base.cpp (linked unit)
 void wt_2dcea8(u32 a, u32 b, u32 c, u32 d) asm("_Z16wtarget_002dcea8jjjj");
-void wt_2dcea8(u32 a, u32 b, u32 c, u32 d) {}
+void wt_2dcea8(u32 a, u32 b, u32 c, u32 d);  // 0x002dcea8: definition moved into src/anon/unit_002da040.cpp
 void wt_2e3ef0(u32 a, u32 b, u32 c, u32 d) asm("_Z16wtarget_002e3ef0jjjj");
 // 002e3ef0: moved to src/anon/unit_002e2f08.cpp
 void wt_2e8b08(u32 a, u32 b, u32 c, u32 d) asm("_Z16wtarget_002e8b08jjjj");

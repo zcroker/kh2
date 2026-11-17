@@ -335,17 +335,7 @@ void func_002c6228(u8* o, s32 i, u32 v);  // 0x002c6228: definition moved into s
 
 f32* func_002cbca0(f32* out, u8* p);  // 0x002cbca0: definition moved into src/taito/path.cpp
 
-void func_002dc1b8(u8* o, s32 id) {
-    if (func_001c0cd8(o) || o[3008]) id = -1;
-    u32 h = *(u32*)(o + 2828);
-    if (h) {
-        if (*(s32*)(o + 2836) == id) return;
-        func_001dc818(h);
-        *(u32*)(o + 2828) = 0;
-    }
-    if (id >= 0) *(u32*)(o + 2828) = func_0016ac38(o, id, 1, 0, 0);
-    *(s32*)(o + 2836) = id;
-}
+void func_002dc1b8(u8* o, s32 id);  // 0x002dc1b8: definition moved into src/anon/unit_002da040.cpp
 
 void func_002dea00(u8* o, f32 a, f32 b) {  // obj_init_with_floats
     *(u32*)(o + 4) = 30;

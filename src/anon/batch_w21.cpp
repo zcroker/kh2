@@ -184,19 +184,11 @@ s32 func_002a43f0(void) {
 
 u8* func_002a92a0(s32 i);  // 0x002a92a0: definition moved into src/anon/unit_002a92a0.cpp
 
-void func_002dab30(void** p) {
-    *p = &D_00362858;
-    func_002cff98(p);
-    func_00105110(p);
-}
+void func_002dab30(void** p);  // 0x002dab30: definition moved into src/anon/unit_002da040.cpp
 
 // Destructor-shaped: base teardown runs last as a cleanup (no tail call).
 struct BaseDtor { void** self; ~BaseDtor() { func_002cff98(self); } };
-void func_002db8e8(void** p) {
-    BaseDtor g = { p };
-    *p = &D_00362908;
-    func_002e7328((u8*)p + 2976);  // to_2e7458
-}
+void func_002db8e8(void** p);  // 0x002db8e8: definition moved into src/anon/unit_002da040.cpp
 
 void func_002df160(f32* p) {
     p[8] = 0.0f;

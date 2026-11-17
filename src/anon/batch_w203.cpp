@@ -31,7 +31,7 @@ void u_call4_0023f8c8(u8* a) {
   *(u32*)(a + 4) = 0;
 }
 
-float func_002dc248(void) { return -300.0f - w203_config()->f; }
+float func_002dc248(void);  // 0x002dc248: definition moved into src/anon/unit_002da040.cpp
 
 // 002e8ca8: moved to src/anon/unit_002e8b50.cpp
 }

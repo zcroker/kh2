@@ -229,19 +229,9 @@ void func_002bbe80(void);  // 0x002bbe80: definition moved into src/anon/unit_00
 
 void func_002d4828(void** p);  // 0x002d4828: definition moved into src/anon/unit_002d4548.cpp
 
-void func_002dac50(u8* p, u32 a, u32 b) {
-    func_002cfeb0(p, a, 3, b);  // obj_init_field1416_bit800
-    *(u32*)(p + 2836) = 0;
-    *(u8*)(p + 2840) = 0;
-    *(void***)p = D_003627c8;
-    *(u32*)(p + 2844) = 0;
-    func_002cf280(p + 2800, 1, 0);
-}
+void func_002dac50(u8* p, u32 a, u32 b);  // 0x002dac50: definition moved into src/anon/unit_002da040.cpp
 
-f32 func_002dc808(u8* p) {
-    if (*(u32*)(p + 0x8070)) return *(f32*)(func_002dc7c8(p) + 180);
-    return *(f32*)func_002dc7c8(p);
-}
+f32 func_002dc808(u8* p);  // 0x002dc808: definition moved into src/anon/unit_002da040.cpp
 
 // Empty-destructor local: keeps the final call from becoming a tail call.
 struct NoTail { ~NoTail() {} };

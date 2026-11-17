@@ -367,21 +367,7 @@ void func_002c5c50(void* a, u32* b);  // 0x002c5c50: definition moved into src/a
 // Interpolates between two keys by the current time.
 f32 func_002d60e8(u8* p);  // 0x002d60e8: definition moved into src/anon/unit_002d4548.cpp
 
-void func_002daee8(u8* p) {
-    f32 v;
-    func_00187750(p);
-    if (p[2840] == 0) return;
-    *(f32*)(p + 2864) += *(f32*)(p + 2848) * D_00349e10;
-    *(f32*)(p + 2868) += *(f32*)(p + 2852) * D_00349e10;
-    v = *(f32*)(p + 2852) - D_00349e10 * 0.16666666f;
-    *(f32*)(p + 2852) = v;
-    if (v < 0.0f) {
-        if (fabsf(*(f32*)(p + 2868) < 0.1f ? 1.0f : 0.0f) == 0.0f) return;
-        p[2840] = 0;
-        (*(VF0*)(*(u8**)p + 32))(p);
-        asm volatile("vsub.wxyz $vf1, $vf0, $vf0\n\tsqc2 $vf1, 0(%0)" : : "r"(p + 2864) : "memory");
-    }
-}
+void func_002daee8(u8* p);  // 0x002daee8: definition moved into src/anon/unit_002da040.cpp
 
 Q16* func_002d38e8(Q16* out, u8* o);  // 0x002d38e8: definition moved into src/anon/unit_002d2498.cpp
 

@@ -47,9 +47,7 @@ static inline bool in_reach_2da238(Obj_2da238* self) {
 }
 
 // True when enabled, the target is free (not attached, not blown apart) and within the target's radius.
-s32 func_002da238(Obj_2da238* self) {
-    return D_00361f60 && self->target && in_reach_2da238(self);
-}
+s32 func_002da238(Obj_2da238* self);  // 0x002da238: definition moved into src/anon/unit_002da040.cpp
 struct Rec_1dfdb8 { u8 pad[0xc]; f32 f; };
 struct Hdr_1dfdb8 { u8 pad[6]; u16 id; };
 struct Part_1dfdb8 { u8 pad[0xaf8]; Part_1dfdb8* l; Part_1dfdb8* r; };

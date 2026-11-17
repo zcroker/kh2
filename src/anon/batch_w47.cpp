@@ -198,11 +198,7 @@ static inline void mcopy(void* d, void* s) {
     if (d != s) asm volatile("lq $8,0(%1)\n\tlq $9,16(%1)\n\tlq $10,32(%1)\n\tlq $11,48(%1)\n\tsq $8,0(%0)\n\tsq $9,16(%0)\n\tsq $10,32(%0)\n\tsq $11,48(%0)" : : "r"(d), "r"(s) : "$8", "$9", "$10", "$11", "memory");
 }
 // Saves the current matrix (+2848) to +2912, loads m into it, then updates.
-void func_002dc140(u8* p, u8* m) {
-    mcopy(p + 2912, p + 2848);
-    mcopy(p + 2848, m);
-    func_002d0bd8(p, m);
-}
+void func_002dc140(u8* p, u8* m);  // 0x002dc140: definition moved into src/anon/unit_002da040.cpp
 
 s32 func_002ceb28(u32, u8*);
 extern void* D_0034e948;

@@ -286,15 +286,7 @@ void u_call4_dtor(u32 a, u32, u32, u32);  // 0x002d0f38: definition moved into s
 
 void func_001dc818(u32);
 u32 func_0016ac38(u8*, s32, u32, u32, u32);
-void func_002db610(u8* p, s32 id) {
-    if (*(u32*)(p + 2828)) {
-        if (*(s32*)(p + 2836) == id) return;
-        func_001dc818(*(u32*)(p + 2828));
-        *(u32*)(p + 2828) = 0;
-    }
-    if (id >= 0) *(u32*)(p + 2828) = func_0016ac38(p, id, 1, 0, 0);
-    *(s32*)(p + 2836) = id;
-}
+void func_002db610(u8* p, s32 id);  // 0x002db610: definition moved into src/anon/unit_002da040.cpp
 
 // Inverts an orthonormal 4x4 matrix (transpose 3x3, negate rotated translation).
 // Hand-written VU0/MMI asm in the original.

@@ -10,6 +10,6 @@ extern void func_002e5350(void*, s32, f32);
 
 // 00159728: static initialiser, now made by gcc in src/anon/unit_00159240.cpp
 void wtarget_002ead48(u32 a, u32 b, u32, u32);  // 002ead48: moved to src/anon/unit_002eaa68.cpp
-void wtarget_002dce80(u32 a, u32, u32, u32) { func_002e5350((u8*)a + 256, 20, 0.0199999996f); }
+void wtarget_002dce80(u32 a, u32, u32, u32);  // 0x002dce80: definition moved into src/anon/unit_002da040.cpp
 void func_002d8d40(u8* a, f32* b, f32* c);  // 0x002d8d40: definition moved into src/anon/unit_002d6f70.cpp
 }

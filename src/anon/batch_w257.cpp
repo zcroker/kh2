@@ -57,27 +57,7 @@ s32 func_002d8d68(u8*, u8*, u8*, u8*);
 u8* func_002d73f0(u8*);
 void func_001d86a0(s32, s32);
 union UF { f32 f; s32 i; u8 c; };
-void func_002dbb88(u8* a0) {
-    func_00198690(a0);
-    if (func_001c0cd8(a0)) {
-        register f32 z asm("$f20") = 0.0f;
-        f32 v[4];
-        f32 w[4];
-        v[0] = -1.570796251296997f; v[1] = -1.570796251296997f; v[2] = z; v[3] = z;
-        func_0016b070(a0, v);
-        w[0] = z; w[1] = z; w[2] = z; w[3] = z;
-        func_0016ace0(a0, w);
-        return;
-    }
-    if (a0[0xbc0]) return;
-    if (!(*(f32*)(a0 + 0xbf0) <= 0.0f)) return;
-    u8* s = D_00361f60;
-    if (!s) return;
-    if (func_002d8d68(s, a0, a0 + 0xb20, a0 + 0xb60) <= 0) return;
-    a0[0xb1c] = *(f32*)(a0 + 0xb18) < 0.0f;
-    ((UF*)(a0 + 0xbf0))->f = *(f32*)(func_002d73f0(s) + 0x34);
-    if (*(s32*)(s + 0x98) == 1) func_001d86a0(-1, 0);
-}
+void func_002dbb88(u8* a0);  // 0x002dbb88: definition moved into src/anon/unit_002da040.cpp
 extern u8* D_0035f610;
 u8* func_00294000(s32);
 s32 func_002abf40(s32, s32);

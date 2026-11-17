@@ -122,36 +122,5 @@ void func_0016b070(u8*, u8*);
 void func_002d8120(f32, QM*, u8*, u8*);
 void func_002d0b88(u8*, QM*);
 
-void func_002dafd0(u8* o) {
-    func_0016a9a0();
-    if (*(u8*)(o + 0xb18) == 0) return;
-    u8* g = D_00361f60;
-    if (*(s32*)(o + 0xb1c) == 0) {
-        QM m;
-        QM* src = func_002d8110(g);
-        QV* tp = &m.r[3];
-        QCP4(&m, src);
-        QV v;
-        v.x = *(f32*)(o + 0xb40) + *(f32*)(o + 0xb30);
-        v.y = *(f32*)(o + 0xb44) - *(f32*)(o + 0xb34);
-        v.z = *(f32*)(o + 0xb48);
-        v.w = 1.0f;
-        QV t = m * v;
-        t.w = 1.0f;
-        *tp = t;
-        func_002d0bd8(o, &m);
-    } else {
-        QM m;
-        func_0011b6a8(&m);
-        func_0011b7b0(&m, o + 0xb50);
-        *(s32*)(o + 0xb3c) = 0;
-        QV t = m * *(QV*)(o + 0xb30);
-        QV v = t + *(QV*)(o + 0xb40);
-        func_0016ace0(o, &v);
-        func_0016b070(o, o + 0xb50);
-        QM x;
-        func_002d8120(-*(f32*)(o + 0xb34), &x, g, o + 0xb30);
-        func_002d0b88(o, &x);
-    }
-}
+void func_002dafd0(u8* o);  // 0x002dafd0: definition moved into src/anon/unit_002da040.cpp
 }

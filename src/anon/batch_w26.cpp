@@ -264,18 +264,7 @@ u8 func_002cff98(u8* o);  // 0x002cff98: definition moved into src/anon/unit_002
 
 u8 func_002d72e0(u8* o);  // 0x002d72e0: definition moved into src/anon/unit_002d6f70.cpp
 
-void func_002d96d8(u8* o) {
-    func_002d0ea8(o);
-    *(u8**)o = D_003625e0;
-    *(u32*)(o + 3056) = 0;
-    *(u32*)(o + 3060) = 0;
-    o[3068] = 1;
-    *(u32*)(o + 3072) = 0;
-    o[3076] = 1;
-    *(u32*)(o + 3216) = 0;
-    *(u32*)(o + 3220) = 0;
-    *(u32*)(o + 3224) = 0;
-}
+void func_002d96d8(u8* o);  // 0x002d96d8: definition moved into src/anon/unit_002d96d8.cpp
 
 // Hand-written VU0 routine: transforms four vectors by a 4x4 matrix.
 void sceVu0MulMatrix(u32 d, u32 m, u32 v, u32 n) {

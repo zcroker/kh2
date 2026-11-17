@@ -331,18 +331,7 @@ void func_0016bd60(void*, s32);
 void func_0016b070(void*, void*);
 void func_002db968(void*, s32);
 extern u8 D_003628f0[];
-void func_002dba40(u8* p) {
-    func_002d00a0(p);
-    Vec4f v;
-    bool off = func_00181500(9271) == 0;
-    D_003628f0[1] = 21 - off;
-    func_0016bd60(p, 3);
-    v.w = v.z = v.y = v.x = 0.0f;
-    ((U32c*)(p + 264))->v |= 1;
-    func_0016b070(p, &v);
-    *(f32*)(p + 3056) = 0.0f;
-    func_002db968(p, 1);
-}
+void func_002dba40(u8* p);  // 0x002dba40: definition moved into src/anon/unit_002da040.cpp
 
 // wrap an angle into [-pi, pi]
 f32 func_002de968(f32 a) {  // clamp_angle

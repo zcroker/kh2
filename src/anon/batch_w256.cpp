@@ -62,20 +62,7 @@ R2d* fmat_w256(H2d*) asm("_ZN2kn7FMatrixaSERKS0_");
 void f17f488_w256(void*, s32, f32, f32) asm("_Z13func_0017f488iiff");
 void func_002db210(void*);
 void func_002dbd30(void*, f32);
-void func_002da120(A2d* a) {
-  H2d* h = D_00361f60;
-  void* g = getgopher_w256(h);
-  if (g && isattach_w256(g)) {
-    func_002db210(g);
-  } else {
-    if (h->i152 == 1) addcount_w256(-1, 0);
-    f17f488_w256(a->mo, 14, 0.0f, 0.0f);
-    mo_push_w256((M256*)a->mo, 0, 0.0f, 0.0f, 0);
-    if (a->p3060) f17f488_w256(a->p3060->mo, 14, 0.0f, 0.0f);
-    if (a->p3056 && isattach_w256(a->p3056)) func_002dbd30(a->p3056, a->f3064);
-  }
-  a->f3072 = fmat_w256(h)->f28;
-}
+void func_002da120(A2d* a);  // 0x002da120: definition moved into src/anon/unit_002da040.cpp
 
 
 void func_00239700(void*);

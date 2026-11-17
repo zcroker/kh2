@@ -271,9 +271,7 @@ void func_002be9b0(void);  // 0x002be9b0: definition moved into src/anon/unit_00
 
 s32 func_002c0470(u8* p);  // 0x002c0470: definition moved into src/anon/unit_002bebd0.cpp
 
-void func_002dc278(u32 a, u32 b) {
-    func_002dc4e0(func_001050d8(0x80a0), a, b);
-}
+void func_002dc278(u32 a, u32 b);  // 0x002dc278: definition moved into src/anon/unit_002da040.cpp
 
 // 002e3c28: moved to src/anon/unit_002e2f08.cpp
 

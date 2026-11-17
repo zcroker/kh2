@@ -513,25 +513,7 @@ extern u32 D_00361f60;
 s32 func_002da110(Obj2da*);  // is_field340_eq14
 s32 func_001c0cd8(u32);
 Range2da* func_002d73f0(u32);
-s32 func_002da3d8(Obj2da* o, const Vq* p) {
-    s32 r = 0;
-    if (func_002da110(o)) return r;
-    u32 m = D_00361f60;
-    if (!m) return 0;
-    f32 rad;
-    if (!o->tgt || !func_001c0cd8(o->tgt)) rad = func_002d73f0(m)->near;
-    else rad = func_002d73f0(m)->far;
-    if (o->multi) {
-        for (s32 i = 0; i < 8; i++) {
-            Vq d = vsub(o->pts[i], *p);
-            r = 0;
-            if (vlen(d) <= rad) return 1;
-        }
-        return r;
-    }
-    Vq d = vsub(o->pos, *p);
-    return vlen(d) <= rad;
-}
+s32 func_002da3d8(Obj2da* o, const Vq* p);  // 0x002da3d8: definition moved into src/anon/unit_002da040.cpp
 
 // ---- 00304ba8
 struct Node304 { Node304* next; };

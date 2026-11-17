@@ -35,33 +35,5 @@ static inline __attribute__((always_inline)) void Fix2da670(Pr2da670& a, Pr2da67
 // MGHachimitsuPo position update: when attached, place at its own position; otherwise clamp both
 // pieces into the [lo, hi] range, push them at least 40 + 30 apart, and build both matrices.
 extern "C" {
-void func_002da670(O2da670* o)
-{
-    void* g = D_00361f60;
-    if (!g) return;
-    if (!o->pot || o2da670_is_attach(o->pot)) {
-        func_002da520(o, func_002d8120(g, &o->pos, 0.0f));
-        return;
-    }
-    Pr2da670 pr[2];
-    pr[0].x = o->pos.x;
-    pr[0].w = 40.0f;
-    pr[1].x = func_002dbf50(o->pot);
-    pr[1].w = 30.0f;
-    f32 lo, hi;
-    func_002d8d40(g, &lo, &hi);
-    bool ns = !o2da670_is_separate_blow(o->pot);
-    if (ns) {
-        Fix2da670(pr[0], pr[1], lo, hi);
-        Fix2da670(pr[1], pr[0], lo, hi);
-    } else {
-        for (s32 i = 0; i < 2; i++) Clamp2da670(pr[i], lo, hi);
-    }
-    {
-    const M2da670& m0 = func_002d8120(g, &pr[0], 0.0f);
-    func_002da520(o, m0);
-    }
-    const M2da670& m1 = func_002d8120(g, &pr[1], o2da670_get_vertical_pos(o->pot));
-    func_002dc140(o->pot, m1);
-}
+void func_002da670(O2da670* o);  // 0x002da670: definition moved into src/anon/unit_002da040.cpp
 }

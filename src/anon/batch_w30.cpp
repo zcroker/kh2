@@ -237,11 +237,7 @@ void func_002d0028(u8* p);  // 0x002d0028: definition moved into src/anon/unit_0
 
 void* func_002d1270(u32 a, u32 b);  // 0x002d1270: definition moved into src/anon/unit_002cf260.cpp
 
-void func_002daa98(u8* p, u32 a, u32 b) {
-    func_002cfeb0(p, a, 3, b);  // obj_init_field1416_bit800
-    *(void**)p = D_00362858;
-    func_002cf280(p + 2800, 1, 0);
-}
+void func_002daa98(u8* p, u32 a, u32 b);  // 0x002daa98: definition moved into src/anon/unit_002da040.cpp
 
 // 002e2240: moved to src/anon/unit_002e1908.cpp
 

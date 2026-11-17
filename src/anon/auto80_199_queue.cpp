@@ -4102,18 +4102,7 @@ void func_002d7420(u32 a0);  // 0x002d7420: definition moved into src/anon/unit_
 
 void func_002d7630(u32 a0);  // 0x002d7630: definition moved into src/anon/unit_002d6f70.cpp
 
-void func_002da8f0(u32 a0, u32 a1) {
-    u32 s0 = a0;
-    u32 s1 = a1;
-    u32 t7 = *(u32*)(a0 + 3060);
-    if (t7 != 0) {
-        func_002db610(t7);
-    }
-    t7 = *(u32*)(s0 + 3056);
-    if (t7 != 0) {
-        func_002dc1b8(t7, s1);
-    }
-}
+void func_002da8f0(u32 a0, u32 a1);  // 0x002da8f0: definition moved into src/anon/unit_002da040.cpp
 
 void func_002dd968(u32 a0) {
     u32 scratch[8];

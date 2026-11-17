@@ -1325,18 +1325,7 @@ void func_002cf2b0(u8*, s32);
 void func_0016ace0(u8*, V4*);
 void func_0016b070(u8*, V4*);
 s32 func_002e7568(u8*, s32, u8*, f32);
-void func_002dae38(u8* p)
-{
-    f32 z = 0.0f;
-    func_001c0d38(p, D_0034e948, 16384, 0);
-    func_002cf2b0(p + 2800, 1);
-    V4 v;
-    v.x = z; v.y = z; v.w = z; v.z = -70.0f;
-    func_0016ace0(p, &v);
-    v.w = v.z = v.y = v.x = z;
-    func_0016b070(p, &v);
-    func_002e7568(p, 2, D_00362698, 1.0f);
-}
+void func_002dae38(u8* p);  // 0x002dae38: definition moved into src/anon/unit_002da040.cpp
 extern V4 D_01e2be20;
 V4* func_0016c028(u8*);  // obj_get_attach_or_alt
 void func_0016af58(V4*, u8*);
@@ -2451,14 +2440,7 @@ void func_0016ace0(u8*, V4*);
 s32 func_001c0cd8(u8*);
 void func_0017f488(u8*, s32, f32, f32);
 void func_00180378(u8*, u8*, s32, f32);
-void func_002da958(u8* p)
-{
-    if (*(u8**)(p + 3060)) func_0017f488(*(u8**)(p + 3060) + 320, 173, 8.0f, 0.0f);
-    u8* o = *(u8**)(p + 3056);
-    if (!o) return;
-    if (func_001c0cd8(o)) func_0017f488(*(u8**)(p + 3056) + 320, 173, 8.0f, 0.0f);
-    func_00180378(*(u8**)(p + 3056) + 320, p, 254, 8.0f);
-}
+void func_002da958(u8* p);  // 0x002da958: definition moved into src/anon/unit_002da040.cpp
 }
 
 }

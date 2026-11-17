@@ -422,17 +422,7 @@ u8* func_0016bc20c(void*, s32, s32) asm("func_0016bc20");
 Vec4* func_0016c028b(void*) asm("func_0016c028");
 
 // Is p within the target's radius?
-bool func_002da308(u8* p) {
-    void* v = func_002d9210(D_00361f60);
-    if (!v) return false;
-    if (func_001c0cd8(v)) return false;
-    u8* pos = p + 1344;
-    f32 r = *(s16*)(func_0016bc20c(v, 5, -1) + 16);
-    Vec4* q = func_0016c028b(v);
-    Vec4 d;
-    vsub(&d, pos, q);
-    return vlen(&d) < r;
-}
+bool func_002da308(u8* p);  // 0x002da308: definition moved into src/anon/unit_002da040.cpp
 
 s32 func_002e0fe8(void*);
 

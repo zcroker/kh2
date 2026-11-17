@@ -236,6 +236,8 @@ src/anon/unit_002d2498.cpp	002d2498	002d42d0	.rodata@00375a3c	-G0 -g -fno-strict
 src/anon/unit_002d4548.cpp	002d4548	002d62d0	.rodata@00375ac0	-G0 -g -fno-strict-aliasing
 src/anon/unit_002d62d0.cpp	002d62d0	002d6f70	.rodata@00375b28	-G0 -g -fno-strict-aliasing
 src/anon/unit_002d6f70.cpp	002d6f70	002d9588	.rodata@00375b68	-G0 -g -fno-strict-aliasing
+src/anon/unit_002d96d8.cpp	002d96d8	002d9f10	.rodata@00375cd8	-G0 -g -fno-strict-aliasing
+src/anon/unit_002da040.cpp	002da040	002dd650	.rodata@00375cec	-G0 -g -fno-strict-aliasing
 src/anon/unit_002cb200.cpp	002cb200	002cb538	-	-G0 -g -fno-strict-aliasing
 src/taito/path.cpp	002cb538	002ce958	.rodata@00375878	-G0 -g -fno-strict-aliasing
 src/yasui/libys/damage.cpp	0018c8b8	0018d050	.bss@01c60bf0,.rodata@0036cc28	-G0 -fno-strict-aliasing -finline-limit=1000

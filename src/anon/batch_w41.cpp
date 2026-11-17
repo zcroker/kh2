@@ -327,21 +327,10 @@ void func_00319fb0(u8*);  // big_obj_dtor
 void func_002d0fb0(u8* p);  // 0x002d0fb0: definition moved into src/anon/unit_002cf260.cpp
 
 u8* func_002dc7c8(u8*);
-f32 func_002dceb0(u8* p) {
-    u8* q = p + 0x8000;
-    u8* r = func_002dc7c8(p);
-    f32 f = *(f32*)(q + 104) / *(f32*)(r + 160);
-    if (f > 1.0f) f = 1.0f;
-    if (f < 0.0f) f = 0.0f;
-    return f;
-}
+f32 func_002dceb0(u8* p);  // 0x002dceb0: definition moved into src/anon/unit_002da040.cpp
 
 f32 func_002e4af0(u8*);
-void func_002dd2d8(u8* p, f32* a, f32* b) {
-    f32 f = (func_002e4af0(p + 256) * 0.5f - 1.0f) * 100.0f;
-    *b = f;
-    *a = -f;
-}
+void func_002dd2d8(u8* p, f32* a, f32* b);  // 0x002dd2d8: definition moved into src/anon/unit_002da040.cpp
 
 extern void* D_00347e80[];
 extern void* D_00347f98[];

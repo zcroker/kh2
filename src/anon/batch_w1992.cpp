@@ -116,25 +116,5 @@ static inline void w1992_setdir(QW2dbd30& out, f32 a, f32 r) {
     out = res;
 }
 extern "C" {
-void func_002dbd30(Ob2dbd30* self, f32 x) {
-    s32 id = D_00361f60;
-    func_0017f540(self->s140, 153, 0.0f, 0.0f);
-    func_001c0e60(self);
-    self->neg = x < 0.0f;
-    func_0011b6a8(&self->m60);
-    func_0011b7b0(&self->m60, func_0016b0a0(D_0034e948));
-    self->m60.r[3] = *func_0016c028(self);
-    self->m60.r[3].f[3] = 1.0f;
-    self->m20 = self->m60;
-    self->bc0 = 1;
-    f32 a;
-    if (self->neg) a = func_002d73f0(id)->f2c;
-    else a = 3.14159274f - func_002d73f0(id)->f2c;
-    w1992_setdir(self->vd0, a, func_002d73f0(id)->f28);
-    f32 y = self->vd0.f[1];
-    self->bf4 = y * y / (2.0f * func_002d73f0(id)->f40);
-    w1992_zero(&self->ve0);
-    func_002e7568(self, 5, D_003628e0, 1.0f);
-    func_002db968(self, 0);
-}
+void func_002dbd30(Ob2dbd30* self, f32 x);  // 0x002dbd30: definition moved into src/anon/unit_002da040.cpp
 }

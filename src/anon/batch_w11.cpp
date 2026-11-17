@@ -222,11 +222,7 @@ void ObjCamera_start(u8* self, void* pl, void* pad);  // 0x002c58c8: definition 
 
 extern u32 D_003626a8;
 void func_002db530(void*);
-void func_002db730(void** p) {
-    *p = &D_003626a8;
-    func_002db530(p);
-    func_00105110(p);
-}
+void func_002db730(void** p);  // 0x002db730: definition moved into src/anon/unit_002da040.cpp
 
 void func_002d10a0(void*);
 void func_002dd790(u8* p) {

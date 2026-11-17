@@ -219,10 +219,7 @@ u8 func_002d47a8(void** self);  // 0x002d47a8: definition moved into src/anon/un
 
 void func_0016a9a0(void*);  // to_16a950
 void func_002db610(void*, s32);
-void func_002db7d0(u8* p) {
-    func_0016a9a0(p);  // to_16a950
-    func_002db610(p, (p[568] & 1) ? 0 : -1);
-}
+void func_002db7d0(u8* p);  // 0x002db7d0: definition moved into src/anon/unit_002da040.cpp
 
 void func_002e9fe0(u32, u32, void*);
 void func_002e8038(u32* p) {

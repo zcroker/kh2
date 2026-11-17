@@ -250,11 +250,7 @@ void* func_002d6d10(void* ret, u32, u32 a2);  // 0x002d6d10: definition moved in
 // 002dd448: add score (10/5/1 per rank) to the mission counter
 struct Score3 { s32 v[3]; };
 extern Score3 D_00375dc8;
-void func_002dd448(u8* p, s32 mul, s32 idx)
-{
-    Score3 t = D_00375dc8;
-    if (*(s32*)(p + 128) == 2) mission_add_count(t.v[idx] * mul, 0);
-}
+void func_002dd448(u8* p, s32 mul, s32 idx);  // 0x002dd448: definition moved into src/anon/unit_002da040.cpp
 
 // 002e95a0: set size and build the collision shape
 double func_00313b80(f32);  // float_to_double

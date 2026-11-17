@@ -237,11 +237,7 @@ void ctarget_002cf3f8(void);  // 0x002cf3f8: definition moved into src/anon/unit
 
 void func_002d28f8(u32 x, u32 m, s32 i);  // 0x002d28f8: definition moved into src/anon/unit_002d2498.cpp
 
-void func_002daa50(u32* p, u32 a, u32 b) {
-    func_002cfeb0(p, a, 3, b);  // obj_init_field1416_bit800
-    *(void**)p = D_00362858;
-    func_002cf280((u8*)p + 2800, 1, 0);
-}
+void func_002daa50(u32* p, u32 a, u32 b);  // 0x002daa50: definition moved into src/anon/unit_002da040.cpp
 
 u8 func_002e0ec8(u8* p) {
     *(void**)p = D_00362dc8;

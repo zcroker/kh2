@@ -198,7 +198,7 @@ void func_002baa60(BD_VALUE* bd) { func_002b9968(bd); }
 void func_002baba8(BD_VALUE* bd) { func_002b99c8(bd); }
 void func_002bd588(BD_VALUE* bd);  // 0x002bd588: definition moved into src/anon/unit_002bc978.cpp
 void func_002bd5c8(BD_VALUE* bd);  // 0x002bd5c8: definition moved into src/anon/unit_002bc978.cpp
-void func_002dabd0(BD_VALUE* bd) { func_0016a9a0(bd); }
+void func_002dabd0(BD_VALUE* bd);  // 0x002dabd0: definition moved into src/anon/unit_002da040.cpp
 void func_002e7310(BD_VALUE* bd) { func_002e7458(bd); }
 void func_002e7328(BD_VALUE* bd) { func_002e7458(bd); }
 // 002e7670, 002e7698, 002e76b0: moved to src/anon/unit_002e7658.cpp
@@ -233,9 +233,9 @@ void func_002bdb58(BD_VALUE* bd);  // 0x002bdb58: definition moved into src/anon
 void func_002d1f50(BD_VALUE* bd);  // 0x002d1f50: definition moved into src/anon/unit_002cf260.cpp
 void func_002d8cf0(BD_VALUE* bd);  // 0x002d8cf0: definition moved into src/anon/unit_002d6f70.cpp
 void func_002d8d28(BD_VALUE* bd);  // 0x002d8d28: definition moved into src/anon/unit_002d6f70.cpp
-void func_002dd198(BD_VALUE* bd) { func_002dcc90(bd[1].i); }
-void func_002dd1e8(BD_VALUE* bd) { func_002dc988(bd[1].i); }
-void func_002dd200(BD_VALUE* bd) { func_002dcf90(bd[1].i); }
+void func_002dd198(BD_VALUE* bd);  // 0x002dd198: definition moved into src/anon/unit_002da040.cpp
+void func_002dd1e8(BD_VALUE* bd);  // 0x002dd1e8: definition moved into src/anon/unit_002da040.cpp
+void func_002dd200(BD_VALUE* bd);  // 0x002dd200: definition moved into src/anon/unit_002da040.cpp
 void func_002e1758(BD_VALUE* bd) { func_002e13d8(bd[1].i); }
 void func_001059d0(BD_VALUE* bd) { func_001058f8(1, 0xffff); }
 void func_001059f0(BD_VALUE* bd) { func_001058f8(0, 0xffff); }
@@ -886,14 +886,7 @@ void func_002cb530(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002cb530: definition m
 
 u32 func_002d1260(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002d1260: definition moved into src/anon/unit_002cf260.cpp
 
-u32 func_002dc7f8(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_global_35e958
-    (void)a0;
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    u32 b = (0x0035u << 16);
-    return (u32)(*(u32*)((u32)b + (-5816)));
-}
+u32 func_002dc7f8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002dc7f8: definition moved into src/anon/unit_002da040.cpp
 
 void func_002eda30(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 b = (0x0036u << 16);
@@ -1296,19 +1289,9 @@ u32 func_002d8110(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002d8110: definition mo
 
 u32 func_002d8900(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002d8900: definition moved into src/anon/unit_002d6f70.cpp
 
-u32 func_002da110(u32 a0, u32 a1, u32 a2, u32 a3) {  // is_field340_eq14
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    return ((*(u32*)((u32)a0 + (340)) ^ 0x000eu) == 0);
-}
+u32 func_002da110(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002da110: definition moved into src/anon/unit_002da040.cpp
 
-u32 func_002dc7e8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    return (u32)((s32)a0 + (256));
-}
+u32 func_002dc7e8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002dc7e8: definition moved into src/anon/unit_002da040.cpp
 
 void func_002dea80(u32 a0, u32 a1, u32 a2, u32 a3) {  // set_vtbl_362d20
     (void)a1;

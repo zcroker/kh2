@@ -30,9 +30,5 @@ static inline __attribute__((always_inline)) void db968_draw(s32 b, s32 a, s32 m
 }
 
 /* 002db968: draw element a (style 3 or 6) at the current target's x/y. */
-void func_002db968(s32 a, u8 f) {
-    s32 g = D_00361f60;
-    if (f) db968_draw(a + 0xba0, a, 3, D_003628f8, g);
-    else db968_draw(a + 0xba0, a, 6, D_003628e8, g);
-}
+void func_002db968(s32 a, u8 f);  // 0x002db968: definition moved into src/anon/unit_002da040.cpp
 }

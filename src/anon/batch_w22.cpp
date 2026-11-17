@@ -257,21 +257,13 @@ s32 func_002bca10(E2bc* t, s32 a, s32 b);  // 0x002bca10: definition moved into 
 // --- 002dad40
 extern u32 D_003627c8;
 void func_002cff98(void*);
-void func_002dad40(void** p) {
-    *p = &D_003627c8;
-    func_002cff98(p);
-    func_00105110(p);
-}
+void func_002dad40(void** p);  // 0x002dad40: definition moved into src/anon/unit_002da040.cpp
 
 // --- 002dc708
 extern u32 D_003629e8;
 void func_002e4a90(void*);  // in_even_range
 u8 func_002cea28(void*);
-u32 func_002dc708(void** p) {
-    *p = &D_003629e8;
-    func_002e4a90(p + 64);  // in_even_range
-    return func_002cea28(p);
-}
+u32 func_002dc708(void** p);  // 0x002dc708: definition moved into src/anon/unit_002da040.cpp
 
 // --- 002efb60
 void func_002efb08(void*);

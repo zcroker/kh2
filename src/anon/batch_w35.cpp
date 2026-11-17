@@ -194,12 +194,7 @@ extern u8 D_003629e8[];
 void func_002e4a90(void*);  // in_even_range
 void func_002cea28(void*);
 void func_00105110(void*);
-void func_002dc788(u8* p) {
-    *(void**)p = D_003629e8;
-    func_002e4a90(p + 256);  // in_even_range
-    func_002cea28(p);
-    func_00105110(p);
-}
+void func_002dc788(u8* p);  // 0x002dc788: definition moved into src/anon/unit_002da040.cpp
 
 void func_00108398(void*);  // clear_quads_set_flags
 void func_002e5f70(u8* p) {
