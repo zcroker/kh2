@@ -663,52 +663,17 @@ void _Bfree(u32 a0, u32 a1, u32 a2, u32 a3) {  // push_entry_onto_slot_list
     }
 }
 
-u32 func_0030bb90(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2;
-    r5 = (u32)((s32)0u + (6));
-    u32 (*fp_call4_0030b9e0)(u32, u32, u32, u32) = func_0030b9e0;
-    r2 = fp_call4_0030b9e0(r4, r5, r6, r7);
-    return r2;
-}
+u32 func_0030bb90(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0030bb90: definition moved into src/sdk/filestub.c
 
-u32 func_0030bd68(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2;
-    r5 = (u32)((s32)0u + (8));
-    u32 (*fp_call4_0030b9e0)(u32, u32, u32, u32) = func_0030b9e0;
-    r2 = fp_call4_0030b9e0(r4, r5, r6, r7);
-    return r2;
-}
+u32 func_0030bd68(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0030bd68: definition moved into src/sdk/filestub.c
 
-u32 func_0030c138(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2;
-    r5 = (u32)((s32)0u + (16));
-    u32 (*fp_call4_0030b9e0)(u32, u32, u32, u32) = func_0030b9e0;
-    r2 = fp_call4_0030b9e0(r4, r5, r6, r7);
-    return r2;
-}
+u32 func_0030c138(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0030c138: definition moved into src/sdk/filestub.c
 
-u32 func_0030caf0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2;
-    r5 = (u32)((s32)0u + (18));
-    u32 (*fp_call4_0030b9e0)(u32, u32, u32, u32) = func_0030b9e0;
-    r2 = fp_call4_0030b9e0(r4, r5, r6, r7);
-    return r2;
-}
+u32 func_0030caf0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0030caf0: definition moved into src/sdk/filestub.c
 
-u32 func_0030cf40(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2;
-    r5 = (u32)((s32)0u + (21));
-    u32 (*fp_call4_0030b9e0)(u32, u32, u32, u32) = func_0030b9e0;
-    r2 = fp_call4_0030b9e0(r4, r5, r6, r7);
-    return r2;
-}
+u32 func_0030cf40(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0030cf40: definition moved into src/sdk/filestub.c
 
-u32 func_0030da10(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2;
-    u32 (*fp_call4_0030d998)(u32, u32, u32, u32) = func_0030d998;
-    r2 = fp_call4_0030d998(r4, r5, r6, r7);
-    return r2;
-}
+u32 func_0030da10(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0030da10: definition moved into src/sdk/iopheap.c
 
 u32 func_0030e528(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2;

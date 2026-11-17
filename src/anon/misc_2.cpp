@@ -2,11 +2,7 @@
 
 typedef s64 (*Func4)(s64, s64, s64, s64);
 
-s64 func_002061f0(s64 param0, s64 param1, s64 param2, s64 param3) {
-    s64 result = 0, arg0 = param0, arg1 = param1, arg2 = param2, arg3 = param3, returnAddr = 0;
-    result = 0 + 0;
-    return result;
-}
+s64 func_002061f0(s64 param0, s64 param1, s64 param2, s64 param3);  // 0x002061f0: definition moved into src/anon/unit_002061d8.cpp
 
 void func_0020aec0(void* self);  // 0x0020aec0: definition moved into src/anon/unit_0020ad28.cpp
 

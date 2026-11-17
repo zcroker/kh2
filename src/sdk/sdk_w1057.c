@@ -72,14 +72,7 @@ extern int memcmp(void *, void *, int);
 extern char D_003660c4[];
 extern char *D_00366178;
 extern char D_01e389a8[];
-int func_0030a600(void)
-{
-    int r = 0;
-    char *q = D_003660c4; char *p = D_01e389a8;
-    if (memcmp(p, q, 4) && memcmp(p, D_00366178, 4))
-        r = memcmp(q, D_00366178, 4) != 0;
-    return r;
-}
+int func_0030a600(void);  // 0x0030a600: definition moved into src/sdk/filestub.c
 
 extern char *D_00366184;
 extern char D_01e38e68[];

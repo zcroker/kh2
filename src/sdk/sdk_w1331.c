@@ -102,76 +102,11 @@ extern int D_00366164;
 extern int D_01e37280[];
 extern char D_01e37ec0[];
 extern char D_01e38980[];
-int func_0030a6c8(unsigned int addr, unsigned int size)
-{
-    int r;
-    func_0030a2d0(0xfe);
-    if (D_00366164 == 0)
-        func_0030a3f8();
-    if (func_0030a600()) {
-        func_0030a300();
-        return 0xfffefffc;
-    }
-    if (func_00309c58()) {
-        func_0030a300();
-        return -16;
-    }
-    if ((addr & 0x3fff) || addr == 0 || addr > 0xfffff || size == 0 || size > 32) {
-        func_0030a300();
-        return -22;
-    }
-    D_01e37280[0] = addr;
-    D_01e37280[1] = size;
-    if (func_00309d60(D_01e38980, 0xfe, 0, D_01e37280, 8, D_01e37ec0, 4, 0, 0, 0) < 0) {
-        func_0030a300();
-        return -11;
-    }
-    r = *(int *)((unsigned int)D_01e37ec0 | 0x20000000);
-    func_0030a300();
-    return r;
-}
+int func_0030a6c8(unsigned int addr, unsigned int size);  // 0x0030a6c8: definition moved into src/sdk/filestub.c
 
 typedef struct { int fd; int valid; } FioFile;
 extern FioFile *func_00309e50(int);
-int sceDread(int fd, void *buf)
-{
-    SemaParam sp;
-    int res;
-    int sema;
-    int r;
-    FioFile *f;
-    int *p = D_01e37280;
-
-    f = func_00309e50(fd);
-    func_0030a2d0(11);
-    if (D_00366164 == 0 || f == 0 || f->valid == 0) {
-        func_0030a300();
-        return -9;
-    }
-    p[3] = f->fd;
-    p[4] = (int)buf;
-    sp.max_count = 1;
-    sp.init_count = 0;
-    sp.option = (unsigned int)"SceStdioDreadSema";
-    sema = func_00305620(&sp);
-    p[0] = sema;
-    p[1] = (int)&res;
-    p[2] = 4;
-    if (func_00309d60(D_01e38980, 11, 0, p, 32, D_01e37ec0, 4, 0, 0, 0) < 0) {
-        func_00305660(sema);
-        func_0030a300();
-        return -11;
-    }
-    r = *(int *)((unsigned int)D_01e37ec0 | 0x20000000);
-    func_0030a300();
-    if (r == 0) {
-        func_00305630(sema);
-        return -11;
-    }
-    func_00305660(sema);
-    func_00305630(sema);
-    return res;
-}
+int sceDread(int fd, void *buf);  // 0x0030c388: definition moved into src/sdk/filestub.c
 
 /* libkernl timer: InitTimer */
 typedef struct TBlk { struct TBlk *next; int pad[15]; } TBlk;

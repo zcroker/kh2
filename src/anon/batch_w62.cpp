@@ -231,12 +231,7 @@ s32 func_001dffd8(u8* p);  // 0x001dffd8: definition moved into src/anon/unit_00
 extern u32 D_01d9e6e4;
 void func_001e7798(u32, u32);
 // Releases the three handles at +12/+16/+20 of the sub-block.
-void func_00207050(u8* p, u8* d) {
-    u32* s = (u32*)(p + **(s32**)(d + 12) + 160);
-    if (s[3]) { func_001e7798(D_01d9e6e4, s[3]); s[3] = 0; }
-    if (s[4]) { func_001e7798(D_01d9e6e4, s[4]); s[4] = 0; }
-    if (s[5]) { func_001e7798(D_01d9e6e4, s[5]); s[5] = 0; }
-}
+void func_00207050(u8* p, u8* d);  // 0x00207050: definition moved into src/anon/unit_00206be8.cpp
 
 extern s32 D_0035dcf0;
 extern u8 D_0035db00[];

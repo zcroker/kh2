@@ -163,10 +163,7 @@ void func_001de8a8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001de8a8: definition m
 void func_001eb228(u32 a0, f32* a1);  // 0x001eb228: definition moved into src/anon/unit_001e8ac8.cpp
 
 // random value in about [-n/2, 3n/2)
-s8 func_002072a8(u8 n) {
-    func_00207260();
-    return (s8)(s32)((f32)(n * 2) * func_00207260() - (f32)(n >> 1));
-}
+s8 func_002072a8(u8 n);  // 0x002072a8: definition moved into src/anon/unit_00206be8.cpp
 
 // Hand-written VU0 macro code: d = ftoi4/ftoi0 of (a + b) with an overflow-flag fix-up
 void func_00222790(void* d, const void* a, const void* b);  // 0x00222790: definition moved into src/anon/unit_00222548.cpp

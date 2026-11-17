@@ -57,12 +57,7 @@ void func_00308650(void)
 extern int D_00366164;
 extern char D_01e389a8[];
 extern void func_002fde18(void *, int, int);
-int func_0030a690(void)
-{
-    D_00366164 = 0;
-    func_002fde18(D_01e389a8, 0, 4);
-    return 0;
-}
+int func_0030a690(void);  // 0x0030a690: definition moved into src/sdk/filestub.c
 
 extern int *D_00366188;
 extern void func_0030ee88(void *, void *, int);

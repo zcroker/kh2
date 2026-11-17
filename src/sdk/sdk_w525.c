@@ -74,42 +74,13 @@ void func_00309be8(void)
 extern int D_0036617c;
 extern char D_01e38a80[];
 extern int D_01e38ac0, D_01e38b00;
-int func_0030d8a8(int a)
-{
-    if (D_0036617c < 0)
-        return 0;
-    D_01e38b00 = a;
-    if (sceSifCallRpc(D_01e38a80, 1, 0, &D_01e38b00, 4, &D_01e38ac0, 4, 0, 0) < 0)
-        return 0;
-    return D_01e38ac0;
-}
+int func_0030d8a8(int a);  // 0x0030d8a8: definition moved into src/sdk/iopheap.c
 
-unsigned int func_0030db20(void)
-{
-    if (D_0036617c < 0)
-        return 0;
-    if (sceSifCallRpc(D_01e38a80, 5, 0, 0, 0, &D_01e38ac0, 4, 0, 0) < 0)
-        return 0xffffffff;
-    return D_01e38ac0;
-}
+unsigned int func_0030db20(void);  // 0x0030db20: definition moved into src/sdk/iopheap.c
 
-unsigned int func_0030db90(void)
-{
-    if (D_0036617c < 0)
-        return 0;
-    if (sceSifCallRpc(D_01e38a80, 6, 0, 0, 0, &D_01e38ac0, 4, 0, 0) < 0)
-        return 0xffffffff;
-    return D_01e38ac0;
-}
+unsigned int func_0030db90(void);  // 0x0030db90: definition moved into src/sdk/iopheap.c
 
-unsigned int func_0030dc00(void)
-{
-    if (D_0036617c < 0)
-        return 0;
-    if (sceSifCallRpc(D_01e38a80, 7, 0, 0, 0, &D_01e38ac0, 4, 0, 0) < 0)
-        return 0xffffffff;
-    return D_01e38ac0;
-}
+unsigned int func_0030dc00(void);  // 0x0030dc00: definition moved into src/sdk/iopheap.c
 
 extern unsigned long func_00312db8(unsigned long, unsigned long);
 unsigned long func_00310890(unsigned int s, unsigned int u)

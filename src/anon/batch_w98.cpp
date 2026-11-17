@@ -211,28 +211,7 @@ void func_00208298(O208*, A208*, u8*, u32, u8*);
 void func_00207350(O208*, A208*, u32, u8*, u8*, u8*);
 
 // Updates spawn slots: live ones tick, free ones spawn after the delay (up to max per call).
-void func_002086e0(O208* o, A208* a, u32 arg) {
-    s32 cnt = 0;
-    u8* it = o->items;
-    u8* b = o->b;
-    u8* c = o->c;
-    s32 n = o->n;
-    if (D_01d9ea9c) return;
-    if (*(u64*)(D_01d9e6e0 + 168) & 0xff0000ff00ULL) return;
-    o->f32++;
-    for (s32 i = 0; i < n; i++) {
-        if (*(u16*)(it + 64)) {
-            func_00208298(o, a, it, arg, c);
-        } else if (a->delay <= o->f32 && cnt < a->max) {
-            func_00207350(o, a, arg, it, b, c);
-            cnt++;
-        }
-        if (b) b += 64;
-        if (c) c += 32;
-        it += 176;
-    }
-    if (cnt > 0) o->f32 = 0;
-}
+void func_002086e0(O208* o, A208* a, u32 arg);  // 0x002086e0: definition moved into src/anon/unit_002086e0.cpp
 
 extern u8* D_0035f200;
 extern u8* D_0035f204;

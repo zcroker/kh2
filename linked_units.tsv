@@ -89,6 +89,8 @@ src/anon/unit_002efcc0.c	002efcc0	002efd68	-	-G0 -g -fno-strict-aliasing -fno-gc
 src/anon/unit_002efd68.cpp	002efd68	002f0700	.rodata@00376220	-G0
 src/naka/libkn/trapfunctions.cpp	002f0700	002f12b0	.data@00363a40,.bss@01e2c0c0	-G0
 src/sdk/libdbc.c	002f4a20	002f5c70	.rodata@00376840	-G0
+src/sdk/filestub.c	0030a3f8	0030d820	.rodata@003781a0	-G0
+src/sdk/iopheap.c	0030d820	0030dd6c	-	-G0
 src/menu/tutorial_widget.cpp	002ee588	002ee8a8	.data@01e2c088	-G0
 src/harata/libdk/lightcyclecamera.cpp	00159070	00159240	.data@0034a9f0,.rodata@0036b324	-G0
 src/common/gumibattle.cpp	00103f68	00104318	.data@0032ba48,.rodata@00369e18	-G0 -fno-strict-aliasing
@@ -242,6 +244,14 @@ src/anon/unit_002a5a90.cpp	002a5a90	002a6e50	.rodata@00374bac	-G0 -g
 src/anon/unit_002a7308.cpp	002a7308	002a8330	-	-G0 -g -fno-strict-aliasing -fmove-all-movables
 src/anon/unit_002a8748.cpp	002a8748	002a8ac8	-	-G0 -g -fno-strength-reduce
 src/anon/unit_002a8ac8.cpp	002a8ac8	002a9100	-	-G0 -g
+src/anon/unit_002061d8.cpp	002061d8	00206388	.rodata@00370510	-G0 -g -fno-strict-aliasing -fno-gcse
+src/anon/unit_00206388.c	00206388	00206be8	.rodata@00370518	-G0 -fno-strict-aliasing -fno-optimize-sibling-calls
+src/anon/unit_00206be8.cpp	00206be8	00207350	-	-G0 -fno-strict-aliasing
+src/anon/batch_w1336.c	00207350	00208298	.rodata@00370588	-G0
+src/anon/batch_w2339_gnsa.c	00208298	002086e0	-	-G0 -g -fno-strict-aliasing
+src/anon/unit_002086e0.cpp	002086e0	00208a30	.rodata@0037060c	-G0 -fno-strict-aliasing
+src/anon/batch_w3703_nosched.c	00208a30	00208cb0	.rodata@00370634	-G0 -fno-schedule-insns
+src/anon/unit_002090c0.cpp	002090c0	00209328	.rodata@00370668	-G0 -fno-strict-aliasing
 src/anon/unit_00209d68.cpp	00209d68	0020a090	-	-G0 -fno-strict-aliasing
 src/anon/unit_0020a090.c	0020a090	0020a510	.rodata@0037068c	-G0 -fno-sched-interblock
 src/anon/unit_0020a510.cpp	0020a510	0020a658	.rodata@00370698	-G0 -fno-strict-aliasing

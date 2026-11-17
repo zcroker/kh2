@@ -46,24 +46,8 @@ extern int D_01e38b00;
 extern char D_01e38a80[];
 extern int D_01e38ac0;
 extern int sceSifCallRpc(void *, int, int, void *, int, void *, int, void *, void *);
-u32 func_0030dc70(int a)
-{
-    if (D_0036617c < 0)
-        return 0;
-    D_01e38b00 = a;
-    if (sceSifCallRpc(D_01e38a80, 8, 0, &D_01e38b00, 4, &D_01e38ac0, 4, 0, 0) < 0)
-        return 0xffffffff;
-    return D_01e38ac0;
-}
-u32 func_0030dcf0(int a)
-{
-    if (D_0036617c < 0)
-        return 0;
-    D_01e38b00 = a;
-    if (sceSifCallRpc(D_01e38a80, 9, 0, &D_01e38b00, 4, &D_01e38ac0, 4, 0, 0) < 0)
-        return 0xffffffff;
-    return D_01e38ac0;
-}
+u32 func_0030dc70(int a);  // 0x0030dc70: definition moved into src/sdk/iopheap.c
+u32 func_0030dcf0(int a);  // 0x0030dcf0: definition moved into src/sdk/iopheap.c
 
 extern void func_0030f6a0(u32);
 int func_0030f990(void)
@@ -146,14 +130,4 @@ void func_00308150(const char *fmt, ...)
 
 typedef struct { int a, b, c; } Arg3;
 extern Arg3 D_01e38b00x asm("D_01e38b00");
-int func_0030d918(int a, int b, int c)
-{
-    if (D_0036617c < 0)
-        return 0;
-    D_01e38b00x.a = b;
-    D_01e38b00x.b = a;
-    D_01e38b00x.c = c;
-    if (sceSifCallRpc(D_01e38a80, 4, 0, &D_01e38b00x, 12, &D_01e38ac0, 4, 0, 0) < 0)
-        return 0;
-    return D_01e38ac0;
-}
+int func_0030d918(int a, int b, int c);  // 0x0030d918: definition moved into src/sdk/iopheap.c

@@ -4356,19 +4356,7 @@ extern u8 D_01d9e840[];
 extern u8* D_01d9e6e8;
 void func_002f4000_x8625(void*, u8*, u8*) asm("sceVu0UnitMatrix");
 void func_002f3d08_x8626(void*, u8*, u8*) asm("sceVu0MulMatrix");
-void func_00208978(void* a, u8* b, u8* c) {
-    s32 n = *(s32*)(c + 20);
-    func_002f4000_x8625(a, b, c);
-    switch (b[38]) {
-    case 0: case 2: case 4: case 6: case 8:
-    default:
-        if (n == 0) func_002f3d08_x8626(a, D_01d9e840, D_01d9e6e8 + 16);
-        break;
-    case 1: case 3: case 5: case 7: case 9:
-        func_002f3d08_x8626(a, D_01d9e840, D_01d9e6e8 + 16);
-        break;
-    }
-}
+void func_00208978(void* a, u8* b, u8* c);  // 0x00208978: definition moved into src/anon/unit_002086e0.cpp
 
 // --------------------
 struct C22cc38 { u8 pad[4]; s16 id; s16 v; u16 type; };

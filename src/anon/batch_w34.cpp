@@ -200,27 +200,7 @@ extern void** D_00347f80;
 extern void* D_0034ee08[];
 
 // Returns a random float in [0,1) from the VU0 random unit (hand-written VU0 macro code).
-f32 func_00207260(void) {
-    f32 r;
-    asm volatile(
-        "addi $8, $0, -1\n\t"
-        "qmtc2 $8, $vf2\n\t"
-        "vrxor R, $vf2x\n\t"
-        "vrnext.x $vf1, R\n\t"
-        "vrxor R, $vf2x\n\t"
-        "vrnext.x $vf1, R\n\t"
-        "vrxor R, $vf2x\n\t"
-        "vrnext.x $vf1, R\n\t"
-        "vrxor R, $vf2x\n\t"
-        "vrnext.x $vf1, R\n\t"
-        "vrxor R, $vf2x\n\t"
-        "vrnext.x $vf1, R\n\t"
-        "vitof0.x $vf2, $vf2\n\t"
-        "vadd.x $vf1, $vf1, $vf2\n\t"
-        "qmfc2 %0, $vf1"
-        : "=r"(r) : : "$8");
-    return r;
-}
+f32 func_00207260(void);  // 0x00207260: definition moved into src/anon/unit_00206be8.cpp
 
 void func_0021f5d8(u8* p);  // 0x0021f5d8: definition moved into src/anon/unit_0021e988.cpp
 

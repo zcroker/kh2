@@ -1050,83 +1050,13 @@ void func_00204fe0(u32 a0, u32 a1, u32 a2, u32 a3) {
     sceVu0MulMatrix(s0 + 64, s0 + 128, s0);
 }
 
-void func_002070d0(u32 a0, u32 a1, u32 a2) {
-    u32 t5 = a0;
-    u32 t6 = *(u32*)(a2 + 12);
-    u32 t7 = *(u32*)(t6 + 4);
-    u32 s0 = t5 + t7;
-    u32 t6b = *(u8*)(s0 + 160);
-    if (t6b != 0) {
-        return;
-    }
-    u32 t4 = *(u32*)(t6 + 0);
-    u32 a0p = t5 + t4;
-    u32 v0 = func_002061f8(a0p + 160, a1);
-    if (v0 == 0) {
-        return;
-    }
-    *(u8*)(s0 + 160) = 1;
-}
+void func_002070d0(u32 a0, u32 a1, u32 a2);  // 0x002070d0: definition moved into src/anon/unit_00206be8.cpp
 
-void func_00207150(u32 a0, u32 a1, u32 a2) {
-    u32 t5 = a0;
-    u32 t6 = *(u32*)(a2 + 12);
-    u32 t7 = *(u32*)(t6 + 4);
-    u32 s0 = t5 + t7;
-    u32 t6b = *(u8*)(s0 + 160);
-    if (t6b != 0) {
-        return;
-    }
-    u32 t4 = *(u32*)(t6 + 0);
-    u32 a0p = t5 + t4;
-    u32 v0 = func_002062c0(a0p + 160, a1);
-    if (v0 == 0) {
-        return;
-    }
-    *(u8*)(s0 + 160) = 1;
-}
+void func_00207150(u32 a0, u32 a1, u32 a2);  // 0x00207150: definition moved into src/anon/unit_00206be8.cpp
 
-void func_002071d8(u32 a0, u32 a1, u32 a2) {
-    u32 t5 = a0;
-    u32 t6 = *(u32*)(a2 + 12);
-    u32 t7 = *(u32*)(t6 + 4);
-    u32 s0 = t5 + t7;
-    u32 t6b = *(u8*)(s0 + 160);
-    if (t6b != 0) {
-        return;
-    }
-    u32 t4 = *(u32*)(t6 + 0);
-    u32 a0p = t5 + t4;
-    u32 v0 = func_00206388(a0p + 160, a1);
-    if (v0 == 0) {
-        return;
-    }
-    *(u8*)(s0 + 160) = 1;
-}
+void func_002071d8(u32 a0, u32 a1, u32 a2);  // 0x002071d8: definition moved into src/anon/unit_00206be8.cpp
 
-void func_002090f8(u32 a0, u32 a1) {
-    u32 t7 = *(u32*)(a1 + 12);
-    u32 t6 = *(u32*)(t7 + 8);
-    u32 s0 = a0 + t6 + 160;
-
-    u32 p0 = *(u32*)(s0 + 16);
-    if (p0 != 0) {
-        func_001e7798(*(u32*)((u32)&D_01da0000 - 6428u), p0);
-        *(u32*)(s0 + 16) = 0;
-    }
-
-    u32 p1 = *(u32*)(s0 + 20);
-    if (p1 != 0) {
-        func_001e7798(*(u32*)((u32)&D_01da0000 - 6428u), p1);
-        *(u32*)(s0 + 20) = 0;
-    }
-
-    u32 p2 = *(u32*)(s0 + 24);
-    if (p2 != 0) {
-        func_001e7798(*(u32*)((u32)&D_01da0000 - 6428u), p2);
-        *(u32*)(s0 + 24) = 0;
-    }
-}
+void func_002090f8(u32 a0, u32 a1);  // 0x002090f8: definition moved into src/anon/unit_002090c0.cpp
 
 s32 func_0020a000(u32 a0);  // 0x0020a000: definition moved into src/anon/unit_00209d68.cpp
 

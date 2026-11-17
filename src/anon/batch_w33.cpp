@@ -107,12 +107,7 @@ f32 func_00203a40(void) {  // vu_const_5f
 
 struct A207 { u8 pad[16]; s32 a; s32 b; s32 c; };
 struct B207 { u8 pad[257]; u8 x; u8 pad2[4]; u8 y; };
-s32 func_00207308(A207* a, B207* b) {
-    if (!a->a) return 0;
-    if (b->y && !a->b) return 0;
-    if (b->x && !a->c) return 0;
-    return 1;
-}
+s32 func_00207308(A207* a, B207* b);  // 0x00207308: definition moved into src/anon/unit_00206be8.cpp
 
 struct Ev234 { s32 type; s32 id; u32 a, b, c, d; u32 pad[2]; };
 extern Ev234 D_01dadc00[];

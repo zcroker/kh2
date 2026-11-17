@@ -148,84 +148,9 @@ extern FdEnt *func_00309e50(int);
 extern int func_0030a2d0(int);
 extern void func_0030a300(void);
 extern int func_00309d60(void *, int, int, void *, int, void *, int, void *, void *, int);
-int sceDclose(int fd)
-{
-    SemaParam sp;
-    int res;
-    int sema;
-    int r;
-    Req10 *q = &D_01e37280;
-    FdEnt *e = func_00309e50(fd);
-    func_0030a2d0(10);
-    if (D_00366164 == 0 || e == 0 || e->busy == 0) {
-        func_0030a300();
-        return -9;
-    }
-    q->fd = e->fd;
-    sp.max_count = 1;
-    sp.init_count = 0;
-    sp.option = (unsigned int)D_003782a8;
-    sema = func_00305620(&sp);
-    D_01e37280.sema = sema;
-    q->res = &res;
-    q->size = 4;
-    if (func_00309d60(D_01e38980, 10, 0, q, 20, D_01e37ec0, 4, 0, 0, 0) < 0) {
-        func_00305630(sema);
-        func_0030a300();
-        return -11;
-    }
-    e->busy = 0;
-    r = *(int *)((unsigned int)D_01e37ec0 | 0x20000000);
-    func_0030a300();
-    if (r == 0) {
-        func_00305630(sema);
-        return -11;
-    }
-    func_00305660(sema);
-    func_00305630(sema);
-    if (res < 0) return res;
-    return 0;
-}
+int sceDclose(int fd);  // 0x0030c220: definition moved into src/sdk/filestub.c
 
-int sceClose(int fd)
-{
-    SemaParam sp;
-    int res;
-    int sema;
-    int r;
-    Req10 *q = &D_01e37280;
-    FdEnt *e = func_00309e50(fd);
-    func_0030a2d0(1);
-    if (D_00366164 == 0 || e == 0 || e->busy == 0) {
-        func_0030a300();
-        return -9;
-    }
-    q->fd = e->fd;
-    q->idx = e - D_01e38780;
-    sp.max_count = 1;
-    sp.init_count = 0;
-    sp.option = (unsigned int)D_003781b8;
-    sema = func_00305620(&sp);
-    D_01e37280.sema = sema;
-    q->res = &res;
-    q->size = 4;
-    if (func_00309d60(D_01e38980, 1, 0, q, 20, D_01e37ec0, 4, 0, 0, 0) < 0) {
-        func_00305630(sema);
-        func_0030a300();
-        return -11;
-    }
-    e->busy = 0;
-    r = *(int *)((unsigned int)D_01e37ec0 | 0x20000000);
-    func_0030a300();
-    if (r == 0) {
-        func_00305630(sema);
-        return -11;
-    }
-    func_00305660(sema);
-    func_00305630(sema);
-    if (res < 0) return res;
-    return 0;
-}
+int sceClose(int fd);  // 0x0030ab88: definition moved into src/sdk/filestub.c
 
 /* libgraph: sceGsExecLoadImage */
 typedef unsigned long u64 __attribute__((mode(DI)));

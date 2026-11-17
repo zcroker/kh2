@@ -98,54 +98,14 @@ extern int D_00366164;
 extern int D_01e37280[];
 extern char D_01e37ec0[];
 extern char D_01e38980[];
-int func_0030a808(int arg)
-{
-    int r;
-    r = func_0030a2d0(0xfd);
-    if (D_00366164 == 0)
-        func_0030a3f8();
-    if (func_0030a600()) {
-        func_0030a300();
-        return 0xfffefffc;
-    }
-    if (func_00309c58()) {
-        func_0030a300();
-        return -16;
-    }
-    D_01e37280[0] = arg;
-    if (func_00309d60(D_01e38980, 0xfd, 0, D_01e37280, 8, D_01e37ec0, 4, 0, 0, 0) < 0) {
-        func_0030a300();
-        return -11;
-    }
-    r = *(int *)((unsigned int)D_01e37ec0 | 0x20000000);
-    func_0030a300();
-    return r;
-}
+int func_0030a808(int arg);  // 0x0030a808: definition moved into src/sdk/filestub.c
 
 extern int D_0036617c;
 extern char D_01e38a80[];
 extern int D_01e38ac0[];
 struct E { int arg; char name[252]; };
 extern struct E D_01e38b40;
-int func_0030da30(const char *name, int arg)
-{
-    int i;
-    if (D_0036617c < 0)
-        return 0;
-    for (i = 0; i < 252; i++) {
-        if ((D_01e38b40.name[i] = name[i]) == 0)
-            break;
-    }
-    if (i == 252) {
-        i = 251;
-        D_01e38b40.name[251] = 0;
-    }
-    D_01e38b40.arg = arg;
-    D_01e38b40.name[251] = 0;
-    if (sceSifCallRpc(D_01e38a80, 3, 0, &D_01e38b40, i + 5, D_01e38ac0, 4, 0, 0) < 0)
-        return -1;
-    return D_01e38ac0[0];
-}
+int func_0030da30(const char *name, int arg);  // 0x0030da30: definition moved into src/sdk/iopheap.c
 
 struct AL { int pad0[2]; int id; unsigned int flags; int pad1[4]; long long time; void (*handler)(); void *gp; void *arg; };
 extern int func_0030fa10(int);

@@ -115,13 +115,7 @@ u8 func_001e7cc0(void*);
 u8 func_001e2c00(void* pMng);  // 0x001e2c00: definition moved into src/anon/unit_001e0cb8.cpp
 
 u8 func_00209178(void*, void*);
-void func_002092e0(u8* a, u32* b, u8* c) {
-    u8* t = a + *(s32*)(*(u8**)(c + 12) + 8) + 160;
-    if (*b == *(u32*)(a + 12)) {
-        struct NoTail { ~NoTail() {} } g; // keeps the call a jal
-        func_00209178(b, t);
-    }
-}
+void func_002092e0(u8* a, u32* b, u8* c);  // 0x002092e0: definition moved into src/anon/unit_002090c0.cpp
 
 extern u32 D_0035dae4;
 u32 func_00227818(u32);

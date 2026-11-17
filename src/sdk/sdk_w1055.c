@@ -87,15 +87,7 @@ int func_002f6c28(void)
 }
 
 int u_call4_0030d998(int a) asm("_Z16u_call4_0030d998jjjj");
-int u_call4_0030d998(int a)
-{
-    if (D_0036617c < 0)
-        return 0;
-    D_01e38b00[0] = a;
-    if (sceSifCallRpc(D_01e38a80, 2, 0, D_01e38b00, 4, D_01e38ac0, 4, 0, 0) < 0)
-        return -1;
-    return D_01e38ac0[0];
-}
+int u_call4_0030d998(int a);  // 0x0030d998: definition moved into src/sdk/iopheap.c
 
 typedef struct { int next; volatile int id; } Sem_w1055;
 

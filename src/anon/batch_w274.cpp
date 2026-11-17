@@ -62,21 +62,7 @@ static inline f32 Length(const V4* v) {
 struct C5088 { u8 pad[16]; V4 v; u8 pad2[2840]; u8* o2872; u8 pad3[228]; V4 v3104; };
 static inline u8 IsMode2(u8* e) { return *(s32*)(e + 944) == 2; }
 extern "C" {
-void func_00209178(u8* a0, f32* m) {
-    f32 w, h, b;
-    switch (a0[49]) { case 1: w = 0.48999998f; break; case 2: w = 0.24f; break; case 0: default: w = 0.98999995f; break; }
-    switch (a0[50]) { case 1: h = 0.48999998f; break; case 2: h = 0.24f; break; case 0: default: h = 0.98999995f; break; }
-    switch (a0[51]) { case 1: b = 0.25f; break; case 2: b = 0.5f; break; case 3: b = 0.75f; break; case 0: default: b = 0.0f; break; }
-    f32 x1 = b + w;
-    f32 y0 = 0.01f;
-    f32 x0 = b + y0;
-    f32 z = 1.0f;
-    m[0] = m[4] = m[24] = m[28] = x0;
-    m[8] = m[12] = m[16] = m[20] = x1;
-    m[5] = m[13] = m[21] = m[29] = h;
-    m[1] = m[9] = m[17] = m[25] = y0;
-    m[2] = m[6] = m[10] = m[14] = m[18] = m[22] = m[26] = m[30] = z;
-}
+void func_00209178(u8* a0, f32* m);  // 0x00209178: definition moved into src/anon/unit_002090c0.cpp
 
 void func_00178ae8(u8*, u8*);
 void func_0017f488(u8*, s32, f32, f32);
