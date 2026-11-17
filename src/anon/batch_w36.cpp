@@ -264,19 +264,7 @@ u32 func_002c2598(u32 a, s32 n);  // 0x002c2598: definition moved into src/anon/
 struct SFile { u8* p; s32 r; s32 w; s16 flags; s16 file; u8* base; s32 size; u8 pad[60]; u8* data; u8 pad2[8]; };
 
 // sprintf: formats into a string-backed stream.
-s32 wtarget_002fee78(u8* buf, const char* fmt, ...) {
-    SFile f;
-    va_list ap;
-    f.flags = 520;
-    f.base = f.p = buf;
-    f.size = f.w = 0x7fffffff;
-    f.data = D_00365c48;
-    va_start(ap, fmt);
-    s32 r = func_002ffd00((u8*)&f, fmt, ap);  // fprintf_stream_va
-    va_end(ap);
-    *f.p = 0;
-    return r;
-}
+s32 wtarget_002fee78(u8* buf, const char* fmt, ...);  // 0x002fee78: definition moved into src/newlib/libc/sprintf.c
 
 // vfprintf: makes sure the stream has an initialised reentrancy struct.
 s32 func_002ffd00(u8* fp, const char* fmt, va_list ap);  // 0x002ffd00: definition moved into src/newlib/libc/vfprintf.c

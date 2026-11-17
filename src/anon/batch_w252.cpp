@@ -16,34 +16,7 @@ struct Bigint_w252 { Bigint_w252* next; s32 k, maxwds, sign, wds; u32 x[1]; };
 Bigint_w252* _Balloc(void*, s32);
 void* memcpy_w252(void*, const void*, u32) asm("memcpy");
 void _Bfree(void*, Bigint_w252*);  // push_entry_onto_slot_list
-Bigint_w252* __multadd(void* ptr, Bigint_w252* b, s32 m, s32 a) {
-    s32 i, wds;
-    u32* x;
-    u32 carry, y, z, xi;
-    Bigint_w252* b1;
-    wds = b->wds;
-    x = b->x;
-    i = 0;
-    carry = a;
-    do {
-        xi = *x;
-        y = (xi & 0xffff) * m + carry;
-        z = (xi >> 16) * m + (y >> 16);
-        carry = z >> 16;
-        *x++ = (z << 16) + (y & 0xffff);
-    } while (++i < wds);
-    if (carry) {
-        if (wds >= b->maxwds) {
-            b1 = _Balloc(ptr, b->k + 1);
-            memcpy_w252((char*)&b1->sign, (char*)&b->sign, b->wds * sizeof(s32) + 2 * sizeof(s32));
-            _Bfree(ptr, b);  // push_entry_onto_slot_list
-            b = b1;
-        }
-        b->x[wds++] = carry;
-        b->wds = wds;
-    }
-    return b;
-}
+Bigint_w252* __multadd(void* ptr, Bigint_w252* b, s32 m, s32 a);  // 0x00303c48: definition moved into src/newlib/libc/mprec.c
 }
 
 extern "C" {

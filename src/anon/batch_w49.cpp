@@ -182,15 +182,7 @@ void func_002eb778(u8*, u32, s32, f32);
 
 struct F304ec8 { u8 pad[12]; u16 flags; s16 file; u8 pad2[64]; s32 offset; u32 data; };
 long func_00305110(u32, s32, long, s32);
-long func_00304ec8(F304ec8* fp, long off, s32 whence) {
-    long r = func_00305110(fp->data, fp->file, off, whence);
-    if (r == -1L) fp->flags &= ~0x1000;
-    else {
-        fp->flags |= 0x1000;
-        fp->offset = r;
-    }
-    return r;
-}
+long func_00304ec8(F304ec8* fp, long off, s32 whence);  // 0x00304ec8: definition moved into src/newlib/libc/stdio.c
 
 union U141988 { u32 v; u16 h; };
 struct Idx141988 { u16 f0; u16 a, b, c, d; };

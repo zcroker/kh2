@@ -3037,12 +3037,7 @@ u8* ct_001b9bc8(u8* p);  // 0x001b9bc8: definition moved into src/anon/unit_001b
 struct Reent_00304f50 { s32 _errno; };
 extern s32 D_00378ae4;
 s32 func_00305be8(u32, u32, u32);
-long func_00304f50(Reent_00304f50* ptr, u32 a, u32 b, u32 c) {
-    long ret;
-    D_00378ae4 = 0;
-    if ((ret = (long)func_00305be8(a, b, c)) == -1 && D_00378ae4 != 0) ptr->_errno = D_00378ae4;
-    return ret;
-}
+long func_00304f50(Reent_00304f50* ptr, u32 a, u32 b, u32 c);  // 0x00304f50: definition moved into src/newlib/libc/writer.c
 
 } // extern "C"
 // ---- 001b3208
@@ -3324,31 +3319,7 @@ void func_0028f6f0(s32 i);  // 0028f6f0: moved to src/anon/unit_0028f1e0.cpp
 void* _malloc_r(void*, u32);
 void* func_002fde18_4fb0(void*, s32, u32) asm("func_002fde18");
 void* calloc_r_00304fb0(void* ptr, u32 n, u32 elem) asm("func_00304fb0");
-void* calloc_r_00304fb0(void* ptr, u32 n, u32 elem) {
-    u32* mem = (u32*)_malloc_r(ptr, n * elem);
-    if (mem == 0) return 0;
-    u32 csz = mem[-1] & ~3;
-    u32 mzsz = csz - 4;
-    if (mzsz <= 9 * sizeof(mzsz)) {
-        u32* mz = mem;
-        if (mzsz >= 5 * sizeof(mzsz)) {
-            *mz++ = 0;
-            *mz++ = 0;
-            if (mzsz >= 7 * sizeof(mzsz)) {
-                *mz++ = 0;
-                *mz++ = 0;
-                if (mzsz >= 9 * sizeof(mzsz)) {
-                    *mz++ = 0;
-                    *mz++ = 0;
-                }
-            }
-        }
-        *mz++ = 0;
-        *mz++ = 0;
-        *mz = 0;
-    } else func_002fde18_4fb0(mem, 0, mzsz);
-    return mem;
-}
+void* calloc_r_00304fb0(void* ptr, u32 n, u32 elem);  // 0x00304fb0: definition moved into src/newlib/libc/callocr.c
 
 // ---- 001cedc0
 void func_001780d8(u8*);
@@ -6157,99 +6128,7 @@ s32 __swsetup(File3032d0*);
 s32 fflush(File3032d0*);
 void* memmove(void*, const void*, u32);
 void* memchr(const void*, s32, u32);
-s32 __sfvwrite(File3032d0* fp, Suio3032d0* uio)
-{
-    u32 len;
-    const char* p;
-    Siov3032d0* iov;
-    s32 w, s;
-    char* nl;
-    s32 nlknown, nldist;
-
-    if ((len = uio->uio_resid) == 0)
-        return 0;
-    if (((fp->_flags & 0x0008) == 0 || fp->_bf._base == 0) && __swsetup(fp))
-        return -1;
-    iov = uio->uio_iov;
-    len = 0;
-    if (fp->_flags & 0x0002) {
-        do {
-            while (len == 0) { p = iov->iov_base; len = iov->iov_len; iov++; }
-            w = fp->_write(fp->_cookie, p, len < 1024 ? len : 1024);
-            if (w <= 0)
-                goto err;
-            p += w;
-            len -= w;
-        } while ((uio->uio_resid -= w) != 0);
-    } else if ((fp->_flags & 0x0001) == 0) {
-        do {
-            while (len == 0) { p = iov->iov_base; len = iov->iov_len; iov++; }
-            w = fp->_w;
-            if (fp->_flags & 0x0200) {
-                if (len < (u32)w)
-                    w = len;
-                memmove(fp->_p, p, w);
-                fp->_w -= w;
-                fp->_p += w;
-                w = len;
-            } else if (fp->_p > fp->_bf._base && len > (u32)w) {
-                memmove(fp->_p, p, w);
-                fp->_p += w;
-                if (fflush(fp))
-                    goto err;
-            } else if (len >= (u32)(w = fp->_bf._size)) {
-                w = fp->_write(fp->_cookie, p, w);
-                if (w <= 0)
-                    goto err;
-            } else {
-                w = len;
-                memmove(fp->_p, p, w);
-                fp->_w -= w;
-                fp->_p += w;
-            }
-            p += w;
-            len -= w;
-        } while ((uio->uio_resid -= w) != 0);
-    } else {
-        nlknown = 0;
-        do {
-            while (len == 0) { nlknown = 0; p = iov->iov_base; len = iov->iov_len; iov++; }
-            if (!nlknown) {
-                nl = (char*)memchr(p, '\n', len);
-                nldist = nl ? nl + 1 - p : len + 1;
-                nlknown = 1;
-            }
-            s = len < (u32)nldist ? len : nldist;
-            w = fp->_w + fp->_bf._size;
-            if (fp->_p > fp->_bf._base && s > w) {
-                memmove(fp->_p, p, w);
-                fp->_p += w;
-                if (fflush(fp))
-                    goto err;
-            } else if (s >= (w = fp->_bf._size)) {
-                w = fp->_write(fp->_cookie, p, w);
-                if (w <= 0)
-                    goto err;
-            } else {
-                w = s;
-                memmove(fp->_p, p, w);
-                fp->_w -= w;
-                fp->_p += w;
-            }
-            if ((nldist -= w) == 0) {
-                if (fflush(fp))
-                    goto err;
-                nlknown = 0;
-            }
-            p += w;
-            len -= w;
-        } while ((uio->uio_resid -= w) != 0);
-    }
-    return 0;
-err:
-    fp->_flags |= 0x0040;
-    return -1;
-}
+s32 __sfvwrite(File3032d0* fp, Suio3032d0* uio);  // 0x003032d0: definition moved into src/newlib/libc/fvwrite.c
 
 // --------------------
 // fdlibm/newlib __ieee754_rem_pio2f, EE build (_FLT_LARGEST_EXPONENT_IS_NORMAL: no inf/NaN case).
@@ -6404,87 +6283,7 @@ s32 func_00303170__302e90(void*, u32) asm("_malloc_trim_r");
 #define trim_threshold D_00366058
 #define top_pad D_00366060
 void _free_r(void* reent_ptr, void* mem) asm("_Z7_free_rjjjj");
-void _free_r(void* reent_ptr, void* mem)
-{
-  mchunkptr302e90 p;
-  u32 hd;
-  u32 sz;
-  int idx;
-  mchunkptr302e90 next;
-  u32 nextsz;
-  u32 prevsz;
-  mchunkptr302e90 bck;
-  mchunkptr302e90 fwd;
-  int islr;
-
-  if (mem == 0)
-    return;
-
-  func_002fded8__302e90(reent_ptr);
-
-  p = (mchunkptr302e90)((char*)mem - 2 * M_SIZE_SZ);
-  hd = p->size;
-
-  sz = hd & ~M_PREV_INUSE;
-  next = chunk_at_offset(p, sz);
-  nextsz = chunksize(next);
-
-  if (next == top)
-  {
-    sz += nextsz;
-
-    if ((hd & M_PREV_INUSE) == 0)
-    {
-      prevsz = p->prev_size;
-      p = chunk_at_offset(p, -prevsz);
-      sz += prevsz;
-      unlink(p, bck, fwd);
-    }
-
-    set_head(p, sz | M_PREV_INUSE);
-    top = p;
-    if ((unsigned long)(sz) >= (unsigned long)trim_threshold)
-      func_00303170__302e90(reent_ptr, top_pad);
-    func_002fdf30__302e90(reent_ptr);
-    return;
-  }
-
-  set_head(next, nextsz);
-
-  islr = 0;
-
-  if ((hd & M_PREV_INUSE) == 0)
-  {
-    prevsz = p->prev_size;
-    p = chunk_at_offset(p, -prevsz);
-    sz += prevsz;
-
-    if (p->fd == last_remainder)
-      islr = 1;
-    else
-      unlink(p, bck, fwd);
-  }
-
-  if ((((mchunkptr302e90)(((char*)(next)) + (nextsz)))->size & M_PREV_INUSE) == 0)
-  {
-    sz += nextsz;
-
-    if (!islr && next->fd == last_remainder)
-    {
-      islr = 1;
-      link_last_remainder(p);
-    }
-    else
-      unlink(next, bck, fwd);
-  }
-
-  set_head(p, sz | M_PREV_INUSE);
-  set_foot(p, sz);
-  if (!islr)
-    frontlink(p, sz, idx, bck, fwd);
-
-  func_002fdf30__302e90(reent_ptr);
-}
+void _free_r(void* reent_ptr, void* mem);  // 0x00302e90: definition moved into src/newlib/libc/freer.c
 #undef trim_threshold
 #undef top_pad
 #undef M_SIZE_SZ

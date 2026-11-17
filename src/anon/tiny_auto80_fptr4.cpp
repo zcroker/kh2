@@ -642,18 +642,7 @@ u32 func_002f6fa0(u32 a0, u32 a1, u32 a2, u32 a3) {
     return r2;
 }
 
-void _Bfree(u32 a0, u32 a1, u32 a2, u32 a3) {  // push_entry_onto_slot_list
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r13, r14, r15;
-    if (r5 != 0u) {
-        r15 = *(u32*)((u32)r5 + (s32)(4));
-        r13 = *(u32*)((u32)r4 + (s32)(76));
-        r15 = (u32)(r15 << 2);
-        r15 = (u32)(r15 + r13);
-        r14 = *(u32*)((u32)r15 + (s32)(0));
-        *(u32*)((u32)r5 + (s32)(0)) = r14;
-        *(u32*)((u32)r15 + (s32)(0)) = r5;
-    }
-}
+void _Bfree(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00303c18: definition moved into src/newlib/libc/mprec.c
 
 u32 func_0030bb90(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0030bb90: definition moved into src/sdk/filestub.c
 

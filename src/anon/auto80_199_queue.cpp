@@ -1859,143 +1859,19 @@ s32 func_002fea18();  // 0x002fea18: definition moved into src/newlib/libc/rand.
 
 s32 func_002feac0(u32 a0);  // 0x002feac0: definition moved into src/newlib/libc/signal.c
 
-void func_002fed98(u32* a0, u32 a1, u32 a2) {
-    u32* b = (u32*)0x00380000u;
-    b[-7495] = 0u;
-    s32 r = func_00305df8(a1, a2);
-    if (r == -1) {
-        u32 v = b[-7495];
-        if (v != 0u) {
-            *a0 = v;
-        }
-    }
-}
+void func_002fed98(u32* a0, u32 a1, u32 a2);  // 0x002fed98: definition moved into src/newlib/libc/signalr.c
 
 u32 func_00302c88(u32 a0, u32 a1);  // 0x00302c88: definition moved into src/newlib/libc/findfp.c
 
 void func_00302e10(u32 a0);  // 0x00302e10: definition moved into src/newlib/libc/findfp.c
 
-u32 func_00303e80(u32 a0) {  // count_leading_zeros
-    u32 x = a0;
-    u32 n = 0u;
+u32 func_00303e80(u32 a0);  // 0x00303e80: definition moved into src/newlib/libc/mprec.c
 
-    if ((x & 0xFFFF0000u) == 0u) {
-        n = 16u;
-        x <<= 16;
-    }
-    if ((x & 0xFF000000u) == 0u) {
-        n += 8u;
-        x <<= 8;
-    }
-    if ((x & 0xF0000000u) == 0u) {
-        n += 4u;
-        x <<= 4;
-    }
-    if ((x & 0xC0000000u) == 0u) {
-        n += 2u;
-        x <<= 2;
-    }
+u32 func_00303f00(u32* p);  // 0x00303f00: definition moved into src/newlib/libc/mprec.c
 
-    if ((s32)x < 0) {
-        goto ret_n;
-    }
+s32 func_003050b8(u32* out, u32 a1, u32 a2);  // 0x003050b8: definition moved into src/newlib/libc/fstatr.c
 
-    {
-        u32 mask = 0x40000000u;
-        n += 1u;
-        if ((x & mask) == 0u) {
-            return 32u;
-        }
-    }
-
-ret_n:
-    return n;
-}
-
-u32 func_00303f00(u32* p) {
-    u32 t6 = p[0];
-    u32 t7 = t6 & 7u;
-    if (t7 == 0u) {
-        goto L00303f44;
-    }
-
-    t7 = t6 & 1u;
-    if (t7 != 0u) {
-        return 0u;
-    }
-
-    if ((t6 & 2u) != 0u) {
-        t7 = t6 >> 1;
-        p[0] = t7;
-        return 1u;
-    }
-
-    t7 = t6 >> 2;
-    p[0] = t7;
-    return 2u;
-
-L00303f44:
-    t7 = t6 & 0xFFFFu;
-    u32 t5 = 0u;
-    if (t7 == 0u) {
-        t5 = 16u;
-        t6 >>= 16;
-    }
-
-    t7 = t6 & 0xFFu;
-    if (t7 == 0u) {
-        t5 += 8u;
-        t6 >>= 8;
-    }
-
-    t7 = t6 & 0xFu;
-    if (t7 == 0u) {
-        t5 += 4u;
-        t6 >>= 4;
-    }
-
-    t7 = t6 & 3u;
-    if (t7 == 0u) {
-        t5 += 2u;
-        t6 >>= 2;
-    }
-
-    t7 = t6 & 1u;
-    if (t7 == 0u) {
-        t5 += 1u;
-        t6 >>= 1;
-        if (t6 == 0u) {
-            return 32u;
-        }
-    }
-
-    p[0] = t6;
-    return t5;
-}
-
-s32 func_003050b8(u32* out, u32 a1, u32 a2) {
-    D_00378ae4 = 0;
-    s32 r = func_00305dd8(a1, a2);
-    if (r == -1) {
-        u32 t = D_00378ae4;
-        if (t != 0u) {
-            out[0] = t;
-        }
-    }
-    return r;
-}
-
-s32 func_00305110(u32* out, u32 a1, u32 a2, u32 a3) {
-    D_00378ae4 = 0;
-    s32 r = func_00305d18(a1, a2, a3);
-    if (r == -1) {
-        u32 t = D_00378ae4;
-        if (t != 0u) {
-            out[0] = t;
-        }
-    }
-    return r;
-}
+s32 func_00305110(u32* out, u32 a1, u32 a2, u32 a3);  // 0x00305110: definition moved into src/newlib/libc/lseekr.c
 
 void func_0030f068() {
     func_0030ee18();

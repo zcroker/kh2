@@ -97,39 +97,5 @@ W279Big* w279_balloc(void*, s32) asm("_Z7_Ballocjjjj");
 s32 func_00303e80(u32);  // count_leading_zeros
 s32 func_00303f00(u32*);
 union W279Dbl { double d; u32 w[2]; };
-W279Big* __d2b(void* ptr, double dd, s32* e, s32* bits) {
-    W279Dbl d;
-    W279Big* b;
-    s32 de, i, k;
-    u32* x;
-    u32 y, z;
-    d.d = dd;
-    b = w279_balloc(ptr, 1);
-    x = b->x;
-    z = d.w[1] & 0xfffff;
-    d.w[1] &= 0x7fffffff;
-    if ((de = (s32)(d.w[1] >> 20)) != 0) z |= 0x100000;
-    if (d.w[0] != 0) {
-        y = d.w[0];
-        if ((k = func_00303f00(&y)) != 0) {
-            x[0] = y | z << (32 - k);
-            z >>= k;
-        } else
-            x[0] = y;
-        i = b->wds = (x[1] = z) ? 2 : 1;
-    } else {
-        k = func_00303f00(&z);
-        x[0] = z;
-        i = b->wds = 1;
-        k += 32;
-    }
-    if (de) {
-        *e = de - 1023 - 52 + k;
-        *bits = 53 - k;
-    } else {
-        *e = de - 1023 - 52 + 1 + k;
-        *bits = 32 * i - func_00303e80(x[i - 1]);
-    }
-    return b;
-}
+W279Big* __d2b(void* ptr, double dd, s32* e, s32* bits);  // 0x003048b8: definition moved into src/newlib/libc/mprec.c
 }

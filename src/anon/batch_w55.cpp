@@ -328,31 +328,11 @@ extern "C" {
 // 002f07f8: moved to src/naka/libkn/trapfunctions.cpp
 
 // ORs fn() over every active item of every block in the chain.
-u32 func_00303698(u8* p, u32 (*fn)(ItemW55*)) {
-    u32 r = 0;
-    BlkW55* b;
-    for (b = (BlkW55*)(p + 472); b; b = b->next) {
-        s32 i = b->count;
-        ItemW55* it = b->items;
-        while (--i >= 0) {
-            if (it->on) r |= fn(it);
-            it++;
-        }
-    }
-    return r;
-}
+u32 func_00303698(u8* p, u32 (*fn)(ItemW55*));  // 0x00303698: definition moved into src/newlib/libc/fwalk.c
 
 }
 
-const char* wtarget_00303728(u32 a, u32 b, u32 c, u32) {
-    const char* s = (const char*)c;
-    if (s) {
-        if (strcmp(s, D_00377cf8) && strcmp(s, D_00377cc0)) return 0;
-        *(u32*)(a + 48) = b;
-        *(u32*)(a + 52) = c;
-    }
-    return D_00377cf8;
-}
+const char* wtarget_00303728(u32 a, u32 b, u32 c, u32);  // 0x00303728: definition moved into src/newlib/libc/locale.c
 
 extern "C" {
 

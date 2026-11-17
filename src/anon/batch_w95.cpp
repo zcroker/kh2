@@ -457,32 +457,6 @@ Bigint* __i2b(Reent*, s32);
 Bigint* __multiply(Reent*, Bigint*, Bigint*);
 void _Bfree(Reent*, Bigint*);  // push_entry_onto_slot_list
 // newlib mprec: __pow5mult (b * 5^k).
-Bigint* __pow5mult(Reent* ptr, Bigint* b, s32 k) {
-    Bigint *b1, *p5, *p51;
-    s32 i;
-    if ((i = k & 3) != 0)
-        b = __multadd(ptr, b, D_00377d00[i - 1], 0);
-    if (!(k >>= 2))
-        return b;
-    if (!(p5 = ptr->p5s)) {
-        p5 = ptr->p5s = __i2b(ptr, 625);
-        p5->next = 0;
-    }
-    for (;;) {
-        if (k % 2) {
-            b1 = __multiply(ptr, b, p5);
-            _Bfree(ptr, b);  // push_entry_onto_slot_list
-            b = b1;
-        }
-        if (!(k >>= 1))
-            break;
-        if (!(p51 = p5->next)) {
-            p51 = p5->next = __multiply(ptr, p5, p5);
-            p51->next = 0;
-        }
-        p5 = p51;
-    }
-    return b;
-}
+Bigint* __pow5mult(Reent* ptr, Bigint* b, s32 k);  // 0x00304200: definition moved into src/newlib/libc/mprec.c
 
 }

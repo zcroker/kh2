@@ -243,38 +243,6 @@ void func_002baa78(void);  // 0x002baa78: definition moved into src/anon/unit_00
 // 002ef028: moved to src/anon/unit_002ee8a8.cpp
 
 // newlib mprec __lshift: b << k as a new Bigint (frees b).
-Bigint_w96* __lshift(void* ptr, Bigint_w96* b, s32 k) {
-    s32 i, k1, n, n1;
-    Bigint_w96* b1;
-    u32 *x, *x1, *xe, z;
-
-    n = k >> 5;
-    k1 = b->k;
-    n1 = n + b->wds + 1;
-    for (i = b->maxwds; n1 > i; i <<= 1)
-        k1++;
-    b1 = _Balloc(ptr, k1);
-    x1 = b1->x;
-    for (i = 0; i < n; i++)
-        *x1++ = 0;
-    x = b->x;
-    xe = x + b->wds;
-    if (k &= 0x1f) {
-        k1 = 32 - k;
-        z = 0;
-        do {
-            *x1++ = *x << k | z;
-            z = *x++ >> k1;
-        } while (x < xe);
-        if ((*x1 = z) != 0)
-            ++n1;
-    } else
-        do
-            *x1++ = *x++;
-        while (x < xe);
-    b1->wds = n1 - 1;
-    _Bfree(ptr, b);  // push_entry_onto_slot_list
-    return b1;
-}
+Bigint_w96* __lshift(void* ptr, Bigint_w96* b, s32 k);  // 0x00304308: definition moved into src/newlib/libc/mprec.c
 
 }

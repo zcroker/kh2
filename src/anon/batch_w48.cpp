@@ -229,20 +229,7 @@ void func_002e7c18(u32* o);  // 0x002e7c18: definition moved into src/anon/unit_
 
 struct Bigint { void* next; s32 k; s32 maxwds; s32 sign; s32 wds; u32 x[1]; };
 /* newlib __mcmp: compare two bigints */
-s32 __mcmp(Bigint* a, Bigint* b) {  // cmp_entries_16_then_words
-    u32 *xa, *xa0, *xb, *xb0;
-    s32 i = a->wds, j = b->wds;
-    if ((i -= j)) return i;
-    xa0 = a->x;
-    xa = xa0 + j;
-    xb0 = b->x;
-    xb = xb0 + j;
-    for (;;) {
-        if (*--xa != *--xb) return *xa < *xb ? -1 : 1;
-        if (xa <= xa0) break;
-    }
-    return 0;
-}
+s32 __mcmp(Bigint* a, Bigint* b);  // 0x00304468: definition moved into src/newlib/libc/mprec.c
 }
 
 // 002e76c8: moved to src/anon/unit_002e7658.cpp

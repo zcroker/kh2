@@ -265,16 +265,7 @@ u32 func_002eaa70(u32 a0, u32 a1, u32 a2, u32 a3);  // 002eaa70: moved to src/an
 
 // 002f0c20: moved to src/naka/libkn/trapfunctions.cpp
 
-u32 __i2b(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u, r15 = 0u, r16 = 0u;
-    r16 = r5;
-    r5 = (u32)((s32)0u + (1));
-    r2 = _Balloc(r4, r5, r6, r7);
-    *(u32*)((u32)r2 + (s32)(20)) = r16;
-    r15 = (u32)((s32)0u + (1));
-    *(u32*)((u32)r2 + (s32)(16)) = r15;
-    return r2;
-}
+u32 __i2b(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00303fc0: definition moved into src/newlib/libc/mprec.c
 
 u32 func_0031e8e0(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u, r16 = 0u;

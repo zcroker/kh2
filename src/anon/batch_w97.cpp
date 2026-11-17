@@ -415,32 +415,7 @@ struct Ctx304 {
 extern Ctx304* D_00365c48;
 void _free_r(Ctx304*, void*);
 void func_00304b60(Ctx304*, u32);
-void func_00304ba8(Ctx304* c) {
-    if (c == D_00365c48) return;
-    if (c->f76) {
-        for (s32 i = 0; i < 15; i++) {
-            Node304* n = c->f76[i];
-            while (n) {
-                Node304* cur = n;
-                n = n->next;
-                _free_r(c, cur);
-            }
-        }
-        _free_r(c, c->f76);
-    }
-    if (c->f328 && c->f328 != &c->f332) {
-        Node304* n = c->f328;
-        do {
-            Node304* cur = n;
-            n = n->next;
-            _free_r(c, cur);
-        } while (n != &c->f332);
-    }
-    if (c->f84) _free_r(c, c->f84);
-    if (!c->f56) return;
-    c->f60(c);
-    if (c->f472) func_00304b60(c, c->f472);
-}
+void func_00304ba8(Ctx304* c);  // 0x00304ba8: definition moved into src/newlib/libc/reent.c
 
 // ---- 00323e98
 extern u8 D_00347f98[];

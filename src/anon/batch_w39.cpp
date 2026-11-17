@@ -366,12 +366,7 @@ Vec4* func_0010fa58(S2f0*);
 // newlib __sread: read through the reentrant hook, track the offset.
 struct File304 { u8 pad[12]; u16 flags; s16 file; u8 pad2[80 - 16]; s32 offset; u32 data; };
 long _read_r(u32, int, void*, int);
-int __sread(File304* fp, void* buf, int n) {
-    int ret = _read_r(fp->data, fp->file, buf, n);
-    if (ret >= 0) fp->offset += ret;
-    else fp->flags &= ~0x1000;
-    return ret;
-}
+int __sread(File304* fp, void* buf, int n);  // 0x00304de8: definition moved into src/newlib/libc/stdio.c
 
 // --- 00302c28
 // newlib std(): initialise a standard stream.

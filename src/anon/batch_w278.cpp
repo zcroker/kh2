@@ -46,51 +46,7 @@ struct Big278 { Big278* next; s32 k, maxwds, sign, wds; u32 x[1]; };
 extern "C" {
 s32 __mcmp(Big278*, Big278*);  // cmp_entries_16_then_words
 Big278* _Balloc(void*, s32);
-Big278* __mdiff(void* ptr, Big278* a, Big278* b) {
-    Big278* c;
-    s32 i, wa, wb;
-    s32 borrow, y, z;
-    u32 *xa, *xae, *xb, *xbe, *xc;
-    i = __mcmp(a, b);  // cmp_entries_16_then_words
-    if (!i) {
-        c = _Balloc(ptr, 0);
-        c->wds = 1;
-        c->x[0] = 0;
-        return c;
-    }
-    if (i < 0) {
-        c = a; a = b; b = c;
-        i = 1;
-    } else
-        i = 0;
-    c = _Balloc(ptr, a->k);
-    c->sign = i;
-    wa = a->wds;
-    xa = a->x;
-    xae = xa + wa;
-    wb = b->wds;
-    xb = b->x;
-    xbe = xb + wb;
-    xc = c->x;
-    borrow = 0;
-    do {
-        y = (*xa & 0xffff) - (*xb & 0xffff) + borrow;
-        borrow = y >> 16;
-        z = (*xa++ >> 16) - (*xb++ >> 16) + borrow;
-        borrow = z >> 16;
-        ((u16*)xc)[0] = y; ((u16*)xc)[1] = z; xc++;
-    } while (xb < xbe);
-    while (xa < xae) {
-        y = (*xa & 0xffff) + borrow;
-        borrow = y >> 16;
-        z = (*xa++ >> 16) + borrow;
-        borrow = z >> 16;
-        ((u16*)xc)[0] = y; ((u16*)xc)[1] = z; xc++;
-    }
-    while (!*--xc) wa--;
-    c->wds = wa;
-    return c;
-}
+Big278* __mdiff(void* ptr, Big278* a, Big278* b);  // 0x003044d0: definition moved into src/newlib/libc/mprec.c
 }
 struct Vq278 {
     f32 x, y, z, w;

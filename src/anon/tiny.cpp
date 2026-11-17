@@ -973,13 +973,7 @@ u32 sceGsGetGParam(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_363c40
     return (u32)&D_00363c40;
 }
 
-u32 func_003037b0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a0;
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    return (u32)&D_00377cc8;
-}
+u32 func_003037b0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x003037b0: definition moved into src/newlib/libc/locale.c
 
 void func_003155e8(u32 a0, u32 a1, u32 a2, u32 a3) {  // set_vtbl_367878
     (void)a1;

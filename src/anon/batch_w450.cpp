@@ -10,42 +10,6 @@ void __malloc_lock(void*);
 void __malloc_unlock(void*);
 u8* func_002fea70(void*, s32);
 // newlib _malloc_trim_r: give unused memory at the top of the heap back to sbrk.
-s32 _malloc_trim_r(void* r, u32 pad) {
-    s64 top_size;
-    s64 extra;
-    u8* current_brk;
-    u8* new_brk;
-    u64 pagesz = 4096;
-    __malloc_lock(r);
-    top_size = D_00365c50[2]->size & ~3;
-    extra = ((top_size - pad - 16 + (pagesz - 1)) / pagesz - 1) * pagesz;
-    if (extra < (s64)pagesz) {
-        __malloc_unlock(r);
-        return 0;
-    } else {
-        current_brk = func_002fea70(r, 0);
-        if (current_brk != (u8*)D_00365c50[2] + (s32)top_size) {
-            __malloc_unlock(r);
-            return 0;
-        } else {
-            new_brk = func_002fea70(r, -(s32)extra);
-            if (new_brk == (u8*)-1) {
-                current_brk = func_002fea70(r, 0);
-                top_size = current_brk - (u8*)D_00365c50[2];
-                if (top_size >= 16) {
-                    D_00366080.arena = current_brk - D_00366068;
-                    D_00365c50[2]->size = top_size | 1;
-                }
-                __malloc_unlock(r);
-                return 0;
-            } else {
-                D_00365c50[2]->size = (top_size - extra) | 1;
-                D_00366080.arena -= extra;
-                __malloc_unlock(r);
-                return 1;
-            }
-        }
-    }
-}
+s32 _malloc_trim_r(void* r, u32 pad);  // 0x00303170: definition moved into src/newlib/libc/freer.c
 
 }

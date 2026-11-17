@@ -193,16 +193,7 @@ u32 func_002f1898(void);  // 0x002f1898: definition moved into src/anon/unit_002
 
 // fdlibm isnan(): 1 if x is NaN
 union DblBits { double d; u64 u; };
-s32 func_00304db0(double d) {
-    DblBits u;
-    u.d = d;
-    s32 hx = (s32)(u.u >> 32);
-    s32 lx = (s32)u.u;
-    hx &= 0x7fffffff;
-    hx |= (u32)(lx | (-lx)) >> 31;
-    hx = 0x7ff00000 - hx;
-    return (s32)((u32)hx >> 31);
-}
+s32 func_00304db0(double d);  // 0x00304db0: definition moved into src/newlib/libc/s_isnan.c
 
 u8 func_0031c8e8(void** p) {
     *p = &D_00347e60;

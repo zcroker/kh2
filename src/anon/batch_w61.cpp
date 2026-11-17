@@ -226,15 +226,7 @@ void sceVu0RotMatrixX(void*, void*, f32);
 
 union DW { double d; u64 u; struct { u32 lo; s32 hi; } w; };
 // fdlibm isinf
-s32 func_00304d68(double x) {
-    DW u; u.d = x;
-    s32 hx = u.w.hi;
-    s32 lx = u.w.lo;
-    hx &= 0x7fffffff;
-    hx |= (u32)(lx | (-lx)) >> 31;
-    hx = 0x7ff00000 - hx;
-    return 1 - (s32)((u32)(hx | (-hx)) >> 31);
-}
+s32 func_00304d68(double x);  // 0x00304d68: definition moved into src/newlib/libc/s_isinf.c
 
 u64 func_00314330(s32);
 u64 func_00313f40(u64, u64);  // double_mul

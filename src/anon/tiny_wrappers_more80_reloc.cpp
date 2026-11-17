@@ -260,9 +260,7 @@ u32 func_002fed30(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002fed30: definition mo
 
 u32 strtol(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002ffbb0: definition moved into src/newlib/libc/strtol.c
 
-u32 func_003037c0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_00303728(((u32)(*(u32*)((u32)((u32)&D_00360000) + 23624u))), a0, a1, a3);
-}
+u32 func_003037c0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x003037c0: definition moved into src/newlib/libc/locale.c
 
 u32 func_00321a70(u32 a0, u32 a1, u32 a2, u32 a3) {
     *(u32*)((u32)(a0) + 0u) = (u32)((u32)&D_00352a20);

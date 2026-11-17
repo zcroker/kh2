@@ -3600,19 +3600,7 @@ extern "C" u32 func_003037b0(...);
 
 extern "C" u32 _free_r(...);
 
-u32 func_00304b60(u32 a0, u32 a1) {
-    u32 r4 = a0, r5 = a1, r2, r15, r16, r17;
-    r16 = r5;
-    r17 = r4;
-    r15 = *(volatile u32*)((u32)r5 + (s32)(0));
-    r5 = r15;
-    if (r15 != 0u) {
-        r2 = ((u32(*)(u32,u32))func_00304b60)(r4, r5);
-    }
-    r4 = r17;
-    r5 = r16;
-    return ((u32(*)(u32,u32))_free_r)(r4, r5);
-}
+u32 func_00304b60(u32 a0, u32 a1);  // 0x00304b60: definition moved into src/newlib/libc/reent.c
 
 extern "C" u32 func_0030e548(...);
 
@@ -11656,40 +11644,9 @@ u32 func_002fdfc8(u32 a0, ...);  // 0x002fdfc8: definition moved into src/newlib
 
 void func_002fea70(s32* a0, u32 a1);  // 0x002fea70: definition moved into src/newlib/libc/sbrkr.c
 
-s32 func_00303958(u32 a0, u32* a1, u8* a2, u32 a3) {
-    (void)a0;
-    s32 v0 = 0;
-    u32 tmp;
+s32 func_00303958(u32 a0, u32* a1, u8* a2, u32 a3);  // 0x00303958: definition moved into src/newlib/libc/mbtowc_r.c
 
-    if (a2 == 0) {
-        return v0;
-    }
-
-    if (a1 == 0) {
-        a1 = &tmp;
-    }
-
-    if (a3 == 0) {
-        return -1;
-    }
-
-    u8 t7 = a2[0];
-    *a1 = (u32)t7;
-    u8 t6 = a2[0];
-    v0 = (t6 != 0) ? 1 : 0;
-    return v0;
-}
-
-void func_00305068(s32* a0, u32 a1) {
-    D_00378ae4 = 0;
-    s32 v0 = func_00305d08(a1);
-    if (v0 == -1) {
-        s32 t7 = D_00378ae4;
-        if (t7 != 0) {
-            *a0 = t7;
-        }
-    }
-}
+void func_00305068(s32* a0, u32 a1);  // 0x00305068: definition moved into src/newlib/libc/closer.c
 
 void func_0030e508(u32 a0, u32 a1, u32 a2);  // 0x0030e508: definition moved into src/sdk/eeloadfile.c
 

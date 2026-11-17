@@ -187,40 +187,5 @@ void* mal269(u8*, u32) asm("_Z9_malloc_rjjjj");
 s32 isatty269(s32) asm("_Z13func_00305dd0xxxx");
 void func_00302dd0(void);
 s32 func_00304ec8(void*, s32, s32);
-void func_00303808(SF269* fp) {
-    u32 size;
-    s32 couldbetty;
-    void* p;
-    SS269 st;
-    if (fp->flags & 2) {
-        fp->base = fp->p = fp->nbuf;
-        fp->size = 1;
-        return;
-    }
-    if (fp->file < 0 || func_003050b8(fp->data, fp->file, &st) < 0) {
-        couldbetty = 0;
-        size = 1024;
-        fp->flags |= 0x800;
-    } else {
-        couldbetty = (st.mode & 0xf000) == 0x2000;
-        size = 1024;
-        if ((st.mode & 0xf000) == 0x8000 && fp->seek == (void*)func_00304ec8) {
-            fp->flags |= 0x400;
-            fp->blksize = size;
-        } else {
-            fp->flags |= 0x800;
-        }
-    }
-    if ((p = mal269(fp->data, size)) == 0) {
-        fp->flags |= 2;
-        fp->base = fp->p = fp->nbuf;
-        fp->size = 1;
-    } else {
-        *(void**)(fp->data + 60) = (void*)func_00302dd0;
-        fp->flags |= 0x80;
-        fp->base = fp->p = (u8*)p;
-        fp->size = size;
-        if (couldbetty && isatty269(fp->file)) fp->flags |= 1;
-    }
-}
+void func_00303808(SF269* fp);  // 0x00303808: definition moved into src/newlib/libc/makebuf.c
 }
