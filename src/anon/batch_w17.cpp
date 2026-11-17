@@ -146,10 +146,7 @@ void func_001e6648(void);  // 0x001e6648: definition moved into src/anon/unit_00
 extern u32 D_0035dae4;
 void func_00225fa0(u32, u32);
 void func_00227930(void*);
-void func_00225690(u8* p) {
-    func_00225fa0(D_0035dae4, *(u32*)(p + 24));
-    func_00227930(p);
-}
+void func_00225690(u8* p);  // 0x00225690: definition moved into src/anon/unit_00224780.cpp
 
 // Store the vector (x, y, z, 0) into slot p[2916 + i] of the 320-byte table at p + 1664.
 void func_0023e918(u8* p, s32 i, f32 x, f32 y, f32 z) {

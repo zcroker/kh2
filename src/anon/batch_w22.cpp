@@ -164,26 +164,11 @@ void func_001e0f90(u8* p);  // 0x001e0f90: definition moved into src/anon/unit_0
 extern s32 D_0035de20;
 extern s32 D_0035dad8;
 extern s32 D_0035dad4;
-void func_002247e8(void) {
-    if (D_0035dad8 != D_0035de20) {
-        s32 n = D_0035dad4;
-        if (n < 5) {
-            D_0035dad4 = n + 1;
-            D_0035dad8 = D_0035de20;
-        }
-    }
-}
+void func_002247e8(void);  // 0x002247e8: definition moved into src/anon/unit_00224780.cpp
 
 // --- 00227a28
 extern u8* D_0035dcf0;
-u8* func_00227a28(void) {
-    u8* p = D_0035dcf0;
-    for (s32 i = 0; i < 128; i++) {
-        if (*(u32*)(p + 4) == 0) return p;
-        p += 84;
-    }
-    return 0;
-}
+u8* func_00227a28(void);  // 0x00227a28: definition moved into src/anon/unit_00224780.cpp
 
 // --- 0022be28
 void func_00226e60(u32);

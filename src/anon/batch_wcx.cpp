@@ -538,13 +538,7 @@ extern u8* D_0035dcf0;
 s32 strcmp(u8*, u32);  // strcmp
 struct E84 { s32 id; u32 used; u8 pad[40]; u8 name[36]; };
 extern E84* D_0035dcf0b asm("D_0035dcf0");
-E84* func_00227a60(u32 name, s32 id)
-{
-    for (s32 i = 0; i < 128; i++) {
-        if (D_0035dcf0b[i].used && D_0035dcf0b[i].id == id && !strcmp(D_0035dcf0b[i].name, name)) return &D_0035dcf0b[i];
-    }
-    return 0;
-}
+E84* func_00227a60(u32 name, s32 id);  // 0x00227a60: definition moved into src/anon/unit_00224780.cpp
 }
 
 }
@@ -2174,31 +2168,7 @@ void func_0022d7c8(void);
 void func_00225a00(void);  // zero_global_byte_e
 void func_00225a20(void);
 void func_0022d7e8(void);
-void func_00226fc8(void)
-{
-    D_0035de24 = 0;
-    D_0035de25 = 0;
-    D_0035de28 = -1;
-    func_0022d7c8();
-    func_00225a00();  // zero_global_byte_e
-    func_00225a20();
-    D_0035de4c = 0;
-    D_0035de50 = 0;
-    D_0035de2c = 0;
-    D_0035de56 = 0;
-    D_0035dd04 = -1;
-    u32* w = D_0035dd08;
-    s32 i = 63;
-    do {
-        *w = 0;
-        i--;
-        // R5900 short-loop padding
-        asm volatile("nop\n\tnop\n\tnop");
-        w++;
-    } while (i >= 0);
-    func_0022d7e8();
-    asm volatile("sqc2 $vf0, 0(%0)" : : "r"(&D_0035de70) : "memory");
-}
+void func_00226fc8(void);  // 0x00226fc8: definition moved into src/anon/unit_00224780.cpp
 extern f32 D_00349e10;
 struct Seg { V4 a, b; };
 void func_00144490(Seg*, f32, f32, f32, f32, f32, f32);

@@ -20,18 +20,7 @@ JS_198040* func_001a8b28(void);
 
 /* heap block free + coalesce with free neighbours */
 struct Blk_225fa0 { Blk_225fa0* next; Blk_225fa0* prev; u8 used; u8 pad[3]; s32 size; };
-void func_00225fa0(void* a0, void* p) {
-    Blk_225fa0* b = (Blk_225fa0*)((u8*)p - 0x40);
-    b->used = 0;
-    Blk_225fa0* lo = b;
-    while (lo->prev && !lo->prev->used) lo = lo->prev;
-    Blk_225fa0* hi = b;
-    while (hi->next && !hi->next->used) hi = hi->next;
-    Blk_225fa0* n = hi->next;
-    if (n) n->prev = lo;
-    lo->next = n;
-    lo->size = (u8*)hi + hi->size - (u8*)lo;
-}
+void func_00225fa0(void* a0, void* p);  // 0x00225fa0: definition moved into src/anon/unit_00224780.cpp
 
 void func_0016aef0(u8*, V4_df040*);
 V4_df040* func_0016c028(u8*);

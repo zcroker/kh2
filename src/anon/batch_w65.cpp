@@ -223,12 +223,7 @@ void func_0021ea50(f32* m, u32 a) {  // table_float_pair_lookup_b
 // Store a copy of the 40-byte record in the first free (-1) slot.
 struct Rec40 { s32 id; u8 b[36]; };
 extern Rec40* D_0035dcfc;
-void func_00227da8(Rec40* src) {
-    s32 i;
-    for (i = 0; i < 96; i++) {
-        if (D_0035dcfc[i].id == -1) { D_0035dcfc[i] = *src; return; }
-    }
-}
+void func_00227da8(Rec40* src);  // 0x00227da8: definition moved into src/anon/unit_00224780.cpp
 
 void func_0023a0d8(void*);
 void SEQ_GetActiveXY(u8* p, s32* x, s32* y) {

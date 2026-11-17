@@ -143,14 +143,7 @@ void func_0021efa8(u32 a0, u32 a1, u32 a2, u32 a3) {
 
 extern "C" void func_00226ed0(u32, u32, u32, u32) asm("_ZN2sa5EVENT12readWaitInitEv");
 
-u32 func_00227858(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u, r15 = 0u;
-    r15 = (u32)((s32)0u + (2));
-    *(u32*)((u32)r5 + (s32)(24)) = r4;
-    *(u32*)((u32)r5 + (s32)(4)) = r15;
-    r2 = r4;
-    return r2;
-}
+u32 func_00227858(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00227858: definition moved into src/anon/unit_00224780.cpp
 
 void func_00229830(u32 a0, u32 a1, u32 a2, u32 a3);  // 00229830: moved to src/sasa/musical_score.cpp (linked unit)
 

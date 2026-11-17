@@ -849,14 +849,9 @@ u32 func_0021fe08(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_0021efa8(((u32)(a0) + 8u), a1, a2, a3);
 }
 
-u32 func_00227a08(u32 a0, u32 a1, u32 a2, u32 a3) {
-    *(u32*)((u32)(((u32)(*(u32*)((u32)(a0) + 4u)))) + 4u) = (u32)(0x00000004u);
-    return func_001024a8(a0, a1, a2, a3);
-}
+u32 func_00227a08(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00227a08: definition moved into src/anon/unit_00224780.cpp
 
-u32 func_00228450(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_00228420(0x00000001u, 0x0000ffffu, a2, a3);
-}
+u32 func_00228450(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00228450: definition moved into src/anon/unit_00224780.cpp
 
 u32 func_00229430(u32 a0, u32 a1, u32 a2, u32 a3);  // 00229430: moved to src/sasa/musical_score.cpp (linked unit)
 

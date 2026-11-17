@@ -286,19 +286,7 @@ extern void* D_0035db14;
 }
 extern "C" {
 // Frees all of this module's buffers.
-void func_002267a0(void) {
-    func_002255f0();
-    if (D_0035dce0) { func_00106450(D_0035dce0); D_0035dce0 = 0; }
-    if (D_0035dce4) { func_00106450(D_0035dce4); D_0035dce4 = 0; }
-    if (D_0035dce8) { func_00106450(D_0035dce8); D_0035dce8 = 0; }
-    if (D_0035dcec) { func_00106450(D_0035dcec); D_0035dcec = 0; }
-    if (D_0035dcf4) { delete[] D_0035dcf4; D_0035dcf4 = 0; }
-    if (D_0035dcf0) { func_00105110(D_0035dcf0); D_0035dcf0 = 0; }
-    if (D_0035dcf8) { delete[] D_0035dcf8; D_0035dcf8 = 0; }
-    if (D_0035dcfc) { func_00105110(D_0035dcfc); D_0035dcfc = 0; }
-    if (D_0035dd00) { delete[] D_0035dd00; D_0035dd00 = 0; }
-    if (D_0035db14) { func_00170c00(D_0035db14); D_0035db14 = 0; }
-}
+void func_002267a0(void);  // 0x002267a0: definition moved into src/anon/unit_00224780.cpp
 }
 }
 

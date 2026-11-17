@@ -154,11 +154,7 @@ void func_00209e80(u8* a, u8* b) {
 extern u8 D_0035daec;
 extern u8 D_0035daed;
 s32 func_00225a68(void);
-s32 func_00225aa8(void) {
-    s32 r = 0;
-    if (D_0035daec || D_0035daed || func_00225a68()) r = 1;
-    return r;
-}
+s32 func_00225aa8(void);  // 0x00225aa8: definition moved into src/anon/unit_00224780.cpp
 
 
 

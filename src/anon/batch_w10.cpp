@@ -176,13 +176,7 @@ void func_00222868(void* d, void* s) {  // vec2_normalize
         : : "r"(d), "r"(s) : "memory");
 }
 
-void wtarget_00228420(u32 a, u32 b, u32, u32) {
-    if (b == 0xffff && a == 1) {
-        D_0035db00.a = 0;
-        D_0035db00.b = 0;
-        D_0035db00.c = 0;
-    }
-}
+void wtarget_00228420(u32 a, u32 b, u32, u32);  // 0x00228420: definition moved into src/anon/unit_00224780.cpp
 
 void func_0022c508(void);  // 0022c508: moved to src/sasa/event_layout.cpp (linked unit)
 

@@ -311,26 +311,7 @@ u32 func_001a8510(void);  // mod8_of_difference
 void func_001382b8(u32);
 void func_001978f0(f32);
 void wtarget_00226bd0(u32 a0, u32, u32, u32) asm("_Z16wtarget_00226bd0jjjj");
-void wtarget_00226bd0(u32 a0, u32, u32, u32) {
-    if (D_0035de55 == 1) func_0015cde0(D_0035de0c);
-    if (func_0022d7d8()) {
-        func_0014aa80(func_0014abb8(), 15, 0);
-        func_0014aa80(func_0014abc8(), 15, 0);
-    }
-    if (func_001069a8() == 1) {
-        func_001618f0();
-        func_001623b0();
-    }
-    func_002bbe80();
-    if (!func_0022bd90()) func_002bbf18();
-    func_00224b08(a0);
-    if (func_0022f5e8()) func_00102448(a0, 1);
-    if (!func_001a84f0()) {  // compare_two_globals
-        func_001382b8(func_001a8510());
-        func_00102448(a0, 0);
-    }
-    func_001978f0(0.0f);
-}
+void wtarget_00226bd0(u32 a0, u32, u32, u32);  // 0x00226bd0: definition moved into src/anon/unit_00224780.cpp
 
 // ---- 002309c8
 union FP230 { f32* p; f32 f; };

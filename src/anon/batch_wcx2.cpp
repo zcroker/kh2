@@ -2256,30 +2256,7 @@ extern PoolH* D_0035dcfc;
 extern PoolI* D_0035dd00;
 
 // Allocate and construct the event/effect object pools.
-void func_00226478(void) {
-    HeapE* heap = GetAllocatorE();
-    if (!D_0035dce0) D_0035dce0 = new (heap) PoolA[128];
-    if (!D_0035dce4) D_0035dce4 = new (heap) PoolB[128];
-    if (!D_0035dce8) D_0035dce8 = new (heap) PoolC[64];
-    if (!D_0035dcec) D_0035dcec = new (heap) PoolD[64];
-    if (!D_0035db18) {
-        D_0035db14 = 0;
-        D_0035dcf4 = 0;
-        D_0035dcf0 = 0;
-        D_0035dcf8 = 0;
-        D_0035dcfc = 0;
-        D_0035dd00 = 0;
-        return;
-    }
-    void* buf = func_00170b30(D_0035db18);  // alloc_align128
-    EvAllocInitE(D_0035db00, buf, D_0035db18);
-    D_0035db14 = buf;
-    D_0035dcf4 = new PoolE[96];
-    D_0035dcf0 = new PoolF[128];
-    D_0035dcf8 = new PoolG[64];
-    D_0035dcfc = new PoolH[96];
-    D_0035dd00 = new (heap) PoolI[96];
-}
+void func_00226478(void);  // 0x00226478: definition moved into src/anon/unit_00224780.cpp
 
 // ---- 00254770
 struct AllocVt254 { void* (*alloc)(void* self, u32 size, void* ra); };
@@ -4787,18 +4764,7 @@ u32 func_00170b30_5550(u32) asm("func_00170b30");
 void func_00225e70(u32*, u32, u32);
 union UP_00225550 { u32* p; u32 i; };
 extern u32 D_0035db18_5550 asm("D_0035db18"); extern UP_00225550 D_0035dae4; extern u32 D_0035dae8;
-void func_00225550() {
-    if (func_00224e90()) return;
-    if (D_0035db18_5550 != 0x400000) return;
-    if (D_0035dae4.p) return;
-    u32* o = func_001063c0_5550(12, func_001050c8());
-    o[0] = 0;
-    o[1] = 0;
-    o[2] = 0;
-    D_0035dae4.p = o;
-    D_0035dae8 = func_00170b30_5550(0x200000);
-    func_00225e70(D_0035dae4.p, D_0035dae8, 0x200000);
-}
+void func_00225550();  // 0x00225550: definition moved into src/anon/unit_00224780.cpp
 
 // ---- 0028e2a8
 HeapE* func_0013a1d8();
@@ -5874,50 +5840,7 @@ void func_0022ba08(C227e30*, void*);
 void func_00232110(C227e30*, void*);
 void func_00232100(C227e30*, void*);
 void func_0022c9f0(C227e30*);
-void func_00227e30(void* th) {
-    s32 cnt = 0;
-    for (;;) {
-        s32 i;
-        for (i = 0; i < 1; i++) {
-            if (!D_0035db50[i].base) continue;
-            C227e30* c = (C227e30*)(D_0035db50[i].base + D_0035db50[i].ofs);
-            u32 size = c->size;
-            cnt++;
-            if (size == 0) {
-                D_0035dd04 = 0;
-                if (D_0035db18) {
-                    func_00226090();
-                    func_00170888(th);
-                }
-                func_00224d48();
-                D_0035de24 = 1;
-                for (;;) func_00102448_x9334(th, 0);
-            }
-            switch (c->type + 0) {
-            case 1: func_0022f528(c, th); break;
-            case 8: func_0022d3b8(c); break;
-            case 15: func_0022d358(th); break;
-            case 16: func_0022d3a8(c, th); break;
-            case 19: func_00231928(c); D_0035de55 = 1; break;
-            case 29: func_00230838_x9340(c); break;
-            case 30: func_00230878_x9341(c); break;
-            case 35: func_00232398(c); break;
-            case 36: func_00226050(c); break;
-            case 42: func_00232a48(c, th); break;
-            case 46: func_00225328(c, th); break;
-            case 47: func_00225788(c, th); break;
-            case 50: func_00224b60(c, th); break;
-            case 68: func_0022ba08(c, th); break;
-            case 70: func_00232110(c, th); break;
-            case 76: func_00232100(c, th); break;
-            case 78: func_0022c9f0(c); break;
-            }
-            D_0035db50[i].ofs += size;
-        }
-        if (cnt == 0) func_00102448_x9334(th, 0);
-        cnt = 0;
-    }
-}
+void func_00227e30(void* th);  // 0x00227e30: definition moved into src/anon/unit_00224780.cpp
 
 // --------------------
 extern u32 D_0035ed20;

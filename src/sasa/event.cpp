@@ -11,28 +11,11 @@ extern "C" void func_0014aa58(...);
 extern "C" u32 func_00197920(...) asm("_ZN2YS5EVENT6IsExecEv");
 extern "C" u32 func_002ba620(...);
 
-u32 EVENT::isLM() {
-    u32 v = *(u8*)&D_0032bae0;
-    v ^= 0xbu;
-    return (v < 1u);
-}
+// 0x002283b0: definition moved into src/anon/unit_00224780.cpp
 
-u32 EVENT::isLK() {
-    u32 v = *(u8*)&D_0032bae0;
-    v ^= 0xau;
-    return (v < 1u);
-}
+// 0x002283c8: definition moved into src/anon/unit_00224780.cpp
 
-u32 EVENT::isSceneEventExec() {
-    u32 r2 = ((u32(*)())func_00197920)();
-    u32 r15 = 0u;
-    if (r2 != 0u) {
-        r2 = ((u32(*)())func_002ba620)();
-        r15 = ((u32)0u < (u32)r2);
-    }
-    r2 = r15;
-    return r2;
-}
+// 0x00228378: definition moved into src/anon/unit_00224780.cpp
 
 void EVENT::wide_on() {
     u32 v0 = func_0014abb8();  // get_data_359840
@@ -42,12 +25,7 @@ void EVENT::wide_on() {
     *(u8*)((u8*)&D_00360000 - 7336u) = 1;
 }
 
-void EVENT::readWaitInit() {
-    u32 r15 = (u32)(0x004cu << 16);
-    u32 r14 = (u32)(0x0036u << 16);
-    r15 = (u32)(r15 | 0x4b40u);
-    *(u32*)((u32)r14 + (s32)(-9488)) = r15;
-}
+// 0x00226ed0: definition moved into src/anon/unit_00224780.cpp
 
 void EVENT::setActorParam(YS::OBJ* obj) {
     u32 v0 = *(u32*)((u32)this + 264);

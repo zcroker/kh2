@@ -153,10 +153,7 @@ void func_00222730(void* d, void* a, void* b) {
                  : "memory");
 }
 
-void func_00225298(void) {
-    D_01dad910[0] = -1;
-    D_01dad910[1] = -1;
-}
+void func_00225298(void);  // 0x00225298: definition moved into src/anon/unit_00224780.cpp
 
 void func_00265c50(void);  // 0x00265c50: definition moved into src/anon/unit_00265580.cpp
 

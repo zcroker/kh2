@@ -208,15 +208,7 @@ extern E11* D_0035dcf0;
 void func_002278e0(E11*);
 void func_001024a8(void*);
 
-void func_00227950(u8* p) {
-    s32 key = *(s32*)(p + 4);
-    s32 i;
-    for (i = 0; i < 128; i++) {
-        E11* e = (E11*)(i * sizeof(E11) + (u32)D_0035dcf0);
-        if (e->key == key && e->kind == 1 && e->sub == 4 && e->off == 0) func_002278e0(e);
-    }
-    func_001024a8(p);
-}
+void func_00227950(u8* p);  // 0x00227950: definition moved into src/anon/unit_00224780.cpp
 
 /* ---- 0022e288 ---- */
 struct E12 { u32 f0; s32 id; u32 f8; u32 fc; u8 node[36]; };

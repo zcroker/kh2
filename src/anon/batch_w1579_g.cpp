@@ -48,27 +48,7 @@ extern s32 D_0035de5c;
 extern u8 D_0035de54;
 extern char D_0035daf0[];
 extern f32 D_00349e10;
-void func_00225d30(void) {
-    func_00225b88();
-    func_00225cd8();
-    if (func_00225aa8() == 0) {
-        if (func_00225b00(-1) != 0) {
-            if (func_002263f0(&D_0035de20, D_0035daf0) != 0) {
-                D_0035de1c = (f32)D_0035de20 * 2.0f;
-            } else {
-                D_0035de54 = 0;
-                D_0035de1c = (f32)D_0035de5c * 2.0f;
-            }
-        } else {
-            D_0035de1c = D_0035de1c + D_00349e10;
-        }
-    }
-    if (func_002ef7b8() != 0) {
-        D_0035de20 = func_002ef7a0(7, 0);
-    } else {
-        D_0035de20 = (s32)(D_0035de1c * 0.5f);
-    }
-}
+void func_00225d30(void);  // 0x00225d30: definition moved into src/anon/unit_00224780.cpp
 struct T1968 { s16 a; s16 b; s16 c; };
 extern T1968 D_00371968[];
 extern s32 D_0035ece8;

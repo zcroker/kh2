@@ -79,53 +79,7 @@ void func_0022f5a0(void*, s32, s32);
 void func_00232510(void*, s32);
 void func_002331a0(void*, s32, s32, s32, s32);
 
-void func_00226090(void) {
-    W1966Hdr* h;
-    W1966Cmd* c;
-    s32 i, n, odd;
-    u32 next;
-    if (D_0035dd04 >= 64) return;
-    h = D_0035dd08[D_0035dd04];
-    if (h != 0) {
-    if (D_0035de20 < h->start) return;
-    if (h->end < D_0035de20) return;
-    n = h->count;
-    odd = D_0035dd04 & 1;
-    c = (W1966Cmd*)(h + 1);
-    for (i = 0; i < n; i++) {
-        switch ((s32)(u16)(c->op - 37)) {
-        case 0:
-            func_002331a0((u8*)c + 10, odd, c->a4, c->a6, c->a8);
-            c = (W1966Cmd*)((u8*)c + c->size);
-            break;
-        case 1:
-            func_00232510((u8*)c + 4, odd);
-            c = (W1966Cmd*)((u8*)c + c->size);
-            break;
-        case 19:
-            func_0022f5a0((u8*)c + 8, c->a4, c->a6);
-            c = (W1966Cmd*)((u8*)c + c->size);
-            break;
-        case 20:
-            func_0022e1f8((u8*)c + 6, c->a4);
-            c = (W1966Cmd*)((u8*)c + ((W1966CmdU*)c)->size);
-            break;
-        case 25:
-            func_0022c508((u8*)c + 4);
-            c = (W1966Cmd*)((u8*)c + ((W1966CmdU*)c)->size);
-            break;
-        }
-    }
-    D_0035daf0 = D_0035dd08[D_0035dd04]->end - 1;
-    if (D_0035daf0 < 0) D_0035daf0 = D_0035de28;
-    next = D_0035dd04 + 1;
-    D_0035dd04 = next;
-    D_0035de60 = next;
-    if (next != 1) func_00170888(0);
-    } else {
-        func_00226268();
-    }
-}
+void func_00226090(void);  // 0x00226090: definition moved into src/anon/unit_00224780.cpp
 
 // 001065d8: moved to src/naka/libkn/camera.cpp
 

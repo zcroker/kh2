@@ -113,20 +113,9 @@ u32 func_001e0328(u32 a0, u32 a1, u32 a2, u32 a3) {
 
 u32 func_001eb000(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001eb000: definition moved into src/anon/unit_001e8ac8.cpp
 
-u32 func_00225e28(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r14 = 0u, r15 = 0u;
-    r14 = (u32)((s32)0u + (1));
-    r15 = (u32)(0x0036u << 16);
-    *(u8*)((u32)r15 + (s32)(-8696)) = (u8)r14;
-    return func_001d5a38(r4, r5, r6, r7);
-}
+u32 func_00225e28(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00225e28: definition moved into src/anon/unit_00224780.cpp
 
-u32 func_00226fa8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r15 = 0u;
-    r15 = (u32)(0x0036u << 16);
-    *(u8*)((u32)r15 + (s32)(-8695)) = (u8)0u;
-    return func_00225298(r4, r5, r6, r7);
-}
+u32 func_00226fa8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00226fa8: definition moved into src/anon/unit_00224780.cpp
 
 // 0022b948: moved to src/sasa/musical_2d.cpp (linked unit)
 

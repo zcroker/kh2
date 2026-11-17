@@ -162,12 +162,7 @@ void func_001e65d0(void);  // 0x001e65d0: definition moved into src/anon/unit_00
 extern s32 D_01dad910[2];
 s32 func_00225540(void);  // get_global_byte_36de29
 void func_00136b78(s32, s32);  // entry16_set_field8
-void func_002252b0(void)
-{
-    if (!func_00225540()) return;
-    if (D_01dad910[0] != -1) func_00136b78(0, D_01dad910[0]);  // entry16_set_field8
-    if (D_01dad910[1] != -1) func_00136b78(1, D_01dad910[1]);  // entry16_set_field8
-}
+void func_002252b0(void);  // 0x002252b0: definition moved into src/anon/unit_00224780.cpp
 
 // 00242418: CRC32 update over a buffer
 extern u32* D_0035ecc0;

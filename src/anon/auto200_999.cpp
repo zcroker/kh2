@@ -347,10 +347,7 @@ void func_001a1d40(u32 a0, f32 f12);  // 0x001a1d40: definition moved into src/a
 
 void func_001a8ff8(u32 a0, u32 a1, u32 a2);  // 0x001a8ff8: definition moved into src/anon/unit_001a8618.cpp
 
-void func_00226f78(u32 a0) {
-    D_0035de5c = a0;
-    D_0035de54 = 1;
-}
+void func_00226f78(u32 a0);  // 0x00226f78: definition moved into src/anon/unit_00224780.cpp
 
 u32 func_00258068(u32 a0) {  // get_global_bit
     s32 v = D_0035ef70;

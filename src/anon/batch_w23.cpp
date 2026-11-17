@@ -129,14 +129,7 @@ void func_0020ebd8(s32 v) {
 
 struct E40 { s32 id; u8 pad[36]; };
 extern E40* D_0035dcfc;
-E40* func_00227cd8(s32 id) {
-    E40* e = D_0035dcfc;
-    s32 i;
-    for (i = 0; i < 96; i++, e++) {
-        if (e->id == id) return e;
-    }
-    return 0;
-}
+E40* func_00227cd8(s32 id);  // 0x00227cd8: definition moved into src/anon/unit_00224780.cpp
 
 struct E20 { s32 a; s32 pad; s32 c; u8 pad2[8]; };
 struct I4 { u16 idx; u16 pad; };

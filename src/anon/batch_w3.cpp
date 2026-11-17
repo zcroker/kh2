@@ -139,10 +139,7 @@ f32 func_002229d8(void* v) {
 
 extern u8 D_0035dadc;
 extern u32 D_0035dae0;
-void func_00224950(u32 a) {
-    D_0035dadc = 1;
-    D_0035dae0 = a;
-}
+void func_00224950(u32 a);  // 0x00224950: definition moved into src/anon/unit_00224780.cpp
 
 // Writes the current id (0 when unset, -1) and returns whether it was set.
 extern s32 D_0035eb4c;

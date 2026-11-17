@@ -215,22 +215,7 @@ extern u32 D_0035de30;
 extern u32 D_0035de34;
 extern u32 D_0035de38;
 extern u8 D_0035de27;
-void func_00228240(void) {
-    if (!D_0035de3c) return;
-    if (D_0035de30) {
-        func_00102670(D_0035de3c, D_0035de30);  // to_1025f8
-        D_0035de30 = 0;
-    }
-    if (D_0035de34) {
-        func_00102670(D_0035de3c, D_0035de34);  // to_1025f8
-        D_0035de34 = 0;
-    }
-    if (D_0035de38 && !D_0035de27) {
-        func_00102670(D_0035de3c, D_0035de38);  // to_1025f8
-        D_0035de38 = 0;
-    }
-    D_0035de3c = 0;
-}
+void func_00228240(void);  // 0x00228240: definition moved into src/anon/unit_00224780.cpp
 
 // Selects the first entry flagged 0x10 and copies its name; returns its index or -1.
 struct Ent40 { u32 flags; u32 pad; u8 name[32]; };

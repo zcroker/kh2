@@ -184,16 +184,7 @@ void func_0020e548(u8* p, u32 b) {
 
 extern u8* D_0035dcf0;
 void func_002278e0(u8*);
-void func_00227078(void) {
-    s32 i;
-    if (!D_0035dcf0) return;
-    for (i = 0; i < 128; i++) {
-        u8* e = (u8*)(i * 84 + (u32)D_0035dcf0);
-        u32 st = *(u32*)(e + 4);
-        if (st == 0) continue;
-        if (st == 2) func_002278e0(e);
-    }
-}
+void func_00227078(void);  // 0x00227078: definition moved into src/anon/unit_00224780.cpp
 
 u32 func_002282f0(s16);
 u32 func_002ba620(void);

@@ -37,15 +37,7 @@ u32 func_00188fc0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00188fc0: definition mo
 
 u32 func_001e2a50(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001e2a50: definition moved into src/anon/unit_001e0cb8.cpp
 
-u32 func_00224b60(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2, r14, r15;
-    r14 = (u32)((s32)0u + (1));
-    r15 = (u32)(0x0036u << 16);
-    *(u8*)((u32)r15 + (s32)(-8667)) = (u8)r14;
-    r4 = (u32)(s32)(*(s16*)((u32)r4 + (s32)(4)));
-    r2 = func_00224780(r4, r5, r6, r7);
-    return func_0022b838();
-}
+u32 func_00224b60(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00224b60: definition moved into src/anon/unit_00224780.cpp
 
 u32 func_002b9c30(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2;

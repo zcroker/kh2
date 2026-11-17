@@ -476,29 +476,7 @@ extern u32 D_0035db18;
 extern char D_01dad918[];
 void func_002ff2e8(char*, const char*);
 void func_00224cf0(u32);
-void func_00227130(u8* p) {
-    if (D_0035db50.a == 0) goto init;
-cont:
-    for (s32 i = 0; i < 32; i++) D_01dad918[i] = 0;
-    func_002ff2e8(D_01dad918, (char*)p + 10);
-    strlen(D_01dad918);  // strlen
-    {
-        u32 x = *(u32*)(p + 4);
-        D_0035db18 = x;
-        if (x) {
-            s32 y = x + 0x40000;
-            if (0x400000 < y) y = 0x400000;
-            D_0035db18 = y;
-            func_00224cf0(x);
-        }
-    }
-    return;
-init:
-    D_0035db50.a = p;
-    D_0035db50.b = 0;
-    D_0035db50.c = 0;
-    goto cont;
-}
+void func_00227130(u8* p);  // 0x00227130: definition moved into src/anon/unit_00224780.cpp
 
 // Converts a degree rotation (y offset by 180) to radians and applies it.
 void func_0016b070(void*, f32*);

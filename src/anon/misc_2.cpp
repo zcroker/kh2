@@ -12,9 +12,9 @@ void func_0020aec0(void* self) {}
 
 void func_0020c858(void* self) {}
 
-void func_00226a70(void* self) {}
+void func_00226a70(void* self);  // 0x00226a70: definition moved into src/anon/unit_00224780.cpp
 
-u8 func_00227118(void* self) { return (u8)(*(u8*)((char*)self + 9)); }
+u8 func_00227118(void* self);  // 0x00227118: definition moved into src/anon/unit_00224780.cpp
 
 void func_00233e58(void* self) {}
 

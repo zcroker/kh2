@@ -156,12 +156,7 @@ bool EFFECT_is_waiting(u8* self);  // 0x001dc9f0: definition moved into src/anon
 
 void func_001e2788(u8* p);  // 0x001e2788: definition moved into src/anon/unit_001e0cb8.cpp
 
-void func_00226e60(u8 v) {
-    if (func_00197920()) {
-        D_0035de0c = v;
-        func_00226dc8();
-    }
-}
+void func_00226e60(u8 v);  // 0x00226e60: definition moved into src/anon/unit_00224780.cpp
 
 u8* func_0022f4f0(s32 id) {
     u8* p = D_0035dcfc;

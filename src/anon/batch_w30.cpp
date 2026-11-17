@@ -176,12 +176,7 @@ s32 func_0020f188(void) {
     return func_002f3918(D_003591c8, D_00359940);
 }
 
-u8 func_00225b00(s32 n) {  // flag_query_by_index
-    if (n == -1) return D_0035de54;
-    u8 r = 0;
-    if (D_0035de54 || (n < D_0035de20 && D_0035de20 == D_0035de5c)) r = 1;
-    return r;
-}
+u8 func_00225b00(s32 n);  // 0x00225b00: definition moved into src/anon/unit_00224780.cpp
 
 void* func_0022af48(u8* p);  // 0022af48: moved to src/sasa/musical_input.cpp (linked unit)
 

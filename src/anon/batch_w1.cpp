@@ -112,9 +112,7 @@ void func_00222770(f32* d, f32* a, f32* b) {
                  : : "r"(d), "r"(a), "r"(b) : "memory");
 }
 
-s32 func_002282d8(void) {  // limit_15000_or_25000
-    return D_0035db18 == 0 ? 25000 : 15000;
-}
+s32 func_002282d8(void);  // 0x002282d8: definition moved into src/anon/unit_00224780.cpp
 
 void func_0023cdb8(void) {
     D_0035eb34 = 1;

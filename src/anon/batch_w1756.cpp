@@ -3,22 +3,7 @@ extern "C" {
 
 u32 func_00224c20();
 extern u32 D_0035db18;
-void func_00224cf0()
-{
-    switch (func_00224c20()) {
-    case 0:
-        break;
-    case 1:
-    case 2:
-        D_0035db18 = 0x700000;
-        break;
-    case 3:
-    case 4:
-    case 5:
-        D_0035db18 = 0x600000;
-        break;
-    }
-}
+void func_00224cf0();  // 0x00224cf0: definition moved into src/anon/unit_00224780.cpp
 
 struct WTarget_w1756 { u32 type; u32 id; u32 a; u32 b; u32 c; u32 pad[3]; };
 extern s32 D_0035e360;

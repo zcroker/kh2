@@ -213,13 +213,7 @@ void func_001e00b0(u8* p) {
 
 void func_001e7cc0(u8* p);  // 0x001e7cc0: definition moved into src/anon/unit_001e0cb8.cpp
 
-void func_00225328(u8* p) {
-    if (*(u16*)(p + 6)) func_00225530(p);
-    u16 t = *(u16*)(p + 8);
-    if (t == 0) func_00225280(p[11], 12288);
-    else if (t == 257) func_00225280(p[11], 6144);
-    else func_00225280(p[11], D_00370d88[p[9]]);
-}
+void func_00225328(u8* p);  // 0x00225328: definition moved into src/anon/unit_00224780.cpp
 
 void func_0023c008(u32* p) {  // obj_ctor_36eae8
     *(void***)p = D_0035eb08;

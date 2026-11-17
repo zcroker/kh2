@@ -12,16 +12,9 @@ extern u8 D_00361da8;
 
 // 001ac7c8: moved to src/anon/unit_001abb28.cpp
 
-u32 func_002248d0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    *(u32*)((u32)((u32)&D_00360000) - 9524u) = (u32)(((u32)(((u32)(*(u32*)((u32)((u32)&D_00360000) - 9524u)))) + 1u));
-    return func_00224890(a0, a1, a2, a3);
-}
+u32 func_002248d0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002248d0: definition moved into src/anon/unit_00224780.cpp
 
-u32 func_00226ea0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    *(u8*)((u32)((u32)&D_00360000) - 8665u) = (u8)(0x00000000u);
-    *(u32*)((u32)((u32)&D_00360000) - 9456u) = (u32)(0x00000004u);
-    return func_00226bd0(0x00000000u, a1, a2, a3);
-}
+u32 func_00226ea0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00226ea0: definition moved into src/anon/unit_00224780.cpp
 
 u32 func_00258b00(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00258b00: definition moved into src/anon/unit_002588e8.cpp
 

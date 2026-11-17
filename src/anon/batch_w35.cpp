@@ -127,9 +127,7 @@ extern u32 D_0035dae4;
 u32 func_00227818(u32);
 u32 func_00225eb8(u32, u32, u32);
 u32 func_00227858(u32, u32, u32);
-u32 func_00225640(u32 a, u32 b, u32 c) {
-    return func_00227858(func_00225eb8(D_0035dae4, func_00227818(a), c), b, c);
-}
+u32 func_00225640(u32 a, u32 b, u32 c);  // 0x00225640: definition moved into src/anon/unit_00224780.cpp
 
 extern char D_01dad938[];
 extern char D_00371138[];

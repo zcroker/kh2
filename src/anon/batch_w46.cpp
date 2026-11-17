@@ -235,10 +235,7 @@ s32 func_00224e90(u8*, u32);
 u32 func_00227870(u32, u8*, u32);
 u32 func_00225640(u32, u8*, u32);
 extern u32 D_0035db18;
-void func_002256c8(u8* p, u32 b) {
-    if (func_00224e90(p, b) || D_0035db18 != 0x400000) *(u32*)(p + 20) = func_00227870(b, p, 0);
-    else *(u32*)(p + 20) = func_00225640(b, p, 0);
-}
+void func_002256c8(u8* p, u32 b);  // 0x002256c8: definition moved into src/anon/unit_00224780.cpp
 
 // ---- 0022d1d8
 s32 func_002282f0(s32);

@@ -490,18 +490,7 @@ static inline void setup225(R225* r, u32 o) {
     func_00168388(o, r->f20, func_00226030, r);
 }
 
-void func_00225788(S225* s, void* x) {
-    func_00225550(s);
-    func_00136cc8(x, s->h6);
-    R225* r = func_00227a28();
-    r->kind.i = 6;
-    setup225(r, func_002bd260(s->h6));
-    while (func_001688b8()) func_00102448(x, 0);
-    R225* r2 = func_00227a28();
-    r2->kind.i = 5;
-    u32 tmp = 0;
-    setup225(r2, func_002bd2f0(*(u32*)((u8*)r + 20), &tmp));
-}
+void func_00225788(S225* s, void* x);  // 0x00225788: definition moved into src/anon/unit_00224780.cpp
 }
 
 // ---- 22f7c0 ----

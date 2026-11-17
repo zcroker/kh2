@@ -139,13 +139,7 @@ void func_001dba98(u8* p) {
 }
 
 extern u32 D_0035dd08[64];
-void func_00226050(u32 v) {
-    s32 i;
-    for (i = 0; i < 64; i++) {
-        if (D_0035dd08[i] == 0) break;
-    }
-    D_0035dd08[i] = v;
-}
+void func_00226050(u32 v);  // 0x00226050: definition moved into src/anon/unit_00224780.cpp
 
 struct E22e { u32 a; s32 key; u8 pad[44]; };
 extern E22e* D_0035dcf4;

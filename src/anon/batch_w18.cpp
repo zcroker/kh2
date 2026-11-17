@@ -133,14 +133,7 @@ extern u32 D_0035de30;
 extern u32 D_0035de34;
 extern u32 D_0035de38;
 extern u32 D_0035de3c;
-void func_00226a78(void) {
-    D_0035db10 = 0;
-    D_0035de27 = 0;
-    D_0035de30 = 0;
-    D_0035de34 = 0;
-    D_0035de38 = 0;
-    D_0035de3c = 0;
-}
+void func_00226a78(void);  // 0x00226a78: definition moved into src/anon/unit_00224780.cpp
 
 void func_0023f688(u8* p, u32 v) {
     func_00139d78(p);

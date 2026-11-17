@@ -170,66 +170,12 @@ extern char D_00370ce8[];
 extern char D_00370cf8[];
 extern char D_00370d08[];
 extern char D_00370d18[];
-s32 func_00224c20(void) {
-    if (!strncmp(func_00227120(), D_00370cd8, 12)) return 1;
-    if (!strncmp(func_00227120(), D_00370ce8, 12)) return 2;
-    if (!strncmp(func_00227120(), D_00370cf8, 12)) return 3;
-    if (!strncmp(func_00227120(), D_00370d08, 12)) return 4;
-    if (!strncmp(func_00227120(), D_00370d18, 12)) return 5;
-    return -1;
-}
+s32 func_00224c20(void);  // 0x00224c20: definition moved into src/anon/unit_00224780.cpp
 
 struct Blk225 { Blk225* next; Blk225* prev; u8 used; u32 size; u8 pad[48]; };
 struct Heap225 { u8 pad[8]; Blk225* head; };
 // first-fit (mode 1: last fit, carved from the top) block allocator
-void* func_00225eb8(Heap225* h, u32 size, s32 mode) {
-    Blk225* b;
-    Blk225* best = 0;
-    Blk225* nb;
-    Blk225* nx;
-    u32 rem;
-    size += 63;
-    size &= ~63;
-    size += 64;
-    for (b = h->head; b; b = b->next) {
-        if (b->used) continue;
-        if (size < b->size) {
-            best = b;
-            if (mode != 1) break;
-        }
-    }
-    if (!best) return 0;
-    rem = best->size - size;
-    if (rem >= 128) {
-        if (mode != 1) {
-            nb = (Blk225*)((u8*)best + size);
-            nx = best->next;
-            nb->size = rem;
-            nb->next = nx;
-            nb->prev = best;
-            nb->used = 0;
-            if (nx) nx->prev = nb;
-            best->next = nb;
-            best->used = 1;
-            best->size = size;
-        } else {
-            Blk225* old = best;
-            nx = best->next;
-            best = (Blk225*)((u8*)best + rem);
-            best->used = mode;
-            best->size = size;
-            best->next = nx;
-            best->prev = old;
-            if (nx) nx->prev = best;
-            old->size = rem;
-            old->used = 0;
-            old->next = best;
-        }
-    } else {
-        best->used = 1;
-    }
-    return best + 1;
-}
+void* func_00225eb8(Heap225* h, u32 size, s32 mode);  // 0x00225eb8: definition moved into src/anon/unit_00224780.cpp
 struct Obj22f;
 struct Obj22fvt { u8 pad[40]; void (*f40)(Obj22f*); };
 struct Obj22f { Obj22fvt* vt; };

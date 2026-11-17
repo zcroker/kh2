@@ -231,21 +231,7 @@ void func_0023d230(s32);
 u32 func_002282d8(void);  // limit_15000_or_25000
 void func_00102c48(s32, u32, void*, s32);
 void func_00226ce8(s32);
-void func_00226dc8(void)
-{
-    if (D_0035db10 == 4) return;
-    D_0035db10 = 4;
-    func_00226d88();
-    func_00232988();
-    func_002bc518();
-    if (func_00228378()) {
-        func_0023d230(0);
-        func_00102c48(1, func_002282d8(), (void*)func_00226ce8, 4096);
-    } else {
-        D_0035de27 = 1;
-        func_00226ce8(0);
-    }
-}
+void func_00226dc8(void);  // 0x00226dc8: definition moved into src/anon/unit_00224780.cpp
 
 // 002530f0
 struct Fn253 { u8 pad[8]; void (*fn)(void); };

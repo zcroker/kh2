@@ -428,41 +428,7 @@ void func_00226ee8(s32);
 void func_00226f90(void);
 void func_00226fa8(void);
 void func_00226fc8(void);
-void func_00226978(void)
-{
-    func_00227108(0);
-    func_00226968();
-    D_0035de14 = 0;
-    D_0035de15 = 0;
-    D_0035de80 = 0;
-    D_0035de84 = 0;
-    D_0035de88 = 0;
-    D_0035de0c = 0;
-    D_0035db10 = 0;
-    D_0035db14 = 0;
-    D_0035db18 = 0;
-    D_0035de30 = 0;
-    D_0035de34 = 0;
-    D_0035de38 = 0;
-    D_0035de3c = 0;
-    func_00226ee8(0);
-    D_0035db20.a = 0;
-    D_0035db20.b = 0;
-    D_0035db20.c = 0;
-    D_0035db20.d = 0;
-    D_0035db20.e = 0;
-    D_0035db20.f = 0;
-    D_0035db20.g = 1.0f;
-    D_0035db20.h = 0;
-    D_0035db20.i = 0;
-    D_0035db20.j = 0;
-    D_0035de40 = 0;
-    D_0035de44 = 0;
-    D_0035de48 = 1.0f;
-    func_00226f90();
-    func_00226fa8();
-    func_00226fc8();
-}
+void func_00226978(void);  // 0x00226978: definition moved into src/anon/unit_00224780.cpp
 }
 }
 
@@ -472,17 +438,7 @@ extern "C" {
 struct Ent { u32 type; s32 state; u8 pad[24]; char name[16]; char sub[16]; u8 pad2[20]; };
 extern Ent* D_0035dcf0;
 s32 strcmp(const char*, const char*);  // strcmp
-Ent* func_00227b00(const char* name, u32 type, const char* sub)
-{
-    for (s32 i = 0; i < 128; i++) {
-        if (D_0035dcf0[i].type != type) continue;
-        if (D_0035dcf0[i].state != 3) continue;
-        if (strcmp(D_0035dcf0[i].name, name)) continue;
-        if (strcmp(D_0035dcf0[i].sub, sub)) continue;
-        return &D_0035dcf0[i];
-    }
-    return 0;
-}
+Ent* func_00227b00(const char* name, u32 type, const char* sub);  // 0x00227b00: definition moved into src/anon/unit_00224780.cpp
 }
 }
 

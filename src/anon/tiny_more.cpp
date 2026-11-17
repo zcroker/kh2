@@ -76,7 +76,7 @@ f32 func_001ee980(f32 a0,f32 a1,u32 a2,u32 a3);  // 0x001ee980: definition moved
 
 extern "C" u32 func_002283c8(u32,u32,u32,u32) asm("_ZN2sa5EVENT4isLKEv");
 
-u32 func_002283e0(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a0; (void)a1; (void)a2; (void)a3; u32 v = *(u8*)&D_0032bae0; v ^= 0x2u; return (v < 1u); }
+u32 func_002283e0(u32 a0,u32 a1,u32 a2,u32 a3);  // 0x002283e0: definition moved into src/anon/unit_00224780.cpp
 
 u32 func_00240440(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a1; (void)a2; (void)a3; u32 v = (u32)((s32)a0 + (1023)); v = v >> 10; return v; }
 

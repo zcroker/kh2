@@ -30,38 +30,7 @@ void func_00228518();
 void func_00228590();
 extern s32 D_0035dac8;
 
-void func_002249f8(void) {
-    func_001c11a8(8);
-    func_001c1130(0xC);
-    func_002249c8();
-    if (func_00225260() == 0) {
-        switch (func_002249b8()) {
-        case 1:
-            if (func_00224860() == 5) func_002249d8();
-            break;
-        case 2:
-            if (D_0035dac8 < 5) func_002249d8();
-            break;
-        case 3:
-            if (func_00224910() < 6000) func_002249d8();
-            break;
-        case 4:
-            if (func_00224910() < 8000) func_002249d8();
-            break;
-        case 5:
-            if (func_00224910() < 30000) func_002249d8();
-            break;
-        default:
-            if (func_00224910() == 0) func_002249d8();
-            break;
-        }
-    }
-    if (func_002249e8() == 1) {
-        func_00228518();
-        return;
-    }
-    func_00228590();
-}
+void func_002249f8(void);  // 0x002249f8: definition moved into src/anon/unit_00224780.cpp
 
 
 W1821Vec func_0017c030(W1821Obj*, s32*, u8);

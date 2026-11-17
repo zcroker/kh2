@@ -162,17 +162,7 @@ void PAX_unbind(u8* pax, void* e) {
 }
 
 void u_call4_00224780(u32, u32, u32, u32) asm("_Z16u_call4_00224780jjjj");
-void u_call4_00224780(u32 a0, u32, u32, u32) {
-    D_0035dad0 = a0;
-    D_0035dade = 0;
-    D_0035dad4 = 5;
-    D_0035dadd = 0;
-    D_0035dac4 = 0;
-    D_0035dac8 = 0;
-    D_0035dacc = 0;
-    D_0035dad8 = 0;
-    func_00224940();
-}
+void u_call4_00224780(u32 a0, u32, u32, u32);  // 0x00224780: definition moved into src/anon/unit_00224780.cpp
 
 // Index of the n-th set bit among the low 10 bits of the mask, or -1.
 s32 func_002670a0(s32 n);  // 0x002670a0: definition moved into src/anon/unit_00265580.cpp

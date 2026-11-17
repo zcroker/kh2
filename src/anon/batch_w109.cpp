@@ -13,33 +13,7 @@ s32 func_002b7148(s32);
 void func_00136b78(u8, s32);  // entry16_set_field8
 extern s32 D_00370d88[];
 extern s32 D_00370d78[];
-void func_002253a0(u8* p, s32 arg) {
-    if (func_002282f0(*(u16*)(p + 4))) return;
-    if (*(u16*)(p + 6)) func_00225530();
-    u16 m = *(u16*)(p + 8);
-    if (m == 0) {
-        while (func_002ba200()) {
-            func_002259f0();
-            func_00102448(arg, 0);
-        }
-        func_00225a00();  // zero_global_byte_e
-        func_002ba220(p[11], 12288, 12288, 0, 0, 0);
-        func_00136b78(p[11], 12288);  // entry16_set_field8
-    } else if (m == 257) {
-        while (func_002ba200()) {
-            func_002259f0();
-            func_00102448(arg, 0);
-        }
-        func_00225a00();  // zero_global_byte_e
-        if (func_002b7148(0)) func_002ba830(p[11], 6144, 6144);
-        else func_002ba220(p[11], 6144, 6144, 0, 0, 0);
-        func_00136b78(p[11], 6144);  // entry16_set_field8
-    } else {
-        s32 a = D_00370d88[p[9]];
-        func_002ba830(p[11], a, D_00370d78[p[10]]);
-        func_00136b78(p[11], a);  // entry16_set_field8
-    }
-}
+void func_002253a0(u8* p, s32 arg);  // 0x002253a0: definition moved into src/anon/unit_00224780.cpp
 
 // ---- f3.cpp
 u8* func_001a1658(s32, s32);  // state_dispatch_0_1_14

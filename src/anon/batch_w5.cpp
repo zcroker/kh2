@@ -103,18 +103,11 @@ void func_00222750(void* dst, void* a, void* b) {
 
 void func_0014a4b0(void);
 void func_00138480(u32);
-void func_00226d88(void) {
-    func_0014a4b0();
-    func_00138480(0);
-}
+void func_00226d88(void);  // 0x00226d88: definition moved into src/anon/unit_00224780.cpp
 
 struct Tri { u32 a, b, c; };
 extern Tri D_0035db50;
-void func_00226f90(void) {
-    D_0035db50.a = 0;
-    D_0035db50.b = 0;
-    D_0035db50.c = 0;
-}
+void func_00226f90(void);  // 0x00226f90: definition moved into src/anon/unit_00224780.cpp
 
 u8* func_00257770(void);
 u8 func_00139d78(u8*);

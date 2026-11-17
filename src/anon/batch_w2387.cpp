@@ -53,23 +53,5 @@ extern u8 D_0035de56;
 }
 static inline s32 is4_w2387() { return *(s32*)(func_0014ac08() + 0xfc) == 4; }
 extern "C" {
-void func_00225b88(void) {
-    if (func_002ef7b8()) {
-        if (func_0022bb38()) func_00226dc8();
-        return;
-    }
-    if (D_0035de28 != -1 && D_0035de20 >= D_0035de28) {
-        func_00226dc8();
-        return;
-    }
-    s32 lim = D_0035de28 - 40;
-    if (lim <= 0) lim = 0;
-    if (!func_00228378() && D_0035de20 >= lim && D_0035de28 != -1 && is4_w2387()) {
-        func_0014ce60();
-    }
-    if (D_0035de20 >= lim && D_0035de28 != -1 && D_0035de56 == 1 && D_0035de2c == 0
-        && !func_002bc7a8(3) && is4_w2387()) {
-        func_00226dc8();
-    }
-}
+void func_00225b88(void);  // 0x00225b88: definition moved into src/anon/unit_00224780.cpp
 }

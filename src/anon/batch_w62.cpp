@@ -262,11 +262,7 @@ extern s32 D_0035dcf0;
 extern u8 D_0035db00[];
 void func_00225fa0(u8*, u32);
 void func_00227930(u8*);
-void func_002278e0(u8* p) {
-    if (D_0035dcf0 == 0) return;
-    func_00225fa0(D_0035db00, *(u32*)(p + 24));
-    func_00227930(p);
-}
+void func_002278e0(u8* p);  // 0x002278e0: definition moved into src/anon/unit_00224780.cpp
 
 struct E239 { u8 pad[4]; u16 h4; u16 pad2; u32 f8; u8 pad3[24]; };
 struct S239 {

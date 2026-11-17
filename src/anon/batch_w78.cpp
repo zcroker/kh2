@@ -323,19 +323,7 @@ extern u8* D_0035de34;
 extern u8* D_0035de38;
 extern u32 D_0035de3c;
 extern u8 D_0035de27;
-void func_00228150(u32 a) {
-    func_00228240();
-    u32 w = func_002282d8();  // limit_15000_or_25000
-    D_0035de3c = *(u32*)(func_00102c80() + 4);
-    if (!D_0035de30) D_0035de30 = func_00102818(D_0035de3c, a, w, (void*)func_00227e30, 0x2000);
-    if (!D_0035de34) D_0035de34 = func_00102818(D_0035de3c, a, w, (void*)func_002272b8, 0x2000);
-    if (!D_0035de38) {
-        u8* v = func_00102788(D_0035de3c, a, w, (void*)func_00228058);
-        D_0035de38 = v;
-        *(u8**)(v + 48) = (u8*)func_002280f8;
-        D_0035de27 = 0;
-    }
-}
+void func_00228150(u32 a);  // 0x00228150: definition moved into src/anon/unit_00224780.cpp
 
 struct W78Alloc;
 typedef u8* (*W78AllocFn)(W78Alloc*, s32, s32);

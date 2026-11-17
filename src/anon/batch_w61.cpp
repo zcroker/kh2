@@ -230,14 +230,7 @@ void func_00102448(u32, u32);
 s32 func_00225b50(s32);
 extern s32 D_0035db10;
 extern s32 D_0035de20;
-s32 func_002282f0(s32 a, u32 b) {
-    for (;;) {
-        if (D_0035db10 != 3) return 1;
-        if (!(D_0035de20 < a)) break;
-        func_00102448(b, 0);
-    }
-    return func_00225b50(a) != 0;
-}
+s32 func_002282f0(s32 a, u32 b);  // 0x002282f0: definition moved into src/anon/unit_00224780.cpp
 
 s32 func_00139d78(void*);
 void func_00139510(void*);

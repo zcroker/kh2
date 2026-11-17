@@ -54,11 +54,7 @@ extern s32 D_0035de5c;
 extern u8 D_0035de54;
 extern f32 D_0035de1c;
 extern s32 D_0035de20;
-void func_00226f20(s32 a0) {
-    D_0035de5c = a0;
-    if (a0 == 0) { D_0035de54 = 0; D_0035de1c = 0.0f; D_0035de20 = 0; return; }
-    D_0035de54 = 1; D_0035de1c = -2.0f; D_0035de20 = -1;
-}
+void func_00226f20(s32 a0);  // 0x00226f20: definition moved into src/anon/unit_00224780.cpp
 
 extern s32 D_00361a50;
 extern u8* D_0034e948;
