@@ -129,3 +129,30 @@ void func_00292870(void) {
 }
 }  // namespace n00292870
 
+
+// 002928f0 (gap function, not written before): count down the load-data step counter; at zero,
+// clear the current entry of the 16-byte table
+namespace g002928f0 {
+struct E16 { s32 a, b, c, d; };
+struct E4 { s16 x, y; };
+extern u16 D_0035f4e0 asm("D_0035f4e0");
+extern E4* D_0035f4dc asm("D_0035f4dc");
+extern u8 D_0035f4e2 asm("D_0035f4e2");
+extern s16 D_0035f4d8 asm("D_0035f4d8");
+extern E16* D_0035f4d4 asm("D_0035f4d4");
+void func_002928f0(s32 n) asm("func_002928f0");
+void func_002928f0(s32 n) {
+    s16 c = D_0035f4e0;
+    if (c == 0) return;
+    D_0035f4e0 -= n;
+    s16 nc = D_0035f4e0;
+    s16 y = D_0035f4dc[nc].y;
+    D_0035f4d8 = y;
+    if (!D_0035f4e2) return;
+    if (nc != 0) return;
+    D_0035f4d4[y].a = 0;
+    D_0035f4d4[D_0035f4d8].b = 0;
+    D_0035f4d4[D_0035f4d8].d = 0;
+    D_0035f4d4[D_0035f4d8].c = 0;
+}
+}  // namespace g002928f0
