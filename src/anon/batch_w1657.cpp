@@ -28,44 +28,7 @@ __attribute__((noreturn)) void func_002fd160(void);  // abort
 
 #define SWAP(x, y) do { W1657Fde* tmp = x; x = y; y = tmp; } while (0)
 // frame_heapsort: heap-sort an FDE vector with the given compare function.
-void func_00100c40(W1657Obj* ob, W1657FdeCmp fde_compare, W1657FdeVec* erratic)
-{
-    W1657Fde** a = erratic->array;
-    u32 n = erratic->count;
-    u32 m = n;
-    u32 i;
-    while (m > 0) {
-        --m;
-        for (i = m; 2 * i + 1 < n;) {
-            if (2 * i + 2 < n
-                && fde_compare(ob, a[2 * i + 2], a[2 * i + 1]) > 0
-                && fde_compare(ob, a[2 * i + 2], a[i]) > 0) {
-                SWAP(a[i], a[2 * i + 2]);
-                i = 2 * i + 2;
-            } else if (fde_compare(ob, a[2 * i + 1], a[i]) > 0) {
-                SWAP(a[i], a[2 * i + 1]);
-                i = 2 * i + 1;
-            } else
-                break;
-        }
-    }
-    while (n > 1) {
-        --n;
-        SWAP(a[0], a[n]);
-        for (i = 0; 2 * i + 1 < n;) {
-            if (2 * i + 2 < n
-                && fde_compare(ob, a[2 * i + 2], a[2 * i + 1]) > 0
-                && fde_compare(ob, a[2 * i + 2], a[i]) > 0) {
-                SWAP(a[i], a[2 * i + 2]);
-                i = 2 * i + 2;
-            } else if (fde_compare(ob, a[2 * i + 1], a[i]) > 0) {
-                SWAP(a[i], a[2 * i + 1]);
-                i = 2 * i + 1;
-            } else
-                break;
-        }
-    }
-}
+void func_00100c40(W1657Obj* ob, W1657FdeCmp fde_compare, W1657FdeVec* erratic);  // 0x00100c40: definition moved into src/libgcc/unwind-dw2-fde.c
 #undef SWAP
 
 static inline __attribute__((always_inline)) W1657Fde* binary_search_unencoded_fdes(W1657Obj* ob, void* pc)
@@ -125,28 +88,7 @@ static inline __attribute__((always_inline)) W1657Fde* binary_search_mixed_encod
 }
 
 // search_object: find the FDE of ob that covers pc (sorting the object first if possible).
-W1657Fde* func_00101388(W1657Obj* ob, void* pc)
-{
-    if (!(int)ob->s.b.sorted) {
-        func_00101848(ob);  // init_object
-        if ((u32)pc < ob->pc_begin) return 0;
-    }
-    if ((int)ob->s.b.sorted) {
-        if ((int)ob->s.b.mixed_encoding) return binary_search_mixed_encoding_fdes(ob, pc);
-        else if ((int)ob->s.b.encoding == 0) return binary_search_unencoded_fdes(ob, pc);
-        else return binary_search_single_encoding_fdes(ob, pc);
-    } else {
-        if ((int)ob->s.b.from_array) {
-            W1657Fde** p;
-            for (p = ob->u.array; *p; p++) {
-                W1657Fde* f = func_001011e0(ob, *p, pc);
-                if (f) return f;
-            }
-            return 0;
-        } else
-            return func_001011e0(ob, ob->u.single, pc);
-    }
-}
+W1657Fde* func_00101388(W1657Obj* ob, void* pc);  // 0x00101388: definition moved into src/libgcc/unwind-dw2-fde.c
 
 static inline __attribute__((always_inline)) int start_fde_sort(W1657Accu* accu, u32 count)
 {
@@ -200,29 +142,5 @@ static inline __attribute__((always_inline)) void end_fde_sort(W1657Obj* ob, W16
 }
 
 // init_object: count, collect and sort the FDEs of an object.
-void func_00101848(W1657Obj* ob)
-{
-    W1657Accu accu;
-    u32 count;
-    count = (int)ob->s.b.count;
-    if (count == 0) {
-        if ((int)ob->s.b.from_array) {
-            W1657Fde** p = ob->u.array;
-            for (count = 0; *p; ++p) count += func_00100ec8(ob, *p);
-        } else
-            count = func_00100ec8(ob, ob->u.single);
-        ob->s.b.count = count;
-        if ((int)ob->s.b.count != count) ob->s.b.count = 0;
-    }
-    if (!start_fde_sort(&accu, count)) return;
-    if ((int)ob->s.b.from_array) {
-        W1657Fde** p;
-        for (p = ob->u.array; *p; ++p) func_00101050(ob, &accu, *p);  // add_fdes
-    } else
-        func_00101050(ob, &accu, ob->u.single);  // add_fdes
-    end_fde_sort(ob, &accu, count);
-    accu.linear->orig_data = ob->u.single;
-    ob->u.sort = accu.linear;
-    ob->s.b.sorted = 1;
-}
+void func_00101848(W1657Obj* ob);  // 0x00101848: definition moved into src/libgcc/unwind-dw2-fde.c
 }

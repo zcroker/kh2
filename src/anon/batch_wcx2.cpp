@@ -3577,48 +3577,7 @@ const u8* func_00100430(const u8* p, u64* val);
 const u8* func_00100468(const u8* p, s64* val);
 void func_002fd160(void) __attribute__((noreturn));
 
-const u8* func_001004c0(u8 encoding, u32 base, const u8* p, u32* val) {  // text_arg_fetch
-    const union unaligned* u = (const union unaligned*)p;
-    u32 result;
-
-    if (encoding == 0x50) {
-        u32 a = (u32)p;
-        a = (a + 3) & -4;
-        result = *(u32*)a;
-        p = (const u8*)(a + 4);
-    } else {
-        switch (encoding & 0x0f) {
-        case 0x00:
-            result = (u32)u->ptr;
-            p += 4;
-            break;
-        case 0x01: {
-            u64 tmp;
-            p = func_00100430(p, &tmp);
-            result = (u32)tmp;
-        } break;
-        case 0x09: {
-            s64 tmp;
-            p = func_00100468(p, &tmp);
-            result = (u32)tmp;
-        } break;
-        case 0x02: result = u->u2; p += 2; break;
-        case 0x03: result = u->u4; p += 4; break;
-        case 0x04: result = u->u8; p += 8; break;
-        case 0x0a: result = u->s2; p += 2; break;
-        case 0x0b: result = u->s4; p += 4; break;
-        case 0x0c: result = u->s8; p += 8; break;
-        default: func_002fd160();
-        }
-        if (result != 0) {
-            result += ((encoding & 0x70) == 0x10 ? (u32)u : base);
-            if (encoding & 0x80)
-                result = *(u32*)result;
-        }
-    }
-    *val = result;
-    return p;
-}
+const u8* func_001004c0(u8 encoding, u32 base, const u8* p, u32* val);  // 0x001004c0: definition moved into src/libgcc/unwind-dw2-fde.c
 
 // --------------------
 u32 func_001069e8(void);

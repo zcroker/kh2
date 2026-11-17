@@ -89,41 +89,7 @@ s32 func_00100920(u8, void*);  // classify_subtype
 void func_001004c0(u8, s32, u32*, u32*);
 u32 func_001003c8(u8);  // classify_arg_masked3
 struct W279Obj { u32 min; u32 pad[3]; u64 lo : 2; u64 dirty : 1; u64 id : 8; u64 rest : 53; };
-s32 func_00100ec8(W279Obj* obj, u32* list) {
-    s32 id = 0;
-    u8* last = 0;
-    s32 cnt = 0;
-    s32 h = 0;
-    u32 out[4];
-    if (list[0]) do {
-        if (list[1]) {
-            u8* key = (u8*)list - list[1] + 4;
-            if (key != last) {
-                last = key;
-                id = func_001009a0(key);
-                h = func_00100920(id, obj);  // classify_subtype
-                s32 cur = obj->id;
-                if (cur == 0xff) {
-                    obj->id = id;
-                } else if (cur != id) {
-                    obj->dirty = 1;
-                }
-            }
-            func_001004c0(id, h, list + 2, out);
-            u32 n = func_001003c8(id);  // classify_arg_masked3
-            u32 mask;
-            if (n < 4) mask = (1LL << (n * 8)) - 1;
-            else mask = -1;
-            u32 v = out[0];
-            if (v & mask) {
-                cnt++;
-                if (v < obj->min) obj->min = v;
-            }
-        }
-        list = (u32*)((u8*)list + list[0] + 4);
-    } while (list[0]);
-    return cnt;
-}
+s32 func_00100ec8(W279Obj* obj, u32* list);  // 0x00100ec8: definition moved into src/libgcc/unwind-dw2-fde.c
 
 // ---- __d2b
 struct W279Big { W279Big* next; s32 k, maxwds, sign, wds; u32 x[1]; };

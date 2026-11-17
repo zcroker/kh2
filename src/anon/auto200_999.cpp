@@ -137,22 +137,7 @@ void func_0011c210(u32 a0);  // 0x0011c210: definition moved into src/anon/unit_
 
 void func_0010dee8(u32 a0, u32 *a1, u32 *a2);  // 0x0010dee8: definition moved into src/anon/unit_0010dee8.cpp
 
-u8* func_00100430(u8* a0, u64* a1) {  // varint64_decode_c
-    u8 *p = a0;
-    u32 shift = 0;
-    s64 out = 0;
-    s32 cont;
-
-    do {
-        u32 b = *p++;
-        out |= (s32)((b & 0x7f) << shift);
-        cont = b & -128;
-        shift += 7;
-    } while (cont != 0);
-
-    *a1 = out;
-    return p;
-}
+u8* func_00100430(u8* a0, u64* a1);  // 0x00100430: definition moved into src/libgcc/unwind-dw2-fde.c
 
 u8* func_00316f38(u8 *a0, u64 *a1) {  // varint64_decode
     u8 *p = a0;

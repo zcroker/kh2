@@ -11,18 +11,7 @@ u32 func_00100920(u8, void*);  // classify_subtype
 u8* func_001004c0(u8, u32, u8*, u32*);
 struct Fde { u32 len; s32 cie; u8 pc[1]; };
 static inline u8* FdeCie(Fde* f) { return (u8*)&f->cie - f->cie; }
-s32 func_00100b70(void* ob, Fde* x, Fde* y)
-{
-    s32 xe, ye;
-    u32 xp, yp;
-    xe = func_001009a0(FdeCie(x));
-    func_001004c0(xe, func_00100920(xe, ob), x->pc, &xp);
-    ye = func_001009a0(FdeCie(y));
-    func_001004c0(ye, func_00100920(ye, ob), y->pc, &yp);
-    if (xp > yp) return 1;
-    if (xp < yp) return -1;
-    return 0;
-}
+s32 func_00100b70(void* ob, Fde* x, Fde* y);  // 0x00100b70: definition moved into src/libgcc/unwind-dw2-fde.c
 
 // 0011e260: attach a chunk list, then process element 0 and every (0, i) pair.
 void* func_00132068(void*, s32);  // entry_get_by_index

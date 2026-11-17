@@ -2,7 +2,8 @@
 
 struct NoTail { ~NoTail() {} };
 
-void func_001008d0(BD_VALUE*) __attribute__((weak));
+// 0x1008d0 is __deregister_frame_info (src/libgcc/unwind-dw2-fde.c); crtbegin references it weakly.
+void func_001008d0(BD_VALUE*) asm("__deregister_frame_info") __attribute__((weak));
 
 extern "C" {
 

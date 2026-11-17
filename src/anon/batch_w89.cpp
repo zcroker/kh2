@@ -21,15 +21,7 @@ extern "C" {
 u32 func_00100920(u8, EhObj*);  // classify_subtype
 u8* func_001004c0(u8, u32, u8*, u32*);
 // fde_single_encoding_compare: orders two FDEs by their decoded pc_begin.
-s32 func_00100aa0(EhObj* ob, EhFde* x, EhFde* y) {
-    u32 xp, yp;
-    u32 base = func_00100920(ob->encoding, ob);  // classify_subtype
-    func_001004c0(ob->encoding, base, x->pc_begin, &xp);
-    func_001004c0(ob->encoding, base, y->pc_begin, &yp);
-    if (xp > yp) return 1;
-    if (xp < yp) return -1;
-    return 0;
-}
+s32 func_00100aa0(EhObj* ob, EhFde* x, EhFde* y);  // 0x00100aa0: definition moved into src/libgcc/unwind-dw2-fde.c
 }
 }
 

@@ -17,38 +17,7 @@ s32 func_001009a0(void*);
 u8* func_001004c0(u8, u32, u8*, u32*);
 u32 func_001003c8(u8);  // classify_arg_masked3
 // linear_search_fdes: walks an FDE list for the entry covering pc.
-EhFde* func_001011e0(EhObj* ob, EhFde* fde, u32 pc) {
-    void* last_cie = 0;
-    s32 encoding = ob->encoding;
-    u32 base = func_00100920(ob->encoding, ob);  // classify_subtype
-    for (; fde->length != 0; fde = (EhFde*)((u8*)fde + fde->length + 4)) {
-        u32 pc_begin, pc_range;
-        if (fde->cie == 0) continue;
-        if ((s32)ob->mixed) {
-            void* cie = (u8*)&fde->cie - fde->cie;
-            if (cie != last_cie) {
-                last_cie = cie;
-                encoding = func_001009a0(cie);
-                base = func_00100920(encoding, ob);  // classify_subtype
-            }
-        }
-        if (encoding == 0) {
-            pc_begin = ((u32*)fde->pc_begin)[0];
-            pc_range = ((u32*)fde->pc_begin)[1];
-            if (pc_begin == 0) continue;
-        } else {
-            u32 mask;
-            u8* p = func_001004c0(encoding, base, fde->pc_begin, &pc_begin);
-            func_001004c0(encoding & 0x0F, 0, p, &pc_range);
-            mask = func_001003c8(encoding);  // classify_arg_masked3
-            if (mask < 4) mask = (1L << (mask << 3)) - 1;
-            else mask = -1;
-            if ((pc_begin & mask) == 0) continue;
-        }
-        if (pc - pc_begin < pc_range) return fde;
-    }
-    return 0;
-}
+EhFde* func_001011e0(EhObj* ob, EhFde* fde, u32 pc);  // 0x001011e0: definition moved into src/libgcc/unwind-dw2-fde.c
 }
 }
 

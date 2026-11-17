@@ -365,13 +365,9 @@ u32 srand(u32, u32, u32, u32);
 u32 func_00324750(u32, u32, u32, u32);
 u32 func_01f18014(u32, u32, u32, u32);
 
-u32 func_00100690(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_00100618(a0, a1, 0x00000000u, 0x00000000u);
-}
+u32 func_00100690(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00100690: definition moved into src/libgcc/unwind-dw2-fde.c
 
-u32 func_00100770(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_00100700(a0, a1, 0x00000000u, 0x00000000u);
-}
+u32 func_00100770(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00100770: definition moved into src/libgcc/unwind-dw2-fde.c
 
 u32 func_00101d50(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_002b9bd0(a0, a1, a2, a3);

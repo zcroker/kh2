@@ -121,7 +121,7 @@ void func_001591e8(s32, s32);
 void func_00159c58(s32, s32);
 void func_0015a768(s32, s32);
 
-void func_001008d0(BD_VALUE* bd) { func_001007c0(bd); }
+void func_001008d0(BD_VALUE* bd);  // 0x001008d0: definition moved into src/libgcc/unwind-dw2-fde.c
 // 00102670: moved to src/global/unit_001022c0.cpp
 // 00103398: Tz::MenuBasic::GetMenuNameId, moved to src/common/unit_001031b0.cpp
 void func_00109e18(BD_VALUE* bd);  // 00109e18: moved to src/anon/unit_00109c30.cpp

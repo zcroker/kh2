@@ -9,35 +9,7 @@ s32 func_001009a0(u8*);
 u8* func_001004c0(u8, u32, u32*, u32*);
 u32 func_001003c8(u8);  // classify_arg_masked3
 // add_fdes: insert every live FDE of an object into the accumulator.
-void func_00101050(EhObj* ob, EhAccu* accu, EhFde* this_fde)
-{
-    u8* last_cie = 0;
-    int encoding = ob->s.b.encoding;
-    u32 base = func_00100920(ob->s.b.encoding, ob);  // classify_subtype
-    for (; this_fde->length != 0; this_fde = (EhFde*)((u8*)this_fde + this_fde->length + 4)) {
-        u8* this_cie;
-        if (this_fde->CIE_delta == 0) continue;
-        if ((int)ob->s.b.mixed_encoding) {
-            this_cie = (u8*)&this_fde->CIE_delta - this_fde->CIE_delta;
-            if (this_cie != last_cie) {
-                last_cie = this_cie;
-                encoding = func_001009a0(this_cie);
-                base = func_00100920(encoding, ob);  // classify_subtype
-            }
-        }
-        if (encoding == 0) {
-            if (this_fde->pc_begin[0] == 0) continue;
-        } else {
-            u32 pc_begin, mask;
-            func_001004c0(encoding, base, this_fde->pc_begin, &pc_begin);
-            mask = func_001003c8(encoding);  // classify_arg_masked3
-            if (mask < 4) mask = (1L << (mask << 3)) - 1;
-            else mask = -1;
-            if ((pc_begin & mask) == 0) continue;
-        }
-        if (accu->linear) accu->linear->array[accu->linear->count++] = this_fde;
-    }
-}
+void func_00101050(EhObj* ob, EhAccu* accu, EhFde* this_fde);  // 0x00101050: definition moved into src/libgcc/unwind-dw2-fde.c
 struct EhObj2 { u32 pc_begin; u32 tbase; u32 dbase; u32 u; union { struct { unsigned long sorted:1; unsigned long from_array:1; unsigned long mixed_encoding:1; unsigned long encoding:8; unsigned long count:21; } b; u32 i; } s; EhObj* next; };
 struct EhBases { u32 tbase; u32 dbase; u32 func; };
 EhFde* func_00101388(EhObj*, void*);
@@ -47,40 +19,7 @@ extern s32 D_0037aa2c;
 extern EhObj* D_0037aa30;
 extern EhObj* D_0037aa34;
 // _Unwind_Find_FDE: find the FDE covering pc, classifying unseen objects on the way.
-EhFde* func_00101698(void* pc, EhBases* bases)
-{
-    EhObj* ob;
-    EhFde* f = 0;
-    D_0037aa2c = DIntr();
-    for (ob = D_0037aa34; ob; ob = ob->next)
-        if ((u32)pc >= ob->pc_begin) {
-            f = func_00101388(ob, pc);
-            if (f) goto fini;
-            break;
-        }
-    while ((ob = D_0037aa30)) {
-        EhObj** p;
-        D_0037aa30 = ob->next;
-        f = func_00101388(ob, pc);
-        for (p = &D_0037aa34; *p; p = &(*p)->next)
-            if ((*p)->pc_begin < ob->pc_begin) break;
-        ob->next = *p;
-        *p = ob;
-        if (f) goto fini;
-    }
-fini:
-    if (D_0037aa2c) EIntr();  // ee_intr_get_enable
-    if (f) {
-        int encoding;
-        bases->tbase = ob->tbase;
-        bases->dbase = ob->dbase;
-        encoding = ob->s.b.encoding;
-        if ((int)ob->s.b.mixed_encoding)
-            encoding = func_001009a0((u8*)&f->CIE_delta - f->CIE_delta);
-        func_001004c0(encoding, func_00100920(encoding, ob), f->pc_begin, &bases->func);
-    }
-    return f;
-}
+EhFde* func_00101698(void* pc, EhBases* bases);  // 0x00101698: definition moved into src/libgcc/unwind-dw2-fde.c
 
 
 void func_00103ea0(s32);  // set_hook_ptr

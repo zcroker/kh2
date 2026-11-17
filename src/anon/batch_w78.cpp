@@ -59,27 +59,7 @@ extern u32 D_0032b984;
 extern u8 D_0032bae0[];
 
 // Reads a CIE's augmentation data and returns its FDE pointer encoding.
-s32 func_001009a0(u8* cie) {
-    u64 utmp;
-    s64 stmp;
-    u32 dummy;
-    u8* aug = cie + 9;
-    u8* p;
-    if (aug[0] != 'z') return 0;
-    p = aug + strlen(aug) + 1;
-    p = func_00100430(p, &utmp);  // varint64_decode_c
-    p = func_00100468(p, &stmp);
-    p++;
-    aug++;
-    p = func_00100430(p, &utmp);  // varint64_decode_c
-    while (1) {
-        if (*aug == 'R') return *p;
-        else if (*aug == 'P') p = func_001004c0(*p & 0x7f, 0, p + 1, &dummy);
-        else if (*aug == 'L') p++;
-        else return 0;
-        aug++;
-    }
-}
+s32 func_001009a0(u8* cie);  // 0x001009a0: definition moved into src/libgcc/unwind-dw2-fde.c
 
 // 00134c00: moved to src/anon/unit_00134668.cpp
 

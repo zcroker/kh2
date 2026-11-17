@@ -31,20 +31,7 @@ void func_002fd160(void) __attribute__((noreturn));
 
 struct EhObject { u32 pc_begin; u32 tbase; u32 dbase; };
 // base_from_object: base address for a DWARF EH pointer encoding.
-u32 func_00100920(u8 encoding, EhObject* ob) {  // classify_subtype
-    if (encoding == 0xff) return 0;
-    switch (encoding & 0x70) {
-    case 0x00:
-    case 0x10:
-    case 0x50:
-        return 0;
-    case 0x20:
-        return ob->tbase;
-    case 0x30:
-        return ob->dbase;
-    }
-    func_002fd160();
-}
+u32 func_00100920(u8 encoding, EhObject* ob);  // 0x00100920: definition moved into src/libgcc/unwind-dw2-fde.c
 
 struct Node2180 { u8 pad[12]; Node2180* next; u8 pad2[12]; s32 state; };
 extern Node2180* D_0038aa40;

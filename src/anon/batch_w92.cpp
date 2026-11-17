@@ -21,39 +21,7 @@ extern Obj100* D_0037aa34;
 
 void* f_001007c0(void* begin) asm("_Z13func_001007c0Pv");
 // libgcc __deregister_frame_info_bases: unlinks the object registered for this .eh_frame
-void* f_001007c0(void* begin) {
-    Obj100** p;
-    Obj100* ob = 0;
-    if (*(u32*)begin == 0)
-        return ob;
-    D_0037aa2c = DIntr();
-    for (p = &D_0037aa30; *p; p = &(*p)->next)
-        if ((*p)->u.single == begin) {
-            ob = *p;
-            *p = ob->next;
-            goto out;
-        }
-    for (p = &D_0037aa34; *p; p = &(*p)->next)
-        if ((int)(*p)->s.b.sorted) {
-            if ((*p)->u.sort->pad == begin) {
-                ob = *p;
-                *p = ob->next;
-                func_002fd408(ob->u.sort);
-                goto out;
-            }
-        } else {
-            if ((*p)->u.single == begin) {
-                ob = *p;
-                *p = ob->next;
-                goto out;
-            }
-        }
-    if (D_0037aa2c) EIntr();  // ee_intr_get_enable
-    func_002fd160();
-out:
-    if (D_0037aa2c) EIntr();  // ee_intr_get_enable
-    return ob;
-}
+void* f_001007c0(void* begin);  // 0x001007c0: definition moved into src/libgcc/unwind-dw2-fde.c
 }
 
 // ---- 105748 ----

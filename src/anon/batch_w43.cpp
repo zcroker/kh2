@@ -230,21 +230,7 @@ void ctarget_0011e350(u32 a, u32 b, u32, u32);  // 0x0011e350: definition moved 
 // 001a6ae8: moved to src/anon/unit_001a6a10.cpp
 
 // Queue a request node: interrupts off, push onto the pending list, restore.
-void wtarget_00100700(u32 a, u32 b, u32 c, u32 d) {
-    NoTail nt;
-    WT* p = (WT*)b;
-    p->u.w = 0;
-    p->a = -1;
-    p->b = c;
-    p->u.q |= 0x7fa;
-    p->c = d;
-    p->d = a;
-    u32 s = DIntr();
-    D_0037aa2c = s;
-    p->next = D_0037aa30;
-    D_0037aa30 = p;
-    if (s) EIntr();  // ee_intr_get_enable
-}
+void wtarget_00100700(u32 a, u32 b, u32 c, u32 d);  // 0x00100700: definition moved into src/libgcc/unwind-dw2-fde.c
 
 // 0015eaf8: moved to src/anon/unit_0015e070.cpp
 

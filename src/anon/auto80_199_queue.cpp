@@ -14,34 +14,7 @@ extern "C" void RECOM_FLAG_clear_0019f578(u32) asm("_ZN2YS10RECOM_FLAG5clearEv")
 
 namespace Tz { class Select { public: u32 isCursorMove(); u32 isSelectTopMove(); }; }
 
-u32 func_001003c8(u32 a0) {  // classify_arg_masked3
-    a0 &= 0xFFu;
-    u32 v0 = 0;
-    if (a0 == 0xFFu) {
-        return v0;
-    }
-
-    u32 t = a0 & 7u;
-    v0 = 2;
-    if (t == 2u) {
-        return v0;
-    }
-    if ((s32)t < 3) {
-        if (t != 0u) {
-            v0 = 4;
-            func_002fd160();
-        }
-        return 4;
-    }
-
-    if (t == 3u) {
-        return 4;
-    }
-    if (t == 4u) {
-        return 8;
-    }
-    func_002fd160();
-}
+u32 func_001003c8(u32 a0);  // 0x001003c8: definition moved into src/libgcc/unwind-dw2-fde.c
 
 void func_00100350(void) {
     if (func_00100690 != 0) {

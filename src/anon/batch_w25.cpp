@@ -9,20 +9,7 @@ void u_call0_00233c98(void) asm("_Z16u_call0_00233c98v");
 void LayFileReset(void) asm("_ZN2Tz12LayFileResetEv");
 
 // Signed LEB128 decode; returns the pointer past the encoded value.
-u8* func_00100468(u8* p, s64* val) {  // leb128_decode
-    u32 shift = 0;
-    u64 result = 0;
-    u8 byte;
-    do {
-        byte = *p++;
-        result |= (byte & 0x7f) << shift;
-        shift += 7;
-    } while (byte & 0x80);
-    if (shift < 64 && (byte & 0x40) != 0)
-        result |= -(1LL << shift);
-    *val = result;
-    return p;
-}
+u8* func_00100468(u8* p, s64* val);  // 0x00100468: definition moved into src/libgcc/unwind-dw2-fde.c
 
 extern void* D_003484a0;
 extern u8 D_003484a4;
