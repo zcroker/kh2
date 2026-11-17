@@ -42,15 +42,7 @@ extern s32 D_0034aa98;
 extern U15b D_0034aa9c;
 void func_0015ad80(S15b*, u32);
 void func_0015aea8(S15b*, u32);
-void func_0015b268(u32 a, f32 f) {
-    if (D_0034aa98 == 0) {
-        func_0015ad80(D_0034aa9c.p, a);
-        D_0034aa98++;
-    } else {
-        D_0034aa9c.p->f = f;
-        func_0015aea8(D_0034aa9c.p, a);
-    }
-}
+void func_0015b268(u32 a, f32 f);  // 0x0015b268: definition moved into src/anon/unit_0015b100.cpp
 
 void func_001666d0(u8*, u16, u32, u16, u16);
 void func_00166968(u8* p, u8 b, u16 c, u32 d, u16 e, u16 g, s16 h, s16 i);  // 0x00166968: definition moved into src/anon/unit_001664c0.cpp

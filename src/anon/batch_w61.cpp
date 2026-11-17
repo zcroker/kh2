@@ -93,12 +93,7 @@ extern Vq D_0034a9a0;
 // 00158870: moved to src/harata/libdk/scopecamera.cpp
 
 void func_001391c8(void*, u32, u32);
-void func_0015aa98(u8* p, u32 a, u32 b, f32 f) {
-    func_001391c8(p, 11000, 0);
-    *(u32*)(p + 24) = a;
-    *(f32*)(p + 28) = f;
-    *(u32*)(p + 32) = b;
-}
+void func_0015aa98(u8* p, u32 a, u32 b, f32 f);  // 0x0015aa98: definition moved into src/anon/unit_0015a810.cpp
 
 void* func_00161548(void*);
 void func_00161770(void*);

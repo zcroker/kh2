@@ -33,37 +33,5 @@ extern W1959Item* D_0034aa90;
 extern s32 D_0034aa94;
 s32 func_00163268(W1959Sphere*, W1959V*, f32*);
 s32 func_001632c0(W1959Sphere*, W1959V*, W1959V*);
-s32 func_0015a8d0(W1959V* seg, W1959V* out) {
-    W1959V a = seg[0];
-    W1959V b = seg[1];
-    W1959V q;
-    W1959V d;
-    d.sub(seg[1], seg[0]);
-    f32 len = d.length();
-    W1959Item* it = D_0034aa90;
-    s32 found = 0;
-    s32 i;
-    for (i = 0; i < D_0034aa94; i++) {
-        W1959Sphere s;
-        W1959V x;
-        W1959V y;
-        f32 t;
-        f32 r = it->r;
-        s.c = it->c;
-        s.r = r;
-        if (func_00163268(&s, &a, &t)) continue;
-        if (func_001632c0(&s, &a, &q)) {
-            x = a;
-            y = q;
-            d.sub(y, x);
-            if (d.length() < len) {
-                b = q;
-                *out = b;
-                found = 1;
-            }
-        }
-        it++;
-    }
-    return found;
-}
+s32 func_0015a8d0(W1959V* seg, W1959V* out);  // 0x0015a8d0: definition moved into src/anon/unit_0015a810.cpp
 }

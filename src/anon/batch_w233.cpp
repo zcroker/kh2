@@ -48,20 +48,7 @@ s32 func_00197920(void*);
 void func_00138c10(void*, s32);
 void func_001390a8(void*);
 struct V15ae { u8 p[20]; void (*f5)(void*); };
-void func_0015ae00(u8* a) {
-    if (func_00197920(a)) {
-        (*(V15ae**)a)->f5(a);
-        return;
-    }
-    f32 f = *(f32*)(a + 436);
-    if (f <= 0.0f) {
-        func_00138c10(a, 0x30);
-        *(f32*)(a + 436) = 20000.0f;
-        f = *(f32*)(a + 436);
-    }
-    if (f != 20000.0f) *(f32*)(a + 436) = f - D_00349e14;
-    func_001390a8(a);
-}
+void func_0015ae00(u8* a);  // 0x0015ae00: definition moved into src/anon/unit_0015a810.cpp
 
 extern u32 D_003638d0;
 s64 func_00312db8(u64, u64);

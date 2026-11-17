@@ -394,12 +394,7 @@ u32 func_0014ca38(u32 a0, u32 a1, u32 a2, u32 a3) {
 
 // 0014df98: moved to src/anon/unit_0014d680.cpp
 
-void func_0015b770(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a0;
-    (void)a1;
-    (void)a2;
-    (void)a3;
-}
+void func_0015b770(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0015b770: definition moved into src/anon/unit_0015b100.cpp
 
 // 0015ce80: moved to src/anon/unit_0015cdb0.cpp
 
@@ -1293,21 +1288,9 @@ void func_0014ce20(u32 a0, u32 a1, u32 a2, u32 a3) {
 
 // 0014e648: moved to src/harata/libdk/fpscamera.cpp
 
-u32 func_0015cc50(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a0;
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    return (u32)&D_004f3744;
-}
+u32 func_0015cc50(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0015cc50: definition moved into src/anon/unit_0015cb18.cpp
 
-u32 func_0015cc60(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a0;
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    return (u32)&D_004f36ec;
-}
+u32 func_0015cc60(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0015cc60: definition moved into src/anon/unit_0015cb18.cpp
 
 // 001688b8: moved to src/yasui/libys/file.cpp
 

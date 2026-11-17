@@ -81,9 +81,7 @@ u32 func_001231f8(void* o, u32 a1, u32 a2, u32 a3, u32 t0, u8 t1, u32 t2) {
 
 // 00135c50: moved to src/naka/libkn/obj_observer.cpp
 
-void bc_make(void) {
-    D_0034aa94 = func_0016c3a8(D_0034aa90, 64);
-}
+void bc_make(void);  // 0x0015a8a0: definition moved into src/anon/unit_0015a810.cpp
 
 void func_0016fb00(u32 a);  // 0x0016fb00: definition moved into src/anon/unit_0016e8f8.cpp
 

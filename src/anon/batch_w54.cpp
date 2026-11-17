@@ -160,15 +160,7 @@ void func_00159ce0(void*, Q16*);
 void func_0015b7c0(void*, s32);
 void func_0015c068(void*, s32);
 void func_001664c0(u32);
-void func_0015bbc8(u8* p, s32 a1) {
-    func_0014fc40(p, 18, 0, 5000, 0, 1);
-    func_0015b7c0(p + 48, a1);
-    func_0015c068(p, a1);
-    func_001664c0(*(u32*)(p + 2976));
-    *(f32*)(p + 2992) = 1.0f;
-    *(u8*)(p + 3024) = 1;
-    *(u8*)(p + 3025) = 96;
-}
+void func_0015bbc8(u8* p, s32 a1);  // 0x0015bbc8: definition moved into src/anon/unit_0015bab8.cpp
 
 s32 func_00177860(void);
 s32 func_001c3618(s32, s32);

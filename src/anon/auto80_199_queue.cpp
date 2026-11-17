@@ -1133,93 +1133,13 @@ u32 func_00156540(u32 a0);
 
 // 0015a708: moved to src/harata/libdk/targetcamera.cpp
 
-void func_0015ad28(u32 a0) {
-    u32 s0 = a0;
-    if (func_00139538(s0) != 0) {
-        return;
-    }
-    func_001aa728(2, *(u32*)(s0 + 24), 256, 192, 0x80ffffff, 0, 4);
-}
+void func_0015ad28(u32 a0);  // 0x0015ad28: definition moved into src/anon/unit_0015a810.cpp
 
-void func_0015ad80(u32 a0, u32 a1, f32 a2) {
-    u32 s1 = a0;
-    u32 s2 = a1;
-    f32 f20 = a2;
-    u32 s0;
-    u32 v0;
+void func_0015ad80(u32 a0, u32 a1, f32 a2);  // 0x0015ad80: definition moved into src/anon/unit_0015a810.cpp
 
-    s0 = func_0013a7e8(1);
-    v0 = func_0013d7e0();
-    *(f32*)(s1 + 436) = f20;
-    func_00138d60(s1, 10000, s0, v0, 47, s2, 0);
-    *(u32*)(s1 + 428) = 1;
-}
+void func_0015b578(u32 a0);  // 0x0015b578: definition moved into src/anon/unit_0015b100.cpp
 
-void func_0015b578(u32 a0) {
-    u32 s1 = 0;
-    u32 s2 = a0;
-    u32 s0;
-    s32 n;
-
-    n = *(s32*)(a0 + 436);
-    if (n > 0) {
-        s0 = a0 + 440;
-        do {
-            func_0023acd8(s0);
-            s1 += 1;
-            n = *(s32*)(s2 + 436);
-            if ((s32)s1 < n) {
-                s0 += 344;
-                continue;
-            }
-            break;
-        } while (1);
-    }
-    func_001390f0(s2);
-}
-
-void func_0015b5d8(u32 a0) {
-    u32 s1 = a0;
-    s32 n;
-    u32 s3;
-    u32 s2;
-    u32 s0;
-    u32 v;
-    u32 t0;
-    u32 t1;
-
-    n = *(s32*)(a0 + 432);
-    if (n <= 0) {
-        return;
-    }
-    if (n > 0x003d0900) {
-        return;
-    }
-
-    func_00139170();
-    s3 = 0;
-    if (*(s32*)(s1 + 436) <= 0) {
-        return;
-    }
-    s2 = s1 + 2848;
-    s0 = s1 + 440;
-
-    do {
-        v = *(u32*)(s2 + 0);
-        t0 = *(u32*)(s1 + 368);
-        t1 = *(u32*)(s1 + 372);
-        s3 += 1;
-        s2 += 4;
-        *(u32*)(s0 + 328) = t0 + v;
-        *(u32*)(s0 + 332) = t1;
-        func_0023ade0(s0);
-        if ((s32)s3 < *(s32*)(s1 + 436)) {
-            s0 += 344;
-            continue;
-        }
-        break;
-    } while (1);
-}
+void func_0015b5d8(u32 a0);  // 0x0015b5d8: definition moved into src/anon/unit_0015b100.cpp
 
 // 0015ee90: moved to src/harata/libdk/map.cpp
 

@@ -152,10 +152,7 @@ void func_0014f9a8(void* p) {
     if (func_00139d78(p)) func_00150678(p);
 }
 
-void func_0015b4c0(void* p) {
-    void* o = func_001050c8(p);
-    (*(VFn1*)(*(u8**)o + 4))(o, p);
-}
+void func_0015b4c0(void* p);  // 0x0015b4c0: definition moved into src/anon/unit_0015b100.cpp
 
 // Passes a stack copy of a 4x4 matrix.
 void func_00165830(u8* p, void* m) {

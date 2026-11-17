@@ -77,10 +77,7 @@ void func_001391a8(u8* p, void* src);  // 0x001391a8: definition moved into src/
 
 // 00159700: moved to src/anon/unit_00159240.cpp
 
-void func_0015b780(void) {
-    func_00139858(15);
-    func_00139ab0(15);
-}
+void func_0015b780(void);  // 0x0015b780: definition moved into src/anon/unit_0015b100.cpp
 
 // 0015cea0: moved to src/anon/unit_0015cdb0.cpp
 

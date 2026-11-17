@@ -31,10 +31,7 @@ void func_0014acf8(void);  // 0x0014acf8: definition moved into src/harata/libdk
 
 void func_001398d0(u32);
 void func_00139a38(u32);
-void func_0015b7a0(void) {
-    func_001398d0(15);
-    func_00139a38(15);
-}
+void func_0015b7a0(void);  // 0x0015b7a0: definition moved into src/anon/unit_0015b100.cpp
 
 // Copy the constant quadword D_004f37f0 to dst; returns dst.
 extern Q16 D_004f37f0;

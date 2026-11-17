@@ -742,16 +742,7 @@ void func_002367c8(u8*);  // obj_dispatch_bitfield64
 s32 func_00105c30(void);
 s32 func_00241ed8(u8);
 void func_001386e0(u8*, u32, u32, s32, u32, u32);
-void func_0015aba8(u8* o, u32 a1, u32 a2) {
-    u8* s = o + 416;
-    s32 skip = 0;
-    s32 x = 0;
-    func_002362b0(s);
-    func_002367c8(s);  // obj_dispatch_bitfield64
-    if (func_00105c30() == 1 || func_00105c30() == 8) skip = 1;
-    if (!(u8)skip) x = func_00241ed8(D_0032bae0) != 0;
-    func_001386e0(o, 20000, a2, (s32)s, x, 0);
-}
+void func_0015aba8(u8* o, u32 a1, u32 a2);  // 0x0015aba8: definition moved into src/anon/unit_0015a810.cpp
 }
 }
 

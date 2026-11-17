@@ -86,22 +86,9 @@ f32 func_00153610(f32 x) {
 // 001542c8: moved to src/anon/unit_00153ea0.cpp
 void func_001542c8(u8* p, u32 a, u32 b);
 
-void func_0015aaf8(u8* p) {
-    if (func_00197920(p)) {
-        ((VFn)(*(void***)p)[5])(p);
-        return;
-    }
-    if (*(f32*)(p + 28) <= 0.0f) ((VFn)(*(void***)p)[5])(p);
-    *(f32*)(p + 28) = *(f32*)(p + 28) - D_00349e14;
-}
+void func_0015aaf8(u8* p);  // 0x0015aaf8: definition moved into src/anon/unit_0015a810.cpp
 
-void func_0015ac68(u8* p) {
-    if (func_00197920(p) || func_001ad938() || (u8)D_0034f240.b0) {
-        ((VFn)(*(void***)p)[5])(p);
-        return;
-    }
-    func_00138840(p);
-}
+void func_0015ac68(u8* p);  // 0x0015ac68: definition moved into src/anon/unit_0015a810.cpp
 
 // Which side of a plane: (b - a) . n
 s32 func_00163828(const f32* a, const f32* b, const f32* n) {

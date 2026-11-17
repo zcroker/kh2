@@ -33,34 +33,7 @@ void func_001dd1e8(u8, u8);
 void func_001dd1b0(f32, f32);  // to_1e7018
 void func_001dd1c8(u8, u8, u8);  // to_1e7030_masked
 
-void func_0015c500(void)
-{
-    s32 i;
-    Fog15c* f;
-    func_0015cbb8(0, 0, 0, 128);
-    func_0015c4b8();
-    for (i = 0; i < 16; i++) func_0015cc18(i, 128, 128, 128, 128);
-    f = &D_004f3700.fog;
-    f->near = 1000.0f;
-    f->fmin = 0.0f;
-    f->far = 1000000.0f;
-    f->fmax = 255.0f;
-    s32 c = 128;
-    f->r = c;
-    f->g = c;
-    f->b = c;
-    f->a = c;
-    if (!func_0015cc80(f)) {  // test_float12_zero_and_bits
-        func_0010a8a8(f->fmin, f->fmax);  // store_global_float_pair
-        func_0010a828(f->near, f->far);
-        func_0010a7d8(f->r, f->g, f->b);  // store_triple_bytes
-    }
-    func_001dd1e8((s32)f->fmin, (s32)f->fmax);
-    func_001dd1b0(f->near, f->far);  // to_1e7018
-    func_001dd1c8(f->r, f->g, f->b);  // to_1e7030_masked
-    D_004f36a8 = D_004f3700;
-    D_004f3650 = D_004f36a8;
-}
+void func_0015c500(void);  // 0x0015c500: definition moved into src/anon/unit_0015bab8.cpp
 
 
 struct G2ad { u8 pad[320]; u32 bits[4]; };

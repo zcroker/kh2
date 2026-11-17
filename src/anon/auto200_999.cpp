@@ -117,25 +117,11 @@ static inline u32 addr_D_00350e60() { return (u32)&D_00350e60; }
 u32 func_0013e900(u32 a0);  // 0x0013e900: definition moved into src/anon/unit_0013dfb8.cpp
 
 void func_0015cb18(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6,
-                   u32 a7) {
-    u8 *p = (u8 *)&D_004f36a8;
-    *(u8 *)a0 = p[0];
-    *(u8 *)a1 = p[1];
-    *(u8 *)a2 = p[2];
-    *(u8 *)a3 = p[3];
-}
+                   u32 a7);  // 0x0015cb18: definition moved into src/anon/unit_0015cb18.cpp
 
 void dk_MapColor_getOnColorTable(u32, u32) asm(
     "_ZN2dk8MapColor15getOnColorTableEPhi");
-void dk_MapColor_getOnColorTable(u32 a0, u32 a1) {
-    u8 *p = (u8 *)((u32)&D_004f3700 + (a1 << 2));
-    *(u8 *)a0 = p[4];
-    a0 += 1;
-    *(u8 *)a0 = p[5];
-    a0 += 1;
-    *(u8 *)a0 = p[6];
-    *(u8 *)(a0 + 1) = p[7];
-}
+void dk_MapColor_getOnColorTable(u32 a0, u32 a1);  // 0x0015cb78: definition moved into src/anon/unit_0015cb18.cpp
 
 // 001570a0: moved to src/anon/unit_00153ea0.cpp
 u32 func_001570a0(u8 *a0);

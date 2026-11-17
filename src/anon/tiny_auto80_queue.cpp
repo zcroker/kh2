@@ -1157,28 +1157,9 @@ extern "C" u32 func_00139598(...);
 extern "C" u32 func_00140df0(...);
 
 
-void func_0015aea8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r14, r15, r16, r17;
-    r15 = (u32)((s32)0u + (48));
-    r16 = r4;
-    r17 = r5;
-    r14 = *(volatile u32*)((u32)r4 + (s32)(388));
-    r5 = (u32)((s32)0u + (47));
-    if (r14 == r15) {
-        ((void(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_00138c10)(r4, r5, r6, r7, r8, r9, r10, r11);
-    }
-    *(volatile u32*)((u32)r16 + (s32)(408)) = r17;
-}
+void func_0015aea8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);  // 0x0015aea8: definition moved into src/anon/unit_0015a810.cpp
 
-void func_0015c1f0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r14, r15;
-    r15 = (u32)(0x0035u << 16);
-    r14 = *(volatile u32*)((u32)r15 + (s32)(-20864));
-    r15 = (u32)((s32)0u + (1));
-    if (r14 != 0u) {
-        *(volatile u8*)((u32)r14 + (s32)(3024)) = (u8)r15;
-    }
-}
+void func_0015c1f0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);  // 0x0015c1f0: definition moved into src/anon/unit_0015bab8.cpp
 
 // 0015e018: moved to src/anon/unit_0015d828.cpp
 
@@ -9507,13 +9488,7 @@ void duplicate_unplaced_0015a8a0(void) {
 extern "C" u32 func_001390c0(...);
 extern "C" u32 func_00139538(...);
 
-void func_0015aef0(u32 a0) {
-    u32 s0 = a0;
-    if (func_00139538(a0) == 0u) {
-        func_001390c0(s0);
-        return;
-    }
-}
+void func_0015aef0(u32 a0);  // 0x0015aef0: definition moved into src/anon/unit_0015a810.cpp
 
 extern "C" u32 func_0015b7f8(...);
 extern "C" u32 func_0015bab8(...);
@@ -9528,43 +9503,16 @@ void duplicate_unplaced_0015b7c0(u32 a0, u32 a1) {
 
 extern u8 D_0034ae80;
 
-void func_0015c1b0(void) {
-    u32 s0 = (u32)&D_0034ae80;
-    u32 t7 = *(volatile u32*)((u32)s0 + (s32)(0));
-    if (t7 != 0u) {
-        u32 a0 = t7;
-        u32 t6 = *(volatile u32*)((u32)*(volatile u32*)((u32)t7 + (s32)(0)) + (s32)(16));
-        ((void(*)(u32))t6)(a0);
-        *(volatile u32*)((u32)s0 + (s32)(0)) = 0u;
-    }
-}
+void func_0015c1b0(void);  // 0x0015c1b0: definition moved into src/anon/unit_0015bab8.cpp
 
 extern u8 D_0034ae80;
 
-void func_0015c210(void) {
-    u32 t7 = *(volatile u32*)(u32)&D_0034ae80;
-    if (t7 != 0u) {
-        *(volatile u8*)((u32)t7 + (s32)(3024)) = (u8)0u;
-    }
-}
+void func_0015c210(void);  // 0x0015c210: definition moved into src/anon/unit_0015bab8.cpp
 
 extern "C" u32 func_0014e140(...);
 extern "C" u32 func_0015cb48(...);
 
-void func_0015c4b8(void) {
-    struct {
-        u8 b0;
-        u8 b1;
-        u8 b2;
-        u8 b3;
-    } sp;
-    sp.b0 = (u8)0u;
-    sp.b1 = (u8)0u;
-    sp.b2 = (u8)0u;
-    sp.b3 = (u8)0u;
-    func_0015cb48((u32)&sp, (u32)&sp.b1, (u32)&sp.b2, (u32)&sp.b3);
-    func_0014e140((u32)sp.b0, (u32)sp.b1, (u32)sp.b2);
-}
+void func_0015c4b8(void);  // 0x0015c4b8: definition moved into src/anon/unit_0015bab8.cpp
 
 extern u8 D_004f36a8;
 
@@ -14898,14 +14846,7 @@ void duplicate_unplaced_0015a810() {
     D_0034aa90 = o->vtbl->fn0(o, 2048, 0);
 }
 
-void func_0015a850() {
-    u32 v = D_0034aa90;
-    if (v != 0) {
-        Obj0015a850* o = func_001050c8();
-        o->vtbl->fn4(o, D_0034aa90);
-        D_0034aa90 = 0;
-    }
-}
+void func_0015a850();  // 0x0015a850: definition moved into src/anon/unit_0015a810.cpp
 
 void duplicate_unplaced_0015b4c0(u32 a0) {
     Obj0015b4c0* o = func_001050c8();

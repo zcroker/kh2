@@ -542,13 +542,9 @@ u32 func_001574d8(u32 a0, u32 a1, u32 a2, u32 a3);
 
 // 00159770: _GLOBAL__I_ stub, now made by gcc in src/anon/unit_00159240.cpp
 
-u32 func_0015c4a0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_00160de0(a0, a1, a2, a3);
-}
+u32 func_0015c4a0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0015c4a0: definition moved into src/anon/unit_0015bab8.cpp
 
-u32 func_0015cd90(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_0015ccf0(0x00000001u, 0x0000ffffu, a2, a3);
-}
+u32 func_0015cd90(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0015cd90: definition moved into src/anon/unit_0015cb18.cpp
 
 // 0015d400: _GLOBAL__I_ stub, now made by gcc in src/anon/unit_0015cdb0.cpp
 

@@ -180,24 +180,7 @@ void func_0010a7d8(u8, u8, u8);  // store_triple_bytes
 void func_001dd1e8(u8, u8);
 void func_001dd1b0(f32, f32);  // to_1e7018
 void func_001dd1c8(u8, u8, u8);  // to_1e7030_masked
-void func_0015c6d0(S15* a0) {
-    D_004f36a8 = *a0;
-    D_004f3650 = D_004f36a8;
-    D_004f3700 = *a0;
-    func_0015c4b8();
-    S15* p = &D_004f3700;
-    if (p->t.f16 == 0.0f) p->t.f16 = 255.0f;
-    T15* t = &p->t;
-    T15* g = &D_004f3744;
-    if (!func_0015cc80(t)) {  // test_float12_zero_and_bits
-        func_0010a8a8(t->f12, t->f16);  // store_global_float_pair
-        func_0010a828(t->f4, t->f8);
-        func_0010a7d8(g->id, t->b1, t->b2);  // store_triple_bytes
-    }
-    func_001dd1e8((s32)t->f12, (s32)t->f16);
-    func_001dd1b0(t->f4, t->f8);  // to_1e7018
-    func_001dd1c8(g->id, t->b1, t->b2);  // to_1e7030_masked
-}
+void func_0015c6d0(S15* a0);  // 0x0015c6d0: definition moved into src/anon/unit_0015bab8.cpp
 }
 struct V287 {
     f32 x, y, z, w;

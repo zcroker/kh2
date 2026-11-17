@@ -176,18 +176,7 @@ void* cam_sxfs(u32, u32) asm("_ZN2dk6Camera20singleCrossFadeStartEf");
 // 00153f08: moved to src/anon/unit_00153ea0.cpp
 
 // Formats v as decimal and maps each digit through tbl; returns digit count.
-s32 func_0015b4f8(s32* tbl, s32 v, s32* out) {
-    char buf[16];
-    func_002fee78(buf, D_0036b3c0, v);
-    s32 n = 0;
-    for (s32 i = 0; i < 16; i++) {
-        if (!buf[i]) break;
-        u32 d = buf[i] - '0';
-        *out++ = tbl[d];
-        n++;
-    }
-    return n;
-}
+s32 func_0015b4f8(s32* tbl, s32 v, s32* out);  // 0x0015b4f8: definition moved into src/anon/unit_0015b100.cpp
 
 typedef void (*VFn3)(void*, void*, void*);
 void func_00161770(u8* p) {

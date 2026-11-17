@@ -64,13 +64,7 @@ typedef void (*VFn)(void*);
 #define VDEL(o) if (o) { (*(VFn*)(*(u8**)o + 16))(o); o = 0; }
 void func_0015b100(void*) asm("_Z13func_0015b100Pv");
 // 0015b100: destroy the four global singletons
-void func_0015b100(void*)
-{
-    VDEL(D_0034aaa8);
-    VDEL(D_0034aaa4);
-    VDEL(D_0034aa9c);
-    VDEL(D_0034aaa0);
-}
+void func_0015b100(void*);  // 0x0015b100: definition moved into src/anon/unit_0015b100.cpp
 
 extern u8 D_0034af40[];
 extern u8 D_0034b0e0[];

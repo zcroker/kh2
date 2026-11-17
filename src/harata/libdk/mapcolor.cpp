@@ -1,11 +1,3 @@
 #include "mapcolor.hpp"
 
-namespace dk {
-
-extern u32 D_004f3694 asm("D_004f3694");
-
-
-
-void* MapColor::getFogDefault() { return &D_004f3694; }
-
-}  // namespace dk
+// 0x0015cc70 dk::MapColor::getFogDefault: definition moved into src/anon/unit_0015cb18.cpp (linked unit)

@@ -28,26 +28,7 @@ union U15c { u64 v; f32 f; };
 extern U15c D_0034af30;
 extern Alloc15c* D_0034c738;
 void func_0015fe18(void*, E15c*, s32, V4w1574, V4w1574, V4w1574, s32, s32, s32, s32, s32);
-void func_0015c2a0(s32 base, u64 mask) {
-    V4w1574 a, b, c;
-    D_0034af28 = base;
-    E15c* e = D_0034af20;
-    c.w = 1.0f; b.w = 1.0f; a.w = 1.0f;
-    s32 n = D_0034af24;
-    s32 i = 0;
-    if (n > 0) do {
-        u64 bit = (u64)1 << e->bit;
-        if (bit & mask) {
-            D_0034af30.v |= bit;
-            a.x = e->m[0]; a.y = e->m[1]; a.z = e->m[2];
-            b.x = e->m[3]; b.y = e->m[4]; b.z = e->m[5];
-            c.x = e->m[6]; c.y = e->m[7]; c.z = e->m[8];
-            void* p = D_0034c738->vt[0](D_0034c738, 0x2f0, __builtin_return_address(0));
-            func_0015fe18(p, e, base + e->off, a, b, c, i, e->a2c, e->a30, e->bit, e->a34);
-        }
-        i++; e++;
-    } while (i < n);
-}
+void func_0015c2a0(s32 base, u64 mask);  // 0x0015c2a0: definition moved into src/anon/unit_0015bab8.cpp
 f32 func_001142c0(s32);
 void func_00190128(Tgt10d*);
 QW10d* func_0016c028(Act10d*);

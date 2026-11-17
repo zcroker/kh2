@@ -131,16 +131,10 @@ void COUNTER_alertLoop(u8* self) {
 
 // 00159be0: moved to src/harata/libdk/talkcamera.cpp
 
-void func_0015a810(void) {
-    void* a = func_001050c8();
-    D_0034aa90 = (*(s32 (**)(void*, s32, s32))*(void**)a)(a, 0x800, 0);
-}
+void func_0015a810(void);  // 0x0015a810: definition moved into src/anon/unit_0015a810.cpp
 
 // Sets RGBA colour slot i.
-void func_0015cc18(s32 i, u8 r, u8 g, u8 b, u8 a) {
-    Rgba* c = &D_004f3704[i];
-    c->r = r; c->g = g; c->b = b; c->a = a;
-}
+void func_0015cc18(s32 i, u8 r, u8 g, u8 b, u8 a);  // 0x0015cc18: definition moved into src/anon/unit_0015cb18.cpp
 
 void trap_obj_idle(u32** bd);  // 0x001723d0: definition moved into src/anon/unit_00171e58.cpp
 

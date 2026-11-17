@@ -81,11 +81,7 @@ void func_00153840(u64 mask)
 
 // 0015c068
 s32 func_001665d8(void*, f32*, f32*, f32*, f32*, f32*, f32*);
-void func_0015c068(u8* p, void* a)
-{
-    u32 n = func_001665d8(a, (f32*)(p + 3000), (f32*)(p + 3004), (f32*)(p + 3016), (f32*)(p + 3020), (f32*)(p + 3008), (f32*)(p + 3012));
-    *(f32*)(p + 2996) = (f32)n * 100.0f * 0.001953125f;
-}
+void func_0015c068(u8* p, void* a);  // 0x0015c068: definition moved into src/anon/unit_0015bab8.cpp
 
 // 0016be98: returns a 128-bit value by hidden pointer
 struct L16be98 { u32 a, b, c, d; u128 v; };

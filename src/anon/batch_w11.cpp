@@ -70,12 +70,7 @@ struct RadarS { u8 pad[2928]; void* data; s32 n; };
 void func_0015b7f8(void*);
 void func_0015bab8(void*);
 void Radar_create(RadarS*, void*) asm("_ZN2dk5Radar6createEPv");
-void Radar_create(RadarS* self, void* data) {
-    self->data = data;
-    self->n = 16;
-    func_0015b7f8(self);
-    func_0015bab8(self);
-}
+void Radar_create(RadarS* self, void* data);  // 0x0015b7c0: definition moved into src/anon/unit_0015b100.cpp
 
 extern u32 D_0032e020;
 void* func_00189200(void*, u32);

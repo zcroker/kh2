@@ -191,21 +191,7 @@ s32 func_00133078(void* a, u32* tab, u32, u32 n, u32 x) {
 
 // 001589d0: moved to src/harata/libdk/bookcamera.cpp
 
-void func_0015b680(V4* pos, u32 a, u32 b) {
-    u8* o = func_001063c0(2880, func_001050c8());
-    *(u32*)(o + 12) = 0;
-    *(u32*)o = (u32)D_00347e60;
-    func_00239700(o + 24);
-    *(u32*)(o + 432) = 0;
-    *(u32*)o = (u32)D_0034ab80;
-    u8* q = o + 440;
-    for (s32 i = 6; i != -1; i--, q += 344) func_00239700(q);
-    func_0015b368(o, 16, func_0013e678(), a);
-    V4 t;
-    QCOPY(&t, pos);
-    func_001391a8(o, &t);  // vec_copy_at416_if_diff
-    func_0014f648(b);
-}
+void func_0015b680(V4* pos, u32 a, u32 b);  // 0x0015b680: definition moved into src/anon/unit_0015b100.cpp
 
 static inline bool Bit187920(u32 x, u32 m) { return (x & m) != 0; }
 // Nonzero when any blocking flag/condition is set.

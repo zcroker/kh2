@@ -144,15 +144,7 @@ u32 func_00147210(u32 a0, u32 a1, u32 a2, u32 a3) {
 
 // 00158a90 dk::BookCamera::create: moved to src/harata/libdk/bookcamera.cpp
 
-u32 func_0015bc50(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u, r15 = 0u, r16 = 0u;
-    r16 = r4;
-    r2 = func_0014fcd8(r4, r5, r6, r7);
-    r15 = *(u32*)((u32)r16 + (s32)(36));
-    r15 = (u32)((s32)r15 + (16));
-    *(u32*)((u32)r16 + (s32)(2980)) = r15;
-    return r2;
-}
+u32 func_0015bc50(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0015bc50: definition moved into src/anon/unit_0015bab8.cpp
 
 u32 func_0016ad38(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u, r15 = 0u, r16 = 0u;

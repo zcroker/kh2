@@ -107,18 +107,7 @@ void* func_001492e8(void*, s32);
 void func_0015bbc8(void*, void*);
 
 void ctarget0_0015c0f8(void* p) asm("_Z17ctarget0_0015c0f8v");
-void ctarget0_0015c0f8(void* p) {
-    Alloc1* a = D_00347f80->alloc;
-    u8* o = (u8*)a->vt[0](a, 3040, 0);
-    *(u32*)(o + 12) = 0;
-    *(void**)o = &D_0034af08;
-    func_0031daf0(o + 48);
-    D_0034ae80 = o;
-    s32 id = D_0034ece0;
-    if (id == 99) return;
-    void* r = func_001492e8(p, id);
-    if (r) func_0015bbc8(D_0034ae80, r);
-}
+void ctarget0_0015c0f8(void* p);  // 0x0015c0f8: definition moved into src/anon/unit_0015bab8.cpp
 
 /* ---- 00168218: pick the idle node with the smallest key ---- */
 struct Node2 { Node2* next; u32 busy; u8 data[1]; };

@@ -78,15 +78,7 @@ u32 func_00149300(u32);
 u32 func_0019f880(s32, s32);
 void func_0015aa98(u32, u32, u32, f32);
 void func_0015aba8(u32, u32, u32);
-void func_0015b2d0(void) {
-    u32 a = func_001492f8(D_0034aaac);
-    u32 b = func_00149300(D_0034aaac);
-    if (!a || !b) {
-        func_0015aa98(D_0034aaa8, func_0019f880(-1, -1), 20, 120.0f);
-    } else {
-        func_0015aba8(D_0034aaa4, a, b);
-    }
-}
+void func_0015b2d0(void);  // 0x0015b2d0: definition moved into src/anon/unit_0015b100.cpp
 
 s32 func_0014aba8(void);
 void func_0014aa80(u32, u32, u32);

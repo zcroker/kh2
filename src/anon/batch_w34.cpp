@@ -58,10 +58,7 @@ s32 func_0010f600(u8* p) {
 
 // 00158548: moved to src/harata/libdk/cameraconfig.cpp
 
-void func_0015c450(u32 n) {  // flag_test_global
-    if ((u8)((D_0034af30 >> n) & 1)) func_00160e50(n);
-    else func_0015c2a0(D_0034af28, 1ull << n);
-}
+void func_0015c450(u32 n);  // 0x0015c450: definition moved into src/anon/unit_0015bab8.cpp
 
 void func_00161598(u8* p) {
     u8* o = *(u8**)(p + 68);

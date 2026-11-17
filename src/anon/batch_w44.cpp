@@ -172,14 +172,7 @@ extern Pair D_00347fd8[2];
 
 // Default material check: no alpha offset, 255 scale, neutral 0x808080 colour.
 extern u8 D_00340eb0;
-s32 func_0015cc80(u8* p) {  // test_float12_zero_and_bits
-    if (*(f32*)(p + 12) == 0.0f && *(f32*)(p + 16) == 255.0f && (*(u32*)p & 0xffffff) == 0x808080) {
-        D_00340eb0 = 0;
-        return 1;
-    }
-    D_00340eb0 = 1;
-    return 0;
-}
+s32 func_0015cc80(u8* p);  // 0x0015cc80: definition moved into src/anon/unit_0015cb18.cpp
 
 // Calls virtual slot 13 on every object of the iterator.
 void func_0016bb38(u32 a, u32 b) {

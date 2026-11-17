@@ -84,14 +84,5 @@ static inline __attribute__((always_inline)) void init_4f3694(f32 z, f32 w, f32 
     D_004f3694.b = 0;
     func_0010a8a8(z, w);
 }
-void func_0015c880(f32 arg0) {
-    register s32 one asm("$14") = 1;
-    D_00340eb0 = one;
-    init_4f3694(0.0f, 255.0f, arg0);
-    func_0010a828(D_004f3694.x, D_004f3694.y);
-    func_0010a7d8(D_004f3694.r, D_004f3694.g, D_004f3694.b);
-    func_001dd1e8((s32)D_004f3694.z, (s32)D_004f3694.w);
-    func_001dd1b0(D_004f3694.x, D_004f3694.y);
-    func_001dd1c8(D_004f3694.r, D_004f3694.g, D_004f3694.b);
-}
+void func_0015c880(f32 arg0);  // 0x0015c880: definition moved into src/anon/unit_0015bab8.cpp
 }

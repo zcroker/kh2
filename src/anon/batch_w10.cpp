@@ -112,12 +112,7 @@ void Timer_setCountDown(u32 n) {
     D_00349df4 = n;
 }
 
-void func_0015cbb8(u8 a, u8 b, u8 c, u8 d) {  // set_global_rgba
-    D_004f3700.a = a;
-    D_004f3700.b = b;
-    D_004f3700.c = c;
-    D_004f3700.d = d;
-}
+void func_0015cbb8(u8 a, u8 b, u8 c, u8 d);  // 0x0015cbb8: definition moved into src/anon/unit_0015cb18.cpp
 
 void func_0016eb18(void* a, void* b);  // 0x0016eb18: definition moved into src/anon/unit_0016e8f8.cpp
 

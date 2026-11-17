@@ -31,11 +31,7 @@ struct FadeEnt { u32 pad[3]; u32 count; f32 alpha; };
 extern FadeEnt D_004f3694;
 extern FadeEnt D_004f36ec;
 extern FadeEnt D_004f3744;
-void wtarget_0015ccf0(u32 a, u32 b, u32 c, u32 d) {
-    if (b == 0xffff && a == 1) { D_004f3694.count = 0; D_004f3694.alpha = 255.0f; }
-    if (b == 0xffff && a == 1) { D_004f36ec.count = 0; D_004f36ec.alpha = 255.0f; }
-    if (b == 0xffff && a == 1) { D_004f3744.count = 0; D_004f3744.alpha = 255.0f; }
-}
+void wtarget_0015ccf0(u32 a, u32 b, u32 c, u32 d);  // 0x0015ccf0: definition moved into src/anon/unit_0015cb18.cpp
 
 extern "C" {
 s32 YS_ITEM_Reduce(s32, s32) asm("_ZN2YS4ITEM6ReduceEii");

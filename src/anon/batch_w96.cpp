@@ -225,31 +225,7 @@ void wtarget_001521c8(u32 self, u32 id, u32, u32) {
 void func_001558b8(u32 self, u32 a1, s32 idx);
 
 // Sets up a row of up to 8 child panels and centres them horizontally.
-void func_0015b368(u32 self, u32 a1, u32 a2, u32 a3) {
-    s32 ids[8];
-    s32 sum = 0;
-    s32 i = 0;
-    s32 half, v;
-    u32 s5 = func_0013a7e8(0);
-    func_001386e0(self, 3800, s5, a2, a1, 15);
-    *(s32*)(self + 436) = func_0015b4f8(D_0034ab50, a3, ids);
-    for (; i < *(s32*)(self + 436); i++) {
-        u32 p = self + 440 + i * 344;
-        func_00239988(p, s5, a2);
-        func_00239bf8(p, ids[i]);
-        sum += func_0023aa98(p);
-    }
-    v = func_0023aa98(self + 24);
-    i = 0;
-    sum += v;
-    half = sum / 2;
-    sum = 0;
-    *(s32*)(self + 376) = half - v;
-    for (; i < *(s32*)(self + 436); i++) {
-        ((s32*)(self + 2848))[i] = sum - half;
-        sum += func_0023aa98(self + 440 + i * 344);
-    }
-}
+void func_0015b368(u32 self, u32 a1, u32 a2, u32 a3);  // 0x0015b368: definition moved into src/anon/unit_0015b100.cpp
 
 // Constructor: vtable + two sprite members, then their draw state.
 // 0015e4e0: moved to src/anon/unit_0015e070.cpp
