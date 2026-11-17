@@ -228,11 +228,7 @@ void func_002349e8(void) {
     if (D_01dae41c) D_01dae41c(D_0035e36c);
 }
 
-s32 func_0024ad50(void) {
-    s32 r = 0;
-    if (*minigame_get_score(10) >= 2 || jiminy_is_full_open()) r = 1;
-    return r;
-}
+s32 func_0024ad50(void);  // 0x0024ad50: definition moved into src/anon/unit_00249ef0.cpp
 
 void ctrl_sel(void) {
     s32 f = D_00372438[select_get_current(D_0035ee34)];

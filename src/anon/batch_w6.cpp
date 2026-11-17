@@ -178,14 +178,7 @@ void func_002a65a0(void);  // 0x002a65a0: definition moved into src/anon/unit_00
 
 struct S16d8 { u8 pad[22012]; s32 a; u8 pad2[23292 - 22016]; s32 b; };
 extern S16d8* D_0035f634;
-u32 func_002b16d8(void) {
-    S16d8* p = D_0035f634;
-    s32 a = p->a;
-    s32 b = p->b;
-    u32 r = 0;
-    if (a == 126) r = (b == 0x81);
-    return r;
-}
+u32 func_002b16d8(void);  // 0x002b16d8: definition moved into src/anon/unit_002b0950.cpp
 
 void func_002e7670(u8*);
 void func_002e76b0(u8*);

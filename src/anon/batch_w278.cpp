@@ -40,26 +40,7 @@ s32 IsHide278(CurItem278*) asm("_ZN2dk5Obj2D6isHideEv");
 void Show278(CurItem278*) asm("_ZN2dk5Obj2D4showEv");
 void SetNum278(CurItem278*, s32) asm("_ZN2dk6Sprite6setNumEi");
 void Attach278(CurItem278*, CurItem278*) asm("_ZN2Tz10MenuCursor12AttachSpriteEz");
-void func_002b2da8(s32 idx) {
-    CurSt278* st = func_002b23e0(-1);  // list_entry_by_index_checked
-    CurItem278* o = &D_0035f634->item[idx + 1];
-    Call4_278(o);
-    if (IsHide278(o)) Show278(o);
-    if (idx != 0) {
-        o = &D_0035f634->item[idx];
-        if (IsHide278(o)) Show278(o);
-        SetNum278(o, D_00374cd8[st->bit].c);
-        o = &D_0035f634->item[3];
-        if (IsHide278(o)) Show278(o);
-    } else {
-        o = &D_0035f634->item[1];
-        s16 n = D_00374cd8[st->bit].a;
-        if (o->num != n) SetNum278(o, n);
-    }
-    o = &D_0035f634->item[0];
-    if (IsHide278(o)) Show278(o);
-    Attach278(o, &D_0035f634->item[idx + 1]);
-}
+void func_002b2da8(s32 idx);  // 0x002b2da8: definition moved into src/anon/unit_002b2a18.cpp
 }
 struct Big278 { Big278* next; s32 k, maxwds, sign, wds; u32 x[1]; };
 extern "C" {

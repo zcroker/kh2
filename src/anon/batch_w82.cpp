@@ -320,16 +320,7 @@ void func_002827f0(u32, s32, s32);
 void func_00138c10(u8*, u32);
 void func_00139510(u8*);
 
-void func_0024bcb8(void)
-{
-    if (func_00139d78(D_0035edb0)) VCall5_82(D_0035edb0);
-    if (func_00139d78(D_0035edb8)) VCall5_82(D_0035edb8);
-    if (func_00139d78(D_0035edb4)) VCall5_82(D_0035edb4);
-    if (func_0028acc8(D_0035eda8)) func_0028abe0(D_0035eda8);
-    if (func_0028acc8(D_0035edac)) func_0028abe0(D_0035edac);
-    func_0024c828();
-    func_0028ce38();
-}
+void func_0024bcb8(void);  // 0x0024bcb8: definition moved into src/anon/unit_0024ba58.cpp
 
 void func_0025e370(void);  // 0x0025e370: definition moved into src/anon/unit_0025da20.cpp
 

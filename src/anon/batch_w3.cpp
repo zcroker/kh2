@@ -162,7 +162,7 @@ void func_0029e050();  // 0x0029e050: definition moved into src/anon/unit_0029d0
 
 u8* func_002b23e0();  // list_entry_by_index_checked
 void func_002ac678(u8);
-void func_002b3420() { func_002ac678(func_002b23e0()[2]); }
+void func_002b3420();  // 0x002b3420: definition moved into src/anon/unit_002b2a18.cpp
 
 u32 func_002c6218();
 void func_002c6280(u32, u32);

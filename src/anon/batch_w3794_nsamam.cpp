@@ -19,39 +19,5 @@ void func_00239558(void*, s16*, s16*);
 
 // Puzzle board refresh: for every piece set in the dirty mask (or all when
 // flag), resize its sprite and set its UVs from the piece table.
-void func_002b1bd0(u8 flag)
-{
-    s32 row = 0;
-    s32 rows;
-    s32 cols;
-    u8* info = func_002b23e0(-1);
-    PzWork* work = func_002a9d68();
-    u32 kind = (*(u32*)info >> 27) & 1;
-    s8* g = &D_00374cd0[kind * 4];
-    cols = D_00374cd0[kind * 4];
-    rows = g[1];
-    s16 size = D_00374cc8[kind];
-    for (row = 0; row < rows; row++) {
-        for (s32 col = 0; col < cols; col++) {
-            u32 idx = row * cols + col;
-            if (PzBit(D_0035f638->mask, idx) || flag) {
-                PzObj* o = &D_0035f634[idx];
-                PzEnt* e = (PzEnt*)(((info[2] * 48 + idx) * 4 + (u32)work) + 480);
-                s32 a = e->a;
-                s32 b = e->b;
-                if (a < 0) {
-                    func_00138c10(o, 0);
-                } else {
-                    if (o->f184 != size) func_00138c10(o, size);
-                    PzUV uv;
-                    func_002b28b0((*(u32*)info >> 27) & 1, a, b, &uv);
-                    func_00239558(o->m, uv.u, uv.v);
-                }
-            }
-        }
-    }
-    PzBits* pz = D_0035f638;
-    pz->mask[0] = 0;
-    pz->mask[1] = 0;
-}
+void func_002b1bd0(u8 flag);  // 0x002b1bd0: definition moved into src/anon/unit_002b0950.cpp
 }

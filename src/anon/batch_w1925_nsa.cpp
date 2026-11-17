@@ -49,26 +49,5 @@ extern s32 D_0035edb0, D_0035edb4, D_0035edb8;
 extern W1925_T* D_0035edbc;
 extern void* D_0035edc0;
 extern u8 D_0035edc4, D_0035edc5;
-void func_0024b210(void) {
-    void* o;
-    func_00287b18(3, 3);
-    o = func_00288be8(56);
-    func_002889f0(o, 3, 1);
-    D_0035eda8 = o;
-    o = func_00288be8(56);
-    func_002889f0(o, 2, 0);
-    D_0035edac = o;
-    func_00288f48(o, 64, 128, 0, 0);
-    D_0035edb0 = 0;
-    D_0035edb4 = 0;
-    D_0035edb8 = 0;
-    o = (**(AllocFn**)D_0032ba14)(D_0032ba14, 12, __builtin_return_address(0));
-    func_002b3df8(o);
-    D_0035edc0 = o;
-    D_0035edc4 = 0;
-    D_0035edbc = new (*(W1925_Al**)(D_00347f80 + 20)) W1925_T[3];
-    D_0035edc5 = 0;
-    func_0028d068(30026, -1);
-    func_00102818(*(u32*)(func_00103eb0() + 4), 0, 2000, (void*)func_0024b510, 4096);
-}
+void func_0024b210(void);  // 0x0024b210: definition moved into src/anon/unit_00249ef0.cpp
 }

@@ -196,12 +196,7 @@ void func_00281f90(u8* p);  // 0x00281f90: definition moved into src/anon/unit_0
 
 s8 func_00295228(u32 x);  // 0x00295228: definition moved into src/anon/unit_00292e60.cpp
 
-u32 func_002b1aa0(void) {
-    u32 f = *func_002b23e0(-1);  // list_entry_by_index_checked
-    if (f & 0x04000000) return 20690;
-    if (f & 0x10000000) return D_00374ca4;
-    return D_00374ca8;
-}
+u32 func_002b1aa0(void);  // 0x002b1aa0: definition moved into src/anon/unit_002b0950.cpp
 
 char* func_002ba0f8(u32 x) {
     func_002fee78(D_01e2a5a8, D_00374f80, x);

@@ -317,24 +317,7 @@ extern u32 D_0035edac;
 extern void* D_0035edb0;
 extern void* D_0035edb4;
 extern void* D_0035edb8;
-s32 func_0024bd90(void)
-{
-    s32 mode = func_00287bc0();
-    func_00287d68();  // copy_globals_3words
-    if (func_00287db0()) {
-        if (func_0028acc8(D_0035eda8) || func_0028acc8(D_0035edac) || func_00139d78(D_0035edb0)
-            || func_00139d78(D_0035edb4) || func_00139d78(D_0035edb8))
-            return 0;
-        func_001039f8();
-        return 1;
-    } else {
-        switch (mode) {
-        case 0: func_0024be68(); break;
-        case 1: func_0024bfb8(); break;
-        }
-    }
-    return 0;
-}
+s32 func_0024bd90(void);  // 0x0024bd90: definition moved into src/anon/unit_0024ba58.cpp
 union PtrI { u8* p; s32 i; };
 extern PtrI D_0035f20c;
 extern u32 D_0035f14c;

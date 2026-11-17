@@ -607,18 +607,7 @@ void func_002ad878(void);  // 0x002ad878: definition moved into src/anon/unit_00
 void func_002adbd0(void);  // 0x002adbd0: definition moved into src/anon/unit_002a99c8.cpp
 
 
-void func_002b2c80(void) {
-    s32 i;
-    for (i = 0; i < 2; i++) {
-        u32 off = i * 408;
-        if (func_00139d78(D_0035f634 + off + 19992)) {
-            U19_VObj* o = (U19_VObj*)(off + (u32)D_0035f634 + 19992);
-            o->vt->f20(o);
-        }
-    }
-    if (func_00139d78(D_0035f634 + 19584)) func_00139510(D_0035f634 + 19584);
-    if (func_00139d78(D_0035f634 + 20808)) func_00139510(D_0035f634 + 20808);
-}
+void func_002b2c80(void);  // 0x002b2c80: definition moved into src/anon/unit_002b2a18.cpp
 
 
 void func_002bbc90(U20_Fade* f);  // 0x002bbc90: definition moved into src/anon/unit_002bb8b0.cpp

@@ -236,19 +236,7 @@ void func_0023f070(void*, s32, s32);
 s32 func_0028acc8(void*);
 void func_0028ab20(void*);
 s32 func_002891e8(void*);
-void func_00248720(void) {
-    if (func_00139d78(D_0035ed54) && func_0023f0c0(D_0035ed54) != 32)
-        func_0023f070(D_0035ed54, 32, -1);
-    if (func_0028acc8(D_0035ed4c)) {
-        s32 v;
-        func_0028ab20(D_0035ed4c);
-        v = func_002891e8(D_0035ed4c);
-        if (func_00139d78(D_0035ed5c) && func_0023f0c0(D_0035ed5c) != D_00371d40[v].c)
-            func_0023f070(D_0035ed5c, D_00371d40[v].c, -1);
-    }
-    if (func_00139d78(D_0035ed58) && func_0023f0c0(D_0035ed58) != 35)
-        func_0023f070(D_0035ed58, 35, -1);
-}
+void func_00248720(void);  // 0x00248720: definition moved into src/anon/unit_00247ff0.cpp
 
 extern void* D_0035f01c;
 struct Ent273 { u16 id; u8 pad[6]; };

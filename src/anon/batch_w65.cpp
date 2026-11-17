@@ -263,19 +263,7 @@ struct Ent36 { u32 f; u32 r[8]; };
 extern u32* D_0035f630;
 s32 func_00276608(s32);
 void func_002765e8(s32, s32, s32);
-void func_002b1208(u32 a) {
-    s32 n = 0;
-    Ent36* e = (Ent36*)D_0035f630;
-    s32 i;
-    for (i = 0; i < 10; i++, e++) {
-        if (e->f & 0x2000000) n++;
-    }
-    s32 v = func_00276608(28);
-    v = (a & 0x10000) ? v + 1 : v - 1;
-    if (v < 0) v = n - 1;
-    else if (v >= n) v = 0;
-    func_002765e8(28, v, 0);
-}
+void func_002b1208(u32 a);  // 0x002b1208: definition moved into src/anon/unit_002b0950.cpp
 
 extern u32 D_003616f8[];
 void func_002bc470(u32);

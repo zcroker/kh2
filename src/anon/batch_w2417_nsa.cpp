@@ -27,40 +27,7 @@ void* func_00192048(u32);
 void func_00192c90(void*, char*);
 void func_0028de08(u32, char*, s32);
 
-void func_002b1db8(void) {
-    u32 i;
-    T2b1* t = func_00294000(9);
-    H2b1* e = t->e;
-    W2b1* w = func_002a9d68();
-    D_0035f638->cnt = 0;
-    func_002fde18(D_0035f630, 0, 0x168);
-    u16* bits;
-    for (i = 0; (s32)i < t->count; i++, e++) {
-        bits = w->bits;
-        s32 h = 24;
-        s32 j = 0;
-        s32 n = (e->b1 & 0xf) ? 48 : h;
-        s32 found = 0;
-        if (n) {
-            s8* q = (s8*)((u32)(i * 192) + (u32)w + 488);
-            do {
-                if (*q >= 0) { found = 1; break; }
-                q += 4;
-                j++;
-            } while (j < n);
-        }
-        D_0035f630[i].a = (found || func_00276c18()) ? 1 : 0;
-        D_0035f630[i].b = found;
-        if (D_0035f630[i].b) D_0035f638->cnt++;
-        { s32 m = 1 << (i & 15); D_0035f630[i].c = (bits[i >> 4] & m) != 0; }
-        D_0035f630[i].d = (e->b1 & 0xf) != 0;
-        D_0035f630[i].e = (e->b1 & 0xf0) != 0;
-        if (D_0035f630[i].b) func_00192c90(func_00192048(e->id), D_0035f630[i].name);
-        else func_0028de08(e->id, D_0035f630[i].name, 32);
-        D_0035f630[i].kind = e->b0;
-        D_0035f630[i].id = e->w4;
-    }
-}
+void func_002b1db8(void);  // 0x002b1db8: definition moved into src/anon/unit_002b1db8.cpp
 }
 
 // 00323110: constructor of a large object (same family as 00322e58/00324510/003241a0):

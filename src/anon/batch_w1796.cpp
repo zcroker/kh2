@@ -14,25 +14,7 @@ s32 func_001a6d08(s32);
 extern S24_w1796 D_00371f30;
 void func_00220088(Item_w1796*, u16);
 
-s32 func_0024ac88(void) {
-    s32 r = 1;
-    s32 i;
-    S24_w1796* d = &D_00371f30;
-    s8* p = d->a;
-    for (i = 0; i < 4; i++) {
-        s32 c = *p++;
-        if (c < 0) break;
-        if (!func_001a6d08(c)) { r = 0; break; }
-    }
-    if (r) {
-        for (i = 0; i < 4; i++) {
-            s32 c = D_00371f30.b[i];
-            if (c < 0) break;
-            if (func_001a6d08(c)) { r = 0; break; }
-        }
-    }
-    return r;
-}
+s32 func_0024ac88(void);  // 0x0024ac88: definition moved into src/anon/unit_00249ef0.cpp
 
 void func_00221ed0(Node_w1796* n) {
     u16 f = n->flags & 0x20;

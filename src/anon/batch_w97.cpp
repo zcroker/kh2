@@ -392,28 +392,7 @@ u32 func_00192048(u32);
 void func_00192c90(u32, u8*);
 s32 func_002891e8(u32);
 void func_001398d0(s32);
-void func_0024ada0(void) {
-    if (!func_001a6d08(9)) return;
-    func_0028d980(D_0035ed88.p, 30011, 0, 0, D_0035ed78, 39, 41, -1, 100);
-    func_00139620(D_0035ed88.p);
-    func_001395f8((u8*)D_0035ed88.p);
-    D_0035ed88.p->f432 = 2;
-    D_0035ed88.p->f405 = 1;
-    Sub24a* sb = &D_0035ed88.p->sub;
-    sb->flags |= 8;
-    func_002fde18(D_0035ed98.p, 0, 32);
-    D_0035ed88.p->f408 = D_0035ed98.p;
-    u8* buf = D_0035ed98.p;
-    u8* v = func_001d56c8(10);
-    if (v[0] != 3) {
-        func_00192c90(func_00192048(0xcb9b), buf);
-    } else {
-        s32 n = func_00192b30(func_00192cc0(buf, D_00371e98, *(u32*)(v + 4)));
-        func_00192c90(func_00192048(0xcb98), buf + n);
-    }
-    if (func_002891e8(D_0035ed70)) return;
-    func_001398d0(100);
-}
+void func_0024ada0(void);  // 0x0024ada0: definition moved into src/anon/unit_00249ef0.cpp
 
 // ---- 002875e8
 struct Alloc287;

@@ -76,22 +76,7 @@ u32 func_0028ddd8(u32);
 void func_001395f8(u8*);
 void func_002891f0(void*, s32, s32, s32, s32);
 void func_002b4388(void*, E_w271*, s32);
-void func_0024ba58(void) {
-    s32 sel = 0;
-    s32 i;
-    for (i = 0; i < 2; i++) {
-        if (D_003720a0[i].c) sel = i;
-        func_00288d80(D_0035edac, i, 0, 0, D_0035edb0, D_003720a0[i].h, &D_003720a0[i], D_003720a0[i].b);
-        u8* v = func_002891b8(D_0035edac, i);
-        func_00288e08(D_0035edac, i, func_0023aa78(v + 24), 0);
-        u32 s = func_0023aa98(v + 24);
-        *(u32*)(v + 432) = func_0028dd90(s);
-        *(u32*)(v + 428) = func_0028ddd8(s);
-        func_001395f8(v);
-    }
-    func_002891f0(D_0035edac, sel, 1, 0, 2);
-    func_002b4388(D_0035edc0, &D_003720a0[sel], 0);
-}
+void func_0024ba58(void);  // 0x0024ba58: definition moved into src/anon/unit_0024ba58.cpp
 }
 #ifndef QCOPY
 #define QCOPY(d, s) asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(d), "r"(s) : "$8", "memory")

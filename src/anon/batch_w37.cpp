@@ -241,22 +241,11 @@ s32 func_00292630(void);
 u8* func_00294000(u32);
 void* func_00293db8(u32, void*);
 void func_0023fa08(void*, void*);
-void func_002b27c8(void) {
-    func_0023f900(D_0035f638);
-    if (func_00292630()) return;
-    u8* v = func_00294000(9);
-    void* x = func_00293db8(5, v + ((s8*)D_0035f638)[52] * 16 + 22);
-    func_0023fa08(D_0035f638, x);
-    *(u32*)(D_0035f638 + 52) |= 0x200;
-}
+void func_002b27c8(void);  // 0x002b27c8: definition moved into src/anon/unit_002b1db8.cpp
 
 extern u8* D_0035f634;
 s32 func_00139d78(void*);
-s32 func_002b2d48(void) {
-    s32 r = 0;
-    if (func_00139d78(D_0035f634 + 19992) || func_00139d78(D_0035f634 + 20400)) r = 1;
-    return r;
-}
+s32 func_002b2d48(void);  // 0x002b2d48: definition moved into src/anon/unit_002b2a18.cpp
 
 extern u8 D_01e2a410[];
 void func_002bcfe8(void*);

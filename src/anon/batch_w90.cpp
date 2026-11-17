@@ -224,22 +224,7 @@ extern void* D_0035ed50;
 extern void* D_0035ed54;
 extern void* D_0035ed58;
 extern void* D_0035ed5c;
-s32 func_00248900(void)
-{
-    s32 m = func_00287bc0();
-    func_00287d68();  // copy_globals_3words
-    if (func_00287db0()) {
-        if (func_0028acc8(D_0035ed4c) || func_0028acc8(D_0035ed50) || func_00139d78(D_0035ed54)
-            || func_00139d78(D_0035ed58) || func_00139d78(D_0035ed5c)) return 0;
-        func_001039f8();
-        return 1;
-    }
-    switch (m) {
-    case 0: func_002489d8(); break;
-    case 1: func_00248b38(); break;
-    }
-    return 0;
-}
+s32 func_00248900(void);  // 0x00248900: definition moved into src/anon/unit_00247ff0.cpp
 
 // 00256f18
 extern void* D_0035f01c;

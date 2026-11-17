@@ -26,21 +26,7 @@ extern void* D_0035ee4c;
 extern W268E36 D_00372490[];
 extern W268E36 D_00372548[];
 
-void func_0024c420(void* a0, s32 a1, s32 a2)
-{
-    s32 cur;
-    if (func_00287cd0(a0) != 1) return;
-    if (func_00289310(a0) == 0) return;
-    cur = func_002891e8(a0);
-    func_002890e0(a0, 1, 2, 0, -1);
-    func_00289038(a0, cur, 1, 1, 2, 0, -1);
-    if (a1 == 0) {
-        func_0023f070(D_0035edb8, D_00371ff0[cur].c, -1);
-        func_0024c898();
-    }
-    if (func_0028d008(a2)) func_0028cf28(a2, func_002891d0(a0));
-    func_002b4388(D_0035edc0, a1 == 0 ? &D_00372030[cur] : &D_003720a0[cur], 0);
-}
+void func_0024c420(void* a0, s32 a1, s32 a2);  // 0x0024c420: definition moved into src/anon/unit_0024ba58.cpp
 
 void func_00250550(void* a0, s32 a1, s32 a2)
 {

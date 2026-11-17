@@ -319,21 +319,7 @@ void func_002891f0(u8*, s32, s32, s32, s32);
 void func_002b4388(u32, E248*, s32);
 
 // Builds the two-entry selection list and focuses the active entry.
-void func_002485c8(void) {
-    s32 sel = 0;
-    for (s32 i = 0; i < 2; i++) {
-        if (D_00371e00[i].on) sel = i;
-        func_00288d80(D_0035ed50, i, 0, 0, D_0035ed54, D_00371e00[i].id, &D_00371e00[i], D_00371e00[i].name);
-        u8* w = func_002891b8(D_0035ed50, i);
-        func_00288e08(D_0035ed50, i, func_0023aa78(w + 24), 0);
-        u32 x = func_0023aa98(w + 24);
-        *(u32*)(w + 432) = func_0028dd90(x);
-        *(u32*)(w + 428) = func_0028ddd8(x);
-        func_001395f8(w);
-    }
-    func_002891f0(D_0035ed50, sel, 1, 0, 2);
-    func_002b4388(D_0035ed60, &D_00371e00[sel], 0);
-}
+void func_002485c8(void);  // 0x002485c8: definition moved into src/anon/unit_00247ff0.cpp
 
 extern u32* D_0035f2e4;
 u32* func_002859a0(void);
@@ -386,24 +372,7 @@ s32 func_002ac538(s32);
 s32 func_002ac800(s32);
 
 // Resets the item rows, then refreshes the three category rows and their availability marks.
-void func_002b1708(void) {
-    u8* base = func_002766d0();
-    s32 n = func_002892f8(D_0035f200);
-    s32 i;
-    for (i = 0; i < n; i++) func_00138c10(base + 0xa998 + i * 408, 2);
-    u8* w = base + 0xa998;
-    for (i = 0; i < 3; w += 408, i++) {
-        u8* it = func_002891b8(D_0035f200, i);
-        *(u32*)(it + 408) = func_00192048(D_00374cb0[i][0]);
-        if (i == 2) continue;
-        s32 a, b;
-        if (i == 0) a = func_002ac420(-1);
-        else a = func_002ac748(-1);
-        if (i == 0) b = func_002ac538(-1);
-        else b = func_002ac800(-1);
-        if (a) func_00138c10(w, b == 0 ? D_00374c9c : D_00374ca0);
-    }
-}
+void func_002b1708(void);  // 0x002b1708: definition moved into src/anon/unit_002b0950.cpp
 
 u8* func_001050d8(u32);
 void func_002bf468(u8*, u8*, u32, f32);

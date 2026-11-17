@@ -235,28 +235,7 @@ s32 func_002a40c8(void);  // 0x002a40c8: definition moved into src/anon/unit_002
 
 void func_002acda8(void);  // 0x002acda8: definition moved into src/anon/unit_002a99c8.cpp
 
-s32 func_002b3318(void) {
-    u8* g = func_002a9d68();
-    s32 ok = 1;
-    u32* e = func_002b23e0(-1);  // list_entry_by_index_checked
-    u8 k;
-    s32 n, i;
-    if (*e & 0x4000000) return 0;
-    k = ((u8*)e)[2];
-    n = func_002b3ac8((*e >> 27) & 1);
-    for (i = 0; i < n; i++) {
-        s8* slot = (s8*)(g + k * 192 + 480 + i * 4);
-        if (slot[8] != i || slot[9] != 0) {
-            ok = 0;
-            break;
-        }
-    }
-    if (!ok) return 0;
-    setbit_w96((u16*)(g + 484), k);
-    ((EU_w96*)e)->u |= 0x4000000;
-    func_002b2f28(0);
-    return 1;
-}
+s32 func_002b3318(void);  // 0x002b3318: definition moved into src/anon/unit_002b2a18.cpp
 
 void func_002baa78(void) {
     s32 i;

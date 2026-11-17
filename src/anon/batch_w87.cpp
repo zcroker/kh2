@@ -231,21 +231,7 @@ s32 func_0023f0c0(void*);
 void func_0023f070(void*, s32, s32);
 s32 func_0028acc8(void*);
 void func_0028ab20(void*);
-void func_0024bbb0(void) {
-    if (func_00139d78(D_0035edb0)) {
-        if (func_0023f0c0(D_0035edb0) != 32) func_0023f070(D_0035edb0, 32, -1);
-    }
-    if (func_0028acc8(D_0035eda8)) {
-        func_0028ab20(D_0035eda8);
-        s32 k = func_002891e8(D_0035eda8);
-        if (func_00139d78(D_0035edb8)) {
-            if (func_0023f0c0(D_0035edb8) != D_00371ff0[k].c) func_0023f070(D_0035edb8, D_00371ff0[k].c, -1);
-        }
-    }
-    if (func_00139d78(D_0035edb4)) {
-        if (func_0023f0c0(D_0035edb4) != 35) func_0023f070(D_0035edb4, 35, -1);
-    }
-}
+void func_0024bbb0(void);  // 0x0024bbb0: definition moved into src/anon/unit_0024ba58.cpp
 
 // ---- 0x24e9c0 ----
 s32 func_001a6d08(s32);

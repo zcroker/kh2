@@ -226,14 +226,7 @@ void func_00241850(s32 i, s32 clear) {
 s32 func_002431d0(s32 a, s32 b);  // 0x002431d0: definition moved into src/anon/unit_00242478.cpp
 
 extern u8* D_0035ed8c;
-void func_0024b078(void) {
-    for (s32 i = 0; i < 2; i++) {
-        if (func_00139d78(D_0035ed8c + i * 408)) {
-            u8* o = (u8*)(i * 408 + (u32)D_0035ed8c);
-            (*(VFn*)(*(u8**)o + 20))(o);
-        }
-    }
-}
+void func_0024b078(void);  // 0x0024b078: definition moved into src/anon/unit_00249ef0.cpp
 
 extern void* D_0035f04c;
 extern void* D_0035f01c;

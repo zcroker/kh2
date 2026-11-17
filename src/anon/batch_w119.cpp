@@ -27,41 +27,7 @@ void func_00281e20(void);
 void func_00242618(s32, s32);
 void func_00287cc0(s32);
 // Sets up a menu screen: title/background layouts, the selected entry's name and icon.
-void func_002b12a0(void)
-{
-    u16 id = *func_002b23e0(-1);  // list_entry_by_index_checked
-    u8* info = func_001a80c8(id);  // table24_find_by_id
-    func_00281cf0(*(u16*)(info + 20));
-    func_0028d8c0((u8*)D_0035f634 + 21624, 30061, D_0035f14c, D_0035f148, D_0035f210, 125, 126, 0);
-    u8* o = (u8*)D_0035f634 + 23776;
-    func_0028d980(o, 30061, D_0035f14c, D_0035f148, D_0035f210, 122, 123, -1, 0);
-    func_00139620(o);
-    *(u32*)(o + 432) = 2;
-    *(u32*)(o + 408) = func_00192048(20689);
-    o = (u8*)D_0035f634 + 22904;
-    u8* sub = o + 24;
-    func_0028d980(o, 30061, D_0035f14c, D_0035f148, D_0035f210, 128, 129, -1, 0);
-    *(u32*)(o + 432) = 2;
-    func_00139620(o);
-    func_001395f8(o);
-    func_00192c90(func_001a37e8(id, -1), D_0035f638 + 56);
-    *(u8**)(o + 408) = D_0035f638 + 56;
-    s32 x = func_0023aa18(sub);
-    s32 y = func_0023aa38(sub);
-    o = (u8*)D_0035f634 + 23340;
-    func_0028d980(o, 30061, D_0035f14c, D_0035f148, D_0035f210, 3, -1, -1, 0);
-    func_0028dcc0(o, (u8*)D_0035f634 + 22904);
-    *(u32*)(o + 432) = 2;
-    func_00139620(o);
-    func_00138c68(o, x, y);
-    func_00139688(o);
-    *(u32*)(o + 408) = func_00192048(*(u16*)(info + 10));
-    func_002817d8(30062, D_0035f14c, D_0035f148, D_0035f210, 0, 0, D_00374ce8);  // store_globals_quad
-    func_00281e70((u8*)D_0035f634 + 21624);  // store_global_and_clear_flag
-    func_00281e20();
-    func_00242618(19, 1);
-    func_00287cc0(0);
-}
+void func_002b12a0(void);  // 0x002b12a0: definition moved into src/anon/unit_002b0950.cpp
 
 struct Gauge {
     u8* lay;

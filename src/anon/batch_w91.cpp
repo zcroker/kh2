@@ -283,20 +283,7 @@ extern u32 D_0035ed74;
 extern u8* D_0035ed78;
 extern u8* D_0035ed7c;
 extern u8* D_0035ed80;
-u32 func_0024a270(void) {
-    s32 s = func_00287bc0();
-    func_00287d68();  // copy_globals_3words
-    if (func_00287db0()) {
-        if (!func_0028acc8(D_0035ed70) && !func_0028acc8(D_0035ed74) && !u_call4_00139d78(D_0035ed78) && !u_call4_00139d78(D_0035ed7c) && !u_call4_00139d78(D_0035ed80)) {
-            func_001039f8();
-            return 1;
-        }
-    } else switch (s) {
-        case 0: func_0024a348(); break;
-        case 1: func_0024a4d0(); break;
-    }
-    return 0;
-}
+u32 func_0024a270(void);  // 0x0024a270: definition moved into src/anon/unit_00249ef0.cpp
 
 // --- 00262588  Tz::CmItem::LeaveStock
 u8* cmtop_list_buffer(void) asm("_ZN2Tz5CmTop13GetListBufferEv");

@@ -31,23 +31,7 @@ extern "C" {
 extern u8* D_0035f634;
 s32 func_00139d78(u8*);
 void func_002b1660(void);
-void func_002b2220(void) {
-    struct NoTail { ~NoTail(){} } nt;
-    s32 i;
-    for (i = 0; i < 48; i++) {
-        if (func_00139d78(D_0035f634 + i * 408)) return;
-    }
-    if (func_00139d78(D_0035f634 + 19584)) return;
-    for (i = 0; i < 2; i++) {
-        if (func_00139d78(D_0035f634 + 19992 + i * 408)) return;
-    }
-    if (func_00139d78(D_0035f634 + 20808)) return;
-    if (func_00139d78(D_0035f634 + 21216)) return;
-    if (func_00139d78(D_0035f634 + 22032)) return;
-    if (func_00139d78(D_0035f634 + 22468)) return;
-    if (func_00139d78(D_0035f634 + 24212)) return;
-    func_002b1660();
-}
+void func_002b2220(void);  // 0x002b2220: definition moved into src/anon/unit_002b1db8.cpp
 extern u8* D_00361f60;
 void func_00198690(u8*);
 s32 func_001c0cd8(u8*);

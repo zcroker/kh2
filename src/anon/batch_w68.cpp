@@ -240,16 +240,7 @@ s32 func_002892f8(void*);
 s32 func_0028acc8(void*);
 void func_00288e88(void*);
 
-void func_0024c568(void) {
-    if (D_0035eda8) {
-        s32 r = func_002892f8(D_0035eda8);
-        if (!func_0028acc8(D_0035eda8) && r) func_00288e88(D_0035eda8);
-    }
-    if (D_0035edac) {
-        s32 r = func_002892f8(D_0035edac);
-        if (!func_0028acc8(D_0035edac) && r) func_00288e88(D_0035edac);
-    }
-}
+void func_0024c568(void);  // 0x0024c568: definition moved into src/anon/unit_0024ba58.cpp
 
 /* ---- 00272538 ---- */
 struct E13 { s16 a, b, v; };
@@ -312,18 +303,7 @@ extern E19 D_00374c68[];
 u32* func_002b23e0(s32);  // list_entry_by_index_checked
 void func_00276c50(s32, u32);
 
-void func_002b1a00(void) {
-    s32 r = -1;
-    s32 cur = func_00287bc0();
-    s32 i;
-    for (i = 0; D_00374c68[i].a != 0; i++) {
-        if (cur == D_00374c68[i].b) { r = D_00374c68[i].a; break; }
-    }
-    if (r == 20297) {
-        if (*func_002b23e0(-1) & 0x4000000) r = 20696;
-    }
-    func_00276c50(r, 0);
-}
+void func_002b1a00(void);  // 0x002b1a00: definition moved into src/anon/unit_002b0950.cpp
 
 /* ---- 002dda88 ---- */
 void func_002cfeb0(void*, void*, u32, u32);  // obj_init_field1416_bit800

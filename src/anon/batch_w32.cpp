@@ -159,10 +159,7 @@ s32 func_002670a0(s32 n);  // 0x002670a0: definition moved into src/anon/unit_00
 // Looks up key in a -1 terminated (key, value) table; last match wins.
 s32 func_00282c68(s32 key);  // 0x00282c68: definition moved into src/anon/unit_00282c68.cpp
 
-u8* func_002b23e0(s32 i) {  // list_entry_by_index_checked
-    if (i < 0) i = func_00276608(28);
-    return D_0035f630 + func_002b2338(i) * 36;
-}
+u8* func_002b23e0(s32 i);  // 0x002b23e0: definition moved into src/anon/unit_002b1db8.cpp
 
 void func_002bc398(void* a, void* b);  // 0x002bc398: definition moved into src/anon/unit_002bb8b0.cpp
 

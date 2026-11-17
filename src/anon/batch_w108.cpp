@@ -72,38 +72,7 @@ s32 func_001a6d08(s32);
 void func_00139858(s32);
 void func_001398d0(s32);
 
-void func_0024a948(void* obj, s32 quiet, void* target)
-{
-    s32 kind;
-
-    if (!func_00289310(obj)) return;
-    kind = func_002891e8(obj);
-    func_002890e0(obj, 1, 2, 0, -1);
-    func_00289038(obj, kind, 1, 1, 2, 0, -1);
-    if (!quiet) {
-        func_0023f070(D_0035ed80, func_0024b1a0(kind)->id, -1);
-        func_0024b0e8();
-    }
-    if (func_0028d008(target)) {
-        func_0028cf28(target, func_002891d0(obj));  // record408_set_and_refresh
-    }
-    if (!quiet) {
-        if (kind == 1 && func_0024ac88()) {
-            func_002b4388(D_0035ed90, &D_00371f30, 0);
-        } else {
-            func_002b4388(D_0035ed90, &D_00371ee8[kind], 0);
-        }
-    } else {
-        func_002b4388(D_0035ed90, &D_00371f58[kind], 0);
-    }
-    if (!func_001a6d08(9)) return;
-    if (func_0024ac88()) return;
-    if (kind == 1) {
-        func_00139858(100);
-    } else {
-        func_001398d0(100);
-    }
-}
+void func_0024a948(void* obj, s32 quiet, void* target);  // 0x0024a948: definition moved into src/anon/unit_00249ef0.cpp
 }
 
 extern "C" {

@@ -247,13 +247,7 @@ extern u8* D_0035f638;
 s32 func_0023f900(void*);
 void func_0023fad0(void*);
 void func_00293d80(s32);
-void func_002b2840(void) {
-    if (*(u32*)(D_0035f638 + 52) & 0x200) {
-        if (func_0023f900(D_0035f638)) func_0023fad0(D_0035f638);
-    }
-    func_00293d80(5101);
-    *(u32*)(D_0035f638 + 52) &= ~0x200;
-}
+void func_002b2840(void);  // 0x002b2840: definition moved into src/anon/unit_002b1db8.cpp
 
 s32 func_002bc988(s32);
 void func_002bc9a8(void*, s32, s32);  // find_entry12_set_field

@@ -3302,16 +3302,7 @@ void func_002a8a00(void);  // 0x002a8a00: definition moved into src/anon/unit_00
 
 u32 func_002aecf0(u32 a0);  // 0x002aecf0: definition moved into src/anon/unit_002aeba0.cpp
 
-s32 func_002b2380(s32 a0, s32 a1) {
-    u32* p = func_002b23e0(-1);  // list_entry_by_index_checked
-    u32 t7 = p[0];
-    t7 >>= 25;
-    t7 &= 4;
-    s32 t5 = D_00374cd0[t7];
-    a1 = a1 * t5;
-    a1 = a1 + a0;
-    return a1;
-}
+s32 func_002b2380(s32 a0, s32 a1);  // 0x002b2380: definition moved into src/anon/unit_002b1db8.cpp
 
 void func_002b4388(Obj4388* a0, u8* a1, u32 a2) {
     u8* s0 = a1 + 20;

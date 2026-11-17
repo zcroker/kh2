@@ -156,17 +156,7 @@ s32 func_0028acc8(void*);
 void func_00288e88(void*);
 
 // 0024ab00
-void func_0024ab00(void)
-{
-    if (D_0035ed70) {
-        s32 a = func_002892f8(D_0035ed70);
-        if (!func_0028acc8(D_0035ed70) && a) func_00288e88(D_0035ed70);
-    }
-    if (D_0035ed74) {
-        s32 a = func_002892f8(D_0035ed74);
-        if (!func_0028acc8(D_0035ed74) && a) func_00288e88(D_0035ed74);
-    }
-}
+void func_0024ab00(void);  // 0x0024ab00: definition moved into src/anon/unit_00249ef0.cpp
 
 void* func_00257770(void);
 s32 func_00287bc0(void);

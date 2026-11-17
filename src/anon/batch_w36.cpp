@@ -304,14 +304,7 @@ void func_002abdc8(void);  // 0x002abdc8: definition moved into src/anon/unit_00
 // The empty-destructor local keeps the final call from becoming a tail call.
 struct NoTail { ~NoTail() {} };
 
-void func_002b1660(void) {
-    NoTail g;
-    if (func_00139d78((u32)(D_0035f634 + 21624))) return;
-    if (func_00139d78((u32)(D_0035f634 + 22904))) return;
-    if (func_00139d78((u32)(D_0035f634 + 23340))) return;
-    if (func_00139d78((u32)(D_0035f634 + 23776))) return;
-    func_00281be0();
-}
+void func_002b1660(void);  // 0x002b1660: definition moved into src/anon/unit_002b0950.cpp
 
 void func_002b6338(u32 a, u32 b, u32 c, u32 d) {  // hash_with_seed_choice
     u32 id = !d ? 0xb7d4 : 0xb7d5;

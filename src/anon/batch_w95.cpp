@@ -512,23 +512,7 @@ s32 func_001396c0(u8*);
 void func_00139570(u8*);
 void func_00138c10(u8*, s16);
 void func_0028dcc0(u8*, u8*);
-void func_002b2f28(s32 idx) {
-    u32* st = func_002b23e0(-1);  // list_entry_by_index_checked
-    u8* p = D_0035f634 + idx * 408 + 19992;
-    func_00139d78(p);
-    if (!func_001396c0(p)) func_00139570(p);
-    p = D_0035f634 + 20808;
-    if (!func_001396c0(p)) func_00139570(p);
-    if (idx == 0) {
-        p = D_0035f634 + 20400;
-        if (!func_001396c0(p)) func_00139570(p);
-        func_00139570(D_0035f634 + 19584);
-        return;
-    }
-    p = D_0035f634 + 19992;
-    func_00138c10(p, D_00374cd8[(st[0] >> 27) & 1].a);
-    func_0028dcc0(D_0035f634 + 19584, p);
-}
+void func_002b2f28(s32 idx);  // 0x002b2f28: definition moved into src/anon/unit_002b2a18.cpp
 
 extern CamObj* D_00361f60;
 u32 func_00106a18(u32);  // buffer_get_256

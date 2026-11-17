@@ -228,15 +228,7 @@ s32 func_0028acc8(u32);
 void func_0028abe0(u32);
 void func_00249358(void);
 void func_0028ce38(void);
-void func_00248828(void) {
-    if (func_00139d78((u32)D_0035ed54)) D_0035ed54->vt[5](D_0035ed54);
-    if (func_00139d78((u32)D_0035ed5c)) D_0035ed5c->vt[5](D_0035ed5c);
-    if (func_00139d78((u32)D_0035ed58)) D_0035ed58->vt[5](D_0035ed58);
-    if (func_0028acc8(D_0035ed4c)) func_0028abe0(D_0035ed4c);
-    if (func_0028acc8(D_0035ed50)) func_0028abe0(D_0035ed50);
-    func_00249358();
-    func_0028ce38();
-}
+void func_00248828(void);  // 0x00248828: definition moved into src/anon/unit_00247ff0.cpp
 
 // --- 00252c20
 extern u32 D_0035eea4;

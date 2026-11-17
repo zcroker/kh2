@@ -226,11 +226,7 @@ void func_0023c008(u32* p) {  // obj_ctor_36eae8
     p[22] = 0;
 }
 
-void func_00249358(void) {
-    for (s32 i = 0; i < 3; i++) {
-        if (func_00139d78(&D_0035ed64[i])) ((void (*)(void*))D_0035ed64[i].vt[5])(&D_0035ed64[i]);
-    }
-}
+void func_00249358(void);  // 0x00249358: definition moved into src/anon/unit_00247ff0.cpp
 
 s32 func_002671e8(s32 n);  // 0x002671e8: definition moved into src/anon/unit_00265580.cpp
 

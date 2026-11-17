@@ -236,10 +236,7 @@ struct BitWord {
 
 void func_00242d10(u8 on);  // 0x00242d10: definition moved into src/anon/unit_00242478.cpp
 
-void* func_0024b1a0(s32 n) {
-    if (n == 1 && func_0024ac88()) return D_00371eb8;
-    return &D_00371ea8[n];
-}
+void* func_0024b1a0(s32 n);  // 0x0024b1a0: definition moved into src/anon/unit_00249ef0.cpp
 
 // Counts set bits 0-5 and 7 of the flag word.
 s32 func_0027ae20(void);  // 0x0027ae20: definition moved into src/anon/unit_0027a6d8.cpp

@@ -323,18 +323,7 @@ struct Ent36 { u8 pad[32]; s8 ids[4]; };
 extern Ent36 D_00371d90[];
 s32 func_001a6d08(s32);
 
-s32 func_00249480(s32 idx) {
-    s32 r = 1;
-    for (s32 i = 0; i < 4; i++) {
-        s8 c = D_00371d90[idx].ids[i];
-        if (c < 0) break;
-        if (func_001a6d08(c)) {
-            r = 0;
-            break;
-        }
-    }
-    return r;
-}
+s32 func_00249480(s32 idx);  // 0x00249480: definition moved into src/anon/unit_00247ff0.cpp
 
 s32 func_002576d0(void);
 s32 func_00139d78(void*);

@@ -243,16 +243,7 @@ void func_0022e6b0(s32 which, u8* a1, f32 f) {
 // set bit (a0 * 8 + a1) in a bit array
 void func_00243230(s32 a0, s32 a1);  // 0x00243230: definition moved into src/anon/unit_00242478.cpp
 
-void func_0024c828(void) {
-    u32 off = 0;
-    for (s32 i = 2; i >= 0; i--) {
-        if (func_00139d78(D_0035edbc + off)) {
-            u8* o = (u8*)(off + (u32)D_0035edbc);
-            (*(VFn*)(*(u8**)o + 20))(o);
-        }
-        off += 408;
-    }
-}
+void func_0024c828(void);  // 0x0024c828: definition moved into src/anon/unit_0024ba58.cpp
 
 void func_00275e08(void);  // 0x00275e08: definition moved into src/anon/unit_002748a0.cpp
 

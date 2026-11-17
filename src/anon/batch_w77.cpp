@@ -565,19 +565,7 @@ u32 func_00192048(s32);
 u16* func_002b23e0(s32);  // list_entry_by_index_checked
 u32 func_001a37e8(u16, s32);
 void func_00192e50(u32, u8*, s32, u32);
-void func_002b1af0(void)
-{
-    u32 r = func_002766d0();
-    s32 k = D_0035f3d4 + 2;
-    u8* o = D_0035f634 + 24212;
-    func_0028d980(o, k, D_0035f14c, D_0035f148, D_0035f210, 131, -1, -1, 0);
-    func_00139620(o);
-    func_0028dcc0(o, r);
-    *(u32*)(o + 432) = 2;
-    u32 x = func_00192048(20688);
-    func_00192e50(x, D_0035f638 + 88, 64, func_001a37e8(*func_002b23e0(-1), -1));
-    *(u8**)(o + 408) = D_0035f638 + 88;
-}
+void func_002b1af0(void);  // 0x002b1af0: definition moved into src/anon/unit_002b0950.cpp
 }
 }
 
