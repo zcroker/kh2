@@ -302,24 +302,7 @@ u32 func_0019c498(u32 a0);  // 0x0019c498: definition moved into src/anon/unit_0
 
 u32 func_001aa6f0(u32 a0, u32 a1);  // 0x001aa6f0: definition moved into src/anon/unit_001a9130.cpp
 
-u32 func_002943b0(u32 a0) {  // test_bit_global_array
-    register u32 bit asm("$13") = *(u16 *)(a0 + 4);
-    asm volatile("" : "+r"(bit));
-    register u32 base asm("$12") = D_0035f578;
-    asm volatile("" : "+r"(base), "+r"(bit));
-    register u32 off asm("$14") = bit >> 5;
-    off <<= 2;
-    bit &= 0x1f;
-    off += base;
-    asm volatile("" : "+r"(off), "+r"(bit));
-    register u32 mask asm("$15") = 1;
-    asm volatile("" : "+r"(mask), "+r"(off));
-    u32 v = *(u32 *)off;
-    mask <<= bit;
-    v &= mask;
-    v = v != 0;
-    return v;
-}
+u32 func_002943b0(u32 a0);  // 0x002943b0: definition moved into src/anon/unit_00292e60.cpp
 
 u32 ctarget_0019c440(u32 a0, u32, u32, u32);  // 0x0019c440: definition moved into src/anon/unit_0019ba60.cpp
 

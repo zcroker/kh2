@@ -214,9 +214,7 @@ namespace Tz {
 class CmParty { public: static void CreateInfo(); };
 // 0x0026c9c8: definition moved into src/anon/unit_0026c450.cpp
 class JmWorldSel { public: static u32 isWorldOpen(s32); };
-u32 JmWorldSel::isWorldOpen(s32 world) {
-    return func_002941a8(func_002953c8(world));
-}
+// 0x002954e0: definition moved into src/anon/unit_00292e60.cpp
 }  // namespace Tz
 
 extern "C" u32 func_002c6218(void);

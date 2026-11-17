@@ -210,9 +210,7 @@ u8* func_00103eb0(void);
 u8 func_00102a38(u32, void (*)(void));  // list_contains_id
 void func_00293b08(void);
 u32 ChgMember_isExec(void) asm("_ZN2Tz9ChgMember18isExecChangeMemberEv");
-u32 ChgMember_isExec(void) {
-    return func_00102a38(*(u32*)(func_00103eb0() + 4), func_00293b08);  // list_contains_id
-}
+u32 ChgMember_isExec(void);  // 0x00293b70: definition moved into src/anon/unit_00292e60.cpp
 
 struct E2bc { s32 v; s32 key; u32 c; };
 s32 func_002bc9d8(u8* p, s32 key);  // 0x002bc9d8: definition moved into src/anon/unit_002bc978.cpp

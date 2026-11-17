@@ -224,10 +224,7 @@ u32 func_00258a30(void);  // 0x00258a30: definition moved into src/anon/unit_002
 
 // 0028d140: moved to src/anon/unit_0028c878.cpp
 
-s32 SelCheck(s32 i) {
-    u8* b = func_00294000(0) + 16;
-    return func_002941a8(b + func_00295158(i) * 16);
-}
+s32 SelCheck(s32 i);  // 0x002956c0: definition moved into src/anon/unit_00292e60.cpp
 
 void func_0029e3e0(u32 a) {
     func_00292630();

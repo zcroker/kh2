@@ -229,27 +229,10 @@ void func_00275f08(s32 i);  // 0x00275f08: definition moved into src/anon/unit_0
 
 u8* func_00294000(s32);
 u8 func_002941d8(u8*);
-s32 func_00294208(s32 id) {
-    u8* t = func_00294000(0);
-    s32 n = *(s32*)(t + 8);
-    u8* e = t + 16;
-    for (s32 i = 0; i < n; i++, e += 16) {
-        if (*(s8*)e == id) return func_002941d8(e);
-    }
-    return 0;
-}
+s32 func_00294208(s32 id);  // 0x00294208: definition moved into src/anon/unit_00292e60.cpp
 
 struct E2953 { s8 id; u8 pad[15]; };
-E2953* func_002953c8(s32 id) {
-    u8* t = func_00294000(0);
-    s32 n = *(s32*)(t + 8);
-    E2953* e = (E2953*)(t + 16);
-    s32 i;
-    for (i = 0; i < n; i++) {
-        if (e[i].id == id) break;
-    }
-    return &e[i];
-}
+E2953* func_002953c8(s32 id);  // 0x002953c8: definition moved into src/anon/unit_00292e60.cpp
 
 void func_0029fcb0(void*);
 void func_002a03d0(void);

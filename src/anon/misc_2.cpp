@@ -52,13 +52,13 @@ s32 func_0028b8d0(void* self);  // 0x0028b8d0: definition moved into src/anon/un
 
 s32 func_0028b8d8(void* self);  // 0x0028b8d8: definition moved into src/anon/unit_00288b00.cpp
 
-void func_002945a0(void* self) {}
+void func_002945a0(void* self);  // 0x002945a0: definition moved into src/anon/unit_00292e60.cpp
 
-void func_00295860(void* self) {}
+void func_00295860(void* self);  // 0x00295860: definition moved into src/anon/unit_00292e60.cpp
 
-void func_00297008(void* self) {}
+void func_00297008(void* self);  // 0x00297008: definition moved into src/anon/unit_00295d28.cpp
 
-void func_00297df8(void* self) {}
+void func_00297df8(void* self);  // 0x00297df8: definition moved into src/anon/unit_00295d28.cpp
 
 void func_002995a0(void* self) {}
 

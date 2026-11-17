@@ -214,57 +214,7 @@ void func_00297008(void);
 void func_00276dc0(void);
 void func_00287c00(s32);
 void func_00287cc0(s32);
-void func_00297630(void) {
-    s32 a = func_00289380(D_0035f200);
-    s32 st = func_00287cd0();
-    func_00287bc0();
-    if (st == 2) {
-        if (func_00276368() || func_0028acc8(D_0035f200) || func_00276888()) {
-            if (a != -1) {
-                func_00287f90(0);
-                func_00297010();
-            }
-            return;
-        }
-        if (func_00292630()) return;
-        func_00276690(0);
-        func_00297010();
-        func_00287c30();
-        s32 b = func_00287bc0();
-        func_0028af18(D_0035f200, 115);
-        func_0028b1e8(D_0035f200, 1);
-        func_00274cf0(b);  // state_dispatch_0_1_2
-        func_002925c0();
-        func_00276220(func_00276358(), 0);
-        if (b == st) func_002958b0();
-        return;
-    }
-    if (a != -1 || func_00289310(D_0035f200)) {
-        if (!func_00276398()) {  // state_is_150
-            func_00276220(0, 2);
-            func_00275b60();
-        }
-    }
-    if (st == 0 && func_00276398()) func_00287c90(1);  // state_is_150
-    if (!func_00242848(func_00287df0(a, func_00289310(D_0035f200), 1, 0, 1))) {
-        switch (a) {
-        case -4:
-            func_00287da0();
-            break;
-        case -1:
-            break;
-        case -2:
-            func_0028f6f0(0);  // record884_refresh_by_index
-            func_00297008();
-            func_00276dc0();
-            func_00276220(1, 1);
-            func_00287c00(2);
-            func_00287cc0(2);
-            break;
-        }
-    }
-    if (func_00288040()) func_00288018();
-}
+void func_00297630(void);  // 0x00297630: definition moved into src/anon/unit_00295d28.cpp
 
 // ---- f17.cpp
 struct G139f38 { s32 x0; s32 x4; s32 x8; u8 pad[8]; G139f38* x20; };

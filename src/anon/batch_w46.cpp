@@ -311,13 +311,7 @@ void ctarget_0028e350(u8* p, u32, u32, u32);  // 0028e350: moved to src/anon/uni
 struct E293 { s32 id; u32 on : 1; u32 pad; u32 val; };
 extern s32 D_0035f4d0;
 extern E293* D_0035f4d4;
-u32 func_00293148(s32 id) {
-    for (s32 i = 0; i < D_0035f4d0; i++) {
-        E293* e = &D_0035f4d4[i];
-        if ((u8)e->on && e->id == id) return e->val;
-    }
-    return 0;
-}
+u32 func_00293148(s32 id);  // 0x00293148: definition moved into src/anon/unit_00292e60.cpp
 
 // ---- 0029c9d8
 s32 func_0028b040(u32);

@@ -935,19 +935,13 @@ u32 func_002909f0(u32 a0, u32 a1, u32 a2, u32 a3);  // 002909f0: moved to src/an
 
 u32 func_00292550(u32 a0, u32 a1, u32 a2, u32 a3);  // 00292550: moved to src/anon/unit_00290f78.cpp
 
-u32 func_002933b8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_00175f68(a0, ((u32)(*(u32*)((u32)(a0) + 4u))), ((u32)(*(u32*)((u32)(a0) + 8u))), ((u32)(*(u32*)((u32)(a0) + 12u))));
-}
+u32 func_002933b8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002933b8: definition moved into src/anon/unit_00292e60.cpp
 
 extern "C" u32 func_00293da0(u32, u32, u32, u32) asm("_ZN2Tz6JMData7DestroyEi");
 
-u32 func_002956a0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_00276c50(0x000048cbu, 0x00000000u, a2, a3);
-}
+u32 func_002956a0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002956a0: definition moved into src/anon/unit_00292e60.cpp
 
-u32 func_002978d0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_00276c50(0x000048d7u, 0x00000000u, a2, a3);
-}
+u32 func_002978d0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002978d0: definition moved into src/anon/unit_00295d28.cpp
 
 u32 func_002a7470(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_00276c50(0x000048f9u, 0x00000000u, a2, a3);

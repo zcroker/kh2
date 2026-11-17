@@ -47,36 +47,7 @@ s32 func_00192048(u16);
 s16 func_00192b80(s32);
 
 
-void func_00297478(void) {
-    s32 base = func_002766d0();
-    SrcList* l = func_00294000(1);
-    Src* s = l->s;
-    s32 cnt = 0;
-    s32 i = 0;
-    func_002fde18(D_0035f594, 0, 0x208);
-    for (; i < l->n; i++) {
-        s8 c = *func_00276568();
-        if (s[i].k == c && func_00294268(&s[i])) {
-            D_0035f594->e[cnt].id = s[i].id;
-            D_0035f594->e[cnt].idx = i;
-            cnt++;
-        }
-    }
-    D_0035f594->n = cnt;
-    u16 m = func_0023aa78(base + 0x18);
-    s32 d = 15;
-    s32 t = func_0023aa58(base + 0x18);
-    if (t != 0) d = t;
-    Lim* lim = func_001aae68(3);
-    D_0035f594->m = m;
-    t = m - d - lim->v;
-    if (t < 0) D_0035f594->m -= t;
-    for (i = 0; i < D_0035f594->n; i++) {
-        D_0035f594->e[i].val = func_00192b80(func_00192048(D_0035f594->e[i].id));
-        D_0035f594->e[i].mul = (u16)D_0035f594->e[i].val * D_0035f594->m;
-    }
-    D_0035f594->z = 0;
-}
+void func_00297478(void);  // 0x00297478: definition moved into src/anon/unit_00295d28.cpp
 
 
 

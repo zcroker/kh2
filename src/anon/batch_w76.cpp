@@ -382,19 +382,7 @@ s32 func_002b3ae8(void);
 s32 func_002a9b88(s8);
 s32 func_002a8870(s8);
 s32 JmReport_GetIndex(u32 idx) asm("_ZN2Tz8JmReport8GetIndexEj");
-s32 JmReport_GetIndex(u32 idx)
-{
-    s32 list[9];
-    s32* p = list;
-    for (s32 i = 0; i < 9; i++) {
-        if (i == 3 && func_002a4380(*func_00276568())) continue;
-        if (i == 4 && !func_002b3ae8()) continue;
-        if (i == 6 && !func_002a9b88(*func_00276568())) continue;
-        if (i == 7 && !func_002a8870(*func_00276568())) continue;
-        *p++ = i;
-    }
-    return list[idx];
-}
+s32 JmReport_GetIndex(u32 idx);  // 0x00296da8: definition moved into src/anon/unit_00295d28.cpp
 union GP { u8* p; s32 i; };
 extern GP D_0035f5e4;
 s8* func_00276568(void);

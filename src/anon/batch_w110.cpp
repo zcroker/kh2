@@ -475,34 +475,7 @@ u32 func_001a8c10(void*, s32);
 u32 func_0017e668(u32);
 void func_00293b08(void);
 // Starts the party-change request once (flag D_0035f4f8) when the slot setup differs.
-u8 func_00293948(void) {
-    void* cur = func_001a8bd0(-1);
-    if (D_0035f4f8) return D_0035f4f8;
-    func_00170320(5100);
-    D_0035f4f8 = 1;
-    if (func_001a8bf8(cur, 1) != func_001a8bf8(D_0035f4f4, 1) && func_001a8bf8(cur, 2) != func_001a8bf8(D_0035f4f4, 2))
-        func_001a8ff8(cur, 1, 2);  // swap_bytes
-    s32 k = func_001a8bf8(cur, 3);  // get_bits5_at
-    if (k != 18) {
-        s32 i;
-        for (i = 0; i < 4; i++) {
-            if (i != 0 && func_001a8bf8(D_0035f4f4, i) == k) break;
-        }
-        if (i != 3) {
-            if (func_00253598()) {
-                ReqObj* o = func_00102818(func_00103eb0()->f4, 0, 0x222e0, (void*)func_00293b08, 6144);
-                Tbl16* t = (Tbl16*)func_001a8b28();  // get_data_1c7cc10
-                u16 v = t->v[func_001a8bf8(func_001a8bd0(-1), 3)];
-                o->f4 = func_0017e668(func_001a8c10(func_001a8bd0(-1), i));
-                o->f8 = v;
-                o->f12 = func_001a8c10(func_001a8bd0(-1), i);
-            } else {
-                func_001a8ff8(cur, i, 3);  // swap_bytes
-            }
-        }
-    }
-    return D_0035f4f8;
-}
+u8 func_00293948(void);  // 0x00293948: definition moved into src/anon/unit_00292e60.cpp
 }
 
 struct IdList { u8 pad[5]; s8 count; u8 pad6[2]; s16 ids[1]; };

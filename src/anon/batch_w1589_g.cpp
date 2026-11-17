@@ -30,15 +30,7 @@ void func_00242740(s32 a)
     if (func_002ef7b8()) func_002bd680();
 }
 
-void func_002957b8(void)
-{
-    void* o;
-    D_0035f590 = 0;
-    D_0035f591 = 0;
-    o = func_001063c0(28, func_00103570());
-    func_0023f800(o);
-    D_0035f58c = o;
-}
+void func_002957b8(void);  // 0x002957b8: definition moved into src/anon/unit_00292e60.cpp
 
 void func_002994f8(void)
 {

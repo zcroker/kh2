@@ -178,10 +178,7 @@ extern void* D_0035f574;
 void func_00290940(void*);
 u32 func_00293db8(u32, u32);
 void func_00290960(void*, u32, u32);
-void func_00293fc0(void) {
-    func_00290940(D_0035f574);
-    func_00290960(D_0035f574, func_00293db8(0, 0), 43);
-}
+void func_00293fc0(void);  // 0x00293fc0: definition moved into src/anon/unit_00292e60.cpp
 
 u8* func_002766d0(void);
 void func_0028da70(void*, u32);

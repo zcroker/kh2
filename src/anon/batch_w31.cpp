@@ -204,10 +204,7 @@ int func_002594b8(int k);  // 0x002594b8: definition moved into src/anon/unit_00
 void* memset_(void*, int, u32) asm("func_002fde18");
 void func_00281f90(u8* p);  // 0x00281f90: definition moved into src/anon/unit_00281cf0.cpp
 
-s8 func_00295228(u32 x) {
-    u8* base = func_00294000(0) + 16;
-    return *(s8*)(base + func_00295158(x) * 16);
-}
+s8 func_00295228(u32 x);  // 0x00295228: definition moved into src/anon/unit_00292e60.cpp
 
 u32 func_002b1aa0(void) {
     u32 f = *func_002b23e0(-1);  // list_entry_by_index_checked

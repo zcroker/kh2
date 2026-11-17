@@ -523,31 +523,7 @@ void func_002933b8(void);
 u32* func_001a8bd0(s32);
 u32 func_001a8c10(u32*, s32);
 void func_00293350(s16, s16, s16);
-void func_00293520(void) {
-    if (D_0035f4f0) return;
-    if (func_00102a38(func_00103eb0()->name, func_002933b8)) return;
-    s32 id = func_001a8c10(func_001a8bd0(-1), 3);
-    s32 found = -1;
-    for (s32 pass = 0; pass < 2; pass++) {
-        for (s32 i = 0; i < 8; i++) {
-            if (D_0035f4e8.p[i].id == id) {
-                D_0035f4e8.p[i].id = -1;
-                D_0035f4e8.p[i].pass = -1;
-                D_0035f4e8.p[i].arg = -1;
-            } else if (D_0035f4e8.p[i].id >= 0 && D_0035f4e8.p[i].pass == pass) {
-                found = i;
-                break;
-            }
-        }
-        if (found >= 0) break;
-    }
-    if (found >= 0) {
-        func_00293350(D_0035f4e8.p[found].id, D_0035f4e8.p[found].pass, D_0035f4e8.p[found].arg);
-        D_0035f4e8.p[found].id = -1;
-        D_0035f4e8.p[found].pass = -1;
-        D_0035f4e8.p[found].arg = -1;
-    }
-}
+void func_00293520(void);  // 0x00293520: definition moved into src/anon/unit_00292e60.cpp
 
 extern u32 D_0035f200;
 s32 func_00289380(u32);
@@ -560,24 +536,7 @@ void func_00287c90(u32);
 u32 func_00287df0(s32, s32, u32, u32, u32);
 s32 func_00242848(u32);
 void func_00287da0(void);
-void func_002968d8(void) {
-    s32 sel = func_00289380(D_0035f200);
-    s32 busy = func_00287cd0();
-    func_00296b08();
-    if (sel != -1 || func_00289310(D_0035f200)) {
-        if (!func_00276398()) func_00276220(0, 2);  // state_is_150
-    }
-    if (!busy && func_00276398()) func_00287c90(1);  // state_is_150
-    if (func_00242848(func_00287df0(sel, func_00289310(D_0035f200), 1, 0, 1))) return;
-    switch (sel) {
-    case -4:
-    case -2:
-        func_00287da0();
-        break;
-    case -1:
-        break;
-    }
-}
+void func_002968d8(void);  // 0x002968d8: definition moved into src/anon/unit_00295d28.cpp
 
 extern PickCur* D_0035f5d4;
 u8* func_002766d0(void);

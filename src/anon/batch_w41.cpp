@@ -281,12 +281,7 @@ void func_0028cdb8(s32);  // record408_alloc_init
 u8* func_00103eb0(void);
 u32* func_00102818(u32, u32, u32, void (*)(void), u32);
 void func_002933b8(void);
-void func_00293350(u32 a, u32 b, u32 c) {
-    u32* r = func_00102818(*(u32*)(func_00103eb0() + 4), 0, 0x222e0, func_002933b8, 4096);
-    r[1] = a;
-    r[2] = b;
-    r[3] = c;
-}
+void func_00293350(u32 a, u32 b, u32 c);  // 0x00293350: definition moved into src/anon/unit_00292e60.cpp
 
 }
 

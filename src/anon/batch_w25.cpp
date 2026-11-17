@@ -196,15 +196,7 @@ void func_00284ea8(void);  // 0x00284ea8: definition moved into src/anon/unit_00
 
 s32 func_00181500(u16);
 s32 func_001a3570(u16);
-s32 func_00294480(u16* o) {  // record_lookup_success
-    s32 r = 0;
-    if (((s8*)o)[6] != 2) {
-        if (func_00181500(o[0])) r = 1;
-    } else {
-        r = func_001a3570(o[0]) > 0;
-    }
-    return r;
-}
+s32 func_00294480(u16* o);  // 0x00294480: definition moved into src/anon/unit_00292e60.cpp
 
 extern u8 D_0035f5a2;
 extern u32 D_0035f59c;

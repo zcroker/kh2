@@ -264,19 +264,7 @@ void func_0026b470(void);  // 0x0026b470: definition moved into src/anon/unit_00
 
 void func_00287430(s32 a, s32 b);  // 0x00287430: definition moved into src/anon/unit_00286d28.cpp
 
-void func_002937c0(void) {
-    if (func_002938f0()) {
-        D_0035f4f9 = 0;
-        asm volatile("" ::: "memory");
-    }
-    if (D_0035f4f9 == 0) {
-        D_0035f4f9 = 1;
-        D_0035f4f8 = 0;
-        D_0035f4fa = 0;
-        func_00170320(5100);
-        func_00102818(*(u32*)(func_00103eb0() + 4), 0, 0x222e0, func_00293848, 4096);
-    }
-}
+void func_002937c0(void);  // 0x002937c0: definition moved into src/anon/unit_00292e60.cpp
 
 void func_002b5658(void) {
     if (D_0035f658 && func_00139d78(D_0035f658)) {

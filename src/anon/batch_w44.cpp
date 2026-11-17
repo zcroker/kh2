@@ -255,18 +255,7 @@ extern u8 D_0035f4b8;
 // 00292630: moved to src/anon/unit_00292620.cpp
 
 extern s16* D_0035f4e8;
-s32 func_00293668(void) {
-    s32 r = 0;
-    if (!func_00102a38(*(void**)(func_00103eb0() + 4), (void*)func_002933b8)) {  // list_contains_id
-        s16* p = D_0035f4e8;
-        for (s32 i = 0; i < 8; i++, p += 3) {
-            if (*p >= 0) { r = 1; break; }
-        }
-    } else {
-        r = 1;
-    }
-    return r;
-}
+s32 func_00293668(void);  // 0x00293668: definition moved into src/anon/unit_00292e60.cpp
 
 extern u8 D_0035f5e0;
 extern u8 D_0035f5e1;

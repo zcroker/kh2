@@ -4885,11 +4885,7 @@ extern bool D_0035f580;
 extern bool D_0035f581;
 void func_00294e48();
 void func_00294f78(u32);
-void func_00294f00() {
-    if (D_0035f580 && D_0035f581) return;
-    if (!D_0035f580) func_00294e48();
-    if (D_0035f580 && !D_0035f581) func_00294f78(1);
-}
+void func_00294f00();  // 0x00294f00: definition moved into src/anon/unit_00292e60.cpp
 
 // ---- 0029a368
 extern bool D_0035f5a8;
@@ -5309,20 +5305,7 @@ void func_0024e5b0() {
 u8* func_00294000(u32);
 s32 func_002941a8(u8*);
 s32 func_00276c18();
-s32 func_00295158(s32 k) {
-    s32 cnt = -1;
-    s32 res = -1;
-    u8* t = func_00294000(0);
-    u8* base = t + 16;
-    for (s32 i = 0; i < *(s32*)(t + 8); i++) {
-        u8* e = base + i * 16;
-        if (*(s8*)e < 16 && (func_002941a8(e) || func_00276c18())) {
-            cnt++;
-            if (k == cnt) { res = i; break; }
-        }
-    }
-    return res;
-}
+s32 func_00295158(s32 k);  // 0x00295158: definition moved into src/anon/unit_00292e60.cpp
 // ---- 0029fbf0
 s32 func_002943e8(u8*);
 extern u8* D_0035f5d0;
@@ -5360,19 +5343,7 @@ void func_002a5d30() {
 // ---- 00294288
 union UH_294288 { u16 h; u32 i; };
 s32 func_00294268(u8*);
-void func_00294288(s32 id, u32* a, u32* b) {
-    u8* t = func_00294000(1);
-    *b = 0x8adc;
-    *a = 0x8adc;
-    u8* base = t + 16;
-    for (s32 i = 0; i < *(s32*)(t + 8); i++) {
-        u8* e = base + i * 12;
-        if (*(s8*)e == id && func_00294268(e)) {
-            *a = ((UH_294288*)(e + 4))->h;
-            *b = ((UH_294288*)(e + 6))->h;
-        }
-    }
-}
+void func_00294288(s32 id, u32* a, u32* b);  // 0x00294288: definition moved into src/anon/unit_00292e60.cpp
 
 // --------------------
 union unaligned {
@@ -11552,25 +11523,7 @@ struct E295430 { s8 key; u8 pad[3]; u16 a, b; u8 pad8[2]; u16 c, d; u8 pade[2]; 
 struct T295430 { u8 pad[8]; s32 n; u8 pad2[4]; E295430 e[1]; };
 T295430* func_00294000_295430(s32) asm("func_00294000");
 s32 func_002941d8(E295430*);
-u16 func_00295430(s32 key, u8 alt)
-{
-    T295430* t = func_00294000_295430(0);
-    s32 idx = -1;
-    E295430* e = t->e;
-    for (s32 i = 0; i < t->n; i++) {
-        if (e[i].key == key) {
-            idx = i;
-            break;
-        }
-    }
-    if (alt) {
-        E295430* r = &e[idx];
-        return func_002941d8(r) ? r->d : r->b;
-    } else {
-        E295430* r = &e[idx];
-        return func_002941d8(r) ? r->c : r->a;
-    }
-}
+u16 func_00295430(s32 key, u8 alt);  // 0x00295430: definition moved into src/anon/unit_00292e60.cpp
 
 // --------------------
 struct E2a9c40 { u16 a; u16 id; u8 pad[12]; };

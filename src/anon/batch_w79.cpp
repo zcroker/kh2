@@ -494,23 +494,7 @@ void func_00170018(u8* p);  // 0x00170018: definition moved into src/anon/unit_0
 
 s32 func_001d61b8(void* a, s32 b);  // 0x001d61b8: definition moved into src/anon/unit_001d4f40.cpp
 
-s32 func_002952f8(s32 id) {
-    s32 i = 0;
-    s32 k = -1;
-    s32 r = -1;
-    struct T294* t = func_00294000(0);
-    struct E16* e = t->e;
-    for (; i < t->n; i++) {
-        if (e[i].id < 20 && (func_002941a8(&e[i]) != 0 || func_00276c18() != 0)) {
-            k++;
-            if (e[i].id == id) {
-                r = k;
-                break;
-            }
-        }
-    }
-    return r;
-}
+s32 func_002952f8(s32 id);  // 0x002952f8: definition moved into src/anon/unit_00292e60.cpp
 
 // 001b0798: moved to src/yasui/libys/lookat.cpp
 

@@ -215,28 +215,14 @@ union Count293 { s16 n; u32 w; };
 union List293 { u32* p; u32 w; };
 extern Count293 D_0035f4e0;
 extern List293 D_0035f4dc;
-void func_002930d8(void)
-{
-    s16 n = D_0035f4e0.n;
-    if (n == 0) return;
-    if (n >= 2) {
-        for (s32 i = 1; i < D_0035f4e0.n; i++) D_0035f4dc.p[i - 1] = D_0035f4dc.p[i];
-    }
-    D_0035f4e0.n--;
-}
+void func_002930d8(void);  // 0x002930d8: definition moved into src/anon/unit_00292e60.cpp
 
 // 00296b08
 extern u8 D_0035f590;
 extern u8 D_0035f591;
 void func_002969e0(void);
 void func_00296b80(s32);
-void func_00296b08(void)
-{
-    if (!(D_0035f590 && D_0035f591)) {
-        if (!D_0035f590) func_002969e0();
-        if (D_0035f590 && !D_0035f591) func_00296b80(1);
-    }
-}
+void func_00296b08(void);  // 0x00296b08: definition moved into src/anon/unit_00295d28.cpp
 
 // 002ba220
 s32 func_002b7010(u32, u32, u32, u32, u32, u32);

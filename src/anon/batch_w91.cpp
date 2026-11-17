@@ -385,20 +385,7 @@ extern char D_00374578[];
 extern u8 D_00292e60[];
 void func_002fee78(char*, char*, ...);
 void func_00168388(char*, u32, u8*, E16*);
-u32 func_00292f18(void) {
-    char buf[32];
-    s32 v = *D_0035f4dc;
-    u32 lo = v & 0xffff;
-    s32 hi = v >> 16;
-    func_002fee78(buf, D_00374578, lo);
-    D_0035f4d4.p[hi].a = lo;
-    D_0035f4d4.p[hi].b = 2;
-    D_0035f4d4.p[hi].d = D_0035f4c8.v + hi * D_0035f4c0.v;
-    D_0035f4d4.p[hi].c = 0;
-    func_00168388(buf, D_0035f4d4.p[hi].d, D_00292e60, &D_0035f4d4.p[hi]);
-    D_0035f4e2 = 1;
-    return 0;
-}
+u32 func_00292f18(void);  // 0x00292f18: definition moved into src/anon/unit_00292e60.cpp
 
 // --- 0029ad40
 // Returns early as soon as any of the menu's sprites is still alive.

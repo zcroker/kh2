@@ -558,23 +558,7 @@ extern const char* D_0035f500;
 extern const char* D_0035f504;
 void func_00253b30(char*, const char*);
 void func_002feee8(char*, const char*);
-void func_00293cb8(char* buf, s32 k, const char* s)
-{
-    func_00253b30(buf, D_0035f508[k]);
-    if (k == 2 && s) {
-        func_002feee8(buf, s);
-        func_002feee8(buf, D_0035f500);
-    } else if (k == 3) {
-        func_002feee8(buf, s);
-        func_002feee8(buf, D_0035f504);
-    } else if (k == 4) {
-        func_002feee8(buf, s);
-        func_002feee8(buf, D_0035f500);
-    } else if (k == 5) {
-        func_002feee8(buf, s);
-        func_002feee8(buf, D_0035f504);
-    }
-}
+void func_00293cb8(char* buf, s32 k, const char* s);  // 0x00293cb8: definition moved into src/anon/unit_00292e60.cpp
 }
 }
 
@@ -593,24 +577,7 @@ u32 func_00296f90(void);  // get_global_36f598
 u32 func_00296f80(void);  // get_global_36f594
 u32 func_00293db8(s32, u32);
 void func_0023fa08(u32, u32);
-void func_002969e0(void)
-{
-    func_0023f900(D_0035f58c);
-    if (!func_00292630()) {
-        s8 c = *func_00276568();
-        u32 v;
-        if (func_00287bc0() == 2) {
-            if (c == 1 && func_002941d8(func_002953c8(1))) v = func_00296f90();
-            else v = func_002953c8(c) + 1;
-        } else {
-            v = func_00296f80();  // get_global_36f594
-        }
-        func_0023fa08(D_0035f58c, func_00293db8(2, v));
-        D_0035f590 = 1;
-    } else {
-        D_0035f590 = 0;
-    }
-}
+void func_002969e0(void);  // 0x002969e0: definition moved into src/anon/unit_00295d28.cpp
 }
 }
 

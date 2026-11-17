@@ -6,11 +6,7 @@ extern u8 D_0035f4f9 asm("D_0035f4f9");
 extern u32 D_0035f4f4 asm("D_0035f4f4");
 extern u32 D_0035f2b0 asm("D_0035f2b0");
 
-u32 ChgMember::isLoadExec() {
-    (void)D_0035f4f9;
-    u32 b = (0x0036u << 16);
-    return (u32)(*(u8*)((u32)b + (-2823)));
-}
+// 0x002938e0: definition moved into src/anon/unit_00292e60.cpp
 
 extern u8 D_0035f4f9 asm("D_0035f4f9");
 extern "C" u32 func_00102a38(...);  // list_contains_id
@@ -21,18 +17,10 @@ extern "C" u32 func_00290940(...);
 extern "C" void func_00290a60(...);
 extern u8 D_00293848 asm("D_00293848");
 
-u32 ChgMember::isLoadFinish() {
-    if (D_0035f4f9 == 0) {
-        return 0;
-    }
-    if (func_00102a38(*(u32*)(func_00103eb0() + 4), (u32)&D_00293848) != 0) {  // list_contains_id
-        return 0;
-    }
-    return (func_00170cd0() ^ 1) & 0xff;
-}
+// 0x002938f0: definition moved into src/anon/unit_00292e60.cpp
 
 // 0x00284048: definition moved into src/anon/unit_00283f50.cpp
 
-void* ChgMember::GetMember() { return reinterpret_cast<void*>(D_0035f4f4); }
+// 0x00293bc0: definition moved into src/anon/unit_00292e60.cpp
 
 }  // namespace Tz

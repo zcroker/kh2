@@ -33,8 +33,6 @@ void JmAlbum::RequestGraLoad(s32 a0) {
     D_0035f5a3 = 1;
 }
 
-u32 JmAlbum::GetImageName(u32 index) {
-    return *(u32*)((u32)&D_0035f520 + (index << 2));
-}
+// 0x00293de8: definition moved into src/anon/unit_00292e60.cpp
 
 }  // namespace Tz

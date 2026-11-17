@@ -251,15 +251,7 @@ s32 func_0028dd90(s32 x);  // 0028dd90: moved to src/anon/unit_0028c878.cpp
 
 u8 func_0028e6c0(u8* o, s32 i);  // 0028e6c0: moved to src/anon/unit_0028c878.cpp
 
-void func_00294550(void) {
-    D_0035f580 = 0;
-    D_0035f581 = 0;
-    Obj* o = (Obj*)D_0035f57c;
-    if (o) {
-        o->vt[1](o);
-        D_0035f57c = 0;
-    }
-}
+void func_00294550(void);  // 0x00294550: definition moved into src/anon/unit_00292e60.cpp
 
 // Sets bit i in the save-data bit array.
 void func_002aa450(u32 i);  // 0x002aa450: definition moved into src/anon/unit_002a99c8.cpp

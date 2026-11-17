@@ -204,12 +204,7 @@ u32 IsWarningEnabled(...) {
 
 typedef void (*VFn2)(void*, void*);
 extern void* D_0035f570;
-void func_00293f78(void* a) {
-    if (a) {
-        void* o = D_0035f570;
-        (*(VFn2*)((*(u8**)o) + 4))(o, a);
-    }
-}
+void func_00293f78(void* a);  // 0x00293f78: definition moved into src/anon/unit_00292e60.cpp
 
 u8* func_002766d0(void);
 u8 func_00139d78_u8(void*) asm("func_00139d78");

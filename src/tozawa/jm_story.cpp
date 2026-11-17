@@ -8,18 +8,8 @@ u32 LoadDataAlloc(u32, u32);
 extern "C" void func_00274ac8() asm("_ZN2Tz6Jiminy13JmCommonLeaveEv");
 extern u32 D_0035f594 asm("D_0035f594");
 
-u32 JmStory::Init() {
-    u32 r2 = LoadDataGetSystem();
-    r2 = LoadDataAlloc(520, r2);
-    D_0035f594 = r2;
-    return r2;
-}
+// 0x00296fa0: definition moved into src/anon/unit_00295d28.cpp
 
-void JmStory::LeaveAll() {
-    if (MenuBase::GetMode() == 3) {
-        func_00274ac8();
-        LeaveAllPost(0);
-    }
-}
+// 0x00297010: definition moved into src/anon/unit_00295d28.cpp
 
 }  // namespace Tz

@@ -653,20 +653,7 @@ extern GP D_0035f4ec;
 u32 func_00103570(void);
 s16* func_001063f0(s32, u32);
 void func_002936e8(void);
-void func_00293240(void)
-{
-    D_0035f4e8.p = func_001063f0(48, func_00103570());
-    D_0035f4ec.p = func_001063f0(48, func_00103570());
-    for (s32 i = 0; i < 8; i++) {
-        D_0035f4e8.p[i * 3 + 0] = -1;
-        D_0035f4e8.p[i * 3 + 1] = -1;
-        D_0035f4e8.p[i * 3 + 2] = -1;
-        D_0035f4ec.p[i * 3 + 0] = -1;
-        D_0035f4ec.p[i * 3 + 1] = -1;
-        D_0035f4ec.p[i * 3 + 2] = -1;
-    }
-    func_002936e8();
-}
+void func_00293240(void);  // 0x00293240: definition moved into src/anon/unit_00292e60.cpp
 
 u32 func_00287bc0(void);
 void func_00276150(u32, s32*, s32*);
@@ -1970,22 +1957,7 @@ void func_002907c0(u8*, u32, s32);
 void func_00276150(u32, s32*, s32*);
 s32 func_00276568(void);
 s32 func_002956c0(s32);
-s32 func_00295710(s32 a)
-{
-    s32 r = 0;
-    u32 o = func_00287bc0();
-    if ((u32)(a + 9) < 2) {
-        s32 x, y;
-        func_00276150(o, &x, &y);
-        s32 v = a == -8 ? y : x;
-        s32 c = *(s8*)func_00276568();
-        if (v != 2) r = 1;
-        else if ((u32)c < 15) r = 1;
-    } else if (a >= 0) {
-        r = func_002956c0(a);
-    }
-    return r;
-}
+s32 func_00295710(s32 a);  // 0x00295710: definition moved into src/anon/unit_00292e60.cpp
 extern u32 D_0035f59c;
 extern s16* D_0035f598;
 extern s8 D_0035f5a1;

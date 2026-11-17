@@ -38,40 +38,7 @@ union UP6 { P6* p; s16 h; };
 extern UP6 D_0035f4ec_ asm("D_0035f4ec");
 #define D_0035f4ec D_0035f4ec_.p
 
-void func_002933d8(s32 a0, s32 a1, s32 a2, P6* a3) {  // table_find_pair
-    s32 i;
-    s32 found = -1;
-    if (!a3) a3 = D_0035f4e8;
-    for (i = 0; i < 8; i++) {
-        if (a3[i].x == a0 && a3[i].y == a1) {
-            a3[i].x = a0;
-            a3[i].y = a1;
-            a3[i].z = a2;
-            found = i;
-            break;
-        }
-    }
-    if (found < 0) {
-        for (i = 0; i < 8; i++) {
-            if (a3[i].x < 0) {
-                a3[i].x = a0;
-                a3[i].y = a1;
-                a3[i].z = a2;
-                found = i;
-                break;
-            }
-        }
-    }
-    if (a3 == D_0035f4ec) return;
-    for (i = 0; i < 8; i++) {
-        if (D_0035f4ec[i].x == a3[found].x && D_0035f4ec[i].y == a3[found].y && D_0035f4ec[i].z == a3[found].z) {
-            a3[found].x = -1;
-            a3[found].y = -1;
-            a3[found].z = -1;
-            return;
-        }
-    }
-}
+void func_002933d8(s32 a0, s32 a1, s32 a2, P6* a3);  // 0x002933d8: definition moved into src/anon/unit_00292e60.cpp
 
 union UN { s32 n; u16 h; };
 struct T9 { u8 pad[8]; UN n; };

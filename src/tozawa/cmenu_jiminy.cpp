@@ -51,11 +51,7 @@ extern "C" u32 func_00289310() asm("_ZN2Tz6Select12isCursorMoveEv");
 extern "C" void func_00296ed0() asm("_ZN2Tz8JmReport10DrawUpdateEPNS_6SelectEii");
 extern "C" u32 func_002ad018(...);
 
-void Jiminy::DrawSelector(Select*, s32, s32) {
-    if (func_00289310() != 0u) {
-        func_00296ed0();
-    }
-}
+// 0x00296ea8: definition moved into src/anon/unit_00295d28.cpp
 
 // 0x00274ac8: definition moved into src/anon/unit_002748a0.cpp
 

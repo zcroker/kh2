@@ -255,13 +255,7 @@ s32 func_002914a8(u32 a0, u32 a1);  // 002914a8: moved to src/anon/unit_00290f78
 
 s32 func_00181500(u16);
 s32 func_001a3570(u16);
-s32 func_00294408(u16* p) {
-    s32 r = 0;
-    if (*(s8*)(p + 3) != 2) { if (func_00181500(p[0])) r = 1; }
-    else r = func_001a3570(p[0]) > 0;
-    if (p[1] && func_00181500(p[1])) r = 0;
-    return r;
-}
+s32 func_00294408(u16* p);  // 0x00294408: definition moved into src/anon/unit_00292e60.cpp
 
 s32 func_00105c30(void);
 void func_002fee78(u32*, const char*, const char*, u32);

@@ -193,14 +193,7 @@ void u_call4_002908f0(u32 a, u32, u32, u32);  // 002908f0: moved to src/anon/uni
 extern u8 D_0035f590;
 extern u8 D_0035f591;
 extern void** D_0035f58c;
-void func_00295810(void) {
-    D_0035f590 = 0;
-    D_0035f591 = 0;
-    if (D_0035f58c) {
-        (*(void (**)(void*))(*(u8**)D_0035f58c + 4))(D_0035f58c);
-        D_0035f58c = 0;
-    }
-}
+void func_00295810(void);  // 0x00295810: definition moved into src/anon/unit_00292e60.cpp
 
 u8* func_002a9d68(void);
 void func_002aab90(u32 n);  // 0x002aab90: definition moved into src/anon/unit_002a99c8.cpp

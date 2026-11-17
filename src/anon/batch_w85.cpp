@@ -386,15 +386,7 @@ s32 func_0028afa8(void*);
 s32 func_0028b040(void*);
 u8* func_002891b8(void*, s32);
 void func_00138c10(void*, s32);
-void func_002955a8(void) {
-    s32 i = 0;
-    s32 n = func_0028afa8(D_0035f200);
-    s32 cur = func_0028b040(D_0035f200);
-    for (; i < n; i++) {
-        if (*(s32*)(func_002891b8(D_0035f200, i) + 388) == 172) func_00138c10(func_002891b8(D_0035f200, i), 173);
-        if (i == cur) func_00138c10(func_002891b8(D_0035f200, i), 172);
-    }
-}
+void func_002955a8(void);  // 0x002955a8: definition moved into src/anon/unit_00292e60.cpp
 
 struct Ev2ad { u8 p0[4]; u8 done; u8 p5[3]; u16 id; };
 Ev2ad* func_001a82b0(Ev2ad*);

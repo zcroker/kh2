@@ -5,15 +5,10 @@ namespace Tz {
 extern u32 D_0035f520 asm("D_0035f520");
 
 extern "C" u32 func_00292690(...) asm("_ZN2Tz8LoadData5ClearEi");
-u32 JMData::Clear(s32 which) {
-    u32 r15 = (u32)which;
-    u32 r4 = 5100u;
-    if (r15 != 0u) r4 = r15;
-    return func_00292690(r4);
-}
+// 0x00293d80: definition moved into src/anon/unit_00292e60.cpp
 
 extern "C" u32 func_001703a8(u32);
-u32 JMData::Destroy(s32 which) { return func_001703a8((u32)which); }
+// 0x00293da0: definition moved into src/anon/unit_00292e60.cpp
 
 extern "C" u32 func_00292630(...);
 extern "C" u32 func_0016e920(...);
@@ -24,22 +19,8 @@ extern "C" void func_00293cb8(...);
 extern "C" u32 func_002926a8(...);
 extern u8 D_0035f4b8 asm("D_0035f4b8");
 
-void JMData::LoadObjRequest(s32 a0, bool a1) {
-    u32 flag = (u32)a1 & 0xff;
-    func_00292630((u32)a0);
-    if (flag != 0) {
-        u32 v = func_0016e920((u32)a0 | 0x30000000);
-        v = func_0016f470(v, 0);
-        func_00170a90(v);
-    }
-    func_0016ed50((u32)a0 | 0x30000000, 5103, 30);
-    D_0035f4b8 = 1;
-}
+// 0x00293c40: definition moved into src/anon/unit_00292e60.cpp
 
-u32 JMData::CacheAlloc(s32 a0, const char* a1) {
-    u8 tmp[128];
-    func_00293cb8(tmp, (u32)a0, (u32)a1);
-    return func_002926a8(tmp);
-}
+// 0x00293db8: definition moved into src/anon/unit_00292e60.cpp
 
 }  // namespace Tz

@@ -28,13 +28,7 @@ struct E6 { s16 a; s16 b; s16 c; };
 extern E6 D_00373e30[];
 
 void func_0027d450(void);  // 0x0027d450: definition moved into src/anon/unit_0027d2e8.cpp
-void func_002944f8(void) {
-    D_0035f580 = 0;
-    D_0035f581 = 0;
-    s32 r = func_001063c0(0x1C, func_00103570());
-    func_0023f800(r);
-    D_0035f57c = r;
-}
+void func_002944f8(void);  // 0x002944f8: definition moved into src/anon/unit_00292e60.cpp
 void func_0027acf8(void);  // 0x0027acf8: definition moved into src/anon/unit_0027a6d8.cpp
 void func_0027ac38(void);  // 0x0027ac38: definition moved into src/anon/unit_0027a6d8.cpp
 s32 func_00287cd0(void);

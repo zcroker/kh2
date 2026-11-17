@@ -54,20 +54,7 @@ void func_002907c0(void*, s32, s32);
 extern s32 D_0035f570;
 extern void* D_0035f574;
 extern u32* D_0035f578;
-void func_00293e00(s32 a) {
-    D_0035f570 = a;
-    void* p = func_001063c0(24, D_0035f570);
-    func_002907c0(p, D_0035f570, 10);
-    D_0035f574 = p;
-    u32* q = (u32*)func_001063c0(64, D_0035f570);
-    u32* t = q;
-    for (s32 i = 15; i >= 0; i--) *t++ = 0;
-    s32 j = 15;
-    D_0035f578 = q;
-    asm volatile("" ::: "memory");
-    u32* r = D_0035f578;
-    for (; j >= 0; j--) *r++ = 0;
-}
+void func_00293e00(s32 a);  // 0x00293e00: definition moved into src/anon/unit_00292e60.cpp
 
 f32 atanf(f32);
 // 00106fe8: moved to src/naka/libkn/camera.cpp

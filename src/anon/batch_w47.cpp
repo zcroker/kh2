@@ -178,12 +178,7 @@ extern s16 D_0035f4e0;
 extern s32 D_0035f4c4;
 u8 func_00292f18(void);
 u8 func_00292fe8(void);
-s32 func_00292eb0(void) {
-    if (func_00293200()) return -1;
-    if (!D_0035f4e0) return 0;
-    if (!D_0035f4c4) return func_00292f18();
-    return func_00292fe8();
-}
+s32 func_00292eb0(void);  // 0x00292eb0: definition moved into src/anon/unit_00292e60.cpp
 
 extern s8* D_0035f5d0;
 s32 func_002a01c8(s32);  // obj4_entry_by_index
@@ -334,10 +329,5 @@ void func_0023f900(u32);
 s32 func_00292630(void);
 u32 func_00293db8(s32, s32);
 void func_0023fa08(u32, u32);
-void func_00294e48(void) {
-    func_0023f900(D_0035f57c);
-    if (func_00292630()) return;
-    func_0023fa08(D_0035f57c, func_00293db8(1, 0));
-    D_0035f580 = 1;
-}
+void func_00294e48(void);  // 0x00294e48: definition moved into src/anon/unit_00292e60.cpp
 }
