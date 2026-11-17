@@ -11,6 +11,7 @@
 # How to convert another file: notes/linking.md
 source	text_start	text_end	sections	flags
 src/anon/unit_001056e8.cpp	001056e8	00105748	.data@0032bb28,.bss@003a7b60	-G0
+src/common/saveram.cpp	00105748	00105a10	.data@0032bb30	-G0
 src/anon/unit_0014b150.cpp	0014b150	0014b518	-	-G0
 src/anon/unit_0014b518.c	0014b518	0014b5e0	-	-G0
 src/harata/libdk/rect.cpp	0014b5e0	0014b638	-	-G0
@@ -454,7 +455,7 @@ src/anon/unit_00127a88.cpp	00127a88	00127ec8	.rodata@0036a9e0	-G0 -fno-strict-al
 src/harata/libdk/mapfile.cpp	001491a8	00149be8	.rodata@0036afb8	-G0
 src/harata/libdk/area.cpp	00149be8	00149fa8	.data@00348d68	-G0
 src/anon/unit_00149fa8.cpp	00149fa8	0014a918	.rodata@0036b0a0	-G0
-src/harata/libdk/fade.cpp	0014a918	0014aed0	.rodata@0036b0b0	-G0
+src/harata/libdk/fade.cpp	0014a918	0014b150	.data@003493a0,.rodata@0036b0b0	-G0
 src/anon/unit_00167358.cpp	001672c8	00168218	.data@0034d3c0,.bss@004f4250,.rodata@0036b568	-G0 -fno-strict-aliasing
 src/yasui/libys/file.cpp	00168218	00168aa0	.data@0034d800,.bss@004f5280	-G0 -g -fmove-all-movables -fno-strict-aliasing
 src/anon/unit_00168aa0.cpp	00168aa0	00169398	.rodata@0036bf48	-G0 -fno-strict-aliasing

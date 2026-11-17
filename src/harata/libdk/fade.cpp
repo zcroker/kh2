@@ -1,7 +1,6 @@
-// dk::Fade (0x14a950-0x14aed0): screen fades (7 global Fade rectangles at 0x3493a0, 0x110 bytes each).
-// Linked unit from the C2 copy of the ctor (0x14a918). The static initialiser
-// 0x14aed0 with its _GLOBAL__I_/_GLOBAL__D_ stubs stays outside as plain functions (it builds the
-// objects and destroys them through an inline base dtor), so the objects are plain externs here.
+// dk::Fade (0x14a918-0x14b150): screen fades (7 global Fade rectangles at 0x3493a0, 0x110 bytes each).
+// Linked unit from the C2 copy of the ctor (0x14a918) to the static initialiser 0x14aed0 and its
+// _GLOBAL__I_/_GLOBAL__D_ stubs; the objects and the pause flag are defined at the end of the file.
 #include "../../common/types.h"
 #include "fade.hpp"
 
@@ -218,3 +217,29 @@ extern "C" void func_0014ae10(void) {
     func_00102c18(0, 0x19640, func_0014ac90);
     func_00102c18(0, 0x19a28, func_0014acb0);
 }
+
+// The seven fade objects and the pause flag (.data 0x3493a0-0x349b11). gcc makes the static
+// initialiser 0x14aed0 (C1 ctor 0x14a950 for each) and its I/D stubs; the inline dtor puts back the
+// RectBase vtable and calls the out-of-line base dtor 0x31bb08.
+namespace fade_objs {
+extern u8 D_00349b40[] asm("D_00349b40");  // RectBase vtable
+void RectBase_dtor(void*) asm("func_0031bb08");
+struct FadeObj {
+    u8 b[0x110];
+    FadeObj() { func_0014a950((void**)this); }
+    ~FadeObj()
+    {
+        *(u8**)this = D_00349b40;
+        void (*d)(void*) = RectBase_dtor;  // called, not tail-jumped, as in retail
+        d(this);
+    }
+};
+FadeObj s_all asm("D_003493a0");
+FadeObj s_3d asm("D_003494b0");
+FadeObj s_bar0 asm("D_003495c0");
+FadeObj s_bar1 asm("D_003496d0");
+FadeObj s_bar2 asm("D_003497e0");
+FadeObj s_bar3 asm("D_003498f0");
+FadeObj s_wide asm("D_00349a00");
+u8 s_paused asm("D_00349b10");
+}  // namespace fade_objs

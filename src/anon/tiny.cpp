@@ -237,8 +237,8 @@ void func_002dd198(BD_VALUE* bd);  // 0x002dd198: definition moved into src/anon
 void func_002dd1e8(BD_VALUE* bd);  // 0x002dd1e8: definition moved into src/anon/unit_002da040.cpp
 void func_002dd200(BD_VALUE* bd);  // 0x002dd200: definition moved into src/anon/unit_002da040.cpp
 void func_002e1758(BD_VALUE* bd);  // 0x002e1758: definition moved into src/anon/unit_002de3c8.cpp
-void func_001059d0(BD_VALUE* bd) { func_001058f8(1, 0xffff); }
-void func_001059f0(BD_VALUE* bd) { func_001058f8(0, 0xffff); }
+// 001059d0: _GLOBAL__I_ stub, now made by gcc in src/common/saveram.cpp
+// 001059f0: _GLOBAL__D_ stub, now made by gcc in src/common/saveram.cpp
 // 00108028: moved to src/naka/libkn/camera.cpp
 void func_0010b418(BD_VALUE* bd);  // 0010b418: moved to src/anon/unit_0010aef0.cpp
 // 001135e8: moved to src/anon/unit_001117d8.cpp
@@ -249,7 +249,7 @@ void func_00141418(BD_VALUE* bd);  // 0x00141418: definition moved into src/anon
 void func_00149188(BD_VALUE* bd);  // 0x00149188: definition moved into src/anon/unit_00148ef0.cpp
 // 00149f68: _GLOBAL__I_ stub, now made by gcc in src/harata/libdk/area.cpp
 void func_0014a8d8(BD_VALUE* bd);  // 0014a8d8: moved to src/anon/unit_00149fa8.cpp
-void func_0014b110(BD_VALUE* bd) { func_0014aed0(1, 0xffff); }
+// 0014b110: _GLOBAL__I_ stub, now made by gcc in src/harata/libdk/fade.cpp
 // 0014e280: moved to src/anon/unit_0014d680.cpp
 // 00159220: _GLOBAL__I_ stub, now made by gcc in src/harata/libdk/lightcyclecamera.cpp
 // 00159cc0: _GLOBAL__I_ stub, now made by gcc in src/harata/libdk/talkcamera.cpp
@@ -775,13 +775,7 @@ extern u32 D_00348698;
 
 // 00105300: moved to src/common/area.cpp
 
-u32 func_001058e8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a0;
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    return (u32)&D_0032bb30;
-}
+// 001058e8: moved to src/common/saveram.cpp
 
 // 001070c8: moved to src/naka/libkn/camera.cpp
 
@@ -1123,14 +1117,7 @@ extern u32 D_01e2a560;
 
 // 00102b58: moved to src/common/unit_00102a70.cpp
 
-u32 func_001058d8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    u32 v = *(u32*)((u32)a0 + (7896));
-    v &= 0x0100u;
-    return (v != 0);
-}
+// 001058d8: moved to src/common/saveram.cpp
 
 u64 func_00109040(u32 a0, u32 a1, u32 a2, u32 a3);  // 00109040: moved to src/anon/unit_001085a8.cpp
 

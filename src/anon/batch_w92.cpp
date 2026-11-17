@@ -45,36 +45,7 @@ void func_00196198(void);
 void func_0023d3d0(void);
 
 struct Q { u32 w[4]; u8 b; };
-void func_00105748(u8* p) {
-    u8* a = p + 9456;
-    func_002fd310(p, 0x10fc0);
-    u8* d = p + 16796;
-    u8* b = p + 16364;
-    func_00319bd0(p + 12);  // clear_18x64_entries
-    func_00188e08(a);
-    func_00319870(b);  // init_18x4_entries
-    func_00319930(p + 16808);
-    *(u32*)(p + 18904) = 0;
-    *(u32*)(p + 18908) = 0;
-    Q* q = (Q*)(p + 18912);
-    u32* w = q->w;
-    for (s32 i = 3; i >= 0; i--) *w++ = 0;
-    q->b = 0;
-    func_003199d0(d + 2136);
-    func_00319a60(d + 2716);  // clear_fixed_blocks
-    func_002e7768(p + 21920);
-    u8* c = p + 0x100e0;
-    func_001e0868(c);
-    *(u32*)(p + 0) = func_00105870();
-    *(u32*)(p + 4) = 58;
-    func_00188fc0(a);
-    func_002be760(b);
-    func_001e0998(c);
-    func_0014cb58();
-    func_00105860(p, 1);
-    func_00196198();
-    func_0023d3d0();
-}
+// 00105748: moved to src/common/saveram.cpp
 }
 
 // ---- 136020 ----

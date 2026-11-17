@@ -20,29 +20,7 @@ void func_00319a60(void*); void func_002e7768(void*); void func_001e0868(void*);
 }
 struct NoTail { ~NoTail() {} };
 }
-void func_001058f8(int a, int b)
-{
-    using namespace n001058f8;
-    NoTail nt;
-    if (b == 0xffff && a == 1) {
-        u8* s = D_0032bb30;
-        func_00319bd0(s + 12);  // clear_18x64_entries
-        func_00188e08(s + 9456);
-        func_00319870(s + 16364);  // init_18x4_entries
-        func_00319930(s + 16808);
-        func_00319d20(s + 18904);  // zero_two_words
-        func_00319d30(s + 18912);
-        func_00319d58(s + 18928);  // store_zero_byte
-        func_003199d0(s + 18932);
-        func_00319a60(s + 19512);  // clear_fixed_blocks
-        func_002e7768(s + 21920);
-        func_001e0868(s + 0x100e0);
-    }
-    if (b == 0xffff && a == 0) {
-        u8* s = D_0032bb30;
-        func_002e77a0(s + 21920);
-    }
-}
+// 001058f8: static initialiser, now made by gcc in src/common/saveram.cpp
 
 // ---- 0010b620: direction vector from two points, normalised
 namespace n0010b620 {

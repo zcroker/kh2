@@ -40,23 +40,7 @@ void func_00100350(void) {
 
 // 00105310: moved to src/common/area.cpp
 
-u32 func_00105870() {
-    s32 v = func_00105c30();
-    s32 c;
-    switch (v) {
-    case 2:
-        c = 85;
-        break;
-    case 1:
-    case 8:
-        c = 74;
-        break;
-    default:
-        c = 69;
-        break;
-    }
-    return ((u32)c << 24) | 0x0032484b;
-}
+// 00105870: moved to src/common/saveram.cpp
 
 // 00106178: moved to src/naka/libkn/memoryallocator.cpp
 

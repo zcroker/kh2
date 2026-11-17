@@ -1,6 +1,6 @@
 #include "../common/types.h"
 
-void func_00105860(void* self, s32 v) { *(s32*)((char*)self + 9368) = v; }
+// 00105860: moved to src/common/saveram.cpp
 
 void func_00108990(void* self);  // 00108990: moved to src/anon/unit_001085a8.cpp
 

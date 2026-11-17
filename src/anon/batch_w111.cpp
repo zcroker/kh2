@@ -137,24 +137,7 @@ void func_0031bb08(SObj14*);  // set_vtbl_3486a8
 void func_0014aed0(int init, int prio) asm("_Z13func_0014aed0ii");
 }
 // Static construction / destruction of this unit's seven global objects.
-void func_0014aed0(int init, int prio)
-{
-    NoTail14 g;
-    if (prio == 0xffff && init == 1) func_0014a950(&D_003493a0);
-    if (prio == 0xffff && init == 1) func_0014a950(&D_003494b0);
-    if (prio == 0xffff && init == 1) func_0014a950(&D_003495c0);
-    if (prio == 0xffff && init == 1) func_0014a950(&D_003496d0);
-    if (prio == 0xffff && init == 1) func_0014a950(&D_003497e0);
-    if (prio == 0xffff && init == 1) func_0014a950(&D_003498f0);
-    if (prio == 0xffff && init == 1) func_0014a950(&D_00349a00);
-    if (prio == 0xffff && init == 0) { D_00349a00.vt = D_00349b40; func_0031bb08(&D_00349a00); }
-    if (prio == 0xffff && init == 0) { D_003498f0.vt = D_00349b40; func_0031bb08(&D_003498f0); }
-    if (prio == 0xffff && init == 0) { D_003497e0.vt = D_00349b40; func_0031bb08(&D_003497e0); }
-    if (prio == 0xffff && init == 0) { D_003496d0.vt = D_00349b40; func_0031bb08(&D_003496d0); }
-    if (prio == 0xffff && init == 0) { D_003495c0.vt = D_00349b40; func_0031bb08(&D_003495c0); }
-    if (prio == 0xffff && init == 0) { D_003494b0.vt = D_00349b40; func_0031bb08(&D_003494b0); }
-    if (prio == 0xffff && init == 0) { D_003493a0.vt = D_00349b40; func_0031bb08(&D_003493a0); }
-}
+// 0014aed0: static initialiser, now made by gcc in src/harata/libdk/fade.cpp
 
 extern "C" {
 extern u8 D_00349e20;
