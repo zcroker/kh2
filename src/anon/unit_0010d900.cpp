@@ -1,4 +1,4 @@
-// Linked unit 0x0010d900-0x0010dc08 (one namespace per old matched source; class methods in their own namespace).
+// Linked unit 0x0010d900-0x0010dee8 (one namespace per old matched source; class methods in their own namespace).
 #include "../common/types.h"
 #include "../tozawa/cmenu_top.hpp"
 #include <stdarg.h>
@@ -122,3 +122,72 @@ void func_0010da40(void* self, s32 unused, Hnd10da40* out) {
 }
 }  // namespace n0010da40
 
+// 0010dc08, 0010dd80 (were gap, never written): nearest target of the friend's targets (two filters).
+namespace g0010dc08 {
+struct Tgt { u32 obj; u32 a, b, c, d; };
+struct TI { f32 f0; f32 r; f32 f8; u32 f12; f32 pos[4]; } __attribute__((aligned(16)));
+struct Q { f32 v[4]; } __attribute__((aligned(16)));
+struct Kind { u8 pad[8]; u32 flags; };
+struct Obj { u8 pad[12]; Kind* kind; };
+void tgt_ctor(Tgt*) asm("_ZN2YS6TARGETC1Ev");
+u32 func_00190730(Tgt*, u32) asm("func_00190730");
+s32 func_00112d90(Tgt*) asm("func_00112d90");
+s32 can_attack(Tgt*) asm("_ZNK2YS6TARGET10can_attackEv");
+s32 func_00186ce8(u32) asm("_Z16ctarget_00186ce8jjjj");
+s32 func_00186d18(u32) asm("func_00186d18");
+void func_0018a818(TI*, u32, u32) asm("func_0018a818");
+Q* func_0016c028(u8*) asm("func_0016c028");
+void func_0010dc08(u8* self, u32, Tgt* out) asm("func_0010dc08");
+void func_0010dc08(u8* self, u32, Tgt* out)
+{
+    TI ti;
+    Tgt t;
+    Q d;
+    f32 best = 0.0f;
+    u32 cur = 0;
+    ti.f12 = 0;
+    tgt_ctor(&t);
+    while ((cur = func_00190730(&t, cur)) != 0) {
+        if (!func_00112d90(&t)) continue;
+        if (!can_attack(&t)) continue;
+        u32 o = t.obj;
+        if (!func_00186ce8(o) && !func_00186d18(o)) continue;
+        func_0018a818(&ti, o, cur);
+        f32 len;
+        asm volatile("lqc2 $vf1, 0(%0)\n\tlqc2 $vf2, 0(%1)\n\tvsub.xyzw $vf1, $vf1, $vf2\n\tsqc2 $vf1, 0(%2)" : : "r"(ti.pos), "r"(func_0016c028(self)), "r"(&d) : "memory");
+        asm volatile("lqc2 $vf1, 0(%1)\n\tvmul.xyz $vf1, $vf1, $vf1\n\tvaddy.x $vf1, $vf1, $vf1y\n\tvaddz.x $vf1, $vf1, $vf1z\n\tvsqrt Q, $vf1x\n\tvwaitq\n\tcfc2.ni $8, $vi22\n\tmtc1 $8, %0" : "=f"(len) : "r"(&d) : "$8");
+        len = len - ti.r;
+        if (best == 0.0f || len < best) {
+            best = len;
+            *out = t;
+        }
+    }
+}
+void func_0010dd80(u8* self, u32, Tgt* out) asm("func_0010dd80");
+void func_0010dd80(u8* self, u32, Tgt* out)
+{
+    TI ti;
+    Tgt t;
+    Q d;
+    f32 best = 0.0f;
+    u32 cur = 0;
+    ti.f12 = 0;
+    tgt_ctor(&t);
+    while ((cur = func_00190730(&t, cur)) != 0) {
+        if (!func_00112d90(&t)) continue;
+        if (!can_attack(&t)) continue;
+        Obj* o = (Obj*)t.obj;
+        if (!o->kind) continue;
+        if (!(o->kind->flags & 0x40)) continue;
+        func_0018a818(&ti, (u32)o, cur);
+        f32 len;
+        asm volatile("lqc2 $vf1, 0(%0)\n\tlqc2 $vf2, 0(%1)\n\tvsub.xyzw $vf1, $vf1, $vf2\n\tsqc2 $vf1, 0(%2)" : : "r"(ti.pos), "r"(func_0016c028(self)), "r"(&d) : "memory");
+        asm volatile("lqc2 $vf1, 0(%1)\n\tvmul.xyz $vf1, $vf1, $vf1\n\tvaddy.x $vf1, $vf1, $vf1y\n\tvaddz.x $vf1, $vf1, $vf1z\n\tvsqrt Q, $vf1x\n\tvwaitq\n\tcfc2.ni $8, $vi22\n\tmtc1 $8, %0" : "=f"(len) : "r"(&d) : "$8");
+        len = len - ti.r;
+        if (best == 0.0f || len < best) {
+            best = len;
+            *out = t;
+        }
+    }
+}
+}  // namespace g0010dc08
