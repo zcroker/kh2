@@ -414,13 +414,7 @@ void func_002f5c48(u32, ...) {
     (void)pad;
 }
 
-u32 func_00282228(u32 a0, u32 a1, u32 a2) {  // bit_test_idx
-    u32 mask = 1;
-    mask <<= a1;
-    a2 &= mask;
-    a2 = (u32)(0 < a2);
-    return a2;
-}
+u32 func_00282228(u32 a0, u32 a1, u32 a2);  // 0x00282228: definition moved into src/anon/unit_00281cf0.cpp
 
 void func_00287d08();  // 0x00287d08: definition moved into src/anon/unit_00286d28.cpp
 

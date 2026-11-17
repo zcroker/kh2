@@ -8,15 +8,7 @@ s32 func_00181500(u16);
 struct W1595Rec { s32 a; u16 id; u16 b; };
 extern W1595Rec D_003742c8[];
 
-s32 func_00283b78(void) {
-    s32 r = 0;
-    u8* st = (u8*)func_00258048();
-    if (!func_00283ab8(-1)) return 0;
-    for (u32 i = 0; D_003742c8[i].id != 0; i++) {
-        if (func_00181500(D_003742c8[i].id) && !w1595_TestBit((u32*)(st + 200), i)) { r = 1; break; }
-    }
-    return r;
-}
+s32 func_00283b78(void);  // 0x00283b78: definition moved into src/anon/unit_00282c68.cpp
 
 void func_001039f8();
 s32 func_00139d78(void*);

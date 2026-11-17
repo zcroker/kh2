@@ -206,9 +206,7 @@ void func_0025ccc0(void);  // 0x0025ccc0: definition moved into src/anon/unit_00
 
 void func_0026b448(void);  // 0x0026b448: definition moved into src/anon/unit_0026a900.cpp
 
-void* CMData_GetPtr(s32) {
-    return func_0023fa08(&D_0035f3a8, func_002537c8(5));
-}
+void* CMData_GetPtr(s32);  // 0x002806c8: definition moved into src/anon/unit_0027f2b0.cpp
 
 void func_0028b218(u8* p, u8 on);  // 0x0028b218: definition moved into src/anon/unit_00288b00.cpp
 

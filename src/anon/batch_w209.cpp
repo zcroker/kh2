@@ -67,12 +67,7 @@ extern void func_00281b30(u32);
 extern u8 D_0035f298;
 extern f32 D_0035f294;
 extern u16 D_0035f280;
-void func_00281cf0(u32 a) {
-    D_0035f294 = 15.0f;
-    D_0035f298 = 0;
-    func_00281b30(a);
-    D_0035f280 = a;
-}
+void func_00281cf0(u32 a);  // 0x00281cf0: definition moved into src/anon/unit_00281cf0.cpp
 
 // --- 002cd3e0
 extern V209* func_0016c028(u32);  // obj_get_attach_or_alt

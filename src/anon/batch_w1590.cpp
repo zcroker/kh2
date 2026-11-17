@@ -13,14 +13,5 @@ void func_002823b0(s32, s32, s32);
 
 void func_002589b0(void);  // 0x002589b0: definition moved into src/anon/unit_002588e8.cpp
 
-void func_00282240(s32 a, s32 b, s32 c) {
-    s32 r;
-    func_00281f48(a, b, c);
-    r = func_00281fe0(a, b, c);
-    if (b < 5) {
-        func_002822c0(a, b, r);
-    } else {
-        func_002823b0(a, b, r);
-    }
-}
+void func_00282240(s32 a, s32 b, s32 c);  // 0x00282240: definition moved into src/anon/unit_00281cf0.cpp
 }

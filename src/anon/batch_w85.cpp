@@ -357,56 +357,19 @@ s32 func_003142e0(double, double);  // double_compare
 s32 func_001688b8(void);
 s32 func_00292a90(s16);
 void func_00292b40(Snd281*, s32);
-void func_00281d48(void) {
-    if (D_0035f294 <= 0.0f) return;
-    if (0.0f < D_0035f294) D_0035f294 = D_0035f294 - D_00349e10;
-    if (func_003142e0(func_00313b80(D_0035f294), 0.0) < 0) D_0035f294 = 0.0f;
-    if (func_003142e0(func_00313b80(D_0035f294), 0.0) > 0) return;
-    if (func_001688b8()) return;
-    if (!func_00292a90(D_0035f280.id)) func_00292b40(&D_0035f280, 1);
-    D_0035f298 = 1;
-}
+void func_00281d48(void);  // 0x00281d48: definition moved into src/anon/unit_00281cf0.cpp
 
 struct Item282 { u16 id; u8 a, b; u16 pad; };
 struct List282 { union { s32 n; u16 h; } u; Item282 e[1]; };
 u8* func_001058e8(void);
 // appends each nonzero id from the 8-entry table that is not already listed
-void func_00282620(List282* l) {
-    s32 i, j;
-    for (i = 0; i < 8; i++) {
-        u16 id = ((u16*)(func_001058e8() + 14056))[i];
-        if (id) {
-            for (j = 0; j < l->u.n; j++) {
-                u16 x = l->e[j].id;
-                if (x && id == x) break;
-            }
-            if (j >= l->u.n) {
-                l->e[l->u.n].id = id;
-                l->e[l->u.n].a = 0;
-                l->e[l->u.n].b = 0;
-                l->u.n++;
-            }
-        }
-    }
-}
+void func_00282620(List282* l);  // 0x00282620: definition moved into src/anon/unit_00282620.cpp
 
 extern u8 D_003741e8[];
 u32 func_00259618(u16, u8*, s32);
 void func_00192b30(u32);
 void func_00192cc0(u8*, u8*, u8);
-void func_00282858(List282* l, s32 first, s32 count) {
-    s32 i;
-    for (i = 0; i < count; i++) {
-        Item282* e;
-        u8* row;
-        if (i + first >= l->u.n) break;
-        e = &l->e[first + i];
-        row = (u8*)l + i * 80;
-        func_00192b30(func_00259618(e->id, row + 1556, e->b != 0));
-        if (e->a != 1) func_00192cc0(row + 1540, D_003741e8, e->a);
-        else row[1540] = 0;
-    }
-}
+void func_00282858(List282* l, s32 first, s32 count);  // 0x00282858: definition moved into src/anon/unit_00282620.cpp
 void func_0028af18(void*, s32);
 void func_0028b1b0(void*, s32);
 void func_0028b218(void*, s32);  // obj_set_flag39_bits3000

@@ -383,22 +383,7 @@ void func_0023d1e0(void);  // zero_global_d
 void func_001039f8(void);
 void func_0027f7f0(void);
 void func_0027f9d8(void);
-s32 func_0027f3d8(void) {
-    if (func_00287db0()) {
-        if (func_0027f2b0()) return 0;
-        if (func_00253918()) return 0;
-        func_001040f8()->fn();
-        if (func_00242a00()) func_0023d1d0();
-        else func_0023d1e0();  // zero_global_d
-        func_001039f8();
-        return 1;
-    }
-    s32 m = func_00287bc0();
-    if (m != 0) {
-        if (m == 1) func_0027f9d8();
-    } else func_0027f7f0();
-    return 0;
-}
+s32 func_0027f3d8(void);  // 0x0027f3d8: definition moved into src/anon/unit_0027f2b0.cpp
 }
 }
 
@@ -408,20 +393,7 @@ extern "C" {
 extern u8* D_0035f2b8;
 s32 func_00139d78(void*);
 // True when every active sub-object is in its expected state.
-s32 func_00283668(void) {
-    s32 ok = 1;
-    if (func_00139d78(D_0035f2b8 + 852) && *(s32*)(D_0035f2b8 + 1240) != 0x13) ok = 0;
-    if (ok) {
-        if (func_00139d78(D_0035f2b8 + 416) && *(s32*)(D_0035f2b8 + 804) != 0x10) ok = 0;
-        if (ok) {
-            if (func_00139d78(D_0035f2b8 + 1288) && *(s32*)(D_0035f2b8 + 1676) != 2) ok = 0;
-            if (ok) {
-                if (func_00139d78(D_0035f2b8 + 1696) && *(s32*)(D_0035f2b8 + 2084) != 5) ok = 0;
-            }
-        }
-    }
-    return ok;
-}
+s32 func_00283668(void);  // 0x00283668: definition moved into src/anon/unit_00282c68.cpp
 }
 }
 

@@ -722,24 +722,7 @@ extern u8 D_0035f299;
 extern u16 D_0035f2a0[3];
 extern u16 D_0035f2a8[2];
 extern u16 D_003741a8[];
-void func_002817d8(s32 a, s32 b, s32 c, s32 d, s32 e, u16* f, u16* g)
-{
-    D_0035f270 = a;
-    D_0035f278 = b;
-    D_0035f27c = c;
-    D_0035f284 = d;
-    D_0035f274 = e;
-    if (f) {
-        D_0035f28c = D_0035f288;
-        D_0035f299 = 1;
-    } else {
-        D_0035f28c = 0;
-        D_0035f299 = 0;
-    }
-    for (s32 i = 0; i < 3; i++) D_0035f2a0[i] = f ? f[i] : 0xffff;
-    if (!g) g = D_003741a8;
-    for (s32 i = 0; i < 2; i++) D_0035f2a8[i] = g[i];
-}
+void func_002817d8(s32 a, s32 b, s32 c, s32 d, s32 e, u16* f, u16* g);  // 0x002817d8: definition moved into src/anon/unit_0027f2b0.cpp
 }
 }
 

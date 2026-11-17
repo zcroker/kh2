@@ -18,16 +18,7 @@ void func_00282b00(u8*, s32, s32);
 // Runs 00281f70, then one of two handlers depending on the flag at +4104.
 // Register pins only (no asm): this in s2 and the call arguments set up before the branch,
 // as the original does.
-void func_002827f0(u8* a, s32 b, s32 c) {
-    func_00281f70(a, b, c);
-    register u8* p asm("$18") = a;
-    s32 t = *(s32*)(p + 4104);
-    register u8* r4 asm("$4") = p;
-    register s32 r5 asm("$5") = b;
-    register s32 r6 asm("$6") = c;
-    if (t == 0) { func_00282858(r4, r5, r6); return; }
-    func_00282b00(r4, r5, r6);
-}
+void func_002827f0(u8* a, s32 b, s32 c);  // 0x002827f0: definition moved into src/anon/unit_00282620.cpp
 
 // Applies table entries whose type bit is in mask: entry types 7/8/2 are gated by checks on y and x->a,
 // then entry byte [x->idx] (if not 255) is stored to x->o.

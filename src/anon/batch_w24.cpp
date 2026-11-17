@@ -160,11 +160,7 @@ s32 func_0027bf20(s32 i) {
 
 void func_0028dac8(u8*, s32);
 extern u8* D_0035f264;
-void func_00280240(void) {
-    func_0028dac8(D_0035f264 + 24, 9);
-    func_0028dac8(D_0035f264 + 460, 12);
-    func_0028dac8(D_0035f264 + 896, 3);
-}
+void func_00280240(void);  // 0x00280240: definition moved into src/anon/unit_0027f2b0.cpp
 
 extern u8 D_01e2a410;
 void func_002bc9a8(void*, s32, s32);  // find_entry12_set_field

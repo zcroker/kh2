@@ -534,30 +534,7 @@ void func_0027c1c0(void) {
 
 u8* func_001a8110(u8*);
 // Assign each entry its table order (+1000 unless type 18), then sort by it.
-void func_00282d70(SortList* l) {
-    u8* v = 0;
-    s32 i = 0;
-    for (;;) {
-        v = func_001a8110(v);
-        if (!v) break;
-        for (s32 j = 0; j < l->n; j++) {
-            if (*(u16*)v == l->e[j].id) {
-                l->e[j].key = i;
-                if (v[2] != 18) l->e[j].key = i + 1000;
-            }
-        }
-        i++;
-    }
-    for (i = 0; i < l->n; i++) {
-        for (s32 j = i + 1; j < l->n; j++) {
-            if (l->e[j].key < l->e[i].key) {
-                SortEnt t = l->e[i];
-                l->e[i] = l->e[j];
-                l->e[j] = t;
-            }
-        }
-    }
-}
+void func_00282d70(SortList* l);  // 0x00282d70: definition moved into src/anon/unit_00282c68.cpp
 
 extern u32 D_0035f318;
 extern u32 D_0035f2ec;

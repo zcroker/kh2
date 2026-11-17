@@ -36,7 +36,7 @@ void func_00263e98(void* self);  // 0x00263e98: definition moved into src/anon/u
 
 void func_00263ea0(void* self);  // 0x00263ea0: definition moved into src/anon/unit_002632d0.cpp
 
-void func_00281f10(void* self) {}
+void func_00281f10(void* self);  // 0x00281f10: definition moved into src/anon/unit_00281cf0.cpp
 
 typedef s64 (*Func4)(s64, s64, s64, s64);
 

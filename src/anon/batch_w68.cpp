@@ -309,17 +309,7 @@ s32 func_002595e0(void);
 u32 func_00192048(u32);
 void func_002595e8(void*, u32);
 
-void func_00282cb8(u8* p, s32 n) {
-    if (n < 0) {
-        func_002595e8(p + 4132, func_00192048(0x8448));
-        return;
-    }
-    s32 idx;
-    if (n == 0) idx = func_00282c68(func_002811b0(*(u32*)(p + 4100), *(u32*)(p + 4108)));
-    else idx = D_00374240[n];
-    func_00259570(idx, p + 4132, 0, 1);
-    func_002595e8(p + func_002595e0() + 4132, func_00192048(0x8448));
-}
+void func_00282cb8(u8* p, s32 n);  // 0x00282cb8: definition moved into src/anon/unit_00282c68.cpp
 
 /* ---- 00287a28 ---- */
 void func_0028c4f8(void);

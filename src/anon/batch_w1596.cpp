@@ -21,28 +21,7 @@ u16* func_001a8110(u16*);
 s32 func_00282228(L2822c0*, u8, s32);
 u8 func_001a3570(u16);
 s32 func_00282ec0(u16);
-void func_002822c0(L2822c0* l, s32 a1, s32 a2) {
-    u16* it = 0;
-    E2822c0* e = l->e;
-    func_00281f90(l);
-    l->m = 0;
-    if (a1) l->sel = func_002811f8(l->h, a1 - 1);
-    l->n = 0;
-    for (;;) {
-        it = func_001a8110(it);
-        if (!it) break;
-        if (!func_00282228(l, ((u8*)it)[2], a2)) continue;
-        u8 k = func_001a3570(it[0]);
-        if (!k) continue;
-        if (func_00282ec0(it[0])) continue;
-        e->kind = k;
-        e->id = it[0];
-        e->z = 0;
-        e->v = 999;
-        e++;
-        l->n++;
-    }
-}
+void func_002822c0(L2822c0* l, s32 a1, s32 a2);  // 0x002822c0: definition moved into src/anon/unit_00281cf0.cpp
 
 // ---- 00273a28
 struct S273a28 { u8 pad[4]; s8 n; };

@@ -307,18 +307,7 @@ s32 func_00262290(void);  // 0x00262290: definition moved into src/anon/unit_002
 s32 func_002637e8(s32 a);  // 0x002637e8: definition moved into src/anon/unit_002632d0.cpp
 
 // Is the current id in the -1-terminated table?
-s32 func_002812e0(void) {
-    s32 r = 0;
-    u8 c = func_001058e8()[12];
-    s32 i;
-    for (i = 0; D_00374188[i] >= 0; i++) {
-        if (D_00374188[i] == c) {
-            r = 1;
-            break;
-        }
-    }
-    return r;
-}
+s32 func_002812e0(void);  // 0x002812e0: definition moved into src/anon/unit_0027f2b0.cpp
 
 void func_002abdc8(void);  // 0x002abdc8: definition moved into src/anon/unit_002a99c8.cpp
 

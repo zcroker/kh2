@@ -66,31 +66,7 @@ u32 func_00192048(u32);
 void func_00192cc0(char*, char*);
 u32 func_00259618(u32, char*, s32);
 void func_00192b30(u32);
-void func_00282940(GObj* obj, s32 start, s32 n) {
-    for (s32 i = 0; i < n; i++) {
-        s32 idx = i + start;
-        s32 arg;
-        if (idx >= obj->count) return;
-        GInfo* info = func_001a80c8(obj->e[idx].id);  // table24_find_by_id
-        u8 kind = info->b2;
-        if (kind == 0 || kind == 18) {
-            GItem* item = func_001b8e88(func_001a3820(info->h0));
-            u32 msg = item->f8;
-            char* p = obj->rows[i].buf;
-            if (info->b2 == 0) arg = obj->e[idx].b3 != 0;
-            else arg = func_001a6598(info->h4) == 0;
-            func_00259570(info->b2, p, arg, 1);
-            p += func_002595e0();
-            func_002595e8(p, func_00192048(msg));
-        } else {
-            func_00192b30(func_00259618(obj->e[idx].id, obj->rows[i].buf, obj->e[idx].b3 != 0));
-        }
-        arg = obj->e[idx].b2;
-        if (arg != 1) func_00192cc0(obj->rows[i].name, D_003741e8);
-        else obj->rows[i].name[0] = 0;
-        obj->rows[i].flag = 0;
-    }
-}
+void func_00282940(GObj* obj, s32 start, s32 n);  // 0x00282940: definition moved into src/anon/unit_00282620.cpp
 }
 namespace w289_n {
 #define QCOPY289(d, s) asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(d), "r"(s) : "$8", "memory")

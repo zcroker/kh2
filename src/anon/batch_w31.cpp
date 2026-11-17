@@ -209,13 +209,7 @@ extern KV D_00372be0[];
 int func_002594b8(int k);  // 0x002594b8: definition moved into src/anon/unit_002588e8.cpp
 
 void* memset_(void*, int, u32) asm("func_002fde18");
-void func_00281f90(u8* p) {
-    *(s32*)(p + 4104) = -1;
-    *(s32*)(p + 4108) = -1;
-    u32* q = (u32*)(p + 4112);
-    for (s32 i = 4; i >= 0; i--) *q++ = 0;
-    memset_(p + 4132, 0, 64);
-}
+void func_00281f90(u8* p);  // 0x00281f90: definition moved into src/anon/unit_00281cf0.cpp
 
 s8 func_00295228(u32 x) {
     u8* base = func_00294000(0) + 16;

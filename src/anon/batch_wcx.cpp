@@ -1022,19 +1022,7 @@ u32 func_0023f1b0(u32);
 u32 func_0023c4b8(u32, s32);
 u32 func_00236ca8(u8*, s32);
 void func_001386e0(u8*, s32, u32, u32, s32, s32);
-void func_002805d0(void)
-{
-    func_002806a0();
-    u8* s0 = D_0035f264;
-    u8* s1 = s0 + 896;
-    s0 += 920;
-    u32 x = func_0023c4b8(func_0023f1b0(D_0035f250), 0);
-    u32 y = func_00236ca8(D_0035f264, 0);
-    func_001386e0(s1, 30047, x, y, 1, 0);
-    *(s32*)(s1 + 392) = 2;
-    s1[405] = 1;
-    *(u32*)(s0 + 184) |= 8;
-}
+void func_002805d0(void);  // 0x002805d0: definition moved into src/anon/unit_0027f2b0.cpp
 // Tz::CmItem::FadeOutHelp
 extern u8 D_0035f299;
 extern u32 D_0035f274;
@@ -1046,17 +1034,7 @@ extern s16 D_0035f280;
 void func_0028dac8(u8*, s32);
 s32 func_00281c30(void);
 void CmItem_FadeOutHelp(void) asm("_ZN2Tz6CmItem11FadeOutHelpEv");
-void CmItem_FadeOutHelp(void)
-{
-    if (D_0035f299 && !D_0035f274 && u_call4_00139d78(D_0035f28c) && *(s32*)(D_0035f28c + 388) != D_0035f2a2) {
-        func_0028dac8(D_0035f28c, D_0035f2a2);
-        D_0035f280 = -1;
-    }
-    if (func_00281c30() && *(s32*)(D_0035f290 + 388) != D_0035f2aa) {
-        func_0028dac8(D_0035f290, D_0035f2aa);
-        D_0035f280 = -1;
-    }
-}
+void CmItem_FadeOutHelp(void);  // 0x00281b30: definition moved into src/anon/unit_0027f2b0.cpp
 // Tz::Select::Destroy
 s32 func_0028acc8(u8*);
 void Select_Destroy(u8*) asm("_ZN2Tz6Select7DestroyEz");

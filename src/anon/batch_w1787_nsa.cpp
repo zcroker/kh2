@@ -40,18 +40,7 @@ extern E8b283c50 D_003742c8[];
 s32 func_00181500(u16);
 struct Sv283c50 { u8 pad[200]; u32 bits[1]; };
 Sv283c50* func_00258048();
-void func_00283c50(void) {
-    u32 i = 0;
-    Sv283c50* sv = func_00258048();
-    while (D_003742c8[i].id) {
-        if (func_00181500(D_003742c8[i].id)) {
-            u32 m = 1 << (i & 31);
-            u32* w = (u32*)((i >> 5) * 4 + (u32)sv->bits);
-            if (!(*w & m)) *w |= m;
-        }
-        i++;
-    }
-}
+void func_00283c50(void);  // 0x00283c50: definition moved into src/anon/unit_00282c68.cpp
 
 /* 002dbad8 */
 extern f32 D_00349e10;

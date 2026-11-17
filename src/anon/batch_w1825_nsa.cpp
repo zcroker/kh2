@@ -33,20 +33,7 @@ static inline __attribute__((always_inline)) u8* w1825_mk() {
     func_00239700(a + 24);
     return a;
 }
-void func_002815d8(void)
-{
-    u8* a; u8* c;
-    D_0035f288 = w1825_mk();
-    D_0035f28c = D_0035f288;
-    D_0035f290 = w1825_mk();
-    c = func_001063c0(416, func_00103570());
-    func_002361a0(c);
-    D_0035f29c = c;
-    D_0035f280 = D_0035f27c = D_0035f278 = D_0035f270 = D_0035f274 = -1;
-    D_0035f299 = 1;
-    D_0035f284 = 0;
-    func_002817b8();
-}
+void func_002815d8(void);  // 0x002815d8: definition moved into src/anon/unit_0027f2b0.cpp
 }
 
 // 002cb938

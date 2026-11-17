@@ -309,27 +309,7 @@ extern s32 D_0035f284;
 extern void* D_0035f288;
 extern void* D_0035f290;
 extern void* D_0035f29c;
-void func_002816f0(void) {
-    D_0035f274 = -1;
-    D_0035f270 = -1;
-    D_0035f278 = -1;
-    D_0035f27c = -1;
-    D_0035f280 = -1;
-    D_0035f284 = 0;
-    D_0035f299 = 1;
-    if (D_0035f288) {
-        (*(VFn*)((*(u8**)D_0035f288) + 16))(D_0035f288);
-        D_0035f288 = 0;
-    }
-    if (D_0035f290) {
-        (*(VFn*)((*(u8**)D_0035f290) + 16))(D_0035f290);
-        D_0035f290 = 0;
-    }
-    if (D_0035f29c) {
-        (*(VFn*)((*(u8**)D_0035f29c) + 4))(D_0035f29c);
-        D_0035f29c = 0;
-    }
-}
+void func_002816f0(void);  // 0x002816f0: definition moved into src/anon/unit_0027f2b0.cpp
 // ---- 0x284ef0 ----
 void func_00287d68(void);  // copy_globals_3words
 s32 func_00287db0(void);

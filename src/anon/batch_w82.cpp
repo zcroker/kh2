@@ -384,22 +384,7 @@ void wt82(u8*, u32, u32) asm("_Z16wtarget_002fde18jjjj");
 // Looks up entry idx of the current table (mode 2 = active slot) and returns its item record.
 u8* func_0026a178(s32 idx, s32 mode);  // 0x0026a178: definition moved into src/anon/unit_00269a60.cpp
 
-void func_00280148(void)
-{
-    u8* p = (u8*)D_0035f264 + 24;
-    func_0028d980(p, 30045, 0, 0, D_0035f250, 7, 8, -1, 0);
-    func_00139620(p);
-    func_001395f8(p);
-    *(u32*)(p + 432) = 2;
-    *(u32*)(p + 408) = func_00192048(18691);
-    p = (u8*)D_0035f264 + 460;
-    func_0028d980(p, 30046, 0, 0, D_0035f250, 10, 11, -1, 0);
-    wt82((u8*)D_0035f264 + 1304, 0, 8);
-    func_00139620(p);
-    func_001395f8(p);
-    *(u32*)(p + 432) = 2;
-    *(u32*)(p + 408) = D_0035f264 + 1304;
-}
+void func_00280148(void);  // 0x00280148: definition moved into src/anon/unit_0027f2b0.cpp
 }
 
 extern u32* D_0035f2e4;

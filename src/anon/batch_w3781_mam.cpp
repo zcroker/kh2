@@ -13,24 +13,5 @@ u32 func_00192048(u32);
 u32 func_00259618(u16, char*, s32);
 void func_00192b30(u32);
 
-void func_00282b00(Obj282b00* obj)
-{
-    s32 base = 0;
-    for (s32 k = 0; k < 5; k++) {
-        if (k == 1) continue;
-        s32 n = obj->cnt[k];
-        if (k == 0) n += obj->cnt[1];
-        for (s32 j = 0; j < n; j++) {
-            s32 i = base + j;
-            if (obj->e[i].id == 0) {
-                func_00259570(D_00374240[k], obj->rows[i].buf, 0, 1);
-                char* p = obj->rows[i].buf + func_002595e0();
-                func_002595e8(p, func_00192048(0x8448));
-            } else {
-                func_00192b30(func_00259618(obj->e[i].id, obj->rows[i].buf, obj->e[i].b != 0));
-            }
-        }
-        base += n;
-    }
-}
+void func_00282b00(Obj282b00* obj);  // 0x00282b00: definition moved into src/anon/unit_00282b00.cpp
 }

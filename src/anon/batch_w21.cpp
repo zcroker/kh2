@@ -170,10 +170,7 @@ void func_00242a28(u8 on) {
 
 void Tz_CMenuHelp_Create(s32 i, bool b);  // 0x00263a58: definition moved into src/anon/unit_002632d0.cpp
 
-void func_002803e0(void) {
-    func_0028da70(D_0035f264 + 24, 8);
-    func_0028da70(D_0035f264 + 460, 11);
-}
+void func_002803e0(void);  // 0x002803e0: definition moved into src/anon/unit_0027f2b0.cpp
 
 typedef void (*Slot1Fn)(void*, void*);
 void func_00288c20(void* a);  // 0x00288c20: definition moved into src/anon/unit_00288b00.cpp

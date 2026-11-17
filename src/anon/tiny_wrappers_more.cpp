@@ -929,19 +929,11 @@ u32 duplicate_unplaced_00276fd0(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_002ad018(a0, a1, a2, a3);
 }
 
-u32 func_00280eb0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    *(u32*)((u32)(a0) + 0u) = (u32)(0x00000000u);
-    return func_00280ef8(a0, a1, a2, a3);
-}
+u32 func_00280eb0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00280eb0: definition moved into src/anon/unit_0027f2b0.cpp
 
-u32 func_00281f48(u32 a0, u32 a1, u32 a2, u32 a3) {  // memset_1920
-    *(u32*)((u32)(a0) + 0u) = (u32)(0x00000000u);
-    return func_002fde18(((u32)(a0) + 4u), 0x00000000u, 0x00000780u, a3);
-}
+u32 func_00281f48(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00281f48: definition moved into src/anon/unit_00281cf0.cpp
 
-u32 func_00281f70(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_002fde18(((u32)(a0) + 1540u), 0x00000000u, 0x00000a00u, a3);
-}
+u32 func_00281f70(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00281f70: definition moved into src/anon/unit_00281cf0.cpp
 
 u32 func_002854c0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002854c0: definition moved into src/anon/unit_002853b8.cpp
 

@@ -31,42 +31,6 @@ extern volatile unsigned short D_00347f98[];
 extern u8 *D_0035f2b0;
 extern u8 *D_0035f2b4;
 extern u8 *D_0035f2b8;
-void func_00282f68(void)
-{
-  s32 new_var;
-  u8 *a = func_001063c0(0x18, func_00103570());
-  new_var = func_00103570();
-  func_002907c0(a, new_var, 10);
-  D_0035f2b0 = a;
-  u8 *b = func_001063c0(0x20, func_00103570());
-  D_0035f2b4 = b;
-  func_002fde18(b, 0, 0x20);
-  u32 v60 = (u32) D_00347e60;
-  u8 *p = func_001063c0(0x840, func_00103570());
-  func_002361a0(p);
-  u32 v98 = (u32) D_00347f98;
-  u8 *q = p + 0x1a0;
-  *((u32 *) (p + 0x1a0)) = v60;
-  *((u32 *) (p + 0x1ac)) = 0;
-  func_00239700(p + 0x1b8);
-  *((u32 *) (q + 0x198)) = 0;
-  *((u32 *) (p + 0x1a0)) = (u32) D_00347e40;
-  u8 *r = p + 0x354;
-  *((u32 *) (p + 0x354)) = v98;
-  func_0031a838(p + 0x360);
-  *((u32 *) (p + 0x354)) = v60;
-  func_00239700(p + 0x36c);
-  *((u32 *) (r + 0x198)) = 0;
-  *((u32 *) (p + 0x354)) = (u32) D_00347e40;
-  *((u32 *) (p + 0x508)) = v98;
-  func_0031a838(p + 0x514);
-  *((u32 *) (p + 0x508)) = v60;
-  func_00239700(p + 0x520);
-  *((u32 *) (p + 0x6a0)) = v98;
-  func_0031a838(p + 0x6ac);
-  *((u32 *) (p + 0x6a0)) = v60;
-  func_00239700(p + 0x6b8);
-  D_0035f2b8 = p;
-}
+void func_00282f68(void);  // 0x00282f68: definition moved into src/anon/unit_00282c68.cpp
 
 }

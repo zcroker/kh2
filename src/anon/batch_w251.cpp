@@ -17,28 +17,7 @@ s32 func_00289310(u32);
 s32 func_00287df0(s32, s32, s32, s32, s32);
 s32 func_00242848(s32);
 void func_00287da0(void);
-s32 func_00280c38(void)
-{
-    s32 r;
-    if (func_00287db0()) {
-        if (func_00139d78(D_0035f250)) { r = 0; goto out; }
-        if (func_00139d78(D_0035f258)) { r = 0; goto out; }
-        if (func_0028acc8(D_0035f254)) { r = 0; goto out; }
-        func_001040f8()->fn();
-        func_001039f8();
-        r = 1;
-    } else {
-        s32 s = func_00289380(D_0035f254);
-        if (func_00242848(func_00287df0(s, func_00289310(D_0035f254), 0, 0, 1))) { r = 0; goto out; }
-        if (s != -1) {
-        func_001040f8()->b3 = D_00374178[s];
-        func_00287da0();
-        }
-        r = 0;
-    }
-out:
-    return r;
-}
+s32 func_00280c38(void);  // 0x00280c38: definition moved into src/anon/unit_0027f2b0.cpp
 
 
 struct JV { f32 x, y, z, w; } __attribute__((aligned(16)));

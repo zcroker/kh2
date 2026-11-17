@@ -176,12 +176,7 @@ void func_00281f40(void*, s32);
 void func_00281f48(void*);  // memset_1920
 void func_00281f70(void*);
 void func_00281f90(void*);
-void func_00281e88(void* p) {
-    func_00281f40(p, 0);
-    func_00281f48(p);  // memset_1920
-    func_00281f70(p);
-    func_00281f90(p);
-}
+void func_00281e88(void* p);  // 0x00281e88: definition moved into src/anon/unit_00281cf0.cpp
 
 extern u32 D_0035f3a0;
 void func_0023f7e0(void*);

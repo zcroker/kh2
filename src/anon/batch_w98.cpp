@@ -394,21 +394,7 @@ void func_00289038(u8*, s32, s32, s32, s32, s32, s32);
 
 
 // Closes the open sub-windows and resets the list cursor.
-void func_00280d40(void) {
-    if (func_00287db0()) {
-        if (func_00139d78(D_0035f250)) (*(void (**)(u8*))(*(u8**)D_0035f250 + 20))(D_0035f250);
-        if (func_00139d78(D_0035f258)) (*(void (**)(u8*))(*(u8**)D_0035f258 + 20))(D_0035f258);
-        if (func_0028acc8(D_0035f254)) func_0028abe0(D_0035f254);
-        for (s32 i = 0; i < 3; i++) {
-            if (func_00139d78((u8*)&D_0035f25c[i])) (*(void (**)(W280*))((u8*)D_0035f25c[i].vt + 20))(&D_0035f25c[i]);
-        }
-    }
-    if (func_00289310(D_0035f254)) {
-        s32 s = func_002891e8(D_0035f254);
-        func_002890e0(D_0035f254, 1, 2, 0, -1);
-        func_00289038(D_0035f254, s, 1, 1, 2, 0, -1);
-    }
-}
+void func_00280d40(void);  // 0x00280d40: definition moved into src/anon/unit_0027f2b0.cpp
 
 extern u8* D_0035f21c;
 extern u8* D_0035f20c;

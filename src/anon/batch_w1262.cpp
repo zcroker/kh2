@@ -86,33 +86,7 @@ inline u8 *inline_fn(u8 *arg0)
   return arg0 + 200;
 }
 
-void func_00283d00(s32 kind)
-{
-  u32 i = 0;
-  s32 n = 0;
-  u8 *save = func_00258048();
-  func_002fde18(D_0035f2b4 + 4, 0, 9);
-  for (; (&D_003742c8[i])->id != 0; i++)
-  {
-    if ((kind != (-1)) && (D_003742c8[i].kind != kind))
-    {
-      continue;
-    }
-    if (!func_00181500_c(D_003742c8[i].id))
-    {
-      continue;
-    }
-    if ((kind == (-1)) && (((u32 *) inline_fn(save))[i >> 5] & (1 << (i & 31))))
-    {
-      continue;
-    }
-    D_0035f2b4[n + 4] = i;
-    n++;
-  }
-
-  D_0035f2b4[13] = n;
-  D_0035f2b4[14] = 0;
-}
+void func_00283d00(s32 kind);  // 0x00283d00: definition moved into src/anon/unit_00282c68.cpp
 
 
 

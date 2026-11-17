@@ -199,39 +199,7 @@ void func_002fde18(void*, s32, s32);
 s32 func_002f1ab8(void);
 Ent27ff00* func_002f1ac8(s32);
 s32 func_002f1ae0(s32);
-void func_0027ff00(void) {
-    s32 n = 0;
-    s32 i, j;
-    func_002fde18(D_0035f260, 0, 88);
-    D_0035f260->b6 = -1;
-    D_0035f260->b7 = -1;
-    D_0035f260->b5 = 0;
-    s32 cnt = func_002f1ab8();
-    for (i = 0; i < cnt; i++) {
-        Ent27ff00* e = func_002f1ac8(i);
-        if (e->flag != 0 && !func_002f1ae0(e->id)) continue;
-        for (j = 0; j < n; j++) {
-            if (D_0035f260->keys[j] == e->key) break;
-        }
-        if (j < n) continue;
-        D_0035f260->ids[n] = e->id;
-        D_0035f260->keys[n] = e->key;
-        n++;
-    }
-    D_0035f260->count = n;
-    for (i = 0; i < n; i++) {
-        for (j = i + 1; j < n; j++) {
-            if (D_0035f260->keys[i] > D_0035f260->keys[j]) {
-                s8 t = D_0035f260->ids[i];
-                D_0035f260->ids[i] = D_0035f260->ids[j];
-                D_0035f260->ids[j] = t;
-                t = D_0035f260->keys[i];
-                D_0035f260->keys[i] = D_0035f260->keys[j];
-                D_0035f260->keys[j] = t;
-            }
-        }
-    }
-}
+void func_0027ff00(void);  // 0x0027ff00: definition moved into src/anon/unit_0027f2b0.cpp
 
 // ---- f14.cpp
 extern s32 D_0035f200;

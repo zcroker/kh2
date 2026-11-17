@@ -109,49 +109,7 @@ void func_002891f0(void*, s32, s32, s32, s32);
 void func_00287bd0(s32, s32);
 
 // Builds the menu window and its 9 rows, then the per-row sub-items.
-void func_0027f4a8(void) {
-    u16 a[2][4];
-    s32 i, j;
-    func_0028d8c0(D_0035f258, 30003, 1, 0, D_0035f250, 1, -1, 0);
-    D_0035f258->sub.set8();
-    for (i = 0; i < 9; i++) {
-        for (j = 0; j < 2; j++) {
-            for (s32 m = 0; m < 4; m++) a[j][m] = D_003740f8[j][i];
-        }
-        func_00288d80(D_0035f254, i, 1, 0, D_0035f250, D_00374130[i], a[0], a[1]);
-        func_00139620(func_002891b8(D_0035f254, i));
-        func_002891b8(D_0035f254, i)->f432 = 2;
-    }
-    s32 n = D_0035f3d4 + 1;
-    s32 c = 0;
-    for (i = 0; i < 9; i++) {
-        if (D_00374168[i] >= 0) continue;
-        if (i == 2) continue;
-        s32 x = func_0023aa18((u8*)func_002891b8(D_0035f254, i) + 24);
-        s32 y = func_0023aa38((u8*)func_002891b8(D_0035f254, i) + 24);
-        s32 h = func_0023aa98((u8*)func_002891b8(D_0035f254, i) + 24);
-        s32 off = c * 436;
-        for (j = 0; j < 2; j++) {
-            E* e;
-            func_0028d980((E*)((u8*)D_0035f25c.p + off), n, 1, 0, D_0035f250, 27, -1, -1, 0);
-            func_0028dcc0((E*)((u8*)D_0035f25c.p + off), func_002891b8(D_0035f254, i));
-            func_00139620((E*)((u8*)D_0035f25c.p + off));
-            func_00138c68((E*)((u8*)D_0035f25c.p + off), x, y);
-            x += h;
-            func_001395f8((E*)((u8*)D_0035f25c.p + off));
-            e = (E*)((u8*)D_0035f25c.p + off);
-            e->f408 = func_00192048(D_00374158[c / 2][j]);
-            ((E*)((u8*)D_0035f25c.p + off))->f432 = 2;
-            c++;
-            off += 436;
-        }
-    }
-    func_0028af28(D_0035f254, 32);
-    if (func_001041c0() != 3) func_0028b1b0(D_0035f254, 64);
-    func_0027fd38();
-    func_002891f0(D_0035f254, 0, 1, 0, -1);
-    func_00287bd0(0, 0);
-}
+void func_0027f4a8(void);  // 0x0027f4a8: definition moved into src/anon/unit_0027f2b0.cpp
 }
 }
 namespace n0025f7f0 {

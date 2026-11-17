@@ -647,16 +647,7 @@ s32 func_0027ed48(s32 key) {  // copy_static_data
 }
 
 
-s32 func_00283ab8(s32 type) {
-    s32 i;
-    s32 found = 0;
-    for (i = 0; D_003742c8[i].id != 0; i++) {
-        if (type == -1 || D_003742c8[i].type == type) {
-            if (func_00181500(D_003742c8[i].id)) { found = 1; break; }
-        }
-    }
-    return found;
-}
+s32 func_00283ab8(s32 type);  // 0x00283ab8: definition moved into src/anon/unit_00282c68.cpp
 
 
 void func_002ad878(void);  // 0x002ad878: definition moved into src/anon/unit_002a99c8.cpp

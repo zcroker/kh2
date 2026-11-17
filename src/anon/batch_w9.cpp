@@ -156,11 +156,7 @@ void func_0025a1d0(void);  // 0x0025a1d0: definition moved into src/anon/unit_00
 
 void func_002631b0(void);  // 0x002631b0: definition moved into src/anon/unit_0025f6b8.cpp
 
-void func_0027f9b0(void) {
-    func_00280148();
-    func_002800d0();
-    func_00287cc0(0);
-}
+void func_0027f9b0(void);  // 0x0027f9b0: definition moved into src/anon/unit_0027f2b0.cpp
 
 s32 func_00288088(void);  // 0x00288088: definition moved into src/anon/unit_00286d28.cpp
 

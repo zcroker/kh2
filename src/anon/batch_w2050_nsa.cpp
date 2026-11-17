@@ -78,50 +78,7 @@ extern u8* D_0035f29c;
 extern s16 D_0035f2a0[3];
 extern s16 D_0035f2a8[2];
 
-void func_002818b8(s32 arg0) {
-    s32 n;
-    u8* o;
-    if (func_00281be0() != 0) {
-        (*(VFn_w2050b*)(*(u8**)D_0035f290 + 0x14))(D_0035f290);
-        return;
-    }
-    if (D_0035f274 == 0 && func_00139d78(D_0035f28c) == 0) {
-        func_0028d8c0(D_0035f28c, D_0035f270, D_0035f278, D_0035f27c, D_0035f284, D_0035f2a0[0], D_0035f2a0[2], 0);
-    }
-    s32 r = func_001b1e70();
-    func_002362b0(D_0035f29c, func_00293148(arg0));
-    D_0035f29c[0x190] = 1;
-    func_001386e0(D_0035f290, D_0035f270, r, D_0035f29c, D_0035f2a8[0], 0);
-    if (D_0035f274 == 0) {
-        n = func_0023aa98(D_0035f28c + 0x18);
-        u8* p = D_0035f290;
-        *(s32*)(p + 0x18c) = D_0035f28c;
-        func_001396b0(p);
-        if (*(s32*)(p + 0x18c) != 0) {
-            *(s32*)(p + 0x190) = 0;
-            func_001396b0(p);
-            if (*(s32*)(p + 0x190) != 0) func_0031a260(p, 0);
-        }
-    } else {
-        n = func_0023aa98(func_0023c3e0(func_0023f1b0(D_0035f284), D_0035f2a0[2], 0));
-        o = D_0035f290;
-        *(s32*)(o + 0x190) = func_0023c3e0(func_0023f1b0(D_0035f284), D_0035f2a0[2], 0);
-        func_001396b0(o);
-        if (*(s32*)(o + 0x190) != 0) {
-            *(s32*)(o + 0x18c) = 0;
-            func_001396b0(o);
-            if (*(s32*)(o + 0x18c) != 0) func_0031ac78(o, 0);
-        }
-    }
-    if (n <= 0) n = 100;
-    u8* s = D_0035f290 + 0x18;
-    *(u32*)(s + 0xb8) |= 8;
-    u64 d = func_00313b80((f32)n);
-    u8* q = D_0035f290;
-    *(f32*)(q + 0x180) = __truncdfsf2(func_00314190(d, 0x4059000000000000ULL));
-    D_0035f290[0x195] = 1;
-    func_001396b0(D_0035f290);
-}
+void func_002818b8(s32 arg0);  // 0x002818b8: definition moved into src/anon/unit_0027f2b0.cpp
 }
 
 #define QC_w2050c(d, s) asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(d), "r"(s) : "$8", "memory")

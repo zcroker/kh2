@@ -137,6 +137,14 @@ src/anon/unit_00269a60.cpp	00269a60	0026a5a0	-	-G0 -g
 src/anon/unit_0026a900.cpp	0026a900	0026c140	.rodata@0037371c	-G0 -g -fno-strict-aliasing -fmove-all-movables
 src/anon/unit_0026c140.cpp	0026c140	0026c450	.rodata@00373810	-G0 -g -fno-strict-aliasing
 src/anon/unit_0026c450.cpp	0026c450	0026ee78	.rodata@00373878	-G0 -g -fno-strict-aliasing -fmove-all-movables
+src/anon/unit_0027f2b0.cpp	0027f2b0	00281cf0	.rodata@00374080	-G0 -fno-strict-aliasing
+src/anon/unit_00281cf0.cpp	00281cf0	002823b0	.rodata@003741a4	-G0 -fno-strict-aliasing
+src/anon/unit_002823b0.cpp	002823b0	00282620	-	-G0 -fno-strict-aliasing -fmove-all-movables
+src/anon/unit_00282620.cpp	00282620	00282b00	.rodata@003741d0	-G0 -fno-strict-aliasing
+src/anon/unit_00282b00.cpp	00282b00	00282c68	-	-G0 -fno-strict-aliasing -fmove-all-movables
+src/anon/unit_00282c68.cpp	00282c68	00283eb8	-	-G0 -fno-strict-aliasing
+src/anon/unit_00283eb8.cpp	00283eb8	00283f50	-	-G0 -fno-strict-aliasing -fno-sched-interblock
+src/anon/unit_00283f50.cpp	00283f50	00284088	-	-G0 -fno-strict-aliasing
 src/anon/unit_00284220.cpp	00284220	00285070	-	-G0 -fno-strict-aliasing
 src/anon/unit_00285070.cpp	00285070	002853b8	-	-G0 -g -fno-strict-aliasing
 src/anon/unit_002853b8.cpp	002853b8	00286d28	-	-G0 -fno-strict-aliasing

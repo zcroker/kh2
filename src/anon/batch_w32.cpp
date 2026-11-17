@@ -185,12 +185,7 @@ void u_call4_00224780(u32 a0, u32, u32, u32) {
 s32 func_002670a0(s32 n);  // 0x002670a0: definition moved into src/anon/unit_00265580.cpp
 
 // Looks up key in a -1 terminated (key, value) table; last match wins.
-s32 func_00282c68(s32 key) {
-    s32 r = -1;
-    for (s32 i = 0; D_003741f0[i].key >= 0; i++)
-        if (D_003741f0[i].key == key) r = D_003741f0[i].val;
-    return r;
-}
+s32 func_00282c68(s32 key);  // 0x00282c68: definition moved into src/anon/unit_00282c68.cpp
 
 u8* func_002b23e0(s32 i) {  // list_entry_by_index_checked
     if (i < 0) i = func_00276608(28);

@@ -245,14 +245,7 @@ void ctrl_sel(void) {
     if (!menuflag_check(f)) func_001a6c90(f);  // set_bit_in_array_b
 }
 
-bool func_0027f2b0(void) {
-    bool r = u_call4_00139d78(D_0035f250);
-    if (!r) {
-        r = u_call4_00139d78(D_0035f258);
-        if (!r) r = select_is_created(D_0035f254);
-    }
-    return r;
-}
+bool func_0027f2b0(void);  // 0x0027f2b0: definition moved into src/anon/unit_0027f2b0.cpp
 
 s32 func_0028dd90(s32 x);  // 0028dd90: moved to src/anon/unit_0028c878.cpp
 

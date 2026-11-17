@@ -212,12 +212,7 @@ void SEQUENCE_D0(void* self) {
 }
 
 
-void func_002835d8(void) {
-    if (func_00139d78(D_0035f2b8 + 852)) {
-        func_00139510(D_0035f2b8 + 852);
-    }
-    func_00283960(1);
-}
+void func_002835d8(void);  // 0x002835d8: definition moved into src/anon/unit_00282c68.cpp
 
 void func_00287b30(void);  // 0x00287b30: definition moved into src/anon/unit_00286d28.cpp
 

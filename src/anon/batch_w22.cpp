@@ -231,14 +231,7 @@ u32 JmReport_DrawMessage(s32 a, u8 b) {
 // Index of the entry with the given id, or -1.
 struct E281 { s16 id; s16 pad; u32 x[4]; };
 struct T281 { s32 n; E281 e[1]; };
-s32 func_002811f8(T281* t, s32 key) {  // find_halfword_index
-    s32 i;
-    for (i = 0; i < t->n; i++) {
-        if (t->e[i].id == key) break;
-    }
-    if (i < t->n) return i;
-    return -1;
-}
+s32 func_002811f8(T281* t, s32 key);  // 0x002811f8: definition moved into src/anon/unit_0027f2b0.cpp
 
 // --- 0028b750
 extern u32 D_0035f3a0;

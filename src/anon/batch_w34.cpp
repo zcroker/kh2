@@ -267,11 +267,7 @@ struct NoTail {
     ~NoTail() {}
 };
 
-void func_00283618(void) {
-    NoTail g;
-    if (func_00139d78(D_0035f2b8 + 852)) return;
-    if (!func_00139d78(D_0035f2b8 + 416)) func_002839f0(1);
-}
+void func_00283618(void);  // 0x00283618: definition moved into src/anon/unit_00282c68.cpp
 
 static inline u8* nextNode(u8* p) {
     if (p == 0) return D_01e2aa80;

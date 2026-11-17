@@ -7,6 +7,6 @@ extern "C" u32 func_002827e0(...);  // get_indexed_word
 
 // 0x00269508: definition moved into src/anon/unit_00268b30.cpp
 
-u32 ItemInfo::GetItemEmptyMsg(s32 a0) { return (u32)((s32)a0 + 4132); }
+// 0x00282d58: definition moved into src/anon/unit_00282c68.cpp
 
 }  // namespace Tz

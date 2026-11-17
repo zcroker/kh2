@@ -18,26 +18,7 @@ void func_002891f0(s32, s32, s32, s32, s32);
 
 static inline void setf8(u8* p) { *(u32*)(p + 184) |= 8; }
 static inline void set432(u8* p, s32 v) { *(s32*)(p + 432) = v; }
-void func_00280a50(void) {
-    s16 arr[2][4];
-    s32 i, j, k;
-    func_0028d7f0(D_0035f250, 30002, 0, 0, 0, -1, 0, 0, 0);
-    func_0023ef50(D_0035f250);
-    func_0028d8c0(D_0035f258, 30003, 1, 0, D_0035f250, 0, -1, 0);
-    setf8((u8*)D_0035f258 + 24);
-    for (i = 0; i < 3; i++) {
-        for (j = 0; j < 2; j++)
-            for (k = 0; k < 4; k++) arr[j][k] = D_00374120[j][i];
-        u16* t = D_00374148;
-        if (func_00103550() == 53) t = D_00374150;
-        func_00288d80(D_0035f254, i, 1, 0, D_0035f250, t[i], arr[0], arr[1]);
-        func_00139620(func_002891b8(D_0035f254, i));
-        set432(func_002891b8(D_0035f254, i), 2);
-    }
-    func_0028af28(D_0035f254, 32);
-    func_0028af28(D_0035f254, 64);
-    func_002891f0(D_0035f254, 0, 1, 0, -1);
-}
+void func_00280a50(void);  // 0x00280a50: definition moved into src/anon/unit_0027f2b0.cpp
 
 }
 

@@ -159,14 +159,11 @@ void func_00265780();  // 0x00265780: definition moved into src/anon/unit_002655
 
 extern u32 D_0035f264;
 u8 func_00139d78(u32);
-u32 func_002806a0() { return func_00139d78(D_0035f264 + 896); }
+u32 func_002806a0();  // 0x002806a0: definition moved into src/anon/unit_0027f2b0.cpp
 
 extern u32 D_0035f28c;
 extern u8 D_0035f299;
-void func_00281e70(u32 a) {  // store_global_and_clear_flag
-    D_0035f28c = a;
-    D_0035f299 = 0;
-}
+void func_00281e70(u32 a);  // 0x00281e70: definition moved into src/anon/unit_00281cf0.cpp
 
 u32 func_002766d0();
 void func_0028dac8(u32, u32);

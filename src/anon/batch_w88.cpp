@@ -301,29 +301,7 @@ void func_0024e158(void) {
 }
 
 typedef void (*VF2830b8)(u8*);
-void func_002830b8(void) {
-    if (D_0035f2b0) {
-        (*(VF2830b8*)(*(u8**)D_0035f2b0 + 4))(D_0035f2b0);
-        D_0035f2b0 = 0;
-    }
-    if (D_0035f2b4) {
-        func_00106420(D_0035f2b4);
-        D_0035f2b4 = 0;
-    }
-    u8* s = D_0035f2b8;
-    u8* sub = s + 416;
-    if (s) {
-        func_0031abd8(s + 1696);
-        func_0031abd8(s + 1288);
-        func_0031acc0(s + 852);
-        *(u32*)sub = (u32)D_00347e60;
-        func_00239870(s + 440);
-        func_0031a840(sub);
-        func_002361d0(s);
-        func_00106420(s);
-        D_0035f2b8 = 0;
-    }
-}
+void func_002830b8(void);  // 0x002830b8: definition moved into src/anon/unit_00282c68.cpp
 
 s32 func_0028ad50(u8* p);  // 0x0028ad50: definition moved into src/anon/unit_00288b00.cpp
 

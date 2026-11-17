@@ -31,12 +31,7 @@ u32 ChgMember::isLoadFinish() {
     return (func_00170cd0() ^ 1) & 0xff;
 }
 
-u32 ChgMember::Load() {
-    if (func_00290940(*(u32*)(u32)&D_0035f2b0) != 0u) {
-        func_00290a60(*(u32*)(u32)&D_0035f2b0);
-    }
-    return func_00170320(5100u);
-}
+// 0x00284048: definition moved into src/anon/unit_00283f50.cpp
 
 void* ChgMember::GetMember() { return reinterpret_cast<void*>(D_0035f4f4); }
 

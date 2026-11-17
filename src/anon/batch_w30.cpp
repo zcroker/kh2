@@ -102,14 +102,7 @@ void wtarget_001d7a08(u32 a, u32 b, u32, u32);  // 0x001d7a08: definition moved 
 
 void trap_camera_at(void** v);  // 0x00174d98: definition moved into src/anon/unit_00171e58.cpp
 
-void func_00281008_impl(void* p) {
-    u32* e = (u32*)((u8*)p + 20);
-    s32 i;
-    for (i = 3; i >= 0; i--) {
-        if (*e) func_001a17c8(*e);
-        e += 5;
-    }
-}
+void func_00281008_impl(void* p);  // 0x00281008: definition moved into src/anon/unit_0027f2b0.cpp
 
 namespace Tz {
 void LoadDataFlush();

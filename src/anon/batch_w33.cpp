@@ -187,13 +187,7 @@ extern s32* D_0035f2b4;
 void func_00283d00(void*);
 void func_00283f50(void);
 void func_002833f8(void);
-void func_002831e0(void* a, s32 b) {
-    func_00257708(1);
-    *D_0035f2b4 = b;
-    func_00283d00(a);
-    func_00283f50();
-    func_002833f8();
-}
+void func_002831e0(void* a, s32 b);  // 0x002831e0: definition moved into src/anon/unit_00282c68.cpp
 
 extern u8 D_003617e8;
 extern s32 D_003617e4;

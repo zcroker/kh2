@@ -185,8 +185,8 @@ void func_00267608(BD_VALUE* bd);  // 0x00267608: definition moved into src/anon
 void func_002677d8(BD_VALUE* bd);  // 0x002677d8: definition moved into src/anon/unit_00265580.cpp
 void func_00277008(BD_VALUE* bd) { func_00277070(bd); }
 void func_0027b510(BD_VALUE* bd) { func_00257be0(bd); }
-void func_00280ec8(BD_VALUE* bd) { func_00281008(bd); }
-void func_00280ee0(BD_VALUE* bd) { func_00281008(bd); }
+void func_00280ec8(BD_VALUE* bd);  // 0x00280ec8: definition moved into src/anon/unit_0027f2b0.cpp
+void func_00280ee0(BD_VALUE* bd);  // 0x00280ee0: definition moved into src/anon/unit_0027f2b0.cpp
 void func_00286280(BD_VALUE* bd);  // 0x00286280: definition moved into src/anon/unit_002853b8.cpp
 void func_0028dac8(BD_VALUE* bd);  // 0028dac8: moved to src/anon/unit_0028c878.cpp
 void func_00290708(BD_VALUE* bd);  // 00290708: moved to src/anon/unit_0028f1e0.cpp
@@ -1909,11 +1909,7 @@ void func_00241a60(u32 a0, u32 a1, u32 a2, u32 a3) {
 
 void func_00242408(u32 a0, u32 a1, u32 a2, u32 a3);  // 00242408: moved to src/tozawa/crc.cpp (linked unit)
 
-u32 func_00281128(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_entry20_field16
-    (void)a2;
-    (void)a3;
-    return *(u32*)((u32)a0 + ((u32)a1 * (20)) + (16));
-}
+u32 func_00281128(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00281128: definition moved into src/anon/unit_0027f2b0.cpp
 
 void func_00287c20(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00287c20: definition moved into src/anon/unit_00286d28.cpp
 

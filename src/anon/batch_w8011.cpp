@@ -70,29 +70,5 @@ static inline void SetFlag283790(u8* p) { ((Sub283790*)p)->flags |= 8; }
 u32 func_0023f1b0(u32);
 u32 func_0023c4b8(u32, s32);
 void func_001386e0(void*, s32, u32, u8*, s32, s32);
-void func_00283790(void)
-{
-    s32 same = 0;
-    u8* b;
-    if (!func_00139d78(D_0035f2b8 + 1288)) {
-        u32 v = func_0023c4b8(func_0023f1b0(D_0035f03c), 0);
-        b = D_0035f2b8;
-        Obj283790* o = (Obj283790*)(b + 1288);
-        func_001386e0(o, 30022, v, b, 1, 0);
-        o->mode = 2;
-        o->on = 1;
-        SetFlag283790(b + 1312);
-    }
-    St283790* s = D_0035f2b4;
-    if (s->cur + 1 < s->n) same = D_003742c8[s->list[s->cur]].g == D_003742c8[s->list[s->cur + 1]].g;
-    if (!func_00139d78(D_0035f2b8 + 1696) && same) {
-        u32 v = func_0023c4b8(func_0023f1b0(D_0035f03c), 0);
-        b = D_0035f2b8;
-        Obj283790* o = (Obj283790*)(b + 1696);
-        func_001386e0(o, 30022, v, b, 4, 0);
-        o->mode = 5;
-        o->on = 1;
-        SetFlag283790(b + 1720);
-    }
-}
+void func_00283790(void);  // 0x00283790: definition moved into src/anon/unit_00282c68.cpp
 }

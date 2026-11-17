@@ -53,52 +53,7 @@ void func_00284048(); void func_00283f50(); void func_002833f8(); void func_0028
 void func_00257708(s32); void func_00283c50(); void func_00287bd0(s32, s32); void func_002937c0(s32);
 s32 func_00170cd0(); void func_00283fb0(); void func_00283790(); s32 func_00283668();
 void func_00242618(s32, s32); void func_00283e48();
-void func_00283230()
-{
-    W291Q28* q = func_00167f18(0);
-    s32 st = func_00287cd0();
-    if (st == 2) {
-        W291P28* p = D_0035f2b4;
-        s32 i = p->b14;
-        s32 r;
-        if (i + 1 >= p->b13)
-            r = func_00283618();
-        else
-            r = func_002839f0(D_003742c8[p->a[i]].f6 != D_003742c8[p->a[i + 1]].f6);  // entry416_by_masked_index
-        if (r) return;
-        func_00284048();
-        D_0035f2b4->b14++;
-        if (D_0035f2b4->b14 >= D_0035f2b4->b13) {
-            func_00257708(0);
-            func_00283c50();
-            func_00287bd0(D_0035f2b4->x0, 0);
-            if (D_0035f2b4->x0 == 0) {
-                func_002937c0(1);
-                return;
-            }
-            func_00287cc0(1);
-            return;
-        }
-        func_00283f50();
-        func_002833f8();
-        func_00287cc0(0);
-        return;
-    }
-    if (func_00170cd0()) return;
-    if (!func_002839f0(0)) {  // entry416_by_masked_index
-        func_00283fb0();
-        func_00283790();
-    }
-    if (st == 0) {
-        if (!func_00283668()) return;
-        func_00287cc0(1);
-    }
-    if (q->flags & 4) {
-        func_00242618(2, 1);
-        func_00283e48();
-        func_00287cc0(2);
-    }
-}
+void func_00283230();  // 0x00283230: definition moved into src/anon/unit_00282c68.cpp
 
 s32 func_001a3a78(); void func_0018e8f0(W291B17**, s32, s32, W291B17**); s32 func_0019c090();  // obj_is_enabled
 void func_00187018(W291A17*, W291B17*, W291B17*, s32, f32); void func_00177a58(W291A17*);

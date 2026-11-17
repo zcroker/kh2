@@ -14,37 +14,7 @@ s32 func_001b77a8(s32);
 s32 func_001a1658(s32, s32);
 s32 func_001a8bf8(s32, s32);
 void wtarget_00280ef8(W1597Obj* o, s32 key) asm("_Z16wtarget_00280ef8jjjj");
-void wtarget_00280ef8(W1597Obj* o, s32 key)
-{
-    s32 n = 0;
-    s32 i = 0;
-    s32 w = 18;
-    W1597C20* p = (W1597C20*)o;
-    W1597C20* q = (W1597C20*)o;
-    func_002fde18((u8*)o + 4, 0, 80);
-    o->key.v = key;
-    do {
-        p->v = 0;
-        p->w = w;
-        q->id = i;
-        p++;
-        s32 v = func_001a8c10(o->key.v, i);
-        q->v = v;
-        if (v) {
-            s32 b = func_00281108(o, i);
-            q->b = b;
-            if (b) {
-                n++;
-                q->a = func_001b77a8(v);
-                q->c[0] = func_001a1658(v, 0);
-                q->w = func_001a8bf8(key, i);
-                q++;
-            }
-        }
-        i++;
-    } while (i < 4);
-    o->n = n;
-}
+void wtarget_00280ef8(W1597Obj* o, s32 key);  // 0x00280ef8: definition moved into src/anon/unit_0027f2b0.cpp
 
 // 00271710: refresh a message slot; returns a1
 struct W1597It { u16 h0; u8 b2; u8 pad[5]; u16 h8; };

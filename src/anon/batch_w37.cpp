@@ -234,15 +234,7 @@ extern E283 D_003742c8[];
 extern s8* D_0035f2b4;
 void func_002835a8(void);
 void func_00283900(u32);
-void func_00283e48(void) {
-    s8* p = D_0035f2b4;
-    s32 i = p[14];
-    if (i + 1 >= p[13]) {
-        func_002835a8();
-        return;
-    }
-    func_00283900(D_003742c8[p[i + 4]].kind != D_003742c8[p[i + 5]].kind);
-}
+void func_00283e48(void);  // 0x00283e48: definition moved into src/anon/unit_00282c68.cpp
 
 s32 func_00293fb0(void);
 u32 func_00103570(void);

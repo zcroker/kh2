@@ -6221,27 +6221,7 @@ u8* func_00281180_x9057(s32) asm("func_00281180");
 s32 func_00281480(s32, s32);
 s32 func_002813b8();
 s32 func_00281420_x9060() asm("func_00281420");
-s32 func_002826f8(u8* p, s32 a, s32 k) {
-    s32 r = 0;
-    u8* t = *(u8**)(func_00281180_x9057(*(s32*)(p + 4100)) + 580);
-    switch (k) {
-    case 0:
-        r = 1;
-        break;
-    case 1:
-        if (func_00281480(*(s32*)(p + 4100), a)) {
-            s32 m = func_002813b8();
-            m &= func_00281420_x9060();
-            s32 i;
-            for (i = 0; i < 7; i++) r += (m >> i) & 1;
-        }
-        break;
-    case 2: r = t[16]; break;
-    case 3: r = t[17]; break;
-    case 4: r = t[18]; break;
-    }
-    return r;
-}
+s32 func_002826f8(u8* p, s32 a, s32 k);  // 0x002826f8: definition moved into src/anon/unit_00282620.cpp
 
 // --------------------
 extern s32 D_0035f200_x9084 asm("D_0035f200");

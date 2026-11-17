@@ -197,21 +197,13 @@ void func_00275ec8(u32 v) {
 
 void func_00281008(void*, void*);
 void func_00280ef8(void*, void*);
-void func_002810c8(void* a, void* b) {
-    func_00281008(a, b);
-    func_00280ef8(a, b);
-}
+void func_002810c8(void* a, void* b);  // 0x002810c8: definition moved into src/anon/unit_0027f2b0.cpp
 
 void func_00281f40(void*, s32);
 void func_00281f48(void*);  // memset_1920
 void func_00281f70(void*);
 void func_00281f90(void*);
-void func_00281ec8(void* p) {
-    func_00281f40(p, 0);
-    func_00281f48(p);  // memset_1920
-    func_00281f70(p);
-    func_00281f90(p);
-}
+void func_00281ec8(void* p);  // 0x00281ec8: definition moved into src/anon/unit_00281cf0.cpp
 
 typedef s32 (*VFn3)(void*, void*, void*);
 extern void* D_0035f3f8;

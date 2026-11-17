@@ -282,16 +282,7 @@ extern u32 D_0035f294;
 extern u8 D_0035f298;
 void cmItemLeavePopup(void) asm("_ZN2Tz6CmItem10LeavePopupEv");
 }
-void cmItemLeavePopup(void)
-{
-    if (!D_0035f274 && D_0035f299) {
-        if (func_00139d78(D_0035f28c)) (*(VFn*)(*(u8**)D_0035f28c + 20))(D_0035f28c);
-    }
-    if (func_00139d78(D_0035f290)) (*(VFn*)(*(u8**)D_0035f290 + 20))(D_0035f290);
-    D_0035f280 = -1;
-    D_0035f294 = 0;
-    D_0035f298 = 0;
-}
+void cmItemLeavePopup(void);  // 0x00281c50: definition moved into src/anon/unit_0027f2b0.cpp
 
 extern "C" {
 
@@ -419,17 +410,7 @@ extern StatePtr D_0035f260;
 extern u32 D_0035f264;
 
 // 00280528
-void func_00280528(void)
-{
-    if (func_00253918()) return;
-    if (D_0035f260.p->b7 < 0) return;
-    D_0035f260.p->b7 = -1;
-    D_0035f260.p->v = func_002537c8(6);
-    if (D_0035f260.p->b6 >= 0) return;
-    func_00236c38(D_0035f264);
-    func_00236a58(D_0035f264, D_0035f260.p->v, func_00103570());
-    func_002805d0();
-}
+void func_00280528(void);  // 0x00280528: definition moved into src/anon/unit_0027f2b0.cpp
 
 void func_0010b978(void*);
 void func_001e02a0(u8*, u8*);
