@@ -29,20 +29,5 @@ extern u8* D_01d9e6e8;
 extern w1805_b::Sub D_01d9e360;
 void func_002226b8(w1805_b::Sub*, u8*);
 
-void func_001f4eb8(w1805_b::Obj* obj, w1805_b::In* in, w1805_b::Ctx* ctx) {
-    using namespace w1805_b;
-    Sub* s = (Sub*)((u8*)obj + *ctx->off + 0xa0);
-    if (obj->id == in->id) {
-        s->a = in->f8;
-        s->b = in->f4;
-        s->c = in->f12;
-        Sub* l;
-        if (in->idx != -1) l = (Sub*)(D_01d9e6e0->ents[in->idx].base + in->off + 0xa0);
-        else l = &D_01d9e360;
-        s->link = l;
-        if (l == &D_01d9e360) s->link = 0;
-    }
-    if (D_01d9ea9c == 0 && !(D_01d9e6e0->flags & 0xff0000ff00ULL))
-        func_002226b8(s, D_01d9e6e8 + 0x40);
-}
+void func_001f4eb8(w1805_b::Obj* obj, w1805_b::In* in, w1805_b::Ctx* ctx);  // 0x001f4eb8: definition moved into src/anon/unit_001f45f8.cpp
 }

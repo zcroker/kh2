@@ -121,10 +121,7 @@ extern u8 D_003590c0[];
 extern u8 D_003590e0[];
 extern u8 D_00359090[];
 
-void func_001f1248(void* in, s32 n, void* out)
-{
-    SPLINE_SOLVE(in, n, out, D_00359090, (u128*)0x70002000);
-}
+void func_001f1248(void* in, s32 n, void* out);  // 0x001f1248: definition moved into src/anon/unit_001f0cd8.cpp
 
 void func_00201978(void* in, s32 n, void* out)
 {

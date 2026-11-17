@@ -27,32 +27,8 @@ struct W248Tbl { u8 pad[18]; u8 n; u8 pad2[33]; u16 a[16]; u16 b[80]; };
 extern "C" {
 void func_001eaa58(u8* o, u32 a1, u8* x);  // 0x001eaa58: definition moved into src/anon/unit_001e8ac8.cpp
 void func_001eab40(u8* o, u32 a1, u8* x);  // 0x001eab40: definition moved into src/anon/unit_001e8ac8.cpp
-void func_001f0dc0(u8* o, u32 a1, u8* x) {
-    s32* off = *(s32**)(x + 12);
-    f32* pos = (f32*)(o + off[0] + 160);
-    f32* rot = (f32*)(o + off[1] + 160);
-    f32* scl = (f32*)(o + off[2] + 160);
-    func_0021eb50(D_01d9e6e8.p + 16, rot);
-    W248Scale(D_01d9e6e8.p + 16, scl[0]);
-    W248Scale(D_01d9e6e8.p + 32, scl[1]);
-    W248Scale(D_01d9e6e8.p + 48, scl[2]);
-    *(f32*)(D_01d9e6e8.p + 64) = pos[0];
-    *(f32*)(D_01d9e6e8.p + 68) = pos[1];
-    *(f32*)(D_01d9e6e8.p + 72) = pos[2];
-}
-void func_001f0ea8(u8* o, u32 a1, u8* x) {
-    s32* off = *(s32**)(x + 12);
-    f32* pos = (f32*)(o + off[0] + 160);
-    f32* rot = (f32*)(o + off[1] + 160);
-    f32* scl = (f32*)(o + off[2] + 160);
-    func_0021ec80(D_01d9e6e8.p + 16, rot);
-    W248Scale(D_01d9e6e8.p + 16, scl[0]);
-    W248Scale(D_01d9e6e8.p + 32, scl[1]);
-    W248Scale(D_01d9e6e8.p + 48, scl[2]);
-    *(f32*)(D_01d9e6e8.p + 64) = pos[0];
-    *(f32*)(D_01d9e6e8.p + 68) = pos[1];
-    *(f32*)(D_01d9e6e8.p + 72) = pos[2];
-}
+void func_001f0dc0(u8* o, u32 a1, u8* x);  // 0x001f0dc0: definition moved into src/anon/unit_001f0cd8.cpp
+void func_001f0ea8(u8* o, u32 a1, u8* x);  // 0x001f0ea8: definition moved into src/anon/unit_001f0cd8.cpp
 
 extern u8 D_0032e020[];
 W248Tbl* func_00188fe0(void*);

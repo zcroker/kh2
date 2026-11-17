@@ -24,46 +24,6 @@ void sceVu0SubVector(W1833Vec*, W1833Vec*, void*);
 void sceVu0Normalize(W1833Vec*, W1833Vec*);
 void sceVu0ScaleVector(W1833Vec*, W1833Vec*, f32);
 
-void func_001f5cc8(void* owner, W1833Prm* prm, s16* pos) {
-    W1833Ent* e = 0;
-    u8* t = D_01d9e6e0->tbl + prm->idx * 16;
-    if (t != 0) {
-        e = func_001e7a98(D_01d9e6e0, t);
-        e->owner = owner;
-    }
-    u8* p1 = (u8*)e + prm->o28 + 160;
-    u8* p0 = (u8*)e + prm->o20 + 160;
-    W1833Vec v;
-    v.x = pos[0];
-    v.y = pos[1];
-    v.z = pos[2];
-    v.w = 1.0f;
-    sceVu0ApplyMatrix(&v, D_01d9e6e8->m0, &v);
-    func_002226b8(p0, &v);
-    sceVu0SubVector(&v, &v, D_01d9e6e8->m1);
-    sceVu0Normalize(&v, &v);
-    sceVu0ScaleVector(&v, &v, prm->scale);
-    func_002226b8(p1, &v);
-}
-void func_001f6648(void* owner, W1833Prm* prm, s16* pos) {
-    W1833Ent* e = 0;
-    u8* t = D_01d9e6e0->tbl + prm->idx * 16;
-    if (t != 0) {
-        e = func_001e7a98(D_01d9e6e0, t);
-        e->owner = owner;
-    }
-    u8* p1 = (u8*)e + prm->o28 + 160;
-    u8* p0 = (u8*)e + prm->o20 + 160;
-    W1833Vec v;
-    v.x = pos[0];
-    v.y = pos[1];
-    v.z = pos[2];
-    v.w = 1.0f;
-    sceVu0ApplyMatrix(&v, D_01d9e6e8->m0, &v);
-    func_002226b8(p0, &v);
-    sceVu0SubVector(&v, &v, D_01d9e6e8->m1);
-    sceVu0Normalize(&v, &v);
-    sceVu0ScaleVector(&v, &v, prm->scale);
-    func_002226b8(p1, &v);
-}
+void func_001f5cc8(void* owner, W1833Prm* prm, s16* pos);  // 0x001f5cc8: definition moved into src/anon/unit_001f5978.cpp
+void func_001f6648(void* owner, W1833Prm* prm, s16* pos);  // 0x001f6648: definition moved into src/anon/unit_001f6298.cpp
 }

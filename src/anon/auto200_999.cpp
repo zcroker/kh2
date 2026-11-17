@@ -287,19 +287,7 @@ u32 func_001d7f10(u32 a0);  // 0x001d7f10: definition moved into src/anon/unit_0
 
 // 001badd8: YS::MISSION::Prepare, moved to src/anon/unit_001ba7e0.cpp
 
-void func_001f0868(u32 a0, u32 a1) {
-    register f32 f1 asm("$f1") = *(volatile f32 *)(a0 + 8);
-    register f32 z asm("$f0") = 0.0f;
-    *(volatile f32 *)(a1 + 4) = f1;
-    register f32 f2 asm("$f2") = *(volatile f32 *)(a0 + 20);
-    asm volatile("" : "+f"(f2));
-    *(volatile u32 *)a1 = a0;
-    *(volatile f32 *)(a1 + 16) = f2;
-    *(volatile f32 *)(a1 + 8) = z;
-    *(volatile f32 *)(a1 + 24) = z;
-    *(volatile f32 *)(a1 + 20) = z;
-    *(volatile f32 *)(a1 + 12) = z;
-}
+void func_001f0868(u32 a0, u32 a1);  // 0x001f0868: definition moved into src/anon/unit_001f0868.cpp
 
 // 00198630: moved to src/anon/unit_00197fe0.cpp
 

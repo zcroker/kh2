@@ -22,18 +22,5 @@ W1760C3* func_00196328(W1760C3* p, s32 i);  // 0x00196328: definition moved into
 struct W1760S2 { u8 pad[0x6c]; s32 a; u64 b, c, d, e; };
 struct W1760S3 { u8 pad[0xc]; s32 a; u8 p2[0x24 - 0x10]; s32 b; u8 p3[4]; s32 c; };
 
-void func_001f4e18(u8* self, u8* t) {
-    u8* q = self + **(s32**)(t + 12);
-    W1760S2* s = (W1760S2*)(q + 0xa0);
-    W1760S3* r = (W1760S3*)(q + 0xb0);
-    func_002223e0(s);
-    s->b = 0;
-    s->c = 0;
-    s->d = 0;
-    s->e = 0;
-    s->a = 0;
-    r->a = 0;
-    r->b = 0;
-    r->c = 0;
-}
+void func_001f4e18(u8* self, u8* t);  // 0x001f4e18: definition moved into src/anon/unit_001f45f8.cpp
 }

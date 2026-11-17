@@ -13,36 +13,4 @@ static inline void apply1f1488(V1f1488* d, M1f1488* m, V1f1488* v)
                  "vmulax.wxyz ACC, $vf28, $vf27x\n\tvmadday.wxyz ACC, $vf29, $vf27y\n\tvmaddaz.wxyz ACC, $vf30, $vf27z\n\tvmaddw.wxyz $vf26, $vf31, $vf0w\n\tsqc2 $vf26, 0(%0)\n\t.set reorder"
                  : : "r"(d), "r"(m), "r"(v) : "memory");
 }
-void func_001f1488(Ob1f1488* o, u8* mdl, V1f1488* a, V1f1488* b, f32 h)
-{
-    V1f1488 v;
-    v.x = 0.0f;
-    v.z = 0.0f;
-    v.w = 1.0f;
-    v.y = h * 0.5f;
-    apply1f1488(a, (M1f1488*)(mdl + 48), &v);
-    v.y = -h * 0.5f;
-    apply1f1488(b, (M1f1488*)(mdl + 48), &v);
-    switch (o->mode) {
-    case 0:
-        break;
-    case 1:
-        apply1f1488(a, &D_01d9e6f0, a);
-        apply1f1488(b, &D_01d9e6f0, b);
-        break;
-    case 2:
-        if (D_00354688) {
-            apply1f1488(a, &D_01d9e6f0, a);
-            apply1f1488(a, &D_00354688->m, a);
-            apply1f1488(b, &D_01d9e6f0, b);
-            apply1f1488(b, &D_00354688->m, b);
-        }
-        break;
-    case 3:
-        apply1f1488(a, &D_01d9e6f0, a);
-        apply1f1488(a, &D_01d9e7b0, a);
-        apply1f1488(b, &D_01d9e6f0, b);
-        apply1f1488(b, &D_01d9e7b0, b);
-        break;
-    }
-}
+void func_001f1488(Ob1f1488* o, u8* mdl, V1f1488* a, V1f1488* b, f32 h);  // 0x001f1488: definition moved into src/anon/unit_001f0cd8.cpp

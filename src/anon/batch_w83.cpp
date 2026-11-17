@@ -204,16 +204,7 @@ void func_001f5f10();
 s32 func_00222568(void);  // vu_const_5f_d
 void func_0021ee48(void*, void*, void (*)(), void*, s32, u32, u32);
 
-void func_001f6030(u8* p, u8* e, u8* c) {
-    if (D_01d9eab4) return;
-    if (D_01d9ea9c) return;
-    if (*(u64*)(D_01d9e6e0 + 168) & 0xff0000ff00ull) return;
-    if (e[7] == 255) return;
-    if ((func_00222568() >> 8) & e[7]) return;
-    if (*(s32*)(e + 12) == -1) return;
-    if (*(s32*)(e + 20) == -1) return;
-    func_0021ee48(p, e, func_001f5f10, p + **(s32**)(c + 12) + 160, *(s16*)(e + 4), e[8], e[6]);
-}
+void func_001f6030(u8* p, u8* e, u8* c);  // 0x001f6030: definition moved into src/anon/unit_001f5978.cpp
 
 extern f32 D_00354bd0[3];
 extern f32 D_00354bc0[3];

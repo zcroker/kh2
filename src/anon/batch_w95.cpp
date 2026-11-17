@@ -322,25 +322,7 @@ extern u32 D_01d9eab4;
 extern u8* D_01d9e6e0;
 void func_001f0868(OscIn*, Osc*);
 f32 func_002f8b00(f32, f32);  // to_2f9a38
-void func_001f08e0(u8* base, OscIn* in, XfCtx2* c) {
-    Osc* o = (Osc*)(base + c->offs[2] + 160);
-    if (o->on == 0) func_001f0868(in, o);
-    if (D_01d9ea9c) return;
-    if (*(u64*)(D_01d9e6e0 + 168) & 0x000000ff0000ff00ULL) return;
-    if (in->id == *(u32*)(base + 12)) {
-        o->vel += in->a;
-        o->acc += in->b;
-        o->vel2 += in->c;
-        o->acc2 += in->d;
-    }
-    if (D_01d9eab4) return;
-    o->vel += o->acc;
-    o->pos += o->vel;
-    o->vel2 += o->acc2;
-    o->pos2 += o->vel2;
-    o->pos = func_002f8b00(o->pos, 32768.0f);  // to_2f9a38
-    o->pos2 = func_002f8b00(o->pos2, 32768.0f);  // to_2f9a38
-}
+void func_001f08e0(u8* base, OscIn* in, XfCtx2* c);  // 0x001f08e0: definition moved into src/anon/unit_001f0868.cpp
 
 union HeapOwnerRef { HeapOwner* p; s32 i; };
 extern HeapOwnerRef D_00347f80;

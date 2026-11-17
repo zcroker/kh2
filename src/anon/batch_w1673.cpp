@@ -59,23 +59,7 @@ void wtarget_00191658(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00191658: definitio
 }
 struct S1f1870 { u8 pad[0x9c]; u8 a; u8 b; u8 c; };
 extern "C" {
-void func_001f1870(S1f1870* o, f32* pa, f32* pb, f32* pc, f32* pd) {
-    f32 x = 0.0f;
-    f32 z = 1.0f;
-    f32 y = z;
-    switch (o->a) { case 1: y = 0.5f; break; case 2: y = 0.25f; break; }
-    switch (o->b) { case 1: z = 0.5f; break; case 2: z = 0.25f; break; }
-    switch (o->c) {
-    case 1: x = 0.5f; y += 0.25f; break;
-    case 2: x = 0.5f; y += x; break;
-    case 3: x = 0.75f; y += x; break;
-    }
-    f32 e = 0.01f;
-    *pa = x + e;
-    *pb = y - e;
-    *pc = e;
-    *pd = z - e;
-}
+void func_001f1870(S1f1870* o, f32* pa, f32* pb, f32* pc, f32* pd);  // 0x001f1870: definition moved into src/anon/unit_001f0cd8.cpp
 }
 typedef unsigned int u128_t __attribute__((mode(TI)));
 union U2222b8 { u8* p; u64 v; };

@@ -202,20 +202,7 @@ extern u8 D_001f6648[];
 struct A1f { u8 pad[4]; s16 h; u8 pad2[6]; u8 b12; u8 b13:8; u8 b14; u8 pad3; s32 w16; u32 pad4; s32 w24; };
 struct S1f { u8 pad[2]; u8 cnt:8; };
 void func_0021ee48(u8*, A1f*, u8*, S1f*, s32, u32, u32);
-void func_001f6778(u8* base, A1f* a1, u8* a2) {
-    if (D_01d9eab4) return;
-    if (D_01d9ea9c) return;
-    if (*(u64*)(D_01d9e6e0 + 168) & 0x000000ff0000ff00ULL) return;
-    if (!a1->b13) return;
-    S1f* s = (S1f*)(base + **(u32**)(a2 + 12) + 160);
-    if (s->cnt == 0) {
-        s->cnt = a1->b13;
-        if (a1->w16 == -1) return;
-        if (a1->w24 == -1) return;
-        func_0021ee48(base, a1, D_001f6648, s, a1->h, a1->b14, a1->b12);
-    }
-    s->cnt--;
-}
+void func_001f6778(u8* base, A1f* a1, u8* a2);  // 0x001f6778: definition moved into src/anon/unit_001f6298.cpp
 
 // --- 001fb790
 // Sets the RGBA bytes of a node from 0..255 inputs scaled by the global colour.

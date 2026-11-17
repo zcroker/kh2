@@ -90,26 +90,7 @@ s32 func_00143928(O143* o);  // 0x00143928: definition moved into src/anon/unit_
 
 s32 func_001bc568(E1bc* e, B1bc* b);  // 0x001bc568: definition moved into src/anon/unit_001bc568.cpp
 
-void func_001f5f10(s32 id, A1f5* a, S1f5* s) {
-    f32 v[4] __attribute__((aligned(16)));
-    R1f5* r = 0;
-    u8* p = D_01d9e6e0->tbl + a->idx * 16;
-    if (p) {
-        r = func_001e7a98(D_01d9e6e0, p);
-        r->f4 = id;
-    }
-    u8* d0 = (u8*)r + a->off10 + 0xa0;
-    u8* d1 = (u8*)r + a->off18 + 0xa0;
-    v[0] = s->x;
-    v[1] = s->y;
-    v[2] = s->z;
-    v[3] = 1.0f;
-    sceVu0ApplyMatrix(v, D_01d9e6e8 + 16, v);
-    func_002226b8(d0, v);
-    sceVu0SubVector(v, v, D_01d9e6e8 + 64);
-    sceVu0Normalize(v, v);
-    func_002226b8(d1, v);
-}
+void func_001f5f10(s32 id, A1f5* a, S1f5* s);  // 0x001f5f10: definition moved into src/anon/unit_001f5978.cpp
 
 void func_00263a90(u32 a0, u8 a1);  // 0x00263a90: definition moved into src/anon/unit_002632d0.cpp
 

@@ -10285,14 +10285,7 @@ void func_001f02b0(u32 a0, u8* a1) {
     *(f32*)(a1 + 0) = z;
 }
 
-void func_001f45f8(u32 a0, u8* a1) {
-    u8* s0 = (u8*)(a0 + *(u32*)(*(u32*)(a1 + 12) + 12) + 160);
-    u32 v = *(u32*)(s0 + 8);
-    if (v != 0) {
-        func_001e7798(*(u32*)((u32)&D_01da0000 - 6428u), v);
-        *(u32*)(s0 + 8) = 0;
-    }
-}
+void func_001f45f8(u32 a0, u8* a1);  // 0x001f45f8: definition moved into src/anon/unit_001f45f8.cpp
 
 extern "C" void func_0021fa10(...);
 extern "C" void func_0021fbc0(...);

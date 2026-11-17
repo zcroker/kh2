@@ -205,17 +205,7 @@ void func_0021ee48(u8*, Ev001f*, void*, u8*, s16, u8, u8);
 // Drains queued entries in 0.25 steps of the accumulated time.
 void func_001e1d20(u8* a0);  // 0x001e1d20: definition moved into src/anon/unit_001e0cb8.cpp
 
-void func_001f5df8(u8* a0, Ev001f* e, u8* a2)
-{
-    if (D_01d9eab4) return;
-    if (D_01d9ea9c) return;
-    if (*(u64*)(D_01d9e6e0 + 168) & 0xff0000ff00ULL) return;
-    if (e->f13 == 255) return;
-    if ((func_00222568() >> 8) & e->f13) return;
-    if (e->f16 == -1) return;
-    if (e->f24 == -1) return;
-    func_0021ee48(a0, e, (void*)func_001f5cc8, a0 + **(u32**)(a2 + 12) + 160, e->f4, e->f14, e->f12);
-}
+void func_001f5df8(u8* a0, Ev001f* e, u8* a2);  // 0x001f5df8: definition moved into src/anon/unit_001f5978.cpp
 }
 
 extern f32 D_00354be0[3];

@@ -21,23 +21,4 @@ extern u8* D_00354688;
         "sqc2 $vf26,0(%0)\n" \
         ".set reorder\n" : : "r"(v), "r"(m) : "memory")
 /* Copy the vector at b+0x60 to out, then transform it by the matrices that a->mode selects. */
-void func_001f1728(struct A1f1728* a, struct B1f1728* b, u128_1f1728* out) {
-    *out = b->v;
-    switch (a->mode) {
-    case 0:
-        break;
-    case 1:
-        MULMAT(out, D_01d9e6f0);
-        break;
-    case 2:
-        if (D_00354688) {
-            MULMAT(out, D_01d9e6f0);
-            MULMAT(out, D_00354688 + 64);
-        }
-        break;
-    case 3:
-        MULMAT(out, D_01d9e6f0);
-        MULMAT(out, D_01d9e7b0);
-        break;
-    }
-}
+void func_001f1728(struct A1f1728* a, struct B1f1728* b, u128_1f1728* out);  // 0x001f1728: definition moved into src/anon/unit_001f0cd8.cpp

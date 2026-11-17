@@ -24,35 +24,7 @@ extern W2w1672 D_004f3b48;
 
 /* hand-written VU0 spline interpolation */
 extern f32 D_003590a0[4];
-void func_001f1408(f32* out, u8* a, u8* b, f32 t) {
-    s32 i = (s32)t;
-    f32 f = t - (f32)i;
-    a += i * 16;
-    b += i * 16;
-    D_003590a0[2] = f;
-    asm volatile(
-        ".set noreorder\n"
-        "lqc2 $vf1,0(%1)\n"
-        "lqc2 $vf2,16(%1)\n"
-        "lqc2 $vf3,0(%2)\n"
-        "lqc2 $vf4,16(%2)\n"
-        "lqc2 $vf5,0(%3)\n"
-        "vsub.xyzw $vf10,$vf4,$vf3\n"
-        "vmuly.xyzw $vf11,$vf3,$vf5y\n"
-        "vmulx.xyzw $vf12,$vf3,$vf5x\n"
-        "vsub.xyzw $vf13,$vf2,$vf1\n"
-        "vmulz.xyzw $vf10,$vf10,$vf5z\n"
-        "vadd.xyzw $vf11,$vf11,$vf4\n"
-        "vadd.xyzw $vf10,$vf10,$vf12\n"
-        "vsub.xyzw $vf13,$vf13,$vf11\n"
-        "vmulz.xyzw $vf10,$vf10,$vf5z\n"
-        "vadd.xyzw $vf10,$vf10,$vf13\n"
-        "vmulz.xyzw $vf10,$vf10,$vf5z\n"
-        "vadd.xyzw $vf10,$vf10,$vf1\n"
-        "sqc2 $vf10,0(%0)\n"
-        ".set reorder\n"
-        : : "r"(out), "r"(a), "r"(b), "r"(D_003590a0) : "memory");
-}
+void func_001f1408(f32* out, u8* a, u8* b, f32 t);  // 0x001f1408: definition moved into src/anon/unit_001f0cd8.cpp
 
 struct E12w1672 { s32 key; s32 pad; s32 val; };
 extern E12w1672 D_00361e70[9];
