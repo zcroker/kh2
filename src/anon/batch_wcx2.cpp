@@ -164,43 +164,7 @@ void func_001b8838(s32 code);  // 0x001b8838: definition moved into src/anon/uni
 extern f32 D_00349e14;
 void func_0023aab8(u8*);
 void func_00237ae8_x421(u8*) asm("func_00237ae8");
-void func_0023acd8(u8* p)
-{
-    f32 d = D_00349e14 * *(f32*)(p + 68);
-    *(f32*)(p + 256) += d;
-    switch (*(s32*)(p + 252)) {
-    case 1:
-        *(f32*)(p + 260) = 0.0f;
-        *(s32*)(p + 252) = 2;
-        func_0023aab8(p);
-        func_00237ae8_x421(p);
-        *(s32*)(p + 272) = 0;
-        break;
-    case 2:
-        *(f32*)(p + 260) += d;
-        if (*(f32*)(p + 264) <= *(f32*)(p + 260)) {
-            *(s32*)(p + 272) = 0;
-            *(f32*)(p + 260) = (f32)*(s32*)(p + 324);
-            if (*(s32*)(p + 320)) {
-                (*(s32*)(p + 320))--;
-                (*(s32*)(p + 268))++;
-                if (*(s32*)(p + 320) == 0) {
-                    *(s32*)(p + 252) = 3;
-                    *(f32*)(p + 260) = *(f32*)(p + 264) - 1.0f;
-                    void (*cb)(u8*) = *(void (**)(u8*))(p + 236);
-                    if (cb) cb(p);
-                }
-            }
-        }
-        func_0023aab8(p);
-        func_00237ae8_x421(p);
-        break;
-    case 0:
-    default:
-        return;
-    }
-    p[212] = 0;
-}
+void func_0023acd8(u8* p);  // 0x0023acd8: definition moved into src/anon/unit_00239988.cpp
 
 struct Opt28 { u8 pad[8]; u8 text[8]; s8 def; u8 pad2; u16 id; u8 pad3[16]; };
 extern Opt28 D_00372298[];
@@ -1133,34 +1097,7 @@ Thr49* func_00102c18__79184(s32, s32, void*) asm("func_00102c18");
 Thr49* func_00102788(u32, s32, s32, void*);
 void func_0023cf60(void);
 void func_0023cdd8(void);
-s32 func_0023cde8(Hdr49* h)
-{
-    D_0035eb10.p = h;
-    D_0035eb20[0] = (s32)h + h->o0;
-    D_0035eb20[1] = (s32)h + h->o1;
-    D_0035eb18[0] = h->n0;
-    D_0035eb18[1] = h->n1;
-    D_0035eb28 = 1;
-    D_0035eb2c = 0;
-    D_0035eb30 = 0;
-    for (s32 i = 0; i < 2; i++) {
-        s32* p = (s32*)D_0035eb20[i];
-        for (s32 n = D_0035eb18[i]; n > 0; n--, p += 2) {
-            if (D_0035eb30 < *p) D_0035eb30 = *p;
-        }
-    }
-    if (D_01dae680) return 1;
-    Thr49* t = 0;
-    s32 cur[4];
-    s32 a = func_00102c80();
-    Th49* b = func_00104190();
-    D_01dae680 = 1;
-    func_00102180(cur);
-    if (cur[0] == a) t = func_00102c18__79184(0, 15000, (void*)func_0023cf60);
-    else if (cur[0] == (s32)b) t = func_00102788(b->id, 0, 15000, (void*)func_0023cf60);
-    t->fn = (void*)func_0023cdd8;
-    return 1;
-}
+s32 func_0023cde8(Hdr49* h);  // 0x0023cde8: definition moved into src/anon/unit_0023c968.cpp
 
 struct Ob50 {
     virtual void v0(); virtual void v1(); virtual void v2(); virtual void v3(); virtual void v4(); virtual void v5();

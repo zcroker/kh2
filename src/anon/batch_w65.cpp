@@ -226,11 +226,7 @@ extern Rec40* D_0035dcfc;
 void func_00227da8(Rec40* src);  // 0x00227da8: definition moved into src/anon/unit_00224780.cpp
 
 void func_0023a0d8(void*);
-void SEQ_GetActiveXY(u8* p, s32* x, s32* y) {
-    if (!p[212]) func_0023a0d8(p);
-    *x = *(s32*)(p + 228);
-    *y = *(s32*)(p + 232);
-}
+void SEQ_GetActiveXY(u8* p, s32* x, s32* y);  // 0x0023a9c0: definition moved into src/anon/unit_00239988.cpp
 
 u32 func_002efa40(u32);
 extern volatile u32 D_0035ecb8;

@@ -145,12 +145,7 @@ void func_002226b8(void* d, void* s);  // 0x002226b8: definition moved into src/
 f32 func_00222978(f32 x);  // 0x00222978: definition moved into src/anon/unit_00222548.cpp
 
 // Returns 0 (and stores 0) when the value is unset (-1).
-s32 func_0023d2e0(s32* out) {  // store_global_test_result
-    s32 v = D_0035eb48;
-    s32 none = (v == -1);
-    *out = none ? 0 : v;
-    return none ^ 1;
-}
+s32 func_0023d2e0(s32* out);  // 0x0023d2e0: definition moved into src/anon/unit_0023d260.cpp
 
 void func_00258d58(s32 a, s32 b, s32 c);  // 0x00258d58: definition moved into src/anon/unit_002588e8.cpp
 

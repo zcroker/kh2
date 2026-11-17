@@ -14,33 +14,7 @@ void func_00236d60(void);  // clear_64_entries_24
 void func_00236830(s32);
 void func_0023ade0(O265*);
 void func_002367a0(void);
-void func_0023cc18(P265* p) {
-    I265* it;
-    s32 last;
-    s32 off;
-    s32 i;
-    if (p->st < 0) return;
-    if (p->st < 2) return;
-    if (p->st >= 4) return;
-    { s32 k = p->sel * 20; u8* r = p->recs; it = (I265*)(p->tbl + *(u16*)(r + k) * 24); }
-    func_00236d60();  // clear_64_entries_24
-    last = -1;
-    for (i = 0; i < p->cnt; i++, it++) {
-        O265* o = &p->objs[i];
-        if ((f32)it->n <= p->lim) {
-            if (last != it->id) {
-                last = it->id;
-                func_00236830(o->h);
-            }
-            s32 nx = it->x + p->dx;
-            s32 ny = it->y + p->dy;
-            o->x = nx;
-            o->y = ny;
-            func_0023ade0(o);
-        }
-    }
-    func_002367a0();
-}
+void func_0023cc18(P265* p);  // 0x0023cc18: definition moved into src/anon/unit_0023c968.cpp
 extern char D_0036cbc0[];
 void func_0017f488(u8*, s32, f32, f32);
 s32 func_0019ba60(u8*);

@@ -177,10 +177,7 @@ s32 func_0020eaf8(s32 size) {
 }
 
 struct F239 { u32 b0 : 1; u32 b1 : 1; u32 rest : 30; };
-void func_00239f18(u8* p, f32 f) {  // obj_set_float312_and_flags
-    *(f32*)(p + 312) = f;
-    ((F239*)(p + 184))->b1 = !(*(f32*)(p + 308) == 1.0f && f == 1.0f && *(f32*)(p + 316) == 1.0f);
-}
+void func_00239f18(u8* p, f32 f);  // 0x00239f18: definition moved into src/anon/unit_00239988.cpp
 
 union U241 { u32 w; u8 b; };
 struct E241 { U241 f; u8 pad[28]; };

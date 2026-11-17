@@ -126,12 +126,7 @@ void func_00224950(u32 a);  // 0x00224950: definition moved into src/anon/unit_0
 
 // Writes the current id (0 when unset, -1) and returns whether it was set.
 extern s32 D_0035eb4c;
-s32 func_0023d300(s32* out) {
-    bool none = D_0035eb4c == -1;
-    s32 v = none ? 0 : D_0035eb4c;
-    *out = v;
-    return !none;
-}
+s32 func_0023d300(s32* out);  // 0x0023d300: definition moved into src/anon/unit_0023d260.cpp
 
 u32 func_00257770();
 void func_0028da70(u32, u32);

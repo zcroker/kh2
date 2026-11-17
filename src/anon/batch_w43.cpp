@@ -215,16 +215,7 @@ void func_001e7cc0(u8* p);  // 0x001e7cc0: definition moved into src/anon/unit_0
 
 void func_00225328(u8* p);  // 0x00225328: definition moved into src/anon/unit_00224780.cpp
 
-void func_0023c008(u32* p) {  // obj_ctor_36eae8
-    *(void***)p = D_0035eb08;
-    p[1] = 0;
-    p[2] = 0; p[3] = 0; p[4] = 0; p[5] = 0; p[6] = 0; p[7] = 0; p[8] = 0; p[9] = 0;
-    p[10] = 0; p[11] = 0; p[12] = 0; p[13] = 0; p[14] = 0; p[15] = 0; p[16] = 0;
-    p[17] = 0; p[18] = 0; p[19] = 0;
-    *(u8*)(p + 20) = 0;
-    p[21] = 0;
-    p[22] = 0;
-}
+void func_0023c008(u32* p);  // 0x0023c008: definition moved into src/anon/unit_0023bc58.cpp
 
 void func_00249358(void);  // 0x00249358: definition moved into src/anon/unit_00247ff0.cpp
 

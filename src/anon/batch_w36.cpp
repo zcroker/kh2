@@ -177,20 +177,7 @@ s32 func_002384f8(Tbl* t, s32 i);  // 0x002384f8: definition moved into src/anon
 struct Ent144 { u32 flags; u32 pad[2]; s32 v; u8 pad2[128]; };
 struct Rng36 { u16 first, count; u8 pad[32]; };
 
-s32 func_00239b50(u8* p, s32 i) {  // find_entry_in_group
-    Rng36* r = &(*(Rng36**)(p + 180))[i];
-    Ent144* e = &(*(Ent144**)(p + 176))[r->first];
-    s32 n = r->count;
-    s32 m = 0;
-    for (; n > 0; n--, e++) {
-        s32 v = e->v;
-        if (m < v) {
-            if (e->flags & 0x8000) m = v - 1;
-            else m = v;
-        }
-    }
-    return m + 1;
-}
+s32 func_00239b50(u8* p, s32 i);  // 0x00239b50: definition moved into src/anon/unit_00239988.cpp
 }
 
 

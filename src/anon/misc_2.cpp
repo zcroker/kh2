@@ -22,9 +22,9 @@ void func_00236a50(void* self);  // 0x00236a50: definition moved into src/anon/u
 
 void func_00237278(void* self);  // 0x00237278: definition moved into src/anon/unit_00237068.cpp
 
-void func_0023c0f8(void* self) {}
+void func_0023c0f8(void* self);  // 0x0023c0f8: definition moved into src/anon/unit_0023bc58.cpp
 
-void func_0023c598(void* self) { *(s32*)((char*)self + 64) = 0; }
+void func_0023c598(void* self);  // 0x0023c598: definition moved into src/anon/unit_0023bc58.cpp
 
 s32 func_002420d0(void* self);  // 0x002420d0: definition moved into src/anon/unit_00241fd0.cpp
 

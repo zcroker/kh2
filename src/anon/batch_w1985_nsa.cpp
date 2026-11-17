@@ -13,36 +13,7 @@ extern f32 D_00349e14;
 W1985Obj* func_00167bf0(s32);
 
 // Steps a two-track key animation and writes the interpolated values to bytes 0x44/0x45.
-void func_0023cfb8(void) {
-    s32 i;
-    switch (D_0035eb28) {
-    case 1: D_0035eb28 = 2; D_0035eb2c = 0.0f; break;
-    case 2: D_0035eb2c += D_00349e14 * 0.5f; break;
-    case 0: default: return;
-    }
-    if ((f32)D_0035eb30 <= D_0035eb2c) { D_0035eb28 = 0; D_0035eb2c = (f32)(D_0035eb30 - 1); }
-    if (D_0035eb34 == 0) return;
-    for (i = 0; i < 2; i++) {
-        W1985Key* k = D_0035eb20[i] + 1;
-        s32 j;
-        if (D_0035eb2c < (f32)k[-1].t) continue;
-        for (j = D_0035eb18[i] - 1; j > 0; j--, k++) {
-            if (D_0035eb2c <= (f32)k[0].t) {
-                f32 t1 = (f32)k[0].t;
-                f32 t0 = (f32)k[-1].t;
-                f32 d = t1 - t0;
-                f32 r;
-                if (d != 0.0f) r = (D_0035eb2c - (f32)k[-1].t) / d; else r = 1.0f;
-                {
-                    s32 a = k[-1].v;
-                    s32 b = k[0].v;
-                    ((W1985Byte*)((u32)func_00167bf0(0) + (i + 0x40)))->y = a + (s32)((f32)(b - a) * r);
-                }
-                break;
-            }
-        }
-    }
-}
+void func_0023cfb8(void);  // 0x0023cfb8: definition moved into src/anon/unit_0023c968.cpp
 
 struct W1985Mtx {
     f32 m[4][4];

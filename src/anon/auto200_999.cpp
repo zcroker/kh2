@@ -381,15 +381,7 @@ void func_001e0dc8(u32 a0);  // 0x001e0dc8: definition moved into src/anon/unit_
 
 void func_002e9a00(u32 a0, u32 a1);  // 002e9a00: moved to src/anon/unit_002e9a00.cpp
 
-u32 func_00239cf0(u32 a0) {
-    s32 idx = *(s32 *)(a0 + 276);
-    s32 stride = 36;
-    u32 base = *(u32 *)(a0 + 180);
-    idx = idx * stride;
-    u32 p = idx + base;
-    u32 v = *(u16 *)(p + 2);
-    return v < 1;
-}
+u32 func_00239cf0(u32 a0);  // 0x00239cf0: definition moved into src/anon/unit_00239988.cpp
 
 namespace dk {
 class Pause {

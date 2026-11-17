@@ -142,54 +142,7 @@ void func_001dda78(s32);
 extern "C" {
 void func_0023d820(Mgr11* p);
 }
-void func_0023d820(Mgr11* p) {
-    s32 any, i, k;
-    if (p->busy) return;
-    if (func_00139d78((u8*)p)) (*(VFn11*)((*(u8**)p) + 20))(p);
-    any = 0;
-    for (i = 0; i < p->count; i++) {
-        if (!p->slots) break;
-        Slot11* s = &p->slots[p->order[i]];
-        if (s->active) {
-            if (s->handle) {
-                u8* h = *(u8**)(s->handle + 20);
-                (*(VRel11*)((*(u8**)h) + 40))(h, func_00103580(), s->handle);
-                s->handle = 0;
-            }
-            SubT* sb = &s->sub;
-            for (k = 0; k < 16; k++) {
-                if (sb->items[k]) {
-                    func_001dc920(sb->items[k]);
-                    sb->items[k] = 0;
-                }
-            }
-            u32* q = &s->f192;
-            if (*q) func_001dde40(q);
-            u8* o = s->obj;
-            if (o) {
-                func_001a9350(o);
-                func_00106420(o);
-                s->obj = 0;
-            }
-            s->active = 0;
-            any = 1;
-        }
-        func_0023e738(p, i, 0, 0);  // store_2halfwords_2928
-    }
-    if (any) {
-        func_001dda78(0);
-        func_001dda78(0);
-    }
-    for (i = 0; i < p->count; i++) {
-        p->order[i] = i;
-        p->a[i] = 0;
-        p->b[i] = 0;
-        p->c[i] = 0;
-    }
-    p->f5345 = 0;
-    p->f5346 = 0;
-    p->f2920 = 0;
-}
+void func_0023d820(Mgr11* p);  // 0x0023d820: definition moved into src/anon/unit_0023d260.cpp
 
 // ---- 00298c60
 struct List12 { s32 count; s16 items[1]; };

@@ -849,13 +849,9 @@ u32 func_00234650(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00234650: definition mo
 
 u32 func_002346a0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002346a0: definition moved into src/anon/unit_002335e8.cpp
 
-u32 func_0023c4d8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_00236cc0(((u32)(*(u32*)((u32)(a0) + 40u))), a1, a2, a3);
-}
+u32 func_0023c4d8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0023c4d8: definition moved into src/anon/unit_0023bc58.cpp
 
-u32 func_0023d808(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return dk_Obj2D_create(a0, a1, 0x00000000u, a3);
-}
+u32 func_0023d808(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0023d808: definition moved into src/anon/unit_0023d260.cpp
 
 u32 func_0023fa70(u32 a0, u32 a1, u32 a2, u32 a3) {
     return YS_CACHE_BUFF_ReadRequest(a1, a2, 0x00000000u, a3);

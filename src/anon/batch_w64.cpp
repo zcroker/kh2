@@ -292,12 +292,7 @@ void func_0021e9d0(f32* m, u32 a) {  // table_float_pair_lookup_c
 struct Bits239f78 { u32 b0 : 1; u32 b1 : 1; u32 rest : 30; };
 
 // Sets the scale z and flags whether the scale differs from (1,1,1).
-void func_00239f78(u8* p, f32 f) {
-    *(f32*)(p + 316) = f;
-    s32 b = 0;
-    if (!(*(f32*)(p + 308) == 1.0f && *(f32*)(p + 312) == 1.0f && f == 1.0f)) b = 1;
-    ((Bits239f78*)(p + 184))->b1 = b;
-}
+void func_00239f78(u8* p, f32 f);  // 0x00239f78: definition moved into src/anon/unit_00239988.cpp
 
 // ---------------------------------------------------------------------------
 void func_0023d2b0(void);
@@ -308,13 +303,7 @@ extern u32 D_00349e1c;
 extern u8 D_0035eb50;
 extern u32 D_0035eb54;
 
-void func_0023d260(void) {
-    func_0023d2b0();
-    func_00253638();
-    func_00257000();
-    D_0035eb50 = D_00349e20 == 0;
-    D_0035eb54 = D_00349e1c;
-}
+void func_0023d260(void);  // 0x0023d260: definition moved into src/anon/unit_0023d260.cpp
 
 // ---------------------------------------------------------------------------
 struct Ent253330 { s16 id; u8 pad[14]; };

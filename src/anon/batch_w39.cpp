@@ -282,10 +282,7 @@ struct S239 {
     u8 pad2[308 - 188];
     f32 x, y, z;
 };
-void func_00239eb8(S239* p, f32 v) {
-    p->x = v;
-    p->scaled = !(v == 1.0f && p->y == 1.0f && p->z == 1.0f);
-}
+void func_00239eb8(S239* p, f32 v);  // 0x00239eb8: definition moved into src/anon/unit_00239988.cpp
 
 // --- 0023fcd0
 // Pops the top entry of a stack and makes its first word current.

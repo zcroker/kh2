@@ -2,12 +2,8 @@
 
 namespace YI {
 
-u32 SEQUENCE::GetDrawMode() { return (*(u32*)((u32)this + 252) != 0); }
+// 0x00239d20: definition moved into src/anon/unit_00239988.cpp
 
-u32 SEQUENCE::GetPlayMode() {
-    u32 v = *(u32*)((u32)this + 252);
-    v = (u32)((s32)v + (-1));
-    return (v < 2u);
-}
+// 0x00239d10: definition moved into src/anon/unit_00239988.cpp
 
 }  // namespace YI

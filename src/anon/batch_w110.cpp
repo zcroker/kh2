@@ -58,46 +58,7 @@ struct Work {
 };
 extern "C" {
 // Resets the four slots and sets up the three GS draw contexts.
-void func_0023d5b8(Work* w) {
-    s32 i;
-    for (i = 0; i < w->count; i++) {
-        Slot* s = &w->slot[i];
-        w->index[i] = i;
-        w->kind[i] = 16;
-        s->f70 = 0;
-        s->f74 = 0;
-        s->f30 = 0;
-        s->f13c = 0;
-        w->a[i] = 0;
-        w->b[i] = 0;
-        w->c[i] = 0;
-        func_0023e738(w, i, 0, 0);  // store_2halfwords_2928
-    }
-    w->f2920 = 0;
-    w->flag[0] = 0;
-    w->flag[1] = 0;
-    w->flag[2] = 0;
-    func_0014b610(w->gs0, 0x31000070);
-    func_0014b608(w->gs0, 0x80140);
-    func_0014b5e0(w->gs0, 6);
-    func_0014b220(w->gs0, 0, 0, 0, 0);
-    func_0014b208(w->gs0, 512, 416);
-    func_0014b608(w->gs1, 0x80140);
-    func_0014b610(w->gs1, 0x131000070ULL);
-    func_0014b5e0(w->gs1, 342);
-    func_0014b630(w->gs1, 96);
-    func_0014b618(w->gs1, 0x30003);
-    func_0014b208(w->gs1, 512, 416);
-    func_0014b468(w->gs1, 512, 416);
-    func_0014b628(w->gs1, D_00371510);
-    func_0014b610(w->gs2, 0x131000070ULL);
-    func_0014b5e0(w->gs2, 342);
-    func_0014b630(w->gs2, 96);
-    func_0014b618(w->gs2, 13);
-    func_0014b208(w->gs2, 512, 416);
-    func_0014b468(w->gs2, 512, 416);
-    func_0014b628(w->gs2, D_00371518);
-}
+void func_0023d5b8(Work* w);  // 0x0023d5b8: definition moved into src/anon/unit_0023d260.cpp
 }
 
 extern "C" {

@@ -144,12 +144,7 @@ void func_002378c8(f32* p, f32 z);  // 0x002378c8: definition moved into src/ano
 void func_00106d40(void*, f32, f32, f32, f32, f32, f32, f32, f32, f32, f32, f32);
 void func_00106de8(void*, s32, f32);
 void func_00106c08(void*);
-void func_0023dd28(u8* p, s32 i, s32 x, s32 y) {
-    u8* o = p + i * 400 + 32;
-    func_00106d40(o, 512.0f, 0.7999999523162842f, 0.8666666150093079f, (f32)(x + 2048), (f32)(y + 2048), 1.0f, 16770000.0f, 1.0f, 4000000.0f, 256.0f, 208.0f);
-    func_00106de8(o, 0, 0.6981316804885864f);
-    func_00106c08(o);
-}
+void func_0023dd28(u8* p, s32 i, s32 x, s32 y);  // 0x0023dd28: definition moved into src/anon/unit_0023d260.cpp
 
 // ---- 0x240360 ----
 extern void* D_0035ec88;

@@ -517,17 +517,7 @@ struct Item { u8 p0[344]; };
 struct Obj { u8 p0[16]; Ent* ents; Grp* grps; u8 p24[20]; Item* items; };
 extern "C" {
 s32 func_00239b50(Item*, s32);  // find_entry_in_group
-s32 func_0023c5f0(Obj* o, s32 g)
-{
-    Grp* gp = &o->grps[g];
-    Ent* e = &o->ents[gp->first];
-    s32 best = 0;
-    for (s32 i = 0; i < gp->n; i++, e++) {
-        s32 v = func_00239b50(&o->items[e->idx], e->arg) + e->add;
-        if (best < v) best = v;
-    }
-    return best;
-}
+s32 func_0023c5f0(Obj* o, s32 g);  // 0x0023c5f0: definition moved into src/anon/unit_0023bc58.cpp
 }
 }
 

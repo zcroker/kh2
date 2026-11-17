@@ -24,25 +24,5 @@ struct w243_E2c { u8 pad[0xf8]; s32 len; u8 pad2[344 - 0xfc]; };
 struct w243_E14 { u16 h; u8 pad[18]; };
 struct w243_E10 { u32 a; s32 i; s32 off; u8 pad[12]; };
 struct w243_O { u8 pad[0x10]; w243_E10* t10; w243_E14* t14; u8 pad2[0x24 - 0x18]; s32 cnt; u8 pad3[4]; w243_E2c* arr; u8* base; s32 cnt34; u8 pad4[0x4c - 0x38]; s32 idx; };
-u8* func_0023c3e0(w243_O* o, s32 x, s32 n) {
-    s32 acc = 0;
-    s32 i;
-    for (i = 0; i < o->cnt; i++) {
-        s32 prev = acc;
-        acc += o->arr[i].len;
-        if (x < acc) {
-            s32 off = x - prev;
-            w243_E14* h = &o->t14[o->idx];
-            w243_E10* e = &o->t10[h->h];
-            s32 j;
-            for (j = 0; j < o->cnt34; j++, e++) {
-                if (e->i == i && e->off == off) {
-                    if (n == 0) return o->base + j * 344;
-                    n--;
-                }
-            }
-        }
-    }
-    return 0;
-}
+u8* func_0023c3e0(w243_O* o, s32 x, s32 n);  // 0x0023c3e0: definition moved into src/anon/unit_0023bc58.cpp
 }

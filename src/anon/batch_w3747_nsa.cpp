@@ -74,56 +74,5 @@ f32 func_0023e700(Mgr23da00*);
 void* func_001a9528(void*);
 void func_001dddd0(void*, void*);
 void func_001a9560(void*, Obj23da00*, void*, s32*);
-void func_0023da00(Mgr23da00* m, s32 idx, s32 a2, s32 a3, s32 t0, s32 t1, s32 t2)
-{
-    u8* cam = (u8*)m + idx * 400 + 288;
-    s32 sl = m->slot[idx] * 320; asm("" : "+r"(sl) : "r"(a3));
-    Obj23da00* o = (Obj23da00*)((u8*)m + sl + 1632);
-    func_0023eac0(m, idx, 16);
-    func_0023dd28(m, idx, t1, t2);
-    func_00107330(cam, 0.0f, -50.0f, -800.0f);
-    func_00107340(cam, 0.0f, 0.0f, 55.0f);
-    func_00107350(cam, 0.0f, -1.0f, 0.0f);
-    func_00107360(cam, 0.0f);
-    func_00107118(cam);
-    o->rot.unit();
-    o->pos = V23da00(0.0f, 0.0f, 0.0f, 0.0f);
-    o->scl = V23da00(1.0f, 1.0f, 1.0f, 1.0f);
-    void* p = func_001063c0(24, func_0013a1d8());
-    func_001a91f8(p);
-    func_001a92d8(p, a2, 0);
-    o->mdl = p;
-    o->a2 = a2;
-    o->a3 = a3;
-    o->t0 = t0;
-    o->w48 = 0;
-    s32 v = func_00103580();
-    o->w48 = func_001a93e8(o->mdl)->get(v);
-    if (a3 >= 0) o->mot = func_001a9458(o->mdl, a3, t0);
-    else o->mot = 0;
-    o->w120 = 0;
-    o->w124 = 0;
-    o->flags |= 2;
-    o->rgba[3] = -1;
-    o->rgba[2] = -128;
-    o->rgba[1] = -128;
-    o->rgba[0] = -128;
-    o->p92 = func_001a9420(o->mdl);
-    if (o->p92) func_0011e260(o->w48, o->p92);
-    o->col.set(128, 128, 128, 128);
-    if (o->mot) {
-        o->f300 = o->mot->len();
-        o->f304 = o->mot->len();
-        o->f308 = func_0023e700(m);
-        o->b316 = 1;
-        o->w296 = 0;
-    }
-    for (s32 i = 0; i < 16; i++) o->w220[i] = 0;
-    void* x = func_001a9528(o->mdl);
-    if (x) {
-        func_001dddd0(o->m192, x);
-        func_001a9560(o->mdl, o, o->m192, o->w220);
-    }
-    m->count++;
-}
+void func_0023da00(Mgr23da00* m, s32 idx, s32 a2, s32 a3, s32 t0, s32 t1, s32 t2);  // 0x0023da00: definition moved into src/anon/unit_0023d260.cpp
 }

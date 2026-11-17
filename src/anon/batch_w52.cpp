@@ -203,12 +203,7 @@ extern u32 D_0035eb54;
 extern u8 D_0035eb50;
 void func_0014ce20(u32);
 void func_0014ce30(u32);
-void func_0023d320(void) {
-    D_0035eb54 = D_00349e1c;
-    D_0035eb50 = D_00349e20 == 0;
-    if (D_0035eb50) func_0014ce20(1);
-    func_0014ce30(0);
-}
+void func_0023d320(void);  // 0x0023d320: definition moved into src/anon/unit_0023d260.cpp
 
 u8* func_001a80c8(u32);  // table24_find_by_id
 s32 func_001a6598(u16);

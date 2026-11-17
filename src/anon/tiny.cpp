@@ -601,15 +601,9 @@ u32 func_002347e8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002347e8: definition mo
 
 void func_00237ad8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00237ad8: definition moved into src/anon/unit_00237068.cpp
 
-void func_0023d1e0(u32 a0, u32 a1, u32 a2, u32 a3) {  // zero_global_d
-    u32 b = (0x0036u << 16);
-    *(u32*)((u32)b + (-5324)) = (u32)0;
-}
+void func_0023d1e0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0023d1e0: definition moved into src/anon/unit_0023c968.cpp
 
-void func_0023d230(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 b = (0x0036u << 16);
-    *(u32*)((u32)b + (-5336)) = (u32)0;
-}
+void func_0023d230(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0023d230: definition moved into src/anon/unit_0023c968.cpp
 
 
 u32 func_00240108(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_global_36eb68
@@ -987,26 +981,11 @@ void func_002361d0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002361d0: definition m
 
 void func_00237238(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00237238: definition moved into src/anon/unit_00237068.cpp
 
-void func_0023ca70(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a3;
-    *(u32*)((u32)a0 + (84)) = a1;
-    *(u32*)((u32)a0 + (88)) = a2;
-}
+void func_0023ca70(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0023ca70: definition moved into src/anon/unit_0023c968.cpp
 
-void func_0023cd68(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    *(u32*)((u32)a0 + (0)) = (u32)&D_0035eb40;
-}
+void func_0023cd68(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0023cd68: definition moved into src/anon/unit_0023c968.cpp
 
-u32 func_0023d240(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a0;
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    return (D_0035eb28 != 0);
-}
+u32 func_0023d240(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0023d240: definition moved into src/anon/unit_0023c968.cpp
 
 extern "C" u32 func_002570e0(u32, u32, u32, u32) asm("_ZN2Tz5CmTop15GetTopSelSeqTblEv");
 
@@ -1428,13 +1407,7 @@ void func_00232100(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00232100: definition m
 
 void func_002373a8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002373a8: definition moved into src/anon/unit_00237068.cpp
 
-void func_0023d1d0(u32 a0, u32 a1, u32 a2, u32 a3) {  // set_global_word1
-    (void)a0;
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    D_0035eb34 = (u32)((s32)1);
-}
+void func_0023d1d0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0023d1d0: definition moved into src/anon/unit_0023c968.cpp
 
 void func_0023ebd0(u32 a0, u32 a1, u32 a2, u32 a3) {
     (void)a2;

@@ -20,18 +20,7 @@ void u_tail4(u32 a0, u8 a1);  // 0x001128d0: definition moved into src/anon/unit
 
 u32 __fixunssfsi(f32);
 void wt239(u8* a0, f32 r, f32 g, f32 b, f32 a) asm("_Z16wtarget_00239fd0jjjj");
-void wt239(u8* a0, f32 r, f32 g, f32 b, f32 a) {
-    *(f32*)(a0 + 280) = r;
-    *(f32*)(a0 + 284) = g;
-    *(f32*)(a0 + 288) = b;
-    *(f32*)(a0 + 292) = a;
-    if (r != 1.0f || g != 1.0f || b != 1.0f || a != 1.0f) {
-        *(u32*)(a0 + 184) |= 4;
-        *(u32*)(a0 + 208) = __fixunssfsi(r * 128.0f) | (__fixunssfsi(g * 128.0f) << 8) | (__fixunssfsi(b * 128.0f) << 16) | (__fixunssfsi(a * 128.0f) << 24);
-    } else {
-        *(u32*)(a0 + 184) &= ~4;
-    }
-}
+void wt239(u8* a0, f32 r, f32 g, f32 b, f32 a);  // 0x00239fd0: definition moved into src/anon/unit_00239988.cpp
 
 
 extern u32 D_003638d0;

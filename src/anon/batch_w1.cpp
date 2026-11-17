@@ -102,11 +102,7 @@ void func_00222770(f32* d, f32* a, f32* b);  // 0x00222770: definition moved int
 
 s32 func_002282d8(void);  // 0x002282d8: definition moved into src/anon/unit_00224780.cpp
 
-void func_0023cdb8(void) {
-    D_0035eb34 = 1;
-    D_0035eb28 = 0;
-    D_01dae680 = 0;
-}
+void func_0023cdb8(void);  // 0x0023cdb8: definition moved into src/anon/unit_0023c968.cpp
 
 void func_00263188(void);  // 0x00263188: definition moved into src/anon/unit_0025f6b8.cpp
 

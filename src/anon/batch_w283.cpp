@@ -64,40 +64,7 @@ void func_0023c598(void*) asm("_Z13func_0023c598Pv");
 void func_0023acd8(void*);
 s32 W283_GetPlayMode(void*) asm("_ZN2YI8SEQUENCE11GetPlayModeEv");
 void wtarget_0023ca80(W283_WT* p, u32, u32, u32) asm("_Z16wtarget_0023ca80jjjj");
-void wtarget_0023ca80(W283_WT* p, u32, u32, u32) {
-    *(f32*)((u8*)p + 60) += D_00349e14 * p->speed;
-    switch (p->state) {
-    case 1:
-        p->state = 2;
-        func_0023c598(p);
-        break;
-    case 2:
-        p->t1 += D_00349e14 * p->speed;
-        if (p->max <= p->t1 && p->noLoop == 0) {
-            p->state = 3;
-            p->t1 = p->max - 1.0f;
-            if (p->cb) p->cb();
-        }
-        break;
-    case 0:
-        return;
-    default:
-        return;
-    }
-    u16* ent = (u16*)(p->tbl20 + p->idx * 20);
-    u8* e = p->tbl24 + *ent * 24;
-    s32 busy = 0;
-    for (s32 i = 0; i < p->count; i++, e += 24) {
-        u8* o = p->arr + i * 344;
-        if ((f32)*(s32*)(e + 12) <= p->t1) {
-            func_0023acd8(o);
-            if (W283_GetPlayMode(o)) busy = 1;
-        } else {
-            busy = 1;
-        }
-    }
-    if (!busy) p->state = 3;
-}
+void wtarget_0023ca80(W283_WT* p, u32, u32, u32);  // 0x0023ca80: definition moved into src/anon/unit_0023c968.cpp
 
 extern char* D_0035ec88;
 extern W283_FE* D_0035ec9c;

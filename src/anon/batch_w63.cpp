@@ -211,12 +211,7 @@ void func_001e6b00(u8* p);  // 0x001e6b00: definition moved into src/anon/unit_0
 u32 func_00232348(void);  // 0x00232348: definition moved into src/anon/unit_00231500.cpp
 
 struct F184 { u32 b0 : 1; u32 b1 : 1; u32 rest : 30; };
-void func_00239e60(u8* p, f32 x, f32 y, f32 z) {
-    *(f32*)(p + 308) = x;
-    *(f32*)(p + 312) = y;
-    *(f32*)(p + 316) = z;
-    ((F184*)(p + 184))->b1 = !(x == 1.0f && y == 1.0f && z == 1.0f);
-}
+void func_00239e60(u8* p, f32 x, f32 y, f32 z);  // 0x00239e60: definition moved into src/anon/unit_00239988.cpp
 
 s32 func_00252710(void);  // 0x00252710: definition moved into src/anon/unit_00250fb8.cpp
 

@@ -137,11 +137,7 @@ void func_00234720(u32 a, u32 b, u32 c, u32 d);  // 0x00234720: definition moved
 
 void func_0023c728(u32*);
 void func_0023c598(u32*);
-void func_0023c6f8(u32* p) {
-    func_0023c728(p);
-    p[14] = 1;
-    func_0023c598(p);
-}
+void func_0023c6f8(u32* p);  // 0x0023c6f8: definition moved into src/anon/unit_0023bc58.cpp
 
 void func_0023fc08(void);
 extern u32 D_0035ebe0;

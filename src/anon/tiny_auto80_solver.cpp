@@ -9841,46 +9841,17 @@ u32 duplicate_unplaced_00239cf0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, 
     return r2;
 }
 
-u32 func_00239d30(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r2, r15;
-    r15 = (u32)((s32)0u + (36));
-    r5 = (u32)(r5 * r15);
-    r15 = *(volatile u32*)((u32)r4 + (s32)(180));
-    r5 = (u32)(r5 + r15);
-    r2 = (u32)(*(u16*)((u32)r5 + (s32)(4)));
-    r2 = ((u32)r2 < 0x00000001u);
-    return r2;
-}
+u32 func_00239d30(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);  // 0x00239d30: definition moved into src/anon/unit_00239988.cpp
 
-u32 func_0023aa18(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32 idx = *(volatile u32*)((u32)a0 + (s32)(276));
-    u8* base = *(u8**)((u32)a0 + (s32)(180));
-    return *(u32*)(base + idx * 36 + 16);
-}
+u32 func_0023aa18(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);  // 0x0023aa18: definition moved into src/anon/unit_00239988.cpp
 
-u32 func_0023aa38(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32 idx = *(volatile u32*)((u32)a0 + (s32)(276));
-    u8* base = *(u8**)((u32)a0 + (s32)(180));
-    return *(u32*)(base + idx * 36 + 20);
-}
+u32 func_0023aa38(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);  // 0x0023aa38: definition moved into src/anon/unit_00239988.cpp
 
-u32 func_0023aa58(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32 idx = *(volatile u32*)((u32)a0 + (s32)(276));
-    u8* base = *(u8**)((u32)a0 + (s32)(180));
-    return *(u32*)(base + idx * 36 + 24);
-}
+u32 func_0023aa58(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);  // 0x0023aa58: definition moved into src/anon/unit_00239988.cpp
 
-u32 func_0023aa78(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32 idx = *(volatile u32*)((u32)a0 + (s32)(276));
-    u8* base = *(u8**)((u32)a0 + (s32)(180));
-    return *(u32*)(base + idx * 36 + 28);
-}
+u32 func_0023aa78(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);  // 0x0023aa78: definition moved into src/anon/unit_00239988.cpp
 
-u32 func_0023aa98(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32 idx = *(volatile u32*)((u32)a0 + (s32)(276));
-    u8* base = *(u8**)((u32)a0 + (s32)(180));
-    return *(u32*)(base + idx * 36 + 32);
-}
+u32 func_0023aa98(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);  // 0x0023aa98: definition moved into src/anon/unit_00239988.cpp
 
 u32 duplicate_unplaced_0023c0c0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r2, r15, r16;
@@ -9908,16 +9879,7 @@ u32 duplicate_unplaced_0023c6f8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, 
     return ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_0023c598)(r4, r5, r6, r7, r8, r9, r10, r11);
 }
 
-u32 func_0023ca30(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32 n = *(u32*)(a0 + 76);
-    u32 scale = 20;
-    u32 base = *(u32*)(a0 + 20);
-    a1 <<= 2;
-    n *= scale;
-    n += base;
-    a1 += n;
-    return *(u32*)(a1 + 8);
-}
+u32 func_0023ca30(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);  // 0x0023ca30: definition moved into src/anon/unit_0023c968.cpp
 
 void duplicate_unplaced_0023cdb8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r13, r14, r15;
@@ -9983,10 +9945,7 @@ u32 duplicate_unplaced_0023d3d0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, 
     return ((u32(*)())func_00257000)();
 }
 
-u32 func_0023d410(void) {
-    u32 v0 = ((u32(*)())func_001058e8)();
-    return ((u32(*)(u32, u32, u32))func_002fde18)(v0 + 20000, 255, 1920);
-}
+u32 func_0023d410(void);  // 0x0023d410: definition moved into src/anon/unit_0023d260.cpp
 
 u32 func_0023e660(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
     a1 += a0;

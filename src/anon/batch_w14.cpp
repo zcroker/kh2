@@ -175,18 +175,9 @@ void func_002368b0(u8* p);  // 0x002368b0: definition moved into src/anon/unit_0
 
 void func_00237458(u8* p, u32 i, s32 j, s32 v);  // 0x00237458: definition moved into src/anon/unit_00237068.cpp
 
-void func_0023c0c0(u8* p) {
-    *(u8**)p = D_0035eb08;
-    func_0023c300(p);
-    func_00106420(p);
-}
+void func_0023c0c0(u8* p);  // 0x0023c0c0: definition moved into src/anon/unit_0023bc58.cpp
 
-void func_0023d3d0(void) {
-    func_002fde18(func_001058e8() + 16796, 0, 5124);
-    func_00242880();
-    func_0023d410();
-    func_00257000();
-}
+void func_0023d3d0(void);  // 0x0023d3d0: definition moved into src/anon/unit_0023d260.cpp
 
 void func_00242368(void* a);  // 00242368: moved to src/tozawa/crc.cpp (linked unit)
 

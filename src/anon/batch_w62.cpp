@@ -258,19 +258,7 @@ struct S239 {
 };
 s32 func_00239af8(S239*, u32);
 void ctarget_00239c68(S239* p, u32 a1, u32 a2, u32 a3) asm("_Z16ctarget_00239c68jjjj");
-void ctarget_00239c68(S239* p, u32 a1, u32 a2, u32 a3) {
-    p->bc = 0;
-    E239* e = &p->tbl[a1];
-    p->f114 = a1;
-    p->f140 = e->h4;
-    p->f144 = e->f8;
-    f32 v = func_00239af8(p, a1);
-    p->f108 = v;
-    if (v < p->f104) p->f104 = v;
-    p->bc = 0;
-    p->f10c = 0;
-    p->f108 += 1.0f;
-}
+void ctarget_00239c68(S239* p, u32 a1, u32 a2, u32 a3);  // 0x00239c68: definition moved into src/anon/unit_00239988.cpp
 
 s32 func_00287bc0(void);
 u8* func_00257770(void);
