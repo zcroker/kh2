@@ -161,7 +161,7 @@ void func_0018c420(BD_VALUE* bd);  // 0x0018c420: definition moved into src/yasu
 void func_00195738(BD_VALUE* bd);  // 0x00195738: definition moved into src/anon/unit_00194790.cpp
 // 001acda8: moved to src/anon/unit_001abb28.cpp
 // 001b20f0: moved to src/anon/unit_001b1d20.cpp
-void func_001b78b8(BD_VALUE* bd) { func_00105110(bd); }
+void func_001b78b8(BD_VALUE* bd);  // 0x001b78b8: definition moved into src/anon/unit_001b6a50.cpp
 // 0x1c8b30: moved to src/yasui/libys/summon.cpp
 void func_001ce838(BD_VALUE* bd);  // 0x001ce838: definition moved into src/anon/unit_001ce6e8.cpp
 void func_001d1998(BD_VALUE* bd);  // 0x001d1998: definition moved into src/anon/unit_001d14e0.cpp
@@ -480,15 +480,9 @@ void func_001afae0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001afae0: definition m
 
 // 001b13f0: moved to src/yasui/libys/databuff.cpp
 
-void func_001b6fa0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 b = (0x01d5u << 16);
-    *(u32*)((u32)b + (-29516)) = (u32)a0;
-}
+void func_001b6fa0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001b6fa0: definition moved into src/anon/unit_001b6a50.cpp
 
-void func_001b8218(u32 a0, u32 a1, u32 a2, u32 a3) {  // zero_global_byte_f
-    u32 b = (0x0035u << 16);
-    *(u8*)((u32)b + (4545)) = (u8)0;
-}
+void func_001b8218(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001b8218: definition moved into src/anon/unit_001b6a50.cpp
 
 void func_001b87a0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001b87a0: definition moved into src/anon/unit_001b87a0.cpp
 
@@ -1310,13 +1304,7 @@ u32 func_001b0320(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001b0320: definition mo
 
 // 001b1e58: moved to src/anon/unit_001b1d20.cpp
 
-u32 func_001b58a8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a0;
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    return (D_01d48cb0 != 0);
-}
+u32 func_001b58a8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001b58a8: definition moved into src/anon/unit_001b2780.cpp
 
 // 001bb4a0: moved to src/yasui/libys/mission.cpp
 
@@ -1933,33 +1921,13 @@ void func_0019ef60(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0019ef60: definition m
 
 u32 func_001aae68(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001aae68: definition moved into src/anon/unit_001aaa08.cpp
 
-u32 func_001b6d70(u32 a0, u32 a1, u32 a2, u32 a3) {  // table_entry_ptr_b
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    return (u32)&D_0032fb1c + ((u32)a0 << 2);
-}
+u32 func_001b6d70(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001b6d70: definition moved into src/anon/unit_001b6a50.cpp
 
-u32 func_001b77d0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    return *(u16*)((u32)&D_0036dad0 + ((u32)a0 << 1) + (0));
-}
+u32 func_001b77d0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001b77d0: definition moved into src/anon/unit_001b6a50.cpp
 
-u32 func_001b77e8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    return *(u16*)((u32)&D_0036daf0 + ((u32)a0 << 1) + (0));
-}
+u32 func_001b77e8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001b77e8: definition moved into src/anon/unit_001b6a50.cpp
 
-u32 func_001b7800(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    return *(u16*)((u32)&D_0036db10 + ((u32)a0 << 1) + (0));
-}
+u32 func_001b7800(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001b7800: definition moved into src/anon/unit_001b6a50.cpp
 
 // 001bb270: moved to src/yasui/libys/mission.cpp
 

@@ -169,16 +169,7 @@ static inline u32 packRgba(const Rgba8& c) { return c.r | (c.g << 8) | (c.b << 1
 struct R8 { u8 pad[8]; void* p; };
 struct Obj1b5708 { u32 pad; void* d; };
 
-void func_001b5708(Obj1b5708* p, void* a) {
-    R8* r0 = (R8*)func_00168b88(p->d, 24, packRgba(D_0036da98), 0);  // find_entry16_by_half_word
-    void* d = p->d;
-    u32 c = packRgba(D_0036da98);
-    void* v0 = r0->p;
-    R8* r1 = (R8*)func_00168b88(d, 25, c, 0);  // find_entry16_by_half_word
-    func_001bdb70(*(void**)(*(u8**)((u8*)p + 12) + 2884), a, v0, r1->p, 0);
-    *(u32*)((u8*)p + 64) |= 8;
-    *(s32*)((u8*)p + 60) += 1;
-}
+void func_001b5708(Obj1b5708* p, void* a);  // 0x001b5708: definition moved into src/anon/unit_001b2780.cpp
 
 extern u8 D_01d49520[];
 extern u32 D_00351408[];

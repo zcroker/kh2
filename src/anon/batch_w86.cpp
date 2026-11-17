@@ -457,21 +457,7 @@ void* func_001b7998(void*, void*);
 void func_0018a7d0(void*, void*, QWord*);
 void func_001b7b10(void*, List*, QWord*, QWord*);
 void func_001b7958(void*, QWord*);  // add_vec_to_records
-void func_001b7a18(void* o, List* l, QWord* acc)
-{
-    QWord t;
-    QWord s;
-    for (s32 i = 0; i < l->n; i++) {
-        void* x = func_001b7998(o, l->items[i].p0);
-        if (x) {
-            func_0018a7d0(x, l->items[i].p0, &t);
-            func_001b7b10(o, l, acc, &t);
-            Scale(&s, &t, -1.0f);
-            func_001b7958(o, &s);  // add_vec_to_records
-            SubIn(acc, &t);
-        }
-    }
-}
+void func_001b7a18(void* o, List* l, QWord* acc);  // 0x001b7a18: definition moved into src/anon/unit_001b6a50.cpp
 }
 }
 

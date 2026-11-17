@@ -140,11 +140,7 @@ s32 func_001a8c78(u8* p, s32 n);  // 0x001a8c78: definition moved into src/anon/
 
 // 001b1448: moved to src/yasui/libys/databuff.cpp
 
-void* func_001b5a10(void) {
-    if (!D_01d48cb0) return 0;
-    if (func_001b5cb8(D_01d48cb0)) return *(u8**)(D_01d48cb0 + 12) + 128;
-    return D_01d48cb0 + 24;
-}
+void* func_001b5a10(void);  // 0x001b5a10: definition moved into src/anon/unit_001b2780.cpp
 
 // Takes a slot from the free list and initialises it.
 // 001b8680: moved to src/anon/unit_001b82d8.cpp

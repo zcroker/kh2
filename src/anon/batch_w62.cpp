@@ -195,11 +195,7 @@ void func_001b0330(u32);
 void* func_001050d8(u32);
 void func_001b6298(void*, u8*, u32, u32);
 extern u8 D_0032f054;
-void func_001b6c60(u8* p) {
-    func_001b0330(*(u32*)(p + 2488));
-    D_0032f054 = 0;
-    func_001b6298(func_001050d8(32), p, 0, 0);
-}
+void func_001b6c60(u8* p);  // 0x001b6c60: definition moved into src/anon/unit_001b6a50.cpp
 
 struct Tbl1d5 { u32 f0; u32 n; u8 data[1]; };
 extern Tbl1d5* D_01d48d98;

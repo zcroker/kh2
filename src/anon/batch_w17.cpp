@@ -114,12 +114,7 @@ extern u8 D_01c6ced0;
 void func_0031fe00(void*, void*);
 // 001ac660: moved to src/anon/unit_001abb28.cpp
 
-void func_001b7958(s32* p, void* v) {  // add_vec_to_records
-    for (s32 i = 0; i < *p; i++) {
-        u8* q = (u8*)p + 32 + i * 32;
-        asm volatile("lqc2 $vf1, 0(%0)\n\tlqc2 $vf2, 0(%1)\n\tvadd.xyzw $vf1, $vf1, $vf2\n\tsqc2 $vf1, 0(%0)" : : "r"(q), "r"(v) : "memory");
-    }
-}
+void func_001b7958(s32* p, void* v);  // 0x001b7958: definition moved into src/anon/unit_001b6a50.cpp
 
 void func_001bb890(s32);
 void func_001bb468(void);

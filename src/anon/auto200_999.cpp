@@ -520,19 +520,7 @@ void func_001a98e8(u32 *a0, u32 a1, u32 a2, u32 a3, u32 a4);  // 0x001a98e8: def
 // 001d3328: moved to src/anon/unit_001d30b0.cpp
 
 u32 func_001b3bb8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6,
-                  u32 a7) {
-    u32 s0 = a0;
-    u32 r = ((u32 (*)(u32, u32, u32, u32, u32, u32, u32, u32))func_00185ed8)(
-        a0, a1, a2, a3, a4, a5, a6, a7);
-    u32 mask = *(u32 *)(s0 + 1420);
-    u32 vtbl = (u32)&D_00351100;
-    *(u32 *)(s0 + 2788) = 0;
-    mask |= 2;
-    *(u32 *)s0 = vtbl;
-    *(u32 *)(s0 + 2796) = 0;
-    *(u32 *)(s0 + 1420) = mask;
-    return r;
-}
+                  u32 a7);  // 0x001b3bb8: definition moved into src/anon/unit_001b2780.cpp
 
 namespace YS {
 struct SAVEFLAG {
@@ -554,13 +542,7 @@ u32 func_001d5668(u32 a0);  // 0x001d5668: definition moved into src/anon/unit_0
 
 void func_001d5698(u32 a0);  // 0x001d5698: definition moved into src/anon/unit_001d4f40.cpp
 
-void func_001b6038() {
-    u32 t6 = *(u32 *)((u8 *)&D_00350000 + 4480u);
-    if (t6 == 0) {
-        return;
-    }
-    func_00102670(*(u32 *)((u8 *)&D_00350000 + 4628u), t6);  // to_1025f8
-}
+void func_001b6038();  // 0x001b6038: definition moved into src/anon/unit_001b2780.cpp
 
 u32 func_001e6d08(u32 a0, u32 a1, u32 a2, u32 a3) {
     return (*(f32 *)(a0 + 164u) > 0.0f) ? 1u : 0u;

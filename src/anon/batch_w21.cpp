@@ -143,20 +143,9 @@ void func_001ad990(u32 p, f32 a, f32 b, f32 t);  // 0x001ad990: definition moved
 
 void func_001ae620(void);  // 0x001ae620: definition moved into src/anon/unit_001ada38.cpp
 
-u32 YS_LIMIT_reset_hit_counter(u8* self) {
-    u8* h = self + 104;
-    u32 n = *(u32*)(h + 44);
-    func_001d2180(h);
-    func_001d20a8(h);
-    return n;
-}
+u32 YS_LIMIT_reset_hit_counter(u8* self);  // 0x001b5c78: definition moved into src/anon/unit_001b2780.cpp
 
-void func_001b6dd0(u8* p, u128* v) {
-    u128 t;
-    asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(&t), "r"(v) : "$8", "memory");
-    func_0017c4c8(p, &t);
-    p[1300] = 3;
-}
+void func_001b6dd0(u8* p, u128* v);  // 0x001b6dd0: definition moved into src/anon/unit_001b6a50.cpp
 
 void func_001be900(u8* p);  // 0x001be900: definition moved into src/anon/unit_001bc568.cpp
 

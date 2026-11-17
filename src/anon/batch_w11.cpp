@@ -116,9 +116,7 @@ void func_001b01d8(void** p);  // 0x001b01d8: definition moved into src/anon/uni
 
 void* func_001b77a8(s32);
 void func_00153468(void*, u32, void*);
-void func_001b7768(u32* a, void* b) {
-    func_00153468(func_001b77a8(1), *a, b);
-}
+void func_001b7768(u32* a, void* b);  // 0x001b7768: definition moved into src/anon/unit_001b6a50.cpp
 
 struct P1be { u8 pad[2728]; u32 a; u32 b; };
 void func_001bd668(void*);

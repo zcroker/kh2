@@ -49,10 +49,7 @@ void func_001ae788(u8* p);  // 0x001ae788: definition moved into src/anon/unit_0
 
 // 001cc310: moved to src/anon/unit_001cc048.cpp
 
-void func_001b53b0(u8* o, f32 x) {
-    u8* p = o + 0xa8;
-    func_001d1da0(*(f32*)(p + 0x2c) + -x * *(f32*)(ys_party_get_ability_w1670(*(u32*)(o + 0xc)) + 0x60), p);
-}
+void func_001b53b0(u8* o, f32 x);  // 0x001b53b0: definition moved into src/anon/unit_001b2780.cpp
 
 void func_00147e80(u8* o) {
     u64 v = (u64)(s32)(0x7000 - *(s16*)(o + 0x14)) | ((u64)(0x7300 - *(s16*)(o + 0x16)) << 32);

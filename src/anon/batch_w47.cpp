@@ -101,25 +101,12 @@ u32 func_001a8bd0(s32);
 s32 func_001a8bf8(u32, s32);  // get_bits5_at
 s32 func_001c8db8(void*, s32);
 extern u8 D_00351ec0[];
-s32 func_001b6070(void) {
-    if (func_001b58a8()) return 0;
-    s32 r = 0;
-    if (func_001a8bf8(func_001a8bd0(-1), 3) != 18) r = func_001c8db8(D_00351ec0, 0) == 0;
-    return r;
-}
+s32 func_001b6070(void);  // 0x001b6070: definition moved into src/anon/unit_001b2780.cpp
 
 s32 func_0019bb98(u8*);
 u8* func_001b7998(u8*, u32);
 void func_0018a7d0(u8*, u32, Vec4*);
-void func_001b7df0(u8* p, u32 b) {
-    if (func_0019bb98(*(u8**)(p + 4))) return;
-    u8* v = func_001b7998(p, b);
-    if (!v) return;
-    Vec4 t;
-    func_0018a7d0(v, b, &t);
-    u8* d = *(u8**)(p + 4) + 2160;
-    asm volatile("lqc2 $vf1,0(%0)\n\tlqc2 $vf2,0(%1)\n\tvsub.wxyz $vf1,$vf1,$vf2\n\tsqc2 $vf1,0(%0)" : : "r"(d), "r"(&t) : "memory");
-}
+void func_001b7df0(u8* p, u32 b);  // 0x001b7df0: definition moved into src/anon/unit_001b6a50.cpp
 
 struct S1b8 { u32 f0; u32 f4; u32 f8; u32 pad; u32 f16; };
 u32 func_001b8420(u32);

@@ -220,13 +220,7 @@ extern u32 D_003511b8;
 extern u32 D_01d48cb8;
 void sceGsSyncPath(s32, s32);
 
-void func_001b7f88(void) {
-    if (D_003511c0) {
-        sceGsSyncPath(0, 0);
-        D_01d48cb8 = D_003511b8;
-    }
-    D_003511c0 = 0;
-}
+void func_001b7f88(void);  // 0x001b7f88: definition moved into src/anon/unit_001b6a50.cpp
 
 // ---------------------------------------------------------------------------
 s32 func_001d5460(u32);

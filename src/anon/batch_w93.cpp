@@ -160,21 +160,7 @@ u32 func_00176b58(s32);
 void func_001b71e8(s32, u32, u32);
 void func_00188bb0(u32, s32);
 // Adds munny (capped at 9,999,999) and refreshes the thirteen status panels.
-void func_001b70d0(s32 add)
-{
-    s32 v = D_0032bb30.munny + add;
-    D_0032bb30.munny = v > 9999999 ? 9999999 : v;
-    for (s32 i = 1; i < 14; i++) {
-        s32 id = i;
-        switch (i) {
-        case 1: id = func_001a8b68(0); break;
-        case 6: if (D_0032bae0 == 8) id = func_001a8b68(3); break;
-        }
-        u32 x = func_00188fe0(D_0032e020, id);
-        func_001b71e8(id, x, func_00176b58(id));
-    }
-    func_00188bb0(func_00188fe0(D_0032e020, 1), 1);
-}
+void func_001b70d0(s32 add);  // 0x001b70d0: definition moved into src/anon/unit_001b6a50.cpp
 
 struct W93Pl { u8 pad[2896]; s32 state; };
 s32 func_001bb7f8(void);

@@ -55,59 +55,11 @@ void func_001d2048(void*);
 void func_001b0188(void*);
 void func_001ddd88(void*);
 
-void func_001b4f40(u8* p) {
-    NoTail nt;
-    u32* q = (u32*)p;
-    s32 i;
-    *(u32*)(*(u8**)(p + 12) + 268) &= ~0x10000;
-    for (i = 1; i >= 0; i--, q++) {
-        if (func_0019ba60((void*)q[4])) {
-            *(u32*)((u8*)q[4] + 268) &= ~0x10000;
-            ((u8*)q[4])[2892] = 0;
-        }
-    }
-    void* o = *(void**)(p + 52);
-    if (o) { func_0016cab8(o); func_0016c7d8(o); }
-    u8* m24 = p + 24;
-    if (*(void**)(p + 24)) func_001dde40(m24);
-    u8* m = p + 104;
-    func_001b1c10(*(void**)(p + 56), 30.0f);
-    func_0016c640(1);
-    func_001d4570(*(void**)p, *(void**)(m + 56));
-    void* o4 = *(void**)(p + 4); if (o4) func_00170950(o4);
-    D_01D48CB0 = 0;
-    if (!func_001b5858(p) && !func_001b5cb8(p)) func_001c8d98(&D_00351EB8, 0);
-    *(void**)(p + 168) = &D_00352560;
-    func_001d1ed0(p + 168);
-    func_001d2048(m);
-    *(void**)(p + 72) = &D_00350E48;
-    func_001b0188(p + 72);
-    func_001ddd88(m24);
-}
+void func_001b4f40(u8* p);  // 0x001b4f40: definition moved into src/anon/unit_001b2780.cpp
 s32 func_0019bb98(void*);
 f32 func_0016a0a0(void*);
 void func_001b7958(void*, V7b*);  // add_vec_to_records
-void func_001b7b10(u8* a, u8* b, V7b* src, V7b* dst) {
-    if (func_0019bb98(*(void**)(b + 4))) {
-        if (func_0019bb98(*(void**)(a + 4))) {
-            *dst = *src;
-        }
-        return;
-    }
-    if (func_0019bb98(*(void**)(a + 4))) {
-        *(V7b*)(*(u8**)(b + 4) + 2160) += *dst;
-        func_001b7958(b, dst);  // add_vec_to_records
-        dst->zero();
-        return;
-    }
-    f32 ma = func_0016a0a0(*(void**)(a + 4));
-    f32 mb = func_0016a0a0(*(void**)(b + 4));
-    V7b v;
-    v = scl(*dst, ma, ma + mb);
-    *dst = scl(v, mb, ma);
-    *(V7b*)(*(u8**)(b + 4) + 2160) += v;
-    func_001b7958(b, &v);  // add_vec_to_records
-}
+void func_001b7b10(u8* a, u8* b, V7b* src, V7b* dst);  // 0x001b7b10: definition moved into src/anon/unit_001b6a50.cpp
 s32 func_001bfca0(void*);
 void func_001991a8(s32, s32);
 V7e* func_0016c028(void*);  // obj_get_attach_or_alt

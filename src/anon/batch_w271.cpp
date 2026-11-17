@@ -20,28 +20,7 @@ void func_0016aeb8(Obj_w271*, f32);
 void func_0016ace0(Obj_w271*, V4_w271*);
 void func_0016ad68(Obj_w271*, u32);
 void func_0016ac38(Obj_w271*, s32, s32, s32, s32);
-void func_001b2db8(u32 self, Obj_w271* o) {
-    u32 w = D_0034e948;
-    if (func_0019ba60(w)) {
-        if (func_0019c090(w)) {  // obj_is_enabled
-            if (!c5d0f(o, 0.0f)) {
-                f32 a = func_001849d8(w);
-                if (a < func_0016c028((u32)o)->y) ((void (*)(Obj_w271*))o->vt->f[17])(o);  // obj_get_attach_or_alt
-            }
-            func_0016aeb8(o, func_0016afe0(w));
-            V4_w271 t(*func_0016c028(w));  // obj_get_attach_or_alt
-            t.y = (func_0016c028((u32)o)->y < t.y) ? t.y : func_0016c028((u32)o)->y;
-            func_0016ace0(o, &t);
-        } else {
-            func_0016ad68(o, w);
-            if (func_0019c5d0(o)) {
-                func_0016ac38(o, 1, 1, 0, 0);
-                ((void (*)(Obj_w271*))o->vt->f[18])(o);
-            }
-        }
-    }
-    asm volatile("vsub.wxyz $vf1, $vf0, $vf0\n\tsqc2 $vf1, 0(%0)" : : "r"((u8*)o + 16) : "memory");
-}
+void func_001b2db8(u32 self, Obj_w271* o);  // 0x001b2db8: definition moved into src/anon/unit_001b2780.cpp
 }
 struct M_w271 { f32 m[12]; f32 t[4]; } __attribute__((aligned(16)));
 extern "C" {

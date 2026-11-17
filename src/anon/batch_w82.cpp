@@ -192,18 +192,7 @@ void func_0016b0e0(u32, u32, u8*);
 void func_00165830(u32, Mat82*);
 
 // Updates each bone matrix into the current double-buffer half, then flips halves.
-void func_001b3118(Bones001b* b, u32 a1)
-{
-    s32 i;
-    if (!b->t) return;
-    for (i = 0; i < b->t->count; i++) {
-        Mat82 m;
-        func_0016b0e0(a1, b->t->e[i].item, b->arr + i * 144 + b->idx * 64);
-        Copy64_82(&m, b->arr + i * 144 + b->idx * 64);
-        func_00165830(*(u32*)(b->arr + i * 144 + 128), &m);
-    }
-    b->idx ^= 1;
-}
+void func_001b3118(Bones001b* b, u32 a1);  // 0x001b3118: definition moved into src/anon/unit_001b2780.cpp
 }
 
 extern f32 D_00349e10;

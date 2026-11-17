@@ -197,15 +197,7 @@ void* func_001050d8(u32);
 Vc func_0017c030(u8*, u32*, u8);
 void func_001b6dd0(u8*, Vc);
 void func_0017f488(u8*, u32, f32, f32);
-void func_001b27f0(u32, u8* p, u8 f) {
-    u32 x;
-    Vc v = func_0017c030(p, &x, f);
-    func_001b6dd0(p, v);
-    p[1300] = 4;
-    func_0017f488(p + 320, x, 0.0f, 0.0f);
-    *(u32*)(p + 256) = 4;
-    *(u32*)(p + 260) = 5;
-}
+void func_001b27f0(u32, u8* p, u8 f);  // 0x001b27f0: definition moved into src/anon/unit_001b2780.cpp
 
 // ---- 001cd4c0
 s32 func_001bbf00(void);

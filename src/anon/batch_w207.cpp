@@ -15,10 +15,7 @@ void func_0028b120(W207P* p, W207U* r, W207U* q, s32 x) {
     q->i = x / p->c;
 }
 
-u32 func_001b6f48(u32 a) {
-    func_0017c870(0.9f, 0.95f);
-    return a;
-}
+u32 func_001b6f48(u32 a);  // 0x001b6f48: definition moved into src/anon/unit_001b6a50.cpp
 
 u32 func_002c5fb8(f32* a);  // 0x002c5fb8: definition moved into src/anon/unit_002c53c8.cpp
 

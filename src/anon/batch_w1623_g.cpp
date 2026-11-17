@@ -35,48 +35,5 @@ s32 func_001a76c8(W1623Vec*, W1623Vec*, s32);
 W1623Vec func_0017d050(const W1623Vec&);
 // Spawns the effect for a map trigger of the given type: even types aim from the 0x8028 point
 // towards 0x802c, odd types from 0x8029 towards 0x802d; any other type uses the object itself.
-void func_001b3748(W1623Obj* obj, u32 type)
-{
-    W1623Vec pos;
-    W1623Vec tgt;
-    W1623Vec dir;
-    W1623Vec hit;
-    s32 ok = 1;
-    W1623Vec* pdir = &dir;
-    W1623Vec* phit = &hit;
-    if (!map_is_pax_exist()) return;
-    u8 g = D_0036d9f8[obj_get_ground(obj)];
-    if (!g) return;
-    u64 mask = (u64)1 << g | (u64)1 << (type + 32);
-    s32 k = pax_search_id(map_get_pax(), mask);
-    if (k < 0) return;
-    switch (type) {
-    case 0: case 2: case 4: case 6: case 8: case 10: case 12: case 14: case 16: case 18:
-        pos = func_0016b478(1.0f, obj, 0x8028);
-        pos.y = func_0016c028(obj)->y;
-        tgt = func_0016b478(1.0f, obj, 0x802c);
-        *pdir = tgt - pos;
-        dir.y = 0.0f;
-        pdir->normalize();
-        ok = func_001a76c8(&pos, phit, 0);
-        break;
-    case 1: case 3: case 5: case 7: case 9: case 11: case 13: case 15: case 17: case 19:
-        pos = func_0016b478(1.0f, obj, 0x8029);
-        pos.y = func_0016c028(obj)->y;
-        tgt = func_0016b478(1.0f, obj, 0x802d);
-        *pdir = tgt - pos;
-        dir.y = 0.0f;
-        pdir->normalize();
-        ok = func_001a76c8(&pos, phit, 0);
-        break;
-    default:
-        *phit = *func_0016c028(obj);
-        *pdir = obj->dir;
-        break;
-    }
-    if (!ok) return;
-    void* e = func_001de168(map_get_pax(), k, 1, 2, 10001, 0);
-    *effect_pos(e) = *phit;
-    *effect_angle(e) = func_0017d050(*pdir);
-}
+void func_001b3748(W1623Obj* obj, u32 type);  // 0x001b3748: definition moved into src/anon/unit_001b2780.cpp
 }

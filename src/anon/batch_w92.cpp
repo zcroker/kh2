@@ -340,30 +340,7 @@ s32 func_0019ba60(void*);
 s32 func_0017e280(void*);
 extern u8 D_00351ec0;
 
-s32 func_001b5b20(u8* self, u16* ev, s32 r) {
-    void* o = func_001d3fe0(ev[0]);
-    if (!o) return r;
-    if (func_001b58a8()) {
-        r = 5;
-    } else if (ev[1] == 81 && func_001c8db8(&D_00351ec0, 0)) {
-        r = 5;
-    } else if (func_001d3f80(o)) {
-        if ((*(C1b5**)(self + 1164))->f436 == 0.0f) r = 5;
-    } else {
-        s32 n = func_001b5c60(ev);  // to_1bbf80_field28
-        if (n > 0) {
-            if (func_001a1de0(*(C1b5**)(self + 1164))) r = 5;
-            else if ((*(C1b5**)(self + 1164))->f384 < n) r = 2;
-        }
-    }
-    if (ev[1] == 707 && r < 4) {
-        for (s32 i = 0; i < 2; i++) {
-            void* q = func_0017df58(i);
-            if (func_0019ba60(q) && !func_0017e280(q)) { r = 5; break; }
-        }
-    }
-    return r;
-}
+s32 func_001b5b20(u8* self, u16* ev, s32 r);  // 0x001b5b20: definition moved into src/anon/unit_001b2780.cpp
 }
 
 // ---- 1cd168 ----

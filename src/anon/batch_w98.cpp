@@ -124,30 +124,7 @@ void func_001b5588(u32);
 extern u32 D_01d48cb0;
 
 // Shutdown: releases owned resources and hands off to the next stage.
-void func_001b5460(u8* o) {
-    if (!func_001b5858(o) && !func_001b5cb8(o)) {
-        u8* e = 0;
-        while ((e = func_001b9bc8(e)) != 0) {
-            if ((*(s32 (**)(u8*))(*(u8**)e + 60))(e) == 5000) (*(void (**)(u8*))(*(u8**)e + 40))(e);
-        }
-    }
-    u8* t = *(u8**)(o + 52);
-    if (t) {
-        func_0016cab8(t);
-        func_0016c7d8(t);
-        *(u8**)(o + 52) = 0;
-    }
-    u8* h = o + 24;
-    if (*(u32*)h) func_001de450(h);
-    if (!func_001b5858(o)) {
-        if (*(u32*)(o + 64) & 0x10) func_001c9770();
-        else func_001c9b90();
-    }
-    func_001d1c70(o + 104);
-    func_001d1ed0(o + 168);
-    func_001b57f8(o);
-    func_001b5588(D_01d48cb0);
-}
+void func_001b5460(u8* o);  // 0x001b5460: definition moved into src/anon/unit_001b2780.cpp
 
 void sceGsSyncPath(s32, s32);
 extern u32 D_01d9e6b4;

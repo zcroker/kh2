@@ -537,26 +537,7 @@ static inline u64 Tag15(s32 qwc, s32 irq)
 {
     return (s64)qwc | (u64)(s64)irq << 63 | 0x70000000;
 }
-void func_001b80d8(Pkt15* p)
-{
-    u64* s = p->start;
-    if (!s) return;
-    u8* e = p->cur;
-    if (!((u8*)s + 16 < e)) return;
-    if (D_003511c2 == 1) {
-        *s = Tag15(((e - (u8*)s) >> 4) - 1, func_001b7fd0(p) != 0);
-    } else {
-        *s = Tag15(((e - (u8*)s) >> 4) - 1, 0);
-    }
-    if (func_001b7fd0(p)) {
-        func_002f3918(func_002f35e8(2), p->start);
-        D_003511c0 = 1;
-    } else {
-        func_003058a0(0);
-        func_002f3918(func_002f35e8(2), p->start);
-        sceGsSyncPath(0, 0);
-    }
-}
+void func_001b80d8(Pkt15* p);  // 0x001b80d8: definition moved into src/anon/unit_001b6a50.cpp
 
 extern u32 D_00351d98;
 extern f32 D_0036dff0[];
@@ -1111,32 +1092,7 @@ void func_001c20e8(u32, Hit11*, Chr11*);
 void func_001883f8(u8*, Hit11*);
 void func_0016cce8(u32, s32, Hit11**, s32, s32);
 void func_00186148(Chr11*, Hit11*);
-void func_001b3d00(Chr11* p, Hit11* h)
-{
-    u8* b = (u8*)p;
-    Mask11* m = (Mask11*)(b + 2748);
-    if (m->Get() & 0x2000) {
-        func_00186148(p, h);
-        return;
-    }
-    {
-        if (func_001b58a8() && func_0018cdd0(h)) func_001b5ab0();
-        if (!(h->flags & 4)) func_001b3e88(p, h);
-        if (*(u32*)(b + 2040) & 4) return;
-        if (((s32 (*)(Chr11*))p->vt[24])(p)) return;
-        *(u32*)(b + 2792) = *h->def;
-        func_001b3cb0(p, *(u32*)(h->src + 8));
-        func_00186d48(p, h);
-        if (!(*(u32*)(b + 2040) & 4) || !(*(u32*)(b + 1416) & 0x800)) func_001c20e8((*(u32*)(b + 2748) | m->set) & ~m->off, h, p);
-        if (*(u32*)(b + 1156)) {
-            func_001883f8(b + 768, h);
-            u32 t = (u32)h;
-            func_0016cce8(*(u32*)(b + 1156), 6, (Hit11**)&t, 1, 0);
-        }
-        ((void (*)(Chr11*, Hit11*))p->vt[26])(p, h);
-    }
-    func_00186148(p, h);
-}
+void func_001b3d00(Chr11* p, Hit11* h);  // 0x001b3d00: definition moved into src/anon/unit_001b2780.cpp
 
 struct VB13 {
     f32 x, y, z, w;
@@ -1161,35 +1117,7 @@ void func_00196e98(u8*, u32);
 void func_00196f00(u8*);
 #define ID4(s) ((s)[0] | ((s)[1] << 8) | ((s)[2] << 16) | ((s)[3] << 24))
 static inline bool Valid13(u8* r) { return r && *(u32*)(r + 8); }
-void func_001b50e0(u8* p, s8* id, u8 flag, f32 shake)
-{
-    u32 v = 0;
-    if (func_001b5858(p)) {
-        v = func_00198738(*(u32*)(p + 16), id);
-    } else {
-        u8* r = func_00168b88(*(u32*)(p + 4), 22, ID4(id), 0);  // find_entry16_by_half_word
-        if (Valid13(r)) v = *(u32*)(r + 8);
-    }
-    if (!v) return;
-    func_00185278(*(u32*)(p + 12), flag, 500.0f);
-    VB13 t;
-    func_0016af58__52620(&t, *(u32*)(p + 12));
-    func_0016b010__52620(*(u32*)(p + 12), &t);
-    if (func_003142e0(0.0, func_00313b80(shake)) < 0) {  // double_compare
-        Shk13 s;
-        VB13* q = func_0016c028__52620(*(u32*)(p + 12));
-        s.a = 0;
-        s.b = shake;
-        s.c = shake;
-        s.d = 0;
-        s.pos = *q;
-        func_00185e78(&s);
-    }
-    u8* o = func_001050d8(176);
-    func_00196ca8(o, 11, v);
-    func_00196e98(o, *(u32*)(p + 12));
-    func_00196f00(o);
-}
+void func_001b50e0(u8* p, s8* id, u8 flag, f32 shake);  // 0x001b50e0: definition moved into src/anon/unit_001b2780.cpp
 
 extern u32 D_01d48cb0;
 extern u8 D_00351eb8[];
@@ -1211,38 +1139,7 @@ void func_001d2048(u8*);
 void func_001b0188(u8*);
 void func_001ddd88(u8*);
 struct NoTail14 { ~NoTail14() {} };
-void func_001b4dd0(u8* p)
-{
-    NoTail14 nt;
-    *(u32*)(*(u8**)(p + 12) + 268) &= ~0x10000;
-    u8* q = p;
-    for (s32 i = 0; i < 2; i++, q += 4) {
-        if (func_0019ba60(*(u8**)(q + 16))) {
-            *(u32*)(*(u32*)(q + 16) + 268) &= ~0x10000;
-            ((u8*)*(u32*)(q + 16))[2892] = 0;
-        }
-    }
-    u8* o = *(u8**)(p + 52);
-    if (o) {
-        func_0016cab8(o);
-        func_0016c7d8(o);
-    }
-    u8* a = p + 24;
-    if (*(u32*)(p + 24)) func_001dde40(a);
-    u8* w = p + 104;
-    func_001b1c10(*(u32*)(p + 56), 30.0f);
-    func_0016c640(1);
-    func_001d4570(*(u32*)p, *(u32*)(w + 56));
-    if (*(u32*)(p + 4)) func_00170950(*(u32*)(p + 4));
-    D_01d48cb0 = 0;
-    if (!func_001b5858(p) && !func_001b5cb8(p)) func_001c8d98(D_00351eb8, 0);
-    *(u32*)(p + 168) = (u32)D_00352560;
-    func_001d1ed0(p + 168);
-    func_001d2048(w);
-    *(u32*)(p + 72) = (u32)D_00350e48;
-    func_001b0188(p + 72);
-    func_001ddd88(a);
-}
+void func_001b4dd0(u8* p);  // 0x001b4dd0: definition moved into src/anon/unit_001b2780.cpp
 
 struct Ev18 { u32 res; u8 pad[4]; u8* obj; };
 struct Sn18 { u8 pad[4]; u16 id; u8 pad2[2]; u16 sy; u8 pad3[4]; s16 kind; s16 sx; u8 arg[2]; };
@@ -2011,30 +1908,7 @@ s32 func_0019ba60(u8*);
 s32 func_001b70d0(s32);
 void func_0015b680(V62*, s32, s32);
 void func_001c0890(u16);
-void func_001b4198(Obj62* o, u8* e, const V62* pos)
-{
-    if (func_001b7038(o)) {
-        u8* pl = D_0034e948;
-        u8* st = func_00177860(pl);
-        s32 dmg = (func_001c0cc8()->atk * o->pow + 99) / 100;
-        if (dmg > 0) {
-            if (D_0032dfc8 == 3) {
-                dmg = dmg * 75 / 100;
-                if (!dmg) dmg = 1;
-            }
-            if (func_0019ba60(e) && (*(u32*)(e + 1416) & 0x80)) {
-                Hp62* h = *(Hp62**)(pl + 1164);
-                if ((f32)h->hp / (f32)h->max <= D_00352130__89182->thr) dmg *= st[47];
-            }
-            s32 r = func_001b70d0(dmg);
-            if (r > 0) {
-                V62 p = *pos;
-                func_0015b680(&p, dmg, r);
-            }
-        }
-    }
-    if (o->se) func_001c0890(o->se);
-}
+void func_001b4198(Obj62* o, u8* e, const V62* pos);  // 0x001b4198: definition moved into src/anon/unit_001b2780.cpp
 
 struct Snd63 { u8 pad[5]; u8 pri; };
 struct Obj63 { u8 pad[32]; u32 fl; u8 m[2492]; u8* pl; };
@@ -2385,56 +2259,14 @@ void func_001c9780(u8*, f32);
 void func_001b5250(Wk91*, s32);
 void func_001d6148(u8*, u32);
 void func_0016cce8_106899(u32, s32, u32*, s32, s32) asm("func_0016cce8");
-void func_001b4430(u32 id, u8* e)
-{
-    Rec91* r = func_001b8e88(id);
-    Dat91* d = func_001d3fe0(r->id);
-    if (d) {
-        Wk91* w = func_001050d8_106899(220);
-        func_001b47d8(w, d, e, r->h32);
-        D_01d48cb0_106899.p = w;
-        if (func_001d3f80(d)) func_00179a68(e, -r->b28);
-        else func_00187650(e, -func_001b5c60(r), 0);
-        if (d->kind != 1) func_00176d68(e, d->kind);
-        for (s32 i = 0; i < 2; i++) {
-            u8* p = func_0017df58(i);
-            if (!func_0019ba60(p)) continue;
-            if (*(u32*)(p + 1416) & 0x400000) continue;
-            if (p[2892]) continue;
-            func_001c9780(p, 0.0f);
-        }
-        func_001b5250(D_01d48cb0_106899.p, 1);
-    } else {
-        func_001d6148(e, id);
-        u32 arg[1];
-        arg[0] = id;
-        func_0016cce8_106899(D_01d48cb0_106899.p->snd, 23, arg, 1, 0);
-    }
-}
+void func_001b4430(u32 id, u8* e);  // 0x001b4430: definition moved into src/anon/unit_001b2780.cpp
 
 struct Sp90 { f32 r; f32 h; u32 pad; f32 x, y, z; u8 pad2[8]; };
 struct Obj90 { union { s32 n; f32 nf; }; u8 pad[16]; Sp90 s[1]; };
 void func_00144450(f32*);
 void func_001447c0(f32*, f32, f32, f32, f32, f32, f32);
 #define MIN90(a, b) ((a) < (b) ? (a) : (b))
-void func_001b7c80(Obj90* o, f32* b)
-{
-    if (!o->n) {
-        func_00144450(b);
-        return;
-    }
-    func_001447c0(b, o->s[0].x - o->s[0].r, o->s[0].y - o->s[0].h, o->s[0].z - o->s[0].r,
-                  o->s[0].x + o->s[0].r, o->s[0].y + o->s[0].h, o->s[0].z + o->s[0].r);
-    for (s32 i = 1; i < o->n; i++) {
-        Sp90* s = &o->s[i];
-        b[0] = MIN90(b[0], s->x - s->r);
-        b[1] = MIN90(b[1], s->y - s->h);
-        b[2] = MIN90(b[2], s->z - s->r);
-        b[3] = MIN90(b[3], s->x + s->r);
-        b[4] = MIN90(b[4], s->y + s->h);
-        b[5] = MIN90(b[5], s->z + s->r);
-    }
-}
+void func_001b7c80(Obj90* o, f32* b);  // 0x001b7c80: definition moved into src/anon/unit_001b6a50.cpp
 
 struct Gs100 { u8 pad[128]; u8* tab; u8 pad2[36]; u64 st; };
 struct Idx100 { s32 f0; s32 f4; s32 f8; };
@@ -5823,11 +5655,7 @@ struct OTab_001b3208 { u32 x; s32 n; OEnt_001b3208 e[1]; };
 union OFl_001b3208 { u32 f; OTab_001b3208* t; };
 struct OObj_001b3208 { u8 pad[128]; OFl_001b3208* p; u8 pad2[12]; };
 struct OBJOCC { OTab_001b3208* tab; OObj_001b3208* objs; void disable(int); };
-void OBJOCC::disable(int id) {
-    for (s32 i = 0; i < tab->n; i++) {
-        if (tab->e[i].id == id) objs[i].p[2].f |= 2;
-    }
-}
+// 0x001b3208: definition moved into src/anon/unit_001b2780.cpp
 }
 extern "C" {
 
@@ -5923,14 +5751,7 @@ void func_001b5f68();
 void func_001b5fe0();
 u8* func_00102818(u32, u32, u32, void (*)(), u32);
 void func_001c8d80(u8*, u32);
-void func_001b5ef0(u8* p) {
-    u8* t = func_00102818(D_00351214, 0, 2, func_001b5f68, 8192);
-    *(u8**)(t + 4) = p;
-    *(void (**)())(t + 48) = func_001b5fe0;
-    D_00351180.p = t;
-    func_001c8d80(D_00351ec0, 2);
-    *(u32*)(p + 264) |= 0x100;
-}
+void func_001b5ef0(u8* p);  // 0x001b5ef0: definition moved into src/anon/unit_001b2780.cpp
 
 // ---- 001c3670
 struct E_001c3670 { u16 id; u8 pad[6]; };
@@ -6280,14 +6101,7 @@ f32 sinf(f32 x) {
 // ---- 001b4c48
 u8* func_00168b88_4c48(u32, u32, s32, u32) asm("func_00168b88");
 static inline s32 rd4_1b4c48(s8* b) { return b[0] | (b[1] << 8) | (b[2] << 16) | (b[3] << 24); }
-void func_001b4c48(u8* p, u32* out, s8* b) {
-    u8* x = func_00168b88_4c48(*(u32*)(p + 4), 24, rd4_1b4c48(b), 0);
-    u8* y = func_00168b88_4c48(*(u32*)(p + 4), 25, rd4_1b4c48(b), 0);
-    u32 a = *(u32*)(x + 8);
-    u32 c = *(u32*)(y + 8);
-    out[0] = a;
-    out[1] = c;
-}
+void func_001b4c48(u8* p, u32* out, s8* b);  // 0x001b4c48: definition moved into src/anon/unit_001b2780.cpp
 // ---- 00197828
 struct G197 { u8 pad[60]; u8* o; u8 pad2[80]; f32 f144; };
 union U197 { G197* g; u8** p; };

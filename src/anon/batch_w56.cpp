@@ -176,11 +176,7 @@ struct OccS { u8 pad[128]; OccE* e; u8 pad2[12]; };
 struct OccH { u32 x; s32 n; };
 struct OccSet { OccH* h; OccS* s; };
 void occ_enable_all(OccSet* self) asm("_ZN2YS6OBJOCC10enable_allEv");
-void occ_enable_all(OccSet* self)
-{
-    if (!self->h) return;
-    for (s32 i = 0; i < self->h->n; i++) self->s[i].e->fl.v &= ~2;
-}
+void occ_enable_all(OccSet* self);  // 0x001b3330: definition moved into src/anon/unit_001b2780.cpp
 
 // 001bce00
 void func_001bc720(u8*);

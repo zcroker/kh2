@@ -138,11 +138,7 @@ void func_001a1a20(u8* p, void* a, u8 b);  // 0x001a1a20: definition moved into 
 
 // 001b26e0: moved to src/anon/unit_001b1d20.cpp
 
-s32 func_001b81e8(void) {
-    func_001b7f88();
-    D_003511c1 = 1;
-    return D_003511b8;
-}
+s32 func_001b81e8(void);  // 0x001b81e8: definition moved into src/anon/unit_001b6a50.cpp
 
 s32 func_001bdd20(u8* p);  // 0x001bdd20: definition moved into src/anon/unit_001bc568.cpp
 

@@ -406,40 +406,6 @@ extern f32 D_00349e10;
 void func_0016af58(QWord*);
 s32 func_001b2b58(Ob*);
 void func_0017f540(void*, s32, f32, f32);
-void func_001b2860(void* self, Ob* o)
-{
-    QWord v;
-    s32 id = 0;
-    v = o->q2208;
-    f32 len = Normalize(&v);
-    v.f[3] = len;
-    if (8.0f < len) {
-        QWord t;
-        func_0016af58(&t);
-        if (Dot(v, t) < -0.865999996662f) o->f240 = 0;
-        ScaleIn(&o->q32, 0.5f);
-    }
-    v = o->q32;
-    v.f[1] = 0.0f;
-    Normalize(&v);
-    if (o->q16.f[3] > o->f272) {
-        if (func_001b2b58(o)) {
-            id = 2;
-            o->q16.f[3] = o->p300->f36;
-        } else {
-            f32 d = Dot(v, o->q16);
-            if (D_00352130->f172 < d) o->f240 += D_00349e10;
-            else o->f240 = 0;
-        }
-    } else {
-        o->f240 = 0;
-    }
-    void* sb = o->sub;
-    if (o->f352 & 4) {
-        f32 k = 12.0f, z = 0.0f;
-        func_0017f540(sb, id, k, z);
-        func_0017f540(D_00351068->sub, id, k, z);
-    }
-}
+void func_001b2860(void* self, Ob* o);  // 0x001b2860: definition moved into src/anon/unit_001b2780.cpp
 }
 }

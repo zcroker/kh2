@@ -177,29 +177,7 @@ namespace n001b3e88 {
 extern "C" {
 s32 func_0018ca48(u8);
 void func_00198580(u8*, s32);  // check_div1000_500
-void func_001b3e88(u8* o, u8* e) {
-    u8* p = *(u8**)(o + 2484);
-    s32 id = p ? *(s16*)(p + 2) : -1;
-    if (id >= 0) {
-        s32 k = -1;
-        bool isK = *(u32*)(*(u8**)(o + 12) + 4) == 0x17;
-        if (isK) {
-            switch ((*(u8**)(e + 32))[43]) {
-            case 0: k = 0; break;
-            case 1: k = 2; break;
-            }
-        } else {
-            switch (func_0018ca48(e[39])) {
-            case 1: case 3: case 5: k = 0; break;
-            case 4: k = 2; break;
-            }
-        }
-        if (k >= 0) {
-            func_00198580(o, id * 1000 + k + (o[2044] & 1));  // check_div1000_500
-            o[2044]++;
-        }
-    }
-}
+void func_001b3e88(u8* o, u8* e);  // 0x001b3e88: definition moved into src/anon/unit_001b2780.cpp
 }
 }
 

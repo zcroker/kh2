@@ -165,23 +165,7 @@ void func_0016bd60(void*, s32);
 void func_001c9860(s32);
 extern u8 D_0032f054;
 extern u8 D_0032bb30[];
-void func_001b6b10(u8* self, s32 id)
-{
-    func_0019ba60(self);
-    if (id == D_0032f054) return;
-    u8* o = func_001050d8(32);
-    func_001b6298(o, self, id, 0);
-    if (id) {
-        func_0016bd60(self, 0);
-        func_0017f488(self + 320, 52, 0.0f, 0.0f);
-        asm volatile("vsub.wxyz $vf1, $vf0, $vf0\n\tsqc2 $vf1, 0(%0)" : : "r"(self + 32) : "memory");
-        func_001c9860(id);
-    } else {
-        o[28] = 1;
-    }
-    *(u32*)(self + 264) |= 0x100;
-    D_0032bb30[13604] = id;
-}
+void func_001b6b10(u8* self, s32 id);  // 0x001b6b10: definition moved into src/anon/unit_001b6a50.cpp
 
 // 001bdd50: nudge a scale value by 1/8, clamped to [0.5, 1].
 void func_0016bda8(void*, void*);

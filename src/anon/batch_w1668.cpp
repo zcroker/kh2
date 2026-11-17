@@ -30,7 +30,7 @@ void w1d3bc0(u32, u32, u32, u32) asm("_Z16wtarget_001d3bc0jjjj");
 extern u32 D_003511b8;
 extern u32 D_01d48cb8;
 void w1b8290(u32, u32, u32, u32) asm("_Z16wtarget_001b8290jjjj");
-void w1b8290(u32 a, u32 b, u32, u32) { if (b == 0xffff && a == 1) D_01d48cb8 = D_003511b8; }
+void w1b8290(u32 a, u32 b, u32, u32);  // 0x001b8290: definition moved into src/anon/unit_001b6a50.cpp
 
 extern f32 D_00349e14;
 void func_00239230(u8* p) { *(f32*)(p + 0x48) += D_00349e14 * *(f32*)(p + 0x44); }

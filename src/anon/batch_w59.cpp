@@ -168,14 +168,7 @@ u32 func_0016f7d0(u32, u32);
 u32 func_001d1ca8(u8*);
 u32 func_001d1f08(u8*);
 u32 func_001c9df8(void);
-u32 func_001b55e8(u8* p) {
-    u32 o = *(u32*)(*(u8**)p + 36);
-    if (o && (func_0016f7d0(o, 0) & 8)) return 0;
-    if (func_001d1ca8(p + 104)) return 0;
-    if (func_001d1f08(p + 168)) return 0;
-    if (func_001c9df8()) return 0;
-    return *(u32*)(p + 36) == 0 && *(u32*)(p + 60) == 0;
-}
+u32 func_001b55e8(u8* p);  // 0x001b55e8: definition moved into src/anon/unit_001b2780.cpp
 
 // --- 001b9ee8
 extern u8* D_01d48da0;

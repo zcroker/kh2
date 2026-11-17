@@ -3,12 +3,7 @@
 namespace YS {
 namespace LEVELUP {
 
-INFO::INFO() {
-    INFO_Layout* i = reinterpret_cast<INFO_Layout*>(this);
-    i->v2 = 0;
-    i->v0 = 0;
-    i->v1 = 0;
-}
+// 0x001b74b8: definition moved into src/anon/unit_001b6a50.cpp
 
 }  // namespace LEVELUP
 }  // namespace YS

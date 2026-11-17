@@ -101,20 +101,13 @@ void func_0016bd60(void*, u32);
 
 void* func_001a3a78(void*);
 void func_001de168(void*, u32, u32, u32, u32, void*);  // scan_list_by_half
-void func_001b7428(void* p) {
-    func_001de168(func_001a3a78(p), 15, 1, 1, 10005, p);  // scan_list_by_half
-}
+void func_001b7428(void* p);  // 0x001b7428: definition moved into src/anon/unit_001b6a50.cpp
 
 extern u32 D_003511bc;
 extern u8 D_003511c2;
 extern u32 D_003511b8;
 extern u32 D_01d48cb8;
-void func_001b8258(void) {
-    D_003511c2 = 1;
-    D_003511bc = 0x70004000;
-    D_003511b8 = 0x70000000;
-    D_01d48cb8 = 0x70000000;
-}
+void func_001b8258(void);  // 0x001b8258: definition moved into src/anon/unit_001b6a50.cpp
 
 int func_001bb4a0(void);
 u8* func_001bbcb0(void);

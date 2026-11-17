@@ -303,23 +303,7 @@ u32 func_001a8bd0(s32);
 s32 func_001a9080(u32, u32);
 void func_001b75e8(Buf1b72*, u32, u32);
 
-void func_001b72c0(u8* p, u32 b, u32 c, s32 idx)
-{
-    Buf1b72 s;
-    func_001b74b8(&s);
-    func_001b7508(&s, p[4] - p[-12], 0x8ade);
-    func_001b7508(&s, p[5] - p[-11], 0x8adf);
-    func_001b7508(&s, p[6] - p[-10], 0x8ae0);
-    s32 d = func_001b73e8(p, b);  // compute_avg_state
-    d -= func_001b73e8(p - 16, b);  // compute_avg_state
-    func_001b7508(&s, d, 0x8ae1);
-    u16 id = *(u16*)(p + idx * 2 + 8);
-    if (id) {
-        func_001a3188(id, b, 0);
-        func_001b7538(&s, id);
-    }
-    if (func_001a9080(func_001a8bd0(-1), b)) func_001b75e8(&s, b, c);
-}
+void func_001b72c0(u8* p, u32 b, u32 c, s32 idx);  // 0x001b72c0: definition moved into src/anon/unit_001b6a50.cpp
 }
 
 // ---- 001c0890

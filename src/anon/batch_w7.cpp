@@ -120,10 +120,7 @@ u32 func_001979d8(u32 a0);  // 0x001979d8: definition moved into src/anon/unit_0
 
 void func_001ae650(void);  // 0x001ae650: definition moved into src/anon/unit_001ada38.cpp
 
-void func_001b2c18(u32 a0, u32 a1) {
-    func_0017c430(a1);
-    func_0016bd60(a1, 20);
-}
+void func_001b2c18(u32 a0, u32 a1);  // 0x001b2c18: definition moved into src/anon/unit_001b2780.cpp
 
 // COMMAND_ELEM GetForm
 void command_elem_get_form(u32 a0) asm("_ZN2YS12COMMAND_ELEM7GetFormEi");

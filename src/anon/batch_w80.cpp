@@ -471,19 +471,7 @@ s32 func_0019bd08(U1_Lk* o, s32 n);  // 0x0019bd08: definition moved into src/an
 
 #define U2_W80_MAX(a, b) ((a) > (b) ? (a) : (b))
 // level up while the experience requirement is met
-void func_001b71e8(void* o, U2_Grow* g, U2_GrowOwn* own) {
-    s32 first = 1;
-    for (;;) {
-        if (g->lv >= 99) return;
-        if (D_0032bb30[3512] < func_001b6fb0(o, g->lv)->need) return;
-        g->lv++;
-        func_001b72c0(func_001b6fb0(o, g->lv), o, g->lv, g->f14);
-        if (own) {
-            if (first) { func_001b7428(own); first = 0; }
-            func_001a1460(own->f1164);
-        }
-    }
-}
+void func_001b71e8(void* o, U2_Grow* g, U2_GrowOwn* own);  // 0x001b71e8: definition moved into src/anon/unit_001b6a50.cpp
 
 #define U3_W80_MAX(a, b) ((a) > (b) ? (a) : (b))
 void func_001c0490(U3_TmrSet* s);  // 0x001c0490: definition moved into src/anon/unit_001bff88.cpp

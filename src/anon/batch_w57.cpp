@@ -117,28 +117,12 @@ struct OccObj { u32 a, b, flags; };
 struct OccEnt { u8 p[128]; OccObj* obj; u8 q[12]; };
 struct OccSelf { union { OccHdr* h; u32 uh; }; union { OccEnt* arr; u32 uarr; }; };
 void OccDisableAll(OccSelf* t) asm("_ZN2YS6OBJOCC11disable_allEv");
-void OccDisableAll(OccSelf* t) {
-    if (t->uh) {
-        for (s32 i = 0; i < ((OccHdr*)t->uh)->count; i++) {
-            ((OccEnt*)t->uarr)[i].obj->flags |= 2;
-        }
-    }
-}
+void OccDisableAll(OccSelf* t);  // 0x001b3270: definition moved into src/anon/unit_001b2780.cpp
 
 void func_001b7f88(void);
 void func_00170c00(void*);
 extern u8 D_003511c3;
-void func_001b7f30(u32* t) {
-    if (t[0]) {
-        if (D_003511c3 == 1) {
-            func_001b7f88();
-            func_00170c00((void*)t[0]);
-        }
-    }
-    t[2] = 0;
-    t[1] = 0;
-    t[0] = 0;
-}
+void func_001b7f30(u32* t);  // 0x001b7f30: definition moved into src/anon/unit_001b6a50.cpp
 
 
 // Destructor: release the array member and trailing sub-object.

@@ -182,24 +182,11 @@ void func_001b3b70(void*, u32, u32, u32);
 extern u8 D_00351078[];
 extern void* D_00351068;
 
-void func_001b3a90(u8* p, u32 a1, u32 a2) {
-    func_001b3b70(p, a1, 2, a2);
-    *(u32*)(p + 1416) |= 0x10000;
-    *(void**)p = D_00351078;
-    *(u32*)(p + 1536) &= ~0x78;
-    *(u32*)(p + 944) = 1;
-    if (func_0016a070(p) == 5008) D_00351068 = p;
-}
+void func_001b3a90(u8* p, u32 a1, u32 a2);  // 0x001b3a90: definition moved into src/anon/unit_001b2780.cpp
 
 s32 func_0018a550(void*, u32);  // state_dispatch_0_1_3
 
-void* func_001b7998(s32* p, u32 a1) {
-    for (s32 i = 0; i < p[0]; i++) {
-        u8* e = (u8*)p + 16 + i * 32;
-        if (func_0018a550(e, a1)) return e;
-    }
-    return 0;
-}
+void* func_001b7998(s32* p, u32 a1);  // 0x001b7998: definition moved into src/anon/unit_001b6a50.cpp
 
 s32 func_001bb4a0(u32);
 u8* func_001bbcb0(void);

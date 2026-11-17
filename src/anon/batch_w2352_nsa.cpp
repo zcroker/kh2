@@ -47,59 +47,7 @@ void func_001dddd0(void*, s32);
 static inline bool valid(Res* r) { return r && r->v; }
 
 /* 001b4a00: set-up step of an entity: reads its parameters (0x14, 0x12, 3, 0x22) and initialises the sub-objects. */
-void func_001b4a00(Obj* self, f32 f)
-{
-    Res* r;
-    self->h = func_001708f8(func_001d3f98(self->ent), -1);
-    r = func_00168b38(self->h, 0x14, 0);
-    if (valid(r)) {
-        self->f8 = r->v;
-    }
-    r = func_00168b38(self->h, 0x12, 0);
-    if (valid(r)) {
-        func_001dddd0(self->s18, r->v);
-    }
-    r = func_00168b38(self->h, 3, 0);
-    if (valid(r)) {
-        Obj* tmp;
-        s32 m = func_0016d080(r->v, 0);
-        self->f34 = m;
-        tmp = self;
-        func_0016cbc8(m, 0x16, &tmp, 1);
-    }
-    r = func_00168b38(self->h, 0x22, 0);
-    if (valid(r)) {
-        s32 v = r->v;
-        Sub* s = &self->sub;
-        /* The original addresses these words without the field types: as plain
-           field stores gcc reorders them (it can tell the fields apart). */
-        *(s32*)((u8*)s + 8) = -1;
-        *(s32*)((u8*)s + 20) = 0x1800;
-        *(s32*)((u8*)s + 12) = 0;
-        *(s32*)((u8*)s + 16) = 0;
-        s->f1c = v;
-        s->vt = (u32)D_00350e48;
-        *(s32*)((u8*)s + 4) = 2;
-        self->psub = s;
-    }
-    func_001b4c48(self, self->s6c, D_0036da78);
-    func_001d1a18(self->s68, 0, 999, 0);
-    func_001d2248(self->s68, func_001d4550(self->ent));
-    if (self->ent->id != 0x1e4 && self->ent->id != 0x26c) {
-        func_001d20a8(self->s68);
-    }
-    func_001b4c48(self, self->sac, D_0036da80);
-    func_001d16e8(self->sa8, 1, 12);
-    {
-        s32 i = (s32)f;
-        func_001d1698(self->sa8, i, i, 0);
-    }
-    func_001d1da0(self->sa8, f);
-    func_001d1d00(self->sa8);
-    if (self->ent->id == 0x1e4) {
-        func_001b5708(self, 3);
-    }
-}
+void func_001b4a00(Obj* self, f32 f);  // 0x001b4a00: definition moved into src/anon/unit_001b2780.cpp
 }
 
 /* ---- 00222d40 ---- */

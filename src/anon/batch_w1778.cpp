@@ -13,15 +13,5 @@ void func_001b5250(s32, s32);
 bool func_001c8db8(void*, s32);
 void func_001d4180(void);
 
-void func_001b4340(void) {
-    W1778Obj* o = D_0034e948;
-    if (D_01d48cb0 == 0) {
-        if (func_0019ba60(o) && o->vt->isOk(o)) {
-            bool b = !func_001c8db8(D_00351eb8, 0);
-            if (b) func_001d4180();
-        }
-    } else {
-        func_001b5250(D_01d48cb0, 0);
-    }
-}
+void func_001b4340(void);  // 0x001b4340: definition moved into src/anon/unit_001b2780.cpp
 }

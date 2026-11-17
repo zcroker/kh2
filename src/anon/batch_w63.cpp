@@ -226,14 +226,7 @@ struct S36 { u32 w[9]; };
 // 001abe80: moved to src/anon/unit_001abb28.cpp
 
 struct B4 { u8 c0; u8 c1; u8 c2; u8 b0 : 1; u8 rest : 7; };
-void func_001b6d88(B4* p, s32 a1) {
-    if (a1 == 3 && p->c0 >= 3) {
-        p->c0++;
-        return;
-    }
-    p->c0 = a1;
-    if (a1 == 2) p->b0 = 0;
-}
+void func_001b6d88(B4* p, s32 a1);  // 0x001b6d88: definition moved into src/anon/unit_001b6a50.cpp
 
 static inline u8* b9next(u8* n) {
     if (!n) return D_01d48da0;

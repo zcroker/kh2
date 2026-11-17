@@ -36,63 +36,7 @@ static inline __attribute__((always_inline)) bool isB(u32 f) {
 yes: r = true;
 no: return r;
 }
-void func_001b60e0(W8021T* t, W8021Owner* o, s32 id, s32 x) {
-    t->owner = o;
-    t->id = id;
-    t->x = x;
-    *(u32*)((u8*)t + 12) = 0;
-    t->f10 = 0;
-    t->f14 = 0;
-    t->f1c = 0;
-    if (D_00351184) func_001b6d00();
-    D_00351184 = t;
-    if (ok(id)) t->f14 = func_001a1658(1, -1);
-    if (t->x == 0) t->x = func_001d1438(t->id);
-    if (func_0019c090(t->owner)) {
-        W8021Owner* ow = t->owner;
-        t->flags |= 1;
-        if (!isB(ow->f160)) {
-            u32 g = ow->p0c->f8;
-            if (g & 0x40) goto out;
-            if (g & 0x4000) goto out;
-            t->flags |= 2;
-        }
-    }
-out:
-    func_001c8d80(D_00351ec0, 1);
-    t->f18 = func_00102818(D_00351214, 0, 1, (void*)func_001b6ca8, 0x2000);
-    t->f18->back = t;
-    t->f18->cb = (void*)func_001b6cc8;
-    if (t->f14) func_00102788(D_00351214, 0, 1, (void*)func_001b6a50);
-}
+void func_001b60e0(W8021T* t, W8021Owner* o, s32 id, s32 x);  // 0x001b60e0: definition moved into src/anon/unit_001b2780.cpp
 void u_tail4_001b6298(W8021T* t, W8021Owner* o, s32 id, s32 x) asm("_Z16u_tail4_001b6298jjjj");
-void u_tail4_001b6298(W8021T* t, W8021Owner* o, s32 id, s32 x) {
-    t->owner = o;
-    t->id = id;
-    t->x = x;
-    *(u32*)((u8*)t + 12) = 0;
-    t->f10 = 0;
-    t->f14 = 0;
-    t->f1c = 0;
-    if (D_00351184) func_001b6d00();
-    D_00351184 = t;
-    if (ok(id)) t->f14 = func_001a1658(1, -1);
-    if (t->x == 0) t->x = func_001d1438(t->id);
-    if (func_0019c090(t->owner)) {
-        W8021Owner* ow = t->owner;
-        t->flags |= 1;
-        if (!isB(ow->f160)) {
-            u32 g = ow->p0c->f8;
-            if (g & 0x40) goto out;
-            if (g & 0x4000) goto out;
-            t->flags |= 2;
-        }
-    }
-out:
-    func_001c8d80(D_00351ec0, 1);
-    t->f18 = func_00102818(D_00351214, 0, 1, (void*)func_001b6ca8, 0x2000);
-    t->f18->back = t;
-    t->f18->cb = (void*)func_001b6cc8;
-    if (t->f14) func_00102788(D_00351214, 0, 1, (void*)func_001b6a50);
-}
+void u_tail4_001b6298(W8021T* t, W8021Owner* o, s32 id, s32 x);  // 0x001b6298: definition moved into src/anon/unit_001b2780.cpp
 }

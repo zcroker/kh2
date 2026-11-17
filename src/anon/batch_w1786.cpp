@@ -26,11 +26,5 @@ void func_00190a80(W1786Tg* t, W1786Ob* o);  // 0x00190a80: definition moved int
 
 W1786V4 func_0017c870(f32, f32);
 s32 func_001b2d10(void*, W1786V4*);
-W1786V4 func_001b2c48(W1786VC* c, void* x) {
-    W1786V4 d;
-    W1786V4 r;
-    r = func_0017c870(0.9f, 0.95f);
-    if (r.y > 0.0f && func_001b2d10(x, &r)) c->f5(x);
-    return r;
-}
+W1786V4 func_001b2c48(W1786VC* c, void* x);  // 0x001b2c48: definition moved into src/anon/unit_001b2780.cpp
 }

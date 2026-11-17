@@ -128,16 +128,10 @@ void func_00195750(void);  // 0x00195750: definition moved into src/anon/unit_00
 
 void func_001a91f8(s32* p);  // 0x001a91f8: definition moved into src/anon/unit_001a9130.cpp
 
-void func_001b58f0(u8* p, u32 a1, u32 a2, u32 a3) {
-    func_001de168(p + 24, a1, a2, 1, 30000, a3);  // scan_list_by_half
-}
+void func_001b58f0(u8* p, u32 a1, u32 a2, u32 a3);  // 0x001b58f0: definition moved into src/anon/unit_001b2780.cpp
 
 // Advance the cursor by n 16-byte entries; returns the old position.
-Vec16* func_001b7ff8(Cursor16* c, s32 n) {  // bump_field8_alloc
-    Vec16* r = c->p;
-    c->p = r + n;
-    return r;
-}
+Vec16* func_001b7ff8(Cursor16* c, s32 n);  // 0x001b7ff8: definition moved into src/anon/unit_001b6a50.cpp
 
 void func_001d1678(s32* p, s32 a1);  // 0x001d1678: definition moved into src/anon/unit_001d14e0.cpp
 

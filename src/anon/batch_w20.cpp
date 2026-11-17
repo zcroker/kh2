@@ -137,12 +137,7 @@ u32 target_is_exist(const u8* t);  // 0x00190140: definition moved into src/anon
 
 // 001b1ff0: moved to src/anon/unit_001b1d20.cpp
 
-void func_001b2780(void* a0, void* a1, Q16* a2) {
-    Q16 t;
-    QCOPY(&t, a2);
-    func_0017c4c8(a1, &t);
-    func_0016bd60(a1, 20);
-}
+void func_001b2780(void* a0, void* a1, Q16* a2);  // 0x001b2780: definition moved into src/anon/unit_001b2780.cpp
 
 u32 func_001bd3e0(u8* p);  // 0x001bd3e0: definition moved into src/anon/unit_001bc568.cpp
 

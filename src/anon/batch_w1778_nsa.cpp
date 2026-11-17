@@ -8,18 +8,5 @@ struct W1778Res { W1778Grp* g; W1778Item* it; };
 extern "C" {
 W1778Grp* func_001b9bc8(W1778Grp*);
 
-void func_001b3388(W1778Res* r, s32 key) {
-    W1778Grp* g = 0;
-    while ((g = func_001b9bc8(g)) != 0) {
-        if (g->t == 0) continue;
-        for (s32 i = 0; i < g->t->n; i++) {
-            if (g->items[i].key == key) {
-                r->g = g;
-                r->it = &g->items[i];
-                return;
-            }
-        }
-    }
-    r->g = 0;
-}
+void func_001b3388(W1778Res* r, s32 key);  // 0x001b3388: definition moved into src/anon/unit_001b2780.cpp
 }

@@ -205,14 +205,7 @@ void func_001dddd0(void*, u32);
 // 001a3a88: moved to src/yasui/libys/effect.cpp
 
 void func_00165768(u32);
-void func_001b3018(u32* p) {
-    if (p[0]) {
-        s32 i;
-        for (i = 0; i < *(s32*)(p[0] + 4); i++) func_00165768(*(u32*)(p[1] + i * 144 + 128));
-        func_00105110((void*)p[1]);
-        p[0] = 0;
-    }
-}
+void func_001b3018(u32* p);  // 0x001b3018: definition moved into src/anon/unit_001b2780.cpp
 
 extern struct { u8 v; } D_01d48d94;
 extern u8* D_01d48d90;

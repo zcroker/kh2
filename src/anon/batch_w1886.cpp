@@ -61,27 +61,7 @@ s32 func_0016cd48(s32, s32);
 void func_001b5588(W1886Obj*);
 s32 func_001b5680(W1886Obj*);
 void func_001b53b0(W1886Obj*, f32);
-void func_001b5250(W1886Obj* t, u8 flag)
-{
-    if ((t->flags & 4) && func_001b55e8(t)) {
-        func_001b5460(t);
-        delete t;
-        return;
-    }
-    if (!flag) {
-        if (D_0034f240 & 0x20) return;
-        if ((t->flags & 1) == 1) {
-            func_00185e20(1);
-            t->flags = (t->flags & ~1) | 2;
-        } else if ((t->flags & 2) && !func_00197920()) {
-            func_0016c640(1);
-            t->flags &= ~2;
-        }
-    }
-    if (t->p44) func_001b0250(t->p44);
-    if (t->p34 && func_0016cd48(t->p34, 0) == 1) func_001b5588(t);
-    if (func_001b5680(t)) func_001b53b0(t, D_00349e10);
-}
+void func_001b5250(W1886Obj* t, u8 flag);  // 0x001b5250: definition moved into src/anon/unit_001b2780.cpp
 
 const unsigned char* func_00314b00(const unsigned char*, W1886UnwindWord*); /* read_uleb128 */
 const unsigned char* func_00314b38(const unsigned char*, W1886UnwindSword*); /* read_sleb128 */

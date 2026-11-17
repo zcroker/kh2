@@ -103,11 +103,7 @@ void func_001a1db8(Obj1a1db8* p);  // 0x001a1db8: definition moved into src/anon
 
 // 001b1fc8: moved to src/anon/unit_001b1d20.cpp
 
-u16 func_001b5af0(void) {
-    u8* p = D_01d48cb0;
-    if (p == 0 || (*(u32*)(p + 64) & 4)) return 0;
-    return *(u16*)(*(u8**)p + 40);
-}
+u16 func_001b5af0(void);  // 0x001b5af0: definition moved into src/anon/unit_001b2780.cpp
 
 // 001bbb28: moved to src/yasui/libys/mission.cpp
 

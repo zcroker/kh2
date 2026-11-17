@@ -153,15 +153,9 @@ void LOCKON_dtor(void* l);  // 0x0019c9a8: definition moved into src/anon/unit_0
 
 void func_001a0678(void** p);  // 0x001a0678: definition moved into src/anon/unit_0019fb70.cpp
 
-void func_001b4300(void) {
-    D_01d48cb0 = 0;
-    u8* p = (u8*)func_00102c18(1, 0x5078, func_001b4340);
-    *(void (**)(void))(p + 48) = func_001b43e0;
-}
+void func_001b4300(void);  // 0x001b4300: definition moved into src/anon/unit_001b2780.cpp
 
-void func_001b58b8(void* a, void* b, void* c) {
-    func_0016cfa0(*(void**)((u8*)D_01d48cb0 + 52), 0, a, b, c);
-}
+void func_001b58b8(void* a, void* b, void* c);  // 0x001b58b8: definition moved into src/anon/unit_001b2780.cpp
 
 struct Flags16 { u16 lo:9; u16 bit9:1; u16 hi:6; };
 

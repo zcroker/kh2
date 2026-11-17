@@ -112,17 +112,7 @@ void func_001ae8d8(u8* p, u32 buf, u32 size, u32 a, u32 e);  // 0x001ae8d8: defi
 V4* func_0016c028(u8*);  // obj_get_attach_or_alt
 f32 func_001849d8(u8*);
 
-s32 func_001b2d10(u8* p, f32* q)
-{
-    V4 t;
-    V4* src = func_0016c028(p);  // obj_get_attach_or_alt
-    // 128-bit copy (lq/sq)
-    asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(&t), "r"(src) : "$8", "memory");
-    f32 s = t.y + q[1];
-    if (func_001849d8(p) - 100.0f <= s) { q[1] = 0; return 1; }
-    if (*(f32*)(p + 224) <= s) { q[1] = *(f32*)(p + 224) - t.y; return 1; }
-    return 0;
-}
+s32 func_001b2d10(u8* p, f32* q);  // 0x001b2d10: definition moved into src/anon/unit_001b2780.cpp
 
 struct Bits { u32 a, b; u64 on; u64 off; };
 extern u8* D_01d49978;
@@ -526,20 +516,7 @@ void func_0016c2b0(Tmp48*, u8*);
 void func_001b4198(u8*, u32, Tmp48*);
 void func_0016be00(u8*, u16);
 void func_00187850(u8*);
-void func_001b40e0(u8* p)
-{
-    u8* q = p + 768;
-    if (func_001883d8(q, D_0036da70)) func_001880b0(q, D_0036da70);
-    u8* t = *(u8**)(p + 1164);
-    if (t && *(u8**)(t + 612)) {
-        Tmp48 tmp;
-        func_0016c2b0(&tmp, p);
-        func_001b4198(*(u8**)(*(u8**)(p + 1164) + 612), *(u32*)(p + 2788), &tmp);
-        u16 v = *(u16*)(*(u8**)(*(u8**)(p + 1164) + 612) + 88);
-        if (v) func_0016be00(p, v);
-    }
-    func_00187850(p);
-}
+void func_001b40e0(u8* p);  // 0x001b40e0: definition moved into src/anon/unit_001b2780.cpp
 
 extern u8* D_01d48da0;
 static inline u8* NextB(u8* n) { if (!n) return D_01d48da0; return *(u8**)(n + 2228); }

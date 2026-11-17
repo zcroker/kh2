@@ -86,31 +86,9 @@ void func_001b5460(Obj1b4*);
 void func_001b4f40(Obj1b4*);
 void func_00105110(void*);
 // Destroy and free the singleton at D_01d48cb0.
-void func_001b43e0(void) {
-    if (D_01d48cb0) {
-        func_001b5460(D_01d48cb0);
-        Obj1b4* p = D_01d48cb0;
-        if (p) {
-            NoTail g; // keeps the free a plain call (no sibcall)
-            func_001b4f40(p);
-            func_00105110(p);
-        }
-    }
-}
+void func_001b43e0(void);  // 0x001b43e0: definition moved into src/anon/unit_001b2780.cpp
 void u_call0_001b5400(void) asm("_Z16u_call0_001b5400v");
-void u_call0_001b5400(void) {
-    if (D_01d48cb0) {
-        D_01d48cb0->flags |= 0x10;
-        asm volatile("" ::: "memory"); // the original reloads the global after the flag store
-        func_001b5460(D_01d48cb0);
-        Obj1b4* p = D_01d48cb0;
-        if (p) {
-            NoTail g;
-            func_001b4f40(p);
-            func_00105110(p);
-        }
-    }
-}
+void u_call0_001b5400(void);  // 0x001b5400: definition moved into src/anon/unit_001b2780.cpp
 
 s32 func_001dc738(void*);  // state_gate_flags
 s32 func_001dc790(u32* p);  // 0x001dc790: definition moved into src/anon/unit_001dbfd8.cpp

@@ -131,12 +131,7 @@ void func_001af328(u32 a);  // 0x001af328: definition moved into src/anon/unit_0
 extern u8* D_00351184;
 extern u32 D_00351214;
 void func_00102670(u32, u32);  // to_1025f8
-void func_001b6d00(void) {
-    if (D_00351184) {
-        func_00102670(D_00351214, *(u32*)(D_00351184 + 24));  // to_1025f8
-        D_00351184 = 0;
-    }
-}
+void func_001b6d00(void);  // 0x001b6d00: definition moved into src/anon/unit_001b6a50.cpp
 
 // --- 001b8228
 extern u8 D_003a99f0[];
@@ -144,13 +139,7 @@ extern u8* D_01d48cb8;
 extern u8* D_003511bc;
 extern u8* D_003511b8;
 extern u8 D_003511c2;
-void func_001b8228(void) {
-    u8* p = D_003a99f0;
-    D_003511c2 = 0;
-    D_003511bc = p + 16384;
-    D_003511b8 = p;
-    D_01d48cb8 = p;
-}
+void func_001b8228(void);  // 0x001b8228: definition moved into src/anon/unit_001b6a50.cpp
 
 // --- 001b86e0
 // Push an entry's index onto the free list.

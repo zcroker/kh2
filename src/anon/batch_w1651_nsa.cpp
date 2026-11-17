@@ -63,29 +63,5 @@ void func_002fd188(void (*)(void));
 W1651Vec* func_0016c028(W1651Actor*);
 f32 func_002f8ad0(f32, f32);
 void func_001835a0(W1651Actor*, f32);
-W1651Vec func_001b3428(W1651Ref* ref, W1651Actor* act)
-{
-    if (!D_01d48c98) {
-        new (&D_01d48ca0) W1651Vec(0.0f, 0.0f, 1.0f, 0.0f);
-        D_01d48c98 = 1;
-        func_002fd188(func_001b3740);
-    }
-    W1651Vec pos;
-    W1651Vec dir;
-    W1651Mtx m;
-    W1651Vec* pd = &dir;
-    W1651Mtx* pm = &m;
-    pos = *func_0016c028(act);
-    pos.w = 1.0f;
-    pm->inverse(ref->entry->m[ref->owner->cur]);
-    W1651Vec ret;
-    ret = m * pos;
-    ret.w = 1.0f;
-    *pd = m * D_01d48ca0;
-    m = ref->entry->m[ref->owner->cur ^ 1];
-    ret = m * ret - pos;
-    *pd = m * *pd;
-    func_001835a0(act, func_002f8ad0(pd->x, pd->z));
-    return ret;
-}
+W1651Vec func_001b3428(W1651Ref* ref, W1651Actor* act);  // 0x001b3428: definition moved into src/anon/unit_001b2780.cpp
 }

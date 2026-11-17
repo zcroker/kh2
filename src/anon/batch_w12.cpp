@@ -153,10 +153,7 @@ s32 func_001b0148(s32 x, s32 a, s32 v, s32 b);  // 0x001b0148: definition moved 
 
 // 001b1328: moved to src/yasui/libys/lookat.cpp
 
-void func_001b2f10(void) {
-    D_01d48c90 = 1;
-    func_00165898(func_001050c8());
-}
+void func_001b2f10(void);  // 0x001b2f10: definition moved into src/anon/unit_001b2780.cpp
 
 u8 func_001b8d60(u8* dst);  // 0x001b8d60: definition moved into src/anon/unit_001b87a0.cpp
 

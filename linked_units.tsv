@@ -23,6 +23,8 @@ src/anon/unit_001a2a50.cpp	001a2a50	001a3a50	.bss@01c6cac0,.rodata@0036d458	-G0 
 src/yasui/libys/databuff.cpp	001b13d8	001b14d8	.data@00350e88,.bss@01c94100	-G0
 src/anon/unit_001b14d8.cpp	001b14d8	001b1c38	.rodata@0036d998	-G0 -fno-strict-aliasing
 src/anon/unit_001b1d20.cpp	001b1d20	001b2728	.rodata@0036d9c0	-G0
+src/anon/unit_001b2780.cpp	001b2780	001b65e0	.rodata@0036d9d4	-G0 -g -fno-strict-aliasing
+src/anon/unit_001b6a50.cpp	001b6a50	001b82d8	.rodata@0036dac4	-G0 -g -fno-strict-aliasing
 src/anon/unit_001c2b58.cpp	001c2b58	001c38c0	.rodata@0036dddc	-G0
 src/anon/unit_001c38c0.cpp	001c38c0	001c3f58	.rodata@0036de08	-G0
 src/anon/unit_001c4050.cpp	001c4050	001c40e0	-	-G0

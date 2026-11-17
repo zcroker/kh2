@@ -82,9 +82,7 @@ void func_001b1be0(u8*);
 // 001b1bb8: moved to src/anon/unit_001b14d8.cpp
 
 void func_001802d8(u32, u32, void*, u32, u32, void*);
-void func_001b50b0(u8* p, u32 a, u32 b) {
-    func_001802d8(0, *(u32*)(p + 8), p + 24, a, b, p + 60);
-}
+void func_001b50b0(u8* p, u32 a, u32 b);  // 0x001b50b0: definition moved into src/anon/unit_001b2780.cpp
 
 void func_001a3c88(void);
 u8 func_001029e8(u32);

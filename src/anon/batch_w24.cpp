@@ -92,14 +92,7 @@ u8* func_00189200(void*, u32);
 void func_001a1cc0(u32, u32, u8);
 void func_001a17c8(u32);
 extern u8 D_0032e020;
-void func_001b6ab8(u32* p) {
-    if (p[5]) {
-        u8* e = func_00189200(&D_0032e020, p[1]);
-        func_001a1cc0(p[5], p[1], e[2]);
-        func_001a17c8(p[5]);
-        p[5] = 0;
-    }
-}
+void func_001b6ab8(u32* p);  // 0x001b6ab8: definition moved into src/anon/unit_001b6a50.cpp
 
 void u_tail0_001b87b0(void) asm("_Z16u_tail0_001b87b0v");
 void func_001b8838(s32);

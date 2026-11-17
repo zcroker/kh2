@@ -72,17 +72,11 @@ extern u8 D_0034fa78;
 
 void func_0017c430(u32);
 void func_0016bd60(u32, u32);
-void func_001b27c0(u32, u32 a) {
-    func_0017c430(a);
-    func_0016bd60(a, 20);
-}
+void func_001b27c0(u32, u32 a);  // 0x001b27c0: definition moved into src/anon/unit_001b2780.cpp
 
 extern u8 D_003511c3;
 extern u8 D_003511c2;
-u32 func_001b7fd0(void) {
-    if (D_003511c3 != 0) return 0;
-    return D_003511c2 == 1;
-}
+u32 func_001b7fd0(void);  // 0x001b7fd0: definition moved into src/anon/unit_001b6a50.cpp
 
 void func_002fd248(u32, void*, u32, u32, void*);
 extern u32* D_01d48cc4;

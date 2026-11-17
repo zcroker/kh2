@@ -40,42 +40,7 @@ void func_001617d8(void);
 void func_001ad990(u8*, f32, f32, f32);
 s32 func_001ba028(u8*);  // list_contains_ptr
 void func_00102448(void*, s32);
-s32 func_001b5cf8(O5cf8* o, void* a1)
-{
-    s32 s5 = -1;
-    s32 s6 = func_0016a070(o->p4);
-    s32 id = ((s32 (*)(u8*))(*(void***)o->p4)[15])(o->p4);
-    s32 s4 = *(s32*)(o->p4 + 1964);
-    switch (id) {
-    case 2410: s5 = 5; break;
-    case 2420: s5 = 6; break;
-    }
-    QV298 pos;
-    pos = *func_0016c028(o->p4);  // obj_get_attach_or_alt
-    switch (o->f0) {
-    case 0: {
-        u8* p = o->p4;
-        if (!(*(u32*)(p + 2040) & 0x10)) { f32 c = 8.0f; func_001ad990(p + 2092, 1.0f, 0.0f, c); }
-        *(u32*)(p + 2040) |= 0x10;
-        while (func_001ba028(o->p4)) func_00102448(a1, 0);  // list_contains_ptr
-        func_00102448(a1, 1);
-        break;
-    }
-    case 1:
-        ((void (*)(u8*))(*(void***)o->p4)[36])(o->p4);
-        break;
-    }
-    func_001703a8(id);
-    func_001703a8(id + 1);
-    func_001703a8(id + 2);
-    func_001afb80(a1, s4, s6, o->f8);
-    func_0016ed50(o->f8, id, s5);
-    func_00170888(a1);
-    func_001c9e50(a1);
-    s32 r = func_0017e4f8(o->f8, &pos, 100.0f, 200.0f, 300.0f);
-    if (o->f0 == 1) func_001617d8();
-    return r;
-}
+s32 func_001b5cf8(O5cf8* o, void* a1);  // 0x001b5cf8: definition moved into src/anon/unit_001b2780.cpp
 
 s32 func_0018ca48(u8);
 QV298* func_0016c028(u8*);  // obj_get_attach_or_alt

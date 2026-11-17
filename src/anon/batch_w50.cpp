@@ -239,12 +239,7 @@ void func_00194930(void);  // 0x00194930: definition moved into src/anon/unit_00
 // 001a5a48: moved to src/anon/unit_001a4db0.cpp
 
 extern "C" {
-void func_001b3098(Arr144* s) {
-    if (!s->hdr) return;
-    for (s32 i = 0; i < *(s32*)(s->hdr + 4); i++) func_00165768(*(u32*)(s->arr + i * 144 + 128));
-    func_00105110(s->arr);
-    s->hdr = 0;
-}
+void func_001b3098(Arr144* s);  // 0x001b3098: definition moved into src/anon/unit_001b2780.cpp
 
 // 001bb7f8: moved to src/yasui/libys/mission.cpp
 

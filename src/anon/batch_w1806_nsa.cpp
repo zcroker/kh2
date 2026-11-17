@@ -43,14 +43,5 @@ void func_0011d5e0(W1806Obj* o, s32 i, W1806Vec* out, f32 s) {
     out->z = -out->z;
 }
 
-void func_001b2f38(W1806Set* o, W1806Hdr* h, u8 flag) {
-    s32 i;
-    o->h = h;
-    o->e = (W1806Item*)func_001050d8(h->n * 144);
-    for (i = 0; i < o->h->n; i++) {
-        o->e[i].h = func_001659b8((u8*)o->h + o->h->e[i].off, D_01d48c90);
-        if (!flag) func_00165870(o->e[i].h);
-    }
-    o->id = D_01d48c90++;
-}
+void func_001b2f38(W1806Set* o, W1806Hdr* h, u8 flag);  // 0x001b2f38: definition moved into src/anon/unit_001b2780.cpp
 }
