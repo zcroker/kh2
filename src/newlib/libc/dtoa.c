@@ -18,32 +18,46 @@
  *
  ***************************************************************/
 
-/* Reconstruction of newlib's _dtoa_r (newlib/libc/stdlib/dtoa.c, newlib 1.10-era, David M. Gay's
- * dtoa adapted for newlib), which the game links. newlib is (c) The Regents of the University of
- * California, David M. Gay / AT&T and other contributors, BSD-style licensed; see
- * https://sourceware.org/newlib/ for its license terms. */
-#include "../common/types.h"
+/* dtoa.c: newlib libc (libc/stdlib/dtoa.c, David M. Gay's dtoa adapted for newlib), the copy the game links from
+ * the toolchain's libc.a. Linked unit 0x301708-0x302b18 (quorem, _dtoa_r) with its .rodata at 0x377c68 (the
+ * strings, the log10 estimate constants and the mode switch table). IEEE_8087 little-endian, Pack_32, not
+ * Sudden_Underflow. Soft-float double arithmetic becomes libcalls to the game's own fp-bit routines (aliased
+ * below); the mprec.o helpers (not linked as units yet) are bound to their game names.
+ * Third-party code notice: rebuilt to match; not covered by this project's MIT License. */
+#include "newlib.h"
 
-// 00301938: newlib's _dtoa_r, built as C by the game's gcc 3.2 (IEEE_8087 little-endian,
-// Pack_32, not Sudden_Underflow, __Long = int). Soft-float double arithmetic becomes libcalls
-// to the game's own fp-bit routines, aliased below.
+asm("dpcmp = func_003142e0");
+asm("dpsub = __subdf3");
+asm("dpadd = func_00313e80");
+asm("dpmul = func_00313f40");
+asm("dpdiv = func_00314190");
+asm("litodp = func_00314330");
+asm("dptoli = func_003143e0");
+asm("_multadd = __multadd");
+asm("_hi0bits = func_00303e80");
+asm("_i2b = __i2b");
+asm("_multiply = __multiply");
+asm("_pow5mult = __pow5mult");
+asm("_lshift = __lshift");
+asm("_d2b = __d2b");
+asm("__mprec_tens = D_00377d10");
+asm("__mprec_bigtens = D_00377dd8");
+
+typedef int __Long;
+typedef unsigned int __ULong;
 
 struct _Bigint {
-    struct _Bigint* _next;
-    s32 _k, _maxwds, _sign, _wds;
-    u32 _x[1];
+    struct _Bigint *_next;
+    int _k, _maxwds, _sign, _wds;
+    __ULong _x[1];
 };
 typedef struct _Bigint _Bigint;
 
-struct _reent_dtoa {           // newlib struct _reent, only the fields dtoa touches
-    u8 pad[0x40];
-    _Bigint* _result;          // 0x40
-    s32 _result_k;             // 0x44
-};
-
-union double_union { double d; u32 i[2]; };
+union double_union { double d; __ULong i[2]; };
 #define word0(x) ((x).i[1])
 #define word1(x) ((x).i[0])
+
+#define Storeinc(a, b, c) (((unsigned short *)a)[1] = (unsigned short)b, ((unsigned short *)a)[0] = (unsigned short)c, a++)
 
 #define Exp_shift1 20
 #define Exp_msk1   0x100000
@@ -62,59 +76,118 @@ union double_union { double d; u32 i[2]; };
 #define Int_max    14
 #define n_bigtens  5
 
-_Bigint* _Balloc(struct _reent_dtoa* p, s32 k) asm("_Z7_Ballocjjjj"); // Balloc
-void     _Bfree(struct _reent_dtoa* p, _Bigint* v);                 // Bfree
-_Bigint* __multadd(struct _reent_dtoa* p, _Bigint* b, s32 m, s32 a);  // multadd
-s32      func_00303e80(u32 x);                                             // hi0bits
-_Bigint* __i2b(struct _reent_dtoa* p, s32 i);                      // i2b
-_Bigint* __multiply(struct _reent_dtoa* p, _Bigint* a, _Bigint* b);    // mult
-_Bigint* __pow5mult(struct _reent_dtoa* p, _Bigint* b, s32 k);         // pow5mult
-_Bigint* __lshift(struct _reent_dtoa* p, _Bigint* b, s32 k);         // lshift
-s32      __mcmp(_Bigint* a, _Bigint* b);                            // cmp
-_Bigint* __mdiff(struct _reent_dtoa* p, _Bigint* a, _Bigint* b);    // diff
-_Bigint* __d2b(struct _reent_dtoa* p, double d, s32* e, s32* bits); // d2b
-s32      func_00301708(_Bigint* b, _Bigint* S);                            // quorem
-void*    memcpy(void* dst, const void* src, u32 n);                 // memcpy
+_Bigint *_Balloc(struct _reent *p, int k);
+void _Bfree(struct _reent *p, _Bigint *v);
+_Bigint *_multadd(struct _reent *p, _Bigint *b, int m, int a);
+int _hi0bits(__ULong x);
+_Bigint *_i2b(struct _reent *p, int i);
+_Bigint *_multiply(struct _reent *p, _Bigint *a, _Bigint *b);
+_Bigint *_pow5mult(struct _reent *p, _Bigint *b, int k);
+_Bigint *_lshift(struct _reent *p, _Bigint *b, int k);
+int __mcmp(_Bigint *a, _Bigint *b);
+_Bigint *__mdiff(struct _reent *p, _Bigint *a, _Bigint *b);
+_Bigint *_d2b(struct _reent *p, double d, int *e, int *bits);
+void *memcpy(void *, const void *, size_t);
+extern const double __mprec_tens[];
+extern const double __mprec_bigtens[];
 
-#define Balloc   _Balloc
-#define Bfree    _Bfree
-#define multadd  __multadd
-#define hi0bits  func_00303e80
-#define i2b      __i2b
-#define mult     __multiply
-#define pow5mult __pow5mult
-#define lshift   __lshift
-#define cmp      __mcmp
-#define diff     __mdiff
-#define d2b      __d2b
-#define quorem   func_00301708
-#define Bcopy(x,y) memcpy((char *)&x->_sign, (char *)&y->_sign, y->_wds*sizeof(s32) + 2*sizeof(int))
+#define Balloc _Balloc
+#define Bfree _Bfree
+#define multadd _multadd
+#define hi0bits _hi0bits
+#define i2b _i2b
+#define mult _multiply
+#define pow5mult _pow5mult
+#define lshift _lshift
+#define cmp __mcmp
+#define diff __mdiff
+#define d2b _d2b
+#define tens __mprec_tens
+#define bigtens __mprec_bigtens
+#define Bcopy(x, y) memcpy((char *)&x->_sign, (char *)&y->_sign, y->_wds * sizeof(__Long) + 2 * sizeof(int))
 
-asm("dpcmp = func_003142e0");
-asm("dpsub = __subdf3");
-asm("dpadd = func_00313e80");
-asm("dpmul = func_00313f40");
-asm("dpdiv = func_00314190");
-asm("litodp = func_00314330");
-asm("dptoli = func_003143e0");
-
-extern const double D_00377d10[];   // __mprec_tens
-extern const double D_00377dd8[];   // __mprec_bigtens
-extern const char D_00377c68[];     // "Infinity"
-extern const char D_00377c78[];     // "NaN"
-extern const char D_00377c80[];     // "0"
-#define tens D_00377d10
-#define bigtens D_00377dd8
-
-char* _dtoa_r(struct _reent_dtoa* ptr, double _d, s32 mode, s32 ndigits,
-                    s32* decpt, s32* sign, char** rve)
+static int quorem(_Bigint *b, _Bigint *S)
 {
-    s32 bbits, b2, b5, be, dig, i, ieps, ilim, ilim0, ilim1, j, j1, k, k0,
+  int n;
+  __Long borrow, y;
+  __ULong carry, q, ys;
+  __ULong *bx, *bxe, *sx, *sxe;
+  __Long z;
+  __ULong si, zs;
+
+  n = S->_wds;
+  if (b->_wds < n)
+    return 0;
+  sx = S->_x;
+  sxe = sx + --n;
+  bx = b->_x;
+  bxe = bx + n;
+  q = *bxe / (*sxe + 1);
+  if (q)
+    {
+      borrow = 0;
+      carry = 0;
+      do
+        {
+          si = *sx++;
+          ys = (si & 0xffff) * q + carry;
+          zs = (si >> 16) * q + (ys >> 16);
+          carry = zs >> 16;
+          y = (*bx & 0xffff) - (ys & 0xffff) + borrow;
+          borrow = y >> 16;
+          z = (*bx >> 16) - (zs & 0xffff) + borrow;
+          borrow = z >> 16;
+          Storeinc (bx, z, y);
+        }
+      while (sx <= sxe);
+      if (!*bxe)
+        {
+          bx = b->_x;
+          while (--bxe > bx && !*bxe)
+            --n;
+          b->_wds = n;
+        }
+    }
+  if (cmp(b, S) >= 0)
+    {
+      q++;
+      borrow = 0;
+      carry = 0;
+      bx = b->_x;
+      sx = S->_x;
+      do
+        {
+          si = *sx++;
+          ys = (si & 0xffff) + carry;
+          zs = (si >> 16) + (ys >> 16);
+          carry = zs >> 16;
+          y = (*bx & 0xffff) - (ys & 0xffff) + borrow;
+          borrow = y >> 16;
+          z = (*bx >> 16) - (zs & 0xffff) + borrow;
+          borrow = z >> 16;
+          Storeinc (bx, z, y);
+        }
+      while (sx <= sxe);
+      bx = b->_x;
+      bxe = bx + n;
+      if (!*bxe)
+        {
+          while (--bxe > bx && !*bxe)
+            --n;
+          b->_wds = n;
+        }
+    }
+  return q;
+}
+
+char *_dtoa_r(struct _reent *ptr, double _d, int mode, int ndigits, int *decpt, int *sign, char **rve)
+{
+    int bbits, b2, b5, be, dig, i, ieps, ilim, ilim0, ilim1, j, j1, k, k0,
         k_check, leftright, m2, m5, s2, s5, spec_case, try_quick;
     union double_union d, d2, eps;
-    s32 L;
-    s32 denorm;
-    u32 x;
+    __Long L;
+    int denorm;
+    __ULong x;
     _Bigint *b, *b1, *delta, *mlo = 0, *mhi, *S;
     double ds;
     char *s, *s0;
@@ -136,21 +209,21 @@ char* _dtoa_r(struct _reent_dtoa* ptr, double _d, s32 mode, s32 ndigits,
 
     if ((word0(d) & Exp_mask) == Exp_mask) {
         *decpt = 9999;
-        s = !word1(d) && !(word0(d) & 0xfffff) ? (char*)D_00377c68 : (char*)D_00377c78;
+        s = !word1(d) && !(word0(d) & 0xfffff) ? "Infinity" : "NaN";
         if (rve)
             *rve = s[3] ? s + 8 : s + 3;
         return s;
     }
     if (!d.d) {
         *decpt = 1;
-        s = (char*)D_00377c80;
+        s = "0";
         if (rve)
             *rve = s + 1;
         return s;
     }
 
     b = d2b(ptr, d.d, &be, &bbits);
-    if ((i = (s32)(word0(d) >> Exp_shift1 & (Exp_mask >> Exp_shift1))) != 0) {
+    if ((i = (int)(word0(d) >> Exp_shift1 & (Exp_mask >> Exp_shift1))) != 0) {
         d2.d = d.d;
         word0(d2) &= Frac_mask1;
         word0(d2) |= Exp_11;
@@ -166,7 +239,7 @@ char* _dtoa_r(struct _reent_dtoa* ptr, double _d, s32 mode, s32 ndigits,
         denorm = 1;
     }
     ds = (d2.d - 1.5) * 0.289529654602168 + 0.1760912590558 + i * 0.301029995663981;
-    k = (s32)ds;
+    k = (int)ds;
     if (ds < 0. && ds != k)
         k--;
     k_check = 1;
@@ -225,11 +298,11 @@ char* _dtoa_r(struct _reent_dtoa* ptr, double _d, s32 mode, s32 ndigits,
         if (i <= 0)
             i = 1;
     }
-    j = sizeof(u32);
-    for (ptr->_result_k = 0; sizeof(_Bigint) - sizeof(u32) + j <= i; j <<= 1)
+    j = sizeof(__ULong);
+    for (ptr->_result_k = 0; sizeof(_Bigint) - sizeof(__ULong) + j <= i; j <<= 1)
         ptr->_result_k++;
     ptr->_result = Balloc(ptr, ptr->_result_k);
-    s = s0 = (char*)ptr->_result;
+    s = s0 = (char *)ptr->_result;
 
     if (ilim >= 0 && ilim <= Quick_max && try_quick) {
         i = 0;

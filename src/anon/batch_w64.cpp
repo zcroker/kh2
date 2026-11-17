@@ -354,20 +354,7 @@ s32 func_002feac0(u32*);
 u32 wt_002feb28(u32 a, u32 b, u32 c, u32 d) asm("_Z16wtarget_002feb28jjjj");
 
 // signal()-style handler install: returns the previous handler, -1 (errno 22) on bad signal.
-u32 wt_002feb28(u32 a, u32 sig, u32 h, u32 d) {
-    u32* p = (u32*)a;
-    if (sig >= 32) {
-        p[0] = 22;
-        return (u32)-1;
-    }
-    if (!p[117]) {
-        if (func_002feac0(p)) return (u32)-1;
-    }
-    u32* t = (u32*)p[117];
-    u32 old = t[sig];
-    t[sig] = h;
-    return old;
-}
+u32 wt_002feb28(u32 a, u32 sig, u32 h, u32 d);  // 0x002feb28: definition moved into src/newlib/libc/signal.c
 
 // ---------------------------------------------------------------------------
 extern char D_0034a548[];

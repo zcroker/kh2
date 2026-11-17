@@ -195,16 +195,7 @@ u8 func_002e0ec8(u8* p);  // 0x002e0ec8: definition moved into src/anon/unit_002
 
 // 002eb460: moved to src/anon/unit_002eaf38.cpp
 
-u32 func_002ffc08(u32 a, u32* p) {
-    if (p[2] == 0) {
-        p[1] = 0;
-        return 0;
-    }
-    u32 r = __sfvwrite(a, p);
-    p[2] = 0;
-    p[1] = 0;
-    return r;
-}
+u32 func_002ffc08(u32 a, u32* p);  // 0x002ffc08: definition moved into src/newlib/libc/vfprintf.c
 
 // Soft-float double binary op (libgcc dp-bit style): unpack both, combine, pack.
 u64 func_00314190(u64 a, u64 b) {  // double_add

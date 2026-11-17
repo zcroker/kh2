@@ -108,57 +108,10 @@ int  func_00305c68(int fd, void* buf, u32 cnt);            /* _read */
 
 /* 002fe018: _puts_r (newlib/libc/stdio/puts.c) */
 int _puts_r(struct _reent* ptr, const char* s) asm("_Z7_puts_rjjjj");
-int _puts_r(struct _reent* ptr, const char* s)
-{
-  u32 c = strlen(s);
-  struct __suio uio;
-  struct __siov iov[2];
-
-  iov[0].iov_base = s;
-  iov[0].iov_len = c;
-  iov[1].iov_base = D_003778d8;
-  iov[1].iov_len = 1;
-  uio.uio_resid = c + 1;
-  uio.uio_iov = &iov[0];
-  uio.uio_iovcnt = 2;
-
-  return (__sfvwrite(ptr->_stdout, &uio) ? EOF : '\n');
-}
+int _puts_r(struct _reent* ptr, const char* s);  // 0x002fe018: definition moved into src/newlib/libc/puts.c
 
 /* 003015f8: __swsetup (newlib/libc/stdio/wsetup.c; this version has no __SSTR test) */
-int __swsetup(struct __sFILE* fp)
-{
-  CHECK_INIT (fp);
-
-  if ((fp->_flags & __SWR) == 0)
-    {
-      if ((fp->_flags & __SRW) == 0)
-        return EOF;
-      if (fp->_flags & __SRD)
-        {
-          /* clobber any ungetc data */
-          if (HASUB (fp))
-            FREEUB (fp);
-          fp->_flags &= ~(__SRD | __SEOF);
-          fp->_r = 0;
-          fp->_p = fp->_bf._base;
-        }
-      fp->_flags |= __SWR;
-    }
-
-  if (fp->_bf._base == NULL)
-    func_00303808 (fp);
-
-  if (fp->_flags & __SLBF)
-    {
-      fp->_w = 0;
-      fp->_lbfsize = -fp->_bf._size;
-    }
-  else
-    fp->_w = fp->_flags & __SNBF ? 0 : fp->_bf._size;
-
-  return 0;
-}
+int __swsetup(struct __sFILE* fp);  // 0x003015f8: definition moved into src/newlib/libc/wsetup.c
 
 /* 00305168: _read_r (newlib/libc/reent/readr.c); _ssize_t is long */
 long _read_r(struct _reent* ptr, int fd, void* buf, u32 cnt)

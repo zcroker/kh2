@@ -302,11 +302,6 @@ s32 func_003060f0(void);  // ee_intr_disabled
 s32 DIntr(void);
 extern s32 D_003660a8;
 extern s32 D_003660ac;
-void __malloc_lock(void) {
-    if (func_003060f0() != 1) {  // ee_intr_disabled
-        if (D_003660a8 == 0) D_003660ac = DIntr();
-        D_003660a8++;
-    }
-}
+void __malloc_lock(void);  // 0x002fded8: definition moved into src/newlib/libc/mlock.c
 
 }

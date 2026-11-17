@@ -256,13 +256,9 @@ u32 func_002f17e0(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_00170518(((u32)(*(u32*)((u32)((u32)&D_00360000) + 15392u))), 0x000003b6u, 0x00000000u, a3);
 }
 
-u32 func_002fed30(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_002feb28(((u32)(*(u32*)((u32)((u32)&D_00360000) + 23624u))), a0, a1, a3);
-}
+u32 func_002fed30(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002fed30: definition moved into src/newlib/libc/signal.c
 
-u32 strtol(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return _strtol_r(((u32)(*(u32*)((u32)((u32)&D_00360000) + 23624u))), a0, a1, a2);
-}
+u32 strtol(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002ffbb0: definition moved into src/newlib/libc/strtol.c
 
 u32 func_003037c0(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_00303728(((u32)(*(u32*)((u32)((u32)&D_00360000) + 23624u))), a0, a1, a3);

@@ -201,13 +201,7 @@ void func_00106420(u8*);
 
 // strrchr-style: last match of c in s (strchr is strchr).
 char* strchr(char*, s32);  // memset
-char* func_002ff8b0(char* s, s32 c) {
-    char* r = 0;
-    if (c != 0) {
-        while ((s = strchr(s, c)) != 0) { r = s; s++; }
-    } else r = strchr(s, c);  // memset
-    return r;
-}
+char* func_002ff8b0(char* s, s32 c);  // 0x002ff8b0: definition moved into src/newlib/libc/strrchr.c
 void wtarget_001124f8(u32, u32, u32, u32) asm("_Z16wtarget_001124f8jjjj");
 void wtarget_001ce668(u32, u32, u32, u32) asm("_Z16wtarget_001ce668jjjj");
 

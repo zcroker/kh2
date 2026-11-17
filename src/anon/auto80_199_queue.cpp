@@ -1855,37 +1855,9 @@ void func_002edfd8(u32 a0, u32 a1);  // 0x002edfd8: definition moved into src/an
 
 f32 func_002f8a18(f32 a0);  // 0x002f8a18: definition moved into src/newlib/libm/sf_tan.c
 
-s32 func_002fea18() {
-    u32 base36 = 0x00360000u;
-    u32 base37 = 0x00370000u;
+s32 func_002fea18();  // 0x002fea18: definition moved into src/newlib/libc/rand.c
 
-    u32 root = *(u32*)(base36 + 0x5C48u);
-    s64 step = *(s64*)(base37 + 0x78E0u);
-    s64 cur = *(s64*)(root + 168u);
-
-    s64 v = __muldi3(cur, step) + 1ll;
-    *(s64*)(root + 168u) = v;
-
-    u64 hi = (u64)v >> 32;
-    hi &= 0x7FFFFFFFu;
-    s64 sx = (s64)(hi << 32);
-    sx >>= 32;
-    return (s32)sx;
-}
-
-s32 func_002feac0(u32 a0) {
-    if (*(u32*)(a0 + 468u) == 0u) {
-        u32 p = _malloc_r(a0, 128u);
-        *(u32*)(a0 + 468u) = p;
-        if (p == 0u) {
-            return -1;
-        }
-        for (s32 i = 31; i >= 0; --i) {
-            *(u32*)(p + ((u32)(31 - i) << 2)) = 0u;
-        }
-    }
-    return 0;
-}
+s32 func_002feac0(u32 a0);  // 0x002feac0: definition moved into src/newlib/libc/signal.c
 
 void func_002fed98(u32* a0, u32 a1, u32 a2) {
     u32* b = (u32*)0x00380000u;
@@ -1899,32 +1871,9 @@ void func_002fed98(u32* a0, u32 a1, u32 a2) {
     }
 }
 
-u32 func_00302c88(u32 a0, u32 a1) {  // alloc_88_array
-    u32 size = 88u * a1;
-    u32 h = _malloc_r(a0, size + 12u);
-    if (h == 0u) {
-        return 0u;
-    }
+u32 func_00302c88(u32 a0, u32 a1);  // 0x00302c88: definition moved into src/newlib/libc/findfp.c
 
-    u32 p = h + 12u;
-    *(u32*)(h + 4u) = a1;
-    *(u32*)(h + 0u) = 0u;
-    *(u32*)(h + 8u) = p;
-    func_002fde18(p, 0u, size);
-    return h;
-}
-
-void func_00302e10(u32 a0) {
-    *(u32*)(a0 + 472u) = 0u;
-    *(u32*)(a0 + 60u) = (u32)func_00302dd0;
-    *(u32*)(a0 + 56u) = 1u;
-    *(u32*)(a0 + 480u) = a0 + 484u;
-    *(u32*)(a0 + 476u) = 3u;
-
-    func_00302c28(*(u32*)(a0 + 4u), 4u, 0u, a0);
-    func_00302c28(*(u32*)(a0 + 8u), 9u, 1u, a0);
-    func_00302c28(*(u32*)(a0 + 12u), 10u, 2u, a0);
-}
+void func_00302e10(u32 a0);  // 0x00302e10: definition moved into src/newlib/libc/findfp.c
 
 u32 func_00303e80(u32 a0) {  // count_leading_zeros
     u32 x = a0;

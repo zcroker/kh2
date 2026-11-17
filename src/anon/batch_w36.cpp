@@ -279,11 +279,7 @@ s32 wtarget_002fee78(u8* buf, const char* fmt, ...) {
 }
 
 // vfprintf: makes sure the stream has an initialised reentrancy struct.
-s32 func_002ffd00(u8* fp, const char* fmt, va_list ap) {  // fprintf_stream_va
-    if (*(u8**)(fp + 84) == 0) *(u8**)(fp + 84) = D_00365c48;
-    if (*(u32*)(*(u8**)(fp + 84) + 56) == 0) func_00302e10(*(u8**)(fp + 84));
-    return _vfprintf_r(*(u8**)(fp + 84), fp, fmt, ap);
-}
+s32 func_002ffd00(u8* fp, const char* fmt, va_list ap);  // 0x002ffd00: definition moved into src/newlib/libc/vfprintf.c
 
 struct FPN { s32 cls; s32 sign; s32 exp; u64 frac; };
 union FLO { double v; u64 u; };

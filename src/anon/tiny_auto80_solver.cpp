@@ -14432,15 +14432,7 @@ u32 duplicate_unplaced_002fd220(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, 
     return r2;
 }
 
-void srand(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r14, r15;
-    u64 r4w;
-    r15 = (u32)(0x0036u << 16);
-    r4w = (u64)r4 << 32;
-    r14 = *(volatile u32*)((u32)r15 + (s32)(23624));
-    r4w = r4w >> 32;
-    *(volatile u64*)((u32)r14 + (s32)(168)) = r4w;
-}
+void srand(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);  // 0x002fea00: definition moved into src/newlib/libc/rand.c
 
 u32 duplicate_unplaced_002ffbe0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r2, r13, r14, r15;

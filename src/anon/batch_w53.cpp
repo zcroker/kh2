@@ -194,13 +194,5 @@ void func_002df7d8(u8* p, u32 b);  // 0x002df7d8: definition moved into src/anon
 Q16* func_002eaba8(Q16* ret, u32, u8* o);  // 002eaba8: moved to src/anon/unit_002eaa68.cpp
 
 // Run all registered exit handlers (newest first), then the final hook, then exit.
-void func_002fd348(s32 code) {
-    for (Blk* b = *(Blk**)(D_00365c48 + 328); b; b = b->next) {
-        s32 i = b->n;
-        while (--i >= 0) b->fns[i]();
-    }
-    VFn f = *(VFn*)(D_00365c48 + 60);
-    if (f) f(D_00365c48);
-    func_001002a0(code);
-}
+void func_002fd348(s32 code);  // 0x002fd348: definition moved into src/newlib/libc/exit.c
 }

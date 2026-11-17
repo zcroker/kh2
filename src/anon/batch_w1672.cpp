@@ -67,17 +67,6 @@ void func_001d12e8(u8* p, u32 b);  // 0x001d12e8: definition moved into src/anon
 
 s32 func_002feac0(u8*);
 typedef void (*FnWw1672)(u32);
-s32 func_002fec78(u8* p, u32 i) {
-    if (i >= 32) return -1;
-    if (*(u32*)(p + 0x1d4) == 0 && func_002feac0(p) != 0) return -1;
-    FnWw1672* slot = (FnWw1672*)((i << 2) + *(u32*)(p + 0x1d4));
-    FnWw1672 fn = *slot;
-    if (fn == 0) return 1;
-    if (fn == (FnWw1672)-1) return 2;
-    if (fn == (FnWw1672)1) return 3;
-    *slot = 0;
-    fn(i);
-    return 0;
-}
+s32 func_002fec78(u8* p, u32 i);  // 0x002fec78: definition moved into src/newlib/libc/signal.c
 
 }

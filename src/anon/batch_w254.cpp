@@ -62,30 +62,7 @@ void func_002c3c90(u8* a0);  // 0x002c3c90: definition moved into src/anon/unit_
 void func_002d0a78(void);  // 0x002d0a78: definition moved into src/anon/unit_002cf260.cpp
 
 // newlib fflush(fp): NULL flushes all via _fwalk; otherwise write out the buffer.
-s32 fflush(W254File* fp) {
-    u8* p;
-    s32 n;
-    s32 t;
-    if (fp == 0) return func_00303698(D_00365c48, fflush);
-    if (fp->data == 0) fp->data = D_00365c48;
-    if (*(s32*)(fp->data + 56) == 0) func_00302e10(fp->data);
-    t = fp->flags;
-    if ((t & 8) == 0 || (p = fp->base) == 0)
-        return 0;
-    n = fp->p - p;
-    fp->p = p;
-    fp->w = t & 3 ? 0 : fp->size;
-    while (n > 0) {
-        t = fp->write(fp->cookie, p, n);
-        if (t <= 0) {
-            fp->flags |= 0x40;
-            return -1;
-        }
-        p += t;
-        n -= t;
-    }
-    return 0;
-}
+s32 fflush(W254File* fp);  // 0x00302b18: definition moved into src/newlib/libc/fflush.c
 
 // Camera-mode-1 update: fix radian, optional helper calls, then apply to camera.
 // 0015d2e8: moved to src/anon/unit_0015cdb0.cpp

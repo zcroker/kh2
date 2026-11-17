@@ -244,16 +244,7 @@ void sceVu0MulMatrix(u32 d, u32 m, u32 v, u32 n) {
         : : : "memory");
 }
 
-void __malloc_unlock(void) {
-    if (func_003060f0() != 1) {  // ee_intr_disabled
-        if (--D_003660a8 == 0) {
-            if (D_003660ac) {
-                D_003660ac = 0;
-                EIntr();  // ee_intr_get_enable
-            }
-        }
-    }
-}
+void __malloc_unlock(void);  // 0x002fdf30: definition moved into src/newlib/libc/mlock.c
 
 void func_0031ca20(u8* o) {
     *(u8**)o = D_00347e40;

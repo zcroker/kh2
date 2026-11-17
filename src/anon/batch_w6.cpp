@@ -160,9 +160,7 @@ void func_002e7c78(u32* p);  // 0x002e7c78: definition moved into src/anon/unit_
 
 // atoi: (int)strtol(s, 0, 10).
 s64 strtol(const char*, char**, s32);
-s32 atoi(const char* s) {  // strtol10
-    return (s32)strtol(s, 0, 10);
-}
+s32 atoi(const char* s);  // 0x002fd220: definition moved into src/newlib/libc/atoi.c
 
 }
 

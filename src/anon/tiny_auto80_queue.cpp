@@ -11644,66 +11644,17 @@ void duplicate_unplaced_002f5c48(u32 a0, ...) {
     va_end(ap);
 }
 
-void func_002fd160() {
-    func_002fed10(6u);
-    func_001002a0(1u);
-}
+void func_002fd160();  // 0x002fd160: definition moved into src/newlib/libc/abort.c
 
-s32 func_002fd178(s32 a0) {
-    if (a0 < 0) {
-        a0 = -a0;
-    }
-    return a0;
-}
+s32 func_002fd178(s32 a0);  // 0x002fd178: definition moved into src/newlib/libc/abs.c
 
-void func_002fd310(u8* a0, u32 a1) {
-    a1 = a1 - 1u;
-    if (a1 == 0xFFFFFFFFu) {
-        return;
-    }
+void func_002fd310(u8* a0, u32 a1);  // 0x002fd310: definition moved into src/newlib/libc/bzero.c
 
-    while (1) {
-        *a0 = 0;
-        a1 = a1 - 1u;
-        if (a1 != 0xFFFFFFFFu) {
-            a0 = a0 + 1;
-            continue;
-        }
-        break;
-    }
-}
+u32 func_002fdf88(void* a0, u32 a1, ...);  // 0x002fdf88: definition moved into src/newlib/libc/printf.c
 
-u32 func_002fdf88(void* a0, u32 a1, ...) {
-    va_list ap;
-    va_start(ap, a1);
-    u32 v0 = _vfprintf_r((u32)a0, *(u32*)((u8*)a0 + 8), a1, (void*)ap);
-    va_end(ap);
-    return v0;
-}
+u32 func_002fdfc8(u32 a0, ...);  // 0x002fdfc8: definition moved into src/newlib/libc/printf.c
 
-u32 func_002fdfc8(u32 a0, ...) {  // device_vprintf_va
-    va_list ap;
-    va_start(ap, a0);
-
-    u32 t6 = D_00365c48;
-    u32 t4 = *(u32*)(t6 + 8u);
-    *(u32*)(t4 + 84u) = t6;
-
-    u32 v0 = func_002ffd00(t4, a0, (void*)ap);  // fprintf_stream_va
-    va_end(ap);
-    return v0;
-}
-
-void func_002fea70(s32* a0, u32 a1) {
-    D_00378ae4 = 0;
-    s32 v0 = func_00305d20(a1);
-    if (v0 == -1) {
-        s32 t7 = D_00378ae4;
-        if (t7 != 0) {
-            *a0 = t7;
-        }
-    }
-}
+void func_002fea70(s32* a0, u32 a1);  // 0x002fea70: definition moved into src/newlib/libc/sbrkr.c
 
 s32 func_00303958(u32 a0, u32* a1, u8* a2, u32 a3) {
     (void)a0;

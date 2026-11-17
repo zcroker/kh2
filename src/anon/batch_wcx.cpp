@@ -191,23 +191,7 @@ struct SFile {
 };
 s32 func_002ffd00(SFile*, const char*, void*);  // fprintf_stream_va
 s32 fflush(SFile*);
-s32 func_002ffc50(SFile* fp, const char* fmt, void* ap)
-{
-    SFile fake;
-    u8 buf[1024];
-    fake.data = fp->data;
-    fake.flags = fp->flags & ~2;
-    fake.file = fp->file;
-    fake.cookie = fp->cookie;
-    fake.write = fp->write;
-    fake.base = fake.p = buf;
-    fake.size = fake.w = 1024;
-    fake.lbfsize = 0;
-    s32 ret = func_002ffd00(&fake, fmt, ap);  // fprintf_stream_va
-    if (ret >= 0 && fflush(&fake)) ret = -1;
-    if (fake.flags & 0x40) fp->flags |= 0x40;
-    return ret;
-}
+s32 func_002ffc50(SFile* fp, const char* fmt, void* ap);  // 0x002ffc50: definition moved into src/newlib/libc/vfprintf.c
 }
 
 extern "C" {

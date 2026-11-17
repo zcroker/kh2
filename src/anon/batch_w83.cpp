@@ -361,24 +361,7 @@ s32 func_002fedf0(void*);
 s32 func_002fed98(void*, s32, s32);
 s32 raise_r(u8*, u32, u32, u32) asm("_Z16wtarget_002febb0jjjj");
 // newlib _raise_r(reent, sig): errno at +0, signal table at +468.
-s32 raise_r(u8* r, u32 sig, u32, u32) {
-    if (sig >= 32) {
-        *(s32*)r = 22;
-        return -1;
-    }
-    if (*(SigFn**)(r + 468) == 0 && func_002feac0(r) != 0) return -1;
-    SigFn* tab = *(SigFn**)(r + 468);
-    SigFn f = tab[sig];
-    if (f == (SigFn)0) return func_002fed98(r, func_002fedf0(r), sig);
-    if (f == (SigFn)1) return 0;
-    if (f == (SigFn)-1) {
-        *(s32*)r = 22;
-        return 1;
-    }
-    tab[sig] = 0;
-    f(sig);
-    return 0;
-}
+s32 raise_r(u8* r, u32 sig, u32, u32);  // 0x002febb0: definition moved into src/newlib/libc/signal.c
 
 // Elements of member arrays, destroyed through their vtables.
 struct E408 { virtual void f0(); virtual void f4(); virtual void f8(); virtual void f12(); u8 pad[404]; };

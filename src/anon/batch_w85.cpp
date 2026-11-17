@@ -280,34 +280,7 @@ struct Ctx302 { s32 err; u8 p4[52]; s32 inited; u8 p60[412]; Glue302 glue; };
 void func_00302e10(Ctx302*);
 Glue302* func_00302c88(Ctx302*, s32);
 // newlib __sfp: find (or make room for) a free FILE slot
-File302* __sfp(Ctx302* d) {
-    File302* fp;
-    s32 n;
-    Glue302* g;
-    if (!d->inited) func_00302e10(d);
-    for (g = &d->glue;; g = g->next) {
-        for (fp = g->iobs, n = g->niobs; --n >= 0; fp++)
-            if (fp->flags == 0) goto found;
-        if (g->next == 0 && (g->next = func_00302c88(d, 4)) == 0) break;
-    }
-    d->err = 12;
-    return 0;
-found:
-    fp->flags = 1;
-    fp->p = 0;
-    fp->w = 0;
-    fp->r = 0;
-    fp->bf.base = 0;
-    fp->bf.size = 0;
-    fp->lbfsize = 0;
-    fp->file = -1;
-    fp->ub.base = 0;
-    fp->ub.size = 0;
-    fp->lb.base = 0;
-    fp->lb.size = 0;
-    fp->data = d;
-    return fp;
-}
+File302* __sfp(Ctx302* d);  // 0x00302cf8: definition moved into src/newlib/libc/findfp.c
 
 
 }

@@ -230,25 +230,7 @@ void func_002eabe8(void* self, u8* o, u8 c);  // 002eabe8: moved to src/anon/uni
 struct Blk2fd { Blk2fd* next; s32 n; u32 items[32]; };
 Blk2fd* malloc(u32);  // pool_free_block
 // newlib atexit: appends x to the chain of 32-entry exit-function blocks.
-s32 atexit(u32 x) {
-    Blk2fd* b = *(Blk2fd**)(D_00365c48 + 328);
-    if (!b) {
-        b = (Blk2fd*)(D_00365c48 + 332);
-        *(Blk2fd**)(D_00365c48 + 328) = b;
-    }
-    s32 n = b->n;
-    if (n >= 32) {
-        b = malloc(136);  // pool_free_block
-        if (!b) return -1;
-        b->n = 0;
-        b->next = *(Blk2fd**)(D_00365c48 + 328);
-        *(Blk2fd**)(D_00365c48 + 328) = b;
-        n = 0;
-    }
-    b->n = n + 1;
-    b->items[n] = x;
-    return 0;
-}
+s32 atexit(u32 x);  // 0x002fd188: definition moved into src/newlib/libc/atexit.c
 
 // Frees a block: 1 KB pool blocks clear their used bit, others go to the heap.
 void __cxa_free_exception(u8* p) {

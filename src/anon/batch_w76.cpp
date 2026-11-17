@@ -342,32 +342,7 @@ static inline void Set4(V4f* v, f32 x, f32 y, f32 z, f32 w) { v->x = x; v->y = y
 void wtarget_002c0738(u32 a, u32 b, u32 c, u32 d) asm("_Z16wtarget_002c0738jjjj");
 void wtarget_002c0738(u32 a, u32 b, u32 c, u32 d);  // 0x002c0738: definition moved into src/anon/unit_002bebd0.cpp
 /* sign + decimal digits of v after prefix char c; returns length */
-s32 func_00301480(char* buf, s32 v, s32 c)
-{
-    char tmp[40];
-    char* p = buf;
-    *p++ = c;
-    if (v < 0) {
-        v = -v;
-        *p++ = '-';
-    } else {
-        *p++ = '+';
-    }
-    char* q = tmp + 40;
-    char* end = q;
-    if (v >= 10) {
-        do {
-            *--q = v % 10 + '0';
-            v /= 10;
-        } while (v >= 10);
-        *--q = v + '0';
-        while (q < end) *p++ = *q++;
-    } else {
-        *p++ = '0';
-        *p++ = v + '0';
-    }
-    return p - buf;
-}
+s32 func_00301480(char* buf, s32 v, s32 c);  // 0x00301480: definition moved into src/newlib/libc/vfprintf.c
 void func_001af638(void);
 void func_001af6f0(void);
 void func_001bb468(u8*);

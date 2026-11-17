@@ -391,20 +391,6 @@ typedef s32 (*Cmp82)(const void*, const void*);
 f32 floorf(f32 x);  // 0x002f8888: definition moved into src/newlib/libm/sf_floor.c
 
 // bsearch
-void* func_002fd248(const void* key, const u8* base, u32 n, u32 size, Cmp82 cmp)
-{
-    u32 lo = 0;
-    u32 hi = n;
-    if (n == 0 || size == 0) return 0;
-    while (lo < hi) {
-        u32 mid = (lo + hi) >> 1;
-        const u8* p = base + mid * size;
-        s32 c = cmp(key, p);
-        if (c < 0) hi = mid;
-        else if (c > 0) lo = mid + 1;
-        else return (void*)p;
-    }
-    return 0;
-}
+void* func_002fd248(const void* key, const u8* base, u32 n, u32 size, Cmp82 cmp);  // 0x002fd248: definition moved into src/newlib/libc/bsearch.c
 
 }

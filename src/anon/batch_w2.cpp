@@ -158,10 +158,7 @@ void sceVu0FTOI0Vector(void* d, void* s) {  // vec4_ftoi0_trunc
 }
 
 // Lower-case to upper-case through the ctype table.
-s32 toupper(s32 c) {
-    if (D_00377b68[c] & 2) c -= 32;
-    return c;
-}
+s32 toupper(s32 c);  // 0x002ffbe0: definition moved into src/newlib/libc/toupper.c
 
 // EnableIntc followed by sync.l.
 void iEnableIntc(u32 n) {

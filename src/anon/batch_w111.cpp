@@ -372,35 +372,5 @@ u64 __subdf3(u64, u64);
 s32 func_003142e0(u64, u64);  // double_compare
 char* _dtoa_r(void*, u64, s32, s32, s32*, s32*, char**);
 // cvt (newlib vfprintf): convert a double to digits for %e/%f/%g.
-char* func_003012d8(void* data, u64 value, s32 ndigits, s32 flags, char* sign, s32* decpt, s32 ch, s32* length)
-{
-    s32 mode, dsgn;
-    char *digits, *bp, *rve;
-    if (ch == 'f') {
-        mode = 3;
-    } else {
-        if (ch == 'e' || ch == 'E') ndigits++;
-        mode = 2;
-    }
-    if ((s32)(value >> 32) < 0) {
-        value = __subdf3(0, value);
-        *sign = '-';
-    } else
-        *sign = '\0';
-    digits = _dtoa_r(data, value, mode, ndigits, decpt, &dsgn, &rve);
-    if ((ch != 'g' && ch != 'G') || (flags & 1) == 1) {
-        bp = digits + ndigits;
-        if (ch == 'f') {
-            if (*digits == '0' && func_003142e0(value, 0))
-                *decpt = -ndigits + 1;
-            bp += *decpt;
-        }
-        if (func_003142e0(value, 0) == 0)
-            rve = bp;
-        while (rve < bp)
-            *rve++ = '0';
-    }
-    *length = rve - digits;
-    return digits;
-}
+char* func_003012d8(void* data, u64 value, s32 ndigits, s32 flags, char* sign, s32* decpt, s32 ch, s32* length);  // 0x003012d8: definition moved into src/newlib/libc/vfprintf.c
 }

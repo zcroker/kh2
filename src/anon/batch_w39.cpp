@@ -390,22 +390,7 @@ struct File302 {
     u8 pad[84 - 48];
     void* data;
 };
-void func_00302c28(File302* f, int flags, int file, void* data) {
-    f->p = 0;
-    f->r = 0;
-    f->w = 0;
-    f->flags = flags;
-    f->file = file;
-    f->base = 0;
-    f->size = 0;
-    f->lbfsize = 0;
-    f->cookie = f;
-    f->rd = __sread;
-    f->wr = func_00304e48;
-    f->sk = func_00304ec8;
-    f->cl = func_00304f30;
-    f->data = data;
-}
+void func_00302c28(File302* f, int flags, int file, void* data);  // 0x00302c28: definition moved into src/newlib/libc/findfp.c
 
 // --- 0031bf50
 // Constructor: two vtables (multiple inheritance), a member and a member array[7].

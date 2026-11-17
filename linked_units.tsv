@@ -583,3 +583,30 @@ src/anon/unit_002f12b0.cpp	002f12b0	002f17e0	.rodata@0037623c	-G0
 src/anon/unit_002f17e0.cpp	002f17e0	002f1a68	.data@00363c20,.rodata@00376260,.bss@01e2c0d0	-G0
 src/anon/unit_002f1a68.cpp	002f1a68	002f1b48	.data@00363c28,.rodata@00376270,.bss@01e2c100	-G0
 src/sdk/kprintf.c	00306e48	003081d0	.data@003660d4,.rodata@00377ef0	-G0
+src/newlib/libc/abort.c	002fd160	002fd178	-	-G0 -fno-builtin
+src/newlib/libc/abs.c	002fd178	002fd188	-	-G0 -fno-builtin
+src/newlib/libc/atexit.c	002fd188	002fd220	-	-G0 -fno-builtin
+src/newlib/libc/atoi.c	002fd220	002fd248	-	-G0 -fno-builtin
+src/newlib/libc/bsearch.c	002fd248	002fd310	-	-G0 -fno-builtin
+src/newlib/libc/bzero.c	002fd310	002fd348	-	-G0 -fno-builtin
+src/newlib/libc/exit.c	002fd348	002fd3d0	-	-G0 -fno-builtin
+src/newlib/libc/index.c	002fd3d0	002fd3e8	-	-G0 -fno-builtin
+src/newlib/libc/malloc.c	002fd3e8	002fd428	-	-G0 -fno-builtin
+src/newlib/libc/mallocr.c	002fd428	002fdd68	.data@00365c50	-G0 -fno-builtin
+src/newlib/libc/mlock.c	002fded8	002fdf88	.data@003660a8	-G0 -fno-builtin
+src/newlib/libc/printf.c	002fdf88	002fe018	-	-G0 -fno-builtin
+src/newlib/libc/puts.c	002fe018	002fe0c0	.rodata@003778d8	-G0 -fno-builtin
+src/newlib/libc/qsort.c	002fe0c0	002fea00	-	-G0 -fno-builtin
+src/newlib/libc/rand.c	002fea00	002fea70	.rodata@003778e0	-G0 -fno-builtin
+src/newlib/libc/sbrkr.c	002fea70	002feac0	-	-G0 -fno-builtin
+src/newlib/libc/signal.c	002feac0	002fed98	-	-G0 -fno-builtin
+src/newlib/libc/strrchr.c	002ff8b0	002ff918	-	-G0 -fno-builtin
+src/newlib/libc/strstr.c	002ff918	002ff970	-	-G0 -fno-builtin
+src/newlib/libc/strtol.c	002ff970	002ffbe0	-	-G0 -fno-builtin
+src/newlib/libc/toupper.c	002ffbe0	002ffc08	-	-G0 -fno-builtin
+src/newlib/libc/vfprintf.c	002ffc08	00301550	.rodata@003778e8	-G0 -fno-builtin
+src/newlib/libc/vsprintf.c	00301550	003015f8	-	-G0 -fno-builtin
+src/newlib/libc/wsetup.c	003015f8	00301708	-	-G0 -fno-builtin
+src/newlib/libc/dtoa.c	00301708	00302b18	.rodata@00377c68	-G0 -fno-builtin
+src/newlib/libc/fflush.c	00302b18	00302c28	-	-G0 -fno-builtin
+src/newlib/libc/findfp.c	00302c28	00302e90	-	-G0 -fno-builtin

@@ -231,17 +231,7 @@ void func_002d3128(u8* p, s32 n);  // 0x002d3128: definition moved into src/anon
 // 003015a8: vsprintf-style formatting into a string through a fake FILE
 struct StrFile { u8* p; s32 r; s32 w; s16 flags; s16 file; u8* base; s32 size; u8 pad[60]; void* data; u8 pad2[8]; };
 s32 _vfprintf_r(void*, StrFile*, const char*, void*);
-s32 func_003015a8(void* ptr, u8* str, const char* fmt, void* ap)
-{
-    StrFile f;
-    f.flags = 520;
-    f.base = f.p = str;
-    f.size = f.w = 0x7fffffff;
-    f.data = ptr;
-    s32 r = _vfprintf_r(ptr, &f, fmt, ap);
-    *f.p = 0;
-    return r;
-}
+s32 func_003015a8(void* ptr, u8* str, const char* fmt, void* ap);  // 0x003015a8: definition moved into src/newlib/libc/vsprintf.c
 
 // 00313f40: soft-double helper (unpack both operands, combine, pack)
 struct FpNum { s32 cls; s32 sign; s32 exp; s32 pad; u64 frac; u8 pad2[8]; };

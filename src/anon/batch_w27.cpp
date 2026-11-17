@@ -207,19 +207,7 @@ void sceVu0TransposeMatrix(void* d, void* s) {  // memcpy64_2
 }
 
 // strstr
-char* func_002ff918(char* s, char* sub) {
-    if (*s == 0) return *sub ? 0 : s;
-    for (;;) {
-        s32 i = 0;
-        for (;;) {
-            if (sub[i] == 0) return s;
-            if (sub[i] != s[i]) break;
-            i++;
-        }
-        s++;
-        if (*s == 0) return 0;
-    }
-}
+char* func_002ff918(char* s, char* sub);  // 0x002ff918: definition moved into src/newlib/libc/strstr.c
 
 
 

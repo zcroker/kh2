@@ -43,7 +43,7 @@ void func_002f4820(f32* d, f32* s) {
     d[2] = s[2];
 }
 
-void func_00302dd0(u32 a) { func_00303698(a, (void*)fflush); }
+void func_00302dd0(u32 a);  // 0x00302dd0: definition moved into src/newlib/libc/findfp.c
 
 void wtarget_00167268(u32 a, u32 b, u32 c, u32 d) asm("_Z16wtarget_00167268jjjj");
 void wtarget_00167268(u32 a, u32 b, u32 c, u32 d);  // 0x00167268: definition moved into src/anon/unit_001664c0.cpp
