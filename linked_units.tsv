@@ -299,7 +299,7 @@ src/anon/unit_001e8ac8.cpp	001e8ac8	001ec098	.rodata@003700a8	-G0 -g -fno-strict
 src/anon/unit_001ec098.cpp	001ec098	001ef780	.rodata@003700d0	-G0 -g
 src/anon/unit_001ef780.cpp	001ef780	001f0868	.rodata@00370128	-G0 -fno-strict-aliasing
 src/anon/unit_001f0868.cpp	001f0868	001f0a38	.rodata@00370134	-G0
-src/anon/unit_001f0cd8.cpp	001f0cd8	001f1978	.rodata@0037013c	-G0 -fno-strict-aliasing
+src/anon/unit_001f0cd8.cpp	001f0a38	001f1978	.rodata@00370138	-G0 -fno-strict-aliasing
 src/anon/unit_001f45f8.cpp	001f4498	001f5670	.rodata@00370190	-G0 -fno-strict-aliasing
 src/anon/unit_001f5978.cpp	001f5978	001f6298	.rodata@003701b8	-G0 -fno-strict-aliasing
 src/anon/unit_001f6298.cpp	001f6298	001f6868	.rodata@003701c8	-G0 -fno-strict-aliasing -fmove-all-movables
