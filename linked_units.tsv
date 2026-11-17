@@ -456,7 +456,7 @@ src/anon/unit_00170f58.cpp	00170f58	00171e00	.rodata@0036c490	-G0 -fno-strict-al
 src/anon/unit_00171e58.cpp	00171e58	00175590	.rodata@0036c4a4	-G0 -fno-strict-aliasing
 src/yasui/libys/party.cpp	00175670	00177dc8	.rodata@0036c4ac	-G0 -fno-strict-aliasing
 src/yasui/libys/player.cpp	00177dc8	0017a7e0	.rodata@0036c4c8	-G0 -fno-strict-aliasing
-src/anon/unit_0017a8f8.cpp	0017a8f8	0017aad0	-	-G0
+src/anon/unit_0017a8f8.cpp	0017a8f8	0017bf40	.rodata@0036c4f8	-G0
 src/anon/unit_0017bf40.cpp	0017bf40	0017c290	.rodata@0036c500	-G0
 src/anon/unit_0017c400.cpp	0017c400	0017d968	.rodata@0036c50c	-G0 -fno-strict-aliasing
 src/yasui/libys/friend.cpp	0017d968	0017e858	.bss@01c60520,.rodata@0036c578	-G0 -g

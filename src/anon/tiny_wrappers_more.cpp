@@ -559,9 +559,7 @@ u32 func_0017a8b8(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_0017a7e0(0x00000001u, 0x0000ffffu, a2, a3);
 }
 
-u32 func_0017bf00(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_0017aad0(0x00000001u, 0x0000ffffu, a2, a3);
-}
+u32 func_0017bf00(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0017bf00: definition moved into src/anon/unit_0017a8f8.cpp
 
 // 0017e838: moved to src/yasui/libys/friend.cpp
 
