@@ -30,71 +30,11 @@ f32 func_001ee7a0(f32, f32);
 f32 func_001ee988(u8);
 f32 func_001ee980(f32, f32);
 
-void func_001ee670(W1835Obj* self, W1835Src* p, W1835Idx* q) {
-    f32* t;
-    W1835V3* d;
-    if (D_01d9ea9c != 0) return;
-    if (D_01d9e6e0->flags & 0xff0000ff00ULL) return;
-    if (self->id == 0) {
-        t = (f32*)((u8*)self + *q->offp + 0xa0);
-        t[0] = func_001ee5d8(p->k);
-        t[1] = func_001ee5d8(p->k);
-        t[2] = func_001ee5d8(p->k);
-    } else {
-        if (p->id != self->id) return;
-        t = (f32*)((u8*)self + *q->offp + 0xa0);
-    }
-    if (p->off != -1) d = (W1835V3*)((u8*)self + p->off + 0xa0);
-    else d = &D_01d9e360;
-    f32 b0 = t[0];
-    d->x += func_001ee5c8(p->v.x, b0);
-    d->y += func_001ee5c8(p->v.y, t[1]);
-    d->z += func_001ee5c8(p->v.z, t[2]);
-}
+void func_001ee670(W1835Obj* self, W1835Src* p, W1835Idx* q);  // 0x001ee670: definition moved into src/anon/unit_001ec098.cpp
 
-void func_001ee850(W1835Obj* self, W1835Src* p, W1835Idx* q) {
-    f32* t;
-    W1835V3* d;
-    if (D_01d9ea9c != 0) return;
-    if (D_01d9e6e0->flags & 0xff0000ff00ULL) return;
-    if (self->id == 0) {
-        t = (f32*)((u8*)self + *q->offp + 0xa0);
-        t[0] = func_001ee7a8(p->k);
-        t[1] = func_001ee7a8(p->k);
-        t[2] = func_001ee7a8(p->k);
-    } else {
-        if (p->id != self->id) return;
-        t = (f32*)((u8*)self + *q->offp + 0xa0);
-    }
-    if (p->off != -1) d = (W1835V3*)((u8*)self + p->off + 0xa0);
-    else d = &D_01d9e360;
-    f32 b0 = t[0];
-    d->x += func_001ee7a0(p->v.x, b0);
-    d->y += func_001ee7a0(p->v.y, t[1]);
-    d->z += func_001ee7a0(p->v.z, t[2]);
-}
+void func_001ee850(W1835Obj* self, W1835Src* p, W1835Idx* q);  // 0x001ee850: definition moved into src/anon/unit_001ec098.cpp
 
-void func_001eea30(W1835Obj* self, W1835Src* p, W1835Idx* q) {
-    f32* t;
-    W1835V3* d;
-    if (D_01d9ea9c != 0) return;
-    if (D_01d9e6e0->flags & 0xff0000ff00ULL) return;
-    if (self->id == 0) {
-        t = (f32*)((u8*)self + *q->offp + 0xa0);
-        t[0] = func_001ee988(p->k);
-        t[1] = func_001ee988(p->k);
-        t[2] = func_001ee988(p->k);
-    } else {
-        if (p->id != self->id) return;
-        t = (f32*)((u8*)self + *q->offp + 0xa0);
-    }
-    if (p->off != -1) d = (W1835V3*)((u8*)self + p->off + 0xa0);
-    else d = &D_01d9e360;
-    f32 b0 = t[0];
-    d->x += func_001ee980(p->v.x, b0);
-    d->y += func_001ee980(p->v.y, t[1]);
-    d->z += func_001ee980(p->v.z, t[2]);
-}
+void func_001eea30(W1835Obj* self, W1835Src* p, W1835Idx* q);  // 0x001eea30: definition moved into src/anon/unit_001ec098.cpp
 
 
 void func_001bed48(W1835Self* self);  // 0x001bed48: definition moved into src/anon/unit_001bc568.cpp

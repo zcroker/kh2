@@ -85,13 +85,13 @@ void func_001e7070(u32 a0,u32 a1,u32 a2,u32 a3);  // 0x001e7070: definition move
 
 void func_001e7088(u32 a0,u32 a1,u32 a2,u32 a3);  // 0x001e7088: definition moved into src/anon/unit_001e0cb8.cpp
 
-f32 func_001ed130(f32 a0,f32 a1,u32 a2,u32 a3) { (void)a2; (void)a3; f32 v=a0*a1; return v-a0; }
+f32 func_001ed130(f32 a0,f32 a1,u32 a2,u32 a3);  // 0x001ed130: definition moved into src/anon/unit_001ec098.cpp
 
-u32 func_001ed7d8(u32 a0,f32 a1,u32 a2,u32 a3) { (void)a2; (void)a3; f32 fv=(f32)(s32)a0; fv=fv*a1; return (u32)(s32)fv; }
+u32 func_001ed7d8(u32 a0,f32 a1,u32 a2,u32 a3);  // 0x001ed7d8: definition moved into src/anon/unit_001ec098.cpp
 
-u32 func_001ed978(u32 a0,f32 a1,u32 a2,u32 a3) { (void)a2; (void)a3; f32 fv=(f32)(s32)a0; fv=fv*a1; return (u32)(s32)fv; }
+u32 func_001ed978(u32 a0,f32 a1,u32 a2,u32 a3);  // 0x001ed978: definition moved into src/anon/unit_001ec098.cpp
 
-f32 func_001ee5c8(f32 a0,f32 a1,u32 a2,u32 a3) { (void)a2; (void)a3; f32 v=a0*a1; return v-a0; }
+f32 func_001ee5c8(f32 a0,f32 a1,u32 a2,u32 a3);  // 0x001ee5c8: definition moved into src/anon/unit_001ec098.cpp
 
 u32 func_0021e988(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a0; (void)a1; (void)a2; (void)a3; return 0x70001e00u; }
 

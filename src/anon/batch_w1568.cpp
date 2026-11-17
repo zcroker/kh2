@@ -36,23 +36,7 @@ struct P1_w1568_ed990 { s32 id; s32 off; E_w1568_ed990 a; E_w1568_ed990 b; E_w15
 struct P2_w1568_ed990 { u8 pad[0xc]; s32* off; };
 union U_w1568_ed990 { f32 f; s32 v[3]; };
 struct Ent_w1568_ed990 { u8 pad[0xa0]; U_w1568_ed990 u; };
-void func_001ed990(u8* obj, P1_w1568_ed990* p, P2_w1568_ed990* q)
-{
-    if (D_01d9ea9c != 0) return;
-    if (*(u64*)(D_01d9e6e0 + 0xa8) & 0xff0000ff00ULL) return;
-    if (p->id != *(s32*)(obj + 0xc)) return;
-    f32 r = VRand_w1568();
-    r = -r;
-    if (p->two) r = (r - VRand_w1568()) * 0.5f;
-    Ent_w1568_ed990* t = (Ent_w1568_ed990*)(obj + *q->off);
-    t->u.f = r;
-    U_w1568_ed990* fp = &t->u;
-    s32* d;
-    d = (p->off == -1) ? D_01d9e360 : ((Ent_w1568_ed990*)(obj + p->off))->u.v;
-    d[0] += func_001ed978(fp->f, p->a);
-    d[1] += func_001ed978(fp->f, p->b);
-    d[2] += func_001ed978(fp->f, p->c);
-}
+void func_001ed990(u8* obj, P1_w1568_ed990* p, P2_w1568_ed990* q);  // 0x001ed990: definition moved into src/anon/unit_001ec098.cpp
 
 
 /* 0019a480 */

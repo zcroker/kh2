@@ -42,80 +42,10 @@ u8 func_001edce0(s32, f32);
 u8 func_001edea8(s32, f32);
 u16 func_001ee238(s32, f32);
 u16 func_001ee400(s32, f32);
-void func_001edd08(u8* a0, W1572_Arg8* a1, u8* a2) {
-    if (D_01d9ea9c != 0) return;
-    if ((*(u64*)(D_01d9e6e0 + 168) & 0xff0000ff00ULL) != 0) return;
-    if (a1->id != *(s32*)(a0 + 12)) return;
-    f32 f = vu0Rand();
-    if (a1->flag != 0) f = (f + vu0Rand()) * 0.5f;
-    u8* p = a0 + **(s32**)(a2 + 12);
-    ((W1572_FU*)(p + 160))->f = f;
-    f32* s2 = (f32*)(p + 160);
-    s32 idx = a1->idx;
-    W1572_C8* s1;
-    if (idx != -1) s1 = (W1572_C8*)(a0 + idx + 160); else s1 = (W1572_C8*)D_01d9e360;
-    asm volatile("" ::: "memory");
-    { f32 ff = *s2; s1->r += func_001edce0((s8)a1->add.r, ff); }
-    s1->g += func_001edce0((s8)a1->add.g, *s2);
-    s1->b += func_001edce0((s8)a1->add.b, *s2);
-    s1->a += func_001edce0((s8)a1->add.a, *s2);
-}
-void func_001eded0(u8* a0, W1572_Arg8* a1, u8* a2) {
-    if (D_01d9ea9c != 0) return;
-    if ((*(u64*)(D_01d9e6e0 + 168) & 0xff0000ff00ULL) != 0) return;
-    if (a1->id != *(s32*)(a0 + 12)) return;
-    f32 f = vu0Rand();
-    f = -f;
-    if (a1->flag != 0) { f32 g = vu0Rand(); f = (f - g) * 0.5f; }
-    u8* p = a0 + **(s32**)(a2 + 12);
-    ((W1572_FU*)(p + 160))->f = f;
-    f32* s2 = (f32*)(p + 160);
-    s32 idx = a1->idx;
-    W1572_C8* s1;
-    if (idx != -1) s1 = (W1572_C8*)(a0 + idx + 160); else s1 = (W1572_C8*)D_01d9e360;
-    asm volatile("" ::: "memory");
-    { f32 ff = *s2; s1->r += func_001edea8((s8)a1->add.r, ff); }
-    s1->g += func_001edea8((s8)a1->add.g, *s2);
-    s1->b += func_001edea8((s8)a1->add.b, *s2);
-    s1->a += func_001edea8((s8)a1->add.a, *s2);
-}
-void func_001ee260(u8* a0, W1572_Arg16* a1, u8* a2) {
-    if (D_01d9ea9c != 0) return;
-    if ((*(u64*)(D_01d9e6e0 + 168) & 0xff0000ff00ULL) != 0) return;
-    if (a1->id != *(s32*)(a0 + 12)) return;
-    f32 f = vu0Rand();
-    if (a1->flag != 0) f = (f + vu0Rand()) * 0.5f;
-    u8* p = a0 + **(s32**)(a2 + 12);
-    ((W1572_FU*)(p + 160))->f = f;
-    W1572_FU* s2 = (W1572_FU*)(p + 160);
-    s32 idx = a1->idx;
-    W1572_C16* s1;
-    if (idx != -1) s1 = (W1572_C16*)(a0 + idx + 160); else s1 = (W1572_C16*)D_01d9e360;
-    asm volatile("" ::: "memory");
-    { f32 ff = s2->f; s1->r += func_001ee238((s16)a1->add.r, ff); }
-    s1->g += func_001ee238((s16)a1->add.g, s2->f);
-    s1->b += func_001ee238((s16)a1->add.b, s2->f);
-    s1->a += func_001ee238((s16)a1->add.a, s2->f);
-}
-void func_001ee428(u8* a0, W1572_Arg16* a1, u8* a2) {
-    if (D_01d9ea9c != 0) return;
-    if ((*(u64*)(D_01d9e6e0 + 168) & 0xff0000ff00ULL) != 0) return;
-    if (a1->id != *(s32*)(a0 + 12)) return;
-    f32 f = vu0Rand();
-    f = -f;
-    if (a1->flag != 0) { f32 g = vu0Rand(); f = (f - g) * 0.5f; }
-    u8* p = a0 + **(s32**)(a2 + 12);
-    ((W1572_FU*)(p + 160))->f = f;
-    W1572_FU* s2 = (W1572_FU*)(p + 160);
-    s32 idx = a1->idx;
-    W1572_C16* s1;
-    if (idx != -1) s1 = (W1572_C16*)(a0 + idx + 160); else s1 = (W1572_C16*)D_01d9e360;
-    asm volatile("" ::: "memory");
-    { f32 ff = s2->f; s1->r += func_001ee400((s16)a1->add.r, ff); }
-    s1->g += func_001ee400((s16)a1->add.g, s2->f);
-    s1->b += func_001ee400((s16)a1->add.b, s2->f);
-    s1->a += func_001ee400((s16)a1->add.a, s2->f);
-}
+void func_001edd08(u8* a0, W1572_Arg8* a1, u8* a2);  // 0x001edd08: definition moved into src/anon/unit_001ec098.cpp
+void func_001eded0(u8* a0, W1572_Arg8* a1, u8* a2);  // 0x001eded0: definition moved into src/anon/unit_001ec098.cpp
+void func_001ee260(u8* a0, W1572_Arg16* a1, u8* a2);  // 0x001ee260: definition moved into src/anon/unit_001ec098.cpp
+void func_001ee428(u8* a0, W1572_Arg16* a1, u8* a2);  // 0x001ee428: definition moved into src/anon/unit_001ec098.cpp
 extern s32 D_0035e118[];
 extern s32 D_0035e130[];
 extern s32 D_0035e148[];

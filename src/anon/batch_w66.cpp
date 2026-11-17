@@ -226,17 +226,8 @@ static inline f32 rnd01(void) {
                  : "=r"(r) : : "$8");
     return r;
 }
-f32 func_001eed88(u8 a) {
-    f32 r = rnd01();
-    if (a) r = (r + rnd01()) * 0.5f;
-    return r;
-}
-f32 func_001eef90(u8 a) {
-    f32 r = rnd01();
-    r = -r;
-    if (a) r = (r - rnd01()) * 0.5f;
-    return r;
-}
+f32 func_001eed88(u8 a);  // 0x001eed88: definition moved into src/anon/unit_001ec098.cpp
+f32 func_001eef90(u8 a);  // 0x001eef90: definition moved into src/anon/unit_001ec098.cpp
 // ---- 00229120
 void func_00229430(u8*, s32);  // to_1391c8_arg11
 u32 func_00224860(void);  // get_global_36daf4

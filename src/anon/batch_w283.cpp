@@ -56,42 +56,8 @@ extern u8* D_01d9e6e0;
 extern u8 D_01d9e360[];
 u8 func_001edb18(s32, f32);  // fix8_mul_e
 u16 func_001ee070(s32, f32);  // fix16_mul_e
-void func_001edb48(u8* a0, W283_Arg8* a1, u8* a2) {
-    if (D_01d9ea9c != 0) return;
-    if ((*(u64*)(D_01d9e6e0 + 168) & 0xff0000ff00ULL) != 0) return;
-    if (a1->id != *(s32*)(a0 + 12)) return;
-    f32 f = vu0Rand();
-    if (a1->flag != 0) f = f + vu0Rand(); else f = f + f;
-    u8* p = a0 + **(s32**)(a2 + 12);
-    ((W283_FU*)(p + 160))->f = f;
-    f32* s2 = (f32*)(p + 160);
-    s32 idx = a1->idx;
-    W283_C8* s1;
-    if (idx != -1) s1 = (W283_C8*)(a0 + idx + 160); else s1 = (W283_C8*)D_01d9e360;
-    asm volatile("" ::: "memory");
-    { f32 ff = *s2; s1->r += func_001edb18((s8)a1->add.r, ff); }
-    s1->g += func_001edb18((s8)a1->add.g, *s2);  // fix8_mul_e
-    s1->b += func_001edb18((s8)a1->add.b, *s2);  // fix8_mul_e
-    s1->a += func_001edb18((s8)a1->add.a, *s2);  // fix8_mul_e
-}
-void func_001ee0a0(u8* a0, W283_Arg16* a1, u8* a2) {
-    if (D_01d9ea9c != 0) return;
-    if ((*(u64*)(D_01d9e6e0 + 168) & 0xff0000ff00ULL) != 0) return;
-    if (a1->id != *(s32*)(a0 + 12)) return;
-    f32 f = vu0Rand();
-    if (a1->flag != 0) f = f + vu0Rand(); else f = f + f;
-    u8* p = a0 + **(s32**)(a2 + 12);
-    ((W283_FU*)(p + 160))->f = f;
-    W283_FU* s2 = (W283_FU*)(p + 160);
-    s32 idx = a1->idx;
-    W283_C16* s1;
-    if (idx != -1) s1 = (W283_C16*)(a0 + idx + 160); else s1 = (W283_C16*)D_01d9e360;
-    asm volatile("" ::: "memory");
-    { f32 ff = s2->f; s1->r += func_001ee070((s16)a1->add.r, ff); }
-    s1->g += func_001ee070((s16)a1->add.g, s2->f);  // fix16_mul_e
-    s1->b += func_001ee070((s16)a1->add.b, s2->f);  // fix16_mul_e
-    s1->a += func_001ee070((s16)a1->add.a, s2->f);  // fix16_mul_e
-}
+void func_001edb48(u8* a0, W283_Arg8* a1, u8* a2);  // 0x001edb48: definition moved into src/anon/unit_001ec098.cpp
+void func_001ee0a0(u8* a0, W283_Arg16* a1, u8* a2);  // 0x001ee0a0: definition moved into src/anon/unit_001ec098.cpp
 
 extern f32 D_00349e14;
 void func_0023c598(void*) asm("_Z13func_0023c598Pv");

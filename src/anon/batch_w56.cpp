@@ -216,12 +216,7 @@ static inline f32 vu0_rand(void)
         "vitof0.x $vf2, $vf2\n\tvadd.x $vf1, $vf1, $vf2\n\tqmfc2 %0, $vf1" : "=r"(x) : : "$8");
     return x;
 }
-f32 func_001ef1a0(u8 a)
-{
-    f32 x = vu0_rand();
-    if (a) return x + vu0_rand();
-    return x + x;
-}
+f32 func_001ef1a0(u8 a);  // 0x001ef1a0: definition moved into src/anon/unit_001ec098.cpp
 
 // 00203ae8
 s32 func_00203ae8(u8* a, u8* b)

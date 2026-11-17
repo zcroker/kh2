@@ -232,29 +232,7 @@ extern u8* D_01d9e6e8;
 void func_001eb030(void* a0, f32* s);  // 0x001eb030: definition moved into src/anon/unit_001e8ac8.cpp
 
 // VU0 random float in [0,1) (R register); one or two samples
-f32 func_001ee5d8(u8 two) {
-    f32 r, r2;
-    asm volatile("addi $8, $0, -1\n\tqmtc2 $8, $vf2\n\t"
-                 "vrxor R, $vf2x\n\tvrnext.x $vf1, R\n\t"
-                 "vrxor R, $vf2x\n\tvrnext.x $vf1, R\n\t"
-                 "vrxor R, $vf2x\n\tvrnext.x $vf1, R\n\t"
-                 "vrxor R, $vf2x\n\tvrnext.x $vf1, R\n\t"
-                 "vrxor R, $vf2x\n\tvrnext.x $vf1, R\n\t"
-                 "vitof0.x $vf2, $vf2\n\tvadd.x $vf1, $vf1, $vf2\n\tqmfc2 %0, $vf1"
-                 : "=r"(r) : : "$8");
-    if (two) {
-        asm volatile("addi $8, $0, -1\n\tqmtc2 $8, $vf2\n\t"
-                     "vrxor R, $vf2x\n\tvrnext.x $vf1, R\n\t"
-                     "vrxor R, $vf2x\n\tvrnext.x $vf1, R\n\t"
-                     "vrxor R, $vf2x\n\tvrnext.x $vf1, R\n\t"
-                     "vrxor R, $vf2x\n\tvrnext.x $vf1, R\n\t"
-                     "vrxor R, $vf2x\n\tvrnext.x $vf1, R\n\t"
-                     "vitof0.x $vf2, $vf2\n\tvadd.x $vf1, $vf1, $vf2\n\tqmfc2 %0, $vf1"
-                     : "=r"(r2) : : "$8");
-        return r + r2;
-    }
-    return r + r;
-}
+f32 func_001ee5d8(u8 two);  // 0x001ee5d8: definition moved into src/anon/unit_001ec098.cpp
 
 struct Obj232 {
     u8 pad[20];

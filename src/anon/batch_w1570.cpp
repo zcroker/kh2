@@ -22,26 +22,5 @@ f32 func_001ed130(f32, f32);
 extern s32 D_01d9ea9c;
 extern u8* D_01d9e6e0;
 extern f32 D_01d9e360[];
-void func_001ed140(u8* p, A1ed140* __restrict a, B1ed140* b) {
-    f32* base;
-    f32* d;
-    if (D_01d9ea9c != 0) return;
-    if (*(u64*)(D_01d9e6e0 + 168) & 0xff0000ff00ULL) return;
-    if (*(s32*)(p + 12) == 0) {
-        f32 r = vu0Rand_1ed140();
-        if (a->flag != 0) r = r + vu0Rand_1ed140();
-        else r = r + r;
-        base = (f32*)(p + *b->off + 160);
-        *base = r;
-    } else {
-        if (a->id != *(s32*)(p + 12)) return;
-        base = (f32*)(p + *b->off + 160);
-    }
-    if (a->idx != -1) d = (f32*)(p + a->idx + 160);
-    else d = D_01d9e360;
-    f32 t;
-    t = *base; d[0] += func_001ed130(a->a, t);
-    d[1] += func_001ed130(a->b, *base);
-    d[2] += func_001ed130(a->c, *base);
-}
+void func_001ed140(u8* p, A1ed140* __restrict a, B1ed140* b);  // 0x001ed140: definition moved into src/anon/unit_001ec098.cpp
 }

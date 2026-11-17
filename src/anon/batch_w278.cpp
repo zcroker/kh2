@@ -160,25 +160,5 @@ extern s32 D_01d9ea9c;
 extern JSt278* D_01d9e6e0;
 extern s32 D_01d9e360[];
 s32 func_001ed638(f32, void*);  // int_float_mul_sub
-void func_001ed658(u8* o, JEnt278* e, JRef278* r) {
-    if (D_01d9ea9c) return;
-    if (D_01d9e6e0->bits & 0xff0000ff00ULL) return;
-    if (e->id != ((JOwn278*)o)->id) return;
-    f32 f, g;
-    VRAND278(f);
-    if (e->flag) {
-        VRAND278(g);
-        f += g;
-    } else {
-        f += f;
-    }
-    JF278* pf = (JF278*)(o + *r->off + 160);
-    pf->f = f;
-    s32* d;
-    if (e->off != -1) d = (s32*)(o + e->off + 160);
-    else d = D_01d9e360;
-    d[0] += func_001ed638(pf->f, e->a);  // int_float_mul_sub
-    d[1] += func_001ed638(pf->f, e->b);  // int_float_mul_sub
-    d[2] += func_001ed638(pf->f, e->c);  // int_float_mul_sub
-}
+void func_001ed658(u8* o, JEnt278* e, JRef278* r);  // 0x001ed658: definition moved into src/anon/unit_001ec098.cpp
 }

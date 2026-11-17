@@ -176,6 +176,7 @@ src/anon/unit_002200c0.c	002200c0	00221348	.rodata@00370b80	-G0 -fno-strict-alia
 src/rikeda/saveram_gumibattle.cpp	001e0808	001e0c98	.data@00352b88,.bss@01d9e350,.rodata@0036e860	-G0
 src/anon/unit_001e0cb8.cpp	001e0cb8	001e8558	.rodata@0036e8b8	-G0 -g -fno-strict-aliasing
 src/anon/unit_001e8ac8.cpp	001e8ac8	001ec098	.rodata@003700a8	-G0 -g -fno-strict-aliasing
+src/anon/unit_001ec098.cpp	001ec098	001ef780	.rodata@003700d0	-G0 -g
 src/anon/unit_00198b88.cpp	00198b88	00198d50	-	-G0
 src/anon/unit_00198e40.cpp	00198e40	001991a8	.bss@01c61b48	-G0
 src/anon/unit_001991a8.cpp	001991a8	00199688	.bss@01c620c8,.rodata@0036d0d0	-G0 -fno-strict-aliasing

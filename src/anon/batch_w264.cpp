@@ -56,162 +56,22 @@ W264Blk* func_0031a068(W264Blk* d, W264Blk* s)
 
 f32 func_001eeb90(u8);
 s8 func_001eeb60(s8, f32);  // fix8_mul_sub
-void func_001eec28(u8* base, const W264In8* in, u8* desc)
-{
-    if (D_01d9ea9c) return;
-    if (*(u64*)(D_01d9e6e0 + 168) & 0xff0000ff00ULL) return;
-    if (in->id != *(u32*)(base + 12)) return;
-    u32 off = **(u32**)(desc + 12);
-    f32 t = func_001eeb90(in->k);
-    u8* p = base + off;
-    f32* q = (f32*)(p + 160);
-    q[0] = t;
-    q[1] = func_001eeb90(in->k);
-    q[2] = func_001eeb90(in->k);
-    q[3] = func_001eeb90(in->k);
-    asm volatile("" ::: "memory");
-    p = (u8*)&D_01d9e360;
-    asm volatile("" ::: "memory");
-    if (in->o != -1) p = base + in->o + 160;
-    f32 v = q[0];
-    s8 r = func_001eeb60(in->c[0], v);  // fix8_mul_sub
-    s8 c = in->c[1];
-    p[0] = r + p[0];
-    r = func_001eeb60(c, q[1]);  // fix8_mul_sub
-    c = in->c[2];
-    p[1] = r + p[1];
-    r = func_001eeb60(c, q[2]);  // fix8_mul_sub
-    c = in->c[3];
-    p[2] = r + p[2];
-    p[3] = func_001eeb60(c, q[3]) + p[3];
-}
+void func_001eec28(u8* base, const W264In8* in, u8* desc);  // 0x001eec28: definition moved into src/anon/unit_001ec098.cpp
 
 f32 func_001eed88(u8);
 s8 func_001eed60(s8, f32);  // fix8_mul_b
-void func_001eee30(u8* base, const W264In8* in, u8* desc)
-{
-    if (D_01d9ea9c) return;
-    if (*(u64*)(D_01d9e6e0 + 168) & 0xff0000ff00ULL) return;
-    if (in->id != *(u32*)(base + 12)) return;
-    u32 off = **(u32**)(desc + 12);
-    f32 t = func_001eed88(in->k);
-    u8* p = base + off;
-    f32* q = (f32*)(p + 160);
-    q[0] = t;
-    q[1] = func_001eed88(in->k);
-    q[2] = func_001eed88(in->k);
-    q[3] = func_001eed88(in->k);
-    asm volatile("" ::: "memory");
-    p = (u8*)&D_01d9e360;
-    asm volatile("" ::: "memory");
-    if (in->o != -1) p = base + in->o + 160;
-    f32 v = q[0];
-    s8 r = func_001eed60(in->c[0], v);  // fix8_mul_b
-    s8 c = in->c[1];
-    p[0] = r + p[0];
-    r = func_001eed60(c, q[1]);  // fix8_mul_b
-    c = in->c[2];
-    p[1] = r + p[1];
-    r = func_001eed60(c, q[2]);  // fix8_mul_b
-    c = in->c[3];
-    p[2] = r + p[2];
-    p[3] = func_001eed60(c, q[3]) + p[3];
-}
+void func_001eee30(u8* base, const W264In8* in, u8* desc);  // 0x001eee30: definition moved into src/anon/unit_001ec098.cpp
 
 f32 func_001ef1a0(u8);
 s16 func_001ef170(s16, f32);  // fix16_mul_sub
-void func_001ef238(u8* base, const W264In16* in, u8* desc)
-{
-    if (D_01d9ea9c) return;
-    if (*(u64*)(D_01d9e6e0 + 168) & 0xff0000ff00ULL) return;
-    if (in->id != *(u32*)(base + 12)) return;
-    u32 off = **(u32**)(desc + 12);
-    f32 t = func_001ef1a0(in->k);
-    u8* p = base + off;
-    f32* q = (f32*)(p + 160);
-    q[0] = t;
-    q[1] = func_001ef1a0(in->k);
-    q[2] = func_001ef1a0(in->k);
-    q[3] = func_001ef1a0(in->k);
-    asm volatile("" ::: "memory");
-    p = (u8*)&D_01d9e360;
-    asm volatile("" ::: "memory");
-    if (in->o != -1) p = base + in->o + 160;
-    f32 v = q[0];
-    s16 r = func_001ef170(in->c[0], v);  // fix16_mul_sub
-    s16 c = in->c[1];
-    ((W264H*)p)[0].h = r + ((W264H*)p)[0].h;
-    r = func_001ef170(c, q[1]);  // fix16_mul_sub
-    c = in->c[2];
-    ((W264H*)p)[1].h = r + ((W264H*)p)[1].h;
-    r = func_001ef170(c, q[2]);  // fix16_mul_sub
-    c = in->c[3];
-    ((W264H*)p)[2].h = r + ((W264H*)p)[2].h;
-    ((W264H*)p)[3].h = func_001ef170(c, q[3]) + ((W264H*)p)[3].h;
-}
+void func_001ef238(u8* base, const W264In16* in, u8* desc);  // 0x001ef238: definition moved into src/anon/unit_001ec098.cpp
 
 f32 func_001ef398(u8);
 s8 func_001ef370(s16, f32);  // fix16_mul_b
-void func_001ef440(u8* base, const W264In16* in, u8* desc)
-{
-    if (D_01d9ea9c) return;
-    if (*(u64*)(D_01d9e6e0 + 168) & 0xff0000ff00ULL) return;
-    if (in->id != *(u32*)(base + 12)) return;
-    u32 off = **(u32**)(desc + 12);
-    f32 t = func_001ef398(in->k);
-    u8* p = base + off;
-    f32* q = (f32*)(p + 160);
-    q[0] = t;
-    q[1] = func_001ef398(in->k);
-    q[2] = func_001ef398(in->k);
-    q[3] = func_001ef398(in->k);
-    asm volatile("" ::: "memory");
-    p = (u8*)&D_01d9e360;
-    asm volatile("" ::: "memory");
-    if (in->o != -1) p = base + in->o + 160;
-    f32 v = q[0];
-    s8 r = func_001ef370(in->c[0], v);  // fix16_mul_b
-    s16 c = in->c[1];
-    ((W264H*)p)[0].h = r + ((W264H*)p)[0].h;
-    r = func_001ef370(c, q[1]);  // fix16_mul_b
-    c = in->c[2];
-    ((W264H*)p)[1].h = r + ((W264H*)p)[1].h;
-    r = func_001ef370(c, q[2]);  // fix16_mul_b
-    c = in->c[3];
-    ((W264H*)p)[2].h = r + ((W264H*)p)[2].h;
-    ((W264H*)p)[3].h = func_001ef370(c, q[3]) + ((W264H*)p)[3].h;
-}
+void func_001ef440(u8* base, const W264In16* in, u8* desc);  // 0x001ef440: definition moved into src/anon/unit_001ec098.cpp
 
 f32 func_001ef5a0(u8);
 s8 func_001ef578(s16, f32);  // fix16_mul
-void func_001ef648(u8* base, const W264In16* in, u8* desc)
-{
-    if (D_01d9ea9c) return;
-    if (*(u64*)(D_01d9e6e0 + 168) & 0xff0000ff00ULL) return;
-    if (in->id != *(u32*)(base + 12)) return;
-    u32 off = **(u32**)(desc + 12);
-    f32 t = func_001ef5a0(in->k);
-    u8* p = base + off;
-    f32* q = (f32*)(p + 160);
-    q[0] = t;
-    q[1] = func_001ef5a0(in->k);
-    q[2] = func_001ef5a0(in->k);
-    q[3] = func_001ef5a0(in->k);
-    asm volatile("" ::: "memory");
-    p = (u8*)&D_01d9e360;
-    asm volatile("" ::: "memory");
-    if (in->o != -1) p = base + in->o + 160;
-    f32 v = q[0];
-    s8 r = func_001ef578(in->c[0], v);  // fix16_mul
-    s16 c = in->c[1];
-    ((W264H*)p)[0].h = r + ((W264H*)p)[0].h;
-    r = func_001ef578(c, q[1]);  // fix16_mul
-    c = in->c[2];
-    ((W264H*)p)[1].h = r + ((W264H*)p)[1].h;
-    r = func_001ef578(c, q[2]);  // fix16_mul
-    c = in->c[3];
-    ((W264H*)p)[2].h = r + ((W264H*)p)[2].h;
-    ((W264H*)p)[3].h = func_001ef578(c, q[3]) + ((W264H*)p)[3].h;
-}
+void func_001ef648(u8* base, const W264In16* in, u8* desc);  // 0x001ef648: definition moved into src/anon/unit_001ec098.cpp
 
 }

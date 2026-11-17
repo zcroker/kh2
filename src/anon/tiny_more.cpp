@@ -66,13 +66,13 @@ u32 func_001e0fd0(u32 a0,u32 a1,u32 a2,u32 a3);  // 0x001e0fd0: definition moved
 
 u32 func_001e2778(u32 a0,u32 a1,u32 a2,u32 a3);  // 0x001e2778: definition moved into src/anon/unit_001e0cb8.cpp
 
-f32 func_001ed2d8(f32 a0,f32 a1,u32 a2,u32 a3) { (void)a2; (void)a3; return a0 * a1; }
+f32 func_001ed2d8(f32 a0,f32 a1,u32 a2,u32 a3);  // 0x001ed2d8: definition moved into src/anon/unit_001ec098.cpp
 
-f32 func_001ed488(f32 a0,f32 a1,u32 a2,u32 a3) { (void)a2; (void)a3; return a0 * a1; }
+f32 func_001ed488(f32 a0,f32 a1,u32 a2,u32 a3);  // 0x001ed488: definition moved into src/anon/unit_001ec098.cpp
 
-f32 func_001ee7a0(f32 a0,f32 a1,u32 a2,u32 a3) { (void)a2; (void)a3; return a0 * a1; }
+f32 func_001ee7a0(f32 a0,f32 a1,u32 a2,u32 a3);  // 0x001ee7a0: definition moved into src/anon/unit_001ec098.cpp
 
-f32 func_001ee980(f32 a0,f32 a1,u32 a2,u32 a3) { (void)a2; (void)a3; return a0 * a1; }
+f32 func_001ee980(f32 a0,f32 a1,u32 a2,u32 a3);  // 0x001ee980: definition moved into src/anon/unit_001ec098.cpp
 
 extern "C" u32 func_002283c8(u32,u32,u32,u32) asm("_ZN2sa5EVENT4isLKEv");
 

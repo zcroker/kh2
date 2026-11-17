@@ -93,24 +93,7 @@ extern u8 D_01d9e360[];
 f32 func_001eef90(u8);
 s8 func_001eef68(s32, f32);
 
-void func_001ef038(u8* a0, W1840Arg8* a1, u8* a2) {
-    if (D_01d9ea9c != 0) return;
-    if ((*(u64*)(D_01d9e6e0 + 168) & 0xff0000ff00ULL) != 0) return;
-    if (a1->id != *(s32*)(a0 + 12)) return;
-    u8* p = a0 + **(s32**)(a2 + 12);
-    ((W1840FU*)(p + 160))->f = func_001eef90(a1->flag);
-    f32* s3 = (f32*)(p + 160);
-    s3[1] = func_001eef90(a1->flag);
-    s3[2] = func_001eef90(a1->flag);
-    s3[3] = func_001eef90(a1->flag);
-    s32 idx = a1->idx;
-    W1840C8* s0;
-    if (idx != -1) s0 = (W1840C8*)(a0 + idx + 160); else s0 = (W1840C8*)D_01d9e360;
-    { f32 ff = s3[0]; s0->r += func_001eef68((s8)a1->add.r, ff); }
-    s0->g += func_001eef68((s8)a1->add.g, s3[1]);
-    s0->b += func_001eef68((s8)a1->add.b, s3[2]);
-    s0->a += func_001eef68((s8)a1->add.a, s3[3]);
-}
+void func_001ef038(u8* a0, W1840Arg8* a1, u8* a2);  // 0x001ef038: definition moved into src/anon/unit_001ec098.cpp
 extern f32 D_01e2c060;
 extern W1840Vec D_00363550;
 u64 func_00313b80(f32);

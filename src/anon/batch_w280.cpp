@@ -238,22 +238,6 @@ extern "C" s32 D_01d9e360[];
 union FU { f32 f; s32 i; };
 extern "C" {
 s32 func_001ed7d8(void*, f32);  // int_float_mul_m1_b
-void func_001ed7f0(u8* o, S1* s, T1* t)
-{
-    if (D_01d9ea9c) return;
-    if (*(u64*)(D_01d9e6e0 + 168) & 0xff0000ff00ULL) return;
-    if (s->id != *(s32*)(o + 12)) return;
-    f32 r = VRand();
-    if (s->two) r = (r + VRand()) * 0.5f;
-    FU* pr = (FU*)(o + *t->p + 160);
-    pr->f = r;
-    s32* d;
-    if (s->off != -1) d = (s32*)(o + s->off + 160);
-    else d = D_01d9e360;
-    f32 v = pr->f;
-    d[0] += func_001ed7d8(s->a, v);  // int_float_mul_m1_b
-    d[1] += func_001ed7d8(s->b, pr->f);  // int_float_mul_m1_b
-    d[2] += func_001ed7d8(s->c, pr->f);  // int_float_mul_m1_b
-}
+void func_001ed7f0(u8* o, S1* s, T1* t);  // 0x001ed7f0: definition moved into src/anon/unit_001ec098.cpp
 }
 }

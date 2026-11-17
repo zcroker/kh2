@@ -10870,41 +10870,19 @@ f32 duplicate_unplaced_001ed488(f32 a0, f32 a1) {
     return (f32)(a0 * a1);
 }
 
-s32 func_001ed638(s32 a0, f32 a1) {  // int_float_mul_sub
-    f32 f0 = (f32)a0;
-    f32 f12 = (f32)(f0 * a1);
-    f12 = (f32)(f12 - f0);
-    return (s32)f12;
-}
+s32 func_001ed638(s32 a0, f32 a1);  // 0x001ed638: definition moved into src/anon/unit_001ec098.cpp
 
-s8 func_001edb18(s8 a0, f32 a1) {  // fix8_mul_e
-    f32 f0 = (f32)a0;
-    f32 f12 = (f32)(f0 * a1);
-    f12 = (f32)(f12 - f0);
-    s32 v0 = (s32)f12;
-    return (s8)v0;
-}
+s8 func_001edb18(s8 a0, f32 a1);  // 0x001edb18: definition moved into src/anon/unit_001ec098.cpp
 
-s32 func_001edce0(s32 a0, f32 a1) {  // fix8_mul_d
-    return (s8)((s32)((f32)(s8)a0 * a1));
-}
+s32 func_001edce0(s32 a0, f32 a1);  // 0x001edce0: definition moved into src/anon/unit_001ec098.cpp
 
-s32 func_001edea8(s32 a0, f32 a1) {  // fix8_mul_c
-    return (s8)((s32)((f32)(s8)a0 * a1));
-}
+s32 func_001edea8(s32 a0, f32 a1);  // 0x001edea8: definition moved into src/anon/unit_001ec098.cpp
 
-s32 func_001ee070(s32 a0, f32 a1) {  // fix16_mul_e
-    f32 v = (f32)(s16)a0;
-    return (s16)((s32)(v * a1 - v));
-}
+s32 func_001ee070(s32 a0, f32 a1);  // 0x001ee070: definition moved into src/anon/unit_001ec098.cpp
 
-s32 func_001ee238(s32 a0, f32 a1) {  // fix16_mul_d
-    return (s16)((s32)((f32)(s16)a0 * a1));
-}
+s32 func_001ee238(s32 a0, f32 a1);  // 0x001ee238: definition moved into src/anon/unit_001ec098.cpp
 
-s32 func_001ee400(s32 a0, f32 a1) {  // fix16_mul_c
-    return (s16)((s32)((f32)(s16)a0 * a1));
-}
+s32 func_001ee400(s32 a0, f32 a1);  // 0x001ee400: definition moved into src/anon/unit_001ec098.cpp
 
 f32 duplicate_unplaced_001ee5c8(f32 a0, f32 a1) {
     return a0 * a1 - a0;
@@ -10918,31 +10896,17 @@ f32 duplicate_unplaced_001ee980(f32 a0, f32 a1) {
     return a0 * a1;
 }
 
-s32 func_001eeb60(s32 a0, f32 a1) {  // fix8_mul_sub
-    f32 v = (f32)(s8)a0;
-    return (s8)((s32)(v * a1 - v));
-}
+s32 func_001eeb60(s32 a0, f32 a1);  // 0x001eeb60: definition moved into src/anon/unit_001ec098.cpp
 
-s32 func_001eed60(s32 a0, f32 a1) {  // fix8_mul_b
-    return (s8)((s32)((f32)(s8)a0 * a1));
-}
+s32 func_001eed60(s32 a0, f32 a1);  // 0x001eed60: definition moved into src/anon/unit_001ec098.cpp
 
-s32 func_001eef68(s32 a0, f32 a1) {  // fix8_mul
-    return (s8)((s32)((f32)(s8)a0 * a1));
-}
+s32 func_001eef68(s32 a0, f32 a1);  // 0x001eef68: definition moved into src/anon/unit_001ec098.cpp
 
-s32 func_001ef170(s32 a0, f32 a1) {  // fix16_mul_sub
-    f32 v = (f32)(s16)a0;
-    return (s16)((s32)(v * a1 - v));
-}
+s32 func_001ef170(s32 a0, f32 a1);  // 0x001ef170: definition moved into src/anon/unit_001ec098.cpp
 
-s32 func_001ef370(s32 a0, f32 a1) {  // fix16_mul_b
-    return (s8)((s32)((f32)(s16)a0 * a1));
-}
+s32 func_001ef370(s32 a0, f32 a1);  // 0x001ef370: definition moved into src/anon/unit_001ec098.cpp
 
-s32 func_001ef578(s32 a0, f32 a1) {  // fix16_mul
-    return (s8)((s32)((f32)(s16)a0 * a1));
-}
+s32 func_001ef578(s32 a0, f32 a1);  // 0x001ef578: definition moved into src/anon/unit_001ec098.cpp
 
 void func_001eff30(u32 a0, u8* a1) {
     f32 z = 0.0f;

@@ -2338,19 +2338,8 @@ static inline f32 VRand(void)
     asm volatile("addi $8, $0, -1\n\tqmtc2 $8, $vf2\n\tvrxor R, $vf2x\n\tvrnext.x $vf1, R\n\tvrxor R, $vf2x\n\tvrnext.x $vf1, R\n\tvrxor R, $vf2x\n\tvrnext.x $vf1, R\n\tvrxor R, $vf2x\n\tvrnext.x $vf1, R\n\tvrxor R, $vf2x\n\tvrnext.x $vf1, R\n\tvitof0.x $vf2, $vf2\n\tvadd.x $vf1, $vf1, $vf2\n\tqmfc2 %0, $vf1" : "=r"(u) : : "$8");
     return u;
 }
-f32 func_001ee7a8(u8 two)
-{
-    f32 r = VRand();
-    if (two) r = (r + VRand()) * 0.5f;
-    return r;
-}
-f32 func_001ee988(u8 two)
-{
-    f32 r = VRand();
-    r = -r;
-    if (two) r = (r - VRand()) * 0.5f;
-    return r;
-}
+f32 func_001ee7a8(u8 two);  // 0x001ee7a8: definition moved into src/anon/unit_001ec098.cpp
+f32 func_001ee988(u8 two);  // 0x001ee988: definition moved into src/anon/unit_001ec098.cpp
 extern u8 D_0035de24, D_0035de25, D_0035de56;
 extern s32 D_0035de28, D_0035dd04;
 extern u32 D_0035de4c, D_0035de50, D_0035de2c;

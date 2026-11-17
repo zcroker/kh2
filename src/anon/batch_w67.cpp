@@ -112,21 +112,10 @@ s32 func_00163168(Sphere* s, PointList* l, Vec4* out)
 }
 
 // 001ef398: random float, averaged with a second one when asked
-f32 func_001ef398(u8 a)
-{
-    f32 x = vu0Rand();
-    if (a) x = (x + vu0Rand()) * 0.5f;
-    return x;
-}
+f32 func_001ef398(u8 a);  // 0x001ef398: definition moved into src/anon/unit_001ec098.cpp
 
 // 001ef5a0: negative random float, averaged with a second one when asked
-f32 func_001ef5a0(u8 a)
-{
-    f32 x = vu0Rand();
-    x = -x;
-    if (a) x = (x - vu0Rand()) * 0.5f;
-    return x;
-}
+f32 func_001ef5a0(u8 a);  // 0x001ef5a0: definition moved into src/anon/unit_001ec098.cpp
 
 s32 func_0016c028(void*);  // obj_get_attach_or_alt
 void func_002bc188(s32, s32);

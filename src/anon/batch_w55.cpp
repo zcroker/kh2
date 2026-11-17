@@ -306,11 +306,7 @@ void func_001d2690(RingW55* r, u32 b, f32 f);  // 0x001d2690: definition moved i
 void func_001e9078(u8* a, u8* b, u8* c);  // 0x001e9078: definition moved into src/anon/unit_001e8ac8.cpp
 
 // Sum of two VU0 randoms, or twice one.
-f32 func_001eeb90(u8 a) {
-    f32 r = vu0Rand();
-    if (a) return r + vu0Rand();
-    return r + r;
-}
+f32 func_001eeb90(u8 a);  // 0x001eeb90: definition moved into src/anon/unit_001ec098.cpp
 
 s32 func_0024ebc0(void) {
     func_00287d68();  // copy_globals_3words
