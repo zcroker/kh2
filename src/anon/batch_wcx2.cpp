@@ -4798,7 +4798,7 @@ u32 func_00109ea8(s32, u32, u8);
 u32 func_0010ae90(void);  // get_table_34ed8
 void func_00108ae0(u32, s32, u64, u64, u32, u32, s32, s32);
 void func_00109670(void);
-void func_001219b8(u8* p, u32 a1, u32 a2, u8* q, u32 a4, u8 flag, u32 a6, u32 a7);  // 0x001219b8: definition moved into src/anon/unit_00120648.cpp
+void func_001219b8(u8* p, u32 a1, u32 a2, u8* q, u32 a4, u8 flag, u32 a6, u32 a7);  // 0x001219b8: definition moved into src/anon/unit_00120520.cpp
 
 // ---- 002f8420
 typedef union { f32 value; u32 word; } FloatShapeAt;

@@ -272,8 +272,7 @@ src/anon/unit_0011a260.cpp	0011a260	0011a660	.rodata@0036a8a8	-G0
 src/anon/unit_0011a660.cpp	0011a660	0011b3f8	.rodata@0036a8b8	-G0 -fno-strict-aliasing
 src/anon/unit_0011b3f8.cpp	0011b3f8	0011c128	.rodata@0036a8d0	-G0
 src/anon/unit_0011c128.cpp	0011c128	0011f7a8	.rodata@0036a908	-G0 -fno-strict-aliasing -fmove-all-movables
-src/anon/unit_00120520.cpp	00120520	001205c0	-	-G0 -fno-strict-aliasing -fmove-all-movables
-src/anon/unit_00120648.cpp	00120648	00121cc8	.rodata@0036a970	-G0 -fno-strict-aliasing -fmove-all-movables
+src/anon/unit_00120520.cpp	00120520	00121cc8	.rodata@0036a970	-G0 -fno-strict-aliasing -fmove-all-movables
 src/anon/unit_00123138.cpp	00123138	00123650	.rodata@0036a9b4	-G0 -fno-strict-aliasing -fmove-all-movables
 src/anon/unit_00123990.cpp	00123990	00125f78	.rodata@0036a9c8	-G0 -fno-strict-aliasing -fmove-all-movables
 src/anon/unit_00127a88.cpp	00127a88	00127ec8	.rodata@0036a9e0	-G0 -fno-strict-aliasing -fmove-all-movables

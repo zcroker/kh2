@@ -104,7 +104,7 @@ void* func_002cd910_f(void*, u32, f32) asm("_Z13func_002cd910f");
 
 void func_00114cc8(void** p);  // 0x00114cc8: definition moved into src/anon/unit_00114a90.cpp
 
-void func_001207c8(void** p);  // 0x001207c8: definition moved into src/anon/unit_00120648.cpp
+void func_001207c8(void** p);  // 0x001207c8: definition moved into src/anon/unit_00120520.cpp
 
 typedef s32 (*VFn2)(void*, s32);
 s32 func_00123d90(void* a, s32 b);  // 0x00123d90: definition moved into src/anon/unit_00123990.cpp

@@ -58,7 +58,7 @@ void func_0010c9f8(u8* p, f32 a, f32 b, f32 c, f32 d, f32 e);  // 0x0010c9f8: de
 // --- 001215b8
 // Flags (|= 4) every entry of both tables whose id field matches (or all when id == -1).
 u8* func_00120800(u8*);  // obj_get_sub_ptr_by12
-void func_001215b8(u8* p, u8* flags, s32 id);  // 0x001215b8: definition moved into src/anon/unit_00120648.cpp
+void func_001215b8(u8* p, u8* flags, s32 id);  // 0x001215b8: definition moved into src/anon/unit_00120520.cpp
 
 // --- 00131810
 // Copies the current frame's matrices into the destination's matrix buffer.

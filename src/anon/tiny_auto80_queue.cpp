@@ -13971,7 +13971,7 @@ void duplicate_unplaced_0011c4b0(C4B0_State* a0) {
     a4->vtbl->fn11(a4, s0);
 }
 
-u32 func_001208b8(u8* a0);  // 0x001208b8: definition moved into src/anon/unit_00120648.cpp
+u32 func_001208b8(u8* a0);  // 0x001208b8: definition moved into src/anon/unit_00120520.cpp
 
 void func_00127cf8(u32 a0);  // 0x00127cf8: definition moved into src/anon/unit_00127a88.cpp
 

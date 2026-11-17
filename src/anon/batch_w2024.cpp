@@ -50,7 +50,7 @@ s32 func_00132d60(s32);
 void func_001097e8(s32, s32, s32, s32, s32, s32, s32, s32, s32);
 void func_00133c60(void*, void*, s32, s32, s32);
 void func_001094e0(void*, s32);
-void func_001217a0(W2024a_Obj* o, void* ctx, s32 n, void* a3, W2024a_Hdr* h);  // 0x001217a0: definition moved into src/anon/unit_00120648.cpp
+void func_001217a0(W2024a_Obj* o, void* ctx, s32 n, void* a3, W2024a_Hdr* h);  // 0x001217a0: definition moved into src/anon/unit_00120520.cpp
 
 W2024b_Vec* func_0016c028(void*);
 void func_002e10d0(W2024b_Mtx*, W2024b_Cam*);

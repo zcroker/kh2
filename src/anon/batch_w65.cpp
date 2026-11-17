@@ -57,7 +57,7 @@ struct FlagEnt { u32 f; u32 x[7]; };
 struct FlagHdr { u8 pad[28]; s32 n; FlagEnt e[1]; };
 void func_0011ee18(void*);  // obj_ctor_347940
 extern u8 D_00347a28[];
-void func_001206e0(u32* p);  // 0x001206e0: definition moved into src/anon/unit_00120648.cpp
+void func_001206e0(u32* p);  // 0x001206e0: definition moved into src/anon/unit_00120520.cpp
 
 void func_00139510(void*);
 void func_001b2028(u32);

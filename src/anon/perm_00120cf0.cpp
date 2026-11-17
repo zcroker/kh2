@@ -47,6 +47,6 @@ struct B120cf0
   U120cf0 mid;
 };
 u32 func_00120a20(S120cf0 *, B120cf0 *, u32, u32, s32);
-void func_00120cf0(S120cf0 *s, B120cf0 *b, u32 base);  // 0x00120cf0: definition moved into src/anon/unit_00120648.cpp
+void func_00120cf0(S120cf0 *s, B120cf0 *b, u32 base);  // 0x00120cf0: definition moved into src/anon/unit_00120520.cpp
 
 }

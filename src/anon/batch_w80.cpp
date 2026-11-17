@@ -406,7 +406,7 @@ static inline bool func_00170b30_locked(U0_Blk* b) { return b->f40 >= 10000; }
 static inline bool func_00179450_flag(U0_Act* a) { return (a->sub->f8 & 2) || (a->f352 & 0x40); }
 static inline bool func_00179450_busy(U0_Act* a) { bool b = func_0019c090(a) || func_00179450_flag(a); return b == false; }
 // clear the low two flag bits of every entry matching id (-1 = all)
-void func_001214c0(U0_Obj* p, u8* flags, s32 id);  // 0x001214c0: definition moved into src/anon/unit_00120648.cpp
+void func_001214c0(U0_Obj* p, u8* flags, s32 id);  // 0x001214c0: definition moved into src/anon/unit_00120520.cpp
 void func_00131da8(U0_Node* n) {
     u32 i;
     s16 t;

@@ -105,5 +105,5 @@ s32 func_001affe0(Tbl273* t, s32 a1, s32 a2);  // 0x001affe0: definition moved i
 
 Sub273* func_00120800(Own273*);  // obj_get_sub_ptr_by12
 void func_0011efe8(Own273*, u8*);
-void func_00121218(Own273* o, u8* fl, u16* list);  // 0x00121218: definition moved into src/anon/unit_00120648.cpp
+void func_00121218(Own273* o, u8* fl, u16* list);  // 0x00121218: definition moved into src/anon/unit_00120520.cpp
 }

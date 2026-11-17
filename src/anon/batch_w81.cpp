@@ -86,7 +86,7 @@ struct Ent216 { u32 lo : 5; u32 : 1; u32 hi : 5; u32 : 21; u8 pad[28]; };
 struct Tbl216 { u8 pad[28]; s32 n; Ent216 e[1]; };
 struct Own216 { u32 a; Tbl216* t; };
 Tbl216* func_00120800(Own216*);  // obj_get_sub_ptr_by12
-void func_001216a8(Own216* o, u8* flags, s32 id);  // 0x001216a8: definition moved into src/anon/unit_00120648.cpp
+void func_001216a8(Own216* o, u8* flags, s32 id);  // 0x001216a8: definition moved into src/anon/unit_00120520.cpp
 
 // --- 0013d9e0: release the five global objects (virtual slot 4) and clear them
 extern VObj0* D_003485f8;
