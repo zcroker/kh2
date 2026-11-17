@@ -630,3 +630,4 @@ src/newlib/libc/closer.c	00305068	003050b8	-	-G0 -fno-builtin
 src/newlib/libc/fstatr.c	003050b8	00305110	-	-G0 -fno-builtin
 src/newlib/libc/lseekr.c	00305110	00305168	-	-G0 -fno-builtin
 src/newlib/libc/readr.c	00305168	003051c8	-	-G0 -fno-builtin
+src/sdk/glue.c	00305be8	00305e70	-	-G0

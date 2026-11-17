@@ -25,12 +25,7 @@ int ctarget_002f35e8(unsigned int a) asm("_Z16ctarget_002f35e8jjjj");
 int ctarget_002f35e8(unsigned int a);  // 0x002f35e8: definition moved into src/sdk/libdma.c
 
 extern void func_0030f468(int);
-int func_00305df8(int a, int b)
-{
-    if (a == 1)
-        func_0030f468(b);
-    return 0;
-}
+int func_00305df8(int a, int b);  // 0x00305df8: definition moved into src/sdk/glue.c
 
 extern int* func_00316d08(void);
-int func_00305e20(void) { *func_00316d08() = 5; return -1; }
+int func_00305e20(void);  // 0x00305e20: definition moved into src/sdk/glue.c

@@ -2,7 +2,7 @@
 typedef unsigned int u32;
 
 extern int* func_00316d08(void);
-int func_00305e48(void) { *func_00316d08() = 5; return -1; }
+int func_00305e48(void);  // 0x00305e48: definition moved into src/sdk/glue.c
 
 extern void func_00305650(int);
 int func_003068d8(int a, int b, int c, int d) { func_00305650(d); asm volatile("sync.l; ei"); return 0; }

@@ -90,29 +90,4 @@ void func_00306e80(int c);  // 0x00306e80: definition moved into src/sdk/kprintf
 extern char *D_003660cc;
 extern unsigned int func_00305600(void);
 extern int* func_00316d08(void);
-void* func_00305d20(int incr)
-{
-    int st, x;
-    char *old, *nw;
-    asm volatile("mfc0 %0, $12" : "=r"(st));
-    st &= 0x10000;
-    if (st) {
-        do {
-            asm volatile("di");
-            asm volatile("sync.p");
-            asm volatile("mfc0 %0, $12" : "=r"(x));
-        } while (x & 0x10000);
-    }
-    nw = D_003660cc + incr;
-    if (func_00305600() < (unsigned int)nw) {
-        *func_00316d08() = 12;
-        if (st)
-            asm volatile("ei");
-        return (void *)-1;
-    }
-    old = D_003660cc;
-    D_003660cc = nw;
-    if (st)
-        asm volatile("ei");
-    return old;
-}
+void* func_00305d20(int incr);  // 0x00305d20: definition moved into src/sdk/glue.c

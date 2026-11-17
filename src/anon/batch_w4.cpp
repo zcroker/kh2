@@ -176,12 +176,7 @@ void sceVu0ScaleVector(void* d, void* a, f32 s) {  // vec_scale_by_f12
 }
 
 // Library code: the original compiler allocated v0 for the temporary.
-s32 func_00305dd8(u32 a, u8* p) {  // task_param_init
-    register u32 t asm("$2") = 0x2000;
-    *(u64*)(p + 72) = 0;
-    *(u32*)(p + 4) = t;
-    return 0;
-}
+s32 func_00305dd8(u32 a, u8* p);  // 0x00305dd8: definition moved into src/sdk/glue.c
 
 void iEnableDmac(void) {
     func_003053e0();
