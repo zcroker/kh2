@@ -796,26 +796,7 @@ void func_002d0c28(u8*);
 extern Mgr2d0* D_00361f60;
 void wt_002d00e0(void) asm("_Z16wtarget_002d00e0jjjj");
 
-void wt_002d00e0(void) {
-    u8* o = 0;
-    while ((o = func_001b9bc8(o)) != 0) {
-        if (!(*(u32*)(o + 1416) & 0x8000000)) continue;
-        if (func_0019c768(o)) continue;
-        u8* st = o + 2800;
-        if (func_002cf270(st, 0x2000)) {
-            func_002d0c28(o);
-            continue;
-        }
-        s32 ok = 0;
-        if (func_002cf270(st, 4)) ok = 1;
-        else if (func_002cf270(st, 1)) ok = D_00361f60->vt[7](D_00361f60, o) != 0;
-        if (!ok) continue;
-        func_002cf2b0(st, 4);
-        func_002cf2b0(st, 1);
-        if (func_002cf270(st, 0x1000)) func_002d0c28(o);
-        else (*(void (**)(u8*))(*(u8**)o + 32))(o);
-    }
-}
+void wt_002d00e0(void);  // 0x002d00e0: definition moved into src/anon/unit_002cf260.cpp
 }
 
 // ---- 319bd0 ----

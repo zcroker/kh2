@@ -289,30 +289,14 @@ void func_002c2168(Q16* q);  // 0x002c2168: definition moved into src/anon/unit_
 
 extern s32 D_00361fa0;
 extern u8* volatile D_00361fa4;
-void func_002cf938(u8 on) {  // count_entries_masked
-    if (on && D_00361fa4) {
-        for (s32 i = 0; i < D_00361fa0; i++) *(u32*)(D_00361fa4 + i * 40) = 0;
-    }
-    func_00182f38();
-}
+void func_002cf938(u8 on);  // 0x002cf938: definition moved into src/anon/unit_002cf260.cpp
 
 // Destructor chain: vtables reset as each base is torn down.
 extern u8 D_00362060[];
 extern void* D_00362050;
 extern u8 D_0034e8b8[];
 extern u8 D_0034ee08[];
-void func_002d1028(u8* o) {
-    *(void**)o = D_00362060;
-    func_00182f28(0);  // store_global_35ed04
-    D_00362050 = 0;
-    *(void**)o = D_0034e8b8;
-    func_00319f88(o + 2824);
-    *(void**)o = D_0034ee08;
-    func_0019f9a8(o + 2568);  // array8_free_slots
-    func_001c0248(o + 2640);
-    func_00319fb0(o);  // big_obj_dtor
-    func_00105110(o);
-}
+void func_002d1028(u8* o);  // 0x002d1028: definition moved into src/anon/unit_002cf260.cpp
 
 extern Q16 D_01e2be20;
 // 002e3a18: moved to src/anon/unit_002e2f08.cpp

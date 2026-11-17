@@ -430,17 +430,7 @@ union U2cf { u32 w; u16 h[2]; };
 struct S2cf { u32 a; u32 b; u32 c; u32 d; U2cf* e; u32 f; u32 pad[3]; u32 g; };
 extern S2cf* D_00361fa4;
 void func_002cf280(u32*, int, int);
-S2cf* func_002cf8c0(int idx, u32 a, u32 b, U2cf* c) {
-    S2cf* e = &D_00361fa4[idx];
-    e->a = a;
-    e->f = b;
-    e->c = 0;
-    e->e = c;
-    e->d = 0;
-    e->g = 0;
-    if (c->h[1] == 3) func_002cf280(&e->b, 16, 0);
-    return e;
-}
+S2cf* func_002cf8c0(int idx, u32 a, u32 b, U2cf* c);  // 0x002cf8c0: definition moved into src/anon/unit_002cf260.cpp
 
 // --- 002d4a30
 void func_0016aef0(u8*, f32*);

@@ -226,13 +226,7 @@ extern u32 D_0034ee08;
 void func_0019f9a8(void*);  // array8_free_slots
 void func_001c0248(void*);
 void func_00319fb0(void*);  // big_obj_dtor
-void func_002cffe0(u8* p) {
-    NoTail g;
-    *(void**)p = &D_0034ee08;
-    func_0019f9a8(p + 2568);  // array8_free_slots
-    func_001c0248(p + 2640);
-    func_00319fb0(p);  // big_obj_dtor
-}
+void func_002cffe0(u8* p);  // 0x002cffe0: definition moved into src/anon/unit_002cf260.cpp
 
 extern u32 D_003625a8;
 void func_002e70b0(void*);

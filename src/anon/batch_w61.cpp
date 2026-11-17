@@ -272,16 +272,7 @@ void func_002c1b60(u8* p, u8* a);  // 0x002c1b60: definition moved into src/anon
 
 void func_002c6280(u8* p, s32 i);  // 0x002c6280: definition moved into src/worldmap/cameramanager.cpp
 
-s32 func_002d0200(u8* p) {
-    if (p[4] != 16) return 1;
-    if (*(u32*)p == 1566) return 0;
-    switch (p[5]) {
-    case 0: case 1: case 2: case 5: case 6: case 15: case 16: case 17:
-    case 25: case 27: case 200: case 201:
-        return 1;
-    }
-    return 0;
-}
+s32 func_002d0200(u8* p);  // 0x002d0200: definition moved into src/anon/unit_002cf260.cpp
 
 void sceVu0RotMatrixZ(void*, f32);
 void sceVu0RotMatrixY(void*, void*, f32);

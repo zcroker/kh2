@@ -329,18 +329,7 @@ void func_00319f88(u8*);
 void func_0019f9a8(u8*);  // array8_free_slots
 void func_001c0248(u8*);
 void func_00319fb0(u8*);  // big_obj_dtor
-void func_002d0fb0(u8* p) {
-    NoTail nt;
-    *(void**)p = D_00362060;
-    func_00182f28(0);  // store_global_35ed04
-    D_00362050 = 0;
-    *(void**)p = D_0034e8b8;
-    func_00319f88(p + 2824);
-    *(void**)p = D_0034ee08;
-    func_0019f9a8(p + 2568);  // array8_free_slots
-    func_001c0248(p + 2640);
-    func_00319fb0(p);  // big_obj_dtor
-}
+void func_002d0fb0(u8* p);  // 0x002d0fb0: definition moved into src/anon/unit_002cf260.cpp
 
 u8* func_002dc7c8(u8*);
 f32 func_002dceb0(u8* p) {

@@ -150,41 +150,7 @@ static inline void SetPos2cf(f32* v, f32 x, f32 y, f32 z)
 }
 
 // Finds a reusable spawned object matching p->info (or creates one) and places it.
-u8* func_002cf4a8(Params2cf* p)
-{
-    u8* it = 0;
-    u8* obj = 0;
-    f32 pos[4];
-
-    while ((it = func_001b9bc8(it)) != 0) {
-        if (!(*(u32*)(it + 1416) & 0x08000000)) continue;
-        if (func_0016a020(it) != p->info->id) continue;
-        if (!func_0019c768(it)) continue;
-        if (!func_002cf270(it + 2800, 4096)) continue;
-        if (*(s32*)(it + 2832) > 0) continue;
-        obj = it;
-        break;
-    }
-    if (obj == 0) {
-        obj = func_00199938(p->info, p->f20);
-    }
-    if (func_0019c768(obj)) {
-        func_002cff50(obj);
-    }
-    if (p->ref0) {
-        *(u32*)(obj + 2808) = func_002e3260(D_00361f60->f92, p->f0, *p->ref0->data);
-        *(u32*)(obj + 2812) = (u32)p->ref0->data;
-        *(u32*)(obj + 2816) = p->ref1 ? (u32)p->ref1->data : 0;
-    }
-    if (func_0019c768(obj)) {
-        SetPos2cf(pos, p->info->x, p->info->y, p->info->z);
-        func_0016ace0(obj, pos);
-        func_002d0d88(obj);
-    } else {
-        D_00361fa8++;
-    }
-    return obj;
-}
+u8* func_002cf4a8(Params2cf* p);  // 0x002cf4a8: definition moved into src/anon/unit_002cf260.cpp
 }
 
 extern "C" {

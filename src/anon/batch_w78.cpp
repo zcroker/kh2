@@ -592,16 +592,7 @@ struct W78VecC2 {
         return *this;
     }
 } __attribute__((aligned(16)));
-W78VecC2* func_002d1d30(W78VecC2* out, u8* cam, W78VecC2* pos) {
-    *out = *pos;
-    vsub((W78Vec*)out, (W78Vec*)out, (W78Vec*)(cam + 208));
-    f32 t = func_002f8a18(*(f32*)(cam + 112) * 0.5f * 0.01745329238474369f);
-    t *= fabsf(out->z);  // fabsf
-    out->z = 0.0f;
-    out->x = out->x / (t * 4.0f / 3.0f);
-    out->y = out->y / t;
-    return out;
-}
+W78VecC2* func_002d1d30(W78VecC2* out, u8* cam, W78VecC2* pos);  // 0x002d1d30: definition moved into src/anon/unit_002cf260.cpp
 
 extern u32 D_00361f60;
 extern u8 D_00362380;

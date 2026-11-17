@@ -639,22 +639,9 @@ void func_002723e0();  // 0x002723e0: definition moved into src/anon/unit_00271e
 
 void func_00290610(u32 self);  // 00290610: moved to src/anon/unit_0028f1e0.cpp
 
-u32 func_002cff00(u32 a0) {
-    u32 s0 = a0;
-    ((u32 (*)(u32))func_001b3b70)(a0);
-    *(u32 *)s0 = (u32)&D_00361fc8;
-    ((u32 (*)(u32, u32))func_002cf268)(s0 + 2800, 0);
-    *(u32 *)(s0 + 1416) |= 0x08000000u;
-    return ((u32 (*)(u32))func_002cff50)(s0);
-}
+u32 func_002cff00(u32 a0);  // 0x002cff00: definition moved into src/anon/unit_002cf260.cpp
 
-u32 func_002d0ef0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 s0 = a0;
-    ((u32 (*)(u32, u32, u32, u32, u32))func_00177dc8)(a0, a1, 11, a2, a3);
-    *(u32 *)s0 = (u32)&D_00362060;
-    *(u32 *)((u8 *)&D_00360000 + 8272) = s0;
-    return ((u32 (*)(u32))func_00182f28)(s0);
-}
+u32 func_002d0ef0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002d0ef0: definition moved into src/anon/unit_002cf260.cpp
 
 void func_0031a2f0(u32 self) {
     u32 s16 = self;

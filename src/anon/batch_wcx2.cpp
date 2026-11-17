@@ -272,19 +272,7 @@ void func_00252208(void)
 f32 func_002f8a18(f32);
 f32 fabsf(f32);  // fabsf
 // 002d1bf8: clamp v (relative to the camera at +208) inside the view frustum, with margins lo/hi
-void func_002d1bf8(u8* cam, Vec4* v, f32* hi, f32* lo)
-{
-    Vec4* c = (Vec4*)(cam + 208);
-    asm volatile("lqc2 $vf1, 0(%0)\n\tlqc2 $vf2, 0(%1)\n\tvsub.xyzw $vf1, $vf1, $vf2\n\tsqc2 $vf1, 0(%0)" : : "r"(v), "r"(c) : "memory");
-    f32 h = func_002f8a18(*(f32*)(cam + 112) * 0.5f * 0.017453292f);
-    h *= fabsf(v->z);  // fabsf
-    f32 w = h * 4.0f / 3.0f;
-    if (w - lo[0] < v->x) v->x = w - lo[0];
-    if (v->x < hi[0] - w) v->x = hi[0] - w;
-    if (h - lo[1] < v->y) v->y = h - lo[1];
-    if (v->y < hi[1] - h) v->y = hi[1] - h;
-    asm volatile("lqc2 $vf1, 0(%0)\n\tlqc2 $vf2, 0(%1)\n\tvadd.xyzw $vf1, $vf1, $vf2\n\tsqc2 $vf1, 0(%0)" : : "r"(v), "r"(c) : "memory");
-}
+void func_002d1bf8(u8* cam, Vec4* v, f32* hi, f32* lo);  // 0x002d1bf8: definition moved into src/anon/unit_002cf260.cpp
 
 struct VB36 {
     f32 x, y, z, w;
@@ -2299,34 +2287,7 @@ s32 func_002d0200(Hdr99*);
 s32 func_002cf638_115228(s32) asm("func_002cf638");
 void func_002cf2d0(u8*);
 void func_002cf280(u8*, s32, s32);
-Node99* func_002cf750(u32 a, u32 b, u32* p, Ref99* r0, Ref99* r1)
-{
-    Hdr99* h = func_0016e920(*p);
-    if (func_002d0200(h)) return 0;
-    s32 idx = func_002cf638_115228(1);
-    Node99* n = D_00361fa4 + idx;
-    n->a = a;
-    n->b = b;
-    n->p = p;
-    n->cat = 0;
-    n->f16 = 0;
-    n->r0 = r0;
-    if (r0) r0->ref++;
-    n->r1 = r1;
-    if (r1) r1->ref++;
-    func_002cf2d0(n->sub);
-    n->f36 = 0;
-    if (h->kind == 51) {
-        func_002cf280(n->sub, 4, 0);
-        switch (h->type) {
-        case 2055: n->cat = 1; break;
-        case 2054: n->cat = 2; break;
-        case 2056: n->cat = 0; break;
-        }
-        D_00361fb0[n->cat]++;
-    }
-    return n;
-}
+Node99* func_002cf750(u32 a, u32 b, u32* p, Ref99* r0, Ref99* r1);  // 0x002cf750: definition moved into src/anon/unit_002cf260.cpp
 
 struct Obj98 { u8 pad[28]; u8 pos[844]; u32 lst; u8 m[4]; };
 s32 func_0028d008_116312(s32) asm("func_0028d008");
@@ -2734,111 +2695,7 @@ void func_002db6b0(u8* p, Src2d0* s, u32 a, f32 f);
 void func_002de788(u8* p, Src2d0* s, Vec2d0* v, f32 f);
 
 // Create the effect object for a source entry according to its type.
-u8* func_002d0290(Src2d0* s, u32 a, f32 f) {
-    u8* r = 0;
-    u8* p;
-    switch (s->type) {
-    case 0:
-        p = AllocR(3136);
-        func_002d49c0(p, s, func_00167f18_0290(0), a, f);
-        r = p;
-        break;
-    case 1:
-        p = AllocR(3360);
-        func_002d9730(p, s, func_00167f18_0290(0), a, f);
-        r = p;
-        break;
-    case 2:
-        p = AllocR(3088);
-        func_002dd700(p, s, func_00167f18_0290(0), a, f);
-        r = p;
-        break;
-    case 5:
-    case 200:
-        p = AllocR(2928);
-        func_00177f50_0290(p, s, 11, func_00167f18_0290(0), a, f);
-        r = p;
-        break;
-    case 6:
-    case 100:
-    case 201:
-        p = AllocR(2848);
-        func_002cff00(p, s, 1, a, f);
-        r = p;
-        break;
-    case 15:
-        if (s->id == 1565) {
-            p = AllocR(2912);
-            func_002d5d50(p, s, a, f);
-        } else if (s->id == 1628) {
-            p = AllocR(2848);
-            func_002d69c8(p, s, a, f);
-        } else if (s->id == 1566) {
-            p = AllocR(3248);
-            func_002d4200(p, s, a, f);
-        } else {
-            p = AllocR(2848);
-            func_002cff00(p, s, 0, a, f);
-        }
-        *(s32*)(p + 944) = 1;
-        r = p;
-        break;
-    case 16:
-        if (s->id == 1630) {
-            p = AllocR(3072);
-            func_002db858(p, s, a, f);
-        } else {
-            p = AllocR(2848);
-            func_002db4f0(p, s, a, f);
-        }
-        *(s32*)(p + 944) = 1;
-        r = p;
-        break;
-    case 17:
-        if (s->id == 1635) {
-            p = AllocR(2848);
-            Vec2d0 v;
-            f32 z = 0.0f;
-            v.x = z;
-            v.y = -300.0f;
-            v.z = z;
-            v.w = z;
-            func_002de788(p, s, &v, z);
-        } else {
-            p = AllocR(2848);
-            func_002cff00(p, s, 1, a, f);
-        }
-        *(s32*)(p + 944) = 1;
-        r = p;
-        break;
-    case 20:
-        p = AllocR(3216);
-        func_002d29a8(p, s, 3, a, f);
-        r = p;
-        break;
-    case 21:
-        if (s->id == 1631) {
-            p = AllocR(2912);
-            func_002daca0(p, s, a, f);
-        } else {
-            p = AllocR(2848);
-            func_002daa98(p, s, a, f);
-        }
-        r = p;
-        break;
-    case 22:
-        p = AllocR(3072);
-        func_002dda88(p, s, a, f);
-        r = p;
-        break;
-    case 26:
-        p = AllocR(2848);
-        func_002db6b0(p, s, a, f);
-        r = p;
-        break;
-    }
-    return r;
-}
+u8* func_002d0290(Src2d0* s, u32 a, f32 f);  // 0x002d0290: definition moved into src/anon/unit_002cf260.cpp
 
 // ---- 00254ab8
 struct ListVt254 { void* f[6]; void (*setItem)(void* self, s32 i, u32 a, s32 b, s32 c, s32 y, u32 col); };

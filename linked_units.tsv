@@ -215,6 +215,7 @@ src/anon/unit_002c9998.cpp	002c9998	002ca0e0	-	-G0
 src/anon/unit_002ca0e0.cpp	002ca0e0	002cac58	.rodata@00375818	-G0
 src/anon/unit_002cac58.cpp	002cac58	002cb200	.rodata@00375868	-G0 -fno-strict-aliasing
 src/taito/minigame_base.cpp	002cea28	002cf260	.data@00361f60,.rodata@00375958	-G0
+src/anon/unit_002cf260.cpp	002cf260	002d2330	.rodata@00375980	-G0 -g -fno-strict-aliasing
 src/anon/unit_002cb200.cpp	002cb200	002cb538	-	-G0 -g -fno-strict-aliasing
 src/taito/path.cpp	002cb538	002ce958	.rodata@00375878	-G0 -g -fno-strict-aliasing
 src/yasui/libys/damage.cpp	0018c8b8	0018d050	.bss@01c60bf0,.rodata@0036cc28	-G0 -fno-strict-aliasing -finline-limit=1000

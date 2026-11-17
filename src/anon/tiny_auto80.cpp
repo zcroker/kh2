@@ -1211,12 +1211,7 @@ void func_002c8520(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x2c8520: moved to src/a
 void func_002c9ea8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x2c9ea8: moved to src/anon/unit_002c9998.cpp
 
 
-u32 func_002d18e8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3;
-    *(volatile u32*)((u32)r4 + (s32)(328)) = 0u;
-    *(volatile u32*)((u32)r4 + (s32)(324)) = 0u;
-    return ((u32(*)(u32,u32,u32,u32))func_002d25f0)(r4, r5, r6, r7);
-}
+u32 func_002d18e8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002d18e8: definition moved into src/anon/unit_002cf260.cpp
 
 void func_002e9fa8(u32 a0, u32 a1, u32 a2, u32 a3);  // 002e9fa8: moved to src/anon/unit_002e9a00.cpp
 

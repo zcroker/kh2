@@ -59,16 +59,7 @@ u8* func_001c9c78(s32 a0);  // 0x001c9c78: definition moved into src/yasui/libys
 void func_002c3c90(u8* a0);  // 0x002c3c90: definition moved into src/anon/unit_002c3c90.cpp
 
 // Walk all objects; type 16 with sub-type 20/21/22/25/26/27 get virtual slot 10 called.
-void func_002d0a78(void) {
-    u8* o = 0;
-    while ((o = func_001b9bc8(o)) != 0) {
-        if (func_0016a040(o) != 16) continue;
-        if (func_0016a060(o) == 20 || func_0016a060(o) == 21 || func_0016a060(o) == 22 ||
-            func_0016a060(o) == 25 || func_0016a060(o) == 26 || func_0016a060(o) == 27) {
-            (*(void (**)(u8*))(*(u8**)o + 40))(o);
-        }
-    }
-}
+void func_002d0a78(void);  // 0x002d0a78: definition moved into src/anon/unit_002cf260.cpp
 
 // newlib fflush(fp): NULL flushes all via _fwalk; otherwise write out the buffer.
 s32 fflush(W254File* fp) {

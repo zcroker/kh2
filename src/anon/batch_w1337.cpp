@@ -62,34 +62,7 @@ Model1337* ObjData_get_knm(ObjData1337*) asm("_ZN2YS7OBJDATA7get_knmEv");
 void ObjData_free(ObjData1337*) asm("_ZN2YS7OBJDATA4freeEv");
 void Aabbox_ctor(Box1337*, const BoxVec1337*, const BoxVec1337*) asm("_ZN2dk6AabboxC1ERKN2kn7FVectorES4_");
 
-Box1337* func_002d0718(Box1337* out, s32* chara) {
-    union {
-        struct { ObjData1337 obj; s32 pad[2]; BoxVec1337 mn; BoxVec1337 mx; Box1337 box; } m;
-        struct { BoxVec1337 mn; BoxVec1337 mx; Box1337 box; } d;
-    } u;
-    s32 data = JmInfo_GetCharaData(*chara);
-    if (func_0016f6f8(*chara) != 0) {
-        s32 id = *chara;
-        Model1337* m;
-        func_001a91f8(&u.m.obj);
-        func_001a92d8(&u.m.obj, id, data);
-        m = ObjData_get_knm(&u.m.obj);
-        ((GetBoundsFn1337)m->vtbl[4])(m, &u.m.mn, &u.m.mx);
-        u.m.mn.y = -u.m.mn.y;
-        u.m.mn.z = -u.m.mn.z;
-        u.m.mx.y = -u.m.mx.y;
-        u.m.mx.z = -u.m.mx.z;
-        Aabbox_ctor(&u.m.box, &u.m.mn, &u.m.mx);
-        *out = u.m.box;
-        ObjData_free(&u.m.obj);
-    } else {
-        BoxVecSet1337(&u.d.mn, -100.0f, -100.0f, -100.0f, 0.0f);
-        BoxVecSet1337(&u.d.mx, 100.0f, 100.0f, 100.0f, 0.0f);
-        Aabbox_ctor(&u.d.box, &u.d.mn, &u.d.mx);
-        *out = u.d.box;
-    }
-    return out;
-}
+Box1337* func_002d0718(Box1337* out, s32* chara);  // 0x002d0718: definition moved into src/anon/unit_002cf260.cpp
 
 
 extern u8* D_00361f60;

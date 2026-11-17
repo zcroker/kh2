@@ -128,17 +128,5 @@ f32 ObjCamera_getObjBackDirection_w(Cam_w*) asm("_ZN2dk9ObjCamera19getObjBackDir
 const QV_w* OBJ_get_xyzrot_w(Cam_w*) asm("_ZN2YS3OBJ10get_xyzrotEv");
 s32 OBJ_is_xyzrot_w(Cam_w*) asm("_ZN2YS3OBJ9is_xyzrotEv");
 const QV_w* func_0016c028(Cam_w*);
-void func_002d10a0(Cam_w* o)
-{
-    func_00178758(o);
-    QM_w* m = &o->m;
-    func_0011b6a8(m);
-    if (OBJ_is_xyzrot_w(o)) FMatrix_rotateXYZ_w(m, OBJ_get_xyzrot_w(o));
-    else FMatrix_rotateY_w(m, ObjCamera_getObjBackDirection_w(o));
-    o->m.r[3] = *func_0016c028(o);
-    { QV_w t = *m * QV_w(0.0f, -80.0f, 0.0f, 0.0f); o->m.r[3] += t; }
-    o->m.r[3].w = 1.0f;
-    o->inv = *m;
-    o->inv.invOrtho();
-}
+void func_002d10a0(Cam_w* o);  // 0x002d10a0: definition moved into src/anon/unit_002cf260.cpp
 }

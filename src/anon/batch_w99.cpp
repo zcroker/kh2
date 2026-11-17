@@ -701,24 +701,7 @@ extern E2cf6* D_00361fa4;
 s32 func_002cf270(void*, s32);
 
 // Scans the slot table; returns the index just past the last busy slot once n free slots were seen, or -1.
-s32 func_002cf638(s32 n)
-{
-    s32 i;
-    s32 cnt = 0;
-    s32 last = 0;
-    for (i = 0; i < D_00361fa0; i++) {
-        E2cf6* e = &D_00361fa4[i];
-        s32 ok = 0;
-        if (!e->used || (e->w12 && func_002cf270(e->obj, 2))) ok = 1;
-        else if (e->w16) ok = e->w36 < 1;
-        if (ok) {
-            if (++cnt >= n) return last;
-        } else {
-            last = i + 1;
-        }
-    }
-    return -1;
-}
+s32 func_002cf638(s32 n);  // 0x002cf638: definition moved into src/anon/unit_002cf260.cpp
 }
 
 // ---- 002d8670

@@ -6,11 +6,11 @@ namespace Ti {
 
 
 
-LFlag::LFlag(u32 bits) { *reinterpret_cast<u32*>(this) = bits; }
+// 0x002cf268: definition moved into src/anon/unit_002cf260.cpp
 
-bool LFlag::check(u32 bits) { return (*reinterpret_cast<u32*>(this) & bits) != 0; }
+// 0x002cf270: definition moved into src/anon/unit_002cf260.cpp
 
-void LFlag::reset(u32 bits) { func_002cf280((u32)this, 0, bits); }
+// 0x002cf2b0: definition moved into src/anon/unit_002cf260.cpp
 
-void LFlag::zero() { *reinterpret_cast<u32*>(this) = 0; }
+// 0x002cf2d0: definition moved into src/anon/unit_002cf260.cpp
 }  // namespace Ti

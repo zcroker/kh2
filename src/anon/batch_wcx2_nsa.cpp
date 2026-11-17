@@ -118,54 +118,7 @@ void func_002e6ab0(f32, s32, M2d1550*);
 void func_001069b8(s32);
 void func_002cedd0(s32, u8*);
 void func_002cf938(s32);
-void func_002d1550(G2d1550* g, s32 id, s32 arg)
-{
-    func_002ce958(g, 0, arg, 0x800);
-    M2d1550* m0 = &g->m0;
-    M2d1550* m1 = &g->m1;
-    V2d1550* v288 = &g->v288;
-    V2d1550* v304 = &g->v304;
-    g->id = id;
-    g->f100 = 0;
-    g->afp = 0;
-    g->vt = (u32)D_00362158;
-    g->dist = 40.0f;
-    g->pos.Init(0.0f, 0.0f, 0.0f, 0.0f);
-    g->f144 = 0.0f;
-    g->f152 = 0.0f;
-    g->f320 = 0;
-    s32 bar;
-    {
-        char path[64];
-        g2d1550_make_data_path(g, path, "po_06");
-        bar = g2d1550_Alloc(path, -1);
-    }
-    g->bar = bar;
-    func_00168b38(bar, 42, 0);
-    g->f100 = func_00168b38(bar, 42, 0)->data + 16;
-    func_00168b38(bar, 42, 1);
-    s32 afp = func_00168b38(bar, 42, 1)->data;
-    func_00168b38(bar, 42, g->id + 2);
-    g->f92 = func_00168b38(bar, 42, g->id + 2)->data;
-    func_001ca8f8(g2d1550_config(g)->f36, 0.0f);
-    g2d1550_getCount(afp);
-    g->afp = func_002e64b8(0, afp);
-    g2d1550_getFieldMode();
-    g->dist = 40.0f;
-    g->pos = V2d1550(0.0f, 0.0f, 150.0f, 0.0f);
-    g->f144 = 0.0f;
-    M2d1550 m;
-    func_002e6ab0(0.0f, g->afp, &m);
-    *m0 = m;
-    *m1 = m;
-    *v288 = V2d1550(0.0f, 0.0f, 0.0f, 0.0f);
-    *v304 = V2d1550(0.0f, 0.0f, 0.0f, 0.0f);
-    g->f324 = 0;
-    g->f328 = 0;
-    func_001069b8(2);
-    func_002cedd0(4, D_00362110);
-    func_002cf938(1);
-}
+void func_002d1550(G2d1550* g, s32 id, s32 arg);  // 0x002d1550: definition moved into src/anon/unit_002cf260.cpp
 
 // --------------------
 // 002d1908: Ti::MGOarashi per-frame update (camera, ride along the Afp path, speed from slope)
@@ -182,37 +135,7 @@ void func_002e6930(f32, s32, V2d1550*);
 f32* g2d1908_config(G2d1550*) asm("_ZN2Ti9MGOarashi6configEv");
 f32 g2d1908_fabsf(f32) asm("fabsf");
 void g2d1908(G2d1550*) asm("_Z16wtarget_002d1908jjjj");
-void g2d1908(G2d1550* g)
-{
-    g2d1908_exec();
-    func_002cf998();
-    g2d1908_002cfb30();
-    void* cam = g2d1908_00106a18(1);
-    g2d1908_00106de8(cam, 1, g->dist * 0.017453292f);
-    g2d1908_00106c08(cam);
-    g->m1 = g->m0;
-    g2d1908_002e6ab0(g->afp, g->f144, &g->m0);
-    g->m0.r[3] += g->pos;
-    if (!g->f320) {
-        f32 thr = 0.5f;
-        V2d1550 a, b;
-        func_002e6930(g->f144, g->afp, &a);
-        f32 k = *g2d1908_config(g);
-        func_002e6930(g->f144 + k * 15.0f * 11.0f, g->afp, &b);
-        if (g2d1908_fabsf(b.y) < thr) {
-            if (g->f152 > 0.0f) g->f152 -= 1.3333333f;
-        } else if (thr < g2d1908_fabsf(a.y)) {
-            if (g->f152 < 20.0f) g->f152 += 1.3333333f;
-        }
-        if (g->f152 < 0.0f) g->f152 = 0.0f;
-        if (20.0f < g->f152) g->f152 = 20.0f;
-        g->f144 += k * (g->f152 + 1.0f) * D_00349e10 * 0.5f;
-        s32 n = ((Afp2d1908*)g->afp)->frames;
-        if (!((s32)g->f144 < n - 1)) g->f144 = n;
-    }
-    g->v304 = g->v288;
-    g->v288 = g->m0.r[3] - g->m1.r[3];
-}
+void g2d1908(G2d1550* g);  // 0x002d1908: definition moved into src/anon/unit_002cf260.cpp
 }
 
 // --------------------

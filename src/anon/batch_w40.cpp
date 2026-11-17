@@ -288,19 +288,7 @@ extern void* D_0034ee08[];
 struct NoTail { ~NoTail() {} };
 void u_call4_dtor(u32 a, u32, u32, u32) asm("_Z16u_call4_002d0f38jjjj");
 // Destructor chain (vtables reset per base, members destroyed).
-void u_call4_dtor(u32 a, u32, u32, u32) {
-    NoTail g;
-    u8* p = (u8*)a;
-    *(void**)p = D_00362060;
-    func_00182f28(0);  // store_global_35ed04
-    D_00362050.v = 0;
-    *(void**)p = D_0034e8b8;
-    func_00319f88(p + 2824);
-    *(void**)p = D_0034ee08;
-    func_0019f9a8(p + 2568);  // array8_free_slots
-    func_001c0248(p + 2640);
-    func_00319fb0(p);  // big_obj_dtor
-}
+void u_call4_dtor(u32 a, u32, u32, u32);  // 0x002d0f38: definition moved into src/anon/unit_002cf260.cpp
 
 void func_001dc818(u32);
 u32 func_0016ac38(u8*, s32, u32, u32, u32);

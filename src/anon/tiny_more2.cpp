@@ -131,6 +131,6 @@ u32 func_0028af78(u32 a0,u32 a1,u32 a2,u32 a3);  // 0x0028af78: definition moved
 
 void func_002b4ac8(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a2; (void)a3; D_0035f640 = a0; D_0035f644 = a1; }
 
-u32 func_002cf308(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a1; (void)a2; (void)a3; return *(u32*)((u32)&D_00361fb0 + ((u32)a0 << 2) + (0)); }
+u32 func_002cf308(u32 a0,u32 a1,u32 a2,u32 a3);  // 0x002cf308: definition moved into src/anon/unit_002cf260.cpp
 
 // 002e93a0: moved to src/sugi/flare.cpp

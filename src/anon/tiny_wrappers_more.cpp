@@ -1037,25 +1037,15 @@ u32 func_002cedb8(u32 a0, u32 a1, u32 a2, u32 a3);  // 002cedb8: moved to src/ta
 
 u32 func_002cf248(u32 a0, u32 a1, u32 a2, u32 a3);  // 002cf248: moved to src/taito/minigame_base.cpp (linked unit)
 
-u32 func_002d1228(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_001789b8(a0, a1, a2, a3);
-}
+u32 func_002d1228(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002d1228: definition moved into src/anon/unit_002cf260.cpp
 
-u32 func_002d1880(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_002cebc0(a0, a1, a2, a3);
-}
+u32 func_002d1880(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002d1880: definition moved into src/anon/unit_002cf260.cpp
 
-u32 func_002d1f68(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_002d1908(((u32)(*(u32*)((u32)(a0) + 4u))), a1, a2, a3);
-}
+u32 func_002d1f68(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002d1f68: definition moved into src/anon/unit_002cf260.cpp
 
-u32 func_002d2058(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_002d1f40(((u32)(*(u32*)((u32)(a0) + 4u))), a1, a2, a3);
-}
+u32 func_002d2058(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002d2058: definition moved into src/anon/unit_002cf260.cpp
 
-u32 func_002d2140(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_002cf058(a0, a1, a2, a3);
-}
+u32 func_002d2140(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002d2140: definition moved into src/anon/unit_002cf260.cpp
 
 u32 func_002d7408(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_002cebc0(a0, a1, a2, a3);

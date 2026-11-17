@@ -90,7 +90,7 @@ s16 func_002bc988(void* self);  // 0x002bc988: definition moved into src/anon/un
 
 s32 func_002cb918(void* self);  // 0x002cb918: definition moved into src/taito/path.cpp
 
-void func_002d00d8(void* self) { *(s32*)((char*)self + 2832) = 0; }
+void func_002d00d8(void* self);  // 0x002d00d8: definition moved into src/anon/unit_002cf260.cpp
 
 void func_002d5950(void* self, s32 v) { *(s32*)((char*)self + 3100) = v; }
 

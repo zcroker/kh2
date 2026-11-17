@@ -268,12 +268,7 @@ s32 func_002bbd58(u8* o);  // 0x002bbd58: definition moved into src/anon/unit_00
 
 void func_002beea8(u8* o);  // 0x002beea8: definition moved into src/anon/unit_002bebd0.cpp
 
-u8 func_002cff98(u8* o) {
-    *(u8**)o = D_0034ee08;
-    func_0019f9a8(o + 2568);  // array8_free_slots
-    func_001c0248(o + 2640);
-    return func_00319fb0(o);  // big_obj_dtor
-}
+u8 func_002cff98(u8* o);  // 0x002cff98: definition moved into src/anon/unit_002cf260.cpp
 
 u8 func_002d72e0(u8* o) {
     *(u8**)o = D_003625a8;

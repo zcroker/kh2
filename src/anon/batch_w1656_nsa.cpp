@@ -61,58 +61,5 @@ void func_002e6ab0(s32 afp, W1656Mtx* m, f32 t);
 void func_001069b8(s32 a);
 void func_002cedd0(s32 a, u8* b);
 void func_002cf938(s32 a);
-void func_002d12b0(W1656Oarashi* p, s32 id, s32 b)
-{
-    s32 data, r;
-    f32 z = 0.0f;
-    W1656Vec& v128 = p->v128;
-    W1656Mtx& m160 = p->m160;
-    W1656Mtx& m224 = p->m224;
-    W1656Vec& v288 = p->v288;
-    W1656Vec& v304 = p->v304;
-    func_002ce958(p, 0, b, 2048);
-    p->f104 = id;
-    p->f100 = 0;
-    p->afp = 0;
-    p->vt = (u32)D_00362158;
-    p->f112 = 40.0f;
-    v128.x = z;
-    v128.y = z;
-    v128.z = z;
-    v128.w = z;
-    p->f144 = z;
-    p->f152 = z;
-    p->f320 = 0;
-    {
-        char path[64] __attribute__((aligned(16)));
-        MiniGame_make_data_path_W1656(p, path, "po_06");
-        p->res = r = CACHE_BUFF_Alloc_W1656(path, -1);
-    }
-    func_00168b38(r, 42, 0);
-    p->f100 = func_00168b38(r, 42, 0)->data + 16;
-    func_00168b38(r, 42, 1);
-    data = func_00168b38(r, 42, 1)->data;
-    func_00168b38(r, 42, p->f104 + 2);
-    p->f92 = func_00168b38(r, 42, p->f104 + 2)->data;
-    func_001ca8f8(MGOarashi_config_W1656(p)->scale, z);
-    Afp_getCount_W1656(data);
-    p->afp = func_002e64b8(0, data);
-    getFieldMode_W1656();
-    p->f112 = 40.0f;
-    v128 = W1656Vec(z, z, 150.0f, z);
-    p->f144 = z;
-    {
-        W1656Mtx m;
-        func_002e6ab0(p->afp, &m, z);
-        m160 = m;
-        m224 = m;
-        v288 = W1656Vec(z, z, z, z);
-        v304 = W1656Vec(z, z, z, z);
-    }
-    p->f324 = 0;
-    p->f328 = 0;
-    func_001069b8(2);
-    func_002cedd0(4, D_00362110);
-    func_002cf938(1);
-}
+void func_002d12b0(W1656Oarashi* p, s32 id, s32 b);  // 0x002d12b0: definition moved into src/anon/unit_002cf260.cpp
 }

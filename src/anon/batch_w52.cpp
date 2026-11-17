@@ -293,14 +293,7 @@ void func_00160fd0(u8);
 void func_002c1cb0(u8* c, s32 mode);  // 0x002c1cb0: definition moved into src/anon/unit_002c10e0.cpp
 
 // Wraps an angle into [-pi, pi].
-f32 func_002d0e10(f32 a) {  // float_bucket_index_b
-    if (0.0f < a) {
-        while (3.1415927f < a) a -= 6.2831855f;
-    } else {
-        while (a < -3.1415927f) a += 6.2831855f;
-    }
-    return a;
-}
+f32 func_002d0e10(f32 a);  // 0x002d0e10: definition moved into src/anon/unit_002cf260.cpp
 
 void func_002e7458(u8*);
 void func_002e7568(u8*, u32, u8*, f32);
@@ -350,13 +343,5 @@ extern u32 D_003a84d0[512];
 u32 wtarget_00109450(s32 start, s32 count, u32 val, u32);  // 00109450: moved to src/anon/unit_001085a8.cpp
 
 void func_001dc818(u32);
-void func_002d0cf0(u8* p) {
-    if (*(u32*)(p + 2828)) {
-        func_001dc818(*(u32*)(p + 2828));
-        *(u32*)(p + 2828) = 0;
-    }
-    *(u32*)(p + 268) |= 0x80;
-    *(u32*)(p + 264) |= 0x403;
-    *(u32*)(p + 2832) = 0;
-}
+void func_002d0cf0(u8* p);  // 0x002d0cf0: definition moved into src/anon/unit_002cf260.cpp
 }

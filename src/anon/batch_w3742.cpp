@@ -18,34 +18,5 @@ static inline void wrap3(V3_1577& o, const V3_1577& i) {
     o.y = func_002d0e10(i.y);
     o.z = func_002d0e10(i.z);
 }
-void func_002d08b8(Vec3_1577* out, f32* m) {
-    V3_1577 a, b, r;
-    f32 m0 = m[0];
-    register f32 m2 asm("$f0") = m[2];
-    f32 sy = -m2;
-    f32 cy = __builtin_sqrtf(m0 * m0 + m[1] * m[1]);
-    if (cy > 1.9073486328125e-06f) {
-        r.z = func_002f8ad0(m[1], m[0]);
-        r.y = func_002f8ad0(-m[2], cy);
-        r.x = func_002f8ad0(m[6], m[10]);
-    } else {
-        asm volatile("" : : "f"(m0));
-        r.z = 0.0f;
-        r.y = func_002f8ad0(sy, cy);
-        r.x = func_002f8ad0(-m[9], m[5]);
-    }
-    a.x = func_002d0e10(r.x);
-    a.y = func_002d0e10(r.y);
-    a.z = func_002d0e10(r.z);
-    r.x += 3.1415927f;
-    r.z += 3.1415927f;
-    r.y = 3.1415927f - r.y;
-    wrap3(b, r);
-    f32 bz = b.z; asm("" : "=f"(bz) : "0"(bz), "m"(b.z));
-    if (a.dot(a) <= b.dot(b)) {
-        out->x = a.x; out->y = a.y; out->z = a.z;
-    } else {
-        out->x = b.x; out->y = b.y; out->z = bz;
-    }
-}
+void func_002d08b8(Vec3_1577* out, f32* m);  // 0x002d08b8: definition moved into src/anon/unit_002cf260.cpp
 }

@@ -436,37 +436,11 @@ void func_002cf280(u8*, u32, u32);
 s32 func_002cf270(u8*, u32);
 void func_002cf2b0(u8*, u32);
 void func_002d0cf0(u8*);
-void func_002d0c28(u8* o) {
-    if (*(s32*)(o + 2832) == 0) {
-        if (*(u32*)(o + 2828)) {
-            func_001dc818(*(u32*)(o + 2828));
-            *(u32*)(o + 2828) = 0;
-        }
-        *(u32*)(o + 264) |= 3;
-        func_002cf280(o + 2800, 8192, 0);
-    }
-    (*(s32*)(o + 2832))++;
-    if (func_002cf270(o + 2800, 16384) && *(s32*)(o + 2832) < 5) return;
-    func_002cf2b0(o + 2800, 8192);
-    func_002cf2b0(o + 2800, 16384);
-    func_002d0cf0(o);
-}
+void func_002d0c28(u8* o);  // 0x002d0c28: definition moved into src/anon/unit_002cf260.cpp
 
 // --- 002d1f88: push the inverse of the node's (orthonormal) matrix
 u8* func_00106a60(u32);  // buffer_get_by_index
-void func_002d1f88(u8* o) {
-    M81 m = *(M81*)(*(u8**)(o + 4) + 160);
-    // transpose the 3x3 part, translation = -(R^T * t)
-    asm volatile(
-        "lq $8, 0(%0)\n\tlq $9, 16(%0)\n\tlq $10, 32(%0)\n\tqmfc2 $11, $vf0\n\tlqc2 $vf4, 48(%0)\n\t"
-        "pextlw $12, $9, $8\n\tpextuw $13, $9, $8\n\tpextlw $14, $11, $10\n\tpextuw $15, $11, $10\n\t"
-        "pcpyld $8, $14, $12\n\tpcpyud $9, $12, $14\n\tpcpyld $10, $15, $13\n\t"
-        "qmtc2 $8, $vf1\n\tqmtc2 $9, $vf2\n\tqmtc2 $10, $vf3\n\t"
-        "vmulax.xyz ACC, $vf1, $vf4x\n\tvmadday.xyz ACC, $vf2, $vf4y\n\tvmaddz.xyz $vf4, $vf3, $vf4z\n\tvsub.xyz $vf4, $vf0, $vf4\n\t"
-        "sq $8, 0(%0)\n\tsq $9, 16(%0)\n\tsq $10, 32(%0)\n\tsqc2 $vf4, 48(%0)"
-        : : "r"(&m) : "$8", "$9", "$10", "$11", "$12", "$13", "$14", "$15", "memory");
-    *(M81*)(func_00106a60(1) + 16) = m;
-}
+void func_002d1f88(u8* o);  // 0x002d1f88: definition moved into src/anon/unit_002cf260.cpp
 
 // --- 002e2570: copy the matrix, then fade value 260 up/down towards its limit
 extern f32 D_00349e10;

@@ -242,11 +242,7 @@ void func_002ab258(u32 n);  // 0x002ab258: definition moved into src/anon/unit_0
 
 void func_002bfd48(u32* p, u32 a);  // 0x002bfd48: definition moved into src/anon/unit_002bebd0.cpp
 
-void ctarget_002cf3f8(void) {
-    if (D_00361fa4) func_00106450(D_00361fa4);
-    D_00361fa4 = 0;
-    D_00361fa0 = 0;
-}
+void ctarget_002cf3f8(void);  // 0x002cf3f8: definition moved into src/anon/unit_002cf260.cpp
 
 void func_002d28f8(u32 x, u32 m, s32 i) {
     W3 t = D_00375a40;

@@ -3,5 +3,5 @@
 namespace Ti {
 
 
-s32 MGOarashi::config() { return reinterpret_cast<MGOarashiLayout*>(this)->configValue; }
+// 0x002d1878: definition moved into src/anon/unit_002cf260.cpp
 }  // namespace Ti

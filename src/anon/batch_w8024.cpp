@@ -43,14 +43,7 @@ void func_002d9220(O2d_w8024*, s32);
 P2d_w8024* func_002d73f0(O2d_w8024*);
 void func_001ca8f8(f32, f32);
 
-void func_002cf320(s32 n)
-{
-    D_00361fa0 = n;
-    D_00361fa8 = 0;
-    D_00361fa4 = 0;
-    if (n > 0) D_00361fa4 = new (func_001050c8()) ElemQ_w8024[n];
-    else D_00361fa4 = 0;
-}
+void func_002cf320(s32 n);  // 0x002cf320: definition moved into src/anon/unit_002cf260.cpp
 
 void func_002d6a00(s32 a0)
 {

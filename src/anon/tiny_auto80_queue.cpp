@@ -3046,18 +3046,7 @@ u32 duplicate_unplaced_002d0028(u32 a0) {
 extern "C" u32 func_00186020(...);
 extern "C" u32 func_001dc818(...);
 
-u32 func_002d0d48(u32 a0) {
-    u32 r4 = a0, r2, r15, r16;
-    r16 = r4;
-    r15 = *(volatile u32*)((u32)r4 + (s32)(2828));
-    r4 = r15;
-    if (r15 != 0u) {
-        r2 = ((u32(*)(u32))func_001dc818)(r4);
-        *(volatile u32*)((u32)r16 + (s32)(2828)) = 0u;
-    }
-    r4 = r16;
-    return ((u32(*)(u32))func_00186020)(r4);
-}
+u32 func_002d0d48(u32 a0);  // 0x002d0d48: definition moved into src/anon/unit_002cf260.cpp
 
 extern "C" u32 func_002cea28(...);
 extern u8 D_00362158;
@@ -13087,27 +13076,9 @@ void func_002cf170(u32 a0, u32 a1, u32 a2);  // 002cf170: moved to src/taito/min
 
 u32 func_002cf1b8(u32 a0);  // 002cf1b8: moved to src/taito/minigame_base.cpp (linked unit)
 
-void func_002cf280(u32 a0, u32 a1, u32 a2) {
-    u32 t6 = a1 & a2;
-    if (a2 == 0) {
-        *(u32*)a0 = *(u32*)a0 | a1;
-        return;
-    }
-    u32 t5 = ~a2;
-    u32 t7 = *(u32*)a0;
-    t7 = t7 & t5;
-    *(u32*)a0 = t7 | t6;
-}
+void func_002cf280(u32 a0, u32 a1, u32 a2);  // 0x002cf280: definition moved into src/anon/unit_002cf260.cpp
 
-void func_002cf2d8() {
-    s32 i = 2;
-    u32* p = &D_00361fb0;
-    do {
-        *p = 0;
-        i -= 1;
-        p += 1;
-    } while (i >= 0);
-}
+void func_002cf2d8();  // 0x002cf2d8: definition moved into src/anon/unit_002cf260.cpp
 
 void duplicate_unplaced_002cff00(u32 a0) {
     func_001b3b70(a0);
@@ -13117,25 +13088,9 @@ void duplicate_unplaced_002cff00(u32 a0) {
     func_002cff50(a0);
 }
 
-void func_002d0b88(u32 a0, u32 a1) {
-    u8 tmp[16];
-    u32 s0 = a1;
-    u32 s1 = a0;
+void func_002d0b88(u32 a0, u32 a1);  // 0x002d0b88: definition moved into src/anon/unit_002cf260.cpp
 
-    func_0016ace0(s1, s0 + 48);
-    func_002d08b8((u32)tmp, s0);
-    func_0016b070(s1, (u32)tmp);
-}
-
-void func_002d0bd8(u32 a0, u32 a1) {
-    u8 tmp[16];
-    u32 s0 = a1;
-    u32 s1 = a0;
-
-    func_0016ace0(s1, s0 + 48);
-    func_002d08b8((u32)tmp, s0);
-    func_0016b070(s1, (u32)tmp);
-}
+void func_002d0bd8(u32 a0, u32 a1);  // 0x002d0bd8: definition moved into src/anon/unit_002cf260.cpp
 
 void duplicate_unplaced_002d0ef0(u32 a0, u32 a1, u32 a2, u32 a3) {
     func_00177dc8(a0, a1, 11, a2, a3);

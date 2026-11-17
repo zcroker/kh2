@@ -233,17 +233,9 @@ void* func_002ba0b0(u32 a) {
 }
 
 // Deleting destructor.
-void func_002d0028(u8* p) {
-    *(void**)p = D_0034ee08;
-    func_0019f9a8(p + 2568);  // array8_free_slots
-    func_001c0248(p + 2640);
-    func_00319fb0(p);  // big_obj_dtor
-    func_00105110(p);
-}
+void func_002d0028(u8* p);  // 0x002d0028: definition moved into src/anon/unit_002cf260.cpp
 
-void* func_002d1270(u32 a, u32 b) {
-    return func_002d1550(func_001050d8(336), a, b);
-}
+void* func_002d1270(u32 a, u32 b);  // 0x002d1270: definition moved into src/anon/unit_002cf260.cpp
 
 void func_002daa98(u8* p, u32 a, u32 b) {
     func_002cfeb0(p, a, 3, b);  // obj_init_field1416_bit800

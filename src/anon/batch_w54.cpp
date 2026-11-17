@@ -342,15 +342,7 @@ struct Flags108 {
     u32 b10 : 1;
     u32 rest : 21;
 };
-void func_002d0d88(u8* p) {
-    func_002cf2b0(p + 2800, 4);
-    ((Flags108*)(p + 264))->b0 = 0;
-    ((Flags108*)(p + 264))->b1 = 0;
-    ((Flags108*)(p + 268))->b7 = 0;
-    (*(void (**)(void*))(*(u8**)p + 124))(p);
-    ((Flags108*)(p + 264))->b10 = 0;
-    func_0017f488(p + 320, 0, 0.0f, 0.0f);
-}
+void func_002d0d88(u8* p);  // 0x002d0d88: definition moved into src/anon/unit_002cf260.cpp
 
 struct Vec4f {
     f32 x, y, z, w;

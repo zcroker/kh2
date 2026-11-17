@@ -200,11 +200,7 @@ u8* func_002a01c8(s32 i) {  // obj4_entry_by_index
 
 extern u32 D_00362158;
 void func_002cea28(void*);
-void func_002d1840(void** p) {
-    *p = &D_00362158;
-    func_002cea28(p);
-    func_00105110(p);
-}
+void func_002d1840(void** p);  // 0x002d1840: definition moved into src/anon/unit_002cf260.cpp
 
 extern u32 D_00362428;
 void func_002cfeb0(void*, u32, u32, u32);  // obj_init_field1416_bit800

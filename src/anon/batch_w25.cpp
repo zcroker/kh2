@@ -229,16 +229,7 @@ VObj* func_002be908(VObj*);
 void func_002be960(void);  // 0x002be960: definition moved into src/anon/unit_002be020.cpp
 
 void func_002cf2d0(void*);
-void func_002cff50(u8* o) {
-    func_002cf2d0(o + 2800);
-    *(u32*)(o + 2804) = 0;
-    *(u32*)(o + 2808) = 0;
-    *(u32*)(o + 2812) = 0;
-    *(u32*)(o + 2816) = 0;
-    *(u32*)(o + 2820) = 0;
-    *(u32*)(o + 2824) = 0;
-    *(u32*)(o + 2828) = 0;
-}
+void func_002cff50(u8* o);  // 0x002cff50: definition moved into src/anon/unit_002cf260.cpp
 
 extern u8 D_003637e0;
 struct C4 { u8 r, g, b, a; };
