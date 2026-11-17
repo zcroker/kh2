@@ -1754,55 +1754,9 @@ void func_0021edb0(void* a0, u32 a1) {
     sceVu0MulMatrix((u32)a0, (u32)&b2, (u32)&b3);
 }
 
-void func_00221fb8(u32 a0, u32 a1, u32 a2) {
-    a2 = a2 & 0xff;
-    a1 = a1 & 0xff;
+void func_00221fb8(u32 a0, u32 a1, u32 a2);  // 0x00221fb8: definition moved into src/anon/unit_00221e28.cpp
 
-    *(u8*)(a0 + 1) = (u8)a2;
-    u32 t7 = a2 - 1;
-    u32 t6 = a0 + 16;
-    *(u8*)(a0 + 0) = (u8)a1;
-
-    a2 = t7 & 0xff;
-    *(u32*)(a0 + 4) = t6;
-
-    t7 = 48;
-    a1 = a1 - 1;
-    t7 = a2 * t7;
-    t7 = t7 + 128;
-    a2 = t7 & 0xffff;
-
-    *(u16*)(a0 + 2) = (u16)a2;
-    if ((s32)a1 > 0) {
-        do {
-            u32 t7p = t6;
-            a1 = a1 - 1;
-            t6 = t6 + a2;
-            *(u32*)(t7p + 0) = t6;
-        } while ((s32)a1 > 0);
-    }
-
-    *(u32*)(t6 + 0) = 0;
-}
-
-void func_00222018(u32 a0, u32 a1) {
-    u32 s2 = a1;
-    u32 s3 = a0;
-    u32 s1 = *(u32*)(a0 + 0);
-
-    if (s1 != 0) {
-        do {
-            u32 s0 = s1;
-            s1 = *(u32*)(s1 + 0);
-            func_00221ed0(s0);
-            u32 t7 = *(u32*)(s2 + 4);
-            *(u32*)(s0 + 0) = t7;
-            *(u32*)(s2 + 4) = s0;
-        } while (s1 != 0);
-    }
-
-    *(u32*)(s3 + 0) = 0;
-}
+void func_00222018(u32 a0, u32 a1);  // 0x00222018: definition moved into src/anon/unit_00221e28.cpp
 
 void func_00224b08(u32 a0);  // 0x00224b08: definition moved into src/anon/unit_00224780.cpp
 

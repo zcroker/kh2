@@ -88,31 +88,7 @@ void sceGsSyncPath(s32, s32);
 s32 func_002f35e8(s32);
 void func_002f3918(s32, u8*);
 void func_003058a0(s32);
-void func_002222b8(N2222b8** list, s32 a1, s32 a2, s32 a3, U2222b8* pp, u64 e, u64 f) {
-    C2222b8 c;
-    s32 id = func_002f35e8(2);
-    c.d = a3;
-    c.a = a1;
-    c.c = a2;
-    c.e = e;
-    c.f = f;
-    N2222b8* n = ((UL2222b8*)list)->p;
-    sceGsSyncPath(0, 0);
-    for (; n; n = n->next) {
-        c.n = n;
-        c.p = pp->p + 16;
-        if (func_00220da0(&c)) {
-            u8* q = pp->p;
-            *(u128_t*)q = 0;
-            q[3] = 0x70;
-            c.flag->v |= 0x8000;
-            *(u16*)q = ((u32)(c.p - pp->p) >> 4) - 1;
-            func_003058a0(0);
-            func_002f3918(id, q);
-            sceGsSyncPath(0, 0);
-        }
-    }
-}
+void func_002222b8(N2222b8** list, s32 a1, s32 a2, s32 a3, U2222b8* pp, u64 e, u64 f);  // 0x002222b8: definition moved into src/anon/unit_00221e28.cpp
 }
 struct O1b9880 { void** vt; u8 pad[0x104]; u32 flags; u8 pad2[0x8b4-0x10c]; O1b9880* next; };
 struct L1b9880 { O1b9880* head; O1b9880* tail; };

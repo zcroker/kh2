@@ -93,13 +93,7 @@ void func_0020ea48(u8 a, u8 b, u8 c) {
 }
 
 // VU0 macro code: dst.xyz = a.xyz + b.xyz (dst.w kept).
-void func_00222750(void* dst, void* a, void* b) {
-    asm volatile(
-        ".set noreorder\n\t"
-        "lqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 0(%2)\n\tlqc2 $vf3, 0(%0)\n\t"
-        "vadd.xyz $vf3, $vf1, $vf2\n\tsqc2 $vf3, 0(%0)\n\t.set reorder"
-        : : "r"(dst), "r"(a), "r"(b) : "memory");
-}
+void func_00222750(void* dst, void* a, void* b);  // 0x00222750: definition moved into src/anon/unit_00222548.cpp
 
 void func_0014a4b0(void);
 void func_00138480(u32);

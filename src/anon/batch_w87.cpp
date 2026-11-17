@@ -133,30 +133,7 @@ u8* func_00221f98(u8*);
 struct Key { void* p; u8 b; };
 void func_00221e28(Key*);
 void func_002226b8(void*, s32);  // vec3_copy
-void func_00222080(u8* list, u8* a1, s32 a2, s32 a3) {
-    u8* n = func_00221f98(a1);
-    if (!n) return;
-    Key k;
-    k.p = n;
-    k.b = a1[1];
-    u32 fl = 256;
-    func_00221e28(&k);
-    *(s32*)(n + 92) = 0;
-    *(s32*)(n + 48) = 0;
-    u8 c = list[4];
-    if (c & 4) fl = 384;
-    if (c & 0x10) fl |= 0x200;
-    if (c & 8) fl |= 0x400;
-    if (c & 0x20) fl |= 0x1000;
-    *(u16*)(n + 62) |= fl;
-    func_002226b8(n + 64, a2);  // vec3_copy
-    func_002226b8(n + 96, a3);  // vec3_copy
-    u8* h = *(u8**)list;
-    if (h) *(u8**)(h + 4) = n;
-    *(u8**)n = h;
-    *(u8**)(n + 4) = list;
-    *(u8**)list = n;
-}
+void func_00222080(u8* list, u8* a1, s32 a2, s32 a3);  // 0x00222080: definition moved into src/anon/unit_00221e28.cpp
 
 // ---- 0x2378c8: rotation matrix rows from Euler angles at +112 ----
 f32 sinf(f32);

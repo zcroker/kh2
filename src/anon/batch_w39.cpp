@@ -262,37 +262,7 @@ void func_00200638(u8* a, u32 unused, u8* c) {
 // --- 00222800
 // VU0: d.xy = ftoi4(s.xy), d.zw = ftoi0(s.zw); if s.xy falls outside
 // [0, 4096) (clip flags), d.w is replaced by 0x8000.
-void func_00222800(void* d, void* s) {  // vec2_ftoi_round_pack
-    asm volatile(
-        ".set noreorder\n\t"
-        "lqc2 $vf1, 0(%1)\n\t"
-        "vftoi4.xy $vf2, $vf1\n\t"
-        "vftoi0.zw $vf2, $vf1\n\t"
-        "lui $2, 0x4580\n\t"
-        "dsll $2, $2, 16\n\t"
-        "ori $2, $2, 0x4580\n\t"
-        "dsll $2, $2, 16\n\t"
-        "qmtc2 $2, $vf29\n\t"
-        "ctc2 $0, $vi16\n\t"
-        "vsub.xyw $vf0, $vf1, $vf0\n\t"
-        "vsub.xy $vf0, $vf29, $vf1\n\t"
-        "vnop\n\t"
-        "vnop\n\t"
-        "vnop\n\t"
-        "vnop\n\t"
-        "cfc2 $2, $vi16\n\t"
-        "andi $2, $2, 0xc0\n\t"
-        "beqz $2, 1f\n\t"
-        "nop\n\t"
-        "li $2, 0\n\t"
-        "li $2, 0x8000\n\t"
-        "ctc2 $2, $vi1\n\t"
-        "vmfir.w $vf2, $vi1\n"
-        "1:\n\t"
-        "sqc2 $vf2, 0(%0)\n\t"
-        ".set reorder"
-        : : "r"(d), "r"(s) : "$2", "memory");
-}
+void func_00222800(void* d, void* s);  // 0x00222800: definition moved into src/anon/unit_00222548.cpp
 
 // --- 0022e188
 // Builds prefix + s + suffix in a static buffer.

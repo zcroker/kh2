@@ -139,20 +139,10 @@ void func_001fb698(u32 base, OffsetHolder* h) {
 }
 
 // VU0 macro: d.xyz = s.xyz.
-void func_002226b8(void* d, void* s) {  // vec3_copy
-    asm volatile(".set noreorder\n\tlqc2 $vf1, 0(%0)\n\tlqc2 $vf2, 0(%1)\n\tvmove.xyz $vf1, $vf2\n\tsqc2 $vf1, 0(%0)\n\t.set reorder"
-                 : : "r"(d), "r"(s) : "memory");
-}
+void func_002226b8(void* d, void* s);  // 0x002226b8: definition moved into src/anon/unit_00222548.cpp
 
 // VU0 square root.
-f32 func_00222978(f32 x) {  // vu_sqrt_f12
-    f32 v[4] __attribute__((aligned(16)));
-    f32 r;
-    v[1] = x;
-    asm volatile("lqc2 $vf10, 0(%1)\n\tvsqrt Q, $vf10y\n\tvwaitq\n\tcfc2 $2, $vi22\n\tmtc1 $2, %0"
-                 : "=f"(r) : "r"(v) : "$2", "memory");
-    return r;
-}
+f32 func_00222978(f32 x);  // 0x00222978: definition moved into src/anon/unit_00222548.cpp
 
 // Returns 0 (and stores 0) when the value is unset (-1).
 s32 func_0023d2e0(s32* out) {  // store_global_test_result

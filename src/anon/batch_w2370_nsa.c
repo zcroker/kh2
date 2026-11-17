@@ -20,35 +20,7 @@ typedef struct VifPkt_w2370 {
 typedef struct { u8 d[48]; } VifItem_w2370;
 typedef struct { VifPkt_w2370* pkt; u8 count; } VifOwner_w2370;
 
-void func_00221e28(VifOwner_w2370* o) {
-    VifPkt_w2370* s = o->pkt;
-    u32* t;
-    s->h3e = 0;
-    s->self = (u32)s;
-    s->count = o->count;
-    s->scale = 1.0f;
-    s->id = 0x70;
-    s->vif0 = 0x040000B0;
-    s->h1c = 0;
-    s->w18 = 0;
-    s->qwc = (s->count * 48u >> 4) + 2;
-    s->h34 = 0;
-    s->b36 = 0;
-    s->h3c = 0;
-    s->h38 = 0;
-    s->b1e = 0;
-    s->w14 = 0;
-    s->w4 = 0;
-    s->w0 = 0;
-    s->wc = 0;
-    s->w8 = 0;
-    s->w58 = 0;
-    t = (u32*)&((VifItem_w2370*)((u8*)s + 0x40))[s->count];
-    t[0] = 0;
-    t[1] = 0x11000000;
-    t[2] = 0x14000000;
-    t[3] = 0x11000000;
-}
+void func_00221e28(VifOwner_w2370* o);  // 0x00221e28: definition moved into src/anon/unit_00221e28.cpp
 
 /* ---- 001fc5b8 (partMng) ---- */
 typedef unsigned int u128_w2370 __attribute__((mode(TI)));

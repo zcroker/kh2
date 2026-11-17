@@ -115,21 +115,10 @@ void func_0021fe28(u32);
 void func_001fba88(u32 base, const u32* info) { func_0021fe28(base + **(const u32* const*)(info + 3) + 160); }
 
 // dst.xy = a.xy + b.xy (VU0).
-void func_00222710(void* dst, void* a, void* b) {
-    asm volatile(".set noreorder\n\tlqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 0(%2)\n\tlqc2 $vf3, 0(%0)\n\t"
-                 "vadd.xy $vf3, $vf1, $vf2\n\tsqc2 $vf3, 0(%0)\n\t.set reorder"
-                 : : "r"(dst), "r"(a), "r"(b) : "memory");
-}
+void func_00222710(void* dst, void* a, void* b);  // 0x00222710: definition moved into src/anon/unit_00222548.cpp
 
 // 2D length sqrt(x*x + y*y) (VU0).
-f32 func_002229d8(void* v) {
-    f32 r;
-    asm volatile(".set noreorder\n\tlqc2 $vf10, 0(%1)\n\tvmul.xy $vf10, $vf10, $vf10\n\t"
-                 "vaddx.y $vf10, $vf10, $vf10x\n\tvsqrt Q, $vf10y\n\tvwaitq\n\t"
-                 "cfc2 $2, $vi22\n\tmtc1 $2, %0\n\t.set reorder"
-                 : "=f"(r) : "r"(v) : "$2");
-    return r;
-}
+f32 func_002229d8(void* v);  // 0x002229d8: definition moved into src/anon/unit_00222548.cpp
 
 extern u8 D_0035dadc;
 extern u32 D_0035dae0;

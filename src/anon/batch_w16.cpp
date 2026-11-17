@@ -170,14 +170,7 @@ u8 func_001d23e0(u32 a);  // 0x001d23e0: definition moved into src/anon/unit_001
 void func_001e4f00(void);  // 0x001e4f00: definition moved into src/anon/unit_001e0cb8.cpp
 
 // 3D vector length (VU0).
-f32 func_002229a0(void* v) {  // vec3_length
-    f32 r[4] __attribute__((aligned(16)));
-    asm volatile("lqc2 $vf10, 0(%1)\n\tvmul.xyz $vf10, $vf10, $vf10\n\tvmove.xyz $vf9, $vf10\n\t"
-                 "vaddx.y $vf9, $vf9, $vf9x\n\tvaddy.z $vf9, $vf9, $vf9y\n\tvsqrt Q, $vf9z\n\tvwaitq\n\t"
-                 "vaddq.x $vf10, $vf0, Q\n\tsqc2 $vf10, %0"
-                 : "=m"(r) : "r"(v));
-    return r[0];
-}
+f32 func_002229a0(void* v);  // 0x002229a0: definition moved into src/anon/unit_00222548.cpp
 
 void func_0022e160(u32 a, u32 b, u8* c);  // 0x0022e160: definition moved into src/anon/unit_0022d358.cpp
 

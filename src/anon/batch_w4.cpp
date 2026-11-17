@@ -140,18 +140,7 @@ void func_001fbc78(u8* p, u8* q) {
 }
 
 // d.xyz = a.xyz - b.xyz (VU0 macro mode).
-void func_00222730(void* d, void* a, void* b) {
-    asm volatile(".set noreorder\n\t"
-                 "lqc2 $vf1, 0(%1)\n\t"
-                 "lqc2 $vf2, 0(%2)\n\t"
-                 "lqc2 $vf3, 0(%0)\n\t"
-                 "vsub.xyz $vf3, $vf1, $vf2\n\t"
-                 "sqc2 $vf3, 0(%0)\n\t"
-                 ".set reorder"
-                 :
-                 : "r"(d), "r"(a), "r"(b)
-                 : "memory");
-}
+void func_00222730(void* d, void* a, void* b);  // 0x00222730: definition moved into src/anon/unit_00222548.cpp
 
 void func_00225298(void);  // 0x00225298: definition moved into src/anon/unit_00224780.cpp
 

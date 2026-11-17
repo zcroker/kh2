@@ -159,22 +159,7 @@ void* func_001e0128(void* a) {
 }
 
 // Normalize the 2D vector at s (xy) into d.
-void func_00222868(void* d, void* s) {  // vec2_normalize
-    asm volatile(
-        ".set noreorder\n\t"
-        "lqc2 $vf1, 0(%1)\n\t"
-        "vmul.xy $vf31, $vf1, $vf1\n\t"
-        "vaddy.x $vf31, $vf31, $vf31y\n\t"
-        "vsqrt Q, $vf31x\n\t"
-        "vwaitq\n\t"
-        "vaddq.x $vf31, $vf0, Q\n\t"
-        "vdiv Q, $vf0w, $vf31x\n\t"
-        "vwaitq\n\t"
-        "vmulq.xy $vf31, $vf1, Q\n\t"
-        "sqc2 $vf31, 0(%0)\n\t"
-        ".set reorder"
-        : : "r"(d), "r"(s) : "memory");
-}
+void func_00222868(void* d, void* s);  // 0x00222868: definition moved into src/anon/unit_00222548.cpp
 
 void wtarget_00228420(u32 a, u32 b, u32, u32);  // 0x00228420: definition moved into src/anon/unit_00224780.cpp
 

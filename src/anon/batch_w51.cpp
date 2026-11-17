@@ -225,44 +225,7 @@ f32 func_0020b410(void) {  // vu_const_5f_b
 }
 
 // Transform v by matrix m, project, store to out; returns screen clip flags (hand-written VU0 asm).
-u32 func_00222898(void* out, void* m, void* v) {  // mat4_transform_vec
-    register u32 r asm("$2");
-    asm volatile(
-        ".set noreorder\n\t"
-        "lqc2 $vf1, 0(%2)\n\t"
-        "lqc2 $vf2, 16(%2)\n\t"
-        "lqc2 $vf3, 32(%2)\n\t"
-        "lqc2 $vf4, 48(%2)\n\t"
-        "lqc2 $vf5, 0(%3)\n\t"
-        "vmulax.wxyz ACC, $vf1, $vf5x\n\t"
-        "vmadday.wxyz ACC, $vf2, $vf5y\n\t"
-        "vmaddaz.wxyz ACC, $vf3, $vf5z\n\t"
-        "vmaddw.wxyz $vf5, $vf4, $vf5w\n\t"
-        "vdiv Q, $vf0w, $vf5w\n\t"
-        "lui $2, 0x4580\n\t"
-        "dsll $2, $2, 16\n\t"
-        "ori $2, $2, 0x4580\n\t"
-        "dsll $2, $2, 16\n\t"
-        "qmtc2 $2, $vf29\n\t"
-        "vwaitq\n\t"
-        "vmulq.xyz $vf5, $vf5, Q\n\t"
-        "vnop\n\t"
-        "vnop\n\t"
-        "vnop\n\t"
-        "ctc2.ni $0, $vi16\n\t"
-        "vsub.wxy $vf0, $vf5, $vf0\n\t"
-        "vsub.xy $vf0, $vf29, $vf5\n\t"
-        "vnop\n\t"
-        "vnop\n\t"
-        "vnop\n\t"
-        "vnop\n\t"
-        "cfc2.ni $2, $vi16\n\t"
-        "andi $2, $2, 0xc0\n\t"
-        "sqc2 $vf5, 0(%1)\n\t"
-        ".set reorder"
-        : "=r"(r) : "r"(out), "r"(m), "r"(v) : "memory");
-    return r;
-}
+u32 func_00222898(void* out, void* m, void* v);  // 0x00222898: definition moved into src/anon/unit_00222548.cpp
 
 u32* func_00227a28(u32);
 void func_002ff2e8(void*, u32);

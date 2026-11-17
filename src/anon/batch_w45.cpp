@@ -195,39 +195,7 @@ s8 func_002072a8(u8 n) {
 }
 
 // Hand-written VU0 macro code: d = ftoi4/ftoi0 of (a + b) with an overflow-flag fix-up
-void func_00222790(void* d, const void* a, const void* b) {  // vec2_add_round_pack
-    asm volatile(
-        ".set noreorder\n\t"
-        "lqc2 $vf1, 0($5)\n\t"
-        "lqc2 $vf2, 0($6)\n\t"
-        "vadd.xy $vf1, $vf1, $vf2\n\t"
-        "vftoi4.xy $vf31, $vf1\n\t"
-        "vftoi0.zw $vf31, $vf1\n\t"
-        "lui $2, 0x4580\n\t"
-        "dsll $2, $2, 16\n\t"
-        "ori $2, $2, 0x4580\n\t"
-        "dsll $2, $2, 16\n\t"
-        "qmtc2 $2, $vf29\n\t"
-        "ctc2 $0, $vi16\n\t"
-        "vsub.xyw $vf0, $vf1, $vf0\n\t"
-        "vsub.xy $vf0, $vf29, $vf1\n\t"
-        "vnop\n\t"
-        "vnop\n\t"
-        "vnop\n\t"
-        "vnop\n\t"
-        "cfc2 $2, $vi16\n\t"
-        "andi $2, $2, 0xc0\n\t"
-        "beqz $2, 1f\n\t"
-        "nop\n\t"
-        "addiu $2, $0, 0\n\t"
-        "ori $2, $0, 0x8000\n\t"
-        "ctc2 $2, $vi1\n\t"
-        "vmfir.w $vf31, $vi1\n"
-        "1:\n\t"
-        "sqc2 $vf31, 0($4)\n\t"
-        ".set reorder"
-        : : "r"(d), "r"(a), "r"(b) : "$2", "memory");
-}
+void func_00222790(void* d, const void* a, const void* b);  // 0x00222790: definition moved into src/anon/unit_00222548.cpp
 
 s32 func_0022c758(void);  // 0022c758: moved to src/sasa/event_layout.cpp (linked unit)
 

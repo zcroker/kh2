@@ -92,25 +92,13 @@ void func_001fae80(u8* p, u8* q) {
 }
 
 // VU0: return max(x, y).
-f32 func_00222678(f32 x, f32 y) {
-    f32 v[4] __attribute__((aligned(16)));
-    v[0] = x;
-    v[1] = y;
-    asm volatile("lqc2 $vf1, %0\n\tvmaxy.x $vf1, $vf1, $vf1y\n\tsqc2 $vf1, %0" : "+m"(v));
-    return v[0];
-}
+f32 func_00222678(f32 x, f32 y);  // 0x00222678: definition moved into src/anon/unit_00222548.cpp
 
 // VU0: meant to copy xy of s into d, but stores vf31 (bug in the original).
-void func_002226a0(f32* d, f32* s) {
-    asm volatile(".set noreorder\n\tlqc2 $vf1, 0(%0)\n\tlqc2 $vf2, 0(%1)\n\tvmove.xy $vf1, $vf2\n\tsqc2 $vf31, 0(%0)\n\t.set reorder"
-                 : : "r"(d), "r"(s) : "memory");
-}
+void func_002226a0(f32* d, f32* s);  // 0x002226a0: definition moved into src/anon/unit_00222548.cpp
 
 // VU0: d.xy = a.xy - b.xy (zw kept).
-void func_00222770(f32* d, f32* a, f32* b) {
-    asm volatile(".set noreorder\n\tlqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 0(%2)\n\tlqc2 $vf3, 0(%0)\n\tvsub.xy $vf3, $vf1, $vf2\n\tsqc2 $vf3, 0(%0)\n\t.set reorder"
-                 : : "r"(d), "r"(a), "r"(b) : "memory");
-}
+void func_00222770(f32* d, f32* a, f32* b);  // 0x00222770: definition moved into src/anon/unit_00222548.cpp
 
 s32 func_002282d8(void);  // 0x002282d8: definition moved into src/anon/unit_00224780.cpp
 

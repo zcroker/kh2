@@ -389,41 +389,7 @@ void func_002226b8(void*, u32);  // vec3_copy
 void func_00221348(W2221*);
 void func_00221ed0(N2221*);
 
-void func_00222170(C2221* c)
-{
-    H2221* h = c->head;
-    s32 fl = 0;
-    W2221 w;
-    if (h->flags & 2) {
-        fl = 32;
-        h->flags &= ~2;
-    }
-    sceVu0UnitMatrix(&w);  // vu_store_w_splat
-    w.a = c->a;
-    w.l = (u32)c->list;
-    w.b = c->b;
-    N2221* n = h->first;
-    while (n) {
-        if (n->flags & 0x200) {
-            func_002226b8(n->m[n->sel].a, c->c);  // vec3_copy
-            func_002226b8(n->m[n->sel].a + 32, c->d);  // vec3_copy
-        }
-        if (n->flags & 0x100) n->flags = fl | n->flags;
-        w.node = n;
-        func_00221348(&w);
-        if (n->flags & 0x10) {
-            N2221* cur = n;
-            n = n->next;
-            if (cur->next) cur->next->prev = cur->prev;
-            cur->prev->next = cur->next;
-            func_00221ed0(cur);
-            cur->next = c->list->prev;
-            c->list->prev = cur;
-        } else {
-            n = n->next;
-        }
-    }
-}
+void func_00222170(C2221* c);  // 0x00222170: definition moved into src/anon/unit_00221e28.cpp
 }
 
 // ---- 002418b8
