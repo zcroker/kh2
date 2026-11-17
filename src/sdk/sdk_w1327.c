@@ -124,37 +124,9 @@ extern int func_00305640(int);
 extern int sceSifCallRpc(void *, int, int, void *, int, void *, int, void (*)(void *), void *);
 extern void func_002fbba8(void *);
 
-int func_002fc9a8(int a, int b)
-{
-    if (D_01e33480.server == 0)
-        return -100;
-    if (func_00305670(D_0036594c) < 0)
-        return -200;
-    D_01e33500.a = a;
-    D_01e33500.b = b;
-    if (sceSifCallRpc(&D_01e33480, 16, 1, &D_01e33500, 48, D_01e34a40, 4, func_002fbba8, 0) != 0) {
-        func_00305640(D_0036594c);
-        return -91;
-    }
-    D_00365948 = 16;
-    return 0;
-}
+int func_002fc9a8(int a, int b);  // 0x002fc9a8: definition moved into src/sdk/libmc.c
 
-int func_002fcf80(int a, int b)
-{
-    if (D_01e33480.server == 0)
-        return -100;
-    if (func_00305670(D_0036594c) < 0)
-        return -200;
-    D_01e33500.a = a;
-    D_01e33500.b = b;
-    if (sceSifCallRpc(&D_01e33480, 17, 1, &D_01e33500, 48, D_01e34a40, 4, func_002fbba8, 0) != 0) {
-        func_00305640(D_0036594c);
-        return -91;
-    }
-    D_00365948 = 17;
-    return 0;
-}
+int func_002fcf80(int a, int b);  // 0x002fcf80: definition moved into src/sdk/libmc.c
 
 extern void *memcpy(void *, const void *, int);
 typedef struct { u8 b0, b1, off, len; int x4; int pad[5]; u8 data[1]; } Pkt;

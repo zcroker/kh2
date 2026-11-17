@@ -107,74 +107,13 @@ extern int D_00365950;
 extern int D_01e33500[];
 extern int D_01e34a40[];
 extern void func_002fbba8(void *);
-int func_002fbe98(int x)
-{
-    if (!D_01e33480.f)
-        return -100;
-    if (func_00305670(D_0036594c) < 0)
-        return -200;
-    D_01e33500[0] = x;
-    if (sceSifCallRpc(&D_01e33480, 3, 1, D_01e33500, 48, D_01e34a40, 4, func_002fbba8, 0)) {
-        func_00305640(D_0036594c);
-        return -91;
-    }
-    D_00365948 = 3;
-    return 0;
-}
+int func_002fbe98(int x);  // 0x002fbe98: definition moved into src/sdk/libmc.c
 
-int func_002fcb98(int x)
-{
-    if (!D_01e33480.f)
-        return -100;
-    if (func_00305670(D_0036594c) < 0)
-        return -200;
-    D_01e33500[0] = x;
-    if (sceSifCallRpc(&D_01e33480, 10, 1, D_01e33500, 48, D_01e34a40, 4, func_002fbba8, 0)) {
-        func_00305640(D_0036594c);
-        return -91;
-    }
-    D_00365948 = 10;
-    return 0;
-}
+int func_002fcb98(int x);  // 0x002fcb98: definition moved into src/sdk/libmc.c
 
-int func_002fbc78(int x)
-{
-    if (!D_01e33480.f)
-        return -100;
-    if (func_00305670(D_0036594c) < 0)
-        return -200;
-    D_01e33500[1] = x;
-    if (sceSifCallRpc(&D_01e33480, 21, 0, D_01e33500, 48, D_01e34a40, 4, 0, 0)) {
-        func_00305640(D_0036594c);
-        return -91;
-    }
-    func_00305640(D_0036594c);
-    return D_01e34a40[0];
-}
+int func_002fbc78(int x);  // 0x002fbc78: definition moved into src/sdk/libmc.c
 
-int func_002fc378(int mode, int *cmd, int *result)
-{
-    int busy;
-    if (!D_00365948)
-        return -1;
-    busy = 0;
-    if (func_00305670(D_00365950) < 0)
-        busy = 1;
-    if (mode == 0 && busy) {
-        func_00305660(D_00365950);
-        busy = 0;
-    }
-    busy = !busy;
-    if (cmd)
-        *cmd = D_00365948;
-    if (busy) {
-        D_00365948 = 0;
-        if (result)
-            *result = D_01e34a40[0];
-        func_00305640(D_0036594c);
-    }
-    return busy;
-}
+int func_002fc378(int mode, int *cmd, int *result);  // 0x002fc378: definition moved into src/sdk/libmc.c
 
 /* libvu0 */
 typedef float VEC1324[4] __attribute__((aligned(16)));

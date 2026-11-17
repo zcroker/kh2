@@ -56,17 +56,7 @@ extern int D_00365950;
 extern unsigned int strlen(char *);
 extern char* memcpy(char *, char *, unsigned int);
 extern void func_00305650(int);
-void func_002fc7d8(char *buf)
-{
-    unsigned int n;
-    if (buf) {
-        if (strlen((char *)((int)D_01e33a40 | 0x20000000)) < 0x400) n = strlen((char *)((int)D_01e33a40 | 0x20000000));
-        else n = 0x3ff;
-        memcpy(buf, (char *)((int)D_01e33a40 | 0x20000000), n);
-        buf[n] = 0;
-    }
-    func_00305650(D_00365950);
-}
+void func_002fc7d8(char *buf);  // 0x002fc7d8: definition moved into src/sdk/libmc.c
 
 extern int memcmp(void *, void *, int);
 extern char D_003660c4[];

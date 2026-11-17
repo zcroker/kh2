@@ -25,13 +25,7 @@ int func_002f3bb8(unsigned int *p, int a)
 
 extern int func_002fbd38(int, int, int, int);
 extern int D_00365948;
-int func_002fbe60(int a, int b, int c)
-{
-    int r = func_002fbd38(a, b, c, 64);
-    if (!r)
-        D_00365948 = 11;
-    return r;
-}
+int func_002fbe60(int a, int b, int c);  // 0x002fbe60: definition moved into src/sdk/libmc.c
 
 extern int func_00306e48(int);
 void func_00306f30(int c)

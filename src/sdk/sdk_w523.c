@@ -36,16 +36,7 @@ void func_0030a278(void)
     }
 }
 
-int func_002fbb50(void)
-{
-    if (D_0036594c >= 0) {
-        func_002fc378(0, 0, 0);
-        func_00305630(D_0036594c);
-        D_0036594c = -1;
-        func_00305630(D_00365950);
-    }
-    return 1;
-}
+int func_002fbb50(void);  // 0x002fbb50: definition moved into src/sdk/libmc.c
 
 Pad* func_002f6310(int port);  // 0x002f6310: definition moved into src/sdk/libpad2.c
 

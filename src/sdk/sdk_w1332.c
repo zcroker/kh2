@@ -34,58 +34,9 @@ extern int D_00365948;
 extern int D_0036594c;
 extern char *strncpy(char *, const char *, unsigned int);
 extern void func_002fbba8(void *);
-int func_002fc200(int a, u8 *buf, int size)
-{
-    unsigned int i;
-    struct StRq *q;
-    if (D_01e33480.serve == 0) return -100;
-    if (func_00305670(D_0036594c) < 0) return -200;
-    q = &D_01e33500;
-    D_01e33500.a = a;
-    if (size <= 16) {
-        q->n = size;
-        q->rest = 0;
-        q->ptr = 0;
-    } else {
-        int n = ((unsigned int)(buf - 1) & 0xfffffff0) + 16 - (unsigned int)buf;
-        q->n = n;
-        q->rest = size - n;
-        q->ptr = buf + n;
-    }
-    for (i = 0; i < D_01e33500.n; i++)
-        D_01e33500.data[i] = buf[i];
-    func_003058a0(0);
-    if (sceSifCallRpc(&D_01e33480, 6, 1, &D_01e33500, 48, D_01e34a40, 4, func_002fbba8, 0) != 0) {
-        func_00305640(D_0036594c);
-        return -91;
-    }
-    D_00365948 = 6;
-    return 0;
-}
+int func_002fc200(int a, u8 *buf, int size);  // 0x002fc200: definition moved into src/sdk/libmc.c
 
-int func_002fce28(int a, int b, const char *name, const char *name2)
-{
-    struct SifClient *cd = &D_01e33480;
-    struct RpcSend2 *s;
-    if (cd->serve == 0) return -100;
-    if (func_00305670(D_0036594c) < 0) return -200;
-    if (name == 0 || *name == 0 || name2 == 0) { func_00305640(D_0036594c); return -210; }
-    s = &D_01e33530;
-    D_01e33530.a = a;
-    s->b = b;
-    s->c = 16;
-    strncpy(s->name, name, 1023);
-    s->name[1023] = 0;
-    strncpy(D_01e334c0.name, name2, 32);
-    s->ptr = &D_01e334c0;
-    func_003058a0(0);
-    if (sceSifCallRpc(cd, 14, 1, s, 1044, D_01e34a40, 4, func_002fbba8, 0) != 0) {
-        func_00305640(D_0036594c);
-        return -91;
-    }
-    D_00365948 = 19;
-    return 0;
-}
+int func_002fce28(int a, int b, const char *name, const char *name2);  // 0x002fce28: definition moved into src/sdk/libmc.c
 
 /* libkernl: sif rpc packet send (sceSifGetOtherData-style) */
 typedef struct { int x0, x4, x8, xc, x10; void *pkt_addr; int rec_id; void *paddr; int a, b, c; } RpcPkt;

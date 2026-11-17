@@ -131,17 +131,4 @@ extern void D_002fbba8(void *);
 extern int func_00305670(int);
 extern int func_00305640(int);
 extern int sceSifCallRpc(void *, int, int, void *, int, void *, int, void *, void *);
-int func_002fbf58(int a, int b, int c)
-{
-    if (D_01e33480.x24 == 0) return -100;
-    if (func_00305670(D_0036594c) < 0) return -200;
-    D_01e33500.x0 = a;
-    D_01e33500.x10 = b;
-    D_01e33500.x14 = c;
-    if (sceSifCallRpc(&D_01e33480, 4, 1, &D_01e33500, 48, D_01e34a40, 4, D_002fbba8, 0) != 0) {
-        func_00305640(D_0036594c);
-        return -91;
-    }
-    D_00365948 = 4;
-    return 0;
-}
+int func_002fbf58(int a, int b, int c);  // 0x002fbf58: definition moved into src/sdk/libmc.c

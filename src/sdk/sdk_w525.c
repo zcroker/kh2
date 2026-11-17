@@ -30,14 +30,7 @@ extern char D_01e33480[], D_01e33500[];
 extern int D_01e34a40;
 extern void func_002fbba8(void *);
 extern int sceSifCallRpc(void *, int, int, void *, int, void *, int, void *, void *);
-int sceMcUdCheckNewCard(void)
-{
-    if (sceSifCallRpc(D_01e33480, 0x35, 0, D_01e33500, 0x30, &D_01e34a40, 4, func_002fbba8, 0) != 0) {
-        func_003080d0("sceMcUdCheckNewCard RPC faild\n");
-        return -91;
-    }
-    return D_01e34a40;
-}
+int sceMcUdCheckNewCard(void);  // 0x002fc618: definition moved into src/sdk/libmc.c
 
 typedef struct { int x; int pad[3]; } Arg;
 extern int DIntr(void);

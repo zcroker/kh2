@@ -53,25 +53,7 @@ extern int func_00305640(int);
 extern void func_00308a80(void *, int);
 extern int sceSifCallRpc(void *cd, unsigned int fno, unsigned int mode, void *send, int ssize, void *recv, int rsize, void *end, void *endp);
 extern void func_002fc038(void *);
-int func_002fc0e8(int a, void *buf, int size)
-{
-    if (D_01e33480.server == 0)
-        return -100;
-    if (func_00305670(D_0036594c) < 0)
-        return -200;
-    D_01e33500.a = a;
-    D_01e33500.buf = buf;
-    D_01e33500.size = size;
-    D_01e33500.rdata = D_01e33980;
-    func_00308a80(buf, size);
-    func_00308a80(D_01e33980, 192);
-    if (sceSifCallRpc(&D_01e33480, 5, 1, &D_01e33500, 48, D_01e34a40, 4, func_002fc038, D_01e33980)) {
-        func_00305640(D_0036594c);
-        return -91;
-    }
-    D_00365948 = 5;
-    return 0;
-}
+int func_002fc0e8(int a, void *buf, int size);  // 0x002fc0e8: definition moved into src/sdk/libmc.c
 
 extern int D_003674b8;
 extern int D_00366968[2];
@@ -107,51 +89,9 @@ typedef struct { int port; int slot; int c; int d; int e; char name[1024]; } Sen
 extern SendDir D_01e33530;
 extern char *strncpy(char *, const char *, int);
 extern void func_002fbba8(void *);
-int func_002fca78(int port, int slot, const char *name)
-{
-    if (D_01e33480.server == 0)
-        return -100;
-    if (func_00305670(D_0036594c) < 0)
-        return -200;
-    if (name == 0 || *name == 0) {
-        func_00305640(D_0036594c);
-        return -210;
-    }
-    strncpy(D_01e33530.name, name, 1023);
-    D_01e33530.port = port;
-    D_01e33530.slot = slot;
-    D_01e33530.name[1023] = 0;
-    D_01e33530.c = 0;
-    if (sceSifCallRpc(&D_01e33480, 15, 1, &D_01e33530, 1044, D_01e34a40, 4, func_002fbba8, 0)) {
-        func_00305640(D_0036594c);
-        return -91;
-    }
-    D_00365948 = 15;
-    return 0;
-}
+int func_002fca78(int port, int slot, const char *name);  // 0x002fca78: definition moved into src/sdk/libmc.c
 
-int func_002fbd38(int port, int slot, const char *name, int mode)
-{
-    if (D_01e33480.server == 0)
-        return -100;
-    if (func_00305670(D_0036594c) < 0)
-        return -200;
-    if (name == 0 || *name == 0) {
-        func_00305640(D_0036594c);
-        return -210;
-    }
-    strncpy(D_01e33530.name, name, 1023);
-    D_01e33530.port = port;
-    D_01e33530.c = mode;
-    D_01e33530.slot = slot;
-    D_01e33530.name[1023] = 0;
-    if (sceSifCallRpc(&D_01e33480, 2, 1, &D_01e33530, 1044, D_01e34a40, 4, func_002fbba8, 0)) {
-        func_00305640(D_0036594c);
-        return -91;
-    }
-    D_00365948 = 2;
-    return 0;
-}
+int func_002fbd38(int port, int slot, const char *name, int mode);  // 0x002fbd38: definition moved into src/sdk/libmc.c
 
 /* libdbc */
 typedef struct { int a; int b; int size; unsigned char data[128]; int result; } DbcRecv;

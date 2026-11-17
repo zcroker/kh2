@@ -218,56 +218,9 @@ extern char *strncpy(char *, const char *, int);
 extern int sceSifCallRpc(void *cd, int fno, int mode, void *send, int ssize, void *recv, int rsize, void *end, void *endp);
 extern void func_002fbba8(void *);
 extern void func_002fc7d8(void *);
-int func_002fc688(int port, int slot, const char *name, int mode, int maxent, void *table)
-{
-    if (!D_01e33480.f)
-        return -100;
-    if (func_00305670(D_0036594c) < 0)
-        return -200;
-    if (name == 0 || *name == 0) {
-        func_00305640(D_0036594c);
-        return -210;
-    }
-    D_01e33530.port = port;
-    D_01e33530.slot = slot;
-    D_01e33530.mode = mode;
-    D_01e33530.maxent = maxent;
-    D_01e33530.table = table;
-    strncpy(D_01e33530.name, name, 1023);
-    D_01e33530.name[1023] = 0;
-    if (maxent >= 0)
-        func_00308a80(table, maxent << 6);
-    if (sceSifCallRpc(&D_01e33480, 13, 1, &D_01e33530, 1044, D_01e34a40, 4, func_002fbba8, 0)) {
-        func_00305640(D_0036594c);
-        return -91;
-    }
-    D_00365948 = 13;
-    return 0;
-}
+int func_002fc688(int port, int slot, const char *name, int mode, int maxent, void *table);  // 0x002fc688: definition moved into src/sdk/libmc.c
 
-int func_002fc868(int port, int slot, const char *name, void *endp)
-{
-    if (!D_01e33480.f)
-        return -100;
-    if (func_00305670(D_0036594c) < 0)
-        return -200;
-    if (name == 0 || *name == 0) {
-        func_00305640(D_0036594c);
-        return -210;
-    }
-    D_01e33530.port = port;
-    D_01e33530.slot = slot;
-    D_01e33530.table = D_01e33a40;
-    strncpy(D_01e33530.name, name, 1023);
-    D_01e33530.name[1023] = 0;
-    func_00308a80(D_01e33a40, 1024);
-    if (sceSifCallRpc(&D_01e33480, 12, 1, &D_01e33530, 1044, D_01e34a40, 4, func_002fc7d8, endp)) {
-        func_00305640(D_0036594c);
-        return -91;
-    }
-    D_00365948 = 12;
-    return 0;
-}
+int func_002fc868(int port, int slot, const char *name, void *endp);  // 0x002fc868: definition moved into src/sdk/libmc.c
 
 /* libpad2 */
 typedef union { struct { unsigned long a:14; unsigned long b:2; unsigned long c:8; unsigned long d:8; } s; int i; } PadCmd;

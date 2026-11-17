@@ -13,29 +13,7 @@ extern int func_00305640(int);
 extern void func_00308a80(void *, int);
 extern int sceSifCallRpc(void *, int, int, void *, int, void *, int, void *, void *);
 extern char D_002fc440[];
-int func_002fc498(int a0, int a1, int a2, int a3, int a4)
-{
-    if (D_01e33480.serve == 0)
-        return -100;
-    if (func_00305670(D_0036594c) < 0)
-        return -200;
-    D_01e33500.a = a0;
-    D_01e33500.b = a1;
-    D_01e33500.buf = D_01e33980;
-    if (a2) D_01e33500.e = 1; else D_01e33500.e = 0;
-    if (a3) D_01e33500.d = 1; else D_01e33500.d = 0;
-    if (a4) D_01e33500.c = 1; else D_01e33500.c = 0;
-    D_01e334a8 = a2;
-    D_01e334ac = a3;
-    D_01e334b0 = a4;
-    func_00308a80(D_01e33980, 192);
-    if (sceSifCallRpc(&D_01e33480, 1, 1, &D_01e33500, 48, D_01e34a40, 4, D_002fc440, D_01e33980) != 0) {
-        func_00305640(D_0036594c);
-        return -91;
-    }
-    D_00365948 = 1;
-    return 0;
-}
+int func_002fc498(int a0, int a1, int a2, int a3, int a4);  // 0x002fc498: definition moved into src/sdk/libmc.c
 
 typedef struct { int a; int b; int n1; int n2; char s[128]; char r[128]; int res; } Pk;
 extern Pk D_01e2da80;
