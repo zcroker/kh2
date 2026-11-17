@@ -110,10 +110,7 @@ u32 func_001e0188(u32 a);  // 0x001e0188: definition moved into src/anon/unit_00
 
 u32 func_002fea18(void);
 // Seed the VU0 random generator.
-void func_0020e138(void) {
-    register u32 s asm("$15") = func_002fea18();
-    asm volatile("qmtc2 %0, $vf31\n\tvrxor R, $vf31x" : : "r"(s));
-}
+void func_0020e138(void);  // 0x0020e138: definition moved into src/anon/unit_0020dde8.cpp
 
 void func_00228bd8(VObj*);
 void func_00228e28(VObj* o);  // 00228e28: moved to src/anon/unit_00228618.cpp (linked unit)

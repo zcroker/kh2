@@ -120,12 +120,7 @@ void effect_angle(u8* e);  // 0x001dc648: definition moved into src/anon/unit_00
 
 void func_001de978(u32 a);  // 0x001de978: definition moved into src/anon/unit_001ddcf0.cpp
 
-void func_0020eac0(void) {
-    D_00359788 = 0x70000000;
-    D_00359810 = 0x70004000;
-    D_00359780 = 0;
-    D_00359808 = 0;
-}
+void func_0020eac0(void);  // 0x0020eac0: definition moved into src/anon/unit_0020e9f8.cpp
 
 void func_0021cda0(s32 a);  // 0x0021cda0: definition moved into src/anon/unit_0021aee8.cpp
 

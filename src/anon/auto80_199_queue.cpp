@@ -1356,26 +1356,7 @@ void func_0020ced0(u32 a0, u32 a1) {
     }
 }
 
-u32 func_0020ecc8(u32 a0, u32 a1) {
-    u32 s18 = a1;
-    s32 s17 = sceOpen(a0, 1);
-    if (s17 < 0) {
-        *(volatile u32*)0 = 0;
-        return 0;
-    }
-
-    s32 s16 = sceLseek(s17, 0, 2);
-    sceLseek(s17, 0, 0);
-
-    s32 t = sceRead(s17, s18, s16);
-    if ((s16 ^ t) != 0) {
-        s16 = 0;
-    }
-
-    sceClose(s17);
-    func_003058a0(0);
-    return (u32)s16;
-}
+u32 func_0020ecc8(u32 a0, u32 a1);  // 0x0020ecc8: definition moved into src/anon/unit_0020e9f8.cpp
 
 void func_0021eb50(void* a0, u32 a1);  // 0x0021eb50: definition moved into src/anon/unit_0021e988.cpp
 

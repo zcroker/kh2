@@ -41,17 +41,6 @@ struct Tex {
     u32 data;
     u8 b24;
 };
-void func_0020e490(Tex* t, u32 flag) {
-    u8 buf[96];
-    if (!t->data) {
-        puts(D_00370720);
-        func_002fd348(1);
-    }
-    sceGsSetDefLoadImage(buf, (s16)t->w, t->b10 >> 2, t->b24, t->b8 << 4, t->b9 << 4, t->h12, t->h14);
-    sceGsSyncPath(0, 0);
-    func_003058a0(0);
-    sceGsExecLoadImage(buf, t->data);
-    if (flag) sceGsSyncPath(0, 0);
-}
+void func_0020e490(Tex* t, u32 flag);  // 0x0020e490: definition moved into src/anon/unit_0020e490.cpp
 
 }

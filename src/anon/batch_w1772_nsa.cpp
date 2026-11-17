@@ -24,20 +24,5 @@ void func_00185f70(u8* p, u32 a1, u32 a2, u32 a3);
 
 // GIF packet: 128-bit tag, GIFtag (NLOOP=1, EOP, NREG=2, REGS=A+D,A+D), two A+D pairs.
 struct Pkt_w1772 { u128 tag; u64 a; u64 b; u64 c[4]; };
-void func_0020e0a0(void) {
-    Pkt_w1772 k;
-    k.tag = 0x70000003;
-    u64* p = &k.a;
-    u64* s = D_01da8c40;
-    p[0] = 0x2000000000008001ULL;
-    p[1] = 0xee;
-    p[2] = s[8];
-    p[3] = s[9];
-    p[4] = s[6];
-    p[5] = s[7];
-    sceGsSyncPath(0, 0);
-    FlushCache(0);
-    func_002f3918(D_003591c8, &k);
-    sceGsSyncPath(0, 0);
-}
+void func_0020e0a0(void);  // 0x0020e0a0: definition moved into src/anon/unit_0020dde8.cpp
 }

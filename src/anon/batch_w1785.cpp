@@ -34,15 +34,4 @@ extern u8 D_00359150[];
 extern void* D_003591c8;
 }
 
-void func_0020dff0(void*)
-{
-    u128 save = D_01da8c40.tag;
-    D_01da8c40.tag = 0x70000008;
-    D_01da8c40.rgb = D_00359150[0] | ((u64)D_00359150[1] << 8) | ((u64)D_00359150[2] << 16);
-    D_01da8c40.reg = 61;
-    sceGsSyncPath(0, 0);
-    func_003058a0(0);
-    func_002f3918(D_003591c8, &D_01da8c40);
-    sceGsSyncPath(0, 0);
-    D_01da8c40.tag = save;
-}
+void func_0020dff0(void*);  // 0x0020dff0: definition moved into src/anon/unit_0020dde8.cpp

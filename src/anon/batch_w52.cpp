@@ -156,13 +156,7 @@ void puts(const char*);
 void func_002fd348(s32) __attribute__((noreturn));
 extern char D_00370748[];
 void func_0020e2e8(u32, u8, u16, u32);
-void func_0020e548(u8* p, u32 b) {
-    if (!*(u32*)(p + 4)) {
-        puts(D_00370748);
-        func_002fd348(1);
-    }
-    func_0020e2e8(*(u32*)(p + 4), p[9], *(u16*)p, b);
-}
+void func_0020e548(u8* p, u32 b);  // 0x0020e548: definition moved into src/anon/unit_0020e490.cpp
 
 extern u8* D_0035dcf0;
 void func_002278e0(u8*);

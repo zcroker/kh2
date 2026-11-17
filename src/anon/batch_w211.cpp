@@ -14,12 +14,7 @@ void func_0011eea8(W211List* l, W211Node* x);  // 0x0011eea8: definition moved i
 void func_001e1df8(u8* p);  // 0x001e1df8: definition moved into src/anon/unit_001e0cb8.cpp
 
 void wtarget_0020e9f8(f32 a, f32 b) asm("_Z16wtarget_0020e9f8jjjj");
-void wtarget_0020e9f8(f32 a, f32 b) {
-    f32 x = b * 255.0f;
-    b = b - a;
-    D_00359110.a = -255.0f / b;
-    D_00359110.b = x / b;
-}
+void wtarget_0020e9f8(f32 a, f32 b);  // 0x0020e9f8: definition moved into src/anon/unit_0020e9f8.cpp
 
 s32 func_0028b160(W211S28* s, u32 key);  // 0x0028b160: definition moved into src/anon/unit_00288b00.cpp
 

@@ -142,20 +142,7 @@ extern s32 D_00359788[];
 extern s32 D_00359808;
 extern s32 D_00359810[];
 // Stack allocator push: returns the current top and records top + size.
-s32 func_0020eaf8(s32 size) {
-    s32 i = D_00359780;
-    if (i < 31) {
-        s32 cur = D_00359788[i];
-        s32 end = cur + size;
-        if (!(D_00359810[D_00359808] < end)) {
-            D_00359780 = ++i;
-            D_00359788[i] = end;
-            return cur;
-        }
-    }
-    *(s32*)0 = 0;
-    return 0;
-}
+s32 func_0020eaf8(s32 size);  // 0x0020eaf8: definition moved into src/anon/unit_0020e9f8.cpp
 
 struct F239 { u32 b0 : 1; u32 b1 : 1; u32 rest : 30; };
 void func_00239f18(u8* p, f32 f);  // 0x00239f18: definition moved into src/anon/unit_00239988.cpp

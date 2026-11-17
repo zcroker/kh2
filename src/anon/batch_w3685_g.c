@@ -12,39 +12,7 @@ extern PktList347 D_01dad550[16];
 /* Clears node n, writes its tag (count - 1, type 0x20000000) and links it after the tail of
    priority list pri (clamped to 0..15). sq $0 zero store: hand asm. The empty asm keeps the
    list address from being scheduled above the tag store (partial asm, see asm_review.tsv). */
-void func_0020e7a8(PktNode347* n, s32 count, s32 pri) {
-    PktList347* l;
-    asm volatile("sq $0, 0(%0)" : : "r"(n) : "memory");
-    n->tag = (count - 1) | 0x20000000;
-    asm volatile("");
-    if (pri <= 0) pri = 0;
-    if (pri > 15) pri = 15;
-    l = D_01dac450;
-    l = &l[pri];
-    {
-        PktNode347* t = l->tail;
-        PktNode347* nx = t->next;
-        t->next = n;
-        n->next = nx;
-    }
-    l->tail = n;
-}
+void func_0020e7a8(PktNode347* n, s32 count, s32 pri);  // 0x0020e7a8: definition moved into src/anon/unit_0020e758.cpp
 
 /* Same as func_0020e7a8 for the second list set. */
-void func_0020e800(PktNode347* n, s32 count, s32 pri) {
-    PktList347* l;
-    asm volatile("sq $0, 0(%0)" : : "r"(n) : "memory");
-    n->tag = (count - 1) | 0x20000000;
-    asm volatile("");
-    if (pri <= 0) pri = 0;
-    if (pri > 15) pri = 15;
-    l = D_01dad550;
-    l = &l[pri];
-    {
-        PktNode347* t = l->tail;
-        PktNode347* nx = t->next;
-        t->next = n;
-        n->next = nx;
-    }
-    l->tail = n;
-}
+void func_0020e800(PktNode347* n, s32 count, s32 pri);  // 0x0020e800: definition moved into src/anon/unit_0020e758.cpp

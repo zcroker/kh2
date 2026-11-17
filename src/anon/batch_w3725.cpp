@@ -51,36 +51,5 @@ void sceGsSetDefLoadImage(B1882*, s32, s32, u8, s32, s32, s32, s32);
 void sceGsSyncPath(s32, s32);
 void func_003058a0(s32);
 void sceGsExecLoadImage(B1882*, u8*);
-void func_0020e198(O1882* o) {
-    T1882* t = &o->t;
-    u8* p = 0;
-    B1882 a, b;
-    if (t->w8) {
-        u8 a3 = D_00359100[t->b19];
-        s16 a1 = t->h24 & 0x3fff;
-        s32 a2, t0, t1;
-        if (o->b15 == 111) {
-            a2 = t->b40 >> 2; t0 = t->b42 << 4; t1 = t->b43 << 4;
-        } else {
-            a2 = t->h20 >> 6; t0 = 0; t1 = 0;
-        }
-        sceGsSetDefLoadImage(&a, a1, a2, a3, t0, t1, (s16)t->h20, t->h22);
-        sceGsSyncPath(0, 0);
-        func_003058a0(0);
-        sceGsExecLoadImage(&a, p = (u8*)t + 48);
-    }
-    if (t->w4) {
-        u8 i3 = t->b18;
-        u32 w = t->w28 >> 5;
-        u8 c3 = D_00359100[i3];
-        u32 c1 = w & 0x3fff;
-        s16 c3x = t->bf4.f;
-        asm("" : "+r"(c1) : "r"(w));
-        sceGsSetDefLoadImage(&b, c1, 1, c3, 0, 0, 16, c3x);
-        sceGsSyncPath(0, 0);
-        func_003058a0(0);
-        p += t->w8;
-        sceGsExecLoadImage(&b, p);
-    }
-}
+void func_0020e198(O1882* o);  // 0x0020e198: definition moved into src/anon/unit_0020dde8.cpp
 }

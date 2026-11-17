@@ -41,40 +41,5 @@ void func_001447e0(void*, QV1877*, QV1877*);
 // 001605a0: moved to src/harata/libdk/bgobj.cpp
 
 void u_call0_0020de30() asm("_Z16u_call0_0020de30v");
-void u_call0_0020de30() {
-    GsPkt1877* p = &D_01da8bb0;
-    p->tag0 = (7ULL << 60) | 0x8001;
-    p->tag1 = 0xeeeeeee;
-    p->frame = D_00352c00;
-    p->frameAddr = 0x4c;
-    p->zbuf = (u64)(s32)(D_00352bf4 | 0x31000000) | (1ULL << 32);
-    p->zbufAddr = 0x4e;
-    p->test = 0x7000d;
-    p->testAddr = 0x47;
-    p->r50 = 0x21;
-    p->r58 = 0x14;
-    p->clamp = 0;
-    p->clampAddr = 8;
-    p->texa = 1ULL << 39;
-    p->texaAddr = 0x3b;
-    p->fogcol = 0x808080;
-    p->fogcolAddr = 0x3d;
-    p = &D_01da8c40;
-    p->tag0 = (7ULL << 60) | 0x8001;
-    p->tag1 = 0xeeeeeee;
-    p->frame = D_00352c00;
-    p->frameAddr = 0x4c;
-    p->zbuf = (u64)(s32)(D_00352bf4 | 0x31000000);
-    p->zbufAddr = 0x4e;
-    p->test = 0x7000d;
-    p->testAddr = 0x47;
-    p->r50 = 0x21;
-    p->r58 = 0x14;
-    p->clamp = 0;
-    p->clampAddr = 8;
-    p->texa = 1ULL << 39;
-    p->texaAddr = 0x3b;
-    p->fogcol = 0x808080;
-    p->fogcolAddr = 0x3d;
-}
+void u_call0_0020de30();  // 0x0020de30: definition moved into src/anon/unit_0020dde8.cpp
 }

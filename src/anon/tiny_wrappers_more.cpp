@@ -798,9 +798,7 @@ u32 func_0020d178(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_001e7230(((u32)(((u32)(a0) + (u32)(((u32)(*(u32*)((u32)(((u32)(*(u32*)((u32)(a1) + 12u)))) + 0u)))))) + 160u), 0x0000003cu, a2, a3);
 }
 
-u32 func_0020efe8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_0020edd0(a0, ((u32)(a0) + (u32)(((u32)(*(u32*)((u32)(a0) + 60u))))), a2, a3);
-}
+u32 func_0020efe8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0020efe8: definition moved into src/anon/unit_0020efe8.cpp
 
 u32 func_0021fe08(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0021fe08: definition moved into src/anon/unit_0021e988.cpp
 

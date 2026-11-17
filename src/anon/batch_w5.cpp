@@ -86,11 +86,7 @@ void func_001facd0(u8* base, u8* o) {
 }
 
 extern u8 D_00359150[3];
-void func_0020ea48(u8 a, u8 b, u8 c) {
-    D_00359150[0] = a;
-    D_00359150[1] = b;
-    D_00359150[2] = c;
-}
+void func_0020ea48(u8 a, u8 b, u8 c);  // 0x0020ea48: definition moved into src/anon/unit_0020e9f8.cpp
 
 // VU0 macro code: dst.xyz = a.xyz + b.xyz (dst.w kept).
 void func_00222750(void* dst, void* a, void* b);  // 0x00222750: definition moved into src/anon/unit_00222548.cpp

@@ -12,23 +12,7 @@ extern PktList3687 D_01dac550[256];
    priority list pri (clamped to 0..255). Twin of func_0020e7a8 (batch_w3685_g.c). sq $0 zero
    store: hand asm. The empty asm keeps the list address from being scheduled above the tag
    store (partial asm, see asm_review.tsv). */
-void func_0020e858(PktNode3687* n, s32 count, s32 pri) {
-    PktList3687* l;
-    asm volatile("sq $0, 0(%0)" : : "r"(n) : "memory");
-    n->tag = (count - 1) | 0x20000000;
-    asm volatile("");
-    if (pri <= 0) pri = 0;
-    if (pri > 255) pri = 255;
-    l = D_01dac550;
-    l = &l[pri];
-    {
-        PktNode3687* t = l->tail;
-        PktNode3687* nx = t->next;
-        t->next = n;
-        n->next = nx;
-    }
-    l->tail = n;
-}
+void func_0020e858(PktNode3687* n, s32 count, s32 pri);  // 0x0020e858: definition moved into src/anon/unit_0020e758.cpp
 
 u8* Tz_CmTop_GetListBuffer(void) asm("_ZN2Tz5CmTop13GetListBufferEv");
 void u_call4_00139d78(u8*) asm("_Z16u_call4_00139d78jjjj");

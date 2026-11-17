@@ -195,9 +195,4 @@ u32 func_003160e0(u32* a, u32* b, u32 c, u32* d) {
 // Store two byte arguments as floats into D_00359110 (+8, +12).
 struct S359110 { u32 pad[2]; f32 x; f32 y; };
 extern "C" S359110 D_00359110;
-void wtarget_0020ea70(u32 a0, u32 a1, u32, u32) {
-    u8 y = a0;
-    u8 x = a1;
-    D_00359110.x = x;
-    D_00359110.y = y;
-}
+void wtarget_0020ea70(u32 a0, u32 a1, u32, u32);  // 0x0020ea70: definition moved into src/anon/unit_0020e9f8.cpp

@@ -235,6 +235,14 @@ src/anon/unit_002a5a90.cpp	002a5a90	002a6e50	.rodata@00374bac	-G0 -g
 src/anon/unit_002a7308.cpp	002a7308	002a8330	-	-G0 -g -fno-strict-aliasing -fmove-all-movables
 src/anon/unit_002a8748.cpp	002a8748	002a8ac8	-	-G0 -g -fno-strength-reduce
 src/anon/unit_002a8ac8.cpp	002a8ac8	002a9100	-	-G0 -g
+src/anon/unit_0020dde8.cpp	0020dde8	0020e2e8	-	-G0 -g -fno-strict-aliasing
+src/anon/batch_w3766_nosched.c	0020e2e8	0020e490	-	-G0 -fno-schedule-insns
+src/anon/unit_0020e490.cpp	0020e490	0020e590	-	-G0 -g -fno-strict-aliasing
+src/anon/unit_0020e758.cpp	0020e758	0020e8b0	-	-G0 -g -fno-strict-aliasing
+src/anon/unit_0020e8b0.c	0020e8b0	0020e960	-	-G0 -fno-schedule-insns
+src/anon/unit_0020e9f8.cpp	0020e9f8	0020edd0	.rodata@003707c0	-G0 -g -fno-strict-aliasing
+src/anon/batch_w3780.c	0020edd0	0020efe8	-	-G0
+src/anon/unit_0020efe8.cpp	0020efe8	0020f118	-	-G0 -g -fno-strict-aliasing
 src/anon/unit_0020f118.cpp	0020f118	00212338	.rodata@003707f0	-G0 -fno-strict-aliasing
 src/anon/unit_00213ea8.cpp	00213ea8	0021aee8	.rodata@00370890	-G0 -fno-strict-aliasing
 src/anon/unit_0021aee8.cpp	0021aee8	0021d048	.rodata@00370a10	-G0 -fno-strict-aliasing

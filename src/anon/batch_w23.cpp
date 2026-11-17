@@ -111,14 +111,7 @@ s32 func_001d9c68(u8* p);  // 0x001d9c68: definition moved into src/anon/unit_00
 
 extern s32 D_00359780;
 extern s32 D_00359788[];
-void func_0020ebd8(s32 v) {
-    s32 n = D_00359780;
-    if (n > 0 && D_00359788[n] - D_00359788[n - 1] == v) {
-        D_00359780 = n - 1;
-        return;
-    }
-    *(u32*)0 = 0;
-}
+void func_0020ebd8(s32 v);  // 0x0020ebd8: definition moved into src/anon/unit_0020e9f8.cpp
 
 struct E40 { s32 id; u8 pad[36]; };
 extern E40* D_0035dcfc;

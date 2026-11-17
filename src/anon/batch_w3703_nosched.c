@@ -10,27 +10,8 @@ extern u128 D_003707a0;
 extern Cnt20e D_01da8cd0;
 void func_0020e800(void*, s32, s32, s32);
 
-// Fills a GS packet (tag, two-byte register pair, colour widened from RGBA bytes, two fixed qwords),
-// sends it and bumps the packet counters. Returns the end of the packet.
-// Partial asm: sq $0 (zero qword), pextlb/pextlh (MMI) and the sq of their result; keeping that sq inside the
-// asm block lets sched2 issue li a1,6 right after it like the original.
-u8* func_0020e8b0(Pk20e* p, u32 rgba, u8 a, u8 b)
-{
-    u128 c;
-    p->tag = D_00370780;
-    p->regs = 0x441e;
-    asm volatile("sq $0,%0" : "=m"(p->m.q));
-    p->m.s.b[0] = a;
-    p->m.s.b[4] = b;
-    p->m.s.reg = 0x42;
-    asm volatile("pextlb %0,$0,%0\n\tpextlh %0,$0,%0\n\tsq %0,%1" : "=r"(c), "=m"(p->col) : "0"(rgba));
-    { u128* g = &D_00370790; p->v64 = *g; }
-    { u128* g = &D_003707a0; p->v80 = *g; }
-    func_0020e800(p, 6, 0, 0);
-    D_01da8cd0.x8++;
-    D_01da8cd0.x18++;
-    return (u8*)p + 96;
-}
+// 0x0020e8b0: definition moved into src/anon/unit_0020e8b0.c
+u8* func_0020e8b0(Pk20e* p, u32 rgba, u8 a, u8 b);
 typedef f32 FVEC208[4] __attribute__((aligned(16)));
 typedef f32 FMTX208[4][4] __attribute__((aligned(16)));
 typedef struct Obj208 { u8 pad0[0x26]; u8 mode; u8 pad27[0xde]; u8 useMatrix; } Obj208;
