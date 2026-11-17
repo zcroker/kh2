@@ -20,13 +20,6 @@ extern "C" void func_00271e80();
 extern "C" void func_002723e0();
 extern "C" void func_00256ea8();
 
-void CmCustom::LeaveAll() {
-    if ((u32)(func_00287bc0() - 25u) >= 9u) {
-        return;
-    }
-    func_00271e80();
-    func_002723e0();
-    func_00256ea8();
-}
+// 0x0026ee30: definition moved into src/anon/unit_0026c450.cpp
 
 }  // namespace Tz

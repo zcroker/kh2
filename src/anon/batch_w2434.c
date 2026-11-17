@@ -23,20 +23,7 @@ extern u8 D_0035f128;
 extern s16 D_01e21ec0[2][4];
 void func_0026ed48(void);
 
-void func_0026ec98(void) {
-    s32 i, j;
-    D_0035f12c = 0;
-    D_0035f130 = 0;
-    D_0035f128 = 0;
-    D_0035f129 = -1;
-    for (i = 0; i < 2; i++) {
-        s32 k = (i != 0);
-        for (j = 0; j < 4; j++) {
-            D_01e21ec0[i][j] = 0x130 - k;
-        }
-    }
-    func_0026ed48();
-}
+void func_0026ec98(void);  // 0x0026ec98: definition moved into src/anon/unit_0026c450.cpp
 
 /* 0011efe8: clear low nibbles in place (u64 at a time, then bytes); twin of 0011f1a8 */
 struct O_0011efe8;

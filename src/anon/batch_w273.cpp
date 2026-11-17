@@ -88,19 +88,7 @@ void func_0023e858(Obj273*, s32, f32);
 void func_0023e8b8(Obj273*, s32, f32);
 void func_0023e8d8(Obj273*, s32, f32);
 void func_0023e9c8(Obj273*, s32, s32);
-void func_0026e1e0(void) {
-  s32 n = D_0035f3d4 - 1;
-  if (D_0035f11c == 0 || D_0035f11c->a == 0 || D_0035f11c->b == 0) return;
-  func_0028d8c0(D_0035f108, n, 0, 0, D_0035f100, 16, 17, 0);
-  Obj273* o = func_00287dc0();
-  func_0023d808(o, n);
-  o->vt->f6(o, 0, D_0035f11c->a | 0x20000000, -1, 2, 0, 0);
-  func_0023e5d0(o, 0, D_0035f11c->b);
-  func_0023e858(o, 0, -100.0f);
-  func_0023e8b8(o, 0, 0.0f);
-  func_0023e8d8(o, 0, 0.0f);
-  func_0023e9c8(o, 0, D_0035f108);
-}
+void func_0026e1e0(void);  // 0x0026e1e0: definition moved into src/anon/unit_0026c450.cpp
 
 void func_001705a8(void);
 s32 func_00170d38(s32);

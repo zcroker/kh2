@@ -550,40 +550,7 @@ s32 func_00288040(void);
 void func_00288018(void);  // global_zero_4dwords
 void func_0026d960(void);
 // Menu update for this list: close handling, cursor feedback and entry dispatch.
-void func_0026c818(void)
-{
-    s32 sel = func_00289380(D_0035f024);
-    s32 st = func_00287cd0();
-    if (func_002938e0() && func_002938f0() && D_0035f0f0) func_0026c140();
-    if (st == 2) {
-        func_00287bd0(20, 0);
-        func_00287cc0(1);
-        func_0026cb38();
-        return;
-    }
-    if (st == 0) func_00287c90(1);
-    s32 n = func_002892f8(D_0035f024);
-    if (!func_00242848(func_00287df0(sel, func_00289310(D_0035f024), 1, func_0026d960, 1))) {
-        switch (sel) {
-        case -2:
-            func_00287c90(1);
-            break;
-        case -4:
-            func_00287da0();
-            if (func_002938e0() && !func_002938f0()) func_0023d820(func_00287dc0());
-            break;
-        case -1:
-            break;
-        default:
-            if (sel >= 0 && sel < n) {
-                func_0026d748();
-                func_00287c90(1);
-            }
-            break;
-        }
-    }
-    if (func_00288040()) func_00288018();
-}
+void func_0026c818(void);  // 0x0026c818: definition moved into src/anon/unit_0026c450.cpp
 }
 
 struct Pt27 { s16 x; s16 pad; s16 y; };

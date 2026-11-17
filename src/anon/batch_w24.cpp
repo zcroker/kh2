@@ -145,11 +145,7 @@ void func_00287bd0(s32, s32);
 u32* func_00103eb0(void);
 void func_00102818(u32, s32, s32, void (*)(void), s32);
 void func_0026dd40(void);
-void func_0026dcb8(void) {
-    func_0026d968();
-    func_00287bd0(0, 0);
-    func_00102818(func_00103eb0()[1], 0, 2000, func_0026dd40, 4096);
-}
+void func_0026dcb8(void);  // 0x0026dcb8: definition moved into src/anon/unit_0026c450.cpp
 
 struct Ent8 { u8 _0[2]; s8 flag; u8 _3[2]; s8 lim; u8 _6[2]; };
 struct Hdr8 { s16 _0; s16 a; s16 b; u8 _6[6]; Ent8 e[1]; };

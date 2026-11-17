@@ -266,14 +266,7 @@ void func_0028cf28(u32, u32);  // record408_set_and_refresh
 s32 func_0028d6e8(u32);
 void func_0028d660(u32, u32);  // record_set_value_refresh
 extern u32 D_0035f110;
-void func_0026eae8(u32 a) {
-    if (!func_00289310(a)) return;
-    u32 s = func_002891e8(a);
-    func_002890e0(a, 1, 2, 0, -1);
-    func_00289038(a, s, 1, 1, 2, 0, -1);
-    if (func_0028d008(0)) func_0028cf28(0, func_002891d0(a));
-    if (func_0028d6e8(D_0035f110)) func_0028d660(D_0035f110, func_002891d0(a));
-}
+void func_0026eae8(u32 a);  // 0x0026eae8: definition moved into src/anon/unit_0026c450.cpp
 
 // Creates the manager object and a 4-element array of 5116-byte entries.
 struct Heap20 { u8 _0[20]; VObj* a; };

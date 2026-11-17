@@ -124,9 +124,7 @@ u32 func_00256ef0(void) {
 
 u32 func_00287dc0(void);
 void func_0023d820(u32);
-void func_0026c450(void) {
-    func_0023d820(func_00287dc0());
-}
+void func_0026c450(void);  // 0x0026c450: definition moved into src/anon/unit_0026c450.cpp
 
 u8* func_002766d0(void);
 void func_0028da70(u8*, u32);
@@ -214,11 +212,7 @@ extern "C" u32 func_002953c8(s32);
 extern "C" u8 func_002941a8(u32);
 namespace Tz {
 class CmParty { public: static void CreateInfo(); };
-void CmParty::CreateInfo() {
-    func_0026bc10();
-    func_00257708(0);
-    func_0026ceb0();
-}
+// 0x0026c9c8: definition moved into src/anon/unit_0026c450.cpp
 class JmWorldSel { public: static u32 isWorldOpen(s32); };
 u32 JmWorldSel::isWorldOpen(s32 world) {
     return func_002941a8(func_002953c8(world));

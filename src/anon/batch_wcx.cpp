@@ -626,18 +626,7 @@ s32 func_0028b1c0(u8*, s32);  // test_bit_field32
 void func_002891f0(u8*, s32, s32, s32, s32);
 void func_00287cc0(s32);
 void func_0026cb38(void);
-void func_0026c760(void)
-{
-    s32 j = 1;
-    s32 i = func_002891e8(D_0035f01c);
-    j = (j << i) | func_0028b1b8(D_0035f01c);
-    func_0028b1b0(D_0035f024, j);
-    j = i + 1;
-    if (!(j < func_002892f8(D_0035f024)) || func_0028b1c0(D_0035f024, j)) j = i - 1;
-    func_002891f0(D_0035f024, j, 0, -1, -1);
-    func_00287cc0(0);
-    func_0026cb38();
-}
+void func_0026c760(void);  // 0x0026c760: definition moved into src/anon/unit_0026c450.cpp
 
 // Tz::Jiminy::Init
 extern u8* D_0035f010;
@@ -2504,14 +2493,7 @@ s32 func_00281420(void);
 extern u32 D_0035f0fc;
 u32 func_00293bc0(void);
 s32 func_001a8bf8(u32, s32);  // get_bits5_at
-s32 func_0026d8c0(s32 x)
-{
-    s32 r = -1;
-    u32 a = func_00293bc0();
-    for (s32 i = 0; i < 4; i++)
-        if (func_001a8bf8(D_0035f0fc, i) == func_001a8bf8(a, x)) { r = i; break; }
-    return r;
-}
+s32 func_0026d8c0(s32 x);  // 0x0026d8c0: definition moved into src/anon/unit_0026c450.cpp
 extern u8 D_00373ab0[];
 extern u8 D_00373af8[];
 extern u8 D_00373ae0[];

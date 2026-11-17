@@ -339,22 +339,7 @@ u32 func_0028b040(void*);
 void func_001a3458(u32, s32);
 struct Six { u8 b0, b1, b2, b3, b4, b5; };
 
-s32 func_0026af30(s32 idx, u32 id) {
-    u8* b = func_00281180(D_0035f010, func_00257070(1));
-    u16* e = (u16*)(idx * 2 + *(u32*)(b + 580));
-    if (e[26]) func_001a3188(e[26], 100, 0);
-    Six* t = (Six*)func_00281f20(D_0035f0ec);
-    u32 n = func_0028b040(D_0035f01c) - 1;
-    if (id == 0 || t[n].b2 != 0) {
-        e[26] = id;
-        e[34] = 0;
-        if (id) func_001a3458(id, 100);
-    } else {
-        e[34] = id;
-        e[26] = 0;
-    }
-    return 1;
-}
+s32 func_0026af30(s32 idx, u32 id);  // 0x0026af30: definition moved into src/anon/unit_0026a900.cpp
 
 extern VObj20* D_0035f208;
 extern void* D_0035f218;

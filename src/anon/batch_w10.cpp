@@ -204,11 +204,7 @@ void CampMenu_StartBasic(s32) {
 
 void func_0025ccc0(void);  // 0x0025ccc0: definition moved into src/anon/unit_002588e8.cpp
 
-void func_0026b448(void) {
-    func_0026b470();
-    func_0026b508();
-    func_0026b5a0(-1);
-}
+void func_0026b448(void);  // 0x0026b448: definition moved into src/anon/unit_0026a900.cpp
 
 void* CMData_GetPtr(s32) {
     return func_0023fa08(&D_0035f3a8, func_002537c8(5));

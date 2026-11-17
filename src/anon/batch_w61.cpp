@@ -264,18 +264,7 @@ u32 func_00257070(u32);
 u8* func_00281180(u32, u32);
 extern u32 D_0035f010;
 struct T26 { u8 pad[17]; u8 n; u8 pad2[18]; u16 a[1]; };
-void func_0026b508(void) {
-    T26* t = *(T26**)(func_00281180(D_0035f010, func_00257070(1)) + 580);
-    s32 n = t->n;
-    for (s32 i = 0; i < n; i++) {
-        for (s32 j = i + 1; j < n; j++) {
-            if (t->a[i] == 0 && t->a[j] != 0) {
-                t->a[i] = t->a[j];
-                t->a[j] = 0;
-            }
-        }
-    }
-}
+void func_0026b508(void);  // 0x0026b508: definition moved into src/anon/unit_0026a900.cpp
 
 extern u8* D_0035f21c;
 void func_00276b10(void) {

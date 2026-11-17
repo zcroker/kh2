@@ -258,18 +258,7 @@ void func_001039f8(void);
 void func_0026e638(void*);
 void func_0026e8a0(void);
 s32 PauseTaskIsDone(void* a) asm("_ZN2Tz15PauseTaskIsDoneEz");
-s32 PauseTaskIsDone(void* a) {
-    s32 m = func_00287bc0();
-    if (func_00287db0()) {
-        func_001039f8();
-        return 1;
-    }
-    switch (m) {
-    case 0: func_0026e638(a); break;
-    case 1: func_0026e8a0(); break;
-    }
-    return 0;
-}
+s32 PauseTaskIsDone(void* a);  // 0x0026e5b8: definition moved into src/anon/unit_0026c450.cpp
 
 s32 func_0027ae20(void);
 void func_0027aed8(s32 a, s32* o1, s32* o2) {

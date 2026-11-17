@@ -18,34 +18,5 @@ void func_0026e3b0(void); void func_0028af28(void*, s32); void func_00287cc0(s32
 extern u8* D_0035f100; extern u8* D_0035f104; extern void* D_0035f10c; extern u8* D_0035f118;
 extern u8 D_00347f98[]; extern u8 D_0035eb98[];
 void PauseTaskBegin_impl(void) asm("_ZN2Tz14PauseTaskBeginEv");
-void PauseTaskBegin_impl(void) {
-    u8* t = func_0023ee30(160);
-    void* seq;
-    s32 i;
-    s32 off;
-    s32 n;
-    *(u32*)t = (u32)D_00347f98;
-    func_0031a838(t + 12);
-    *(u32*)t = (u32)D_0035eb98;
-    func_002369a0(t + 24);  // obj_ctor_36eac8
-    func_0023c008(t + 48);  // obj_ctor_36eae8
-    D_0035f100 = t;
-    func_0028d7f0(t, 30002, 0, 0, 0, -1, 0, 0, 0);
-    func_0026e1e0();
-    if (!func_00287bc0()) func_0026df30();
-    seq = func_0023c3e0(func_0023f1b0(D_0035f100), 10, 0);
-    for (i = 0, off = 0; i < 3; i++, off += 436) {
-        if (func_00139d78(D_0035f104 + off)) func_0028dd28(D_0035f104 + off, seq);
-    }
-    n = func_002892f8(D_0035f10c);
-    for (i = 0; i < n; i++) func_0028dd28(func_002891b8(D_0035f10c, i), seq);
-    func_0026e3b0();
-    {
-        u32 t = !(D_0035f118[37] & 1);
-        s32 m = 32;
-        if (t == 0) m = 96;
-        func_0028af28(D_0035f10c, m);
-    }
-    func_00287cc0(1);
-}
+void PauseTaskBegin_impl(void);  // 0x0026dda0: definition moved into src/anon/unit_0026c450.cpp
 }

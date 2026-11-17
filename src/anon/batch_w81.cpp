@@ -347,20 +347,7 @@ void func_00288ce0(u32, u32, s32, u8*, u8*);
 void func_0028af90(u32, s32);  // obj_set_field22_from_arg
 void func_0028b1e8(u32, u32);
 void func_00257708(u32);
-void func_0026c048(void) {
-    s32 i;
-    s32 n = 0;
-    for (i = 0; i < 4; i++) {
-        if (func_00281180(D_0035f010, i)) {
-            u32 v = func_002891b8(D_0035f01c, n);
-            func_00288ce0(D_0035f024, v, n, D_0035f0f4 + n * 8 + 3784, D_0035f0f4 + n * 8 + 3784);
-            n++;
-        }
-    }
-    func_0028af90(D_0035f024, n);  // obj_set_field22_from_arg
-    func_0028b1e8(D_0035f024, 1);
-    if (n < 3) func_00257708(1);
-}
+void func_0026c048(void);  // 0x0026c048: definition moved into src/anon/unit_0026a900.cpp
 
 // --- 0027c3e0
 extern u8* D_0035f230;

@@ -1976,16 +1976,7 @@ extern "C" u32 func_001a3168(...);
 
 extern "C" u32 func_00106420(...);
 
-void func_0026eda8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r15, r16;
-    r16 = (u32)(0x0036u << 16);
-    r15 = *(volatile u32*)((u32)r16 + (s32)(-3796));
-    r4 = r15;
-    if (r15 != 0u) {
-        ((void(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_00106420)(r4, r5, r6, r7, r8, r9, r10, r11);
-        *(volatile u32*)((u32)r16 + (s32)(-3796)) = 0u;
-    }
-}
+void func_0026eda8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);  // 0x0026eda8: definition moved into src/anon/unit_0026c450.cpp
 
 extern u8 D_0035f158;
 
@@ -12550,17 +12541,7 @@ void duplicate_unplaced_0026dd18(u32 a0, u32 a1, s32 a2) {
     *(u8*)(u32)&D_0035f120 = (u8)a2;
 }
 
-void func_0026ede0() {
-    if ((u32)(func_00287bc0() - 25u) >= 9u) {
-        return;
-    }
-    func_00271e08();
-    func_00272340();
-    if (func_00287db0() == 0u) {
-        return;
-    }
-    func_00256e80();
-}
+void func_0026ede0();  // 0x0026ede0: definition moved into src/anon/unit_0026c450.cpp
 
 extern "C" void func_0026ee30() asm("_ZN2Tz8CmCustom8LeaveAllEv");
 

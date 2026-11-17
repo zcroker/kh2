@@ -364,22 +364,7 @@ s32 func_0023aa18(u8*);
 s32 func_0023aa38(u8*);
 u32 func_0023a918(u8*);
 void func_001a9ae8(u8*, s32, s32, u32);
-void func_0026a9f8(s32 x, s32 y, u32 a2, u32 a3, u8* o) {
-    u8 buf[96];
-    s32 m = func_00287bc0();
-    s32 n = func_0028b160(D_0035f01c, o);  // find_index_in_array
-    bool b = (u32)(m - 5) < 2;
-    s32 k = func_0028b038(D_0035f01c);
-    u8* base = func_00281f30(D_0035f0ec);
-    if (!b && !k) {
-        if (n == 0) return;
-        n--;
-    }
-    func_001a98e8(buf, 1, base + n * 80, *(u32*)(o + 424), 1);
-    s32 px = func_0023aa18(o + 24) + x;
-    s32 py = func_0023aa38(o + 24) + y;
-    func_001a9ae8(buf, px, py, func_0023a918(o + 24));
-}
+void func_0026a9f8(s32 x, s32 y, u32 a2, u32 a3, u8* o);  // 0x0026a9f8: definition moved into src/anon/unit_0026a900.cpp
 }
 }
 

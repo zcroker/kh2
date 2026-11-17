@@ -57,31 +57,5 @@ void func_0026eae8(void*, s32);
 void func_0028cdb8(s32);  // record408_alloc_init
 void func_0028d5d0(void*);
 void PauseTaskUpdate_impl(void) asm("_ZN2Tz15PauseTaskUpdateEv");
-void PauseTaskUpdate_impl(void) {
-    s32 s = func_00287cd0();
-    if (func_00287db0()) {
-        if (func_00139d78(D_0035f100)) D_0035f100->vt[5](D_0035f100);
-        func_0028ce38();
-        func_0026ebc0();
-    }
-    if (func_00287db0()) return;
-    if (func_0028acc8(D_0035f10c) && s == 1) {
-        if (func_0028d008(0) == 0) {
-            func_0028cc78(0, 0, 0, D_0035f100, 6, 6);
-            func_0028cf28(0, func_002891d0(D_0035f10c));  // record408_set_and_refresh
-            if (func_0028d6e8(D_0035f110) == 0) {
-                func_0028d1c0(D_0035f110, 30026, 0, 0, D_0035f100, D_003738d8, 0);
-            }
-            func_0028d660(D_0035f110, func_002891d0(D_0035f10c));  // record_set_value_refresh
-        }
-    } else if (s == 2) {
-        if (func_0028d008(0)) {
-            func_0028cdb8(0);  // record408_alloc_init
-            func_0028d5d0(D_0035f110);
-        } else if (func_0028d6e8(D_0035f110)) {
-            func_0028d5d0(D_0035f110);
-        }
-    }
-    func_0026eae8(D_0035f10c, func_00287bc0());
-}
+void PauseTaskUpdate_impl(void);  // 0x0026e940: definition moved into src/anon/unit_0026c450.cpp
 }

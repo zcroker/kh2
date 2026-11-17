@@ -149,50 +149,7 @@ void func_0023e958(O26c*, s32, s32, s32, s32, s32);
 void func_0028d8c0(void*, s32, s32, s32, s32, s32, s32, s32);
 void func_0023e9e0(O26c*, s32, void*);
 
-void func_0026c140(void) {
-    s32 x, y;
-    s32 i;
-    u8 flag = 0;
-    O26c* o = func_00287dc0();
-    if (!func_00139d78(o)) {
-        func_0023d808(o, 0x7545);
-        func_0023ebd0(o, 1);
-        y = 0;
-        x = 0;
-        for (i = 0; i < 4; i++) {
-            if (func_00281128(D_0035f010, i)) {
-                func_00138c78(D_0035f0f4 + i * 0x1b4 + 0x7f8, &x, &y);
-                func_0023dd28(o, i, 0, 0x8a);
-                func_0023e738(o, i, (s16)x, (s16)(y - 0x8a));
-                func_0023e9c8(o, i, D_0035f0f4 + i * 0x1b4 + 0x7f8);
-            }
-        }
-    }
-    y = 0;
-    x = 0;
-    for (i = 0; i < 4; i++) {
-        s32 c = 16;
-        s32 id = func_0026d8c0(i);
-        if (!func_00281128(D_0035f010, id)) continue;
-        if (!func_00281538(D_0035f010, id) || func_0023ec18(o, id)) {
-            if (!func_00281538(D_0035f010, id)) flag = 1;
-            continue;
-        }
-        if (i != 0 && func_002811e0(D_0035f010, id) == 3) c = 15;
-        o->vt->draw(o, id, func_00281238(D_0035f010, id) | 0x20000000, 0x8b, 2, 0, 0x8a);
-        func_0023e858(-100.0f, o, id);
-        func_0023e8b8(0.0f, o, id);
-        func_0023e8d8(0.0f, o, id);
-        if (func_002811b0(D_0035f010, id) == 8) func_0023eae0(o, id, 20, 32);
-        func_0023eac0(o, id, c);
-        func_0023e958(o, id, 96, 96, 96, -1);
-        if (D_0035f0f0) {
-            func_0028d8c0(D_0035f0f4 + id * 0x198 + 0x198, c, D_0035ef68, D_0035ef64, D_0035f03c, 125, -1, 0);
-            func_0023e9e0(o, id, D_0035f0f4 + id * 0x198 + 0x198);
-        }
-    }
-    D_0035f0f0 = flag;
-}
+void func_0026c140(void);  // 0x0026c140: definition moved into src/anon/unit_0026c140.cpp
 
 extern void* D_0035f01c;
 extern void* D_0035f018;

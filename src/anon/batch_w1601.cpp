@@ -112,23 +112,5 @@ void func_00288e88(s32);
 void func_0026c450(void);
 void func_0026d828(void);
 void Tz_CmParty_LeaveList_26cc30(void) asm("_ZN2Tz7CmParty9LeaveListEv");
-void Tz_CmParty_LeaveList_26cc30(void)
-{
-    s32 i;
-    if (func_00287bc0() == 20) {
-        u8* o = func_00256b68(1);
-        if (func_00139d78(o)) VCALL26cc30(o);
-        if (func_00139d78(D_0035f0f4)) func_00139510(D_0035f0f4);
-        for (i = 0; i < 4; i++) {
-            if (func_00139d78(D_0035f0f4 + i * 408 + 408)) VCALL26cc30(D_0035f0f4 + i * 408 + 408);
-        }
-        for (i = 0; i < 4; i++) {
-            if (func_00139d78(D_0035f0f4 + i * 436 + 2040)) VCALL26cc30(D_0035f0f4 + i * 436 + 2040);
-        }
-        if (func_0028acc8(D_0035f01c)) func_0028abe0(D_0035f01c);
-        if (func_0028acc8(D_0035f024)) func_00288e88(D_0035f024);
-        func_0026c450();
-        func_0026d828();
-    }
-}
+void Tz_CmParty_LeaveList_26cc30(void);  // 0x0026cc30: definition moved into src/anon/unit_0026c450.cpp
 }

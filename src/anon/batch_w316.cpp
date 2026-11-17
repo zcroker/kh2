@@ -64,76 +64,13 @@ void SetDisableButton_x(void*, u32) asm("_ZN2Tz6Select16SetDisableButtonEj");
 u8* func_0028c198(s32, s32, s32, u32, u32, u32);
 void func_00288ce0(void*, void*, s32, s16*, s16*);
 void func_002891f0(void*, s32, s32, s32, s32);
-void func_0026df30(void) {
-  s16 a[4];
-  s16 b[4];
-  s32 i, n, k;
-  if (G118->h22 >= 0) func_0026e140(0, G118->h22, -1);
-  if (G118->w24) {
-    func_0026e140(1, 14, -1);
-    gspxy_x((u8*)D_0035f104 + 436);
-    *(u32*)((u8*)D_0035f104 + 868) = 3;
-    *(u32*)((u8*)D_0035f104 + 844) = G118->w24;
-  }
-  if (D_0035f11c && *D_0035f11c) func_0026e140(2, 13, -1);
-  for (i = 0; i < 4; i++) { a[i] = 12; b[i] = 11; }
-  n = G118->n;
-  k = 0;
-  for (i = 0; i < n; i++) {
-    if (G118->e[i].id) {
-      u8* v = func_0028c198(12, 0, 0, D_0035f100, G118->e[i].h2, 0);
-      gspxy_x(v);
-      *(u32*)(v + 432) = 2;
-      func_00288ce0((void*)D_0035f10c, v, k, a, b);
-      D_0035f114[k++] = G118->e[i].id;
-    }
-  }
-  if (k) {
-    s32 x = D_0035f120;
-    func_002891f0((void*)D_0035f10c, x < 0 ? 0 : x, 1, 2, 2);
-  } else {
-    SetDisableButton_x((void*)D_0035f10c, 16);
-  }
-}
+void func_0026df30(void);  // 0x0026df30: definition moved into src/anon/unit_0026c450.cpp
 
 void setOffsetPos_x(void*, s32, s32) asm("_ZN2dk6Sprite12setOffsetPosEii");
 s32 u_call4_00139d78_x(void*) asm("_Z16u_call4_00139d78jjjj");
 s32 GetParamEx_x(void*) asm("_ZN2YI8SEQUENCE10GetParamExEv");
 u8* GetItemPtr_x(void*, s32) asm("_ZN2Tz6Select10GetItemPtrEi");
 s32 GetItemMax_x(void*) asm("_ZN2Tz6Select10GetItemMaxEv");
-void func_0026e3b0(void) {
-  s32 w[11];
-  s32 i, k, n, sum, x;
-  for (i = 0; i < 11; i++) w[i] = 0;
-  k = 0;
-  for (i = 0; i < 3; i++) {
-    if (u_call4_00139d78_x((u8*)D_0035f104 + i * 436)) {
-      w[k] = GetParamEx_x((u8*)D_0035f104 + i * 436 + 24);
-      k++;
-    }
-  }
-  n = GetItemMax_x((void*)D_0035f10c);
-  for (i = 0; i < n; i++) {
-    w[k] = GetParamEx_x(GetItemPtr_x((void*)D_0035f10c, i) + 24);
-    k++;
-  }
-  if (k < 2) return;
-  sum = 0;
-  for (i = 0; i < 11; i++) sum += w[i];
-  x = -(sum / 2);
-  k = 0;
-  for (i = 0; i < 3; i++) {
-    if (u_call4_00139d78_x((u8*)D_0035f104 + i * 436)) {
-      setOffsetPos_x((u8*)D_0035f104 + i * 436, 0, x);
-      x += w[k];
-      k++;
-    }
-  }
-  for (i = 0; i < n; i++) {
-    setOffsetPos_x(GetItemPtr_x((void*)D_0035f10c, i), 0, x);
-    x += w[k];
-      k++;
-  }
-}
+void func_0026e3b0(void);  // 0x0026e3b0: definition moved into src/anon/unit_0026c450.cpp
 
 }

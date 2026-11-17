@@ -224,7 +224,7 @@ void func_001ae690(BD_VALUE* bd);  // 0x001ae690: definition moved into src/anon
 void func_00225248(BD_VALUE* bd) { func_001398d0(11); }
 // 0022b930: moved to src/sasa/musical_2d.cpp (linked unit)
 void func_0025f698(BD_VALUE* bd);  // 0x0025f698: definition moved into src/anon/unit_0025da20.cpp
-void func_0026d168(BD_VALUE* bd) { func_00257530(1); }
+void func_0026d168(BD_VALUE* bd);  // 0x0026d168: definition moved into src/anon/unit_0026c450.cpp
 void func_0028ff00(BD_VALUE* bd);  // 0028ff00: moved to src/anon/unit_0028f1e0.cpp
 void func_00290420(BD_VALUE* bd);  // 00290420: moved to src/anon/unit_0028f1e0.cpp
 void func_002b4370(BD_VALUE* bd) { func_0023f5b8(bd->i); }
@@ -832,10 +832,7 @@ u32 func_00263ea8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00263ea8: definition mo
 
 void func_00264318(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00264318: definition moved into src/anon/unit_002640a8.cpp
 
-void func_0026d808(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 b = (0x0036u << 16);
-    *(u32*)((u32)b + (-3848)) = (u32)a0;
-}
+void func_0026d808(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0026d808: definition moved into src/anon/unit_0026c450.cpp
 
 u32 func_00287ec8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00287ec8: definition moved into src/anon/unit_00286d28.cpp
 

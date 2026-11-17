@@ -67,35 +67,7 @@ static inline u8 w279_stat(u16 id) {
     if (id == 0) return 0;
     return func_001a8190(func_001a80c8(id))[7];
 }
-s32 func_0026b2c0(void) {
-    u8* info = item_get_info(D_0035f0ec);
-    u16 sel;
-    u16 old;
-    s32 sum;
-    s32 i;
-    W279Slot* p;
-    if (menu_get_mode() != 8) return 0;
-    sel = 0;
-    u16* r = func_0026a178(cmtop_get_select_pos(2), 2);
-    if (r) sel = *r;
-    if (sel == 0) return 0;
-    s32 k = jm_report_get_data(D_0035f01c);
-    old = k ? *(u16*)(info + k * 6 - 6) : 0;
-    sum = 0;
-    s32 who = cmtop_get_cur_pos(1);
-    p = (W279Slot*)(*(u8**)(party_get_sheet(D_0035f010, who) + 580) + 84);
-    for (i = 0; i < 80; i++) {
-        W279Slot x = *p++;
-        if (x.b.id && (x.raw >> 15)) sum += func_001a80c8(x.b.id)[7];
-    }
-    u16 cap = *(u16*)(party_get_sheet(D_0035f010, who) + 398);
-    s32 a;
-    if (sel) a = func_001a8190(func_001a80c8(sel))[7];
-    else a = 0;
-    s32 d = a - w279_stat(old);
-    if (cap - sum - d < 0) return 1;
-    return 0;
-}
+s32 func_0026b2c0(void);  // 0x0026b2c0: definition moved into src/anon/unit_0026a900.cpp
 
 // ---- func_00179718
 s32 map_is_pax_exist(void) asm("_ZN2dk3Map10isPaxExistEv");

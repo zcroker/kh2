@@ -20,57 +20,7 @@ extern u32 D_0035f10c;
 extern s16* D_0035f114;
 extern F11c* D_0035f11c;
 extern s8 D_0035f120;
-void func_0026e638(s32 a0) {
-    s32 r = func_00289380(D_0035f10c);
-    func_002892f8(D_0035f10c);
-    s32 ret = func_00287df0(r, func_00289310(D_0035f10c), 1, 0, 0);
-    switch (r) {
-    case -4:
-    case -2:
-        func_00242790();
-        func_00287da0();
-        break;
-    case -1:
-        break;
-    default:
-        switch ((u16)D_0035f114[r]) {
-        case 1:
-            func_00258af0(3);
-            break;
-        case 3:
-        case 4:
-            func_001bbba8(D_0035f114[r]);
-            break;
-        case 6:
-            func_00242790();
-            break;
-        case 10:
-            func_00258af0(4);
-            break;
-        case 12:
-            if (func_001bba88()) func_0026e840();
-            break;
-        case 17:
-            func_00258af0(1);
-            break;
-        default:
-            if (D_0035f11c && D_0035f11c->fn) D_0035f11c->fn(D_0035f114[r], a0);
-            break;
-        case 5:
-        case 19:
-            func_00225e28();
-            func_00136a18();
-            func_00242790();
-            func_002427c0();
-            func_00197e68();
-            break;
-        }
-        D_0035f120 = r;
-        if (D_0035f114[r] != 12) func_00287da0();
-        break;
-    }
-    if (ret) func_00242660(ret);
-}
+void func_0026e638(s32 a0);  // 0x0026e638: definition moved into src/anon/unit_0026c450.cpp
 // ---- 0029fee8
 struct List29f {
     s8 count;

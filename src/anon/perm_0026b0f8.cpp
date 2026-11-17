@@ -52,37 +52,6 @@ P26b0f8 *func_00281180(u32, s32) asm("_ZN2Tz9PartyInfo8GetSheetEi");
 s32 func_00281198(u32, s32) asm("_ZN2Tz9PartyInfo8GetPartyEi");
 void func_00282240(s32, s32, s32);
 void func_002827f0(s32, s32, s32);
-void func_0026b0f8()
-{
-  s32 idx = func_0028b040(D_0035f01c);
-  I26b0f8 *t = func_00281f20(func_00257130());
-  I26b0f8 *info = (I26b0f8 *) (((u32) (idx * 6)) + ((u32) t));
-  u8 new_var;
-  u16 id = info->id;
-  s32 none = info->flag == 0;
-  Q26b0f8 *q = func_00281180(D_0035f010, func_00257070(1))->q;
-  s32 i;
-  new_var = q->n;
-  for (i = 0; i < new_var; i++)
-  {
-    if ((q->h52[i] == id) || (q->h68[i] == id))
-    {
-      q->h68[i] = (none) ? (id) : (0);
-    }
-  }
-
-  if (idx)
-  {
-    idx = func_00281198(D_0035f010, func_00257070(1)) + 5;
-    func_00282240(func_00257130(), idx, 0);
-    func_002827f0(func_00257130(), 0, 0);
-  }
-  else
-  {
-    idx = func_00281198(D_0035f010, func_00257070(1)) + 5;
-    func_00282240(func_00257130(), idx, 0);
-    func_002827f0(func_00257130(), 0, 0);
-  }
-}
+void func_0026b0f8();  // 0x0026b0f8: definition moved into src/anon/unit_0026a900.cpp
 
 }

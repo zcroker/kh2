@@ -107,19 +107,5 @@ void func_002889f0(void*, s32, s32);
 struct W1934X444 { u8 d[444]; W1934X444() { func_0028d140(this); } static void* operator new(unsigned int n) { return W1934Alloc(n); } };
 struct W1934X832 { u8 d[832]; W1934X832() { func_00290610(this); } static void* operator new(unsigned int n) { return W1934Alloc(n); } };
 struct W1934X56 { u8 d[56]; W1934X56(s32 a, s32 b) { func_002889f0(this, a, b); } static void* operator new(unsigned int n) { return func_00288be8(n); } };
-void func_0026d968(void)
-{
-    func_00287b18(2, 3);
-    func_00242618(11, 1);
-    func_0028d068(30026, -1);
-    D_0035f100 = 0;
-    D_0035f10c = new W1934X56(8, 0);
-    D_0035f104 = new W1934C436[3];
-    D_0035f108 = new W1934B408;
-    D_0035f110 = new W1934X444;
-    D_0035f124 = new W1934X832;
-    D_0035f114.p = func_001063f0(18, func_00103570());
-    for (s32 i = 0; i < 9; i++) D_0035f114.p[i] = -1;
-    if (D_0035f120 < 0) D_0035f120 = 0;
-}
+void func_0026d968(void);  // 0x0026d968: definition moved into src/anon/unit_0026c450.cpp
 }

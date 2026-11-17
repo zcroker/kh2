@@ -15,21 +15,7 @@ void func_002810c8(u32, u32);
 u32 func_00287dc0();
 void func_0023ebe0(u32, s32, s32);
 
-void func_0026d748(void) {
-    s32 a = func_002891e8(D_0035f01c);
-    s32 b = func_002891e8(D_0035f024);
-    u32 o = func_00293bc0();
-    u32 t;
-    func_001a8ff8(o, a, b);
-    func_002810c8(D_0035f010, o);
-    E436* pa = &D_0035f0f4.p->e[a];
-    t = pa->x;
-    E436* pb0 = &D_0035f0f4.p->e[b];
-    pa->x = pb0->x;
-    E436* pb = &D_0035f0f4.p->e[b];
-    pb->x = t;
-    func_0023ebe0(func_00287dc0(), a, b);
-}
+void func_0026d748(void);  // 0x0026d748: definition moved into src/anon/unit_0026c450.cpp
 
 void func_001a9a28(u32 m, u32* p, u32* x, u32* y);  // 0x001a9a28: definition moved into src/anon/unit_001a9130.cpp
 

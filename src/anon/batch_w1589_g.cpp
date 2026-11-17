@@ -50,16 +50,6 @@ void func_002994f8(void)
     D_0035f5a4 = o;
 }
 
-void func_0026ba48(void)
-{
-    void* o;
-    D_0035f0f0 = 0;
-    o = func_001063c0(6252, func_00103570());
-    func_00323408(o);
-    D_0035f0f4 = o;
-    o = func_001063c0(4, func_00103570());
-    func_001a8bb8(o);
-    D_0035f0fc = o;
-}
+void func_0026ba48(void);  // 0x0026ba48: definition moved into src/anon/unit_0026a900.cpp
 
 }

@@ -17,63 +17,7 @@ void func_002595b8(s32, char*, s32);
 s32 func_002595e0(void);
 char* func_001b77a8(u32);
 
-void func_0026d208(void) {
-    u32 a[2][4];
-    char buf[16];
-    s32 i, k, n, found;
-    u32 v;
-    char* d;
-    char* sep;
-    s32 me = func_00293bc0();
-    for (i = 0; i < 4; i++) { a[1][i] = 0; a[0][i] = 0; }
-    n = 0;
-    for (i = 0; i < 4; i++) {
-        v = func_001a8c10(me, i);
-        found = 0;
-        if (v == 0) continue;
-        for (k = 0; k < 4; k++) {
-            if (func_001a8c10(D_0035f0f8, k) == v) { found = 1; break; }
-        }
-        if (found) continue;
-        a[0][n] = v;
-        if (func_001a8c78(me, i)) a[0][n] |= 0x80000000;
-        n++;
-    }
-    func_002fde18(D_0035f0f4 + 5996, 0, 128);
-    i = 0;
-    sep = func_00192cc0(buf, D_00373828);
-    d = (char*)D_0035f0f4 + 5996;
-    for (; i < n; i++) {
-        if (i != 0) { func_002595e8(d, sep); d += func_00192b30(sep); }
-        if (a[0][i] & 0x80000000) { func_002595b8(10, d, 1); d += func_002595e0(); }
-        char* s = func_001b77a8(a[0][i] & 0x7fffffff);
-        func_002595e8(d, s);
-        d += func_00192b30(s);
-    }
-    n = 0;
-    for (i = 0; i < 4; i++) {
-        v = func_001a8c10(D_0035f0f8, i);
-        found = 0;
-        if (v == 0) continue;
-        for (k = 0; k < 4; k++) {
-            if (func_001a8c10(me, k) == v) { found = 1; break; }
-        }
-        if (found) continue;
-        a[1][n] = v;
-        if (func_001a8c78(D_0035f0f8, i)) a[1][n] |= 0x80000000;
-        n++;
-    }
-    func_002fde18(D_0035f0f4 + 6124, 0, 128);
-    i = 0;
-    d = (char*)D_0035f0f4 + 6124;
-    for (; i < n; i++) {
-        if (i != 0) { func_002595e8(d, sep); d += func_00192b30(sep); }
-        if (a[1][i] & 0x80000000) { func_002595b8(10, d, 1); d += func_002595e0(); }
-        char* s = func_001b77a8(a[1][i] & 0x7fffffff);
-        func_002595e8(d, s);
-        d += func_00192b30(s);
-    }
-}
+void func_0026d208(void);  // 0x0026d208: definition moved into src/anon/unit_0026c450.cpp
 
 /* 00233ce0 */
 typedef struct W8022_S420 { u8 b; s32 x4; s32 x8; s32 xc; s32 x10; } W8022_S420;

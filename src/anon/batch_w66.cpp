@@ -294,14 +294,7 @@ extern u32 D_0035f3d4;
 extern u32 D_0035f100;
 void func_0028d980(u8*, u32, s32, s32, u32, u32, s32, s32, s32);
 u32 func_00192048(s32);
-void func_0026e140(s32 i, u32 b, s32 c) {
-    func_00139d78(D_0035f104 + i * 436);
-    func_0028d980(D_0035f104 + i * 436, D_0035f3d4, 0, 0, D_0035f100, b, -1, -1, 0);
-    if (c >= 0) {
-        u8* e = D_0035f104 + i * 436;
-        *(u32*)(e + 408) = func_00192048(c);
-    }
-}
+void func_0026e140(s32 i, u32 b, s32 c);  // 0x0026e140: definition moved into src/anon/unit_0026c450.cpp
 // ---- 0027a7e0
 u8* func_00257770(void);
 s32 func_00287bc0(void);

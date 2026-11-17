@@ -140,61 +140,7 @@ void func_00288e88(u32);
 void func_00263c60(void);  // sync_global_index_if_changed
 void func_0026cb90(void);
 
-void func_0026c470(void)
-{
-    s32 sel = func_00289380(D_0035f01c);
-    s32 st = func_00287cd0();
-    if (st != 2 && func_002938e0() && func_002938f0() && D_0035f0f0) func_0026c140();
-    if (func_00287bc0() != 20) return;
-    s32 item = func_00287dc0();
-    if (st == 2) {
-        if (func_0026cda0() || func_00139d78(item) || func_0028f930(0)) {
-            if (sel != -1 || func_00289310(D_0035f01c)) {
-                func_00287f90(0);
-                func_0026cc30();
-            }
-            return;
-        }
-        func_0028b1e8(D_0035f024, 0);
-        func_00287c30();
-        func_0028f7e8(0);
-        func_00257708(0);
-        func_002551b8();
-        func_0026d828();
-        return;
-    }
-    if ((sel != -1 || func_00289310(D_0035f01c)) && !func_0026d560()) {
-        func_0026d5c0();
-        func_0028fa98(-1);
-    }
-    if (st == 0 && func_0026d560()) func_00287c90(1);
-    s32 n = func_0028afa8(D_0035f01c);
-    if (func_00242848(func_00287df0(sel, func_00289310(D_0035f01c), 1, (s32)func_0026d960, 1)) == 0) {
-        switch (sel) {
-        case -1: break;
-        case -4:
-            func_00287da0();
-            if (func_002938e0() && !func_002938f0()) func_0023d820(item);
-            break;
-        case -2:
-            func_00288e88(D_0035f024);
-            func_00263c60();  // sync_global_index_if_changed
-            func_0028f6f0(0);  // record884_refresh_by_index
-            func_0026cb90();
-            func_00287cc0(2);
-            func_00287c00(0);
-            if (func_002938e0() && !func_002938f0()) func_0023d820(item);
-            break;
-        default:
-            if (sel >= 0 && sel < n) {
-                func_00287bd0(22, 0);
-                func_0026c760();
-            }
-            break;
-        }
-    }
-    if (func_00288040()) func_00288018();
-}
+void func_0026c470(void);  // 0x0026c470: definition moved into src/anon/unit_0026c450.cpp
 
 
 s32 func_002a6718(void);

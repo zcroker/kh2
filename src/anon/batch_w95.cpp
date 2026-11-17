@@ -463,26 +463,7 @@ u8* func_00256b68(u32);
 s32 func_00139d78(void*);
 s32 func_0028acc8(u32);
 // Non-zero while any of the menu's animated parts is still busy.
-s32 func_0026cda0(void) {
-    s32 i;
-    s32 busy = func_00139d78(func_00256b68(1));
-    if (busy) return busy;
-    busy = func_00139d78(D_0035f0f4) != 0;
-    if (busy) return busy;
-    for (i = 0; i < 4; i++) {
-        if (func_00139d78(&D_0035f0f4->a[i + 1])) busy = 1;
-    }
-    if (busy) return busy;
-    for (i = 0; i < 4; i++) {
-        if (func_00139d78(&D_0035f0f4->b[i])) {
-            busy = 1;
-            break;
-        }
-    }
-    if (busy) return busy;
-    if (D_0035f01c) busy = func_0028acc8(D_0035f01c) != 0;
-    return busy;
-}
+s32 func_0026cda0(void);  // 0x0026cda0: definition moved into src/anon/unit_0026c450.cpp
 
 extern u32 D_0035f010;
 extern u32 D_0035f01c;

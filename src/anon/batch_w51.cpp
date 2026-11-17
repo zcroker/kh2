@@ -347,18 +347,7 @@ s32 func_002576d0(void);
 s32 func_00139d78(void*);
 extern u8* D_0035f0f4;
 
-s32 func_0026d180(void) {
-    s32 r = func_002576d0();
-    if (!r) {
-        for (s32 i = 0; i < 5; i++) {
-            if (func_00139d78(D_0035f0f4 + i * 436 + 3816)) {
-                r = 1;
-                break;
-            }
-        }
-    }
-    return r;
-}
+s32 func_0026d180(void);  // 0x0026d180: definition moved into src/anon/unit_0026c450.cpp
 
 void func_00290060(void*);
 void func_00138c10(void*, s32);

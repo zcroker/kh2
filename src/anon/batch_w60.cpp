@@ -284,19 +284,7 @@ void func_001fab48(u8* a, u32* b, u8* c) {
 
 // Packs the non-zero entries to the front.
 struct Slots26b { u8 pad[16]; u8 n; u8 pad2[3]; u16 a[1]; };
-void func_0026b470(void) {
-    Slots26b* t = *(Slots26b**)(func_00281180(D_0035f010, func_00257070(1)) + 580);
-    u8 n = t->n;
-    s32 i, j;
-    for (i = 0; i < n; i++) {
-        for (j = i + 1; j < n; j++) {
-            if (t->a[i] == 0 && t->a[j] != 0) {
-                t->a[i] = t->a[j];
-                t->a[j] = 0;
-            }
-        }
-    }
-}
+void func_0026b470(void);  // 0x0026b470: definition moved into src/anon/unit_0026a900.cpp
 
 void func_00287430(s32 a, s32 b);  // 0x00287430: definition moved into src/anon/unit_00286d28.cpp
 

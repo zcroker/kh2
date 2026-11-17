@@ -6,7 +6,7 @@ namespace Tz {
 extern u32 D_00373788 asm("D_00373788");
 extern void* D_0035f010 asm("D_0035f010");
 
-void* CmEquip::GetFormMsgTbl() { return &D_00373788; }
+// 0x0026b850: definition moved into src/anon/unit_0026a900.cpp
 
 extern "C" u32 func_00287bc0();
 extern "C" u32 func_00287db0();

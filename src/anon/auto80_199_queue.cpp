@@ -3596,225 +3596,29 @@ u32 func_00267620();  // 0x00267620: definition moved into src/anon/unit_0026558
 
 void func_00267690();  // 0x00267690: definition moved into src/anon/unit_00265580.cpp
 
-u32 func_0026acb8(u32 a0) {
-    u32 s1 = a0;
-    u32 s2 = func_00257070(1);
-    u32 v0 = func_00281180(D_0035f010, s2);
-    u16* s0 = *(u16**)(v0 + 580);
+u32 func_0026acb8(u32 a0);  // 0x0026acb8: definition moved into src/anon/unit_0026a900.cpp
 
-    u32 cur = s0[0];
-    u32 r = 0;
-    if (cur == s1) {
-        return r;
-    }
+u32 func_0026ad68(u32 a0, u32 a1);  // 0x0026ad68: definition moved into src/anon/unit_0026a900.cpp
 
-    u32 z = 0;
-    u32 hundred = 100;
-    func_001a3188(cur, hundred, z);
-    s0[0] = (u16)s1;
-    func_001a3458(s1, hundred);
+u32 func_0026ae20(u32 a0, u32 a1);  // 0x0026ae20: definition moved into src/anon/unit_0026a900.cpp
 
-    u32 h = func_002811b0(D_0035f010, s2);
-    func_002933d8(h, 0, s1, 0);
-    return 1;
-}
+u32 func_0026aea8(u32 a0, u32 a1);  // 0x0026aea8: definition moved into src/anon/unit_0026a900.cpp
 
-u32 func_0026ad68(u32 a0, u32 a1) {
-    u32 s0 = a0;
-    u32 s1 = a1;
-    u32 s2 = func_00257070(1);
+u32 func_0026b860(u32 a0);  // 0x0026b860: definition moved into src/anon/unit_0026a900.cpp
 
-    u32 cur = func_002814b0(s0);
-    u32 r = 0;
-    if (cur == s1) {
-        return r;
-    }
+u32 func_0026cb38();  // 0x0026cb38: definition moved into src/anon/unit_0026c450.cpp
 
-    func_001a3188(cur, 100, 0);
-    func_002814f0(s0, s1);
-    func_001a3458(s1, 100);
+void func_0026cb90();  // 0x0026cb90: definition moved into src/anon/unit_0026c450.cpp
 
-    if (func_002815b8() == s0) {
-        u32 h = func_002811b0(D_0035f010, s2);
-        func_002933d8(h, 1, s1, 0);
-    }
+u32 func_0026d560();  // 0x0026d560: definition moved into src/anon/unit_0026c450.cpp
 
-    return 1;
-}
+void func_0026d5c0();  // 0x0026d5c0: definition moved into src/anon/unit_0026c450.cpp
 
-u32 func_0026ae20(u32 a0, u32 a1) {
-    u32 s0 = a0;
-    u32 s1 = a1;
-    u32 t = func_00257070(1);
+void func_0026d828();  // 0x0026d828: definition moved into src/anon/unit_0026c450.cpp
 
-    u32 ptr = func_00281180(D_0035f010, t);
-    u32 base = *(u32*)(ptr + 580);
+u32 func_0026e340();  // 0x0026e340: definition moved into src/anon/unit_0026c450.cpp
 
-    s0 = s0 << 1;
-    s0 = s0 + base;
-
-    u32 cur = *(u16*)(s0 + 20);
-    if (cur == s1) {
-        return 0;
-    }
-
-    if (cur != 0) {
-        func_001a3188(cur, 100, 0);
-    }
-
-    *(u16*)(s0 + 20) = (u16)s1;
-    if (s1 != 0) {
-        func_001a3458(s1, 100);
-    }
-
-    return 1;
-}
-
-u32 func_0026aea8(u32 a0, u32 a1) {
-    u32 s0 = a0;
-    u32 s1 = a1;
-    u32 t = func_00257070(1);
-
-    u32 ptr = func_00281180(D_0035f010, t);
-    u32 base = *(u32*)(ptr + 580);
-
-    s0 = s0 << 1;
-    s0 = s0 + base;
-
-    u32 cur = *(u16*)(s0 + 36);
-    if (cur == s1) {
-        return 0;
-    }
-
-    if (cur != 0) {
-        func_001a3188(cur, 100, 0);
-    }
-
-    *(u16*)(s0 + 36) = (u16)s1;
-    if (s1 != 0) {
-        func_001a3458(s1, 100);
-    }
-
-    return 1;
-}
-
-u32 func_0026b860(u32 a0) {
-    u32 s0 = a0 & 0xFF;
-    u32 s1 = func_00257070(1);
-    u32 v0 = func_00281100(D_0035f010);
-    s32 t6 = (s32)v0 - 1;
-
-    if (s0 != 0) {
-        s1 = s1 + 1;
-        if (!((s32)s1 < (s32)v0)) {
-            s1 = 0;
-        }
-    } else {
-        s1 = s1 - 1;
-        if ((s32)s1 < 0) {
-            s1 = (u32)t6;
-        }
-    }
-
-    func_00257050(1, s1, 0);
-    v0 = func_00281140(D_0035f010, s1);
-    return func_0028fb68(1, v0);
-}
-
-u32 func_0026cb38() {
-    u32 a0 = 0x846C;
-    if (func_00287bc0() == 20) {
-        if ((s32)func_002892f8(D_0035f01c) < 3) {
-            a0 = D_00373838;
-        } else {
-            a0 = D_00373834;
-        }
-    }
-    return func_00263a58(a0, 1);
-}
-
-void func_0026cb90() {
-    u32 v = func_00287bc0();
-    if (v == 20 || v == 22) {
-        u32 h = func_00256b68(1);
-        func_0028dac8(h, 314);
-
-        if (func_0028acc8(D_0035f01c) != 0) {
-            if (func_0028acb8(D_0035f01c) == 0) {
-                func_0028aa40(D_0035f01c);
-            }
-        }
-
-        if (func_0028acc8(D_0035f024) != 0) {
-            func_00288e88(D_0035f024);
-        }
-    }
-}
-
-u32 func_0026d560() {
-    u32 s1 = 0;
-    u32 s0 = func_00256b68(1);
-    if (s0 != 0) {
-        if (func_00139d78(s0) != 0) {
-            u32 v = *(u32*)(s0 + 388);
-            s1 = ((v ^ 0x139) < 1);
-        }
-    }
-    return s1;
-}
-
-void func_0026d5c0() {
-    u32 s0 = func_00256b68(1);
-    if (s0 != 0) {
-        if (func_00139d78(s0) != 0) {
-            if (*(u32*)(s0 + 388) != 313) {
-                func_00138c10(s0, 313);
-                *(u32*)(s0 + 392) = 0xFFFFFFFF;
-            }
-        }
-    }
-}
-
-void func_0026d828() {
-    s32 s1 = 0;
-    u32 s2 = func_00293bc0();
-
-    while (1) {
-        u32 s0 = func_001a8bf8(D_0035f0fc, (u32)s1);  // get_bits5_at
-        u32 v = func_001a8bf8(s2, (u32)s1);  // get_bits5_at
-        s1 = s1 + 1;
-        if (s0 != v) {
-            func_00257000();
-            return;
-        }
-        if (s1 >= 4) {
-            return;
-        }
-    }
-}
-
-u32 func_0026e340() {
-    if (func_00139d78((u32)D_0035f108) != 0) {
-        call_f5(D_0035f108);
-    }
-
-    if (func_00139d78((u32)D_0035f108) != 0) {
-        call_f5(D_0035f108);
-    }
-
-    return func_0023d820(func_00287dc0());
-}
-
-void func_0026ed48() {
-    if (D_0035f12c != 0) {
-        return;
-    }
-
-    u32 p = func_00103570();
-    u32 obj = func_001063c0(152, p);
-    D_0035f12c = obj;
-    func_002fde18(obj, 0, 152);
-}
+void func_0026ed48();  // 0x0026ed48: definition moved into src/anon/unit_0026c450.cpp
 
 void func_00273c40(s32 a0) {
     u32 v0 = (u32)Tz::CmTop::GetSelectPos(25);

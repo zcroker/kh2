@@ -20,7 +20,7 @@ extern "C" void func_0028dac8(...);
 
 // 0028cf98: moved to src/anon/unit_0028c878.cpp
 
-u32 Selector::SelExit() { return SelExitImpl(); }
+// 0x0026dd00: definition moved into src/anon/unit_0026c450.cpp
 
 // 0x00287cc0: definition moved into src/anon/unit_00286d28.cpp
 
@@ -28,47 +28,10 @@ u32 Selector::SelExit() { return SelExitImpl(); }
 
 // 00290738: moved to src/anon/unit_0028f1e0.cpp
 
-void Selector::SetupHelpGra() {
-    u32 a;
-    u32 b;
-    GetHelpGraPos((u32)&a, (u32)&b);
-    SetHelpGraMsg(D_0035f124, 30027);
-    CreateHelpGra(D_0035f124, a, b, 0);
-    MenuBase::NextModeToMode(1, 0);
-    SetState(1);
-}
+// 0x0026e840: definition moved into src/anon/unit_0026c450.cpp
 
-void Selector::Control(TASK*) {
-    u32 s0 = MenuCursor::GetInputState(0);
-    u32 v = GetState();
-    if (v == 2) {
-        if (HelpGraDone(D_0035f124) == 0) {
-            MenuBase::NextModeToMode(0, 0);
-            SetState(1);
-        }
-        return;
-    }
-    u64 f = *(u64*)(s0 + 8);
-    if ((f & 0xC) == 0) {
-        return;
-    }
-    MenuSound::PlaySE(9, true);
-    func_0028dac8(D_0035f124, 1);
-    SetState(2);
-}
+// 0x0026e8a0: definition moved into src/anon/unit_0026c450.cpp
 
-void Selector::PauseThread(TASK* task) {
-    u32 s0 = (u32)task;
-    PauseTaskSetup(s0);
-    TaskYield(s0, 1);
-    PauseTaskBegin();
-    while (1) {
-        if (PauseTaskIsDone(s0) != 0) {
-            return;
-        }
-        PauseTaskUpdate();
-        TaskYield(s0, 0);
-    }
-}
+// 0x0026dd40: definition moved into src/anon/unit_0026c450.cpp
 
 }  // namespace Tz

@@ -75,15 +75,7 @@ void W270_SelDtor(W270Sel*) asm("_ZN2Tz6SelectD1Ev");
 void func_00288c20(W270Sel*);
 void W270_dela(void*) asm("_ZdaPv");
 u32 W270_SelExitImpl(...) asm("_ZN2Tz8Selector11SelExitImplEz");
-u32 W270_SelExitImpl(...) {
-    if (D_0035f100) { delete D_0035f100; D_0035f100 = 0; }
-    if (D_0035f104) { delete[] D_0035f104; D_0035f104 = 0; }
-    if (D_0035f108) { delete D_0035f108; D_0035f108 = 0; }
-    if (D_0035f10c) { W270Sel* p = D_0035f10c; W270_SelDtor(p); func_00288c20(p); D_0035f10c = 0; }
-    if (D_0035f110) { delete D_0035f110; D_0035f110 = 0; }
-    if (D_0035f114) { W270_dela(D_0035f114); D_0035f114 = 0; }
-    if (D_0035f124) { delete D_0035f124; D_0035f124 = 0; }
-}
+u32 W270_SelExitImpl(...);  // 0x0026db60: definition moved into src/anon/unit_0026c450.cpp
 s32 W270_is_attach(W270Ys*) asm("_ZN2YS3OBJ9is_attachEv");
 void W270_detach(W270Ys*) asm("_ZN2YS3OBJ6detachEv");
 void W270_change_action(W270Ys*, s32) asm("_ZN2YS3OBJ13change_actionENS_6ACTION2IDE");

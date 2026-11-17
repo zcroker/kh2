@@ -16,17 +16,7 @@ extern Big1593* D_0035f104;
 extern void* D_0035f10c;
 extern Obj1593* D_0035f110;
 
-void func_0026ebc0(void) {
-    s32 i;
-    if (func_0028acc8(D_0035f10c)) func_0028abe0(D_0035f10c);
-    for (i = 0; i < 3; i++) {
-        if (func_00139d78(&D_0035f104[i])) {
-            ((VF1593)D_0035f104[i].o.vt->f[5])(&D_0035f104[i]);
-        }
-    }
-    if (func_0028d6e8(D_0035f110)) ((VF1593)D_0035f110->vt->f[5])(D_0035f110);
-    func_0026e340();
-}
+void func_0026ebc0(void);  // 0x0026ebc0: definition moved into src/anon/unit_0026c450.cpp
 
 // ---- 00258630
 struct MenuMode1593 { u32 a; u32 list; };

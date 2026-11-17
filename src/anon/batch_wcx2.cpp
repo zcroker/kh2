@@ -745,27 +745,7 @@ u8* func_0028d0e0(u32);
 void func_00138c78(u32, u32*, u32*);
 void func_00138c68(u8*, u32, u32);
 void func_00139510(u8*);
-void func_0026d620(u32 w, u8 sync)
-{
-    s32 busy = func_00139d78(D_0035f0f4);
-    u32 snd = func_00256b68(1);
-    func_00287bc0();
-    u32 a, b;
-    if (func_0028d008(w)) {
-        if (!busy) {
-            func_0028d8c0(D_0035f0f4, 30015, D_0035ef68, D_0035ef64, D_0035f03c, 317, -1, 0);
-            func_0028dcc0(D_0035f0f4, snd);
-            func_00138c78(*(u32*)(func_0028d0e0(w) + 396), &a, &b);
-            func_00138c68(D_0035f0f4, a, b);
-        }
-        if (sync) {
-            func_00138c78(*(u32*)(func_0028d0e0(w) + 396), &a, &b);
-            func_00138c68(D_0035f0f4, a, b);
-        }
-    } else if (busy) {
-        func_00139510(D_0035f0f4);
-    }
-}
+void func_0026d620(u32 w, u8 sync);  // 0x0026d620: definition moved into src/anon/unit_0026c450.cpp
 
 extern u8* D_0035f5bc;
 s32 func_00287bc0(void);
@@ -12541,27 +12521,7 @@ struct P26b008 { u8 pad[580]; Q26b008* q; };
 extern u32 D_0035f010_26b008 asm("D_0035f010");
 s32 func_00257070_26b008(s32) asm("func_00257070");
 P26b008* func_00281180_26b008(u32, s32) asm("func_00281180");
-void func_0026b008()
-{
-    u32 list[8];
-    Q26b008* q = func_00281180_26b008(D_0035f010_26b008, func_00257070_26b008(1))->q;
-    u8 n = q->n;
-    s32 i;
-    for (i = 0; i < n; i++) list[i] = 0;
-    s32 cnt = 0;
-    for (i = 0; i < n; i++) {
-        u16 h = q->h68[i];
-        if (h) list[cnt++] = h;
-    }
-    for (i = 0; i < n; i++) {
-        for (s32 j = 0; j < cnt; j++) {
-            if (q->h52[i] == list[j]) {
-                q->h68[i] = list[j];
-                break;
-            }
-        }
-    }
-}
+void func_0026b008();  // 0x0026b008: definition moved into src/anon/unit_0026a900.cpp
 
 // --------------------
 struct E2adfd0 { s8 k; u8 pad[11]; };

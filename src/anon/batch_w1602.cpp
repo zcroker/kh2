@@ -47,23 +47,7 @@ u32 func_0026aea8(s32, u32);
 u32 func_0026af30(s32, u32);
 s32 func_00257070(s32);
 void func_00281058(u32, s32);
-void func_0026ab18(u32 a0) {
-    s32 n[5];
-    u32 r = 0;
-    s32 s;
-    s32 c = func_002570a0(2);
-    u32 m = func_00269508(c);
-    for (s32 i = 0; i < 5; i++) { s32 v = func_002827e0(func_00257130(), i); n[i] = v; }
-    if (*(u16*)(func_00281f20(func_00257130()) + c * 6) == a0) return;
-    switch (m) {
-    case 0: r = func_0026acb8(a0); break;
-    case 1: r = func_0026ad68(func_002695a0(c), a0); break;
-    case 2: s = n[0] + n[1]; r = func_0026ae20(c - s, a0); break;
-    case 3: s = n[0] + n[1]; s += n[2]; r = func_0026aea8(c - s, a0); break;
-    case 4: s = n[0] + n[1]; s += n[2] + n[3]; r = func_0026af30(c - s, a0); break;
-    }
-    if (r) func_00281058(D_0035f010, func_00257070(1));
-}
+void func_0026ab18(u32 a0);  // 0x0026ab18: definition moved into src/anon/unit_0026a900.cpp
 extern u32 D_0035f654;
 s32 func_0028db48(u32);
 s32 func_00287cd0(void);

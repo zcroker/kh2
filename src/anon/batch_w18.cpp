@@ -175,9 +175,7 @@ void func_00263d70(void);  // 0x00263d70: definition moved into src/anon/unit_00
 extern u8 D_0035f3a8[];
 void* func_002537c8(u32);
 void PauseTaskSetup(...) asm("_ZN2Tz14PauseTaskSetupEz");
-void PauseTaskSetup(...) {
-    func_0023fa08(D_0035f3a8, func_002537c8(0));
-}
+void PauseTaskSetup(...);  // 0x0026ec70: definition moved into src/anon/unit_0026c450.cpp
 
 extern void* D_0035f574;
 void func_00290940(void*);
