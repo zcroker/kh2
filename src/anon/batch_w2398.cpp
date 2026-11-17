@@ -14,49 +14,5 @@ void func_0011c7f8(void*, s32);
 
 /* Sets the alpha of three elements from t against three [low, high] ranges:
    0 above high, 0x80 below low, fading in between. One shared ratio variable. */
-void func_00148690(void* self, W2398Own* p, f32 t)
-{
-    if (p->el == 0) return;
-    f32 ratio;
-    W2398Lim* r = p->lim;
-    f32 h1 = r->l64;
-    f32 h3 = r->l54;
-    f32 l2 = r->l58;
-    f32 h2 = r->l5c;
-    f32 l1 = r->l60;
-    f32 l3 = r->l50;
-    func_0011c7c8(p->h, 1);
-    func_0011c7c8(p->h, 2);
-    func_0011c7c8(p->h, 3);
-    W2398El* q = p->el;
-    if (h1 < t) {
-        q->a = 0;
-        func_0011c7f8(p->h, 1);
-    } else if (t < l1) {
-        q->a = 0x80;
-    } else {
-        ratio = (t - l1) / (h1 - l1);
-        q->a = 0x80 - (s32)(128.0f * ratio);
-    }
-    q++;
-    if (h2 < t) {
-        q->a = 0;
-        func_0011c7f8(p->h, 2);
-    } else if (t < l2) {
-        q->a = 0x80;
-    } else {
-        ratio = (t - l2) / (h2 - l2);
-        q->a = 0x80 - (s32)(128.0f * ratio);
-    }
-    q++;
-    if (h3 < t) {
-        q->a = 0;
-        func_0011c7f8(p->h, 3);
-    } else if (t < l3) {
-        q->a = 0x80;
-    } else {
-        ratio = (t - l3) / (h3 - l3);
-        q->a = 0x80 - (s32)(128.0f * ratio);
-    }
-}
+void func_00148690(void* self, W2398Own* p, f32 t);  // 0x00148690: definition moved into src/anon/unit_00147140.cpp
 }

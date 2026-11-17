@@ -120,11 +120,7 @@ void func_0011ea40(u8* o, f32 t);  // 0x0011ea40: definition moved into src/anon
 
 void createTask(void);  // 0x00140ce8: definition moved into src/anon/unit_0013fca8.cpp
 
-void wtarget_00146730(u32 a, u32 b) {
-    E16 buf[8];
-    func_00144b38(b, buf);
-    func_001466b0(a, buf);  // mat4_transform_vecs
-}
+void wtarget_00146730(u32 a, u32 b);  // 0x00146730: definition moved into src/anon/unit_00145600.cpp
 
 void func_0014f4d8(void);  // 0x0014f4d8: definition moved into src/anon/unit_0014ecb8.cpp
 

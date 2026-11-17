@@ -102,6 +102,12 @@ src/anon/unit_0013fca8.cpp	0013fca8	00141100	.rodata@0036adcc	-G0 -fno-strict-al
 src/anon/unit_00141100.cpp	00141100	00141458	.rodata@0036ae84	-G0 -g -fno-strict-aliasing
 src/anon/unit_00141458.cpp	00141458	00142c90	.bss@00457458,.rodata@0036aed0	-G0 -fno-strict-aliasing -fmove-all-movables
 src/anon/unit_00142c90.cpp	00142c90	00144450	.rodata@0036af3c	-G0 -fno-strict-aliasing
+src/anon/unit_00144450.cpp	00144450	001451e0	.rodata@0036af5c	-G0
+src/anon/unit_001451e0.cpp	001451e0	00145600	.rodata@0036af7c	-G0 -fno-strict-aliasing
+src/anon/unit_00145600.cpp	00145600	00147140	.rodata@0036af84	-G0
+src/anon/unit_00147140.cpp	00147140	00148c50	.rodata@0036af94	-G0 -fno-strict-aliasing
+src/anon/unit_00148c50.cpp	00148c50	00148ef0	-	-G0
+src/anon/unit_00148ef0.cpp	00148ef0	001491a8	.rodata@0036afb4	-G0 -fno-strict-aliasing
 src/anon/unit_00128480.cpp	00128480	00130d18	.rodata@0036a9f0	-G0 -fno-strict-aliasing
 src/anon/unit_00134668.cpp	00134668	001357c8	.data@00347cc0,.bss@003b8ae0,.rodata@0036ac38	-G0 -fno-strict-aliasing
 src/naka/libkn/obj_observer.cpp	001357c8	00135d78	.data@00347cf0,.gnu.linkonce.d._ZTVN2kn11ObjObserverE@00347cf8	-G0 -fno-strict-aliasing

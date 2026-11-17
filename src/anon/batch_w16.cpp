@@ -133,13 +133,7 @@ struct Ent28 {
     u8 id;
     u8 pad[26];
 };
-void func_00145c28(u8* p, u8 id) {
-    s32 n = *(s32*)(p + 20);
-    for (s32 i = 0; i < n; i++) {
-        Ent28* e = (Ent28*)(i * 28 + *(u32*)(p + 8));
-        if (e->id == id) e->active = 0;
-    }
-}
+void func_00145c28(u8* p, u8 id);  // 0x00145c28: definition moved into src/anon/unit_00145600.cpp
 
 void func_0014f9a8(void* p);  // 0x0014f9a8: definition moved into src/anon/unit_0014ecb8.cpp
 

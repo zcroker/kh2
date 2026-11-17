@@ -22,31 +22,5 @@ struct QM {
 extern "C" {
 void func_00144b38(void*, QV*);
 void func_001447e0(void*, QV*);
-void func_001449a8(void* a, QM* m) {
-    QV mn, mx, cur;
-    register s32 e1 asm("$11");
-    {
-    QV c[8];
-    s32 i;
-    register s32 d1 asm("$9"); register s32 d2 asm("$10"); register s32 d3 asm("$7");
-    func_00144b38(a, c);
-    asm("" : "=r"(d1), "=r"(d2), "=r"(d3));
-    for (i = 0; i < 8; i++) {
-        c[i] = *m * c[i];
-        cur = c[i];
-        QV* px = &mx;
-        if (i == 0) {
-            mn = *px = cur;
-        } else {
-            if (cur.x < mn.x) mn.x = cur.x; else if (mx.x < cur.x) mx.x = cur.x;
-            if (cur.y < mn.y) mn.y = cur.y; else if (mx.y < cur.y) mx.y = cur.y;
-            if (cur.z < mn.z) mn.z = cur.z; else if (mx.z < cur.z) mx.z = cur.z;
-        }
-    }
-    asm("" : : "r"(d1), "r"(d2), "r"(d3));
-    func_001447e0(a, &mn);
-    asm("" : "=r"(e1));
-    }
-    asm("" : : "r"(e1));
-}
+void func_001449a8(void* a, QM* m);  // 0x001449a8: definition moved into src/anon/unit_00144450.cpp
 }

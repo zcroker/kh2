@@ -59,18 +59,7 @@ void func_0013dc58(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0013dc58: definition m
 
 u32 func_0013dd18(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0013dd18: definition moved into src/anon/unit_0013a8b8.cpp
 
-void func_00146100(u32 a0, u32 a1, u32 a2, u32 a3) {  // array_push_short
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r13 = 0u, r14 = 0u, r15 = 0u;
-    r14 = *(u32*)((u32)r5 + (s32)(0));
-    r6 = (u32)(r6 << 16);
-    r13 = *(u32*)((u32)r4 + (s32)(28));
-    r6 = (u32)((s32)r6 >> 16);
-    r15 = (u32)(r14 << 1);
-    r15 = (u32)(r15 + r13);
-    r14 = (u32)((s32)r14 + (1));
-    *(u16*)((u32)r15 + (s32)(0)) = (u16)r6;
-    *(u32*)((u32)r5 + (s32)(0)) = r14;
-}
+void func_00146100(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00146100: definition moved into src/anon/unit_00145600.cpp
 
 // 001492e8: moved to src/harata/libdk/mapfile.cpp
 

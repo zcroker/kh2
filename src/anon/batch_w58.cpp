@@ -59,35 +59,11 @@ s32 func_0013c8b0(u8*);
 s32 func_0013c738(u8* p);  // 0x0013c738: definition moved into src/anon/unit_0013a8b8.cpp
 
 // Axis-aligned box (min xyz, max xyz) around a sphere (center xyz, radius at +16).
-void func_00144570(f32* box, u8* s) {
-    Vec4 v;
-    if ((void*)&v != s) cpq(&v, s);
-    f32 r = *(f32*)(s + 16);
-    box[0] = v.x - r;
-    box[1] = v.y - r;
-    box[2] = v.z - r;
-    box[3] = v.x + r;
-    box[4] = v.y + r;
-    box[5] = v.z + r;
-}
+void func_00144570(f32* box, u8* s);  // 0x00144570: definition moved into src/anon/unit_00144450.cpp
 
 // Clip-tests 8 points against the matrix m: 0 = all outside one plane,
 // 2 = partially clipped, 1 = all inside.
-s32 func_001466b0(Vec4* m, Vec4* v) {  // mat4_transform_vecs
-    u32 orr = 0, andd = 63;
-    for (s32 i = 0; i < 8; i++, v++) {
-        u32 c;
-        asm volatile("lqc2 $vf8,0(%1)\n\tlqc2 $vf4,0(%2)\n\tlqc2 $vf5,16(%2)\n\tlqc2 $vf6,32(%2)\n\tlqc2 $vf7,48(%2)\n\t"
-            "vmulax.wxyz ACC,$vf4,$vf8x\n\tvmadday.wxyz ACC,$vf5,$vf8y\n\tvmaddaz.wxyz ACC,$vf6,$vf8z\n\tvmaddw.wxyz $vf12,$vf7,$vf8w\n\t"
-            "vclipw.xyz $vf12,$vf12w\n\tvnop\n\tvnop\n\tvnop\n\tvnop\n\tcfc2.ni %0,$vi18"
-            : "=r"(c) : "r"(v), "r"(m));
-        c &= 0x3f;
-        orr |= c;
-        andd &= c;
-        if (andd == 0 && orr != 0) return 2;
-    }
-    return andd == 0;
-}
+s32 func_001466b0(Vec4* m, Vec4* v);  // 0x001466b0: definition moved into src/anon/unit_00145600.cpp
 
 void func_00141010(f32);
 u8* func_00140df0(void);

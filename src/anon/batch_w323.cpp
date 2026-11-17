@@ -112,20 +112,7 @@ struct Cam323 {
 } __attribute__((aligned(16)));
 extern "C" {
 Cam323* func_00106a60(s32);  // buffer_get_by_index
-void func_00147810(u32, u8* o) {
-    if (!(*(u32*)(o + 248) & 0x1000)) return;
-    if (*(u32*)(o + 288)) return;
-    QM323 w;
-    QV323 p;
-    QV323 pad;
-    Cam323 c(*func_00106a60(1));  // buffer_get_by_index
-    c.m.invOrtho();
-    p = c.m * *(QV323*)(o + 192);
-    w = *(QM323*)(o + 64);
-    w = c.m * w;
-    *(QM323*)(o + 64) = w;
-    *(QV323*)(o + 192) = p;
-}
+void func_00147810(u32, u8* o);  // 0x00147810: definition moved into src/anon/unit_00147140.cpp
 }
 extern "C" {
 extern u8* D_00361f60;

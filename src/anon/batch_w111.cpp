@@ -178,37 +178,7 @@ void func_00146100(Tree14*, void*, s16);
 void func_00146128(Tree14*, void*, s16);
 void func_00146250(Tree14*, Node14*);
 // Recursively visits a node tree against a view volume, handling items of partly visible nodes.
-void func_00146498(Tree14* t, s32 idx, void* arg)
-{
-    Node14* n = &t->nodes[idx];
-    switch (func_00146730(t->view, n->box)) {
-    case 1:
-        func_00146390(t, idx, arg);
-        return;
-    case 0:
-        return;
-    case 2:
-        if (func_00146088(t, n->box) == 1) return;
-        s32 end = n->end;
-        for (s32 i = n->first; i < end; i++) {
-            Item14* it = (Item14*)(i * sizeof(Item14) + (u32)t->items);
-            if (it->on) {
-                switch (func_00146730(t->view, it->box)) {
-                case 0: break;
-                case 1: func_00146100(t, arg, i); break;
-                case 2: func_00146128(t, arg, i); break;
-                }
-            }
-        }
-        func_00146250(t, n);
-        break;
-    }
-    for (s32 k = 0; k < 8; k++) {
-        s32 c = n->child[k];
-        if (c == -1) break;
-        func_00146498(t, c, arg);
-    }
-}
+void func_00146498(Tree14* t, s32 idx, void* arg);  // 0x00146498: definition moved into src/anon/unit_00145600.cpp
 }
 
 // Local whose (empty) destructor keeps the final call from becoming a tail call.

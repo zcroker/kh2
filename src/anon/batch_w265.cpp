@@ -70,40 +70,5 @@ void func_001471d8(u8*, N265q*);
 void func_00147210(u8*, N265q*);
 void func_00144b38(u8*, V265q*);
 s32 func_001466b0(u8*, V265q*);  // mat4_transform_vecs
-void func_00146250(u8* a, Y265q* y) {
-    V265q m[8];
-    N265q* n;
-    for (n = y->head; n; n = n->next) {
-        u32 fl = n->fl;
-        if (fl & 0x1000) {
-            if (!(fl & 0x20)) goto A;
-            goto B;
-        }
-        if (!(fl & 0x800)) goto A;
-        {
-            V265q* mp;
-            s32 r, r2;
-            if (n->mp) mp = n->mp;
-            else {
-                mp = m;
-                func_00144b38(n->d, m);
-            }
-            r = func_001466b0(a + 496, mp);  // mat4_transform_vecs
-            if (r == 1) goto A;
-            if (r < 2) continue;
-            if (r != 2) continue;
-            if (!(n->fl & 0x20)) goto A;
-            r2 = func_001466b0(a + 560, mp);  // mat4_transform_vecs
-            if (r2 == 1) goto A;
-            if (r2 < 2) continue;
-            if (r2 != r) continue;
-            goto B;
-        }
-    B:
-        func_00147210(a, n);
-        continue;
-    A:
-        func_001471d8(a, n);
-    }
-}
+void func_00146250(u8* a, Y265q* y);  // 0x00146250: definition moved into src/anon/unit_00145600.cpp
 }

@@ -34,11 +34,11 @@ void func_0013ee30(void* self, s64 v);  // 0x0013ee30: definition moved into src
 
 void func_0013fd88(void* self);  // 0x0013fd88: definition moved into src/anon/unit_0013fca8.cpp
 
-void func_00146070(void* self, s32 v) { *(s32*)((char*)self + 28) = v; }
+void func_00146070(void* self, s32 v);  // 0x00146070: definition moved into src/anon/unit_00145600.cpp
 
-void func_00146078(void* self, s32 v) { *(s32*)((char*)self + 21352) = v; }
+void func_00146078(void* self, s32 v);  // 0x00146078: definition moved into src/anon/unit_00145600.cpp
 
-void func_00146080(void* self, s32 v) { *(s32*)((char*)self + 21348) = v; }
+void func_00146080(void* self, s32 v);  // 0x00146080: definition moved into src/anon/unit_00145600.cpp
 
 // 00149288: moved to src/harata/libdk/mapfile.cpp
 

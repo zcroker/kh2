@@ -145,31 +145,7 @@ void func_00148470(Mgr*, Ob*);
 }
 extern "C" {
 // Per-frame update of an entry: refreshes it, then queues it (bounded at 16 per slot) by state.
-void func_00147aa8(Mgr* m, Ob* o, f32 t) {
-    s32 had = 0;
-    if (o->flags & 0x4000) {
-        o->flags &= ~0x4000;
-        had = 1;
-    }
-    if (o->f56 && o->f256) func_001349a8(o->f56, o->f64, o->f256);
-    if (func_00147240(m, o, t)) {
-        func_00147ca0(m, o, t);
-        o->state[m->idx] = 1;
-        return;
-    }
-    if (o->state[m->idx] == 1) func_00147ca0(m, o, t);
-    if (*(u8*)((u8*)o + 235) != 0 && *(s8*)((u8*)o + 235) >= 0 && m->cnt[m->idx] < 16 && (o->flags & 0x10)) {
-        if (had == 1) return;
-        func_00147d80(m, o, t);
-        m->cnt[m->idx]++;
-        return;
-    }
-    if (o->state[m->idx] == 2 && m->cnt[m->idx] < 16) {
-        func_00147d80(m, o, t);
-        m->cnt[m->idx]++;
-    }
-    func_00148470(m, o);
-}
+void func_00147aa8(Mgr* m, Ob* o, f32 t);  // 0x00147aa8: definition moved into src/anon/unit_00147140.cpp
 }
 }
 

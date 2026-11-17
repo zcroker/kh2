@@ -74,14 +74,7 @@ s32 func_00143b88(u32 a0, u32 a1, u16* out, Word* flag, u32 a4);  // 0x00143b88:
 // 00146128
 s32 func_00146730(void*, void*);
 void func_00146100(void*, s32*, s16);
-void func_00146128(u8* self, s32* cnt, s16 idx)
-{
-    switch (func_00146730(self + 560, *(u8**)(self + 8) + idx * 28 + 4)) {
-    case 0: break;
-    case 1: func_00146100(self, cnt, idx); break;
-    case 2: (*(u16**)(self + 28))[*cnt] = idx | 0x8000; (*cnt)++; break;
-    }
-}
+void func_00146128(u8* self, s32* cnt, s16 idx);  // 0x00146128: definition moved into src/anon/unit_00145600.cpp
 
 // 0014ca80: split a 60 Hz frame counter into hours/minutes/seconds/hundredths.
 u32 func_0014ca78(u32);

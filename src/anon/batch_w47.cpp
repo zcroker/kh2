@@ -251,14 +251,7 @@ void func_0013e2d8(u8*, u32, u32);
 u8* func_0013e610(u32 a);  // 0x0013e610: definition moved into src/anon/unit_0013dfb8.cpp
 
 s32 func_00228378(u8*, u8*);
-s32 func_00147240(u8* p, u8* q, f32 f) {
-    s32 r;
-    if (func_00228378(p, q)) r = 0;
-    else if (!p[1912]) r = 0;
-    else if ((*(u32*)(q + 248) & 1) == 1) r = f < *(f32*)(p + 1908);
-    else r = 0;
-    return r;
-}
+s32 func_00147240(u8* p, u8* q, f32 f);  // 0x00147240: definition moved into src/anon/unit_00147140.cpp
 
 struct T1ce { u32 a; u32 b; u32 c; };
 struct F1ce { u32 a; u32 b; f32 c; };

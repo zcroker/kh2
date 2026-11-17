@@ -15,32 +15,7 @@ void wtarget_00144630(f32* out, BBSrc* s) asm("_Z16wtarget_00144630jjjj");
 #define UPD(j) \
     if (AT(s->v[j]) < AT(mn)) AT(mn) = AT(s->v[j]); \
     else if (AT(mx) < AT(s->v[j])) AT(mx) = AT(s->v[j]);
-void wtarget_00144630(f32* out, BBSrc* s) {
-    s32 i, k;
-    if (s->n == 3) {
-        f32* mn;
-        f32* mx;
-        i = 0;
-        mn = out;
-        mx = out + 3;
-        for (; i < 3; i++) {
-            s32 o = i * 4;
-            AI(mn) = AI(mx) = AT(s->v[0]);
-            UPDI(1)
-            UPDI(2)
-        }
-    } else {
-        f32* mn = out;
-        f32* mx = out + 3;
-        for (k = 0; k < 3; k++) {
-            s32 o = k * 4;
-            mn[k] = mx[k] = AT(s->v[0]);
-            UPDK(1)
-            UPDK(2)
-            UPDK(3)
-        }
-    }
-}
+void wtarget_00144630(f32* out, BBSrc* s);  // 0x00144630: definition moved into src/anon/unit_00144450.cpp
 s32 func_002ad1b0(s32);
 s32 func_002ad338(void);
 s32 func_002ad4a8(void);

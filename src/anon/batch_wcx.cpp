@@ -787,27 +787,9 @@ void func_00144e50(V4*, Seg*, u32);
 void func_00141c18(u8*, s32, s32, s32, s32);
 void func_00141c38(u8*, s32, V4*, u16*, s32);
 u16 func_00142848(u8* o, u8* p);  // 0x00142848: definition moved into src/anon/unit_00141458.cpp
-void func_00144b38(f32* b, f32* v)
-{
-    f32 x0 = b[0], y0 = b[1], z0 = b[2], x1 = b[3], y1 = b[4], z1 = b[5];
-    v[0] = x0; v[1] = y0; v[2] = z0; v[3] = 1.0f;
-    v[4] = x0; v[5] = y1; v[6] = z0; v[7] = 1.0f;
-    v[8] = x1; v[9] = y1; v[10] = z0; v[11] = 1.0f;
-    v[12] = x1; v[13] = y0; v[14] = z0; v[15] = 1.0f;
-    v[16] = x0; v[17] = y0; v[18] = z1; v[19] = 1.0f;
-    v[20] = x0; v[21] = y1; v[22] = z1; v[23] = 1.0f;
-    v[24] = x1; v[25] = y1; v[26] = z1; v[27] = 1.0f;
-    v[28] = x1; v[29] = y0; v[30] = z1; v[31] = 1.0f;
-}
+void func_00144b38(f32* b, f32* v);  // 0x00144b38: definition moved into src/anon/unit_00144450.cpp
 static inline u8* NextK(u8* n, u8* c) { if (!c) return *(u8**)(n + 240); return *(u8**)(c + 236); }
-void func_00148e40(u32 ctx, u8* n, u8** out, s32* cnt)
-{
-    u32 f = *(u32*)(n + 248);
-    u32 a = f & 8;
-    if (a || (f & 0x40)) out[(*cnt)++] = n;
-    u8* c = 0;
-    while ((c = NextK(n, c))) func_00148e40(ctx, c, out, cnt);
-}
+void func_00148e40(u32 ctx, u8* n, u8** out, s32* cnt);  // 0x00148e40: definition moved into src/anon/unit_00148c50.cpp
 struct S10 { u8 a, b, c; u16 d, e, f; };
 void func_001991a8(s32, s32);
 u8* func_001058e8(void);
@@ -1058,19 +1040,7 @@ u32 func_001333f8(u8* p, u32 a, u32 b)
     f32 r = (f32)a / (f32)b;
     return (__fixunssfsi((f32)*(u32*)(p + 36) * r) >> 16) & 0xfff;
 }
-void func_00144908(f32* b, V4* out)
-{
-    V4 d;
-    d.w = 1.0f;
-    d.x = b[3] - b[0];
-    d.y = b[4] - b[1];
-    d.z = b[5] - b[2];
-    asm volatile("lqc2 $vf1, 0(%1)\n\tmfc1 $8, %2\n\tqmtc2 $8, $vf2\n\tvmulx.wxyz $vf1, $vf1, $vf2x\n\tsqc2 $vf1, 0(%0)" : : "r"(&d), "r"(&d), "f"(0.5f) : "$8", "memory");
-    out->x = b[0] + d.x;
-    out->y = b[1] + d.y;
-    out->z = b[2] + d.z;
-    out->w = 1.0f;
-}
+void func_00144908(f32* b, V4* out);  // 0x00144908: definition moved into src/anon/unit_00144450.cpp
 void func_00148a68(u32, u8*);
 void func_00147f08(u32, u8*);
 static inline u8* NextK(u8* n, u8* c) { if (!c) return *(u8**)(n + 240); return *(u8**)(c + 236); }

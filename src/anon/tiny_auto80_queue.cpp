@@ -8442,15 +8442,7 @@ u32 func_00143ac0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7
 extern "C" u32 func_00142278(...);
 
 
-void func_00144450(u32 a0) {
-    f32 z = 0.0f;
-    *(volatile f32*)((u32)a0 + (s32)(0)) = z;
-    *(volatile f32*)((u32)a0 + (s32)(20)) = z;
-    *(volatile f32*)((u32)a0 + (s32)(16)) = z;
-    *(volatile f32*)((u32)a0 + (s32)(12)) = z;
-    *(volatile f32*)((u32)a0 + (s32)(8)) = z;
-    *(volatile f32*)((u32)a0 + (s32)(4)) = z;
-}
+void func_00144450(u32 a0);  // 0x00144450: definition moved into src/anon/unit_00144450.cpp
 
 void func_00144490(u32 a0, u32 a1, u32 a2, f32 a3, f32 a4, f32 a5, f32 a6, f32 a7, f32 a8) {
     *(volatile f32*)((u32)a0 + (s32)(0)) = a3;
@@ -8470,141 +8462,28 @@ void func_001447c0(u32 a0, u32 a1, u32 a2, f32 a3, f32 a4, f32 a5, f32 a6, f32 a
     *(volatile f32*)((u32)a0 + (s32)(20)) = a8;
 }
 
-void func_00146d28(u32 a0) {
-    *(volatile u32*)((u32)a0 + (s32)(21344)) = 0u;
-    s32 n = *(volatile s32*)((u32)a0 + (s32)(16));
-    if (n <= 0) return;
-    s32 cnt = n;
-    u32 idx = 0u;
-L:
-    u32 base = *(volatile u32*)((u32)a0 + (s32)(4));
-    cnt = (s32)(cnt - 1);
-    u32 s = (u32)(idx + base); base = s;
-    *(volatile u32*)((u32)base + (s32)(44)) = 0u;
-    if (cnt != 0) {
-        idx = (u32)(idx + (48));
-        goto L;
-    }
-}
+void func_00146d28(u32 a0);  // 0x00146d28: definition moved into src/anon/unit_00145600.cpp
 
-void func_00146de0(u32 a0) {
-    s32 t7 = *(volatile s32*)((u32)a0 + (s32)(21344));
-    if (t7 <= 0) return;
-    s32 t4 = t7;
-    u32 t2 = (u32)-3;
-    u32 t3 = (u32)-2;
-L:
-    u32 t7p = *(volatile u32*)((u32)a0 + (s32)(17248));
-    t4 = (s32)(t4 - 1);
-    u32 t6 = *(volatile u32*)((u32)t7p + (s32)(248));
-    t6 = (u32)(t6 & t2);
-    *(volatile u32*)((u32)t7p + (s32)(248)) = t6;
-    u32 t5 = *(volatile u32*)((u32)a0 + (s32)(17252));
-    t5 = (u32)(t5 & t3);
-    *(volatile u32*)((u32)a0 + (s32)(17252)) = t5;
-    if (t4 != 0) {
-        a0 = (u32)((s32)a0 + (8));
-        goto L;
-    }
-}
+void func_00146de0(u32 a0);  // 0x00146de0: definition moved into src/anon/unit_00145600.cpp
 
-void func_00146e70(u32 a0, u32 a1, u32 a2) {
-    if (a2 == 0u) {
-        *(volatile u32*)((u32)a0 + (s32)(21360)) = a1;
-        return;
-    }
-    *(volatile u32*)((u32)a0 + (s32)(21364)) = a1;
-}
+void func_00146e70(u32 a0, u32 a1, u32 a2);  // 0x00146e70: definition moved into src/anon/unit_00145600.cpp
 
-u32 func_00147a68(u32 a0, u32 a1, u32 a2) {
-    s32 t6 = *(s32*)((u32)a1 + (s32)(0));
-    u32 t7;
-    u32 t5;
-    u32 v0;
-    if (t6 < 0) goto RET1;
-    t7 = (u32)(t6 << 2);
-    t5 = 1u;
-    v0 = (u32)(t7 + a2);
-LOOP:
-    t7 = *(u32*)((u32)v0 + (s32)(0));
-    if (t7 != t5) {
-        *(s32*)((u32)a1 + (s32)(0)) = t6;
-        return *(u32*)((u32)v0 + (s32)(0));
-    }
-    t6 = (s32)(t6 - 1);
-    if (t6 >= 0) {
-        v0 = (u32)((u32)v0 - 4);
-        goto LOOP;
-    }
-RET1:
-    return 1u;
-}
+u32 func_00147a68(u32 a0, u32 a1, u32 a2);  // 0x00147a68: definition moved into src/anon/unit_00147140.cpp
 
 extern "C" u32 func_00134408(...);
 
-void func_00148528(u32 a0) {
-    u32 t6 = *(u32*)((u32)a0 + (s32)(21360));
-    if (t6 != 0u) {
-        u32 t7 = *(volatile u32*)((u32)t6 + (s32)(248));
-        t7 = (u32)(t7 | 0x0004u);
-        *(volatile u32*)((u32)t6 + (s32)(248)) = t7;
-    }
-    a0 = *(u32*)((u32)a0 + (s32)(21364));
-    if (a0 != 0u) {
-        u32 t7 = *(volatile u32*)((u32)a0 + (s32)(248));
-        t7 = (u32)(t7 | 0x0004u);
-        *(volatile u32*)((u32)a0 + (s32)(248)) = t7;
-    }
-}
+void func_00148528(u32 a0);  // 0x00148528: definition moved into src/anon/unit_00147140.cpp
 
-void func_00148560(u32 a0) {
-    u32 t5 = *(u32*)((u32)a0 + (s32)(21360));
-    if (t5 != 0u) {
-        u32 t6 = 0xfffffffbu;
-        u32 t7 = *(u32*)((u32)t5 + (s32)(248));
-        t7 = (u32)(t7 & t6);
-        *(volatile u32*)((u32)t5 + (s32)(248)) = t7;
-    }
-    a0 = *(u32*)((u32)a0 + (s32)(21364));
-    if (a0 != 0u) {
-        u32 t6 = 0xfffffffbu;
-        u32 t7 = *(u32*)((u32)a0 + (s32)(248));
-        t7 = (u32)(t7 & t6);
-        *(volatile u32*)((u32)a0 + (s32)(248)) = t7;
-    }
-}
+void func_00148560(u32 a0);  // 0x00148560: definition moved into src/anon/unit_00147140.cpp
 
 extern u8 D_003a99f0;
 
-void func_00148a30(u32 a0) {
-    *(volatile u32*)((u32)a0 + (s32)(21372)) = 0u;
-    u32 t7 = (u32)&D_003a99f0;
-    s32 t6 = 255;
-L0:
-    *(volatile u32*)((u32)t7 + (s32)(0)) = 0u;
-    t6 = (s32)(t6 - 1);
-    if (t6 >= 0) {
-        t7 = (u32)((u32)t7 + 4);
-        goto L0;
-    }
-}
+void func_00148a30(u32 a0);  // 0x00148a30: definition moved into src/anon/unit_00147140.cpp
 
 extern "C" u32 func_00108698(...);
 extern u8 D_00457480;
 
-void func_00149150(u32 a0, u32 a1) {
-    u32 t7 = 0xffffu;
-    if (a1 != t7) {
-        return;
-    }
-    t7 = 1u;
-    if (a0 != t7) {
-        return;
-    }
-    u32 t0 = (u32)&D_00457480;
-    a0 = t0;
-    func_00108698(a0);
-}
+void func_00149150(u32 a0, u32 a1);  // 0x00149150: definition moved into src/anon/unit_00148ef0.cpp
 
 extern u8 D_0036b028;
 
@@ -13309,49 +13188,9 @@ void func_00143ee8(u32 a0, u32 a1);  // 0x00143ee8: definition moved into src/an
 
 void func_00143f78(u32 a0, u32 a1);  // 0x00143f78: definition moved into src/anon/unit_00142c90.cpp
 
-void func_00146e28(u32 a0, u32 a1) {
-    union Cnt {
-        u32 w;
-        u16 h;
-    };
-    Cnt* c = (Cnt*)(a0 + 21344);
+void func_00146e28(u32 a0, u32 a1);  // 0x00146e28: definition moved into src/anon/unit_00145600.cpp
 
-    u16 t7 = c->h;
-    *(u16*)(a1 + 284) = t7;
-
-    u32 t6 = c->w;
-    u32 t7w = t6 << 3;
-    t7w += a0;
-    u32 t6n = t6 + 1;
-    *(u32*)(t7w + 17248) = a1;
-    c->w = t6n;
-
-    u32 t5 = *(u32*)(a0 + 4);
-    u32 t7i = *(u16*)(a1 + 280);
-    t7i *= 48;
-    t5 += t7i;
-    u32 t6v = *(u32*)(t5 + 44);
-    *(u32*)(a1 + 272) = t6v;
-    *(u32*)(t5 + 44) = a1;
-}
-
-void func_00146e88(u32 a0, u32 a1) {
-    u32 t7 = *(u32*)(a1 + 248);
-    u32 t6 = t7 & 8;
-    t7 &= 4;
-    if (t7 == 0) {
-        if (t6 == 0) {
-            return;
-        }
-    }
-    u32 t6w = *(u32*)(a0 + 21344);
-    t6w <<= 3;
-    t6w = add_lhs(a0, t6w);
-    u32 t7w = *(u32*)(t6w + 17252);
-    t7w |= 2;
-    *(u32*)(t6w + 17252) = t7w;
-    func_00146e28(a0, a1);
-}
+void func_00146e88(u32 a0, u32 a1);  // 0x00146e88: definition moved into src/anon/unit_00145600.cpp
 
 void func_0014c970(u32 a0) {
     a0 = a0 * 60;

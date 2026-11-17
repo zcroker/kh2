@@ -19,13 +19,7 @@ extern u8 D_0033cc44;
 extern u32 D_003a99f0[];
 struct Obj148 { u8 pad[287]; u8 slot; };
 // Put o into the first free slot at or after its preferred index; bump the owner's count.
-void func_00148a68(s32* owner, Obj148* o) {
-    u32* t = D_003a99f0;
-    u32 i = o->slot;
-    while (t[i]) i++;
-    t[i] = (u32)o;
-    owner[21372 / 4]++;
-}
+void func_00148a68(s32* owner, Obj148* o);  // 0x00148a68: definition moved into src/anon/unit_00147140.cpp
 
 u8 func_00242d58(void);
 u32 func_00242ce8(void);

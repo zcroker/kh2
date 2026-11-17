@@ -83,20 +83,5 @@ W1681Mtx* W1681_camView(W1681Cam*) asm("_ZN2dk11ViewFrustum9setMatrixERKN2kn7FMa
 W1681Mtx* W1681_camClip(W1681Cam*) asm("_ZN2kn10Projection19getViewClipGsMatrixEv");
 void func_00146680(W1681Mtx*, const W1681Mtx*);
 // Takes a snapshot of the current camera and the current record, and precomputes the products.
-void func_00145cb0(W1681Obj* o)
-{
-    o->cam = *func_00106a18(1);
-    W1681Mtx view(*W1681_camView(&o->cam));
-    W1681Mtx clip(*W1681_camClip(&o->cam));
-    W1681Rec* d = &o->rec;
-    W1681Rec* r = func_00106a60(1);
-    d->m = r->m;
-    d->v50 = r->v50;
-    d->v60 = r->v60;
-    d->v70 = r->v70;
-    d->f80 = r->f80;
-    o->worldMul = W1681Mul(o->cam.world, d->m);
-    func_00146680(&o->viewMul, &W1681Mul(view, d->m));
-    func_00146680(&o->clipMul, &W1681Mul(clip, d->m));
-}
+void func_00145cb0(W1681Obj* o);  // 0x00145cb0: definition moved into src/anon/unit_00145600.cpp
 }

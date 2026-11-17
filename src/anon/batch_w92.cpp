@@ -158,13 +158,7 @@ V146 func_00163650(const V146*, const V146*, const V146*);
 void f_00146ab0(V146* pl, const V146* eye, const V146* c) asm("_Z13func_00146ab0Pv");
 
 // builds 5 planes: one from the far corners, four from the eye and corner pairs
-void f_00146ab0(V146* pl, const V146* eye, const V146* c) {
-    pl[0] = func_00163650(&c[0], &c[1], &c[2]);
-    pl[1] = func_00163650(eye, &c[2], &c[3]);
-    pl[2] = func_00163650(eye, &c[0], &c[1]);
-    pl[3] = func_00163650(eye, &c[3], &c[0]);
-    pl[4] = func_00163650(eye, &c[1], &c[2]);
-}
+void f_00146ab0(V146* pl, const V146* eye, const V146* c);  // 0x00146ab0: definition moved into src/anon/unit_00145600.cpp
 }
 
 // ---- 14d530 ----

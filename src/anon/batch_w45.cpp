@@ -128,13 +128,7 @@ void func_00132f38(u8* a0) {
 void func_001386e0(u32 a0, u32 a1, u32 a2, u32 a3, u32 t0, u32 t1);  // 0x001386e0: definition moved into src/anon/unit_00138480.cpp
 
 // true if any of the a0+624 entries (stride 80) accepts a1
-s32 func_00146088(u8* a0, u32 a1) {
-    s32 n = *(s32*)(a0 + 1904);
-    for (s32 i = 0; i < n; i++) {
-        if (func_00146c08(a0 + 624 + i * 80, a1)) return 1;
-    }
-    return 0;
-}
+s32 func_00146088(u8* a0, u32 a1);  // 0x00146088: definition moved into src/anon/unit_00145600.cpp
 
 void func_00171fa8(u32* a0);  // 0x00171fa8: definition moved into src/anon/unit_00171e58.cpp
 

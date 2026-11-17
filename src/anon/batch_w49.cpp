@@ -214,15 +214,7 @@ struct Out141988 { U141988 v[4]; U141988 n; };
 void func_00141988(u8* o, Idx141988* ix, Out141988* out);  // 0x00141988: definition moved into src/anon/unit_00141458.cpp
 
 // Overlap test of two s16 boxes {min xyz, max xyz}.
-s32 func_00145580(s16* a, s16* b) {  // cmp_halfword_triples
-    if (a[3] < b[0]) return 0;
-    if (a[0] > b[3]) return 0;
-    if (a[4] < b[1]) return 0;
-    if (a[1] > b[4]) return 0;
-    if (a[5] < b[2]) return 0;
-    if (a[2] > b[5]) return 0;
-    return 1;
-}
+s32 func_00145580(s16* a, s16* b);  // 0x00145580: definition moved into src/anon/unit_001451e0.cpp
 
 u8* func_0016d080(u32, s32);
 void func_0016cbc8(u8*, s32, u32*, s32);

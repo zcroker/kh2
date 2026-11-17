@@ -38,13 +38,7 @@ void func_00137250(void*);
 // 00136fa8: moved to src/harata/libdk/bgm.cpp
 
 // Copy the RGBA bytes at +0xe8 to +0x0c.
-void func_00147c78(u32, u8* p) {  // copy_bytes_232_to_12
-    u8 r = p[232], g = p[233], b = p[234], a = p[235];
-    p[12] = r;
-    p[13] = g;
-    p[14] = b;
-    p[15] = a;
-}
+void func_00147c78(u32, u8* p);  // 0x00147c78: definition moved into src/anon/unit_00147140.cpp
 
 void func_00139948(s32);
 void func_00139ba0(s32);

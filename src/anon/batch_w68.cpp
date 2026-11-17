@@ -55,19 +55,7 @@ static inline f32 dot1(f32* v, f32* pl) {
             : "=f"(d) : "r"(v), "r"(pl) : "$8", "memory");
     return d;
 }
-s32 func_00146c08(f32* pl, f32* box) {
-    s32 i;
-    for (i = 0; i < 5; i++, pl += 4) {
-        f32 v[4] __attribute__((aligned(16)));
-        f32 d;
-        v[0] = *(s32*)&pl[0] >= 0 ? box[3] : box[0];
-        v[1] = *(s32*)&pl[1] >= 0 ? box[4] : box[1];
-        v[2] = *(s32*)&pl[2] >= 0 ? box[5] : box[2];
-        d = dot1(v, pl);
-        if (front2(d + pl[3])) return 0;
-    }
-    return 1;
-}
+s32 func_00146c08(f32* pl, f32* box);  // 0x00146c08: definition moved into src/anon/unit_00145600.cpp
 
 /* ---- 001519f8 ---- */
 s32 func_0023aa98(void*);

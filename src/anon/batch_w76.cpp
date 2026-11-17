@@ -47,25 +47,7 @@ void func_0013aed8(void);  // 0x0013aed8: definition moved into src/anon/unit_00
 extern f32 D_00348d30[];
 union HalfOrFloat6 { s16 h[6]; f32 f[6]; };
 /* six s16 values to floats, optionally scaled by a table entry */
-void func_001450e8(HalfOrFloat6* src, s32 idx, HalfOrFloat6* out)
-{
-    if (idx == 0) {
-        out->f[0] = src->h[0];
-        out->f[1] = src->h[1];
-        out->f[2] = src->h[2];
-        out->f[3] = src->h[3];
-        out->f[4] = src->h[4];
-        out->f[5] = src->h[5];
-    } else {
-        f32 s = D_00348d30[idx];
-        out->f[0] = src->h[0] * s;
-        out->f[1] = src->h[1] * s;
-        out->f[2] = src->h[2] * s;
-        out->f[3] = src->h[3] * s;
-        out->f[4] = src->h[4] * s;
-        out->f[5] = src->h[5] * s;
-    }
-}
+void func_001450e8(HalfOrFloat6* src, s32 idx, HalfOrFloat6* out);  // 0x001450e8: definition moved into src/anon/unit_00144450.cpp
 
 void func_00239f18(u8*, f32);  // obj_set_float312_and_flags
 void func_00138c68(u8*, s32, s32);

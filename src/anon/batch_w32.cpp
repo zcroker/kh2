@@ -91,18 +91,7 @@ void func_00239870(void*);
 void func_002361d0(void*);
 
 // Picks a state from four thresholds; 1/2 force a value, the others keep the current one.
-void func_00148638(u32, u8* o, f32 x) {
-    f32* f = *(f32**)(o + 276);
-    u8 v = o[269];
-    f32 a = f[14], b = f[15], c = f[16], d = f[17];
-    u8 r;
-    if (d < x) r = 2;
-    else if (c < x) r = v;
-    else if (b < x) r = 1;
-    else if (a < x) r = v;
-    else r = 0;
-    o[269] = r;
-}
+void func_00148638(u32, u8* o, f32 x);  // 0x00148638: definition moved into src/anon/unit_00147140.cpp
 
 // 00158450: moved to src/harata/libdk/cameraconfig.cpp
 

@@ -192,24 +192,7 @@ struct Node { s16 link[8]; u8 box[32]; };
 struct Graph { u32 f0; Node* nodes; };
 extern "C" {
 s32 func_00144d90(void*, void*);
-s32 func_00147050(Graph* g, s32 idx, u8* c, s32 depth, s32* best)
-{
-    Node* n = &g->nodes[idx];
-    s32 found = 0;
-    if (!func_00144d90(n->box, c + 208)) return 0;
-    if (*best <= depth) {
-        *best = depth;
-        found = idx;
-    }
-    s16* l = n->link;
-    for (s32 i = 0; i < 8; i++) {
-        s32 k = *l++;
-        if (k == -1) break;
-        s32 r = func_00147050(g, k, c, depth + 1, best);  // entry48_process_5args
-        if (r) found = r;
-    }
-    return found;
-}
+s32 func_00147050(Graph* g, s32 idx, u8* c, s32 depth, s32* best);  // 0x00147050: definition moved into src/anon/unit_00145600.cpp
 }
 }
 

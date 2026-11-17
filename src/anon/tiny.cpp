@@ -132,9 +132,9 @@ void func_0010f648(BD_VALUE* bd);  // 0x0010f648: definition moved into src/anon
 void func_0011d710(BD_VALUE* bd);  // 0x0011d710: definition moved into src/anon/unit_0011c128.cpp
 // 001369b8: moved to src/harata/libdk/bgse.cpp
 void func_001390a8(BD_VALUE* bd);  // 0x001390a8: definition moved into src/anon/unit_00138480.cpp
-void func_001444b0(BD_VALUE* bd) { dk_Aabbox_set_vectors(bd); }
-void func_001444f8(BD_VALUE* bd) { func_00144860(bd); }
-void func_00146bd8(BD_VALUE* bd) { func_00146ab0(bd); }
+void func_001444b0(BD_VALUE* bd);  // 0x001444b0: definition moved into src/anon/unit_00144450.cpp
+void func_001444f8(BD_VALUE* bd);  // 0x001444f8: definition moved into src/anon/unit_00144450.cpp
+void func_00146bd8(BD_VALUE* bd);  // 0x00146bd8: definition moved into src/anon/unit_00145600.cpp
 // 001491c0: moved to src/harata/libdk/mapfile.cpp
 void func_0014f1e0(BD_VALUE* bd);  // 0x0014f1e0: definition moved into src/anon/unit_0014ecb8.cpp
 void func_0014f208(BD_VALUE* bd);  // 0x0014f208: definition moved into src/anon/unit_0014ecb8.cpp
@@ -246,7 +246,7 @@ void func_00134580(BD_VALUE* bd) { func_00134508(1, 0xffff); }
 // 00135788: moved to src/anon/unit_00134668.cpp
 void func_0013a328(BD_VALUE* bd);  // 0x0013a328: definition moved into src/anon/unit_001393c8.cpp
 void func_00141418(BD_VALUE* bd);  // 0x00141418: definition moved into src/anon/unit_00141100.cpp
-void func_00149188(BD_VALUE* bd) { func_00149150(1, 0xffff); }
+void func_00149188(BD_VALUE* bd);  // 0x00149188: definition moved into src/anon/unit_00148ef0.cpp
 // 00149f68: _GLOBAL__I_ stub, now made by gcc in src/harata/libdk/area.cpp
 void func_0014a8d8(BD_VALUE* bd);  // 0014a8d8: moved to src/anon/unit_00149fa8.cpp
 void func_0014b110(BD_VALUE* bd) { func_0014aed0(1, 0xffff); }

@@ -51,12 +51,7 @@ void func_001ae788(u8* p);  // 0x001ae788: definition moved into src/anon/unit_0
 
 void func_001b53b0(u8* o, f32 x);  // 0x001b53b0: definition moved into src/anon/unit_001b2780.cpp
 
-void func_00147e80(u8* o) {
-    u64 v = (u64)(s32)(0x7000 - *(s16*)(o + 0x14)) | ((u64)(0x7300 - *(s16*)(o + 0x16)) << 32);
-    func_00134408();
-    func_00134428(0x18, v);
-    func_00134450(1);
-}
+void func_00147e80(u8* o);  // 0x00147e80: definition moved into src/anon/unit_00147140.cpp
 
 void wtarget_0013df48(u32 a, u32 b, u32, u32) asm("_Z16wtarget_0013df48jjjj");
 void wtarget_0013df48(u32 a, u32 b, u32, u32);  // 0x0013df48: definition moved into src/anon/unit_0013a8b8.cpp

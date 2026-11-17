@@ -18,14 +18,7 @@ void** func_00124748(void*, u32);  // list_nth_node_rel
 void func_00123d10(void* p);  // 0x00123d10: definition moved into src/anon/unit_00123990.cpp
 
 // 64-byte (matrix) copy src -> dst unless they are the same.
-void func_00146680(u8* dst, u8* src) {  // copy_quad4_if_diff
-    if (dst != src) {
-        asm volatile(
-            "lq $8, 0(%1)\n\tlq $9, 16(%1)\n\tlq $10, 32(%1)\n\tlq $11, 48(%1)\n\t"
-            "sq $8, 0(%0)\n\tsq $9, 16(%0)\n\tsq $10, 32(%0)\n\tsq $11, 48(%0)"
-            : : "r"(dst), "r"(src) : "$8", "$9", "$10", "$11", "memory");
-    }
-}
+void func_00146680(u8* dst, u8* src);  // 0x00146680: definition moved into src/anon/unit_00145600.cpp
 
 void func_0017d0e8(f32);
 void* func_0016b040(void* r, u8* p) {

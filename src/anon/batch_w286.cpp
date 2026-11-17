@@ -110,35 +110,7 @@ void func_0031a830(void*);
 void func_001447c0(u8*, f32, f32, f32, f32, f32, f32);
 void func_00145b90(Ob_5680*, s32);
 void func_00146d28(Ob_5680*);
-void func_00145680(Ob_5680* o, Hd_5680* h, u8 flag, s32 a3) {
-  o->x4 = 0; o->x8 = 0; o->xc = 0; o->x10 = 0; o->x14 = 0; o->x18 = 0; o->x1c = 0;
-  func_00106ab8(o->x20);  // noop_ret
-  func_001070c8(o->x120);  // set_vtbl_34cc50
-  o->x778 = flag;
-  o->x779 = 0;
-  func_0015e4e0(o->x790);
-  {
-    u8 (*p)[880] = o->xc60;
-    for (s32 i = 15; i != -1; i--, p++) func_0015e9e0(p);
-  }
-  {
-    El_5680* e = o->x4360;
-    s32 i = 511;
-    do { e->x0 = 0; e->x4 = 0; i--; func_0031a830(&(e++)->x4); } while (i != -1);
-  }
-  o->x0 = (u32)h;
-  o->x5364 = 0; o->x536c = 0; o->x5370 = 0; o->x5374 = 0; o->x5378 = 0; o->x537c = 0;
-  o->x4 = (u32)h + h->x14;
-  o->x8 = (u32)h + h->x1c;
-  o->xc = (u32)h + h->x24;
-  o->x10 = h->x18 / 48;
-  o->x14 = h->x20 / 28;
-  o->x18 = h->x28 / 52;
-  o->x778 = flag;
-  func_001447c0((u8*)o->x4 + 16, -100000000.0f, -100000000.0f, -100000000.0f, 100000000.0f, 100000000.0f, 100000000.0f);
-  func_00145b90(o, a3);
-  func_00146d28(o);
-}
+void func_00145680(Ob_5680* o, Hd_5680* h, u8 flag, s32 a3);  // 0x00145680: definition moved into src/anon/unit_00145600.cpp
 
 struct Nd94 { u8 p0[0x18c]; struct Nd94* parent; s32 x190; u8 p194[4]; };
 struct Desc94 { u8 p0[0x2c]; s32 x2c; };

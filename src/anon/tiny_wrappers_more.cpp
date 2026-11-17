@@ -481,13 +481,9 @@ u32 func_00140ef8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00140ef8: definition mo
 
 u32 func_00144410(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00144410: definition moved into src/anon/unit_00142c90.cpp
 
-u32 func_001445d0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_00144630(a0, a1, a2, a3);
-}
+u32 func_001445d0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001445d0: definition moved into src/anon/unit_00144450.cpp
 
-u32 func_001445e8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_00144630(a0, a1, a2, a3);
-}
+u32 func_001445e8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001445e8: definition moved into src/anon/unit_00144450.cpp
 
 // 00149428: moved to src/harata/libdk/mapfile.cpp
 

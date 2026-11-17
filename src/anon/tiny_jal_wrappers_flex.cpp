@@ -113,26 +113,9 @@ u32 func_00133c18(u32 a0, u32 a1, u32 a2, u32 a3) {
 
 u32 func_00138c10(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00138c10: definition moved into src/anon/unit_00138480.cpp
 
-u32 func_001471d8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u, r14 = 0u, r15 = 0u, r16 = 0u;
-    r16 = r5;
-    r2 = func_00148a08(r4, r5, r6, r7);
-    r15 = *(u32*)((u32)r16 + (s32)(8));
-    r14 = (u32)((s32)0u + (-5));
-    r15 = (u32)(r15 & r14);
-    *(u32*)((u32)r16 + (s32)(8)) = r15;
-    return r2;
-}
+u32 func_001471d8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001471d8: definition moved into src/anon/unit_00147140.cpp
 
-u32 func_00147210(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u, r15 = 0u, r16 = 0u;
-    r16 = r5;
-    r2 = func_00148a08(r4, r5, r6, r7);
-    r15 = *(u32*)((u32)r16 + (s32)(8));
-    r15 = (u32)(r15 | 0x0004u);
-    *(u32*)((u32)r16 + (s32)(8)) = r15;
-    return r2;
-}
+u32 func_00147210(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00147210: definition moved into src/anon/unit_00147140.cpp
 
 // 00158a90 dk::BookCamera::create: moved to src/harata/libdk/bookcamera.cpp
 

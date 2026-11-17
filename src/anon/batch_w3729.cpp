@@ -12,25 +12,5 @@ extern "C" {
 // Adds node n (and recursively its children) to the manager's current group when it is flagged and enabled.
 // Register pins and one empty asm (w3729) fix the t6/t7 choice and the count-block order.
 void func_00147c78(MgrW*, NodeW*);
-void func_00147d80(MgrW* m, NodeW* n, f32 t)
-{
-    u16 idx = n->idx;
-    if ((n->flags & 4) && ((TblW*)((u32)m + (idx << 3) + 0x4364))->on) {
-        if (n->beb) {
-            s32 k = m->map[m->cur];
-            func_00147c78(m, n);
-            n->b0f = -128;
-            u32 o = k * 0x370 + (u32)m; GrpW* g = (GrpW*)(o + 0xc60); g->time = t; NumW* c = (NumW*)(o + 0xfc0); s32 i = c->n;
-            u32 a = (i << 2) + (u32)g;
-            s32 j = i + 1;
-            asm("" : "+r"(j) : "r"(a));
-            c->n = j; *(NodeW**)(a + 8) = n;
-        }
-        register s32 cur asm("$14") = m->cur;
-        register s32 two asm("$15") = 2;
-        ((Sub2W*)(cur + (u32)n + 0x100))->set(two);
-    }
-    NodeW* c = 0;
-    while ((c = !c ? n->child : c->next) != 0) func_00147d80(m, c, t);
-}
+void func_00147d80(MgrW* m, NodeW* n, f32 t);  // 0x00147d80: definition moved into src/anon/unit_00147140.cpp
 }

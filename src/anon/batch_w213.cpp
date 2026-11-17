@@ -8,12 +8,7 @@ void wtarget_00158fd8(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z16wtarget_00158fd8j
 // 00158fd8 (static initialiser, now made by gcc): moved to src/harata/libdk/bookcamera.cpp
 
 struct S146 { u8 pad[235]; u8 b; u8 pad2[12]; u32 w; };
-u32 func_00146ed8(void* a0, S146* p) {
-    u8 b = p->b;
-    if (b) { if ((s8)p->b >= 0) { if (p->w & 0x10) { p->w &= ~0x800; return 1; } } }
-    p->w |= 0x800;
-    return 0;
-}
+u32 func_00146ed8(void* a0, S146* p);  // 0x00146ed8: definition moved into src/anon/unit_00145600.cpp
 
 struct E197 { u8 pad[48]; s32 st; };
 extern E197* D_0035037c;

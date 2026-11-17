@@ -103,21 +103,7 @@ struct Tree146 { u32 a; Node146* nodes; u8* items; };
 s32 func_00146088(Tree146*, Vq81*);
 void func_00146100(Tree146*, u32, s16);
 void func_001461f0(Tree146*, Node146*);
-void func_00146390(Tree146* t, s32 idx, u32 arg) {
-    Node146* n = &t->nodes[idx];
-    if (func_00146088(t, &n->v) == 1) return;
-    s32 j;
-    s32 end = n->end;
-    s32 i;
-    for (i = n->start; i < end; i++) {
-        if (t->items[i * 28]) func_00146100(t, arg, i);
-    }
-    func_001461f0(t, n);
-    for (j = 0; j < 8; j++) {
-        if (n->child[j] == -1) break;
-        func_00146390(t, n->child[j], arg);
-    }
-}
+void func_00146390(Tree146* t, s32 idx, u32 arg);  // 0x00146390: definition moved into src/anon/unit_00145600.cpp
 
 // --- 0015cef0: copy three vectors into the triple-buffered globals
 extern Vq81 D_004f3760, D_004f3770, D_004f3780, D_004f3790, D_004f37a0, D_004f37b0, D_004f37c0, D_004f37d0, D_004f37e0;

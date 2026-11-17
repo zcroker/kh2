@@ -142,49 +142,5 @@ void func_00146080(W1654Mgr*, s16*);
 void func_00148c50(W1654Mgr*, s32, W1654Box*, s32*, u8, W1654Ob**);
 void func_0011de88(s32, W1654Gs*, s16*, W1654Ob**, s32);
 
-void func_00148ef0(W1654Mgr* m, W1654Ob** list, s32 n)
-{
-    W1654Gs g;
-    W1654Box box;
-    s16 idx[1024];
-    s32 cnt;
-    W1654Ob** p = list;
-    func_00108698(&g);
-    W1654Ob* o = list[0];
-    if (!(g.col[3] = o->alpha)) return;
-    W1654Box* src = &o->box;
-    box = *src;
-    for (s32 i = 0; i < n; i++) {
-        func_00144860(&box, &box, &(*p)->box);
-        p++;
-    }
-    f32 h = (box.y1 - box.y0) * 0.5f;
-    box.y1 += h + h;
-    box.y1 += o->boxGrow;
-    if (!func_00146730(m->frustum, &box)) return;
-    if (func_00146088(m, &box) == 1) return;
-    if (o->flags & 0x40) {
-        g.flags |= 1;
-        g.col[0] = o->color[0];
-        g.col[1] = o->color[1];
-        g.col[2] = o->color[2];
-        g.col[3] = o->color[3];
-    }
-    s32 mode;
-    if (o->flags & 0x200) mode = 1;
-    else if (!(o->flags & 0x400)) mode = 0;
-    else mode = 2;
-    u8 b = o->b286;
-    D_00457480 = g;
-    D_00457478 = list;
-    cnt = 0;
-    func_00146080(m, idx);
-    idx[0] = -1;
-    func_00148c50(m, 0, &box, &cnt, b, list);
-    idx[cnt] = -1;
-    g.c[0] = g.c[1] = g.c[2] = -128;
-    g.c[3] = -1;
-    g.flags |= 2;
-    func_0011de88(m->x21352, &g, idx, list, mode);
-}
+void func_00148ef0(W1654Mgr* m, W1654Ob** list, s32 n);  // 0x00148ef0: definition moved into src/anon/unit_00148ef0.cpp
 }

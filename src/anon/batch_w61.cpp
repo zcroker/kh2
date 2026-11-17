@@ -58,30 +58,12 @@ s32 func_00131918(u8** a0, M64* dst) {
 void func_00145c68(void*, u8);
 struct E28 { u8 b0; u8 pad[27]; };
 struct S145 { u8 pad[8]; E28* arr; u8 pad2[8]; s32 n; };
-void func_00145b90(S145* a0, u64 mask) {
-    s32 n = a0->n;
-    for (s32 i = 0; i < n; i++) a0->arr[i].b0 = 0;
-    for (s32 i = 0; i < 64; i++) {
-        u64 bit = (u64)1 << i;
-        if (mask & bit) func_00145c68(a0, i);
-    }
-}
+void func_00145b90(S145* a0, u64 mask);  // 0x00145b90: definition moved into src/anon/unit_00145600.cpp
 
 void func_00147c78(u8*, u8*);  // copy_bytes_232_to_12
 void func_0011cd80(u32, u8*, u8*, u8*, void*, u32);
 struct B148 { s16 a, b; u8 pad[12]; };
-void func_00148598(u8* a0, u8* a1) {
-    if (a1[235] && (*(u32*)(a1 + 248) & 4)) {
-        func_00147c78(a0, a1);  // copy_bytes_232_to_12
-        B148 buf;
-        (*(u8**)(a0 + 21356) + (u32)a1)[270] = 0;
-        *(u64*)(a1 + 32) = 0x31000070;
-        *(u64*)(a1 + 24) = 0x800d8;
-        buf.a = -32768;
-        buf.b = -1;
-        func_0011cd80(((FU*)a1)->u, a0 + 432, a1 + 64, a1 + 8, &buf, 0);
-    }
-}
+void func_00148598(u8* a0, u8* a1);  // 0x00148598: definition moved into src/anon/unit_00147140.cpp
 
 void func_00141010(f32);
 u8* func_00140df0(void);

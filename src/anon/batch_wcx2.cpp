@@ -37,18 +37,7 @@ s32 func_0011c8f8(u8* p, u8* a1, u8 flag, Obj5* o, u32 a4, u32 a5);  // 0x0011c8
 
 struct V4f { f32 x, y, z, w; };
 // 00144be0: eight corners of the box min(0,1,2)/max(3,4,5), y and z negated
-void func_00144be0(f32* b, V4f* v)
-{
-    v[0].w = v[1].w = v[2].w = v[3].w = v[4].w = v[5].w = v[6].w = v[7].w = 1.0f;
-    v[0].x = b[0]; v[0].y = -b[4]; v[0].z = -b[5];
-    v[1].x = b[0]; v[1].y = -b[1]; v[1].z = -b[5];
-    v[2].x = b[3]; v[2].y = -b[1]; v[2].z = -b[5];
-    v[3].x = b[3]; v[3].y = -b[4]; v[3].z = -b[5];
-    v[4].x = b[0]; v[4].y = -b[4]; v[4].z = -b[2];
-    v[5].x = b[0]; v[5].y = -b[1]; v[5].z = -b[2];
-    v[6].x = b[3]; v[6].y = -b[1]; v[6].z = -b[2];
-    v[7].x = b[3]; v[7].y = -b[4]; v[7].z = -b[2];
-}
+void func_00144be0(f32* b, V4f* v);  // 0x00144be0: definition moved into src/anon/unit_00144450.cpp
 
 void func_00158050(u8*, s32, u32, u32, s32, s32, u32);
 void func_00139598(u8*);
@@ -816,33 +805,7 @@ void func_00146e28(Tree6*, Node6*);
 void wtarget_00146f28(Tree6* t, Node6* n, u8 flag) asm("_Z16wtarget_00146f28jjjj");
 static inline __attribute__((always_inline)) u32* StP6(Tree6* t, s32 i) { return &t->st[i].f; }
 #define ST6(t) (*StP6((t), (t)->cur))
-void wtarget_00146f28(Tree6* t, Node6* n, u8 flag)
-{
-    u32 fl = n->flags;
-    if (fl & 4) goto on;
-    if (!(fl & 8)) goto kids;
-on:
-    if ((fl & 0x1000) || func_00146ed8(t, n)) {
-        if (!flag) goto clr;
-        ST6(t) |= 2;
-    } else {
-        if (!flag) goto clr;
-        ST6(t) |= 2;
-        func_00147140(t, n);
-        goto done;
-    }
-    goto zero;
-clr:
-    ST6(t) &= ~2;
-zero:
-    n->h282 = 0;
-    n->h280 = 0;
-done:
-    func_00146e28(t, n);
-kids:
-    Node6* c = 0;
-    while ((c = !c ? n->child : c->sib) != 0) wtarget_00146f28(t, c, 0);
-}
+void wtarget_00146f28(Tree6* t, Node6* n, u8 flag);  // 0x00146f28: definition moved into src/anon/unit_00145600.cpp
 
 struct Pg7 { u8 pad[15552]; s32 total; s32 count; s32 last; u8 pad2[4]; s32 page; s32 n0; s32 n1; s32 n2; u8 pad3; u8 one; };
 void func_00139948(s32);
@@ -1204,15 +1167,7 @@ struct V33 {
     V33& operator=(const V33& o) { if (this != &o) QCOPY(this, &o); return *this; }
 } __attribute__((aligned(16)));
 V33 func_00163650(const V33*, const V33*, const V33*);
-void func_00146788(V33* out, V33* p)
-{
-    out[0] = func_00163650(&p[0], &p[1], &p[2]);
-    out[1] = func_00163650(&p[7], &p[6], &p[5]);
-    out[2] = func_00163650(&p[3], &p[2], &p[6]);
-    out[3] = func_00163650(&p[0], &p[4], &p[5]);
-    out[4] = func_00163650(&p[4], &p[0], &p[3]);
-    out[5] = func_00163650(&p[6], &p[2], &p[1]);
-}
+void func_00146788(V33* out, V33* p);  // 0x00146788: definition moved into src/anon/unit_00145600.cpp
 
 struct V34 {
     f32 x, y, z, w;
@@ -1234,25 +1189,7 @@ static inline f32 Dist34(V34& a, V34& b, V34& c)
                  : "=f"(r) : "r"(&c) : "$8", "memory");
     return r;
 }
-f32 func_00148890(u8* o, Ent34* e, const V34* q)
-{
-    f32 d = 0.0f;
-    V34 p;
-    V34 a, b, c;
-    asm volatile("lqc2 $vf5,0(%1)\n\tlqc2 $vf1,0(%2)\n\tlqc2 $vf2,16(%2)\n\tlqc2 $vf3,32(%2)\n\tlqc2 $vf4,48(%2)\n\t"
-                 "vmulax.xyz ACC,$vf1,$vf5x\n\tvmadday.xyz ACC,$vf2,$vf5y\n\tvmaddaz.xyz ACC,$vf3,$vf5z\n\t"
-                 "vmaddw.xyz $vf5,$vf4,$vf0w\n\tvmove.w $vf5,$vf0\n\tsqc2 $vf5,0(%0)"
-                 : : "r"(&p), "r"(&e->pos), "r"(o + 304) : "memory");
-    if (e->fl & 0x80) {
-        DIST34(d, e->pos, *q);
-        func_00148638(d);
-    }
-    if (e->fl & 0x100) {
-        if (d == 0.0f) DIST34(d, e->pos, *q);
-        func_00148690(o, e, d);
-    }
-    return p.z;
-}
+f32 func_00148890(u8* o, Ent34* e, const V34* q);  // 0x00148890: definition moved into src/anon/unit_00147140.cpp
 
 struct Tune37 { u8 pad[96]; f32 f96; f32 f100; u8 pad2[12]; f32 f116; };
 extern Tune37* D_00352130__67414 asm("D_00352130");
@@ -1655,15 +1592,7 @@ void func_002e2350(Obj57*);
 // 002e1f70: moved to src/anon/unit_002e1908.cpp
 
 V33 func_00163650(const V33*, const V33*, const V33*);
-void func_001468f0(V33* out, V33* p)
-{
-    out[0] = func_00163650(&p[0], &p[1], &p[2]);
-    out[1] = func_00163650(&p[7], &p[6], &p[5]);
-    out[2] = func_00163650(&p[3], &p[2], &p[6]);
-    out[3] = func_00163650(&p[0], &p[4], &p[5]);
-    out[4] = func_00163650(&p[4], &p[0], &p[3]);
-    out[5] = func_00163650(&p[6], &p[2], &p[1]);
-}
+void func_001468f0(V33* out, V33* p);  // 0x001468f0: definition moved into src/anon/unit_00145600.cpp
 
 struct V62 {
     f32 x, y, z, w;
@@ -9011,18 +8940,7 @@ extern f32 D_00348d40[];
     } \
 } while (0)
 union O144e50 { s16 v; u8 c; };
-void func_00144e50(O144e50* out, f32* in, s32 mode)
-{
-    f32 b = D_00348d30[mode];
-    f32 s = D_00348d40[mode];
-    f32 f;
-    f = in[0] - b; if (mode) f *= s; Q144e50(f); out[0].v = (s32)f;
-    f = in[1] - b; if (mode) f *= s; Q144e50(f); out[1].v = (s32)f;
-    f = in[2] - b; if (mode) f *= s; Q144e50(f); out[2].v = (s32)f;
-    f = in[3] + b; if (mode) f *= s; R144e50(f); out[3].v = (s32)f;
-    f = in[4] + b; if (mode) f *= s; R144e50(f); out[4].v = (s32)f;
-    f = in[5] + b; if (mode) f *= s; R144e50(f); out[5].v = (s32)f;
-}
+void func_00144e50(O144e50* out, f32* in, s32 mode);  // 0x00144e50: definition moved into src/anon/unit_00144450.cpp
 
 // --------------------
 // Effect particle: integrate motion, apply the per-frame delta, then emit its sprite.
@@ -10026,56 +9944,7 @@ void func_0031a830(u32* p);
 void func_001447c0_x14971(u8* p, f32 a, f32 b, f32 c, f32 d, f32 e, f32 f) asm("func_001447c0");
 void func_00145b90(Obj145830* o, s32 a);
 void func_00146d28(Obj145830* o);
-void func_00145830(Obj145830* o, Hdr145830* h, u8 flag, s32 a)
-{
-    s32 i;
-    o->t4.p = 0;
-    o->t8.p = 0;
-    o->t12.p = 0;
-    o->n16 = 0;
-    o->n20 = 0;
-    o->n24 = 0;
-    o->f28 = 0;
-    func_00106ab8(o->m32);
-    func_001070c8(o->m288);
-    o->f1912 = flag;
-    o->f1913 = 0;
-    func_0015e4e0(o->m1936);
-    {
-        u8* p = o->e3168[0];
-        for (i = 15; i != -1; i--, p += 880) func_0015e9e0(p);
-    }
-    {
-        E8_145830* e = o->e17248;
-        i = 511;
-        do {
-            u32* q;
-            e->a = 0;
-            e->b = 0;
-            q = &e->b;
-            i--;
-            e++;
-            func_0031a830(q);
-        } while (i != -1);
-    }
-    o->hdr.p = h;
-    o->f21348 = 0;
-    o->f21356 = 0;
-    o->f21360 = 0;
-    o->f21364 = 0;
-    o->f21368 = 0;
-    o->f21372 = 0;
-    o->t4.p = (u8*)h + h->o20;
-    o->t8.p = (u8*)h + h->o28;
-    o->t12.p = (u8*)h + h->o36;
-    o->n16 = h->n24 / 48;
-    o->n20 = h->n32 / 28;
-    o->n24 = h->n40 / 52;
-    o->f1912 = flag;
-    func_001447c0_x14971(o->t4.p + 16, -100000000.0f, -100000000.0f, -100000000.0f, 100000000.0f, 100000000.0f, 100000000.0f);
-    func_00145b90(o, a);
-    func_00146d28(o);
-}
+void func_00145830(Obj145830* o, Hdr145830* h, u8 flag, s32 a);  // 0x00145830: definition moved into src/anon/unit_00145600.cpp
 
 // --------------------
 // Copy constructor: base part, vtable, then the member data.

@@ -350,136 +350,15 @@ void func_001433e8(void);  // 0x001433e8: definition moved into src/anon/unit_00
 
 u32 func_00143e50(u32 a0, u32 a1, u32 a2);  // 0x00143e50: definition moved into src/anon/unit_00142c90.cpp
 
-u32 func_00144d10(f32* a0, f32* a1) {
-    if (a0[3] < a1[0]) {
-        return 0;
-    }
-    f32 f1 = a0[0];
-    f32 f0 = a1[3];
-    if (f0 < f1) {
-        return 0;
-    }
-    if (a0[4] < a1[1]) {
-        return 0;
-    }
-    f1 = a0[1];
-    f0 = a1[4];
-    if (f0 < f1) {
-        return 0;
-    }
-    if (a0[5] < a1[2]) {
-        return 0;
-    }
-    f1 = a0[2];
-    f0 = a1[5];
-    if (f0 < f1) {
-        return 0;
-    }
-    return 1;
-}
+u32 func_00144d10(f32* a0, f32* a1);  // 0x00144d10: definition moved into src/anon/unit_00144450.cpp
 
-u32 func_00144d90(f32* a0, f32* a1) {  // aabb_overlap
-    f32 f1 = a0[0];
-    f32 f0 = a1[0];
-    if (f0 < f1) {
-        return 0;
-    }
+u32 func_00144d90(f32* a0, f32* a1);  // 0x00144d90: definition moved into src/anon/unit_00144450.cpp
 
-    f1 = a0[3];
-    f0 = a1[3];
-    if (f1 < f0) {
-        return 0;
-    }
+void func_001461f0(u32 a0, u8* a1);  // 0x001461f0: definition moved into src/anon/unit_00145600.cpp
 
-    f1 = a0[1];
-    f0 = a1[1];
-    if (f0 < f1) {
-        return 0;
-    }
+void func_00148ac0(u8* a0);  // 0x00148ac0: definition moved into src/anon/unit_00147140.cpp
 
-    f1 = a0[4];
-    f0 = a1[4];
-    if (f1 < f0) {
-        return 0;
-    }
-
-    f1 = a0[2];
-    f0 = a1[2];
-    if (f0 < f1) {
-        return 0;
-    }
-
-    f1 = a0[5];
-    f0 = a1[5];
-    if (f1 < f0) {
-        return 0;
-    }
-
-    return 1;
-}
-
-void func_001461f0(u32 a0, u8* a1) {
-    u32 s0 = *(u32*)(a1 + 44);
-    u32 s1 = a0;
-    if (s0 == 0) {
-        return;
-    }
-
-    do {
-        u32 t7 = *(u32*)(s0 + 248);
-        if ((t7 & 0x800) == 0) {
-            func_001471d8(s1, s0);
-        } else {
-            func_001471d8(s1, s0);
-        }
-        s0 = *(u32*)(s0 + 272);
-    } while (s0 != 0);
-}
-
-void func_00148ac0(u8* a0) {
-    s32 s0 = 0;
-    u32* s2 = D_003a99f0;
-    s32 s1 = *(s32*)(a0 + 21372);
-
-    while (s0 < 256) {
-        if (s1 <= 0) {
-            return;
-        }
-
-        u32 t7 = *s2;
-        s2 += 1;
-        if (t7 != 0) {
-            func_00147f08((u32)a0, t7);
-            s1 -= 1;
-        }
-
-        s0 += 1;
-    }
-}
-
-void func_00148bc8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    (void)a4;
-    (void)a5;
-    (void)a6;
-    (void)a7;
-
-    u32 cur = *(u32*)(a1 + 44);
-    if (*(u32*)a2 == cur) {
-        return;
-    }
-    if (cur == 0) {
-        return;
-    }
-
-    while (cur != 0) {
-        if (func_00144d10(cur + 208, a3) == 1) {
-            if ((*(u32*)(cur + 248) & 2) != 0) {
-                func_00148b40(a0, cur);
-            }
-        }
-        cur = *(u32*)(cur + 272);
-    }
-}
+void func_00148bc8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);  // 0x00148bc8: definition moved into src/anon/unit_00147140.cpp
 
 // 001491d8: moved to src/harata/libdk/mapfile.cpp
 

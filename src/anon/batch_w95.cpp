@@ -152,21 +152,7 @@ void func_0013f648(u8*);
 void func_0013f888(u8* p, V4* pos, u8 mode);  // 0x0013f888: definition moved into src/anon/unit_0013ef70.cpp
 
 // Quicksort of key[] (floats, ascending) carrying idx[] along.
-void func_001472b8(FI* idx, FI* key, s32 lo, s32 hi) {
-    s32 i = lo, j = hi;
-    f32 p = key[(hi + lo) >> 1].f;
-    do {
-        while (key[i].f < p) i++;
-        while (p < key[j].f) j--;
-        if (i <= j) {
-            f32 t = key[i].f; key[i].f = key[j].f; key[j].f = t;
-            s32 u = idx[i].i; idx[i].i = idx[j].i; idx[j].i = u;
-            i++; j--;
-        }
-    } while (i <= j);
-    if (lo < j) func_001472b8(idx, key, lo, j);
-    if (i < hi) func_001472b8(idx, key, i, hi);
-}
+void func_001472b8(FI* idx, FI* key, s32 lo, s32 hi);  // 0x001472b8: definition moved into src/anon/unit_00147140.cpp
 
 s32 func_00152100(u32, u32);
 void func_001520c0(u32, u32);

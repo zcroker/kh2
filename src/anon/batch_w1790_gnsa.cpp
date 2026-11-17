@@ -53,14 +53,5 @@ void func_002be630(void);  // 0x002be630: definition moved into src/anon/unit_00
 
 void func_0013aba8(W1790Obj* o);  // 0x0013aba8: definition moved into src/anon/unit_0013a8b8.cpp
 
-void func_00148470(W1790Mgr* g, W1790Node* n) {
-    u16 i = n->h11c;
-    if (n->eb && (n->f8 & 4)) {
-        if (w1790_tst((u8*)g->tbl, i * 8)) {
-            if (n->b11f) func_00148a68(g, n); else func_00147f08(g, n);
-        }
-    }
-    W1790Node* c = 0;
-    while ((c = w1790_next(n, c)) != 0) func_00148470(g, c);
-}
+void func_00148470(W1790Mgr* g, W1790Node* n);  // 0x00148470: definition moved into src/anon/unit_00147140.cpp
 }

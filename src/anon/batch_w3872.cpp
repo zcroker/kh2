@@ -22,41 +22,5 @@ extern "C" {
 s32 func_00144d10(Box83*, void*);
 s32 func_00146730(Sys83*, Box83*);
 
-void func_00148c50(Tree83* t, s32 node, void* q, s32* cnt, s32 k, void* x) {
-    register void* xin asm("$9");
-    void* xx;
-    s32 kp = k + 1;
-    Node83* n = &t->nodes[node];
-    u16* list = t->list;
-    asm("" : "=r"(xx) : "0"(xin), "r"(n) : "memory");
-    register s32 k2 asm("$8");
-    asm("" : "+r"(k2) : "r"(k) : "memory");
-    s32 km = k2 - 1;
-    s32 end = n->last;
-    s32 i = n->first;
-    for (; i < end; i++) {
-        if (t->tris[i].on && func_00144d10(&t->tris[i].box, q)) {
-            u8 g = t->tris[i].grp;
-            asm("" : : "r"(kp), "r"(end));
-            if (g == k || g == kp || g == km) {
-                switch (func_00146730(&t->sys, &t->tris[i].box)) {
-                case 0:
-                    break;
-                case 1:
-                    list[(*cnt)++] = i;
-                    break;
-                case 2:
-                    list[(*cnt)++] = i | 0x8000;
-                    break;
-                }
-            }
-        }
-    }
-    s32 j;
-    for (j = 0; j < 8; j++) {
-        s32 c = n->child[j];
-        if (c == -1) break;
-        if (func_00144d10(&t->nodes[c].box, q) == 1) func_00148c50(t, c, q, cnt, k, xx);
-    }
-}
+void func_00148c50(Tree83* t, s32 node, void* q, s32* cnt, s32 k, void* x);  // 0x00148c50: definition moved into src/anon/unit_00148c50.cpp
 }

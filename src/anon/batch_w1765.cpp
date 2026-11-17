@@ -24,13 +24,5 @@ void func_001c4200(void*, s32);
 
 void func_001c4188(void* p, f32 x);  // 0x001c4188: definition moved into src/anon/unit_001c4120.cpp
 
-void func_00146d68(W1765Mg* m) {
-    m->f5360 = 0;
-    W1765Slot* e = m->ents;
-    s32 n = m->n;
-    for (s32 i = 0; i < n; i++) {
-        for (W1765Nd* d = e[i].head; d; d = d->next) d->dst = d->src;
-        e[i].head = 0;
-    }
-}
+void func_00146d68(W1765Mg* m);  // 0x00146d68: definition moved into src/anon/unit_00145600.cpp
 }

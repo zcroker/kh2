@@ -39,14 +39,7 @@ extern Q134668 D_00347ce0;
 
 // Merge two boxes: componentwise min of the first corner, max of the second.
 void func_00144860(Box144860* __restrict o, Box144860* a, Box144860* b) asm("_Z13func_00144860Pv");
-void func_00144860(Box144860* __restrict o, Box144860* a, Box144860* b) {
-    o->mn[0] = a->mn[0] < b->mn[0] ? a->mn[0] : b->mn[0];
-    o->mn[1] = a->mn[1] < b->mn[1] ? a->mn[1] : b->mn[1];
-    o->mn[2] = a->mn[2] < b->mn[2] ? a->mn[2] : b->mn[2];
-    o->mx[0] = b->mx[0] < a->mx[0] ? a->mx[0] : b->mx[0];
-    o->mx[1] = b->mx[1] < a->mx[1] ? a->mx[1] : b->mx[1];
-    o->mx[2] = b->mx[2] < a->mx[2] ? a->mx[2] : b->mx[2];
-}
+void func_00144860(Box144860* __restrict o, Box144860* a, Box144860* b);  // 0x00144860: definition moved into src/anon/unit_00144450.cpp
 
 V11a858 func_0011a858(void);  // 0x0011a858: definition moved into src/anon/unit_0011a660.cpp
 

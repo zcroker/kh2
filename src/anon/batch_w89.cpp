@@ -478,37 +478,7 @@ void func_0031baa8(u8*);  // set_vtbl_3486a8_b
 void func_001070e8(u8*);
 void func_00106ac8(u8*);
 // Destructor body: member arrays destroyed back to front, then members and bases.
-void func_00145ab8(u8* o) {
-    NoTail nt;
-    if (o + 3168 != 0) {
-        E880* p = (E880*)(o + 3168) + 16;
-        E880* b = (E880*)(o + 3168);
-    top1:
-        if (b != p) { p--; p->vt[0](p); goto top1; }
-    }
-    *(u32*)(o + 1936) = (u32)D_0034c6e0;
-    func_0031bab8(o + 2352);
-    *(u32*)(o + 2080) = (u32)D_00349dc0;
-    func_0031baa8(o + 2080);  // set_vtbl_3486a8_b
-    *(u32*)(o + 1936) = (u32)D_00348d58;
-    if (o + 624 != 0) {
-        E80* p = (E80*)(o + 624) + 16;
-        E80* b = (E80*)(o + 624);
-    top2:
-        if (b != p) {
-            p--;
-            Q16* a = (Q16*)p;
-            if (a != 0) {
-                Q16* q = a + 5;
-            top3:
-                if (a != q) { q--; goto top3; }
-            }
-            goto top2;
-        }
-    }
-    func_001070e8(o + 288);
-    func_00106ac8(o + 32);
-}
+void func_00145ab8(u8* o);  // 0x00145ab8: definition moved into src/anon/unit_00145600.cpp
 }
 }
 
