@@ -133,34 +133,7 @@ s32 func_00276b90(void);
 extern "C" {
 s32 func_00276888(void);
 }
-s32 func_00276888(void) {
-    s32 r = 0, i;
-    if (func_00139d78(D_0035f21c)) r = 1;
-    if (r) return r;
-    if (func_00139d78(D_0035f21c + 408)) r = 1;
-    if (r) return r;
-    r = func_00139d78(D_0035f21c + 816) != 0;
-    if (r) return r;
-    if (func_00139d78(D_0035f21c + 1224)) r = 1;
-    if (r) return r;
-    r = func_00139d78(D_0035f21c + 1632) != 0;
-    if (r) return r;
-    if (func_00139d78(D_0035f21c + 2068)) r = 1;
-    if (r) return r;
-    r = func_00139d78(D_0035f21c + 2504) != 0;
-    if (r) return r;
-    if (func_00139d78(D_0035f21c + 2940)) r = 1;
-    if (r) return r;
-    r = func_00139d78(D_0035f21c + 3376) != 0;
-    if (r) return r;
-    for (i = 0; i < 32; i++) {
-        if (func_00139d78(D_0035f21c + i * 408 + 4248) || func_00139d78(D_0035f21c + i * 408 + 17304)) { r = 1; break; }
-    }
-    if (r) return r;
-    r = func_00276a90();
-    if (!r) r = func_00276b90();
-    return r;
-}
+s32 func_00276888(void);  // 0x00276888: definition moved into src/anon/unit_002748a0.cpp
 
 // ---- 0027e770
 typedef void (*VFn10)(u8*);

@@ -861,13 +861,7 @@ u32 func_0026aaf8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0026aaf8: definition mo
 
 u32 func_00271ec8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00271ec8: definition moved into src/anon/unit_00271e08.cpp
 
-u32 func_00276c18(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2;
-    r4 = (u32)((s32)0u + (18487));
-    u32 (*fp_call4_00181500)(u32, u32, u32, u32) = func_00181500;
-    r2 = fp_call4_00181500(r4, r5, r6, r7);
-    return r2;
-}
+u32 func_00276c18(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00276c18: definition moved into src/anon/unit_002748a0.cpp
 
 u32 func_0027b528(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0027b528: definition moved into src/anon/unit_0027a6d8.cpp
 

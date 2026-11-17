@@ -267,14 +267,7 @@ struct T26 { u8 pad[17]; u8 n; u8 pad2[18]; u16 a[1]; };
 void func_0026b508(void);  // 0x0026b508: definition moved into src/anon/unit_0026a900.cpp
 
 extern u8* D_0035f21c;
-void func_00276b10(void) {
-    for (s32 i = 0; i < 32; i++) {
-        if (func_00139d78(D_0035f21c + i * 408 + 0xa998)) {
-            VObj* o = (VObj*)(i * 408 + (u32)D_0035f21c + 0xa998);
-            ((void (*)(VObj*))o->vt[5])(o);
-        }
-    }
-}
+void func_00276b10(void);  // 0x00276b10: definition moved into src/anon/unit_002748a0.cpp
 
 s32 func_00276a90(void);
 void func_00276b90(void);

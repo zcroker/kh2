@@ -364,29 +364,7 @@ void func_002aecf0(s32);
 void func_00275cb8(void);
 void func_002763c8(void);
 
-void func_002749f0(void) {
-    func_00274ac8();
-    if (func_00139d78(D_0035f208)) D_0035f208->f20();
-    func_0028f878();
-    func_0028d620(D_0035f218);
-    func_00276e28();
-    func_002945a8();
-    func_00295868();
-    func_00297010();
-    func_00297e00(-1);
-    func_002995a8();
-    func_0029aac0(-1);
-    func_0029ee38();
-    func_002a07f0(-1);
-    func_002a2150();
-    func_002a4df8();
-    func_002a6a18();
-    func_002a7760();
-    func_002a8a88();
-    func_002aecf0(1);
-    func_00275cb8();
-    func_002763c8();
-}
+void func_002749f0(void);  // 0x002749f0: definition moved into src/anon/unit_002748a0.cpp
 
 void func_00288c58(void*, s16);
 void func_00288f48(void*, s32, s32, s32, s32);

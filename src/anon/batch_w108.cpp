@@ -243,32 +243,7 @@ void func_00139510(void*);
 void func_00276a18(void);
 void func_00276b10(void);
 
-void func_002766e0(void)
-{
-    s32 i;
-
-    if (func_00139d78(D_0035f21c->a)) func_00139510(D_0035f21c->a);
-    if (func_00139d78(D_0035f21c->b)) func_00139510(D_0035f21c->b);
-    if (func_00139d78(D_0035f21c->c)) func_00139510(D_0035f21c->c);
-    if (func_00139d78(D_0035f21c->d)) func_00139510(D_0035f21c->d);
-    if (func_00139d78(D_0035f21c->e)) func_00139510(D_0035f21c->e);
-    if (func_00139d78(D_0035f21c->f)) func_00139510(D_0035f21c->f);
-    if (func_00139d78(D_0035f21c->g)) func_00139510(D_0035f21c->g);
-    if (func_00139d78(D_0035f21c->h)) func_00139510(D_0035f21c->h);
-    if (func_00139d78(D_0035f21c->i)) func_00139510(D_0035f21c->i);
-    for (i = 0; i < 32; i++) {
-        if (func_00139d78(&D_0035f21c->tasks0[i])) {
-            Task276* t = ((Big276*)(i * sizeof(Task276) + (u32)D_0035f21c))->tasks0;
-            t->vt->update(t);
-        }
-        if (func_00139d78(&D_0035f21c->tasks1[i])) {
-            Task276* t = ((Big276*)(i * sizeof(Task276) + (u32)D_0035f21c))->tasks1;
-            t->vt->update(t);
-        }
-    }
-    func_00276a18();
-    func_00276b10();
-}
+void func_002766e0(void);  // 0x002766e0: definition moved into src/anon/unit_002748a0.cpp
 }
 
 extern "C" {

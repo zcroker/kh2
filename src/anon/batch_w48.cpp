@@ -241,14 +241,7 @@ extern u8* D_0035f20c;
 s32 func_00192048(s32);
 struct S275 { u8 pad[408]; s32 v; };
 static inline S275* sub275() { return (S275*)(D_0035f20c + 1308); }
-void func_00275f08(s32 i) {
-    func_00139d78(sub275());
-    if (i < 0) {
-        *(u32*)(D_0035f20c + 1716) = 0;
-        return;
-    }
-    sub275()->v = func_00192048(i);
-}
+void func_00275f08(s32 i);  // 0x00275f08: definition moved into src/anon/unit_002748a0.cpp
 
 u8* func_00294000(s32);
 u8 func_002941d8(u8*);

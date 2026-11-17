@@ -251,41 +251,7 @@ s32 func_00277708w0(s32 start)
 }
 
 
-s32 func_00277708(s32 start)
-{
-    u16* t0 = func_0026b850();
-    s32 mask = func_002813b8();
-    *D_0035f230 = mask;
-    s32 n = 0;
-    s32 j = start;
-    u16* tbl = t0;
-    for (s32 i = 0; i < 7; i++, tbl++) {
-        if (i == 6) continue;
-        u8 off = ((mask >> i) ^ 1) & 1;
-        if (off) continue;
-        n++;
-        s32 a = func_00257118(0);
-        s32 b = func_00257118(1);
-        func_00288d80(D_0035f01c, j, D_0035ef68, D_0035ef64, D_0035f03c, -1, a, b);
-        func_00288e08(D_0035f01c, j, 0, -1);
-        func_00139620(func_002891b8(D_0035f01c, j));
-        u8* nd = func_002891b8(D_0035f01c, j);
-        *(s32*)(nd + 408) = func_00192048(*tbl);
-        func_001395f8(func_002891b8(D_0035f01c, j++));
-    }
-    if (!func_0027aa78()) return n;
-    n++;
-    s32 a = func_00257118(0);
-    s32 b = func_00257118(1);
-    func_00288d80(D_0035f01c, j, D_0035ef68, D_0035ef64, D_0035f03c, -1, a, b);
-    func_00288e08(D_0035f01c, j, 0, -1);
-    func_00139620(func_002891b8(D_0035f01c, j));
-    u8* nd = func_002891b8(D_0035f01c, j);
-    *(s32*)(nd + 408) = func_00192048(0xb2ec);
-    func_001395f8(func_002891b8(D_0035f01c, j));
-    *D_0035f230 |= 0x80;
-    return n;
-}
+// 0x00277708: definition moved into src/anon/unit_00277708.cpp
 
 
 

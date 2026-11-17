@@ -299,32 +299,7 @@ void func_00275c78(void);
 static inline bool Busy274(u8* m) { return *(u32*)(m + 400) || *(u32*)(m + 396); }
 
 // Per-frame update of the menu subsystems.
-void func_002748a0(void) {
-    if (func_0028acc8(D_0035f200) && !func_0028acb8(D_0035f200)) {
-        if (!Busy274(func_002891b8(D_0035f200, 0))) func_0028aa40(D_0035f200);
-    }
-    if (func_00139d78(D_0035f204)) func_00276300();
-    if (func_00139d78(D_0035f208)) (*(void (**)(u8*))(*(u8**)D_0035f208 + 20))(D_0035f208);
-    func_0028f7a0();
-    func_0028d5d0(D_0035f218);
-    func_00276dc0();
-    func_002945a0();
-    func_00295860();
-    func_00297008();
-    func_00297df8();
-    func_002995a0();
-    func_0029aa30();
-    func_0029ee30();
-    func_002a0780();
-    func_002a2148();
-    func_002a4df0();
-    func_002a6a10();
-    func_002a7758();
-    func_002a8a80();
-    func_002aece8();
-    func_00276dc0();
-    func_00275c78();
-}
+void func_002748a0(void);  // 0x002748a0: definition moved into src/anon/unit_002748a0.cpp
 
 extern u32 D_0035f3d4;
 extern u32 D_0035ef68;
@@ -409,26 +384,7 @@ u32 func_0023aa38(u8*);
 void func_00138c68(u8*, u32, u32);
 
 // Opens (or retargets) the info window for id; optionally fills it from the current entry.
-void func_00276c88(u32 id, u8 flag) {
-    u8* w = D_0035f21c + 3812;
-    if (!func_00276df8()) {
-        func_0028d980(w, 30045, D_0035f14c, D_0035f148, D_0035f210, 145, -1, -1, 0);
-        if (func_00139d78(D_0035f20c + 1308)) func_0028dcc0(w, (u32)(D_0035f20c + 1308));
-        *(u32*)(w + 408) = id;
-        func_001395f8(w);
-        if (flag) {
-            func_00139d78(D_0035f20c + 1308);
-            u32 x = func_0023aa18(D_0035f20c + 1332);
-            func_00138c68(w, x, func_0023aa38(D_0035f20c + 1332));
-        }
-    } else {
-        *(u32*)(w + 408) = id;
-        if (*(s32*)(w + 388) != 145) {
-            func_00138c10(w, 145);
-            *(s32*)(w + 392) = -1;
-        }
-    }
-}
+void func_00276c88(u32 id, u8 flag);  // 0x00276c88: definition moved into src/anon/unit_002748a0.cpp
 
 extern u16 D_00374cb0[][2];
 extern u32 D_00374c9c;

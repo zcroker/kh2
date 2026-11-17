@@ -11487,10 +11487,7 @@ u32 duplicate_unplaced_00275c78(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, 
     return ((u32(*)())func_00275dd0)();
 }
 
-u32 func_00275dd0(void) {
-    ((u32(*)(u32, u32))func_0028dac8)(*(u32*)((u8*)&D_00360000 - 3572), 49);
-    return ((u32(*)(u32, u32))func_0028dac8)(*(u32*)((u8*)&D_00360000 - 3572) + 436, 52);
-}
+u32 func_00275dd0(void);  // 0x00275dd0: definition moved into src/anon/unit_002748a0.cpp
 
 u32 duplicate_unplaced_00275ec8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r2, r15, r16, r17;

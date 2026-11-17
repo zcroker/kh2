@@ -589,39 +589,7 @@ void func_00276588(s32);
 void func_0028fb28(s32, s32);
 void func_002a77a0(void);
 // Creates this screen's main object and item, then enters the mode-specific setup.
-void func_00274fa8(void)
-{
-    Pt27* p = func_00276fa8();  // global_ptr_by_flag2
-    u8* o = (u8*)func_0023ee30(160);
-    *(u32*)o = (u32)D_00347f98;
-    func_0031a838(o + 12);
-    *(u32*)o = (u32)D_0035eb98;
-    func_002369a0(o + 24);  // obj_ctor_36eac8
-    func_0023c008(o + 48);  // obj_ctor_36eae8
-    D_0035f210.p = o;
-    func_0028d7f0(o, 30039, 0, 0, p->x, p->y, 0, 0, 0);
-    func_0023ef50(D_0035f210.p);
-    func_0028f280(D_0035f148, D_0035f14c, D_0035f210.p, D_00373d78, D_00373d80);
-    func_00276598();
-    Heap27* h = D_00347f80->heap;
-    Item27* it = (Item27*)((AllocFn27)h->vt[0])(h, 408, 0);
-    it->f12 = 0;
-    it->vt = D_00347e60;
-    func_00239700(it->sub);
-    D_0035f204 = it;
-    func_00276220(0, 0);
-    func_00275af8();
-    switch (func_00287bc0()) {
-    case 0: func_002945e8(); break;
-    case 1: func_00296588(); break;
-    case 2: func_002958b0(); break;
-    case 11:
-        func_00276588(1);
-        func_0028fb28(0, 12881);
-        func_002a77a0();
-        break;
-    }
-}
+void func_00274fa8(void);  // 0x00274fa8: definition moved into src/anon/unit_002748a0.cpp
 }
 
 extern "C" {

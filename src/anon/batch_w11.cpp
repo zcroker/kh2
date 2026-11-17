@@ -190,10 +190,7 @@ void func_0023fe28(void* a) {
 
 extern u8* D_0035f20c;
 void func_00139d78(void*);
-void func_00275ec8(u32 v) {
-    func_00139d78(D_0035f20c + 872);
-    *(u32*)(D_0035f20c + 1280) = v;
-}
+void func_00275ec8(u32 v);  // 0x00275ec8: definition moved into src/anon/unit_002748a0.cpp
 
 void func_00281008(void*, void*);
 void func_00280ef8(void*, void*);

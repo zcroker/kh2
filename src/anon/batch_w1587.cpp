@@ -18,7 +18,7 @@ u8* func_001063f0(u32, u32);
 
 void func_002936d8(void) { D_0035f4f0 = 1; }
 
-void func_00276fe8(void) { D_0035f230 = 0; func_00277020(); }
+void func_00276fe8(void);  // 0x00276fe8: definition moved into src/anon/unit_002748a0.cpp
 
 void func_00293500(u32 a0, u32 a1, u32 a2) { func_002933d8(a0, a1, a2, D_0035f4ec); }
 

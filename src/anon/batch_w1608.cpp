@@ -21,30 +21,7 @@ void func_002a82f8(s32, u32, s32);
 void func_002a9570(s32, u32, s32);
 extern s32 D_0035f218;
 
-void func_002756f8(s32 a0, u32 a1, s32 a2) {
-    if (func_00287cd0(a0) != 1) return;
-    if (func_00289310(a0)) {
-        func_002891e8(a0);
-        if (func_0028d008(a2)) func_0028cf28(a2, func_002891d0(a0));
-        if (func_0028d6e8(D_0035f218)) func_0028d660(D_0035f218, func_002891d0(a0));
-    }
-    if (func_00289310(a0) || func_00289358(a0)) {
-        switch (a1) {
-        case 0: func_00295668(a0, a1, a2); return;
-        case 1: case 2: func_00296ea8(a0, a1, a2); return;
-        case 3: func_00297878(a0, a1, a2); return;
-        case 4: case 5: func_00298e20(a0, a1, a2); return;
-        case 13: func_0029a718(a0, a1, a2); return;
-        case 14: case 15: case 16: case 17: case 18: case 19: case 20: case 21: case 22: case 23:
-            func_0029cd70(a0, a1, a2); return;
-        case 24: case 25: func_002a0168(a0, a1, a2); return;
-        default: return;
-        case 10: case 35: func_002a9570(a0, a1, a2); return;
-        case 11: case 36: func_002a82f8(a0, a1, a2); return;
-        case 37: case 38: func_002a6308(a0, a1, a2); return;
-        }
-    }
-}
+void func_002756f8(s32 a0, u32 a1, s32 a2);  // 0x002756f8: definition moved into src/anon/unit_002748a0.cpp
 
 void func_00138c10(u8*, s32);
 void func_00138c68(u8*, s32, s32);

@@ -144,29 +144,7 @@ s32 func_00281140(s32, s32);
 void func_0028fb68(s32, s32);
 void func_00279040(void);
 void func_00277d20(void);
-void func_00277178(s32 a0, s32 a1) {
-    func_0028fb28(0, *(u16*)(func_002570e0() + 54));
-    func_00257050(0, 1, 0);
-    if (a0 == 15) {
-        func_002772c8(a1);
-        return;
-    }
-    PU269* p = (PU269*)D_0035f230.p;
-    p->h = func_002813b8();
-    u8* q = D_0035f230.p;
-    s32 r = func_0027ae20();
-    q[6] = r + func_00281100(D_0035f010);
-    if (func_0027aa78()) *(u16*)D_0035f230.p |= 0x80;
-    if (a1) a1 += func_0027ae20();
-    if (func_00257070(15) != a1) {
-        func_00257050(16, 0, 0);
-        func_00257050(15, a1, 0);
-    }
-    if (a1) a1 -= func_0027ae20();
-    func_0028fb68(1, func_00281140(D_0035f010, a1));
-    func_00279040();
-    func_00277d20();
-}
+void func_00277178(s32 a0, s32 a1);  // 0x00277178: definition moved into src/anon/unit_002748a0.cpp
 
 extern u8* D_0035f2c8;
 extern u8* D_0035f2cc;

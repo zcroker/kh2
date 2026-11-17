@@ -16,14 +16,6 @@ extern "C" void func_0027a898(u32);
 extern "C" void func_0027acf8();
 extern "C" void func_00256ea8();
 
-void CmAbility::LeaveAll() {
-    if ((u32)(func_00287bc0() - 15u) >= 5u) {
-        return;
-    }
-    func_0027a180();
-    func_0027a898(1u);
-    func_0027acf8();
-    func_00256ea8();
-}
+// 0x00277128: definition moved into src/anon/unit_002748a0.cpp
 
 }  // namespace Tz

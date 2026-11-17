@@ -37,30 +37,7 @@ void CmComm_FontIcon(s32, char*, bool) asm("_ZN2Tz6CmComm8FontIconEiPcb");
 s32 CmComm_GetIconMsgSize(void) asm("_ZN2Tz6CmComm14GetIconMsgSizeEv");
 u8* CmComm_CopyMessage(char*, u8*) asm("_ZN2Tz6CmComm11CopyMessageEPcPKN2YS7MESSAGEE");
 s32 MESSAGE_get_size(u8*) asm("_ZNK2YS7MESSAGE8get_sizeEv");
-void func_00275f68(s32 a, s32 b) {
-    char* s;
-    s32 m;
-    u_call4_00139d78(D_0035f20c + 1308);
-    if (a < 0) {
-        *(u32*)(D_0035f20c + 408) = 0;
-    } else {
-        m = func_00259510(1024);
-        s = (char*)(D_0035f20c + 1744);
-        CmComm_FontIcon(m, s, 1);
-        s += CmComm_GetIconMsgSize();
-        CmComm_CopyMessage(s, u_tail4_00192048(a));
-        *(u8**)(D_0035f20c + 408) = D_0035f20c + 1744;
-    }
-    if (b < 0) {
-        *(u32*)(D_0035f20c + 844) = 0;
-    } else {
-        m = func_00259510(2048);
-        s = (char*)(D_0035f20c + 1808);
-        s += MESSAGE_get_size(CmComm_CopyMessage(s, u_tail4_00192048(b)));
-        CmComm_FontIcon(m, s, 1);
-        *(u8**)(D_0035f20c + 844) = D_0035f20c + 1808;
-    }
-}
+void func_00275f68(s32 a, s32 b);  // 0x00275f68: definition moved into src/anon/unit_002748a0.cpp
 void w_memset(void*, s32, u32) asm("_Z16wtarget_002fde18jjjj");
 u8* AREA_Alloc(u32) asm("_ZN4AREA5AllocEj");
 s32 ATTACK_CHECK_NewComboGroup(void) asm("_ZN2YS12ATTACK_CHECK13NewComboGroupEv");

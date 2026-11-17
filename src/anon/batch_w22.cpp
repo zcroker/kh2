@@ -221,11 +221,7 @@ E243* func_00243150(s32 id) {
 u32 func_00192048(u32);
 u32 func_00276c88(u32, u8);
 u32 JmReport_DrawMessage(s32, u8) asm("_ZN2Tz8JmReport11DrawMessageEjj");
-u32 JmReport_DrawMessage(s32 a, u8 b) {
-    u32 p = 0;
-    if (a >= 0) p = func_00192048(a);
-    return func_00276c88(p, b);
-}
+u32 JmReport_DrawMessage(s32 a, u8 b);  // 0x00276c50: definition moved into src/anon/unit_002748a0.cpp
 
 // --- 002811f8
 // Index of the entry with the given id, or -1.

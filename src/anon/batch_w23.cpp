@@ -166,11 +166,7 @@ s32 func_00253948(s32 x) {
 extern u8* D_0035f20c;
 void func_0028dac8(void*, s32);
 void func_00275dd0(void);
-void func_00275c78(void) {
-    func_0028dac8(D_0035f20c + 872, 55);
-    func_0028dac8(D_0035f20c + 1308, 46);
-    func_00275dd0();
-}
+void func_00275c78(void);  // 0x00275c78: definition moved into src/anon/unit_002748a0.cpp
 
 void func_00281f40(void*, s32);
 void func_00281f48(void*);  // memset_1920

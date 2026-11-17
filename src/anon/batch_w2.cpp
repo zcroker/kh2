@@ -169,9 +169,7 @@ void func_00258d58(s32 a, s32 b, s32 c);  // 0x00258d58: definition moved into s
 
 u8 func_00263688(void);  // 0x00263688: definition moved into src/anon/unit_002632d0.cpp
 
-u8 func_00276f38(void) {
-    return func_00139d78(D_0035f21c + 408);
-}
+u8 func_00276f38(void);  // 0x00276f38: definition moved into src/anon/unit_002748a0.cpp
 
 Entry8* func_0028ac98(Table8* t, s32 id);  // 0x0028ac98: definition moved into src/anon/unit_00288b00.cpp
 

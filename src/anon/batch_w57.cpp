@@ -172,13 +172,7 @@ u32 func_00263e18(void);  // 0x00263e18: definition moved into src/anon/unit_002
 // Does any of the 32 records satisfy the predicate?
 u32 func_00139d78(u32);
 extern u8* D_0035f21c;
-u32 func_00276a90(void) {
-    u32 r = 0;
-    for (s32 i = 0; i < 32; i++) {
-        if (func_00139d78((u32)D_0035f21c + i * 408 + 30360)) { r = 1; break; }
-    }
-    return r;
-}
+u32 func_00276a90(void);  // 0x00276a90: definition moved into src/anon/unit_002748a0.cpp
 
 void func_0028d6e8(void*);
 void func_001396b0(void*);

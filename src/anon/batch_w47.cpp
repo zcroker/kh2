@@ -178,11 +178,7 @@ s32 func_00259350(u32 a);  // 0x00259350: definition moved into src/anon/unit_00
 
 extern u8* D_0035f20c;
 u32 func_00192048(s32);
-void func_00275e68(s32 a) {
-    func_00139d78(D_0035f20c + 872);
-    if (a < 0) *(u32*)(D_0035f20c + 1280) = 0;
-    else { u8* o = D_0035f20c + 872; *(u32*)(o + 408) = func_00192048(a); }
-}
+void func_00275e68(s32 a);  // 0x00275e68: definition moved into src/anon/unit_002748a0.cpp
 
 // Sets entry b of the table to a, or every entry when b < 0.
 extern s32 D_0035f404;

@@ -682,29 +682,7 @@ s32 func_002953c8(s32);
 s32 func_002941d8(s32);
 s32 func_00296f90(void);  // get_global_36f598
 s32 func_00296f80(void);  // get_global_36f594
-void func_00274cf0(s32 m)
-{
-    switch (m) {
-    case 0:
-        func_00293bd0(1, 0, 0);
-        break;
-    case 1:
-        func_00293bd0(2, func_00296f80(), 0);
-        break;
-    case 2:
-        if (*D_0035f1fc == 1) {
-            if (func_002941d8(func_002953c8(1))) {
-                func_00293bd0(2, func_00296f90(), 0);
-                break;
-            }
-        }
-        func_00293bd0(2, func_002953c8(*D_0035f1fc) + 1, 0);
-        break;
-    case 13:
-        func_00293bd0(2, func_002953c8(15) + 1, 0);
-        break;
-    }
-}
+void func_00274cf0(s32 m);  // 0x00274cf0: definition moved into src/anon/unit_002748a0.cpp
 }
 }
 

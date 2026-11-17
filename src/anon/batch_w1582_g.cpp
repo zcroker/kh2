@@ -45,13 +45,5 @@ extern u32 D_0035f210;
 extern s8* D_0035f1fc;
 extern u8* D_0035f21c;
 extern u16 D_00373d40[];
-void func_00276e78(void) {
-    s32 r = func_00276348();
-    s32 mode = func_00287bc0();
-    s32 i = D_0035f1fc[1];
-    if (mode == 16 || mode == 19 || mode == 22) i += 2;
-    func_0028d8c0(D_0035f21c + 408, 30042, D_0035f14c, D_0035f148, D_0035f210, D_00373d40[i], -1, 0);
-    func_00139620(D_0035f21c + 408);
-    func_0028dcc0(D_0035f21c + 408, r);
-}
+void func_00276e78(void);  // 0x00276e78: definition moved into src/anon/unit_002748a0.cpp
 }

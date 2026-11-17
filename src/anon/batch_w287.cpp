@@ -27,43 +27,7 @@ void func_00236d60(void);  // clear_64_entries_24
 s32 func_00275180(void);
 void func_00275438(void);
 void func_00274e50(void);
-void func_00274b40(s32 a0) {
-    func_002593b8(3, a0);
-    func_00276410();
-    func_00293bd0(0, 0, 0);
-    func_00274db8();
-    func_002a7588();
-    func_002925c0();
-    func_00102448(a0, 1);
-    func_00170dd0(a0);
-    func_00274e08();
-    if (!(D_0035f140 & 4)) {
-        func_00293fc0();
-        func_00294020(0);
-    }
-    func_002a75c0();
-    while (func_00292630()) func_00102448(a0, 0);
-    func_00274cf0(func_00287bc0());  // state_dispatch_0_1_2
-    func_002925c0();
-    func_00102448(a0, 0);
-    func_00170dd0(a0);
-    for (;;) { if (!D_0035f222) break; func_00102448(a0, 0); }
-    func_002b3440();
-    func_002a9d88();
-    func_002acf48();
-    func_00274fa8();
-    func_00292870();
-    func_00242618(11, 1);
-    for (;;) {
-        func_00236d60();  // clear_64_entries_24
-        if (func_00275180()) break;
-        func_00275438();
-        func_00102448(a0, 0);
-    }
-    func_00274e50();
-    while (func_00292630()) func_00102448(a0, 0);
-    return;
-}
+void func_00274b40(s32 a0);  // 0x00274b40: definition moved into src/anon/unit_002748a0.cpp
 }
 struct Ent253 { s16 a; s16 id; s32 pad[2]; s32* val; };
 extern "C" {

@@ -259,19 +259,7 @@ u32 func_00271870(u32 key);  // 0x00271870: definition moved into src/anon/unit_
 
 extern u8* D_0035f21c;
 u32 func_00139d78(u8*);
-u32 func_00276b90(void) {
-    s32 i;
-    u32 r = 0;
-    u8* q;
-    for (i = 0; i < 32; i++) {
-        q = D_0035f21c;
-        if (func_00139d78(q + i * 408 + 0xa998)) {
-            r = 1;
-            break;
-        }
-    }
-    return r;
-}
+u32 func_00276b90(void);  // 0x00276b90: definition moved into src/anon/unit_002748a0.cpp
 
 void func_00290580(u8*);
 void func_00138c10(u8*, s16);

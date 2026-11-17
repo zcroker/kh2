@@ -3645,14 +3645,7 @@ void duplicate_unplaced_00274ac8() {
 
 extern "C" void func_00274ee8(u32) asm("_ZN2Tz6Jiminy6WMInitEP9ALLOCATOR");
 
-void func_00275980(u32 a0, u32 a1) {
-    u32 s0 = a0;
-    u32 s1 = a1;
-    if (func_0028d008(s0, s1) == 0) {
-        func_0028cc78(s0, D_0035f14c, D_0035f148, D_0035f210, 33, 33);
-    }
-    func_0028cf28(s0, s1);  // record408_set_and_refresh
-}
+void func_00275980(u32 a0, u32 a1);  // 0x00275980: definition moved into src/anon/unit_002748a0.cpp
 
 void duplicate_unplaced_002759e8(u32 a0) {
     u32 s0 = a0;
@@ -3678,38 +3671,11 @@ void duplicate_unplaced_00275a80() {
     func_00275d10();
 }
 
-void func_00275af8() {
-    if (func_00139d78(D_0035f20c + 1308) == 0) {
-        func_0028d980(D_0035f20c + 1308, 30040, D_0035f14c, D_0035f148, D_0035f210, 44, 45, -1, 0);
-    }
-}
+void func_00275af8();  // 0x00275af8: definition moved into src/anon/unit_002748a0.cpp
 
-void func_00275cb8() {
-    if (func_00139d78(D_0035f20c + 872) != 0) {
-        func_00139510(D_0035f20c + 872);
-    }
+void func_00275cb8();  // 0x00275cb8: definition moved into src/anon/unit_002748a0.cpp
 
-    if (func_00139d78(D_0035f20c + 1308) != 0) {
-        func_00139510(D_0035f20c + 1308);
-    }
-
-    func_00275e08();
-}
-
-void func_00276a18() {
-    s32 s0 = 0;
-    s32 s1 = 31;
-    do {
-        if (func_00139d78(D_0035f21c + s0 + 30360) != 0) {
-            u32 p = s0 + D_0035f21c;
-            u32 vt = *(u32*)(p + 30360);
-            u32 fn = *(u32*)(vt + 20);
-            ((void (*)(u32))fn)(p + 30360);
-        }
-        s1 -= 1;
-        s0 += 408;
-    } while (s1 >= 0);
-}
+void func_00276a18();  // 0x00276a18: definition moved into src/anon/unit_002748a0.cpp
 
 void func_0027a898(u32 a0);  // 0x0027a898: definition moved into src/anon/unit_0027a6d8.cpp
 

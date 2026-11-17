@@ -647,12 +647,7 @@ static inline void reset275(s32 i, s32 id) {
 }
 
 // puts the four menu cursors back on their idle animations
-void func_00275b60(void) {
-    reset275(2, 54);
-    reset275(3, 45);
-    reset275(0, 48);
-    reset275(1, 51);
-}
+void func_00275b60(void);  // 0x00275b60: definition moved into src/anon/unit_002748a0.cpp
 }
 
 // ---- 27c5a0 ----

@@ -374,39 +374,11 @@ extern u32 D_0035f14c;
 extern u32 D_0035f148;
 extern u32 D_0035f210;
 void func_0028d980(u8*, s32, u32, u32, u32, s32, s32, s32, s32);
-void func_00275d10(void)
-{
-    if (!func_00139d78(D_0035f20c.p)) {
-        func_0028d980(D_0035f20c.p, 30040, D_0035f14c, D_0035f148, D_0035f210, 47, 48, -1, 0);
-        *(s32*)(D_0035f20c.p + 432) = 2;
-    }
-    if (!func_00139d78(D_0035f20c.p + 436)) {
-        func_0028d980(D_0035f20c.p + 436, 30040, D_0035f14c, D_0035f148, D_0035f210, 50, 51, -1, 0);
-        *(s32*)(D_0035f20c.p + 868) = 2;
-    }
-}
+void func_00275d10(void);  // 0x00275d10: definition moved into src/anon/unit_002748a0.cpp
 
 void func_00276088(u32, s32*, s32*);
 extern u16 D_00373d70[3];
-void func_00276150(u32 a, s32* out0, s32* out1)
-{
-    s32 v0, v1;
-    func_00276088(a, &v0, &v1);
-    for (s32 k = 0; k < 2; k++) {
-        s32 x;
-        if (k == 0) x = v0; else x = v1;
-        for (s32 j = 0; j < 3; j++) {
-            if (D_00373d70[j] == x) { x = j; break; }
-        }
-        s32 r = -1;
-        switch (x) {
-        case 0: r = 0; break;
-        case 1: r = 2; break;
-        case 2: r = 13; break;
-        }
-        if (k == 0) *out0 = r; else *out1 = r;
-    }
-}
+void func_00276150(u32 a, s32* out0, s32* out1);  // 0x00276150: definition moved into src/anon/unit_002748a0.cpp
 u8* func_0023f1b0(void*);
 u32 func_0023c3e0(u8*, s32, s32);
 u32 func_0028dbf8(void* a, s16* keys, s16* vals);  // 0028dbf8: moved to src/anon/unit_0028c878.cpp

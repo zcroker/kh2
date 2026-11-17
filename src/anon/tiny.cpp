@@ -183,7 +183,7 @@ void func_0025f550(BD_VALUE* bd);  // 0x0025f550: definition moved into src/anon
 void func_002631f8(BD_VALUE* bd);  // 0x002631f8: definition moved into src/anon/unit_0025f6b8.cpp
 void func_00267608(BD_VALUE* bd);  // 0x00267608: definition moved into src/anon/unit_00265580.cpp
 void func_002677d8(BD_VALUE* bd);  // 0x002677d8: definition moved into src/anon/unit_00265580.cpp
-void func_00277008(BD_VALUE* bd) { func_00277070(bd); }
+void func_00277008(BD_VALUE* bd);  // 0x00277008: definition moved into src/anon/unit_002748a0.cpp
 void func_0027b510(BD_VALUE* bd);  // 0x0027b510: definition moved into src/anon/unit_0027a6d8.cpp
 void func_00280ec8(BD_VALUE* bd);  // 0x00280ec8: definition moved into src/anon/unit_0027f2b0.cpp
 void func_00280ee0(BD_VALUE* bd);  // 0x00280ee0: definition moved into src/anon/unit_0027f2b0.cpp

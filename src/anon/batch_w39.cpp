@@ -369,13 +369,7 @@ extern u32 D_0035f200;
 int func_002892f8(u32);
 int func_0028acc8(u32);
 void func_00288e88(u32);
-void func_00276438(void) {
-    if (!D_0035f200) return;
-    int a = func_002892f8(D_0035f200);
-    if (func_0028acc8(D_0035f200)) return;
-    if (!a) return;
-    func_00288e88(D_0035f200);
-}
+void func_00276438(void);  // 0x00276438: definition moved into src/anon/unit_002748a0.cpp
 
 // --- 00288fd8
 // Fills the 4 entries of row i of both tables (second one with w, or v if w is 0).

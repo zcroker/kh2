@@ -327,16 +327,7 @@ s32 func_00276368(void);
 void func_00138c10(void*, s32);
 void func_0028d8c0(void*, s32, u32, u32, u32, s32, s32, s32);
 // plays the selected entry's cue (mode picks the table)
-void func_00276220(s32 mode, s32 idx) {
-    s16* t;
-    if (!mode) t = D_00373d60; else t = D_00373d68;
-    if (!func_00276368())
-        func_0028d8c0(D_0035f204, 30041, D_0035f14c, D_0035f148, D_0035f210, t[idx], -1, 0);
-    else
-        func_00138c10(D_0035f204, t[idx]);
-    if (idx == 0) *(s32*)(D_0035f204 + 392) = t[2]; else *(s32*)(D_0035f204 + 392) = -1;
-    D_0035f144 = mode;
-}
+void func_00276220(s32 mode, s32 idx);  // 0x00276220: definition moved into src/anon/unit_002748a0.cpp
 
 extern f32 D_0035f294;
 extern f32 D_00349e10;

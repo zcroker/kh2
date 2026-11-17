@@ -278,10 +278,7 @@ void func_0024c828(void) {
     }
 }
 
-void func_00275e08(void) {
-    if (func_00139d78(D_0035f20c)) func_00139510(D_0035f20c);
-    if (func_00139d78(D_0035f20c + 436)) func_00139510(D_0035f20c + 436);
-}
+void func_00275e08(void);  // 0x00275e08: definition moved into src/anon/unit_002748a0.cpp
 
 void func_0028b078(u8* a0, s32 a1, s32 a2);  // 0x0028b078: definition moved into src/anon/unit_00288b00.cpp
 

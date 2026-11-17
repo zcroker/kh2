@@ -185,15 +185,9 @@ void func_00258a88(void);  // 0x00258a88: definition moved into src/anon/unit_00
 
 void func_002691c8(void);  // 0x002691c8: definition moved into src/anon/unit_00268b30.cpp
 
-void func_00276410(void) {
-    func_0023fa08((u32)D_0035f3a8, func_002537c8(3));
-}
+void func_00276410(void);  // 0x00276410: definition moved into src/anon/unit_002748a0.cpp
 
-u32 func_00276df8(void) {
-    u32 p = D_0035f21c;
-    if (p == 0) return 0;
-    return func_00139d78(p + 3812);
-}
+u32 func_00276df8(void);  // 0x00276df8: definition moved into src/anon/unit_002748a0.cpp
 
 void func_00288610(void);  // 0x00288610: definition moved into src/anon/unit_002880b8.cpp
 
