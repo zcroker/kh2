@@ -65,43 +65,12 @@ extern void DisableIntc(int);
 extern void func_00305320(int, int);
 extern int func_00305300(int, int, int);
 extern void EnableIntc(int);
-int sceGsSyncVCallback(int a)
-{
-    P *p = sceGsGetGParam();
-    int old = p->f8;
-    if (a == 0) {
-        DisableIntc(2);
-        func_00305320(2, p->fc);
-        p->fc = 0;
-        p->f8 = 0;
-    } else {
-        if (old) {
-            DisableIntc(2);
-            func_00305320(2, p->fc);
-        }
-        p->f8 = a;
-        p->fc = func_00305300(2, a, -1);
-        EnableIntc(2);
-    }
-    return old;
-}
+/* 0x002f33f0 sceGsSyncVCallback: definition moved into src/sdk/libgraph3.c */
 
 extern void func_00305ab0(void);
 extern long func_00305b40(void);
 int sceGsSyncV(int x) asm("_Z10sceGsSyncVi") __attribute__((section(".text._Z13func_002f2508i")));
-int sceGsSyncV(int x)
-{
-    P *p = sceGsGetGParam();
-    long r;
-    if (p->f8 == 0) {
-        func_00305ab0();
-        if (p->s0 != 1) return 1;
-        return (*(volatile unsigned long *)0x12001000 >> 13) & 1;
-    }
-    r = (func_00305b40() >> 13) & 1;
-    if (p->s0 != 1) return 1;
-    return r;
-}
+/* 0x002f2508 sceGsSyncV: definition moved into src/sdk/libgraph2.c */
 
 extern int func_002f6fc0(int);
 extern int func_002f72c0(int);

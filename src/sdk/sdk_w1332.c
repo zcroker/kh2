@@ -110,34 +110,4 @@ typedef struct { u64 w[10]; u64 giftag1; u64 x58; } GsLoadImage;
 #define D2_CHCR ((volatile unsigned int *)0x1000a000)
 #define D2_MADR ((volatile unsigned int *)0x1000a010)
 #define D2_QWC  ((volatile unsigned int *)0x1000a020)
-int sceGsExecLoadImage(GsLoadImage *lp, void *src)
-{
-    unsigned int i = 0;
-    while (*D2_CHCR & 0x100) {
-        if (i++ > 0x1000000)
-            goto err;
-    }
-    *D2_QWC = 6;
-    if (((unsigned int)lp & 0x70000000) == 0x70000000)
-        *D2_MADR = ((unsigned int)lp & 0x0fffffff) | 0x80000000;
-    else
-        *D2_MADR = (unsigned int)lp & 0x0fffffff;
-    *D2_CHCR = 0x101;
-    while (*D2_CHCR & 0x100) {
-        if (i++ > 0x1000000)
-            goto err;
-    }
-    *D2_QWC = (int)(lp->giftag1 & 0x7fff);
-    if (((unsigned int)src & 0x70000000) != 0x70000000)
-        goto els;
-    *D2_MADR = ((unsigned int)src & 0x0fffffff) | 0x80000000;
-    goto done;
-err:
-    func_003080d0("sceGsExecLoadImage: DMA Ch.2 does not terminate\r\n");
-    return -1;
-els:
-    *D2_MADR = (unsigned int)src & 0x0fffffff;
-done:
-    *D2_CHCR = 0x101;
-    return 0;
-}
+/* 0x002f2be0 sceGsExecLoadImage: definition moved into src/sdk/libgraph2.c */

@@ -15,39 +15,7 @@ typedef struct {
     sceGifTag giftag1;
 } sceGsLoadImage;
 extern int func_003080d0(const char *, ...);
-int sceGsSetDefLoadImage(sceGsLoadImage *lp, short dbp, short dbw, short dpsm, short x, short y, short w, short h)
-{
-    int qwc = 0;
-    switch (dpsm) {
-    case 0: case 48: qwc = (w * h) >> 2; break;
-    case 1: case 49: qwc = (w * h * 3) >> 4; break;
-    case 2: case 10: case 50: case 58: qwc = (w * h) >> 3; break;
-    case 19: case 27: qwc = (w * h) >> 4; break;
-    case 20: case 36: case 44: qwc = (w * h) >> 5; break;
-    }
-    if (qwc > 32767) {
-        func_003080d0("sceGsSetDefLoadImage: too big size\r\n");
-        return 0;
-    }
-    *(u_long128 *)&lp->giftag0 = 0;
-    lp->giftag0.NLOOP = 4;
-    lp->giftag0.NREG = 1;
-    lp->giftag0.REGS0 = 0xe;
-    lp->bitbltbuf = ((u_long)dbp << 32) | ((u_long)dbw << 48) | ((u_long)dpsm << 56);
-    lp->bitbltbufaddr = 0x50;
-    lp->trxpos = ((u_long)x << 32) | ((u_long)y << 48);
-    lp->trxposaddr = 0x51;
-    lp->trxreg = (u_long)w | ((u_long)h << 32);
-    lp->trxregaddr = 0x52;
-    lp->trxdir = 0;
-    lp->trxdiraddr = 0x53;
-    *(u_long128 *)&lp->giftag1 = 0;
-    lp->giftag1.NLOOP = qwc;
-    lp->giftag1.EOP = 1;
-    lp->giftag1.FLG = 2;
-    __asm__ __volatile__("sync.l");
-    return sizeof(sceGsLoadImage) >> 4;
-}
+/* 0x002f28b8 sceGsSetDefLoadImage: definition moved into src/sdk/libgraph2.c */
 
 typedef struct {
     int f0, f4, status, entry, f16, gp;

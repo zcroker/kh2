@@ -1,52 +1,55 @@
-/* Sony PS2 Runtime Library: libgraph. Built with ee-gcc 2.9-991111 -O2 -G0.
+/* Sony PS2 Runtime Library 3.0.0: libgraph (libgraph.a), 0x2f2d60-0x2f3490: sceGsExecStoreImage and
+ * sceGsSyncVCallback (its .rodata starts 16-aligned at 0x376600, so it is a new object after libgraph2.c). Built with ee-gcc 2.9-991111 -O2 -G0.
  * Third-party code notice: rebuilt to match Sony Computer Entertainment's PS2 SDK library code that
- * the game links. It is not covered by this project's MIT License. */
+ * the game links. It is not covered by this project's MIT License.
+ * Linked unit (linked_units.tsv): compiled as one file. Its .rodata (the sceGsSyncPath messages and register
+ * dump formats, the load/store image messages and the two psm jump tables) is at 0x376310. */
 typedef unsigned long u_long;
 typedef unsigned int u_long128 __attribute__((mode(TI)));
+
 typedef struct {
-    u_long NLOOP:15;
-    u_long EOP:1;
-    u_long pad16:16;
-    u_long id:14;
-    u_long PRE:1;
-    u_long PRIM:11;
-    u_long FLG:2;
-    u_long NREG:4;
-    u_long REGS0:4;
-    u_long REGS1:4;
-    u_long REGS2:4;
-    u_long REGS3:4;
-    u_long REGS4:4;
-    u_long REGS5:4;
-    u_long REGS6:4;
-    u_long REGS7:4;
-    u_long REGS8:4;
-    u_long REGS9:4;
-    u_long REGS10:4;
-    u_long REGS11:4;
-    u_long REGS12:4;
-    u_long REGS13:4;
-    u_long REGS14:4;
-    u_long REGS15:4;
+    u_long NLOOP:15; u_long EOP:1; u_long pad16:16; u_long id:14; u_long PRE:1; u_long PRIM:11; u_long FLG:2; u_long NREG:4;
+    u_long REGS0:4; u_long REGS1:4; u_long REGS2:4; u_long REGS3:4; u_long REGS4:4; u_long REGS5:4; u_long REGS6:4; u_long REGS7:4;
+    u_long REGS8:4; u_long REGS9:4; u_long REGS10:4; u_long REGS11:4; u_long REGS12:4; u_long REGS13:4; u_long REGS14:4; u_long REGS15:4;
 } sceGifTag __attribute__((aligned(16)));
+
+typedef struct {
+    sceGifTag giftag0;
+    u_long bitbltbuf; long bitbltbufaddr;
+    u_long trxpos; long trxposaddr;
+    u_long trxreg; long trxregaddr;
+    u_long trxdir; long trxdiraddr;
+    sceGifTag giftag1;
+} sceGsLoadImage;
+
 typedef struct {
     unsigned int vifcode[4];
     sceGifTag giftag;
-    u_long bitbltbuf;
-    long bitbltbufaddr;
-    u_long trxpos;
-    long trxposaddr;
-    u_long trxreg;
-    long trxregaddr;
-    u_long finish;
-    long finishaddr;
-    u_long trxdir;
-    long trxdiraddr;
+    u_long bitbltbuf; long bitbltbufaddr;
+    u_long trxpos; long trxposaddr;
+    u_long trxreg; long trxregaddr;
+    u_long finish; long finishaddr;
+    u_long trxdir; long trxdiraddr;
 } sceGsStoreImage;
-extern void func_003080d0(const char *, ...);
-extern int func_00305940(void);
-extern int func_00305960(int);
+
+typedef struct { u_long pmode, smode2, dispfb, display, bgcolor; } sceGsDispEnv;
+
+/* sceGsGParam (0x2f1fa8 returns it): s0 = interlace, s6 = mode, f8 = vsync callback, fc = its handler id */
+typedef struct { short s0; short s2; short s4; short mode; int f8; int fc; } sceGsGParam;
+extern sceGsGParam *sceGsGetGParam(void);
+
+extern int func_003080d0(const char *, ...);          /* scePrintf */
+extern void func_00305ab0(void);
+extern long func_00305b40(void);
+extern int func_00305940(void);                       /* GsGetIMR */
+extern int func_00305960(int);                        /* GsPutIMR */
+extern void DisableIntc(int);
+extern void EnableIntc(int);
+extern void func_00305320(int, int);                  /* RemoveIntcHandler */
+extern int func_00305300(int, int, int);              /* AddIntcHandler */
 extern u_long128 D_00363c70;
+extern void func_003080d0_v(const char *, ...) asm("func_003080d0");
+
 #define D1_CHCR ((volatile unsigned int *)0x10009000)
 #define D1_MADR ((volatile unsigned int *)0x10009010)
 #define D1_QWC  ((volatile unsigned int *)0x10009020)
@@ -56,7 +59,8 @@ extern u_long128 D_00363c70;
 #define VIF1_FIFO ((volatile u_long128 *)0x10005000)
 #define GS_CSR ((volatile u_long *)0x12001000)
 #define GS_BUSDIR ((volatile u_long *)0x12001040)
-/* sceGsExecStoreImage: reads an image back from GS local memory into dstaddr over DMA Ch.1 (GS->MEM). */
+/* reads an image back from GS local memory into dstaddr over DMA Ch.1 (GS->MEM). */
+/* 0x2f2d60 */
 int sceGsExecStoreImage(sceGsStoreImage *sp, u_long128 *dstaddr)
 {
     int w, h, psm, hh;
@@ -174,21 +178,21 @@ int sceGsExecStoreImage(sceGsStoreImage *sp, u_long128 *dstaddr)
         *D1_MADR = ((unsigned int)dstaddr & 0x0fffffff) | 0x80000000;
         goto done;
 err1:
-        func_003080d0("sceGsExecStoreImage: DMA Ch.1 does not terminate\r\n");
+        func_003080d0_v("sceGsExecStoreImage: DMA Ch.1 does not terminate\r\n");
         return -1;
 err2:
-        func_003080d0("sceGsExecStoreImage: GS does not terminate\r\n");
+        func_003080d0_v("sceGsExecStoreImage: GS does not terminate\r\n");
         *VIF1_FIFO = D_00363c70;
         return -1;
 err3:
-        func_003080d0("sceGsExecStoreImage: DMA Ch.1 (GS->MEM) does not terminate\r\n");
+        func_003080d0_v("sceGsExecStoreImage: DMA Ch.1 (GS->MEM) does not terminate\r\n");
         *GS_CSR = 0x100;
         *GS_BUSDIR = 0;
         *GIF_CTRL = 1;
         *VIF1_FBRST = 1;
         return -1;
 err4:
-        func_003080d0("sceGsExecStoreImage: Enough data does not reach VIF1\n");
+        func_003080d0_v("sceGsExecStoreImage: Enough data does not reach VIF1\n");
         *GS_CSR = 0x100;
         *GS_BUSDIR = 0;
         *GIF_CTRL = 1;
@@ -244,4 +248,26 @@ done:
         *VIF1_FIFO = v;
     }
     return 0;
+}
+
+/* 0x2f33f0 */
+int sceGsSyncVCallback(int a)
+{
+    sceGsGParam *p = sceGsGetGParam();
+    int old = p->f8;
+    if (a == 0) {
+        DisableIntc(2);
+        func_00305320(2, p->fc);
+        p->fc = 0;
+        p->f8 = 0;
+    } else {
+        if (old) {
+            DisableIntc(2);
+            func_00305320(2, p->fc);
+        }
+        p->f8 = a;
+        p->fc = func_00305300(2, a, -1);
+        EnableIntc(2);
+    }
+    return old;
 }

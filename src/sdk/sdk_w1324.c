@@ -139,18 +139,4 @@ struct GP1324 { short a, b, c, mode; };
 extern struct GP1324 *sceGsGetGParam(void);
 struct DE1324 { u64 pmode, smode2, dispfb, display, bgcolor; };
 #define GSR(x) (*(volatile u64 *)(x))
-void sceGsPutDispEnv(struct DE1324 *e)
-{
-    if (sceGsGetGParam()->mode == 1) {
-        GSR(0x12000000) = e->pmode;
-        GSR(0x12000070) = e->dispfb;
-        GSR(0x12000080) = e->display;
-        GSR(0x120000c0) = e->bgcolor;
-    } else {
-        GSR(0x12000000) = e->pmode;
-        GSR(0x12000020) = e->smode2;
-        GSR(0x12000090) = e->dispfb;
-        GSR(0x120000a0) = e->display;
-        GSR(0x120000e0) = e->bgcolor;
-    }
-}
+/* 0x002f2448 sceGsPutDispEnv: definition moved into src/sdk/libgraph2.c */
