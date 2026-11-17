@@ -163,30 +163,10 @@ struct Mgr { u8 pad[100]; s32 n; u8 pad2[16]; Comp** c; };
 // Runs every component's optional update hook.
 void func_001e7878(Mgr* p);  // 0x001e7878: definition moved into src/anon/unit_001e0cb8.cpp
 
-void func_00232590(void) {
-    D_0035e359 = 0;
-    if (func_002283e0()) {
-        if (strncmp(func_00227120(), D_003712f0, 12) == 0) D_0035e359 = 1;
-    }
-}
+void func_00232590(void);  // 0x00232590: definition moved into src/anon/unit_00231500.cpp
 
 // Queues an event record in a 64-entry ring; returns its serial number.
-s32 func_00234348(s32 a, s32 b, s32 c, s32 d, s32 e, s32 f) {
-    s32 idx = D_0035e360;
-    s32 id = D_0035e368;
-    Ev32* ev = &D_01dadc00[idx];
-    ev->type = 8;
-    ev->id = id;
-    ev->a = a;
-    ev->b = b;
-    ev->c = c;
-    ev->d = d;
-    ev->e = e;
-    ev->f = f;
-    D_0035e360 = (idx + 1) & 63;
-    D_0035e368 = id + 1;
-    return id;
-}
+s32 func_00234348(s32 a, s32 b, s32 c, s32 d, s32 e, s32 f);  // 0x00234348: definition moved into src/anon/unit_002335e8.cpp
 
 struct Key44 { u8 pad[20]; f32 x, y; u8 pad2[16]; };
 struct Ref20 { u8 pad[16]; s32 idx; };

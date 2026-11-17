@@ -173,25 +173,11 @@ void func_001e0158(void* a) {
 
 void func_001e27c0(u8* p);  // 0x001e27c0: definition moved into src/anon/unit_001e0cb8.cpp
 
-void func_0022dd40(u8* p) {
-    if (func_002282f0(*(s16*)(p + 4)) == 0) {
-        func_00102c18(1, 0x17318, (void*)func_0022dc30);
-    }
-}
+void func_0022dd40(u8* p);  // 0x0022dd40: definition moved into src/anon/unit_0022d358.cpp
 
-u32* func_00232e60(void) {
-    u32* p = D_0035dcf8;
-    s32 i;
-    for (i = 0; i < 64; i++) {
-        if (*p == (u32)-1) return p;
-        p += 16;
-    }
-    return 0;
-}
+u32* func_00232e60(void);  // 0x00232e60: definition moved into src/anon/unit_00231500.cpp
 
-void func_00236148(void) {
-    D_0035e380[D_0035e370]();
-}
+void func_00236148(void);  // 0x00236148: definition moved into src/anon/unit_00234f60.cpp
 
 void SEQUENCE_D0(void* self) {
     *(void**)self = &D_0035eaf8;

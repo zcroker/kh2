@@ -180,9 +180,7 @@ void wtarget_00228420(u32 a, u32 b, u32, u32);  // 0x00228420: definition moved 
 
 void func_0022c508(void);  // 0022c508: moved to src/sasa/event_layout.cpp (linked unit)
 
-void func_002346c0(void* a, void* b, void* c, void* d, void* e) {
-    func_00234400(a, 0, b, c, d, e);
-}
+void func_002346c0(void* a, void* b, void* c, void* d, void* e);  // 0x002346c0: definition moved into src/anon/unit_002335e8.cpp
 
 void func_0023fb00(s32 a) {
     D_0035ebe0 = a;

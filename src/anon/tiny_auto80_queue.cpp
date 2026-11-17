@@ -10810,69 +10810,17 @@ void func_0022d068(u32* a0);  // 0022d068: moved to src/sasa/event_layout.cpp (l
 void func_0022d238(u8* a0);  // 0022d238: moved to src/sasa/event_layout.cpp (linked unit)
 
 extern "C" u32 func_001977a0(...);
-void func_0022d358(u32 a0) {
-    u32 s0 = a0;
-    while (true) {
-        if (func_001977a0() == 0) {
-            break;
-        }
-        func_00102448(s0, 0);
-    }
-    *(u8*)((u8*)&D_00360000 - 8636u) = 1;
-    func_00226478();
-}
+void func_0022d358(u32 a0);  // 0x0022d358: definition moved into src/anon/unit_0022d358.cpp
 
-void func_0022d688() {
-    u32 v0 = func_0014abb8();  // get_data_359840
-    func_0014aa80(v0, 1, 0);
-    v0 = func_0014abc8();  // get_data_359950
-    func_0014aa80(v0, 1, 0);
-    *(u8*)((u8*)&D_00360000 - 7336u) = 0;
-}
+void func_0022d688();  // 0x0022d688: definition moved into src/anon/unit_0022d358.cpp
 
 extern "C" void func_0022d6d8() asm("_ZN2sa5EVENT7wide_onEv");
 
-void func_0022d728(u8* a0) {
-    u8* s0 = a0;
-    if (func_002282f0((u32)*(s16*)(a0 + 4)) != 0) {
-        return;
-    }
-    if (*(s16*)(s0 + 6) == 0) {
-        func_0022d688();
-    } else {
-        func_0022d6d8();
-    }
-}
+void func_0022d728(u8* a0);  // 0x0022d728: definition moved into src/anon/unit_0022d358.cpp
 
-void func_0022d778(u8* a0) {
-    u8* s0 = a0;
-    if (func_002282f0((u32)*(s16*)(a0 + 4)) != 0) {
-        return;
-    }
-    if (*(s16*)(s0 + 6) == 0) {
-        func_00143298();
-    } else {
-        func_001432a8();
-    }
-}
+void func_0022d778(u8* a0);  // 0x0022d778: definition moved into src/anon/unit_0022d358.cpp
 
-u32 func_0022e110(u8* a0) {
-    u8* s0 = a0 + 16;
-    u32 v0 = func_001de568((u32)s0);
-    u32 t7;
-    if (v0 == 0) {
-        goto zero;
-    }
-    v0 = func_001de4b0((u32)s0, 0, 0);
-    if (v0 != 0) {
-        t7 = 1;
-        goto out;
-    }
-zero:
-    t7 = 0;
-out:
-    return t7;
-}
+u32 func_0022e110(u8* a0);  // 0x0022e110: definition moved into src/anon/unit_0022d358.cpp
 
 extern "C" void func_00226030(...);
 void duplicate_unplaced_0022e160(u32 a0, u32 a1, u32 a2) {
@@ -10881,29 +10829,11 @@ void duplicate_unplaced_0022e160(u32 a0, u32 a1, u32 a2) {
     func_001de750(*(u32*)(s0 + 20));
 }
 
-void func_0022e7e8(u32* a0) {
-    u32 t7 = a0[2];
-    if (t7 == 0) {
-        return;
-    }
-    func_00106420(t7);
-}
+void func_0022e7e8(u32* a0);  // 0x0022e7e8: definition moved into src/anon/unit_0022d358.cpp
 
-void func_0022e9f8(u32* a0) {
-    u32 t7 = a0[2];
-    if (t7 == 0) {
-        return;
-    }
-    func_00106420(t7);
-}
+void func_0022e9f8(u32* a0);  // 0x0022e9f8: definition moved into src/anon/unit_0022d358.cpp
 
-void func_0022ee00(u32* a0) {
-    u32 t7 = a0[2];
-    if (t7 == 0) {
-        return;
-    }
-    func_00106420(t7);
-}
+void func_0022ee00(u32* a0);  // 0x0022ee00: definition moved into src/anon/unit_0022d358.cpp
 
 void duplicate_unplaced_0022f5a0(u32 a0, u32 a1, u32 a2) {
     (void)a0;
@@ -10914,17 +10844,9 @@ void duplicate_unplaced_0022f5a0(u32 a0, u32 a1, u32 a2) {
     v0[22] = 1;
 }
 
-f32 func_0022f8f0(f32* a0, f32* a1) {  // vec4_dot
-    return a0[0] * a1[0] + a0[1] * a1[1] + a0[2] * a1[2] + a0[3] * a1[3];
-}
+f32 func_0022f8f0(f32* a0, f32* a1);  // 0x0022f8f0: definition moved into src/anon/unit_0022d358.cpp
 
-void func_002326d0(u32* a0) {
-    u32 s0 = (u32)a0;
-    if (func_002325f0((u32)a0) != 0) {
-        return;
-    }
-    func_002baa08(*(u32*)(s0 + 20), *(u32*)(s0 + 28), 16383, 64);
-}
+void func_002326d0(u32* a0);  // 0x002326d0: definition moved into src/anon/unit_00231500.cpp
 
 void duplicate_unplaced_00232718() {
     s32 t6 = *(s32*)((u8*)&D_00360000 - 8660u) - 1;
@@ -10932,35 +10854,9 @@ void duplicate_unplaced_00232718() {
     *(s32*)((u8*)&D_00360000 - 8660u) = t6;
 }
 
-void func_00232d60(u8* a0) {
-    u8* s0 = a0;
-    if (func_002282f0((u32)*(s16*)(a0 + 4)) != 0) {
-        return;
-    }
-    if (*(u8*)(s0 + 6) == 0) {
-        func_002bbed0();
-    } else {
-        func_002bbf18();
-    }
-}
+void func_00232d60(u8* a0);  // 0x00232d60: definition moved into src/anon/unit_00231500.cpp
 
-u32 func_00232e18(u32 a0) {
-    s32 i = 0;
-    u8* t6 = *(u8**)((u8*)&D_00360000 - 8968u);
-    while (true) {
-        if (*(s32*)(t6 + 0) != -1) {
-            if (*(u32*)(t6 + 4) == a0) {
-                return (u32)t6;
-            }
-        }
-        i += 1;
-        if (i < 64) {
-            t6 += 64;
-            continue;
-        }
-        return 0;
-    }
-}
+u32 func_00232e18(u32 a0);  // 0x00232e18: definition moved into src/anon/unit_00231500.cpp
 
 void duplicate_unplaced_00236148() {
     u32 idx = *(u32*)((u8*)&D_00360000 - 7312u);

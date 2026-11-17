@@ -142,20 +142,7 @@ extern s32 D_0035e360;
 extern u32 D_0035e368;
 extern REnt D_01dadc00[];
 u32 wtarget_002343a8(u32 a, u32 b, u32 c, u32 d) asm("_Z16wtarget_002343a8jjjj");
-u32 wtarget_002343a8(u32 a, u32 b, u32 c, u32 d) {
-    s32 i = D_0035e360;
-    u32 id = D_0035e368;
-    REnt* e = &D_01dadc00[i];
-    e->type = 9;
-    e->a = a;
-    e->b = b;
-    e->c = c;
-    e->id = id;
-    e->d = d;
-    D_0035e360 = (i + 1) & 63;
-    D_0035e368 = id + 1;
-    return id;
-}
+u32 wtarget_002343a8(u32 a, u32 b, u32 c, u32 d);  // 0x002343a8: definition moved into src/anon/unit_002335e8.cpp
 
 extern u8* D_0035ec90;
 void func_00242408(void);  // set_global_crc_m1

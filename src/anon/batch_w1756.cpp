@@ -10,20 +10,7 @@ extern s32 D_0035e360;
 extern s32 D_0035e368;
 extern WTarget_w1756 D_01dadc00[];
 u32 wtarget_002341e8(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z16wtarget_002341e8jjjj");
-u32 wtarget_002341e8(u32 a0, u32 a1, u32 a2, u32 a3)
-{
-    s32 i = D_0035e360;
-    u32 id = D_0035e368;
-    WTarget_w1756* e = &D_01dadc00[i];
-    e->type = 4;
-    e->id = id;
-    e->a = a0;
-    e->b = a1;
-    e->c = a2;
-    D_0035e360 = (i + 1) & 63;
-    D_0035e368 = id + 1;
-    return id;
-}
+u32 wtarget_002341e8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002341e8: definition moved into src/anon/unit_002335e8.cpp
 
 struct E6_w1756 { s16 id; s16 a; s16 b; };
 extern E6_w1756 D_00372b50[];

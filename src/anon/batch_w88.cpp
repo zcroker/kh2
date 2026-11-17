@@ -213,22 +213,7 @@ void func_001c1a30(u8* p, U1c1a30** out);
 void func_001cf9e0(u8* p, s32 mode);  // 0x001cf9e0: definition moved into src/anon/unit_001cf0b0.cpp
 
 typedef void (*VF233490)(u8*, V4*, u32);
-void func_00233490(u8* p) {
-    if (func_002282f0(*(u16*)(p + 4))) return;
-    u8* o = func_00227d10(*(s16*)(p + 6));
-    if (*(u32*)(o + 8)) return;
-    V4 a, b;
-    a.x = func_00227c78(p + 8);
-    a.y = func_00227c78(p + 12);
-    a.z = func_00227c78(p + 16);
-    *(u32*)(o + 8) = func_0016f000(*(u32*)o | 0x40000000, &a, func_00227c78(p + 36) * 0.017453292f);
-    b.x = func_00227c78(p + 24);
-    b.y = func_00227c78(p + 28);
-    b.z = func_00227c78(p + 32);
-    u32 r = func_00227ca8(p + 20);
-    u8* q = *(u8**)(o + 8);
-    (*(VF233490*)(*(u8**)q + 88))(q, &b, r);
-}
+void func_00233490(u8* p);  // 0x00233490: definition moved into src/anon/unit_00232f08.cpp
 
 void func_00237988(u8* p, f32 z) {
     *(f32*)(p + 120) = z;

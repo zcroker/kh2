@@ -245,13 +245,7 @@ void func_0022d1d8(u8* p);  // 0022d1d8: moved to src/sasa/event_layout.cpp (lin
 
 // ---- 0022e0a8
 u32 func_001de4b0(u8*, u32, u32);
-s32 func_0022e0a8(u8* p) {
-    u32 v = 0;
-    while ((v = func_001de4b0(p + 16, 0, v))) {
-        if (*(u32*)(p + 12) == v) return 1;
-    }
-    return 0;
-}
+s32 func_0022e0a8(u8* p);  // 0x0022e0a8: definition moved into src/anon/unit_0022d358.cpp
 
 // ---- 00232498: build "voice/<dir>/event/<name>.vag" in a static buffer
 extern char D_01dadbb0[];
@@ -261,15 +255,7 @@ u32 func_00232348(char*);
 void func_002fee78(char*, char*, u32);
 void func_002feee8(char*, char*);
 void strlen(char*);  // strlen
-char* func_00232498(char* name) {
-    D_01dadbb0[0] = 0;
-    u32 v = func_00232348(name);
-    func_002fee78(D_01dadbb0, D_003712d8, v);
-    func_002feee8(D_01dadbb0, name);
-    func_002feee8(D_01dadbb0, D_003712e8);
-    strlen(D_01dadbb0);  // strlen
-    return D_01dadbb0;
-}
+char* func_00232498(char* name);  // 0x00232498: definition moved into src/anon/unit_00231500.cpp
 
 // ---- 0024eb50
 extern VObj* D_0035ee18[5];

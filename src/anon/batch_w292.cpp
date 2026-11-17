@@ -82,17 +82,7 @@ struct H231 { u8 pad[6]; struct { u16 start, count; } ch[8]; u8 pad2[40 - 38]; K
 extern u8 D_0035de90[8][32];
 f32 func_00230f10(K231*, s32, void*, f32);
 
-void func_002311c0(f32* out, H231* h, f32 t)
-{
-    if (h->ch[0].count) out[0] = func_00230f10(&h->keys[h->ch[0].start], h->ch[0].count, D_0035de90[0], t);
-    if (h->ch[1].count) out[1] = -func_00230f10(&h->keys[h->ch[1].start], h->ch[1].count, D_0035de90[1], t);
-    if (h->ch[2].count) out[2] = -func_00230f10(&h->keys[h->ch[2].start], h->ch[2].count, D_0035de90[2], t);
-    if (h->ch[3].count) out[3] = func_00230f10(&h->keys[h->ch[3].start], h->ch[3].count, D_0035de90[3], t);
-    if (h->ch[4].count) out[4] = -func_00230f10(&h->keys[h->ch[4].start], h->ch[4].count, D_0035de90[4], t);
-    if (h->ch[5].count) out[5] = -func_00230f10(&h->keys[h->ch[5].start], h->ch[5].count, D_0035de90[5], t);
-    if (h->ch[6].count) out[6] = func_00230f10(&h->keys[h->ch[6].start], h->ch[6].count, D_0035de90[6], t) * 3.14159274f / 180.0f;
-    if (h->ch[7].count) out[7] = func_00230f10(&h->keys[h->ch[7].start], h->ch[7].count, D_0035de90[7], t);
-}
+void func_002311c0(f32* out, H231* h, f32 t);  // 0x002311c0: definition moved into src/anon/unit_002302c0.cpp
 
 struct Obj142 {
     u8 pad[20]; f32 rad; u8 pad2[48 - 24]; QV142 pos; u8 pad3[104 - 64]; f32 f104; f32 h;

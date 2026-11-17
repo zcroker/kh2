@@ -488,17 +488,7 @@ static inline void DegToRad(u8* p, f32* v) {
     v[2] = -(v[2] * 0.0174532924f);
     func_0016b070(p, v);
 }
-void func_0022f6b8(u8* p, f32* v) {
-    if (*(u32*)(p + 1416) & 0x800000) {
-        DegToRad(p, v);
-        return;
-    }
-    if ((v[0] == 0.0f && v[2] == 0.0f) || !func_002283b0(p, v)) {
-        func_0016aeb8(p, v[1] * 0.0174532924f);
-        return;
-    }
-    DegToRad(p, v);
-}
+void func_0022f6b8(u8* p, f32* v);  // 0x0022f6b8: definition moved into src/anon/unit_0022d358.cpp
 
 typedef unsigned int u128 __attribute__((mode(TI)));
 union PQ { u8* p; u128 q; };

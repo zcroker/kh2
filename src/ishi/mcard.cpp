@@ -7,43 +7,14 @@ extern u8 D_01dae480[] asm("D_01dae480");
 
 
 
-u32 MCARD::isIdle() {
-    u32 v = D_0035e370;
-    return (v < 1u);
-}
+// 0x00233e60: definition moved into src/anon/unit_002335e8.cpp
 
-u32 MCARD::GetResultInfoRoot() {
-    u32 b = (0x01dbu << 16);
-    return (u32)(*(u32*)((u32)b + (-7108)));
-}
+// 0x00234758: definition moved into src/anon/unit_002335e8.cpp
 
-u32 MCARD::GetResultChangeDir() {
-    u32 b = (0x01dbu << 16);
-    return (u32)(*(u32*)((u32)b + (-7092)));
-}
+// 0x00234798: definition moved into src/anon/unit_002335e8.cpp
 
-u32 MCARD::GetConnectionStatus(s32 a0, s32 a1) {
-    u32 r4 = (u32)a0;
-    u32 r5 = (u32)a1;
-    u32 r15;
-    r4 = (u32)(r4 << 2);
-    r15 = (u32)&D_01dae480;
-    r4 = (u32)(r4 + r5);
-    r4 = (u32)(r4 << 5);
-    r4 = (u32)(r4 + r15);
-    return *(volatile u32*)((u32)r4 + 12);
-}
+// 0x002348a8: definition moved into src/anon/unit_002335e8.cpp
 
-u32 MCARD::GetFileTableMax(s32 a0, s32 a1) {
-    u32 r4 = (u32)a0;
-    u32 r5 = (u32)a1;
-    u32 r15;
-    r4 = (u32)(r4 << 2);
-    r15 = (u32)&D_01dae480;
-    r4 = (u32)(r4 + r5);
-    r4 = (u32)(r4 << 5);
-    r4 = (u32)(r4 + r15);
-    return *(volatile u32*)((u32)r4 + 28);
-}
+// 0x002349c8: definition moved into src/anon/unit_002335e8.cpp
 
 }  // namespace YI

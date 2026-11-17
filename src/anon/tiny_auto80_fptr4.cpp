@@ -597,12 +597,7 @@ u32 func_00209dc0(u32 a0, u32 a1, u32 a2, u32 a3) {
 
 u32 func_00225260(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00225260: definition moved into src/anon/unit_00224780.cpp
 
-u32 func_00232328(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2;
-    u32 (*fp_call4_00228378)(u32, u32, u32, u32) = func_00228378;
-    r2 = fp_call4_00228378(r4, r5, r6, r7);
-    return r2;
-}
+u32 func_00232328(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00232328: definition moved into src/anon/unit_00231500.cpp
 
 u32 func_002369c8(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2, r15;

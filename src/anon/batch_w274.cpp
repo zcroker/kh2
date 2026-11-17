@@ -94,27 +94,7 @@ void func_00107478(void*, V4*);  // vec_copy_at96_if_diff
 s32 func_001ba028(u8*);  // list_contains_ptr
 void func_001072d0(void*, V4*, V4*);
 void func_001024a8(void*);
-void func_00232150(void* self) {
-    OO* o;
-    if (func_002283b0()) o = func_00227cd8(1363);
-    else if (func_002283c8()) o = func_00227cd8(1489);
-    else o = func_00227cd8(572);
-    if (D_0035de26 == 1) {
-        V4 a, b;
-        void* c = func_00106a60(1);  // buffer_get_by_index
-        func_00107368(c, &a);  // vec_copy_at80_if_diff
-        func_00107478(c, &b);  // vec_copy_at96_if_diff
-        if (o) {
-            if (func_001ba028((u8*)o->u.p)) {  // list_contains_ptr
-                a.w = 1.0f;
-                a = o->u.p->m * a;
-                b.w = 1.0f;
-                b = o->u.p->m * b;
-                func_001072d0(c, &a, &b);
-            } else func_001024a8(self);
-        } else func_001024a8(self);
-    } else func_001024a8(self);
-}
+void func_00232150(void* self);  // 0x00232150: definition moved into src/anon/unit_00231500.cpp
 extern f32 D_00349e10;
 void func_002c6420(C6490*);
 f32 sinf(f32);

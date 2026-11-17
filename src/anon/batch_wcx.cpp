@@ -1090,18 +1090,7 @@ void func_00232db0(s16);
 void func_00227950(void);
 u8* func_00102c18(s32, s32, void (*)(void));
 union HP { s16 h[4]; u8* q; };
-void func_0022f308(HP* hp)
-{
-    s16* p = hp->h;
-    if (func_002282f0(p[2])) return;
-    u8* e = func_00227d10(p[3]);
-    func_001ba028(*(u8**)(e + 8));  // list_contains_ptr
-    if (func_001c0cd8(*(u8**)(e + 8))) func_001c0e60(*(u8**)(e + 8));
-    (*(VFn*)(**(u8***)(e + 8) + 40))(*(u8**)(e + 8));
-    *(u8**)(e + 8) = 0;
-    func_00232db0(hp->h[3]);
-    *(s32*)(func_00102c18(1, 0xa7ee, func_00227950) + 4) = hp->h[3];
-}
+void func_0022f308(HP* hp);  // 0x0022f308: definition moved into src/anon/unit_0022d358.cpp
 extern u32 D_0035eb88;
 void func_001391c8(u8*, u32, u32);
 void func_00236a58(u8*, u32, u32);

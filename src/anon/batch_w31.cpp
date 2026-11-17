@@ -76,19 +76,7 @@ extern u32 D_0035e368;
 struct TargetEv { u32 active, serial, a, b, c, pad[3]; };
 extern TargetEv D_01dadc00[];
 }
-u32 wtarget_00234098(u32 a, u32 b, u32 c, u32 d) {
-    u32 idx = D_0035e360;
-    u32 serial = D_0035e368;
-    TargetEv* e = &D_01dadc00[idx];
-    e->active = 1;
-    e->a = a;
-    e->b = b;
-    e->serial = serial;
-    e->c = c;
-    D_0035e360 = (idx + 1) & 63;
-    D_0035e368 = serial + 1;
-    return serial;
-}
+u32 wtarget_00234098(u32 a, u32 b, u32 c, u32 d);  // 0x00234098: definition moved into src/anon/unit_002335e8.cpp
 
 extern "C" {
 u8* func_00294000(int);

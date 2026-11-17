@@ -99,9 +99,9 @@ u32 func_0021e998(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a0; (void)a1; (void)a2; (
 
 void func_002248f8(u32 a0,u32 a1,u32 a2,u32 a3);  // 0x002248f8: definition moved into src/anon/unit_00224780.cpp
 
-void func_0022d3a8(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a1; (void)a2; (void)a3; s32 v=*(s16*)((u32)a0 + (4)); D_0035de40=(u32)v; }
+void func_0022d3a8(u32 a0,u32 a1,u32 a2,u32 a3);  // 0x0022d3a8: definition moved into src/anon/unit_0022d358.cpp
 
-void func_0022d3b8(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a1; (void)a2; (void)a3; s32 v=*(s16*)((u32)a0 + (4)); D_0035de28=(u32)v; }
+void func_0022d3b8(u32 a0,u32 a1,u32 a2,u32 a3);  // 0x0022d3b8: definition moved into src/anon/unit_0022d358.cpp
 
 void func_0023d2b0(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a0; (void)a1; (void)a2; (void)a3; u32 v=(u32)((s32)-1); D_0035eb48=v; D_0035eb4c=v; }
 

@@ -492,23 +492,7 @@ s32 func_002baa20(s32);
 void func_002baa48(s32);
 void func_00232718(void);  // decrement_global_clamped
 void func_002278e0(Obj*);
-void func_00232988(void)
-{
-    Tbl* t = D_0035de4c;
-    if (!t) return;
-    Ent* e = t->e;
-    s32 n = t->n;
-    for (s32 i = 0; i < n; i++, e++) {
-        if (e->kind != 2) continue;
-        Obj* o = e->obj;
-        if (o->type != 3) continue;
-        if (func_002baa20(o->f20) == 1) {
-            func_002baa48(o->f20);
-            func_00232718();  // decrement_global_clamped
-        }
-        func_002278e0(o);
-    }
-}
+void func_00232988(void);  // 0x00232988: definition moved into src/anon/unit_00231500.cpp
 }
 }
 
@@ -521,32 +505,7 @@ extern char D_00371378[];
 extern char D_00371380[];
 char* func_002feee8(char*, const char*);
 void strlen(char*);  // strlen
-char* func_002330c8(const char* path, const char* name)
-{
-    char buf[48];
-    D_01dadbd8[0] = 0;
-    func_002feee8(D_01dadbd8, D_00371370);
-    s32 i = 0;
-    const char* p;
-    char* q;
-    char c;
-    do {
-        p = path + i;
-        q = buf + i;
-        c = *p;
-        i++;
-        *q = c;
-    } while (c != '/');
-    *q = 0;
-    func_002feee8(D_01dadbd8, buf + 4);
-    func_002feee8(D_01dadbd8, D_00371378);
-    func_002feee8(D_01dadbd8, name);
-    func_002feee8(D_01dadbd8, p);
-    func_002feee8(D_01dadbd8, D_00371380);
-    strlen(D_01dadbd8);  // strlen
-    strlen(buf);  // strlen
-    return D_01dadbd8;
-}
+char* func_002330c8(const char* path, const char* name);  // 0x002330c8: definition moved into src/anon/unit_00232f08.cpp
 }
 }
 

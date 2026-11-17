@@ -8,34 +8,7 @@ extern s32 D_0035de20;
 s32 func_002282f0(s32);
 void ut_1c0d38(u32, u32, s32, s32) asm("_Z16u_tail4_001c0d38jjjj");
 struct S { u8 pad[4]; s16 h4; u8 p6[2]; s16 h8; s16 h10; s16 h12; s16 h14; s16 h16; };
-void func_0022f018(S* s) {
-  s32 b, a, i;
-  if (func_002282f0(s->h4)) return;
-  b = -1; a = -1;
-  switch (s->h16) {
-  case 1: {
-    T40* e = D_0035dcfc;
-    for (i = 0; i < 96; i++, e++) { if (e->w0 != -1 && e->w4 == s->h10) { a = i; break; } }
-    e = D_0035dcfc;
-    for (i = 0; i < 96; i++, e++) { if (e->w0 != -1 && e->w4 == s->h8) { b = i; break; } }
-    break; }
-  case 0: {
-    T40* e = D_0035dcfc;
-    for (i = 0; i < 96; i++, e++) { if (e->w0 != -1 && e->w4 == s->h8) { b = i; break; } }
-    s32 d = D_0035de20;
-    T52* f = D_0035dcf4;
-    for (i = 0; i < 96; i++, f++) {
-      if (f->w4 != -1 && f->w4 == s->h10 && f->w0 == s->h14 && !(d < f->h46)) { a = i; break; }
-    }
-    break; }
-  }
-  if (b < 0) return;
-  if (a < 0) return;
-  switch (s->h16) {
-  case 0: D_0035dcf4[a].h48 = b; break;
-  case 1: ut_1c0d38(D_0035dcfc[a].w8, D_0035dcfc[b].w8, s->h12, 0); break;
-  }
-}
+void func_0022f018(S* s);  // 0x0022f018: definition moved into src/anon/unit_0022d358.cpp
 typedef void (*VF5)(void*);
 struct O408a { VF5* vt; u8 pad[404]; };
 struct O436a { VF5* vt; u8 pad[432]; };

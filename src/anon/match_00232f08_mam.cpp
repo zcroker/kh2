@@ -31,36 +31,5 @@ W1573_Q* func_0016c028(u8*);
 void motion_start(void*, void*, f32, f32) asm("_ZN2YS6MOTION5startEPNS_6BINARCEff");
 s32 obj_is_attach(u8*) asm("_ZN2YS3OBJ9is_attachEv");
 void obj_set_pos(u8*, W1573_Q*) asm("_ZN2YS3OBJ7set_posERKN2kn7FVectorE");
-void func_00232f08(void)
-{
-    s32 i;
-
-    if (D_0035dcf8 == 0) return;
-
-    for (i = 0; i < 64; i++) {
-        W1573_E* e = &D_0035dcf8[i];
-        if (e->id == -1) continue;
-        if (e->obj == 0) continue;
-        if (e->b != -1) {
-            if (e->flag == 1) {
-                func_001ba028(e->obj);
-                e->vec = *func_0016c028(e->obj);
-                e->flag = 0;
-            }
-            f32 b2 = (f32)e->b + (f32)e->b;
-            f32 a2 = (f32)e->a + (f32)e->a;
-            if (b2 < e->timer) {
-                f32 t = (f32)(s32)e->timer;
-                t = t - b2;
-                if (t < 2.0f) t = 2.0f;
-                t = t + a2;
-                func_001ba028(e->obj);
-                motion_start(e->obj + 320, e->p12->arc, 0.0f, t);
-                if (obj_is_attach(e->obj) == 0) obj_set_pos(e->obj, &e->vec);
-                e->timer = t;
-            }
-        }
-        e->timer = e->timer + D_00349e10;
-    }
-}
+void func_00232f08(void);  // 0x00232f08: definition moved into src/anon/unit_00232f08.cpp
 }

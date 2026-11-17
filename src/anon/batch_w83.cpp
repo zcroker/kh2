@@ -260,20 +260,7 @@ struct Rot { s16 pad0, pad1; s16 a, b, nx, ny, nz; };
 struct Hold { u8 pad[8]; f32* o; };
 
 // Wrap each rotation component through double helpers, optionally negating it.
-void func_0022e4f0(Rot* r) {
-    if (func_002282f0(r->a)) return;
-    Hold* v = (Hold*)func_00227d10(r->b);
-    func_001ba028(v->o);  // list_contains_ptr
-    f32* o = v->o;
-    o[12] = __truncdfsf2(func_002f83f0(func_00313b80(o[12])));  // double_trunc
-    if (r->nx) { v->o[12] = -v->o[12]; asm volatile("" ::: "memory"); }
-    o = v->o;
-    o[13] = __truncdfsf2(func_002f83f0(func_00313b80(o[13])));  // double_trunc
-    if (r->ny) { v->o[13] = -v->o[13]; asm volatile("" ::: "memory"); }
-    o = v->o;
-    o[14] = __truncdfsf2(func_002f83f0(func_00313b80(o[14])));  // double_trunc
-    if (r->nz) v->o[14] = -v->o[14];
-}
+void func_0022e4f0(Rot* r);  // 0x0022e4f0: definition moved into src/anon/unit_0022d358.cpp
 
 struct VObj20 { virtual void f0(); virtual void f4(); virtual void f8(); virtual void f12(); virtual void f16(); virtual void f20(); };
 extern VObj20* D_0035ee3c;

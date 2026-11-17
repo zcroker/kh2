@@ -42,50 +42,5 @@ extern "C" {
 void func_0022f928(SplVec* out, const SplVec* p0, const SplVec* p1, const SplVec* m0, const SplVec* m1, f32 t);
 void func_0022fb98(SplVec* out, const SplVec* a, const SplVec* b, const SplVec* c, const SplVec* d, f32 t);
 
-void func_0022fe08(SplVec* out, f32 t, Spline* s, s32 idx) {
-    s32 n = s->num;
-    s32 i = idx % n;
-    s32 ip = (i + n - 1) % n;
-    s32 i1 = (i + 1) % n;
-    s32 i2 = (i + 2) % n;
-    SplVec m0, m1;
-    SplKey* k = s->key;
-
-    switch (s->type) {
-    case 0: { // linear
-        SplVec a(SPL_VEC(k[i].pos));
-        SplVec b(SPL_VEC(k[i1].pos));
-        *out = a * (1.0f - t) + b * t;
-        break;
-    }
-    case 1: { // Bezier, converted to Hermite tangents
-        SplVec a(SPL_VEC(k[i].out));
-        SplVec b(SPL_VEC(k[i].pos));
-        SplVec c(SPL_VEC(k[i1].pos));
-        SplVec d(SPL_VEC(k[i1].in));
-        m0 = (a - b) * 3.0f;
-        m1 = (c - d) * 3.0f;
-        func_0022f928(out, &b, &c, &m0, &m1, t);
-        break;
-    }
-    case 2: { // uniform B-spline
-        SplVec a(SPL_VEC(k[ip].pos));
-        SplVec b(SPL_VEC(k[i].pos));
-        SplVec c(SPL_VEC(k[i1].pos));
-        SplVec d(SPL_VEC(k[i2].pos));
-        func_0022fb98(out, &a, &b, &c, &d, t);
-        break;
-    }
-    case 3: { // Catmull-Rom
-        SplVec a(SPL_VEC(k[i1].pos));
-        SplVec b(SPL_VEC(k[ip].pos));
-        SplVec c(SPL_VEC(k[i2].pos));
-        SplVec d(SPL_VEC(k[i].pos));
-        m0 = (a - b) * 0.5f;
-        m1 = (c - d) * 0.5f;
-        func_0022f928(out, &d, &a, &m0, &m1, t);
-        break;
-    }
-    }
-}
+void func_0022fe08(SplVec* out, f32 t, Spline* s, s32 idx);  // 0x0022fe08: definition moved into src/anon/unit_0022d358.cpp
 }

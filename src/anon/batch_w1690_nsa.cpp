@@ -28,25 +28,5 @@ void func_002fd188(void (*)(void));
 f32 func_0022f8f0(const W1690Vec*, const W1690Vec*);
 // Cubic Hermite interpolation: p0, p1 are the end points, t0, t1 the tangents.
 // The basis matrix is a function-local static (guard D_01dadb10, empty atexit dtor func_00230d68).
-void func_0022f928(W1690Pt* out, W1690Pt* p0, W1690Pt* p1, W1690Pt* t0, W1690Pt* t1, f32 t)
-{
-    if (!D_01dadb10) {
-        W1690Vec r0(2.0f, -2.0f, 1.0f, 1.0f);
-        W1690Vec r1(-3.0f, 3.0f, -2.0f, -1.0f);
-        W1690Vec r2(0.0f, 0.0f, 1.0f, 0.0f);
-        W1690Vec r3(1.0f, 0.0f, 0.0f, 0.0f);
-        new (&D_01dadb20) W1690Mtx(r0, r1, r2, r3);
-        D_01dadb10 = 1;
-        func_002fd188(func_00230d68);
-    }
-    f32 t2 = t * t;
-    W1690Vec v(t2 * t, t2, t, 1.0f);
-    v = D_01dadb20 * v;
-    W1690Vec x(p0->x, p1->x, t0->x, t1->x);
-    W1690Vec y(p0->y, p1->y, t0->y, t1->y);
-    W1690Vec z(p0->z, p1->z, t0->z, t1->z);
-    out->x = func_0022f8f0(&v, &x);
-    out->y = func_0022f8f0(&v, &y);
-    out->z = func_0022f8f0(&v, &z);
-}
+void func_0022f928(W1690Pt* out, W1690Pt* p0, W1690Pt* p1, W1690Pt* t0, W1690Pt* t1, f32 t);  // 0x0022f928: definition moved into src/anon/unit_0022d358.cpp
 }

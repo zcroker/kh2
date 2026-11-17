@@ -192,17 +192,7 @@ void func_002319c0(s16);
 extern u8 D_0035de0a[];
 extern u8 D_0035de0c[];
 extern s32 D_0035de10;
-void func_00232070(s16* p) {
-    if (func_002282f0(p[2])) return;
-    D_0035de0a[0] = 1;
-    s32 m = p[3];
-    D_0035de10 = m;
-    if (m != 0) {
-        if (m == 1) func_002319c0(p[2]);
-    } else if (!func_002ba620()) {
-        D_0035de0c[0] = 1;
-    }
-}
+void func_00232070(s16* p);  // 0x00232070: definition moved into src/anon/unit_00231500.cpp
 
 void func_002368e8(u8*, f32);
 void func_00236bb8(u8* p, f32 f) {

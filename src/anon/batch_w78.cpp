@@ -349,23 +349,7 @@ void func_002fee78(char*, const char*, ...);
 s32 strncmp(const char*, const char*, s32);
 void func_002baa08(u32, u32, s32, s32);
 // Plays the title voice lines when the event name matches.
-s32 func_002325f0(u8* o) {
-    char buf[64];
-    s32 r = 0;
-    if (D_0035e359 == 1) {
-    func_002fee78(buf, D_00371300, func_00232348());
-    if (!strncmp((char*)(o + 48), buf, 24)) {
-        r = 1;
-        func_002baa08(*(u32*)(o + 20), *(u32*)(o + 28), 16383, 0);
-    }
-    func_002fee78(buf, D_00371320, func_00232348());
-    if (!strncmp((char*)(o + 48), buf, 24)) {
-        r = 1;
-        func_002baa08(*(u32*)(o + 20), *(u32*)(o + 28), 16383, 127);
-    }
-    }
-    return r;
-}
+s32 func_002325f0(u8* o);  // 0x002325f0: definition moved into src/anon/unit_00231500.cpp
 
 s32 func_002282f0(s16);
 s32 func_00227ca8(void*);
@@ -375,20 +359,7 @@ void func_002bc358(u32, s32);
 extern s32 D_0035e35c;
 extern u32 D_0035db60[];
 struct W78Snd2 { s16 x0, x2, slot, kind; u8 name[4]; s16 id; };
-void func_00232c88(W78Snd2* o) {
-    if (func_002282f0(o->id)) return;
-    if (o->kind == 0) {
-        s32 v = func_00227ca8(o->name);
-        s32 r = v - 1000;
-        if (v <= 1000) r = D_0035e35c * 1000 + v;
-        if (func_00225b00(o->id)) return;
-        D_0035db60[o->slot] = func_002bc238(r);
-    } else {
-        if (func_00225b00(o->id)) return;
-        u32 h = D_0035db60[o->slot];
-        func_002bc358(h, 240);
-    }
-}
+void func_00232c88(W78Snd2* o);  // 0x00232c88: definition moved into src/anon/unit_00231500.cpp
 }
 
 void func_00106450(void*);

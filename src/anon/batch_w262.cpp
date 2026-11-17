@@ -39,42 +39,5 @@ void func_00321068(u8* p) {  // clear_19_words
     func_00319a60(p + 2716);  // clear_fixed_blocks
 }
 
-f32 func_00230de0(s32 i, W262Key* keys, W262Key* out, f32 t) {
-    W262Key* k = (W262Key*)((u32)(i << 4) + (u32)keys);
-    W262Key* n;
-    f32 p0 = k->v;
-    f32 m0 = k->m0;
-    f32 t0 = (f32)k->t * 0.001953125f;
-    f32 t1, p1, m1;
-    f32 r;
-    if (out) out->m0 = m0;
-    n = k + 1;
-    p1 = n->v;
-    m1 = n->m1;
-    t1 = (f32)n->t * 0.001953125f;
-    switch (k->type) {
-    case 0:
-        r = p0;
-        break;
-    case 1:
-        r = p0 + (p1 - p0) * (t - t0) / (t1 - t0);
-        break;
-    case 2: case 3: case 4: {
-        f32 inv = 1.0f / (t1 - t0);
-        f32 s = t - t0;
-        f32 s2 = s * s;
-        f32 inv2 = inv * inv;
-        f32 a = s2 * s * inv2;
-        f32 b = s2 * 3.0f * inv2;
-        f32 c = s2 * inv;
-        f32 a2 = (a + a) * inv;
-        r = p0 * (a2 - b + 1.0f) + p1 * (b - a2) + m0 * (a - (c + c) + s) + m1 * (a - c);
-        break;
-    }
-    default:
-        r = 0.0f;
-        break;
-    }
-    return r;
-}
+f32 func_00230de0(s32 i, W262Key* keys, W262Key* out, f32 t);  // 0x00230de0: definition moved into src/anon/unit_002302c0.cpp
 }

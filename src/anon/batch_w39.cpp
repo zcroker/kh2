@@ -301,14 +301,7 @@ extern char D_003711e8[];
 extern char D_003711f8[];
 void func_002feee8(char*, const char*);
 void strlen(char*);  // strlen
-char* func_0022e188(const char* s) {
-    D_01dadac0[0] = 0;
-    func_002feee8(D_01dadac0, D_003711e8);
-    func_002feee8(D_01dadac0, s);
-    func_002feee8(D_01dadac0, D_003711f8);
-    strlen(D_01dadac0);  // strlen
-    return D_01dadac0;
-}
+char* func_0022e188(const char* s);  // 0x0022e188: definition moved into src/anon/unit_0022d358.cpp
 
 // --- 00239eb8
 // Sets the scale x and flags whether the scale differs from (1, 1, 1).

@@ -133,24 +133,7 @@ u32 func_001d7778(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001d7778: definition mo
 
 u32 func_001e2bc8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001e2bc8: definition moved into src/anon/unit_001e0cb8.cpp
 
-u32 func_00233580(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2;
-    u32 (*fp_call0_00233c98)() = func_00233c98;
-    r2 = fp_call0_00233c98();
-    u32 (*fp_call0_00236200)() = func_00236200;
-    r2 = fp_call0_00236200();
-    u32 (*fp_call0_00236a50)() = func_00236a50;
-    r2 = fp_call0_00236a50();
-    u32 (*fp_call0_00236d10)() = func_00236d10;
-    r2 = fp_call0_00236d10();
-    u32 (*fp_call0_00237278)() = func_00237278;
-    r2 = fp_call0_00237278();
-    u32 (*fp_call0_002398d0)() = func_002398d0;
-    r2 = fp_call0_002398d0();
-    u32 (*fp_call0_0023c0f8)() = func_0023c0f8;
-    r2 = fp_call0_0023c0f8();
-    return func_0023cdb8();
-}
+u32 func_00233580(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00233580: definition moved into src/anon/unit_00232f08.cpp
 
 u32 func_00236410(u32 a0, u32 a1, u32 a2, u32 a3) {  // obj_set4_then_call
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3;

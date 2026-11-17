@@ -146,16 +146,7 @@ struct E232 { s32 a; s32 b; s32 c; u8 pad[52]; };
 union U232 { E232* p; s32 i; };
 extern U232 D_0035dcf8;
 /* release the slot owned by id */
-void func_00232db0(s32 id) {
-    for (s32 i = 0; i < 64; i++) {
-        if (D_0035dcf8.p[i].a != -1 && D_0035dcf8.p[i].b == id) {
-            D_0035dcf8.p[i].a = -1;
-            D_0035dcf8.p[i].b = -1;
-            D_0035dcf8.p[i].c = 0;
-            return;
-        }
-    }
-}
+void func_00232db0(s32 id);  // 0x00232db0: definition moved into src/anon/unit_00231500.cpp
 
 extern void* D_0035ee0c;
 extern u32 D_003723a0[];

@@ -164,27 +164,13 @@ void func_001fa950(void*, void*, void*);
 void __fixunssfsi(f32);
 // Local with a non-trivial destructor: keeps the call a jal instead of a sibling call.
 struct NoTail { ~NoTail() {} };
-void func_00233ac0(u32 a) {
-    NoTail g;
-    __fixunssfsi((f32)a / 216000.0f);
-}
+void func_00233ac0(u32 a);  // 0x00233ac0: definition moved into src/anon/unit_002335e8.cpp
 
 struct Ev234 { s32 type; s32 seq; u32 a, b, c, d, e, f; };
 extern Ev234 D_01dadc00[64];
 extern s32 D_0035e360;
 extern s32 D_0035e368;
-s32 func_00234400(u32 a, u32 b, u32 c, u32 d, u32 e, u32 f) {
-    s32 i = D_0035e360;
-    s32 seq = D_0035e368;
-    Ev234* ev = &D_01dadc00[i];
-    ev->type = 10;
-    ev->a = a; ev->b = b; ev->c = c; ev->d = d; ev->e = e;
-    ev->seq = seq;
-    ev->f = f;
-    D_0035e360 = (i + 1) & 63;
-    D_0035e368 = seq + 1;
-    return seq;
-}
+s32 func_00234400(u32 a, u32 b, u32 c, u32 d, u32 e, u32 f);  // 0x00234400: definition moved into src/anon/unit_002335e8.cpp
 
 u8* func_00236ca8(void*, s32);
 

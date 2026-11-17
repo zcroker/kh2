@@ -179,10 +179,7 @@ f32 func_002229a0(void* v) {  // vec3_length
     return r[0];
 }
 
-void func_0022e160(u32 a, u32 b, u8* c) {
-    func_00226030(a, b, c);
-    func_001de750(*(u32*)(c + 20));
-}
+void func_0022e160(u32 a, u32 b, u8* c);  // 0x0022e160: definition moved into src/anon/unit_0022d358.cpp
 
 // Offsets a 20-byte point: out = pos + (dx, dy).
 struct Ent20 {

@@ -25,33 +25,7 @@ extern s32 D_0035e364;
 extern s32 D_0035e36c;
 extern s32 D_0035e370;
 
-s32 func_00233e70(s32 id) {
-    s32 r;
-    if (id == 0) goto Z;
-    {
-        s32 i;
-        for (i = D_0035e364; i != D_0035e360; ) {
-            s32 c = i;
-            i++;
-            i &= 0x3f;
-            if (D_01dadc00[c].b == id) goto F;
-        }
-    }
-    if (D_0035e370 != 0) {
-        if (D_0035e36c == id) { r = 1; goto RET; }
-    }
-    goto R0;
-Z:
-    if (D_0035e360 != D_0035e364) goto F;
-    if (D_0035e370 == 0) goto R0;
-F:
-    r = 1;
-    goto RET;
-R0:
-    r = 0;
-RET:
-    return r;
-}
+s32 func_00233e70(s32 id);  // 0x00233e70: definition moved into src/anon/unit_002335e8.cpp
 
 /* 0019b3d0: first child node of type-6 owner whose info flag is clear and
    whose vtable slot 2 accepts arg. */

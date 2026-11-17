@@ -45,17 +45,5 @@ extern W1816M* D_0035de4c;
 void func_00232590(void);
 W1816O* func_00227a28(void);
 void func_002feee8(char*, const char*);
-void func_00232398(W1816M* m) {
-    s32 i;
-    func_00232590();
-    D_0035de4c = m;
-    for (i = 0; i < m->count; i++) { m->e[i].p = 0; m->e[i].flag = 0; }
-    for (i = 0; i < m->count; i++) {
-        W1816O* o = func_00227a28();
-        o->a = 3; o->b = 1; o->d = -1; o->e = -1;
-        o->name[0] = 0;
-        func_002feee8(o->name, m->e[i].name);
-        m->e[i].p = o;
-    }
-}
+void func_00232398(W1816M* m);  // 0x00232398: definition moved into src/anon/unit_00231500.cpp
 }

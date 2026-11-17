@@ -16,7 +16,7 @@ void func_00226a70(void* self);  // 0x00226a70: definition moved into src/anon/u
 
 u8 func_00227118(void* self);  // 0x00227118: definition moved into src/anon/unit_00224780.cpp
 
-void func_00233e58(void* self) {}
+void func_00233e58(void* self);  // 0x00233e58: definition moved into src/anon/unit_002335e8.cpp
 
 void func_00236a50(void* self) {}
 

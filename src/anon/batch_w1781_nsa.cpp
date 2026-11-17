@@ -25,18 +25,7 @@ extern W1781Ent40* D_0035dcfc;
 void func_001ba028(W1781VObj*);
 void func_00232db0(s32);
 
-void func_0022d440(void) {
-    if (D_0035dcfc != 0) {
-        for (s32 i = 0; i < 96; i++) {
-            if (D_0035dcfc[i].obj != 0) {
-                func_001ba028(D_0035dcfc[i].obj);
-                D_0035dcfc[i].obj->v10();
-                D_0035dcfc[i].obj = 0;
-                func_00232db0(D_0035dcfc[i].b);
-            }
-        }
-    }
-}
+void func_0022d440(void);  // 0x0022d440: definition moved into src/anon/unit_0022d358.cpp
 
 // FVector-style 16-byte vector; the subtraction is a VU0 macro sequence (asm only for lqc2/vsub/sqc2)
 struct W1781Vec { f32 x, y, z, w; } __attribute__((aligned(16)));

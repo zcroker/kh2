@@ -320,20 +320,7 @@ void u_tail0_0014d008(void) {
 
 void EFFECT_kill(void* e);  // 0x001dc920: definition moved into src/anon/unit_001dbfd8.cpp
 
-u32 wtarget_002342f0(u32 a, u32 b, u32 c, u32 d) {
-    s32 i = D_0035e360;
-    s32 id = D_0035e368;
-    Event32* e = &D_01dadc00[i];
-    e->type = 7;
-    e->a = a;
-    e->b = b;
-    e->c = c;
-    e->id = id;
-    e->d = d;
-    D_0035e360 = (i + 1) & 63;
-    D_0035e368 = id + 1;
-    return id;
-}
+u32 wtarget_002342f0(u32 a, u32 b, u32 c, u32 d);  // 0x002342f0: definition moved into src/anon/unit_002335e8.cpp
 
 void Layout_setNum(void* l, s32 n, s32 m) {
     func_00139d78(l);

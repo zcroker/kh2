@@ -41,12 +41,7 @@ W2367Entry* func_0018a100(W2367Table* t, s32 id, W2367Entry* p);  // 0x0018a100:
 // Yaw that faces from a towards b, written as (0, yaw, 0).
 f32 f_atan2f(f32, f32);
 f32 FixRadian_w2367(f32) asm("_ZN2YS4MATH9FixRadianEf");
-void func_00230260(W2367Vec3* a, W2367Vec3* b, W2367Vec3* out) {
-    f32 t = f_atan2f(b->x - a->x, b->z - a->z);
-    t = 3.14159274f - t;
-    t = FixRadian_w2367(t);
-    out->x = 0; out->y = t; out->z = 0;
-}
+void func_00230260(W2367Vec3* a, W2367Vec3* b, W2367Vec3* out);  // 0x00230260: definition moved into src/anon/unit_0022d358.cpp
 
 // libsupc++ __cxa_end_catch (eh_catch.cc, GCC 3.2).
 W2367CxaEhGlobals* __cxa_get_globals_fast(void);              // __cxa_get_globals_fast

@@ -238,12 +238,7 @@ char* func_002ff2e8(char*, const char*);
 u32 func_00227870(char*, void*, void*);
 void func_00226030(void);
 void func_00168388(char*, u32, void*, void*);
-void func_00232510(void* a0, void* a1) {
-    Obj232* s = func_00227a60(a0, 3);
-    func_002ff2e8(s->name, func_00232498(a0));
-    s->id = func_00227870(s->name, s, a1);
-    func_00168388(s->name, s->id, (void*)func_00226030, s);
-}
+void func_00232510(void* a0, void* a1);  // 0x00232510: definition moved into src/anon/unit_00231500.cpp
 
 s32 func_0024dfe0(void);
 s32 func_00139d78(void*);

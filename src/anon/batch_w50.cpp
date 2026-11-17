@@ -281,10 +281,7 @@ void func_0021ead0(f32* m, u32 ang) {  // table_float_pair_lookup
 // Debug print of a vec4 (floats promoted through the soft-double helper).
 void func_00223608(u32 x, f32* v);  // 0x00223608: definition moved into src/anon/unit_00222aa8.cpp
 
-void func_0022f5a0(u32 a, u32 b, u32 c) {
-    func_0016ed50(b | 0x40000000, -1, 30);
-    func_00227d10(c)[22] = 1;
-}
+void func_0022f5a0(u32 a, u32 b, u32 c);  // 0x0022f5a0: definition moved into src/anon/unit_0022d358.cpp
 
 void func_00242880(void);  // 0x00242880: definition moved into src/anon/unit_00242478.cpp
 

@@ -297,21 +297,7 @@ void func_0016aeb8(u32, f32);
 
 union Slot { u8* p; s16 h; };
 
-void func_0022ea28(u8* p) {
-    if (func_002282f0(*(s16*)(p + 4))) return;
-    u32 parent = func_002282d8();  // limit_15000_or_25000
-    u8* m = func_00227d10(*(s16*)(p + 6));
-    func_001ba028(*(u32*)(m + 8));  // list_contains_ptr
-    if (func_00225b00(*(s16*)(p + 4)) == 0) {  // flag_query_by_index
-        u8* o = func_00102c18(1, parent, func_0022e998);
-        *(void (**)(void))(o + 48) = func_0022e9f8;
-        u8* n = func_001063c0(24, func_001050c8());
-        ((Slot*)(o + 8))->p = n;
-        func_002f12b0(n, *(u32*)(m + 8), *(s16*)(p + 8), func_00227c78(p + 12), *(s16*)(p + 10) * 2.0f);
-    } else {
-        func_0016aeb8(*(u32*)(m + 8), 3.1415927f - func_00227c78(p + 12) * 0.017453292f);
-    }
-}
+void func_0022ea28(u8* p);  // 0x0022ea28: definition moved into src/anon/unit_0022d358.cpp
 }
 // ---- 00243e30
 extern "C" {

@@ -34,34 +34,6 @@ static inline f32 W1835RandF(f32 r) { return W1835Rnd() * r; }
 
 // 001a7a48: moved to src/yasui/libys/bg.cpp
 
-void func_0022d880(W1835Req* a) {
-    s32 i;
-    if (func_002282f0(a->id) != 0) return;
-    if (func_00225b00(a->id) != 0) return;
-    if (a->mode == 0) {
-        for (i = 0; i < 32; i++) {
-            W1835Slot* s = &D_01dad9c0[i];
-            if (s->p == 0) {
-                s16 v = a->b;
-                W1835VObj* o = func_001050d8(0x84);
-                func_001ac8b0(o, v);
-                func_001ac7c8(func_001050d8(0x1c), o);
-                s->p = o;
-                s->a = a->a;
-                s->b = a->b;
-                return;
-            }
-        }
-    } else {
-        for (i = 0; i < 32; i++) {
-            W1835Slot* s = &D_01dad9c0[i];
-            if (s->p != 0 && s->a == a->a && s->b == a->b) {
-                s->p->vt->release(s->p);
-                s->p = 0;
-                return;
-            }
-        }
-    }
-}
+void func_0022d880(W1835Req* a);  // 0x0022d880: definition moved into src/anon/unit_0022d358.cpp
 
 }

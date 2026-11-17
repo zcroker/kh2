@@ -78,57 +78,5 @@ W1696Player* W1696_GetPlayer(void) asm("_ZN2YS3OBJ9GetPlayerEv");
 f32 W1696_getRoll(void* cam) asm("_ZNK2kn6Camera7getRollEv");
 f32 W1696_getFOV(const W1696Proj* p, s32 worh) asm("_ZNK2kn10Projection6getFOVENS0_4WorHE");
 
-void func_002319c0(s32 frame) {
-    W1696Vec at;
-    W1696Vec eye;
-    func_00140f78(&eye, &at);
-    W1696Proj* proj = func_00106a18(1);
-    f32 fov = func_00106f40(proj, W1696_getFov()) * 57.2957763671875f;
-    eye.w = 1.0f;
-    at.w = 1.0f;
-    W1696Mtx m(W1696_GetPlayer()->mtx);
-    m.invOrtho();
-    eye = m * eye;
-    at = m * at;
-    for (s32 i = 0; i < 2; i++) {
-        D_0035de90[0].key[i].type = D_0035de90[1].key[i].type = D_0035de90[2].key[i].type = D_0035de90[3].key[i].type = D_0035de90[4].key[i].type = D_0035de90[5].key[i].type = D_0035de90[6].key[i].type = D_0035de90[7].key[i].type = 2;
-        D_0035de90[0].key[i].tanIn = D_0035de90[1].key[i].tanIn = D_0035de90[2].key[i].tanIn = D_0035de90[4].key[i].tanIn = D_0035de90[3].key[i].tanIn = D_0035de90[5].key[i].tanIn = D_0035de90[6].key[i].tanIn = D_0035de90[7].key[i].tanIn = 0.0f;
-    }
-    D_0035de90[0].key[1].tanOut = D_0035de90[1].key[1].tanOut = D_0035de90[2].key[1].tanOut =
-        D_0035de90[3].key[1].tanOut = D_0035de90[4].key[1].tanOut = D_0035de90[5].key[1].tanOut =
-        D_0035de90[6].key[1].tanOut = D_0035de90[7].key[1].tanOut = 0.0f;
-    D_0035de90[0].key[0].time = D_0035de90[1].key[0].time = D_0035de90[2].key[0].time =
-        D_0035de90[3].key[0].time = D_0035de90[4].key[0].time = D_0035de90[5].key[0].time =
-        D_0035de90[6].key[0].time = D_0035de90[7].key[0].time = (frame << 9) / 30;
-    D_0035de90[0].key[1].time = D_0035de90[1].key[1].time = D_0035de90[2].key[1].time =
-        D_0035de90[3].key[1].time = D_0035de90[4].key[1].time = D_0035de90[5].key[1].time =
-        D_0035de90[6].key[1].time = D_0035de90[7].key[1].time = (D_0035de28 << 9) / 30;
-    D_0035de90[0].key[1].value = eye.x;
-    D_0035de90[1].key[1].value = -eye.y;
-    D_0035de90[2].key[1].value = -eye.z;
-    D_0035de90[3].key[1].value = at.x;
-    D_0035de90[4].key[1].value = -at.y;
-    D_0035de90[5].key[1].value = -at.z;
-    D_0035de90[6].key[1].value = 0.0f;
-    D_0035de90[7].key[1].value = fov;
-
-    void* cam = func_00106a60(1);
-    func_00107368(cam, &eye);
-    func_00107478(cam, &at);
-    eye.w = 1.0f;
-    at.w = 1.0f;
-    f32 roll = W1696_getRoll(cam);
-    *proj = *func_00106a18(1);
-    f32 fov2 = func_00106f40(proj, W1696_getFOV(proj, 0)) * 57.2957763671875f;
-    eye = m * eye;
-    at = m * at;
-    D_0035de90[0].key[0].value = eye.x;
-    D_0035de90[1].key[0].value = -eye.y;
-    D_0035de90[2].key[0].value = -eye.z;
-    D_0035de90[3].key[0].value = at.x;
-    D_0035de90[4].key[0].value = -at.y;
-    D_0035de90[5].key[0].value = -at.z;
-    D_0035de90[6].key[0].value = roll * 180.0f / 3.14159274f;
-    D_0035de90[7].key[0].value = fov2;
-}
+void func_002319c0(s32 frame);  // 0x002319c0: definition moved into src/anon/unit_00231500.cpp
 }

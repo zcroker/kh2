@@ -137,9 +137,7 @@ void func_0021cda0(s32 a) {
 
 void func_0022acd0(void* p);  // 0022acd0: moved to src/sasa/musical_input.cpp (linked unit)
 
-void func_00234670(u32 a0, u32 a1, u32 a2, u32 a3, u32 t0) {
-    func_00234348(a0, 0, a1, a2, a3, t0);
-}
+void func_00234670(u32 a0, u32 a1, u32 a2, u32 a3, u32 t0);  // 0x00234670: definition moved into src/anon/unit_002335e8.cpp
 
 u8* func_0023e788(u8* d, u8* p, s32 i) {
     u8* s = p + *(u8*)(i + (u32)p + 2916) * 320 + 1632;

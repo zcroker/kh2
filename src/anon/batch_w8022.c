@@ -31,43 +31,4 @@ typedef struct W8022_438 { void* p; s32 a[12]; } W8022_438;
 extern W8022_438 D_01dae438;
 extern s32 D_01dae478, D_01dae47c;
 extern W8022_E480 D_01dae480[2][4];
-void func_00233ce0(void) {
-    s32 i, j;
-    for (i = 0; i < 2; i++) {
-        D_01dae580[i] = 1;
-        D_01dae588[i] = func_002fbc78(i);
-    }
-    D_0035e370 = 0;
-    D_0035e374 = 0;
-    D_01dae420.x4 = 300;
-    D_0035e360 = 0;
-    D_0035e364 = 0;
-    D_0035e368 = 1;
-    D_01dae420.b = 0;
-    D_01dae478 = 0;
-    D_0035e36c = 1;
-    D_01dae47c = 0;
-    D_01dae420.xc = 0;
-    D_01dae420.x8 = 300;
-    D_01dae420.x10 = 0;
-    for (i = 0; i < 2; i++) {
-        for (j = 0; j < 4; j++) {
-            W8022_E480* e = &D_01dae480[i][j];
-            e->a = -1; e->b = -1; e->c = 0; e->d = -1;
-            e->e = -1; e->f = -1; e->g = -1; e->h = 0;
-        }
-    }
-    D_01dae438.p = (void*)-1;
-    D_01dae438.a[0] = -1;
-    D_01dae438.a[1] = -1;
-    D_01dae438.a[2] = -1;
-    D_01dae438.a[3] = -1;
-    D_01dae438.a[4] = -1;
-    D_01dae438.a[5] = -1;
-    D_01dae438.a[6] = -1;
-    D_01dae438.a[7] = -1;
-    D_01dae438.a[8] = -1;
-    D_01dae438.a[9] = -1;
-    D_01dae438.a[10] = -1;
-    D_01dae438.a[11] = -1;
-}
+void func_00233ce0(void);  // 0x00233ce0: definition moved into src/anon/unit_002335e8.cpp

@@ -26,21 +26,7 @@ extern s32 D_0035e360;
 extern s32 D_0035e368;
 extern W1761Ev D_01dadc00[64];
 
-s32 func_00234188(s32 p0, s32 p1, s32 p2, s32 p3, s32 p4, s32 p5) {
-    W1761Ev* e = &D_01dadc00[D_0035e360];
-    s32 id = D_0035e368;
-    e->type = 3;
-    e->id = id;
-    e->a[0] = p0;
-    e->a[1] = p1;
-    e->a[2] = p2;
-    e->a[3] = p3;
-    e->a[4] = p4;
-    e->a[5] = p5;
-    D_0035e360 = (D_0035e360 + 1) & 63;
-    D_0035e368 = id + 1;
-    return id;
-}
+s32 func_00234188(s32 p0, s32 p1, s32 p2, s32 p3, s32 p4, s32 p5);  // 0x00234188: definition moved into src/anon/unit_002335e8.cpp
 
 extern W1761Pool30* D_01e2bfa0;
 extern s32 D_01e2bfa4;

@@ -359,14 +359,7 @@ u32 func_00258068(u32 a0) {  // get_global_bit
 
 void func_0027dc20(u32 *a0, u32 *a1);  // 0x0027dc20: definition moved into src/anon/unit_0027d2e8.cpp
 
-void func_00232718() {  // decrement_global_clamped
-    s32 v = D_0035de2c;
-    v -= 1;
-    if (v < 0) {
-        v = 0;
-    }
-    D_0035de2c = v;
-}
+void func_00232718();  // 0x00232718: definition moved into src/anon/unit_00231500.cpp
 
 u32 func_002538f8(u32 a0) {  // entry16_get_flag_bit
     u32 base = (u32)&D_0035eee0;

@@ -119,20 +119,7 @@ extern Ev234 D_01dadc00[];
 extern s32 D_0035e360;
 extern s32 D_0035e368;
 u32 wtarget_00234298(u32 a, u32 b, u32 c, u32 d) asm("_Z16wtarget_00234298jjjj");
-u32 wtarget_00234298(u32 a, u32 b, u32 c, u32 d) {
-    s32 i = D_0035e360;
-    s32 id = D_0035e368;
-    Ev234* e = &D_01dadc00[i];
-    e->type = 6;
-    e->a = a;
-    e->b = b;
-    e->c = c;
-    e->id = id;
-    e->d = d;
-    D_0035e360 = (i + 1) & 63;
-    D_0035e368 = id + 1;
-    return id;
-}
+u32 wtarget_00234298(u32 a, u32 b, u32 c, u32 d);  // 0x00234298: definition moved into src/anon/unit_002335e8.cpp
 
 struct Slot236 { u8 used; u8 pad[3]; s32 a; s32 b; s32 pad2; s32 x; s32 y; };
 extern Slot236 D_0035e440[];

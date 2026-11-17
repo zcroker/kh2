@@ -78,12 +78,6 @@ void func_001dfdb8(Obj_1dfdb8* o) {
         u32 v = (((u8*)&c)[i] * ((u8*)&m)[i]) >> 7; \
         if (v >= 256) ((u8*)&c)[i] = 0xff; else ((u8*)&c)[i] = v; \
     }
-u32 func_00233708(u32 c, u32 m) {
-    MOD_CH_233708(0)
-    MOD_CH_233708(1)
-    MOD_CH_233708(2)
-    MOD_CH_233708(3)
-    return c;
-}
+u32 func_00233708(u32 c, u32 m);  // 0x00233708: definition moved into src/anon/unit_002335e8.cpp
 #undef MOD_CH_233708
 }

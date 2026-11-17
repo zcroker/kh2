@@ -143,25 +143,11 @@ void func_00226050(u32 v);  // 0x00226050: definition moved into src/anon/unit_0
 
 struct E22e { u32 a; s32 key; u8 pad[44]; };
 extern E22e* D_0035dcf4;
-E22e* func_0022e330(s32 key) {
-    E22e* e = D_0035dcf4;
-    s32 i;
-    for (i = 0; i < 96; i++, e++) {
-        if (e->key == key) return e;
-    }
-    return 0;
-}
+E22e* func_0022e330(s32 key);  // 0x0022e330: definition moved into src/anon/unit_0022d358.cpp
 
 struct V2 { f32 a[4]; f32 b[4]; };
 extern V2 D_0035db20;
-void func_002314c0(f32* s) {
-    D_0035db20.a[0] = s[0];
-    D_0035db20.a[1] = s[1];
-    D_0035db20.a[2] = s[2];
-    D_0035db20.b[0] = s[3];
-    D_0035db20.b[1] = s[4];
-    D_0035db20.b[2] = s[5];
-}
+void func_002314c0(f32* s);  // 0x002314c0: definition moved into src/anon/unit_002302c0.cpp
 
 struct E237 { u32 a; s32 lo; u32 b; s32 hi; u32 c; };
 struct P237 { u32 pad[2]; E237* e; u16* idx; };

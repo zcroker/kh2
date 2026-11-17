@@ -15,49 +15,7 @@ typedef struct Hdr_w { s32 a; s16 n; s16 b; Ent_w e[1]; } Hdr_w;
 extern Hdr_w* D_0035de4c;
 extern s32 D_0035de20;
 extern s32 D_0035de2c;
-void func_00232738(void)
-{
-    Hdr_w* h = D_0035de4c;
-    if (h == 0) return;
-    s32 now = D_0035de20;
-    Ent_w* e = h->e;
-    s16 n = h->n;
-    for (s32 i = 0; i < n; i++, e++) {
-        switch (e->state) {
-        case 0:
-            if (now >= e->time) {
-                Obj_w* o = e->obj;
-                if (o->type == 3) {
-                    e->state = 1;
-                    if (func_00225e48() == 0 && func_00225b50(e->time) == 0 && func_00225b00(e->time) == 0) {
-                        func_002326d0(o);
-                        { register s32 a asm("$15"); register s32 b asm("$14"); asm volatile("lui %1,%%hi(D_0035de2c)\n\tlw %0,%%lo(D_0035de2c)(%1)\n\taddiu %0,%0,1\n\tsw %0,%%lo(D_0035de2c)(%1)" : "=&r"(a), "=&r"(b)); }
-                    }
-                }
-            }
-            break;
-        case 1: {
-            Obj_w* o = e->obj;
-            if (func_00225e48() != 0) {
-                if (func_002baa20(o->h) == 1) {
-                    func_002baa48(o->h);
-                    func_00232718();
-                    func_002278e0(o);
-                    e->state = 2;
-                }
-            } else {
-                if (func_002baa20(o->h) == 0) {
-                    func_00232718();
-                    func_002278e0(o);
-                    e->state = 2;
-                }
-            }
-            break;
-        }
-        case 2: break;
-        }
-    }
-}
+void func_00232738(void);  // 0x00232738: definition moved into src/anon/unit_00231500.cpp
 /* 0015c880: partial asm (register pins plus scheduling dependencies). The li and the y store are hand-written so sched2
    issues the stores in the original order; the empty asm holds the a store back until the float stores are done. */
 struct S4f3694 { u8 r, g, b, a; f32 x, y, z, w; };

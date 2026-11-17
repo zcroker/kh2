@@ -156,20 +156,7 @@ s32 func_002006b0(u8* a, u8* b) {
 extern u64 D_01dadc00[];
 void sceMcInit(void);
 void func_00233ce0(void);
-void u_call0_00233c98(void) {
-    s32 i;
-    u64* p;
-    sceMcInit();
-    p = D_01dadc00;
-    i = 256;
-    do {
-        *p = 0;
-        i--;
-        asm volatile("nop\n\tnop\n\tnop");
-        p++;
-    } while (i > 0);
-    func_00233ce0();
-}
+void u_call0_00233c98(void);  // 0x00233c98: definition moved into src/anon/unit_002335e8.cpp
 
 // Sets a 2-bit mode field (bits 9-10).
 u8* func_001058e8(void);

@@ -114,9 +114,7 @@ void func_001390f0(void*);
 void func_00229d68(void* p);  // 00229d68: moved to src/sasa/musical_combo.cpp (linked unit)
 
 void func_00234188(u32, u32, u32, u32, u32, u32);
-void func_002345c0(u32 a, u32 b, u32 c, u32 d, u32 e) {
-    func_00234188(a, 0, b, c, d, e);
-}
+void func_002345c0(u32 a, u32 b, u32 c, u32 d, u32 e);  // 0x002345c0: definition moved into src/anon/unit_002335e8.cpp
 
 struct P23 { s16 a; s16 pad[3]; s16 b; };
 void func_0023e738(u8* p, u32 i, s16 a, s16 b) {  // store_2halfwords_2928

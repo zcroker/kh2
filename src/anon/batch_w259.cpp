@@ -73,25 +73,7 @@ W22e* func_001063c0(s32, void*);
 void func_0014f030(W22e*, f32, f32, f32);  // obj_set_lerp_params
 void func_0022ed70(void);
 void func_0022ee00(void);
-void func_0022ee30(A22e* a) {
-    if (func_002282f0(a->h4)) return;
-    void* s = func_002282d8();  // limit_15000_or_25000
-    C22e* c = func_00227d10(a->h6);
-    func_001ba028(c->f8);  // list_contains_ptr
-    if (!func_00225b00(a->h4)) {  // flag_query_by_index
-    V22e* v = func_00102c18(1, s, (void*)func_0022ed70);
-    v->f48 = (B22e*)func_0022ee00;
-    v->f4 = c->f8;
-    W22e* w = func_001063c0(12, func_001050c8());
-    w->f0 = 0;
-    w->f4 = 0;
-    w->f8 = 1.0f;
-    v->f8.p = w;
-    func_0014f030(w, (f32)a->b8, (f32)a->b9, (f32)a->h10 * 2.0f);  // obj_set_lerp_params
-    } else {
-        c->f8->f2472 = (f32)a->b9;
-    }
-}
+void func_0022ee30(A22e* a);  // 0x0022ee30: definition moved into src/anon/unit_0022d358.cpp
 
 W259V4 func_00178330(void*);
 // 001785b8: moved to src/yasui/libys/player.cpp

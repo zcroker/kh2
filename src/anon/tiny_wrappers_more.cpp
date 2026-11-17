@@ -857,25 +857,15 @@ u32 func_00229e40(u32 a0, u32 a1, u32 a2, u32 a3);  // 00229e40: moved to src/sa
 
 u32 func_0022d318(u32 a0, u32 a1, u32 a2, u32 a3);  // 0022d318: moved to src/sasa/event_layout.cpp (linked unit)
 
-u32 func_00234570(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_00234098(a0, 0x00000000u, a1, a3);
-}
+u32 func_00234570(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00234570: definition moved into src/anon/unit_002335e8.cpp
 
-u32 func_002345f0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_002341e8(a0, 0x00000000u, a1, a3);
-}
+u32 func_002345f0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002345f0: definition moved into src/anon/unit_002335e8.cpp
 
-u32 func_00234630(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_00234298(a0, 0x00000000u, a1, a2);
-}
+u32 func_00234630(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00234630: definition moved into src/anon/unit_002335e8.cpp
 
-u32 func_00234650(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_002342f0(a0, 0x00000000u, a1, a2);
-}
+u32 func_00234650(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00234650: definition moved into src/anon/unit_002335e8.cpp
 
-u32 func_002346a0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_002343a8(a0, 0x00000000u, a1, a2);
-}
+u32 func_002346a0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002346a0: definition moved into src/anon/unit_002335e8.cpp
 
 u32 func_0023c4d8(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_00236cc0(((u32)(*(u32*)((u32)(a0) + 40u))), a1, a2, a3);

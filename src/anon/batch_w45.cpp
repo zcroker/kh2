@@ -231,14 +231,7 @@ void func_00222790(void* d, const void* a, const void* b) {  // vec2_add_round_p
 
 s32 func_0022c758(void);  // 0022c758: moved to src/sasa/event_layout.cpp (linked unit)
 
-void func_0022e6b0(s32 which, u8* a1, f32 f) {
-    func_001ba028(a1);  // list_contains_ptr
-    switch (which) {
-    case 0: *(f32*)(a1 + 52) = f; break;
-    case 1: *(f32*)(a1 + 56) = f; break;
-    case 2: *(f32*)(a1 + 48) = f; break;
-    }
-}
+void func_0022e6b0(s32 which, u8* a1, f32 f);  // 0x0022e6b0: definition moved into src/anon/unit_0022d358.cpp
 
 // set bit (a0 * 8 + a1) in a bit array
 void func_00243230(s32 a0, s32 a1);  // 0x00243230: definition moved into src/anon/unit_00242478.cpp

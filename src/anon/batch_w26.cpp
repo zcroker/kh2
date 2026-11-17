@@ -222,11 +222,7 @@ u8 func_002007e0(u8* p, u8* q) {
     return sceVu0CopyVector(b + 176, D_00354be0);  // memcpy16
 }
 
-void func_002349e8(void) {
-    D_0035e370 = 0;
-    D_01dae420[2] = D_01dae420[1];
-    if (D_01dae41c) D_01dae41c(D_0035e36c);
-}
+void func_002349e8(void);  // 0x002349e8: definition moved into src/anon/unit_002335e8.cpp
 
 s32 func_0024ad50(void);  // 0x0024ad50: definition moved into src/anon/unit_00249ef0.cpp
 

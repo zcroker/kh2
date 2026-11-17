@@ -321,36 +321,7 @@ s32 func_0014f0e0(f32*);
 void func_0016ace0(u32, f32*);
 void func_00106420(f32*);
 void func_001024a8(Obj230*);
-void func_002309c8(Obj230* o) {
-    u32 owner = o->owner;
-    if (!func_001ba028(owner)) return;
-    f32 v[4];
-    f32* px = o->x.p;
-    v[3] = 1.0f;
-    f32* pz = o->z.p;
-    f32* py = o->y.p;
-    s32 bx = func_0014f0e0(px);
-    s32 by = func_0014f0e0(py);
-    s32 bz = func_0014f0e0(pz);
-    if (!bx && !by && !bz) {
-        v[0] = *px;
-        v[1] = *py;
-        v[2] = *pz;
-        func_0016ace0(owner, v);
-        func_00106420(px);
-        func_00106420(py);
-        func_00106420(pz);
-        o->x.p = 0;
-        o->y.p = 0;
-        o->z.p = 0;
-        func_001024a8(o);
-    } else {
-        v[0] = *px;
-        v[1] = *py;
-        v[2] = *pz;
-        func_0016ace0(owner, v);
-    }
-}
+void func_002309c8(Obj230* o);  // 0x002309c8: definition moved into src/anon/unit_002302c0.cpp
 
 // ---- 00245a90
 struct Ent245 { u8 f0[8]; u8 f8[8]; s8 active; u8 pad17; u16 f18; u8 pad20[16]; };

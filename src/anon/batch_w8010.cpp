@@ -9,22 +9,7 @@ char* func_002330c8(char*, char*);
 s32 readBuffAlloc_w8010(char*, Wk*, s32) asm("_ZN2sa5EVENT13readBuffAllocEPcPNS_7READ_WKENS_11EVENT_ALLOC10ALLOC_TYPEE");
 void func_002330b0();
 void func_001684c0(char*, s32, void (*)(), Wk*);
-void func_002331a0(char* name, s32 type, s32 id, s32 d, s32 flag) {
-    Wk* w = func_00227a28();
-    w->d = d;
-    w->a = w->b = 1;
-    w->c = flag != 0;
-    w->e = id;
-    char* s = func_0022f4f0(id);
-    char* dst = w->n1;
-    func_002ff2e8(dst, s);
-    func_002ff2e8(w->n2, name);
-    s = func_0022f4f0(id);
-    char* p = func_002330c8(name, s);
-    s32 r = readBuffAlloc_w8010(p, w, type);
-    w->f = r;
-    func_001684c0(p, r, func_002330b0, w);
-}
+void func_002331a0(char* name, s32 type, s32 id, s32 d, s32 flag);  // 0x002331a0: definition moved into src/anon/unit_00232f08.cpp
 
 // ---- 00246328
 extern s32 D_0035ed20; extern s32 D_0035ed24; extern s32 D_0035ed28; extern s32 D_0035ed2c;

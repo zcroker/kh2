@@ -204,14 +204,7 @@ u32 func_00322ba8(u8* p) {
     return func_001ddd10(p + 192);
 }
 
-void func_0022d7e8(void) {
-    s32 i;
-    for (i = 0; i < 32; i++) {
-        D_01dad9c0[i].a = 0;
-        D_01dad9c0[i].b = -1;
-        D_01dad9c0[i].c = -1;
-    }
-}
+void func_0022d7e8(void);  // 0x0022d7e8: definition moved into src/anon/unit_0022d358.cpp
 }
 
 void wtarget_001afa50(u32, u32, u32, u32);  // 0x001afa50: definition moved into src/anon/unit_001ada38.cpp

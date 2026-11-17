@@ -271,33 +271,14 @@ u32 func_00227870(u32, void*, u32);
 void func_00168388(u32, u32, void*, void*);
 void func_0022e160(void);
 
-void func_0022e1f8(u32 a0, u32 a1) {
-    u32* o = func_00227a28(a0);
-    o[3] = a1;
-    o[0] = 2;
-    o[4] = (u32)-1;
-    func_002ff2e8(o + 12, a0);
-    u32 s = func_0022e188(a0);
-    u32 r = func_00227870(s, o, 0);
-    o[5] = r;
-    func_00168388(s, r, (void*)func_0022e160, o);
-}
+void func_0022e1f8(u32 a0, u32 a1);  // 0x0022e1f8: definition moved into src/anon/unit_0022d358.cpp
 
 u32 func_002282f0(u16);
 u32* func_00227d10(s16);
 u32 func_0016f000(u32, void*, f32);
 void func_00233280(u32);
 
-void func_00233410(u8* p) {
-    if (func_002282f0(*(u16*)(p + 4))) return;
-    u32* e = func_00227d10(*(s16*)(p + 6));
-    if (e[2]) return;
-    u128 v;
-    asm volatile("sqc2 $vf0, 0(%0)" : : "r"(&v) : "memory");
-    e[2] = func_0016f000(e[0] | 0x40000000, &v, 3.1415925f);
-    func_001ba028(e[2]);  // list_contains_ptr
-    func_00233280(e[2]);
-}
+void func_00233410(u8* p);  // 0x00233410: definition moved into src/anon/unit_00232f08.cpp
 
 void func_00239558(u8* p, u16* a, u16* b) {  // copy_4halfwords_and_set_flag
     *(u32*)(p + 16) |= 0x40;

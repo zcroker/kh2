@@ -81,30 +81,7 @@ void func_0022e7e8(void*);
 void func_0022e728(void*);
 union W279H { s16 h; u8 c; };
 union W279P { f32* p; u8 c; };
-void func_0022e818(u8* s) {
-    if (func_002282f0(*(s16*)(s + 4))) return;
-    s32 a = func_002282d8();  // limit_15000_or_25000
-    u8* b = sa_entry_work_get(*(s16*)(s + 6));
-    func_001ba028(*(u32*)(b + 8));  // list_contains_ptr
-    if (!func_00225b00(*(s16*)(s + 4))) {  // flag_query_by_index
-        u8* t = field_create_task(1, a, func_0022e728);
-        *(u32*)(t + 48) = (u32)func_0022e7e8;
-        *(u32*)(t + 4) = *(u32*)(b + 8);
-        f32* v = tz_load_data_alloc(12, area_get_allocator());
-        v[0] = 0.0f;
-        v[1] = 0.0f;
-        v[2] = 1.0f;
-        ((W279P*)(t + 8))->p = v;
-        *(s32*)(t + 12) = ((W279H*)(s + 18))->h;
-        f32 h = ((W279H*)(s + 16))->h;
-        f32 x = sa_get_float(s + 8);
-        h = h * 2.0f;
-        f32 y = sa_get_float(s + 12);
-        func_0014f030(v, x, y, h);  // obj_set_lerp_params
-    } else {
-        func_0022e6b0(*(s16*)(s + 18), *(u32*)(b + 8), sa_get_float(s + 12));
-    }
-}
+void func_0022e818(u8* s);  // 0x0022e818: definition moved into src/anon/unit_0022d358.cpp
 
 // ---- func_00100ec8
 s32 func_001009a0(u8*);

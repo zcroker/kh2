@@ -151,14 +151,7 @@ void u_call4_001a4e30(u32 a, u32, u32, u32) asm("_Z16u_call4_001a4e30jjjj");
 // Release every live entry of the 32-slot table.
 struct Ent22 { void** obj; u32 x; };
 extern Ent22 D_01dad9c0[32];
-void func_0022d820(void) {
-    for (s32 i = 0; i < 32; i++) {
-        if (D_01dad9c0[i].obj) {
-            (*(void (**)(void*))((u8*)*D_01dad9c0[i].obj + 32))(D_01dad9c0[i].obj);
-            D_01dad9c0[i].obj = 0;
-        }
-    }
-}
+void func_0022d820(void);  // 0x0022d820: definition moved into src/anon/unit_0022d358.cpp
 
 u32 func_00138470(void);
 u32 func_00138440(void);

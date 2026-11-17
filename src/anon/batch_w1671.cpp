@@ -33,19 +33,7 @@ struct RE_w1671 { s32 type; s32 id; s32 a; s32 b; s32 c; s32 pad[3]; };
 extern s32 D_0035e360;
 extern s32 D_0035e368;
 extern RE_w1671 D_01dadc00[];
-s32 func_00234240(s32 a0, s32 a1, s32 a2) {
-    s32 i = D_0035e360;
-    s32 id = D_0035e368;
-    RE_w1671* e = &D_01dadc00[i];
-    e->type = 5;
-    e->a = a0;
-    e->b = a1;
-    e->id = id;
-    e->c = a2;
-    D_0035e360 = (i + 1) & 0x3f;
-    D_0035e368 = id + 1;
-    return id;
-}
+s32 func_00234240(s32 a0, s32 a1, s32 a2);  // 0x00234240: definition moved into src/anon/unit_002335e8.cpp
 
 void func_002bc1e8(void*);
 void func_001d1820(u8* a0);  // 0x001d1820: definition moved into src/anon/unit_001d14e0.cpp

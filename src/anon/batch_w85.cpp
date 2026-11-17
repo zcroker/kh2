@@ -185,22 +185,7 @@ struct Ent22f { s32 id; u32 f4; Obj22f* obj; u8 pad[28]; };
 union Tbl22f { Ent22f* p; u8 c; };
 extern Tbl22f D_0035dcfc;
 // releases every live entry; returns whether any was released
-s32 func_0022f5e8(void) {
-    s32 r = 0;
-    s32 i;
-    if (!D_0035dcfc.p) return 0;
-    for (i = 0; i < 96; i++) {
-        if (D_0035dcfc.p[i].obj) {
-            func_001ba028(D_0035dcfc.p[i].obj);  // list_contains_ptr
-            D_0035dcfc.p[i].obj->vt->f40(D_0035dcfc.p[i].obj);
-            D_0035dcfc.p[i].obj = 0;
-            func_00232db0(D_0035dcfc.p[i].f4);
-            D_0035dcfc.p[i].id = -1;
-            r = 1;
-        }
-    }
-    return r;
-}
+s32 func_0022f5e8(void);  // 0x0022f5e8: definition moved into src/anon/unit_0022d358.cpp
 
 f32 sinf(f32);
 f32 cosf(f32);

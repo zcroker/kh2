@@ -204,16 +204,7 @@ union U12 { E12* p; s32 i; };
 extern U12 D_0035dcf4;
 s32 func_001de568(void*);
 
-void func_0022e288(void) {
-    s32 i;
-    if (!D_0035dcf4.p) return;
-    for (i = 0; i < 96; i++) {
-        if (D_0035dcf4.p[i].id == -1) continue;
-        if (func_001de568(D_0035dcf4.p[i].node)) func_001dde40((LNode*)D_0035dcf4.p[i].node);
-        D_0035dcf4.p[i].fc = 0;
-        D_0035dcf4.p[i].id = -1;
-    }
-}
+void func_0022e288(void);  // 0x0022e288: definition moved into src/anon/unit_0022d358.cpp
 
 /* ---- 0023ec48: out = obj->mtx(+128) * m (VU0) ---- */
 void func_0011d6c0(u32, u32, f32*);

@@ -206,38 +206,9 @@ struct Q234460 { s32 type; s32 id; u32 a[6]; };
 extern s32 D_0035e360;
 extern s32 D_0035e368;
 extern Q234460 D_01dadc00[64];
-s32 func_00234460(u32 a, u32 b, u32 c, u32 d, u32 e, u32 f) {
-    s32 i = D_0035e360;
-    s32 id = D_0035e368;
-    Q234460* q = &D_01dadc00[i];
-    q->type = 11;
-    q->a[0] = a;
-    q->a[1] = b;
-    q->a[2] = c;
-    q->a[3] = d;
-    q->a[4] = e;
-    q->id = id;
-    q->a[5] = f;
-    D_0035e360 = (i + 1) & 63;
-    D_0035e368 = id + 1;
-    return id;
-}
+s32 func_00234460(u32 a, u32 b, u32 c, u32 d, u32 e, u32 f);  // 0x00234460: definition moved into src/anon/unit_002335e8.cpp
 
-s32 func_002344c0(u32 a, u32 b, u32 c, u32 d, u32 e) {
-    s32 i = D_0035e360;
-    s32 id = D_0035e368;
-    Q234460* q = &D_01dadc00[i];
-    q->type = 9;
-    q->a[0] = a;
-    q->a[1] = b;
-    q->a[2] = c;
-    q->a[3] = d;
-    q->id = id;
-    q->a[4] = e;
-    D_0035e360 = (i + 1) & 63;
-    D_0035e368 = id + 1;
-    return id;
-}
+s32 func_002344c0(u32 a, u32 b, u32 c, u32 d, u32 e);  // 0x002344c0: definition moved into src/anon/unit_002335e8.cpp
 
 u32 func_00168aa0(u32, s32);
 void LeadDataSetText(u8* p, u32 id) {

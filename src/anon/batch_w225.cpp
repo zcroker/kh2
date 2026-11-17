@@ -14,14 +14,7 @@ extern u8 D_00347e60;
 void func_001904f0(u32* a, u8* b);  // 0x001904f0: definition moved into src/anon/unit_001900d0.cpp
 
 struct K_w225 { s32 a, b, c, d, e; u8 f0, f1, f2, f3; u8 g[24]; };
-void func_0022f528(u8* o) {
-    {
-        K_w225 t; t.a = -1; t.b = -1; t.c = 0; t.f2 = 0; t.f3 = 0;
-        func_002ff2e8(&t.f3, o + 8);
-    }
-    K_w225 k; k.a = *(s16*)(o + 4); k.b = *(s16*)(o + 6); k.c = 0; k.d = -1; k.e = -1; k.f0 = 0; k.f1 = 0;
-    func_00227da8(&k);
-}
+void func_0022f528(u8* o);  // 0x0022f528: definition moved into src/anon/unit_0022d358.cpp
 
 void func_0031bed8(u8* t) {
     *(u32*)t = (u32)&D_0034a660;

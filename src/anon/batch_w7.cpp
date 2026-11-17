@@ -159,9 +159,7 @@ void func_001e01b8(u32 a0) {
 
 void func_00229d40(u8* a0);  // 00229d40: moved to src/sasa/musical_combo.cpp (linked unit)
 
-void func_00234590(u32 a0, u32 a1, u32 a2, u32 a3, u32 t0) {
-    func_002340f0(a0, 0, a1, a2, a3, t0);
-}
+void func_00234590(u32 a0, u32 a1, u32 a2, u32 a3, u32 t0);  // 0x00234590: definition moved into src/anon/unit_002335e8.cpp
 
 void func_002367a0(void) {
     func_002f3918(func_002f35e8(2), D_0035e3f0);

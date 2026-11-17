@@ -232,14 +232,7 @@ void func_001d7f80(u8* p);  // 0x001d7f80: definition moved into src/anon/unit_0
 
 void func_001e6b00(u8* p);  // 0x001e6b00: definition moved into src/anon/unit_001e0cb8.cpp
 
-u32 func_00232348(void) {
-    u32 r;
-    if (func_00105c30() == 8) {
-        if (func_00242e48()) r = (u32)&D_003712d0;
-        else r = D_0033caf0;
-    } else r = D_0033caf4;
-    return r;
-}
+u32 func_00232348(void);  // 0x00232348: definition moved into src/anon/unit_00231500.cpp
 
 struct F184 { u32 b0 : 1; u32 b1 : 1; u32 rest : 30; };
 void func_00239e60(u8* p, f32 x, f32 y, f32 z) {

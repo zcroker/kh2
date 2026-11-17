@@ -133,9 +133,7 @@ void func_00228bd8(VObj*);
 void func_00228e28(VObj* o);  // 00228e28: moved to src/anon/unit_00228618.cpp (linked unit)
 
 void func_002344c0(u32, u32, u32, u32, u32);
-void func_00234720(u32 a, u32 b, u32 c, u32 d) {
-    func_002344c0(a, 0, b, c, d);
-}
+void func_00234720(u32 a, u32 b, u32 c, u32 d);  // 0x00234720: definition moved into src/anon/unit_002335e8.cpp
 
 void func_0023c728(u32*);
 void func_0023c598(u32*);

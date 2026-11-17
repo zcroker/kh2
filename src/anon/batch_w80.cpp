@@ -509,26 +509,7 @@ void func_0021f908(U6_OscSet* s, u32 a, u32 seed) {
 }
 
 
-void func_002328c0(U7_SeReq* r) {
-    U7_SeTbl* t;
-    s32 sh, i;
-    U7_SeEnt* e;
-    if (func_002282f0(r->id)) return;
-    sh = r->fade << 3;
-    t = D_0035de4c;
-    if (!t) return;
-    e = t->e;
-    s32 n = t->n;
-    for (i = 0; i < n; i++, e++) {
-        if (e->state == 1) {
-            U7_SeObj* o = (U7_SeObj*)e->obj;
-            if (func_002baa20(o->h) == 1) {
-                func_002b797c(o->h, 0, sh);
-                e->state = 2;
-            }
-        }
-    }
-}
+void func_002328c0(U7_SeReq* r);  // 0x002328c0: definition moved into src/anon/unit_00231500.cpp
 
 
 void func_00237808(U8_Rot3* o, f32 rx) {

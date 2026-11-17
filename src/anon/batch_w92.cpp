@@ -502,47 +502,14 @@ void func_0016adc8(void*, V22f);
 void func_0022f6b8(void*, V22f*);
 extern E22f* D_0035dcfc;
 
-void func_0022f7c0(u8* s) {
-    if (func_002282f0(*(u16*)(s + 38))) return;
-    if (*(s16*)(s + 4)) return;
-    f32 one = 1.0f;
-    for (s32 i = 0; i < 96; i++) {
-        E22f* e = (E22f*)((u32)(i * 40) + (u32)D_0035dcfc);
-        if (e->f0 < 0) continue;
-        if (*(s16*)(s + 36) != e->id) continue;
-        void* o = e->obj;
-        func_001ba028(o);  // list_contains_ptr
-        V22f a, unused, b;
-        (void)&unused;
-        a.x = func_00227c78(s + 8);
-        a.y = func_00227c78(s + 12);
-        a.z = func_00227c78(s + 16);
-        a.w = one;
-        b.x = func_00227c78(s + 20);
-        b.y = func_00227c78(s + 24);
-        b.z = func_00227c78(s + 28);
-        b.w = one;
-        func_0016adc8(o, a);
-        func_0022f6b8(o, &b);
-        return;
-    }
-}
+void func_0022f7c0(u8* s);  // 0x0022f7c0: definition moved into src/anon/unit_0022d358.cpp
 }
 
 // ---- 231390 ----
 extern "C" {
 f32 func_00230f10(u8*, s32, s32, f32);
 
-void func_00231390(f32* out, u8* c, f32 t) {
-    out[0] = func_00230f10(c, 2, 0, t);
-    out[1] = -func_00230f10(c + 32, 2, 0, t);
-    out[2] = -func_00230f10(c + 64, 2, 0, t);
-    out[3] = func_00230f10(c + 96, 2, 0, t);
-    out[4] = -func_00230f10(c + 128, 2, 0, t);
-    out[5] = -func_00230f10(c + 160, 2, 0, t);
-    out[6] = func_00230f10(c + 192, 2, 0, t) * 3.14159274f / 180.0f;
-    out[7] = func_00230f10(c + 224, 2, 0, t);
-}
+void func_00231390(f32* out, u8* c, f32 t);  // 0x00231390: definition moved into src/anon/unit_002302c0.cpp
 }
 
 // ---- 2529a8 ----

@@ -148,9 +148,7 @@ u8 func_0020f150(void) {
 }
 
 void func_00234460(u32, u32, u32, u32, u32, u32);
-void func_002346f0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4) {
-    func_00234460(a0, 0, a1, a2, a3, a4);
-}
+void func_002346f0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4);  // 0x002346f0: definition moved into src/anon/unit_002335e8.cpp
 
 struct Ent20 { u32 _0; u32 b; u32 _8; u32 c; u32 _10; };
 struct Tbl { u32 _0; u32 _4; Ent20* ents; u32* idx; };

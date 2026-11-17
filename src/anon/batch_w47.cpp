@@ -139,14 +139,7 @@ extern u8 D_0035de26;
 extern u8 D_00232150[];
 void func_00102c18(s32, s32, void*);
 s32 func_002282f0u(u16) asm("func_002282f0");
-void func_002322b8(u8* p) {
-    if (func_002282f0u(*(u16*)(p + 4))) return;
-    if (!*(u16*)(p + 6)) {
-        if (D_0035de26) return;
-        func_00102c18(1, 29990, D_00232150);
-        D_0035de26 = 1;
-    } else D_0035de26 = 0;
-}
+void func_002322b8(u8* p);  // 0x002322b8: definition moved into src/anon/unit_00231500.cpp
 
 extern u8* D_0035ee48;
 void func_00250928(void) {
@@ -267,14 +260,7 @@ union U22 { s32 i; s16 h; };
 struct R22e { u8 pad[12]; U22 f12; U22 f16; u8 f20; u8 f21; };
 s32 func_002282f0(s32);
 R22e* func_00227d10(s32);
-void func_0022efb8(S22e* p) {
-    if (func_002282f0(p->f4)) return;
-    R22e* r = func_00227d10(p->f12);
-    r->f12.i = p->f4;
-    r->f16.i = p->f4 + p->f10;
-    r->f20 = p->f8;
-    r->f21 = p->f9;
-}
+void func_0022efb8(S22e* p);  // 0x0022efb8: definition moved into src/anon/unit_0022d358.cpp
 
 // Stores s into the first free (id == -1) of 128 table entries. Unions with a
 // char member reproduce the original's reloads (built without strict aliasing).
@@ -283,28 +269,11 @@ union SH230 { s16 s; u16 h; u8 c; };
 struct S230 { u8 pad[4]; SH230 id; SH230 a; SH230 b; };
 struct E230 { s32 id; u16 a; u16 b; };
 extern GU230 D_0035dce4;
-void func_00230d78(S230* s) {
-    for (s32 i = 0; i < 128; i++) {
-        E230* e = (E230*)(i * 8 + D_0035dce4.v);
-        if (e->id == -1) {
-            e->id = s->id.s;
-            ((E230*)(i * 8 + D_0035dce4.v))->a = s->a.h;
-            ((E230*)(i * 8 + D_0035dce4.v))->b = s->b.h;
-            return;
-        }
-    }
-}
+void func_00230d78(S230* s);  // 0x00230d78: definition moved into src/anon/unit_002302c0.cpp
 
 // Scales the alpha byte of an RGBA colour, clamped to 255.
 struct C23 { u8 r, g, b, a; };
-u32 func_002338a8(C23 c, f32 s) {
-    if (s != 1.0f) {
-        u32 v = (s32)((f32)((*(u32*)&c) >> 24) * s);
-        if (v >= 256) c.a = 255;
-        else c.a = v;
-    }
-    return *(u32*)&c;
-}
+u32 func_002338a8(C23 c, f32 s);  // 0x002338a8: definition moved into src/anon/unit_002335e8.cpp
 
 extern u32 D_0035f57c;
 extern u8 D_0035f580;

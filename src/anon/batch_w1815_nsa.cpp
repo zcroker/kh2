@@ -56,21 +56,5 @@ struct E23c { T23* p; u32 x; };
 extern E23a* D_0035dcec;
 extern E23b* D_0035dcfc;
 extern E23c* D_0035dce8;
-void func_002308c8(A23* a) {
-    for (s32 i = 0; i < 64; i++) {
-        if (D_0035dcec[i].a == 0) {
-            D_0035dcec[i].c = 0;
-            for (s32 j = 0; j < 96; j++) {
-                if (D_0035dcfc[j].f0 >= 0 && a->s4 == D_0035dcfc[j].f4) D_0035dcec[i].c = D_0035dcfc[j].f8;
-            }
-            for (s32 k = 0; k < 64; k++) {
-                if (D_0035dce8[k].p && D_0035dce8[k].p->s4 == a->u10) {
-                    D_0035dcec[i].a = a;
-                    D_0035dcec[i].b = &D_0035dce8[k];
-                    return;
-                }
-            }
-        }
-    }
-}
+void func_002308c8(A23* a);  // 0x002308c8: definition moved into src/anon/unit_002302c0.cpp
 }

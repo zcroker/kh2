@@ -29,23 +29,5 @@ void func_00230d70(void);     // basis-matrix destructor (empty)
 void func_002fd188(void (*)(void)); // atexit-style registration
 
 // out = B-spline point at parameter t for control points p0..p3.
-void func_0022fb98(W1691Point* out, f32 t, const W1691Point* p0, const W1691Point* p1, const W1691Point* p2, const W1691Point* p3) {
-    if (!D_01dadb60) {
-        W1691Vec r0(-1.0f / 6, 0.5f, -0.5f, 1.0f / 6);
-        W1691Vec r1(0.5f, -1.0f, 0.5f, 0.0f);
-        W1691Vec r2(-0.5f, 0.0f, 0.5f, 0.0f);
-        W1691Vec r3(1.0f / 6, 2.0f / 3, 1.0f / 6, 0.0f);
-        new (&D_01dadb70) W1691Mtx(r0, r1, r2, r3);
-        D_01dadb60 = 1;
-        func_002fd188(func_00230d70);
-    }
-    W1691Vec c(t * t * t, t * t, t, 1.0f);
-    c = D_01dadb70 * c;
-    W1691Vec px(p0->x, p1->x, p2->x, p3->x);
-    W1691Vec py(p0->y, p1->y, p2->y, p3->y);
-    W1691Vec pz(p0->z, p1->z, p2->z, p3->z);
-    out->x = func_0022f8f0(&c, &px);
-    out->y = func_0022f8f0(&c, &py);
-    out->z = func_0022f8f0(&c, &pz);
-}
+void func_0022fb98(W1691Point* out, f32 t, const W1691Point* p0, const W1691Point* p1, const W1691Point* p2, const W1691Point* p3);  // 0x0022fb98: definition moved into src/anon/unit_0022d358.cpp
 }

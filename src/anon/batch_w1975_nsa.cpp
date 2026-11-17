@@ -128,30 +128,5 @@ static inline f32 W1975_frange(f32 lo, f32 hi) { return lo + W1975_frand() * (hi
 void func_001e1160(W1975Obj* self);  // 0x001e1160: definition moved into src/anon/unit_001e0cb8.cpp
 
 // D_01dadb00 is a function-local static (guard D_01dadaf0, empty atexit dtor func_0022f8e8).
-void func_0022eb80(W1975Ev* self) {
-    W1975Work* w;
-    f32 rx, rz;
-    W1975V v;
-    W1975M m;
-    if (func_002282f0(self->h4) != 0) return;
-    w = W1975_Ev_entry_work_get(self->h6);
-    func_001ba028(w->p8);
-    if (!D_01dadaf0) {
-        D_01dadaf0 = 1;
-        new (&D_01dadb00) W1975V(0.0f, 1.0f, 0.0f, 1.0f);
-        func_002fd188(func_0022f8e8);
-    }
-    f32 k = 0.017453292f;
-    f32 az = W1975_Ev_get_float(&self->f12) * k;
-    f32 ax = W1975_Ev_get_float(&self->f8) * k;
-    rz = W1975_FixRadian(az);
-    rx = W1975_FixRadian(ax);
-    W1975_identity(&m);
-    W1975_rotateX(&m, rx);
-    W1975_rotateZ(&m, rz);
-    v = m * D_01dadb00;
-    v.normalize();
-    if (self->h18 == 0) func_001b0858(w->p8 + 1184, (f32)self->h16 * 2.0f, &v, 0);
-    else W1975_LookAt_release(w->p8 + 1184, (f32)self->h16 * 2.0f, &v);
-}
+void func_0022eb80(W1975Ev* self);  // 0x0022eb80: definition moved into src/anon/unit_0022d358.cpp
 }
