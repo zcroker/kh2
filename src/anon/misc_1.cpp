@@ -108,10 +108,10 @@ void func_001e0370(void* self) {}
 
 // 001e0998: moved to src/rikeda/saveram_gumibattle.cpp
 
-void func_001e1df0(void* self) {}
+void func_001e1df0(void* self);  // 0x001e1df0: definition moved into src/anon/unit_001e0cb8.cpp
 
-void func_001e21f0(void* self) {}
+void func_001e21f0(void* self);  // 0x001e21f0: definition moved into src/anon/unit_001e0cb8.cpp
 
-void func_001e2c70(void* self, s32 v) { *(u8*)((char*)self + 169) = (u8)v; }
+void func_001e2c70(void* self, s32 v);  // 0x001e2c70: definition moved into src/anon/unit_001e0cb8.cpp
 
-void func_001e65c8(void* self) {}
+void func_001e65c8(void* self);  // 0x001e65c8: definition moved into src/anon/unit_001e0cb8.cpp

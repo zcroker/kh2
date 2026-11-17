@@ -815,25 +815,15 @@ u32 func_001e0378(u32 a0, u32 a1, u32 a2, u32 a3) {
 
 // 001e0c58: _GLOBAL__I_ stub, now made by gcc in src/rikeda/saveram_gumibattle.cpp
 
-u32 func_001e2620(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_001e2450(a0, a0, 0x0000000au, a3);
-}
+u32 func_001e2620(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001e2620: definition moved into src/anon/unit_001e0cb8.cpp
 
-u32 func_001e2640(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_001e2450(a0, ((u32)(a0) + 320u), 0x000000c8u, a3);
-}
+u32 func_001e2640(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001e2640: definition moved into src/anon/unit_001e0cb8.cpp
 
-u32 func_001e7018(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_0020e9f8(a0, a1, a2, a3);
-}
+u32 func_001e7018(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001e7018: definition moved into src/anon/unit_001e0cb8.cpp
 
-u32 func_001e7030(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_0020ea48(((u32)(a0) & 0xffu), ((u32)(a1) & 0xffu), ((u32)(a2) & 0xffu), a3);
-}
+u32 func_001e7030(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001e7030: definition moved into src/anon/unit_001e0cb8.cpp
 
-u32 func_001e7050(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_0020ea70(((u32)(a0) & 0xffu), ((u32)(a1) & 0xffu), a2, a3);
-}
+u32 func_001e7050(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001e7050: definition moved into src/anon/unit_001e0cb8.cpp
 
 u32 func_001efb40(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_001efb18(a0, a1, a2, a3);

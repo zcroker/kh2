@@ -217,17 +217,7 @@ struct E7Ctx { void* next; u32 f4; E7Obj* obj; };
 extern "C" {
 extern u32 D_01d9e6e4;
 void func_001e7798(u32, E7Ctx*);
-void func_001e7be0(E7Ctx* c) {
-    E7Obj* ob = c->obj;
-    E7Def* d = ob->def;
-    for (s32 i = 0; i < d->count; i++) {
-        E7Slot* s = &d->slots[i];
-        if (s->e && s->e->fn) s->e->fn(c, s);
-    }
-    if (--ob->refs == 0) ob->cur = 0;
-    else if (ob->cur == c) ob->cur = c->next;
-    func_001e7798(D_01d9e6e4, c);
-}
+void func_001e7be0(E7Ctx* c);  // 0x001e7be0: definition moved into src/anon/unit_001e0cb8.cpp
 }
 }
 

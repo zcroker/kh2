@@ -130,22 +130,10 @@ extern char D_0036e978[];
 extern char D_0036e998[];
 extern char D_0036e9b0[];
 void func_002fdfc8(const char*, ...);  // device_vprintf_va
-void func_001e2ad8(u32 a, u32 b, u32 c, u32 d) {
-    func_002fdfc8(D_0036e978, a);  // device_vprintf_va
-    func_002fdfc8(D_0036e998, b, c);  // device_vprintf_va
-    func_002fdfc8(D_0036e9b0, d);  // device_vprintf_va
-    asm volatile("break");
-}
+void func_001e2ad8(u32 a, u32 b, u32 c, u32 d);  // 0x001e2ad8: definition moved into src/anon/unit_001e0cb8.cpp
 
 // Zero-fill: words then bytes. The nops reproduce the R5900 short-loop padding.
-void wtarget_001e7230(u32 a, u32 b, u32, u32) {
-    u32* p = (u32*)a;
-    s32 n = (s32)b >> 2;
-    if (n-- != 0) do { *p = 0; n--; asm volatile("nop\n\tnop\n\tnop"); p++; } while (n != -1);
-    u8* q = (u8*)p;
-    n = b & 3;
-    if (n-- != 0) do { *q = 0; n--; asm volatile("nop\n\tnop\n\tnop"); q++; } while (n != -1);
-}
+void wtarget_001e7230(u32 a, u32 b, u32, u32);  // 0x001e7230: definition moved into src/anon/unit_001e0cb8.cpp
 
 extern u8 D_0035de26;
 extern u8 D_00232150[];

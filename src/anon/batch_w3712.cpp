@@ -66,18 +66,5 @@ void* func_001e3650(void*);
 void* f_001e3660(void*, s32) asm("_Z13func_001e3660ji");
 void* func_001e38f8(void*, void*, s32, s32);
 void* func_001e3a88(void*, void*, s32, s32);
-void func_001e3c18(E1e3c18* p) {
-    NoTail1e3c18 nt;
-    register s32 a asm("$18");
-    register s32 b asm("$17");
-    void* v;
-    /* hand-written loads: x9e must be read last, through the saved copy of p in s0 */
-    asm("lh %0,156(%1)" : "=r"(a) : "r"(p));
-    v = p->x88;
-    asm("lh %0,158($16)" : "=r"(b) : "r"(p), "r"(v));
-    v = func_001e3650(v);
-    v = f_001e3660(v, 2);
-    v = func_001e38f8(v, p->x8c + 0xc0, a, b);
-    func_001e3a88(v, p->x8c + 0xd0, a, b);
-}
+void func_001e3c18(E1e3c18* p);  // 0x001e3c18: definition moved into src/anon/unit_001e0cb8.cpp
 }

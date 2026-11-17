@@ -19,25 +19,5 @@ extern void* D_00361f60;
 u8 func_002cef80(void* a0, V2c* pos);  // 002cef80: moved to src/taito/minigame_base.cpp (linked unit)
 // register pins reproduce the original's counter/temp allocation
 struct Hdr1e { s16 a; s16 b; s16 c; s16 fmt; u8 pad[16]; s32 off; };
-Hdr1e** func_001e4248(s32* p) {
-  register s32 n asm("$15") = p[0];
-  Hdr1e** h = (Hdr1e**)(p + 1);
-  register s32 i asm("$10");
-  if (n > 0) for (i = n; i != 0; i--) {
-    s32 cnt = 0;
-    Hdr1e* t = *h++;
-    u8* d = (u8*)t + t->off + 32;
-    if (t->b == 0) continue;
-    switch (t->fmt) {
-    case 19: cnt = 256; break;
-    case 20: cnt = 16; break;
-    }
-    for (; cnt != 0; cnt--) {
-      s32 v = (s32)(d[0] * 0.3f + d[1] * 0.59f + d[2] * 0.11f);
-      d[2] = v; d[1] = v; d[0] = v;
-      d += 4;
-    }
-  }
-  return h;
-}
+Hdr1e** func_001e4248(s32* p);  // 0x001e4248: definition moved into src/anon/unit_001e0cb8.cpp
 }

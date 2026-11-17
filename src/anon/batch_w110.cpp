@@ -168,39 +168,7 @@ void func_001e2b50(u32, u32);
 void func_001e5fd8(void);
 // Stores the draw parameters into the global state block, then resets and starts the pass.
 void func_001e6d38(u32 a0, u32 a1, u32 a2, u32 a3, u32 t0, u32 t1, u32 t2, u32 t3, Arg4 s0, u32 s1, u32 s2, u64 c,
-                      u64 d0, u64 d1, u64 d2, u64 d3, u64 d4, u64 d5) {
-    NoTail nt;
-    D_00352c00.v = c;
-    D_00352be4 = t0;
-    D_00352be8 = t1;
-    D_00352bec = t2;
-    D_00352bf0 = t3;
-    D_00352bf4 = s0.v;
-    D_00352bf8 = s1;
-    D_00352bfc = s2;
-    D_00352c08 = d0;
-    D_00352c10 = d1;
-    D_00352c18 = d2;
-    D_00352c20 = d3;
-    D_00352c28 = d4;
-    *(volatile u64*)&D_00352c30 = d5;
-    D_00352c00.b.hi = 0xff000000;
-    func_001e2bc8(a0, a1, a2, a3);
-    D_01d9ea9c = 0;
-    D_00352c40 = a1;
-    D_00352c44 = a3;
-    func_001e7650(&D_01d9e6b8, a0, a1);
-    D_01d9e6b8.f16 = D_00352c48;
-    D_01d9e6b8.f20 = D_00353e48;
-    D_01d9e6b8.f24 = D_00354248;
-    D_01d9e6e4 = &D_01d9e6b8;
-    D_01d9eaa0 = 0;
-    sceVu0UnitMatrix(D_01d9ea40);  // vu_store_w_splat
-    D_01d9ea80.q = 0;
-    D_01d9ea80.f[3] = 1.0f;
-    func_001e2b50(a2, a3);
-    func_001e5fd8();
-}
+                      u64 d0, u64 d1, u64 d2, u64 d3, u64 d4, u64 d5);  // 0x001e6d38: definition moved into src/anon/unit_001e0cb8.cpp
 }
 struct Bigint { Bigint* next; s32 k, maxwds, sign, wds; u32 x[1]; };
 #define Storeinc(a, b, c) (((u16*)a)[1] = (u16)b, ((u16*)a)[0] = (u16)c, a++)
@@ -761,37 +729,5 @@ void func_002bc188(u32, QP*);
 void func_001e1070(HitCtx*, Actor*);
 void func_001e23b0(u32, QP*);
 // Hit check around the context position: big sphere vs downed actor (state 254-256), else small sphere.
-s32 func_001e1350(HitCtx* c, Actor* o) {
-    if (o && func_0019ba60(o)) {
-        QP pos;
-        pos = func_001e0cc8(c);  // entry64_by_field32
-        Sph near(pos, 50.0f);
-        Sph far(pos, 200.0f);
-        HitShape sh;
-        func_0018a818(&sh, o, func_0016bc20(o, 1, -1));
-        if (func_0018a550(&far, &sh)) {  // state_dispatch_0_1_3
-            ActSub* q = &o->sub;
-            if (q->state == 254) goto down;
-            if (q->state == 255) goto down;
-            if (q->state != 256) goto skip;
-        down:
-            if (!func_00180618(q)) {
-                func_001e2660(D_00352bd0, &pos);
-                if (o->flags & 0x80) func_002bc188(0x5b531, &pos);
-                else func_002bc188(0x5b532, &pos);
-                c->mode = 6;
-                return 1;
-            }
-        }
-    skip:
-        if (func_0018a550(&near, &sh)) {  // state_dispatch_0_1_3
-            func_001e1070(c, o);
-            func_001e23b0(D_00352bd0, &pos);
-            func_002bc188(0x5b51f, &pos);
-            c->mode = 6;
-            return 1;
-        }
-    }
-    return 0;
-}
+s32 func_001e1350(HitCtx* c, Actor* o);  // 0x001e1350: definition moved into src/anon/unit_001e0cb8.cpp
 }

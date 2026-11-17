@@ -19,61 +19,7 @@ extern Dev_e* D_01d9e6e0;
 extern Node_e* D_01d9e6e8;
 extern s32 D_01d9ea9c;
 void func_001e7948(Node_e*);
-void func_001e8330(Self_e* self)
-{
-    s32 i;
-    for (i = 0; i < self->count; i++) {
-        Ent_e* e = &self->ents[i];
-        Grp_e* g = e->g;
-        s32 j;
-        if (e->n == 0)
-            continue;
-        for (j = 0; j < g->nslots; j++) {
-            Slot_e* sl = &g->slot[j];
-            register Hnd_e* h asm("$19") = sl->h;
-            Node_e* nd = e->first;
-            void (*fn)(Node_e*, s32*, void*) = h->fn;
-            s32 off = h->off;
-            register s32 k asm("$20");
-            if (fn == 0 || off != 0)
-                continue;
-            k = e->n;
-            do {
-                Node_e* next = nd->next;
-                s32** pp0 = (s32**)((u8*)nd + g->off + j * 4);
-                if (!nd->b9c) {
-                    s32** pp = pp0;
-                    register s32* p asm("$18") = *pp;
-                    register s32* q asm("$22") = (s32*)((u8*)p + sl->add);
-                    register s32* t asm("$16");
-                    D_01d9e6e8 = nd;
-                    if (D_01d9ea9c == 0 && !(D_01d9e6e0->flags & 0xff0000ff00ULL) && nd->b9e) {
-                        nd->val = 0;
-                        nd->b9d = 1;
-                        func_001e7948(nd);
-                        nd->b9e = 0;
-                    }
-                    if (*q == nd->val) {
-                        *pp = q;
-                        p = q;
-                    }
-                    t = &h->start;
-                    h->start = *(volatile s32*)0x10000000;
-                    fn(nd, p, sl);
-                    t[1] += *(volatile s32*)0x10000000 - h->start;
-                    if (t[2] < t[1])
-                        t[2] = t[1];
-                }
-                nd = next;
-            } while (--k);
-            {
-            register s32 ph asm("$21");
-            asm volatile("" : "=r"(ph));
-            asm("" :: "r"(fn), "r"(ph));
-            }
-        }
-    }
-}
+void func_001e8330(Self_e* self);  // 0x001e8330: definition moved into src/anon/unit_001e0cb8.cpp
 
 
 

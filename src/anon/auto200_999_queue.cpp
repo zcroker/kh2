@@ -51,18 +51,4 @@ void func_00108c00(u64* a0, u32 a1, u64 a2, u64 a3, u64 a4, u64 a5, u64 a6, u64 
 
 u32 func_0010f340(u32 a0, u32 a1, u32 a2, f32 a3);  // 0x0010f340: definition moved into src/anon/unit_0010f338.cpp
 
-u32 func_001e3660(u32 a0, s32 a1) {
-    if (a1 <= 0) {
-        return a0;
-    }
-
-    u32 v0 = a0;
-    do {
-        u32 t7 = *(u32*)v0;
-        a1 -= 1;
-        t7 <<= 2;
-        v0 += 4;
-        v0 += t7;
-    } while (a1 != 0);
-    return v0;
-}
+u32 func_001e3660(u32 a0, s32 a1);  // 0x001e3660: definition moved into src/anon/unit_001e0cb8.cpp

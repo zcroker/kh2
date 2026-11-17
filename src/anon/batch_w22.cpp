@@ -160,11 +160,7 @@ u8 wtarget_001d9688(R3* a, u32 b, u32 c, u32);  // 0x001d9688: definition moved 
 extern u32 D_00352bd0;
 u32 func_001e0cc8(void*);  // entry64_by_field32
 void func_001e26b8(u32, u32);
-void func_001e0f90(u8* p) {
-    func_001e26b8(D_00352bd0, func_001e0cc8(p));
-    *(u32*)(p + 36) = 5;
-    *(u32*)(p + 40) = 0;
-}
+void func_001e0f90(u8* p);  // 0x001e0f90: definition moved into src/anon/unit_001e0cb8.cpp
 
 // --- 002247e8
 extern s32 D_0035de20;

@@ -231,30 +231,7 @@ void func_001f5cc8(void);
 void func_0021ee48(u8*, Ev001f*, void*, u8*, s16, u8, u8);
 
 // Drains queued entries in 0.25 steps of the accumulated time.
-void func_001e1d20(u8* a0)
-{
-    if (*(f32*)(a0 + 3560) < 140.0f) {
-        *(f32*)(a0 + 3556) = 25.0f;
-        return;
-    }
-    if (0.25f <= *(f32*)(a0 + 3556)) {
-        do {
-            s32 n = *(s32*)(a0 + 3564);
-            if (n <= 0) {
-                *(f32*)(a0 + 3560) = 0;
-                *(f32*)(a0 + 3556) = 0;
-                *(s32*)(a0 + 3520) = 2;
-                return;
-            }
-            {
-                s32 m = n - 1;
-                *(s32*)(a0 + 3564) = m;
-                func_001e0e40(*(u8**)(a0 + 3528) + m * 48);
-            }
-            *(f32*)(a0 + 3556) -= 0.25f;
-        } while (0.25f <= *(f32*)(a0 + 3556));
-    }
-}
+void func_001e1d20(u8* a0);  // 0x001e1d20: definition moved into src/anon/unit_001e0cb8.cpp
 
 void func_001f5df8(u8* a0, Ev001f* e, u8* a2)
 {

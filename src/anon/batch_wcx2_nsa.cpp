@@ -1464,48 +1464,7 @@ f32 cosf(f32);
 void func_0011b6a8(M1e1988*);
 void func_0011b720(M1e1988*, f32);
 void func_001e0de8(void*);
-void func_001e1988(Self1e1988* s)
-{
-    s32 n = 6;
-    s32 idx = 0;
-    f32 y = -700.0f;
-    f32 a = 1.483529806137085f;
-    f32 da = -0.09890198707580566f;
-    f32 dy = -46.666664123535156f;
-    s->o3540 = func_0016abf8(s->res, 14, 0, 0);
-    func_001dca50(s->o3540, s->mats, s->nitems);
-    s->o3544 = func_0016abf8(s->res, 70, 0, 0);
-    func_001dca30(s->o3544, s, 10);
-    s->o3548 = func_0016abf8(s->res, 69, 0, 0);
-    func_001dca30(s->o3548, (u8*)s + 160, 10);
-    s->o3552 = func_0016abf8(s->res, 70, 0, 0);
-    func_001dca30(s->o3552, (u8*)s + 320, 200);
-    for (s32 r = 14; r >= 0; r--) {
-        for (s32 i = 0; i < n; i++, idx++) {
-            V1e1988 p, d, c;
-            M1e1988 m;
-            p.zero();
-            p.z = cosf(a) * 700.0f;
-            p.y = y;
-            func_0011b6a8(&m);
-            func_0011b720(&m, 6.2831854820251465f / (f32)n * (f32)i);
-            p = m * p;
-            p.w = 0.0f;
-            c.zero();
-            c.y = -100.0f;
-            d = c - p;
-            d.normalize();
-            d.w = 0.0f;
-            func_0011b6a8(&s->mats[idx]);
-            s->mats[idx].r[2] = d;
-            s->mats[idx].r[3] = p;
-        }
-        y -= dy;
-        a += da;
-        n += 3;
-    }
-    for (s32 i = 0; i < s->nitems; i++) func_001e0de8(s->items + i * 48);
-}
+void func_001e1988(Self1e1988* s);  // 0x001e1988: definition moved into src/anon/unit_001e0cb8.cpp
 
 struct P2b5 { s16 x; s16 p2; s16 y; };
 struct Q2b5 { u8 pad[8]; s32 a; s32 b; u8 pad2[8]; P2b5* p; };

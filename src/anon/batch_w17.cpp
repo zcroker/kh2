@@ -143,13 +143,7 @@ extern u8 D_01d9e6b0;
 void func_001e65d0(void);
 void func_001e6630(void);
 void func_0021c9b0(void);
-void func_001e6648(void) {
-    func_001e65d0();
-    func_001e6630();
-    func_0021c9b0();
-    D_01d9e6b4 = 0;
-    D_01d9e6b0 = 0;
-}
+void func_001e6648(void);  // 0x001e6648: definition moved into src/anon/unit_001e0cb8.cpp
 
 extern u32 D_0035dae4;
 void func_00225fa0(u32, u32);

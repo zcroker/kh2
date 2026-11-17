@@ -211,19 +211,7 @@ void func_001e00b0(u8* p) {
     func_002bc3f0(*(u32*)(p + 84));
 }
 
-void func_001e7cc0(u8* p) {
-    u8* o = *(u8**)(p + 116);
-    while (o) {
-        u8* n = *(u8**)o;
-        func_001e7be0(o);
-        o = n;
-    }
-    *(u32*)(p + 116) = 0;
-    if (*(u32*)(p + 128)) {
-        func_001e7798(D_01d9e6e4, *(u32*)(p + 128));
-        *(u32*)(p + 128) = 0;
-    }
-}
+void func_001e7cc0(u8* p);  // 0x001e7cc0: definition moved into src/anon/unit_001e0cb8.cpp
 
 void func_00225328(u8* p) {
     if (*(u16*)(p + 6)) func_00225530(p);

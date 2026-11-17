@@ -207,66 +207,7 @@ static inline void ryjAssert1e6280(const char* e, const char* f, u32 l)
     func_002fdfc8(D_0036e998, f, l);
     asm volatile("break"); /* assert trap */
 }
-s32 func_001e6280(Part1e6280* p, s32 force)
-{
-    s32 ret = 1;
-    s32 stop;
-    s32 same;
-    if (!p) ryjAssert1e6280(D_0036e9c0, D_0036e9d0, 2137);
-    D_01d9e6e0 = p;
-    func_001e6038(p);
-    if (!D_01d9ea9c && !D_01d9e6e0->stopA && !D_01d9e6e0->stopB && !(p->flags & 8)) {
-        if (0.0f < p->wait) p->wait -= D_00352be0;
-    }
-    if (0.0f < p->wait) return ret;
-    if (p->p88 && !p->dead && force) p->on = 1;
-    else p->on = 0;
-    if (p->on && p->own->hide) goto done;
-    p->tDraw.start = 0;
-    p->tTotal.start = *(volatile s32*)0x10000000;
-    p->tUpdate.start = *(volatile s32*)0x10000000;
-    same = 0;
-    if (D_00354690.id == p->id) same = D_00354690.sub == p->sub;
-    if (!same) func_001e41e0(p);
-    p->acc += D_00352be0;
-    if (2.0f <= p->acc) {
-        p->stopB = 0;
-        stop = 0;
-        while (__builtin_expect(p->steps > 0, 0)) {
-            func_001e8bb8(p);
-            if (func_001e8c28(p, 0)) {
-                func_001e7cc0(p);
-                stop = 1;
-                ret = 0;
-                break;
-            }
-            p->steps--;
-        }
-        if (!stop) {
-            for (p->acc -= 2.0f; 2.0f <= p->acc; p->acc -= 2.0f) {
-                func_001e8bb8(p);
-                if (func_001e8c28(p, 0)) {
-                    func_001e7cc0(p);
-                    stop = 1;
-                    ret = 0;
-                    break;
-                }
-            }
-        }
-        if (!stop) func_001e8bb8(p);
-    } else {
-        p->stopB = 1;
-        func_001e8bb8(p);
-    }
-    D_00354690.id = p->id;
-    D_00354690.sub = p->sub;
-    timeEnd1e6280(&p->tUpdate);
-    timeEnd1e6280(&p->tTotal);
-    timeSub1e6280(&p->tDraw);
-done:
-    D_01d9e6e0 = 0;
-    return ret;
-}
+s32 func_001e6280(Part1e6280* p, s32 force);  // 0x001e6280: definition moved into src/anon/unit_001e0cb8.cpp
 
 /* The soft-float double compare (rand() > 0.5) is a libcall to dpcmp, which lives in the game at 0x3142e0. */
 asm("dpcmp = func_003142e0");

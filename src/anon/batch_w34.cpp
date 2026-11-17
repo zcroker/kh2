@@ -143,12 +143,7 @@ void func_001ced10(u8* p, u32 a, u32 b, u32 c);  // 0x001ced10: definition moved
 
 void func_001d18c0(u8* p);  // 0x001d18c0: definition moved into src/anon/unit_001d14e0.cpp
 
-void func_001e60b0(void) {
-    for (Pair72* e = D_00354bf0; e->id >= 0; e++) {
-        func_001e6000(e->x);  // obj_dec_timer
-        func_001e6000(e->y);  // obj_dec_timer
-    }
-}
+void func_001e60b0(void);  // 0x001e60b0: definition moved into src/anon/unit_001e0cb8.cpp
 
 void sceVu0UnitMatrix(void*);  // vu_store_w_splat
 s32 func_00139d78(void*);

@@ -37,26 +37,7 @@ void func_001e0d68(Self_w2387*, QWord_w2387*);
 
 /* Pick D_0034e948 or party actor 0 (by state 270/271, else a random bit), then store the
    normalized direction from this object's point to that actor's position. */
-void func_001e0e50(Self_w2387* o) {
-    Act_w2387* p = D_0034e948;
-    Act_w2387* q = friend_get_w2387(0);
-    QWord_w2387 v;
-    if (p->state == 270) v = actor_pos_w2387(q);
-    else if (p->state == 271) v = actor_pos_w2387(q);
-    else if (q->state == 270) v = actor_pos_w2387(p);
-    else if (q->state == 271) v = actor_pos_w2387(p);
-    else {
-        D_003638d0 *= 0x10dcd;
-        if ((u32)(((u64)D_003638d0 * 2) >> 32)) v = actor_pos_w2387(p);
-        else v = actor_pos_w2387(q);
-    }
-    QWord_w2387* d = func_001e0cc8(o);
-    v = VSub_w2387(v, *d);
-    VNormalize_w2387(&v);
-    func_001e0d68(o, &v);
-    o->f28 = 0;
-    o->f24 = 3;
-}
+void func_001e0e50(Self_w2387* o);  // 0x001e0e50: definition moved into src/anon/unit_001e0cb8.cpp
 
 s32 func_002ef7b8();
 s32 func_0022bb38();

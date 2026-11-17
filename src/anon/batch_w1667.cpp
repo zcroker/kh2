@@ -17,7 +17,7 @@ extern u8 D_01c60d10;
 
 // 00198a90: moved to src/anon/unit_00197fe0.cpp
 
-void func_001e2ac0(void) { *(s32*)(D_00352bd0 + 0xdc0) = 7; }
+void func_001e2ac0(void);  // 0x001e2ac0: definition moved into src/anon/unit_001e0cb8.cpp
 
 void func_002f8a88(void) { __ieee754_sqrt(); }
 
@@ -38,10 +38,7 @@ void func_001e0310(u32 a) {
 
 // 0014dd80: moved to src/anon/unit_0014d680.cpp
 
-void func_001e2aa0(void) {
-    *(s32*)(D_00352bd0 + 0xdc0) = 3;
-    *(s32*)(D_00352bd0 + 0xde4) = 0;
-}
+void func_001e2aa0(void);  // 0x001e2aa0: definition moved into src/anon/unit_001e0cb8.cpp
 
 void func_002f4820(f32* d, f32* s) {
     d[0] = s[0];

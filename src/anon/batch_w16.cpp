@@ -175,9 +175,7 @@ u8 func_001b8800(u32 a);  // 0x001b8800: definition moved into src/anon/unit_001
 
 u8 func_001d23e0(u32 a);  // 0x001d23e0: definition moved into src/anon/unit_001d14e0.cpp
 
-void func_001e4f00(void) {
-    func_001e4320(func_001e4e18(func_001e4248(func_001e3660(func_001e3650(), 1))));
-}
+void func_001e4f00(void);  // 0x001e4f00: definition moved into src/anon/unit_001e0cb8.cpp
 
 // 3D vector length (VU0).
 f32 func_002229a0(void* v) {  // vec3_length

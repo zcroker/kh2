@@ -141,19 +141,7 @@ static inline s32 PathBusy1e7(void) {
 }
 
 // Kicks a GIF PATH3 transfer of the given packet once all paths are idle (skips if already sent).
-void func_001e72a8(u32 addr) {
-    sceGsSyncPath(0, 0);
-    if (D_01d9e6b4 != addr) {
-        while (PathBusy1e7()) {}
-        *(volatile u32*)0x10009020 = 0;
-        *(volatile u32*)0x10009030 = addr;
-        *(volatile u32*)0x1000e010 = 2;
-        D_01d9e6b4 = addr;
-        *(volatile u32*)0x10009000 = 325;
-    } else {
-        while (PathBusy1e7()) {}
-    }
-}
+void func_001e72a8(u32 addr);  // 0x001e72a8: definition moved into src/anon/unit_001e0cb8.cpp
 
 struct E1d4 { u8 kind; u8 pad[39]; u16 id; u8 pad2[22]; };
 struct T1d4 { u32 f0; s32 n; E1d4 e[1]; };

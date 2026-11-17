@@ -52,20 +52,7 @@ void func_0015ae00(u8* a);  // 0x0015ae00: definition moved into src/anon/unit_0
 
 extern u32 D_003638d0;
 s64 func_00312db8(u64, u64);
-void func_001e26b8(u8* a, Vq* src) {
-    for (s32 i = 0; i < 200; i++, a += 16) {
-        if (a[332] == 0) {
-            *(Vq*)(a + 320) = *src;
-            a[333] = 0;
-            a[332] = 0x80;
-            D_003638d0 = D_003638d0 * 69069;
-            s32 r = func_00312db8(D_003638d0, 0x01010102);
-            a[334] = r;
-            a[335] = 60;
-            return;
-        }
-    }
-}
+void func_001e26b8(u8* a, Vq* src);  // 0x001e26b8: definition moved into src/anon/unit_001e0cb8.cpp
 
 extern u8 D_00347f98[];
 extern u8 D_0035eb98[];

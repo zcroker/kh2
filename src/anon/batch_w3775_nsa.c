@@ -15,40 +15,7 @@ extern s32 D_01d9e6e4;
 Ent* func_001e7698(s32, s32);
 void func_001e7810(Obj*);
 
-void func_001e8048(Obj* o, s32* d, s32 go) {
-    s32* p = d + 1;
-    asm("" : "+r"(p));
-    D_01d9e6e0 = o;
-    o->w54 = d[0];
-    s32 fl = *p++;
-    s32* a = (s32*)((u8*)d + *p++);
-    s32* b = (s32*)((u8*)d + *p++);
-    if (fl & 1) o->b84 = 1; else o->b84 = 0;
-    o->w64 = *a++;
-    o->p78 = a;
-    o->n68 = *b++;
-    o->p7c = b;
-    if (o->n68) o->ents = func_001e7698(D_01d9e6e4, o->n68 << 4);
-    else o->ents = 0;
-    Node* n = (Node*)p;
-    if (n->next) o->list70 = 0;
-    o->list70 = o->n68 ? n : 0;
-    o->w58 = 0;
-    o->b85 = 0;
-    o->w74 = 0;
-    register Ent* e asm("$11") = o->ents;
-    u8 i = 0;
-    for (; n; n = n->next) {
-        e->n = n;
-        e->v8 = n->v10;
-        e->b14 = i++;
-        e->w4 = 0;
-        e->h12 = 0;
-        e++;
-    }
-    if (go) func_001e7810(o);
-    o->w98 = 0;
-}
+void func_001e8048(Obj* o, s32* d, s32 go);  // 0x001e8048: definition moved into src/anon/unit_001e0cb8.cpp
 
 
 

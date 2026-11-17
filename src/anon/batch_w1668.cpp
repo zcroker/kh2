@@ -38,7 +38,7 @@ void func_00239230(u8* p) { *(f32*)(p + 0x48) += D_00349e14 * *(f32*)(p + 0x44);
 void dkMap_setVisibleGroup(u32) asm("_ZN2dk3Map15setVisibleGroupEj");
 void func_0015f6e8(void);
 void func_0015e018(void);
-void func_001e2a78(void) { dkMap_setVisibleGroup(0); func_0015f6e8(); func_0015e018(); }
+void func_001e2a78(void);  // 0x001e2a78: definition moved into src/anon/unit_001e0cb8.cpp
 
 extern u32 D_00363540;
 void func_002eb778(void*, u32, u32);
@@ -56,6 +56,6 @@ void func_001879f0(u32* p);
 void func_001bf118(u8* p, s32 b);  // 0x001bf118: definition moved into src/anon/unit_001bc568.cpp
 
 void func_001e0dc8(void*);
-void func_001e1698(u8* p) { func_001e0dc8(p); *(u32*)(p + 0x24) = 0; }
+void func_001e1698(u8* p);  // 0x001e1698: definition moved into src/anon/unit_001e0cb8.cpp
 
 }

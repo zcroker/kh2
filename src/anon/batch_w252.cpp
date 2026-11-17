@@ -10,17 +10,7 @@ static inline void assert_fail_1e5610(const char* e, const char* f, s32 l) {
     func_002fdfc8(D_0036e998, f, l);  // device_vprintf_va
     asm volatile("break");
 }
-void func_001e5610(s32* p) {
-    s32 v;
-    if (!p) assert_fail_1e5610(D_0036ed60, D_0036e9d0, 1596);
-    p = func_001e3660(func_001e3650(p), 1);
-    s32 n = *p++;
-    for (s32 i = 0; i < n; i++) {
-        v = *p++;
-        if (v & 0xf) assert_fail_1e5610(D_0036ec40, D_0036e9d0, 1607);
-        func_001e5220(v, 0x2800);
-    }
-}
+void func_001e5610(s32* p);  // 0x001e5610: definition moved into src/anon/unit_001e0cb8.cpp
 // newlib __multadd
 struct Bigint_w252 { Bigint_w252* next; s32 k, maxwds, sign, wds; u32 x[1]; };
 Bigint_w252* _Balloc(void*, s32);

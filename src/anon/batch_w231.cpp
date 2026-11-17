@@ -15,21 +15,7 @@ void func_0019cb48(W231S* s);  // 0x0019cb48: definition moved into src/anon/uni
 s64 func_00312db8(s64, s64);
 extern u32 D_003638d0;
 struct W231Sl { u8 pad[12]; u8 st; u8 b13; s8 b14; s8 b15; };
-void func_001e23b0(W231Sl* p, W231Sl* src) {
-    for (s32 i = 0; i < 10; i++, p++) {
-        if (p->st == 0) {
-            s8 k = -128;
-            if (p != src) asm volatile("lq $8,0(%1)\n\tsq $8,0(%0)" :: "r"(p), "r"(src) : "$8", "memory");
-            p->b13 = 0;
-            p->st = k;
-            D_003638d0 = D_003638d0 * 0x10dcd;
-            s32 r = (s32)func_00312db8(D_003638d0, 0x1010102);
-            p->b14 = r;
-            p->b15 = 30;
-            return;
-        }
-    }
-}
+void func_001e23b0(W231Sl* p, W231Sl* src);  // 0x001e23b0: definition moved into src/anon/unit_001e0cb8.cpp
 
 s32 func_002538f8(s32);  // entry16_get_flag_bit
 s32 func_00253928(s32);  // entry16_get_bit1

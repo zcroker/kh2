@@ -42,28 +42,6 @@ inline static M *get(Obj *o)
   return &D_00352bd0->arr[o->idx];
 }
 
-void func_001e0d08(Obj *o, f32 *v)
-{
-  f32 z = v[2];
-  int new_var4;
-  M *new_var3;
-  M *new_var5;
-  f32 new_var;
-  f32 x = v[0];
-  Obj *new_var2;
-  f32 y = v[1];
-  new_var4 = 0;
-  new_var5 = get(o);
-  do
-  {
-    new_var = z;
-    new_var5->m[12] = x;
-    z = y;
-    (new_var3 = get(o))->m[13] = z;
-    new_var2 = o;
-    get(new_var2)->m[14] = new_var;
-  }
-  while (new_var4);
-}
+void func_001e0d08(Obj *o, f32 *v);  // 0x001e0d08: definition moved into src/anon/unit_001e0cb8.cpp
 
 }

@@ -19,36 +19,7 @@ static inline void assert_fail_1e3690(const char* e, const char* f, s32 l) {
     func_002fdfc8(D_0036e998, f, l);  // device_vprintf_va
     asm volatile("break");
 }
-s32 func_001e3690(u8* o) {
-  s32 r = 0;
-  s32* p;
-  u8 idx;
-  p = (s32*)*(void**)(o + 136);
-  idx = o[147];
-  p = func_001e3650(p);  // ptr_add4
-  s32 n = *p++;
-  s32 i;
-  for (i = 0; i < n; i++, p++) {
-    if (idx == i) { s32 v = *p; *(s32*)(o + 140) = v; r = v + 272; }
-  }
-  s32* q;
-  q = func_001e3660_x(p, 4);
-  if (q[0] == -1) goto none;
-  if (q[0] < 12288) assert_fail_1e3690(D_0036eb60, D_0036e9d0, 822);
-  s32 a, b;
-  a = (q[1] - 12161) / 128;
-  if (q[2] < 15872) assert_fail_1e3690(D_0036eb90, D_0036e9d0, 827);
-  if (!(q[3] <= 16384)) assert_fail_1e3690(D_0036ebc8, D_0036e9d0, 828);
-  b = (q[3] - 15841) / 32;
-  if (!(a < 35)) assert_fail_1e3690(D_0036ebf0, D_0036e9d0, 833);
-  if (!(b < 21)) assert_fail_1e3690(D_0036ec18, D_0036e9d0, 834);
-  o[145] = a;
-  o[146] = b;
-  return r;
-none:
-  o[145] = 0; o[146] = 0;
-  return r;
-}
+s32 func_001e3690(u8* o);  // 0x001e3690: definition moved into src/anon/unit_001e0cb8.cpp
 
 extern u32 D_0035f118;
 #define G118 ((I1*)D_0035f118)

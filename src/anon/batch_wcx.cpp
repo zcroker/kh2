@@ -1572,16 +1572,7 @@ V4* func_001e0cc8(u8*);  // entry64_by_field32
 V4* func_001e0ce8(u8*);  // entry64_by_field32_b
 void func_001e0d08(u8*, V4*);
 static inline void VCp(V4* d, V4* s) { asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(d), "r"(s) : "$8", "memory"); }
-void func_001e1500(u8* p)
-{
-    V4 a, b, u, t;
-    VCp(&a, func_001e0cc8(p));  // entry64_by_field32
-    VCp(&b, func_001e0ce8(p));  // entry64_by_field32_b
-    VScale(&t, &b, 40.0f);
-    VScale(&u, &t, D_00349e10);
-    VAdd(&a, &a, &u);
-    func_001e0d08(p, &a);
-}
+void func_001e1500(u8* p);  // 0x001e1500: definition moved into src/anon/unit_001e0cb8.cpp
 extern u8* D_01d9e6e8;
 void func_001fa668(u8*, u32, u8*);
 void sceVu0ApplyMatrix(V4*, u8*, V4*);

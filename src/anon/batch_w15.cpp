@@ -138,13 +138,7 @@ void wtarget_impl(u32 a, u32 b, u32, u32) {
 }
 
 void func_001e1988(void*);
-void func_001e1ce0(u8* p) {
-    func_001e1988(p);
-    *(u32*)(p + 3520) = 1;
-    *(u32*)(p + 3564) = *(u32*)(p + 3532);
-    *(u32*)(p + 3560) = 0;
-    *(u32*)(p + 3556) = 0;
-}
+void func_001e1ce0(u8* p);  // 0x001e1ce0: definition moved into src/anon/unit_001e0cb8.cpp
 
 void sceGsSyncPath(u32, u32);
 u8 func_002f3918(u32, void*);

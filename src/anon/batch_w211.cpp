@@ -11,16 +11,7 @@ extern W211Q D_00359110;
 
 void func_0011eea8(W211List* l, W211Node* x);  // 0x0011eea8: definition moved into src/anon/unit_0011c128.cpp
 
-void func_001e1df8(u8* p) {
-    if (20.0f <= *(f32*)(p + 0xde4)) {
-        *(u32*)(p + 0xde8) = 0;
-        *(u32*)(p + 0xdfc) = 0;
-        *(f32*)(p + 0xde4) = 0;
-        *(f32*)(p + 0xdf4) = 10.0f;
-        *(u32*)(p + 0xdc0) = 4;
-        *(f32*)(p + 0xdf8) = 10.0f;
-    }
-}
+void func_001e1df8(u8* p);  // 0x001e1df8: definition moved into src/anon/unit_001e0cb8.cpp
 
 void wtarget_0020e9f8(f32 a, f32 b) asm("_Z16wtarget_0020e9f8jjjj");
 void wtarget_0020e9f8(f32 a, f32 b) {

@@ -137,46 +137,6 @@ u32 func_002fdfc8(const char*, ...);
 void func_001e3040(void*, void*, s16, s16);
 #define ASSERT_FAIL(e, f, l) do { func_002fdfc8(D_0036e978, e); func_002fdfc8(D_0036e998, f, l); asm volatile("break"); } while (0)
 void func_001e2c90(void*, void*, s16, s16);
-s32* func_001e38f8(s32* a, u8* bits, s16 x, s16 y) {
-    s32 n = *a++;
-    s32 i;
-    u8 cur = 0;
-    for (i = 0; i < n; i++) {
-        u8* e = (u8*)*a++;
-        s32 byte = i >> 3;
-        s32 bit = i & 7;
-        if ((u32)e & 0xf) ASSERT_FAIL(D_0036ec40, D_0036e9d0, 910);
-        if (!(byte < 16)) ASSERT_FAIL(D_0036ec58, D_0036e9d0, 911);
-        if (!(byte >= 0)) ASSERT_FAIL(D_0036ec70, D_0036e9d0, 911);
-        if (bit == 0) cur = bits[byte];
-        if (cur & 1) {
-            func_001e3040(e + 16, e, x, y);
-            if (x) *(s16*)(e + 2) = x;
-            if (y) *(s16*)(e + 4) = y;
-        }
-        cur >>= 1;
-    }
-    return a;
-}
-s32* func_001e3a88(s32* a, u8* bits, s16 x, s16 y) {
-    s32 n = *a++;
-    s32 i;
-    u8 cur = 0;
-    for (i = 0; i < n; i++) {
-        u8* e = (u8*)*a++;
-        s32 byte = i >> 3;
-        s32 bit = i & 7;
-        if ((u32)e & 0xf) ASSERT_FAIL(D_0036ec40, D_0036e9d0, 949);
-        if (!(byte < 16)) ASSERT_FAIL(D_0036ec58, D_0036e9d0, 950);
-        if (!(byte >= 0)) ASSERT_FAIL(D_0036ec70, D_0036e9d0, 950);
-        if (bit == 0) cur = bits[byte];
-        if (cur & 1) {
-            func_001e2c90(e + 16, e, x, y);
-            if (x) *(s16*)(e + 2) = x;
-            if (y) *(s16*)(e + 4) = y;
-        }
-        cur >>= 1;
-    }
-    return a;
-}
+s32* func_001e38f8(s32* a, u8* bits, s16 x, s16 y);  // 0x001e38f8: definition moved into src/anon/unit_001e0cb8.cpp
+s32* func_001e3a88(s32* a, u8* bits, s16 x, s16 y);  // 0x001e3a88: definition moved into src/anon/unit_001e0cb8.cpp
 }

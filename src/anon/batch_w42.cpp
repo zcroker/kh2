@@ -163,15 +163,7 @@ void func_001e5898(u32);
 void sceGsSyncPath(u32, u32);
 void FlushCache(s32);
 void func_002f3918(u32, void*);
-void func_001e65d0(void)
-{
-    func_001e5990(D_00354698);
-    func_001e5610(D_00354648);
-    func_001e5898(D_00354648);
-    sceGsSyncPath(0, 0);
-    FlushCache(0);
-    func_002f3918(D_003591c8, D_00354650);
-}
+void func_001e65d0(void);  // 0x001e65d0: definition moved into src/anon/unit_001e0cb8.cpp
 
 // 002252b0
 extern s32 D_01dad910[2];

@@ -1568,108 +1568,17 @@ void func_001de3d8(u32 a0, u32 a1) {
 
 // 001e0ac0: moved to src/rikeda/saveram_gumibattle.cpp
 
-void func_001e16c0(u32 a0) {
-    u32 s0 = a0;
-    u32* base = (u32*)0x00350000;
-    func_001e0d08(a0, a0);
-    func_001e0d68(s0, s0 + 16);
-    func_001e0dc8(s0);
-    if (func_001e2778(base[0x0AF4])) {
-        func_001e0e40(s0);
-        return;
-    }
-    *(u32*)(s0 + 36) = 0;
-}
+void func_001e16c0(u32 a0);  // 0x001e16c0: definition moved into src/anon/unit_001e0cb8.cpp
 
-void func_001e18d8(u32 a0) {
-    u32 s0 = a0;
-    u32 v0 = *(u32*)(s0 + 3540);
-    if (v0 != 0) {
-        func_001dc920(v0);
-        *(u32*)(s0 + 3540) = 0;
-    }
+void func_001e18d8(u32 a0);  // 0x001e18d8: definition moved into src/anon/unit_001e0cb8.cpp
 
-    v0 = *(u32*)(s0 + 3544);
-    if (v0 != 0) {
-        func_001dc920(v0);
-        *(u32*)(s0 + 3544) = 0;
-    }
+void func_001e2938(u32 a0);  // 0x001e2938: definition moved into src/anon/unit_001e0cb8.cpp
 
-    v0 = *(u32*)(s0 + 3548);
-    if (v0 != 0) {
-        func_001dc920(v0);
-        *(u32*)(s0 + 3548) = 0;
-    }
+void func_001e5970(u32 a0);  // 0x001e5970: definition moved into src/anon/unit_001e0cb8.cpp
 
-    v0 = *(u32*)(s0 + 3552);
-    if (v0 != 0) {
-        func_001dc920(v0);
-        *(u32*)(s0 + 3552) = 0;
-    }
+void func_001e5990(u32 a0);  // 0x001e5990: definition moved into src/anon/unit_001e0cb8.cpp
 
-    v0 = *(u32*)(s0 + 3524);
-    if (v0 != 0) {
-        func_00105110(v0);
-        *(u32*)(s0 + 3524) = 0;
-    }
-
-    v0 = *(u32*)(s0 + 3528);
-    if (v0 != 0) {
-        func_00105110(v0);
-        *(u32*)(s0 + 3528) = 0;
-    }
-}
-
-void func_001e2938(u32 a0) {
-    u32 s1 = a0;
-    u32* base = (u32*)0x00350000;
-    func_001e2298(base[0x0AF4]);
-    if (*(u32*)(base[0x0AF4] + 3520) == 7) {
-        func_001024a8(s1);
-        return;
-    }
-}
-
-void func_001e5970(u32 a0) {  // obj_clear_header
-    *(u8*)(a0 + 18) = 0;
-    *(volatile s8*)(a0 + 16) = -1;
-    *(volatile u32*)(a0 + 0) = 0;
-    *(volatile u64*)(a0 + 8) = 0;
-    *(volatile u8*)(a0 + 17) = 0;
-}
-
-void func_001e5990(u32 a0) {
-    s32 s0 = (s32)a0;
-    s32 s1 = (s32)a0 + 816;
-    s32 s2 = (s32)a0;
-    while (1) {
-        func_001e5970((u32)s0);  // obj_clear_header
-        s0 += 24;
-        if (s0 < s1) {
-            continue;
-        }
-        break;
-    }
-
-    s0 = s2 + 816;
-    s1 = 19;
-    do {
-        u32 a0_call = (u32)s0;
-        s1 -= 1;
-        func_001e5970(a0_call);  // obj_clear_header
-        s0 += 24;
-    } while ((s32)s1 >= 0);
-}
-
-void func_001e74d8(u32 a0) {
-    u32 s0 = a0;
-    volatile u32* st = (volatile u32*)0x10003c00;
-    while ((*st & 3) != 0) {
-    }
-
-    func_002f3bb8(0x10009000, 0, 0);
-    func_002f3918(0x10009000, s0);
-}
+void func_001e74d8(u32 a0);  // 0x001e74d8: definition moved into src/anon/unit_001e0cb8.cpp
 
 void func_001e8fe0(u32 a0, u32 a1) {
     u32 s0 = a1;

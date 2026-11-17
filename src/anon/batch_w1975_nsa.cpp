@@ -125,21 +125,7 @@ static inline f32 W1975_frand() {
 }
 static inline f32 W1975_frange(f32 lo, f32 hi) { return lo + W1975_frand() * (hi - lo); }
 
-void func_001e1160(W1975Obj* self) {
-    W1975V v;
-    W1975M m;
-    v = *func_001e0ce8(self);
-    v.scale(-1.0f);
-    v.y -= W1975_frange(0.5f, 1.0f);
-    v.w = 0.0f;
-    W1975_identity(&m);
-    W1975_rotateY(&m, W1975_frange(-0.17453292f, 0.17453292f));
-    v = m * v;
-    v.normalize();
-    func_001e0d68(self, &v);
-    self->f28 = 0;
-    self->f24 = 4;
-}
+void func_001e1160(W1975Obj* self);  // 0x001e1160: definition moved into src/anon/unit_001e0cb8.cpp
 
 // D_01dadb00 is a function-local static (guard D_01dadaf0, empty atexit dtor func_0022f8e8).
 void func_0022eb80(W1975Ev* self) {

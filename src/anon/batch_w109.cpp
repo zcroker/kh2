@@ -78,28 +78,7 @@ static inline void assert_fail_1e52b8(const char* e, const char* f, s32 l) {
     asm volatile("break");
 }
 struct NoTail52b8 { ~NoTail52b8() {} };
-void func_001e52b8(u8* p, s16 off) {
-    NoTail52b8 nt;
-    s16 v = *(s16*)(p + 2);
-    if (!p) assert_fail_1e52b8(D_0036edb0, D_0036e9d0, 1511);
-    if (v == 0) return;
-    if (v >= 15872) v = v + off - 15872;
-    else v = v + off - 11776;
-    if (v < 15616) assert_fail_1e52b8(D_0036edc0, D_0036e9d0, 1532);
-    if (v + *(s16*)(p + 30) > 16384) assert_fail_1e52b8(D_0036ede0, D_0036e9d0, 1533);
-    switch (*(s16*)(p + 6)) {
-    case 19:
-        sceGsSetDefLoadImage(D_01d9e450, v, 1, 0, 0, 0, 16, 16);
-        break;
-    case 20:
-        sceGsSetDefLoadImage(D_01d9e450, v, 1, 0, 0, 0, 8, 2);
-        break;
-    default:
-        return;
-    }
-    func_003058a0(0);
-    sceGsExecLoadImage(D_01d9e450, p + *(s32*)(p + 24) + 32);
-}
+void func_001e52b8(u8* p, s16 off);  // 0x001e52b8: definition moved into src/anon/unit_001e0cb8.cpp
 
 // ---- f8.cpp
 void func_00236d60(u8*);  // clear_64_entries_24

@@ -185,14 +185,7 @@ void func_001dbb38(void) {
 // Look up key in a 32-byte record table; outputs the record's first two words.
 bool func_001dc018(u8** p, s32 key, u32* a, u32* b);  // 0x001dc018: definition moved into src/anon/unit_001dbfd8.cpp
 
-void func_001e2998(void) {
-    void* o = D_00352bd0;
-    if (o) {
-        func_001e2898(o);
-        func_00105110(o);
-    }
-    D_00352bd0 = 0;
-}
+void func_001e2998(void);  // 0x001e2998: definition moved into src/anon/unit_001e0cb8.cpp
 
 // Print two messages and trap.
 void func_002233f0(u32 a, u32 b, u32 c) {

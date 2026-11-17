@@ -238,34 +238,10 @@ u32 func_001da4d8(Reader1da* s, u16 k) {  // stream_op_by_subtype
 
 // 001e08c8: moved to src/rikeda/saveram_gumibattle.cpp
 
-void func_001e2660(u8* p, u8* v) {
-    s32 i;
-    for (i = 0; i < 10; i++, p += 16) {
-        if (p[172] == 0) {
-            if (p + 160 != v) QCOPY(p + 160, v);
-            p[174] = 0;
-            p[175] = 30;
-            p[172] = 0x80;
-            p[173] = 0;
-            return;
-        }
-    }
-}
+void func_001e2660(u8* p, u8* v);  // 0x001e2660: definition moved into src/anon/unit_001e0cb8.cpp
 
 // Normalised direction (xyz) and length (w); +z when the length is zero.
-void func_001e7d20(f32* out, void* v) {
-    f32 l = sceVu0InnerProduct(v);  // vec3_dot
-    if (0.0f < l) {
-        f32 s = __builtin_sqrtf(l);
-        sceVu0Normalize(out, v);  // vec4_normalize
-        out[3] = s;
-    } else {
-        out[0] = 0.0f;
-        out[1] = 0.0f;
-        out[3] = 0.0f;
-        out[2] = 1.0f;
-    }
-}
+void func_001e7d20(f32* out, void* v);  // 0x001e7d20: definition moved into src/anon/unit_001e0cb8.cpp
 
 void func_001fab48(u8* a, u32* b, u8* c) asm("_Z13func_001fab48Pv");
 void func_001fab48(u8* a, u32* b, u8* c) {

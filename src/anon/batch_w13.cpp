@@ -174,16 +174,7 @@ void func_001e0158(void* a) {
     (*(VFnP*)(*(u8**)o + 4))(o, a);
 }
 
-void func_001e27c0(u8* p) {
-    *(s32*)(p + 3584) = -1;
-    *(s32*)(p + 3524) = 0;
-    *(s32*)(p + 3532) = 0;
-    *(s32*)(p + 3536) = 0;
-    *(s32*)(p + 3556) = 0;
-    *(s32*)(p + 3564) = 0;
-    *(s32*)(p + 3520) = 0;
-    func_001e17b8(p);
-}
+void func_001e27c0(u8* p);  // 0x001e27c0: definition moved into src/anon/unit_001e0cb8.cpp
 
 void func_0022dd40(u8* p) {
     if (func_002282f0(*(s16*)(p + 4)) == 0) {

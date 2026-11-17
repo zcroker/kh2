@@ -16,14 +16,6 @@ void func_001e2938(void);
 void func_001e2998(void);
 extern int D_00352bd0;
 
-void func_001e29e0(int a) {
-    char* r = getFieldMode_();
-    char* x = create_task_(*(void**)(r + 4), 1, 20500, (void*)func_001e2938);
-    *(void**)(x + 48) = (void*)func_001e2998;
-    char* s = area_alloc_(3600);
-    func_001e27c0(s);
-    D_00352bd0 = (int)s;
-    *(int*)(s + 3536) = a;
-}
+void func_001e29e0(int a);  // 0x001e29e0: definition moved into src/anon/unit_001e0cb8.cpp
 
 }

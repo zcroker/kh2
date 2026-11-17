@@ -227,11 +227,7 @@ void func_001da458(P1da* p, u32 a, u32* arr, s32 n) {  // stream_init_fields
 // --- 001e0de8
 Vec4* func_001e0cc8(Vec4*);  // entry64_by_field32
 Vec4* func_001e0ce8(Vec4*);  // entry64_by_field32_b
-void func_001e0de8(Vec4* p) {
-    p[0] = *func_001e0cc8(p);  // entry64_by_field32
-    *(u32*)&p[0].w = 0;
-    p[1] = *func_001e0ce8(p);  // entry64_by_field32_b
-}
+void func_001e0de8(Vec4* p);  // 0x001e0de8: definition moved into src/anon/unit_001e0cb8.cpp
 
 // --- 001ea458
 extern u8* D_01d9e6e0;

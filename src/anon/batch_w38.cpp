@@ -206,9 +206,7 @@ s32 func_001db198(void* p, s32 n) {
 }
 
 void func_001e1728(void*);
-void func_001e2238(u8* p) {
-    for (s32 i = 0; i < *(s32*)(p + 3532); i++) func_001e1728(*(u8**)(p + 3528) + i * 48);
-}
+void func_001e2238(u8* p);  // 0x001e2238: definition moved into src/anon/unit_001e0cb8.cpp
 
 // Ring-buffered command queue (64 entries).
 struct Q234460 { s32 type; s32 id; u32 a[6]; };

@@ -114,11 +114,7 @@ u32 func_001de948(u32 x) {
 void func_001e60b0(void);
 struct S354690 { u32 a; s32 b; };
 extern S354690 D_00354690;
-void func_001e6250(void) {
-    func_001e60b0();
-    D_00354690.a = 0;
-    D_00354690.b = -1;
-}
+void func_001e6250(void);  // 0x001e6250: definition moved into src/anon/unit_001e0cb8.cpp
 
 void func_00229d40(void*);
 void func_001390f0(void*);

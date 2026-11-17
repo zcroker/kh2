@@ -130,28 +130,12 @@ s32 func_001d5d20(void);  // 0x001d5d20: definition moved into src/anon/unit_001
 extern u8 D_01d9e370[];
 extern u8 D_01d9e6f0[];
 void sceVu0ApplyMatrix(void*, void*, void*);
-u8* func_001e3468(u8* o) {
-    u8* b = *(u8**)(o + 140);
-    for (s32 i = 0; i < 8; i++) sceVu0ApplyMatrix(D_01d9e370 + i * 16, D_01d9e6f0, b + i * 16);
-    return D_01d9e370;
-}
+u8* func_001e3468(u8* o);  // 0x001e3468: definition moved into src/anon/unit_001e0cb8.cpp
 
 
 
 /* wait until VIF0/VIF1/GIF are idle and VU0 has stopped */
-void func_001e7538(void) {  // hw_regs_setup
-    do {
-        s32 busy;
-        u32 m = *(volatile u32*)0x10009000 & 0x100;
-        busy = m != 0;
-        if (*(volatile u32*)0x1000a000 & 0x100) busy = 2;
-        if (*(volatile u32*)0x10003c00 & 0x1f000003) busy = 4;
-        u32 st;
-        asm volatile("cfc2.ni %0, $vi29" : "=r"(st));
-        if (st & 0x100) busy = 8;
-        if (!busy) break;
-    } while (1);
-}
+void func_001e7538(void);  // 0x001e7538: definition moved into src/anon/unit_001e0cb8.cpp
 
 s32 func_002282f0(s32);
 void* func_00227ca8(void*);

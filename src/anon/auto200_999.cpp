@@ -426,14 +426,7 @@ void func_003191d0(u32 a0, u32 a1, u64 a2) {
 
 void func_001c6c60(u32 a0);  // 0x001c6c60: definition moved into src/anon/unit_001c6c60.cpp
 
-void func_001e0dc8(u32 a0) {
-    u32 idx = *(u32 *)(a0 + 32);
-    u32 base = D_00352bd0;
-    idx <<= 6;
-    u32 p = *(u32 *)(base + 3524);
-    p += idx;
-    *(u32 *)(p + 60) = 0;
-}
+void func_001e0dc8(u32 a0);  // 0x001e0dc8: definition moved into src/anon/unit_001e0cb8.cpp
 
 void func_002e9a00(u32 a0, u32 a1);  // 002e9a00: moved to src/anon/unit_002e9a00.cpp
 
@@ -506,31 +499,9 @@ void func_001d5698(u32 a0);  // 0x001d5698: definition moved into src/anon/unit_
 
 void func_001b6038();  // 0x001b6038: definition moved into src/anon/unit_001b2780.cpp
 
-u32 func_001e6d08(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return (*(f32 *)(a0 + 164u) > 0.0f) ? 1u : 0u;
-}
+u32 func_001e6d08(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001e6d08: definition moved into src/anon/unit_001e0cb8.cpp
 
-void func_001e7650(u32 a0, u32 a1, u32 a2) {
-    u32 t0 = a2;
-    a2 = (u32)(a1 + t0);
-    *(u32 *)((u32)a0 + (s32)(4)) = a1;
-    a2 = (u32)((s32)a2 + (-16));
-    *(u32 *)((u32)a0 + (s32)(0)) = 0u;
-    *(u32 *)((u32)a0 + (s32)(8)) = a2;
-
-    *(u32 *)((u32)a1 + (s32)(4)) = 0u;
-    u32 t7 = *(u32 *)((u32)a0 + (s32)(8));
-    *(u32 *)((u32)a1 + (s32)(8)) = 0u;
-    *(u32 *)((u32)a1 + (s32)(0)) = t7;
-
-    u32 t6 = *(u32 *)((u32)a0 + (s32)(8));
-    u32 t7b = 1u;
-    u32 t5 = *(u32 *)((u32)a0 + (s32)(4));
-    *(u32 *)((u32)t6 + (s32)(8)) = t7b;
-    *(u32 *)((u32)t6 + (s32)(4)) = t5;
-    *(u32 *)((u32)t6 + (s32)(0)) = 0u;
-    *(u32 *)((u32)a0 + (s32)(12)) = 0u;
-}
+void func_001e7650(u32 a0, u32 a1, u32 a2);  // 0x001e7650: definition moved into src/anon/unit_001e0cb8.cpp
 
 void func_00257000() {
     s32 c = 0;

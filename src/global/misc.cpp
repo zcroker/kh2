@@ -2,7 +2,7 @@
 
 // 001024a8: printf(void*) (kills a task), moved to src/global/unit_001022c0.cpp
 
-void pppPartDrawEnd() {}
+void pppPartDrawEnd();  // 0x001e6af8: definition moved into src/anon/unit_001e0cb8.cpp
 
 void ErrorRaise(void* self) { reinterpret_cast<IntSlot*>(self)->value = 0; }
 

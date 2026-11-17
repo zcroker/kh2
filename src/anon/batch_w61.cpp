@@ -211,18 +211,7 @@ s32 func_001e1350(void*, u32);
 u32 func_0017df58(u32);
 extern u32 D_0034e948;
 extern f32 D_00349e10;
-void func_001e15a8(u8* p) {
-    func_001e1500(p);
-    if (func_001e1350(p, D_0034e948)) return;
-    if (func_001e1350(p, func_0017df58(0))) return;
-    f32 t = *(f32*)(p + 40);
-    if (60.0f <= t) {
-        *(f32*)(p + 40) = 0.0f;
-        *(u32*)(p + 36) = 6;
-    } else {
-        *(f32*)(p + 40) = t + D_00349e10;
-    }
-}
+void func_001e15a8(u8* p);  // 0x001e15a8: definition moved into src/anon/unit_001e0cb8.cpp
 
 void func_0021f620(void*, u32);
 extern u8 D_01d9e8c0[];

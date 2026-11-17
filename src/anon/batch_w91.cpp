@@ -241,21 +241,7 @@ void func_0018f028(u8*);
 extern u8* D_00352bd0;
 // Unused 16-byte local with trivial ctor/dtor: reserves the frame slot and blocks the tail call.
 struct NT16 { u32 x[4]; NT16() {} ~NT16() {} };
-void func_001e1070(u32, u8* a) {
-    NT16 nt;
-    u8* o = func_001050d8(208);
-    func_0018d238(o, *(u32*)(D_00352bd0 + 3536), 0, 1143, 0, -1, -1);
-    UF91* m = func_0018da18(o, a, *(u32*)(o + 40), 0);
-    if (m) {
-        m[3].f = m[2].f = m[0].f = 0.0f;
-        m[1].f = 1.0f;
-        (*(void (**)(u8*, UF91*))(*(u32*)a + 100))(a, m);
-        func_0018ca10(m);  // alloc_from_pool_magic
-    }
-    u8* x = *(u8**)(D_00352bd0 + 3536);
-    (*(void (**)(u8*, u8*, u8*, u32))(*(u8**)x + 116))(x, a, o, m[8].u);
-    func_0018f028(o);
-}
+void func_001e1070(u32, u8* a);  // 0x001e1070: definition moved into src/anon/unit_001e0cb8.cpp
 
 // --- 001ead10
 // Scales the work matrix rows by the bone's scale and copies its translation.

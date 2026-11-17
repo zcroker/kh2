@@ -127,10 +127,7 @@ void func_001d9eb0(u8* p, u32 a, u32 b) {
 extern void* D_01d9e6e4;
 void func_002fde18(void*, u32, u32);
 u8 func_001e7798(void*, void*);
-u8 func_001e6c00(void* p) {  // alloc_336_align_171
-    func_002fde18(p, 171, 336);
-    return func_001e7798(D_01d9e6e4, p);
-}
+u8 func_001e6c00(void* p);  // 0x001e6c00: definition moved into src/anon/unit_001e0cb8.cpp
 
 extern u32 D_0035db10;
 extern u8 D_0035de27;

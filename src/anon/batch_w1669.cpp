@@ -39,10 +39,7 @@ void func_00323ad0(u32* p) {
     s32 i = 19;
     do { *p = 0; i--; __asm__ volatile("nop\n\tnop\n\tnop"); p++; } while (i >= 0);
 }
-void func_001e7440(void) {
-    u32 x;
-    do { x = *(volatile u32*)0x1000a000 & 0x100; __asm__ volatile("nop\n\tnop\n\tnop"); } while (x);
-}
+void func_001e7440(void);  // 0x001e7440: definition moved into src/anon/unit_001e0cb8.cpp
 struct W1669VObj { void** vt; };
 void func_00153c98(W1669VObj* p) {
     if (p) ((void (*)(W1669VObj*))p->vt[4])(p);

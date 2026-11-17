@@ -47,24 +47,7 @@ struct O17 {
     u8* x3524; u8* x3528; s32 x3532; u32 x3536; u32 x3540; u32 x3544; u32 x3548; u32 x3552;
     u8 pad2[3568 - 3556]; s32 x3568; u8 pad3[3584 - 3572]; s32 x3584;
 };
-void func_001e17b8(O17* p) {
-    s32 i, j;
-    w_memset(p->a, 0, 160);
-    w_memset(p->b, 0, 160);
-    w_memset(p->c, 0, 3200);
-    p->x3532 = 0;
-    { s32 k = 6; for (j = 0; j < 15; j++) { p->x3532 += k; k += 3; } }
-    p->x3524 = AREA_Alloc(p->x3532 << 6);
-    w_memset(p->x3524, 0, p->x3532 << 6);
-    p->x3528 = AREA_Alloc(p->x3532 * 48);
-    for (i = 0; i < p->x3532; i++) func_001e0cb8(p->x3528 + i * 48, i);
-    p->x3540 = 0;
-    p->x3544 = 0;
-    p->x3548 = 0;
-    p->x3552 = 0;
-    p->x3568 = ATTACK_CHECK_NewComboGroup();
-    p->x3584 = -1;
-}
+void func_001e17b8(O17* p);  // 0x001e17b8: definition moved into src/anon/unit_001e0cb8.cpp
 
 extern u8 D_00361aa0[];
 extern u8* D_00361a90;

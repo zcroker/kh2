@@ -70,12 +70,7 @@ void func_002bfa98(s32* a0, s32 a1, s32 a2);  // 0x002bfa98: definition moved in
 
 void func_001e1500(void*);
 extern f32 D_00349e10;
-void func_001e1638(u8* a0) {
-    func_001e1500(a0);
-    f32 t = *(f32*)(a0 + 0x28);
-    if (30.0f <= t) { *(f32*)(a0 + 0x28) = 0.0f; *(s32*)(a0 + 0x24) = 6; }
-    else *(f32*)(a0 + 0x28) = t + D_00349e10;
-}
+void func_001e1638(u8* a0);  // 0x001e1638: definition moved into src/anon/unit_001e0cb8.cpp
 
 struct C105_w1671 { void* vt; s32 f4; u8 f8; u8 p9[0xb]; s32 f14; s32 f18; s32 f1c; s32 f20; s32 f24; s32 f28; };
 extern C105_w1671 D_0033cb80;

@@ -198,18 +198,7 @@ void func_001d5f30(u8* self, s32 add);  // 0x001d5f30: definition moved into src
 
 // 001e2130
 void func_001e0e50(void*);
-void func_001e2130(u8* self)
-{
-    s32 n = *(s32*)(self + 3532);
-    s32 all = 1;
-    for (s32 i = 0; i < n; i++)
-        if (*(s32*)(*(u8**)(self + 3528) + i * 48 + 36) != 2) { all = 0; break; }
-    if (!all) return;
-    for (s32 i = 0; i < *(s32*)(self + 3532); i++) func_001e0e50(*(u8**)(self + 3528) + i * 48);
-    *(s32*)(self + 3572) = 0;
-    *(s32*)(self + 3520) = 6;
-    *(s32*)(self + 3556) = 0;
-}
+void func_001e2130(u8* self);  // 0x001e2130: definition moved into src/anon/unit_001e0cb8.cpp
 
 // 001fb5b8: scale an RGBA byte colour by the global colour multipliers.
 extern u8* D_01d9e6e0;

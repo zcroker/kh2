@@ -112,10 +112,7 @@ static inline void assert_fail_1e2c00(const char* e, const char* f, s32 l) {
     asm volatile("break");
 }
 u8 func_001e7cc0(void*);
-u8 func_001e2c00(void* pMng) {
-    if (!pMng) assert_fail_1e2c00(D_0036e9c0, D_0036e9d0, 357);
-    return func_001e7cc0(pMng);
-}
+u8 func_001e2c00(void* pMng);  // 0x001e2c00: definition moved into src/anon/unit_001e0cb8.cpp
 
 u8 func_00209178(void*, void*);
 void func_002092e0(u8* a, u32* b, u8* c) {

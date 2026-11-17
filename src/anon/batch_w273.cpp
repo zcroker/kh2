@@ -63,22 +63,7 @@ static inline void assert_fail_1e4f40(const char* e, const char* f, s32 l) {
   asm volatile("break");
 }
 void func_001e4f40(void* p) asm("_Z13func_001e4f40Pv");
-void func_001e4f40(void* p) {
-  struct NoTail { ~NoTail(){} } nt;
-  ASSERT(p, D_0036ed60, 1389);
-  ASSERT(((u32)p & 0xf) == 0, D_0036ed78, 1390);
-  func_001e3898(p, p);
-  s32* q = func_001e3650(p);  // ptr_add4
-  s32 n = *q;
-  s32 i;
-  q++;
-  for (i = 0; i < n; i++) {
-    s32 x = *q++;
-    ASSERT((x & 0xf) == 0, D_0036ed98, 1422);
-    func_001e8180(x, D_00354bf0);
-  }
-  if (D_00352c38) func_001e4f00(p);
-}
+void func_001e4f40(void* p);  // 0x001e4f40: definition moved into src/anon/unit_001e0cb8.cpp
 
 void func_0028d8c0(s32, s32, s32, s32, s32, s32, s32, s32);
 Obj273* func_00287dc0(void);

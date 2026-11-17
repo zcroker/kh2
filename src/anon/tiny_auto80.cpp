@@ -35,13 +35,7 @@ u32 func_00188fc0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00188fc0: definition mo
 
 // 001919a8: moved to src/yasui/libys/status.cpp
 
-u32 func_001e2a50(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2;
-    r4 = 0u;
-    r2 = func_0015ee10(r4, r5, r6, r7);
-    r2 = func_0015f700();
-    return func_0015e038();
-}
+u32 func_001e2a50(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001e2a50: definition moved into src/anon/unit_001e0cb8.cpp
 
 u32 func_00224b60(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2, r14, r15;
@@ -1173,12 +1167,7 @@ void func_001ddd10(u32 a0, u32 a1, u32 a2, u32 a3) {
     *(volatile u32*)((u32)r4 + (s32)(16)) = 0u;
 }
 
-void func_001e0cb8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3;
-    *(volatile u32*)((u32)r4 + (s32)(32)) = r5;
-    *(volatile u32*)((u32)r4 + (s32)(40)) = 0u;
-    *(volatile u32*)((u32)r4 + (s32)(36)) = 0u;
-}
+void func_001e0cb8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001e0cb8: definition moved into src/anon/unit_001e0cb8.cpp
 
 void func_001f0080(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3;

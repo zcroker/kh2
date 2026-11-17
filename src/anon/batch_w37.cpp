@@ -151,12 +151,7 @@ void func_001de450(u8* p) {
 typedef void (*VFnP)(void*);
 struct Obj1e7 { u8 _0[24]; VFnP fn; };
 struct Mgr1e7 { u8 _0[100]; s32 n; u8 _68[16]; Obj1e7** objs; };
-void func_001e78e0(Mgr1e7* p) {
-    for (s32 i = 0; i < p->n; i++) {
-        Obj1e7* o = p->objs[i];
-        if (o->fn) o->fn(p);
-    }
-}
+void func_001e78e0(Mgr1e7* p);  // 0x001e78e0: definition moved into src/anon/unit_001e0cb8.cpp
 
 void sceVu0UnitMatrix(void*);  // vu_store_w_splat
 void sceVu0MulMatrix(void*, void*, void*);

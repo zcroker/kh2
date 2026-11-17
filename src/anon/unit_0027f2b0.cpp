@@ -1,4 +1,4 @@
-// Linked unit 0x0027f2b0-0x00281cf0 (one namespace per old matched source; class methods in their own namespace).
+// Linked unit 0x0027ee48-0x00281cf0 (one namespace per old matched source; class methods in their own namespace).
 #include "../common/types.h"
 #include "../tozawa/gumi_pause.hpp"
 #include "../tozawa/cmenu_config.hpp"
@@ -21,6 +21,178 @@
 #include "tiny_auto80_solver_structs.hpp"
 #include "../tozawa/menu_sound.hpp"
 #include "../tozawa/chg_member.hpp"
+
+// 0027ee48 (was gap, written for the unit): init of the gumi pause menu (menu table entry 0x33000b; exit is 0x27f110)
+namespace n0027ee48 {
+struct Hp;
+struct HpVt { void* (*alloc)(Hp*, u32, u32); void (*free)(Hp*, void*); };
+struct Hp { HpVt* vt; };
+struct Sys { u8 pad[20]; Hp* heap; };
+struct Mm { u32 a; u32 b; };
+extern u8* D_0035f264 asm("D_0035f264");
+extern void* D_0035f260 asm("D_0035f260");
+extern u8* D_0035f25c asm("D_0035f25c");
+extern u8* D_0035f258 asm("D_0035f258");
+extern void* D_0035f254 asm("D_0035f254");
+extern u8* D_0035f250 asm("D_0035f250");
+extern s8 D_0035f268 asm("D_0035f268");
+extern Sys* D_00347f80 asm("D_00347f80");
+extern u8 D_00347f98[] asm("D_00347f98");
+extern u8 D_00347e60[] asm("D_00347e60");
+extern u8 D_00347e40[] asm("D_00347e40");
+extern u8 D_0035eb98[] asm("D_0035eb98");
+extern s8 D_00374168[] asm("D_00374168");
+void func_00253818(s32) asm("func_00253818");
+void func_00259350(s32) asm("func_00259350");
+void SetModeMax(s32, s32) asm("_ZN2Tz8MenuBase10SetModeMaxEii");
+void PlaySE(s32, s32) asm("_ZN2Tz9MenuSound6PlaySEEib");
+void func_0028d068(s32, s32) asm("func_0028d068");
+void* func_00288be8(s32) asm("func_00288be8");
+void func_002889f0(void*, s32, s32) asm("func_002889f0");
+u8* func_0023ee30(s32) asm("func_0023ee30");
+void func_002369a0(u8*) asm("func_002369a0");
+void func_0023c008(u8*) asm("func_0023c008");
+void func_00239700(u8*) asm("func_00239700");
+void func_0031a838(u8*) asm("func_0031a838");
+void* LoadDataGetSystem(void) asm("func_00103570");
+void* LoadDataAlloc(u32, void*) asm("func_001063c0");
+Mm* getMenuMode(void) asm("func_00103eb0");
+void func_00102818(u32, s32, s32, void (*)(void), s32) asm("func_00102818");
+void func_0027f2f8(void) asm("_ZN2Tz9GumiPause11PauseThreadEP4TASK");
+static inline void CtorC2(u8* q) {
+    *(u32*)q = (u32)D_00347f98;
+    func_0031a838(q + 12);
+    *(u32*)q = (u32)D_00347e60;
+    func_00239700(q + 24);
+    *(u32*)q = (u32)D_00347e40;
+    *(u32*)(q + 408) = 0;
+}
+static inline void CtorC(u8* q) {
+    *(u32*)q = (u32)D_00347f98;
+    func_0031a838(q + 12);
+    *(u32*)q = (u32)D_00347e60;
+    func_00239700(q + 24);
+    *(u32*)(q + 408) = 0;
+    *(u32*)q = (u32)D_00347e40;
+}
+static inline void CtorB1(u8* q) {
+    *(u32*)q = (u32)D_00347f98;
+    func_0031a838(q + 12);
+    *(u32*)q = (u32)D_00347e60;
+    func_00239700(q + 24);
+}
+void func_0027ee48(void) asm("func_0027ee48");
+void func_0027ee48(void) {
+    s32 n = 0;
+    func_00253818(5);
+    func_00259350(5);
+    SetModeMax(2, 3);
+    PlaySE(11, 1);
+    func_0028d068(30026, -1);
+    void* s = func_00288be8(56);
+    func_002889f0(s, 9, 0);
+    D_0035f254 = s;
+    u8* o = func_0023ee30(160);
+    *(u32*)(o + 12) = 0;
+    *(u32*)o = (u32)D_0035eb98;
+    func_002369a0(o + 24);
+    func_0023c008(o + 48);
+    u8* vt = D_00347e60;
+    D_0035f250 = o;
+    u8* q = (u8*)D_00347f80->heap->vt->alloc(D_00347f80->heap, 408, 0);
+    *(u32*)(q + 12) = 0;
+    *(u32*)q = (u32)vt;
+    func_00239700(q + 24);
+    D_0035f258 = q;
+    for (s32 i = 0; i < 9; i++) {
+        if (D_00374168[i] < 0) {
+            if (i != 2) n++;
+        }
+    }
+    u32* a = (u32*)D_00347f80->heap->vt->alloc(D_00347f80->heap, n * 872 + 4, 0);
+    u8* arr = (u8*)(a + 1);
+    *a = n * 2;
+    u8* e = arr;
+    for (s32 k = n * 2 - 1; k != -1; k--, e += 436) CtorC2(e);
+    D_0035f25c = arr;
+    D_0035f260 = LoadDataAlloc(88, LoadDataGetSystem());
+    u8* p = (u8*)LoadDataAlloc(1312, LoadDataGetSystem());
+    func_002369a0(p);
+    CtorC(p + 24);
+    CtorC(p + 460);
+    CtorB1(p + 896);
+    D_0035f264 = p;
+    D_0035f268 = -1;
+    func_00102818(getMenuMode()->b, 0, 2000, func_0027f2f8, 4096);
+}
+}  // namespace n0027ee48
+
+// 0027f110 (was gap, written for the unit): exit of the menu whose init is 0x27ee48
+namespace n0027f110 {
+struct El;
+typedef void (*ElFn)(El*);
+struct El { ElFn* vt; u8 pad[432]; };
+struct Hp;
+struct HpVt { void* a; void (*free)(Hp*, void*); };
+struct Hp { HpVt* vt; };
+struct Sys { u8 pad[20]; Hp* heap; };
+struct Ob;
+typedef void (*ObFn)(Ob*);
+struct Ob { ObFn* vt; };
+extern u8* D_0035f264 asm("D_0035f264");
+extern void* D_0035f260 asm("D_0035f260");
+extern El* D_0035f25c asm("D_0035f25c");
+extern Ob* D_0035f258 asm("D_0035f258");
+extern void* D_0035f254 asm("D_0035f254");
+extern Ob* D_0035f250 asm("D_0035f250");
+extern s8 D_0035f268 asm("D_0035f268");
+extern Sys* D_00347f80 asm("D_00347f80");
+extern u8 D_00347e60[] asm("D_00347e60");
+void func_002804f0(void) asm("func_002804f0");
+void func_0031abd8(u8*) asm("func_0031abd8");
+void func_0031acc0(u8*) asm("func_0031acc0");
+void func_00239870(u8*) asm("func_00239870");
+void func_0031a840(u8*) asm("func_0031a840");
+void func_002369f0(u8*) asm("func_002369f0");
+void func_00106420(void*) asm("func_00106420");
+void func_00288b00(void*) asm("func_00288b00");
+void func_00288c20(void*) asm("func_00288c20");
+void func_002427c0(void) asm("func_002427c0");
+void func_0027f110(void) asm("func_0027f110");
+void func_0027f110(void) {
+    func_002804f0();
+    u8* p = D_0035f264;
+    if (p) {
+        u8* b = p + 24;
+        func_0031abd8(p + 896);
+        func_0031acc0(p + 460);
+        *(u8**)b = D_00347e60;
+        func_00239870(p + 48);
+        func_0031a840(b);
+        func_002369f0(p);
+        func_00106420(p);
+        D_0035f264 = 0;
+    }
+    if (D_0035f260) { func_00106420(D_0035f260); D_0035f260 = 0; }
+    if (D_0035f25c) {
+        El* e = D_0035f25c + ((s32*)D_0035f25c)[-1];
+        for (;;) {
+            if (D_0035f25c == e) break;
+            --e;
+            e->vt[3](e);
+        }
+        D_00347f80->heap->vt->free(D_00347f80->heap, (u8*)D_0035f25c - 4);
+        D_0035f25c = 0;
+    }
+    if (D_0035f258) { D_0035f258->vt[4](D_0035f258); D_0035f258 = 0; }
+    void* s = D_0035f254;
+    if (s) { func_00288b00(s); func_00288c20(s); D_0035f254 = 0; }
+    if (D_0035f250) { D_0035f250->vt[4](D_0035f250); D_0035f250 = 0; }
+    s8 c = D_0035f268;
+    if (c == 1 || c == 7 || c == 8) func_002427c0();
+    D_0035f268 = -1;
+}
+}  // namespace n0027f110
 
 // 0027f2b0 (was src/anon/batch_w26.cpp)
 namespace n0027f2b0 {

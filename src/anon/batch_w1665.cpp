@@ -2,9 +2,9 @@
 extern "C" {
 extern u32 D_0032ba80;
 extern u32 D_0035eeb0;
-void func_001e0fe0(void) {}
-void func_001e1068(void) {}
-u32 func_001e6cd0(u32 a) { return a; }
+void func_001e0fe0(void);  // 0x001e0fe0: definition moved into src/anon/unit_001e0cb8.cpp
+void func_001e1068(void);  // 0x001e1068: definition moved into src/anon/unit_001e0cb8.cpp
+u32 func_001e6cd0(u32 a);  // 0x001e6cd0: definition moved into src/anon/unit_001e0cb8.cpp
 void wt_2cebc0(u32 a, u32 b, u32 c, u32 d) asm("_Z16wtarget_002cebc0jjjj");
 // 002cebc0: moved to src/taito/minigame_base.cpp (linked unit)
 void wt_2dcea8(u32 a, u32 b, u32 c, u32 d) asm("_Z16wtarget_002dcea8jjjj");

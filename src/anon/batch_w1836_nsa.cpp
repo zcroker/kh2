@@ -23,33 +23,7 @@ extern u8 D_01d9e8c0[];
 extern u8 D_01d9e900[];
 extern u8 D_01d9e940[];
 
-void func_001e3330(void)
-{
-    W1836Vec u;
-    W1836Vec t;
-    W1836Vec w;
-
-    func_001e7da8();
-    sceVu0MulMatrix(D_01d9e840, D_01d9e730, D_01d9e6f0);
-    sceVu0MulMatrix(D_01d9e900, D_01d9e8c0, D_01d9e840);
-    t.x = D_01d9e840[4];
-    t.y = D_01d9e840[5];
-    t.z = D_01d9e840[6];
-    *(s32*)&t.w = 0;
-    sceVu0Normalize(&t, &t);
-    D_01d9e890 = t;
-    u.x = t.y;
-    u.y = -t.x;
-    *(s32*)&u.z = 0;
-    *(s32*)&u.w = 0;
-    sceVu0Normalize(&u, &u);
-    D_01d9e880 = u;
-    sceVu0OuterProduct(&w, &u, &t);
-    sceVu0Normalize(&w, &w);
-    D_01d9e8a0 = w;
-    D_01d9e8b0 = D_01d9e870;
-    sceVu0MulMatrix(D_01d9e940, D_01d9e8c0, &D_01d9e880);
-}
+void func_001e3330(void);  // 0x001e3330: definition moved into src/anon/unit_001e0cb8.cpp
 
 u8* func_001e7a98(W1836Ebc*, u8*);
 extern s32 D_01d9ea9c;

@@ -166,12 +166,7 @@ s32 func_001d6ec8(void);  // 0x001d6ec8: definition moved into src/anon/unit_001
 struct Comp { u8 pad[20]; VFn f; };
 struct Mgr { u8 pad[100]; s32 n; u8 pad2[16]; Comp** c; };
 // Runs every component's optional update hook.
-void func_001e7878(Mgr* p) {
-    s32 i;
-    for (i = 0; i < p->n; i++) {
-        if (p->c[i]->f) p->c[i]->f(p);
-    }
-}
+void func_001e7878(Mgr* p);  // 0x001e7878: definition moved into src/anon/unit_001e0cb8.cpp
 
 void func_00232590(void) {
     D_0035e359 = 0;

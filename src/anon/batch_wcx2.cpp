@@ -5845,24 +5845,7 @@ void func_001e21f8(u8*);
 void func_001e2238(u8*);
 void func_001e2620(u8*);
 void func_001e2640(u8*);
-void func_001e2298(u8* p) {
-    if (!func_0019ba60(*(u8**)(p + 3536))) *(s32*)(p + 3520) = 7;
-    switch (*(u32*)(p + 3520)) {
-    case 0: func_001e1ce0(p); break;
-    case 1: func_001e1d20(p); break;
-    case 2: func_001e1df0(p); break;
-    case 3: func_001e1df8(p); break;
-    case 4: func_001e1e40(p); break;
-    case 5: func_001e2130(p); break;
-    case 6: func_001e21f0(p); break;
-    case 7: func_001e21f8(p); break;
-    }
-    func_001e2238(p);
-    func_001e2620(p);
-    func_001e2640(p);
-    *(f32*)(p + 3556) += D_00349e10;
-    *(f32*)(p + 3560) += D_00349e10;
-}
+void func_001e2298(u8* p);  // 0x001e2298: definition moved into src/anon/unit_001e0cb8.cpp
 
 // --------------------
 extern u8 D_01d9e840[];
@@ -7627,17 +7610,7 @@ void func_001e15a8(u8*);
 void func_001e1638(u8*);
 void func_001e1698(u8*);
 void func_001e16c0(u8*);
-void func_001e1728(u8* p) {
-    switch (*(s32*)(p + 36)) {
-    case 0: func_001e0fe0(p); break;
-    case 1: func_001e0fe8(p); break;
-    case 2: func_001e1068(p); break;
-    case 3: func_001e15a8(p); break;
-    case 4: func_001e1638(p); break;
-    case 5: func_001e1698(p); break;
-    case 6: func_001e16c0(p); break;
-    }
-}
+void func_001e1728(u8* p);  // 0x001e1728: definition moved into src/anon/unit_001e0cb8.cpp
 
 // --------------------
 struct E1815d0 { s32 a; s32 b; };
@@ -11685,24 +11658,7 @@ u32 func_00314508(u64 arg_a)
 
 // --------------------
 // Wait for VIF1 DMA / GIF DMA / VIF1 / VU1 idle, then start VIF1 DMA (chain mode) at tadr.
-void func_001e75a8(u32 tadr)
-{
-    s32 busy;
-    do {
-        u32 m = *(volatile u32*)0x10009000 & 0x100;
-        busy = m != 0;
-        if (*(volatile u32*)0x1000a000 & 0x100) busy = 2;
-        if (*(volatile u32*)0x10003c00 & 0x1f000003) busy = 4;
-        u32 st;
-        asm volatile("cfc2.ni %0, $vi29" : "=r"(st));  // VPU_STAT
-        if (st & 0x100) busy = 8;
-    } while (busy);
-    *(volatile u32*)0x10009020 = 0;
-    *(volatile u32*)0x10009030 = tadr;
-    *(volatile u32*)0x1000e010 = 2;
-    *(volatile u32*)0x10009000 = 0x145;
-    asm volatile(".set noreorder\n\t.set reorder");  // original leaves the return delay slot empty
-}
+void func_001e75a8(u32 tadr);  // 0x001e75a8: definition moved into src/anon/unit_001e0cb8.cpp
 
 // --------------------
 struct R2e2728 { s32 a, b; };

@@ -204,16 +204,7 @@ void func_001ded98(W41Own* p) {
 }
 
 s32* func_001e3650(u32);  // ptr_add4
-void func_001e3898(u32 a, s32 d) {
-    s32* v = func_001e3650(a);  // ptr_add4
-    for (s32 k = 0; k < 5; k++) {
-        s32 n = *v++;
-        for (s32 j = 0; j < n; j++) {
-            v[0] += d;
-            v++;
-        }
-    }
-}
+void func_001e3898(u32 a, s32 d);  // 0x001e3898: definition moved into src/anon/unit_001e0cb8.cpp
 
 void func_002fdfc8(const char*, ...);  // device_vprintf_va
 extern char D_00370bd8[];

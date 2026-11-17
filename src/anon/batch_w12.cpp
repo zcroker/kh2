@@ -157,16 +157,7 @@ void func_001c2b70(void);  // 0x001c2b70: definition moved into src/anon/unit_00
 
 bool EFFECT_is_waiting(u8* self);  // 0x001dc9f0: definition moved into src/anon/unit_001dbfd8.cpp
 
-void func_001e2788(u8* p) {
-    *(s32*)(p + 3520) = 0;
-    *(s32*)(p + 3524) = 0;
-    *(s32*)(p + 3532) = 0;
-    *(s32*)(p + 3536) = 0;
-    *(s32*)(p + 3556) = 0;
-    *(s32*)(p + 3564) = 0;
-    *(s32*)(p + 3584) = -1;
-    func_001e17b8(p);
-}
+void func_001e2788(u8* p);  // 0x001e2788: definition moved into src/anon/unit_001e0cb8.cpp
 
 void func_00226e60(u8 v) {
     if (func_00197920()) {

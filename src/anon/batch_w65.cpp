@@ -344,22 +344,7 @@ extern char D_0036e9d0[];
 u32 func_002fdfc8(const char*, ...);  // device_vprintf_va
 u32 func_001e3690(void*);
 void func_001e8048(void*, u32, s32);
-s32 func_001e6c40(u8* p, u32 a, u32 b, u32 c, f32 f) {
-    *(u32*)(p + 136) = a;
-    p[147] = b;
-    *(u32*)(p + 148) = c;
-    *(f32*)(p + 164) = f;
-    *(u32*)(p + 160) = 0;
-    u32 r = func_001e3690(p);
-    if (!r) {
-        func_002fdfc8(D_0036e978, D_0036ef28);  // device_vprintf_va
-        func_002fdfc8(D_0036e998, D_0036e9d0, 2563);  // device_vprintf_va
-        asm volatile("break");
-        return 0;
-    }
-    func_001e8048(p, r, 1);
-    return 1;
-}
+s32 func_001e6c40(u8* p, u32 a, u32 b, u32 c, f32 f);  // 0x001e6c40: definition moved into src/anon/unit_001e0cb8.cpp
 
 // Cubic interpolation between key pairs a[i..i+1] / b[i..i+1] at fractional t (VU0).
 extern Vq D_003590d0;

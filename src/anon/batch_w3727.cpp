@@ -12,14 +12,7 @@ void func_001e50a8(u32, s32);
 extern u8 D_01d9e3f0;
 
 // Draws an entry: the first value is shifted by d and rebased (12288 or 10752) before the call.
-void func_001e5220(s16* p, s16 d) {
-    NoTail_w3727 nt;
-    s16 a = p[0];
-    if (a >= 12288) a = a + d - 12288; else a = a + d - 10752;
-    sceGsSetDefLoadImage(&D_01d9e3f0, a, p[2], p[3], p[4], p[5], p[6], p[7]);
-    func_003058a0(0);
-    sceGsExecLoadImage(&D_01d9e3f0, p + 16);
-}
+void func_001e5220(s16* p, s16 d);  // 0x001e5220: definition moved into src/anon/unit_001e0cb8.cpp
 
 void wtarget_001dc140(u32* a0, u32 a1, u32 a2, u32 a3) asm("_Z16wtarget_001dc140jjjj");
 // Relocates a loaded data block by (a0 - a1): patches the non-null offsets in its 32-byte entries,

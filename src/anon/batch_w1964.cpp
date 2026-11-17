@@ -21,40 +21,7 @@ static inline __attribute__((always_inline)) void apply(E2* d, const M2* m, cons
 }
 
 void wtarget_001e2450(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z16wtarget_001e2450jjjj");
-void wtarget_001e2450(u32 a0, u32 a1, u32 a2, u32 a3) {
-    E2* e = (E2*)a1;
-    s32 n = a2;
-    f32 d[n];
-    C2* c = func_00106a60(0);
-    s32 i, j;
-    for (s32 k = 0; k < n; k++) {
-        if (e[k].flag) {
-            E2 t(e[k]);
-            t.w = 1.0f;
-            apply(&t, &c->mtx, &t);
-            d[k] = t.z;
-        } else {
-            d[k] = 0;
-        }
-    }
-    for (i = 0; i < n - 1; i++) {
-        s32 b = i;
-        f32 mx = d[i];
-        for (j = i + 1; j < n; j++) {
-            if (e[j].flag && mx < d[j]) {
-                mx = d[j];
-                b = j;
-            }
-        }
-        E2 t;
-        t = e[b];
-        e[b] = e[i];
-        e[i] = t;
-        f32 f = d[b];
-        d[b] = d[i];
-        d[i] = f;
-    }
-}
+void wtarget_001e2450(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001e2450: definition moved into src/anon/unit_001e0cb8.cpp
 }
 
 extern "C" {

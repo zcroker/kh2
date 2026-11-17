@@ -270,29 +270,12 @@ extern L199468 D_01c62140;
 struct NoTail { ~NoTail() {} };
 
 void func_001e6000(u8*);  // obj_dec_timer
-void func_001e6038(u8* p) {
-    NoTail g;
-    func_001e6000(p + 176);  // obj_dec_timer
-    func_001e6000(p + 192);  // obj_dec_timer
-    func_001e6000(p + 208);  // obj_dec_timer
-    func_001e6000(p + 224);  // obj_dec_timer
-    func_001e6000(p + 240);  // obj_dec_timer
-    func_001e6000(p + 256);  // obj_dec_timer
-    func_001e6000(p + 272);  // obj_dec_timer
-    func_001e6000(p + 288);  // obj_dec_timer
-    func_001e6000(p + 304);  // obj_dec_timer
-    func_001e6000(p + 320);  // obj_dec_timer
-}
+void func_001e6038(u8* p);  // 0x001e6038: definition moved into src/anon/unit_001e0cb8.cpp
 
 // Runs every registered handler's optional callback (slot +16).
 typedef void (*Fn1e7810)(u8*);
 struct O1e7810 { u8 pad[100]; s32 n; u8 pad2[16]; u8** tbl; };
-void func_001e7810(O1e7810* p) {
-    for (s32 i = 0; i < p->n; i++) {
-        u8* x = p->tbl[i];
-        if (*(Fn1e7810*)(x + 16)) (*(Fn1e7810*)(x + 16))((u8*)p);
-    }
-}
+void func_001e7810(O1e7810* p);  // 0x001e7810: definition moved into src/anon/unit_001e0cb8.cpp
 
 void func_002fdfc8(const char*, ...);  // device_vprintf_va
 extern char D_0036ef58[], D_0036efc8[], D_0036ef88[], D_0036ef98[];

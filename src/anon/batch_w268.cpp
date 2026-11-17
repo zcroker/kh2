@@ -87,19 +87,7 @@ static inline void assert_fail_1e50a8(const char* e, const char* f, s32 l) {
     func_002fdfc8(D_0036e998, f, l);  // device_vprintf_va
     asm volatile("break");
 }
-void func_001e50a8(s32* a0, s32 a1) {
-    s32 v;
-    if (!a0) assert_fail_1e50a8(D_0036ed60, D_0036e9d0, 1441);
-    if ((u32)a0 & 0xf) assert_fail_1e50a8(D_0036ed78, D_0036e9d0, 1442);
-    func_001e3898(a0, a1);
-    a0 = func_001e3650(a0);  // ptr_add4
-    s32 n = *a0++;
-    for (s32 i = 0; i < n; i++) {
-        v = *a0++;
-        if (v & 0xf) assert_fail_1e50a8(D_0036ed98, D_0036e9d0, 1460);
-        func_001e8288(v, a1);
-    }
-}
+void func_001e50a8(s32* a0, s32 a1);  // 0x001e50a8: definition moved into src/anon/unit_001e0cb8.cpp
 
 extern char D_0036ef58[], D_0036ef70[], D_0036ef98[], D_0036ef88[];
 extern void* D_01d9e6e4;
@@ -115,49 +103,7 @@ static inline void assert_fail_1e7a98(const char* e, const char* f, s32 l) {
     func_002fdfc8(D_0036ef98, f, l);  // device_vprintf_va
     asm volatile("break");
 }
-W268Item* func_001e7a98(W268Mgr* mgr, W268Owner* own) {
-    W268Desc* d = own->desc;
-    W268Item* it = func_001e7698(D_01d9e6e4, &d->tbl[d->idx]);  // alloc_aligned16
-    if ((u32)it & 0xf) assert_fail_1e7a98(D_0036ef70, D_0036ef88, 222);
-    it->f0c = 0;
-    it->b9c = 1;
-    it->f90 = 0;
-    it->f94 = 0;
-    it->owner = own;
-    asm volatile("" ::: "memory");
-    it->b9d = 0;
-    it->b9e = 0;
-    W268Item* n = mgr->head;
-    if (n == 0) {
-        own->last = it;
-        mgr->head = it;
-        it->next = 0;
-    } else if (own->last) {
-        it->next = own->last->next;
-        own->last->next = it;
-    } else {
-        s16 pri = d->pri;
-        W268Item** pp = &mgr->head;
-        for (;;) {
-            if (n->owner->desc->pri >= pri) {
-                own->last = it;
-                *pp = it;
-                it->next = n;
-                goto done;
-            }
-            pp = &n->next;
-            n = n->next;
-            if (!n) break;
-        }
-        own->last = it;
-        *pp = it;
-        it->next = 0;
-    }
-done:
-    own->count++;
-    func_001e79f0(it);
-    return it;
-}
+W268Item* func_001e7a98(W268Mgr* mgr, W268Owner* own);  // 0x001e7a98: definition moved into src/anon/unit_001e0cb8.cpp
 
 extern void* D_0035f638;
 extern u8* D_0035f634;
