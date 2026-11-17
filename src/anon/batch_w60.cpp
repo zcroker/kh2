@@ -233,18 +233,5 @@ Blk2fd* malloc(u32);  // pool_free_block
 s32 atexit(u32 x);  // 0x002fd188: definition moved into src/newlib/libc/atexit.c
 
 // Frees a block: 1 KB pool blocks clear their used bit, others go to the heap.
-void __cxa_free_exception(u8* p) {
-    if (p >= D_01e3c780 && p < D_01e3c780 + 0x10000) {
-        u32 i = (u32)(p - D_01e3c780) >> 10;
-        s32 r = DIntr();
-        D_01e4c780 &= ~(1ull << i);
-        D_01e3c770 = r;
-        if (r) {
-            EIntr();  // ee_intr_get_enable
-            asm volatile(""); // keeps the call from becoming a tail call
-        }
-        return;
-    }
-    func_002fd408(p - 80);
-}
+void __cxa_free_exception(u8* p);  // 0x00316658: definition moved into src/libsupc++/eh_alloc.cpp
 }

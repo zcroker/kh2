@@ -41,11 +41,5 @@ struct ClassTI {
 }
 
 extern "C" {
-bool func_00315948(const w1763::ClassTI* self, const w1763::ClassTI* dst_type, void** obj_ptr) {
-    w1763::UpcastResult result(16);
-    self->do_upcast(dst_type, *obj_ptr, result);
-    if (!w1763::contained_public_p(result.part2dst)) return false;
-    *obj_ptr = const_cast<void*>(result.dst_ptr);
-    return true;
-}
+bool func_00315948(const w1763::ClassTI* self, const w1763::ClassTI* dst_type, void** obj_ptr);  // 0x00315948: definition moved into src/libsupc++/tinfo.cpp
 }

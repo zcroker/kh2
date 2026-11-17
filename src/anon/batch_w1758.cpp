@@ -21,12 +21,5 @@ extern "C" {
 void func_00315418(w1758_th_t) __attribute__((noreturn)); /* __cxxabiv1::__terminate */
 void __cxa_free_exception(void*);                                /* __cxa_free_exception */
 
-void func_003154a8(int code, u8* exc) {
-    W1758CxaExc* h = (W1758CxaExc*)(exc - 48);
-    if (code != 1)
-        func_00315418(h->terminateHandler);
-    if (h->exceptionDestructor)
-        h->exceptionDestructor(h + 1);
-    __cxa_free_exception(h + 1);
-}
+void func_003154a8(int code, u8* exc);  // 0x003154a8: definition moved into src/libsupc++/eh_throw.cpp
 }

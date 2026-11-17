@@ -36,30 +36,5 @@ static inline const unsigned char* w1811_read_encoded_value(void* context, unsig
     return func_00314b90(encoding, func_00314a50(encoding, context), p, val);
 }
 
-const unsigned char* func_00314ce8(void* context, const unsigned char* p, W1811LsdaHeaderInfo* info)
-{
-    W1811UnwindWord tmp;
-    unsigned char lpstart_encoding;
-
-    info->Start = (context ? func_00317128(context) : 0);
-
-    lpstart_encoding = *p++;
-    if (lpstart_encoding != 0xff)
-        p = w1811_read_encoded_value(context, lpstart_encoding, p, &info->LPStart);
-    else
-        info->LPStart = info->Start;
-
-    info->ttype_encoding = *p++;
-    if (info->ttype_encoding != 0xff) {
-        p = func_00314b00(p, &tmp);
-        info->TType = p + tmp;
-    } else
-        info->TType = 0;
-
-    info->call_site_encoding = *p++;
-    p = func_00314b00(p, &tmp);
-    info->action_table = p + tmp;
-
-    return p;
-}
+const unsigned char* func_00314ce8(void* context, const unsigned char* p, W1811LsdaHeaderInfo* info);  // 0x00314ce8: definition moved into src/libsupc++/eh_personality.cpp
 }

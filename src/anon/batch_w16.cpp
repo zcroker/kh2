@@ -197,17 +197,9 @@ u8 func_002c22b8(u32 a);  // 0x002c22b8: definition moved into src/anon/unit_002
 
 u8 func_002d47e8(u8* p);  // 0x002d47e8: definition moved into src/anon/unit_002d4548.cpp
 
-u8 func_00315700(void* p) {
-    *(void**)p = &D_00367848;
-    func_003167f8(p);  // set_vtbl_367910
-    return func_00106420(p);
-}
+u8 func_00315700(void* p);  // 0x00315700: definition moved into src/libsupc++/tinfo.cpp
 
-void func_003157b8(void* p) {
-    *(void**)p = &D_00367818;
-    func_003155e8(p);  // set_vtbl_367878
-    func_00106420(p);
-}
+void func_003157b8(void* p);  // 0x003157b8: definition moved into src/libsupc++/tinfo.cpp
 
 void func_00320c80(void* p) {
     *(void**)p = &D_00352878;

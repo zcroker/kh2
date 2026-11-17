@@ -660,95 +660,25 @@ u32 func_0030e528(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0030e528: definition mo
 
 u32 func_0030e8b8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0030e8b8: definition moved into src/sdk/eeloadfile.c
 
-u32 func_00315628(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2, r15;
-    r15 = (u32)&D_00367860;
-    *(u32*)((u32)r4 + (s32)(0)) = r15;
-    u32 (*fp_call4_003167f8)(u32, u32, u32, u32) = func_003167f8;
-    r2 = fp_call4_003167f8(r4, r5, r6, r7);
-    return r2;
-}
+u32 func_00315628(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00315628: definition moved into src/libsupc++/tinfo.cpp
 
-u32 func_00315650(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2, r15;
-    r15 = (u32)&D_00367860;
-    *(u32*)((u32)r4 + (s32)(0)) = r15;
-    u32 (*fp_call4_003167f8)(u32, u32, u32, u32) = func_003167f8;
-    r2 = fp_call4_003167f8(r4, r5, r6, r7);
-    return r2;
-}
+u32 func_00315650(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00315650: definition moved into src/libsupc++/tinfo.cpp
 
-u32 func_003156b0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2, r15;
-    r15 = (u32)&D_00367848;
-    *(u32*)((u32)r4 + (s32)(0)) = r15;
-    u32 (*fp_call4_003167f8)(u32, u32, u32, u32) = func_003167f8;
-    r2 = fp_call4_003167f8(r4, r5, r6, r7);
-    return r2;
-}
+u32 func_003156b0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x003156b0: definition moved into src/libsupc++/tinfo.cpp
 
-u32 func_003156d8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2, r15;
-    r15 = (u32)&D_00367848;
-    *(u32*)((u32)r4 + (s32)(0)) = r15;
-    u32 (*fp_call4_003167f8)(u32, u32, u32, u32) = func_003167f8;
-    r2 = fp_call4_003167f8(r4, r5, r6, r7);
-    return r2;
-}
+u32 func_003156d8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x003156d8: definition moved into src/libsupc++/tinfo.cpp
 
-u32 func_00315768(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2, r15;
-    r15 = (u32)&D_00367818;
-    *(u32*)((u32)r4 + (s32)(0)) = r15;
-    u32 (*fp_call4_003155e8)(u32, u32, u32, u32) = func_003155e8;
-    r2 = fp_call4_003155e8(r4, r5, r6, r7);
-    return r2;
-}
+u32 func_00315768(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00315768: definition moved into src/libsupc++/tinfo.cpp
 
-u32 func_00315790(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2, r15;
-    r15 = (u32)&D_00367818;
-    *(u32*)((u32)r4 + (s32)(0)) = r15;
-    u32 (*fp_call4_003155e8)(u32, u32, u32, u32) = func_003155e8;
-    r2 = fp_call4_003155e8(r4, r5, r6, r7);
-    return r2;
-}
+u32 func_00315790(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00315790: definition moved into src/libsupc++/tinfo.cpp
 
-u32 func_00315818(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2, r15;
-    r15 = (u32)&D_003677e8;
-    *(u32*)((u32)r4 + (s32)(0)) = r15;
-    u32 (*fp_call4_00315768)(u32, u32, u32, u32) = func_00315768;
-    r2 = fp_call4_00315768(r4, r5, r6, r7);
-    return r2;
-}
+u32 func_00315818(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00315818: definition moved into src/libsupc++/tinfo.cpp
 
-u32 func_003158a0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2, r15;
-    r15 = (u32)&D_003677b8;
-    *(u32*)((u32)r4 + (s32)(0)) = r15;
-    u32 (*fp_call4_00315768)(u32, u32, u32, u32) = func_00315768;
-    r2 = fp_call4_00315768(r4, r5, r6, r7);
-    return r2;
-}
+u32 func_003158a0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x003158a0: definition moved into src/libsupc++/tinfo.cpp
 
-u32 func_00316840(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2, r15;
-    r15 = (u32)&D_003678f8;
-    *(u32*)((u32)r4 + (s32)(0)) = r15;
-    u32 (*fp_call4_003167f8)(u32, u32, u32, u32) = func_003167f8;
-    r2 = fp_call4_003167f8(r4, r5, r6, r7);
-    return r2;
-}
+u32 func_00316840(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00316840: definition moved into src/libsupc++/eh_exception.cpp
 
-u32 func_00316868(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2, r15;
-    r15 = (u32)&D_003678f8;
-    *(u32*)((u32)r4 + (s32)(0)) = r15;
-    u32 (*fp_call4_003167f8)(u32, u32, u32, u32) = func_003167f8;
-    r2 = fp_call4_003167f8(r4, r5, r6, r7);
-    return r2;
-}
+u32 func_00316868(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00316868: definition moved into src/libsupc++/eh_exception.cpp
 
 u32 func_003197d0(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2, r15;

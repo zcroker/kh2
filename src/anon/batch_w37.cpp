@@ -233,11 +233,7 @@ void sceVu0CopyVector(void*, u32);  // memcpy16
 
 s32 func_003160e0(void*, u32, u32, u32);
 typedef s32 (*VFn4)(void*, u32, u32, u32);
-s32 func_00316110(u8* a, u32 b, u32 c, u32 d) {
-    if (func_003160e0(a, b, c, d)) return 1;
-    u8* o = *(u8**)(a + 8);
-    return (*(VFn4*)(*(u8**)o + 24))(o, b, c, d);
-}
+s32 func_00316110(u8* a, u32 b, u32 c, u32 d);  // 0x00316110: definition moved into src/libsupc++/tinfo.cpp
 
 void func_00239870(void*);
 extern u8 D_003485b0[];

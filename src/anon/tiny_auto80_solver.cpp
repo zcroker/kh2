@@ -14925,14 +14925,7 @@ u32 duplicate_unplaced_003158c8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, 
     return ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_00106420)(r4, r5, r6, r7, r8, r9, r10, r11);
 }
 
-u32 func_00316818(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r2, r15;
-    r15 = (u32)&D_00367910;
-    *(volatile u32*)((u32)r4 + (s32)(0)) = r15;
-    r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_00106420)(r4, r5, r6, r7, r8, r9, r10, r11);
-    if (r2) return r2;
-    return r2;
-}
+u32 func_00316818(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);  // 0x00316818: definition moved into src/libsupc++/eh_exception.cpp
 
 u32 duplicate_unplaced_00316840(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r2, r15;
@@ -14961,16 +14954,7 @@ u32 duplicate_unplaced_00316890(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, 
     return r2;
 }
 
-u32 func_00316998(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r2, r15;
-    r4 = (u32)&D_01e4c7a0;
-    r5 = (u32)&D_003168d8;
-    r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_00316c68)(r4, r5, r6, r7, r8, r9, r10, r11);
-    r2 = ((u32)r2 < 0x00000001u);
-    r15 = (u32)(0x0036u << 16);
-    *(volatile u32*)((u32)r15 + (s32)(31008)) = r2;
-    return r2;
-}
+u32 func_00316998(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);  // 0x00316998: definition moved into src/libsupc++/eh_globals.cpp
 
 void duplicate_unplaced_003191d0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r15;

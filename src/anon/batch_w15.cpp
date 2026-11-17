@@ -179,11 +179,7 @@ u8 func_002e9c58(u8* a, u8* b);  // 002e9c58: moved to src/anon/unit_002e9a00.cp
 extern u8 D_00367860;
 void func_003167f8(void*);  // set_vtbl_367910
 u8 func_00106420_u8(void*) asm("func_00106420");
-u8 func_00315678(void** self) {
-    *self = &D_00367860;
-    func_003167f8(self);  // set_vtbl_367910
-    return func_00106420_u8(self);
-}
+u8 func_00315678(void** self);  // 0x00315678: definition moved into src/libsupc++/tinfo.cpp
 
 extern u8 D_003512e8;
 void func_0016a358(void*);

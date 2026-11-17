@@ -47,27 +47,5 @@ void func_00230260(W2367Vec3* a, W2367Vec3* b, W2367Vec3* out);  // 0x00230260: 
 W2367CxaEhGlobals* __cxa_get_globals_fast(void);              // __cxa_get_globals_fast
 void func_00319190(W2367UnwindException*);           // _Unwind_DeleteException
 void func_002fd160(void) __attribute__((noreturn));  // std::terminate
-void __cxa_end_catch(void) {
-    W2367CxaEhGlobals* globals = __cxa_get_globals_fast();
-    W2367CxaException* header = globals->caughtExceptions;
-    int count = header->handlerCount;
-
-    if (count < 0) {
-        // This exception was rethrown. Decrement the (inverted) catch
-        // count and remove it from the chain when it reaches zero.
-        if (++count == 0) {
-            globals->uncaughtExceptions += 1;
-            globals->caughtExceptions = header->nextException;
-        }
-    } else if (--count == 0) {
-        // Handling for this exception is complete. Destroy the object.
-        globals->caughtExceptions = header->nextException;
-        func_00319190(&header->unwindHeader);
-        return;
-    } else if (count < 0)
-        // A bug in the exception handling library or compiler.
-        func_002fd160();
-
-    header->handlerCount = count;
-}
+void __cxa_end_catch(void);  // 0x00316750: definition moved into src/libsupc++/eh_catch.cpp
 }

@@ -591,21 +591,7 @@ void func_002e8400(u8* p);  // 0x002e8400: definition moved into src/anon/unit_0
 s32* func_00316e10(void);  // get_data_369928
 s32 DIntr(void);
 void EIntr(void);  // ee_intr_get_enable
-s32 func_00316c68(s32* out, s32 flag)
-{
-    s32* t = func_00316e10();  // get_data_369928
-    s32 st = DIntr();
-    for (s32 i = 0; i < 8; i++, t++) {
-        if (!*t && flag) {
-            *t = 1;
-            if (st) EIntr();  // ee_intr_get_enable
-            *out = i;
-            return 0;
-        }
-    }
-    if (st) EIntr();  // ee_intr_get_enable
-    return -1;
-}
+s32 func_00316c68(s32* out, s32 flag);  // 0x00316c68: definition moved into src/libsupc++/eh_globals.cpp
 }
 
 }
@@ -887,23 +873,7 @@ u32 func_00317130(u32);
 u32 func_00317128(u32);
 void func_002fd160(void) __attribute__((noreturn));
 // libgcc unwind-pe.h base_of_encoded_value
-u32 func_00316e88(u8 enc, u32 ctx)
-{
-    if (enc == 0xff) return 0;
-    switch (enc & 0x70) {
-    case 0x00:
-    case 0x10:
-    case 0x50:
-        return 0;
-    case 0x20:
-        return func_00317138(ctx);
-    case 0x30:
-        return func_00317130(ctx);
-    case 0x40:
-        return func_00317128(ctx);
-    }
-    func_002fd160();
-}
+u32 func_00316e88(u8 enc, u32 ctx);  // 0x00316e88: definition moved into src/libgcc/unwind-dw2.c
 extern u8* D_0035f5e4;
 s32 func_002a4990(u8*);
 s32 func_002a4ad8(s32 a);  // 0x002a4ad8: definition moved into src/anon/unit_002a40c8.cpp
@@ -1309,23 +1279,7 @@ u32 func_00317130(u32);
 u32 func_00317128(u32);
 void func_002fd160(void) __attribute__((noreturn));
 // libgcc unwind-pe.h base_of_encoded_value (second copy)
-u32 func_00314a50(u8 enc, u32 ctx)
-{
-    if (enc == 0xff) return 0;
-    switch (enc & 0x70) {
-    case 0x00:
-    case 0x10:
-    case 0x50:
-        return 0;
-    case 0x20:
-        return func_00317138(ctx);
-    case 0x30:
-        return func_00317130(ctx);
-    case 0x40:
-        return func_00317128(ctx);
-    }
-    func_002fd160();
-}
+u32 func_00314a50(u8 enc, u32 ctx);  // 0x00314a50: definition moved into src/libsupc++/eh_personality.cpp
 void func_002f1900(u8*, s32, u8*);
 void func_002f19c8(u8*);
 void func_002c6050(u8* p, s32 k);  // 0x002c6050: definition moved into src/anon/unit_002c53c8.cpp

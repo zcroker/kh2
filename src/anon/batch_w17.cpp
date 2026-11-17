@@ -191,20 +191,12 @@ void trap_empty_func(u32** p) asm("_ZN2kn15trap_empty_funcEP8BD_VALUE");
 
 extern u32 D_003677e8;
 void func_00315768(void*);
-void func_00315840(void** p) {
-    *p = &D_003677e8;
-    func_00315768(p);
-    func_00106420(p);
-}
+void func_00315840(void** p);  // 0x00315840: definition moved into src/libsupc++/tinfo.cpp
 
 extern u32 D_003678f8[];
 void func_003167f8(void*);  // set_vtbl_367910
 u8 func_00106420_u8(void*) asm("func_00106420");
-u8 func_00316890(void** p) {
-    *p = D_003678f8;
-    func_003167f8(p);  // set_vtbl_367910
-    return func_00106420_u8(p);
-}
+u8 func_00316890(void** p);  // 0x00316890: definition moved into src/libsupc++/eh_exception.cpp
 
 extern u32 D_00352560;
 void func_001d1ed0(void*);

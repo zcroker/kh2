@@ -17,8 +17,8 @@ void wt_2e9200(u32 a, u32 b, u32 c, u32 d) asm("_Z16wtarget_002e9200jjjj");
 // 002e9200 (static init): moved to src/anon/unit_002e8b50.cpp
 void wt_2f1268(u32 a, u32 b, u32 c, u32 d) asm("_Z16wtarget_002f1268jjjj");
 // 002f1268: moved to src/naka/libkn/trapfunctions.cpp
-u32 func_00317130(u8* p) { return *(u32*)(p + 724); }
-u32 func_00317138(u8* p) { return *(u32*)(p + 720); }
+u32 func_00317130(u8* p);  // 0x00317130: definition moved into src/libgcc/unwind-dw2.c
+u32 func_00317138(u8* p);  // 0x00317138: definition moved into src/libgcc/unwind-dw2.c
 // 00104200: moved to src/common/gumibattle.cpp
 u8* func_001127a0(u8* p);  // 0x001127a0: definition moved into src/anon/unit_001117d8.cpp
 u8* func_0018c240(u8* p);  // 0x0018c240: definition moved into src/yasui/libys/npc.cpp

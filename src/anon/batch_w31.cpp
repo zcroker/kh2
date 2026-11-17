@@ -204,19 +204,7 @@ typedef void (*VFn2)(void*, void*);
 void func_002ece48(void** p, u8* q);  // 0x002ece48: definition moved into src/anon/unit_002ecdb0.cpp
 
 // Unpack a single-precision float into class/sign/exponent/fraction.
-void func_00314640(u32* in, s32* out) {
-    u32 v = *in;
-    u32 frac = v & 0x7fffff;
-    out[1] = v >> 31;
-    u32 exp = (v >> 23) & 0xff;
-    if (exp == 0) {
-        out[0] = 2;
-        return;
-    }
-    out[2] = exp - 127;
-    out[0] = 3;
-    out[3] = (frac << 7) | 0x40000000;
-}
+void func_00314640(u32* in, s32* out);  // 0x00314640: definition moved into src/libgcc/_unpack_sf.c
 
 void func_0031c0b8(void** p) {
     *p = D_00347f98;

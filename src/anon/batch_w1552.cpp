@@ -30,27 +30,7 @@ void func_002df040(u8* a0, u8* a1);  // 0x002df040: definition moved into src/an
 
 /* libgcc fp-bit unpack_d (double) */
 struct Fpn_3147a0 { s32 cls; u32 sign; s32 normal_exp; s32 pad; u64 ll; };
-void func_003147a0(u64* src, Fpn_3147a0* dst) {  // dbl_unpack
-    u64 fraction = *src & ((((u64)1) << 52) - 1);
-    s32 exp = ((s32)(*src >> 52)) & 0x7ff;
-    s32 sign = (s32)(*src >> 63);
-    dst->sign = sign;
-    if (exp == 0) {
-        dst->cls = 2;
-    } else if (exp == 0x7ff) {
-        if (fraction == 0) {
-            dst->cls = 4;
-        } else {
-            if (fraction & ((u64)1 << 51)) dst->cls = 1;
-            else dst->cls = 0;
-            dst->ll = fraction;
-        }
-    } else {
-        dst->normal_exp = exp - 1023;
-        dst->cls = 3;
-        dst->ll = (fraction << 8) | ((u64)1 << 60);
-    }
-}
+void func_003147a0(u64* src, Fpn_3147a0* dst);  // 0x003147a0: definition moved into src/libgcc/_unpack_df.c
 
 extern u32 D_00361d00;
 extern u32 D_0034e8b8;

@@ -139,22 +139,7 @@ void func_0010dee8(u32 a0, u32 *a1, u32 *a2);  // 0x0010dee8: definition moved i
 
 u8* func_00100430(u8* a0, u64* a1);  // 0x00100430: definition moved into src/libgcc/unwind-dw2-fde.c
 
-u8* func_00316f38(u8 *a0, u64 *a1) {  // varint64_decode
-    u8 *p = a0;
-    u32 shift = 0;
-    s64 out = 0;
-    s32 cont;
-
-    do {
-        u32 b = *p++;
-        out |= (s32)((b & 0x7f) << shift);
-        cont = b & -128;
-        shift += 7;
-    } while (cont != 0);
-
-    *a1 = out;
-    return p;
-}
+u8* func_00316f38(u8 *a0, u64 *a1);  // 0x00316f38: definition moved into src/libgcc/unwind-dw2.c
 
 void func_0010a800(u8 *a0, u8 *a1, u8 *a2);  // 0010a800: moved to src/anon/unit_00109c30.cpp
 
@@ -287,12 +272,7 @@ void func_00287d08();  // 0x00287d08: definition moved into src/anon/unit_00286d
 
 void func_002c5628(u32 a0);  // 0x002c5628: definition moved into src/anon/unit_002c53c8.cpp
 
-void func_003191d0(u32 a0, u32 a1, u64 a2) {
-    a1 <<= 2;
-    a1 += a0;
-    u32 p = *(u32 *)a1;
-    *(u64 *)p = a2;
-}
+void func_003191d0(u32 a0, u32 a1, u64 a2);  // 0x003191d0: definition moved into src/libgcc/unwind-dw2.c
 
 void func_001c6c60(u32 a0);  // 0x001c6c60: definition moved into src/anon/unit_001c6c60.cpp
 
@@ -623,60 +603,6 @@ void func_0031e690(u32 self) {
     (void)t;
 }
 
-u32 func_003149e8(u32 a0) {
-    a0 &= 0xFFu;
-    u32 v0 = 0;
-    if (a0 == 0xFFu) {
-        return v0;
-    }
+u32 func_003149e8(u32 a0);  // 0x003149e8: definition moved into src/libsupc++/eh_personality.cpp
 
-    u32 t = a0 & 7u;
-    v0 = 2;
-    if (t == 2u) {
-        return v0;
-    }
-    if ((s32)t < 3) {
-        if (t != 0u) {
-            v0 = 4;
-            func_002fd160();
-        }
-        return 4;
-    }
-
-    if (t == 3u) {
-        return 4;
-    }
-    if (t == 4u) {
-        return 8;
-    }
-    func_002fd160();
-}
-
-u32 func_00316e20(u32 a0) {
-    a0 &= 0xFFu;
-    u32 v0 = 0;
-    if (a0 == 0xFFu) {
-        return v0;
-    }
-
-    u32 t = a0 & 7u;
-    v0 = 2;
-    if (t == 2u) {
-        return v0;
-    }
-    if ((s32)t < 3) {
-        if (t != 0u) {
-            v0 = 4;
-            func_002fd160();
-        }
-        return 4;
-    }
-
-    if (t == 3u) {
-        return 4;
-    }
-    if (t == 4u) {
-        return 8;
-    }
-    func_002fd160();
-}
+u32 func_00316e20(u32 a0);  // 0x00316e20: definition moved into src/libgcc/unwind-dw2.c

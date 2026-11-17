@@ -304,19 +304,7 @@ void func_00314640(f32*, FpNum*);
 static inline int fp_iszero(FpNum* x) { return x->cls == 2; }
 static inline int fp_isnan(FpNum* x) { return x->cls < 2; }
 static inline int fp_isinf(FpNum* x) { return x->cls == 4; }
-u32 __fixunssfsi(f32 f) {
-    FpNum a;
-    f32 u = f;
-    func_00314640(&u, &a);
-    if (fp_iszero(&a)) return 0;
-    if (fp_isnan(&a)) return 0;
-    if (a.sign) return 0;
-    if (fp_isinf(&a)) return 0xffffffff;
-    if (a.exp < 0) return 0;
-    if (a.exp > 31) return 0xffffffff;
-    if (a.exp > 30) return a.frac << (a.exp - 30);
-    return a.frac >> (30 - a.exp);
-}
+u32 __fixunssfsi(f32 f);  // 0x00313bc0: definition moved into src/libgcc/_sf_to_usi.c
 
 // --- 0031c7a8
 // Destructor: destroy the 7-element member array (344-byte elements, virtual

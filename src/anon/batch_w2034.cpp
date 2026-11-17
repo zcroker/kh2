@@ -17,26 +17,5 @@ void func_00315440();
  * 0x50 = sizeof(__cxa_exception); 64 emergency buffers of 1024 bytes with a 64-bit used mask.
  * The gthread mutex lock/unlock is replaced by the game's interrupt-state calls
  * (DIntr result kept in D_01e3c770, EIntr restores it). func_00315440 = std::terminate. */
-void* __cxa_allocate_exception(u32 thrown_size) {
-    void* ret;
-    thrown_size += 0x50;
-    ret = malloc(thrown_size);
-    if (!ret) {
-        D_01e3c770 = DIntr();
-        u64 used = D_01e4c780;
-        u32 which = 0;
-        if (thrown_size > 1024) goto failed;
-        while ((bool)(used & 1)) {
-            used >>= 1;
-            if (++which >= 64) goto failed;
-        }
-        D_01e4c780 |= (u64)1 << which;
-        ret = &D_01e3c780[which][0];
-    failed:;
-        if (D_01e3c770) EIntr();
-        if (!ret) func_00315440();
-    }
-    func_002fde18(ret, 0, 0x50);
-    return (char*)ret + 0x50;
-}
+void* __cxa_allocate_exception(u32 thrown_size);  // 0x00316560: definition moved into src/libsupc++/eh_alloc.cpp
 }

@@ -61,22 +61,5 @@ static inline s32 w2389_setspecific(s32 key, const void* ptr)
     return 0;
 }
 
-W2389EhGlobals* __cxa_get_globals(void)
-{
-    W2389EhGlobals* g;
-    if (D_00367920 == 0) return &D_01e4c798;
-    if (D_00367920 < 0) {
-        func_003169d0();
-        if (D_00367920 == 0) return &D_01e4c798;
-    }
-    g = (W2389EhGlobals*)w2389_getspecific(D_01e4c7a0);
-    if (!g) {
-        if ((g = (W2389EhGlobals*)malloc(sizeof(W2389EhGlobals))) == 0
-            || w2389_setspecific(D_01e4c7a0, (void*)g) != 0)
-            func_00315440();
-        g->caughtExceptions = 0;
-        g->uncaughtExceptions = 0;
-    }
-    return g;
-}
+W2389EhGlobals* __cxa_get_globals(void);  // 0x00316af8: definition moved into src/libsupc++/eh_globals.cpp
 }

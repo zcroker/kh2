@@ -11655,31 +11655,11 @@ void func_003111f0(u32 a0);  // 0x003111f0: definition moved into src/sdk/libker
 
 u64 __umoddi3(u32 a0, u32 a1);  // 0x00313498: definition moved into src/libgcc/_umoddi3.c
 
-void func_00313b80(f32 a0) {  // float_to_double
-    u32 tmp[4];
-    f32 in = a0;
-    func_00314640((u32)&in, (u32)tmp);
-    func_00314480(tmp[0], tmp[1], tmp[2], ((unsigned long long)tmp[3]) << 30);
-}
+void func_00313b80(f32 a0);  // 0x00313b80: definition moved into src/libgcc/_sf_to_df.c
 
-void func_003142e0(u64 a0, u64 a1) {  // double_compare
-    u32 out0[8];
-    u32 out1[8];
-    u64 in0 = a0;
-    u64 in1 = a1;
-    func_003147a0((u32)&in0, (u32)out0);
-    func_003147a0((u32)&in1, (u32)out1);
-    func_00314830((u32)out0, (u32)out1);
-}
+void func_003142e0(u64 a0, u64 a1);  // 0x003142e0: definition moved into src/libgcc/_compare_df.c
 
-void func_00314698(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 args[4];
-    args[0] = a0;
-    args[1] = a1;
-    args[2] = a2;
-    args[3] = a3;
-    func_00314930((u32)args);
-}
+void func_00314698(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00314698: definition moved into src/libgcc/_make_sf.c
 
 void duplicate_unplaced_003191d0(u32* a0, u32 a1, unsigned long long a2) {
     *(unsigned long long*)a0[a1] = a2;

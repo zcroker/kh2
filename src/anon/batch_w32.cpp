@@ -159,19 +159,7 @@ void func_002e9b10(WrapCtr* s);  // 002e9b10: moved to src/anon/unit_002e9a00.cp
 void func_002ed2b0(void** p, void* b, void* c);  // 0x002ed2b0: definition moved into src/anon/unit_002ecdb0.cpp
 
 // Signed LEB128 decode.
-u8* func_00314b38(u8* p, s64* out) {  // varint64_decode_b
-    u32 shift = 0;
-    u64 r = 0;
-    u8 b;
-    do {
-        b = *p++;
-        r |= (b & 0x7f) << shift;
-        shift += 7;
-    } while (b & 0x80);
-    if (shift < 64 && (b & 0x40)) r |= -1LL << shift;
-    *out = r;
-    return p;
-}
+u8* func_00314b38(u8* p, s64* out);  // 0x00314b38: definition moved into src/libsupc++/eh_personality.cpp
 
 struct VObj { void** vt; };
 void func_0031d770(void** p) {

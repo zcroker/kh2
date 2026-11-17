@@ -238,13 +238,7 @@ struct FpNum { s32 cls; s32 sign; s32 exp; s32 pad; u64 frac; u8 pad2[8]; };
 void func_003147a0(const u64* src, FpNum* dst);
 void* func_00313f98(FpNum*, FpNum*, FpNum*);
 u64 func_003146c8(void*);
-u64 func_00313f40(u64 a, u64 b)
-{
-    FpNum x, y, z;
-    func_003147a0(&a, &x);
-    func_003147a0(&b, &y);
-    return func_003146c8(func_00313f98(&x, &y, &z));
-}
+u64 func_00313f40(u64 a, u64 b);  // 0x00313f40: definition moved into src/libgcc/_mul_df.c
 
 // 0031a3d8 / 0031c248: destructor bodies (vtable resets, member and base teardown)
 extern u8 D_00347dd0[];

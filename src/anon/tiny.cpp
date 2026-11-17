@@ -649,22 +649,11 @@ void func_002eda30(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002eda30: definition m
 
 u32 func_002f1888(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002f1888: definition moved into src/anon/unit_002f17e0.cpp
 
-u32 func_00316d08(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_global_365c48
-    (void)a0;
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    u32 b = (0x0036u << 16);
-    return (u32)(*(u32*)((u32)b + (23624)));
-}
+u32 func_00316d08(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00316d08: definition moved into src/newlib/libc/errno.c
 
-u32 func_00317128(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return (u32)(*(u32*)((u32)a0 + (728)));
-}
+u32 func_00317128(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00317128: definition moved into src/libgcc/unwind-dw2.c
 
-void func_003191f0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    *(u32*)((u32)a0 + (712)) = (u32)a1;
-}
+void func_003191f0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x003191f0: definition moved into src/libgcc/unwind-dw2.c
 
 void func_0031ae00(u32 a0, u32 a1, u32 a2, u32 a3) {
     (void)a0;
@@ -969,35 +958,13 @@ u32 sceGsGetGParam(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_363c40
 
 u32 func_003037b0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x003037b0: definition moved into src/newlib/libc/locale.c
 
-void func_003155e8(u32 a0, u32 a1, u32 a2, u32 a3) {  // set_vtbl_367878
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    *(u32*)((u32)a0 + (0)) = (u32)&D_00367878;
-}
+void func_003155e8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x003155e8: definition moved into src/libsupc++/tinfo.cpp
 
-void func_003167f8(u32 a0, u32 a1, u32 a2, u32 a3) {  // set_vtbl_367910
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    *(u32*)((u32)a0 + (0)) = (u32)&D_00367910;
-}
+void func_003167f8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x003167f8: definition moved into src/libsupc++/eh_exception.cpp
 
-u32 func_00316e00(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_367918
-    (void)a0;
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    return (u32)&D_00367928;
-}
+u32 func_00316e00(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00316e00: definition moved into src/libgcc/ee-gthr.c
 
-u32 func_00316e10(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_data_369928
-    (void)a0;
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    return (u32)&D_00369928;
-}
+u32 func_00316e10(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00316e10: definition moved into src/libgcc/ee-gthr.c
 
 void func_0031a840(u32 a0, u32 a1, u32 a2, u32 a3) {
     (void)a1;

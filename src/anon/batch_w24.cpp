@@ -187,17 +187,7 @@ struct P2 { u32 a; u32 b; };
 struct P3 { P2* p; s32 n; u32 v; };
 u32 strlen(void);  // strlen
 void __sfvwrite(u32, P3*);
-void func_00316d18(u32 a, u32 b) {
-    P3 s;
-    P2 x;
-    x.a = a;
-    u32 v = strlen();  // strlen
-    s.v = v;
-    x.b = v;
-    s.p = &x;
-    s.n = 1;
-    __sfvwrite(b, &s);
-}
+void func_00316d18(u32 a, u32 b);  // 0x00316d18: definition moved into src/newlib/libc/fputs.c
 
 struct VObj { void** vt; };
 struct Mgr20 { u8 _0[20]; VObj* o; };

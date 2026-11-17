@@ -10,49 +10,7 @@ struct W1840C8 { u8 r, g, b, a; };
 struct W1840Arg8 { s32 id; s32 idx; W1840C8 add; u8 flag; };
 union W1840FU { f32 f; u8 c; };
 
-// 00315a08 is libsupc++'s __vmi_class_type_info::__do_find_public_src (tinfo.cc, GCC 3.2).
-struct W1840TypeInfo {
-    const char* name;
-    virtual void d0(); virtual void d1(); virtual void d2(); virtual void d3();
-    virtual void d4(); virtual void d5(); virtual void d6(); virtual void d7();
-    virtual s32 find_public_src(s32 src2dst, const void* obj, const W1840TypeInfo* src, const void* srcp) const;
-    bool operator==(const W1840TypeInfo& o) const { return name == o.name; }
-};
-struct W1840BaseInfo {
-    const W1840TypeInfo* base; long flags;
-    bool is_virtual() const { return flags & 1; }
-    bool is_public() const { return flags & 2; }
-    s32 offset() const { return (s32)flags >> 8; }
-};
-static inline bool w1840_contained_p(s32 k) { return k >= 4; }
-static inline const void* w1840_convert_to_base(const void* addr, bool v, s32 off) {
-    if (v) { const void* vt = *(const void* const*)addr; off = *(const s32*)((const char*)vt + off); }
-    return (const char*)addr + off;
-}
-struct W1840VmiTypeInfo : W1840TypeInfo {
-    virtual void key(); // never defined here, so this file emits no vtable
-    u32 vflags; u32 count; W1840BaseInfo info[1];
-    s32 find_public_src(s32 src2dst, const void* obj, const W1840TypeInfo* src, const void* srcp) asm("func_00315a08");
-};
-// the line break keeps the layout scanner able to see this definition
-s32 W1840VmiTypeInfo::
-find_public_src(s32 src2dst, const void* obj, const W1840TypeInfo* src, const void* srcp) {
-    if (obj == srcp && *this == *src) return 6;
-    for (u32 i = count; i--;) {
-        if (!info[i].is_public()) continue;
-        const void* base = obj;
-        s32 off = info[i].offset();
-        bool v = info[i].is_virtual();
-        if (v) { if (src2dst == -3) continue; }
-        base = w1840_convert_to_base(base, v, off);
-        s32 k = info[i].base->find_public_src(src2dst, base, src, srcp);
-        if (w1840_contained_p(k)) {
-            if (v) k = k | 1;
-            return k;
-        }
-    }
-    return 1;
-}
+// 0x00315a08: definition moved into src/libsupc++/tinfo.cpp
 
 // 002ecb90: 16-byte VU0 vector with lq/sq copies and VU0 macro-mode operators
 struct W1840Vec {

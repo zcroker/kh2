@@ -75,20 +75,5 @@ u32* func_00316e00();  // get_367918
 u32* func_00316e10();  // get_data_369928
 s32 func_003060f0();  // ee_intr_disabled
 s32 func_00305510();
-u32 __cxa_get_globals_fast() {
-    if (D_00367920) {
-        s32 s = D_01e4c7a0;
-        u32* a = func_00316e00();  // get_367918
-        u32* b = func_00316e10();  // get_data_369928
-        if (s < 9) {
-            if (b[s]) {
-                s32 k = 0;
-                if (func_003060f0() != 1) k = func_00305510();  // ee_intr_disabled
-                return a[k * 8 + s];
-            }
-        }
-        return 0;
-    }
-    return (u32)D_01e4c798;
-}
+u32 __cxa_get_globals_fast();  // 0x00316a50: definition moved into src/libsupc++/eh_globals.cpp
 }

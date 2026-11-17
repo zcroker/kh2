@@ -34,18 +34,5 @@ N1777* func_0011e7e0(O1777* o, N1777* from, s32 a, s32 b, s32 c);  // 0x0011e7e0
 
 const unsigned char* func_00314b00(const unsigned char*, W1777UnwindWord*); /* read_uleb128 */
 const W1777TypeInfo* func_00314dd8(W1777LsdaHeaderInfo*, W1777UnwindWord); /* get_ttype_entry */
-bool func_00314e48(W1777LsdaHeaderInfo* info, const W1777TypeInfo* throw_type, W1777UnwindSword filter_value)
-{
-    const unsigned char* e = info->TType - filter_value - 1;
-    while (1) {
-        W1777UnwindWord tmp;
-        e = func_00314b00(e, &tmp);
-        if (tmp == 0)
-            return false;
-        const W1777TypeInfo* catch_type = func_00314dd8(info, tmp);
-        void* dummy;
-        if (catch_type->__do_catch(throw_type, &dummy, 1))
-            return true;
-    }
-}
+bool func_00314e48(W1777LsdaHeaderInfo* info, const W1777TypeInfo* throw_type, W1777UnwindSword filter_value);  // 0x00314e48: definition moved into src/libsupc++/eh_personality.cpp
 }

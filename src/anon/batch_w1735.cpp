@@ -38,8 +38,5 @@ s32 func_0019bad8(w1735::Obj* o);  // 0x0019bad8: definition moved into src/anon
 s32 func_001d9d48(w1735::BitKey* k);  // 0x001d9d48: definition moved into src/anon/unit_001d9d00.cpp
 
 // libsupc++ __si_class_type_info::__do_find_public_src (6 = __contained_public).
-s32 func_003159c8(const w1735::SiClassTI* self, s32 src2dst, const void* obj_ptr, const w1735::ClassTI* src_type, const void* src_ptr) {
-    if (src_ptr == obj_ptr && self->name == src_type->name) return 6;
-    return self->base_type->do_find_public_src(src2dst, obj_ptr, src_type, src_ptr);
-}
+s32 func_003159c8(const w1735::SiClassTI* self, s32 src2dst, const void* obj_ptr, const w1735::ClassTI* src_type, const void* src_ptr);  // 0x003159c8: definition moved into src/libsupc++/tinfo.cpp
 }

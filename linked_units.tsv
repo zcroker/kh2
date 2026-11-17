@@ -662,3 +662,37 @@ src/anon/unit_001fe158.cpp	001fe158	001fe8d8	-	-G0 -fno-strict-aliasing
 src/anon/unit_001fd530.cpp	001fd530	001fe158	.rodata@00370280	-G0 -fno-strict-aliasing
 src/anon/unit_001f95a8.cpp	001f95a8	001f95d8	-	-G0
 src/anon/unit_001ff928.cpp	001ff928	001ff958	-	-G0
+src/libgcc/_floatdisf.c	00311af0	00311bb8	-	-G0 -fno-builtin
+src/libgcc/_fixunsdfdi.c	00311bb8	00311cc0	-	-G0 -fno-builtin
+src/libgcc/_fixunssfdi.c	00311cc0	00311dd0	-	-G0 -fno-builtin
+src/libgcc/_sf_to_df.c	00313b80	00313bc0	-	-G0 -fno-builtin
+src/libgcc/_sf_to_usi.c	00313bc0	00313c58	-	-G0 -fno-builtin
+src/libgcc/_addsub_df.c	00313c58	00313f40	-	-G0 -fno-builtin
+src/libgcc/_mul_df.c	00313f40	00314190	-	-G0 -fno-builtin
+src/libgcc/_div_df.c	00314190	003142e0	-	-G0 -fno-builtin
+src/libgcc/_compare_df.c	003142e0	00314330	-	-G0 -fno-builtin
+src/libgcc/_si_to_df.c	00314330	003143e0	-	-G0 -fno-builtin
+src/libgcc/_df_to_si.c	003143e0	00314480	-	-G0 -fno-builtin
+src/libgcc/_make_df.c	00314480	003144b0	-	-G0 -fno-builtin
+src/libgcc/_df_to_sf.c	003144b0	00314508	-	-G0 -fno-builtin
+src/libgcc/_df_to_usi.c	00314508	003145a8	-	-G0 -fno-builtin
+src/libgcc/_floatdidf.c	003145a8	00314640	-	-G0 -fno-builtin
+src/libgcc/_unpack_sf.c	00314640	00314698	-	-G0 -fno-builtin
+src/libgcc/_make_sf.c	00314698	003146c8	-	-G0 -fno-builtin
+src/libgcc/_pack_df.c	003146c8	003147a0	-	-G0 -fno-builtin
+src/libgcc/_unpack_df.c	003147a0	00314830	-	-G0 -fno-builtin
+src/libgcc/_fpcmp_parts_df.c	00314830	00314930	-	-G0 -fno-builtin
+src/libgcc/_pack_sf.c	00314930	003149e8	-	-G0 -fno-builtin
+src/newlib/libc/errno.c	00316d08	00316d18	-	-G0 -fno-builtin
+src/newlib/libc/fputs.c	00316d18	00316d68	-	-G0 -fno-builtin
+src/libgcc/ee-gthr.c	00316e00	00316e20	.data@00367928	-G0 -fno-builtin
+src/libsupc++/eh_personality.cpp	003149e8	00315418	.rodata@003785b0,.gnu.linkonce.d._ZTISt13bad_exception@00367790	-G0 -fexceptions -frtti
+src/libsupc++/eh_terminate.cpp	00315418	003154a8	.data@003677a8	-G0 -fexceptions -frtti
+src/libsupc++/eh_throw.cpp	003154a8	003155c0	.rodata@003785f0	-G0 -fexceptions -frtti
+src/libsupc++/pure.cpp	003155c0	003155e8	.rodata@003785f8	-G0 -fexceptions -frtti
+src/libsupc++/tinfo.cpp	003155e8	00316560	.gnu.linkonce.d._ZTVN10__cxxabiv121__vmi_class_type_infoE@003677b0,.gnu.linkonce.d._ZTVN10__cxxabiv120__si_class_type_infoE@003677e0,.gnu.linkonce.d._ZTVN10__cxxabiv117__class_type_infoE@00367810,.gnu.linkonce.d._ZTVSt10bad_typeid@00367840,.gnu.linkonce.d._ZTVSt8bad_cast@00367858,.gnu.linkonce.d._ZTVSt9type_info@00367870	-G0 -fexceptions -frtti
+src/libsupc++/eh_alloc.cpp	00316560	003166f0	.data@003678e8,.bss@01e3c770	-G0 -fexceptions -frtti
+src/libsupc++/eh_catch.cpp	003166f0	003167f8	-	-G0 -fexceptions -frtti
+src/libsupc++/eh_exception.cpp	003167f8	003168d8	.gnu.linkonce.d._ZTVSt13bad_exception@003678f0,.gnu.linkonce.d._ZTVSt9exception@00367908	-G0 -fexceptions -frtti
+src/libsupc++/eh_globals.cpp	003168d8	00316d08	.data@00367920,.bss@01e4c790	-G0 -fexceptions -frtti
+src/libgcc/unwind-dw2.c	00316e20	00319788	.data@00369d50,.rodata@00378618,.bss@01e4c7b0	-G0 -fexceptions

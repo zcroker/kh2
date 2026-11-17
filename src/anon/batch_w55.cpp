@@ -337,12 +337,7 @@ const char* wtarget_00303728(u32 a, u32 b, u32 c, u32);  // 0x00303728: definiti
 extern "C" {
 
 // Soft-float binary op: unpack both doubles, combine, pack.
-double func_00313e80(double a, double b) {  // double_div
-    FpW55 x, y, t;
-    func_003147a0(&a, &x);
-    func_003147a0(&b, &y);
-    return func_003146c8(func_00313c58(&x, &y, &t));
-}
+double func_00313e80(double a, double b);  // 0x00313e80: definition moved into src/libgcc/_addsub_df.c
 
 void func_0031b5c8(u8* p) {
     *(u32*)p = (u32)D_00348608;

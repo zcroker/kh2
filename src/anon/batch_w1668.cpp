@@ -45,7 +45,7 @@ void func_002eb778(void*, u32, u32);
 // 002eb868: moved to src/anon/unit_002eaf38.cpp
 
 struct S8 { u32 a, b; void (*fn)(u32, void*); };
-void func_00319190(S8* p) { p->fn(1, p); }
+void func_00319190(S8* p);  // 0x00319190: definition moved into src/libgcc/unwind-dw2.c
 
 // 00102ff0: moved to src/common/title.cpp
 

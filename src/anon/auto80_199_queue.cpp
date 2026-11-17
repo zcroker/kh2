@@ -1816,33 +1816,7 @@ s32 func_00305110(u32* out, u32 a1, u32 a2, u32 a3);  // 0x00305110: definition 
 
 void func_0030f068();  // 0x0030f068: definition moved into src/sdk/libkernl_0030f068.c
 
-u32 __cxa_begin_catch(u32 a0) {
-    u32 s0 = a0 - 48u;
-    u32 v0 = __cxa_get_globals();
-
-    s32 t14 = *(s32*)(s0 + 20u);
-    u32 t13 = *(u32*)(v0 + 0u);
-
-    if (t14 < 0) {
-        u32 t15 = 1u;
-        t14 = (s32)(t15 - (u32)t14);
-    } else {
-        t14 = t14 + 1;
-    }
-
-    *(u32*)(s0 + 20u) = (u32)t14;
-
-    u32 t15 = *(u32*)(v0 + 4u);
-    t15 = t15 - 1u;
-    *(u32*)(v0 + 4u) = t15;
-
-    if (s0 != t13) {
-        *(u32*)(s0 + 16u) = t13;
-        *(u32*)(v0 + 0u) = s0;
-    }
-
-    return *(u32*)(s0 + 40u);
-}
+u32 __cxa_begin_catch(u32 a0);  // 0x003166f0: definition moved into src/libsupc++/eh_catch.cpp
 
 void func_00319930(u32 a0) {
     s32 t14 = 19;
@@ -1916,20 +1890,7 @@ void func_003199d0(u32 a0) {
     *(volatile u32*)(a0 + 56u) = 0u;
 }
 
-void func_003181a0(u32 a0, u32 a1) {
-    u32 s0 = a1;
-    u32 s1 = a0;
-
-    func_00317fc8(a0);
-
-    u32 t15 = *(u8*)(s0 + 2888u);
-    t15 = t15 << 2;
-    t15 = t15 + s1;
-    u32 t13 = *(u32*)t15;
-    s32 t14 = (s32)(u32)(*(u64*)t13);
-    t14 = t14 & -2;
-    *(u32*)(s1 + 712u) = (u32)t14;
-}
+void func_003181a0(u32 a0, u32 a1);  // 0x003181a0: definition moved into src/libgcc/unwind-dw2.c
 
 void func_0031d8f8(u32 self) {
     *(u32*)self = addr_D_0034aad8();

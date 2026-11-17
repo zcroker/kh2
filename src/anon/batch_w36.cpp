@@ -273,14 +273,5 @@ struct FPN { s32 cls; s32 sign; s32 exp; u64 frac; };
 union FLO { double v; u64 u; };
 
 // Soft-float double subtract: a + (-b).
-double __subdf3(double a, double b) {
-    FPN x, y, t;
-    FLO au, bu;
-    au.v = a;
-    bu.v = b;
-    func_003147a0(&au, &x);
-    func_003147a0(&bu, &y);
-    y.sign ^= 1;
-    return func_003146c8(func_00313c58(&x, &y, &t));
-}
+double __subdf3(double a, double b);  // 0x00313ed8: definition moved into src/libgcc/_addsub_df.c
 }

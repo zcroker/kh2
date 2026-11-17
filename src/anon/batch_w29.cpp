@@ -198,12 +198,7 @@ u8 func_002e0ec8(u8* p);  // 0x002e0ec8: definition moved into src/anon/unit_002
 u32 func_002ffc08(u32 a, u32* p);  // 0x002ffc08: definition moved into src/newlib/libc/vfprintf.c
 
 // Soft-float double binary op (libgcc dp-bit style): unpack both, combine, pack.
-u64 func_00314190(u64 a, u64 b) {  // double_add
-    FPParts x, y;
-    func_003147a0(&a, &x);
-    func_003147a0(&b, &y);
-    return func_003146c8(func_003141e8(&x, &y));
-}
+u64 func_00314190(u64 a, u64 b);  // 0x00314190: definition moved into src/libgcc/_div_df.c
 
 void func_00320290(u8* p) {
     *(void**)p = D_0034ee08;

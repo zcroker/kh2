@@ -42,36 +42,10 @@ void* __cxa_begin_catch(void*);                       // __cxa_begin_catch
 __attribute__((noreturn)) void func_00315440(void); // std::terminate
 
 // 00315500: __cxa_throw
-void __cxa_throw(void* obj, void* tinfo, void (*dest)(void*))
-{
-    W2374CxaException* header = (W2374CxaException*)obj - 1;
-    header->exceptionType = tinfo;
-    header->exceptionDestructor = dest;
-    header->unexpectedHandler = D_003677ac;
-    header->terminateHandler = D_003677a8;
-    header->unwindHeader.exception_class = 0x474e5543432b2b00ULL; // "GNUCC++\0"
-    header->unwindHeader.exception_cleanup = func_003154a8;
-
-    W2374EhGlobals* globals = __cxa_get_globals();
-    globals->uncaughtExceptions += 1;
-
-    func_003189e0(&header->unwindHeader);
-    __cxa_begin_catch(&header->unwindHeader);
-    func_00315440();
-}
+void __cxa_throw(void* obj, void* tinfo, void (*dest)(void*));  // 0x00315500: definition moved into src/libsupc++/eh_throw.cpp
 
 // 00315578: __cxa_rethrow (no layout row of its own; follows __cxa_throw in its section).
 __attribute__((section(".text.func_00315500")))
-void func_00315578(void)
-{
-    W2374EhGlobals* globals = __cxa_get_globals();
-    W2374CxaException* header = globals->caughtExceptions;
-    if (header) {
-        header->handlerCount = -header->handlerCount;
-        func_003189e0(&header->unwindHeader);
-        __cxa_begin_catch(&header->unwindHeader);
-    }
-    func_00315440();
-}
+void func_00315578(void);  // 0x00315578: definition moved into src/libsupc++/eh_throw.cpp
 }
 

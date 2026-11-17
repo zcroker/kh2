@@ -742,22 +742,7 @@ static inline int isnan(fp_number_type* x) { return x->class_ == CLASS_SNAN || x
 static inline int isinf(fp_number_type* x) { return x->class_ == CLASS_INFINITY; }
 static inline int iszero(fp_number_type* x) { return x->class_ == CLASS_ZERO; }
 extern "C" int func_00314830(fp_number_type* a, fp_number_type* b);
-int func_00314830(fp_number_type* a, fp_number_type* b)
-{
-    if (isnan(a) || isnan(b)) return 1;
-    if (isinf(a) && isinf(b)) return b->sign - a->sign;
-    if (isinf(a)) return a->sign ? -1 : 1;
-    if (isinf(b)) return b->sign ? 1 : -1;
-    if (iszero(a) && iszero(b)) return 0;
-    if (iszero(a)) return b->sign ? 1 : -1;
-    if (iszero(b)) return a->sign ? -1 : 1;
-    if (a->sign != b->sign) return a->sign ? -1 : 1;
-    if (a->normal_exp > b->normal_exp) return a->sign ? -1 : 1;
-    if (a->normal_exp < b->normal_exp) return a->sign ? 1 : -1;
-    if (a->fraction.ll > b->fraction.ll) return a->sign ? -1 : 1;
-    if (a->fraction.ll < b->fraction.ll) return a->sign ? 1 : -1;
-    return 0;
-}
+int func_00314830(fp_number_type* a, fp_number_type* b);  // 0x00314830: definition moved into src/libgcc/_fpcmp_parts_df.c
 }
 
 // ---- 00318908: libgcc unwinder _Unwind_RaiseException_Phase2
@@ -771,24 +756,6 @@ extern "C" {
 s32 func_00317d80(Ctx*, FS*);
 void func_002fd160(void) __attribute__((noreturn));
 void func_003181a0(Ctx*, FS*);
-s32 func_00318908(Exc* exc, Ctx* ctx)
-{
-    s32 code;
-    while (1) {
-        FS fs;
-        s32 match;
-        code = func_00317d80(ctx, &fs);
-        match = (Identify(ctx) == exc->private_2 ? 4 : 0);
-        if (code != 0) return 2;
-        if (fs.personality) {
-            code = (*fs.personality)(1, 2 | match, exc->exception_class, exc, ctx);
-            if (code == 7) break;
-            if (code != 8) return 2;
-        }
-        if (match) func_002fd160();
-        func_003181a0(ctx, &fs);
-    }
-    return code;
-}
+s32 func_00318908(Exc* exc, Ctx* ctx);  // 0x00318908: definition moved into src/libgcc/unwind-dw2.c
 }
 }

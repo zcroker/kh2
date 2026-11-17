@@ -185,11 +185,7 @@ void trap_genie_change_form(u8** v) asm("_ZN2kn22trap_genie_change_formEP8BD_VAL
 extern u32 D_003677b8;
 void func_00315768(void*);
 void func_00106420(void*);
-void func_003158c8(void** p) {
-    *p = &D_003677b8;
-    func_00315768(p);
-    func_00106420(p);
-}
+void func_003158c8(void** p);  // 0x003158c8: definition moved into src/libsupc++/tinfo.cpp
 
 extern u32 D_00351228;
 void func_001d48b0(void*);

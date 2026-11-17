@@ -159,19 +159,7 @@ s32 func_00105c30(void);
 // Region code from the build/region id: 'SU', 'JP' or 'EU'.
 // 002ef988: moved to src/anon/unit_002ef938.cpp
 
-const u8* func_00316f70(const u8* p, s64* out) {
-    u32 shift = 0;
-    u8 byte;
-    u64 result = 0;
-    do {
-        byte = *p++;
-        result |= (byte & 0x7f) << shift;
-        shift += 7;
-    } while (byte & 0x80);
-    if (shift < 64 && (byte & 0x40)) result |= -(1LL << shift);
-    *out = result;
-    return p;
-}
+const u8* func_00316f70(const u8* p, s64* out);  // 0x00316f70: definition moved into src/libgcc/unwind-dw2.c
 
 struct VObj31d { void** vt; };
 struct Mgr31d { u8 pad[20]; VObj31d* o; };

@@ -246,19 +246,7 @@ s32 func_003060f0(void);  // ee_intr_disabled
 s32 func_00305510(void);
 void func_002fd408(void*);
 extern s32 D_01e4c7a0;
-void func_003168d8(void* p) {
-    s32 id = D_01e4c7a0;
-    if (p) {
-        u32* a = (u32*)func_00316e00();  // get_367918
-        s32* b = func_00316e10();  // get_data_369928
-        if (id < 9 && b[id]) {
-            s32 t = 0;
-            if (func_003060f0() != 1) t = func_00305510();  // ee_intr_disabled
-            a[t * 8 + id] = 0;
-        }
-    }
-    if (p) func_002fd408(p);
-}
+void func_003168d8(void* p);  // 0x003168d8: definition moved into src/libsupc++/eh_globals.cpp
 
 void func_00288c58(void*, s16);
 void func_00288f48(void*, s32, s32, s32, s32);

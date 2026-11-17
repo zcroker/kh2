@@ -16,22 +16,11 @@ __attribute__((noreturn)) void func_00315458(W2361Handler handler);
 __attribute__((noreturn)) void func_00315470(void);
 
 /* std::terminate: calls __terminate with the current handler. */
-void func_00315440(void) {
-    func_00315418(D_003677a8);
-}
+void func_00315440(void);  // 0x00315440: definition moved into src/libsupc++/eh_terminate.cpp
 
-void func_00315458(W2361Handler handler) {
-    handler();
-    func_00315440();
-}
+void func_00315458(W2361Handler handler);  // 0x00315458: definition moved into src/libsupc++/eh_terminate.cpp
 
-void func_00315470(void) {
-    func_00315458(D_003677ac);
-}
+void func_00315470(void);  // 0x00315470: definition moved into src/libsupc++/eh_terminate.cpp
 
-W2361Handler func_00315488(W2361Handler func) throw() {
-    W2361Handler old = D_003677a8;
-    D_003677a8 = func;
-    return old;
-}
+W2361Handler func_00315488(W2361Handler func) throw();  // 0x00315488: definition moved into src/libsupc++/eh_terminate.cpp
 }

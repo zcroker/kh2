@@ -12,32 +12,4 @@ struct UwExc { u64 exception_class; void* cleanup; u64 private_1; u64 private_2;
 typedef s32 (*StopFn)(s32, s32, u64, struct UwExc*, struct UwCtx*, void*);
 s32 func_00317d80(struct UwCtx*, struct UwFs*);
 void func_003181a0(struct UwCtx*, struct UwFs*);
-s32 func_00318ca0(struct UwExc* exc, struct UwCtx* context) {
-    StopFn stop = (StopFn)(s32)exc->private_1;
-    void* stop_argument = (void*)(s32)exc->private_2;
-    s32 code, stop_code;
-    while (1) {
-        struct UwFs fs;
-        s32 action;
-        code = func_00317d80(context, &fs);
-        if (code != 0 && code != 5)
-            return 2;
-        action = 10;
-        if (code == 5)
-            action |= 16;
-        stop_code = (*stop)(1, action, exc->exception_class, exc, context, stop_argument);
-        if (stop_code != 0)
-            return 2;
-        if (code == 5)
-            break;
-        if (fs.personality) {
-            code = (*fs.personality)(1, 10, exc->exception_class, exc, context);
-            if (code == 7)
-                break;
-            if (code != 8)
-                return 2;
-        }
-        func_003181a0(context, &fs);
-    }
-    return code;
-}
+s32 func_00318ca0(struct UwExc* exc, struct UwCtx* context);  // 0x00318ca0: definition moved into src/libgcc/unwind-dw2.c

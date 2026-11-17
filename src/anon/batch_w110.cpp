@@ -162,42 +162,7 @@ const u8* func_00316fc8(u8, u32, const u8*, u32*);
 static inline const u8* read_encoded_value(void* context, u8 encoding, const u8* p, u32* val) {
     return func_00316fc8(encoding, func_00316e88(encoding, context), p, val);
 }
-const u8* func_00317140(DwCie* cie, void* context, UwFrameState* fs) {
-    const u8* aug = cie->augmentation;
-    const u8* p = aug + strlen(aug) + 1;
-    const u8* ret = 0;
-    u64 utmp;
-
-    if (aug[0] == 'e' && aug[1] == 'h') {
-        fs->eh_ptr = ((const Unaligned*)p)->p;
-        p += sizeof(void*);
-        aug += 2;
-    }
-    p = func_00316f38(p, &fs->code_align);  // varint64_decode
-    p = func_00316f70(p, &fs->data_align);
-    fs->retaddr_column = *p++;
-    fs->lsda_encoding = 0xff;
-    if (*aug == 'z') {
-        p = func_00316f38(p, &utmp);  // varint64_decode
-        ret = p + utmp;
-        fs->saw_z = 1;
-        ++aug;
-    }
-    while (*aug != '\0') {
-        if (aug[0] == 'L') {
-            fs->lsda_encoding = *p++;
-            aug += 1;
-        } else if (aug[0] == 'R') {
-            fs->fde_encoding = *p++;
-            aug += 1;
-        } else if (aug[0] == 'P') {
-            p = read_encoded_value(context, *p, p + 1, (u32*)&fs->personality);
-            aug += 1;
-        } else
-            return ret;
-    }
-    return ret ? ret : p;
-}
+const u8* func_00317140(DwCie* cie, void* context, UwFrameState* fs);  // 0x00317140: definition moved into src/libgcc/unwind-dw2.c
 }
 
 struct ListCur {

@@ -340,44 +340,7 @@ extern fpn91 D_00378498;
 static inline int fisnan91(fpn91* x) { return x->cls == C_SNAN || x->cls == C_QNAN; }
 static inline int fisinf91(fpn91* x) { return x->cls == C_INF; }
 static inline int fiszero91(fpn91* x) { return x->cls == C_ZERO; }
-fpn91* func_003141e8(fpn91* a, fpn91* b) {
-    u64 bit, numerator, denominator, quotient;
-    if (fisnan91(a)) return a;
-    if (fisnan91(b)) return b;
-    a->sign = a->sign ^ b->sign;
-    if (fisinf91(a) || fiszero91(a)) {
-        if (a->cls == b->cls) return &D_00378498;
-        return a;
-    }
-    if (fisinf91(b)) {
-        a->frac = 0;
-        a->normal_exp = 0;
-        return a;
-    }
-    if (fiszero91(b)) {
-        a->cls = C_INF;
-        return a;
-    }
-    a->normal_exp = a->normal_exp - b->normal_exp;
-    numerator = a->frac;
-    denominator = b->frac;
-    if (numerator < denominator) {
-        numerator *= 2;
-        a->normal_exp--;
-    }
-    bit = 1ULL << 60;
-    quotient = 0;
-    while (bit) {
-        if (numerator >= denominator) {
-            quotient |= bit;
-            numerator -= denominator;
-        }
-        bit >>= 1;
-        numerator *= 2;
-    }
-    a->frac = quotient;
-    return a;
-}
+fpn91* func_003141e8(fpn91* a, fpn91* b);  // 0x003141e8: definition moved into src/libgcc/_div_df.c
 
 // --- 001422a0
 // Fetches a vertex position (w = 1), transforms it by the object's matrix and normalizes it.

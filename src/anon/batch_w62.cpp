@@ -270,19 +270,6 @@ struct UwFs { u8 pad[2840]; s64 cfa_offset; u64 cfa_reg; u8 pad2[4]; s32 cfa_how
 s32 func_00317d80(UwCtx*, UwFs*);
 void func_00317fc8(UwCtx*, UwFs*);
 // uw_init_context_1: unwind context for the caller's frame.
-void func_003181f8(UwCtx* ctx, void* outer_cfa, u32 outer_ra) {
-    UwFs fs;
-    u32 ra = (u32)__builtin_return_address(0) & ~1;
-    func_002fde18(ctx, 0, sizeof(UwCtx));
-    outer_ra &= ~1;
-    ctx->ra = ra;
-    if (func_00317d80(ctx, &fs)) func_002fd160();
-    ctx->cfa = outer_cfa;
-    fs.cfa_how = 1;
-    fs.cfa_reg = 0;
-    fs.cfa_offset = 0;
-    func_00317fc8(ctx, &fs);
-    ctx->ra = outer_ra;
-}
+void func_003181f8(UwCtx* ctx, void* outer_cfa, u32 outer_ra);  // 0x003181f8: definition moved into src/libgcc/unwind-dw2.c
 
 }

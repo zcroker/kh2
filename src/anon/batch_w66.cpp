@@ -115,32 +115,7 @@ union FU { f32 f; struct { u32 frac : 23; u32 exp : 8; u32 sign : 1; } b; };
 static inline int fpn_isnan(Fpn* x) { return x->cls < 2; }
 static inline int fpn_isinf(Fpn* x) { return x->cls == 4; }
 static inline int fpn_iszero(Fpn* x) { return x->cls == 2; }
-f32 func_00314930(Fpn* s) {  // dbl_cmp
-    FU dst;
-    u32 frac = s->frac;
-    s32 sign = s->sign;
-    s32 exp = 0;
-    if (fpn_isnan(s)) {
-        exp = 255;
-        frac = 0x7fffff;
-    } else if (fpn_isinf(s)) {
-        exp = 255;
-        frac = 0x7fffff;
-    } else if (fpn_iszero(s)) {
-        frac = 0;
-    } else if (frac == 0) {
-    } else if (s->exp < -126) {
-        frac = 0;
-    } else {
-        exp = s->exp + 127;
-        if (exp < 256) frac >>= 7;
-        else { exp = 255; frac = 0x7fffff; }
-    }
-    dst.b.frac = frac;
-    dst.b.exp = exp;
-    dst.b.sign = sign;
-    return dst.f;
-}
+f32 func_00314930(Fpn* s);  // 0x00314930: definition moved into src/libgcc/_pack_sf.c
 
 // ---- 0018bd50
 // Builds a descriptor for (a, b) and for the global object, then compares them.

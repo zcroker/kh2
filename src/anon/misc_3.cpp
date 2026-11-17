@@ -10,9 +10,9 @@ typedef s64 (*Func4)(s64, s64, s64, s64);
 
 s64 func_00305dd0(s64 param0, s64 param1, s64 param2, s64 param3);  // 0x00305dd0: definition moved into src/sdk/glue.c
 
-s32 func_00317120(void* self) { return (s32)(*(s32*)((char*)self + 716)); }
+s32 func_00317120(void* self);  // 0x00317120: definition moved into src/libgcc/unwind-dw2.c
 
-s32 func_003191e8(void* self) { return (s32)(*(s32*)((char*)self + 712)); }
+s32 func_003191e8(void* self);  // 0x003191e8: definition moved into src/libgcc/unwind-dw2.c
 
 void func_0031a060(void* self) {}
 

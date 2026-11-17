@@ -172,20 +172,9 @@ void func_00316d18(void*, u32);
 void func_00315440(void) __attribute__((noreturn));
 extern u8 D_003785f8;
 extern u8* D_00365c48;
-void func_003155c0(void) {
-    func_00316d18(&D_003785f8, *(u32*)(D_00365c48 + 12));
-    func_00315440();
-}
+void func_003155c0(void);  // 0x003155c0: definition moved into src/libsupc++/pure.cpp
 
-u32 func_003160e0(u32* a, u32* b, u32 c, u32* d) {
-    if (a[1] == b[1]) {
-        d[0] = c;
-        d[3] = 8;
-        d[1] = 6;
-        return 1;
-    }
-    return 0;
-}
+u32 func_003160e0(u32* a, u32* b, u32 c, u32* d);  // 0x003160e0: definition moved into src/libsupc++/tinfo.cpp
 
 }
 

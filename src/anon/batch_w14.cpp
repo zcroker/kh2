@@ -197,18 +197,7 @@ void func_002d4200(u8* p, void* a, void* b);  // 0x002d4200: definition moved in
 // 002e98b0: moved to src/sugi/flare.cpp
 
 // Reads a 7-bit varint; returns the pointer past it.
-u8* func_00314b00(u8* p, s64* out) {
-    s32 shift = 0;
-    s64 v = 0;
-    u32 b;
-    do {
-        b = *p++;
-        v |= (s32)((b & 0x7f) << shift);
-        shift += 7;
-    } while (b & ~0x7f);
-    *out = v;
-    return p;
-}
+u8* func_00314b00(u8* p, s64* out);  // 0x00314b00: definition moved into src/libsupc++/eh_personality.cpp
 
 void func_0031e008(u8* p) {
     *(u8**)p = D_0034b268;

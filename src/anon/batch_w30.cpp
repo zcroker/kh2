@@ -195,14 +195,7 @@ void func_003147a0(void*, FpNum*);
 f32 func_00314698(s32, u32, s32, u32);
 
 // Software double -> float (libgcc fp-bit __truncdfsf2).
-f32 __truncdfsf2(u64 a) {  // double_trunc
-    FpNum in;
-    u64 au = a;
-    func_003147a0(&au, &in);
-    u32 f = in.frac >> 30;
-    if (in.frac & 0x3fffffff) f |= 1;
-    return func_00314698(in.cls, in.sign, in.exp, f);
-}
+f32 __truncdfsf2(u64 a);  // 0x003144b0: definition moved into src/libgcc/_df_to_sf.c
 
 void func_0031ae18(void** p) {
     *p = D_00347f98;

@@ -12,12 +12,5 @@ __attribute__((noreturn)) void func_002fd160(void) throw();   // abort
 void* __cxa_begin_catch(void*) throw() asm("__cxa_begin_catch"); // the game's __cxa_begin_catch
 
 // libsupc++ eh_terminate.cc (gcc 3.2): __cxxabiv1::__terminate.
-void func_00315418(void (*handler)(void)) {
-    try {
-        handler();
-        func_002fd160();
-    } catch (...) {
-        func_002fd160();
-    }
-}
+void func_00315418(void (*handler)(void));  // 0x00315418: definition moved into src/libsupc++/eh_terminate.cpp
 }

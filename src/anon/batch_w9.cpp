@@ -169,11 +169,7 @@ void sceVu0InterVector(f32* d, f32* a, f32* b, f32 t) {  // vec4_lerp
 }
 
 struct Args314480 { u32 a, b, c; u64 d; };
-void func_00314480(u32 a, u32 b, u32 c, u64 d) {
-    Args314480 s;
-    s.a = a; s.b = b; s.c = c; s.d = d;
-    func_003146c8(&s);
-}
+void func_00314480(u32 a, u32 b, u32 c, u64 d);  // 0x00314480: definition moved into src/libgcc/_make_df.c
 
 void func_003197f8(u8* p) {
     void* o = *(void**)(p + 4);
