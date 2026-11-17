@@ -181,28 +181,7 @@ static inline void ScaleRow(f32* row, u32 k) {
 }
 
 // Builds the camera matrix from rotation/translation/scale channels.
-void func_00200c50(u8* base, u8*, u8* c) {
-    u32* offs = *(u32**)(c + 12);
-    u8* rot = base + offs[1] + 160;
-    u8* sc = base + offs[3] + 160;
-    f32* pos = (f32*)(base + offs[0] + 160);
-    u32* scale = (u32*)(base + offs[2] + 160);
-    M200 m;
-    func_001e8fe0(&D_01d9e6e8.p->mat, rot);
-    D_01d9e6e8.p->mat.m[3][0] = pos[0];
-    D_01d9e6e8.p->mat.m[3][1] = pos[1];
-    D_01d9e6e8.p->mat.m[3][2] = pos[2];
-    func_001e8fe0(&m, D_00354bd0);
-    m.m[3][0] = D_00354bc0[0];
-    m.m[3][1] = D_00354bc0[1];
-    m.m[3][2] = D_00354bc0[2];
-    sceVu0InversMatrix(&m, &m);  // convert_vectors_to_scalar
-    sceVu0MulMatrix(&D_01d9e6e8.p->mat, &D_01d9e6e8.p->mat, sc);
-    sceVu0MulMatrix(&D_01d9e6e8.p->mat, &m, &D_01d9e6e8.p->mat);
-    ScaleRow(D_01d9e6e8.p->mat.m[0], scale[0]);
-    ScaleRow(D_01d9e6e8.p->mat.m[1], scale[1]);
-    ScaleRow(D_01d9e6e8.p->mat.m[2], scale[2]);
-}
+void func_00200c50(u8* base, u8*, u8* c);  // 0x00200c50: definition moved into src/anon/unit_00200578.cpp
 
 void func_00229430(u8*, s32);  // to_1391c8_arg11
 u32 func_0022b9e0(void);

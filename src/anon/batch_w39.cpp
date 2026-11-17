@@ -236,12 +236,7 @@ extern u8* D_01d9e6e8;
 extern u8 D_01d9e730[];
 extern u8 D_01d9e8c0[];
 void sceVu0MulMatrix(u8*, u8*, u8*);
-void func_00200638(u8* a, u32 unused, u8* c) {
-    NoTail nt;
-    sceVu0MulMatrix(D_01d9e6e8 + 80, D_01d9e730, a + *(s32*)(*(u8**)(c + 12) + 4) + 160);
-    sceVu0MulMatrix(D_01d9e6e8 + 80, D_01d9e8c0, D_01d9e6e8 + 80);
-    sceVu0MulMatrix(D_01d9e6e8 + 80, D_01d9e6e8 + 80, D_01d9e6e8 + 16);
-}
+void func_00200638(u8* a, u32 unused, u8* c);  // 0x00200638: definition moved into src/anon/unit_00200578.cpp
 
 // --- 00222800
 // VU0: d.xy = ftoi4(s.xy), d.zw = ftoi0(s.zw); if s.xy falls outside

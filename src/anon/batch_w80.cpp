@@ -437,18 +437,7 @@ void func_001c39d0(void* self, U4_Mover* m);  // 0x001c39d0: definition moved in
 static inline void U5_w80_scale_row(f32* row, f32 s) {
     asm volatile("qmtc2 %1, $vf9\n\tlqc2 $vf10, 0(%0)\n\tvmulx.xyz $vf10, $vf10, $vf9x\n\tsqc2 $vf10, 0(%0)" : : "r"(row), "r"(s) : "memory");
 }
-void func_00200b78(u8* base, U5_PartRef* r) {
-    s32 v[3];
-    U5_Rot* o;
-    o = (U5_Rot*)(base + r->tbl->f12 + 160);
-    v[0] = (s32)(D_00354bd0[0] * 32768.0f / 3.1415927f);
-    v[1] = (s32)(D_00354bd0[1] * 32768.0f / 3.1415927f);
-    v[2] = (s32)(D_00354bd0[2] * 32768.0f / 3.1415927f);
-    func_001e8fe0(o, v);
-    o->f48 = D_00354bc0[0];
-    o->f52 = D_00354bc0[1];
-    o->f56 = D_00354bc0[2];
-}
+void func_00200b78(u8* base, U5_PartRef* r);  // 0x00200b78: definition moved into src/anon/unit_00200578.cpp
 
 static inline void U6_w80_scale_row(f32* row, f32 s) {
     asm volatile("qmtc2 %1, $vf9\n\tlqc2 $vf10, 0(%0)\n\tvmulx.xyz $vf10, $vf10, $vf9x\n\tsqc2 $vf10, 0(%0)" : : "r"(row), "r"(s) : "memory");

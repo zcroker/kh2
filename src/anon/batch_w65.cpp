@@ -293,19 +293,7 @@ s32 func_001e6c40(u8* p, u32 a, u32 b, u32 c, f32 f);  // 0x001e6c40: definition
 
 // Cubic interpolation between key pairs a[i..i+1] / b[i..i+1] at fractional t (VU0).
 extern Vq D_003590d0;
-void func_00201b30(Vq* o, Vq* a, Vq* b, f32 t) {
-    s32 i = (s32)t;
-    a += i;
-    b += i;
-    D_003590d0.z = t - (f32)i;
-    asm volatile(".set noreorder\n\t"
-        "lqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 16(%1)\n\tlqc2 $vf3, 0(%2)\n\tlqc2 $vf4, 16(%2)\n\tlqc2 $vf5, 0(%3)\n\t"
-        "vsub.xyzw $vf10, $vf4, $vf3\n\tvmuly.xyzw $vf11, $vf3, $vf5y\n\tvmulx.xyzw $vf12, $vf3, $vf5x\n\tvsub.xyzw $vf13, $vf2, $vf1\n\t"
-        "vmulz.xyzw $vf10, $vf10, $vf5z\n\tvadd.xyzw $vf11, $vf11, $vf4\n\tvadd.xyzw $vf10, $vf10, $vf12\n\tvsub.xyzw $vf13, $vf13, $vf11\n\t"
-        "vmulz.xyzw $vf10, $vf10, $vf5z\n\tvadd.xyzw $vf10, $vf10, $vf13\n\tvmulz.xyzw $vf10, $vf10, $vf5z\n\tvadd.xyzw $vf10, $vf10, $vf1\n\t"
-        "sqc2 $vf10, 0(%0)\n\t.set reorder"
-        : : "r"(o), "r"(a), "r"(b), "r"(&D_003590d0) : "memory");
-}
+void func_00201b30(Vq* o, Vq* a, Vq* b, f32 t);  // 0x00201b30: definition moved into src/anon/unit_00200578.cpp
 
 extern u8 D_00361e38[];
 extern u8 D_0035eb98[];

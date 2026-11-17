@@ -379,27 +379,7 @@ static inline void ScaleRow(void* row, f32 s) {
     asm volatile("qmtc2 %1, $vf9\n\tlqc2 $vf10, 0(%0)\n\tvmulx.xyz $vf10, $vf10, $vf9x\n\tsqc2 $vf10, 0(%0)" : : "r"(row), "r"(s) : "memory");
 }
 extern "C" {
-void func_002010b0(u8* o, u32 a1, u8* x) {
-    s32* off = *(s32**)(x + 12);
-    M22 m;
-    u8* mtx = o + off[3] + 160;
-    f32* scl = (f32*)(o + off[2] + 160);
-    f32* pos = (f32*)(o + off[0] + 160);
-    func_0021ec80(D_01d9e6e8.p + 16, o + off[1] + 160);
-    *(f32*)(D_01d9e6e8.p + 64) = pos[0];
-    *(f32*)(D_01d9e6e8.p + 68) = pos[1];
-    *(f32*)(D_01d9e6e8.p + 72) = pos[2];
-    func_0021ec80(&m, D_00354bd0);
-    m.t[0] = D_00354bc0[0];
-    m.t[1] = D_00354bc0[1];
-    m.t[2] = D_00354bc0[2];
-    sceVu0InversMatrix(&m, &m);  // convert_vectors_to_scalar
-    sceVu0MulMatrix(D_01d9e6e8.p + 16, D_01d9e6e8.p + 16, mtx);
-    sceVu0MulMatrix(D_01d9e6e8.p + 16, &m, D_01d9e6e8.p + 16);
-    ScaleRow(D_01d9e6e8.p + 16, scl[0]);
-    ScaleRow(D_01d9e6e8.p + 32, scl[1]);
-    ScaleRow(D_01d9e6e8.p + 48, scl[2]);
-}
+void func_002010b0(u8* o, u32 a1, u8* x);  // 0x002010b0: definition moved into src/anon/unit_00200578.cpp
 }
 
 }

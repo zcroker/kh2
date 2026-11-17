@@ -126,11 +126,7 @@ u32 func_001de168(u32** o, u32 id);  // 0x001de168: definition moved into src/an
 extern u8 D_00354bc0;
 extern u8 D_00354be0;
 u8 sceVu0CopyVector(void*, void*);  // memcpy16
-s32 func_002006b0(u8* a, u8* b) {
-    u8* s = a + *(s32*)(*(u8**)(b + 12) + 4);
-    sceVu0CopyVector(s + 160, &D_00354bc0);  // memcpy16
-    return sceVu0CopyVector(s + 176, &D_00354be0);  // memcpy16
-}
+s32 func_002006b0(u8* a, u8* b);  // 0x002006b0: definition moved into src/anon/unit_00200578.cpp
 
 // Clears a 256-entry u64 table; the original has a 3-nop pad in the loop (asm).
 extern u64 D_01dadc00[];

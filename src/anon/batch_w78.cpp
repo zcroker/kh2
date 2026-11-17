@@ -294,21 +294,7 @@ void sceVu0ScaleVector(u8*, u8*, f32);  // vec_scale_by_f12
 void sceVu0ApplyMatrix(u8*, W78Vec*, u8*);
 extern u8 D_01d9e730[];
 extern u8 D_01d9e8c0[];
-void func_00200700(u8* o, u32 a1, u8* a2) {
-    W78Vec m[4];
-    u8* p = o + (*(u32**)(a2 + 12))[1];
-    sceVu0UnitMatrix(m);  // vu_store_w_splat
-    f32* s = (f32*)(p + 160);
-    m[3].x = s[0];
-    m[3].y = s[1];
-    m[3].z = s[2];
-    sceVu0MulMatrix(m, D_01d9e730, m);
-    sceVu0ScaleVector(D_01d9e6e8 + 80, D_01d9e6e8 + 16, s[4]);  // vec_scale_by_f12
-    sceVu0ScaleVector(D_01d9e6e8 + 96, D_01d9e6e8 + 32, s[5]);  // vec_scale_by_f12
-    sceVu0ScaleVector(D_01d9e6e8 + 112, D_01d9e6e8 + 48, s[6]);  // vec_scale_by_f12
-    sceVu0ApplyMatrix(D_01d9e6e8 + 128, m, D_01d9e6e8 + 64);
-    sceVu0MulMatrix((W78Vec*)(D_01d9e6e8 + 80), D_01d9e8c0, (W78Vec*)(D_01d9e6e8 + 80));
-}
+void func_00200700(u8* o, u32 a1, u8* a2);  // 0x00200700: definition moved into src/anon/unit_00200578.cpp
 
 void func_00228240(void);
 u32 func_002282d8(void);  // limit_15000_or_25000

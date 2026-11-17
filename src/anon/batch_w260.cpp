@@ -55,24 +55,7 @@ extern W260Cam D_01d9e840;
 extern W260Q D_01d9e870, D_01d9e880, D_01d9e890, D_01d9e8a0, D_01d9e8b0;
 extern u8 D_01d9e8c0[], D_01d9e940[];
 
-void func_00200950(u8* p, u8* q)
-{
-    W260Q a, b, c;
-    u8* s = p + *(s32*)(*(u8**)(q + 12) + 4);
-    sceVu0CopyVector(s + 160, D_00354bc0);  // memcpy16
-    sceVu0CopyVector(s + 176, D_00354be0);  // memcpy16
-    b.x = D_01d9e840.x; b.w = 0; b.y = D_01d9e840.y; b.z = D_01d9e840.z;
-    sceVu0Normalize(&b, &b);  // vec4_normalize
-    D_01d9e890 = b;
-    a.x = b.y; a.y = -b.x; a.z = 0; a.w = 0;
-    sceVu0Normalize(&a, &a);  // vec4_normalize
-    D_01d9e880 = a;
-    sceVu0OuterProduct(&c, &a, &b);  // vec3_cross
-    sceVu0Normalize(&c, &c);  // vec4_normalize
-    D_01d9e8a0 = c;
-    D_01d9e8b0 = D_01d9e870;
-    w260_mtx(D_01d9e940, D_01d9e8c0, &D_01d9e880);
-}
+void func_00200950(u8* p, u8* q);  // 0x00200950: definition moved into src/anon/unit_00200578.cpp
 
 f32 cosf(f32);
 W260V func_0016af58(int);

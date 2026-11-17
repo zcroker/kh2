@@ -203,17 +203,7 @@ extern f32 D_00354bc0[3];
 void func_0021ebe8(void*, s32*);
 
 // Radians -> 16-bit angle units (32768 per pi).
-void func_00201208(u8* p, u8* c) {
-    u8* s = p + *(s32*)(*(u8**)(c + 12) + 12) + 160;
-    s32 a[3];
-    a[0] = (s32)(D_00354bd0[0] * 32768.0f / 3.1415927f);
-    a[1] = (s32)(D_00354bd0[1] * 32768.0f / 3.1415927f);
-    a[2] = (s32)(D_00354bd0[2] * 32768.0f / 3.1415927f);
-    func_0021ebe8(s, a);
-    *(f32*)(s + 48) = D_00354bc0[0];
-    *(f32*)(s + 52) = D_00354bc0[1];
-    *(f32*)(s + 56) = D_00354bc0[2];
-}
+void func_00201208(u8* p, u8* c);  // 0x00201208: definition moved into src/anon/unit_00200578.cpp
 
 s32 func_002282f0(s32);
 u8* func_00227d10(s32);

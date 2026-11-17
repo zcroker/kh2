@@ -299,23 +299,7 @@ void sceVu0UnitMatrix(M4*);  // vu_store_w_splat
 void sceVu0MulMatrix(void*, void*, void*);
 void sceVu0ScaleVector(f32*, f32*, f32);  // vec_scale_by_f12
 void sceVu0MulVector(f32*, f32*, f32*);
-void func_00200830(u8* base, u32, XfCtx* c) {
-    XfRec* r = (XfRec*)(base + c->offs[1] + 160);
-    M4 m;
-    sceVu0UnitMatrix(&m);  // vu_store_w_splat
-    m.r[3].x = r->x;
-    m.r[3].y = r->y;
-    m.r[3].z = r->z;
-    sceVu0MulMatrix(&m, &D_01d9e730, &m);
-    sceVu0ScaleVector(D_01d9e6e8.p->m0, D_01d9e6e8.p->r0, r->rx);  // vec_scale_by_f12
-    sceVu0ScaleVector(D_01d9e6e8.p->m1, D_01d9e6e8.p->r1, r->ry);  // vec_scale_by_f12
-    sceVu0ScaleVector(D_01d9e6e8.p->m2, D_01d9e6e8.p->r2, r->rz);  // vec_scale_by_f12
-    sceVu0MulVector(D_01d9e6e8.p->m3, D_01d9e6e8.p->r3, &r->rx);
-    D_01d9e6e8.p->m3[0] += m.r[3].x;
-    D_01d9e6e8.p->m3[1] += m.r[3].y;
-    D_01d9e6e8.p->m3[2] += m.r[3].z;
-    sceVu0MulMatrix(D_01d9e6e8.p->m0, &D_01d9e8c0, D_01d9e6e8.p->m0);
-}
+void func_00200830(u8* base, u32, XfCtx* c);  // 0x00200830: definition moved into src/anon/unit_00200578.cpp
 
 extern u32 D_01d9ea9c;
 extern u32 D_01d9eab4;

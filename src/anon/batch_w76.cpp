@@ -257,29 +257,7 @@ void sceVu0CopyVector(u8*, void*);  // memcpy16
 void func_001fb8b8(u8*, s32, s32);
 void func_001fb9a8(u8* base, u8* in, u8* desc);  // 0x001fb9a8: definition moved into src/anon/unit_001fb350.cpp
 
-void func_00201ca0(u8* p, s32* x, s32* w, s32* y, s32* h)
-{
-    s32 ox = 0;
-    s32 wv = 4096;
-    s32 hv = 4096;
-    switch (p[22]) {
-    case 1: wv = 2048; break;
-    case 2: wv = 1024; break;
-    }
-    switch (p[23]) {
-    case 1: hv = 2048; break;
-    case 2: hv = 1024; break;
-    }
-    switch (p[24]) {
-    case 1: ox = 1024; wv += 1024; break;
-    case 2: ox = 2048; wv += 2048; break;
-    case 3: ox = 3072; wv += 3072; break;
-    }
-    *x = ox + 16;
-    *w = wv - 16;
-    *y = 16;
-    *h = hv - 16;
-}
+void func_00201ca0(u8* p, s32* x, s32* w, s32* y, s32* h);  // 0x00201ca0: definition moved into src/anon/unit_00201bb0.cpp
 s32 func_00287bc0(void);
 void func_00287d68(void);  // copy_globals_3words
 s32 func_00287db0(void);

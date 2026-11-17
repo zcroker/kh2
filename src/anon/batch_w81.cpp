@@ -353,17 +353,7 @@ struct V3_81 { f32 x, y, z; };
 extern V3_81 D_00354bd0;
 extern V3_81 D_00354bc0;
 void func_0021eb50(u8*, s32*);
-void func_00200da8(u8* o, Tbl200* t) {
-    s32 v[3];
-    u8* p = o + t->offs[3] + 160;
-    v[0] = (s32)(D_00354bd0.x * 32768.0f / 3.1415927f);
-    v[1] = (s32)(D_00354bd0.y * 32768.0f / 3.1415927f);
-    v[2] = (s32)(D_00354bd0.z * 32768.0f / 3.1415927f);
-    func_0021eb50(p, v);
-    *(f32*)(p + 48) = D_00354bc0.x;
-    *(f32*)(p + 52) = D_00354bc0.y;
-    *(f32*)(p + 56) = D_00354bc0.z;
-}
+void func_00200da8(u8* o, Tbl200* t);  // 0x00200da8: definition moved into src/anon/unit_00200578.cpp
 
 // --- 002be190
 u8* func_00168b38(u32, s32, u32);  // entry_array_find_nth

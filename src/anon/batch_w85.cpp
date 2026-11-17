@@ -147,21 +147,7 @@ extern V3f D_00354bd0;
 extern V3f D_00354bc0;
 void func_0021ebe8(void*, s32*);
 // converts the current rotation (radians) to fixed-point angles and applies it
-void func_00201668(u8* o, u8* a1) {
-    s32 r[3];
-    u8* t;
-    f32 x = D_00354bd0.x * 32768.0f / 3.1415927f;
-    f32 y = D_00354bd0.y * 32768.0f / 3.1415927f;
-    f32 z = D_00354bd0.z * 32768.0f / 3.1415927f;
-    t = o + *(s32*)(*(u8**)(a1 + 12) + 12) + 160;
-    r[0] = (s32)x;
-    r[2] = (s32)z;
-    r[1] = (s32)y;
-    func_0021ebe8(t, r);
-    *(f32*)(t + 48) = D_00354bc0.x;
-    *(f32*)(t + 52) = D_00354bc0.y;
-    *(f32*)(t + 56) = D_00354bc0.z;
-}
+void func_00201668(u8* o, u8* a1);  // 0x00201668: definition moved into src/anon/unit_00200578.cpp
 
 char* func_00227120(void);  // get_data_1dbd8f8
 s32 strncmp(const char*, const char*, s32);

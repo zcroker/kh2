@@ -12,18 +12,7 @@ static inline void ScaleRow(void* row, f32 s) {
     asm volatile("qmtc2 %1, $vf9\n\tlqc2 $vf10, 0(%0)\n\tvmulx.xyz $vf10, $vf10, $vf9x\n\tsqc2 $vf10, 0(%0)" : : "r"(row), "r"(s) : "memory");
 }
 extern "C" {
-void func_00201898(u8* o, u32 a1, u8* x) {
-    s32* off = *(s32**)(x + 12);
-    f32* pos = (f32*)(o + off[0] + 160);
-    f32* scl = (f32*)(o + off[2] + 160);
-    sceVu0InversMatrix(D_01d9e6e8.p + 16, &D_01d9e730);  // convert_vectors_to_scalar
-    ScaleRow(D_01d9e6e8.p + 16, scl[0]);
-    ScaleRow(D_01d9e6e8.p + 32, scl[1]);
-    ScaleRow(D_01d9e6e8.p + 48, scl[2]);
-    *(f32*)(D_01d9e6e8.p + 64) = pos[0];
-    *(f32*)(D_01d9e6e8.p + 68) = pos[1];
-    *(f32*)(D_01d9e6e8.p + 72) = pos[2];
-}
+void func_00201898(u8* o, u32 a1, u8* x);  // 0x00201898: definition moved into src/anon/unit_00200578.cpp
 }
 }
 

@@ -225,19 +225,7 @@ void func_0021ec80(u8*, s32*);
 void func_001fcb90(u8* a0, u32, u8* a2);  // 0x001fcb90: definition moved into src/anon/unit_001fcaf8.cpp
 
 // Converts the global euler angles (radians) to 16-bit fixed angles and applies them.
-void func_00200fd8(u8* a0, u8* a1)
-{
-    s32 v[4];
-    u8* p;
-    p = a0 + *(u32*)(*(u8**)(a1 + 12) + 12) + 160;
-    v[0] = (s32)(D_00354bd0[0] * 32768.0f / 3.14159274f);
-    v[1] = (s32)(D_00354bd0[1] * 32768.0f / 3.14159274f);
-    v[2] = (s32)(D_00354bd0[2] * 32768.0f / 3.14159274f);
-    func_0021ec80(p, v);
-    *(f32*)(p + 48) = D_00354bc0[0];
-    *(f32*)(p + 52) = D_00354bc0[1];
-    *(f32*)(p + 56) = D_00354bc0[2];
-}
+void func_00200fd8(u8* a0, u8* a1);  // 0x00200fd8: definition moved into src/anon/unit_00200578.cpp
 
 }
 

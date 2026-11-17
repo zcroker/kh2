@@ -342,23 +342,7 @@ extern "C" {
 extern u8* D_01d9e6e8;
 extern u8 D_01d9e6f0;
 void sceVu0ApplyMatrix(f32*, void*, f32*);
-void func_00201bb0(u8* p, f32* v1, f32* v2)
-{
-    f32 t[4];
-    f32 a = *(f32*)(p + 16);
-    f32 k = 0.5f;
-    t[0] = 0;
-    t[1] = a * k;
-    t[2] = 0;
-    t[3] = 1.0f;
-    sceVu0ApplyMatrix(v1, D_01d9e6e8 + 16, t);
-    t[1] = -a * k;
-    sceVu0ApplyMatrix(v2, D_01d9e6e8 + 16, t);
-    if (p[21]) {
-        sceVu0ApplyMatrix(v1, &D_01d9e6f0, v1);
-        sceVu0ApplyMatrix(v2, &D_01d9e6f0, v2);
-    }
-}
+void func_00201bb0(u8* p, f32* v1, f32* v2);  // 0x00201bb0: definition moved into src/anon/unit_00201bb0.cpp
 }
 }
 

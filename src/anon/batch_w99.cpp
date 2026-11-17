@@ -350,29 +350,7 @@ static inline void ScaleRow200e(f32* row, f32 s)
         : : "r"(row), "r"(s) : "memory");
 }
 
-void func_00200e80(u8* p, u32, u8* a2)
-{
-    u32* offs = *(u32**)(a2 + 12);
-    f32* pos = (f32*)(p + offs[0] + 160);
-    u8* rot = p + offs[1] + 160;
-    u8* m = p + offs[3] + 160;
-    f32* scl = (f32*)(p + offs[2] + 160);
-    M200e t;
-    func_0021eb50(&D_01d9e6e8.p->mtx, rot);
-    D_01d9e6e8.p->mtx.m[12] = pos[0];
-    D_01d9e6e8.p->mtx.m[13] = pos[1];
-    D_01d9e6e8.p->mtx.m[14] = pos[2];
-    func_0021eb50(&t, &D_00354bd0);
-    t.m[12] = D_00354bc0[0];
-    t.m[13] = D_00354bc0[1];
-    t.m[14] = D_00354bc0[2];
-    sceVu0InversMatrix(&t, &t);  // convert_vectors_to_scalar
-    sceVu0MulMatrix(&D_01d9e6e8.p->mtx, &D_01d9e6e8.p->mtx, m);
-    sceVu0MulMatrix(&D_01d9e6e8.p->mtx, &t, &D_01d9e6e8.p->mtx);
-    ScaleRow200e(&D_01d9e6e8.p->mtx.m[0], scl[0]);
-    ScaleRow200e(&D_01d9e6e8.p->mtx.m[4], scl[1]);
-    ScaleRow200e(&D_01d9e6e8.p->mtx.m[8], scl[2]);
-}
+void func_00200e80(u8* p, u32, u8* a2);  // 0x00200e80: definition moved into src/anon/unit_00200578.cpp
 }
 
 // ---- 00222170

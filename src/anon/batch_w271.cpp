@@ -57,8 +57,8 @@ static inline void ScaleRow_w271(void* row, f32 s) {
     ScaleRow_w271(D_01d9e6e8.p + 32, scl[1]); \
     ScaleRow_w271(D_01d9e6e8.p + 48, scl[2]);
 extern "C" {
-void func_002012e0(u8* o, u32 a1, u8* x) { BODY_W271(func_0021ebe8) }
-void func_00201740(u8* o, u32 a1, u8* x) { BODY_W271(func_0021edb0) }
+void func_002012e0(u8* o, u32 a1, u8* x);  // 0x002012e0: definition moved into src/anon/unit_00200578.cpp
+void func_00201740(u8* o, u32 a1, u8* x);  // 0x00201740: definition moved into src/anon/unit_00200578.cpp
 }
 struct E_w271 { u8 a[8]; u8 b[8]; s8 c; u8 pad; u16 h; u8 rest[16]; };
 extern "C" {

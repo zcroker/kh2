@@ -219,17 +219,7 @@ struct V3 { f32 x, y, z; };
 extern V3 D_00354bd0;
 extern V3 D_00354bc0;
 void func_0021ebe8(void*, s32*);
-void func_00201438(u8* a, u8* c) {
-    s32 r[3];
-    u8* s = a + *(u32*)(*(u8**)(c + 12) + 12) + 160;
-    r[0] = (s32)(D_00354bd0.x * 32768.0f / 3.1415927f);
-    r[1] = (s32)(D_00354bd0.y * 32768.0f / 3.1415927f);
-    r[2] = (s32)(D_00354bd0.z * 32768.0f / 3.1415927f);
-    func_0021ebe8(s, r);
-    *(f32*)(s + 48) = D_00354bc0.x;
-    *(f32*)(s + 52) = D_00354bc0.y;
-    *(f32*)(s + 56) = D_00354bc0.z;
-}
+void func_00201438(u8* a, u8* c);  // 0x00201438: definition moved into src/anon/unit_00200578.cpp
 
 extern u8* D_01d9e6e8;
 extern u8 D_01d9e730[];
@@ -479,23 +469,7 @@ typedef unsigned int u128 __attribute__((mode(TI)));
 union PQ { u8* p; u128 q; };
 extern PQ D_01d9e6e8u asm("D_01d9e6e8");
 extern u8 D_01d9e940[];
-void func_00200a78(u8* a, u32, u8* c) {
-    f32 m[16] __attribute__((aligned(16)));
-    u8* s = a + *(u32*)(*(u8**)(c + 12) + 4);
-    sceVu0UnitMatrix(m);  // vu_store_w_splat
-    f32* v = (f32*)(s + 160);
-    m[12] = v[0];
-    m[13] = v[1];
-    m[14] = v[2];
-    sceVu0MulMatrix(m, D_01d9e730, m);
-    sceVu0MulMatrix(m, D_01d9e8c0, m);
-    sceVu0ScaleVector(D_01d9e6e8u.p + 80, D_01d9e6e8u.p + 16, v[4]);  // vec_scale_by_f12
-    sceVu0ScaleVector(D_01d9e6e8u.p + 96, D_01d9e6e8u.p + 32, v[5]);  // vec_scale_by_f12
-    sceVu0ScaleVector(D_01d9e6e8u.p + 112, D_01d9e6e8u.p + 48, v[6]);  // vec_scale_by_f12
-    *(u128*)(D_01d9e6e8u.p + 128) = *(u128*)(D_01d9e6e8u.p + 64);
-    sceVu0MulMatrix(D_01d9e6e8u.p + 80, D_01d9e940, D_01d9e6e8u.p + 80);
-    sceVu0ApplyMatrix(D_01d9e6e8u.p + 128, m, D_01d9e6e8u.p + 64);
-}
+void func_00200a78(u8* a, u32, u8* c);  // 0x00200a78: definition moved into src/anon/unit_00200578.cpp
 
 // Linear interpolation over a table of 96-byte keys (40 steps).
 struct K96 { f32 x; u8 _4[16]; f32 v; u8 _24[72]; };

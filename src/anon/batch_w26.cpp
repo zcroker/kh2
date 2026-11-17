@@ -198,11 +198,7 @@ struct DList { u8 pad[12]; DEnt* head; };
 // Returns the value of the entry (optionally of a type) following `prev`.
 void* func_001de4b0(DList* l, s32 type, void* prev);  // 0x001de4b0: definition moved into src/anon/unit_001ddcf0.cpp
 
-u8 func_002007e0(u8* p, u8* q) {
-    u8* b = p + *(s32*)(*(u8**)(q + 12) + 4);
-    sceVu0CopyVector(b + 160, D_00354bc0);  // memcpy16
-    return sceVu0CopyVector(b + 176, D_00354be0);  // memcpy16
-}
+u8 func_002007e0(u8* p, u8* q);  // 0x002007e0: definition moved into src/anon/unit_00200578.cpp
 
 void func_002349e8(void);  // 0x002349e8: definition moved into src/anon/unit_002335e8.cpp
 
