@@ -11887,15 +11887,9 @@ void func_00305068(s32* a0, u32 a1) {
     }
 }
 
-void func_0030e508(u32 a0, u32 a1, u32 a2) {
-    u8 pad[16];
-    func_0030df38(a0, a1, a2, pad);
-}
+void func_0030e508(u32 a0, u32 a1, u32 a2);  // 0x0030e508: definition moved into src/sdk/eeloadfile.c
 
-void func_0030e770(u32 a0, u32 a1, u32 a2) {
-    u8 pad[16];
-    func_0030e548(a0, a1, a2, pad, 0);
-}
+void func_0030e770(u32 a0, u32 a1, u32 a2);  // 0x0030e770: definition moved into src/sdk/eeloadfile.c
 
 extern "C" u32 func_00305a50(...);
 u32 func_00311028(u32 a0) {
@@ -11933,11 +11927,7 @@ void func_003111f0(u32 a0) {
     func_00305a50(16, args);
 }
 
-u64 __umoddi3(u32 a0, u32 a1) {
-    u64 out;
-    func_003134b8(a0, a1, &out);
-    return out;
-}
+u64 __umoddi3(u32 a0, u32 a1);  // 0x00313498: definition moved into src/libgcc/_umoddi3.c
 
 void func_00313b80(f32 a0) {  // float_to_double
     u32 tmp[4];

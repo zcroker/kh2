@@ -14,7 +14,7 @@ extern void func_00306f30(int);
 int func_00307f68(int a, int b, int c) { if (c) func_00306f30(c); return 1; }
 
 extern int func_00305a30(int);
-int func_0030ec28(void) { int r = func_00305a30(4); if (r & 0x10000) return 1; return 0; }
+int func_0030ec28(void);  // 0x0030ec28: definition moved into src/sdk/iopreset.c
 
 extern void func_0030f3a8(int);
 extern void func_00305240(int);

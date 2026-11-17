@@ -675,20 +675,9 @@ u32 func_0030cf40(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0030cf40: definition mo
 
 u32 func_0030da10(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0030da10: definition moved into src/sdk/iopheap.c
 
-u32 func_0030e528(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2;
-    u32 (*fp_call4_0030df38)(u32, u32, u32, u32) = func_0030df38;
-    r2 = fp_call4_0030df38(r4, r5, r6, r7);
-    return r2;
-}
+u32 func_0030e528(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0030e528: definition moved into src/sdk/eeloadfile.c
 
-u32 func_0030e8b8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2;
-    r7 = (u32)((s32)0u + (1));
-    u32 (*fp_call4_0030e7b0)(u32, u32, u32, u32) = func_0030e7b0;
-    r2 = fp_call4_0030e7b0(r4, r5, r6, r7);
-    return r2;
-}
+u32 func_0030e8b8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0030e8b8: definition moved into src/sdk/eeloadfile.c
 
 u32 func_00315628(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2, r15;

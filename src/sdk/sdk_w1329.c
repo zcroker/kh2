@@ -68,26 +68,7 @@ int func_00309d60(void *cd, int fno, int mode, void *send, int ssize, void *recv
 
 extern unsigned int D_01e38c40_u[] asm("D_01e38c40");
 extern char D_01e38e40[];
-int func_0030e900(unsigned int addr, void *data, unsigned int size)
-{
-    if (func_0030dd70() < 0)
-        return 0xffff0000;
-    if (size >= 3)
-        return 0xfffefffe;
-    D_01e38c40_u[0] = addr;
-    D_01e38c40_u[1] = size;
-    if (sceSifCallRpc(D_01e38e40, 3, 0, D_01e38c40_u, 32, D_01e38c40_u, 32, 0, 0) < 0)
-        return 0xfffeffff;
-    if (size == 0) {
-        *(unsigned char *)data = D_01e38c40_u[0];
-    } else if (size == 1) {
-        *(unsigned short *)data = D_01e38c40_u[0];
-    } else if (size == 2) {
-        *(unsigned int *)data = D_01e38c40_u[0];
-    } else
-        return 0xfffefffe;
-    return 0;
-}
+int func_0030e900(unsigned int addr, void *data, unsigned int size);  // 0x0030e900: definition moved into src/sdk/eeloadfile.c
 
 extern int func_00309c58(void);
 extern int func_0030a2d0(int);
@@ -221,25 +202,7 @@ extern int D_00366180;
 extern struct CD D_01e38e40_cd asm("D_01e38e40");
 extern struct B4 D_01e38c40_b4 asm("D_01e38c40");
 extern struct B4 D_01e38e68;
-int func_0030dd70(void)
-{
-    int i;
-    if (D_00366180 < 0) {
-    retry:
-        if (sceSifBindRpc(&D_01e38e40_cd, 0x80000006, 0) < 0)
-            return -1;
-        if (D_01e38e40_cd.serve != 0) {
-            D_00366180 = 0;
-            if (sceSifCallRpc(&D_01e38e40_cd, 255, 0, 0, 0, &D_01e38c40_b4, 4, 0, 0) < 0)
-                return 0xfffeffff;
-            D_01e38e68 = D_01e38c40_b4;
-            return 0;
-        }
-        i = 0x100000; do { i--; __asm__ volatile("nop"); __asm__ volatile("nop"); __asm__ volatile("nop"); __asm__ volatile("nop"); } while (i != -1);
-        goto retry;
-    }
-    return 0;
-}
+int func_0030dd70(void);  // 0x0030dd70: definition moved into src/sdk/eeloadfile.c
 
 extern int func_0030de70(void);
 extern char *strncpy(char *d, const char *s, int n);
@@ -247,21 +210,4 @@ struct FB { int r0; int r1; char a[252]; char b[252]; };
 extern struct FB D_01e38c40_fb asm("D_01e38c40");
 extern char D_01e38e40[];
 int u_call4_0030e7b0(const char *s1, const char *s2, int *out, int fno) asm("_Z16u_call4_0030e7b0jjjj");
-int u_call4_0030e7b0(const char *s1, const char *s2, int *out, int fno)
-{
-    if (func_0030dd70() < 0)
-        return 0xffff0000;
-    if (func_0030de70())
-        return 0xfffefffc;
-    strncpy(D_01e38c40_fb.a, s1, 252);
-    D_01e38c40_fb.a[251] = 0;
-    strncpy(D_01e38c40_fb.b, s2, 252);
-    D_01e38c40_fb.b[251] = 0;
-    if (sceSifCallRpc(D_01e38e40, fno, 0, &D_01e38c40_fb, 512, &D_01e38c40_fb, 16, 0, 0) < 0)
-        return 0xfffeffff;
-    if (D_01e38c40_fb.r0 == 0)
-        return 0xfffefffd;
-    out[0] = D_01e38c40_fb.r0;
-    out[1] = D_01e38c40_fb.r1;
-    return 0;
-}
+int u_call4_0030e7b0(const char *s1, const char *s2, int *out, int fno);  // 0x0030e7b0: definition moved into src/sdk/eeloadfile.c

@@ -19,26 +19,7 @@ extern void func_003080d0(const char *, ...);
 extern void func_00308b30(int);
 extern void func_00308cd0(void);
 extern int func_0030ead0(char *, int);
-int func_0030eca0(char *img)
-{
-    char param[80];
-    char *s = "rom0:UDNL ";
-    char *d;
-    char *p;
-    p = img;
-    while (*p) p++;
-    if ((unsigned int)(p + 11 - img) > 80) {
-        func_003080d0("too long parameter '%s'\n", img);
-        return 0;
-    }
-    func_00308b30(0);
-    func_00308cd0();
-    d = param;
-    while (*s) *d++ = *s++;
-    while (*img) *d++ = *img++;
-    *d = 0;
-    return func_0030ead0(param, 0);
-}
+int func_0030eca0(char *img);  // 0x0030eca0: definition moved into src/sdk/iopreset.c
 
 typedef struct { int a[9]; void *server; int b[22]; } CD;
 typedef struct { int a; int b; int c; int size; int d; int e; void *buf; void *rdata; int pad[4]; } Send;

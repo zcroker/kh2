@@ -2,12 +2,7 @@
 extern int D_00366180;
 extern char D_01e38e68[];
 extern int func_002fde18(void *, int, int);
-int func_0030df00(void)
-{
-    D_00366180 = -1;
-    func_002fde18(D_01e38e68, 0, 4);
-    return 0;
-}
+int func_0030df00(void);  // 0x0030df00: definition moved into src/sdk/eeloadfile.c
 
 typedef struct Lnk { struct Lnk *next; struct Lnk *prev; } Lnk;
 extern Lnk *D_00367130;

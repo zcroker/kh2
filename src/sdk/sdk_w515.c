@@ -73,14 +73,7 @@ void sceVu0RotMatrix(void *a, void *b, float *v)
 extern int func_00305a30(int);
 extern int func_00305aa0(void);
 extern int func_00310f38(int, int);
-int func_0030ec50(void)
-{
-    if (!(func_00305a30(4) & 0x40000)) return 0;
-    func_00305aa0();
-    func_00310f38(1, 1);
-    func_00310f38(0, 1);
-    return 1;
-}
+int func_0030ec50(void);  // 0x0030ec50: definition moved into src/sdk/iopreset.c
 
 struct S7118 { int a, b, c, d, e; };
 extern struct S7118 D_00367118;

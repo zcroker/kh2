@@ -1,21 +1,25 @@
-/* libgcc2.c (gcc 3.2-ee-040921) __udivmoddi4 (copied from batch_w1626_nce.c), byte-identical to the toolchain's own libgcc.a.
- * libgcc builds its divide/modulo helpers (LIB2_DIVMOD_FUNCS) with -fnon-call-exceptions,
- * which this file gets from the *_nce.c rule in the Makefile.
- * The table at 0x3784b0 is libgcc's __clz_tab. */
-#include "../common/types.h"
+/* Third-party code notice: this file contains functions rebuilt to match the GNU Compiler
+ * Collection's runtime libraries (libgcc / libsupc++, GCC 3.2) that the game links.
+ * Copyright (C) Free Software Foundation, Inc. That code is licensed under the GNU General
+ * Public License, version 2 or later, with the GCC runtime library exception. It is not
+ * covered by this project's MIT License. */
+/* libgcc2.c (gcc 3.2-ee-040921) types and the __udivmoddi4 body (longlong.h macros), shared by the
+ * linked units _divdi3.c, _moddi3.c, _udivdi3.c and _umoddi3.c. Each of those objects has its own
+ * out-of-line copy of __udivmoddi4 after its public function. __clz_tab (0x3784b0) lives in _clz.o. */
+#ifndef LIBGCC_UDIVMODDI4_H
+#define LIBGCC_UDIVMODDI4_H
+typedef int SItype;
+typedef unsigned int USItype;
+typedef long long DItype;
+typedef unsigned long long UDItype;
 
-typedef int W1627SItype;
-typedef unsigned int W1627USItype;
-typedef long long W1627DItype;
-typedef unsigned long long W1627UDItype;
+struct DWstruct { SItype low, high; };
+typedef union { struct DWstruct s; DItype ll; } DWunion;
 
-struct W1627DWstruct { W1627SItype low, high; };
-typedef union { struct W1627DWstruct s; W1627DItype ll; } W1627DWunion;
-
-#define UWtype W1627USItype
-#define UHWtype W1627USItype
-#define UDWtype W1627UDItype
-#define DWunion W1627DWunion
+#define UWtype USItype
+#define UHWtype USItype
+#define UDWtype UDItype
+#define DWunion DWunion
 #define W_TYPE_SIZE 32
 #define __BITS4 (W_TYPE_SIZE / 4)
 #define __ll_B ((UWtype) 1 << (W_TYPE_SIZE / 2))
@@ -104,7 +108,7 @@ typedef union { struct W1627DWstruct s; W1627DItype ll; } W1627DWunion;
   } while (0)
 
 
-extern const u8 D_003784b0[];
+extern const unsigned char D_003784b0[]; /* __clz_tab */
 
 #define UDIVMODDI4_BODY \
   DWunion ww;								\
@@ -225,14 +229,4 @@ extern const u8 D_003784b0[];
   ww.s.high = q1;							\
   return ww.ll;
 
-/* libgcc2.c __udivmoddi4: static copies in _udivdi3.o (0x312dd0, called by __udivdi3 at 0x312db8)
- * and _umoddi3.o (0x3134b8, called by __umoddi3 at 0x313498). */
-UDWtype func_00312dd0(UDWtype n, UDWtype d, UDWtype* rp)
-{
-    UDIVMODDI4_BODY
-}
-
-UDWtype func_003134b8(UDWtype n, UDWtype d, UDWtype* rp)
-{
-    UDIVMODDI4_BODY
-}
+#endif

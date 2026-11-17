@@ -107,18 +107,7 @@ extern I1328 D_01e38c40;
 extern char D_01e38e40[];
 extern int func_0030dd70(void);
 extern int sceSifCallRpc(void *, int, int, void *, int, void *, int, void *, void *);
-int func_0030e9f0(int a, void *val, int type)
-{
-    if (func_0030dd70() < 0) return 0xffff0000;
-    D_01e38c40.a = a;
-    D_01e38c40.type = type;
-    if (type == 0) D_01e38c40.v.b = *(unsigned char *)val;
-    else if (type == 1) D_01e38c40.v.h = *(unsigned short *)val;
-    else if (type == 2) D_01e38c40.v.w = *(int *)val;
-    else return 0xfffefffe;
-    if (sceSifCallRpc(D_01e38e40, 2, 0, &D_01e38c40, 32, &D_01e38c40, 16, 0, 0) < 0) return 0xfffeffff;
-    return 0;
-}
+int func_0030e9f0(int a, void *val, int type);  // 0x0030e9f0: definition moved into src/sdk/eeloadfile.c
 
 typedef struct { int pad[9]; int x24; } J1328;
 typedef struct { int x0; int pad[3]; int x10; int x14; } K1328;

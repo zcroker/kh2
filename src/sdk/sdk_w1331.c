@@ -169,39 +169,7 @@ extern void func_00310f38(int, int);
 extern void func_003058f0(void);
 extern unsigned int func_00305a30(int);
 extern void func_00305a20(unsigned int, unsigned int);
-int func_0030ead0(char *arg, int mode)
-{
-    Dma dma;
-    unsigned int dest;
-    int i;
-
-    func_00310f38(0, 0);
-    func_00310f38(1, 0);
-    func_003058f0();
-    dest = func_00305a30(0x80000000);
-    D_01e38e80.mode = mode;
-    for (i = 0; arg[i]; i++)
-        D_01e38e80.arg[i] = arg[i];
-    D_01e38e80.hdr.dest = 0;
-    D_01e38e80.arglen = i;
-    D_01e38e80.hdr.cid = 0x80000003;
-    D_01e38e80.hdr.dsize = 0;
-    D_01e38e80.hdr.psize = 104;
-    dma.src = (unsigned int)&D_01e38e80;
-    dma.dest = dest;
-    dma.size = 104;
-    dma.attr = 0x44;
-    func_00308a80(&D_01e38e80, 104);
-    func_00305a20(4, 0x40000);
-    if (func_003059e0(&dma, 1) != 0) {
-        func_00305a20(4, 0x10000);
-        func_00305a20(4, 0x20000);
-        func_00305a20(0x80000002, 0);
-        func_00305a20(0x80000000, 0);
-        return 1;
-    }
-    return 0;
-}
+int func_0030ead0(char *arg, int mode);  // 0x0030ead0: definition moved into src/sdk/iopreset.c
 
 /* libmc */
 typedef struct { int pad[9]; int f; } McCd;

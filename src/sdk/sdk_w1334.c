@@ -37,81 +37,15 @@ int sceRename(const char *a, const char *b);  // 0x0030c8e8: definition moved in
 
 
 int u_call4_0030df38(int a, int len, void *data, int *out) asm("_Z16u_call4_0030df38jjjj");
-int u_call4_0030df38(int a, int len, void *data, int *out)
-{
-    if (func_0030dd70() < 0) return 0xffff0000;
-    if (func_0030de70()) return 0xfffefffc;
-    D_01e38c40.v = a;
-    if (data) {
-        if (len > 252) {
-            *(B252 *)D_01e38c40.data = *(B252 *)data;
-            D_01e38c40.len = 252;
-        } else {
-            memcpy(D_01e38c40.data, data, len);
-            D_01e38c40.len = len;
-        }
-    } else
-        D_01e38c40.len = 0;
-    if (sceSifCallRpc(D_01e38e40, 6, 0, &D_01e38c40, 512, &D_01e38c40, 8, 0, 0) < 0) return 0xfffeffff;
-    {
-        int r = D_01e38c40.v;
-        *out = D_01e38c40.len;
-        return r;
-    }
-}
-int func_0030e140(int a, int len, void *data, int *out)
-{
-    if (func_0030dd70() < 0) return 0xffff0000;
-    if (func_0030de70()) return 0xfffefffc;
-    D_01e38c40.v = a;
-    if (data) {
-        if (len > 252) {
-            *(B252 *)D_01e38c40.data = *(B252 *)data;
-            D_01e38c40.len = 252;
-        } else {
-            memcpy(D_01e38c40.data, data, len);
-            D_01e38c40.len = len;
-        }
-    } else
-        D_01e38c40.len = 0;
-    if (sceSifCallRpc(D_01e38e40, 7, 0, &D_01e38c40, 512, &D_01e38c40, 8, 0, 0) < 0) return 0xfffeffff;
-    {
-        int r = D_01e38c40.v;
-        *out = D_01e38c40.len;
-        return r;
-    }
-}
+int u_call4_0030df38(int a, int len, void *data, int *out);  // 0x0030df38: definition moved into src/sdk/eeloadfile.c
+int func_0030e140(int a, int len, void *data, int *out);  // 0x0030e140: definition moved into src/sdk/eeloadfile.c
 
 typedef struct { unsigned int w[16]; } Stat64;
 typedef struct { int sema; int *res; int rsize; int cbit; Stat64 st; unsigned char name[1024]; } ChPk;
 int sceChstat(const unsigned char *name, Stat64 *st, int cbit);  // 0x0030c698: definition moved into src/sdk/filestub.c
 
 extern char *strncpy(char *, const char *, int);
-int func_0030e548(const char *name, int len, void *data, int *out, int fno)
-{
-    if (func_0030dd70() < 0) return 0xffff0000;
-    if (func_0030de70()) return 0xfffefffc;
-    strncpy(D_01e38c40.pad, name, 252);
-    D_01e38c40.pad[251] = 0;
-    if (data) {
-        if (len > 252) {
-            *(B252 *)D_01e38c40.data = *(B252 *)data;
-            D_01e38c40.v = 252;
-        } else {
-            memcpy(D_01e38c40.data, data, len);
-            D_01e38c40.v = len;
-        }
-    } else {
-        D_01e38c40.data[0] = 0;
-        D_01e38c40.v = 0;
-    }
-    if (sceSifCallRpc(D_01e38e40, fno, 0, &D_01e38c40, 512, &D_01e38c40, 8, 0, 0) < 0) return 0xfffeffff;
-    {
-        int r = D_01e38c40.v;
-        *out = D_01e38c40.len;
-        return r;
-    }
-}
+int func_0030e548(const char *name, int len, void *data, int *out, int fno);  // 0x0030e548: definition moved into src/sdk/eeloadfile.c
 
 /* libkernl printf helper: %e-style double output (soft-float helpers called directly) */
 extern int func_003142e0(double, double);

@@ -526,3 +526,9 @@ src/sdk/libpad2.c	002f5c70	002f6524	.data@00363d18,.rodata@00376ae8	-G0
 src/sdk/libvib.c	002f6528	002f6694	-	-G0
 src/sdk/libmc.c	002fb928	002fd15c	.rodata@00377820	-G0
 src/sdk/libdma.c	002f3490	002f3cd4	.rodata@003767d0	-G0
+src/sdk/eeloadfile.c	0030dd70	0030eacc	.data@00366180,.rodata@003783b0	-G0
+src/sdk/iopreset.c	0030ead0	0030edb0	.rodata@003783c0	-G0
+src/libgcc/_divdi3.c	00311dd0	003125c0	-	-G0 -fnon-call-exceptions
+src/libgcc/_moddi3.c	003125c0	00312db8	-	-G0 -fnon-call-exceptions
+src/libgcc/_udivdi3.c	00312db8	00313498	-	-G0 -fnon-call-exceptions
+src/libgcc/_umoddi3.c	00313498	00313b80	-	-G0 -fnon-call-exceptions

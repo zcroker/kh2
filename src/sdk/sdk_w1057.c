@@ -56,14 +56,7 @@ int func_0030a600(void);  // 0x0030a600: definition moved into src/sdk/filestub.
 
 extern char *D_00366184;
 extern char D_01e38e68[];
-int func_0030de70(void)
-{
-    int r = 0;
-    char *q = D_003660c4; char *p = D_01e38e68;
-    if (memcmp(p, q, 4) && memcmp(p, D_00366184, 4))
-        r = memcmp(q, D_00366184, 4) != 0;
-    return r;
-}
+int func_0030de70(void);  // 0x0030de70: definition moved into src/sdk/eeloadfile.c
 
 typedef struct L { int pad[5]; struct L *next; } L;
 typedef struct { int pad[10]; L *head; } LH;
@@ -89,19 +82,5 @@ extern int func_0030dd70(void);
 extern int sceSifCallRpc(void *, int, int, int *, int, int *, int, int, int);
 extern int D_01e38c40;
 extern char D_01e38e40[];
-int func_0030e348(int a)
-{
-    if (func_0030dd70() < 0) return 0xffff0000;
-    if (func_0030de70()) return 0xfffefffc;
-    D_01e38c40 = a;
-    if (sceSifCallRpc(D_01e38e40, 8, 0, &D_01e38c40, 4, &D_01e38c40, 4, 0, 0) < 0) return 0xfffeffff;
-    return D_01e38c40;
-}
-int func_0030e478(int a)
-{
-    if (func_0030dd70() < 0) return 0xffff0000;
-    if (func_0030de70()) return 0xfffefffc;
-    D_01e38c40 = a;
-    if (sceSifCallRpc(D_01e38e40, 10, 0, &D_01e38c40, 4, &D_01e38c40, 4, 0, 0) < 0) return 0xfffeffff;
-    return D_01e38c40;
-}
+int func_0030e348(int a);  // 0x0030e348: definition moved into src/sdk/eeloadfile.c
+int func_0030e478(int a);  // 0x0030e478: definition moved into src/sdk/eeloadfile.c

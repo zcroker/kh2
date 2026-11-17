@@ -82,18 +82,7 @@ typedef struct { int ret; int pad; char name[252]; } Buf_w1260;
 extern Buf_w1260 D_01e38c40;
 extern char D_01e38e40[];
 
-int func_0030e3d8(const char *name)
-{
-    if (func_0030dd70() < 0)
-        return 0xffff0000;
-    if (func_0030de70() != 0)
-        return 0xfffefffc;
-    strncpy(D_01e38c40.name, name, 252);
-    D_01e38c40.name[251] = 0;
-    if (sceSifCallRpc(D_01e38e40, 9, 0, &D_01e38c40, 512, &D_01e38c40, 4, 0, 0) < 0)
-        return 0xfffeffff;
-    return D_01e38c40.ret;
-}
+int func_0030e3d8(const char *name);  // 0x0030e3d8: definition moved into src/sdk/eeloadfile.c
 
 typedef struct Blk_w1260 { struct Blk_w1260 *next; int x4; volatile unsigned int id; int flags; } Blk_w1260;
 typedef struct { int x0, x4, x8, xc; int count; Blk_w1260 *free; int x18; unsigned int cur; } Mgr_w1260;
