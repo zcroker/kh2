@@ -929,50 +929,7 @@ void func_001e74d8(u32 a0);  // 0x001e74d8: definition moved into src/anon/unit_
 
 void func_001e8fe0(u32 a0, u32 a1);  // 0x001e8fe0: definition moved into src/anon/unit_001e8ac8.cpp
 
-void func_001f00f8(s32* a0) {
-    s32 v = a0[0];
-    if (v > 0x10000) {
-        while (1) {
-            s32 t = v + (s32)0xFFFF0000;
-            if (t > 0x10000) {
-                v = t;
-            } else {
-                a0[0] = t;
-                break;
-            }
-        }
-        v = a0[1];
-    } else {
-        v = a0[1];
-    }
-
-    if (v > 0x10000) {
-        while (1) {
-            s32 t = v + (s32)0xFFFF0000;
-            if (t > 0x10000) {
-                v = t;
-            } else {
-                a0[1] = t;
-                break;
-            }
-        }
-        v = a0[2];
-    } else {
-        v = a0[2];
-    }
-
-    if (v > 0x10000) {
-        while (1) {
-            s32 t = v + (s32)0xFFFF0000;
-            if (t > 0x10000) {
-                v = t;
-            } else {
-                a0[2] = t;
-                break;
-            }
-        }
-    }
-}
+void func_001f00f8(s32* a0);  // 0x001f00f8: definition moved into src/anon/unit_001ef780.cpp
 
 void func_001fa7b0(u32 a0, u32 a1, u32 a2);  // 0x001fa7b0: definition moved into src/anon/unit_001fa1b8.cpp
 

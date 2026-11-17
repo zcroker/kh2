@@ -15,27 +15,7 @@ void func_001eff30(PAddArg*, PAddWork*);
 void func_001f02b0(PAddArg*, PAddWork*);
 
 /* 001effa8 */
-void func_001effa8(PObj* obj, PAddArg* arg, PAddDesc* desc)
-{
-    PAddWork* w = (PAddWork*)((u8*)obj + *desc->offs + 0xa0);
-    if (D_01d9ea9c != 0) return;
-    if (D_01d9e6e0->flags & 0xff0000ff00ULL) return;
-    if (w->init == 0) func_001eff30(arg, w);
-    if (arg->id != obj->id) return;
-    w->v.x += arg->v.x;
-    w->v.y += arg->v.y;
-    w->v.z += arg->v.z;
-}
+void func_001effa8(PObj* obj, PAddArg* arg, PAddDesc* desc);  // 0x001effa8: definition moved into src/anon/unit_001ef780.cpp
 
 /* 001f0328: same as 001effa8 with its own init helper */
-void func_001f0328(PObj* obj, PAddArg* arg, PAddDesc* desc)
-{
-    PAddWork* w = (PAddWork*)((u8*)obj + *desc->offs + 0xa0);
-    if (D_01d9ea9c != 0) return;
-    if (D_01d9e6e0->flags & 0xff0000ff00ULL) return;
-    if (w->init == 0) func_001f02b0(arg, w);
-    if (arg->id != obj->id) return;
-    w->v.x += arg->v.x;
-    w->v.y += arg->v.y;
-    w->v.z += arg->v.z;
-}
+void func_001f0328(PObj* obj, PAddArg* arg, PAddDesc* desc);  // 0x001f0328: definition moved into src/anon/unit_001ef780.cpp

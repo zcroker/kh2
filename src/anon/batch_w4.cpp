@@ -118,12 +118,7 @@ s32 func_001c4170(void);  // 0x001c4170: definition moved into src/anon/unit_001
 
 void func_001d71f0(s32 a);  // 0x001d71f0: definition moved into src/anon/unit_001d68e0.cpp
 
-void func_001efc28(u8* p, u8* q) {
-    Vec3u* r = (Vec3u*)(p + ((s32*)*(u32*)(q + 12))[1] + 160);
-    r->x = 0;
-    r->z = 0;
-    r->y = 0;
-}
+void func_001efc28(u8* p, u8* q);  // 0x001efc28: definition moved into src/anon/unit_001ef780.cpp
 
 void func_001fa928(u8* p, u8* q);  // 0x001fa928: definition moved into src/anon/unit_001fa1b8.cpp
 

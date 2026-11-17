@@ -1,4 +1,4 @@
-// Linked unit 0x001f45f8-0x001f5010 (ppp programs; one namespace per old matched source, gap functions written for the unit).
+// Linked unit 0x001f45f8-0x001f5670 (ppp programs; one namespace per old matched source, gap functions written for the unit).
 #include "../common/types.h"
 #include "../kn/fvector.hpp"
 #include "./tiny_auto80_queue_structs.hpp"
@@ -436,3 +436,280 @@ u32 func_001f4fe0(u32 a0, u32 a1, u32 a2, u32 a3) {
 }
 }  // namespace n001f4fe0
 
+
+// 001f5010 (gap, written for the unit)
+namespace n001f5010 {
+u32 func_00221fb8(u32, u32, u32, u32) asm("_Z13func_00221fb8jjjj");
+u32 func_001f5010(u32 a0, u32 a1, u32 a2, u32 a3) asm("func_001f5010");
+u32 func_001f5010(u32 a0, u32 a1, u32 a2, u32 a3) {
+    return func_00221fb8(a0 + **(u32**)(a1 + 12) + 160, 1, 8, a3);
+}
+}  // namespace n001f5010
+
+// 001f5040 (gap, written for the unit)
+namespace n001f5040 {
+u32 func_00221fb8(u32, u32, u32, u32) asm("_Z13func_00221fb8jjjj");
+u32 func_001f5040(u32 a0, u32 a1, u32 a2, u32 a3) asm("func_001f5040");
+u32 func_001f5040(u32 a0, u32 a1, u32 a2, u32 a3) {
+    return func_00221fb8(a0 + **(u32**)(a1 + 12) + 160, 4, 8, a3);
+}
+}  // namespace n001f5040
+
+// 001f5070 (gap, written for the unit)
+namespace n001f5070 {
+u32 func_00221fb8(u32, u32, u32, u32) asm("_Z13func_00221fb8jjjj");
+u32 func_001f5070(u32 a0, u32 a1, u32 a2, u32 a3) asm("func_001f5070");
+u32 func_001f5070(u32 a0, u32 a1, u32 a2, u32 a3) {
+    return func_00221fb8(a0 + **(u32**)(a1 + 12) + 160, 128, 8, a3);
+}
+}  // namespace n001f5070
+
+// 001f50a0 (gap, written for the unit)
+namespace n001f50a0 {
+u32 func_00221fb8(u32, u32, u32, u32) asm("_Z13func_00221fb8jjjj");
+u32 func_001f50a0(u32 a0, u32 a1, u32 a2, u32 a3) asm("func_001f50a0");
+u32 func_001f50a0(u32 a0, u32 a1, u32 a2, u32 a3) {
+    return func_00221fb8(a0 + **(u32**)(a1 + 12) + 160, 1, 16, a3);
+}
+}  // namespace n001f50a0
+
+// 001f50d0 (gap, written for the unit)
+namespace n001f50d0 {
+u32 func_00221fb8(u32, u32, u32, u32) asm("_Z13func_00221fb8jjjj");
+u32 func_001f50d0(u32 a0, u32 a1, u32 a2, u32 a3) asm("func_001f50d0");
+u32 func_001f50d0(u32 a0, u32 a1, u32 a2, u32 a3) {
+    return func_00221fb8(a0 + **(u32**)(a1 + 12) + 160, 4, 16, a3);
+}
+}  // namespace n001f50d0
+
+// 001f5100 (gap, written for the unit)
+namespace n001f5100 {
+u32 func_00221fb8(u32, u32, u32, u32) asm("_Z13func_00221fb8jjjj");
+u32 func_001f5100(u32 a0, u32 a1, u32 a2, u32 a3) asm("func_001f5100");
+u32 func_001f5100(u32 a0, u32 a1, u32 a2, u32 a3) {
+    return func_00221fb8(a0 + **(u32**)(a1 + 12) + 160, 64, 16, a3);
+}
+}  // namespace n001f5100
+
+// 001f5130 (gap, written for the unit)
+namespace n001f5130 {
+u32 func_00221fb8(u32, u32, u32, u32) asm("_Z13func_00221fb8jjjj");
+u32 func_001f5130(u32 a0, u32 a1, u32 a2, u32 a3) asm("func_001f5130");
+u32 func_001f5130(u32 a0, u32 a1, u32 a2, u32 a3) {
+    return func_00221fb8(a0 + **(u32**)(a1 + 12) + 160, 1, 24, a3);
+}
+}  // namespace n001f5130
+
+// 001f5160 (gap, written for the unit)
+namespace n001f5160 {
+u32 func_00221fb8(u32, u32, u32, u32) asm("_Z13func_00221fb8jjjj");
+u32 func_001f5160(u32 a0, u32 a1, u32 a2, u32 a3) asm("func_001f5160");
+u32 func_001f5160(u32 a0, u32 a1, u32 a2, u32 a3) {
+    return func_00221fb8(a0 + **(u32**)(a1 + 12) + 160, 4, 24, a3);
+}
+}  // namespace n001f5160
+
+// 001f5190 (gap, written for the unit)
+namespace n001f5190 {
+u32 func_00221fb8(u32, u32, u32, u32) asm("_Z13func_00221fb8jjjj");
+u32 func_001f5190(u32 a0, u32 a1, u32 a2, u32 a3) asm("func_001f5190");
+u32 func_001f5190(u32 a0, u32 a1, u32 a2, u32 a3) {
+    return func_00221fb8(a0 + **(u32**)(a1 + 12) + 160, 1, 32, a3);
+}
+}  // namespace n001f5190
+
+// 001f51c0 (gap, written for the unit)
+namespace n001f51c0 {
+u32 func_00221fb8(u32, u32, u32, u32) asm("_Z13func_00221fb8jjjj");
+u32 func_001f51c0(u32 a0, u32 a1, u32 a2, u32 a3) asm("func_001f51c0");
+u32 func_001f51c0(u32 a0, u32 a1, u32 a2, u32 a3) {
+    return func_00221fb8(a0 + **(u32**)(a1 + 12) + 160, 4, 32, a3);
+}
+}  // namespace n001f51c0
+
+// 001f51f0 (gap, written for the unit)
+namespace n001f51f0 {
+u32 func_00221fb8(u32, u32, u32, u32) asm("_Z13func_00221fb8jjjj");
+u32 func_001f51f0(u32 a0, u32 a1, u32 a2, u32 a3) asm("func_001f51f0");
+u32 func_001f51f0(u32 a0, u32 a1, u32 a2, u32 a3) {
+    return func_00221fb8(a0 + **(u32**)(a1 + 12) + 160, 32, 32, a3);
+}
+}  // namespace n001f51f0
+
+// 001f5220 (gap, written for the unit)
+namespace n001f5220 {
+u32 func_00221fb8(u32, u32, u32, u32) asm("_Z13func_00221fb8jjjj");
+u32 func_001f5220(u32 a0, u32 a1, u32 a2, u32 a3) asm("func_001f5220");
+u32 func_001f5220(u32 a0, u32 a1, u32 a2, u32 a3) {
+    return func_00221fb8(a0 + **(u32**)(a1 + 12) + 160, 1, 40, a3);
+}
+}  // namespace n001f5220
+
+// 001f5250 (gap, written for the unit)
+namespace n001f5250 {
+u32 func_00221fb8(u32, u32, u32, u32) asm("_Z13func_00221fb8jjjj");
+u32 func_001f5250(u32 a0, u32 a1, u32 a2, u32 a3) asm("func_001f5250");
+u32 func_001f5250(u32 a0, u32 a1, u32 a2, u32 a3) {
+    return func_00221fb8(a0 + **(u32**)(a1 + 12) + 160, 4, 40, a3);
+}
+}  // namespace n001f5250
+
+// 001f5280 (gap, written for the unit)
+namespace n001f5280 {
+u32 func_00221fb8(u32, u32, u32, u32) asm("_Z13func_00221fb8jjjj");
+u32 func_001f5280(u32 a0, u32 a1, u32 a2, u32 a3) asm("func_001f5280");
+u32 func_001f5280(u32 a0, u32 a1, u32 a2, u32 a3) {
+    return func_00221fb8(a0 + **(u32**)(a1 + 12) + 160, 1, 48, a3);
+}
+}  // namespace n001f5280
+
+// 001f52b0 (gap, written for the unit)
+namespace n001f52b0 {
+u32 func_00221fb8(u32, u32, u32, u32) asm("_Z13func_00221fb8jjjj");
+u32 func_001f52b0(u32 a0, u32 a1, u32 a2, u32 a3) asm("func_001f52b0");
+u32 func_001f52b0(u32 a0, u32 a1, u32 a2, u32 a3) {
+    return func_00221fb8(a0 + **(u32**)(a1 + 12) + 160, 4, 48, a3);
+}
+}  // namespace n001f52b0
+
+// 001f52e0 (gap, written for the unit)
+namespace n001f52e0 {
+u32 func_00221fb8(u32, u32, u32, u32) asm("_Z13func_00221fb8jjjj");
+u32 func_001f52e0(u32 a0, u32 a1, u32 a2, u32 a3) asm("func_001f52e0");
+u32 func_001f52e0(u32 a0, u32 a1, u32 a2, u32 a3) {
+    return func_00221fb8(a0 + **(u32**)(a1 + 12) + 160, 1, 64, a3);
+}
+}  // namespace n001f52e0
+
+// 001f5310 (gap, written for the unit)
+namespace n001f5310 {
+u32 func_00221fb8(u32, u32, u32, u32) asm("_Z13func_00221fb8jjjj");
+u32 func_001f5310(u32 a0, u32 a1, u32 a2, u32 a3) asm("func_001f5310");
+u32 func_001f5310(u32 a0, u32 a1, u32 a2, u32 a3) {
+    return func_00221fb8(a0 + **(u32**)(a1 + 12) + 160, 4, 64, a3);
+}
+}  // namespace n001f5310
+
+// 001f5340 (gap, written for the unit)
+namespace n001f5340 {
+u32 func_00221fb8(u32, u32, u32, u32) asm("_Z13func_00221fb8jjjj");
+u32 func_001f5340(u32 a0, u32 a1, u32 a2, u32 a3) asm("func_001f5340");
+u32 func_001f5340(u32 a0, u32 a1, u32 a2, u32 a3) {
+    return func_00221fb8(a0 + **(u32**)(a1 + 12) + 160, 16, 64, a3);
+}
+}  // namespace n001f5340
+
+// 001f5370 (gap, written for the unit)
+namespace n001f5370 {
+u32 func_00221fb8(u32, u32, u32, u32) asm("_Z13func_00221fb8jjjj");
+u32 func_001f5370(u32 a0, u32 a1, u32 a2, u32 a3) asm("func_001f5370");
+u32 func_001f5370(u32 a0, u32 a1, u32 a2, u32 a3) {
+    return func_00221fb8(a0 + **(u32**)(a1 + 12) + 160, 1, 128, a3);
+}
+}  // namespace n001f5370
+
+// 001f53a0 (gap, written for the unit)
+namespace n001f53a0 {
+u32 func_00221fb8(u32, u32, u32, u32) asm("_Z13func_00221fb8jjjj");
+u32 func_001f53a0(u32 a0, u32 a1, u32 a2, u32 a3) asm("func_001f53a0");
+u32 func_001f53a0(u32 a0, u32 a1, u32 a2, u32 a3) {
+    return func_00221fb8(a0 + **(u32**)(a1 + 12) + 160, 4, 128, a3);
+}
+}  // namespace n001f53a0
+
+// 001f53d0 (gap, written for the unit)
+namespace n001f53d0 {
+u32 func_00221fb8(u32, u32, u32, u32) asm("_Z13func_00221fb8jjjj");
+u32 func_001f53d0(u32 a0, u32 a1, u32 a2, u32 a3) asm("func_001f53d0");
+u32 func_001f53d0(u32 a0, u32 a1, u32 a2, u32 a3) {
+    return func_00221fb8(a0 + **(u32**)(a1 + 12) + 160, 8, 128, a3);
+}
+}  // namespace n001f53d0
+
+// 001f5400 (gap, written for the unit)
+namespace n001f5400 {
+u32 func_00221fb8(u32, u32, u32, u32) asm("_Z13func_00221fb8jjjj");
+u32 func_001f5400(u32 a0, u32 a1, u32 a2, u32 a3) asm("func_001f5400");
+u32 func_001f5400(u32 a0, u32 a1, u32 a2, u32 a3) {
+    return func_00221fb8(a0 + **(u32**)(a1 + 12) + 160, 1, 255, a3);
+}
+}  // namespace n001f5400
+
+// 001f5430 (gap, written for the unit)
+namespace n001f5430 {
+u32 func_00221fb8(u32, u32, u32, u32) asm("_Z13func_00221fb8jjjj");
+u32 func_001f5430(u32 a0, u32 a1, u32 a2, u32 a3) asm("func_001f5430");
+u32 func_001f5430(u32 a0, u32 a1, u32 a2, u32 a3) {
+    return func_00221fb8(a0 + **(u32**)(a1 + 12) + 160, 4, 255, a3);
+}
+}  // namespace n001f5430
+
+// 001f5460 (gap, written for the unit)
+namespace n001f5460 {
+struct El { u8 p[16]; };
+struct Mgr { u8 pad[0x80]; El* arr; u8 pad2[0xa8 - 0x84]; u64 flags; };
+struct Obj { u8 p[4]; void* owner; };
+struct Mat { u8 p[48]; };
+struct Node {
+    Node* next;
+    u8 pad[50];
+    u8 sel;
+    u8 p55;
+    union {
+        struct { u64 lo : 54; u64 b54 : 1; u64 m55 : 4; u64 b59 : 1; u64 hi : 4; } q;
+        struct { u16 h56, h58, h60, h62; } h;
+    } u;
+    Mat m[1];
+};
+struct P { s32 id; s32 idx; s32 off; u8 on; };
+struct O { u8 pad[12]; s32 id; };
+struct C { u8 pad[12]; s32* ofs; };
+extern s32 D_01d9ea9c asm("D_01d9ea9c");
+extern Mgr* D_01d9e6e0 asm("D_01d9e6e0");
+Obj* func_001e7a98(Mgr*, El*) asm("func_001e7a98");
+void func_002226b8(void*, void*) asm("func_002226b8");
+void func_001f5460(O* o, P* p, C* c) asm("func_001f5460");
+void func_001f5460(O* o, P* p, C* c) {
+    u8* w;
+    u8* fl = (u8*)o + c->ofs[1] + 160;
+    if (o->id == p->id) {
+        if (p->on) *fl |= 2;
+        else *fl &= ~2;
+    }
+    if (D_01d9ea9c != 0) return;
+    if (D_01d9e6e0->flags & 0xff0000ff00ULL) return;
+    if (p->idx == -1) return;
+    Node* n = *(Node**)((u8*)o + c->ofs[0] + 160);
+    if (*fl & 2) {
+        for (; n; n = n->next) {
+            if (n->u.h.h62 & 0x800) {
+                Mgr* m = D_01d9e6e0;
+                Obj* e = 0;
+                El* el = &m->arr[p->idx];
+                if (el) { e = func_001e7a98(m, el); e->owner = o; }
+                w = (u8*)e + p->off + 160;
+                func_002226b8(w, &n->m[n->sel]);
+            }
+        }
+    } else {
+        for (; n; n = n->next) {
+            if (n->u.q.b59 && !n->u.q.b54) {
+                Mgr* m = D_01d9e6e0;
+                Obj* e = 0;
+                El* el = &m->arr[p->idx];
+                if (el) { e = func_001e7a98(m, el); e->owner = o; }
+                w = (u8*)e + p->off + 160;
+                func_002226b8(w, &n->m[n->sel]);
+            }
+        }
+    }
+}
+}  // namespace n001f5460
+
+// 001f5658 (gap, written for the unit)
+namespace n001f5658 {
+void func_001f5658(u8* self, u8* t) asm("func_001f5658");
+void func_001f5658(u8* self, u8* t) {
+    *(self + (*(s32**)(t + 12))[1] + 160) = 0;
+}
+}  // namespace n001f5658

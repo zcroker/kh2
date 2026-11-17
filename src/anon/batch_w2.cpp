@@ -211,10 +211,4 @@ s32 trap_attack_get_type(BD_VALUE* v);  // 0x0018f8a0: definition moved into src
 // 001826e0: moved to src/yasui/libys/areadata.cpp
 
 struct Vec3f { f32 x, y, z; };
-void wtarget_001efb18(u32 a0, u32 a1, u32, u32) {
-    Vec3f* v = (Vec3f*)(a0 + *(u32*)(*(u32*)(a1 + 12) + 4) + 160);
-    f32 z = 0.0f;
-    v->x = z;
-    v->z = z;
-    v->y = z;
-}
+void wtarget_001efb18(u32 a0, u32 a1, u32, u32);  // 0x001efb18: definition moved into src/anon/unit_001ef780.cpp

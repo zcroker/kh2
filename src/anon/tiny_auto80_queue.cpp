@@ -10040,21 +10040,9 @@ s32 func_001ef370(s32 a0, f32 a1);  // 0x001ef370: definition moved into src/ano
 
 s32 func_001ef578(s32 a0, f32 a1);  // 0x001ef578: definition moved into src/anon/unit_001ec098.cpp
 
-void func_001eff30(u32 a0, u8* a1) {
-    f32 z = 0.0f;
-    *(u32*)(a1 + 12) = a0;
-    *(f32*)(a1 + 8) = z;
-    *(f32*)(a1 + 4) = z;
-    *(f32*)(a1 + 0) = z;
-}
+void func_001eff30(u32 a0, u8* a1);  // 0x001eff30: definition moved into src/anon/unit_001ef780.cpp
 
-void func_001f02b0(u32 a0, u8* a1) {
-    f32 z = 0.0f;
-    *(u32*)(a1 + 12) = a0;
-    *(f32*)(a1 + 8) = z;
-    *(f32*)(a1 + 4) = z;
-    *(f32*)(a1 + 0) = z;
-}
+void func_001f02b0(u32 a0, u8* a1);  // 0x001f02b0: definition moved into src/anon/unit_001ef780.cpp
 
 void func_001f45f8(u32 a0, u8* a1);  // 0x001f45f8: definition moved into src/anon/unit_001f45f8.cpp
 

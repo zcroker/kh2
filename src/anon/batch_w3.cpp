@@ -214,11 +214,7 @@ void trap_attack_set_hitmark_pos(BD_VALUE* bd);  // 0x0018fc20: definition moved
 struct Vec3 {
     f32 x, y, z;
 };
-void wtarget_001efd38(u32 a0, u32 a1, u32, u32) {
-    a0 += (*(u32**)(a1 + 12))[1];
-    Vec3* v = (Vec3*)(a0 + 160);
-    v->x = v->y = v->z = 0.0f;
-}
+void wtarget_001efd38(u32 a0, u32 a1, u32, u32);  // 0x001efd38: definition moved into src/anon/unit_001ef780.cpp
 
 extern "C" void func_00267620();
 extern u32 D_0035f0ec;

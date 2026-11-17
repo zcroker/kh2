@@ -766,17 +766,11 @@ u32 func_001e7030(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001e7030: definition mo
 
 u32 func_001e7050(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001e7050: definition moved into src/anon/unit_001e0cb8.cpp
 
-u32 func_001efb40(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_001efb18(a0, a1, a2, a3);
-}
+u32 func_001efb40(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001efb40: definition moved into src/anon/unit_001ef780.cpp
 
-u32 func_001efc48(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_001efc28(a0, a1, a2, a3);
-}
+u32 func_001efc48(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001efc48: definition moved into src/anon/unit_001ef780.cpp
 
-u32 func_001efd60(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_001efd38(a0, a1, a2, a3);
-}
+u32 func_001efd60(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001efd60: definition moved into src/anon/unit_001ef780.cpp
 
 u32 func_001f4fe0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001f4fe0: definition moved into src/anon/unit_001f45f8.cpp
 

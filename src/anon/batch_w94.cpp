@@ -219,25 +219,7 @@ extern s32 D_01d9ea9c;
 extern u8* D_01d9e6e0;
 extern s32 D_01d9eab4;
 
-void func_001f04a8(u8* self, u8* ent, u8* desc) {
-    f32* s = (f32*)(self + *(u32*)(*(u8**)(desc + 12) + 8) + 160);
-    if (*(u32*)s == 0) func_001f0430(ent, s);
-    if (D_01d9ea9c) return;
-    if (*(u64*)(D_01d9e6e0 + 168) & 0xff0000ff00ULL) return;
-    if (*(u32*)ent == *(u32*)(self + 12)) {
-        s[2] += *(f32*)(ent + 12);
-        s[3] += *(f32*)(ent + 16);
-        s[5] += *(f32*)(ent + 24);
-        s[6] += *(f32*)(ent + 28);
-    }
-    if (D_01d9eab4) return;
-    s[2] += s[3];
-    s[1] += s[2];
-    s[5] += s[6];
-    s[4] += s[5];
-    s[1] = func_002f8b00(s[1], 32768.0f);  // to_2f9a38
-    s[4] = func_002f8b00(s[4], 32768.0f);  // to_2f9a38
-}
+void func_001f04a8(u8* self, u8* ent, u8* desc);  // 0x001f04a8: definition moved into src/anon/unit_001ef780.cpp
 }
 // ---- 00225898
 extern "C" {
