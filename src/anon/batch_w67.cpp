@@ -189,21 +189,7 @@ s32 __ieee754_rem_pio2f(f32, f32*);
 union FloatWord { f32 f; s32 i; };
 
 // 002f87c0: cosf (fdlibm, without the inf/nan check)
-f32 cosf(f32 x)
-{
-    f32 y[2];
-    FloatWord u;
-    u.f = x;
-    s32 ix = u.i & 0x7fffffff;
-    if (ix <= 0x3f490fd8) return __kernel_cosf(x, 0.0f);  // float_to_int_b
-    s32 n = __ieee754_rem_pio2f(x, y);
-    switch (n & 3) {
-    case 0: return __kernel_cosf(y[0], y[1]);  // float_to_int_b
-    case 1: return -func_002fb460(y[0], y[1], 1);  // float_to_int
-    case 2: return -__kernel_cosf(y[0], y[1]);  // float_to_int_b
-    default: return func_002fb460(y[0], y[1], 1);  // float_to_int
-    }
-}
+f32 cosf(f32 x);  // 0x002f87c0: definition moved into src/newlib/libm/sf_cos.c
 
 }
 

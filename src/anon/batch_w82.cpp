@@ -388,34 +388,7 @@ extern "C" {
 typedef s32 (*Cmp82)(const void*, const void*);
 
 // floorf (newlib, no-denormal / largest-exponent-is-normal configuration).
-f32 floorf(f32 x)
-{
-    s32 i0, j0;
-    u32 i, ix;
-    GET_FLOAT_WORD82(i0, x);
-    ix = (i0 & 0x7fffffff);
-    j0 = (ix >> 23) - 0x7f;
-    if (j0 < 23) {
-        if (j0 < 0) {
-            if (huge82 + x > (f32)0.0) {
-                if (i0 >= 0) { i0 = 0; }
-                else if (!(ix < 0x00800000)) { i0 = 0xbf800000; }
-            }
-        } else {
-            i = (0x007fffff) >> j0;
-            if ((i0 & i) == 0) return x;
-            if (huge82 + x > (f32)0.0) {
-                if (i0 < 0) i0 += (0x00800000) >> j0;
-                i0 &= (~i);
-            }
-        }
-    } else {
-        if (!1) return x + x;
-        else return x;
-    }
-    SET_FLOAT_WORD82(x, i0);
-    return x;
-}
+f32 floorf(f32 x);  // 0x002f8888: definition moved into src/newlib/libm/sf_floor.c
 
 // bsearch
 void* func_002fd248(const void* key, const u8* base, u32 n, u32 size, Cmp82 cmp)

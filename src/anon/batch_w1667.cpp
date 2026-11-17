@@ -19,7 +19,7 @@ extern u8 D_01c60d10;
 
 void func_001e2ac0(void);  // 0x001e2ac0: definition moved into src/anon/unit_001e0cb8.cpp
 
-void func_002f8a88(void) { __ieee754_sqrt(); }
+void func_002f8a88(void);  // 0x002f8a88: definition moved into src/newlib/libm/w_sqrt.c
 
 void func_00113438(u8* p);  // 0x00113438: definition moved into src/anon/unit_001117d8.cpp
 

@@ -28,17 +28,5 @@ S3  = -1.9841270114e-04f,
 S4  =  2.755731202e-06f,
 S5  = -2.5050759689e-08f,
 S6  =  1.589690879e-10f;
-f32 func_002fb460(f32 x, f32 y, s32 iy) {  // float_to_int
-  f32 z, r, v;
-  s32 ix;
-  union { f32 f; s32 i; } u;
-  u.f = x; ix = u.i;
-  ix &= 0x7fffffff;
-  if (ix < 0x32000000) { if ((s32)x == 0) return x; }
-  z = x * x;
-  v = z * x;
-  r = S2 + z * (S3 + z * (S4 + z * (S5 + z * S6)));
-  if (iy == 0) return x + v * (S1 + z * r);
-  else return x - ((z * (half * y - v * r) - y) - v * S1);
-}
+f32 func_002fb460(f32 x, f32 y, s32 iy);  // 0x002fb460: definition moved into src/newlib/libm/kf_sin.c
 }

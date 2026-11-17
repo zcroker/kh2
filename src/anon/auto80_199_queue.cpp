@@ -1924,23 +1924,7 @@ void func_002edfd8(u32 a0, u32 a1);  // 0x002edfd8: definition moved into src/an
 
 // 002f0970: moved to src/naka/libkn/trapfunctions.cpp
 
-f32 func_002f8a18(f32 a0) {
-    union {
-        f32 f;
-        u32 u;
-    } bits;
-    bits.f = a0;
-
-    s32 abits = (s32)(bits.u & 0x7FFFFFFFu);
-    if (!((s32)0x3F490FDA < abits)) {
-        return __kernel_tanf(1, a0, 0.0f);
-    }
-
-    f32 tmp[2];
-    s32 q = (s32)(__ieee754_rem_pio2f((void*)tmp) & 1u);
-    s32 s = 1 - (q << 1);
-    return __kernel_tanf(s, tmp[0], tmp[1]);
-}
+f32 func_002f8a18(f32 a0);  // 0x002f8a18: definition moved into src/newlib/libm/sf_tan.c
 
 s32 func_002fea18() {
     u32 base36 = 0x00360000u;

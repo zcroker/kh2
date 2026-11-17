@@ -196,13 +196,7 @@ void sceVu0Normalize(f32* d, const f32* s) {  // vec4_normalize
 
 typedef union { f32 value; u32 word; } ieee_float_shape_type;
 // copysignf
-f32 copysignf(f32 x, f32 y) {  // copysignf
-    u32 ix, iy;
-    { ieee_float_shape_type gf_u; gf_u.value = x; ix = gf_u.word; }
-    { ieee_float_shape_type gf_u; gf_u.value = y; iy = gf_u.word; }
-    { ieee_float_shape_type sf_u; sf_u.word = (ix & 0x7fffffff) | (iy & 0x80000000); x = sf_u.value; }
-    return x;
-}
+f32 copysignf(f32 x, f32 y);  // 0x002fb900: definition moved into src/newlib/libm/sf_copysign.c
 
 void func_001acd78(void*);
 void func_0031fd78(void* p) {

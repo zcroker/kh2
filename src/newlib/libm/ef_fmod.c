@@ -1,29 +1,14 @@
-/* Third-party code notice: this file contains a function rebuilt from newlib's libm
- * (libm/math/ef_fmod.c, fdlibm), which the game links from the toolchain's libm.a.
+/* ef_fmod.c: newlib libm (libm/math/ef_fmod.c, fdlibm), the copy the game links from the toolchain's libm.a.
+ * Linked unit 0x2f9a38-0x2f9bc0, .rodata at 0x377138. Built with ee-gcc 3.2 -O2 -G0 -fno-builtin (see fdlibm.h).
+ * Third-party code notice: rebuilt to match; it is not covered by this project's MIT License.
  * Copyright (C) 1993 by Sun Microsystems, Inc. All rights reserved.
  * Developed at SunPro, a Sun Microsystems, Inc. business.
  * Permission to use, copy, modify, and distribute this software is freely granted,
- * provided that this notice is preserved. It is not covered by this project's MIT License. */
+ * provided that this notice is preserved.
+ */
+#include "fdlibm.h"
 
-/* 002f9a38 is __ieee754_fmodf (newlib ef_fmod.c, R5900 build: no infinities/NaNs/denormals),
- * byte-identical to ef_fmod.o in the toolchain's libm.a. */
-typedef int __int32_t;
-typedef unsigned int __uint32_t;
-typedef union { float value; __uint32_t word; } ieee_float_shape_type;
-#define GET_FLOAT_WORD(i,d) do { ieee_float_shape_type gf_u; gf_u.value = (d); (i) = gf_u.word; } while (0)
-#define SET_FLOAT_WORD(d,i) do { ieee_float_shape_type sf_u; sf_u.word = (i); (d) = sf_u.value; } while (0)
-#define FLT_UWORD_IS_FINITE(x) 1
-#define FLT_UWORD_IS_NAN(x) 0
-#define FLT_UWORD_IS_ZERO(x) ((x)<0x00800000L)
-#define FLT_UWORD_IS_SUBNORMAL(x) 0
-
-/* __ieee754_fmodf; the game symbol is a C++-style placeholder name, bound with an asm label. */
-float __ieee754_fmodf(float x, float y) __asm__("_Z15__ieee754_fmodfjjjj");
-
-static const float one = 1.0;
-/* Zero[] = {0.0, -0.0} is the original table at 0x377140 */
-extern const float D_00377140[];
-#define Zero D_00377140
+static const float one = 1.0, Zero[] = {0.0, -0.0,};
 
 float __ieee754_fmodf(float x, float y)
 {
@@ -94,3 +79,4 @@ float __ieee754_fmodf(float x, float y)
 	}
 	return x;
 }
+

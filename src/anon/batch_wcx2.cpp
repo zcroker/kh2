@@ -218,32 +218,7 @@ void func_00190878(It36*, u8*, u8);
 void func_002e9fe0(It36* it, u8* obj, Vec4* pos);  // 002e9fe0: moved to src/anon/unit_002e9a00.cpp
 
 // fdlibm __kernel_cosf
-f32 __kernel_cosf(f32 x, f32 y)
-{
-    union { f32 f; s32 i; } u;
-    f32 a, hz, z, r, qx;
-    s32 ix;
-    u.f = x;
-    ix = u.i & 0x7fffffff;
-    if (ix < 0x32000000) {
-        if ((s32)x == 0) return 1.0f;
-    }
-    z = x * x;
-    r = z * (0.0416666642f + z * (-0.00138888881f + z * (2.48015858e-05f + z * (-2.75573115e-07f + z * (2.08757212e-09f + z * -1.13596476e-11f)))));
-    if (ix < 0x3e99999a) {
-        return 1.0f - (0.5f * z - (z * r - x * y));
-    } else {
-        if (ix > 0x3f480000) {
-            qx = 0.28125f;
-        } else {
-            u.i = ix - 0x01000000;
-            qx = u.f;
-        }
-        hz = 0.5f * z - qx;
-        a = 1.0f - qx;
-        return a - (hz - (z * r - x * y));
-    }
-}
+f32 __kernel_cosf(f32 x, f32 y);  // 0x002faaf0: definition moved into src/newlib/libm/kf_cos.c
 
 struct Cam1 {
     u8 pad[1584];
@@ -2098,47 +2073,7 @@ static const f32 one = 1.0f, pi = 3.1415925f, pio2_hi = 1.57079625f, pio2_lo = 7
     pS4 = 0.000791535014f, pS5 = 3.47933092e-05f, qS1 = -2.4033947f, qS2 = 2.02094555f,
     qS3 = -0.68828392f, qS4 = 0.0770381466f;
 
-f32 acosf_2f8e58(f32 x) {
-    f32 z, p, q, r, w, s, c, df;
-    s32 hx, ix;
-    GET_FLOAT_WORD_2F8(hx, x);
-    ix = hx & 0x7fffffff;
-    if (ix == 0x3f800000) {
-        if (hx > 0) return 0.0f;
-        else return pi + 2.0f * pio2_lo;
-    } else if (ix > 0x3f800000) {
-        return (x - x) / (x - x);
-    }
-    if (ix < 0x3f000000) {
-        if (ix <= 0x23000000) return pio2_hi + pio2_lo;
-        z = x * x;
-        p = z * (pS0 + z * (pS1 + z * (pS2 + z * (pS3 + z * (pS4 + z * pS5)))));
-        q = one + z * (qS1 + z * (qS2 + z * (qS3 + z * qS4)));
-        r = p / q;
-        return pio2_hi - (x - (pio2_lo - x * r));
-    } else if (hx < 0) {
-        z = (one + x) * 0.5f;
-        p = z * (pS0 + z * (pS1 + z * (pS2 + z * (pS3 + z * (pS4 + z * pS5)))));
-        q = one + z * (qS1 + z * (qS2 + z * (qS3 + z * qS4)));
-        s = __ieee754_sqrtf(z);
-        r = p / q;
-        w = r * s - pio2_lo;
-        return pi - 2.0f * (s + w);
-    } else {
-        s32 idf;
-        z = (one - x) * 0.5f;
-        s = __ieee754_sqrtf(z);
-        df = s;
-        GET_FLOAT_WORD_2F8(idf, df);
-        SET_FLOAT_WORD_2F8(df, idf & 0xfffff000);
-        c = (z - df * df) / (s + df);
-        p = z * (pS0 + z * (pS1 + z * (pS2 + z * (pS3 + z * (pS4 + z * pS5)))));
-        q = one + z * (qS1 + z * (qS2 + z * (qS3 + z * qS4)));
-        r = p / q;
-        w = r * s + c;
-        return 2.0f * (df + w);
-    }
-}
+f32 acosf_2f8e58(f32 x);  // 0x002f8e58: definition moved into src/newlib/libm/ef_acos.c
 
 // ---- 0029ba88
 extern void* D_0035f200;
@@ -2819,144 +2754,7 @@ extern const s32 D_003776e0[];
 extern const f32 D_003776f0[];
 static const f32 zero_krp = 0.0f, one_krp = 1.0f, two8 = 2.5600000000e+02f, twon8 = 3.9062500000e-03f;
 // fdlibm/newlib __kernel_rem_pio2f (scalbnf is scalbnf, floorf is floorf).
-s32 __kernel_rem_pio2f(f32 *x, f32 *y, s32 e0, s32 nx, s32 prec, const s32 *ipio2)
-{
-    s32 jz, jx, jv, jp, jk, carry, n, iq[20], i, j, k, m, q0, ih;
-    f32 z, fw, f[20], fq[20], q[20];
-
-    jk = D_003776e0[prec];
-    jp = jk;
-
-    jx = nx - 1;
-    jv = (e0 - 3) / 8; if (jv < 0) jv = 0;
-    q0 = e0 - 8 * (jv + 1);
-
-    j = jv - jx; m = jx + jk;
-    for (i = 0; i <= m; i++, j++) f[i] = (j < 0) ? zero_krp : (f32)ipio2[j];
-
-    for (i = 0; i <= jk; i++) {
-        for (j = 0, fw = 0.0f; j <= jx; j++) fw += x[j] * f[jx + i - j]; q[i] = fw;
-    }
-
-    jz = jk;
-recompute:
-    for (i = 0, j = jz, z = q[jz]; j > 0; i++, j--) {
-        fw    = (f32)((s32)(twon8 * z));
-        iq[i] = (s32)(z - two8 * fw);
-        z     = q[j - 1] + fw;
-    }
-
-    z  = scalbnf(z, (s32)q0);  // float_round_abs
-    z -= (f32)8.0 * floorf(z * (f32)0.125);
-    n  = (s32)z;
-    z -= (f32)n;
-    ih = 0;
-    if (q0 > 0) {
-        i  = (iq[jz - 1] >> (8 - q0)); n += i;
-        iq[jz - 1] -= i << (8 - q0);
-        ih = iq[jz - 1] >> (7 - q0);
-    }
-    else if (q0 == 0) ih = iq[jz - 1] >> 8;
-    else if (z >= (f32)0.5) ih = 2;
-
-    if (ih > 0) {
-        n += 1; carry = 0;
-        for (i = 0; i < jz; i++) {
-            j = iq[i];
-            if (carry == 0) {
-                if (j != 0) {
-                    carry = 1; iq[i] = 0x100 - j;
-                }
-            } else iq[i] = 0xff - j;
-        }
-        if (q0 > 0) {
-            switch (q0) {
-            case 1:
-                iq[jz - 1] &= 0x7f; break;
-            case 2:
-                iq[jz - 1] &= 0x3f; break;
-            }
-        }
-        if (ih == 2) {
-            z = one_krp - z;
-            if (carry != 0) z -= scalbnf(one_krp, (s32)q0);  // float_round_abs
-        }
-    }
-
-    if (z == zero_krp) {
-        j = 0;
-        for (i = jz - 1; i >= jk; i--) j |= iq[i];
-        if (j == 0) {
-            for (k = 1; iq[jk - k] == 0; k++);
-
-            for (i = jz + 1; i <= jz + k; i++) {
-                f[jx + i] = (f32)ipio2[jv + i];
-                for (j = 0, fw = 0.0f; j <= jx; j++) fw += x[j] * f[jx + i - j];
-                q[i] = fw;
-            }
-            jz += k;
-            goto recompute;
-        }
-    }
-
-    if (z == (f32)0.0) {
-        jz -= 1; q0 -= 8;
-        while (iq[jz] == 0) { jz--; q0 -= 8; }
-    } else {
-        z = scalbnf(z, -(s32)q0);  // float_round_abs
-        if (z >= two8) {
-            fw = (f32)((s32)(twon8 * z));
-            iq[jz] = (s32)(z - two8 * fw);
-            jz += 1; q0 += 8;
-            iq[jz] = (s32)fw;
-        } else iq[jz] = (s32)z;
-    }
-
-    fw = scalbnf(one_krp, (s32)q0);  // float_round_abs
-    for (i = jz; i >= 0; i--) {
-        q[i] = fw * (f32)iq[i]; fw *= twon8;
-    }
-
-    for (i = jz; i >= 0; i--) {
-        for (fw = 0.0f, k = 0; k <= jp && k <= jz - i; k++) fw += D_003776f0[k] * q[i + k];
-        fq[jz - i] = fw;
-    }
-
-    switch (prec) {
-    case 0:
-        fw = 0.0f;
-        for (i = jz; i >= 0; i--) fw += fq[i];
-        y[0] = (ih == 0) ? fw : -fw;
-        break;
-    case 1:
-    case 2:
-        fw = 0.0f;
-        for (i = jz; i >= 0; i--) fw += fq[i];
-        y[0] = (ih == 0) ? fw : -fw;
-        fw = fq[0] - fw;
-        for (i = 1; i <= jz; i++) fw += fq[i];
-        y[1] = (ih == 0) ? fw : -fw;
-        break;
-    case 3:
-        for (i = jz; i > 0; i--) {
-            fw      = fq[i - 1] + fq[i];
-            fq[i]  += fq[i - 1] - fw;
-            fq[i - 1] = fw;
-        }
-        for (i = jz; i > 1; i--) {
-            fw      = fq[i - 1] + fq[i];
-            fq[i]  += fq[i - 1] - fw;
-            fq[i - 1] = fw;
-        }
-        for (fw = 0.0f, i = jz; i >= 2; i--) fw += fq[i];
-        if (ih == 0) {
-            y[0] =  fq[0]; y[1] =  fq[1]; y[2] =  fw;
-        } else {
-            y[0] = -fq[0]; y[1] = -fq[1]; y[2] = -fw;
-        }
-    }
-    return n & 7;
-}
+s32 __kernel_rem_pio2f(f32 *x, f32 *y, s32 e0, s32 nx, s32 prec, const s32 *ipio2);  // 0x002fac40: definition moved into src/newlib/libm/kf_rem_pio2.c
 
 // ---- 002f9e78
 f32 __ieee754_sqrtf(f32 x);
@@ -3002,156 +2800,7 @@ ivln2_l_pw  =  7.0526075433e-06;
 
 // fdlibm/newlib __ieee754_powf, EE build (_FLT_NO_DENORMALS, _FLT_LARGEST_EXPONENT_IS_NORMAL).
 f32 powf_2f9e78(f32 x, f32 y) asm("_Z14__ieee754_powfPv");
-f32 powf_2f9e78(f32 x, f32 y)
-{
-    f32 z, ax, z_h, z_l, p_h, p_l;
-    f32 y1, t1, t2, r, s, t, u, v, w;
-    s32 i, j, k, yisint, n;
-    s32 hx, hy, ix, iy, is;
-
-    GET_FLOAT_WORD_PW(hx, x);
-    GET_FLOAT_WORD_PW(hy, y);
-    ix = hx & 0x7fffffff;  iy = hy & 0x7fffffff;
-
-    if (iy < 0x00800000) return one_pw;
-
-    yisint = 0;
-    if (hx < 0) {
-        if (iy >= 0x4b800000) yisint = 2;
-        else if (iy >= 0x3f800000) {
-            k = (iy >> 23) - 0x7f;
-            j = iy >> (23 - k);
-            if ((j << (23 - k)) == iy) yisint = 2 - (j & 1);
-        }
-    }
-
-    if (iy == 0x3f800000) {
-        if (hy < 0) return one_pw / x; else return x;
-    }
-    if (hy == 0x40000000) return x * x;
-    if (hy == 0x3f000000) {
-        if (hx >= 0)
-            return __ieee754_sqrtf(x);
-    }
-
-    ax = fabsf(x);  // fabsf
-    if (ix < 0x00800000 || ix == 0x3f800000) {
-        z = ax;
-        if (hy < 0) z = one_pw / z;
-        if (hx < 0) {
-            if (((ix - 0x3f800000) | yisint) == 0) {
-                z = (z - z) / (z - z);
-            } else if (yisint == 1)
-                z = -z;
-        }
-        return z;
-    }
-
-    if (((((u32)hx >> 31) - 1) | yisint) == 0) return (x - x) / (x - x);
-
-    if (iy > 0x4d000000) {
-        if (ix < 0x3f7ffff8) return (hy < 0) ? huge_pw * huge_pw : tiny_pw * tiny_pw;
-        if (ix > 0x3f800007) return (hy > 0) ? huge_pw * huge_pw : tiny_pw * tiny_pw;
-        t = x - 1;
-        w = (t * t) * ((f32)0.5 - t * ((f32)0.333333333333 - t * (f32)0.25));
-        u = ivln2_h_pw * t;
-        v = t * ivln2_l_pw - w * ivln2_pw;
-        t1 = u + v;
-        GET_FLOAT_WORD_PW(is, t1);
-        SET_FLOAT_WORD_PW(t1, is & 0xfffff000);
-        t2 = v - (t1 - u);
-    } else {
-        f32 s2, s_h, s_l, t_h, t_l;
-        n = 0;
-        n  += ((ix) >> 23) - 0x7f;
-        j  = ix & 0x007fffff;
-        ix = j | 0x3f800000;
-        if (j <= 0x1cc471) k = 0;
-        else if (j < 0x5db3d7) k = 1;
-        else { k = 0; n += 1; ix -= 0x00800000; }
-        SET_FLOAT_WORD_PW(ax, ix);
-
-        u = ax - bp[k];
-        v = one_pw / (ax + bp[k]);
-        s = u * v;
-        s_h = s;
-        GET_FLOAT_WORD_PW(is, s_h);
-        SET_FLOAT_WORD_PW(s_h, is & 0xfffff000);
-        SET_FLOAT_WORD_PW(t_h, ((ix >> 1) | 0x20000000) + 0x0040000 + (k << 21));
-        t_l = ax - (t_h - bp[k]);
-        s_l = v * ((u - s_h * t_h) - s_h * t_l);
-        s2 = s * s;
-        r = s2 * s2 * (L1_pw + s2 * (L2_pw + s2 * (L3_pw + s2 * (L4_pw + s2 * (L5_pw + s2 * L6_pw)))));
-        r += s_l * (s_h + s);
-        s2  = s_h * s_h;
-        t_h = (f32)3.0 + s2 + r;
-        GET_FLOAT_WORD_PW(is, t_h);
-        SET_FLOAT_WORD_PW(t_h, is & 0xfffff000);
-        t_l = r - ((t_h - (f32)3.0) - s2);
-        u = s_h * t_h;
-        v = s_l * t_h + t_l * s;
-        p_h = u + v;
-        GET_FLOAT_WORD_PW(is, p_h);
-        SET_FLOAT_WORD_PW(p_h, is & 0xfffff000);
-        p_l = v - (p_h - u);
-        z_h = cp_h_pw * p_h;
-        z_l = cp_l_pw * p_h + p_l * cp_pw + dp_l[k];
-        t = (f32)n;
-        t1 = (((z_h + z_l) + dp_h[k]) + t);
-        GET_FLOAT_WORD_PW(is, t1);
-        SET_FLOAT_WORD_PW(t1, is & 0xfffff000);
-        t2 = z_l - (((t1 - t) - dp_h[k]) - z_h);
-    }
-
-    s = one_pw;
-    if (((((u32)hx >> 31) - 1) | (yisint - 1)) == 0)
-        s = -one_pw;
-
-    GET_FLOAT_WORD_PW(is, y);
-    SET_FLOAT_WORD_PW(y1, is & 0xfffff000);
-    p_l = (y - y1) * t1 + y * t2;
-    p_h = y1 * t1;
-    z = p_l + p_h;
-    GET_FLOAT_WORD_PW(j, z);
-    i = j & 0x7fffffff;
-    if (j > 0) {
-        if (i > 0x43010000)
-            return s * huge_pw * huge_pw;
-        else if (i == 0x43010000)
-            if (p_l + ovt_pw > z - p_h) return s * huge_pw * huge_pw;
-    } else {
-        if (i > 0x42fc0000)
-            return s * tiny_pw * tiny_pw;
-        else if (i == 0x42fc0000)
-            if (p_l <= z - p_h) return s * tiny_pw * tiny_pw;
-    }
-    k = (i >> 23) - 0x7f;
-    n = 0;
-    if (i > 0x3f000000) {
-        n = j + (0x00800000 >> (k + 1));
-        k = ((n & 0x7fffffff) >> 23) - 0x7f;
-        SET_FLOAT_WORD_PW(t, n & ~(0x007fffff >> k));
-        n = ((n & 0x007fffff) | 0x00800000) >> (23 - k);
-        if (j < 0) n = -n;
-        p_h -= t;
-    }
-    t = p_l + p_h;
-    GET_FLOAT_WORD_PW(is, t);
-    SET_FLOAT_WORD_PW(t, is & 0xfffff000);
-    u = t * lg2_h_pw;
-    v = (p_l - (t - p_h)) * lg2_pw + t * lg2_l_pw;
-    z = u + v;
-    w = v - (z - u);
-    t  = z * z;
-    t1  = z - t * (P1_pw + t * (P2_pw + t * (P3_pw + t * (P4_pw + t * P5_pw))));
-    r  = (z * t1) / (t1 - two_pw) - (w + z * w);
-    z  = one_pw - (r - z);
-    GET_FLOAT_WORD_PW(j, z);
-    j += (n << 23);
-    if ((j >> 23) <= 0) z = scalbnf(z, (s32)n);  // float_round_abs
-    else SET_FLOAT_WORD_PW(z, j);
-    return s * z;
-}
+f32 powf_2f9e78(f32 x, f32 y);  // 0x002f9e78: definition moved into src/newlib/libm/ef_pow.c
 #undef bp
 #undef dp_h
 #undef dp_l
@@ -3247,49 +2896,7 @@ static const f32 zero_lg = 0.0;
 
 // fdlibm/newlib __ieee754_logf, EE build (_FLT_NO_DENORMALS, _FLT_LARGEST_EXPONENT_IS_NORMAL).
 f32 logf_2f9bc0(f32 x) asm("_Z14__ieee754_logfjjjj");
-f32 logf_2f9bc0(f32 x)
-{
-    f32 hfsq, f, s, z, R, w, t1, t2, dk;
-    s32 k, ix, i, j;
-
-    GET_FLOAT_WORD_LG(ix, x);
-
-    k = 0;
-    if ((ix & 0x7fffffff) < 0x00800000)
-        return -two25_lg / zero_lg;
-    if (ix < 0) return (x - x) / zero_lg;
-    k += (ix >> 23) - 127;
-    ix &= 0x007fffff;
-    i = (ix + (0x95f64 << 3)) & 0x800000;
-    SET_FLOAT_WORD_LG(x, ix | (i ^ 0x3f800000));
-    k += (i >> 23);
-    f = x - (f32)1.0;
-    if ((0x007fffff & (15 + ix)) < 16) {
-        if (f == zero_lg) { if (k == 0) return zero_lg; else { dk = (f32)k;
-                             return dk * ln2_hi_lg + dk * ln2_lo_lg; } }
-        R = f * f * ((f32)0.5 - (f32)0.33333333333333333 * f);
-        if (k == 0) return f - R; else { dk = (f32)k;
-                 return dk * ln2_hi_lg - ((R - dk * ln2_lo_lg) - f); }
-    }
-    s = f / ((f32)2.0 + f);
-    dk = (f32)k;
-    z = s * s;
-    i = ix - (0x6147a << 3);
-    w = z * z;
-    j = (0x6b851 << 3) - ix;
-    t1 = w * (Lg2_lg + w * (Lg4_lg + w * Lg6_lg));
-    t2 = z * (Lg1_lg + w * (Lg3_lg + w * (Lg5_lg + w * Lg7_lg)));
-    i |= j;
-    R = t2 + t1;
-    if (i > 0) {
-        hfsq = (f32)0.5 * f * f;
-        if (k == 0) return f - (hfsq - s * (hfsq + R)); else
-                 return dk * ln2_hi_lg - ((hfsq - (s * (hfsq + R) + dk * ln2_lo_lg)) - f);
-    } else {
-        if (k == 0) return f - s * (f - R); else
-                 return dk * ln2_hi_lg - ((s * (f - R) - dk * ln2_lo_lg) - f);
-    }
-}
+f32 logf_2f9bc0(f32 x);  // 0x002f9bc0: definition moved into src/newlib/libm/ef_log.c
 
 // ---- 001620a8
 void func_00107888(void);
@@ -3390,53 +2997,7 @@ ln2LO0_ex = 9.0580006145e-06;
 
 // fdlibm/newlib __ieee754_expf, EE build (_FLT_NO_DENORMALS, _FLT_LARGEST_EXPONENT_IS_NORMAL).
 f32 expf_2f97c8(f32 x) asm("_Z14__ieee754_expfjjjj");
-f32 expf_2f97c8(f32 x)
-{
-    f32 y, hi, lo, c, t;
-    s32 k, xsb, sx;
-    u32 hx;
-
-    GET_FLOAT_WORD_EX(sx, x);
-    xsb = (sx >> 31) & 1;
-    hx = sx & 0x7fffffff;
-
-    if (sx > 0x42b2d4fc)
-        return huge_ex * huge_ex;
-    if (sx < 0 && hx > 0x42aeac50)
-        return twom100_ex * twom100_ex;
-
-    if (hx > 0x3eb17218) {
-        if (hx < 0x3F851592) {
-            hi = x - ln2HI_ex[xsb]; lo = ln2LO_ex[xsb]; k = 1 - xsb - xsb;
-        } else {
-            k = (s32)(invln2_ex * x + halF_ex[xsb]);
-            t = k;
-            hi = x - t * ln2HI0_ex;
-            lo = t * ln2LO0_ex;
-        }
-        x = hi - lo;
-    }
-    else if (hx < 0x31800000) {
-        if (huge_ex + x > one_ex) return one_ex + x;
-    }
-    else k = 0;
-
-    t = x * x;
-    c = x - t * (P1_ex + t * (P2_ex + t * (P3_ex + t * (P4_ex + t * P5_ex))));
-    if (k == 0) return one_ex - ((x * c) / (c - (f32)2.0) - x);
-    else y = one_ex - ((lo - (x * c) / ((f32)2.0 - c)) - hi);
-    if (k >= -125) {
-        u32 hy;
-        GET_FLOAT_WORD_EX(hy, y);
-        SET_FLOAT_WORD_EX(y, hy + (k << 23));
-        return y;
-    } else {
-        u32 hy;
-        GET_FLOAT_WORD_EX(hy, y);
-        SET_FLOAT_WORD_EX(y, hy + ((k + 100) << 23));
-        return y * twom100_ex;
-    }
-}
+f32 expf_2f97c8(f32 x);  // 0x002f97c8: definition moved into src/newlib/libm/ef_exp.c
 #undef halF_ex
 #undef ln2HI_ex
 #undef ln2LO_ex
@@ -3467,51 +3028,7 @@ T_tn[] = {
 };
 
 // fdlibm/newlib __kernel_tanf (fabsf is fabsf).
-f32 __kernel_tanf(f32 x, f32 y, s32 iy)
-{
-    f32 z, r, v, w, s;
-    s32 ix, hx;
-    GET_FLOAT_WORD_TN(hx, x);
-    ix = hx & 0x7fffffff;
-    if (ix < 0x31800000)
-        {if ((int)x == 0) {
-            if ((ix | (iy + 1)) == 0) return one_tn / fabsf(x);  // fabsf
-            else return (iy == 1) ? x : -one_tn / x;
-        }
-        }
-    if (ix >= 0x3f2ca140) {
-        if (hx < 0) {x = -x; y = -y;}
-        z = pio4_tn - x;
-        w = pio4lo_tn - y;
-        x = z + w; y = 0.0;
-    }
-    z = x * x;
-    w = z * z;
-    r = T_tn[1] + w * (T_tn[3] + w * (T_tn[5] + w * (T_tn[7] + w * (T_tn[9] + w * T_tn[11]))));
-    v = z * (T_tn[2] + w * (T_tn[4] + w * (T_tn[6] + w * (T_tn[8] + w * (T_tn[10] + w * T_tn[12])))));
-    s = z * x;
-    r = y + z * (s * (r + v) + y);
-    r += T_tn[0] * s;
-    w = x + r;
-    if (ix >= 0x3f2ca140) {
-        v = (f32)iy;
-        return (f32)(1 - ((hx >> 30) & 2)) * (v - (f32)2.0 * (x - (w * w / (w + v) - r)));
-    }
-    if (iy == 1) return w;
-    else {
-        f32 a, t;
-        s32 i;
-        z = w;
-        GET_FLOAT_WORD_TN(i, z);
-        SET_FLOAT_WORD_TN(z, i & 0xfffff000);
-        v = r - (z - x);
-        t = a = -(f32)1.0 / w;
-        GET_FLOAT_WORD_TN(i, t);
-        SET_FLOAT_WORD_TN(t, i & 0xfffff000);
-        s = (f32)1.0 + t * z;
-        return t + a * (s + t * v);
-    }
-}
+f32 __kernel_tanf(f32 x, f32 y, s32 iy);  // 0x002fb558: definition moved into src/newlib/libm/kf_tan.c
 
 // ---- 001219b8
 void func_001217a0(u8*, u32, u32, u32, u32);
@@ -3550,46 +3067,7 @@ static const f32 aT_at[] = {
 static const f32 one_at = 1.0, huge_at = 1.0e30;
 
 // fdlibm/newlib atanf (fabsf is fabsf), EE build.
-f32 atanf(f32 x)
-{
-    f32 w, s1, s2, z;
-    s32 ix, hx, id;
-
-    GET_FLOAT_WORD_AT(hx, x);
-    ix = hx & 0x7fffffff;
-    if (ix >= 0x50800000) {
-        if (hx > 0) return atanhi3_at + atanlo3_at;
-        else return -atanhi3_at - atanlo3_at;
-    } if (ix < 0x3ee00000) {
-        if (ix < 0x31000000) {
-            if (huge_at + x > one_at) return x;
-        }
-        id = -1;
-    } else {
-    x = fabsf(x);  // fabsf
-    if (ix < 0x3f980000) {
-        if (ix < 0x3f300000) {
-            id = 0; x = ((f32)2.0 * x - one_at) / ((f32)2.0 + x);
-        } else {
-            id = 1; x = (x - one_at) / (x + one_at);
-        }
-    } else {
-        if (ix < 0x401c0000) {
-            id = 2; x = (x - (f32)1.5) / (one_at + (f32)1.5 * x);
-        } else {
-            id = 3; x = -(f32)1.0 / x;
-        }
-    }}
-    z = x * x;
-    w = z * z;
-    s1 = z * (aT_at[0] + w * (aT_at[2] + w * (aT_at[4] + w * (aT_at[6] + w * (aT_at[8] + w * aT_at[10])))));
-    s2 = w * (aT_at[1] + w * (aT_at[3] + w * (aT_at[5] + w * (aT_at[7] + w * aT_at[9]))));
-    if (id < 0) return x - x * (s1 + s2);
-    else {
-        z = atanhi_at[id] - ((x * (s1 + s2) - atanlo_at[id]) - x);
-        return (hx < 0) ? -z : z;
-    }
-}
+f32 atanf(f32 x);  // 0x002f8420: definition moved into src/newlib/libm/sf_atan.c
 #undef atanhi_at
 #undef atanlo_at
 
@@ -3937,19 +3415,7 @@ void func_002c0370(u8* p, u32 a1, UA_002c0370* a2);  // 0x002c0370: definition m
 f32 copysignf(f32, f32);
 union FW_002fb850 { f32 f; s32 i; };
 static const f32 huge_002fb850 = 1.0e+30, tiny_002fb850 = 1.0e-30;
-f32 scalbnf(f32 x, s32 n) {  // float_round_abs
-    s32 k, ix;
-    u32 hx;
-    FW_002fb850 u; u.f = x; ix = u.i;
-    hx = ix & 0x7fffffff;
-    k = hx >> 23;
-    if (hx < 0x00800000) return x;
-    k = k + n;
-    if (k > 255) return huge_002fb850 * copysignf(huge_002fb850, x);
-    if (k > 0) { FW_002fb850 v; v.i = (ix & 0x807fffff) | (k << 23); return v.f; }
-    if (n > 50000) return huge_002fb850 * copysignf(huge_002fb850, x);
-    return tiny_002fb850 * copysignf(tiny_002fb850, x);
-}
+f32 scalbnf(f32 x, s32 n);  // 0x002fb850: definition moved into src/newlib/libm/sf_scalbn.c
 
 // ---- 001091c8
 struct AlVt_001091c8 { void* (*alloc)(void*, u32, void*); };
@@ -4034,20 +3500,7 @@ f32 func_002fb460(f32, f32, s32);  // float_to_int
 f32 __kernel_cosf(f32, f32);  // float_to_int_b
 s32 __ieee754_rem_pio2f(f32, f32*);
 union FWs_2f8960 { f32 f; s32 i; };
-f32 sinf(f32 x) {
-    f32 y[2], z = 0.0;
-    s32 n, ix;
-    FWs_2f8960 u; u.f = x; ix = u.i;
-    ix &= 0x7fffffff;
-    if (ix <= 0x3f490fd8) return func_002fb460(x, z, 0);  // float_to_int
-    n = __ieee754_rem_pio2f(x, y);
-    switch (n & 3) {
-    case 0: return func_002fb460(y[0], y[1], 1);  // float_to_int
-    case 1: return __kernel_cosf(y[0], y[1]);  // float_to_int_b
-    case 2: return -func_002fb460(y[0], y[1], 1);  // float_to_int
-    default: return -__kernel_cosf(y[0], y[1]);  // float_to_int_b
-    }
-}
+f32 sinf(f32 x);  // 0x002f8960: definition moved into src/newlib/libm/sf_sin.c
 
 // ---- 001b4c48
 u8* func_00168b88_4c48(u32, u32, s32, u32) asm("func_00168b88");
@@ -7163,89 +6616,7 @@ static const f32 zero_rp = 0.0f, half_rp = 5.0000000000e-01f, two8_rp = 2.560000
     pio2_1_rp = 1.5707855225e+00f, pio2_1t_rp = 1.0804333214764483e-05f,
     pio2_2_rp = 1.0804272278619464e-05f, pio2_2t_rp = 6.0770999344e-11f,
     pio2_3_rp = 6.0770943833e-11f, pio2_3t_rp = 6.123233601181349e-17f;
-s32 __ieee754_rem_pio2f(f32 x, f32 *y)
-{
-    f32 z, w, t, r, fn;
-    f32 tx[3];
-    s32 i, j, n, ix, hx;
-    s32 e0, nx;
-
-    GET_FLOAT_WORD_RP(hx, x);
-    ix = hx & 0x7fffffff;
-    if (ix <= 0x3f490fd8) { y[0] = x; y[1] = 0; return 0; }
-    if (ix < 0x4016cbe4) {
-        if (hx > 0) {
-            z = x - pio2_1_rp;
-            if ((ix & 0xfffffff0) != 0x3fc90fd0) {
-                y[0] = z - pio2_1t_rp;
-                y[1] = (z - y[0]) - pio2_1t_rp;
-            } else {
-                z -= pio2_2_rp;
-                y[0] = z - pio2_2t_rp;
-                y[1] = (z - y[0]) - pio2_2t_rp;
-            }
-            return 1;
-        } else {
-            z = x + pio2_1_rp;
-            if ((ix & 0xfffffff0) != 0x3fc90fd0) {
-                y[0] = z + pio2_1t_rp;
-                y[1] = (z - y[0]) + pio2_1t_rp;
-            } else {
-                z += pio2_2_rp;
-                y[0] = z + pio2_2t_rp;
-                y[1] = (z - y[0]) + pio2_2t_rp;
-            }
-            return -1;
-        }
-    }
-    if (ix <= 0x43490f80) {
-        t = fabsf(x);
-        n = (s32)(t * invpio2_rp + half_rp);
-        fn = (f32)n;
-        r = t - fn * pio2_1_rp;
-        w = fn * pio2_1t_rp;
-        if (n < 32 && (ix & 0xffffff00) != D_003775c8[n - 1]) {
-            y[0] = r - w;
-        } else {
-            u32 high;
-            j = ix >> 23;
-            y[0] = r - w;
-            GET_FLOAT_WORD_RP(high, y[0]);
-            i = j - ((high >> 23) & 0xff);
-            if (i > 8) {
-                t = r;
-                w = fn * pio2_2_rp;
-                r = t - w;
-                w = fn * pio2_2t_rp - ((t - r) - w);
-                y[0] = r - w;
-                GET_FLOAT_WORD_RP(high, y[0]);
-                i = j - ((high >> 23) & 0xff);
-                if (i > 25) {
-                    t = r;
-                    w = fn * pio2_3_rp;
-                    r = t - w;
-                    w = fn * pio2_3t_rp - ((t - r) - w);
-                    y[0] = r - w;
-                }
-            }
-        }
-        y[1] = (r - y[0]) - w;
-        if (hx < 0) { y[0] = -y[0]; y[1] = -y[1]; return -n; }
-        else return n;
-    }
-    e0 = (s32)((ix >> 23) - 134);
-    SET_FLOAT_WORD_RP(z, ix - ((s32)(e0 << 23)));
-    for (i = 0; i < 2; i++) {
-        tx[i] = (f32)((s32)(z));
-        z = (z - tx[i]) * two8_rp;
-    }
-    tx[2] = z;
-    nx = 3;
-    while (tx[nx - 1] == zero_rp) nx--;
-    n = __kernel_rem_pio2f(tx, y, e0, nx, 2, D_003772b0);
-    if (hx < 0) { y[0] = -y[0]; y[1] = -y[1]; return -n; }
-    return n;
-}
+s32 __ieee754_rem_pio2f(f32 x, f32 *y);  // 0x002fa678: definition moved into src/newlib/libm/ef_rem_pio2.c
 
 // --------------------
 // Sort the item list by kind, then by id within each kind; build per-kind groups and page counts.

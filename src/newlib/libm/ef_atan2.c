@@ -1,25 +1,12 @@
-/* Third-party code notice: this file contains a function rebuilt from newlib's libm
- * (libm/math/ef_atan2.c, fdlibm), which the game links from the toolchain's libm.a.
+/* ef_atan2.c: newlib libm (libm/math/ef_atan2.c, fdlibm), the copy the game links from the toolchain's libm.a.
+ * Linked unit 0x2f9600-0x2f97c8, .rodata at 0x377098. Built with ee-gcc 3.2 -O2 -G0 -fno-builtin (see fdlibm.h).
+ * Third-party code notice: rebuilt to match; it is not covered by this project's MIT License.
  * Copyright (C) 1993 by Sun Microsystems, Inc. All rights reserved.
  * Developed at SunPro, a Sun Microsystems, Inc. business.
  * Permission to use, copy, modify, and distribute this software is freely granted,
- * provided that this notice is preserved. It is not covered by this project's MIT License. */
-
-/* 002f9600 is __ieee754_atan2f (newlib ef_atan2.c, R5900 build: no infinities/NaNs/denormals),
- * byte-identical to ef_atan2.o in the toolchain's libm.a. */
-typedef int __int32_t;
-typedef unsigned int __uint32_t;
-typedef union { float value; __uint32_t word; } ieee_float_shape_type;
-#define GET_FLOAT_WORD(i,d) do { ieee_float_shape_type gf_u; gf_u.value = (d); (i) = gf_u.word; } while (0)
-#define SET_FLOAT_WORD(d,i) do { ieee_float_shape_type sf_u; sf_u.word = (i); (d) = sf_u.value; } while (0)
-#define FLT_UWORD_IS_NAN(x) 0
-#define FLT_UWORD_IS_INFINITE(x) 0
-#define FLT_UWORD_IS_ZERO(x) ((x)<0x00800000L)
-
-/* __ieee754_atan2f; the game symbol is a C++-style placeholder name, bound with an asm label. */
-float __ieee754_atan2f(float y, float x) __asm__("_Z16__ieee754_atan2fjjjj");
-float atanf(float) __asm__("atanf");
-float fabsf(float) __asm__("fabsf");
+ * provided that this notice is preserved.
+ */
+#include "fdlibm.h"
 
 static const float
 tiny  = 1.0e-30,
@@ -95,3 +82,4 @@ float __ieee754_atan2f(float y, float x)
 	    	    return  (z-pi_lo)-pi;/* atan(-,-) */
 	}
 }
+

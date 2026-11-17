@@ -1,23 +1,14 @@
-/* Third-party code notice: this file contains a function rebuilt from newlib's libm
- * (libm/math/ef_sqrt.c, fdlibm), which the game links from the toolchain's libm.a.
+/* ef_sqrt.c: newlib libm (libm/math/ef_sqrt.c, fdlibm), the copy the game links from the toolchain's libm.a.
+ * Linked unit 0x2faa10-0x2faaf0, .rodata at 0x377698. Built with ee-gcc 3.2 -O2 -G0 -fno-builtin (see fdlibm.h).
+ * Third-party code notice: rebuilt to match; it is not covered by this project's MIT License.
  * Copyright (C) 1993 by Sun Microsystems, Inc. All rights reserved.
  * Developed at SunPro, a Sun Microsystems, Inc. business.
  * Permission to use, copy, modify, and distribute this software is freely granted,
- * provided that this notice is preserved. It is not covered by this project's MIT License. */
+ * provided that this notice is preserved.
+ */
+#include "fdlibm.h"
 
-/* 002faa10 is __ieee754_sqrtf (newlib ef_sqrt.c), byte-identical to ef_sqrt.o in the
- * toolchain's libm.a (/opt/ps2/gcc/ee/lib/libm.a). newlib's PS2 configuration has no
- * denormals and no Inf/NaN, so FLT_UWORD_IS_FINITE is 1 and FLT_UWORD_IS_SUBNORMAL is 0. */
-typedef int __int32_t;
-typedef unsigned int __uint32_t;
-typedef union { float value; __uint32_t word; } ieee_float_shape_type;
-#define GET_FLOAT_WORD(i,d) do { ieee_float_shape_type gf_u; gf_u.value = (d); (i) = gf_u.word; } while (0)
-#define SET_FLOAT_WORD(d,i) do { ieee_float_shape_type sf_u; sf_u.word = (i); (d) = sf_u.value; } while (0)
-#define FLT_UWORD_IS_FINITE(x) 1
-#define FLT_UWORD_IS_ZERO(x) ((x)<0x00800000L)
-#define FLT_UWORD_IS_SUBNORMAL(x) 0
 static	const float	one	= 1.0, tiny=1.0e-30;
-
 float __ieee754_sqrtf(float x)
 {
 	float z;
@@ -80,3 +71,4 @@ float __ieee754_sqrtf(float x)
 	SET_FLOAT_WORD(z,ix);
 	return z;
 }
+

@@ -1,23 +1,12 @@
-/* Third-party code notice: this file contains a function rebuilt from newlib's libm
- * (libm/math/ef_asin.c, fdlibm), which the game links from the toolchain's libm.a.
+/* ef_asin.c: newlib libm (libm/math/ef_asin.c, fdlibm), the copy the game links from the toolchain's libm.a.
+ * Linked unit 0x2f9268-0x2f9600, .rodata at 0x37701c. Built with ee-gcc 3.2 -O2 -G0 -fno-builtin (see fdlibm.h).
+ * Third-party code notice: rebuilt to match; it is not covered by this project's MIT License.
  * Copyright (C) 1993 by Sun Microsystems, Inc. All rights reserved.
  * Developed at SunPro, a Sun Microsystems, Inc. business.
  * Permission to use, copy, modify, and distribute this software is freely granted,
- * provided that this notice is preserved. It is not covered by this project's MIT License. */
-
-/* 002f9268 is __ieee754_asinf (newlib ef_asin.c), byte-identical to ef_asin.o in the
- * toolchain's libm.a. Callees: fabsf (0x2f8870) and __ieee754_sqrtf (0x2faa10). */
-typedef int __int32_t;
-typedef unsigned int __uint32_t;
-typedef union { float value; __uint32_t word; } ieee_float_shape_type;
-#define GET_FLOAT_WORD(i,d) do { ieee_float_shape_type gf_u; gf_u.value = (d); (i) = gf_u.word; } while (0)
-#define SET_FLOAT_WORD(d,i) do { ieee_float_shape_type sf_u; sf_u.word = (i); (d) = sf_u.value; } while (0)
-
-float fabsf(float) asm("fabsf");
-float __ieee754_sqrtf(float) asm("_Z15__ieee754_sqrtff");
-
-/* __ieee754_asinf; the game symbol is a C++-style placeholder name, bound with an asm label. */
-float __ieee754_asinf(float x) asm("_Z15__ieee754_asinfPv");
+ * provided that this notice is preserved.
+ */
+#include "fdlibm.h"
 
 static const float
 one = 1.000000000e+00f,
@@ -78,3 +67,4 @@ float __ieee754_asinf(float x)
 	}
 	if(hx>0) return t; else return -t;
 }
+

@@ -1,20 +1,20 @@
-/* Third-party code notice: this file contains functions rebuilt to match the fdlibm / newlib
- * math library (s_atan.c) that the game links, compiled with GCC 3.2-ee-040921 as plain C.
- * Copyright (C) 1993 by Sun Microsystems, Inc. Permission to use, copy, modify, and distribute
- * that software is freely granted, provided that this notice is preserved. It is not covered
- * by this project's MIT License. */
-#include "../common/types.h"
-/* The soft-double libcalls bind to the game's copies. */
+/* s_atan.c: newlib libm (libm/math/s_atan.c, fdlibm), the copy the game links from the toolchain's libm.a.
+ * Linked unit 0x2f8010-0x2f83f0, .rodata at 0x376dc8. Built with ee-gcc 3.2 -O2 -G0 -fno-builtin (see fdlibm.h).
+ * Third-party code notice: rebuilt to match; it is not covered by this project's MIT License.
+ * Copyright (C) 1993 by Sun Microsystems, Inc. All rights reserved.
+ * Developed at SunPro, a Sun Microsystems, Inc. business.
+ * Permission to use, copy, modify, and distribute this software is freely granted,
+ * provided that this notice is preserved.
+ */
+#include "fdlibm.h"
+
+/* Double arithmetic is soft-float: gcc calls dpadd/dpsub/dpmul/dpdiv/dpcmp, the game's libgcc copies. */
 asm("dpcmp = func_003142e0");
 asm("dpsub = __subdf3");
 asm("dpadd = func_00313e80");
 asm("dpmul = func_00313f40");
 asm("dpdiv = func_00314190");
-typedef union { double value; struct { u32 lsw; u32 msw; } parts; } ieee_double_shape_type;
-#define GET_HIGH_WORD(i,d) do { ieee_double_shape_type gh_u; gh_u.value = (d); (i) = gh_u.parts.msw; } while (0)
-#define GET_LOW_WORD(i,d) do { ieee_double_shape_type gl_u; gl_u.value = (d); (i) = gl_u.parts.lsw; } while (0)
-double func_002f83f0(double x);
-#define fabs func_002f83f0
+
 static const double atanhi[] = {
   4.63647609000806093515e-01,
   7.85398163397448278999e-01,
@@ -41,17 +41,17 @@ static const double aT[] = {
   1.62858201153657823623e-02,
 };
 static const double one = 1.0, huge = 1.0e300;
+double fabs(double);
 
-/* atan(double) (fdlibm s_atan.c). */
 double atan(double x)
 {
 	double w,s1,s2,z;
-	s32 ix,hx,id;
+	__int32_t ix,hx,id;
 
 	GET_HIGH_WORD(hx,x);
 	ix = hx&0x7fffffff;
 	if(ix>=0x44100000) {
-	    u32 low;
+	    __uint32_t low;
 	    GET_LOW_WORD(low,x);
 	    if(ix>0x7ff00000||
 		(ix==0x7ff00000&&(low!=0)))
@@ -88,3 +88,4 @@ double atan(double x)
 	    return (hx<0)? -z:z;
 	}
 }
+

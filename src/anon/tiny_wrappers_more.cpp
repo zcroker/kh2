@@ -1134,25 +1134,15 @@ u32 func_002ee568(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002ee568: definition mo
 
 // 002f1270: moved to src/naka/libkn/trapfunctions.cpp
 
-u32 func_002f8aa0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return __ieee754_acosf(a0, a1, a2, a3);
-}
+u32 func_002f8aa0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002f8aa0: definition moved into src/newlib/libm/wf_acos.c
 
-u32 func_002f8ad0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return __ieee754_atan2f(a0, a1, a2, a3);
-}
+u32 func_002f8ad0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002f8ad0: definition moved into src/newlib/libm/wf_atan2.c
 
-u32 func_002f8ae8(u32 a0, u32 a1, u32 a2, u32 a3) {  // to_2f97c8
-    return __ieee754_expf(a0, a1, a2, a3);
-}
+u32 func_002f8ae8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002f8ae8: definition moved into src/newlib/libm/wf_exp.c
 
-u32 func_002f8b00(u32 a0, u32 a1, u32 a2, u32 a3) {  // to_2f9a38
-    return __ieee754_fmodf(a0, a1, a2, a3);
-}
+u32 func_002f8b00(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002f8b00: definition moved into src/newlib/libm/wf_fmod.c
 
-u32 func_002f8b18(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return __ieee754_logf(a0, a1, a2, a3);
-}
+u32 func_002f8b18(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002f8b18: definition moved into src/newlib/libm/wf_log.c
 
 u32 func_0031a030(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_0019fa58(((u32)(a0) + 2568u), a1, a2, a3);

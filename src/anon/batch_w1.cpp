@@ -136,10 +136,7 @@ void sceVu0ClampVector(f32* d, f32* a, f32 lo, f32 hi) {  // vec4_clamp_to_range
 }
 
 // fabsf by clearing the sign bit.
-f32 fabsf(f32 f) {  // fabsf
-    *(u32*)&f &= 0x7fffffff;
-    return f;
-}
+f32 fabsf(f32 f);  // 0x002f8870: definition moved into src/newlib/libm/sf_fabs.c
 
 void func_00366db0(u32 a0) {
     func_00076160(a0 & 0xffff);
