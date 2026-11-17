@@ -111,8 +111,7 @@ src/harata/libdk/bgse.cpp	001363a0	00136a98	.data@00347d20,.bss@003b8b20	-G0
 src/harata/libdk/bgm.cpp	00136a98	00137458	.data@00347d30	-G0
 src/anon/unit_001374c8.cpp	001374c8	00138480	.rodata@0036ac98	-G0 -fno-strict-aliasing
 src/anon/unit_00138480.cpp	00138480	001391c8	.rodata@0036aca4	-G0 -fno-strict-aliasing
-src/anon/unit_001391c8.cpp	001391c8	00139390	-	-G0
-src/anon/unit_001393c8.cpp	001393c8	0013a368	-	-G0
+src/anon/unit_001391c8.cpp	001391c8	0013a368	-	-G0
 src/anon/unit_0015cdb0.cpp	0015cdb0	0015d440	.data@0034af38,.bss@004f3760,.rodata@0036b400	-G0 -fno-strict-aliasing
 src/yasui/libys/status.cpp	00191758	00191f20	.data@0034f240,.bss@01c61958,.rodata@0036cd58	-G0
 src/anon/unit_00182780.cpp	00182780	00183088	.data@0034ed00,.bss@01c60588	-G0
