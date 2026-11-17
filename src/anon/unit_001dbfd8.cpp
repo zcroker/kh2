@@ -15,6 +15,12 @@
 #include "../harata/libdk/treasure_info.hpp"
 #include "../tozawa/help_gra.hpp"
 
+// ---- 001dbfd0 manual (gap: plain word setter)
+namespace n001dbfd0 {
+void func_001dbfd0(s32* p, s32 v) asm("func_001dbfd0");
+void func_001dbfd0(s32* p, s32 v) { *p = v; }
+}  // namespace n001dbfd0
+
 // ---- 001dbfd8 from src/anon/tiny.cpp
 namespace n001dbfd8 {
 void func_001e4f40(void*) asm("_Z13func_001e4f40Pv");
@@ -1000,4 +1006,3 @@ EFF* func_001dd240(EFF* e) {
     return e;
 }
 }  // namespace n001dd220
-

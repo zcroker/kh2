@@ -62,13 +62,5 @@ static inline __attribute__((always_inline)) void w246_h3(u8* self) {
 }
 extern "C" {
 void wt(u32 a, u32 b, u32, u32) asm("_Z16wtarget_001bc188jjjj");
-void wt(u32 a, u32 b, u32, u32) {
-    W246NoTail nt;
-    if (b == 0xffff && a == 1) func_00320528(D_01d48de8);
-    if (b == 0xffff && a == 0) {
-        w246_h1(D_01d48de8);
-        w246_h2(D_01d48de8);
-        w246_h3(D_01d48de8);
-    }
-}
+void wt(u32 a, u32 b, u32, u32);  // 0x001bc188: definition moved into src/yasui/libys/mission.cpp
 }

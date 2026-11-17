@@ -1,8 +1,8 @@
 #include "../../common/types.h"
 
 // YS::MISSION accessors (0x1bb270-0x1bc188): queries and signals on the current mission.
-// The rest of the file (the MISSION constructors, its exec/parse code before 0x1bb270, and the
-// static initialiser of the mission object) is not linked yet.
+// The rest of the file (the MISSION constructors and its exec/parse code before 0x1bb270) is not
+// linked yet. The static initialiser of the mission object and its stubs are at the end.
 
 struct C1bb2c8 { u16 type; u16 pad; union { f32 f; s32 i; } a; s32 b; s32 c; u16 n; };
 struct Info1bb { u8 pad0[4]; u16 flags; u8 pad6[7]; u8 snd; u8 pad14[6]; u32 f20; };
@@ -560,3 +560,47 @@ out:
 
 
 }  // extern "C"
+
+// ---- 0x1bc188: static initialiser of the mission object (kept as a plain function), with its
+// _GLOBAL__I_ (0x1bc268) and _GLOBAL__D_ (0x1bc288) stubs.
+namespace n001bc188 {
+typedef void (*W246Fn)(u8*);
+struct W246NoTail { ~W246NoTail() {} };
+void func_00320528(void*) asm("func_00320528");
+void func_001ddd88(void*) asm("func_001ddd88");
+static inline __attribute__((always_inline)) void w246_h1(u8* self) {
+    if (self + 608 != 0) {
+        u8* p = self + 672;
+        u8* e = self + 608;
+    l1: if (p == e) return;
+        p -= 64; (*(W246Fn*)(*(u8**)p + 24))(p);
+        goto l1;
+    }
+}
+static inline __attribute__((always_inline)) void w246_h2(u8* self) {
+    if (self + 400 != 0) {
+        u8* p = self + 556;
+        u8* e = self + 400;
+    l1: if (p == e) return;
+        p -= 52; (*(W246Fn*)(*(u8**)p + 24))(p);
+        goto l1;
+    }
+}
+static inline __attribute__((always_inline)) void w246_h3(u8* self) {
+    func_001ddd88(self + 12);
+}
+void wt(u32 a, u32 b) asm("_Z16wtarget_001bc188jjjj");
+void wt(u32 a, u32 b) {
+    W246NoTail nt;
+    if (b == 0xffff && a == 1) func_00320528(D_01d48de8);
+    if (b == 0xffff && a == 0) {
+        w246_h1(D_01d48de8);
+        w246_h2(D_01d48de8);
+        w246_h3(D_01d48de8);
+    }
+}
+void func_001bc268(void) asm("func_001bc268");
+void func_001bc268(void) { wt(1, 0xffff); }
+void func_001bc288(void) asm("func_001bc288");
+void func_001bc288(void) { wt(0, 0xffff); }
+}  // namespace n001bc188

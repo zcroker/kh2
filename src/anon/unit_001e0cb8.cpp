@@ -10,6 +10,14 @@ typedef unsigned int u128 __attribute__((mode(TI)));
 #include "../harata/libdk/treasure_info.hpp"
 #include "../tozawa/cmenu_top.hpp"
 #include "../tozawa/help_gra.hpp"
+
+// ---- 001e0c98 manual (gap: empty out-of-line ctor/dtor pair, C2 C1 D2 D1)
+namespace n001e0c98 {
+struct OBJ { OBJ(); ~OBJ(); };
+OBJ::OBJ() {}
+OBJ::~OBJ() {}
+}  // namespace n001e0c98
+
 #include <stdarg.h>
 #include "../kn/fvector.hpp"
 #include "./tiny_auto80_queue_structs.hpp"

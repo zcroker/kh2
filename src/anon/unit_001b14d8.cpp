@@ -251,3 +251,30 @@ void func_001b1c10(u8* a0, f32 a1) {
     func_001ad990_u((u32)(a0 + 8), *(f32*)(a0 + 8), 0.0f, a1);
 }
 }
+
+// ---- 0x1b1c38: static initialiser (kept as a plain function) and its _GLOBAL__I_ stub (0x1b1d00).
+namespace n001b1c38 {
+extern struct { u32 a, b; } D_01d44100 asm("D_01d44100");
+extern u8 D_01d44108[] asm("D_01d44108");
+void func_0031a830(void*) asm("_Z13func_0031a830Pv");
+void func_003200c0(void*) asm("func_003200c0");
+void wtarget_001b1c38(u32 a, u32 b) asm("_Z16wtarget_001b1c38jjjj");
+void wtarget_001b1c38(u32 a, u32 b)
+{
+    if (b == 0xffff && a == 1) {
+        D_01d44100.a = 0;
+        D_01d44100.b = 0;
+    }
+    if (b == 0xffff && a == 1) {
+        u8* p = D_01d44108;
+        for (s32 i = 15; i != -1; i--) {
+            *(f32*)(p + 12) = *(f32*)(p + 8) = 0.0f;
+            func_0031a830(p + 16);
+            p += 40;
+        }
+        func_003200c0(D_01d44108);
+    }
+}
+void func_001b1d00(void) asm("func_001b1d00");
+void func_001b1d00(void) { wtarget_001b1c38(1, 0xffff); }
+}  // namespace n001b1c38

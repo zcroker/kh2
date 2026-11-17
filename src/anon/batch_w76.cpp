@@ -146,22 +146,7 @@ extern u8 D_01d44108[];
 void func_0031a830(void*) asm("_Z13func_0031a830Pv");
 void func_003200c0(void*);
 void wtarget_001b1c38(u32 a, u32 b, u32 c, u32 d) asm("_Z16wtarget_001b1c38jjjj");
-void wtarget_001b1c38(u32 a, u32 b, u32 c, u32 d)
-{
-    if (b == 0xffff && a == 1) {
-        D_01d44100.a = 0;
-        D_01d44100.b = 0;
-    }
-    if (b == 0xffff && a == 1) {
-        u8* p = D_01d44108;
-        for (s32 i = 15; i != -1; i--) {
-            *(f32*)(p + 12) = *(f32*)(p + 8) = 0.0f;
-            func_0031a830(p + 16);
-            p += 40;
-        }
-        func_003200c0(D_01d44108);
-    }
-}
+void wtarget_001b1c38(u32 a, u32 b, u32 c, u32 d);  // 0x001b1c38: definition moved into src/anon/unit_001b14d8.cpp
 struct M44 { FV r[4]; };
 static inline FV MulMV(const M44* m, const FV* v)
 {

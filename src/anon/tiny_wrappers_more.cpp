@@ -649,9 +649,7 @@ u32 func_001b0370(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001b0370: definition mo
 
 u32 func_001b0428(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001b0428: definition moved into src/anon/unit_001ada38.cpp
 
-u32 func_001b1d00(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_001b1c38(0x00000001u, 0x0000ffffu, a2, a3);
-}
+u32 func_001b1d00(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001b1d00: definition moved into src/anon/unit_001b14d8.cpp
 
 // 001b2708: moved to src/anon/unit_001b1d20.cpp
 
@@ -671,9 +669,7 @@ u32 func_001ba0f8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001ba0f8: definition mo
 
 // 001ba7c0: _GLOBAL__I_ stub, now made by gcc in src/yasui/libys/itemeffect.cpp
 
-u32 func_001bc268(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_001bc188(0x00000001u, 0x0000ffffu, a2, a3);
-}
+u32 func_001bc268(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001bc268: definition moved into src/yasui/libys/mission.cpp
 
 u32 func_001bed30(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001bed30: definition moved into src/anon/unit_001bc568.cpp
 
