@@ -1,4 +1,4 @@
-// Linked unit 0x00114a90-0x00117588 (one namespace per old matched source; class methods in their own namespace).
+// Linked unit 0x001149a0-0x00117588 (one namespace per old matched source; class methods in their own namespace).
 #include "../common/types.h"
 #include "tiny_auto80_solver_structs.hpp"
 #include "../tozawa/cmenu_top.hpp"
@@ -15,6 +15,43 @@
 #include "../harata/libdk/treasure_info.hpp"
 #include "../tozawa/help_gra.hpp"
 #include "../naka/libkn/ability_info.hpp"
+
+// 001149a0 (gap function, not written before): mode test / follow update of a friend controller
+namespace g001149a0 {
+struct V4 { f32 x, y, z, w;
+    V4& operator=(const V4& s) { if (this != &s) asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(this), "r"(&s) : "$8", "memory"); return *this; }
+} __attribute__((aligned(16)));
+struct Obj { u8 pad[112]; f32 a, b; };
+struct In;
+struct O { void* vt; In* in; Obj* obj; u8 pad[20]; V4 v; };
+u32 func_0010f8c0(In*) asm("func_0010f8c0");
+u32 func_0010f8e0(In*) asm("func_0010f8e0");
+f32 func_0010f8a8(In*) asm("func_0010f8a8");
+u32 func_0010cc80(In*) asm("func_0010cc80");
+void func_0010f880(f32, f32, In*) asm("func_0010f880");
+void func_00110630(In*) asm("func_00110630");
+V4* func_0010fa28(In*) asm("func_0010fa28");
+f32 func_0010e7e0(In*, s32) asm("func_0010e7e0");
+void func_0010f9f0(In*, V4*, s32) asm("func_0010f9f0");
+u8 func_001149a0(O* o, u32 a1, u32 a2, u32 a3, u8 mode) asm("func_001149a0");
+u8 func_001149a0(O* o, u32 a1, u32 a2, u32 a3, u8 mode) {
+    if (mode) {
+        if (func_0010f8c0(o->in)) {
+            if (func_0010f8e0(o->in)) return 0;
+            if (func_0010f8a8(o->in) <= 0.0f) return 0;
+        }
+        if (!func_0010cc80(o->in)) return 0;
+    } else if (func_0010f8c0(o->in) == 0) {
+        func_0010f880(o->obj->a, o->obj->b, o->in);
+        func_00110630(o->in);
+        o->v = *func_0010fa28(o->in);
+        o->v.w = func_0010e7e0(o->in, 2);
+    } else {
+        func_0010f9f0(o->in, &o->v, 0);
+    }
+    return 1;
+}
+}  // namespace g001149a0
 
 // 00114a90 (gap function, not written before)
 namespace g00114a90 {
