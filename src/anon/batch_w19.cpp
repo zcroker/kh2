@@ -137,11 +137,7 @@ void func_001d5030(u32 a);  // 0x001d5030: definition moved into src/anon/unit_0
 
 void func_001d9ef0(u8* p, u32 a, u32 b);  // 0x001d9ef0: definition moved into src/anon/unit_001d9d00.cpp
 
-void func_001fab08(u8* p, u8* q) {
-    u8* s = p + **(s32**)(q + 12) + 160;
-    func_0021fa10(s);
-    s[8] = 4;
-}
+void func_001fab08(u8* p, u8* q);  // 0x001fab08: definition moved into src/anon/unit_001fa1b8.cpp
 
 void func_0023f6c0(u8* p, u32 a);  // 0x0023f6c0: definition moved into src/anon/unit_0023f5b8.cpp
 

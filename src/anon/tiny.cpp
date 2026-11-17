@@ -172,9 +172,9 @@ void func_001dbfd8(BD_VALUE* bd);  // 0x001dbfd8: definition moved into src/anon
 void func_001dd1b0(BD_VALUE* bd);  // 0x001dd1b0: definition moved into src/anon/unit_001dbfd8.cpp
 void func_001e2b78(BD_VALUE* bd);  // 0x001e2b78: definition moved into src/anon/unit_001e0cb8.cpp
 void func_001e6630(BD_VALUE* bd);  // 0x001e6630: definition moved into src/anon/unit_001e0cb8.cpp
-void func_001fa830(BD_VALUE* bd) { func_001fa7b0(bd); }
-void func_001fabc8(BD_VALUE* bd) { func_001fab48(bd); }
-void func_001fad78(BD_VALUE* bd) { func_001facf8(bd); }
+void func_001fa830(BD_VALUE* bd);  // 0x001fa830: definition moved into src/anon/unit_001fa1b8.cpp
+void func_001fabc8(BD_VALUE* bd);  // 0x001fabc8: definition moved into src/anon/unit_001fa1b8.cpp
+void func_001fad78(BD_VALUE* bd);  // 0x001fad78: definition moved into src/anon/unit_001fa1b8.cpp
 void func_002330b0(BD_VALUE* bd);  // 0x002330b0: definition moved into src/anon/unit_00232f08.cpp
 void func_00236788(BD_VALUE* bd);  // 0x00236788: definition moved into src/anon/unit_00236180.cpp
 void func_00236ce0(BD_VALUE* bd);  // 0x00236ce0: definition moved into src/anon/unit_00236180.cpp

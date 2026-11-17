@@ -19,15 +19,7 @@ void func_0031fdb0(LList_w1671* l, LNode_w1671* after, LNode_w1671* n) {
     n->next = after->next; after->next = n;
 }
 
-void func_001fa610(u8* a0, u8* a1, u8* a2) {
-    u8* p = a0 + **(s32**)(a2 + 0xc) + 160;
-    if (*(s32*)a1 == *(s32*)(a0 + 0xc)) {
-        *(f32*)(p + 0xa8) += *(f32*)(a1 + 8);
-        p[0x8e] = a1[0xc];
-        *(f32*)(p + 0x9c) += *(f32*)(a1 + 4);
-        p[0x8f] = a1[0xd];
-    }
-}
+void func_001fa610(u8* a0, u8* a1, u8* a2);  // 0x001fa610: definition moved into src/anon/unit_001fa1b8.cpp
 
 struct RE_w1671 { s32 type; s32 id; s32 a; s32 b; s32 c; s32 pad[3]; };
 extern s32 D_0035e360;

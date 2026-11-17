@@ -127,9 +127,7 @@ void func_001efc28(u8* p, u8* q) {
     r->y = 0;
 }
 
-void func_001fa928(u8* p, u8* q) {
-    func_0021fbc0(p + *(s32*)*(u32*)(q + 12) + 160);
-}
+void func_001fa928(u8* p, u8* q);  // 0x001fa928: definition moved into src/anon/unit_001fa1b8.cpp
 
 void func_001fbc78(u8* p, u8* q) {
     func_00220070(p + *(s32*)*(u32*)(q + 12) + 160);

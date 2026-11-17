@@ -81,9 +81,7 @@ extern u32 D_01d49968;
 // 0x1c8a90: moved to src/yasui/libys/summon.cpp
 
 void func_0021fe28(u8*);
-void func_001facd0(u8* base, u8* o) {
-    func_0021fe28(base + **(s32**)(o + 12) + 160);
-}
+void func_001facd0(u8* base, u8* o);  // 0x001facd0: definition moved into src/anon/unit_001fa1b8.cpp
 
 extern u8 D_00359150[3];
 void func_0020ea48(u8 a, u8 b, u8 c);  // 0x0020ea48: definition moved into src/anon/unit_0020e9f8.cpp

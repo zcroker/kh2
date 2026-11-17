@@ -87,9 +87,7 @@ void func_0018f2d0(BD_VALUE* bd);  // 0x0018f2d0: definition moved into src/anon
 
 // 001c8de0 func_001c8de0: moved to src/yasui/libys/mutex.cpp (linked unit).
 
-void func_001fae80(u8* p, u8* q) {
-    func_00220070(p + **(s32**)(q + 12) + 160);
-}
+void func_001fae80(u8* p, u8* q);  // 0x001fae80: definition moved into src/anon/unit_001fa1b8.cpp
 
 // VU0: return max(x, y).
 f32 func_00222678(f32 x, f32 y);  // 0x00222678: definition moved into src/anon/unit_00222548.cpp

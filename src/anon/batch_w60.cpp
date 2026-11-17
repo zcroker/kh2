@@ -210,19 +210,7 @@ void func_001e2660(u8* p, u8* v);  // 0x001e2660: definition moved into src/anon
 void func_001e7d20(f32* out, void* v);  // 0x001e7d20: definition moved into src/anon/unit_001e0cb8.cpp
 
 void func_001fab48(u8* a, u32* b, u8* c) asm("_Z13func_001fab48Pv");
-void func_001fab48(u8* a, u32* b, u8* c) {
-    u32* offs = *(u32**)(c + 12);
-    u8* t = a + offs[0];
-    u8* q = t + 160;
-    if (b[0] != *(u32*)(a + 12)) return;
-    *(u32*)(t + 160) = (u32)(a + offs[1] + 160);
-    if (b[1] == 0xffff) {
-        *(u32*)(q + 4) = 0;
-        return;
-    }
-    u32 x = *(u32*)(D_01d9e6e4 + 20) + b[1] * 8;
-    if (x != *(u32*)(q + 4)) func_0021fe08(q, x);
-}
+void func_001fab48(u8* a, u32* b, u8* c);  // 0x001fab48: definition moved into src/anon/unit_001fa1b8.cpp
 
 // Packs the non-zero entries to the front.
 struct Slots26b { u8 pad[16]; u8 n; u8 pad2[3]; u16 a[1]; };
