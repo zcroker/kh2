@@ -127,15 +127,7 @@ void func_00123ba8(u32* self);  // 0x00123ba8: definition moved into src/anon/un
 u32 wtarget_00127d40(u32 a, u32, u32, u32);  // 0x00127d40: definition moved into src/anon/unit_00127a88.cpp
 
 extern volatile u8 D_00347cb4;
-void f1340e8(void* p) {
-    if (func_001341e8(p) >= 0) {
-        while (func_00134020()) func_00134030();
-    } else {
-        func_00134030();  // poll_timer_status
-        D_00347cb4 = 0;
-    }
-    *(volatile u32*)0x10003010 = 0;  // GIF_MODE
-}
+// 0x001340e8: definition moved into src/anon/unit_00133cf0.cpp
 
 struct Pair { u32 a, b; };
 struct S347fb0 { u32 x, y; Pair e[4]; };

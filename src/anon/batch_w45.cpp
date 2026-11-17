@@ -117,13 +117,7 @@ u8* func_001a93e8(u8*);
 void func_00106ac8(u8*);
 void func_001a9350(u8*);
 
-void func_00132f38(u8* a0) {
-    u8* v = func_00132c68(a0);
-    s32 r = func_001325c8(a0, 0, *(u32*)(v + 36));
-    if (r >= 0) {
-        *(u8**)(a0 + 628) = v + *(s32*)(v + *(s32*)(v + 28) + r * 4);
-    }
-}
+void func_00132f38(u8* a0);  // 0x00132f38: definition moved into src/anon/unit_00131418.cpp
 
 void func_001386e0(u32 a0, u32 a1, u32 a2, u32 a3, u32 t0, u32 t1);  // 0x001386e0: definition moved into src/anon/unit_00138480.cpp
 

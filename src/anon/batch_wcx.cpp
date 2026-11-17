@@ -966,11 +966,7 @@ typedef void (*Fn64)(u8*, s32, u32);
 u8* func_00124748(u8*, s32);  // list_nth_node_rel
 void func_00124338(u8* p, s32 base, u32 c);  // 0x00124338: definition moved into src/anon/unit_00123990.cpp
 u32 __fixunssfsi(f32);
-u32 func_001333f8(u8* p, u32 a, u32 b)
-{
-    f32 r = (f32)a / (f32)b;
-    return (__fixunssfsi((f32)*(u32*)(p + 36) * r) >> 16) & 0xfff;
-}
+u32 func_001333f8(u8* p, u32 a, u32 b);  // 0x001333f8: definition moved into src/anon/unit_00131418.cpp
 void func_00144908(f32* b, V4* out);  // 0x00144908: definition moved into src/anon/unit_00144450.cpp
 void func_00148a68(u32, u8*);
 void func_00147f08(u32, u8*);
@@ -1221,11 +1217,7 @@ typedef void (*Fn68)(u8*, s32, u32);
 u8* func_00124748(u8*, s32);  // list_nth_node_rel
 void func_001243f8(u8* p, s32 base, u32 c);  // 0x001243f8: definition moved into src/anon/unit_00123990.cpp
 u32 __fixunssfsi(f32);
-u32 func_001334a8(u8* p, u32 a, u32 b)
-{
-    f32 r = (f32)a / (f32)b;
-    return (__fixunssfsi((f32)*(u32*)(p + 40) * r) >> 16) & 0xfff;
-}
+u32 func_001334a8(u8* p, u32 a, u32 b);  // 0x001334a8: definition moved into src/anon/unit_00131418.cpp
 void func_0014b220(u8*, s32, s32, s32, s32);
 void func_0014b620(u8*, s32);
 extern u8* D_00347f80;

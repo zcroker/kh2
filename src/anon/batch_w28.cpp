@@ -111,18 +111,7 @@ extern u8 D_0034ee08[];
 // Append a packet header of n quadwords to a packet cursor; returns its payload.
 struct Pk { u16 h0; u8 b2; u8 b3; u32 f4; u32 f8; u32 fc; };
 union PkCursor { Pk* p; u32 w; u16 h; };
-u8* wtarget_001337f0(u32 a, u32 n, u32 c, u32) {
-    PkCursor* cur = (PkCursor*)a;
-    cur->p->b2 = 0;
-    cur->p->f8 = c;
-    cur->p->fc = n | 0x50000000;
-    cur->p->b3 = 0x10;
-    cur->p->f4 = 0;
-    cur->p->h0 = n;
-    u8* v = (u8*)cur->p;
-    cur->p = (Pk*)(v + n * 16 + 16);
-    return v + 16;
-}
+u8* wtarget_001337f0(u32 a, u32 n, u32 c, u32);  // 0x001337f0: definition moved into src/anon/unit_00131418.cpp
 
 void func_00138140(void);  // 0x00138140: definition moved into src/anon/unit_001374c8.cpp
 

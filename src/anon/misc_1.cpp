@@ -12,17 +12,17 @@ u16 func_0011c228(void* self);  // 0x0011c228: definition moved into src/anon/un
 
 void func_00124840(void* self);  // 0x00124840: definition moved into src/anon/unit_00123990.cpp
 
-void func_00131f40(void* self) {}
+void func_00131f40(void* self);  // 0x00131f40: definition moved into src/anon/unit_00131418.cpp
 
-s32 func_00132330(void* self) { return (s32)(*(s32*)((char*)self + 4)); }
+s32 func_00132330(void* self);  // 0x00132330: definition moved into src/anon/unit_00131418.cpp
 
-void func_00132348(void* self, s32 v) { *(s32*)((char*)self + 16) = v; }
+void func_00132348(void* self, s32 v);  // 0x00132348: definition moved into src/anon/unit_00131418.cpp
 
-s32 func_00132360(void* self) { return (s32)(*(s32*)((char*)self + 32)); }
+s32 func_00132360(void* self);  // 0x00132360: definition moved into src/anon/unit_00131418.cpp
 
-void func_00132368(void* self, s32 v) { *(s32*)((char*)self + 32) = v; }
+void func_00132368(void* self, s32 v);  // 0x00132368: definition moved into src/anon/unit_00131418.cpp
 
-s32 func_00133718(void* self) { return (s32)(*(s32*)((char*)self + 24)); }
+s32 func_00133718(void* self);  // 0x00133718: definition moved into src/anon/unit_00131418.cpp
 
 // 00134d58: moved to src/anon/unit_00134668.cpp
 

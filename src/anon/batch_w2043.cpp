@@ -143,35 +143,6 @@ static inline void W2043c_m_scale(W2043c_Mat* m, W2043c_Vq* v) {
     asm volatile("lqc2 $vf4, 0(%1)\n\tlqc2 $vf1, 0(%0)\n\tlqc2 $vf2, 16(%0)\n\tlqc2 $vf3, 32(%0)\n\tvmulx.wxyz $vf1, $vf1, $vf4x\n\tvmuly.wxyz $vf2, $vf2, $vf4y\n\tvmulz.wxyz $vf3, $vf3, $vf4z\n\tsqc2 $vf1, 0(%0)\n\tsqc2 $vf2, 16(%0)\n\tsqc2 $vf3, 32(%0)" : : "r"(m), "r"(v) : "memory");
 }
 
-s32 func_00131450(W2043c_Obj* o, W2043c_Mat* m, f32 t) {
-    W2043c_Dat* d = o->d;
-    s32* s = (s32*)((u8*)d + d->f2c);
-    func_0011b6a8(m);
-    if (s[3] == 0) return 1;
-    f32 v[9];
-    s32 k0, k1;
-    t += d->f90 * 60.0f / d->f98;
-    func_001285f8(o, &k0, &k1, t);
-    f32* sf = (f32*)s;
-    v[0] = sf[0]; v[1] = sf[1]; v[2] = sf[2];
-    v[3] = sf[4]; v[4] = sf[5]; v[5] = sf[6];
-    v[6] = sf[8]; v[7] = sf[9]; v[8] = sf[10];
-    for (s32 i = 0; i < 9; i++) {
-        s32 idx = s[12 + i];
-        if (idx == -1) continue;
-        void* p;
-        if (idx >= d->f34) p = (u8*)d + d->f38 + (idx - d->f34) * 6;
-        else p = (u8*)d + d->f30 + idx * 6;
-        v[i] = func_00128750(o, p, k0, k1, t);
-    }
-    func_0011b6d8(m, v[3]);
-    func_0011b720(m, v[4]);
-    func_0011b768(m, v[5]);
-    { W2043c_Vq w(v[6], v[7], v[8], 0.0f);
-    W2043c_m_trans(m, &w); }
-    { W2043c_Vq w(v[0], v[1], v[2], 0.0f);
-    W2043c_m_scale(m, &w); }
-    return 0;
-}
+s32 func_00131450(W2043c_Obj* o, W2043c_Mat* m, f32 t);  // 0x00131450: definition moved into src/anon/unit_00131418.cpp
 
 }

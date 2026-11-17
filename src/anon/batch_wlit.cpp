@@ -33,17 +33,7 @@ void func_001375f0(u8* p, u32 a, u32 b);  // 0x001375f0: definition moved into s
 u8* func_002c1a18(u8* p, u32 a, u32 b);  // 0x002c1a18: definition moved into src/anon/unit_002c10e0.cpp
 
 // Constructor-like init: vtable/type pointer at +0, scale 1.0 at +24.
-void func_00132270(u32* p, u32 a) {  // obj_ctor_347c00
-    p[1] = a;
-    p[2] = 0;
-    p[3] = 0;
-    p[4] = 0;
-    p[0] = (u32)&D_00347c00;
-    p[5] = 0;
-    p[7] = 0;
-    p[8] = 0;
-    ((f32*)p)[6] = 1.0f;
-}
+void func_00132270(u32* p, u32 a);  // 0x00132270: definition moved into src/anon/unit_00131418.cpp
 
 // 00134d10: moved to src/anon/unit_00134668.cpp
 

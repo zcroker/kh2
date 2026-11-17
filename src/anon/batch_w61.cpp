@@ -42,18 +42,7 @@ extern u64 D_0036a930;
 
 void func_0011b6a8(u8*);
 s32 func_001317a8(void*);
-s32 func_00131918(u8** a0, M64* dst) {
-    u8* base = a0[1];
-    s32 off = *(s32*)(base + 44);
-    u8* t = base + off;
-    if (off == 0) {
-        func_0011b6a8((u8*)dst);
-        return 1;
-    }
-    M64* src = (M64*)(t + (func_001317a8(a0) << 6));
-    *dst = *src;
-    return 0;
-}
+s32 func_00131918(u8** a0, M64* dst);  // 0x00131918: definition moved into src/anon/unit_00131418.cpp
 
 void func_00145c68(void*, u8);
 struct E28 { u8 b0; u8 pad[27]; };
@@ -289,17 +278,7 @@ s32 func_00142b70(u8* p);  // 0x00142b70: definition moved into src/anon/unit_00
 struct Hd { u16 n; u8 b2; u8 b3; u32 a; u32 c; u32 d; };
 union HP { Hd* h; u8* b; };
 // Appends a 16-byte header plus n*16 bytes to a packet cursor; the fifth word arrives in t0.
-u8* wtarget_00133980(HP* pp, u32 a1, u32 a2, u32 a3, u32 t0) {
-    pp->h->b2 = 0;
-    pp->h->c = a3;
-    pp->h->d = t0;
-    pp->h->b3 = 80;
-    pp->h->a = a1;
-    pp->h->n = a2;
-    u8* r = pp->b;
-    pp->b = r + (a2 << 4) + 16;
-    return r + 16;
-}
+u8* wtarget_00133980(HP* pp, u32 a1, u32 a2, u32 a3, u32 t0);  // 0x00133980: definition moved into src/anon/unit_00131418.cpp
 
 extern "C" u32 func_001b7818(u32);
 u32 ctarget_00188fe0(u32 a0, u32 a1, u32, u32);  // 0x00188fe0: definition moved into src/anon/unit_00188848.cpp

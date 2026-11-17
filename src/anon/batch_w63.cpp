@@ -122,37 +122,13 @@ extern f32 D_01e2c044;
 // 00106558: moved to src/anon/unit_00106490.cpp
 
 // Constructor: base ctor, vtable, four 144-byte members, cleared tail fields.
-void func_001324b8(u8* p) {
-    func_00132270(p);  // obj_ctor_347c00
-    *(void**)p = D_00347c30;
-    u8* e = p + 48;
-    for (s32 i = 3; i != -1; i--) {
-        func_00108398(e + 16);  // clear_quads_set_flags
-        e += 144;
-    }
-    *(u32*)(p + 624) = 0;
-    *(u32*)(p + 628) = 0;
-    *(u32*)(p + 632) = 0;
-    *(u32*)(p + 636) = 0;
-    *(u32*)(p + 8) = 1;
-}
+void func_001324b8(u8* p);  // 0x001324b8: definition moved into src/anon/unit_00131418.cpp
 
 struct WNode { u16 h0; u16 h2; u32 w4; u32 w8; u32 tag; u64 idx : 15; u64 rest : 49; };
 struct WCtx { u8 pad[24]; WNode* cur; u32 pad28; union { WNode* top; u16 h; }; };
 void wtarget_00133ae8(u32, u32, u32, u32) asm("_Z16wtarget_00133ae8jjjj");
 // Closes the current DMA packet: stores its qword count and an end tag.
-void wtarget_00133ae8(u32 a0, u32 a1, u32, u32) {
-    WCtx* c = (WCtx*)a0;
-    WNode* t = c->top;
-    t->idx = ((u32)c->cur - (u32)t - 32) >> 4;
-    if ((u8)a1 && c->top->idx == 0) {
-        c->cur = c->top;
-    } else {
-        c->top->h0 = c->top->idx + 1;
-        c->top->tag = c->top->h0 | 0x50000000;
-    }
-    c->top = 0;
-}
+void wtarget_00133ae8(u32 a0, u32 a1, u32, u32);  // 0x00133ae8: definition moved into src/anon/unit_00131418.cpp
 
 void func_0014fba0(void);  // 0x0014fba0: definition moved into src/anon/unit_0014ecb8.cpp
 

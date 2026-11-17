@@ -20,11 +20,7 @@ void func_00115290(void** p);  // 0x00115290: definition moved into src/anon/uni
 extern u32 D_00347c60;
 void func_001322f0(void*);  // set_vtbl_347c00
 void func_00106420(void*);
-void func_00133228(void** p) {
-    *p = &D_00347c60;
-    func_001322f0(p);  // set_vtbl_347c00
-    func_00106420(p);
-}
+void func_00133228(void** p);  // 0x00133228: definition moved into src/anon/unit_00131418.cpp
 
 void func_00139598(void*);
 

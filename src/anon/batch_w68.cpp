@@ -379,19 +379,7 @@ done:
 }
 
 /* ---- 00134030: wait for VIF1 / GIF / VU0 / IPU idle ---- */
-s32 func_00134030(void) {  // poll_timer_status
-    if (*(volatile u32*)0x10009000 & 0x100) {
-        // spin on COP0 condition (hand-written padding)
-        asm volatile("1:\n\tnop\n\tnop\n\tnop\n\tnop\n\tnop\n\tnop\n\tnop\n\tbc0f 1b\n\tnop");
-    }
-    while (*(volatile u32*)0x10003c00 & 0x1f000003) ;
-    {
-        u32 s;
-        do { asm volatile("cfc2 %0, $vi29" : "=r"(s)); } while (s & 0x100);
-    }
-    while (*(volatile u32*)0x10003020 & 0xc00) ;
-    return 0;
-}
+s32 func_00134030(void);  // 0x00134030: definition moved into src/anon/unit_00133cf0.cpp
 
 /* ---- 001b2578: advance along a path once the current point is reached ---- */
 static inline void vsub3(void* out, const void* a, const void* b) {

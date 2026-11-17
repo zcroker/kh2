@@ -40,13 +40,7 @@ extern E144 D_003a8090[];
 s32 func_00132208(void*);
 u32 func_001320b0(void*);  // read_u32_be
 void* func_00132130(void*);
-void* func_00132180(void* p, u32 tag) {
-    for (;;) {
-        if (!func_00132208(p) || func_001320b0(p) == 0x354e4b5f) return 0;
-        if (func_001320b0(p) == tag) return p;
-        p = func_00132130(p);
-    }
-}
+void* func_00132180(void* p, u32 tag);  // 0x00132180: definition moved into src/anon/unit_00131418.cpp
 
 extern u8 D_00348590[];
 void func_00239700(void*);

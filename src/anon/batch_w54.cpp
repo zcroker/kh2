@@ -106,17 +106,7 @@ struct Obj132 {
     u32 pos;
 };
 u32 func_00106520(u32, u32);
-void func_00132720(Obj132* p, Snd132* s) {
-    if (p->cur != s) {
-        if (s) {
-            p->flags.v |= 1;
-            p->len = (f32)func_00106520(s->a, s->b + 1);
-            p->pos = 0;
-        }
-        p->last = s;
-        p->cur = s;
-    }
-}
+void func_00132720(Obj132* p, Snd132* s);  // 0x00132720: definition moved into src/anon/unit_00131418.cpp
 
 s32 func_00143d10(Q16Pair*, Q16*, void*, s32*);
 void func_00140480(Q16* p);  // 0x00140480: definition moved into src/anon/unit_0013fca8.cpp

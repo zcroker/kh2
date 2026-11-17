@@ -9770,20 +9770,7 @@ f32 func_002e50f8(O2e50f8* o, f32 a, f32 b)
 struct E131e80 { u8 pad[0x74]; u32 ptr; u8 pad78[0x18]; };
 struct N131e80 { s16 type; u16 done; u32 nkids; s32 last; u8 padc[8]; u32 tbl; };
 N131e80* Reloc131e80(N131e80* n) asm("func_00131e80");
-N131e80* Reloc131e80(N131e80* n)
-{
-    s16 t = n->type;
-    if (t != -1) {
-        if (t != 0) return n;
-        E131e80* e = (E131e80*)((u8*)n + n->tbl);
-        for (s32 i = 0; i <= n->last; i++, e++) e->ptr = (u32)n + e->ptr;
-    } else {
-        u32* p = (u32*)((u8*)n + 8);
-        for (u32 i = 0; i < n->nkids; i++) Reloc131e80((N131e80*)((u8*)n + *p++));
-    }
-    n->done = 0;
-    return n;
-}
+N131e80* Reloc131e80(N131e80* n);  // 0x00131e80: definition moved into src/anon/unit_00131418.cpp
 
 // --------------------
 struct A31a6d0 { u8 b[476]; };

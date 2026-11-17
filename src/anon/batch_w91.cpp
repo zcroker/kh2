@@ -64,35 +64,14 @@ void func_001215b8(u8* p, u8* flags, s32 id);  // 0x001215b8: definition moved i
 // Copies the current frame's matrices into the destination's matrix buffer.
 void func_00127cf8(u32);
 s32 func_001317a8(u8*, f32);
-void func_00131810(u8* p, u8* q, u32, u32, u32 x, f32 t) {
-    func_00127cf8(x);
-    u8* s = *(u8**)(p + 4);
-    s32 k = func_001317a8(p, t);
-    u8* base = s + *(s32*)(s + 40);
-    base += *(s32*)(s + 16) * k * 64;
-    for (s32 i = 0; i < *(s32*)(s + 16); i++) {
-        (*(Mq**)(q + 44))[i] = ((Mq*)base)[i];
-    }
-}
+void func_00131810(u8* p, u8* q, u32, u32, u32 x, f32 t);  // 0x00131810: definition moved into src/anon/unit_00131418.cpp
 
 // --- 00132f98
 // Walks a list and collects (counts) the active entries with the given id/owner.
 s32 func_00132338(u8*);  // get_field8
 u8* func_00132c68(u8*);
 u8* func_00132350(u8*);
-s32 func_00132f98(u8* p, u32 id, u8** out, u32, u8* owner) {
-    s32 n = 0;
-    if (p) do {
-        if (func_00132338(p) == 1) {  // get_field8
-            u8* d = func_00132c68(p);
-            if ((!owner || *(u8**)(p + 4) == owner) && d && *(u16*)(d + 2) == id && *(s32*)(p + 636)) {
-                if (out) out[n] = p;
-                n++;
-            }
-        }
-    } while ((p = func_00132350(p)) != 0);
-    return n;
-}
+s32 func_00132f98(u8* p, u32 id, u8** out, u32, u8* owner);  // 0x00132f98: definition moved into src/anon/unit_00131418.cpp
 
 // --- 001506e0
 void func_001396b0(void*);

@@ -33,42 +33,7 @@ extern CMtx D_003b8aa0;
 void func_001320a8(void);
 s32 func_002fd188(void (*)(void));
 /* Desaturate an RGBA colour: t >= 1 gives grey (YIQ luma), t < 1 blends towards the original. */
-u32 func_001319d8(u32 c, f32 t) {
-    if (!D_003b8a90) {
-        CVec r0(0.299f, 0.587f, 0.114f, 0.0f);
-        CVec r1(0.596f, -0.274f, -0.322f, 0.0f);
-        CVec r2(0.211f, -0.523f, 0.312f, 0.0f);
-        CVec r3(0.0f, 0.0f, 0.0f, 1.0f);
-        Q_COPY(&D_003b8aa0.r[0], &r0);
-        Q_COPY(&D_003b8aa0.r[1], &r1);
-        Q_COPY(&D_003b8aa0.r[2], &r2);
-        Q_COPY(&D_003b8aa0.r[3], &r3);
-        D_003b8a90 = 1;
-        func_002fd188(func_001320a8);
-    }
-    CVec a;
-    CVec v;
-    CVec w;
-    CVec* p = &v;  // x goes through a pointer: the original stores it via the &v register
-    p->x = (f32)(c & 0xff);
-    v.y = (f32)((c >> 8) & 0xff);
-    v.z = (f32)((c >> 16) & 0xff);
-    v.w = (f32)((c >> 24) & 0xff);
-    if (t < 1.0f) a = v;
-    CApply(w, D_003b8aa0, v);
-    v = w;
-    CClamp(v, 0.0f, 255.0f);
-    if (t < 1.0f) {
-        v.y = v.z = v.x;
-        CScale(v, t);
-        CScale(a, 1.0f - t);
-        CAdd(w, v, a);
-        a = w;
-        CClamp(a, 0.0f, 255.0f);
-        return CPack(a.x, a.y, a.z, a.w);
-    }
-    return CPack(v.x, v.x, v.x, v.w);
-}
+u32 func_001319d8(u32 c, f32 t);  // 0x001319d8: definition moved into src/anon/unit_00131418.cpp
 }
 
 // ---- 00128750: animation curve channel evaluation ----

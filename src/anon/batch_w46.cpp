@@ -74,16 +74,7 @@ void wtarget_0011c828(u8* o, u32 a1, u32, u32);  // 0x0011c828: definition moved
 // ---- 00132ec0
 u8* func_00132c68(u8*, u32);
 s32 func_001325c8(u8*, u32, u32);
-void func_00132ec0(u8* p, u32 id) {
-    u8* d = func_00132c68(p, id);
-    if (d) {
-        s32 i = func_001325c8(p, 0xffff, id);
-        if (i >= 0) {
-            s32* tbl = (s32*)(d + *(s32*)(d + 0x1c));
-            *(u8**)(p + 628) = d + tbl[i];
-        }
-    }
-}
+void func_00132ec0(u8* p, u32 id);  // 0x00132ec0: definition moved into src/anon/unit_00131418.cpp
 
 // ---- 001367e0
 void func_00168388(u32, u32, u32, u32);

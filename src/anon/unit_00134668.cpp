@@ -1,4 +1,4 @@
-// Lights (0x134668-0x1357c8): a directional light (position + colour), the 3-light set that is
+// Lights (0x1345c0-0x1357c8): a directional light (position + colour), the 3-light set that is
 // sent to VU1 (transposed directions + colour matrix), the global shadow light and the global
 // ambient colour, and the shadow camera that looks at a box of 8 points.
 #include "../common/types.h"
@@ -38,6 +38,21 @@ struct LIGHTSET { FVector dir[3]; FVector col[3]; FVector amb; };
 extern "C" {
 LIGHT D_00347cc0;                                   // shadow light
 FVector D_00347ce0(0.3f, 0.3f, 0.3f, 1.0f);         // ambient colour
+
+// 0x1345c0: byte-identical twin of func_00134668 (the C2/C1 pair of the LIGHTSET constructor; own 1.0f literal)
+void func_001345c0(LIGHTSET* o) {
+    FVector* b = &o->dir[1]; FVector* c = &o->dir[2]; FVector* d = &o->col[0]; FVector* e = &o->col[1]; FVector* f = &o->col[2]; FVector* g = &o->amb;
+    o->dir[0].Zero();
+    b->Zero();
+    c->Zero();
+    o->dir[1].z = 1.0f;
+    o->dir[1].y = 1.0f;
+    o->dir[1].x = 1.0f;
+    *f = FVector(1.0f, 1.0f, 1.0f, 1.0f);
+    *e = *f;
+    *d = *e;
+    *g = D_00347ce0;
+}
 
 void func_00134668(LIGHTSET* o) {
     FVector* b = &o->dir[1]; FVector* c = &o->dir[2]; FVector* d = &o->col[0]; FVector* e = &o->col[1]; FVector* f = &o->col[2]; FVector* g = &o->amb;

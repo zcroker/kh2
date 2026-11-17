@@ -20,9 +20,7 @@ void func_001153e8(void** p);  // 0x001153e8: definition moved into src/anon/uni
 
 extern u8 D_00347c88[];
 void func_00133bb8(void*, u32, u32, u32);  // forward_sub24_to_133848
-void func_001344b8(u32 a) {
-    func_00133bb8(D_00347c88, 0, a | 0x3000000, ((1024 - a) >> 1) | 0x2000000);  // forward_sub24_to_133848
-}
+void func_001344b8(u32 a);  // 0x001344b8: definition moved into src/anon/unit_00133cf0.cpp
 
 // 00135cc8: moved to src/naka/libkn/obj_observer.cpp
 

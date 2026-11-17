@@ -112,18 +112,9 @@ void func_00115090(void* p);  // 0x00115090: definition moved into src/anon/unit
 u32 func_00123e00(void* a);  // 0x00123e00: definition moved into src/anon/unit_00123990.cpp
 
 // Skips a header (size from func_001320f0 plus 8); 0 when the rest is invalid.
-u8* func_00132130(u8* p) {
-    s32 off = func_001320f0(p) + 8;
-    p += off;
-    if (!func_00132208(p)) p = 0;
-    return p;
-}
+u8* func_00132130(u8* p);  // 0x00132130: definition moved into src/anon/unit_00131418.cpp
 
-void func_00132590(void* p) {
-    *(void**)p = &D_00347c30;
-    func_001322f0(p);  // set_vtbl_347c00
-    func_00106420(p);
-}
+void func_00132590(void* p);  // 0x00132590: definition moved into src/anon/unit_00131418.cpp
 
 void func_0013b260(void* p);  // 0x0013b260: definition moved into src/anon/unit_0013a8b8.cpp
 

@@ -211,12 +211,7 @@ void func_0011f120(void* o, u8* p);  // 0x0011f120: definition moved into src/an
 f32 func_00127de8(f32 a);  // 0x00127de8: definition moved into src/anon/unit_00127a88.cpp
 
 // Walks the list from a (up to b) and returns the first node whose virtual test accepts.
-void* func_00132390(void* a, void* b, u32 c, u32 d, u32 e) {
-    for (; a && a != b; a = *(void**)((u8*)a + 28)) {
-        if ((*(s32 (**)(void*, u32, u32, u32))(*(u8**)a + 12))(a, c, d, e)) return a;
-    }
-    return 0;
-}
+void* func_00132390(void* a, void* b, u32 c, u32 d, u32 e);  // 0x00132390: definition moved into src/anon/unit_00131418.cpp
 
 void func_0013d620(void);  // 0x0013d620: definition moved into src/anon/unit_0013a8b8.cpp
 

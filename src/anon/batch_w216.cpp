@@ -2,14 +2,7 @@
 extern "C" {
 struct W216Obj { char p[0x24]; s32 cnt; char q[0x30]; float f58; };
 struct W216Holder { s32 p0; W216Obj* o; };
-s32 func_001317a8(W216Holder* a, float x) {
-    W216Obj* o = a->o;
-    float v = x * o->f58 / 60.0f + 0.5f;
-    s32 r = (s32)v;
-    if (r < 0) r = 0;
-    if (r >= o->cnt) r = o->cnt - 1;
-    return r;
-}
+s32 func_001317a8(W216Holder* a, float x);  // 0x001317a8: definition moved into src/anon/unit_00131418.cpp
 
 struct W216Pair { s16 k; s16 v; };
 extern W216Pair D_00374a08[];

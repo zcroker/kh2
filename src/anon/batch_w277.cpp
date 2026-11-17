@@ -106,22 +106,7 @@ void func_00128b38(Obj*, Arg*, f32);
 void func_00130c18(Obj*, f32);
 void func_0012d728(Obj*, Arg*, Mtx*, void*, void*);
 void func_00129c38(Obj*, Arg*, Mtx*, void*, void*);
-void func_00130d28(Obj* o, Arg* a, const Mtx* mtx, void* p3, void* p4, f32 t) {
-    func_00127cf8(p4);
-    t += o->cam->a * 60.0f / o->cam->c;
-    D_00347b70.f = o->cam->a + t * o->cam->c / 60.0f;
-    if (a->owner != o) func_00128480(o, a);
-    func_00128b38(o, a, t);
-    func_00130c18(o, t);
-    Mtx m;
-    f32* r1 = m.m[1];
-    f32* r2 = m.m[2];
-    CopyMtx(&m, mtx);
-    ScaleRow(r1, -1.0f);
-    ScaleRow(r2, -1.0f);
-    if (o->cam->type == 1) func_0012d728(o, a, &m, p3, p4);
-    else func_00129c38(o, a, &m, p3, p4);
-}
+void func_00130d28(Obj* o, Arg* a, const Mtx* mtx, void* p3, void* p4, f32 t);  // 0x00130d28: definition moved into src/anon/unit_00130d18.cpp
 }
 
 }

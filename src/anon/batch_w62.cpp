@@ -77,20 +77,7 @@ void func_00132270(u8*);  // obj_ctor_347c00
 void func_00108398(u8*);  // clear_quads_set_flags
 extern u8 D_00347c30[];
 // Constructor: base, vtable, four 144-byte members at +48.
-void func_00132430(u8* p) {
-    func_00132270(p);  // obj_ctor_347c00
-    *(u32*)p = (u32)D_00347c30;
-    u8* e = p + 48;
-    for (s32 i = 3; i != -1; i--) {
-        func_00108398(e + 16);  // clear_quads_set_flags
-        e += 144;
-    }
-    *(u32*)(p + 8) = 1;
-    *(u32*)(p + 628) = 0;
-    *(u32*)(p + 632) = 0;
-    *(u32*)(p + 636) = 0;
-    *(u32*)(p + 624) = 0;
-}
+void func_00132430(u8* p);  // 0x00132430: definition moved into src/anon/unit_00131418.cpp
 
 extern u32 D_0034a3f0;
 extern f32* D_0034a3f4;

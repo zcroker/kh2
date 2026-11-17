@@ -172,20 +172,7 @@ extern u32 D_00347f80;
 
 typedef void (*Dtor)(u8*);
 
-s32 func_00133078(void* a, u32* tab, u32, u32 n, u32 x) {
-    u32* out = tab + n * 2;
-    s32 total = 0;
-    for (u32 i = 0; i < n; i++) {
-        u32 buf[8];
-        s32 c = func_00132f98(a, i, buf, 8, x);
-        u32* t = &tab[i * 2];
-        t[0] = c;
-        t[1] = (n * 2 + total) * 4;
-        total += c;
-        for (s32 k = 0; k < c; k++) *out++ = buf[k];
-    }
-    return total;
-}
+s32 func_00133078(void* a, u32* tab, u32, u32 n, u32 x);  // 0x00133078: definition moved into src/anon/unit_00131418.cpp
 
 // 0013a6f8: moved to src/harata/libdk/field2dd.cpp
 
@@ -347,24 +334,7 @@ u8* func_0028def0(u8* dst, s32 n);  // 0028def0: moved to src/anon/unit_0028c878
 
 // Relocate a node tree in place: type -1 = group of child offsets (recursed),
 // type 0 = table whose entry pointers (+116) are rebased from base to p.
-u8* func_00131f48(u8* p, u32 base) {
-    s16 t = *(s16*)p;
-    if (t != -1) {
-        if (t == 0) {
-            u8* e = p + *(s32*)(p + 20);
-            for (s32 i = 0; i <= *(s32*)(p + 8); i++, e += 144)
-                *(u32*)(e + 116) = (u32)p + (*(u32*)(e + 116) - base);
-        }
-    } else {
-        u32* q = (u32*)(p + 8);
-        for (u32 i = 0; i < *(u32*)(p + 4); i++) {
-            u32 off = *q++;
-            u32 nb = base + off;
-            func_00131f48(p + off, nb);
-        }
-    }
-    return p;
-}
+u8* func_00131f48(u8* p, u32 base);  // 0x00131f48: definition moved into src/anon/unit_00131418.cpp
 
 struct F1213c0 { u8 st : 2; u8 rest : 6; };
 struct EA1213c0 { u32 lo : 6; u32 kind : 5; u32 hi : 21; u8 pad[28]; };

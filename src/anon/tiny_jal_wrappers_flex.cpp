@@ -88,28 +88,9 @@ u32 _Balloc(u32, u32, u32, u32);
 
 u32 func_0011e3c8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0011e3c8: definition moved into src/anon/unit_0011c128.cpp
 
-u32 func_00133768(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u, r15 = 0u, r16 = 0u;
-    r16 = r4;
-    r2 = func_00133720(r4, r5, r6, r7);
-    r15 = r2;
-    r2 = *(u32*)((u32)r16 + (s32)(16));
-    r2 = (u32)(r2 - r15);
-    return r2;
-}
+u32 func_00133768(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00133768: definition moved into src/anon/unit_00131418.cpp
 
-u32 func_00133c18(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u, r15 = 0u, r16 = 0u, r17 = 0u;
-    r15 = (u32)(r6 << 4);
-    r17 = r4;
-    r16 = *(u32*)((u32)r4 + (s32)(24));
-    r4 = (u32)((s32)r4 + (24));
-    r16 = (u32)(r16 + r15);
-    r2 = func_00133938(r4, r5, r6, r7);
-    r16 = (u32)((s32)r16 + (16));
-    *(u32*)((u32)r17 + (s32)(24)) = r16;
-    return r2;
-}
+u32 func_00133c18(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00133c18: definition moved into src/anon/unit_00131418.cpp
 
 u32 func_00138c10(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00138c10: definition moved into src/anon/unit_00138480.cpp
 

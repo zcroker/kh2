@@ -32,17 +32,7 @@ union PktCursor { Pkt* p; u32 u; u16 h; };
 }
 
 // Append one 16-byte packet at the cursor and advance it.
-u32 wtarget_001339d0(u32 a0, u32 a1, u32 a2, u32 a3, u32 t0) {
-    PktCursor* pp = (PktCursor*)a0;
-    pp->p->b2 = 0;
-    pp->p->w8 = a3;
-    pp->p->w12 = t0;
-    pp->p->b3 = 48;
-    pp->p->w4 = a1;
-    pp->p->h0 = a2;
-    pp->p++;
-    return a1;
-}
+u32 wtarget_001339d0(u32 a0, u32 a1, u32 a2, u32 a3, u32 t0);  // 0x001339d0: definition moved into src/anon/unit_00131418.cpp
 
 extern "C" {
 

@@ -242,7 +242,7 @@ void func_001059f0(BD_VALUE* bd) { func_001058f8(0, 0xffff); }
 // 00108028: moved to src/naka/libkn/camera.cpp
 void func_0010b418(BD_VALUE* bd);  // 0010b418: moved to src/anon/unit_0010aef0.cpp
 void func_001135e8(BD_VALUE* bd) { func_00113470(1, 0xffff); }
-void func_00134580(BD_VALUE* bd) { func_00134508(1, 0xffff); }
+void func_00134580(BD_VALUE* bd);  // 0x00134580: definition moved into src/anon/unit_00133cf0.cpp
 // 00135788: moved to src/anon/unit_00134668.cpp
 void func_0013a328(BD_VALUE* bd);  // 0x0013a328: definition moved into src/anon/unit_001393c8.cpp
 void func_00141418(BD_VALUE* bd);  // 0x00141418: definition moved into src/anon/unit_00141100.cpp
@@ -306,18 +306,9 @@ u32 func_00112c48(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00112c48: definition mo
 
 void func_001133f8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001133f8: definition moved into src/anon/unit_001117d8.cpp
 
-u32 func_00132338(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_field8
-    return (u32)(*(u32*)((u32)a0 + (8)));
-}
+u32 func_00132338(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00132338: definition moved into src/anon/unit_00131418.cpp
 
-u32 func_001341e8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a0;
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    u32 b = (0x0034u << 16);
-    return (u32)(*(u32*)((u32)b + (31920)));
-}
+u32 func_001341e8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001341e8: definition moved into src/anon/unit_00133cf0.cpp
 
 // 001357c8: moved to src/naka/libkn/obj_observer.cpp
 
@@ -871,27 +862,11 @@ void func_0011ee58(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0011ee58: definition m
 
 void func_00124c08(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00124c08: definition moved into src/anon/unit_00123990.cpp
 
-u32 func_00132170(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    return (u32)((s32)a0 + (8));
-}
+u32 func_00132170(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00132170: definition moved into src/anon/unit_00131418.cpp
 
-void func_001322f0(u32 a0, u32 a1, u32 a2, u32 a3) {  // set_vtbl_347c00
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    *(u32*)((u32)a0 + (0)) = (u32)&D_00347c00;
-}
+void func_001322f0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001322f0: definition moved into src/anon/unit_00131418.cpp
 
-u32 func_001344f8(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_data_347c88
-    (void)a0;
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    return (u32)&D_00347c88;
-}
+u32 func_001344f8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001344f8: definition moved into src/anon/unit_00133cf0.cpp
 
 // 00135640: moved to src/anon/unit_00134668.cpp
 

@@ -142,17 +142,7 @@ void func_00118d10(u8* p) {
 }
 
 // Follows redirect nodes (type -1) and returns the entry of a type-0 node.
-u8* func_00132018(u8* p) {  // entry_ptr_from_header
-    if (p) {
-        s16 t = *(s16*)p;
-        if (t != -1) {
-            if (t == 0) return p + (*(s32*)(p + 32) + *(s32*)(p + 4) * 4);
-            return 0;
-        }
-        return func_00132018(p + ((s32*)(p + 4))[*(s32*)(p + 4)]);  // entry_ptr_from_header
-    }
-    return 0;
-}
+u8* func_00132018(u8* p);  // 0x00132018: definition moved into src/anon/unit_00131418.cpp
 
 struct KeyPair { s32 key; s32 val; };
 struct KeyTable { u8 pad[12]; s32 n; KeyPair e[1]; };

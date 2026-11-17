@@ -22,22 +22,10 @@ void func_0011b6a8_impl(void* dst);  // 0x0011b6a8: definition moved into src/an
 extern u8 D_00347bd8;
 void func_00124c08(void*);  // set_vtbl_347b88
 void func_00106420(void*);
-void func_00131770(void** self) {
-    *self = &D_00347bd8;
-    func_00124c08(self);  // set_vtbl_347b88
-    func_00106420(self);
-}
+void func_00131770(void** self);  // 0x00131770: definition moved into src/anon/unit_00131418.cpp
 
 struct Chunk { s16 type; u16 _2; u32 _4; u32 offs[1]; };
-void* func_00132068(Chunk* c, int i) {  // entry_get_by_index
-    if (c != 0) {
-        switch (c->type) {
-        case -1: return (u8*)c + c->offs[i];
-        case 0: return c;
-        }
-    }
-    return 0;
-}
+void* func_00132068(Chunk* c, int i);  // 0x00132068: definition moved into src/anon/unit_00131418.cpp
 
 int obj_is_exist_00139768(void*) asm("_Z13func_00139768jjjjjjjj");
 void func_001394c0(void*);

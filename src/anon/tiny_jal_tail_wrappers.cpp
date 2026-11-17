@@ -46,11 +46,7 @@ u32 func_001021f0(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_0014a4c0();
 }
 
-u32 func_001342a8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u;
-    r2 = func_00133e50();
-    return func_00133f40();
-}
+u32 func_001342a8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001342a8: definition moved into src/anon/unit_00133cf0.cpp
 
 // 0013a6d0: moved to src/harata/libdk/field2dd.cpp
 

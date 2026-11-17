@@ -33,35 +33,7 @@ struct W1784O2 {
 extern "C" {
 W1784V3* func_001333c8(W1784O1*);
 void func_00133ba0(W1784O2*, s32, u32);
-void func_001332e8(W1784O1* o, f32 dt) {
-    W1784V3* v = func_001333c8(o);
-    if (v) {
-        u32 a = o->b0;
-        if (!o->b1) {
-            if ((u8)a) {
-                o->b0 = 0;
-            } else {
-                f32 t = dt * o->speed;
-                s32 d = (s32)(v->y * t);
-                o->ix += d;
-                d = (s32)(v->z * t);
-                o->iy += d;
-                o->pos += t;
-            }
-        }
-    }
-}
+void func_001332e8(W1784O1* o, f32 dt);  // 0x001332e8: definition moved into src/anon/unit_00131418.cpp
 void wtarget_00133a18(W1784O2* o, u32, u32, u32) asm("_Z16wtarget_00133a18jjjj");
-void wtarget_00133a18(W1784O2* o, u32, u32, u32) {
-    if (o->pkt == 0) {
-        W1784Pkt* t = o->buf;
-        func_00133ba0(o, 1, 0x13000000);
-        o->pkt = t;
-        *(u128*)&t->tag = 0;
-        o->pkt->tag.nloop = 0;
-        o->pkt->tag.eop = 1;
-        o->pkt->tag.nreg = 1;
-        o->pkt->tag.regs = 0xe;
-    }
-}
+void wtarget_00133a18(W1784O2* o, u32, u32, u32);  // 0x00133a18: definition moved into src/anon/unit_00131418.cpp
 }

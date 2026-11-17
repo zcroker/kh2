@@ -163,103 +163,15 @@ void func_00127c70(u32 a0, Obj* a1, u32 a2);  // 0x00127c70: definition moved in
 
 u32 func_00129008(u32 a0, u32 a1, u8* a2, u32 a3, u32 a4, u32 a5);  // 0x00129008: definition moved into src/anon/unit_00128480.cpp
 
-u32 func_00132208(u32 a0) {
-    u32 t5 = 0;
-    u32 v0;
-    u32 t7;
-    u32 t6;
+u32 func_00132208(u32 a0);  // 0x00132208: definition moved into src/anon/unit_00131418.cpp
 
-    if (a0 == 0) {
-        goto L0013224c;
-    }
+void func_00133598(u32 a0, u32 a1, u32 a2);  // 0x00133598: definition moved into src/anon/unit_00131418.cpp
 
-    v0 = func_001320b0(a0);  // read_u32_be
-    t7 = 0x41584554;
-    t5 = 1;
-    if (v0 == t7) {
-        goto L0013224c;
-    }
+void func_00133de8(void);  // 0x00133de8: definition moved into src/anon/unit_00133cf0.cpp
 
-    t6 = (t7 < v0);
-    if (t6 != 0) {
-        goto L0013225c;
-    }
+void func_00133e50(void);  // 0x00133e50: definition moved into src/anon/unit_00133cf0.cpp
 
-    t7 = 0x354e4b5f;
-
-L00132244:
-    if (v0 != t7) {
-        t5 = 0;
-    }
-
-L0013224c:
-    return t5;
-
-L0013225c:
-    t7 = 0x43535655;
-    if (v0 == t7) {
-        goto L0013224c;
-    }
-
-    t7 = 0x594d445f;
-    goto L00132244;
-}
-
-void func_00133598(u32 a0, u32 a1, u32 a2) {
-    u32 t6 = a1 + 15;
-    *(u8*)(a0 + 0) = 0;
-    t6 = t6 & 0xFFFFFFF0;
-
-    u32 a1n = a1 + a2;
-    a1n = a1n - t6;
-    a1n = a1n >> 1;
-
-    u32 t7 = t6 + a1n;
-    (*(u32*)(a0 + 8) = t6, *(u32*)(a0 + 12) = t7, *(u32*)(a0 + 4) = t6);
-    *(u32*)(a0 + 16) = a1n;
-
-    u32 v0 = func_001336f8(a0);
-    *(u32*)(a0 + 24) = v0;
-
-    *(u32*)(a0 + 20) = 0;
-    *(u32*)(a0 + 28) = 0;
-
-    func_00133be8(a0, 0, 0, 0);  // forward_sub24_to_1338e8
-    func_00133690(a0);
-    func_00133be8(a0, 0, 0, 0);  // forward_sub24_to_1338e8
-    func_00133690(a0);
-}
-
-void func_00133de8(void) {
-    sceGsSyncPath(0, 0);
-    func_00133d18();
-
-    u32 v0 = func_00133d38();
-    D_00347cac = v0;
-
-    func_002f3918(v0, (u32)&D_0032a780);
-    func_00134030();  // poll_timer_status
-
-    D_00347cb4 = 0;
-    D_00347cb0 = 0xFFFFFFFF;
-}
-
-void func_00133e50(void) {
-    u32 s0 = (u32)&D_00347c88;
-
-    func_00133c60(s0, (u32)&D_0032a870, 0, 0, 0);  // forward_sub24_to_133980
-    func_00133be8(s0, 0, 0, 0);  // forward_sub24_to_1338e8
-    func_00133768(s0);
-}
-
-void func_00133ea8(void) {
-    u32 s0 = (u32)&D_00347c88;
-
-    func_00133c60(s0, (u32)&D_0032a870, 0, 0, 0);  // forward_sub24_to_133980
-    func_00133be8(s0, 0, 0, 0);  // forward_sub24_to_1338e8
-    func_00133690(s0);
-    func_00133c60(s0, (u32)&D_0032a850, 0, 0, 0);  // forward_sub24_to_133980
-}
+void func_00133ea8(void);  // 0x00133ea8: definition moved into src/anon/unit_00133cf0.cpp
 
 // 00135818: moved to src/naka/libkn/obj_observer.cpp
 

@@ -13,35 +13,12 @@ u8 u_call4_00139d78(void*) asm("_Z16u_call4_00139d78jjjj");
 u8* func_00132c68(void*, u32);
 s32 func_001325c8(void*, s32, u32);
 void func_00132720(void*, u8*);
-void func_00132e28(u8* a, u32 b)
-{
-    u8* h = func_00132c68(a, b);
-    if (h) {
-        s32 i = func_001325c8(a, 0xffff, b);
-        if (i >= 0) {
-            u8* t = h + *(u32*)(h + *(u32*)(h + 28) + i * 4);
-            *(u32*)(a + 20) |= 4;
-            func_00132720(a, t);
-        }
-    }
-}
+void func_00132e28(u8* a, u32 b);  // 0x00132e28: definition moved into src/anon/unit_00131418.cpp
 
 // 00133938: write a 16-byte packet header at the cursor and advance the cursor
 struct PktHdr { u16 id; u8 b2; u8 b3; PktHdr* next; PktHdr* p8; PktHdr* p12; };
 PktHdr* wtarget_00133938(PktHdr** pp, PktHdr* next, u32 id, u32 a3, u32 a4) asm("_Z16wtarget_00133938jjjj");
-PktHdr* wtarget_00133938(PktHdr** pp, PktHdr* next, u32 id, u32 a3, u32 a4)
-{
-    (*pp)->b2 = 0;
-    (*pp)->p8 = (PktHdr*)a3;
-    (*pp)->p12 = (PktHdr*)a4;
-    (*pp)->b3 = 32;
-    (*pp)->next = next;
-    *(u16*)*pp = id;
-    asm volatile("" ::: "memory");
-    PktHdr* r = *pp;
-    *pp = next;
-    return r + 1;
-}
+PktHdr* wtarget_00133938(PktHdr** pp, PktHdr* next, u32 id, u32 a3, u32 a4);  // 0x00133938: definition moved into src/anon/unit_00131418.cpp
 
 // 00143ae0
 extern void* D_00348804;

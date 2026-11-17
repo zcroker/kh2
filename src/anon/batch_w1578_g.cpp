@@ -81,11 +81,7 @@ extern s32 D_0034c738;
 extern s32 D_0034c73c;
 extern s32 D_004f3b30;
 
-s32 func_00134278(void) {
-    s32 r = func_00134258();
-    func_00133f20();
-    return r;
-}
+s32 func_00134278(void);  // 0x00134278: definition moved into src/anon/unit_00133cf0.cpp
 
 // 001682b8: moved to src/yasui/libys/file.cpp
 

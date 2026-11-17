@@ -28,10 +28,7 @@ extern u32 D_0032bac4;
 extern u8 D_00347c88[];
 void func_00133570(void*);
 void func_00133590(void*);
-void func_00134508(s32 a, s32 b) {
-    if (b == 0xffff && a == 1) func_00133570(D_00347c88);
-    if (b == 0xffff && a == 0) func_00133590(D_00347c88);
-}
+void func_00134508(s32 a, s32 b);  // 0x00134508: definition moved into src/anon/unit_00133cf0.cpp
 
 // Transforms v by the 4x4 matrix m, divides by w and converts to integer
 // screen coordinates (offset by 1792/1840) in a static buffer.

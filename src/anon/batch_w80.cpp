@@ -407,22 +407,7 @@ static inline bool func_00179450_flag(U0_Act* a) { return (a->sub->f8 & 2) || (a
 static inline bool func_00179450_busy(U0_Act* a) { bool b = func_0019c090(a) || func_00179450_flag(a); return b == false; }
 // clear the low two flag bits of every entry matching id (-1 = all)
 void func_001214c0(U0_Obj* p, u8* flags, s32 id);  // 0x001214c0: definition moved into src/anon/unit_00120520.cpp
-void func_00131da8(U0_Node* n) {
-    u32 i;
-    s16 t;
-    if (n->flags & 1) return;
-    t = n->type;
-    n->flags |= 1;
-    if (t != -1) {
-        if (t == 0) {
-        u32* v = (u32*)((u8*)n + n->valOff);
-        for (i = 0; i < n->count; i++, v++) *v = func_001319d8(*v, 1.0f);
-        }
-    } else {
-        u32* o = n->offs;
-        for (i = 0; i < n->count; i++, o++) func_00131da8((U0_Node*)((u8*)n + *o));
-    }
-}
+void func_00131da8(U0_Node* n);  // 0x00131da8: definition moved into src/anon/unit_00131418.cpp
 void func_0013d550(u32 a, u32 b);  // 0x0013d550: definition moved into src/anon/unit_0013a8b8.cpp
 // 00159fd0: moved to src/harata/libdk/targetcamera.cpp
 // unlink n from the active list and return it to the pool

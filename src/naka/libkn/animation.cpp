@@ -3,10 +3,6 @@
 namespace kn {
 
 
-s32 AnimationWork::getNext() const {
-    return (s32)reinterpret_cast<const AnimationWorkLayout*>(this)->next;
-}
-void AnimationWork::setNext(AnimationWork* v) {
-    reinterpret_cast<AnimationWorkLayout*>(this)->next = v;
-}
+// 0x00132350: definition moved into src/anon/unit_00131418.cpp
+// 0x00132358: definition moved into src/anon/unit_00131418.cpp
 }  // namespace kn
