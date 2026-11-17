@@ -409,7 +409,7 @@ src/anon/unit_001abb28.cpp	001abad8	001ad990	.bss@01c6ced0,.rodata@0036d780	-G0 
 src/anon/unit_001ad990.cpp	001ad990	001ada38	.rodata@0036d7a4	-G0
 src/anon/unit_001ada38.cpp	001ada38	001b0448	.rodata@0036d7a8	-G0 -g -fno-strict-aliasing
 src/common/gumimenu.cpp	00104318	00104910	.data@0032ba90,.bss@003a6a80,.rodata@00369e30	-G0
-src/common/area.cpp	00104910	00105400	.data@0032bad8,.bss@003a7b00,.rodata@00369e50	-G0
+src/common/area.cpp	00104910	00105550	.data@0032bad8,.bss@003a7b00,.rodata@00369e50	-G0
 src/common/unit_00105a10.cpp	00105a10	00105af8	-	-G0
 src/common/region.cpp	00105af8	00105c68	.data@0033caf0,.rodata@00369e88	-G0
 src/common/shop.cpp	00105c68	00105ee8	.data@0033cb80,.rodata@00369f50	-G0
@@ -581,6 +581,7 @@ src/sdk/libgraph2.c	002f2448	002f2d5c	.rodata@00376310	-G0
 src/sdk/libgraph3.c	002f2d60	002f3490	.rodata@00376600	-G0
 src/libgcc/_muldi3.c	00311aa0	00311af0	-	-G0
 src/libgcc/unwind-dw2-fde.c	001003c8	00101ce0	.data@0032b918,.rodata@00369d54,.bss@0037aa28	-G0 -fexceptions
+src/libgcc/crtend.c	00101ce0	00101d50	.init@00319798	-G0
 src/global/unit_00101d50.cpp	00101d50	00102298	.data@0032b91c,.gnu.linkonce.d._ZTV4PROC@0032b928,.bss@0037aa40	-G0 -fno-strict-aliasing
 src/anon/unit_002f12b0.cpp	002f12b0	002f17e0	.rodata@0037623c	-G0
 src/anon/unit_002f17e0.cpp	002f17e0	002f1a68	.data@00363c20,.rodata@00376260,.bss@01e2c0d0	-G0
@@ -657,3 +658,4 @@ src/sdk/libkernl_00308f00.c	00308f00	003094b4	.rodata@003780d0	-G0
 src/sdk/libkernl_003096b8.c	003096b8	00309860	-	-G0
 src/sdk/libkernl_00309860.c	00309860	0030a3b0	.rodata@00378100	-G0
 src/anon/unit_001fe158.cpp	001fe158	001fe8d8	-	-G0 -fno-strict-aliasing
+src/anon/unit_001fd530.cpp	001fd530	001fded0	-	-G0 -fno-strict-aliasing

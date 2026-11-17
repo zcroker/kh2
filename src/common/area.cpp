@@ -1,11 +1,24 @@
 #include "./types.h"
 
-// AREA (0x104910-0x105400): the current world/area/entrance, the map jump task and thread,
-// and the area heap. The file's static initialiser (0x105400, it clears the five AREA objects
-// through a pointer to their id triple) and its _GLOBAL__I_ stub stay separate functions: gcc
-// folds that pointer arithmetic, so the AREA objects are plain data here.
+// AREA (0x104910-0x105550): the current world/area/entrance, the map jump task and thread,
+// and the area heap. gcc makes the static initialiser (0x105400) and its _GLOBAL__I_ stub.
 
 struct TASK;
+
+// The id triple (layout, event, battle) is a member with its own constructor, so the static
+// initialiser clears each AREA through a pointer to this +4 part.
+struct AREA_ID {
+    u16 layout;    // 4
+    u16 event;     // 6
+    u16 btl;       // 8
+
+    AREA_ID() { set(0xffff); }
+    void set(u32 v) {
+        layout = v;
+        event = v;
+        btl = v;
+    }
+};
 
 class AREA {
 public:
@@ -13,17 +26,14 @@ public:
     u8 area;       // 1
     u8 entrance;   // 2
     u8 pad3;
-    u16 layout;    // 4
-    u16 event;     // 6
-    u16 btl;       // 8
+    AREA_ID id;    // 4
 
+    AREA() { init(0xffff); }
     void init(u32 v) {
         world = v;
         area = v;
         entrance = v;
-        layout = v;
-        event = v;
-        btl = v;
+        id.set(v);
     }
 
     void start();
@@ -199,7 +209,6 @@ extern "C" {
 void func_00104a48(TASK* task) {
     Jumper j;
 
-    j.dest.init(0xffff);
     j.f32 = 0;
     func_0019ef70(&j);
     func_0014ce60();
@@ -268,10 +277,10 @@ void func_00104d30(AREA* d, AREA* s) {
     d->area = s->area;
     Cell104d30* t = (Cell104d30*)(D_0032bb30 + d->world * 384 + d->area * 6);
     u16 x = t->x, y = t->y, z = t->z;
-    d->layout = x;
-    d->event = y;
-    d->btl = z;
-    func_00104cf0(&d->layout, &s->layout);
+    d->id.layout = x;
+    d->id.event = y;
+    d->id.btl = z;
+    func_00104cf0(&d->id.layout, &s->id.layout);
 }
 
 void func_00104da0(AREA* a) {
@@ -394,10 +403,10 @@ extern "C" {
 char* func_001051b8(AREA* p) {
     static char s_str[64];
     func_002fee78(s_str, "%s(%d) ", p->get_area_name(0), p->entrance);
-    if (p->layout < 25 && p->event < 25 && p->btl < 25) {
-        func_002fee78(s_str + strlen(s_str), "%c/%c/%c", p->layout + 97, p->event + 97, p->btl + 97);
+    if (p->id.layout < 25 && p->id.event < 25 && p->id.btl < 25) {
+        func_002fee78(s_str + strlen(s_str), "%c/%c/%c", p->id.layout + 97, p->id.event + 97, p->id.btl + 97);
     } else {
-        func_002fee78(s_str + strlen(s_str), "%d/%d/%d", p->layout, p->event, p->btl);
+        func_002fee78(s_str + strlen(s_str), "%d/%d/%d", p->id.layout, p->id.event, p->id.btl);
     }
     return s_str;
 }

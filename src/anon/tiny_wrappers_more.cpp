@@ -11,7 +11,6 @@ u32 func_00103080(u32, u32, u32, u32);
 u32 func_00103ec0(u32, u32, u32, u32);
 u32 func_00104298(u32, u32, u32, u32);
 u32 func_00104640(u32, u32, u32, u32);
-u32 func_00105400(u32, u32, u32, u32);
 u32 func_00105620(u32, u32, u32, u32);
 u32 func_00105e68(u32, u32, u32, u32);
 u32 func_00109450(u32, u32, u32, u32);
@@ -391,9 +390,7 @@ u32 func_00102278(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00102278: definition mo
 
 // 001048f0: _GLOBAL__D_ stub, now made by gcc in src/common/gumimenu.cpp
 
-u32 func_00105530(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_00105400(0x00000001u, 0x0000ffffu, a2, a3);
-}
+// 00105530: _GLOBAL__I_ stub, now made by gcc in src/common/area.cpp
 
 // 00105ec8: _GLOBAL__I_ stub, now made by gcc in src/common/shop.cpp
 

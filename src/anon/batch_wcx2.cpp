@@ -4852,27 +4852,7 @@ C102350* func_00105728__102350(void) asm("func_00105728");
 // 00102350: moved to src/global/unit_001022c0.cpp
 
 // --------------------
-struct A105400 { u8 a, b, c; };
-struct X105400 { u16 d, e, f; };
-extern X105400 D_0032bae4;
-extern X105400 D_0032baf4;
-extern X105400 D_0032bb04;
-extern X105400 D_0032bb14;
-extern X105400 D_003a7b0c;
-static inline void Init105400(X105400* x, s32 v)
-{
-    A105400* p = (A105400*)((u8*)x - 4);
-    p->a = v; p->b = v; p->c = v; x->d = v; x->e = v; x->f = v;
-}
-void wtarget_00105400(s32 init, s32 prio, u32, u32) asm("_Z16wtarget_00105400jjjj");
-void wtarget_00105400(s32 init, s32 prio, u32, u32)
-{
-    if (prio == 0xffff && init == 1) Init105400(&D_0032bae4, 0xffff);
-    if (prio == 0xffff && init == 1) Init105400(&D_0032baf4, 0xffff);
-    if (prio == 0xffff && init == 1) Init105400(&D_0032bb04, 0xffff);
-    if (prio == 0xffff && init == 1) Init105400(&D_0032bb14, 0xffff);
-    if (prio == 0xffff && init == 1) Init105400(&D_003a7b0c, 0xffff);
-}
+// 00105400: static initialiser, now made by gcc in src/common/area.cpp
 
 // --------------------
 struct V104640 {

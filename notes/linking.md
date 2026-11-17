@@ -13,6 +13,9 @@ The list of units is `linked_units.tsv` at the repo root. The first unit is
 - `build_elf.py objects`: every `layout.tsv` function inside the range gets status `cxx` with the
   unit's source, whatever `functions.tsv` says. `objects.mk` gets
   `UNIT_FLAGS := -fno-function-sections <flags>` for the unit's object.
+- Every row of `linked_units.tsv` is compiled and linked, also a row whose range holds no
+  `layout.tsv` function at all (only never-written gap functions, for example between two
+  whole-asm functions: `unit_001fd530.cpp`). Its object goes into the link order at its start address.
 - `build_elf.py link-sections`: `cxx_sections.ld` gets `.kh2unit_<start>` with the object's `.text`
   at the start address, plus one section per entry in the `sections` column. No `.kh2cxx_<addr>`
   sections are made for addresses inside the unit.

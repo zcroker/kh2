@@ -48,10 +48,7 @@ extern s32 D_01dad910[2];
 extern s32 D_003617d8;
 extern s32 D_003617dc;
 
-// Empty function that still saves ra (its body was compiled out).
-void func_00101d38(void) {
-    asm volatile("" : : : "$31");
-}
+// 00101d38: crtend.o call stub (its jal is in .init), now in src/libgcc/crtend.c
 
 struct Obj0011eef8 {
     u32 pad[2];

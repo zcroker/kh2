@@ -26,14 +26,7 @@ void setHideGroup(u32 g) asm("_ZN2dk3Map12setHideGroupEj");
 void wtarget_00180d40(u32 a, u32 b, u32 c, u32 d) asm("_Z16wtarget_00180d40jjjj");
 void wtarget_002eda40(u32 a, u32 b, u32 c, u32 d) asm("_Z16wtarget_002eda40jjjj");
 
-// --- 00101ce0
-// Run the static constructor table backwards from its end until the -1 marker.
-typedef void (*VFn)(void);
-extern VFn D_0037a6e4[];
-void func_00101ce0(void) {
-    VFn* p;
-    for (p = D_0037a6e4 - 1; *p != (VFn)-1; p--) (*p)();
-}
+// 00101ce0: __do_global_ctors_aux, now in src/libgcc/crtend.c
 
 // --- 00102788
 // Allocate a 72-byte task through the manager's allocator (tagged with the
