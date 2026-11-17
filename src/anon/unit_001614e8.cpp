@@ -1,4 +1,4 @@
-// Linked unit 0x001614e8-0x00163898.
+// Linked unit 0x001614a8-0x00163898.
 #include "../common/types.h"
 #include "../tozawa/cmenu_top.hpp"
 #include "auto80_199_queue_decls.hpp"
@@ -14,6 +14,25 @@
 #include "./tiny_auto80_queue_structs.hpp"
 #include "../yasui/libys/areadata.hpp"
 #include "../yasui/libys/progress.hpp"
+
+// 001614a8: C2 constructor copy (same body as the C1 at 0x1614e8)
+namespace n001614a8 {
+// 00158050: moved to src/anon/unit_00158050.cpp
+
+void func_00144450(void*) asm("func_00144450");
+void func_001616d8(void*) asm("func_001616d8");
+/*TARGET 001614e8*/
+void func_001614a8(u8* p, u32 v) asm("func_001614a8");
+void func_001614a8(u8* p, u32 v) {
+    *(u32*)(p + 68) = v;
+    *(u32*)(p + 64) = 0;
+    *(u32*)(p + 72) = 0;
+    *(u32*)(p + 76) = 0;
+    *(u32*)(p + 80) = 0;
+    func_00144450(p + 84);
+    func_001616d8(p);
+}
+}  // namespace n001614a8
 
 // 001614e8 (was src/anon/batch_w15.cpp)
 namespace n001614e8 {

@@ -1,5 +1,5 @@
 // dk::Fade (0x14a950-0x14aed0): screen fades (7 global Fade rectangles at 0x3493a0, 0x110 bytes each).
-// Linked unit. The C2 copy of the ctor (0x14a918) sits before the unit, and the static initialiser
+// Linked unit from the C2 copy of the ctor (0x14a918). The static initialiser
 // 0x14aed0 with its _GLOBAL__I_/_GLOBAL__D_ stubs stays outside as plain functions (it builds the
 // objects and destroys them through an inline base dtor), so the objects are plain externs here.
 #include "../../common/types.h"
@@ -26,6 +26,13 @@ void func_0014b1e0(u8*, s32, s32);
 void func_0014b208(u8*, s32, s32);
 u32 func_00102788(u32, u32, u32, void (*)(void));
 void func_00102c18(s32, s32, void (*)(void));
+}
+
+// 0x14a918: dk::Fade C2 ctor (same body as the C1)
+extern "C" void func_0014a918(void** p) {
+    func_0014b638(p);
+    *p = D_00349b28;
+    func_0014a988(p);
 }
 
 // 0x14a950: dk::Fade C1 ctor

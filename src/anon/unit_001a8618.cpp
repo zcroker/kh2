@@ -1,4 +1,4 @@
-// Linked unit 0x1a8618-0x1a9110 (YS file 0x1a8618-0x1abad8, part).
+// Linked unit 0x1a85b8-0x1a9110 (YS file 0x1a8618-0x1abad8, part).
 #include "../common/types.h"
 #include "auto80_199_queue_decls.hpp"
 #include "auto80_199_queue_structs.hpp"
@@ -18,6 +18,19 @@
 #ifndef QCOPY
 #define QCOPY(d, s) asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(d), "r"(s) : "$8", "memory")
 #endif
+
+// 001a85b8: C2 constructor copy (same body as the C1 at 0x1a8618)
+namespace n001a85b8 {
+void func_001a85b8(u32 a0, u32 a1, u32 a2) asm("func_001a85b8");
+void func_001a85b8(u32 a0, u32 a1, u32 a2) {
+    func_001980d0(a0, a1, 8, a2);
+    *(u32*)a0 = (u32)&D_003509c0;
+    u32 ok = func_00198738(a0, D_003509b0);
+    *(u8*)(a0 + 2548) = (ok != 0);
+    *(u32*)(a0 + 2552) = 0;
+    *(u32*)(a0 + 1416) |= 0x200;
+}
+} // n001a85b8
 
 // 001a8618 (from src/anon/auto80_199_queue.cpp)
 namespace n001a8618 {

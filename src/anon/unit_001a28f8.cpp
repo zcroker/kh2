@@ -1,9 +1,25 @@
 #include "../common/types.h"
 
-// Object movement helpers (0x1a28f8-0x1a2a50), the end of the file before YS::ITEM: a forwarder,
+// Object movement helpers (0x1a28b8-0x1a2a50), the end of the file before YS::ITEM: a forwarder,
 // a velocity damping step that stops the object below a minimum speed, the velocity scaled
 // by the frame time, and the stop itself.
 // Each function keeps the declarations of the source it was matched in (namespace jN).
+
+// 001a28b8 (never written before): the speed limit from the current velocity length
+namespace jm1 {
+static inline f32 vu_len(void* v) {
+    f32 r;
+    asm volatile("lqc2 $vf1, 0(%1)\n\tvmul.xyz $vf1, $vf1, $vf1\n\tvaddy.x $vf1, $vf1, $vf1y\n\tvaddz.x $vf1, $vf1, $vf1z\n\tvsqrt Q, $vf1x\n\tvwaitq\n\tcfc2 $8, $vi22\n\tmtc1 $8, %0"
+                 : "=f"(r) : "r"(v) : "$8", "memory");
+    return r;
+}
+extern u8* D_00352130 asm("D_00352130");
+void func_001a28b8(u32, u8* o) asm("func_001a28b8");
+void func_001a28b8(u32, u8* o) {
+    *(f32*)(o + 244) = vu_len(o + 32) * *(f32*)(D_00352130 + 64);
+    *(f32*)(o + 248) = 0.0f;
+}
+}  // namespace jm1
 
 // 001a28f8
 namespace j0 {

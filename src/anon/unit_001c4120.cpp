@@ -2,6 +2,24 @@
 #include "../tozawa/cmenu_top.hpp"
 #include "tiny_auto80_solver_structs.hpp"
 
+// ---- 001c40e0: C2 constructor copy (same body as 0x1c4120)
+namespace n001c40e0 {
+extern u8 D_00351580 asm("D_00351580");
+u32 func_001b1d20(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z13func_001b1d20jjjj");
+u32 func_001c40e0(u32 a0, u32 a1, u32 a2, u32 a3) asm("func_001c40e0");
+u32 func_001c40e0(u32 a0, u32 a1, u32 a2, u32 a3) {
+    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u, r14 = 0u, r15 = 0u, r16 = 0u;
+    r16 = r4;
+    r2 = func_001b1d20(r4, r5, r6, r7);
+    r14 = *(u32*)((u32)r16 + (s32)(2748));
+    r15 = (u32)&D_00351580;
+    r14 = (u32)(r14 | 0x0080u);
+    *(u32*)((u32)r16 + (s32)(0)) = r15;
+    *(u32*)((u32)r16 + (s32)(2748)) = r14;
+    return r2;
+}
+}  // namespace n001c40e0
+
 // ---- 001c4120 from src/anon/tiny_jal_wrappers_reloc.cpp
 namespace n001c4120 {
 extern u8 D_00351580 asm("D_00351580");

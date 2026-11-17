@@ -22,12 +22,12 @@ src/anon/unit_00157688.cpp	00157688	00158050	.bss@004f3588,.rodata@0036b300	-G0
 src/anon/unit_00158050.cpp	00158050	00158450	-	-G0
 src/anon/unit_0019ee80.cpp	0019ee80	0019fb70	.rodata@0036d40c	-G0 -g -fno-strict-aliasing
 src/anon/unit_0019fb70.cpp	0019fb70	001a28b8	.rodata@0036d440	-G0 -g -fno-strict-aliasing
-src/anon/unit_001a28f8.cpp	001a28f8	001a2a50	-	-G0
+src/anon/unit_001a28f8.cpp	001a28b8	001a2a50	-	-G0
 src/anon/unit_001a2a50.cpp	001a2a50	001a3a50	.bss@01c6cac0,.rodata@0036d458	-G0 -fno-strict-aliasing
 src/yasui/libys/databuff.cpp	001b13d8	001b14d8	.data@00350e88,.bss@01c94100	-G0
 src/anon/unit_001b14d8.cpp	001b14d8	001b1c38	.rodata@0036d998	-G0 -fno-strict-aliasing
 src/anon/unit_001b1d20.cpp	001b1d20	001b2728	.rodata@0036d9c0	-G0
-src/anon/unit_001b2780.cpp	001b2780	001b65e0	.rodata@0036d9d4	-G0 -g -fno-strict-aliasing
+src/anon/unit_001b2780.cpp	001b2728	001b65e0	.rodata@0036d9d4	-G0 -g -fno-strict-aliasing
 src/anon/unit_001b6a50.cpp	001b6a50	001b82d8	.rodata@0036dac4	-G0 -g -fno-strict-aliasing
 src/anon/unit_001c2b58.cpp	001c2b58	001c38c0	.rodata@0036dddc	-G0
 src/anon/unit_001c38c0.cpp	001c38c0	001c3f58	.rodata@0036de08	-G0
@@ -35,7 +35,7 @@ src/anon/unit_001c4050.cpp	001c4050	001c40e0	-	-G0
 src/anon/unit_001c5168.cpp	001c5168	001c51d8	-	-G0
 src/anon/unit_001c5b90.cpp	001c5b90	001c6a28	.rodata@0036dec0	-G0 -fno-strict-aliasing
 src/anon/unit_001c6c60.cpp	001c6c60	001c6e58	.rodata@0036df6c	-G0
-src/anon/unit_001c7bc8.cpp	001c7bc8	001c7f10	-	-G0
+src/anon/unit_001c7bc8.cpp	001c7b88	001c7f10	-	-G0
 src/yasui/libys/summon.cpp	001c7f10	001c8d80	.rodata@0036e040	-G0
 src/yasui/libys/mutex.cpp	001c8d80	001c8e80	.data@00351eb8	-G0
 src/anon/unit_001c8e80.cpp	001c8e80	001c91c8	-	-G0
@@ -396,7 +396,7 @@ src/harata/libdk/targetcamera.cpp	00159ce0	0015a810	.data@0034aa30,.bss@004f3604
 src/anon/unit_00159240.cpp	00159240	00159790	.data@0034aa08,.bss@004f35b0,.rodata@0036b32c	-G0 -fno-strict-aliasing
 src/anon/unit_001a8098.cpp	001a8098	001a82b0	.data@01c6cb90	-G0 -fno-strict-aliasing
 src/anon/unit_001a82f0.cpp	001a82f0	001a85b8	.bss@01c6cba0	-G0 -fno-strict-aliasing
-src/anon/unit_001a8618.cpp	001a8618	001a9110	.rodata@0036d614	-G0
+src/anon/unit_001a8618.cpp	001a85b8	001a9110	.rodata@0036d614	-G0
 src/anon/unit_001a9110.cpp	001a9110	001a9130	-	-G0 -g
 src/anon/unit_001a9130.cpp	001a9130	001aa980	.rodata@0036d618	-G0
 src/anon/unit_001aa980.c	001aa980	001aaa08	-	-G0 -fno-schedule-insns
@@ -430,7 +430,7 @@ src/anon/unit_0010ef48.cpp	0010ef48	0010f338	-	-G0 -g -fno-strict-aliasing -fno-
 src/anon/unit_0010f338.cpp	0010f338	0010fb10	.rodata@0036a52c	-G0
 src/anon/unit_0010fea0.cpp	0010fea0	001109c8	.rodata@0036a530	-G0 -fno-strict-aliasing
 src/anon/unit_00110b00.cpp	001109c8	001117d8	.rodata@0036a53c	-G0 -fno-strict-aliasing
-src/anon/unit_001117d8.cpp	001117d8	001135b0	.rodata@0036a560	-G0 -g -fno-strict-aliasing
+src/anon/unit_001117d8.cpp	001117d8	00113628	.rodata@0036a560	-G0 -g -fno-strict-aliasing
 src/anon/unit_00113628.cpp	00113628	00113af0	-	-G0 -fno-strict-aliasing
 src/anon/unit_00113fb0.cpp	00113fb0	001149a0	-	-G0 -fno-strict-aliasing
 src/anon/unit_00114a90.cpp	001149a0	00117588	.rodata@0036a770	-G0 -fno-strict-aliasing
@@ -453,7 +453,7 @@ src/anon/unit_00127a88.cpp	00127a88	00127ec8	.rodata@0036a9e0	-G0 -fno-strict-al
 src/harata/libdk/mapfile.cpp	001491a8	00149be8	.rodata@0036afb8	-G0
 src/harata/libdk/area.cpp	00149be8	00149fa8	.data@00348d68	-G0
 src/anon/unit_00149fa8.cpp	00149fa8	0014a918	.rodata@0036b0a0	-G0
-src/harata/libdk/fade.cpp	0014a950	0014aed0	.rodata@0036b0b0	-G0
+src/harata/libdk/fade.cpp	0014a918	0014aed0	.rodata@0036b0b0	-G0
 src/anon/unit_00167358.cpp	001672c8	00168218	.data@0034d3c0,.bss@004f4250,.rodata@0036b568	-G0 -fno-strict-aliasing
 src/yasui/libys/file.cpp	00168218	00168aa0	.data@0034d800,.bss@004f5280	-G0 -g -fmove-all-movables -fno-strict-aliasing
 src/anon/unit_00168aa0.cpp	00168aa0	00169398	.rodata@0036bf48	-G0 -fno-strict-aliasing
@@ -481,7 +481,7 @@ src/harata/libdk/map.cpp	0015eba8	0015efa0	.rodata@0036b468	-G0
 src/harata/libdk/map_effect.cpp	0015f268	0015f7f0	.data@0034c6f0	-G0
 src/harata/libdk/bgobj.cpp	0015f7f0	001610c0	.data@0034c738,.rodata@0036b470	-G0 -g -fno-strict-aliasing
 src/anon/unit_001611a8.cpp	001611a8	001614a8	.bss@004f3b30	-G0 -g -fno-strict-aliasing
-src/anon/unit_001614e8.cpp	001614e8	00163898	.rodata@0036b478	-G0 -g -fno-strict-aliasing
+src/anon/unit_001614e8.cpp	001614a8	00163898	.rodata@0036b478	-G0 -g -fno-strict-aliasing
 src/anon/unit_00164578.cpp	00164578	001652c8	.rodata@0036b4c8	-G0 -g -fno-strict-aliasing -fmove-all-movables
 src/anon/unit_001656b8.cpp	001656b8	00165db8	.rodata@0036b4ec	-G0 -fno-strict-aliasing
 src/anon/unit_00165db8.cpp	00165db8	00165f70	-	-G0
@@ -492,7 +492,7 @@ src/sugi/flare.cpp	002e9248	002e99c8	.data@01e2bfa0,.rodata@00376090	-G0 -fno-st
 src/anon/unit_002e9a00.cpp	002e9a00	002ea2b8	.rodata@003760a0	-G0
 src/anon/unit_002ea2b8.cpp	002ea2b8	002ea450	-	-G0
 src/anon/unit_002eaa68.cpp	002eaa68	002ead98	.rodata@003760d4	-G0
-src/anon/unit_001cc048.cpp	001cc048	001cc3b8	.rodata@0036e1c0	-G0 -g
+src/anon/unit_001cc048.cpp	001cc008	001cc3b8	.rodata@0036e1c0	-G0 -g
 src/anon/unit_001cc868.cpp	001cc868	001cd078	.rodata@0036e1fc	-G0 -g
 src/anon/unit_001cd078.cpp	001cd078	001cd548	.rodata@0036e238	-G0 -g
 src/anon/unit_001cd548.cpp	001cd548	001cd660	-	-G0
@@ -513,7 +513,7 @@ src/anon/unit_001bc2a8.cpp	001bc2a8	001bc568	-	-G0 -falign-jumps=1
 src/anon/unit_001bc568.cpp	001bc568	001bfda0	.rodata@0036dc48	-G0 -fno-strict-aliasing
 src/anon/unit_001bff88.cpp	001bff88	001c0638	.rodata@0036dd58	-G0 -fno-strict-aliasing
 src/anon/unit_001c0638.cpp	001c0638	001c2b58	.rodata@0036dd5c	-G0 -fno-strict-aliasing
-src/anon/unit_001c4120.cpp	001c4120	001c4918	.rodata@0036de24	-G0 -fno-strict-aliasing
+src/anon/unit_001c4120.cpp	001c40e0	001c4918	.rodata@0036de24	-G0 -fno-strict-aliasing
 src/anon/unit_001c4dc8.cpp	001c4dc8	001c5168	.rodata@0036de88	-G0 -fno-strict-aliasing
 src/anon/unit_001c6e58.cpp	001c6e58	001c70e8	.rodata@0036df80	-G0 -g -fno-strict-aliasing
 src/anon/unit_001c7148.cpp	001c7148	001c7b88	.rodata@0036df90	-G0 -g -fno-strict-aliasing

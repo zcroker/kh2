@@ -16,6 +16,30 @@
 #include "../tozawa/menu_sound.hpp"
 #include "../yasui/libys/levelup.hpp"
 
+// 001b2728, 001b2770: never-written trap pair (hide the party leader and its two members; empty hook).
+namespace n001b2728 {
+struct Obj1b2728 {
+    u8 pad0[32]; u8 v[16];
+    u8 pad1[240 - 48]; s32 f240;
+    u8 pad2[268 - 244]; u32 f268;
+    u8 pad3[2808 - 272]; Obj1b2728* member[2];
+};
+void func_001b2728(void* self, Obj1b2728* o) asm("func_001b2728");
+void func_001b2728(void* self, Obj1b2728* o)
+{
+    asm volatile("vsub.wxyz $vf1, $vf0, $vf0\n\tsqc2 $vf1, 0(%0)" : : "r"(o->v) : "memory");
+    o->f240 = 0;
+    o->f268 |= 0x200;
+    Obj1b2728** p = o->member;
+    for (s32 i = 1; i >= 0; i--) {
+        Obj1b2728* m = *p++;
+        if (m) m->f268 |= 0x200;
+    }
+}
+void func_001b2770(void) asm("func_001b2770");
+void func_001b2770(void) {}
+}  // namespace n001b2728
+
 // 001b2780 (was src/anon/batch_w20.cpp)
 namespace n001b2780 {
 struct Q16 { u32 w[4]; } __attribute__((aligned(16)));

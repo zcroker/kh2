@@ -2,8 +2,7 @@
 
 // Effect-spawner object file (0x1c7b88-0x1c7f10). One instance lives at a time; its pointer is
 // D_00351d98 and its vtable D_00351da8 (both retail .data, left as data). The base class
-// ctor/dtor are 0x1a4db0 / 0x1a4e30. The C2 ctor copy at 0x1c7b88 (same body as 0x1c7bc8) sits
-// before this unit and stays as it is.
+// ctor/dtor are 0x1a4db0 / 0x1a4e30. The C2 ctor copy at 0x1c7b88 has the same body as 0x1c7bc8.
 
 extern "C" {
 extern void* D_00351d98;
@@ -24,6 +23,14 @@ void func_001c1708(u32);
 }
 
 extern "C" {
+
+// 0x1c7b88: C2 constructor (same body as the C1).
+void func_001c7b88(void* p, u32 a1)
+{
+    func_001a4db0(p, a1, 256, 96);
+    *(void**)p = &D_00351da8;
+    D_00351d98 = p;
+}
 
 // 0x1c7bc8: C1 constructor.
 void func_001c7bc8(void* p, u32 a1)

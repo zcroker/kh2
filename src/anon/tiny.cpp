@@ -241,7 +241,7 @@ void func_001059d0(BD_VALUE* bd) { func_001058f8(1, 0xffff); }
 void func_001059f0(BD_VALUE* bd) { func_001058f8(0, 0xffff); }
 // 00108028: moved to src/naka/libkn/camera.cpp
 void func_0010b418(BD_VALUE* bd);  // 0010b418: moved to src/anon/unit_0010aef0.cpp
-void func_001135e8(BD_VALUE* bd) { func_00113470(1, 0xffff); }
+// 001135e8: moved to src/anon/unit_001117d8.cpp
 void func_00134580(BD_VALUE* bd);  // 0x00134580: definition moved into src/anon/unit_00133cf0.cpp
 // 00135788: moved to src/anon/unit_00134668.cpp
 void func_0013a328(BD_VALUE* bd);  // 0x0013a328: definition moved into src/anon/unit_001393c8.cpp

@@ -1285,3 +1285,23 @@ void func_00113470(int a, int b) {
 }
 }  // namespace n00113470
 
+
+// 001135b0: __tcf_0, the atexit destructor of 0x1118a8's two local static vectors (D_003a99b0),
+// then this file's _GLOBAL__I_ (0x1135e8) and _GLOBAL__D_ (0x113608) stubs.
+namespace n001135b0 {
+struct E1135b0 { u8 v[16]; ~E1135b0() {} };
+extern E1135b0 D_003a99b0[2] asm("D_003a99b0");
+void func_00113470(int a, int b) asm("_Z13func_00113470ii");
+void func_001135b0(void) asm("func_001135b0");
+void func_001135b0(void)
+{
+    if (D_003a99b0) {
+        E1135b0* e = D_003a99b0 + 2;
+        for (;;) { e->~E1135b0(); if (e == D_003a99b0) break; --e; }
+    }
+}
+void func_001135e8(void) asm("func_001135e8");
+void func_001135e8(void) { func_00113470(1, 0xffff); }
+void func_00113608(void) asm("func_00113608");
+void func_00113608(void) { func_00113470(0, 0xffff); }
+}  // namespace n001135b0
