@@ -25,16 +25,7 @@ extern int D_01e2d980[];
 extern int D_01e2da80[];
 extern int D_01e3b300;
 
-void func_0030a278(void)
-{
-    SemaParam s;
-    if (D_0036616c == -1) {
-        s.init_count = 1;
-        s.max_count = 1;
-        s.option = (unsigned int)"SceStdioFioSema";
-        D_0036616c = func_00305620(&s);
-    }
-}
+void func_0030a278(void);  // 0x0030a278: definition moved into src/sdk/libkernl_00309860.c
 
 int func_002fbb50(void);  // 0x002fbb50: definition moved into src/sdk/libmc.c
 

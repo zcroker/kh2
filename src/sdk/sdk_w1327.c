@@ -25,28 +25,7 @@ extern int func_00310a40(long, void *, int);
 extern void func_003068d8(void);
 
 int func_00306698(int usec) asm("_Z13func_00306698i") __attribute__((section(".text._Z13func_00306698i")));
-int func_00306698(int usec)
-{
-    SemaParam p;
-    int st, s, r;
-    asm volatile("mfc0 %0, $12" : "=r"(st));
-    if (!(st & 0x10000))
-        return 0x80008008;
-    p.max_count = 1;
-    p.option = (unsigned int)"SceKernelDelayThread";
-    p.init_count = 0;
-    s = func_00305620(&p);
-    if (s < 0)
-        return 0x80008003;
-    r = func_00310a40(func_00310890(0, usec), func_003068d8, s);
-    if (r < 0) {
-        func_00305630(s);
-        return r;
-    }
-    func_00305660(s);
-    func_00305630(s);
-    return 0;
-}
+int func_00306698(int usec);  // 0x00306698: definition moved into src/sdk/libkernl_00306698.c
 
 typedef struct { u32 a, v; } AV;
 extern AV D_003674c0[];
@@ -93,22 +72,4 @@ extern int isceSifSendCmd(unsigned int, Pk *, int, int, int, int);
 extern int func_00310b70(int, void (*)(void), Pk *);
 extern void func_003091c8(void);
 
-void func_00309208(Pk *r, int a)
-{
-    Pk *p = func_00308dc0(a);
-    Pk *q;
-    int t14 = r->x14, t1c = r->x1c;
-    p->x1c = t1c;
-    p->x14 = t14;
-    p->x20 = 0x80000009;
-    q = func_00309178(r->x20, a);
-    if (q == 0) {
-        p->x24 = 0;
-        p->x28 = 0;
-    } else {
-        p->x24 = (int)q;
-        p->x28 = q->x8;
-    }
-    if (isceSifSendCmd(0x80000008, p, 64, 0, 0, 0) == 0)
-        func_00310b70(2048, func_003091c8, p);
-}
+void func_00309208(Pk *r, int a);  // 0x00309208: definition moved into src/sdk/libkernl_00308f00.c

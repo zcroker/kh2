@@ -52,26 +52,6 @@ typedef struct { int next; volatile int id; } Sem_w1055;
 
 int func_00310d08(unsigned int id);  // 0x00310d08: definition moved into src/sdk/libkernl_00310048.c
 
-void func_00305f18(unsigned int a, unsigned int b)
-{
-    int st;
-    asm volatile("mfc0 %0, $12" : "=r"(st));
-    st &= 0x10000;
-    if (st)
-        DIntr();
-    func_00305e70(a & 0xffffffc0, b & 0xffffffc0);
-    if (st)
-        EIntr();
-}
+void func_00305f18(unsigned int a, unsigned int b);  // 0x00305f18: definition moved into src/sdk/libkernl_00305f18.c
 
-void func_00306058(unsigned int a, unsigned int b)
-{
-    int st;
-    asm volatile("mfc0 %0, $12" : "=r"(st));
-    st &= 0x10000;
-    if (st)
-        DIntr();
-    func_00305fb0(a & 0xffffffc0, b & 0xffffffc0);
-    if (st)
-        EIntr();
-}
+void func_00306058(unsigned int a, unsigned int b);  // 0x00306058: definition moved into src/sdk/libkernl_00306058.c

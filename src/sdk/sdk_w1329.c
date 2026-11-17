@@ -15,56 +15,11 @@ extern char D_0037a800[];
 extern int D_01e34e80;
 extern int D_01e34e88[2];
 extern char D_01e34a80[];
-int func_003063f8(void)
-{
-    struct ThreadParam tp;
-    struct SemaParam sp;
-    if (D_003660d0 > 0)
-        return -1;
-    sp.maxCount = 255;
-    sp.initCount = 0;
-    sp.option = (unsigned int)"SceKerneltopThread";
-    D_01e34e80 = func_00305620(&sp);
-    if (D_01e34e80 < 0)
-        return -1;
-    tp.entry = func_00306320;
-    tp.stack = D_01e34a80;
-    tp.stackSize = 0x400;
-    tp.gpReg = D_0037a800;
-    tp.option = (unsigned int)"SceKerneltopThread";
-    tp.initPriority = 0;
-    D_003660d0 = func_00305420(&tp);
-    if (D_003660d0 < 0) {
-        func_00305630(D_01e34e80);
-        return -1;
-    }
-    D_01e34e88[0] = 0;
-    D_01e34e88[1] = 0;
-    func_00306760(D_003660d0, D_01e34e88);
-    func_003054b0(func_00305510(), 1);
-    return D_003660d0;
-}
+int func_003063f8(void);  // 0x003063f8: definition moved into src/sdk/libkernl_00306058.c
 
 extern int sceSifCallRpc(void *cd, int fno, int mode, void *send, int ssize, void *recv, int rsize, void *end, void *endp);
 extern int func_00306698(int);
-int func_00309d60(void *cd, int fno, int mode, void *send, int ssize, void *recv, int rsize, void *end, void *endp, int noretry)
-{
-    int i, d, r;
-    i = 0;
-    d = 1;
-    do {
-        r = (unsigned int)sceSifCallRpc(cd, fno, mode, send, ssize, recv, rsize, end, endp) >> 31;
-        if (r == 0)
-            break;
-        if (noretry)
-            break;
-        func_00306698(d * 1000);
-        if (d < 127)
-            d *= 2;
-        i++;
-    } while (i < 101);
-    return r;
-}
+int func_00309d60(void *cd, int fno, int mode, void *send, int ssize, void *recv, int rsize, void *end, void *endp, int noretry);  // 0x00309d60: definition moved into src/sdk/libkernl_00309860.c
 
 extern unsigned int D_01e38c40_u[] asm("D_01e38c40");
 extern char D_01e38e40[];

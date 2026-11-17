@@ -138,10 +138,7 @@ void func_002f4870(void* dst, void* v, f32 s) {  // vec3_scale_by_f12
 }
 
 void func_003053f0(void);
-void iDisableDmac(void) {
-    func_003053f0();
-    asm volatile("sync");
-}
+void iDisableDmac(void);  // 0x00306300: definition moved into src/sdk/libkernl_00306058.c
 
 } // extern "C"
 

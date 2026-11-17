@@ -181,17 +181,10 @@ void sceVu0CopyVector(void* dst, void* src) {  // memcpy16
 }
 
 // Returns 1 when interrupts are disabled (Status.IE clear).
-s32 func_003060f0() {  // ee_intr_disabled
-    s32 r;
-    asm volatile("mfc0 %0, $12" : "=r"(r));
-    return (r ^ 1) & 1;
-}
+s32 func_003060f0();  // 0x003060f0: definition moved into src/sdk/libkernl_00306058.c
 
 void func_003053d0();
-void iDisableIntc() {
-    func_003053d0();
-    asm volatile("sync");
-}
+void iDisableIntc();  // 0x003062c0: definition moved into src/sdk/libkernl_00306058.c
 
 // libkernel: enable interrupts, return whether EIE was already set.
 // The mfc0/lui/and sequence is in asm: this area is hand-written / other-compiler

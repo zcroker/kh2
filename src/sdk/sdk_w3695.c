@@ -18,19 +18,4 @@ extern const u_int D_01e357e0;
 
 /* Copies n DMA entries, appends a 16-byte transfer of D_003780c0 to the IOP address in
  * D_01e357e0, then starts the list (mode 0: normal, else the interrupt-safe variant). */
-int func_00308248(SifDmaData_w3695 *src, int n, int mode)
-{
-    SifDmaData_w3695 d[32];
-    if (n < 32) {
-        memcpy(d, src, n * 16);
-        d[n].data = (u_int)&D_003780c0;
-        d[n].addr = D_01e357e0;
-        d[n].size = 16;
-        d[n].mode = 0x44;
-        n++;
-        if (mode == 0)
-            return func_003059e0(d, n);
-        return func_003059f0(d, n);
-    }
-    return 0;
-}
+int func_00308248(SifDmaData_w3695 *src, int n, int mode);  // 0x00308248: definition moved into src/sdk/libkernl_003081d0.c

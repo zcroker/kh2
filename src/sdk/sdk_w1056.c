@@ -10,18 +10,7 @@ extern int D_01e34e80;
 typedef struct { int p0; u32 idx; struct { unsigned char a, b; } q[512]; } Ring;
 extern Ring D_01e34e88;
 extern int func_00305650(int);
-int func_00306580(u32 c)
-{
-    int i;
-    if (c >= 128 || D_003660d0 == 0)
-        return -1;
-    i = D_01e34e88.idx & 0x1ff;
-    D_01e34e88.idx = i + 1;
-    D_01e34e88.q[i].a = 1;
-    D_01e34e88.q[i].b = c;
-    func_00305650(D_01e34e80);
-    return c;
-}
+int func_00306580(u32 c);  // 0x00306580: definition moved into src/sdk/libkernl_00306580.c
 
 extern void func_00309be8(void);
 extern int func_00305660(int);
@@ -29,17 +18,7 @@ extern int func_00305640(int);
 extern int D_00366170;
 typedef struct { int a; int b; int c; int d; } Ent;
 extern Ent D_01e38780[];
-int func_00309c58(void)
-{
-    int n = 0;
-    Ent *p;
-    func_00309be8();
-    func_00305660(D_00366170);
-    for (p = D_01e38780; p < D_01e38780 + 32; p++)
-        if (p->b) n++;
-    func_00305640(D_00366170);
-    return n;
-}
+int func_00309c58(void);  // 0x00309c58: definition moved into src/sdk/libkernl_00309860.c
 
 extern int D_0036617c;
 extern int D_01e38b00;

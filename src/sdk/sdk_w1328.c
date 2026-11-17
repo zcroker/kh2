@@ -32,19 +32,7 @@ typedef struct { int x0; volatile int x4; unsigned char *x8; } Q1328;
 typedef struct { int pad[6]; Q1328 *x18; } S1328;
 extern S1328 D_01e353d0;
 extern void func_00306968(Q1328 *);
-int func_00306cb8(char *buf, int n)
-{
-    int i;
-    for (i = 0; i < n; i++) {
-        while (D_01e353d0.x18->x4 == 0)
-            ;
-        buf[i] = *D_01e353d0.x18->x8;
-        func_00306968(D_01e353d0.x18);
-        if (buf[i] == '\n' || buf[i] == '\r')
-            return i + 1;
-    }
-    return i;
-}
+int func_00306cb8(char *buf, int n);  // 0x00306cb8: definition moved into src/sdk/libkernl_00306698.c
 
 typedef struct { int pad[4]; unsigned int x10; int x14; int x18; int x1c; int x20; int x24; int x28; } R1328;
 typedef struct { int pad[5]; int x14; int x18; int x1c; int x20; int x24; int x28; int x2c; } P1328;
@@ -53,23 +41,7 @@ extern P1328 *func_00308dc0(int);
 extern int isceSifSendCmd(int, P1328 *, int, int, int, int);
 extern void func_00310b70(int, void *, P1328 *);
 extern void D_00308f00(void);
-void func_00308f40(R1328 *r, int a)
-{
-    P1328 *p;
-    if (r->x10 & 4)
-        p = func_00308df0(a, r->x10 >> 16);
-    else
-        p = func_00308dc0(a);
-    {int t14 = r->x14, t1c = r->x1c;
-    p->x14 = t14;
-    p->x1c = t1c;}
-    p->x20 = 0x8000000c;
-    p->x24 = r->x20;
-    p->x28 = r->x24;
-    p->x2c = r->x28;
-    if (isceSifSendCmd(0x80000008, p, 0x40, r->x20, r->x24, r->x28) == 0)
-        func_00310b70(0x800, D_00308f00, p);
-}
+void func_00308f40(R1328 *r, int a);  // 0x00308f40: definition moved into src/sdk/libkernl_00308f00.c
 
 typedef struct { int x0; int x4; int pad[3]; char x14[0x334 - 0x14]; } E1328;
 typedef struct { unsigned char x0, x1, x2, x3; int x4; int pad[5]; unsigned char x1c[1]; } F1328;

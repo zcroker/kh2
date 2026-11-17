@@ -6,19 +6,7 @@ extern int func_00309be8(void);
 extern int D_00366170;
 extern Q D_01e38780[];
 
-Q* func_00309e50(unsigned int n) {
-    Q* p;
-    int r;
-    r = func_00309be8();
-    func_00305660(D_00366170);
-    if (n >= 32) {
-        func_00305640(D_00366170);
-        return 0;
-    }
-    p = &D_01e38780[n];
-    func_00305640(D_00366170);
-    return p;
-}
+Q* func_00309e50(unsigned int n);  // 0x00309e50: definition moved into src/sdk/libkernl_00309860.c
 
 typedef struct { int count, max_count, init_count, wait_threads; unsigned int attr; unsigned int option; } SemaParam;
 typedef struct { int sema; int *ret; int size; int arg; } AddDrvSend;

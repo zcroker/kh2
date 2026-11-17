@@ -11,4 +11,4 @@ void func_0030f3a8(void);  // 0x0030f3a8: definition moved into src/sdk/libkernl
 
 void func_00305aa0(void) { D_003660c8 = 0; }
 
-void func_0030a300(void) { SignalSema(D_0036616c); }
+void func_0030a300(void);  // 0x0030a300: definition moved into src/sdk/libkernl_00309860.c

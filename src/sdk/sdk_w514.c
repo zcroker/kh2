@@ -28,19 +28,8 @@ long func_00310518(int id);  // 0x00310518: definition moved into src/sdk/libker
 typedef struct { int a, b, c; } E;
 extern E *D_01e357e4;
 extern E *D_01e357ec;
-void func_00308730(int x)
-{
-    if (x < 0) D_01e357e4[x & 0x7fffffff].a = 0;
-    else D_01e357ec[x].a = 0;
-}
+void func_00308730(int x);  // 0x00308730: definition moved into src/sdk/libkernl_00308730.c
 
 typedef struct N { int k; char pad[0x34]; struct N *next; } Nd;
 typedef struct L { int p0, p4; Nd *head; int pc, p10; struct L *next; char pad[0x10]; struct L *sub; } Ls;
-Nd* func_00309178(int k, Ls *l)
-{
-    Nd *n;
-    for (l = l->sub; l; l = l->next)
-        for (n = l->head; n; n = n->next)
-            if (n->k == k) return n;
-    return 0;
-}
+Nd* func_00309178(int k, Ls *l);  // 0x00309178: definition moved into src/sdk/libkernl_00308f00.c

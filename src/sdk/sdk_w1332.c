@@ -46,44 +46,7 @@ extern char D_003780d0[];
 extern RpcPkt *func_00308cf8(void *);
 extern void func_00308da0(void *);
 extern int sceSifSendCmd(unsigned int, void *, int, void *, int, void *);
-int sceSifGetOtherData(RpcCmd *cd, int a, int b, int c, int mode)
-{
-    SemaParam sp;
-    RpcPkt *p = func_00308cf8(D_01e37200);
-    if (p == 0)
-        return -1;
-    cd->pkt = p;
-    cd->rec_id = p->rec_id;
-    p->a = a;
-    p->b = b;
-    p->c = c;
-    p->pkt_addr = p;
-    p->paddr = cd;
-    if (!(mode & 1)) {
-        sp.max_count = 1;
-        sp.init_count = 0;
-        sp.option = (unsigned int)D_003780d0;
-        cd->sema = func_00305620(&sp);
-        if (cd->sema < 0) {
-            func_00308da0(p);
-            return -3;
-        }
-        if (sceSifSendCmd(0x8000000c, p, 64, 0, 0, 0) == 0) {
-            func_00308da0(p);
-            func_00305630(cd->sema);
-            return -2;
-        }
-        func_00305660(cd->sema);
-        func_00305630(cd->sema);
-        return 0;
-    }
-    cd->sema = -1;
-    if (sceSifSendCmd(0x8000000c, p, 64, 0, 0, 0) == 0) {
-        func_00308da0(p);
-        return -2;
-    }
-    return 0;
-}
+int sceSifGetOtherData(RpcCmd *cd, int a, int b, int c, int mode);  // 0x00309010: definition moved into src/sdk/libkernl_00308f00.c
 
 /* iop file rpc (fd request 10) */
 typedef struct { int fd; int busy; int x8; int xc; } FdEnt;

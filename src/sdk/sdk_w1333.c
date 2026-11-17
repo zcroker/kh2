@@ -73,48 +73,7 @@ extern void func_00306928(Ring *r);
 extern void func_00308150(const char *fmt, ...);
 extern int func_00311100(int, char *, unsigned short);
 extern int func_00311138(int, char *, unsigned short);
-void func_003069a8(int ev, int param, TI *ti)
-{
-    int i;
-    unsigned short *hdr;
-    int n, k;
-    switch (ev) {
-    case 1:
-    case 2:
-        if (param) {
-            if ((unsigned)(ti->rlen + param) > 320)
-                func_00308150("TTY: packet size larger than expect\n");
-            k = ti->rlen;
-            i = func_00311100(ti->sock, ti->rbuf + k, param);
-            if (i < 0)
-                func_00308150("TTY: receive error");
-            ti->rlen += i;
-        } else {
-            hdr = (unsigned short *)ti->rbuf;
-            for (i = 12; i < *hdr; i++) {
-                *ti->ring->wp = ti->rbuf[i];
-                func_00306928(ti->ring);
-            }
-            ti->rlen = 0;
-        }
-        break;
-    case 3:
-        n = func_00311138(ti->sock, ti->wbuf, ti->wlen);
-        if (n < 0) {
-            func_00308150("TTY: send err %d\n", n);
-            ti->busy = 0;
-        } else {
-            ti->wbuf += n;
-            ti->wlen -= n;
-        }
-        break;
-    case 4:
-        if (ti->wlen)
-            func_00308150("TTY: err ti->wlen=%08x\n", ti->wlen);
-        ti->busy = 0;
-        break;
-    }
-}
+void func_003069a8(int ev, int param, TI *ti);  // 0x003069a8: definition moved into src/sdk/libkernl_00306698.c
 
 
 typedef struct { int pid; void *pkt; int pktlen; int u0c; int u10; void *rdata; int rdlen; void *client; int cllen; int u24; } RD;
@@ -131,42 +90,7 @@ extern int func_00305a20(int, int);
 extern int sceSifSendCmd(int, void *, int, void *, void *, int);
 extern int func_00308200(int);
 #define UC(p) ((void *)((unsigned int)(p) | 0x20000000))
-void func_00308b30(void)
-{
-    int *cmd;
-    DIntr();
-    if (D_003660dc) {
-        EIntr();
-        return;
-    }
-    D_003660dc = 1;
-    EIntr();
-    func_003083d0();
-    DIntr();
-    D_01e37200.pkt = UC(D_01e35a00);
-    D_01e37200.pktlen = 32;
-    D_01e37200.u0c = 0;
-    D_01e37200.u10 = 0;
-    D_01e37200.rdata = UC(D_01e36200);
-    D_01e37200.rdlen = 32;
-    D_01e37200.client = UC(D_01e36a00);
-    D_01e37200.cllen = 32;
-    D_01e37200.u24 = 0;
-    D_01e37200.pid = 1;
-    func_003086b8(0x80000008, D_00308e30, &D_01e37200);
-    func_003086b8(0x80000009, D_00309208, &D_01e37200);
-    func_003086b8(0x8000000a, D_00309428, &D_01e37200);
-    func_003086b8(0x8000000c, D_00308f40, &D_01e37200);
-    EIntr();
-    if (func_00305a30(0x80000002))
-        return;
-    cmd = (int *)(D_01e35a00 + 64);
-    cmd[3] = 1;
-    sceSifSendCmd(0x80000002, cmd, 16, 0, 0, 0);
-    while (!func_00308200(0))
-        ;
-    func_00305a20(0x80000002, 1);
-}
+void func_00308b30(void);  // 0x00308b30: definition moved into src/sdk/libkernl_00308b30.c
 
 typedef struct { int count, max_count, init_count, wait_threads; unsigned int attr; unsigned int option; } SemaParam;
 typedef struct { int sema; int *res; int rsize; int pad; int mode; char name[1024]; } OpenPk;

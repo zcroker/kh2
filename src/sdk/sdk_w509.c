@@ -18,12 +18,7 @@ extern int DisableDmac(int);
 extern int func_00305350(int, int);
 extern int D_01e357d4;
 extern int D_003660d8;
-void func_00308650(void)
-{
-    DisableDmac(5);
-    func_00305350(5, D_01e357d4);
-    D_003660d8 = 0;
-}
+void func_00308650(void);  // 0x00308650: definition moved into src/sdk/libkernl_003081d0.c
 
 extern int D_00366164;
 extern char D_01e389a8[];

@@ -15,17 +15,7 @@ extern void EIntr();
 extern unsigned char func_00308248(int, int, int);
 extern unsigned char func_003059e0(int, int);
 extern int D_003660d8;
-int func_00308310(int a, int b)
-{
-    int s = DIntr();
-    if (D_003660d8) {
-        if (s) EIntr();
-        return func_00308248(a, b, 0);
-    } else {
-        if (s) EIntr();
-        return func_003059e0(a, b);
-    }
-}
+int func_00308310(int a, int b);  // 0x00308310: definition moved into src/sdk/libkernl_003081d0.c
 
 extern char D_01e33a40[];
 extern int D_00365950;
@@ -47,22 +37,7 @@ int func_0030de70(void);  // 0x0030de70: definition moved into src/sdk/eeloadfil
 typedef struct L { int pad[5]; struct L *next; } L;
 typedef struct { int pad[10]; L *head; } LH;
 extern LH D_01e37200;
-L* func_003098f8(L *n)
-{
-    L *p;
-    DIntr();
-    p = D_01e37200.head;
-    if (p == n) {
-        D_01e37200.head = p->next;
-    } else {
-        while (p) {
-            if (p->next == n) { p->next = n->next; break; }
-            p = p->next;
-        }
-    }
-    EIntr();
-    return p;
-}
+L* func_003098f8(L *n);  // 0x003098f8: definition moved into src/sdk/libkernl_00309860.c
 
 extern int func_0030dd70(void);
 extern int sceSifCallRpc(void *, int, int, int *, int, int *, int, int, int);

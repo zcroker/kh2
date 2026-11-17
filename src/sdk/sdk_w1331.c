@@ -5,40 +5,7 @@ extern void func_00308a80(void *, int);
 extern int func_003059f0(Dma *, int);
 extern int func_003059e0(Dma *, int);
 extern unsigned int D_01e357e0;
-unsigned int func_00308780(int cid, int mode, Hdr *pkt, unsigned int pktsize, void *src, void *dest, int size)
-{
-    Dma dma[2];
-    int count;
-    if (pktsize - 16 > 96)
-        return 0;
-    count = 0;
-    if (size > 0) {
-        pkt->size = (pkt->size & 0xff) | (size << 8);
-        dma[count].src = (unsigned int)src;
-        dma[count].dest = (unsigned int)dest;
-        dma[count].size = size;
-        dma[count].attr = 0;
-        pkt->dest = (unsigned int)dest;
-        count++;
-        if (mode & 4)
-            func_00308a80(src, size);
-    } else {
-        pkt->size = pkt->size & 0xff;
-        pkt->dest = 0;
-    }
-    dma[count].src = (unsigned int)pkt;
-    dma[count].dest = D_01e357e0;
-    dma[count].size = pktsize;
-    pkt->cid = cid;
-    *(unsigned char *)pkt = pktsize;
-    dma[count].attr = 0x44;
-    count++;
-    func_00308a80(pkt, pktsize);
-    if (mode & 1)
-        return func_003059f0(dma, count);
-    else
-        return func_003059e0(dma, count);
-}
+unsigned int func_00308780(int cid, int mode, Hdr *pkt, unsigned int pktsize, void *src, void *dest, int size);  // 0x00308780: definition moved into src/sdk/libkernl_00308730.c
 
 /* libkernl sifrpc: sceSifBindRpc */
 typedef struct { int count; int max_count; int init_count; int wait_threads; unsigned int attr; unsigned int option; } SemaParam;
@@ -51,45 +18,7 @@ extern int func_00305630(int);
 extern int func_00305660(int);
 extern char D_01e37200[];
 extern int func_00305620(SemaParam *);
-int sceSifBindRpc(RpcClient *cd, int sid, int mode)
-{
-    SemaParam sp;
-    BindPkt *bind;
-    cd->command = 0;
-    cd->server = 0;
-    bind = func_00308cf8(D_01e37200);
-    if (bind == 0)
-        return -1;
-    cd->pkt_addr = bind;
-    cd->rpc_id = bind->rpc_id;
-    bind->fno = sid;
-    bind->pkt_addr = (int)bind;
-    bind->client = (int)cd;
-    if (!(mode & 1)) {
-        sp.max_count = 1;
-        sp.init_count = 0;
-        sp.option = (unsigned int)"SceSifrpcBind";
-        cd->sema_id = func_00305620(&sp);
-        if (cd->sema_id < 0) {
-            func_00308da0(bind);
-            return -3;
-        }
-        if (sceSifSendCmd(0x80000009, bind, 64, 0, 0, 0) == 0) {
-            func_00308da0(bind);
-            func_00305630(cd->sema_id);
-            return -2;
-        }
-        func_00305660(cd->sema_id);
-        func_00305630(cd->sema_id);
-        return 0;
-    }
-    cd->sema_id = -1;
-    if (sceSifSendCmd(0x80000009, bind, 64, 0, 0, 0) == 0) {
-        func_00308da0(bind);
-        return -2;
-    }
-    return 0;
-}
+int sceSifBindRpc(RpcClient *cd, int sid, int mode);  // 0x003092d8: definition moved into src/sdk/libkernl_00308f00.c
 
 /* libkernl fileio (sif rpc client) */
 extern int func_00309c58(void);

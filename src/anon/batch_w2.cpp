@@ -161,15 +161,9 @@ void sceVu0FTOI0Vector(void* d, void* s) {  // vec4_ftoi0_trunc
 s32 toupper(s32 c);  // 0x002ffbe0: definition moved into src/newlib/libc/toupper.c
 
 // EnableIntc followed by sync.l.
-void iEnableIntc(u32 n) {
-    func_003053c0(n);
-    asm volatile("sync.l");
-}
+void iEnableIntc(u32 n);  // 0x003062a0: definition moved into src/sdk/libkernl_00306058.c
 
-u32 func_00308200(s32 i) {
-    register u32* t asm("$2") = D_01e35980;
-    return t[i];
-}
+u32 func_00308200(s32 i);  // 0x00308200: definition moved into src/sdk/libkernl_003081d0.c
 
 typedef void (*VFn1)(void*);
 void func_00322968(void** o) {

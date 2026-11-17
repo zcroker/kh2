@@ -644,3 +644,13 @@ src/sdk/libkernl_00310fe0.c	00310fe0	003112fc	-	-G0
 src/sdk/libkernl_00311368.c	00311368	0031142c	-	-G0
 src/sdk/libkernl_00311460.c	00311460	00311490	-	-G0
 src/sdk/libkernl_003114f0.c	003114f0	00311530	-	-G0
+src/sdk/libkernl_00305f18.c	00305f18	00305fac	-	-G0
+src/sdk/libkernl_00306058.c	00306058	003064e4	.rodata@00377e50	-G0
+src/sdk/libkernl_00306580.c	00306580	003065fc	-	-G0
+src/sdk/libkernl_00306698.c	00306698	00306e44	.rodata@00377e68	-G0
+src/sdk/libkernl_003081d0.c	003081d0	003086b8	-	-G0
+src/sdk/libkernl_00308730.c	00308730	00308934	-	-G0
+src/sdk/libkernl_00308b30.c	00308b30	00308e30	-	-G0
+src/sdk/libkernl_00308f00.c	00308f00	003094b4	.rodata@003780d0	-G0
+src/sdk/libkernl_003096b8.c	003096b8	0030978c	-	-G0
+src/sdk/libkernl_00309860.c	00309860	0030a3b0	.rodata@00378100	-G0

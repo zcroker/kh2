@@ -13,39 +13,11 @@ int func_002f3c28(volatile u32 *p);  // 0x002f3c28: definition moved into src/sd
 typedef struct L { int f0, f4, f8, fc, f10; struct L *next; } L;
 typedef struct { char pad[0x28]; L *head; } LH;
 extern LH D_01e37200;
-void func_003096f8(L *a, int b)
-{
-    L *p;
-    DIntr();
-    a->f0 = b; a->f4 = 0; a->f8 = 0; a->fc = 0; a->f10 = 0; a->next = 0;
-    if (D_01e37200.head == 0) {
-        D_01e37200.head = a;
-    } else {
-        p = D_01e37200.head;
-        while (p->next) p = p->next;
-        p->next = a;
-    }
-    EIntr();
-}
+void func_003096f8(L *a, int b);  // 0x003096f8: definition moved into src/sdk/libkernl_003096b8.c
 
 typedef struct M { char pad[0x38]; struct M *next; } M;
 typedef struct { int a, b; M *head; } MH;
-M* func_00309860(M *a, MH *l)
-{
-    M *p;
-    DIntr();
-    p = l->head;
-    if (p == a) {
-        l->head = p->next;
-    } else {
-        while (p) {
-            if (p->next == a) { p->next = a->next; break; }
-            p = p->next;
-        }
-    }
-    EIntr();
-    return p;
-}
+M* func_00309860(M *a, MH *l);  // 0x00309860: definition moved into src/sdk/libkernl_00309860.c
 
 typedef struct { short s0; short s2; int f4; int f8; int fc; } P;
 extern P* sceGsGetGParam(void);

@@ -2,64 +2,16 @@
 extern int DIntr(void);
 extern void EIntr(void);
 extern int func_00305370(int);
-int DisableIntc(int a)
-{
-    int st, r;
-    asm volatile("mfc0 %0, $12" : "=r"(st));
-    st &= 0x10000;
-    if (st)
-        DIntr();
-    r = func_00305370(a);
-    asm volatile("sync");
-    if (st)
-        EIntr();
-    return r;
-}
+int DisableIntc(int a);  // 0x00306100: definition moved into src/sdk/libkernl_00306058.c
 
 extern int func_00305360(int);
-int EnableIntc(int a)
-{
-    int st, r;
-    asm volatile("mfc0 %0, $12" : "=r"(st));
-    st &= 0x10000;
-    if (st)
-        DIntr();
-    r = func_00305360(a);
-    asm volatile("sync");
-    if (st)
-        EIntr();
-    return r;
-}
+int EnableIntc(int a);  // 0x00306168: definition moved into src/sdk/libkernl_00306058.c
 
 extern int func_00305390(int);
-int DisableDmac(int a)
-{
-    int st, r;
-    asm volatile("mfc0 %0, $12" : "=r"(st));
-    st &= 0x10000;
-    if (st)
-        DIntr();
-    r = func_00305390(a);
-    asm volatile("sync");
-    if (st)
-        EIntr();
-    return r;
-}
+int DisableDmac(int a);  // 0x003061d0: definition moved into src/sdk/libkernl_00306058.c
 
 extern int func_00305380(int);
-int EnableDmac(int a)
-{
-    int st, r;
-    asm volatile("mfc0 %0, $12" : "=r"(st));
-    st &= 0x10000;
-    if (st)
-        DIntr();
-    r = func_00305380(a);
-    asm volatile("sync");
-    if (st)
-        EIntr();
-    return r;
-}
+int EnableDmac(int a);  // 0x00306238: definition moved into src/sdk/libkernl_00306058.c
 
 extern int func_002f3588(int);
 extern void func_002f3490(int *);

@@ -6,44 +6,4 @@ extern int DIntr(void);
 extern void EIntr(void);
 extern int func_00311050(int, char);
 extern void func_00311080(int);
-int func_00306b40(const char *src, int n)
-{
-    int cnt = 0;
-    int i = 0;
-    int s;
-    char *buf;
-    char *d;
-    if (D_01e353d0.busy != 0)
-        return -1;
-    s = DIntr();
-    D_01e353d0.busy = 1;
-    buf = (char *)((unsigned int)D_01e35400 | 0x20000000);
-    D_01e353d0.buf = buf;
-    d = buf + 12;
-    while (--n != -1) {
-        if (*src == '\n') {
-            *d++ = '\r';
-            i++;
-            if (i >= 256)
-                break;
-        }
-        *d++ = *src++;
-        i++;
-        cnt++;
-        if (i >= 256)
-            break;
-    }
-    D_01e353d0.size = i + 12;
-    *(short *)buf = D_01e353d0.size;
-    if (func_00311050(D_01e353d0.id, buf[7]) < 0) {
-        D_01e353d0.busy = 0;
-        if (s)
-            EIntr();
-        return -1;
-    }
-    while (D_01e353d0.busy)
-        func_00311080(D_01e353d0.id);
-    if (s)
-        EIntr();
-    return cnt;
-}
+int func_00306b40(const char *src, int n);  // 0x00306b40: definition moved into src/sdk/libkernl_00306698.c

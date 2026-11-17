@@ -178,10 +178,7 @@ void sceVu0ScaleVector(void* d, void* a, f32 s) {  // vec_scale_by_f12
 // Library code: the original compiler allocated v0 for the temporary.
 s32 func_00305dd8(u32 a, u8* p);  // 0x00305dd8: definition moved into src/sdk/glue.c
 
-void iEnableDmac(void) {
-    func_003053e0();
-    asm volatile("sync");
-}
+void iEnableDmac(void);  // 0x003062e0: definition moved into src/sdk/libkernl_00306058.c
 
 void func_0028af90(u8* p, s32 a);  // 0x0028af90: definition moved into src/anon/unit_00288b00.cpp
 

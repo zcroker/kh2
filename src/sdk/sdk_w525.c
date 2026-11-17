@@ -23,18 +23,7 @@ void func_00308060(int a, int b);  // 0x00308060: definition moved into src/sdk/
 typedef struct { int count, max_count, init_count, wait_threads; unsigned int attr, option; } SemaParam;
 extern int func_00305620(SemaParam *);
 extern int D_00366170, D_00366174;
-void func_00309be8(void)
-{
-    SemaParam p;
-    if (D_00366170 == -1) {
-        p.init_count = 1;
-        p.max_count = 1;
-        p.option = (unsigned int)"SceStdioIobSema";
-        D_00366170 = func_00305620(&p);
-        p.option = (unsigned int)"SceStdioQueSema";
-        D_00366174 = func_00305620(&p);
-    }
-}
+void func_00309be8(void);  // 0x00309be8: definition moved into src/sdk/libkernl_00309860.c
 
 extern int D_0036617c;
 extern char D_01e38a80[];
