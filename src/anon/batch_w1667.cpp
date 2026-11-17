@@ -21,7 +21,7 @@ void func_001e2ac0(void) { *(s32*)(D_00352bd0 + 0xdc0) = 7; }
 
 void func_002f8a88(void) { __ieee754_sqrt(); }
 
-void func_00113438(u8* p) { *(u32*)(p + 0xb7c) &= ~0x20000; }
+void func_00113438(u8* p);  // 0x00113438: definition moved into src/anon/unit_001117d8.cpp
 
 // 0016d0d8: moved to src/anon/unit_0016c770.cpp
 

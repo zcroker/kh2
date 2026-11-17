@@ -138,31 +138,11 @@ struct NdB { u8 q[16]; u32 f16; bool b20; s8 b21; u8 b22; s8 b23; bool b24; u8 p
 struct LLB { NdB* head; NdB* tail; };
 struct LsB { u8 pad[8]; u8 b8; u8 pad2[3]; LLB list; };
 
-s32 func_0010f748(u8* p, u32 b) {
-    u8* q = *(u8**)(p + 12);
-    if (!q) return 0;
-    s32 t = *(s32*)(q + 4);
-    if (t != 0 && t != 31) return 0;
-    if (!(*(u32*)(p + 352) & 4)) return 0;
-    return func_001a35f8(b, func_0016a070()) > 0;
-}
+s32 func_0010f748(u8* p, u32 b);  // 0x0010f748: definition moved into src/anon/unit_0010f338.cpp
 
-void func_00112388(void) {
-    func_00135d88();
-    for (s32 i = 0; i < 2; i++) {
-        u8* e = D_00341708[i + 1];
-        if (e) {
-            u8* o = *(u8**)(e + 2912);
-            (*(void (**)(void*))(*(u8**)o + 36))(o);
-        }
-    }
-}
+void func_00112388(void);  // 0x00112388: definition moved into src/anon/unit_001117d8.cpp
 
-void func_001129d8(u32 a) {
-    func_001128d0(a, 1);
-    if (D_003417a8 >= 8) func_001128d0(D_00341788[0], 1);
-    D_00341788[D_003417a8++] = a;
-}
+void func_001129d8(u32 a);  // 0x001129d8: definition moved into src/anon/unit_001117d8.cpp
 
 void func_00127f40(P3* p) {
     func_00124bb8(p);  // obj_ctor_347b88

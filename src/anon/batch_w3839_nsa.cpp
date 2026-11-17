@@ -27,36 +27,7 @@ s32 func_0010f340(Of44*, QWf44*, Tf44*, f32);
 // Checks whether an action entry may be used now (party member, flags, save state, target, facing).
 // The ==3 return shares its block with the failed ctarget call (goto zero) so if-conversion keeps it,
 // and the function ends on return 1, which makes cross-jumping keep that early return-0 block.
-s32 func_0010f448(Of44* o, Af44* a, u8 c1, u8 c2) {
-    if (c1) {
-        Kf44* k = o->k;
-        if (!k) return 0;
-        if (k->i4 != 0 && k->i4 != 31) return 0;
-    }
-    if (c2 && !(o->f160 & 4)) return 0;
-    if (a->i14) {
-        if (a->i1c == -1) return 0;
-        if ((getFSR_f44(o) + a->i1c)[1] == 3) { zero: return 0; }
-        if (!ct_10f7b0_f44(o, a->i14, a->i18)) goto zero;
-    }
-    if (a->t) {
-        if (o->h && a->t->i8 > 0) {
-            if (!(o->fb7c & 0x20)) return 0;
-            if (uc_1a1de0_f44(o->h)) return 0;
-        }
-        if (a->flags & 2) {
-            if (!func_0010cc80(o)) return 0;
-            f32 f = o->fbf0;
-            if (!func_0010f340(o, &o->vbb0, a->t, f)) return 0;
-            if (!(a->t->flags & 0x10)) {
-                QWf44 v(o->v550);
-                v.y = 0.0f;
-                if (Dotf44(v, o->vbd0) < v.y) return 0;
-            }
-        }
-    } else if (a->flags & 2) return 0;
-    return 1;
-}
+s32 func_0010f448(Of44* o, Af44* a, u8 c1, u8 c2);  // 0x0010f448: definition moved into src/anon/unit_0010f338.cpp
 }
 
 

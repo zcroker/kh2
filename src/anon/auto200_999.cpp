@@ -159,13 +159,7 @@ void func_0011c210(u32 a0) {
     *(u64 *)(a0 + 16) = v | mask;
 }
 
-void func_0010dee8(u32 a0, u32 *a1, u32 *a2) {
-    a2[0] = a1[0];
-    a2[1] = a1[1];
-    a2[2] = a1[2];
-    a2[3] = a1[3];
-    a2[4] = a1[4];
-}
+void func_0010dee8(u32 a0, u32 *a1, u32 *a2);  // 0x0010dee8: definition moved into src/anon/unit_0010dee8.cpp
 
 u8* func_00100430(u8* a0, u64* a1) {  // varint64_decode_c
     u8 *p = a0;
@@ -203,13 +197,7 @@ u8* func_00316f38(u8 *a0, u64 *a1) {  // varint64_decode
 
 void func_0010a800(u8 *a0, u8 *a1, u8 *a2);  // 0010a800: moved to src/anon/unit_00109c30.cpp
 
-void func_0010ef28(u32 a0, u32 a1) {
-    u32 p = a0 + 8;
-    *(u32 *)(p + 3156) = *(u32 *)(p + 3152);
-    p = a0 + 4;
-    *(u32 *)(p + 3156) = *(u32 *)(p + 3152);
-    *(u32 *)(a0 + 3156) = a1;
-}
+void func_0010ef28(u32 a0, u32 a1);  // 0x0010ef28: definition moved into src/anon/unit_0010dee8.cpp
 
 u64 func_0011c230(u32 a0) {
     u64 v = *(u64 *)(a0 + 16);

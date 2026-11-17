@@ -126,18 +126,7 @@ void func_002fd408(void*);
 // Is `id` in the -1-terminated id table?
 // 00103428: moved to src/common/unit_001031b0.cpp
 
-void func_00111060(u8* p, void* v) {
-    u32 tmp[4] __attribute__((aligned(16)));
-    QCOPY(tmp, v);
-    func_0016adc8(p, tmp);
-    *(u32*)(p + 2940) |= 1;
-    u8* o = *(u8**)(p + 2912);
-    (*(void (**)(void*))(*(u32*)o + 48))(o);
-    func_00176a60(p, 30.0f);
-    *(u32*)(p + 3296) += 1;
-    *(f32*)(p + 3292) = 480.0f;
-    *(u32*)(p + 3288) = 0;
-}
+void func_00111060(u8* p, void* v);  // 0x00111060: definition moved into src/anon/unit_00110b00.cpp
 
 // 8-byte constant (a member-function pointer) passed by value.
 struct Pmf8 { u64 v; } __attribute__((packed));

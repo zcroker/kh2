@@ -2,12 +2,7 @@
 
 // 001051a0: moved to src/common/area.cpp
 
-u32 func_00112720(u32 a0, u32 a1, u32 a2, u32 a3) {  // check_2924_lt14
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u;
-    r2 = *(u32*)((u32)r4 + (s32)(2924));
-    r2 = ((s32)r2 >= (14));
-    return r2;
-}
+u32 func_00112720(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00112720: definition moved into src/anon/unit_001117d8.cpp
 
 u32 func_00120800(u32 a0, u32 a1, u32 a2, u32 a3) {  // obj_get_sub_ptr_by12
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u, r15 = 0u;

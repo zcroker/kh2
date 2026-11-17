@@ -53,32 +53,5 @@ extern "C" {
 f32 func_0010e7e0(O6a0*, s32);
 
 /* 001106a0: smooth the look direction over the last six frames, then snap the zoom value (dir.w) to a level. */
-void func_001106a0(O6a0* o)
-{
-    V6a0 v;
-    s32 i;
-    if (o->st && o->st->state == 2) return;
-    if (o->flags & 0x10) v.zero();
-    else v = o->dir * o->dir.w;
-    if (o->hist_pos < 0) {
-        for (i = 0; i < 5; i++) o->hist[i] = v;
-        o->hist_pos = 5;
-    }
-    o->hist[o->hist_pos] = v;
-    if (++o->hist_pos >= 6) o->hist_pos = 0;
-    v.zero();
-    for (i = 0; i < 6; i++) v += o->hist[i];
-    v.w = v.normalize() / 6.0f;
-    o->dir = (o->dir + v) * 0.5f;
-    {
-        f32 a = func_0010e7e0(o, 1);
-        f32 b = func_0010e7e0(o, 2);
-        if (o->dir.w < b) {
-            if (o->dir.w < a * 0.5f) o->dir.w = 0.0f;
-            else if (o->dir.w < (a + b) * 0.5f) o->dir.w = a;
-            else o->dir.w = b;
-        }
-    }
-    if (o->flags & 0x10) o->dir.w = func_0010e7e0(o, 1);
-}
+void func_001106a0(O6a0* o);  // 0x001106a0: definition moved into src/anon/unit_0010fea0.cpp
 }

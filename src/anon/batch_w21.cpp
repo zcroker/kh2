@@ -87,10 +87,7 @@ void worldmap_ObjWidget_D0(void**) asm("_ZN8worldmap9ObjWidgetD0Ev");
 typedef void* (*AllocFn)(void*, u32, void*);
 // 001050d8: moved to src/common/area.cpp
 
-u32 func_0010c7b0(u8* p) {  // obj_get_sub_lazy
-    if (*(u32*)(p + 2908) == 0) func_00135dc8(p + 2908);
-    return *(u32*)(p + 2908);
-}
+u32 func_0010c7b0(u8* p);  // 0x0010c7b0: definition moved into src/anon/unit_0010b978.cpp
 
 void func_001157d0(void** p) {
     *p = &D_00347550;

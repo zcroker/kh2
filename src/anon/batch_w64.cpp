@@ -33,15 +33,7 @@ extern u32 D_0033cbb8[];
 // 00105f00: moved to src/common/world.cpp
 
 // ---------------------------------------------------------------------------
-s32 func_0010f6f8(u8* p, f32 f) {  // count_reached_threshold_b
-    if (*(u32*)(p + 2040) & 4) return 0;
-    u8* q = *(u8**)(p + 1164);
-    if (q) {
-        s32 lim = (s32)((f32)*(s32*)(q + 388) * f);
-        if (*(s32*)(q + 384) < lim) return 1;
-    }
-    return 0;
-}
+s32 func_0010f6f8(u8* p, f32 f);  // 0x0010f6f8: definition moved into src/anon/unit_0010f338.cpp
 
 // ---------------------------------------------------------------------------
 void func_0011ee18(void*);  // obj_ctor_347940

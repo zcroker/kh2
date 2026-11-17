@@ -48,13 +48,7 @@ extern const char D_0036c440[];
 // Selects the current id; falls back to a saved slot when the id is unknown.
 // 00103500: moved to src/common/unit_001031b0.cpp
 
-s32 func_0010f600(u8* p) {
-    u32* q = *(u32**)(p + 12);
-    if (q == 0) return 0;
-    if (q[1] != 0) return 0;
-    if (!(*(u32*)(p + 352) & 4)) return 0;
-    return func_0010cc80(p) != 0;
-}
+s32 func_0010f600(u8* p);  // 0x0010f600: definition moved into src/anon/unit_0010f338.cpp
 
 // 00158548: moved to src/harata/libdk/cameraconfig.cpp
 

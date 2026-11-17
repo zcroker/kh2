@@ -26,31 +26,7 @@ static inline bool valid10da40(Hnd10da40* h) { return func_00190140(h) && h->id 
 /* 0010da40: copies into out the handle entry matching the current key (D_003417c4) that is
    nearest to self, or the cached handle D_003417b0 when it is valid and already matches. */
 extern "C" {
-void func_0010da40(void* self, s32 unused, Hnd10da40* out) {
-    if (D_003417c4 == 0) return;
-    if (valid10da40(&D_003417b0) && D_003417b0.id == D_003417c4) {
-        *out = D_003417b0;
-        return;
-    }
-    Info10da40 info;
-    f32 best = 0.0f;
-    s32 key = D_003417c4;
-    Hnd10da40 it;
-    func_00190128(&it);
-    s32 cur = 0;
-    func_00190878(&it, key, 0);
-    while ((cur = func_00190730(&it, cur)) != 0 && it.id == D_003417c4) {
-        func_0018a818(&info, it.id, cur);
-        Vec10da40* p = (Vec10da40*)func_0016c028(self);
-        Vec10da40 d;
-        vsub10da40(&info.pos, p, &d);
-        f32 dist = vlen10da40(&d) - info.r;
-        if (best == 0.0f || dist < best) {
-            best = dist;
-            *out = it;
-        }
-    }
-}
+void func_0010da40(void* self, s32 unused, Hnd10da40* out);  // 0x0010da40: definition moved into src/anon/unit_0010d900.cpp
 }
 
 #define W2393QCOPY(d, s) asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(d), "r"(s) : "$8", "memory")

@@ -825,16 +825,7 @@ done:
 }
 f32 func_001142a0(u32);
 f32 func_0010f660(void);  // cvt_20001_scaled
-void func_001111c8(u8* p)
-{
-    *(u32*)(p + 2940) &= ~0x20;
-    if (*(u8**)(p + 1164)) {
-        f32 a = func_001142a0(*(u32*)(p + 2912));
-        u8* q = *(u8**)(p + 1164);
-        a *= (f32)*(s32*)(q + 384) / (f32)*(s32*)(q + 388) * 0.75f + 0.25f;
-        if (func_0010f660() <= a) *(u32*)(p + 2940) |= 0x20;
-    }
-}
+void func_001111c8(u8* p);  // 0x001111c8: definition moved into src/anon/unit_00110b00.cpp
 }
 
 }

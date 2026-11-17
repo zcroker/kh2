@@ -11,12 +11,7 @@ void func_0016ace0(u32, V4*);
 void func_00185b00(void*);
 extern u8 D_00350ce0[];
 
-u32 func_00112d90(u32* p) {
-    u32 ok = 0; u32 r = 0;
-    if (func_00190140()) ok = *p != 0;
-    if ((u8)ok) r = func_00112d28(*p);
-    return r;
-}
+u32 func_00112d90(u32* p);  // 0x00112d90: definition moved into src/anon/unit_001117d8.cpp
 
 void func_00172928(T218* t);  // 0x00172928: definition moved into src/anon/unit_00171e58.cpp
 

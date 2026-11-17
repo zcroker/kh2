@@ -64,21 +64,7 @@ void func_0017f488(void*, s32, f32, f32);
 static inline bool stateIsOne(u8* c) { return *(s32*)(c + 4) == 1; }
 
 // 0010c940
-void func_0010c940(u8* p, s32 n, f32 t)
-{
-    u8* c = *(u8**)(p + 12);
-    if (c && stateIsOne(c)) return;
-    f32 m = *(f32*)(p + 280);
-    if (m < t) t = m;
-    Vec4 v;
-    v = *(Vec4*)(p + 16);
-    v.y = t;
-    func_0017c4c8(p, v);
-    func_0017f488(p + 320, n, 0.0f, 0.0f);
-    *(s32*)(p + 256) = n + 1;
-    *(s32*)(p + 260) = n + 2;
-    *(u32*)(p + 264) |= 0x10000;
-}
+void func_0010c940(u8* p, s32 n, f32 t);  // 0x0010c940: definition moved into src/anon/unit_0010b978.cpp
 
 // 00124b10: obj->matrix = m * obj->matrix (VU0)
 void func_00124b10(u8* p, Mtx* m)

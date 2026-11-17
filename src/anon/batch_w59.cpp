@@ -57,12 +57,7 @@ void func_00109140(void);  // 00109140: moved to src/anon/unit_001085a8.cpp
 // Advance the object iterator until an object passing the check is found.
 void* func_001b9bc8p(void*) asm("func_001b9bc8");
 bool func_00112d28(void*);
-void* func_0010cce0(void* p) {
-    while ((p = func_001b9bc8p(p)) != 0) {
-        if (func_00112d28(p)) break;
-    }
-    return p;
-}
+void* func_0010cce0(void* p);  // 0x0010cce0: definition moved into src/anon/unit_0010b978.cpp
 
 // --- 0013e2d8
 u32 func_0013a7e8(u32);

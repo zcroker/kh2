@@ -191,12 +191,7 @@ extern u8 D_01d9e6f0;
 
 // 001063f0: moved to src/naka/libkn/memoryallocator.cpp
 
-u32 func_00112780(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2;
-    r2 = *(u32*)((u32)r4 + (s32)(3324));
-    r2 = ((u32 (*)(u32, u32, u32, u32))(u32)r2)(r4, r5, r6, r7);
-    return r2;
-}
+u32 func_00112780(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00112780: definition moved into src/anon/unit_001117d8.cpp
 
 u32 func_00114800(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2, r15;

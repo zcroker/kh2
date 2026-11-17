@@ -18,14 +18,7 @@ typedef void (*VFn)(void*);
 typedef void (*VFn1)(void*, u32);
 
 // Scaled value: base minus half of a field, clamped to >= 1, doubled for state 3 in battle mode.
-f32 func_00111808(u8* p) {  // obj_update_sprite_floats
-    f32 r = func_001142e0(*(u32*)(p + 2912), 1, 0, 1) - *(f32*)(p + 1464) * 0.5f;
-    if (r <= 1.0f) r = 1.0f;
-    if (func_001917c0()) {
-        if ((*(VFnI*)(*(u8**)p + 152))(p) == 3) r += r;
-    }
-    return r;
-}
+f32 func_00111808(u8* p);  // 0x00111808: definition moved into src/anon/unit_001117d8.cpp
 
 // Copy matrix i of the table into m, then negate its Y and Z columns.
 void func_0011d468(u8* p, s32 i, f32* m) {

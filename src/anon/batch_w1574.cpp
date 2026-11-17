@@ -39,31 +39,7 @@ s32 func_00190730(Tgt10d*, s32);
 s32 func_00112d90(Tgt10d*);
 void func_0018a818(Hit10d*, s32, s32);
 void func_0010d2b8_impl(Act10d* self, void* unused, Tgt10d* out) asm("_Z13func_0010d2b8Pv");
-void func_0010d2b8_impl(Act10d* self, void* unused, Tgt10d* out) {
-    Hit10d hit;
-    Tgt10d it;
-    f32 best = func_001142c0(self->b60);
-    func_00190128(&it);
-    func_00190128(&it);
-    if (self->cec) {
-        QW10d pos(*func_0016c028(self));
-        func_00112df0(self->cec, &it, &pos, best);
-        if (Tgt10d_is_exist(&it)) { *out = it; return; }
-    }
-    s32 k = 0;
-    while ((k = func_00190730(&it, k)) != 0) {
-        if (!func_00112d90(&it)) continue;
-        if (!Tgt10d_can_attack(&it)) continue;
-        func_0018a818(&hit, it.a, k);
-        QW10d* p = func_0016c028(self);
-        f32 len;
-        QW10d d;
-        asm volatile("lqc2 $vf1, 0(%0)\n\tlqc2 $vf2, 0(%1)\n\tvsub.wxyz $vf1, $vf1, $vf2\n\tsqc2 $vf1, 0(%2)" : : "r"(&hit.v), "r"(p), "r"(&d) : "memory");
-        asm volatile("lqc2 $vf1, 0(%1)\n\tvmul.xyz $vf1, $vf1, $vf1\n\tvaddy.x $vf1, $vf1, $vf1y\n\tvaddz.x $vf1, $vf1, $vf1z\n\tvsqrt Q, $vf1x\n\tvwaitq\n\tcfc2.ni $8, $vi22\n\tmtc1 $8, %0" : "=f"(len) : "r"(&d) : "$8", "memory");
-        len = len - hit.r;
-        if (len < best) { best = len; *out = it; }
-    }
-}
+void func_0010d2b8_impl(Act10d* self, void* unused, Tgt10d* out);  // 0x0010d2b8: definition moved into src/anon/unit_0010ce78.cpp
 void func_001cf320(Obj187*, Ev187*, s32, s32, f32);
 s32 func_0019c090(Obj187*);
 void f17f488_187(void*, s32, f32, f32) asm("_Z13func_0017f488iiff");

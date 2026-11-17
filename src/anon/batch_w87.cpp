@@ -23,12 +23,7 @@ void func_00109070(void);  // 00109070: moved to src/anon/unit_001085a8.cpp
 
 // ---- 0x10e6e0: probe at three heights; returns the agreeing result ----
 s32 func_00184780(void*, s32, f32, f32, f32);
-s32 func_0010e6e0(u8* p, s32 a, f32 x, f32 y, f32 z) {
-    if (*(s32*)(p + 2064) != 0) return 0;
-    s32 r0 = func_00184780(p, a, *(f32*)(p + 1456) + x, y * 0.1f, z);
-    if (r0 == func_00184780(p, a, *(f32*)(p + 1456) + x, y * 0.9f, z)) return r0;
-    return func_00184780(p, a, *(f32*)(p + 1456) + x, y * 0.5f, z);
-}
+s32 func_0010e6e0(u8* p, s32 a, f32 x, f32 y, f32 z);  // 0x0010e6e0: definition moved into src/anon/unit_0010dee8.cpp
 
 // ---- 0x117c28: constructor ----
 union FU { f32 f; s32 i; };

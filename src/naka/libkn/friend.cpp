@@ -11,25 +11,12 @@ typedef int (*FriendCallback)(Friend*, int);
 extern u32 D_00341708 asm("D_00341708");
 
 
-u32 Friend::getObjObserver() {
-    u32 r2 = *(volatile u32*)((u32)this + 2904);
-    if (r2 == 0u) {
-        ObjObserver_Create((void*)((u32)this + 2904));
-        r2 = *(volatile u32*)((u32)this + 2904);
-    }
-    return r2;
-}
+// 0x0010c778: definition moved into src/anon/unit_0010b978.cpp
 
-s32 Friend::getPersonality() { return reinterpret_cast<FriendLayout*>(this)->personality; }
-s32 Friend::getToScript() { return reinterpret_cast<FriendLayout*>(this)->toScript; }
-void Friend::followEnemy() {
-    Friend_followMove(this, reinterpret_cast<u8 const*>(this) + 2992u);
-}
-u32 Friend::getPartner() { return Friend_getPartner_raw((u32)this); }
-u32 Friend::getPartyChara(s32 index) {
-    return *(u32*)((u32)&D_00341708 + ((u32)index << 2));
-}
-void Friend::setCallFromScript(FriendCallback v) {
-    reinterpret_cast<FriendLayout*>(this)->callFromScript = v;
-}
+// 0x0010c7e8: definition moved into src/anon/unit_0010b978.cpp
+// 0x00112758: definition moved into src/anon/unit_001117d8.cpp
+// 0x00110618: definition moved into src/anon/unit_0010fea0.cpp
+// 0x00111e20: definition moved into src/anon/unit_001117d8.cpp
+// 0x00111e38: definition moved into src/anon/unit_001117d8.cpp
+// 0x00112778: definition moved into src/anon/unit_001117d8.cpp
 }  // namespace kn

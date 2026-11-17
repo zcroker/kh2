@@ -66,55 +66,5 @@ extern u32 D_003417c4;
 extern u8 D_003a9250[];
 extern u8 D_003a9040[];
 
-void func_00111f50(void) {
-    func_00111e50();
-    FMat* m = func_00106ad0(func_00106a18(1));
-    u8* p = func_00106a60(1);
-    FMat* q = p ? (FMat*)(p + 16) : 0;
-    {
-        FMat r;
-        MatMul(&r, m, q);
-        func_00146680(D_003a9250, &r);
-    }
-    s32 s6 = 0;
-    Chara* lead = D_00341708[0];
-    if (lead) {
-        if (TgtValid(&lead->tgt)) {
-            D_003417b0 = D_00341708[0]->tgt;
-        }
-        if (!(D_00341708[0]->x160 & 0x4000)) {
-            s6 = wtarget_0010b468(D_003a9040, func_0016c028(D_00341708[0]));
-        }
-    }
-    Tgt* t = &D_003417b0;
-    if (t->w[2] || !TgtValid(t) || !func_00112d90(t)) func_00190128(t);
-    s32 i;
-    for (i = 1; i < 3; i++) {
-        Chara* c = D_00341708[i];
-        if (!c) continue;
-        if (!Friend_is_party(&c->tgt)) {
-            // No code: three extra reads of the loop pointer (&D_00341708[i]) raise its allocation
-            // priority above c->tgt, so the pointer gets s2 and the target address s3 as in the original.
-            asm("" : : "r"(&D_00341708[i]), "r"(&D_00341708[i]), "r"(&D_00341708[i]));
-            if (func_00112d90(&c->tgt)) {
-                c->xbe0 = func_00190388(&c->tgt);
-            } else {
-                if (!(c->x10c & 0x10000) || !TgtValid(&c->tgt)) func_00190128(&c->tgt);
-            }
-        }
-        if (s6) c->xce0 = 0;
-        if (c->xcec) {
-            if (!ctarget_0019ba60(c->xcec)) c->xcec = 0;
-        }
-    }
-    func_001127c0();
-    if (D_003417c4) {
-        D_003417c4 = ctarget_0019ba60(D_003417c4) ? D_003417c4 : 0;
-    }
-    if (D_00341708[0] && (D_00341708[1] || D_00341708[2])) func_001118a8();
-    for (i = 0; i < 2; i++) {
-        Chara* c = D_00341708[i + 1];
-        if (c) c->xb60->v7();
-    }
-}
+void func_00111f50(void);  // 0x00111f50: definition moved into src/anon/unit_001117d8.cpp
 }

@@ -49,72 +49,7 @@ V110c90* f110c90_attach(O110c90*) asm("func_0016c028");
 s32 func_00110b00(O110c90*, V110c90*, Box110c90*);
 s32 f110c90_rand(s32) asm("func_0010f648");
 // Picks a free warp point near o (pb pins &b to s7; gcc swaps it with best otherwise).
-s32 func_00110c90(O110c90* o)
-{
-    Pts110c90* w = &D_003a9040;
-    if (D_003a9040.count < 0) return -1;
-    if (0.0f < o->f3292) return -1;
-    if (__builtin_expect(!!(o->f3288 < 40), 1)) return -1;
-    Box110c90 box = o->getBox();
-    if (func_00146730(D_003a9250, &box)) return -1;
-    V110c90 p = *f110c90_attach(o);
-    Box110c90 b;
-    register Box110c90* pb asm("$23") = &b;
-    s32 best = -1;
-    V110c90 d;
-    if (o->flags & 0x8000) {
-        V110c90 q = *f110c90_attach(D_00341708);
-        f32 bestDist = 0.0f;
-        for (s32 i = 0; i < 32; i++) {
-            d = w->pts[i] - p;
-            b = box;
-            b.lx += d.x;
-            b.ly += d.y;
-            b.lz += d.z;
-            b.hx += d.x;
-            b.hy += d.y;
-            b.hz += d.z;
-            s32 ok = func_00110b00(o, &w->pts[i], pb);
-            if (__builtin_expect(ok, 1)) {
-                f32 dist = (w->pts[i] - q).lengthSq();
-                if (best == -1 || dist < bestDist) {
-                    bestDist = dist;
-                    best = i;
-                }
-            }
-        }
-    } else {
-        s32 idx = o->f3296;
-        register s32 four asm("$4") = 4;
-        V110c90* pts;
-        // pts = w->pts, built by hand after the li a0,4 (as in the original schedule)
-        asm volatile("addiu %0,%1,16" : "=r"(pts) : "r"(w));
-        s32 n = 0;
-        asm("" : "+r"(idx) : "r"(n), "r"(pts), "r"(four));
-        idx += 28;
-        idx += f110c90_rand(four);
-        // barrier keeps the sp+96 setup after the call; two asms delay the &31 after the &d setup
-        asm volatile(""); asm("" : "+r"(idx)); asm("" : "+r"(idx));
-        idx &= 31;
-        for (; n < 11; n++) {
-            d = *(V110c90*)((idx << 4) + (u32)pts) - p;
-            b = box;
-            b.lx += d.x;
-            b.ly += d.y;
-            b.lz += d.z;
-            b.hx += d.x;
-            b.hy += d.y;
-            b.hz += d.z;
-            if (func_00110b00(o, &*(V110c90*)((idx << 4) + (u32)pts), pb)) {
-                best = idx;
-                break;
-            }
-            idx += 3;
-            if (idx >= 32) idx -= 32;
-        }
-    }
-    return best;
-}
+s32 func_00110c90(O110c90* o);  // 0x00110c90: definition moved into src/anon/unit_00110b00.cpp
 }
 extern "C" {
 void func_00138c68(u8*, s32, s32);

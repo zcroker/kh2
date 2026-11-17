@@ -53,18 +53,7 @@ f32 sinf(f32);
 f32 cosf(f32);
 void func_001b2210(u8*, Vc, f32, f32);
 void func_0017f488(u8*, s32, f32, f32);
-void func_0010c9f8(u8* p, f32 a, f32 b, f32 c, f32 d, f32 e) {
-    a = *(f32*)(p + 1372) + a * 0.017453292f;
-    Vc v;
-    v.x = sinf(a);
-    v.z = cosf(a);
-    v.y = b;
-    v.w = c;
-    func_001b2210(p, v, e, d);
-    func_0017f488(p + 320, 3, 0.0f, 0.0f);
-    *(s32*)(p + 256) = 4;
-    *(s32*)(p + 260) = 5;
-}
+void func_0010c9f8(u8* p, f32 a, f32 b, f32 c, f32 d, f32 e);  // 0x0010c9f8: definition moved into src/anon/unit_0010b978.cpp
 
 // --- 001215b8
 // Flags (|= 4) every entry of both tables whose id field matches (or all when id == -1).

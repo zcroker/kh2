@@ -9220,87 +9220,7 @@ CTL10b978(func_00114c30) CTL10b978(func_00115350)
 static inline void* Tab10b978(s32 k) { return (u8*)D_00341800 + D_00341800[k]; }
 #define NEW10b978(sz, fn) { void* c = func_001050d8__10b978(sz); fn##__10b978(c, p, Tab10b978(p->kind)); p->ctl = c; }
 static inline void CtorM10b978(u8* m) { func_00190128__10b978(m + 8); func_0017bf40__10b978(m); }
-void func_0010b978(Pl10b978* p)
-{
-    func_0017d968__10b978(p);
-    p->vt = (u32)D_00345c08;
-    CtorM10b978(p->m3120);
-    p->f2896 = 0;
-    p->pair.a = D_0036a440.a;
-    p->pair.b = D_0036a440.b;
-    p->flags = 0x10000000;
-    p->f3280 = -1;
-    p->f2900 = 0;
-    p->f2904 = 0;
-    p->f2908 = 0;
-    p->f2936 = 0;
-    p->f3168 = 0;
-    p->f3172 = 0;
-    func_0010eee8__10b978(p);
-    p->f3284[0] = 0; p->f3284[1] = 0; p->f3284[2] = 0; p->f3284[3] = 0;
-    p->f3284[4] = 0; p->f3284[5] = 0; p->f3284[6] = 0;
-    p->kind = 0;
-    p->f3324 = 0;
-    if (func_0017df58__10b978(0) == p) p->pad = 1;
-    else if (func_0017df58__10b978(1) == p) p->pad = 2;
-    s32 id = func_0016a070__10b978(p);
-    p->ctl = 0;
-    switch (id) {
-    case 1: case 4: case 14:
-        break;
-    case 2:
-        if (p->mdl->id == 18) p->kind = 12;
-        else p->kind = 0;
-        NEW10b978(20, func_001147b8)
-        break;
-    case 3:
-        if (p->mdl->id == 21) p->kind = 13;
-        else p->kind = 1;
-        NEW10b978(48, func_001148d0)
-        break;
-    case 5: p->kind = 2; NEW10b978(20, func_00114af8) break;
-    case 6: p->kind = 4; NEW10b978(20, func_00114d48) break;
-    case 7: p->kind = 5; NEW10b978(20, func_00114ea0) break;
-    case 8: p->kind = 6; NEW10b978(20, func_00114ff8) break;
-    case 9: p->kind = 7; NEW10b978(20, func_001151f8) break;
-    case 10: p->kind = 8; NEW10b978(20, func_00115350) break;
-    case 11: p->kind = 9; NEW10b978(20, func_001154c8) break;
-    case 12: p->kind = 10; NEW10b978(20, func_00115620) break;
-    case 13: p->kind = 11; NEW10b978(20, func_00115738) break;
-    case 15: p->kind = 3; NEW10b978(20, func_00114c30) break;
-    case 200: {
-        p->kind = 14;
-        void* c = func_001050d8__10b978(1936);
-        func_00117c28__10b978(c, p, Tab10b978(p->kind));
-        p->ctl = c;
-        p->pair.a = D_0036a448.a;
-        p->pair.b = D_0036a448.b;
-        p->flags |= 2;
-        break;
-    }
-    case 201: p->kind = 15; { void* c = func_001050d8__10b978(24); func_00119c40__10b978(c, p, Tab10b978(p->kind)); p->ctl = c; p->flags |= 0x800; } break;
-    case 202: p->kind = 16; { void* c = func_001050d8__10b978(20); func_0011a2a8__10b978(c, p, Tab10b978(p->kind)); p->ctl = c; p->flags |= 0x800; } break;
-    case 203: p->kind = 17; { void* c = func_001050d8__10b978(20); func_0011a490__10b978(c, p, Tab10b978(p->kind)); p->ctl = c; p->flags |= 0x802; } break;
-    case 204: {
-        p->kind = 18;
-        void* c = func_001050d8__10b978(80);
-        func_0011a6b0__10b978(c, p, Tab10b978(p->kind));
-        p->ctl = c;
-        p->pair.a = D_0036a450.a;
-        p->pair.b = D_0036a450.b;
-        func_001133f8__10b978(p);
-        break;
-    }
-    default: {
-        void* c = func_001050d8__10b978(20);
-        func_00113648__10b978(c, p, Tab10b978(0));
-        p->ctl = c;
-        break;
-    }
-    }
-    if (func_00112720__10b978(p)) p->flags2 |= 2;
-    func_001136b8__10b978(p->ctl);
-}
+void func_0010b978(Pl10b978* p);  // 0x0010b978: definition moved into src/anon/unit_0010b978.cpp
 
 // --------------------
 // Player constructor body: sets up state, then creates the per-character controller.
@@ -9336,87 +9256,7 @@ CTL10c078(func_00114c30) CTL10c078(func_00115350)
 static inline void* Tab10c078(s32 k) { return (u8*)D_00341800 + D_00341800[k]; }
 #define NEW10c078(sz, fn) { void* c = func_001050d8__10c078(sz); fn##__10c078(c, p, Tab10c078(p->kind)); p->ctl = c; }
 static inline void CtorM10c078(u8* m) { func_00190128__10c078(m + 8); func_0017bf40__10c078(m); }
-void func_0010c078(Pl10c078* p)
-{
-    func_0017d968__10c078(p);
-    p->vt = (u32)D_00345c08;
-    CtorM10c078(p->m3120);
-    p->f2896 = 0;
-    p->pair.a = D_0036a440_x11763.a;
-    p->pair.b = D_0036a440_x11763.b;
-    p->flags = 0x10000000;
-    p->f3280 = -1;
-    p->f2900 = 0;
-    p->f2904 = 0;
-    p->f2908 = 0;
-    p->f2936 = 0;
-    p->f3168 = 0;
-    p->f3172 = 0;
-    func_0010eee8__10c078(p);
-    p->f3284[0] = 0; p->f3284[1] = 0; p->f3284[2] = 0; p->f3284[3] = 0;
-    p->f3284[4] = 0; p->f3284[5] = 0; p->f3284[6] = 0;
-    p->kind = 0;
-    p->f3324 = 0;
-    if (func_0017df58__10c078(0) == p) p->pad = 1;
-    else if (func_0017df58__10c078(1) == p) p->pad = 2;
-    s32 id = func_0016a070__10c078(p);
-    p->ctl = 0;
-    switch (id) {
-    case 1: case 4: case 14:
-        break;
-    case 2:
-        if (p->mdl->id == 18) p->kind = 12;
-        else p->kind = 0;
-        NEW10c078(20, func_001147b8)
-        break;
-    case 3:
-        if (p->mdl->id == 21) p->kind = 13;
-        else p->kind = 1;
-        NEW10c078(48, func_001148d0)
-        break;
-    case 5: p->kind = 2; NEW10c078(20, func_00114af8) break;
-    case 6: p->kind = 4; NEW10c078(20, func_00114d48) break;
-    case 7: p->kind = 5; NEW10c078(20, func_00114ea0) break;
-    case 8: p->kind = 6; NEW10c078(20, func_00114ff8) break;
-    case 9: p->kind = 7; NEW10c078(20, func_001151f8) break;
-    case 10: p->kind = 8; NEW10c078(20, func_00115350) break;
-    case 11: p->kind = 9; NEW10c078(20, func_001154c8) break;
-    case 12: p->kind = 10; NEW10c078(20, func_00115620) break;
-    case 13: p->kind = 11; NEW10c078(20, func_00115738) break;
-    case 15: p->kind = 3; NEW10c078(20, func_00114c30) break;
-    case 200: {
-        p->kind = 14;
-        void* c = func_001050d8__10c078(1936);
-        func_00117c28__10c078(c, p, Tab10c078(p->kind));
-        p->ctl = c;
-        p->pair.a = D_0036a448_x11764.a;
-        p->pair.b = D_0036a448_x11764.b;
-        p->flags |= 2;
-        break;
-    }
-    case 201: p->kind = 15; { void* c = func_001050d8__10c078(24); func_00119c40__10c078(c, p, Tab10c078(p->kind)); p->ctl = c; p->flags |= 0x800; } break;
-    case 202: p->kind = 16; { void* c = func_001050d8__10c078(20); func_0011a2a8__10c078(c, p, Tab10c078(p->kind)); p->ctl = c; p->flags |= 0x800; } break;
-    case 203: p->kind = 17; { void* c = func_001050d8__10c078(20); func_0011a490__10c078(c, p, Tab10c078(p->kind)); p->ctl = c; p->flags |= 0x802; } break;
-    case 204: {
-        p->kind = 18;
-        void* c = func_001050d8__10c078(80);
-        func_0011a6b0__10c078(c, p, Tab10c078(p->kind));
-        p->ctl = c;
-        p->pair.a = D_0036a450_x11765.a;
-        p->pair.b = D_0036a450_x11765.b;
-        func_001133f8__10c078(p);
-        break;
-    }
-    default: {
-        void* c = func_001050d8__10c078(20);
-        func_00113648__10c078(c, p, Tab10c078(0));
-        p->ctl = c;
-        break;
-    }
-    }
-    if (func_00112720__10c078(p)) p->flags2 |= 2;
-    func_001136b8__10c078(p->ctl);
-}
+void func_0010c078(Pl10c078* p);  // 0x0010c078: definition moved into src/anon/unit_0010b978.cpp
 
 // --------------------
 // newlib _malloc_r (dlmalloc 2.6.x mALLOc; EE: 64-bit long, MALLOC_ALIGN 16).
@@ -14305,59 +14145,7 @@ V10e368* f10e368_attach(O10e368*) asm("func_0016c028");
 f32 func_00114328(s32, s32, s32, s32);
 f32 func_001142e0(s32, s32, s32, s32);
 f32 func_0010e7e0(O10e368*, s32);
-s32 func_0010e368(O10e368* o, Msg10e368* m)
-{
-    if (!o->st) return 0;
-    switch (o->st->state) {
-    case 1:
-        break;
-    case 0:
-        return 0;
-    case 2:
-        o->dir.x = o->dir.z = 0.0f;
-        if (m->x < 0.0f) {
-            o->dir.w = 0.0f;
-            o->dir.y = -1.0f;
-        } else {
-            func_0010cac8(o, 3, 0.0f);
-        }
-        break;
-    case 31:
-    case 32: {
-        s32 mode = func_001917c0();
-        bool self = m == &o->msg;
-        if (self && !(o->flags & 0x10)) {
-            o->dir = D_00341720[o->point] - *f10e368_attach(o);
-            o->dir.normalize();
-        } else {
-            o->dir = m->dir;
-        }
-        V10e368* d = &m->dir;
-        if (func_00114328(o->f2912, o->level, mode, self) < d->w) {
-            if (o->level < 2) o->level++;
-        } else if (d->w < func_001142e0(o->f2912, o->level, mode, self)) {
-            if (o->level > 0) o->level--;
-        }
-        f32 f = func_0010e7e0(o, o->level);
-        o->dir.w = f;
-        if (self && f == 0.0f) {
-            if (o->flags & 0x10) {
-                o->dir += o->fwd * 0.8f;
-                o->dir.normalize();
-                o->dir.w = func_0010e7e0(o, 1) * 0.2f;
-                if (0.97f < o->fwd.dot(m->up)) o->flags &= ~0x10;
-            } else {
-                if (o->fwd.dot(m->up) <= 0.5f) o->flags |= 0x10;
-            }
-            o->flags &= ~0x40;
-        } else {
-            o->flags &= ~0x10;
-        }
-        break;
-    }
-    }
-    return 1;
-}
+s32 func_0010e368(O10e368* o, Msg10e368* m);  // 0x0010e368: definition moved into src/anon/unit_0010dee8.cpp
 
 
 // --------------------
@@ -14414,31 +14202,7 @@ void func_0010ff08(Fr1112a8*);
 void func_00110500(Fr1112a8*);
 void func_001106a0(Fr1112a8*);
 void func_00140dc0(void);
-void func_001112a8(Fr1112a8* o)
-{
-    if ((o->f2040 & 4) && o->f2924 == 12 && o->st->state - 31 < 2) f1112a8_setState(o, 0);
-    if (!o->busy() && !(o->f352 & 0x40000000)) return;
-    if (o->busy() && !(o->flags & 0x80000000)) o->flags |= 0x80000000;
-    if (func_00111278(o)) {
-        if (!func_0010f8d0(o) && o->st->state == 32) f1112a8_setState(o, 31);
-        if (!(o->f2040 & 4) && !(o->st->state - 31 < 3)) f1112a8_setState(o, 31);
-    }
-    func_0010e130(o, 0);
-    if (o->f1632 & 4) o->f3288++;
-    if (g1112a8_leader->f2064) o->f3288++;
-    if (400.0f < fabsf(o->f2944)) o->f3288++;
-    if (func_001917c0() && !(o->f352 & 0x40000000)) {
-        func_001111c8(o);
-        func_0010fa68(o);
-        if (!func_0010fb10(o)) func_0010ff08(o);
-    } else {
-        func_00110500(o);
-    }
-    if (!(o->flags & 0x80)) func_001106a0(o);
-    func_00140dc0();
-    o->pos = o->dir;
-    o->rot = o->up;
-}
+void func_001112a8(Fr1112a8* o);  // 0x001112a8: definition moved into src/anon/unit_00110b00.cpp
 
 
 // --------------------

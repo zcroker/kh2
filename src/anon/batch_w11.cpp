@@ -5,14 +5,7 @@ extern "C" {
 struct HasF4 { s32 limit; s32 base; };
 struct P10f6b8 { u8 pad[1164]; HasF4* lim; };
 // Is base*scale over the limit?
-s32 func_0010f6b8(P10f6b8* p, f32 scale) {  // count_reached_threshold
-    HasF4* l = p->lim;
-    if (l != 0) {
-        s32 n = (s32)((f32)l->base * scale);
-        if (l->limit < n) return 1;
-    }
-    return 0;
-}
+s32 func_0010f6b8(P10f6b8* p, f32 scale);  // 0x0010f6b8: definition moved into src/anon/unit_0010f338.cpp
 
 extern u32 D_003464b0;
 void func_00113668(void*);

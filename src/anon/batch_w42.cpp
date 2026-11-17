@@ -41,15 +41,7 @@ void func_00109360(u32 a0, s32 id);  // 00109360: moved to src/anon/unit_001085a
 
 // 0010fea0: common value of three slots, or 0
 s32 func_00112720(void*);  // check_2924_lt14
-s32 func_0010fea0(u8* p)
-{
-    if (func_00112720(p)) return 0;
-    s32* a = (s32*)(p + 3156);
-    for (s32 i = 1; i < 3; i++) {
-        if (a[0] != a[i]) return 0;
-    }
-    return a[0];
-}
+s32 func_0010fea0(u8* p);  // 0x0010fea0: definition moved into src/anon/unit_0010fea0.cpp
 
 // 001538d8: flag every entry whose id matches
 extern u8* D_0034a790;

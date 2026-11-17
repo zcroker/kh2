@@ -48,32 +48,7 @@ extern s32 D_003417d0;
 s32 func_00112d90(W1886Arg*);
 f32 func_001806f8(void*, s32);
 void func_001129d8(s32);
-void func_00112ab8(s32 mode, W1886Arg* arg)
-{
-    W1886G* g = &D_00341708;
-    W1886P0* p = g->p0;
-    switch (mode) {
-    case 0:
-        if (arg == 0) break;
-        if (p->flags & 4) break;
-        if (p->vt->fn(p)) break;
-        if (w1886_isk(arg->q)) break;
-        func_001129d8(arg->v10);
-        if (g->p1) g->p1->flags &= ~0x100;
-        if (g->p2) g->p2->flags &= ~0x100;
-        break;
-    case 1: {
-        D_003417c4 = 0;
-        if (arg && func_00112d90(arg)) D_003417c4 = arg->v0;
-        f32 f = func_001806f8(D_00341708.p0->sub, -1);
-        D_003417cc = D_003417c8 = f;
-        D_003417d0 = D_00341708.p0->v154;
-        if (D_00341708.p1) D_00341708.p1->flags &= ~0x200;
-        if (D_00341708.p2) D_00341708.p2->flags &= ~0x200;
-        break;
-    }
-    }
-}
+void func_00112ab8(s32 mode, W1886Arg* arg);  // 0x00112ab8: definition moved into src/anon/unit_001117d8.cpp
 
 void func_00236560(W1886GDst*);
 void func_002362b0(W1886GDst* d, W1886GSrc* s)

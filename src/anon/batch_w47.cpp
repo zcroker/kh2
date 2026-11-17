@@ -276,16 +276,7 @@ extern s32 D_003417c4;
 extern s32 D_003417c8;
 void func_0010b550(void*);
 void func_001127b0(void);
-void wtarget_001124f8(u32, u32, u32, u32) {
-    D_00341700 = 0;
-    func_0010b550(D_003a9040);
-    if (D_0032bae0 == 2056 || D_0032bae0 == 781) D_00341780 = 1;
-    else D_00341780 = 2;
-    D_003417d0 = -1;
-    D_003417c4 = 0;
-    D_003417c8 = 0;
-    func_001127b0();
-}
+void wtarget_001124f8(u32, u32, u32, u32);  // 0x001124f8: definition moved into src/anon/unit_001117d8.cpp
 
 // Same pool scheme as func_0013aca0 (896-byte slots).
 struct Pool13e { u8 pad[8064]; s32 free[9]; s32 n; };

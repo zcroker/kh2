@@ -73,33 +73,7 @@ static inline f32 vdot(const Vec4* a, const Vec4* b) {
 static inline void QvCopy(Vec4* d, Vec4* s) { if (d != s) QCOPY(d, s); }
 extern "C" {
 // Checks whether pos is in front of / reachable from the object with a ground ray test.
-s32 func_00110b00(u8* o, Vec4* pos, u32 a2) {
-    s32 r = w146730(D_003a9250, a2);
-    Vec4 d;
-    f32 k;
-    if (r == 1) return 0;
-    if (r != 0) return 0;
-    if (*(u32*)(D_00341708 + 352) & 0x4000) return 0;
-    vsub(&d, pos, func_0016c028(D_00341708));  // obj_get_attach_or_alt
-    k = *(f32*)(o + 2944);
-    if (0.0f < d.y * k) return 0;
-    d.y = 0.0f;
-    if (fabsf(k) < 1000.0f) {  // fabsf
-        if (0.0f < vdot((Vec4*)(o + 2976), &d)) return 0;
-    } else {
-        if (-0.5f < vdot((Vec4*)(o + 2976), &d)) return 0;
-    }
-    {
-        RayQ ray;
-        func_00319e90(&ray, o + 1424);
-        QvCopy(&ray.a, pos);
-        asm volatile("vsub.xyzw $vf1, $vf0, $vf0\n\tsqc2 $vf1, 0(%0)" : : "r"(&ray.b) : "memory");
-        ray.on = 0;
-        func_00143928(&ray);
-        if (ray.hitflag) return 0;
-        return 1;
-    }
-}
+s32 func_00110b00(u8* o, Vec4* pos, u32 a2);  // 0x00110b00: definition moved into src/anon/unit_00110b00.cpp
 }
 }
 

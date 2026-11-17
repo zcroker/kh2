@@ -2,31 +2,11 @@
 
 // 00105710: moved to src/anon/unit_001056e8.cpp
 
-u32 func_0010f8c0(u32 a0, u32 a1, u32 a2, u32 a3) {  // test_field2940_bit2
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u;
-    r2 = *(u32*)((u32)r4 + (s32)(2940));
-    r2 = (u32)((s32)r2 >> 2);
-    r2 = (u32)(r2 & 0x0001u);
-    return r2;
-}
+u32 func_0010f8c0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0010f8c0: definition moved into src/anon/unit_0010f338.cpp
 
-u32 func_0010f8e0(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_bit3_of_field2940
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u;
-    r2 = *(u32*)((u32)r4 + (s32)(2940));
-    r2 = (u32)((s32)r2 >> 3);
-    r2 = (u32)(r2 & 0x0001u);
-    return r2;
-}
+u32 func_0010f8e0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0010f8e0: definition moved into src/anon/unit_0010f338.cpp
 
-void func_00111040(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r14 = 0u, r15 = 0u;
-    r14 = *(u32*)((u32)r4 + (s32)(2940));
-    r15 = (u32)((s32)0u + (1000));
-    *(u32*)((u32)r4 + (s32)(3288)) = r15;
-    r14 = (u32)(r14 | 0x8000u);
-    *(u32*)((u32)r4 + (s32)(3292)) = 0u;
-    *(u32*)((u32)r4 + (s32)(2940)) = r14;
-}
+void func_00111040(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00111040: definition moved into src/anon/unit_00110b00.cpp
 
 void func_00117aa8(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r14 = 0u, r15 = 0u;

@@ -84,26 +84,6 @@ W260Q func_00190388(W260Tg*);  // vec4_from_arg
 int func_0016bba8(u8*, int, int);
 void func_0018a818(W260Col*, u8*, int);
 
-int func_00112f88(W260Tg* t)
-{
-    int best = 0;
-    if (W260Valid(t)) {
-        u8* o = t->obj;
-        if (*(u32*)(o + 1416) & 2) {
-            W260Col r;
-            f32 bd = 0;
-            W260Q tp = func_00190388(t);  // vec4_from_arg
-            int c = 0;
-            while ((c = func_0016bba8(o, 2, c)) != 0) {
-                func_0018a818(&r, o, c);
-                W260Q d;
-                asm volatile("lqc2 $vf1, 0(%0)\n\tlqc2 $vf2, 0(%1)\n\tvsub.wxyz $vf1, $vf1, $vf2\n\tsqc2 $vf1, 0(%2)" : : "r"(&tp), "r"(&r.b), "r"(&d) : "memory");
-                f32 ds = W260LenSq(d);
-                if (!best || ds < bd) { bd = ds; best = c; }
-            }
-        }
-    }
-    return best;
-}
+int func_00112f88(W260Tg* t);  // 0x00112f88: definition moved into src/anon/unit_001117d8.cpp
 
 }

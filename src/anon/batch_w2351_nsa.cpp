@@ -51,43 +51,7 @@ void func_001c2c00(void*);
 extern "C" {
 // Moves pos toward the target the query found, then runs the entity's hit callback and,
 // for id >= 0, spawns effect id at the new position facing dir.
-s32 func_001130b0(V2040* pos, Ent2040** pe, Ctx2040* ctx, s32 id) {
-    s32 r = 0;
-    Res2040* res = 0;
-    Ent2040* e = *pe;
-    if (func_0018d940(ctx, e) != 0) {
-        Info2040* info = func_00112f88(pe);
-        if (info != 0) {
-            Q2040 q;
-            V2040 p;
-            V2040 dir;
-            V2040* pp = &p;
-            V2040* qv = &q.v;
-            q.f12 = 0;
-            func_0018a818(&q, e, info);
-            dir = *qv - *pos;
-            f32 d = func_0018a970(&q, *pos);
-            dir.normalize();
-            dir *= d;
-            *pp = *pos + dir;
-            pp->w = 1.0f;
-            res = func_0018db38(ctx, e, info->h2, info->b1);
-            if (res != 0 && !res->isFlag()) {
-                r = 1;
-                ((EntFn2040)e->vt[25])(e, res);
-                if (id >= 0 && ctx->f8 != 0) {
-                    void* v = func_0016ac80(ctx->f8, id, pp, 1, 10000);
-                    if (v != 0) {
-                        *func_001dc648(v) = func_0017d050(dir);
-                        func_001c2c00(v);
-                    }
-                }
-            }
-        }
-    }
-    if (res) func_0018ca10(res);
-    return r;
-}
+s32 func_001130b0(V2040* pos, Ent2040** pe, Ctx2040* ctx, s32 id);  // 0x001130b0: definition moved into src/anon/unit_001117d8.cpp
 }
 
 extern "C" {

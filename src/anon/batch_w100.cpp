@@ -26,17 +26,7 @@ static inline bool IsValid(S20* s) {
     return ok;
 }
 extern "C" {
-void func_001125d8(Obj* o, s32 mode, S20* src) {
-    switch (mode) {
-    case 0: break;
-    case 1: o->s = *src; break;
-    case 2: o->s = D_003417b0; break;
-    case 3: func_00190128(&o->s); func_0010d918(o, &o->s, &o->s); break;
-    }
-    if (!IsValid(&o->s)) func_00190128(&o->s);
-    if (!mode) o->flags &= ~0x10000;
-    else o->flags |= 0x10000;
-}
+void func_001125d8(Obj* o, s32 mode, S20* src);  // 0x001125d8: definition moved into src/anon/unit_001117d8.cpp
 }
 
 }

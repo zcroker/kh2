@@ -22,15 +22,15 @@ extern u32 D_00363c2c;
 
 // 001070a8: moved to src/naka/libkn/camera.cpp
 
-f32 func_0010f8a8(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a1; (void)a2; (void)a3; return *(f32*)((u32)a0 + (3284)); }
+f32 func_0010f8a8(u32 a0,u32 a1,u32 a2,u32 a3);  // 0x0010f8a8: definition moved into src/anon/unit_0010f338.cpp
 
-u32 func_0010f9e0(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a2; (void)a3; u32 v = *(u32*)((u32)a0 + (3168)); v ^= a1; return (v < (u32)1); }
+u32 func_0010f9e0(u32 a0,u32 a1,u32 a2,u32 a3);  // 0x0010f9e0: definition moved into src/anon/unit_0010f338.cpp
 
-u32 func_00112730(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a2; (void)a3; u32 old = *(u32*)((u32)a0 + (2940)); *(u32*)((u32)a0 + (2940)) = a1; return old; }
+u32 func_00112730(u32 a0,u32 a1,u32 a2,u32 a3);  // 0x00112730: definition moved into src/anon/unit_001117d8.cpp
 
-u32 func_00112760(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a2; (void)a3; u32 old = *(u32*)((u32)a0 + (3316)); *(u32*)((u32)a0 + (3316)) = a1; return old; }
+u32 func_00112760(u32 a0,u32 a1,u32 a2,u32 a3);  // 0x00112760: definition moved into src/anon/unit_001117d8.cpp
 
-void func_00112c58(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a1; (void)a2; (void)a3; u32 v = *(u32*)((u32)a0 + (2940)); v |= (u32)0x40000000u; *(u32*)((u32)a0 + (2940)) = v; }
+void func_00112c58(u32 a0,u32 a1,u32 a2,u32 a3);  // 0x00112c58: definition moved into src/anon/unit_001117d8.cpp
 
 u32 func_00139538(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a1; (void)a2; (void)a3; u32 v = *(u32*)((u32)a0 + (12)); return v & 0x1u; }
 

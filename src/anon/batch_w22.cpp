@@ -17,21 +17,10 @@ void GUMIMENU_CreateThread(int, int, void (*)(TASK*), int) asm("_ZN8GUMIMENU12Cr
 void func_0017dbb8(void*);
 struct VObj { void (**vt)(VObj*); };
 typedef void (*VFn)(void*);
-void func_0010c7f0(u8* p) {
-    func_0017dbb8(p);
-    void* o = *(void**)(p + 2912);
-    (*(VFn*)((*(u8**)o) + 20))(o);
-}
+void func_0010c7f0(u8* p);  // 0x0010c7f0: definition moved into src/anon/unit_0010b978.cpp
 
 // --- 0010f9f0
-void func_0010f9f0(u8* p, u8* src, u8 flag) {  // obj_set_vec_flag
-    u8* dst = p + 3072;
-    if (dst != src) {
-        asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(dst), "r"(src) : "$8", "memory");
-    }
-    if (flag) *(u32*)(p + 2940) |= 0x80;
-    else *(u32*)(p + 2940) &= ~0x80;
-}
+void func_0010f9f0(u8* p, u8* src, u8 flag);  // 0x0010f9f0: definition moved into src/anon/unit_0010f338.cpp
 
 // --- 00119d08
 extern u32 D_003477a0;

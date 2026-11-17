@@ -13,7 +13,7 @@ extern u32 D_0035f6d0;
 
 u32 func_0010abb8(u32 a0,u32 a1,u32 a2,u32 a3);  // 0010abb8: moved to src/anon/unit_0010a918.cpp
 
-u32 func_001124e8(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a1; (void)a2; (void)a3; u32 old=D_00341780; D_00341780=a0; return old; }
+u32 func_001124e8(u32 a0,u32 a1,u32 a2,u32 a3);  // 0x001124e8: definition moved into src/anon/unit_001117d8.cpp
 
 void func_0011ee98(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a2; (void)a3; u32 v=*(u32*)((u32)a0+(8)); *(u32*)((u32)a1+(4))=v; *(u32*)((u32)a0+(8))=a1; }
 

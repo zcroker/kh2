@@ -15,13 +15,13 @@ u8 func_0025f568(void) { return D_0035f0b4; }
 void func_0025f578(void) { D_0035f0b4 = 0; }
 s32 func_0026d818(void) { return D_0035f0f8; }
 void func_00292540(void);  // 00292540: moved to src/anon/unit_00290f78.cpp
-void func_0010f908(u8* p) { *(u32*)(p + 2940) |= 0x400; }
-u32 func_00112c70(u8* p) { return (*(s32*)(p + 2940) >> 30) & 1; }
+void func_0010f908(u8* p);  // 0x0010f908: definition moved into src/anon/unit_0010f338.cpp
+u32 func_00112c70(u8* p);  // 0x00112c70: definition moved into src/anon/unit_001117d8.cpp
 // 00136a40: moved to src/harata/libdk/bgse.cpp
 // 00161238: moved to src/anon/unit_001611a8.cpp
 u32 func_002be750(void);  // 0x002be750: definition moved into src/anon/unit_002be020.cpp
-void func_00113408(u8* p) { *(u32*)(p + 2940) &= ~0x1000; }
-void func_00113420(u8* p) { *(u32*)(p + 2940) |= 0x20000; }
+void func_00113408(u8* p);  // 0x00113408: definition moved into src/anon/unit_001117d8.cpp
+void func_00113420(u8* p);  // 0x00113420: definition moved into src/anon/unit_001117d8.cpp
 u8* func_001178b8(u8* d, u8* s) {
     s += 1600;
     asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(d), "r"(s) : "$8", "memory");

@@ -44,18 +44,7 @@ extern u32 D_00341788[8];
 extern s32 D_003417a8;
 
 // Drops dead entries from the 8-slot list, compacting the survivors.
-void func_001127c0(void)
-{
-    u32 tmp[8];
-    s32 n = 0;
-    s32 i;
-    for (i = 0; i < D_003417a8; i++) {
-        if (func_0019ba60(D_00341788[i])) tmp[n++] = D_00341788[i];
-    }
-    D_003417a8 = n;
-    for (i = 0; i < D_003417a8; i++) D_00341788[i] = tmp[i];
-    for (i = D_003417a8; i < 8; i++) D_00341788[i] = 0;
-}
+void func_001127c0(void);  // 0x001127c0: definition moved into src/anon/unit_001117d8.cpp
 
 s16* func_001aec40(u32);  // get_global_1c9408c
 u32 func_002ba0b0(s32);

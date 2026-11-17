@@ -35,20 +35,7 @@ f32 func_001142d0(u32);  // get_float_at_ptr108
 f32 func_00114380(u32);
 f32 func_00114390(u32);
 
-s32 func_0010cef0(u8* o)
-{
-    V10ce d = func_00190388(o + 2548) - *func_0016c028(o);  // vec4_from_arg
-    f32 r = func_001142d0(*(u32*)(o + 2912));  // get_float_at_ptr108
-    r = r * r;
-    if (r < Dot10ce(d, d)) return 1;
-    r = func_00114380(*(u32*)(o + 2912));
-    r += func_00114390(*(u32*)(o + 2912));
-    r *= 0.5f;
-    r = r * r;
-    d = func_00190388(o + 2548) - *func_0016c028(D_00341708);  // vec4_from_arg
-    if (r < Dot10ce(d, d)) return 1;
-    return 0;
-}
+s32 func_0010cef0(u8* o);  // 0x0010cef0: definition moved into src/anon/unit_0010ce78.cpp
 }
 
 // ---- 001136b8

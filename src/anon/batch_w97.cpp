@@ -119,20 +119,7 @@ const Vq* func_0016c028(u32);  // obj_get_attach_or_alt
 f32 func_001142d0(u32);  // get_float_at_ptr108
 f32 func_00114390(u32);
 extern u32 D_00341708;
-s32 func_0010d038(u8* o) {
-    struct Lk { u32 on : 1; u32 rest : 31; };
-    Lk* lock = *(Lk**)(o + 3168);
-    if (lock && !lock->on) return 1;
-    Vq d = vsubn(func_00190388(o + 2548), *func_0016c028((u32)o));  // vec4_from_arg
-    f32 r = func_001142d0(*(u32*)(o + 2912));  // get_float_at_ptr108
-    r = r * r;
-    if (r < vdot(d, d)) return 1;
-    r = func_00114390(*(u32*)(o + 2912));
-    r = r * r;
-    d = vsubn(func_00190388(o + 2548), *func_0016c028(D_00341708));  // vec4_from_arg
-    if (vdot(d, d) < r) return 1;
-    return 0;
-}
+s32 func_0010d038(u8* o);  // 0x0010d038: definition moved into src/anon/unit_0010ce78.cpp
 
 // ---- 00154cd0
 f32 func_0017ce10(f32);

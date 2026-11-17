@@ -85,13 +85,7 @@ void wt_00105e68(u32 a0, u32 a1, u32, u32) asm("_Z16wtarget_00105e68jjjj");
 
 extern s32 D_003417a8;
 extern s32 D_00341788[];
-s32 func_00112a58(s32 a0) {
-    s32 n = D_003417a8;
-    if (n == 0) return 0;
-    if (a0 < 0) { s32 j = n + a0; if (j < 0) return 0; return D_00341788[j]; }
-    if (a0 >= n) return 0;
-    return D_00341788[a0];
-}
+s32 func_00112a58(s32 a0);  // 0x00112a58: definition moved into src/anon/unit_001117d8.cpp
 
 extern s32 D_00351eb8;
 extern s32 D_00351ec0;

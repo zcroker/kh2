@@ -1100,15 +1100,7 @@ extern u8 D_01e38e68;
 
 // 00106420: moved to src/naka/libkn/memoryallocator.cpp
 
-void func_00113450(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r14, r15;
-    r14 = *(volatile u32*)((u32)r5 + (s32)(0));
-    r15 = *(volatile u32*)((u32)r14 + (s32)(28));
-    r15 = (u32)(r15 | 0x0004u);
-    *(volatile u32*)((u32)r14 + (s32)(28)) = r15;
-    *(volatile u32*)((u32)r4 + (s32)(2900)) = r6;
-    *(volatile u32*)((u32)r4 + (s32)(2896)) = r5;
-}
+void func_00113450(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00113450: definition moved into src/anon/unit_001117d8.cpp
 
 void func_0011d440(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r12, r13, r14, r15;

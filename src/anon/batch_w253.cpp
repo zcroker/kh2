@@ -15,23 +15,7 @@ extern "C" {
 extern u32 D_00341788[8];
 extern s32 D_003417a8;
 void u_tail4(u32 a0, u8 a1) asm("_Z16u_tail4_001128d0jjjj");
-void u_tail4(u32 a0, u8 a1) {
-    s32 i;
-    for (i = 0; i < D_003417a8; i++)
-        if (D_00341788[i] == a0) break;
-    s32 n = D_003417a8;
-    if (i < n) {
-        if (a1 == 0) {
-            s32 j;
-            for (j = i + 1; j < n; j++) D_00341788[j - 1] = D_00341788[j];
-            D_003417a8--;
-        } else {
-            s32 j;
-            for (j = i + 1; j < n; j++) D_00341788[j - i - 1] = D_00341788[j];
-            D_003417a8 = D_003417a8 - i - 1;
-        }
-    }
-}
+void u_tail4(u32 a0, u8 a1);  // 0x001128d0: definition moved into src/anon/unit_001117d8.cpp
 
 
 u32 __fixunssfsi(f32);

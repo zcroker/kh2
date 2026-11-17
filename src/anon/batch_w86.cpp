@@ -72,15 +72,7 @@ static inline f32 Normalize(QWord* v)
 struct Obj { f32 f0; u32 pad[3]; QWord a; QWord b; };
 #define F(q,i) (((f32*)&(q))[i])
 extern "C" void func_0010b620(Obj* o, const QWord* p, const QWord* q);
-void func_0010b620(Obj* o, const QWord* p, const QWord* q)
-{
-    o->a = Sub(*p, *q);
-    o->f0 = F(o->a, 1);
-    o->b = o->a;
-    o->b.v[1] = 0;
-    F(o->a, 3) = Normalize(&o->a);
-    F(o->b, 3) = Normalize(&o->b);
-}
+void func_0010b620(Obj* o, const QWord* p, const QWord* q);  // 0x0010b620: definition moved into src/anon/unit_0010b450.cpp
 }
 
 // ---- 001110e8
@@ -96,26 +88,7 @@ extern Ent D_003a9050[];
 s32 func_001917c0(void);
 s32 func_00110c90(Obj*);
 void func_00111060(Obj*, Ent*);
-void func_001110e8(Obj* o)
-{
-    if (IsB0(o)) {
-        if (!o->vt[24](o)) {
-            o->b0 = 0;
-            o->b15 = 0;
-        }
-        return;
-    }
-    if (o->b1) return;
-    s32 m = D_00341780;
-    if (m != 1) {
-        if (m < 2) {
-            if (m == 0) return;
-        }
-    } else if (func_001917c0()) return;
-    s32 r = func_00110c90(o);
-    if (r < 0) return;
-    func_00111060(o, &D_003a9050[r]);
-}
+void func_001110e8(Obj* o);  // 0x001110e8: definition moved into src/anon/unit_00110b00.cpp
 }
 }
 

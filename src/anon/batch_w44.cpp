@@ -115,15 +115,7 @@ extern u32 D_0032ba18;
 // Frees the menu allocator unless it is locked or the menu mode is 1, 2 or 6.
 // 00103748: MENU::DestoryAllocator, moved to src/common/unit_001031b0.cpp
 
-s32 func_00112d28(u8* p) {
-    s32 r = 0;
-    if (p == 0) return r;
-    if (!func_0019ba60(p)) return 0;
-    if (!(*(u32*)(p + 1416) & 0x10)) return 0;
-    if (*(u32*)(p + 2040) & 4) return 0;
-    u32 m = *(u32*)(p + 264) & 0x8000;
-    return m == 0;
-}
+s32 func_00112d28(u8* p);  // 0x00112d28: definition moved into src/anon/unit_001117d8.cpp
 
 // Any of the first count() flag bytes has bit 2 set.
 s32 func_0011f078(void** o, u8* flags) {

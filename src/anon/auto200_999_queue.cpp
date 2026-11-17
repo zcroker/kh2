@@ -49,56 +49,7 @@ void func_00108ae0(u64* a0, u32 a1, u64 a2, u64 a3, u64 a4, u64 a5, u64 a6, u64 
 
 void func_00108c00(u64* a0, u32 a1, u64 a2, u64 a3, u64 a4, u64 a5, u64 a6, u64 a7);  // 00108c00: moved to src/anon/unit_001085a8.cpp
 
-u32 func_0010f340(u32 a0, u32 a1, u32 a2, f32 a3) {
-    (void)a0;
-    u32 flags = *(u32*)(a2 + 12);
-
-    if ((flags & 1u) == 0) {
-        f32 f1 = *(f32*)(a1 + 44);
-        if (*(f32*)(a2 + 20) + a3 < f1) {
-            return 0;
-        }
-        if (f1 < (*(f32*)(a2 + 16) - a3)) {
-            return 0;
-        }
-    }
-
-    if ((flags & 2u) == 0) {
-        u32 ok = 1;
-        if ((flags & 8u) != 0) {
-            f32 f1 = *(f32*)(a1 + 44);
-            if (*(f32*)(a2 + 48) + a3 < f1) goto clear_ok;
-            if (f1 < (*(f32*)(a2 + 44) - a3)) goto clear_ok;
-            goto after_ok_check;
-clear_ok:
-            ok = 0;
-after_ok_check:
-            ;
-        }
-
-        if (ok != 0) {
-            f32 f1 = *(f32*)(a1 + 0);
-            if (f1 < (-*(f32*)(a2 + 28) - a3)) {
-                return 0;
-            }
-            if ((a3 - *(f32*)(a2 + 24)) < f1) {
-                return 0;
-            }
-        }
-    }
-
-    {
-        f32 f1 = *(f32*)(a1 + 44);
-        if (!(f1 < *(f32*)(a2 + 52))) {
-            return 1;
-        }
-        f32 v = fabsf(*(f32*)(a1 + 0));  // fabsf
-        if (*(f32*)(a2 + 56) < v) {
-            return 0;
-        }
-    }
-    return 1;
-}
+u32 func_0010f340(u32 a0, u32 a1, u32 a2, f32 a3);  // 0x0010f340: definition moved into src/anon/unit_0010f338.cpp
 
 u32 func_001e3660(u32 a0, s32 a1) {
     if (a1 <= 0) {

@@ -204,28 +204,5 @@ void W283_set_obj(W283_Tgt*, void*, s32) asm("_ZN2YS6TARGET7set_objEPNS_3OBJEi")
 void* func_00190730(W283_Tgt*, void*);
 s32 W283_can_attack(W283_Tgt*) asm("_ZNK2YS6TARGET10can_attackEv");
 void func_0018a818(W283_TI*, void*, void*);
-void func_00112df0(void* obj, W283_Tgt* out, W283_Q* from, f32 best) {
-    W283_TI ti;
-    W283_Tgt t;
-    W283_Q d;
-    void* cur = 0;
-    ti.f12 = 0;
-    func_00190128(&t);
-    func_00190128(&t);
-    W283_set_obj(&t, obj, 0);
-    while ((cur = func_00190730(&t, cur)) != 0) {
-        if (t.obj != obj) break;
-        if (!W283_can_attack(&t)) continue;
-        if (from == 0) { *out = t; break; }
-        func_0018a818(&ti, obj, cur);
-        f32 len;
-        asm volatile("lqc2 $vf1, 0(%0)\n\tlqc2 $vf2, 0(%1)\n\tvsub.xyzw $vf1, $vf1, $vf2\n\tsqc2 $vf1, 0(%2)" : : "r"(ti.pos), "r"(from), "r"(&d) : "memory");
-        asm volatile("lqc2 $vf1, 0(%1)\n\tvmul.xyz $vf1, $vf1, $vf1\n\tvaddy.x $vf1, $vf1, $vf1y\n\tvaddz.x $vf1, $vf1, $vf1z\n\tvsqrt Q, $vf1x\n\tvwaitq\n\tcfc2.ni $8, $vi22\n\tmtc1 $8, %0" : "=f"(len) : "r"(&d) : "$8");
-        len = len - ti.r;
-        if (best <= 0.0f || len < best) {
-            best = len;
-            *out = t;
-        }
-    }
-}
+void func_00112df0(void* obj, W283_Tgt* out, W283_Q* from, f32 best);  // 0x00112df0: definition moved into src/anon/unit_001117d8.cpp
 }

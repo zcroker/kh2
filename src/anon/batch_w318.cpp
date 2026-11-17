@@ -29,30 +29,7 @@ int func_00190140(void*);
 int func_00190680(void*, T318*);
 int func_001b58a8(void);
 int func_00112720(void*);  // check_2924_lt14
-void func_0010df18(A318* p) {
-    T318* s = &p->t;
-    T318 t = p->t;
-    func_00190128(s);
-    if (func_001b58a8()) {
-        (p->*D_00345b28[11].f)(&t, s);
-    } else if (func_00112720(p)) {  // check_2924_lt14
-        (p->*D_00345b28[p->idx - 8].f)(&t, s);
-    } else {
-        int i = (*(int (**)(void*))(*(u32*)p + 152))(p);
-        E318 ee = D_00345b28[i];
-        R318& e = *(R318*)&ee;
-        int d = e.d;
-        char* q = (char*)p + (d >> 1);
-        F318 fn;
-        if ((u8)(d & 1)) fn = *(F318*)(((e.pfn >> 2) << 2) + *(u32*)q);
-        else fn = (F318)e.pfn;
-        fn(q, &t, s);
-    }
-    u32 ok = 0;
-    if (func_00190140(s)) ok = p->t.a != 0;
-    if (!(u8)ok) func_00190128(s);
-    if (!func_00190680(s, &t)) p->fl |= 8;
-}
+void func_0010df18(A318* p);  // 0x0010df18: definition moved into src/anon/unit_0010dee8.cpp
 
 u32 func_001064a8(int);  // int_to_float_scaled
 void func_0018c438(R318c*);

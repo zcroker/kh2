@@ -3,18 +3,7 @@
 /* 00111d98: look up a non-zero table entry after the matched one. */
 extern void* D_00341708[];
 void* wtarget_00111d98(void* a, u32 b, u32 c, u32 d) asm("_Z16wtarget_00111d98jjjj");
-void* wtarget_00111d98(void* a, u32 b, u32 c, u32 d) {
-    s32 i, j;
-    for (i = 0; i < 3; i++) {
-        if (i != 0 && D_00341708[i] == a) {
-            for (j = 1; j < 3; j++) {
-                s32 k = (i + j) % 3;
-                if (k != 0 && D_00341708[k] != 0) return D_00341708[k];
-            }
-        }
-    }
-    return 0;
-}
+void* wtarget_00111d98(void* a, u32 b, u32 c, u32 d);  // 0x00111d98: definition moved into src/anon/unit_001117d8.cpp
 
 /* 0014fa48: allocate a 0xb60-byte object from the heap and construct it. */
 struct A1Obj;

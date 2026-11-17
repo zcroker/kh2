@@ -30,25 +30,7 @@ static inline f32 vlen(void* v) {
     return r;
 }
 
-void func_00110500(u8* p) {
-    func_0010e810(p, p + 2944);
-    switch (*(s32*)(p + 2924)) {
-    case 12:
-    case 15:
-    case 16:
-        if (func_0010e7e0(p, 1) < *(f32*)(p + 3084)) {  // float2_get_by_index
-            f32 l = vlen(D_00341708 + 0x860);
-            if (*(f32*)(p + 3084) < l) *(f32*)(p + 3084) = l + 2.0f;
-        }
-        break;
-    case 13:
-        if (func_0010e7e0(p, 1) < *(f32*)(p + 3084)) {  // float2_get_by_index
-            f32 l = vlen(D_00341708 + 0x860);
-            if (*(f32*)(p + 3084) < l) *(f32*)(p + 3084) = l;
-        }
-        break;
-    }
-}
+void func_00110500(u8* p);  // 0x00110500: definition moved into src/anon/unit_0010fea0.cpp
 }
 // ---- 00136560
 extern "C" {

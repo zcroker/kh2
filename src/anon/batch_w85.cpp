@@ -69,23 +69,7 @@ extern Vec4 D_00341750[3];
 extern u8 D_00341700;
 extern u32 D_00341780;
 extern u8 D_003417b0[];
-void func_001123f0(void) {
-    s32 i;
-    func_00102788(D_00351214, 0, 4, func_00111f50);
-    func_00102788(D_00351214, 0, 6, func_001122a0);
-    func_00102788(*(u32*)(func_00102c80() + 4), 1, 20500, func_00112388);
-    for (i = 0; i < 3; i++) {
-        D_00341708[i] = 0;
-        asm volatile("sqc2 $vf0, 0(%0)" : : "r"(&D_00341720[i]) : "memory");
-        D_00341750[i] = D_00341720[i];
-    }
-    D_00341700 = 0;
-    D_00341780 = 2;
-    func_001127b0();
-    func_00190128(D_003417b0);
-    func_001357c8();
-    func_00135d78();
-}
+void func_001123f0(void);  // 0x001123f0: definition moved into src/anon/unit_001117d8.cpp
 
 void func_001dc920(void*);
 void func_00117910(void*, s32);  // entry64_clear_fields
@@ -645,27 +629,7 @@ static inline f32 vu_dot(const void* a, const void* b) {
 
 // position trail: records a new point once it moved 45 units from the last one
 struct Trail10b { u8 moved; u8 changed; u8 p2[2]; s32 cur; u8 p8[8]; Vec4 pts[32]; };
-u8 wtarget_0010b468(u32 a0, u32 a1, u32, u32) {
-    Trail10b* t = (Trail10b*)a0;
-    const Vec4* v = (const Vec4*)a1;
-    t->changed = 0;
-    if (t->cur < 0) {
-        s32 i;
-        Vec4* p = t->pts;
-        for (i = 31; i >= 0; i--) { *p = *v; p++; }
-        t->cur = 0;
-    } else {
-        Vec4 d;
-        vu_sub_to(&d, v, &t->pts[t->cur]);
-        if (!(2025.0f <= vu_dot(&d, &d))) return t->changed;
-        t->cur = (t->cur + 1) % 32;
-        t->pts[t->cur] = *v;
-        t->moved = 1;
-    }
-    t->changed = 1;
-    asm volatile("" ::: "memory");
-    return t->changed;
-}
+u8 wtarget_0010b468(u32 a0, u32 a1, u32, u32);  // 0x0010b468: definition moved into src/anon/unit_0010b450.cpp
 
 extern "C" {
 

@@ -10,22 +10,7 @@ u8* func_00188fe0(u8*, u32);
 struct Entry { u16 id : 15; u16 on : 1; };
 u32 ctarget_0010f7b0(u32, u32, s32, u32) asm("_Z16ctarget_0010f7b0jjjj");
 
-u32 ctarget_0010f7b0(u32 a, u32 b, s32 id, u32 d)
-{
-    if (id < 0) id = func_00114620(b);
-    if (id == 0) return 0;
-    if (func_001a35f8(id, func_0016a070(a)) <= 0) return 0;
-    u8* base = func_001058e8() + 9456;
-    u8* r = func_00188fe0(base, func_0016a070(a));
-    u16 key = id;
-    Entry* p = (Entry*)(r + 84);
-    for (s32 i = 0; i < 80; i++) {
-        Entry e = *p++;
-        u32 on = e.on;
-        if (e.id == key && on) return 1;
-    }
-    return 0;
-}
+u32 ctarget_0010f7b0(u32 a, u32 b, s32 id, u32 d);  // 0x0010f7b0: definition moved into src/anon/unit_0010f338.cpp
 
 extern u32 D_00341708[3];
 extern u32 D_0034e948;
@@ -34,27 +19,7 @@ void func_001136b0(u32, u8*);
 void func_00135818(u32, u32);
 void func_001357d8(void);
 
-void func_00111e50(void)
-{
-    u32 old[3];
-    s32 i, k;
-    for (i = 0; i < 3; i++) old[i] = D_00341708[i];
-    D_00341708[2] = 0;
-    D_00341708[0] = D_0034e948;
-    D_00341708[1] = 0;
-    for (k = 1; k < 3; k++) {
-        u8* o = func_0017df58(k - 1);
-        if (o) {
-            D_00341708[k] = (u32)o;
-            func_001136b0(*(u32*)(o + 2912), o);
-            *(s32*)(o + 2928) = k;
-        }
-    }
-    for (i = 0; i < 3; i++) {
-        if (old[i] != D_00341708[i]) func_00135818(old[i], D_00341708[i]);
-    }
-    func_001357d8();
-}
+void func_00111e50(void);  // 0x00111e50: definition moved into src/anon/unit_001117d8.cpp
 
 s32 func_001384c0(void);  // get_global_347e08
 extern u8 D_0032bad8;

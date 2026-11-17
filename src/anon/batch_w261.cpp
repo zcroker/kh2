@@ -31,22 +31,7 @@ int func_0010cc80(void*);
 int func_001b58a8(void);
 int func_00112720(void*);  // check_2924_lt14
 
-int func_0010d188(W261A* p) {
-    if (!func_0010cc80(p)) return 1;
-    if (func_001b58a8()) return 1;
-    if (func_00112720(p)) {  // check_2924_lt14
-        return (p->*D_00345ad0[*(int*)((char*)p + 0xb6c) - 8].f)();
-    }
-    int i = (*(int (**)(void*))(*(u32*)p + 152))(p);
-    W261E ee = D_00345ad0[i];
-    W261R& e = *(W261R*)&ee;
-    int d = e.d;
-    char* q = (char*)p + (d >> 1);
-    W261Fn fn;
-    if ((u8)(d & 1)) fn = *(W261Fn*)(((e.pfn >> 2) << 2) + *(u32*)q);
-    else fn = (W261Fn)e.pfn;
-    return fn(q);
-}
+int func_0010d188(W261A* p);  // 0x0010d188: definition moved into src/anon/unit_0010ce78.cpp
 
 s32 func_001a3570(u32);
 static inline W261En* W261Find(s32 id) {

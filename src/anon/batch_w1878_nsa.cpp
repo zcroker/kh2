@@ -11,29 +11,7 @@ extern W1878E D_00341750[3];
 extern W1878E D_00341720[3];
 extern u8 D_003417b0[];
 }
-void func_00113470(int a, int b) {
-    if (b == 0xffff && a == 1) func_0010b450(&D_003a9040);
-    if (b == 0xffff && a == 1) func_00190128(D_003417b0);
-    if (b == 0xffff && a == 0) {
-        if (D_00341750) {
-            W1878E* e = D_00341750 + 3;
-            for (;;) { e->~W1878E(); if (e == D_00341750) break; --e; }
-        }
-    }
-    if (b == 0xffff && a == 0) {
-        if (D_00341720) {
-            W1878E* e = D_00341720 + 3;
-            for (;;) { e->~W1878E(); if (e == D_00341720) break; --e; }
-        }
-    }
-    if (b == 0xffff && a == 0) {
-        W1878H* h = &D_003a9040;
-        if (h->arr) {
-            W1878E* e = h->arr + 32;
-            for (;;) { e->~W1878E(); if (e == h->arr) break; --e; }
-        }
-    }
-}
+void func_00113470(int a, int b);  // 0x00113470: definition moved into src/anon/unit_001117d8.cpp
 
 // ---- 0018a818: fills a placement record from a source entry; position = matrix * (x, y, z, 1).
 #define W1878_QCOPY(d, s) asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(d), "r"(s) : "$8", "memory")

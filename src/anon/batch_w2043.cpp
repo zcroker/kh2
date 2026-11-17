@@ -41,38 +41,7 @@ s32 func_0010d188(W2043a_Obj*);
 extern u32 D_00341708;
 
 s32 W2043_ctarget_0010e130(W2043a_Obj* o, u8 a1) asm("_Z16ctarget_0010e130jjjj");
-s32 W2043_ctarget_0010e130(W2043a_Obj* o, u8 a1) {
-    W2043a_Vq a = *func_0016c028(o);
-    o->flags &= ~8;
-    {
-    W2043a_Hdl b;
-    func_00190128(&b);
-    func_00190878(&b, D_00341708, 0);
-    W2043a_Vq c = func_00190388(&b);
-    func_0010b620(o->b80, &c, &a);
-    }
-    f32 d = func_00114370(o->b60);
-    switch (o->vt->f98(o)) {
-    case 2: d *= 0.5f; break;
-    case 3: case 5: d *= 2.0f; break;
-    }
-    if (!(o->flags & 0x20000) && d < *(f32*)((u8*)o + 0xbac)) o->flags |= 0x40;
-    if (func_001917c0()) {
-        if (a1 || (!func_0010f8d0(o) && !(o->flags & 0x10000) && func_0010d188(o))) func_0010df18(o);
-        W2043a_Hdl* h = &o->h;
-        s32 ok = 0;
-        if (func_00190140(h)) ok = h->p != 0;
-        if ((u8)ok && (h->p->f588 & 0x10)) {
-            W2043a_Vq c = func_00190388(h);
-            func_0010b620(o->bb0, &c, &a);
-            c = a;
-            o->bf0 = o->bcc - func_001906f0(h, &c);
-        }
-    } else {
-        if (a1 || (!func_0010f8d0(o) && !(o->flags & 0x10000))) func_00190128(&o->h);
-    }
-    return (o->flags >> 3) & 1;
-}
+s32 W2043_ctarget_0010e130(W2043a_Obj* o, u8 a1);  // 0x0010e130: definition moved into src/anon/unit_0010dee8.cpp
 
 
 struct W2043b_Vq {

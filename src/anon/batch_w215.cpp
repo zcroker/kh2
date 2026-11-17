@@ -3,5 +3,5 @@
 extern "C" {
 extern u32 func_001064a8(u32);  // int_to_float_scaled
 
-float func_0010f660() { return (float)func_001064a8(20001) * 0.00005f; }
+float func_0010f660();  // 0x0010f660: definition moved into src/anon/unit_0010f338.cpp
 }

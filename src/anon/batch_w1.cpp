@@ -48,10 +48,7 @@ extern f32 D_0036344c;
 extern f32 D_00363450;
 
 // Virtual call: slot 6 of the object held at +0xb60.
-void func_0010c828(u8* p) {
-    void* o = *(void**)(p + 0xb60);
-    (*(void (**)(void*))(*(u8**)o + 24))(o);
-}
+void func_0010c828(u8* p);  // 0x0010c828: definition moved into src/anon/unit_0010b978.cpp
 
 // 128-bit copy of *s into the quadword at d+0x40 (skipped on self-assignment).
 void func_0011a918(u8* d, u8* s);  // 0x0011a918: definition moved into src/anon/unit_0011a660.cpp

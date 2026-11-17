@@ -20,7 +20,7 @@ void wt_2f1268(u32 a, u32 b, u32 c, u32 d) asm("_Z16wtarget_002f1268jjjj");
 u32 func_00317130(u8* p) { return *(u32*)(p + 724); }
 u32 func_00317138(u8* p) { return *(u32*)(p + 720); }
 // 00104200: moved to src/common/gumibattle.cpp
-u8* func_001127a0(u8* p) { return p + 3040; }
+u8* func_001127a0(u8* p);  // 0x001127a0: definition moved into src/anon/unit_001117d8.cpp
 u8* func_0018c240(u8* p);  // 0x0018c240: definition moved into src/yasui/libys/npc.cpp
 void func_00253568(u32 a) { D_0035eeb0 = a; }
 }

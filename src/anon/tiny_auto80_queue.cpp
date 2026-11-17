@@ -642,23 +642,7 @@ extern "C" u32 srand(...);
 
 extern "C" u32 func_0019ba60(...);
 
-u32 func_00112c80(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r2, r15, r16;
-    if (!((r4 != 0u))) {
-        r15 = 0u;
-    } else {
-        r16 = r4;
-        r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_0019ba60)(r4, r5, r6, r7, r8, r9, r10, r11);
-        r15 = 0u;
-        if (r2 != 0u) {
-            r15 = *(volatile u32*)((u32)r16 + (s32)(1416));
-            r15 = (u32)(r15 & 0x0004u);
-            r15 = ((u32)0u < (u32)r15);
-        }
-    }
-    r2 = r15;
-    return r2;
-}
+u32 func_00112c80(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);  // 0x00112c80: definition moved into src/anon/unit_001117d8.cpp
 
 extern u8 D_00345cf8;
 
@@ -5219,11 +5203,7 @@ extern "C" u32 func_00135878(...);
 
 f32 func_001065a8(u32,u32,u32,u32,u32,u32,u32,u32);
 
-void func_0010f880(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32 s0 = a0;
-    f32 f0 = func_001065a8(a0, a1, a2, a3, a4, a5, a6, a7);
-    *(volatile f32*)((u32)s0 + (s32)(3284)) = f0;
-}
+void func_0010f880(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);  // 0x0010f880: definition moved into src/anon/unit_0010f338.cpp
 
 f32 duplicate_unplaced_0010f8a8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
     return *(volatile f32*)((u32)a0 + (s32)(3284));
@@ -14443,14 +14423,7 @@ void duplicate_unplaced_0010c828(C828_State* a0) {
     a4->vtbl->fn6(a4);
 }
 
-void func_0010cac8(u8* a0, u32 a1, f32 f12) {  // set_bit_and_fields
-    u64 t6 = *(u64*)(a0 + 0xc30);
-    u64 t7 = ((u64)1) << 33;
-    *(u32*)(a0 + 0xc50) = a1;
-    t6 |= t7;
-    *(f32*)(a0 + 0xc4c) = f12;
-    *(u64*)(a0 + 0xc30) = t6;
-}
+void func_0010cac8(u8* a0, u32 a1, f32 f12);  // 0x0010cac8: definition moved into src/anon/unit_0010b978.cpp
 
 void duplicate_unplaced_0010dee8(u32 a0, u32* a1, u32* a2) {
     (void)a0;
@@ -14461,27 +14434,9 @@ void duplicate_unplaced_0010dee8(u32 a0, u32* a1, u32* a2) {
     a2[4] = a1[4];
 }
 
-f32 func_0010e7e0(u8* a0, u32 a1) {  // float2_get_by_index
-    switch (a1) {
-    case 1:
-        return *(f32*)(a0 + 0x110);
-    case 2:
-        return *(f32*)(a0 + 0x114);
-    default:
-        return 0.0f;
-    }
-}
+f32 func_0010e7e0(u8* a0, u32 a1);  // 0x0010e7e0: definition moved into src/anon/unit_0010dee8.cpp
 
-void func_0010eee8(u8* a0) {
-    s32 t6 = 2;
-    u32* t7 = (u32*)(a0 + 0xc54);
-    do {
-        *t7 = 0;
-        t6 -= 1;
-        t7 += 1;
-    } while (t6 >= 0);
-    func_0010eed8((u32)a0, 0, 0);
-}
+void func_0010eee8(u8* a0);  // 0x0010eee8: definition moved into src/anon/unit_0010dee8.cpp
 
 void duplicate_unplaced_0010ef28(u8* a0, u32 a1) {
     u32 t7;

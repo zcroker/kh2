@@ -24,15 +24,7 @@ void func_0018d238(void*, u32, u32, u32, u32, s32, u32);
 s32 func_001130b0(u128*, u32, void*, u32);
 void func_0018f028(void*);
 
-s32 func_00113338(u32 a0, u128* a1, u32 a2, u32 a3, u32 a4, u32 a5) {
-    u128 tmp;
-    void* o = func_001050d8(208);
-    func_0018d238(o, a0, 0, a3, 0, -1, a4);
-    asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(&tmp), "r"(a1) : "$8", "memory");
-    s32 r = func_001130b0(&tmp, a2, o, a5);
-    func_0018f028(o);
-    return r;
-}
+s32 func_00113338(u32 a0, u128* a1, u32 a2, u32 a3, u32 a4, u32 a5);  // 0x00113338: definition moved into src/anon/unit_001117d8.cpp
 
 /* ---- 00137890 ---- */
 extern u8* D_00347d5c;

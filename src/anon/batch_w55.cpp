@@ -200,14 +200,7 @@ void TutorialWidgetCtor(u8*, s32) asm("_ZN4menu14TutorialWidgetC1Ei");
 const char* wtarget_00303728(u32, u32, u32, u32) asm("_Z16wtarget_00303728jjjj");
 
 // Clears bit 14 of the flags word unless the target kind is 32.
-void wtarget_0010f918(u32 a, u32, u32, u32) {
-    u8* p = (u8*)a;
-    if (*(s32*)(*(u8**)(p + 12) + 4) == 32) {
-        func_0016bd60(a, 31);
-        return;
-    }
-    *(u32*)(p + 2940) &= ~0x4000;
-}
+void wtarget_0010f918(u32 a, u32, u32, u32);  // 0x0010f918: definition moved into src/anon/unit_0010f338.cpp
 
 extern "C" {
 

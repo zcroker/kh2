@@ -66,16 +66,7 @@ void func_0010a4d0(void);  // 0010a4d0: moved to src/anon/unit_00109c30.cpp
 // ---- 0010b568
 void func_0010b468(u8*, Vq*);
 void wtarget_0010b568(u8* a, Vq* b, f32 r) asm("_Z16wtarget_0010b568jjjj");
-void wtarget_0010b568(u8* a, Vq* b, f32 r) {
-    f32 r2 = r * r;
-    func_0010b468(a, b);
-    Vq* p = (Vq*)(a + 16);
-    for (s32 i = 0; i < 32; i++, p++) {
-        Vq d;
-        d = vsubn(*p, *b);
-        if (r2 < vlen2(d)) *p = *b;
-    }
-}
+void wtarget_0010b568(u8* a, Vq* b, f32 r);  // 0x0010b568: definition moved into src/anon/unit_0010b450.cpp
 // ---- 0013793c
 s32 func_00139d78(u8*);
 void func_00139510(u8*);

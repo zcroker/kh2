@@ -94,13 +94,7 @@ void trap_stitch_shot_effect(u32* v) asm("_ZN2kn23trap_stitch_shot_effectEP8BD_V
 
 // 001045b8: moved to src/common/gumimenu.cpp
 
-void func_0010f960(u8* p) {
-    if (*(s32*)(*(u8**)(p + 12) + 4) == 31) {
-        func_0016bd60(p, 32);
-        return;
-    }
-    *(u32*)(p + 0xb7c) |= 0x4000;
-}
+void func_0010f960(u8* p);  // 0x0010f960: definition moved into src/anon/unit_0010f338.cpp
 
 void func_00115560(void** p) {
     *p = D_00347220;

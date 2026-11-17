@@ -17,11 +17,7 @@ extern VObj* D_0032b9cc;
 // 00102ed8: moved to src/common/title.cpp
 
 // True when the state at +0xb6c is 16, 12 or 15.
-u32 func_00111278(u8* p) {
-    s32 v = *(s32*)(p + 0xb6c);
-    if (v == 16 || v == 12 || v == 15) return 1;
-    return 0;
-}
+u32 func_00111278(u8* p);  // 0x00111278: definition moved into src/anon/unit_00110b00.cpp
 
 void func_0011c798(u8* p, u32 a) {
     VObj* o = *(VObj**)(p + 20);

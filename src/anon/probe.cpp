@@ -8,11 +8,7 @@ void func_0011c138(void* p) {  // vec4_zero
 }
 
 struct Pair8 { u8 a; u8 b; u8 pad[2]; s32 c; };
-void func_0010b550(Pair8* p) {
-    p->a = 0;
-    p->b = 0;
-    p->c = -1;
-}
+void func_0010b550(Pair8* p);  // 0x0010b550: definition moved into src/anon/unit_0010b450.cpp
 
 extern u32 D_0033cc38;
 extern u32 D_0033cc3c;

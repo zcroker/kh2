@@ -17,14 +17,7 @@ extern W2031_NL D_01d48de0;
 
 struct W2031_V5 { s32 v[5]; };
 
-void func_0010cae8(u8* a0, u8* a1) {
-    *(u16*)(a0 + 0xc30) = 1;
-    *(W2031_V5*)(a0 + 0xc38) = *(W2031_V5*)(a0 + 0x9f4);
-    *(s32*)(a0 + 0xb78) = 0;
-    *(u8**)(a0 + 0xc68) = a1;
-    if (*(s32*)(a0 + 0x48c) != 0 && *(s32*)(a1 + 8) != 0) a0[0xc35] = a1[8];
-    else a0[0xc35] = 0;
-}
+void func_0010cae8(u8* a0, u8* a1);  // 0x0010cae8: definition moved into src/anon/unit_0010b978.cpp
 
 // 001994d8: moved to src/anon/unit_001991a8.cpp
 
