@@ -320,14 +320,7 @@ extern s32* D_0035f5ac;
 s32 func_0029c9d8(s32 n);  // 0x0029c9d8: definition moved into src/anon/unit_0029ba88.cpp
 
 // ---- 002a74c0: is any of the 64 flag bits set?
-s32 func_002a74c0(void) {
-    u32* bits = (u32*)(func_001058e8() + 18932);
-    s32 r = 0;
-    for (s32 i = 0; i < 64; i++) {
-        if (bits[(u32)i >> 5] & (1 << (i & 31))) { r = 1; break; }
-    }
-    return r;
-}
+s32 func_002a74c0(void);  // 0x002a74c0: definition moved into src/anon/unit_002a7308.cpp
 
 // ---- 002c6420
 u8* func_00106a60(u32);  // buffer_get_by_index

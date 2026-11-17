@@ -82,7 +82,7 @@ u32 func_00240440(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a1; (void)a2; (void)a3; u
 
 u32 func_00240bd0(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a0; (void)a1; (void)a2; (void)a3; u32 p = D_0035ec94; return (u32)(s32)(*(s8*)((u32)p + (1))); }
 
-u32 func_00242e48(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a0; (void)a1; (void)a2; (void)a3; u32 v = D_0035ecd8; return v & 0x1u; }
+u32 func_00242e48(u32 a0,u32 a1,u32 a2,u32 a3);  // 0x00242e48: definition moved into src/anon/unit_00242478.cpp
 
 void func_00276578(u32 a0,u32 a1,u32 a2,u32 a3);  // 0x00276578: definition moved into src/anon/unit_002748a0.cpp
 

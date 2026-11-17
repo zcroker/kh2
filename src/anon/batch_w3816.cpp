@@ -56,47 +56,5 @@ void func_0028af18(s32, u32);
 // true for the Japanese-style layouts (system language 1 or 8)
 static inline u8 isjp() { u8 r = 0; if (func_00105c30() == 1 || func_00105c30() == 8) r = 1; return r; }
 // Refreshes the selection rows and the gauge/caption of the selected entry.
-void func_00247580(u8 flag) {
-    s32 cnt;
-    s32 k;
-    s32 sel = func_002891e8(D_0035ed20);
-    cnt = func_002892f8(D_0035ed20);
-    u8* e;
-    s32 c;
-    if (flag) {
-        for (s32 i = 0; i < cnt; i++) {
-            e = D_0035ed40 + i * 408 + 11112;
-            c = func_002474e0(i) ? 31 : 96;
-            func_00138c10(e, c);
-        }
-    }
-    u8* cap = D_0035ed40 + 436;
-    if (func_002474e0(sel)) {
-        e = D_0035ed40 + sel * 408 + 11112;
-        if (flag) {
-            func_00138c10(cap, 33);
-            func_00138c10(e, 32);
-            func_0028dcc0(cap, D_0035ed40 + func_002891e8(D_0035ed20) * 408 + 11112);
-        }
-        u8* buf = D_0035ed40 + 14632;
-        c = ((s8*)(sel + (u32)D_0035ed40))[14664];
-        if (isjp()) {
-            k = func_00192b30(func_00192cc0(buf, D_00371ab8, c + 1));
-            func_00192c90(func_00192048(19468), buf + k);
-        } else {
-            func_00192cc0(buf + func_00192c40(func_00192048(19468), buf), D_00371ac0, c + 1);
-        }
-        s32 v = func_0023aa98(D_0035ed40 + sel * 408 + 7872);
-        k = func_002469a0(sel);
-        cnt = (func_00246840() ? D_00371cc0 : D_00371cb8)[k];
-        func_00138c68(e, (s32)((f32)v / (f32)(cnt - 1) * (f32)c), 0);
-    } else {
-        func_00138c10(cap, 96);
-        func_002fde18(D_0035ed40 + 14632, 0, 32);
-    }
-    u32 f = func_0028af88(D_0035ed20);
-    if (func_002474e0(sel)) f |= 0xc0000;
-    else f &= 0xfff3ffff;
-    func_0028af18(D_0035ed20, f);
-}
+void func_00247580(u8 flag);  // 0x00247580: definition moved into src/anon/unit_00242478.cpp
 }

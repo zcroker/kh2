@@ -153,29 +153,14 @@ void func_0029dd00(void);  // 0x0029dd00: definition moved into src/anon/unit_00
 extern s8* D_0035f5ec;
 u32 func_002a6368(s32);
 s32 func_002944d0(u32);
-s32 func_002a6290(void) {
-    s32 n = 0;
-    for (s32 i = 0; i < D_0035f5ec[0]; i++)
-        if (func_002944d0(func_002a6368(D_0035f5ec[6 + i]))) n++;
-    return n;
-}
+s32 func_002a6290(void);  // 0x002a6290: definition moved into src/anon/unit_002a5a90.cpp
 
 extern u32 D_0035f200, D_0035f214;
 u32 func_0028b038(u32);
 void func_0028be78(u32, u32);
 void func_002a5df0(void);
 void func_002a65d0(void);
-void func_002a6308(u32, s32 m) {
-    switch (m) {
-    case 37:
-        func_002a5df0();
-        func_002a65d0();
-        break;
-    case 38:
-        func_0028be78(D_0035f214, func_0028b038(D_0035f200));
-        break;
-    }
-}
+void func_002a6308(u32, s32 m);  // 0x002a6308: definition moved into src/anon/unit_002a5a90.cpp
 
 extern u8* D_0035f654;
 extern u32 D_0035f650;

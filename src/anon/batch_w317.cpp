@@ -81,25 +81,5 @@ static inline void w317upd(void* p) {
     W317Obj* o = (W317Obj*)p;
     if (func_00139d78(o)) o->vt->f20(o);
 }
-void func_00246f80(void) {
-    w317upd(&D_0035ed40->b0);
-    w317upd(&D_0035ed40->b1);
-    s32 k = 0;
-    s32 ob = 0;
-    s32 oa = 0;
-    do {
-        w317upd((u8*)D_0035ed40 + oa + 7848);
-        w317upd((u8*)D_0035ed40 + oa + 9480);
-        w317upd((u8*)D_0035ed40 + oa + 11112);
-        w317upd((u8*)D_0035ed40 + oa + 12744);
-        w317upd((u8*)D_0035ed40 + ob + 872);
-        w317upd((u8*)D_0035ed40 + ob + 2616);
-        w317upd((u8*)D_0035ed40 + ob + 4360);
-        w317upd((u8*)D_0035ed40 + ob + 6104);
-        k++;
-        __asm__("" : "+r"(k));
-        ob += 436;
-        oa += 408;
-    } while (k < 4);
-}
+void func_00246f80(void);  // 0x00246f80: definition moved into src/anon/unit_00242478.cpp
 }

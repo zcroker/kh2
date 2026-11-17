@@ -23,10 +23,7 @@ void func_00276fe8(void);  // 0x00276fe8: definition moved into src/anon/unit_00
 void func_00293500(u32 a0, u32 a1, u32 a2);  // 0x00293500: definition moved into src/anon/unit_00292e60.cpp
 
 void Tz_SubMenu_Start(s32 a) asm("_ZN2Tz7SubMenu5StartEi");
-void Tz_SubMenu_Start(s32 a) {
-    D_0035ece0 = a;
-    func_00243020(func_00243190(a));
-}
+void Tz_SubMenu_Start(s32 a);  // 0x002430b0: definition moved into src/anon/unit_00242478.cpp
 
 void func_00298e20(u32 a0, s32 a1);  // 0x00298e20: definition moved into src/anon/unit_002982f0.cpp
 
@@ -37,11 +34,5 @@ void func_0027c4d8(void);  // 0x0027c4d8: definition moved into src/anon/unit_00
 struct W1587_S { u32 a; u8* b; };
 void func_00242088(void*);
 u8* func_001063f0_n(u32) asm("func_001063f0");
-void func_00241fd0(W1587_S* p, u32 a1) {
-    W1587_S* s;
-    asm("" : "=r"(s) : "0"(p));  /* keeps p in its own pseudo, as the original stores via s0 */
-    s->a = a1;
-    s->b = func_001063f0_n(0x400);
-    func_00242088(s);
-}
+void func_00241fd0(W1587_S* p, u32 a1);  // 0x00241fd0: definition moved into src/anon/unit_00241fd0.cpp
 }

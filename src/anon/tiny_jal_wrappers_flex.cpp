@@ -303,13 +303,7 @@ u32 func_0023f660(u32 a0, u32 a1, u32 a2, u32 a3) {
     return r2;
 }
 
-u32 func_00242478(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u, r16 = 0u;
-    r16 = r4;
-    r2 = getSaveRam(r4, r5, r6, r7);
-    *(u32*)((u32)r2 + (s32)(9280)) = r16;
-    return r2;
-}
+u32 func_00242478(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00242478: definition moved into src/anon/unit_00242478.cpp
 
 u32 func_00258ac0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00258ac0: definition moved into src/anon/unit_002588e8.cpp
 

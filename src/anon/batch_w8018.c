@@ -19,11 +19,4 @@ s32 func_00276c18(void);
 
 void func_00279860(void);  // 0x00279860: definition moved into src/anon/unit_002793b0.cpp
 
-s32 func_002a6500(void) {
-    s32 i; s32 r = 0;
-    H* h = func_00294000(6);
-    E8* e = h->e;
-    for (i = 0; i < h->n; i++) if (func_002944d0(&e[i])) { r = 1; break; }
-    if (func_00276c18()) r = 1;
-    return r;
-}
+s32 func_002a6500(void);  // 0x002a6500: definition moved into src/anon/unit_002a5a90.cpp

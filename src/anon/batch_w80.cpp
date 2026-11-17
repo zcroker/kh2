@@ -548,35 +548,10 @@ void func_00237808(U8_Rot3* o, f32 rx) {
 }
 
 
-s32 func_00244068(void) {
-    s32 m = func_00287bc0();
-    func_00287d68();  // copy_globals_3words
-    if (func_00287db0()) {
-        if (func_0028acc8(D_0035ece8) || func_0028acc8(D_0035ecec) || func_00139d78((void*)D_0035ecf0) || func_00139d78((void*)D_0035ecf4) || func_00139d78((void*)D_0035ecf8)) return 0;
-        func_00243f48();
-        func_001039f8();
-        return 1;
-    }
-    switch (m) {
-    case 0: func_00244148(); break;
-    case 1: func_002442b8(); break;
-    }
-    return 0;
-}
+s32 func_00244068(void);  // 0x00244068: definition moved into src/anon/unit_00242478.cpp
 
 static inline void U10_w80_cur_setflag(U10_CurSub* s, u32 f) { s->f184 |= f; }
-void func_00244a60(void) {
-    if (!func_001a6d08(10)) return;
-    func_0028d980(U10_D_0035ed00, 30011, 0, 0, D_0035ecf0, 39, 41, -1, 100);
-    func_00139620(U10_D_0035ed00);
-    func_001395f8(U10_D_0035ed00);
-    U10_D_0035ed00->f432 = 2;
-    U10_D_0035ed00->f405 = 1;
-    U10_w80_cur_setflag(&U10_D_0035ed00->sub, 8);
-    func_002fde18(U10_D_0035ed10, 0, 32);
-    U10_D_0035ed00->f408 = U10_D_0035ed10;
-    func_00244b38();
-}
+void func_00244a60(void);  // 0x00244a60: definition moved into src/anon/unit_00242478.cpp
 
 
 // Tz::MenuCursor::Create
@@ -586,23 +561,7 @@ void w80_MenuCursor_Create(U11_CurObj* c, u32 a1, u32 a2, u32 a3, u32 sprA, u32 
 static inline void U12_w80_cur_setflag(U12_CurSub* s, u32 f) { s->f184 |= f; }
 // Tz::JmBattle::LeaveAllInner
 void w80_JmBattle_LeaveAllInner(void) asm("_ZN2Tz8JmBattle13LeaveAllInnerEv");
-void w80_JmBattle_LeaveAllInner(void) {
-    s32 i;
-    for (i = 0; i < 10; i++) {
-        u32 off = i * 436;
-        if (func_00139d78(D_0035f5f0 + off)) {
-            U12_VObj* o = (U12_VObj*)(off + (u32)D_0035f5f0);
-            o->vt->f20(o);
-        }
-    }
-    if (func_0028acc8(D_0035f200)) func_0028abe0(D_0035f200);
-    if (func_00139d78(func_00276348())) {
-        U12_VObj* o = func_00276348();
-        o->vt->f20(o);
-    }
-    if (func_0028be58(D_0035f214)) func_0028be18(D_0035f214);
-    func_002766e0();
-}
+void w80_JmBattle_LeaveAllInner(void);  // 0x002a67a8: definition moved into src/anon/unit_002a5a90.cpp
 
 
 void func_0024e678(void) {

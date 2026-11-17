@@ -218,17 +218,7 @@ s32 func_002469a0(s32);
 s32 func_00139d78(void*);
 s32 func_00246840(void);
 void func_00243230(s32, s32);
-void func_00247c20(void) {
-    s32 a = func_002891e8(D_0035ed20);
-    s32 b = func_002469a0(a);
-    bool off = !((D_0035ed44 >> b) & 1);
-    if (off) return;
-    if (func_00139d78(&D_0035ed34[a])) {
-        E408* e = &D_0035ed34[a];
-        if (e->st != 82) func_00138c10(e, 82);
-    }
-    func_00243230(4, func_00246840() ? b + 4 : b);
-}
+void func_00247c20(void);  // 0x00247c20: definition moved into src/anon/unit_00242478.cpp
 
 // ---- 0x24bbb0 ----
 extern void* D_0035edb0;

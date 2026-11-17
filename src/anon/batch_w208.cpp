@@ -5,10 +5,7 @@ struct Obj208 { VT208* vt; };
 struct O80_208 { char pad[80]; Obj208* o; };
 extern "C" {
 S242* func_001058e8(void);
-void func_00242b10(u8 a) {
-    S242* p = (S242*)((char*)func_001058e8() + 16800);
-    p->f = a != 0;
-}
+void func_00242b10(u8 a);  // 0x00242b10: definition moved into src/anon/unit_00242478.cpp
 u8 func_001c71f8(u32 p, f32 f);
 void ctarget_001d7730(u32, u32, u32, u32) asm("_Z16ctarget_001d7730jjjj");
 void ctarget_001d7730(u32 a, u32, u32, u32);  // 0x001d7730: definition moved into src/anon/unit_001d7458.cpp

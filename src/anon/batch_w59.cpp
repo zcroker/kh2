@@ -262,15 +262,7 @@ u32 func_00276888(void);
 u32 func_00139d78(u8*);
 extern u32 D_0035f200;
 extern u8* D_0035f5f0;
-void func_002a6718(void) {
-    if (func_00276368()) return;
-    if (func_0028acc8(D_0035f200)) return;
-    if (func_00276888()) return;
-    s32 i;
-    for (i = 0; i < 10; i++) {
-        if (func_00139d78(D_0035f5f0 + i * 436)) return;
-    }
-}
+void func_002a6718(void);  // 0x002a6718: definition moved into src/anon/unit_002a5a90.cpp
 
 // --- 002bc608
 extern u8* D_01e2aa80;

@@ -218,9 +218,7 @@ void func_00241320(void) {
 }
 
 // Whether adding a to the counter stays within 999999.
-u32 func_002424c0(u32 a) {
-    return *(u32*)(func_001058e8() + 9280) + a <= 999999;
-}
+u32 func_002424c0(u32 a);  // 0x002424c0: definition moved into src/anon/unit_00242478.cpp
 
 void func_00251e90(s32 i) {  // to_28dbf8_entry8_b
     func_0028dbf8(D_0035ee60, D_00372608, D_00372610[i]);

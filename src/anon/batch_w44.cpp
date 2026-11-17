@@ -223,12 +223,7 @@ void func_00241850(s32 i, s32 clear) {
 }
 
 // Bit test in the flag array at +18904.
-s32 func_002431d0(s32 a, s32 b) {
-    u8* v = func_001058e8();
-    u32 i = a * 8 + b;
-    v += (i >> 5) * 4;
-    return (*(u32*)(v + 18904) & (1 << (i & 31))) != 0;
-}
+s32 func_002431d0(s32 a, s32 b);  // 0x002431d0: definition moved into src/anon/unit_00242478.cpp
 
 extern u8* D_0035ed8c;
 void func_0024b078(void) {

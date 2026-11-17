@@ -317,14 +317,7 @@ u8* func_00243150(u32);
 void func_00103500(s16);
 void func_00253538(s16);
 
-void func_00243020(u32 a0) {
-    if (!D_0032bad8) return;
-    if (func_00103b38()) {
-        if (func_00103428(func_00103550())) func_00103500(*(s16*)(func_00243150(a0) + 2));
-    } else {
-        func_00253538(*(s16*)(func_00243150(a0) + 2));
-    }
-}
+void func_00243020(u32 a0);  // 0x00243020: definition moved into src/anon/unit_00242478.cpp
 
 struct Ent36 { u8 pad[32]; s8 ids[4]; };
 extern Ent36 D_00371d90[];

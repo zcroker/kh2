@@ -637,16 +637,7 @@ void* func_002469a0(void*);
 Info* func_002468a0(void*);
 Info* func_0024b1a0(void*);
 void func_0028da70(void*, s32);
-void func_00245be8(void)
-{
-    if (func_00139d78(D_0035ed28) && func_0023f0c0(D_0035ed28) != 32) func_0023f070(D_0035ed28, 32, -1);
-    if (func_0028acc8(D_0035ed20)) {
-        func_0028ab20(D_0035ed20);
-        Info* in = func_002468a0(func_002469a0(func_002891e8(D_0035ed20)));
-        if (func_00139d78(D_0035ed30) && func_0023f0c0(D_0035ed30) != in->anim) func_0023f070(D_0035ed30, in->anim, -1);
-    }
-    if (func_00139d78(D_0035ed2c) && func_0023f0c0(D_0035ed2c) != 35) func_0023f070(D_0035ed2c, 35, -1);
-}
+void func_00245be8(void);  // 0x00245be8: definition moved into src/anon/unit_00242478.cpp
 void func_0024a048(void)
 {
     if (func_00139d78(D_0035ed78) && func_0023f0c0(D_0035ed78) != 32) func_0023f070(D_0035ed78, 32, -1);

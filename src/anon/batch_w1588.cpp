@@ -20,12 +20,7 @@ extern s32 D_003616e0;
 extern u32 D_01e2a400[];
 extern s8 D_003743c0[];
 
-void func_002a82f8(void) {
-    if (func_00289310()) {
-        func_002a8768();
-        func_002a8330();
-    }
-}
+void func_002a82f8(void);  // 0x002a82f8: definition moved into src/anon/unit_002a7308.cpp
 
 void func_002a9570(void);  // 0x002a9570: definition moved into src/anon/unit_002a92a0.cpp
 

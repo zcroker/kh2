@@ -26,7 +26,7 @@ void func_0023c0f8(void* self) {}
 
 void func_0023c598(void* self) { *(s32*)((char*)self + 64) = 0; }
 
-s32 func_002420d0(void* self) { return (s32)(*(s32*)((char*)self + 4)); }
+s32 func_002420d0(void* self);  // 0x002420d0: definition moved into src/anon/unit_00241fd0.cpp
 
 void func_0025f6b0(void* self);  // 0x0025f6b0: definition moved into src/anon/unit_0025da20.cpp
 
@@ -68,21 +68,15 @@ void func_002a2148(void* self);  // 0x002a2148: definition moved into src/anon/u
 
 typedef s64 (*Func4)(s64, s64, s64, s64);
 
-s64 func_002a4380(s64 param0, s64 param1, s64 param2, s64 param3) {
-    s64 result = 0, arg0 = param0, arg1 = param1, arg2 = param2, arg3 = param3, returnAddr = 0;
-    arg0 = (s64)((u64)arg0 ^ 0x0008);
-    arg0 = ((u64)arg0 < (u64)((s64)1)) ? 1 : 0;
-    result = arg0 + 0;
-    return result;
-}
+s64 func_002a4380(s64 param0, s64 param1, s64 param2, s64 param3);  // 0x002a4380: definition moved into src/anon/unit_002a40c8.cpp
 
-void func_002a4df0(void* self) {}
+void func_002a4df0(void* self);  // 0x002a4df0: definition moved into src/anon/unit_002a40c8.cpp
 
-void func_002a6a10(void* self) {}
+void func_002a6a10(void* self);  // 0x002a6a10: definition moved into src/anon/unit_002a5a90.cpp
 
-void func_002a7758(void* self) {}
+void func_002a7758(void* self);  // 0x002a7758: definition moved into src/anon/unit_002a7308.cpp
 
-void func_002a8a80(void* self) {}
+void func_002a8a80(void* self);  // 0x002a8a80: definition moved into src/anon/unit_002a8748.cpp
 
 void func_002aece8(void* self);  // 0x002aece8: definition moved into src/anon/unit_002aeba0.cpp
 

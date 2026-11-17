@@ -47,40 +47,5 @@ extern u32 D_00374ba8;
 extern s32 D_00374bd8;
 extern s32 D_00374bdc;
 
-void func_002a5df0(void) {
-    s32 n = 10;
-    u8* w = func_002766d0();
-    s32 start = func_0028b038(D_0035f200);
-    func_0028be78(D_0035f214, start);
-    func_002fde18(D_0035f5ec + 0x1f, 0, 160);
-    func_002fde18(w + 0x110a0, 0, 640);
-    s32 c = *(s8*)D_0035f5ec;
-    if (c < 10) n = c;
-    for (s32 j = 0; j < n; j++) func_00138c10(w + j * 408 + 0xa998, 2);
-    s32 k = 0;
-    s32 i = 0;
-    n = *(s8*)D_0035f5ec;
-    if (n > 0) do {
-        if (i < start) continue;
-        W2408Rec* r = func_002a6368(((s8*)D_0035f5ec)[i + 6]);
-        s32 ok = func_002944d0(r);
-        u16 id = r->h2;
-        s32 v;
-        if (ok) {
-            v = func_001d4550(func_001d44d8(r->h0));
-            func_00192c90(func_00192048(id), w + k * 64 + 0x110a0);
-        } else {
-            v = 0;
-            func_0028de08(id, w + k * 64 + 0x110a0, 64);
-        }
-        *(u8**)(func_002891b8(D_0035f200, k) + 0x198) = w + k * 64 + 0x110a0;
-        s32 len = func_00192b30(func_00192cc0(((W2408Name*)(D_0035f5ec + 0x1f))[k].c, &D_00374ba8, v));
-        func_00192c90(func_00192048(19206), &((W2408Name*)(D_0035f5ec + 0x1f))[k].c[len]);
-        if (ok && func_002aaa38(((s8*)D_0035f5ec)[i + 6])) {
-            v = func_002aaab8(((s8*)D_0035f5ec)[i + 6]) ? D_00374bdc : D_00374bd8;
-            func_00138c10(w + k * 408 + 0xa998, v);
-        }
-        k++;
-    } while (++i < n && k < 10);
-}
+void func_002a5df0(void);  // 0x002a5df0: definition moved into src/anon/unit_002a5a90.cpp
 }

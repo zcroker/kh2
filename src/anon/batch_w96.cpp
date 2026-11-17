@@ -223,24 +223,7 @@ void func_001dd568(u32* ids, FU_w96* keys, s32 lo, s32 hi);  // 0x001dd568: defi
 // Quicksort keys (descending) in [lo, hi], permuting the parallel ids array alongside.
 
 // Builds the two-entry choice list and focuses the preselected entry.
-void func_00243cd8(void) {
-    s32 i;
-    s32 sel = 0;
-    for (i = 0; i < 2; i++) {
-        u8* w;
-        s32 h;
-        if (D_003719e8[i].sel) sel = i;
-        func_00288d80(D_0035ecec, i, 0, 0, D_0035ecf0, D_003719e8[i].icon, &D_003719e8[i], D_003719e8[i].name);
-        w = func_002891b8(D_0035ecec, i);
-        func_00288e08(D_0035ecec, i, func_0023aa78((u32)w + 24), 0);
-        h = func_0023aa98((u32)w + 24);
-        *(u32*)(w + 432) = func_0028dd90(h);
-        *(u32*)(w + 428) = func_0028ddd8(h);
-        func_001395f8(w);
-    }
-    func_002891f0(D_0035ecec, sel, 1, 0, 2);
-    func_002b4388(D_0035ed08, &D_003719e8[sel], 0);
-}
+void func_00243cd8(void);  // 0x00243cd8: definition moved into src/anon/unit_00242478.cpp
 
 void func_002874b0(u8* self);  // 0x002874b0: definition moved into src/anon/unit_00286d28.cpp
 
@@ -248,24 +231,7 @@ void func_002874b0(u8* self);  // 0x002874b0: definition moved into src/anon/uni
 void func_0028e190(u8* self, s32 n);  // 0028e190: moved to src/anon/unit_0028c878.cpp
 
 // Returns nonzero if any of the screen's widgets is still busy.
-s32 func_002a40c8(void) {
-    s32 r;
-    s32 i, j;
-    if ((r = func_00139d78(D_0035f5e8 + 29376)) != 0) return r;
-    for (i = 0; i < 9; i++) {
-        for (j = 0; j < 8; j++) {
-            if ((r = func_00139d78(D_0035f5e8 + i * 3264 + j * 408)) != 0) return r;
-        }
-    }
-    if ((r = func_00139d78(D_0035f5e8 + 29784)) != 0) return r;
-    if ((r = func_00139d78(D_0035f5e8 + 30220)) != 0) return r;
-    if ((r = func_00139d78(D_0035f5e8 + 30656)) != 0) return r;
-    for (i = 0; i < 9; i++) {
-        if ((r = func_00139d78(D_0035f5e8 + i * 436 + 31092)) != 0) return r;
-        if ((r = func_00139d78(D_0035f5e8 + i * 436 + 0x88c8)) != 0) return r;
-    }
-    return r;
-}
+s32 func_002a40c8(void);  // 0x002a40c8: definition moved into src/anon/unit_002a40c8.cpp
 
 void func_002acda8(void);  // 0x002acda8: definition moved into src/anon/unit_002a99c8.cpp
 

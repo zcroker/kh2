@@ -73,33 +73,5 @@ struct Obj2a4c {
 
 // Allocates a 192-byte buffer, then a counted array of 10 objects (new[] with an
 // inlined constructor: base vtable, member init, derived vtable).
-void func_002a4c68(void) {
-    s32 n;
-    register s32 end asm("$20"); // pinned: keeps li 9 / li -1 where the original has them
-    void* v60;
-    void* v40;
-    Obj2a4c* q;
-    void* p = func_001063c0(192, func_00103570());
-    D_0035f5ec = p;
-    func_002fde18(p, 0, 192);
-    Heap2a4c* h = D_00347f80->heap;
-    s32* c = (s32*)h->vt->alloc(h, 4364, 0);
-    c[0] = 10;
-    Obj2a4c* a = (Obj2a4c*)(c + 1);
-    end = -1;
-    n = 9;
-    v60 = D_00347e60;
-    v40 = D_00347e40;
-    q = a;
-    while (n != end) {
-        q->f12 = 0;
-        q->vt = v60;
-        func_00239700(q->m24);
-        q->vt = v40;
-        q->f408 = 0;
-        n--;
-        q++;
-    }
-    D_0035f5f0 = a;
-}
+void func_002a4c68(void);  // 0x002a4c68: definition moved into src/anon/unit_002a40c8.cpp
 }

@@ -57,59 +57,7 @@ s32 func_0028b038(u32);
 void func_002765e8(s32, s32, s32);
 
 // Menu tick: handles the confirm/cancel states of this page.
-void func_002a6be0(void)
-{
-    s32 sel = func_00289380(D_0035f200);
-    s32 st = func_00287cd0();
-    func_00287bc0();
-    if (st == 2) {
-        if (func_00276368() || func_0028acc8(D_0035f200) || func_00276888()) {
-            if (sel != -1) {
-                func_00287f90(0);
-                func_002a6a18();
-            }
-            return;
-        }
-        if (func_00292630()) return;
-        func_002a6a18();
-        func_00287c30();
-        s32 k = func_00287bc0();
-        func_0028af18(D_0035f200, 115);
-        func_00276690(0);
-        func_00276220(func_00276358(), 0);
-        if (k != 13) return;
-        func_00274cf0(13);  // state_dispatch_0_1_2
-        func_002925c0();
-        func_002995e8();
-        return;
-    }
-    if ((sel != -1 || func_00289310(D_0035f200)) && !func_00276398()) {
-        func_00276220(0, 2);
-        func_00275b60();
-    }
-    if (st == 0 && func_00276398()) func_00287c90(1);  // state_is_150
-    if (func_00242848(func_00287df0(sel, func_00289310(D_0035f200), 1, 0, 1)) == 0) {
-        switch (sel) {
-        case -1: break;
-        case -4:
-            func_00287da0();
-            break;
-        case -2: {
-            func_0028f6f0(0);  // record884_refresh_by_index
-            func_002a6a10();
-            func_00276dc0();
-            func_00276220(1, 1);
-            func_00287c00(13);
-            func_00287cc0(2);
-            s32 a = func_00287bc0();
-            s32 b = func_002891e8(D_0035f200);
-            func_002765e8(a, b, func_0028b038(D_0035f200));
-            break;
-        }
-        }
-    }
-    if (func_00288040()) func_00288018();
-}
+void func_002a6be0(void);  // 0x002a6be0: definition moved into src/anon/unit_002a5a90.cpp
 
 
 extern u32 D_0035f01c;
@@ -151,77 +99,7 @@ void func_002a5590(void);
 void func_002a6878(void);
 void func_002a4df0(void);
 
-void func_002a52b0(void)
-{
-    s32 sel = func_00289380(D_0035f200);
-    s32 st = func_00287cd0();
-    func_00287bc0();
-    if (st == 2) {
-        if (func_002a6718()) {
-            if (sel != -1) {
-                func_00287f90(0);
-                func_002a67a8();
-            }
-            return;
-        }
-        if (func_00292630()) return;
-        func_002a4df8();
-        func_00287c30();
-        s32 k = func_00287bc0();
-        func_0028af18(D_0035f200, 115);
-        func_00276220(func_00276358(), 0);
-        if (k == 13) {
-            func_00274cf0(13);  // state_dispatch_0_1_2
-            func_002925c0();
-            func_002766b0(0);
-            func_002995e8();
-            return;
-        }
-        if (k == 38) func_002a5590();
-        return;
-    }
-    if ((sel != -1 || func_00289310(D_0035f200)) && !func_00276398()) {
-        func_00276220(0, 2);
-        func_00275b60();
-    }
-    if (st == 0 && func_00276398()) func_00287c90(1);  // state_is_150
-    if (func_00242848(func_00287df0(sel, func_00289310(D_0035f200), 1, (s32)func_002a6878, 1)) == 0) {
-        switch (sel) {
-        case -1: break;
-        case -4: {
-            s32 a = func_00287bc0();
-            s32 b = func_002891e8(D_0035f200);
-            func_002765e8(a, b, func_0028b038(D_0035f200));
-            func_00287da0();
-            break;
-        }
-        case -2: {
-            func_0028f6f0(0);  // record884_refresh_by_index
-            func_002a4df0();
-            func_00276dc0();
-            func_00276220(1, 1);
-            func_00287c00(13);
-            func_00287cc0(2);
-            s32 a = func_00287bc0();
-            s32 b = func_002891e8(D_0035f200);
-            func_002765e8(a, b, func_0028b038(D_0035f200));
-            break;
-        }
-        default: {
-            func_002a4df0();
-            func_00276dc0();
-            func_00276220(0, 1);
-            func_00287c00(38);
-            func_00287cc0(2);
-            s32 a = func_00287bc0();
-            s32 b = func_002891e8(D_0035f200);
-            func_002765e8(a, b, func_0028b038(D_0035f200));
-            break;
-        }
-        }
-    }
-    if (func_00288040()) func_00288018();
-}
+void func_002a52b0(void);  // 0x002a52b0: definition moved into src/anon/unit_002a52b0.cpp
 
 
 struct SelState { u32 f0; s8 cur; };

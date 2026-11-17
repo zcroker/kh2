@@ -382,44 +382,7 @@ s32 func_002469a0(s32);
 s32 func_00246840(void);
 Info24* func_001d56c8(u32);
 // Steps the current selection up/down (wrapping on a fresh press); returns whether it changed.
-bool func_00247870(u8 down)
-{
-    Pad24* pad = func_00167f18(0);
-    s32 h = func_002891e8(D_0035ed20);
-    if (!func_002474e0(h)) return 0;
-    s32 i = func_002469a0(h);
-    u32 id = (func_00246840() ? D_00371cb0 : D_00371ca8)[i];
-    Info24* info = func_001d56c8(id);
-    s32 max = (func_00246840() ? D_00371cc0 : D_00371cb8)[i];
-    s32 step = 1;
-    if (info->kind == 2 && id == 7) {
-        max = info->count;
-        max /= 10;
-        max *= 10;
-        max++;
-        step = 10;
-    }
-    s32 cur = ((Sel24*)(h + (u32)D_0035ed40))->cur;
-    if (down) {
-        if (cur <= 0) {
-            if (pad->trig & 0x40) cur = max - 1;
-        } else {
-            cur -= step;
-            if (cur < 0) cur = 0;
-        }
-    } else {
-        if (cur + 1 >= max) {
-            if (pad->trig & 0x80) cur = 0;
-        } else {
-            cur += step;
-            cur = cur < max ? cur : max - 1;
-        }
-    }
-    Sub24* s = (Sub24*)(h + (u32)D_0035ed40 + 14656);
-    s32 old = s->cur;
-    s->cur = cur;
-    return old != cur;
-}
+bool func_00247870(u8 down);  // 0x00247870: definition moved into src/anon/unit_00242478.cpp
 }
 
 extern "C" {

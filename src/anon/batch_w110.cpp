@@ -467,27 +467,7 @@ void func_00247c20(void);
 }
 extern "C" {
 // Re-creates the enabled entry widgets of the list (bit per entry in D_0035ed44).
-void func_00247a20(void) {
-    if (!D_0035ed44) return;
-    if (func_00139d78(D_0035ed34)) return;
-    s32 id = D_0035f3d4 + 1;
-    s32 n = func_0028afa8(D_0035ed20);
-    for (s32 i = 0; i < n; i++) {
-        u8* nd = func_002891b8(D_0035ed20, i);
-        u8* sub = nd + 24;
-        s32 m = D_0035ed44;
-        u8 on = (m >> func_002469a0(i)) & 1;
-        if (on) {
-            func_0028d8c0(D_0035ed34 + i * 408, id, 0, 0, D_0035ed28, 83, -1, 0);
-            func_0028dcc0(D_0035ed34 + i * 408, nd);
-            func_00139648(D_0035ed34 + i * 408);
-            s32 x = func_0023aa18(sub);
-            s32 y = func_0023aa38(sub);
-            func_00138c68(D_0035ed34 + i * 408, x, y);
-        }
-    }
-    func_00247c20();
-}
+void func_00247a20(void);  // 0x00247a20: definition moved into src/anon/unit_00242478.cpp
 }
 
 struct V4r { f32 x, y, z, w; } __attribute__((aligned(16)));

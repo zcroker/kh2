@@ -38,54 +38,7 @@ extern s32 D_0035f210;
 extern s32 D_0035f200;
 extern s32 D_0035f214;
 extern s32* D_0035f608;
-void func_002a8ac8(void) {
-    s16 arr[4];
-    s32 a = func_00276348();
-    s32 b = func_002766d0();
-    s32 i, n, c, v, cnt, lim, r0, r1, r2;
-    s16* p;
-    if (!func_0028f930(0)) func_0028f4d8(0, -1, 0);
-    for (i = 0; i < 4; i++) arr[i] = 2;
-    func_002a9100();
-    n = D_0035f3d4 - 1;
-    c = b + 0x4c8;
-    func_00276e78();
-    func_0028d8c0(b, n, D_0035f14c, D_0035f148, D_0035f210, 101, -1, 0);
-    v = 10;
-    func_00139620(b);
-    func_0028dcc0(b, a);
-    func_0028d8c0(c, n, D_0035f14c, D_0035f148, D_0035f210, 109, -1, 0);
-    func_00139620(c);
-    func_0028dcc0(c, a);
-    func_00288d80(D_0035f200, 0, D_0035f14c, D_0035f148, D_0035f210, -1, arr, arr);
-    r0 = func_002891b8(D_0035f200, 0);
-    func_00139620(r0);
-    func_0028dcc0(r0, b);
-    func_002a92d8();
-    n = D_0035f3d4;
-    lim = *D_0035f608;
-    if (lim >= 11) v = lim;
-    cnt = lim - 10;
-    if (cnt > 0) cnt = lim - 9; else cnt = 1;
-    r1 = func_0023c4b8(func_0023f1b0(D_0035f210), D_0035f14c);
-    { void* o = func_0023f1b0(D_0035f210); s32 k = D_0035f148;
-    r2 = func_00236ca8(*(s32*)((u8*)o + 0x28), k); }
-    func_0028bae0(D_0035f214, n, r1, r2, func_00276678(), v, 10, c, 0);
-    func_0028af90(D_0035f200, cnt);
-    func_002891f0(D_0035f200, 0, 0, -1, -1);
-    func_0028afd0(D_0035f200, 0);
-    func_00276690(1);
-    func_0028af28(D_0035f200, 16);
-    if (cnt >= 2) {
-        func_0028b218(D_0035f200, 1);
-        func_0028b248(D_0035f200, 10);
-    }
-    func_002a9048();
-    func_002a98a8();
-    func_002a95a8();
-    func_002a9888();
-    func_00287cc0(0);
-}
+void func_002a8ac8(void);  // 0x002a8ac8: definition moved into src/anon/unit_002a8ac8.cpp
 
 s32 func_00103570(void);
 s32 func_001063c0(s32, s32);

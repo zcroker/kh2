@@ -34,29 +34,7 @@ void func_0028d068(s32, s32);
 Ret7cf0* func_00103eb0(void);
 void func_00247ff0(void);
 void func_00102818(s32, s32, s32, void (*)(void), s32);
-void func_00247cf0(void) {
-    s32 h;
-    void* p;
-    func_00287b18(2, 3);
-    h = func_00288be8(56);
-    func_002889f0(h, 3, 1);
-    D_0035ed4c = h;
-    h = func_00288be8(56);
-    func_002889f0(h, 2, 0);
-    D_0035ed50 = h;
-    func_00288f48(h, 64, 128, 0, 0);
-    D_0035ed54 = 0;
-    D_0035ed58 = 0;
-    D_0035ed5c = 0;
-    p = D_0032ba14->vt->alloc(D_0032ba14, 12, __builtin_return_address(0));
-    func_002b3df8(p);
-    D_0035ed60 = p;
-    D_0035ed68 = 0;
-    D_0035ed64 = new (D_00347f80->al) Elem7cf0[3];
-    D_0035ed69 = 0;
-    func_0028d068(30026, -1);
-    func_00102818(func_00103eb0()->f4, 0, 2000, func_00247ff0, 4096);
-}
+void func_00247cf0(void);  // 0x00247cf0: definition moved into src/anon/unit_00242478.cpp
 
 struct O16fc10 { u8 f0; u8 f1; u8 p2[2]; u8 sub[0x20]; u32 flags; s32 f28; s32 size; u32 start; u32 cur; u32 f38; O16fc10* next; };
 void func_001684c0(void*, u32, void*, void*);

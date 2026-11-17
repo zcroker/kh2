@@ -102,48 +102,7 @@ s32 func_00287c50(void);
 void func_0028ce98(s32, s32);
 void func_00244708(s32, s32, s32);
 struct NoTail4b8 { ~NoTail4b8() {} };
-void func_002444b8(void) {
-    NoTail4b8 nt;
-    s32 mode = func_00287bc0();
-    s32 sub = func_00287cd0();
-    if (func_00287db0() != 0) {
-        if (func_002887c8() == 0) {
-            func_0028dae0(D_0035ecf0, 31);
-            if (func_0028acc8(D_0035ece8) != 0 && func_00139d78(D_0035ecf8) != 0) {
-                s32 i = func_00244ee8(func_002891e8(D_0035ece8));
-                func_0028dae0(D_0035ecf8, D_00371968[i].b);
-            }
-            func_0028dae0(D_0035ecf4, 34);
-            if (func_0028acc8(D_0035ece8) != 0 && func_0028acb8(D_0035ece8) == 0) {
-                func_0028aa40(D_0035ece8);
-            }
-            if (func_0028acc8(D_0035ecec) != 0 && func_0028acb8(D_0035ecec) == 0) {
-                func_0028aa40(D_0035ecec);
-            }
-            func_0028dac8(D_0035ecfc, 32);
-            func_0028dac8(D_0035ed00, 40);
-        }
-        func_0028ce38();
-        func_00244db8();
-    }
-    func_00244888();
-    if (func_00287db0() == 0) {
-        s32 obj = mode == 0 ? D_0035ece8 : D_0035ecec;
-        s32 side = mode != 0;
-        if (func_0028acc8(obj) != 0 && sub == 1) {
-            if (func_0028d008(side) == 0) {
-                func_0028cc78(side, 0, 0, D_0035ecf0, 15, 14);
-                func_0028cf28(side, func_002891d0(obj));
-            }
-        } else if (sub == 2 && func_0028d008(side) != 0) {
-            func_0028cdb8(side);
-        }
-        if (func_00287c50() != 0 && func_0028d008(0) != 0) {
-            func_0028ce98(0, side);
-        }
-        func_00244708(obj, mode, side);
-    }
-}
+void func_002444b8(void);  // 0x002444b8: definition moved into src/anon/unit_00242478.cpp
 extern s32 D_0035ed20;
 extern s32 D_0035ed24;
 extern s32 D_0035ed28;
@@ -159,26 +118,7 @@ void func_00246f80(void);
 void func_001039f8(void);
 void func_00246070(void);
 void func_00245eb8(void);
-u32 func_00245dd0(void) {
-    s32 mode = func_00287bc0();
-    func_00287d68();
-    func_00246708();
-    if (func_00287db0() != 0) {
-        if (func_0028acc8(D_0035ed20) == 0 && func_0028acc8(D_0035ed24) == 0 &&
-            func_00139d78(D_0035ed28) == 0 && func_00139d78(D_0035ed2c) == 0 &&
-            func_00139d78(D_0035ed30) == 0) {
-            func_00246f80();
-            func_001039f8();
-            return 1;
-        }
-        return 0;
-    }
-    switch (mode) {
-    case 0: func_00245eb8(); break;
-    case 1: func_00246070(); break;
-    }
-    return 0;
-}
+u32 func_00245dd0(void);  // 0x00245dd0: definition moved into src/anon/unit_00242478.cpp
 struct T1d40 { s16 a; s16 b; s16 c; };
 extern T1d40 D_00371d40[];
 extern s32 D_0035ed4c;

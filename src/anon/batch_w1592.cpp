@@ -76,9 +76,6 @@ extern "C" {
 extern void* D_0035f5ec;
 extern El* D_0035f5f0;
 void func_00106420(void*);
-void func_002a4d48(void) {
-    if (D_0035f5ec) { func_00106420(D_0035f5ec); D_0035f5ec = 0; }
-    if (D_0035f5f0) { delete[] D_0035f5f0; D_0035f5f0 = 0; }
-}
+void func_002a4d48(void);  // 0x002a4d48: definition moved into src/anon/unit_002a40c8.cpp
 }
 }

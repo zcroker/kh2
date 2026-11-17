@@ -239,11 +239,7 @@ void SEQ_GetActiveXY(u8* p, s32* x, s32* y) {
 
 u32 func_002efa40(u32);
 extern volatile u32 D_0035ecb8;
-s32 func_002421e8(u8* p) {
-    s32 r = 0;
-    if (func_002efa40(*(u32*)(p + 4)) || (u8)(D_0035ecb8 & 1)) r = 1;
-    return r;
-}
+s32 func_002421e8(u8* p);  // 0x002421e8: definition moved into src/anon/unit_00241fd0.cpp
 
 void func_00258d40(u32, u32);
 void func_00258d58(u32, u32, u32);

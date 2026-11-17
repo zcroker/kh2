@@ -1831,17 +1831,7 @@ extern "C" u32 func_00181500(...);
 
 extern "C" u32 func_00106450(...);
 
-void func_00242048(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r15, r16;
-    r16 = r4;
-    r15 = *(volatile u32*)((u32)r4 + (s32)(4));
-    r4 = r15;
-    if (r15 != 0u) {
-        ((void(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_00106450)(r4, r5, r6, r7, r8, r9, r10, r11);
-        *(volatile u32*)((u32)r16 + (s32)(4)) = 0u;
-    }
-    *(volatile u32*)((u32)r16 + (s32)(0)) = 0u;
-}
+void func_00242048(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);  // 0x00242048: definition moved into src/anon/unit_00241fd0.cpp
 
 extern "C" u32 func_001058e8(...);
 
@@ -1897,16 +1887,7 @@ extern "C" u32 func_002431c0(...);
 extern u8 D_00371b30;
 extern u8 D_00371bc0;
 
-u32 func_00246868(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r2, r15;
-    r2 = ((u32(*)())func_00246840)();
-    r15 = (u32)&D_00371bc0;
-    if (r2 == 0u) {
-    r15 = (u32)&D_00371b30;
-    }
-    r2 = r15;
-    return r2;
-}
+u32 func_00246868(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);  // 0x00246868: definition moved into src/anon/unit_00242478.cpp
 
 extern "C" u32 func_00246840(...);
 extern u8 D_0035eee0;
@@ -11711,30 +11692,9 @@ u32 duplicate_unplaced_00241770(s32 a0) {
     return (u32)(v0 & 1);
 }
 
-void func_002420d8(u32 a0, u32 a1) {
-    (void)a0;
-    a1 &= 0xFF;
-    if (a1 != 0) {
-        u32 t7 = D_0035ecb8;
-        t7 |= 1;
-        D_0035ecb8 = t7;
-        return;
-    }
-    u32 t6 = D_0035ecb8;
-    t6 &= (u32)-2;
-    D_0035ecb8 = t6;
-}
+void func_002420d8(u32 a0, u32 a1);  // 0x002420d8: definition moved into src/anon/unit_00241fd0.cpp
 
-void func_00242258(u32 a0) {
-    s32 s1 = 98;
-    u32 t7 = *(u32*)(a0 + 4);
-    u32 s0 = t7 + 628;
-    do {
-        *(u32*)s0 = func_001064a8((u32)-1);
-        s1 -= 1;
-        s0 += 4;
-    } while (s1 >= 0);
-}
+void func_00242258(u32 a0);  // 0x00242258: definition moved into src/anon/unit_00241fd0.cpp
 
 
 void func_002422f0();  // 002422f0: moved to src/tozawa/crc.cpp (linked unit)
@@ -11759,19 +11719,7 @@ u32 duplicate_unplaced_002424c0(u32 a0) {
     return (u32)!((u32)(v0 < t7));
 }
 
-void func_002425d0(u32 a0) {
-    a0 = a0 * 12;
-    u16* t6 = &D_0035ecc8;
-    s32 t5 = 5;
-    u16* t7 = (u16*)((u8*)&D_003717e8 + a0);
-    do {
-        u16 v = *t7;
-        t5 -= 1;
-        *t6 = v;
-        t7 += 1;
-        t6 += 1;
-    } while (t5 >= 0);
-}
+void func_002425d0(u32 a0);  // 0x002425d0: definition moved into src/anon/unit_00242478.cpp
 
 
 void duplicate_unplaced_00242a28(u32 a0) {
@@ -11834,49 +11782,17 @@ void duplicate_unplaced_00242d80(u32 a0) {
     *(u32*)(v0 + 4) = t7;
 }
 
-void func_00243130(u32 a0) {
-    if (a0 != 0) {
-        func_00170950(a0);
-    }
-}
+void func_00243130(u32 a0);  // 0x00243130: definition moved into src/anon/unit_00242478.cpp
 
-void func_00244988() {
-    func_0023fd30();  // global_flag_nonzero
-    u32 v0 = func_002891e8(D_0035ece8);
-    func_0023fc40(&v0, 4);
-}
+void func_00244988();  // 0x00244988: definition moved into src/anon/unit_00242478.cpp
 
-void func_002449c0() {
-    u32 sp0;
-    if (func_0023fd30() != 0) {  // global_flag_nonzero
-        func_0023fcd0(&sp0);
-        func_002891f0(D_0035ece8, sp0, 0, (u32)-1, (u32)-1);
-        func_0023fd30();  // global_flag_nonzero
-    }
-}
+void func_002449c0();  // 0x002449c0: definition moved into src/anon/unit_00242478.cpp
 
-void func_002467b8() {  // queue_push_word
-    func_0023fd30();  // global_flag_nonzero
-    u32 v0 = func_002891e8(D_0035ed20);
-    func_0023fc40(&v0, 4);
-}
+void func_002467b8();  // 0x002467b8: definition moved into src/anon/unit_00242478.cpp
 
-void func_002467f0() {
-    u32 sp0;
-    if (func_0023fd30() != 0) {  // global_flag_nonzero
-        func_0023fcd0(&sp0);
-        func_002891f0(D_0035ed20, sp0, 0, (u32)-1, (u32)-1);
-        func_0023fd30();  // global_flag_nonzero
-    }
-}
+void func_002467f0();  // 0x002467f0: definition moved into src/anon/unit_00242478.cpp
 
-u32 func_002468a0(u32 a0) {
-    u32 s0 = a0;
-    if (func_00246840(s0) != 0) {
-        return (u32)((u8*)&D_00371af0 + s0 * 6);
-    }
-    return (u32)((u8*)&D_00371ad8 + s0 * 6);
-}
+u32 func_002468a0(u32 a0);  // 0x002468a0: definition moved into src/anon/unit_00242478.cpp
 
 void func_00249148() {
     func_0023fd30();  // global_flag_nonzero
@@ -12477,30 +12393,11 @@ u32 duplicate_unplaced_002a6368(u32 a0) {
     return v0 + s0;
 }
 
-void func_002a6a18() {
-    if (func_00287bc0() == 39) {
-        func_002a73d0();
-        func_00274ac8();
-    }
-}
+void func_002a6a18();  // 0x002a6a18: definition moved into src/anon/unit_002a5a90.cpp
 
-u32 func_002a7490() {
-    u32 t7 = *(u32*)(func_001058e8() + 18984);
-    u32 v0 = t7 & 1;
-    if (v0 == 0) {
-        u32 t6 = t7 & 0x400;
-        v0 = 0u < t6;
-    }
-    return v0;
-}
+u32 func_002a7490();  // 0x002a7490: definition moved into src/anon/unit_002a7308.cpp
 
-void func_002a7760() {
-    u32 v0 = func_00287bc0();
-    if (v0 == 11 || v0 == 36) {
-        func_002a8258();
-        func_00274ac8();
-    }
-}
+void func_002a7760();  // 0x002a7760: definition moved into src/anon/unit_002a7308.cpp
 
 u32 duplicate_unplaced_002a7f20(u32 a0) {
     u32 s0 = a0;
@@ -12515,13 +12412,7 @@ u32 duplicate_unplaced_002a8920() {
     return v0 >= 2u;
 }
 
-void func_002a8a88() {
-    u32 v0 = func_00287bc0();
-    if (v0 == 10 || v0 == 35) {
-        func_002a94f8();
-        func_00274ac8();
-    }
-}
+void func_002a8a88();  // 0x002a8a88: definition moved into src/anon/unit_002a8748.cpp
 
 u32 duplicate_unplaced_002a92a0(u32 a0) {
     u32 s0 = a0;
@@ -14387,7 +14278,4 @@ extern "C" u32 func_002efbb8(...);
 extern "C" u32 func_0028b040(...);
 
 extern "C" u32 func_00287bc0(...);
-u32 func_002a4430() {
-    u32 v0 = func_00287bc0();
-    return (v0 == 8 || v0 == 33) ? 1u : 0u;
-}
+u32 func_002a4430();  // 0x002a4430: definition moved into src/anon/unit_002a40c8.cpp

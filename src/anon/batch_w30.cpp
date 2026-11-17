@@ -185,13 +185,7 @@ u8 func_00225b00(s32 n) {  // flag_query_by_index
 
 void* func_0022af48(u8* p);  // 0022af48: moved to src/sasa/musical_input.cpp (linked unit)
 
-void func_00242088(u8* p) {
-    u32* d = *(u32**)(p + 4);
-    s32 i;
-    for (i = 255; i >= 0; i--) {
-        *d++ = func_001064a8(-1);
-    }
-}
+void func_00242088(u8* p);  // 0x00242088: definition moved into src/anon/unit_00241fd0.cpp
 
 void func_00258ce8(u16* a);  // 0x00258ce8: definition moved into src/anon/unit_002588e8.cpp
 

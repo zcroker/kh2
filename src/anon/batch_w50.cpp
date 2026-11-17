@@ -288,21 +288,7 @@ void func_0022f5a0(u32 a, u32 b, u32 c) {
     func_00227d10(c)[22] = 1;
 }
 
-void func_00242880(void) {
-    Flags* p = (Flags*)(func_001058e8() + 16800);
-    p->a = 0;
-    p->b = 0;
-    p->f0 = 1;
-    p->f1 = 1;
-    p->f3 = 1;
-    p->f4 = 0;
-    p->f5 = 0;
-    p->f6 = 0;
-    p->f7 = 0;
-    p->f8 = 0;
-    p->f9 = 2;
-    func_002fde18(D_0035ecd8, 0, 4);
-}
+void func_00242880(void);  // 0x00242880: definition moved into src/anon/unit_00242478.cpp
 
 void func_00288c58(u8* o, s32 n);  // 0x00288c58: definition moved into src/anon/unit_00288b00.cpp
 
@@ -311,23 +297,7 @@ void func_0029c958(void);  // 0x0029c958: definition moved into src/anon/unit_00
 // Is id in the zero-terminated u16 list?
 s32 func_0029ec40(u32 id);  // 0x0029ec40: definition moved into src/anon/unit_0029d008.cpp
 
-void func_002a76d8(void) {
-    if (D_0035f600) {
-        func_00106420(D_0035f600);
-        D_0035f600 = 0;
-    }
-    u8* p = D_0035f604;
-    if (p) {
-        u8* e = p + 8720;
-        for (;;) {
-            if (p == e) break;
-            e -= 436;
-            (*(VFn*)(*(u8**)e + 12))(e);
-        }
-        func_00106420(p);
-        D_0035f604 = 0;
-    }
-}
+void func_002a76d8(void);  // 0x002a76d8: definition moved into src/anon/unit_002a7308.cpp
 
 void func_002bd870(void);  // 0x002bd870: definition moved into src/anon/unit_002bc978.cpp
 

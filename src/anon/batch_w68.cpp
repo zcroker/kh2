@@ -319,22 +319,7 @@ extern void* D_0035f200;
 s32 func_0028afa8(void*);
 void func_0028afd0(void*, s32);  // obj_set_signed18
 
-void func_002a9048(void) {
-    s32 sel;
-    if (func_00287bc0() == 35) {
-        sel = 0;
-    } else {
-        s32 n = D_0035f608->n;
-        s32 k = *func_00276568();
-        s32 i;
-        for (i = 0; i < n; i++) {
-            if (k == D_0035f608->e[i].id && D_0035f608->e[i].flag < 0) break;
-        }
-        sel = i;
-        if (sel >= func_0028afa8(D_0035f200)) sel = func_0028afa8(D_0035f200) - 1;
-    }
-    func_0028afd0(D_0035f200, sel);  // obj_set_signed18
-}
+void func_002a9048(void);  // 0x002a9048: definition moved into src/anon/unit_002a8ac8.cpp
 
 /* ---- 002ad1b0 ---- */
 u8* func_00294000(s32);

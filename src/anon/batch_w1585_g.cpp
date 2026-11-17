@@ -16,13 +16,7 @@ void func_002a1f88(void);  // 0x002a1f88: definition moved into src/anon/unit_00
 /* 002a7678 */
 extern void* D_0035f600;
 extern void* D_0035f604;
-void func_002a7678(void) {
-    void* t;
-    D_0035f600 = tz_alloc(0x104, tz_lsys());
-    t = tz_alloc(0x2350, tz_lsys());
-    func_00324448(t);
-    D_0035f604 = t;
-}
+void func_002a7678(void);  // 0x002a7678: definition moved into src/anon/unit_002a7308.cpp
 
 /* 002a21b0 */
 u8* jm_parent(void) asm("_ZN2Tz6Jiminy9GetParentEv");

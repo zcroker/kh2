@@ -31,10 +31,6 @@ void func_002bef78(W2027Owner* p, W2027Pair v, W2027Tag w);  // 0x002bef78: defi
 char* strcpy(char*, const char*) asm("func_00253b30");
 char* func_002b64c8(void);
 void func_00170518(char*, s32, s32);
-void func_002a7588(void) {
-    char buf[128];
-    strcpy(buf, func_002b64c8());
-    func_00170518(buf, 5102, 0);
-}
+void func_002a7588(void);  // 0x002a7588: definition moved into src/anon/unit_002a7308.cpp
 
 }

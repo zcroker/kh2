@@ -343,22 +343,7 @@ void func_00197a00(void* a);  // 0x00197a00: definition moved into src/anon/unit
 
 void func_001ae4c0(u32 a, u32 b, void* c);  // 0x001ae4c0: definition moved into src/anon/unit_001ada38.cpp
 
-void func_00244b38(void) {
-    u8* buf;
-    u8* p;
-    if (func_00139d78(D_0035ed00) == 0) return;
-    func_002fde18(D_0035ed10, 0, 32);
-    if (func_00244ee8(func_002891e8(D_0035ece8)) == 0) func_001398d0(100);
-    else func_00139858(100);
-    buf = D_0035ed10;
-    p = func_001d56c8(8);
-    if (*p != 3) {
-        func_00192c90(func_00192048(0xcb9b), buf);
-    } else {
-        s32 n = func_00192b30(func_00192cc0(buf, D_00371958, *(u32*)(p + 4)));
-        func_00192c90(func_00192048(0xcb98), buf + n);
-    }
-}
+void func_00244b38(void);  // 0x00244b38: definition moved into src/anon/unit_00242478.cpp
 
 void func_0027c2f8(void);  // 0x0027c2f8: definition moved into src/anon/unit_0027a6d8.cpp
 

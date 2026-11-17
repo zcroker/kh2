@@ -157,10 +157,7 @@ void func_0023f870(void** p) {
 }
 
 struct Flags { u32 a; u32 on : 1; };
-void func_00242a28(u8 on) {
-    Flags* f = (Flags*)(func_001058e8() + 16800);
-    f->on = on != 0;
-}
+void func_00242a28(u8 on);  // 0x00242a28: definition moved into src/anon/unit_00242478.cpp
 
 void Tz_CMenuHelp_Create(s32 i, bool b);  // 0x00263a58: definition moved into src/anon/unit_002632d0.cpp
 
@@ -169,12 +166,7 @@ void func_002803e0(void);  // 0x002803e0: definition moved into src/anon/unit_00
 typedef void (*Slot1Fn)(void*, void*);
 void func_00288c20(void* a);  // 0x00288c20: definition moved into src/anon/unit_00288b00.cpp
 
-s32 func_002a43f0(void) {
-    s32 v = func_00287bc0();
-    s32 r = 0;
-    if (v == 7 || v == 26) r = 1;
-    return r;
-}
+s32 func_002a43f0(void);  // 0x002a43f0: definition moved into src/anon/unit_002a40c8.cpp
 
 u8* func_002a92a0(s32 i);  // 0x002a92a0: definition moved into src/anon/unit_002a92a0.cpp
 

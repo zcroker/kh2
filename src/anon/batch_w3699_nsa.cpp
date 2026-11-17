@@ -42,51 +42,6 @@ static inline bool chk247198(void) {
     return r;
 }
 
-void func_00247198(void) {
-    s32 i;
-    s32 k = 0;
-    s16* sp = D_00371cd0;
-    for (i = 0; i < 4; i++, sp++) {
-        if (func_00246968(i)) {
-            Inf* inf = func_001d56c8((func_00246840() ? D_00371cb0 : D_00371ca8)[i]);
-            u8* s2;
-            u8* e;
-            s32 d;
-            s32 flag;
-            if (inf->kind < 2) {
-                func_00239f18(0.0f, (u8*)&D_0035ed40->f[k] + 24);
-                s2 = (u8*)&D_0035ed40->t[k];
-                func_00192c90(func_00192048(0xcb9b), s2);
-            } else if (inf->kind == 2) {
-                e = (u8*)&D_0035ed40->f[k];
-                d = (func_00246840() ? D_00371cc0 : D_00371cb8)[i];
-                d--;
-                func_00239f18((f32)inf->n / (f32)d, e + 24);
-                flag = 0;
-                Ek* ck = &D_0035ed40->c[k];
-                ck->f408 = (s32)func_00192048(0xcc0b);
-                s2 = (u8*)&D_0035ed40->u[k];
-                if (func_00105c30() == 1 || func_00105c30() == 8) flag = 1;
-                if ((u8)flag) {
-                    e = (u8*)func_00192b30(fmt247198(s2, D_00371ab8, inf->n));
-                    func_00192c90(func_00192048(0xcb9a), s2 + (s32)e);
-                } else {
-                    func_00192cc0(s2 + func_00192c40(func_00192048(0xcb9a), s2), D_00371ab8, inf->n);
-                }
-                s2 = (u8*)&D_0035ed40->t[k];
-                func_00192c90(func_00192048(0xcb9b), s2);
-            } else if (inf->kind == 3) {
-                func_00239f18(1.0f, (u8*)&D_0035ed40->f[k] + 24);
-                s2 = (u8*)&D_0035ed40->t[k];
-                func_00192cc0(s2, D_00371ab8, inf->n);
-                e = (u8*)&D_0035ed40->h[k];
-                func_00138c10(e, *sp);
-            }
-            El* g = &D_0035ed40->g[k];
-            func_00138c10(g, func_002474e0(k) ? D_00371ac4 : D_00371ac8);
-            k++;
-        }
-    }
-}
+void func_00247198(void);  // 0x00247198: definition moved into src/anon/unit_00242478.cpp
 }
 }

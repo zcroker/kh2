@@ -44,31 +44,7 @@ void func_00247bb0(void);
 void func_00246708(void);
 void func_00246490(s32, s32, s32);
 struct NoTail246328 { ~NoTail246328() {} };
-void func_00246328(void)
-{
-    NoTail246328 nt;
-    s32 on = func_00287bc0();
-    s32 t = func_00287db0();
-    if (t) {
-        if (!func_002887c8()) {
-            func_0028dae0(D_0035ed28, 31);
-            if (func_0028acc8(D_0035ed20) && func_00139d78(D_0035ed30))
-                func_0028dae0(D_0035ed30, func_002468a0(func_002891e8(D_0035ed20))[1]);
-            func_0028dae0(D_0035ed2c, 34);
-            if (func_0028acc8(D_0035ed20) && !func_0028acb8(D_0035ed20)) func_0028aa40(D_0035ed20);
-            if (func_0028acc8(D_0035ed24) && !func_0028acb8(D_0035ed24)) func_0028aa40(D_0035ed24);
-        }
-        func_0028dac8(D_0035ed40, 76);
-        func_00247bb0();
-    }
-    func_00246708();
-    t = func_00287db0();
-    if (!t) {
-        s32 a = !on ? D_0035ed20 : D_0035ed24;
-        t = on != 0;
-        func_00246490(a, on, t);
-    }
-}
+void func_00246328(void);  // 0x00246328: definition moved into src/anon/unit_00242478.cpp
 
 // ---- 00251d80
 s32 func_00289310(void*);

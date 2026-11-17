@@ -387,24 +387,7 @@ u32 func_0028ddd8(u32);
 void func_001395f8(u8*);
 void func_002891f0(u32, s32, s32, s32, s32);
 void func_002b4388(u32, Ent245*, s32);
-void func_00245a90(void) {
-    s32 sel = 0;
-    u32 off = 0;
-    for (s32 i = 0; i < 2; i++) {
-        Ent245* e = (Ent245*)(off + (u32)D_00371c50);
-        if (e->active) sel = i;
-        func_00288d80(D_0035ed24, i, 0, 0, D_0035ed28, e->f18, e, (u8*)(off + (u32)D_00371c50[0].f8));
-        off += 36;
-        u8* m = func_002891b8(D_0035ed24, i);
-        func_00288e08(D_0035ed24, i, func_0023aa78(m + 24), 0);
-        u32 h = func_0023aa98(m + 24);
-        *(u32*)(m + 432) = func_0028dd90(h);
-        *(u32*)(m + 428) = func_0028ddd8(h);
-        func_001395f8(m);
-    }
-    func_002891f0(D_0035ed24, sel, 1, 0, 2);
-    func_002b4388(D_0035ed38, &D_00371c50[sel], 0);
-}
+void func_00245a90(void);  // 0x00245a90: definition moved into src/anon/unit_00242478.cpp
 
 // ---- 0024ada0
 struct Sub24a { u8 pad[184]; u32 flags; };

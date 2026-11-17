@@ -166,27 +166,16 @@ void func_0023f628(u8* p, u32 a) {
 
 void func_00242088(void*);
 void func_002ef938(u32);
-void func_002421c0(u8* p) {
-    u32 s = *(u32*)(p + 4);
-    func_00242088(p);
-    func_002ef938(s);
-}
+void func_002421c0(u8* p);  // 0x002421c0: definition moved into src/anon/unit_00241fd0.cpp
 
 u8* func_001058e8(void);
 struct Pair16 { s16 a, b; };
-void func_002429c0(s32 a, s32 b) {
-    Pair16* s = (Pair16*)(func_001058e8() + 16800);
-    s->a = a;
-    s->b = b;
-}
+void func_002429c0(s32 a, s32 b);  // 0x002429c0: definition moved into src/anon/unit_00242478.cpp
 
 u8* func_00246868(s32);
 u8 func_001a6d08(s32);
 u8 Cur2SelPos(s32 i) asm("_ZN2Tz4HECO10Cur2SelPosEi");
-u8 Cur2SelPos(s32 i) {
-    u8* v = func_00246868(i);
-    return func_001a6d08(*(s8*)(v + i * 36 + 28));
-}
+u8 Cur2SelPos(s32 i);  // 0x00246968: definition moved into src/anon/unit_00242478.cpp
 
 extern u32 D_0035f034;
 extern u32 D_0035f024;

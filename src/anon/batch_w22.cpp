@@ -202,13 +202,7 @@ s32 func_00237508(T237* t, s32 i, s32 j) {  // entry20_field8_minus0
 // Last table entry whose id matches (table ends with a negative id).
 struct E243 { s16 id; s16 pad; u32 a, b; };
 extern E243 D_00371840[];
-E243* func_00243150(s32 id) {
-    E243* r = 0;
-    for (s32 i = 0; D_00371840[i].id >= 0; i++) {
-        if (D_00371840[i].id == id) r = &D_00371840[i];
-    }
-    return r;
-}
+E243* func_00243150(s32 id);  // 0x00243150: definition moved into src/anon/unit_00242478.cpp
 
 // --- 00276c50
 // Tz JmReport DrawMessage

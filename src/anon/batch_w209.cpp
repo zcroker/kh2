@@ -56,11 +56,7 @@ void func_002376d8(u8* a, s32 b) {
 
 // --- 00242b88
 extern u8* func_001058e8(void);
-void func_00242b88(u8 a) {
-    u8* p = func_001058e8() + 16800;
-    u32 v = a == 0;
-    *(u32*)(p + 4) = (*(u32*)(p + 4) & ~0x10u) | (v << 4);
-}
+void func_00242b88(u8 a);  // 0x00242b88: definition moved into src/anon/unit_00242478.cpp
 
 // --- 00281cf0
 extern void func_00281b30(u32);

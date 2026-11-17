@@ -633,28 +633,7 @@ s32 func_00276c18(void);
 static inline bool Ge2a7d(u8 v) { return !(v < 2); }
 
 // Builds the grouped index list for table 7.
-void func_002a7dc8(void)
-{
-    s32 n = 0;
-    s32 i = 0;
-    T2a7d* t = func_00294000(7);
-    E2a7d* es = t->e;
-    func_002fde18(D_0035f600.p, 0, 260);
-    for (; i < t->count; i++) {
-        E2a7d* e = &es[i];
-        if (Ge2a7d(*func_001d56c8(e->h6)) || func_00276c18()) {
-            if (n == 0 || D_0035f600.p->e[n - 1].a != e->id) {
-                D_0035f600.p->e[n].a = e->id;
-                D_0035f600.p->e[n].b = -1;
-                n++;
-            }
-            D_0035f600.p->e[n].a = *(volatile u16*)&e->id;
-            D_0035f600.p->e[n].b = i;
-            n++;
-        }
-    }
-    D_0035f600.p->count = n;
-}
+void func_002a7dc8(void);  // 0x002a7dc8: definition moved into src/anon/unit_002a7308.cpp
 }
 
 // ---- 002ac420

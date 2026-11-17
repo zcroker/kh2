@@ -237,16 +237,7 @@ void func_00246f80(void);
 u32 func_00287dc0(void);
 void func_0023d820(u32);
 void func_00247bb0(void);
-void func_00245ce8(void) {
-    if (func_00139d78(D_0035ed28)) D_0035ed28->vt[5](D_0035ed28);
-    if (func_00139d78(D_0035ed30)) D_0035ed30->vt[5](D_0035ed30);
-    if (func_00139d78(D_0035ed2c)) D_0035ed2c->vt[5](D_0035ed2c);
-    if (func_0028acc8(D_0035ed20)) func_0028abe0(D_0035ed20);
-    if (func_0028acc8(D_0035ed24)) func_0028abe0(D_0035ed24);
-    func_00246f80();
-    func_0023d820(func_00287dc0());
-    func_00247bb0();
-}
+void func_00245ce8(void);  // 0x00245ce8: definition moved into src/anon/unit_00242478.cpp
 }
 }
 
@@ -634,17 +625,7 @@ s32 func_00244ee8(s32);
 s32 func_00139d78(void*);
 void func_00138c10(u8*, s32);
 void func_00243230(s32, s32);
-void func_00244e28(void) {
-    s32 i = func_002891e8(D_0035ece8);
-    s32 b = func_00244ee8(i);
-    u8 off = !((D_0035ed14 >> b) & 1);
-    if (off) return;
-    if (func_00139d78(D_0035ed04 + i * 408)) {
-        u8* e = D_0035ed04 + i * 408;
-        if (*(s32*)(e + 388) != 37) func_00138c10(e, 37);
-    }
-    func_00243230(3, b);
-}
+void func_00244e28(void);  // 0x00244e28: definition moved into src/anon/unit_00242478.cpp
 }
 }
 
@@ -656,19 +637,6 @@ struct A4h { u8 pad[4228]; s32 base; s32 bits; };
 extern "C" {
 extern u8* D_0035f5e4;
 s32 func_002a4990(s32);
-s32 func_002a4a00(s32 i) {
-    if (i < 0) i = ((A4h*)D_0035f5e4)->base + ((A4h*)D_0035f5e4)->bits / 8;
-    s32 n = func_002a4990(i);
-    s32 sum = 0;
-    for (s32 j = 0; j < n; j++) sum += ((A4*)D_0035f5e4)->s[j].b1;
-    Slot8* e = (Slot8*)((u32)n * 8 + (u32)D_0035f5e4 + 4096);
-    s32 r = 8;
-    if (!(i - sum < e->b1 - 1)) {
-        u8 b = e->b0;
-        r = b & 7;
-        if (!r) r = b ? 8 : 1;
-    }
-    return r;
-}
+s32 func_002a4a00(s32 i);  // 0x002a4a00: definition moved into src/anon/unit_002a40c8.cpp
 }
 }

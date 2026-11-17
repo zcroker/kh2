@@ -239,15 +239,7 @@ void func_00241608(u32 a, u32 b, u32 c) {
 struct W41VO2 { void** vt; };
 extern u8* D_0035ed04;
 u32 func_00139d78(u8*);
-void func_00244db8(void) {
-    for (s32 i = 0; i < 2; i++) {
-        u32 off = i * 408;
-        if (func_00139d78(D_0035ed04 + off)) {
-            W41VO2* o = (W41VO2*)(off + (u32)D_0035ed04);
-            ((void (*)(W41VO2*))o->vt[5])(o);
-        }
-    }
-}
+void func_00244db8(void);  // 0x00244db8: definition moved into src/anon/unit_00242478.cpp
 
 struct W41KV { s16 key, val; };
 extern W41KV D_00372c30[];

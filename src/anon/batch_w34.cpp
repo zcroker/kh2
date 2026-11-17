@@ -234,10 +234,7 @@ struct BitWord {
     u32 hi : 24;
 };
 
-void func_00242d10(u8 on) {
-    u8* p = func_001058e8() + 16800;
-    ((BitWord*)(p + 4))->flag = on != 0;
-}
+void func_00242d10(u8 on);  // 0x00242d10: definition moved into src/anon/unit_00242478.cpp
 
 void* func_0024b1a0(s32 n) {
     if (n == 1 && func_0024ac88()) return D_00371eb8;

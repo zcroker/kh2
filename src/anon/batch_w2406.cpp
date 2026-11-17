@@ -23,36 +23,5 @@ s32 func_00246840(void);
 void func_002b4388(s32, void*, s32);
 static inline u8 w2406_menuFlag(s32 k) { if (func_00246840()) return D_00371cb0[k]; return D_00371ca8[k]; }
 
-void func_00246490(s32 a, s32 b) {
-    Msg246 m;
-    s32 sel;
-    if (func_00287cd0(a) != 1) return;
-    if (func_00289310(a) == 0) return;
-    sel = func_002891e8(a);
-    func_002890e0(a, 1, 2, 0, -1);
-    func_00289038(a, sel, 1, 1, 2, 0, -1);
-    s32 nb = b == 0;
-    if (nb) {
-        func_0023f070(D_0035ed30, func_002468a0(func_002469a0(sel))->f4, -1);
-        func_00247580(1);
-        func_00247c20();
-    }
-    Msg246* l;
-    s32 i;
-    if (b == 0) {
-        l = func_00246868();
-        i = func_002469a0(sel);
-        m = l[i];
-    } else {
-        l = D_00371c50;
-        i = sel;
-        m = l[i];
-    }
-    if (b == 0 && func_002474e0(sel)) {
-        s32 k = func_002469a0(sel);
-        s32 c = w2406_menuFlag(k) != 7;
-        m.id = c + 4044;
-    }
-    func_002b4388(D_0035ed38, &m, 0);
-}
+void func_00246490(s32 a, s32 b);  // 0x00246490: definition moved into src/anon/unit_00242478.cpp
 }

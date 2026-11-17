@@ -173,21 +173,11 @@ void u_call0_00233c98(void) {
 
 // Sets a 2-bit mode field (bits 9-10).
 u8* func_001058e8(void);
-void func_00242df0(s32 m) {
-    u8* v = func_001058e8() + 16800;
-    s32 x;
-    if (m == 0) x = 0;
-    else x = m == 2 ? 2 : 1;
-    *(u32*)(v + 4) = (*(u32*)(v + 4) & ~0x600) | (x << 9);
-}
+void func_00242df0(s32 m);  // 0x00242df0: definition moved into src/anon/unit_00242478.cpp
 
 u8* func_001d56c8(u32);
 s32 func_00276c18(void);
-s32 func_00244a10(void) {
-    s32 r = 0;
-    if (*func_001d56c8(8) >= 2 || func_00276c18()) r = 1;
-    return r;
-}
+s32 func_00244a10(void);  // 0x00244a10: definition moved into src/anon/unit_00242478.cpp
 
 extern u32 D_0035f2c0;
 void func_002bd7d8(void);

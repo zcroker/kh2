@@ -22,12 +22,7 @@ void func_0018f0b0(s32 a, s32 b);  // 0x0018f0b0: definition moved into src/anon
 
 void func_001bff88();  // 0x001bff88: definition moved into src/anon/unit_001bff88.cpp
 
-u32 func_00244938(u32 x) {
-    u32 r = 1;
-    if (x == 0) { if (func_001a6d08(1) != 0) r = func_001a6d08(118); }
-    else r = func_001a6d08(1);
-    return r;
-}
+u32 func_00244938(u32 x);  // 0x00244938: definition moved into src/anon/unit_00242478.cpp
 
 void func_002dfac0(u32* t);  // 0x002dfac0: definition moved into src/anon/unit_002de3c8.cpp
 

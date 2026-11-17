@@ -176,15 +176,7 @@ u32 func_00242418(u8* p, s32 n);  // 00242418: moved to src/tozawa/crc.cpp (link
 
 // 00247bb0: update the four active entries
 extern u8* D_0035ed34;
-void func_00247bb0(void)
-{
-    for (s32 i = 0; i < 4; i++) {
-        if (u_call4_00139d78(D_0035ed34 + i * 408)) {
-            u8* o = (u8*)(i * 408 + (u32)D_0035ed34);
-            ((void (*)(void*))(*(void***)o)[5])(o);
-        }
-    }
-}
+void func_00247bb0(void);  // 0x00247bb0: definition moved into src/anon/unit_00242478.cpp
 
 // 00263cc0
 extern u8* D_0035f0dc;

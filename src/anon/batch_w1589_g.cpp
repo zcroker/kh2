@@ -21,14 +21,7 @@ extern u8 D_0035f0f0;
 extern void* D_0035f0f4;
 extern void* D_0035f0fc;
 
-void func_00242740(s32 a)
-{
-    if (a < 0) {
-        a = func_00197920() ? 1 : 2;
-    }
-    func_002ba978(a);
-    if (func_002ef7b8()) func_002bd680();
-}
+void func_00242740(s32 a);  // 0x00242740: definition moved into src/anon/unit_00242478.cpp
 
 void func_002957b8(void);  // 0x002957b8: definition moved into src/anon/unit_00292e60.cpp
 

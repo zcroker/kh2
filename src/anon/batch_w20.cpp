@@ -154,11 +154,7 @@ void func_0023f740(u8* p, u32 a) {
 
 // The pair is read as 16-bit bitfields: plain s16 loads get hoisted above the first store.
 struct Pair16 { s32 x : 16; s32 y : 16; };
-void func_00242980(s32* a, s32* b) {
-    Pair16* v = (Pair16*)(func_001058e8() + 16800);
-    *a = v->x;
-    *b = v->y;
-}
+void func_00242980(s32* a, s32* b);  // 0x00242980: definition moved into src/anon/unit_00242478.cpp
 
 void func_0027ead0(void);  // 0x0027ead0: definition moved into src/anon/unit_0027e920.cpp
 
@@ -167,10 +163,7 @@ u32 func_00288be8(u32 a);  // 0x00288be8: definition moved into src/anon/unit_00
 
 void func_002a1f40(void);  // 0x002a1f40: definition moved into src/anon/unit_002a1d38.cpp
 
-u8* func_002a7f20(s32 i) {
-    u8* b = func_00294000(7) + 16;
-    return b + i * 8;
-}
+u8* func_002a7f20(s32 i);  // 0x002a7f20: definition moved into src/anon/unit_002a7308.cpp
 
 void func_002d6af0(void** p);  // 0x002d6af0: definition moved into src/anon/unit_002d62d0.cpp
 

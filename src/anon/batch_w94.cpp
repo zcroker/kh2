@@ -373,18 +373,7 @@ extern void* D_0035ece8;
 struct Ent243 { s16 a, b, mot; };
 extern Ent243 D_00371968[];
 
-void func_00243e30(void) {
-    if (func_00139d78(D_0035ecf0) && func_0023f0c0(D_0035ecf0) != 32) func_0023f070(D_0035ecf0, 32, -1);
-    if (func_0028acc8(D_0035ece8)) {
-        func_0028ab20(D_0035ece8);
-        s32 k = func_00244ee8(func_002891e8(D_0035ece8));
-        if (func_00139d78(D_0035ecf8) && func_0023f0c0(D_0035ecf8) != D_00371968[k].mot)
-            func_0023f070(D_0035ecf8, D_00371968[k].mot, -1);
-    }
-    if (func_00139d78(D_0035ecf4) && func_0023f0c0(D_0035ecf4) != 35) func_0023f070(D_0035ecf4, 35, -1);
-    func_0028da70(D_0035ecfc, 33);
-    func_0028da70(D_0035ed00, 41);
-}
+void func_00243e30(void);  // 0x00243e30: definition moved into src/anon/unit_00242478.cpp
 }
 // ---- 00243f48
 extern "C" {
@@ -405,17 +394,7 @@ typedef void (*VFn243)(void*);
 #define VCALL20(o) (*(VFn243*)(*(u8**)(o) + 20))(o)
 
 extern "C" {
-void func_00243f48(void) {
-    if (func_00139d78(D_0035ecf0)) VCALL20(D_0035ecf0);
-    if (func_00139d78(D_0035ecf8)) VCALL20(D_0035ecf8);
-    if (func_00139d78(D_0035ecf4)) VCALL20(D_0035ecf4);
-    if (func_0028acc8(D_0035ece8)) func_0028abe0(D_0035ece8);
-    if (func_0028acc8(D_0035ecec)) func_0028abe0(D_0035ecec);
-    if (func_00139d78(D_0035ecfc)) VCALL20(D_0035ecfc);
-    if (func_00139d78(D_0035ed00)) VCALL20(D_0035ed00);
-    func_00244db8();
-    func_0028ce38();
-}
+void func_00243f48(void);  // 0x00243f48: definition moved into src/anon/unit_00242478.cpp
 }
 // ---- 00268b30
 extern "C" {
@@ -490,23 +469,7 @@ extern u32 D_0035f148;
 extern u32 D_0035f14c;
 extern u32 D_0035f210;
 
-void func_002a4470(void) {
-    u8* x = func_002766d0();
-    s32 n = *(s32*)(D_0035f5e4 + 4232);
-    s32 r = n % 8;
-    u8* o = D_0035f5e8 + (n / 8) * 3264 + r * 408;
-    u32 t0, t1;
-    func_00138c78(o, &t0, &t1);
-    o = D_0035f5e8 + 29376;
-    func_0028d8c0(o, D_0035f3d4 + 1, D_0035f14c, D_0035f148, D_0035f210, 65, -1, 0);
-    func_00139620(o);
-    func_0028dcc0(o, x);
-    func_00138c68(o, t0, t1);
-    func_00275980(0, o);
-    func_002759e8(o);
-    u8* g = D_0035f5e4;
-    if (!g[func_002a4990(-1) * 8 + 4096]) func_00138c10(o, 66);
-}
+void func_002a4470(void);  // 0x002a4470: definition moved into src/anon/unit_002a40c8.cpp
 }
 // ---- 002eaf48
 extern "C" {

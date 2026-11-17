@@ -55,23 +55,7 @@ void func_00288b00(void*);
 void func_00288c20(void*);
 void func_002b3fb0(void*);
 // Frees the module's globals; the big object's destructor and the array delete are inlined.
-void func_002450c8(void) {
-    void* p;
-    if ((p = D_0035ed20) != 0) { func_00288b00(p); func_00288c20(p); D_0035ed20 = 0; }
-    if ((p = D_0035ed24) != 0) { func_00288b00(p); func_00288c20(p); D_0035ed24 = 0; }
-    if (D_0035ed28) { D_0035ed28->vt->del(D_0035ed28); D_0035ed28 = 0; }
-    if (D_0035ed2c) { D_0035ed2c->vt->del(D_0035ed2c); D_0035ed2c = 0; }
-    if (D_0035ed30) { D_0035ed30->vt->del(D_0035ed30); D_0035ed30 = 0; }
-    if ((p = D_0035ed38) != 0) { func_002b3fb0(p); D_0032ba14->vt->free(D_0032ba14, p); D_0035ed38 = 0; }
-    if (D_0035ed40) {
-        delete D_0035ed40;
-        D_0035ed40 = 0;
-    }
-    if (D_0035ed34) {
-        delete[] D_0035ed34;
-        D_0035ed34 = 0;
-    }
-}
+void func_002450c8(void);  // 0x002450c8: definition moved into src/anon/unit_00242478.cpp
 }
 }
 namespace n0027f4a8 {

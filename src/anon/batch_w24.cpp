@@ -133,12 +133,7 @@ void func_0022cf18(u32 a);  // 0022cf18: moved to src/sasa/event_layout.cpp (lin
 struct Bits { u32 b0 : 1; u32 m : 2; u32 rest : 29; };
 struct Blk { u32 _0; Bits f; };
 u8* func_001058e8(void);
-void func_00242a90(s32 a) {
-    Blk* b = (Blk*)(func_001058e8() + 16800);
-    s32 m = 0;
-    if (a) m = a == 2 ? 2 : 1;
-    b->f.m = m;
-}
+void func_00242a90(s32 a);  // 0x00242a90: definition moved into src/anon/unit_00242478.cpp
 
 void func_0026d968(void);
 void func_00287bd0(s32, s32);

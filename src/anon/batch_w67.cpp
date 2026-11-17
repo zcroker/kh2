@@ -191,22 +191,7 @@ extern u8 D_00347e60[];
 extern u8 D_00347e40[];
 
 // 002a8948: allocate the work buffers (ten 436-byte objects)
-void func_002a8948(void)
-{
-    D_0035f608 = func_001063c0(772, func_00103570());
-    u8* arr = func_001063c0(4360, func_00103570());
-    u8* p = arr;
-    s32 i = 9;
-    do {
-        *(u32*)(p + 12) = 0;
-        *(u8**)p = D_00347e60;
-        func_00239700(p + 24);
-        *(u8**)p = D_00347e40;
-        *(u32*)(p + 408) = 0;
-        p += 436;
-    } while (--i != -1);
-    D_0035f60c = arr;
-}
+void func_002a8948(void);  // 0x002a8948: definition moved into src/anon/unit_002a8748.cpp
 
 f32 __kernel_cosf(f32, f32);  // float_to_int_b
 f32 func_002fb460(f32, f32, s32);  // float_to_int

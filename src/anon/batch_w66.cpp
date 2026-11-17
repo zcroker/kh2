@@ -319,40 +319,13 @@ extern u32 D_0035f200;
 s8* func_00276568(void);
 s32 func_0028afa8(u32);
 void func_0028afd0(u32, s32);  // obj_set_signed18
-void func_002a7d10(void) {
-    s32 n;
-    if (func_00287bc0() == 36) {
-        n = 0;
-    } else {
-        s32 cnt = D_0035f600->n;
-        s8 c = *func_00276568();
-        s32 i;
-        for (i = 0; i < cnt; i++) {
-            E2a7* e = &D_0035f600->e[i];
-            if (c == e->a && e->b < 0) break;
-        }
-        n = i;
-        if (n >= func_0028afa8(D_0035f200)) n = func_0028afa8(D_0035f200) - 1;
-    }
-    func_0028afd0(D_0035f200, n);  // obj_set_signed18
-}
+void func_002a7d10(void);  // 0x002a7d10: definition moved into src/anon/unit_002a7308.cpp
 // ---- 002a8258
 struct VObj436 { void** vt; u8 pad[432]; };
 extern VObj436 (*D_0035f604)[2];
 void func_00276a18(void);
 void func_00276b10(void);
-void func_002a8258(void) {
-    for (s32 i = 0; i < 10; i++) {
-        for (s32 j = 0; j < 2; j++) {
-            if (func_00139d78((u8*)&D_0035f604[i][j])) {
-                VObj436* o = &D_0035f604[i][j];
-                ((void (*)(VObj436*))o->vt[5])(o);
-            }
-        }
-    }
-    func_00276a18();
-    func_00276b10();
-}
+void func_002a8258(void);  // 0x002a8258: definition moved into src/anon/unit_002a7308.cpp
 // ---- 002a8870
 struct E2a8 { u16 h0; u16 h2; u16 h4; u16 h6; };
 struct T2a8 { u32 pad[2]; s32 n; u32 pad2; E2a8 e[1]; };
@@ -361,17 +334,7 @@ u8* func_001d56c8(u16);
 s32 func_00276c18(void);
 static inline s32 ok2(u8* v) { return *v < 2; }
 static inline s32 bad2(u8* v) { return ok2(v) ^ 1; }
-s32 func_002a8870(s32 a) {
-    T2a8* t = func_00294000(7);
-    E2a8* e = t->e;
-    s32 i;
-    for (i = 0; i < t->n; i++) {
-        if (a >= 0 && e[i].h0 != a) continue;
-        if (bad2(func_001d56c8(e[i].h6))) break;
-        if (func_00276c18()) break;
-    }
-    return i < t->n;
-}
+s32 func_002a8870(s32 a);  // 0x002a8870: definition moved into src/anon/unit_002a8748.cpp
 // ---- 002d56a0
 u8* func_0016bc20p(u32, s32, s32) asm("func_0016bc20");
 Vq* func_0016c028v(u32) asm("func_0016c028");

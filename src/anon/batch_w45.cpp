@@ -247,14 +247,7 @@ void func_0022e6b0(s32 which, u8* a1, f32 f) {
 }
 
 // set bit (a0 * 8 + a1) in a bit array
-void func_00243230(s32 a0, s32 a1) {
-    u32 base = (u32)(func_001058e8() + 18904);
-    u32 idx = a0 * 8 + a1;
-    u32* p = (u32*)((idx >> 5) * 4 + base);
-    u32 bit = 1 << (idx & 31);
-    u32 v = *p;
-    if (!(v & bit)) *p = v | bit;
-}
+void func_00243230(s32 a0, s32 a1);  // 0x00243230: definition moved into src/anon/unit_00242478.cpp
 
 void func_0024c828(void) {
     u32 off = 0;
@@ -275,31 +268,9 @@ void func_0028ce98(s32 i, u32 v);  // 0028ce98: moved to src/anon/unit_0028c878.
 
 s32 func_00292a90(s32 id);  // 00292a90: moved to src/anon/unit_00292998.cpp
 
-s32 func_002a4990(s32 a0) {
-    if (a0 < 0) a0 = *(s32*)(D_0035f5e4 + 4228) + *(s32*)(D_0035f5e4 + 4232) / 8;
-    s32 sum = 0;
-    s32 i;
-    for (i = 0; i < 15; i++) {
-        u8 c = D_0035f5e4[4097 + i * 8];
-        if (c) {
-            sum += c;
-            if (a0 < sum) break;
-        }
-    }
-    return i;
-}
+s32 func_002a4990(s32 a0);  // 0x002a4990: definition moved into src/anon/unit_002a40c8.cpp
 
-s32 func_002a6878(s32 a0) {
-    if (a0 < 0) return 1;
-    s32 r = func_00287bc0(a0);
-    s32 ok;
-    switch (r) {
-    case 37: ok = func_002944d0(func_002a6368(*(s8*)(D_0035f5ec + func_0028b040(D_0035f200) + 6))) != 0; break;
-    case 38: ok = 1; break;
-    default: ok = 0; break;
-    }
-    return ok;
-}
+s32 func_002a6878(s32 a0);  // 0x002a6878: definition moved into src/anon/unit_002a5a90.cpp
 
 void func_002a94f8(void);  // 0x002a94f8: definition moved into src/anon/unit_002a92a0.cpp
 

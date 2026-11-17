@@ -172,10 +172,7 @@ s32 func_00241670(void* a) {
 
 struct Bits242 { u32 pad; u32 lo : 6; u32 off : 1; };
 void* func_001058e8(void);
-void func_00242ca0(u8 on) {
-    Bits242* b = (Bits242*)((u8*)func_001058e8() + 16800);
-    b->off = on == 0;
-}
+void func_00242ca0(u8 on);  // 0x00242ca0: definition moved into src/anon/unit_00242478.cpp
 
 struct Pad267 { u8 pad[28]; u16 mask; };
 extern Pad267* D_0035f0e4;

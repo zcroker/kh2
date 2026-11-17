@@ -48,47 +48,7 @@ void PauseThread_(void*) asm("_ZN2Tz4HECO11PauseThreadEP4TASK");
 typedef void* (*AF)(s32, u32, void*);
 extern s32 D_0032ba14_i asm("D_0032ba14");
 static inline void* Al(u32 n) { s32 a = D_0032ba14_i; return (*(AF*)*(s32*)a)(a, n, __builtin_return_address(0)); }
-void func_00244f10(void) {
-    s32 v;
-    func_00287b18(4, 3);
-    v = func_00288be8(0x38);
-    func_002889f0(v, 4, 1);
-    D_0035ed20 = v;
-    v = func_00288be8(0x38);
-    func_002889f0(v, 2, 0);
-    D_0035ed24 = v;
-    func_00288f48(v, 0x40, 0x80, 0, 0);
-    D_0035ed28 = 0;
-    D_0035ed2c = 0;
-    D_0035ed30 = 0;
-    v = (s32)Al(12);
-    func_002b3df8(v);
-    D_0035ed38 = v;
-    D_0035ed3c = 0;
-    v = func_001063c0(0x394c, func_00103570());
-    func_00322e58(v);
-    D_0035ed40 = v;
-    v += 0x3948;
-    func_002fde18(v, 0, 4);
-    {
-        Alloc* al = D_00347f80->al;
-        s32* p = (s32*)(*al->vt)(al, 0x664, 0);
-        u8* base = (u8*)(p + 1);
-        u8* q = base;
-        s32 i = 3;
-        *p = 4;
-        do {
-            *(s32*)(q + 12) = 0;
-            *(void**)q = &D_00347e60;
-            i--;
-            func_00239700(q + 0x18);
-            q += 0x198;
-        } while (i != -1);
-        D_0035ed34 = base;
-    }
-    D_0035ed44 = 0;
-    func_00102818(func_00103eb0()[1], 0, 2000, (void*)PauseThread_, 0x1000);
-}
+void func_00244f10(void);  // 0x00244f10: definition moved into src/anon/unit_00242478.cpp
 
 extern u8 D_0035f0b0;
 s32 func_00240ba0(void);

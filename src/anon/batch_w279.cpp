@@ -28,26 +28,7 @@ extern W279S6 D_00371968[];
 struct W279S36 { u8 x[36]; };
 extern W279S36 D_003719a0[];
 extern W279S36 D_003719e8[];
-void func_00244708(void* a0, s32 a1, void* a2) {
-  if (func_00287cd0(a0) != 1) return;
-  if (!func_00289310(a0)) return;
-  s32 s3 = func_002891e8(a0);
-  func_002890e0(a0, 1, 2, 0, -1);
-  func_00289038(a0, s3, 1, 1, 2, 0, -1);
-  if (a1 == 0) {
-    func_0023f070(D_0035ecf8, D_00371968[func_00244ee8(s3)].c, -1);
-  }
-  if (func_0028d008(a2)) {
-    func_0028cf28(a2, func_002891d0(a0));  // record408_set_and_refresh
-  }
-  if (a1 == 0) {
-    func_002b4388(D_0035ed08, &D_003719a0[func_00244ee8(s3)], 0);
-    func_00244e28();
-  } else {
-    func_002b4388(D_0035ed08, &D_003719e8[s3], 0);
-  }
-  func_00244b38();
-}
+void func_00244708(void* a0, s32 a1, void* a2);  // 0x00244708: definition moved into src/anon/unit_00242478.cpp
 
 // ---- func_0026b2c0
 u8* item_get_info(void*) asm("_ZN2Tz8ItemInfo7GetInfoEv");

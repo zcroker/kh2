@@ -898,9 +898,7 @@ u32 func_0023fa70(u32 a0, u32 a1, u32 a2, u32 a3) {
     return YS_CACHE_BUFF_ReadRequest(a1, a2, 0x00000000u, a3);
 }
 
-u32 func_002422a0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_002efb88(((u32)(*(u32*)((u32)(a0) + 4u))), a1, a2, a3);
-}
+u32 func_002422a0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002422a0: definition moved into src/anon/unit_00241fd0.cpp
 
 
 u32 func_00258190(u32 a0, u32 a1, u32 a2, u32 a3) {
@@ -938,13 +936,9 @@ u32 func_002956a0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002956a0: definition mo
 
 u32 func_002978d0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002978d0: definition moved into src/anon/unit_00295d28.cpp
 
-u32 func_002a7470(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_00276c50(0x000048f9u, 0x00000000u, a2, a3);
-}
+u32 func_002a7470(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002a7470: definition moved into src/anon/unit_002a7308.cpp
 
-u32 func_002a8748(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_00276c50(0x000048f7u, 0x00000000u, a2, a3);
-}
+u32 func_002a8748(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002a8748: definition moved into src/anon/unit_002a8748.cpp
 
 u32 func_002a9888(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002a9888: definition moved into src/anon/unit_002a92a0.cpp
 

@@ -797,14 +797,7 @@ u32 func_00240430(u32 a0, u32 a1, u32 a2, u32 a3) {
     return (u32)(*(u32*)((u32)b + (-4984)));
 }
 
-u32 func_002431c0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a0;
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    u32 b = (0x0036u << 16);
-    return (u32)(*(u32*)((u32)b + (-4896)));
-}
+u32 func_002431c0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002431c0: definition moved into src/anon/unit_00242478.cpp
 
 u32 func_00253578(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_global_36ee90
     (void)a0;

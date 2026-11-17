@@ -386,28 +386,7 @@ s32 JmReport_GetIndex(u32 idx);  // 0x00296da8: definition moved into src/anon/u
 union GP { u8* p; s32 i; };
 extern GP D_0035f5e4;
 s8* func_00276568(void);
-void func_002a4b78(void)
-{
-    s32 m = func_00287bc0();
-    if (m == 26 || m == 34 || m == 33) {
-        *(s32*)(D_0035f5e4.p + 4228) = 0;
-        *(s32*)(D_0035f5e4.p + 4232) = 0;
-        return;
-    }
-    s32 lim = *(s32*)(D_0035f5e4.p + 4224);
-    if (lim >= 10) lim = 9;
-    s32 n = *func_00276568();
-    s32 sum = 0;
-    for (s32 i = 0; i < n; i++) sum += *(D_0035f5e4.p + 4097 + i * 8);
-    s32 d = *(s32*)(D_0035f5e4.p + 4224) - lim;
-    if (d >= sum) {
-        *(s32*)(D_0035f5e4.p + 4228) = sum;
-        *(s32*)(D_0035f5e4.p + 4232) = 0;
-    } else {
-        *(s32*)(D_0035f5e4.p + 4228) = d;
-        *(s32*)(D_0035f5e4.p + 4232) = (sum - *(s32*)(D_0035f5e4.p + 4228)) * 8;
-    }
-}
+void func_002a4b78(void);  // 0x002a4b78: definition moved into src/anon/unit_002a40c8.cpp
 
 static inline bool TestBit(u32* bits, u32 i) { return (bits[i >> 5] & (1 << (i & 31))) != 0; }
 extern u8* D_0035f610;

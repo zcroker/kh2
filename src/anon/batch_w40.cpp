@@ -215,11 +215,7 @@ s32 func_00242bd0(void);
 s32 func_00242b58(void);
 void func_00242b88(u32);
 struct F242 { u32 lo : 5; u32 b5 : 1; u32 rest : 26; };
-void func_00242c00(u8 a) {
-    u8* v = func_001058e8() + 16800;
-    ((F242*)(v + 4))->b5 = a == 0;
-    if (!func_00242bd0() && !func_00242b58()) func_00242b88(1);
-}
+void func_00242c00(u8 a);  // 0x00242c00: definition moved into src/anon/unit_00242478.cpp
 
 u32 func_00257770(void);
 s32 func_00287bc0(void);

@@ -1048,23 +1048,7 @@ u32 func_00316e88(u8 enc, u32 ctx)
 }
 extern u8* D_0035f5e4;
 s32 func_002a4990(u8*);
-s32 func_002a4ad8(s32 a)
-{
-    if (a < 0) a = *(s32*)(D_0035f5e4 + 4232);
-    s32 n = func_002a4990(*(u8**)(D_0035f5e4 + 4228) + a / 8);
-    s32 sum = 0;
-    if (n > 0) {
-        u8* q = D_0035f5e4 + 4097;
-        do {
-            sum += *q;
-            n--;
-            // R5900 short-loop padding
-            asm volatile("nop\n\tnop");
-            q += 8;
-        } while (n);
-    }
-    return a - (sum - *(s32*)(D_0035f5e4 + 4228)) * 8;
-}
+s32 func_002a4ad8(s32 a);  // 0x002a4ad8: definition moved into src/anon/unit_002a40c8.cpp
 }
 
 }
@@ -1811,17 +1795,7 @@ extern u8* D_0035ecec;
 s32 func_002892f8(u8*);
 s32 func_0028acc8(u8*);
 void func_00288e88(u8*);
-void func_00244888(void)
-{
-    if (D_0035ece8) {
-        s32 a = func_002892f8(D_0035ece8);
-        if (!func_0028acc8(D_0035ece8) && a) func_00288e88(D_0035ece8);
-    }
-    if (D_0035ecec) {
-        s32 a = func_002892f8(D_0035ecec);
-        if (!func_0028acc8(D_0035ecec) && a) func_00288e88(D_0035ecec);
-    }
-}
+void func_00244888(void);  // 0x00244888: definition moved into src/anon/unit_00242478.cpp
 struct E6 { s16 a, b, c; };
 extern s32 D_0035ee2c;
 extern u8* D_0035ee10;
@@ -1899,24 +1873,7 @@ extern s8 D_0035f5fc;
 extern s8 D_0035f5fd;
 void func_00106420(u8*);
 typedef void (*VFn)(u8*);
-void func_002a6970(void)
-{
-    u8* a = D_0035f5f4;
-    if (a) {
-        u8* q = a + 3488;
-    loop:
-        if (a == q) goto done;
-        q -= 436;
-        (*(VFn*)(*(u8**)q + 12))(q);
-        goto loop;
-    done:
-        func_00106420(a);
-        D_0035f5f4 = 0;
-    }
-    if (D_0035f5f8) { (*(VFn*)(*(u8**)D_0035f5f8 + 4))(D_0035f5f8); D_0035f5f8 = 0; }
-    D_0035f5fc = -1;
-    D_0035f5fd = -1;
-}
+void func_002a6970(void);  // 0x002a6970: definition moved into src/anon/unit_002a5a90.cpp
 }
 
 }
@@ -2258,17 +2215,7 @@ extern u8* D_0035ed24;
 s32 func_002892f8(u8*);
 s32 func_0028acc8(u8*);
 void func_00288e88(u8*);
-void func_00246708(void)
-{
-    if (D_0035ed20) {
-        s32 a = func_002892f8(D_0035ed20);
-        if (!func_0028acc8(D_0035ed20) && a) func_00288e88(D_0035ed20);
-    }
-    if (D_0035ed24) {
-        s32 a = func_002892f8(D_0035ed24);
-        if (!func_0028acc8(D_0035ed24) && a) func_00288e88(D_0035ed24);
-    }
-}
+void func_00246708(void);  // 0x00246708: definition moved into src/anon/unit_00242478.cpp
 extern u8 D_0035f0e8;
 extern u8* D_0035f0e4;
 u32 func_00267248(void);  // global_ptr_by_flag32
@@ -2305,23 +2252,7 @@ void func_002b64d8(u8*);
 u8* func_00290948(u8*, s32);
 void func_002b6530(u8*);
 void func_00293d80(s32);
-void func_002a75c0(void)
-{
-    func_002b64d8(D_0035f5f8);
-    u8* t = func_00290948(D_0035f5f8, 0);
-    s32 c = 0;
-    u8* e = t + 16;
-    s32 n = *(s32*)(t + 8);
-    for (s32 i = 0; i < n; i++, e += 32) {
-        c++;
-        if (*(s16*)(e + 6)) c++;
-    }
-    D_0035f5fd = c;
-    D_0035f5fc = func_00290948(D_0035f5f8, 1)[8];
-    func_002b6530(D_0035f5f8);
-    func_00293d80(5102);
-    if (D_0035f5f8) { (*(VFn*)(*(u8**)D_0035f5f8 + 4))(D_0035f5f8); D_0035f5f8 = 0; }
-}
+void func_002a75c0(void);  // 0x002a75c0: definition moved into src/anon/unit_002a7308.cpp
 extern u32* D_0035f610;
 s32 func_002a9e98(s32);
 u8* func_00294000(s32);
@@ -2401,37 +2332,13 @@ void func_00276a18(void);
 void func_00276b10(void);
 struct E436 { u8 d[436]; };
 extern E436 (*D_0035f5f4b)[2] asm("D_0035f5f4");
-void func_002a73d0(void)
-{
-    for (s32 i = 0; i < 4; i++) {
-        for (s32 j = 0; j < 2; j++) {
-            if (u_call4_00139d78(&D_0035f5f4b[i][j])) {
-                u8* o = D_0035f5f4b[i][j].d;
-                (*(VFn*)(*(u8**)o + 20))(o);
-            }
-        }
-    }
-    func_00276a18();
-    func_00276b10();
-}
+void func_002a73d0(void);  // 0x002a73d0: definition moved into src/anon/unit_002a7308.cpp
 }
 extern "C" {
 extern E436 (*D_0035f604b)[2] asm("D_0035f604");
 s32 func_00276a90(void);
 void func_00276b90(void);
-s32 func_002a81a8(void)
-{
-    for (s32 i = 0; i < 10; i++) {
-        for (s32 j = 0; j < 2; j++) {
-            if (u_call4_00139d78(&D_0035f604b[i][j])) {
-                u8* o = D_0035f604b[i][j].d;
-                (*(VFn*)(*(u8**)o + 20))(o);
-            }
-        }
-    }
-    if (!func_00276a90()) func_00276b90();
-    return 0;
-}
+s32 func_002a81a8(void);  // 0x002a81a8: definition moved into src/anon/unit_002a7308.cpp
 }
 
 }

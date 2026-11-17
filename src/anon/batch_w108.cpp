@@ -227,50 +227,7 @@ void func_002765e8(s32, s32, s32);
 void func_002a65d0(void);
 
 // Moves the list cursor to the next/previous selectable entry (wrapping) and scrolls the 10-row window.
-void func_002a6088(s32 dir)
-{
-    s32 top = func_00276620(37);
-    s32 cur = func_00276638(37);
-    s32 i;
-
-    if (dir == -10) {
-        for (i = cur + 1; i < D_0035f5ec->count; i++) {
-            if (func_002944d0(func_002a6368(D_0035f5ec->items[i]))) break;
-        }
-        if (i >= D_0035f5ec->count) {
-            for (i = 0; i < cur; i++) {
-                if (func_002944d0(func_002a6368(D_0035f5ec->items[i]))) break;
-            }
-        }
-        if (i < D_0035f5ec->count) {
-            cur = i;
-        } else {
-            cur = 0;
-            top = 0;
-        }
-    } else {
-        for (i = cur - 1; i >= 0; i--) {
-            if (func_002944d0(func_002a6368(D_0035f5ec->items[i]))) break;
-        }
-        if (i < 0) {
-            for (i = D_0035f5ec->count - 1; i > cur; i--) {
-                if (func_002944d0(func_002a6368(D_0035f5ec->items[i]))) break;
-            }
-        }
-        cur = i;
-        if (i < 0) {
-            cur = D_0035f5ec->count - 1;
-            top = D_0035f5ec->count - 11;
-        }
-    }
-    if (cur - top >= 10) {
-        top += cur - top - 9;
-    } else if (cur - top < 0) {
-        top += cur - top;
-    }
-    func_002765e8(37, cur - top, top);
-    func_002a65d0();
-}
+void func_002a6088(s32 dir);  // 0x002a6088: definition moved into src/anon/unit_002a5a90.cpp
 }
 
 extern "C" {

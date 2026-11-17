@@ -281,15 +281,7 @@ void YS_TARGET_free(u32 a0) asm("_ZN2YS6TARGET4freeEv");
 void YS_TARGET_free(u32 a0);  // 0x00190840: definition moved into src/anon/unit_001900d0.cpp
 
 namespace Tz {
-u32 MenuSound::GetSeId(s32 se) {
-    if (se < 6) {
-        se = *(s16 *)((u32)&D_0035ecc8 + (se << 1));
-    }
-    register u32 base asm("$14") = (u32)&D_003717c8;
-    register u32 off asm("$15") = (u32)se << 1;
-    asm volatile("" : "+r"(base), "+r"(off));
-    return *(s16 *)(off + base - 12);
-}
+// 0x00242708: definition moved into src/anon/unit_00242478.cpp
 }  // namespace Tz
 
 // 0017d130: moved to src/anon/unit_0017c400.cpp

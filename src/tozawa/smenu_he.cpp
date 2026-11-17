@@ -10,19 +10,6 @@ extern "C" void func_00236d60();  // clear_64_entries_24
 extern "C" u32 func_00244068();
 extern "C" void func_002444b8();
 
-void HEFT::PauseThread(TASK* a0) {
-    u32 s16 = (u32)a0;
-    func_002430d8(D_0035ece4);
-    func_00102448(s16, 1);
-    func_00243740();
-    while (1) {
-        func_00236d60();  // clear_64_entries_24
-        if (func_00244068() != 0) {
-            return;
-        }
-        func_002444b8();
-        func_00102448(s16, 0);
-    }
-}
+// 0x002436d0: definition moved into src/anon/unit_00242478.cpp
 
 }  // namespace Tz

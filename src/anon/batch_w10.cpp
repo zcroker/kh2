@@ -212,9 +212,7 @@ void func_0028b218(u8* p, u8 on);  // 0x0028b218: definition moved into src/anon
 
 void func_00299260(void);  // 0x00299260: definition moved into src/anon/unit_002982f0.cpp
 
-bool func_002a8920(void) {
-    return *func_001d56c8() >= 2;
-}
+bool func_002a8920(void);  // 0x002a8920: definition moved into src/anon/unit_002a8748.cpp
 
 void func_002bd730(s32 a, void* b, void* c, void* d);  // 0x002bd730: definition moved into src/anon/unit_002bc978.cpp
 

@@ -174,12 +174,7 @@ void func_00240fd8(s32 i, u32 bits) {
 }
 
 // Index of v in an 11-entry table, or 11.
-u32 func_00243190(u32 v) {
-    u32 i;
-    for (i = 0; i < 11; i++)
-        if (D_003718d0[i] == v) break;
-    return i;
-}
+u32 func_00243190(u32 v);  // 0x00243190: definition moved into src/anon/unit_00242478.cpp
 
 void func_00258a88(void);  // 0x00258a88: definition moved into src/anon/unit_002588e8.cpp
 

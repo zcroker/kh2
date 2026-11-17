@@ -172,10 +172,7 @@ void func_002409b8(u8* p) {
 struct BF242 { u32 lo : 8; u32 f : 1; u32 hi : 23; };
 struct X242 { u32 a; BF242 b; };
 u8* func_001058e8(void);
-void func_00242d80(u8 f) {
-    X242* x = (X242*)(func_001058e8() + 16800);
-    x->b.f = f != 0;
-}
+void func_00242d80(u8 f);  // 0x00242d80: definition moved into src/anon/unit_00242478.cpp
 
 extern char D_01e2bba0[];
 extern char D_00374fa8[];

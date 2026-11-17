@@ -264,11 +264,7 @@ void func_002c5850(u8* p, u32 a, u32 b, u32 c);  // 0x002c5850: definition moved
 
 struct WT { s32 a; u32 b, c, d; union { u32 w; u64 q; } u; void* next; };
 
-u32 Tz::Munny::Add(u32 n) {
-    if (func_002424c0(n)) *(u32*)(func_001058e8() + 9280) += n;
-    else *(u32*)(func_001058e8() + 9280) = 999999;
-    return *(u32*)(func_001058e8() + 9280);
-}
+// 0x00242500: definition moved into src/anon/unit_00242478.cpp
 
 void ctarget_0011e350(u32 a, u32 b, u32, u32);  // 0x0011e350: definition moved into src/anon/unit_0011c128.cpp
 

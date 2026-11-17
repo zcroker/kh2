@@ -24,45 +24,7 @@ extern u32 D_0035ece8;
 extern u32 D_0035ed08;
 extern W1934S36 D_003719a0[];
 extern s16 D_00371938[];
-void func_002442b8(void) {
-    s32 i;
-    s32 m = func_00287cd0();
-    s32 r = func_00289380(D_0035ecec);
-    if (m == 2) {
-        if (func_0028acc8(D_0035ecec)) {
-            if (r != -1 || func_00289310(D_0035ecec)) func_0028abe0(D_0035ecec);
-        } else {
-            i = func_00244ee8(func_002891e8(D_0035ece8));
-            func_002b4388(D_0035ed08, &D_003719a0[i], 0);
-            func_00287bd0(0, 0);
-            func_00287cc0(1);
-        }
-        return;
-    }
-    if (r != -1 || func_00289310(D_0035ecec)) {
-        if (!func_0028ae28(D_0035ecec, 0)) func_0028ab20(D_0035ecec);
-    }
-    if (m == 0) {
-        if (func_0028ae28(D_0035ecec, 0)) func_00287c90(1);
-    }
-    func_00287df0(r, func_00289310(D_0035ecec), 0, 0, 1);
-    switch (r) {
-    case -4:
-    case -3:
-    case -1:
-        break;
-    case -2:
-    case 1:
-        func_0028aa40(D_0035ecec);
-        func_00287c90(1);
-        break;
-    case 0:
-        i = func_00244ee8(func_002891e8(D_0035ece8));
-        func_00287b08(D_00371938[i]);
-        func_00287da0();
-        break;
-    }
-}
+void func_002442b8(void);  // 0x002442b8: definition moved into src/anon/unit_00242478.cpp
 }
 
 extern "C" {
