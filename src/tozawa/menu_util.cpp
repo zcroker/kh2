@@ -2,14 +2,6 @@
 
 namespace Tz {
 
-u32 MenuUtil::GetFontType(s32 a0) {
-    s32 t6 = 100;
-    s32 t7 = 10;
-    s32 v0 = a0 % t6;
-    s32 t6h = v0 % t7;
-    v0 = v0 - t6h;
-    v0 = v0 ^ 10;
-    return (u32)(v0 == 0);
-}
+// 0028ddd8: moved to src/anon/unit_0028c878.cpp
 
 }  // namespace Tz

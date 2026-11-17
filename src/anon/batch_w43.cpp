@@ -295,10 +295,7 @@ s32 func_00269f58(void) {
     return r;
 }
 
-void func_0028e5e0(void* a, s16* l, s32 n) {
-    func_00139d78(a);
-    for (s32 i = 0; i < n; i++) func_0028e510(a, i, l[i]);
-}
+void func_0028e5e0(void* a, s16* l, s32 n);  // 0028e5e0: moved to src/anon/unit_0028c878.cpp
 
 Ent8* func_0028f690(s32 i) {  // record884_type_index
     u8* q = D_0035f480;

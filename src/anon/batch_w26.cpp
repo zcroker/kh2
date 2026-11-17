@@ -257,22 +257,9 @@ bool func_0027f2b0(void) {
     return r;
 }
 
-s32 func_0028dd90(s32 x) {  // mod10_classify_012
-    s32 r = 0;
-    s32 m = x % 10;
-    switch (m) {
-    case 0: break;
-    case 1: r = 2; break;
-    case 2: r = 1; break;
-    }
-    return r;
-}
+s32 func_0028dd90(s32 x);  // 0028dd90: moved to src/anon/unit_0028c878.cpp
 
-u8 func_0028e6c0(u8* o, s32 i) {
-    u_call4_00139d78(o);
-    u8* s = *(u8**)(o + 56) + i * 380;
-    return seq_get_loop_mode(s, *(s32*)(s + 276));
-}
+u8 func_0028e6c0(u8* o, s32 i);  // 0028e6c0: moved to src/anon/unit_0028c878.cpp
 
 void func_00294550(void) {
     D_0035f580 = 0;

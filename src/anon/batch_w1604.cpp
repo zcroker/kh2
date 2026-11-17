@@ -156,35 +156,5 @@ void func_0023acd8(Ent*);
 s32 func_00239d30(Ent*, s32);
 s32 func_00239d10e(Ent*) asm("func_00239d10");
 void func_0028e438(Obj*, s32, s32, s32);
-void func_0028ebf8(Obj* o)
-{
-    if (o->flags & 0x100) return;
-    if (o->sub && !func_00139d78(o->sub)) {
-        o->vt[5](o);
-        return;
-    }
-    for (s32 i = 0; i < o->n; i++) {
-        if (!func_00139d78(o)) return;
-        if (o->ents[i].f178 && !func_00239d10(o->ents[i].f178)) {
-            if (o->flags & 0x80) func_00139570(o);
-            else o->vt[5](o);
-            return;
-        }
-        { Ent* e = &o->ents[i]; func_00239f18(e->f170, e); }
-        { Ent* e = &o->ents[i]; func_00239f78(e->f174, e); }
-        { Ent* e = &o->ents[i]; func_00239eb8(e->f164 * o->f2c, e); }
-        func_0023acd8(&o->ents[i]);
-        if (o->ents[i].f160) o->ents[i].f160 = 0;
-        if (!(u8)func_00239d30(&o->ents[i], o->ents[i].f114) && !func_00239d10e(&o->ents[i])) {
-            if (o->ents[i].f15c != -1) {
-                func_0028e438(o, i, o->ents[i].f15c, -1);
-                func_0023acd8(&o->ents[i]);
-                o->ents[i].f160 = 1;
-            } else {
-                if (o->flags & 0x80) func_00139570(o);
-                else o->vt[5](o);
-            }
-        }
-    }
-}
+void func_0028ebf8(Obj* o);  // 0028ebf8: moved to src/anon/unit_0028c878.cpp
 }

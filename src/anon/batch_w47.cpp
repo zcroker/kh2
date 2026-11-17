@@ -205,11 +205,7 @@ void func_00275e68(s32 a) {
 // Sets entry b of the table to a, or every entry when b < 0.
 extern s32 D_0035f404;
 extern u32 D_0035f40c;
-void wtarget_0028d068(u32 a, u32 b, u32, u32) {
-    if ((s32)b < 0) {
-        for (s32 i = 0; i < D_0035f404; i++) ((u32*)D_0035f40c)[i] = a;
-    } else ((u32*)D_0035f40c)[b] = a;
-}
+// 0028d068: moved to src/anon/unit_0028c878.cpp
 
 s32 func_00293200(void);
 extern s16 D_0035f4e0;

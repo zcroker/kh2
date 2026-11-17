@@ -12,29 +12,13 @@ extern u32 D_0035f124 asm("D_0035f124");
 extern u32 D_0035f304 asm("D_0035f304");
 extern "C" void func_001396b0(...);
 extern "C" void func_0028dac8(...);
-u32 MenuCursor::GetPri(s32 index) {
-    return *(u32*)(D_0035f40c + (u32)index * 4);
-}
+// 0028d0c8: moved to src/anon/unit_0028c878.cpp
 
-dk::Sprite* MenuCursor::GetSprite(s32 index) {
-    u32 base = D_0035f3fc;
-    return reinterpret_cast<dk::Sprite*>(base + ((u32)index * 408));
-}
+// 0028d0e0: moved to src/anon/unit_0028c878.cpp
 
-bool MenuCursor::isInit() { return D_0035f3f8 != 0; }
+// 0028cbf8: moved to src/anon/unit_0028c878.cpp
 
-void MenuCursor::SetParentSeq(s32 index, YI::SEQUENCE* seq) {
-    u32 p = D_0035f3fc + (u32)index * 408;
-    *(u32*)(p + 400) = (u32)seq;
-        func_001396b0(p);
-        if (*(u32*)(p + 400) != 0) {
-            *(u32*)(p + 396) = 0;
-            func_001396b0(p);
-            if (*(u32*)(p + 396) != 0) {
-                MenuCursor::SetFlag(p, 0);
-            }
-        }
-}
+// 0028cf98: moved to src/anon/unit_0028c878.cpp
 
 u32 Selector::SelExit() { return SelExitImpl(); }
 

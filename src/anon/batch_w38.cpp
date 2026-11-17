@@ -307,18 +307,7 @@ void func_001396b0(void*);
 void func_00139660(void*);
 void func_00139688(void*);
 void func_0031a260(void*, s32);
-void MenuCursor_AttachSprite(u8* p, u32 s) {
-    *(u32*)(p + 396) = s;
-    func_001396b0(p);
-    if (*(u32*)(p + 396)) {
-        *(u32*)(p + 400) = 0;
-        func_001396b0(p);
-        if (*(u32*)(p + 400)) func_0031a260(p, 0);
-    }
-    func_00139660(p);
-    func_00139688(p);
-    func_001396b0(p);
-}
+// 0028dcc0: moved to src/anon/unit_0028c878.cpp
 
 u8* func_002bc158_0(void) asm("func_002bc158");
 u8* func_002bc158_1(u32) asm("func_002bc158");

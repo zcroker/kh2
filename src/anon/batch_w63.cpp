@@ -317,10 +317,7 @@ void func_002865d0(u32 bit) {
     if (!(a[i] & m)) a[i] |= m;
 }
 
-void func_0028e560(void* p, s16* a, s32 n, u32 a3) {
-    func_00139d78(p);
-    for (s32 i = 0; i < n; i++) func_0028e438(p, i, *a++, a3);
-}
+void func_0028e560(void* p, s16* a, s32 n, u32 a3);  // 0028e560: moved to src/anon/unit_0028c878.cpp
 
 void func_00298e48(void) {
     if (func_00287bc0() != 5) return;

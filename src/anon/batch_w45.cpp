@@ -293,15 +293,7 @@ void func_0028b078(u8* a0, s32 a1, s32 a2) {  // obj_setup_from_args
     func_0028b1b0(a0, 0);
 }
 
-void func_0028ce98(s32 i, u32 v) {  // slot_set_and_refresh
-    u32* p = (u32*)(i * 4 + (u32)D_0035f408);
-    if (*p == v) return;
-    *p = v;
-    s32 x;
-    if (!v) x = D_0035f400[i * 2];
-    else x = D_0035f400[i * 2 + 1];
-    func_00138c10(D_0035f3fc + i * 408, x);
-}
+void func_0028ce98(s32 i, u32 v);  // 0028ce98: moved to src/anon/unit_0028c878.cpp
 
 s32 func_00292a90(s32 id) {
     s32 r = 0;

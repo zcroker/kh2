@@ -188,7 +188,7 @@ void func_0027b510(BD_VALUE* bd) { func_00257be0(bd); }
 void func_00280ec8(BD_VALUE* bd) { func_00281008(bd); }
 void func_00280ee0(BD_VALUE* bd) { func_00281008(bd); }
 void func_00286280(BD_VALUE* bd) { func_00285f50(bd); }
-void func_0028dac8(BD_VALUE* bd) { func_0028da70(bd); }
+void func_0028dac8(BD_VALUE* bd);  // 0028dac8: moved to src/anon/unit_0028c878.cpp
 void func_00290708(BD_VALUE* bd) { func_00138840(bd); }
 void func_002b9ab8(BD_VALUE* bd) { func_002b6b84(bd); }
 void func_002ba1a0(BD_VALUE* bd) { func_002b6d34(bd); }

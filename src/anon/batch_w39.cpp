@@ -409,11 +409,7 @@ int IsSeqDone_impl(S28a* p, int i) {
 struct I28e { u8 pad[368]; Word x, y; u8 pad2[4]; };
 struct S28e { u8 pad[56]; I28e* items; };
 void func_00139d78_28e(S28e*, int) asm("func_00139d78");
-void func_0028eb88(S28e* p, int i, f32 a, f32 b) {
-    func_00139d78_28e(p, i);
-    p->items[i].x.f = a;
-    p->items[i].y.f = b;
-}
+void func_0028eb88(S28e* p, int i, f32 a, f32 b);  // 0028eb88: moved to src/anon/unit_0028c878.cpp
 
 // --- 002b5768
 struct VObj { void** vt; u8 pad[432]; VObj* f436; };

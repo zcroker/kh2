@@ -231,10 +231,7 @@ void func_00281ec8(void* p) {
 
 typedef s32 (*VFn3)(void*, void*, void*);
 extern void* D_0035f3f8;
-s32 func_0028cc08(void* a) {
-    void* o = D_0035f3f8;
-    return (*(VFn3*)(*(u8**)o))(o, a, __builtin_return_address(0));
-}
+s32 func_0028cc08(void* a);  // 0028cc08: moved to src/anon/unit_0028c878.cpp
 
 u8* func_00103eb0(void);
 u8 func_00102a38(u32, void (*)(void));  // list_contains_id

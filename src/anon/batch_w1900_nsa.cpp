@@ -25,27 +25,7 @@ union G414 { MCSave878* p; s32 i; };
 extern G414 D_0035f414;
 void* func_001063c0(s32, s32);
 s32* func_001063f0(s32, s32);
-void func_0028c878(s32 heap, s32 n)
-{
-    if (D_0035f3f8) {
-        D_0035f414.p = (MCSave878*)func_001063c0(28, heap);
-        D_0035f414.p->a10.i = ((F878*)&D_0035f3f8)->i;
-        D_0035f414.p->a8.i = ((F878*)&D_0035f404)->i;
-        D_0035f414.p->a0.o = ((F878*)&D_0035f3fc)->o;
-        D_0035f414.p->a4.q = ((F878*)&D_0035f400)->q;
-        D_0035f414.p->ac.q = ((F878*)&D_0035f408)->q;
-        D_0035f414.p->a14.q = ((F878*)&D_0035f40c)->q;
-        D_0035f414.p->a18.i = ((F878*)&D_0035f410)->i;
-    }
-    D_0035f3f8 = heap;
-    D_0035f404 = n;
-    D_0035f3fc = new MCObj878[n];
-    D_0035f400 = func_001063f0(D_0035f404 * 4, D_0035f3f8);
-    D_0035f408 = func_001063f0(D_0035f404 * 4, D_0035f3f8);
-    D_0035f40c.p = func_001063f0(D_0035f404 * 4, D_0035f3f8);
-    for (s32 i = 0; i < D_0035f404; i++) D_0035f40c.p[i] = -1;
-    D_0035f410 = 0;
-}
+void func_0028c878(s32 heap, s32 n);  // 0028c878: moved to src/anon/unit_0028c878.cpp
 }
 
 extern "C" {

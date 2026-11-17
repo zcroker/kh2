@@ -234,26 +234,11 @@ s32 func_00264328(u32 id)
 
 // 0028cf28
 extern u8* D_0035f3fc;
-void func_0028cf28(s32 i, s32 v)
-{
-    u8* e = D_0035f3fc + i * 408;
-    *(s32*)(e + 396) = v;
-    select_begin_leave(e);
-    if (*(s32*)(e + 396)) {
-        *(s32*)(e + 400) = 0;
-        select_begin_leave(e);
-        if (*(s32*)(e + 400)) select_set_flag(e, 0);
-    }
-}
+void func_0028cf28(s32 i, s32 v);  // 0028cf28: moved to src/anon/unit_0028c878.cpp
 
 // 0028d008: entry i is active and not masked
 extern s32 D_0035f410;
-u8 func_0028d008(s32 i)
-{
-    u8 r = D_0035f3fc ? u_call4_00139d78(D_0035f3fc + i * 408) : 0;
-    if (r && ((D_0035f410 >> i) & 1)) r = 0;
-    return r;
-}
+u8 func_0028d008(s32 i);  // 0028d008: moved to src/anon/unit_0028c878.cpp
 
 // 002930d8: drop the first element of a global list
 union Count293 { s16 n; u32 w; };

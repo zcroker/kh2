@@ -6162,10 +6162,7 @@ void func_00225550() {
 HeapE* func_0013a1d8();
 void func_00239700_e2a8(void*) asm("func_00239700");
 struct T380_0028e2a8 { T380_0028e2a8() { func_00239700_e2a8(this); } ~T380_0028e2a8() {} u8 pad[380]; };
-void func_0028e2a8(u8* p, s32 n) {
-    if (!*(u32*)(p + 56)) *(T380_0028e2a8**)(p + 56) = new (func_0013a1d8()) T380_0028e2a8[n];
-    *(s32*)(p + 24) = n;
-}
+void func_0028e2a8(u8* p, s32 n);  // 0028e2a8: moved to src/anon/unit_0028c878.cpp
 
 // ---- 002ef7f0
 s32 func_002ef7b8();
@@ -14245,16 +14242,7 @@ u32 func_0023c4b8(u8*, u32);
 u8* func_00236ca8_28d1c0(u32, u32) asm("func_00236ca8");
 void func_0028d188(O28d1c0*);
 void func_001386e0_28d1c0(O28d1c0*, s32, u32, u8*, s32, s32) asm("func_001386e0");
-void func_0028d1c0(O28d1c0* o, s32 id, u32 a, u32 b, u32 bank, s16* src)
-{
-    func_0028d6e8(o);
-    u32 h = func_0023c4b8(func_0023f1b0(bank), a);
-    u8* w = func_00236ca8_28d1c0(*(u32*)(func_0023f1b0(bank) + 40), b);
-    func_0028d188(o);
-    for (s32 i = 0; i < 3; i++) o->h[i] = src[i];
-    func_001386e0_28d1c0(o, id, h, w, o->h[0], 0);
-    o->f392 = o->h[2];
-}
+void func_0028d1c0(O28d1c0* o, s32 id, u32 a, u32 b, u32 bank, s16* src);  // 0028d1c0: moved to src/anon/unit_0028c878.cpp
 
 // --------------------
 struct E2ad6e8 { u8 d[16]; };

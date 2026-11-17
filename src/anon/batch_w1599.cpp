@@ -118,15 +118,6 @@ s32 func_0023c4b8(Obj*, s32);
 u8* func_00236ca8(s32, s32);
 void func_001386e0(Ent*, s32, s32, u8*, s32, s32);
 static inline void setf(Sub* s) { s->flags |= 8; }
-void func_0028cc78(s32 idx, s32 a1, s32 a2, u8* a3, s32 a4, s32 a5) {
-    s32 r1 = func_0023c4b8(func_0023f1b0(a3), a1);
-    u8* r2 = func_00236ca8(func_0023f1b0(a3)->x28, a2);
-    func_001386e0(&D_0035f3fc.p[idx], D_0035f40c[idx], r1, r2, a4, 0);
-    D_0035f400.p[idx].a = a4;
-    D_0035f400.p[idx].b = a5;
-    D_0035f408.p[idx] = 0;
-    D_0035f410 &= ~(1 << idx);
-    if (r2[400]) setf(&D_0035f3fc.p[idx].sub);
-}
+void func_0028cc78(s32 idx, s32 a1, s32 a2, u8* a3, s32 a4, s32 a5);  // 0028cc78: moved to src/anon/unit_0028c878.cpp
 }
 }

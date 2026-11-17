@@ -245,17 +245,7 @@ void func_00258080(s32* a, s32* b) {
     }
 }
 
-void func_0028e438(u8* p, s32 i, u32 v, u32 w) {
-    func_00139d78(p);
-    u32 off = i * 380;
-    u32 e = off + *(u32*)(p + 56);
-    if (*(u32*)(e + 344) != v) {
-        *(u32*)(e + 344) = v;
-        func_00239bf8(*(u32*)(p + 56) + off, v);
-    }
-    *(u32*)(off + *(u32*)(p + 56) + 348) = w;
-    *(u8*)(off + *(u32*)(p + 56) + 352) = 0;
-}
+void func_0028e438(u8* p, s32 i, u32 v, u32 w);  // 0028e438: moved to src/anon/unit_0028c878.cpp
 
 void func_00290a10(u8* p, u32 a, u32 b) {
     func_00290960(p, func_001708f8(a, -1), b);

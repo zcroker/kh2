@@ -228,12 +228,7 @@ s32 JmReport_GetData(s16* self) {
     return self[0] + self[9];
 }
 
-void func_0028cc40(void* a) {
-    if (a) {
-        void** o = D_0035f3f8;
-        (*(void (**)(void*, void*))((u8*)*o + 4))(o, a);
-    }
-}
+void func_0028cc40(void* a);  // 0028cc40: moved to src/anon/unit_0028c878.cpp
 
 void func_002bd188(u32 a, u32 b);  // 0x002bd188: definition moved into src/anon/unit_002bc978.cpp
 

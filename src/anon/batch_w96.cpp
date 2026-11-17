@@ -294,28 +294,7 @@ void func_002874b0(u8* self) {
 }
 
 // Resets the channel table: n channels back to defaults.
-void func_0028e190(u8* self, s32 n) {
-    s32 i;
-    *(s32*)(self + 28) = 0;
-    *(s32*)(self + 32) = 0;
-    *(s32*)(self + 36) = 0;
-    *(s32*)(self + 40) = 0;
-    *(f32*)(self + 44) = 1.0f;
-    func_0028e710(self, 0);
-    func_0028ebf0(self, 0);
-    for (i = 0; i < n; i++) {
-        ChU_w96* arr = (ChU_w96*)(self + 56);
-        arr->p[i].a = -1;
-        arr->p[i].b = -1;
-        arr->p[i].c = 0;
-        arr->p[i].d = 1.0f;
-        arr->p[i].e = 0;
-        arr->p[i].f = 0;
-        arr->p[i].g = 1.0f;
-        arr->p[i].h = 1.0f;
-        func_0028e748(self, i, 0);
-    }
-}
+void func_0028e190(u8* self, s32 n);  // 0028e190: moved to src/anon/unit_0028c878.cpp
 
 // Returns nonzero if any of the screen's widgets is still busy.
 s32 func_002a40c8(void) {

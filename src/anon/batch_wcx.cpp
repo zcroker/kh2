@@ -1782,13 +1782,7 @@ void func_001391c8(u8*, u32, u32);
 void func_0028e2a8(u8*, s32);
 void func_0028e190(u8*, s32);
 void func_0028e3b8(u8*, s32, u32, u32, s16);
-void func_0028e0d8(u8* p, u32 a1, u32 a2, u32 a3, s16* list, s32 n, u32 t2)
-{
-    func_001391c8(p, a1, t2);
-    func_0028e2a8(p, n);
-    func_0028e190(p, n);
-    for (s32 i = 0; i < n; i++) func_0028e3b8(p, i, a2, a3, list[i]);
-}
+void func_0028e0d8(u8* p, u32 a1, u32 a2, u32 a3, s16* list, s32 n, u32 t2);  // 0028e0d8: moved to src/anon/unit_0028c878.cpp
 extern u8* D_0035f480;
 s16* func_0028f690(s32);  // record884_type_index
 void func_00138c10(u8*, s32);

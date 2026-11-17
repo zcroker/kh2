@@ -24,17 +24,7 @@ void func_0014ce60(void) { D_00349e0c = 1.0f; }
 
 // 00159f90: moved to src/harata/libdk/targetcamera.cpp
 
-void func_0028d188(u8* p) {
-    p[412] = 0;
-    p[413] = 0;
-    *(f32*)(p + 416) = 30.0f;
-    *(u32*)(p + 420) = 0;
-    *(u32*)(p + 424) = 0;
-    *(u32*)(p + 428) = 0;
-    *(u32*)(p + 432) = 0;
-    *(u32*)(p + 436) = 0;
-    *(u32*)(p + 440) = 0;
-}
+void func_0028d188(u8* p);  // 0028d188: moved to src/anon/unit_0028c878.cpp
 
 void func_001375f0(u8* p, u32 a, u32 b);  // 0x001375f0: definition moved into src/anon/unit_001374c8.cpp
 

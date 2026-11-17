@@ -5586,111 +5586,27 @@ void func_0028c7c0(s32 a0, s32 a1) {
     }
 }
 
-void func_0028d730(u32 self, Cb_0028d730 cb, f32 a2, f32 a3, f32 a4, f32 a5) {
-    s32 count = (s32)func_002892f8(self);
-    s32 i = 0;
-    if (count <= 0) {
-        return;
-    }
-    do {
-        if (cb((u32)i) == 0) {
-            u32 obj = func_002891b8(self, (u32)i);
-            func_0028d708(obj, a2, a3, a4, a5);
-        }
-        i += 1;
-    } while (i < count);
-}
+void func_0028d730(u32 self, Cb_0028d730 cb, f32 a2, f32 a3, f32 a4, f32 a5);  // 0028d730: moved to src/anon/unit_0028c878.cpp
 
-void func_0028dae0(u32 self, u32 value) {
-    if (func_00139d78(self) != 0) {
-        u32 cur = func_0023f0c0(self);
-        if (cur != value) {
-            func_0023f070(self, value, -1);
-            return;
-        }
-    }
-}
+void func_0028dae0(u32 self, u32 value);  // 0028dae0: moved to src/anon/unit_0028c878.cpp
 
-u32 func_0028db48(u32 self) {
-    u32 ret = 0;
-    if (self != 0) {
-        if (func_00139d78(self) != 0) {
-            u32 p = self + 24;
-            u32 v = func_00239d30(p, *(u32*)(p + 276));
-            ret = ((v & 0xff) != 0);
-        }
-    }
-    return ret;
-}
+u32 func_0028db48(u32 self);  // 0028db48: moved to src/anon/unit_0028c878.cpp
 
-u32 func_0028dba0(u32 self) {
-    u32 ret = 0;
-    if (self != 0) {
-        if (func_0028acc8(self) != 0) {
-            ret = (func_0028ae28(self, 0) != 0);
-        }
-    }
-    return ret;
-}
+u32 func_0028dba0(u32 self);  // 0028dba0: moved to src/anon/unit_0028c878.cpp
 
-void func_0028dd28(Obj_0028dd28* self, u32 value) {
-    self->field400 = value;
-    func_001396b0((u32)self);
-    if (self->field400 != 0) {
-        self->field396 = 0;
-        func_001396b0((u32)self);
-        if (self->field396 != 0) {
-            func_0031ac78((u32)self, 0);
-        }
-    }
-    func_00139660((u32)self);
-    func_00139688((u32)self);
-    func_001396b0((u32)self);
-}
+void func_0028dd28(Obj_0028dd28* self, u32 value);  // 0028dd28: moved to src/anon/unit_0028c878.cpp
 
-void func_0028e080(u32 self) {
-    *(u32*)self = addr_D_0035f440();
-    func_0028e350(self);
-    *(u32*)self = addr_D_00347f98();
-    u32 t = D_00347f80;
-    u32 obj = *(u32*)(t + 20);
-    Fn_0028e080 fn = (Fn_0028e080)*(u32*)(*(u32*)obj + 4);
-    fn(obj, self);
-}
+void func_0028e080(u32 self);  // 0028e080: moved to src/anon/unit_0028c878.cpp
 
-void func_0028e3b8(Obj_0028e3b8* self, u32 idx, u32 a2, u32 a3, u32 a4) {
-    func_00139d78((u32)self);
-    func_00239988(self->field56 + idx * 380, a2, a3);
-    func_0028e438((u32)self, idx, a4, -1);
-}
+void func_0028e3b8(Obj_0028e3b8* self, u32 idx, u32 a2, u32 a3, u32 a4);  // 0028e3b8: moved to src/anon/unit_0028c878.cpp
 
-void func_0028e8b8(Obj_0028e8b8* self, u32 idx, u32 v2, u32 v3) {
-    func_00139d78((u32)self);
-    u32 stride = 380;
-    u32 off = idx * stride;
-    u32 base = self->field56;
-    *(u32*)((off + base) + 360) = v2;
-    u32 base2 = self->field56;
-    *(u32*)((off + base2) + 364) = v3;
-}
+void func_0028e8b8(Obj_0028e8b8* self, u32 idx, u32 v2, u32 v3);  // 0028e8b8: moved to src/anon/unit_0028c878.cpp
 
-void func_0028e970(Obj_0028e970* self, u32* out1, u32* out2) {
-    func_00139d78((u32)self);
-    *out1 = self->field28 + self->field36;
-    *out2 = self->field32 + self->field40;
-}
+void func_0028e970(Obj_0028e970* self, u32* out1, u32* out2);  // 0028e970: moved to src/anon/unit_0028c878.cpp
 
-void func_0028e9d0(Obj_0028e9d0* self, u32 idx, u32 a2, u32 a3) {
-    func_00139d78((u32)self);
-    func_0023a9c0(self->field56 + idx * 380, a2, a3);
-}
+void func_0028e9d0(Obj_0028e9d0* self, u32 idx, u32 a2, u32 a3);  // 0028e9d0: moved to src/anon/unit_0028c878.cpp
 
-void func_0028ea30(Obj_0028ea30* self, u32 idx, u32* p0, u32* p1) {
-    func_00139d78((u32)self);
-    func_0023a9c0(self->field56 + idx * 380, (u32)p0, (u32)p1);
-    *p0 += self->field36;
-    *p1 += self->field40;
-}
+void func_0028ea30(Obj_0028ea30* self, u32 idx, u32* p0, u32* p1);  // 0028ea30: moved to src/anon/unit_0028c878.cpp
 
 void func_0028fa98(s32 which) {
     u32 i = 0;

@@ -13182,22 +13182,9 @@ void duplicate_unplaced_0028eab8(void* a0, void* a1) {
     *(u32*)(s1 + 40) = func_0023aa38(s0);
 }
 
-void func_0028eb00(void* a0, f32 a1) {
-    u8* s0 = (u8*)a0;
-    f32 f20 = a1;
-    func_00139d78(s0);
-    *(f32*)(s0 + 44) = f20;
-}
+void func_0028eb00(void* a0, f32 a1);  // 0028eb00: moved to src/anon/unit_0028c878.cpp
 
-void func_0028eb38(void* a0, s32 a1, f32 a2) {
-    u8* s1 = (u8*)a0;
-    s32 s0 = a1;
-    f32 f20 = a2;
-    func_00139d78(s1);
-    s0 = s0 * 380;
-    s0 = s0 + *(s32*)(s1 + 56);
-    *(f32*)((u8*)s0 + 356) = f20;
-}
+void func_0028eb38(void* a0, s32 a1, f32 a2);  // 0028eb38: moved to src/anon/unit_0028c878.cpp
 
 void func_0028f7a0() {
     s32 base = 0x360000;

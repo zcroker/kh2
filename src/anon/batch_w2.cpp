@@ -190,11 +190,7 @@ Entry8* func_0028ac98(Table8* t, s32 id) {  // lookup_by_index_align
     return &t->other[id];
 }
 
-void func_0028dfe8(u32* p) {  // obj_ctor_36f440
-    p[14] = 0;
-    p[3] = 0;
-    p[0] = (u32)D_0035f440;
-}
+void func_0028dfe8(u32* p);  // 0028dfe8: moved to src/anon/unit_0028c878.cpp
 
 void func_0029df98(void) {
     func_0028dac8(func_002766d0() + 17304, 3);  // Tz::Select::FadeOut(Jiminy seq table, 3)

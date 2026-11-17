@@ -481,12 +481,7 @@ u8* func_00236ca8(void*, s32);
 void func_001386e0(void*, s32, void*, void*, s32, s32);
 // Tz Pause CreateFadeObject
 void CreateFadeObject(u8*, s32, s32, s32, s32, s32, s32, s32) asm("_ZN2Tz5Pause16CreateFadeObjectEz");
-void CreateFadeObject(u8* p, s32 id, s32 a2, s32 a3, s32 t0, s32 t1, s32 t2, s32 t3) {
-    void* h = func_0023c4b8(func_0023f1b0(t0), a2);
-    u8* v = func_00236ca8(*(void**)((u8*)func_0023f1b0(t0) + 40), a3);
-    func_001386e0(p, id, h, v, t1, t3);
-    *(s32*)(p + 392) = t2;
-}
+// 0028d8c0: moved to src/anon/unit_0028c878.cpp
 
 struct Flags236 { u8 pad[236]; u32 bits[42]; };
 extern Flags236* D_0035f610;

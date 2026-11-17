@@ -340,15 +340,7 @@ void func_00138840(void);
 double func_00313b80(f32);  // float_to_double
 s32 func_003142e0(double, double);  // double_compare
 extern f32 D_00349e10;
-void func_0028d2a0(u8* p) {
-    if (*(u32*)(p + 12) & 0x100) return;
-    func_00138840();
-    if (func_003142e0(0.0, func_00313b80(*(f32*)(p + 416))) > 0) return;
-    if (*(f32*)(p + 416) < 30.0f) {
-        *(f32*)(p + 416) += D_00349e10;
-        if (30.0f < *(f32*)(p + 416)) *(f32*)(p + 416) = 30.0f;
-    }
-}
+void func_0028d2a0(u8* p);  // 0028d2a0: moved to src/anon/unit_0028c878.cpp
 
 struct VObj2b { void (**vt)(VObj2b*); u8 pad[28]; VObj2b* next; };
 void func_002be148(u8*);

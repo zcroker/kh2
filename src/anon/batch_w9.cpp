@@ -178,10 +178,7 @@ s32 func_00288088(void) {
     return *(u64*)(func_00167f18(0) + 8) != 0;
 }
 
-void func_0028d708(void* p) {
-    func_00138d48(p);
-    func_001395f8(p);
-}
+void func_0028d708(void* p);  // 0028d708: moved to src/anon/unit_0028c878.cpp
 
 void jm_unload(u8* j) {
     func_00170950(*(u32*)(j + 4));

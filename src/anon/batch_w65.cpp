@@ -288,13 +288,7 @@ void func_00258d78(u32 a, u32 b, u32 c, u32 d) {
 }
 
 void func_00138c10(void*, s32);
-void Sel_SetSequence(u8* p, s32 a) {
-    if (!func_00139d78(p)) return;
-    if (*(s32*)(p + 388) != a) {
-        func_00138c10(p, a);
-        *(s32*)(p + 392) = -1;
-    }
-}
+// 0028da70: moved to src/anon/unit_0028c878.cpp
 
 void func_00290488(VObj** p) {
     if (p[0] && func_00139d78(p[0])) ((void (*)(VObj*))p[0]->vt[5])(p[0]);

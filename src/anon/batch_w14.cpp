@@ -228,10 +228,7 @@ void func_0028b830(u8* p) {
     func_00106420(p);
 }
 
-void func_0028e710(u32 p, u32 a) {
-    u_call4_00139d78(p);
-    *(u32*)(p + 48) = a;
-}
+void func_0028e710(u32 p, u32 a);  // 0028e710: moved to src/anon/unit_0028c878.cpp
 
 void func_00292a58(void) {
     D_0035f4d8 = 0;

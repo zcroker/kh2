@@ -328,12 +328,7 @@ void func_00263c60(void) {  // sync_global_index_if_changed
 }
 
 // ---- 0028e350
-void ctarget_0028e350(u8* p, u32, u32, u32) {
-    if (*(Elem28e**)(p + 56)) {
-        delete[] *(Elem28e**)(p + 56);
-        *(Elem28e**)(p + 56) = 0;
-    }
-}
+void ctarget_0028e350(u8* p, u32, u32, u32);  // 0028e350: moved to src/anon/unit_0028c878.cpp
 
 // ---- 00293148
 struct E293 { s32 id; u32 on : 1; u32 pad; u32 val; };

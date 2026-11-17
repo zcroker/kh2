@@ -476,12 +476,7 @@ u32 func_0023f948(void*, u32);
 u32 func_0023f908(void*, u32);
 void func_0023eea0(u32, u32, u32, u32, u32, u32);
 void func_0023f0c8(u32, u32);
-void func_0028d7f0(u32 a0, u32 a1, u32 a2, u32 a3, u32 t0, u32 t1, u32 x, u32 y, u32 z) {
-    if (!x) x = func_0023f948(&D_0035f3a8, a2);
-    if (!y) y = func_0023f908(&D_0035f3a8, a3);
-    func_0023eea0(a0, a1, x, y, t0, z);
-    func_0023f0c8(a0, t1);
-}
+void func_0028d7f0(u32 a0, u32 a1, u32 a2, u32 a3, u32 t0, u32 t1, u32 x, u32 y, u32 z);  // 0028d7f0: moved to src/anon/unit_0028c878.cpp
 
 void func_00290060(u8*);
 void func_001386e0(u32, u32, u32, u32, s32, s32);

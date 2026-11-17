@@ -211,13 +211,7 @@ s32 func_00257fa8(s32 n) {  // nth_set_bit_index
     return r;
 }
 
-void func_0028d0f8(u8* p) {
-    *(u32*)(p + 12) = 0;
-    *(void**)p = D_00347e60;
-    func_00239700(p + 24);
-    *(void**)p = D_0035f420;
-    func_0028d188(p);
-}
+void func_0028d0f8(u8* p);  // 0028d0f8: moved to src/anon/unit_0028c878.cpp
 
 void func_002908a8(u8* p) {
     s32* q = (s32*)p;

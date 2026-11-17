@@ -439,20 +439,7 @@ u8* func_00192cc0(u8*, const char*);
 s32 func_00192b30(u8*);
 s32 func_00105c30(void);
 // Fill dst with n copies of a formatted string (5 unless mode 1/8); the last copy keeps its NUL.
-u8* func_0028def0(u8* dst, s32 n) {
-    u8 buf[16];
-    u8* q = dst;
-    s32 ok = 0;
-    s32 len = func_00192b30(func_00192cc0(buf, D_00374470));
-    if (func_00105c30() == 1 || func_00105c30() == 8) ok = 1;
-    if (!ok) n = 5;
-    for (s32 i = 0; i < n; i++) {
-        if (i + 1 >= n) len++;
-        memcpy(q, (u32)buf, len);
-        q += len;
-    }
-    return dst;
-}
+u8* func_0028def0(u8* dst, s32 n);  // 0028def0: moved to src/anon/unit_0028c878.cpp
 
 // Relocate a node tree in place: type -1 = group of child offsets (recursed),
 // type 0 = table whose entry pointers (+116) are rebased from base to p.

@@ -233,13 +233,7 @@ u32 func_00258a30(void) {
     return r;
 }
 
-void ItemStat_ctor(u32* p) {
-    p[3] = 0;
-    *(void**)p = D_00347e60;
-    func_00239700(p + 6);
-    *(void**)p = D_0035f420;
-    func_0028d188(p);
-}
+// 0028d140: moved to src/anon/unit_0028c878.cpp
 
 s32 SelCheck(s32 i) {
     u8* b = func_00294000(0) + 16;

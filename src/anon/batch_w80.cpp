@@ -605,15 +605,7 @@ void func_00244a60(void) {
 
 // Tz::MenuCursor::Create
 void w80_MenuCursor_Create(U11_CurObj* c, u32 a1, u32 a2, u32 a3, u32 sprA, u32 t1, u32 t2, s32 t3, u32 st) asm("_ZN2Tz10MenuCursor6CreateEz");
-void w80_MenuCursor_Create(U11_CurObj* c, u32 a1, u32 a2, u32 a3, u32 sprA, u32 t1, u32 t2, s32 t3, u32 st) {
-    u32 x = func_0023c4b8(func_0023f1b0(sprA), a2);
-    u32 y = func_00236ca8(func_0023f1b0(sprA)->f40, a3);
-    u32 z = 0;
-    if (t3 >= 0) z = func_00192048(t3);
-    func_00138d60(c, a1, x, y, t1, z, st);
-    c->f392 = t2;
-    c->f428 = 1;
-}
+// 0028d980: moved to src/anon/unit_0028c878.cpp
 
 static inline void U12_w80_cur_setflag(U12_CurSub* s, u32 f) { s->f184 |= f; }
 // Tz::JmBattle::LeaveAllInner

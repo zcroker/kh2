@@ -406,13 +406,7 @@ void func_00284fd8(void) {
 extern u8* D_0035f3fc;
 extern u32 D_0035f410;
 
-void func_0028cdb8(s32 i) {  // record408_alloc_init
-    if (func_00139d78(D_0035f3fc + i * 408)) {
-        u8* o = (u8*)(i * 408 + (u32)D_0035f3fc);
-        (*(VFn*)(*(u8**)o + 20))(o);
-        D_0035f410 |= 1 << i;
-    }
-}
+void func_0028cdb8(s32 i);  // 0028cdb8: moved to src/anon/unit_0028c878.cpp
 
 // ---------------------------------------------------------------------------
 void func_0028ff68(u8** p) {

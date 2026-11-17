@@ -311,10 +311,7 @@ void DeleteAll(...) asm("_ZN2Tz10MenuCursor9DeleteAllEz");
 extern s32 D_0035f404;
 extern u32 D_0035f410;
 void func_0028cdb8(s32);  // record408_alloc_init
-void DeleteAll(...) {
-    for (s32 i = 0; i < D_0035f404; i++) func_0028cdb8(i);  // record408_alloc_init
-    D_0035f410 = 0;
-}
+// 0028ce38: moved to src/anon/unit_0028c878.cpp
 
 u8* func_00103eb0(void);
 u32* func_00102818(u32, u32, u32, void (*)(void), u32);

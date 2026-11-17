@@ -184,11 +184,7 @@ s32 func_00253380(s32 x) {
 
 u32 func_0023aa18(void*);
 u32 func_0023aa38(void*);
-void func_0028eab8(u8* d, u8* s) {
-    u8* q = s + 24;
-    *(u32*)(d + 36) = func_0023aa18(q);
-    *(u32*)(d + 40) = func_0023aa38(q);
-}
+void func_0028eab8(u8* d, u8* s);  // 0028eab8: moved to src/anon/unit_0028c878.cpp
 
 void func_00290a60(void*);
 void func_00106450(void*);

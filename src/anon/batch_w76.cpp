@@ -444,17 +444,7 @@ void func_00276150(u32 a, s32* out0, s32* out1)
 }
 u8* func_0023f1b0(void*);
 u32 func_0023c3e0(u8*, s32, s32);
-u32 func_0028dbf8(void* a, s16* keys, s16* vals)
-{
-    if (!func_00139d78(a)) return 0;
-    s32 idx = -1;
-    s32 cur = *(s32*)(func_0023f1b0(a) + 76);
-    for (s32 i = 0; i < 3; i++) {
-        if (cur == keys[i]) { idx = vals[i]; break; }
-    }
-    if (idx < 0) return 0;
-    return func_0023c3e0(func_0023f1b0(a), idx, 0);
-}
+u32 func_0028dbf8(void* a, s16* keys, s16* vals);  // 0028dbf8: moved to src/anon/unit_0028c878.cpp
 
 s32 func_00192a80(u32);
 s32 func_00105c30(void);
@@ -462,22 +452,7 @@ extern char D_00374470[];
 u32 func_00192cc0(char*, const char*);
 s32 func_00192b30(u32);
 void memcpy(u8*, char*, s32);
-u8* func_0028de08(u32 id, u8* buf)
-{
-    char tmp[32];
-    s32 flag = 0;
-    u8* p = buf;
-    s32 n = func_00192a80(func_00192048(id));
-    if (func_00105c30() == 1 || func_00105c30() == 8) flag = 1;
-    if (!flag) n = 5;
-    s32 len = func_00192b30(func_00192cc0(tmp, D_00374470));
-    for (s32 i = 0; i < n; i++) {
-        if (i + 1 >= n) len++;
-        memcpy(p, tmp, len);
-        p += len;
-    }
-    return buf;
-}
+u8* func_0028de08(u32 id, u8* buf);  // 0028de08: moved to src/anon/unit_0028c878.cpp
 
 s8* func_00276568(void);
 s32 func_002a4380(s8);

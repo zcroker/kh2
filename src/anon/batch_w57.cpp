@@ -225,19 +225,7 @@ void func_0028d6e8(void*);
 void func_001396b0(void*);
 void func_0031a260(void*, u32);
 struct T28d { u8 p[396]; u32 f396; u32 f400; u8 p2[9]; u8 b413; };
-void func_0028d660(T28d* t, u32 v) {  // record_set_value_refresh
-    func_0028d6e8(t);
-    if (t->f396 != v) {
-        t->f396 = v;
-        t->b413 = 1;
-        func_001396b0(t);
-        if (t->f396) {
-            t->f400 = 0;
-            func_001396b0(t);
-            if (t->f400) func_0031a260(t, 0);
-        }
-    }
-}
+void func_0028d660(T28d* t, u32 v);  // 0028d660: moved to src/anon/unit_0028c878.cpp
 
 void func_002bc470(u32);
 void func_002b6e24(u32, u32, u32);

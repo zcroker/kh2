@@ -25,31 +25,7 @@ void func_0028cdb8(s32);  // record408_alloc_init
 void DelArr278(void*) asm("_ZdaPv");
 void LoadDataFree278(...) asm("_ZN2Tz12LoadDataFreeEz");
 void Exit278() asm("_ZN2Tz10MenuCursor4ExitEv");
-void Exit278() {
-    s32 i;
-    for (i = 0; i < D_0035f404; i++) func_0028cdb8(i);  // record408_alloc_init
-    if (D_0035f3fc) {
-        delete[] D_0035f3fc;
-        D_0035f3fc = 0;
-    }
-    if (D_0035f400) { DelArr278(D_0035f400); D_0035f400 = 0; }
-    if (D_0035f408) { DelArr278(D_0035f408); D_0035f408 = 0; }
-    if (D_0035f40c) { DelArr278(D_0035f40c); D_0035f40c = 0; }
-    D_0035f3f8 = 0;
-    D_0035f404 = 0;
-    if (D_0035f414) {
-        MCSave278* s = D_0035f414;
-        ((F278*)&D_0035f3f8)->i = s->a10.i;
-        ((F278*)&D_0035f404)->i = s->a8.i;
-        ((F278*)&D_0035f3fc)->o = s->a0.o;
-        ((F278*)&D_0035f400)->p = s->a4.p;
-        ((F278*)&D_0035f408)->p = s->ac.p;
-        ((F278*)&D_0035f40c)->p = s->a14.p;
-        ((F278*)&D_0035f410)->i = s->a18.i;
-        LoadDataFree278(s);
-        D_0035f414 = 0;
-    }
-}
+// 0028ca78: moved to src/anon/unit_0028c878.cpp
 }
 struct CurItem278 { u8 pad[388]; s32 num; u8 pad2[16]; };
 struct CurOwn278 { u8 pad[19584]; CurItem278 item[4]; };
