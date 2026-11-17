@@ -12518,16 +12518,7 @@ void func_0026ede0();  // 0x0026ede0: definition moved into src/anon/unit_0026c4
 
 extern "C" void func_0026ee30() asm("_ZN2Tz8CmCustom8LeaveAllEv");
 
-u32 func_00272428() {
-    u32 v0 = func_00271ec8();
-    if (v0 == 0u) {
-        u32 a0 = *(u32*)(u32)&D_0035f04c;
-        if (a0 != 0u) {
-            v0 = (u32)(0u < func_0028be58(a0));
-        }
-    }
-    return v0;
-}
+u32 func_00272428();  // 0x00272428: definition moved into src/anon/unit_00271e08.cpp
 
 void func_00274db8() {
     if ((((*(u8*)(u32)&D_0035f140) ^ 1u) & 1u & 0xffu) != 0u) {

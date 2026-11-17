@@ -6187,34 +6187,7 @@ void func_00273818();
 void func_00273c40(s32);
 void func_00273cb8(s32);
 void func_00270c70(s32);
-void func_00273530() {
-    s32 i = func_002570a0(26);
-    s32 m = func_00272b60(i);
-    s32 cur = func_0028b040_x9020(D_0035f01c);
-    s32 k;
-    switch (m) {
-    case 0:
-        func_00273678();
-        break;
-    case 1:
-        k = D_0035f12c[i + 1].a != 0;
-        if (k != cur) func_002736f8();
-        break;
-    case 2:
-        if (func_002570a0(25)) i = i - 1;
-        k = D_0035f12c[i + 1].a != 0;
-        if (func_002570a0(25) && D_0035f12c[i + 1].b == 2) k += 2;
-        if (k != cur) func_00273818();
-        break;
-    case 3:
-        func_00273c40(cur);
-        break;
-    case 4:
-        func_00273cb8(cur);
-        break;
-    }
-    func_00270c70(func_002570a0(25));
-}
+void func_00273530();  // 0x00273530: definition moved into src/anon/unit_00271e08.cpp
 
 // --------------------
 u8* func_00281180_x9057(s32) asm("func_00281180");

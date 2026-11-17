@@ -27,25 +27,6 @@ W1597Rec* func_001b8e88(s32);
 s32 func_002595e0();
 u32 func_00192048(u32);
 u32 func_002595e8(u32, u32);
-s32 func_00271710(s32 a0, u32 a1, u8 a2, u8 a3, s32 t0)
-{
-    W1597It* p;
-    if (a0) p = func_001a80c8(a0); else p = 0;
-    u32 v = 0x8448;
-    if (t0 < 0) {
-        if (p) func_00259570(p->b2, a1, a3, 1);
-    } else {
-        func_002595b8(t0, a1, 1);
-    }
-    if (a2) {
-        if (a0) v = func_001b8e88(func_001a3820(p->h0))->f8;
-    } else if (a0) {
-        v = p->h8;
-    }
-    u32 x;
-    if (t0 < 0 && !p) x = a1; else x = a1 + func_002595e0();
-    func_002595e8(x, func_00192048(v));
-    return a1;
-}
+s32 func_00271710(s32 a0, u32 a1, u8 a2, u8 a3, s32 t0);  // 0x00271710: definition moved into src/anon/unit_002713c8.cpp
 
 }

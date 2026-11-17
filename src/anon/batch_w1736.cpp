@@ -19,13 +19,7 @@ struct w1736_B { u8 b; };
 extern w1736_B D_0035f128;
 extern w1736_B D_0035f130;
 
-void func_0026ff30(void) {
-    D_0035f130.b = w1736_GetMode();
-    D_0035f128.b = 0;
-    func_00257388(0x846a, 0);
-    func_002571e0(1);
-    w1736_SetState(0);
-}
+void func_0026ff30(void);  // 0x0026ff30: definition moved into src/anon/unit_0026f0a0.cpp
 
 /* 002d5bd8 */
 struct w1736_In { u8 p[4]; s32 kind; };

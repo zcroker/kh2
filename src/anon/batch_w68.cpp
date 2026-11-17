@@ -288,17 +288,7 @@ s32 func_00139d78(void*);
 u32 func_002570a0(s32);
 s32 func_00272b60(u32);
 
-s32 func_00272538(void) {
-    s32 r = 0;
-    u8* p = (u8*)func_00257770();
-    s32 id = func_00287bc0();
-    if (p && func_00139d78(p)) {
-        s32 v = 228;
-        if (id != 26 && id != 27) v = D_00373a30[func_00272b60(func_002570a0(26))].v;
-        r = *(s32*)(p + 388) == v;
-    }
-    return r;
-}
+s32 func_00272538(void);  // 0x00272538: definition moved into src/anon/unit_00271e08.cpp
 
 /* ---- 00282cb8 ---- */
 extern s16 D_00374240[];

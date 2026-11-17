@@ -3620,23 +3620,7 @@ u32 func_0026e340();  // 0x0026e340: definition moved into src/anon/unit_0026c45
 
 void func_0026ed48();  // 0x0026ed48: definition moved into src/anon/unit_0026c450.cpp
 
-void func_00273c40(s32 a0) {
-    u32 v0 = (u32)Tz::CmTop::GetSelectPos(25);
-    u32 p = func_00281180(D_0035f010, v0);
-    u8* b = (u8*)(*(u32*)(p + 580));
-
-    if (a0 < 0) {
-        u32 n = (u32)b[244] + 1;
-        b[244] = (u8)n;
-        if ((n & 0xffu) >= 6) {
-            b[244] = 0;
-        }
-    } else {
-        b[244] = (u8)a0;
-    }
-
-    *(u8*)(D_0035f12c + 3) = b[244];
-}
+void func_00273c40(s32 a0);  // 0x00273c40: definition moved into src/anon/unit_00271e08.cpp
 
 extern "C" u32 func_00273de0(u32, u32) asm("_ZN2Tz6Jiminy4InitEjj");
 

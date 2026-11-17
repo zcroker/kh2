@@ -255,20 +255,7 @@ s32 func_00257158(u32 id, s32 a, u8 b) {
 
 u8* func_001a8110(u8*);
 u32 func_001a3820(u16);
-u32 func_00271870(u32 key) {
-    u8* e = 0;
-    u32 r = 0;
-    if (!key) return 0;
-    while ((e = func_001a8110(e)) != 0) {
-        if (e[2] == 18 || e[2] == 0) {
-            if (func_001a3820(*(u16*)e) == key) {
-                r = *(u16*)e;
-                break;
-            }
-        }
-    }
-    return r;
-}
+u32 func_00271870(u32 key);  // 0x00271870: definition moved into src/anon/unit_002713c8.cpp
 
 extern u8* D_0035f21c;
 u32 func_00139d78(u8*);

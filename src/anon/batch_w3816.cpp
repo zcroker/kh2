@@ -30,61 +30,7 @@ extern u16 D_00373a18[];
 extern u16 D_00373a28[];
 
 // Sets up the 9 sprite rows and fills them from the current list.
-void func_00271ee8(void) {
-    s32 vals[8];
-    s32 cnt;
-    s32 v;
-    s32 i;
-    u8* b = func_00257770();
-    func_00139d78(b);
-    s32 nEnt = func_0028b038(D_0035f01c);
-    func_0028be78(D_0035f04c, nEnt);
-    func_002713a0(func_00257070(25), &D_01e21ed8, &cnt);
-    v = func_00257140(0);
-    for (i = 0; i < func_002892f8(D_0035f01c); i++)
-        func_00138c10(func_002891b8(D_0035f01c, i), D_0035ef6c);
-    for (i = 0; i < 9; i++) {
-        s32 id = v;
-        func_00138c10(b + i * 436 + 24304, id);
-        *(s32*)(b + i * 436 + 24712) = 0;
-        func_00138c10(b + i * 436 + 3376, D_0035ef6c);
-        *(s32*)(b + i * 436 + 3784) = 0;
-        func_00138c10(b + i * 408 + 0x87d0, D_0035ef6c);
-    }
-    func_0028b040(D_0035f01c);
-    for (i = 0; i < cnt; i++) vals[i] = func_00272c20(D_01e21ed8[i]);
-    s32 lim = ((s8*)D_0035f12c)[4];
-    if (func_00257070(25)) lim++;
-    if (lim >= 10) lim = 9;
-    s32 idx = 0;
-    s32 k = 0;
-    for (i = 0; i < cnt && k < lim; i++) {
-        for (s32 j = 0; j < vals[i] && k < lim; j++, idx++) {
-            if (idx < nEnt) continue;
-            if (j == 0 || D_01e21ed8[i] == 0) {
-                u8* e = b + k * 436 + 3376;
-                v = D_00373a08[D_01e21ed8[i]];
-                func_00138c10(e, v);
-                s8 t = D_01e21ed8[i];
-                // pin: the original keeps the label id in a1 and copies it to a0 in the jal delay slot
-                register u32 x asm("$5") = D_00373a18[t];
-                if (!t) x = D_00373a28[idx];
-                *(s32*)(e + 408) = func_00192048(x);
-            }
-            v = D_003739f8[D_01e21ed8[i]];
-            func_00138c10(func_002891b8(D_0035f01c, k), v);
-            s8 type = D_01e21ed8[i];
-            s32 r;
-            if (type != 3) r = func_00257140(func_00257158(((Ent8*)(D_0035f12c + idx * 8))->h, 1, type == 1)); else r = func_00257140(0);
-            u8* f = b + k * 436 + 24304;
-            func_00138c10(f, r);
-            *(u8**)(f + 408) = b + idx * 32 + 0xae10;
-            if (func_00286068(((Ent8*)(D_0035f12c + idx * 8))->h))
-                func_00138c10(b + k * 408 + 0x87d0, func_00286160(((Ent8*)(D_0035f12c + idx * 8))->h) ? D_003739f0 : D_003739ec);
-            k++;
-        }
-    }
-}
+void func_00271ee8(void);  // 0x00271ee8: definition moved into src/anon/unit_00271e08.cpp
 
 extern s32 D_0035ed20;
 extern u8* D_0035ed40;

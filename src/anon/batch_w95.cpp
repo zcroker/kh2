@@ -474,28 +474,7 @@ u32 func_002570a0(u32);
 u8* func_00281180(u32, u32);
 s32 func_0028b040(u32);
 u8* func_001145b0(u32);
-void func_00273cb8(s32 sel) {
-    s32 k = func_00287bc0();
-    ColEnt* tbl = func_00273180(4, -1);  // state_dispatch_2_3
-    u32 alt = (u32)(k - 26) < 2;
-    u32 off = *(u32*)(func_00281180(D_0035f010, func_002570a0(25)) + 580);
-    s32 idx;
-    if (alt) idx = func_0028b040(D_0035f01c);
-    else idx = func_002570a0(26);
-    u8* r = func_001145b0(D_0035f12c[idx].id);
-    if (sel < 0) {
-        for (s32 j = 0; j < 3; j++) {
-            if (D_0035f12c[idx].col == tbl[j].col) {
-                sel = j;
-                break;
-            }
-        }
-        sel++;
-        if (sel >= 3) sel = 0;
-    }
-    r[off + 245] = tbl[sel].col;
-    D_0035f12c[idx].col = tbl[sel].col;
-}
+void func_00273cb8(s32 sel);  // 0x00273cb8: definition moved into src/anon/unit_00271e08.cpp
 
 extern u32 D_0035f010;
 extern u32 D_0035f01c;

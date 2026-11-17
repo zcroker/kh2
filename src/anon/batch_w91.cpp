@@ -377,14 +377,7 @@ void func_00138c10(u8*, s32);
 u32 func_0028be58(u32);
 void func_0028bd60(u32);
 extern u32 D_0035f04c;
-void func_00272468(void) {
-    s32 v = 228;
-    s32 m = func_00287bc0();
-    u8* b = cmtop_list_buffer2();
-    if (!(m == 26 || m == 27)) v = D_00373a30[func_00272b60(cmtop_select_pos(26))].c;
-    if (b && u_call4_00139d78(b) && *(s32*)(b + 388) != v) func_00138c10(b, v);
-    if (func_0028be58(D_0035f04c)) func_0028bd60(D_0035f04c);
-}
+void func_00272468(void);  // 0x00272468: definition moved into src/anon/unit_00271e08.cpp
 
 // --- 0027b5d0
 extern u32 D_0035f010;

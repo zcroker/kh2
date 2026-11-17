@@ -12,17 +12,7 @@ struct W1519E34 { u8 pad[0x19c]; u32 on : 1; u32 : 31; };
 u32 IsGaugeWarning_w1519(s32 i) asm("_ZN2YS7MISSION14IsGaugeWarningEi");
 u32 IsGaugeWarning_w1519(s32 i);  // 0x001d8f38: definition moved into src/anon/unit_001d7458.cpp
 
-s32 func_00272c20(u32 i) {
-    s32 r = -1;
-    switch (i) {
-    case 0: return 4;
-    case 1: return D_0035f12c[0];
-    case 2: return D_0035f12c[1];
-    case 3: return 1;
-    case 4: r = D_0035f12c[2]; break;
-    }
-    return r;
-}
+s32 func_00272c20(u32 i);  // 0x00272c20: definition moved into src/anon/unit_00271e08.cpp
 
 // 00181cc0: moved to src/yasui/libys/areadata.cpp
 }

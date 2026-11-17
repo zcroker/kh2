@@ -588,26 +588,7 @@ u32 func_00257140(s32);
 u32 func_00192048(u16);
 s32 func_00257070(s32);
 extern u16 D_00373a88[];
-void func_00272938(void) {
-    s32 i;
-    u16* t;
-    u8* s;
-    u8* b = func_00257770();
-    s = b + 24740;
-    for (i = 0; i < 2; i++) {
-        func_00138c10(s, func_00257140(0));
-        *(u32*)(s + 408) = func_00192048(D_00373a88[i]);
-        s += 436;
-    }
-    if (func_00257070(25)) {
-        s = b + 25612;
-        for (i = 0; i < 2; i++) {
-            func_00138c10(s, func_00257140(0));
-            *(u32*)(s + 408) = func_00192048(D_00373a88[i]);
-            s += 436;
-        }
-    }
-}
+void func_00272938(void);  // 0x00272938: definition moved into src/anon/unit_00271e08.cpp
 
 
 W84Ev* func_001db440(u16* p) {

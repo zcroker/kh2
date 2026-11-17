@@ -191,18 +191,7 @@ extern Entry373 D_00373a30[];
 extern u32 D_0035f04c;
 
 // 00272340
-void func_00272340(void)
-{
-    void* s = func_00257770();
-    u32 m = func_00287bc0() - 26;
-    if (m < 8) {
-        s32 v;
-        if (m < 2) v = 229;
-        else v = D_00373a30[func_00272b60(func_002570a0(26))].b;
-        func_0028dac8(s, v);
-        if (func_0028be58(D_0035f04c)) func_0028bdb8(D_0035f04c);
-    }
-}
+void func_00272340(void);  // 0x00272340: definition moved into src/anon/unit_00271e08.cpp
 
 s32 func_00103570(void);
 u8* func_001063c0(s32, s32);

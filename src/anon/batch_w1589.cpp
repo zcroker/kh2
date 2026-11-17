@@ -53,12 +53,6 @@ void func_0029c568(void)
     func_00287cc0(0);
 }
 
-void func_002736f8(void)
-{
-    s32 s;
-    if (func_00287bc0() == 26) s = func_0028b040(D_0035f01c);
-    else s = func_002570a0(26);
-    func_00273760(s, func_001a6598(*(u16*)(func_00273140(s) + 4)) == 0);
-}
+void func_002736f8(void);  // 0x002736f8: definition moved into src/anon/unit_00271e08.cpp
 
 }

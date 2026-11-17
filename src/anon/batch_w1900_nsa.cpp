@@ -46,47 +46,5 @@ extern u32 D_0035f01c;
 extern u32 D_0035f010;
 extern T818* D_0035f12c;
 static inline s32 tf(s32 x) { return x != 0; }
-void func_00273818(void) {
-    s32 m = func_00287bc0();
-    s32 idx;
-    if ((u32)(m - 26) < 3) idx = func_0028b040(D_0035f01c);
-    else idx = func_002570a0(26);
-    s32 v = func_002570a0(25);
-    if (v) idx--;
-    s16 id = D_0035f12c->e[idx].id;
-    s32 flag;
-    s32 r;
-    if (!v) {
-        flag = D_0035f12c->e[idx].a == 0;
-    } else {
-        if (m == 31) {
-            r = func_0028b040(D_0035f01c);
-        } else {
-            r = tf(D_0035f12c->e[idx].b);
-            r <<= 1;
-            r |= D_0035f12c->e[idx].a;
-            r++;
-            if (r >= 4) r = 0;
-        }
-        D_0035f12c->e[idx].a = r & 1;
-        D_0035f12c->e[idx].b = tf(r & 2) << 1;
-        flag = D_0035f12c->e[idx].a != 0;
-    }
-    O818* o = func_00281180(D_0035f010, v)->o;
-    s32 i;
-    for (i = 0; i < o->n; i++) {
-        if (o->a[i] == id || o->b[i] == id) o->b[i] = flag ? id : 0;
-    }
-    if (v) {
-        r = func_001145b0(D_0035f12c->e[idx].id);
-        o->c[r] = D_0035f12c->e[idx].b;
-    }
-    func_0026b5a0(25);
-    if ((u32)(m - 26) < 3) {
-        s32 old = D_0035f12c->x4;
-        func_00270c70(v);
-        func_002713c8();
-        if (old != D_0035f12c->x4) func_00273a28();
-    }
-}
+void func_00273818(void);  // 0x00273818: definition moved into src/anon/unit_00271e08.cpp
 }

@@ -663,12 +663,7 @@ void func_00321ce8(u32 a0, u32 a1) { UNLINK_BODY(96) }
 
 #undef UNLINK_BODY
 
-void func_00271e80() {
-    func_002579e0();
-    if (func_0028acc8(D_0035f01c) != 0) {
-        func_0028abe0(D_0035f01c);
-    }
-}
+void func_00271e80();  // 0x00271e80: definition moved into src/anon/unit_00271e08.cpp
 
 void func_0027a180() {
     func_002579e0();
@@ -677,12 +672,7 @@ void func_0027a180() {
     }
 }
 
-void func_002723e0() {
-    func_00271e80();
-    if (func_0028be58(D_0035f04c) != 0) {
-        func_0028be18(D_0035f04c);
-    }
-}
+void func_002723e0();  // 0x002723e0: definition moved into src/anon/unit_00271e08.cpp
 
 void func_00290610(u32 self);  // 00290610: moved to src/anon/unit_0028f1e0.cpp
 

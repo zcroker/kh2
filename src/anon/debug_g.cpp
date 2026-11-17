@@ -9,19 +9,7 @@ u32 func_00272b60(s32);
 u16* func_00273140(s32);
 s32 func_00286068(u32);
 void func_00286280(u32);
-void func_00272ae0(void) {
-    func_00287bc0();
-    s32 v = func_0028b040(D_0035f01c);
-    if (func_00272b60(v) < 2) {
-        u16* r = func_00273140(v);
-        if (r) {
-            u32 id = *r;
-            if (func_00286068(id)) {
-                func_00286280(id);
-            }
-        }
-    }
-}
+void func_00272ae0(void);  // 0x00272ae0: definition moved into src/anon/unit_00271e08.cpp
 }
 struct E36 { u8 pad[18]; u16 id; u8 pad2[16]; };
 struct Tbl { E36* e; };

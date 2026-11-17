@@ -20,34 +20,7 @@ void* func_00282d58(s32);
 u8* func_00281f30(s32);
 Item272* func_00281f20(s32);
 s32 func_00257158(s32, s32, s32);
-void func_00272758(void) {
-    s32 k = 0;
-    Base272* b = func_00257770();
-    s32 skip = func_0028b038(D_0035f01c);
-    s32 n = func_00281f18(D_0035f014);
-    s32 max, i;
-    u8* d;
-    if (skip == 0) {
-        Ent272* e = &b->e[0];
-        k = 1;
-        func_00138c10(e, func_00257140(0));
-        n++;
-        e->data = func_00282d58(D_0035f014);
-    } else {
-        skip--;
-    }
-    max = n < 9 ? n : 8;
-    d = func_00281f30(D_0035f014);
-    for (i = 0; i < n && k < max; i++) {
-        if (i >= skip) {
-            Item272* l = func_00281f20(D_0035f014);
-            Ent272* e = &b->e[k];
-            func_00138c10(e, func_00257140(func_00257158(l[i].id, 1, 0)));
-            e->data = d + i * 80 + 16;
-            k++;
-        }
-    }
-}
+void func_00272758(void);  // 0x00272758: definition moved into src/anon/unit_00271e08.cpp
 }
 
 // 00316af8 is libsupc++'s __cxa_get_globals (eh_globals.cc, gcc 3.2-ee-040921, EE gthreads),

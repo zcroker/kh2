@@ -314,16 +314,7 @@ void func_001a98e8(void*, s32, u32, u32, s32);
 s32 func_0023aa98(void*);
 u32 func_0023a918(void*);
 void func_001a9ae8(void*, u8*, u32, u32);
-void func_00273078(u8* base, u32 a1, u32 a2, u32 a3, u8* p) {
-    u8 buf[96];
-    s32 v;
-    u32 x;
-    if (func_00287bc0() != 31) return;
-    v = func_0028b160(D_0035f01c, p);  // find_index_in_array
-    x = *(u32*)(p + 424);
-    func_001a98e8(buf, 1, func_00192048(D_00373af8[v / 2].id), x, 0);
-    func_001a9ae8(buf, base + func_0023aa98(p + 24), a1, func_0023a918(p + 24));
-}
+void func_00273078(u8* base, u32 a1, u32 a2, u32 a3, u8* p);  // 0x00273078: definition moved into src/anon/unit_00271e08.cpp
 
 extern s16 D_00373d60[];
 extern s16 D_00373d68[];

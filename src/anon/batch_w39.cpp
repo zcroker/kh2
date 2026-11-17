@@ -362,13 +362,7 @@ u8* func_00257770(void);
 u32 func_00257140(int);
 u16* func_00273180(int, int);  // state_dispatch_2_3
 u32 func_00192048(u16);
-void func_00272a00(void) {
-    u8* p = func_00257770() + 24740;
-    for (int i = 0; i < 6; i++, p += 436) {
-        func_00138c10(p, func_00257140(0));
-        *(u32*)(p + 408) = func_00192048(*func_00273180(3, i));
-    }
-}
+void func_00272a00(void);  // 0x00272a00: definition moved into src/anon/unit_00271e08.cpp
 
 // --- 00276438
 extern u32 D_0035f200;

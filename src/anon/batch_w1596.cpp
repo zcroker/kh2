@@ -37,24 +37,6 @@ void func_0028be78(s32, s32);
 void func_002891f0(s32, s32, s32, s32, s32);
 void func_0028afd0(s32, s32);
 void func_0028af90(s32, s32);
-void func_00273a28() {
-    s32 n = D_0035f12c->n;
-    if (func_00257070(25)) n++;
-    s32 a = func_002891e8(D_0035f01c);
-    s32 b = func_0028b038(D_0035f01c);
-    s32 c = func_002892f8(D_0035f01c);
-    if (a == 0) {
-        if (b != 0) b--;
-    } else if (b != 0 && n < b + c) {
-        b--;
-    } else if (a != 0 && a >= n) {
-        a--;
-    }
-    func_0028bfc0(D_0035f04c, n);
-    func_0028be78(D_0035f04c, b);
-    func_002891f0(D_0035f01c, a, 0, -1, -1);
-    func_0028afd0(D_0035f01c, b);
-    func_0028af90(D_0035f01c, n);
-}
+void func_00273a28();  // 0x00273a28: definition moved into src/anon/unit_00271e08.cpp
 
 }

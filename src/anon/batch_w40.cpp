@@ -228,25 +228,13 @@ s32 func_0028acc8(u32);
 s32 func_0028acb8(u32);
 void func_0028aa40(u32);
 extern u32 D_0035f01c;
-void func_00271e08(void) {
-    u32 s = func_00257770();
-    if (func_00287bc0() == 25) {
-        func_0028dac8(s, 142);
-        if (func_0028acc8(D_0035f01c) && !func_0028acb8(D_0035f01c)) func_0028aa40(D_0035f01c);
-    }
-}
+void func_00271e08(void);  // 0x00271e08: definition moved into src/anon/unit_00271e08.cpp
 
 u32 func_00257140(u32);
 void func_00138c10(u8*, u32);
 u16* func_00273180(u32, s32);  // state_dispatch_2_3
 u32 func_00192048(u16);
-void func_00272a70(void) {
-    u8* s = (u8*)func_00257770() + 24740;
-    for (s32 i = 0; i < 3; i++, s += 436) {
-        func_00138c10(s, func_00257140(0));
-        *(u32*)(s + 408) = func_00192048(*func_00273180(4, i));
-    }
-}
+void func_00272a70(void);  // 0x00272a70: definition moved into src/anon/unit_00271e08.cpp
 
 struct VObj28 { struct VT { u32 (*f0)(VObj28*, u32, u32); }* vt; };
 struct G28 { u8 pad[20]; VObj28* o; };

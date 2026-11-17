@@ -34,43 +34,7 @@ void func_00287c00(s32);
 extern u32 D_0035f024;
 extern u8 D_0035f128;
 extern u8 D_0035f130;
-void func_0026ff78(void) {
-    s32 m = func_00287cd0();
-    func_00287bc0();
-    if (m == 2) {
-        if (!func_002576d0()) {
-            func_002575a8();
-            func_00287c30();
-            func_00287cc0(1);
-        }
-        return;
-    }
-    if (m == 0) {
-        if (func_00257610(0)) func_00287c90(1);
-    }
-    if (m == 1) {
-        s32 r = func_00289380(D_0035f024);
-        if (func_00242848(func_00287df0(r, func_00289310(D_0035f024), 0, 0, 1))) return;
-        switch (r) {
-        case -4:
-        case -3:
-        case -1:
-            break;
-        case 1:
-            if (D_0035f130 == 26 || D_0035f130 == 27) {
-                func_00273818();
-                func_00271ee8();
-            }
-            D_0035f128 = 1;
-        case -2:
-        case 0:
-            func_00257530(0);
-            func_00287cc0(2);
-            func_00287c00((s8)D_0035f130);
-            break;
-        }
-    }
-}
+void func_0026ff78(void);  // 0x0026ff78: definition moved into src/anon/unit_0026f0a0.cpp
 s32 func_00276348(void);
 void func_0028d8c0(u8*, s32, u32, u32, u32, s32, s32, s32);
 void func_00139620(u8*);

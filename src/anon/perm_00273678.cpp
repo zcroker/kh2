@@ -38,16 +38,6 @@ typedef struct Q
   u8 pad[8];
   s16 a[8];
 } Q;
-void func_00273678(void)
-{
-  s16 r = 0;
-  s32 v = func_0028b040(D_0035f01c);
-  if (v != 0)
-  {
-    r = func_001a3820(((S6 *) func_00281f20(D_0035f014))[v - 1].a);
-  }
-  v = func_002570a0(0x1a);
-  ((Q *) ((func_001058e8() + 0x36f0) + (v * 2)))->a[0] = r;
-}
+void func_00273678(void);  // 0x00273678: definition moved into src/anon/unit_00271e08.cpp
 
 }

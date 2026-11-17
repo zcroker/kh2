@@ -1,4 +1,4 @@
-// Linked unit 0x00110b00-0x00111520 (one namespace per old matched source; class methods in their own namespace).
+// Linked unit 0x001109c8-0x00111520 (one namespace per old matched source; class methods in their own namespace).
 #include "../common/types.h"
 #include "../tozawa/cmenu_top.hpp"
 #include <stdarg.h>
@@ -17,6 +17,47 @@
 #include "../../src/common/types.h"
 extern "C" float fabsf(float);
 #include "tiny_auto80_solver_structs.hpp"
+
+// 001109c8 (gap function, not written before): push the follow-target motion of a friend controller
+namespace g001109c8 {
+struct V4 { f32 x, y, z, w; } __attribute__((aligned(16)));
+struct T { u32 f0; u32 f4; u8 pad[24]; f32 f32_; };
+struct P;
+struct Obj { struct VT { void* a; void* b; void (*f)(Obj*, P*, V4*); }* vt; };
+struct P { u8 p0[12]; Obj* o12; u8 p1[280 - 16]; f32 f280; u8 p2[320 - 284]; u8 m320[2992 - 320]; f32 f2992;
+    u8 p3[3024 - 2996]; V4 v3024; u8 p4[3176 - 3040]; T* t; };
+u64 func_00313b80(f32) asm("func_00313b80");
+s32 func_003142e0(u64, u64) asm("func_003142e0");
+f32 func_0010e7e0(P*, s32) asm("func_0010e7e0");
+void func_0017dee8(void) asm("func_0017dee8");
+void func_0017f488(void*, u32, f32, f32) asm("func_0017f488");
+void mo_push(void*, s32, f32, f32, void*) asm("_ZN2YS6MOTION4pushEiffPFvPNS_3OBJEE");
+void func_001109c8(P* p) asm("func_001109c8");
+void func_001109c8(P* p) {
+    T* t = p->t;
+    if (t) {
+        if (func_003142e0(func_00313b80(t->f32_), 0)) {
+            f32 d = t->f32_ - p->f2992;
+            f32 c;
+            if (d < 0.0f) c = 0.0f;
+            else if (p->f280 < d) c = p->f280;
+            else c = d;
+            V4 v;
+            asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(&v), "r"(&p->v3024) : "$8", "memory");
+            v.y = c;
+            v.w = func_0010e7e0(p, 2);
+            p->o12->vt->f(p->o12, p, &v);
+            func_0017f488(p->m320, p->t->f4, 0.0f, 0.0f);
+            mo_push(p->m320, 4, 0.0f, 0.0f, 0);
+        } else {
+            func_0017f488(p->m320, t->f4, 0.0f, 0.0f);
+            mo_push(p->m320, 0, 0.0f, 0.0f, 0);
+        }
+    } else {
+        func_0017dee8();
+    }
+}
+}  // namespace g001109c8
 
 // 00110b00 (was src/anon/batch_w112.cpp)
 namespace n00110b00 {

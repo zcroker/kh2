@@ -636,23 +636,7 @@ void func_00257050(s32, s32, s32);
 u32 func_00281140(u8*, s32);
 void func_0028fb68(s32, u32);
 s32 Jiminy_Init(u8, u8) asm("_ZN2Tz6Jiminy4InitEv");
-s32 Jiminy_Init(u8 fwd, u8 apply)
-{
-    s32 cur = func_00257070(25);
-    s32 n = func_00281100(D_0035f010);
-    if (fwd) {
-        cur++;
-        if (!(cur < n)) cur = 0;
-    } else {
-        cur--;
-        if (cur < 0) cur = n - 1;
-    }
-    if (apply) {
-        func_00257050(25, cur, 0);
-        func_0028fb68(1, func_00281140(D_0035f010, cur));
-    }
-    return cur;
-}
+s32 Jiminy_Init(u8 fwd, u8 apply);  // 0x00273de0: definition moved into src/anon/unit_00271e08.cpp
 
 u32 func_0013a1d8(void);
 u32* func_001063f0(s32, u32);
@@ -2475,21 +2459,7 @@ s32 func_0026d8c0(s32 x);  // 0x0026d8c0: definition moved into src/anon/unit_00
 extern u8 D_00373ab0[];
 extern u8 D_00373af8[];
 extern u8 D_00373ae0[];
-u8* func_00273180(s32 k, s32 id)
-{
-    u8* r = 0;
-    u8* t = 0;
-    s32 n = 0;
-    switch (k) {
-    case 3: t = D_00373ab0; n = 6; break;
-    case 2: t = D_00373af8; n = 2; break;
-    case 4: t = D_00373ae0; n = 3; break;
-    }
-    if (id < 0) return t;
-    for (s32 i = 0; i < n; i++)
-        if (t[i * 8 + 5] == id) { r = t + i * 8; break; }
-    return r;
-}
+u8* func_00273180(s32 k, s32 id);  // 0x00273180: definition moved into src/anon/unit_00271e08.cpp
 extern u8* D_0035f5d8;
 u8 u_call4_00139d78(void*) asm("_Z16u_call4_00139d78jjjj");
 void func_00139510(u8*);

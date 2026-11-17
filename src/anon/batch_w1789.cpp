@@ -11,13 +11,5 @@ void func_001a6510(s32);
 void func_001a6548(s32);
 s32 func_001a6598(s32);
 
-void func_00273760(s32 idx, u8 on) {
-    s32 id = func_00273140()->id;
-    if (on) func_001a6510(id);
-    else func_001a6548(id);
-    u8 v = func_001a6598(id) != 0;
-    id = D_0035f12c->e[idx].id;
-    for (s32 i = 0; i < D_0035f12c->n; i++)
-        if (D_0035f12c->e[i].id == id) D_0035f12c->e[i].f = v;
-}
+void func_00273760(s32 idx, u8 on);  // 0x00273760: definition moved into src/anon/unit_00271e08.cpp
 }

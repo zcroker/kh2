@@ -59,61 +59,7 @@ void func_002b3050(s32);
 extern "C" {
 // Looks up the message id for the current menu mode and draws that message.
 // Partial inline asm (asm_review.tsv): register pins for id/mode/has/k/t/i/o and one pinned subu.
-void func_00272c90(void)
-{
-    register s32 id asm("$19") = -1;
-    s32 id2 = -1;
-    register s32 mode asm("$18") = func_00287bc0();
-    u8* base = func_00257770();
-    register s32 has asm("$22");
-    s32 v;
-    s32 r;
-    if (mode == 25) has = func_0028b040(D_0035f01c);
-    else has = func_002570a0(25);
-    if (mode == 25) {
-        if (!func_0028b040(D_0035f01c)) id = D_003739c4;
-        else id = D_003739c8;
-    } else if ((u32)(mode - 26) < 3) {
-        v = func_0028b040(D_0035f01c);
-        register s32 k asm("$20") = func_00272b60(v);
-        if (k == 3) {
-            id = func_00273180(3, ((Slot272*)D_0035f12c)->b3)->id;
-        } else {
-            asm("" : "+r"(k));
-            register s32 t asm("$15") = has != 0;
-            register s32 i asm("$17");
-            asm("subu %0,%1,%2" : "=r"(i) : "r"(v), "r"(t));
-            u8* p = func_00273140(i);
-            if (p) id = *(u16*)(p + 10);
-            if (mode == 27) { register u32 o asm("$14") = i * 8; o += (u32)D_0035f12c; id2 = func_00273180(k, ((Slot272*)o)->bb)->id; }
-        }
-    } else if (mode == 29) {
-        v = func_0028b040(D_0035f01c);
-        if (v) id = *(u16*)(func_001a80c8(*(u16*)(func_00281f20(D_0035f014) + v * 6 - 6)) + 10);
-        else id = 0x9df7;
-    } else if (mode == 30) {
-        v = func_0028b040(D_0035f01c);
-        register u16* o asm("$14") = &D_00373a80[v];
-        id = *o;
-    } else if (mode == 31) {
-        v = func_0028b040(D_0035f01c);
-        id = D_00373a90[v % 2];
-        if (has) id2 = D_00373af8[v / 2].b;
-    } else if (mode == 32) {
-        v = func_0028b040(D_0035f01c);
-        id = func_00273180(3, v)->id;
-    } else {
-        v = func_0028b040(D_0035f01c);
-        id = func_00273180(4, v)->id;
-    }
-    r = 0;
-    if (id > 0) r = func_00192c90(func_00192048(id), base + 0xb1d0);
-    if (id2 > 0) {
-        s32 t = r - (r != 0);
-        r = t + func_00192c90(func_00192048(id2), base + t + 0xb1d0);
-    }
-    func_00263a90(r ? base + 0xb1d0 : 0, 1);
-}
+void func_00272c90(void);  // 0x00272c90: definition moved into src/anon/unit_00271e08.cpp
 
 // Builds a grid of menu entries (rows x cols from the D_00374cd0 layout table) and lays them out.
 void func_002b24c8(void) {

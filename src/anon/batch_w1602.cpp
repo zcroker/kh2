@@ -15,25 +15,7 @@ void func_002728c8(void);
 void func_00272938(void);
 void func_00272a00(void);
 void func_00272a70(void);
-void func_002725d8(void) {
-    s32 i = 0;
-    u8* p = func_00257770() + 24740;
-    func_0028be78(D_0035f04c, func_0028b038(D_0035f01c));
-    s32 s = func_00257140(0);
-    func_002892f8(D_0035f01c);
-    for (; i < func_002892f8(D_0035f01c); i++) {
-        func_00138c10(p, s);
-        *(u32*)(p + 408) = 0;
-        p += 436;
-    }
-    switch (func_00272b60(func_002570a0(26))) {
-    case 0: func_00272758(); break;
-    case 1: func_002728c8(); break;
-    case 2: func_00272938(); break;
-    case 3: func_00272a00(); break;
-    case 4: func_00272a70(); break;
-    }
-}
+void func_002725d8(void);  // 0x002725d8: definition moved into src/anon/unit_00271e08.cpp
 extern u32 D_0035f010;
 u32 func_00269508(s32);
 u32 func_00257130(void);

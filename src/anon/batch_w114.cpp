@@ -338,33 +338,4 @@ void func_00256bb0(u8*);
 extern "C" {
 void func_00273368(u8* p, u8 flag);
 }
-void func_00273368(u8* p, u8 flag) {
-    u8* m = func_00257770();
-    u8* e = m + 816;
-    s32 busy = func_00139d78(e);
-    s32 mode = func_00287bc0();
-    s32 x, y;
-    if (func_0028d008(p)) {
-        if (!busy) {
-            s32 id = D_0035f3d4 + 2;
-            s32 c = 249;
-            if ((u32)(mode - 26) >= 2) c = D_00373a60[func_00272b60(func_002570a0(26)) + 5];
-            func_0028d8c0(e, id, D_0035ef68, D_0035ef64, D_0035f03c, c, -1, 0);
-            func_0028dcc0(e, m);
-            func_00138c78(*(u32*)(func_0028d0e0(p) + 396), &x, &y);
-            func_00138c68(e, x, y);
-        }
-        if (flag) {
-            func_00138c78(*(u32*)(func_0028d0e0(p) + 396), &x, &y);
-            func_00138c68(e, x, y);
-        }
-        if (func_00139d78(m + 2504) && !flag) return;
-        if ((u32)(mode - 26) < 2 && func_00272b60(func_0028b040(D_0035f01c))) {
-            func_00256bb0(func_0028d0e0(p));
-            return;
-        }
-    } else if (busy) {
-        func_00139510(e);
-    }
-    func_00256c40();
-}
+void func_00273368(u8* p, u8 flag);  // 0x00273368: definition moved into src/anon/unit_00271e08.cpp

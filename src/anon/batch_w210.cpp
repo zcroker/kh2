@@ -19,11 +19,7 @@ void func_001712b0(A171* a);  // 0x001712b0: definition moved into src/anon/unit
 
 // 00178570: moved to src/yasui/libys/player.cpp
 
-u32 func_00271828(u32 i, u32 b) {
-    u32 s = b;
-    CopyMessage(s, u_tail4_00192048(D_00373970[i]));
-    return s;
-}
+u32 func_00271828(u32 i, u32 b);  // 0x00271828: definition moved into src/anon/unit_002713c8.cpp
 
 void func_002ba140(u32 a, u32 b, u32 c) {
     func_002bc608(a);
