@@ -1,4 +1,4 @@
-// Linked unit 0x001f45f8-0x001f5670 (ppp programs; one namespace per old matched source, gap functions written for the unit).
+// Linked unit 0x001f4498-0x001f5670 (ppp programs; one namespace per old matched source, gap functions written for the unit).
 #include "../common/types.h"
 #include "../kn/fvector.hpp"
 #include "./tiny_auto80_queue_structs.hpp"
@@ -9,6 +9,66 @@
 asm("dpmul = func_00313f40");
 asm("litodp = func_00314330");
 asm("dptofp = __truncdfsf2");
+
+// 001f4498 (was gap)
+namespace n001f4498 {
+typedef unsigned int u128 __attribute__((mode(TI)));
+struct S {
+    s32 w0; u8 b4; u8 b5; u16 h6; s32 w8;
+    f32 f12, f16, f20, f24, f28, f32_, f36, f40;
+    u8 pad44[112 - 44];
+    u128 q112, q128, q144, q160, q176, q192;
+    f32 f208, f212, f216; s32 w220;
+};
+struct G { u8 pad[171]; u8 b171; };
+extern G* D_01d9e6e0 asm("D_01d9e6e0");
+void func_001f4498(u8* self, u8* t) asm("func_001f4498");
+void func_001f4498(u8* self, u8* t) {
+ u8* b = self + (*(s32**)(t + 12))[3];
+ S* s = (S*)(b + 0xa0);
+ *(s32*)(b + 160) = 0;
+ s->q112 = 0; s->q128 = 0; s->q144 = 0; s->q160 = 0; s->q176 = 0; s->q192 = 0;
+ s->w220 = 0; s->b4 = 0; s->b5 = 1; s->w8 = 0; s->h6 = 0;
+ s->f40 = s->f36 = s->f208 = s->f212 = s->f216 = s->f24 = s->f28 = s->f32_ = s->f12 = s->f16 = s->f20 = 0.0f;
+ D_01d9e6e0->b171 = 1;
+}
+}  // namespace n001f4498
+
+// 001f4520 (was gap)
+namespace n001f4520 {
+typedef unsigned int u128 __attribute__((mode(TI)));
+struct R { u8 pad[12]; f32 a12; u8 pad16[32 - 16]; f32 a32; u8 pad36[44 - 36]; f32 a44; u8 pad48[56 - 48]; f32 a56, a60, a64;
+           u8 pad68[92 - 68]; f32 a92, a96, a100; u8 pad104[128 - 104]; f32 a128; };
+struct S {
+    s32 w0; u8 b4; u8 b5; u16 h6; s32 w8;
+    f32 f12, f16, f20, f24, f28, f32_, f36, f40;
+    u8 pad44[112 - 44];
+    f32 f112, f116, f120; u8 pad124[4];
+    u128 q128, q144; f32 f160, f164, f168, f172; u128 q176, q192;
+    f32 f208, f212, f216; R* r;
+};
+void func_001f4520(u8* self, u8* t) asm("func_001f4520");
+void func_001f4520(u8* self, u8* t) {
+    S* s = (S*)(self + (*(s32**)(t + 12))[3] + 0xa0);
+    R* r = s->r;
+    s->f160 -= r->a92;
+    s->f164 -= r->a96;
+    s->f168 -= r->a100;
+    s->q176 = 0;
+    s->q192 = 0;
+    s->f208 -= r->a128;
+    s->f212 = s->f216 = 0.0f;
+    s->f112 -= r->a56;
+    s->f116 -= r->a60;
+    s->f120 -= r->a64;
+    s->q128 = 0;
+    s->q144 = 0;
+    s->f12 -= r->a44;
+    s->f16 = s->f20 = 0.0f;
+    s->f24 -= r->a32;
+    s->f28 = s->f32_ = 0.0f;
+}
+}  // namespace n001f4520
 
 // 001f45f8 (was src/anon/tiny_auto80_queue.cpp)
 namespace n001f45f8 {
