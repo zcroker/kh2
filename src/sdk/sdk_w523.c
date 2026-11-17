@@ -102,12 +102,7 @@ int func_003109e0(unsigned int a, int b, int c, Node* n)
     return r;
 }
 
-int func_002f4d60(void)
-{
-    if (sceSifCallRpc(D_01e2d980, 0x80001305, 0, D_01e2da80, 144, D_01e2da80, 144, 0, 0) < 0)
-        return 0;
-    return D_01e2da80[1];
-}
+int func_002f4d60(void);  // 0x002f4d60: definition moved into src/sdk/libdbc.c
 
 void func_0030ee18(void)
 {

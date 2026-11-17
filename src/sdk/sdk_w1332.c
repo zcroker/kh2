@@ -19,33 +19,7 @@ extern char D_01e2d9d0[];
 extern int D_01e2fe40;
 typedef struct { int a; int b; int size; unsigned char data[8324]; } DbcSend3;
 extern DbcSend3 D_01e2db40;
-int sceDbcSendData3(int a, int b, int *size, unsigned char *buf, void *end)
-{
-    DbcSend3 *s;
-    int i;
-    if (*size > 8320) {
-        func_002f5c48("libdbc: SendData3 data length too long [%d]\n", *size);
-        return 0;
-    }
-    func_00305660(D_01e2fe40);
-    if (func_003096b8(D_01e2d9d0) == 1) {
-        func_002f5c48("dbcman : SendData3 BUSY\n");
-        func_00305640(D_01e2fe40);
-        return 0;
-    }
-    s = &D_01e2db40;
-    D_01e2db40.a = a;
-    s->b = b;
-    s->size = *size;
-    for (i = 0; i < *size; i++)
-        s->data[i] = buf[i];
-    if (sceSifCallRpc(D_01e2d9d0, 0x8000131c, 1, &D_01e2db40, 8336, &D_01e2db40, 8336, end, 0) < 0) {
-        func_00305640(D_01e2fe40);
-        return 0;
-    }
-    func_00305640(D_01e2fe40);
-    return 1;
-}
+int sceDbcSendData3(int a, int b, int *size, unsigned char *buf, void *end);  // 0x002f59c8: definition moved into src/sdk/libdbc.c
 
 /* libcdvd: stream/async rpc requests */
 struct StRq { int a; int x4; int x8; int rest; int x10; unsigned int n; u8 *ptr; int x1c; u8 data[16]; };

@@ -294,10 +294,7 @@ void func_00232718();  // 0x00232718: definition moved into src/anon/unit_002315
 
 u32 func_002538f8(u32 a0);  // 0x002538f8: definition moved into src/anon/unit_002530c8.cpp
 
-void func_002f5c48(u32, ...) {
-    volatile u8 pad[64];
-    (void)pad;
-}
+void func_002f5c48(u32, ...);  // 0x002f5c48: definition moved into src/sdk/libdbc.c
 
 u32 func_00282228(u32 a0, u32 a1, u32 a2);  // 0x00282228: definition moved into src/anon/unit_00281cf0.cpp
 

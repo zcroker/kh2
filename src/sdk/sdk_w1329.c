@@ -225,14 +225,7 @@ extern int DIntr(void);
 extern void EIntr(void);
 extern struct B64 D_01e2fd80;
 extern struct B64 D_01e2fe00;
-int func_002f5190(int port)
-{
-    func_00305f18(&D_01e2fd80, (char *)&D_01e2fd80 + 128);
-    DIntr();
-    D_01e2fe00 = D_01e2fd80;
-    EIntr();
-    return ((int *)&D_01e2fe00)[port] == 1 ? 1 : 3;
-}
+int func_002f5190(int port);  // 0x002f5190: definition moved into src/sdk/libdbc.c
 
 extern unsigned int func_0030ef10(unsigned int, unsigned int, void *);
 extern void func_0030f058(int, int);

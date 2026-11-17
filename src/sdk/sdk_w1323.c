@@ -6,50 +6,11 @@ extern int func_00305640(int);
 extern int D_01e2fe40;
 extern char D_01e2d980[];
 extern int D_01e2da80[];
-int sceDbcInitSocket(int x)
-{
-    int r;
-    func_00305660(D_01e2fe40);
-    D_01e2da80[0] = x;
-    if (sceSifCallRpc(D_01e2d980, 0x80001315, 0, D_01e2da80, 144, D_01e2da80, 144, 0, 0) < 0) {
-        func_002f5c48("sceDbcInitSocket: rpc error\n");
-        func_00305640(D_01e2fe40);
-        return 0;
-    }
-    r = D_01e2da80[1];
-    func_00305640(D_01e2fe40);
-    return r;
-}
+int sceDbcInitSocket(int x);  // 0x002f5288: definition moved into src/sdk/libdbc.c
 
-int sceDbcResetSocket(int x)
-{
-    int r;
-    func_00305660(D_01e2fe40);
-    D_01e2da80[0] = x;
-    if (sceSifCallRpc(D_01e2d980, 0x80001316, 0, D_01e2da80, 144, D_01e2da80, 144, 0, 0) < 0) {
-        func_002f5c48("sceDbcResetSocket: rpc error\n");
-        func_00305640(D_01e2fe40);
-        return 0;
-    }
-    r = D_01e2da80[1];
-    func_00305640(D_01e2fe40);
-    return r;
-}
+int sceDbcResetSocket(int x);  // 0x002f5338: definition moved into src/sdk/libdbc.c
 
-int sceDbcGetDeviceStatus(int x)
-{
-    int r;
-    func_00305660(D_01e2fe40);
-    D_01e2da80[0] = x;
-    if (sceSifCallRpc(D_01e2d980, 0x80001317, 0, D_01e2da80, 144, D_01e2da80, 144, 0, 0) < 0) {
-        func_002f5c48("sceDbcGetDeviceStatus: rpc error\n");
-        func_00305640(D_01e2fe40);
-        return 0;
-    }
-    r = D_01e2da80[1];
-    func_00305640(D_01e2fe40);
-    return r;
-}
+int sceDbcGetDeviceStatus(int x);  // 0x002f53e8: definition moved into src/sdk/libdbc.c
 
 typedef struct { int on, kind, x8, xc; } E;
 int func_002f6440(unsigned char *bits, E *e)

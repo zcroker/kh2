@@ -94,39 +94,9 @@ extern int D_00363d10;
 extern int D_01e2fe40;
 extern char D_01e2d980[];
 extern int D_01e2da80[];
-int sceDbcDeleteSocket(int x)
-{
-    int r;
-    if (!D_00363d10)
-        return 0;
-    func_00305660(D_01e2fe40);
-    D_01e2da80[0] = x;
-    if (sceSifCallRpc(D_01e2d980, 0x80001302, 0, D_01e2da80, 144, D_01e2da80, 144, 0, 0) < 0) {
-        func_002f5c48("sceDbcDeleteSocket: rpc error\n");
-        func_00305640(D_01e2fe40);
-        return 0;
-    }
-    r = D_01e2da80[1];
-    func_00305640(D_01e2fe40);
-    return r;
-}
+int sceDbcDeleteSocket(int x);  // 0x002f4f60: definition moved into src/sdk/libdbc.c
 
-int func_002f5498(int *p)
-{
-    int r;
-    func_00305660(D_01e2fe40);
-    D_01e2da80[2] = 2;
-    D_01e2da80[4] = p[2];
-    D_01e2da80[5] = p[3];
-    if (sceSifCallRpc(D_01e2d980, 0x8000131d, 0, D_01e2da80, 144, D_01e2da80, 144, 0, 0) < 0) {
-        func_002f5c48("sceDbcGetDeviceStatus: rpc error\n");
-        func_00305640(D_01e2fe40);
-        return -1;
-    }
-    r = D_01e2da80[1];
-    func_00305640(D_01e2fe40);
-    return r;
-}
+int func_002f5498(int *p);  // 0x002f5498: definition moved into src/sdk/libdbc.c
 
 /* libcdvd (streaming/async rpc) */
 struct C1324 { int pad[9]; int f; int rest[26]; };

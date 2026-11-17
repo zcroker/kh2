@@ -161,51 +161,6 @@ extern DbcRecv D_01e2da80;
 extern int func_00305660(int);
 extern int func_00305640(int);
 extern int func_002f5c48(const char *, ...);
-int sceDbcSendData(int a, int b, int *size, unsigned char *buf)
-{
-    DbcRecv *s;
-    int r;
-    int i;
-    func_00305660(D_01e2fe40);
-    s = &D_01e2da80;
-    D_01e2da80.a = a;
-    s->b = b;
-    s->size = *size;
-    for (i = 0; i < *size; i++)
-        s->data[i] = buf[i];
-    if (sceSifCallRpc(D_01e2d980, 0x80001319, 0, &D_01e2da80, 144, &D_01e2da80, 144, 0, 0) < 0) {
-        func_002f5c48("sceDbcSendData: rpc error\n");
-        func_00305640(D_01e2fe40);
-        return 0;
-    }
-    if (s->result >= 0)
-        *size = s->size;
-    r = s->result;
-    func_00305640(D_01e2fe40);
-    return r;
-}
+int sceDbcSendData(int a, int b, int *size, unsigned char *buf);  // 0x002f56e8: definition moved into src/sdk/libdbc.c
 
-int sceDbcReceiveData(int a, int b, int *size, unsigned char *buf)
-{
-    DbcRecv *s;
-    int r;
-    int i;
-    func_00305660(D_01e2fe40);
-    s = &D_01e2da80;
-    D_01e2da80.a = a;
-    s->b = b;
-    s->size = *size;
-    if (sceSifCallRpc(D_01e2d980, 0x8000131a, 0, &D_01e2da80, 144, &D_01e2da80, 144, 0, 0) < 0) {
-        func_002f5c48("sceDbcReceiveData: rpc error\n");
-        func_00305640(D_01e2fe40);
-        return 0;
-    }
-    if (s->result >= 0) {
-        *size = s->size;
-        for (i = 0; i < s->size; i++)
-            buf[i] = s->data[i];
-    }
-    r = s->result;
-    func_00305640(D_01e2fe40);
-    return r;
-}
+int sceDbcReceiveData(int a, int b, int *size, unsigned char *buf);  // 0x002f5b20: definition moved into src/sdk/libdbc.c

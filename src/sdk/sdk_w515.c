@@ -96,11 +96,7 @@ int func_00310180(int *p, int *q)
 extern int sceSifCallRpc(void *, int, int, void *, int, void *, int, int, int);
 extern char D_01e2d980[];
 extern int D_01e2da80[];
-int func_002f4a20(void)
-{
-    sceSifCallRpc(D_01e2d980, 0x80001363, 0, D_01e2da80, 144, D_01e2da80, 144, 0, 0);
-    return D_01e2da80[0];
-}
+int func_002f4a20(void);  // 0x002f4a20: definition moved into src/sdk/libdbc.c
 
 typedef struct { int a; int b; int c; int d; char pad[820 - 16]; } Ent;
 extern Ent D_01e2fe48[];

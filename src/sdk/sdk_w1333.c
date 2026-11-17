@@ -46,34 +46,7 @@ extern int func_00305660(int);
 extern int func_00305640(int);
 
 extern int func_002f5c48(const char *, ...);
-int sceDbcSRData(int a, int b, int *n1, char *s, int *n2, char *r)
-{
-    int i;
-    int res;
-    Pk *p;
-    func_00305660(D_01e2fe40);
-    p = &D_01e2da80;
-    p->a = a;
-    p->b = b;
-    p->n1 = *n1;
-    p->n2 = *n2;
-    for (i = 0; i < *n1; i++)
-        p->s[i] = s[i];
-    if (sceSifCallRpc(D_01e2d980, 0x80001318, 0, &D_01e2da80, 144, &D_01e2da80, 144, 0, 0) < 0) {
-        func_002f5c48("sceDbcSRData: rpc error\n");
-        func_00305640(D_01e2fe40);
-        return 0;
-    }
-    if (p->res >= 0) {
-        *n1 = p->n1;
-        *n2 = p->n2;
-        for (i = 0; i < p->n2; i++)
-            r[i] = p->r[i];
-    }
-    res = p->res;
-    func_00305640(D_01e2fe40);
-    return res;
-}
+int sceDbcSRData(int a, int b, int *n1, char *s, int *n2, char *r);  // 0x002f5558: definition moved into src/sdk/libdbc.c
 
 typedef struct { short inter; short omode; short ffmode; short version; int f8; int fc; } GP;
 extern GP *sceGsGetGParam(void);

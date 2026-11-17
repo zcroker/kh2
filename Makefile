@@ -26,6 +26,7 @@ CFLAGS := -O2 -g0 -x c -ffunction-sections
 # Sony PS2 SDK library code (src/sdk/**/*.c) was built with an older compiler: ee-gcc 2.9-991111 -O2 -G0.
 SDK_CC := /work/tools/compilers/ee-gcc2.9-991111/bin/ee-gcc
 SDK_CFLAGS := -O2 -G0 -g0 -x c -ffunction-sections
+# A linked SDK unit (src/sdk/*.c row in linked_units.tsv) gets its UNIT_FLAGS too (-fno-function-sections comes last).
 ASFLAGS := -G0
 VERIFY_AUTODIFF_COUNT ?= 3
 VERIFY_SMALL_DIFF_MAX ?= 32
@@ -173,7 +174,7 @@ out/build/%.o: %.cpp
 
 out/build/src/sdk/%.o: src/sdk/%.c
 	@mkdir -p $(dir $@)
-	@$(SDK_CC) $(SDK_CFLAGS) -c -o $@ $<
+	@$(SDK_CC) $(SDK_CFLAGS) $(UNIT_FLAGS) -c -o $@ $<
 
 out/build/%.o: %.c
 	@mkdir -p $(dir $@)
