@@ -14,3 +14,6 @@ objdiff.json
 core
 # downloaded compilers
 /tools/compilers/
+
+# helper scratch folders
+/work/
