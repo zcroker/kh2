@@ -450,3 +450,15 @@ s32 func_002b8214(s32 a) asm("func_002b8214");
 s32 func_002b8214(s32 a) { return 0; }
 }  // namespace n002b8214
 
+
+// 002b823c (was whole asm: src/anon/asm_002b823c.s)
+// Returns the sound driver word kept at gp-7460 (set by 0x2b691c) after command 33.
+namespace n002b823c {
+s32 func_002b6708(s32, ...) asm("func_002b6708");
+s32 func_002b823c(void) asm("func_002b823c");
+s32 func_002b823c(void) {
+    register s32* gp asm("$28");
+    func_002b6708(1, 33);
+    return gp[-1865];
+}
+}  // namespace n002b823c

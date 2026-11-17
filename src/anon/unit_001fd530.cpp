@@ -1,5 +1,5 @@
-// Linked unit 0x1fd530-0x1fded0: six ppp functions that were never written as separate matches (no
-// layout.tsv row), between whole-asm 0x1fd368 and 0x1fded0. Flags -G0 -fno-strict-aliasing.
+// Linked unit 0x1fd530-0x1fe158: six ppp functions that were never written as separate matches (no
+// layout.tsv row), between whole-asm 0x1fd368 and the old whole-asm 0x1fded0, plus 0x1fded0 itself. Flags -G0 -fno-strict-aliasing.
 #include "../common/types.h"
 // 001fd530 (was gap)
 namespace n001fd530 {
@@ -279,3 +279,107 @@ void func_001fddf8(u8* a0, In* in, u8* t) {
 }
 }  // namespace n001fddf8
 
+
+// 001fded0 (was whole asm, batch_w3885.s): render request with the position in 16.16 fixed point.
+// The request fill follows the sibling 0x1fd948 order; the flag tests are written in both arms.
+namespace n001fded0 {
+typedef struct { f32 m[4][4]; } __attribute__((aligned(16))) M1fded0;
+typedef struct {
+    u32 flags;
+    void* p4;
+    u16 tex;
+    u8 b10;
+    u8 pad11;
+    s32 w12;
+    s32 x;
+    s32 y;
+    u8 rgba[4];
+    s32 w28;
+    void* p32;
+    void* p36;
+    void* p40;
+    void* p44;
+    M1fded0* mtx;
+    s32 p52;
+    s32 p56;
+    s32 p60;
+    s32 w64;
+    void* p68;
+    u8 pad72[4];
+    u8 b76;
+    u8 b77;
+    u8 pad78[18];
+} Req1fded0;
+typedef struct { u32 flags; u8 pad[18]; u16 tex; } Mdl1fded0;
+typedef struct { u8 pad0[4]; s32 set; u8 pad1[24]; u8 mode; u8 b33; u8 b34; u8 b35; u8 b36; u8 b37; } Ent1fded0;
+typedef struct { u8 pad0[12]; s32* off; } Ctx1fded0;
+typedef struct { u8 pad0[16]; u8* sets; } Res1fded0;
+typedef struct { u8 pad0[16]; M1fded0 m16; u8 m80[64]; s32 p144; s32 p148; } Ovr1fded0;
+extern Res1fded0* D_01d9e6e4 asm("D_01d9e6e4");
+extern Ovr1fded0* D_01d9e6e8 asm("D_01d9e6e8");
+extern M1fded0 D_01d9e840 asm("D_01d9e840");
+extern u8 D_01d9eac0[] asm("D_01d9eac0");
+extern u8 D_01d9e9c0[] asm("D_01d9e9c0");
+extern u8 D_01d9e980[] asm("D_01d9e980");
+extern s32 D_01d9eaa4 asm("D_01d9eaa4");
+void sceVu0MulMatrix(M1fded0*, M1fded0*, M1fded0*) asm("sceVu0MulMatrix");
+s32 func_0020f1e0(Mdl1fded0*, Req1fded0*, s32) asm("func_0020f1e0");
+void func_001fded0(u8* base, Ent1fded0* e, Ctx1fded0* c) asm("func_001fded0");
+void func_001fded0(u8* base, Ent1fded0* e, Ctx1fded0* c)
+{
+    f32* pos = (f32*)(base + c->off[2] + 160);
+    u8* col;
+    u8* set;
+    Mdl1fded0* m;
+    Req1fded0 r;
+    M1fded0 tmp;
+    Ovr1fded0* g;
+    if (e->set == 0xffff) return;
+    col = base + c->off[0] + 160;
+    if ((r.rgba[3] = col[11]) == 0) return;
+    set = D_01d9e6e4->sets + e->set * 36;
+    m = *(Mdl1fded0**)(set + 28);
+    r.flags = 0;
+    if (e->mode & 2) {
+        r.flags = 4;
+        u32 h1a = m->flags & 1;
+        if (!h1a) r.flags |= 8;
+    } else {
+        if ((u8)(e->mode & 1)) r.flags = 128;
+        u32 h1 = m->flags & 1;
+        if (!h1) r.flags |= 8;
+    }
+    if (!(m->flags & 2)) r.flags |= 16;
+    if (e->b33) r.flags |= 0x200;
+    if (e->b35) r.flags |= 0x100;
+    if (e->b34) {
+        r.flags |= 0x2000;
+        r.mtx = &tmp;
+        sceVu0MulMatrix(&tmp, &D_01d9e840, &D_01d9e6e8->m16);
+    }
+    if (e->b36) r.p68 = base + c->off[3] + 160;
+    else r.p68 = 0;
+    *(u16*)((u8*)&r + 8) = m->tex;
+    g = D_01d9e6e8;
+    r.w28 = 0;
+    r.b10 = 0;
+    r.p56 = g->p144;
+    r.p60 = g->p148;
+    r.p4 = D_01d9eac0;
+    r.w12 = 0;
+    r.x = (s32)(pos[0] * 65536.0f);
+    r.y = (s32)(pos[3] * 65536.0f);
+    r.w64 = 0;
+    r.rgba[0] = col[8];
+    r.rgba[1] = col[9];
+    r.rgba[2] = col[10];
+    r.p32 = g->m80;
+    r.p36 = D_01d9e9c0;
+    r.p40 = D_01d9e980;
+    r.p44 = &g->m16;
+    r.p52 = D_01d9eaa4;
+    r.b76 = 0;
+    r.b77 = e->b37;
+    D_01d9eaa4 = func_0020f1e0(m, &r, *(s32*)(set + 32));
+}
+}  // namespace n001fded0
