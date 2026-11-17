@@ -155,16 +155,12 @@ void func_0023fb28(void) {
 u32 func_002537c8(u32);
 void func_0023fa08(void*, u32);
 extern u8 D_0035f3a8;
-void func_00256b40(void) {
-    func_0023fa08(&D_0035f3a8, func_002537c8(2));
-}
+void func_00256b40(void);  // 0x00256b40: definition moved into src/anon/unit_00254020.cpp
 
 struct S408 { u8 d[408]; };
 u8 func_00139d78(S408*);
 extern S408* D_0035f028;
-u32 func_00256b80(s32 i) {
-    return func_00139d78(&D_0035f028[i]);
-}
+u32 func_00256b80(s32 i);  // 0x00256b80: definition moved into src/anon/unit_00254020.cpp
 
 // Clear four doublewords of the buffer.
 extern volatile u64* volatile D_0035f324;

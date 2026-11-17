@@ -212,21 +212,7 @@ void func_0023d320(void) {
 
 u8* func_001a80c8(u32);  // table24_find_by_id
 s32 func_001a6598(u16);
-s32 func_00257158(u32 id, s32 a, u8 b) {
-    if (!id) return 0;
-    u8* e = func_001a80c8(id);  // table24_find_by_id
-    u8 t = e[2];
-    if (t == 0) {
-        if (b) {
-            s32 r = 3;
-            if (a) r = 0;
-            return r;
-        }
-        return 0;
-    }
-    if (t == 18) return func_001a6598(*(u16*)(e + 4)) == 2 ? b != 0 : 0;
-    return 0;
-}
+s32 func_00257158(u32 id, s32 a, u8 b);  // 0x00257158: definition moved into src/anon/unit_00254020.cpp
 
 u8* func_001a8110(u8*);
 u32 func_001a3820(u16);

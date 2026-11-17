@@ -105,9 +105,7 @@ void func_00226f90(void);  // 0x00226f90: definition moved into src/anon/unit_00
 
 u8* func_00257770(void);
 u8 func_00139d78(u8*);
-u32 func_00256ef0(void) {
-    return func_00139d78(func_00257770() + 2940);
-}
+u32 func_00256ef0(void);  // 0x00256ef0: definition moved into src/anon/unit_00254020.cpp
 
 u32 func_00287dc0(void);
 void func_0023d820(u32);

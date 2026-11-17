@@ -232,12 +232,7 @@ extern void* D_0035f020;
 extern void* D_0035f024;
 s32 func_002892f8(void*);
 void func_00288e88(void*);
-void func_00256f18(void)
-{
-    if (D_0035f01c) { s32 s = func_002892f8(D_0035f01c); if (!func_0028acc8(D_0035f01c) && s) func_00288e88(D_0035f01c); }
-    if (D_0035f020) { s32 s = func_002892f8(D_0035f020); if (!func_0028acc8(D_0035f020) && s) func_00288e88(D_0035f020); }
-    if (D_0035f024) { s32 s = func_002892f8(D_0035f024); if (!func_0028acc8(D_0035f024) && s) func_00288e88(D_0035f024); }
-}
+void func_00256f18(void);  // 0x00256f18: definition moved into src/anon/unit_00254020.cpp
 
 // 0025d918: create the menu object and set up its layers.
 u8* func_0023ee30(u32);

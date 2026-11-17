@@ -207,11 +207,7 @@ s32 func_00139d78(void*);
 void func_00139510(void*);
 extern u8* D_0035f038;
 void func_00257be0(void*) asm("_Z13func_00257be0Pv");
-void func_00257be0(void*) {
-    if (func_00139d78(D_0035f038 + 0xb350)) func_00139510(D_0035f038 + 0xb350);
-    if (func_00139d78(D_0035f038 + 0xb504)) func_00139510(D_0035f038 + 0xb504);
-    if (func_00139d78(D_0035f038 + 0xb6b8)) func_00139510(D_0035f038 + 0xb6b8);
-}
+void func_00257be0(void*);  // 0x00257be0: definition moved into src/anon/unit_00254020.cpp
 
 u32 func_00257070(u32);
 u8* func_00281180(u32, u32);

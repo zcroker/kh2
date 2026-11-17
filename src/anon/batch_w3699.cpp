@@ -32,42 +32,5 @@ s32 func_00281100(void*);
 Obj2* func_00281180(void*, s32);
 s32 func_00181500(s32);
 
-s32 func_00257e00(void) {
-    s32 i, j;
-    s32 ok;
-    s32 mask = 0;
-    Ent* e = D_00372a28;
-    asm("" : "+r"(e));  // hides e == D from cse, so loop2's giv takes D and e copies it (orig move s4,s5)
-    for (i = 0; i < 8; i++, e++) {
-        if (i == 1) continue;
-        ok = 1;
-        {
-            s8* p;
-            j = 0;
-            p = e->a;
-            for (; j < 4; j++) {
-                s8 c = *p++;
-                if (c < 0) break;
-                if (func_001a6d08(c) == 0) { ok = 0; break; }
-            }
-        }
-        if (!ok) continue;
-        for (j = 0; j < 4; j++) {
-            s8 c = D_00372a28[i].b[j];
-            if (c < 0) break;
-            if (func_001a6d08(c) != 0) { ok = 0; break; }
-        }
-        if (ok) mask |= 1 << i;
-    }
-    ok = 0;
-    for (i = 0; i < func_00281100(D_0035f010); i++) {
-        ok = (func_00281180(D_0035f010, i)->p244->f54 & 0x7fff) != 0;
-        if (ok) break;
-    }
-    if (ok) {
-        if (func_00181500(0x817) && !func_00181500(0x849)) ok = 0;
-        if (ok) mask |= 2;
-    }
-    return mask;
-}
+s32 func_00257e00(void);  // 0x00257e00: definition moved into src/anon/unit_00254020.cpp
 }

@@ -254,17 +254,7 @@ extern P257 D_00372a00;
 extern P257 D_00372a08;
 void func_0028d980(u32, u32, u32, u32, u32, s32, s32, s32, u32);
 void func_00139620(u32);
-void func_00257458(u32 a, s32 b) {
-    if (func_00139d78(D_0035f034)) (*(VObjV81*)D_0035f034).vt[5](D_0035f034);
-    P257* p;
-    if (b == 0) p = &D_00372a00; else p = &D_00372a08;
-    func_0028d980(D_0035f034, 30022, D_0035ef68, D_0035ef64, D_0035f03c, p->x, p->z, -1, 0);
-    *(u32*)(D_0035f034 + 408) = a;
-    func_00139620(D_0035f034);
-    *(u32*)(D_0035f034 + 432) = 2;
-    u8* q = (u8*)D_0035f034 + 24;
-    *(u32*)(q + 184) |= 8;
-}
+void func_00257458(u32 a, s32 b);  // 0x00257458: definition moved into src/anon/unit_00254020.cpp
 
 // --- 002584c8: create the global object (inlined constructors) and set it up
 extern u8 D_00347f98[];

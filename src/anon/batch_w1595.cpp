@@ -45,16 +45,5 @@ s32 func_00281388(s32);
 u32 func_002814b0(s32);
 extern s32 D_0035f010;
 
-void func_00254568(void) {
-    s32 i = 0;
-    s32 n = func_00281100(D_0035f010);
-    for (; i < n; i++) {
-        s32 e = func_002811b0(D_0035f010, i);
-        func_00293500(e, 0, *func_00188fe0(func_001058e8() + 9456, e));
-        if (func_00281480(D_0035f010, i)) {
-            s32 o = func_002815b8();
-            if (func_00281388(o)) func_00293500(e, 1, func_002814b0(o));
-        }
-    }
-}
+void func_00254568(void);  // 0x00254568: definition moved into src/anon/unit_00254020.cpp
 }

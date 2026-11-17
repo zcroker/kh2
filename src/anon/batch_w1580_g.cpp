@@ -120,61 +120,6 @@ void func_0025b5e0(void);  // 0x0025b5e0: definition moved into src/anon/unit_00
 
 void func_00251a70(void);  // 0x00251a70: definition moved into src/anon/unit_00250fb8.cpp
 
-s32 func_00255588(void) {
-    func_00287d68();
-    func_00256f18();
-    if (func_00287db0()) {
-        if (!func_002938f0()) return 0;
-        if (func_00139d78(func_00287dc0())) return 0;
-        if (func_00293948() && !func_00293b70() && func_002936f8()) {
-            func_002936e8();
-            return 0;
-        }
-        if (func_002938e0() && !func_002938f0()) return 0;
-        if (func_00293b70()) return 0;
-        if (func_001688b8()) return 0;
-        if (func_00293668()) return 0;
-        if (func_00139d78(D_0035f03c)) return 0;
-        if (func_0013a4b8()) func_0013a368();
-        func_00256aa0();
-        func_00254f80();
-        D_0035f060 = *func_001a8bd0(-1);
-        func_001039f8();
-        return 1;
-    }
-    if (func_00290580(D_0035f048)) func_00290420(D_0035f048);
-    if (func_00139d78(D_0035f03c) && func_0023f0c0(D_0035f03c) != 1) {
-        if (func_00288088()) func_0023f070(D_0035f03c, 1, -1);
-        else return 0;
-    }
-    switch (func_00287bc0()) {
-    case 0: func_00255900(); break;
-    case 1: func_0025fb48(); break;
-    case 2: func_00267e00(); break;
-    case 3: func_002691f8(); break;
-    case 4: func_002693a8(); break;
-    case 5: case 6: case 7: case 8: case 9: func_00268db8(); break;
-    case 10: func_00260418(); break;
-    case 11: func_00260ce0(); break;
-    case 12: func_002612c8(); break;
-    case 13: func_00261668(); break;
-    case 14: func_002618d8(); break;
-    case 15: func_00277938(); break;
-    case 16: func_00278318(); break;
-    case 17: case 18: case 19: func_00278dd0(); break;
-    case 20: func_0026c470(); break;
-    case 21: func_0026c9f0(); break;
-    case 22: func_0026c818(); break;
-    case 23: func_002648b8(); break;
-    case 24: func_00265018(); break;
-    case 25: func_0026f0a0(); break;
-    case 26: case 27: func_0026f920(); break;
-    case 28: func_0026ff78(); break;
-    case 29: case 30: case 31: case 32: case 33: func_002708c0(); break;
-    case 36: func_0027c700(); break;
-    case 37: func_00283230(); break;
-    }
-    return 0;
-}
+s32 func_00255588(void);  // 0x00255588: definition moved into src/anon/unit_00254020.cpp
 
 }

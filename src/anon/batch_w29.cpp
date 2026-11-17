@@ -194,18 +194,7 @@ u32 func_00241a00(void) {
 }
 
 // Rank of bit n among the set bits of D_0035ef70 (-1 if not set).
-s32 func_00257ff8(s32 n) {
-    s32 r = -1;
-    s32 m = D_0035ef70;
-    s32 k = 0;
-    for (s32 i = 0; i < 8; i++) {
-        if ((u8)((m >> i) & 1)) {
-            if (i == n) { r = k; break; }
-            k++;
-        }
-    }
-    return r;
-}
+s32 func_00257ff8(s32 n);  // 0x00257ff8: definition moved into src/anon/unit_00254020.cpp
 
 u32 func_00258a30(void);  // 0x00258a30: definition moved into src/anon/unit_002588e8.cpp
 

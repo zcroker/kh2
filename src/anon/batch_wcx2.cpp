@@ -1197,35 +1197,7 @@ void func_0027c570(void);
 void func_002831b0(void);
 void func_0027e770(void);
 void func_00264458(void);
-void func_00254f80(void)
-{
-    if (func_00139d78(D_0035f03c__80579)) D_0035f03c__80579->v5();
-    if (func_0028acc8(D_0035f01c)) func_0028abe0(D_0035f01c);
-    if (func_0028acc8(D_0035f020)) func_0028abe0(D_0035f020);
-    if (func_0028acc8(D_0035f024)) func_0028abe0(D_0035f024);
-    if (func_00139d78(D_0035f030)) D_0035f030->v5();
-    func_00254f08();
-    func_0028f878();
-    func_0028d620(D_0035f050);
-    func_00263d28();
-    func_002579e0();
-    func_00256c40();
-    func_00256ea8();
-    func_0028ff68(D_0035f044);
-    func_00290488(D_0035f048);
-    func_00288018();  // global_zero_4dwords
-    func_0028ce38();
-    func_00256aa0();
-    func_0025f750();
-    func_00267768();
-    func_0026bbf8();
-    func_0026ee30();
-    func_00277128();
-    func_0027c570();
-    func_002831b0();
-    func_0027e770();
-    func_00264458();
-}
+void func_00254f80(void);  // 0x00254f80: definition moved into src/anon/unit_00254020.cpp
 
 struct ObA51 {
     virtual void v0(); virtual void v1(); virtual void v2(); virtual void v3(); virtual void v4(); virtual void v5();
@@ -1727,32 +1699,7 @@ s32 func_0027aa78(void);
 u8* func_001a8bd0(s32);
 s32 func_001a8bf8(u8*, s32);  // get_bits5_at
 void func_00257000(void);
-void func_00257c78(void)
-{
-    s32 i = 0;
-    s32 cnt = 0;
-    s32 cur = func_00281100(D_0035f010);
-    s32 m = func_002813b8();
-    for (; i < 7; i++) cnt += (m >> i) & 1;
-    s32 flag = func_0027aa78() != 0;
-    s32 d = 0;
-    if (cur != D_0035f058 || D_0035f059 != cnt || D_0035f05a != flag || D_0035f064 != D_0032bae0) d = 1;
-    s32 chg = d;
-    if (!d && cur == D_0035f058) {
-        u8* a = func_001a8bd0(-1);
-        for (i = 0; i < 4; i++) {
-            if (func_001a8bf8(D_0035f060, i) != func_001a8bf8(a, i)) {  // get_bits5_at
-                chg = 1;
-                break;
-            }
-        }
-    }
-    if (chg) func_00257000();
-    D_0035f059 = cnt;
-    D_0035f05a = flag;
-    D_0035f058 = cur;
-    D_0035f064 = D_0032bae0;
-}
+void func_00257c78(void);  // 0x00257c78: definition moved into src/anon/unit_00254020.cpp
 
 struct Sub96 { u8 pad[184]; u32 fl; };
 union UA96 { u8* p; u32 u; };
@@ -1906,54 +1853,7 @@ void func_00288750(void (*fn)(void));
 static inline void* Alloc254(u32 size) { return D_0032ba14->vt->alloc(D_0032ba14, size, __builtin_return_address(0)); }
 
 // Build the menu layout objects for this screen and start its fade.
-void func_00254770(void) {
-    D_0035f057 = 0;
-    u8* o = func_0023ee30(160);
-    *(u8**)o = D_00347f98;
-    func_0031a838(o + 12);
-    *(u8**)o = D_0035eb98;
-    func_002369a0(o + 24);  // obj_ctor_36eac8
-    func_0023c008(o + 48);  // obj_ctor_36eae8
-    g_menuObj254 = o;
-    AllocObj254* al = D_00347f80->al;
-    u8* m = (u8*)al->vt->alloc(al, 76, 0);
-    *(u32*)(m + 12) = 0;
-    *(u8**)m = D_0035ebb8;
-    D_0035f040 = m;
-    func_0028d7f0(g_menuObj254, 30002, 0, 0, 0, 1, 0, 0, 0);
-    func_0023ef50(g_menuObj254);
-    func_00290cf0(D_0035f018, g_menuObj254, D_0035ef68, D_0035ef64, D_0035f3d4 + 3, D_00372a18, D_00372978);
-    func_0028f280(D_0035ef64, D_0035ef68, g_menuObj254, D_003729a8, D_003729b0);
-    func_00263960(D_0035ef64, D_0035ef68, g_menuObj254, D_00372988, D_003729b8);  // store_globals_and_init
-    func_002590b0(D_0035f040, 30003, g_menuObj254, D_00372988, D_00372990, -1, 0, 0);
-    u32 seq = func_0023c4b8(GetLayout254(g_menuObj254), D_0035ef68);
-    u8* lay = GetLayout254(g_menuObj254);
-    u32 id = D_0035ef64;
-    u32 img = func_00236ca8(*(u32*)(lay + 40), id);
-    void* p = Alloc254(20);
-    func_0028fc78(p, 31, 51, D_00372998);
-    g_sel0_254 = p;
-    func_0028fe38(p, 30011, seq, img, 0);
-    p = Alloc254(20);
-    func_00290198(p, 31, 71, 61, D_00372998 + 6);
-    g_sel1_254 = p;
-    func_00290368(p, 30011, seq, img, 0);
-    func_00292870();
-    s32 mode = func_00287bc0();
-    if (mode == 20 || mode == 21) {
-        func_0028fb28(0, D_00372aa6);
-        func_00257050(0, 3, 0);
-        if (mode == 20) func_0026bc10();
-        else func_0026c9c8();
-    } else {
-        func_002551b8();
-    }
-    if (func_002887c8()) {
-        func_002550e8();
-        D_0035f057 = 1;
-        func_00288750(func_002551a8);
-    }
-}
+void func_00254770(void);  // 0x00254770: definition moved into src/anon/unit_00254020.cpp
 
 // ---- 0025a660
 extern void* D_0035f650;
@@ -2206,57 +2106,7 @@ void func_0023e958(List254* l, s32 i, s32 a, s32 b, s32 c, s32 d);
 void func_0023e9c8(List254* l, s32 i, u8* p);
 void func_0023e9e0(List254* l, s32 i, u8* p);
 
-void func_00254ab8(void) {
-    u8 any = 0;
-    s32 y = 0;
-    if (!func_00139d78_4ab8(D_0035f02c)) func_0028d8c0(D_0035f02c, 30003, D_0035ef68, D_0035ef64, D_0035f03c, 46, 47, 0);
-    u8* o = func_00256b68_4ab8(0);
-    if (!func_00139d78_4ab8(o)) func_0028d8c0(o, 30002, D_0035ef68, D_0035ef64, D_0035f03c, 116, -1, 0);
-    List254* lst = func_00287dc0_4ab8();
-    if (!func_00139d78_4ab8((u8*)lst)) func_0023d808(lst, 30008);
-    s32 n = func_00281100_4ab8(D_0035f010_4ab8);
-    if (n >= 4) n = 3;
-    s32 step = (n * 98 - 98) / n;
-    for (s32 i = 0; i < 4; i++) {
-        if (i == 3) break;
-        s32 k = 16;
-        switch (i) {
-        case 0:
-            y = 47;
-            k = 17;
-            break;
-        case 1:
-            y = 145;
-            break;
-        case 2:
-            y = 243;
-            break;
-        }
-        if (!func_00281128(D_0035f010_4ab8, i)) continue;
-        if (!func_00281538(D_0035f010_4ab8, i) || func_0023ec18(lst, i)) {
-            if (!func_00281538(D_0035f010_4ab8, i)) any = 1;
-            continue;
-        }
-        if (i != 0 && func_002811e0(D_0035f010_4ab8, i) == 3) k = 0;
-        y -= step;
-        u32 a = func_00281238(D_0035f010_4ab8, i);
-        u32 col = func_0027aa78() ? D_00372974 : D_00372970;
-        lst->vt->setItem(lst, i, a | 0x20000000, 139, 2, y, col);
-        func_0023e858(lst, i, -100.0f);
-        func_0023e8b8(lst, i, 0.0f);
-        func_0023e8d8(lst, i, 0.0f);
-        if (func_002811b0(D_0035f010_4ab8, i) == 8) func_0023eae0(lst, i, 20, 32);
-        func_0023eac0(lst, i, k);  // store_byte_2912
-        func_0023e958(lst, i, 96, 96, 96, -1);
-        func_0023e9c8(lst, i, D_0035f02c);
-        if (D_0035ef60) {
-            if (!func_00139d78_4ab8(D_0035f030_4ab8)) func_0028d8c0(D_0035f030_4ab8, k, D_0035ef68, D_0035ef64, D_0035f03c, 125, -1, 0);
-            func_0023e9e0(lst, i, D_0035f030_4ab8);
-        }
-    }
-    if (!any && !D_0035f056) D_0035f056 = 1;
-    D_0035ef60 = any;
-}
+void func_00254ab8(void);  // 0x00254ab8: definition moved into src/anon/unit_00254020.cpp
 
 // ---- 0025fb48
 extern void* D_0035f01c_fb48 asm("D_0035f01c");
@@ -5738,9 +5588,7 @@ extern E256a58 D_00372a28[];
 s32 func_0028b040_x10886(s32) asm("func_0028b040");
 s32 func_00257fa8(s32);
 void func_00263a58(s32, s32);
-void func_00256a58() {
-    func_00263a58(D_00372a28[func_00257fa8(func_0028b040_x10886(D_0035f01c_256))].id, 1);
-}
+void func_00256a58();  // 0x00256a58: definition moved into src/anon/unit_00254020.cpp
 
 // --------------------
 struct O2e0720;

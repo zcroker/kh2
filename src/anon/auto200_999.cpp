@@ -349,13 +349,7 @@ void func_001a8ff8(u32 a0, u32 a1, u32 a2);  // 0x001a8ff8: definition moved int
 
 void func_00226f78(u32 a0);  // 0x00226f78: definition moved into src/anon/unit_00224780.cpp
 
-u32 func_00258068(u32 a0) {  // get_global_bit
-    s32 v = D_0035ef70;
-    v >>= a0;
-    v &= 1;
-    u8 ret = (u8)v;
-    return ret;
-}
+u32 func_00258068(u32 a0);  // 0x00258068: definition moved into src/anon/unit_00254020.cpp
 
 void func_0027dc20(u32 *a0, u32 *a1);  // 0x0027dc20: definition moved into src/anon/unit_0027d2e8.cpp
 
@@ -460,21 +454,7 @@ u32 func_001e6d08(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001e6d08: definition mo
 
 void func_001e7650(u32 a0, u32 a1, u32 a2);  // 0x001e7650: definition moved into src/anon/unit_001e0cb8.cpp
 
-void func_00257000() {
-    s32 c = 0;
-    s32 d = 0;
-    do {
-        u16 *p = (u16 *)((u8 *)&D_0035ef78 + d);
-        s32 e = 37;
-        do {
-            *p = 0u;
-            e -= 1;
-            p += 1;
-        } while (e >= 0);
-        c += 1;
-        d += 76;
-    } while (c < 2);
-}
+void func_00257000();  // 0x00257000: definition moved into src/anon/unit_00254020.cpp
 
 void func_002bcf58(u32 *a0);  // 0x002bcf58: definition moved into src/anon/unit_002bc978.cpp
 

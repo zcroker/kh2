@@ -287,15 +287,7 @@ extern u32 D_0035f03c;
 s32 func_00139d78(void*);
 void func_0028d980(u32, u32, u32, u32, u32, s32, s32, u32, u32);
 void func_00139620(u32);
-void func_00257388(u32 a0, s32 a1) {
-    if (func_00139d78((void*)D_0035f034)) ((VObj2*)D_0035f034)->vt[5]((VObj2*)D_0035f034);
-    Pt8* t = !a1 ? &D_00372a00 : &D_00372a08;
-    func_0028d980(D_0035f034, 30022, D_0035ef68, D_0035ef64, D_0035f03c, t->x, t->y, a0, 0);
-    func_00139620(D_0035f034);
-    *(u32*)(D_0035f034 + 432) = 2;
-    u32 s = D_0035f034 + 24;
-    *(u32*)(s + 184) |= 8;
-}
+void func_00257388(u32 a0, s32 a1);  // 0x00257388: definition moved into src/anon/unit_00254020.cpp
 }
 }
 

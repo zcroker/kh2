@@ -509,32 +509,7 @@ void func_00293520(void);
 s32 func_00255588(void);
 void func_00255df0(void);
 
-void func_00254648(u32 a)
-{
-    func_002593b8(2, a);
-    func_00256b40();
-    func_00274ea0();
-    func_00170888(a);
-    func_00274ee8(func_00103570());
-    func_002a9ce8();
-    D_0035f05c = func_002acc98();
-    func_002a9d30();
-    func_00274f50();
-    func_00102448(a, 1);
-    func_00254770();
-    func_00242618(11, 1);
-    for (;;) {
-        if (!func_00293ba0() && func_002938e0() && func_002938f0()) {
-            func_002810c8(D_0035f010, func_00293bc0());
-            func_00293bb0();
-        }
-        func_00236d60();  // clear_64_entries_24
-        func_00293520();
-        if (func_00255588()) break;
-        func_00255df0();
-        func_00102448(a, 0);
-    }
-}
+void func_00254648(u32 a);  // 0x00254648: definition moved into src/anon/unit_00254020.cpp
 }
 
 // ---- 00286160

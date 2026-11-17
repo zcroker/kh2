@@ -36,161 +36,62 @@ extern "C" void func_0028da70(...);
 extern "C" void func_0028dac8(...);
 extern "C" void func_0031a260(...);
 
-u32 CmTop::ExitParty() { return ExitPartyImpl(); }
+// 0x00254550: definition moved into src/anon/unit_00254020.cpp
 
 // 0x0027d408: definition moved into src/anon/unit_0027d2e8.cpp
 
-dk::Sprite* CmTop::GetBaseSprite(s32 index) {
-    u32 base = D_0035f028;
-    return reinterpret_cast<dk::Sprite*>(base + ((u32)index * 408));
-}
+// 0x00256b68: definition moved into src/anon/unit_00254020.cpp
 
-void CmTop::CreateShortCutInfo(dk::Sprite* sprite) {
-    u32 s1 = (u32)sprite;
-    u32 s0 = GetTopBase() + 2504;
-    if (func_00139d78(s0) == 0) {
-        u32 v0 = MenuCursor::GetPri(0);
-        MenuCursor::Create(s0, v0, D_0035ef68, D_0035ef64, D_0035f03c, 24, -1, 0x8454, 0);
-        *(u32*)(s0 + 432) = 2;
-    }
-    MenuCursor::AttachSprite(s0, s1);
-}
+// 0x00256bb0: definition moved into src/anon/unit_00254020.cpp
 
-void CmTop::LeaveShortCutInfo() {
-    u32 s0 = GetTopBase() + 2504;
-    if (func_00139d78(s0) != 0) {
-        *(u32*)(s0 + 396) = 0;
-        func_001396b0(s0);
-        if (*(u32*)(s0 + 396) != 0) {
-            *(u32*)(s0 + 400) = 0;
-            func_001396b0(s0);
-            if (*(u32*)(s0 + 400) != 0) {
-                func_0031a260(s0, 0);
-            }
-        }
-        ((dk::Obj2D*)s0)->leave();
-    }
-}
+// 0x00256c40: definition moved into src/anon/unit_00254020.cpp
 
-void CmTop::FadeOutPadHelp() {
-    func_0028dac8(GetTopBase() + 2940, 239);
-}
+// 0x00256e80: definition moved into src/anon/unit_00254020.cpp
 
-void CmTop::LoopPadHelp() {
-    u32 s0 = GetTopBase() + 2940;
-    u32 v0 = func_00139d78(s0);
-    if (v0 != 0) {
-        func_0028da70(s0, 238);
-    }
-}
+// 0x00256e30: definition moved into src/anon/unit_00254020.cpp
 
 extern u8 D_0035f054 asm("D_0035f054");
 
-void CmTop::SetHideCursor(bool value) {
-    u32 v = (u32)value & 0xffu;
-    *(u8*)&D_0035f054 = (u8)v;
-}
+// 0x00257708: definition moved into src/anon/unit_00254020.cpp
 
 extern u32 D_0035f050 asm("D_0035f050");
 
-void CmTop::DelCursor() {
-    MenuCursor::DeleteAll();
-    if (MenuCursor::isAlive(D_0035f050) != 0) {
-        u32 t7 = D_0035f050;
-        u32 t6 = *(u32*)t7;
-        u32 t5 = *(u32*)(t6 + 20);
-        ((void(*)(u32))t5)(t7);
-    }
-}
+// 0x00257728: definition moved into src/anon/unit_00254020.cpp
 
-s32 CmTop::GetCurPos(s32 index) {
-    return (s32)(*(s16*)((u32)&D_0035ef78 + ((u32)index << 1)));
-}
+// 0x00257070: definition moved into src/anon/unit_00254020.cpp
 
-s32 CmTop::GetCurTopPos(s32 index) {
-    u32 p = (u32)&D_0035ef78 + ((u32)index << 1);
-    return (s32)(*(s16*)(p + 76));
-}
+// 0x00257088: definition moved into src/anon/unit_00254020.cpp
 
-s32 CmTop::GetSelectPos(s32 index) {
-    return (s32)(GetCurPos(index) + GetCurTopPos(index));
-}
+// 0x002570a0: definition moved into src/anon/unit_00254020.cpp
 
-void CmTop::LeaveWarningWin() {
-    if (func_00139d78(D_0035f034) != 0) {
-        ObjCmTopWarningWin* obj = (ObjCmTopWarningWin*)D_0035f034;
-        obj->vtbl->fn20(obj);
-    }
+// 0x002575a8: definition moved into src/anon/unit_00254020.cpp
 
-    if (func_0028acc8(D_0035f024) != 0) {
-        func_0028abe0(D_0035f024);
-    }
-}
+// 0x00257670: definition moved into src/anon/unit_00254020.cpp
 
-void CmTop::LoopWarningWin(s32 which) {
-    u32 s0 = (u32)which;
-    if (IsWarningEnabled(s0) == 0) {
-        return;
-    }
-
-    u8* p;
-    if (s0 != 0u) {
-        goto nonzero;
-    }
-    p = &D_00372a00;
-    goto cont;
-
-nonzero:
-    p = &D_00372a08;
-
-cont:
-    func_0028da70(D_0035f034, *(s16*)(p + 4));
-}
-
-void CmTop::LeavePadHelp() {
-    u32 s0 = GetTopBase() + 2940;
-    if (func_00139d78(s0) != 0) {
-        ((dk::Obj2D*)s0)->leave();
-    }
-}
+// 0x00256ea8: definition moved into src/anon/unit_00254020.cpp
 
 
 
 extern "C" u32 getSaveRam() asm("_Z10getSaveRamv");
 
-u32 CmTop::GetSram() {
-    u32 r2 = getSaveRam();
-    r2 = (u32)((s32)r2 + 16808);
-    return r2;
-}
+// 0x00258048: definition moved into src/anon/unit_00254020.cpp
 
-u16* CmTop::GetTopSelSeqTbl() { return (u16*)&D_00372a28; }
+// 0x002570e0: definition moved into src/anon/unit_00254020.cpp
 
-void CmTop::SetDelCursor(bool value) {
-    u32 v = (u32)value & 0xffu;
-    D_0035f055 = (u8)v;
-}
+// 0x00257718: definition moved into src/anon/unit_00254020.cpp
 
-void* CmTop::GetScrBarSeqTbl() { return &D_003729c8; }
+// 0x002570f0: definition moved into src/anon/unit_00254020.cpp
 
-void* CmTop::GetTopPlateSeqTbl(s32 index) {
-    return reinterpret_cast<void*>((u32)&D_003729e0 + ((u32)index << 3));
-}
+// 0x00257100: definition moved into src/anon/unit_00254020.cpp
 
-void* CmTop::GetTopPlate2SeqTbl(s32 index) {
-    return reinterpret_cast<void*>((u32)&D_003729f0 + ((u32)index << 3));
-}
+// 0x00257118: definition moved into src/anon/unit_00254020.cpp
 
-void* CmTop::GetPartyInfo() { return reinterpret_cast<void*>(D_0035f010); }
+// 0x00258108: definition moved into src/anon/unit_00254020.cpp
 
-void* CmTop::GetItemInfo() {
-    return reinterpret_cast<void*>(*(u32*)((u32)&D_0035f010 + 4));
-}
+// 0x00257130: definition moved into src/anon/unit_00254020.cpp
 
-s32 CmTop::GetFontColorSeqNum(s32 index) {
-    return (s32)(*(s16*)((u32)&D_00372978 + ((u32)index << 1)));
-}
+// 0x00257140: definition moved into src/anon/unit_00254020.cpp
 
-void* CmTop::GetListBuffer() { return reinterpret_cast<void*>(D_0035f038); }
+// 0x00257770: definition moved into src/anon/unit_00254020.cpp
 
 }  // namespace Tz

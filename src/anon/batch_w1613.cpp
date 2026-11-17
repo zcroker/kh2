@@ -22,35 +22,7 @@ void func_0028d660(s32, void*);
 s32 func_0028d6e8(s32);
 extern s32 D_0035f050;
 
-void func_002566f0(s32 a0, s32 a1, s32 a2) {
-    s32 s1 = func_00289310(a0);
-    if (func_00287cd0() != 1) return;
-    if (s1 == 0 && a1 == 24) s1 = func_00267270();
-    if (s1 != 0) {
-        s32 s4 = func_002891e8(a0);
-        if (a1 != 2 && a1 != 5 && a1 != 6 && a1 != 7 && a1 != 8 && a1 != 9) {
-            func_002890e0(a0, 1, 2, 0, -1);
-            func_00289038(a0, s4, 1, 1, 2, 0, -1);
-        }
-        if (func_0028d008(a2) != 0) {
-            func_0028cf28(a2, func_002891d0(a0));
-        }
-        if (func_0028d6e8(D_0035f050) != 0) {
-            void* p;
-            if (a1 == 36) p = *(void**)((u8*)func_002891d0(a0) + 0x18c);
-            else p = func_002891d0(a0);
-            func_0028d660(D_0035f050, p);
-        }
-    }
-    if (s1 == 0 && func_00289358(a0) == 0) return;
-    if (a1 == 0) { func_00256a58(); return; }
-    if (a1 == 1 || a1 == 10 || a1 == 11 || a1 == 12 || a1 == 13 || a1 == 14) { func_00263340(a0, a1, a2); return; }
-    if ((u32)(a1 - 15) < 5) { func_0027bbe0(a0, a1, a2); return; }
-    if (a1 == 2 || a1 == 5 || a1 == 6 || a1 == 7 || a1 == 8 || a1 == 9) { func_0026a238(a0, a1, a2); return; }
-    if ((u32)(a1 - 25) < 3 || a1 == 29 || a1 == 30 || a1 == 31 || a1 == 32 || a1 == 33) { func_00273228(a0, a1, a2); return; }
-    if (a1 == 36) { func_0027d598(a0, 36, a2); return; }
-    if ((u32)(a1 - 23) < 2) { func_00266678(a0, a1, a2); return; }
-}
+void func_002566f0(s32 a0, s32 a1, s32 a2);  // 0x002566f0: definition moved into src/anon/unit_00254020.cpp
 
 
 s32 func_00242848(s32);

@@ -193,23 +193,7 @@ u32 func_002402e0(void) {
 void func_00252618(void);  // 0x00252618: definition moved into src/anon/unit_00250fb8.cpp
 
 // Look the current id up in a -1 terminated table.
-void func_00258080(s32* a, s32* b) {
-    s32 v = func_00287bc0();
-    bool found = false;
-    for (s32 i = 0; D_00372958[i] >= 0; i++) {
-        if (v == D_00372958[i]) {
-            found = true;
-            break;
-        }
-    }
-    if (!found) {
-        *a = 25;
-        *b = 23;
-    } else {
-        *a = 22;
-        *b = 21;
-    }
-}
+void func_00258080(s32* a, s32* b);  // 0x00258080: definition moved into src/anon/unit_00254020.cpp
 
 void func_0028e438(u8* p, s32 i, u32 v, u32 w);  // 0028e438: moved to src/anon/unit_0028c878.cpp
 

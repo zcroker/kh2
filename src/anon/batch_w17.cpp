@@ -174,11 +174,7 @@ extern u32 D_0035f034;
 extern u32 D_0035f024;
 u32 func_0028acc8(u32);
 u32 IsWarningEnabled(...) asm("_ZN2Tz5CmTop16IsWarningEnabledEz");
-u32 IsWarningEnabled(...) {
-    u32 r = func_00139d78((void*)D_0035f034);
-    if (r == 0) r = func_0028acc8(D_0035f024);
-    return r;
-}
+u32 IsWarningEnabled(...);  // 0x002576d0: definition moved into src/anon/unit_00254020.cpp
 
 
 

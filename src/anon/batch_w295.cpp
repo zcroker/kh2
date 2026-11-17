@@ -17,22 +17,7 @@ extern W5* D_0035f038;
 s32 chk_139d78(void*) asm("_Z16u_call4_00139d78jjjj");
 void lv_139510(void*) asm("_ZN2dk5Obj2D5leaveEv");
 void ctarget0_00257a00(void) asm("_Z17ctarget0_00257a00v");
-void ctarget0_00257a00(void) {
-  s32 i;
-  if (chk_139d78(&D_0035f038->a[0])) lv_139510(&D_0035f038->a[0]);
-  if (chk_139d78(&D_0035f038->a[1])) lv_139510(&D_0035f038->a[1]);
-  if (chk_139d78(&D_0035f038->a[2])) lv_139510(&D_0035f038->a[2]);
-  if (chk_139d78(&D_0035f038->a[3])) lv_139510(&D_0035f038->a[3]);
-  if (chk_139d78(&D_0035f038->a[4])) lv_139510(&D_0035f038->a[4]);
-  if (chk_139d78(&D_0035f038->b[0])) lv_139510(&D_0035f038->b[0]);
-  if (chk_139d78(&D_0035f038->b[1])) lv_139510(&D_0035f038->b[1]);
-  for (i = 0; i < 24; i++) {
-    if (chk_139d78(&D_0035f038->c[i])) D_0035f038->c[i].vt[5](&D_0035f038->c[i]);
-    if (chk_139d78(&D_0035f038->d[i])) D_0035f038->d[i].vt[5](&D_0035f038->d[i]);
-    if (chk_139d78(&D_0035f038->e[i])) D_0035f038->e[i].vt[5](&D_0035f038->e[i]);
-    if (chk_139d78(&D_0035f038->f[i])) D_0035f038->f[i].vt[5](&D_0035f038->f[i]);
-  }
-}
+void ctarget0_00257a00(void);  // 0x00257a00: definition moved into src/anon/unit_00254020.cpp
 extern s32 D_0035f3d4;
 struct T373 { u8 pad[8]; s16 t[1]; };
 extern T373 D_00373e50;

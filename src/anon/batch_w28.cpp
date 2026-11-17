@@ -180,18 +180,7 @@ void func_00240b48(u32 a) {
 }
 
 // Index of the n-th set bit (of 8) in the mask, or -1.
-s32 func_00257fa8(s32 n) {  // nth_set_bit_index
-    s32 r = -1;
-    s32 m = D_0035ef70;
-    s32 c = 0;
-    for (s32 i = 0; i < 8; i++) {
-        if ((u8)((m >> i) & 1)) {
-            if (c == n) { r = i; break; }
-            c++;
-        }
-    }
-    return r;
-}
+s32 func_00257fa8(s32 n);  // 0x00257fa8: definition moved into src/anon/unit_00254020.cpp
 
 void func_0028d0f8(u8* p);  // 0028d0f8: moved to src/anon/unit_0028c878.cpp
 

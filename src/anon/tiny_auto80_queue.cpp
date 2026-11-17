@@ -1854,14 +1854,7 @@ extern u8 D_0035ef78;
 extern "C" u32 func_002577b0(...);
 extern "C" u32 func_00257910(...);
 
-u32 func_00257780(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r2;
-    r2 = ((u32(*)())func_002577b0)();
-    if (r2 == 0u) {
-        r2 = ((u32(*)())func_00257910)();
-    }
-    return r2;
-}
+u32 func_00257780(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);  // 0x00257780: definition moved into src/anon/unit_00254020.cpp
 
 extern "C" u32 func_001058e8(...);
 
@@ -10238,19 +10231,7 @@ extern u8 D_0035e298;
 extern "C" u32 func_001a8bb8(...);  // obj_set_header_bytes
 extern u8 D_0035f060;
 
-void func_00258120(u32 a0, u32 a1) {
-    u32 t7 = 0xffffu;
-    if (a1 != t7) {
-        return;
-    }
-    t7 = 1u;
-    if (a0 != t7) {
-        return;
-    }
-    u32 t0 = (u32)&D_0035f060;
-    a0 = t0;
-    func_001a8bb8(a0);  // obj_set_header_bytes
-}
+void func_00258120(u32 a0, u32 a1);  // 0x00258120: definition moved into src/anon/unit_00254020.cpp
 
 extern "C" u32 func_00102a38(...);  // list_contains_id
 extern "C" u32 func_00103eb0(...);

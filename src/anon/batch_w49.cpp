@@ -126,10 +126,7 @@ extern E372390 D_00372390[];
 s32 func_0024f240(void);  // 0x0024f240: definition moved into src/anon/unit_0024e7e8.cpp
 
 extern u8* D_0035f038;
-void func_00257970(void) {
-    for (s32 i = 0; i < 24; i++)
-        if (func_00139d78(D_0035f038 + i * 408 + 0x87d0)) break;
-}
+void func_00257970(void);  // 0x00257970: definition moved into src/anon/unit_00254020.cpp
 
 
 void func_0028da70(u32, s32);

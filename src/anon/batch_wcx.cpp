@@ -1637,15 +1637,7 @@ s32 func_00256b80(s32);
 u8* func_00256b68(s32);
 u32 func_00287dc0(void);
 void func_0023d820(u32);
-void func_00254e60(void)
-{
-    if (u_call4_00139d78(D_0035f02c)) func_0028dac8(D_0035f02c, 48);
-    if (!func_00256b80(0)) return;
-    u8* o = func_00256b68(0);
-    if (*(s32*)(o + 388) != 117) { func_00138c10(o, 117); *(s32*)(o + 392) = -1; }
-    if (D_0035f056) return;
-    func_0023d820(func_00287dc0());
-}
+void func_00254e60(void);  // 0x00254e60: definition moved into src/anon/unit_00254020.cpp
 extern E6 D_00373798[];
 u8* func_00257770(void);
 s32 func_00287bc0(void);

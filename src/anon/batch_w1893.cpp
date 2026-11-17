@@ -42,37 +42,6 @@ s32 func_00192c90(u32, u8*);
 void memcpy(u8*, u8*, s32);
 s32 func_00139d78(u8*);
 void func_0028d980(u8*, u32, u32, u32, u32, s32, s32, s32, s32);
-void func_00256cc0(s32 a, s32 b, s32 c)
-{
-    u8 sep[16];
-    s32 len = 0;
-    u8* base = func_00257770();
-    s32 seplen = func_00192b30(func_00192cc0(sep, D_00372940));
-    u8* buf = base + 0xb290;
-    if (c >= 0) {
-        len = func_00192c90(func_00192048(c), buf) - 1;
-    }
-    if (b >= 0) {
-        if (len != 0) {
-            memcpy(buf + len, sep, seplen);
-            len += seplen;
-        }
-        len = len + func_00192c90(func_00192048(b), buf + len) - 1;
-    }
-    if (a >= 0) {
-        if (len != 0) {
-            memcpy(buf + len, sep, seplen);
-            len += seplen;
-        }
-        func_00192c90(func_00192048(a), buf + len);
-    }
-    u8* o = base + 2940;
-    if (!func_00139d78(o)) {
-        u32 x = D_0035f3d4;
-        func_0028d980(o, x, D_0035ef68, D_0035ef64, D_0035f03c, 237, 238, -1, 0);
-        *(u8**)(o + 408) = buf;
-        *(s32*)(o + 432) = 1;
-    }
-}
+void func_00256cc0(s32 a, s32 b, s32 c);  // 0x00256cc0: definition moved into src/anon/unit_00254020.cpp
 
 }

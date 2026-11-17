@@ -147,11 +147,7 @@ void LayFile_alloc(u8* self, const char* name) {
 }
 
 u8 func_0031acc0(void*);
-u8 func_00258158(u8* p) {
-    func_0031acc0(p + 872);
-    func_0031acc0(p + 436);
-    return func_0031acc0(p);
-}
+u8 func_00258158(u8* p);  // 0x00258158: definition moved into src/anon/unit_00254020.cpp
 
 u8* func_00103eb0(void);
 void func_00263db0(void);

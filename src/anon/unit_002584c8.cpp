@@ -1,4 +1,4 @@
-// Linked unit 0x002584c8-0x002586e0 (one namespace per old matched source; class methods in their own namespace).
+// Linked unit 0x002582f8-0x002586e0 (one namespace per old matched source; class methods in their own namespace).
 #include "../common/types.h"
 #include "../tozawa/cmenu_pause.hpp"
 #include "auto80_199_queue_decls.hpp"
@@ -17,6 +17,82 @@
 #include "./tiny_auto80_queue_structs.hpp"
 #include "../yasui/libys/areadata.hpp"
 #include "../yasui/libys/progress.hpp"
+
+// 002582f8 (was unwritten gap)
+namespace n002582f8 {
+typedef void (*VF)(void*);
+struct VO { VF* vt; };
+struct Ent { u8 pad[8]; void (*fn)(void); };
+extern u8 D_0035f068 asm("D_0035f068");
+extern u8 D_0035f069 asm("D_0035f069");
+extern u8 D_0035f06a_b asm("D_0035f06a");
+extern s8 D_0035f06b asm("D_0035f06b");
+extern s16 D_0035f06c asm("D_0035f06c");
+extern s16 D_0035f06e asm("D_0035f06e");
+extern VO* D_0035f074 asm("D_0035f074");
+extern VO* D_0035f078 asm("D_0035f078");
+extern VO* D_0035f07c asm("D_0035f07c");
+extern u32 D_0035f080 asm("D_0035f080");
+extern u32 D_0035f084 asm("D_0035f084");
+extern VO* D_0035f088 asm("D_0035f088");
+extern u32 D_0035f08c asm("D_0035f08c");
+Ent* func_00253330(s32) asm("func_00253330");
+s32 func_00103560(void) asm("func_00103560");
+void func_0026dd18(s32, s32, s32) asm("func_0026dd18");
+void func_0025f578(void) asm("func_0025f578");
+void func_00242790(void) asm("func_00242790");
+void func_002427c0(void) asm("func_002427c0");
+void func_00102b68(void) asm("func_00102b68");
+void func_001384a0(s32) asm("func_001384a0");
+void func_002ef7f0(s32) asm("func_002ef7f0");
+extern "C" u8 D_0035f06a;
+void func_002582f8(void) asm("func_002582f8");
+void func_002582f8(void) {
+    if (D_0035f06a_b) func_00253330(D_0035f06c)->fn();
+    if (D_0035f088) { D_0035f088->vt[4](D_0035f088); D_0035f088 = 0; }
+    if (D_0035f074) { D_0035f074->vt[1](D_0035f074); D_0035f074 = 0; }
+    if (D_0035f078) { D_0035f078->vt[4](D_0035f078); D_0035f078 = 0; }
+    if (D_0035f07c) { D_0035f07c->vt[4](D_0035f07c); D_0035f07c = 0; }
+    D_0035f08c = 0;
+    if (func_00103560() != 50) {
+        D_0035f080 = 0;
+        D_0035f084 = 0;
+    }
+    func_0026dd18(0, 0, -1);
+    D_0035f06c = -1;
+    D_0035f06e = -1;
+    D_0035f069 = 0;
+    func_0025f578();
+    D_0035f06a = 0;
+    if (D_0035f06b) {
+        func_00242790();
+        func_002427c0();
+        func_00102b68();
+    }
+    D_0035f06b = 0;
+    func_001384a0(0);
+    D_0035f068 = 0;
+    func_002ef7f0(0);
+}
+}  // namespace
+
+// 00258468 (was unwritten gap)
+namespace n00258468 {
+void func_00258a88(u32) asm("func_00258a88");
+void func_00102448(u32, s32) asm("func_00102448");
+void func_002584c8(void) asm("func_002584c8");
+s32 func_00258630(void) asm("func_00258630");
+void func_00258468(u32 t) asm("func_00258468");
+void func_00258468(u32 t) {
+    func_00258a88(t);
+    func_00102448(t, 1);
+    func_002584c8();
+    for (;;) {
+        if (func_00258630()) break;
+        func_00102448(t, 0);
+    }
+}
+}  // namespace
 
 // 002584c8 (was src/anon/batch_w81.cpp)
 namespace n002584c8 {
