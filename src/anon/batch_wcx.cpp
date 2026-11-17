@@ -2111,21 +2111,7 @@ extern void* D_0035f4d4;
 extern void* D_0035f4dc;
 extern void* D_0035f4e4;
 void func_00106450(void*);
-void func_002927b8(void)
-{
-    D_0035f4bc = 0;
-    D_0035f4c0 = 0;
-    D_0035f4c4 = 0;
-    D_0035f4d8 = 0;
-    D_0035f4e0 = 0;
-    D_0035f4d0 = 0;
-    D_0035f4c8 = 0;
-    D_0035f4cc = 0;
-    D_0035f4e2 = 0;
-    if (D_0035f4d4) { func_00106450(D_0035f4d4); D_0035f4d4 = 0; }
-    if (D_0035f4dc) { func_00106450(D_0035f4dc); D_0035f4dc = 0; }
-    if (D_0035f4e4) { func_00106450(D_0035f4e4); D_0035f4e4 = 0; }
-}
+void func_002927b8(void);  // 002927b8: moved to src/anon/unit_00292620.cpp
 extern u32 D_0035f570;
 extern u8* D_0035f574;
 extern u32* D_0035f578;

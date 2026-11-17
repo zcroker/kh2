@@ -496,20 +496,7 @@ extern s8 D_00374590[][2];
 u32 func_00103570(void);
 void* func_001063f0(s32, u32);
 void func_002fde18(void*, s32, s32);
-void func_002926c0(s32 idx) {
-    D_0035f4c4 = idx;
-    D_0035f4bc = D_00374590[idx][0];
-    D_0035f4c0 = D_00374590[idx][1] << 11;
-    D_0035f4c8 = 0;
-    D_0035f4cc = 0;
-    D_0035f4d0 = 0;
-    D_0035f4d4 = func_001063f0(D_0035f4bc * 16, func_00103570());
-    func_002fde18(D_0035f4d4, 0, D_0035f4bc * 16);
-    D_0035f4dc = func_001063f0(D_0035f4bc * 4, func_00103570());
-    func_002fde18(D_0035f4dc, 0, D_0035f4bc * 4);
-    D_0035f4e4 = func_001063f0(128, func_00103570());
-    func_002fde18(D_0035f4e4, 0, 128);
-}
+void func_002926c0(s32 idx);  // 002926c0: moved to src/anon/unit_00292620.cpp
 
 extern void* D_0035f200;
 s32 func_0028afa8(void*);

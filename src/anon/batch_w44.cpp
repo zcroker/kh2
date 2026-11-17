@@ -314,12 +314,7 @@ void func_0028a908(u8* o) {
 
 extern u8 D_0035f4b8;
 // Tz::LoadDataIsFlushing(): true while load data is still being flushed.
-s32 LoadDataIsFlushing(void) {
-    s32 r = D_0035f4b8;
-    if (func_00102a38(*(void**)(func_00103eb0() + 4), (void*)func_00292608)) return 1;
-    if (!r) r = func_00170cd0();
-    return r;
-}
+// 00292630: moved to src/anon/unit_00292620.cpp
 
 extern s16* D_0035f4e8;
 s32 func_00293668(void) {

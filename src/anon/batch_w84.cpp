@@ -512,18 +512,7 @@ extern GS D_0035f4d8;
 extern u8 D_0035f4e2;
 extern GP D_0035f4d4;
 void func_002fde18(void*, s32, u32);
-void func_00292998(void) {
-    D_0035f4e0 = 0;
-    func_002fde18(D_0035f4dc, 0, D_0035f4bc * 4);
-    s16 k = D_0035f4dc[D_0035f4e0 * 2 + 1];
-    D_0035f4d8.v = k;
-    if (D_0035f4e2) {
-        D_0035f4d4.p[D_0035f4d8.v].a = 0;
-        D_0035f4d4.p[D_0035f4d8.v].b = 0;
-        D_0035f4d4.p[D_0035f4d8.v].d = 0;
-        D_0035f4d4.p[D_0035f4d8.v].c = 0;
-    }
-}
+void func_00292998(void);  // 00292998: moved to src/anon/unit_00292998.cpp
 
 s32 func_0019ba60(u32);
 extern s32 D_0032dfc8;

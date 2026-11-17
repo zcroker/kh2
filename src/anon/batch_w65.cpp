@@ -296,17 +296,7 @@ extern s16 D_0035f4e0;
 extern s16 D_0035f4d8;
 extern u8 D_0035f4e2;
 extern s32 D_0035f4d0;
-void func_00292870(void) {
-    D_0035f4c8 = func_00253b00();  // get_global_ptr_1dae6c0
-    D_0035f4cc = func_00253b18();
-    D_0035f4d0 = D_0035f4cc / D_0035f4c0;
-    if (D_0035f4d0 > D_0035f4bc) D_0035f4d0 = D_0035f4bc;
-    D_0035f4cc = 0;
-    D_0035f4d8 = 0;
-    D_0035f4e0 = 0;
-    D_0035f4e2 = 0;
-    func_00292a58();
-}
+void func_00292870(void);  // 00292870: moved to src/anon/unit_00292620.cpp
 
 // Step the selection up/down (wrapping) among the entries flagged 0x2000000.
 struct Ent36 { u32 f; u32 r[8]; };

@@ -13,8 +13,6 @@ extern u8 D_00360000 asm("D_00360000");
 // 00292568: moved to src/anon/unit_00290f78.cpp
 
 // 00292608: moved to src/anon/unit_00290f78.cpp
-void LoadData::Clear(s32 priority) { YS_CACHE_BUFF_Clear(priority); }
-void* LoadData::CacheAlloc(const char* path) {
-    return YS_CACHE_BUFF_Alloc(path, -1);
-}
+// 00292690: moved to src/anon/unit_00292620.cpp
+// 002926a8: moved to src/anon/unit_00292620.cpp
 }  // namespace Tz

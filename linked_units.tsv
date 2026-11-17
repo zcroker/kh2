@@ -127,6 +127,8 @@ src/anon/unit_0028c878.cpp	0028c878	0028edf0	.rodata@00374438	-G0 -fno-strict-al
 src/anon/unit_0028f1e0.cpp	0028f1e0	00290d68	.rodata@0037447c	-G0 -fno-strict-aliasing
 src/anon/unit_00290d68.c	00290d68	00290f78	-	-G0
 src/anon/unit_00290f78.cpp	00290f78	00292620	.rodata@003744a4	-G0 -fno-strict-aliasing
+src/anon/unit_00292620.cpp	00292620	002928f0	-	-G0
+src/anon/unit_00292998.cpp	00292998	00292e60	-	-G0
 src/anon/unit_002200c0.c	002200c0	00221348	.rodata@00370b80	-G0 -fno-strict-aliasing
 src/rikeda/saveram_gumibattle.cpp	001e0808	001e0c98	.data@00352b88,.bss@01d9e350,.rodata@0036e860	-G0
 src/anon/unit_00198b88.cpp	00198b88	00198d50	-	-G0

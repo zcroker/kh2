@@ -10939,60 +10939,7 @@ s32 func_00292a90(s16 id);
 s32 func_00292af0(s16 id);
 void func_00292998(void);
 void func_00292eb0(void);
-void func_00292b40(s16* list, s32 n)
-{
-    Ent292b40 buf[D_0035f4bc.v];
-    s32 cnt, i, k;
-    s32 mask;
-
-    cnt = 0;
-    for (i = 0; i < n; i++) {
-        if (func_00292a90(list[i])) continue;
-        if (func_00292af0(list[i])) continue;
-        buf[cnt++].v = list[i];
-    }
-    if (cnt + D_0035f4e0.v > D_0035f4d0.v) {
-        for (i = 0; i < n; i++) {
-            for (k = 0; k < D_0035f4e0.v; k++) {
-                if (D_0035f4dc.v[k].h.id == list[i]) {
-                    buf[cnt++].v = list[i];
-                    break;
-                }
-            }
-        }
-        func_00292998();
-    }
-    mask = 0;
-    for (i = 0; i < D_0035f4d0.v; i++) {
-        k = 0;
-        if (D_0035f4d4.v[i].used) {
-            for (k = 0; k < n; k++) {
-                if (D_0035f4d4.v[i].id == list[k]) break;
-            }
-        }
-        if (!D_0035f4d4.v[i].used || k >= n) mask |= 1 << i;
-    }
-    for (i = 0; i < cnt; i++) {
-        for (k = 0; k < D_0035f4d0.v; k++) {
-            s32 p = D_0035f4d8.v + k;
-            if (p >= D_0035f4d0.v) p = 0;
-            if ((mask >> p) & 1) {
-                D_0035f4d8.v = p;
-                mask &= ~(1 << p);
-                break;
-            }
-        }
-        {
-            s16 b = buf[i].v;
-            s32 e = D_0035f4e0.v++;
-            Slot292b40* tab = D_0035f4dc.v;
-            u16 d = D_0035f4d8.v++;
-            tab[e].w = (d << 16) | (u16)b;
-        }
-        if (D_0035f4d8.v >= D_0035f4d0.v) D_0035f4d8.v = 0;
-    }
-    func_00292eb0();
-}
+void func_00292b40(s16* list, s32 n);  // 00292b40: moved to src/anon/unit_00292998.cpp
 
 // --------------------
 // Pick the offset position for the given mode (random for unknown modes).

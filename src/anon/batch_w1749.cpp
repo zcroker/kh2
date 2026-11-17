@@ -13,14 +13,7 @@ void func_001d2248(M2D* o, s32 v);  // 0x001d2248: definition moved into src/ano
 extern s16 D_0035f4e0;
 struct E4 { u16 id; u16 x; };
 extern E4* D_0035f4dc;
-s32 func_00292af0(s32 id)
-{
-    s32 r = 0;
-    for (s32 i = 0; i < D_0035f4e0; i++) {
-        if (D_0035f4dc[i].id == id) { r = 1; break; }
-    }
-    return r;
-}
+s32 func_00292af0(s32 id);  // 00292af0: moved to src/anon/unit_00292998.cpp
 
 struct O2da { u8 pad[0xbf4]; s32 p; };
 s32 func_0016c028(s32);

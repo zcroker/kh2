@@ -295,14 +295,7 @@ void func_0028b078(u8* a0, s32 a1, s32 a2) {  // obj_setup_from_args
 
 void func_0028ce98(s32 i, u32 v);  // 0028ce98: moved to src/anon/unit_0028c878.cpp
 
-s32 func_00292a90(s32 id) {
-    s32 r = 0;
-    for (s32 i = 0; i < D_0035f4d0; i++) {
-        E16* e = &D_0035f4d4[i];
-        if ((u8)e->flag && e->id == id) { r = 1; break; }
-    }
-    return r;
-}
+s32 func_00292a90(s32 id);  // 00292a90: moved to src/anon/unit_00292998.cpp
 
 s32 func_002a4990(s32 a0) {
     if (a0 < 0) a0 = *(s32*)(D_0035f5e4 + 4228) + *(s32*)(D_0035f5e4 + 4232) / 8;

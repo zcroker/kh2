@@ -224,11 +224,7 @@ void func_0028b830(u8* p) {
 
 void func_0028e710(u32 p, u32 a);  // 0028e710: moved to src/anon/unit_0028c878.cpp
 
-void func_00292a58(void) {
-    D_0035f4d8 = 0;
-    func_002fde18(D_0035f4d4, 0, D_0035f4bc << 4);
-    func_00292998();
-}
+void func_00292a58(void);  // 00292a58: moved to src/anon/unit_00292998.cpp
 
 void func_002bf618(u8* p);  // 0x002bf618: definition moved into src/anon/unit_002bebd0.cpp
 
