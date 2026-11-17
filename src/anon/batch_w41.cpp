@@ -281,18 +281,7 @@ struct W41VA { u32 (**vt)(W41VA*, u32, u32); };
 struct W41SysA { u8 pad[0x14]; W41VA* alloc; };
 extern W41SysA* D_00347f80_sys asm("D_00347f80");
 void func_0028dfe8(u32);  // obj_ctor_36f440
-void func_0028b9b0(u32* p) {
-    W41VA* a = D_00347f80_sys->alloc;
-    u32 v = a->vt[0](a, 60, 0);
-    func_0028dfe8(v);  // obj_ctor_36f440
-    p[0] = v;
-    p[1] = 0;
-    p[8] = 0;
-    p[9] = 0;
-    p[10] = 0;
-    p[11] = 0;
-    p[12] = 0;
-}
+void func_0028b9b0(u32* p);  // 0x0028b9b0: definition moved into src/anon/unit_00288b00.cpp
 
 }
 

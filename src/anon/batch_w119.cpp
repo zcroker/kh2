@@ -90,42 +90,5 @@ void func_00139688(u8*);
 void func_0028eb88(u8*, s32, f32, f32);
 void func_0028e8b8(u8*, s32, s32, s32);
 // Gauge layout setup: copies the frame table, links the bar and scales it by cur/total (clamped to 1).
-void func_0028bae0(Gauge* g, s32 a, s32 b, s32 c, u16 (*src)[4], s32 total, s32 cur, u8* link)
-{
-    func_0028be58(g);
-    for (s32 i = 0; i < 3; i++)
-        for (s32 j = 0; j < 4; j++)
-            g->tbl[i][j] = src[i][j];
-    func_0028e0d8(g->lay, a, b, c, g->tbl[0], 4, 0);
-    func_0028e5e0(g->lay, g->tbl[2], 4);
-    g->link = link;
-    g->f40 = 0;
-    g->cur = cur;
-    g->maxv = total < cur ? cur : total;
-    if (!link)
-        g->w0 = func_0023aa58(func_0028e798(g->lay, 0));
-    else
-        g->w0 = func_0023aa58(link + 24);
-    s32 w1 = func_0023aa58(func_0028e798(g->lay, 2));
-    g->w1 = w1;
-    f32 r = (f32)cur / (f32)total;
-    if (func_003142e0(1.0, func_00313b80(r)) <= 0)
-        r = 1.0f;
-    f32 sc = (f32)g->w0 / (f32)w1 * r;
-    if (g->link == 0) {
-        u8* p = func_0028e798(g->lay, 0);
-        func_0028e748(g->lay, 1, p);
-        func_0028e748(g->lay, 2, p);
-        func_0028e748(g->lay, 3, p);
-    } else {
-        s32 x = func_0023aa18(g->link + 24);
-        s32 y = func_0023aa38(g->link + 24);
-        func_0028e710(g->lay, g->link);
-        func_0028e870(g->lay, x, y);
-        func_00139660(g->lay);
-        func_00139688(g->lay);
-    }
-    func_0028eb88(g->lay, 2, 1.0f, sc);
-    func_0028e8b8(g->lay, 3, 0, (s32)((f32)g->w1 * sc));
-}
+void func_0028bae0(Gauge* g, s32 a, s32 b, s32 c, u16 (*src)[4], s32 total, s32 cur, u8* link);  // 0x0028bae0: definition moved into src/anon/unit_00288b00.cpp
 }

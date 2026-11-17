@@ -214,14 +214,7 @@ void* CMData_GetPtr(s32) {
     return func_0023fa08(&D_0035f3a8, func_002537c8(5));
 }
 
-void func_0028b218(u8* p, u8 on) {  // obj_set_flag39_bits3000
-    p[39] = on;
-    if (on) {
-        *(u32*)(p + 52) |= 0x3000;
-    } else {
-        *(u32*)(p + 52) &= ~0x3000;
-    }
-}
+void func_0028b218(u8* p, u8 on);  // 0x0028b218: definition moved into src/anon/unit_00288b00.cpp
 
 void func_00299260(void) {
     func_00276c50(func_00287bc0() == 4 ? 18648 : 18649, 0);

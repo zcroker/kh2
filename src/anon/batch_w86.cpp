@@ -832,18 +832,7 @@ struct Obj { u8 p0[4]; N16 n; u8 p8[6]; s16 f14; u8 p16[24]; Spr** sprs; };
 extern "C" {
 Def* func_0028ac98(Obj*, s32);  // lookup_by_index_align
 void func_00138c10(Spr*, s32);
-void func_0028a980(Obj* o)
-{
-    for (s32 i = 0; i < o->n.v; i++) {
-        if (!o->sprs[i]) continue;
-        Def* d = func_0028ac98(o, i);  // lookup_by_index_align
-        if (d) {
-            func_00138c10(o->sprs[i], d->anim);
-            o->sprs[i]->f392 = d->f4;
-        }
-    }
-    o->f14 = 0;
-}
+void func_0028a980(Obj* o);  // 0x0028a980: definition moved into src/anon/unit_00288b00.cpp
 }
 }
 
@@ -875,19 +864,7 @@ static inline void Release()
         D_0035f3c4 = 0;
     }
 }
-void menuitem_update(void)
-{
-    if (D_0035f3c8) {
-        Release();
-        D_0035f3c4 = D_0035f3c8;
-        D_0035f3cc = D_0035f3d0;
-        D_0035f3c8 = 0;
-        D_0035f3d0 = 0;
-    } else {
-        Release();
-        D_0035f3c4 = 0;
-    }
-}
+void menuitem_update(void);  // 0x0028c4f8: definition moved into src/anon/unit_0028bfc0.cpp
 }
 
 // ---- 002a9f50: are the required flags set

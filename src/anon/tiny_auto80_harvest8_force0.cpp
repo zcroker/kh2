@@ -80,13 +80,7 @@ u32 func_00252148(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7
     return r2;
 }
 
-void func_00288f48(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7;
-    *(volatile u16*)((u32)r4 + (s32)(6)) = (u16)r5;
-    *(volatile u16*)((u32)r4 + (s32)(12)) = (u16)r8;
-    *(volatile u16*)((u32)r4 + (s32)(8)) = (u16)r6;
-    *(volatile u16*)((u32)r4 + (s32)(10)) = (u16)r7;
-}
+void func_00288f48(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);  // 0x00288f48: definition moved into src/anon/unit_00288b00.cpp
 
 u32 func_002deaa0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r15;

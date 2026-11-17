@@ -12907,18 +12907,7 @@ void duplicate_unplaced_00288c58(void* a0, u32 a1) {
 }
 
 
-u32 func_00289358(void* a0) {
-    s32 t;
-    s32 v;
-    t = (s32)*(s16*)((u8*)a0 + 20);
-    if (t < 0) {
-        goto ret0;
-    }
-    v = (s32)*(s16*)((u8*)a0 + 18);
-    return (u32)((v ^ t) != 0);
-ret0:
-    return 0u;
-}
+u32 func_00289358(void* a0);  // 0x00289358: definition moved into src/anon/unit_00288b00.cpp
 
 void duplicate_unplaced_0028af90(void* a0, s32 a1) {
     u32 t7;
@@ -12932,72 +12921,13 @@ done:
     *(u16*)((u8*)a0 + 22) = (u16)t7;
 }
 
-void func_0028b4c0(void* a0, void* a1) {  // copy_3halfwords_416
-    s32 i = 0;
-    do {
-        s32 off = i << 1;
-        u16 v = *(u16*)((u32)off + (u32)a1);
-        *(u16*)((u32)off + (u32)a0 + 416) = v;
-        i = i + 1;
-    } while (i < 3);
-}
+void func_0028b4c0(void* a0, void* a1);  // 0x0028b4c0: definition moved into src/anon/unit_00288b00.cpp
 
-void func_0028b4f0(void* a0, void* a1) {  // copy_3halfwords_422
-    u8* p0 = (u8*)a0 + 422;
-    u8* p1 = (u8*)a1;
-    s32 i = 0;
-    for (;;) {
-        u16 v = *(u16*)p1;
-        i = i + 1;
-        s32 c = i < 3;
-        *(u16*)p0 = v;
-        p1 = p1 + 2;
-        if (c != 0) {
-            p0 = p0 + 2;
-            continue;
-        }
-        p0 = p0 + 2;
-        break;
-    }
-}
+void func_0028b4f0(void* a0, void* a1);  // 0x0028b4f0: definition moved into src/anon/unit_00288b00.cpp
 
-void func_0028b6f0(void* a0, void* a1) {
-    u8* p0 = (u8*)a0 + 444;
-    u8* p1 = (u8*)a1;
-    s32 i = 0;
-    for (;;) {
-        u16 v = *(u16*)p1;
-        i = i + 1;
-        s32 c = i < 3;
-        *(u16*)p0 = v;
-        p1 = p1 + 2;
-        if (c != 0) {
-            p0 = p0 + 2;
-            continue;
-        }
-        p0 = p0 + 2;
-        break;
-    }
-}
+void func_0028b6f0(void* a0, void* a1);  // 0x0028b6f0: definition moved into src/anon/unit_00288b00.cpp
 
-void func_0028b720(void* a0, void* a1) {  // anim_copy3
-    u8* p0 = (u8*)a0 + 450;
-    u8* p1 = (u8*)a1;
-    s32 i = 0;
-    for (;;) {
-        u16 v = *(u16*)p1;
-        i = i + 1;
-        s32 c = i < 3;
-        *(u16*)p0 = v;
-        p1 = p1 + 2;
-        if (c != 0) {
-            p0 = p0 + 2;
-            continue;
-        }
-        p0 = p0 + 2;
-        break;
-    }
-}
+void func_0028b720(void* a0, void* a1);  // 0x0028b720: definition moved into src/anon/unit_00288b00.cpp
 
 void duplicate_unplaced_0028cc40(void* a0) {
     if (a0 != (void*)0) {

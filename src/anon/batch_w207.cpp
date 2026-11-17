@@ -9,11 +9,7 @@ void func_0016bda8(void*) asm("_Z16ctarget_0016bda8jjjj");
 void func_0017f488(void*, s32, f32, f32);
 u32 func_002c5fa0(u32);
 
-void func_0028b120(W207P* p, W207U* r, W207U* q, s32 x) {
-    if (x < 0) x = p->a + p->b;
-    r->i = x % p->c;
-    q->i = x / p->c;
-}
+void func_0028b120(W207P* p, W207U* r, W207U* q, s32 x);  // 0x0028b120: definition moved into src/anon/unit_00288b00.cpp
 
 u32 func_001b6f48(u32 a);  // 0x001b6f48: definition moved into src/anon/unit_001b6a50.cpp
 

@@ -305,12 +305,7 @@ s32 func_00267150(u32 a);  // 0x00267150: definition moved into src/anon/unit_00
 
 void func_00139d78(u8*);
 s16* func_0028ac98(u8*, u32);  // lookup_by_index_align
-s32 func_0028ae98(u8* p, u32 i) {
-    u8* o = (*(u8***)(p + 40))[i];
-    if (o) func_00139d78(o);
-    s16* r = func_0028ac98(p, i);  // lookup_by_index_align
-    return *(s32*)((*(u8***)(p + 40))[i] + 388) == r[3];
-}
+s32 func_0028ae98(u8* p, u32 i);  // 0x0028ae98: definition moved into src/anon/unit_00288b00.cpp
 
 void func_00138840(void);
 double func_00313b80(f32);  // float_to_double

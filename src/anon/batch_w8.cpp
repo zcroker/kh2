@@ -181,10 +181,7 @@ void next_mode_to_mode(s32 mode, s32 next) {
 
 void func_00139d78(void*);
 void func_00139510(void*);
-void func_0028c170(void* p) {
-    func_00139d78(p);
-    func_00139510(p);
-}
+void func_0028c170(void* p);  // 0x0028c170: definition moved into src/anon/unit_0028bfc0.cpp
 
 void func_002b726c(u32, s32, s32, u32, u32);
 void sound_system_se_play(s32 a, s32 b) asm("_ZN5SOUND12systemSePlayEii");

@@ -30,19 +30,7 @@ void wtarget_0020e9f8(f32 a, f32 b) {
     D_00359110.b = x / b;
 }
 
-s32 func_0028b160(W211S28* s, u32 key) {  // find_index_in_array
-    s32 i = 0;
-    s32 n = s->n;
-    if (n > 0) {
-        u32* p = s->tbl;
-        do {
-            if (key == *p) break;
-            p++;
-            i++;
-        } while (i < n);
-    }
-    return i < s->n ? i : -1;
-}
+s32 func_0028b160(W211S28* s, u32 key);  // 0x0028b160: definition moved into src/anon/unit_00288b00.cpp
 
 void func_0031e268(W211H* h) {
     h = (W211H*)((u8*)h + 4);

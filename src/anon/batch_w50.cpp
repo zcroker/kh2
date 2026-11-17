@@ -304,11 +304,7 @@ void func_00242880(void) {
     func_002fde18(D_0035ecd8, 0, 4);
 }
 
-void func_00288c58(u8* o, s32 n) {
-    *(u32*)(o + 40) = func_00288be8(n * 4);
-    *(u32*)(o + 44) = func_00288be8(n * 8);
-    *(u32*)(o + 48) = func_00288be8(n * 8);
-}
+void func_00288c58(u8* o, s32 n);  // 0x00288c58: definition moved into src/anon/unit_00288b00.cpp
 
 void func_0029c958(void) {
     u32 mask = 0;

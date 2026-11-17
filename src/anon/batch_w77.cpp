@@ -546,21 +546,7 @@ void func_0028b720(u8*, u32);
 u8* func_0023f1b0(u32);
 u32 func_0023c3e0(u8*, s32, s32);
 void func_0028dd28(u8*, u32);
-void func_0028b520(u8* p, u32 a, u32 b, u32 c, u32 id, u32 x, u32 y, u32 z, u32 w)
-{
-    *(u32*)(p + 436) = id;
-    func_0028d980(p, a, b, c, id, z, -1, w, 0);
-    func_0028b6f0(p, x);
-    func_0028b720(p, y);
-    s32 v = *(s32*)(func_0023f1b0(*(u32*)(p + 436)) + 76);
-    for (s32 i = 0; i < 3; i++) {
-        if (v == ((s16*)(p + 444))[i]) {
-            func_0028dd28(p, func_0023c3e0(func_0023f1b0(*(u32*)(p + 436)), ((s16*)(p + 450))[i], 0));
-            break;
-        }
-    }
-    *(s16*)(p + 456) = v;
-}
+void func_0028b520(u8* p, u32 a, u32 b, u32 c, u32 id, u32 x, u32 y, u32 z, u32 w);  // 0x0028b520: definition moved into src/anon/unit_00288b00.cpp
 }
 }
 

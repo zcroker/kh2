@@ -244,11 +244,7 @@ s32 func_002811f8(T281* t, s32 key) {  // find_halfword_index
 extern u32 D_0035f3a0;
 void func_0023f7e0(void*);
 void func_0028b870(void*);
-void func_0028b750(void** p) {
-    func_0023f7e0(p);
-    *p = &D_0035f3a0;
-    func_0028b870(p);
-}
+void func_0028b750(void** p);  // 0x0028b750: definition moved into src/anon/unit_00288b00.cpp
 
 // --- 002ba8a8
 void func_002b7078(u32);

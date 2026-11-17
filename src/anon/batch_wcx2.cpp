@@ -12705,25 +12705,7 @@ s32 func_0028b1c0(O2891f0*);
 void func_00289b30(O2891f0*, O2891f0*, s16*);
 void func_00138c10_2891f0(W2891f0*, s32) asm("func_00138c10");
 void func_002891f0_def(O2891f0* o, s32 v, u8 flag, s32 a, s32 b) asm("func_002891f0");
-void func_002891f0_def(O2891f0* o, s32 v, u8 flag, s32 a, s32 b)
-{
-    o->cur = v;
-    if (o->n < o->max) {
-        if ((s16)v < o->n) {
-            o->off = 0;
-        } else {
-            o->cur = o->n - 1;
-            o->off = v - o->n + 1;
-        }
-    }
-    if (o->b37 == 0 && func_0028b1c0(o)) func_00289b30(o, o, &o->off);
-    if (!flag) return;
-    W2891f0* w = o->w[o->cur];
-    if (!w) return;
-    s16* t = o->tab[o->cur];
-    func_00138c10_2891f0(w, t[a]);
-    if (b >= 0) w->f392 = t[b];
-}
+void func_002891f0_def(O2891f0* o, s32 v, u8 flag, s32 a, s32 b);  // 0x002891f0: definition moved into src/anon/unit_00288b00.cpp
 
 // --------------------
 struct E2aa4a8 { s8 k; u8 pad[11]; };
@@ -12822,20 +12804,7 @@ extern C28c198 D_0035f3cc;
 u32 func_0023c4b8_28c198(u8*, u32) asm("func_0023c4b8");
 u8* func_00236ca8_28c198(u32, u32) asm("func_00236ca8");
 void func_0028c0a0(W28c198*, u32, u32, u8*, u32, u32);
-W28c198* func_0028c198(u32 id, u32 a, u32 b, u32 bank, u32 c, u32 d)
-{
-    P28c198* p = D_0035f3c4;
-    p->n--;
-    W28c198* w = (W28c198*)((u8*)p + p->free[p->n] * 440);
-    u32 h = func_0023c4b8_28c198(func_0023f1b0(bank), a);
-    u8* z = func_00236ca8_28c198(*(u32*)(func_0023f1b0(bank) + 40), b);
-    func_0028c0a0(w, id, h, z, c, d);
-    if (z[400]) w->sub.Set();
-    else w->sub.Clr();
-    w->f436 = 0;
-    D_0035f3cc.i++;
-    return w;
-}
+W28c198* func_0028c198(u32 id, u32 a, u32 b, u32 bank, u32 c, u32 d);  // 0x0028c198: definition moved into src/anon/unit_0028bfc0.cpp
 
 
 // --------------------

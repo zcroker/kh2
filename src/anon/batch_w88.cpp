@@ -325,18 +325,7 @@ void func_002830b8(void) {
     }
 }
 
-s32 func_0028ad50(u8* p) {
-    if (!func_0028acc8p(p)) return 0;
-    for (s32 i = 0; i < (s16)*(u16*)(p + 4); i++) {
-        u8* o = (*(u8***)(p + 40))[i];
-        if (!o) continue;
-        if (func_001396c0(o)) continue;
-        u8* q = (*(u8***)(p + 40))[i] + 24;
-        if ((u8)func_00239d30i(q, *(u32*)(q + 276))) continue;
-        if (!(*(u8***)(p + 40))[i][404]) return 0;
-    }
-    return 1;
-}
+s32 func_0028ad50(u8* p);  // 0x0028ad50: definition moved into src/anon/unit_00288b00.cpp
 
 void func_00291110(u32 a, u32 b, u32 c, u32 d, u32 e, u32 f, u32 g);  // 00291110: moved to src/anon/unit_00290f78.cpp
 

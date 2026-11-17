@@ -352,14 +352,7 @@ bool func_0027a908(u8 a) {
 
 }
 
-s32 Select_isCreated(u8* s) {
-    s32 i;
-    for (i = 0; i < *(s16*)(s + 4); i++) {
-        void* o = (*(void***)(s + 40))[i];
-        if (o && func_00139d78(o)) return 1;
-    }
-    return 0;
-}
+s32 Select_isCreated(u8* s);  // 0x0028acc8: definition moved into src/anon/unit_00288b00.cpp
 
 extern "C" {
 

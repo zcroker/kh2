@@ -386,20 +386,7 @@ s32 func_0028acc8(Sel*);
 u8* func_0028ac98(Sel*, s32);  // lookup_by_index_align
 void func_00138c10(void*, s32);
 void sel_start(Sel* s) asm("_ZN2Tz6Select5StartEz");
-void sel_start(Sel* s) {
-    if (func_0028acc8(s)) {
-        for (s32 i = 0; i < s->n.v; i++) {
-            if (s->arr[i] == 0) continue;
-            u8* r = func_0028ac98(s, i);  // lookup_by_index_align
-            if (!r) continue;
-            s16 v = *(s16*)(r + 2);
-            if (*(s32*)(s->arr[i] + 388) == v) continue;
-            func_00138c10(s->arr[i], v);
-            *(s32*)(s->arr[i] + 392) = -1;
-        }
-    }
-    s->done = 1;
-}
+void sel_start(Sel* s);  // 0x0028aa40: definition moved into src/anon/unit_00288b00.cpp
 
 // Quaternion product o = a * b.
 struct Qt { f32 x, y, z, w; };

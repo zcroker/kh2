@@ -279,11 +279,4 @@ void wtarget_001d9ca0(u32 a0, u32 a1, u32, u32);  // 0x001d9ca0: definition move
 
 void wtarget_002eaab0(u32 a0, u32 a1, u32, u32);  // 002eaab0: moved to src/anon/unit_002eaa68.cpp
 
-void Tz::Select::Reset2DMode() {
-    f37 = 0;
-    f38 = 0;
-    f24 = 0;
-    f26 = 0;
-    SetEnableButton(115);
-    SetSelectDisable(0);
-}
+// 0x0028b0e0: definition moved into src/anon/unit_00288b00.cpp

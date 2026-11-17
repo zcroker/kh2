@@ -414,38 +414,12 @@ void func_0028b248(void*, s32);  // set_field28_half
 union S16U { s16 s; u8 c; };
 union U32U { u32 w; u8 c; };
 struct Obj288 { u8 p0[4]; s16 n; u8 p6[8]; s16 h14; u8 p16[2]; s16 h18; u8 p20[2]; s16 h22; u8 p24[16]; U32U* a; S16U* b; S16U* c; };
-void func_00288e88(Obj288* o) {
-    s32 i, k;
-    for (i = 0; i < o->n; i++) {
-        o->a[i].w = 0;
-        for (k = 0; k < 4; k++) {
-            o->b[i * 4 + k].s = -1;
-            o->c[i * 4 + k].s = -1;
-        }
-    }
-    o->n = 0;
-    o->h22 = 0;
-    o->h18 = 0;
-    o->h14 = 0;
-    func_0028af18(o, 115);
-    func_0028b1b0(o, 0);
-    func_0028b218(o, 0);  // obj_set_flag39_bits3000
-    func_0028b248(o, 1);  // set_field28_half
-}
+void func_00288e88(Obj288* o);  // 0x00288e88: definition moved into src/anon/unit_00288b00.cpp
 
 void func_0028eb88(u32, s32, f32, f32);
 void func_0028e8b8(u32, s32, s32, s32);
 struct Bar28b { u32 h; u8 p4[28]; s32 cur; s32 max; u8 p40[4]; s32 a; s32 b; };
-void func_0028bfc0(Bar28b* o, s32 v) {  // int_to_float_clamp
-    f32 r, s;
-    o->cur = v < o->max ? o->max : v;
-    r = (f32)o->max / (f32)v;
-    if (func_003142e0(1.0, func_00313b80(r)) <= 0) r = 1.0f;
-    s = (f32)o->a / (f32)o->b * r;
-    func_0028eb88(o->h, 2, 1.0f, s);
-    func_0028e8b8(o->h, 3, 0, (s32)((f32)o->b * s));
-
-}
+void func_0028bfc0(Bar28b* o, s32 v);  // 0x0028bfc0: definition moved into src/anon/unit_0028bfc0.cpp
 
 extern s32 D_0035f4c4;
 extern s32 D_0035f4bc;

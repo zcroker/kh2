@@ -173,10 +173,7 @@ void func_0027ead0(void) {
 }
 
 // Dispatches through slot 0 of the object at D_0035f34c, passing the caller's return address.
-u32 func_00288be8(u32 a) {
-    u8* o = D_0035f34c;
-    return (*(u32 (**)(u8*, u32, void*))(*(u8**)o))(o, a, __builtin_return_address(0));
-}
+u32 func_00288be8(u32 a);  // 0x00288be8: definition moved into src/anon/unit_00288b00.cpp
 
 void func_002a1f40(void) {
     u32 a;

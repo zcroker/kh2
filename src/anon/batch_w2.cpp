@@ -173,10 +173,7 @@ u8 func_00276f38(void) {
     return func_00139d78(D_0035f21c + 408);
 }
 
-Entry8* func_0028ac98(Table8* t, s32 id) {  // lookup_by_index_align
-    if (id == t->id) return &t->self[id];
-    return &t->other[id];
-}
+Entry8* func_0028ac98(Table8* t, s32 id);  // 0x0028ac98: definition moved into src/anon/unit_00288b00.cpp
 
 void func_0028dfe8(u32* p);  // 0028dfe8: moved to src/anon/unit_0028c878.cpp
 

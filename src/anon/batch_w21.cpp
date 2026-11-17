@@ -176,12 +176,7 @@ void func_002803e0(void) {
 }
 
 typedef void (*Slot1Fn)(void*, void*);
-void func_00288c20(void* a) {
-    if (a) {
-        void** o = D_0035f34c;
-        (*(Slot1Fn*)((u8*)*o + 4))(o, a);
-    }
-}
+void func_00288c20(void* a);  // 0x00288c20: definition moved into src/anon/unit_00288b00.cpp
 
 s32 func_002a43f0(void) {
     s32 v = func_00287bc0();

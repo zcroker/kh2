@@ -860,9 +860,7 @@ void func_00288648(u32 a0, u32 a1, u32 a2, u32 a3) {
     *(u16*)((u32)b + (-3286)) = (u16)a0;
 }
 
-void func_0028b248(u32 a0, u32 a1, u32 a2, u32 a3) {  // set_field28_half
-    *(u16*)((u32)a0 + (28)) = (u16)a1;
-}
+void func_0028b248(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0028b248: definition moved into src/anon/unit_00288b00.cpp
 
 void func_002936e8(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 b = (0x0036u << 16);
@@ -1952,12 +1950,7 @@ void func_00287c20(u32 a0, u32 a1, u32 a2, u32 a3) {  // clear_global_flag_retur
 }
 
 
-void func_0028b200(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a2;
-    (void)a3;
-    u32 v = a1 & 0x00ffu;
-    *(u8*)((u32)a0 + (38)) = (u8)v;
-}
+void func_0028b200(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0028b200: definition moved into src/anon/unit_00288b00.cpp
 
 void func_00293bb0(u32 a0, u32 a1, u32 a2, u32 a3) {
     (void)a1;

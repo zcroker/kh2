@@ -283,15 +283,7 @@ void func_00275e08(void) {
     if (func_00139d78(D_0035f20c + 436)) func_00139510(D_0035f20c + 436);
 }
 
-void func_0028b078(u8* a0, s32 a1, s32 a2) {  // obj_setup_from_args
-    a0[38] = 0;
-    a0[37] = 1;
-    *(s16*)(a0 + 24) = a1;
-    *(s16*)(a0 + 26) = a2;
-    func_00288f48(a0, 16, 32, 64, 128);
-    func_0028af18(a0, 127);
-    func_0028b1b0(a0, 0);
-}
+void func_0028b078(u8* a0, s32 a1, s32 a2);  // 0x0028b078: definition moved into src/anon/unit_00288b00.cpp
 
 void func_0028ce98(s32 i, u32 v);  // 0028ce98: moved to src/anon/unit_0028c878.cpp
 

@@ -186,11 +186,7 @@ void func_00281e88(void* p) {
 extern u32 D_0035f3a0;
 void func_0023f7e0(void*);
 void func_0028b870(void*);
-void LeadDataInit(void* p) {
-    func_0023f7e0(p);
-    *(void**)p = &D_0035f3a0;
-    func_0028b870(p);
-}
+void LeadDataInit(void* p);  // 0x0028b788: definition moved into src/anon/unit_00288b00.cpp
 
 struct L2b { u8 pad[20]; s32 key; u8 pad2[4]; L2b* next; };
 extern L2b* D_01e2aa80;

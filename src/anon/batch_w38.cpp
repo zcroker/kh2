@@ -277,18 +277,7 @@ s32 func_00103b38(void);
 extern s8 D_0035f348;
 extern u32 D_0035f34c;
 extern u32 D_0035f350;
-void Select_End(void*) {
-    if (func_00103b38()) func_00287f30();
-    s8* c = &D_0035f348;
-    if (*c) {
-        (*c)--;
-        return;
-    }
-    u32 n = D_0035f350;
-    if (n) D_0035f34c = n;
-    else D_0035f34c = 0;
-    D_0035f350 = 0;
-}
+void Select_End(void*);  // 0x00288b78: definition moved into src/anon/unit_00288b00.cpp
 
 void func_001396b0(void*);
 void func_00139660(void*);

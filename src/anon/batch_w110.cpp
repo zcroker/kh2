@@ -342,37 +342,7 @@ struct ListCur {
 extern "C" {
 s32 func_0028b1c0(ListCur*, s32);  // test_bit_field32
 // Moves the cursor up one entry (scrolling / wrapping), skipping entries the check accepts.
-s32 func_00289d28(ListCur* o, s16* cur, s16* top) {
-    s32 n = o->count;
-    s32 lim = n;
-    if (o->rows < n) lim = o->rows;
-    u32 all = 0;
-    s32 idx;
-    for (s32 i = 0; i < n; i++) all |= 1 << i;
-    u32 seen = 0;
-    while (seen != all) {
-        if (o->rows >= o->count) {
-            if (*cur > 0) (*cur)--;
-            else if (o->wrap) *cur = lim - 1;
-        } else {
-            if (*cur > 0) (*cur)--;
-            else if (*top > 0) (*top)--;
-            else if (o->wrap) {
-                *top = o->count - o->rows;
-                *cur = o->rows - 1;
-            }
-        }
-        idx = *top + *cur;
-        if (!func_0028b1c0(o, idx)) break;
-        seen |= 1 << idx;
-    }
-    if (seen == all) {
-        *cur = o->def_cur;
-        *top = o->def_top;
-        idx = *top + *cur;
-    }
-    return idx;
-}
+s32 func_00289d28(ListCur* o, s16* cur, s16* top);  // 0x00289d28: definition moved into src/anon/unit_00288b00.cpp
 }
 
 struct JmSrc { u8 pad[18]; u16 f18; u16 f20; };

@@ -386,21 +386,14 @@ void func_00276438(void) {
 // --- 00288fd8
 // Fills the 4 entries of row i of both tables (second one with w, or v if w is 0).
 struct S288 { u8 pad[44]; u16* volatile a; u16* volatile b; };
-void func_00288fd8(S288* p, int i, int v, int w) {  // anim_store4
-    for (int j = 0; j < 4; j++) p->a[i * 4 + j] = v;
-    for (int j = 0; j < 4; j++) p->b[i * 4 + j] = w ? w : v;
-}
+void func_00288fd8(S288* p, int i, int v, int w);  // 0x00288fd8: definition moved into src/anon/unit_00288b00.cpp
 
 // --- 0028ae28
 struct S28a { u8 pad[40]; u8** items; };
 void func_00139d78(u8*);
 s16* func_0028ac98(S28a*, int);  // lookup_by_index_align
 int IsSeqDone_impl(S28a* p, int i) asm("_ZN2Tz6Select9IsSeqDoneEz");
-int IsSeqDone_impl(S28a* p, int i) {
-    func_00139d78(p->items[i]);
-    s16* r = func_0028ac98(p, i);  // lookup_by_index_align
-    return *(s32*)(p->items[i] + 388) == r[2];
-}
+int IsSeqDone_impl(S28a* p, int i);  // 0x0028ae28: definition moved into src/anon/unit_00288b00.cpp
 
 // --- 0028eb88
 struct I28e { u8 pad[368]; Word x, y; u8 pad2[4]; };

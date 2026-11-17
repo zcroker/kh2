@@ -446,24 +446,7 @@ void func_002877a0(u8* a0, s32 a1, s32 a2)
 }
 
 
-void func_0028b300(u8* a0, u32 a1, u32 a2, u32 a3, u32 t0, u32 t1, u32 t2, u32 t3)
-{
-    s32 cur;
-    s32 i;
-    *(u32*)(a0 + 408) = t0;
-    func_0028d8c0(a0, a1, a2, a3, t0, t3, -1, 0);
-    func_0028b4c0(a0, t1);  // copy_3halfwords_416
-    func_0028b4f0(a0, t2);  // copy_3halfwords_422
-    cur = *(s32*)(func_0023f1b0(*(u32*)(a0 + 408)) + 76);
-    {
-        u8* p = a0;
-        for (i = 0; i < 3; i++, p += 2) {
-            if (cur == *(s16*)(p + 416))
-                func_0028dd28(a0, func_0023c3e0(func_0023f1b0(*(u32*)(a0 + 408)), *(s16*)(p + 422), 0));
-        }
-    }
-    *(s16*)(a0 + 428) = cur;
-}
+void func_0028b300(u8* a0, u32 a1, u32 a2, u32 a3, u32 t0, u32 t1, u32 t2, u32 t3);  // 0x0028b300: definition moved into src/anon/unit_00288b00.cpp
 }
 
 extern u8 D_00347e60[];

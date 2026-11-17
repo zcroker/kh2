@@ -135,6 +135,8 @@ src/anon/unit_00265580.cpp	00265580	00267e00	.rodata@00373344	-G0 -g
 src/anon/unit_00267e00.cpp	00267e00	00268460	.rodata@003736cc	-G0 -g
 src/anon/unit_00268b30.cpp	00268b30	00269658	.rodata@00373704	-G0 -g
 src/anon/unit_00269a60.cpp	00269a60	0026a5a0	-	-G0 -g
+src/anon/unit_00288b00.cpp	00288b00	0028be78	.rodata@00374428	-G0 -fno-strict-aliasing -fmove-all-movables
+src/anon/unit_0028bfc0.cpp	0028bfc0	0028c878	.rodata@00374430	-G0 -fno-strict-aliasing -fmove-all-movables
 src/anon/unit_0028c878.cpp	0028c878	0028edf0	.rodata@00374438	-G0 -fno-strict-aliasing
 src/anon/unit_0028f1e0.cpp	0028f1e0	00290d68	.rodata@0037447c	-G0 -fno-strict-aliasing
 src/anon/unit_00290d68.c	00290d68	00290f78	-	-G0

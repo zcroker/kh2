@@ -392,18 +392,7 @@ s32 func_0027c3e0(s32 id) {
 u8* func_0028ac98(u8*, s32);  // lookup_by_index_align
 union Cnt81 { u16 v; u8 c; };
 void SelectLeave81(u8* o) asm("_ZN2Tz6Select5LeaveEz");
-void SelectLeave81(u8* o) {
-    func_0028acc8((u32)o);
-    s32 i;
-    for (i = 0; i < (s16)((Cnt81*)(o + 4))->v; i++) {
-        if ((*(u8***)(o + 40))[i] == 0) continue;
-        u8* v = func_0028ac98(o, i);  // lookup_by_index_align
-        if (!v) continue;
-        func_00138c10((*(u8***)(o + 40))[i], *(s16*)(v + 4));
-        *(s32*)((*(u8***)(o + 40))[i] + 392) = -1;
-    }
-    *(s16*)(o + 14) = 0;
-}
+void SelectLeave81(u8* o);  // 0x0028ab20: definition moved into src/anon/unit_00288b00.cpp
 
 // --- 0028b3c0
 u8* func_0023f1b0(u32);
@@ -411,31 +400,7 @@ u32 func_0023c3e0(u8*, s16, u32);
 void func_001396b0(u8*);
 void func_0031ac78(u8*, u32);
 void func_00138840(u8*);
-void func_0028b3c0(u8* o) {
-    if (!func_00139d78(*(u32*)(o + 408))) {
-        ((VObjV81*)o)->vt[5](o);
-        return;
-    }
-    s32 cur = *(s32*)(func_0023f1b0(*(u32*)(o + 408)) + 76);
-    if (cur != *(s16*)(o + 428)) {
-        s32 k = 0;
-        u8* q = o;
-        for (; k < 3; k++, q += 2) {
-            if (cur == *(s16*)(q + 416)) {
-                *(u32*)(o + 400) = func_0023c3e0(func_0023f1b0(*(u32*)(o + 408)), *(s16*)(q + 422), 0);
-                func_001396b0(o);
-                if (*(u32*)(o + 400)) {
-                    *(u32*)(o + 396) = 0;
-                    func_001396b0(o);
-                    if (*(u32*)(o + 396)) func_0031ac78(o, 0);
-                }
-                break;
-            }
-        }
-    }
-    *(s16*)(o + 428) = cur;
-    func_00138840(o);
-}
+void func_0028b3c0(u8* o);  // 0x0028b3c0: definition moved into src/anon/unit_00288b00.cpp
 
 // --- 0028fb88: allocate the two sub-objects through the global allocator
 typedef u8* (*VFnP81)(...);

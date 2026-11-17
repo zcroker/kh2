@@ -207,10 +207,7 @@ void func_0027d598(void* p) {
     func_0027d810(JmReport_GetData((s16*)p));
 }
 
-s32 JmReport_GetData(s16* self) {
-    if (self[11] != 0) return (self[0] + self[9]) % self[11];
-    return self[0] + self[9];
-}
+s32 JmReport_GetData(s16* self);  // 0x0028b040: definition moved into src/anon/unit_00288b00.cpp
 
 void func_0028cc40(void* a);  // 0028cc40: moved to src/anon/unit_0028c878.cpp
 

@@ -50,13 +50,13 @@ s64 func_00286058(s64 param0, s64 param1, s64 param2, s64 param3) {
 
 void func_002883f8(void* self) {}
 
-s32 func_0028b1b8(void* self) { return (s32)(*(s32*)((char*)self + 32)); }
+s32 func_0028b1b8(void* self);  // 0x0028b1b8: definition moved into src/anon/unit_00288b00.cpp
 
-u8 func_0028b210(void* self) { return (u8)(*(u8*)((char*)self + 38)); }
+u8 func_0028b210(void* self);  // 0x0028b210: definition moved into src/anon/unit_00288b00.cpp
 
-s32 func_0028b8d0(void* self) { return (s32)(*(s32*)((char*)self + 28)); }
+s32 func_0028b8d0(void* self);  // 0x0028b8d0: definition moved into src/anon/unit_00288b00.cpp
 
-s32 func_0028b8d8(void* self) { return (s32)(*(s32*)((char*)self + 32)); }
+s32 func_0028b8d8(void* self);  // 0x0028b8d8: definition moved into src/anon/unit_00288b00.cpp
 
 void func_002945a0(void* self) {}
 

@@ -252,29 +252,13 @@ struct VObj28 { struct VT { u32 (*f0)(VObj28*, u32, u32); }* vt; };
 struct G28 { u8 pad[20]; VObj28* o; };
 extern G28* D_00347f80;
 void func_0028dfe8(u32);  // obj_ctor_36f440
-void func_0028b940(u32* p) {
-    VObj28* o = D_00347f80->o;
-    u32 v = o->vt->f0(o, 60, 0);
-    func_0028dfe8(v);  // obj_ctor_36f440
-    p[0] = v;
-    p[1] = 0;
-    p[8] = 0;
-    p[9] = 0;
-    p[10] = 0;
-    p[11] = 0;
-    p[12] = 0;
-}
+void func_0028b940(u32* p);  // 0x0028b940: definition moved into src/anon/unit_00288b00.cpp
 
 s32 func_0028be58(u32);
 s16 func_0028e4c8(u32, u32);
 void func_0028e560(u32, void*, u32, s32);
 void lead_data_leave(u32 a) asm("_ZN2Tz13LeadDataLeaveEj");
-void lead_data_leave(u32 a) {
-    u32* s = (u32*)a;
-    if (func_0028be58(a)) {
-        if (func_0028e4c8(s[0], 0) != *(s16*)(s + 4)) func_0028e560(s[0], s + 4, 4, -1);
-    }
-}
+void lead_data_leave(u32 a);  // 0x0028bdb8: definition moved into src/anon/unit_00288b00.cpp
 
 u8* func_001a80c8(u32);  // table24_find_by_id
 extern s8 D_00374488[];

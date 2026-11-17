@@ -226,16 +226,10 @@ void iEnableDmac(void) {
     asm volatile("sync");
 }
 
-void func_0028af90(u8* p, s32 a) {  // obj_set_field22_from_arg
-    *(u16*)(p + 22) = (a >= 0) ? a : *(u16*)(p + 4);
-}
+void func_0028af90(u8* p, s32 a);  // 0x0028af90: definition moved into src/anon/unit_00288b00.cpp
 
 // Tests bit `bit` of the mask at +0x20.
-u32 func_0028b1c0(u8* p, s32 bit) {  // test_bit_field32
-    u32 m = *(u32*)(p + 32);
-    if (m == 0) return 0;
-    return (m & (1 << bit)) != 0;
-}
+u32 func_0028b1c0(u8* p, s32 bit);  // 0x0028b1c0: definition moved into src/anon/unit_00288b00.cpp
 
 }  // extern "C"
 

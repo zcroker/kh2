@@ -55,16 +55,7 @@ s32 func_002695a0(s32 a);  // 0x002695a0: definition moved into src/anon/unit_00
 union ItemU1593 { Obj1593* p; s16 h; u8 c; };
 struct Sel1593 { u32 a; s16 n; u8 pad[0x22]; ItemU1593* items; };
 void sel_destroy1593(Sel1593* p) asm("_ZN2Tz6Select7DestroyEz");
-void sel_destroy1593(Sel1593* p) {
-    s32 i;
-    if (!func_0028acc8(p)) return;
-    for (i = 0; i < p->n; i++) {
-        if (p->items[i].p) {
-            if (func_00139d78(p->items[i].p)) ((VF1593)p->items[i].p->vt->f[5])(p->items[i].p);
-            else p->items[i].p = 0;
-        }
-    }
-}
+void sel_destroy1593(Sel1593* p);  // 0x0028abe0: definition moved into src/anon/unit_00288b00.cpp
 
 // ---- 0028c2c8
 struct S28c2c8 { u8 pad[184]; u32 flags; void Set() { flags |= 8; } void Clr() { flags &= ~8; } };
@@ -74,17 +65,6 @@ extern P28c2c8* D_0035f3c4;
 union C28c2c8 { s32 i; u32 u; };
 extern C28c2c8 D_0035f3cc;
 void func_0028c0a0(W28c2c8*, u32, u32, u8*, u32, u32);
-W28c2c8* func_0028c2c8(u32 h, u8* z, u32 id, u32 c, u32 d)
-{
-    P28c2c8* p = D_0035f3c4;
-    p->n--;
-    W28c2c8* w = (W28c2c8*)((u8*)p + p->free[p->n] * 440);
-    func_0028c0a0(w, id, h, z, c, d);
-    if (z[400]) w->sub.Set();
-    else w->sub.Clr();
-    w->f436 = 0;
-    D_0035f3cc.i++;
-    return w;
-}
+W28c2c8* func_0028c2c8(u32 h, u8* z, u32 id, u32 c, u32 d);  // 0x0028c2c8: definition moved into src/anon/unit_0028bfc0.cpp
 
 } // extern "C"

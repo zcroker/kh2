@@ -208,12 +208,7 @@ s32 func_00287720(u8* p) {
     return func_0023f848(p + 12);
 }
 
-void func_0028b830(u8* p) {
-    *(u8**)p = D_0035f3a0;
-    func_0028b8a0(p);
-    func_0023f820(p);
-    func_00106420(p);
-}
+void func_0028b830(u8* p);  // 0x0028b830: definition moved into src/anon/unit_00288b00.cpp
 
 void func_0028e710(u32 p, u32 a);  // 0028e710: moved to src/anon/unit_0028c878.cpp
 

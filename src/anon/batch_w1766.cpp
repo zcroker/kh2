@@ -44,14 +44,7 @@ void func_001e0fe8(u8* p) {
     r[3] = 10;
 }
 
-void func_00288e08(s32 p, s32 i, s32 a, s32 b) {
-    p = (*(s32**)(p + 0x28))[i];
-    s32 v = func_0023aa98(p + 0x18);
-    if (b == -1) b = v;
-    s32 aa = a;
-    if (a == -1) aa = v;
-    func_00138c68(p, aa * i, b * i);
-}
+void func_00288e08(s32 p, s32 i, s32 a, s32 b);  // 0x00288e08: definition moved into src/anon/unit_00288b00.cpp
 
 void func_003169d0(void) {
     if (w1766_once(&D_00367924, func_00316998) != 0 || D_00367920 < 0) D_00367920 = 0;

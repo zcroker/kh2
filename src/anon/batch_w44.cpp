@@ -274,12 +274,7 @@ void func_00284e40(void) {
     func_002bd730(D_00374348, 16383, 0, 0);
 }
 
-void func_0028a908(u8* o) {
-    for (s32 i = 0; i < *(s16*)(o + 4); i++) {
-        void* e = (*(void***)(o + 40))[i];
-        if (e) func_00139570(e);
-    }
-}
+void func_0028a908(u8* o);  // 0x0028a908: definition moved into src/anon/unit_00288b00.cpp
 
 extern u8 D_0035f4b8;
 // Tz::LoadDataIsFlushing(): true while load data is still being flushed.

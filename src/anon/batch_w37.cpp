@@ -264,13 +264,7 @@ void func_002853b8(void) {
 
 s32 func_0028b1c0(void*, s32);  // test_bit_field32
 void func_00289b30(void*, void*, void*);
-void func_0028afd0(s16* p, s32 a) {  // obj_set_signed18
-    p[9] = a;
-    s32 v = (s16)a + p[0];
-    if (((u8*)p)[37] == 0) {
-        if (func_0028b1c0(p, v)) func_00289b30(p, p, p + 9);  // test_bit_field32
-    }
-}
+void func_0028afd0(s16* p, s32 a);  // 0x0028afd0: definition moved into src/anon/unit_00288b00.cpp
 
 extern u8* D_0035f638;
 void func_0023f900(void*);
