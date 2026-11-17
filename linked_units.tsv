@@ -256,9 +256,9 @@ src/anon/unit_00109788.cpp	00109788	001097e8	-	-G0
 src/anon/unit_00109c30.cpp	00109c30	0010a918	.rodata@0036a37c	-G0 -g -fno-strict-aliasing
 src/anon/unit_0010a918.cpp	0010a918	0010aef0	.rodata@0036a3e8	-G0 -fno-strict-aliasing
 src/anon/unit_0010aef0.cpp	0010aef0	0010b438	.rodata@0036a418	-G0
-src/anon/unit_0010b450.cpp	0010b450	0010b7e0	.rodata@0036a438	-G0
+src/anon/unit_0010b450.cpp	0010b450	0010b978	.rodata@0036a438	-G0
 src/anon/unit_0010b978.cpp	0010b978	0010cdd8	.rodata@0036a458	-G0 -fno-strict-aliasing
-src/anon/unit_0010ce78.cpp	0010ce78	0010d468	.rodata@0036a45c	-G0
+src/anon/unit_0010ce78.cpp	0010cdd8	0010d468	.rodata@0036a45c	-G0
 src/anon/unit_0010d900.cpp	0010d900	0010dc08	-	-G0 -fno-strict-aliasing
 src/anon/unit_0010dee8.cpp	0010dee8	0010ef48	.rodata@0036a468	-G0
 src/anon/unit_0010ef48.cpp	0010ef48	0010f098	-	-G0 -g -fno-strict-aliasing -fno-gcse

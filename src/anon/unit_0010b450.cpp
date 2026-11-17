@@ -1,4 +1,4 @@
-// Linked unit 0x0010b450-0x0010b7e0 (one namespace per old matched source; class methods in their own namespace).
+// Linked unit 0x0010b450-0x0010b978 (one namespace per old matched source; class methods in their own namespace).
 #include "../common/types.h"
 #include "../tozawa/cmenu_top.hpp"
 #include <stdarg.h>
@@ -194,3 +194,34 @@ s32 func_0010b6e8(s32 id) {
 }
 }
 
+// 0010b7e0 (was gap, never written): id -> pointer into the D_00341800 block (same id map as 0x10b6e8).
+namespace n0010b7e0 {
+extern s32 D_00341800[] asm("D_00341800");
+// The offset must be read as *(s32*)((u8*)D + k*4): as D[k] (or through an inline helper) gcc builds the
+// base first and CSEs it into each load; retail shares the lui only for k == 0.
+#define TAB(k) { s32 o = *(s32*)((u8*)D_00341800 + (k) * 4); return (u8*)D_00341800 + o; }
+void* func_0010b7e0(s32 id) asm("func_0010b7e0");
+void* func_0010b7e0(s32 id) {
+    switch (id) {
+    case 2: TAB(0)
+    case 3: TAB(1)
+    case 5: TAB(2)
+    case 15: TAB(3)
+    case 6: TAB(4)
+    case 7: TAB(5)
+    case 8: TAB(6)
+    case 9: TAB(7)
+    case 10: TAB(8)
+    case 11: TAB(9)
+    case 12: TAB(10)
+    case 13: TAB(11)
+    case 200: TAB(14)
+    case 201: TAB(15)
+    case 202: TAB(16)
+    case 203: TAB(17)
+    case 204: TAB(18)
+    }
+    return 0;
+}
+#undef TAB
+}  // namespace n0010b7e0

@@ -1,4 +1,4 @@
-// Linked unit 0x0010ce78-0x0010d468 (one namespace per old matched source; class methods in their own namespace).
+// Linked unit 0x0010cdd8-0x0010d468 (one namespace per old matched source; class methods in their own namespace).
 #include "../common/types.h"
 #include "../tozawa/cmenu_top.hpp"
 #include <stdarg.h>
@@ -17,6 +17,53 @@
 #include "../../src/common/types.h"
 extern "C" float fabsf(float);
 #include "tiny_auto80_solver_structs.hpp"
+
+// 0010cdd8 (was gap, never written)
+namespace g0010cdd8 {
+#define QCOPY(d, s) asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(d), "r"(s) : "$8", "memory")
+struct V10ce {
+    f32 x, y, z, w;
+    V10ce& operator=(const V10ce& o) {
+        if (this != &o) QCOPY(this, &o);
+        return *this;
+    }
+} __attribute__((aligned(16)));
+static inline V10ce operator-(const V10ce& a, const V10ce& b)
+{
+    V10ce r;
+    asm(".set noreorder\n\tlqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 0(%2)\n\tvsub.xyzw $vf1, $vf1, $vf2\n\tsqc2 $vf1, 0(%0)\n\t.set reorder"
+        : : "r"(&r), "r"(&a), "r"(&b) : "memory");
+    return r;
+}
+static inline f32 Dot10ce(const V10ce& a, const V10ce& b)
+{
+    f32 r;
+    asm volatile("lqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 0(%2)\n\tvmul.xyz $vf1, $vf1, $vf2\n\tvaddy.x $vf1, $vf1, $vf1y\n\t"
+                 "vaddz.x $vf1, $vf1, $vf1z\n\tqmfc2 $8, $vf1\n\tmtc1 $8, %0"
+                 : "=f"(r) : "r"(&a), "r"(&b) : "$8", "memory");
+    return r;
+}
+extern u8* D_00341708 asm("D_00341708");
+V10ce func_00190388(u8*) asm("func_00190388");
+// vec4_from_arg
+V10ce* func_0016c028(u8*) asm("func_0016c028");
+// obj_get_attach_or_alt
+f32 func_001142d0(u32) asm("func_001142d0");
+// get_float_at_ptr108
+f32 func_00114380(u32) asm("func_00114380");
+f32 func_00114390(u32) asm("func_00114390");
+s32 func_0010cdd8(u8* o) asm("func_0010cdd8");
+s32 func_0010cdd8(u8* o)
+{
+    u32 t = *(u32*)(o + 3308);
+    if (t && *(u32*)(o + 2548) != t) return 1;
+    V10ce d = func_00190388(o + 2548) - *func_0016c028(o);
+    f32 r = func_001142d0(*(u32*)(o + 2912));
+    r = r * r;
+    if (r < Dot10ce(d, d)) return 1;
+    return 0;
+}
+}  // namespace g0010cdd8
 
 // 0010ce78 (was src/anon/batch_w1564.cpp)
 namespace n0010ce78 {
