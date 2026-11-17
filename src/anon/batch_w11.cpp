@@ -155,12 +155,7 @@ s32 func_00237578(P237* p, s32 i, s32 j);  // 0x00237578: definition moved into 
 
 typedef void (*VFn2)(void*, void*);
 extern void* D_0035ec84;
-void func_0023fe28(void* a) {
-    if (a) {
-        void* o = D_0035ec84;
-        (*(VFn2*)((*(u8**)o) + 4))(o, a);
-    }
-}
+void func_0023fe28(void* a);  // 0x0023fe28: definition moved into src/anon/unit_0023f5b8.cpp
 
 extern u8* D_0035f20c;
 void func_00139d78(void*);

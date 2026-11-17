@@ -159,10 +159,7 @@ void func_00234590(u32 a0, u32 a1, u32 a2, u32 a3, u32 t0);  // 0x00234590: defi
 void func_002367a0(void);  // 0x002367a0: definition moved into src/anon/unit_00236180.cpp
 
 // ORs bits into the flags of entry i (32-byte records); i < 0 means current.
-void func_00240fd8(s32 i, u32 bits) {
-    if (i < 0) i = (s8)D_0035ec94[1];
-    *(u32*)(D_0035ec94 + i * 32 + 8) |= bits;
-}
+void func_00240fd8(s32 i, u32 bits);  // 0x00240fd8: definition moved into src/anon/unit_0023f5b8.cpp
 
 // Index of v in an 11-entry table, or 11.
 u32 func_00243190(u32 v);  // 0x00243190: definition moved into src/anon/unit_00242478.cpp

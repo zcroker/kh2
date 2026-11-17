@@ -606,23 +606,9 @@ void func_0023d1e0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0023d1e0: definition m
 void func_0023d230(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0023d230: definition moved into src/anon/unit_0023c968.cpp
 
 
-u32 func_00240108(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_global_36eb68
-    (void)a0;
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    u32 b = (0x0036u << 16);
-    return (u32)(*(u32*)((u32)b + (-4952)));
-}
+u32 func_00240108(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00240108: definition moved into src/anon/unit_0023f5b8.cpp
 
-u32 func_00240430(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a0;
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    u32 b = (0x0036u << 16);
-    return (u32)(*(u32*)((u32)b + (-4984)));
-}
+u32 func_00240430(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00240430: definition moved into src/anon/unit_0023f5b8.cpp
 
 u32 func_002431c0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002431c0: definition moved into src/anon/unit_00242478.cpp
 
@@ -1409,28 +1395,11 @@ void func_002373a8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002373a8: definition m
 
 void func_0023d1d0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0023d1d0: definition moved into src/anon/unit_0023c968.cpp
 
-void func_0023ebd0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a2;
-    (void)a3;
-    u32 v = a1 & 0x00ffu;
-    *(u8*)((u32)a0 + (5345)) = (u8)v;
-}
+void func_0023ebd0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0023ebd0: definition moved into src/anon/unit_0023e5d0.cpp
 
-void func_0023ed90(u32 a0, u32 a1, u32 a2, u32 a3) {  // set_global_byte1
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    u32 v = (u32)((s32)1);
-    *(u8*)&D_0035eb81 = (u8)v;
-}
+void func_0023ed90(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0023ed90: definition moved into src/anon/unit_0023e5d0.cpp
 
-void func_00241a60(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a0;
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    *(u8*)((u32)D_0035ec94 + (5)) = 0;
-}
+void func_00241a60(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00241a60: definition moved into src/anon/unit_0023f5b8.cpp
 
 void func_00242408(u32 a0, u32 a1, u32 a2, u32 a3);  // 00242408: moved to src/tozawa/crc.cpp (linked unit)
 

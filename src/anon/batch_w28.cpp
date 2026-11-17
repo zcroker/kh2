@@ -169,10 +169,7 @@ void func_001ddd88(void* p) {
 
 u32 func_0022ae98(Q16* v);  // 0022ae98: moved to src/sasa/musical_input.cpp (linked unit)
 
-void func_00240b48(u32 a) {
-    if (!a) a = D_0035ec90;
-    memcpy(func_001058e8(), a, 0x10fc0);
-}
+void func_00240b48(u32 a);  // 0x00240b48: definition moved into src/anon/unit_0023f5b8.cpp
 
 // Index of the n-th set bit (of 8) in the mask, or -1.
 s32 func_00257fa8(s32 n);  // 0x00257fa8: definition moved into src/anon/unit_00254020.cpp

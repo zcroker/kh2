@@ -35,62 +35,6 @@ extern const char* D_0035ec18[];
 extern const char* D_0035ec28;
 extern const char* D_0035ec2c;
 
-void func_002405a8(char* buf, s32 slot)
-{
-    W3800_SaveRam* save = &D_0032bb30;
-    W3800_memset(buf, 0, 0x40);
-    s32 r = strlen(D_0035ec0c);
-    s32 len;
-    {
-        // Partial asm: argument pins plus a hand-written copy of the length so the
-        // copy into its saved register fills the call's delay slot like the original.
-        register char* a0 asm("$4") = buf;
-        register s32 a2 asm("$6") = r;
-        asm("" : "+r"(a2) : "r"(a0));
-        asm("move %0,$2" : "=r"(len) : "r"(a0), "r"(a2));
-        memcpy(a0, D_0035ec0c, a2);
-    }
-    if (func_00240108() == 0) {
-        memcpy(buf + len - 4, D_0035ec18[W3800_GetGameLevel(save)], 2);
-        if (W3800_isGameComplete(W3800_getSaveRam())) {
-            memcpy(buf + len - 2, D_0035ec2c, 2);
-        }
-    }
-    if (func_00240108()) {
-        memcpy(buf + len, D_0035ec14, len);
-        return;
-    }
-    register char* line asm("$16") = buf + len; // pin: keeps the digit cursor in s1
-    memcpy(line, D_0035ec10, len);
-    char* p = line + 3;
-    s32 v;
-    u32 u;
-    v = slot / 10; if (v) { *p = v + *p; }
-    p += 2;
-    v = slot % 10; if (v) { *p = v + *p; }
-    p += 8;
-    W3800_Item* item;
-    if ((u8)save->flag0) item = W3800_ctarget(save->items, 14);
-    else item = W3800_ctarget(save->items, 1);
-    s32 n = item->count;
-    v = n / 10; if (v) { *p = v + *p; }
-    p += 2;
-    v = n % 10; if (v) { *p = v + *p; }
-    u32 h, m, s, ms;
-    W3800_getPlayTime(&h, &m, &s, &ms);
-    p += 4;
-    u32 hour = h;
-    s32 big = 0;
-    u = hour / 100; if (u) { *p = u + *p; big = 1; } else { memcpy(p - 1, D_0035ec28, 2); }
-    hour %= 100;
-    p += 2;
-    u = hour / 10; if (u || big) { *p = u + *p; } else { memcpy(p - 1, D_0035ec28, 2); }
-    p += 2;
-    v = hour % 10; if (v) { *p = v + *p; }
-    p += 4;
-    v = m / 10; if (v) { *p = v + *p; }
-    p += 2;
-    v = m % 10; if (v) { *p = v + *p; asm("" : "+r"(p)); } // empty asm: register-allocation nudge only
-}
+void func_002405a8(char* buf, s32 slot);  // 0x002405a8: definition moved into src/anon/unit_0023f5b8.cpp
 
 }

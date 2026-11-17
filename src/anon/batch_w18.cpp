@@ -128,18 +128,12 @@ extern u32 D_0035de38;
 extern u32 D_0035de3c;
 void func_00226a78(void);  // 0x00226a78: definition moved into src/anon/unit_00224780.cpp
 
-void func_0023f688(u8* p, u32 v) {
-    func_00139d78(p);
-    *(u32*)(p + 40) = v;
-}
+void func_0023f688(u8* p, u32 v);  // 0x0023f688: definition moved into src/anon/unit_0023f5b8.cpp
 
 void* func_001708f8(const char*, s32);
 void func_0023fa08(void*, void*);
 void LayFile_alloc(u8* self, const char* name) asm("_ZN2Tz7LayFile5allocEPKc");
-void LayFile_alloc(u8* self, const char* name) {
-    func_0023fa08(self, func_001708f8(name, -1));
-    self[24] = 1;
-}
+void LayFile_alloc(u8* self, const char* name);  // 0x0023fa90: definition moved into src/anon/unit_0023f5b8.cpp
 
 u8 func_0031acc0(void*);
 u8 func_00258158(u8* p);  // 0x00258158: definition moved into src/anon/unit_00254020.cpp

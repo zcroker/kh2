@@ -204,33 +204,9 @@ void func_00233490(u8* p);  // 0x00233490: definition moved into src/anon/unit_0
 
 void func_00237988(u8* p, f32 z);  // 0x00237988: definition moved into src/anon/unit_00237068.cpp
 
-s32 func_002408d0(u32 mode) {
-    s32 b = 0;
-    s32 a = 0;
-    if (mode < 2) {
-        a = func_00240440(964);  // round_up_1024
-        a += func_00240440(0x8a58);  // round_up_1024
-        a += func_00240440(0x10fc0);  // round_up_1024
-        a = (a + 8) / 5 * 5;
-    }
-    if (mode == 0 || mode == 2) {
-        b = func_00240440(964);  // round_up_1024
-        b += func_00240440(0x8a58);  // round_up_1024
-        b += func_00240440(1024);  // round_up_1024
-        b = (b + 8) / 5 * 5;
-    }
-    a += b;
-    return a;
-}
+s32 func_002408d0(u32 mode);  // 0x002408d0: definition moved into src/anon/unit_0023f5b8.cpp
 
-void func_00240a70(u8* p) {
-    if (!p) p = D_0035ec90;
-    memcpy(p, func_001058e8(), 0x10fc0);
-    p[16796] = func_00241e18();
-    ((B240*)(p + 16792))->f = func_00241ed8(p[12]) != 0;
-    *(S84*)(p + 9284) = D_0035ec30;
-    *(u32*)(p + 8) = func_002409b8(p);
-}
+void func_00240a70(u8* p);  // 0x00240a70: definition moved into src/anon/unit_0023f5b8.cpp
 
 #define SETANIM(o, id) if (func_00139d78(o)) { if (func_0023f0c0(o) != (id)) func_0023f070(o, id, -1); }
 void func_0024d4a0(void);  // 0x0024d4a0: definition moved into src/anon/unit_0024cda8.cpp

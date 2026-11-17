@@ -183,15 +183,7 @@ void func_0020cf60(u32 a, u8* e) {
 u32 func_0022aef0(Q16* q);  // 0022aef0: moved to src/sasa/musical_input.cpp (linked unit)
 
 // Any of the 99 32-byte entries has flag 0x10 set.
-u32 func_00241a00(void) {
-    u32 r = 0;
-    u32* p = (u32*)(D_0035ec94 + 8);
-    for (s32 i = 0; i < 99; i++) {
-        if (*p & 0x10) { r = 1; break; }
-        p += 8;
-    }
-    return r;
-}
+u32 func_00241a00(void);  // 0x00241a00: definition moved into src/anon/unit_0023f5b8.cpp
 
 // Rank of bit n among the set bits of D_0035ef70 (-1 if not set).
 s32 func_00257ff8(s32 n);  // 0x00257ff8: definition moved into src/anon/unit_00254020.cpp

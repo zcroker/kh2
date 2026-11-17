@@ -1,5 +1,5 @@
 #include "laymsg.hpp"
 
 namespace Tz {
-s32 LayMsg::getSequence() { return reinterpret_cast<LayMsgLayout*>(this)->sequence; }
+// 0x0023f7d8: definition moved into src/anon/unit_0023f5b8.cpp
 }  // namespace Tz

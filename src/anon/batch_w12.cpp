@@ -164,9 +164,7 @@ void func_00232110(s16* p);  // 0x00232110: definition moved into src/anon/unit_
 
 void func_002375b0(u8* o, s32 i, s32 j, s32 d);  // 0x002375b0: definition moved into src/anon/unit_00237068.cpp
 
-void func_00241568(void) {
-    func_00234670(*D_0035ec94, D_0035ec88, 0, 0, 0);
-}
+void func_00241568(void);  // 0x00241568: definition moved into src/anon/unit_0023f5b8.cpp
 
 void func_0027d598(void* p);  // 0x0027d598: definition moved into src/anon/unit_0027d2e8.cpp
 

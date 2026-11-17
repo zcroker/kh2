@@ -507,19 +507,7 @@ u32 func_0023f6f8(u8*);
 s32 func_00139d78(u8*);
 u32 func_0023a918(u8*);
 void func_0023e990(Obj*, s32, u32);
-void func_0023e9f0(Obj* o)
-{
-    for (s32 i = 0; i < o->n; i++) {
-        u32 v;
-        if (!o->a[i]) {
-            if (!o->b[i]) continue;
-            if (o->c[i] && func_00139d78(o->c[i])) v = func_0023a918(o->c[i] + 24) >> 24;
-            else if (func_00139d78(o->b[i])) v = func_0023a918(o->b[i] + 24) >> 24;
-            else v = 0;
-        } else v = func_0023f6f8(o->a[i]);
-        func_0023e990(o, i, v);
-    }
-}
+void func_0023e9f0(Obj* o);  // 0x0023e9f0: definition moved into src/anon/unit_0023e5d0.cpp
 }
 }
 

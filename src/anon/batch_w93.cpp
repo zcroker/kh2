@@ -226,19 +226,7 @@ void func_002fee78(char*, const char*, ...);
 extern char D_00371658[]; extern char D_00371668[]; extern char D_00371678[]; extern char D_00371680[];
 extern u32 D_0035ec04;
 // Formats the version/build string for the given mode.
-void func_00240118(char* buf, s32 a, s32 mode)
-{
-    W93Ver* v = func_00105c48(func_00105c30());  // entry12_34cae4
-    if (a < 0) {
-        func_002fee78(buf, D_00371658, func_002402e0(), v->a, v->b, v->c);
-    } else if (mode == 1) {
-        func_002fee78(buf, D_00371668, func_002402e0(), v->a, v->b, v->c);
-    } else if (mode == 2) {
-        func_002fee78(buf, D_00371678, func_002402e0(), D_0035ec04);
-    } else {
-        func_002fee78(buf, D_00371680, func_002402e0(), v->a, v->b, v->c, a);
-    }
-}
+void func_00240118(char* buf, s32 a, s32 mode);  // 0x00240118: definition moved into src/anon/unit_0023f5b8.cpp
 
 struct W93Mdl { u8 pad[392]; s32 f392; u8 p2[408 - 396]; u32 f408; u8 p3[432 - 412]; s32 f432; };
 struct W93Six { s16 id; s16 pad; s16 val; };

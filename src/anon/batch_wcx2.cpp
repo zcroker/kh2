@@ -462,32 +462,7 @@ void func_0023f740(Snd23*, u32);
 void func_001395e8(Snd23*);
 void func_00139610(Snd23*);
 void func_00139638(Snd23*);
-void func_0023f1e0(Snd23* p, u32 a1, u32 bank, u32 a3, u32 t0, u32 t1, u32 t2, u32 t3)
-{
-    func_001391c8(p, a1, t3);
-    p->bank = bank;
-    func_0023f778(p, a3);  // copy_3halfwords_44
-    func_0023f7a8(p, t0);  // copy_3halfwords_50
-    s32 id = *(s32*)(func_0023f1b0(p->bank) + 76);
-    p->voice = 0;
-    for (s32 i = 0; i < 3; i++) {
-        if (id == p->ids[i]) p->voice = func_0023c3e0(func_0023f1b0(p->bank), p->sel[i], 0);
-    }
-    p->cur = id;
-    p->f36 = -1;
-    p->f32_ = 0;
-    func_0023f5b8(p, t1, t2);
-    p->color = 0x80e5e5e5;
-    s32 n = func_0023aa58(p->voice);
-    p->len = n > 0 ? n : 15;
-    func_0023f6c0(p, 0);
-    func_0023f688(p, 1);
-    p->f68 = 0;
-    func_0023f740(p, func_0023aa78((u8*)p->voice));
-    func_001395e8(p);
-    func_00139610(p);
-    func_00139638(p);
-}
+void func_0023f1e0(Snd23* p, u32 a1, u32 bank, u32 a3, u32 t0, u32 t1, u32 t2, u32 t3);  // 0x0023f1e0: definition moved into src/anon/unit_0023e5d0.cpp
 
 extern Opt28 D_00372548[];
 extern u32 D_0035ee38;
@@ -9377,24 +9352,7 @@ struct T2417a0 { u8 pad[2]; s16 lim; u8 pad4; s8 b5; };
 union G2417a0 { T2417a0* p; u32 u; };
 extern G2417a0 D_0035ec94;
 s32 func_002408d0(s32);
-void func_002417a0()
-{
-    T2417a0* t = D_0035ec94.p;
-    if (t == 0) return;
-    s16 lim = t->lim;
-    if (lim < 0) return;
-    if (t->b5) {
-        if (lim >= func_002408d0(1)) return;
-    } else {
-        if (lim >= func_002408d0(0)) return;
-    }
-    {
-        for (s32 i = 0; i < 99; i++) {
-            E2417a0* e = (E2417a0*)D_0035ec94.p;
-            if (e[i].f8 == 0) e[i].f8 = 64;
-        }
-    }
-}
+void func_002417a0();  // 0x002417a0: definition moved into src/anon/unit_0023f5b8.cpp
 
 // --------------------
 // libgcc fp-bit.c (double): si_int_to_float

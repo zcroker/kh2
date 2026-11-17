@@ -22,13 +22,5 @@ s32 strlen(const char*);
 void func_00240118(char*, u32, u32);
 
 // Builds "/" + func_00240118's text in a buffer and copies it twice to dst.
-void func_00240240(char* dst, u32 a, u32 b) {
-    char buf[80];
-    strcpy_w1776(buf, D_00371698);
-    s32 l = strlen(buf);
-    func_00240118(&buf[l], a, b);
-    l = strlen(buf);
-    for (s32 i = 0; i < 2; i++)
-        strcpy_w1776(&dst[l * i], buf);
-}
+void func_00240240(char* dst, u32 a, u32 b);  // 0x00240240: definition moved into src/anon/unit_0023f5b8.cpp
 }

@@ -174,27 +174,13 @@ struct T241 { s8 f0; s8 start; u8 pad[6]; E241 e[99]; };
 extern T241* D_0035ec94;
 static inline bool e241_off(E241* e) { return !(e->f.b & 1); }
 // First entry from start that is enabled and not busy, or -1.
-s32 func_002413f0(void) {  // find_next_free_slot
-    T241* t = D_0035ec94;
-    s32 i;
-    for (i = t->start; i < 99; i++) {
-        if (e241_off(&t->e[i])) continue;
-        if (!(t->e[i].f.w & 2)) break;
-    }
-    return i < 99 ? i : -1;
-}
+s32 func_002413f0(void);  // 0x002413f0: definition moved into src/anon/unit_0023f5b8.cpp
 
 u32 func_002416d8(u32);
 void func_002346c0(s32, u32, u32, u32, u32);
 extern u32 D_0035ec88;
 extern u32 D_0035ec90;
-void func_002415a0(u32 a, u32 b, u32 c) {
-    u32 v = func_002416d8(a);
-    T241* t = D_0035ec94;
-    u32 bb = b ? b : D_0035ec88;
-    u32 cc = c ? c : D_0035ec90;
-    func_002346c0(t->f0, bb, cc, v, 0);
-}
+void func_002415a0(u32 a, u32 b, u32 c);  // 0x002415a0: definition moved into src/anon/unit_0023f5b8.cpp
 
 u8* func_001058e8(void);
 s32 func_00242bd0(void);

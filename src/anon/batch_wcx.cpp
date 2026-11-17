@@ -831,22 +831,7 @@ void func_0023ca80(u8*);
 s32 func_0023c900(u8*);
 void func_0023f108(u8*);
 typedef void (*VFn)(u8*);
-void func_0023efb8(u8* p)
-{
-    func_0023f168(p);
-    u8* q = p + 48;
-    func_0023ca80(q);
-    if (p[148]) p[148] = 0;
-    if (func_0023c900(q)) return;
-    if (*(s32*)(p + 144) != -1) {
-        func_0023f108(p);
-        func_0023f168(p);
-        func_0023ca80(q);
-        p[148] = 1;
-    } else {
-        (*(VFn*)(*(u8**)p + 20))(p);
-    }
-}
+void func_0023efb8(u8* p);  // 0x0023efb8: definition moved into src/anon/unit_0023e5d0.cpp
 extern u8* D_0035eda8;
 extern s8 D_0035edc5;
 extern u8* D_0035edbc;
@@ -1051,18 +1036,7 @@ void func_00236a58(u8*, u32, u32);
 void func_0023c100(u8*, u32, u8*, u32);
 void func_0023f070(u8*, u32, s32);
 void func_0023f168(u8*);
-void func_0023eea0(u8* p, u32 a, u32 b, u32 c, u32 d, u32 e)
-{
-    func_001391c8(p, a, e);
-    u8* q = p + 24;
-    func_00236a58(q, c, D_0035eb88);
-    func_0023c100(p + 48, b, q, D_0035eb88);
-    *(s32*)(p + 152) = -10;
-    *(s32*)(p + 156) = -10;
-    func_0023f070(p, d, -1);
-    p[148] = 0;
-    func_0023f168(p);
-}
+void func_0023eea0(u8* p, u32 a, u32 b, u32 c, u32 d, u32 e);  // 0x0023eea0: definition moved into src/anon/unit_0023e5d0.cpp
 extern char D_00371698[];
 void func_002ff2e8(char*, const char*);
 s32 strlen(const char*);  // strlen

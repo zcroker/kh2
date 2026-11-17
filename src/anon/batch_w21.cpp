@@ -150,11 +150,7 @@ void func_001db850(u8* p) {
     *(s32*)(p + 8) = *(s32*)(p + 24);
 }
 
-void func_0023f870(void** p) {
-    *p = &D_0035ebd8;
-    func_0023f8c8(p);
-    func_00106420(p);
-}
+void func_0023f870(void** p);  // 0x0023f870: definition moved into src/anon/unit_0023f5b8.cpp
 
 struct Flags { u32 a; u32 on : 1; };
 void func_00242a28(u8 on);  // 0x00242a28: definition moved into src/anon/unit_00242478.cpp

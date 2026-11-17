@@ -212,15 +212,7 @@ void func_002346f0(s32, u32, u32, u32, u32);
 extern s8* D_0035ec94;
 extern u32 D_0035ec88;
 extern u32 D_0035ec90;
-void func_00241608(u32 a, u32 b, u32 c) {
-    u32 v = func_002416d8(a, b, c);
-    s8* s = D_0035ec94;
-    u32 x = b;
-    if (!x) x = D_0035ec88;
-    u32 y = c;
-    if (!y) y = D_0035ec90;
-    func_002346f0(*s, x, y, v, 0);
-}
+void func_00241608(u32 a, u32 b, u32 c);  // 0x00241608: definition moved into src/anon/unit_0023f5b8.cpp
 
 struct W41VO2 { void** vt; };
 extern u8* D_0035ed04;

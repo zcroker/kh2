@@ -193,18 +193,7 @@ struct Tbl40 { s32 n; s32 cur; Ent40 e[1]; };
 extern union { Tbl40* p; s32 i; } D_0035ec98;
 extern union { u32 v; u8 c; } D_0035ec88;
 void func_002ff2e8(u32, void*);
-s32 func_00241358(void) {
-    s32 n = D_0035ec98.p->n;
-    s32 i;
-    for (i = 0; i < n; i++) {
-        if (D_0035ec98.p->e[i].flags & 0x10) {
-            D_0035ec98.p->cur = i;
-            func_002ff2e8(D_0035ec88.v, D_0035ec98.p->e[i].name);
-            break;
-        }
-    }
-    return i < n ? i : -1;
-}
+s32 func_00241358(void);  // 0x00241358: definition moved into src/anon/unit_0023f5b8.cpp
 
 // Tz::PauseTaskIsDone
 s32 func_00287bc0(void);

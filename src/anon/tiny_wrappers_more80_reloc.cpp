@@ -237,15 +237,9 @@ u32 func_001f0400(u32 a0, u32 a1, u32 a2, u32 a3) {
     return sceVu0MulMatrix(((u32)(((u32)(*(u32*)((u32)((u32)&D_01da0000) - 6424u)))) + 80u), (u32)&D_01d9e900, ((u32)(((u32)(*(u32*)((u32)((u32)&D_01da0000) - 6424u)))) + 16u), a3);
 }
 
-u32 func_0023f7e0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    *(u32*)((u32)(a0) + 0u) = (u32)((u32)&D_0035ebd8);
-    return func_0023f8a8(a0, a1, a2, a3);
-}
+u32 func_0023f7e0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0023f7e0: definition moved into src/anon/unit_0023f5b8.cpp
 
-u32 func_0023f800(u32 a0, u32 a1, u32 a2, u32 a3) {
-    *(u32*)((u32)(a0) + 0u) = (u32)((u32)&D_0035ebd8);
-    return func_0023f8a8(a0, a1, a2, a3);
-}
+u32 func_0023f800(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0023f800: definition moved into src/anon/unit_0023f5b8.cpp
 
 
 u32 func_0027db28(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0027db28: definition moved into src/anon/unit_0027d2e8.cpp

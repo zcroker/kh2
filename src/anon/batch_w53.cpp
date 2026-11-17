@@ -167,21 +167,7 @@ void func_0022afa0(s32 a);  // 0022afa0: moved to src/sasa/musical_input.cpp (li
 
 void func_002368e8(u8* p, f32 x);  // 0x002368e8: definition moved into src/anon/unit_00236180.cpp
 
-u32 func_002402e0(void) {
-    switch (func_00105c30()) {
-    case 1:
-    case 8:
-        D_01dae6a0 = D_0035ecac;
-        break;
-    case 2:
-        D_01dae6a0 = D_0035ecb0;
-        break;
-    default:
-        D_01dae6a0 = D_0035ecb4;
-        break;
-    }
-    return D_01dae6a0;
-}
+u32 func_002402e0(void);  // 0x002402e0: definition moved into src/anon/unit_0023f5b8.cpp
 
 void func_00252618(void);  // 0x00252618: definition moved into src/anon/unit_00250fb8.cpp
 

@@ -12,74 +12,25 @@ extern "C" u32 func_00234650(...);
 extern "C" u32 func_00181500(...);
 extern "C" u32 wtarget_002fde18(u32, u32, u32) asm("_Z16wtarget_002fde18jjjj");
 
-bool MCard::isFindSystem() {
-    u32 p = D_0035ec94;
-    s32 v = *(s8*)((u32)p + 5);
-    return v != 0;
-}
+// 0x00241a48: definition moved into src/anon/unit_0023f5b8.cpp
 
-void* MCard::GetMCInfo() { return reinterpret_cast<void*>(D_0035ec94); }
+// 0x00241f10: definition moved into src/anon/unit_00241e18.cpp
 
 extern u8 D_00360000 asm("D_00360000");
-u32 MCard::ClearFileInfo() {
-    return wtarget_002fde18(((u32)(*(u32*)((u32)((u32)&D_00360000) - 4972u))) + 8u, 0, 0x00000c60u);
-}
+// 0x00240be0: definition moved into src/anon/unit_0023f5b8.cpp
 
-void MCard::SetSystemMode(s32 mode) {
-    u32 b = (0x0036u << 16);
-    *(u32*)((u32)b + (-4952)) = (u32)mode;
-}
+// 0x002400f8: definition moved into src/anon/unit_0023f5b8.cpp
 
-u32 MCard::ChgWorldName(s32 world) {
-    u32 r14 = (u32)world;
-    u32 r2 = 0u;
-    u32 r15 = 4u;
-    u32 r4 = 4235u;
-    if (r14 == r15) {
-        r2 = func_00181500(r4);
-        r2 = ((u32)0u < (u32)r2);
-    }
-    r2 = ((u32)0u < (u32)r2);
-    return r2;
-}
+// 0x00241ed8: definition moved into src/anon/unit_00241e18.cpp
 
-u32 MCard::ChgDir(s32 doSync) {
-    u32 t5 = D_0035ec8c;
-    *(u8*)(t5 + 0) = 47;
-    u32 t6 = D_0035ec8c;
-    *(u8*)(t6 + 1) = 0;
-    if (doSync == 0) {
-        strlen(D_0035ec88);  // strlen
-        func_002feee8(D_0035ec8c, D_0035ec88);
-    }
-    u8* q = (u8*)D_0035ec94;
-    return func_00234630((s32)*(s8*)(q + 0), D_0035ec8c, 0);
-}
+// 0x00241450: definition moved into src/anon/unit_0023f5b8.cpp
 
-u32 MCard::MakeDir() {
-    strlen(D_0035ec88);  // strlen
-    u32 t5 = D_0035ec8c;
-    *(u8*)(t5 + 0) = 47;
-    u32 t6 = D_0035ec8c;
-    *(u8*)(t6 + 1) = 0;
-    func_002feee8(D_0035ec8c, D_0035ec88);
-    u8* p = (u8*)D_0035ec94;
-    return func_00234650((s32)*(s8*)(p + 0), D_0035ec8c, 0);
-}
+// 0x002414c0: definition moved into src/anon/unit_0023f5b8.cpp
 
-void MCard::SetSlot(s32 slot) {
-    u32 p = D_0035ec94;
-    *(u8*)((u32)p + 0) = (u8)slot;
-}
+// 0x00240b90: definition moved into src/anon/unit_0023f5b8.cpp
 
-s32 MCard::GetSlot() {
-    u32 p = D_0035ec94;
-    return (s32)(*(s8*)((u32)p + 0));
-}
+// 0x00240ba0: definition moved into src/anon/unit_0023f5b8.cpp
 
-void MCard::SetPos(s32 pos) {
-    u32 p = D_0035ec94;
-    *(u8*)((u32)p + 1) = (u8)pos;
-}
+// 0x00240bc0: definition moved into src/anon/unit_0023f5b8.cpp
 
 }  // namespace Tz

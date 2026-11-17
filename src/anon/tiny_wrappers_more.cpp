@@ -845,9 +845,7 @@ u32 func_0023c4d8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0023c4d8: definition mo
 
 u32 func_0023d808(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0023d808: definition moved into src/anon/unit_0023d260.cpp
 
-u32 func_0023fa70(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return YS_CACHE_BUFF_ReadRequest(a1, a2, 0x00000000u, a3);
-}
+u32 func_0023fa70(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0023fa70: definition moved into src/anon/unit_0023f5b8.cpp
 
 u32 func_002422a0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002422a0: definition moved into src/anon/unit_00241fd0.cpp
 

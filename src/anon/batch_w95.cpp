@@ -352,23 +352,7 @@ void memcpy(void*, const void*, u32);
 void func_002405a8(u8*, s32);
 s32 func_00240108(void);  // get_global_36eb68
 void func_002ff2e8(char*, const char*);
-void func_00240450(u8* p, s32 n) {
-    if (!p) p = D_0035ec90;
-    func_002fde18(p, 0, 964);
-    memcpy(p, D_003716c0, 4);
-    *(u16*)(p + 6) = 32;
-    *(u32*)(p + 12) = 96;
-    memcpy(p + 16, D_003716f8, 64);
-    memcpy(p + 80, D_00371738, 48);
-    memcpy(p + 128, D_00371768, 48);
-    memcpy(p + 176, D_00371798, 16);
-    func_002405a8(p + 192, n + 1);
-    char* s = func_00240108() ? D_0035ec00 : D_0035ebfc;
-    func_002ff2e8((char*)p + 260, s);
-    func_002ff2e8((char*)p + 324, s);
-    func_002ff2e8((char*)p + 388, s);
-    D_0035ec30 = D_0032df74;
-}
+void func_00240450(u8* p, s32 n);  // 0x00240450: definition moved into src/anon/unit_0023f5b8.cpp
 
 extern SaveSel* D_0035ec94;
 extern SaveList* D_0035ec98;
@@ -381,22 +365,7 @@ void func_002fde18(void*, s32, u32);
 s32 strcmp(const char*, const char*);  // strcmp
 void func_002ff2e8(char*, const char*);
 // Build the list of save files from the directory listing (skipping "." and "..").
-s32 func_00241008(void) {
-    DirEnt* e = D_0035ec9c;
-    func_00240360(D_0035ec94->b);
-    s32 n = func_002349c8(D_0035ec94->a, 0);
-    func_002fde18(D_0035ec98, 0, 4);
-    D_0035ec98->n = n;
-    for (s32 i = 0; i < n; i++, e++) {
-        if (strcmp(e->name, D_003716e0) && strcmp(e->name, D_003716e8)) {  // strcmp
-            func_002ff2e8(D_0035ec98->rec[i].name, e->name);
-            if (e->attr & 0x20) D_0035ec98->rec[i].type = 1;
-            else D_0035ec98->rec[i].type = 2;
-            D_0035ec98->rec[i].size = e->size;
-        }
-    }
-    return n;
-}
+s32 func_00241008(void);  // 0x00241008: definition moved into src/anon/unit_0023f5b8.cpp
 
 extern MenuParts* D_0035f0f4;
 extern u32 D_0035f01c;

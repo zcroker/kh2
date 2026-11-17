@@ -291,24 +291,14 @@ extern u32 D_0035ebe8;
 extern s32 D_0035ebec;
 extern S23f* D_0035ebf0;
 void memcpy(u32, u32, u32);
-void func_0023fcd0(u32 x) {
-    S23f* e = &D_0035ebf0[D_0035ebec];
-    memcpy(x, e[-1].a, e[-1].b);
-    D_0035ebe8 = e[-1].a;
-    D_0035ebec--;
-}
+void func_0023fcd0(u32 x);  // 0x0023fcd0: definition moved into src/anon/unit_0023f5b8.cpp
 
 // --- 00240a08
 struct S240 { u32 a; u32 b; u32 c; };
 extern S240* D_0035ec90;
 u32 func_002409b8(S240*);
 u32 func_00105870(void);
-int func_00240a08(S240* p) {
-    if (!p) p = D_0035ec90;
-    if (func_002409b8(p) != p->c) return 0;
-    if (p->a != func_00105870()) return 0;
-    return p->b == 0x3a;
-}
+int func_00240a08(S240* p);  // 0x00240a08: definition moved into src/anon/unit_0023f5b8.cpp
 
 // --- 00267320
 extern u32 D_0035f010;

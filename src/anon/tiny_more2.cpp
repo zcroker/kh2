@@ -107,11 +107,11 @@ void func_0023d2b0(u32 a0,u32 a1,u32 a2,u32 a3);  // 0x0023d2b0: definition move
 
 void func_0023d2c8(u32 a0,u32 a1,u32 a2,u32 a3);  // 0x0023d2c8: definition moved into src/anon/unit_0023d260.cpp
 
-void func_0023eac0(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a2; (void)a3; u32 p=a1+a0; *(u8*)((u32)p + (2912))=(u8)a2; }
+void func_0023eac0(u32 a0,u32 a1,u32 a2,u32 a3);  // 0x0023eac0: definition moved into src/anon/unit_0023e5d0.cpp
 
-u32 func_002419e8(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a0; (void)a1; (void)a2; (void)a3; u32 p=D_0035ec94; s32 v=*(s8*)((u32)p + (4)); return (v != 0); }
+u32 func_002419e8(u32 a0,u32 a1,u32 a2,u32 a3);  // 0x002419e8: definition moved into src/anon/unit_0023f5b8.cpp
 
-void func_00241a70(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a0; (void)a1; (void)a2; (void)a3; u32 p=D_0035ec94; *(u8*)((u32)p + (5)) = (u8)((u32)((s32)1)); }
+void func_00241a70(u32 a0,u32 a1,u32 a2,u32 a3);  // 0x00241a70: definition moved into src/anon/unit_0023f5b8.cpp
 
 extern "C" u32 func_00242ee8(u32,u32,u32,u32) asm("_ZN2Tz6Config12isChapterAllEv");
 

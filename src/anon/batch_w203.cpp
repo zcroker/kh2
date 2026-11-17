@@ -23,10 +23,7 @@ void func_00152ab8(W203C* a, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32
 // 00159c20: moved to src/harata/libdk/talkcamera.cpp
 
 void u_call4_0023f8c8(u8* a) asm("_Z16u_call4_0023f8c8jjjj");
-void u_call4_0023f8c8(u8* a) {
-  if (a[24]) func_0023fad0(a);
-  *(u32*)(a + 4) = 0;
-}
+void u_call4_0023f8c8(u8* a);  // 0x0023f8c8: definition moved into src/anon/unit_0023f5b8.cpp
 
 float func_002dc248(void);  // 0x002dc248: definition moved into src/anon/unit_002da040.cpp
 

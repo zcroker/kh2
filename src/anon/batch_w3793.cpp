@@ -15,43 +15,5 @@ extern char* D_0035ebfc;
 extern char* D_0035ec00;
 extern char* D_0035ec88;
 extern Tbl* D_0035ec98;
-s32 func_00241160(void) {
-    s32 i;
-    s32 r = 0;
-    s32 n = D_0035ec98->count;
-    for (i = 0; i < n; i++) {
-        s32 off = (i * 5) << 3;
-        if (!(((EntX*)(off + (u32)D_0035ec98))->flags & 2)) continue;
-        if (strlen(((EntX*)(off + (u32)D_0035ec98))->name) == 0) continue;
-        if (strcmp(((EntX*)((u32)D_0035ec98 + off))->name, D_0035ebf8) == 0) {
-            r |= 1;
-            EntX* e = ((EntX*)(off + (u32)D_0035ec98));
-            s32 k = 0x3c4;
-            if (e->id != k) {
-                r |= 0x100;
-                e->flags |= 0x10;
-            }
-        } else {
-            const char* s;
-            if (func_00240108()) s = D_0035ec00; else s = D_0035ebfc;
-            if (strcmp(D_0035ec98->e[i].name, s) == 0) {
-                r |= 2;
-                if (D_0035ec98->e[i].id != 0x8a58) {
-                    r |= 0x200;
-                    D_0035ec98->e[i].flags |= 0x10;
-                }
-            } else if (strcmp(D_0035ec98->e[i].name, D_0035ec88) == 0) {
-                r |= 4;
-                if (D_0035ec98->e[i].id != func_002416d8(2)) {
-                    r |= 0x400;
-                    D_0035ec98->e[i].flags |= 0x10;
-                }
-            } else {
-                r |= 0x10;
-                D_0035ec98->e[i].flags |= 0x10;
-            }
-        }
-    }
-    return r;
-}
+s32 func_00241160(void);  // 0x00241160: definition moved into src/anon/unit_0023f5b8.cpp
 }

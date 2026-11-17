@@ -145,24 +145,13 @@ void func_002374c8(Tbl* t, int i, int j, u32 v);  // 0x002374c8: definition move
 extern u32 D_0035eb88;
 extern u32 D_0035eb8c;
 extern u8 D_0035eb84;
-void func_0023edb0(u32 x) {
-    u32 cur = D_0035eb88;
-    if (cur != x) {
-        if (cur) D_0035eb8c = cur;
-        D_0035eb88 = x;
-        return;
-    }
-    D_0035eb84++;
-}
+void func_0023edb0(u32 x);  // 0x0023edb0: definition moved into src/anon/unit_0023e5d0.cpp
 
 void strlen(u32);  // strlen
 void func_002346a0(s32, u32, u32);
 extern u32 D_0035ec88;
 extern s8* D_0035ec94;
-void func_00241528(void) {
-    strlen(D_0035ec88);  // strlen
-    func_002346a0(*D_0035ec94, D_0035ec88, 0);
-}
+void func_00241528(void);  // 0x00241528: definition moved into src/anon/unit_0023f5b8.cpp
 
 extern u32 D_0035ee80;
 extern u32 D_0035ee5c;

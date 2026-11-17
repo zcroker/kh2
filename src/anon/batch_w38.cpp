@@ -205,13 +205,7 @@ s32 func_00234460(u32 a, u32 b, u32 c, u32 d, u32 e, u32 f);  // 0x00234460: def
 s32 func_002344c0(u32 a, u32 b, u32 c, u32 d, u32 e);  // 0x002344c0: definition moved into src/anon/unit_002335e8.cpp
 
 u32 func_00168aa0(u32, s32);
-void LeadDataSetText(u8* p, u32 id) {
-    *(u32*)(p + 4) = id;
-    *(u32*)(p + 8) = func_00168aa0(id, 28);
-    *(u32*)(p + 16) = func_00168aa0(*(u32*)(p + 4), 29);
-    *(u32*)(p + 12) = func_00168aa0(*(u32*)(p + 4), 25);
-    *(u32*)(p + 20) = func_00168aa0(*(u32*)(p + 4), 24);
-}
+void LeadDataSetText(u8* p, u32 id);  // 0x0023fa08: definition moved into src/anon/unit_0023f5b8.cpp
 
 u8* func_00257770(void);
 s32 func_00287bc0(void);

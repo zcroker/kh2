@@ -1147,15 +1147,7 @@ void func_0022b5c0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0022b5c0: moved to src/s
 
 void func_0022c410(u32 a0, u32 a1, u32 a2, u32 a3);  // 0022c410: moved to src/sasa/event_countdown.cpp (linked unit)
 
-void func_0023f8a8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3;
-    *(volatile u32*)((u32)r4 + (s32)(20)) = 0u;
-    *(volatile u32*)((u32)r4 + (s32)(4)) = 0u;
-    *(volatile u8*)((u32)r4 + (s32)(24)) = (u8)0u;
-    *(volatile u32*)((u32)r4 + (s32)(8)) = 0u;
-    *(volatile u32*)((u32)r4 + (s32)(12)) = 0u;
-    *(volatile u32*)((u32)r4 + (s32)(16)) = 0u;
-}
+void func_0023f8a8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0023f8a8: definition moved into src/anon/unit_0023f5b8.cpp
 
 void func_002bce40(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002bce40: definition moved into src/anon/unit_002bc978.cpp
 

@@ -130,12 +130,7 @@ struct T237 { u32 pad[2]; E20* e; I4* ix; };
 void func_00237540(T237* t, s32 i, s32 off, s32 add);  // 0x00237540: definition moved into src/anon/unit_00237068.cpp
 
 extern void* D_0035ebe0;
-void func_0023fb90(void* a) {
-    if (a) {
-        void* o = D_0035ebe0;
-        (*(void (**)(void*, void*))((*(u8**)o) + 4))(o, a);
-    }
-}
+void func_0023fb90(void* a);  // 0x0023fb90: definition moved into src/anon/unit_0023f5b8.cpp
 
 // Round up to a multiple of 64
 s32 func_00253948(s32 x);  // 0x00253948: definition moved into src/anon/unit_002530c8.cpp

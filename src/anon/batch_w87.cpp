@@ -155,18 +155,7 @@ extern char* D_0035ec00;
 void func_002ff2e8(void*, const char*);
 s32 func_00240108(void);  // get_global_36eb68
 void func_00240118(void*, s32, s32);
-void func_00240360(s32 k) {
-    if (k == -5) return;
-    if (k == -4) { func_002ff2e8(D_0035ec88, D_003716b8); return; }
-    if (k == -3) { func_002ff2e8(D_0035ec88, D_0035ebf8); return; }
-    if (k == -2) {
-        const char* s;
-        if (func_00240108()) s = D_0035ec00; else s = D_0035ebfc;
-        func_002ff2e8(D_0035ec88, s);
-        return;
-    }
-    func_00240118(D_0035ec88, k, func_00240108());
-}
+void func_00240360(s32 k);  // 0x00240360: definition moved into src/anon/unit_0023f5b8.cpp
 
 // ---- 0x247c20 ----
 extern void* D_0035ed20;

@@ -374,21 +374,7 @@ extern u32 D_0035ec9c;
 extern void* D_0035eca0;
 extern void* D_0035eca4;
 void u_call0_00240000(void) asm("_Z16u_call0_00240000v");
-void u_call0_00240000(void) {
-    if (D_0035ec88) { func_00106450(D_0035ec88); D_0035ec88 = 0; }
-    if (D_0035ec8c) { func_00106450(D_0035ec8c); D_0035ec8c = 0; }
-    if (D_0035ec90) { func_00106450(D_0035ec90); D_0035ec90 = 0; }
-    if (D_0035ec94) { func_00106420(D_0035ec94); D_0035ec94 = 0; }
-    if (D_0035ec98) { func_00106420(D_0035ec98); D_0035ec98 = 0; }
-    if (D_0035eca0) { func_00106450(D_0035eca0); D_0035eca0 = 0; }
-    D_0035ec9c = 0;
-    void* p = D_0035eca4;
-    if (p) {
-        func_00242048(p);
-        func_00106420(p);
-        D_0035eca4 = 0;
-    }
-}
+void u_call0_00240000(void);  // 0x00240000: definition moved into src/anon/unit_0023f5b8.cpp
 
 extern "C" {
 s32 func_00276c18(void);

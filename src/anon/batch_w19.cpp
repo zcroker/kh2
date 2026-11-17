@@ -148,15 +148,9 @@ void func_001fab08(u8* p, u8* q) {
     s[8] = 4;
 }
 
-void func_0023f6c0(u8* p, u32 a) {
-    func_00139d78(p);
-    *(u32*)(p + 0x48) = a;
-}
+void func_0023f6c0(u8* p, u32 a);  // 0x0023f6c0: definition moved into src/anon/unit_0023f5b8.cpp
 
-void func_00240e10(void) {
-    func_00240360();
-    func_00234590(*D_0035ec94, D_0035ec9c, 99, D_0035ec88, 0);
-}
+void func_00240e10(void);  // 0x00240e10: definition moved into src/anon/unit_0023f5b8.cpp
 
 void func_0025cd40(void);  // 0x0025cd40: definition moved into src/anon/unit_002588e8.cpp
 

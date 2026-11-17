@@ -177,16 +177,10 @@ struct IdxEnt {
 };
 void func_00237640(u8* p, s32 i, s32 j, s32 dx, s32 dy);  // 0x00237640: definition moved into src/anon/unit_00237068.cpp
 
-void func_0023f0c8(u8* p, u32 v) {
-    func_00139d78(p);
-    *(u32*)(p + 144) = v;
-}
+void func_0023f0c8(u8* p, u32 v);  // 0x0023f0c8: definition moved into src/anon/unit_0023e5d0.cpp
 
 // Clears the current 40-byte slot.
-void func_00241320(void) {
-    u8* p = D_0035ec98;
-    func_002fde18(p + *(s32*)(p + 4) * 40 + 8, 0, 40);
-}
+void func_00241320(void);  // 0x00241320: definition moved into src/anon/unit_0023f5b8.cpp
 
 // Whether adding a to the counter stays within 999999.
 u32 func_002424c0(u32 a);  // 0x002424c0: definition moved into src/anon/unit_00242478.cpp

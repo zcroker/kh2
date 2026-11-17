@@ -143,10 +143,7 @@ void func_001fb870(u8* a, u8* b) {
 
 void func_00236a18(void** p);  // 0x00236a18: definition moved into src/anon/unit_00236180.cpp
 
-void func_0023f740(u8* p, u32 a) {
-    func_00139d78(p);
-    *(u32*)(p + 0x44) = a;
-}
+void func_0023f740(u8* p, u32 a);  // 0x0023f740: definition moved into src/anon/unit_0023f5b8.cpp
 
 // The pair is read as 16-bit bitfields: plain s16 loads get hoisted above the first store.
 struct Pair16 { s32 x : 16; s32 y : 16; };

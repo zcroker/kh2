@@ -167,11 +167,7 @@ void func_0022c508(void);  // 0022c508: moved to src/sasa/event_layout.cpp (link
 
 void func_002346c0(void* a, void* b, void* c, void* d, void* e);  // 0x002346c0: definition moved into src/anon/unit_002335e8.cpp
 
-void func_0023fb00(s32 a) {
-    D_0035ebe0 = a;
-    func_0023fbc8();
-    D_0035ebec = 0;
-}
+void func_0023fb00(s32 a);  // 0x0023fb00: definition moved into src/anon/unit_0023f5b8.cpp
 
 void CampMenu_StartBasic(s32);  // 0x00253538: definition moved into src/anon/unit_002530c8.cpp
 

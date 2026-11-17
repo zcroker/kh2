@@ -147,12 +147,7 @@ u32 wtarget_002343a8(u32 a, u32 b, u32 c, u32 d);  // 0x002343a8: definition mov
 extern u8* D_0035ec90;
 void func_00242408(void);  // set_global_crc_m1
 void func_00242418(void*, u32);  // crc_byte_update
-void func_002409b8(u8* p) {
-    if (!p) p = D_0035ec90;
-    func_00242408();  // set_global_crc_m1
-    func_00242418(p, 8);  // crc_byte_update
-    func_00242418(p + 12, 0x10fb4);  // crc_byte_update
-}
+void func_002409b8(u8* p);  // 0x002409b8: definition moved into src/anon/unit_0023f5b8.cpp
 
 struct BF242 { u32 lo : 8; u32 f : 1; u32 hi : 23; };
 struct X242 { u32 a; BF242 b; };

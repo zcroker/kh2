@@ -418,22 +418,7 @@ static inline __attribute__((always_inline)) s32 Older2418(const Date2418* a, co
 }
 
 // Returns the index of the newest valid entry (0 if none).
-s32 func_002418b8(void)
-{
-    Date2418 best;
-    s32 found = -1;
-    s32 i;
-    Ent2418* e = D_0035ec94->e;
-    for (i = 0; i < 99; i++, e++) {
-        if (!(e->flags & 0x10)) continue;
-        if (found < 0 || Older2418(&best, e)) {
-            best = e->date;
-            found = i;
-        }
-    }
-    if (found < 0) found = 0;
-    return found;
-}
+s32 func_002418b8(void);  // 0x002418b8: definition moved into src/anon/unit_0023f5b8.cpp
 }
 
 // ---- 00248f50

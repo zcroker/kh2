@@ -22,28 +22,5 @@ extern W2397Ent* D_0035ec94;
 #define W2397_ENT(i) ((W2397Ent*)(((i) << 5) + (u32)D_0035ec94))
 
 // Copies state flags and properties of object o (default D_0035ec90) into entry i of the D_0035ec94 table.
-void func_00240c08(s32 i, W2397Obj* o, u32 fl) {
-    if (o == 0) o = D_0035ec90;
-    if ((u8)(fl & 1)) D_0035ec94[i].fl |= 1;
-    if (fl & 2) D_0035ec94[i].fl |= 2;
-    if (fl & 0x10) {
-        D_0035ec94[i].fl |= 0x10;
-        D_0035ec94[i].xc = func_0019f880(o->c0d, o->c0c);
-        D_0035ec94[i].s.a = o->v2444;
-        D_0035ec94[i].s.b = o->v2440;
-        D_0035ec94[i].s.c8 = o->c2498;
-        if ((u8)o->b249c) W2397_ENT(i)->s.set9(func_00188fe0(o->t24f0, 14)->cf);
-        else W2397_ENT(i)->s.set9(func_00188fe0(o->t24f0, 1)->cf);
-        if (o->c0c >= 19) D_0035ec94[i].s.ca = 0xff;
-        else D_0035ec94[i].s.ca = o->c0c;
-        W2397_ENT(i)->s.setb(o->c419c);
-        D_0035ec94[i].s.cc = ((W2397Bits64*)&o->w4198)->hi & 1;
-        if (func_001058d8(o)) D_0035ec94[i].fl |= 0x10000000;
-        else D_0035ec94[i].fl &= ~0x10000000;
-    } else if (fl & 0x40) {
-        D_0035ec94[i].fl |= 0x40;
-    } else {
-        D_0035ec94[i].fl |= 0x20;
-    }
-}
+void func_00240c08(s32 i, W2397Obj* o, u32 fl);  // 0x00240c08: definition moved into src/anon/unit_0023f5b8.cpp
 }

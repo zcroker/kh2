@@ -208,21 +208,7 @@ void func_0022e288(void);  // 0x0022e288: definition moved into src/anon/unit_00
 
 /* ---- 0023ec48: out = obj->mtx(+128) * m (VU0) ---- */
 void func_0011d6c0(u32, u32, f32*);
-f32* func_0023ec48(f32* out, u8* obj, u32 a2) {
-    f32 m[16] __attribute__((aligned(16)));
-    u8* w = obj + 128;
-    func_0011d6c0(*(u32*)(obj + 48), a2, m);
-    asm volatile(
-        "lqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 16(%1)\n\tlqc2 $vf3, 32(%1)\n\tlqc2 $vf4, 48(%1)\n\t"
-        "lqc2 $vf5, 0(%2)\n\tlqc2 $vf6, 16(%2)\n\tlqc2 $vf7, 32(%2)\n\tlqc2 $vf8, 48(%2)\n\t"
-        "vmulax.xyzw ACC, $vf1, $vf5x\n\tvmadday.xyzw ACC, $vf2, $vf5y\n\tvmaddaz.xyzw ACC, $vf3, $vf5z\n\tvmaddw.xyzw $vf5, $vf4, $vf5w\n\t"
-        "vmulax.xyzw ACC, $vf1, $vf6x\n\tvmadday.xyzw ACC, $vf2, $vf6y\n\tvmaddaz.xyzw ACC, $vf3, $vf6z\n\tvmaddw.xyzw $vf6, $vf4, $vf6w\n\t"
-        "vmulax.xyzw ACC, $vf1, $vf7x\n\tvmadday.xyzw ACC, $vf2, $vf7y\n\tvmaddaz.xyzw ACC, $vf3, $vf7z\n\tvmaddw.xyzw $vf7, $vf4, $vf7w\n\t"
-        "vmulax.xyzw ACC, $vf1, $vf8x\n\tvmadday.xyzw ACC, $vf2, $vf8y\n\tvmaddaz.xyzw ACC, $vf3, $vf8z\n\tvmaddw.xyzw $vf8, $vf4, $vf8w\n\t"
-        "sqc2 $vf5, 0(%0)\n\tsqc2 $vf6, 16(%0)\n\tsqc2 $vf7, 32(%0)\n\tsqc2 $vf8, 48(%0)"
-        : : "r"(out), "r"(w), "r"(m) : "memory");
-    return out;
-}
+f32* func_0023ec48(f32* out, u8* obj, u32 a2);  // 0x0023ec48: definition moved into src/anon/unit_0023e5d0.cpp
 
 /* ---- 0024c568 ---- */
 extern void* D_0035eda8;

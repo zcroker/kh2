@@ -139,16 +139,9 @@ void func_0022acd0(void* p);  // 0022acd0: moved to src/sasa/musical_input.cpp (
 
 void func_00234670(u32 a0, u32 a1, u32 a2, u32 a3, u32 t0);  // 0x00234670: definition moved into src/anon/unit_002335e8.cpp
 
-u8* func_0023e788(u8* d, u8* p, s32 i) {
-    u8* s = p + *(u8*)(i + (u32)p + 2916) * 320 + 1632;
-    QCOPY(d, s);
-    return d;
-}
+u8* func_0023e788(u8* d, u8* p, s32 i);  // 0x0023e788: definition moved into src/anon/unit_0023e5d0.cpp
 
-u32 func_00241770(s32 i) {
-    if (i < 0) i = (s8)D_0035ec94[1];
-    return (*(s32*)(D_0035ec94 + i * 32 + 8) >> 4) & 1;
-}
+u32 func_00241770(s32 i);  // 0x00241770: definition moved into src/anon/unit_0023f5b8.cpp
 
 void func_0025a1d0(void);  // 0x0025a1d0: definition moved into src/anon/unit_002588e8.cpp
 

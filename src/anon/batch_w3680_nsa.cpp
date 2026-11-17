@@ -33,32 +33,5 @@ s32 strcmp(const char*, const char*);
 s32 strlen(const char*);
 
 static inline s32 num2(u8 a, u8 b) { return (a - '0') * 10 + (b - '0'); }
-s32 func_00240e50(void) {
-    McDirEnt* ent = D_0035ec9c;
-    s32 n = YI_MCARD_GetFileTableMax(D_0035ec94->port, 0);
-    s32 i;
-    D_0035ec94->hasSystem = 0;
-    func_002fde18(D_0035ec94->slot, 0, sizeof(D_0035ec94->slot));
-    D_0035ec94->dirty = 0;
-    for (i = 0; i < n; i++, ent++) {
-        if (ent->attr & 0x20) {
-            s32 len = strlen(ent->fname);
-            if (len == 18 && strcmp(ent->fname + 0xf, D_003716d8) == 0) {
-                D_0035ec94->hasSystem = 1;
-            } else if (len == 17) {
-                // The empty asm hides that c is a zero-extended byte, so the
-                // (u8) conversion for num2 keeps the original's andi 0xff.
-                s32 c = ((u8*)ent->fname)[0xf];
-                asm("" : "+r"(c));
-                if ((u32)(c - '0') < 10) {
-                    s32 idx = num2(c, ent->fname[0x10]);
-                    D_0035ec94->slot[idx].used.v = 1;
-                    D_0035ec94->slot[idx].name = ent->name;
-                }
-            }
-        }
-    }
-    if (D_0035ec94->hasSystem) n--;
-    return n;
-}
+s32 func_00240e50(void);  // 0x00240e50: definition moved into src/anon/unit_0023f5b8.cpp
 }

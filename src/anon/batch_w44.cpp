@@ -205,11 +205,7 @@ void func_0022bb60(void* p);  // 0022bb60: moved to src/sasa/event_movie.cpp (li
 struct B8 { u8 b[8]; };
 extern u8* D_0035ec9c;
 extern u8* D_0035ec94;
-void func_00241850(s32 i, s32 clear) {
-    u8* s = D_0035ec9c;
-    if (clear) func_002fde18(D_0035ec94 + i * 32 + 32, 255, 8);
-    else *(B8*)(i * 32 + D_0035ec94 + 32) = *(B8*)(s + 8);
-}
+void func_00241850(s32 i, s32 clear);  // 0x00241850: definition moved into src/anon/unit_0023f5b8.cpp
 
 // Bit test in the flag array at +18904.
 s32 func_002431d0(s32 a, s32 b);  // 0x002431d0: definition moved into src/anon/unit_00242478.cpp

@@ -11,7 +11,5 @@ extern "C" void func_002925c0();
 extern u8 D_0035f5e1 asm("D_0035f5e1");
 // 0x002a1cd8: definition moved into src/anon/unit_002a0908.cpp
 
-s32 LayFile::getFileAddress() const {
-    return reinterpret_cast<const FileAddressLayout*>(this)->fileAddress;
-}
+// 0x0023f900: definition moved into src/anon/unit_0023f5b8.cpp
 }  // namespace Tz

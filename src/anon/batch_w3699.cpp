@@ -12,13 +12,7 @@ struct O24 { u8 pad[0x20]; u32 v; s32 id;
 }
 using n0023f5b8::O24;
 void func_0023f5b8(O24* o, s32 id) asm("_Z13func_0023f5b8i");
-void func_0023f5b8(O24* o, s32 id) {
-    // the original saves s2 without using it (an eliminated pseudo); an s2 pin reproduces the save
-    register s32 k asm("$18");
-    asm volatile("" : "=r"(k));
-    func_00139d78(o);
-    o->set(id);
-}
+void func_0023f5b8(O24* o, s32 id);  // 0x0023f5b8: definition moved into src/anon/unit_0023f5b8.cpp
 
 // 00257e00: bit mask of available entries (8 table rows checked through func_001a6d08, bit 1 from a list scan)
 extern "C" {

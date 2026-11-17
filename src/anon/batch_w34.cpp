@@ -322,11 +322,6 @@ void EFFECT_kill(void* e);  // 0x001dc920: definition moved into src/anon/unit_0
 
 u32 wtarget_002342f0(u32 a, u32 b, u32 c, u32 d);  // 0x002342f0: definition moved into src/anon/unit_002335e8.cpp
 
-void Layout_setNum(void* l, s32 n, s32 m) {
-    func_00139d78(l);
-    *(s32*)((u8*)l + 140) = n;
-    *(s32*)((u8*)l + 152) = n;
-    func_0023f0c8(l, m);
-}
+void Layout_setNum(void* l, s32 n, s32 m);  // 0x0023f070: definition moved into src/anon/unit_0023e5d0.cpp
 
 // 002e2d88: moved to src/anon/unit_002e2d18.cpp

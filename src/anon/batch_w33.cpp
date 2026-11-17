@@ -130,12 +130,7 @@ void init_00236d10(void*);  // 0x00236d10: definition moved into src/anon/unit_0
 void func_00242408(void);  // set_global_crc_m1
 u32 func_00242418(void*, u32);  // crc_byte_update
 extern void* D_0035ec90;
-s32 func_00241670(void* a) {
-    func_00242408();  // set_global_crc_m1
-    u32 x = func_00242418(a, 0x8a58);  // crc_byte_update
-    func_00242408();  // set_global_crc_m1
-    return x == func_00242418(D_0035ec90, 0x8a58);  // crc_byte_update
-}
+s32 func_00241670(void* a);  // 0x00241670: definition moved into src/anon/unit_0023f5b8.cpp
 
 struct Bits242 { u32 pad; u32 lo : 6; u32 off : 1; };
 void* func_001058e8(void);

@@ -143,17 +143,9 @@ void func_00227930(void*);
 void func_00225690(u8* p);  // 0x00225690: definition moved into src/anon/unit_00224780.cpp
 
 // Store the vector (x, y, z, 0) into slot p[2916 + i] of the 320-byte table at p + 1664.
-void func_0023e918(u8* p, s32 i, f32 x, f32 y, f32 z) {
-    u8* d = p + *(u8*)(i + (u32)p + 2916) * 320 + 1664;
-    struct { f32 f[3]; u32 w; } __attribute__((aligned(16))) v;
-    v.f[0] = x; v.f[1] = y; v.f[2] = z; v.w = 0;
-    if (d != (u8*)&v) asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(d), "r"(&v) : "$8", "memory");
-}
+void func_0023e918(u8* p, s32 i, f32 x, f32 y, f32 z);  // 0x0023e918: definition moved into src/anon/unit_0023e5d0.cpp
 
-void func_0023f628(u8* p, u32 a) {
-    func_00139d78(p);
-    *(u32*)(p + 64) = a;
-}
+void func_0023f628(u8* p, u32 a);  // 0x0023f628: definition moved into src/anon/unit_0023f5b8.cpp
 
 void func_00242088(void*);
 void func_002ef938(u32);

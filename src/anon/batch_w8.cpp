@@ -114,19 +114,11 @@ void func_00234188(u32, u32, u32, u32, u32, u32);
 void func_002345c0(u32 a, u32 b, u32 c, u32 d, u32 e);  // 0x002345c0: definition moved into src/anon/unit_002335e8.cpp
 
 struct P23 { s16 a; s16 pad[3]; s16 b; };
-void func_0023e738(u8* p, u32 i, s16 a, s16 b) {  // store_2halfwords_2928
-    u8* q = (u8*)(i * 2) + (u32)p;
-    P23* r = (P23*)(q + 2928);
-    r->a = a;
-    r->b = b;
-}
+void func_0023e738(u8* p, u32 i, s16 a, s16 b);  // 0x0023e738: definition moved into src/anon/unit_0023e5d0.cpp
 
 void func_00240c08(s32, u32, u32);
 extern s8* D_0035ec94;
-void func_00241740(s32 x) {
-    if (x < 0) x = D_0035ec94[1];
-    func_00240c08(x, 0, 19);
-}
+void func_00241740(s32 x);  // 0x00241740: definition moved into src/anon/unit_0023f5b8.cpp
 
 void func_0026d808(const void*);
 void func_00253180(u32, s32);

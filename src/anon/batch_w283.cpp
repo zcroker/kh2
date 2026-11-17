@@ -77,26 +77,7 @@ extern char D_003716e8[];
 s32 strcmp(const char*, const char*);  // strcmp
 void func_00240118(char*, s32, s32);
 s32 W283_GetFileTableMax(s32, s32) asm("_ZN2YI5MCARD15GetFileTableMaxEii");
-s32 func_00241a88(u8 a) {
-    W283_FE* e = D_0035ec9c;
-    u32 got = 0;
-    func_00240118(D_0035ec88, 0, a ? 1 : 2);
-    s32 n = W283_GetFileTableMax(*D_0035ec94, 0);
-    if (n < 3) return 0;
-    for (s32 i = 0; i < n; i++, e++) {
-        if (strcmp(e->name, D_003716e0) == 0) continue;
-        if (strcmp(e->name, D_003716e8) == 0) continue;
-        if (e->attr & 0x20) continue;
-        if (strcmp(e->name, D_0035ec88) == 0) {  // strcmp
-            if (e->size == 1024) got |= 4;
-        } else if (strcmp(e->name, D_0035ebf8) == 0) {  // strcmp
-            if (e->size == 964) got |= 1;
-        } else if (strcmp(e->name, !a ? D_0035ec08 : D_0035ec00) == 0) {  // strcmp
-            if (e->size == 0x8a58) got |= 2;
-        }
-    }
-    return got == 7;
-}
+s32 func_00241a88(u8 a);  // 0x00241a88: definition moved into src/anon/unit_0023f5b8.cpp
 
 extern void* D_00361f60;
 W283_JCfg* W283_MGJump_config(void*) asm("_ZN2Ti6MGJump6configEv");
