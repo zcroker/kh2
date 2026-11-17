@@ -85,15 +85,7 @@ void func_00169398(u8*, u32, u32*, u32, u32);
 
 struct O19b { u8 pad[8]; u8* hdr; u8 pad2[32]; u8* first; };
 // Walks variable-length records (12-byte units) looking for id.
-u8* func_0019b380(O19b* o, u32 id) {
-    s32 i;
-    u8* e = o->first;
-    for (i = 0; i < *(u16*)(o->hdr + 8); i++) {
-        if (e[5] == id) return e;
-        e = e + *(u16*)(e + 2) * 12 + 8;
-    }
-    return 0;
-}
+u8* func_0019b380(O19b* o, u32 id);  // 0x0019b380: definition moved into src/anon/unit_00199688.cpp
 
 void func_001bc688(void*);
 void func_00190128(void*);

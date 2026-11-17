@@ -146,23 +146,7 @@ u8* func_00186078(u8*);
 QWord* func_0016c028(u8*);  // obj_get_attach_or_alt
 void func_001991a8(s32, u32);
 
-void func_0019b180(u8* p) {
-    QWord v;
-    u8* it = 0;
-    while ((it = func_00186078(it))) {
-        v = *func_0016c028(it);  // obj_get_attach_or_alt
-        VTest* o = 0;
-        while ((o = !o ? *(VTest**)(p + 12) : o->next)) {
-            if (o->test(&v)) {
-                if ((*(u32*)(it + 2728) & ~0x10000) != *(u16*)(*(u8**)(p + 8) + 2)) {
-                    func_001991a8(*(s32*)(*(u8**)(p + 8) + 28), func_0016bff0(it));
-                }
-                *(u32*)(it + 2728) = *(u16*)(*(u8**)(p + 8) + 2);
-                break;
-            }
-        }
-    }
-}
+void func_0019b180(u8* p);  // 0x0019b180: definition moved into src/anon/unit_00199688.cpp
 
 u32* func_00177860(void);
 s32 func_001bc2a8(void*, void*, s32);

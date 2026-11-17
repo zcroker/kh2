@@ -232,17 +232,7 @@ const Vq* func_0016c028(u32);  // obj_get_attach_or_alt
 Unit19b* func_0016e920(u32);
 Vq func_001a78c0(const Vq*, u32, f32, f32, f32, f32);
 Vq func_001a7888(const Vq*, u32, f32, f32);
-Vq func_0019afd8(u32 u) {
-    Vq r;
-    r = *func_0016c028(D_0034e948);  // obj_get_attach_or_alt
-    r.y += -200.0f;
-    if (func_0016e920(u)->isBig()) {
-        r = func_001a78c0(&r, 0x10002, 150.0f, 450.0f, -100.0f, 100.0f);
-    } else {
-        r = func_001a7888(&r, 0x10001, 150.0f, 450.0f);
-    }
-    return r;
-}
+Vq func_0019afd8(u32 u);  // 0x0019afd8: definition moved into src/anon/unit_00199688.cpp
 
 // ---- 001aca98
 extern u8 D_00350bb0[];

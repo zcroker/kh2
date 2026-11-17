@@ -173,15 +173,7 @@ s32 func_001991a8(u32, u32);
 void func_00104f58(void*, u32, u32, u32, u32);
 union Obj5b { struct { u32 f0, f4; u16* info; } s; s16 h[6]; };
 
-void func_0019a610(Obj5b* o, Rec5* src) {
-    D_0032bb00 = *src;
-    if (func_001991a8(1, o->s.info[1]) == 0) {
-        u32 a = 0, b = 0;
-        if (D_0032bae0 != *(u8*)src) { a = 1; b = 1; }
-        func_00104f58(&D_0032bb00, a, 0, 0, b);
-    }
-    o->s.f4 |= 1;
-}
+void func_0019a610(Obj5b* o, Rec5* src);  // 0x0019a610: definition moved into src/anon/unit_00199688.cpp
 
 /* ---- 0019bb98 ---- */
 f32 func_0016a0a0(void*);

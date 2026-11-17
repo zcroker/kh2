@@ -12,32 +12,7 @@ extern Elem19 D_01c62198[64];
 
 // static initialization/destruction of D_01c62198
 void wt19(u32 init, u32 prio, u32, u32) asm("_Z16wtarget_0019b970jjjj");
-void wt19(u32 init, u32 prio, u32, u32)
-{
-    if (prio == 0xffff && init == 1) {
-        Elem19* e = D_01c62198;
-        Sub19* p = &e->s;
-        for (int i = 63; i != -1; i--) {
-            p->a = 0;
-            p->d = 0;
-            p->c = 0;
-            p = (Sub19*)((u8*)p + 56);
-        }
-    }
-    if (prio == 0xffff && init == 0) {
-        Elem19* a = D_01c62198;
-        if (a) {
-            Elem19* p = a + 64;
-            Elem19* base = a;
-        top:
-            if (p == base) goto out;
-            p--;
-            func_00199cd0(p);
-            goto top;
-        out:;
-        }
-    }
-}
+void wt19(u32 init, u32 prio, u32, u32);  // 0x0019b970: definition moved into src/anon/unit_00199688.cpp
 
 struct Pair32 { u8 a; u8 b; };
 extern Pair32 D_0032bae0;

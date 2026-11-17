@@ -300,26 +300,7 @@ void func_0019b180(Obj15*, u32);
 s32 func_00191a50(Obj15*, u32);
 s32 func_0019a1a0(Obj15*, Sub15*);
 
-void func_0019a048(Obj15* o, u32 arg) {
-    Sub15* p;
-    o->b3 = 0;
-    o->b4 = 0;
-    if (Off15(o)) return;
-    if (*o->type == 4) {
-        func_0019b180(o, arg);
-        return;
-    }
-    if (func_00191a50(o, arg)) return;
-    if (o->timer > 0.0f) o->timer -= D_00349e10;
-    p = 0;
-    while ((p = Next15(o, p)) != 0) {
-        if (*o->type == 6 && *(u16*)(p->info + 44) != 1) continue;
-        if (((s32 (*)(Sub15*, u32))p->vt[2])(p, arg)) {
-            o->b3 = 1;
-            if (func_0019a1a0(o, p)) return;
-        }
-    }
-}
+void func_0019a048(Obj15* o, u32 arg);  // 0x0019a048: definition moved into src/anon/unit_00199688.cpp
 }
 
 }

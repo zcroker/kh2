@@ -66,18 +66,4 @@ static inline struct N19b3d0* Next19b3d0(struct O19b3d0* o, struct N19b3d0* p) {
     return !p ? o->first : p->next;
 }
 
-struct N19b3d0* func_0019b3d0(struct O19b3d0* o, void* arg) {
-    struct N19b3d0* r;
-    struct N19b3d0* p;
-    if (o->t->type == 6) goto L;
-    r = 0;
-RET:
-    return r;
-L:
-    p = 0;
-    while ((p = Next19b3d0(o, p)) != 0) {
-        if (p->info->h2c == 0 && p->vt->f8(p, arg)) { r = p; goto RET; }
-    }
-    r = 0;
-    goto RET;
-}
+struct N19b3d0* func_0019b3d0(struct O19b3d0* o, void* arg);  /* 0x0019b3d0: definition moved into src/anon/unit_00199688.cpp */

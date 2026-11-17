@@ -39,13 +39,7 @@ static inline __attribute__((always_inline)) W2365_Res* W2365_Find(u32 h, s32 ki
 
 extern "C" {
 
-s32 func_0019ad00(W2365_Own* o, s32 id)
-{
-    for (s32 i = 0; i < o->tbl->count; i++) {
-        if (o->tbl->e[i].type == 2 && o->tbl->e[i].id == id) return 1;
-    }
-    return 0;
-}
+s32 func_0019ad00(W2365_Own* o, s32 id);  // 0x0019ad00: definition moved into src/anon/unit_00199688.cpp
 
 // 001ce248: moved to src/anon/unit_001cd660.cpp
 u32 func_001ce248(s32 kind, const s8* p);

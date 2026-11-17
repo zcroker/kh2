@@ -161,14 +161,7 @@ void func_00172890(u8** p);  // 0x00172890: definition moved into src/anon/unit_
 void func_00196710(u32 i);  // 0x00196710: definition moved into src/anon/unit_00195d00.cpp
 
 // Find the entry with the given id (any entry when id < 0) in a variable-size list.
-u8* func_0019b328(u8* p, s32 id) {
-    u16* e = *(u16**)(p + 0x2c);
-    for (s32 i = 0; i < *(u16*)(*(u8**)(p + 8) + 8); i++) {
-        if (id < 0 || e[0] == id) return (u8*)e;
-        e = (u16*)((u8*)e + e[1] * 12 + 8);
-    }
-    return 0;
-}
+u8* func_0019b328(u8* p, s32 id);  // 0x0019b328: definition moved into src/anon/unit_00199688.cpp
 
 u32 func_0019c838(u8* p);  // 0x0019c838: definition moved into src/anon/unit_0019ba60.cpp
 

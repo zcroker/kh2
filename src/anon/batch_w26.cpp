@@ -183,13 +183,7 @@ void func_00190a28(void* t, u8* o);  // 0x00190a28: definition moved into src/an
 
 // 00198b88: moved to src/anon/unit_00198b88.cpp
 
-void func_0019ae60(u8* p) {
-    if (p[32] < 200) {
-        p[32]++;
-        u8* d = *(u8**)(p + 8);
-        if (d[35] && p[32] >= d[35]) func_0019aec0(p, d[36]);
-    }
-}
+void func_0019ae60(u8* p);  // 0x0019ae60: definition moved into src/anon/unit_00199688.cpp
 
 s32 func_0019bf00(u8* o);  // 0x0019bf00: definition moved into src/anon/unit_0019ba60.cpp
 

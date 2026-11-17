@@ -74,13 +74,7 @@ struct E56 { u32 a, b; u16* p; u8 pad[44]; };
 extern s32 D_00350440;
 extern E56 D_01c62198[];
 u32 ctarget_0019b260(u32 id, u32, u32, u32) asm("_Z16ctarget_0019b260jjjj");
-u32 ctarget_0019b260(u32 id, u32, u32, u32) {
-    for (s32 i = 0; i < D_00350440; i++) {
-        E56* e = &D_01c62198[i];
-        if (e->p[1] == id) return (u32)e;
-    }
-    return 0;
-}
+u32 ctarget_0019b260(u32 id, u32, u32, u32);  // 0x0019b260: definition moved into src/anon/unit_00199688.cpp
 
 // Adds n to a counter capped at 100, and to two halfword totals.
 void func_001a2668(u8* p, s32 n);  // 0x001a2668: definition moved into src/anon/unit_0019fb70.cpp

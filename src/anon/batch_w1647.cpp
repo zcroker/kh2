@@ -48,44 +48,5 @@ extern void* D_0034e948;
 extern u8 D_0034f250[];
 
 /* 0019b668: per frame, despawns live units of a YS::UNIT_GROUP that are far away or behind the player, and spawns (appear) nearby dead ones in front. */
-void func_0019b668(W1647Group* g)
-{
-    s32 i = 0;
-    W1647UnitHdr* h = g->hdr;
-    void* player = D_0034e948;
-    W1647Unit* u = h->units;
-    for (; i < h->count; i++, u++) {
-        W1647V4 d;
-        W1647Obj* o = func_0016b7a0(u->id);
-        if (o != 0) {
-            d = *func_0016c028(o) - *func_0016c028(player);
-            f32 dist = fabsf((fabsf(d.x) > fabsf(d.z)) ? d.x : d.z);
-            if (g->hdr->range < dist) {
-                o->vt->kill(o);
-            } else if (1000.0f < dist) {
-                d.normalize();
-                W1647V4 t;
-                func_0016af58(&t, player);
-                if (d.dot(t) < -0.7f) o->vt->kill(o);
-            }
-        } else if (func_00195700(D_0034f250, u->id) == 0) {
-            f32 px = u->pos.x, py = u->pos.y, pz = u->pos.z;
-            d.x = px; d.y = py; d.z = pz; d.w = 0.0f;
-            d -= *func_0016c028(player);
-            if (fabsf(d.x) > fabsf(d.z)) {
-                if (!(fabsf(d.x) < g->hdr->range)) goto next;
-            } else {
-                if (!(fabsf(d.z) < g->hdr->range)) goto next;
-            }
-            {
-                d.normalize();
-                W1647V4 t;
-                func_0016af58(&t, player);
-                if (-0.7f < d.dot(t)) W1647_appear(u, g);
-            }
-        }
-    next:
-        h = g->hdr;
-    }
-}
+void func_0019b668(W1647Group* g);  // 0x0019b668: definition moved into src/anon/unit_00199688.cpp
 }

@@ -24,23 +24,5 @@ static inline f32 vnorm(V4* v) {
         : "=f"(len) : "r"(v) : "$8", "memory");
     return len;
 }
-s32 func_0019a6c0(void* self, u8* ids, f32* pos, u8 flag, u8 arg) {
-    f32 z = 0.0f;
-    void* obj = D_0034e948;
-    V4 v(pos[1], z, pos[3], z);
-    V4* r = func_0016c028(obj);
-    asm volatile("lqc2 $vf1, 0(%0)\n\tlqc2 $vf2, 0(%1)\n\tvsub.wxyz $vf1, $vf1, $vf2\n\tsqc2 $vf1, 0(%0)" : : "r"(&v), "r"(r) : "memory");
-    v.y = z;
-    vnorm(&v);
-    V4 w;
-    func_0016af58(&w, obj);
-    f32 dot;
-    asm volatile("lqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 0(%2)\n\tvmul.xyz $vf1, $vf1, $vf2\n\tvaddy.x $vf1, $vf1, $vf1y\n\tvaddz.x $vf1, $vf1, $vf1z\n\tqmfc2 $8, $vf1\n\tmtc1 $8, %0" : "=f"(dot) : "r"(&v), "r"(&w) : "$8", "memory");
-    if (dot >= z) {
-        if (flag) func_0015b1b0(ids[1], ids[0], arg);
-        else func_0015b268(6.0f, func_001967f0(ids[0], ids[1], 0));
-        return 1;
-    }
-    return 0;
-}
+s32 func_0019a6c0(void* self, u8* ids, f32* pos, u8 flag, u8 arg);  // 0x0019a6c0: definition moved into src/anon/unit_00199688.cpp
 }

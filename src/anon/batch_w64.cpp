@@ -184,28 +184,14 @@ void func_001942b8(u8* p);  // 0x001942b8: definition moved into src/anon/unit_0
 s32 func_00199810(u8*);
 void func_0016ed50(u32, s32, s32);
 
-void func_00199d38(u8* p) {
-    for (s32 i = 0; i < *(u16*)(*(u8**)(p + 8) + 4); i++) {
-        if (func_00199810(*(u8**)(p + 8) + i * 64 + 44))
-            func_0016ed50(*(u32*)(*(u8**)(p + 8) + i * 64 + 44), -1, 30);
-    }
-}
+void func_00199d38(u8* p);  // 0x00199d38: definition moved into src/anon/unit_00199688.cpp
 
 // ---------------------------------------------------------------------------
 s32 func_0019ad58(u8*);
 void func_0019ae60(u8*);
 s32 func_0019ad00(u8*, u8);
 
-s32 func_0019ac80(u8* p) {
-    if (p[32] >= 200) return 0;
-    s32 n = func_0019ad58(p);
-    if ((*(u8**)(p + 8))[34] < n) return 0;
-    while (1) {
-        func_0019ae60(p);
-        if (func_0019ad00(p, p[32])) return 1;
-        if (p[32] >= 200) return 0;
-    }
-}
+s32 func_0019ac80(u8* p);  // 0x0019ac80: definition moved into src/anon/unit_00199688.cpp
 
 // ---------------------------------------------------------------------------
 s32 func_001c8ab0(u8*);

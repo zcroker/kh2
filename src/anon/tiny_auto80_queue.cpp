@@ -7187,17 +7187,7 @@ u32 duplicate_unplaced_00197780(u32 a0) {
 extern u8 D_01c62198;
 
 
-u32 func_0019a9e0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r2, r14, r15;
-    r14 = *(volatile u32*)((u32)r5 + (s32)(2076));
-    r2 = 0u;
-    if (r14 != 0u) {
-        r15 = (u32)(*(u8*)((u32)r14 + (s32)(48)));
-        r15 = ((u32)r15 < 0x00000064u);
-        r2 = ((u32)r15 < 0x00000001u);
-    }
-    return r2;
-}
+u32 func_0019a9e0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);  // 0x0019a9e0: definition moved into src/anon/unit_00199688.cpp
 
 extern "C" u32 func_0016a070(...);
 extern "C" u32 func_0019c898(...);
@@ -10886,50 +10876,17 @@ extern "C" u32 func_00199030(...);
 
 extern "C" u32 func_00199890(...);
 
-void func_00199938(u32 a0, u32 a1) {
-    V4_00199938 v;
-    *(u32*)((u32)&v + (s32)(12)) = 0u;
-    f32 f2 = *(volatile f32*)((u32)a0 + (s32)(12));
-    f32 f0 = *(volatile f32*)((u32)a0 + (s32)(4));
-    f32 f1 = *(volatile f32*)((u32)a0 + (s32)(8));
-    v.x = f0;
-    v.y = f1;
-    v.z = f2;
-    func_00199890(a0, a1, (u32)&v);
-}
+void func_00199938(u32 a0, u32 a1);  // 0x00199938: definition moved into src/anon/unit_00199688.cpp
 
 extern u8 D_00350440;
 extern u8 D_01c62198;
 
-u32 func_0019abe8(void) {
-    u32 t7 = *(u32*)((u32)&D_00350440 + (s32)(0));
-    u32 v0 = 0u;
-    if ((s32)t7 > 0) {
-        u32 t6 = t7;
-        t7 = (u32)&D_01c62198;
-        u32 t5 = (u32)((s32)t7 + (24));
-        do {
-            t7 = *(u32*)((u32)t5 + (s32)(0));
-            t6 = (u32)((s32)t6 + (-1));
-            v0 = (u32)(v0 + t7);
-            t5 = (u32)((s32)t5 + (56));
-        } while (t6 != 0u);
-    }
-    return v0;
-}
+u32 func_0019abe8(void);  // 0x0019abe8: definition moved into src/anon/unit_00199688.cpp
 
 extern "C" u32 func_0016b7a0(...);
 extern u8 D_0034f250;
 
-u32 func_0019ac30(u32 a0, u32 a1) {
-    u32 s0 = a1;
-    u32 s1 = 0u;
-    if (func_00195700((u32)&D_0034f250) != 0u) {
-        u32 v0 = func_0016b7a0(s0);
-        s1 = (u32)(v0 < 1u);
-    }
-    return s1;
-}
+u32 func_0019ac30(u32 a0, u32 a1);  // 0x0019ac30: definition moved into src/anon/unit_00199688.cpp
 
 extern "C" u32 func_001991a8(...);
 

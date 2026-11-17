@@ -20,43 +20,5 @@ s32 func_00199938(W1965cEnt*, W1965cObj*);
 s32 func_0019ac80(W1965cObj*);
 W1965cV func_0019afd8(s32);
 W1965cV func_0019b0e8(s32, W1965cV*, f32, f32);
-void func_0019a808(W1965cObj* o)
-{
-    s32 i;
-    do {
-        do {
-            for (i = 0; i < o->tbl->count; i++) {
-                if (0.0f < o->timer) return;
-                W1965cHdr* s = (W1965cHdr*)((i << 6) + (u32)o->tbl + 48);
-                u8 type = s->type;
-                u16 id = s->id;
-                if (type == 2) {
-                    s32 r;
-                    if (func_0016b7a0(id)) continue;
-                    if (func_00195700(D_0034f250, id)) continue;
-                    if (o->level < o->tbl->ent[i].lvl) continue;
-                    W1965cV v;
-                    switch (o->tbl->ent[i].mode) {
-                    case 1:
-                        v = func_0019afd8(o->tbl->ent[i].a);
-                        r = func_00199890(&o->tbl->ent[i], o, &v);
-                        break;
-                    case 2:
-                        v.x = o->tbl->ent[i].x;
-                        v.y = o->tbl->ent[i].y;
-                        v.z = o->tbl->ent[i].z;
-                        v = func_0019b0e8(o->tbl->ent[i].a, &v, (f32)o->tbl->ent[i].r, 0.0f);
-                        r = func_00199890(&o->tbl->ent[i], o, &v);
-                        break;
-                    case 0:
-                    default:
-                        r = func_00199938(&o->tbl->ent[i], o);
-                        break;
-                    }
-                    if (r) o->timer = (f32)o->tbl->ent[i].delay;
-                }
-            }
-        } while (!(o->timer <= 0.0f));
-    } while (func_0019ac80(o));
-}
+void func_0019a808(W1965cObj* o);  // 0x0019a808: definition moved into src/anon/unit_00199688.cpp
 }

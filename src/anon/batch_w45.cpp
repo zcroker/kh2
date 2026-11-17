@@ -146,12 +146,7 @@ void func_00171fa8(u32* a0);  // 0x00171fa8: definition moved into src/anon/unit
 
 // 0017edf0: moved to src/yasui/libys/motion.cpp
 
-void func_0019aa00(BF* a0, u8* a1) {
-    if ((u8)a0->flag) return;
-    if (!(*(u32*)(a1 + 1416) & 0x800)) return;
-    if (func_0019a9e0((u8*)a0, a1)) return;
-    func_0019ab80((u8*)a0);
-}
+void func_0019aa00(BF* a0, u8* a1);  // 0x0019aa00: definition moved into src/anon/unit_00199688.cpp
 
 // add d to the value at +444, clamped to [0, max at +448]; notify when it reaches 0
 void func_001a1d50(u8* a0, f32 d);  // 0x001a1d50: definition moved into src/anon/unit_0019fb70.cpp

@@ -89,12 +89,7 @@ static inline s32 inRange(s32 v) {
 // 00185e78: moved to src/anon/unit_00185d10.cpp
 void func_00185e78(u32 a);
 
-s32 func_001997c0(u32* p) {
-    switch (func_0016e920(*p)[4]) {
-    case 4: case 13: case 21: case 23: return 1;
-    }
-    return 0;
-}
+s32 func_001997c0(u32* p);  // 0x001997c0: definition moved into src/anon/unit_00199688.cpp
 
 void func_001a2618(u8* p, s32 n);  // 0x001a2618: definition moved into src/anon/unit_0019fb70.cpp
 

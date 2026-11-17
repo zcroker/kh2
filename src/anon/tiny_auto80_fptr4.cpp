@@ -693,13 +693,7 @@ u32 func_00194908(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00194908: definition mo
 
 u32 func_00195700(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00195700: definition moved into src/anon/unit_00194790.cpp
 
-void func_00199998(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r14, r15;
-    r14 = (u32)(0x0035u << 16);
-    r15 = *(u32*)((u32)r14 + (s32)(1088));
-    r15 = (u32)((s32)r15 + (-1));
-    *(u32*)((u32)r14 + (s32)(1088)) = r15;
-}
+void func_00199998(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00199998: definition moved into src/anon/unit_00199688.cpp
 
 extern "C" u32 func_0019c898(u32, u32, u32, u32) asm("_ZN2YS3OBJ8IsKinokoEi");
 

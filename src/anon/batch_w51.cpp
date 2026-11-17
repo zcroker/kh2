@@ -189,16 +189,7 @@ extern u32 D_01c62148[19];
 
 static inline bool hasValue8(u8* r) { return r && *(u32*)(r + 8); }
 
-void func_00199688(void) {
-    u32 o = func_001b1490(D_0035043c);
-    for (s32 i = 0; i < 19; i++) {
-        u8* r = func_00168b38((void*)o, 2, i);  // entry_array_find_nth
-        bool ok = hasValue8(r);
-        u32 v = 0;
-        if (ok) v = *(u32*)(r + 8);
-        D_01c62148[i] = v;
-    }
-}
+void func_00199688(void);  // 0x00199688: definition moved into src/anon/unit_00199688.cpp
 
 struct LNode { u8 pad[12]; LNode* next; };
 extern LNode* D_01c6cb20;

@@ -123,6 +123,7 @@ src/rikeda/saveram_gumibattle.cpp	001e0808	001e0c98	.data@00352b88,.bss@01d9e350
 src/anon/unit_00198b88.cpp	00198b88	00198d50	-	-G0
 src/anon/unit_00198e40.cpp	00198e40	001991a8	.bss@01c61b48	-G0
 src/anon/unit_001991a8.cpp	001991a8	00199688	.bss@01c620c8,.rodata@0036d0d0	-G0 -fno-strict-aliasing
+src/anon/unit_00199688.cpp	00199688	0019ba60	.rodata@0036d2c0	-G0 -fno-strict-aliasing
 src/anon/unit_0019ba60.cpp	0019ba60	0019e848	.rodata@0036d368	-G0 -g -fno-strict-aliasing
 src/anon/unit_0019ea10.cpp	0019ea10	0019ee80	.rodata@0036d408	-G0 -g -fno-strict-aliasing
 src/anon/unit_0014d298.cpp	0014d298	0014d680	.data@00349e28	-G0 -fno-strict-aliasing

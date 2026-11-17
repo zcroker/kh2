@@ -197,17 +197,7 @@ void func_00174290(u8* p);  // 0x00174290: definition moved into src/anon/unit_0
 void func_0018b200(u8* p);  // 0x0018b200: definition moved into src/yasui/libys/npc.cpp
 
 // Mark dead and destroy every child in the list.
-void func_00199cd0(P199* p) {
-    p->flag = 1;
-    u8* o = p->o;
-    while (o) {
-        u8* n = *(u8**)(o + 96);
-        if (o) (*(void (**)(void*))(*(u8**)o + 4))(o);
-        o = n;
-    }
-    p->f16 = 0;
-    p->o = 0;
-}
+void func_00199cd0(P199* p);  // 0x00199cd0: definition moved into src/anon/unit_00199688.cpp
 
 void func_0019ca28(u8* p, u32* s);  // 0x0019ca28: definition moved into src/anon/unit_0019ba60.cpp
 

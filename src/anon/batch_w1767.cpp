@@ -37,14 +37,7 @@ W1767V* func_0016e920(s32);
 s32 func_0016f448(u8);
 f32 func_001c3ba8(void*, W1767Obj*);
 
-s32 func_00199810(W1767D* p) {
-    s32 r = 0;
-    W1767V* v = func_0016e920(p->x0);
-    if (v == 0) return r;
-    if (D_00350378 != 0 && func_0016f448(v->b4) >= 2000) return r;
-    if (p->b1c == 1 && p->b1d != D_0032bae2) return r;
-    return 1;
-}
+s32 func_00199810(W1767D* p);  // 0x00199810: definition moved into src/anon/unit_00199688.cpp
 
 W1767Vec func_001c3b20(void* a, W1767Obj* o);  // 0x001c3b20: definition moved into src/anon/unit_001c2b58.cpp
 

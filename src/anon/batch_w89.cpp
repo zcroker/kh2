@@ -174,16 +174,7 @@ u32 func_0016bff0(u8*);
 void func_001956e8(u8*, u32);
 s32 func_0016bf20(u8*);
 void func_0019ab80(u8*);
-void func_0019aa60(u8* o, u8* e) {
-    if (*(u32*)(e + 2040) & 4) {
-        if (func_0019a9e0(o, e)) func_001956e8(&D_0034f250, func_0016bff0(e));
-    } else {
-        func_001956e8(&D_0034f250, func_0016bff0(e));
-        s32 r = func_0016bf20(e);
-        if (r >= 0 && (r < 2 || r == 3) && (*(u32*)(e + 1416) & 0x800)) func_0019ab80(o);
-    }
-    *(f32*)(o + 20) = *(u16*)(*(u8**)(o + 8) + 32);
-}
+void func_0019aa60(u8* o, u8* e);  // 0x0019aa60: definition moved into src/anon/unit_00199688.cpp
 }
 }
 

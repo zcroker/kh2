@@ -190,19 +190,7 @@ u8* func_002fd248(u32, u8*, u32, s32, u8*);
 struct Sub199b { u16 a, b, c; };
 struct S199b { u8 b0, b1, b2, b3; Sub199b s; };
 static inline void init199(Sub199b* s, u32 a, u32 m) { s->a = a; s->b = m; s->c = m; }
-S199b* func_00199718(S199b* p, u32 a, s32 k) {
-    if (k < 0) k = D_0032bae0;
-    u8* t = D_01c62148[k];
-    u8* v = func_002fd248(a, t + 8, *(u32*)(t + 4), 4, D_0031f148);
-    u16 h = *(u16*)(v + 2);
-    p->b0 = k;
-    p->b1 = h;
-    p->b2 = 0;
-    init199(&p->s, a, 0xffff);
-    p->s.b = a;
-    p->s.c = a;
-    return p;
-}
+S199b* func_00199718(S199b* p, u32 a, s32 k);  // 0x00199718: definition moved into src/anon/unit_00199688.cpp
 // ---- 001b1ab8
 struct N1b { u32 f0; N1b* next; u8 pad[32]; };
 struct Pool1b { N1b items[16]; s32 freeIdx[16]; s32 nfree; };

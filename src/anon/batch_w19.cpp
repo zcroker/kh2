@@ -133,11 +133,7 @@ void trap_treasure_get(u32* v);  // 0x001754d0: definition moved into src/anon/u
 struct Args18 { u32* a; u32 b, c, d; f32 e, f; };
 void func_0018f248(Args18* p);  // 0x0018f248: definition moved into src/anon/unit_0018f140.cpp
 
-void func_0019af98(u8* p) {
-    u8* t = *(u8**)(p + 8);
-    func_001991a8(*(u32*)(t + 28), *(u16*)(t + 2));
-    *(u32*)(p + 4) |= 1;
-}
+void func_0019af98(u8* p);  // 0x0019af98: definition moved into src/anon/unit_00199688.cpp
 
 // 001abf00: moved to src/anon/unit_001abb28.cpp
 

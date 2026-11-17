@@ -45,18 +45,7 @@ extern "C" {
 s32 func_00198c28(u16, s32);
 void func_00198e70(s32, u16);
 void func_00198ea8(s32, u16);
-void func_00199b90(O9b90* o) {
-    for (s32 i = 0; i < o->h->n; i++) {
-        u16 id = ((E9b90*)(i*8 + (u8*)o->e))->id;
-        s32 sub = -1;
-        if (id != 0x4a) sub = ((E9b90*)(i*8 + (u8*)o->e))->sub;
-        s32 r = func_00198c28(id, sub);
-        switch (((E9b90*)(i*8 + (u8*)o->e))->kind) {
-        case 0: func_00198e70(r, o->h->x); break;
-        case 1: func_00198ea8(r, o->h->x); break;
-        }
-    }
-}
+void func_00199b90(O9b90* o);  // 0x00199b90: definition moved into src/anon/unit_00199688.cpp
 }
 struct A91658 { s32 a; s32 b; };
 struct E91658 { u8 d[20]; };

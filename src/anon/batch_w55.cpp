@@ -300,12 +300,7 @@ s32 func_001967f0(u32 a, u32 b, s32 c);  // 0x001967f0: definition moved into sr
 
 void func_00196d78(u8* p);  // 0x00196d78: definition moved into src/anon/unit_00195d00.cpp
 
-u8* func_0019b0e8(u8* a, u32 b, u32 c, f32 f, f32 g) {
-    u8* o = func_0016e920(b);
-    if ((u8)((*(u16*)(o + 72) >> 3) & 1)) func_001a78c0(a, c, 2, 0.0f, f, -g, g);
-    else func_001a7888(a, c, 1, 0.0f, f, -g, g);
-    return a;
-}
+u8* func_0019b0e8(u8* a, u32 b, u32 c, f32 f, f32 g);  // 0x0019b0e8: definition moved into src/anon/unit_00199688.cpp
 
 }
 

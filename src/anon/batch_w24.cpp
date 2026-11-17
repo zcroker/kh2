@@ -77,15 +77,7 @@ void func_00197390(u32* p);  // 0x00197390: definition moved into src/anon/unit_
 
 s32 func_00195700(void*);
 extern u8 D_0034f250;
-s32 func_0019ab30(s32* p) {
-    if (!func_00195700(&D_0034f250)) {
-        s32 v = p[7] + 1;
-        p[7] = v;
-        p[6] = v;
-        return 1;
-    }
-    return 0;
-}
+s32 func_0019ab30(s32* p);  // 0x0019ab30: definition moved into src/anon/unit_00199688.cpp
 
 s32 func_00181858(u32*);
 s32 func_0019d748(u32* p);  // 0x0019d748: definition moved into src/anon/unit_0019ba60.cpp

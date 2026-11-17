@@ -30,37 +30,7 @@ void func_00199b90(W2380Blk*);
 
 // Sets up the section pointers of a block from its header: two 64-byte tables, a run of
 // variable-length records (8 bytes + 12 per entry), then a 16-byte table.
-void func_00199aa0(W2380Blk* b, int a, W2380Hdr* h)
-{
-    b->hdr = h;
-    W2380Hdr* t = b->hdr;
-    b->a0 = a;
-    b->flags = 0;
-    u8* p = (u8*)t + 0x2c;
-    b->p24 = p;
-    b->d = 0;
-    b->c = 0;
-    b->f = 0;
-    b->b20 = 0;
-    p += t->n0 << 6;
-    b->p28 = p;
-    p += t->n1 << 6;
-    b->p2c = p;
-    u8* q = p;
-    for (int i = 0; i < t->n2; i++) {
-        q = q + ((W2380Rec*)q)->n * 12 + 8;
-    }
-    b->p30 = q;
-    b->p34 = q + t->n3 * 16;
-    if (h->kind != 2) {
-        if (h->kind == 5) b->flags |= 1;
-    } else {
-        b->f = t->h1c;
-    }
-    s32 m = 1;
-    if (h->opts & m) b->flags |= 1;
-    func_00199b90(b);
-}
+void func_00199aa0(W2380Blk* b, int a, W2380Hdr* h);  // 0x00199aa0: definition moved into src/anon/unit_00199688.cpp
 }
 
 // GS register value builders (same bit layout as the GS manual's ZBUF/FRAME/SCISSOR/XYOFFSET).

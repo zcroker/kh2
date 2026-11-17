@@ -236,16 +236,7 @@ struct Rec { u8 pad[30]; u16 id; u8 pad2[16]; u8 lv; u8 pad3[15]; };
 struct Def { u8 pad[72]; u8 kind; u8 pad2[63]; };
 struct Tbl { u8 pad[4]; u16 count; u8 pad2[2]; Def d[1]; };
 struct Own { u8 pad[8]; Tbl* tbl; u8 pad2[20]; u8 lv; u8 pad3[3]; Rec* recs; };
-void func_0019aec0(Own* p, s32 lv)
-{
-    for (s32 i = 0; i < p->tbl->count; i++) {
-        if (*((u8*)p->tbl + i * 64 + 72) != 2) continue;
-        if (p->recs[i].lv < lv) continue;
-        if (func_0019ac30(p, p->recs[i].id))
-            func_001956e8(&D_0034f250, p->recs[i].id);
-    }
-    p->lv = lv;
-}
+void func_0019aec0(Own* p, s32 lv);  // 0x0019aec0: definition moved into src/anon/unit_00199688.cpp
 }
 }
 

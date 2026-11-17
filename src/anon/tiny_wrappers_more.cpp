@@ -675,13 +675,9 @@ u32 func_00197f60(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00197f60: definition mo
 
 // 00199668: _GLOBAL__I_ stub, now made by gcc in src/anon/unit_001991a8.cpp
 
-u32 func_0019b4d0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_001cec70(a1, ((u32)(*(u32*)((u32)(((u32)(*(u32*)((u32)(a0) + 8u)))) + 28u))), ((u32)(((u32)(*(u32*)((u32)(((u32)(*(u32*)((u32)(a1) + 108u)))) + 40u)))) & 0x1u), a3);
-}
+u32 func_0019b4d0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0019b4d0: definition moved into src/anon/unit_00199688.cpp
 
-u32 func_0019ba20(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_0019b970(0x00000001u, 0x0000ffffu, a2, a3);
-}
+u32 func_0019ba20(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0019ba20: definition moved into src/anon/unit_00199688.cpp
 
 u32 func_0019ee60(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0019ee60: definition moved into src/anon/unit_0019ea10.cpp
 

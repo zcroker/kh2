@@ -1774,49 +1774,9 @@ void func_00197280(u32 a0);  // 0x00197280: definition moved into src/anon/unit_
 
 // 001987a8: moved to src/anon/unit_00197fe0.cpp
 
-void func_0019ab80(u32 a0) {
-    u32 t7 = *(u32*)(a0 + 4);
-    u8 t6 = (u8)(t7 & 1);
-    if (t6 != 0) {
-        return;
-    }
+void func_0019ab80(u32 a0);  // 0x0019ab80: definition moved into src/anon/unit_00199688.cpp
 
-    t7 = *(u32*)(a0 + 24);
-    t7 = t7 - 1;
-    *(u32*)(a0 + 24) = t7;
-    if (t7 == 0) {
-        func_001991a8(3, *(u16*)(*(u32*)(a0 + 8) + 2));
-    }
-
-    if (func_0019abe8() != 0) {
-        return;
-    }
-
-    func_001991a8(2, 0);
-}
-
-void func_0019b5d8(u32 a0, u32 a1) {
-    (void)a0;
-    u32 s0 = a1;
-    u32 t6 = *(u32*)(a1 + 0x6c);
-    u32 t7 = *(u8*)(t6 + 0x2e);
-    if (t7 != 0) {
-        if (func_0015f718(t7 - 1) == 0) {  // test_bit_global64
-            u32 t7b = *(u32*)(s0 + 0x6c);
-            func_0015ee90(*(u8*)(t7b + 0x2e) - 1);
-        }
-        t6 = *(u32*)(s0 + 0x6c);
-    }
-
-    t7 = *(u8*)(t6 + 0x2f);
-    if (t7 != 0) {
-        if (func_0015f718(t7 - 1) != 0) {  // test_bit_global64
-            u32 t7b = *(u32*)(s0 + 0x6c);
-            func_0015ee10(*(u8*)(t7b + 0x2f) - 1);
-            return;
-        }
-    }
-}
+void func_0019b5d8(u32 a0, u32 a1);  // 0x0019b5d8: definition moved into src/anon/unit_00199688.cpp
 
 void func_0019be88(u32 a0);  // 0x0019be88: definition moved into src/anon/unit_0019ba60.cpp
 

@@ -67,39 +67,7 @@ s32 func_00196768(u8, u8);
 void func_0019a610(Obj_w1568_9a*, Key_w1568*, s32);
 s32 func_0019a6c0(Obj_w1568_9a*, Key_w1568*, Sub_w1568*, s32, s32);
 s32 func_001db198(Ctx_w1568*, u8);
-s32 func_0019a480(Obj_w1568_9a* p, Ctx_w1568* c)
-{
-    s32 two = 0;
-    Key_w1568 k;
-    u16 m = 0xffff;
-    k.a = m; k.b = m; k.c = m; k.d = m; k.e = m; k.f = m;
-    s32 v = func_001917b0() ^ 2;
-    if (v == 0 && p->info->id != 0) return 0;
-    Info_w1568* info = p->info;
-    switch (info->kind) {
-    case 100: k.a = 18; k.b = 1; break;
-    case 101: k.a = 2; k.b = 40; break;
-    default: k.a = D_0032bae0; k.b = info->kind; break;
-    }
-    k.c = info->sub;
-    s32 r = func_00196768(k.a, k.b);
-    switch (c->sub->type) {
-    case 0: {
-        u8 bb = p->b0;
-        if (!bb && r == 0 && func_001db198(c, p->info->id)) {
-            func_0019a610(p, &k, 0);
-            p->flags |= 1;
-        }
-        break;
-    }
-    case 2:
-        two = 1;
-    case 1:
-        if (!(p->flags & 0x10) && func_0019a6c0(p, &k, c->sub, r == 0, two)) p->flags |= 0x10;
-        break;
-    }
-    return 0;
-}
+s32 func_0019a480(Obj_w1568_9a* p, Ctx_w1568* c);  // 0x0019a480: definition moved into src/anon/unit_00199688.cpp
 
 
 /* 001bb090 */

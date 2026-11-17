@@ -96,10 +96,7 @@ void trap_player_capture_form(u32* v);  // 0x001741e0: definition moved into src
 
 // 001805e8: moved to src/anon/unit_00180408.cpp
 
-void group_enable(void* g, s32 i) {
-    u8* u = func_0019b260(g, i);
-    *(u32*)(u + 4) &= ~1;
-}
+void group_enable(void* g, s32 i);  // 0x0019b2d8: definition moved into src/anon/unit_00199688.cpp
 
 void func_001a06e0(u32* p);  // 0x001a06e0: definition moved into src/anon/unit_0019fb70.cpp
 

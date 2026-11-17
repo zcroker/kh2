@@ -43,27 +43,7 @@ void func_0019b5d8();
 void func_0019b668();
 extern u8* D_0034e948;
 
-s32 func_0019a1a0(W1809O19a1* o, s32 a1) {
-    W1809S19a1* p = o->p;
-    switch (p->type) {
-    case 1:
-        if (a1 == 0 || func_0019a480() == 0) return 0;
-        break;
-    case 2: func_0019a808(); break;
-    case 3: func_0019af98(); break;
-    case 6: func_0019b500(); break;
-    case 7:
-        if (a1 == 0) break;
-        func_0019b4d0(); return 0;
-    case 8:
-        if (a1 == 0) break;
-        func_0019b5d8();
-        break;
-    case 9: func_0019b668(); break;
-    case 10: *(s32*)(D_0034e948 + 0xb4c) = p->h2; break;
-    }
-    return 1;
-}
+s32 func_0019a1a0(W1809O19a1* o, s32 a1);  // 0x0019a1a0: definition moved into src/anon/unit_00199688.cpp
 
 void func_0017f488(void*, s32, f32, f32);
 void func_0017f5e0(void*, s32, s32, f32, f32);

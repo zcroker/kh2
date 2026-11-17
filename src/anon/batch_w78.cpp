@@ -181,15 +181,7 @@ struct W78List { u8 pad[4]; u16 n; u8 pad2[38]; W78Ent64 e[1]; };
 s32 func_0016b7a0(u16);
 u8* func_00199938(W78Ent64*, void*);
 void func_001ad990(u8*, f32, f32, f32);
-void func_0019b500(u8* o) {
-    for (s32 i = 0; i < (*(W78List**)(o + 8))->n; i++) {
-        W78Sub* s = (W78Sub*)((u8*)(i * 64) + (u32)*(W78List**)(o + 8) + 48);
-        if (s->kind == 2 && !func_0016b7a0(s->id)) {
-            u8* r = func_00199938(&(*(W78List**)(o + 8))->e[i], o);
-            if (!(*(u32*)(r + 2040) & 0x10)) func_001ad990(r + 2092, 0.0f, 1.0f, 10.0f);
-        }
-    }
-}
+void func_0019b500(u8* o);  // 0x0019b500: definition moved into src/anon/unit_00199688.cpp
 
 extern u8 D_0032bae0[];
 void func_00198450(u8*);

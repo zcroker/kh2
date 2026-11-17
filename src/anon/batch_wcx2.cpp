@@ -1691,29 +1691,7 @@ s32 func_002cebc8(u32);
 u8* func_002cf638(u32);
 It40* func_002cf8c0(u8*, u32, Obj39*, u8*);
 void func_002cf750__39(u32, Obj39*, Ent39*, It40*, It40*) asm("func_002cf750");
-void func_0019a308(Obj39* o)
-{
-    if (func_002ceb08(o) == 4) return;
-    if (!func_002cebc8(o->p0)) return;
-    It40* first = 0;
-    u8* base = func_002cf638(((Hdr39*)o->hh)->na);
-    for (s32 i = 0; i < ((Hdr39*)o->hh)->na; i++) {
-        It40* it = func_002cf8c0(base + i, o->p0, o, o->p40 + i * 64);
-        it->cnt = 1;
-        if (i == 0) first = it;
-    }
-    for (s32 i = 0; i < ((Hdr39*)o->hh)->nb; i++) {
-        Ent39* e = (Ent39*)((u8*)o->hh + i * 64 + 44);
-        It40* a = 0;
-        It40* b = 0;
-        if (first && e->k) {
-            a = &first[e->k - 1];
-            if (a->r->k) b = &first[a->r->k - 1];
-        }
-        func_002cf750__39(o->p0, o, e, a, b);
-    }
-    for (s32 i = 0; i < ((Hdr39*)o->hh)->na; i++) first[i].cnt--;
-}
+void func_0019a308(Obj39* o);  // 0x0019a308: definition moved into src/anon/unit_00199688.cpp
 
 struct Act40 { u8 pad[20]; u8 kind; u8 pad2[19]; u32 fl; u8 pad3[24]; u8 lv; };
 extern u8* D_0034e948;

@@ -438,23 +438,7 @@ s32 func_0019ac30(u8*, u16);
 u8* func_0016e920(u32);
 // The table pointer is re-read from p+8 on every access.
 #define TAB19ad58 (*(T19ad58**)(p + 8))
-s32 func_0019ad58(u8* p) {
-    s32 sum = 0;
-    for (s32 i = 0; i < TAB19ad58->n; i++) {
-        switch (TAB19ad58->e[i].kind) {
-        case 2:
-            if (p[32] < TAB19ad58->e[i].lv) continue;
-            break;
-        case 0:
-        case 3:
-            break;
-        default:
-            continue;
-        }
-        if (!func_0019ac30(p, TAB19ad58->e[i].id)) sum += *(u8*)(func_0016e920(TAB19ad58->e[i].obj) + 84);
-    }
-    return sum;
-}
+s32 func_0019ad58(u8* p);  // 0x0019ad58: definition moved into src/anon/unit_00199688.cpp
 
 struct E1ce0a8 { u8 a; u8 b; s8 link; u8 c; u8 pad[4]; u16 id; u8 rest[58]; };
 struct T1ce0a8 { s32 n; E1ce0a8 e[1]; };

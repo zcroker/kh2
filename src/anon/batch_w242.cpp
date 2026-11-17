@@ -37,23 +37,7 @@ void func_0016bf38(char* a, u32 a1, char* c) {
     }
 }
 
-void func_00199f90(char* t, char* s) {
-    u32 w = *(u32*)(t + 4);
-    u8 fl = w & 1;
-    if (!fl) {
-        char* r = func_0016e920(*(u32*)s);
-        if (func_00199810(s)) {
-            u32 v = *(u8*)(r + 4);
-            if (v == 4 || v == 21) {
-                if (func_0019ab30(t, *(u16*)(s + 30)))
-                    func_00199938(s, t);
-            } else {
-                func_00199938(s, t);
-                asm volatile("" ::: "memory");
-            }
-        }
-    }
-}
+void func_00199f90(char* t, char* s);  // 0x00199f90: definition moved into src/anon/unit_00199688.cpp
 
 struct S6 { u32 a[6]; };
 void func_00192990(u32, u32, S6*, char*);

@@ -494,16 +494,7 @@ s32 func_001997c0(u8*);
 void func_001956d0(u8*, u16);
 extern u8 D_0034f250[];
 typedef void (*Fn56)(u8*, u32, u8*);
-u8* func_00199890(u8* p, u32 a, u32 b)
-{
-    f32 r = func_0017ce10(3.14159274f - *(f32*)(p + 20));
-    u8* o = func_0016f000(*(u32*)p, b, r);
-    if (o) {
-        (*(Fn56*)(*(u8**)o + 56))(o, a, p);
-        if (func_001997c0(p)) func_001956d0(D_0034f250, *(u16*)(p + 30));
-    }
-    return o;
-}
+u8* func_00199890(u8* p, u32 a, u32 b);  // 0x00199890: definition moved into src/anon/unit_00199688.cpp
 
 void func_0019cbe8(u8*);
 u32* func_00177860(u8*);
