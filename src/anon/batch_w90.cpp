@@ -474,70 +474,11 @@ u8* func_00294000(s32);
 s32 func_002ab180(s32);
 extern Flags* D_0035f610;
 static inline u32 Bit(u32* a, u32 i) { return a[i >> 5] & (1 << (i & 31)); }
-s32 func_002aa148(s32 id)
-{
-    s32 r = 1;
-    Flags* bits = func_002a9d68();
-    if (id < 0) {
-        r = func_002a9f50(-1);
-    } else {
-        u8* tbl = func_00294000(3);
-        s32 n = *(s32*)(tbl + 8);
-        u8* e = tbl + 16;
-        for (s32 i = 0; i < n; i++, e += 36) {
-            if ((s8)e[0] == id) {
-                u16 b = *(u16*)(e + 4);
-                u32 m = 1 << (b & 31);
-                if (((u32*)D_0035f610)[b >> 5] & m) {
-                    r = (((u32*)bits)[b >> 5] & m) != 0;
-                    if (!r) break;
-                }
-            }
-        }
-    }
-    return r;
-}
+s32 func_002aa148(s32 id);  // 0x002aa148: definition moved into src/anon/unit_002a99c8.cpp
 
-s32 func_002aa378(s32 id)
-{
-    Flags* bits = func_002a9d68();
-    s32 r = 1;
-    if (id < 0) {
-        u32* own = bits->a316;
-        u32* all = D_0035f610->a316;
-        for (s32 i = 0; i < 13; i++) {
-            if (Bit(all, i)) {
-                r = Bit(own, i) != 0;
-                if (!r) break;
-            }
-        }
-    } else {
-        s32 k = 0;
-        if (Bit(D_0035f610->a316, id)) k = Bit(bits->a316, id) != 0;
-        r = k;
-    }
-    return r;
-}
+s32 func_002aa378(s32 id);  // 0x002aa378: definition moved into src/anon/unit_002a99c8.cpp
 
-s32 func_002ab368(s32 id)
-{
-    s32 r = 1;
-    Flags* bits = func_002a9d68();
-    u8* tbl = func_00294000(7);
-    u16* e = (u16*)(tbl + 16);
-    if (id < 0) {
-        r = func_002ab180(-1);
-    } else {
-        s32 n = *(s32*)(tbl + 8);
-        for (s32 i = 0; i < n; i++, e += 4) {
-            if (*e == id && Bit(D_0035f610->a136, i)) {
-                r = Bit(bits->a136, i) != 0;
-                if (!r) break;
-            }
-        }
-    }
-    return r;
-}
+s32 func_002ab368(s32 id);  // 0x002ab368: definition moved into src/anon/unit_002a99c8.cpp
 
 // 002d5e50
 void func_002d00a0(void*);

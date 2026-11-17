@@ -90,7 +90,7 @@ void func_002a7758(void* self) {}
 
 void func_002a8a80(void* self) {}
 
-void func_002aece8(void* self) {}
+void func_002aece8(void* self);  // 0x002aece8: definition moved into src/anon/unit_002aeba0.cpp
 
 s16 func_002bc988(void* self);  // 0x002bc988: definition moved into src/anon/unit_002bc978.cpp
 

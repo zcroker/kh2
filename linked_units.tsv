@@ -135,6 +135,11 @@ src/anon/unit_0014d680.cpp	0014d680	0014e2c0	-	-G0 -fno-strict-aliasing
 src/anon/unit_0015d440.cpp	0015d540	0015d828	.data@0034af40	-G0
 src/anon/unit_0015d828.cpp	0015d828	0015e070	.data@0034b240,.rodata@0036b428	-G0
 src/anon/unit_0015e070.cpp	0015e070	0015eba8	.rodata@0036b438	-G0
+src/anon/unit_002a92a0.cpp	002a92a0	002a98a8	-	-G0 -g -fno-strict-aliasing
+src/anon/unit_002a98a8.cpp	002a98a8	002a99c8	-	-G0 -g -fno-strict-aliasing -fno-strength-reduce
+src/anon/unit_002a99c8.cpp	002a99c8	002aeb28	.rodata@00374c40	-G0 -g -fno-strict-aliasing
+src/anon/unit_002aeb28.cpp	002aeb28	002aeba0	-	-G0 -fno-strict-aliasing
+src/anon/unit_002aeba0.cpp	002aeba0	002af418	.rodata@00374c48	-G0 -g -fno-strict-aliasing
 src/anon/unit_002bac78.cpp	002bac78	002bb070	.bss@01e2a5e8	-G0 -fno-strict-aliasing
 src/anon/unit_002bb070.cpp	002bb070	002bb5f8	-	-G0 -fno-strict-aliasing
 src/anon/unit_002bb8b0.cpp	002bb8b0	002bc978	.rodata@00374fa4	-G0 -fno-strict-aliasing

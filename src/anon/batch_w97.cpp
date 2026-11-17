@@ -512,23 +512,7 @@ extern Prog2ae* D_0035f620;
 List2ae* func_00294000(s32);
 s32 func_002b3ac8(s8);
 static inline bool testb(u32* p, u32 n) { return p[n >> 5] & (1 << (n & 31)); }
-s32 func_002ae660(s32 sel) {
-    s32 i = 0;
-    s32 ok = 1;
-    List2ae* l = func_00294000(9);
-    for (Ent2ae* e = l->ent; i < l->count; i++, e++) {
-        if (sel >= 0 && sel != i) continue;
-        s32 n = func_002b3ac8((s8)(e->f1 & 0xf));
-        for (s32 j = 0; j < n; j++) {
-            if (!testb(D_0035f620->bits[i], j)) {
-                ok = 0;
-                break;
-            }
-        }
-        if (!ok) break;
-    }
-    return ok;
-}
+s32 func_002ae660(s32 sel);  // 0x002ae660: definition moved into src/anon/unit_002a99c8.cpp
 
 // ---- 002c5b20
 struct Quad2c5 { u32 v[4]; };

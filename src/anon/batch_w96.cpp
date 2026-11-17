@@ -316,41 +316,7 @@ s32 func_002a40c8(void) {
     return r;
 }
 
-void func_002acda8(void) {
-    Pair_w96* q;
-    s32 i;
-    D_0035f628 = 0;
-    D_0035f62c = 0;
-    D_0035f614 = 0;
-    D_0035f618 = 0;
-    if (func_00103b38()) {
-        D_0035f618 = func_00103570();
-    } else {
-        u32 v = func_00170b30(0x10000);  // alloc_align128
-        D_0035f61c = v;
-        D_0035f618 = func_00106178(v, 0x10000);
-        if (!func_00293fb0()) {
-            func_00293e00(D_0035f618);
-            func_00293fc0();
-            D_0035f614 = 1;
-        }
-    }
-    {
-        u8* p = func_001063c0(2408, D_0035f618);
-        func_00319a60(p);  // clear_fixed_blocks
-        D_0035f620 = p;
-    }
-    q = (Pair_w96*)func_001063f0(80, D_0035f618);
-    {
-        Pair_w96* e = q;
-        for (i = 9; i != -1; i--) {
-            e->a = 0;
-            e->b = 0;
-            e++;
-        }
-    }
-    D_0035f624 = (u8*)q;
-}
+void func_002acda8(void);  // 0x002acda8: definition moved into src/anon/unit_002a99c8.cpp
 
 s32 func_002b3318(void) {
     u8* g = func_002a9d68();

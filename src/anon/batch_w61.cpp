@@ -290,31 +290,11 @@ void func_00276b10(void) {
 s32 func_00276a90(void);
 void func_00276b90(void);
 extern u8* D_0035f60c;
-s32 func_002a9470(void) {
-    for (s32 i = 0; i < 10; i++) {
-        if (func_00139d78(D_0035f60c + i * 436)) {
-            VObj* o = (VObj*)(i * 436 + (u32)D_0035f60c);
-            ((void (*)(VObj*))o->vt[5])(o);
-        }
-    }
-    if (!func_00276a90()) func_00276b90();
-    return 0;
-}
+s32 func_002a9470(void);  // 0x002a9470: definition moved into src/anon/unit_002a92a0.cpp
 
 u8* func_00294000(u32);
 extern u8* D_0035f620;
-s32 func_002ad660(void) {
-    s32 r = 1;
-    u8* v = func_00294000(6);
-    for (s32 i = 0; i < *(s32*)(v + 8); i++) {
-        u32* bits = (u32*)(D_0035f620 + 132);
-        if (!(*(u32*)(((u32)i >> 5) * 4 + (u32)bits) & (1 << (i & 31)))) {
-            r = 0;
-            break;
-        }
-    }
-    return r;
-}
+s32 func_002ad660(void);  // 0x002ad660: definition moved into src/anon/unit_002a99c8.cpp
 
 void func_002c1cb0(u32, u8);
 void func_002c1b60(u8* p, u8* a);  // 0x002c1b60: definition moved into src/anon/unit_002c10e0.cpp

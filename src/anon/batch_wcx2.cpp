@@ -1476,32 +1476,7 @@ s32 func_002ac800(s32);
 s32 func_002aa788(s32, s32);
 s32 func_002ac110(s32, s32);
 s32 func_002a1b18(s32, s32);
-s32 func_002acb20(s32 a)
-{
-    if (a == 15) {
-        if (!func_002a9f50(-1)) return 0;
-        if (!func_002aa378(-1)) return 0;
-        if (!func_002aaab8(-1)) return 0;
-        if (!func_002aaf40(-1)) return 0;
-        if (!func_002ab368(-1)) return 0;
-        if (!func_002ab620(-1)) return 0;
-        if (!func_002ab9c8(-1)) return 0;
-        if (!func_002abce8(-1)) return 0;
-        if (!func_002ac538(-1)) return 0;
-        if (!func_002ac800(-1)) return 0;
-    } else {
-        if (!func_002aa788(a, -1)) return 0;
-        if (!func_002aaf40(a)) return 0;
-        if (!func_002ab368(a)) return 0;
-        if (!func_002ab620(a)) return 0;
-        if (!func_002ab9c8(a)) return 0;
-        if (!func_002ac110(a, -1)) return 0;
-        if (func_002a1b18(0, a) == 1) return 0;
-        if (func_002a1b18(1, -1) == 1) return 0;
-        if (!func_002ac800(a)) return 0;
-    }
-    return 1;
-}
+s32 func_002acb20(s32 a);  // 0x002acb20: definition moved into src/anon/unit_002a99c8.cpp
 
 struct Ob31;
 extern Ob31* D_0035f634;
@@ -2265,32 +2240,7 @@ s32 func_002ac748(s32);
 s32 func_002aa668(s32, s32);
 s32 func_002abff0(s32, s32);
 s32 func_002a1b18(s32, s32);
-s32 func_002ac9b0(s32 a)
-{
-    if (a == 15) {
-        if (func_002aa098(-1)) return 1;
-        if (func_002aa2f8(-1)) return 1;
-        if (func_002aaa38(-1)) return 1;
-        if (func_002aae88(-1)) return 1;
-        if (func_002ab2b0(-1)) return 1;
-        if (func_002ab540(-1)) return 1;
-        if (func_002ab8e8(-1)) return 1;
-        if (func_002abc60(-1)) return 1;
-        if (func_002ac420(-1)) return 1;
-        if (func_002ac748(-1)) return 1;
-    } else {
-        if (func_002aa668(a, -1)) return 1;
-        if (func_002aae88(a)) return 1;
-        if (func_002ab2b0(a)) return 1;
-        if (func_002ab540(a)) return 1;
-        if (func_002ab8e8(a)) return 1;
-        if (func_002abff0(a, -1)) return 1;
-        if (func_002a1b18(0, a)) return 1;
-        if (func_002a1b18(1, -1)) return 1;
-        if (func_002ac748(a)) return 1;
-    }
-    return 0;
-}
+s32 func_002ac9b0(s32 a);  // 0x002ac9b0: definition moved into src/anon/unit_002a99c8.cpp
 
 struct Ent80 { u8 b[432]; };
 struct Lyt80 { u8 b[76]; };
@@ -6044,16 +5994,7 @@ struct B_002aaa38 { u8 pad[132]; u32 bits[1]; };
 extern B_002aaa38* D_0035f610;
 static inline bool Bit_002aaa38(u32* b, u32 i) { b += i >> 5; return (*b & (1 << (i & 31))) != 0; }
 bool f_002aaa38(s32 n) asm("func_002aaa38");
-bool f_002aaa38(s32 n) {
-    if (n < 0) {
-        u32* b = D_0035f610->bits;
-        bool r;
-        s32 i = 0;
-        do { r = (b[(u32)i >> 5] & (1 << (i & 31))) != 0; if (r) break; } while (++i < 32);
-        return r;
-    }
-    return Bit_002aaa38(D_0035f610->bits, n);
-}
+bool f_002aaa38(s32 n);  // 0x002aaa38: definition moved into src/anon/unit_002a99c8.cpp
 
 // ---- 002e0698
 extern u8* D_00361f60;
@@ -13557,38 +13498,14 @@ struct E2a9c40 { u16 a; u16 id; u8 pad[12]; };
 struct T2a9c40 { u8 pad[8]; s32 n; u8 pad2[4]; E2a9c40 e[1]; };
 T2a9c40* func_00294000_2a9c40(s32) asm("func_00294000");
 s32 func_002a99c8(E2a9c40*);
-s32 func_002a9c40(u32 id)
-{
-    s32 i = 0;
-    s32 r = 0;
-    T2a9c40* t = func_00294000_2a9c40(8);
-    E2a9c40* e = t->e;
-    for (; i < t->n; i++) {
-        if (id != e[i].id) continue;
-        s32 k = func_002a99c8(&e[i]);
-        if (k == 1 || k == 2) {
-            r = 1;
-            break;
-        }
-    }
-    return r;
-}
+s32 func_002a9c40(u32 id);  // 0x002a9c40: definition moved into src/anon/unit_002a99c8.cpp
 
 // --------------------
 struct E2ae280 { u8 b[12]; };
 struct T2ae280 { u8 pad[8]; s32 n; u8 pad2[4]; E2ae280 e[1]; };
 T2ae280* func_00294000_2ae280(s32) asm("func_00294000");
 s32 func_00294480(E2ae280*);
-void func_002ae280(s32* cnt, s32* total)
-{
-    s32 i = 0;
-    T2ae280* t = func_00294000_2ae280(5);
-    *total += t->n;
-    E2ae280* e = t->e;
-    for (; i < t->n; i++) {
-        if (func_00294480(&e[i])) (*cnt)++;
-    }
-}
+void func_002ae280(s32* cnt, s32* total);  // 0x002ae280: definition moved into src/anon/unit_002a99c8.cpp
 
 // --------------------
 struct I1de328 { u16 a; u16 id; };
@@ -13681,57 +13598,13 @@ u64 func_00314330(s32 arg_a)
 struct E2abf40 { s8 key; u8 pad[11]; };
 struct T2abf40 { u8 pad[8]; s32 n; u8 pad2[4]; E2abf40 e[1]; };
 T2abf40* func_00294000_2abf40(s32) asm("func_00294000");
-s32 func_002abf40(s32 key, s32 nth)
-{
-    bool found = false;
-    T2abf40* t = func_00294000_2abf40(1);
-    s32 r = -1;
-    s32 i = 0;
-    E2abf40* e = t->e;
-    for (; i < t->n; i++, e++) {
-        if (key != e->key) {
-            r = -1;
-            if (found) break;
-        } else {
-            if (!found) {
-                found = true;
-                r = 0;
-            }
-            if (i == nth) break;
-            r++;
-        }
-    }
-    if (i >= t->n) r = -1;
-    return r;
-}
+s32 func_002abf40(s32 key, s32 nth);  // 0x002abf40: definition moved into src/anon/unit_002a99c8.cpp
 
 // --------------------
 struct E2aa5b8 { s8 key; u8 pad[11]; };
 struct T2aa5b8 { u8 pad[8]; s32 n; u8 pad2[4]; E2aa5b8 e[1]; };
 T2aa5b8* func_00294000_2aa5b8(s32) asm("func_00294000");
-s32 func_002aa5b8(s32 key, s32 nth)
-{
-    bool found = false;
-    T2aa5b8* t = func_00294000_2aa5b8(2);
-    s32 r = -1;
-    s32 i = 0;
-    E2aa5b8* e = t->e;
-    for (; i < t->n; i++, e++) {
-        if (key != e->key) {
-            r = -1;
-            if (found) break;
-        } else {
-            if (!found) {
-                found = true;
-                r = 0;
-            }
-            if (i == nth) break;
-            r++;
-        }
-    }
-    if (i >= t->n) r = -1;
-    return r;
-}
+s32 func_002aa5b8(s32 key, s32 nth);  // 0x002aa5b8: definition moved into src/anon/unit_002a99c8.cpp
 
 // --------------------
 struct E2aae88 { u16 id; u8 pad[14]; };
@@ -13739,47 +13612,13 @@ struct T2aae88 { u8 pad[8]; s32 n; u8 pad2[4]; E2aae88 e[1]; };
 T2aae88* func_00294000_2aae88(s32) asm("func_00294000");
 s32 func_002aacd8(s32);
 extern u8* D_0035f610_2aae88 asm("D_0035f610");
-s32 func_002aae88(s32 id)
-{
-    s32 r = 0;
-    T2aae88* t = func_00294000_2aae88(8);
-    E2aae88* e = t->e;
-    if (id < 0) {
-        r = func_002aacd8(-1);
-    } else {
-        for (s32 i = 0; i < t->n; i++) {
-            if (e[i].id != id) continue;
-            u32* bits = (u32*)(D_0035f610_2aae88 + 148);
-            if (bits[(u32)i >> 5] & (1 << (i & 31))) {
-                r = 1;
-                break;
-            }
-        }
-    }
-    return r;
-}
+s32 func_002aae88(s32 id);  // 0x002aae88: definition moved into src/anon/unit_002a99c8.cpp
 
 // --------------------
 extern u8* D_0035f610_2ac748 asm("D_0035f610");
 u8* func_001d9e30(u8*);
 s32 func_002764b0(u8);
-s32 func_002ac748(s32 key)
-{
-    u8* e = 0;
-    s32 r = 0;
-    for (;;) {
-        e = func_001d9e30(e);
-        if (e == 0) break;
-        if (key >= 0 && func_002764b0(e[4]) != key) continue;
-        u8 b = e[1];
-        u32* bits = (u32*)(D_0035f610_2ac748 + e[0] * 8 + 404);
-        if (bits[b >> 5] & (1 << (b & 31))) {
-            r = 1;
-            break;
-        }
-    }
-    return r;
-}
+s32 func_002ac748(s32 key);  // 0x002ac748: definition moved into src/anon/unit_002a99c8.cpp
 
 // --------------------
 struct O2e50f8 { u8 pad[4]; f32 w; u8 pad8[0x1148]; f32 tbl[22]; };
@@ -14053,30 +13892,7 @@ void func_00322c98(O322c98* o)
 // --------------------
 u8* func_002a9d68_2ab180() asm("func_002a9d68");
 extern u8* D_0035f610_2ab180 asm("D_0035f610");
-s32 func_002ab180(s32 id)
-{
-    u8* save = func_002a9d68_2ab180();
-    s32 r = 1;
-    if (id < 0) {
-        u32* g = (u32*)(D_0035f610_2ab180 + 136);
-        u32* sv = (u32*)(save + 136);
-        for (s32 i = 0; i < 96; i++) {
-            u32 m = 1 << (i & 31);
-            if (g[(u32)i >> 5] & m) {
-                r = (sv[(u32)i >> 5] & m) != 0;
-                if (!r) break;
-            }
-        }
-    } else {
-        u32 m = 1 << (id & 31);
-        u32 w = ((u32)id >> 5) * 4;
-        s32 x = 0;
-        if (*(u32*)(D_0035f610_2ab180 + w + 136) & m)
-            x = (*(u32*)(save + w + 136) & m) != 0;
-        r = x;
-    }
-    return r;
-}
+s32 func_002ab180(s32 id);  // 0x002ab180: definition moved into src/anon/unit_002a99c8.cpp
 
 // --------------------
 struct E2aa220 { u8 d[8]; };
@@ -14085,24 +13901,7 @@ T2aa220* func_00294000_2aa220(s32) asm("func_00294000");
 u8* func_002a9d68_2aa220() asm("func_002a9d68");
 s32 func_002943e8_2aa220(E2aa220*) asm("func_002943e8");
 extern u8* D_0035f610_2aa220 asm("D_0035f610");
-void func_002aa220()
-{
-    s32 i = 0;
-    u8* save = func_002a9d68_2aa220();
-    T2aa220* t = func_00294000_2aa220(4);
-    E2aa220* e = t->e;
-    for (; i < t->n; i++) {
-        if (func_002943e8_2aa220(&e[i])) {
-            u32 m = 1 << (i & 31);
-            u32* sb = (u32*)(save + 316);
-            if (!(sb[(u32)i >> 5] & m)) {
-                u32* gb = (u32*)(D_0035f610_2aa220 + 316);
-                u32* q = &gb[(u32)i >> 5];
-                *q |= m;
-            }
-        }
-    }
-}
+void func_002aa220();  // 0x002aa220: definition moved into src/anon/unit_002a99c8.cpp
 
 // --------------------
 struct E2aa960 { u8 d[8]; };
@@ -14111,24 +13910,7 @@ T2aa960* func_00294000_2aa960(s32) asm("func_00294000");
 u8* func_002a9d68_2aa960() asm("func_002a9d68");
 s32 func_002944d0_2aa960(E2aa960*) asm("func_002944d0");
 extern u8* D_0035f610_2aa960 asm("D_0035f610");
-void func_002aa960()
-{
-    s32 i = 0;
-    u8* save = func_002a9d68_2aa960();
-    T2aa960* t = func_00294000_2aa960(6);
-    E2aa960* e = t->e;
-    for (; i < t->n; i++) {
-        if (func_002944d0_2aa960(&e[i])) {
-            u32 m = 1 << (i & 31);
-            u32* sb = (u32*)(save + 132);
-            if (!(sb[(u32)i >> 5] & m)) {
-                u32* gb = (u32*)(D_0035f610_2aa960 + 132);
-                u32* q = &gb[(u32)i >> 5];
-                *q |= m;
-            }
-        }
-    }
-}
+void func_002aa960();  // 0x002aa960: definition moved into src/anon/unit_002a99c8.cpp
 
 // --------------------
 struct E2ad258 { u8 d[8]; };
@@ -14140,22 +13922,7 @@ extern u8* D_0035f620;
 union C2ad258 { s32 i; u32 u; };
 extern C2ad258 D_0035f628;
 extern s32 D_0035f62c;
-void func_002ad258()
-{
-    s32 i = 0;
-    T2ad258* t = func_00294000_2ad258(4);
-    D_0035f628.i += t->n;
-    E2ad258* e = t->e;
-    for (; i < t->n; i++) {
-        if (func_002943e8_2ad258(&e[i])) {
-            u32* gb = (u32*)(D_0035f620 + 316);
-            u32 m = 1 << (i & 31);
-            u32* q = &gb[(u32)i >> 5];
-            *q |= m;
-            D_0035f62c++;
-        }
-    }
-}
+void func_002ad258();  // 0x002ad258: definition moved into src/anon/unit_002a99c8.cpp
 
 // --------------------
 struct E2ad580 { u8 d[8]; };
@@ -14167,22 +13934,7 @@ extern u8* D_0035f620_2ad580 asm("D_0035f620");
 union C2ad580 { s32 i; u32 u; };
 extern C2ad580 D_0035f628_2ad580 asm("D_0035f628");
 extern s32 D_0035f62c_2ad580 asm("D_0035f62c");
-void func_002ad580()
-{
-    s32 i = 0;
-    T2ad580* t = func_00294000_2ad580(6);
-    D_0035f628_2ad580.i += t->n;
-    E2ad580* e = t->e;
-    for (; i < t->n; i++) {
-        if (func_002944d0_2ad580(&e[i])) {
-            u32* gb = (u32*)(D_0035f620_2ad580 + 132);
-            u32 m = 1 << (i & 31);
-            u32* q = &gb[(u32)i >> 5];
-            *q |= m;
-            D_0035f62c_2ad580++;
-        }
-    }
-}
+void func_002ad580();  // 0x002ad580: definition moved into src/anon/unit_002a99c8.cpp
 
 // --------------------
 u8* func_002a9d68_2abac8() asm("func_002a9d68");
@@ -14190,50 +13942,14 @@ extern u8* D_0035f610_2abac8 asm("D_0035f610");
 u8* func_001a82b0_2abac8(u8*) asm("func_001a82b0");
 u8* func_001a80c8_2abac8(u16) asm("func_001a80c8");
 s32 func_002764b0_2abac8(u8) asm("func_002764b0");
-void func_002abac8(s32 key)
-{
-    u8* e = 0;
-    s32 i = 0;
-    u8* save = func_002a9d68_2abac8();
-    u32* sb = (u32*)(save + 300);
-    for (;;) {
-        e = func_001a82b0_2abac8(e);
-        if (e == 0) break;
-        if (func_001a80c8_2abac8(*(u16*)(e + 2))[2] != 22) continue;
-        if (func_002764b0_2abac8(e[5]) != key) { i++; continue; }
-        {
-            u32* gb = (u32*)(D_0035f610_2abac8 + 300);
-            u32 m = 1 << (i & 31);
-            if (gb[(u32)i >> 5] & m) {
-                if (!(sb[(u32)i >> 5] & m)) sb[(u32)i >> 5] |= m;
-            }
-        }
-        i++;
-    }
-}
+void func_002abac8(s32 key);  // 0x002abac8: definition moved into src/anon/unit_002a99c8.cpp
 
 // --------------------
 extern u8* D_0035f610_2ac8e0 asm("D_0035f610");
 u8* func_001d9e30_2ac8e0(u8*) asm("func_001d9e30");
 s32 func_002764b0_2ac8e0(u8) asm("func_002764b0");
 u8* func_002a9d68_2ac8e0() asm("func_002a9d68");
-void func_002ac8e0(s32 key)
-{
-    u8* save = func_002a9d68_2ac8e0();
-    u8* e = 0;
-    for (;;) {
-        e = func_001d9e30_2ac8e0(e);
-        if (e == 0) break;
-        if (func_002764b0_2ac8e0(e[4]) != key) continue;
-        u8 b = e[1];
-        u32* gb = (u32*)(D_0035f610_2ac8e0 + e[0] * 8 + 404);
-        u32 m = 1 << (b & 31);
-        if (gb[b >> 5] & m) {
-            u32* d = (u32*)(save + e[0] * 8 + 404);
-            if (!(d[b >> 5] & m)) d[b >> 5] |= m;
-        }
-    }
-}
+void func_002ac8e0(s32 key);  // 0x002ac8e0: definition moved into src/anon/unit_002a99c8.cpp
 
 // --------------------
 struct O28d1c0 { u8 pad[392]; s32 f392; u8 pad2[10]; s16 h[3]; };
@@ -14254,22 +13970,7 @@ extern u8* D_0035f620_2ad6e8 asm("D_0035f620");
 union C2ad6e8 { s32 i; u32 u; };
 extern C2ad6e8 D_0035f628_2ad6e8 asm("D_0035f628");
 extern s32 D_0035f62c_2ad6e8 asm("D_0035f62c");
-void func_002ad6e8()
-{
-    s32 i = 0;
-    T2ad6e8* t = func_00294000_2ad6e8(8);
-    D_0035f628_2ad6e8.i += t->n;
-    E2ad6e8* e = t->e;
-    for (; i < t->n; i++) {
-        if (func_002a99c8_2ad6e8(&e[i]) == 2) {
-            u32* gb = (u32*)(D_0035f620_2ad6e8 + 148);
-            u32 m = 1 << (i & 31);
-            u32* q = &gb[(u32)i >> 5];
-            *q |= m;
-            D_0035f62c_2ad6e8++;
-        }
-    }
-}
+void func_002ad6e8();  // 0x002ad6e8: definition moved into src/anon/unit_002a99c8.cpp
 
 // --------------------
 struct E2aabe8 { u8 d[16]; };
@@ -14278,25 +13979,7 @@ T2aabe8* func_00294000_2aabe8(s32) asm("func_00294000");
 u8* func_002a9d68_2aabe8() asm("func_002a9d68");
 s32 func_002a99c8_2aabe8(E2aabe8*) asm("func_002a99c8");
 extern u8* D_0035f610_2aabe8 asm("D_0035f610");
-void func_002aabe8()
-{
-    s32 i = 0;
-    u8* save = func_002a9d68_2aabe8();
-    T2aabe8* t = func_00294000_2aabe8(8);
-    E2aabe8* e = t->e;
-    for (; i < t->n; i++) {
-        s32 r = func_002a99c8_2aabe8(&e[i]);
-        if (r != 0 && r != 3) {
-            u32 m = 1 << (i & 31);
-            u32* sb = (u32*)(save + 148);
-            if (!(sb[(u32)i >> 5] & m)) {
-                u32* gb = (u32*)(D_0035f610_2aabe8 + 148);
-                u32* q = &gb[(u32)i >> 5];
-                *q |= m;
-            }
-        }
-    }
-}
+void func_002aabe8();  // 0x002aabe8: definition moved into src/anon/unit_002a99c8.cpp
 
 // --------------------
 struct AVt31ca70 { void* alloc; void (*free)(void* self, void* p); };
@@ -14374,30 +14057,7 @@ struct T2adfd0 { u8 pad[8]; s32 n; u8 pad2[4]; E2adfd0 e[1]; };
 T2adfd0* func_00294000_2adfd0(s32) asm("func_00294000");
 s32 func_00294268_2adfd0(E2adfd0*) asm("func_00294268");
 extern u8* D_0035f620_2adfd0 asm("D_0035f620");
-void func_002adfd0()
-{
-    s32 i = 0;
-    s32 prev = -1;
-    s32 j = 0;
-    T2adfd0* t = func_00294000_2adfd0(1);
-    E2adfd0* e = t->e;
-    for (; i < t->n; i++) {
-        s32 k = e[i].k;
-        if (prev != k) {
-            j = 0;
-            prev = k;
-        }
-        if (k < 15) {
-            if (func_00294268_2adfd0(&e[i])) {
-                u32* gb = (u32*)(D_0035f620_2adfd0 + e[i].k * 4 + 172);
-                u32 m = 1 << (j & 31);
-                u32* q = &gb[(u32)j >> 5];
-                *q |= m;
-            }
-            j++;
-        }
-    }
-}
+void func_002adfd0();  // 0x002adfd0: definition moved into src/anon/unit_002a99c8.cpp
 
 // --------------------
 struct AVt31db80 { void* alloc; void (*free)(void* self, void* p); };
@@ -14489,27 +14149,7 @@ extern u8* D_0035f610_2ab9c8 asm("D_0035f610");
 u8* func_001a82b0_2ab9c8(u8*) asm("func_001a82b0");
 u8* func_001a80c8_2ab9c8(u16) asm("func_001a80c8");
 s32 func_002764b0_2ab9c8(u8) asm("func_002764b0");
-s32 func_002ab9c8(s32 key)
-{
-    u8* e = 0;
-    s32 i = 0;
-    s32 r = 1;
-    u8* save = func_002a9d68_2ab9c8();
-    u32* sb = (u32*)(save + 300);
-    for (;;) {
-        e = func_001a82b0_2ab9c8(e);
-        if (e == 0) break;
-        if (func_001a80c8_2ab9c8(*(u16*)(e + 2))[2] != 22) continue;
-        if (key >= 0 && func_002764b0_2ab9c8(e[5]) != key) { i++; continue; }
-        u32* gb = (u32*)(D_0035f610_2ab9c8 + 300);
-        u32 m = 1 << (i & 31);
-        if (!(gb[(u32)i >> 5] & m)) { i++; continue; }
-        r = (sb[(u32)i >> 5] & m) != 0;
-        i++;
-        if (!r) break;
-    }
-    return r;
-}
+s32 func_002ab9c8(s32 key);  // 0x002ab9c8: definition moved into src/anon/unit_002a99c8.cpp
 
 // --------------------
 struct W2891f0 { u8 pad[392]; s32 f392; };
@@ -14545,32 +14185,7 @@ T2aa4a8* func_00294000_2aa4a8(s32) asm("func_00294000");
 s32 func_00294268_2aa4a8(E2aa4a8*) asm("func_00294348");
 extern u8* D_0035f610_2aa4a8 asm("D_0035f610");
 u8* func_002a9d68_2aa4a8() asm("func_002a9d68");
-void func_002aa4a8()
-{
-    s32 i = 0;
-    s32 prev = -1;
-    s32 j = 0;
-    u8* save = func_002a9d68_2aa4a8();
-    T2aa4a8* t = func_00294000_2aa4a8(2);
-    E2aa4a8* e = t->e;
-    for (; i < t->n; i++) {
-        s32 k = e[i].k;
-        if (prev != k) {
-            prev = k;
-            j = 0;
-        }
-        if (func_00294268_2aa4a8(&e[i])) {
-            u32 m = 1 << (j & 31);
-            u32* sb = (u32*)(save + e[i].k * 4 + 68);
-            if (!(sb[(u32)j >> 5] & m)) {
-                u32* gb = (u32*)(D_0035f610_2aa4a8 + e[i].k * 4 + 68);
-                u32* q = &gb[(u32)j >> 5];
-                *q |= m;
-            }
-        }
-        j++;
-    }
-}
+void func_002aa4a8();  // 0x002aa4a8: definition moved into src/anon/unit_002a99c8.cpp
 
 // --------------------
 struct T2b4dd0 { s16 h0; s16 h2; s16 h4; };
@@ -14615,30 +14230,7 @@ extern u8* D_0035f620_2ad390 asm("D_0035f620");
 union C2ad390 { s32 i; u32 u; };
 extern C2ad390 D_0035f628_2ad390 asm("D_0035f628");
 extern s32 D_0035f62c_2ad390 asm("D_0035f62c");
-void func_002ad390()
-{
-    s32 i = 0;
-    s32 prev = -1;
-    s32 j = 0;
-    T2ad390* t = func_00294000_2ad390(2);
-    D_0035f628_2ad390.i += t->n;
-    E2ad390* e = t->e;
-    for (; i < t->n; i++) {
-        s32 k = e[i].k;
-        if (prev != k) {
-            prev = k;
-            j = 0;
-        }
-        if (func_00294268_2ad390(&e[i])) {
-            u32* gb = (u32*)(D_0035f620_2ad390 + e[i].k * 4 + 68);
-            u32 m = 1 << (j & 31);
-            u32* q = &gb[(u32)j >> 5];
-            *q |= m;
-            D_0035f62c_2ad390++;
-        }
-        j++;
-    }
-}
+void func_002ad390();  // 0x002ad390: definition moved into src/anon/unit_002a99c8.cpp
 
 // --------------------
 struct E2abe28 { s8 k; u8 pad[11]; };
@@ -14647,60 +14239,14 @@ T2abe28* func_00294000_2abe28(s32) asm("func_00294000");
 s32 func_00294268_2abe28(E2abe28*) asm("func_00294268");
 extern u8* D_0035f610_2abe28 asm("D_0035f610");
 u8* func_002a9d68_2abe28() asm("func_002a9d68");
-void func_002abe28()
-{
-    s32 i = 0;
-    s32 prev = -1;
-    s32 j = 0;
-    u8* save = func_002a9d68_2abe28();
-    T2abe28* t = func_00294000_2abe28(1);
-    E2abe28* e = t->e;
-    for (; i < t->n; i++) {
-        s32 k = e[i].k;
-        if (prev != k) {
-            prev = k;
-            j = 0;
-        }
-        if (k < 15) {
-            if (func_00294268_2abe28(&e[i])) {
-                u32 m = 1 << (j & 31);
-                u32* sb = (u32*)(save + e[i].k * 4 + 172);
-                if (!(sb[(u32)j >> 5] & m)) {
-                    u32* gb = (u32*)(D_0035f610_2abe28 + e[i].k * 4 + 172);
-                    u32* q = &gb[(u32)j >> 5];
-                    *q |= m;
-                }
-            }
-            j++;
-        }
-    }
-}
+void func_002abe28();  // 0x002abe28: definition moved into src/anon/unit_002a99c8.cpp
 
 // --------------------
 struct T2aa668 { u8 pad[8]; s32 n; };
 T2aa668* func_00294000_2aa668(s32) asm("func_00294000");
 s32 func_002aa5b8_2aa668(s32, s32) asm("func_002aa5b8");
 extern u8* D_0035f610_2aa668 asm("D_0035f610");
-s32 func_002aa668(s32 key, s32 nth)
-{
-    s32 r = 0;
-    s32 b;
-    T2aa668* t = func_00294000_2aa668(2);
-    if (nth < 0) {
-        for (s32 i = 0; i < t->n; i++) {
-            b = func_002aa5b8_2aa668(key, i);
-            if (b < 0) continue;
-            u32* g = (u32*)(D_0035f610_2aa668 + key * 4 + 68);
-            r = (g[(u32)b >> 5] & (1 << (b & 31))) != 0;
-            if (r) break;
-        }
-    } else {
-        b = func_002aa5b8_2aa668(key, nth);
-        u32* g = (u32*)(D_0035f610_2aa668 + key * 4 + 68);
-        r = (g[(u32)b >> 5] & (1 << (b & 31))) != 0;
-    }
-    return r;
-}
+s32 func_002aa668(s32 key, s32 nth);  // 0x002aa668: definition moved into src/anon/unit_002a99c8.cpp
 
 // --------------------
 extern u8 D_00361aa0_2c10e0[] asm("D_00361aa0");

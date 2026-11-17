@@ -191,56 +191,7 @@ void func_0031acc0(void*);
 void func_0031abd8(void*);
 void func_00239870(void*);
 void func_002816f0(void);
-void func_002aeba0(void)
-{
-    void* lf = D_0035f638;
-    if (lf) {
-        func_0023f848(lf);
-        func_00106420(lf);
-        D_0035f638 = 0;
-    }
-    u8* p = D_0035f634;
-    if (p) {
-        func_0031acc0(p + 24212);
-        func_0031acc0(p + 23776);
-        func_0031acc0(p + 23340);
-        func_0031acc0(p + 22904);
-        func_0031acc0(p + 22468);
-        func_0031acc0(p + 22032);
-        func_0031abd8(p + 21624);
-        func_0031abd8(p + 21216);
-        func_0031abd8(p + 20808);
-        if (p + 19992) {
-            u8* e = p + 20808;
-        top1:
-            if (p + 19992 == e) goto out1;
-            e -= 408;
-            ((W268VObj*)e)->vt[3]((W268VObj*)e);
-            goto top1;
-        out1:;
-        }
-        u8* e2 = p + 19584;
-        *(u32*)(p + 19584) = (u32)D_00347e60;
-        func_00239870(p + 19608);
-        *(u32*)(p + 19584) = (u32)D_00347f98;
-        if (p) {
-            u8* e = e2;
-        top2:
-            if (p == e) goto out2;
-            e -= 408;
-            ((W268VObj*)e)->vt[3]((W268VObj*)e);
-            goto top2;
-        out2:;
-        }
-        func_00106420(p);
-        D_0035f634 = 0;
-    }
-    if (D_0035f630) {
-        func_00106450(D_0035f630);
-        D_0035f630 = 0;
-    }
-    func_002816f0();
-}
+void func_002aeba0(void);  // 0x002aeba0: definition moved into src/anon/unit_002aeba0.cpp
 
 struct W268Vm;
 struct W268VmList { W268Vm* head; W268Vm* tail; };

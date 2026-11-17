@@ -392,20 +392,7 @@ void func_002a9048(void) {
 /* ---- 002ad1b0 ---- */
 u8* func_00294000(s32);
 extern u32* D_0035f620;
-s32 func_002ad1b0(s32 id) {
-    s32 ok = 1;
-    u8* t = func_00294000(3);
-    s32 n = *(s32*)(t + 8);
-    s32 i;
-    u8* e = t + 16;
-    for (i = 0; i < n; i++, e += 36) {
-        if (id < 0 || *(s8*)e == id) {
-            u16 f = *(u16*)(e + 4);
-            if (!(D_0035f620[f >> 5] & (1 << (f & 31)))) { ok = 0; break; }
-        }
-    }
-    return ok;
-}
+s32 func_002ad1b0(s32 id);  // 0x002ad1b0: definition moved into src/anon/unit_002a99c8.cpp
 
 /* ---- 002b1a00 ---- */
 struct E19 { u16 a; s16 b; };

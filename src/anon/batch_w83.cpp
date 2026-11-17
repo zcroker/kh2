@@ -490,29 +490,7 @@ u8* func_001a82b0(u8*);
 void* func_002764b0(u8);
 s32 func_002954e0(void*);
 
-void func_002ab448(void) {
-    u32* bits = func_002a9d68()->bits;
-    u8* it = 0;
-    for (u32 i = 0;; i++) {
-        it = func_001a82b0(it);
-        if (!it) return;
-        if (it[4]) continue;
-        u16 id = *(u16*)(it + 8);
-        if (!id) continue;
-        if (id == 2048) continue;
-        if (!func_00181500(id)) continue;
-        s32 v = func_002954e0(func_002764b0(it[5]));
-        u32 w = i >> 5;
-        u32 bit = 1 << (i & 31);
-        if (v) {
-            if (!(bits[w] & bit)) {
-                u8* a = (u8*)D_0035f610->bits;
-                a += w * 4;
-                *(u32*)a |= bit;
-            }
-        }
-    }
-}
+void func_002ab448(void);  // 0x002ab448: definition moved into src/anon/unit_002a99c8.cpp
 
 u8* func_002d73f0(void);
 s32 func_002cee58(void*, void*);

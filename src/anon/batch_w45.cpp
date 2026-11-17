@@ -330,18 +330,7 @@ s32 func_002a6878(s32 a0) {
     return ok;
 }
 
-void func_002a94f8(void) {
-    u32 off = 0;
-    for (s32 i = 9; i >= 0; i--) {
-        if (func_00139d78(D_0035f60c + off)) {
-            u8* o = (u8*)(off + (u32)D_0035f60c);
-            (*(VFn*)(*(u8**)o + 20))(o);
-        }
-        off += 436;
-    }
-    func_00276a18();
-    func_00276b10();
-}
+void func_002a94f8(void);  // 0x002a94f8: definition moved into src/anon/unit_002a92a0.cpp
 
 // count the nonzero ids (u16 at +4, +8, +12) accepted by func_00181500
 s32 func_002c22f0(u8* a0);  // 0x002c22f0: definition moved into src/anon/unit_002c2228.cpp

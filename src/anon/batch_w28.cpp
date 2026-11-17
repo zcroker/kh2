@@ -237,13 +237,7 @@ void func_00299550(void) {
 }
 
 // Set bit n in a bitset at +0x94 (stores only when it changes).
-void func_002aae30(u32 n) {
-    u32* arr = (u32*)(func_002a9d68() + 148);
-    u32* w = (u32*)((n >> 5) * 4 + (u32)arr);
-    u32 v = *w;
-    u32 bit = 1 << (n & 31);
-    if (!(v & bit)) *w = v | bit;
-}
+void func_002aae30(u32 n);  // 0x002aae30: definition moved into src/anon/unit_002a99c8.cpp
 
 void func_002be7b8(u8* p, u32 a, u32 b);  // 0x002be7b8: definition moved into src/anon/unit_002be020.cpp
 

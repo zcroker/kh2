@@ -882,27 +882,7 @@ L2ac* func_00294000(s32);
 s32 func_002b3ac8(s8);
 extern u8* D_0035f610;
 
-s32 func_002ac538(s32 kind) {
-    s32 res = 1;
-    u8* m = func_002a9d68();
-    L2ac* l = func_00294000(9);
-    E2ac* e = l->e;
-    for (s32 i = 0; i < l->count; i++, e++) {
-        if (kind >= 0 && e->id != kind) continue;
-        s32 n = func_002b3ac8(e->lo);
-        for (s32 j = 0; j < n; j++) {
-            u32* a = (u32*)(D_0035f610 + e->id * 8 + 324);
-            u32* b = (u32*)(m + e->id * 8 + 324);
-            u32 bit = 1 << (j & 31);
-            if (a[(u32)j >> 5] & bit) {
-                res = (b[(u32)j >> 5] & bit) != 0;
-                if (!res) break;
-            }
-        }
-        if (kind >= 0 && e->id == kind) return res;
-    }
-    return res;
-}
+s32 func_002ac538(s32 kind);  // 0x002ac538: definition moved into src/anon/unit_002a99c8.cpp
 }
 
 // ---- 2cf058 ----

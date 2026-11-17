@@ -47,20 +47,7 @@ extern s32 D_0034805c;
 void func_00148a68(W1790Mgr*, W1790Node*);
 void func_00147f08(W1790Mgr*, W1790Node*);
 
-void func_002abba8(void) {
-    W1790Sram* p = jm_GetSram();
-    s32 a = func_002a7490();
-    u32* bits = p->bits;
-    s32 b = func_002a74c0();
-    u32 i;
-    for (i = 0; (s32)i < 4; i++) {
-        s32 f;
-        if (i == 0 || i == 3) f = a; else f = b;
-        if (f) {
-            if (!w1790_bitTest(bits, i)) w1790_bitSet(D_0035f610->bits, i);
-        }
-    }
-}
+void func_002abba8(void);  // 0x002abba8: definition moved into src/anon/unit_002a99c8.cpp
 
 void func_002be630(void);  // 0x002be630: definition moved into src/anon/unit_002be020.cpp
 

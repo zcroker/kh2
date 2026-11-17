@@ -511,21 +511,7 @@ extern u8* D_0035f620;
 u8* func_001a82b0(u8*);
 u8* func_001a80c8(u16);  // table24_find_by_id
 s32 func_002764b0(u8);
-s32 func_002adcb0(s32 id) {
-    u8* e = 0;
-    u32 i = 0;
-    s32 r = 1;
-    for (;;) {
-        e = func_001a82b0(e);
-        if (!e) break;
-        if (func_001a80c8(*(u16*)(e + 2))[2] != 22) continue;
-        if (id >= 0 && func_002764b0(e[5]) != id) { i++; continue; }
-        u32* f = (u32*)(D_0035f620 + 300);
-        if (!(f[i >> 5] & (1 << (i & 31)))) { r = 0; break; }
-        i++;
-    }
-    return r;
-}
+s32 func_002adcb0(s32 id);  // 0x002adcb0: definition moved into src/anon/unit_002a99c8.cpp
 
 // --- 0018d420: destructor body: drop references, unlink from the global list
 struct Node18d { u32 vt; u32 flags; u8* a; u32 p; u8* b; u8 pad[8]; u32 h; u8 pad2[16]; u8 sub[144]; Node18d* next; };

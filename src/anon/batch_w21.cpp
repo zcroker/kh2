@@ -216,10 +216,7 @@ s32 func_002a43f0(void) {
     return r;
 }
 
-u8* func_002a92a0(s32 i) {
-    u8* b = func_00294000(8) + 16;
-    return b + i * 16;
-}
+u8* func_002a92a0(s32 i);  // 0x002a92a0: definition moved into src/anon/unit_002a92a0.cpp
 
 void func_002dab30(void** p) {
     *p = &D_00362858;

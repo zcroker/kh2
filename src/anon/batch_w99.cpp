@@ -731,23 +731,7 @@ s32 func_002b3ac8(s8);
 extern u8* D_0035f610;
 
 // Returns 1 if any flag bit is set for the matching entries of table 9.
-s32 func_002ac420(s32 id)
-{
-    Tbl2ac4* t = func_00294000_2ac420(9);
-    s32 found = 0;
-    s32 i, j, n;
-    Ent2ac4* e = t->e;
-    for (i = 0; i < t->count; i++, e++) {
-        if (id >= 0 && e->id != id) continue;
-        n = func_002b3ac8((s8)(e->kind & 0xf));
-        for (j = 0; j < n; j++) {
-            u32* bits = (u32*)(D_0035f610 + e->id * 8 + 324);
-            if (bits[(u32)j >> 5] & (1 << (j & 31))) { found = 1; break; }
-        }
-        if (id >= 0 && e->id == id) break;
-    }
-    return found;
-}
+s32 func_002ac420(s32 id);  // 0x002ac420: definition moved into src/anon/unit_002a99c8.cpp
 }
 
 // ---- 002cd770

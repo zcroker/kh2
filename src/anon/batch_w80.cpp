@@ -683,38 +683,10 @@ s32 func_00283ab8(s32 type) {
 }
 
 
-void func_002ad878(void) {
-    s32 i;
-    U17_GotList* l = func_00294000(7);
-    U17_D_0035f628 += l->n;
-    for (i = 0; i < l->n; i++) {
-        if (func_002a8920(l->e[i].id)) {
-            u32* b = U17_D_0035f620->bits;
-            u32* w = &b[(u32)i >> 5];
-            *w |= 1 << (i & 31);
-            D_0035f62c++;
-        }
-    }
-}
+void func_002ad878(void);  // 0x002ad878: definition moved into src/anon/unit_002a99c8.cpp
 
 
-void func_002adbd0(void) {
-    U18_Evt* e = 0;
-    s32 n = 0;
-    for (;;) {
-        e = func_001a82b0(e);
-        if (!e) break;
-        if (func_001a80c8(e->id)->type != 22) continue;
-        U18_D_0035f628++;
-        if (func_002a43b0(e)) {
-            u32* b = U18_D_0035f620->bits300;
-            u32* w = &b[(u32)n >> 5];
-            *w |= 1 << (n & 31);
-            D_0035f62c++;
-        }
-        n++;
-    }
-}
+void func_002adbd0(void);  // 0x002adbd0: definition moved into src/anon/unit_002a99c8.cpp
 
 
 void func_002b2c80(void) {

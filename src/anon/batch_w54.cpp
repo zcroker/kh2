@@ -380,19 +380,7 @@ static inline s32 bit_test(u32* b, u32 i) {
     return (b[i >> 5] & (1 << (i & 31))) != 0;
 }
 // test flag n; n < 0 tests whether any of the 192 flags is set
-s32 func_002aacd8(s32 n) {  // test_bit_global_d
-    if (n < 0) {
-        s32 r;
-        s32 i;
-        u32* b = D_0035f610->bits;
-        for (i = 0; i < 192; i++) {
-            r = bit_test(b, i);
-            if (r) break;
-        }
-        return r;
-    }
-    return bit_test(D_0035f610->bits, n);
-}
+s32 func_002aacd8(s32 n);  // 0x002aacd8: definition moved into src/anon/unit_002a99c8.cpp
 
 void func_002cf2b0(void*, s32);
 void func_0017f488(void*, s32, f32, f32);

@@ -455,29 +455,7 @@ void func_00139620(u8*);
 void func_00138c68(u8*, s32, s32);
 void func_0028dcc0(u8*, u8*);
 void func_00138c10(u8*, s32);
-void func_002a92d8(void) {
-    u8* g = func_002766d0();
-    s32 id = D_0035f3d4;
-    u8* q = g + 0xa998;
-    for (s32 i = 0; i < 10; i++) {
-        u8* p = D_0035f60c + i * 436;
-        u8* b = p + 24;
-        func_0028d980(p, id, D_0035f14c, D_0035f148, D_0035f210, 106, -1, -1, 0);
-        s32 h = func_0023aa78(b);
-        s32 x = func_0023aa18(b);
-        s32 y = func_0023aa38(b);
-        func_00139620(p);
-        func_00138c68(p, 0, h * i);
-        func_0028dcc0(p, g);
-        *(u32*)(p + 420) = 0x60000008;
-        *(s32*)(p + 428) = 3;
-        func_00138c10(p, 2);
-        func_0028d8c0(q, id + 1, D_0035f14c, D_0035f148, D_0035f210, 2, -1, 0);
-        func_0028dcc0(q, p);
-        func_00138c68(q, x, y);
-        q += 408;
-    }
-}
+void func_002a92d8(void);  // 0x002a92d8: definition moved into src/anon/unit_002a92a0.cpp
 
 // ---- f21.cpp
 struct V4dcf90 { f32 x, y, z, w; } __attribute__((aligned(16)));

@@ -4,30 +4,7 @@ extern "C" {
 void* func_00294000(s32);
 s32 func_002ab100(s32);  // test_bit_global_c
 extern u8* D_0035f610;
-s32 func_002ab2b0(s32 id) {
-    s32 r = 0;
-    s32* p = (s32*)func_00294000(7);
-    u16* base = (u16*)((u8*)p + 16);
-    if (id < 0) {
-        r = func_002ab100(-1);  // test_bit_global_c
-    } else {
-        s32 n = p[2];
-        s32 i = 0;
-        if (n > 0) {
-            u16* e = base;
-            do {
-                u16 v = *e;
-                e += 4;
-                if (v == id) {
-                    u32* bits = (u32*)(D_0035f610 + 136);
-                    if (bits[(u32)i >> 5] & (1 << (i & 31))) { r = 1; break; }
-                }
-                i++;
-            } while (i < n);
-        }
-    }
-    return r;
-}
+s32 func_002ab2b0(s32 id);  // 0x002ab2b0: definition moved into src/anon/unit_002a99c8.cpp
 
 void func_001ad990(u32, f32, f32, f32);
 void* func_0017e668(void);

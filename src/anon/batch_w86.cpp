@@ -957,28 +957,7 @@ extern "C" {
 extern u32* D_0035f610;
 u32* func_002a9d68(void);
 Lst* func_00294000(s32);
-s32 func_002a9f50(s32 id)
-{
-    s32 r = 1;
-    u32* bits = func_002a9d68();
-    Lst* l = func_00294000(3);
-    if (id < 0) {
-        s32 n = l->n;
-        for (s32 i = 0; i < n; i++) {
-            u32 m = 1 << (i & 31);
-            if (D_0035f610[(u32)i >> 5] & m) {
-                r = (bits[(u32)i >> 5] & m) != 0;
-                if (!r) break;
-            }
-        }
-    } else {
-        u32 m = 1 << (id & 31);
-        s32 t = 0;
-        if (D_0035f610[(u32)id >> 5] & m) t = (bits[(u32)id >> 5] & m) != 0;
-        r = t;
-    }
-    return r;
-}
+s32 func_002a9f50(s32 id);  // 0x002a9f50: definition moved into src/anon/unit_002a99c8.cpp
 }
 }
 

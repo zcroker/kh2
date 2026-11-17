@@ -684,22 +684,7 @@ static inline s32 TestBit(u32* bits, u32 i)
 {
     return bits[i >> 5] & (1 << (i & 31));
 }
-s32 func_002aad58(s32 n)
-{
-    Flags* a = func_002a9d68();
-    s32 r = 1;
-    if (n < 0) {
-        for (s32 i = 0; i < 192; i++) {
-            if (TestBit(D_0035f610->bits, i)) {
-                r = TestBit(a->bits, i) != 0;
-                if (!r) break;
-            }
-        }
-    } else {
-        r = TestBit(D_0035f610->bits, n) && TestBit(a->bits, n);
-    }
-    return r;
-}
+s32 func_002aad58(s32 n);  // 0x002aad58: definition moved into src/anon/unit_002a99c8.cpp
 }
 }
 

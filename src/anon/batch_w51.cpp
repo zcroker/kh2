@@ -427,17 +427,7 @@ static inline u32 flagTest(u32 n) {
 }
 
 // Test flag n, or any of flags 0..12 when n < 0.
-u32 func_002aa2f8(s32 n) {  // test_bit_global_b
-    if (n < 0) {
-        u32 r;
-        for (s32 i = 0; i < 13; i++) {
-            r = flagTest(i);
-            if (r) break;
-        }
-        return r;
-    }
-    return flagTest(n);
-}
+u32 func_002aa2f8(s32 n);  // 0x002aa2f8: definition moved into src/anon/unit_002a99c8.cpp
 
 extern u8 D_01e2aa80[];
 void func_00324718(void*, void*);

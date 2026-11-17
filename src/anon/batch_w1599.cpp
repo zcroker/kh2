@@ -84,18 +84,7 @@ Ent* func_001d9e30(Ent*);
 s32 func_001d9d48(Ent*);
 s32 func_00181500(u16);
 
-void func_002ac2e8(void) {
-    Ent* e = 0;
-    Flags* f = func_002a9d68();
-    while ((e = func_001d9e30(e)) != 0) {
-        if (func_001d9d48(e)) {
-            if (!f->x[e->a].Test(e->b)) D_0035f610->x[e->a].Set(e->b);
-        }
-        if (func_00181500(e->id)) {
-            if (!f->y[e->a].Test(e->b)) D_0035f610->y[e->a].Set(e->b);
-        }
-    }
-}
+void func_002ac2e8(void);  // 0x002ac2e8: definition moved into src/anon/unit_002a99c8.cpp
 }
 }
 

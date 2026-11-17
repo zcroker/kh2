@@ -380,34 +380,14 @@ union PtrWord { u32* p; u32 u; };
 extern PtrWord D_0035f610;
 
 // 002a9df0: clear the bits that are also set in the other set
-void func_002a9df0(void)
-{
-    u32* other = func_002a9d68();
-    func_00294020(D_0035f610.p);
-    BitInfo* v = func_00294000(3);
-    for (s32 i = 0; i < v->n; i++) {
-        u32* base = D_0035f610.p;
-        u32 off = (u32)i >> 5;
-        u32 m = 1 << (i & 31);
-        u32 w = base[off];
-        if ((w & m) && (other[off] & m)) base[off] = w & ~m;
-    }
-}
+void func_002a9df0(void);  // 0x002a9df0: definition moved into src/anon/unit_002a99c8.cpp
 
 extern u32* D_0035f620;
 extern GWord D_0035f628;
 extern GWord D_0035f62c;
 
 // 002ad110: count set bits
-void func_002ad110(void)
-{
-    func_00294020(D_0035f620);
-    BitInfo* v = func_00294000(3);
-    D_0035f628.v += v->n;
-    for (s32 i = 0; i < v->n; i++) {
-        if (D_0035f620[(u32)i >> 5] & (1 << (i & 31))) D_0035f62c.v++;
-    }
-}
+void func_002ad110(void);  // 0x002ad110: definition moved into src/anon/unit_002a99c8.cpp
 
 extern u8 D_0034ab80[];
 

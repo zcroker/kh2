@@ -524,25 +524,7 @@ static inline u32 w78_bit(u32* bits, u32 i) { return bits[i >> 5] & (1 << (i & 3
 
 u8* func_001a82b0(u8*);
 s32 func_002764b0(u8);
-void func_002ab728(s32 id) {
-    u32* bits = (u32*)(func_002a9d68(id) + 236);
-    u8* e = 0;
-    u32 i = 0;
-    for (;; i++) {
-        e = func_001a82b0(e);
-        if (!e) break;
-        if (e[4]) continue;
-        if (*(u16*)(e + 8) == 0) continue;
-        if (*(u16*)(e + 8) == 0x800) continue;
-        if (func_002764b0(e[5]) != id) continue;
-        u32 m = 1 << (i & 31);
-        u32 w4 = (i >> 5) * 4;
-        if (*(u32*)(D_0035f610 + w4 + 236) & m) {
-            u32 w = bits[i >> 5];
-            if (!(w & m)) bits[i >> 5] = w | m;
-        }
-    }
-}
+void func_002ab728(s32 id);  // 0x002ab728: definition moved into src/anon/unit_002a99c8.cpp
 
 extern s32 D_0035f62c;
 extern s32 D_0035f628;
@@ -558,25 +540,7 @@ void func_002add90(void);
 void func_002ae320(void);
 void func_002adfd0(void);
 s32 func_002ae0c0(s32);
-void func_002acf48(void) {
-    D_0035f62c = 0;
-    D_0035f628 = 0;
-    func_002ad110();
-    func_002ad258();
-    func_002ad390();
-    func_002ad580();
-    func_002ad6e8();
-    func_002ad878();
-    func_002ad9f8();
-    func_002adbd0();
-    func_002add90();
-    func_002ae320();
-    func_002adfd0();
-    D_0035f628 += 15;
-    for (s32 i = 0; i < 15; i++) {
-        if (func_002ae0c0(i)) D_0035f62c++;
-    }
-}
+void func_002acf48(void);  // 0x002acf48: definition moved into src/anon/unit_002a99c8.cpp
 }
 
 // ---- c8

@@ -84,22 +84,7 @@ s32 func_002abf40(s32, s32);
 static inline s32 tst_002abff0(s32 a0, s32 b) {
     u32* p = (u32*)(D_0035f610 + a0 * 4) + 43; return (p[(u32)b >> 5] & (1 << (b & 31))) != 0;
 }
-s32 func_002abff0(s32 a0, s32 a1) {
-    s32 res = 0;
-    u8* v = func_00294000(1);
-    if (a1 < 0) {
-        for (s32 i = 0; i < *(s32*)(v + 8); i++) {
-            s32 b = func_002abf40(a0, i);
-            if (b >= 0) {
-                res = tst_002abff0(a0, b);
-                if (res) break;
-            }
-        }
-    } else {
-        res = tst_002abff0(a0, a1 = func_002abf40(a0, a1));
-    }
-    return res;
-}
+s32 func_002abff0(s32 a0, s32 a1);  // 0x002abff0: definition moved into src/anon/unit_002a99c8.cpp
 QV257 func_002cd950(void* self, f32 t, const QV257* p, const QV257* q);  // 0x002cd950: definition moved into src/taito/path.cpp
 extern s8 D_01e2bd80;
 extern QV257 D_01e2bd90;

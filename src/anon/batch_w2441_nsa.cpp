@@ -16,14 +16,7 @@ struct W1595List { s32 a; s8 kind; u8 n; u16 pad; s16 list[1]; };
 s32 func_002943b0(W1595Ent*);
 s32 func_00276c18();
 extern W1595List* D_0035f5ac;
-void func_002ac678(s32 idx) {
-    W2441Rec* base = (W2441Rec*)func_002a9d68();
-    W2441Ent* e = func_00294000(9)->e;
-    e += idx;
-    s32 n = func_002b3ac8(e->f1 & 0xf);
-    for (s32 i = 0; i < n; i++) { u32* s = D_0035f610->b[e->slot].w; u32 w = (u32)i >> 5; u32 m = 1 << (i & 31);
- if (s[w] & m) { u32* d = base->b[e->slot].w; if (!(d[w] & m)) d[w] |= m; } }
-}
+void func_002ac678(s32 idx);  // 0x002ac678: definition moved into src/anon/unit_002a99c8.cpp
 
 void func_0029ca50(void) { s32 i = 0; s32 n = 0; W1595Hdr* h = (W1595Hdr*)func_00294000(3); s8 k = D_0035f5ac->kind; W1595Ent* base = h->e;
  for (; i < h->count; i++) { W1595Ent* e = &base[i]; if (e->kind != k) continue; if (!func_002943b0(e) && !func_00276c18()) continue; D_0035f5ac->list[n++] = i; }

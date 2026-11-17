@@ -328,15 +328,7 @@ s32 func_0027af58(void)
 // 002ac268: set bit k in a per-index bit array (only if not already set)
 u8* func_002a9d68(s32, u32);
 u32 func_002abf40(s32, u32);
-void func_002ac268(s32 a, u32 b)
-{
-    u8* p = func_002a9d68(a, b);
-    u32 k = func_002abf40(a, b);
-    u32* w = (u32*)(p + a * 4 + 172);
-    u32 m = 1 << (k & 31);
-    u32 v = w[k >> 5];
-    if (!(v & m)) w[k >> 5] = v | m;
-}
+void func_002ac268(s32 a, u32 b);  // 0x002ac268: definition moved into src/anon/unit_002a99c8.cpp
 
 // 002c85c8
 s32 func_002c5150(u32);

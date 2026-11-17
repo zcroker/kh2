@@ -54,29 +54,7 @@ static inline s32 cnt2ad(u8* s, s32 off, s32 n)
     return c;
 }
 
-void func_002add90(void)
-{
-    u8* s;
-    s32 a, b, i, ok;
-    s = func_001058e8() + 18932;
-    a = func_002a7490();
-    b = func_002a74c0();
-    D_0035f628 += 4;
-    for (i = 0; i < 4; i++) {
-        ok = (i == 0 || i == 3) ? a : b;
-        if (!ok) continue;
-        switch (i) {
-        case 0: ok = s[576] + 1 >= 9; break;
-        case 1: ok = cnt2ad(s, 0, 60) >= 60; break;
-        case 2: ok = cnt2ad(s, 8, 54) >= 54; break;
-        case 3: ok = cnt2ad(s, 28, 80) >= 59; break;
-        }
-        if (ok) {
-            sb2ad(((G2ad*)D_0035f620)->bits, i);
-            D_0035f62c++;
-        }
-    }
-}
+void func_002add90(void);  // 0x002add90: definition moved into src/anon/unit_002a99c8.cpp
 
 extern s32 D_0035f650;
 s32 func_00289380(s32);

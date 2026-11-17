@@ -211,13 +211,7 @@ void func_00295810(void) {
 }
 
 u8* func_002a9d68(void);
-void func_002aab90(u32 n) {
-    u32* arr = (u32*)(func_002a9d68() + 132);
-    u32 i = n >> 5;
-    n &= 31;
-    u32 v = arr[i];
-    if (!(v & (1 << n))) arr[i] = v | (1 << n);
-}
+void func_002aab90(u32 n);  // 0x002aab90: definition moved into src/anon/unit_002a99c8.cpp
 
 void func_00185ed8(void*, u32, u32, u32);
 extern u32 D_00361810;

@@ -10,26 +10,7 @@ s32 func_002a43b0(W1799E*);
 s32 func_002a9d68();
 extern s32 D_0035f610;
 
-void func_002ab818(void) {
-    W1799E* p = 0;
-    u32 i = 0;
-    s32 bits = func_002a9d68() + 300;
-    for (;;) {
-        do {
-            p = func_001a82b0(p);
-            if (p == 0) return;
-        } while (func_001a80c8(p->id)->type != 22);
-        {
-            s32 r = func_002a43b0(p);
-            u32 w = (i >> 5) * 4;
-            u32 m = 1 << (i & 31);
-            i++;
-            if (__builtin_expect(r == 0, 0)) continue;
-            if (*(u32*)(w + bits) & m) continue;
-            s32 d = D_0035f610 + 300; *(u32*)(d + w) |= m;
-        }
-    }
-}
+void func_002ab818(void);  // 0x002ab818: definition moved into src/anon/unit_002a99c8.cpp
 
 // ---- func_002d94b8 ----
 s32 w1799_IsExec(void) asm("_ZN2YS5EVENT6IsExecEv");

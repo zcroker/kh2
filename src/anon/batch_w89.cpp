@@ -484,24 +484,7 @@ extern Bits148* D_0035f610;
 Bits148* func_002a9d68(void);
 Tbl* func_00294000(s32);
 s32 func_002aad58(s32);
-s32 func_002aaf40(s32 id) {
-    s32 r = 1;
-    Bits148* g = func_002a9d68();
-    Tbl* t = func_00294000(8);
-    Ent16* e = (Ent16*)(t + 1);
-    if (id < 0) r = func_002aad58(-1);
-    else {
-        s32 n = t->count;
-        for (u32 i = 0; (s32)i < n; i++, e++) {
-            if (e->id != id) continue;
-            if (BitTest(D_0035f610->bits, i)) {
-                r = BitTest(g->bits, i);
-                if (!r) break;
-            }
-        }
-    }
-    return r;
-}
+s32 func_002aaf40(s32 id);  // 0x002aaf40: definition moved into src/anon/unit_002a99c8.cpp
 }
 }
 

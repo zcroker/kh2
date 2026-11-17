@@ -431,23 +431,7 @@ void func_0029aa30(void) {
 }
 
 // Tests flag n, or whether any of the 96 flags is set when n is negative.
-s32 func_002ab100(s32 n) {  // test_bit_global_c
-    if (n < 0) {
-        u32* bits = (u32*)(D_0035f610 + 136);
-        s32 r;
-        s32 i = 0;
-        do {
-            r = (bits[(u32)i >> 5] & (1 << (i & 31))) != 0;
-            i++;
-            if (r) break;
-        } while (i < 96);
-        return r;
-    }
-    u8* b = D_0035f610;
-    u32 o = ((u32)n >> 5) * 4;
-    b += o;
-    return (*(u32*)(b + 136) & (1 << (n & 31))) != 0;
-}
+s32 func_002ab100(s32 n);  // 0x002ab100: definition moved into src/anon/unit_002a99c8.cpp
 
 void func_002c5900(u8* p);  // 0x002c5900: definition moved into src/anon/unit_002c53c8.cpp
 

@@ -544,39 +544,12 @@ static inline bool tbit91(u32* a, u32 i) { return (a[i >> 5] & (1 << (i & 31))) 
 extern u8* D_0035f610;
 u8* func_001a82b0(u8*);
 s32 func_002764b0(u8);
-u32 func_002ab540(s32 who) {
-    u8* p = 0;
-    u32 r = 0;
-    for (u32 i = 0;; i++) {
-        p = func_001a82b0(p);
-        if (!p) break;
-        if (p[4]) continue;
-        u16 t = *(u16*)(p + 8);
-        if (t == 0 || t == 2048) continue;
-        s32 v = func_002764b0(p[5]);
-        if (who >= 0 && v != who) continue;
-        if (tbit91((u32*)(D_0035f610 + 236), i)) { r = 1; break; }
-    }
-    return r;
-}
+u32 func_002ab540(s32 who);  // 0x002ab540: definition moved into src/anon/unit_002a99c8.cpp
 
 // --- 002ac800
 u8* func_002a9d68(void);
 u8* func_001d9e30(u8*);  // record_range_check_or_first
-u32 func_002ac800(s32 who) {
-    u8* p = 0;
-    u32 r = 1;
-    u8* x = func_002a9d68();
-    for (;;) {
-        p = func_001d9e30(p);  // record_range_check_or_first
-        if (!p) break;
-        if (who >= 0 && func_002764b0(p[4]) != who) continue;
-        if (!tbit91((u32*)(D_0035f610 + p[0] * 8 + 404), p[1])) continue;
-        r = tbit91((u32*)(x + p[0] * 8 + 404), p[1]);
-        if (!r) break;
-    }
-    return r;
-}
+u32 func_002ac800(s32 who);  // 0x002ac800: definition moved into src/anon/unit_002a99c8.cpp
 
 // --- 002ba630
 extern u8 D_01e2a410[];

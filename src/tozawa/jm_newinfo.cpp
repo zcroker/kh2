@@ -18,32 +18,10 @@ extern "C" void func_002abe28(...);
 extern "C" void func_002ac2e8(...);
 extern u32 D_0035f610 asm("D_0035f610");
 
-void JmNewInfo::Exit() {
-    u32 r15 = D_0035f610;
-    if (r15 != 0u) {
-        func_00106420(r15);
-        D_0035f610 = 0u;
-    }
-}
+// 0x002a9d30: definition moved into src/anon/unit_002a99c8.cpp
 
-void JmNewInfo::CheckAll() {
-    func_002a9df0();
-    func_002aa220();
-    func_002aa4a8();
-    func_002aa960();
-    func_002aabe8();
-    func_002ab020();
-    func_002ab448();
-    func_002ab818();
-    func_002abba8();
-    func_002abe28();
-    func_002ac2e8();
-}
+// 0x002a9d88: definition moved into src/anon/unit_002a99c8.cpp
 
-u32 JmNewInfo::GetSram() {
-    u32 r2 = getSaveRam();
-    r2 = (u32)((s32)r2 + 19512);
-    return r2;
-}
+// 0x002a9d68: definition moved into src/anon/unit_002a99c8.cpp
 
 }  // namespace Tz

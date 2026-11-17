@@ -82,9 +82,7 @@ static inline __attribute__((always_inline)) s32 h_002ae908(s32 x) {
     }
     return 1;
 }
-s32 func_002ae908(s32 x) {
-    return h_002ae908(x);
-}
+s32 func_002ae908(s32 x);  // 0x002ae908: definition moved into src/anon/unit_002a99c8.cpp
 s32 func_0019c090(A19*, B19*);
 s32 func_001917c0(void);
 static inline __attribute__((always_inline)) bool anyf_0019c218(s32 f) {

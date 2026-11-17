@@ -33,43 +33,6 @@ static inline void SY(u8 a, u8 b) { D_0035f620->y[a].Set(b); }
 extern "C" {
 // Rebuilds the seen/collected bit tables and their counters (D_0035f628 total, D_0035f62c set).
 // The unused i++ in the second loop gives it one latch, which matches the original block frequencies.
-void func_002ae320(void) {
-    Ent* e = 0;
-    s32 i = 0;
-    Tbl* t = func_00294000(9);
-    Rec* r = t->r;
-    Flags* f = func_002a9d68();
-    while (i < 10) {
-        Bits* b = &D_0035f624[i];
-        b->w[0] = 0;
-        b->w[1] = 0;
-        i++;
-    }
-    for (;; i++) {
-        e = func_001d9e30(e);
-        if (e == 0) break;
-        if (!T1(e->a, e->b)) D_0035f628++;
-        S1(e->a, e->b);
-        if (func_001d9d48(e)) {
-            D_0035f620->x[e->a].Set(e->b);
-            if (!TY(e->a, e->b)) D_0035f62c++;
-            SY(e->a, e->b);
-        }
-    }
-    for (i = 0; i < t->n; i++, r++) {
-        s32 n = func_002b3ac8((s8)(r->b & 15));
-        D_0035f628 += n;
-        for (s32 j = 0; j < n; j++) {
-            if (D_0035f620->x[i].Test(j)) D_0035f62c++;
-        }
-    }
-    for (i = 0; i < t->n; i++) {
-        D_0035f628++;
-        if (f->hb.Test(i)) {
-            D_0035f620->hb.Set(i);
-            D_0035f62c++;
-        }
-    }
-}
+void func_002ae320(void);  // 0x002ae320: definition moved into src/anon/unit_002a99c8.cpp
 }
 }

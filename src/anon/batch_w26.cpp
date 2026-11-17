@@ -272,11 +272,7 @@ void func_00294550(void) {
 }
 
 // Sets bit i in the save-data bit array.
-void func_002aa450(u32 i) {
-    u32* bits = (u32*)(jm_get_sram(i) + 316);
-    u32 bit = 1 << (i & 31);
-    if (!(bits[i >> 5] & bit)) bits[i >> 5] |= bit;
-}
+void func_002aa450(u32 i);  // 0x002aa450: definition moved into src/anon/unit_002a99c8.cpp
 
 s32 func_002bbd58(u8* o);  // 0x002bbd58: definition moved into src/anon/unit_002bb8b0.cpp
 

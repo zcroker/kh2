@@ -320,28 +320,11 @@ void func_00290438(u8* p) {
 u8* func_002a9d68(u32, u32);
 u32 func_002aa5b8(u32, u32);
 // Sets bit `bit` in row a of the bitmap at +68.
-void func_002aa8e0(s32 a, u32 b) {
-    u32* base = (u32*)func_002a9d68(a, b);
-    u32 bit = func_002aa5b8(a, b);
-    u32* row = &base[a + 17];
-    u32 m = 1 << (bit & 31);
-    if (!(row[bit >> 5] & m)) row[bit >> 5] |= m;
-}
+void func_002aa8e0(s32 a, u32 b);  // 0x002aa8e0: definition moved into src/anon/unit_002a99c8.cpp
 
 extern u8* D_0035f620;
 // True when flags 0..12 are all set.
-u32 func_002ad338(void) {
-    u32* bits = (u32*)(D_0035f620 + 316);
-    s32 i;
-    u32 r = 1;
-    for (i = 0; i < 13; i++) {
-        if (!(bits[(u32)i >> 5] & (1 << (i & 31)))) {
-            r = 0;
-            break;
-        }
-    }
-    return r;
-}
+u32 func_002ad338(void);  // 0x002ad338: definition moved into src/anon/unit_002a99c8.cpp
 
 extern u8* D_0035f680[4];
 u32 func_002b56e8(void) {

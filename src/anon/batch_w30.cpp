@@ -228,11 +228,7 @@ void func_00258ce8(u16* a) {
 }
 
 // Sets bit n in the bitmap returned by func_002a9d68.
-void func_002aa048(u32 n) {
-    u32* b = func_002a9d68();
-    u32 bit = 1 << (n & 31);
-    if (!(b[n >> 5] & bit)) b[n >> 5] |= bit;
-}
+void func_002aa048(u32 n);  // 0x002aa048: definition moved into src/anon/unit_002a99c8.cpp
 
 void func_002b9e80(void) {
     func_002b7fbc(0);

@@ -27,12 +27,7 @@ void func_002a82f8(void) {
     }
 }
 
-void func_002a9570(void) {
-    if (func_00289310()) {
-        func_002a98a8();
-        func_002a95a8();
-    }
-}
+void func_002a9570(void);  // 0x002a9570: definition moved into src/anon/unit_002a92a0.cpp
 
 void func_0029edf8(void) {  // release_global_obj
     if (D_0035f5d0) {

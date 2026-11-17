@@ -504,26 +504,7 @@ extern u8* D_0035f610;
 extern u8* D_0035f620;
 u8* func_001a82b0(u8*);
 s32 func_002764b0(u8);
-bool func_002adaf0(s32 who)
-{
-    u8* e = 0;
-    u32 idx = 0;
-    bool r = true;
-    for (;;) {
-        e = func_001a82b0(e);
-        if (!e) break;
-        if (e[4] == 0) {
-            u16 k = *(u16*)(e + 8);
-            if (k != 0 && k != 2048) {
-                if (who < 0 || func_002764b0(e[5]) == who) {
-                    if (!TestBit((u32*)(D_0035f620 + 236), idx)) { r = false; break; }
-                }
-            }
-        }
-        idx++;
-    }
-    return r;
-}
+bool func_002adaf0(s32 who);  // 0x002adaf0: definition moved into src/anon/unit_002a99c8.cpp
 void func_002edf28(u8*);  // obj_ctor_3637e0
 u8* func_001050d8(u32);
 void func_001ad0f8(u8*, u32, s32);
@@ -614,36 +595,7 @@ void func_001e8ac8(u8* o)
 }
 
 u8* func_001a80c8(u16);  // table24_find_by_id
-bool func_002ab8e8(s32 who)
-{
-    u8* e = 0;
-    u32 idx = 0;
-    bool r = false;
-    for (;;) {
-        e = func_001a82b0(e);
-        if (!e) break;
-        if (func_001a80c8(*(u16*)(e + 2))[2] != 22) continue;
-        if (who >= 0 && func_002764b0(e[5]) != who) { idx++; continue; }
-        if (TestBit((u32*)(D_0035f610 + 300), idx)) { r = true; break; }
-        idx++;
-    }
-    return r;
-}
+bool func_002ab8e8(s32 who);  // 0x002ab8e8: definition moved into src/anon/unit_002a99c8.cpp
 u8* func_002a9d68(s32);
-bool func_002aaab8(s32 id)
-{
-    u8* a = func_002a9d68(id);
-    bool r = true;
-    if (id < 0) {
-        for (s32 i = 0; i < 32; i++) {
-            if (TestBit((u32*)(D_0035f610 + 132), i)) {
-                r = TestBit((u32*)(a + 132), i);
-                if (!r) break;
-            }
-        }
-    } else {
-        r = TestBit((u32*)(D_0035f610 + 132), id) && TestBit((u32*)(a + 132), id);
-    }
-    return r;
-}
+bool func_002aaab8(s32 id);  // 0x002aaab8: definition moved into src/anon/unit_002a99c8.cpp
 }

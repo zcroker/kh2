@@ -232,16 +232,7 @@ s32 func_002a00f0(void) {
 
 // 1 if bit a (or every bit 0..3 when a < 0) is set in the mask at +320.
 extern u8* D_0035f620;
-s32 func_002adf60(s32 a) {
-    s32 r = 1;
-    u32* bits = (u32*)(D_0035f620 + 320);
-    for (s32 i = 0; i < 4; i++) {
-        if (a < 0 || a == i) {
-            if (!(bits[(u32)i >> 5] & (1 << (i & 31)))) { r = 0; break; }
-        }
-    }
-    return r;
-}
+s32 func_002adf60(s32 a);  // 0x002adf60: definition moved into src/anon/unit_002a99c8.cpp
 
 void func_002bb100(u8*, s32, s32);  // next_global_id
 void func_002bb5a8(u8*, u32);

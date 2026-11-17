@@ -40,25 +40,5 @@ JmData_2ae0c0* jm_getdata_2ae0c0(int) asm("_ZN2Tz6JmInfo7GetDataEi");
 u32 func_002abf40(int, int);
 struct Flags_2ae0c0 { u8 pad[0xac]; u32 bits[1]; };
 extern Flags_2ae0c0* D_0035f620;
-int func_002ae0c0(int id)
-{
-    int r = 1;
-    JmData_2ae0c0* d = jm_getdata_2ae0c0(1);
-    JmEnt_2ae0c0* e = d->e;
-    int found = 0;
-    int i = 0;
-    for (i = 0; i < d->n; i++) {
-        if (id != e[i].id || i + 1 >= d->n) {
-            if (found || i + 1 >= d->n) {
-            u32 k = func_002abf40(id, i - (i + 1 < d->n));
-            u32* b = ((Flags_2ae0c0*)((u32*)D_0035f620 + id))->bits;
-                r = (b[k >> 5] & (1 << (k & 31))) != 0;
-                break;
-            }
-        } else {
-            found = 1;
-        }
-    }
-    return r;
-}
+int func_002ae0c0(int id);  // 0x002ae0c0: definition moved into src/anon/unit_002a99c8.cpp
 }

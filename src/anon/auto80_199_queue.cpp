@@ -6232,20 +6232,7 @@ L_done:
 }
 
 
-u32 func_002aecf0(u32 a0) {
-    u32 s0 = a0 & 0xff;
-    u32 v0 = func_00287bc0();
-
-    if ((u32)(v0 - 27) < 4 || v0 == 33 || v0 == 32 || v0 == 31) {
-        if (s0 != 0) {
-            func_002b2840();
-        }
-        func_00274ac8();
-        return func_002b20b8();
-    }
-
-    return v0;
-}
+u32 func_002aecf0(u32 a0);  // 0x002aecf0: definition moved into src/anon/unit_002aeba0.cpp
 
 s32 func_002b2380(s32 a0, s32 a1) {
     u32* p = func_002b23e0(-1);  // list_entry_by_index_checked

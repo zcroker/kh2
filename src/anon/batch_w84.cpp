@@ -500,25 +500,7 @@ void func_002641c8(Lst* p, u16* list, s32 n, u16 mask) {
 struct E12 { u32 a; s8 k; u8 pad[7]; };
 u8* func_00294000(s32);
 s32 func_00294480(void*);  // record_lookup_success
-s32 func_002ae1b0(s32 a, s32 b) {
-    s32 found = 0;
-    s32 r = 1;
-    b = (a == 0) ? b : 16;
-    u8* t = func_00294000(5);
-    E12* e = (E12*)(t + 16);
-    for (s32 i = 0; i < *(s32*)(t + 8); i++) {
-        if (e[i].k != b) {
-            if (found) break;
-        } else {
-            if (!found) found = 1;
-            if (!func_00294480(&e[i])) {  // record_lookup_success
-                r = 0;
-                break;
-            }
-        }
-    }
-    return r;
-}
+s32 func_002ae1b0(s32 a, s32 b);  // 0x002ae1b0: definition moved into src/anon/unit_002a99c8.cpp
 
 union GP { struct E16* p; u32 u; s16 h; };
 union GS { s16 v; u32 u; };
@@ -713,18 +695,7 @@ W84Ev* func_001db440(u16* p) {
 void wtarget_002e9b58(u32 a0, u32 o, u32 k, u32);  // 002e9b58: moved to src/anon/unit_002e9a00.cpp
 
 // Accumulates two counters and returns their ratio as a percentage.
-s32 wtarget_002ad018(u32, u32, u32, u32) {
-    if (D_0035f620 == 0) func_002acda8();
-    func_002acf48();
-    u32 a, b;
-    b = 0;
-    a = 0;
-    func_002ae280(&a, &b);
-    D_0035f62c += a;
-    D_0035f628 += b;
-    func_002aceb0();
-    return (s32)((f32)D_0035f62c / (f32)D_0035f628 * 100.0f);
-}
+s32 wtarget_002ad018(u32, u32, u32, u32);  // 0x002ad018: definition moved into src/anon/unit_002a99c8.cpp
 
 // Clears 5 slots and marks one at random (avoiding slot n when n >= 0).
 extern u32 D_003638d0;

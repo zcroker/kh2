@@ -196,18 +196,7 @@ struct Ent16 { u16 id; u8 pad[14]; };
 s32 func_002a99c8(Ent16*);
 
 // 002a9b88: is there a matching table-8 entry (id < 0 = any) that accepts?
-s32 func_002a9b88(s32 id)
-{
-    u8* t = func_00294000(8);
-    Ent16* e = (Ent16*)(t + 16);
-    s32 i;
-    for (i = 0; i < *(s32*)(t + 8); i++) {
-        if (id >= 0 && e[i].id != id) continue;
-        if (func_00276c18()) break;
-        if (func_002a99c8(&e[i])) break;
-    }
-    return i < *(s32*)(t + 8);
-}
+s32 func_002a9b88(s32 id);  // 0x002a9b88: definition moved into src/anon/unit_002a99c8.cpp
 
 // Tz::CmSLBase::GetCurrentListItem: release every live item in the 3x4 slot grid
 extern u8* D_0035f690[3][4];
@@ -760,20 +749,7 @@ s32 func_0029a780(s32 a)
 
 u8* func_00294000(s32);
 extern u32* D_0035f610;
-s32 func_002a9e98(s32 id)
-{
-    s32 r = 0;
-    u8* t = func_00294000(3);
-    if (id < 0) {
-        for (u32 i = 0; (s32)i < *(s32*)(t + 8); i++) {
-            r = (D_0035f610[i >> 5] & (1 << (i & 31))) != 0;
-            if (r) break;
-        }
-    } else {
-        r = (D_0035f610[(u32)id >> 5] & (1 << (id & 31))) != 0;
-    }
-    return r;
-}
+s32 func_002a9e98(s32 id);  // 0x002a9e98: definition moved into src/anon/unit_002a99c8.cpp
 
 struct D8 { u32 a, b; };
 extern D8 D_01e2a5e8;
@@ -2726,24 +2702,7 @@ void func_002a75c0(void)
 extern u32* D_0035f610;
 s32 func_002a9e98(s32);
 u8* func_00294000(s32);
-s32 func_002aa098(s32 id)
-{
-    s32 r = 0;
-    if (id < 0) {
-        r = func_002a9e98(-1);
-    } else {
-        u8* t = func_00294000(3);
-        s32 n = *(s32*)(t + 8);
-        u8* e = t + 16;
-        for (s32 i = 0; i < n; i++, e += 36) {
-            if (*(s8*)e == id) {
-                u32 k = *(u16*)(e + 4);
-                if (D_0035f610[k >> 5] & (1 << (k & 31))) { r = 1; break; }
-            }
-        }
-    }
-    return r;
-}
+s32 func_002aa098(s32 id);  // 0x002aa098: definition moved into src/anon/unit_002a99c8.cpp
 }
 
 }
@@ -2886,32 +2845,8 @@ namespace wcx_retry_r2 {
 extern "C" {
 u8* func_00294000(s32);
 extern u8* D_0035f620;
-s32 func_002ad7d0(s32 id)
-{
-    s32 r = 1;
-    u8* t = func_00294000(8);
-    s32 n = *(s32*)(t + 8);
-    u16* e = (u16*)(t + 16);
-    for (u32 i = 0; (s32)i < n; i++, e += 8) {
-        if (id >= 0 && *e != id) continue;
-        u32* bits = (u32*)(D_0035f620 + 148);
-        if (!(bits[i >> 5] & (1 << (i & 31)))) { r = 0; break; }
-    }
-    return r;
-}
-s32 func_002ad950(s32 id)
-{
-    s32 r = 1;
-    u8* t = func_00294000(7);
-    s32 n = *(s32*)(t + 8);
-    u16* e = (u16*)(t + 16);
-    for (u32 i = 0; (s32)i < n; i++, e += 4) {
-        if (id >= 0 && *e != id) continue;
-        u32* bits = (u32*)(D_0035f620 + 136);
-        if (!(bits[i >> 5] & (1 << (i & 31)))) { r = 0; break; }
-    }
-    return r;
-}
+s32 func_002ad7d0(s32 id);  // 0x002ad7d0: definition moved into src/anon/unit_002a99c8.cpp
+s32 func_002ad950(s32 id);  // 0x002ad950: definition moved into src/anon/unit_002a99c8.cpp
 }
 extern "C" {
 extern u8* D_0035f610;

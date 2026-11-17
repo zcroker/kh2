@@ -44,14 +44,7 @@ u8* JmInfo_GetData(s32) asm("_ZN2Tz6JmInfo7GetDataEi");
 W246Score* GetScore(s32) asm("_ZN2YS8MINIGAME8GetScoreEi");
 extern W246Sram* D_0035f610;
 
-void func_002ab020(void) {
-    W246Sram* sram = GetSram();
-    u8* data = JmInfo_GetData(7);
-    for (s32 i = 0; i < *(s32*)(data + 8); i++) {
-        W246Score* sc = GetScore(*(u16*)(data + 22 + i * 8));
-        if (sc->ok() && !sram->bits.test(i)) D_0035f610->bits.set(i);
-    }
-}
+void func_002ab020(void);  // 0x002ab020: definition moved into src/anon/unit_002a99c8.cpp
 }
 
 typedef void (*W246Fn)(u8*);

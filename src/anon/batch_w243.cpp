@@ -6,18 +6,7 @@ w243_L4* func_00294000(s32);
 s32 func_002aa5b8(s32, s32);
 extern u8* D_0035f620;
 
-s32 func_002ad4a8(s32 a) {
-    s32 i; s32 ok = 1;
-    w243_L4* l = func_00294000(2);
-    for (i = 0; i < l->n; i++) {
-        s32 r = func_002aa5b8(a, i);
-        if (r >= 0) {
-            u32* q = (u32*)(D_0035f620 + (a << 2)) + 17;
-            if (!(q[(u32)r >> 5] & (1 << (r & 31)))) { ok = 0; break; }
-        }
-    }
-    return ok;
-}
+s32 func_002ad4a8(s32 a);  // 0x002ad4a8: definition moved into src/anon/unit_002a99c8.cpp
 
 struct w243_T { u8 pad[4]; u8 kind; };
 struct w243_B { u8 pad[0x3b0]; u32 idx; };

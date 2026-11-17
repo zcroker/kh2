@@ -118,22 +118,6 @@ static inline void bs(u16* b, s32 i) {
     if (!bt(b, i)) b[(u32)i >> 4] |= 1 << (i & 15);
 }
 
-s32 func_002ae768(s32 a0) {
-    s32 ret = 1;
-    G* p = func_002a9d68();
-    T9* t = func_00294000(9);
-    s32 i;
-    for (i = 0; i < t->n.n; i++) {
-        if (bt(p->bits, i)) bs(D_0035f620.p->bits, i);
-    }
-    for (i = 0; i < t->n.n; i++) {
-        if (a0 >= 0 && a0 != i) continue;
-        if (!bt(D_0035f620.p->bits, i)) {
-            ret = 0;
-            break;
-        }
-    }
-    return ret;
-}
+s32 func_002ae768(s32 a0);  // 0x002ae768: definition moved into src/anon/unit_002a99c8.cpp
 
 }

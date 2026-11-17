@@ -534,22 +534,7 @@ extern s32 D_0035f628;
 extern s32 D_0035f62c;
 extern u8* D_0035f620;
 // counts unlocked entries and marks the ones that pass in the bitmask
-void func_002ad9f8(void) {
-    Ev2ad* p = 0;
-    u32 idx = 0;
-    for (;;) {
-        p = func_001a82b0(p);
-        if (!p) break;
-        if (!p->done && p->id && p->id != 2048 && func_00181500(p->id)) {
-            D_0035f628++;
-            if (func_002a4390(p)) {
-                { u32 o = (idx >> 5) * 4; u32 m = 1 << (idx & 31); u8* b = D_0035f620 + 236; *(u32*)(b + o) |= m; }
-                D_0035f62c++;
-            }
-        }
-        idx++;
-    }
-}
+void func_002ad9f8(void);  // 0x002ad9f8: definition moved into src/anon/unit_002a99c8.cpp
 s32 func_002d5578(u8*);  // is_field340_eq151
 void func_00178d28(u8*);
 void func_0017f488(u8*, s32, f32, f32);

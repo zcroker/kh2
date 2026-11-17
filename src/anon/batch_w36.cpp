@@ -335,15 +335,7 @@ s32 func_002812e0(void) {
     return r;
 }
 
-void func_002abdc8(void) {
-    u32* bits = (u32*)((u8*)func_002a9d68() + 320);
-    s32 i;
-    for (i = 0; i < 4; i++) {
-        u32* w = (u32*)(((u32)i >> 5) * 4 + (u32)bits);
-        u32 m = 1 << (i & 31);
-        if (!(*w & m)) *w |= m;
-    }
-}
+void func_002abdc8(void);  // 0x002abdc8: definition moved into src/anon/unit_002a99c8.cpp
 
 // The empty-destructor local keeps the final call from becoming a tail call.
 struct NoTail { ~NoTail() {} };

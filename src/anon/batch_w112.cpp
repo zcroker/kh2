@@ -363,48 +363,7 @@ void func_0014ca80(u32, s32*, s32*, s32*, s32*);
 }
 extern "C" {
 // Evaluates an entry's unlock condition: 0 = locked, 1 = available, 2 = cleared, 3 = forced.
-s32 func_002a99c8(LRec* r) {
-    s32 st = 0;
-    if (r->flags & 1) {
-        if (func_00181500(r->h8)) st = 1;
-    } else st = func_001a6d08(r->h8) != 0;
-    if (st) {
-        if (r->flags & 4) st = func_001d56c8(r->h10)->type != 0;
-    }
-    if (!st) return func_00276c18() ? 3 : st;
-    {
-        {
-            u16 f = r->flags;
-            if (f & 0x10) {
-                if (func_00181500(r->h14)) st = 2;
-            } else if (f & 0x20) {
-                if (func_001a6d08(r->h14)) st = 2;
-            } else {
-                Info* x = func_001d56c8(r->h10);
-                if (r->flags & 0x1000) {
-                    if (x->type) st = 2;
-                } else if (r->flags & 0x2000) {
-                    if (x->type >= 2) st = 2;
-                } else if (x->type >= 2) {
-                    u32 v;
-                    if (x->type != 4) v = x->value;
-                    else {
-                        s32 h, m, s, fr;
-                        func_0014ca80(x->value, &h, &m, &s, &fr);
-                        v = h * 3600 + m * 60 + s;
-                        if (fr != 0) v++;
-                    }
-                    if (r->flags & 0x100) {
-                        if (!(r->h12 < v)) st = 2;
-                    } else if (r->flags & 0x200) {
-                        if (!(v < r->h12)) st = 2;
-                    }
-                }
-            }
-        }
-    }
-    return st;
-}
+s32 func_002a99c8(LRec* r);  // 0x002a99c8: definition moved into src/anon/unit_002a99c8.cpp
 }
 }
 

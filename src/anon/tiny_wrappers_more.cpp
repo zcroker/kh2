@@ -1003,9 +1003,7 @@ u32 func_002a8748(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_00276c50(0x000048f7u, 0x00000000u, a2, a3);
 }
 
-u32 func_002a9888(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_00276c50(0x000048f6u, 0x00000000u, a2, a3);
-}
+u32 func_002a9888(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002a9888: definition moved into src/anon/unit_002a92a0.cpp
 
 u32 func_002ba188(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_002b6c44(a0, a1, a2, 0x00000000u);
