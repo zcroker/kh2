@@ -349,29 +349,7 @@ void func_00201bb0(u8* p, f32* v1, f32* v2);  // 0x00201bb0: definition moved in
 // ---- 00202c20
 namespace n00202c20 {
 extern "C" {
-void func_00202c20(u8* p, s32* x, s32* w, s32* y, s32* h)
-{
-    s32 x0 = 0;
-    s32 ww = 4096;
-    s32 hh = 4096;
-    switch (p[16]) {
-    case 1: ww = 2048; break;
-    case 2: ww = 1024; break;
-    }
-    switch (p[17]) {
-    case 1: hh = 2048; break;
-    case 2: hh = 1024; break;
-    }
-    switch (p[18]) {
-    case 1: x0 = 1024; ww += 1024; break;
-    case 2: x0 = 2048; ww += 2048; break;
-    case 3: x0 = 3072; ww += 3072; break;
-    }
-    *x = x0 + 16;
-    *w = ww - 16;
-    *y = 16;
-    *h = hh - 16;
-}
+void func_00202c20(u8* p, s32* x, s32* w, s32* y, s32* h);  // 0x00202c20: definition moved into src/anon/unit_002029a0.cpp
 }
 }
 

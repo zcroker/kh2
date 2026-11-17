@@ -125,8 +125,4 @@ void func_001f1248(void* in, s32 n, void* out);  // 0x001f1248: definition moved
 
 void func_00201978(void* in, s32 n, void* out);  // 0x00201978: definition moved into src/anon/unit_00200578.cpp
 
-void func_002029e8(void* in, s32 n, void* out)
-{
-    u128 work[128];
-    SPLINE_SOLVE(in, n, out, D_003590e0, work);
-}
+void func_002029e8(void* in, s32 n, void* out);  // 0x002029e8: definition moved into src/anon/unit_002029a0.cpp

@@ -175,3 +175,6 @@ void func_00202ce0(TrObj* obj, u8* prm, TrSt* st)
         sceVu0CopyVector((Vq*)D_01d9e6e0, D_00354680);
     }
 }
+
+/* 0x00203400: empty gap function (written for the linked unit) */
+void func_00203400(void) {}

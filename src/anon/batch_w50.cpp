@@ -231,20 +231,7 @@ void func_001d6938(u8* o, u8* p);  // 0x001d6938: definition moved into src/anon
 void func_001d7d68(u8* o, u8* a, u32 b);  // 0x001d7d68: definition moved into src/anon/unit_001d7458.cpp
 
 // Cubic interpolation between key pairs a[i], b[i] at fraction t (VU0).
-void func_00202ba0(Vec4* out, Vec4* a, Vec4* b, f32 t) {
-    s32 i = (s32)t;
-    a += i;
-    b += i;
-    D_003590f0.t = t - (f32)i;
-    asm volatile(".set noreorder\n\t"
-        "lqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 16(%1)\n\tlqc2 $vf3, 0(%2)\n\tlqc2 $vf4, 16(%2)\n\tlqc2 $vf5, 0(%3)\n\t"
-        "vsub.xyzw $vf10, $vf4, $vf3\n\tvmuly.xyzw $vf11, $vf3, $vf5y\n\tvmulx.xyzw $vf12, $vf3, $vf5x\n\t"
-        "vsub.xyzw $vf13, $vf2, $vf1\n\tvmulz.xyzw $vf10, $vf10, $vf5z\n\tvadd.xyzw $vf11, $vf11, $vf4\n\t"
-        "vadd.xyzw $vf10, $vf10, $vf12\n\tvsub.xyzw $vf13, $vf13, $vf11\n\tvmulz.xyzw $vf10, $vf10, $vf5z\n\t"
-        "vadd.xyzw $vf10, $vf10, $vf13\n\tvmulz.xyzw $vf10, $vf10, $vf5z\n\tvadd.xyzw $vf10, $vf10, $vf1\n\t"
-        "sqc2 $vf10, 0(%0)\n\t.set reorder"
-        : : "r"(out), "r"(a), "r"(b), "r"(&D_003590f0) : "memory");
-}
+void func_00202ba0(Vec4* out, Vec4* a, Vec4* b, f32 t);  // 0x00202ba0: definition moved into src/anon/unit_002029a0.cpp
 
 union FU { u32 u; f32 f; };
 // VU0 random float: reseed/step R five times. Hand-written VU0 assembly.
