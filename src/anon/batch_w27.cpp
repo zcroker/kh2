@@ -59,21 +59,10 @@ s32 func_00163268(f32* a, f32* b, f32* out) {  // vec3_distance
 
 void* func_001b9bc8(void*);
 s32 func_0016a070(void*);
-void* func_0016b800(s32 id) {
-    void* p = 0;
-    while ((p = func_001b9bc8(p)) != 0) {
-        if (func_0016a070(p) == id) return p;
-    }
-    return p;
-}
+void* func_0016b800(s32 id);  // 0x0016b800: definition moved into src/anon/unit_00169f98.cpp
 
 void func_0016c5a0(void*, u32);
-void wtarget_0016c640(u32 a, u32, u32, u32) {
-    void* p = 0;
-    while ((p = func_001b9bc8(p)) != 0) {
-        func_0016c5a0(p, a);
-    }
-}
+void wtarget_0016c640(u32 a, u32, u32, u32);  // 0x0016c640: definition moved into src/anon/unit_00169f98.cpp
 
 void func_0016af58(void*, u32);
 extern u32 D_01c5f480[4];

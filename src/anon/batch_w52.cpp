@@ -82,14 +82,7 @@ u32 func_001682b8(void*, u32);
 // 001685f0: moved to src/yasui/libys/file.cpp
 
 void func_0016ace0(u8*);
-void func_0016adc8(u8* p) {
-    *(u32*)(p + 264) |= 0x200000;
-    func_0016ace0(p);
-    if (*(u32*)(p + 1416) & 2) {
-        // zero the 128-bit vector at +2768
-        asm volatile("vsub.xyzw $vf1, $vf0, $vf0\n\tsqc2 $vf1, 0(%0)" : : "r"(p + 2768) : "memory");
-    }
-}
+void func_0016adc8(u8* p);  // 0x0016adc8: definition moved into src/anon/unit_00169f98.cpp
 
 f32 func_0016b0e0(u32, u32, f32*);
 // out = m * v (VU0 matrix * vector)
@@ -98,18 +91,7 @@ f32 func_0016b0e0(u32, u32, f32*);
     "vmulax.xyzw ACC, $vf1, $vf5x\n\tvmadday.xyzw ACC, $vf2, $vf5y\n\tvmaddaz.xyzw ACC, $vf3, $vf5z\n\t" \
     "vmaddw.xyzw $vf5, $vf4, $vf5w\n\tsqc2 $vf5, 0(%2)" : : "r"(m), "r"(v), "r"(out) : "memory")
 
-Vec4* func_0016b478(Vec4* out, f32 s, u32 a, u32 b) {
-    f32 m[16] __attribute__((aligned(16)));
-    Vec4 t;
-    f32 f = func_0016b0e0(a, b, m);
-    out->y = 0.0f;
-    out->z = 0.0f;
-    out->w = 1.0f;
-    out->x = f * s;
-    MULV(m, out, &t);
-    if (out != &t) QCOPY(out, &t);
-    return out;
-}
+Vec4* func_0016b478(Vec4* out, f32 s, u32 a, u32 b);  // 0x0016b478: definition moved into src/anon/unit_00169f98.cpp
 
 extern Vec4 D_01c5f480;
 struct Ref173 {

@@ -303,35 +303,7 @@ static inline void sub_clamp(u8* e, s32 d) {
 
 // 00149cb8: moved to src/harata/libdk/area.cpp
 
-void func_00169210(void) {
-    func_00192290(D_0032bae0[0], 2);
-    func_001ac778();
-    func_001b8348();
-    func_0016c750(func_001050c8());
-    func_001900d0();
-    func_001b9230();
-    func_0017dec0();
-    func_00185d98();
-    func_001aeae0();
-    func_00196a40();
-    func_001a0bc0();
-    func_0018d738();
-    func_001a5f50();
-    func_00199548();
-    func_001a6a10();
-    func_001b14d8();
-    func_0019ec20();
-    func_001b4300();
-    func_00179be8();
-    func_001c8a90();
-    func_001d3b60();
-    func_001d5a48();
-    func_001a3a88();
-    func_001ba718();
-    func_001a5928();
-    func_001b24c0();
-    func_00182b18();
-}
+void func_00169210(void);  // 0x00169210: definition moved into src/anon/unit_00168aa0.cpp
 
 // 00159240: moved to src/anon/unit_00159240.cpp
 

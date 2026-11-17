@@ -95,40 +95,5 @@ s32 W1637_ctarget_0019ba60(W1637Obj2*) asm("_Z16ctarget_0019ba60jjjj");
 W1637Vec* W1637_get_pos(W1637Obj2*) asm("func_0016c028");
 W1637Cam* func_00106a60(s32);
 
-void func_0016a5b0(W1637Obj2* o)
-{
-    if (o->f160 & 0x40) {
-        if (!(o->f108 & 0x1000000)) {
-            if (!W1637_Flag12(o->ent->f8)) o->v020.Zero();
-            o->f108 |= 0x1000000;
-        }
-        o->f108 &= ~0x800000;
-    } else if (W1637_Flag20(o->f160)) {
-        o->f108 |= 0x800000;
-        o->f108 &= ~0x1000000;
-    } else {
-        o->f108 &= ~0x800000;
-        o->f108 &= ~0x1000000;
-    }
-    if (W1637_is_attach(o) && (o->h576 & 1)) {
-        if (!W1637_ctarget_0019ba60(o->f570) || !(o->f570->f160 & 0x8000)) W1637_detach(o);
-    }
-    if (o->f9b0 > 0.0f) {
-        if (!W1637_Flag4(o->f160)) o->f9b0 = 0.0f;
-        else o->f9b0 -= D_00349e10;
-    }
-    o->v010.Zero();
-    if (o->f108 & 0x10) {
-        W1637Vec pos = *W1637_get_pos(o);
-        pos.w = 1.0f;
-        pos = D_003511d0 * pos;
-        pos.w = 1.0f;
-        W1637Mtx inv = *func_00106a60(1);
-        inv.Inverse();
-        pos = inv * pos;
-        o->v560 = pos - *W1637_get_pos(o);
-    } else {
-        o->v560.Zero();
-    }
-}
+void func_0016a5b0(W1637Obj2* o);  // 0x0016a5b0: definition moved into src/anon/unit_00169f98.cpp
 }

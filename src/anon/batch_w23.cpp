@@ -49,14 +49,7 @@ void func_00138c10(void*, s32);
 
 struct E16 { u16 id; u8 pad[14]; };
 struct T168 { u32 pad; s32 n; u32 pad2[2]; E16 e[1]; };
-s32 func_00168aa0(T168* t, u32 id) {
-    s32 c = 0;
-    s32 i;
-    for (i = 0; i < t->n; i++) {
-        if (t->e[i].id == id) c++;
-    }
-    return c;
-}
+s32 func_00168aa0(T168* t, u32 id);  // 0x00168aa0: definition moved into src/anon/unit_00168aa0.cpp
 
 void func_001b0798(void*, void*, s32, f32);
 void func_001727c8(u8** p);  // 0x001727c8: definition moved into src/anon/unit_00171e58.cpp

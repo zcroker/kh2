@@ -31,12 +31,7 @@ void func_00193608(void*);
 u32 func_001024a8(...);
 
 void W1757_set_pos(W1757Obj* self, const W1757Vec& v) asm("_ZN2YS3OBJ7set_posERKN2kn7FVectorE");
-void W1757_set_pos(W1757Obj* self, const W1757Vec& v) {
-    func_001ba028(self);
-    self->pos = v;
-    self->pos.w = 1.0f;
-    func_00193608(self);
-}
+void W1757_set_pos(W1757Obj* self, const W1757Vec& v);  // 0x0016ace0: definition moved into src/anon/unit_00169f98.cpp
 
 // Counts down; when the count runs out, publishes the position (w = 0).
 void func_001733f8(W1757Timer* o);  // 0x001733f8: definition moved into src/anon/unit_00171e58.cpp

@@ -119,28 +119,7 @@ void u_call4_0016a358(u32, u32, u32, u32) asm("_Z16u_call4_0016a358jjjj");
 u32 ctarget_0016f7d0(u32, u32, u32, u32) asm("_Z16ctarget_0016f7d0jjjj");
 }
 
-void u_call4_0016a358(u32 a0, u32, u32, u32)
-{
-    NoTail82 nt;
-    u8* o = (u8*)a0;
-    u32 p;
-    *(u32*)o = (u32)D_0034d850;
-    if (*(u32*)(o + 1164)) func_001a17c8(*(u32*)(o + 1164));
-    if (*(u32*)(o + 2088)) func_001b78b8(*(u32*)(o + 2088));  // to_105110
-    if (*(u32*)(o + 1296)) func_001b78b8(*(u32*)(o + 1296));  // to_105110
-    p = *(u32*)(o + 1288);
-    if (p) {
-        func_002cb708(p);
-        func_00105110(p);
-    }
-    func_001b3098(o + 2048);
-    func_001a9350(o + 1952);
-    func_001a6d68(o + 1280);
-    func_00187b90(o + 768);
-    func_0017eb98(o + 320);
-    func_001ddd88(o + 156);
-    func_001ddd88(o + 128);
-}
+void u_call4_0016a358(u32 a0, u32, u32, u32);  // 0x0016a358: definition moved into src/anon/unit_00169f98.cpp
 
 u32 ctarget_0016f7d0(u32 a0, u32 a1, u32, u32);  // 0x0016f7d0: definition moved into src/anon/unit_0016e8f8.cpp
 

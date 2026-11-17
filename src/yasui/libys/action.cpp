@@ -23,10 +23,6 @@ private:
 };
 
 // Enters action `id`: runs its start() on this object and makes it current.
-void ACTION::Get(ID id) {
-    ActionState* a = (ActionState*)func_0017aab8(id);
-    a->start(this);
-    current = a;
-}
+// 0x0016bd10: definition moved into src/anon/unit_00169f98.cpp
 
 }  // namespace YS

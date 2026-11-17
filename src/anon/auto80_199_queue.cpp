@@ -394,176 +394,27 @@ void func_00161668(u8* a0, f32 a1) {
     }
 }
 
-u32 func_00168f18() {
-    func_00168808(0xFFFFFFFFu);
-    func_001675b0();
-    func_001b13d8();
-    func_0016e8f8();
-    func_00180f28();
-    func_00194a30();
-    func_00196170();
-    func_00196300();
-    func_00199688();
-    func_001aeb80();
-    func_001d53e8();
-    func_001aaa08();
-    func_0019f790();
-    func_00192320();
-    func_001d9d00();
-    return func_001b13f0();
-}
+u32 func_00168f18();  // 0x00168f18: definition moved into src/anon/unit_00168aa0.cpp
 
-void func_00168fd8(u32 a0) {
-    func_00195738();
-    func_001afa50();
-    func_001ba138();  // to_2fd310_block
+void func_00168fd8(u32 a0);  // 0x00168fd8: definition moved into src/anon/unit_00168aa0.cpp
 
-    s32 t5 = 13;
-    if ((s32)a0 == t5) {
-        func_00170a50();
-        return;
-    }
-    if ((s32)D_004f6280 == t5) {
-        func_00170a50();
-    }
-}
+void func_00169f98(u8* a0);  // 0x00169f98: definition moved into src/anon/unit_00169f98.cpp
 
-void func_00169f98(u8* a0) {
-    if ((*(u32*)(a0 + 1416) & 0x20u) == 0) {
-        u32 t2 = func_00168b38(*(u32*)(a0 + 1964), 3, 0);  // entry_array_find_nth
-        D_004f6284 = t2;
-        if (t2 != 0) {
-            u32 t5 = *(u32*)(t2 + 8);
-            if (t5 != 0) {
-                func_0016a158((u32)a0, t5);
-            }
-        }
-    }
+u32 func_0016ad68(u32 a0, u32 a1, f32 f12);  // 0x0016ad68: definition moved into src/anon/unit_00169f98.cpp
 
-    kn::FVector* t6 = (kn::FVector*)(a0 + 2192);
-    kn::FVector* t7 = (kn::FVector*)(a0 + 1344);
-    if (t6 != t7) {
-        *t6 = *t7;
-    }
+f32 func_0016ae58(u8* a0, f32 f12);  // 0x0016ae58: definition moved into src/anon/unit_00169f98.cpp
 
-    u32 t7v = *(u32*)(a0 + 2040);
-    f32 f0 = *(f32*)(a0 + 1372);
-    *(f32*)(a0 + 2204) = f0;
-    *(u32*)(a0 + 2040) = t7v | 0x80u;
-}
+u32 func_0016aef0(u32 a0, u32 a1);  // 0x0016aef0: definition moved into src/anon/unit_00169f98.cpp
 
-u32 func_0016ad68(u32 a0, u32 a1, f32 f12) {
-    f32 f20 = f12;
-    f32 f0 = func_0016afe0(a1);
-    f0 = f0 + f20;
-    ((void(*)(u32, f32))func_0016aeb8)(a0, f0);
-    return func_0016ad38(a0, func_0016c028(a1));
-}
+f32 func_0016b558(u32 a0, u32 a1);  // 0x0016b558: definition moved into src/anon/unit_00169f98.cpp
 
-f32 func_0016ae58(u8* a0, f32 f12) {
-    kn::FVector sp0;
-    kn::FVector* s0 = (kn::FVector*)(a0 + 1360);
-    u8* s1 = a0;
-    f32 f20 = f12;
+void func_0016b5b8(u8* a0);  // 0x0016b5b8: definition moved into src/anon/unit_00169f98.cpp
 
-    func_0019c400((u32)s1);
-    func_0017d0e8(&sp0, f20);
-    if (s0 != &sp0) {
-        *s0 = sp0;
-    }
+u32 func_0016bba8(u8* a0, u32 a1, u32 a2);  // 0x0016bba8: definition moved into src/anon/unit_00169f98.cpp
 
-    return *(f32*)(s1 + 1372);
-}
+u32 func_0016bc98(u8* a0, u32 a1, u32 a2);  // 0x0016bc98: definition moved into src/anon/unit_00169f98.cpp
 
-u32 func_0016aef0(u32 a0, u32 a1) {
-    if (func_0019c400(a0) != 0) {
-        return func_0016b070(a0, a1);
-    }
-
-    f32 f0 = func_002f8ad0(*(f32*)(a1 + 0), *(f32*)(a1 + 8));
-    return ((u32(*)(u32, f32))func_0016aeb8)(a0, f0);
-}
-
-f32 func_0016b558(u32 a0, u32 a1) {
-    u32 s2 = a1;
-    u32 s1 = a0;
-    u8* s0 = func_0016bc20(a0, 15, 0xFFFFFFFFu);
-    func_0016b0e0(s1, *(u16*)(s0 + 6), s2);
-    return (f32)*(s16*)(s0 + 8);
-}
-
-void func_0016b5b8(u8* a0) {
-    u32 t6 = *(u32*)(a0 + 264);
-    if ((t6 & 0x10000000u) == 0) {
-        u32 t7 = *(u32*)(a0 + 1156);
-        if (t7 != 0) {
-            func_00188738(a0 + 768);
-            func_0016ce90(*(u32*)(a0 + 1156));
-        }
-
-        func_00180ce0(a0 + 320);
-
-        u32 t6p = *(u32*)(a0 + 8);
-        u32 t7v = *(u8*)(t6p + 84);
-        func_001826c8((f32)(-(s32)t7v));
-        t6 = *(u32*)(a0 + 264);
-    }
-
-    *(u32*)(a0 + 264) = t6 | 0x10000000u;
-}
-
-u32 func_0016bba8(u8* a0, u32 a1, u32 a2) {
-    u32 s0 = a2;
-    u8* s1 = a0;
-    u32 s2 = a1;
-    u32 v0;
-
-    if (*(u32*)(s1 + 2264) == 0) {
-        return 0;
-    }
-
-loop:
-    s0 = func_0018a100(*(u32*)(s1 + 2264), s2, s0);
-    if (s0 == 0) {
-        goto done;
-    }
-
-    v0 = func_0019bd08((u32)s1, *(u8*)s0);
-    if (v0 == 0) {
-        goto loop;
-    }
-done:
-    return s0;
-}
-
-u32 func_0016bc98(u8* a0, u32 a1, u32 a2) {
-    u32 s0 = a2;
-    u8* s1 = a0;
-    u32 s2 = a1;
-    u32 v0;
-
-    if (*(u32*)(s1 + 2264) == 0) {
-        return 0;
-    }
-
-loop:
-    s0 = func_0018a1b8(*(u32*)(s1 + 2264), s2, s0);  // find_byte1_entry
-    if (s0 != 0) {
-        v0 = func_0019bd08((u32)s1, *(u8*)s0);
-        if (v0 == 0) {
-            goto loop;
-        }
-    }
-    return s0;
-}
-
-u32 func_0016bda8(u32 a0, u32 a1) {
-    u8 sp0[32];
-    func_00190128(sp0);
-    func_00190878(sp0, a1, 0);
-    func_00190388(a0, sp0);  // vec4_from_arg
-    return a0;
-}
+u32 func_0016bda8(u32 a0, u32 a1);  // 0x0016bda8: definition moved into src/anon/unit_00169f98.cpp
 
 // 0016cce8: moved to src/anon/unit_0016c770.cpp
 

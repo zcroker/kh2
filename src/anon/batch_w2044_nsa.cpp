@@ -57,30 +57,7 @@ static inline bool isB(W2044Obj* o) { return isC(o) || t352c(o); }
 static inline bool qbit(W2044Obj* o) { return o->q->bit; }
 static inline bool notB(W2044Obj* o) { return !isB(o); }
 
-void func_0016a9b8(W2044Obj* o) {
-  if (!tp2(o->p) || tp20(o->p)) {
-    if (func_001c0cd8(o) == 0 && isA(o) && notB(o)) {
-      asm volatile("vsub.xyzw $vf1,$vf0,$vf0\n\tsqc2 $vf1,0(%0)" :: "r"(&o->v496) : "memory");
-      o->f264 &= ~0x4000000;
-      W2044P* p = o->p;
-      p->vt->f16(p, o);
-      if (!(o->f264 & 0x4000000)) o->vt->f44(o);
-      o->f220.i = 0;
-      o->f212 = 0;
-      f32 y = o->v2144.y;
-      f32 t = (o->f220.f < y) ? y / 0.40816324949264526f : o->f220.f;
-      o->f208 = t;
-      o->f216 = o->f1348 - t * 0.40816324949264526f * t * 0.5f;
-      o->v32 = o->v2144;
-    }
-  }
-  W2044P* p = o->p;
-  p->vt->f24(p, o);
-  if (func_0019c400(o) == 0) func_0016ae58(o, func_0017ce80(o->f1372, o->f1644, o->f284 * D_00349e10));
-  if (o->p1288) func_002ccf98(o->p1288, o);
-  func_001b04d8(o->sub1184);
-  if (qbit(o)) func_00194318(o);
-}
+void func_0016a9b8(W2044Obj* o);  // 0x0016a9b8: definition moved into src/anon/unit_00169f98.cpp
 }
 
 // 002e4af8: lq/sq copy, VU0 vector subtract and length as inline asm.

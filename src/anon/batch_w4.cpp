@@ -80,11 +80,7 @@ void func_001623b0(void) {
     func_00102688(*(u32*)((u8*)func_00102c80() + 4), 5, 5);
 }
 
-void func_0016c750(u32 a) {  // list_init_global
-    D_004f6288 = a;
-    D_004f6290.b = 0;
-    D_004f6290.a = 0;
-}
+void func_0016c750(u32 a);  // 0x0016c750: definition moved into src/anon/unit_00169f98.cpp
 
 struct Obj00174168 {
     u32 x;

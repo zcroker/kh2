@@ -44,7 +44,7 @@ u32 func_00141970(u32 a0,u32 a1,u32 a2,u32 a3);  // 0x00141970: definition moved
 
 u32 func_00143318(u32 a0,u32 a1,u32 a2,u32 a3);  // 0x00143318: definition moved into src/anon/unit_00142c90.cpp
 
-u32 func_0016a090(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a1; (void)a2; (void)a3; u32 p = *(u32*)((u32)a0 + (8)); return *(u8*)((u32)p + (74)); }
+u32 func_0016a090(u32 a0,u32 a1,u32 a2,u32 a3);  // 0x0016a090: definition moved into src/anon/unit_00169f98.cpp
 
 extern "C" u32 func_00177860(u32,u32,u32,u32) asm("_ZN2YS5PARTY11get_abilityEv");
 

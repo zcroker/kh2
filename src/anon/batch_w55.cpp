@@ -227,12 +227,7 @@ static inline void vcall8(u8* o) { (*(void (**)(void*))(*(u8**)o + 8))(o); }
 
 }
 
-void wtarget_0016c5b8(u32 a, u32 b, u32, u32) {
-    u32 i = 0;
-    while ((i = func_001b9bc8(i)) != 0) {
-        if ((1 << func_0016a040(i)) & b) func_0016c568(i, a, 0.0f);
-    }
-}
+void wtarget_0016c5b8(u32 a, u32 b, u32, u32);  // 0x0016c5b8: definition moved into src/anon/unit_00169f98.cpp
 
 extern "C" {
 

@@ -124,12 +124,7 @@ u32 func_0014f068(f32* p);  // 0x0014f068: definition moved into src/anon/unit_0
 
 // 00167658: moved to src/anon/unit_00167358.cpp
 
-Q16* func_0016c508(Q16* out, u8* o) {
-    QCOPY(out, func_0016c028((u32)o));  // obj_get_attach_or_alt
-    u8* f = func_001ce328(*(u16*)(*(u8**)(o + 8) + 0x4e));
-    ((f32*)out)[1] -= *(f32*)(f + 0x30);
-    return out;
-}
+Q16* func_0016c508(Q16* out, u8* o);  // 0x0016c508: definition moved into src/anon/unit_00169f98.cpp
 
 static inline bool cache_header_full(u8* h) { return *(s32*)(h + 0x28) >= 10000; }
 u32 cache_buff_alloc(const char* name, s32 n);  // 0x001708f8: definition moved into src/anon/unit_0016e8f8.cpp

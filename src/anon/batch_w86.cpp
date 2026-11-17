@@ -225,29 +225,7 @@ void func_001dde40(void*);
 void func_0016a2b0(Obj*);  // clear_15_words_at1976
 s32 func_001c0cd8(Obj*);
 void func_001c0e60(Obj*);
-void func_0016b668(Obj* o)
-{
-    void* s;
-    if (!(o->f264 & 0x10000000)) o->vt[8](o);
-    if (o->f1156) {
-        func_00187b90(o->sub768);
-        s = o->f1156;
-        if (s) {
-            func_0016cab8(s);
-            func_0016c7d8(s);
-        }
-        o->f1156 = 0;
-    }
-    if (o->f156) {
-        s = &o->f156;
-        func_001de450(s);
-        func_001dde40(s);
-        func_0016a2b0(o);  // clear_15_words_at1976
-    }
-    if (func_001c0cd8(o)) func_001c0e60(o);
-    o->f264 |= 0x80000;
-    o->f264 &= ~0x10000000;
-}
+void func_0016b668(Obj* o);  // 0x0016b668: definition moved into src/anon/unit_00169f98.cpp
 }
 }
 

@@ -123,13 +123,7 @@ static inline void qcopy(void* d, const void* s) {
 
 // Finds the next entry, optionally with a matching id (-1 = any).
 u8* func_0016bba8(void*, void*, u8*);
-u8* func_0016bc20(void* a, void* b, s32 id) {
-    u8* p = 0;
-    do {
-        p = func_0016bba8(a, b, p);
-    } while (p && id != -1 && *p != id);
-    return p;
-}
+u8* func_0016bc20(void* a, void* b, s32 id);  // 0x0016bc20: definition moved into src/anon/unit_00169f98.cpp
 
 void func_003058a0(s32);
 void func_001707d8(void);

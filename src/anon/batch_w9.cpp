@@ -206,12 +206,6 @@ void func_0031e068(u8* p) {
 }
 }
 
-void wtarget_0016b070(u32 a0, u32 a1, u32, u32) {
-    u8* p = (u8*)a0;
-    u8* d = p + 1360;
-    if (d != (u8*)a1) QCOPY(d, a1);
-    *(f32*)(p + 1372) = *(f32*)(a1 + 4);
-    *(u32*)(p + 2040) |= 8;
-}
+void wtarget_0016b070(u32 a0, u32 a1, u32, u32);  // 0x0016b070: definition moved into src/anon/unit_00169f98.cpp
 
 // 001d3350: moved to src/anon/unit_001d30b0.cpp

@@ -96,34 +96,9 @@ u32 func_0014f2b0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0014f2b0: definition mo
 
 u32 func_0014f2d8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0014f2d8: definition moved into src/anon/unit_0014ecb8.cpp
 
-u32 func_00168fa8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2, r14, r15;
-    r14 = (u32)((s32)0u + (-1));
-    r15 = (u32)(0x004fu << 16);
-    *(u32*)((u32)r15 + (s32)(25216)) = r14;
-    u32 (*fp_call0_00179bc8)() = func_00179bc8;
-    r2 = fp_call0_00179bc8();
-    u32 (*fp_call0_0019ef60)() = func_0019ef60;
-    r2 = fp_call0_0019ef60();
-    return func_001d5a20();
-}
+u32 func_00168fa8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00168fa8: definition moved into src/anon/unit_00168aa0.cpp
 
-u32 func_00169350(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2;
-    u32 (*fp_call0_001b5400)() = func_001b5400;
-    r2 = fp_call0_001b5400();
-    u32 (*fp_call0_001a3b08)() = func_001a3b08;
-    r2 = fp_call0_001a3b08();
-    u32 (*fp_call0_0018d790)() = func_0018d790;
-    r2 = fp_call0_0018d790();
-    u32 (*fp_call0_0016c770)() = func_0016c770;
-    r2 = fp_call0_0016c770();
-    u32 (*fp_call0_00182d80)() = func_00182d80;
-    r2 = fp_call0_00182d80();
-    u32 (*fp_call0_001d3b68)() = func_001d3b68;
-    r2 = fp_call0_001d3b68();
-    return func_001a6ae8();
-}
+u32 func_00169350(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00169350: definition moved into src/anon/unit_00168aa0.cpp
 
 u32 func_00197c90(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00197c90: definition moved into src/anon/unit_00195d00.cpp
 

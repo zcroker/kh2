@@ -102,33 +102,11 @@ u32 func_00147210(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00147210: definition mo
 
 u32 func_0015bc50(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0015bc50: definition moved into src/anon/unit_0015bab8.cpp
 
-u32 func_0016ad38(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u, r15 = 0u, r16 = 0u;
-    r16 = r4;
-    r2 = YS_OBJ_set_pos(r4, r5, r6, r7);
-    r15 = *(u32*)((u32)r16 + (s32)(2040));
-    r15 = (u32)(r15 | 0x1000u);
-    *(u32*)((u32)r16 + (s32)(2040)) = r15;
-    return r2;
-}
+u32 func_0016ad38(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0016ad38: definition moved into src/anon/unit_00169f98.cpp
 
-u32 func_0016b0a0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u, r16 = 0u;
-    r16 = r4;
-    r2 = YS_OBJ_is_xyzrot(r4, r5, r6, r7);
-    r16 = (u32)((s32)r16 + (1360));
-    r2 = r16;
-    return r2;
-}
+u32 func_0016b0a0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0016b0a0: definition moved into src/anon/unit_00169f98.cpp
 
-u32 func_0016b638(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u, r16 = 0u;
-    r16 = r4;
-    r2 = func_0016a950(r4, r5, r6, r7);
-    r2 = *(u32*)((u32)r16 + (s32)(1160));
-    r2 = ((u32)r2 < 0x00000001u);
-    return r2;
-}
+u32 func_0016b638(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0016b638: definition moved into src/anon/unit_00169f98.cpp
 
 u32 func_00170570(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00170570: definition moved into src/anon/unit_0016e8f8.cpp
 

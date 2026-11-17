@@ -63,14 +63,7 @@ void strlen(void*);  // strlen
 // 00168958: moved to src/yasui/libys/file.cpp
 
 // 0016a158: start a script VM for this object and run its entry
-void func_0016a158(u8* self, void* code)
-{
-    u32 vm = vm_start(code, self);
-    *(u32*)(self + 1156) = vm;
-    u32 arg = (u32)self;
-    vm_callback(vm, 0, &arg, 1, 0);
-    vm_call(*(u32*)(self + 1156), 1, 0, 0);
-}
+void func_0016a158(u8* self, void* code);  // 0x0016a158: definition moved into src/anon/unit_00169f98.cpp
 
 // 00170e80: free space between the last allocated block and the next reserved one
 struct Node170 { u8 pad[40]; s32 type; s32 size; s32 addr; u8 pad2[8]; Node170* next; };

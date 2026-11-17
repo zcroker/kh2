@@ -96,15 +96,7 @@ void func_00148638(u32, u8* o, f32 x);  // 0x00148638: definition moved into src
 // 00158450: moved to src/harata/libdk/cameraconfig.cpp
 
 void AreaExit(void) asm("_ZN2YS8AreaExitEv");
-void AreaExit(void) {
-    func_001a5e38();
-    func_001ba740();
-    func_001b24c8();
-    func_001bb468();
-    func_001922c8(2);
-    func_001b83d0();
-    func_00197be8();
-}
+void AreaExit(void);  // 0x00169308: definition moved into src/anon/unit_00168aa0.cpp
 
 // 00177ba0: moved to src/yasui/libys/party.cpp
 

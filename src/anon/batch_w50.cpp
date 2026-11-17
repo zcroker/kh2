@@ -197,15 +197,7 @@ void func_0013f0d0(void);  // 0x0013f0d0: definition moved into src/anon/unit_00
 // 00168388: moved to src/yasui/libys/file.cpp
 
 // YS::OBJ::scatter_prize(int)
-void YS_OBJ_scatter_prize(u8* self, s32 n) {
-    Vec4 c;
-    Vec4 t;
-    Vec4 a(*(Vec4*)(self + 1344));
-    a.y -= *(f32*)(self + 1532);
-    Vec4 b = func_0016bda8(self);
-    if (func_001d35e0(&c, &a, &b, 6)) b = c;
-    func_001a55a8(&b, n);
-}
+void YS_OBJ_scatter_prize(u8* self, s32 n);  // 0x0016be00: definition moved into src/anon/unit_00169f98.cpp
 
 // Scales o->v by o->s into a function-static vector (guard byte + atexit
 // registration of its destructor spelled out) and points o->v at it.

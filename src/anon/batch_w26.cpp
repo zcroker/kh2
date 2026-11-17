@@ -156,13 +156,7 @@ struct EntList { u8 pad[8]; Ent28* ents; u8 pad2[8]; s32 count; };
 void func_00145c68(EntList* l, u8 id);  // 0x00145c68: definition moved into src/anon/unit_00145600.cpp
 
 // Finds the object with the given serial.
-void* func_0016b7a0(void* serial) {
-    void* p = 0;
-    while ((p = ctarget_001b9bc8(p)) != 0) {
-        if (obj_get_serial(p) == serial) return p;
-    }
-    return p;
-}
+void* func_0016b7a0(void* serial);  // 0x0016b7a0: definition moved into src/anon/unit_00169f98.cpp
 
 void func_00170ee8(s32 a, s32 b);  // 0x00170ee8: definition moved into src/anon/unit_0016e8f8.cpp
 

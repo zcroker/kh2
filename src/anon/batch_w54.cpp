@@ -128,19 +128,7 @@ void func_0015bbc8(u8* p, s32 a1);  // 0x0015bbc8: definition moved into src/ano
 s32 func_00177860(void);
 s32 func_001c3618(s32, s32);
 f32* func_001ce300(s32);  // to_1ce2a0_index_minus1
-f32 func_0016c460(u8* p, S32c* out) {
-    f32 r = *(f32*)(p + 280);
-    out->v = 3;
-    if (*(u32*)(p + 1416) & 4) {
-        if (*(u32*)(*(u8**)(p + 12) + 8) & 0x800) return r;
-        s32 k = func_001c3618(func_00177860(), 0);
-        if (k > 0) {
-            r = *func_001ce300(k);  // to_1ce2a0_index_minus1
-            out->v = 201;
-        }
-    }
-    return r;
-}
+f32 func_0016c460(u8* p, S32c* out);  // 0x0016c460: definition moved into src/anon/unit_00169f98.cpp
 
 void* func_0014aba8(void);
 void func_0014aa58(void*, s32, s32);

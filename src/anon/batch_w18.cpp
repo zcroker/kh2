@@ -46,12 +46,7 @@ u8 func_001678f0(void*);
 
 void func_0016adc8(void*, Vec4*);
 void func_0016aeb8(void*, f32);
-void func_0016ae18(u8* p) {
-    Vec4 v;
-    asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(&v), "r"(p + 2192) : "$8", "memory");
-    func_0016adc8(p, &v);
-    func_0016aeb8(p, *(f32*)(p + 2204));
-}
+void func_0016ae18(u8* p);  // 0x0016ae18: definition moved into src/anon/unit_00169f98.cpp
 
 typedef u32 (*VFn3)(void*, u32, void*);
 extern void* D_004f6288;

@@ -52,34 +52,5 @@ QV16b* func_0016c028(Obj16b*);
 }
 // partial asm: register pins and empty ties steer allocation only (closest plain C: 24 lines, regalloc only).
 extern "C" {
-Obj16b* func_0016b8b8(s32 kind0, const QV16b* pos0) {
-    s32 kind = kind0;
-    register const QV16b* pos asm("$17") = pos0;
-    QM16b m;
-    QV16b local;
-    QV16b d;
-    Obj16b* o = 0;
-    Obj16b* best = 0;
-    u8* cam = func_00106a60(1);
-    f32 bestDist = 0.0f;
-    m = *(QM16b*)(cam ? cam + 16 : 0);
-    m.invOrtho(); asm("" : "+r"(pos));
-    register QV16b* q asm("$7") = &local; asm("" : "+r"(q)); m.apply(q, pos); pos = q; asm("" : "+r"(pos));register QV16b* dp asm("$16") = &d; asm("" : "+r"(dp));
-    while ((o = func_001b9bc8(o)) != 0) {
-        if (func_0016a020(o) != kind) continue;
-        if (o->flags & 0x2000) continue;
-        vsub16b(dp, func_0016c028(o), pos);
- f32 len = normalize16b(dp);
-        Obj16b* other = best;
-        if (!best || len < bestDist) {
-            bestDist = len;
-            best = o;
-        } else {
-            other = o;
-        }
-        if (other && (other->flags & 0x1000)) other->flags |= 0x2000;
-    }
-    if (best) best->flags |= 0x1000;
-    return best;
-}
+Obj16b* func_0016b8b8(s32 kind0, const QV16b* pos0);  // 0x0016b8b8: definition moved into src/anon/unit_00169f98.cpp
 }

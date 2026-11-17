@@ -164,31 +164,7 @@ void func_00196b88(void);
 void func_001a8498(void);
 void func_001c8de0(void);
 void func_001ada38(u32);
-void func_00169030(u32 a) {
-    Area169* ar = &D_0032bae0;
-    if (ar->id != D_004f6280) {
-        func_00168808(ar->id);
-        while (func_001688b8()) func_00102448(a, 0);
-        func_00168fd8(ar->id);
-        D_004f6280 = ar->id;
-    }
-    func_0016f7b0();
-    func_00181ad0(ar);
-    while (func_001688b8()) func_00102448(a, 0);
-    func_00170320(-200);
-    func_001c10c8();
-    func_00191758();
-    func_001bb270();
-    func_00198b88();
-    func_001aebf0(ar);
-    func_001947a0();
-    func_001823d0(ar->f4);
-    func_001a89f0();
-    func_00196b88();
-    func_001a8498();
-    func_001c8de0();
-    func_001ada38(11);
-}
+void func_00169030(u32 a);  // 0x00169030: definition moved into src/anon/unit_00168aa0.cpp
 
 // 001840c0: moved to src/anon/unit_00183088.cpp
 

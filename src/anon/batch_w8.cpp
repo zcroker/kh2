@@ -21,10 +21,7 @@ void func_00123d10(void* p);  // 0x00123d10: definition moved into src/anon/unit
 void func_00146680(u8* dst, u8* src);  // 0x00146680: definition moved into src/anon/unit_00145600.cpp
 
 void func_0017d0e8(f32);
-void* func_0016b040(void* r, u8* p) {
-    func_0017d0e8(*(f32*)(p + 1644));
-    return r;
-}
+void* func_0016b040(void* r, u8* p);  // 0x0016b040: definition moved into src/anon/unit_00169f98.cpp
 
 u32 func_0016f770(s32 x);  // 0x0016f770: definition moved into src/anon/unit_0016e8f8.cpp
 

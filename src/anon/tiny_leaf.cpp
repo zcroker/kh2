@@ -51,13 +51,7 @@ void func_00146100(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00146100: definition m
 
 // 0014b258: moved to src/anon/unit_0014b150.cpp
 
-u32 func_0016c008(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u;
-    r5 = (u32)(r5 << 2);
-    r5 = (u32)(r5 + r4);
-    r2 = *(u32*)((u32)r5 + (s32)(2076));
-    return r2;
-}
+u32 func_0016c008(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0016c008: definition moved into src/anon/unit_00169f98.cpp
 
 extern "C" void func_0016c018(u32, u32, u32, u32) asm("_ZN2YS3OBJ12set_unit_argEii");
 

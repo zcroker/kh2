@@ -50,24 +50,13 @@ void func_00166968(u8* p, u8 b, u16 c, u32 d, u16 e, u16 g, s16 h, s16 i);  // 0
 struct E168 { u16 id; u16 pad; s32 val; u32 x, y; };
 struct T168 { u32 f0; s32 count; u32 f8, fc; E168 e[1]; };
 // Counts entries matching (id, val); id -1 matches any id.
-void func_00168ad8(T168* t, s32* out, s32 id, s32 v) {  // scan_entries_to_out
-    *out = 0;
-    for (s32 i = 0; i < t->count; i++) {
-        if ((id == -1 || t->e[i].id == id) && t->e[i].val == v) (*out)++;
-    }
-}
+void func_00168ad8(T168* t, s32* out, s32 id, s32 v);  // 0x00168ad8: definition moved into src/anon/unit_00168aa0.cpp
 
 u8* func_001b9bc8(u8*);
 u32 func_0016a020(u8*);
 s32 obj_count_entry(u32 id) asm("_ZN2YS3OBJ10CountEntryEj");
 // Counts objects whose entry id equals id.
-s32 obj_count_entry(u32 id) {
-    u8* o = 0;
-    s32 n = 0;
-    while ((o = func_001b9bc8(o)) != 0)
-        if (func_0016a020(o) == id) n++;
-    return n;
-}
+s32 obj_count_entry(u32 id);  // 0x0016c6e8: definition moved into src/anon/unit_00169f98.cpp
 
 extern s32 D_01c5f478;
 s32 func_00170d38(s32 x);  // 0x00170d38: definition moved into src/anon/unit_0016e8f8.cpp

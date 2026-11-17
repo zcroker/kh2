@@ -42,25 +42,7 @@ void func_0017eb98(void*);
 void func_001ddd88(void*);
 
 // Destructor body: reset vtable, release owned objects and members.
-void func_0016a420(u8* p) {
-    NoTail nt;
-    *(u32*)p = (u32)D_0034d850;
-    if (*(void**)(p + 1164)) func_001a17c8(*(void**)(p + 1164));
-    if (*(void**)(p + 2088)) func_001b78b8(*(void**)(p + 2088));  // to_105110
-    if (*(void**)(p + 1296)) func_001b78b8(*(void**)(p + 1296));  // to_105110
-    void* s = *(void**)(p + 1288);
-    if (s) {
-        func_002cb708(s);
-        func_00105110(s);
-    }
-    func_001b3098(p + 2048);
-    func_001a9350(p + 1952);
-    func_001a6d68(p + 1280);
-    func_00187b90(p + 768);
-    func_0017eb98(p + 320);
-    func_001ddd88(p + 156);
-    func_001ddd88(p + 128);
-}
+void func_0016a420(u8* p);  // 0x0016a420: definition moved into src/anon/unit_00169f98.cpp
 
 struct Entry600 {
     u8 pad[452];

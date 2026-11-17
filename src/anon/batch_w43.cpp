@@ -156,15 +156,7 @@ void func_00127f40(P3* p) {
     func_0011ed90((u8*)h + h->off, n);
 }
 
-u32 func_0016b740(u32 id) {
-    if (id == 566) return D_0034e948;
-    u32 key = func_0016e920(id);
-    u8* v = 0;
-    while ((v = func_001b9bc8(v)) != 0) {
-        if (*(u32*)(v + 8) == key) break;
-    }
-    return (u32)v;
-}
+u32 func_0016b740(u32 id);  // 0x0016b740: definition moved into src/anon/unit_00169f98.cpp
 
 s32 func_0016f6f8(u32 id);  // 0x0016f6f8: definition moved into src/anon/unit_0016e8f8.cpp
 

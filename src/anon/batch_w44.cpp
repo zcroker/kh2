@@ -140,10 +140,7 @@ extern u8 D_00340eb0;
 s32 func_0015cc80(u8* p);  // 0x0015cc80: definition moved into src/anon/unit_0015cb18.cpp
 
 // Calls virtual slot 13 on every object of the iterator.
-void func_0016bb38(u32 a, u32 b) {
-    void* o = 0;
-    while ((o = func_001b9bc8(o)) != 0) (*(VFn3*)(*(u8**)o + 52))(o, a, b);
-}
+void func_0016bb38(u32 a, u32 b);  // 0x0016bb38: definition moved into src/anon/unit_00169f98.cpp
 
 extern void* D_004f63a8;
 extern void* D_004f63ac;

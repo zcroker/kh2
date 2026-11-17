@@ -412,25 +412,7 @@ void func_0013d550(u32 a, u32 b);  // 0x0013d550: definition moved into src/anon
 // 00159fd0: moved to src/harata/libdk/targetcamera.cpp
 // unlink n from the active list and return it to the pool
 void func_00165768(U0_Link* n);  // 0x00165768: definition moved into src/anon/unit_001656b8.cpp
-void func_0016a1b8(U0_Chr* c, u32 id) {
-    U0_Info* v;
-    c->id = id;
-    v = func_0018a1b8(id, 17, 0);  // find_byte1_entry
-    if (v) {
-        c->f1456.f = c->f1464.f = (f32)v->f16;
-        c->f1460.f = (f32)v->f18;
-        c->f1532.f = (f32)v->f14;
-        c->b1 = v->f4 != 0;
-        c->f2040 |= 1;
-        v = func_0018a1b8(c->id, 17, v);  // find_byte1_entry
-        if (v) {
-            c->f1636 = v;
-            c->f1640 = func_0018a1b8(c->id, 17, v);  // find_byte1_entry
-        }
-    }
-    c->f2088 = func_001b7850(c, c->id, 1);
-    c->f1296 = func_001b7850(c, c->id, 2);
-}
+void func_0016a1b8(U0_Chr* c, u32 id);  // 0x0016a1b8: definition moved into src/anon/unit_00169f98.cpp
 // build a resource path into buf
 char* func_0016f520(U0_Res* r, u32 key, char* buf);  // 0x0016f520: definition moved into src/anon/unit_0016e8f8.cpp
 u32 func_00170b30(u32 size);  // 0x00170b30: definition moved into src/anon/unit_0016e8f8.cpp

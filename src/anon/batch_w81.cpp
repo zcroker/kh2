@@ -130,22 +130,7 @@ void func_001a6d68(u8*);
 void func_00187b90(u8*);
 void func_0017eb98(u8*);
 void func_001ddd88(u8*);
-void func_0016a4e8(u8* o) {
-    *(u8**)o = D_0034d850;
-    if (*(u32*)(o + 1164)) func_001a17c8(*(u32*)(o + 1164));
-    if (*(u32*)(o + 2088)) func_001b78b8(*(u32*)(o + 2088));  // to_105110
-    if (*(u32*)(o + 1296)) func_001b78b8(*(u32*)(o + 1296));  // to_105110
-    u32 p = *(u32*)(o + 1288);
-    if (p) { func_002cb708(p); func_00105110(p); }
-    func_001b3098(o + 2048);
-    func_001a9350(o + 1952);
-    func_001a6d68(o + 1280);
-    func_00187b90(o + 768);
-    func_0017eb98(o + 320);
-    func_001ddd88(o + 156);
-    func_001ddd88(o + 128);
-    func_00105110((u32)o);
-}
+void func_0016a4e8(u8* o);  // 0x0016a4e8: definition moved into src/anon/unit_00169f98.cpp
 
 // --- 001755a4: hand-written assembly in the original (frameless lq/sq memmove
 // in 128-byte blocks, forward or backward depending on overlap).

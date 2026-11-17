@@ -82,15 +82,10 @@ void func_0013b1a0(u32 a0);  // 0x0013b1a0: definition moved into src/anon/unit_
 
 // 001586b8: moved to src/harata/libdk/cannoncamera.cpp
 
-void func_0016a328(u32 a0) {
-    func_001a9350(a0 + 1952);
-    func_0016c358(a0);
-}
+void func_0016a328(u32 a0);  // 0x0016a328: definition moved into src/anon/unit_00169f98.cpp
 
 // Stores f(x, z) of the vector at a1 into +1644 (e.g. a heading angle).
-void func_0016b010(u8* a0, f32* a1) {  // obj_set_float1644_from_pair
-    *(f32*)(a0 + 1644) = func_002f8ad0(a1[0], a1[2]);
-}
+void func_0016b010(u8* a0, f32* a1);  // 0x0016b010: definition moved into src/anon/unit_00169f98.cpp
 
 // trap_obj_hide: virtual slot 17 on the trap object.
 void trap_obj_hide_impl(u32* bd) asm("_ZN2YS13trap_obj_hideEP8BD_VALUE");

@@ -48,15 +48,7 @@ void func_00167728(S384*, s32);
 
 void* func_0016abf8(u32, u32, u32, u32);
 void* func_001dc5f8(void*);
-void* func_0016ac80(u32 a, u32 b, void* src, u32 c, u32 d) {
-    void* r = func_0016abf8(a, b, c, d);
-    if (r) {
-        void* dst = func_001dc5f8(r);
-        if (dst != src)
-            asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(dst), "r"(src) : "$8", "memory");
-    }
-    return r;
-}
+void* func_0016ac80(u32 a, u32 b, void* src, u32 c, u32 d);  // 0x0016ac80: definition moved into src/anon/unit_00169f98.cpp
 
 struct Q16 { u32 w[4]; } __attribute__((aligned(16)));
 extern Q16 D_004f62a0;

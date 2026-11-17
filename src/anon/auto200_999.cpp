@@ -243,28 +243,11 @@ u32 func_00197800();  // 0x00197800: definition moved into src/anon/unit_00195d0
 
 u32 func_001bf140(u32 a0, u32 a1);  // 0x001bf140: definition moved into src/anon/unit_001bc568.cpp
 
-f32 func_0016a0a0(u32 a0) {
-    u32 p = (u32)&D_0036c1a0;
-    asm volatile("" : "+r"(p));
-    f32 ret = *(volatile f32 *)p;
-    asm volatile("" : "+f"(ret));
-    if ((*(u32 *)(a0 + 356) & 2) == 0) {
-        u32 obj = *(u32 *)(a0 + 8);
-        ret = *(f32 *)(obj + 80);
-    }
-    return ret;
-}
+f32 func_0016a0a0(u32 a0);  // 0x0016a0a0: definition moved into src/anon/unit_00169f98.cpp
 
 // 0016ced0: moved to src/anon/unit_0016c770.cpp
 
-void func_0016c568(u32 a0) {
-    register u32 p asm("$14") = a0 + 1304;
-    asm volatile("" : "+r"(p));
-    u32 flags = *(u32 *)(a0 + 2040);
-    if ((flags & 4) == 0) {
-        func_001d79b8(p);
-    }
-}
+void func_0016c568(u32 a0);  // 0x0016c568: definition moved into src/anon/unit_00169f98.cpp
 
 // 0017c400: moved to src/anon/unit_0017c400.cpp
 

@@ -105,22 +105,7 @@ void func_001bfbd8(void);
 void func_00182ab0(void);
 void func_001c8838(s32);
 void func_001bae08(void);
-void func_00169178(void) {
-    func_00192260(D_0032bae0, 1040);
-    func_001b8318();
-    func_001a3a50();
-    if (!(D_0034f240 & 0x80000)) func_001a64c0();
-    func_001a5970();
-    u32 v = D_0034f240;
-    if (v & 0x200) {
-    } else if (v & 0x400) {
-    } else {
-        func_001bfbd8();
-    }
-    func_00182ab0();
-    func_001c8838(1);
-    func_001bae08();
-}
+void func_00169178(void);  // 0x00169178: definition moved into src/anon/unit_00168aa0.cpp
 
 Vq* func_001dc648(u32);
 Vq func_0017d050(u32);
@@ -301,15 +286,7 @@ u32 func_0016bc20(u32, s32, s32);
 Vr func_0016bda8(u32);
 struct Lookup32 { u32 a, b, c, d; Vr v; Lookup32() { d = 0; } };
 void func_0018a818(Lookup32*, u32, u32);
-Vr func_0016c2b0(u32 a) {
-    Lookup32 t;
-    u32 r = func_0016bc20(a, 17, -1);
-    if (r) {
-        func_0018a818(&t, a, r);
-        return t.v;
-    }
-    return func_0016bda8(a);
-}
+Vr func_0016c2b0(u32 a);  // 0x0016c2b0: definition moved into src/anon/unit_00169f98.cpp
 
 // Assertion "pMng"-style failure prints the message and file/line, then breaks.
 extern char D_0036e978[];

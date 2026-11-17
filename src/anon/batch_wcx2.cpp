@@ -4313,41 +4313,7 @@ void func_0013a8b8(u32);
 void func_001dc098(u32);
 void func_00127d40(u32);
 void func_001de750(u32);
-void func_00168be8(Rel168Hdr* h) {
-    s32 i;
-    if (h->base != 0) return;
-    h->base = (u32)h;
-    for (i = 0; i < h->count; i++) {
-        if (h->e[i].size == 0) {
-            h->e[i].ofs = 0;
-            continue;
-        }
-        u32 p = h->base + h->e[i].ofs;
-        h->e[i].ofs = p;
-        if (h->e[i].flags & 1) continue;
-        switch (h->e[i].type) {
-        case 1: case 17: case 20: case 30: case 46:
-            func_00168be8((Rel168Hdr*)p);
-            break;
-        case 4:
-            func_0011f2f0(p);
-            break;
-        case 7:
-            func_00131e80(p);
-            func_0013a8b8(p);
-            break;
-        case 8:
-            func_001dc098(p);
-            break;
-        case 9:
-            func_00127d40(p);
-            break;
-        case 18:
-            func_001de750(p);
-            break;
-        }
-    }
-}
+void func_00168be8(Rel168Hdr* h);  // 0x00168be8: definition moved into src/anon/unit_00168aa0.cpp
 
 // --------------------
 struct Rel168eEnt { u16 type; u16 flags; u32 pad; u32 ofs; u32 size; };
@@ -4356,32 +4322,7 @@ void func_0011f3b8_x8152(u32) asm("func_0011f3b8");
 void func_00131f40(u32);
 void func_00127da0(u32);
 void func_002bc708(u32);
-void func_00168e30(Rel168eHdr* h) {
-    s32 i;
-    h->base = (u32)h;
-    for (i = 0; i < h->count; i++) {
-        if (h->e[i].size == 0) continue;
-        if (h->e[i].flags & 1) continue;
-        u32 p = h->e[i].ofs;
-        switch (h->e[i].type) {
-        case 1: case 17: case 20: case 30: case 46:
-            func_00168e30((Rel168eHdr*)p);
-            break;
-        case 4:
-            func_0011f3b8_x8152(p);
-            break;
-        case 7:
-            func_00131f40(p);
-            break;
-        case 9:
-            func_00127da0(p);
-            break;
-        case 34:
-            func_002bc708(p);
-            break;
-        }
-    }
-}
+void func_00168e30(Rel168eHdr* h);  // 0x00168e30: definition moved into src/anon/unit_00168aa0.cpp
 
 // --------------------
 struct T16c168 { u8 pad[14]; s16 a; s16 b; s16 c; s16 d; s16 e; };
@@ -4390,37 +4331,7 @@ T16c168* func_001aec40();
 s32 func_0016a070_x8187(u8*) asm("func_0016a070");
 void* func_0016c028_x8188(u8*) asm("func_0016c028");
 void func_002bc188(s32, void*);
-void func_0016c168(u8* obj, s32 n) {
-    s32 id = func_001849b8(obj);
-    if (id == 0) return;
-    T16c168* t = func_001aec40();
-    if (t == 0) return;
-    s32 v;
-    switch (func_0016a070_x8187(obj)) {
-    case 1: case 14:
-        v = t->a;
-        break;
-    case 2:
-        v = t->b;
-        break;
-    case 3:
-        v = t->c;
-        break;
-    case 4:
-        v = t->e;
-        break;
-    default:
-        if (func_0016a070_x8187(obj) < 16) v = t->d;
-        else v = t->e;
-        break;
-    }
-    if (n == 4 || n == 0) {
-        n += obj[2044]++ & 3;
-    } else if (n == 13) {
-        n = (obj[2044]++ & 1) + 13;
-    }
-    func_002bc188(v * 1000 + id * 16 + n, func_0016c028_x8188(obj));
-}
+void func_0016c168(u8* obj, s32 n);  // 0x0016c168: definition moved into src/anon/unit_00169f98.cpp
 
 // --------------------
 struct T182280 { u8 pad[72]; s32 a; s32 b; s32 c; u32 flags; };

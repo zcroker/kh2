@@ -537,17 +537,11 @@ u32 func_00167288(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00167288: definition mo
 
 // 00168a80: _GLOBAL__I_ stub, now made by gcc in src/yasui/libys/file.cpp
 
-u32 func_0016a140(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_00180828(((u32)(a0) + 320u), a1, a2, a3);
-}
+u32 func_0016a140(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0016a140: definition moved into src/anon/unit_00169f98.cpp
 
-u32 func_0016a9a0(u32 a0, u32 a1, u32 a2, u32 a3) {  // to_16a950
-    return func_0016a950(a0, a1, a2, a3);
-}
+u32 func_0016a9a0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0016a9a0: definition moved into src/anon/unit_00169f98.cpp
 
-u32 func_0016c5a0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_001d7a08(((u32)(a0) + 1304u), a1, a2, a3);
-}
+u32 func_0016c5a0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0016c5a0: definition moved into src/anon/unit_00169f98.cpp
 
 // 0016cb88: moved to src/anon/unit_0016c770.cpp
 

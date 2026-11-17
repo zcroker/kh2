@@ -13,29 +13,7 @@ void func_00199938(char*, char*) asm("_ZNK2YS13UNIT_DATA_OBJ6appearEPNS_10UNIT_G
 
 void func_0014a9a0(char* p, u32 n);  // 0x0014a9a0: definition moved into src/harata/libdk/fade.cpp
 
-void func_0016bf38(char* a, u32 a1, char* c) {
-    *(u32*)(a + 0x81c) = (u32)c;
-    *(u32*)(a + 0x818) = a1;
-    u32 h = *(u16*)(c + 40);
-    if (h) *(u32*)(a + 0x500) = h;
-    for (int i = 0; i < 2; i++) *(u32*)(a + 0x820 + i * 4) = *(u32*)(c + 32 + i * 4);
-    u32 b = *(u8*)(c + 49);
-    if (b) {
-        u32 g = D_0032bae0;
-        if (g != 14) {
-            if (g == 16) {
-                if (*(u32*)(a + 0x588) & 2) {
-                    *(u32*)(a + 0xac8) = b;
-                } else {
-                    void* r = ((void*(*)())func_0016c028x)();
-                    func_001cc3b8(r, *(u8*)(c + 49));
-                }
-            }
-        } else {
-            *(u32*)(a + 0xacc) = b;
-        }
-    }
-}
+void func_0016bf38(char* a, u32 a1, char* c);  // 0x0016bf38: definition moved into src/anon/unit_00169f98.cpp
 
 void func_00199f90(char* t, char* s);  // 0x00199f90: definition moved into src/anon/unit_00199688.cpp
 

@@ -15,12 +15,7 @@ void* func_001de168(void*, s32, s32, s32, s32, void*);  // scan_list_by_half
 Res* func_00168b38(void*, s32, s32);
 
 // Starts effect id on the object's effect set; owner defaults to the object itself.
-void* func_0016ac38(Obj* o, s32 id, s32 a, s32 b, Obj* owner) {
-    EffSet* e = &o->eff;
-    if (!e->list) return 0;
-    if (!owner) owner = o;
-    return func_001de168(e, id, a, 1, b, owner);
-}
+void* func_0016ac38(Obj* o, s32 id, s32 a, s32 b, Obj* owner);  // 0x0016ac38: definition moved into src/anon/unit_00169f98.cpp
 
 // 00192450: moved to src/yasui/libys/message.cpp
 

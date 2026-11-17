@@ -138,14 +138,7 @@ void func_0014a0a0(u8* p);  // 0014a0a0: moved to src/anon/unit_00149fa8.cpp
 // 001560a8: moved to src/anon/unit_00153ea0.cpp
 u8 func_001560a8(u8* o, s32* outA, s32* outB);
 
-void func_0016c358(u8* p) {
-    if (*(u32*)(p + 2224)) {
-        u32 v = func_001050c8();
-        u32 o = *(u32*)(p + 2224);
-        (*(Fn3*)(**(u8***)(p + 2224) + 40))(o, v, *(u32*)(p + 1648));
-        *(u32*)(p + 2224) = 0;
-    }
-}
+void func_0016c358(u8* p);  // 0x0016c358: definition moved into src/anon/unit_00169f98.cpp
 
 // 0017a600: moved to src/yasui/libys/player.cpp
 

@@ -105,16 +105,7 @@ void func_00139b28(u32 key);  // 0x00139b28: definition moved into src/anon/unit
 
 // 00159130: moved to src/harata/libdk/lightcyclecamera.cpp
 
-W41Ent16* func_00168b88(W41Tbl* t, s32 id, s32 val, s32 k) {  // find_entry16_by_half_word
-    for (s32 i = 0; i < t->n; i++) {
-        if (id == -1 || t->e[i].id == id) {
-            if (t->e[i].val == val) {
-                if (--k == -1) return &t->e[i];
-            }
-        }
-    }
-    return 0;
-}
+W41Ent16* func_00168b88(W41Tbl* t, s32 id, s32 val, s32 k);  // 0x00168b88: definition moved into src/anon/unit_00168aa0.cpp
 
 struct W41SP { u8 pad[72]; u8 flag; };
 char* func_0016f4b8(W41SP* p, char* buf);  // 0x0016f4b8: definition moved into src/anon/unit_0016e8f8.cpp

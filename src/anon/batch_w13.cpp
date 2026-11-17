@@ -125,12 +125,7 @@ void Camera_onceCover(void* task) {
 
 u8* func_00165ef0(u8* p);  // 0x00165ef0: definition moved into src/anon/unit_00165db8.cpp
 
-u8 func_0016b518(u8* p, u32 a1, u32 a2) {
-    if (*(u32*)(p + 1416) & 4) {
-        return func_00176db0(p, a1);
-    }
-    return func_0016b558(p, a2);
-}
+u8 func_0016b518(u8* p, u32 a1, u32 a2);  // 0x0016b518: definition moved into src/anon/unit_00169f98.cpp
 
 void trap_bg_cross_pos(u32* v);  // 0x001732c8: definition moved into src/anon/unit_00171e58.cpp
 

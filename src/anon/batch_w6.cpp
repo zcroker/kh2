@@ -29,11 +29,7 @@ void func_001671e8(s32 t, u8 b);  // 0x001671e8: definition moved into src/anon/
 void func_00170888(void*);
 void func_001badd8(void);
 void func_001afaf0(void*);
-void ys_area_read(void* task) {
-    func_00170888(task);
-    func_001badd8();
-    func_001afaf0(task);
-}
+void ys_area_read(void* task);  // 0x00169148: definition moved into src/anon/unit_00168aa0.cpp
 
 void func_0017f488(u32, u32, f32, f32);
 void func_00171150(u32* p);  // 0x00171150: definition moved into src/anon/unit_00170f58.cpp

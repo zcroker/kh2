@@ -155,20 +155,7 @@ void func_00161770(u8* p) {
 struct E16 { u16 id; u16 pad; u32 w[3]; };
 struct H16 { u32 f0; s32 count; u32 pad[2]; E16 e[1]; };
 // Returns the n-th entry with the given id (id -1 matches any).
-E16* func_00168b38(H16* h, s32 id, s32 n) {  // entry_array_find_nth
-    s32 i = 0;
-    if (h->count > 0) {
-        E16* e = h->e;
-        do {
-            if (id == -1 || e->id == id) {
-                if (--n == -1) return e;
-            }
-            i++;
-            e++;
-        } while (i < h->count);
-    }
-    return 0;
-}
+E16* func_00168b38(H16* h, s32 id, s32 n);  // 0x00168b38: definition moved into src/anon/unit_00168aa0.cpp
 
 // 001789b8: moved to src/yasui/libys/player.cpp
 

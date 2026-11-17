@@ -62,9 +62,7 @@ void func_00167f38(void);
 // 00167fc8: moved to src/anon/unit_00167358.cpp
 
 u32 func_001c0cd8(void*);
-u8* func_0016c028(u8* p) {  // obj_get_attach_or_alt
-    return func_001c0cd8(p) ? p + 112 : p + 1344;
-}
+u8* func_0016c028(u8* p);  // 0x0016c028: definition moved into src/anon/unit_00169f98.cpp
 
 u8* func_00170400(u32, u32, u32);
 u8* func_00170530(u32 a, u32 b, s32 c, u32 d);  // 0x00170530: definition moved into src/anon/unit_0016e8f8.cpp

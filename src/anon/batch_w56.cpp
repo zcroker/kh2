@@ -56,20 +56,7 @@ void func_0015c068(u8* p, void* a);  // 0x0015c068: definition moved into src/an
 struct L16be98 { u32 a, b, c, d; u128 v; };
 void* func_0016bc20(u8*, s32, s32);
 void func_0018a818(void*, u8*, void*);
-u128* func_0016be98(u128* out, u8* a)
-{
-    L16be98 l;
-    u128* src = &l.v;
-    l.d = 0;
-    void* r = func_0016bc20(a, 1, -1);
-    if (r) {
-        func_0018a818(&l, a, r);
-        asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(out), "r"(src) : "$8", "memory");
-    } else {
-        asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(out), "r"(a + 1344) : "$8", "memory");
-    }
-    return out;
-}
+u128* func_0016be98(u128* out, u8* a);  // 0x0016be98: definition moved into src/anon/unit_00169f98.cpp
 
 // 0016e000
 void* func_0014aba8(void);
