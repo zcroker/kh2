@@ -116,12 +116,7 @@ u8 func_001d5b78(u32 a, u32 b);  // 0x001d5b78: definition moved into src/anon/u
 void wtarget_impl(u32, u32, u32, u32) asm("_Z16wtarget_001e0348jjjj");
 struct W2 { u32 a; u32 b; };
 extern W2 D_01d9e348;
-void wtarget_impl(u32 a, u32 b, u32, u32) {
-    if (b == 0xffff && a == 1) {
-        D_01d9e348.b = 0;
-        D_01d9e348.a = 0;
-    }
-}
+void wtarget_impl(u32 a, u32 b, u32, u32);  // 0x001e0348: definition moved into src/anon/unit_001deb58.cpp
 
 void func_001e1988(void*);
 void func_001e1ce0(u8* p);  // 0x001e1ce0: definition moved into src/anon/unit_001e0cb8.cpp

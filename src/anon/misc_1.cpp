@@ -104,7 +104,7 @@ void func_001d5458(void* self);  // 0x001d5458: definition moved into src/anon/u
 
 s32 func_001dc5f0(void* self);  // 0x001dc5f0: definition moved into src/anon/unit_001dbfd8.cpp
 
-void func_001e0370(void* self) {}
+void func_001e0370(void* self);  // 0x001e0370: definition moved into src/anon/unit_001deb58.cpp
 
 // 001e0998: moved to src/rikeda/saveram_gumibattle.cpp
 

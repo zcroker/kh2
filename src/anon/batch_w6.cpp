@@ -105,18 +105,10 @@ struct Pair { u32 a, b; };
 void func_001de690(u32);
 void func_001dced0(void);
 extern Pair D_01d9e348;
-void func_001de910(void) {
-    func_001de690(0);
-    D_01d9e348.a = 0;
-    D_01d9e348.b = 0;
-    func_001dced0();
-}
+void func_001de910(void);  // 0x001de910: definition moved into src/anon/unit_001ddcf0.cpp
 
 extern VObj* D_01d9e340;
-u32 func_001e0188(u32 a) {
-    VObj* o = D_01d9e340;
-    return ((u32 (*)(VObj*, u32, u32))o->vt[0])(o, a, 0);
-}
+u32 func_001e0188(u32 a);  // 0x001e0188: definition moved into src/anon/unit_001deb58.cpp
 
 u32 func_002fea18(void);
 // Seed the VU0 random generator.

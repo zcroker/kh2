@@ -59,19 +59,7 @@ s32 func_0019c5d0(Part_1dfdb8*);
 Rec_1dfdb8* func_001dc670(s32);
 
 // Store a factor (1, or the left/right part's value when mode 1 is on and the part is usable) into the record.
-void func_001dfdb8(Obj_1dfdb8* o) {
-    f32 f = 1.0f;
-    if (D_00352b50 == 1) {
-        Part_1dfdb8* p = o->p;
-        switch (o->h->id) {
-        case 0x4003: case 0x4005: case 0x4007: p = p->l; break;
-        case 0x4004: case 0x4006: case 0x4008: p = p->r; break;
-        }
-        if (!func_0019ba60(p) || func_0019c5d0(p)) f = 0.0f;
-        else f = func_00194690(p);
-    }
-    func_001dc670(o->x40)->f = f;
-}
+void func_001dfdb8(Obj_1dfdb8* o);  // 0x001dfdb8: definition moved into src/anon/unit_001deb58.cpp
 // Modulate an RGBA colour by another (128 = 1.0), clamping each channel to 255.
 #define MOD_CH_233708(i) \
     if (((u8*)&m)[i] != 128) { \

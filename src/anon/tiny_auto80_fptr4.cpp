@@ -508,14 +508,7 @@ u32 func_001da248(u32 a0, u32 a1, u32 a2, u32 a3) {
 
 void func_001dcc48(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001dcc48: definition moved into src/anon/unit_001dbfd8.cpp
 
-u32 func_001de568(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2;
-    r5 = r4;
-    r4 = (u32)&D_01d9e348;
-    u32 (*fp_call4_00321cb0)(u32, u32, u32, u32) = func_00321cb0;
-    r2 = fp_call4_00321cb0(r4, r5, r6, r7);
-    return r2;
-}
+u32 func_001de568(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001de568: definition moved into src/anon/unit_001ddcf0.cpp
 
 // 001e09a0: moved to src/rikeda/saveram_gumibattle.cpp
 

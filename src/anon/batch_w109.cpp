@@ -225,37 +225,7 @@ void func_001df670(u8*);
 void func_00180df8(u8*, u8*);
 extern s32 D_00352b50;
 // Builds an entry from a descriptor and pushes its node onto the owner list head.
-u8* func_001ddef0(u8* self, D1ddef0* d, s32 a2, s32 a3, s32 a4, u8* w) {
-    f32 r = d->radius;
-    if (d->flags & 1) r += 0.1f;
-    u8* o = func_001dcff0(self + 8, d->id, r);
-    *(u8**)(o + 12) = self;
-    func_001dc5f8(o)[0] = d->v[0];
-    func_001dc5f8(o)[1] = d->v[1];
-    func_001dc5f8(o)[2] = d->v[2];
-    func_001dc648(o)[0] = d->v[3];
-    func_001dc648(o)[1] = d->v[4];
-    func_001dc648(o)[2] = d->v[5];
-    func_001dc620(o)[0] = d->v[6];
-    func_001dc620(o)[1] = d->v[7];
-    func_001dc620(o)[2] = d->v[8];
-    u8* n = func_001de948(112);
-    func_001dea80(n, o, d, w, r);
-    u8** list = (u8**)(self + 12);
-    if (list[0] == 0) {
-        list[1] = n;
-        list[0] = n;
-        *(u8**)(n + 96) = 0;
-    } else {
-        *(u8**)(n + 96) = list[0];
-        list[0] = n;
-    }
-    if (d->flags & 1) {
-        func_001df670(n);
-        if ((d->flags & 0x20) && D_00352b50 == 1) func_00180df8(w + 320, o);
-    }
-    return o;
-}
+u8* func_001ddef0(u8* self, D1ddef0* d, s32 a2, s32 a3, s32 a4, u8* w);  // 0x001ddef0: definition moved into src/anon/unit_001ddcf0.cpp
 
 // ---- f19.cpp
 extern s32 D_0035f01c;

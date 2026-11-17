@@ -760,21 +760,13 @@ u32 func_001dd208(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001dd208: definition mo
 
 u32 func_001ddcb0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001ddcb0: definition moved into src/anon/unit_001dd920.cpp
 
-u32 func_001de750(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_001dc098(((u32)(((u32)(*(u32*)((u32)(a0) + 12u)))) + (u32)(a0)), a1, a2, a3);
-}
+u32 func_001de750(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001de750: definition moved into src/anon/unit_001ddcf0.cpp
 
-u32 func_001de770(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_001dc140(((u32)(((u32)(*(u32*)((u32)(a0) + 12u)))) + (u32)(a0)), ((u32)(((u32)(*(u32*)((u32)(a0) + 12u)))) + (u32)(a1)), a2, a3);
-}
+u32 func_001de770(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001de770: definition moved into src/anon/unit_001ddcf0.cpp
 
-u32 func_001e02a0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_001dddd0(a0, ((u32)(*(u32*)((u32)(a1) + 0u))), a2, a3);
-}
+u32 func_001e02a0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001e02a0: definition moved into src/anon/unit_001deb58.cpp
 
-u32 func_001e0378(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_001e0348(0x00000001u, 0x0000ffffu, a2, a3);
-}
+u32 func_001e0378(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001e0378: definition moved into src/anon/unit_001deb58.cpp
 
 // 001e07c8: _GLOBAL__I_ stub, now made by gcc in src/anon/unit_001e0398.cpp
 

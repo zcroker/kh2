@@ -998,30 +998,7 @@ u32 func_001dd098(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, f32 a5);  // 0x001dd09
 
 u32 func_001dd140(u32 a0);  // 0x001dd140: definition moved into src/anon/unit_001dbfd8.cpp
 
-void func_001de3d8(u32 a0, u32 a1) {
-    u32 s2 = a1;
-    u32 s3 = a0;
-    u32 s0 = *(u32*)(a0 + 12);
-    if (s0 == 0) {
-        return;
-    }
-
-    while (1) {
-        u32 t6 = *(u32*)(s0 + 68);
-        u32 t7 = *(u8*)(t6 + 4);
-        u32 s1 = *(u32*)(s0 + 96);
-        if (t7 == s2) {
-            func_00321ce8(s3 + 12, s0);  // list_unlink_node
-            func_001dc920(*(u32*)(s0 + 64));
-            func_001e0058(s0);
-        }
-        if (s1 != 0) {
-            s0 = s1;
-            continue;
-        }
-        return;
-    }
-}
+void func_001de3d8(u32 a0, u32 a1);  // 0x001de3d8: definition moved into src/anon/unit_001ddcf0.cpp
 
 // 001e0868: moved to src/rikeda/saveram_gumibattle.cpp
 

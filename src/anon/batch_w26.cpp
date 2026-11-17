@@ -196,19 +196,7 @@ struct DEnt { u8 pad[64]; void* val; u8* info; u8 pad2[24]; DEnt* next; };
 struct DList { u8 pad[12]; DEnt* head; };
 
 // Returns the value of the entry (optionally of a type) following `prev`.
-void* func_001de4b0(DList* l, s32 type, void* prev) {
-    s32 found = 0;
-    DEnt* e = l->head;
-    while (e) {
-        DEnt* nx = e->next;
-        if (type < 0 || e->info[4] == type) {
-            if (!prev || found) return e->val;
-            found = e->val == prev;
-        }
-        e = nx;
-    }
-    return 0;
-}
+void* func_001de4b0(DList* l, s32 type, void* prev);  // 0x001de4b0: definition moved into src/anon/unit_001ddcf0.cpp
 
 u8 func_002007e0(u8* p, u8* q) {
     u8* b = p + *(s32*)(*(u8**)(q + 12) + 4);

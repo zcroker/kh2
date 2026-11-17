@@ -121,19 +121,7 @@ void func_001befd8(u32, void*, u32);
 void func_001d14e0(u8* o, u32 a, u32 b, u32 c);  // 0x001d14e0: definition moved into src/anon/unit_001d14e0.cpp
 
 u8 func_001ddef0(u32**, u8*);
-u32 func_001de168(u32** o, u32 id) {  // scan_list_by_half
-    u32 r = 0;
-    s32 n = (*o)[2];
-    s32 i;
-    for (i = 0; i < n; i++) {
-        u8* e = (u8*)o[1] + i * 80;
-        if (*(u16*)(e + 2) == id) {
-            r = func_001ddef0(o, e);
-            break;
-        }
-    }
-    return r;
-}
+u32 func_001de168(u32** o, u32 id);  // 0x001de168: definition moved into src/anon/unit_001ddcf0.cpp
 
 extern u8 D_00354bc0;
 extern u8 D_00354be0;

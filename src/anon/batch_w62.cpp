@@ -226,14 +226,7 @@ void func_001d6088(u32 id, u8* o);  // 0x001d6088: definition moved into src/ano
 
 extern s32 D_00352b50;
 s32 func_0019ba60(u8*);
-s32 func_001dffd8(u8* p) {
-    if (D_00352b50 != 1) return 0;
-    s32 r = 0;
-    if (!func_0019ba60(*(u8**)(p + 72)) || (*(u32*)(*(u8**)(p + 72) + 352) & 0x20000000) ||
-        (*(u32*)(*(u8**)(p + 72) + 268) & 0x400))
-        r = 1;
-    return r;
-}
+s32 func_001dffd8(u8* p);  // 0x001dffd8: definition moved into src/anon/unit_001deb58.cpp
 
 extern u32 D_01d9e6e4;
 void func_001e7798(u32, u32);

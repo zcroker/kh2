@@ -235,21 +235,7 @@ void func_001d8070(u8* t);  // 0x001d8070: definition moved into src/anon/unit_0
 u32 func_001dca20(void*);  // get_bit20_of_field8
 void func_00321ce8(void*, void*);  // list_unlink_node
 void func_001e0058(void*);
-void func_001de610(u8* t) {
-    u8* n = *(u8**)(t + 12);
-    while (n) {
-        u8* a = *(u8**)(n + 64);
-        u8 bit = (*(s32*)(a + 8) >> 26) & 1;
-        u8* nx = *(u8**)(n + 96);
-        if (!bit) {
-            if (func_001dca20(a)) {  // get_bit20_of_field8
-                func_00321ce8(t + 12, n);  // list_unlink_node
-                func_001e0058(n);
-            }
-        }
-        n = nx;
-    }
-}
+void func_001de610(u8* t);  // 0x001de610: definition moved into src/anon/unit_001ddcf0.cpp
 
 u32 func_001c5f38(void*);
 void func_001c6760(void*);

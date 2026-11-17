@@ -155,29 +155,9 @@ void func_001aeb80(void);  // 0x001aeb80: definition moved into src/anon/unit_00
 
 // init a node from a data block and append it to the global list
 void wtarget_001dddd0(u32, u32, u32, u32) asm("_Z16wtarget_001dddd0jjjj");
-void wtarget_001dddd0(u32 x0, u32 x1, u32, u32) {
-    Lnk2* a0 = (Lnk2*)x0;
-    u8* a1 = (u8*)x1;
-    a0->f0 = (u32)a1;
-    a0->f4 = (u32)(a1 + 16);
-    func_001dc010((u8*)a0 + 8, (u8*)(*(u32*)(a1 + 12) + (u32)a1));
-    LList2* l = &D_01d9e348;
-    if (l->tail == 0) {
-        l->tail = a0;
-        l->head = a0;
-        a0->next = 0;
-    } else {
-        l->tail->next = a0;
-        a0->next = 0;
-        l->tail = a0;
-    }
-}
+void wtarget_001dddd0(u32 x0, u32 x1, u32, u32);  // 0x001dddd0: definition moved into src/anon/unit_001ddcf0.cpp
 
-void func_001de8a8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    func_00102788(a0, a1, a2, (void*)func_001de690);
-    u8* t = func_00102788(a0, a1, a3, (void*)func_001de6d0);
-    *(void**)(t + 48) = (void*)func_001de710;
-}
+void func_001de8a8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001de8a8: definition moved into src/anon/unit_001ddcf0.cpp
 
 // scale matrix (clamped) applied to the global transform
 void func_001eb228(u32 a0, f32* a1);  // 0x001eb228: definition moved into src/anon/unit_001e8ac8.cpp

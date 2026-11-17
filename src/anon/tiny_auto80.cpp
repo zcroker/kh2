@@ -1117,15 +1117,7 @@ void func_001b5ce8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001b5ce8: definition m
 
 u32 func_001dc540(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001dc540: definition moved into src/anon/unit_001dbfd8.cpp
 
-void func_001ddd10(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3;
-    *(volatile u32*)((u32)r4 + (s32)(12)) = 0u;
-    *(volatile u32*)((u32)r4 + (s32)(0)) = 0u;
-    *(volatile u32*)((u32)r4 + (s32)(4)) = 0u;
-    *(volatile u32*)((u32)r4 + (s32)(8)) = 0u;
-    *(volatile u32*)((u32)r4 + (s32)(24)) = 0u;
-    *(volatile u32*)((u32)r4 + (s32)(16)) = 0u;
-}
+void func_001ddd10(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001ddd10: definition moved into src/anon/unit_001ddcf0.cpp
 
 void func_001e0cb8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001e0cb8: definition moved into src/anon/unit_001e0cb8.cpp
 

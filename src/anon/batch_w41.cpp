@@ -185,14 +185,7 @@ extern f32 D_00349e10;
 
 void func_001e01b8(void*);
 struct W41Own { u8 pad[0x58]; W41Outer* obj; u32 flags; };
-void func_001ded98(W41Own* p) {
-    NoTail nt;
-    if (p->flags & 4) {
-        delete p->obj;
-    } else if (p->flags & 8) {
-        func_001e01b8(p->obj);
-    }
-}
+void func_001ded98(W41Own* p);  // 0x001ded98: definition moved into src/anon/unit_001deb58.cpp
 
 s32* func_001e3650(u32);  // ptr_add4
 void func_001e3898(u32 a, s32 d);  // 0x001e3898: definition moved into src/anon/unit_001e0cb8.cpp

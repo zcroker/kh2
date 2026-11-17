@@ -29,10 +29,7 @@ u8 func_0019c158(u8* p);  // 0x0019c158: definition moved into src/anon/unit_001
 
 void func_001afe18(void);  // 0x001afe18: definition moved into src/anon/unit_001ada38.cpp
 
-void func_001e0310(u32 a) {
-    D_00352b54 = D_00352b50;
-    D_00352b50 = a;
-}
+void func_001e0310(u32 a);  // 0x001e0310: definition moved into src/anon/unit_001deb58.cpp
 
 // 002ef5c8: moved to src/anon/unit_002ef1f8.cpp
 

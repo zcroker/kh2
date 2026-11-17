@@ -174,21 +174,7 @@ extern LList D_01d9e348;
 s32 func_00321cb0(void*, void*);
 void func_001de450(void*);
 
-void func_001dde40(LNode* n) {
-    LNode* prev;
-    if (!func_00321cb0(&D_01d9e348, n)) return;
-    func_001de450(n);
-    if (n == D_01d9e348.head) {
-        D_01d9e348.head = n->next;
-        prev = 0;
-    } else {
-        for (prev = D_01d9e348.head; prev->next != n; prev = prev->next) ;
-        prev->next = n->next;
-    }
-    if (n == D_01d9e348.tail) D_01d9e348.tail = prev;
-    n->next = 0;
-    n->used = 0;
-}
+void func_001dde40(LNode* n);  // 0x001dde40: definition moved into src/anon/unit_001ddcf0.cpp
 
 /* ---- 00227950 ---- */
 struct E11 { s32 kind; s32 sub; u8 off; u8 pad[3]; s32 key; u8 rest[68]; };

@@ -96,10 +96,7 @@ void ryj_effect_scale(u8* self) asm("_ZN3ryj6EFFECT5scaleEv");
 void ryj_effect_scale(u8* self);  // 0x001dc620: definition moved into src/anon/unit_001dbfd8.cpp
 
 extern void** D_01d9e340;
-u32 func_001de948(u32 x) {
-    void** o = D_01d9e340;
-    return ((VR3)(*(void***)o)[0])(o, x, 0);
-}
+u32 func_001de948(u32 x);  // 0x001de948: definition moved into src/anon/unit_001ddcf0.cpp
 
 void func_001e60b0(void);
 struct S354690 { u32 a; s32 b; };

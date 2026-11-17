@@ -71,28 +71,5 @@ QVfe88* func_001dc5f8(s32);
 f32* func_001dc670(s32);
 void func_00143860(u8*, QVfe88*);
 // Set an object's colour from a lookup (optionally converted to grey).
-void func_001dfe88(u8* o, u8 flag) {
-    QVfe88 v;
-    v = *func_001dc5f8(*(s32*)(o + 0x40));
-    v.y += 100000.0f;
-    QVfe88 a;
-    QVfe88* src = func_001dc5f8(*(s32*)(o + 0x40));
-    QVfe88 b;
-    QVfe88* pb = &b;
-    a = *src;
-    *pb = v;
-    u8 c[4];
-    func_00143860(c, &a);
-    f32 r = c[0] * 0.0078125f;
-    f32 g = c[1] * 0.0078125f;
-    f32 bl = c[2] * 0.0078125f;
-    if (flag) {
-        bl = r * 0.3f + g * 0.59f + bl * 0.11f;
-        g = bl;
-        r = bl;
-    }
-    func_001dc670(*(s32*)(o + 0x40))[0] = r;
-    func_001dc670(*(s32*)(o + 0x40))[1] = g;
-    func_001dc670(*(s32*)(o + 0x40))[2] = bl;
-}
+void func_001dfe88(u8* o, u8 flag);  // 0x001dfe88: definition moved into src/anon/unit_001deb58.cpp
 }

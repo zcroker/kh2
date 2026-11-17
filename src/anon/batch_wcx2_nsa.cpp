@@ -720,60 +720,7 @@ void func_0016b0e0(Model1df670*, u16, W1df670Mtx*);
 W1df670Vec func_0016b478(Model1df670*, u16, f32);
 W1df670Mtx func_0023ec48(Model1df670*, u16);
 void func_0011d6c0(void*, u16, W1df670Mtx*);
-void func_001df670(O1df670* o)
-{
-    switch (D_00352b50) {
-    case 1:
-        if (!func_0019ba60(o->model)) {
-            o->flags |= 0x10;
-            func_001dc700(o->h, 0);
-            return;
-        }
-        func_001dc700(o->h, func_0019c6f0(o->model));
-        if (o->model->f268 & 0x80) func_001dcc30(o->h);
-        else func_001dcc48(o->h);
-        func_0016b0e0(o->model, o->def->node, &o->mtx);
-        if (!(o->flags & 4)) return;
-        o->pair->a = func_0016b478(o->model, o->def->nodeA, o->def->lenA);
-        o->pair->b = func_0016b478(o->model, o->def->nodeB, o->def->lenB);
-        if (!o->def->on) return;
-        {
-            W1df670Vec t;
-            W1df670Mtx m;
-            t.x = o->def->a[0];
-            t.y = o->def->a[1];
-            t.z = o->def->a[2];
-            *(s32*)&t.w = 0;
-            func_0016b0e0(o->model, o->def->nodeA, &m);
-            m.r3.unit();
-            m.rot(t);
-            o->pair->a += t;
-            t.x = o->def->b[0];
-            t.y = o->def->b[1];
-            t.z = o->def->b[2];
-            *(s32*)&t.w = 0;
-            func_0016b0e0(o->model, o->def->nodeB, &m);
-            m.r3.unit();
-            m.rot(t);
-            o->pair->b += t;
-        }
-        break;
-    case 2: {
-        Model1df670* mdl = o->model;
-        if (mdl->skel) {
-            W1df670Mtx m;
-            func_0011d6c0(mdl->skel, o->def->node, &m);
-            o->mtx = mdl->m * m;
-        } else {
-            o->mtx = mdl->m;
-        }
-        break;
-    }
-    case 3:
-        o->mtx = func_0023ec48(o->model, o->def->node);
-        break;
-    }
-}
+void func_001df670(O1df670* o);  // 0x001df670: definition moved into src/anon/unit_001deb58.cpp
 }
 
 // --------------------

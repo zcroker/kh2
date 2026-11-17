@@ -73,39 +73,6 @@ struct O1deb58
   u32 f92;
 };
 N1deb58 *func_001e0188(s32);
-void func_001deb58(O1deb58 *o, u32 a, u32 b, f32 f, D1deb58 *d)
-{
-  N1deb58 *n;
-  o->f64 = a;
-  o->f68 = b;
-  o->f80.f = f;
-  o->f92 = 1;
-  o->f76 = 0;
-  (&o->n)->u = 0;
-  o->f72 = d->f48;
-  n = func_001e0188(40);
-  n->h2 = 0;
-  o->n.p = n;
-  n->h0 = d->h52;
-  o->n.p->v[0].f = d->a[0].f;
-  o->n.p->v[1].f = d->a[1].f;
-  o->n.p->v[2].f = d->a[2].f;
-  o->n.p->v[3].f = d->b[0].f;
-  o->n.p->v[4].f = d->b[1].f;
-  o->n.p->v[5].f = d->b[2].f;
-  o->n.p->v[6].f = d->c[0].f;
-  o->n.p->v[7].f = d->c[1].f;
-  o->n.p->v[8].f = d->c[2].f;
-  o->n.p->h2 = 0;
-  if (d->b60)
-  {
-    o->n.p->h2 |= 1;
-  }
-  if (d->b61)
-  {
-    o->n.p->h2 |= 2;
-  }
-  o->f92 |= 8;
-}
+void func_001deb58(O1deb58 *o, u32 a, u32 b, f32 f, D1deb58 *d);  // 0x001deb58: definition moved into src/anon/unit_001deb58.cpp
 
 }

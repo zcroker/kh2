@@ -137,16 +137,7 @@ void func_001d1b60(void*, s32);
 void func_00321ce8(void*, void*);  // list_unlink_node
 void func_001dc920(void*);
 void func_001e0058(void*);
-void func_001de450(u8* p) {
-    u8* n = *(u8**)(p + 12);
-    while (n) {
-        u8* next = *(u8**)(n + 96);
-        func_00321ce8(p + 12, n);  // list_unlink_node
-        func_001dc920(*(void**)(n + 64));
-        func_001e0058(n);
-        n = next;
-    }
-}
+void func_001de450(u8* p);  // 0x001de450: definition moved into src/anon/unit_001ddcf0.cpp
 
 typedef void (*VFnP)(void*);
 struct Obj1e7 { u8 _0[24]; VFnP fn; };

@@ -194,14 +194,7 @@ u8* func_001dba18(u32 id) {
 
 s32 func_001dcc60(u8* p);  // 0x001dcc60: definition moved into src/anon/unit_001dbfd8.cpp
 
-void func_001e00b0(u8* p) {
-    if (*(s32*)(p + 84) < 0) return;
-    if (!func_001dc790(*(u32*)(p + 64)) && func_001dcc60(*(u8**)(p + 64))) {
-        func_002bc398(*(u32*)(p + 84), func_001dc5f8(*(u32*)(p + 64)));
-        return;
-    }
-    func_002bc3f0(*(u32*)(p + 84));
-}
+void func_001e00b0(u8* p);  // 0x001e00b0: definition moved into src/anon/unit_001deb58.cpp
 
 void func_001e7cc0(u8* p);  // 0x001e7cc0: definition moved into src/anon/unit_001e0cb8.cpp
 

@@ -440,25 +440,7 @@ V1df* func_001dc670(u32);
 extern s32 D_00352b50;
 
 // sets the model tint from the light colour, optionally as greyscale
-void func_001dfca8(u8* self, u8 grey) {
-    f32 g = 1.0f;
-    f32 r = g;
-    f32 b = g;
-    if (D_00352b50 == 1) {
-        u8* c = func_001946f0(*(u32*)(self + 72));
-        r = c[0] * 0.0078125f;
-        g = c[1] * 0.0078125f;
-        b = c[2] * 0.0078125f;
-    }
-    if (grey) {
-        b = r * 0.3f + g * 0.59f + b * 0.11f;
-        g = b;
-        r = b;
-    }
-    func_001dc670(*(u32*)(self + 64))->x.f = r;
-    func_001dc670(*(u32*)(self + 64))->y.f = g;
-    func_001dc670(*(u32*)(self + 64))->z.f = b;
-}
+void func_001dfca8(u8* self, u8 grey);  // 0x001dfca8: definition moved into src/anon/unit_001deb58.cpp
 }
 
 // ---- 225788 ----

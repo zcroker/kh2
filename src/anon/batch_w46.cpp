@@ -192,15 +192,7 @@ extern u8 D_00350378;
 // ---- 001df9c8
 void func_001dc840(u32);
 void func_001dc978(u32, f32);
-void func_001df9c8(u8* p) {
-    u32 f = *(u32*)(p + 92);
-    if (f & 0x20) return;
-    *(u32*)(p + 92) = f | 0x20;
-    u8* x = *(u8**)(p + 68);
-    u32 g = *(u32*)(x + 16);
-    if (g & 0x80) func_001dc840(*(u32*)(p + 64));
-    else if (g & 0x40) func_001dc978(*(u32*)(p + 64), (f32)x[5]);
-}
+void func_001df9c8(u8* p);  // 0x001df9c8: definition moved into src/anon/unit_001deb58.cpp
 
 // ---- 001e0750
 extern u8 D_00352b60[];

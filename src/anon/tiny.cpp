@@ -936,13 +936,7 @@ void func_001d16e8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001d16e8: definition m
 
 u32 func_001dc9e0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001dc9e0: definition moved into src/anon/unit_001dbfd8.cpp
 
-void func_001e02f8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    D_00352b50 = a0;
-    D_00352b54 = 0;
-}
+void func_001e02f8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001e02f8: definition moved into src/anon/unit_001deb58.cpp
 
 u32 func_001e3650(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001e3650: definition moved into src/anon/unit_001e0cb8.cpp
 

@@ -89,20 +89,7 @@ s32 func_00134278(void);  // 0x00134278: definition moved into src/anon/unit_001
 
 void func_001d0068(void);  // 0x001d0068: definition moved into src/anon/unit_001cf0b0.cpp
 
-void func_001de808(void) {
-    W1578Mode* f = W1578_getFieldMode();
-    W1578Mode* g = W1578_getGumiBattleMode();
-    W1578Mode* cur;
-    func_00102180(&cur);
-    W1578Mode* c = cur;
-    if (c == f) {
-        func_001e02f8(1);
-        func_001de8a8(c->id, 9, 20300, 0x16760);
-    } else if (c == g) {
-        func_001e02f8(2);
-        func_001de8a8(g->id, 1, 31000, 0x11940);
-    }
-}
+void func_001de808(void);  // 0x001de808: definition moved into src/anon/unit_001ddcf0.cpp
 
 void func_001af938(void);  // 0x001af938: definition moved into src/anon/unit_001ada38.cpp
 

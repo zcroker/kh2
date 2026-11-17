@@ -117,10 +117,7 @@ struct N1e0 { u8 pad[20]; N1e0* next; };
 extern N1e0* D_01d9e348;
 void func_001e01e8(N1e0*, u32, u32);
 static inline N1e0* Next1e0(N1e0* n) { if (!n) return D_01d9e348; return n->next; }
-void func_001e0230(u32 a, u32 b) {
-    N1e0* n = 0;
-    while ((n = Next1e0(n))) func_001e01e8(n, a, b);
-}
+void func_001e0230(u32 a, u32 b);  // 0x001e0230: definition moved into src/anon/unit_001deb58.cpp
 
 // Prints three diagnostic lines, then traps.
 extern char D_0036e978[];

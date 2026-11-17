@@ -130,13 +130,7 @@ struct NoTail { ~NoTail() {} };
 struct E16 { u8 d[16]; ~E16() {} } __attribute__((aligned(16)));
 struct Odee { u8 pad[32]; E16 e[2]; static void operator delete(void* p) asm("func_001e0158"); };
 void func_001e01b8(void*);
-void func_001dee10(u8* p)
-{
-    NoTail keep_frame; // forces jal instead of a sibling call
-    u32 fl = *(u32*)(p + 92);
-    if (fl & 4) delete *(Odee**)(p + 88);
-    else if (fl & 8) func_001e01b8(*(void**)(p + 88));
-}
+void func_001dee10(u8* p);  // 0x001dee10: definition moved into src/anon/unit_001deb58.cpp
 
 // 001e65d0
 extern u8 D_00354698[];

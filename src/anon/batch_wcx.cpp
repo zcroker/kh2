@@ -1929,14 +1929,7 @@ void func_001c7fb8(u8*, u32, V4*, f32);
 void func_00188120(u8*, u8*);
 // 0x1c88a8: moved to src/yasui/libys/summon.cpp
 void func_001ddef0(u8**, u8*, u32, u32, u32, u32);
-void func_001de228(u8** p, u32 k, u32 c, u32 d, u32 e, u32 f)
-{
-    s32 n = *(s32*)(p[0] + 8);
-    for (s32 i = 0; i < n; i++) {
-        u8* x = p[1] + i * 80;
-        if (x[4] == k) func_001ddef0(p, x, c, d, e, f);
-    }
-}
+void func_001de228(u8** p, u32 k, u32 c, u32 d, u32 e, u32 f);  // 0x001de228: definition moved into src/anon/unit_001ddcf0.cpp
 union UF { u32 i; f32 f; };
 static inline f32 VRand(void)
 {

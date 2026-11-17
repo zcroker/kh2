@@ -3712,9 +3712,7 @@ static inline bool Has_001ddd30(Nd_001ddd30* x) {
     return false;
 }
 void func_001dde40_dd30(Nd_001ddd30*) asm("func_001dde40");
-void func_001ddd30(Nd_001ddd30* a0) {
-    if (Has_001ddd30(a0)) func_001dde40_dd30(a0);
-}
+void func_001ddd30(Nd_001ddd30* a0);  // 0x001ddd30: definition moved into src/anon/unit_001ddcf0.cpp
 
 // ---- 002e7518
 struct Nd_002e7518 { Nd_002e7518* next; };
@@ -3854,21 +3852,7 @@ u8* func_00102c18_14d8(u32, u32, void (*)()) asm("func_00102c18");
 extern u8* D_00352b58;
 s32 func_001dc9e0(u8*);
 void f1de590_update(u8*) asm("func_001dfa38");
-void func_001de590(u8* p) {
-    u8* o = *(u8**)(p + 12);
-    while (o) {
-        u8* nx = *(u8**)(o + 96);
-        if (func_001dc9e0(*(u8**)(o + 64))) {
-            u8 b = (*(s32*)(*(u8**)(o + 64) + 8) >> 26) & 1;
-            if (!b) {
-                D_00352b58 = o;
-                f1de590_update(o);
-                D_00352b58 = 0;
-            }
-        }
-        o = nx;
-    }
-}
+void func_001de590(u8* p);  // 0x001de590: definition moved into src/anon/unit_001ddcf0.cpp
 
 // ---- 0022e368
 union UA_0022e368 { s32 i; s16 s; u16 h; };
@@ -9319,32 +9303,7 @@ struct L1de328 { N1de328* head; N1de328* tail; };
 struct O1de328 { u8 pad[0xc]; L1de328 list; };
 void func_001dc920(u32);
 void func_001e0058(N1de328*);
-void func_001de328(O1de328* o, u32 id)
-{
-    N1de328* head = o->list.head;
-    N1de328* n = head;
-    while (n != 0) {
-        N1de328* next = n->next;
-        if (n->info->id == id) {
-            N1de328* p;
-            L1de328* l = &o->list;
-            if (n == head) {
-                l->head = next;
-                p = 0;
-            } else {
-                p = head;
-                while (p->next != n) p = p->next;
-                p->next = next;
-            }
-            if (n == l->tail) l->tail = p;
-            n->next = 0;
-            func_001dc920(n->f40);
-            func_001e0058(n);
-            return;
-        }
-        n = next;
-    }
-}
+void func_001de328(O1de328* o, u32 id);  // 0x001de328: definition moved into src/anon/unit_001ddcf0.cpp
 
 // --------------------
 struct E2417a0 { u8 pad[8]; u32 f8; u8 pad2[20]; };
@@ -10345,39 +10304,7 @@ void* f1dfa38_pos(H1dfa38*) asm("func_001dc5f8");
 s32 f1dfa38_effect(s32, void*) asm("func_002bc188");
 s32 func_001dffd8(O1dfa38*);
 void func_001df9c8(O1dfa38*);
-void func_001dfa38(O1dfa38* o)
-{
-    if (o->flags & 2) {
-        func_001df2c0(o);
-    } else if (o->fb.local) {
-        if (!(o->flags & 0x10)) {
-            if (o->time <= 0.0f) {
-                func_001df670(o);
-                func_001dee88(o);
-            } else if (func_001dc9f0(o->h) || !(((o->flags & 8) ? o->src->flags : o->def->flags) & 2)) {
-                func_001dee88(o);
-                func_001df670(o);
-            }
-        }
-    }
-    if (o->def->flags & 8) {
-        if (o->fb.local) func_001dfca8(o, 0);
-        else func_001dfe88(o, 0);
-    } else if (o->def->flags & 0x10) {
-        if (o->fb.local) func_001dfca8(o, 1);
-        else func_001dfe88(o, 1);
-    }
-    if ((o->def->flags & 0x800) && o->fb.local) func_001dfdb8(o);
-    func_001e00b0(o);
-    if (!(o->flags & 0x40) && o->delay <= o->time && o->def->effect > 0) {
-        o->effect = f1dfa38_effect(o->def->effect, f1dfa38_pos(o->h));
-        o->flags |= 0x40;
-    }
-    if (o->f72 && !(o->flags & 8)) {
-        if (((o->flags & 0x10) && (o->def->flags & 0x200)) || (u8)((o->h->bits >> 25) & 1) || ((o->def->flags & 0x400) && func_001dffd8(o))) func_001df9c8(o);
-    }
-    o->time += D_00349e10;
-}
+void func_001dfa38(O1dfa38* o);  // 0x001dfa38: definition moved into src/anon/unit_001deb58.cpp
 
 
 // --------------------

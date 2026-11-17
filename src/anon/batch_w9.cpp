@@ -118,10 +118,7 @@ void func_001dc4b8(u32 a);  // 0x001dc4b8: definition moved into src/anon/unit_0
 
 void effect_angle(u8* e);  // 0x001dc648: definition moved into src/anon/unit_001dbfd8.cpp
 
-void func_001de978(u32 a) {
-    void* o = D_01d9e340;
-    (*(void (**)(void*, u32))(*(u8**)o + 4))(o, a);
-}
+void func_001de978(u32 a);  // 0x001de978: definition moved into src/anon/unit_001ddcf0.cpp
 
 void func_0020eac0(void) {
     D_00359788 = 0x70000000;

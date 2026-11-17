@@ -165,15 +165,7 @@ void ctarget_001db8f8(u8* p, u32 a, u32 b, u32 c) {
 }
 
 // Replaces value a with b on every list node not flagged 0x200.
-void func_001e01e8(u8* list, u32 a, u32 b) {
-    u8* p = *(u8**)(list + 12);
-    while (p) {
-        if (!(*(u32*)(*(u8**)(p + 68) + 16) & 0x200)) {
-            if (*(u32*)(p + 72) == a) *(u32*)(p + 72) = b;
-        }
-        p = !p ? (u8*)*(u32*)(list + 12) : *(u8**)(p + 96);
-    }
-}
+void func_001e01e8(u8* list, u32 a, u32 b);  // 0x001e01e8: definition moved into src/anon/unit_001deb58.cpp
 
 void func_0020cf60(u32 a, u8* e) {
     if (D_00354688 && D_0035468c > 0)

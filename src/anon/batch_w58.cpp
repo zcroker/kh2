@@ -169,14 +169,7 @@ void func_001dced0(void);  // 0x001dced0: definition moved into src/anon/unit_00
 void func_002bc358(s32, s32);
 void func_001dee10(u8*);
 void func_001de978(u8*);
-void func_001e0058(u8* p) {
-    s32 h = *(s32*)(p + 84);
-    if (h >= 0) func_002bc358(h, 120);
-    if (p) {
-        func_001dee10(p);
-        func_001de978(p);
-    }
-}
+void func_001e0058(u8* p);  // 0x001e0058: definition moved into src/anon/unit_001deb58.cpp
 
 // Frees up to three buffers from the current heap, then clears the heap.
 void func_00102670(u32, u32);  // to_1025f8

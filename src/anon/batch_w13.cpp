@@ -161,10 +161,7 @@ void func_001d2070(void** p);  // 0x001d2070: definition moved into src/anon/uni
 void func_001dcfb0(void);  // 0x001dcfb0: definition moved into src/anon/unit_001dbfd8.cpp
 
 typedef void (*VFnP)(void*, void*);
-void func_001e0158(void* a) {
-    u8* o = D_01d9e340;
-    (*(VFnP*)(*(u8**)o + 4))(o, a);
-}
+void func_001e0158(void* a);  // 0x001e0158: definition moved into src/anon/unit_001deb58.cpp
 
 void func_001e27c0(u8* p);  // 0x001e27c0: definition moved into src/anon/unit_001e0cb8.cpp
 

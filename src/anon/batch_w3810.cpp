@@ -76,50 +76,7 @@ W1df2c0Vec* func_001dc648(void*);
 f32 func_0017ce10(f32);
 W1df2c0Vec* func_001dc620(void*);
 // View-relative transform: inverse camera view times local transform; writes position, normalised rotation axes and scale slots.
-void func_001df2c0(O1df2c0* oo)
-{
-    register O1df2c0* o asm("$18") = oo; // pin: keeps o in s2 (global-alloc priority otherwise swaps it with mp)
-    Src1df2c0* s = o->src;
-    W1df2c0Vec pos, rot, scale;
-    pos.x = s->a[0];
-    pos.y = s->a[1];
-    pos.z = s->a[2];
-    rot.x = s->b[0];
-    rot.y = s->b[1];
-    rot.z = s->b[2];
-    scale.x = s->c[0];
-    scale.y = s->c[1];
-    scale.z = s->c[2];
-    W1df2c0Mtx view, r, m, prod;
-    W1df2c0Mtx* vp = &view;
-    pos.w = 1.0f;
-    rot.w = 0.0f;
-    scale.w = 0.0f;
-    Cam1df2c0 cam;
-    func_00102180(&cam);
-    u8* p;
-    if (cam.v == func_00104190()) p = func_00106a60(0);
-    else p = func_00106a60(1);
-    *vp = *(W1df2c0Mtx*)(p ? p + 16 : 0);
-    W1df2c0Vec* r0 = &r.r0; W1df2c0Vec* r1 = &r.r1; W1df2c0Vec* r2 = &r.r2; W1df2c0Vec* r3 = &r.r3; W1df2c0Mtx* mp = &m; W1df2c0Vec* m3 = &m.r3;
-    vp->invOrtho();
-    func_0011b6a8(mp);
-    func_0011b7b0(mp, &rot);
-    *m3 = pos;
-    m3->w = 1.0f;
-    prod.mul(*vp, *mp);
-    *(W1df2c0Mtx*)r0 = prod;
-    *func_001dc5f8(o->h) = *r3;
-    r0->normalize();
-    r1->normalize();
-    r2->normalize();
-    r3->unit();
-    func_0011bac8((W1df2c0Mtx*)r0, func_001dc648(o->h));
-    func_001dc648(o->h)->x = func_0017ce10(func_001dc648(o->h)->x);
-    func_001dc648(o->h)->y = func_0017ce10(func_001dc648(o->h)->y);
-    func_001dc648(o->h)->z = func_0017ce10(func_001dc648(o->h)->z);
-    *func_001dc620(o->h) = scale;
-}
+void func_001df2c0(O1df2c0* oo);  // 0x001df2c0: definition moved into src/anon/unit_001deb58.cpp
 
 
 

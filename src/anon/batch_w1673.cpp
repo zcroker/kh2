@@ -8,23 +8,7 @@ extern "C" {
 Res_de0a0* eff_create_001dcff0(f32, void*, u16) asm("_ZN3ryj6EFFECT6CreateERNS_11EFFECT_DATAEjjjif");
 Node_de0a0* func_001de948(s32);
 void func_001dec78(f32, Node_de0a0*, Res_de0a0*, u16*, P_de0a0*);
-Res_de0a0* func_001de0a0(Obj_de0a0* a0, u16* a1, s32 a2, s32 a3, s32 t0, P_de0a0* p) {
-    f32 f = p->f + 0.1f;
-    Res_de0a0* r = eff_create_001dcff0(f, a0->sub, *a1);
-    r->owner = a0;
-    Node_de0a0* n = func_001de948(0x70);
-    func_001dec78(f, n, r, a1, p);
-    List_de0a0* l = &a0->list;
-    if (a0->list.head == 0) {
-        l->tail = n;
-        a0->list.head = n;
-        n->next = 0;
-    } else {
-        n->next = a0->list.head;
-        a0->list.head = n;
-    }
-    return r;
-}
+Res_de0a0* func_001de0a0(Obj_de0a0* a0, u16* a1, s32 a2, s32 a3, s32 t0, P_de0a0* p);  // 0x001de0a0: definition moved into src/anon/unit_001ddcf0.cpp
 }
 struct S5a48b { u8 pad[4]; u8 v; };
 struct S5a48 { u8 pad[0x588]; s32 a; u32 b; u8 pad2[0xaf8-0x590]; S5a48b* p; };

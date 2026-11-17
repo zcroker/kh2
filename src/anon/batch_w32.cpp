@@ -128,19 +128,7 @@ void EFFECT_free(u8* e);  // 0x001dc878: definition moved into src/anon/unit_001
 
 struct Binding { u8 pad[0x40]; void* eff; u32 pad44; u32 w48; u8 pad2[0x10]; u32 f5c; Binding* next; };
 void PAX_unbind(u8*, void*) asm("_ZN3ryj3PAX6unbindEPNS_6EFFECTE");
-void PAX_unbind(u8* pax, void* e) {
-    Binding* b = *(Binding**)(pax + 12);
-    while (b) {
-        Binding* nx = b->next;
-        if (b->eff == e) {
-            b->w48 = 0;
-            b->f5c &= ~1;
-            func_001dc700(e, 0);
-            return;
-        }
-        b = nx;
-    }
-}
+void PAX_unbind(u8* pax, void* e);  // 0x001de508: definition moved into src/anon/unit_001ddcf0.cpp
 
 void u_call4_00224780(u32, u32, u32, u32) asm("_Z16u_call4_00224780jjjj");
 void u_call4_00224780(u32 a0, u32, u32, u32);  // 0x00224780: definition moved into src/anon/unit_00224780.cpp

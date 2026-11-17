@@ -139,18 +139,9 @@ s32 func_001db888(s32* a0) {  // record_index_calc
 u32 effect_pos(u32 self) asm("_ZN3ryj6EFFECT3posEv");
 u32 effect_pos(u32 self);  // 0x001dc5f8: definition moved into src/anon/unit_001dbfd8.cpp
 
-void func_001de7d8(u32 a0) {
-    D_01d9e340 = a0;
-    func_001dcdb8();
-    D_01d9e348.a = 0;
-    D_01d9e348.b = 0;
-    func_001de808();
-}
+void func_001de7d8(u32 a0);  // 0x001de7d8: definition moved into src/anon/unit_001ddcf0.cpp
 
-void func_001e01b8(u32 a0) {
-    VObj* o = (VObj*)D_01d9e340;
-    ((void (*)(VObj*, u32))o->vtbl[1])(o, a0);
-}
+void func_001e01b8(u32 a0);  // 0x001e01b8: definition moved into src/anon/unit_001deb58.cpp
 
 void func_00229d40(u8* a0);  // 00229d40: moved to src/sasa/musical_combo.cpp (linked unit)
 

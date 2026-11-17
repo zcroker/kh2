@@ -153,10 +153,7 @@ void EFFECT_color(void* e);  // 0x001dc670: definition moved into src/anon/unit_
 
 bool EFFECT_is_loop(void* e);  // 0x001dc7e8: definition moved into src/anon/unit_001dbfd8.cpp
 
-void* func_001e0128(void* a) {
-    void** o = D_01d9e340;
-    return (*(void* (**)(void*, void*, s32))*o)(o, a, 0);
-}
+void* func_001e0128(void* a);  // 0x001e0128: definition moved into src/anon/unit_001deb58.cpp
 
 // Normalize the 2D vector at s (xy) into d.
 void func_00222868(void* d, void* s);  // 0x00222868: definition moved into src/anon/unit_00222548.cpp
