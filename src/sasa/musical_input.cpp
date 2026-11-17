@@ -1,6 +1,6 @@
 // sa::MUSICAL_INPUT: note input, judgement and the 4-part score display of the musical (Atlantica)
-// minigame (vtables 0x35e238, 0x35e280). Linked unit 0x229e58-0x22b108; the print task at 0x22b108
-// (end of the same file) is not written yet and stays outside.
+// minigame (vtables 0x35e238, 0x35e280). Linked unit 0x229e58-0x22b558; the note task at 0x22b108
+// ends the file.
 #include "../common/types.h"
 
 struct W1636Vec {
@@ -12,9 +12,11 @@ struct W1636Sprite;
 struct W1636SpriteVt {
     void* pad0[7];
     void (*hide)(W1636Sprite*);
-    void* pad20[2];
+    void* pad20;
+    void (*setCount)(W1636Sprite*, s32);
     void (*setLength)(W1636Sprite*, s32);
-    void* pad2c[2];
+    void (*setMark)(W1636Sprite*, s32);
+    void (*setGreat)(W1636Sprite*, s32);
     void (*setPos)(W1636Sprite*, s32);
     void (*setOn)(W1636Sprite*);
     void (*setOff)(W1636Sprite*);
@@ -609,4 +611,135 @@ void func_0022b0a0(s32 a0, void* a1) {
         v = (u32)func_0022af48(a1);
     }
     func_0022ad88(n, v);
+}
+
+// 0022b108: the note task (gap function, never written before). Same data block as func_00229e58.
+extern "C" {
+s32 func_002247d8(void);
+W1636Pad* func_00167bf0(s32);
+s32 isMusicalInputAllOk(void) asm("_ZN2sa6VIEWER19isMusicalInputAllOkEv");
+void func_002248d0(void);
+void func_002248c0_v(void) asm("func_002248c0");
+s32 func_0022afa0_r(s32) asm("func_0022afa0");
+s32 func_0022afe8_r(s32) asm("func_0022afe8");
+}
+void func_0022b108(W1636Task* t) asm("func_0022b108");
+void func_0022b108(W1636Task* t)
+{
+    if (func_00225e48()) goto done;
+    {
+        W1636Note* n;
+        s32* pcount;
+        f32* ptime;
+        s32 now;
+        s32 start;
+        s32 a;
+        s32 b;
+        s32 end;
+        s32 limit;
+        s32 next;
+        s32 se;
+        s32 sound;
+        s32 type;
+        s32 mode;
+        u32 bone;
+        W1636Sprite* spr;
+        s32 hit;
+        s32 rank;
+        s32 w;
+        n = t->note;
+        hit = 0;
+        rank = 0;
+        w = func_002247d8();
+        pcount = (s32*)&n->unk20;
+        ptime = &n->time;
+        now = (s32)(n->time * 0.5f);
+        start = n->start;
+        next = start + w * (s32)n->unk20;
+        a = n->unkc;
+        b = n->unk10;
+        end = n->end;
+        limit = n->limit;
+        se = n->se;
+        sound = n->sound;
+        type = n->unk0;
+        mode = n->mode;
+        bone = n->bone;
+        spr = n->spr;
+        W1636Ent* e = func_00227d10(n->id);
+        if (e == 0) return;
+        if (e->obj == 0) return;
+        if (!func_001ba028(e->obj)) return;
+        W1636Vec pos = func_0016b478(1.0f, e->obj, bone);
+        if (now >= limit) {
+            spr->vt->hide(spr);
+            if (!n->hit) func_0022b0a0(se, &pos);
+            func_00105110(n);
+            t->note = 0;
+            goto done;
+        }
+        W1636Pad* pad = func_00167bf0(0);
+        W1636Pad* in = func_00167f18(0);
+        if (!n->hit) {
+            if (now >= a) {
+                if (now >= b) {
+                    if (now <= end && end - 3 < now) rank = 2;
+                    else rank = now < end;
+                }
+                switch (type) {
+                case 5:
+                    if (pad->bits & 0x1000) hit = 1;
+                    break;
+                case 0: case 1: case 3: case 4:
+                    if (pad->bits & 0x8000) hit = 1;
+                    break;
+                default:
+                    if (in->bits & 4) hit = 1;
+                    break;
+                }
+                if (isMusicalInputAllOk()) {
+                    hit = 1;
+                    rank = 2;
+                }
+                if (hit == 1) {
+                    switch (rank) {
+                    case 0:
+                        func_0022b0a0(se, &pos);
+                        break;
+                    case 1: {
+                        func_002248c0_v();
+                        s32 v = func_0022afe8_r(se);
+                        func_0022ad88(v, v > 0 ? func_0022aef0(&pos) : (u32)func_0022af48(&pos));
+                        func_00224950(sound);
+                        break;
+                    }
+                    case 2: {
+                        func_002248d0();
+                        s32 v = func_0022afa0_r(se);
+                        func_0022ad88(v, v > 0 ? func_0022ae98(&pos) : (u32)func_0022af48(&pos));
+                        func_00224950(sound);
+                        break;
+                    }
+                    }
+                    n->hit = 1;
+                }
+            }
+        }
+        s32 before = now < start;
+        if (!before && now >= next) {
+            s32 k = mode - ++*pcount;
+            if (k >= 0) spr->vt->setCount(spr, k);
+        }
+        spr->vt->setLength(spr, end - start);
+        s32 r = end - b;
+        spr->vt->setMark(spr, r);
+        spr->vt->setGreat(spr, r - 3);
+        spr->vt->setPos(spr, 0);
+        if (!before) spr->vt->setPos(spr, now - start);
+        ((void (*)(W1636Sprite*, W1636Vec))func_001391a8)(spr, pos);
+        *ptime += D_00349e10;
+        return;
+    }
+done:
+    func_001024a8(t);
 }

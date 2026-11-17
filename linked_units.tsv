@@ -50,7 +50,7 @@ src/anon/unit_00228490.cpp	00228490	00228618	-	-G0
 src/anon/unit_00228618.cpp	00228618	00228f18	.data@0035dfb0,.rodata@0037109c	-G0
 src/sasa/musical_score.cpp	00228f18	00229840	.data@0035e070	-G0
 src/sasa/musical_combo.cpp	00229840	00229e58	.rodata@003710b4	-G0 -fno-strict-aliasing
-src/sasa/musical_input.cpp	00229e58	0022b108	.data@0035e1f8,.rodata@003710c8	-G0 -fno-strict-aliasing
+src/sasa/musical_input.cpp	00229e58	0022b558	.data@0035e1f8,.rodata@003710c8	-G0 -fno-strict-aliasing
 src/sasa/musical_target.cpp	0022b558	0022b7f0	.data@0035e298,.rodata@00371134	-G0 -fno-strict-aliasing
 src/sasa/event_movie.cpp	0022ba08	0022bda0	.data@0035e2ec,.rodata@00371150	-G0
 src/sasa/event_countdown.cpp	0022bda0	0022c4b8	.data@0035e2f0,.rodata@00371178	-G0
@@ -659,3 +659,5 @@ src/sdk/libkernl_003096b8.c	003096b8	00309860	-	-G0
 src/sdk/libkernl_00309860.c	00309860	0030a3b0	.rodata@00378100	-G0
 src/anon/unit_001fe158.cpp	001fe158	001fe8d8	-	-G0 -fno-strict-aliasing
 src/anon/unit_001fd530.cpp	001fd530	001fded0	-	-G0 -fno-strict-aliasing
+src/anon/unit_001f95a8.cpp	001f95a8	001f95d8	-	-G0
+src/anon/unit_001ff928.cpp	001ff928	001ff958	-	-G0
