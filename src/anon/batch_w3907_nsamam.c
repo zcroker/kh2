@@ -23,47 +23,4 @@ extern Bk204bd0* D_01d9e6e4;
 void func_00204850(Em204bd0*, Pr204bd0*, Pt204bd0*, s32, Cf204bd0*);
 void func_00203b48(s32, Em204bd0*, Pr204bd0*, s32, Pt204bd0*, Cl204bd0*, Cf204bd0*);
 
-void func_00204bd0(s32 owner, Em204bd0* em, Pr204bd0* pr, s32 col)
-{
-    s32 born = 0;
-    s32 i;
-    Pt204bd0* pt = em->pt;
-    Cl204bd0* cl = em->col;
-    Cf204bd0* cf = em->cf;
-    s32 n = em->n;
-    if (D_01d9ea9c != 0) return;
-    if (D_01d9e6e0->flags & 0xff0000ff00ULL) return;
-    if (pr->anim == 0xffff) return;
-    em->tick++;
-    for (i = 0; i < n; i++) {
-        if (pt->active != 0) {
-            func_00204850(em, pr, pt, col, cf);
-            u16 frame = pt->frame;
-            Set204bd0* sets = D_01d9e6e4->sets;
-            u32 off = pr->anim * 8;
-            An204bd0* an = *(An204bd0**)((u8*)sets + off);
-            u16 prev = pt->prev;
-            pt->prev = frame;
-            Fr204bd0* fr = &an->fr[prev];
-            s32 time = pt->time + pr->speed;
-            pt->time = time;
-            if ((u16)time >= (s16)fr->dur) {
-                pt->time = time - fr->dur;
-                pt->frame = frame + 1;
-                if (pt->frame >= an->count) {
-                    if (fr->flags & 0x80) { pt->frame = 0; pt->time = 0; }
-                    else { pt->frame = frame; pt->time = 0; }
-                }
-            }
-        } else if (pr->thr <= em->tick) {
-            if (born < pr->max) {
-                func_00203b48(owner, em, pr, col, pt, cl, cf);
-                born++;
-            }
-        }
-        pt++;
-        if (cl) cl++;
-        if (cf) cf++;
-    }
-    if (born > 0) em->tick = 0;
-}
+void func_00204bd0(s32 owner, Em204bd0* em, Pr204bd0* pr, s32 col);  // 0x00204bd0: definition moved into src/anon/unit_00203b48.c

@@ -1026,29 +1026,9 @@ void func_001fb558(u32 a0, u32 a1, u32 a2);  // 0x001fb558: definition moved int
 
 void func_001fc678(u32 a0);  // 0x001fc678: definition moved into src/anon/unit_001fb350.cpp
 
-s32 func_00203a88(u32 a0) {
-    u32 s0 = a0 & 0xFF;
-    u32 t7 = s0 << 1;
-    f32 f20 = (f32)(s32)t7;
-    s0 = s0 >> 1;
-    f32 f0 = func_00203a40();  // vu_const_5f
-    f20 = f20 * f0;
-    f0 = (f32)(s32)s0;
-    f20 = f20 - f0;
-    s32 v0 = (s32)f20;
-    v0 = (v0 << 24) >> 24;
-    return v0;
-}
+s32 func_00203a88(u32 a0);  // 0x00203a88: definition moved into src/anon/unit_002039c0.cpp
 
-void func_00204fe0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 t6 = a2;
-    u32 s0 = a1;
-    if (*(u8*)(t6 + 204) != 0) {
-        return;
-    }
-    sceVu0MulMatrix(a1, a3, a1 + 256);
-    sceVu0MulMatrix(s0 + 64, s0 + 128, s0);
-}
+void func_00204fe0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00204fe0: definition moved into src/anon/unit_00204dd8.cpp
 
 void func_002070d0(u32 a0, u32 a1, u32 a2);  // 0x002070d0: definition moved into src/anon/unit_00206be8.cpp
 

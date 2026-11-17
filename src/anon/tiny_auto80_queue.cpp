@@ -10194,14 +10194,7 @@ void duplicate_unplaced_001fbc78(u32 a0, u8* a1) {
 
 void func_002029a0(u32 a0, u8* a1);  // 0x002029a0: definition moved into src/anon/unit_002029a0.cpp
 
-void func_002039f8(u32 a0, u8* a1) {
-    u8* s0 = (u8*)(a0 + *(u32*)(*(u32*)(a1 + 12) + 4) + 160);
-    u32 v = *(u32*)(s0 + 8);
-    if (v != 0) {
-        func_001e7798(*(u32*)((u32)&D_01da0000 - 6428u), v);
-        *(u32*)(s0 + 8) = 0;
-    }
-}
+void func_002039f8(u32 a0, u8* a1);  // 0x002039f8: definition moved into src/anon/unit_002039c0.cpp
 
 s32 func_0020a060(u8* a0, u8* a1);  // 0x0020a060: definition moved into src/anon/unit_00209d68.cpp
 

@@ -190,12 +190,7 @@ struct A1fb { u8* p; u32 v; void* fn; f32 b; f32 a; u8* q; };
 
 void func_001e7798(u32, u32);
 extern u32 D_01d9e6e4;
-void func_00205718(u8* a0, u8* a1) {
-    u8* s = a0 + *(u32*)(*(u8**)(a1 + 12) + 8) + 160;
-    if (*(u32*)(s + 80)) { func_001e7798(D_01d9e6e4, *(u32*)(s + 80)); *(u32*)(s + 80) = 0; }
-    if (*(u32*)(s + 84)) { func_001e7798(D_01d9e6e4, *(u32*)(s + 84)); *(u32*)(s + 84) = 0; }
-    if (*(u32*)(s + 88)) { func_001e7798(D_01d9e6e4, *(u32*)(s + 88)); *(u32*)(s + 88) = 0; }
-}
+void func_00205718(u8* a0, u8* a1);  // 0x00205718: definition moved into src/anon/unit_002056b8.cpp
 
 void func_00102448(u32, u32);
 s32 func_00225b50(s32);

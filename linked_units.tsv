@@ -244,6 +244,13 @@ src/anon/unit_002a5a90.cpp	002a5a90	002a6e50	.rodata@00374bac	-G0 -g
 src/anon/unit_002a7308.cpp	002a7308	002a8330	-	-G0 -g -fno-strict-aliasing -fmove-all-movables
 src/anon/unit_002a8748.cpp	002a8748	002a8ac8	-	-G0 -g -fno-strength-reduce
 src/anon/unit_002a8ac8.cpp	002a8ac8	002a9100	-	-G0 -g
+src/anon/unit_00203408.c	00203408	00203740	.rodata@003703f8	-G0
+src/anon/unit_002039c0.cpp	002039c0	00203b48	-	-G0 -fno-strict-aliasing
+src/anon/unit_00203b48.c	00203b48	00204dd8	.rodata@00370418	-G0 -fno-strict-aliasing -fmove-all-movables
+src/anon/unit_00204dd8.cpp	00204dd8	00205178	.rodata@003704a0	-G0 -fno-strict-aliasing
+src/anon/batch_w3683c_nsa.c	00205178	002056b8	-	-G0 -fno-strict-aliasing
+src/anon/unit_002056b8.cpp	002056b8	00205798	-	-G0 -fno-strict-aliasing
+src/anon/batch_w3719_nsa.c	00205798	00205d60	.rodata@00370504	-G0 -fno-strict-aliasing
 src/anon/unit_002061d8.cpp	002061d8	00206388	.rodata@00370510	-G0 -g -fno-strict-aliasing -fno-gcse
 src/anon/unit_00206388.c	00206388	00206be8	.rodata@00370518	-G0 -fno-strict-aliasing -fno-optimize-sibling-calls
 src/anon/unit_00206be8.cpp	00206be8	00207350	-	-G0 -fno-strict-aliasing

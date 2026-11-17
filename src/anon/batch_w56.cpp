@@ -167,14 +167,7 @@ static inline f32 vu0_rand(void)
 f32 func_001ef1a0(u8 a);  // 0x001ef1a0: definition moved into src/anon/unit_001ec098.cpp
 
 // 00203ae8
-s32 func_00203ae8(u8* a, u8* b)
-{
-    if (!*(u32*)(a + 80)) return 0;
-    u8 t = b[204];
-    if (t == 1 || t == 3 || t == 2) { if (!*(u32*)(a + 84)) return 0; }
-    if (b[201] && !*(u32*)(a + 88)) return 0;
-    return 1;
-}
+s32 func_00203ae8(u8* a, u8* b);  // 0x00203ae8: definition moved into src/anon/unit_002039c0.cpp
 
 // 00226dc8
 extern s32 D_0035db10;

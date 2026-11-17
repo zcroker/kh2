@@ -718,3 +718,14 @@ void func_00205798(u8* base, PO* o, Mtx* mtx, PEnt* ent, Mtx* s, P96* p, Mtx* m)
     case 1: VU_CASE1_3(mtx, m, &o->m80, &o->mc0, &o->m100); break;
     }
 }
+
+/* 00205d20: copy an entry's three colour bytes into the system state when its owner id matches (written for the linked unit). */
+extern u8* D_01d9e6e0_d20 asm("D_01d9e6e0");
+void func_00205d20(u8* a, u8* b)
+{
+    if (*(s32*)b == *(s32*)(a + 12)) {
+        D_01d9e6e0_d20[170] = b[4];
+        D_01d9e6e0_d20[169] = b[5];
+        D_01d9e6e0_d20[168] = b[6];
+    }
+}

@@ -200,23 +200,7 @@ void func_001dd920(void);  // 0x001dd920: definition moved into src/anon/unit_00
 
 union W93IF { s32 i; f32 f; };
 // Quicksort (descending by key), permuting the index array alongside the keys.
-void func_00205040(W93IF* idx, f32* key, s32 lo, s32 hi)
-{
-    s32 i = lo;
-    s32 j = hi;
-    f32 p = key[(lo + hi) / 2];
-    for (;;) {
-        while (p < key[i]) i++;
-        while (key[j] < p) j--;
-        if (i >= j) break;
-        f32 tf = key[i]; key[i] = key[j]; key[j] = tf;
-        s32 ti = idx[i].i; idx[i].i = idx[j].i; idx[j].i = ti;
-        i++;
-        j--;
-    }
-    if (lo < i - 1) func_00205040(idx, key, lo, i - 1);
-    if (j + 1 < hi) func_00205040(idx, key, j + 1, hi);
-}
+void func_00205040(W93IF* idx, f32* key, s32 lo, s32 hi);  // 0x00205040: definition moved into src/anon/unit_00204dd8.cpp
 
 struct W93Ver { u32 a, b, c; };
 void* func_00105c30(void);

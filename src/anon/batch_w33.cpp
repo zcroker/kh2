@@ -88,22 +88,7 @@ s32 func_001dc738(void*);  // state_gate_flags
 s32 func_001dc790(u32* p);  // 0x001dc790: definition moved into src/anon/unit_001dbfd8.cpp
 
 // VU0 random: five vrnext steps seeded with -1, plus 1.0 (hand-written VU0 macro code).
-f32 func_00203a40(void) {  // vu_const_5f
-    register u32 r asm("$15");
-    asm volatile(
-        "addi $8, $0, -1\n\tqmtc2 $8, $vf2\n\t"
-        "vrxor R, $vf2x\n\tvrnext.x $vf1, R\n\t"
-        "vrxor R, $vf2x\n\tvrnext.x $vf1, R\n\t"
-        "vrxor R, $vf2x\n\tvrnext.x $vf1, R\n\t"
-        "vrxor R, $vf2x\n\tvrnext.x $vf1, R\n\t"
-        "vrxor R, $vf2x\n\tvrnext.x $vf1, R\n\t"
-        "vitof0.x $vf2, $vf2\n\tvadd.x $vf1, $vf1, $vf2\n\t"
-        "qmfc2 %0, $vf1"
-        : "=r"(r) : : "$8");
-    union { u32 i; f32 f; } u;
-    u.i = r;
-    return u.f;
-}
+f32 func_00203a40(void);  // 0x00203a40: definition moved into src/anon/unit_002039c0.cpp
 
 struct A207 { u8 pad[16]; s32 a; s32 b; s32 c; };
 struct B207 { u8 pad[257]; u8 x; u8 pad2[4]; u8 y; };
