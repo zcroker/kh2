@@ -62,17 +62,7 @@ struct E10a { u32 f0; u32 f4; u32 f8; u32 pad; u8 v16[64]; u8 v80[64]; u8 v144[6
 extern u32 D_0033cc68;
 extern E10a* D_0033cc70;
 void func_0011d740(u32, void*, void*, u32, void*, void*, u32, u32);
-void func_0010a4d0(void) {
-    for (u32 i = 0; i < D_0033cc68; i++) {
-        E10a* e = &D_0033cc70[i];
-        if (e->f4) {
-            func_0011d740(e->f4, e->v80, e->v16, e->f8, e->v144, e->v208, e->f0, e->f272);
-            e->f4 = 0;
-            e->f0 = 0;
-            e->f8 = 0;
-        }
-    }
-}
+void func_0010a4d0(void);  // 0010a4d0: moved to src/anon/unit_00109c30.cpp
 // ---- 0010b568
 void func_0010b468(u8*, Vq*);
 void wtarget_0010b568(u8* a, Vq* b, f32 r) asm("_Z16wtarget_0010b568jjjj");

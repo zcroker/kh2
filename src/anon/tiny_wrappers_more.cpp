@@ -407,17 +407,11 @@ u32 func_00105530(u32 a0, u32 a1, u32 a2, u32 a3) {
 
 // 00106490: moved to src/anon/unit_00106490.cpp
 
-u32 func_00108068(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_001124f8(a0, a1, a2, a3);
-}
+u32 func_00108068(u32 a0, u32 a1, u32 a2, u32 a3);  // 00108068: moved to src/anon/unit_00108068.cpp
 
-u32 func_00109340(u32 a0, u32 a1, u32 a2, u32 a3) {  // to_109450_zero
-    return func_00109450(0x00000000u, 0x00000200u, 0x00000000u, a3);
-}
+u32 func_00109340(u32 a0, u32 a1, u32 a2, u32 a3);  // 00109340: moved to src/anon/unit_001085a8.cpp
 
-u32 func_00109670(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_00109450(0x00000140u, 0x000000c0u, 0x00000001u, a3);
-}
+u32 func_00109670(u32 a0, u32 a1, u32 a2, u32 a3);  // 00109670: moved to src/anon/unit_001085a8.cpp
 
 u32 func_00119bb8(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_00119b10(0x00000001u, 0x0000ffffu, a2, a3);

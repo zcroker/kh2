@@ -100,13 +100,7 @@ extern u8 D_00341060[];
 extern u8 D_00341270[];
 extern u8 D_00341480[];
 void func_001342c8(void*, int, u32);
-void func_0010ab08(int n) {
-    switch (n) {
-    case 0: func_001342c8(D_00341060, 33, 0x13000000); break;
-    case 1: func_001342c8(D_00341270, 33, 0x13000000); break;
-    case 2: func_001342c8(D_00341480, 33, 0x13000000); break;
-    }
-}
+void func_0010ab08(int n);  // 0010ab08: moved to src/anon/unit_0010a918.cpp
 
 // --- 0014ba20
 // Constructor: base ctor, vtable, then two GS register packets.

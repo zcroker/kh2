@@ -8,25 +8,5 @@ W1821N* func_00109c30();
 void func_00109cc0(s32, W1821N*);
 extern s32 D_0033cca4;
 
-W1821N* func_00109d00(s32 a0, W1821B38* b, W1821Ctx* c, s32 a3, s32 a4) {
-    W1821N* n = func_00109c30();
-    s32 m = 4;
-    n->a0 = a0;
-    n->b = *b;
-    n->a3 = a3;
-    n->a4 = a4;
-    n->ctx = c;
-    W1821In* in = c->in;
-    if ((in->a ^ 2) == 0) {
-        m = 2;
-        if (in->b == 1) {
-            if (D_0033cca4 == 0) func_00109cc0(0, n);
-            else func_00109cc0(1, n);
-            D_0033cca4++;
-            return n;
-        }
-    }
-    func_00109cc0(m, n);
-    return n;
-}
+W1821N* func_00109d00(s32 a0, W1821B38* b, W1821Ctx* c, s32 a3, s32 a4);  // 00109d00: moved to src/anon/unit_00109c30.cpp
 }

@@ -78,12 +78,7 @@ void func_00100338(void) {
 }
 
 // Set the current RGB colour.
-void func_0010a7d8(u8 r, u8 g, u8 b) {  // store_triple_bytes
-    u8* c = (u8*)&D_00340ed0;
-    c[0] = r;
-    c[1] = g;
-    c[2] = b;
-}
+void func_0010a7d8(u8 r, u8 g, u8 b);  // 0010a7d8: moved to src/anon/unit_00109c30.cpp
 
 // 00134db0: moved to src/anon/unit_00134668.cpp
 

@@ -32,55 +32,7 @@ void func_0010a8e0(void*);
 s32 func_00106a18(s32);
 f32 func_001070a8(s32);
 
-W1986Pkt* func_00108730(W1986Src* p, void* q)
-{
-    u32* d = func_00133bb8(q, 12, 0x11000000, 0x13000000);
-    d[0] = 0;
-    d[1] = 0;
-    d[2] = 0x01000404;
-    d[3] = 0x6c0a4000;
-    W1986Pkt* k = (W1986Pkt*)(d + 4);
-    __asm__ volatile("sq $0, 0(%0)" : : "r"(d + 40));
-    d += 44;
-    d[0] = 0x14000000;
-    d[1] = 0x11000000;
-    d[2] = 0x13000000;
-    d[3] = 0;
-    if (p->x24 == 0) {
-        *(u128*)&k->tag = D_00340f10;
-    } else {
-        *(u128*)&k->tag = D_00340f20;
-    }
-    k->tag.PRIM &= ~0x20;
-    if ((D_00340eb0 ^ 1) == 0) {
-        k->tag.PRIM |= 0x20;
-    } else if (func_0010aba8() == 7 && (p->flags & 2)) {
-        k->tag.PRIM |= 0x20;
-    }
-    k->rgba[0] = p->c[0];
-    k->rgba[1] = p->c[1];
-    k->rgba[2] = p->c[2];
-    k->rgba[3] = p->c[3];
-    if (p->flags & 2) {
-        k->st[0] = 0;
-        k->st[1] = p->b11;
-        k->st[2] = 0;
-        k->st[3] = 255.0f;
-    } else {
-        func_0010a8e0(k->st);
-    }
-    f32 c = 2048.0f;
-    s32 r = func_00106a18(1);
-    k->a[0] = c;
-    k->a[1] = c;
-    k->a[2] = 4000000.0f;
-    k->a[3] = p->f20;
-    k->b[0] = 1.0f;
-    k->b[1] = 1.0f;
-    k->b[2] = func_001070a8(r);
-    k->b[3] = c;
-    return k;
-}
+W1986Pkt* func_00108730(W1986Src* p, void* q);  // 00108730: moved to src/anon/unit_001085a8.cpp
 
 // 002d36f0
 struct W1986V4 {

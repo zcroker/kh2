@@ -15,12 +15,4 @@ void func_00109340(void);
 // 001bb958: moved to src/yasui/libys/mission.cpp
 }
 
-s32 func_00109e30(int a) {
-    s32 r;
-    if ((u8)a) r = func_00133f80();
-    else r = func_00133f60();
-    func_00133ea8();
-    func_00109330();
-    func_00109340();
-    return r;
-}
+s32 func_00109e30(int a);  // 00109e30: moved to src/anon/unit_00109c30.cpp

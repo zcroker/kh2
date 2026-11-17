@@ -21,45 +21,7 @@ extern u8 D_00340ed0[3];
 extern s32 D_00340ed4;
 extern u8 D_00340ed8[];
 // Runs the scene passes over the four draw lists (pass id in D_00340ed4).
-void ctarget0_0010a618(void) {
-    func_00109330();  // set_global_3756_return
-    func_00109340();  // to_109450_zero
-    func_001344b8(64);
-    func_00108998(D_00340ed8);
-    func_00108f28(D_00340ed8, (u64)D_00340ed0[0] | ((u64)D_00340ed0[1] << 8) | ((u64)D_00340ed0[2] << 16));
-    func_00109008(D_00340ed8);
-    if (D_0033cc78[0]) {
-        D_00340ed4 = 1;
-        func_00109fe8(D_0033cc78[0]);
-        D_00340ed4 = 2;
-        func_0010a1d0(D_0033cc78[0]);
-        func_0010a5f0();
-        func_00108ae0(D_00340ed8, 4, 0, 0, func_00109050(D_00340ed8), 0, 0, 0);
-    }
-    if (D_0033cc78[1]) {
-        D_00340ed4 = 3;
-        func_00109fe8(D_0033cc78[1]);
-        D_00340ed4 = 4;
-        func_0010a1d0(D_0033cc78[1]);
-        func_0010a5f0();
-        func_00108ae0(D_00340ed8, 4, 0, 0, func_00109050(D_00340ed8), 0, 0, 0);
-    }
-    D_00340ed4 = 5;
-    func_00109fe8(D_0033cc78[2]);
-    D_00340ed4 = 6;
-    func_0010a580(0);
-    D_00340ed4 = 7;
-    func_00109fe8(D_0033cc78[4]);
-    D_00340ed4 = 8;
-    func_0010a1d0(D_0033cc78[2]);
-    D_00340ed4 = 10;
-    func_0010a4d0();
-    D_00340ed4 = 11;
-    func_0010a1d0(D_0033cc78[4]);
-    func_00108a10(D_00340ed8);
-    D_00340ed4 = 0;
-    func_00109070();
-}
+void ctarget0_0010a618(void);  // 0010a618: moved to src/anon/unit_00109c30.cpp
 
 extern "C" {
 void func_0023e738(void*, s32, s32, s32);  // store_2halfwords_2928

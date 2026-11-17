@@ -29,16 +29,7 @@ extern u32 D_0032b930;
 // 00102c90: static init of the field mode object, moved to src/common/unit_00102a70.cpp
 
 struct Entry108930 { u32 mask; u32 data; };
-void* func_00108930(u8* p, s32 bit) {  // test_bit_of_field44
-    Entry108930* e = *(Entry108930**)(p + 44);
-    if (e != 0 && bit >= 0 && bit < 32) {
-        u32 m = 1 << bit;
-        for (Entry108930* q = e; q->mask != 0; q++) {
-            if (q->mask & m) return &q->data;
-        }
-    }
-    return p + 4;
-}
+void* func_00108930(u8* p, s32 bit);  // 00108930: moved to src/anon/unit_001085a8.cpp
 
 
 

@@ -33,13 +33,7 @@ struct W2367Vec3 { f32 x, y, z; };
 extern "C" {
 s32 func_001094e0(s32, s32);
 void func_00133c60(s32, s32, s32, s32, s32);
-s32 func_00109788(s32 a, s32 b) {
-    if (func_001094e0(b, b) == 0) {
-        func_00133c60(a, b, 0, 0, 0);
-        return 1;
-    }
-    return 0;
-}
+s32 func_00109788(s32 a, s32 b);  // 00109788: moved to src/anon/unit_00109788.cpp
 
 // Next entry after p (or the first one) whose id matches; id 22 matches any entry.
 W2367Entry* func_0018a100(W2367Table* t, s32 id, W2367Entry* p);  // 0x0018a100: definition moved into src/anon/unit_00189d38.cpp

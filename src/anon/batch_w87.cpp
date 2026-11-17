@@ -19,19 +19,7 @@ extern u8 D_0033cca8;
 extern void* D_00340ea8;
 extern u32 D_0033cca4;
 
-void func_00109070(void) {
-    s32 i;
-    for (i = 0; i < 5; i++) D_0033cc78[i] = D_0033cc90[i] = 0;
-    for (i = 0; i < D_0033cc68.v; i++) {
-        D_0033cc6c.p[i].a = 0;
-        D_0033cc6c.p[i].b = D_0033cc60.u;
-        D_0033cc70.p[i].b = 0;
-        D_0033cc70.p[i].a = 0;
-        D_0033cc70.p[i].c = 0;
-    }
-    D_00340ea8 = &D_0033cca8;
-    D_0033cca4 = 0;
-}
+void func_00109070(void);  // 00109070: moved to src/anon/unit_001085a8.cpp
 
 // ---- 0x10e6e0: probe at three heights; returns the agreeing result ----
 s32 func_00184780(void*, s32, f32, f32, f32);

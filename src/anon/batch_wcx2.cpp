@@ -6242,15 +6242,7 @@ extern UG_001091c8 D_0033cc6c;
 extern UG_001091c8 D_0033cc70;
 void func_00133cf0(void*, u32);
 void func_00109070();
-void func_001091c8(Al_001091c8* o, s32 n, u32 sz) {
-    D_0033cc68.i = n;
-    void* m = o->vt->alloc(o, sz, __builtin_return_address(0));
-    D_0033cc64.p = m;
-    func_00133cf0(m, sz);
-    D_0033cc6c.p = o->vt->alloc(o, D_0033cc68.i * 88, __builtin_return_address(0));
-    D_0033cc70.p = o->vt->alloc(o, D_0033cc68.i * 288, __builtin_return_address(0));
-    func_00109070();
-}
+void func_001091c8(Al_001091c8* o, s32 n, u32 sz);  // 001091c8: moved to src/anon/unit_001085a8.cpp
 
 // ---- 00252760
 void func_00287b18(u32, u32);
@@ -11740,39 +11732,7 @@ struct Ent10abf0 {
 extern u32 D_0033cc68_x13907 asm("D_0033cc68");
 extern Ent10abf0* D_0033cc70_x13908 asm("D_0033cc70");
 void* func_0010abc8(u32 size);
-void func_0010abf0(void* key, Mtx10abf0* m1, BlkU10abf0* blk, Id10abf0* ids, Mtx10abf0* m2, Mtx10abf0* m3, u32* list, u32 v)
-{
-    u32 i;
-    s32 n, k;
-    Ent10abf0* e;
-
-    for (i = 0; i < D_0033cc68_x13907; i++) {
-        if (D_0033cc70_x13908[i].key.p == 0) break;
-    }
-    e = &D_0033cc70_x13908[i];
-    e->key.p = key;
-    n = 0;
-    if (list[0] != 0) {
-        do n++; while (list[n] != 0);
-    }
-    if (n == 0) return;
-    e->list.p = (u32*)func_0010abc8(n * 4 + 4);
-    for (k = 0; k < n; k++) e->list.p[k] = list[k];
-    e->list.p[k] = 0;
-    n = 0;
-    if (ids[0].v != -1) {
-        do n++; while (ids[n].v != -1);
-    }
-    e->ids.p = (Id10abf0*)func_0010abc8(n * 2 + 2);
-    for (k = 0; k < n; k++) e->ids.p[k].v = ids[k].v;
-    e->ids.p[k].v = -1;
-    e->blk = blk->b;
-    e->blk.flags |= 0x10000;
-    e->m1 = *m1;
-    e->m2 = *m2;
-    e->m3 = *m3;
-    e->f272 = v;
-}
+void func_0010abf0(void* key, Mtx10abf0* m1, BlkU10abf0* blk, Id10abf0* ids, Mtx10abf0* m2, Mtx10abf0* m3, u32* list, u32 v);  // 0010abf0: moved to src/anon/unit_0010a918.cpp
 
 // --------------------
 // Quantise six floats to s16 with the per-mode bias/scale tables.
@@ -15394,43 +15354,7 @@ u32 f10a1d0_h(s32, s32, u8) asm("func_00109ea8");
 void func_00108c00(u8*, s32, u64, u64, u32, u32, u64, u64);
 s32 f10a1d0_draw(Img10a1d0*, s32*, s32, s32, s32, s32) asm("func_0011c8f8");
 void func_00134490(void);
-void func_0010a1d0(E10a1d0* e)
-{
-    for (; e; e = e->next) {
-        if (e->img) {
-            if ((s8)e->a >= 0) {
-                u32 w = f10a1d0_w(D_00340ed4, e->img->l3->l4->id, e->a);
-                u32 h = f10a1d0_h(D_00340ed4, e->img->l3->l4->id, e->a);
-                func_00108c00(D_00340ed8, 63, e->alpha, e->test & ~((u64)1 << 32), h, w,
-                              GS_SET_FOGCOL(e->fr, e->fg, e->fb), GS_SET_RGBAQ(e->r, e->g, e->b, e->a, 0x3f800000));
-                Img10a1d0* img = e->img;
-                if (e->pre) e->pre(e, 0);
-                if (f10a1d0_draw(e->img, &e->f24, 0, e->f4, e->f8, e->f12)) img = 0;
-                if (e->post) e->post(e, 0);
-                e->img = img;
-            }
-            if (!e->img) {
-                e->img = 0;
-            } else {
-                if ((s8)e->a >= 0) func_00134490();
-                u32 w = f10a1d0_w(D_00340ed4, e->img->l3->l4->id, e->a);
-                u32 h = f10a1d0_h(D_00340ed4, e->img->l3->l4->id, e->a);
-                func_00108c00(D_00340ed8, 63, e->alpha | ((u64)0xff << 56), e->test | ((u64)1 << 32), h, w,
-                              GS_SET_FOGCOL(e->fr, e->fg, e->fb), GS_SET_RGBAQ(e->r, e->g, e->b, e->a, 0x3f800000));
-                if (e->pre) e->pre(e, 1);
-                f10a1d0_draw(e->img, &e->f24, 1, e->f4, e->f8, e->f12);
-                if (e->post) e->post(e, 1);
-                e->img = 0;
-            }
-        } else {
-            if (!e->f4) {
-                if (e->pre) e->pre(e, 1);
-                if (e->post) e->post(e, 1);
-            }
-        }
-        func_00134490();
-    }
-}
+void func_0010a1d0(E10a1d0* e);  // 0010a1d0: moved to src/anon/unit_00109c30.cpp
 
 
 // --------------------

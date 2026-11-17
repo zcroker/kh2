@@ -73,48 +73,7 @@ extern u8 D_00340fd0;
 extern u8 D_00341000;
 extern u8 D_00341030;
 extern u64 D_00340ed8[4];
-void func_0010a918(s32 mode) {
-    u64 scis = 0;
-    u64 zbuf = 0;
-    u64 frame = 0;
-    u64 cl1 = 0;
-    u64 cl2 = 0;
-    void* p = 0;
-    switch (mode) {
-    case 0:
-        cl1 = 0x3f0000003f0000ULL; cl2 = 0x3d0002003d0002ULL;
-        frame = 0x10140; zbuf = 0x30000142; scis = (0x3fULL << 41) | 0x7e00;
-        p = &D_00340fd0;
-        break;
-    case 1:
-        cl1 = 0x7f0000007f0000ULL; cl2 = 0x7d0002007d0002ULL;
-        frame = 0x20140; zbuf = 0x30000148; scis = (0x1fULL << 42) | 0x7c00;
-        p = &D_00341000;
-        break;
-    case 2:
-        cl1 = 0xff000000ff0000ULL; cl2 = 0xfd000200fd0002ULL;
-        frame = 0x40140; zbuf = 0x30000160; scis = (0xfULL << 43) | 0x7800;
-        p = &D_00341030;
-        break;
-    }
-    func_00134408();
-    func_00134428(0x4c, frame);
-    func_00134428(0x4e, zbuf);
-    func_00134428(0x47, 0x30003);
-    func_00134428(0x18, scis);
-    func_00134428(0x40, cl1);
-    func_00134450(1);
-    func_001342c8(p, 3, 0x13000000);
-    func_00134408();
-    func_00134428(0x47, 0x5000d);
-    func_00134428(0x42, (1ULL << 39) | 0x44);
-    func_00134428(0x40, cl2);
-    func_00134450(1);
-    D_00340ed8[0] = frame;
-    D_00340ed8[1] = zbuf;
-    D_00340ed8[2] = 0x5000d;
-    D_00340ed8[3] = (1ULL << 39) | 0x44;
-}
+void func_0010a918(s32 mode);  // 0010a918: moved to src/anon/unit_0010a918.cpp
 
 s32 W1980Eff80_is_active(void*) asm("_ZN3ryj6EFFECT9is_activeEv");
 W1980Obj80* func_002e97b8(W1980Obj80*);

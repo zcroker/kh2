@@ -26,19 +26,5 @@ f32 func_001db510(Ob1770* o, const QV1770* p) {
     return (v.x + o->f50) / (o->f50 + o->f50);
 }
 
-u64 func_00109f58(u32 a0, u32 a1, u8 a2) {
-    switch (a0) {
-    case 7:
-        if (a1 == 0) return 0x8000000044ULL;
-    case 1: case 3: case 5:
-        if (a2 != 0x80) return 0x8000000044ULL;
-        return 42;
-    case 11:
-        if (a1 == 0) return 0x8000000044ULL;
-    case 2: case 4: case 8:
-        return 0x8000000044ULL;
-    default:
-        return 0x44;
-    }
-}
+u64 func_00109f58(u32 a0, u32 a1, u8 a2);  // 00109f58: moved to src/anon/unit_00109c30.cpp
 }

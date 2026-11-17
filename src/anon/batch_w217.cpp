@@ -9,13 +9,7 @@ void wtarget_00104298(u32 a0, u32 a1, u32, u32) asm("_Z16wtarget_00104298jjjj");
 // 00104298: static initialiser, now made by gcc in src/common/gumibattle.cpp
 
 extern f32 D_00340eb4, D_00340eb8, D_00340ebc, D_00340ec0;
-void func_0010a828(f32 a, f32 b) {
-    D_00340eb8 = b;
-    D_00340eb4 = a;
-    f32 d = b - a;
-    D_00340ebc = -255.0f / d;
-    D_00340ec0 = 255.0f * b / d;
-}
+void func_0010a828(f32 a, f32 b);  // 0010a828: moved to src/anon/unit_00109c30.cpp
 
 u32* func_0016c028(u32);  // obj_get_attach_or_alt
 void func_0013f828(u32* t);  // 0x0013f828: definition moved into src/anon/unit_0013ef70.cpp

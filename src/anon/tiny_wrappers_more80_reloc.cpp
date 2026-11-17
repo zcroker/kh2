@@ -125,13 +125,9 @@ extern u8 D_01e2a410;
 
 // 00105d78: moved to src/common/shop.cpp
 
-u32 func_0010a5f0(u32 a0, u32 a1, u32 a2, u32 a3) {  // register_static_buffer
-    return func_001342c8((u32)&D_00340f30, 0x0000000au, 0x13000000u, a3);
-}
+u32 func_0010a5f0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0010a5f0: moved to src/anon/unit_00109c30.cpp
 
-u32 func_0010ab80(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_001342c8((u32)&D_003a8ed0, 0x00000017u, 0x13000000u, a3);
-}
+u32 func_0010ab80(u32 a0, u32 a1, u32 a2, u32 a3);  // 0010ab80: moved to src/anon/unit_0010a918.cpp
 
 u32 func_00111000(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_0010b568((u32)&D_003a9040, a0, a2, a3);

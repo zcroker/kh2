@@ -53,7 +53,7 @@ extern u32 D_01d9eab0;
 
 extern "C" void func_00107350(u32,f32,f32,f32) asm("_ZN2kn6Camera11setUpVectorEfff");
 
-u32 func_0010aed8(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a1; (void)a2; (void)a3; return *(u32*)((u32)&D_00341698 + ((u32)a0 << 2) + (0)); }
+u32 func_0010aed8(u32 a0,u32 a1,u32 a2,u32 a3);  // 0010aed8: moved to src/anon/unit_0010a918.cpp
 
 void func_0013a1e8(u32 a0,u32 a1,u32 a2,u32 a3);  // 0x0013a1e8: definition moved into src/anon/unit_001393c8.cpp
 

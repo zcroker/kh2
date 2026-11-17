@@ -175,20 +175,7 @@ void func_002e6ab0(u32, u8*, f32);
 extern u8* D_01e2bfa0;
 
 // Clears a 3-quadword GS packet and fills in its GIFtags and A+D register ids.
-void func_00108398(Pkt* p) {  // clear_quads_set_flags
-    p->d3 = 0;
-    *(u128*)&p->tag = 0;
-    *(u128*)&p->tag2 = 0;
-    p->tag.nloop = 4;
-    p->tag.nreg = 1;
-    p->tag.regs0 = 0xe;
-    p->a0 = 80;
-    p->a1 = 81;
-    p->a2 = 82;
-    p->a3 = 83;
-    p->tag2.eop = 1;
-    p->tag2.flg = 2;
-}
+void func_00108398(Pkt* p);  // 00108398: moved to src/anon/unit_00108068.cpp
 
 f32 func_00114328(Tbl* t, s32 i, u8 a, u8 b) {
     if (a) {

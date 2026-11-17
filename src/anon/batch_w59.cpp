@@ -51,16 +51,7 @@ void func_0010a828(f32, f32);
 void func_0010a8a8(f32, f32);  // store_global_float_pair
 extern u64 D_003a8e10;
 extern u8 D_00340eb0;
-void func_00109140(void) {
-    func_00133de8();
-    func_00109330();  // set_global_3756_return
-    func_00109340();  // to_109450_zero
-    D_003a8e10 = 0x4000000001300000ULL;
-    D_00340eb0 = 1;
-    func_0010a7d8(128, 128, 128);  // store_triple_bytes
-    func_0010a828(5000.0f, 1000000.0f);
-    func_0010a8a8(0.0f, 255.0f);  // store_global_float_pair
-}
+void func_00109140(void);  // 00109140: moved to src/anon/unit_001085a8.cpp
 
 // --- 0010cce0
 // Advance the object iterator until an object passing the check is found.

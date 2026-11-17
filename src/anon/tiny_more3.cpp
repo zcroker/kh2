@@ -11,7 +11,7 @@ extern u32 D_0035f6d0;
 
 // 00102fa0: moved to src/common/title.cpp
 
-u32 func_0010abb8(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a1; (void)a2; (void)a3; u32 old=D_00340ed4; D_00340ed4=a0; return old; }
+u32 func_0010abb8(u32 a0,u32 a1,u32 a2,u32 a3);  // 0010abb8: moved to src/anon/unit_0010a918.cpp
 
 u32 func_001124e8(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a1; (void)a2; (void)a3; u32 old=D_00341780; D_00341780=a0; return old; }
 

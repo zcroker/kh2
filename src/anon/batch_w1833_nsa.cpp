@@ -9,39 +9,7 @@ struct W1833GifTag {
 struct W1833AD { u64 data; u64 addr; };
 struct W1833Pkt { W1833GifTag tag; W1833AD ad[13]; };
 
-void func_001081c8(W1833Pkt* p) {
-    *(u128*)&p->tag = 0;
-    p->tag.NLOOP = 13;
-    p->tag.EOP = 1;
-    p->tag.NREG = 1;
-    p->tag.REGS0 = 0xE;
-    p->ad[0].addr = 0x3f;
-    p->ad[1].addr = 0x4c;
-    p->ad[2].addr = 0x4e;
-    p->ad[3].addr = 0x34;
-    p->ad[4].addr = 0x36;
-    p->ad[5].addr = 0x16;
-    p->ad[6].addr = 0x14;
-    p->ad[7].addr = 6;
-    p->ad[8].addr = 0x47;
-    p->ad[9].addr = 0x42;
-    p->ad[10].addr = 8;
-    p->ad[11].addr = 0x3d;
-    p->ad[12].addr = 1;
-    p->ad[0].data = 0;
-    p->ad[1].data = 0x800d8;
-    p->ad[2].data = 0x31000070;
-    p->ad[3].data = 0;
-    p->ad[4].data = 0;
-    p->ad[5].data = 0x2000000001300000ULL;
-    p->ad[6].data = 0x60;
-    p->ad[7].data = 0x2000000664023500ULL;
-    p->ad[8].data = 0x5000d;
-    p->ad[9].data = 0x44;
-    p->ad[10].data = 5;
-    p->ad[11].data = 0x808080;
-    p->ad[12].data = 0x3f80000080808080ULL;
-}
+void func_001081c8(W1833Pkt* p);  // 001081c8: moved to src/anon/unit_00108068.cpp
 struct W1833Vec { f32 x, y, z, w; };
 struct W1833Mgr { u8 pad[0x80]; u8* tbl; };
 struct W1833Cam { u8 pad[0x10]; f32 m0[12]; f32 m1[4]; };

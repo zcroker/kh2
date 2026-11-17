@@ -23,28 +23,7 @@ Res168* func_00168b88(void*, s32, s32, s32);
 
 u32* func_0019f7d0(s32 idx, s32 id);  // 0x0019f7d0: definition moved into src/anon/unit_0019ee80.cpp
 
-u64 func_00109ea8(u32 mode, s32 flag, u8 v)
-{
-    u8 n;
-    switch (mode) {
-    case 7:
-        if (flag == 0) return v != 0x80 ? 0x5000d : 0x5078d;
-    case 1:
-    case 3:
-    case 5:
-        if (v != 0x80) {
-            n = v > 16 ? 16 : 0;
-            return 0x5000d | ((u64)n << 4);
-        }
-        return 0x5010d;
-    case 11:
-        if (flag == 0) return 0x50007 | ((u64)v << 4);
-        break;
-    default:
-        break;
-    }
-    return 0x5000d;
-}
+u64 func_00109ea8(u32 mode, s32 flag, u8 v);  // 00109ea8: moved to src/anon/unit_00109c30.cpp
 
 void sceGsSyncPath(s32, s32);
 void func_003058a0(s32);

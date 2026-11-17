@@ -26,11 +26,7 @@ extern u32 D_003a7b60[];
 
 // Bump allocator: returns the current pointer, advances it by size rounded up to 4.
 extern u32 D_00340ea8;
-u32 func_0010abc8(u32 size) {  // bump_alloc
-    u32 p = D_00340ea8;
-    D_00340ea8 = p + ((size + 3) & ~3);
-    return p;
-}
+u32 func_0010abc8(u32 size);  // 0010abc8: moved to src/anon/unit_0010a918.cpp
 
 extern u32 D_00347d50;
 extern u8 D_00347d54;

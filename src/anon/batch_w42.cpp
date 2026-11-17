@@ -37,14 +37,7 @@ struct Pair109 { u32 a; u32 b; };
 extern s32 D_00340eac;
 extern Pair109 D_003a8ea0[];
 void func_00133c78(u32, u32, u32, u32, u32);
-void func_00109360(u32 a0, s32 id)
-{
-    if (D_00340eac != id) {
-        Pair109* e = &D_003a8ea0[id];
-        if (e->a && e->b) func_00133c78(a0, e->a, e->b, 0, 0);
-        D_00340eac = id;
-    }
-}
+void func_00109360(u32 a0, s32 id);  // 00109360: moved to src/anon/unit_001085a8.cpp
 
 // 0010fea0: common value of three slots, or 0
 s32 func_00112720(void*);  // check_2924_lt14

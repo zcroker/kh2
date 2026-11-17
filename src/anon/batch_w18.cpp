@@ -11,11 +11,7 @@ u32 func_00102818(void*, u32, u32, u32, u32);
 struct Obj109 { u8 pad[16]; u32 f16; };
 extern Obj109* D_0033cc90[];
 extern u32 D_0033cc78[];
-void func_00109cc0(s32 i, u32 v) {
-    if (!D_0033cc90[i]) D_0033cc78[i] = v;
-    else D_0033cc90[i]->f16 = v;
-    D_0033cc90[i] = (Obj109*)v;
-}
+void func_00109cc0(s32 i, u32 v);  // 00109cc0: moved to src/anon/unit_00109c30.cpp
 
 extern u32 D_00347050;
 void func_00113668(void*);

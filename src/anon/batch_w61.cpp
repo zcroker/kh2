@@ -35,23 +35,7 @@ extern u8 D_0032bb30[];
 // 001052a8: moved to src/common/area.cpp
 
 void func_0010a800(u8*, u8*, u8*);  // copy_global_3bytes
-void func_00108600(u8* p) {
-    *(u32*)p = 0;
-    p[4] = p[5] = p[6] = p[7] = 0x80;
-    func_0010a800(p + 8, p + 9, p + 10);  // copy_global_3bytes
-    p[11] = 0xff;
-    p[43] = 0x80;
-    p[42] = 0x80;
-    p[41] = 0x80;
-    *(u64*)(p + 24) = 0x31000070;
-    *(u64*)(p + 16) = 0x800d8;
-    *(u32*)(p + 32) = 0;
-    *(u32*)(p + 36) = 0;
-    p[40] = 0;
-    *(u32*)(p + 44) = 0;
-    *(u32*)(p + 48) = 0;
-    *(u32*)(p + 52) = 0;
-}
+void func_00108600(u8* p);  // 00108600: moved to src/anon/unit_001085a8.cpp
 
 struct VObj { s32 (**vt)(...); };
 extern u64 D_0036a930;

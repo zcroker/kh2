@@ -116,22 +116,7 @@ void func_002deba0(u8*, u32, f32, f32);
 void func_001002a0(s32) __attribute__((noreturn));
 
 // Find the first free slot whose key matches the current key and clear it.
-Slot88* func_00109c30(void) {
-    u32 i;
-    Slot88* r = 0;
-    for (i = 0; i < D_0033cc68; i++) {
-        if (D_0033cc6c[i].f0 == 0 && D_0033cc6c[i].key == D_0033cc60) break;
-    }
-    if (i < D_0033cc68) {
-        r = &D_0033cc6c[i];
-        r->f0 = 0;
-        r->key = 0;
-        r->f16 = 0;
-        r->f80 = 0;
-        r->f84 = 0;
-    }
-    return r;
-}
+Slot88* func_00109c30(void);  // 00109c30: moved to src/anon/unit_00109c30.cpp
 
 // Release the pending entry and every node of the list through the owner's vtable slot 1.
 void func_0011c3b0(u8* p) {

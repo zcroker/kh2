@@ -215,12 +215,7 @@ u8* func_00316f38(u8 *a0, u64 *a1) {  // varint64_decode
     return p;
 }
 
-void func_0010a800(u8 *a0, u8 *a1, u8 *a2) {  // copy_global_3bytes
-    u8 *p = &D_00340ed0;
-    *a0 = p[0];
-    *a1 = p[1];
-    *a2 = p[2];
-}
+void func_0010a800(u8 *a0, u8 *a1, u8 *a2);  // 0010a800: moved to src/anon/unit_00109c30.cpp
 
 void func_0010ef28(u32 a0, u32 a1) {
     u32 p = a0 + 8;

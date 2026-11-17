@@ -2,7 +2,7 @@
 
 void func_00105860(void* self, s32 v) { *(s32*)((char*)self + 9368) = v; }
 
-void func_00108990(void* self) {}
+void func_00108990(void* self);  // 00108990: moved to src/anon/unit_001085a8.cpp
 
 s32 func_001137e0(void* self) { return (s32)(*(s32*)((char*)self + 12)); }
 

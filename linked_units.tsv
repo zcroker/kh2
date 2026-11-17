@@ -186,6 +186,12 @@ src/common/world.cpp	00105ee8	001060b8	.data@0033cbb8,.rodata@00369f60	-G0
 src/naka/libkn/memoryallocator.cpp	001060b8	00106490	.data@0033cc08	-G0 -fno-strict-aliasing
 src/anon/unit_00106490.cpp	00106490	001065d8	.rodata@0036a098	-G0
 src/naka/libkn/camera.cpp	001065d8	00108068	.data@0033cc38,.rodata@0036a0a0	-G0
+src/anon/unit_00108068.cpp	00108068	00108438	.rodata@0036a120	-G0
+src/anon/unit_001085a8.cpp	001085a8	00109708	.rodata@0036a170	-G0 -fno-strict-aliasing
+src/anon/unit_00109788.cpp	00109788	001097e8	-	-G0
+src/anon/unit_00109c30.cpp	00109c30	0010a918	.rodata@0036a37c	-G0 -g -fno-strict-aliasing
+src/anon/unit_0010a918.cpp	0010a918	0010aef0	.rodata@0036a3e8	-G0 -fno-strict-aliasing
+src/anon/unit_0010aef0.cpp	0010aef0	0010b438	.rodata@0036a418	-G0
 src/anon/unit_00119bf8.cpp	00119bf8	00119f48	.rodata@0036a890	-G0
 src/anon/unit_00119f48.cpp	00119f48	0011a260	.rodata@0036a898	-G0
 src/anon/unit_0011a260.cpp	0011a260	0011a660	.rodata@0036a8a8	-G0

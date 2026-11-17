@@ -5284,16 +5284,7 @@ extern u8 D_0033cb80;
 
 extern "C" u32 func_00134450(...);
 
-void func_00109008(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r15, r16;
-    r16 = r4;
-    r15 = (u32)(*(u8*)((u32)r16 + (s32)(48)));
-    r4 = (u32)((s32)0u + (1));
-    if (r15 != 0u) {
-        ((void(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_00134450)(r4, r5, r6, r7, r8, r9, r10, r11);
-        *(u8*)((u32)r16 + (s32)(48)) = (u8)0u;
-    }
-}
+void func_00109008(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);  // 00109008: moved to src/anon/unit_001085a8.cpp
 
 
 
@@ -14629,17 +14620,9 @@ void duplicate_unplaced_0010a800(u8* a0, u8* a1, u8* a2) {
     *a2 = D_00340ed0[2];
 }
 
-void func_0010a8a8(f32 f12, f32 f13) {  // store_global_float_pair
-    D_00340ec8[0] = f12;
-    D_00340ec8[1] = f13;
-}
+void func_0010a8a8(f32 f12, f32 f13);  // 0010a8a8: moved to src/anon/unit_00109c30.cpp
 
-void func_0010a8e0(f32* a0) {
-    a0[0] = D_00340ebc;
-    a0[1] = D_00340ec0;
-    a0[2] = D_00340ec8[0];
-    a0[3] = D_00340ec8[1];
-}
+void func_0010a8e0(f32* a0);  // 0010a8e0: moved to src/anon/unit_00109c30.cpp
 
 void duplicate_unplaced_0010c7f0(C7F0_State* a0) {
     C7F0_State* s0 = a0;

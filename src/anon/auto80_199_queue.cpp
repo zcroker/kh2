@@ -89,217 +89,29 @@ u32 func_00105870() {
 
 // 00106358: moved to src/naka/libkn/memoryallocator.cpp
 
-u32 func_001085a8(u32 a0, const u8* a1) {
-    const u8* s0 = a1;
-    u32 v0 = func_00133bb8(a0, 1, 0x01000101, 0x6c010001);  // forward_sub24_to_133848
+u32 func_001085a8(u32 a0, const u8* a1);  // 001085a8: moved to src/anon/unit_001085a8.cpp
 
-    *(u32*)(v0 + 0) = s0[0];
-    *(u32*)(v0 + 4) = s0[1];
-    *(u32*)(v0 + 8) = s0[2];
-    *(u32*)(v0 + 12) = s0[3];
-    return v0;
-}
+void func_00108998(u8* a0);  // 00108998: moved to src/anon/unit_001085a8.cpp
 
-void func_00108998(u8* a0) {
-    u8* s1 = a0;
-    u8* s0 = (u8*)((s32)&D_003b0000 - 29264);
+void func_00108a10(u8* a0);  // 00108a10: moved to src/anon/unit_001085a8.cpp
 
-    func_001342c8((u32)s0, 14, 0x13000000);
+u64 func_00108d68(u8* a0, u64 a1);  // 00108d68: moved to src/anon/unit_001085a8.cpp
 
-    *(u64*)(s1 + 0) = *(u64*)(s0 + 32);
-    *(u64*)(s1 + 8) = *(u64*)(s0 + 48);
-    *(u64*)(s1 + 16) = *(u64*)(s0 + 144);
-    *(u64*)(s1 + 24) = *(u64*)(s0 + 160);
-    *(u64*)(s1 + 32) = *(u64*)(s0 + 192);
-    *(u64*)(s1 + 40) = *(u64*)(s0 + 208);
-    s1[48] = 0;
-}
+u64 func_00108dd8(u8* a0, u64 a1);  // 00108dd8: moved to src/anon/unit_001085a8.cpp
 
-void func_00108a10(u8* a0) {
-    u8* s1 = a0;
-    u8* s0 = (u8*)((s32)&D_003b0000 - 29488);
+u64 func_00108e48(u8* a0, u64 a1);  // 00108e48: moved to src/anon/unit_001085a8.cpp
 
-    func_001342c8((u32)s0, 14, 0x13000000);
+u64 func_00108eb8(u8* a0, u64 a1);  // 00108eb8: moved to src/anon/unit_001085a8.cpp
 
-    *(u64*)(s1 + 0) = *(u64*)(s0 + 32);
-    *(u64*)(s1 + 8) = *(u64*)(s0 + 48);
-    *(u64*)(s1 + 16) = *(u64*)(s0 + 144);
-    *(u64*)(s1 + 24) = *(u64*)(s0 + 160);
-    *(u64*)(s1 + 32) = *(u64*)(s0 + 192);
-    *(u64*)(s1 + 40) = *(u64*)(s0 + 208);
-    s1[48] = 0;
-}
+u64 func_00108f28(u8* a0, u64 a1);  // 00108f28: moved to src/anon/unit_001085a8.cpp
 
-u64 func_00108d68(u8* a0, u64 a1) {
-    u8* s0 = a0;
-    u64 s2 = *(u64*)(a0 + 0);
-    u64 s1 = a1;
+u64 func_00108f98(u8* a0, u64 a1);  // 00108f98: moved to src/anon/unit_001085a8.cpp
 
-    if (s1 != s2) {
-        *(u64*)(s0 + 0) = s1;
-        if (s0[48] == 0) {
-            func_00134408(s0);
-            s0[48] = 1;
-        }
-        func_00134428(76, s1);
-    }
+void func_00109280(void* a0);  // 00109280: moved to src/anon/unit_001085a8.cpp
 
-    return s2;
-}
+u32 func_001093c8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5);  // 001093c8: moved to src/anon/unit_001085a8.cpp
 
-u64 func_00108dd8(u8* a0, u64 a1) {
-    u8* s0 = a0;
-    u64 s2 = *(u64*)(a0 + 8);
-    u64 s1 = a1;
-
-    if (s1 != s2) {
-        *(u64*)(s0 + 8) = s1;
-        if (s0[48] == 0) {
-            func_00134408(s0);
-            s0[48] = 1;
-        }
-        func_00134428(78, s1);
-    }
-
-    return s2;
-}
-
-u64 func_00108e48(u8* a0, u64 a1) {
-    u8* s0 = a0;
-    u64 s2 = *(u64*)(a0 + 16);
-    u64 s1 = a1;
-
-    if (s1 != s2) {
-        *(u64*)(s0 + 16) = s1;
-        if (s0[48] == 0) {
-            func_00134408(s0);
-            s0[48] = 1;
-        }
-        func_00134428(71, s1);
-    }
-
-    return s2;
-}
-
-u64 func_00108eb8(u8* a0, u64 a1) {
-    u8* s0 = a0;
-    u64 s2 = *(u64*)(a0 + 24);
-    u64 s1 = a1;
-
-    if (s1 != s2) {
-        *(u64*)(s0 + 24) = s1;
-        if (s0[48] == 0) {
-            func_00134408(s0);
-            s0[48] = 1;
-        }
-        func_00134428(66, s1);
-    }
-
-    return s2;
-}
-
-u64 func_00108f28(u8* a0, u64 a1) {
-    u8* s0 = a0;
-    u64 s2 = *(u64*)(a0 + 32);
-    u64 s1 = a1;
-
-    if (s1 != s2) {
-        *(u64*)(s0 + 32) = s1;
-        if (s0[48] == 0) {
-            func_00134408(s0);
-            s0[48] = 1;
-        }
-        func_00134428(61, s1);
-    }
-
-    return s2;
-}
-
-u64 func_00108f98(u8* a0, u64 a1) {
-    u8* s0 = a0;
-    u64 s2 = *(u64*)(a0 + 40);
-    u64 s1 = a1;
-
-    if (s1 != s2) {
-        *(u64*)(s0 + 40) = s1;
-        if (s0[48] == 0) {
-            func_00134408(s0);
-            s0[48] = 1;
-        }
-        func_00134428(1, s1);
-    }
-
-    return s2;
-}
-
-void func_00109280(void* a0) {
-    void* s0 = a0;
-    func_00133d18(s0);
-
-    u32 v = D_0033cc64;
-    if (v != 0) {
-        u32 vtbl = *(u32*)s0;
-        u32 fn = *(u32*)(vtbl + 4);
-        ((void (*)(void*, u32))fn)(s0, v);
-        D_0033cc64 = 0;
-    }
-
-    v = D_0033cc6c;
-    if (v != 0) {
-        u32 vtbl = *(u32*)s0;
-        u32 fn = *(u32*)(vtbl + 4);
-        ((void (*)(void*, u32))fn)(s0, v);
-        D_0033cc6c = 0;
-    }
-
-    v = D_0033cc70;
-    if (v != 0) {
-        u32 vtbl = *(u32*)s0;
-        u32 fn = *(u32*)(vtbl + 4);
-        ((void (*)(void*, u32))fn)(s0, v);
-        D_0033cc70 = 0;
-    }
-
-    D_0033cc68 = 0;
-    D_00340ea8 = 0;
-}
-
-u32 func_001093c8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5) {
-    u32 s3 = a1;
-    u32 s0 = a3;
-    u32 s1 = a4;
-    u32 s2 = a5;
-
-    u32 n = a2 + 1;
-    u32 cmd = (n << 16) | 0x6c004009;
-    u32 v0 = func_00133bb8(a0, n, 0x01000101, cmd);  // forward_sub24_to_133848
-
-    *(u32*)(v0 + 0) = s3;
-    *(u32*)(v0 + 4) = s0;
-    *(u32*)(v0 + 8) = s1;
-    *(u32*)(v0 + 12) = s2;
-    return v0 + 16;
-}
-
-void func_0010a580(u32 a0) {
-    u32 s1 = a0 & 0xff;
-    u8* s0 = *(u8**)&D_0033cc84;
-
-    while (s0 != 0) {
-        u32 fn = *(u32*)(s0 + 80);
-        if (fn != 0) {
-            ((void (*)(u8*, u32))fn)(s0, s1);
-        }
-
-        fn = *(u32*)(s0 + 84);
-        if (fn != 0) {
-            ((void (*)(u8*, u32))fn)(s0, s1);
-        }
-
-        func_00134490();
-        s0 = *(u8**)(s0 + 16);
-    }
-}
+void func_0010a580(u32 a0);  // 0010a580: moved to src/anon/unit_00109c30.cpp
 
 void func_0010c850(u8* a0) {
     u8* s0 = a0;

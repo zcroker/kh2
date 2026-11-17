@@ -416,21 +416,7 @@ void func_002ed5a8(u8* p) {
 
 extern u32 D_003a84d0[512];
 // Fills a run of the 512-entry table with val (val 0 clears it all); 1 if nothing changed.
-u32 wtarget_00109450(s32 start, s32 count, u32 val, u32) {
-    u32 r = 1;
-    if (val == 0) {
-        for (start = 0; start < 512; start++) D_003a84d0[start] = 0;
-    } else {
-        s32 end = start + count;
-        for (; start < end && start < 512; start++) {
-            if (D_003a84d0[start] != val) {
-                D_003a84d0[start] = val;
-                r = 0;
-            }
-        }
-    }
-    return r;
-}
+u32 wtarget_00109450(s32 start, s32 count, u32 val, u32);  // 00109450: moved to src/anon/unit_001085a8.cpp
 
 void func_001dc818(u32);
 void func_002d0cf0(u8* p) {

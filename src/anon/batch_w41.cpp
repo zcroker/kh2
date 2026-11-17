@@ -92,16 +92,7 @@ static inline void w41InitS10(W41S10* s, u16 v) { s->a = v; s->b = v; s->c = v; 
 
 // GIF tag (NLOOP=1, EOP, NREG=1, REGS=A+D) followed by one A+D pair (TEXFLUSH).
 struct W41GifTag { u64 nloop:15; u64 eop:1; u64 pad:30; u64 pre:1; u64 prim:11; u64 flg:2; u64 nreg:4; u64 r0:4; u64 rr:60; u64 data; u64 addr; };
-void func_00109690(u32 a) {
-    W41GifTag* t = (W41GifTag*)func_00133ba0(a, 2, 0x13000000);  // forward_sub24_to_1337f0
-    *(u128*)t = 0;
-    t->nloop = 1;
-    t->eop = 1;
-    t->nreg = 1;
-    t->r0 = 0xe;
-    t->addr = 63;
-    t->data = 0;
-}
+void func_00109690(u32 a);  // 00109690: moved to src/anon/unit_001085a8.cpp
 
 // soft-double helpers linked in the game image (float->double, double !=)
 double func_00313b80(f32);  // float_to_double
