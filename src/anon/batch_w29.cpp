@@ -162,24 +162,9 @@ void func_00173dc0(u32* v);  // 0x00173dc0: definition moved into src/anon/unit_
 
 void func_001a2710(Flag250* p);  // 0x001a2710: definition moved into src/anon/unit_0019fb70.cpp
 
-void func_001aa790(u32* p, u32 a) {
-    p[0] = a;
-    p[5] = 0x60000000;
-    p[1] = 0;
-    func_00192f78(p + 8);  // obj_init_float_const
-    p[14] = 0;
-    p[15] = 0;
-    Tri* q = (Tri*)(p + 16);
-    q->a = 0;
-    q->c = 0;
-    q->b = 0;
-    p[19] = 0;
-    func_001ab750(p[0], q);
-}
+void func_001aa790(u32* p, u32 a);  // 0x001aa790: definition moved into src/anon/unit_001a9130.cpp
 
-u8 func_001aa8a8(u32* p, u32 a, u32 b, u32 c, u32 d) {
-    return func_001aafe8(p[0], p + 16, a, b, c, d, *(f32*)(p + 9), *(f32*)(p + 10));
-}
+u8 func_001aa8a8(u32* p, u32 a, u32 b, u32 c, u32 d);  // 0x001aa8a8: definition moved into src/anon/unit_001a9130.cpp
 
 // 001ad3e0: moved to src/anon/unit_001abb28.cpp
 

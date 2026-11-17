@@ -703,34 +703,11 @@ u32 func_0019ed48(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0019ed48: definition mo
 
 // 001a4df0: moved to src/anon/unit_001a4db0.cpp
 
-void func_001a8c60(u32 a0, u32 a1, u32 a2, u32 a3) {  // masked_byte_store
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r15;
-    r15 = (u32)((s32)0u + (-97));
-    r4 = (u32)(r4 + r5);
-    r6 = (u32)(r6 & r15);
-    *(u8*)((u32)r4 + (s32)(0)) = (u8)r6;
-}
+void func_001a8c60(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001a8c60: definition moved into src/anon/unit_001a8618.cpp
 
-u32 func_001a9780(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2, r15;
-    r2 = 0u;
-    if (r4 != 0u) {
-        r15 = *(u32*)((u32)r4 + (s32)(12));
-        r2 = (u32)(r15 & 0x0001u);
-    }
-    return r2;
-}
+u32 func_001a9780(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001a9780: definition moved into src/anon/unit_001a9130.cpp
 
-u32 func_001a9798(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2, r15;
-    r2 = 0u;
-    if (r4 != 0u) {
-        r15 = *(u32*)((u32)r4 + (s32)(12));
-        r15 = (u32)(r15 & 0x0002u);
-        r2 = ((u32)0u < (u32)r15);
-    }
-    return r2;
-}
+u32 func_001a9798(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001a9798: definition moved into src/anon/unit_001a9130.cpp
 
 u32 func_001b0188(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001b0188: definition moved into src/anon/unit_001ada38.cpp
 

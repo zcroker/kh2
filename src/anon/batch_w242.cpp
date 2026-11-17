@@ -42,21 +42,6 @@ void func_00199f90(char* t, char* s);  // 0x00199f90: definition moved into src/
 struct S6 { u32 a[6]; };
 void func_00192990(u32, u32, S6*, char*);
 void func_001aa388(char*, u32);
-void func_001a9970(char* t, int n) {
-    float f;
-    if (n) {
-        f = (float)n / (float)*(u8*)(*(u32*)(t + 4) + 17);
-    } else {
-        f = 1.0f;
-    }
-    *(float*)(t + 56) = f;
-    *(float*)(t + 40) = f;
-    u32 o = *(u32*)(t + 8);
-    if (o) {
-        S6 s = *(S6*)(t + 36);
-        func_00192990(o, *(u32*)(t + 4), &s, t + 80);
-        func_001aa388(t, *(u32*)(t + 8));
-    }
-}
+void func_001a9970(char* t, int n);  // 0x001a9970: definition moved into src/anon/unit_001a9130.cpp
 
 }

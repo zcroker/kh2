@@ -137,12 +137,7 @@ extern Pair72 D_00354bf0[];
 
 // 00192818: moved to src/yasui/libys/message.cpp
 
-s32 func_001a8c78(u8* p, s32 n) {
-    s32 r = 0;
-    u8* q = p + n;
-    if (n == 0 || (*q & 0x80) || func_001c9db0(*q & 0x1f)) r = 1;
-    return r;
-}
+s32 func_001a8c78(u8* p, s32 n);  // 0x001a8c78: definition moved into src/anon/unit_001a8618.cpp
 
 // 001ac858: moved to src/anon/unit_001abb28.cpp
 

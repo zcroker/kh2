@@ -108,10 +108,7 @@ u8 func_0019f060(u8*);
 s32 func_001ab820(u32);
 f32 func_00192fb8(u32*);  // mul_float4x8
 // Picks a 16-byte table entry by rounding count * ratio.
-u8* func_001aa310(u32 a0, u32* a, u8* tbl) {
-    f32 s = (f32)func_001ab820(*a);
-    return tbl + (s32)(s * func_00192fb8(a + 8) + 0.5f) * 16;
-}
+u8* func_001aa310(u32 a0, u32* a, u8* tbl);  // 0x001aa310: definition moved into src/anon/unit_001a9130.cpp
 
 void func_001b3b70(u8*, u32, u32, u32);
 extern void* D_00350910[];

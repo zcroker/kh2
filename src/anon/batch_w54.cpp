@@ -223,17 +223,7 @@ s32 func_001a8f10(void*);  // arg_map_0_1_2
 s32 func_001a8bf8(void*, s32);  // get_bits5_at
 void func_001a8c60(void*, s32, s32);  // masked_byte_store
 // move the entry matching a1 into slot 3, swapping with whatever was there
-void func_001a8f68(void* a0, void* a1) {
-    s32 v = func_001a8f10(a1);  // arg_map_0_1_2
-    s32 i;
-    for (i = 1; i < 3; i++) {
-        if (func_001a8bf8(a0, i) == v) {  // get_bits5_at
-            func_001a8c60(a0, i, func_001a8bf8(a0, 3));  // masked_byte_store
-            break;
-        }
-    }
-    func_001a8c60(a0, 3, v);  // masked_byte_store
-}
+void func_001a8f68(void* a0, void* a1);  // 0x001a8f68: definition moved into src/anon/unit_001a8618.cpp
 
 void func_001ac970(void*, s32, s32, s32, s32, s32, s32, s32);
 extern u8 D_00350af0[];

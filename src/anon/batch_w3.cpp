@@ -93,16 +93,11 @@ u8 func_0019c898(u32);
 u32 func_0016a070();
 u32 func_0019c8a8();  // 0x0019c8a8: definition moved into src/anon/unit_0019ba60.cpp
 
-void func_001a8bb8(u8* p) {  // obj_set_header_bytes
-    p[0] = 0;
-    p[1] = 18;
-    p[2] = 18;
-    p[3] = 18;
-}
+void func_001a8bb8(u8* p);  // 0x001a8bb8: definition moved into src/anon/unit_001a8618.cpp
 
 u32 func_001a8f10();  // arg_map_0_1_2
 void func_001a8b38(u32);
-void func_001a90f0() { func_001a8b38(func_001a8f10()); }
+void func_001a90f0();  // 0x001a90f0: definition moved into src/anon/unit_001a8618.cpp
 
 extern u32 D_00350cc8;
 extern u32 D_00350cd0;

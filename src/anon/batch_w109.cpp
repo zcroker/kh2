@@ -58,38 +58,7 @@ static inline bool IsFullB(u8* p) { return !func_001a1de0(p) && *(s32*)(p + 384)
 s32 func_001a9528(u8*);
 void func_001dddd0(s32, s32);
 s32 func_001de168(s32, s32, s32, s32, s32, s32);  // scan_list_by_half
-void func_001a9560(u8* self, s32 a1, s32 a2, s32* out) {
-    s32 v = func_001a9528(self);
-    if (!v) return;
-    func_001dddd0(a2, v);
-    u8* o = *(u8**)(self + 8);
-    s32 i;
-    switch (*(u16*)(o + 76)) {
-    case 5013:
-        for (i = 0; i < 3; i++) out[i] = func_001de168(a2, i, 0, 1, 0, a1);  // scan_list_by_half
-        break;
-    case 1016:
-    case 5002:
-        *out = func_001de168(a2, 0, 0, 1, 0, a1);
-        break;
-    case 5026:
-        for (i = 0; i < 9; i++) out[i] = func_001de168(a2, i, 0, 1, 0, a1);  // scan_list_by_half
-        break;
-    case 5066:
-        for (i = 0; i < 14; i++) out[i] = func_001de168(a2, i, 0, 1, 0, a1);  // scan_list_by_half
-        break;
-    default:
-        switch (*(u32*)o) {
-        case 2184: case 2186: case 2187: case 2188: case 2428:
-            *out = func_001de168(a2, 0, 0, 1, 0, a1);
-            break;
-        case 2185:
-            for (i = 0; i < 4; i++) out[i] = func_001de168(a2, i, 0, 1, 0, a1);  // scan_list_by_half
-            break;
-        }
-        break;
-    }
-}
+void func_001a9560(u8* self, s32 a1, s32 a2, s32* out);  // 0x001a9560: definition moved into src/anon/unit_001a9130.cpp
 
 // ---- f5.cpp
 extern char D_0036e978[];

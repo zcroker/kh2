@@ -7105,18 +7105,7 @@ u32 duplicate_unplaced_001a8548(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, 
     return ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_00138190)(r4, r5, r6, r7, r8, r9, r10, r11);
 }
 
-void func_001a8908(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r14, r15;
-    r14 = (u32)(0x01c7u << 16);
-    *(volatile u32*)((u32)r14 + (s32)(-13304)) = r4;
-    r15 = *(volatile u32*)((u32)r4 + (s32)(4));
-    r14 = (u32)((s32)0u + (52));
-    r15 = (u32)(r15 * r14);
-    r4 = (u32)(r4 + r15);
-    r4 = (u32)((s32)r4 + (8));
-    r15 = (u32)(0x01c7u << 16);
-    *(volatile u32*)((u32)r15 + (s32)(-13300)) = r4;
-}
+void func_001a8908(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);  // 0x001a8908: definition moved into src/anon/unit_001a8618.cpp
 
 u32 duplicate_unplaced_001a8b38(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r2, r16;
@@ -7163,27 +7152,9 @@ u32 duplicate_unplaced_001a90f0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, 
     return ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_001a8b38)(r4, r5, r6, r7, r8, r9, r10, r11);
 }
 
-void func_001a9140(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r15;
-    r15 = (u32)&D_0032bb30;
-    r5 = (u32)((s32)r5 + (-1));    r4 = (u32)(r4 + r15);
-    r4 = (u32)((s32)r4 + (9184));
-    *(volatile u8*)((u32)r4 + (s32)(12)) = (u8)r5;
-}
+void func_001a9140(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);  // 0x001a9140: definition moved into src/anon/unit_001a9130.cpp
 
-void func_001a9190(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32 idx = a0 >> 5;
-    u32 base = (u32)&D_0032df30;
-    idx <<= 2;
-    idx += base;
-    a0 &= 31;
-    u32 mask = 1;
-    u32 val = *(volatile u32*)idx;
-    mask <<= a0;
-    mask = ~mask;
-    val &= mask;
-    *(volatile u32*)idx = val;
-}
+void func_001a9190(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);  // 0x001a9190: definition moved into src/anon/unit_001a9130.cpp
 
 u32 duplicate_unplaced_001a91c8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r2, r14, r15;

@@ -30,29 +30,6 @@ typedef struct B1
   s32 f4;
   s32 f8;
 } B1;
-void func_001a92d8(B1 *p, s32 a, s32 b)
-{
-  s32 new_var;
-  new_var = b;
-  func_001a9350(p, a, b);
-  if (0 == new_var)
-  {
-    b = func_0016e920(a);
-  }
-  if (!func_001a9758(a, b))
-  {
-    if (a || p)
-    {
-      func_00170e58();
-    }
-    else
-    {
-      func_00170e58();
-    }
-  }
-  p->f4 = a;
-  (*p).f8 = b;
-  func_001a9218(p);
-}
+void func_001a92d8(B1 *p, s32 a, s32 b);  // 0x001a92d8: definition moved into src/anon/unit_001a9130.cpp
 
 }

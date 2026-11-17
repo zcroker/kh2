@@ -28,18 +28,7 @@ W1811UnwindPtr func_00314a50(unsigned char, void*); /* base_of_encoded_value */
 const unsigned char* func_00314b00(const unsigned char*, W1811UnwindWord*); /* read_uleb128 */
 const unsigned char* func_00314b90(unsigned char, W1811UnwindPtr, const unsigned char*, W1811UnwindPtr*);
 
-u64 func_001aaea8(W1811Tex* t, s32 n) {
-    s32 q = n / (((1 << t->tw) / t->dw) * ((1 << t->th) / t->dh));
-    s32 cbp = 36;
-    if (q >= 2) cbp = 44;
-    s32 psm = (q & 1) + 8;
-    switch (t->fmt) {
-    case 0: case 1: case 2: case 5: break;
-    case 3: psm += 2; break;
-    case 4: psm += 4; break;
-    }
-    return (u64)t->tbp | ((u64)((1 << t->tw) / 64) << 14) | ((u64)cbp << 20) | ((u64)t->tw << 26) | ((u64)t->th << 30) | ((u64)1 << 34) | ((u64)0 << 35) | ((u64)0x3ffc << 37) | ((u64)0 << 51) | ((u64)0 << 55) | ((u64)psm << 56) | ((u64)0 << 61);
-}
+u64 func_001aaea8(W1811Tex* t, s32 n);  // 0x001aaea8: definition moved into src/anon/unit_001aaea8.cpp
 
 static inline const unsigned char* w1811_read_encoded_value(void* context, unsigned char encoding,
                                                             const unsigned char* p, W1811UnwindPtr* val)

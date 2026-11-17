@@ -73,9 +73,7 @@ void func_001d8fa8(u32, u32);
 void func_001a04f8(BD_VALUE* bd);  // 0x001a04f8: definition moved into src/anon/unit_0019fb70.cpp
 
 // Low five bits of table byte i.
-u8 func_001a8bf8(u8* p, s32 i) {  // get_bits5_at
-    return p[i] & 0x1f;
-}
+u8 func_001a8bf8(u8* p, s32 i);  // 0x001a8bf8: definition moved into src/anon/unit_001a8618.cpp
 
 void func_0017c660(u8*, u8*);
 void func_001c3cd8(u8* a, u8* b);  // 0x001c3cd8: definition moved into src/anon/unit_001c2b58.cpp

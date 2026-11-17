@@ -263,24 +263,7 @@ void func_0015b368(u32 self, u32 a1, u32 a2, u32 a3) {
 // 001a4ff8: moved to src/anon/unit_001a4db0.cpp
 
 // Loads a texture archive by name and uploads its images to VRAM.
-void func_001aabd8(void) {
-    char path[48];
-    u32 h;
-    u32 p;
-    func_002fee78(path, D_00350a2c, D_0033caf4);
-    h = func_00170b30(0x80000);  // alloc_align128
-    func_00168328(path, h);
-    p = *(u32*)(func_00168b38(h, 36, 0) + 8);  // entry_array_find_nth
-    func_001aad28(0, 8, 36, 512, 256, p);
-    func_001aad28(0, 8, 44, 512, 256, p + 0x10000);
-    p = *(u32*)(func_00168b38(h, 36, 1) + 8);  // entry_array_find_nth
-    func_001aad28(2048, 8, 36, 512, 512, p);
-    func_001aad28(2048, 8, 44, 512, 512, p + 0x20000);
-    p = *(u32*)(func_00168b38(h, 36, 2) + 8);  // entry_array_find_nth
-    func_001aad28(6144, 4, 27, 256, 160, p);
-    func_001aad28(16380, 1, 0, 16, 16, p + 0xa000);
-    func_00170c00(h);
-}
+void func_001aabd8(void);  // 0x001aabd8: definition moved into src/anon/unit_001aaa08.cpp
 
 // Constructor: base init, vtables, four child panels, colour from a kind table.
 // 001ac970: moved to src/anon/unit_001abb28.cpp

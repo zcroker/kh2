@@ -174,6 +174,13 @@ src/harata/libdk/targetcamera.cpp	00159ce0	0015a810	.data@0034aa30,.bss@004f3604
 src/anon/unit_00159240.cpp	00159240	00159790	.data@0034aa08,.bss@004f35b0,.rodata@0036b32c	-G0 -fno-strict-aliasing
 src/anon/unit_001a8098.cpp	001a8098	001a82b0	.data@01c6cb90	-G0 -fno-strict-aliasing
 src/anon/unit_001a82f0.cpp	001a82f0	001a85b8	.bss@01c6cba0	-G0 -fno-strict-aliasing
+src/anon/unit_001a8618.cpp	001a8618	001a9110	.rodata@0036d614	-G0
+src/anon/unit_001a9110.cpp	001a9110	001a9130	-	-G0 -g
+src/anon/unit_001a9130.cpp	001a9130	001aa980	.rodata@0036d618	-G0
+src/anon/unit_001aa980.c	001aa980	001aaa08	-	-G0 -fno-schedule-insns
+src/anon/unit_001aaa08.cpp	001aaa08	001aaea8	-	-G0 -fno-strict-aliasing
+src/anon/unit_001aaea8.cpp	001aaea8	001ab260	.rodata@0036d758	-G0 -fno-strict-aliasing
+src/anon/unit_001ab598.cpp	001ab598	001abad8	.rodata@0036d778	-G0
 src/anon/unit_001abb28.cpp	001abb28	001ad990	.bss@01c6ced0,.rodata@0036d780	-G0 -fno-strict-aliasing
 src/anon/unit_001ad990.cpp	001ad990	001ada38	.rodata@0036d7a4	-G0
 src/anon/unit_001ada38.cpp	001ada38	001b0448	.rodata@0036d7a8	-G0 -g -fno-strict-aliasing

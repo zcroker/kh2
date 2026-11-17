@@ -84,19 +84,12 @@ extern Node1995* D_01c62140;
 
 void func_001a9350(void*);
 void func_001a9218(void*);
-void func_001a93b0(u32* p, u32 v) {
-    func_001a9350(p);
-    *p = v;
-    func_001a9218(p);
-}
+void func_001a93b0(u32* p, u32 v);  // 0x001a93b0: definition moved into src/anon/unit_001a9130.cpp
 
 extern u8 D_01c6cd20[];
 void func_002362b0(void*, u32);
 void func_002367c8(void*);  // obj_dispatch_bitfield64
-void func_001aadb0(u32 a) {
-    func_002362b0(D_01c6cd20, a);
-    func_002367c8(D_01c6cd20);  // obj_dispatch_bitfield64
-}
+void func_001aadb0(u32 a);  // 0x001aadb0: definition moved into src/anon/unit_001aaa08.cpp
 
 u32 func_001b0320(u32, u32, u32, u32);  // is_field16_set
 void func_002bc358(u32, u32);

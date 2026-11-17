@@ -120,18 +120,7 @@ s32 ctarget_00195468(u32 a, u32 key, u32, u32);  // 0x00195468: definition moved
 
 // --- 001aae28
 struct S1aae28 { u32 a, b, c, d; u8 e, f, g, h; u32 j; u32 i; };
-void func_001aae28(S1aae28* s, u32 a, u32 b, u32 c, u32 d, u32 e, u32 f, u32 g, u32 h, u32 j, u32 i) {  // obj_init_from_6args
-    s->a = a;
-    s->b = b;
-    s->c = c;
-    s->d = d;
-    s->e = e;
-    s->f = f;
-    s->g = g;
-    s->h = h;
-    s->j = j;
-    s->i = i;
-}
+void func_001aae28(S1aae28* s, u32 a, u32 b, u32 c, u32 d, u32 e, u32 f, u32 g, u32 h, u32 j, u32 i);  // 0x001aae28: definition moved into src/anon/unit_001aaa08.cpp
 
 // --- 001af328
 void* func_001050d8(u32);

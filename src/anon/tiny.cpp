@@ -475,19 +475,9 @@ void func_0019fe80(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0019fe80: definition m
 
 // 001a81e0: moved to src/anon/unit_001a8098.cpp
 
-void func_001a97e8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 b = (0x01c7u << 16);
-    *(u32*)((u32)b + (-13232)) = (u32)a0;
-}
+void func_001a97e8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001a97e8: definition moved into src/anon/unit_001a9130.cpp
 
-u32 func_001ab810(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_global_1c7cec0
-    (void)a0;
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    u32 b = (0x01c7u << 16);
-    return (u32)(*(u32*)((u32)b + (-12608)));
-}
+u32 func_001ab810(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001ab810: definition moved into src/anon/unit_001ab598.cpp
 
 // 001ad938: moved to src/anon/unit_001abb28.cpp
 
@@ -1329,29 +1319,11 @@ extern "C" u32 func_0019f060(u32, u32, u32, u32) asm("_ZN2YS6JUMPER7is_jumpEv");
 
 // 001a3a78: moved to src/yasui/libys/effect.cpp
 
-u32 func_001a8b28(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_data_1c7cc10
-    (void)a0;
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    return (u32)&D_01c6cc10;
-}
+u32 func_001a8b28(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001a8b28: definition moved into src/anon/unit_001a8618.cpp
 
-u32 func_001a9130(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a0;
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    return (u32)&D_01c6cc48;
-}
+u32 func_001a9130(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001a9130: definition moved into src/anon/unit_001a9130.cpp
 
-u32 func_001ab800(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a0;
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    return (u32)&D_01c6cd20;
-}
+u32 func_001ab800(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001ab800: definition moved into src/anon/unit_001ab598.cpp
 
 u32 func_001af9e8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001af9e8: definition moved into src/anon/unit_001ada38.cpp
 
@@ -1980,12 +1952,7 @@ void func_0019ef60(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0019ef60: definition m
 
 // 001a36f8: moved to src/anon/unit_001a2a50.cpp
 
-u32 func_001aae68(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    return (u32)&D_01c6cc60 + ((u32)a0 << 5);
-}
+u32 func_001aae68(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001aae68: definition moved into src/anon/unit_001aaa08.cpp
 
 u32 func_001b6d70(u32 a0, u32 a1, u32 a2, u32 a3) {  // table_entry_ptr_b
     (void)a1;

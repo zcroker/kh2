@@ -51,9 +51,7 @@ void func_00153c98(W1669VObj* p) {
 // 001556c0: moved to src/anon/unit_00153ea0.cpp
 void func_001556c0(u8* p);
 void func_0019d518(u8* p);  // 0x0019d518: definition moved into src/anon/unit_0019ba60.cpp
-void func_001a9160(u32 n) {
-    D_0032df30[n >> 5] |= 1 << (n & 31);
-}
+void func_001a9160(u32 n);  // 0x001a9160: definition moved into src/anon/unit_001a9130.cpp
 void func_002e73a8(u8* p) {
     *(f32*)(p + 0x1c) = func_001065a8(*(f32*)(p + 0x10), *(f32*)(p + 0x14));
 }

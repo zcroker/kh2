@@ -340,22 +340,7 @@ u32 func_0019f5a8(u32 a0);  // 0x0019f5a8: definition moved into src/anon/unit_0
 
 u32 func_0019c498(u32 a0);  // 0x0019c498: definition moved into src/anon/unit_0019ba60.cpp
 
-u32 func_001aa6f0(u32 a0, u32 a1) {
-    register u32 scale asm("$13") = *(u8 *)(a0 + 63);
-    register u32 alpha asm("$15") = a1 >> 24;
-    register u32 mask asm("$14") = 0x00ffffff;
-    alpha *= scale;
-    a1 &= mask;
-    mask = 255;
-    alpha >>= 7;
-    scale = alpha < 256;
-    if (scale == 0) {
-        alpha = mask;
-    }
-    alpha <<= 24;
-    a1 |= alpha;
-    return a1;
-}
+u32 func_001aa6f0(u32 a0, u32 a1);  // 0x001aa6f0: definition moved into src/anon/unit_001a9130.cpp
 
 u32 func_002943b0(u32 a0) {  // test_bit_global_array
     register u32 bit asm("$13") = *(u16 *)(a0 + 4);
@@ -425,14 +410,7 @@ void func_001a1d40(u32 a0, f32 f12);  // 0x001a1d40: definition moved into src/a
 
 // 001a84f0: moved to src/anon/unit_001a82f0.cpp
 
-void func_001a8ff8(u32 a0, u32 a1, u32 a2) {  // swap_bytes
-    u8 *p1 = (u8 *)(a0 + a1);
-    u8 *p2 = (u8 *)(a0 + a2);
-    u8 v1 = *p1;
-    u8 v2 = *p2;
-    *p1 = v2;
-    *p2 = v1;
-}
+void func_001a8ff8(u32 a0, u32 a1, u32 a2);  // 0x001a8ff8: definition moved into src/anon/unit_001a8618.cpp
 
 void func_00226f78(u32 a0) {
     D_0035de5c = a0;
@@ -551,22 +529,7 @@ class RectBase {
 void func_0019f4b8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6,
                    u32 a7);  // 0x0019f4b8: definition moved into src/anon/unit_0019ee80.cpp
 
-void func_001a98e8(u32 *a0, u32 a1, u32 a2, u32 a3, u32 a4) {
-    a0[0] = 0;
-    a0[1] = func_001aae68(a1);
-    a0[2] = a2;
-    a0[4] = 0;
-    a0[5] = 0;
-    a0[6] = 0;
-    func_00192f78(a0 + 9);  // obj_init_float_const
-
-    a0[22] = a4;
-    a0[19] = 0;
-    a0[20] = 0;
-    a0[21] = 0;
-    a0[23] = 0;
-    func_001a9970(a0, a3);
-}
+void func_001a98e8(u32 *a0, u32 a1, u32 a2, u32 a3, u32 a4);  // 0x001a98e8: definition moved into src/anon/unit_001a9130.cpp
 
 // 001d3328: moved to src/anon/unit_001d30b0.cpp
 
@@ -593,14 +556,7 @@ struct WORLDFLAG {
     static u32 Check(s32);
 };
 
-u32 SAVEFLAG::Check(u32 a0) {
-    u32 idx = a0 >> 5;
-    u32 *p = (u32 *)((u8 *)&D_0032df30 + (idx << 2));
-    u32 bit = a0 & 31;
-    u32 val = *p;
-    u32 mask = 1u << bit;
-    return (val & mask) != 0;
-}
+// 0x1a91c8 YS::SAVEFLAG::Check: definition moved into src/anon/unit_001a9130.cpp (linked unit).
 
 // 0x001b8958: definition moved into src/anon/unit_001b87a0.cpp
 } // namespace YS

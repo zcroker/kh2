@@ -107,30 +107,7 @@ u32 func_00192498(u8*, s32);  // read_u16_be
 u8* func_00192388(u8*);  // skip_control_codes
 
 // Walks the node list, forwarding type-5 nodes to the listener; stops at type 0 or 16.
-void func_001aa558(u8* o) {
-    u8* n = *(u8**)(o + 12);
-    while (n) {
-        if (func_00192440(n, 0)) {  // is_byte_lt25
-            switch (*n) {
-            case 0:
-            case 16:
-                n = 0;
-                break;
-            case 5:
-                if (*(u8**)(o + 24)) {
-                    u32 a = func_00192498(n, 1);  // read_u16_be
-                    u32 b = func_00192498(n, 3);  // read_u16_be
-                    u32 c = func_00192498(n, 5);  // read_u16_be
-                    u8* t = *(u8**)(o + 24);
-                    (*(void (**)(u8*, u32, u32, u32))(*(u8**)t + 28))(t, a, b, c);
-                }
-                break;
-            }
-        }
-        if (!n) break;
-        n = func_00192388(n);  // skip_control_codes
-    }
-}
+void func_001aa558(u8* o);  // 0x001aa558: definition moved into src/anon/unit_001a9130.cpp
 
 s32 func_001b5858(u8*);
 s32 func_001b5cb8(u8*);

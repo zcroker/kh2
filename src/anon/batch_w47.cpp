@@ -94,11 +94,7 @@ void func_0019ebc0(void);  // 0x0019ebc0: definition moved into src/anon/unit_00
 
 void func_001a98e8(void*, u32, u32, u32, u32);
 void func_001a9ae8(void*, u32, u32, u32);
-void func_001aa728(u32 a, u32 b, u32 c, u32 d, u32 e, u32 f, u32 g) {
-    u8 t[96];
-    func_001a98e8(t, a, b, f, g);
-    func_001a9ae8(t, c, d, e);
-}
+void func_001aa728(u32 a, u32 b, u32 c, u32 d, u32 e, u32 f, u32 g);  // 0x001aa728: definition moved into src/anon/unit_001a9130.cpp
 
 s32 func_001b58a8(void);
 u32 func_001a8bd0(s32);

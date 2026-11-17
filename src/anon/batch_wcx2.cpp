@@ -6192,12 +6192,7 @@ void func_001b7e68(u8*, u32);
 u32 func_001aaea8(u8*, u32);
 void func_001b8010(u8*, u32, u32, u32, u32, u32, u32, u32, s32, u64, s32, u64, s32, u64, u64);
 void func_001b80d8_b750(u8*) asm("func_001b80d8");
-void func_001ab750(u8* p, u8* q) {
-    func_001b7e68(q, 8);
-    u32 r = func_001aaea8(p, 0);
-    func_001b8010(q, 1, 71, 0x3000d, 63, 0, 6, r, 20, 96, 22, 0x4007ff8001300000ull, 66, 68, 0xffff);
-    func_001b80d8_b750(q);
-}
+void func_001ab750(u8* p, u8* q);  // 0x001ab750: definition moved into src/anon/unit_001ab598.cpp
 
 // ---- 001d5470
 u8* func_00168b38_5470(u32, s32, u32) asm("func_00168b38");
@@ -14964,98 +14959,7 @@ s32 func_00192498(u8*, s32);
 s32 func_00192450(u8*, s32);
 f32 func_00192fb8(Style1a9c20*);
 s32 func_001aa0a8(Win1a9c20*, Ctx1a9c20*, s32, u32, s32);
-u8* func_001a9c20(Win1a9c20* w, Ctx1a9c20* c, u8* p)
-{
-    s32 prev = -1;
-    Out1a9c20 out;
-    Style1a9c20 st = c->style;
-    out.a = 0;
-    out.lines = 0;
-    func_00192818(p, w->msg, &st, &out);
-    s32 x = c->x;
-    u32 y = c->y += out.lines * 16;
-    while (p) {
-        if (c->width < 0.0f) return 0;
-        if (func_00192440(p, 0)) {
-            switch (*p) {
-            case 0:
-            case 16:
-                w->flags |= 1;
-                return 0;
-            case 1:
-                x = func_001aa310(w, c, x);
-                break;
-            case 2:
-                c->y += (c->font->lineGap + c->style.shift) * 16;
-                return func_00192388(p);
-            case 3:
-                c->color = w->defColor;
-                func_00192f98(&c->style);
-                break;
-            case 4:
-                c->color = func_001aa6f0(w, *w1a9c20_FontStyleGet(p[1], -1));
-                break;
-            case 7:
-                c->color = func_001aa6f0(w, p[1] | p[2] << 8 | p[3] << 16 | p[4] << 24);
-                break;
-            case 9: {
-                s32 ch = p[1];
-                if (!c->font->IsRuby() && func_001aa940(c, x, y, c->color, ch)) c->lines++;
-                x += func_001aae90(ch) * 16;
-                c->width -= w->charW;
-                break;
-            }
-            case 10:
-                c->style.scale = (f32)p[1] / (f32)c->font->height;
-                break;
-            case 11:
-                c->style.alpha = p[1] / 100.0f;
-                break;
-            case 12:
-                c->style.shift = p[1];
-                break;
-            case 14:
-                c->tab = p[1] * 8;
-                break;
-            case 15:
-                if (w->cb) {
-                    s32 a = p[1];
-                    s32 b = func_00192498(p, 2);
-                    w->cb->vt->sprite(w->cb, a, b, func_00192498(p, 4));
-                }
-                break;
-            case 17:
-                c->x = x = w->baseX + func_00192498(p, 1) * 16;
-                c->y = y = w->baseY + func_00192498(p, 3) * 16 - out.lines * 16;
-                break;
-            case 20:
-                c->width -= (f32)func_00192498(p, 1);
-                break;
-            case 21:
-                x += 512;
-                if (w->cb) w->cb->vt->icon(w->cb, c->count, func_00192498(p, 1), (x - 0x7000) >> 4, (y - ((u32)(out.lines << 4) >> 1) - 0x7300) >> 4);
-                c->count++;
-                break;
-            case 22:
-                if (w->cb) w->cb->vt->mark(w->cb, x, y, p[1]);
-                x += 512;
-                break;
-            }
-        } else {
-            s32 ch = func_00192450(p, 0);
-            if (ch == 70 && prev == 70) {
-                ch = 71;
-                x -= (s32)(func_00192fb8(&c->style) * 32.0f);
-            } else {
-                prev = ch;
-            }
-            x = func_001aa0a8(w, c, x, y, ch);
-            c->width -= w->charW;
-        }
-        p = func_00192388(p);
-    }
-    return p;
-}
+u8* func_001a9c20(Win1a9c20* w, Ctx1a9c20* c, u8* p);  // 0x001a9c20: definition moved into src/anon/unit_001a9130.cpp
 
 
 
@@ -16005,31 +15909,5 @@ s32 func_001aa8f0(Ctx1aa0a8*, s32, u32, u32, s32);
 u32 func_001aae80(Font1aa0a8*, s32);
 f32 a0a8_00192fb8(Style1aa0a8*) asm("func_00192fb8");
 u32 __fixunssfsi(f32);
-s32 func_001aa0a8(Win1a9c20* w_, Ctx1a9c20* c_, s32 x, u32 y, s32 ch)
-{
-    Win1aa0a8* w = (Win1aa0a8*)w_;
-    Ctx1aa0a8* c = (Ctx1aa0a8*)c_;
-    u32 color = c->color;
-    if (ch == 0) return a0a8_001aa310(w, c, x);
-    Font1aa0a8* font = c->font;
-    switch (font->kind) {
-    case 2:
-        for (s32 i = 0; i < 4; i++) {
-            if (func_001aa8a8(c, x + D_00350a18[i], y + D_00350a18[(i + 1) & 3], c->shadow, ch)) c->lines++;
-        }
-        font = c->font;
-        break;
-    case 1:
-        { s32 rr = func_001aa8a8(c, x + 32, y + 32, c->shadow, ch); font = c->font; if (rr) c->lines++; }
-        break;
-    }
-    if (0.0f < w->fade && c->width / w->fade < 1.0f) {
-        color = (color & 0xffffff) | (__fixunssfsi(c->width / w->fade * 128.0f) << 24);
-    }
-    s32 r;
-    if (font->IsRuby()) r = func_001aa8f0(c, x, y, color, ch);
-    else r = func_001aa8a8(c, x, y, color, ch);
-    if (r) c->lines++;
-    return x + (s32)(func_001aae80(c->font, ch) * a0a8_00192fb8(&c->style) + 0.5f) * 16;
-}
+s32 func_001aa0a8(Win1a9c20* w_, Ctx1a9c20* c_, s32 x, u32 y, s32 ch);  // 0x001aa0a8: definition moved into src/anon/unit_001a9130.cpp
 } // extern "C"

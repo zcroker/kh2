@@ -167,20 +167,7 @@ struct Q3 {
     u32 a, b, c;
 };
 
-void func_001aa7f0(u32* p, u32 a) {
-    p[0] = a;
-    p[5] = 0x60000000;
-    p[1] = 0;
-    func_00192f78(p + 8);  // obj_init_float_const
-    p[14] = 0;
-    p[15] = 0;
-    Q3* q = (Q3*)(p + 16);
-    q->a = 0;
-    q->c = 0;
-    q->b = 0;
-    p[19] = 0;
-    func_001ab750(p[0], q);
-}
+void func_001aa7f0(u32* p, u32 a);  // 0x001aa7f0: definition moved into src/anon/unit_001a9130.cpp
 
 void func_001aebf0(u8* a);  // 0x001aebf0: definition moved into src/anon/unit_001ada38.cpp
 

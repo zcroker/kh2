@@ -158,11 +158,7 @@ void func_001bdff0(void);
 
 // 001aa8f0
 void func_001ab260(u32, u8*, u32, u32, u32, u32, u32, f32, f32);
-void func_001aa8f0(u8* p, u32 a1, u32 a2, u32 a3, u32 a4)
-{
-    NoTail g;
-    func_001ab260(*(u32*)p, p + 64, a1, a2, a3, a4, *(u32*)(p + 56), *(f32*)(p + 36), *(f32*)(p + 40));
-}
+void func_001aa8f0(u8* p, u32 a1, u32 a2, u32 a3, u32 a4);  // 0x001aa8f0: definition moved into src/anon/unit_001a9130.cpp
 
 // 001ae010: does the file name's extension match one of two known extensions?
 struct P1ae { const char* a[2]; };

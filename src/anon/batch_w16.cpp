@@ -179,9 +179,7 @@ void func_001973f0(u8* p);  // 0x001973f0: definition moved into src/anon/unit_0
 
 // 001a74f8: moved to src/anon/unit_001a6a10.cpp
 
-u8 func_001aa940(u8* p, u32 a, u32 b, u32 c, u32 d) {
-    return func_001ab598(*(u32*)p, p + 64, a, b, c, d);
-}
+u8 func_001aa940(u8* p, u32 a, u32 b, u32 c, u32 d);  // 0x001aa940: definition moved into src/anon/unit_001a9130.cpp
 
 void func_001b7468(void* p) {
     func_001de168(func_001a3a78(p), 16, 1, 1, 10005, p);  // scan_list_by_half

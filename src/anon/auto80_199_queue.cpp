@@ -1658,125 +1658,23 @@ void func_001a27f0(u32 a0, u32 a1);  // 0x001a27f0: definition moved into src/an
 
 // 001a70a0: moved to src/anon/unit_001a6a10.cpp
 
-void func_001a8618(u32 a0, u32 a1, u32 a2) {
-    func_001980d0(a0, a1, 8, a2);
-    *(u32*)a0 = (u32)&D_003509c0;
-    u32 ok = func_00198738(a0, D_003509b0);
-    *(u8*)(a0 + 2548) = (ok != 0);
-    *(u32*)(a0 + 2552) = 0;
-    *(u32*)(a0 + 1416) |= 0x200;
-}
+void func_001a8618(u32 a0, u32 a1, u32 a2);  // 0x001a8618: definition moved into src/anon/unit_001a8618.cpp
 
-s32 func_001a9018(u32 a0, s32 a1) {
-    s32 i = 0;
-    do {
-        if (func_001a8c10(a0, i) == a1) {
-            return i;
-        }
-        i = i + 1;
-    } while (i < 4);
-    return -1;
-}
+s32 func_001a9018(u32 a0, s32 a1);  // 0x001a9018: definition moved into src/anon/unit_001a8618.cpp
 
-void func_001a9218(u32* a0) {
-    u32 v0 = func_0016f470(a0[2], 0);
-    a0[3] = func_001708f8(v0, a0[0]);
+void func_001a9218(u32* a0);  // 0x001a9218: definition moved into src/anon/unit_001a9130.cpp
 
-    if (func_0016f6f8(a0[1]) == 0) {  // check_flag_4000_type
-        if (func_0016f770(a0[1]) == 0) {  // in_id_special_range
-            u32 t7 = ((u8*)(a0[2]))[0x48];
-            t7 = t7 ^ 1;
-            t7 = t7 & 1;
-            if (t7 != 0) {
-                v0 = func_0016f4b8(a0[2], 0);
-                a0[4] = func_001708f8(v0, a0[0]);
-            }
-        }
-    }
+void func_001a9350(u32* a0);  // 0x001a9350: definition moved into src/anon/unit_001a9130.cpp
 
-    if (func_0016f6f8(a0[1]) == 0) {  // check_flag_4000_type
-        v0 = func_0016f520(a0[2], a0[1], 0);
-        if (v0 != 0) {
-            a0[5] = func_001708f8(v0, 0xffffffffU);
-        }
-    }
-}
+u32 func_001a9808(u32 a0, s32 a1);  // 0x001a9808: definition moved into src/anon/unit_001a9130.cpp
 
-void func_001a9350(u32* a0) {
-    u32 t7 = a0[3];
-    if (t7 != 0) {
-        func_00170950(t7);
-    }
+void func_001a9860(u32* a0, u32 a1, u32 a2, u32 a3, u32 a4);  // 0x001a9860: definition moved into src/anon/unit_001a9130.cpp
 
-    t7 = a0[4];
-    if (t7 != 0) {
-        func_00170950(t7);
-    }
+void func_001aa850(s32* a0, s32 a1);  // 0x001aa850: definition moved into src/anon/unit_001a9130.cpp
 
-    t7 = a0[5];
-    if (t7 != 0) {
-        func_00170950(t7);
-    }
+void func_001aad28(s16 a0, s16 a1, s16 a2, s16 a3, s16 a4, u32 a5);  // 0x001aad28: definition moved into src/anon/unit_001aaa08.cpp
 
-    func_001a91f8(a0);  // obj_init_24bytes
-}
-
-u32 func_001a9808(u32 a0, s32 a1) {
-    s32 s0 = a1;
-    if (s0 < 0) {
-        s0 = D_0032bae0;
-    }
-
-    u32 a1v = D_01c6cc50[0];
-    u32 a3v = 80;
-    u32 a2v = *(u32*)(a1v + 4);
-    u32 v0 = func_002fd248(a0, a1v + 8, a2v, a3v, (u32)func_001a97f8);
-    return v0 + (s0 << 2) + 4;
-}
-
-void func_001a9860(u32* a0, u32 a1, u32 a2, u32 a3, u32 a4) {
-    a0[0] = 0;
-    a0[1] = func_001aae68(a1);
-    a0[2] = a2;
-    a0[4] = 0;
-    a0[5] = 0;
-    a0[6] = 0;
-    func_00192f78(a0 + 9);  // obj_init_float_const
-
-    a0[22] = a4;
-    a0[19] = 0;
-    a0[20] = 0;
-    a0[21] = 0;
-    a0[23] = 0;
-    func_001a9970(a0, a3);
-}
-
-void func_001aa850(s32* a0, s32 a1) {
-    func_001b7e68(a0 + 16, (*(s32*)(a0[0] + 0x18) * a1) + 1);
-    s32 t15 = a0[18];
-    a0[1] = 0;
-    s32 t14 = t15;
-    t15 = t15 + 16;
-    a0[19] = t14;
-    a0[18] = t15;
-}
-
-void func_001aad28(s16 a0, s16 a1, s16 a2, s16 a3, s16 a4, u32 a5) {
-    u8 stack_70[96];
-    sceGsSetDefLoadImage(stack_70, (u32)a0, (u32)a1, (u32)a2, 0, 0, (u32)a3, (u32)a4);
-    func_003058a0(0);
-    sceGsExecLoadImage(stack_70, a5);
-    sceGsSyncPath(0, 0);
-}
-
-u32 func_001ab820(u32 a0) {
-    s32 v0 = func_00105c30();
-    if ((v0 == 1) || (v0 == 8)) {
-        s32 t = (s32)(((u32)*(u8*)(a0 + 0x10)) << 1);
-        return (u32)(t / 3);
-    }
-    return ((u32)*(u8*)(a0 + 0x10)) / 3;
-}
+u32 func_001ab820(u32 a0);  // 0x001ab820: definition moved into src/anon/unit_001ab598.cpp
 
 // 001ac908: moved to src/anon/unit_001abb28.cpp
 

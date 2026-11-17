@@ -153,17 +153,7 @@ s32 func_00181500(u32);
 u8* func_001947c0(u32, u32);
 struct Cond1a8 { u16 id, need, without; u8 lv; };
 // checks an entry's requirements (id, required/forbidden flags, level)
-s32 func_001a8930(Cond1a8* c, u32 id, u32 a2) {
-    s32 r = 0;
-    if (c->id == 0 || c->id == id) {
-        if (c->need == 0 || func_00181500(c->need)) {
-            if (c->without == 0 || !func_00181500(c->without)) {
-                if (c->lv == 0 || func_001947c0(a2, id)[52] == c->lv - 1) r = 1;
-            }
-        }
-    }
-    return r;
-}
+s32 func_001a8930(Cond1a8* c, u32 id, u32 a2);  // 0x001a8930: definition moved into src/anon/unit_001a8618.cpp
 
 extern s32 D_00350f18;
 extern u32 D_00350f1c;

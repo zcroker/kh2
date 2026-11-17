@@ -117,11 +117,7 @@ void* func_001d35e0(void*, void*, u32);
 // 001a7588: moved to src/yasui/libys/bg.cpp
 
 // Out-of-range test against the 0x7000/0x9000/0x7300/0x8d00 screen limits.
-u32 func_001aaf98(u32 z, s32 a, s32 b, s32 c, s32 d) {  // bounds_check_ranges
-    u32 r = 0;
-    if (a + c < 0x7000 || a > 0x9000 || b < 0x7300 || b - d > 0x8d00) r = 1;
-    return r;
-}
+u32 func_001aaf98(u32 z, s32 a, s32 b, s32 c, s32 d);  // 0x001aaf98: definition moved into src/anon/unit_001aaea8.cpp
 
 // OBJOCC::disable_all(): flag every occupant entry as disabled.
 struct OccHdr { s32 f0; s32 count; };

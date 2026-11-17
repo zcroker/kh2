@@ -69,49 +69,5 @@ W1962Cmd* func_00192388(W1962Cmd*);
 s32 func_00192498(W1962Cmd*, s32);
 void func_001991a8(s32, s32);
 void wt_001aa388(W1962Ob2* o, W1962Cmd* c, u32, u32) asm("_Z16wtarget_001aa388jjjj");
-void wt_001aa388(W1962Ob2* o, W1962Cmd* c, u32, u32) {
-    W1962Cmd* p = c;
-    o->f0 = 0;
-    func_00192940(c, o->f4, o->s, &o->f10);
-    o->f1c = 0;
-    o->f20 = 0;
-    while (p != 0) {
-        if (func_00192440(p, 0)) {
-            switch (p->op) {
-            case 0: case 16:
-                p = 0;
-                break;
-            case 6:
-                if (o->tg) ((W1962TF1)o->tg->vt[9])(o->tg, p->a);
-                break;
-            case 8:
-                if (o->tg) ((W1962TF3)o->tg->vt[10])(o->tg, p->a, p->b, p->c);
-                break;
-            case 18:
-                func_001991a8(func_00192498(p, 1), 0);
-                break;
-            case 19: {
-                W1962Tgt* t = o->tg;
-                if (t) {
-                    s32 x = func_00192498(p, 1);
-                    s32 y = func_00192498(p, 3);
-                    t->f4 = x;
-                    t->f8 = y;
-                }
-                break;
-            }
-            case 21:
-                o->f20++;
-                break;
-            case 23:
-                o->f5c = p->a;
-                o->f4c = p->b;
-                break;
-            }
-        }
-        if (p == 0) break;
-        p = func_00192388(p);
-    }
-    o->cur = c;
-}
+void wt_001aa388(W1962Ob2* o, W1962Cmd* c, u32, u32);  // 0x001aa388: definition moved into src/anon/unit_001a9130.cpp
 }

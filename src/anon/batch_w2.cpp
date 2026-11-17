@@ -126,13 +126,7 @@ void func_0018fb70(u32* v);  // 0x0018fb70: definition moved into src/anon/unit_
 
 void func_00195750(void);  // 0x00195750: definition moved into src/anon/unit_00194790.cpp
 
-void func_001a91f8(s32* p) {  // obj_init_24bytes
-    p[0] = -1;
-    p[1] = 0;
-    p[3] = 0;
-    p[4] = 0;
-    p[5] = 0;
-}
+void func_001a91f8(s32* p);  // 0x001a91f8: definition moved into src/anon/unit_001a9130.cpp
 
 void func_001b58f0(u8* p, u32 a1, u32 a2, u32 a3) {
     func_001de168(p + 24, a1, a2, 1, 30000, a3);  // scan_list_by_half

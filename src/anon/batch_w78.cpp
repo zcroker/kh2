@@ -190,45 +190,12 @@ u8* func_001a81f0(u8, u8, u32);
 s32 func_001a8450(u8*);
 void func_0017f488(u8*, s32, f32, f32);
 void func_001a8678(u8*);
-void func_001a86b8(u8* o) {
-    func_00198450(o);
-    u8* d = D_0032bae0;
-    u32 v = func_0016c008(o, 1);
-    u8* r = func_001a81f0(d[0], d[1], v);
-    *(u8**)(o + 2552) = r;
-    if (!r) {
-        func_0017f488(o + 320, 151, 0.0f, 0.0f);
-        return;
-    }
-    if (func_001a8450(r)) {
-        func_0017f488(o + 320, 152, 0.0f, 0.0f);
-        func_001a8678(o);
-    } else {
-        func_0017f488(o + 320, 151, 0.0f, 0.0f);
-    }
-}
+void func_001a86b8(u8* o);  // 0x001a86b8: definition moved into src/anon/unit_001a8618.cpp
 
 s32 func_001a9780(u32);
 u8* func_001a97b8(u32, s32);
 u8* func_00168b38(u8*, s32, s32);  // entry_array_find_nth
-u32 func_001a9458(u8* o, s32 a, s32 b) {
-    u8* r = 0;
-    if (func_001a9780(*(u32*)(o + 20))) {
-        a *= 4;
-        if (b >= 0) r = func_001a97b8(*(u32*)(o + 20), a + b);
-        if (!r) {
-            for (b = 3; b >= 0; b--) {
-                r = func_001a97b8(*(u32*)(o + 20), a + b);
-                if (r) break;
-            }
-        }
-    } else {
-        r = func_001a97b8(*(u32*)(o + 20), a);
-    }
-    u8* v;
-    if (r && (v = func_00168b38(r, 9, 0)) != 0) return *(u32*)(v + 8);  // entry_array_find_nth
-    return 0;
-}
+u32 func_001a9458(u8* o, s32 a, s32 b);  // 0x001a9458: definition moved into src/anon/unit_001a9130.cpp
 
 u8* func_00168b88(u32, s32, s32, s32);  // find_entry16_by_half_word
 #define W78_FOURCC(c) ((c)[0] | ((c)[1] << 8) | ((c)[2] << 16) | ((c)[3] << 24))

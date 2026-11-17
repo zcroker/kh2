@@ -79,14 +79,7 @@ u32 ctarget_0019b260(u32 id, u32, u32, u32);  // 0x0019b260: definition moved in
 // Adds n to a counter capped at 100, and to two halfword totals.
 void func_001a2668(u8* p, s32 n);  // 0x001a2668: definition moved into src/anon/unit_0019fb70.cpp
 
-s32 func_001a8f10(s32 x) {  // arg_map_0_1_2
-    switch (x) {
-    case 1: case 14: return 0;
-    case 2: return 1;
-    case 3: return 2;
-    }
-    return 3;
-}
+s32 func_001a8f10(s32 x);  // 0x001a8f10: definition moved into src/anon/unit_001a8618.cpp
 
 void func_001ac378(void*, u32, u32, u32, u32, u32, u32);
 void func_001aa668(void*, void*);

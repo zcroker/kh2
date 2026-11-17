@@ -699,19 +699,11 @@ u32 func_001a2898(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001a2898: definition mo
 
 // 001a8598: _GLOBAL__I_ stub, now made by gcc in src/anon/unit_001a82f0.cpp
 
-u32 func_001aa668(u32 a0, u32 a1, u32 a2, u32 a3) {
-    *(u32*)((u32)(a0) + 24u) = (u32)(a1);
-    return func_001aa388(a0, ((u32)(*(u32*)((u32)(a0) + 12u))), a2, a3);
-}
+u32 func_001aa668(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001aa668: definition moved into src/anon/unit_001a9130.cpp
 
-u32 func_001aa6d0(u32 a0, u32 a1, u32 a2, u32 a3) {  // obj_set48_and_tailcall
-    *(u32*)((u32)(a0) + 48u) = (u32)(a1);
-    return func_001aa388(a0, ((u32)(*(u32*)((u32)(a0) + 12u))), a2, a3);
-}
+u32 func_001aa6d0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001aa6d0: definition moved into src/anon/unit_001a9130.cpp
 
-u32 func_001aba98(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_001ab890(0x00000001u, 0x0000ffffu, a2, a3);
-}
+u32 func_001aba98(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001aba98: definition moved into src/anon/unit_001ab598.cpp
 
 // 001abb78: moved to src/anon/unit_001abb28.cpp
 

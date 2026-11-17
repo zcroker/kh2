@@ -253,28 +253,9 @@ u32 func_001a0558(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001a0558: definition mo
 
 u32 func_001a0588(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001a0588: definition moved into src/anon/unit_0019fb70.cpp
 
-u32 func_001a8678(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u, r15 = 0u, r16 = 0u;
-    r5 = (u32)((s32)0u + (32));
-    r6 = (u32)((s32)0u + (-1));
-    r16 = r4;
-    r4 = (u32)((s32)r4 + (1044));
-    r2 = func_0019f670(r4, r5, r6, r7);
-    r15 = *(u32*)((u32)r16 + (s32)(264));
-    r15 = (u32)(r15 | 0x0020u);
-    *(u32*)((u32)r16 + (s32)(264)) = r15;
-    return r2;
-}
+u32 func_001a8678(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001a8678: definition moved into src/anon/unit_001a8618.cpp
 
-u32 func_001a8b38(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u, r16 = 0u;
-    r16 = r4;
-    r2 = func_001a8b28(r4, r5, r6, r7);  // get_data_1c7cc10
-    r16 = (u32)(r16 << 1);
-    r16 = (u32)(r16 + r2);
-    r2 = (u32)(*(u16*)((u32)r16 + (s32)(16)));
-    return r2;
-}
+u32 func_001a8b38(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001a8b38: definition moved into src/anon/unit_001a8618.cpp
 
 // 001acd78: moved to src/anon/unit_001abb28.cpp
 

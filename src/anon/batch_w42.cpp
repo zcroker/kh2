@@ -123,15 +123,7 @@ void func_001a34e0(u32, s32);
 
 // 001a8cd0: slot (0-3) holding the given element, or -1
 s32 func_001a8bf8(u32, s32);  // get_bits5_at
-s32 func_001a8cd0(u32 a0, u32 a1)
-{
-    s32 k = a1 & 0x1f;
-    if (k == 18) return -1;
-    for (s32 i = 0; i < 4; i++) {
-        if (func_001a8bf8(a0, i) == k) return i;
-    }
-    return -1;
-}
+s32 func_001a8cd0(u32 a0, u32 a1);  // 0x001a8cd0: definition moved into src/anon/unit_001a8618.cpp
 
 // 001ad020: append an entry at a 4.4 fixed-point position
 struct E344 { u8 pad[328]; s32 x; s32 y; u8 pad2[8]; };

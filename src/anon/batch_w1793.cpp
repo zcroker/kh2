@@ -31,14 +31,6 @@ void func_0026d748(void) {
     func_0023ebe0(func_00287dc0(), a, b);
 }
 
-void func_001a9a28(u32 m, u32* p, u32* x, u32* y) {
-    switch (m) {
-    case 1: *x -= p[0]; break;
-    case 2: *x -= p[0] >> 1; break;
-    case 3: *x -= p[0] >> 1; *y -= p[1] >> 1; break;
-    case 4: *x -= p[0] >> 1; *y -= p[1]; break;
-    case 5: *y -= p[1]; break;
-    }
-}
+void func_001a9a28(u32 m, u32* p, u32* x, u32* y);  // 0x001a9a28: definition moved into src/anon/unit_001a9130.cpp
 
 }

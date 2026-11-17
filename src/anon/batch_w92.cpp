@@ -308,33 +308,7 @@ void func_001aa980(T1a9*);
 void func_001b7f30(void*);
 void wt_001a9ae8(S1a9*, s32, s32, u32) asm("_Z16wtarget_001a9ae8jjjj");
 
-void wt_001a9ae8(S1a9* self, s32 x, s32 y, u32 z) {
-    u8* it = self->f12;
-    if (!it) return;
-    T1a9 t;
-    func_001aa7f0(&t, self->f4);
-    func_001a9a28(self->f88, self->f16, &x, &y);
-    f32 f = self->f28 + D_00349e10;
-    x = x * 16 + 28672;
-    y = y * 16 + 29440;
-    self->f28 = f;
-    t.f8 = x;
-    t.f24 = f;
-    t.f12 = y;
-    self->f68 = x;
-    t.f16 = z;
-    self->f72 = y;
-    self->f60 = z;
-    t.f32_ = self->f36;
-    t.f28 = 0;
-    t.f20 = func_001aa6f0(self, 0x60000000);
-    do {
-        func_001aa850(&t, func_00192a80(it));
-        it = func_001a9c20(self, &t, it);
-        func_001aa980(&t);
-    } while (it);
-    func_001b7f30(t.sub);
-}
+void wt_001a9ae8(S1a9* self, s32 x, s32 y, u32 z);  // 0x001a9ae8: definition moved into src/anon/unit_001a9130.cpp
 }
 
 // ---- 1ae7d0 ----
