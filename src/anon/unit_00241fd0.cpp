@@ -1,4 +1,4 @@
-// Linked unit 0x00241fd0-0x002422b8 (one namespace per old matched source; class methods in their own namespace).
+// Linked unit 0x00241f98-0x002422b8 (one namespace per old matched source; class methods in their own namespace).
 #include "../common/types.h"
 #include "../kn/fvector.hpp"
 #include "./tiny_auto80_queue_structs.hpp"
@@ -19,6 +19,21 @@
 #include "../tozawa/sub_menu.hpp"
 #include "../tozawa/smenu_he.hpp"
 #include "../tozawa/smenu_heco.hpp"
+
+// 00241f98 (was unwritten gap: C2 twin of 0x241fd0)
+namespace n00241f98 {
+struct W1587_S { u32 a; u8* b; };
+void func_00242088(void*) asm("func_00242088");
+u8* func_001063f0_n(u32) asm("func_001063f0");
+void func_00241f98(W1587_S* p, u32 a1) asm("func_00241f98");
+void func_00241f98(W1587_S* p, u32 a1) {
+    W1587_S* s;
+    asm("" : "=r"(s) : "0"(p));  /* keeps p in its own pseudo, as the original stores via s0 */
+    s->a = a1;
+    s->b = func_001063f0_n(0x400);
+    func_00242088(s);
+}
+}  // namespace n00241f98
 
 // 00241fd0 (was src/anon/batch_w1587.cpp)
 namespace n00241fd0 {
