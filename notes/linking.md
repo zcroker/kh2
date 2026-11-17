@@ -69,3 +69,31 @@ Show the original range: `~/re/kh2/dis.sh 1c8d80 256` (address in hex, size in d
 - If an old worker copy still holds a function that moved into a unit, importing that worker
   brings back a second definition and the link fails. For mutex this is only possible for w1
   (`func_001c8de0` in `batch_w1.cpp`).
+
+## Linking whole-asm functions (2026-11-18)
+
+Decision: linking is closed out first. A function whose only source is a `.s` file (whole-function
+assembly) is linked AS ASSEMBLY, as its own row in `linked_units.tsv`, and converted to C/C++ later.
+
+- A `.s` row works like any other row, with these differences (`build_elf.py link-sections`):
+  the unit section takes the object's `.text.*` sections in file order (every `.s` puts each function
+  in its own `.section .text.func_ADDR`; the 20 zero bytes ee-as leaves in the plain `.text` are not
+  part of the unit), and the rest of the range up to `text_end` is zero-filled (alignment nops).
+  Code longer than the range stops the link ("cannot move location counter backwards").
+  The `sections` and `flags` columns are `-`.
+- One `.s` file that holds several functions from different places is split first: each function
+  that gets linked moves to its own `asm_ADDR.s` next to the old file. The asm text moves unchanged.
+  The new file keeps the old file's general header, the `.set` lines and the header entry of that
+  function (the closest C drafts and the blockers: they are the notes for the later conversion).
+- `text_end`: the next function or unit start when only alignment padding (< 8 bytes) lies between;
+  otherwise the function's own end (an unwritten gap after it stays outside the unit).
+
+Steps:
+1. In a work folder copied from a built main: split the function out of its `.s` file if needed.
+2. Add the row `src/.../asm_ADDR.s  START  END  -  -` to `linked_units.tsv` in address order.
+3. `make`: `MATCHED!`, and `cmp kh2.elf SLPM_666.75` is silent.
+4. Publish as usual, and log the function as linked whole asm (kind `whole asm linked in unit`, with the
+   new file), so the conversion pass finds it. `.s` rows in `linked_units.tsv` list what is left.
+
+Converting one later: write the C/C++ into the neighbouring unit's file (in address order), extend
+that row's range over the function, delete the `.s` row and the `.s` file (or its block), rebuild.

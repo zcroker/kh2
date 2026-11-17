@@ -778,7 +778,15 @@ def generate_link_sections() -> int:
     # Linked units: the object's whole .text at the unit start, other sections at their own address.
     for u in units:
         obj = src_to_obj(u.source)
-        lines.append(f"  .kh2unit_{u.start:08x} 0x{u.start:08x} : {{\n    KEEP({obj}(.text))\n  }}\n")
+        if u.source.endswith((".s", ".S")):
+            # Whole-asm unit: a .s file keeps each function in its own ".section .text.func_ADDR"
+            # (placed in file order; ee-as also leaves 20 zero bytes in the plain .text, which is
+            # not part of the unit). The range's trailing alignment padding is zero-filled (nops),
+            # and ld refuses code longer than the range.
+            lines.append(f"  .kh2unit_{u.start:08x} 0x{u.start:08x} : {{\n"
+                         f"    KEEP({obj}(.text.*))\n    . = 0x{u.end - u.start:x};\n  }}\n")
+        else:
+            lines.append(f"  .kh2unit_{u.start:08x} 0x{u.start:08x} : {{\n    KEEP({obj}(.text))\n  }}\n")
         for sec, addr in u.sections:
             lines.append(f"  .kh2unit_{u.start:08x}{sec.replace('.', '_')} 0x{addr:08x} : {{\n"
                          f"    KEEP({obj}({sec}))\n  }}\n")
