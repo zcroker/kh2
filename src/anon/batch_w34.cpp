@@ -267,12 +267,7 @@ void func_002dc278(u32 a, u32 b);  // 0x002dc278: definition moved into src/anon
 
 // 002eb9d8: moved to src/anon/unit_002eaf38.cpp
 
-void func_002ed508(u8* p, u8* q, u32 c, u32 d, u32 e) {
-    func_001c1748(p, *(u32*)(q + 2548), d, e);  // obj_init_from_src
-    *(u32*)(p + 80) = c;
-    func_00190128(p + 100);
-    *(u32*)(p + 120) = 0;
-}
+void func_002ed508(u8* p, u8* q, u32 c, u32 d, u32 e);  // 0x002ed508: definition moved into src/anon/unit_002ecdb0.cpp
 
 // 002ef708: moved to src/anon/unit_002ef6b0.cpp
 

@@ -77,6 +77,8 @@ src/anon/unit_002e2d18.cpp	002e2d18	002e2ed0	.data@00362e70,.rodata@00375f50	-G0
 src/anon/unit_002eae08.cpp	002eae08	002eaf38	.data@003634e8,.rodata@003760d8	-G0
 src/anon/unit_002eaf38.cpp	002eaf38	002ec5f8	.rodata@003760e0	-G0 -fno-strict-aliasing
 src/anon/unit_002ec5f8.cpp	002ec5f8	002ecd98	.bss@01e2c040,.rodata@00376160	-G0
+src/anon/unit_002ecdb0.cpp	002ecdb0	002ee498	.rodata@00376188	-G0 -fno-strict-aliasing
+src/anon/unit_002ee530.cpp	002ee530	002ee588	-	-G0 -fno-strict-aliasing
 src/anon/unit_002ee8a8.cpp	002ee8a8	002ef1f8	.rodata@003761b0	-G0 -fno-strict-aliasing
 src/anon/unit_002ef1f8.cpp	002ef1f8	002ef6b0	.rodata@0037620c	-G0 -fno-strict-aliasing
 src/anon/unit_002ef6b0.cpp	002ef6b0	002ef8d0	.data@003638c0,.rodata@00376210	-G0

@@ -650,37 +650,13 @@ u32 func_002de7e8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002de7e8: definition mo
 
 // 002e3ed0: moved to src/anon/unit_002e2f08.cpp
 
-u32 func_002ecdd8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2;
-    r4 = (u32)((s32)r5 + (272));
-    r5 = (u32)((s32)0u + (1));
-    u32 (*fp_call4_00195858)(u32, u32, u32, u32) = func_00195858;
-    r2 = fp_call4_00195858(r4, r5, r6, r7);
-    return r2;
-}
+u32 func_002ecdd8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002ecdd8: definition moved into src/anon/unit_002ecdb0.cpp
 
-u32 func_002eced8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2;
-    r4 = (u32)((s32)r5 + (272));
-    r5 = (u32)((s32)0u + (1));
-    u32 (*fp_call4_00195858)(u32, u32, u32, u32) = func_00195858;
-    r2 = fp_call4_00195858(r4, r5, r6, r7);
-    return r2;
-}
+u32 func_002eced8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002eced8: definition moved into src/anon/unit_002ecdb0.cpp
 
-u32 func_002ed8a0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2;
-    u32 (*fp_call4_002ed738)(u32, u32, u32, u32) = func_002ed738;
-    r2 = fp_call4_002ed738(r4, r5, r6, r7);
-    return r2;
-}
+u32 func_002ed8a0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002ed8a0: definition moved into src/anon/unit_002ecdb0.cpp
 
-u32 func_002ed8c0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2;
-    u32 (*fp_call4_002ed830)(u32, u32, u32, u32) = func_002ed830;
-    r2 = fp_call4_002ed830(r4, r5, r6, r7);
-    return r2;
-}
+u32 func_002ed8c0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002ed8c0: definition moved into src/anon/unit_002ecdb0.cpp
 
 // 002f0e40: moved to src/naka/libkn/trapfunctions.cpp
 

@@ -331,27 +331,7 @@ u32 func_002ed830(void*);
 void func_002ed8c0(void);
 struct Fx { u32 pos[4]; u32 cb; u8 cur; u8 pad[63]; u8 src; u8 pad2[3]; f32 t; u8 pad3[8]; u8 trk[20]; struct { u32 on : 1; } fl; };
 u32 u_call4_002ed738(Fx* self, u32, u32, u32) asm("_Z16u_call4_002ed738jjjj");
-u32 u_call4_002ed738(Fx* self, u32, u32, u32)
-{
-    self->cur = self->src;
-    if (self->fl.on) {
-        if (func_00190140(self->trk)) {
-            u32 tmp[4] __attribute__((aligned(16)));
-            asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(tmp), "r"(self->pos) : "$8", "memory");
-            if (func_003142e0(func_00313b80(func_001906f0(self->trk, tmp)), 30.0) < 0) self->fl.on = 0;
-        } else {
-            self->fl.on = 0;
-        }
-    }
-    func_002ed630(self);
-    func_002ed720(self);
-    if (func_003142e0(func_00313b80(self->t), 0.0) <= 0) {  // double_compare
-        self->t = 8.0f;
-        self->cb = (u32)func_002ed8c0;
-        return func_002ed830(self);
-    }
-    return 1;
-}
+u32 u_call4_002ed738(Fx* self, u32, u32, u32);  // 0x002ed738: definition moved into src/anon/unit_002ecdb0.cpp
 
 // 00322228: destructor body (member arrays destroyed back to front, then the base part).
 struct NoTail2 { ~NoTail2() {} };

@@ -190,10 +190,7 @@ void func_002daa98(u8* p, u32 a, u32 b);  // 0x002daa98: definition moved into s
 
 // 002e2240: moved to src/anon/unit_002e1908.cpp
 
-void func_002ecdf8(u8* p, u8* a) {
-    func_00195858(a + 272, 60);
-    (*(void (**)(void*, void*))(*(u8**)p + 36))(p, a);
-}
+void func_002ecdf8(u8* p, u8* a);  // 0x002ecdf8: definition moved into src/anon/unit_002ecdb0.cpp
 
 struct FpNum {
     s32 cls;

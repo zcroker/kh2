@@ -658,10 +658,7 @@ u32 func_002d1260(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002d1260: definition mo
 
 u32 func_002dc7f8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002dc7f8: definition moved into src/anon/unit_002da040.cpp
 
-void func_002eda30(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 b = (0x0036u << 16);
-    *(u32*)((u32)b + (14288)) = (u32)0;
-}
+void func_002eda30(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002eda30: definition moved into src/anon/unit_002ecdb0.cpp
 
 // 002ef618: moved to src/anon/unit_002ef1f8.cpp
 
@@ -988,13 +985,7 @@ u32 func_002e10c0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002e10c0: definition mo
 
 // 002e2930: moved to src/anon/unit_002e1908.cpp
 
-u32 func_002ee530(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a0;
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    return (D_003637f8 != 0);
-}
+u32 func_002ee530(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002ee530: definition moved into src/anon/unit_002ee530.cpp
 
 // 002ee6d8: moved to src/menu/tutorial_widget.cpp
 

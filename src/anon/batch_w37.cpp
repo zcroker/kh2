@@ -232,19 +232,7 @@ void func_002d24e8(void*, void*);
 void func_002d25f0(void* a);  // 0x002d25f0: definition moved into src/anon/unit_002d2498.cpp
 
 typedef s32 (*VFnB)(void*);
-s32 func_002ee040(u8* p) {
-    if (!(*(VFnB*)(*(u8**)p + 8))(p)) return 0;
-    u8* c = *(u8**)(p + 8);
-    s32 r = 1;
-    while (c) {
-        u8* next = *(u8**)(c + 32);
-        s32 t = func_002ee040(c) != 0;
-        if (!r) t = 0;
-        r = t;
-        c = next;
-    }
-    return r;
-}
+s32 func_002ee040(u8* p);  // 0x002ee040: definition moved into src/anon/unit_002ecdb0.cpp
 
 void sceVu0CopyVector(void*, u32);  // memcpy16
 

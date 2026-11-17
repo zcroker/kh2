@@ -135,12 +135,7 @@ void func_002c5608(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002c5608: definition m
 
 u32 func_002d8898(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002d8898: definition moved into src/anon/unit_002d6f70.cpp
 
-void func_002eda10(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r15 = 0u;
-    *(u32*)((u32)r4 + (s32)(0)) = 0u;
-    r15 = (u32)(0x0036u << 16);
-    *(u32*)((u32)r15 + (s32)(14288)) = r4;
-}
+void func_002eda10(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002eda10: definition moved into src/anon/unit_002ecdb0.cpp
 
 u32 func_002f1ac8(u32 a0, u32 a1, u32 a2, u32 a3) {  // entry_ptr
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u, r15 = 0u;

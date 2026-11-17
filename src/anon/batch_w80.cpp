@@ -535,17 +535,7 @@ s32 func_002d8a78(U23_Ai* a, U23_AiTgt* t);  // 0x002d8a78: definition moved int
 void func_002e1668(U23_W80Obj* o, void* p, const U23_W80Vec* ofs, U23_W80Vec* acc);  // 0x002e1668: definition moved into src/anon/unit_002de3c8.cpp
 
 
-U24_W80Eff* func_002ed350(U24_W80Own* own, u32 a1, const U24_W80Param* prm, u32 a3, const U24_W80Vec* pos) {
-    U24_W80Heap* h = (U24_W80Heap*)(own->heap + 20);
-    U24_W80Eff* e;
-    if (!h->f8) return 0;
-    e = func_001db888(h, 128, __builtin_return_address(0));  // record_index_calc
-    func_002ed558(e, own, a1, a3, func_002ed8a0);
-    e->prm = *prm;
-    e->pos = *pos;
-    func_002ed5a8(e);
-    return e;
-}
+U24_W80Eff* func_002ed350(U24_W80Own* own, u32 a1, const U24_W80Param* prm, u32 a3, const U24_W80Vec* pos);  // 0x002ed350: definition moved into src/anon/unit_002ecdb0.cpp
 
 
 void func_00319870(u8* p) {  // init_18x4_entries

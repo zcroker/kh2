@@ -162,13 +162,7 @@ u32 func_002e7b68(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_0016bd60(r4, r5, r6, r7);
 }
 
-u32 func_002edb90(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r15 = 0u;
-    r5 = r4;
-    r15 = (u32)(0x0036u << 16);
-    r4 = *(u32*)((u32)r15 + (s32)(14288));
-    return func_002eda40(r4, r5, r6, r7);
-}
+u32 func_002edb90(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002edb90: definition moved into src/anon/unit_002ecdb0.cpp
 
 u32 malloc(u32 a0, u32 a1, u32 a2, u32 a3) {  // pool_free_block
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r15 = 0u;

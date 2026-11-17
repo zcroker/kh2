@@ -56,38 +56,11 @@ s32 func_003142e0(u64, u64) __attribute__((const));
 W1831QV* func_0016c028(W1831Obj*);
 s32 func_00143b60(W1831Seg, W1831QV*, s32);
 
-f32 func_002edd20(W1831Obj* o) {
-    W1831QV hit;
-    W1831QV a;
-    W1831QV b;
-    W1831Seg s;
-    W1831QV* pa = &a;
-    W1831QV* pb = &b;
-    W1831QV* pc = &s.a;
-    W1831QV* pd = &s.b;
-    *pa = *func_0016c028(o);
-    *pb = *pa;
-    a.y = __truncdfsf2(__subdf3(func_00313b80(a.y), 0x4069000000000000ULL));
-    b.y = __truncdfsf2(func_00313e80(func_00313b80(b.y), 0x40c3ec0000000000ULL));
-    *pc = *pa;
-    *pd = *pb;
-    if (func_00143b60(s, &hit, o->kind & 0xf)) return -(func_0016c028(o)->y - hit.y);
-    return 10000.0f;
-}
+f32 func_002edd20(W1831Obj* o);  // 0x002edd20: definition moved into src/anon/unit_002ecdb0.cpp
 
 extern f32 D_00349e10;
 void func_0016b010(W1831Body*, W1831QC);
 W1831QC func_0016af58(W1831Body*);
 
-W1831QC func_002ecef8(void* self, W1831Body* o) {
-    W1831QC a;
-    if (func_003142e0(0, func_00313b80(o->v10.w)) < 0 && o->v10.x != 0.0f && o->v10.z != 0.0f) {
-        func_0016b010(o, o->v10);
-    }
-    a = func_0016af58(o);
-    a *= o->f114;
-    a.y = o->v10.y * o->v10.w * (1.0f - o->ff0) + o->v20.y * o->ff0;
-    o->v20 = a;
-    return a * D_00349e10;
-}
+W1831QC func_002ecef8(void* self, W1831Body* o);  // 0x002ecef8: definition moved into src/anon/unit_002ecdb0.cpp
 }

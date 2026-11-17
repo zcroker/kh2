@@ -284,17 +284,7 @@ struct Glob363 {
     f32 a, b;
 };
 extern Glob363 D_00363630;
-void func_002ed1d8(u8* p, Q16* v, f32 a, f32 b) {
-    D_00363630.a = a;
-    D_00363630.b = b;
-    f32 w = ((f32*)v)[3];
-    vu0_normalize(*v);
-    Q16* dst = (Q16*)(p + 32);
-    Q16 t;
-    vu0_scaled(t, *v, w);
-    *dst = t;
-    func_0016bd60(p, 42);
-}
+void func_002ed1d8(u8* p, Q16* v, f32 a, f32 b);  // 0x002ed1d8: definition moved into src/anon/unit_002ecdb0.cpp
 
 extern u8 D_01e2c080[];
 extern u8 D_00363808[];
@@ -302,12 +292,7 @@ extern u8 D_003637e0[];
 void func_00325840(void*, void*);
 void func_00106420(void*);
 // destructor: unregister from the list at D_01e2c080, then the base destructor
-void func_002ee448(void** p) {
-    *(u32*)p = (u32)D_00363808;
-    func_00325840(D_01e2c080, p);
-    *p = D_003637e0;
-    func_00106420(p);
-}
+void func_002ee448(void** p);  // 0x002ee448: definition moved into src/anon/unit_002ecdb0.cpp
 
 void* func_00102788(void*, void*, void*, void*);
 void func_002ef928(void);

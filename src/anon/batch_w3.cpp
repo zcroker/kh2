@@ -173,7 +173,7 @@ struct VObj {
     virtual void v8();
     virtual void v9();
 };
-void func_002ecdb0(VObj* o) { o->v9(); }
+void func_002ecdb0(VObj* o);  // 0x002ecdb0: definition moved into src/anon/unit_002ecdb0.cpp
 
 // dst = a * b, componentwise (VU0).
 void sceVu0MulVector(void* dst, void* a, void* b) {

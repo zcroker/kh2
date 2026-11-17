@@ -175,10 +175,7 @@ void* func_001050d8(u32);
 void* func_0016e920(u32);
 void func_002ed300(void*, void*, u32);
 void TrinityShot_Init(void* self) asm("_ZN2Ts16TRINITY_SHOT_OBJ4InitEv");
-void TrinityShot_Init(void* self) {
-    void* v = func_001050d8(2560);
-    func_002ed300(v, func_0016e920(1475), 256);
-}
+void TrinityShot_Init(void* self);  // 0x002ed438: definition moved into src/anon/unit_002ecdb0.cpp
 
 void* func_0010c7e8(void*);
 void func_00119e60(void*, u32);

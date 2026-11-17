@@ -1102,9 +1102,7 @@ u32 func_002ead78(u32 a0, u32 a1, u32 a2, u32 a3);  // 002ead78: moved to src/an
 
 // 002ecd58: moved to src/anon/unit_002ec5f8.cpp
 
-u32 func_002ee568(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_002ee540(0x00000001u, 0x0000ffffu, a2, a3);
-}
+u32 func_002ee568(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002ee568: definition moved into src/anon/unit_002ee530.cpp
 
 // 002ee888: _GLOBAL__I_ stub, now made by gcc in src/menu/tutorial_widget.cpp
 

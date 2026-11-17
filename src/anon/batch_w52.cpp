@@ -231,20 +231,7 @@ void func_002df470(u8* p, u32 b);  // 0x002df470: definition moved into src/anon
 extern Vec4 D_00362e70;
 // 002e2e50: moved to src/anon/unit_002e2d18.cpp
 
-void func_002ed5a8(u8* p) {
-    *(u32*)(p + 96) = 0;
-    *(u32*)(p + 120) = 1;
-    p[20] = 8;
-    p[22] = 0xff;
-    *(f32*)(p + 88) = 60.0f;
-    *(f32*)(p + 92) = 20.0f;
-    p[84] = 7;
-    // normalize the vector at +64 (VU0)
-    asm volatile(".set noreorder\n\tlqc2 $vf1, 0(%0)\n\tvmul.xyz $vf2, $vf1, $vf1\n\tvaddy.x $vf2, $vf2, $vf2y\n\tvaddz.x $vf2, $vf2, $vf2z\n\t"
-                 "vsqrt Q, $vf2x\n\tvwaitq\n\tcfc2.ni $8, $vi22\n\tvaddq.x $vf2, $vf0, Q\n\tmtc1 $8, $f0\n\tvnop\n\t"
-                 "vdiv Q, $vf0w, $vf2x\n\tvwaitq\n\tvmulq.xyz $vf1, $vf1, Q\n\tsqc2 $vf1, 0(%0)\n\t.set reorder"
-                 : : "r"(p + 64) : "$8", "$f0", "memory");
-}
+void func_002ed5a8(u8* p);  // 0x002ed5a8: definition moved into src/anon/unit_002ecdb0.cpp
 
 extern u32 D_003a84d0[512];
 // Fills a run of the 512-entry table with val (val 0 clears it all); 1 if nothing changed.

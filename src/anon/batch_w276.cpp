@@ -73,22 +73,7 @@ void func_00183768(O*, QV*, f32);  // copy_quad_at16_and_len
 QV func_00184540(O*, f32, f32);
 void func_00184ad0(O*, QV*);
 QV func_002ede48(O*, QV*, f32, f32);
-QV func_002ed068(void* unused, O* o) {
-    QV r;
-    r = o->v32;
-    f32 len = normalize(&r);
-    r.w = len;
-    if (func_003142e0(0, func_00313b80(o->v16.w)) < 0 && o->v16.w <= len) {  // double_compare
-        func_00183768(o, &o->v16, len);  // copy_quad_at16_and_len
-    }
-    f32 t = (D_00363630.f24 < o->v16.w) ? D_00363630.f16 : D_00363630.f20;
-    r = func_00184540(o, D_00363630.f12, 1.0f - t);
-    f32 d = dot3(&r);
-    register f32 z asm("$f12") = 0.0f;
-    if (z < d) func_00184ad0(o, &r);
-    r = func_002ede48(o, &r, D_00363630.f28, D_00363630.g32);
-    return r;
-}
+QV func_002ed068(void* unused, O* o);  // 0x002ed068: definition moved into src/anon/unit_002ecdb0.cpp
 }
 
 struct O2 { u8 pad[64]; QM m64; u8 pad2[320 - 128]; QV v320; u8 pad3[496 - 336]; QV v496; u8 pad4[1372 - 512]; f32 f1372; };

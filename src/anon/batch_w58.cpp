@@ -245,13 +245,7 @@ extern f32 D_00349e10;
 
 extern u32 D_00363748;
 u8* func_002ed350(u32, u32, u32, Vec4*, Vec4*);
-u8* func_002ed4b8(u32 a0, u32 a1, Vec4* a2, Vec4* a3) {
-    Vec4 b, c;
-    cpq(&b, a3);
-    cpq(&c, a2);
-    u8* r = func_002ed350(D_00363748, a0, a1, &c, &b);
-    return r ? r + 48 : 0;
-}
+u8* func_002ed4b8(u32 a0, u32 a1, Vec4* a2, Vec4* a3);  // 0x002ed4b8: definition moved into src/anon/unit_002ecdb0.cpp
 
 // Destructor chain: own vtable, members, base parts, then unregister.
 struct Mgr { u8 pad[20]; VObj* f20; };

@@ -38,11 +38,5 @@ W1811V func_0017d348(W1811V*, W1811V*, f32);
 
 void func_001c6760(W1811Part* o);  // 0x001c6760: definition moved into src/anon/unit_001c5b90.cpp
 
-void func_002ed630(W1811Homer* o) {
-    if ((o->flags & 1) == 1) {
-        o->dir = func_00190388(&o->tgt) - o->pos;
-        o->vel = func_0017d348(&o->vel, &o->dir, o->turn);
-    }
-    o->pos += o->vel * o->spd * D_00349e10;
-}
+void func_002ed630(W1811Homer* o);  // 0x002ed630: definition moved into src/anon/unit_002ecdb0.cpp
 }

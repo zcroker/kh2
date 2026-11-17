@@ -259,22 +259,9 @@ extern Q16 D_01e2be20;
 
 // 002eb7f0: moved to src/anon/unit_002eaf38.cpp
 
-u32 u_call4_002ed830(u32 a, u32, u32, u32) {
-    u8* o = (u8*)a;
-    func_002ed630(o);
-    func_002ed720(o);
-    f32 f = *(f32*)(o + 88);
-    if (f < 0.0f) return 0;
-    *(u8*)(o + 21) = (s32)(f * 0.125f * 128.0f);
-    return 1;
-}
+u32 u_call4_002ed830(u32 a, u32, u32, u32);  // 0x002ed830: definition moved into src/anon/unit_002ecdb0.cpp
 
-void func_002eda90(f32* p, f32 f) {
-    func_001991a8(140);
-    f32 v = *p;
-    if (v < f) *p = v = f;
-    *p = (1.0f < v) ? v : 1.0f;
-}
+void func_002eda90(f32* p, f32 f);  // 0x002eda90: definition moved into src/anon/unit_002ecdb0.cpp
 
 // Constructor: primary and secondary vtables, then registers with the manager.
 extern u8 D_00348590[];

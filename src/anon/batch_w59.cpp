@@ -274,24 +274,13 @@ void func_002c1aa0(u8* p);  // 0x002c1aa0: definition moved into src/anon/unit_0
 // Count the timer down by one; fire event 151 when it runs out.
 extern f32 D_00349e10;
 void func_001991a8(u32, u32);
-void wtarget_002eda40(u32 a, u32 b, u32 c, u32 d) {
-    f32* p = (f32*)a;
-    if (0.0f < *p) {
-        *p = *p - D_00349e10;
-        if (*p <= 0.0f) func_001991a8(151, 0);
-    }
-}
+void wtarget_002eda40(u32 a, u32 b, u32 c, u32 d);  // 0x002eda40: definition moved into src/anon/unit_002ecdb0.cpp
 
 // --- 002edca0
 u32 func_001b9bc8(u32);
 u32 func_001c0cd8(u32);
 void func_001c1020(u32, u32);
-void func_002edca0(u32 key, u32 arg) {
-    u32 o = 0;
-    while ((o = func_001b9bc8(o))) {
-        if (func_001c0cd8(o) && *(u32*)(o + 1392) == key) func_001c1020(o, arg);
-    }
-}
+void func_002edca0(u32 key, u32 arg);  // 0x002edca0: definition moved into src/anon/unit_002ecdb0.cpp
 
 // --- 002f4888
 // Hand-written VU0 routine: compares the point's x/y against (0,0) and

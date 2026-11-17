@@ -481,25 +481,7 @@ u32 func_0016a020(u32);
 u64 func_00312db8(u64, u64);
 }
 // Pick a random member among the eligible party slots.
-u32 ctarget_002ed8e0(u32 a, u32, u32, u32) {
-    u32 cand[12];
-    u32* out = cand;
-    s32 n = 0;
-    u32* src = D_003637b0;
-    for (s32 i = 7; i >= 0; i--, src++) {
-        if (func_0016f7d0(*src, 0) & 1) continue;
-        if (func_00182690(func_0016e920(*src)[84])) {
-            *out++ = *src;
-            n++;
-        }
-    }
-    if (n > 0) {
-        D_003638d0 *= 0x10dcd;
-        u32 r = D_003638d0;
-        return cand[(s32)func_00312db8(r, func_00312db8((u64)(u32)(n - 1) + 0x100000000ULL, (u32)n))];
-    }
-    return func_0016a020(a);
-}
+u32 ctarget_002ed8e0(u32 a, u32, u32, u32);  // 0x002ed8e0: definition moved into src/anon/unit_002ecdb0.cpp
 extern "C" {
 
 extern const s32 D_00377d00[3];

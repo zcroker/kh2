@@ -41,21 +41,5 @@ s32 func_00199810(W1767D* p);  // 0x00199810: definition moved into src/anon/uni
 
 W1767Vec func_001c3b20(void* a, W1767Obj* o);  // 0x001c3b20: definition moved into src/anon/unit_001c2b58.cpp
 
-void func_002ee380(W1767Node* n) {
-    W1767Node* prev;
-    W1767Node* c;
-    n->vt = D_00363808;
-    c = D_01e2c080.head;
-    if (n == c) {
-        D_01e2c080.head = n->next;
-        prev = 0;
-    } else {
-        prev = c;
-        while (prev->next != n) prev = prev->next;
-        prev->next = n->next;
-    }
-    if (n == D_01e2c080.tail) D_01e2c080.tail = prev;
-    n->next = 0;
-    n->vt = D_003637e0;
-}
+void func_002ee380(W1767Node* n);  // 0x002ee380: definition moved into src/anon/unit_002ecdb0.cpp
 }

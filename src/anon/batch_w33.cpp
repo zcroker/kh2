@@ -178,11 +178,7 @@ void func_002e8390(Obj2e8* o) {
 void func_001c23a8(void*, void*, s32, s32, s32, s32, void*);
 extern void* D_00363758[];
 extern void* D_00363748;
-void func_002ed300(void** p, void* a, void* b) {
-    func_001c23a8(p, a, 0, 1, 0, 128, b);
-    *p = D_00363758;
-    D_00363748 = p;
-}
+void func_002ed300(void** p, void* a, void* b);  // 0x002ed300: definition moved into src/anon/unit_002ecdb0.cpp
 
 s32 func_00105c30(void);
 // Region code from the build/region id: 'SU', 'JP' or 'EU'.

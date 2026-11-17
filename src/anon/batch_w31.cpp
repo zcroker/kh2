@@ -211,10 +211,7 @@ void func_002e8578(u8* p) {
 }
 
 typedef void (*VFn2)(void*, void*);
-void func_002ece48(void** p, u8* q) {
-    func_00195858(q + 272, 63);
-    (*(VFn2*)(*(u8**)p + 36))(p, q);
-}
+void func_002ece48(void** p, u8* q);  // 0x002ece48: definition moved into src/anon/unit_002ecdb0.cpp
 
 // Unpack a single-precision float into class/sign/exponent/fraction.
 void func_00314640(u32* in, s32* out) {

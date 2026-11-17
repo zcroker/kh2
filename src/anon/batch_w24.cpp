@@ -179,11 +179,7 @@ extern void* D_00362908[];
 s32 func_002db858(u8* p, u32 a, u32 b);  // 0x002db858: definition moved into src/anon/unit_002da040.cpp
 
 void func_00195858(u8*, s32);
-void func_002ece98(u32, u8* o) {
-    func_00195858(o + 272, 62);
-    asm volatile("vsub.xyzw $vf1, $vf0, $vf0\n\tsqc2 $vf1, 0(%0)" : : "r"(o + 32) : "memory");
-    *(f32*)(o + 240) = *(f32*)(o + 296);
-}
+void func_002ece98(u32, u8* o);  // 0x002ece98: definition moved into src/anon/unit_002ecdb0.cpp
 
 // 002ee778 menu::Mode::start: moved to src/menu/tutorial_widget.cpp
 

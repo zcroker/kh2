@@ -397,20 +397,7 @@ s32 func_003142e0(double, double);  // double_compare
 // 002e2940: moved to src/anon/unit_002e1908.cpp
 
 // Copies a2 into a0 and nudges its y toward the target height by one step.
-Vec82* func_002ede48(Vec82* a0, u32 a1, Vec82* a2, f32 f12, f32 f13)
-{
-    f32 diff = func_002edd20(a1) - f12;
-    f32 step;
-    double dx;
-    *a0 = *a2;
-    dx = func_00313b80(fabsf(diff));  // float_to_double
-    step = f13 * D_00349e10;
-    if (func_003142e0(func_00313e80(func_00313b80(step), 10.0), dx) < 0) {  // double_compare
-        if (func_003142e0(func_00313b80(diff), 0.0) < 0) a0->y -= step;
-        else a0->y += step;
-    }
-    return a0;
-}
+Vec82* func_002ede48(Vec82* a0, u32 a1, Vec82* a2, f32 f12, f32 f13);  // 0x002ede48: definition moved into src/anon/unit_002ecdb0.cpp
 }
 
 typedef union { f32 value; u32 word; } ieee_float_shape82;

@@ -131,27 +131,7 @@ u32 func_001665d8(u32 a0, u32 *a1, u32 *a2, u32 *a3, u32 *a4, u32 *a5,
 
 u32 func_00170e18();  // 0x00170e18: definition moved into src/anon/unit_0016e8f8.cpp
 
-void func_002edf68(u32 a0) {
-    register u32 vtbl asm("$15") = (u32)&D_003637e0;
-    *(volatile u32 *)(a0 + 4) = 0;
-    asm volatile("" : "+r"(vtbl));
-    *(volatile u32 *)(a0 + 12) = 0;
-    *(volatile u32 *)(a0 + 0) = vtbl;
-    asm volatile("" ::: "memory");
-    register u32 val asm("$14") = 128;
-    asm volatile("" : "+r"(val));
-    *(volatile u32 *)(a0 + 8) = 0;
-    *(volatile u32 *)(a0 + 16) = 0;
-    asm volatile("" ::: "memory");
-    register u32 p asm("$15") = a0 + 24;
-    asm volatile("" : "+r"(p));
-    *(volatile u32 *)(a0 + 20) = 0;
-    *(volatile u8 *)(a0 + 24) = val;
-    *(volatile u8 *)(p + 3) = val;
-    *(volatile u8 *)(p + 1) = val;
-    *(volatile u8 *)(p + 2) = val;
-    *(volatile u32 *)(a0 + 28) = 0;
-}
+void func_002edf68(u32 a0);  // 0x002edf68: definition moved into src/anon/unit_002ecdb0.cpp
 
 void func_0011c210(u32 a0);  // 0x0011c210: definition moved into src/anon/unit_0011c128.cpp
 

@@ -370,9 +370,7 @@ struct Words9 { u32 w[9]; };
 extern Words9 D_00363630;
 void wt_002ed268(u32 a, u32 b, u32 c, u32 d) asm("_Z16wtarget_002ed268jjjj");
 
-void wt_002ed268(u32 a, u32 b, u32 c, u32 d) {
-    D_00363630 = *(Words9*)a;
-}
+void wt_002ed268(u32 a, u32 b, u32 c, u32 d);  // 0x002ed268: definition moved into src/anon/unit_002ecdb0.cpp
 
 // ---------------------------------------------------------------------------
 s32 func_002feac0(u32*);

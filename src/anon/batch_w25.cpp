@@ -178,21 +178,7 @@ extern u8 D_003637e0;
 struct C4 { u8 r, g, b, a; };
 struct O2ed { void* vt; u32 a, b, c, d, e; C4 col; u32 f; };
 // Constructor: zeroed fields, colour 128/128/128/128.
-void func_002edf28(O2ed* o) {  // obj_ctor_3637e0
-    o->a = 0;
-    o->c = 0;
-    o->vt = &D_003637e0;
-    o->b = 0;
-    o->d = 0;
-    o->e = 0;
-    C4* c = &o->col;
-    s32 v = 128;
-    c->r = v;
-    c->g = v;
-    c->b = v;
-    c->a = v;
-    o->f = 0;
-}
+void func_002edf28(O2ed* o);  // 0x002edf28: definition moved into src/anon/unit_002ecdb0.cpp
 
 extern u8 D_00347e60;
 extern u8 D_00347e40;

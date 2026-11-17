@@ -2100,45 +2100,9 @@ void func_002e73d8(u32 a0) {  // timer_decrement
 
 // 002ec1d0: moved to src/anon/unit_002eaf38.cpp
 
-void func_002edb38(void) {
-    if (D_003637d0 != 0) {
-        return;
-    }
+void func_002edb38(void);  // 0x002edb38: definition moved into src/anon/unit_002ecdb0.cpp
 
-    u32 p = func_001050d8(4);
-    func_002eda10(p);
-    u32 q = func_00102c18(1, 20500, (u32)&D_002edb90);
-    *(u32*)(q + 48) = (u32)&D_002edbb0;
-}
-
-void func_002edfd8(u32 a0, u32 a1) {  // list_unlink_and_clear
-    u32 t7 = *(u32*)(a0 + 8);
-    u32 t5;
-    u32 t4 = a0 + 8;
-
-    if (a1 == t7) {
-        t7 = *(u32*)(a1 + 32);
-        t5 = 0;
-        *(u32*)(a0 + 8) = t7;
-    } else {
-        u32 t6 = *(u32*)(t7 + 32);
-        t5 = t7;
-        while (t6 != a1) {
-            t7 = *(u32*)(t6 + 32);
-            t5 = t6;
-            t6 = t7;
-        }
-        t7 = *(u32*)(a1 + 32);
-        *(u32*)(t5 + 32) = t7;
-    }
-
-    t7 = *(u32*)(t4 + 4);
-    if (a1 == t7) {
-        *(u32*)(t4 + 4) = t5;
-    }
-    *(u32*)(a1 + 32) = 0;
-    *(u32*)(a1 + 28) = 0;
-}
+void func_002edfd8(u32 a0, u32 a1);  // 0x002edfd8: definition moved into src/anon/unit_002ecdb0.cpp
 
 // 002eefc8: moved to src/anon/unit_002ee8a8.cpp
 

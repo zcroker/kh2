@@ -19,22 +19,5 @@ struct Node2ee0 {
 
 extern "C" {
 /* Needs -fno-strict-aliasing for the colour byte stores and flag test order. */
-void func_002ee0b0(Node2ee0* n, Pos2ee0 pos, Col2ee0 col)
-{
-    s32 hide = 0;
-    pos.x += n->x;
-    pos.y += n->y;
-    Mul2ee0(col, n->col);
-    s32 f0 = n->flags & 1;
-    if (f0 || (n->flags & 2)) hide = 1;
-    if (!(u8)hide) n->drawSelf(pos, col, hide);
-    if (!(n->flags & 2)) {
-        Node2ee0* c = n->child;
-        while (c) {
-            Node2ee0* nx = c->next;
-            c->draw(pos, col);
-            c = nx;
-        }
-    }
-}
+void func_002ee0b0(Node2ee0* n, Pos2ee0 pos, Col2ee0 col);  // 0x002ee0b0: definition moved into src/anon/unit_002ecdb0.cpp
 }

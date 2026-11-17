@@ -1109,16 +1109,7 @@ u8* func_001b9bc8(u8*);
 s32 func_0016a070(u8*);
 s32 func_0016c008(u8*, s32);
 u8* ctarget_002edbf8(u32, u32, u32, u32) asm("_Z16ctarget_002edbf8jjjj");
-u8* ctarget_002edbf8(u32 want, u32, u32, u32)
-{
-    u8* n = 0;
-    while ((n = func_001b9bc8(n))) {
-        if (func_0016a070(n) != 4007) continue;
-        if (func_0016c008(n, 1) == 1) { if (!want) return n; }
-        else { if (want) return n; }
-    }
-    return 0;
-}
+u8* ctarget_002edbf8(u32 want, u32, u32, u32);  // 0x002edbf8: definition moved into src/anon/unit_002ecdb0.cpp
 extern u8* D_0034e948;
 extern u8 D_00362698[];
 void func_001c0d38(u8*, u8*, s32, s32);
@@ -1683,24 +1674,7 @@ void func_002edf28(u8*);  // obj_ctor_3637e0
 u8* func_002ee840(void);  // get_data_1e2c088
 void func_002ee498(void);
 u32 func_00102788(u32, s32, s32, void (*)(void));
-void func_002ee220(u8* p)
-{
-    func_002edf28(p);  // obj_ctor_3637e0
-    *(u32*)p = (u32)D_00363808;
-    if (!D_003637f8) {
-        u8* o = func_002ee840();  // get_data_1e2c088
-        (**(VFn**)o)(o);
-        D_003637f8 = func_00102788(*(u32*)(o + 4), 0, 2000, func_002ee498);
-    }
-    if (!D_01e2c080.head) {
-        D_01e2c080.tail = p;
-        D_01e2c080.head = p;
-        *(u8**)(p + 32) = 0;
-    } else {
-        *(u8**)(p + 32) = D_01e2c080.head;
-        D_01e2c080.head = p;
-    }
-}
+void func_002ee220(u8* p);  // 0x002ee220: definition moved into src/anon/unit_002ecdb0.cpp
 extern s8 D_003638c8;
 s32 func_002ef7b8(void);
 void func_002ef7a0(s32, s32);
