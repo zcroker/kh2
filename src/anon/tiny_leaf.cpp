@@ -138,16 +138,7 @@ void func_00229830(u32 a0, u32 a1, u32 a2, u32 a3);  // 00229830: moved to src/s
 
 void func_00231928(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00231928: definition moved into src/anon/unit_00231500.cpp
 
-u32 func_00236cc0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u, r14 = 0u, r15 = 0u;
-    r14 = *(u32*)((u32)r4 + (s32)(12));
-    r5 = (u32)(r5 << 3);
-    r2 = *(u32*)((u32)r4 + (s32)(8));
-    r5 = (u32)(r5 + r14);
-    r15 = *(u32*)((u32)r5 + (s32)(0));
-    r2 = (u32)(r2 + r15);
-    return r2;
-}
+u32 func_00236cc0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00236cc0: definition moved into src/anon/unit_00236180.cpp
 
 u32 func_0023c4b8(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u, r14 = 0u, r15 = 0u;

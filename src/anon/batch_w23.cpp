@@ -134,10 +134,7 @@ E40* func_00227cd8(s32 id);  // 0x00227cd8: definition moved into src/anon/unit_
 struct E20 { s32 a; s32 pad; s32 c; u8 pad2[8]; };
 struct I4 { u16 idx; u16 pad; };
 struct T237 { u32 pad[2]; E20* e; I4* ix; };
-void func_00237540(T237* t, s32 i, s32 off, s32 add) {
-    E20* e = &t->e[t->ix[i].idx + off];
-    e->c = e->a + add;
-}
+void func_00237540(T237* t, s32 i, s32 off, s32 add);  // 0x00237540: definition moved into src/anon/unit_00237068.cpp
 
 extern void* D_0035ebe0;
 void func_0023fb90(void* a) {

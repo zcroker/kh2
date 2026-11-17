@@ -171,17 +171,9 @@ s32 func_0020f118(void) {
 
 void func_002289c0(void** p);  // 002289c0: moved to src/anon/unit_00228618.cpp (linked unit)
 
-void func_002368b0(u8* p) {
-    sceGsExecLoadImage(p + 64, *(void**)(p + 56));
-    sceGsExecLoadImage(p + 160, *(void**)(p + 60));
-}
+void func_002368b0(u8* p);  // 0x002368b0: definition moved into src/anon/unit_00236180.cpp
 
-void func_00237458(u8* p, u32 i, s32 j, s32 v) {  // entry20_accumulate
-    u8* t = *(u8**)(p + 12);
-    s32* e = (s32*)(*(u8**)(p + 8) + (*(u16*)(i * 4 + (u32)t) + j) * 20);
-    e[2] = v + e[2] - e[0];
-    e[0] = v;
-}
+void func_00237458(u8* p, u32 i, s32 j, s32 v);  // 0x00237458: definition moved into src/anon/unit_00237068.cpp
 
 void func_0023c0c0(u8* p) {
     *(u8**)p = D_0035eb08;

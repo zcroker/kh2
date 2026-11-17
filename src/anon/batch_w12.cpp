@@ -162,10 +162,7 @@ u8* func_0022f4f0(s32 id);  // 0x0022f4f0: definition moved into src/anon/unit_0
 
 void func_00232110(s16* p);  // 0x00232110: definition moved into src/anon/unit_00231500.cpp
 
-void func_002375b0(u8* o, s32 i, s32 j, s32 d) {
-    u8* e = *(u8**)(o + 8) + (*(u16*)(*(u8**)(o + 12) + i * 4) + j) * 20;
-    *(s32*)(e + 12) = *(s32*)(e + 4) + d;
-}
+void func_002375b0(u8* o, s32 i, s32 j, s32 d);  // 0x002375b0: definition moved into src/anon/unit_00237068.cpp
 
 void func_00241568(void) {
     func_00234670(*D_0035ec94, D_0035ec88, 0, 0, 0);

@@ -172,17 +172,7 @@ void func_001c6400(u8* p, Q16* v);  // 0x001c6400: definition moved into src/ano
 
 void func_0022afa0(s32 a);  // 0022afa0: moved to src/sasa/musical_input.cpp (linked unit)
 
-void func_002368e8(u8* p, f32 x) {
-    if (**(s8**)(p + 408) == 0 && *(u32*)(p + 48) == 0) {
-        s32 n = *(s32*)(p + 36) * *(s32*)(p + 40);
-        s32* a = *(s32**)(p + 60);
-        for (; n > 0; n--) {
-            *a = func_001319d8(*a, x);
-            a++;
-        }
-        **(s8**)(p + 408) = 1;
-    }
-}
+void func_002368e8(u8* p, f32 x);  // 0x002368e8: definition moved into src/anon/unit_00236180.cpp
 
 u32 func_002402e0(void) {
     switch (func_00105c30()) {

@@ -178,10 +178,7 @@ void func_0022be28(u32 a);  // 0022be28: moved to src/sasa/event_countdown.cpp (
 // --- 00237508
 struct E237 { s32 a, b, c, d, e; };
 struct T237 { u32 pad[2]; E237* ent; u16* idx; };
-s32 func_00237508(T237* t, s32 i, s32 j) {  // entry20_field8_minus0
-    E237* e = &t->ent[t->idx[i * 2] + j];
-    return e->c - e->a;
-}
+s32 func_00237508(T237* t, s32 i, s32 j);  // 0x00237508: definition moved into src/anon/unit_00237068.cpp
 
 // --- 00243150
 // Last table entry whose id matches (table ends with a negative id).

@@ -51,34 +51,6 @@ void func_00237740(W22Obj*, f32, f32, f32);
 void func_00237a68(W22Obj*, f32, f32, f32);
 void func_00237ad8(W22Obj*, s32);
 
-s32 func_00237280(W22Obj* o, W22Hdr* h, s32 a)
-{
-    f32 one = 1.0f;
-    o->p4 = (u8*)h + h->oc;
-    o->p8 = (u8*)h + h->o14;
-    o->pc = (u8*)h + h->o1c;
-    o->n34 = h->n8;
-    o->n38 = h->n10;
-    o->n3c = h->n18;
-    o->f68 = -1;
-    o->b0 = 1; o->b1 = 1; o->b2 = 1;
-    o->b3 = 0; o->b4 = 0; o->b5 = 0;
-    o->f40 = a;
-    o->f44 = one;
-    o->f48 = 0;
-    o->f14 = 0;
-    o->f18 = 0;
-    func_002373a8(o);
-    func_00237680(o, 0);
-    func_00237740(o, 0.0f, 0.0f, 0.0f);
-    func_00237a68(o, one, one, one);
-    o->f8c = 0;
-    o->f90 = 0;
-    o->f88 = 0x80808080;
-    o->f94 = 0;
-    o->f98 = 0;
-    func_00237ad8(o, 0);
-    return 1;
-}
+s32 func_00237280(W22Obj* o, W22Hdr* h, s32 a);  // 0x00237280: definition moved into src/anon/unit_00237068.cpp
 
 }

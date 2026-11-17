@@ -1848,106 +1848,13 @@ void func_00231948(u32 a0);  // 0x00231948: definition moved into src/anon/unit_
 
 u32 func_00233a18(u32 a0, u32 a1);  // 0x00233a18: definition moved into src/anon/unit_002335e8.cpp
 
-u32 func_00236490(void* a0) {
-    s32 key;
-    s32 i;
-    DivEntry* p;
+u32 func_00236490(void* a0);  // 0x00236490: definition moved into src/anon/unit_00236180.cpp
 
-    key = *(s32*)((u8*)a0 + 0x1c);
-    i = 0;
-    p = &D_0035ea48[0];
+u32 func_002364f8(void* a0);  // 0x002364f8: definition moved into src/anon/unit_00236180.cpp
 
-    while (i < 14) {
-        if (p->key == key) {
-            s32 t6 = *(s32*)((u8*)a0 + 0xc);
-            s32 t7 = *(s32*)((u8*)a0 + 0x8);
-            s32 d = p->div;
-            s32 n = t7 * t6;
-            if (n < 0) {
-                n += 15;
-            }
-            n >>= 4;
-            return (u32)(n / d);
-        }
-        i += 1;
-        p += 1;
-    }
+void func_00236830(void* a0);  // 0x00236830: definition moved into src/anon/unit_00236180.cpp
 
-    return 0;
-}
-
-u32 func_002364f8(void* a0) {
-    s32 key;
-    s32 i;
-    DivEntry* p;
-
-    key = *(s32*)((u8*)a0 + 0x30);
-    i = 0;
-    p = &D_0035ea48[0];
-
-    while (i < 14) {
-        if (p->key == key) {
-            s32 t6 = *(s32*)((u8*)a0 + 0x28);
-            s32 t7 = *(s32*)((u8*)a0 + 0x24);
-            s32 d = p->div;
-            s32 n = t7 * t6;
-            if (n < 0) {
-                n += 15;
-            }
-            n >>= 4;
-            return (u32)(n / d);
-        }
-        i += 1;
-        p += 1;
-    }
-
-    return 0;
-}
-
-void func_00236830(void* a0) {
-    u64 t6;
-    s32 t7;
-
-    if (*(u8*)((u8*)a0 + 0x190) != 0) {
-        func_00236d98(a0);
-        return;
-    }
-
-    t6 = *(u64*)((u8*)a0 + 0x30);
-    t7 = ((s32)(t6 >> 32)) & 1;
-    if (t7 != 0) {
-        sceGsExecLoadImage((u8*)a0 + 0x40, *(u32*)((u8*)a0 + 0x38));
-        t6 = *(u64*)((u8*)a0 + 0x30);
-    }
-
-    t7 = ((s32)(t6 >> 33)) & 1;
-    if (t7 != 0) {
-        sceGsExecLoadImage((u8*)a0 + 0xa0, *(u32*)((u8*)a0 + 0x3c));
-    }
-}
-
-void func_00236c38(void* a0) {
-    u8* base;
-    u8* end;
-
-    base = (u8*)*(u32*)((u8*)a0 + 0x14);
-    if (base == 0) {
-        return;
-    }
-
-    end = base + (*(s32*)(base - 4) * 0x1a0);
-    for (;;) {
-        if (base == end) {
-            break;
-        }
-        end -= 0x1a0;
-        ((void(**)(void*))(*(u32*)end))[0]((void*)end);
-        base = (u8*)*(u32*)((u8*)a0 + 0x14);
-    }
-
-    func_00106450((void*)(base - 0x10));
-    *(u32*)((u8*)a0 + 0x14) = 0;
-}
+void func_00236c38(void* a0);  // 0x00236c38: definition moved into src/anon/unit_00236180.cpp
 
 u32 func_00239af8(void* a0, u32 a1) {
     u8* s0;

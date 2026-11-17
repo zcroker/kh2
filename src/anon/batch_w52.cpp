@@ -195,13 +195,7 @@ extern s32 D_0035de10;
 void func_00232070(s16* p);  // 0x00232070: definition moved into src/anon/unit_00231500.cpp
 
 void func_002368e8(u8*, f32);
-void func_00236bb8(u8* p, f32 f) {
-    s32 i;
-    for (i = 0; i < *(s32*)(p + 16); i++) {
-        func_002368e8(*(u8**)(p + 20) + i * 416, f);
-        func_002367c8(*(u8**)(p + 20) + i * 416);  // obj_dispatch_bitfield64
-    }
-}
+void func_00236bb8(u8* p, f32 f);  // 0x00236bb8: definition moved into src/anon/unit_00236180.cpp
 
 extern u32 D_00349e1c;
 extern u8 D_00349e20;

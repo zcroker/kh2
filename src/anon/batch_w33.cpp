@@ -125,21 +125,7 @@ struct Slot236 { u8 used; u8 pad[3]; s32 a; s32 b; s32 pad2; s32 x; s32 y; };
 extern Slot236 D_0035e440[];
 extern s32 D_0035ea40;
 void init_00236d10(void*) asm("_Z13func_00236d10Pv");
-void init_00236d10(void*) {
-    Slot236* s = D_0035e440;
-    s32 y = 0x3500, x = 0x3600;
-    for (s32 i = 63; i >= 0; i--) {
-        s->x = x;
-        s->y = y;
-        s->used = 0;
-        x += 32;
-        s->a = 0;
-        y += 4;
-        s->b = 0;
-        s++;
-    }
-    D_0035ea40 = 1;
-}
+void init_00236d10(void*);  // 0x00236d10: definition moved into src/anon/unit_00236180.cpp
 
 void func_00242408(void);  // set_global_crc_m1
 u32 func_00242418(void*, u32);  // crc_byte_update

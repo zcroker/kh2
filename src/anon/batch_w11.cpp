@@ -151,10 +151,7 @@ void func_002314c0(f32* s);  // 0x002314c0: definition moved into src/anon/unit_
 
 struct E237 { u32 a; s32 lo; u32 b; s32 hi; u32 c; };
 struct P237 { u32 pad[2]; E237* e; u16* idx; };
-s32 func_00237578(P237* p, s32 i, s32 j) {  // entry20_field12_minus4
-    E237* e = &p->e[p->idx[i * 2] + j];
-    return e->hi - e->lo;
-}
+s32 func_00237578(P237* p, s32 i, s32 j);  // 0x00237578: definition moved into src/anon/unit_00237068.cpp
 
 typedef void (*VFn2)(void*, void*);
 extern void* D_0035ec84;

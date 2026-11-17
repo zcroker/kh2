@@ -244,10 +244,7 @@ static inline void assert1e8bb8(const char* e, const char* f, s32 l) {
 void func_001e8bb8(u8* p);  // 0x001e8bb8: definition moved into src/anon/unit_001e8ac8.cpp
 
 void sceGsExecLoadImage(u8*, u32);
-void func_002367c8(u8* p) {  // obj_dispatch_bitfield64
-    if (((s32)(*(s64*)(p + 48) >> 32) & 1) == 0) sceGsExecLoadImage(p + 64, *(u32*)(p + 56));
-    if (((*(u64*)(p + 48) >> 33) & 1) == 0) sceGsExecLoadImage(p + 160, *(u32*)(p + 60));
-}
+void func_002367c8(u8* p);  // 0x002367c8: definition moved into src/anon/unit_00236180.cpp
 
 // Returns 1 if the current id is in the -1-terminated list.
 u16* func_002632d0(void);

@@ -172,16 +172,7 @@ struct Key44 { u8 pad[20]; f32 x, y; u8 pad2[16]; };
 struct Ref20 { u8 pad[16]; s32 idx; };
 struct Tbl { u32 pad; Key44* keys; Ref20* refs; u16* ranges; };
 
-s32 func_002384f8(Tbl* t, s32 i) {
-    u16* r = &t->ranges[i * 2];
-    Ref20* e = &t->refs[r[0]];
-    s32 n = r[1];
-    for (; n > 0; n--, e++) {
-        Key44* k = &t->keys[e->idx];
-        if (k->x != 0.0f || k->y != 0.0f) return 1;
-    }
-    return 0;
-}
+s32 func_002384f8(Tbl* t, s32 i);  // 0x002384f8: definition moved into src/anon/unit_002384f8.cpp
 
 struct Ent144 { u32 flags; u32 pad[2]; s32 v; u8 pad2[128]; };
 struct Rng36 { u16 first, count; u8 pad[32]; };

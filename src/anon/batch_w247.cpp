@@ -96,19 +96,7 @@ struct Obj237 {
     u32 g[14];
 };
 // Constructor: vtable, clear every field and seven flag bits.
-void func_00237068(Obj237* o)
-{
-    o->s.a = 0;
-    o->vt = (u32)&D_0035eae8;
-    Sub6_247* s = &o->s;
-    s->b = 0; s->c = 0; s->d = 0; s->e = 0; s->f = 0;
-    o->f4 = 0; o->f8 = 0; o->f12 = 0;
-    o->b0 = 0; o->b1 = 0; o->b2 = 0; o->b3 = 0; o->b4 = 0; o->b5 = 0; o->b6 = 0;
-    o->f20 = 0; o->f24 = 0; o->f28 = 0; o->f32 = 0; o->f36 = 0; o->f40 = 0; o->f44 = 0;
-    o->f52 = 0; o->f56 = 0; o->f60 = 0; o->f64 = 0; o->f68 = 0; o->f72 = 0; o->f76 = 0;
-    o->g[0] = 0; o->g[1] = 0; o->g[2] = 0; o->g[3] = 0; o->g[4] = 0; o->g[5] = 0; o->g[6] = 0; o->g[7] = 0;
-    o->g[8] = 0; o->g[9] = 0; o->g[10] = 0; o->g[11] = 0; o->g[12] = 0; o->g[13] = 0;
-}
+void func_00237068(Obj237* o);  // 0x00237068: definition moved into src/anon/unit_00237068.cpp
 
 u32 func_002bc988(void*) asm("_Z13func_002bc988Pv");
 s32 func_002bc9d8(u8*, u32);

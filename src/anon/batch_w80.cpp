@@ -512,21 +512,7 @@ void func_0021f908(U6_OscSet* s, u32 a, u32 seed) {
 void func_002328c0(U7_SeReq* r);  // 0x002328c0: definition moved into src/anon/unit_00231500.cpp
 
 
-void func_00237808(U8_Rot3* o, f32 rx) {
-    f32 sx, cx, sy, cy, sz, cz, sxsy;
-    o->rx = rx;
-    sx = sinf(o->rx);
-    cx = cosf(o->rx);
-    sy = sinf(o->ry);
-    cy = cosf(o->ry);
-    sz = sinf(o->rz);
-    cz = cosf(o->rz);
-    sxsy = sx * sy;
-    o->m00 = cy * cz;
-    o->m02 = sxsy * cz + cx * sz;
-    o->m01 = cy * -sz;
-    o->m03 = sxsy * -sz + cx * cz;
-}
+void func_00237808(U8_Rot3* o, f32 rx);  // 0x00237808: definition moved into src/anon/unit_00237068.cpp
 
 
 s32 func_00244068(void);  // 0x00244068: definition moved into src/anon/unit_00242478.cpp

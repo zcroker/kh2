@@ -179,11 +179,7 @@ u32* func_00232e60(void);  // 0x00232e60: definition moved into src/anon/unit_00
 
 void func_00236148(void);  // 0x00236148: definition moved into src/anon/unit_00234f60.cpp
 
-void SEQUENCE_D0(void* self) {
-    *(void**)self = &D_0035eaf8;
-    func_00237238(self);
-    func_00106420(self);
-}
+void SEQUENCE_D0(void* self);  // 0x00239898: definition moved into src/anon/unit_002384f8.cpp
 
 
 void func_002835d8(void);  // 0x002835d8: definition moved into src/anon/unit_00282c68.cpp

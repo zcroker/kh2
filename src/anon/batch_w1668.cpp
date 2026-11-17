@@ -33,7 +33,7 @@ void w1b8290(u32, u32, u32, u32) asm("_Z16wtarget_001b8290jjjj");
 void w1b8290(u32 a, u32 b, u32, u32);  // 0x001b8290: definition moved into src/anon/unit_001b6a50.cpp
 
 extern f32 D_00349e14;
-void func_00239230(u8* p) { *(f32*)(p + 0x48) += D_00349e14 * *(f32*)(p + 0x44); }
+void func_00239230(u8* p);  // 0x00239230: definition moved into src/anon/unit_002384f8.cpp
 
 void dkMap_setVisibleGroup(u32) asm("_ZN2dk3Map15setVisibleGroupEj");
 void func_0015f6e8(void);

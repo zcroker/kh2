@@ -197,13 +197,7 @@ void worldmap_ObjWidget_D0(void** p) {
 struct E24 { u8 a; u32 b; u32 pad[4]; };
 extern E24 D_0035e440[64];
 // Clear the 64-entry table at D_0035e440.
-void func_00236d60(void) {  // clear_64_entries_24
-    E24* e;
-    for (e = D_0035e440; (s32)e < (s32)(D_0035e440 + 64); e++) {
-        e->a = 0;
-        e->b = 0;
-    }
-}
+void func_00236d60(void);  // 0x00236d60: definition moved into src/anon/unit_00236180.cpp
 
 // 001e0958: moved to src/rikeda/saveram_gumibattle.cpp
 }

@@ -191,23 +191,7 @@ f32 sinf(f32);
 f32 cosf(f32);
 struct Rot237 { u8 p0[28]; f32 m28, m32, m36, m40; u8 p44[68]; f32 x, y, z; };
 // sets euler angles and rebuilds the matrix rows that depend on them
-void func_00237740(Rot237* r, f32 x, f32 y, f32 z) {
-    f32 sx, cx, sy, cy, sz, cz, sxsy;
-    r->y = y;
-    r->z = z;
-    r->x = x;
-    sx = sinf(r->x);
-    cx = cosf(r->x);
-    sy = sinf(r->y);
-    cy = cosf(r->y);
-    sz = sinf(r->z);
-    cz = cosf(r->z);
-    sxsy = sx * sy;
-    r->m28 = cy * cz;
-    r->m36 = sxsy * cz + cx * sz;
-    r->m32 = cy * -sz;
-    r->m40 = sxsy * -sz + cx * cz;
-}
+void func_00237740(Rot237* r, f32 x, f32 y, f32 z);  // 0x00237740: definition moved into src/anon/unit_00237068.cpp
 
 extern void* D_0035ed54;
 extern void* D_0035ed4c;

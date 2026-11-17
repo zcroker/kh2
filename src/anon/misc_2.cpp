@@ -18,9 +18,9 @@ u8 func_00227118(void* self);  // 0x00227118: definition moved into src/anon/uni
 
 void func_00233e58(void* self);  // 0x00233e58: definition moved into src/anon/unit_002335e8.cpp
 
-void func_00236a50(void* self) {}
+void func_00236a50(void* self);  // 0x00236a50: definition moved into src/anon/unit_00236180.cpp
 
-void func_00237278(void* self) {}
+void func_00237278(void* self);  // 0x00237278: definition moved into src/anon/unit_00237068.cpp
 
 void func_0023c0f8(void* self) {}
 

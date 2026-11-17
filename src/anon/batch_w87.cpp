@@ -138,19 +138,7 @@ void func_00222080(u8* list, u8* a1, s32 a2, s32 a3);  // 0x00222080: definition
 // ---- 0x2378c8: rotation matrix rows from Euler angles at +112 ----
 f32 sinf(f32);
 f32 cosf(f32);
-void func_002378c8(f32* p, f32 z) {
-    p[29] = z;
-    f32 sx = sinf(p[28]);
-    f32 cx = cosf(p[28]);
-    f32 sy = sinf(p[29]);
-    f32 cy = cosf(p[29]);
-    f32 sz = sinf(p[30]);
-    f32 cz = cosf(p[30]);
-    p[7] = cy * cz;
-    p[9] = sx * sy * cz + cx * sz;
-    p[8] = cy * -sz;
-    p[10] = sx * sy * -sz + cx * cz;
-}
+void func_002378c8(f32* p, f32 z);  // 0x002378c8: definition moved into src/anon/unit_00237068.cpp
 
 // ---- 0x23dd28 ----
 void func_00106d40(void*, f32, f32, f32, f32, f32, f32, f32, f32, f32, f32, f32);

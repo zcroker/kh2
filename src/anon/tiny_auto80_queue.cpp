@@ -10843,15 +10843,7 @@ void duplicate_unplaced_00236148() {
     fn();
 }
 
-void func_00237a68(u8* a0, f32 a1, f32 a2, f32 a3) {  // set_float124_128
-    f32 f0 = a1 * a2;
-    *(f32*)(a0 + 124) = a1;
-    *(f32*)(a0 + 128) = a2;
-    *(f32*)(a0 + 132) = a3;
-    a1 = a1 * a3;
-    *(f32*)(a0 + 44) = f0;
-    *(f32*)(a0 + 48) = a1;
-}
+void func_00237a68(u8* a0, f32 a1, f32 a2, f32 a3);  // 0x00237a68: definition moved into src/anon/unit_00237068.cpp
 
 f32 func_00239bb8(u8* a0) {
     u8* s0 = a0;

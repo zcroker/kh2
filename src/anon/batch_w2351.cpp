@@ -20,41 +20,5 @@ struct TexUpload2351 {
 };
 
 void u_tail0_00236560(TexUpload2351* p) asm("_Z16u_tail0_00236560v");
-void u_tail0_00236560(TexUpload2351* p) {
-    s32 cbp = p->cbp;
-    s32 tbp = p->tbp;
-    s32 tbw, psm, w, h;
-    sceGsSetDefLoadImage(p->clutXfer, cbp, p->clutW, p->u.s.cpsm, 0, 0, p->clutX, p->clutY);
-    tbw = p->tbw; psm = p->psm; w = p->w; h = p->h;
-    if (p->u.q & (1ULL << 34)) {
-        // 8/4-bit textures are uploaded as PSMCT32
-        switch (psm) {
-        case 19: tbw /= 2; w /= 2; h /= 2; psm = 0; break;
-        case 20: tbw /= 2; w /= 2; h /= 4; psm = 0; break;
-        }
-    }
-    sceGsSetDefLoadImage(p->texXfer, tbp, tbw, psm, 0, 0, w, h);
-    p->g[0] = 0x70000008;
-    p->g[2] = (7ULL << 60) | 0x8001;
-    p->g[3] = 0xeeeeeee;
-    p->g[4] = 5;
-    p->g[5] = 8;
-    p->g[6] = 0;
-    p->g[7] = 0x3f;
-    p->g[8] = TEX0_W2351(tbp, p->tbw, p->psm, p->tw, p->th, 1, 0, cbp, p->u.s.cpsm, 0, 0, 1);
-    p->g[9] = 6;
-    p->g[10] = 0x60;
-    p->g[11] = 0x14;
-    {
-        u64 lo = (u64)cbp << 37 | 1ULL << 62;
-        u64 hi = (u64)p->u.s.cpsm << 51 | 0x1300000;
-        p->g[12] = lo | hi;
-    }
-    p->g[13] = 0x16;
-    p->g[14] = (u64)p->psm << 20 | ((u64)p->u.s.cpsm << 51 | (u64)cbp << 37);
-    p->g[15] = 0x16;
-    p->g[16] = 0x44;
-    p->g[17] = 0x42;
-    func_003058a0(0);
-}
+void u_tail0_00236560(TexUpload2351* p);  // 0x00236560: definition moved into src/anon/unit_00236180.cpp
 }

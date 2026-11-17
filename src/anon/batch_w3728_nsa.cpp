@@ -49,68 +49,6 @@ u32 func_00233708(u32, s32);
 u32 func_002338a8(f32, u32);
 
 // Builds a GIF packet of textured sprites for a 2D object (one quad per sprite).
-void func_00239250(W3728Obj* obj, s32 x, s32 y, s32 ox, s32 oy)
-{
-    s32 bx = (x << 4) + 0x7000;
-    s32 by = (y << 4) + 0x7300;
-    s32 dx = ox << 4;
-    s32 dy = oy << 4;
-    f32 sx, sy;
-    W3728Pkt pk;
-    if (((obj->flags >> 4) & 1) == 0) {
-        sx = obj->sx;
-        sy = obj->sy;
-    } else {
-        sy = 1.0f;
-        sx = sy;
-    }
-    pk.cur = 0; pk.pad = 0; pk.start = 0;
-    func_001b7e68(&pk, obj->num * 5 + 1);
-    u64* tag = (u64*)(pk.start + 0x10);
-    W3728Quad* q = (W3728Quad*)(pk.start + 0x20);
-    W3728Spr* s = obj->sprs;
-    for (s32 i = obj->num; i > 0; i--) {
-        f32 one = 1.0f;
-        s32 adc = 0x8000;
-        // pins reproduce the original's loop-head registers (t6 = tex offset, t7 = flags, t5 = texs)
-        register u32 off asm("$14") = s->tex * 44;
-        register u32 fl asm("$15") = obj->flags;
-        register W3728Tex* tb asm("$13") = obj->texs;
-        W3728Tex* t = (W3728Tex*)((u8*)tb + off);
-        if (((fl >> 5) & 1) == 0) {
-            if (obj->alpha == one) {
-                q->tex0 = func_00233708(t->tex0, obj->clut);
-            } else {
-                q->tex0 = func_002338a8(obj->alpha, func_00233708(t->tex0, obj->clut));
-            }
-        } else {
-            q->tex0 = t->tex0;
-        }
-        q->rgba = 1;
-        q->v[0].u = (t->u0 << 4) + 8;
-        q->v[0].v = (t->v0 << 4) + 8;
-        q->v[0].x = bx + (s32)((f32)((s->x0 << 4) + dx) * sx);
-        q->v[0].y = by + (s32)((f32)((s->y0 << 4) + dy) * sy);
-        q->v[0].z = obj->z;
-        q->v[0].adc = adc;
-        q->v[1].u = (t->u1 << 4) + 8;
-        q->v[1].v = (t->v1 << 4) + 8;
-        q->v[1].x = bx + (s32)((f32)((s->x1 << 4) + dx) * sx);
-        q->v[1].y = by + (s32)((f32)((s->y1 << 4) + dy) * sy);
-        q->v[1].z = obj->z;
-        q->v[1].adc = 0;
-        s++;
-        q++;
-    }
-    u64 gt = (u32)(obj->num | 0x8000);
-    gt |= (u64)5 << 60;
-    gt |= (u64)0x156 << 47;
-    gt |= (u64)1 << 46;
-    tag[1] = 0x4343e;
-    tag[0] = gt;
-    func_001b7ff8(&pk, obj->num * 5 + 1);
-    func_001b80d8(&pk);
-    func_001b7f30(&pk);
-}
+void func_00239250(W3728Obj* obj, s32 x, s32 y, s32 ox, s32 oy);  // 0x00239250: definition moved into src/anon/unit_002384f8.cpp
 
 }

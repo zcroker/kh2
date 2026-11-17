@@ -5,7 +5,7 @@ void func_00237698(void* p);
 void func_0019d518(void* p);
 void func_002ef5c8(void* p);
 
-void func_00237680(void* p) { func_00237698(p); }
+void func_00237680(void* p);  // 0x00237680: definition moved into src/anon/unit_00237068.cpp
 
 void func_0019d4f8(u8* p);  // 0x0019d4f8: definition moved into src/anon/unit_0019ba60.cpp
 

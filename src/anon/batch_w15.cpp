@@ -152,11 +152,7 @@ void func_002346f0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4);  // 0x002346f0: defi
 
 struct Ent20 { u32 _0; u32 b; u32 _8; u32 c; u32 _10; };
 struct Tbl { u32 _0; u32 _4; Ent20* ents; u32* idx; };
-void func_002374c8(Tbl* t, int i, int j, u32 v) {  // entry20_accumulate_b
-    Ent20* e = &t->ents[*(u16*)&t->idx[i] + j];
-    e->c = v + e->c - e->b;
-    e->b = v;
-}
+void func_002374c8(Tbl* t, int i, int j, u32 v);  // 0x002374c8: definition moved into src/anon/unit_00237068.cpp
 
 extern u32 D_0035eb88;
 extern u32 D_0035eb8c;

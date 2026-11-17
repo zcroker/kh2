@@ -141,11 +141,7 @@ void func_001fb870(u8* a, u8* b) {
     s[8] = 4;
 }
 
-void func_00236a18(void** p) {
-    *p = D_0035eac8;
-    func_00236c38(p);
-    func_00106420(p);
-}
+void func_00236a18(void** p);  // 0x00236a18: definition moved into src/anon/unit_00236180.cpp
 
 void func_0023f740(u8* p, u32 a) {
     func_00139d78(p);

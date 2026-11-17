@@ -184,11 +184,7 @@ struct IdxEnt {
     u16 base;
     u16 pad;
 };
-void func_00237640(u8* p, s32 i, s32 j, s32 dx, s32 dy) {
-    Ent20* e = *(Ent20**)(p + 8) + ((*(IdxEnt**)(p + 12))[i].base + j);
-    e->ox = e->x + dx;
-    e->oy = e->y + dy;
-}
+void func_00237640(u8* p, s32 i, s32 j, s32 dx, s32 dy);  // 0x00237640: definition moved into src/anon/unit_00237068.cpp
 
 void func_0023f0c8(u8* p, u32 v) {
     func_00139d78(p);

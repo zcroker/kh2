@@ -161,9 +161,7 @@ void func_00229d40(u8* a0);  // 00229d40: moved to src/sasa/musical_combo.cpp (l
 
 void func_00234590(u32 a0, u32 a1, u32 a2, u32 a3, u32 t0);  // 0x00234590: definition moved into src/anon/unit_002335e8.cpp
 
-void func_002367a0(void) {
-    func_002f3918(func_002f35e8(2), D_0035e3f0);
-}
+void func_002367a0(void);  // 0x002367a0: definition moved into src/anon/unit_00236180.cpp
 
 // ORs bits into the flags of entry i (32-byte records); i < 0 means current.
 void func_00240fd8(s32 i, u32 bits) {

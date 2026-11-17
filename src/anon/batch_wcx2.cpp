@@ -468,64 +468,7 @@ struct Obj20 {
     u32 f292, f296, f300, f304, f308, f312, f316, f320, f324, f328, f332;
 };
 // 002395b8: constructor (base init, then clear all state)
-void func_002395b8(Obj20* p)
-{
-    func_00237068(p);
-    p->f176 = 0;
-    p->f180 = 0;
-    p->b0 = 0;
-    p->b1 = 0;
-    p->f188 = 0;
-    p->b2 = 0;
-    p->f192 = 0;
-    p->f196 = 0;
-    p->b3 = 0;
-    p->f200 = 0;
-    p->f204 = 0;
-    p->b4 = 0;
-    p->f208 = 0;
-    p->f212 = 0;
-    p->b5 = 0;
-    p->f216 = 0;
-    p->f220 = 0;
-    p->b6 = 0;
-    p->f224 = 0;
-    p->f228 = 0;
-    p->b7 = 0;
-    p->f232 = 0;
-    p->f236 = 0;
-    p->b8 = 0;
-    p->f240 = 0;
-    p->f244 = 0;
-    p->b9 = 0;
-    p->f248 = 0;
-    p->f252 = 0;
-    p->b10 = 0;
-    p->f256 = 0;
-    p->f260 = 0;
-    p->b11 = 0;
-    p->f264 = 0;
-    p->f268 = 0;
-    p->b12 = 0;
-    p->f272 = 0;
-    p->f276 = 0;
-    p->b13 = 0;
-    p->f280 = 0;
-    p->f284 = 0;
-    p->f288 = 0;
-    *(u32*)&p->vt = (u32)D_0035eaf8;
-    p->f292 = 0;
-    p->f296 = 0;
-    p->f300 = 0;
-    p->f304 = 0;
-    p->f308 = 0;
-    p->f312 = 0;
-    p->f316 = 0;
-    p->f320 = 0;
-    p->f324 = 0;
-    p->f328 = 0;
-    p->f332 = 0;
-}
+void func_002395b8(Obj20* p);  // 0x002395b8: definition moved into src/anon/unit_002384f8.cpp
 
 struct Snd23 {
     u8 pad[24];
@@ -8527,76 +8470,7 @@ struct Fade237ae8 {
 };
 extern f32 D_00349e14;
 f32 sinf(f32 x);
-void func_00237ae8(Fade237ae8* p)
-{
-    f32 dt = D_00349e14 * p->speed;
-    p->time += dt;
-    switch (p->state) {
-    case 0:
-        p->state = 1;
-        p->out = 1.0f;
-        break;
-    case 1:
-        break;
-    case 2:
-        p->state = 3;
-        if (p->dur_init != -1) {
-            p->t = 0.0f;
-            p->dur = p->dur_init;
-            p->out = 1.0f;
-        }
-        if (p->wait_init != -1) p->wait = p->wait_init;
-    case 3:
-        if (0.0f < p->wait) {
-            p->wait -= dt;
-            break;
-        }
-        p->t += dt;
-        if (p->dur < p->t) {
-            p->t = p->dur;
-            p->state = 1;
-        }
-        p->out = (p->dur - p->t) / p->dur;
-        break;
-    case 4:
-        p->state = 5;
-        if (p->dur_init != -1) {
-            p->t = 0.0f;
-            p->dur = p->dur_init;
-            p->out = 0.0f;
-        }
-        if (p->wait_init != -1) p->wait = p->wait_init;
-    case 5:
-        if (0.0f < p->wait) {
-            p->wait -= dt;
-            break;
-        }
-        p->t += dt;
-        if (p->dur < p->t) {
-            p->t = p->dur;
-            p->state = 1;
-        }
-        p->out = p->t / p->dur;
-        break;
-    case 6:
-        p->state = 7;
-        if (p->dur_init != -1) {
-            p->t = 0.0f;
-            p->dur = p->dur_init;
-            p->out = 1.0f;
-        }
-        if (p->wait_init != -1) p->wait = p->wait_init;
-    case 7:
-        if (0.0f < p->wait) {
-            p->wait -= dt;
-            break;
-        }
-        p->t += dt;
-        if (p->dur < p->t) p->t = 0.0f;
-        p->out = sinf(p->t / p->dur * 3.14159274f);
-        break;
-    }
-}
+void func_00237ae8(Fade237ae8* p);  // 0x00237ae8: definition moved into src/anon/unit_00237068.cpp
 
 // --------------------
 // newlib dtoa.c quorem (Pack_32, IEEE_8087).

@@ -243,15 +243,7 @@ void func_00233280(u32);
 
 void func_00233410(u8* p);  // 0x00233410: definition moved into src/anon/unit_00232f08.cpp
 
-void func_00239558(u8* p, u16* a, u16* b) {  // copy_4halfwords_and_set_flag
-    *(u32*)(p + 16) |= 0x40;
-    u8* q = p;
-    for (s32 i = 0; i < 4; i++) {
-        *(u16*)(q + 160) = a[i];
-        *(u16*)(q + 168) = b[i];
-        q += 2;
-    }
-}
+void func_00239558(u8* p, u16* a, u16* b);  // 0x00239558: definition moved into src/anon/unit_002384f8.cpp
 
 extern u8 D_0032bad8;
 s32 func_00103b38(void);

@@ -51,46 +51,9 @@ void func_001129d8(s32);
 void func_00112ab8(s32 mode, W1886Arg* arg);  // 0x00112ab8: definition moved into src/anon/unit_001117d8.cpp
 
 void func_00236560(W1886GDst*);
-void func_002362b0(W1886GDst* d, W1886GSrc* s)
-{
-    d->v4 = s->v24 < 0 ? 0x3600 : s->v24 >> 8;
-    d->h8 = s->h28;
-    d->h12 = s->h30;
-    d->h16 = s->h32;
-    d->h20 = s->h34;
-    d->h24 = s->h36;
-    d->h28 = s->h38;
-    d->v32 = s->v40 < 0 ? 0x3500 : s->v40 >> 8;
-    d->h36 = s->h44;
-    d->h40 = s->h46;
-    d->h44 = s->h48;
-    d->h48 = s->h50;
-    d->b0 = s->f0;
-    d->b1 = s->f1;
-    d->b2 = s->f2;
-    d->p56 = (u8*)s + s->o8;
-    d->p60 = (u8*)s + s->o16;
-    d->neg2 = s->v24 == -2;
-    d->z404 = 0;
-    d->p408 = (u8*)s + 56;
-    func_00236560(d);
-}
+void func_002362b0(W1886GDst* d, W1886GSrc* s);  // 0x002362b0: definition moved into src/anon/unit_00236180.cpp
 
 void func_002367c8(W1886Gra*);
 }
 void W1886_SetGraRes(W1886Menu* m, W1886Res* r, u32 heap) asm("_ZN2Tz9MenuBasic9SetGraResEz");
-void W1886_SetGraRes(W1886Menu* m, W1886Res* r, u32 heap)
-{
-    s32 i;
-    m->heap = heap;
-    m->res = r;
-    m->ents = (W1886Ent*)((u8*)r + r->entOff);
-    m->n = r->n;
-    if (m->gra) delete[] m->gra;
-    m->gra = new (m->heap) W1886Gra[m->n];
-    for (i = 0; i < m->n; i++) {
-        func_002362b0((W1886GDst*)&m->gra[i], (W1886GSrc*)((u8*)r + m->ents[i].off));
-        func_002367c8(&m->gra[i]);
-        if (r->flag) m->gra[i].setFlag();
-    }
-}
+void W1886_SetGraRes(W1886Menu* m, W1886Res* r, u32 heap);  // 0x00236a58: definition moved into src/anon/unit_00236180.cpp

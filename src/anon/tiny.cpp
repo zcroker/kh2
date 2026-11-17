@@ -176,8 +176,8 @@ void func_001fa830(BD_VALUE* bd) { func_001fa7b0(bd); }
 void func_001fabc8(BD_VALUE* bd) { func_001fab48(bd); }
 void func_001fad78(BD_VALUE* bd) { func_001facf8(bd); }
 void func_002330b0(BD_VALUE* bd);  // 0x002330b0: definition moved into src/anon/unit_00232f08.cpp
-void func_00236788(BD_VALUE* bd) { func_00236830(bd); }
-void func_00236ce0(BD_VALUE* bd) { func_00236d10(bd); }
+void func_00236788(BD_VALUE* bd);  // 0x00236788: definition moved into src/anon/unit_00236180.cpp
+void func_00236ce0(BD_VALUE* bd);  // 0x00236ce0: definition moved into src/anon/unit_00236180.cpp
 void func_002539d0(BD_VALUE* bd);  // 0x002539d0: definition moved into src/anon/unit_002530c8.cpp
 void func_0025f550(BD_VALUE* bd);  // 0x0025f550: definition moved into src/anon/unit_0025da20.cpp
 void func_002631f8(BD_VALUE* bd);  // 0x002631f8: definition moved into src/anon/unit_0025f6b8.cpp
@@ -608,9 +608,7 @@ u32 func_002347d8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002347d8: definition mo
 
 u32 func_002347e8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002347e8: definition moved into src/anon/unit_002335e8.cpp
 
-void func_00237ad8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    *(u32*)((u32)a0 + (156)) = (u32)a1;
-}
+void func_00237ad8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00237ad8: definition moved into src/anon/unit_00237068.cpp
 
 void func_0023d1e0(u32 a0, u32 a1, u32 a2, u32 a3) {  // zero_global_d
     u32 b = (0x0036u << 16);
@@ -1010,19 +1008,9 @@ u32 func_00227120(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00227120: definition mo
 u32 func_0022ab80(u32 a0, u32 a1, u32 a2, u32 a3);  // 0022ab80: moved to src/sasa/musical_input.cpp (linked unit)
 
 void func_002361d0(u32 a0, u32 a1, u32 a2, u32 a3) asm("_ZN2YI5IMAGED1Ev");  // YI::IMAGE::~IMAGE
-void func_002361d0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    *(u32*)((u32)a0 + (0)) = (u32)&D_0035ead8;
-}
+void func_002361d0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002361d0: definition moved into src/anon/unit_00236180.cpp
 
-void func_00237238(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    *(u32*)((u32)a0 + (0)) = (u32)&D_0035eae8;
-}
+void func_00237238(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00237238: definition moved into src/anon/unit_00237068.cpp
 
 void func_0023ca70(u32 a0, u32 a1, u32 a2, u32 a3) {
     (void)a3;
@@ -1463,12 +1451,7 @@ void func_002272a8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002272a8: definition m
 
 void func_00232100(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00232100: definition moved into src/anon/unit_00231500.cpp
 
-void func_002373a8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    *(u32*)((u32)a0 + (80)) = 0;
-}
+void func_002373a8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002373a8: definition moved into src/anon/unit_00237068.cpp
 
 void func_0023d1d0(u32 a0, u32 a1, u32 a2, u32 a3) {  // set_global_word1
     (void)a0;

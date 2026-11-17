@@ -215,20 +215,7 @@ void func_001cf9e0(u8* p, s32 mode);  // 0x001cf9e0: definition moved into src/a
 typedef void (*VF233490)(u8*, V4*, u32);
 void func_00233490(u8* p);  // 0x00233490: definition moved into src/anon/unit_00232f08.cpp
 
-void func_00237988(u8* p, f32 z) {
-    *(f32*)(p + 120) = z;
-    f32 a = sinf(*(f32*)(p + 112));
-    f32 b = cosf(*(f32*)(p + 112));
-    f32 c = sinf(*(f32*)(p + 116));
-    f32 d = cosf(*(f32*)(p + 116));
-    f32 e = sinf(*(f32*)(p + 120));
-    f32 f = cosf(*(f32*)(p + 120));
-    f32 ac = a * c;
-    *(f32*)(p + 28) = d * f;
-    *(f32*)(p + 32) = d * -e;
-    *(f32*)(p + 36) = ac * f + b * e;
-    *(f32*)(p + 40) = ac * -e + b * f;
-}
+void func_00237988(u8* p, f32 z);  // 0x00237988: definition moved into src/anon/unit_00237068.cpp
 
 s32 func_002408d0(u32 mode) {
     s32 b = 0;

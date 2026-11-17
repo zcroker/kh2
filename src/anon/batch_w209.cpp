@@ -45,14 +45,7 @@ void func_001db250(u8* a) {
 }
 
 // --- 002376d8
-void func_002376d8(u8* a, s32 b) {
-    if (b < *(s32*)(a + 0x3c)) {
-        E209* t = *(E209**)(a + 12) + b;
-        *(s32*)(a + 0x68) = b;
-        *(u32*)(a + 0x14) = *(u32*)(a + 8) + t->s.a * 20;
-        *(u32*)(a + 0x18) = t->s.b;
-    }
-}
+void func_002376d8(u8* a, s32 b);  // 0x002376d8: definition moved into src/anon/unit_00237068.cpp
 
 // --- 00242b88
 extern u8* func_001058e8(void);
