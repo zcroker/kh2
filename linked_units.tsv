@@ -379,6 +379,7 @@ src/anon/unit_002d6f70.cpp	002d6f70	002d9588	.rodata@00375b68	-G0 -g -fno-strict
 src/anon/unit_002d96d8.cpp	002d96d8	002d9f10	.rodata@00375cd8	-G0 -g -fno-strict-aliasing
 src/anon/unit_002da040.cpp	002da040	002dd650	.rodata@00375cec	-G0 -g -fno-strict-aliasing
 src/anon/unit_002dd650.cpp	002dd650	002ddbf0	.rodata@00375dd8	-G0 -g -fno-strict-aliasing
+src/anon/unit_002de010.cpp	002de010	002de028	-	-G0 -g -fno-strict-aliasing
 src/anon/unit_002de3c8.cpp	002de3c8	002e18f8	.rodata@00375e10	-G0 -g -fno-strict-aliasing
 src/anon/unit_002cb200.cpp	002cb200	002cb538	-	-G0 -g -fno-strict-aliasing
 src/taito/path.cpp	002cb538	002ce958	.rodata@00375878	-G0 -g -fno-strict-aliasing
