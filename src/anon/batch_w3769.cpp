@@ -64,42 +64,5 @@ void func_00320468(Nd2List*, Nd2*);
 // func_001c0cd8 rejects or whose 0x100 flag is set, until the list is empty.
 // Pins: p in s1 and h in t7 give the original's register rotation; hb is the list's high
 // half held in s5 before the sweep loop's entry test, as the original hoists it.
-void func_001b99d0(void)
-{
-    register Nd2* p asm("$17");
-    Nd2* n;
-    Nd2* q;
-    Nd2* qn;
-    Nd2* it;
-    register Nd2* h asm("$15");
-    for (p = D_01d48db0.head; p; p = n) {
-        n = p->next;
-        if (p->dead) {
-            func_001b9b28(p);
-            Nd2* prev;
-            if (p == D_01d48db0.head) {
-                D_01d48db0.head = p->next;
-                prev = 0;
-            } else {
-                prev = D_01d48db0.head;
-                while (prev->next != p) prev = prev->next;
-                prev->next = p->next;
-            }
-            if (p == D_01d48db0.tail) D_01d48db0.tail = prev;
-            p->next = 0;
-        }
-    }
-    register u32 hb asm("$21") = 0x1d50000; // %hi(D_01d48db0)
-    asm("" : "+r"(hb));
-    while ((h = ((Nd2List*)(hb - 29264))->head) != 0) {
-        for (it = q = h; q; q = qn) {
-            qn = !it ? D_01d48db0.head : it->next;
-            it = qn;
-            if (!func_001c0cd8(q) || (q->sub->flags & 0x100)) {
-                func_001b9b28(q);
-                func_00320468(&D_01d48db0, q);
-            }
-        }
-    }
-}
+void func_001b99d0(void);  // 0x001b99d0: definition moved into src/anon/unit_001b9880.cpp
 }

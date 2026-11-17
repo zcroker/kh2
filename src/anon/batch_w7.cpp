@@ -127,16 +127,11 @@ void func_001b2c18(u32 a0, u32 a1) {
 
 // COMMAND_ELEM GetForm
 void command_elem_get_form(u32 a0) asm("_ZN2YS12COMMAND_ELEM7GetFormEi");
-void command_elem_get_form(u32 a0) {
-    u32 p = func_001a80c8(func_001a36e0(a0));  // table24_find_by_id
-    func_001b8e88(*(u16*)(p + 16));
-}
+void command_elem_get_form(u32 a0);  // 0x001b90c8: definition moved into src/anon/unit_001b87a0.cpp
 
 // Sets control-off bit i in the global bitset.
 void control_off(s32 i) asm("_ZN2YS3OBJ10ControlOffEi");
-void control_off(s32 i) {
-    D_01d48db8[(u32)i >> 5] |= 1 << (i & 31);
-}
+void control_off(s32 i);  // 0x001b9c28: definition moved into src/anon/unit_001b9880.cpp
 
 // Hands out a new combo group id, wrapping back to 256.
 s32 new_combo_group(void) asm("_ZN2YS12ATTACK_CHECK13NewComboGroupEv");

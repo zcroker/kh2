@@ -187,10 +187,7 @@ void func_001b7468(void* p) {
     func_001de168(func_001a3a78(p), 16, 1, 1, 10005, p);  // scan_list_by_half
 }
 
-u8 func_001b8800(u32 a) {
-    u32* p = D_01d48d90;
-    return func_002fd248(a, p + 2, p[1], 16, &D_00320448);
-}
+u8 func_001b8800(u32 a);  // 0x001b8800: definition moved into src/anon/unit_001b87a0.cpp
 
 // 001bbf00: moved to src/yasui/libys/mission.cpp
 

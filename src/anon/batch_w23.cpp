@@ -100,9 +100,7 @@ static inline bool list1b_has(L1b* o) {
     return false;
 }
 // Is o in the list?
-u8 func_001ba028(L1b* o) {  // list_contains_ptr
-    return list1b_has(o);
-}
+u8 func_001ba028(L1b* o);  // 0x001ba028: definition moved into src/anon/unit_001b9880.cpp
 
 extern u8* D_01d49360;
 extern u32 D_00320888;

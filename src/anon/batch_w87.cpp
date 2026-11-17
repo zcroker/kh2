@@ -156,20 +156,7 @@ void func_00196540(s32 id);  // 0x00196540: definition moved into src/anon/unit_
 
 // ---- 0x1b90f0 ----
 s32 func_0016a080(void*);
-s32 func_001b90f0(u8* o, u8* p) {
-    if (*(s32*)(p + 2896) == 12) return 0;
-    if ((*(u32*)(p + 1416) & 0x1000000) && *(s32*)(p + 2928)) {
-        if (*(u32*)(o + 12) & 0x8000) return 0;
-    } else {
-        switch (func_0016a080(p)) {
-        case 1: if (*(u32*)(o + 12) & 0x400) return 0; break;
-        case 14: if (*(u32*)(o + 12) & 0x800) return 0; break;
-        case 20: if (*(u32*)(o + 12) & 0x1000) return 0; break;
-        case 27: if (*(u32*)(o + 12) & 0x2000) return 0; break;
-        }
-    }
-    return 1;
-}
+s32 func_001b90f0(u8* o, u8* p);  // 0x001b90f0: definition moved into src/anon/unit_001b87a0.cpp
 
 // ---- 0x1bcd08: unwinds a stack of entries once none are busy ----
 s32 func_001bcf18(void*);

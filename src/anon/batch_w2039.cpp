@@ -46,52 +46,5 @@ extern u8 D_01d48d94;
 
 // 002e2a30: moved to src/anon/unit_002e1908.cpp
 
-s32 func_001b89d0(Cmd_b* p)
-{
-    s32 i;
-    Obj_b* o;
-    switch (p->op) {
-    case 1: func_001b8bf8(p, 0); break;
-    case 2: func_001b8bf8(p, 1); break;
-    case 3: func_001b8bf8(p, 2); break;
-    case 4:
-        for (i = 0; i < p->n; i++) {
-            o = func_001b6d70(p->e[i].id);
-            func_001b6d88(o, 2);
-            o->b3 &= ~2;
-        }
-        break;
-    case 5:
-        for (i = 0; i < p->n; i++) {
-            o = func_001b6d70(p->e[i].id);
-            o->b3 |= 2;
-        }
-        break;
-    case 6:
-        for (i = 0; i < p->n; i++) {
-            o = func_001b6d70(p->e[i].id);
-            o->b3 |= 1;
-        }
-        break;
-    case 7: func_001b8bf8(p, 3); break;
-    case 8: func_001b8c70(p, 0); break;
-    case 9: func_001b8c70(p, 1); break;
-    case 10: func_001b8c70(p, 2); break;
-    case 11: func_001b8c70(p, 3); break;
-    case 12:
-        for (i = 0; i < p->n; i++)
-            func_001c3670(p->e[i].id);
-        break;
-    case 13:
-        for (i = 0; i < p->n; i++)
-            func_001c36e8(p->e[i].id);
-        break;
-    case 15:
-        if (D_01d48d94)
-            func_001c8ec0(p->e[0].id);
-        D_0032fcc9 = *(u8*)&p->e[0];
-        break;
-    }
-    return 1;
-}
+s32 func_001b89d0(Cmd_b* p);  // 0x001b89d0: definition moved into src/anon/unit_001b87a0.cpp
 }

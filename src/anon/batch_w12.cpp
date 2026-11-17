@@ -164,13 +164,7 @@ void func_001b2f10(void) {
     func_00165898(func_001050c8());
 }
 
-u8 func_001b8d60(u8* dst) {
-    s32 i;
-    u8 n = D_0032fb68[287];
-    D_0032fb68[287] = 0;
-    for (i = 0; i < n; i++) dst[i] = D_0032fb68[32 + i];
-    return n;
-}
+u8 func_001b8d60(u8* dst);  // 0x001b8d60: definition moved into src/anon/unit_001b87a0.cpp
 
 // 001c11e0: moved to src/anon/unit_001c0638.cpp
 Slot64* func_001c11e0(void);

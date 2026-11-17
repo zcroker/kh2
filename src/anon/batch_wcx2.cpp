@@ -220,31 +220,7 @@ extern Q18 D_0032fb68;
 s32 func_001b8958(s32);
 u8* func_001b8800(s32);
 s32 func_00181550(void);
-void func_001b8838(s32 code)
-{
-    Q18* q = &D_0032fb68;
-    switch (code) {
-    case 37:
-        if (func_001b8958(115)) return;
-        break;
-    case 42:
-        if (func_001b8958(86)) return;
-        break;
-    case 45:
-        if (func_001b8958(84)) return;
-        break;
-    case 46:
-        if (func_001b8958(114)) return;
-        break;
-    }
-    u32* w = &D_0032fb68.bits[(u32)code >> 5];
-    u32 v = *w;
-    u32 m = 1 << (code & 31);
-    if (v & m) return;
-    *w = v | m;
-    if (func_001b8800(code)[1] == 1 && func_00181550()) return;
-    q->queue[q->count++] = code;
-}
+void func_001b8838(s32 code);  // 0x001b8838: definition moved into src/anon/unit_001b87a0.cpp
 
 extern f32 D_00349e14;
 void func_0023aab8(u8*);
@@ -5876,10 +5852,7 @@ extern u8* D_01d48da0;
 s32 func_0019baa8(u8*);
 static inline u8* Next_001b9bc8(u8* n) { if (!n) return D_01d48da0; return *(u8**)(n + 2228); }
 u8* ct_001b9bc8(u8* p) asm("_Z16ctarget_001b9bc8jjjj");
-u8* ct_001b9bc8(u8* p) {
-    while ((p = Next_001b9bc8(p)) && func_0019baa8(p)) {}
-    return p;
-}
+u8* ct_001b9bc8(u8* p);  // 0x001b9bc8: definition moved into src/anon/unit_001b9880.cpp
 
 // ---- 00304f50
 struct Reent_00304f50 { s32 _errno; };

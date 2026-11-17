@@ -227,11 +227,7 @@ extern struct { u8 v; } D_01d48d94;
 extern u8* D_01d48d90;
 void func_001b89d0(void);
 void func_001db610(void*, void (*)(void), s32);
-void func_001b8988(u8* p, u8 v) {
-    D_01d48d94.v = v;
-    s32 o = *(s32*)(p + 12);
-    if (o) func_001db610(D_01d48d90 + o, func_001b89d0, 0);
-}
+void func_001b8988(u8* p, u8 v);  // 0x001b8988: definition moved into src/anon/unit_001b87a0.cpp
 
 struct Ent4 { u16 id; u8 b; u8 pad; };
 void func_001bc778(u32);

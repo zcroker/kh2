@@ -14,11 +14,7 @@ extern "C" {
 s32 func_0019c090(s32);
 s32 W1786_IsBattleMode() asm("_ZN2YS6STATUS12IsBattleModeEv");
 extern s32 D_0034f240;
-s32 func_001b8ff8(W1786Flags* o, s32 a1) {
-    s32 r = 0;
-    if (((o->bd(1) & 1) && func_0019c090(a1)) || ((o->bd(16) & 1) && !W1786_IsBattleMode()) || ((o->bd(5) & 1) == 0 && (D_0034f240 & 2))) r = 1;
-    return r;
-}
+s32 func_001b8ff8(W1786Flags* o, s32 a1);  // 0x001b8ff8: definition moved into src/anon/unit_001b87a0.cpp
 
 W1786Ob2* func_001cd7a8(void*);
 s32 func_0016a090(W1786Ob*);

@@ -561,14 +561,7 @@ void func_001b40e0(u8* p)
 extern u8* D_01d48da0;
 static inline u8* NextB(u8* n) { if (!n) return D_01d48da0; return *(u8**)(n + 2228); }
 typedef s32 (*Fn60)(u8*);
-void func_001b9f80(s32 lv)
-{
-    u8* n = 0;
-    while ((n = NextB(n))) {
-        if (*(u32*)(n + 1416) & 0x20) continue;
-        if ((*(Fn60*)(*(u8**)n + 60))(n) < lv) *(u32*)(n + 268) &= ~0x80;
-    }
-}
+void func_001b9f80(s32 lv);  // 0x001b9f80: definition moved into src/anon/unit_001b9880.cpp
 
 extern u8* D_01d5ba20;
 extern f32 D_00349e10;

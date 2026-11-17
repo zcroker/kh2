@@ -192,14 +192,7 @@ static inline u8* Next1b9(u8* o) {
     if (!o) return D_01d48da0;
     return *(u8**)(o + 2228);
 }
-void func_001b9ee8(s32 lim) {
-    u8* o = 0;
-    while ((o = Next1b9(o))) {
-        if (*(u32*)(o + 1416) & 0x20) continue;
-        typedef s32 (*Fn)(u8*);
-        if ((*(Fn*)(*(u8**)o + 60))(o) < lim) *(u32*)(o + 268) |= 0x80;
-    }
-}
+void func_001b9ee8(s32 lim);  // 0x001b9ee8: definition moved into src/anon/unit_001b9880.cpp
 
 // --- 001bdcd0
 u32 func_001819c0(u32);

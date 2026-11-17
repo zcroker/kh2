@@ -227,14 +227,7 @@ struct R1b8 { u16 h0; u16 h2; s16 h4; };
 R1b8* func_002fd248(u32, u8*, u32, u32, u8*);
 u32 func_001a67b0(s32);
 void u_call4_001b8e88(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z16u_call4_001b8e88jjjj");
-void u_call4_001b8e88(u32 a0, u32 a1, u32 a2, u32 a3) {
-    NoTail g;
-    R1b8* r = func_002fd248(a0, D_01d48d98->data, D_01d48d98->n, 48, D_00320458);
-    if (r->h2 != 2) return;
-    if (r->h0 == r->h2) return;
-    Tbl1d5* t = D_01d48d98;
-    func_002fd248(func_001a67b0(r->h4), t->data, t->n, 48, D_00320458);
-}
+void u_call4_001b8e88(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001b8e88: definition moved into src/anon/unit_001b87a0.cpp
 
 struct E1bc { u8 pad[5]; u8 type; u8 pad2[6]; };
 struct S1bc { u8 pad[8]; s32 n; E1bc e[1]; };

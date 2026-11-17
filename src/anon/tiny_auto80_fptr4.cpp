@@ -789,15 +789,7 @@ u32 func_001b77a8(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_00192048(r4, r5, r6, r7);
 }
 
-u32 func_001b90a8(u32 a0, u32 a1, u32 a2, u32 a3) {  // halfword_table_3948
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2, r14, r15;
-    r14 = (u32)(*(u16*)((u32)r4 + (s32)(38)));
-    r15 = (u32)&D_0032bb30;
-    r14 = (u32)(r14 << 1);
-    r14 = (u32)(r14 + r15);
-    r2 = (u32)(*(u16*)((u32)r14 + (s32)(14664)));
-    return r2;
-}
+u32 func_001b90a8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001b90a8: definition moved into src/anon/unit_001b87a0.cpp
 
 u32 func_001bc710(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001bc710: definition moved into src/anon/unit_001bc568.cpp
 

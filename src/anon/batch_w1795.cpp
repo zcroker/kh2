@@ -29,12 +29,5 @@ s32 func_0018a250(W1795Ob* a, W1795Ob* b);  // 0x0018a250: definition moved into
 
 s32 func_0019c218(s32, W1795Ob2*);
 s32 W1795_ctarget(s32) asm("_Z16ctarget_0019ba60jjjj");
-s32 func_001b8f10(W1795Ob2* o, s32 a, s32* p) {
-    switch (o->kind) {
-    case 0: if (func_0019c218(a, o)) return 1; break;
-    case 1: if (p) W1795_ctarget(*p); if (func_0019c218(*p, o)) return 1; break;
-    case 2: if (p) W1795_ctarget(*p); if (func_0019c218(a, o) && func_0019c218(*p, o)) return 1; break;
-    }
-    return 0;
-}
+s32 func_001b8f10(W1795Ob2* o, s32 a, s32* p);  // 0x001b8f10: definition moved into src/anon/unit_001b87a0.cpp
 }

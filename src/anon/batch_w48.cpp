@@ -106,14 +106,7 @@ s32 func_00181550(s32);
 s32 func_001b8958(s32);
 void func_001b8838(s32);
 extern s16 D_0036dbb0[][2];
-void func_001b8e00(s32 i) {
-    s32 v;
-    if (func_00181550(i)) v = D_0036dbb0[i][1];
-    else v = D_0036dbb0[i][0];
-    if (v < 0) return;
-    if (func_001b8958(v)) return;
-    func_001b8838(v);
-}
+void func_001b8e00(s32 i);  // 0x001b8e00: definition moved into src/anon/unit_001b87a0.cpp
 
 void func_002ba2e8(s32, s32);
 struct Obj1bd5b0 { u8 pad[2240]; u8** p; u8 pad2[2536 - 2244]; u8* q; };

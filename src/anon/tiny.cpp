@@ -516,15 +516,9 @@ void func_001b8218(u32 a0, u32 a1, u32 a2, u32 a3) {  // zero_global_byte_f
     *(u8*)((u32)b + (4545)) = (u8)0;
 }
 
-void func_001b87a0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 b = (0x01d5u << 16);
-    *(u32*)((u32)b + (-29296)) = (u32)a0;
-}
+void func_001b87a0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001b87a0: definition moved into src/anon/unit_001b87a0.cpp
 
-void func_001b8e78(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 b = (0x01d5u << 16);
-    *(u32*)((u32)b + (-29288)) = (u32)a0;
-}
+void func_001b8e78(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001b8e78: definition moved into src/anon/unit_001b87a0.cpp
 
 // 001c0638: moved to src/anon/unit_001c0638.cpp
 void func_001c0638(u32 a0, u32 a1, u32 a2, u32 a3);

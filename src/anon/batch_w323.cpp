@@ -88,51 +88,7 @@ void func_0017f620(void*, f32);
 void func_0017f938(void*);
 void func_00183088(void*);
 void func_0011ea40(u32, f32);
-void func_001b9420(u8* self) {
-    f32 dt = D_00349e10;
-    if (FLD(u32, 264) & 0x10000000) {
-        if (VC(36)) VV(40);
-    }
-    if (objIsLeave(self)) {
-        FLD(u32, 2040) |= 0x100;
-    } else {
-        if (!(FLD(u32, 2040) & 0x80)) VV(8);
-        func_001d7a88(self + 1304);
-        if (!ctarget(self) && !(D_0034f240 & 0x20)) {
-            if (objIsDummy(self)) {
-                VV(20);
-            } else {
-                VV(12);
-                if (!(FLD(u32, 268) & 0x400000)) {
-                    func_0017f620(self + 320, dt);
-                    if (FLD(u32, 2040) & 2) func_0011ea40(FLD(u32, 1648), dt);
-                }
-                VV(16);
-                if (VC(64)) VV(20);
-                VV(24);
-                func_0017f938(self + 320);
-                func_00183088(self);
-            }
-            func_00194010(self);
-            if ((FLD(f32, 2092) == 0.0f && (FLD(u32, 2040) & 0x10)) || FLD(f32, 2256) == 0.0f) VV(32);
-        } else {
-            if (!objIsDummy(self)) func_0017f938(self + 320);
-        }
-        if (!objIsLeave(self)) {
-            if (!D_01d48db0.tail) {
-                D_01d48db0.tail = self;
-                D_01d48db0.head = self;
-                FLD(u8*, 2232) = 0;
-            } else {
-                *(u8**)(D_01d48db0.tail + 2232) = self;
-                FLD(u8*, 2232) = 0;
-                D_01d48db0.tail = self;
-            }
-        }
-    }
-    FLD(u32, 2040) |= 0x800;
-    FLD(u32, 2040) &= ~0x2000;
-}
+void func_001b9420(u8* self);  // 0x001b9420: definition moved into src/anon/unit_001b87a0.cpp
 #undef FLD
 
 #define FLD(T, o) (*(T*)((u8*)self + (o)))

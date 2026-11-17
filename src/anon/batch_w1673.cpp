@@ -120,44 +120,7 @@ extern L1b9880 D_01d48da0;
 extern L1b9880 D_01d48da8;
 extern "C" {
 void func_0016a2e0(O1b9880*);
-void func_001b9880() {
-    O1b9880* p = D_01d48da8.head;
-    while (p) {
-        O1b9880* n = p->next;
-        func_0016a2e0(p);
-        if (p) ((void (*)(O1b9880*))p->vt[1])(p);
-        p = n;
-    }
-    D_01d48da8.head = 0;
-    D_01d48da8.tail = 0;
-    for (p = D_01d48da0.head; p; ) {
-        O1b9880* n = p->next;
-        if (p->flags & 0x80000) {
-            asm volatile("" ::: "memory");
-            O1b9880* prev;
-            if (p == D_01d48da0.head) {
-                prev = 0;
-                D_01d48da0.head = p->next;
-            } else {
-                prev = D_01d48da0.head;
-                while (prev->next != p) prev = prev->next;
-                prev->next = p->next;
-            }
-            if (p == D_01d48da0.tail) D_01d48da0.tail = prev;
-            p->next = 0;
-            if (!D_01d48da8.tail) {
-                D_01d48da8.tail = p;
-                D_01d48da8.head = p;
-                p->next = 0;
-            } else {
-                D_01d48da8.tail->next = p;
-                p->next = 0;
-                D_01d48da8.tail = p;
-            }
-        }
-        p = n;
-    }
-}
+void func_001b9880();  // 0x001b9880: definition moved into src/anon/unit_001b9880.cpp
 }
 struct O160bd8 { void** vt; u8 pad[0x7c]; O160bd8* next; u8 pad2[0xfc]; u32 flags : 1; };
 struct L160bd8 { O160bd8* head; O160bd8* tail; };

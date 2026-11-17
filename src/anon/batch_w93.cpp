@@ -148,22 +148,7 @@ s32 func_001c0cd8(W93Ob*);
 void func_0016ae18(W93Ob*);
 static inline W93Ob* W93Next(W93Ob* o) { if (!o) return D_01d48da0; return o->next; }
 // Runs the per-frame subsystem updates, then culls or refreshes every live object by priority.
-void func_001b9db0(s32 lim)
-{
-    W93Ob* o = 0;
-    func_001a58f8(); func_001bf6a8(); func_001c1060(); func_001b5400();
-    func_001b6038(); func_001b6d00(); func_001c8d08(); func_001a5e38();
-    func_001ba740(); func_0018d790(); func_001d6c58();
-    while ((o = W93Next(o))) {
-        if (o->flags & 0x80000) continue;
-        if (o->vt->prio(o) >= lim) {
-            o->vt->kill(o);
-        } else {
-            func_00188120(o->f768, D_0036dbd8);
-            if (!func_001c0cd8(o)) func_0016ae18(o);
-        }
-    }
-}
+void func_001b9db0(s32 lim);  // 0x001b9db0: definition moved into src/anon/unit_001b9880.cpp
 
 struct W93Gold { u8 pad[14048]; s32 munny; };
 extern W93Gold D_0032bb30;

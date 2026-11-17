@@ -250,15 +250,7 @@ static inline u8* b9next(u8* n) {
     if (!n) return D_01d48da0;
     return *(u8**)(n + 2228);
 }
-void func_001b92f8(void) {
-    func_001c1060();
-    func_001b5400();
-    u8* n = 0;
-    while ((n = b9next(n))) {
-        if (!(*(u32*)(n + 264) & 0x80000)) (*(VFn*)(*(u8**)n + 40))(n);
-    }
-    func_00102750(D_00351214);
-}
+void func_001b92f8(void);  // 0x001b92f8: definition moved into src/anon/unit_001b87a0.cpp
 
 void func_001bdc88(u8* p);  // 0x001bdc88: definition moved into src/anon/unit_001bc568.cpp
 

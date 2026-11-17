@@ -2386,113 +2386,17 @@ u32 func_001b7850(u32 a0, u32 a1, u32 a2) {
 
 // 001b8718: static initialiser, now made by gcc in src/anon/unit_001b82d8.cpp
 
-void func_001b8bf8(u32 a0, u32 a1) {
-    u32 s1 = 0;
-    u32 s2 = a0;
-    u32 s3 = a1;
-    if (*(u16*)(a0 + 2) != 0) {
-        u32 s0 = a0 + 4;
-        do {
-            u32 v0 = func_001b6d70(*(u16*)(s0 + 0));  // table_entry_ptr_b
-            s1 = s1 + 1;
-            s0 = s0 + 4;
-            func_001b6d88(v0, s3);
-        } while ((s32)s1 < (s32)*(u16*)(s2 + 2));
-    }
-}
+void func_001b8bf8(u32 a0, u32 a1);  // 0x001b8bf8: definition moved into src/anon/unit_001b87a0.cpp
 
-void func_001b8c70(u32 a0, u32 a1) {
-    u32 s1 = 0;
-    u32 s2 = a0;
-    u32 s3 = a1;
-    if (*(u16*)(a0 + 2) != 0) {
-        u32 s0 = a0 + 4;
-        do {
-            u32 v0 = func_001c2b58(*(u16*)(s0 + 0));
-            s1 = s1 + 1;
-            *(u8*)(v0 + 0) = (u8)s3;
-            if (!((s32)s1 < (s32)*(u16*)(s2 + 2))) {
-                break;
-            }
-            s0 = s0 + 4;
-        } while (true);
-    }
-}
+void func_001b8c70(u32 a0, u32 a1);  // 0x001b8c70: definition moved into src/anon/unit_001b87a0.cpp
 
-void func_001b8da0() {
-    u8 buf[256];
-    u32 s0 = 0;
-    u32 s1 = func_001b8d60(buf);
-    if ((s32)s1 > 0) {
-        do {
-            u32 v0 = func_001b8800(buf[s0]);
-            s0 = s0 + 1;
-            func_001b8988(v0, 0);
-        } while ((s32)s0 < (s32)s1);
-    }
-}
+void func_001b8da0();  // 0x001b8da0: definition moved into src/anon/unit_001b87a0.cpp
 
-u32 func_001b91d0(u32 a0, u32 a1) {
-    u32 s0 = a1;
-    u32 t5 = a0;
-    u16 t6 = *(u16*)(a0 + 2);
-    u16 t7 = *(u16*)(a0 + 0);
-    if (t7 != t6) {
-        u32 v0 = func_001b8e88(t6);
-        u32 (*rec)(u32, u32) = func_001b91d0;
-        u32 out = rec(v0, s0);
-        return out;
-    }
-    s32 bits = (u32)*(u16*)(t5 + 0x2c);
-    bits = bits >> s0;
-    bits = bits & 1;
-    u32 v = (u8)bits;
-    return v;
-}
+u32 func_001b91d0(u32 a0, u32 a1);  // 0x001b91d0: definition moved into src/anon/unit_001b87a0.cpp
 
-void func_001b9230() {
-    D_01d48db8 = 0;
-    D_00351210 = 0;
+void func_001b9230();  // 0x001b9230: definition moved into src/anon/unit_001b87a0.cpp
 
-    u32 v0 = func_00102c18(1, 20000, (u32)&D_001b92d0);
-    *(u32*)(v0 + 0x30) = (u32)&D_001b92f8;
-    v0 = func_001050c8();
-    v0 = func_001024b0(v0);
-
-    D_00351214 = v0;
-    func_00102788(v0, 0, 5, (u32)&D_001b9670);
-    func_001123f0();
-
-    v0 = func_00102c18(1, 0x00016378, (u32)&D_001b9880);
-    *(u32*)(v0 + 0x30) = (u32)&D_001b99b0;
-    func_00188670();
-    return func_001b2f10();
-}
-
-void func_001b9b28(u32 a0) {
-    D_00351210 = a0;
-
-    if (func_0019c768(a0) == 0) {
-        if (func_001c0cd8(a0) != 0) {
-            func_00193608(*(u32*)(a0 + 1392));
-        }
-
-        func_00193608(a0);
-        func_0017fba0(a0 + 320, a0 + 1712);
-
-        if (func_0019c470(a0) == 0) {
-            func_001b3118(a0 + 2048, a0);
-        }
-
-        u32 t7 = *(u32*)(a0 + 1296);
-        if (t7 != 0) {
-            func_001b78d0(t7);
-        }
-    }
-
-    u32 t7 = *(volatile u32*)(a0 + 2040);
-    *(u32*)(a0 + 2040) = t7 | 0x500;
-}
+void func_001b9b28(u32 a0);  // 0x001b9b28: definition moved into src/anon/unit_001b9880.cpp
 
 // 001ba528: moved to src/yasui/libys/itemeffect.cpp
 

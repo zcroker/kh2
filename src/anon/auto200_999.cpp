@@ -607,15 +607,7 @@ u32 SAVEFLAG::Check(u32 a0) {
     return (val & mask) != 0;
 }
 
-u32 WORLDFLAG::Check(s32 a0) {
-    u32 v = (u32)a0;
-    u32 idx = v >> 5;
-    u32 *p = (u32 *)((u8 *)&D_0032fb68 + (idx << 2));
-    u32 bit = v & 31;
-    u32 val = *p;
-    u32 mask = 1u << bit;
-    return (val & mask) != 0;
-}
+// 0x001b8958: definition moved into src/anon/unit_001b87a0.cpp
 } // namespace YS
 
 // 001c09c0: moved to src/anon/unit_001c0638.cpp

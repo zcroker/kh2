@@ -169,13 +169,7 @@ struct T1b8 {
 };
 extern T1b8* D_01d48d90;
 void func_001b8838(u8);
-void func_001b8ce0(u32 key) {
-    E1b8* e = D_01d48d90->e;
-    s32 i;
-    for (i = 0; i < D_01d48d90->n; i++, e++) {
-        if (e->key == key) func_001b8838(e->id);
-    }
-}
+void func_001b8ce0(u32 key);  // 0x001b8ce0: definition moved into src/anon/unit_001b87a0.cpp
 
 extern u8** D_01d49320;
 void func_001bb468(void);

@@ -757,9 +757,7 @@ u32 func_001b82b8(u32 a0, u32 a1, u32 a2, u32 a3) {
 
 // 001b8780: _GLOBAL__I_ stub, now made by gcc in src/anon/unit_001b82d8.cpp
 
-u32 func_001ba0f8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_001ba060(0x00000001u, 0x0000ffffu, a2, a3);
-}
+u32 func_001ba0f8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001ba0f8: definition moved into src/anon/unit_001b9880.cpp
 
 // 001ba7c0: _GLOBAL__I_ stub, now made by gcc in src/yasui/libys/itemeffect.cpp
 

@@ -89,10 +89,7 @@ void func_001b50b0(u8* p, u32 a, u32 b) {
 void func_001a3c88(void);
 u8 func_001029e8(u32);
 extern u32 D_00351214;
-u32 func_001b92d0(void) {
-    func_001a3c88();
-    return func_001029e8(D_00351214);
-}
+u32 func_001b92d0(void);  // 0x001b92d0: definition moved into src/anon/unit_001b87a0.cpp
 
 void func_001ba598(void*);
 void func_003204c8(void*, void*);

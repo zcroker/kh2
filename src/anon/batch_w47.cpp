@@ -131,21 +131,7 @@ u32 func_001db610(u32, void*, S1b8*);
 extern u8 D_001b8520[];
 // 001b84b8: moved to src/anon/unit_001b82d8.cpp
 
-s32 func_001b9d40(u8* p) {  // vtable_call_slot64_flags
-    s32 r = 0;
-    if ((*(s32 (**)(u8*))(*(u8**)p + 64))(p)) {
-        u32 f = *(u32*)(p + 352);
-        s32 t = 0;
-        if (f & 4) goto one;
-        if (f & 8) goto one;
-        if (!(f & 16)) goto done;
-    one:
-        t = 1;
-    done:
-        r = t;
-    }
-    return r;
-}
+s32 func_001b9d40(u8* p);  // 0x001b9d40: definition moved into src/anon/unit_001b9880.cpp
 
 struct N1e0 { u8 pad[20]; N1e0* next; };
 extern N1e0* D_01d9e348;

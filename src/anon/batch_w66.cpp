@@ -203,43 +203,12 @@ struct O1b9 { u8 pad[2228]; O1b9* next; u8 pad2[245]; u8 prio; };
 struct List1b9 { O1b9* head; O1b9* tail; };
 extern List1b9 D_01d48da0;
 static inline O1b9* Next1b9(O1b9* n) { if (!n) return D_01d48da0.head; return n->next; }
-void func_001b9380(O1b9* o) {
-    O1b9* prev = 0;
-    O1b9* n = 0;
-    while ((n = Next1b9(n))) {
-        if (o->prio <= n->prio) break;
-        prev = n;
-    }
-    if (!prev) {
-        if (!D_01d48da0.head) {
-            D_01d48da0.tail = o;
-            D_01d48da0.head = o;
-            o->next = 0;
-        } else {
-            o->next = D_01d48da0.head;
-            D_01d48da0.head = o;
-        }
-    } else if (prev == D_01d48da0.tail) {
-        prev->next = o;
-        o->next = 0;
-        D_01d48da0.tail = o;
-    } else {
-        o->next = prev->next;
-        prev->next = o;
-    }
-}
+void func_001b9380(O1b9* o);  // 0x001b9380: definition moved into src/anon/unit_001b87a0.cpp
 // ---- 001b9c90
 u32 func_0016a040(u8*);
 s32 func_00105300(void);
 extern u32 D_01d48db8[];
-s32 func_001b9c90(u8* p) {
-    s32 r = 0;
-    u32 id = func_0016a040(p);
-    if (!(D_01d48db8[id >> 5] & (1 << (id & 31))) && !(*(u32*)(p + 268) & 0x200000) && !func_00105300()) {
-        if (func_0016a040(p) || (*(u32*)(p + 2040) & 0x80)) r = 1;
-    }
-    return r;
-}
+s32 func_001b9c90(u8* p);  // 0x001b9c90: definition moved into src/anon/unit_001b9880.cpp
 // ---- 001bf930
 u32 func_0016c028(u8*);  // obj_get_attach_or_alt
 void func_002bc188(s32, u32);

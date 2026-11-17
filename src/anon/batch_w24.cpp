@@ -106,20 +106,7 @@ void func_001b8838(s32);
 void func_001b8da0(void);
 struct B288 { u32 w[8]; u8 _20[255]; u8 flag; };
 extern B288 D_0032fb68;
-void u_tail0_001b87b0(void) {
-    B288* b = &D_0032fb68;
-    u32* w = b->w;
-    for (s32 i = 7; i >= 0;) {
-        *w = 0;
-        i--;
-        // the assembler's R5900 short-loop padding
-        asm volatile("nop\n\tnop\n\tnop");
-        w++;
-    }
-    b->flag = 0;
-    func_001b8838(0);
-    func_001b8da0();
-}
+void u_tail0_001b87b0(void);  // 0x001b87b0: definition moved into src/anon/unit_001b87a0.cpp
 
 // ids 5, 10 and 13..18
 s32 func_001bcf38(s32* p);  // 0x001bcf38: definition moved into src/anon/unit_001bc568.cpp
