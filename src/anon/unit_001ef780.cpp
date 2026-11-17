@@ -1,4 +1,4 @@
-// Linked unit 0x001ef780-0x001f0600 (ppp programs; one namespace per old matched source, gap functions written for the unit).
+// Linked unit 0x001ef780-0x001f0868 (ppp programs; one namespace per old matched source, gap functions written for the unit).
 #include "../common/types.h"
 #include "../kn/fvector.hpp"
 #include "./tiny_auto80_queue_structs.hpp"
@@ -693,3 +693,102 @@ void func_001f04a8(u8* self, u8* ent, u8* desc) {
     s[4] = func_002f8b00(s[4], 32768.0f);  // to_2f9a38
 }
 }  // namespace n001f04a8
+
+// 001f0600 (was whole asm, src/anon/batch_w3883.s): model render request. Cast stores for w12/w28 keep
+// the D_01d9e6e8/D_01d9eaa4 loads after them (a field store lets sched1 hoist the loads).
+namespace n001f0600 {
+typedef struct { f32 m[4][4]; } __attribute__((aligned(16))) M1f0600;
+typedef struct {
+    u32 flags;
+    void* p4;
+    u16 tex;
+    u8 b10;
+    u8 pad11;
+    s32 w12;
+    s32 y;
+    s32 x;
+    u8 rgba[4];
+    s32 w28;
+    void* p32;
+    void* p36;
+    void* p40;
+    void* p44;
+    M1f0600* mtx;
+    s32 p52;
+    s32 p56;
+    s32 p60;
+    s32 w64;
+    s32 w68;
+    u8 pad72[4];
+    u8 b76;
+    u8 b77;
+    u8 pad78[18];
+} Req1f0600;
+typedef struct { u32 flags; u8 pad[18]; u16 tex; } Mdl1f0600;
+typedef struct { u8 pad0[4]; s32 set; u8 pad1[24]; union { u16 tex; u8 texlo; } t; u8 mode; u8 b35; u8 b36; u8 b37; } Ent1f0600;
+typedef struct { u8 pad0[12]; s32* off; } Ctx1f0600;
+typedef struct { u8 pad0[16]; u8* sets; } Res1f0600;
+typedef struct { u8 pad0[16]; M1f0600 m16; u8 pad1[80 - 80]; u8 m80[64]; s32 p144; s32 p148; } Ovr1f0600;
+extern Res1f0600* D_01d9e6e4 asm("D_01d9e6e4");
+extern Ovr1f0600* D_01d9e6e8 asm("D_01d9e6e8");
+extern M1f0600 D_01d9e840 asm("D_01d9e840");
+extern u8 D_01d9eac0[] asm("D_01d9eac0");
+extern u8 D_01d9e9c0[] asm("D_01d9e9c0");
+extern u8 D_01d9e980[] asm("D_01d9e980");
+extern s32 D_01d9eaa4 asm("D_01d9eaa4");
+void sceVu0MulMatrix(M1f0600*, M1f0600*, M1f0600*) asm("sceVu0MulMatrix");
+s32 func_0020f1e0(Mdl1f0600*, Req1f0600*, s32) asm("func_0020f1e0");
+void func_001f0600(u8* base, Ent1f0600* e, Ctx1f0600* c) asm("func_001f0600");
+void func_001f0600(u8* base, Ent1f0600* e, Ctx1f0600* c)
+{
+    f32* pos = (f32*)(base + c->off[2] + 160);
+    Mdl1f0600* m;
+    u8* col;
+    Req1f0600 r;
+    M1f0600 tmp;
+    Ovr1f0600* g;
+    if (e->set == 0xffff) return;
+    m = *(Mdl1f0600**)(D_01d9e6e4->sets + e->set * 36 + 28);
+    col = base + c->off[0] + 160;
+    r.rgba[0] = col[8];
+    r.rgba[1] = col[9];
+    r.rgba[3] = col[11];
+    r.rgba[2] = col[10];
+    if (col[11] == 0) return;
+    r.flags = 0;
+    if (e->mode & 2) r.flags = 4;
+    else if (e->mode & 1) r.flags = 128;
+    if ((m->flags & 1) == 0) r.flags |= 8;
+    if (!(m->flags & 2)) r.flags |= 16;
+    if (e->b35) r.flags |= 0x200;
+    if (e->b36) r.flags |= 0x100;
+    if (e->b37) {
+        r.flags = (r.flags & ~16) | 0x2000;
+        r.mtx = &tmp;
+        sceVu0MulMatrix(&tmp, &D_01d9e840, &D_01d9e6e8->m16);
+    } else {
+        r.mtx = 0;
+    }
+    r.p4 = D_01d9eac0;
+    if (e->t.texlo == 255) r.tex = m->tex;
+    else r.tex = e->t.tex;
+    *(s32*)((u8*)&r + 12) = 0;
+    r.b10 = 0;
+    r.y = (s32)(pos[1] * 65536.0f);
+    r.x = (s32)(pos[4] * 65536.0f);
+    r.p36 = D_01d9e9c0;
+    r.p40 = D_01d9e980;
+    *(s32*)((u8*)&r + 28) = 0;
+    r.w68 = 0;
+    g = D_01d9e6e8;
+    r.p32 = g->m80;
+    r.p44 = &g->m16;
+    r.p52 = D_01d9eaa4;
+    r.p56 = g->p144;
+    r.p60 = g->p148;
+    r.w64 = 0;
+    r.b76 = 0;
+    r.b77 = 0;
+    D_01d9eaa4 = func_0020f1e0(m, &r, *(s32*)(D_01d9e6e4->sets + e->set * 36 + 32));
+}
+}  // namespace n001f0600
