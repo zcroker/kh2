@@ -43,13 +43,7 @@ void func_001d1380(u8* p, u8* q);  // 0x001d1380: definition moved into src/anon
 extern u32 D_00352960;
 extern u8 D_0036e680;
 u8* func_001a5420(u32, u8*, u32);
-void func_001da2b8(u32 a, s32 n) {
-    if (D_00352960 != 0) {
-        for (s32 i = 0; i < n; i++) {
-            *(f32*)(func_001a5420(D_00352960, &D_0036e680, a) + 0x40) = 120.0f;
-        }
-    }
-}
+void func_001da2b8(u32 a, s32 n);  // 0x001da2b8: definition moved into src/anon/unit_001d9d00.cpp
 
 struct V4w1672 { f32 v[4]; } __attribute__((aligned(16)));
 void func_00162a20(V4w1672*);

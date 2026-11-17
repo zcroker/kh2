@@ -187,15 +187,7 @@ static inline Vec4 xform(const void* m, const Vec4& v) {
 struct XBox { u8 pad[16]; f32 m[16]; f32 ex, ey, ez; };
 
 // Is point inside the box's local half-extents after transforming by its matrix?
-bool func_001db298(XBox* p, const Vec4* in) {
-    Vec4 v;
-    v = *in;
-    v.w = 1.0f;
-    v = xform(p->m, v);
-    bool r = false;
-    if (-p->ex <= v.x && v.x <= p->ex && -p->ey <= v.y && v.y <= p->ey && -p->ez <= v.z && v.z <= p->ez) r = true;
-    return r;
-}
+bool func_001db298(XBox* p, const Vec4* in);  // 0x001db298: definition moved into src/anon/unit_001d9d00.cpp
 
 extern s32 D_01d9eab4;
 extern s32 D_01d9ea9c;

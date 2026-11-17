@@ -484,27 +484,9 @@ u32 func_001d74c8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001d74c8: definition mo
 
 u32 func_001d9028(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001d9028: definition moved into src/anon/unit_001d7458.cpp
 
-u32 func_001da218(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2, r13, r14;
-    r14 = (u32)&D_00352970;
-    *(u32*)((u32)r4 + (s32)(0)) = r14;
-    r13 = (u32)(0x0035u << 16);
-    *(u32*)((u32)r13 + (s32)(10592)) = 0u;
-    u32 (*fp_call4_001a4e30)(u32, u32, u32, u32) = func_001a4e30;
-    r2 = fp_call4_001a4e30(r4, r5, r6, r7);
-    return r2;
-}
+u32 func_001da218(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001da218: definition moved into src/anon/unit_001d9d00.cpp
 
-u32 func_001da248(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2, r13, r14;
-    r14 = (u32)&D_00352970;
-    *(u32*)((u32)r4 + (s32)(0)) = r14;
-    r13 = (u32)(0x0035u << 16);
-    *(u32*)((u32)r13 + (s32)(10592)) = 0u;
-    u32 (*fp_call4_001a4e30)(u32, u32, u32, u32) = func_001a4e30;
-    r2 = fp_call4_001a4e30(r4, r5, r6, r7);
-    return r2;
-}
+u32 func_001da248(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001da248: definition moved into src/anon/unit_001d9d00.cpp
 
 void func_001dcc48(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001dcc48: definition moved into src/anon/unit_001dbfd8.cpp
 

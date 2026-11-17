@@ -1093,10 +1093,5 @@ typedef void (*Fn1db808)(Obj1db808*, s32);
 extern "C" {
 void func_00106420(void*);
 extern void* D_00352a38;
-void func_001db808(B1db808* b) {
-    b->vt = &D_00352a38;
-    Obj1db808* o = b->o;
-    ((Fn1db808)o->vt[1])(o, b->c);
-    func_00106420(b);
-}
+void func_001db808(B1db808* b);  // 0x001db808: definition moved into src/anon/unit_001d9d00.cpp
 }

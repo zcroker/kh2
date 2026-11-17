@@ -6,15 +6,6 @@ extern W1759Table* D_01d5baa8;
 
 extern "C" {
 
-W1759Entry* func_001d9dd0(s32 a, s32 b, s32 c) {
-    s32 i = 0;
-    W1759Entry* e = D_01d5baa8->e;
-    while (i < D_01d5baa8->n) {
-        if (e->a == a && e->b == b && e->c == c) return e;
-        i++;
-        e++;
-    }
-    return 0;
-}
+W1759Entry* func_001d9dd0(s32 a, s32 b, s32 c);  // 0x001d9dd0: definition moved into src/anon/unit_001d9d00.cpp
 
 }

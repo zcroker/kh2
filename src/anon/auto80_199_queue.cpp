@@ -935,56 +935,9 @@ void func_001d9488(u32 a0);  // 0x001d9488: definition moved into src/anon/unit_
 
 void func_001d9768(u16* a0);  // 0x001d9768: definition moved into src/anon/unit_001d7458.cpp
 
-void func_001da340(u32 a0, u32 a1) {
-    (void)a0;
-    u32 s17 = a1;
-    u32 s16 = D_0034e948;
+void func_001da340(u32 a0, u32 a1);  // 0x001da340: definition moved into src/anon/unit_001d9d00.cpp
 
-    if (func_0019ba60(s16) != 0) {
-        u32 t7 = *(u32*)(s17 + 40);
-        t7 = t7 & 1u;
-        if (t7 != 0) {
-            if (((u32(*)(u32, u32, f32, f32))func_001c7950)(s17, s16, 0.0f, 0.0f) != 0) {
-                func_001c79a0(s17, s16, 0);
-                func_001d86a0(1, 0);
-                return;
-            }
-        }
-    }
-}
-
-u32 func_001db610(u32 a0, Func_001db610_cb a1, u32 a2) {
-    u32 s0 = a0;
-    u32 s1 = a2;
-    Func_001db610_cb s2 = a1;
-    u32 ret;
-
-    if (*(u16*)(s0 + 0) == 0) {
-        goto L_zero;
-    }
-
-    while (1) {
-        u32 v0 = s2(s0, s1);
-        u32 t7 = *(u16*)(s0 + 2);
-        t7 = t7 << 2;
-        t7 = func_001db610_add(s0, t7);
-        s0 = t7 + 4;
-        if (v0 == 0) {
-            ret = s0;
-            goto L_ret;
-        }
-        t7 = *(u16*)(t7 + 4);
-        if (t7 == 0) {
-            goto L_zero;
-        }
-    }
-
-L_zero:
-    ret = 0;
-
-L_ret:
-    return ret;
-}
+u32 func_001db610(u32 a0, Func_001db610_cb a1, u32 a2);  // 0x001db610: definition moved into src/anon/unit_001d9d00.cpp
 
 void func_001dc8c8(u32 a0, f32 a1);  // 0x001dc8c8: definition moved into src/anon/unit_001dbfd8.cpp
 

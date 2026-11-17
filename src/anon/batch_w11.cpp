@@ -124,19 +124,10 @@ void func_001d97f0(s32 i);  // 0x001d97f0: definition moved into src/anon/unit_0
 extern u32 D_00352970;
 extern void* D_00352960;
 void func_001a4e30(void*);
-void func_001da278(void** p) {
-    *p = &D_00352970;
-    D_00352960 = 0;
-    func_001a4e30(p);
-    func_00105110(p);
-}
+void func_001da278(void** p);  // 0x001da278: definition moved into src/anon/unit_001d9d00.cpp
 
 typedef void (*VFn)(void*);
-void func_001dba98(u8* p) {
-    s32 n = *(s32*)(p + 2552) - 1;
-    *(s32*)(p + 2552) = n;
-    if (n == 0) (*(VFn*)((*(u8**)p) + 32))(p);
-}
+void func_001dba98(u8* p);  // 0x001dba98: definition moved into src/anon/unit_001d9d00.cpp
 
 extern u32 D_0035dd08[64];
 void func_00226050(u32 v);  // 0x00226050: definition moved into src/anon/unit_00224780.cpp

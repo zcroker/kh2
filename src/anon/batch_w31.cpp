@@ -147,22 +147,9 @@ int func_001c9b38(u8* p);  // 0x001c9b38: definition moved into src/yasui/libys/
 int func_001ca448(u8* p);  // 0x001ca448: definition moved into src/anon/unit_001ca148.cpp
 
 // Next 10-byte entry after e (or the first when e is null); null past the end.
-u8* func_001d9e30(u8* e) {  // record_range_check_or_first
-    if (e == 0) return D_01d5baa8 + 8;
-    e += 10;
-    u8* t = D_01d5baa8;
-    return e < t + *(s32*)(t + 4) * 10 + 8 ? e : 0;
-}
+u8* func_001d9e30(u8* e);  // 0x001d9e30: definition moved into src/anon/unit_001d9d00.cpp
 
-void func_001dbb38(void) {
-    void* o = 0;
-    while ((o = func_00185da8(o)) != 0) {
-        if (func_0019c410(o)) {
-            (*(VFn*)(*(u8**)o + 32))(o);
-            return;
-        }
-    }
-}
+void func_001dbb38(void);  // 0x001dbb38: definition moved into src/anon/unit_001d9d00.cpp
 
 // Look up key in a 32-byte record table; outputs the record's first two words.
 bool func_001dc018(u8** p, s32 key, u32* a, u32* b);  // 0x001dc018: definition moved into src/anon/unit_001dbfd8.cpp

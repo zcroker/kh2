@@ -200,16 +200,7 @@ void func_001d8ad8(s32 idx, u8 flag);  // 0x001d8ad8: definition moved into src/
 // --- 001da458
 struct P1da { u32 a; u32 b; u32 cur; };
 void func_001da3d8(P1da*, u32*);  // stream_append_unaligned
-void func_001da458(P1da* p, u32 a, u32* arr, s32 n) {  // stream_init_fields
-    u32 i;
-    p->b = a;
-    for (i = 0; i < 4; i++) {
-        u32* c = (u32*)p->cur;
-        *c = 0;
-        p->cur = (u32)(c + 1);
-    }
-    for (i = 0; (s32)i < n; i++) func_001da3d8(p, &arr[i]);  // stream_append_unaligned
-}
+void func_001da458(P1da* p, u32 a, u32* arr, s32 n);  // 0x001da458: definition moved into src/anon/unit_001d9d00.cpp
 
 // --- 001e0de8
 Vec4* func_001e0cc8(Vec4*);  // entry64_by_field32

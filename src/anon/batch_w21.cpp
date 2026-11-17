@@ -144,11 +144,7 @@ void func_001d74f8(void** p);  // 0x001d74f8: definition moved into src/anon/uni
 void func_001d7e00(u8* p);  // 0x001d7e00: definition moved into src/anon/unit_001d7458.cpp
 
 // Fill the index table with 0..n-1 and reset the count.
-void func_001db850(u8* p) {
-    s32 i;
-    for (i = 0; i < *(s32*)(p + 24); i++) ((s32*)*(u32*)(p + 16))[i] = i;
-    *(s32*)(p + 8) = *(s32*)(p + 24);
-}
+void func_001db850(u8* p);  // 0x001db850: definition moved into src/anon/unit_001d9d00.cpp
 
 void func_0023f870(void** p);  // 0x0023f870: definition moved into src/anon/unit_0023f5b8.cpp
 

@@ -90,6 +90,7 @@ src/global/unit_001022c0.cpp	001022c0	00102a70	-	-G0
 src/common/unit_00102a70.cpp	00102a70	00102d10	-	-G0 -fno-strict-aliasing
 src/common/title.cpp	00102d10	00103100	.data@0032b9a0,.rodata@00369d88	-G0 -g
 src/common/unit_001031b0.cpp	001031b0	00103f68	-	-G0 -fno-strict-aliasing
+src/anon/unit_001d9d00.cpp	001d9d00	001dbbe0	.rodata@0036e668	-G0 -g -fno-strict-aliasing
 src/anon/unit_001dbbe0.cpp	001dbbe0	001dbfd0	.data@00352ad0,.bss@01d5bab0,.rodata@0036e7b0	-G0
 src/anon/unit_001dbfd8.cpp	001dbfd8	001dd268	.rodata@0036e7e0	-G0 -fno-strict-aliasing
 src/anon/unit_001dd2b8.cpp	001dd2b8	001dd6a0	-	-G0 -fno-strict-aliasing

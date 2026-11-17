@@ -736,13 +736,9 @@ u32 func_001d68c0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001d68c0: definition mo
 
 u32 func_001d9ce0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001d9ce0: definition moved into src/anon/unit_001d7458.cpp
 
-u32 func_001d9d28(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return YS_JIGSAW_Get(((u32)(*(u8*)((u32)(a0) + 0u))), ((u32)(*(u8*)((u32)(a0) + 1u))), a2, a3);
-}
+u32 func_001d9d28(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001d9d28: definition moved into src/anon/unit_001d9d00.cpp
 
-u32 func_001dbba0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_001dbb98(0x00000001u, 0x0000ffffu, a2, a3);
-}
+u32 func_001dbba0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001dbba0: definition moved into src/anon/unit_001d9d00.cpp
 
 // 001dbf90: _GLOBAL__I_ stub, now made by gcc in src/anon/unit_001dbbe0.cpp
 

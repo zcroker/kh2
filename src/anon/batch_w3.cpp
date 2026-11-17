@@ -109,7 +109,7 @@ struct Writer {
     u8 pad[12];
     Bytes4* cur;
 };
-void func_001da3d8(Writer* w, Bytes4* src) { *w->cur++ = *src; }
+void func_001da3d8(Writer* w, Bytes4* src);  // 0x001da3d8: definition moved into src/anon/unit_001d9d00.cpp
 
 void func_0021fe28(u32);
 void func_001fba88(u32 base, const u32* info) { func_0021fe28(base + **(const u32* const*)(info + 3) + 160); }

@@ -1002,15 +1002,7 @@ u32 func_001d9dd0(u8, u8, u32);
 s32 func_001d9d48(u32);
 u32 func_0016ac38(u8*, s32, s32, s32, s32);
 typedef void (*VFn)(u8*);
-void func_001d9f30(u8* p)
-{
-    u8* k = D_0032bae0;
-    func_00198450(p);
-    u32 r = func_001d9dd0(k[0], k[1], func_0016c008(p, 1));
-    *(u32*)(p + 2552) = r;
-    if (!r || !func_001d9d48(r)) *(u32*)(p + 2548) = func_0016ac38(p, 0, 1, 0, 0);
-    else (*(VFn*)(*(u8**)p + 32))(p);
-}
+void func_001d9f30(u8* p);  // 0x001d9f30: definition moved into src/anon/unit_001d9d00.cpp
 extern u8* D_00352ae0;
 s32 func_001dc9d0(u8*);
 s32 func_001dc738(u8*);  // state_gate_flags

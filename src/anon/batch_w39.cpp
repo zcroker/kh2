@@ -241,11 +241,7 @@ struct S1db { u32 a; u32 n; u8 data[1]; };
 extern S1db* D_01d5baac;
 extern char D_00321b28[];
 int func_002fd248(int, void*, u32, int, const char*);
-void func_001db5a8(int id) {
-    NoTail nt;
-    if (!func_002fd248(id, D_01d5baac->data, D_01d5baac->n, 92, D_00321b28))
-        func_002fd248(69, D_01d5baac->data, D_01d5baac->n, 92, D_00321b28);
-}
+void func_001db5a8(int id);  // 0x001db5a8: definition moved into src/anon/unit_001d9d00.cpp
 
 // --- 00200638
 extern u8* D_01d9e6e8;

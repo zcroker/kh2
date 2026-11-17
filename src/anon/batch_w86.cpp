@@ -411,17 +411,7 @@ extern void* D_0034e948;
 s32 func_0019ba60(void*);
 QWord* func_0016c028(void*);  // obj_get_attach_or_alt
 f32 fabsf(f32);  // fabsf
-s32 func_001da070(void* o)
-{
-    void* p = D_0034e948;
-    if (!func_0019ba60(p)) return 0;
-    QWord* a = func_0016c028(p);  // obj_get_attach_or_alt
-    QWord d = Sub(*a, *func_0016c028(o));  // obj_get_attach_or_alt
-    d.y += -50.0f;
-    if (fabsf(d.y) > 90.0f) return 0;
-    *(u32*)&d.y = 0;
-    return Length(d) <= 80.0f;
-}
+s32 func_001da070(void* o);  // 0x001da070: definition moved into src/anon/unit_001d9d00.cpp
 }
 }
 

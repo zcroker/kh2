@@ -157,12 +157,7 @@ void func_001c2ce8(u8* p);  // 0x001c2ce8: definition moved into src/anon/unit_0
 
 u32 ctarget_001d9228(s32 i);  // 0x001d9228: definition moved into src/anon/unit_001d7458.cpp
 
-void ctarget_001db8f8(u8* p, u32 a, u32 b, u32 c) {
-    func_001c23a8(p, a, b, 0, 0, 96, c);
-    *(u32*)(p + 1416) |= 0x10000000;
-    *(u32*)(p + 2552) = 0;
-    *(void**)p = D_00352a78;
-}
+void ctarget_001db8f8(u8* p, u32 a, u32 b, u32 c);  // 0x001db8f8: definition moved into src/anon/unit_001d9d00.cpp
 
 // Replaces value a with b on every list node not flagged 0x200.
 void func_001e01e8(u8* list, u32 a, u32 b);  // 0x001e01e8: definition moved into src/anon/unit_001deb58.cpp

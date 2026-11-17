@@ -162,12 +162,7 @@ u8 func_001c9958(s32 a, s32 b);  // 0x001c9958: definition moved into src/yasui/
 
 void func_001d4ef0(u8* p, u8* a);  // 0x001d4ef0: definition moved into src/anon/unit_001d3c08.cpp
 
-void func_001db950(u8* p, u32 a, u32 b, u32 c) {
-    func_001c23a8(p, a, b, 0, 0, 96, c);
-    *(u32*)(p + 0x9f8) = 0;
-    *(u32*)(p + 0x588) |= 0x10000000;
-    *(void**)p = D_00352a78;
-}
+void func_001db950(u8* p, u32 a, u32 b, u32 c);  // 0x001db950: definition moved into src/anon/unit_001d9d00.cpp
 
 s32 func_0020f188(void);  // 0x0020f188: definition moved into src/anon/unit_0020f118.cpp
 

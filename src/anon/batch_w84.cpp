@@ -540,14 +540,7 @@ extern u16 D_00373a88[];
 void func_00272938(void);  // 0x00272938: definition moved into src/anon/unit_00271e08.cpp
 
 
-W84Ev* func_001db440(u16* p) {
-    switch (*p) {
-    case 0: return new W84Ev0(p);
-    case 1: return new W84Ev1(p);
-    case 2: return new W84Ev2(p);
-    }
-    return 0;
-}
+W84Ev* func_001db440(u16* p);  // 0x001db440: definition moved into src/anon/unit_001d9d00.cpp
 
 }
 

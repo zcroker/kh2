@@ -20,7 +20,7 @@ void wtarget_00175520(u32, u32, u32, u32);  // 0x00175520: definition moved into
 // 001a4d70: moved to src/anon/unit_001a3e70.cpp
 void func_001ae4b8(void);  // 0x001ae4b8: definition moved into src/anon/unit_001ada38.cpp
 void wtarget_001dbb98(u32, u32, u32, u32) asm("_Z16wtarget_001dbb98jjjj");
-void wtarget_001dbb98(u32, u32, u32, u32) {}
+void wtarget_001dbb98(u32, u32, u32, u32);  // 0x001dbb98: definition moved into src/anon/unit_001d9d00.cpp
 void wtarget_001dbf78(u32, u32, u32, u32) asm("_Z16wtarget_001dbf78jjjj");
 // 001dbf78: static initialiser, now made by gcc in src/anon/unit_001dbbe0.cpp
 void wtarget_001e0c50(u32, u32, u32, u32) asm("_Z16wtarget_001e0c50jjjj");

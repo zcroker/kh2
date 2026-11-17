@@ -200,19 +200,7 @@ void func_001d9630(u16* p, s32 n);  // 0x001d9630: definition moved into src/ano
 
 union U16Any { u16 h; s32 i; };
 struct Reader1da { u8* base; s32 idx; u32 a; u32 pad; u32 b; };
-u32 func_001da4d8(Reader1da* s, u16 k) {  // stream_op_by_subtype
-    u32 v = ((U16Any*)(s->base + 16 + s->idx * 2))->h;
-    s->idx++;
-    u32 r;
-    switch (k >> 6) {
-    case 0: r = s->a; break;
-    case 1: r = s->b; break;
-    case 2: r = *(u32*)s->a; break;
-    case 3: r = (u32)s->base + 16; v *= 2; break;
-    default: r = 0; break;
-    }
-    return r + v;
-}
+u32 func_001da4d8(Reader1da* s, u16 k);  // 0x001da4d8: definition moved into src/anon/unit_001d9d00.cpp
 
 // 001e08c8: moved to src/rikeda/saveram_gumibattle.cpp
 

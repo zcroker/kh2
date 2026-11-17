@@ -35,9 +35,7 @@ extern w1735::BitRow D_0032dfd0[];
 
 s32 func_0019bad8(w1735::Obj* o);  // 0x0019bad8: definition moved into src/anon/unit_0019ba60.cpp
 
-s32 func_001d9d48(w1735::BitKey* k) {
-    return w1735::BitTest(D_0032dfd0[k->id].w, k->bit);
-}
+s32 func_001d9d48(w1735::BitKey* k);  // 0x001d9d48: definition moved into src/anon/unit_001d9d00.cpp
 
 // libsupc++ __si_class_type_info::__do_find_public_src (6 = __contained_public).
 s32 func_003159c8(const w1735::SiClassTI* self, s32 src2dst, const void* obj_ptr, const w1735::ClassTI* src_type, const void* src_ptr) {

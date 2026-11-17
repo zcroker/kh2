@@ -436,25 +436,7 @@ void func_001a2a18(u8*);
 // 001a2910: moved to src/anon/unit_001a28f8.cpp
 
 // transforms a point into the volume's space and tests it against the ellipse/height bounds
-s32 func_001db368(u8* o, const Vec4* in) {
-    Vec4 v;
-    Vec4 t;
-    f32 one;
-    s32 r;
-    v = *in;
-    one = 1.0f;
-    v.w = one;
-    vu_mulmv(&t, o + 16, &v);
-    v = t;
-    r = 0;
-    if (!(v.y < -*(f32*)(o + 84)) && !(*(f32*)(o + 84) < v.y)) {
-        r = 1;
-        v.x = v.x / *(f32*)(o + 80);
-        v.z = v.z / *(f32*)(o + 88);
-        if (!(v.x * v.x + v.z * v.z <= one)) r = 0;
-    }
-    return r;
-}
+s32 func_001db368(u8* o, const Vec4* in);  // 0x001db368: definition moved into src/anon/unit_001d9d00.cpp
 
 f32 func_002f8b30(f32, f32);
 static inline u32 pos186(f32 f) { return 0.0f < f; }

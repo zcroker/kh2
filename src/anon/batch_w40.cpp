@@ -135,15 +135,7 @@ void func_001dbcd0(void);
 void func_001c2578(u32);
 extern u32 D_0034e948;
 extern u8 D_00352a60[];
-void func_001dbad0(u32 a) {
-    if (func_0019ba60(D_0034e948)) {
-        u8* v = func_0016c028(D_0034e948);  // obj_get_attach_or_alt
-        if (v != D_00352a60)
-            asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(D_00352a60), "r"(v) : "$8", "memory");
-    }
-    func_001dbcd0();
-    func_001c2578(a);
-}
+void func_001dbad0(u32 a);  // 0x001dbad0: definition moved into src/anon/unit_001d9d00.cpp
 
 extern s32 D_00359780;
 extern s32 D_00359788[];

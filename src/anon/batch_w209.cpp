@@ -37,12 +37,7 @@ u32 call4_209(u8* a, u32 b, u32 c, u32 d) asm("_Z16u_call4_001a8450jjjj");
 extern u8* D_0034e948;
 extern void func_0017d0e8(void* out, f32 f);
 extern void func_0019c778(void* a, void* b);
-void func_001db250(u8* a) {
-    u8 tmp[16] __attribute__((aligned(16)));
-    f32 f = *(f32*)(*(u8**)(a + 0x6c) + 0x20);
-    func_0017d0e8(tmp, -1.5707964f - f);
-    func_0019c778(D_0034e948, tmp);
-}
+void func_001db250(u8* a);  // 0x001db250: definition moved into src/anon/unit_001d9d00.cpp
 
 // --- 002376d8
 void func_002376d8(u8* a, s32 b);  // 0x002376d8: definition moved into src/anon/unit_00237068.cpp

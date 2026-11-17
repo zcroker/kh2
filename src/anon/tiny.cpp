@@ -520,10 +520,7 @@ void func_001d7970(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001d7970: definition m
 
 void func_001d7eb8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001d7eb8: definition moved into src/anon/unit_001d7458.cpp
 
-void func_001db598(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 b = (0x01d6u << 16);
-    *(u32*)((u32)b + (-17748)) = (u32)a0;
-}
+void func_001db598(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001db598: definition moved into src/anon/unit_001d9d00.cpp
 
 void func_001dcd50(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001dcd50: definition moved into src/anon/unit_001dbfd8.cpp
 

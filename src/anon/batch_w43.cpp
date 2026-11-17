@@ -183,14 +183,7 @@ void func_001c1748(NdB* n, LsB* l, void* src, u32 a3);
 
 void func_001d5370(u32* out, u32 a, s32 b);  // 0x001d5370: definition moved into src/anon/unit_001d4f40.cpp
 
-u8* func_001dba18(u32 id) {
-    u8* v = 0;
-    while ((v = func_001b9bc8(v)) != 0) {
-        if (!(*(u32*)(v + 1416) & 0x10000000)) continue;
-        if (*(u32*)(v + 8) == id) return v;
-    }
-    return 0;
-}
+u8* func_001dba18(u32 id);  // 0x001dba18: definition moved into src/anon/unit_001d9d00.cpp
 
 s32 func_001dcc60(u8* p);  // 0x001dcc60: definition moved into src/anon/unit_001dbfd8.cpp
 

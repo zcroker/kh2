@@ -25,15 +25,9 @@ struct W8009Pool {
 extern "C" {
 void func_001db850(W8009Pool*);
 
-void func_001db688(W8009Pool* p, W8009Al* a, s32 sz, s32 cnt) {
-    new (p) W8009Pool(a, sz, cnt);
-    func_001db850(p);
-}
+void func_001db688(W8009Pool* p, W8009Al* a, s32 sz, s32 cnt);  // 0x001db688: definition moved into src/anon/unit_001d9d00.cpp
 
-void func_001db710(W8009Pool* p, W8009Al* a, s32 sz, s32 cnt) {
-    new (p) W8009Pool(a, sz, cnt);
-    func_001db850(p);
-}
+void func_001db710(W8009Pool* p, W8009Al* a, s32 sz, s32 cnt);  // 0x001db710: definition moved into src/anon/unit_001d9d00.cpp
 }
 
 // 001d5d80: one function-scope result variable reused at both add_item sites.

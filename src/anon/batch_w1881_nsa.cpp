@@ -37,16 +37,5 @@ extern "C" {
 void func_0011b6a8(QM1881*);
 QM1881* func_0011b720(QM1881*, f32);
 
-void func_001daef8(Obj1881* o, Src1881* s) {
-    *(u32*)o = (u32)D_00352a20;
-    initv1881(&o->v, s->q[0], s->q[1], s->q[2], 0.0f);
-    o->f68 = 0;
-    o->src = s;
-    QV1881 t(s->p[0], s->p[1], s->p[2], 0.0f);
-    func_0011b6a8(&o->m);
-    o->m = *func_0011b720(&o->m, -s->rot);
-    o->m.r[3] = t;
-    o->m.r[3].w = 1.0f;
-    o->m.invOrtho();
-}
+void func_001daef8(Obj1881* o, Src1881* s);  // 0x001daef8: definition moved into src/anon/unit_001d9d00.cpp
 }

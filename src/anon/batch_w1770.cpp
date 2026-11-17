@@ -18,13 +18,7 @@ struct QM1770 {
 struct Ob1770 { u8 pad[16]; QM1770 m; f32 f50; };
 
 extern "C" {
-f32 func_001db510(Ob1770* o, const QV1770* p) {
-    QV1770 v;
-    v = *p;
-    v.w = 1.0f;
-    v = o->m * v;
-    return (v.x + o->f50) / (o->f50 + o->f50);
-}
+f32 func_001db510(Ob1770* o, const QV1770* p);  // 0x001db510: definition moved into src/anon/unit_001d9d00.cpp
 
 u64 func_00109f58(u32 a0, u32 a1, u8 a2);  // 00109f58: moved to src/anon/unit_00109c30.cpp
 }

@@ -131,10 +131,7 @@ void func_001c90c0(u32 a0, u32 a1);  // 0x001c90c0: definition moved into src/an
 // 001cd520: moved to src/anon/unit_001cd078.cpp
 
 // Pops one entry: --count; return base + scale * table[count].
-s32 func_001db888(s32* a0) {  // record_index_calc
-    a0[2]--;
-    return a0[3] + a0[5] * ((s32*)a0[4])[a0[2]];
-}
+s32 func_001db888(s32* a0);  // 0x001db888: definition moved into src/anon/unit_001d9d00.cpp
 
 u32 effect_pos(u32 self) asm("_ZN3ryj6EFFECT3posEv");
 u32 effect_pos(u32 self);  // 0x001dc5f8: definition moved into src/anon/unit_001dbfd8.cpp

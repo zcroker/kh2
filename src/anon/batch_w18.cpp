@@ -108,12 +108,7 @@ void wtarget_001d7a50(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001d7a50: definitio
 
 extern u32 D_00352908;
 void func_001980d0(void*, u32, u32, u32);
-void func_001d9eb0(u8* p, u32 a, u32 b) {
-    func_001980d0(p, a, 10, b);
-    *(u32*)(p + 2552) = 0;
-    *(u32*)(p + 2548) = 0;
-    *(void**)p = &D_00352908;
-}
+void func_001d9eb0(u8* p, u32 a, u32 b);  // 0x001d9eb0: definition moved into src/anon/unit_001d9d00.cpp
 
 extern void* D_01d9e6e4;
 void func_002fde18(void*, u32, u32);

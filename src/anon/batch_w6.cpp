@@ -91,9 +91,7 @@ void func_001d9820(s32 i);  // 0x001d9820: definition moved into src/anon/unit_0
 u32 func_001b1448(u32);
 extern u32 D_003528fc;
 extern u32 D_01d5baa8;
-void func_001d9d00(void) {
-    D_01d5baa8 = func_001b1448(D_003528fc);
-}
+void func_001d9d00(void);  // 0x001d9d00: definition moved into src/anon/unit_001d9d00.cpp
 
 void func_00168388(u32, void*, void (*)(void), u32);
 extern u32 D_00352aec;

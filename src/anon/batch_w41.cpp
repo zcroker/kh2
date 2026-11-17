@@ -169,11 +169,7 @@ static inline u32 w41Create(u32 a, u32 b, u32 c) {
     func_001db950(p, a, b, c);
     return p;
 }
-u32 func_001db9a8(u32 a, u32 b, u32 c) {
-    u32 r = func_001dba18(a, b, c);
-    if (!r) return w41Create(a, b, c);
-    return r;
-}
+u32 func_001db9a8(u32 a, u32 b, u32 c);  // 0x001db9a8: definition moved into src/anon/unit_001d9d00.cpp
 
 extern u32 D_0034e948;
 u32 func_0019ba60(u32);

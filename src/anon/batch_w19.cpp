@@ -135,12 +135,7 @@ void func_001d4dc0(u32* p, u32 a, u32 b, u32 c);  // 0x001d4dc0: definition move
 
 void func_001d5030(u32 a);  // 0x001d5030: definition moved into src/anon/unit_001d4f40.cpp
 
-void func_001d9ef0(u8* p, u32 a, u32 b) {
-    func_001980d0(p, a, 10, b);
-    *(u32*)(p + 0x9f8) = 0;
-    *(u32*)(p + 0x9f4) = 0;
-    *(void**)p = D_00352908;
-}
+void func_001d9ef0(u8* p, u32 a, u32 b);  // 0x001d9ef0: definition moved into src/anon/unit_001d9d00.cpp
 
 void func_001fab08(u8* p, u8* q) {
     u8* s = p + **(s32**)(q + 12) + 160;
@@ -199,11 +194,6 @@ void wtarget_001afa50(u32, u32, u32, u32);  // 0x001afa50: definition moved into
 
 struct KeyVal { u32 k, v; };
 // Looks up key in a zero-terminated {key, value} table at (*a)+28.
-u32 wtarget_001da420(u32 a, u32 key, u32, u32) {
-    KeyVal* e = (KeyVal*)(*(u32*)a + 28);
-    for (; e->v; e++)
-        if (e->k == key) return e->v;
-    return 0;
-}
+u32 wtarget_001da420(u32 a, u32 key, u32, u32);  // 0x001da420: definition moved into src/anon/unit_001d9d00.cpp
 
 // 002ee850: static initialiser, now made by gcc in src/menu/tutorial_widget.cpp

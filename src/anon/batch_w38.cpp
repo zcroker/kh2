@@ -178,19 +178,7 @@ void func_001d59b0(void);  // 0x001d59b0: definition moved into src/anon/unit_00
 
 s32 func_001db200(void*, s32);
 s32 func_001db250(void*);
-s32 func_001db198(void* p, s32 n) {
-    switch (n) {
-    case 0:
-        return 1;
-    case 1:
-    case 2: {
-        s32 r = 0;
-        if (func_001db200(p, n) && func_001db250(p)) r = 1;
-        return r;
-    }
-    }
-    return 0;
-}
+s32 func_001db198(void* p, s32 n);  // 0x001db198: definition moved into src/anon/unit_001d9d00.cpp
 
 void func_001e1728(void*);
 void func_001e2238(u8* p);  // 0x001e2238: definition moved into src/anon/unit_001e0cb8.cpp
