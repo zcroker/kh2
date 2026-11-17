@@ -44,11 +44,7 @@ extern u32 D_0032b91c;
 void func_0014a248(void);  // zero_global_byte_b
 void func_0014a310(void);
 void func_00102788(u32, u32, u32, void (*)(void));
-void func_0014a470(void) {
-    D_0034926a = 0;
-    func_0014a248();  // zero_global_byte_b
-    func_00102788(D_0032b91c, 0, 0x1c908, func_0014a310);
-}
+void func_0014a470(void);  // 0014a470: moved to src/anon/unit_00149fa8.cpp
 
 struct E24 { u8 pad[20]; u8 a, b, c, d; };
 extern E24* D_0034a778;

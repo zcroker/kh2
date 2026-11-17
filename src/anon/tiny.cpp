@@ -248,7 +248,7 @@ void func_0013a328(BD_VALUE* bd);  // 0x0013a328: definition moved into src/anon
 void func_00141418(BD_VALUE* bd);  // 0x00141418: definition moved into src/anon/unit_00141100.cpp
 void func_00149188(BD_VALUE* bd) { func_00149150(1, 0xffff); }
 // 00149f68: _GLOBAL__I_ stub, now made by gcc in src/harata/libdk/area.cpp
-void func_0014a8d8(BD_VALUE* bd) { func_0014a868(1, 0xffff); }
+void func_0014a8d8(BD_VALUE* bd);  // 0014a8d8: moved to src/anon/unit_00149fa8.cpp
 void func_0014b110(BD_VALUE* bd) { func_0014aed0(1, 0xffff); }
 // 0014e280: moved to src/anon/unit_0014d680.cpp
 // 00159220: _GLOBAL__I_ stub, now made by gcc in src/harata/libdk/lightcyclecamera.cpp
@@ -378,34 +378,15 @@ void func_00143278(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00143278: definition m
 
 void func_001432a8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001432a8: definition moved into src/anon/unit_00142c90.cpp
 
-void func_0014a1e0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 b = (0x0035u << 16);
-    *(u8*)((u32)b + (-28056)) = (u8)0;
-}
+void func_0014a1e0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0014a1e0: moved to src/anon/unit_00149fa8.cpp
 
-void func_0014a248(u32 a0, u32 a1, u32 a2, u32 a3) {  // zero_global_byte_b
-    u32 b = (0x0035u << 16);
-    *(u8*)((u32)b + (-28055)) = (u8)0;
-}
+void func_0014a248(u32 a0, u32 a1, u32 a2, u32 a3);  // 0014a248: moved to src/anon/unit_00149fa8.cpp
 
-u32 func_0014a258(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a0;
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    u32 b = (0x0035u << 16);
-    return (u32)(*(u8*)((u32)b + (-28055)));
-}
+u32 func_0014a258(u32 a0, u32 a1, u32 a2, u32 a3);  // 0014a258: moved to src/anon/unit_00149fa8.cpp
 
-void func_0014a4c0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 b = (0x0035u << 16);
-    *(u8*)((u32)b + (-28053)) = (u8)0;
-}
+void func_0014a4c0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0014a4c0: moved to src/anon/unit_00149fa8.cpp
 
-void func_0014a4f0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 b = (0x0035u << 16);
-    *(u8*)((u32)b + (-28052)) = (u8)0;
-}
+void func_0014a4f0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0014a4f0: moved to src/anon/unit_00149fa8.cpp
 
 void func_0014ace8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0014ace8: definition moved into src/harata/libdk/fade.cpp
 
@@ -1303,13 +1284,7 @@ u32 func_0013ba50(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0013ba50: definition mo
 
 u32 func_001410b8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001410b8: definition moved into src/anon/unit_0013fca8.cpp
 
-void func_0014a7e8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    u32 v = a0 & 0xffu;
-    *(u8*)&D_0034939d = (u8)v;
-}
+void func_0014a7e8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0014a7e8: moved to src/anon/unit_00149fa8.cpp
 
 u32 func_0014aba8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0014aba8: definition moved into src/harata/libdk/fade.cpp
 
@@ -2007,13 +1982,7 @@ void func_00143298(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00143298: definition m
 
 // 00149338: moved to src/harata/libdk/mapfile.cpp
 
-void func_0014a238(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    u32 v = (u32)((s32)1);
-    *(u8*)&D_00349269 = (u8)v;
-}
+void func_0014a238(u32 a0, u32 a1, u32 a2, u32 a3);  // 0014a238: moved to src/anon/unit_00149fa8.cpp
 
 void func_0014acd8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0014acd8: definition moved into src/harata/libdk/fade.cpp
 

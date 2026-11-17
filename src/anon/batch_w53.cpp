@@ -166,16 +166,7 @@ void func_001387f8(u8* p, u32 a1, u32 a2, u32 a3);  // 0x001387f8: definition mo
 void func_0013f050(s32 a);  // 0x0013f050: definition moved into src/anon/unit_0013ef70.cpp
 
 static inline bool ready_14a0a0() { return *(u32*)(func_0014aba8() + 252) == 4; }
-void func_0014a0a0(u8* p) {
-    if (*(u8*)(p + 4) == 0) {
-        func_0014df88();
-        func_0014e0d8();
-        func_0014aa58(func_0014aba8(), 15, 0);
-        while (!ready_14a0a0()) func_00102448(p, 0);
-    }
-    u8* o = func_00103070();
-    (**(Fn0**)o)(o);
-}
+void func_0014a0a0(u8* p);  // 0014a0a0: moved to src/anon/unit_00149fa8.cpp
 
 // 0014e1f0: moved to src/anon/unit_0014d680.cpp
 

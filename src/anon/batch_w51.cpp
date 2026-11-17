@@ -100,17 +100,7 @@ void func_0013edd0(void*, f32);
 void func_0014b248(void*, u32);
 void func_0013ee38(void*, u32);
 
-void func_0014a6e0(void) {
-    D_00349394 = 1;
-    D_0034939d = 0;
-    D_00349390 = 0;
-    D_00349398 = 0;
-    func_0014b208(D_00349270, 256, 208);
-    func_0013edd0(D_00349270, 0.0f);
-    func_0014b248(D_00349270, 112);
-    func_0013ee38(D_00349270, 340);
-    D_0034939c = 0;
-}
+void func_0014a6e0(void);  // 0014a6e0: moved to src/anon/unit_00149fa8.cpp
 
 u8* func_00168b38(void*, u32, s32);  // entry_array_find_nth
 u32 func_001667d0(u16);  // ilog2

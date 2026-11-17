@@ -224,9 +224,7 @@ u32 func_00143f50(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00143f50: definition mo
 
 // 00149be8: moved to src/harata/libdk/area.cpp
 
-u32 func_0014a768(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_0014b248((u32)&D_00349270, ((u32)(a0) & 0xffu), a2, a3);
-}
+u32 func_0014a768(u32 a0, u32 a1, u32 a2, u32 a3);  // 0014a768: moved to src/anon/unit_00149fa8.cpp
 
 u32 func_0014ac48(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0014ac48: definition moved into src/harata/libdk/fade.cpp
 

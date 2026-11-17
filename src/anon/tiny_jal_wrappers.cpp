@@ -70,22 +70,9 @@ u32 func_00143f28(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00143f28: definition mo
 
 // 00149db8: moved to src/harata/libdk/area.cpp
 
-u32 func_0014a268(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u;
-    r2 = func_002b99a0(r4, r5, r6, r7);
-    r2 = (u32)(r2 ^ 0x0001u);
-    r2 = ((u32)r2 < 0x00000001u);
-    return r2;
-}
+u32 func_0014a268(u32 a0, u32 a1, u32 a2, u32 a3);  // 0014a268: moved to src/anon/unit_00149fa8.cpp
 
-u32 func_0014a2c8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u;
-    r4 = (u32)((s32)0u + (1));
-    r2 = func_002f79c8(r4, r5, r6, r7);
-    r2 = (u32)(r2 ^ 0x0002u);
-    r2 = ((u32)r2 < 0x00000001u);
-    return r2;
-}
+u32 func_0014a2c8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0014a2c8: moved to src/anon/unit_00149fa8.cpp
 
 u32 func_0014cba0(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u;

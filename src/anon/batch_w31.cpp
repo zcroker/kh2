@@ -126,10 +126,7 @@ void func_002369f0(void*);  // set_vtbl_36eac8_then_call
 
 
 // dk Field: start the title task.
-void TitleStart(bool flag) {
-    u8* t = func_00102818(D_0032b96c, 0, 0x493e0, (void*)func_0014a0a0, 4096);
-    t[4] = flag;
-}
+void TitleStart(bool flag);  // 0014a138: moved to src/anon/unit_00149fa8.cpp
 
 void func_0014f578(u32 a) {
     if (func_00150bc0(D_0034a42c)) {

@@ -990,26 +990,7 @@ void func_001991a8(s32, s32);
 u8* func_001058e8(void);
 u8 func_00149fa8(s32);
 void func_00104f58(S10*, u32, s32, s32, s32);
-void func_00149fe0(s32 a, u32 b)
-{
-    func_001991a8(33, 0);
-    S10 s;
-    u16 m = 0xffff;
-    s.a = m;
-    s.b = m;
-    s.c = m;
-    s.d = m;
-    s.e = m;
-    s.f = m;
-    if (a < 0) a = func_001058e8()[12];
-    func_001058e8()[12] = 15; s.a = 15;
-    func_001058e8()[13] = 0; s.b = 0;
-    u8* g = func_001058e8();
-    u8 r = func_00149fa8(a);
-    g[14] = r;
-    s.c = r;
-    func_00104f58(&s, b | 1, 0, 0, 0);
-}
+void func_00149fe0(s32 a, u32 b);  // 00149fe0: moved to src/anon/unit_00149fa8.cpp
 }
 
 }

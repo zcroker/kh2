@@ -54,14 +54,7 @@ void func_0014a830(void);
 void func_0014ae10(void);
 void func_0013a9e8(u32);
 void func_002bea00(void);
-void func_0014a188(void) {
-    func_0013a6d0();
-    u8* r = func_00102c18(0, 0x124f8, (void*)func_0014a830);
-    r[4] = 0;
-    func_0014ae10();
-    func_0013a9e8(1);
-    func_002bea00();
-}
+void func_0014a188(void);  // 0014a188: moved to src/anon/unit_00149fa8.cpp
 
 s32 func_00163268(f32* a, f32* b, f32* out) {  // vec3_distance
     u32 t[4] __attribute__((aligned(16)));

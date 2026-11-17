@@ -1,14 +1,3 @@
 #include "softreset.hpp"
 
-namespace dk {
-
-extern u32 D_0034926b asm("D_0034926b");
-
-
-
-void SoftReset::disable() {
-    u32 v = (u32)((s32)1);
-    *(u8*)&D_0034926b = (u8)v;
-}
-
-}  // namespace dk
+// dk::SoftReset::disable (0x14a4b0) is in src/anon/unit_00149fa8.cpp.

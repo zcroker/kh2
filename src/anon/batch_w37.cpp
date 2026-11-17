@@ -377,10 +377,7 @@ void func_0031b648(u8* p) {
 
 extern "C" void func_0013ee88(void*);
 extern "C" { extern void* D_00349270; extern u8 D_00348698[]; }
-void func_0014a868(int a, int b) {
-    if (b == 0xffff && a == 1) func_0013ee88(&D_00349270);
-    if (b == 0xffff && a == 0) D_00349270 = D_00348698;
-}
+void func_0014a868(int a, int b);  // 0014a868: moved to src/anon/unit_00149fa8.cpp
 
 extern "C" { extern f32 D_004f3600; extern u8 D_0034aa18[]; void func_00190128(void*); }
 // 00159c58: static initialiser, now made by gcc in src/harata/libdk/talkcamera.cpp
