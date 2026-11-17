@@ -130,10 +130,7 @@ void sceGsSyncPath(u32, u32);
 u8 func_002f3918(u32, void*);
 extern u32 D_003591c8;
 extern u8 D_00359910;
-u8 func_0020f150(void) {
-    sceGsSyncPath(0, 0);
-    return func_002f3918(D_003591c8, &D_00359910);
-}
+u8 func_0020f150(void);  // 0x0020f150: definition moved into src/anon/unit_0020f118.cpp
 
 void func_00234460(u32, u32, u32, u32, u32, u32);
 void func_002346f0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4);  // 0x002346f0: definition moved into src/anon/unit_002335e8.cpp

@@ -164,10 +164,7 @@ void func_001d97c8(void);  // 0x001d97c8: definition moved into src/anon/unit_00
 
 void func_001ddc08(void);  // 0x001ddc08: definition moved into src/anon/unit_001dd920.cpp
 
-s32 func_0020f118(void) {
-    sceGsSyncPath(0, 0);
-    return func_002f3918(D_003591c8, D_003598e0);
-}
+s32 func_0020f118(void);  // 0x0020f118: definition moved into src/anon/unit_0020f118.cpp
 
 void func_002289c0(void** p);  // 002289c0: moved to src/anon/unit_00228618.cpp (linked unit)
 

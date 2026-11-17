@@ -169,12 +169,7 @@ void func_001db950(u8* p, u32 a, u32 b, u32 c) {
     *(void**)p = D_00352a78;
 }
 
-s32 func_0020f188(void) {
-    D_00359940[4] = D_01da8bb0[8];
-    D_00359940[5] = D_01da8bb0[9];
-    sceGsSyncPath(0, 0);
-    return func_002f3918(D_003591c8, D_00359940);
-}
+s32 func_0020f188(void);  // 0x0020f188: definition moved into src/anon/unit_0020f118.cpp
 
 u8 func_00225b00(s32 n);  // 0x00225b00: definition moved into src/anon/unit_00224780.cpp
 
