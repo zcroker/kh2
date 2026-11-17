@@ -32,15 +32,7 @@ extern f32 D_00349e10;
 extern f32 D_00349e0c;
 extern f32 D_00349e14;
 extern f32 D_00349e18;
-void wtarget_0014ce88(void)
-{
-    D_00349e10 = 0.0f;
-    for (s32 i = 0; i < D_00349e1c + 1; i++) D_00349e10 += 1.0f;
-    f32 s = D_00349e10;
-    D_00349e14 = s;
-    D_00349e10 = s * D_00349e0c;
-    D_00349e18 = 1.0f / D_00349e10;
-}
+void wtarget_0014ce88(void);  // 0x0014ce88: definition moved into src/anon/unit_0014c7f0.cpp
 
 // 00153840: mark every slot, then process each bit set in a 64-bit mask
 extern s32 D_0034a77c;

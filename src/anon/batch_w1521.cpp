@@ -3,11 +3,7 @@ extern "C" {
 
 void* getSaveRam_w1521(void) asm("_Z10getSaveRamv");
 void func_0014ca80(s32, s32, s32, s32, s32);
-void func_0014cc40(s32 a0, s32 a1, s32 a2, s32 a3, s32 idx) {
-    u8* b = (u8*)getSaveRam_w1521() + 0x2444;
-    asm("" : "+r"(b)); /* keeps base+0x2444 apart from the +8 field offset */
-    func_0014ca80(((s32*)b)[idx + 2], a0, a1, a2, a3);
-}
+void func_0014cc40(s32 a0, s32 a1, s32 a2, s32 a3, s32 idx);  // 0x0014cc40: definition moved into src/anon/unit_0014c7f0.cpp
 
 struct W1521Node { void* vt; u8 pad[0x78]; W1521Node* next; };
 struct W1521NodeList { W1521Node* first; W1521Node* cur; };

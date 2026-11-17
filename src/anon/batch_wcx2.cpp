@@ -5345,12 +5345,7 @@ union U102470 { u8* p; f32 f; };
 
 // --------------------
 extern u64 D_0036b0d0;
-void func_0014b920(u64* p) {
-    p[0] = 0x1000000000008001ULL;
-    p[1] = 14;
-    p[2] = 0x19f000001ff0000ULL;
-    p[3] = 64;
-}
+void func_0014b920(u64* p);  // 0x0014b920: definition moved into src/anon/unit_0014b838.cpp
 
 // --------------------
 extern f32 D_01c60be8;

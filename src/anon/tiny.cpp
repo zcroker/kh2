@@ -358,14 +358,7 @@ void func_0014a4f0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0014a4f0: moved to src/a
 
 void func_0014ace8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0014ace8: definition moved into src/harata/libdk/fade.cpp
 
-u32 func_0014ca38(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a0;
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    u32 b = (0x0035u << 16);
-    return (u32)(*(u32*)((u32)b + (-25096)));
-}
+u32 func_0014ca38(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0014ca38: definition moved into src/anon/unit_0014c7f0.cpp
 
 // 0014df98: moved to src/anon/unit_0014d680.cpp
 
@@ -871,21 +864,9 @@ u32 func_0014abf8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0014abf8: definition mo
 
 u32 func_0014ac08(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0014ac08: definition moved into src/harata/libdk/fade.cpp
 
-u32 func_0014ca10(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_global_359e0c
-    (void)a0;
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    return (D_00349dec != 0);
-}
+u32 func_0014ca10(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0014ca10: definition moved into src/anon/unit_0014c7f0.cpp
 
-void func_0014ce20(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    u32 v = a0 & 0xffu;
-    *(u8*)&D_00349e20 = (u8)v;
-}
+void func_0014ce20(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0014ce20: definition moved into src/anon/unit_0014c7f0.cpp
 
 // 0014e088: moved to src/anon/unit_0014d680.cpp
 
@@ -1291,20 +1272,9 @@ void func_0014acd8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0014acd8: definition m
 
 // 0014b248: moved to src/anon/unit_0014b150.cpp
 
-void func_0014ce50(f32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    *(f32*)&D_00349e0c = a0;
-}
+void func_0014ce50(f32 a0, u32 a1, u32 a2, u32 a3);  // 0x0014ce50: definition moved into src/anon/unit_0014c7f0.cpp
 
-f32 func_0014ce78(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a0;
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    return *(f32*)&D_00349e10;
-}
+f32 func_0014ce78(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0014ce78: definition moved into src/anon/unit_0014c7f0.cpp
 
 // 0014dda0: moved to src/anon/unit_0014d680.cpp
 

@@ -6,10 +6,6 @@ namespace dk {
 
 
 
-u32 Timer::isDown() {
-    u32 v = *(u8*)&D_00349e00;
-    v ^= 0x1u;
-    return (v < 1u);
-}
+// 0x0014c9a0: definition moved into src/anon/unit_0014c7f0.cpp
 
 }  // namespace dk

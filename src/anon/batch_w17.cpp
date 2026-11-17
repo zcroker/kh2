@@ -31,13 +31,7 @@ void func_002ef7c8(void);
 void func_0014d060(void);
 u32 func_0014e088(void);
 void func_0014e5f0(u32);
-void func_0014cf88(void) {
-    func_0014cf80();
-    func_001b7f88();
-    func_002ef7c8();
-    func_0014d060();
-    func_0014e5f0(func_0014e088());
-}
+void func_0014cf88(void);  // 0x0014cf88: definition moved into src/anon/unit_0014c7f0.cpp
 
 void forceLeaveCounter(void* c) asm("_ZN2dk11INFORMATION17forceLeaveCounterEPNS_7COUNTERE");
 u32 func_00139d78(void*);

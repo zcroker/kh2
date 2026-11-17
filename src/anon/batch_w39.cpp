@@ -107,19 +107,7 @@ void func_0010ab08(int n);  // 0010ab08: moved to src/anon/unit_0010a918.cpp
 extern u64 D_0036b0d8;
 extern void* D_00349da8[];
 void func_0014b290(u8*);
-void func_0014ba20(u8* p) {
-    func_0014b290(p);
-    u64 d = D_0036b0d8;
-    *(void**)p = D_00349da8;
-    *(u64*)(p + 288) = 0x1000000000008001ULL;
-    *(u64*)(p + 296) = 14;
-    *(u64*)(p + 304) = d;
-    *(u64*)(p + 312) = 64;
-    *(u64*)(p + 256) = 0x1000000000008001ULL;
-    *(u64*)(p + 264) = 14;
-    *(u64*)(p + 272) = d;
-    *(u64*)(p + 280) = 64;
-}
+void func_0014ba20(u8* p);  // 0x0014ba20: definition moved into src/anon/unit_0014b838.cpp
 
 // --- 001576e8
 u32 func_00155d58(u8*, int);  // table_word_indexed_by_3

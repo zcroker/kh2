@@ -302,13 +302,7 @@ void func_00324b08(void** p) {
 }
 }
 
-void u_tail0_0014d008(void) {
-    func_0014cfc8();
-    func_0014c908();
-    sceGsSyncVCallback((void*)func_0014cf18);
-    func_0014d308();
-    func_00102788(D_0032b91c, 0, 0xc3500, (void*)func_0014cf88);
-}
+void u_tail0_0014d008(void);  // 0x0014d008: definition moved into src/anon/unit_0014c7f0.cpp
 
 // 0017f488: moved to src/yasui/libys/motion.cpp
 

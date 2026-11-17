@@ -17,27 +17,7 @@ static inline void setEnt(ParamEnt* e, u8 f, void* q) { e->flag = f; e->ptr = q;
 extern "C" {
 void func_0014c5a0(ParamObj* p);
 }
-void func_0014c5a0(ParamObj* p) {
-    func_0014b290((u8*)p);
-    p->vt = D_00349d78;
-    setEnt(&p->e[0], 48, D_00349b50); p->e[0].type = 2;
-    setEnt(&p->e[1], 48, &p->pad[28]); p->e[1].type = 13;
-    setEnt(&p->e[2], 48, D_00349b70); p->e[2].type = 2;
-    setEnt(&p->e[3], 48, &p->pad[28]); p->e[3].type = 13;
-    setEnt(&p->e[4], 48, D_00349b90); p->e[4].type = 2;
-    setEnt(&p->e[5], 48, &p->pad[28]); p->e[5].type = 13;
-    setEnt(&p->e[6], 48, D_00349bb0); p->e[6].type = 2;
-    setEnt(&p->e[7], 48, &p->pad[28]); p->e[7].type = 13;
-    setEnt(&p->e[8], 48, D_00349bd0); p->e[8].type = 2;
-    setEnt(&p->e[9], 48, &p->pad[28]); p->e[9].type = 13;
-    setEnt(&p->e[10], 48, D_00349bf0); p->e[10].type = 2;
-    setEnt(&p->e[11], 48, &p->pad[28]); p->e[11].type = 13;
-    setEnt(&p->e[12], 48, D_00349c10); p->e[12].type = 2;
-    setEnt(&p->e[13], 48, &p->pad[28]); p->e[13].type = 13;
-    setEnt(&p->e[14], 48, D_00349c30); p->e[14].type = 2;
-    setEnt(&p->e[15], 48, &p->pad[28]); p->e[15].type = 13;
-    setEnt(&p->e[16], 0, D_00349d50); p->e[16].type = 2;
-}
+void func_0014c5a0(ParamObj* p);  // 0x0014c5a0: definition moved into src/anon/unit_0014b838.cpp
 
 // ---- 00150be8
 extern "C" {

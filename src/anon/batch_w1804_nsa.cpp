@@ -24,22 +24,5 @@ extern u8 D_0032bae0;
 void func_00187fd8(W1804Obj* o, W1804Desc* d);
 
 // Saturating counters (limit 0xCDFE5C3) kept in volatile locals.
-void func_0014ccb8(void)
-{
-    W1804CntP* q = func_001058e8();
-    volatile u32 a = q->s.a;
-    volatile u32 b = q->s.b;
-    if (a <= 0xCDFE5C3) a++;
-    q->s.a = a;
-    q->s.b = b;
-    if (D_0032b984) {
-        volatile s32 i = D_0032bae0;
-        if (i >= 0 && i < 19) {
-            W1804CntS* s = &q->s;
-            volatile u32 c = s->arr[i];
-            if (c <= 0xCDFE5C3) c++;
-            s->arr[i] = c;
-        }
-    }
-}
+void func_0014ccb8(void);  // 0x0014ccb8: definition moved into src/anon/unit_0014c7f0.cpp
 }

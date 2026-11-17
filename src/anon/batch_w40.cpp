@@ -22,19 +22,7 @@ void func_0014b290(u8*);
 extern void* D_00349da8[];
 extern u64 D_0036b0e0;
 // Constructor: two GIF-tag style 4-qword blocks at +0x100.
-void func_0014ba90(u8* p) {
-    func_0014b290(p);
-    u64 d = D_0036b0e0;
-    *(void**)p = D_00349da8;
-    *(u64*)(p + 288) = 0x1000000000008001ULL;
-    *(u64*)(p + 296) = 14;
-    *(u64*)(p + 304) = d;
-    *(u64*)(p + 312) = 64;
-    *(u64*)(p + 256) = 0x1000000000008001ULL;
-    *(u64*)(p + 264) = 14;
-    *(u64*)(p + 272) = d;
-    *(u64*)(p + 280) = 64;
-}
+void func_0014ba90(u8* p);  // 0x0014ba90: definition moved into src/anon/unit_0014b838.cpp
 
 struct S15b { u8 pad[436]; f32 f; };
 union U15b { S15b* p; f32 f; };

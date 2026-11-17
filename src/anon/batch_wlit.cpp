@@ -20,7 +20,7 @@ void func_00184540(u8* p, u32 a, f32 x, f32 y);
 s32 func_001bb4a0(void);
 u8* func_001bbcb0(void);
 
-void func_0014ce60(void) { D_00349e0c = 1.0f; }
+void func_0014ce60(void);  // 0x0014ce60: definition moved into src/anon/unit_0014c7f0.cpp
 
 // 00159f90: moved to src/harata/libdk/targetcamera.cpp
 

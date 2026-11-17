@@ -471,9 +471,7 @@ u32 func_001445e8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001445e8: definition mo
 
 // 00149bd0: moved to src/harata/libdk/mapfile.cpp
 
-u32 func_0014d278(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_0014d240(0x00000001u, 0x0000ffffu, a2, a3);
-}
+u32 func_0014d278(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0014d278: definition moved into src/anon/unit_0014c7f0.cpp
 
 // 0014d640: _GLOBAL__I_ stub, now made by gcc in src/anon/unit_0014d298.cpp
 

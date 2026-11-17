@@ -101,13 +101,7 @@ void* func_00123dd0(void* a);  // 0x00123dd0: definition moved into src/anon/uni
 
 // 00135ff0: moved to src/naka/libkn/effect_observer.cpp
 
-void Timer_setCountDown(u32 n) {
-    n *= 60;
-    D_00349dfc = 0;
-    D_00349df8 = n;
-    D_00349e00 = 1;
-    D_00349df4 = n;
-}
+void Timer_setCountDown(u32 n);  // 0x0014c940: definition moved into src/anon/unit_0014c7f0.cpp
 
 void func_0015cbb8(u8 a, u8 b, u8 c, u8 d);  // 0x0015cbb8: definition moved into src/anon/unit_0015cb18.cpp
 

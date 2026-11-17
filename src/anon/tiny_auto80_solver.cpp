@@ -3683,16 +3683,7 @@ void duplicate_unplaced_0014bb00(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5,
     *(volatile u16*)((u32)r4 + (s32)(324)) = (u16)r7;
 }
 
-void func_0014c8e0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32* r15 = (u32*)&D_00349de8;
-    u32* r14 = (u32*)&D_00349df8;
-    *r15 = 0;
-    *r14 = 0;
-    r15 = (u32*)&D_00349dec;
-    r14 = (u32*)&D_00349dfc;
-    *r15 = 0;
-    *r14 = 0;
-}
+void func_0014c8e0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);  // 0x0014c8e0: definition moved into src/anon/unit_0014c7f0.cpp
 
 u32 duplicate_unplaced_0014c908(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r2, r15;

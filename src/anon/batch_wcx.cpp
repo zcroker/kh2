@@ -1150,29 +1150,11 @@ extern "C" {
 #define GS_SET_XYZ(x, y, z) ((u64)(x) | ((u64)(y) << 16) | ((u64)(z) << 32))
 struct Spr { u8 pad[4]; u16 w, h; s16 x, y; u32 z; u8 r, g, b, a; u8 pad2[180]; u64 rgbaq; u8 pad3[8]; u64 xyz0; u8 pad4[8]; u64 xyz1; u8 pad5[16]; u8 next[4]; };
 void func_0014d8d0(u8*);
-void func_0014b838(Spr* p)
-{
-    p->rgbaq = GS_SET_RGBAQ(p->r, p->g, p->b, p->a, 1);
-    p->xyz0 = GS_SET_XYZ(p->x * 16 + 0x7000, p->y * 16 + 0x7300, p->z);
-    p->xyz1 = GS_SET_XYZ((p->x + p->w) * 16 + 0x7000, (p->y + p->h) * 16 + 0x7300, p->z);
-    func_0014d8d0(p->next);
-}
+void func_0014b838(Spr* p);  // 0x0014b838: definition moved into src/anon/unit_0014b838.cpp
 
-void func_0014c350(Spr* p)
-{
-    p->rgbaq = GS_SET_RGBAQ(p->r, p->g, p->b, p->a, 1);
-    p->xyz0 = GS_SET_XYZ(p->x * 16 + 0x7000, p->y * 16 + 0x7300, p->z);
-    p->xyz1 = GS_SET_XYZ((p->x + p->w) * 16 + 0x7000, (p->y + p->h) * 16 + 0x7300, p->z);
-    func_0014d8d0(p->next);
-}
+void func_0014c350(Spr* p);  // 0x0014c350: definition moved into src/anon/unit_0014b838.cpp
 
-void func_0014c738(Spr* p)
-{
-    p->rgbaq = GS_SET_RGBAQ(p->r, p->g, p->b, p->a, 1);
-    p->xyz0 = GS_SET_XYZ(p->x * 16 + 0x7000, p->y * 16 + 0x7300, p->z);
-    p->xyz1 = GS_SET_XYZ((p->x + p->w) * 16 + 0x7000, (p->y + p->h) * 16 + 0x7300, p->z);
-    func_0014d8d0(p->next);
-}
+void func_0014c738(Spr* p);  // 0x0014c738: definition moved into src/anon/unit_0014b838.cpp
 
 }
 

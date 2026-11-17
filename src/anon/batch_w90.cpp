@@ -79,17 +79,7 @@ void func_00146128(u8* self, s32* cnt, s16 idx);  // 0x00146128: definition move
 // 0014ca80: split a 60 Hz frame counter into hours/minutes/seconds/hundredths.
 u32 func_0014ca78(u32);
 s32 __fixunssfsi(f32);
-void func_0014ca80(u32 a0, u32* h, u32* m, u32* s, s32* cs)
-{
-    u32 t = func_0014ca78(a0);
-    *h = t / 216000; t %= 216000;
-    *m = t / 3600; t %= 3600;
-    *s = t / 60; t %= 60;
-    f32 k = 1.6666666f;
-    f32 x = t;
-    x *= k;
-    *cs = __fixunssfsi(x);
-}
+void func_0014ca80(u32 a0, u32* h, u32* m, u32* s, s32* cs);  // 0x0014ca80: definition moved into src/anon/unit_0014c7f0.cpp
 
 // 0015d5d0
 s32 func_0013ef80(u32);  // get_global_byte_358700

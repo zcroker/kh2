@@ -116,9 +116,7 @@ extern "C" {
 void func_00143348(u8* p);  // 0x00143348: definition moved into src/anon/unit_00142c90.cpp
 
 // GS SCISSOR register value from x/y/w/h.
-void func_0014b950(u8* p, s16 x, s16 y, u16 w, u16 h) {
-    *(u64*)(p + 16) = (u64)x | ((u64)(x + w - 1) << 16) | ((u64)y << 32) | ((u64)(y + h - 1) << 48);
-}
+void func_0014b950(u8* p, s16 x, s16 y, u16 w, u16 h);  // 0x0014b950: definition moved into src/anon/unit_0014b838.cpp
 
 void func_0014f528(void);  // 0x0014f528: definition moved into src/anon/unit_0014ecb8.cpp
 

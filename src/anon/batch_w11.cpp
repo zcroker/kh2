@@ -30,10 +30,7 @@ void func_0014f030(void*, f32, f32, f32);  // obj_set_lerp_params
 void func_00102788(u32, u32, u32, void (*)(void));
 void func_0014cd98(void);
 void Vsync_setGameSpeed(f32, f32, f32) asm("_ZN2dk5Vsync12setGameSpeedEfff");
-void Vsync_setGameSpeed(f32 a, f32 b, f32 c) {
-    func_0014f030(&D_004574b8, a, b, c);  // obj_set_lerp_params
-    func_00102788(D_0032b91c, 0, 800000, func_0014cd98);
-}
+void Vsync_setGameSpeed(f32 a, f32 b, f32 c);  // 0x0014cde0: definition moved into src/anon/unit_0014c7f0.cpp
 
 void func_00138c10(void*, s32);
 void func_00150578(u8* p);  // 0x00150578: definition moved into src/anon/unit_0014ecb8.cpp

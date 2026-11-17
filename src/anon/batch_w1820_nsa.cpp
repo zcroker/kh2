@@ -28,17 +28,5 @@ void func_001b7f30(W1820Pkt*);
 
 void func_0013e940(W1820Gs* p);  // 0x0013e940: definition moved into src/anon/unit_0013dfb8.cpp
 
-void func_0014b698(W1820Gs* p)
-{
-    p->g[21] = (u64)p->b0 | ((u64)p->b1 << 8) | ((u64)p->b2 << 16) | ((u64)p->b3 << 24) | (1ULL << 32);
-    ((u64*)p)[27] = (s32)((p->x << 4) + 0x7000) | ((u64)(s32)((p->y << 4) + 0x7300) << 16) | ((u64)p->z << 32);
-    ((u64*)p)[29] = (s32)(((p->x + p->w) << 4) + 0x7000) | ((u64)(s32)(((p->y + p->h) << 4) + 0x7300) << 16) | ((u64)p->z << 32);
-    W1820Pkt pkt;
-    func_001b7e68(&pkt, 0xd0);
-    W1820Pkt* pp = &pkt;
-    W1820u128* s = (W1820u128*)p->g;
-    for (s32 i = 12; i >= 0; i--) { *pp->p = *s; s++; pp->p++; }
-    func_001b80d8(&pkt);
-    func_001b7f30(&pkt);
-}
+void func_0014b698(W1820Gs* p);  // 0x0014b698: definition moved into src/anon/unit_0014b638.cpp
 }

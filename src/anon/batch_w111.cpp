@@ -229,28 +229,7 @@ void func_0014d478(void);
 void u_tail0_0014d060(void) asm("_Z16u_tail0_0014d060v");
 }
 // Per-frame timing step: catch up on missed ticks, then derive the clamped frame delta and its rate.
-void u_tail0_0014d060(void)
-{
-    func_0014d478();
-    if (!D_00349e20) {
-        D_00349e10 = 2.0f;
-        if (D_00349e08 < D_00349e1c + 1)
-            for (u32 i = 0; i < D_00349e1c; i++) func_0014d478();
-    } else {
-        D_00349e10 = D_00349e08;
-        if (D_00349e08 < D_00349e1c + 1)
-            for (u32 i = 0; i < D_00349e1c; i++) {
-                func_0014d478();
-                D_00349e10 = D_00349e08;
-            }
-    }
-    D_00349e14 = D_00349e10;
-    D_00349e10 = D_00349e10 * D_00349e0c;
-    if (6.0f < D_00349e10) D_00349e10 = 6.0f;
-    if (6.0f < D_00349e14) D_00349e14 = 6.0f;
-    D_00349e08 = 0;
-    D_00349e18 = 1.0f / D_00349e10;
-}
+void u_tail0_0014d060(void);  // 0x0014d060: definition moved into src/anon/unit_0014c7f0.cpp
 
 struct Vq14 {
     f32 x, y, z, w;

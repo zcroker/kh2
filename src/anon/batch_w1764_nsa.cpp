@@ -28,17 +28,5 @@ void func_001fb8b8(u8* o) {
     func_0021fbd8(&s, 0);
 }
 
-void func_0014b9a8(u128* src) {
-    W1764Pkt pk;
-    s32 i;
-    pk.p = 0; pk.b = 0; pk.a = 0;
-    func_001b7e68(&pk, 32);
-    W1764Pkt* q = &pk;
-    for (i = 1; i >= 0; i--) {
-        *q->p = *src++;
-        q->p++;
-    }
-    func_001b80d8(&pk);
-    func_001b7f30(&pk);
-}
+void func_0014b9a8(u128* src);  // 0x0014b9a8: definition moved into src/anon/unit_0014b838.cpp
 }

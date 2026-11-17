@@ -199,27 +199,13 @@ u64 func_0011c230(u32 a0);  // 0x0011c230: definition moved into src/anon/unit_0
 
 void func_0011ee18(u32 a0, u32 a1);  // 0x0011ee18: definition moved into src/anon/unit_0011c128.cpp
 
-u32 func_0014c908() {
-    func_0014c8e0();
-    u32 a0 = D_0032b91c;
-    return func_00102788(a0, 0, 1, (u32)&D_0014c7f0);
-}
+u32 func_0014c908();  // 0x0014c908: definition moved into src/anon/unit_0014c7f0.cpp
 
 void dk_RectParamBase_setColor(u32, u32, u32, u32,
                                u32) asm("_ZN2dk13RectParamBase8setColorEhhhh");
 // 0014b220: moved to src/anon/unit_0014b150.cpp
 
-void func_0014bb00(u32 a0, u32 a1, u32 a2, u32 a3, u32 t0) {
-    a1 = (s16)a1;
-    a2 = (s16)a2;
-    a3 &= 0xffff;
-    asm volatile("" : "+r"(a3));
-    *(volatile u16 *)(a0 + 320) = a1;
-    t0 &= 0xffff;
-    *(volatile u16 *)(a0 + 322) = a2;
-    *(volatile u16 *)(a0 + 326) = t0;
-    *(volatile u16 *)(a0 + 324) = a3;
-}
+void func_0014bb00(u32 a0, u32 a1, u32 a2, u32 a3, u32 t0);  // 0x0014bb00: definition moved into src/anon/unit_0014b838.cpp
 
 // 0014dd60: moved to src/anon/unit_0014d680.cpp
 

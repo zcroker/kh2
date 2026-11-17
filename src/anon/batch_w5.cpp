@@ -161,10 +161,7 @@ public:
 extern u32 D_00349de8;
 extern u32 D_00349df0;
 extern u32 D_00349dfc;
-void dk::Timer::start() {
-    D_00349df0 = D_00349de8;
-    D_00349dfc = 1;
-}
+// 0x0014c9b8: definition moved into src/anon/unit_0014c7f0.cpp
 
 extern "C" void func_00188b68(s32, s32, u32);
 extern "C" u32 func_00140df0(void);

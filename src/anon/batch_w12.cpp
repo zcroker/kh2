@@ -103,13 +103,7 @@ void func_0011f5a0(void** p);  // 0x0011f5a0: definition moved into src/anon/uni
 
 void SpriteImage_change(void* self, void* data);  // 0x00138698: definition moved into src/anon/unit_00138480.cpp
 
-void func_0014cfc8(void) {
-    func_0014ce20(1);
-    func_0014ce30(1);
-    func_0014ce60();
-    D_00349e04 = 0;
-    D_00349e08 = 0;
-}
+void func_0014cfc8(void);  // 0x0014cfc8: definition moved into src/anon/unit_0014c7f0.cpp
 
 void COUNTER_alertLoop(u8* self);  // 0x00150610: definition moved into src/anon/unit_0014ecb8.cpp
 

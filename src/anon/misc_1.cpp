@@ -70,13 +70,9 @@ void func_00146080(void* self, s32 v);  // 0x00146080: definition moved into src
 
 typedef s64 (*Func4)(s64, s64, s64, s64);
 
-s64 func_0014ca78(s64 param0, s64 param1, s64 param2, s64 param3) {
-    s64 result = 0, arg0 = param0, arg1 = param1, arg2 = param2, arg3 = param3, returnAddr = 0;
-    result = arg0 + 0;
-    return result;
-}
+s64 func_0014ca78(s64 param0, s64 param1, s64 param2, s64 param3);  // 0x0014ca78: definition moved into src/anon/unit_0014c7f0.cpp
 
-void func_0014cf80(void* self) {}
+void func_0014cf80(void* self);  // 0x0014cf80: definition moved into src/anon/unit_0014c7f0.cpp
 
 // 0014dd10: moved to src/anon/unit_0014d680.cpp
 

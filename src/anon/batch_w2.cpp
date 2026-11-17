@@ -86,11 +86,7 @@ void func_0010a7d8(u8 r, u8 g, u8 b);  // 0010a7d8: moved to src/anon/unit_00109
 
 u8 func_00143448(u16 id);  // 0x00143448: definition moved into src/anon/unit_00142c90.cpp
 
-u32 func_0014ca20(void) {
-    u32 r = D_00349df8;
-    D_00349dfc = 0;
-    return r;
-}
+u32 func_0014ca20(void);  // 0x0014ca20: definition moved into src/anon/unit_0014c7f0.cpp
 
 u32 func_00152598(u32 a0, s32 i, s32 second, Pair32* tbl);  // 0x00152598: definition moved into src/anon/unit_0014ecb8.cpp
 
