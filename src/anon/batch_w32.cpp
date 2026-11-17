@@ -235,10 +235,7 @@ void func_002e70b0(u8* o) {
 
 // Advances a byte counter and wraps it into [0, max).
 struct WrapCtr { s32 max; u8 cur; };
-void func_002e9b10(WrapCtr* s) {
-    s->cur++;
-    while (s->cur >= s->max) s->cur -= *(u8*)&s->max;
-}
+void func_002e9b10(WrapCtr* s);  // 002e9b10: moved to src/anon/unit_002e9a00.cpp
 
 void func_002ed2b0(void** p, void* b, void* c) {
     func_001c23a8(p, b, 0, 1, 0, 128, c);

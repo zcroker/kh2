@@ -710,21 +710,7 @@ W84Ev* func_001db440(u16* p) {
 }
 
 // Recursively registers o (or all its children when k < 0).
-void wtarget_002e9b58(u32 a0, u32 o, u32 k, u32) {
-    u8* p = (u8*)a0;
-    if (!o) return;
-    if (!func_0019ba60(o)) return;
-    if ((s32)k < 0) {
-        u8* r = 0;
-        while ((r = func_0016bba8(o, 3, r)) != 0) wt3_2e9b58(a0, o, *r);
-        return;
-    }
-    if (func_002e9a38(p, o, k)) return;
-    *(u32*)(p + p[4] * 8 + 28) = o;
-    *(u32*)(p + p[4] * 8 + 32) = k;
-    if (*(s32*)(p + 8) < *(s32*)p) *(s32*)(p + 8) += 1;
-    func_002e9b10(p);
-}
+void wtarget_002e9b58(u32 a0, u32 o, u32 k, u32);  // 002e9b58: moved to src/anon/unit_002e9a00.cpp
 
 // Accumulates two counters and returns their ratio as a percentage.
 s32 wtarget_002ad018(u32, u32, u32, u32) {

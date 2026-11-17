@@ -221,9 +221,7 @@ void func_002e7b10(u32* v) {
 }
 
 typedef void (*VFn3)(void*, u32, u32);
-void func_002ead20(void** o, u32 a1) {
-    ((VFn3*)*o)[9](o, a1, 43);
-}
+void func_002ead20(void** o, u32 a1);  // 002ead20: moved to src/anon/unit_002eaa68.cpp
 
 // VU0 macro: d = a - b.
 void sceVu0SubVector(void* d, void* a, void* b) {  // vec4_sub

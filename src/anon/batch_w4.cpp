@@ -193,10 +193,7 @@ void func_002e8070(Args002e8070* p) {
     func_002e9cb8(a, b, p->c);
 }
 
-void func_002e9c98(u32 x, Pair* p) {
-    u32 a = p->a;
-    func_002e9b58(x, a, p->b);
-}
+void func_002e9c98(u32 x, Pair* p);  // 002e9c98: moved to src/anon/unit_002e9a00.cpp
 
 // Dot product of a.xyz and b.xyz (VU0 macro mode).
 f32 sceVu0InnerProduct(void* a, void* b) {  // vec3_dot

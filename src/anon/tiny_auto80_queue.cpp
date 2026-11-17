@@ -14183,40 +14183,9 @@ u32 func_002e64b8(s32 a0, u32 a1) {  // list_advance_count
     return v0;
 }
 
-u32 func_002e9a38(u32* a0, u32 a1, u32 a2) {
-    s32 t5 = (s32)a0[2];
-    s32 t6 = 0;
-    if (t5 <= 0) {
-        goto L_fail;
-    }
-L_loop:
-    if (a0[7] != a1) {
-        goto L_miss;
-    }
-    if (a0[8] == a2) {
-        return 1;
-    }
-L_miss:
-    t6 = t6 + 1;
-    if (t6 < t5) {
-        a0 = (u32*)((u8*)a0 + 8);
-        goto L_loop;
-    }
-L_fail:
-    return 0;
-}
+u32 func_002e9a38(u32* a0, u32 a1, u32 a2);  // 002e9a38: moved to src/anon/unit_002e9a00.cpp
 
-void func_002e9cb8(u8* a0, u32 a1, u32 a2) {
-    u8* t4 = a0;
-    s32 t6 = (s32)(u32)a0[4];
-    s32 t5 = *(s32*)(a0 + 0);
-    t6 = t6 - (s32)a2;
-    t6 = t6 + t5;
-    t6 = t6 - 1;
-    s32 t7 = t6 % t5;
-    t4 = t4 + ((u32)t7 << 3);
-    func_00190878(a1, *(u32*)(t4 + 28), *(u32*)(t4 + 32));
-}
+void func_002e9cb8(u8* a0, u32 a1, u32 a2);  // 002e9cb8: moved to src/anon/unit_002e9a00.cpp
 
 void duplicate_unplaced_002ead20(u32 a0, u32 a1) {
     u32 t6 = *(u32*)a0;

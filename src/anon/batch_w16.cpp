@@ -308,12 +308,7 @@ u32 wtarget_001ce2a0(u32 a0, u32 a1, u32 a2, u32);
 
 void wtarget_001d9ca0(u32 a0, u32 a1, u32, u32);  // 0x001d9ca0: definition moved into src/anon/unit_001d7458.cpp
 
-void wtarget_002eaab0(u32 a0, u32 a1, u32, u32) {
-    u32 tmp[4] __attribute__((aligned(16)));
-    asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(tmp), "r"(a1) : "$8", "memory");
-    func_0017c4c8(a0, tmp);
-    func_0016bd60(a0, 44);
-}
+void wtarget_002eaab0(u32 a0, u32 a1, u32, u32);  // 002eaab0: moved to src/anon/unit_002eaa68.cpp
 
 void Tz::Select::Reset2DMode() {
     f37 = 0;

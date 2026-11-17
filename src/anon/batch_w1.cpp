@@ -148,12 +148,7 @@ void func_00299238(void) {
     func_0028dac8((u8*)func_002766d0() + 17304, 3);
 }
 
-void func_002eac70(f32 a, f32 b, f32 c, f32 d) {
-    D_00363440 = a;
-    D_00363448 = b;
-    D_0036344c = c;
-    D_00363450 = d;
-}
+void func_002eac70(f32 a, f32 b, f32 c, f32 d);  // 002eac70: moved to src/anon/unit_002eaa68.cpp
 
 // VU0: d = a / s.
 void sceVu0DivVector(f32* d, f32* a, f32 s) {  // vec4_scale_by_1_f12

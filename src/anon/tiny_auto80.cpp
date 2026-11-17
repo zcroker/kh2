@@ -1256,11 +1256,7 @@ u32 func_002d18e8(u32 a0, u32 a1, u32 a2, u32 a3) {
     return ((u32(*)(u32,u32,u32,u32))func_002d25f0)(r4, r5, r6, r7);
 }
 
-void func_002e9fa8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3;
-    *(volatile u8*)((u32)r4 + (s32)(4)) = (u8)0u;
-    *(volatile u32*)((u32)r4 + (s32)(8)) = 0u;
-}
+void func_002e9fa8(u32 a0, u32 a1, u32 a2, u32 a3);  // 002e9fa8: moved to src/anon/unit_002e9a00.cpp
 
 // 002eeee8: moved to src/anon/unit_002ee8a8.cpp
 

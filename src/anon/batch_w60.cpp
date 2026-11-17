@@ -350,19 +350,7 @@ void func_002bc708(s32 id);  // 0x002bc708: definition moved into src/anon/unit_
 
 void func_002c5418(u32 x);  // 0x002c5418: definition moved into src/anon/unit_002c53c8.cpp
 
-void func_002eabe8(void* self, u8* o, u8 c) {
-    f32 v[4] __attribute__((aligned(16)));
-    f32 w[4] __attribute__((aligned(16)));
-    s32 k;
-    func_0017c030(v, o, &k, c);
-    v[3] *= D_00363450;
-    QCOPY(w, v);
-    func_0017c4c8(o, w);
-    o[1300] = 7;
-    func_0017f488(o + 320, k, 0.0f, 0.0f);
-    *(s32*)(o + 256) = 4;
-    *(s32*)(o + 260) = 5;
-}
+void func_002eabe8(void* self, u8* o, u8 c);  // 002eabe8: moved to src/anon/unit_002eaa68.cpp
 
 // Unpacks a 32-bit RGBA value into bytes.
 // 002ef660: moved to src/anon/unit_002ef1f8.cpp

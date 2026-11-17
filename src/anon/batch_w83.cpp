@@ -599,19 +599,7 @@ f32 func_0017ce10(f32);
 Vec4 func_0017d0e8(f32);
 
 // Turn cur's heading toward tgt by at most lim.
-Vec4 func_002ea360(f32 lim, f32* cur, f32* tgt) {
-    Vec4 r;
-    f32 m = lim * D_00349e10;
-    f32 d = func_002f8ad0(tgt[0], tgt[2]);
-    f32 c = func_002f8ad0(cur[0], cur[2]);
-    d = d - c;
-    cur[3] = c;
-    f32 e = func_0017ce10(d);
-    if (m < e) r = func_0017d0e8(func_0017ce10(cur[3] + m));
-    else if (e < -m) r = func_0017d0e8(func_0017ce10(cur[3] - m));
-    else r = *(Vec4*)tgt;
-    return r;
-}
+Vec4 func_002ea360(f32 lim, f32* cur, f32* tgt);  // 002ea360: moved to src/anon/unit_002ea2b8.cpp
 
 typedef s32 (*SigFn)(s32);
 s32 func_002feac0(void*);

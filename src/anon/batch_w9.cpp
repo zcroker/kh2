@@ -198,9 +198,7 @@ void func_002e0bb0(u32 a) {
 }
 
 struct Flags2e9fb8 { u32 lo : 16; u32 flag : 1; u32 hi : 15; };
-void func_002e9fb8(u8* p, u8 b) {
-    ((Flags2e9fb8*)(p + 4))->flag = b != 0;
-}
+void func_002e9fb8(u8* p, u8 b);  // 002e9fb8: moved to src/anon/unit_002e9a00.cpp
 
 // 002f0a38: moved to src/naka/libkn/trapfunctions.cpp
 

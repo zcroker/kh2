@@ -376,27 +376,7 @@ struct It36 { u32 cur; u8 pad[28]; };
 void func_00190128(It36*);
 u8* func_0016bba8(u8*, s32, u8*);
 void func_00190878(It36*, u8*, u8);
-void func_002e9fe0(It36* it, u8* obj, Vec4* pos)
-{
-    B36 b;
-    VB36 d;
-    f32 best = 0.0f;
-    u8* o = 0;
-    b.d = 0;
-    func_00190128(it);
-    while ((o = func_0016bba8(obj, 3, o)) != 0) {
-        func_0018a818((B32*)&b, obj, (u32)o);
-        d = b.pos - *pos;
-        f32 len;
-        asm volatile("lqc2 $vf1, 0(%1)\n\tvmul.xyz $vf1, $vf1, $vf1\n\tvaddy.x $vf1, $vf1, $vf1y\n\tvaddz.x $vf1, $vf1, $vf1z\n\tvsqrt Q, $vf1x\n\tvwaitq\n\tcfc2.ni $8, $vi22\n\tmtc1 $8, %0"
-                     : "=f"(len) : "r"(&d) : "$8", "memory");
-        f32 dist = len - b.rad;
-        if (it->cur == 0 || dist < best) {
-            best = dist;
-            func_00190878(it, obj, *o);
-        }
-    }
-}
+void func_002e9fe0(It36* it, u8* obj, Vec4* pos);  // 002e9fe0: moved to src/anon/unit_002e9a00.cpp
 
 // fdlibm __kernel_cosf
 f32 __kernel_cosf(f32 x, f32 y)
@@ -13313,15 +13293,7 @@ f32 func_0020c860(void* self, f32* m, Par20c860* par, void* a3, Src20c860* src)
 // --------------------
 s32 func_001c0cd8(u8*);
 s32 func_001c0ce8(u8*);
-s32 func_002e9a78(void* self, u8* o, s32 k) {
-    if (func_001c0cd8(o) && func_001c0ce8(o)) return 0;
-    switch (k) {
-    case 0: { u32 m = *(u32*)(o + 0x588) & 0x10; return m != 0; }
-    case 1: { u32 m = *(u32*)(o + 0x588) & 4; return m != 0; }
-    case 2: { u32 m = *(u32*)(o + 0x588) & 4; return m != 0; }
-    }
-    return 1;
-}
+s32 func_002e9a78(void* self, u8* o, s32 k);  // 002e9a78: moved to src/anon/unit_002e9a00.cpp
 
 // --------------------
 // lq/sq 128-bit copy (hand-written VU-style copy), source operand first
@@ -13506,46 +13478,7 @@ s32 func_002e9c58(S2e9d08*, u8*);
 void func_002e9c98(S2e9d08*, u32*);
 f32 func_002f8ad0(f32, f32);
 f32 func_0017ce10(f32);
-void func_002e9d08(S2e9d08* s, u32* res, V2e9d08* origin, V2e9d08* dir, u8 nearest, u8 flat, u8 check)
-{
-    B2e9d08 b;
-    V2e9d08 d;
-    f32 best = 0.0f;
-    u8* o = 0;
-    b.d = 0;
-    func_00190128_2e9d08(res);
-    ((u8*)s)[5] = 0;
-    while ((o = func_001b9bc8(o)) != 0) {
-        if (!func_002e9a78(s, o, s->fc)) continue;
-        if ((s->flags & 0x10000) && (*(u32*)(o + 0x108) & 0x8000)) continue;
-        if (!func_002e9c58(s, o)) continue;
-        u8* e = 0;
-        f32 k = 3.1415925f;
-        while ((e = func_0016bba8(o, 3, e)) != 0) {
-            ((u8*)s)[5]++;
-            if (check && func_002e9a38(s, o, *e)) continue;
-            func_0018a818_2e9d08(&b, o, e);
-            d = Sub2e9d08(b.pos, *origin);
-            if (flat) d.y = 0.0f;
-            f32 len = Length2e9d08(d);
-            f32 v = len;
-            if (len < s->minDist) continue;
-            if (s->maxDist < len) continue;
-            if (s->maxAng < k) {
-                f32 a = func_002f8ad0(dir->x, dir->z) - func_002f8ad0(d.x, d.z);
-                a = func_0017ce10(a);
-                if (func_003142e0(func_00313b80(a), 0.0) < 0) a = -a;
-                if (s->maxAng <= a) continue;
-            }
-            if (!nearest) v = -len;
-            if (*res == 0 || v < best) {
-                best = v;
-                func_00190878_2e9d08(res, o, *e);
-            }
-        }
-    }
-    if (*res != 0 && check) func_002e9c98(s, res);
-}
+void func_002e9d08(S2e9d08* s, u32* res, V2e9d08* origin, V2e9d08* dir, u8 nearest, u8 flat, u8 check);  // 002e9d08: moved to src/anon/unit_002e9a00.cpp
 
 // --------------------
 extern u8 D_00350758[];

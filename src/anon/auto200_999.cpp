@@ -514,25 +514,7 @@ void func_001e0dc8(u32 a0) {
     *(u32 *)(p + 60) = 0;
 }
 
-void func_002e9a00(u32 a0, u32 a1) {
-    u32 p = 0x00370000;
-    asm volatile("" : "+r"(p));
-    *(u32 *)a0 = a1;
-    p += 24736;
-    asm volatile("" : "+r"(p));
-    *(volatile u32 *)(a0 + 4) = 0;
-    f32 f0 = *(f32 *)p;
-    *(volatile u32 *)(a0 + 8) = 0;
-    p = 0x00370000;
-    asm volatile("" : "+r"(p));
-    *(f32 *)(a0 + 20) = f0;
-    p += 24740;
-    asm volatile("" : "+r"(p));
-    *(volatile u32 *)(a0 + 12) = 0;
-    register f32 f1 asm("$f1") = *(f32 *)p;
-    *(volatile u32 *)(a0 + 16) = 0;
-    *(f32 *)(a0 + 24) = f1;
-}
+void func_002e9a00(u32 a0, u32 a1);  // 002e9a00: moved to src/anon/unit_002e9a00.cpp
 
 u32 func_00239cf0(u32 a0) {
     s32 idx = *(s32 *)(a0 + 276);

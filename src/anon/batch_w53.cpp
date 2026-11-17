@@ -312,13 +312,7 @@ void func_002df7d8(u8* p, u32 b) {
 }
 
 // Returns (o+16) scaled by D_00363440 (VU0).
-Q16* func_002eaba8(Q16* ret, u32, u8* o) {
-    Q16 t;
-    asm volatile(".set noreorder\n\tlqc2 $vf1, 0(%1)\n\tmfc1 $8, %2\n\tqmtc2 $8, $vf2\n\tvmulx.wxyz $vf1, $vf1, $vf2x\n\tsqc2 $vf1, 0(%0)\n\t.set reorder"
-        : : "r"(&t), "r"(o + 16), "f"(D_00363440) : "$8", "memory");
-    if (ret != &t) QCOPY(ret, &t);
-    return ret;
-}
+Q16* func_002eaba8(Q16* ret, u32, u8* o);  // 002eaba8: moved to src/anon/unit_002eaa68.cpp
 
 // Run all registered exit handlers (newest first), then the final hook, then exit.
 void func_002fd348(s32 code) {

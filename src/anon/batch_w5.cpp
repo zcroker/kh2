@@ -159,11 +159,7 @@ void func_002e95a0(u32, f32, f32);
 // 002e8c58: moved to src/anon/unit_002e8b50.cpp
 
 extern u32 D_00363410;
-void func_002ea2d8(u32* p) {
-    p[1] = 1;
-    p[2] = 385;
-    p[0] = (u32)&D_00363410;
-}
+void func_002ea2d8(u32* p);  // 002ea2d8: moved to src/anon/unit_002ea2b8.cpp
 
 // VU0 macro code: dst = a x b (outer product), dst.w = 0.
 void sceVu0OuterProduct(void* dst, void* a, void* b) {  // vec3_cross

@@ -521,18 +521,7 @@ u32 func_002e86c0(u32 a0, u32 a1, u32 a2, u32 a3) {
 
 // 002e9158: moved to src/anon/unit_002e8b50.cpp
 
-u32 func_002eaa70(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u, r14 = 0u, r15 = 0u, r16 = 0u;
-    r4 = r5;
-    r16 = r5;
-    r5 = 0u;
-    r2 = YS_OBJ_change_action(r4, r5, r6, r7);
-    r15 = *(u32*)((u32)r16 + (s32)(264));
-    r14 = (u32)(0x0800u << 16);
-    r15 = (u32)(r15 | r14);
-    *(u32*)((u32)r16 + (s32)(264)) = r15;
-    return r2;
-}
+u32 func_002eaa70(u32 a0, u32 a1, u32 a2, u32 a3);  // 002eaa70: moved to src/anon/unit_002eaa68.cpp
 
 // 002ef628: moved to src/anon/unit_002ef1f8.cpp
 

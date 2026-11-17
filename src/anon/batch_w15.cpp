@@ -264,10 +264,7 @@ void func_002e8038(u32* p) {
 }
 
 u8 func_0019bc38(void*);
-u8 func_002e9c58(u8* a, u8* b) {
-    if (*(u32*)(a + 12) != 2 && !(*(u32*)(b + 1416) & 4)) return func_0019bc38(b);
-    return 1;
-}
+u8 func_002e9c58(u8* a, u8* b);  // 002e9c58: moved to src/anon/unit_002e9a00.cpp
 
 extern u8 D_00367860;
 void func_003167f8(void*);  // set_vtbl_367910

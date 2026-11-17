@@ -260,10 +260,7 @@ void func_002ddb80(void** p) {
 
 // 002e2dd8: moved to src/anon/unit_002e2d18.cpp
 
-void func_002eaaf0(void* p) {
-    func_0017c430(p);
-    func_0016bd60((u32)p, 44);
-}
+void func_002eaaf0(void* p);  // 002eaaf0: moved to src/anon/unit_002eaa68.cpp
 
 void ScisSpriteMessage_draw(u8* self) {
     func_00138988(self);

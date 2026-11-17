@@ -1283,25 +1283,15 @@ u32 func_002e8b10(u32 a0, u32 a1, u32 a2, u32 a3) {
 
 // 002e9988: _GLOBAL__I_ stub, now made by gcc in src/sugi/flare.cpp
 
-u32 func_002eab70(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_002eaab0(a1, a2, a2, a3);
-}
+u32 func_002eab70(u32 a0, u32 a1, u32 a2, u32 a3);  // 002eab70: moved to src/anon/unit_002eaa68.cpp
 
-u32 func_002eac98(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_002eaab0(a1, a2, a2, a3);
-}
+u32 func_002eac98(u32 a0, u32 a1, u32 a2, u32 a3);  // 002eac98: moved to src/anon/unit_002eaa68.cpp
 
-u32 func_002eacd0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_0017cc30(a0, a1, 0x0000002bu, a3);
-}
+u32 func_002eacd0(u32 a0, u32 a1, u32 a2, u32 a3);  // 002eacd0: moved to src/anon/unit_002eaa68.cpp
 
-u32 func_002eace8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_002eaab0(a1, a2, a2, a3);
-}
+u32 func_002eace8(u32 a0, u32 a1, u32 a2, u32 a3);  // 002eace8: moved to src/anon/unit_002eaa68.cpp
 
-u32 func_002ead78(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_002ead48(0x00000001u, 0x0000ffffu, a2, a3);
-}
+u32 func_002ead78(u32 a0, u32 a1, u32 a2, u32 a3);  // 002ead78: moved to src/anon/unit_002eaa68.cpp
 
 // 002eaf18: _GLOBAL__I_ stub, now made by gcc in src/anon/unit_002eae08.cpp
 

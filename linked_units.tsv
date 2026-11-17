@@ -219,6 +219,9 @@ src/anon/unit_00165f70.cpp	00165f70	00166148	-	-G0
 src/anon/unit_001664c0.cpp	001664c0	001672c8	.rodata@0036b518	-G0 -fno-strict-aliasing
 src/anon/unit_002e8b50.cpp	002e8b50	002e9248	.bss@01e2bf90,.rodata@00376088	-G0 -fno-strict-aliasing
 src/sugi/flare.cpp	002e9248	002e99c8	.data@01e2bfa0,.rodata@00376090	-G0 -fno-strict-aliasing
+src/anon/unit_002e9a00.cpp	002e9a00	002ea0f0	.rodata@003760a0	-G0
+src/anon/unit_002ea2b8.cpp	002ea2b8	002ea450	-	-G0
+src/anon/unit_002eaa68.cpp	002eaa68	002ead98	.rodata@003760d4	-G0
 src/anon/unit_001cc048.cpp	001cc048	001cc3b8	.rodata@0036e1c0	-G0 -g
 src/anon/unit_001cc868.cpp	001cc868	001cd078	.rodata@0036e1fc	-G0 -g
 src/anon/unit_001cd078.cpp	001cd078	001cd548	.rodata@0036e238	-G0 -g
