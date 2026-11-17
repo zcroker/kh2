@@ -369,13 +369,9 @@ u32 func_00100690(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00100690: definition mo
 
 u32 func_00100770(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00100770: definition moved into src/libgcc/unwind-dw2-fde.c
 
-u32 func_00101d50(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_002b9bd0(a0, a1, a2, a3);
-}
+u32 func_00101d50(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00101d50: definition moved into src/global/unit_00101d50.cpp
 
-u32 func_00102278(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_00102250(0x00000001u, 0x0000ffffu, a2, a3);
-}
+u32 func_00102278(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00102278: definition moved into src/global/unit_00101d50.cpp
 
 // 00102448: Tz::TaskYield, moved to src/global/unit_001022c0.cpp
 

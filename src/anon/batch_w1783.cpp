@@ -52,17 +52,6 @@ void func_001021d0(void);
 
 static inline PN* pnB(PN* p) { if (!p) return D_0038aa40; return p->next; }
 
-void func_00102080(PN* self) {
-    if (self->state != 3) {
-        PN* p = 0;
-        while ((p = pnB(p)) != 0) {
-            if (p->mask & self->mask) {
-                p->state = 3;
-                func_001021d0();
-            }
-        }
-        func_00102818(D_0032b91c, self->mask, self->_18, func_00101ea8, self->_28)->owner = self;
-    }
-}
+void func_00102080(PN* self);  // 0x00102080: definition moved into src/global/unit_00101d50.cpp
 
 }

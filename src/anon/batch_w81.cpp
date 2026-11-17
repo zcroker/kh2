@@ -381,27 +381,7 @@ void wtarget_002e2570(u8* o, u32, u32, u32) asm("_Z16wtarget_002e2570jjjj");
 
 // --- 002f1670: progress value for the current fade state
 void func_002f1480(u8*, f32);
-void func_002f1670(u8* o) {
-    NoTail81 nt;
-    f32 r = 0.0f;
-    switch (*(s32*)(o + 12)) {
-    case 0:
-        r = 1.0f;
-        break;
-    case 1:
-        r = *(f32*)(o + 20) / *(f32*)(o + 16);
-        if (0.5f < r) r = (1.0f - r) + (1.0f - r);
-        else r = r + r;
-        break;
-    case 2:
-        r = *(f32*)(o + 20) / *(f32*)(o + 16);
-        break;
-    case 3:
-        r = 1.0f - *(f32*)(o + 20) / *(f32*)(o + 16);
-        break;
-    }
-    func_002f1480(o, r);
-}
+void func_002f1670(u8* o);  // 0x002f1670: definition moved into src/anon/unit_002f12b0.cpp
 
 // --- 0031a1a0: assignment operator (base fields, member at 24 via its operator=, tail fields)
 struct Pr31a { u32 x, y; };

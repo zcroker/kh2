@@ -85,25 +85,7 @@ int func_00310230(int id)
 extern int D_003660d4;
 extern char D_01e35680[];
 extern void func_003111f0(char *);
-void func_00306e80(int c)
-{
-    int n = D_003660d4;
-    if (n >= 126) {
-        D_003660d4 = 0;
-        D_01e35680[127] = 0;
-        func_003111f0(D_01e35680);
-        n = D_003660d4;
-    }
-    if (c == '\n') {
-        D_01e35680[n] = c;
-        D_003660d4 = 0;
-        D_01e35680[n + 1] = 0;
-        func_003111f0(D_01e35680);
-    } else {
-        D_003660d4 = n + 1;
-        D_01e35680[n] = c;
-    }
-}
+void func_00306e80(int c);  // 0x00306e80: definition moved into src/sdk/kprintf.c
 
 extern char *D_003660cc;
 extern unsigned int func_00305600(void);

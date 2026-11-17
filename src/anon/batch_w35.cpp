@@ -177,11 +177,7 @@ extern u32 D_00363c24;
 extern u32 D_01e2c0d0;
 u32 func_001708f8(u32, s32);
 u8* func_00168b38(u32, u32, u32);  // entry_array_find_nth
-void func_002f1808(void) {
-    u32 v = func_001708f8(D_00363c20, -1);
-    D_01e2c0d0 = v;
-    D_00363c24 = *(u32*)(func_00168b38(v, 2, 0) + 8);  // entry_array_find_nth
-}
+void func_002f1808(void);  // 0x002f1808: definition moved into src/anon/unit_002f17e0.cpp
 
 extern u8 D_0034a800[];
 extern u8 D_00347e60[];

@@ -40,17 +40,7 @@ static inline Node2180* Next2180(Node2180* n) {
     return n->next;
 }
 // Collects every list node whose state is 1; returns the count.
-s32 func_00102180(Node2180** out) {
-    Node2180* n = 0;
-    s32 count = 0;
-    while ((n = Next2180(n))) {
-        if (n->state == 1) {
-            *out++ = n;
-            count++;
-        }
-    }
-    return count;
-}
+s32 func_00102180(Node2180** out);  // 0x00102180: definition moved into src/global/unit_00101d50.cpp
 
 void func_0010a800(u8*, u8*, u8*);  // copy_global_3bytes
 void func_00108698(u8* p);  // 00108698: moved to src/anon/unit_001085a8.cpp

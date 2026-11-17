@@ -122,15 +122,7 @@ u32 func_002d8898(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002d8898: definition mo
 
 void func_002eda10(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002eda10: definition moved into src/anon/unit_002ecdb0.cpp
 
-u32 func_002f1ac8(u32 a0, u32 a1, u32 a2, u32 a3) {  // entry_ptr
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u, r15 = 0u;
-    r15 = (u32)(0x0036u << 16);
-    r4 = (u32)(r4 << 6);
-    r2 = *(u32*)((u32)r15 + (s32)(15404));
-    r2 = (u32)(r2 + r4);
-    r2 = (u32)((s32)r2 + (8));
-    return r2;
-}
+u32 func_002f1ac8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002f1ac8: definition moved into src/anon/unit_002f1a68.cpp
 
 void func_00319d58(u32 a0, u32 a1, u32 a2, u32 a3) {  // store_zero_byte
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3;

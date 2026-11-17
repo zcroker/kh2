@@ -184,9 +184,7 @@ void func_002bd730(s32 a, void* b, void* c, void* d);  // 0x002bd730: definition
 
 // 002f05d8: moved to src/anon/unit_002efd68.cpp
 
-bool func_002f1ae0(u32 n) {  // bitmask_test
-    return (D_0033cae8[n >> 5] & (1 << (n & 31))) != 0;
-}
+bool func_002f1ae0(u32 n);  // 0x002f1ae0: definition moved into src/anon/unit_002f1a68.cpp
 
 // Store a 4x4 identity matrix at m (rows written last-to-first).
 void sceVu0UnitMatrix(void* m) {  // vu_store_w_splat

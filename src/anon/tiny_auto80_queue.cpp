@@ -3581,55 +3581,19 @@ u32 duplicate_unplaced_002f1230(u32 a0, u32 a1) {
 
 extern "C" u32 func_00170950(...);
 
-void func_002f1850(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r15, r16;
-    r16 = (u32)(0x01e3u << 16);
-    r15 = *(volatile u32*)((u32)r16 + (s32)(-16176));
-    r4 = r15;
-    if (r15 != 0u) {
-        ((void(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_00170950)(r4, r5, r6, r7, r8, r9, r10, r11);
-        *(volatile u32*)((u32)r16 + (s32)(-16176)) = 0u;
-    }
-}
+void func_002f1850(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);  // 0x002f1850: definition moved into src/anon/unit_002f17e0.cpp
 
 extern "C" u32 func_001dc920(...);
 
-void func_002f1990(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r15, r16;
-    r16 = r4;
-    r15 = *(volatile u32*)((u32)r4 + (s32)(0));
-    r4 = r15;
-    if (r15 != 0u) {
-        ((void(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_001dc920)(r4, r5, r6, r7, r8, r9, r10, r11);
-        *(volatile u32*)((u32)r16 + (s32)(0)) = 0u;
-    }
-}
+void func_002f1990(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);  // 0x002f1990: definition moved into src/anon/unit_002f17e0.cpp
 
 extern "C" u32 func_001dc840(...);
 
-void func_002f19c8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r15, r16;
-    r16 = r4;
-    r15 = *(volatile u32*)((u32)r4 + (s32)(0));
-    r4 = r15;
-    if (r15 != 0u) {
-        ((void(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_001dc840)(r4, r5, r6, r7, r8, r9, r10, r11);
-        *(volatile u32*)((u32)r16 + (s32)(0)) = 0u;
-    }
-}
+void func_002f19c8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);  // 0x002f19c8: definition moved into src/anon/unit_002f17e0.cpp
 
 extern "C" u32 func_001dc978(...);
 
-void func_002f1a00(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r15, r16;
-    r16 = r4;
-    r15 = *(volatile u32*)((u32)r4 + (s32)(0));
-    r4 = r15;
-    if (r15 != 0u) {
-        ((void(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_001dc978)(r4, r5, r6, r7, r8, r9, r10, r11);
-        *(volatile u32*)((u32)r16 + (s32)(0)) = 0u;
-    }
-}
+void func_002f1a00(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);  // 0x002f1a00: definition moved into src/anon/unit_002f17e0.cpp
 
 extern "C" u32 func_003037b0(...);
 
@@ -11661,51 +11625,16 @@ extern "C" u32 func_0011a430(...);
 
 // 002f11d0: moved to src/naka/libkn/trapfunctions.cpp
 
-void func_002f1460(u32* a0, u32 a1, f32 f12, f32 f13, f32 f14, f32 f15) {
-    a0[3] = a1;
-    a0[5] = 0;
-    *(f32*)((u8*)a0 + 0) = f12;
-    *(f32*)((u8*)a0 + 4) = f13;
-    *(f32*)((u8*)a0 + 8) = f14;
-    *(f32*)((u8*)a0 + 16) = f15;
-}
+void func_002f1460(u32* a0, u32 a1, f32 f12, f32 f13, f32 f14, f32 f15);  // 0x002f1460: definition moved into src/anon/unit_002f12b0.cpp
 
-u32 func_002f18c8(u8* a0) {
-    u32* p = (u32*)0x01e30000;
-    u32 v0 = func_00168b38(p[-4044], 24, (u32)a0[3]);  // entry_array_find_nth
-    u32 t7 = 0;
-    if (v0 != 0) {
-        t7 = *(u32*)(v0 + 8);
-    }
-    return t7;
-}
+u32 func_002f18c8(u8* a0);  // 0x002f18c8: definition moved into src/anon/unit_002f17e0.cpp
 
-void func_002f1900(u32* a0, u32 a1, u32 a2) {
-    u32* s0 = a0;
-    u32 a0c = a2;
-    if (s0[0] == 0) {
-        u32 v0 = func_0016ac38(a0c, a1, 1, 0, 0);
-        s0[0] = v0;
-    }
-}
+void func_002f1900(u32* a0, u32 a1, u32 a2);  // 0x002f1900: definition moved into src/anon/unit_002f17e0.cpp
 
 extern "C" void func_002f1990(...);
-void func_002f1940(u32* a0) {
-    u32* s0 = a0;
-    u32 t7 = a0[0];
-    if (t7 != 0) {
-        if (func_001dc9d0(t7) == 0) {
-            func_002f1990((u32)s0);
-        }
-    }
-}
+void func_002f1940(u32* a0);  // 0x002f1940: definition moved into src/anon/unit_002f17e0.cpp
 
-void func_002f1a38(u32* a0) {
-    u32 t7 = a0[0];
-    if (t7 != 0) {
-        func_001dc818(t7);
-    }
-}
+void func_002f1a38(u32* a0);  // 0x002f1a38: definition moved into src/anon/unit_002f17e0.cpp
 
 void duplicate_unplaced_002f5c48(u32 a0, ...) {
     volatile u8 pad[64];
@@ -11954,12 +11883,7 @@ void func_00321198(u32* a0) {  // zero_3_words
     } while (t7 >= 0);
 }
 
-void func_00102158(u32* a0, u32 a1) {
-    u32 t7 = a0[9];
-    if (t7 != 0) {
-        ((void (*)(u32))t7)(a1);
-    }
-}
+void func_00102158(u32* a0, u32 a1);  // 0x00102158: definition moved into src/global/unit_00101d50.cpp
 
 // 001033b0: Tz::MenuBase::Reset, moved to src/common/unit_001031b0.cpp
 

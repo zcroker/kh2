@@ -192,9 +192,7 @@ void func_002e7ff8(u32* p) {
     *(f32*)p = func_001906f0((void*)p[0], &t);
 }
 
-u32 func_002f1898(void) {
-    return *(u32*)((u8*)func_00168b38(D_01e2c0d0, 25, 0) + 8);  // entry_array_find_nth
-}
+u32 func_002f1898(void);  // 0x002f1898: definition moved into src/anon/unit_002f17e0.cpp
 
 
 // fdlibm isnan(): 1 if x is NaN

@@ -8,13 +8,7 @@ static inline __attribute__((always_inline)) N102210* nxt102210(N102210* p) {
     if (p == 0) return D_0038aa40;
     return p->next;
 }
-N102210* func_00102210(void) {
-    N102210* p = 0;
-    while ((p = nxt102210(p))) {
-        if (p->f28 == 1) return p;
-    }
-    return 0;
-}
+N102210* func_00102210(void);  // 0x00102210: definition moved into src/global/unit_00101d50.cpp
 
 struct M1702e0 { char p0[48]; u32 f48; char p1[8]; M1702e0* next; };
 extern M1702e0* D_0034dca0;

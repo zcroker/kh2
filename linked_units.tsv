@@ -577,3 +577,8 @@ src/sdk/libgraph2.c	002f2448	002f2d5c	.rodata@00376310	-G0
 src/sdk/libgraph3.c	002f2d60	002f3490	.rodata@00376600	-G0
 src/libgcc/_muldi3.c	00311aa0	00311af0	-	-G0
 src/libgcc/unwind-dw2-fde.c	001003c8	00101ce0	.data@0032b918,.rodata@00369d54,.bss@0037aa28	-G0 -fexceptions
+src/global/unit_00101d50.cpp	00101d50	00102298	.data@0032b91c,.gnu.linkonce.d._ZTV4PROC@0032b928,.bss@0037aa40	-G0 -fno-strict-aliasing
+src/anon/unit_002f12b0.cpp	002f12b0	002f17e0	.rodata@0037623c	-G0
+src/anon/unit_002f17e0.cpp	002f17e0	002f1a68	.data@00363c20,.rodata@00376260,.bss@01e2c0d0	-G0
+src/anon/unit_002f1a68.cpp	002f1a68	002f1b48	.data@00363c28,.rodata@00376270,.bss@01e2c100	-G0
+src/sdk/kprintf.c	00306e48	003081d0	.data@003660d4,.rodata@00377ef0	-G0

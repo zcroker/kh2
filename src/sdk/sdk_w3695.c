@@ -6,16 +6,7 @@ typedef unsigned int u_int;
 /* SIO putc: wait while the TX FIFO is full, then write the byte.
  * The empty asm hides the FIFO address from gcc so the store is a plain sb through a
  * register (lui/ori) that gcc can put in the jr delay slot, like the original. */
-int func_00306e48(int c)
-{
-    char *txfifo;
-    while (*(volatile int *)0x1000f130 & 0x8000)
-        ;
-    txfifo = (char *)0x1000f180;
-    asm("" : "+r"(txfifo));
-    *txfifo = c;
-    return c;
-}
+int func_00306e48(int c);  // 0x00306e48: definition moved into src/sdk/kprintf.c
 
 typedef struct { u_int data, addr; int size, mode; } SifDmaData_w3695;
 extern void *memcpy(void *, const void *, int);

@@ -189,10 +189,7 @@ extern u32 D_00363c28;
 extern u32 D_01e2c100;
 void func_002f1a68(void);
 void func_00168388(u32, void*, void (*)(void), s32);
-void func_002f1a80(void) {
-    D_00363c2c = 0;
-    func_00168388(D_00363c28, &D_01e2c100, func_002f1a68, 0);
-}
+void func_002f1a80(void);  // 0x002f1a80: definition moved into src/anon/unit_002f1a68.cpp
 
 extern u32 D_00347e60;
 void func_00239870(void*);

@@ -33,33 +33,5 @@ extern f32 D_00349e10;
 static inline f32 rnd_h(f32 a) { return (f32)func_002fea18() / 2147483520.0f * a - a * 0.5f; }
 static inline f32 rnd_h2(f32 a, f32 s) { return ((f32)func_002fea18() / 2147483520.0f * a - a * 0.5f) * s; }
 
-s32 func_002f1480(Obj* o, f32 s)
-{
-    QV v;
-    QM m;
-    QV c;
-    f32 k = 2147483520.0f;
-    f32 x = (f32)func_002fea18() / k * o->sx - o->sx / 2.0f;
-    x = x * s;
-    f32 y = (f32)func_002fea18() / k * o->sy - o->sy / 2.0f;
-    y = y * s;
-    f32 z = (f32)func_002fea18() / k * o->sz - o->sz / 2.0f;
-    z = z * s;
-    s32 cam = func_00106a60(1);
-    func_00107368(cam, &c);
-    f32 a = func_001074b8(cam);
-    asm("" : "+r"(o) : "f"(x), "f"(y));
-    v.x = x;
-    v.y = y;
-    v.z = z;
-    v.w = 1.0f;
-    func_0011b6a8(&m);
-    sceVu0RotMatrixZ(&m, &m, a);
-    v = m * v;
-    o->pos = c + v;
-    func_00107330(cam, o->pos.x, o->pos.y, o->pos.z);
-    o->f14 += D_00349e10;
-    if (o->f10 <= o->f14) return 0;
-    return 1;
-}
+s32 func_002f1480(Obj* o, f32 s);  // 0x002f1480: definition moved into src/anon/unit_002f12b0.cpp
 }

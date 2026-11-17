@@ -19,22 +19,9 @@ int func_00310fe0(unsigned int a, int b, int c)
 
 extern int func_003071d0(void *, void *, int, const char *, va_list);
 extern int func_00307ee8();
-int func_00308018(char *buf, int n, const char *fmt, ...)
-{
-    va_list ap; int r;
-    va_start(ap, fmt);
-    r = func_003071d0(func_00307ee8, &buf, n, fmt, ap);
-    return r;
-}
+int func_00308018(char *buf, int n, const char *fmt, ...);  // 0x00308018: definition moved into src/sdk/kprintf.c
 
-int func_00307f90(void *a, void *b, int *n, const char *fmt, ...)
-{
-    va_list ap; int r;
-    va_start(ap, fmt);
-    r = func_003071d0(a, b, *n, fmt, ap);
-    *n -= r;
-    return r;
-}
+int func_00307f90(void *a, void *b, int *n, const char *fmt, ...);  // 0x00307f90: definition moved into src/sdk/kprintf.c
 
 extern int DIntr(void);
 extern int func_0030ffd8(void);

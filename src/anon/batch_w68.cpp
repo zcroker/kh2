@@ -296,19 +296,7 @@ s32 func_001ba028(u32);  // list_contains_ptr
 f32 func_0017ce10(f32);
 void func_0016aeb8(u32, f32);
 struct O21 { u32 f0; u32 h; f32 time; f32 dflt; f32 speed; f32 val; };
-s32 func_002f13b0(O21* o) {
-    if (!func_001ba028(o->h)) return 0;
-    o->val += o->speed * D_00349e10.f;
-    o->val = func_0017ce10(o->val);
-    o->time -= D_00349e10.f;
-    if (o->time <= 0.0f) {
-        o->val = o->dflt;
-        func_0016aeb8(o->h, o->dflt);
-        return 0;
-    }
-    func_0016aeb8(o->h, o->val);
-    return 1;
-}
+s32 func_002f13b0(O21* o);  // 0x002f13b0: definition moved into src/anon/unit_002f12b0.cpp
 
 /* ---- 0031c0f8: destructor body ---- */
 extern void* D_0034a548;

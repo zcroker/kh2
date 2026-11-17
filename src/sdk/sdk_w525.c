@@ -28,16 +28,7 @@ extern int DIntr(void);
 extern void EIntr(void);
 extern void func_00307f40(void);
 extern int func_003071d0(void (*)(void), void *, unsigned int, int, int);
-void func_00308060(int a, int b)
-{
-    Arg s;
-    int st;
-    s.x = 0;
-    st = DIntr();
-    func_003071d0(func_00307f40, &s, 0xffffffff, a, b);
-    if (st)
-        EIntr();
-}
+void func_00308060(int a, int b);  // 0x00308060: definition moved into src/sdk/kprintf.c
 
 typedef struct { int count, max_count, init_count, wait_threads; unsigned int attr, option; } SemaParam;
 extern int func_00305620(SemaParam *);

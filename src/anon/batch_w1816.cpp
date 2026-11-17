@@ -44,20 +44,7 @@ extern "C" {
 void func_0016af58(W1816Q*, u32);
 f32 func_0017ce10(f32);
 f32 func_002f8ad0(f32, f32);
-void func_002f12b0(W1816Turn* s, f32 deg, u32 h, f32 t, s32 flag) {
-    s->rev = flag != 0;
-    s->h = h; s->time = t;
-    s->dst = 3.1415927f - deg * 0.017453292f;
-    W1816Q v; func_0016af58(&v, h);
-    s->val = func_002f8ad0(v.x, v.z);
-    s->val = func_0017ce10(s->val);
-    s->dst = func_0017ce10(s->dst);
-    f32 d;
-    if (s->dst < s->val) { d = s->val - s->dst; if (s->rev == false) d = 6.283185f - d; }
-    else { d = s->dst - s->val; if (s->rev == true) d = 6.283185f - d; }
-    s->speed = d / s->time;
-    if (s->rev == true) s->speed = -s->speed;
-}
+void func_002f12b0(W1816Turn* s, f32 deg, u32 h, f32 t, s32 flag);  // 0x002f12b0: definition moved into src/anon/unit_002f12b0.cpp
 
 s32 func_00190180(W1816Tg*);
 void func_00190388(W1816V*, W1816Tg*);

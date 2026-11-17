@@ -12,14 +12,7 @@ extern int D_00365948;
 int func_002fbe60(int a, int b, int c);  // 0x002fbe60: definition moved into src/sdk/libmc.c
 
 extern int func_00306e48(int);
-void func_00306f30(int c)
-{
-    if (c == '\n') {
-        func_00306e48('\r');
-        func_00306e48('\n');
-    } else
-        func_00306e48(c);
-}
+void func_00306f30(int c);  // 0x00306f30: definition moved into src/sdk/kprintf.c
 
 extern int DisableDmac(int);
 extern int func_00305350(int, int);
@@ -67,8 +60,4 @@ int func_00311138(int a, int b, unsigned short c)
 
 extern int func_00307ee8();
 extern int func_003071d0(void *, void *, int, int, int);
-int func_00307fe0(int a, int b, int c, int d)
-{
-    int x = a;
-    return func_003071d0(func_00307ee8, &x, b, c, d);
-}
+int func_00307fe0(int a, int b, int c, int d);  // 0x00307fe0: definition moved into src/sdk/kprintf.c

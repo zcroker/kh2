@@ -92,4 +92,4 @@ u32 func_002cb920(u32 a0,u32 a1,u32 a2,u32 a3);  // 0x002cb920: definition moved
 
 // 002e34c8: moved to src/anon/unit_002e2f08.cpp
 
-u32 func_002f1ab8(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a0; (void)a1; (void)a2; (void)a3; u32 p = D_00363c2c; return *(u32*)((u32)p + (4)); }
+u32 func_002f1ab8(u32 a0,u32 a1,u32 a2,u32 a3);  // 0x002f1ab8: definition moved into src/anon/unit_002f1a68.cpp

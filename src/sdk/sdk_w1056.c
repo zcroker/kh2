@@ -101,24 +101,8 @@ extern int func_003071d0(void *, void *, u32, const char *, va_list);
 extern int func_00307f40();
 extern int func_00307f68();
 void ctarget_003080d0(const char *fmt, ...) asm("_Z16ctarget_003080d0jjjj");
-void ctarget_003080d0(const char *fmt, ...)
-{
-    va_list ap; int buf; int s;
-    buf = 0;
-    s = DIntr();
-    va_start(ap, fmt);
-    func_003071d0(func_00307f40, &buf, 0xffffffff, fmt, ap);
-    if (s) EIntr();
-}
-void func_00308150(const char *fmt, ...)
-{
-    va_list ap; int buf; int s;
-    buf = 0;
-    s = DIntr();
-    va_start(ap, fmt);
-    func_003071d0(func_00307f68, &buf, 0xffffffff, fmt, ap);
-    if (s) EIntr();
-}
+void ctarget_003080d0(const char *fmt, ...);  // 0x003080d0: definition moved into src/sdk/kprintf.c
+void func_00308150(const char *fmt, ...);  // 0x00308150: definition moved into src/sdk/kprintf.c
 
 typedef struct { int a, b, c; } Arg3;
 extern Arg3 D_01e38b00x asm("D_01e38b00");

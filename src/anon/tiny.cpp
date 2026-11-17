@@ -647,14 +647,7 @@ void func_002eda30(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002eda30: definition m
 
 // 002efa88: moved to src/anon/unit_002ef938.cpp
 
-u32 func_002f1888(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a0;
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    u32 b = (0x0036u << 16);
-    return (u32)(*(u32*)((u32)b + (15396)));
-}
+u32 func_002f1888(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002f1888: definition moved into src/anon/unit_002f17e0.cpp
 
 u32 func_00316d08(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_global_365c48
     (void)a0;

@@ -8,10 +8,10 @@ extern void func_00305650(int);
 int func_003068d8(int a, int b, int c, int d) { func_00305650(d); asm volatile("sync.l; ei"); return 0; }
 
 extern void func_00306e80(int);
-int func_00307f40(int a, int b, int c) { if (c) func_00306e80(c); return 1; }
+int func_00307f40(int a, int b, int c);  // 0x00307f40: definition moved into src/sdk/kprintf.c
 
 extern void func_00306f30(int);
-int func_00307f68(int a, int b, int c) { if (c) func_00306f30(c); return 1; }
+int func_00307f68(int a, int b, int c);  // 0x00307f68: definition moved into src/sdk/kprintf.c
 
 extern int func_00305a30(int);
 int func_0030ec28(void);  // 0x0030ec28: definition moved into src/sdk/iopreset.c
