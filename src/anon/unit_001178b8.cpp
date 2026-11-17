@@ -412,3 +412,126 @@ void func_00117e98(u8* p) {
 }
 }  // namespace n00117e98
 
+
+// 00117f60, 00118108: two never-written friend action handlers (same shape as 0x118998).
+namespace n00117f60 {
+struct V117f60 {
+    f32 x, y, z, w;
+    V117f60() {}
+    V117f60& operator=(const V117f60& o)
+    {
+        if (this != &o) asm volatile(".set noreorder\n\tlq $8, 0(%1)\n\tsq $8, 0(%0)\n\t.set reorder" : : "r"(this), "r"(&o) : "$8", "memory");
+        return *this;
+    }
+    V117f60 operator-(const V117f60& b) const
+    {
+        V117f60 r;
+        asm volatile(".set noreorder\n\tlqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 0(%2)\n\tvsub.wxyz $vf1, $vf1, $vf2\n\tsqc2 $vf1, 0(%0)\n\t.set reorder" : : "r"(&r), "r"(this), "r"(&b) : "memory");
+        return r;
+    }
+    void zero() { asm volatile(".set noreorder\n\tvsub.wxyz $vf1, $vf0, $vf0\n\tsqc2 $vf1, 0(%0)\n\t.set reorder" : : "r"(this) : "memory"); }
+    f32 normalize()
+    {
+        f32 len;
+        asm volatile(".set noreorder\n\tlqc2 $vf1, 0(%1)\n\tvmul.xyz $vf2, $vf1, $vf1\n\tvaddy.x $vf2, $vf2, $vf2y\n\tvaddz.x $vf2, $vf2, $vf2z\n\tvsqrt Q, $vf2x\n\tvwaitq\n\tcfc2.ni $8, $vi22\n\tvaddq.x $vf2, $vf0, Q\n\tmtc1 $8, %0\n\tvnop\n\tvdiv Q, $vf0w, $vf2x\n\tvwaitq\n\tvmulq.xyz $vf1, $vf1, Q\n\tsqc2 $vf1, 0(%1)\n\t.set reorder" : "=f"(len) : "r"(this) : "$8", "memory");
+        return len;
+    }
+} __attribute__((aligned(16)));
+struct Tgt117f60;
+void func_00190128(Tgt117f60*) asm("_ZN2YS6TARGETC1Ev");
+struct Tgt117f60 {
+    s32 f0, f4, f8, f12, f16;
+    Tgt117f60() { func_00190128(this); }
+};
+struct Model117f60 { u8 pad0[268]; u32 f268; };
+struct Cam117f60 { u8 pad[112]; f32 x, y; };
+struct Who117f60 {
+    u8 pad0[4];
+    Model117f60* model;
+    Cam117f60* cam;
+    u8 pad1[1576 - 12];
+    f32 maxSpeed;
+    u8 pad2[1600 - 1580];
+    V117f60 from;
+    V117f60 to;
+    V117f60 dir;
+};
+extern f32 D_00349e18 asm("D_00349e18");
+void func_00190878(Tgt117f60*, s32, s32) asm("_ZN2YS6TARGET7set_objEPNS_3OBJEi");
+s32 func_001b58a8(void) asm("_ZN2YS5LIMIT6IsExecEv");
+s32 func_0010ef48(Model117f60*) asm("func_0010ef48");
+s32 func_0010f8c0(Model117f60*) asm("func_0010f8c0");
+f32 func_0010f8a8(Model117f60*) asm("func_0010f8a8");
+void func_0010f880(Model117f60*, f32, f32) asm("func_0010f880");
+s32 func_0010f9e0(Model117f60*, s32) asm("func_0010f9e0");
+s32 func_001917c0(void) asm("_ZN2YS6STATUS12IsBattleModeEv");
+f32 func_0017ce10(f32) asm("_ZN2YS4MATH9FixRadianEf");
+f32 func_002f8870(f32) asm("fabsf");
+void func_0017f540(void*, s32, f32, f32) asm("_ZN2YS6MOTION6changeEiff");
+s32 func_00116d08(Who117f60*) asm("func_00116d08");
+void func_001169e8(Who117f60*, s32) asm("func_001169e8");
+void func_001168c0(Who117f60*) asm("func_001168c0");
+
+s32 func_00117f60(Who117f60* w, void* e, Tgt117f60* t, s32* score, u8 check) asm("func_00117f60");
+s32 func_00117f60(Who117f60* w, void* e, Tgt117f60* t, s32* score, u8 check)
+{
+    if (check) {
+        *score = 0;
+        Tgt117f60 tmp;
+        func_00190878(&tmp, 0, 0);
+        *t = tmp;
+        if (func_001b58a8()) return 0;
+        if (w->model->f268 & 0x800) return 0;
+        if (func_0010ef48(w->model)) return 0;
+        if (!func_0010f8c0(w->model)) return 1;
+        if (func_0010f8a8(w->model) <= 0.0f) return 0;
+        return 1;
+    }
+    if (!func_0010f8c0(w->model)) {
+        f32 x = w->cam->x;
+        f32 y = w->cam->y;
+        if (func_001917c0()) {
+            x = x * 2.0f + 60.0f;
+            y = y * 2.0f + 60.0f;
+        }
+        if (0.7853982f < func_002f8870(func_0017ce10(*(f32*)((u8*)w + 1612)))) {
+            x *= 0.3f;
+            y *= 0.3f;
+        }
+        func_0010f880(w->model, x, y);
+    }
+    func_0017f540((u8*)w->model + 320, 0, 4.0f, 0.0f);
+    w->dir.zero();
+    return 1;
+}
+
+s32 func_00118108(Who117f60* w, s32 a1, Tgt117f60* t, s32* score, u8 check) asm("func_00118108");
+s32 func_00118108(Who117f60* w, s32 a1, Tgt117f60* t, s32* score, u8 check)
+{
+    if (check) {
+        *score = 0;
+        Tgt117f60 tmp;
+        func_00190878(&tmp, 0, 0);
+        *t = tmp;
+        if (func_001b58a8()) return 0;
+        if (w->model->f268 & 0x800) return 0;
+        if (func_0010ef48(w->model)) return 0;
+        if (func_0010f8c0(w->model)) {
+            if (func_00116d08(w)) goto no;
+        } else if (func_0010f9e0(w->model, a1)) goto no;
+        return 1;
+    no:
+        return 0;
+    }
+    if (!func_0010f8c0(w->model)) {
+        func_001169e8(w, -1);
+        func_0017f540((u8*)w->model + 320, 161, 4.0f, 0.0f);
+    }
+    w->dir = w->to - w->from;
+    f32 sp = w->dir.normalize() * D_00349e18;
+    w->dir.w = sp;
+    if (w->maxSpeed < sp) w->dir.w = w->maxSpeed;
+    func_001168c0(w);
+    return 1;
+}
+}  // namespace n00117f60

@@ -296,3 +296,143 @@ void func_00118da0(W2404Self* self) {
 }
 }  // namespace n00118da0
 
+
+// 00119000, 00119108, 001192b0, 001193f0: never-written friend limit actions.
+namespace n00119000 {
+struct Obj119000 {
+    u8 pad0[268]; u32 f268;
+    u8 pad1[340 - 272]; s32 f340;
+    u8 pad2[1688 - 344]; union { f32 f; } f1688;
+    u8 pad3[2808 - 1692]; Obj119000* member[2];
+};
+struct Who119000 {
+    u8 pad0[4];
+    Obj119000* model;
+    u8 pad1[1856 - 8];
+    u8 cam[64];
+    u8 hidden[3];
+};
+struct V119000 { f32 x, y, z, w; };
+extern V119000 D_003a99d0 asm("D_003a99d0");
+extern V119000 D_003a99e0 asm("D_003a99e0");
+s32 func_0010f8c0(Obj119000*) asm("func_0010f8c0");
+void func_00118da0(Who119000*) asm("func_00118da0");
+Obj119000* func_00111e38(s32) asm("_ZN2kn6Friend13getPartyCharaEi");
+void func_00117808(Who119000*, V119000*) asm("func_00117808");
+void func_0017f488(void*, s32, f32, f32) asm("func_0017f488");
+void func_0017f5e0(void*, s32, f32, f32, void*) asm("_ZN2YS6MOTION4pushEiffPFvPNS_3OBJEE");
+s32 func_00180378(void*, Obj119000*, s32, f32) asm("func_00180378");
+void func_0017f5f8(void*, s32, s32, f32, f32) asm("func_0017f5f8");
+void func_00185e20(s32) asm("func_00185e20");
+void* func_00117970(Who119000*, s32, Obj119000*, s32, s32, s32, s32, s32) asm("func_00117970");
+void func_00117b20(Who119000*, void*) asm("func_00117b20");
+void func_00118378(Who119000*, s32) asm("func_00118378");
+void* func_0010c778(Obj119000*) asm("_ZN2kn6Friend14getObjObserverEv");
+void func_00135aa0(void*) asm("_ZN2kn11ObjObserver5clearEv");
+void func_001143d8(Who119000*) asm("_ZN2kn17FriendPersonality11start_limitEv");
+void func_00194648(Obj119000*, void*) asm("_ZN2YS3OBJ13attach_cameraEPN2kn7FMatrixE");
+s32 func_001c0cd8(Obj119000*) asm("_ZN2YS3OBJ9is_attachEv");
+void func_001c0e60(Obj119000*) asm("_ZN2YS3OBJ6detachEv");
+void func_001c0d38(Obj119000*, Obj119000*, s32, s32) asm("_Z16u_tail4_001c0d38jjjj");
+void func_0016bd60(Obj119000*, s32) asm("_ZN2YS3OBJ13change_actionENS_6ACTION2IDE");
+s32 func_001196d0(void*, s32) asm("func_001196d0");
+void func_00112778(Obj119000*, s32 (*)(void*, s32)) asm("_ZN2kn6Friend17setCallFromScriptEPFiPS0_iE");
+void func_00198860(Obj119000*, s32) asm("_ZN2YS6STDOBJ19set_special_commandEi");
+void func_00117588(Who119000*) asm("_ZN2kn6Stitch14update_obj_posEv");
+
+s32 func_00119000(Who119000* w, void* e, void* t, s32* score, u8 check) asm("func_00119000");
+s32 func_00119000(Who119000* w, void* e, void* t, s32* score, u8 check)
+{
+    if (check) {
+        if (!func_0010f8c0(w->model)) return 0;
+        if (w->model->f340 != 201) return 0;
+    } else if (!func_0010f8c0(w->model)) {
+        func_00118da0(w);
+        Obj119000* pc = func_00111e38(0);
+        func_00117808(w, &D_003a99d0);
+        func_0017f488((u8*)w->model + 320, 201, 0.0f, 0.0f);
+        func_0017f5e0((u8*)w->model + 320, 0, 0.0f, 0.0f, 0);
+        func_00180378((u8*)w->model + 320, pc, 257, 0.0f);
+        func_0017f5f8((u8*)pc + 320, 254, 0, 0.0f, 0.0f);
+    }
+    return 1;
+}
+
+s32 func_00119108(Who119000* w, void* e, void* t, s32* score, u8 check) asm("func_00119108");
+s32 func_00119108(Who119000* w, void* e, void* t, s32* score, u8 check)
+{
+    if (check) {
+        if (!func_0010f8c0(w->model)) return 0;
+        if (w->model->f340 != 205) {
+            func_00185e20(17);
+            return 0;
+        }
+    } else {
+    if (!func_0010f8c0(w->model)) {
+        Obj119000* pc = func_00111e38(0);
+        func_00117808(w, &D_003a99d0);
+        func_0017f488((u8*)w->model + 320, 205, 0.0f, 0.0f);
+        func_0017f5e0((u8*)w->model + 320, 0, 0.0f, 0.0f, 0);
+        s32 r = func_00180378((u8*)w->model + 320, pc, 255, 0.0f);
+        func_0017f5f8((u8*)pc + 320, 254, 0, 0.0f, 0.0f);
+        func_00117970(w, 3, 0, -1, 205, 0, 1, 0);
+        func_00117b20(w, func_00117970(w, 4, w->model, 19, 205, 0, 1, 0));
+        func_00117b20(w, func_00117970(w, 4, pc, 65, -r, 0, 1, 0));
+    }
+    func_00118378(w, 205);
+    }
+    return 1;
+}
+
+s32 func_001192b0(Who119000* w, void* e, void* t, s32* score, u8 check) asm("func_001192b0");
+s32 func_001192b0(Who119000* w, void* e, void* t, s32* score, u8 check)
+{
+    if (check) {
+        if (!func_0010f8c0(w->model)) return 0;
+        if (w->model->f340 != 242) return 0;
+    } else {
+        if (!func_0010f8c0(w->model)) {
+            func_00118da0(w);
+            Obj119000* pc = func_00111e38(0);
+            func_00117808(w, &D_003a99e0);
+            func_0017f488((u8*)w->model + 320, 242, 0.0f, 0.0f);
+            s32 r = func_00180378((u8*)w->model + 320, pc, 256, 0.0f);
+            func_00117970(w, 12, 0, -1, 242, 0, 1, 0);
+            func_00117b20(w, func_00117970(w, 13, pc, 65, -r, 0, 1, 0));
+        }
+        func_00118378(w, 242);
+    }
+    return 1;
+}
+
+void func_001193f0(Who119000* w) asm("func_001193f0");
+void func_001193f0(Who119000* w)
+{
+    func_00135aa0(func_0010c778(w->model));
+    func_001143d8(w);
+    Obj119000* pc = func_00111e38(0);
+    func_00117808(w, &D_003a99d0);
+    func_0017f488((u8*)w->model + 320, 0, 0.0f, 0.0f);
+    func_00180378((u8*)w->model + 320, pc, 254, 0.0f);
+    func_00194648(pc, w->cam);
+    u32 m = pc->f268 & 0x200;
+    w->hidden[0] = m == 0;
+    pc->f268 |= 0x200;
+    for (s32 i = 0; i < 2; i++) {
+        Obj119000* o = pc->member[i];
+        if (!o) continue;
+        if (func_001c0cd8(o)) func_001c0e60(o);
+        func_001c0d38(o, pc, 0x4000, 0);
+        func_00194648(o, w->cam);
+        o->f1688.f = 1e7f;
+        u32 k = o->f268 & 0x200;
+        w->hidden[i + 1] = k == 0;
+        o->f268 |= 0x200;
+    }
+    func_0016bd60(pc, 60);
+    pc->f1688.f = 1e7f;
+    func_00112778(w->model, func_001196d0);
+    func_00198860(w->model, 4);
+    func_00117588(w);
+}
+}  // namespace n00119000
