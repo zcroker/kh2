@@ -46,15 +46,7 @@ void func_001386e0(u8*, u32, u32, u32, u32, u32);
 
 void func_00144450(void*);
 void func_001616d8(void*);
-void func_001614e8(u8* p, u32 v) {
-    *(u32*)(p + 68) = v;
-    *(u32*)(p + 64) = 0;
-    *(u32*)(p + 72) = 0;
-    *(u32*)(p + 76) = 0;
-    *(u32*)(p + 80) = 0;
-    func_00144450(p + 84);
-    func_001616d8(p);
-}
+void func_001614e8(u8* p, u32 v);  // 0x001614e8: definition moved into src/anon/unit_001614e8.cpp
 
 void func_001666a0(void*);  // zero_fields_0_4_6_8
 void func_00166930(u8* p);  // 0x00166930: definition moved into src/anon/unit_001664c0.cpp

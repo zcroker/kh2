@@ -91,23 +91,9 @@ u32 func_0014ca20(void);  // 0x0014ca20: definition moved into src/anon/unit_001
 u32 func_00152598(u32 a0, s32 i, s32 second, Pair32* tbl);  // 0x00152598: definition moved into src/anon/unit_0014ecb8.cpp
 
 // Clamp to 0..128 and store.
-void func_00161a80(s32 v) {
-    s32 r;
-    if (v >= 0) {
-        r = v;
-        if (v > 128) r = 128;
-    } else {
-        r = 0;
-    }
-    D_0034c76c = r;
-}
+void func_00161a80(s32 v);  // 0x00161a80: definition moved into src/anon/unit_001614e8.cpp
 
-void func_00161ee8(void) {
-    D_0034c770 = 0;
-    D_0034c771 = 0;
-    D_0034c774 = 0;
-    D_0034c778 = 0;
-}
+void func_00161ee8(void);  // 0x00161ee8: definition moved into src/anon/unit_001614e8.cpp
 
 void func_00171910(BdObjFloat* a);  // 0x00171910: definition moved into src/anon/unit_00170f58.cpp
 

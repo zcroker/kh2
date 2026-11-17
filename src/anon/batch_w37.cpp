@@ -36,12 +36,7 @@ void func_001395a8(void*);
 
 
 s32 func_00162560(void*, Vq*);
-s32 func_00162bb0(const Vq* a, void* b, const Vq* c, const f32* s, Vq* out) {
-    Vq t;
-    t = vscale162(*c, *s);
-    *out = vsub162(*a, t);
-    return func_00162560(b, out) != 0;
-}
+s32 func_00162bb0(const Vq* a, void* b, const Vq* c, const f32* s, Vq* out);  // 0x00162bb0: definition moved into src/anon/unit_001614e8.cpp
 
 extern s8 D_004f6330;
 extern Vq D_004f6340;

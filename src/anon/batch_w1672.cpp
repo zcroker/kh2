@@ -48,16 +48,7 @@ void func_001da2b8(u32 a, s32 n);  // 0x001da2b8: definition moved into src/anon
 struct V4w1672 { f32 v[4]; } __attribute__((aligned(16)));
 void func_00162a20(V4w1672*);
 void func_00144908(u32, u8*);
-void func_00162a88(u8* p, u32 b) {
-    V4w1672 buf[2];
-    V4w1672 d;
-    func_00162a20(buf);
-    asm volatile("lqc2 $vf1,0(%1)\n lqc2 $vf2,0(%2)\n vsub.xyzw $vf1,$vf1,$vf2\n sqc2 $vf1,0(%0)" : : "r"(&d), "r"(&buf[1]), "r"(&buf[0]) : "memory");
-    f32 len;
-    asm volatile("lqc2 $vf1,0(%1)\n vmul.xyz $vf1,$vf1,$vf1\n vaddy.x $vf1,$vf1,$vf1y\n vaddz.x $vf1,$vf1,$vf1z\n vsqrt Q,$vf1x\n vwaitq\n cfc2 $8,$vi22\n mtc1 $8,%0" : "=f"(len) : "r"(&d) : "$8", "memory");
-    *(f32*)(p + 16) = len * 0.5f;
-    func_00144908(b, p);
-}
+void func_00162a88(u8* p, u32 b);  // 0x00162a88: definition moved into src/anon/unit_001614e8.cpp
 
 extern u32 D_00363544;
 extern u32 D_00363560;

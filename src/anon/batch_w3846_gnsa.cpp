@@ -63,53 +63,5 @@ static inline __attribute__((always_inline)) bool W3846InBox(const W3846V& p, co
 yes:
     o = 1; return o;
 }
-s32 func_00162c28(W3846Sphere* s, W3846Poly* p, W3846V* out) {
-    if (!D_004f4180) {
-        new (&D_004f4190) W3846V(0.008f, 0.008f, 0.008f, 1.0f);
-        D_004f4180 = 1;
-        func_002fd188(func_00163520);
-    }
-    f32 r2 = s->r * s->r;
-    s32 cnt = 0;
-    W3846V buf[4];
-    s32 n = p->n;
-    const s32* next = n == 3 ? D_0034c780 : D_0034c790;
-    s32 i;
-    for (i = 0; i < n; i++) {
-        W3846V* pa = p->v[i];
-        W3846V* pb = p->v[next[i]];
-        W3846V a; a = *pa;
-        W3846V b; b = *pb;
-        W3846Line l;
-        l.o = a;
-        l.d = b - a;
-        l.d.w = 1.0f;
-        l.o.w = 1.0f;
-        *out = l.d * -((l.o - s->c).dot(l.d) / l.d.lenSq()) + l.o;
-        if (W3846Dist2(s->c, *out) <= r2) {
-            W3846V lo = a + D_004f4190;
-            W3846V hi = b + D_004f4190;
-            if (W3846InBox(*out, lo, hi)) buf[cnt++] = *out;
-        }
-    }
-    if (cnt != 0) {
-        if (cnt == 1) { *out = buf[0]; return 1; }
-        f32 best = 99999991988224.0f;
-        s32 idx = 0;
-        for (s32 j = 0; j < cnt; j++) {
-            f32 d = W3846Dist2(s->c, buf[j]);
-            if (d < best) { best = d; idx = j; }
-        }
-        *out = buf[idx];
-        return 1;
-    }
-    f32 best = r2;
-    s32 idx = 4;
-    for (s32 k = 0; k < n; k++) {
-        f32 d = W3846Dist2(s->c, *p->v[k]);
-        if (d <= best) { best = d; idx = k; }
-    }
-    if (idx != 4) { *out = *p->v[idx]; return 1; }
-    return 0;
-}
+s32 func_00162c28(W3846Sphere* s, W3846Poly* p, W3846V* out);  // 0x00162c28: definition moved into src/anon/unit_001614e8.cpp
 }

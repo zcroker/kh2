@@ -37,32 +37,5 @@ struct V2404g {
 } __attribute__((aligned(16)));
 struct Sphere2404g { V2404g c; f32 r; };
 struct Seg2404g { V2404g a, b; };
-s32 func_001632c0(Sphere2404g* s, Seg2404g* l, V2404g* out)
-{
-    s32 ret = 0;
-    f32 t;
-    V2404g c, d, e;
-    c = (l->a + l->b) * 0.5f;
-    d = l->b - c;
-    e = s->c - c;
-    f32 dd = d.dot(d);
-    if (dd < 1.17549435e-38f) return 0;
-    f32 ee = e.dot(e);
-    f32 de = d.dot(e);
-    f32 h = ee - de * de / dd;
-    f32 r2 = s->r * s->r;
-    if (r2 < h) return 0;
-    V2404g w, p;
-    p = c + d * de / dd;
-    if (dd < de) {
-        w = s->c - l->b;
-        if (w.dot(w) <= r2) { t = __builtin_sqrtf((r2 - h) / dd); *out = p - d * t; ret = 1; }
-    } else if (de < -dd) {
-        w = s->c - l->a;
-        if (w.dot(w) <= r2) { t = __builtin_sqrtf((r2 - h) / dd); *out = p - d * t; ret = 1; }
-    } else {
-        t = __builtin_sqrtf((r2 - h) / dd); *out = p - d * t; ret = 1;
-    }
-    return ret;
-}
+s32 func_001632c0(Sphere2404g* s, Seg2404g* l, V2404g* out);  // 0x001632c0: definition moved into src/anon/unit_001614e8.cpp
 }

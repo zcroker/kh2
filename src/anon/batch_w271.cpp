@@ -106,17 +106,5 @@ struct Poly_w271 { QW_w271* v[4]; s32 n; };
 extern "C" {
 extern s32 D_0034c780[];
 extern s32 D_0034c790[];
-s32 func_00162408(Poly_w271* o, QW_w271* pt) {
-    s32 n = o->n;
-    s32* idx = (n == 3) ? D_0034c780 : D_0034c790;
-    QW_w271 e[2];
-    QW_w271 c;
-    for (s32 i = 0; i < n; i++) {
-        e[0] = *o->v[idx[i]] - *o->v[i];
-        e[1] = *pt - *o->v[i];
-        c = Cross_w271(e[1], e[0]);
-        if (c.y < 0.0f) return 0;
-    }
-    return 1;
-}
+s32 func_00162408(Poly_w271* o, QW_w271* pt);  // 0x00162408: definition moved into src/anon/unit_001614e8.cpp
 }

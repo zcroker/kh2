@@ -54,13 +54,7 @@ s32 func_0010f600(u8* p);  // 0x0010f600: definition moved into src/anon/unit_00
 
 void func_0015c450(u32 n);  // 0x0015c450: definition moved into src/anon/unit_0015bab8.cpp
 
-void func_00161598(u8* p) {
-    u8* o = *(u8**)(p + 68);
-    u32 t = *(u32*)(p + 72);
-    u32 h = *(u32*)(o + 448);
-    if (t) func_0011c4e8(h, o + 512, t, 0, 0, 0, *(f32*)(p + 76));
-    else func_0011c4b0(h, o + 512);
-}
+void func_00161598(u8* p);  // 0x00161598: definition moved into src/anon/unit_001614e8.cpp
 
 // 0016d920: moved to src/anon/unit_0016d2e0.cpp
 

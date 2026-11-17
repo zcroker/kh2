@@ -86,16 +86,7 @@ void func_0015aaf8(u8* p);  // 0x0015aaf8: definition moved into src/anon/unit_0
 void func_0015ac68(u8* p);  // 0x0015ac68: definition moved into src/anon/unit_0015a810.cpp
 
 // Which side of a plane: (b - a) . n
-s32 func_00163828(const f32* a, const f32* b, const f32* n) {
-    Q16 d;
-    f32 r;
-    asm volatile("lqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 0(%0)\n\tvsub.xyzw $vf1, $vf1, $vf2\n\tsqc2 $vf1, 0(%2)" : : "r"(a), "r"(b), "r"(&d) : "memory");
-    asm volatile("lqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 0(%2)\n\tvmul.xyz $vf1, $vf1, $vf2\n\tvaddy.x $vf1, $vf1, $vf1y\n\tvaddz.x $vf1, $vf1, $vf1z\n\tqmfc2 $8, $vf1\n\tmtc1 $8, %0"
-        : "=f"(r) : "r"(&d), "r"(n) : "$8", "memory");
-    if (r < -0.001f) return 1;
-    if (0.001f < r) return 0;
-    return 2;
-}
+s32 func_00163828(const f32* a, const f32* b, const f32* n);  // 0x00163828: definition moved into src/anon/unit_001614e8.cpp
 
 // 0017e358: moved to src/yasui/libys/friend.cpp
 

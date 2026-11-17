@@ -7,19 +7,10 @@ namespace dk {
 extern void storeImage() asm("_ZN2dk10storeImageEv");
 extern s32 Camera_draw2Camera(void*) asm("_ZN2dk6Camera11draw2CameraEv");
 
-void Camera::setNoKick() {
-    u32 b = (0x0035u << 16);
-    *(u8*)((u32)b + (-14478)) = (u8)0;
-}
+// 0x001617d8: definition moved into src/anon/unit_001614e8.cpp
 
-void Camera::after1CameraTask(TASK* task) {
-    (void)task;
-    storeImage();
-}
+// 0x00161a40: definition moved into src/anon/unit_001614e8.cpp
 
-void Camera::multiAfter2CameraTask(TASK* task) {
-    (void)task;
-    Camera_draw2Camera(this);
-}
+// 0x00161c70: definition moved into src/anon/unit_001614e8.cpp
 
 }  // namespace dk

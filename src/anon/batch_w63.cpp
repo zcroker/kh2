@@ -142,13 +142,7 @@ void* cam_sxfs(u32, u32) asm("_ZN2dk6Camera20singleCrossFadeStartEf");
 s32 func_0015b4f8(s32* tbl, s32 v, s32* out);  // 0x0015b4f8: definition moved into src/anon/unit_0015b100.cpp
 
 typedef void (*VFn3)(void*, void*, void*);
-void func_00161770(u8* p) {
-    u8 a[16];
-    u8 b[16];
-    u8* o = *(u8**)(p + 72);
-    (*(VFn3*)(*(u8**)o + 20))(o, a, b);
-    func_001447e0(p + 84, a, b);
-}
+void func_00161770(u8* p);  // 0x00161770: definition moved into src/anon/unit_001614e8.cpp
 
 // 00167f38: moved to src/anon/unit_00167358.cpp
 

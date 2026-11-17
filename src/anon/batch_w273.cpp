@@ -38,19 +38,7 @@ struct SE273 { u32 w; u8 pad[28]; };
 struct Sub273 { u8 pad[28]; s32 n; SE273 e[1]; };
 struct Own273 { u8 pad[4]; Sub273* sub; };
 extern "C" {
-void func_001626e0(Src273* p, V4w273* m) {
-  if (p->n == 3) {
-    m[0] = m[3] = m[6] = *p->v[0];
-    m[1] = m[4] = m[7] = *p->v[1];
-    m[2] = m[5] = *p->v[2];
-  } else {
-    m[0] = m[4] = *p->v[0];
-    m[1] = m[5] = *p->v[1];
-    m[2] = m[6] = *p->v[2];
-    m[3] = m[7] = *p->v[3];
-  }
-  m[0].w = m[1].w = m[2].w = m[3].w = m[4].w = m[5].w = m[6].w = m[7].w = 1.0f;
-}
+void func_001626e0(Src273* p, V4w273* m);  // 0x001626e0: definition moved into src/anon/unit_001614e8.cpp
 
 s32 func_002fdfc8(const char*, ...);  // device_vprintf_va
 void func_001e3898(void*, void*);

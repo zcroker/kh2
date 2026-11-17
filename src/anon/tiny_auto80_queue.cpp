@@ -8742,14 +8742,7 @@ void duplicate_unplaced_001623b0() {
     func_00102688(*(volatile u32*)((u32)v0 + (s32)(4)), 5u, 5u);
 }
 
-void func_00162a20(u32 a0, u32 a1) {
-    *(volatile f32*)((u32)a0 + (s32)(0)) = *(volatile f32*)((u32)a1 + (s32)(0));
-    *(volatile f32*)((u32)a0 + (s32)(4)) = *(volatile f32*)((u32)a1 + (s32)(4));
-    *(volatile f32*)((u32)a0 + (s32)(8)) = *(volatile f32*)((u32)a1 + (s32)(8));
-    *(volatile f32*)((u32)a0 + (s32)(16)) = *(volatile f32*)((u32)a1 + (s32)(12));
-    *(volatile f32*)((u32)a0 + (s32)(20)) = *(volatile f32*)((u32)a1 + (s32)(16));
-    *(volatile f32*)((u32)a0 + (s32)(24)) = *(volatile f32*)((u32)a1 + (s32)(20));
-}
+void func_00162a20(u32 a0, u32 a1);  // 0x00162a20: definition moved into src/anon/unit_001614e8.cpp
 
 extern "C" u32 func_0017a718(...);
 extern "C" u32 func_0019ba60(...);
@@ -12268,14 +12261,7 @@ void duplicate_unplaced_001618b8() {
     *(u32*)(p + 48) = (u32)&D_001ddb30;
 }
 
-void func_00161c20(u32 a0) {
-    func_00161aa8(a0);
-    if (D_0034c770 != 0u) {
-        return;
-    }
-    D_0034c778 = 0;
-    func_001024a8(a0);
-}
+void func_00161c20(u32 a0);  // 0x00161c20: definition moved into src/anon/unit_001614e8.cpp
 
 void duplicate_unplaced_00161ee8() {
     D_0034c770 = 0;

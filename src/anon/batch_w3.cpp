@@ -49,10 +49,7 @@ void func_00154af0(u8* p);
 
 void func_0014e0d8(void*);
 void func_001024a8(void*);
-void func_00161f10(void* p) {
-    func_0014e0d8(p);
-    func_001024a8(p);
-}
+void func_00161f10(void* p);  // 0x00161f10: definition moved into src/anon/unit_001614e8.cpp
 
 extern s16 D_0034c874;
 extern s16 D_0034c876;

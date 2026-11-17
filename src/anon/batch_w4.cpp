@@ -76,9 +76,7 @@ void func_0015b780(void);  // 0x0015b780: definition moved into src/anon/unit_00
 
 // 0015cea0: moved to src/anon/unit_0015cdb0.cpp
 
-void func_001623b0(void) {
-    func_00102688(*(u32*)((u8*)func_00102c80() + 4), 5, 5);
-}
+void func_001623b0(void);  // 0x001623b0: definition moved into src/anon/unit_001614e8.cpp
 
 void func_0016c750(u32 a);  // 0x0016c750: definition moved into src/anon/unit_00169f98.cpp
 

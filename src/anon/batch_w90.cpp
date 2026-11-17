@@ -440,18 +440,7 @@ struct PtrList { FV* p[4]; s32 n; };
 extern "C" {
 
 // 00163650: plane (normal, -d) through three points.
-void func_00163650(f32* out, FV* p0, FV* p1, FV* p2)
-{
-    FV e1, e2, n;
-    e1 = Sub(p1, p0);
-    e2 = Sub(p2, p0);
-    Cross(&n, &e1, &e2);
-    Normalize(&n);
-    out[0] = n.x;
-    out[1] = n.y;
-    out[2] = n.z;
-    out[3] = -Dot(&n, p0);
-}
+void func_00163650(f32* out, FV* p0, FV* p1, FV* p2);  // 0x00163650: definition moved into src/anon/unit_001614e8.cpp
 
 // 001423c0: fetch a target point list, optionally transformed by the object matrix.
 

@@ -37,9 +37,7 @@ extern Q16 D_004f37f0;
 
 u32* func_00102c80(void);
 void func_00102688(u32, u32, u32);
-void func_001619e8(void) {
-    func_00102688(func_00102c80()[1], 3, 3);
-}
+void func_001619e8(void);  // 0x001619e8: definition moved into src/anon/unit_001614e8.cpp
 
 u32 func_001b1448(u32);
 void func_001d3390(u32);

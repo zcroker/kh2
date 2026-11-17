@@ -30,16 +30,7 @@ Q16* func_0016c028(u32);  // obj_get_attach_or_alt
 // 00160488: moved to src/harata/libdk/bgobj.cpp
 
 // Plane test: d = dot(a.xyz, b.xyz) + b.w -> *out; 1 when 0 <= d <= a[4].
-s32 func_00162b18(f32* a, f32* b, f32* out) {  // vec3_dot_plus_scale
-    f32 d;
-    asm volatile("lqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 0(%2)\n\tvmul.xyz $vf1, $vf1, $vf2\n\tvaddy.x $vf1, $vf1, $vf1y\n\tvaddz.x $vf1, $vf1, $vf1z\n\tqmfc2 $8, $vf1\n\tmtc1 $8, %0"
-        : "=f"(d) : "r"(a), "r"(b) : "$8", "memory");
-    d += b[3];
-    *out = d;
-    if (a[4] < d) return 0;
-    if (d < 0.0f) return 0;
-    return 1;
-}
+s32 func_00162b18(f32* a, f32* b, f32* out);  // 0x00162b18: definition moved into src/anon/unit_001614e8.cpp
 
 void func_0017d050(void*, u32);
 extern u8 D_004f62a0[];

@@ -66,10 +66,7 @@ void func_00150de0(u8* p, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5);  // 0x00150de
 void func_00154b18(u8* p);
 
 // Clamp to [0, 128].
-void func_00161a58(s32 v) {
-    s32 r = (v < 0) ? 0 : (v > 128 ? 128 : v);
-    D_0034c768 = r;
-}
+void func_00161a58(s32 v);  // 0x00161a58: definition moved into src/anon/unit_001614e8.cpp
 
 void func_001713f0(BD_VALUE* bd);  // 0x001713f0: definition moved into src/anon/unit_00170f58.cpp
 

@@ -25,7 +25,7 @@ void wtarget_002e7610(u32 a0, u32 a1, u32, u32) {
     if (a1 == 0xffff && a0 == 1) { D_01e2bf00.b = 0; D_01e2bf00.a = 0; }
 }
 void wtarget_002ee540(u32 a0, u32 a1, u32, u32) asm("_Z16wtarget_002ee540jjjj");
-void wtarget_002ee540(u32 a0, u32 a1, u32, u32);  // 0x002ee540: definition moved into src/anon/unit_002ee530.cpp
+void wtarget_002ee540(u32 a0, u32 a1, u32, u32);  // 0x002ee540: definition moved into src/anon/unit_002ecdb0.cpp
 void func_001cbf20(u32 a0, u32 a1);  // 0x001cbf20: definition moved into src/anon/unit_001ca8e0.cpp
 void wtarget_0014d240(u32 a0, u32 a1, u32, u32) asm("_Z16wtarget_0014d240jjjj");
 void wtarget_0014d240(u32 a0, u32 a1, u32, u32);  // 0x0014d240: definition moved into src/anon/unit_0014c7f0.cpp

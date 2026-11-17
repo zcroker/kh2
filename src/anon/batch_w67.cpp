@@ -96,20 +96,7 @@ struct Sphere { Vec4 c; f32 r; };
 struct PointList { Vec4* v[4]; s32 n; };
 
 // 00163168: the list point nearest to the sphere centre, if inside it
-s32 func_00163168(Sphere* s, PointList* l, Vec4* out)
-{
-    f32 best = s->r * s->r;
-    s32 idx = 4;
-    for (s32 i = 0; i < l->n; i++) {
-        f32 d = vu0DistSq(s, l->v[i]);
-        if (d <= best) { best = d; idx = i; }
-    }
-    if (idx != 4) {
-        *out = *l->v[idx];
-        return 1;
-    }
-    return 0;
-}
+s32 func_00163168(Sphere* s, PointList* l, Vec4* out);  // 0x00163168: definition moved into src/anon/unit_001614e8.cpp
 
 // 001ef398: random float, averaged with a second one when asked
 f32 func_001ef398(u8 a);  // 0x001ef398: definition moved into src/anon/unit_001ec098.cpp

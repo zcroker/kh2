@@ -69,16 +69,7 @@ void func_0015aa98(u8* p, u32 a, u32 b, f32 f);  // 0x0015aa98: definition moved
 void* func_00161548(void*);
 void func_00161770(void*);
 void func_001616d8(void*);
-void func_001615e8(u8* p, f32 f) {
-    VObj* v = (VObj*)func_00161548(p);
-    *(VObj**)(p + 72) = v;
-    if (v) {
-        ((FU*)(p + 76))->f = f;
-        *(f32*)(p + 80) = (f32)((s32 (*)(VObj*))v->vt[2])(v);
-        func_00161770(p);
-        func_001616d8(p);
-    }
-}
+void func_001615e8(u8* p, f32 f);  // 0x001615e8: definition moved into src/anon/unit_001614e8.cpp
 
 void func_0014d358(void*, u32, void*, u32);
 void func_00102788(u32, u32, u32, void*);

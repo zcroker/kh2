@@ -118,10 +118,7 @@ void func_0013f4d8(void);  // 0x0013f4d8: definition moved into src/anon/unit_00
 void func_001514b0(u8* p);  // 0x001514b0: definition moved into src/anon/unit_0014ecb8.cpp
 
 
-void Camera_onceCover(void* task) {
-    func_0014e098(216);
-    func_001024a8(task);
-}
+void Camera_onceCover(void* task);  // 0x001617e8: definition moved into src/anon/unit_001614e8.cpp
 
 u8* func_00165ef0(u8* p);  // 0x00165ef0: definition moved into src/anon/unit_00165db8.cpp
 

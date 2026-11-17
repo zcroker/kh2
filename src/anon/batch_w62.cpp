@@ -109,16 +109,7 @@ struct Blk64 {
 };
 struct VObj6 { s32 (**vt)(VObj6*, Blk64*); };
 void func_001616d8(Blk64*);
-void func_001616f0(Blk64* p) {
-    Blk64 b;
-    VObj6* o = *(VObj6**)((u8*)p + 72);
-    if (!o) return;
-    if (o->vt[6](o, &b)) {
-        func_001616d8(p);
-        return;
-    }
-    *p = b;
-}
+void func_001616f0(Blk64* p);  // 0x001616f0: definition moved into src/anon/unit_001614e8.cpp
 
 struct V4 { f32 x, y, z, w; };
 extern s8 D_01c5f490;

@@ -80,7 +80,7 @@ void func_0014f1f8(void* self);  // 0x0014f1f8: definition moved into src/anon/u
 
 void func_0014f200(void* self);  // 0x0014f200: definition moved into src/anon/unit_0014ecb8.cpp
 
-void func_00161540(void* self, s32 v) { *(s32*)((char*)self + 64) = v; }
+void func_00161540(void* self, s32 v);  // 0x00161540: definition moved into src/anon/unit_001614e8.cpp
 
 // 0017ebe8: moved to src/yasui/libys/motion.cpp
 

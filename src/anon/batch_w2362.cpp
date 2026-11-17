@@ -20,13 +20,7 @@ void* func_0016ac38(Obj* o, s32 id, s32 a, s32 b, Obj* owner);  // 0x0016ac38: d
 // 00192450: moved to src/yasui/libys/message.cpp
 
 // Looks up entry n (kind 9) in the holder's table and returns its value, 0 if none.
-s32 func_00161548(Holder* h, s32 n) {
-    Res* r;
-    if (n < 0 || !h->tbl) return 0;
-    r = func_00168b38(h->tbl, 9, n);
-    if (!r) return 0;
-    return r->v;
-}
+s32 func_00161548(Holder* h, s32 n);  // 0x00161548: definition moved into src/anon/unit_001614e8.cpp
 
 s32 func_001d1760(Gauge* g, s32 n);  // 0x001d1760: definition moved into src/anon/unit_001d14e0.cpp
 }

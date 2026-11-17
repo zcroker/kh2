@@ -2916,41 +2916,7 @@ void func_001dd2b8(void);
 void func_001dd920(void);
 void func_00106998(s32);
 u8* func_00102c18(s32, s32, void (*)(void));
-void func_001620a8(void)
-{
-    func_00106998(1);
-    func_00102c18(5, 6000, func_00161868);
-    func_00102c18(5, 6001, func_001433e8);
-    func_00102c18(5, 6002, func_00161a10);
-    func_00102c18(5, 29999, func_00161a28);
-    func_00102c18(5, 30000, func_00107888);
-    func_00102c18(5, 40999, func_00161a10);
-    func_00102c18(5, 41000, func_001dd2b8);
-    func_00102c18(5, 42999, func_00161a28);
-    func_00102c18(5, 43000, func_00144250);
-    func_00102c18(5, 49999, func_00161880);
-    func_00102c18(5, 50000, func_001618a0);
-    func_00102c18(5, 60000, func_00161a10);
-    func_00102c18(5, 60001, func_001dd920);
-    func_00102c18(5, 71000, func_00167228)[4] = 0;
-    func_00102c18(5, 65000, func_0015de18);
-    func_00102c18(5, 90000, func_00161a40);
-    func_00102c18(5, 90005, func_0014df48);
-    func_00102c18(5, 90010, func_00161868);
-    func_00102c18(5, 90020, func_00161a10);
-    func_00102c18(5, 90030, func_00107888);
-    func_00102c18(5, 90039, func_00161a28);
-    func_00102c18(5, 90040, func_001dd2b8);
-    func_00102c18(5, 90049, func_00161a10);
-    func_00102c18(5, 90050, func_00144250);
-    func_00102c18(5, 90060, func_00161880);
-    func_00102c18(5, 90070, func_001618a0);
-    func_00102c18(5, 90079, func_00161a28);
-    func_00102c18(5, 90080, func_001dd920);
-    func_00102c18(5, 90100, func_00167228)[4] = 0;
-    func_00102c18(5, 90110, func_0015de18);
-    func_00102c18(5, 90130, func_00161c70);
-}
+void func_001620a8(void);  // 0x001620a8: definition moved into src/anon/unit_001614e8.cpp
 
 // ---- 002c3e58
 typedef void (*VFn58)(void*);
@@ -7947,38 +7913,7 @@ void func_0014b220(u8* s, u8 r, u8 g, u8 b, u8 a);
 void func_0014c350(u8* s);
 void func_0014e098(s32 a);
 void draw2Camera_161aa8(void) asm("_ZN2dk6Camera11draw2CameraEv");
-void draw2Camera_161aa8(void)
-{
-    u8* s0;
-    u8* s1;
-    if (!D_004f3b50) {
-        func_0014c050(D_004f3b60);
-        D_004f3b50 = 1;
-        func_002fd188(func_001623d8);
-    }
-    if (!D_004f3b58) {
-        func_0014c050(D_004f3e70);
-        D_004f3b58 = 1;
-        func_002fd188(func_001623f0);
-    }
-    s0 = D_004f3b60;
-    s1 = D_004f3e70;
-    func_0014b5e0(s0, 342);
-    func_0014b630(s0, 0);
-    func_0014b208(s0, 512, 416);
-    func_0014b5e8(s0, 0x80008, 0x1a082008);
-    func_0014b628(s0, 0x2000000264121b00ULL);
-    func_0014b220(s0, 128, 128, 128, D_0034c76c);
-    func_0014c350(s0);
-    func_0014e098(320);
-    func_0014b5e0(s1, 342);
-    func_0014b630(s1, 0);
-    func_0014b208(s1, 512, 416);
-    func_0014b5e8(s1, 0x80008, 0x1a082008);
-    func_0014b628(s1, 0x2000000264122800ULL);
-    func_0014b220(s1, 128, 128, 128, D_0034c768);
-    func_0014c350(s1);
-}
+void draw2Camera_161aa8(void);  // 0x00161aa8: definition moved into src/anon/unit_001614e8.cpp
 
 // --------------------
 // libgcc unwind-dw2.c uw_frame_state_for (GCC 3.2).

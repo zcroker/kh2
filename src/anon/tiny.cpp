@@ -150,7 +150,7 @@ void func_001554a8(BD_VALUE* bd);
 // 0015ef38: moved to src/harata/libdk/map.cpp
 // 0015f6e8: moved to src/harata/libdk/map_effect.cpp
 // 0015f700: moved to src/harata/libdk/map_effect.cpp
-void func_001616d8(BD_VALUE* bd) { func_0011b6a8(bd); }
+void func_001616d8(BD_VALUE* bd);  // 0x001616d8: definition moved into src/anon/unit_001614e8.cpp
 // 00179ea0: moved to src/yasui/libys/player.cpp
 // 00186008: moved to src/anon/unit_00185d10.cpp
 void func_00186008(BD_VALUE* bd);
@@ -213,12 +213,12 @@ void func_001394c0(BD_VALUE* bd);  // 0x001394c0: definition moved into src/anon
 void func_00139de8(BD_VALUE* bd);  // 0x00139de8: definition moved into src/anon/unit_001393c8.cpp
 void func_0013e8a8(BD_VALUE* bd);  // 0x0013e8a8: definition moved into src/anon/unit_0013dfb8.cpp
 void func_00153140(BD_VALUE* bd);  // 0x00153140: definition moved into src/anon/unit_0014ecb8.cpp
-void func_00161868(BD_VALUE* bd) { func_00109e30(1); }
+void func_00161868(BD_VALUE* bd);  // 0x00161868: definition moved into src/anon/unit_001614e8.cpp
 namespace kn { void setCameraNumber(s32); }
-void func_00161a10(BD_VALUE* bd) { kn::setCameraNumber(0); }
-void func_00161a28(BD_VALUE* bd) { kn::setCameraNumber(1); }
-void func_00162058(BD_VALUE* bd) { func_00161f48(1); }
-void func_00162070(BD_VALUE* bd) { func_00161f48(0); }
+void func_00161a10(BD_VALUE* bd);  // 0x00161a10: definition moved into src/anon/unit_001614e8.cpp
+void func_00161a28(BD_VALUE* bd);  // 0x00161a28: definition moved into src/anon/unit_001614e8.cpp
+void func_00162058(BD_VALUE* bd);  // 0x00162058: definition moved into src/anon/unit_001614e8.cpp
+void func_00162070(BD_VALUE* bd);  // 0x00162070: definition moved into src/anon/unit_001614e8.cpp
 void func_001ae678(BD_VALUE* bd);  // 0x001ae678: definition moved into src/anon/unit_001ada38.cpp
 void func_001ae690(BD_VALUE* bd);  // 0x001ae690: definition moved into src/anon/unit_001ada38.cpp
 void func_00225248(BD_VALUE* bd);  // 0x00225248: definition moved into src/anon/unit_00224780.cpp
@@ -380,30 +380,11 @@ void func_0015b770(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0015b770: definition m
 
 // 00161228: moved to src/anon/unit_001611a8.cpp
 
-void func_00161530(u32 a0, u32 a1, u32 a2, u32 a3) {  // noop_ret_b
-    (void)a0;
-    (void)a1;
-    (void)a2;
-    (void)a3;
-}
+void func_00161530(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00161530: definition moved into src/anon/unit_001614e8.cpp
 
-u32 func_00162088(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a0;
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    u32 b = (0x0035u << 16);
-    return (u32)(*(u8*)((u32)b + (-14479)));
-}
+u32 func_00162088(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00162088: definition moved into src/anon/unit_001614e8.cpp
 
-u32 func_00162098(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a0;
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    u32 b = (0x0035u << 16);
-    return (u32)(*(u8*)((u32)b + (-14480)));
-}
+u32 func_00162098(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00162098: definition moved into src/anon/unit_001614e8.cpp
 
 void func_00165870(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00165870: definition moved into src/anon/unit_001656b8.cpp
 
@@ -985,7 +966,7 @@ u32 func_002e10c0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002e10c0: definition mo
 
 // 002e2930: moved to src/anon/unit_002e1908.cpp
 
-u32 func_002ee530(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002ee530: definition moved into src/anon/unit_002ee530.cpp
+u32 func_002ee530(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002ee530: definition moved into src/anon/unit_002ecdb0.cpp
 
 // 002ee6d8: moved to src/menu/tutorial_widget.cpp
 
@@ -1279,13 +1260,7 @@ f32 func_0014ce78(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0014ce78: definition mo
 
 // 00160d38: moved to src/harata/libdk/bgobj.cpp
 
-void func_001617c8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    u32 v = (u32)((s32)1);
-    *(u8*)&D_0034c772 = (u8)v;
-}
+void func_001617c8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001617c8: definition moved into src/anon/unit_001614e8.cpp
 
 void func_0016fa98(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0016fa98: definition moved into src/anon/unit_0016e8f8.cpp
 

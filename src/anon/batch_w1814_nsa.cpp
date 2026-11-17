@@ -17,25 +17,6 @@ void func_00161c88(void);
 void func_00161d48(void);
 void func_00161de0(void);
 
-void func_00161df0(W1814Arg* a) {
-    if (D_0034c774 != 0) {
-        func_00102670(func_00102c80()->id, D_0034c774);
-        func_001623b0();
-    }
-    if (a->m10 == 0) {
-        func_001619e8();
-        func_001620a8();
-    }
-    W1814Obj* o;
-    if (a->m10 == 1) D_0034c774 = o = func_00102c18(1, 0x16007, (void*)func_00161d48);
-    else D_0034c774 = o = func_00102c18(1, 0x16007, (void*)func_00161c88);
-    D_0034c774->cb30 = (void*)func_00161de0;
-    f32 f = a->f4;
-    o->f4 = f;
-    o->f8 = f;
-    o->fc = 128.0f / f;
-    o->m10 = a->m10;
-    func_001024a8(a);
-}
+void func_00161df0(W1814Arg* a);  // 0x00161df0: definition moved into src/anon/unit_001614e8.cpp
 
 }

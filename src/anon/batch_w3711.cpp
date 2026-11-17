@@ -31,21 +31,5 @@ static inline V1628 add(const V1628& a, const V1628& b) {
 }
 extern "C" {
 s32 func_00162560(V1628**, V1628*);
-s32 func_001628d8(Ray1628* ray, V1628** pp, V1628* n, V1628* out)
-{
-    register s32 k asm("$14");  // pin: occupies t6 (no code)
-    asm("" : "=r"(k));
-    f32 d = dot(n, &ray->dir);
-    if (0.0f <= d) return 0;
-    f32 a = dot(n, *pp);
-    f32 b = dot(n, &ray->pos);
-    f32 t = (a - b) / d;
-    if (1.0f < t) return 0;
-    if (t < 0.0f) return 0;
-    *out = mul(ray->dir, t);
-    *out = add(*out, ray->pos);
-    out->w = 1.0f;
-    asm("" : : "r"(k));
-    return func_00162560(pp, out) != 0;
-}
+s32 func_001628d8(Ray1628* ray, V1628** pp, V1628* n, V1628* out);  // 0x001628d8: definition moved into src/anon/unit_001614e8.cpp
 }

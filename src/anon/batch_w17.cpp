@@ -44,10 +44,7 @@ void func_00152508(void*, u32, u32, u32, u32);
 extern char D_001dda78[];
 extern u32 D_001ddb30;
 u8* func_00102c18(u32, u32, const char*);
-void func_001618b8(void) {
-    u8* v = func_00102c18(1, 0x16b48, D_001dda78);
-    *(void**)(v + 48) = &D_001ddb30;
-}
+void func_001618b8(void);  // 0x001618b8: definition moved into src/anon/unit_001614e8.cpp
 
 extern u32 D_004f5250;
 extern u32 D_004f5258[];

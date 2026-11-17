@@ -37,21 +37,7 @@ void func_001dd920(void);
 void func_00167228(void);
 void func_0015de18(void);
 // registers this module's handlers
-void func_001618f0(void) {
-    func_001617c8();
-    func_00106998(0);
-    func_001069f8(0);
-    func_00102c18(3, 6000, func_00161818);
-    func_00102c18(3, 6001, func_001433e8);
-    func_00102c18(3, 30000, func_00107888);
-    func_00102c18(3, 41000, func_001dd2b8);
-    func_00102c18(3, 43000, func_00144250);
-    func_00102c18(3, 49999, func_00161880);
-    func_00102c18(3, 50000, func_001618a0);
-    func_00102c18(3, 60001, func_001dd920);
-    func_00102c18(3, 71000, func_00167228)[4] = 0;
-    func_00102c18(3, 65000, func_0015de18);
-}
+void func_001618f0(void);  // 0x001618f0: definition moved into src/anon/unit_001614e8.cpp
 
 void func_00102788(u32, s32, s32, void (*)(void));
 u8* func_00102c80(void);

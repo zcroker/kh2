@@ -121,14 +121,7 @@ void func_0014b950(u8* p, s16 x, s16 y, u16 w, u16 h);  // 0x0014b950: definitio
 void func_0014f528(void);  // 0x0014f528: definition moved into src/anon/unit_0014ecb8.cpp
 
 // dot(a.xyz, b.xyz) + b.w -> *out; returns 1 when it is <= a[4].
-s32 func_00162b68(f32* a, f32* b, f32* out) {
-    f32 d;
-    asm volatile("lqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 0(%2)\n\tvmul.xyz $vf1, $vf1, $vf2\n\tvaddy.x $vf1, $vf1, $vf1y\n\tvaddz.x $vf1, $vf1, $vf1z\n\tqmfc2 $8, $vf1\n\tmtc1 $8, %0"
-        : "=f"(d) : "r"(a), "r"(b) : "$8", "memory");
-    d += b[3];
-    *out = d;
-    return a[4] < d ? 0 : 1;
-}
+s32 func_00162b68(f32* a, f32* b, f32* out);  // 0x00162b68: definition moved into src/anon/unit_001614e8.cpp
 
 void func_00171ea8(u8* p);  // 0x00171ea8: definition moved into src/anon/unit_00171e58.cpp
 

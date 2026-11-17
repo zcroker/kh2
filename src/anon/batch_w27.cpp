@@ -47,15 +47,7 @@ void func_0013a9e8(u32);
 void func_002bea00(void);
 void func_0014a188(void);  // 0014a188: moved to src/anon/unit_00149fa8.cpp
 
-s32 func_00163268(f32* a, f32* b, f32* out) {  // vec3_distance
-    u32 t[4] __attribute__((aligned(16)));
-    f32 d;
-    asm volatile("lqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 0(%2)\n\tvsub.xyzw $vf1, $vf1, $vf2\n\tsqc2 $vf1, 0(%0)" : : "r"(t), "r"(a), "r"(b) : "memory");
-    asm volatile("lqc2 $vf1, 0(%1)\n\tvmul.xyz $vf1, $vf1, $vf1\n\tvaddy.x $vf1, $vf1, $vf1y\n\tvaddz.x $vf1, $vf1, $vf1z\n\tvsqrt Q, $vf1x\n\tvwaitq\n\tcfc2 $8, $vi22\n\tmtc1 $8, %0" : "=f"(d) : "r"(t) : "$8", "memory");
-    *out = d;
-    if (d <= a[4]) return 1;
-    return 0;
-}
+s32 func_00163268(f32* a, f32* b, f32* out);  // 0x00163268: definition moved into src/anon/unit_001614e8.cpp
 
 void* func_001b9bc8(void*);
 s32 func_0016a070(void*);

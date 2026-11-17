@@ -350,22 +350,7 @@ void func_0015b5d8(u32 a0);  // 0x0015b5d8: definition moved into src/anon/unit_
 
 // 00160960: moved to src/harata/libdk/bgobj.cpp
 
-void func_00161668(u8* a0, f32 a1) {
-    if (*(u32*)(a0 + 72) == 0) {
-        return;
-    }
-
-    f32 f0 = *(f32*)(a0 + 76) + a1;
-    *(f32*)(a0 + 76) = f0;
-    func_001616f0((u32)a0, f0);
-
-    f32 f2 = *(f32*)(a0 + 80);
-    f32 f1 = *(f32*)(a0 + 76);
-    if (f2 < f1) {
-        *(f32*)(a0 + 76) = f1 - f2;
-        return func_001616f0((u32)a0, f2);
-    }
-}
+void func_00161668(u8* a0, f32 a1);  // 0x00161668: definition moved into src/anon/unit_001614e8.cpp
 
 u32 func_00168f18();  // 0x00168f18: definition moved into src/anon/unit_00168aa0.cpp
 

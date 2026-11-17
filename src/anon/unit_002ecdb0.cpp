@@ -1,4 +1,4 @@
-// Linked unit 0x002ecdb0-0x002ee498 (one namespace per old matched source; class methods in their own namespace).
+// Linked unit 0x002ecdb0-0x002ee588 (one namespace per old matched source; class methods in their own namespace).
 #include "../common/types.h"
 #include "../kn/fvector.hpp"
 #include "./tiny_auto80_queue_structs.hpp"
@@ -1303,4 +1303,114 @@ void func_002ee448(void** p) {
     func_00106420(p);
 }
 }  // namespace n002ee448
+
+// 002ee498 (was an unwritten gap)
+namespace n002ee0b0 {
+// per-frame task (registered by 0x2ee220): draw the widget tree, or stop when it is empty
+struct List498 { Node2ee0* head; Node2ee0* tail; };
+extern List498 D_01e2c080_498 asm("D_01e2c080");
+extern u32 D_003637f8_498 asm("D_003637f8");
+void func_001024a8_498(void*) asm("func_001024a8");
+u8* func_002ee840_498() asm("func_002ee840");
+s32 func_002ee040_498(Node2ee0*) asm("func_002ee040");
+void gap_002ee498(void* task) asm("gap_002ee498");
+void gap_002ee498(void* task) {
+    Node2ee0* h = D_01e2c080_498.head;
+    if (!h) {
+        func_001024a8_498(task);
+        *(u32*)(func_002ee840_498() + 28) = 3;
+        D_003637f8_498 = 0;
+        return;
+    }
+    if (func_002ee040_498(h)) {
+        Pos2ee0 pos;
+        Col2ee0 col;
+        s32 v = 128;
+        pos.x = 0;
+        pos.y = 0;
+        col.r = v;
+        col.g = v;
+        col.b = v;
+        col.a = v;
+        typedef void (*DrawFn)(Node2ee0*, u64, u64);
+        ((DrawFn)(*(void***)h)[4])(h, *(u64*)&pos, *(u32*)&col);
+    }
+}
+}  // namespace n002ee0b0
+
+// 002ee530 (was src/anon/tiny.cpp)
+namespace n002ee530 {
+extern u32 D_003637f8 asm("D_003637f8");
+/*TARGET 002ee530*/
+// 0x002e10c0: definition moved into src/anon/unit_002de3c8.cpp
+
+// 002e2920: moved to src/anon/unit_002e1908.cpp
+
+// 002e2930: moved to src/anon/unit_002e1908.cpp
+
+u32 func_002ee530(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z13func_002ee530jjjj");
+// 0x002e10c0: definition moved into src/anon/unit_002de3c8.cpp
+
+// 002e2920: moved to src/anon/unit_002e1908.cpp
+
+// 002e2930: moved to src/anon/unit_002e1908.cpp
+
+u32 func_002ee530(u32 a0, u32 a1, u32 a2, u32 a3) {
+    (void)a0;
+    (void)a1;
+    (void)a2;
+    (void)a3;
+    return (D_003637f8 != 0);
+}
+}  // namespace n002ee530
+
+// 002ee540 (was src/anon/batch_w1669.cpp)
+namespace n002ee540 {
+struct W1669Pair { u32 a, b; };
+extern W1669Pair D_01e2c080 asm("D_01e2c080");
+void wtarget_002ee540(u32 a0, u32 a1, u32, u32) asm("_Z16wtarget_002ee540jjjj");
+/*TARGET 002ee540*/
+void wtarget_002ee540(u32 a0, u32 a1, u32, u32) asm("_Z16wtarget_002ee540jjjj");
+void wtarget_002ee540(u32 a0, u32 a1, u32, u32) {
+    if (a1 == 0xffff && a0 == 1) { D_01e2c080.b = 0; D_01e2c080.a = 0; }
+}
+}  // namespace n002ee540
+
+// 002ee568 (was src/anon/tiny_wrappers_more.cpp)
+namespace n002ee568 {
+u32 func_002ee540(u32, u32, u32, u32) asm("_Z13func_002ee540jjjj");
+/*TARGET 002ee568*/
+// 002ead78: moved to src/anon/unit_002eaa68.cpp
+
+// 002eaf18: _GLOBAL__I_ stub, now made by gcc in src/anon/unit_002eae08.cpp
+
+// 002ebc00: moved to src/anon/unit_002eaf38.cpp
+
+// 002ec138: moved to src/anon/unit_002eaf38.cpp
+
+// 002ec560: moved to src/anon/unit_002eaf38.cpp
+
+// 002ecaa8: moved to src/anon/unit_002ec5f8.cpp
+
+// 002ecd58: moved to src/anon/unit_002ec5f8.cpp
+
+u32 func_002ee568(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z13func_002ee568jjjj");
+// 002ead78: moved to src/anon/unit_002eaa68.cpp
+
+// 002eaf18: _GLOBAL__I_ stub, now made by gcc in src/anon/unit_002eae08.cpp
+
+// 002ebc00: moved to src/anon/unit_002eaf38.cpp
+
+// 002ec138: moved to src/anon/unit_002eaf38.cpp
+
+// 002ec560: moved to src/anon/unit_002eaf38.cpp
+
+// 002ecaa8: moved to src/anon/unit_002ec5f8.cpp
+
+// 002ecd58: moved to src/anon/unit_002ec5f8.cpp
+
+u32 func_002ee568(u32 a0, u32 a1, u32 a2, u32 a3) {
+    return func_002ee540(0x00000001u, 0x0000ffffu, a2, a3);
+}
+}  // namespace n002ee568
 

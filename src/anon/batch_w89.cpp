@@ -458,17 +458,7 @@ static inline f32 Dot(const QWord& a, const QWord& b)
 struct Plane { f32 x, y, z, d; };
 extern "C" {
 // Plane through three points: unit normal and signed distance.
-void func_00163568(Plane* out, const QWord& p0, const QWord& p1, const QWord& p2) {
-    QWord e1, e2, n;
-    e1 = p1 - p0;
-    e2 = p2 - p0;
-    Cross(&n, e1, e2);
-    Normalize(&n);
-    out->x = n.f[0];
-    out->y = n.f[1];
-    out->z = n.f[2];
-    out->d = -Dot(n, p0);
-}
+void func_00163568(Plane* out, const QWord& p0, const QWord& p1, const QWord& p2);  // 0x00163568: definition moved into src/anon/unit_001614e8.cpp
 }
 }
 

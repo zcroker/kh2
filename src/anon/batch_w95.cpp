@@ -221,24 +221,7 @@ extern U8Flag D_0034c770;
 extern U8Flag D_0034c771;
 extern void* D_0034c778;
 }
-void func_00161f48_impl(u8 mode, f32 t) {
-    if (mode == 1) {
-        TaskB* k = func_00102c18(1, 0x186a0, func_00161df0);
-        k->mode = mode;
-        k->t = t + t;
-        D_0034c770.v = 1;
-        func_00102c18(1, 0x15f90, func_00161f10);
-        if (D_0034c778) func_00102670(func_00102c80()->q, (TaskB*)D_0034c778);  // to_1025f8
-        D_0034c778 = func_00102c18(1, 0x16008, func_00161c20);
-        ((TaskB*)D_0034c778)->fn = (void*)func_00161f38;
-    } else {
-        TaskB* k = func_00102c18(1, 0x186a0, func_00161df0);
-        k->mode = mode;
-        t -= 1.0f;
-        k->t = t + t;
-        D_0034c771.v = 1;
-    }
-}
+void func_00161f48_impl(u8 mode, f32 t);  // 0x00161f48: definition moved into src/anon/unit_001614e8.cpp
 extern "C" {
 
 void func_001c20e8(u32, HitEv*, ActObj*);

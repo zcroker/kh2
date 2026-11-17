@@ -76,19 +76,7 @@ void func_00153678(InHdr1941* h, void* p, Al1941* al);  // 0x00153678: definitio
 // --- 00162560: is the point inside the polygon (every edge cross product faces away from the normal)
 extern s32 D_0034c780[];
 extern s32 D_0034c790[];
-s32 func_00162560(Poly1941* o, V1941* p, V1941* nrm) {
-    s32 n = o->n;
-    s32* tbl = (n == 3) ? D_0034c780 : D_0034c790;
-    V1941 e[2];
-    V1941 c;
-    for (s32 i = 0; i < n; i++) {
-        e[0] = *o->v[tbl[i]] - *o->v[i];
-        e[1] = *p - *o->v[i];
-        c = e[1].cross(e[0]);
-        if (0.01f < c.dot(*nrm)) return 0;
-    }
-    return 1;
-}
+s32 func_00162560(Poly1941* o, V1941* p, V1941* nrm);  // 0x00162560: definition moved into src/anon/unit_001614e8.cpp
 
 // --- 0017fba0: build 16 work entries and run the timed or the plain update on them
 s32 func_00180cd0(Obj1941*);
