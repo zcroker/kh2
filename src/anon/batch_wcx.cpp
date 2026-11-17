@@ -809,18 +809,7 @@ extern "C" {
 s32 func_00224910(u8*);  // get_global_36dac4
 void func_00239f18(u8*, f32);  // obj_set_float312_and_flags
 static inline f32 Clamp(f32 v, f32 lo, f32 hi) { return v < lo ? lo : (hi < v ? hi : v); }
-f32 func_0028f1e0(f32* a, f32* b, f32 x)
-{
-    f32 dx = b[0] - a[0];
-    f32 t = (x - a[0]) / dx;
-    f32 t2 = t * t;
-    f32 t3 = t2 * t;
-    f32 h00 = t3 + t3 - t2 * 3.0f + 1.0f;
-    f32 h01 = t3 * -2.0f + t2 * 3.0f;
-    f32 h10 = t3 - (t2 + t2) + t;
-    f32 h11 = t3 - t2;
-    return h00 * a[1] + h01 * b[1] + (h10 * a[3] + h11 * b[2]) * dx;
-}
+f32 func_0028f1e0(f32* a, f32* b, f32 x);  // 0028f1e0: moved to src/anon/unit_0028f1e0.cpp
 }
 extern "C" {
 }
@@ -1766,15 +1755,7 @@ void func_0028d5d0(u8*);
 s32 func_0028d6e8(u8*);
 union GPi { u8* p; s32 i; };
 extern GPi D_0035f480u asm("D_0035f480");
-s32 func_0028f930(s32 k)
-{
-    s32 r = 0;
-    for (s32 i = 0; i < 4; i++) {
-        if (k >= 0 && k != i) continue;
-        if (u_call4_00139d78(D_0035f480 + i * 884) || func_0028d6e8(D_0035f480 + i * 884 + 436)) { r = 1; break; }
-    }
-    return r;
-}
+s32 func_0028f930(s32 k);  // 0028f930: moved to src/anon/unit_0028f1e0.cpp
 struct E16c { s8 id; u8 pad[3]; u16 a, b; u8 pad2[2]; u16 c, d; u8 pad3[2]; };
 u8* func_00294000(s32);
 s32 func_002941d8(E16c*);

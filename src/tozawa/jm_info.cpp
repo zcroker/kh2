@@ -85,9 +85,7 @@ extern u32 D_0035f574 asm("D_0035f574");
 extern u32 D_0035f578 asm("D_0035f578");
 void LoadDataFree(...);
 
-u32 JmInfo::IsLoaded(u32 data) {
-    return reinterpret_cast<const FileAddressLayout*>(data)->fileAddress;
-}
+// 00290940: moved to src/anon/unit_0028f1e0.cpp
 
 void JmInfo::Exit() {
     if (D_0035f574 != 0) {

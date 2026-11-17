@@ -273,45 +273,7 @@ s32 func_00292148(u8*, s32*, s32, s32, s32);
 s32 func_002921d0(u8*, s32*, s32, s32, s32);
 s32 func_00292258(u8*, s32*, s32, s32, s32);
 s32 func_002922e0(u8*, s32*, s32, s32, s32, s32);
-void func_00291de0(u8* w, s32 mode, s32 p2, s32 p3, s32 p4, s32 p5, s32 mask) {
-    s32 h = func_001a1728(p4, p5);
-    if (mode != 2) func_00291370(w, 2);
-    s32 n = 0;
-    for (s32 i = 0; i < 9; i++) {
-        if (!((mask >> i) & 1)) continue;
-        if (i == 8) continue;
-        W1610Sl* s;
-        if (mode == 2) s = (W1610Sl*)(w + n * 436 + 2184);
-        else s = (W1610Sl*)(w + n * 436 + 4);
-        s32 k = n + 10;
-        s32 x = func_0023aa18((u8*)s + 24);
-        s32 y = func_0023aa38((u8*)s + 24);
-        W1610Sl* d = (W1610Sl*)(w + k * 436 + 4364);
-        func_0028dcc0(d, s);
-        func_00138c68(d, x, y);
-        s32 sel = -1;
-        s32 res = 1;
-        switch (i) {
-        case 0: res = func_002920c0(w, &sel, p2, p3, h); d->on = 1; break;
-        case 1: res = func_00292148(w, &sel, p2, p3, h); d->on = 1; break;
-        case 2: res = func_002921d0(w, &sel, p2, p3, h); d->on = 1; break;
-        case 3: res = func_00292258(w, &sel, p2, p3, h); d->on = 1; break;
-        case 4: res = func_002922e0(w, &sel, p2, p3, 1, h); d->on = 1; break;
-        case 5: res = func_002922e0(w, &sel, p2, p3, 2, h); d->on = 1; break;
-        case 6: res = func_002922e0(w, &sel, p2, p3, 3, h); d->on = 1; break;
-        case 7: res = func_002922e0(w, &sel, p2, p3, 4, h); d->on = 1; break;
-        case 8: default: { s32 one = 1; d->on = one; } break;
-        }
-        s32 a = 6;
-        if (res != 2) a = res ? 0 : 3;
-        func_00138c10(d, func_00291370(w, a));
-        if ((u32)(i - 4) < 4) func_00192cc0(w + k * 8 + 10904, D_00374498, sel);
-        else func_00192cc0(w + k * 8 + 10904, D_003744a0, sel);
-        n++;
-        d->name = w + k * 8 + 10904;
-    }
-    func_001a17c8(h);
-}
+void func_00291de0(u8* w, s32 mode, s32 p2, s32 p3, s32 p4, s32 p5, s32 mask);  // 00291de0: moved to src/anon/unit_00290f78.cpp
 extern W1610Tb* D_0035f5ac;
 extern s16 D_0035f5b6;
 extern W1610Mdl* D_0035f5bc;

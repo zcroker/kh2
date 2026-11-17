@@ -222,18 +222,12 @@ u8 func_00287760(u8* p) {
 }
 
 extern u16 D_0035f470[3];
-void func_0028f4a0(u16* src) {
-    for (int i = 0; i < 3; i++) D_0035f470[i] = src[i];
-}
+void func_0028f4a0(u16* src);  // 0028f4a0: moved to src/anon/unit_0028f1e0.cpp
 
 void SetMsgId_impl(void* self, int id, int) asm("_ZN2Tz7SelHist8SetMsgIdEii");
 u32 get_msg_00192048(int) asm("_Z16u_tail4_00192048jjjj");
 void set_msg_0028fb68(void*, u32) asm("_ZN2Tz7SelHist6SetMsgEiPKN2YS7MESSAGEE");
-void SetMsgId_impl(void* self, int id, int) {
-    u32 m = 0;
-    if (id >= 0) m = get_msg_00192048(id);
-    set_msg_0028fb68(self, m);
-}
+// 0028fb28: moved to src/anon/unit_0028f1e0.cpp
 
 u32 func_002c1b48(void*);
 u32 func_001c2b58(u32);

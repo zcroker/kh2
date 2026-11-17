@@ -534,21 +534,7 @@ void func_00258d40(u32, u32);
 
 static inline void* Alloc82(u32 n) { Alloc0014* h = D_00347f80->heap; return h->vt->alloc(h, n, 0); }
 
-void func_0028fc78(Mgr0014** a0, u32 a1, u32 a2, u16* a3)
-{
-    u8* o = (u8*)Alloc82(408);
-    s32 i;
-    *(u32*)(o + 12) = 0;
-    *(u32*)o = (u32)D_00347e60;
-    func_00239700(o + 24);
-    a0[0] = (Mgr0014*)o;
-    o = (u8*)Alloc82(60);
-    func_0028dfe8(o);  // obj_ctor_36f440
-    a0[1] = (Mgr0014*)o;
-    for (i = 0; i < 3; i++) ((u16*)(a0 + 2))[i] = a3[i];
-    *(u32*)(a0 + 4) = a1;
-    func_00258d40(a1, a2);
-}
+void func_0028fc78(Mgr0014** a0, u32 a1, u32 a2, u16* a3);  // 0028fc78: moved to src/anon/unit_0028f1e0.cpp
 
 }
 

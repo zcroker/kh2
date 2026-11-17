@@ -408,37 +408,10 @@ void func_00258d58(u32, u32, u32);
 typedef u8* (*AllocFn)(void*, u32, u32);
 static inline u8* HeapAlloc(u32 n) { VObj* al = *(VObj**)(D_00347f80.p + 20); return ((AllocFn)al->vt[0])(al, n, 0); }
 struct Pair290 { u8* a; u8* b; u16 v[3]; u16 pad; u32 x; };
-void func_00290098(Pair290* self, u32 a1, u32 a2, u32 a3, u16* src)
-{
-    u8* a = HeapAlloc(408);
-    *(u32*)(a + 12) = 0;
-    *(void**)a = D_00347e60;
-    func_00239700(a + 24);
-    self->a = a;
-    u8* b = HeapAlloc(60);
-    func_0028dfe8(b);  // obj_ctor_36f440
-    self->b = b;
-    for (s32 i = 0; i < 3; i++) self->v[i] = src[i];
-    self->x = a1;
-    func_00258d58(a1, a2, a3);
-}
+void func_00290098(Pair290* self, u32 a1, u32 a2, u32 a3, u16* src);  // 00290098: moved to src/anon/unit_0028f1e0.cpp
 
 // 00291288
-void func_00291288(u8* self)
-{
-    u8* p = self;
-    s32 i;
-    for (i = 4; i >= 0; i--) {
-        StopIfActive((VObj*)(p + 4));
-        StopIfActive((VObj*)(p + 2184));
-        p += 436;
-    }
-    p = self;
-    for (i = 14; i >= 0; i--) {
-        StopIfActive((VObj*)(p + 4364));
-        p += 436;
-    }
-}
+void func_00291288(u8* self);  // 00291288: moved to src/anon/unit_00290f78.cpp
 
 // 0029e170
 u8* func_002766d0(void);

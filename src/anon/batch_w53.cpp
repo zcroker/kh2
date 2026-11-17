@@ -247,10 +247,7 @@ void func_00258080(s32* a, s32* b) {
 
 void func_0028e438(u8* p, s32 i, u32 v, u32 w);  // 0028e438: moved to src/anon/unit_0028c878.cpp
 
-void func_00290a10(u8* p, u32 a, u32 b) {
-    func_00290960(p, func_001708f8(a, -1), b);
-    p[16] = 1;
-}
+void func_00290a10(u8* p, u32 a, u32 b);  // 00290a10: moved to src/anon/unit_0028f1e0.cpp
 
 void func_002ca010(u32 a);  // 0x2ca010: moved to src/anon/unit_002c9998.cpp
 

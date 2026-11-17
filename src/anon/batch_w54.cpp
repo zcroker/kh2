@@ -364,12 +364,7 @@ void func_00139510(void*);
 s32 func_0028d6e8(void*);
 // Tz::JmStory::LeaveAllPost(...)
 void JmStory_LeaveAllPost(s32 i) asm("_ZN2Tz7JmStory12LeaveAllPostEz");
-void JmStory_LeaveAllPost(s32 i) {
-    if (!D_0035f480) return;
-    s32 off = i * 884;
-    if (func_00139d78(D_0035f480 + off)) func_00139510(D_0035f480 + off);
-    if (func_0028d6e8(D_0035f480 + off + 436)) func_00139510(D_0035f480 + off + 436);
-}
+// 0028f7e8: moved to src/anon/unit_0028f1e0.cpp
 
 struct Bits2aa {
     u8 pad[148];

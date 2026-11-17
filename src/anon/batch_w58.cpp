@@ -290,12 +290,7 @@ void func_0027aed8(s32 a, s32* o1, s32* o2) {
 
 s32 func_00168aa0(u32, u32);
 u8* func_00168b38(u32, u32, s32);  // entry_array_find_nth
-void func_00290960(u8* p, u32 a, u32 b) {
-    *(u32*)(p + 4) = a;
-    *(s32*)(p + 8) = func_00168aa0(a, b);
-    for (s32 i = 0; i < *(s32*)(p + 8); i++)
-        (*(u32**)(p + 20))[i] = *(u32*)(func_00168b38(*(u32*)(p + 4), b, i) + 8);  // entry_array_find_nth
-}
+void func_00290960(u8* p, u32 a, u32 b);  // 00290960: moved to src/anon/unit_0028f1e0.cpp
 
 void func_002b7fbc(s32);
 void func_002bced8(void*);

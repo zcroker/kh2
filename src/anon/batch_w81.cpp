@@ -489,22 +489,7 @@ extern u8 D_00347e60[];
 void func_00239700(u8*);
 void func_0028dfe8(u8*);  // obj_ctor_36f440
 void func_00258d40(u32, u32);
-void func_0028fb88(u8** o, u32 a, u32 b, u16* c) {
-    VObjP81* al = *(VObjP81**)(D_00347f80 + 20);
-    u8* p = al->vt[0](al, 408, 0);
-    *(u32*)(p + 12) = 0;
-    *(u32*)p = (u32)D_00347e60;
-    func_00239700(p + 24);
-    o[0] = p;
-    al = *(VObjP81**)(D_00347f80 + 20);
-    u8* q = al->vt[0](al, 60, 0);
-    func_0028dfe8(q);  // obj_ctor_36f440
-    o[1] = q;
-    s32 i;
-    for (i = 0; i < 3; i++) ((u16*)(o + 2))[i] = c[i];
-    o[4] = (u8*)a;
-    func_00258d40(a, b);
-}
+void func_0028fb88(u8** o, u32 a, u32 b, u16* c);  // 0028fb88: moved to src/anon/unit_0028f1e0.cpp
 
 // --- 002adcb0: 1 unless an entry of type 22 (matching id, if id >= 0) has its flag bit clear
 extern u8* D_0035f620;

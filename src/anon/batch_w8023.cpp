@@ -16,21 +16,7 @@ struct C0_28f3e8 : B0_28f3e8 { M1b4_28f3e8 m2; ~C0_28f3e8() {} };
 extern "C" {
 extern C0_28f3e8* D_0035f480;
 extern C0_28f3e8* D_0035f480_b asm("D_0035f480");
-void func_0028f3e8(void) {
-    D_0035f458 = -1;
-    D_0035f45c = -1;
-    D_0035f460 = 0;
-    if (D_0035f480) {
-        C0_28f3e8* p = D_0035f480 + ((s32*)D_0035f480)[-1];
-        for (;;) {
-            if (D_0035f480 == p) break;
-            --p;
-            p->~C0_28f3e8();
-        }
-        operator delete[]((s32*)D_0035f480_b - 1);
-        D_0035f480_b = 0;
-    }
-}
+void func_0028f3e8(void);  // 0028f3e8: moved to src/anon/unit_0028f1e0.cpp
 }
 
 extern "C" {

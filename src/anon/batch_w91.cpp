@@ -450,21 +450,7 @@ void func_00239700(u8*);
 void func_0028dfe8(u8*);  // obj_ctor_36f440
 void func_00258d58(u32, u32, u32);
 typedef u8* (*AllocFn91)(u8*, u32, u32);
-void func_00290198(u8* self, u32 a, u32 b, u32 c, u16* arr) {
-    u8* h = *(u8**)(D_00347f80 + 20);
-    u8* o = (**(AllocFn91**)h)(h, 408, 0);
-    *(u32*)(o + 12) = 0;
-    *(u8**)o = D_00347e60;
-    func_00239700(o + 24);
-    *(u8**)self = o;
-    u8* h2 = *(u8**)(D_00347f80 + 20);
-    u8* o2 = (**(AllocFn91**)h2)(h2, 60, 0);
-    func_0028dfe8(o2);  // obj_ctor_36f440
-    *(u8**)(self + 4) = o2;
-    for (s32 i = 0; i < 3; i++) ((u16*)(self + 8))[i] = arr[i];
-    *(u32*)(self + 16) = a;
-    func_00258d58(a, b, c);
-}
+void func_00290198(u8* self, u32 a, u32 b, u32 c, u16* arr);  // 00290198: moved to src/anon/unit_0028f1e0.cpp
 
 // --- 00292f18
 struct E16 { u32 a; u32 b; u32 c; u32 d; };

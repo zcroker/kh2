@@ -1,0 +1,37 @@
+In file included from /s/unit_00290f78.cpp:2:
+/work/src/kn/fvector.hpp:1:9: warning: #pragma once is obsolete
+In file included from /s/unit_00290f78.cpp:3:
+/work/src/yasui/libys/areadata.hpp:1:9: warning: #pragma once is obsolete
+In file included from /s/unit_00290f78.cpp:4:
+/work/src/yasui/libys/progress.hpp:1:9: warning: #pragma once is obsolete
+In file included from /s/unit_00290f78.cpp:5:
+/work/src/harata/libdk/ft4.hpp:1:9: warning: #pragma once is obsolete
+In file included from /s/unit_00290f78.cpp:6:
+/work/src/harata/libdk/sprite.hpp:1:9: warning: #pragma once is obsolete
+In file included from /s/unit_00290f78.cpp:7:
+/work/src/harata/libdk/treasure_info.hpp:1:9: warning: #pragma once is obsolete
+In file included from /s/unit_00290f78.cpp:8:
+/work/src/tozawa/cmenu_top.hpp:1:9: warning: #pragma once is obsolete
+In file included from /s/unit_00290f78.cpp:9:
+/work/src/tozawa/help_gra.hpp:1:9: warning: #pragma once is obsolete
+In file included from /s/unit_00290f78.cpp:10:
+/work/src/tozawa/menu_sound.hpp:1:9: warning: #pragma once is obsolete
+In file included from /s/unit_00290f78.cpp:11:
+/work/src/tozawa/cmenu_selector.hpp:1:9: warning: #pragma once is obsolete
+In file included from /work/src/tozawa/cmenu_selector.hpp:4,
+                 from /s/unit_00290f78.cpp:11:
+/work/src/common/task.hpp:1:9: warning: #pragma once is obsolete
+In file included from /s/unit_00290f78.cpp:12:
+/work/src/tozawa/cmenu_slbase.hpp:1:9: warning: #pragma once is obsolete
+In file included from /s/unit_00290f78.cpp:13:
+/work/src/tz/ui_accessors.hpp:1:9: warning: #pragma once is obsolete
+In file included from /s/unit_00290f78.cpp:14:
+/work/src/tozawa/jm_info.hpp:1:9: warning: #pragma once is obsolete
+In file included from /s/unit_00290f78.cpp:15:
+/work/src/tozawa/file_address_layout.hpp:1:9: warning: #pragma once is obsolete
+In file included from /s/unit_00290f78.cpp:16:
+/work/src/tozawa/item_stat.hpp:1:9: warning: #pragma once is obsolete
+In file included from /s/unit_00290f78.cpp:17:
+/work/src/harata/libdk/obj2d.hpp:1:9: warning: #pragma once is obsolete
+In file included from /s/unit_00290f78.cpp:18:
+/work/src/tozawa/load_data.hpp:1:9: warning: #pragma once is obsolete

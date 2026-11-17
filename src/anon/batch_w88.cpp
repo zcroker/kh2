@@ -338,14 +338,7 @@ s32 func_0028ad50(u8* p) {
     return 1;
 }
 
-void func_00291110(u32 a, u32 b, u32 c, u32 d, u32 e, u32 f, u32 g) {
-    func_00290d68(a, e);
-    func_00290f78(a);
-    u32 m = (func_00291380(a, c) | func_00291380(a, d)) & ~0x100;
-    func_00291510(a, b, c, m);
-    func_00291918(a, b, c, d, m);
-    func_00291de0(a, b, c, d, f, g, m);
-}
+void func_00291110(u32 a, u32 b, u32 c, u32 d, u32 e, u32 f, u32 g);  // 00291110: moved to src/anon/unit_00290f78.cpp
 
 void func_002b5b38(u32 a, s32 b, u32 c) {
     if (func_00287cd0() != 1) return;

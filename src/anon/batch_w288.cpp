@@ -76,22 +76,5 @@ void tz_SetMsgId(s32, s32) asm("_ZN2Tz7SelHist8SetMsgIdEii");
 void func_0028d1c0(void*, s32, s32, s32, void*, void*, s32);
 void func_0028d660(void*, void*);  // record_set_value_refresh
 struct Ent884 { u8 p[436]; u8 sub[444]; u32 f880; };
-void func_0028f4d8(s32 idx, s32 msg, u8 sel) {
-    u8* e = BASE + idx * 884;
-    if (u_call4_00139d78(e)) return;
-    void* unit = yi_GetSequenceUnit(tz_getLayout((void*)D_0035f460), D_0035f45c);
-    void* img = yi_GetImage(tz_getLayout((void*)D_0035f460)->f28, D_0035f458);
-    s32 id = D_0035f3d4;
-    s16* t = sel ? D_0035f470 : D_0035f468;
-    dk_SpriteMessage_create(e, id, unit, img, t[0], 0, 0);
-    *(s32*)(e + 392) = t[2];
-    dk_setOffsetPos(e, yi_GetParamEx(e + 24) * idx, 0);
-    dk_getSeqPraramXYOff(e);
-    *(s32*)(e + 428) = 1;
-    if (msg >= 0) tz_SetMsgId(idx, msg);
-    s32 off = idx * 884;
-    *(u32*)(e + 408) = ((Ent884*)D_0035f480)[idx].f880;
-    func_0028d1c0(BASE + off + 436, D_0035f3d4 + 1, D_0035f45c, D_0035f458, (void*)D_0035f460, D_0035f478, 0);
-    func_0028d660(BASE + off + 436, e);  // record_set_value_refresh
-}
+void func_0028f4d8(s32 idx, s32 msg, u8 sel);  // 0028f4d8: moved to src/anon/unit_0028f1e0.cpp
 }

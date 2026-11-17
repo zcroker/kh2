@@ -297,16 +297,7 @@ s32 func_00269f58(void) {
 
 void func_0028e5e0(void* a, s16* l, s32 n);  // 0028e5e0: moved to src/anon/unit_0028c878.cpp
 
-Ent8* func_0028f690(s32 i) {  // record884_type_index
-    u8* q = D_0035f480;
-    q += i * 884;
-    s32 v = *(s32*)(q + 388);
-    Ent8* r = 0;
-    for (s32 k = 0; k < 3; k++)
-        if (v == D_0035f468[0].ids[k]) r = &D_0035f468[0];
-    if (!r) r = &D_0035f468[1];
-    return r;
-}
+Ent8* func_0028f690(s32 i);  // 0028f690: moved to src/anon/unit_0028f1e0.cpp
 
 void func_0029dda8(void) {
     s32 i = func_00276638(15);

@@ -116,20 +116,7 @@ inline Rec0028f280::Rec0028f280() {
         *(u32*)(a + 408) = 0;
         func_0028d140(b);
 }
-void func_0028f280(u32 a, u32 b, u32 c, u16* d, u16* e)
-{
-    s32 k;
-    D_0035f458 = a;
-    D_0035f45c = b;
-    D_0035f460 = c;
-    D_0035f480.p = (u8*)new (func_00103570()) Rec0028f280[4];
-    for (k = 0; k < 4; k++) ((Rec0028f280*)D_0035f480.p)[k].f880 = 0;
-    for (k = 0; k < 3; k++) {
-        D_0035f468[k] = d[k];
-        D_0035f470[k] = d[k];
-        D_0035f478[k] = e[k];
-    }
-}
+void func_0028f280(u32 a, u32 b, u32 c, u16* d, u16* e);  // 0028f280: moved to src/anon/unit_0028f1e0.cpp
 
 // ---- g1.cpp
 typedef void (*VFn26cc30)(u8*);

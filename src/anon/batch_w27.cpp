@@ -188,15 +188,7 @@ void func_0028eab8(u8* d, u8* s);  // 0028eab8: moved to src/anon/unit_0028c878.
 
 void func_00290a60(void*);
 void func_00106450(void*);
-void u_call4_002908f0(u32 a, u32, u32, u32) {
-    u8* p = (u8*)a;
-    if (p[16]) func_00290a60(p);
-    *(u32*)(p + 4) = 0;
-    if (*(void**)(p + 20)) {
-        func_00106450(*(void**)(p + 20));
-        *(void**)(p + 20) = 0;
-    }
-}
+void u_call4_002908f0(u32 a, u32, u32, u32);  // 002908f0: moved to src/anon/unit_0028f1e0.cpp
 
 extern u8 D_0035f590;
 extern u8 D_0035f591;

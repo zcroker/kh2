@@ -737,14 +737,7 @@ void func_002723e0() {
     }
 }
 
-void func_00290610(u32 self) {
-    *(u32 *)(self + 12) = 0;
-    *(u32 *)self = (u32)&D_00347e60;
-    func_00239700(self + 24);
-    *(u32 *)self = (u32)&D_0035f490;
-    func_002361a0(self + 416);
-    func_00290738(self, 30022);
-}
+void func_00290610(u32 self);  // 00290610: moved to src/anon/unit_0028f1e0.cpp
 
 u32 func_002cff00(u32 a0) {
     u32 s0 = a0;

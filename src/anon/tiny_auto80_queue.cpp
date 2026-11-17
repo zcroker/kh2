@@ -2566,16 +2566,7 @@ u32 duplicate_unplaced_00290870(u32 a0) {
 extern "C" u32 func_00170518(...);
 
 
-u32 func_00292520(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r2, r15;
-    r15 = ((s32)r5 < (s32)r6);
-    r2 = (u32)((s32)0u + (2));
-    if (r15 == 0u) {
-        r15 = ((s32)r6 < (s32)r5);
-        r2 = ((u32)r15 < 0x00000001u);
-    }
-    return r2;
-}
+u32 func_00292520(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);  // 00292520: moved to src/anon/unit_00290f78.cpp
 
 extern "C" u32 func_00292690(...) asm("_ZN2Tz8LoadData5ClearEi");
 
@@ -13186,34 +13177,11 @@ void func_0028eb00(void* a0, f32 a1);  // 0028eb00: moved to src/anon/unit_0028c
 
 void func_0028eb38(void* a0, s32 a1, f32 a2);  // 0028eb38: moved to src/anon/unit_0028c878.cpp
 
-void func_0028f7a0() {
-    s32 base = 0x360000;
-    s32 s0 = 0;
-    if (*(s32*)(base - 2944) != 0) {
-        do {
-            func_0028f6f0((u32)s0);  // record884_refresh_by_index
-            s0 = s0 + 1;
-        } while (s0 < 4);
-    }
-}
+void func_0028f7a0();  // 0028f7a0: moved to src/anon/unit_0028f1e0.cpp
 
-u32 func_00290060(void* a0) {
-    u8* s0 = (u8*)a0;
-    u32 v0 = func_00139d78(*(void**)s0);
-    if (v0 == 0u) {
-        v0 = func_00139d78(*(void**)(s0 + 4));
-    }
-    return v0;
-}
+u32 func_00290060(void* a0);  // 00290060: moved to src/anon/unit_0028f1e0.cpp
 
-u32 func_00290580(void* a0) {
-    u8* s0 = (u8*)a0;
-    u32 v0 = func_00139d78(*(void**)s0);
-    if (v0 == 0u) {
-        v0 = func_00139d78(*(void**)(s0 + 4));
-    }
-    return v0;
-}
+u32 func_00290580(void* a0);  // 00290580: moved to src/anon/unit_0028f1e0.cpp
 
 void duplicate_unplaced_00290a10(void* a0, void* a1, void* a2) {
     u8* s1 = (u8*)a0;

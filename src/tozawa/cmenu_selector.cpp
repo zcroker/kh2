@@ -26,9 +26,7 @@ void Selector::SetState(s32 v) { D_0035f304 = (u32)v; }
 
 u32 Selector::GetState() { return D_0035f304; }
 
-void Selector::SetHelpGraMsg(u32 a0, s32 v) {
-    reinterpret_cast<HelpGraLayout*>(a0)->pri = v;
-}
+// 00290738: moved to src/anon/unit_0028f1e0.cpp
 
 void Selector::SetupHelpGra() {
     u32 a;

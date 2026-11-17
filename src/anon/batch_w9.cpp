@@ -180,11 +180,7 @@ s32 func_00288088(void) {
 
 void func_0028d708(void* p);  // 0028d708: moved to src/anon/unit_0028c878.cpp
 
-void jm_unload(u8* j) {
-    func_00170950(*(u32*)(j + 4));
-    *(u32*)(j + 4) = 0;
-    j[16] = 0;
-}
+// 00290a60: moved to src/anon/unit_0028f1e0.cpp
 
 u32 func_002bc158(s32 a);  // 0x002bc158: definition moved into src/anon/unit_002bb8b0.cpp
 

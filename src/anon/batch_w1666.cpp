@@ -14,7 +14,7 @@ void func_00258b28(s32 a) { D_0035f06b = a; }
 u8 func_0025f568(void) { return D_0035f0b4; }
 void func_0025f578(void) { D_0035f0b4 = 0; }
 s32 func_0026d818(void) { return D_0035f0f8; }
-void func_00292540(void) { D_0035f4b8 = 0; }
+void func_00292540(void);  // 00292540: moved to src/anon/unit_00290f78.cpp
 void func_0010f908(u8* p) { *(u32*)(p + 2940) |= 0x400; }
 u32 func_00112c70(u8* p) { return (*(s32*)(p + 2940) >> 30) & 1; }
 // 00136a40: moved to src/harata/libdk/bgse.cpp

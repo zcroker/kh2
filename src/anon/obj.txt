@@ -1,0 +1,1660 @@
+
+/s/out.o:     file format elf32-littlemips
+
+Disassembly of section .text:
+
+00000000 <_ZN2Tz8ItemStat8ClearSeqEv>:
+       0:	27bdffd0 	addiu	sp,sp,-48
+       4:	0000282d 	move	a1,zero
+       8:	ffb40020 	sd	s4,32(sp)
+       c:	ffb10008 	sd	s1,8(sp)
+      10:	ffb20010 	sd	s2,16(sp)
+      14:	0080a02d 	move	s4,a0
+      18:	ffb30018 	sd	s3,24(sp)
+      1c:	0280882d 	move	s1,s4
+      20:	ffb00000 	sd	s0,0(sp)
+      24:	ffbf0028 	sd	ra,40(sp)
+      28:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			28: R_MIPS_26	_ZN2Tz8ItemStat10GetFontSeqEi
+      2c:	26930884 	addiu	s3,s4,2180
+      30:	0040902d 	move	s2,v0
+      34:	26300004 	addiu	s0,s1,4
+      38:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			38: R_MIPS_26	_Z16u_call4_00139d78jjjj
+      3c:	0200202d 	move	a0,s0
+      40:	0200202d 	move	a0,s0
+      44:	10400004 	beqz	v0,58 <_ZN2Tz8ItemStat8ClearSeqEv+0x58>
+      48:	0240282d 	move	a1,s2
+      4c:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			4c: R_MIPS_26	_ZN2dk6Sprite6setNumEi
+      50:	00000000 	nop
+      54:	ae000198 	sw	zero,408(s0)
+      58:	26300888 	addiu	s0,s1,2184
+      5c:	0200202d 	move	a0,s0
+      60:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			60: R_MIPS_26	_Z16u_call4_00139d78jjjj
+      64:	263101b4 	addiu	s1,s1,436
+      68:	0200202d 	move	a0,s0
+      6c:	10400004 	beqz	v0,80 <_ZN2Tz8ItemStat8ClearSeqEv+0x80>
+      70:	0240282d 	move	a1,s2
+      74:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			74: R_MIPS_26	_ZN2dk6Sprite6setNumEi
+      78:	00000000 	nop
+      7c:	ae000198 	sw	zero,408(s0)
+      80:	0233782a 	slt	t7,s1,s3
+      84:	15e0ffec 	bnez	t7,38 <_ZN2Tz8ItemStat8ClearSeqEv+0x38>
+      88:	26300004 	addiu	s0,s1,4
+      8c:	2690110c 	addiu	s0,s4,4364
+      90:	2411000e 	li	s1,14
+      94:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			94: R_MIPS_26	_Z16u_call4_00139d78jjjj
+      98:	0200202d 	move	a0,s0
+      9c:	0200202d 	move	a0,s0
+      a0:	10400004 	beqz	v0,b4 <_ZN2Tz8ItemStat8ClearSeqEv+0xb4>
+      a4:	0240282d 	move	a1,s2
+      a8:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			a8: R_MIPS_26	_ZN2dk6Sprite6setNumEi
+      ac:	00000000 	nop
+      b0:	ae000198 	sw	zero,408(s0)
+      b4:	2631ffff 	addiu	s1,s1,-1
+      b8:	0621fff6 	bgez	s1,94 <_ZN2Tz8ItemStat8ClearSeqEv+0x94>
+      bc:	261001b4 	addiu	s0,s0,436
+      c0:	26842a98 	addiu	a0,s4,10904
+      c4:	dfb00000 	ld	s0,0(sp)
+      c8:	dfb10008 	ld	s1,8(sp)
+      cc:	0000282d 	move	a1,zero
+      d0:	dfb20010 	ld	s2,16(sp)
+      d4:	24060078 	li	a2,120
+      d8:	dfb30018 	ld	s3,24(sp)
+      dc:	dfb40020 	ld	s4,32(sp)
+      e0:	dfbf0028 	ld	ra,40(sp)
+      e4:	08000000 	j	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			e4: R_MIPS_26	_Z16wtarget_002fde18jjjj
+      e8:	27bd0030 	addiu	sp,sp,48
+      ec:	00000000 	nop
+
+000000f0 <_ZN2Tz8ItemStat13UpdateNowStatEiiiii>:
+      f0:	27bdffc0 	addiu	sp,sp,-64
+      f4:	ffb30018 	sd	s3,24(sp)
+      f8:	ffb00000 	sd	s0,0(sp)
+      fc:	ffb10008 	sd	s1,8(sp)
+     100:	00a0982d 	move	s3,a1
+     104:	ffb40020 	sd	s4,32(sp)
+     108:	0080802d 	move	s0,a0
+     10c:	ffb50028 	sd	s5,40(sp)
+     110:	00c0882d 	move	s1,a2
+     114:	ffbf0030 	sd	ra,48(sp)
+     118:	0100a02d 	move	s4,t0
+     11c:	ffb20010 	sd	s2,16(sp)
+     120:	0120a82d 	move	s5,t1
+     124:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			124: R_MIPS_26	func_00290d68
+     128:	00e0282d 	move	a1,a3
+     12c:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			12c: R_MIPS_26	_ZN2Tz8ItemStat8ClearSeqEv
+     130:	0200202d 	move	a0,s0
+     134:	0200202d 	move	a0,s0
+     138:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			138: R_MIPS_26	func_00291380
+     13c:	0220282d 	move	a1,s1
+     140:	0040902d 	move	s2,v0
+     144:	0200202d 	move	a0,s0
+     148:	0260282d 	move	a1,s3
+     14c:	0220302d 	move	a2,s1
+     150:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			150: R_MIPS_26	func_00291510
+     154:	0040382d 	move	a3,v0
+     158:	0200202d 	move	a0,s0
+     15c:	dfbf0030 	ld	ra,48(sp)
+     160:	0260282d 	move	a1,s3
+     164:	dfb00000 	ld	s0,0(sp)
+     168:	0220302d 	move	a2,s1
+     16c:	dfb30018 	ld	s3,24(sp)
+     170:	0280382d 	move	a3,s4
+     174:	dfb10008 	ld	s1,8(sp)
+     178:	02a0402d 	move	t0,s5
+     17c:	dfb40020 	ld	s4,32(sp)
+     180:	0240482d 	move	t1,s2
+     184:	dfb50028 	ld	s5,40(sp)
+     188:	dfb20010 	ld	s2,16(sp)
+     18c:	08000000 	j	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			18c: R_MIPS_26	func_00291ba8
+     190:	27bd0040 	addiu	sp,sp,64
+     194:	00000000 	nop
+
+00000198 <func_00291110>:
+     198:	27bdffc0 	addiu	sp,sp,-64
+     19c:	ffb30018 	sd	s3,24(sp)
+     1a0:	ffb10008 	sd	s1,8(sp)
+     1a4:	ffb20010 	sd	s2,16(sp)
+     1a8:	00a0982d 	move	s3,a1
+     1ac:	ffb40020 	sd	s4,32(sp)
+     1b0:	0080882d 	move	s1,a0
+     1b4:	ffb50028 	sd	s5,40(sp)
+     1b8:	00c0902d 	move	s2,a2
+     1bc:	ffb60030 	sd	s6,48(sp)
+     1c0:	00e0a02d 	move	s4,a3
+     1c4:	ffbf0038 	sd	ra,56(sp)
+     1c8:	0120a82d 	move	s5,t1
+     1cc:	ffb00000 	sd	s0,0(sp)
+     1d0:	0140b02d 	move	s6,t2
+     1d4:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			1d4: R_MIPS_26	func_00290d68
+     1d8:	0100282d 	move	a1,t0
+     1dc:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			1dc: R_MIPS_26	func_00290f78
+     1e0:	0220202d 	move	a0,s1
+     1e4:	0220202d 	move	a0,s1
+     1e8:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			1e8: R_MIPS_26	func_00291380
+     1ec:	0240282d 	move	a1,s2
+     1f0:	0220202d 	move	a0,s1
+     1f4:	0280282d 	move	a1,s4
+     1f8:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			1f8: R_MIPS_26	func_00291380
+     1fc:	0040802d 	move	s0,v0
+     200:	02028025 	or	s0,s0,v0
+     204:	240ffeff 	li	t7,-257
+     208:	020f8024 	and	s0,s0,t7
+     20c:	0220202d 	move	a0,s1
+     210:	0260282d 	move	a1,s3
+     214:	0240302d 	move	a2,s2
+     218:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			218: R_MIPS_26	func_00291510
+     21c:	0200382d 	move	a3,s0
+     220:	0220202d 	move	a0,s1
+     224:	0260282d 	move	a1,s3
+     228:	0240302d 	move	a2,s2
+     22c:	0280382d 	move	a3,s4
+     230:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			230: R_MIPS_26	func_00291918
+     234:	0200402d 	move	t0,s0
+     238:	0220202d 	move	a0,s1
+     23c:	dfbf0038 	ld	ra,56(sp)
+     240:	0260282d 	move	a1,s3
+     244:	dfb10008 	ld	s1,8(sp)
+     248:	0240302d 	move	a2,s2
+     24c:	dfb30018 	ld	s3,24(sp)
+     250:	0280382d 	move	a3,s4
+     254:	dfb20010 	ld	s2,16(sp)
+     258:	02a0402d 	move	t0,s5
+     25c:	dfb40020 	ld	s4,32(sp)
+     260:	02c0482d 	move	t1,s6
+     264:	dfb50028 	ld	s5,40(sp)
+     268:	0200502d 	move	t2,s0
+     26c:	dfb60030 	ld	s6,48(sp)
+     270:	dfb00000 	ld	s0,0(sp)
+     274:	08000000 	j	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			274: R_MIPS_26	func_00291de0
+     278:	27bd0040 	addiu	sp,sp,64
+     27c:	00000000 	nop
+
+00000280 <func_002911f8>:
+     280:	27bdffe0 	addiu	sp,sp,-32
+     284:	ffb00000 	sd	s0,0(sp)
+     288:	ffb10008 	sd	s1,8(sp)
+     28c:	ffb20010 	sd	s2,16(sp)
+     290:	0080802d 	move	s0,a0
+     294:	ffbf0018 	sd	ra,24(sp)
+     298:	0000882d 	move	s1,zero
+     29c:	0080902d 	move	s2,a0
+     2a0:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			2a0: R_MIPS_26	func_00139d78
+     2a4:	26040004 	addiu	a0,s0,4
+     2a8:	14400012 	bnez	v0,2f4 <func_002911f8+0x74>
+     2ac:	26040888 	addiu	a0,s0,2184
+     2b0:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			2b0: R_MIPS_26	func_00139d78
+     2b4:	00000000 	nop
+     2b8:	1440000e 	bnez	v0,2f4 <func_002911f8+0x74>
+     2bc:	26310001 	addiu	s1,s1,1
+     2c0:	2a2f0005 	slti	t7,s1,5
+     2c4:	15e0fff6 	bnez	t7,2a0 <func_002911f8+0x20>
+     2c8:	261001b4 	addiu	s0,s0,436
+     2cc:	2650110c 	addiu	s0,s2,4364
+     2d0:	0000882d 	move	s1,zero
+     2d4:	0200202d 	move	a0,s0
+     2d8:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			2d8: R_MIPS_26	func_00139d78
+     2dc:	261001b4 	addiu	s0,s0,436
+     2e0:	14400004 	bnez	v0,2f4 <func_002911f8+0x74>
+     2e4:	26310001 	addiu	s1,s1,1
+     2e8:	2a2f000f 	slti	t7,s1,15
+     2ec:	15e0fffa 	bnez	t7,2d8 <func_002911f8+0x58>
+     2f0:	0200202d 	move	a0,s0
+     2f4:	dfb00000 	ld	s0,0(sp)
+     2f8:	dfb10008 	ld	s1,8(sp)
+     2fc:	dfb20010 	ld	s2,16(sp)
+     300:	dfbf0018 	ld	ra,24(sp)
+     304:	03e00008 	jr	ra
+     308:	27bd0020 	addiu	sp,sp,32
+     30c:	00000000 	nop
+
+00000310 <func_00291288>:
+     310:	27bdffd0 	addiu	sp,sp,-48
+     314:	ffb10008 	sd	s1,8(sp)
+     318:	ffb20010 	sd	s2,16(sp)
+     31c:	ffb30018 	sd	s3,24(sp)
+     320:	0080882d 	move	s1,a0
+     324:	ffb00000 	sd	s0,0(sp)
+     328:	24120004 	li	s2,4
+     32c:	ffbf0020 	sd	ra,32(sp)
+     330:	0080982d 	move	s3,a0
+     334:	26300004 	addiu	s0,s1,4
+     338:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			338: R_MIPS_26	func_00139d78
+     33c:	0200202d 	move	a0,s0
+     340:	10400005 	beqz	v0,358 <func_00291288+0x48>
+     344:	0200202d 	move	a0,s0
+     348:	8e2f0004 	lw	t7,4(s1)
+     34c:	8dee0014 	lw	t6,20(t7)
+     350:	01c0f809 	jalr	t6
+     354:	00000000 	nop
+     358:	26300888 	addiu	s0,s1,2184
+     35c:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			35c: R_MIPS_26	func_00139d78
+     360:	0200202d 	move	a0,s0
+     364:	10400005 	beqz	v0,37c <func_00291288+0x6c>
+     368:	0200202d 	move	a0,s0
+     36c:	8e2f0888 	lw	t7,2184(s1)
+     370:	8dee0014 	lw	t6,20(t7)
+     374:	01c0f809 	jalr	t6
+     378:	00000000 	nop
+     37c:	2652ffff 	addiu	s2,s2,-1
+     380:	0641ffec 	bgez	s2,334 <func_00291288+0x24>
+     384:	263101b4 	addiu	s1,s1,436
+     388:	0260882d 	move	s1,s3
+     38c:	2412000e 	li	s2,14
+     390:	2630110c 	addiu	s0,s1,4364
+     394:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			394: R_MIPS_26	func_00139d78
+     398:	0200202d 	move	a0,s0
+     39c:	10400005 	beqz	v0,3b4 <func_00291288+0xa4>
+     3a0:	0200202d 	move	a0,s0
+     3a4:	8e2f110c 	lw	t7,4364(s1)
+     3a8:	8dee0014 	lw	t6,20(t7)
+     3ac:	01c0f809 	jalr	t6
+     3b0:	00000000 	nop
+     3b4:	2652ffff 	addiu	s2,s2,-1
+     3b8:	0641fff5 	bgez	s2,390 <func_00291288+0x80>
+     3bc:	263101b4 	addiu	s1,s1,436
+     3c0:	dfb00000 	ld	s0,0(sp)
+     3c4:	dfb10008 	ld	s1,8(sp)
+     3c8:	dfb20010 	ld	s2,16(sp)
+     3cc:	dfb30018 	ld	s3,24(sp)
+     3d0:	dfbf0020 	ld	ra,32(sp)
+     3d4:	03e00008 	jr	ra
+     3d8:	27bd0030 	addiu	sp,sp,48
+     3dc:	00000000 	nop
+
+000003e0 <_ZN2Tz8ItemStat5ClearEv>:
+     3e0:	27bdfff0 	addiu	sp,sp,-16
+     3e4:	ffbf0000 	sd	ra,0(sp)
+     3e8:	dfbf0000 	ld	ra,0(sp)
+     3ec:	08000000 	j	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			3ec: R_MIPS_26	_ZN2Tz8ItemStat8ClearSeqEv
+     3f0:	27bd0010 	addiu	sp,sp,16
+     3f4:	00000000 	nop
+
+000003f8 <_ZN2Tz8ItemStat10GetFontSeqEi>:
+     3f8:	00052840 	sll	a1,a1,0x1
+     3fc:	00a42821 	addu	a1,a1,a0
+     400:	03e00008 	jr	ra
+     404:	84a22b20 	lh	v0,11040(a1)
+
+00000408 <func_00291380>:
+     408:	27bdffd0 	addiu	sp,sp,-48
+     40c:	0000102d 	move	v0,zero
+     410:	ffb00000 	sd	s0,0(sp)
+     414:	ffb30018 	sd	s3,24(sp)
+     418:	ffb10008 	sd	s1,8(sp)
+     41c:	00a0802d 	move	s0,a1
+     420:	ffb20010 	sd	s2,16(sp)
+     424:	ffb40020 	sd	s4,32(sp)
+     428:	ffbf0028 	sd	ra,40(sp)
+     42c:	10a00037 	beqz	a1,50c <func_00291380+0x104>
+     430:	0080982d 	move	s3,a0
+     434:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			434: R_MIPS_26	func_002924d0
+     438:	24110006 	li	s1,6
+     43c:	0200202d 	move	a0,s0
+     440:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			440: R_MIPS_26	func_001a80c8
+     444:	0040902d 	move	s2,v0
+     448:	0260202d 	move	a0,s3
+     44c:	0200282d 	move	a1,s0
+     450:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			450: R_MIPS_26	func_002914a8
+     454:	0040a02d 	move	s4,v0
+     458:	0260202d 	move	a0,s3
+     45c:	14400009 	bnez	v0,484 <func_00291380+0x7c>
+     460:	0200282d 	move	a1,s0
+     464:	928e0002 	lbu	t6,2(s4)
+     468:	241100f8 	li	s1,248
+     46c:	240f000e 	li	t7,14
+     470:	11cf0004 	beq	t6,t7,484 <func_00291380+0x7c>
+     474:	39cd000f 	xori	t5,t6,0xf
+     478:	240f0007 	li	t7,7
+     47c:	0000882d 	move	s1,zero
+     480:	01ed880a 	movz	s1,t7,t5
+     484:	924e0007 	lbu	t6,7(s2)
+     488:	362f0001 	ori	t7,s1,0x1
+     48c:	924d0004 	lbu	t5,4(s2)
+     490:	01ee880b 	movn	s1,t7,t6
+     494:	92490005 	lbu	t1,5(s2)
+     498:	362f0002 	ori	t7,s1,0x2
+     49c:	92480006 	lbu	t0,6(s2)
+     4a0:	01ed880b 	movn	s1,t7,t5
+     4a4:	924b0009 	lbu	t3,9(s2)
+     4a8:	362f0004 	ori	t7,s1,0x4
+     4ac:	924a000a 	lbu	t2,10(s2)
+     4b0:	01e9880b 	movn	s1,t7,t1
+     4b4:	924d000b 	lbu	t5,11(s2)
+     4b8:	362f0008 	ori	t7,s1,0x8
+     4bc:	924c000c 	lbu	t4,12(s2)
+     4c0:	01e8880b 	movn	s1,t7,t0
+     4c4:	396b0064 	xori	t3,t3,0x64
+     4c8:	362f0010 	ori	t7,s1,0x10
+     4cc:	394a0064 	xori	t2,t2,0x64
+     4d0:	01eb880b 	movn	s1,t7,t3
+     4d4:	39ad0064 	xori	t5,t5,0x64
+     4d8:	362e0020 	ori	t6,s1,0x20
+     4dc:	398c0064 	xori	t4,t4,0x64
+     4e0:	01ca880b 	movn	s1,t6,t2
+     4e4:	362f0040 	ori	t7,s1,0x40
+     4e8:	01ed880b 	movn	s1,t7,t5
+     4ec:	362e0080 	ori	t6,s1,0x80
+     4f0:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			4f0: R_MIPS_26	func_002914a8
+     4f4:	01cc880b 	movn	s1,t6,t4
+     4f8:	10400003 	beqz	v0,508 <func_00291380+0x100>
+     4fc:	362e0100 	ori	t6,s1,0x100
+     500:	964f0002 	lhu	t7,2(s2)
+     504:	01cf880b 	movn	s1,t6,t7
+     508:	0220102d 	move	v0,s1
+     50c:	dfb00000 	ld	s0,0(sp)
+     510:	dfb10008 	ld	s1,8(sp)
+     514:	dfb20010 	ld	s2,16(sp)
+     518:	dfb30018 	ld	s3,24(sp)
+     51c:	dfb40020 	ld	s4,32(sp)
+     520:	dfbf0028 	ld	ra,40(sp)
+     524:	03e00008 	jr	ra
+     528:	27bd0030 	addiu	sp,sp,48
+     52c:	00000000 	nop
+
+00000530 <func_002914a8>:
+     530:	27bdfff0 	addiu	sp,sp,-16
+     534:	00a0202d 	move	a0,a1
+     538:	ffb00000 	sd	s0,0(sp)
+     53c:	ffbf0008 	sd	ra,8(sp)
+     540:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			540: R_MIPS_26	func_001a80c8
+     544:	0000802d 	move	s0,zero
+     548:	3c0e0000 	lui	t6,0x0
+			548: R_MIPS_HI16	D_00374488
+     54c:	81cf0000 	lb	t7,0(t6)
+			54c: R_MIPS_LO16	D_00374488
+     550:	05e20008 	bltzl	t7,574 <func_002914a8+0x44>
+     554:	0200102d 	move	v0,s0
+     558:	90420002 	lbu	v0,2(v0)
+     55c:	25ce0000 	addiu	t6,t6,0
+			55c: R_MIPS_LO16	D_00374488
+     560:	81cf0000 	lb	t7,0(t6)
+     564:	144f0007 	bne	v0,t7,584 <func_002914a8+0x54>
+     568:	25ce0001 	addiu	t6,t6,1
+     56c:	24100001 	li	s0,1
+     570:	0200102d 	move	v0,s0
+     574:	dfbf0008 	ld	ra,8(sp)
+     578:	dfb00000 	ld	s0,0(sp)
+     57c:	03e00008 	jr	ra
+     580:	27bd0010 	addiu	sp,sp,16
+     584:	81cf0000 	lb	t7,0(t6)
+     588:	05e1fff5 	bgez	t7,560 <func_002914a8+0x30>
+     58c:	00000000 	nop
+     590:	1000fff8 	b	574 <func_002914a8+0x44>
+     594:	0200102d 	move	v0,s0
+
+00000598 <func_00291510>:
+     598:	27bdff90 	addiu	sp,sp,-112
+     59c:	ffb60050 	sd	s6,80(sp)
+     5a0:	ffb40040 	sd	s4,64(sp)
+     5a4:	00a0b02d 	move	s6,a1
+     5a8:	ffb00020 	sd	s0,32(sp)
+     5ac:	ffb10028 	sd	s1,40(sp)
+     5b0:	00c0282d 	move	a1,a2
+     5b4:	ffb20030 	sd	s2,48(sp)
+     5b8:	0080a02d 	move	s4,a0
+     5bc:	ffb30038 	sd	s3,56(sp)
+     5c0:	ffb50048 	sd	s5,72(sp)
+     5c4:	ffb70058 	sd	s7,88(sp)
+     5c8:	ffbe0060 	sd	s8,96(sp)
+     5cc:	ffbf0068 	sd	ra,104(sp)
+     5d0:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			5d0: R_MIPS_26	func_002924d0
+     5d4:	afa70000 	sw	a3,0(sp)
+     5d8:	2ecf0005 	sltiu	t7,s6,5
+     5dc:	11e000ee 	beqz	t7,998 <func_00291510+0x400>
+     5e0:	afa20004 	sw	v0,4(sp)
+     5e4:	3c0e0000 	lui	t6,0x0
+			5e4: R_MIPS_HI16	.rodata
+     5e8:	00167880 	sll	t7,s6,0x2
+     5ec:	25ce0000 	addiu	t6,t6,0
+			5ec: R_MIPS_LO16	.rodata
+     5f0:	01ee7821 	addu	t7,t7,t6
+     5f4:	8ded0000 	lw	t5,0(t7)
+     5f8:	01a00008 	jr	t5
+     5fc:	00000000 	nop
+     600:	868e2b2e 	lh	t6,11054(s4)
+     604:	afae0008 	sw	t6,8(sp)
+     608:	8e900190 	lw	s0,400(s4)
+     60c:	0000b82d 	move	s7,zero
+     610:	0000a82d 	move	s5,zero
+     614:	26100018 	addiu	s0,s0,24
+     618:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			618: R_MIPS_26	func_0023aa18
+     61c:	0200202d 	move	a0,s0
+     620:	afa20014 	sw	v0,20(sp)
+     624:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			624: R_MIPS_26	func_0023aa38
+     628:	0200202d 	move	a0,s0
+     62c:	afa20018 	sw	v0,24(sp)
+     630:	8fae0000 	lw	t6,0(sp)
+     634:	02ae7807 	srav	t7,t6,s5
+     638:	39ef0001 	xori	t7,t7,0x1
+     63c:	31ef0001 	andi	t7,t7,0x1
+     640:	31ef00ff 	andi	t7,t7,0xff
+     644:	55e0007f 	bnezl	t7,844 <func_00291510+0x2ac>
+     648:	26b50001 	addiu	s5,s5,1
+     64c:	240f01b4 	li	t7,436
+     650:	240e0001 	li	t6,1
+     654:	02ef7818 	mult	t7,s7,t7
+     658:	028f7821 	addu	t7,s4,t7
+     65c:	16ce0006 	bne	s6,t6,678 <func_00291510+0xe0>
+     660:	25f10004 	addiu	s1,t7,4
+     664:	240f0008 	li	t7,8
+     668:	16af0004 	bne	s5,t7,67c <func_00291510+0xe4>
+     66c:	8fa50008 	lw	a1,8(sp)
+     670:	868f2b32 	lh	t7,11058(s4)
+     674:	afaf0008 	sw	t7,8(sp)
+     678:	8fa50008 	lw	a1,8(sp)
+     67c:	0220202d 	move	a0,s1
+     680:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			680: R_MIPS_26	func_00138c10
+     684:	26300018 	addiu	s0,s1,24
+     688:	8fb30014 	lw	s3,20(sp)
+     68c:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			68c: R_MIPS_26	func_0023aa78
+     690:	0200202d 	move	a0,s0
+     694:	0040f02d 	move	s8,v0
+     698:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			698: R_MIPS_26	func_0023aa18
+     69c:	0200202d 	move	a0,s0
+     6a0:	afa2000c 	sw	v0,12(sp)
+     6a4:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			6a4: R_MIPS_26	func_0023aa38
+     6a8:	0200202d 	move	a0,s0
+     6ac:	03d77818 	mult	t7,s8,s7
+     6b0:	8fae0018 	lw	t6,24(sp)
+     6b4:	afa20010 	sw	v0,16(sp)
+     6b8:	0260282d 	move	a1,s3
+     6bc:	0220202d 	move	a0,s1
+     6c0:	01cf9021 	addu	s2,t6,t7
+     6c4:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			6c4: R_MIPS_26	func_00138c68
+     6c8:	0240302d 	move	a2,s2
+     6cc:	12c000aa 	beqz	s6,978 <func_00291510+0x3e0>
+     6d0:	3c0f0000 	lui	t7,0x0
+			6d0: R_MIPS_HI16	D_00374548
+     6d4:	3c0f0000 	lui	t7,0x0
+			6d4: R_MIPS_HI16	D_00374560
+     6d8:	00157040 	sll	t6,s5,0x1
+     6dc:	25ef0000 	addiu	t7,t7,0
+			6dc: R_MIPS_LO16	D_00374560
+     6e0:	01cf7821 	addu	t7,t6,t7
+     6e4:	95f00000 	lhu	s0,0(t7)
+     6e8:	16000004 	bnez	s0,6fc <func_00291510+0x164>
+     6ec:	3c0f0000 	lui	t7,0x0
+			6ec: R_MIPS_HI16	D_00374548
+     6f0:	25ef0000 	addiu	t7,t7,0
+			6f0: R_MIPS_LO16	D_00374548
+     6f4:	01cf7821 	addu	t7,t6,t7
+     6f8:	95f00000 	lhu	s0,0(t7)
+     6fc:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			6fc: R_MIPS_26	func_00192048
+     700:	0200202d 	move	a0,s0
+     704:	26cffffe 	addiu	t7,s6,-2
+     708:	2def0002 	sltiu	t7,t7,2
+     70c:	11e0000f 	beqz	t7,74c <func_00291510+0x1b4>
+     710:	ae220198 	sw	v0,408(s1)
+     714:	240f01b4 	li	t7,436
+     718:	240e0002 	li	t6,2
+     71c:	02ef7818 	mult	t7,s7,t7
+     720:	028f7821 	addu	t7,s4,t7
+     724:	16ce0092 	bne	s6,t6,970 <func_00291510+0x3d8>
+     728:	25f10888 	addiu	s1,t7,2184
+     72c:	86902b36 	lh	s0,11062(s4)
+     730:	0200282d 	move	a1,s0
+     734:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			734: R_MIPS_26	func_00138c10
+     738:	0220202d 	move	a0,s1
+     73c:	8fa50014 	lw	a1,20(sp)
+     740:	0220202d 	move	a0,s1
+     744:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			744: R_MIPS_26	func_00138c68
+     748:	0240302d 	move	a2,s2
+     74c:	240f01b4 	li	t7,436
+     750:	8fb3000c 	lw	s3,12(sp)
+     754:	02ef7818 	mult	t7,s7,t7
+     758:	8fb20010 	lw	s2,16(sp)
+     75c:	028f7821 	addu	t7,s4,t7
+     760:	12c00004 	beqz	s6,774 <func_00291510+0x1dc>
+     764:	25f1110c 	addiu	s1,t7,4364
+     768:	240f0004 	li	t7,4
+     76c:	16cf0005 	bne	s6,t7,784 <func_00291510+0x1ec>
+     770:	240f0003 	li	t7,3
+     774:	025e7021 	addu	t6,s2,s8
+     778:	3aaf0008 	xori	t7,s5,0x8
+     77c:	01cf900a 	movz	s2,t6,t7
+     780:	240f0003 	li	t7,3
+     784:	16cf006c 	bne	s6,t7,938 <func_00291510+0x3a0>
+     788:	240f0008 	li	t7,8
+     78c:	0280202d 	move	a0,s4
+     790:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			790: R_MIPS_26	func_00291370
+     794:	0000282d 	move	a1,zero
+     798:	0000982d 	move	s3,zero
+     79c:	240501b4 	li	a1,436
+     7a0:	0040802d 	move	s0,v0
+     7a4:	02e52818 	mult	a1,s7,a1
+     7a8:	0000902d 	move	s2,zero
+     7ac:	0220202d 	move	a0,s1
+     7b0:	02852821 	addu	a1,s4,a1
+     7b4:	24a50888 	addiu	a1,a1,2184
+     7b8:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			7b8: R_MIPS_26	func_0028dcc0
+     7bc:	00000000 	nop
+     7c0:	0240302d 	move	a2,s2
+     7c4:	0260282d 	move	a1,s3
+     7c8:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			7c8: R_MIPS_26	func_00138c68
+     7cc:	0220202d 	move	a0,s1
+     7d0:	0200282d 	move	a1,s0
+     7d4:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			7d4: R_MIPS_26	func_00138c10
+     7d8:	0220202d 	move	a0,s1
+     7dc:	2eaf0009 	sltiu	t7,s5,9
+     7e0:	11e0000a 	beqz	t7,80c <func_00291510+0x274>
+     7e4:	2410ffff 	li	s0,-1
+     7e8:	3c0e0000 	lui	t6,0x0
+			7e8: R_MIPS_HI16	.rodata
+     7ec:	00157880 	sll	t7,s5,0x2
+     7f0:	25ce0014 	addiu	t6,t6,20
+			7f0: R_MIPS_LO16	.rodata
+     7f4:	01ee7821 	addu	t7,t7,t6
+     7f8:	8ded0000 	lw	t5,0(t7)
+     7fc:	01a00008 	jr	t5
+     800:	00000000 	nop
+     804:	8faf0004 	lw	t7,4(sp)
+     808:	91f00007 	lbu	s0,7(t7)
+     80c:	24120001 	li	s2,1
+     810:	240f0008 	li	t7,8
+     814:	16af001a 	bne	s5,t7,880 <func_00291510+0x2e8>
+     818:	ae3201b0 	sw	s2,432(s1)
+     81c:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			81c: R_MIPS_26	func_001a80c8
+     820:	0200202d 	move	a0,s0
+     824:	16d20002 	bne	s6,s2,830 <func_00291510+0x298>
+     828:	240f0002 	li	t7,2
+     82c:	ae2f01b0 	sw	t7,432(s1)
+     830:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			830: R_MIPS_26	func_00192048
+     834:	94440008 	lhu	a0,8(v0)
+     838:	ae220198 	sw	v0,408(s1)
+     83c:	26f70001 	addiu	s7,s7,1
+     840:	26b50001 	addiu	s5,s5,1
+     844:	2aaf0009 	slti	t7,s5,9
+     848:	15e0ff7a 	bnez	t7,634 <func_00291510+0x9c>
+     84c:	8fae0000 	lw	t6,0(sp)
+     850:	dfb00020 	ld	s0,32(sp)
+     854:	dfb10028 	ld	s1,40(sp)
+     858:	dfb20030 	ld	s2,48(sp)
+     85c:	dfb30038 	ld	s3,56(sp)
+     860:	dfb40040 	ld	s4,64(sp)
+     864:	dfb50048 	ld	s5,72(sp)
+     868:	dfb60050 	ld	s6,80(sp)
+     86c:	dfb70058 	ld	s7,88(sp)
+     870:	dfbe0060 	ld	s8,96(sp)
+     874:	dfbf0068 	ld	ra,104(sp)
+     878:	03e00008 	jr	ra
+     87c:	27bd0070 	addiu	sp,sp,112
+     880:	26affffc 	addiu	t7,s5,-4
+     884:	2def0004 	sltiu	t7,t7,4
+     888:	11e0000d 	beqz	t7,8c0 <func_00291510+0x328>
+     88c:	001790c0 	sll	s2,s7,0x3
+     890:	24060064 	li	a2,100
+     894:	02922021 	addu	a0,s4,s2
+     898:	3c050000 	lui	a1,0x0
+			898: R_MIPS_HI16	D_00374498
+     89c:	00d03023 	subu	a2,a2,s0
+     8a0:	24842a98 	addiu	a0,a0,10904
+     8a4:	24a50000 	addiu	a1,a1,0
+			8a4: R_MIPS_LO16	D_00374498
+     8a8:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			8a8: R_MIPS_26	func_00192cc0
+     8ac:	26f70001 	addiu	s7,s7,1
+     8b0:	02927821 	addu	t7,s4,s2
+     8b4:	25ef2a98 	addiu	t7,t7,10904
+     8b8:	1000ffe1 	b	840 <func_00291510+0x2a8>
+     8bc:	ae2f0198 	sw	t7,408(s1)
+     8c0:	3c050000 	lui	a1,0x0
+			8c0: R_MIPS_HI16	D_003744a0
+     8c4:	02922021 	addu	a0,s4,s2
+     8c8:	24a50000 	addiu	a1,a1,0
+			8c8: R_MIPS_LO16	D_003744a0
+     8cc:	24842a98 	addiu	a0,a0,10904
+     8d0:	1000fff5 	b	8a8 <func_00291510+0x310>
+     8d4:	0200302d 	move	a2,s0
+     8d8:	8fae0004 	lw	t6,4(sp)
+     8dc:	1000ffcb 	b	80c <func_00291510+0x274>
+     8e0:	91d00004 	lbu	s0,4(t6)
+     8e4:	8faf0004 	lw	t7,4(sp)
+     8e8:	1000ffc8 	b	80c <func_00291510+0x274>
+     8ec:	91f00005 	lbu	s0,5(t7)
+     8f0:	8fae0004 	lw	t6,4(sp)
+     8f4:	1000ffc5 	b	80c <func_00291510+0x274>
+     8f8:	91d00006 	lbu	s0,6(t6)
+     8fc:	8faf0004 	lw	t7,4(sp)
+     900:	1000ffc2 	b	80c <func_00291510+0x274>
+     904:	91f00009 	lbu	s0,9(t7)
+     908:	8fae0004 	lw	t6,4(sp)
+     90c:	1000ffbf 	b	80c <func_00291510+0x274>
+     910:	91d0000a 	lbu	s0,10(t6)
+     914:	8faf0004 	lw	t7,4(sp)
+     918:	1000ffbc 	b	80c <func_00291510+0x274>
+     91c:	91f0000b 	lbu	s0,11(t7)
+     920:	8fae0004 	lw	t6,4(sp)
+     924:	1000ffb9 	b	80c <func_00291510+0x274>
+     928:	91d0000c 	lbu	s0,12(t6)
+     92c:	8faf0004 	lw	t7,4(sp)
+     930:	1000ffb6 	b	80c <func_00291510+0x274>
+     934:	95f00002 	lhu	s0,2(t7)
+     938:	16af000b 	bne	s5,t7,968 <func_00291510+0x3d0>
+     93c:	0280202d 	move	a0,s4
+     940:	24050002 	li	a1,2
+     944:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			944: R_MIPS_26	func_00291370
+     948:	00000000 	nop
+     94c:	240501b4 	li	a1,436
+     950:	0040802d 	move	s0,v0
+     954:	02e52818 	mult	a1,s7,a1
+     958:	0220202d 	move	a0,s1
+     95c:	02852821 	addu	a1,s4,a1
+     960:	1000ff95 	b	7b8 <func_00291510+0x220>
+     964:	24a50004 	addiu	a1,a1,4
+     968:	1000fff6 	b	944 <func_00291510+0x3ac>
+     96c:	0000282d 	move	a1,zero
+     970:	1000ff6f 	b	730 <func_00291510+0x198>
+     974:	86902b3a 	lh	s0,11066(s4)
+     978:	00157040 	sll	t6,s5,0x1
+     97c:	1000ff58 	b	6e0 <func_00291510+0x148>
+     980:	25ef0000 	addiu	t7,t7,0
+			980: R_MIPS_LO16	D_00374548
+     984:	868f2b30 	lh	t7,11056(s4)
+     988:	1000ff1f 	b	608 <func_00291510+0x70>
+     98c:	afaf0008 	sw	t7,8(sp)
+     990:	1000ff1c 	b	604 <func_00291510+0x6c>
+     994:	868e2b34 	lh	t6,11060(s4)
+     998:	1000fffb 	b	988 <func_00291510+0x3f0>
+     99c:	868f2b38 	lh	t7,11064(s4)
+
+000009a0 <func_00291918>:
+     9a0:	27bdffa0 	addiu	sp,sp,-96
+     9a4:	ffb00010 	sd	s0,16(sp)
+     9a8:	ffb30028 	sd	s3,40(sp)
+     9ac:	afa50000 	sw	a1,0(sp)
+     9b0:	00e0802d 	move	s0,a3
+     9b4:	ffb10018 	sd	s1,24(sp)
+     9b8:	0080982d 	move	s3,a0
+     9bc:	ffb70048 	sd	s7,72(sp)
+     9c0:	00c0282d 	move	a1,a2
+     9c4:	ffbe0050 	sd	s8,80(sp)
+     9c8:	0000882d 	move	s1,zero
+     9cc:	ffbf0058 	sd	ra,88(sp)
+     9d0:	afa80004 	sw	t0,4(sp)
+     9d4:	ffb20020 	sd	s2,32(sp)
+     9d8:	ffb40030 	sd	s4,48(sp)
+     9dc:	ffb50038 	sd	s5,56(sp)
+     9e0:	ffb60040 	sd	s6,64(sp)
+     9e4:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			9e4: R_MIPS_26	func_002924d0
+     9e8:	0000b82d 	move	s7,zero
+     9ec:	afa20008 	sw	v0,8(sp)
+     9f0:	0260202d 	move	a0,s3
+     9f4:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			9f4: R_MIPS_26	func_002924d0
+     9f8:	0200282d 	move	a1,s0
+     9fc:	0040f02d 	move	s8,v0
+     a00:	8fae0004 	lw	t6,4(sp)
+     a04:	022e7807 	srav	t7,t6,s1
+     a08:	39ef0001 	xori	t7,t7,0x1
+     a0c:	31ef0001 	andi	t7,t7,0x1
+     a10:	31ef00ff 	andi	t7,t7,0xff
+     a14:	55e00041 	bnezl	t7,b1c <func_00291918+0x17c>
+     a18:	26310001 	addiu	s1,s1,1
+     a1c:	240f01b4 	li	t7,436
+     a20:	8fae0000 	lw	t6,0(sp)
+     a24:	02ef7818 	mult	t7,s7,t7
+     a28:	026f8021 	addu	s0,s3,t7
+     a2c:	240f0002 	li	t7,2
+     a30:	15cf0077 	bne	t6,t7,c10 <func_00291918+0x270>
+     a34:	26120888 	addiu	s2,s0,2184
+     a38:	0000b02d 	move	s6,zero
+     a3c:	0000a82d 	move	s5,zero
+     a40:	26f00005 	addiu	s0,s7,5
+     a44:	240f01b4 	li	t7,436
+     a48:	020f7818 	mult	t7,s0,t7
+     a4c:	0240282d 	move	a1,s2
+     a50:	2414ffff 	li	s4,-1
+     a54:	026f7821 	addu	t7,s3,t7
+     a58:	25f2110c 	addiu	s2,t7,4364
+     a5c:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			a5c: R_MIPS_26	func_0028dcc0
+     a60:	0240202d 	move	a0,s2
+     a64:	0240202d 	move	a0,s2
+     a68:	02c0282d 	move	a1,s6
+     a6c:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			a6c: R_MIPS_26	func_00138c68
+     a70:	02a0302d 	move	a2,s5
+     a74:	2e2f0008 	sltiu	t7,s1,8
+     a78:	11e0000b 	beqz	t7,aa8 <func_00291918+0x108>
+     a7c:	240dffff 	li	t5,-1
+     a80:	3c0e0000 	lui	t6,0x0
+			a80: R_MIPS_HI16	.rodata
+     a84:	00117880 	sll	t7,s1,0x2
+     a88:	25ce0038 	addiu	t6,t6,56
+			a88: R_MIPS_LO16	.rodata
+     a8c:	01ee7821 	addu	t7,t7,t6
+     a90:	8ded0000 	lw	t5,0(t7)
+     a94:	01a00008 	jr	t5
+     a98:	00000000 	nop
+     a9c:	8faf0008 	lw	t7,8(sp)
+     aa0:	93d40007 	lbu	s4,7(s8)
+     aa4:	91ed0007 	lbu	t5,7(t7)
+     aa8:	240e0001 	li	t6,1
+     aac:	262ffffc 	addiu	t7,s1,-4
+     ab0:	2def0004 	sltiu	t7,t7,4
+     ab4:	11e00028 	beqz	t7,b58 <func_00291918+0x1b8>
+     ab8:	ae4e01b0 	sw	t6,432(s2)
+     abc:	028d782a 	slt	t7,s4,t5
+     ac0:	15e00004 	bnez	t7,ad4 <func_00291918+0x134>
+     ac4:	24050006 	li	a1,6
+     ac8:	01b4782a 	slt	t7,t5,s4
+     acc:	24050003 	li	a1,3
+     ad0:	000f280a 	movz	a1,zero,t7
+     ad4:	0260202d 	move	a0,s3
+     ad8:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			ad8: R_MIPS_26	func_00291370
+     adc:	001080c0 	sll	s0,s0,0x3
+     ae0:	0040282d 	move	a1,v0
+     ae4:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			ae4: R_MIPS_26	func_00138c10
+     ae8:	0240202d 	move	a0,s2
+     aec:	02702021 	addu	a0,s3,s0
+     af0:	24060064 	li	a2,100
+     af4:	3c050000 	lui	a1,0x0
+			af4: R_MIPS_HI16	D_00374498
+     af8:	24842a98 	addiu	a0,a0,10904
+     afc:	00d43023 	subu	a2,a2,s4
+     b00:	24a50000 	addiu	a1,a1,0
+			b00: R_MIPS_LO16	D_00374498
+     b04:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			b04: R_MIPS_26	func_00192cc0
+     b08:	26f70001 	addiu	s7,s7,1
+     b0c:	02707821 	addu	t7,s3,s0
+     b10:	25ef2a98 	addiu	t7,t7,10904
+     b14:	ae4f0198 	sw	t7,408(s2)
+     b18:	26310001 	addiu	s1,s1,1
+     b1c:	2a2f0009 	slti	t7,s1,9
+     b20:	15e0ffb8 	bnez	t7,a04 <func_00291918+0x64>
+     b24:	8fae0004 	lw	t6,4(sp)
+     b28:	dfb00010 	ld	s0,16(sp)
+     b2c:	dfb10018 	ld	s1,24(sp)
+     b30:	dfb20020 	ld	s2,32(sp)
+     b34:	dfb30028 	ld	s3,40(sp)
+     b38:	dfb40030 	ld	s4,48(sp)
+     b3c:	dfb50038 	ld	s5,56(sp)
+     b40:	dfb60040 	ld	s6,64(sp)
+     b44:	dfb70048 	ld	s7,72(sp)
+     b48:	dfbe0050 	ld	s8,80(sp)
+     b4c:	dfbf0058 	ld	ra,88(sp)
+     b50:	03e00008 	jr	ra
+     b54:	27bd0060 	addiu	sp,sp,96
+     b58:	01b4782a 	slt	t7,t5,s4
+     b5c:	15e00004 	bnez	t7,b70 <func_00291918+0x1d0>
+     b60:	24050006 	li	a1,6
+     b64:	028d782a 	slt	t7,s4,t5
+     b68:	24050003 	li	a1,3
+     b6c:	000f280a 	movz	a1,zero,t7
+     b70:	0260202d 	move	a0,s3
+     b74:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			b74: R_MIPS_26	func_00291370
+     b78:	001080c0 	sll	s0,s0,0x3
+     b7c:	0040282d 	move	a1,v0
+     b80:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			b80: R_MIPS_26	func_00138c10
+     b84:	0240202d 	move	a0,s2
+     b88:	02702021 	addu	a0,s3,s0
+     b8c:	3c050000 	lui	a1,0x0
+			b8c: R_MIPS_HI16	D_003744a0
+     b90:	24842a98 	addiu	a0,a0,10904
+     b94:	24a50000 	addiu	a1,a1,0
+			b94: R_MIPS_LO16	D_003744a0
+     b98:	1000ffda 	b	b04 <func_00291918+0x164>
+     b9c:	0280302d 	move	a2,s4
+     ba0:	8fae0008 	lw	t6,8(sp)
+     ba4:	93d40004 	lbu	s4,4(s8)
+     ba8:	1000ffbf 	b	aa8 <func_00291918+0x108>
+     bac:	91cd0004 	lbu	t5,4(t6)
+     bb0:	8faf0008 	lw	t7,8(sp)
+     bb4:	93d40005 	lbu	s4,5(s8)
+     bb8:	1000ffbb 	b	aa8 <func_00291918+0x108>
+     bbc:	91ed0005 	lbu	t5,5(t7)
+     bc0:	8fae0008 	lw	t6,8(sp)
+     bc4:	93d40006 	lbu	s4,6(s8)
+     bc8:	1000ffb7 	b	aa8 <func_00291918+0x108>
+     bcc:	91cd0006 	lbu	t5,6(t6)
+     bd0:	8faf0008 	lw	t7,8(sp)
+     bd4:	93d40009 	lbu	s4,9(s8)
+     bd8:	1000ffb3 	b	aa8 <func_00291918+0x108>
+     bdc:	91ed0009 	lbu	t5,9(t7)
+     be0:	8fae0008 	lw	t6,8(sp)
+     be4:	93d4000a 	lbu	s4,10(s8)
+     be8:	1000ffaf 	b	aa8 <func_00291918+0x108>
+     bec:	91cd000a 	lbu	t5,10(t6)
+     bf0:	8faf0008 	lw	t7,8(sp)
+     bf4:	93d4000b 	lbu	s4,11(s8)
+     bf8:	1000ffab 	b	aa8 <func_00291918+0x108>
+     bfc:	91ed000b 	lbu	t5,11(t7)
+     c00:	8fae0008 	lw	t6,8(sp)
+     c04:	93d4000c 	lbu	s4,12(s8)
+     c08:	1000ffa7 	b	aa8 <func_00291918+0x108>
+     c0c:	91cd000c 	lbu	t5,12(t6)
+     c10:	261008a0 	addiu	s0,s0,2208
+     c14:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			c14: R_MIPS_26	func_0023aa18
+     c18:	0200202d 	move	a0,s0
+     c1c:	0040b02d 	move	s6,v0
+     c20:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			c20: R_MIPS_26	func_0023aa38
+     c24:	0200202d 	move	a0,s0
+     c28:	1000ff85 	b	a40 <func_00291918+0xa0>
+     c2c:	0040a82d 	move	s5,v0
+
+00000c30 <func_00291ba8>:
+     c30:	27bdffa0 	addiu	sp,sp,-96
+     c34:	ffb40030 	sd	s4,48(sp)
+     c38:	ffb50038 	sd	s5,56(sp)
+     c3c:	ffb60040 	sd	s6,64(sp)
+     c40:	0080a02d 	move	s4,a0
+     c44:	00a0a82d 	move	s5,a1
+     c48:	ffb00010 	sd	s0,16(sp)
+     c4c:	ffb10018 	sd	s1,24(sp)
+     c50:	00e0202d 	move	a0,a3
+     c54:	ffb20020 	sd	s2,32(sp)
+     c58:	0100282d 	move	a1,t0
+     c5c:	ffb30028 	sd	s3,40(sp)
+     c60:	ffb70048 	sd	s7,72(sp)
+     c64:	ffbe0050 	sd	s8,80(sp)
+     c68:	ffbf0058 	sd	ra,88(sp)
+     c6c:	12a00072 	beqz	s5,e38 <func_00291ba8+0x208>
+     c70:	0120b02d 	move	s6,t1
+     c74:	240f0004 	li	t7,4
+     c78:	12af0070 	beq	s5,t7,e3c <func_00291ba8+0x20c>
+     c7c:	dfb00010 	ld	s0,16(sp)
+     c80:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			c80: R_MIPS_26	func_001a1728
+     c84:	00000000 	nop
+     c88:	240f0002 	li	t7,2
+     c8c:	16af0065 	bne	s5,t7,e24 <func_00291ba8+0x1f4>
+     c90:	0040f02d 	move	s8,v0
+     c94:	868f2b36 	lh	t7,11062(s4)
+     c98:	afaf0000 	sw	t7,0(sp)
+     c9c:	2690001c 	addiu	s0,s4,28
+     ca0:	0000b82d 	move	s7,zero
+     ca4:	0200202d 	move	a0,s0
+     ca8:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			ca8: R_MIPS_26	func_0023aa78
+     cac:	0000882d 	move	s1,zero
+     cb0:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			cb0: R_MIPS_26	func_0023aa98
+     cb4:	0200202d 	move	a0,s0
+     cb8:	afa20004 	sw	v0,4(sp)
+     cbc:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			cbc: R_MIPS_26	func_0023aa18
+     cc0:	0200202d 	move	a0,s0
+     cc4:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			cc4: R_MIPS_26	func_0023aa38
+     cc8:	0200202d 	move	a0,s0
+     ccc:	02367807 	srav	t7,s6,s1
+     cd0:	39ef0001 	xori	t7,t7,0x1
+     cd4:	31ef0001 	andi	t7,t7,0x1
+     cd8:	31ef00ff 	andi	t7,t7,0xff
+     cdc:	55e0002d 	bnezl	t7,d94 <func_00291ba8+0x164>
+     ce0:	26310001 	addiu	s1,s1,1
+     ce4:	240f0008 	li	t7,8
+     ce8:	122f0029 	beq	s1,t7,d90 <func_00291ba8+0x160>
+     cec:	26f20005 	addiu	s2,s7,5
+     cf0:	8fb00004 	lw	s0,4(sp)
+     cf4:	240f01b4 	li	t7,436
+     cf8:	8fa50000 	lw	a1,0(sp)
+     cfc:	024f7818 	mult	t7,s2,t7
+     d00:	3aae0001 	xori	t6,s5,0x1
+     d04:	000e800b 	movn	s0,zero,t6
+     d08:	028f7821 	addu	t7,s4,t7
+     d0c:	25f3110c 	addiu	s3,t7,4364
+     d10:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			d10: R_MIPS_26	func_00138c10
+     d14:	0260202d 	move	a0,s3
+     d18:	0260202d 	move	a0,s3
+     d1c:	0200282d 	move	a1,s0
+     d20:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			d20: R_MIPS_26	func_00138c68
+     d24:	0000302d 	move	a2,zero
+     d28:	2e2f0009 	sltiu	t7,s1,9
+     d2c:	11e00009 	beqz	t7,d54 <func_00291ba8+0x124>
+     d30:	240cffff 	li	t4,-1
+     d34:	3c0e0000 	lui	t6,0x0
+			d34: R_MIPS_HI16	.rodata
+     d38:	00117880 	sll	t7,s1,0x2
+     d3c:	25ce0058 	addiu	t6,t6,88
+			d3c: R_MIPS_LO16	.rodata
+     d40:	01ee7821 	addu	t7,t7,t6
+     d44:	8ded0000 	lw	t5,0(t7)
+     d48:	01a00008 	jr	t5
+     d4c:	00000000 	nop
+     d50:	97cc018e 	lhu	t4,398(s8)
+     d54:	262ffffc 	addiu	t7,s1,-4
+     d58:	2def0004 	sltiu	t7,t7,4
+     d5c:	11e0001d 	beqz	t7,dd4 <func_00291ba8+0x1a4>
+     d60:	001280c0 	sll	s0,s2,0x3
+     d64:	24060064 	li	a2,100
+     d68:	02902021 	addu	a0,s4,s0
+     d6c:	3c050000 	lui	a1,0x0
+			d6c: R_MIPS_HI16	D_00374498
+     d70:	00cc3023 	subu	a2,a2,t4
+     d74:	24842a98 	addiu	a0,a0,10904
+     d78:	24a50000 	addiu	a1,a1,0
+			d78: R_MIPS_LO16	D_00374498
+     d7c:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			d7c: R_MIPS_26	func_00192cc0
+     d80:	26f70001 	addiu	s7,s7,1
+     d84:	02907821 	addu	t7,s4,s0
+     d88:	25ef2a98 	addiu	t7,t7,10904
+     d8c:	ae6f0198 	sw	t7,408(s3)
+     d90:	26310001 	addiu	s1,s1,1
+     d94:	2a2f0009 	slti	t7,s1,9
+     d98:	15e0ffcd 	bnez	t7,cd0 <func_00291ba8+0xa0>
+     d9c:	02367807 	srav	t7,s6,s1
+     da0:	03c0202d 	move	a0,s8
+     da4:	dfb00010 	ld	s0,16(sp)
+     da8:	dfb10018 	ld	s1,24(sp)
+     dac:	dfb20020 	ld	s2,32(sp)
+     db0:	dfb30028 	ld	s3,40(sp)
+     db4:	dfb40030 	ld	s4,48(sp)
+     db8:	dfb50038 	ld	s5,56(sp)
+     dbc:	dfb60040 	ld	s6,64(sp)
+     dc0:	dfb70048 	ld	s7,72(sp)
+     dc4:	dfbe0050 	ld	s8,80(sp)
+     dc8:	dfbf0058 	ld	ra,88(sp)
+     dcc:	08000000 	j	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			dcc: R_MIPS_26	func_001a17c8
+     dd0:	27bd0060 	addiu	sp,sp,96
+     dd4:	3c050000 	lui	a1,0x0
+			dd4: R_MIPS_HI16	D_003744a0
+     dd8:	02902021 	addu	a0,s4,s0
+     ddc:	24a50000 	addiu	a1,a1,0
+			ddc: R_MIPS_LO16	D_003744a0
+     de0:	24842a98 	addiu	a0,a0,10904
+     de4:	1000ffe5 	b	d7c <func_00291ba8+0x14c>
+     de8:	0180302d 	move	a2,t4
+     dec:	1000ffd9 	b	d54 <func_00291ba8+0x124>
+     df0:	97cc0188 	lhu	t4,392(s8)
+     df4:	1000ffd7 	b	d54 <func_00291ba8+0x124>
+     df8:	97cc018a 	lhu	t4,394(s8)
+     dfc:	1000ffd5 	b	d54 <func_00291ba8+0x124>
+     e00:	97cc018c 	lhu	t4,396(s8)
+     e04:	1000ffd3 	b	d54 <func_00291ba8+0x124>
+     e08:	93cc01a9 	lbu	t4,425(s8)
+     e0c:	1000ffd1 	b	d54 <func_00291ba8+0x124>
+     e10:	93cc01aa 	lbu	t4,426(s8)
+     e14:	1000ffcf 	b	d54 <func_00291ba8+0x124>
+     e18:	93cc01ab 	lbu	t4,427(s8)
+     e1c:	1000ffcd 	b	d54 <func_00291ba8+0x124>
+     e20:	93cc01ac 	lbu	t4,428(s8)
+     e24:	0280202d 	move	a0,s4
+     e28:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			e28: R_MIPS_26	func_00291370
+     e2c:	24050002 	li	a1,2
+     e30:	1000ff9a 	b	c9c <func_00291ba8+0x6c>
+     e34:	afa20000 	sw	v0,0(sp)
+     e38:	dfb00010 	ld	s0,16(sp)
+     e3c:	dfb10018 	ld	s1,24(sp)
+     e40:	dfb20020 	ld	s2,32(sp)
+     e44:	dfb30028 	ld	s3,40(sp)
+     e48:	dfb40030 	ld	s4,48(sp)
+     e4c:	dfb50038 	ld	s5,56(sp)
+     e50:	dfb60040 	ld	s6,64(sp)
+     e54:	dfb70048 	ld	s7,72(sp)
+     e58:	dfbe0050 	ld	s8,80(sp)
+     e5c:	dfbf0058 	ld	ra,88(sp)
+     e60:	03e00008 	jr	ra
+     e64:	27bd0060 	addiu	sp,sp,96
+
+00000e68 <func_00291de0>:
+     e68:	27bdffa0 	addiu	sp,sp,-96
+     e6c:	ffb40030 	sd	s4,48(sp)
+     e70:	ffbe0050 	sd	s8,80(sp)
+     e74:	afa50004 	sw	a1,4(sp)
+     e78:	0080a02d 	move	s4,a0
+     e7c:	ffb70048 	sd	s7,72(sp)
+     e80:	0140f02d 	move	s8,t2
+     e84:	ffb00010 	sd	s0,16(sp)
+     e88:	0100202d 	move	a0,t0
+     e8c:	ffb10018 	sd	s1,24(sp)
+     e90:	0120282d 	move	a1,t1
+     e94:	ffb20020 	sd	s2,32(sp)
+     e98:	ffb30028 	sd	s3,40(sp)
+     e9c:	ffb50038 	sd	s5,56(sp)
+     ea0:	ffb60040 	sd	s6,64(sp)
+     ea4:	ffbf0058 	sd	ra,88(sp)
+     ea8:	afa60008 	sw	a2,8(sp)
+     eac:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			eac: R_MIPS_26	func_001a1728
+     eb0:	afa7000c 	sw	a3,12(sp)
+     eb4:	8fae0004 	lw	t6,4(sp)
+     eb8:	240f0002 	li	t7,2
+     ebc:	11cf0004 	beq	t6,t7,ed0 <func_00291de0+0x68>
+     ec0:	0040b82d 	move	s7,v0
+     ec4:	0280202d 	move	a0,s4
+     ec8:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			ec8: R_MIPS_26	func_00291370
+     ecc:	24050002 	li	a1,2
+     ed0:	0000b02d 	move	s6,zero
+     ed4:	0000982d 	move	s3,zero
+     ed8:	027e7807 	srav	t7,s8,s3
+     edc:	39ef0001 	xori	t7,t7,0x1
+     ee0:	31ef0001 	andi	t7,t7,0x1
+     ee4:	31ef00ff 	andi	t7,t7,0xff
+     ee8:	55e0004a 	bnezl	t7,1014 <func_00291de0+0x1ac>
+     eec:	26730001 	addiu	s3,s3,1
+     ef0:	240f0008 	li	t7,8
+     ef4:	126f0046 	beq	s3,t7,1010 <func_00291de0+0x1a8>
+     ef8:	8fae0004 	lw	t6,4(sp)
+     efc:	240f0002 	li	t7,2
+     f00:	15cf008d 	bne	t6,t7,1138 <func_00291de0+0x2d0>
+     f04:	240f01b4 	li	t7,436
+     f08:	02cf7818 	mult	t7,s6,t7
+     f0c:	028f7821 	addu	t7,s4,t7
+     f10:	25f20888 	addiu	s2,t7,2184
+     f14:	26500018 	addiu	s0,s2,24
+     f18:	26d5000a 	addiu	s5,s6,10
+     f1c:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			f1c: R_MIPS_26	func_0023aa18
+     f20:	0200202d 	move	a0,s0
+     f24:	0200202d 	move	a0,s0
+     f28:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			f28: R_MIPS_26	func_0023aa38
+     f2c:	0040882d 	move	s1,v0
+     f30:	240f01b4 	li	t7,436
+     f34:	0240282d 	move	a1,s2
+     f38:	02af7818 	mult	t7,s5,t7
+     f3c:	0040802d 	move	s0,v0
+     f40:	028f7821 	addu	t7,s4,t7
+     f44:	25f2110c 	addiu	s2,t7,4364
+     f48:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			f48: R_MIPS_26	func_0028dcc0
+     f4c:	0240202d 	move	a0,s2
+     f50:	0240202d 	move	a0,s2
+     f54:	0220282d 	move	a1,s1
+     f58:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			f58: R_MIPS_26	func_00138c68
+     f5c:	0200302d 	move	a2,s0
+     f60:	240fffff 	li	t7,-1
+     f64:	24020001 	li	v0,1
+     f68:	2e6e0009 	sltiu	t6,s3,9
+     f6c:	11c0000e 	beqz	t6,fa8 <func_00291de0+0x140>
+     f70:	afaf0000 	sw	t7,0(sp)
+     f74:	3c0e0000 	lui	t6,0x0
+			f74: R_MIPS_HI16	.rodata
+     f78:	00137880 	sll	t7,s3,0x2
+     f7c:	25ce007c 	addiu	t6,t6,124
+			f7c: R_MIPS_LO16	.rodata
+     f80:	01ee7821 	addu	t7,t7,t6
+     f84:	8ded0000 	lw	t5,0(t7)
+     f88:	01a00008 	jr	t5
+     f8c:	00000000 	nop
+     f90:	8fa60008 	lw	a2,8(sp)
+     f94:	0280202d 	move	a0,s4
+     f98:	8fa7000c 	lw	a3,12(sp)
+     f9c:	03a0282d 	move	a1,sp
+     fa0:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			fa0: R_MIPS_26	func_002920c0
+     fa4:	02e0402d 	move	t0,s7
+     fa8:	240f0001 	li	t7,1
+     fac:	ae4f01b0 	sw	t7,432(s2)
+     fb0:	240f0002 	li	t7,2
+     fb4:	104f0003 	beq	v0,t7,fc4 <func_00291de0+0x15c>
+     fb8:	24050006 	li	a1,6
+     fbc:	24050003 	li	a1,3
+     fc0:	0002280b 	movn	a1,zero,v0
+     fc4:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			fc4: R_MIPS_26	func_00291370
+     fc8:	0280202d 	move	a0,s4
+     fcc:	0040282d 	move	a1,v0
+     fd0:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			fd0: R_MIPS_26	func_00138c10
+     fd4:	0240202d 	move	a0,s2
+     fd8:	266ffffc 	addiu	t7,s3,-4
+     fdc:	2def0004 	sltiu	t7,t7,4
+     fe0:	11e0001d 	beqz	t7,1058 <func_00291de0+0x1f0>
+     fe4:	001580c0 	sll	s0,s5,0x3
+     fe8:	3c050000 	lui	a1,0x0
+			fe8: R_MIPS_HI16	D_00374498
+     fec:	02902021 	addu	a0,s4,s0
+     ff0:	24a50000 	addiu	a1,a1,0
+			ff0: R_MIPS_LO16	D_00374498
+     ff4:	24842a98 	addiu	a0,a0,10904
+     ff8:	8fa60000 	lw	a2,0(sp)
+     ffc:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			ffc: R_MIPS_26	func_00192cc0
+    1000:	26d60001 	addiu	s6,s6,1
+    1004:	02907821 	addu	t7,s4,s0
+    1008:	25ef2a98 	addiu	t7,t7,10904
+    100c:	ae4f0198 	sw	t7,408(s2)
+    1010:	26730001 	addiu	s3,s3,1
+    1014:	2a6f0009 	slti	t7,s3,9
+    1018:	15e0ffb0 	bnez	t7,edc <func_00291de0+0x74>
+    101c:	027e7807 	srav	t7,s8,s3
+    1020:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			1020: R_MIPS_26	func_001a17c8
+    1024:	02e0202d 	move	a0,s7
+    1028:	dfb00010 	ld	s0,16(sp)
+    102c:	dfb10018 	ld	s1,24(sp)
+    1030:	dfb20020 	ld	s2,32(sp)
+    1034:	dfb30028 	ld	s3,40(sp)
+    1038:	dfb40030 	ld	s4,48(sp)
+    103c:	dfb50038 	ld	s5,56(sp)
+    1040:	dfb60040 	ld	s6,64(sp)
+    1044:	dfb70048 	ld	s7,72(sp)
+    1048:	dfbe0050 	ld	s8,80(sp)
+    104c:	dfbf0058 	ld	ra,88(sp)
+    1050:	03e00008 	jr	ra
+    1054:	27bd0060 	addiu	sp,sp,96
+    1058:	3c050000 	lui	a1,0x0
+			1058: R_MIPS_HI16	D_003744a0
+    105c:	02902021 	addu	a0,s4,s0
+    1060:	1000ffe4 	b	ff4 <func_00291de0+0x18c>
+    1064:	24a50000 	addiu	a1,a1,0
+			1064: R_MIPS_LO16	D_003744a0
+    1068:	8fa60008 	lw	a2,8(sp)
+    106c:	0280202d 	move	a0,s4
+    1070:	8fa7000c 	lw	a3,12(sp)
+    1074:	03a0282d 	move	a1,sp
+    1078:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			1078: R_MIPS_26	func_00292148
+    107c:	02e0402d 	move	t0,s7
+    1080:	1000ffca 	b	fac <func_00291de0+0x144>
+    1084:	240f0001 	li	t7,1
+    1088:	8fa60008 	lw	a2,8(sp)
+    108c:	0280202d 	move	a0,s4
+    1090:	8fa7000c 	lw	a3,12(sp)
+    1094:	03a0282d 	move	a1,sp
+    1098:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			1098: R_MIPS_26	func_002921d0
+    109c:	02e0402d 	move	t0,s7
+    10a0:	1000ffc2 	b	fac <func_00291de0+0x144>
+    10a4:	240f0001 	li	t7,1
+    10a8:	8fa60008 	lw	a2,8(sp)
+    10ac:	0280202d 	move	a0,s4
+    10b0:	8fa7000c 	lw	a3,12(sp)
+    10b4:	03a0282d 	move	a1,sp
+    10b8:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			10b8: R_MIPS_26	func_00292258
+    10bc:	02e0402d 	move	t0,s7
+    10c0:	1000ffba 	b	fac <func_00291de0+0x144>
+    10c4:	240f0001 	li	t7,1
+    10c8:	8fa60008 	lw	a2,8(sp)
+    10cc:	0280202d 	move	a0,s4
+    10d0:	8fa7000c 	lw	a3,12(sp)
+    10d4:	03a0282d 	move	a1,sp
+    10d8:	24080001 	li	t0,1
+    10dc:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			10dc: R_MIPS_26	func_002922e0
+    10e0:	02e0482d 	move	t1,s7
+    10e4:	1000ffb1 	b	fac <func_00291de0+0x144>
+    10e8:	240f0001 	li	t7,1
+    10ec:	8fa60008 	lw	a2,8(sp)
+    10f0:	0280202d 	move	a0,s4
+    10f4:	8fa7000c 	lw	a3,12(sp)
+    10f8:	03a0282d 	move	a1,sp
+    10fc:	1000fff7 	b	10dc <func_00291de0+0x274>
+    1100:	24080002 	li	t0,2
+    1104:	8fa60008 	lw	a2,8(sp)
+    1108:	0280202d 	move	a0,s4
+    110c:	8fa7000c 	lw	a3,12(sp)
+    1110:	03a0282d 	move	a1,sp
+    1114:	1000fff1 	b	10dc <func_00291de0+0x274>
+    1118:	24080003 	li	t0,3
+    111c:	8fa60008 	lw	a2,8(sp)
+    1120:	0280202d 	move	a0,s4
+    1124:	8fa7000c 	lw	a3,12(sp)
+    1128:	03a0282d 	move	a1,sp
+    112c:	1000ffeb 	b	10dc <func_00291de0+0x274>
+    1130:	24080004 	li	t0,4
+    1134:	00000000 	nop
+    1138:	02cf7818 	mult	t7,s6,t7
+    113c:	028f7821 	addu	t7,s4,t7
+    1140:	1000ff74 	b	f14 <func_00291de0+0xac>
+    1144:	25f20004 	addiu	s2,t7,4
+
+00001148 <func_002920c0>:
+    1148:	27bdffd0 	addiu	sp,sp,-48
+    114c:	ffb40020 	sd	s4,32(sp)
+    1150:	ffb00000 	sd	s0,0(sp)
+    1154:	ffb10008 	sd	s1,8(sp)
+    1158:	00a0a02d 	move	s4,a1
+    115c:	ffb30018 	sd	s3,24(sp)
+    1160:	00c0282d 	move	a1,a2
+    1164:	ffbf0028 	sd	ra,40(sp)
+    1168:	00e0882d 	move	s1,a3
+    116c:	ffb20010 	sd	s2,16(sp)
+    1170:	0100982d 	move	s3,t0
+    1174:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			1174: R_MIPS_26	func_002924d0
+    1178:	0080802d 	move	s0,a0
+    117c:	0040902d 	move	s2,v0
+    1180:	0200202d 	move	a0,s0
+    1184:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			1184: R_MIPS_26	func_002924d0
+    1188:	0220282d 	move	a1,s1
+    118c:	966f018e 	lhu	t7,398(s3)
+    1190:	0200202d 	move	a0,s0
+    1194:	924e0007 	lbu	t6,7(s2)
+    1198:	904d0007 	lbu	t5,7(v0)
+    119c:	01ee7823 	subu	t7,t7,t6
+    11a0:	dfb00000 	ld	s0,0(sp)
+    11a4:	01ed7821 	addu	t7,t7,t5
+    11a8:	dfb10008 	ld	s1,8(sp)
+    11ac:	ae8f0000 	sw	t7,0(s4)
+    11b0:	dfb30018 	ld	s3,24(sp)
+    11b4:	92450007 	lbu	a1,7(s2)
+    11b8:	90460007 	lbu	a2,7(v0)
+    11bc:	dfb20010 	ld	s2,16(sp)
+    11c0:	dfb40020 	ld	s4,32(sp)
+    11c4:	dfbf0028 	ld	ra,40(sp)
+    11c8:	08000000 	j	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			11c8: R_MIPS_26	func_00292520
+    11cc:	27bd0030 	addiu	sp,sp,48
+
+000011d0 <func_00292148>:
+    11d0:	27bdffd0 	addiu	sp,sp,-48
+    11d4:	ffb40020 	sd	s4,32(sp)
+    11d8:	ffb00000 	sd	s0,0(sp)
+    11dc:	ffb10008 	sd	s1,8(sp)
+    11e0:	00a0a02d 	move	s4,a1
+    11e4:	ffb30018 	sd	s3,24(sp)
+    11e8:	00c0282d 	move	a1,a2
+    11ec:	ffbf0028 	sd	ra,40(sp)
+    11f0:	00e0882d 	move	s1,a3
+    11f4:	ffb20010 	sd	s2,16(sp)
+    11f8:	0100982d 	move	s3,t0
+    11fc:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			11fc: R_MIPS_26	func_002924d0
+    1200:	0080802d 	move	s0,a0
+    1204:	0040902d 	move	s2,v0
+    1208:	0200202d 	move	a0,s0
+    120c:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			120c: R_MIPS_26	func_002924d0
+    1210:	0220282d 	move	a1,s1
+    1214:	966f0188 	lhu	t7,392(s3)
+    1218:	0200202d 	move	a0,s0
+    121c:	924e0004 	lbu	t6,4(s2)
+    1220:	904d0004 	lbu	t5,4(v0)
+    1224:	01ee7823 	subu	t7,t7,t6
+    1228:	dfb00000 	ld	s0,0(sp)
+    122c:	01ed7821 	addu	t7,t7,t5
+    1230:	dfb10008 	ld	s1,8(sp)
+    1234:	ae8f0000 	sw	t7,0(s4)
+    1238:	dfb30018 	ld	s3,24(sp)
+    123c:	92450004 	lbu	a1,4(s2)
+    1240:	90460004 	lbu	a2,4(v0)
+    1244:	dfb20010 	ld	s2,16(sp)
+    1248:	dfb40020 	ld	s4,32(sp)
+    124c:	dfbf0028 	ld	ra,40(sp)
+    1250:	08000000 	j	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			1250: R_MIPS_26	func_00292520
+    1254:	27bd0030 	addiu	sp,sp,48
+
+00001258 <func_002921d0>:
+    1258:	27bdffd0 	addiu	sp,sp,-48
+    125c:	ffb40020 	sd	s4,32(sp)
+    1260:	ffb00000 	sd	s0,0(sp)
+    1264:	ffb10008 	sd	s1,8(sp)
+    1268:	00a0a02d 	move	s4,a1
+    126c:	ffb30018 	sd	s3,24(sp)
+    1270:	00c0282d 	move	a1,a2
+    1274:	ffbf0028 	sd	ra,40(sp)
+    1278:	00e0882d 	move	s1,a3
+    127c:	ffb20010 	sd	s2,16(sp)
+    1280:	0100982d 	move	s3,t0
+    1284:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			1284: R_MIPS_26	func_002924d0
+    1288:	0080802d 	move	s0,a0
+    128c:	0040902d 	move	s2,v0
+    1290:	0200202d 	move	a0,s0
+    1294:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			1294: R_MIPS_26	func_002924d0
+    1298:	0220282d 	move	a1,s1
+    129c:	966f018a 	lhu	t7,394(s3)
+    12a0:	0200202d 	move	a0,s0
+    12a4:	924e0005 	lbu	t6,5(s2)
+    12a8:	904d0005 	lbu	t5,5(v0)
+    12ac:	01ee7823 	subu	t7,t7,t6
+    12b0:	dfb00000 	ld	s0,0(sp)
+    12b4:	01ed7821 	addu	t7,t7,t5
+    12b8:	dfb10008 	ld	s1,8(sp)
+    12bc:	ae8f0000 	sw	t7,0(s4)
+    12c0:	dfb30018 	ld	s3,24(sp)
+    12c4:	92450005 	lbu	a1,5(s2)
+    12c8:	90460005 	lbu	a2,5(v0)
+    12cc:	dfb20010 	ld	s2,16(sp)
+    12d0:	dfb40020 	ld	s4,32(sp)
+    12d4:	dfbf0028 	ld	ra,40(sp)
+    12d8:	08000000 	j	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			12d8: R_MIPS_26	func_00292520
+    12dc:	27bd0030 	addiu	sp,sp,48
+
+000012e0 <func_00292258>:
+    12e0:	27bdffd0 	addiu	sp,sp,-48
+    12e4:	ffb40020 	sd	s4,32(sp)
+    12e8:	ffb00000 	sd	s0,0(sp)
+    12ec:	ffb10008 	sd	s1,8(sp)
+    12f0:	00a0a02d 	move	s4,a1
+    12f4:	ffb30018 	sd	s3,24(sp)
+    12f8:	00c0282d 	move	a1,a2
+    12fc:	ffbf0028 	sd	ra,40(sp)
+    1300:	00e0882d 	move	s1,a3
+    1304:	ffb20010 	sd	s2,16(sp)
+    1308:	0100982d 	move	s3,t0
+    130c:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			130c: R_MIPS_26	func_002924d0
+    1310:	0080802d 	move	s0,a0
+    1314:	0040902d 	move	s2,v0
+    1318:	0200202d 	move	a0,s0
+    131c:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			131c: R_MIPS_26	func_002924d0
+    1320:	0220282d 	move	a1,s1
+    1324:	966f018c 	lhu	t7,396(s3)
+    1328:	0200202d 	move	a0,s0
+    132c:	924e0006 	lbu	t6,6(s2)
+    1330:	904d0006 	lbu	t5,6(v0)
+    1334:	01ee7823 	subu	t7,t7,t6
+    1338:	dfb00000 	ld	s0,0(sp)
+    133c:	01ed7821 	addu	t7,t7,t5
+    1340:	dfb10008 	ld	s1,8(sp)
+    1344:	ae8f0000 	sw	t7,0(s4)
+    1348:	dfb30018 	ld	s3,24(sp)
+    134c:	92450006 	lbu	a1,6(s2)
+    1350:	90460006 	lbu	a2,6(v0)
+    1354:	dfb20010 	ld	s2,16(sp)
+    1358:	dfb40020 	ld	s4,32(sp)
+    135c:	dfbf0028 	ld	ra,40(sp)
+    1360:	08000000 	j	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			1360: R_MIPS_26	func_00292520
+    1364:	27bd0030 	addiu	sp,sp,48
+
+00001368 <func_002922e0>:
+    1368:	27bdffa0 	addiu	sp,sp,-96
+    136c:	ffb30028 	sd	s3,40(sp)
+    1370:	ffb50038 	sd	s5,56(sp)
+    1374:	ffb60040 	sd	s6,64(sp)
+    1378:	0120982d 	move	s3,t1
+    137c:	ffb70048 	sd	s7,72(sp)
+    1380:	0080a82d 	move	s5,a0
+    1384:	afa50000 	sw	a1,0(sp)
+    1388:	00c0b02d 	move	s6,a2
+    138c:	ffb40030 	sd	s4,48(sp)
+    1390:	0100b82d 	move	s7,t0
+    1394:	ffbf0058 	sd	ra,88(sp)
+    1398:	00c0282d 	move	a1,a2
+    139c:	afa70004 	sw	a3,4(sp)
+    13a0:	ffb00010 	sd	s0,16(sp)
+    13a4:	ffb10018 	sd	s1,24(sp)
+    13a8:	ffb20020 	sd	s2,32(sp)
+    13ac:	ffbe0050 	sd	s8,80(sp)
+    13b0:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			13b0: R_MIPS_26	func_002924d0
+    13b4:	0000a02d 	move	s4,zero
+    13b8:	8fa50004 	lw	a1,4(sp)
+    13bc:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			13bc: R_MIPS_26	func_002924d0
+    13c0:	02a0202d 	move	a0,s5
+    13c4:	02f37821 	addu	t7,s7,s3
+    13c8:	8fa40004 	lw	a0,4(sp)
+    13cc:	91ee01a8 	lbu	t6,424(t7)
+    13d0:	02d6200b 	movn	a0,s6,s6
+    13d4:	240f0064 	li	t7,100
+    13d8:	01ee7823 	subu	t7,t7,t6
+    13dc:	1080005c 	beqz	a0,1550 <func_002922e0+0x1e8>
+    13e0:	afaf0008 	sw	t7,8(sp)
+    13e4:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			13e4: R_MIPS_26	func_001a80c8
+    13e8:	00000000 	nop
+    13ec:	90520002 	lbu	s2,2(v0)
+    13f0:	8e6d0244 	lw	t5,580(s3)
+    13f4:	241e0064 	li	s8,100
+    13f8:	0000802d 	move	s0,zero
+    13fc:	91af0010 	lbu	t7,16(t5)
+    1400:	11e0001f 	beqz	t7,1480 <func_002922e0+0x118>
+    1404:	01a0702d 	move	t6,t5
+    1408:	24110064 	li	s1,100
+    140c:	00107840 	sll	t7,s0,0x1
+    1410:	01ee7821 	addu	t7,t7,t6
+    1414:	26100001 	addiu	s0,s0,1
+    1418:	16800008 	bnez	s4,143c <func_002922e0+0xd4>
+    141c:	95e50014 	lhu	a1,20(t7)
+    1420:	240f000e 	li	t7,14
+    1424:	164f0005 	bne	s2,t7,143c <func_002922e0+0xd4>
+    1428:	00000000 	nop
+    142c:	14b60003 	bne	a1,s6,143c <func_002922e0+0xd4>
+    1430:	00000000 	nop
+    1434:	8fa50004 	lw	a1,4(sp)
+    1438:	24140001 	li	s4,1
+    143c:	50a0000d 	beqzl	a1,1474 <func_002922e0+0x10c>
+    1440:	91af0010 	lbu	t7,16(t5)
+    1444:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			1444: R_MIPS_26	func_002924d0
+    1448:	02a0202d 	move	a0,s5
+    144c:	52200001 	beqzl	s1,1454 <func_002922e0+0xec>
+    1450:	000001cd 	break	0x7
+    1454:	00571021 	addu	v0,v0,s7
+    1458:	8e6d0244 	lw	t5,580(s3)
+    145c:	904f0008 	lbu	t7,8(v0)
+    1460:	03cf7818 	mult	t7,s8,t7
+    1464:	25ef0063 	addiu	t7,t7,99
+    1468:	01f1001a 	div	zero,t7,s1
+    146c:	0000f012 	mflo	s8
+    1470:	91af0010 	lbu	t7,16(t5)
+    1474:	020f782a 	slt	t7,s0,t7
+    1478:	15e0ffe4 	bnez	t7,140c <func_002922e0+0xa4>
+    147c:	01a0702d 	move	t6,t5
+    1480:	91af0011 	lbu	t7,17(t5)
+    1484:	01a0702d 	move	t6,t5
+    1488:	11e0001f 	beqz	t7,1508 <func_002922e0+0x1a0>
+    148c:	0000802d 	move	s0,zero
+    1490:	24110064 	li	s1,100
+    1494:	00107840 	sll	t7,s0,0x1
+    1498:	01ee7821 	addu	t7,t7,t6
+    149c:	26100001 	addiu	s0,s0,1
+    14a0:	16800008 	bnez	s4,14c4 <func_002922e0+0x15c>
+    14a4:	95e50024 	lhu	a1,36(t7)
+    14a8:	240f000f 	li	t7,15
+    14ac:	164f0005 	bne	s2,t7,14c4 <func_002922e0+0x15c>
+    14b0:	00000000 	nop
+    14b4:	14b60003 	bne	a1,s6,14c4 <func_002922e0+0x15c>
+    14b8:	00000000 	nop
+    14bc:	8fa50004 	lw	a1,4(sp)
+    14c0:	24140001 	li	s4,1
+    14c4:	50a0000d 	beqzl	a1,14fc <func_002922e0+0x194>
+    14c8:	91af0011 	lbu	t7,17(t5)
+    14cc:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			14cc: R_MIPS_26	func_002924d0
+    14d0:	02a0202d 	move	a0,s5
+    14d4:	52200001 	beqzl	s1,14dc <func_002922e0+0x174>
+    14d8:	000001cd 	break	0x7
+    14dc:	00571021 	addu	v0,v0,s7
+    14e0:	8e6d0244 	lw	t5,580(s3)
+    14e4:	904f0008 	lbu	t7,8(v0)
+    14e8:	03cf7818 	mult	t7,s8,t7
+    14ec:	25ef0063 	addiu	t7,t7,99
+    14f0:	01f1001a 	div	zero,t7,s1
+    14f4:	0000f012 	mflo	s8
+    14f8:	91af0011 	lbu	t7,17(t5)
+    14fc:	020f782a 	slt	t7,s0,t7
+    1500:	15e0ffe4 	bnez	t7,1494 <func_002922e0+0x12c>
+    1504:	01a0702d 	move	t6,t5
+    1508:	8fa50008 	lw	a1,8(sp)
+    150c:	24060064 	li	a2,100
+    1510:	8faf0000 	lw	t7,0(sp)
+    1514:	00de3023 	subu	a2,a2,s8
+    1518:	02a0202d 	move	a0,s5
+    151c:	dfb00010 	ld	s0,16(sp)
+    1520:	ade60000 	sw	a2,0(t7)
+    1524:	dfb10018 	ld	s1,24(sp)
+    1528:	dfb20020 	ld	s2,32(sp)
+    152c:	dfb30028 	ld	s3,40(sp)
+    1530:	dfb40030 	ld	s4,48(sp)
+    1534:	dfb50038 	ld	s5,56(sp)
+    1538:	dfb60040 	ld	s6,64(sp)
+    153c:	dfb70048 	ld	s7,72(sp)
+    1540:	dfbe0050 	ld	s8,80(sp)
+    1544:	dfbf0058 	ld	ra,88(sp)
+    1548:	08000000 	j	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			1548: R_MIPS_26	func_00292520
+    154c:	27bd0060 	addiu	sp,sp,96
+    1550:	1000ffa7 	b	13f0 <func_002922e0+0x88>
+    1554:	2412ffff 	li	s2,-1
+
+00001558 <func_002924d0>:
+    1558:	27bdfff0 	addiu	sp,sp,-16
+    155c:	ffb00000 	sd	s0,0(sp)
+    1560:	ffbf0008 	sd	ra,8(sp)
+    1564:	0080802d 	move	s0,a0
+    1568:	00a0202d 	move	a0,a1
+    156c:	10a0000b 	beqz	a1,159c <func_002924d0+0x44>
+    1570:	26022b3c 	addiu	v0,s0,11068
+    1574:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			1574: R_MIPS_26	func_001a80c8
+    1578:	00000000 	nop
+    157c:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			157c: R_MIPS_26	func_001a8190
+    1580:	0040202d 	move	a0,v0
+    1584:	26042b3c 	addiu	a0,s0,11068
+    1588:	dfb00000 	ld	s0,0(sp)
+    158c:	0082100a 	movz	v0,a0,v0
+    1590:	dfbf0008 	ld	ra,8(sp)
+    1594:	03e00008 	jr	ra
+    1598:	27bd0010 	addiu	sp,sp,16
+    159c:	1000fffa 	b	1588 <func_002924d0+0x30>
+    15a0:	0040202d 	move	a0,v0
+    15a4:	00000000 	nop
+
+000015a8 <func_00292520>:
+    15a8:	00a6782a 	slt	t7,a1,a2
+    15ac:	15e00003 	bnez	t7,15bc <func_00292520+0x14>
+    15b0:	24020002 	li	v0,2
+    15b4:	00c5782a 	slt	t7,a2,a1
+    15b8:	2de20001 	sltiu	v0,t7,1
+    15bc:	03e00008 	jr	ra
+    15c0:	00000000 	nop
+    15c4:	00000000 	nop
+
+000015c8 <func_00292540>:
+    15c8:	3c0f0000 	lui	t7,0x0
+			15c8: R_MIPS_HI16	D_0035f4b8
+    15cc:	03e00008 	jr	ra
+    15d0:	a1e00000 	sb	zero,0(t7)
+			15d0: R_MIPS_LO16	D_0035f4b8
+    15d4:	00000000 	nop
+
+000015d8 <func_00292550>:
+    15d8:	27bdfff0 	addiu	sp,sp,-16
+    15dc:	240413ec 	li	a0,5100
+    15e0:	ffbf0000 	sd	ra,0(sp)
+    15e4:	dfbf0000 	ld	ra,0(sp)
+    15e8:	08000000 	j	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			15e8: R_MIPS_26	_ZN2Tz8LoadData5ClearEi
+    15ec:	27bd0010 	addiu	sp,sp,16
+
+000015f0 <_ZN2Tz8LoadData7RequestEPKcib>:
+    15f0:	27bdffe0 	addiu	sp,sp,-32
+    15f4:	30c600ff 	andi	a2,a2,0xff
+    15f8:	ffb00000 	sd	s0,0(sp)
+    15fc:	ffb10008 	sd	s1,8(sp)
+    1600:	ffbf0010 	sd	ra,16(sp)
+    1604:	0080802d 	move	s0,a0
+    1608:	14c00003 	bnez	a2,1618 <_ZN2Tz8LoadData7RequestEPKcib+0x28>
+    160c:	00a0882d 	move	s1,a1
+    1610:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			1610: R_MIPS_26	func_00170cd0
+    1614:	00000000 	nop
+    1618:	0200202d 	move	a0,s0
+    161c:	0220282d 	move	a1,s1
+    1620:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			1620: R_MIPS_26	func_00170518
+    1624:	0000302d 	move	a2,zero
+    1628:	240e0001 	li	t6,1
+    162c:	dfb00000 	ld	s0,0(sp)
+    1630:	3c0f0000 	lui	t7,0x0
+			1630: R_MIPS_HI16	D_00360000
+    1634:	dfb10008 	ld	s1,8(sp)
+    1638:	a1eef4b8 	sb	t6,-2888(t7)
+			1638: R_MIPS_LO16	D_00360000
+    163c:	dfbf0010 	ld	ra,16(sp)
+    1640:	03e00008 	jr	ra
+    1644:	27bd0020 	addiu	sp,sp,32
+
+00001648 <_ZN2Tz13LoadDataFlushEv>:
+    1648:	27bdfff0 	addiu	sp,sp,-16
+    164c:	ffbf0000 	sd	ra,0(sp)
+    1650:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			1650: R_MIPS_26	func_00103eb0
+    1654:	00000000 	nop
+    1658:	8c440004 	lw	a0,4(v0)
+    165c:	3c060002 	lui	a2,0x2
+    1660:	3c070000 	lui	a3,0x0
+			1660: R_MIPS_HI16	_ZN2Tz8LoadData9FlushTaskEP4TASK
+    1664:	0000282d 	move	a1,zero
+    1668:	24e70000 	addiu	a3,a3,0
+			1668: R_MIPS_LO16	_ZN2Tz8LoadData9FlushTaskEP4TASK
+    166c:	34c622e0 	ori	a2,a2,0x22e0
+    1670:	0c000000 	jal	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			1670: R_MIPS_26	func_00102818
+    1674:	24081000 	li	t0,4096
+    1678:	3c0f0000 	lui	t7,0x0
+			1678: R_MIPS_HI16	func_00292620
+    167c:	dfbf0000 	ld	ra,0(sp)
+    1680:	25ef0000 	addiu	t7,t7,0
+			1680: R_MIPS_LO16	func_00292620
+    1684:	ac4f0030 	sw	t7,48(v0)
+    1688:	03e00008 	jr	ra
+    168c:	27bd0010 	addiu	sp,sp,16
+
+00001690 <_ZN2Tz8LoadData9FlushTaskEP4TASK>:
+    1690:	27bdfff0 	addiu	sp,sp,-16
+    1694:	ffbf0000 	sd	ra,0(sp)
+    1698:	dfbf0000 	ld	ra,0(sp)
+    169c:	08000000 	j	0 <_ZN2Tz8ItemStat8ClearSeqEv>
+			169c: R_MIPS_26	_ZN2YS10CACHE_BUFF5FlushEP4TASK
+    16a0:	27bd0010 	addiu	sp,sp,16
+    16a4:	00000000 	nop

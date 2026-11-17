@@ -279,14 +279,7 @@ void lead_data_leave(u32 a) {
 u8* func_001a80c8(u32);  // table24_find_by_id
 extern s8 D_00374488[];
 // Is the item's kind byte in the -1 terminated list?
-s32 func_002914a8(u32 a0, u32 a1) {
-    s32 r = 0;
-    u8* v = func_001a80c8(a1);  // table24_find_by_id
-    for (s32 i = 0; D_00374488[i] >= 0; i++) {
-        if (v[2] == D_00374488[i]) { r = 1; break; }
-    }
-    return r;
-}
+s32 func_002914a8(u32 a0, u32 a1);  // 002914a8: moved to src/anon/unit_00290f78.cpp
 
 s32 func_00181500(u16);
 s32 func_001a3570(u16);

@@ -290,10 +290,7 @@ void func_00258d78(u32 a, u32 b, u32 c, u32 d) {
 void func_00138c10(void*, s32);
 // 0028da70: moved to src/anon/unit_0028c878.cpp
 
-void func_00290488(VObj** p) {
-    if (p[0] && func_00139d78(p[0])) ((void (*)(VObj*))p[0]->vt[5])(p[0]);
-    if (p[1] && func_00139d78(p[1])) ((void (*)(VObj*))p[1]->vt[5])(p[1]);
-}
+void func_00290488(VObj** p);  // 00290488: moved to src/anon/unit_0028f1e0.cpp
 
 s32 func_00253b00(void);  // get_global_ptr_1dae6c0
 s32 func_00253b18(void);

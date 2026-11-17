@@ -973,13 +973,9 @@ u32 func_0028c838(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_0028c7c0(0x00000001u, 0x0000ffffu, a2, a3);
 }
 
-u32 func_002909f0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return YS_CACHE_BUFF_ReadRequest(a1, a2, 0x00000000u, a3);
-}
+u32 func_002909f0(u32 a0, u32 a1, u32 a2, u32 a3);  // 002909f0: moved to src/anon/unit_0028f1e0.cpp
 
-u32 func_00292550(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return Tz_LoadData_Clear(0x000013ecu, a1, a2, a3);
-}
+u32 func_00292550(u32 a0, u32 a1, u32 a2, u32 a3);  // 00292550: moved to src/anon/unit_00290f78.cpp
 
 u32 func_002933b8(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_00175f68(a0, ((u32)(*(u32*)((u32)(a0) + 4u))), ((u32)(*(u32*)((u32)(a0) + 8u))), ((u32)(*(u32*)((u32)(a0) + 12u))));

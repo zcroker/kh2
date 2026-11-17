@@ -22,18 +22,7 @@ void func_00139510(void*);
 s32 func_0028d6e8(void*);
 }
 // The exit test inside a for(;;) with break keeps the loop counting up (slti 4).
-void func_0028f878(void*) {
-    s32 i;
-    if (D_0035f480) {
-        for (i = 0;;) {
-            if (func_00139d78(D_0035f480 + i * 884)) func_00139510(D_0035f480 + i * 884);
-            *(u32*)(i * 884 + D_0035f480 + 880) = 0;
-            if (func_0028d6e8(D_0035f480u_w8004.p + i * 884 + 436)) func_00139510(D_0035f480u_w8004.p + i * 884 + 436);
-            i++;
-            if (i >= 4) break;
-        }
-    }
-}
+void func_0028f878(void*);  // 0028f878: moved to src/anon/unit_0028f1e0.cpp
 
 // ---- 00286298
 struct Bits_w8004 {

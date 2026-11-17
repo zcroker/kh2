@@ -398,13 +398,7 @@ void func_00290060(void*);
 void func_00138c10(void*, s32);
 struct SprRef { u8* o; u32 pad[2]; s16 h12; };
 
-void func_0028ff18(SprRef* p) {
-    func_00290060(p);
-    if (*(s32*)(p->o + 388) != p->h12) {
-        func_00138c10(p->o, p->h12);
-        *(s32*)(p->o + 392) = -1;
-    }
-}
+void func_0028ff18(SprRef* p);  // 0028ff18: moved to src/anon/unit_0028f1e0.cpp
 
 extern u16 D_00374aa8[];
 

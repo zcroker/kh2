@@ -114,11 +114,7 @@ void func_00281008_impl(void* p) {
 namespace Tz {
 void LoadDataFlush();
 }
-void Tz::LoadDataFlush() {
-    u8* t = func_00103eb0();
-    u8* r = func_00102818(*(u32*)(t + 4), 0, 0x222e0, (void*)func_00292608, 4096);
-    *(void**)(r + 0x30) = (void*)func_00292620;
-}
+// 002925c0: moved to src/anon/unit_00290f78.cpp
 
 static inline bool in_1_6(s32 a) { return a != 0 && a < 7; }
 

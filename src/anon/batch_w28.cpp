@@ -213,18 +213,9 @@ s32 func_00257fa8(s32 n) {  // nth_set_bit_index
 
 void func_0028d0f8(u8* p);  // 0028d0f8: moved to src/anon/unit_0028c878.cpp
 
-void func_002908a8(u8* p) {
-    s32* q = (s32*)p;
-    q[1] = 0;
-    p[16] = 0;
-    q[2] = 0;
-    for (s32 i = 0; i < q[3]; i++) ((s32*)q[5])[i] = 0;
-}
+void func_002908a8(u8* p);  // 002908a8: moved to src/anon/unit_0028f1e0.cpp
 
-u8* func_002924d0(u8* p, u32 a) {  // find_or_default_offset
-    u8* r = a ? func_001a8190(func_001a80c8(a)) : p + 0x2b3c;
-    return r ? r : p + 0x2b3c;
-}
+u8* func_002924d0(u8* p, u32 a);  // 002924d0: moved to src/anon/unit_00290f78.cpp
 
 void func_00299550(void) {
     D_0035f5a8 = 0;

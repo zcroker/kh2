@@ -13,48 +13,7 @@ void func_00192cc0(char*, const char*, ...);
 extern char D_00374498[];
 extern char D_003744a0[];
 
-void func_00291ba8(u8* w, s32 mode, s32 a2, s32 a3, s32 a4, s32 mask) {
-    if (__builtin_expect(mode == 0,0)) return;
-    if (mode == 4) return;
-    u8* r = func_001a1728(a3, a4);
-    s32 base;
-    if (__builtin_expect(mode == 2,0)) base = *(s16*)(w + 11062);
-    else base = func_00291370(w, 2);
-    s32 n = 0;
-    u8* q = w + 28;
-    s32 i = 0;
-    func_0023aa78(q);
-    s32 x = func_0023aa98(q);
-    func_0023aa18(q);
-    func_0023aa38(q);
-    for (; __builtin_expect(i < 9, 1); i++) {
-        bool off = !((mask >> i) & 1);
-        if ((u8)off) continue;
-        if (i == 8) continue;
-        s32 k = n + 5;
-        s32 v = mode == 1 ? x : 0;
-        u8* o = w + k * 436 + 4364;
-        func_00138c10(o, base);
-        func_00138c68(o, v, 0);
-        s32 val = -1;
-        switch (i) {
-        case 0: val = *(u16*)(r + 398); break;
-        case 1: val = *(u16*)(r + 392); break;
-        case 2: val = *(u16*)(r + 394); break;
-        case 3: val = *(u16*)(r + 396); break;
-        case 4: val = r[425]; break;
-        case 5: val = r[426]; break;
-        case 6: val = r[427]; break;
-        case 7: val = r[428]; break;
-        case 8: break;
-        }
-        if ((u32)(i - 4) < 4) func_00192cc0((char*)(w + k * 8 + 10904), D_00374498, 100 - val);
-        else func_00192cc0((char*)(w + k * 8 + 10904), D_003744a0, val);
-        n++;
-        *(u8**)(o + 408) = w + k * 8 + 10904;
-    }
-    func_001a17c8(r);
-}
+void func_00291ba8(u8* w, s32 mode, s32 a2, s32 a3, s32 a4, s32 mask);  // 00291ba8: moved to src/anon/unit_00290f78.cpp
 }
 namespace w1606n {
 struct Ent { u16 id; u8 a; s8 b; u8 c; u8 d; u8 e; s8 f; };

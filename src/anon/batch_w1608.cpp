@@ -57,54 +57,7 @@ u8* func_002924d0(u8*, s32);
 extern u32 D_00374498;
 extern u32 D_003744a0;
 
-void func_00291918(u8* obj, s32 mode, s32 id1, s32 id2, s32 mask) {
-    u32 i;
-    s32 k = 0;
-    u8* p1 = func_002924d0(obj, id1);
-    u8* p2 = func_002924d0(obj, id2);
-    for (i = 0; (s32)i < 9; i++) {
-        if (((mask >> i) ^ 1) & 1) continue;
-        u8* e = obj + k * 436 + 0x888;
-        s32 x, y;
-        if (mode == 2) {
-            x = 0;
-            y = 0;
-        } else {
-            x = func_0023aa18(e + 0x18);
-            y = func_0023aa38(e + 0x18);
-        }
-        s32 m = k + 5;
-        u8* d = obj + m * 436 + 0x110c;
-        func_0028dcc0(d, e);
-        func_00138c68(d, x, y);
-        s32 a = -1;
-        s32 b = -1;
-        switch (i) {
-        case 0: a = p2[7]; b = p1[7]; break;
-        case 1: a = p2[4]; b = p1[4]; break;
-        case 2: a = p2[5]; b = p1[5]; break;
-        case 3: a = p2[6]; b = p1[6]; break;
-        case 4: a = p2[9]; b = p1[9]; break;
-        case 5: a = p2[10]; b = p1[10]; break;
-        case 6: a = p2[11]; b = p1[11]; break;
-        case 7: a = p2[12]; b = p1[12]; break;
-        }
-        *(s32*)(d + 0x1b0) = 1;
-        if (i - 4 < 4) {
-            s32 r;
-            if (a < b) r = 6; else r = (b < a) ? 3 : 0;
-            func_00138c10(d, func_00291370(obj, r));
-            func_00192cc0(obj + m * 8 + 0x2a98, &D_00374498, 100 - a);
-        } else {
-            s32 r;
-            if (b < a) r = 6; else r = (a < b) ? 3 : 0;
-            func_00138c10(d, func_00291370(obj, r));
-            func_00192cc0(obj + m * 8 + 0x2a98, &D_003744a0, a);
-        }
-        k++;
-        *(u8**)(d + 0x198) = obj + m * 8 + 0x2a98;
-    }
-}
+void func_00291918(u8* obj, s32 mode, s32 id1, s32 id2, s32 mask);  // 00291918: moved to src/anon/unit_00290f78.cpp
 
 struct Info { u8 pad[0x18]; s32 mask; u8 pad2[2]; s8 b1e; s8 b1f; };
 s32 func_00266c70(void);

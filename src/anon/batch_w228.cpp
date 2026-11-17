@@ -50,16 +50,7 @@ void func_0031c2c8(u32* p) {
 // 001843d8: moved to src/anon/unit_00183088.cpp
 
 void Selector_CreateHelpGra(u8* t, u32 a1, u32 a2, u32 a3) asm("_ZN2Tz8Selector13CreateHelpGraEz");
-void Selector_CreateHelpGra(u8* t, u32 a1, u32 a2, u32 a3) {
-    func_00290740(t);
-    u8* s0 = t + 416;
-    func_002362b0(s0, a2);
-    func_002367c8(s0);  // obj_dispatch_bitfield64
-    func_001386e0(t, *(u32*)(t + 408), a1, s0, a3, 0);
-    u32* q = (u32*)(t + 24);
-    q[46] |= 8;
-    t[405] = 1;
-}
+// 00290668: moved to src/anon/unit_0028f1e0.cpp
 
 s32 func_002bb8b0(u8* p);  // 0x002bb8b0: definition moved into src/anon/unit_002bb8b0.cpp
 }

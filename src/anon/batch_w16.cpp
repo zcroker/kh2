@@ -245,11 +245,7 @@ void func_0025dba8(void) {
     func_0028f4d8(0, 0x8a7f, 0);
 }
 
-void func_00290870(void* p) {
-    *(void**)p = &D_0035f4b0;
-    func_002908f0(p);
-    func_00106420(p);
-}
+void func_00290870(void* p);  // 00290870: moved to src/anon/unit_0028f1e0.cpp
 
 void func_0029e258(s32 i) {
     u8* b = func_002766d0(i);

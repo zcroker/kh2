@@ -307,15 +307,7 @@ u32 func_00276b90(void) {
 
 void func_00290580(u8*);
 void func_00138c10(u8*, s16);
-void func_00290438(u8* p) {
-    func_00290580(p);
-    u8* o = *(u8**)p;
-    s16 k = *(s16*)(p + 12);
-    if (*(s32*)(o + 388) != k) {
-        func_00138c10(o, k);
-        *(s32*)(*(u8**)p + 392) = -1;
-    }
-}
+void func_00290438(u8* p);  // 00290438: moved to src/anon/unit_0028f1e0.cpp
 
 u8* func_002a9d68(u32, u32);
 u32 func_002aa5b8(u32, u32);

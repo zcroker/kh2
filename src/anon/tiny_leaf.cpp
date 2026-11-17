@@ -272,14 +272,7 @@ u32 func_002827e0(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_indexed_word
 
 u32 func_0028cf10(u32 a0, u32 a1, u32 a2, u32 a3);  // 0028cf10: moved to src/anon/unit_0028c878.cpp
 
-u32 func_00290948(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u, r15 = 0u;
-    r15 = *(u32*)((u32)r4 + (s32)(20));
-    r5 = (u32)(r5 << 2);
-    r5 = (u32)(r5 + r15);
-    r2 = *(u32*)((u32)r5 + (s32)(0));
-    return r2;
-}
+u32 func_00290948(u32 a0, u32 a1, u32 a2, u32 a3);  // 00290948: moved to src/anon/unit_0028f1e0.cpp
 
 u32 func_00291370(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u;

@@ -6215,16 +6215,7 @@ s32 func_00139d78_f6f0(u8*) asm("func_00139d78");
 s16* func_0028f690(s32);  // record884_type_index
 void func_00138c10_f6f0(u8*, s32) asm("func_00138c10");
 void func_0028d5d0(u8*);
-void func_0028f6f0(s32 i) {  // record884_refresh_by_index
-    if (!D_0035f480.p) return;
-    s32 off = i * 884;
-    if (!func_00139d78_f6f0(D_0035f480.p + off)) return;
-    s16* v = func_0028f690(i);  // record884_type_index
-    if (*(s32*)(D_0035f480.p + off + 388) == v[1]) return;
-    func_00138c10_f6f0(D_0035f480.p + off, v[1]);
-    *(s32*)(D_0035f480.p + off + 392) = -1;
-    func_0028d5d0(D_0035f480.p + off + 436);
-}
+void func_0028f6f0(s32 i);  // 0028f6f0: moved to src/anon/unit_0028f1e0.cpp
 
 // ---- 00304fb0
 void* _malloc_r(void*, u32);
@@ -6325,16 +6316,7 @@ void func_00259020(u32, u32, u32, u32, u32, u16*, u32, u32);
 void func_0028ff00(u8*);
 union UH28f { u16 h; s32 i; };
 void func_0028fe38_fe38(u8* p, u32 a1, u32 a2, u32 a3) asm("func_0028fe38");
-void func_0028fe38_fe38(u8* p, u32 a1, u32 a2, u32 a3) {
-    func_00290060(p, a1, a2, a3);
-    func_001386e0_fe38(*(u32*)p, a1, a2, a3, *(s16*)(p + 8), 0);
-    *(s32*)(*(u8**)p + 392) = *(s16*)(p + 12);
-    u16 buf[6];
-    u16* d = buf;
-    for (s32 i = 5; i >= 0; i--) *d++ = ((UH28f*)(p + 16))->h;
-    func_00259020(*(u32*)(p + 4), *(u32*)p, a1, a2, a3, buf, 6, 0);
-    func_0028ff00(p);
-}
+// 0028fe38: moved to src/anon/unit_0028f1e0.cpp
 // ---- 0024e5b0
 extern u32 D_0035edcc;
 extern s8 D_0035edfc;

@@ -1,0 +1,19 @@
+
+/s/out.o:     file format elf32-littlemips
+
+Sections:
+Idx Name          Size      VMA               LMA               File off  Algn
+  0 .text         000016a8  00000000  00000000  00000038  2**3
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  1 .data         00000000  00000000  00000000  000016e0  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000000  00000000  00000000  000016e0  2**0
+                  ALLOC
+  3 .reginfo      00000018  00000000  00000000  000016e0  2**2
+                  CONTENTS, READONLY, LINK_ONCE_SAME_SIZE
+  4 .mdebug       00001254  00000000  00000000  000016f8  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  5 .mdebug.eabi64 00000000  00000000  00000000  0000294c  2**0
+                  CONTENTS, READONLY
+  6 .rodata       000000a0  00000000  00000000  0000294c  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, DATA
