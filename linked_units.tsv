@@ -208,7 +208,7 @@ src/anon/unit_001aa980.c	001aa980	001aaa08	-	-G0 -fno-schedule-insns
 src/anon/unit_001aaa08.cpp	001aaa08	001aaea8	-	-G0 -fno-strict-aliasing
 src/anon/unit_001aaea8.cpp	001aaea8	001ab260	.rodata@0036d758	-G0 -fno-strict-aliasing
 src/anon/unit_001ab598.cpp	001ab598	001abad8	.rodata@0036d778	-G0
-src/anon/unit_001abb28.cpp	001abb28	001ad990	.bss@01c6ced0,.rodata@0036d780	-G0 -fno-strict-aliasing
+src/anon/unit_001abb28.cpp	001abad8	001ad990	.bss@01c6ced0,.rodata@0036d780	-G0 -fno-strict-aliasing
 src/anon/unit_001ad990.cpp	001ad990	001ada38	.rodata@0036d7a4	-G0
 src/anon/unit_001ada38.cpp	001ada38	001b0448	.rodata@0036d7a8	-G0 -g -fno-strict-aliasing
 src/common/gumimenu.cpp	00104318	00104910	.data@0032ba90,.bss@003a6a80,.rodata@00369e30	-G0

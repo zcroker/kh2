@@ -1,4 +1,4 @@
-// YS windows (0x1abb28-0x1ad990): the small window parts (text line, cursor, page arrow, icon,
+// YS windows (0x1abad8-0x1ad990): the small window parts (text line, cursor, page arrow, icon,
 // position helpers), the window base (YS::WINDOW: ctor C2/C1, dtor D2/D0, on a priority-sorted
 // list at 0x1c6ced0), YS::WINDOW_OBJ2D, the menu/tutorial windows built on them, and the list's
 // static init. Each matched function keeps the struct view it was matched with (one namespace per
@@ -18,6 +18,22 @@ s32 func_00239d10(void*) asm("func_00239d10");
 void func_0023acd8(void*) asm("func_0023acd8");
 void func_0023ade0(void*) asm("func_0023ade0");
 void func_002ba2e8(s32, s32) asm("func_002ba2e8");
+}
+
+namespace w24 {
+void func_00239700(u32*) asm("func_00239700");
+s32 func_001ab810(void) asm("func_001ab810");
+s32 func_001ab800(void) asm("func_001ab800");
+void func_00239988(u32*, s32, s32) asm("func_00239988");
+// 001abad8 (gap): first copy of the same constructor (C2/C1 twins are byte-identical)
+void func_001abad8(u32* p) asm("func_001abad8");
+void func_001abad8(u32* p) {
+    p[0] = 0;
+    func_00239700(p + 5);
+    s32 a = func_001ab810();
+    s32 b = func_001ab800();
+    func_00239988(p + 5, a, b);
+}
 }
 
 namespace w24 {
