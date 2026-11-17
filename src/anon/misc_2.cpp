@@ -8,9 +8,9 @@ s64 func_002061f0(s64 param0, s64 param1, s64 param2, s64 param3) {
     return result;
 }
 
-void func_0020aec0(void* self) {}
+void func_0020aec0(void* self);  // 0x0020aec0: definition moved into src/anon/unit_0020ad28.cpp
 
-void func_0020c858(void* self) {}
+void func_0020c858(void* self);  // 0x0020c858: definition moved into src/anon/unit_0020c580.cpp
 
 void func_00226a70(void* self);  // 0x00226a70: definition moved into src/anon/unit_00224780.cpp
 

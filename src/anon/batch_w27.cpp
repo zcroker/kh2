@@ -133,12 +133,7 @@ void func_00106420(void*);
 void sceVu0CopyVector(void*, void*);  // memcpy16
 extern u32 D_00354bc0;
 extern u32 D_00354be0;
-void func_00209e80(u8* a, u8* b) {
-    NoTail g;
-    u8* s = a + *(s32*)(*(u8**)(b + 12) + 4);
-    sceVu0CopyVector(s + 224, &D_00354bc0);  // memcpy16
-    sceVu0CopyVector(s + 240, &D_00354be0);  // memcpy16
-}
+void func_00209e80(u8* a, u8* b);  // 0x00209e80: definition moved into src/anon/unit_00209d68.cpp
 
 extern u8 D_0035daec;
 extern u8 D_0035daed;

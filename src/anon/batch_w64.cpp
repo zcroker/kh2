@@ -266,14 +266,7 @@ extern char D_01d9e8c0[];
 void sceVu0MulMatrix(void*, void*, void*);
 void sceVu0CopyMatrix(void*, void*);
 
-void func_00209df0(u8* p, u32 a1, u8* r) {
-    NoTail nt;
-    u8* b = p + *(s32*)(*(u8**)(r + 12) + 4);
-    sceVu0MulMatrix(D_01d9e6e8 + 80, b + 224, D_01d9e6e8 + 16);
-    sceVu0MulMatrix(D_01d9e6e8 + 80, D_01d9e730, D_01d9e6e8 + 80);
-    sceVu0CopyMatrix(b + 160, D_01d9e6e8 + 80);
-    sceVu0MulMatrix(D_01d9e6e8 + 80, D_01d9e8c0, D_01d9e6e8 + 80);
-}
+void func_00209df0(u8* p, u32 a1, u8* r);  // 0x00209df0: definition moved into src/anon/unit_00209d68.cpp
 
 // ---------------------------------------------------------------------------
 extern f32 D_00359a20[];

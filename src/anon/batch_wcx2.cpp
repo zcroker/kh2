@@ -402,21 +402,7 @@ void sceVu0RotMatrixZ(f32 (*)[4], f32 (*)[4], f32);
 void sceVu0CopyVector(f32*, u8*);  // memcpy16
 void sceVu0ApplyMatrix(f32*, u8*, f32*);
 void sceVu0MulMatrix(f32 (*)[4], u8*, f32 (*)[4]);
-f32 func_0020aec8(u32 a0, f32 (*m)[4], u8* a2, u32 a3, u8* s)
-{
-    sceVu0UnitMatrix(m);  // vu_store_w_splat
-    m[0][0] = *(f32*)(s + 56) * D_00354be0[0];
-    m[1][1] = *(f32*)(s + 60) * D_00354be0[1];
-    m[2][2] = *(f32*)(s + 56) * D_00354be0[0];
-    if (*(f32*)(s + 44) != 0.0f) sceVu0RotMatrixZ(m, m, *(f32*)(s + 44) * 3.14159274f / 180.0f);
-    sceVu0CopyVector(m[3], s);  // memcpy16
-    sceVu0ApplyMatrix(m[3], D_01d9e730, m[3]);
-    f32 z = m[3][2];
-    m[3][1] *= *(f32*)(a2 + 164);
-    m[3][1] += *(f32*)(a2 + 168);
-    sceVu0MulMatrix(m, D_01d9e8c0, m);
-    return z;
-}
+f32 func_0020aec8(u32 a0, f32 (*m)[4], u8* a2, u32 a3, u8* s);  // 0x0020aec8: definition moved into src/anon/unit_0020ad28.cpp
 
 extern u8 D_0035eaf8[];
 void func_00237068(void*);
@@ -8890,30 +8876,7 @@ void func_002f3d08_x15404(f32* o, void* a, void* b) asm("sceVu0MulMatrix");
 void sceVu0ScaleVector(f32* o, f32* a, f32 s);
 void func_002f3f88_x15406(f32* o, Src20c860* a) asm("sceVu0CopyVector");
 void func_002f3cd8_x15407(f32* o, void* a, f32* b) asm("sceVu0ApplyMatrix");
-f32 func_0020c860(void* self, f32* m, Par20c860* par, void* a3, Src20c860* src)
-{
-    f32 rm[16];
-    f32 ang[4];
-    s32 i;
-    f32* row;
-    f32 z;
-    func_002f4000_x15402(m);
-    if (src->rot.xy || src->rz) {
-        for (i = 0; i < 3; i++)
-            ang[i] = (f32)src->rot.r[i] * 3.1415927f * 3.0517578125e-05f;
-        sceVu0RotMatrix(rm, D_01d9ea40, ang);
-        func_002f3d08_x15404(m, m, rm);
-    }
-    for (i = 0; i < 3; i++)
-        sceVu0ScaleVector(m + i * 4, m + i * 4, src->scl[i]);
-    func_002f3f88_x15406(m + 12, src);
-    func_002f3cd8_x15407(m + 12, D_01d9e730, m + 12);
-    m[13] *= par->hs;
-    z = m[14];
-    m[13] += par->ho;
-    func_002f3d08_x15404(m, D_01d9e8c0, m);
-    return z;
-}
+f32 func_0020c860(void* self, f32* m, Par20c860* par, void* a3, Src20c860* src);  // 0x0020c860: definition moved into src/anon/unit_0020c580.cpp
 
 // --------------------
 s32 func_001c0cd8(u8*);

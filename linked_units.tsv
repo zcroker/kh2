@@ -241,6 +241,18 @@ src/anon/unit_002a5a90.cpp	002a5a90	002a6e50	.rodata@00374bac	-G0 -g
 src/anon/unit_002a7308.cpp	002a7308	002a8330	-	-G0 -g -fno-strict-aliasing -fmove-all-movables
 src/anon/unit_002a8748.cpp	002a8748	002a8ac8	-	-G0 -g -fno-strength-reduce
 src/anon/unit_002a8ac8.cpp	002a8ac8	002a9100	-	-G0 -g
+src/anon/unit_00209d68.cpp	00209d68	0020a090	-	-G0 -fno-strict-aliasing
+src/anon/unit_0020a090.c	0020a090	0020a510	.rodata@0037068c	-G0 -fno-sched-interblock
+src/anon/unit_0020a510.cpp	0020a510	0020a658	.rodata@00370698	-G0 -fno-strict-aliasing
+src/anon/batch_w3686.c	0020a658	0020ab48	.rodata@0037069c	-G0
+src/anon/batch_w3775_nsamam.cpp	0020ab48	0020ad28	-	-G0 -fno-strict-aliasing -fmove-all-movables
+src/anon/unit_0020ad28.cpp	0020ad28	0020b4e8	.rodata@003706b4	-G0 -fno-strict-aliasing
+src/anon/batch_w2346.c	0020b4e8	0020bdb0	.rodata@003706cc	-G0
+src/anon/unit_0020bdb0.cpp	0020bdb0	0020bef8	.rodata@003706d0	-G0 -fno-strict-aliasing
+src/anon/batch_w2474.c	0020bef8	0020c580	.rodata@003706d4	-G0
+src/anon/unit_0020c580.cpp	0020c580	0020cfd8	.rodata@003706e4	-G0 -fno-strict-aliasing
+src/anon/unit_0020d178.cpp	0020d178	0020d1d0	-	-G0 -fno-strict-aliasing
+src/anon/batch_w3869_gnsa_nogcse.cpp	0020d1d0	0020d528	.rodata@00370700	-G0 -g -fno-strict-aliasing -fno-gcse
 src/anon/unit_0020dde8.cpp	0020dde8	0020e2e8	-	-G0 -g -fno-strict-aliasing
 src/anon/batch_w3766_nosched.c	0020e2e8	0020e490	-	-G0 -fno-schedule-insns
 src/anon/unit_0020e490.cpp	0020e490	0020e590	-	-G0 -g -fno-strict-aliasing

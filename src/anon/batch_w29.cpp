@@ -162,10 +162,7 @@ void ctarget_001db8f8(u8* p, u32 a, u32 b, u32 c);  // 0x001db8f8: definition mo
 // Replaces value a with b on every list node not flagged 0x200.
 void func_001e01e8(u8* list, u32 a, u32 b);  // 0x001e01e8: definition moved into src/anon/unit_001deb58.cpp
 
-void func_0020cf60(u32 a, u8* e) {
-    if (D_00354688 && D_0035468c > 0)
-        func_00223e98(*(u32*)(e + 4), e + 8, e[28], e[29], *(f32*)(e + 12), *(f32*)(e + 16), *(u32*)(e + 20));
-}
+void func_0020cf60(u32 a, u8* e);  // 0x0020cf60: definition moved into src/anon/unit_0020c580.cpp
 
 u32 func_0022aef0(Q16* q);  // 0022aef0: moved to src/sasa/musical_input.cpp (linked unit)
 

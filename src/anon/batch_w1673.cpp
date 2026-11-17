@@ -82,29 +82,7 @@ extern s32 D_01d9ea9c;
 extern "C" {
 void func_0020bdb0(void*, void*, void*, u8*);
 void func_0020bef8(M20c580*, C20c580*, I20c580*, s32, u8*);
-void func_0020c580(M20c580* m, C20c580* c, s32 a2) {
-    s32 cnt = 0;
-    I20c580* it = m->items;
-    u8* buf = m->buf;
-    s32 n = m->n;
-    if (D_01d9ea9c != 0) return;
-    if (D_01d9e6e0->flags & 0xff0000ff00ULL) return;
-    if (c->x4 == 0xffff) return;
-    m->tick++;
-    for (s32 i = 0; i < n; i++) {
-        if (it->busy) {
-            func_0020bef8(m, c, it, a2, buf);
-        } else if (c->period <= m->tick) {
-            if (cnt < c->max) {
-                func_0020bdb0(m, c, it, buf);
-                cnt++;
-            }
-        }
-        it++;
-        if (buf) buf += 32;
-    }
-    if (cnt > 0) m->tick = 0;
-}
+void func_0020c580(M20c580* m, C20c580* c, s32 a2);  // 0x0020c580: definition moved into src/anon/unit_0020c580.cpp
 }
 struct V20bdb0 { f32 x, y, z, w; };
 struct I20bdb0 { V20bdb0 pos; V20bdb0 q; };
@@ -116,38 +94,7 @@ void func_0020b4e8(M20bdb0*, I20bdb0*, u8*);
 void sceVu0ApplyMatrix(void*, void*, void*);
 void sceVu0Normalize(void*, void*);
 void func_002fde18(void*, s32, u32);
-void func_0020bdb0(void* self, void* mv, void* itv, u8* buf) {
-    M20bdb0* m = (M20bdb0*)mv;
-    I20bdb0* it = (I20bdb0*)itv;
-    func_002fde18(it, 0, 0xa0);
-    if (buf) func_002fde18(buf, 0, 0x20);
-    V20bdb0 v;
-    v.x = m->x;
-    v.y = m->y;
-    v.z = m->z;
-    v.w = 1.0f;
-    sceVu0Normalize(&it->q, &v);
-    f32 r = m->r0 + m->r1;
-    f32 d = r + r;
-    f32 len;
-    do {
-        it->pos.x = d * func_0020b410() - r;
-        it->pos.y = d * func_0020b410() - r;
-        it->pos.z = d * func_0020b410() - r;
-        asm volatile(
-            "lqc2 $vf10,0(%1)\n"
-            "vmul.xyz $vf10,$vf10,$vf10\n"
-            "vaddx.y $vf10,$vf10,$vf10x\n"
-            "vaddy.z $vf10,$vf10,$vf10y\n"
-            "vsqrt Q,$vf10z\n"
-            "vwaitq\n"
-            "vaddq.x $vf10,$vf0,Q\n"
-            "qmfc2 %0,$vf10\n" : "=r"(len) : "r"(it));
-    } while (r < len);
-    it->pos.w = 1.0f;
-    sceVu0ApplyMatrix(it, D_01d9e7b0, it);
-    func_0020b4e8(m, it, buf);
-}
+void func_0020bdb0(void* self, void* mv, void* itv, u8* buf);  // 0x0020bdb0: definition moved into src/anon/unit_0020bdb0.cpp
 }
 struct V20a510 { f32 x, y, z, w; };
 struct I20a510 { V20a510 pos; V20a510 q; };
@@ -155,36 +102,5 @@ struct M20a510 { u8 pad[0x7c]; f32 x, y, z; u8 pad2[0x9c - 0x88]; f32 r0, r1; };
 extern "C" {
 f32 func_00209fb8();
 void func_0020a090(M20a510*, I20a510*, u8*);
-void func_0020a510(void* self, void* mv, void* itv, u8* buf) {
-    M20a510* m = (M20a510*)mv;
-    I20a510* it = (I20a510*)itv;
-    func_002fde18(it, 0, 0x60);
-    if (buf) func_002fde18(buf, 0, 0x20);
-    V20a510 v;
-    v.x = m->x;
-    v.y = m->y;
-    v.z = m->z;
-    v.w = 1.0f;
-    sceVu0Normalize(&it->q, &v);
-    f32 r = m->r0 + m->r1;
-    f32 d = r + r;
-    f32 len;
-    do {
-        it->pos.x = d * func_00209fb8() - r;
-        it->pos.y = d * func_00209fb8() - r;
-        it->pos.z = d * func_00209fb8() - r;
-        asm volatile(
-            "lqc2 $vf10,0(%1)\n"
-            "vmul.xyz $vf10,$vf10,$vf10\n"
-            "vaddx.y $vf10,$vf10,$vf10x\n"
-            "vaddy.z $vf10,$vf10,$vf10y\n"
-            "vsqrt Q,$vf10z\n"
-            "vwaitq\n"
-            "vaddq.x $vf10,$vf0,Q\n"
-            "qmfc2 %0,$vf10\n" : "=r"(len) : "r"(it));
-    } while (r < len);
-    it->pos.w = 1.0f;
-    sceVu0ApplyMatrix(it, D_01d9e7b0, it);
-    func_0020a090(m, it, buf);
-}
+void func_0020a510(void* self, void* mv, void* itv, u8* buf);  // 0x0020a510: definition moved into src/anon/unit_0020a510.cpp
 }

@@ -1,0 +1,63 @@
+// Linked unit 0x0020bdb0-0x0020bef8 (one namespace per old matched source; class methods in their own namespace).
+#include "../common/types.h"
+#include "auto80_199_queue_decls.hpp"
+#include "auto80_199_queue_structs.hpp"
+#include "../harata/libdk/ft4.hpp"
+#include "../harata/libdk/sprite.hpp"
+#include "../harata/libdk/treasure_info.hpp"
+#include "../tozawa/cmenu_top.hpp"
+#include "../tozawa/help_gra.hpp"
+#include "../kn/fvector.hpp"
+#include "./tiny_auto80_queue_structs.hpp"
+#include "../yasui/libys/areadata.hpp"
+#include "../yasui/libys/progress.hpp"
+#include <stdarg.h>
+
+// 0020bdb0 (was src/anon/batch_w1673.cpp)
+namespace n0020bdb0 {
+void func_0020bdb0(void*, void*, void*, u8*) asm("func_0020bdb0");
+struct V20bdb0 { f32 x, y, z, w; };
+struct I20bdb0 { V20bdb0 pos; V20bdb0 q; };
+struct M20bdb0 { u8 pad[0xb8]; f32 x, y, z; u8 pad2[0xd8 - 0xc4]; f32 r0, r1; };
+extern u8 D_01d9e7b0[] asm("D_01d9e7b0");
+f32 func_0020b410() asm("func_0020b410");
+void func_0020b4e8(M20bdb0*, I20bdb0*, u8*) asm("func_0020b4e8");
+void sceVu0ApplyMatrix(void*, void*, void*) asm("sceVu0ApplyMatrix");
+void sceVu0Normalize(void*, void*) asm("sceVu0Normalize");
+void func_002fde18(void*, s32, u32) asm("func_002fde18");
+/*TARGET 0020bdb0*/
+void func_0020bdb0(void* self, void* mv, void* itv, u8* buf) asm("func_0020bdb0");
+void func_0020bdb0(void* self, void* mv, void* itv, u8* buf) {
+    M20bdb0* m = (M20bdb0*)mv;
+    I20bdb0* it = (I20bdb0*)itv;
+    func_002fde18(it, 0, 0xa0);
+    if (buf) func_002fde18(buf, 0, 0x20);
+    V20bdb0 v;
+    v.x = m->x;
+    v.y = m->y;
+    v.z = m->z;
+    v.w = 1.0f;
+    sceVu0Normalize(&it->q, &v);
+    f32 r = m->r0 + m->r1;
+    f32 d = r + r;
+    f32 len;
+    do {
+        it->pos.x = d * func_0020b410() - r;
+        it->pos.y = d * func_0020b410() - r;
+        it->pos.z = d * func_0020b410() - r;
+        asm volatile(
+            "lqc2 $vf10,0(%1)\n"
+            "vmul.xyz $vf10,$vf10,$vf10\n"
+            "vaddx.y $vf10,$vf10,$vf10x\n"
+            "vaddy.z $vf10,$vf10,$vf10y\n"
+            "vsqrt Q,$vf10z\n"
+            "vwaitq\n"
+            "vaddq.x $vf10,$vf0,Q\n"
+            "qmfc2 %0,$vf10\n" : "=r"(len) : "r"(it));
+    } while (r < len);
+    it->pos.w = 1.0f;
+    sceVu0ApplyMatrix(it, D_01d9e7b0, it);
+    func_0020b4e8(m, it, buf);
+}
+}  // namespace n0020bdb0
+

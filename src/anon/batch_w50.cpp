@@ -248,17 +248,7 @@ void func_00202ba0(Vec4* out, Vec4* a, Vec4* b, f32 t) {
 
 union FU { u32 u; f32 f; };
 // VU0 random float: reseed/step R five times. Hand-written VU0 assembly.
-f32 func_00209fb8(void) {  // vu_const_5f_c
-    register u32 x asm("$15");
-    asm volatile("addi $8, $0, -1\n\tqmtc2 $8, $vf2\n\t"
-        "vrxor R, $vf2x\n\tvrnext.x $vf1, R\n\tvrxor R, $vf2x\n\tvrnext.x $vf1, R\n\t"
-        "vrxor R, $vf2x\n\tvrnext.x $vf1, R\n\tvrxor R, $vf2x\n\tvrnext.x $vf1, R\n\t"
-        "vrxor R, $vf2x\n\tvrnext.x $vf1, R\n\tvitof0.x $vf2, $vf2\n\tvadd.x $vf1, $vf1, $vf2\n\t"
-        "qmfc2 %0, $vf1" : "=r"(x) : : "$8");
-    FU u;
-    u.u = x;
-    return u.f;
-}
+f32 func_00209fb8(void);  // 0x00209fb8: definition moved into src/anon/unit_00209d68.cpp
 
 // Rotation about Z from a 16-bit angle (4096-entry sine table).
 void func_0021ead0(f32* m, u32 ang);  // 0x0021ead0: definition moved into src/anon/unit_0021e988.cpp

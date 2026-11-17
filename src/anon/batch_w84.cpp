@@ -239,22 +239,7 @@ void sceVu0MulMatrix(void*, void*, void*);
 void sceVu0ScaleVector(void*, void*, f32);  // vec_scale_by_f12
 void sceVu0ApplyMatrix(void*, void*, void*);
 void sceVu0CopyMatrix(void*, void*);
-void func_00209ed0(u8* a, u32, u8* c) {
-    f32 m[16] __attribute__((aligned(16)));
-    u8* s = a + *(u32*)(*(u8**)(c + 12) + 4);
-    sceVu0UnitMatrix(m);  // vu_store_w_splat
-    f32* v = (f32*)(s + 160);
-    m[12] = v[16];
-    m[13] = v[17];
-    m[14] = v[18];
-    sceVu0MulMatrix(m, D_01d9e730, m);
-    sceVu0ScaleVector(D_01d9e6e8 + 80, D_01d9e6e8 + 16, v[20]);  // vec_scale_by_f12
-    sceVu0ScaleVector(D_01d9e6e8 + 96, D_01d9e6e8 + 32, v[21]);  // vec_scale_by_f12
-    sceVu0ScaleVector(D_01d9e6e8 + 112, D_01d9e6e8 + 48, v[22]);  // vec_scale_by_f12
-    sceVu0ApplyMatrix(D_01d9e6e8 + 128, m, D_01d9e6e8 + 64);
-    sceVu0CopyMatrix(v, D_01d9e6e8 + 80);
-    sceVu0MulMatrix(D_01d9e6e8 + 80, D_01d9e8c0, D_01d9e6e8 + 80);
-}
+void func_00209ed0(u8* a, u32, u8* c);  // 0x00209ed0: definition moved into src/anon/unit_00209d68.cpp
 
 s32 func_00289310(u32);
 u32 func_002891e8(u32);

@@ -10210,35 +10210,11 @@ void func_002039f8(u32 a0, u8* a1) {
     }
 }
 
-s32 func_0020a060(u8* a0, u8* a1) {
-    if (*(u32*)(a0 + 0) == 0) {
-        return 0;
-    }
-    if (*(u8*)(a1 + 182) == 0 || *(u32*)(a0 + 4) != 0) {
-        return 1;
-    }
-    return 0;
-}
+s32 func_0020a060(u8* a0, u8* a1);  // 0x0020a060: definition moved into src/anon/unit_00209d68.cpp
 
-s32 func_0020b4b8(u8* a0, u8* a1) {
-    if (*(u32*)(a0 + 0) == 0) {
-        return 0;
-    }
-    if (*(u8*)(a1 + 242) == 0 || *(u32*)(a0 + 4) != 0) {
-        return 1;
-    }
-    return 0;
-}
+s32 func_0020b4b8(u8* a0, u8* a1);  // 0x0020b4b8: definition moved into src/anon/unit_0020ad28.cpp
 
-void func_0020ce60(u32 a0, u8* a1) {
-    (void)a0;
-    if (*(s32*)((u8*)&D_00350000 + 18048u) != 0) {
-        u8* t5 = a1;
-        if (*(s32*)((u8*)&D_00350000 + 18052u) > 0) {
-            func_002236d0(*(u32*)(t5 + 4), (u32)(a1 + 8), *(u8*)(a1 + 16), *(u8*)(t5 + 17));
-        }
-    }
-}
+void func_0020ce60(u32 a0, u8* a1);  // 0x0020ce60: definition moved into src/anon/unit_0020c580.cpp
 
 void func_00220088(u8* a0, u32 a1);  // 0x00220088: definition moved into src/anon/unit_0021e988.cpp
 

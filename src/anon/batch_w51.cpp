@@ -190,29 +190,7 @@ u32 wtarget_001d9980(u32, u32, u32, u32);  // 0x001d9980: definition moved into 
 extern "C" {
 
 // VU0 random float (hand-written VU0 asm).
-f32 func_0020b410(void) {  // vu_const_5f_b
-    register u32 b asm("$15");
-    asm volatile(
-        "addi $8, $0, -1\n\t"
-        "qmtc2 $8, $vf2\n\t"
-        "vrxor R, $vf2x\n\t"
-        "vrnext.x $vf1, R\n\t"
-        "vrxor R, $vf2x\n\t"
-        "vrnext.x $vf1, R\n\t"
-        "vrxor R, $vf2x\n\t"
-        "vrnext.x $vf1, R\n\t"
-        "vrxor R, $vf2x\n\t"
-        "vrnext.x $vf1, R\n\t"
-        "vrxor R, $vf2x\n\t"
-        "vrnext.x $vf1, R\n\t"
-        "vitof0.x $vf2, $vf2\n\t"
-        "vadd.x $vf1, $vf1, $vf2\n\t"
-        "qmfc2 %0, $vf1"
-        : "=r"(b) : : "$8");
-    union { u32 u; f32 f; } c;
-    c.u = b;
-    return c.f;
-}
+f32 func_0020b410(void);  // 0x0020b410: definition moved into src/anon/unit_0020ad28.cpp
 
 // Transform v by matrix m, project, store to out; returns screen clip flags (hand-written VU0 asm).
 u32 func_00222898(void* out, void* m, void* v);  // 0x00222898: definition moved into src/anon/unit_00222548.cpp
