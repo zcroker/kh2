@@ -1,4 +1,4 @@
-// Linked unit 0x00239988-0x0023b798: YI::SEQUENCE (gap functions written here).
+// Linked unit 0x00239988-0x0023bc58: YI::SEQUENCE (gap functions written here).
 #include "../common/types.h"
 #include "auto80_199_queue_decls.hpp"
 #include "auto80_199_queue_structs.hpp"
@@ -1130,3 +1130,136 @@ void func_0023ade0(SprAnim* o)
 }
 }  // namespace n0023ade0
 
+
+// 0023b798 (was gap): sequence clock: advance the frame, loop or stop at the end (YI::SEQUENCE update).
+namespace n0023b798 {
+struct Seq;
+typedef void (*SeqCb)(Seq*);
+struct Seq {
+    u8 pad00[0x44];
+    f32 speed;        // 0x44
+    u8 pad48[0xd4 - 0x48];
+    u8 dirty;         // 0xd4
+    u8 padd5[0xec - 0xd5];
+    SeqCb cb;         // 0xec
+    u8 padf0[0xfc - 0xf0];
+    s32 state;        // 0xfc
+    f32 total;        // 0x100
+    f32 frame;        // 0x104
+    f32 end;          // 0x108
+    s32 count;        // 0x10c
+    s32 cbCount;      // 0x110
+    u8 pad114[0x140 - 0x114];
+    s32 loops;        // 0x140
+    s32 loopStart;    // 0x144
+};
+extern f32 D_00349e14 asm("D_00349e14");
+void func_0023aab8(Seq*) asm("func_0023aab8");
+void func_00239230(Seq*) asm("func_00239230");
+void func_0023b798(Seq* o) asm("func_0023b798");
+void func_0023b798(Seq* o) {
+    f32 dt = D_00349e14 * o->speed;
+    o->total += dt;
+    s32 st = o->state;
+    switch (st) {
+    case 1:
+        o->frame = 0;
+        o->state = 2;
+        func_00239230(o);
+        o->dirty = 1;
+        o->cbCount = 0;
+        break;
+    case 0: break;
+    case 2: {
+        f32 end = o->end;
+        o->frame += dt;
+        if (end <= o->frame) {
+            o->frame = (f32)o->loopStart;
+            o->cbCount = 0;
+            if (o->loops) {
+                o->loops--;
+                o->count++;
+                if (o->loops == 0) {
+                    o->state = 3;
+                    o->frame = end - 1.0f;
+                    if (o->cb) o->cb(o);
+                }
+            }
+        }
+        func_0023aab8(o);
+        func_00239230(o);
+        o->dirty = 1;
+        break;
+    }
+    }
+}
+}  // namespace n0023b798
+
+// 0023b8a8 (was gap): apply the keys at the current frame (scale, colour, sprite rect) without drawing.
+namespace n0023b8a8 {
+using n0023ade0::SprKey;
+using n0023ade0::SprAnim;
+using n0023ade0::YI_IMAGE_LoadImage;
+using n0023ade0::func_002f35e8;
+using n0023ade0::func_002f3918;
+using n0023ade0::func_002376d8;
+using n0023ade0::func_00237a68;
+using n0023ade0::D_0035e3c0;
+void func_00239250(SprAnim*, s32, s32, s32, s32) asm("func_00239250");
+void func_0023b8a8(SprAnim* o) asm("func_0023b8a8");
+void func_0023b8a8(SprAnim* o)
+{
+    if (o->visible == 0) return;
+    if ((u32)(o->px + 0x200) > 0x600) return;
+    if (o->py < -0x1a0) return;
+    if (o->py > 0x340) return;
+
+    if ((u8)((o->mode >> 3) & 1)) YI_IMAGE_LoadImage(o->image);
+    u8* img = (u8*)o->image;
+    func_002f3918(func_002f35e8(2), img + 0x100);
+    if (((o->state >> 1) & 1) == 1) func_002f3918(func_002f35e8(2), D_0035e3c0);
+    SprKey* k = o->keys;
+    o->state |= 8;
+    s32 n = o->nkeys;
+    for (; n > 0; n--, k++) {
+        f32 fr[2];
+        fr[0] = (f32)k->start;
+        if (!(fr[0] <= o->time)) continue;
+        fr[1] = (f32)k->end;
+        if (fr[1] < o->time) continue;
+        if (o->time == fr[1] && (k->flags & 0x8000)) continue;
+
+        if (o->imageNo != k->image) func_002376d8(o, k->image);
+
+        f32 d = fr[1] - fr[0];
+        f32 t;
+        if (d != 0.0f) t = (o->time - fr[0]) / d;
+        else t = 1.0f;
+
+        if (k->flags & 0x40) {
+            o->state |= 0x10;
+        } else {
+            o->state &= ~0x10;
+            f32 z = FLERP(k->scale[2][0], k->scale[2][1], t);
+            f32 y = FLERP(k->scale[1][0], k->scale[1][1], t);
+            f32 x = FLERP(k->scale[0][0], k->scale[0][1], t);
+            func_00237a68(o, x, y, z);
+        }
+
+        if (k->flags & 0x400) {
+            o->state |= 0x20;
+        } else if (k->flags & 0x80) {
+            o->state &= ~0x20;
+            o->color = *(u32*)k->rgba[0];
+        } else {
+            o->state &= ~0x20;
+            o->color = ILERP(k->rgba[0][0], k->rgba[1][0], t) | ((ILERP(k->rgba[0][3], k->rgba[1][3], t) << 24) | ((ILERP(k->rgba[0][2], k->rgba[1][2], t) << 16) | (ILERP(k->rgba[0][1], k->rgba[1][1], t) << 8)));
+        }
+        s32 y = o->py + ILERP(k->y[0], k->y[1], t);
+        s32 v = ILERP(k->v[0], k->v[1], t);
+        s32 u = ILERP(k->u[0], k->u[1], t);
+        s32 x = o->px + ILERP(k->x[0], k->x[1], t);
+        func_00239250(o, x, y, u, v);
+    }
+}
+}  // namespace n0023b8a8
