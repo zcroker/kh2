@@ -1,4 +1,4 @@
-// Linked unit 0x0023bc58-0x0023c940: YI::SEQUENCE keys, YI::LAYOUT (gap functions written here).
+// Linked unit 0x0023bc58-0x0023c968: YI::SEQUENCE keys, YI::LAYOUT (gap functions written here).
 #include "../common/types.h"
 #include "auto80_199_queue_decls.hpp"
 #include "auto80_199_queue_structs.hpp"
@@ -525,3 +525,18 @@ u32 func_0023c900(u32 a0) {
 }
 }  // namespace n0023c900
 
+
+// 0023c940 (was gap): state 2 or 3 test (two separate case bodies keep retail's beq + bnel form).
+namespace n0023c940 {
+struct O { u8 pad[56]; s32 s; };
+s32 func_0023c940(O* o) asm("func_0023c940");
+s32 func_0023c940(O* o) {
+    s32 r;
+    switch (o->s) {
+    case 2: r = 1; break;
+    case 3: r = 1; break;
+    default: r = 0; break;
+    }
+    return r;
+}
+}  // namespace n0023c940
