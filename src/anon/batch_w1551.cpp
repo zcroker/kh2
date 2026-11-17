@@ -22,20 +22,7 @@ struct L2cb678 { N2cb678* head; N2cb678* tail; };
 extern L2cb678 D_01e2be18;
 
 // Unlink a node from the global list and free its buffer.
-void func_002cb678(N2cb678* n) {
-    func_00105110(n->buf);
-    N2cb678* prev;
-    if (n == D_01e2be18.head) {
-        D_01e2be18.head = n->next;
-        prev = 0;
-    } else {
-        prev = D_01e2be18.head;
-        while (prev->next != n) prev = prev->next;
-        prev->next = n->next;
-    }
-    if (n == D_01e2be18.tail) D_01e2be18.tail = prev;
-    n->next = 0;
-}
+void func_002cb678(N2cb678* n);  // 0x002cb678: definition moved into src/taito/path.cpp
 
 // Deleting destructor.
 void func_00324a30(O324a30* p) {

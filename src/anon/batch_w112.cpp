@@ -176,17 +176,7 @@ static inline void MtxInverse(Mtx* m) {
 struct Xf { u8 pad[80]; Mtx world; Mtx inv; u8 pad3[1]; u8 identity; };
 extern "C" {
 // Sets the world matrix (flagging identity) and its inverse; m is inverted in place.
-void func_00142940(Xf* o, Mtx* m) {
-    o->identity = 0;
-    if (m->m[0] == 1.0f && m->m[1] == 0.0f && m->m[2] == 0.0f && m->m[3] == 0.0f &&
-        m->m[4] == 0.0f && m->m[5] == 1.0f && m->m[6] == 0.0f && m->m[7] == 0.0f &&
-        m->m[8] == 0.0f && m->m[9] == 0.0f && m->m[10] == 1.0f && m->m[11] == 0.0f &&
-        m->m[12] == 0.0f && m->m[13] == 0.0f && m->m[14] == 0.0f && m->m[15] == 1.0f)
-        o->identity = 1;
-    MtxCopy(&o->world, m);
-    MtxInverse(m);
-    MtxCopy(&o->inv, m);
-}
+void func_00142940(Xf* o, Mtx* m);  // 0x00142940: definition moved into src/anon/unit_00141458.cpp
 }
 }
 
@@ -301,30 +291,7 @@ static inline bool B2(Cfg* c) { return c->b2; }
 static inline u8 U0(Cfg* c) { return c->b0; }
 extern "C" {
 // Per-frame field update: runs effects/sounds per config bits, then hands off control.
-void func_001975a0(Obj* o) {
-    func_0014ce60();
-    func_00194980();
-    if (!func_0019f060(o->sub)) {
-        if (B4(o->cfg)) {
-            func_0014aa80(func_0014abe8(), 6, 0);
-            func_0014aa80(func_0014abf8(), 6, 0);
-        }
-        if (U0(o->cfg)) func_00170320(-200);
-        if (!(o->flags & 0x20)) func_00197780();
-        if (!B2(o->cfg)) func_00197cc0();
-    }
-    if (func_00242ea8() && ((o->flags & 0x10) || (!func_00242ee8() && D_00350379 == 0))) {
-        u8 v = 0;
-        if ((func_0014aba8()->f252 ^ 4) == 0) {
-            v = func_0014aba8()->b244;
-            if (v == 1) D_0032b9dd = v;
-        }
-        D_0032b9e0 = func_001058e8()[12];
-        func_0014a138(v);
-        return;
-    }
-    func_0019f070(o->sub, 0x80000000);
-}
+void func_001975a0(Obj* o);  // 0x001975a0: definition moved into src/anon/unit_00195d00.cpp
 }
 }
 
@@ -519,39 +486,7 @@ void func_001d2750(u8*);
 static inline bool IsFull(Lv* l) { return l->cur >= l->max; }
 extern "C" {
 // Character tick: counts down timers, then reports level-up or normal status for this frame.
-void func_001d03a0(Ch* o) {
-    Iter it;
-    func_00178758(o);
-    if (0.0f < o->timer) {
-        if (func_00180618(o->mot)) {
-            if ((o->tick -= D_00349e10) <= 0.0f) {
-                func_001a1aa0(o->lv, 1);  // ring_buffer_index
-                o->tick += D_00352130->interval;
-            }
-        }
-        if ((o->timer -= D_00349e10) <= 0.0f) {
-            o->timer = 0.0f;
-            func_0017f488(o->mot, 5, 0.0f, 0.0f);
-            func_0017f5e0(o->mot, 0, 0, 0.0f, 0.0f);
-        }
-    }
-    func_00190128(&it);
-    if (IsFull(o->lv)) {
-        if (!o->flag) {
-            func_001d0558(o);
-            func_001d2648(o->eff, 0xbbc3, D_0036e3bc);  // clear_fields_0_4_32
-            func_001d2690(o->eff, 0xbbc4, D_0036e3bc);
-        }
-        func_00190878(&it, func_001d14a0(), 0);
-        func_001bd418(o->f2884, 1, 456, &it, 1, 100);
-    } else {
-        if (func_00197920()) goto done;
-        func_00190878(&it, (u32)o, 0);
-        func_001bd418(o->f2884, 1, 455, &it, 1, 100);
-    }
-done:
-    func_001d2750(o->eff);
-}
+void func_001d03a0(Ch* o);  // 0x001d03a0: definition moved into src/anon/unit_001cf0b0.cpp
 }
 }
 
@@ -582,44 +517,7 @@ void func_00167658(Pad*, u32);
 }
 static inline bool IsJp(s32 st) { return func_00105c30() == st || func_00105c30() == 8; }
 extern "C" {
-// Pad read: maps raw buttons (with region-dependent swaps) into the 64-bit button word.
-void func_001678f0(Pad* p) {
-    u8 buf[256];
-    u8 ok = 0;
-    u64 btn = 0;
-    s32 st = func_002f6020(p->port);
-    p->valid = st != 0;
-    if (st == 1) {
-        if (p->connected == 0 && func_002f5f50(p->port, p->info) < 0) goto done;
-        if (func_002f5e78(p->port, buf) >= 0) {
-            u32 a;
-            btn = (buf[0] | (buf[1] << 8)) ^ 0xffff;
-            if (IsJp(st)) {
-                if (btn & 0x2000) btn |= 0x1000000;
-                if (btn & 0x4000) btn |= 0x2000000;
-            } else {
-                if (btn & 0x4000) btn |= 0x1000000;
-                if (btn & 0x2000) btn |= 0x2000000;
-            }
-            st = func_00242bd0();
-            if (btn & 0x100) { if ((st ^ 1) != 0) btn |= 0x4000000; else btn |= 0x8000000; }
-            else { if (st != 0) btn |= 0x4000000; else btn |= 0x8000000; }
-            if ((p->mode & 0xf) == 15 && p->connected == 1) btn |= func_00167778(p, buf);
-            a = 0;
-            if (func_00242a00()) { /* 2-bit field straddling bytes 68/69 */ u32 hi = p->u.c.b69; u32 lo = (u32)(s32)(s8)p->u.c.b68 >> 31; a = lo | (hi << 1); }
-            func_00167ad0(p, a);
-            ok = 1;
-        }
-    }
-done:
-    if (ok == 1) {
-        if (p->connected != 1) p->btn = btn;
-        func_001676b0(p, btn);
-    } else func_00167658(p, 0);
-    p->connected = ok;
-    p->u.c.b69 = 0;
-    p->u.c.b68 = 0;
-}
+// 001678f0: moved to src/anon/unit_00167358.cpp
 }
 }
 

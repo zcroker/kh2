@@ -21,20 +21,7 @@ FindEnt* func_001b8e88(s32);
 s32 func_001917c0(void);
 
 // Look up entity id; reject it by flag bits 4/6 and the player's state/id.
-FindEnt* func_0019e5f8(FindCtx* c, s32 id) {
-    FindPl* pl = (*c->w)->pl;
-    if (id == 0) return 0;
-    FindEnt* e = func_001b8e88(id);
-    if (func_001917c0() != 0) {
-        u8 b = (e->flags >> 4) & 1;
-        if (!b) return 0;
-    }
-    u8 b6 = (e->flags >> 6) & 1;
-    if (b6) {
-        if (!(pl->st & 0x200000) || pl->id != e->id) return 0;
-    }
-    return e;
-}
+FindEnt* func_0019e5f8(FindCtx* c, s32 id);  // 0x0019e5f8: definition moved into src/anon/unit_0019ba60.cpp
 }
 
 struct Blk36 { u32 w[9]; };

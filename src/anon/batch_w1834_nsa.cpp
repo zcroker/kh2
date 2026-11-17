@@ -71,38 +71,8 @@ static inline void w1834_p2_init(W1834P2* p) { p->n = 99999; p->m = 1; }
 static inline void w1834_grp_init(W1834Grp* g) { s32 k; for (k = 0; k < 8; k++) g->a[k] = 0; }
 
 // constructor-like init (two identical copies)
-void func_001a0c18(W1834Big* o) {
-    W1834E12* e = o->e;
-    s32 i = 31;
-    do { e->a = 0; e->b = 0; e->c = 0; e++; i--; } while (i != -1);
-    o->f180 = 0; o->f184 = 0;
-    w1834_h4_init(&o->h188); w1834_h4_init(&o->h190);
-    w1834_p2_init(&o->p198); w1834_p2_init(&o->p1a0);
-    o->b1af = 0; o->b1b0 = 0; o->b1b1 = 0; o->b1b2 = 0;
-    o->w1b4[0] = 0; o->w1b4[1] = 0; o->w1b4[2] = 0; o->w1b4[3] = 0; o->w1b4[4] = 0; o->w1b4[5] = 0;
-    w1834_grp_init(&o->grp);
-    o->f244 = 0; o->f248 = 0; o->b24c = 0; o->f250 = 0;
-    o->f254 = -1; o->f258 = 1; o->f25c = 0; o->f260 = 0; o->f264 = 0;
-    s32 k;
-    for (k = 0; k < 7; k++) o->c1a8[k] = 100;
-    func_001c2f90(&o->grp, o);
-}
+void func_001a0c18(W1834Big* o);  // 0x001a0c18: definition moved into src/anon/unit_0019fb70.cpp
 
-void func_001a0d48(W1834Big* o) {
-    W1834E12* e = o->e;
-    s32 i = 31;
-    do { e->a = 0; e->b = 0; e->c = 0; e++; i--; } while (i != -1);
-    o->f180 = 0; o->f184 = 0;
-    w1834_h4_init(&o->h188); w1834_h4_init(&o->h190);
-    w1834_p2_init(&o->p198); w1834_p2_init(&o->p1a0);
-    o->b1af = 0; o->b1b0 = 0; o->b1b1 = 0; o->b1b2 = 0;
-    o->w1b4[0] = 0; o->w1b4[1] = 0; o->w1b4[2] = 0; o->w1b4[3] = 0; o->w1b4[4] = 0; o->w1b4[5] = 0;
-    w1834_grp_init(&o->grp);
-    o->f244 = 0; o->f248 = 0; o->b24c = 0; o->f250 = 0;
-    o->f254 = -1; o->f258 = 1; o->f25c = 0; o->f260 = 0; o->f264 = 0;
-    s32 k;
-    for (k = 0; k < 7; k++) o->c1a8[k] = 100;
-    func_001c2f90(&o->grp, o);
-}
+void func_001a0d48(W1834Big* o);  // 0x001a0d48: definition moved into src/anon/unit_0019fb70.cpp
 
 }

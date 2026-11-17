@@ -86,33 +86,5 @@ static inline __attribute__((always_inline)) f32 dot(const P5* a, const P5* b) {
     return r;
 }
 
-void func_00165f70(O5* o, P5* p, u8* out, s32* cnt, void* a4) {
-    V5 poly[8];
-    X5 x;
-    s32 n = o->n;
-    for (s32 i = 0; i < n; i++) {
-        G5* g = &o->grp[i];
-        s32 je = g->end;
-        s32 j = g->start;
-        for (; j < je; j++) {
-            I5* it = &o->item[j];
-            if (it->flag) {
-                s32 ke = it->end;
-                s32 k = it->start;
-                for (; k < ke; k++) {
-                    T5* t = &o->tri[k];
-                    P5* pl = &o->pl[t->idx];
-                    if (dot(p, pl) + pl->d < 0.0f) continue;
-                    func_00141988(o, t, &x);
-                    func_001626e0(&x, poly);
-                    if (func_001466b0(a4, poly)) {
-                        func_00146ab0(out, p, poly);
-                        out += 80;
-                        (*cnt)++;
-                    }
-                }
-            }
-        }
-    }
-}
+void func_00165f70(O5* o, P5* p, u8* out, s32* cnt, void* a4);  // 0x00165f70: definition moved into src/anon/unit_00165f70.cpp
 }

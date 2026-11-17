@@ -193,29 +193,7 @@ void func_001b7a18(u32, u32, u32);
 void func_001980d0(void*);
 void func_0018c420(void*);
 extern void* D_0034ee90[];
-void func_0018aba0(u8* p) {
-    func_001980d0(p);
-    *(void**)p = D_0034ee90;
-    *(f32*)(p + 2596) = *(f32*)(p + 2592) = 0.0f;
-    *(u32*)(p + 2608) = 0;
-    func_0018c420(p + 2624);
-    func_0018c420(p + 2720);
-    *(f32*)(p + 2816) = 0.0f;
-    *(u32*)(p + 1416) |= 8;
-    *(u32*)(p + 1536) = (*(u32*)(p + 1536) & ~0x78) | 0x18;
-    *(u32*)(p + 2824) = 0;
-    *(u32*)(p + 2820) = 0;
-    *(u32*)(p + 2828) = 0;
-    *(f32*)(p + 2832) = 360.0f;
-    *(f32*)(p + 2836) = 720.0f;
-    *(f32*)(p + 2840) = 60.0f;
-    *(f32*)(p + 2844) = 360.0f;
-    *(f32*)(p + 2848) = 720.0f;
-    *(f32*)(p + 2852) = 180.0f;
-    *(f32*)(p + 2856) = 360.0f;
-    *(f32*)(p + 2860) = 720.0f;
-    *(f32*)(p + 2864) = 180.0f;
-}
+void func_0018aba0(u8* p);  // 0x0018aba0: definition moved into src/yasui/libys/npc.cpp
 
 u8 func_001c0298(u8*, u8*, u8*);  // state_check5or6
 u8* func_0019fee8(u32, u32);
@@ -224,23 +202,7 @@ static inline void SetBit(u32* bits, u32 k) {
     u32* w = bits + (k >> 5);
     *w |= 1 << (k & 31);
 }
-u8* func_001c0320(u8* a, u8* b, u8* out) {
-    u8 r = func_001c0298(a, b, out);  // state_check5or6
-    *out = r;
-    if (r) {
-        if (*(u32*)(b + 32) != *(u32*)(a + 36)) {
-            *(u32*)(a + 36) = *(u32*)(b + 32);
-            *(u32*)(a + 40) = 0;
-        } else {
-            (*(u32*)(a + 40))++;
-        }
-        if (*(u8**)a && (*(u32*)(*(u8**)a + 1416) & 4)) *(f32*)(a + 44) = 30.0f;
-    }
-    u8* v = func_0019fee8(*(u32*)(b + 40), *(u32*)(a + 40));
-    if (*(u16*)(v + 38)) func_001c0410(a, b, v);
-    SetBit((u32*)(a + 4), *(u32*)(b + 28));
-    return v;
-}
+u8* func_001c0320(u8* a, u8* b, u8* out);  // 0x001c0320: definition moved into src/anon/unit_001bff88.cpp
 
 void func_001980d0x(void*, u32, s32, void*, f32) asm("func_001980d0");
 extern u8 D_01d49520[];
@@ -249,16 +211,8 @@ u32 func_001de168(void*, u32, s32, s32, s32, s32);  // scan_list_by_half
 void func_001dcc00(u32, u32);  // to_1e34e0_field28
 void* func_001050d8(u32);
 void func_001c1308(void*, u32, u32, u32, u32);
-void func_001c2490(u8* p, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6) {
-    func_001980d0x(p, a1, 4, D_01d49520, 0.0f);
-    *(void**)p = D_00351408;
-    *(u32*)(p + 1416) |= 0x100000;
-    u32 h = func_001de168(p + 156, a2, 0, 1, 0, 0);  // scan_list_by_half
-    func_001dcc00(h, a3);  // to_1e34e0_field28
-    void* o = func_001050d8(56);
-    func_001c1308(o, h, a4, a5, a6);
-    *(void**)(p + 2548) = o;
-}
+// 001c2490: moved to src/anon/unit_001c0638.cpp
+void func_001c2490(u8* p, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6);
 
 // Converts a radian rotation to fixed angles and applies it.
 struct V3 { f32 x, y, z; };
@@ -591,42 +545,12 @@ void func_00292998(void) {
 
 s32 func_0019ba60(u32);
 extern s32 D_0032dfc8;
-s32 func_001a2108(u8* a, s32 v, u8* b) {
-    if (v > 0 && func_0019ba60(*(u32*)(a + 604))) {
-        s32 m1, m2;
-        switch (D_0032dfc8) {
-        case 0: m1 = 50; m2 = 150; break;
-        case 2: m1 = 200; m2 = 100; break;
-        case 3: m1 = 200; m2 = 125; break;
-        default: return v;
-        }
-        if (*(u32*)(*(u8**)(a + 604) + 1416) & 4) {
-            v = (v * m1 + 99) / 100;
-        } else if (func_0019ba60((u32)b) && (*(u32*)(b + 1416) & 4)) {
-            v = (v * m2 + 99) / 100;
-        }
-    }
-    return v;
-}
+s32 func_001a2108(u8* a, s32 v, u8* b);  // 0x001a2108: definition moved into src/anon/unit_0019fb70.cpp
 
 // Tracks a position: keeps the previous one and flags a jump longer than twice the limit.
 struct Trk { u32 _0; u32 flags; u8 _8[216]; Vq cur; Vq prev; };
 extern f32 D_00349e10;
-void func_001a48c0(Trk* t, Vq* v) {
-    u32 f = t->flags & 1;
-    if (f) {
-        t->prev = t->cur;
-        Vq d;
-        d = VSub(*v, t->cur);
-        f32 len = VLength(d);
-        if (D_00349e10 * 2.0f < len) t->flags |= 4;
-        else t->flags &= ~4;
-    } else {
-        t->prev = *v;
-    }
-    t->cur = *v;
-    t->flags = (t->flags | 1) & ~0x20;
-}
+// 001a48c0: moved to src/anon/unit_001a3e70.cpp
 
 struct Mv { Vq v; u8 _16[8]; u32 flags; };
 s32 func_001860b0(u8*, Mv*);

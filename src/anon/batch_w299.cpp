@@ -51,77 +51,12 @@ void func_001b7428(s32);
 void func_001b7658(void*, s32, s32);
 struct Sub1c0 { u8 pad[16]; u8 f16; u8 f17; u8 f18; };
 struct Obj1c0 { u8 pad0[4]; s32 f4; u8 pad8[388-8]; s32 f388; u8 pad392[434-392]; u8 f434; u8 pad435[580-435]; Sub1c0* f580; u8 pad584[596-584]; s32 f596; u8 pad600[4]; s32 f604; };
-void func_001c0690(u8* p, Obj1c0* o) {
-    u8 buf[80];
-    func_001b74b8(buf);
-    s32 a = p[2];
-    s32 b = p[3];
-    if (D_0032dfc8 == 3) {
-        s32 t = p[1];
-        if (t != 0 && (t < 4 || t == 14)) {
-            a /= 2;
-            b /= 2;
-        }
-    }
-    o->f4 += a;
-    o->f388 += b;
-    func_001a1950(o, a, 0, 0);
-    func_001a1a20(o, b, 0);
-    s32 n = o->f434 + p[4];
-    if (n >= 10) n = 9;
-    o->f434 = n;
-    func_001a1aa0(o, 0);  // ring_buffer_index
-    if (o->f580) {
-        func_00188958(o->f580, o->f580->f18 + p[5]);
-        o->f580->f17 += p[6];
-        o->f580->f16 += p[7];
-    }
-    func_001b7508(buf, a, 0x8ae2);
-    func_001b7508(buf, b, 0x8ae3);
-    func_001b7508(buf, p[4], 0x8ae4);
-    func_001b7508(buf, p[5], 0x8ae5);
-    func_001b7508(buf, p[6], 0x8ae6);
-    func_001b7508(buf, p[7], 0x8ae7);
-    u8* q = p;
-    s32 i = 1;
-    do {
-        if (*(u16*)(q+8)) {
-            func_001a3188(*(u16*)(q+8), o->f596, 0);
-            func_001b7538(buf, *(u16*)(q+8));
-        }
-        i--;
-        q += 2;
-    } while (i >= 0);
-    if (o->f604) func_001b7428(o->f604);
-    func_001b7658(buf, p[1], D_0032f230);
-}
+// 001c0690: moved to src/anon/unit_001c0638.cpp
+void func_001c0690(u8* p, Obj1c0* o);
 f32 sinf(f32);
 f32 cosf(f32);
 void func_0011b6a8(void*) asm("_Z13func_0011b6a8Pv");
-M299* func_0011b8d0(M299* m, const V299& axis, f32 ang) {
-    V299 v;
-    v = axis;
-    v.Normalize();
-    f32 x = v.x, y = v.y, z = v.z;
-    f32 s = sinf(ang);
-    f32 c = cosf(ang);
-    M299 r;
-    func_0011b6a8(&r);
-    f32 t = 1.0f - c;
-    r.m[0][0] = x * x * t + c;
-    r.m[0][1] = x * y * t + z * s;
-    r.m[0][2] = x * z * t - y * s;
-    r.m[1][0] = x * y * t - z * s;
-    r.m[1][1] = y * y * t + c;
-    r.m[1][2] = y * z * t + x * s;
-    r.m[2][0] = x * z * t + y * s;
-    r.m[2][1] = y * z * t - x * s;
-    r.m[2][2] = z * z * t + c;
-    M299 tmp;
-    MulM299(&tmp, &r, m);
-    *m = tmp;
-    return m;
-}
+M299* func_0011b8d0(M299* m, const V299& axis, f32 ang);  // 0x0011b8d0: definition moved into src/anon/unit_0011b3f8.cpp
 
 extern Mg2d6* D_00361f60;
 Cfg2d6* config2d6(Mg2d6*) asm("_ZN2Ti9MGOarashi6configEv");

@@ -5,18 +5,12 @@ namespace dk {
 extern ObjCamera D_00348710 asm("D_00348710");
 extern u32 D_00348750 asm("D_00348750");
 
-ObjCamera* ObjCamera::getInstance() { return &D_00348710; }
+// 0x00140df0: definition moved into src/anon/unit_0013fca8.cpp
 
-s32 ObjCamera::getMode() { return (s32)D_00348750; }
+// 0x00140dc0: definition moved into src/anon/unit_0013fca8.cpp
 
-void ObjCamera::initRadius() {
-    ObjCameraLayout* c = reinterpret_cast<ObjCameraLayout*>(this);
-    c->radius = c->defaultRadius;
-}
+// 0x0013fd78: definition moved into src/anon/unit_0013fca8.cpp
 
-void ObjCamera::initLockRadius() {
-    ObjCameraLayout* c = reinterpret_cast<ObjCameraLayout*>(this);
-    c->radius = c->defaultLockRadius;
-}
+// 0x0013fd90: definition moved into src/anon/unit_0013fca8.cpp
 
 }  // namespace dk

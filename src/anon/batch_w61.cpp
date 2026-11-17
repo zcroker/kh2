@@ -202,20 +202,7 @@ extern u8 D_00351ec0[];
 extern u8 D_0034e8b8[];
 extern u8 D_0034ee08[];
 struct NoTail { ~NoTail() {} };
-void func_001cfe18(u8* p) {
-    NoTail g;
-    *(u8**)p = D_00352360;
-    func_001c8d98(D_00351eb8, 0);
-    func_001c8d98(D_00351ec0, 4);
-    func_001c9b90();
-    func_001d2710(p + 2932);
-    *(u8**)p = D_0034e8b8;
-    func_00319f88(p + 2824);
-    *(u8**)p = D_0034ee08;
-    func_0019f9a8(p + 2568);  // array8_free_slots
-    func_001c0248(p + 2640);
-    func_00319fb0(p);  // big_obj_dtor
-}
+void func_001cfe18(u8* p);  // 0x001cfe18: definition moved into src/anon/unit_001cf0b0.cpp
 
 u32 func_002fd248(u32, u8*, u32, u32, void*);
 extern u8* D_01d5ba10[3];
@@ -238,14 +225,7 @@ extern s32 D_00352ae8;
 extern u8 D_00352b48[];
 
 s32 func_001dc018(u32, u32, void*, void*);
-s32 func_001dc4e8(u8* p, u32 a, u32 b, u32 c) {
-    s32 r = 0;
-    if (func_001dc018(a, b, p + 20, p + 24)) {
-        *(u32*)(p + 16) = c;
-        r = 1;
-    }
-    return r;
-}
+s32 func_001dc4e8(u8* p, u32 a, u32 b, u32 c);  // 0x001dc4e8: definition moved into src/anon/unit_001dbfd8.cpp
 
 void func_001e1500(void*);
 s32 func_001e1350(void*, u32);
@@ -358,28 +338,9 @@ s32 func_002ad660(void) {
 }
 
 void func_002c1cb0(u32, u8);
-void func_002c1b60(u8* p, u8* a) {
-    if (*a == 1) goto clr;
-    if (*a != 2) goto set;
-clr:
-    *(u32*)(p + 264) &= ~2;
-    *(u32*)(p + 264) &= ~0x20;
-    *(u32*)(p + 264) &= ~0x40;
-    goto done;
-set:
-    *(u32*)(p + 264) |= 0x62;
-done:
-    func_002c1cb0(*(u32*)(p + 2788), *a);
-    p[2792] = *a;
-}
+void func_002c1b60(u8* p, u8* a);  // 0x002c1b60: definition moved into src/anon/unit_002c10e0.cpp
 
-void func_002c6280(u8* p, s32 i) {
-    VObj** s = (VObj**)(i * 4 + (u32)p + 16);
-    if (*s) {
-        ((void (*)(VObj*))(*s)->vt[1])(*s);
-        *s = 0;
-    }
-}
+void func_002c6280(u8* p, s32 i);  // 0x002c6280: definition moved into src/worldmap/cameramanager.cpp
 
 s32 func_002d0200(u8* p) {
     if (p[4] != 16) return 1;
@@ -426,10 +387,7 @@ static inline f32 lsq(const void* v) {
     asm volatile("lqc2 $vf1, 0(%1)\n\tvmul.xyz $vf1, $vf1, $vf1\n\tvaddy.x $vf1, $vf1, $vf1y\n\tvaddz.x $vf1, $vf1, $vf1z\n\tqmfc2 $8, $vf1\n\tmtc1 $8, %0" : "=f"(r) : "r"(v) : "$8");
     return r;
 }
-s32 func_00142b70(u8* p) {  // len_sq_compare_at80
-    if (lsq(p + 80) < 0.01f || lsq(p + 96) < 0.01f || lsq(p + 112) < 0.01f) return 1;
-    return 0;
-}
+s32 func_00142b70(u8* p);  // 0x00142b70: definition moved into src/anon/unit_00141458.cpp
 }
 
 struct Hd { u16 n; u8 b2; u8 b3; u32 a; u32 c; u32 d; };
@@ -448,11 +406,7 @@ u8* wtarget_00133980(HP* pp, u32 a1, u32 a2, u32 a3, u32 t0) {
 }
 
 extern "C" u32 func_001b7818(u32);
-u32 ctarget_00188fe0(u32 a0, u32 a1, u32, u32) {
-    u32 v = func_001b7818(a1);
-    if (v) return a0 + v * 276 - 276;
-    return 0;
-}
+u32 ctarget_00188fe0(u32 a0, u32 a1, u32, u32);  // 0x00188fe0: definition moved into src/anon/unit_00188848.cpp
 
 extern "C" f32 D_01e2c040;
 extern "C" f32 D_01e2c044;

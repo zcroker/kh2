@@ -48,17 +48,7 @@ s32 func_00234240(s32 a0, s32 a1, s32 a2) {
 }
 
 void func_002bc1e8(void*);
-void func_001d1820(u8* a0) {
-    u32 f = *(u32*)(a0 + 0xc);
-    if (!(f & 4)) goto set;
-    if (f & 8) goto set;
-    {
-        void* q = *(void**)(a0 + 0x28);
-        if (q) { func_002bc1e8(q); f = *(u32*)(a0 + 0xc); }
-    }
-set:
-    *(u32*)(a0 + 0xc) = f | 8;
-}
+void func_001d1820(u8* a0);  // 0x001d1820: definition moved into src/anon/unit_001d14e0.cpp
 
 extern s32 D_0035de5c;
 extern u8 D_0035de54;
@@ -76,15 +66,7 @@ void func_001c1130(s32);
 void func_00197760(void);
 void func_00197c90(void);
 void func_001398d0(s32);
-void func_002bfa98(s32* a0, s32 a1, s32 a2) {
-    a0[0] = a1; a0[1] = a2;
-    D_00361a50 = (s32)a0;
-    func_001c1130(12);
-    *(u32*)(*(u8**)(D_0034e948 + 0xb40) + 0x2c) |= 1;
-    func_00197760();
-    func_00197c90();
-    func_001398d0(201);
-}
+void func_002bfa98(s32* a0, s32 a1, s32 a2);  // 0x002bfa98: definition moved into src/anon/unit_002bebd0.cpp
 
 void func_001e1500(void*);
 extern f32 D_00349e10;

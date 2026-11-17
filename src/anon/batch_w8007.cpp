@@ -15,10 +15,7 @@ void w8007_wtarget_001703a8(u32 id);  // 0x001703a8: definition moved into src/a
 void func_001945a0(u8*, s32, u32, f32);
 struct W8007O72 { u8 pad[4]; u8* p; };
 struct W8007S72 { W8007O72* o; s32 a; u32 b; f32 f; };
-void func_00172078(W8007S72* s) {
-    u8* p = s->o->p;
-    func_001945a0(p, s->a, s->b, s->f);
-}
+void func_00172078(W8007S72* s);  // 0x00172078: definition moved into src/anon/unit_00171e58.cpp
 
 /* 0017d8c0: 16-byte copy through lq/sq (asm, no C equivalent). */
 struct W8007V4 {
@@ -45,17 +42,6 @@ s32 func_001a74f8(s32);
 void func_00102448(u32, s32);
 void func_001ad228(W8007Win*, u32);
 static inline bool w8007_IsOpen(W8007Win* w) { return w->state != 3; }
-s32 func_001a6fe8(W8007Msg* m, W8007Task* t) {
-    u32 task = t->task;
-    if (m->type == 1) {
-        u32 arg = m->arg;
-        W8007Win* w = (W8007Win*)w8007_Alloc(0xb6c);
-        func_001ad228(w, arg);
-        w8007_WinObj2D(w8007_Alloc(0x1c), w);
-        while (w8007_IsOpen(w) && func_001a74f8(14)) func_00102448(task, 0);
-        w->vt->Close(w);
-    }
-    return 1;
-}
+// 001a6fe8: moved to src/anon/unit_001a6a10.cpp
 
 }

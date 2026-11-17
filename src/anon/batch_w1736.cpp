@@ -8,15 +8,7 @@ struct w1736_S2 { u8 pad[0x26]; union { u16 h26; u8 b; }; };
 struct w1736_E { s32 x30; f32 f34; };
 struct w1736_S0 { u8 pad[0x30]; w1736_E e[4]; };
 
-void func_001c0410(w1736_S0* a, w1736_S1* b, w1736_S2* c) {
-    for (s32 i = 0; i < 4; i++) {
-        if (a->e[i].x30 == 0) {
-            a->e[i].x30 = b->x1c;
-            a->e[i].f34 = c->h26;
-            return;
-        }
-    }
-}
+void func_001c0410(w1736_S0* a, w1736_S1* b, w1736_S2* c);  // 0x001c0410: definition moved into src/anon/unit_001bff88.cpp
 
 /* 0026ff30 */
 s32 w1736_GetMode(void) asm("_ZN2Tz8MenuBase7GetModeEv");

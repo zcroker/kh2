@@ -250,18 +250,7 @@ void* func_00132390(void* a, void* b, u32 c, u32 d, u32 e) {
 
 void func_0013d620(void);  // 0x0013d620: definition moved into src/anon/unit_0013a8b8.cpp
 
-void func_001407d0(u8* p) {
-    if (!func_0015ce80()) return;
-    Q16 t;
-    func_0015ceb8(&t);
-    if ((Q16*)p != &t) copyQ(p, &t);
-    u8* q = p + 16;
-    func_0015cea0(&t);
-    if ((Q16*)q != &t) copyQ(q, &t);
-    *(f32*)(p + 32) = func_0015ced0();
-    *(f32*)(p + 36) = func_0015cee0();
-    func_0015ce90();  // zero_global_byte_g
-}
+void func_001407d0(u8* p);  // 0x001407d0: definition moved into src/anon/unit_0013fca8.cpp
 
 void func_00151aa8(u8* p) {
     func_0014fcd8(p);
@@ -282,18 +271,7 @@ void func_00151aa8(u8* p) {
 
 static inline void vcall8(u8* o) { (*(void (**)(void*))(*(u8**)o + 8))(o); }
 
-void func_0015d828(u8* p) {
-    func_0014c738(p + 16);
-    vcall8(p + 544);
-    u8* q = p;
-    s32 i;
-    for (i = 0; i < 6; i++) {
-        vcall8(q + 2608);
-        vcall8(q + 1072);
-        q += 256;
-    }
-    func_0014c350(p + 4144);
-}
+// 0015d828: moved to src/anon/unit_0015d828.cpp
 
 }
 
@@ -306,10 +284,7 @@ void wtarget_0016c5b8(u32 a, u32 b, u32, u32) {
 
 extern "C" {
 
-void func_0016df70(f32* p) {
-    s32 n = (s32)(*p * 0.5f);
-    func_0014aa80(func_0014aba8(), n, 1);
-}
+// 0016df70: moved to src/anon/unit_0016d2e0.cpp
 
 // 00179648: moved to src/yasui/libys/player.cpp
 
@@ -321,24 +296,9 @@ void func_0016df70(f32* p) {
 
 extern "C" {
 
-s32 func_001967f0(u32 a, u32 b, s32 c) {
-    s32 i = func_00196618(a, b, c);
-    if (i < 0) return 0;
-    u32 v = ((S1967*)D_0032bb30)->t[i * 2 + c];
-    if (!v) v = func_001d52c0(a, b);
-    return func_00192048(v);
-}
+s32 func_001967f0(u32 a, u32 b, s32 c);  // 0x001967f0: definition moved into src/anon/unit_00195d00.cpp
 
-void func_00196d78(u8* p) {
-    func_00226da8(p);
-    func_0014c9f0(4);
-    func_001c11a8(12);
-    func_001384a0(1);
-    if ((u8)((*(u16*)(*(u8**)(p + 60) + 2) >> 5) & 1) == 0) func_002bc798();
-    u32 v = *(u16*)(*(u8**)(p + 60) + 2);
-    if ((u8)(v & 1)) func_002ba610();  // zero_global_byte_1e3
-    D_0035037c = 0;
-}
+void func_00196d78(u8* p);  // 0x00196d78: definition moved into src/anon/unit_00195d00.cpp
 
 u8* func_0019b0e8(u8* a, u32 b, u32 c, f32 f, f32 g) {
     u8* o = func_0016e920(b);
@@ -354,27 +314,14 @@ u8* func_0019b0e8(u8* a, u32 b, u32 c, f32 f, f32 g) {
 
 extern "C" {
 
-void func_001a53d0(u32 a, u32 b, u32 c) {
-    func_001c79a0(c, b, 1);
-    func_001a52a8(a, b, c);
-}
+// 001a53d0: moved to src/anon/unit_001a4db0.cpp
 
 // 001a8190: moved to src/anon/unit_001a8098.cpp
 
 // 001ad228: moved to src/anon/unit_001abb28.cpp
 
 // Destroys and frees every node of the list.
-void func_001b24c8(void) {
-    u8* n = D_01d48c80;
-    while (n) {
-        u8* next = *(u8**)(n + 24);
-        if (n) {
-            func_001b2488(n);
-            func_00105110(n);
-        }
-        n = next;
-    }
-}
+// 001b24c8: moved to src/anon/unit_001b1d20.cpp
 
 }
 
@@ -383,31 +330,11 @@ void func_001b24c8(void) {
 
 extern "C" {
 
-void* func_001bf620(u32 a, u32 b) {
-    EntW55* e = &D_0036dcf8[func_001a80c8(a)[22]];
-    void* m = func_001050d8(2544);
-    func_001bf270(m, func_0016e920(e->id), b, a, e->f);
-    return m;
-}
+void* func_001bf620(u32 a, u32 b);  // 0x001bf620: definition moved into src/anon/unit_001bc568.cpp
 
-s32 func_001c9ab8(void) {
-    if (func_001bc010()) return 1;
-    s32 i;
-    for (i = 0; i < 2; i++) {
-        u32 o = func_0017df58(i);
-        if (!func_0019ba60(o)) return 0;
-        if (!func_0017e3b8(o)) return 0;
-    }
-    return 1;
-}
+s32 func_001c9ab8(void);  // 0x001c9ab8: definition moved into src/yasui/libys/sacrifice.cpp
 
-void func_001d2690(RingW55* r, u32 b, f32 f) {
-    s32 i = r->idx;
-    r->idx = (i + 1) % 3;
-    RingEW55* e = &r->e[i];
-    e->v = func_00192048(b);
-    e->f = f * 60.0f;
-}
+void func_001d2690(RingW55* r, u32 b, f32 f);  // 0x001d2690: definition moved into src/anon/unit_001d14e0.cpp
 
 // 001d34d0: moved to src/anon/unit_001d30b0.cpp
 
@@ -527,15 +454,7 @@ s32 func_002ab100(s32 n) {  // test_bit_global_c
     return (*(u32*)(b + 136) & (1 << (n & 31))) != 0;
 }
 
-void func_002c5900(u8* p) {
-    u8* s = *(u8**)(p + 2884) + 1196;
-    func_001bc778(s);
-    u8* r;
-    if (func_00190140(*(u8**)(p + 2880) + 4)) r = func_001bc780(s, 582, 0, 1);
-    else r = func_001bc780(s, 583, 0, 1);
-    r[6] = 4;
-    func_00178888(p);
-}
+void func_002c5900(u8* p);  // 0x002c5900: definition moved into src/anon/unit_002c53c8.cpp
 
 Q16* func_002d2870(Q16* out, u8* b, u32 c) {
     f32* v = (f32*)out;

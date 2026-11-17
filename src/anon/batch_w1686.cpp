@@ -92,49 +92,6 @@ static inline void w1686_add(W1686Vec* d, const W1686Vec* a) {
 static inline f32 w1686_min(f32 a, f32 b) { return a < b ? a : b; }
 
 // YS::ATTACK_MAGIC::make_work(ATTACK_WORK_MANAGER*)
-void func_001a45b8(W1686Magic* self, void* mgr) {
-    W1686Vec pos;
-    W1686Vec dir;
-    W1686Vec size;
-    W1686Work work;
-
-    if (self->effect) {
-        if (!func_001dc9d0(self->effect)) { func_0018f028(self); return; }
-        func_001a48c0(self, func_001dc5f8(self->effect));
-    }
-    if (self->time_max > 0.0f) {
-        if (!(D_0034f240 & 0x20)) {
-            self->time += D_00349e10;
-            if (self->time_max < self->time) { func_0018f028(self); return; }
-        }
-        size = w1686_lerp(self->size_start, self->size, sinf(self->time / self->time_max * 3.1415927f * 0.5f));
-    } else {
-        size = self->size;
-    }
-    {
-        f32 len;
-        f32 step = w1686_min(size.x, size.y);
-        if (step <= 0.0f) return;
-        pos = self->pos;
-        if (self->is_line() || self->is_track()) {
-            dir = w1686_sub(self->line_end, self->pos);
-            len = w1686_norm(&dir);
-            w1686_scale(&dir, step);
-        } else {
-            len = 0.0f;
-        }
-        s32 mode = 3;
-        work.owner = self;
-        if (size.x != size.y) mode = 0;
-        do {
-            func_0018a958(&work.col, mode, size.x, size.y);
-            work.col.pos = pos;
-            if (!func_0018eaf8(mgr, &work)) break;
-            w1686_add(&pos, &dir);
-            len -= step;
-        } while (step * 0.5f < len);
-        if (self->is_track()) func_0018dc28(self, &self->line_end, &self->pos);
-    }
-}
+// 001a45b8: moved to src/anon/unit_001a3e70.cpp
 
 }

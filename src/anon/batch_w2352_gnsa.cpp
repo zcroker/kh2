@@ -63,51 +63,7 @@ static inline bool low(u8* s) { return *(u8*)(s + 0x29) < 4; }
 #define SELF_ST(s)  (*(u8*)((s) + 0x29))
 /* 0019d790: per-frame update of a command user: refreshes its command slot, marks the target busy, then reports the
    current target position (a special target for ids 440/464, the path position for 523) through virtual slot 7. */
-void func_0019d790(u8* self)
-{
-    Buf b;
-    if (!func_0019d748(self)) return;
-    func_0019da20(&b, self);
-    func_0019dd10(&b);
-    if (slot_exist(&b.slot)) {
-        bool has;
-        Q* q;
-        func_0019d5f8(self, &b.slot);
-        has = hasobj(self);
-        if (has) SELF_TGT(self)->obj->flags |= 0x2000;
-        q = SELF_P(self)->q;
-        if (is6(q) || (q->f0c->f8 & 0x8000) || (q->f168 & 0x80)) SELF_ST(self) = 5;
-    } else {
-        func_0019d720(self);
-    }
-    if (low(self) && SELF_ID(self) == 55) func_00196028(SELF_TGT(self)->obj);
-    if (b.tgt.f14 > 0 && (b.tgt.f14 & 0x40000000)) SELF_ST(self) = 5;
-    if (SELF_VO(self)) {
-        V pos;
-        switch (SELF_ID(self)) {
-        case 440:
-        case 464: {
-            void* o = func_0016b740(1762);
-            if (o) {
-                Tgt t;
-                func_00190128(&t);
-                tgt_setobj(&t, o, 0);
-                pos = func_00190388(&t);
-            } else {
-                pos = func_00190388(SELF_TGT(self));
-            }
-            break;
-        }
-        case 523:
-            pos = path_pos(SELF_P(self)->q->path);
-            break;
-        default:
-            pos = func_00190388(SELF_TGT(self));
-            break;
-        }
-        SELF_VO(self)->vt[7](SELF_VO(self), pos);
-    }
-}
+void func_0019d790(u8* self);  // 0x0019d790: definition moved into src/anon/unit_0019ba60.cpp
 
 
 }

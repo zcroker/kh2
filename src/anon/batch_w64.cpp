@@ -30,14 +30,7 @@ s32 strncmp(void*, u32, s32);
 extern u32 D_0033cbb8[];
 
 // Returns the index of the first of 19 table entries the check rejects (0 if none).
-s32 func_00105f00(void* p) {
-    if (strlen(p) == 2) {  // strlen
-        for (s32 i = 0; i < 19; i++) {
-            if (strncmp(p, D_0033cbb8[i], 2) == 0) return i;
-        }
-    }
-    return 0;
-}
+// 00105f00: moved to src/common/world.cpp
 
 // ---------------------------------------------------------------------------
 s32 func_0010f6f8(u8* p, f32 f) {  // count_reached_threshold_b
@@ -85,20 +78,7 @@ void func_001395a8(u8*);
 void func_00138840(u8*);
 extern f32 D_00349e14;
 
-void func_00137560(u8* p) {
-    if (0.0f < *(f32*)(p + 436)) {
-        *(f32*)(p + 436) = *(f32*)(p + 436) - D_00349e14;
-        func_00139598(p);
-        return;
-    }
-    f32 lim = -20000.0f;
-    if (lim < *(f32*)(p + 436)) {
-        func_002ba2e8(10, 0);
-        *(f32*)(p + 436) = lim;
-    }
-    func_001395a8(p);
-    func_00138840(p);
-}
+void func_00137560(u8* p);  // 0x00137560: definition moved into src/anon/unit_001374c8.cpp
 
 // ---------------------------------------------------------------------------
 void func_0014fcd8(u8*);
@@ -163,12 +143,7 @@ s32 func_00163210(f32* a, f32* b) {
 void func_0017d698(V16*, u32, u32, f32);
 extern V16 D_004f62a0;
 
-void func_0016d8d0(u32* p) {
-    V16 tmp;
-    func_0017d698(&tmp, p[0], p[1], *(f32*)(p + 2));
-    vcopy(&D_004f62a0, &tmp);
-    *(V16**)p = &D_004f62a0;
-}
+// 0016d8d0: moved to src/anon/unit_0016d2e0.cpp
 
 // ---------------------------------------------------------------------------
 s32 func_00170c38(void);
@@ -203,12 +178,7 @@ void ys_obj_fly_to_jump(u8* self) asm("_ZN2YS3OBJ11fly_to_jumpEv");
 // ---------------------------------------------------------------------------
 void func_001dcb98(u32, u8*);
 
-void func_001942b8(u8* p) {
-    for (s32 i = 0; i < 16; i++) {
-        u32 x = *(u32*)(p + 1976 + i * 4);
-        if (x) func_001dcb98(x, p + 1880);
-    }
-}
+void func_001942b8(u8* p);  // 0x001942b8: definition moved into src/anon/unit_00193be8.cpp
 
 // ---------------------------------------------------------------------------
 s32 func_00199810(u8*);
@@ -245,19 +215,7 @@ void func_0019cd40(u8*);
 void func_0019ce48(u8*);
 void func_0019d260(u8*);
 
-void func_0019d188(u8* p) {
-    u8* o;
-    if (func_001c8ab0(p) == 1 || (D_0034f240 & 0x4000) || !(o = *(u8**)(p + 40)) ||
-        (*(u32*)(*(u8**)(o + 12) + 8) & 0x20000)) {
-        func_0019cc20(p);
-        return;
-    }
-    if ((*(IFn*)(*(u8**)o + 64))(o)) {
-        func_0019cd40(p);
-        func_0019ce48(p);
-    }
-    func_0019d260(p);
-}
+void func_0019d188(u8* p);  // 0x0019d188: definition moved into src/anon/unit_0019ba60.cpp
 
 // ---------------------------------------------------------------------------
 struct LightPool { u8 ent[16][40]; s32 idx[16]; s32 count; };
@@ -311,20 +269,7 @@ void func_00319fb0(u8*);  // big_obj_dtor
 void func_00105110(u8*);
 
 // Deleting destructor.
-void func_001cff48(u8* p) {
-    *(void**)p = D_00352360;
-    func_001c8d98(D_00351eb8, 0);
-    func_001c8d98(D_00351ec0, 4);
-    func_001c9b90();
-    func_001d2710(p + 2932);
-    *(void**)p = D_0034e8b8;
-    func_00319f88(p + 2824);
-    *(void**)p = D_0034ee08;
-    func_0019f9a8(p + 2568);  // array8_free_slots
-    func_001c0248(p + 2640);
-    func_00319fb0(p);  // big_obj_dtor
-    func_00105110(p);
-}
+void func_001cff48(u8* p);  // 0x001cff48: definition moved into src/anon/unit_001cf0b0.cpp
 
 // ---------------------------------------------------------------------------
 struct B4 { u8 b[4]; };
@@ -341,13 +286,7 @@ extern char D_001dd920[];
 extern char D_001dda78[];
 extern char D_001ddb30[];
 
-u8* func_001ddb78(void* a0, u32 a1, u32 a2, u32 a3, u32 a4) {
-    func_00102788_p(a0, a1, a2, D_001dd2b8);
-    func_00102788_p(a0, a1, a3, D_001dd920);
-    u8* r = func_00102788_p(a0, a1, a4, D_001dda78);
-    *(void**)(r + 48) = D_001ddb30;
-    return r;
-}
+u8* func_001ddb78(void* a0, u32 a1, u32 a2, u32 a3, u32 a4);  // 0x001ddb78: definition moved into src/anon/unit_001dd920.cpp
 
 // ---------------------------------------------------------------------------
 union Word1fb928 { f32 f; u16 h[2]; u32 w; };
@@ -508,41 +447,15 @@ void func_00167f38(s32);
 void func_002c5f48(void);
 
 // Constructor; registers itself as the global instance.
-void func_002ca0e0(u8* p) {
-    *(u32*)(p + 28) = (u32)D_00347f98;
-    *(u32*)p = (u32)D_00361e38;
-    *(u32*)(p + 12) = 0;
-    *(u32*)(p + 24) = 0;
-    func_0031a838(p + 40);
-    *(void**)(p + 28) = D_0035eb98;
-    func_002369a0(p + 52);  // obj_ctor_36eac8
-    func_0023c008(p + 76);  // obj_ctor_36eae8
-    *(u32*)(p + 188) = 0;
-    func_0028d140(p + 192);
-    *(u32*)(p + 636) = 0;
-    *(u32*)(p + 640) = 0;
-    *(u32*)(p + 644) = 0;
-    *(u32*)(p + 648) = 0;
-    *(u32*)&D_00361e28 = (u32)p;
-    func_00167f38(3);
-    func_002c5f48();
-}
+void func_002ca0e0(u8* p);  // 0x2ca0e0: moved to src/anon/unit_002ca0e0.cpp
+
 
 // ---------------------------------------------------------------------------
 u8* func_001050d8(u32);
 void func_002cb5d8(u8*, f32);
 void func_002cd290(u8*, u32, u32);
 
-u8* func_002cd1d8(u32 a, u32 b) {
-    u8* o = func_001050d8(160);
-    func_002cb5d8(o, 8.0f);
-    o[134] = 0;
-    *(u32*)(o + 12) = 32;
-    *(u8**)(o + 128) = func_001050d8(1024);
-    o[135] = 1;
-    func_002cd290(o, a, b);
-    return o;
-}
+u8* func_002cd1d8(u32 a, u32 b);  // 0x002cd1d8: definition moved into src/taito/path.cpp
 
 // ---------------------------------------------------------------------------
 extern u32 D_00361f60;

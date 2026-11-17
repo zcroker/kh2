@@ -161,34 +161,9 @@ u32 func_00124578(u32 a0, u32 a1, u32 a2, u32 a3, u32 t0, u32 t1, u8 t2, u32 t3)
     return (*(Fn8*)(*(u8**)o + 76))(o, a1, a2, a3, t0, t1, t2, t3);
 }
 
-void func_001387f8(u8* p, u32 a1, u32 a2, u32 a3) {
-    func_00239988(p + 24);
-    func_00138c10(p, a3);
-    *(s32*)(p + 392) = -1;
-}
+void func_001387f8(u8* p, u32 a1, u32 a2, u32 a3);  // 0x001387f8: definition moved into src/anon/unit_00138480.cpp
 
-void func_0013f050(s32 a) {
-    if (a < 0) {
-        D_00348704 = a & 0x7fffffff;
-        return;
-    }
-    D_00348704 = a;
-    a &= 0x3fffffff;
-    if (a == 1) goto L1;
-    if (a == 0) goto L0;
-    if (a == 2) goto L2;
-    if (a != 3) return;
-    func_0013f498();
-    return;
-L2:
-    func_0013f378();
-    return;
-L0:
-    func_0015d540();
-    return;
-L1:
-    func_0013f230();
-}
+void func_0013f050(s32 a);  // 0x0013f050: definition moved into src/anon/unit_0013ef70.cpp
 
 static inline bool ready_14a0a0() { return *(u32*)(func_0014aba8() + 252) == 4; }
 void func_0014a0a0(u8* p) {
@@ -202,19 +177,7 @@ void func_0014a0a0(u8* p) {
     (**(Fn0**)o)(o);
 }
 
-void func_0014e1f0(s32 a, s32 b) {
-    NoTail g;
-    if (b == 0xffff && a == 1) {
-        S349* s = &D_00349f00;
-        func_00166930(s->a);
-        func_0014dc08(s->b);
-        s->c = 0x80;
-    }
-    if (b == 0xffff && a == 0) {
-        S349* s = &D_00349f00;
-        func_0014dd10(s->b);
-    }
-}
+// 0014e1f0: moved to src/anon/unit_0014d680.cpp
 
 // Split a gauge into segments: *outB = size per segment, *outA = fill of the current one.
 // 001560a8: moved to src/anon/unit_00153ea0.cpp
@@ -240,66 +203,17 @@ void func_001882a8(u8* p);
 // 00191758: moved to src/yasui/libys/status.cpp
 
 // Add d to a 0..99 sub-counter at +432, carrying into the level at +433 (capped by +434).
-void func_001a1aa0(u8* p, s32 d) {  // ring_buffer_index
-    s32 v = p[432] + d;
-    if (d >= 0) {
-        while (v >= 100) {
-            if (p[433] < p[434]) p[433]++;
-            if (p[433] >= p[434]) {
-                v = 100;
-                break;
-            }
-            v -= 100;
-        }
-    } else if (v < 0) {
-        if (p[433] != 0) {
-            p[433]--;
-            v += 100;
-        } else {
-            v = 0;
-        }
-    }
-    p[432] = v;
-}
+void func_001a1aa0(u8* p, s32 d);  // 0x001a1aa0: definition moved into src/anon/unit_0019fb70.cpp
 
 // 001a6850: moved to src/yasui/libys/magic.cpp
 
 // Allocate an id 1..255 from a 256-bit bitmap, round-robin.
-u32 func_001bffd8(void) {
-    for (s32 i = 0; i < 256; i++) {
-        s32 c = (D_01d49348 + 1) % 255;
-        D_01d49348 = c;
-        u32 id = c + 1;
-        u32* w = &D_01d49328[id >> 5];
-        u32 m = 1 << (id & 31);
-        if (!(*w & m)) {
-            *w |= m;
-            return id;
-        }
-    }
-    return 0;
-}
+u32 func_001bffd8(void);  // 0x001bffd8: definition moved into src/anon/unit_001bff88.cpp
 
-void func_001c3aa0(u8* a, u8* b) {
-    if (0.0f < *(f32*)(b + 28)) {
-        func_0016bd60(b, 18);
-        return;
-    }
-    func_0017f540(b + 320, 208, 16.0f, 0.0f);
-    func_001c39d0(a, b);
-}
+void func_001c3aa0(u8* a, u8* b);  // 0x001c3aa0: definition moved into src/anon/unit_001c2b58.cpp
 
 // VU0 vector scale (v * 30) into p+64.
-void func_001c6400(u8* p, Q16* v) {
-    Q16 t;
-    f32 s = 30.0f;
-    Q16* d = (Q16*)(p + 64);
-    asm volatile("lqc2 $vf1, 0(%1)\n\tmfc1 $8, %2\n\tqmtc2 $8, $vf2\n\tvmulx.wxyz $vf1, $vf1, $vf2x\n\tsqc2 $vf1, 0(%0)"
-        : : "r"(&t), "r"(v), "f"(s) : "$8", "memory");
-    if (d != &t) QCOPY(d, &t);
-    *(f32*)(p + 76) = 12.0f;
-    *(void**)(p + 84) = (void*)func_001c6320;
-}
+void func_001c6400(u8* p, Q16* v);  // 0x001c6400: definition moved into src/anon/unit_001c5b90.cpp
 
 void func_0022afa0(s32 a);  // 0022afa0: moved to src/sasa/musical_input.cpp (linked unit)
 
@@ -372,18 +286,8 @@ void func_00290a10(u8* p, u32 a, u32 b) {
     p[16] = 1;
 }
 
-void func_002ca010(u32 a) {
-    if (func_002cab58(a)) return;
-    u8* c = D_00361e00;
-    if (c) {
-        if (*(u32*)(c + 9608) == a) return;
-        func_002c9f20(c);
-        D_00361e00 = 0;
-    }
-    u8* al = *(u8**)(D_00347f80 + 20);
-    void* m = (**(AllocFn**)al)(al, 9616, 0);
-    func_002c90c8(m, a);
-}
+void func_002ca010(u32 a);  // 0x2ca010: moved to src/anon/unit_002c9998.cpp
+
 
 void func_002cedd0(s32 n, E16* e);  // 002cedd0: moved to src/taito/minigame_base.cpp (linked unit)
 

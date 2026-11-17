@@ -5,17 +5,5 @@ extern Obj D_00347ea0[2];
 extern "C" {
 void func_0031ae00(void*);
 void func_0013a240(int a, int b) asm("_Z13func_0013a240ii");
-void func_0013a240(int a, int b) {
-    if (b == 0xffff && a == 1) {
-        Obj* p = D_00347ea0; s32 n = 1; s32* q = (s32*)((u8*)p + 96);
-        do {
-            q[-22] = 0; q[-23] = 0; q[-20] = 0; q[-21] = 0;
-            void* s = p->sub; p++; n--;
-            func_0031ae00(s);
-            q[-19] = 0; q[0] = 0;
-            q += 28;
-        } while (n != -1);
-    }
-    if (b == 0xffff && a == 0) { if (D_00347ea0) { Obj* e = D_00347ea0 + 2; for (;;) { e->~Obj(); if (e == D_00347ea0) break; --e; } } }
-}
+void func_0013a240(int a, int b);  // 0x0013a240: definition moved into src/anon/unit_001393c8.cpp
 }

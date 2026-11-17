@@ -10,24 +10,7 @@ u32* func_00177860(W231Q*);
 s32 func_0019ba60(W231Q*);
 u32 func_00154b40(u32, u32);
 
-void func_0019cb48(W231S* s) {
-    volatile u32 z[5];
-    z[3] = 0;
-    func_0019cbe8(s);
-    if (s->q28->tab) {
-        if (*func_00177860(s->q28) & 0x80000) {
-            if (func_0019ba60(s->q)) {
-                if (!(s->q->flags & 0x4000)) {
-                    W231Ent* t = s->q->tab;
-                    if (t) {
-                        W231Ent* e = (W231Ent*)(s->idx * 12 + (u32)t);
-                        s->w20 = func_00154b40(e->a, e->b);
-                    }
-                }
-            }
-        }
-    }
-}
+void func_0019cb48(W231S* s);  // 0x0019cb48: definition moved into src/anon/unit_0019ba60.cpp
 
 s64 func_00312db8(s64, s64);
 extern u32 D_003638d0;

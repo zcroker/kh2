@@ -138,20 +138,7 @@ void func_00132720(Obj132* p, Snd132* s) {
 }
 
 s32 func_00143d10(Q16Pair*, Q16*, void*, s32*);
-void func_00140480(Q16* p) {
-    Q16Pair in;
-    Q16 out;
-    s32 x;
-    s32 y;
-    Q16* pi = &in.v[1];
-    Q16* ps = p + 1;
-    in.v[0] = p[0];
-    *pi = *ps;
-    y = 0;
-    Q16* po = &out;
-    s32* px = &x;
-    if (func_00143d10(&in, po, px, &y)) *p = *po;
-}
+void func_00140480(Q16* p);  // 0x00140480: definition moved into src/anon/unit_0013fca8.cpp
 
 void func_001391c8(void*, s32, s32);
 s32 func_0014fbf8(void*);
@@ -202,10 +189,7 @@ f32 func_0016c460(u8* p, S32c* out) {
 
 void* func_0014aba8(void);
 void func_0014aa58(void*, s32, s32);
-void func_0016df28(f32* p) {
-    s32 v = (s32)(*p * 0.5f);
-    func_0014aa58(func_0014aba8(), v, 1);
-}
+// 0016df28: moved to src/anon/unit_0016d2e0.cpp
 
 s32 func_001a35f8(u32, s32);
 void func_00194070(void*, u8);
@@ -217,24 +201,7 @@ f32 func_0017ce10(f32);
 // 0017ce80: moved to src/anon/unit_0017c400.cpp
 
 f32 func_001db510(void*);
-s32 func_0018c490(u8* p) {
-    s32 r = 1;
-    if (!*(u8*)(p + 49)) {
-        void* q = *(void**)(p + 32);
-        r = 0;
-        if (q) {
-            bool lt = *(f32*)(p + 44) < 0.5f;
-            f32 v = func_001db510(q);
-            r = 1;
-            if (lt) {
-                if (!(*(f32*)(p + 40) <= v)) r = 0;
-            } else {
-                if (!(v <= *(f32*)(p + 40))) r = 0;
-            }
-        }
-    }
-    return r;
-}
+s32 func_0018c490(u8* p);  // 0x0018c490: definition moved into src/yasui/libys/npc.cpp
 
 struct Pair8 {
     u32 a;
@@ -242,20 +209,11 @@ struct Pair8 {
 };
 extern Pair8 D_00350338[8];
 void func_0016cce8(void*, void*, s32, s32, s32);
-void func_00196aa0(void* a0, s32 a1, s32 a2) {
-    s32 i;
-    for (i = 0; i < 8; i++) {
-        void* o = D_00350338[i].p;
-        if (o) func_0016cce8(o, a0, a1, a2, 0);
-    }
-}
+void func_00196aa0(void* a0, s32 a1, s32 a2);  // 0x00196aa0: definition moved into src/anon/unit_00195d00.cpp
 
 void func_001c79a0(void*, void*, s32);
 void func_001a52a8(void*, void*, void*);
-void func_001a5380(void* a0, void* a1, void* a2) {
-    func_001c79a0(a2, a1, 0);
-    func_001a52a8(a0, a1, a2);
-}
+// 001a5380: moved to src/anon/unit_001a4db0.cpp
 
 void func_00177998(void*);
 void func_0016cbc8(void*, s32, s32, s32);
@@ -289,22 +247,8 @@ extern u8 D_01d49368[];
 extern void* D_00351338;
 extern s32 D_01d4937c;
 extern u8 D_0032bae0;
-void func_001c0a00(s32 a) {
-    if (a == 0) {
-        func_001c0ae0(D_01d49368);
-        D_00351338 = D_01d49368;
-        D_01d4937c = D_01d49368[D_0032bae0];
-    } else {
-        D_01d4937c = a;
-        D_00351338 = 0;
-    }
-    asm volatile("" ::: "memory");
-    if (D_01d4937c == 0) {
-        D_01d4937c = 1;
-        asm volatile("" ::: "memory");
-    }
-    func_001c0ca0(D_01d4937c);
-}
+// 001c0a00: moved to src/anon/unit_001c0638.cpp
+void func_001c0a00(s32 a);
 
 extern void* D_003520c0;
 extern u8 D_0036e278[][16];
@@ -314,12 +258,8 @@ u8* func_001a5420(void*, void*, void*);
 s32 func_001db9a8(void*, s32, s32);
 void* func_001050d8(u32);
 void func_001ce3e8(void*, s32, void*, void*, f32);
-void* func_001ce488(void* a0, void* a1, f32 f) {
-    s32 h = func_001db9a8(a0, 0, 1000);
-    void* o = func_001050d8(2560);
-    func_001ce3e8(o, h, a0, a1, f);
-    return o;
-}
+// 001ce488: moved to src/anon/unit_001cd660.cpp
+void* func_001ce488(void* a0, void* a1, f32 f);
 
 void sceVu0UnitMatrix(f32*);  // vu_store_w_splat
 void sceVu0MulMatrix(void*, f32*, void*);

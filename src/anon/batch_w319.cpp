@@ -87,42 +87,6 @@ u32 func_0028d660(...);  // record_set_value_refresh
 u32 func_001396b0(...);
 
 struct W319C { void f(s32, s32) asm("func_002889f0"); };
-void func_002ca828(u8* p) {
-    u8 buf[352];
-    s32 i;
-    u32 s2;
-    u32 s7;
-    u32 s6;
-    D_0035f3d4 = 30020;
-    s2 = func_00288be8(56);
-    ((W319C*)s2)->f(2, 1);
-    *(u32*)(p + 188) = s2;
-    s7 = func_0023c4b8(func_0023f1b0(p + 28), 1);
-    s6 = func_00236ca8(*(u32*)(func_0023f1b0(p + 28) + 40), 1);
-    for (i = 0; i < 2; i++) {
-        u8* v;
-        u8* o;
-        s32 a, b;
-        v = func_0028c2c8(s7, s6, 58, i ? 18564 : D_00375850[*(s32*)(p + 640) - 1], 0);
-        *(s32*)(v + 392) = 59;
-        o = v + 24;
-        func_00138c68(v, 0, func_0023aa98(o) * i);
-        *(s32*)(v + 432) = 2;
-        func_00324bc0(buf, o);
-        a = -func_0023aa18(buf);
-        b = -func_0023aa38(buf);
-        *(s32*)(v + 412) = a;
-        *(s32*)(v + 416) = b;
-        func_00288ce0(s2, v, i, D_00375840, D_00375848);
-        func_00239870(buf);
-    }
-    func_002891f0(s2, 0, 1, 0, 2);
-    func_0028b078(s2, 1, 2);  // obj_setup_from_args
-    func_0028af90(s2, 2);  // obj_set_field22_from_arg
-    func_00288f48(s2, 16, 32, 64, 128);
-    func_0028d068(30040, -1);
-    func_0028d1c0(p + 192, 30050, 1, 1, p + 28, D_00375838, 0);
-    func_0028d660(p + 192, func_002891d0(s2));  // record_set_value_refresh
-    func_001396b0(p + 192);
-}
+void func_002ca828(u8* p);  // 0x2ca828: moved to src/anon/unit_002ca0e0.cpp
+
 }

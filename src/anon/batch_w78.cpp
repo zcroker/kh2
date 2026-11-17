@@ -85,18 +85,7 @@ s32 func_001009a0(u8* cie) {
 
 struct W78Ent { u8 b; u8 pad[15]; };
 struct W78Hit { u8 pad[12]; u8* tbl; };
-void* func_00143860(void* self, W78VecC* v) {
-    W78Vec a;
-    s16 idx = -1;
-    func_0015cb78(self, 0);
-    if (D_0034880c) {
-        func_00141c18(D_0034880c, 0, 0, 0, 0);
-        if (func_00141ff0(D_0034880c, v, &a, &idx, 15) && (u16)idx != 0xffff)
-            func_0015cb78(self, *(u8*)(((W78Hit*)D_0034880c)->tbl + ((u16)idx << 4)));
-    }
-    func_001539c0(self, *v);
-    return self;
-}
+void* func_00143860(void* self, W78VecC* v);  // 0x00143860: definition moved into src/anon/unit_00142c90.cpp
 
 static inline u8* next(u8* o, u8* c) { if (!c) return *(u8**)(o + 240); return *(u8**)(c + 236); }
 struct W78Flag { u32 f, g; };
@@ -165,14 +154,7 @@ static inline bool inRange(u8* p, f32 t) {
     return r;
 }
 typedef void (*W78Cb)(u8*, void*);
-void func_00189f20(u8* tbl, W78Cb cb, void* arg, f32 t) {
-    u8* p = tbl + 4;
-    for (s32 i = 0; i < tbl[0]; i++) {
-        bool hit = inRange(p, t);
-        if (hit) cb(p, arg);
-        p = p + p[5] * 2 + 6;
-    }
-}
+void func_00189f20(u8* tbl, W78Cb cb, void* arg, f32 t);  // 0x00189f20: definition moved into src/anon/unit_00189d38.cpp
 
 struct W78Hdr { u32 a, b, c, d; };
 struct W78St {
@@ -184,20 +166,7 @@ struct W78St {
 };
 void func_0018c480(W78St*, s32);
 void func_0018c438(W78St*);
-void func_0018c150(u8* p) {
-    W78St* s = (W78St*)(p + 2624);
-    *(W78St*)(p + 2720) = *s;
-    func_0018c480(s, 0);
-    func_0018c438(s);
-    s32 m = *(s32*)(p + 2624);
-    f32 f;
-    switch (m) {
-    case 4: f = *(f32*)(p + 2840); break;
-    case 5: f = *(f32*)(p + 2852); break;
-    default: f = *(f32*)(p + 2864); break;
-    }
-    *(f32*)(p + 2816) = f;
-}
+void func_0018c150(u8* p);  // 0x0018c150: definition moved into src/yasui/libys/npc.cpp
 }
 
 // ---- c3
@@ -276,16 +245,7 @@ struct W78Five { u32 w[5]; };
 struct W78Slot { u16 x0; u16 cnt; u8 pad[8]; W78Five v; u8 lvl; u8 pad2[3]; };
 u32 func_001b8e88(u32);
 void func_001bc6a8(W78Slot*, u32, u32, W78Five*, u32);
-W78Slot* func_001bd418(u8* o, s32 idx, u32 key, W78Five* src, u32 arg, s32 lvl) {
-    u8* base = o + idx * 36;
-    W78Slot* e = (W78Slot*)(base + 2244);
-    if (e->cnt != 0 && lvl < e->lvl) return 0;
-    u32 v = func_001b8e88(key);
-    e->v = *src;
-    func_001bc6a8(e, v, *(u32*)(o + 2528), (W78Five*)(base + 2256), arg);
-    e->lvl = lvl;
-    return e;
-}
+W78Slot* func_001bd418(u8* o, s32 idx, u32 key, W78Five* src, u32 arg, s32 lvl);  // 0x001bd418: definition moved into src/anon/unit_001bc568.cpp
 }
 
 // ---- c4
@@ -304,24 +264,7 @@ extern u8 D_0032bb30[];
 extern s32 D_01d49968;
 extern u32 D_00351214;
 extern u8* D_00351e08;
-void func_001c8300(u8* o, s32 id) {
-    u8 v = func_001d6d00(id);
-    func_001c8d80(&D_00351eb8, 0);
-    D_0032bb30[13605] = v;
-    D_01d49968 = 2;
-    if (id != 89) {
-        if (id == 306) D_0032bb30[13607] = 1;
-    } else {
-        D_0032bb30[13607] = func_001c8c38();
-    }
-    *(u32*)(o + 264) |= 0x104;
-    u8* t = func_00102818(D_00351214, 0, 3, (void*)func_001c83f8, 0x2000);
-    D_00351e08 = t;
-    *(u8**)(t + 48) = (u8*)func_001c86e8;
-    func_001c98f0(15.0f);
-    func_001c8710();
-    func_001d9820(v);
-}
+// 0x1c8300: moved to src/yasui/libys/summon.cpp
 
 void func_00177dc8(u8*, u32, s32, u32, u32);
 void func_00158a90(u8*);

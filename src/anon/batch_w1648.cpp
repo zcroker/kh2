@@ -25,34 +25,5 @@ void func_0010da40(W1648Act*, W1648Tgt*, W1648Tgt*);
 static inline bool W1648_valid(W1648Tgt* t) { return W1648_is_exist(t) && t->a != 0; }
 // Pick the nearest attackable target (distance to its hit sphere surface); fall back to
 // func_0010da40, then to *src. Writes the result to *out when it is valid.
-void func_00119fc0(W1648Act* self, W1648Tgt* src, W1648Tgt* out) {
-    W1648Tgt cur;
-    W1648Hit hit;
-    W1648Tgt it;
-    W1648QW d;
-    f32 best = 0.0f;
-    s32 k = 0;
-    while ((k = func_00190730(&it, k)) != 0) {
-        if (!func_00112d90(&it)) continue;
-        if (!W1648_can_attack(&it)) continue;
-        W1648Obj* o = (W1648Obj*)it.a;
-        if (o->kind == 0) continue;
-        if (!(o->kind->flags & 0x40)) continue;
-        if (!(o->f10c & 0x20000)) continue;
-        if (o->ae4 != D_00341708) continue;
-        func_0018a818(&hit, o, k);
-        W1648QW* p = func_0016c028(self);
-        f32 len;
-        // VU0 macro code: d = hit.v - *p; len = |d.xyz|
-        asm volatile("lqc2 $vf1, 0(%0)\n\tlqc2 $vf2, 0(%1)\n\tvsub.wxyz $vf1, $vf1, $vf2\n\tsqc2 $vf1, 0(%2)" : : "r"(&hit.v), "r"(p), "r"(&d) : "memory");
-        asm volatile("lqc2 $vf1, 0(%1)\n\tvmul.xyz $vf1, $vf1, $vf1\n\tvaddy.x $vf1, $vf1, $vf1y\n\tvaddz.x $vf1, $vf1, $vf1z\n\tvsqrt Q, $vf1x\n\tvwaitq\n\tcfc2.ni $8, $vi22\n\tmtc1 $8, %0" : "=f"(len) : "r"(&d) : "$8", "memory");
-        len = len - hit.r;
-        if (best == 0.0f || len < best) { best = len; cur = it; }
-    }
-    if (!W1648_valid(&cur)) {
-        if (func_00119f48(self->b7c)) func_0010da40(self, src, &cur);
-    }
-    if (!W1648_valid(&cur)) cur = *src;
-    if (W1648_valid(&cur)) *out = cur;
-}
+void func_00119fc0(W1648Act* self, W1648Tgt* src, W1648Tgt* out);  // 0x00119fc0: definition moved into src/anon/unit_00119f48.cpp
 }

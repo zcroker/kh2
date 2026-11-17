@@ -8,24 +8,7 @@ extern s32 D_00351fe4;
 extern u8 D_0036e180[];
 typedef struct W2433_O { u8 pad[0x10]; void* fn; u8 pad2[0x28 - 0x14]; u32 fl; } W2433_O;
 
-W2433_O* func_001cbe30(s32 a0, s32 a1, s32 a2) {
-    W2433_O* r = 0;
-    if (D_00351fe4 != 0) {
-        W2433_O* o = (W2433_O*)func_001cbc50(D_00351fe4, D_0036e180 + a1 * 16, a0, 0);
-        switch (a2) {
-        case 0:
-        default:
-            o->fn = (void*)func_001cb6e0;
-            break;
-        case 1:
-            o->fn = (void*)func_001cb700;
-            break;
-        }
-        o->fl |= 1;
-        r = o;
-    }
-    return r;
-}
+W2433_O* func_001cbe30(s32 a0, s32 a1, s32 a2);  // 0x001cbe30: definition moved into src/anon/unit_001ca8e0.cpp
 
 /* 00152b50: three sub-inits; volatile fields keep the store order, the c rmw goes through a cast */
 s32 func_001391c8(void*, s32, s32);

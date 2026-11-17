@@ -39,17 +39,7 @@ extern u8* D_00347d5c;
 u32 func_0013a7e8(u32);
 void func_00138d60(void*, u32, u32, void*, u32, u32, u32);
 
-void func_00137890(u8* p, u32 a1, u32 a2, u32 a3) {
-    u8* base = D_00347d5c + 32;
-    u32 r = func_0013a7e8(1);
-    func_00138d60(p, 11100, r, base, 77, a1, 0);
-    *(u32*)(p + 1308) = a3;
-    *(u32*)(p + 440) = a2;
-    *(u32*)(p + 424) = 16;
-    *(u32*)(p + 432) = 2;
-    *(u32*)(p + 1304) = 0;
-    *(u32*)(p + 436) = 0;
-}
+void func_00137890(u8* p, u32 a1, u32 a2, u32 a3);  // 0x00137890: definition moved into src/anon/unit_001374c8.cpp
 
 /* ---- 0013d2d0 ---- */
 struct Pair1 { u32 a, b; };
@@ -198,29 +188,11 @@ f32 func_0016a0a0(void*);
 s32 func_001c0cd8(void*);
 s32 func_0019c6f0(void*);
 
-s32 func_0019bb98(u8* p) {
-    s32 r = 0;
-    if (func_0016a0a0(p) == 0.0f || (*(u32*)(p + 264) & 4) || (*(u32*)(p + 352) & 0x2000000)
-        || func_001c0cd8(p) || (*(u32*)(*(u8**)(p + 12) + 8) & 4) || func_0019c6f0(p))
-        r = 1;
-    return r;
-}
+s32 func_0019bb98(u8* p);  // 0x0019bb98: definition moved into src/anon/unit_0019ba60.cpp
 
 /* ---- 001c2858 ---- */
-void func_001c2858(f32* o, void* a, void* b, s32 n) {  // copy_2quads_and_ratio
-    asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(o), "r"(a) : "$8", "memory");
-    asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(o + 4), "r"(b) : "$8", "memory");
-    f32 r = o[6] / o[4];
-    ((s32*)o)[14] = 0;
-    ((s32*)o)[15] = 0;
-    f32 s = __builtin_sqrtf((f32)n / r);
-    s32 w = (s32)s;
-    s32 h = (s32)(s * r);
-    ((s32*)o)[12] = w;
-    ((s32*)o)[13] = h;
-    o[8] = o[4] / (f32)w;
-    o[10] = o[6] / (f32)h;
-}
+// 001c2858: moved to src/anon/unit_001c0638.cpp
+void func_001c2858(f32* o, void* a, void* b, s32 n);
 
 /* ---- 001c7fb8 ---- */
 extern void* D_00351e18[];
@@ -229,19 +201,7 @@ void func_0010b978(void*);
 void func_001e02a0(void*, void*);
 void func_0010c7f0(void*);
 
-void func_001c7fb8(u8* o) {
-    s32 i;
-    func_0010b978(o);
-    *(void**)o = D_00351e18;
-    *(u32*)(o + 1416) |= 0x400000;
-    *(u32*)(o + 1896) &= ~0x10;
-    for (i = 0; i < 2; i++) {
-        if (D_01d49960[i] == 0) { D_01d49960[i] = o; break; }
-    }
-    if (i > 0) func_001e02a0(o + 128, D_01d49960[0] + 128);
-    *(u32*)(o + 152) = 1;
-    func_0010c7f0(o);
-}
+// 0x1c7fb8: moved to src/yasui/libys/summon.cpp
 
 /* ---- 001ce1a0 ---- */
 extern u32 D_00352134;
@@ -251,14 +211,8 @@ extern char D_0036e2c0[], D_0036e2c8[], D_0036e2d0[], D_0036e2d8[], D_0036e2e0[]
 u32 func_001ce248(u32, const char*);
 u32 func_001ce2a0(u32, u32, u32);
 
-void func_001ce1a0(u32 a) {
-    D_00352134 = a;
-    D_01d5b9d0 = func_001ce248(2, D_0036e2c0);
-    D_01d5b9d4 = func_001ce248(2, D_0036e2c8);
-    D_01d5b9d8 = func_001ce248(2, D_0036e2d0);
-    D_01d5b9dc = func_001ce248(2, D_0036e2d8);
-    D_00352130 = func_001ce2a0(func_001ce248(2, D_0036e2e0), 0, 0);
-}
+// 001ce1a0: moved to src/anon/unit_001cd660.cpp
+void func_001ce1a0(u32 a);
 
 /* ---- 001dde40: unlink n from the list ---- */
 struct LNode { u32 used; u32 pad[4]; LNode* next; };
@@ -609,14 +563,7 @@ static inline f32 vlen(const void* v) {
     return d;
 }
 struct Path29 { u32 f0; s32 n; u32 f8; s32 idx; f32 radius; Vec128* pts; };
-Vec128* func_001b2578(Path29* p, Vec128* pos) {
-    Vec128 e;
-    Vec128 d;
-    vsub3(&d, &p->pts[p->idx], pos);
-    e = d;
-    if (vlen(&e) <= p->radius) p->idx = (p->idx + 1) % p->n;
-    return &p->pts[p->idx];
-}
+// 001b2578: moved to src/anon/unit_001b1d20.cpp
 
 /* ---- 0031f6d8: destructor body ---- */
 extern void* D_00350bb0;

@@ -8,29 +8,5 @@ static inline u8 W1572_Invalid(s32 id) {
     if (id == 0 || func_0019ba60(id) == 0) r = 1;
     return r;
 }
-s32 func_001cd7a8(W1572_Cand* arg) {
-    s32 n = 0;
-    W1572_Cand c[8];
-    s32 i;
-    { W1572_Cand* q = c; s32 k = 7; do { q->id = 0; q++; } while (--k != -1); }
-    for (i = 0; i < 8; i++) {
-        if (W1572_Invalid(arg[i].id)) continue;
-        if (func_0019ba60(arg[i].id) == 0) continue;
-        if (arg[i].lvl == 0) return arg[i].id;
-        if (W1572_Invalid(c[0].id) || arg[i].lvl < c[0].lvl) {
-            c[0] = arg[i];
-            n = 1;
-        } else if (c[0].lvl == arg[i].lvl) {
-            c[n++] = arg[i];
-        }
-    }
-    if (n > 0) {
-        u32 r;
-        u64 d;
-        r = D_003638d0 * 0x10dcd;
-        D_003638d0 = r;
-        d = func_00312db8((u64)(u32)(n - 1) + 0x100000000ULL, (u64)(u32)n);
-        return c[(s32)func_00312db8((u64)r, d)].id;
-    }
-    return 0;
-}
+// 001cd7a8: moved to src/anon/unit_001cd660.cpp
+s32 func_001cd7a8(W1572_Cand* arg);

@@ -54,28 +54,16 @@ void func_0010c828(u8* p) {
 }
 
 // 128-bit copy of *s into the quadword at d+0x40 (skipped on self-assignment).
-void func_0011a918(u8* d, u8* s) {
-    d += 64;
-    if (d != s) {
-        asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(d), "r"(s) : "$8", "memory");
-    }
-}
+void func_0011a918(u8* d, u8* s);  // 0x0011a918: definition moved into src/anon/unit_0011a660.cpp
 
 // Virtual call: slot 0.
 void func_00127da0(void** o) {
     (*(void (**)(void*))*o)(o);
 }
 
-void func_0013a200(void) {
-    D_00347f80 = D_00347f84;
-    D_00347f84 = 0;
-}
+void func_0013a200(void);  // 0x0013a200: definition moved into src/anon/unit_001393c8.cpp
 
-void func_00143b60(u32 a0, u32 a1, u32 a2) {
-    u32 x;
-    u32 y = 0;
-    func_00143b88(a0, a1, &x, &y, a2);
-}
+void func_00143b60(u32 a0, u32 a1, u32 a2);  // 0x00143b60: definition moved into src/anon/unit_00142c90.cpp
 
 void func_00150de0(u8* p, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5) {
     *(u32*)(p + 0x19a0) = a5;
@@ -91,25 +79,15 @@ void func_00161a58(s32 v) {
     D_0034c768 = r;
 }
 
-void func_001713f0(BD_VALUE* bd) {
-    void* o = *(void**)((u8*)bd[0].p + 4);
-    s32 i = bd[1].i;
-    func_00186a90(o, i, bd[2].f);
-}
+void func_001713f0(BD_VALUE* bd);  // 0x001713f0: definition moved into src/anon/unit_00170f58.cpp
 
-void func_00172830(BD_VALUE* bd) {
-    func_001b0700(*(u8**)((u8*)bd[0].p + 4) + 1184, bd[1].f);
-}
+void func_00172830(BD_VALUE* bd);  // 0x00172830: definition moved into src/anon/unit_00171e58.cpp
 
 // 00177a58: moved to src/yasui/libys/party.cpp
 
 // 00179f58: moved to src/yasui/libys/player.cpp
 
-void func_0018f2d0(BD_VALUE* bd) {
-    void* o = *(void**)((u8*)bd[0].p + 4);
-    s32 i = bd[1].i;
-    func_00186378(o, i, bd[2].f);
-}
+void func_0018f2d0(BD_VALUE* bd);  // 0x0018f2d0: definition moved into src/anon/unit_0018f140.cpp
 
 // 001a8548: moved to src/anon/unit_001a82f0.cpp
 
@@ -214,10 +192,7 @@ void func_00366db0(u32 a0) {
 
 // 001826f8: moved to src/yasui/libys/areadata.cpp
 
-void u_tail0_0015e038() {
-    u8* p = D_0034b240;
-    if (p) p[4] = 0;
-}
+// 0015e038: moved to src/anon/unit_0015d828.cpp
 
 namespace dk {
 class GAUGE {
@@ -251,17 +226,8 @@ class EVENT {
     static void ControlOn();
 };
 
-void trap_assert(BD_VALUE* bd) {
-    s32 a = bd[0].i;
-    func_00188958(a, bd[1].i);
-}
-void trap_attack_set_pos(BD_VALUE* bd) {
-    s32 a = bd[0].i;
-    func_001a48c0(a, bd[1].i);
-}
-void trap_camera_reset(BD_VALUE*) { func_00140f20(dk::ObjCamera::getInstance()); }
-void EVENT::ControlOn() {
-    YS_OBJ_ControlOn(0);
-    YS_OBJ_ControlOn(1);
-}
+// 0016e688: moved to src/anon/unit_0016d2e0.cpp
+void trap_attack_set_pos(BD_VALUE* bd);  // 0x0018f770: definition moved into src/anon/unit_0018f140.cpp
+void trap_camera_reset(BD_VALUE*);  // 0x00174bc8: definition moved into src/anon/unit_00171e58.cpp
+// 0x00197780 YS::EVENT::ControlOn: definition moved into src/anon/unit_00195d00.cpp
 } // namespace YS

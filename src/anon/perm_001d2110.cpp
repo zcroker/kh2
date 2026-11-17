@@ -23,28 +23,6 @@ inline u8 *inline_fn(void *arg0)
   return (u8 *) arg0;
 }
 
-void func_001d2110(void *p, s32 n)
-{
-  s32 new_var;
-  s32 max = *((s32 *) (((u8 *) p) + 24));
-  s32 lt = n < max;
-  if (n <= 0)
-  {
-    n = 0;
-  }
-  if (!lt)
-  {
-    if (n)
-    {
-      n = max;
-    }
-    else
-    {
-      new_var = max;
-      n = new_var;
-    }
-  }
-  *((s32 *) (inline_fn(p) + 44)) = n;
-}
+void func_001d2110(void *p, s32 n);  // 0x001d2110: definition moved into src/anon/unit_001d14e0.cpp
 
 }

@@ -25,10 +25,6 @@ void func_002ef618();
 void func_002f1e18(s32, s32, s32, s32);
 void func_0014d6b0();
 void u_call0_0014d680(void) asm("_Z16u_call0_0014d680v");
-void u_call0_0014d680(void) {
-    sceGsResetPath();
-    func_002f1e18(0, 1, 2, 0);
-    func_0014d6b0();
-}
+// 0014d680: moved to src/anon/unit_0014d680.cpp
 
 }

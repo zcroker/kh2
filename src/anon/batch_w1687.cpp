@@ -51,37 +51,5 @@ static inline void drop_items(u32 obj, W1687PrizeTable* t, f32 luck) {
     }
 }
 struct W1687NoTail { ~W1687NoTail() {} } __attribute__((aligned(16)));
-void func_001a55a8(u32 obj, s32 id)
-{
-    W1687NoTail nt;
-    W1687PrizeTable* t;
-    f32 k = func_00191b70();
-    s32 flag = func_001d0820();
-    if (D_00350790) {
-        t = prizetable_Get(id);
-        if (!(D_0034f240 & 0x200) || flag) {
-            f32 r = party_prize_rate();
-            for (s32 i = 0; i < 9; i++) {
-                s32 kind = i;
-                if (flag) kind = func_001a5af0(i);
-                s32 n = status_GetPrizeRatio(t, i, k);
-                if ((u32)(kind - 2) < 3) {
-                    s32 m = n - (s32)(n * r);
-                    n -= m;
-                    func_001a5880(obj, func_001a5af0(kind), m);
-                }
-                func_001a5880(obj, kind, n);
-            }
-            if (!(D_0034f240 & 0x400) && !flag) {
-                f32 luck = party_luck();
-                drop_items(obj, t, luck);
-            }
-        }
-        if (!flag) {
-            func_001c7ca8(obj, t);
-            func_001ca758(obj, t);
-            func_001d7538(obj, t);
-        }
-    }
-}
+// 001a55a8: moved to src/anon/unit_001a4db0.cpp
 }

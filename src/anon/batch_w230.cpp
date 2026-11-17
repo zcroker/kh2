@@ -39,19 +39,7 @@ void func_00191c30(f32);
 void func_002c1dc0(void);
 void func_002c1750(void);
 void func_002bf9d8(int);
-void func_002bea88(void) {
-  D_00361898 = 1;
-  f32 k = 4.0f;
-  func_002be6f0();
-  func_001c8e90();
-  func_002c6190(func_002c6218());
-  func_002bf098(func_001050d8(160));
-  func_00191bf0(k);
-  func_00191c30(D_00352130->f * k + 500.0f);
-  func_002c1dc0();
-  func_002c1750();
-  func_002bf9d8(0);
-}
+void func_002bea88(void);  // 0x002bea88: definition moved into src/anon/unit_002be020.cpp
 
 /* 00176dd8 */
 union W230U16 { u16 h; u8 c; };

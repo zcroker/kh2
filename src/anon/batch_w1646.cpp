@@ -53,53 +53,5 @@ void func_0016af58(W1646Vec*, W1646Npc*);
 void func_0018bb70(W1646Npc*, s32, W1646Npc*, u8, f32);
 void func_0018b7f8(W1646Npc*);
 
-void func_0018b478(W1646Npc* o) {
-    if (func_001c0cd8(o)) return;
-    func_0018c570(&o->act);
-    f32 t = o->timer;
-    if (t > 0.0f) o->timer = t - D_00349e10;
-    s32 type = o->act.type;
-    if (type != 4) {
-        if (o->prev.type != 4 || (t = o->timer) <= 0.0f) {
-            if (func_0018bd50(o, 5)) {
-                if (o->act.type != 0) o->prev = o->act;
-                func_0018c438(&o->act);
-                o->act.f50 = w1646_angle(o->fb10, o->fb14);
-                o->act.type = 4;
-                o->act.h.f04 = 2;
-                o->act.f24 = 0;
-                o->act.f31 = 1;
-                return;
-            }
-            type = o->act.type;
-        }
-    }
-    if ((u32)(type - 4) >= 2) {
-        if (o->prev.type == 5 && !((t = o->timer) <= 0.0f)) return;
-        s32 ids[2];
-        W1646Npc* other = func_0018b8e0(o, ids);
-        if (other) {
-            if (o->act.type != 0) o->prev = o->act;
-            W1646Vec va;
-            W1646Vec vb;
-            u8 front = 1;
-            f32 ang = w1646_angle(o->fb1c, o->fb20);
-            func_0016af58(&va, o);
-            func_0016af58(&vb, other);
-            f32 zero = 0.0f;
-            vb.y = zero;
-            va.y = zero;
-            w1646_vnorm(&va);
-            w1646_vnorm(&vb);
-            if (zero <= w1646_vdot(&va, &vb)) front = 0;
-            func_0018bb70(o, ids[0], other, 1, ang);
-            func_0018bb70(other, ids[1], o, front, ang);
-            return;
-        }
-    }
-    if ((t = o->timer) <= 0.0f) {
-        o->timer = 0.0f;
-        func_0018b7f8(o);
-    }
-}
+void func_0018b478(W1646Npc* o);  // 0x0018b478: definition moved into src/yasui/libys/npc.cpp
 }

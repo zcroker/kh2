@@ -49,31 +49,5 @@ E4V func_00190388(E4Tgt*);
 s32 e4_draw(E4Self*, E4Prm*) asm("_ZN2YS9COLLISION4drawEji");
 s32 func_0019df08(E4Self*, E4Prm*, E4Tgt*, const E4V&, s32);
 s32 func_0019dbc0(E4Self*, s32, E4Tgt*, s32, s32);
-void func_0019e400(E4Self* self)
-{
-    E4Hit hit;
-    E4V d;
-    E4V d2;
-    E4Tgt tgt;
-    E4Ent* e;
-    E4Obj* o;
-    func_00190128(&tgt);
-    e = 0;
-    o = self->head->owner->obj;
-    while ((e = func_0018ee28(e)) != 0) {
-        E4Prm* p; s32 len; s32 v;
-        if (!e->f118) continue;
-        p = func_0019e5f8(self, e->f118);
-        if (!p) continue;
-        e4_make(&hit, 0, e->f11c, e->f120);
-        hit.v = e->pa + e->pb;
-        if (!func_0018a550(&hit, &self->hit)) continue;
-        func_001908c0(&tgt, e, e->f114);
-        d = func_00190388(&tgt) - self->hit.v;
-        d.y = 0.0f;
-        len = (s32)d.normalize();
-        v = e4_draw(self, p);
-        func_0019dbc0(self, p->id, &tgt, v, func_0019df08(self, p, &tgt, e->vt[3](e, o), len));
-    }
-}
+void func_0019e400(E4Self* self);  // 0x0019e400: definition moved into src/anon/unit_0019ba60.cpp
 }

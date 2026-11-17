@@ -38,20 +38,13 @@ extern u8 D_00348700;
 extern void* D_0032b96c;
 void func_0013ef90(void);
 void func_00102788(void*, u32, u32, void*);
-void func_0013efe8(void) {
-    D_00348700 = 0;
-    func_00102788(D_0032b96c, 0, 300000, (void*)func_0013ef90);
-}
+void func_0013efe8(void);  // 0x0013efe8: definition moved into src/anon/unit_0013ef70.cpp
 
 extern void* D_00349ef8;
 void func_003058a0(u32);
 void sceGsSyncPath(u32, u32);
 void func_002f3918(void*, void*);
-void func_0014d8d0(void* p) {
-    func_003058a0(0);
-    sceGsSyncPath(0, 0);
-    func_002f3918(D_00349ef8, p);
-}
+// 0014d8d0: moved to src/anon/unit_0014d680.cpp
 
 u32 func_00139d78(void*);
 void func_00151bf0(void*);
@@ -61,10 +54,7 @@ void func_0014fb00(void* p) {
 
 extern u8 D_0034d3c0[];
 u8 func_001678f0(void*);
-u8 func_00167b60(void) {
-    func_001678f0(D_0034d3c0);
-    return func_001678f0(D_0034d3c0 + 384);
-}
+// 00167b60: moved to src/anon/unit_00167358.cpp
 
 void func_0016adc8(void*, Vec4*);
 void func_0016aeb8(void*, f32);
@@ -80,27 +70,17 @@ extern void* D_004f6288;
 // 0016c7a0: moved to src/anon/unit_0016c770.cpp
 
 void func_0016b010(void*, Vec4*);  // obj_set_float1644_from_pair
-void func_00171930(u8** p) {
-    Vec4 v;
-    asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(&v), "r"(p[1]) : "$8", "memory");
-    func_0016b010(*(void**)(p[0] + 4), &v);  // obj_set_float1644_from_pair
-}
+void func_00171930(u8** p);  // 0x00171930: definition moved into src/anon/unit_00170f58.cpp
 
 void func_0019ba60(void*);
-void func_00172e48(u8** p) {
-    func_0019ba60(*(void**)(p[0] + 4));
-    *(u32*)p = *(u32*)(*(u8**)(p[0] + 4) + 2760);
-}
+void func_00172e48(u8** p);  // 0x00172e48: definition moved into src/anon/unit_00171e58.cpp
 
 Vec4* func_0016c028(void*);  // obj_get_attach_or_alt
 Vec4 func_0018d808(u8* b);  // 0x0018d808: definition moved into src/anon/unit_0018d050.cpp
 
 struct Arg18f { void* a; u32 b; u32 c; f32 d; f32 e; };
 void func_001a4d40(void*, u32, u32, f32, f32);
-void func_0018f9b8(Arg18f* p) {
-    void* a = p->a;
-    func_001a4d40(a, p->b, p->c, p->d, p->e);
-}
+void func_0018f9b8(Arg18f* p);  // 0x0018f9b8: definition moved into src/anon/unit_0018f140.cpp
 
 struct Node1995 { u8 pad[12]; u32 key; u32 pad2; Node1995* next; };
 extern Node1995* D_01c62140;
@@ -125,14 +105,7 @@ void func_001aadb0(u32 a) {
 u32 func_001b0320(u32, u32, u32, u32);  // is_field16_set
 void func_002bc358(u32, u32);
 void u_call4_001b0330(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z16u_call4_001b0330jjjj");
-void u_call4_001b0330(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32* p = (u32*)a0;
-    if (func_001b0320(a0, a1, a2, a3)) {  // is_field16_set
-        func_002bc358(p[4], 0);
-        p[4] = 0;
-    }
-    p[2] = (u32)-1;
-}
+void u_call4_001b0330(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001b0330: definition moved into src/anon/unit_001ada38.cpp
 
 extern u8* D_01d49320;
 u32 func_001bb4a0(void);
@@ -147,12 +120,7 @@ u8* func_001bbcb0(void);
 extern void* D_00352678;
 extern void* D_00352668;
 void func_001a4e30(void*);
-void func_001d28f0(void** p) {
-    *p = &D_00352678;
-    D_00352668 = 0;
-    func_001a4e30(p);
-    func_00105110(p);
-}
+void func_001d28f0(void** p);  // 0x001d28f0: definition moved into src/anon/unit_001d2810.cpp
 
 // 001d3498: moved to src/anon/unit_001d30b0.cpp
 

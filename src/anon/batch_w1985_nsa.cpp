@@ -147,32 +147,5 @@ void func_001caee0(void*);
 
 // Signature-mangled stub name: only a0 (the object) is read.
 u32 u_call4_001cb278(W1985Self* self, u32, u32, u32) asm("_Z16u_call4_001cb278jjjj");
-u32 u_call4_001cb278(W1985Self* self, u32, u32, u32)
-{
-    f32 a;
-    if (self->time >= self->t60) {
-        self->fa0 += self->fa8 * D_00349e10;
-        self->fac += self->fb4 * D_00349e10;
-    }
-    if (D_00361f60) w1985_vadd((W1985Vec*)self->v70, func_002d1f30(D_00361f60));
-    a = func_001cbf50(self->fa0);
-    self->pos.x = cosf(a);
-    self->pos.y = sinf(a);
-    self->pos.z = 0.0f;
-    w1985_vscale(&self->pos, self->fac);
-    w1985_vadd(&self->pos, (W1985Vec*)self->v70);
-    if (self->time > self->t68 && func_001cbab0(self)) {
-        W1985Pl* p = func_002d1260();
-        w1985_vsub((W1985Vec*)self->v70, (W1985Vec*)(p->vt->fn160(p) + 48));
-        self->f7c = w1985_vnorm((W1985Vec*)self->v70);
-        self->time = D_00351fd8;
-        self->fn = func_001caee0;
-        D_00361f60->vt->fn40(D_00361f60, 1, *self->p4c);
-        func_001ca910(self);
-        return 1;
-    }
-    self->time += D_00349e10;
-    if (self->time < self->t64) return 1;
-    return !func_001ca9c0(self);
-}
+u32 u_call4_001cb278(W1985Self* self, u32, u32, u32);  // 0x001cb278: definition moved into src/anon/unit_001ca8e0.cpp
 }

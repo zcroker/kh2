@@ -56,12 +56,6 @@ s32 func_00259460(s32 id, u8 f)
 }
 
 void* ctarget_001b9bc8(void*) asm("_Z16ctarget_001b9bc8jjjj");
-void* func_002be908(void* p)
-{
-    while ((p = ctarget_001b9bc8(p)) != 0) {
-        if (*(u32*)((u8*)p + 0x588) & 0x40000000) return p;
-    }
-    return 0;
-}
+void* func_002be908(void* p);  // 0x002be908: definition moved into src/anon/unit_002be020.cpp
 
 }

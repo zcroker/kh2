@@ -29,26 +29,5 @@ extern s32 D_0036df78[];
 extern s32 D_01d498b0;
 
 
-void func_001c6900(Act* a, QW* v) {
-    s32 id;
-    s32 r = 0;
-    if (func_001c5f78(a, v) != 0) {
-        id = 0x405;
-        if (D_00351674 > 0) r = func_001db5a8(D_0036df78[D_00351674 - 1]);
-    } else {
-        id = 0x404;
-        if (D_00351670 > 0) r = func_001db5a8(D_0036df78[D_00351670 - 1]);
-    }
-    if (r != 0) {
-        func_001b4198(r, D_0034e948, a);
-    }
-    func_001890a8(D_0032e020, id);
-    addcount_w8017(1, 0);
-    D_01d498b0++;
-    a->fn = func_001c6850;
-    a->vel = vscale(*v, 60.0f);
-    a->vel.y = -30.0f;
-    a->vel.w = 14.0f;
-    a->p50 = 20;
-}
+void func_001c6900(Act* a, QW* v);  // 0x001c6900: definition moved into src/anon/unit_001c5b90.cpp
 }

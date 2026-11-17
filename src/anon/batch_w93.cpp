@@ -37,18 +37,7 @@ struct ProjCam {
 };
 
 // Builds a perspective projection matrix from the camera's near/far planes.
-void func_00106af0(ProjCam* c, f32* m, f32 w, f32 h)
-{
-    f32 sx = c->nearZ * w / (c->scale * c->aspectX);
-    f32 sy = c->nearZ * h / (c->scale * c->aspectY);
-    func_0011b6a8(m);
-    m[0] = c->nearZ * 2.0f / (sx * 2.0f);
-    m[5] = c->nearZ * 2.0f / (sy * 2.0f);
-    m[10] = (c->farZ + c->nearZ) / (c->farZ - c->nearZ);
-    m[14] = c->farZ * c->nearZ * -2.0f / (c->farZ - c->nearZ);
-    m[11] = 1.0f;
-    m[15] = 0;
-}
+// 00106af0: moved to src/naka/libkn/camera.cpp
 
 s32 func_0019ba60(u32);
 extern u32 D_00341788[8];
@@ -95,25 +84,7 @@ void func_00139390(); void func_001393e0(); void func_001394c0(); void func_0013
 
 // Creates the scene's two worker tasks and its root object, all owned by the global context.
 // (Raw pointer-typed stores reproduce the original's reloads of the context pointer.)
-void func_00139e00(u32 a, u8 flag)
-{
-    W93Task* t;
-    func_00139dc0(1);
-    *(W93G**)((u8*)D_00347f80 + 20) = (W93G*)a;
-    D_00347f80->f8 = 0;
-    D_00347f80->f4 = 0;
-    if (flag) t = func_00105d78(0, 0x186a0, (void*)func_00139390);
-    else t = func_00103b48(0, 0x186a0, (void*)func_00139390);
-    t->fn = (void*)func_001393e0;
-    t->owner = D_00347f80;
-    if (flag) t = func_00105d78(0, 0x1944c, (void*)func_001394c0);
-    else t = func_00103b48(0, 0x1944c, (void*)func_001394c0);
-    *(W93G**)((u8*)t + 4) = D_00347f80;
-    *(W93G**)((u8*)t + 48) = (W93G*)func_001394d8;
-    *(W93G**)D_00347f80 = (W93G*)func_001024b0(a);
-    t = func_00102788(D_00347f80->f0, 0, 0x19258, (void*)func_00139308);
-    t->owner = D_00347f80;
-}
+void func_00139e00(u32 a, u8 flag);  // 0x00139e00: definition moved into src/anon/unit_001393c8.cpp
 
 struct W93Q16 { u8 v[16]; } __attribute__((aligned(16)));
 static inline void W93Copy(W93Q16* d, const W93Q16* s)
@@ -236,42 +207,7 @@ void func_001af360(W93Pl*);
 void func_001af290(W93Pl*);
 static inline bool W93Dead(W93Pl* p) { return p->state == 12; }
 // Per-frame player state dispatch (event lock, death, field/battle transitions).
-void func_001d0d60(W93Pl* p)
-{
-    if (D_0034f240.u & 0x20000) {
-        if (func_001bb7f8()) {
-            func_001991a8(90, 0);
-            return;
-        }
-        func_00179e18(p);
-        if (func_0017a538(p) || W93Dead(p)) {
-            func_001b6c60(p);
-            return;
-        }
-        func_001d0eb8(p);
-        func_001991a8(90, 0);
-        return;
-    }
-    func_00179e18(p);
-    if (func_001c8b48()) {
-        if (W93Dead(p)) { func_001b6c60(p); return; }
-        func_001d0eb8(p);
-        func_001af328(p);
-        return;
-    }
-    if (func_001bbb50()) {  // type_is_2_or_25
-        func_001d0eb8(p);
-        func_001af360(p);
-        return;
-    }
-    if (func_0017a538(p) || W93Dead(p)) {
-        func_001b6c60(p);
-        return;
-    }
-    if (func_001c8ab0() == 2) func_001d1408(p);
-    func_001d0eb8(p);
-    func_001af290(p);
-}
+void func_001d0d60(W93Pl* p);  // 0x001d0d60: definition moved into src/anon/unit_001d0cb8.cpp
 
 struct W93Spec { u32 f0; u32 f4; u32 kind; u32 f12; u32 f16; u32 f20; u32 f24; };
 struct W93Ef { u32 flags; u8 pad[4]; u32 f8; u8 p2[64 - 12]; u8 f64[148 - 64]; u32 f148; u32 f152; u32 f156; u32 f160; };
@@ -300,42 +236,7 @@ void func_001e6af8(void); void func_001b8218(void);  // zero_global_byte_f
 struct W93NoTail { ~W93NoTail() {} };
 // Draws every visible sprite: direct draws batch together, textured ones flush the batch first.
 // (The empty-destructor local keeps the final call a jal, as in the original.)
-void func_001dd920(void)
-{
-    W93NoTail keep;
-    if (D_00352af1) return;
-    if (!D_00352af0) return;
-    s32 any = 0;
-    func_001dd6a0();
-    func_001b81e8();
-    func_001e6688();
-    W93Sp* next;
-    for (W93Sp* o = D_00352ae0; o; o = next) {
-        next = o->next;
-        if (!func_001dc9d0(o)) continue;
-        if ((u8)((o->flags >> 26) & 1)) continue;
-        if (o->type == 4) {
-            o->dr->vt->draw(o->dr);
-            any = 1;
-            func_001dc878(o);
-        } else {
-            if (!o->tex) continue;
-            if (!func_001dcc60(o)) continue;
-            if (any) {
-                func_001e6648();
-                any = 0;
-            }
-            func_001dca70(o);
-            func_001e3330(o->tex);
-            if (func_001e66e8(o->tex)) continue;
-            func_001e6c00(o->tex);  // alloc_336_align_171
-            o->tex = 0;
-            o->flags |= 0x10000;
-        }
-    }
-    func_001e6af8();
-    func_001b8218();  // zero_global_byte_f
-}
+void func_001dd920(void);  // 0x001dd920: definition moved into src/anon/unit_001dd920.cpp
 
 union W93IF { s32 i; f32 f; };
 // Quicksort (descending by key), permuting the index array alongside the keys.

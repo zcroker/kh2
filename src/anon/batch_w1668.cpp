@@ -7,8 +7,7 @@ void w191ee0(u32, u32, u32, u32) asm("_Z16wtarget_00191ee0jjjj");
 // 00191ee0: static initialiser, now made by gcc in src/yasui/libys/status.cpp
 
 extern u32 D_01d49970;
-void w1c8d40(u32, u32, u32, u32) asm("_Z16wtarget_001c8d40jjjj");
-void w1c8d40(u32 a, u32 b, u32, u32) { if (b == 0xffff && a == 1) D_01d49970 = 0; }
+// 0x1c8d40: moved to src/yasui/libys/summon.cpp
 
 extern u32 D_003638d0;
 void w2ef890(u32, u32, u32, u32) asm("_Z16wtarget_002ef890jjjj");
@@ -54,10 +53,7 @@ void func_00319190(S8* p) { p->fn(1, p); }
 // 001879f0: moved to src/anon/unit_00185d10.cpp
 void func_001879f0(u32* p);
 
-void func_001bf118(u8* p, s32 b) {
-    if (b == 0) { *(u32*)(p + 0xab0) = 0; return; }
-    *(u32*)(p + 0xab0) &= ~(1 << b);
-}
+void func_001bf118(u8* p, s32 b);  // 0x001bf118: definition moved into src/anon/unit_001bc568.cpp
 
 void func_001e0dc8(void*);
 void func_001e1698(u8* p) { func_001e0dc8(p); *(u32*)(p + 0x24) = 0; }

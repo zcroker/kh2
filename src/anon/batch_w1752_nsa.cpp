@@ -4,13 +4,7 @@ extern "C" {
 struct W1752Key { u8 a, b, c, d; u16 e, f, g; };
 void func_00104f58(W1752Key*, u32, s32, s32, s32);
 
-void func_00172fb0(u8* p) {
-    W1752Key s;
-    u16 v = 0xffff;
-    s.a = v; s.e = v; s.f = v; s.g = v;
-    s.b = p[0]; s.c = p[4];
-    func_00104f58(&s, *(u32*)(p + 8), 0, 0, 0);
-}
+void func_00172fb0(u8* p);  // 0x00172fb0: definition moved into src/anon/unit_00171e58.cpp
 
 struct W1752Ent { u32 a; f32 x; f32 y; s32 z; u32 w; };
 struct W1752Ring { s32 idx; u32 pad; W1752Ent e[4]; };

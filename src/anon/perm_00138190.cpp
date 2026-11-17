@@ -46,20 +46,6 @@ inline int inline_fn(s32 arg0, Ring *arg1)
   return ((arg0 - arg1->tail) + 8) % 8;
 }
 
-void func_00138190(s32 a, s32 b)
-{
-  Q *q = D_00347d64;
-  Ring *r = &q->r;
-  s32 h = q->r.head;
-  s32 n;
-  if (inline_fn(h, r) < 7)
-  {
-    Item *it;
-    q->r.head = (h + 1) % 8;
-    it = &r->e[h];
-    it->a = a;
-    it->b = b;
-  }
-}
+void func_00138190(s32 a, s32 b);  // 0x00138190: definition moved into src/anon/unit_001374c8.cpp
 
 }

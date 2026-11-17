@@ -71,13 +71,7 @@ void func_00161598(u8* p) {
     else func_0011c4b0(h, o + 512);
 }
 
-void func_0016d920(Vec4** p) {
-    Vec4 b;
-    Vec4 a;
-    asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(&b), "r"(p[1]) : "$8", "memory");
-    asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(&a), "r"(p[0]) : "$8", "memory");
-    *(f32*)p = func_0017d160(&a, &b);
-}
+// 0016d920: moved to src/anon/unit_0016d2e0.cpp
 
 // Formats the model path "obj/%s.mdlx" for an entry into buf (or a shared buffer).
 char* func_0016f470(u8* e, char* buf);  // 0x0016f470: definition moved into src/anon/unit_0016e8f8.cpp
@@ -102,15 +96,7 @@ s32 func_001997c0(u32* p) {
     return 0;
 }
 
-void func_001a2618(u8* p, s32 n) {
-    u8* q = *(u8**)(p + 580);
-    if (q) {
-        if (q[11] + n > 100) n = 100 - q[11];
-        q[11] += n;
-    }
-    *(u16*)(p + 396) += n;
-    *(u16*)(p + 404) += n;
-}
+void func_001a2618(u8* p, s32 n);  // 0x001a2618: definition moved into src/anon/unit_0019fb70.cpp
 
 void func_00192800(u32, u32, Words6*);  // to_192528
 s32 func_001c9db0(u32);
@@ -176,21 +162,9 @@ void* func_001b5a10(void) {
 // Takes a slot from the free list and initialises it.
 // 001b8680: moved to src/anon/unit_001b82d8.cpp
 
-void func_001ced10(u8* p, u32 a, u32 b, u32 c) {
-    func_00177dc8(p, a, 0, b, c);
-    *(u32*)(p + 2920) = 0;
-    *(u32*)(p + 2928) = 0;
-    *(void**)p = D_003521e0;
-    func_001d56f0(p + 2932);  // zero_three_words
-    *(u32*)(p + 1420) |= 4;
-}
+void func_001ced10(u8* p, u32 a, u32 b, u32 c);  // 0x001ced10: definition moved into src/anon/unit_001ce6e8.cpp
 
-void func_001d18c0(u8* p) {
-    func_001d16f8(p);
-    u32 t = *(u32*)(p + 4);
-    if (t) func_0014f688(t, *(u32*)(p + 8), *(u32*)(p + 32), *(u32*)(p + 36), *(u32*)(p + 28));
-    func_001d1950(p, *(u32*)(p + 20));
-}
+void func_001d18c0(u8* p);  // 0x001d18c0: definition moved into src/anon/unit_001d14e0.cpp
 
 void func_001e60b0(void) {
     for (Pair72* e = D_00354bf0; e->id >= 0; e++) {
@@ -335,18 +309,9 @@ struct EvSub {
     s32 cur;
 };
 
-void func_002be9b0(void) {
-    void* o = 0;
-    while ((o = func_002be908(o)) != 0) (*(VFn*)(*(u8**)o + 124))(o);
-    func_002c1dc0();
-}
+void func_002be9b0(void);  // 0x002be9b0: definition moved into src/anon/unit_002be020.cpp
 
-s32 func_002c0470(u8* p) {
-    if (!func_00190140(p + 100)) return 0;
-    func_002c04c8(p, p + 48, p + 64);
-    func_002c6490(p);
-    return 1;
-}
+s32 func_002c0470(u8* p);  // 0x002c0470: definition moved into src/anon/unit_002bebd0.cpp
 
 void func_002dc278(u32 a, u32 b) {
     func_002dc4e0(func_001050d8(0x80a0), a, b);
@@ -403,15 +368,7 @@ void u_tail0_0014d008(void) {
 
 // 001bbac0: moved to src/yasui/libys/mission.cpp
 
-void EFFECT_kill(void* e) {
-    u8* p = (u8*)e;
-    *(u32*)(p + 8) |= 0x10001;
-    if (*(u32*)(p + 28)) {
-        func_001e2c00(*(u32*)(p + 28));
-        func_001e6c00(*(u32*)(p + 28));  // alloc_336_align_171
-        *(u32*)(p + 28) = 0;
-    }
-}
+void EFFECT_kill(void* e);  // 0x001dc920: definition moved into src/anon/unit_001dbfd8.cpp
 
 u32 wtarget_002342f0(u32 a, u32 b, u32 c, u32 d) {
     s32 i = D_0035e360;

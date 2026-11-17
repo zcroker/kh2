@@ -44,15 +44,7 @@ void* func_00108930(u8* p, s32 bit) {  // test_bit_of_field44
 
 f32 func_0013fd10(void*);
 void func_0013fd78(void*);
-void func_0013fec0(u8* p) {
-    *(f32*)(p + 80) = func_0013fd10(p);
-    func_0013fd78(p);
-    u8* d = p + 16;
-    u8* s = p + 96;
-    if (d != s) {
-        asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(d), "r"(s) : "$8", "memory");
-    }
-}
+void func_0013fec0(u8* p);  // 0x0013fec0: definition moved into src/anon/unit_0013fca8.cpp
 
 
 
@@ -101,15 +93,7 @@ void wtarget_0016c640(u32 a, u32, u32, u32) {
 
 void func_0016af58(void*, u32);
 extern u32 D_01c5f480[4];
-void func_00171518(u32** p) {
-    u32 t[4] __attribute__((aligned(16)));
-    func_0016af58(t, (*p)[1]);
-    u32* d = D_01c5f480;
-    if (d != t) {
-        asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(d), "r"(t) : "$8", "memory");
-    }
-    *p = d;
-}
+void func_00171518(u32** p);  // 0x00171518: definition moved into src/anon/unit_00170f58.cpp
 
 void func_0016b010(void*, void*);  // obj_set_float1644_from_pair
 void func_00198690(void*);
@@ -117,59 +101,25 @@ void func_00198690(void*);
 
 s32 func_00195530(void*);
 s32 func_00195468(void*, u32);
-void wtarget_001954a0(u32 a, u32 b, u32, u32) {
-    u8* p = (u8*)a;
-    if (func_00195530(p) == 0) {
-        s32 i = func_00195468(p, 0);
-        if (i >= 0) *(u16*)(p + i * 2 + 8) = b;
-    }
-}
+void wtarget_001954a0(u32 a, u32 b, u32, u32);  // 0x001954a0: definition moved into src/anon/unit_00194790.cpp
 
 struct Pair196618 { u8 a, b; };
 struct Tbl196618 { u16 count; Pair196618 e[1]; };
 extern Tbl196618* D_01c61b08;
-s32 func_00196618(s32 a, s32 b) {
-    for (s32 i = 0; i < D_01c61b08->count; i++) {
-        if (D_01c61b08->e[i].a == a && D_01c61b08->e[i].b == b) return i;
-    }
-    return -1;
-}
+s32 func_00196618(s32 a, s32 b);  // 0x00196618: definition moved into src/anon/unit_00195d00.cpp
 
 s32 func_0019c090(void*);  // obj_is_enabled
-s32 func_0019c0f8(u8* p) {
-    s32 r = 0;
-    if (func_0019c090(p)) {  // obj_is_enabled
-        if (!(*(u32*)(p + 352) & 0x20)) {
-            u32 m = *(u32*)(*(u8**)(p + 12) + 8) & 0x200;
-            r = m == 0;
-        }
-    }
-    return r;
-}
+s32 func_0019c0f8(u8* p);  // 0x0019c0f8: definition moved into src/anon/unit_0019ba60.cpp
 
 void func_00190128(void*);
 void func_0019ca20(void*);
 extern void* D_00350444;
-void func_0019c8d0(u32* p) {
-    p[0] = 0;
-    func_00190128(p + 1);
-    p[6] = 0;
-    p[8] = 0;
-    p[11] = 0;
-    func_0019ca20(p);
-    D_00350444 = D_00350444 ? D_00350444 : p;
-}
+void func_0019c8d0(u32* p);  // 0x0019c8d0: definition moved into src/anon/unit_0019ba60.cpp
 
 s32 func_0019d4a8(void*);
 void func_002c0688(u32, void*);
 void func_0015a638(void*, void*);
-void func_0019d438(u8* p) {
-    if (func_0019d4a8(p)) {
-        func_002c0688(*(u32*)(p + 40), p + 4);
-    } else {
-        func_0015a638(p + 4, p + 4);
-    }
-}
+void func_0019d438(u8* p);  // 0x0019d438: definition moved into src/anon/unit_0019ba60.cpp
 
 u8* func_001a80c8(void);  // table24_find_by_id
 s32 func_001a67b0(u32);
@@ -186,34 +136,16 @@ u8* func_001bbcb0(void);
 // 001bc130: moved to src/yasui/libys/mission.cpp
 
 void func_001dca30(u32, u32, u32);  // obj_set48_52_flag40000
-void func_001c16a0(u32* p, u32 x) {
-    switch (p[1]) {
-    case 0: func_001dca30(p[0], p[12], x); break;
-    case 1: func_001dca30(p[0], p[12], x); break;
-    }
-}
+// 001c16a0: moved to src/anon/unit_001c0638.cpp
+void func_001c16a0(u32* p, u32 x);
 
 extern f32 D_00349e10;
 void func_001d2180(void*);
-s32 func_001d21c0(u8* p) {
-    if (*(f32*)(p + 60) > 0.0f) {
-        f32 n = *(f32*)(p + 60) - D_00349e10;
-        *(f32*)(p + 60) = n;
-        if (n <= 0.0f) { func_001d2180(p); return 0; }
-    }
-    return 1;
-}
+s32 func_001d21c0(u8* p);  // 0x001d21c0: definition moved into src/anon/unit_001d14e0.cpp
 
 struct Lerp1d3000 { u8 pad[240]; f32 hiVal; f32 loVal; f32 hi; f32 lo; };
 extern Lerp1d3000* D_00352130;
-f32 func_001d3000(f32 x) {
-    Lerp1d3000* t = D_00352130;
-    if (x >= t->hi) return t->hiVal;
-    if (x <= t->lo) return t->loVal;
-    x -= t->lo;
-    f32 r = x / (t->hi - t->lo);
-    return t->loVal + (t->hiVal - t->loVal) * r;
-}
+f32 func_001d3000(f32 x);  // 0x001d3000: definition moved into src/anon/unit_001d2810.cpp
 
 void func_001d3878(void*);
 void func_00105110(void*);
@@ -309,11 +241,7 @@ void func_002aab90(u32 n) {
 
 void func_00185ed8(void*, u32, u32, u32);
 extern u32 D_00361810;
-void func_002be770(u8* p, u32 a, u32 b) {
-    func_00185ed8(p, a, 4, b);
-    *(void**)p = &D_00361810;
-    *(u32*)(p + 1416) |= 0x40000000;
-}
+void func_002be770(u8* p, u32 a, u32 b);  // 0x002be770: definition moved into src/anon/unit_002be020.cpp
 
 extern u32 D_00361a50;
 extern u8* D_0034e948;
@@ -321,15 +249,7 @@ void func_001c11a8(u32);
 void func_00197780(void);
 void func_00197cc0(void);
 void func_00139858(u32);
-void func_002bfaf0(void) {
-    D_00361a50 = 0;
-    func_001c11a8(12);
-    u8* t = *(u8**)(D_0034e948 + 2880);
-    *(u32*)(t + 44) &= ~1;
-    func_00197780();
-    func_00197cc0();
-    func_00139858(201);
-}
+void func_002bfaf0(void);  // 0x002bfaf0: definition moved into src/anon/unit_002bebd0.cpp
 
 extern u32 D_00361f70;
 extern u32 D_00361f60;

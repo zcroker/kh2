@@ -124,12 +124,7 @@ void func_0011ea40(u8* o, f32 t) {
     }
 }
 
-void createTask(void) {
-    func_0015ce90();  // zero_global_byte_g
-    func_001069b8(0);  // swap_global_word
-    func_0013f558(D_00348710);
-    func_00102788(*(u32*)(func_00102c80() + 4), 1, 26000, (void*)camera_task);
-}
+void createTask(void);  // 0x00140ce8: definition moved into src/anon/unit_0013fca8.cpp
 
 void wtarget_00146730(u32 a, u32 b) {
     E16 buf[8];
@@ -154,36 +149,18 @@ u32 func_00154ee8(u8* p);
 // 001585a0: moved to src/harata/libdk/cameraconfig.cpp
 
 // Ability bit test: v[0] = party's ability bit v[1] is set.
-void func_00171a70(u32* v) {
-    u32* bits = party_get_ability(*(u32*)(v[0] + 4));
-    u32 n = v[1];
-    v[0] = (bits[n >> 5] & (1 << (n & 31))) != 0;
-}
+void func_00171a70(u32* v);  // 0x00171a70: definition moved into src/anon/unit_00170f58.cpp
 
-u32 trap_obj_add_hp(u32* v) {
-    void* o = *(void**)(v[0] + 4);
-    return v[0] = (*(VFn4*)((*(u8**)o) + 120))(o, v[1], v[2], v[3] != 0);
-}
+u32 trap_obj_add_hp(u32* v);  // 0x00172ae0: definition moved into src/anon/unit_00171e58.cpp
 
-void func_00173dc0(u32* v) {
-    Q16 t;
-    func_0016bda8(&t, *(u32*)(v[0] + 4));
-    Q16* d = &D_01c5f480;
-    if (d != &t) QCOPY(d, &t);
-    v[0] = (u32)d;
-}
+void func_00173dc0(u32* v);  // 0x00173dc0: definition moved into src/anon/unit_00171e58.cpp
 
 // Story progress flag test (0xffff = none).
 // 00181500: moved to src/yasui/libys/progress.cpp
 
 // 00198bd0: moved to src/anon/unit_00198b88.cpp
 
-void func_001a2710(Flag250* p) {
-    if (p->on) {
-        func_0013dad0(p);
-        p->on = 0;
-    }
-}
+void func_001a2710(Flag250* p);  // 0x001a2710: definition moved into src/anon/unit_0019fb70.cpp
 
 void func_001aa790(u32* p, u32 a) {
     p[0] = a;
@@ -206,20 +183,9 @@ u8 func_001aa8a8(u32* p, u32 a, u32 b, u32 c, u32 d) {
 
 // 001ad3e0: moved to src/anon/unit_001abb28.cpp
 
-void func_001c2ba8(void) {
-    u32* p = D_01d49530;
-    for (s32 i = 7; i >= 0; i--) {
-        if (*p && !func_001dc9d0(*p)) *p = 0;
-        p++;
-    }
-}
+void func_001c2ba8(void);  // 0x001c2ba8: definition moved into src/anon/unit_001c2b58.cpp
 
-void func_001c2ce8(u8* p) {
-    func_001d7cd0(p);
-    *(void**)p = D_00351468;
-    *(u32*)(p + 1416) |= 0x200000;
-    *(u32*)(p + 2748) |= 4;
-}
+void func_001c2ce8(u8* p);  // 0x001c2ce8: definition moved into src/anon/unit_001c2b58.cpp
 
 // 0x001d44d8 GetLimitEntry: definition moved into src/anon/unit_001d3c08.cpp
 
@@ -311,10 +277,7 @@ void func_002ab258(u32 n) {
     if (!(*w & bit)) *w |= bit;
 }
 
-void func_002bfd48(u32* p, u32 a) {
-    func_002be340(a);
-    while (func_002be4a0()) func_00102448(p[0], 0);
-}
+void func_002bfd48(u32* p, u32 a);  // 0x002bfd48: definition moved into src/anon/unit_002bebd0.cpp
 
 void ctarget_002cf3f8(void) {
     if (D_00361fa4) func_00106450(D_00361fa4);

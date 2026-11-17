@@ -13,17 +13,9 @@ extern u32 D_00373970[];
 u32 u_tail4_00192048(u32) asm("_Z16u_tail4_00192048jjjj");
 u32 CopyMessage(u32, u32) asm("_ZN2Tz6CmComm11CopyMessageEPcPKN2YS7MESSAGEE");
 
-void func_00171268(A171* a) {
-    O171* o = a->o;
-    f32 f = a->f;
-    if (!(o->fl & 0x10)) func_001ad990((char*)o + 2092, 1.0f, 0.0f, f);
-}
+void func_00171268(A171* a);  // 0x00171268: definition moved into src/anon/unit_00170f58.cpp
 
-void func_001712b0(A171* a) {
-    O171* o = a->o;
-    f32 f = a->f;
-    if (!(o->fl & 0x10)) func_001ad990((char*)o + 2092, 0.0f, 1.0f, f);
-}
+void func_001712b0(A171* a);  // 0x001712b0: definition moved into src/anon/unit_00170f58.cpp
 
 // 00178570: moved to src/yasui/libys/player.cpp
 

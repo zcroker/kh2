@@ -9,16 +9,7 @@ typedef u32 (*VR3)(void*, u32, u32);
 extern "C" {
 
 // Copy quadword a -> p+0x50 and b -> p+0x60 (each unless aliasing).
-void func_001072d0(u8* p, u8* a, u8* b) {
-    u8* d = p + 0x50;
-    if (d != a) {
-        asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(d), "r"(a) : "$8", "memory");
-    }
-    p += 0x60;
-    if (p != b) {
-        asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(p), "r"(b) : "$8", "memory");
-    }
-}
+// 001072d0: moved to src/naka/libkn/camera.cpp
 
 // Forward to the owned object's virtual slot 16 with this->field_104.
 void func_0011c7f8(u8* self, u32 x) {
@@ -51,25 +42,15 @@ void* func_0016b040(void* r, u8* p) {
 u32 func_0016f770(s32 x);  // 0x0016f770: definition moved into src/anon/unit_0016e8f8.cpp
 
 void trap_obj_show(void** p) asm("_ZN2YS13trap_obj_showEP8BD_VALUE");
-void trap_obj_show(void** p) {
-    void** o = ((void***)p[0])[1];
-    ((VFn)(*(void***)o)[18])(o);
-}
+void trap_obj_show(void** p);  // 0x00171378: definition moved into src/anon/unit_00170f58.cpp
 
 u32 func_0016b7a0(u32);
 void trap_obj_search_by_serial(u32* p) asm("_ZN2YS25trap_obj_search_by_serialEP8BD_VALUE");
-void trap_obj_search_by_serial(u32* p) {
-    u32* r = (u32*)p[0];
-    r[1] = func_0016b7a0(p[1]);
-}
+void trap_obj_search_by_serial(u32* p);  // 0x00172bd8: definition moved into src/anon/unit_00171e58.cpp
 
 void func_00199468(u32, u32, f32, u32);
 struct S174060 { u32* obj; f32 f; u32 a; u32 b; };
-void func_00174060(S174060* p) {
-    u32 b = p->b;
-    u32 o = p->obj[1];
-    func_00199468(o, p->a, p->f, b);
-}
+void func_00174060(S174060* p);  // 0x00174060: definition moved into src/anon/unit_00171e58.cpp
 
 void func_0017c430(void*);
 void func_0016bd60(void*, u32);
@@ -80,11 +61,7 @@ u8 func_0017ee68(void*);
 // 0017eb98: moved to src/yasui/libys/motion.cpp
 
 // Increment a 16-bit counter (table at +0x1458), saturating at 999.
-void func_00189228(u8* p, u32 i) {
-    u8* q = (u8*)(i * 2) + (u32)p;
-    q += 0x1450;
-    if (*(u16*)(q + 8) < 999) *(u16*)(q + 8) += 1;
-}
+void func_00189228(u8* p, u32 i);  // 0x00189228: definition moved into src/anon/unit_00188848.cpp
 
 u32 func_001921d8(u32);
 void func_00170518(u32, u32, u32);
@@ -94,17 +71,11 @@ void msg_read(u32 a, u32 b) asm("_ZN2YS7MESSAGE4ReadEii");
 void func_001dc878(u32);
 void func_0016b668(void*);
 void savepoint_leave(u8* o) asm("_ZN2YS3OBJ6VTABLEINS_9SAVEPOINTEE5leaveEPS0_");
-void savepoint_leave(u8* o) {
-    func_001dc878(*(u32*)(o + 2548));
-    func_0016b668(o);
-}
+void savepoint_leave(u8* o);  // 0x00195f88: definition moved into src/anon/unit_00195d00.cpp
 
 void func_0019d548(void*);
 void func_0019d4f8(void*);
-void func_0019d720(void* p) {
-    func_0019d548(p);
-    func_0019d4f8(p);
-}
+void func_0019d720(void* p);  // 0x0019d720: definition moved into src/anon/unit_0019ba60.cpp
 
 // Set the RGBA bytes at +20 and refresh.
 void func_001b1be0(u8*);
@@ -130,33 +101,20 @@ void item_effect_dtor(void* self) asm("_ZN2YS11ITEM_EFFECTD1Ev");
 // 001ba310: moved to src/yasui/libys/itemeffect.cpp
 
 // Is bit o->field_1c clear in the bit set (words from +4)?
-u32 func_001c0268(u32* bits, u8* o) {
-    u32 b = *(u32*)(o + 28);
-    bits += b >> 5;
-    return (bits[1] & (1 << (b & 31))) == 0;
-}
+u32 func_001c0268(u32* bits, u8* o);  // 0x001c0268: definition moved into src/anon/unit_001bff88.cpp
 
 void func_00198970(void*);
 void func_00178280(void*);
 void mickey_leave_req(void* o) asm("_ZN2YS3OBJ6VTABLEINS_6MICKEYEE9leave_reqEPS0_");
-void mickey_leave_req(void* o) {
-    func_00198970(o);
-    func_00178280(o);
-}
+void mickey_leave_req(void* o);  // 0x001d0200: definition moved into src/anon/unit_001cf0b0.cpp
 
 extern void** D_01d5bb00;
-u32 func_001dc488(u32 x) {
-    void** o = D_01d5bb00;
-    return ((VR3)(*(void***)o)[0])(o, x, 0);
-}
+u32 func_001dc488(u32 x);  // 0x001dc488: definition moved into src/anon/unit_001dbfd8.cpp
 
 void func_001dc9e0(void*);
 void func_001e6cd8(u32);
 void ryj_effect_scale(u8* self) asm("_ZN3ryj6EFFECT5scaleEv");
-void ryj_effect_scale(u8* self) {
-    func_001dc9e0(self);
-    func_001e6cd8(*(u32*)(self + 28));
-}
+void ryj_effect_scale(u8* self);  // 0x001dc620: definition moved into src/anon/unit_001dbfd8.cpp
 
 extern void** D_01d9e340;
 u32 func_001de948(u32 x) {

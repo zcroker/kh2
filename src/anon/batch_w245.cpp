@@ -45,19 +45,7 @@ static inline void Add(QW* d, QW* a, QW* b) {
                  : : "r"(d), "r"(a), "r"(b) : "memory");
 }
 extern "C" {
-void func_001c6320(P* s) {
-    if (func_001c5f38(s)) return;
-    if (0.0f < s->vel.f[3]) {
-        s->vel.f[3] -= D_00349e10.f;
-        QW t;
-        Scale(&t, &s->vel, D_00349e10.f);
-        Add(&s->pos, &s->pos, &t);
-        s->pos.f[3] = 1.0f;
-        if (s->vel.f[3] < 4.0f) ((u8*)s)[21] = (s32)(s->vel.f[3] * 0.25f * 128.0f);
-    } else {
-        func_001c6748(s);
-    }
-}
+void func_001c6320(P* s);  // 0x001c6320: definition moved into src/anon/unit_001c5b90.cpp
 }
 }
 
@@ -95,10 +83,6 @@ extern V4 D_01e2bd20;
 extern V4 D_01e2bd30;
 extern V4 D_01e2bd40;
 void wtarget_002c5298(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z16wtarget_002c5298jjjj");
-void wtarget_002c5298(u32 a0, u32 a1, u32 a2, u32 a3) {
-    if (a1 == 0xffff && a0 == 1) new (&D_01e2bd20) V4(0.0f, 0.0f, 1.0f, 0.0f);
-    if (a1 == 0xffff && a0 == 1) new (&D_01e2bd30) V4(-120.0f, 40.0f, 1.3f, 0.0f);
-    if (a1 == 0xffff && a0 == 1) new (&D_01e2bd40) V4(200.0f, 0.0f, 1.2f, 0.0f);
-}
+void wtarget_002c5298(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002c5298: definition moved into src/anon/unit_002c4ca8.cpp
 }
 }

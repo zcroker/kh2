@@ -70,42 +70,5 @@ s32 func_002c6490(W1636Cam*);
 // Worldmap camera target update (blends the a/b offsets by distance to object 1110 and by depth).
 // Register pins: p in s1, an unused s0 kept live (the original saves s0 but never uses it),
 // the VU0 length result in $f2 and the clamp floor in $f0.
-s32 func_002c68f0(W1636Cam* pp)
-{
-    register W1636Cam* p asm("$17") = pp;
-    register s32 ph asm("$16");
-    if (!func_0019ba60(pp->obj)) return 0;
-    asm("" : "+r"(p));
-    W1636V4 pos = *func_0016c028(p->obj);
-    if (pos.z < -14000.0f) pos.z = -14000.0f;
-    W1636V4 a;
-    W1636V4 b;
-    if (W1636Ready(func_001b6d70(18))) {
-        W1636V4 d = *func_0016c028(func_0016b740(1110)) - pos;
-        d.y = 0.0f;
-        register f32 len asm("$f2");
-        asm volatile("lqc2 $vf1, 0(%1)\n\tvmul.xyz $vf1, $vf1, $vf1\n\tvaddy.x $vf1, $vf1, $vf1y\n\tvaddz.x $vf1, $vf1, $vf1z\n\tvsqrt Q, $vf1x\n\tvwaitq\n\tcfc2.ni $8, $vi22\n\tmtc1 $8, %0" : "=f"(len) : "r"(&d) : "$8", "memory");
-        register f32 lo asm("$f0") = d.y;
-        f32 t = W1636Clamp((len - 5000.0f) / 8000.0f, lo, 1.0f);
-        f32 s = sinf(t * 3.1415927f * 0.5f);
-        a = W1636Lerp(D_01e2bdf0, D_01e2bdd0, s);
-        b = W1636Lerp(D_01e2bde0, D_01e2bdc0, s);
-    } else {
-        a = D_01e2bdd0;
-        b = D_01e2bdc0;
-    }
-    if (pos.z < -8000.0f) {
-        f32 t = W1636Clamp((pos.z - -14000.0f) / 6000.0f, 0.0f, 1.0f);
-        f32 s = sinf(t * 3.1415927f * 0.5f);
-        W1636V4 e;
-        W1636LerpTo(&e, D_01e2be00, a, s);
-        a = e;
-    }
-    p->a1 = pos + a;
-    p->b1 = pos + b;
-    p->f80 = p->f144 * 0.017453292f;
-    func_002c6490(p);
-    asm("" : : "r"(ph));
-    return 1;
-}
+// 002c68f0: moved to src/anon/unit_002c6420.cpp (linked unit)
 }

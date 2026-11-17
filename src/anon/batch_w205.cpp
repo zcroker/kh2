@@ -7,12 +7,5 @@ struct O205 { char pad[544]; V205 v; };
 
 // 002eff58: moved to src/anon/unit_002efd68.cpp
 
-void func_002be2d8(char* a0, s32 a1, V205* a2) {  // entry_set_vec3
-    O205* o = *(O205**)(a0 + a1 * 4 + 44);
-    o->v.x = a2->x;
-    V205* q = &o->v;
-    q->y = a2->y;
-    q->z = a2->z;
-    q->w = 1.0f;
-}
+void func_002be2d8(char* a0, s32 a1, V205* a2);  // 0x002be2d8: definition moved into src/anon/unit_002be020.cpp
 }

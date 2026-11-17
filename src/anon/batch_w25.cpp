@@ -37,26 +37,14 @@ void func_0013d750(u32 a);  // 0x0013d750: definition moved into src/anon/unit_0
 
 struct E20 { u8 pad[16]; u8 flag; u8 id; u8 pad2[2]; };
 // Flags every 20-byte entry whose id matches.
-void func_00141928(u8* o, u8 id) {  // mark_records_by_index
-    s32 n = *(s32*)(o + 36);
-    s32 i;
-    for (i = 0; i < n; i++) {
-        E20* e = (E20*)(i * 20 + *(u32*)(o + 8));
-        if (e->id == id) e->flag = 1;
-    }
-}
+void func_00141928(u8* o, u8 id);  // 0x00141928: definition moved into src/anon/unit_00141458.cpp
 
 struct S384 { u8 d[384]; };
 extern S384 D_0034d3c0[];
 void sceDbcInit(void);
 void func_002f5c70(u32);
 void func_00167728(S384*, s32);
-void func_00167b98(void) {
-    s32 i;
-    sceDbcInit();
-    func_002f5c70(0);
-    for (i = 0; i < 2; i++) func_00167728(&D_0034d3c0[i], i);
-}
+// 00167b98: moved to src/anon/unit_00167358.cpp
 
 void* func_0016abf8(u32, u32, u32, u32);
 void* func_001dc5f8(void*);
@@ -73,13 +61,7 @@ void* func_0016ac80(u32 a, u32 b, void* src, u32 c, u32 d) {
 struct Q16 { u32 w[4]; } __attribute__((aligned(16)));
 extern Q16 D_004f62a0;
 void func_0017d5e8(Q16*, u32, float);
-void func_0016d640(u32* p) {
-    Q16 tmp;
-    func_0017d5e8(&tmp, p[0], *(float*)&p[1]);
-    if (&tmp != &D_004f62a0)
-        asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(&D_004f62a0), "r"(&tmp) : "$8", "memory");
-    p[0] = (u32)&D_004f62a0;
-}
+// 0016d640: moved to src/anon/unit_0016d2e0.cpp
 
 s32 func_00170cd0(void);
 void func_00102448(void*, u32);
@@ -87,10 +69,7 @@ void func_00170dd0(void* a);  // 0x00170dd0: definition moved into src/anon/unit
 
 extern u8 D_01c5f480;
 void func_00185138(u32, void*, s32, float);
-void func_00171640(u32* p) {
-    func_00185138(*(u32*)(p[0] + 4), &D_01c5f480, p[2] != 0, *(float*)&p[1]);
-    p[0] = (u32)&D_01c5f480;
-}
+void func_00171640(u32* p);  // 0x00171640: definition moved into src/anon/unit_00170f58.cpp
 
 // bsearch over 8-byte entries; returns p + entry offset.
 extern u8 D_0031eec8;
@@ -98,14 +77,7 @@ u8* func_002fd248(u32, void*, u32, u32, void*);
 // 00191f20: moved to src/yasui/libys/message.cpp
 
 u32* func_001947c0(u32, u32, u32, u32);
-u32 u_call4_00194830(u32 a, u32 b, u32 c, u32 d) {
-    u32* r = func_001947c0(a, b, c, d);
-    if (r) {
-        if (*r & (1 << c)) return 1;
-        return 0;
-    }
-    return 0;
-}
+u32 u_call4_00194830(u32 a, u32 b, u32 c, u32 d);  // 0x00194830: definition moved into src/anon/unit_00194790.cpp
 
 extern u8 D_00350388;
 void func_00169398(u8*, u32, u32*, u32, u32);
@@ -125,15 +97,7 @@ u8* func_0019b380(O19b* o, u32 id) {
 
 void func_001bc688(void*);
 void func_00190128(void*);
-void func_0019da20(u8* o, u32 a) {
-    *(u32*)o = a;
-    *(u16*)(o + 4) = 0;
-    func_001bc688(o + 4);
-    func_00190128(o + 16);
-    *(u32*)(o + 60) = 0;
-    *(s32*)(o + 36) = -1;
-    *(u32*)(o + 80) = 0;
-}
+void func_0019da20(u8* o, u32 a);  // 0x0019da20: definition moved into src/anon/unit_0019ba60.cpp
 
 void func_00239700(void*);
 u32 func_001ab810(void);  // get_global_1c7cec0
@@ -151,47 +115,26 @@ u8* func_001bbcb0(void);
 
 struct O1bc { u16 f0; u16 f2; u8 f4; u8 f5; u16 pad; u32 f8; };
 u8 func_001bc2a8(u16*, u32, u32);
-void func_001bc6a8(O1bc* o, u16* a, u32 b, u32 c, u32 d) {
-    o->f2 = *a;
-    o->f4 = d;
-    o->f5 = func_001bc2a8(a, b, c);
-    o->f8 = c;
-    o->f0 = 0;
-}
+void func_001bc6a8(O1bc* o, u16* a, u32 b, u32 c, u32 d);  // 0x001bc6a8: definition moved into src/anon/unit_001bc568.cpp
 
 extern u8 D_00351d38;
 void func_001c23a8(void*, u32, u32, u32, u32, u32, u32);
-void func_001c6ea0(void* o, u32 a, u32 b, u32 c) {
-    func_001c23a8(o, a, 0, 1, 0, c, b);
-    *(void**)o = &D_00351d38;
-}
+// 001c6ea0: moved to src/anon/unit_001c6e58.cpp (linked unit)
 
 extern s32 D_00351f30;
 extern u32 D_01d49980[];
 // Returns 1 if x is in the registered list.
-s32 func_001c9db0(u32 x) {
-    s32 i;
-    for (i = 0; i < D_00351f30; i++)
-        if (D_01d49980[i] == x) return 1;
-    return 0;
-}
+s32 func_001c9db0(u32 x);  // 0x001c9db0: definition moved into src/yasui/libys/sacrifice.cpp
 
 s32 func_00197920(void);
 s32 func_0017a6c8(void*);
-void func_001c9e50(void* a) {
-    while (func_00197920() || func_0017a6c8(a)) func_00102448(a, 0);
-}
+void func_001c9e50(void* a);  // 0x001c9e50: definition moved into src/yasui/libys/sacrifice.cpp
 
 extern u8 D_003524b8;
 extern u8 D_0036e3a8;
 void func_00177dc8(u8*, u32, u32, u32, u32);
 void func_001befd8(u32, void*, u32);
-void func_001d14e0(u8* o, u32 a, u32 b, u32 c) {
-    func_00177dc8(o, a, 8, b, c);
-    *(void**)o = &D_003524b8;
-    *(u32*)(o + 1416) |= 0x4000000;
-    func_001befd8(*(u32*)(o + 2884), &D_0036e3a8, 2);
-}
+void func_001d14e0(u8* o, u32 a, u32 b, u32 c);  // 0x001d14e0: definition moved into src/anon/unit_001d14e0.cpp
 
 u8 func_001ddef0(u32**, u8*);
 u32 func_001de168(u32** o, u32 id) {  // scan_list_by_half
@@ -292,21 +235,11 @@ void LayFileReset(void) {
 extern u32 D_003616f8[];
 void func_002b6adc(u32, u32);
 void func_002b6ab8(void);
-void func_002bd1c0(void) {
-    s32 i;
-    for (i = 11; i < 25; i++) {
-        func_002b6adc(2, D_003616f8[i]);
-        func_002b6adc(0, D_003616f8[i]);
-    }
-    func_002b6ab8();
-}
+void func_002bd1c0(void);  // 0x002bd1c0: definition moved into src/anon/unit_002bc978.cpp
 
 // Calls each object's virtual slot 32 while iterating the list.
 VObj* func_002be908(VObj*);
-void func_002be960(void) {
-    VObj* o = 0;
-    while ((o = func_002be908(o)) != 0) ((void (*)(VObj*))o->vt[32])(o);
-}
+void func_002be960(void);  // 0x002be960: definition moved into src/anon/unit_002be020.cpp
 
 void func_002cf2d0(void*);
 void func_002cff50(u8* o) {

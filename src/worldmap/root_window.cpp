@@ -2,9 +2,6 @@
 
 namespace worldmap {
 
-void* RootWindow::get() {
-    u32 b = (0x0036u << 16);
-    return reinterpret_cast<void*>(*(u32*)((u32)b + (6552)));
-}
+// 0x002bf2f8: definition moved into src/anon/unit_002bebd0.cpp
 
 }  // namespace worldmap

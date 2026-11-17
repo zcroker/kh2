@@ -66,41 +66,23 @@ void func_00161f10(void* p) {
 
 extern s16 D_0034c874;
 extern s16 D_0034c876;
-void func_00166c80(s16 a, s16 b) {
-    D_0034c874 = a;
-    D_0034c876 = b;
-}
+void func_00166c80(s16 a, s16 b);  // 0x00166c80: definition moved into src/anon/unit_001664c0.cpp
 
 extern f32 D_004f5268;
 extern f32 D_004f526c;
 extern f32 D_004f5270;
-void func_00167638(f32 x, f32 y, f32 z) {
-    D_004f5268 = x;
-    D_004f526c = y;
-    D_004f5270 = z;
-}
+// 00167638: moved to src/anon/unit_00167358.cpp
 
 void func_001846a0(u32, s32, f32);
-void func_00173e10(BD_VALUE* bd) {
-    BD_VALUE a = bd[0];
-    s32 b = bd[1].i;
-    u32 obj = ((u32*)a.p)[1];
-    func_001846a0(obj, b, bd[2].f);
-}
+void func_00173e10(BD_VALUE* bd);  // 0x00173e10: definition moved into src/anon/unit_00171e58.cpp
 
 void func_001b1c10(s32, f32);
-void func_00174b28(BD_VALUE* bd) {
-    BD_VALUE a = bd[0];
-    func_001b1c10(a.i, bd[1].f);
-}
+void func_00174b28(BD_VALUE* bd);  // 0x00174b28: definition moved into src/anon/unit_00171e58.cpp
 
 void func_001d2930(s32, s32);
 void func_0018e108(s32, s32);
 void func_001a5880(s32, s32, s32);
-void func_00175328(BD_VALUE* bd) {
-    BD_VALUE a = bd[0];
-    func_001a5880(a.i, bd[1].i, bd[2].i);
-}
+void func_00175328(BD_VALUE* bd);  // 0x00175328: definition moved into src/anon/unit_00171e58.cpp
 
 // 0017fdf8: moved to src/yasui/libys/motion.cpp
 
@@ -113,7 +95,7 @@ struct S182 {
 
 u8 func_0019c898(u32);
 u32 func_0016a070();
-u32 func_0019c8a8() { return func_0019c898(func_0016a070()); }
+u32 func_0019c8a8();  // 0x0019c8a8: definition moved into src/anon/unit_0019ba60.cpp
 
 void func_001a8bb8(u8* p) {  // obj_set_header_bytes
     p[0] = 0;
@@ -129,11 +111,7 @@ void func_001a90f0() { func_001a8b38(func_001a8f10()); }
 extern u32 D_00350cc8;
 extern u32 D_00350cd0;
 extern u32 D_00350ccc;
-void func_001aeae0() {
-    D_00350cc8 = 0;
-    D_00350cd0 = 0;
-    D_00350ccc = 0;
-}
+void func_001aeae0();  // 0x001aeae0: definition moved into src/anon/unit_001ada38.cpp
 
 s32 func_001a35f8(u16, u8);
 u32 func_001d4528(u8* p);  // 0x001d4528: definition moved into src/anon/unit_001d3c08.cpp
@@ -209,7 +187,7 @@ void func_002b3420() { func_002ac678(func_002b23e0()[2]); }
 
 u32 func_002c6218();
 void func_002c6280(u32, u32);
-void func_002c0700() { func_002c6280(func_002c6218(), 1); }
+void func_002c0700();  // 0x002c0700: definition moved into src/anon/unit_002bebd0.cpp
 
 void func_002eac70(f32, f32, f32, f32);
 void func_002e7b88(f32* v) { func_002eac70(v[0], v[1], v[2], v[3]); }
@@ -272,14 +250,8 @@ s32 EIntr() {  // ee_intr_get_enable
 }  // extern "C"
 
 namespace YS {
-void trap_prize_appear_tr(BD_VALUE* bd) {
-    BD_VALUE a = bd[0];
-    func_001d2930(a.i, bd[1].i);
-}
-void trap_attack_set_hitmark_pos(BD_VALUE* bd) {
-    BD_VALUE a = bd[0];
-    func_0018e108(a.i, bd[1].i);
-}
+void trap_prize_appear_tr(BD_VALUE* bd);  // 0x001751f8: definition moved into src/anon/unit_00171e58.cpp
+void trap_attack_set_hitmark_pos(BD_VALUE* bd);  // 0x0018fc20: definition moved into src/anon/unit_0018f140.cpp
 }  // namespace YS
 
 struct Vec3 {

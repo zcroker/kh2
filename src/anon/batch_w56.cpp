@@ -47,12 +47,7 @@ PktHdr* wtarget_00133938(PktHdr** pp, PktHdr* next, u32 id, u32 a3, u32 a4)
 extern void* D_00348804;
 void func_00141c18(void*, u32, u32, u32, u32);
 void func_00141ff0(void*, u32, u32, u32, u32);
-void func_00143ae0(u32 a, u32 b, u32 c, u32 d)
-{
-    NoTail g;
-    func_00141c18(D_00348804, 0, 0, 0, 0);
-    func_00141ff0(D_00348804, a, b, c, d);
-}
+void func_00143ae0(u32 a, u32 b, u32 c, u32 d);  // 0x00143ae0: definition moved into src/anon/unit_00142c90.cpp
 
 // 0014ce88: count frames then derive a scaled time step and its reciprocal
 extern s32 D_00349e1c;
@@ -114,11 +109,7 @@ u128* func_0016be98(u128* out, u8* a)
 // 0016e000
 void* func_0014aba8(void);
 void func_0014aa58(void*, s32, s32);
-void func_0016e000(f32* a)
-{
-    s32 v = (s32)(*a * 0.5f);
-    func_0014aa58(func_0014aba8(), v, 0);
-}
+// 0016e000: moved to src/anon/unit_0016d2e0.cpp
 
 // 0017cb78
 void func_0017f488(u8*, s32, f32, f32);
@@ -145,16 +136,7 @@ void func_001384a0(s32);
 void func_002bc798(void);
 void func_002ba610(void);  // zero_global_byte_1e3
 extern u32 D_0035037c;
-void func_00196e00(O196* a)
-{
-    func_00226da8(a);
-    func_0014c9f0(4);
-    func_001c11a8(12);
-    func_001384a0(1);
-    if (!fl196_b5(a->fl)) func_002bc798();
-    if (fl196_b0(a->fl)) func_002ba610();  // zero_global_byte_1e3
-    D_0035037c = 0;
-}
+void func_00196e00(O196* a);  // 0x00196e00: definition moved into src/anon/unit_00195d00.cpp
 
 // 0019ecb0: start the blur effect
 void func_0014a7e8(s32);
@@ -165,16 +147,7 @@ void func_0014a7f8(s32);
 void func_001ad990(u8*, f32, f32, f32);
 struct BlurState { u32 started : 1; u32 rest : 31; void* on; u8 b8; u8 p9[3]; u16 x; u16 p0e; u16 y; u16 p12; f32 f20; u32 i24; u8 tail[4]; };
 void blur_start(BlurState* self, f32 t) asm("_ZN2YS4BLUR5startEf");
-void blur_start(BlurState* self, f32 t)
-{
-    self->started = 1;
-    func_0014a7e8(self->on != 0);
-    func_0014a768(self->b8);
-    func_0014a788(self->x + 256, self->y + 208);
-    func_0014a7b8(self->f20, self->i24);
-    func_0014a7f8(1);
-    func_001ad990((u8*)self + 28, 0.0f, 1.0f, t);
-}
+void blur_start(BlurState* self, f32 t);  // 0x0019ecb0: definition moved into src/anon/unit_0019ea10.cpp
 
 // 001a60c8
 struct S1a6 { u8 pad[40]; u32 v; };
@@ -196,28 +169,11 @@ struct P1ae { const char* a[2]; };
 extern P1ae D_0036d850;
 char* func_002ff8b0(const char*, s32);
 s32 strcmp(const char*, const char*);  // strcmp
-s32 func_001ae010(const char* s)
-{
-    P1ae t = D_0036d850;
-    char* e = func_002ff8b0(s, '.');
-    if (e) {
-        e++;
-        for (s32 i = 0; i < 2; i++)
-            if (strcmp(e, t.a[i]) == 0) return 1;
-    }
-    return 0;
-}
+s32 func_001ae010(const char* s);  // 0x001ae010: definition moved into src/anon/unit_001ada38.cpp
 
 // 001b2520: push a 128-bit value into a ring buffer
 struct Ring { s32 cap; s32 count; s32 head; u32 pad[2]; u128* buf; };
-void func_001b2520(Ring* r, u128* v)
-{
-    u128* d = r->buf + r->head;
-    if (d != v) asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(d), "r"(v) : "$8", "memory");
-    s32 n = r->head + 1;
-    r->count = n < r->count ? r->count : n;
-    r->head = n % r->cap;
-}
+// 001b2520: moved to src/anon/unit_001b1d20.cpp
 
 // 001b3330: clear bit 1 on every occluder entry
 struct OccS;
@@ -238,33 +194,11 @@ void occ_enable_all(OccSet* self)
 void func_001bc720(u8*);
 void func_001bc730(u8*, s32);
 struct E1bc { u16 a; u16 id; u32 x[2]; };
-void func_001bce00(u8* p)
-{
-    s32 cur = *(s32*)(p + 108);
-    s32 n;
-    if (cur < 0 || cur >= (n = *(s32*)(p + 8))) { func_001bc720(p); return; }
-    u32 id = *(u32*)(p + 112);
-    E1bc* e = (E1bc*)(p + 12);
-    if (e[cur].id == id) return;
-    s32 i;
-    for (i = 0; i < n; i++)
-        if (e[i].id == id) { func_001bc730(p, i); return; }
-    func_001bc730(p, *(s32*)(p + 108));
-}
+void func_001bce00(u8* p);  // 0x001bce00: definition moved into src/anon/unit_001bc568.cpp
 
 // 001c0298
 inline bool is_kind_5_or_6(u8 v) { return (u8)(v - 5) < 2; }
-s32 func_001c0298(u8* a, u8* b)
-{
-    if (is_kind_5_or_6(*(*(u8**)(b + 40) + 4))) return 1;
-    u32 k = *(u32*)(b + 28);
-    u32* bits = (u32*)(a + 4);
-    if (bits[k >> 5] & (1 << (k & 31))) return 0;
-    s32 c = *(s32*)(b + 32);
-    if (c == *(s32*)(a + 36) || c == 255) return 1;
-    if (0.0f < *(f32*)(a + 44)) return 0;
-    return 1;
-}
+s32 func_001c0298(u8* a, u8* b);  // 0x001c0298: definition moved into src/anon/unit_001bff88.cpp
 
 // 001d5198
 struct T1d5 { u8 key; u8 val; u16 arg; };
@@ -418,17 +352,8 @@ void func_002c8490(u8*);
 void* func_001050d8(u32);
 void func_002c77b8(void*, u32);
 extern u8* D_00361dd8;
-void func_002c85c8(u32 a)
-{
-    if (func_002c5150(a)) return;
-    u8* p = D_00361dd8;
-    if (p) {
-        if (*(u32*)(p + 192) == a) return;
-        func_002c8490(p);
-        D_00361dd8 = 0;
-    }
-    func_002c77b8(func_001050d8(5944), a);
-}
+void func_002c85c8(u32 a);  // 0x2c85c8: moved to src/anon/unit_002c7e68.cpp
+
 
 // 002d3128
 u8* func_002d1878(u32);

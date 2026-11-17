@@ -39,13 +39,5 @@ void W1757_set_pos(W1757Obj* self, const W1757Vec& v) {
 }
 
 // Counts down; when the count runs out, publishes the position (w = 0).
-void func_001733f8(W1757Timer* o) {
-    if (o->cnt-- > 0) return;
-    f32 x = o->p.x, y = o->p.y, z = o->p.z;
-    D_00350990.x = x;
-    D_00350990.y = y;
-    D_00350990.z = z;
-    D_00350990.w = 0.0f;
-    func_001024a8(o);
-}
+void func_001733f8(W1757Timer* o);  // 0x001733f8: definition moved into src/anon/unit_00171e58.cpp
 }

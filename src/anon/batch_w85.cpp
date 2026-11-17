@@ -147,19 +147,7 @@ u32 func_001a80c8(u32);  // table24_find_by_id
 u8* func_001a8190(u32);
 void func_001c3150(void*, u16);
 struct St1a2 { u8 pad[392]; u16 s[4]; u8 p400[24]; u8 r[8]; u8 p432[28]; u8 f460[4]; };
-void func_001a24a0(St1a2* o, u32 id) {
-    u8* v;
-    s32 i;
-    if (!id) return;
-    v = func_001a8190(func_001a80c8(id));
-    if (!v) return;
-    o->s[0] += v[4];
-    o->s[1] += v[5];
-    o->s[2] += v[6];
-    o->s[3] += v[7];
-    for (i = 0; i < 7; i++) o->r[i] = (o->r[i] * v[8 + i] + 99) / 100;
-    func_001c3150(o->f460, *(u16*)(v + 2));
-}
+void func_001a24a0(St1a2* o, u32 id);  // 0x001a24a0: definition moved into src/anon/unit_0019fb70.cpp
 
 s32 func_00181500(u32);
 u8* func_001947c0(u32, u32);
@@ -188,21 +176,7 @@ void func_002fee78(char*, const char*, ...);
 void func_001688c8(char*);
 void func_00168388(char*, void*, s32, s32);
 s32 func_001688b8(void);
-void func_001b1ee8(u8* o) {
-    char buf[48];
-    u32 v;
-    while (D_00350f18) func_00102448(o, 0);
-    D_00350f18 = 1;
-    v = *(u32*)(o + 4);
-    func_002fee78(buf, D_0036d9a8, v);
-    func_001688c8(buf);
-    func_00168388(buf, D_01d44440, 0, 0);
-    while (func_001688b8()) func_00102448(o, 0);
-    D_00350f1c = v;
-    D_00350f18 = 0;
-    D_01d44400 = 0;
-    D_01d48c44 = 0;
-}
+// 001b1ee8: moved to src/anon/unit_001b1d20.cpp
 
 s32 func_001bb4a0(void);
 u8* func_001bbcb0(void);
@@ -734,19 +708,7 @@ u8 wtarget_0010b468(u32 a0, u32 a1, u32, u32) {
 extern "C" {
 
 // inverse(M) * M.translation, negated
-f32* func_00107388(f32* out, u8* o) {
-    f32 m[4][4] __attribute__((aligned(16)));
-    f32 t[4] __attribute__((aligned(16)));
-    f32 r[4] __attribute__((aligned(16)));
-    f32* row3 = m[3];
-    vu_mcopy(m, o + 16);
-    vu_qcopy(t, row3);
-    vu_unit(row3);
-    vu_minv(m, m);
-    vu_mulmv(r, m, t);
-    vu_scale_to(out, r, -1.0f);
-    return out;
-}
+// 00107388: moved to src/naka/libkn/camera.cpp
 
 struct Obj180 { u8 p0[8]; void* f8; u8 p12[396]; u16 ids[16]; s32 n; };
 struct It180 { u8 p0[16]; u32 flags; u8 p20[12]; };
@@ -790,24 +752,6 @@ Vec4* func_00186b90(Vec4* out, u8* o);
 
 void func_0017c400(u8*, s32);
 // launches along a direction: flattened, normalised, with the given speed and height
-void func_001b2210(u8* o, Vec4* dir, f32 speed, f32 h) {
-    f32 y = dir->y;
-    f32 w = dir->w;
-    f32 g;
-    dir->y = 0.0f;
-    vu_normalize(dir);
-    g = (y + y) / (speed * speed);
-    *(f32*)(o + 240) = h;
-    *(f32*)(o + 244) = g;
-    func_0017c400(o, 2);
-    {
-        Vec4* dst = (Vec4*)(o + 192);
-        Vec4 t;
-        vu_scale_to(&t, dir, w);
-        *dst = t;
-    }
-    *(f32*)(o + 204) = 1.0f;
-    *(f32*)(o + 196) = -g * speed;
-}
+// 001b2210: moved to src/anon/unit_001b1d20.cpp
 
 }

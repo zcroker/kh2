@@ -30,21 +30,7 @@ void func_002367c8(u8*);  // obj_dispatch_bitfield64
 void func_001386e0(u8*, u32, u32, u8*, u32, u32);
 void func_002b740c(u32, u32, u32, u32);
 
-void func_002bd8f8(u32* p, u32 a1) {
-    p[0] = a1;
-    p[1] = (u32)func_001b8680(a1, D_002be408);
-    func_002edf68(p + 2);
-    p[15] = 0;
-    p[26] = 0;
-    D_003617fc = (u32)p;
-    u32* q = p + 11;
-    int i = 3;
-    do { *q = 0; i--; q++; } while (i >= 0);
-    ((u8*)p)[64] = 0;
-    V4 v(0.0f, 0.0f, 0.0f, 0.0f);
-    func_002c20f8(&v);
-    func_002c2168(&v);
-}
+void func_002bd8f8(u32* p, u32 a1);  // 0x002bd8f8: definition moved into src/anon/unit_002bc978.cpp
 
 void func_0031c2c8(u32* p) {
     p[0] = (u32)D_0034a568;

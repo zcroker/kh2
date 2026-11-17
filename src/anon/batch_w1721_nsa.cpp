@@ -40,31 +40,5 @@ s32 func_0019c090(W1721Obj*);
 
 /* 0019df08: scales damage when the attack target matches the owner (0.5) or the lock target (0.8),
    then sets bit 30 (0x40000000) when the hit falls inside the facing cone, the arc cone or the extra obj test. */
-s32 func_0019df08(W1721Self* self, W1721Param* prm, W1721Target* tgt, s32 a3, s32 dmg)
-{
-    W1721Obj* o = self->head->owner->obj;
-    if ((o->flags & 0x80) && func_00190680(tgt, o->b40 + 4)) {
-        dmg = (s32)(dmg * 0.5f);
-    } else if (func_00190680(tgt, (u8*)self->head + 12)) {
-        dmg = (s32)(dmg * 0.8f);
-    }
-    if (dmg > 0x3fffffff) dmg = 0x3fffffff;
-    W1721V4 d;
-    W1721V4 t2;
-    d = func_00190388(tgt) - self->pos;
-    d.normalize();
-    if (-1.0f < prm->angle) {
-        W1721V4 t;
-        func_0016af58(&t, o);
-        if (W1721_lt(d.dot(t), prm->angle)) dmg |= 0x40000000;
-    }
-    if (-1.0f < prm->range) {
-        t2 = func_0017d538(prm->cone + 3.1415927f, a3);
-        if (d.dot(t2) < prm->range) dmg |= 0x40000000;
-    }
-    if ((prm->flags >> 1) & 1) {
-        if (func_0019c090(o)) dmg |= 0x40000000;
-    }
-    return dmg;
-}
+s32 func_0019df08(W1721Self* self, W1721Param* prm, W1721Target* tgt, s32 a3, s32 dmg);  // 0x0019df08: definition moved into src/anon/unit_0019ba60.cpp
 }

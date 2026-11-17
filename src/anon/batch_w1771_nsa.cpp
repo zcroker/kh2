@@ -28,15 +28,5 @@ s32 func_002ee040(Drw2bf3*);
 // 001602f8: moved to src/harata/libdk/bgobj.cpp
 
 /* Needs -fno-strict-aliasing so the stack arguments are stored before the object reload. */
-void func_002bf308(void) {
-    if (D_00361998 == 0) {
-        func_001024a8();
-        return;
-    }
-    func_00236d60();
-    if (func_002ee040(D_00361998)) {
-        D_00361998->draw(Pos2bf3(0, 0), Col2bf3(0x80, 0x80, 0x80, 0x80));
-    }
-    func_00236d60();
-}
+void func_002bf308(void);  // 0x002bf308: definition moved into src/anon/unit_002bebd0.cpp
 }

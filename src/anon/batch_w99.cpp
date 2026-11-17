@@ -112,36 +112,7 @@ void func_002ba2e8(s32, s32);
 
 static inline u8* Alloc1382n(u32 n) { Alloc1382* h = D_00347f80->heap; return h->vt->alloc(h, n, 0); }
 
-void func_001382e0(void)
-{
-    u8** cfg = func_001a84b0();
-    func_001b1e80(cfg[2]);
-    u8* a = Alloc1382n(448);
-    *(u8**)a = D_00347f98;
-    *(u32*)(a + 12) = 0;
-    *(u8**)a = D_00347e80;
-    func_002361a0(a + 32);
-    D_00347d5c = a;
-    func_00138650(D_00347d5c, 6000, func_0013a7d0(1), 0);
-    u8* b = Alloc1382n(1312);
-    *(u8**)b = D_00347f98;
-    func_0031a838(b + 12);
-    *(u8**)b = D_00347e60;
-    func_00239700(b + 24);
-    *(u8**)(b + 448) = D_00347f98;
-    *(u32*)(b + 408) = 0;
-    *(u8**)b = D_00347d90;
-    func_0031a838(b + 460);
-    *(u8**)(b + 448) = D_00347e80;
-    func_002361a0(b + 480);
-    *(u8**)(b + 896) = D_00347f98;
-    func_0031a838(b + 908);
-    *(u8**)(b + 896) = D_00347e60;
-    func_00239700(b + 920);
-    D_00347d60 = b;
-    func_00137890(b, cfg[0], cfg[2], cfg[1]);
-    func_002ba2e8(10, 0);
-}
+void func_001382e0(void);  // 0x001382e0: definition moved into src/anon/unit_001374c8.cpp
 }
 
 // ---- 0013f6e8
@@ -214,21 +185,7 @@ static inline f32 Normalize13f6(V13f6& v)
 
 extern "C" {
 // Damped spring step: pulls *pos toward *anchor (rest length `rest`), returns the new position.
-V13f6 func_0013f6e8(V13f6* pos, V13f6* anchor, V13f6* vel, f32 dt, f32 k, f32 c, f32 rest)
-{
-    V13f6 d;
-    V13f6 v;
-    d = *pos - *anchor;
-    v = (*vel - *anchor) * dt;
-    f32 len = Length13f6(d);
-    if (len != 0.0f) {
-        f32 f = k * (rest - len) + c * (Dot13f6(d, v) / len);
-        Normalize13f6(d);
-        d *= f * dt;
-        *pos += d;
-    }
-    return *pos;
-}
+V13f6 func_0013f6e8(V13f6* pos, V13f6* anchor, V13f6* vel, f32 dt, f32 k, f32 c, f32 rest);  // 0x0013f6e8: definition moved into src/anon/unit_0013ef70.cpp
 }
 
 // ---- 0015a158
@@ -380,22 +337,8 @@ void func_00181670(void);
 void bonuslevel_up(u32) asm("_ZN2YS10BONUSLEVEL2UpEi");
 
 // YS::BONUSLEVEL::Up(int): marks bonus level `id` as obtained and applies its entries.
-void bonuslevel_up(u32 id)
-{
-    u8* e = func_001c0648(id);
-    if (func_001c09c0(id)) return;
-    BL1c08* bl = &D_0032bb30;
-    bl->count++;
-    u32* bits = bl->bits;
-    bits[id >> 5] |= 1 << (id & 31);
-    while (e < D_01d49358->e + D_01d49358->n * 16 && e[0] == id) {
-        u32 x = func_001a1658(e[1], -1);  // state_dispatch_0_1_14
-        func_001c0690(e, x);
-        e += 16;
-        func_001a17c8(x);
-    }
-    func_00181670();
-}
+// 001c0890: moved to src/anon/unit_001c0638.cpp
+void bonuslevel_up(u32 id);
 }
 
 // ---- 001d2418
@@ -435,20 +378,7 @@ void func_0016bd60_1d2418(O1d24*, s32) asm("func_0016bd60");
 void func_0017f488(u8*, s32, f32, f32);
 void func_0017f5e0(u8*, s32, s32, f32, f32);
 
-void func_001d2418(O1d24* o)
-{
-    if (0.0f < o->v16.w && (o->v16.x != 0.0f || func_003142e0(func_00313b80(o->v16.z), 0.0))) {  // double_compare
-        o->dir = o->v16;
-    } else {
-        o->dir = func_0016af58(o);
-    }
-    o->dir.y = 0.0f;
-    Normalize1d24(o->dir);
-    o->dir *= D_00352130->speed;
-    func_0016bd60_1d2418(o, 39);
-    func_0017f488((u8*)o + 320, 151, 8.0f, 0.0f);
-    func_0017f5e0((u8*)o + 320, 0, 0, 0.0f, 0.0f);
-}
+void func_001d2418(O1d24* o);  // 0x001d2418: definition moved into src/anon/unit_001d14e0.cpp
 }
 
 // ---- 00200e80
@@ -841,18 +771,7 @@ static inline Vec2cd operator+(const Vec2cd& a, const Vec2cd& b)
 
 extern "C" {
 // Hermite interpolation between p[0]/q[0] with tangents p[1]/q[1].
-Vec2cd func_002cd770(void*, Vec2cd* p, Vec2cd* q, f32 t)
-{
-    f32 t2 = t * t;
-    f32 t3 = t2 * t;
-    f32 h00 = t3 + t3 - 3.0f * t2 + 1.0f;
-    f32 h01 = -2.0f * t3 + 3.0f * t2;
-    f32 h10 = t3 - (t2 + t2) + t;
-    f32 h11 = t3 - t2;
-    Vec2cd r = p[0] * h00 + q[0] * h01 + p[1] * h10 + q[1] * h11;
-    r.w = 1.0f;
-    return r;
-}
+Vec2cd func_002cd770(void*, Vec2cd* p, Vec2cd* q, f32 t);  // 0x002cd770: definition moved into src/taito/path.cpp
 }
 
 // ---- 002cf638

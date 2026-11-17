@@ -52,39 +52,6 @@ static inline __attribute__((always_inline)) f32 nrm(V4* v) {
 
 // Steps a VU0-driven object toward its target vector; on arrival snaps,
 // normalises the offset and switches state.
-s32 func_001cb8c0(S* o) {
-    // Register placeholder: occupies s0 while o is live so that o takes s1
-    // and q (&o->v70) takes s0, as in the original. Emits no code.
-    register s32 d asm("$16");
-    if (o->t >= o->f60) {
-        o->fa0 += o->fa8 * D_00349e10;
-        o->fac += o->fb4 * D_00349e10;
-    }
-    f32 a = func_001cbf50(o->fa0);
-    o->v.x = cosf(a);
-    o->v.y = sinf(a);
-    *(s32*)&o->v.z = 0;
-    asm ("" : "=r"(d));
-    scl(&o->v, o->fac);
-    asm ("" : : "r"(d));
-    V4* q = &o->v70;
-    add(&o->v, q);
-    if (o->f68 < o->t) {
-        if (func_001cbab0(o)) {
-            ObjA* c = func_002d1260();
-            V4* p = (V4*)((u8*)c->vt->get(c) + 48);
-            sub(q, p);
-            o->v70.w = nrm(q);
-            o->t = D_00351fd8;
-            o->state = (void*)func_001cb8a0;
-            D_00361f60->vt->f(D_00361f60, 1, *o->p4c);
-            func_001ca910(o);
-            return 1;
-        }
-    }
-    o->t += D_00349e10;
-    if (o->t < o->f64) return 1;
-    return (u8)(func_001ca9c0(o) ^ 1);
-}
+s32 func_001cb8c0(S* o);  // 0x001cb8c0: definition moved into src/anon/unit_001ca8e0.cpp
 
 }

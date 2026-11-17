@@ -132,30 +132,6 @@ void func_001880b0(void*, const char*);
 s32 func_001ca498(E_w1568_ca*);
 s32 func_00186d18(E_w1568_ca*);
 void func_00187818(E_w1568_ca*);
-void func_001ca4a8(E_w1568_ca* e)
-{
-    QV_w1568_ca v(e->vel);
-    f32 len = v.normalize();
-    v.w = len;
-    if (len < 1.0f) return;
-    QV_w1568_ca d;
-    func_0016af58(&d, e);
-    if (v.dot(d) < -0.866f) {
-        if (e->flags & 0x80) {
-            QV_w1568_ca t;
-            func_0016af58(&t, e);
-            func_0018ee60(0, 992, e, &t, 1);
-        } else {
-            func_001880b0(e->x300, "dead_crash");
-        }
-    } else if (func_001ca498(e) || func_00186d18(e)) {
-        if (e->flags & 0x80) {
-            if (func_0018ee60(0, 993, e, &v, 1)) e->x28 *= 0.5f;
-        } else {
-            func_00187818(e);
-        }
-    }
-    e->x1c = 0;
-}
+void func_001ca4a8(E_w1568_ca* e);  // 0x001ca4a8: definition moved into src/anon/unit_001ca148.cpp
 
 }

@@ -11,22 +11,7 @@ extern void* D_003617fc;
 
 struct U_002bd998 { u32 a; void* b; u8 p0[0x34]; u32 c; u8 p1[0x28]; u32 f; };
 
-void func_002bd998(U_002bd998* t, u32 a1) {
-    t->a = a1;
-    t->b = func_001b8680(a1, D_002be408);
-    func_002edf68((u8*)t + 8);
-    t->c = 0;
-    t->f = 0;
-    *(u32*)&D_003617fc = (u32)t;
-    u32* p = (u32*)((u8*)t + 44);
-    for (int i = 3; i >= 0; i--) { *p = 0; p++; }
-    *((u8*)t + 64) = 0;
-    f32 z = 0.0f;
-    f32 v[4];
-    v[0] = z; v[1] = z; v[2] = z; v[3] = z;
-    func_002c20f8(v);
-    func_002c2168(v);
-}
+void func_002bd998(U_002bd998* t, u32 a1);  // 0x002bd998: definition moved into src/anon/unit_002bc978.cpp
 
 extern void func_002361a0(void*);
 extern void func_00239700(void*);

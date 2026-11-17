@@ -175,16 +175,9 @@ struct Flags2 {
     u16 on : 1;
 };
 static inline u8 is_on(u8* p) { return (*(Flags2**)(p + 60))->on; }
-void func_001973f0(u8* p) {
-    if (is_on(p)) func_00196e88(p, 6, 2, 0.0f);
-    else func_00196e88(p, 6, 0, 0.0f);
-}
+void func_001973f0(u8* p);  // 0x001973f0: definition moved into src/anon/unit_00195d00.cpp
 
-u8 func_001a74f8(void) {
-    u32 v = func_001b8e88();
-    *(u8**)(D_01c6cb78 + 2480) = 0;
-    return func_0019c218(D_01c6cb78, v);
-}
+// 001a74f8: moved to src/anon/unit_001a6a10.cpp
 
 u8 func_001aa940(u8* p, u32 a, u32 b, u32 c, u32 d) {
     return func_001ab598(*(u32*)p, p + 64, a, b, c, d);
@@ -203,10 +196,7 @@ u8 func_001b8800(u32 a) {
 
 // 001cced8: moved to src/anon/unit_001cc868.cpp
 
-u8 func_001d23e0(u32 a) {
-    u32* p = D_01d5ba04;
-    return func_002fd248(a, p + 2, p[1], 12, &D_00321698);
-}
+u8 func_001d23e0(u32 a);  // 0x001d23e0: definition moved into src/anon/unit_001d14e0.cpp
 
 void func_001e4f00(void) {
     func_001e4320(func_001e4e18(func_001e4248(func_001e3660(func_001e3650(), 1))));
@@ -281,10 +271,7 @@ void func_0029e258(s32 i) {
     func_0028dac8(b + i * 408 + 17304, 9);
 }
 
-u8 func_002c22b8(u32 a) {
-    u32* p = D_01e2bd00;
-    return func_002fd248(a, p + 2, p[1], 16, &D_00324bb0);
-}
+u8 func_002c22b8(u32 a);  // 0x002c22b8: definition moved into src/anon/unit_002c2228.cpp
 
 u8 func_002d47e8(u8* p) {
     *(void**)p = &D_003621a0;
@@ -316,13 +303,8 @@ void func_00320c80(void* p) {
 // 00185da8: moved to src/anon/unit_00185d10.cpp
 
 // Offset table lookup: entry a1 if in range and non-zero, else entry a2.
-u32 wtarget_001ce2a0(u32 a0, u32 a1, u32 a2, u32) {
-    s32* t = (s32*)a0;
-    if (!((s32)a1 < t[0] && t[a1 + 1] != 0)) a1 = a2;
-    s32 off = t[a1 + 1];
-    if (off == 0) return 0;
-    return a0 + off;
-}
+// 001ce2a0: moved to src/anon/unit_001cd660.cpp
+u32 wtarget_001ce2a0(u32 a0, u32 a1, u32 a2, u32);
 
 void wtarget_001d9ca0(u32 a0, u32 a1, u32, u32);  // 0x001d9ca0: definition moved into src/anon/unit_001d7458.cpp
 

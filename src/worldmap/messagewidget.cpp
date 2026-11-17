@@ -2,11 +2,6 @@
 
 namespace worldmap {
 
-u32 MessageWidget::isEnd() {
-    u32 p = *(u32*)((u32)this + 36);
-    u32 v = *(u32*)((u32)p + 112);
-    v ^= 0x7u;
-    return (v < 1u);
-}
+// 0x002befa8: definition moved into src/anon/unit_002bebd0.cpp
 
 }  // namespace worldmap

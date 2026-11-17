@@ -101,10 +101,7 @@ void func_001156b8(void** p) {
 // Index of v in the id list at p+16 (count at p+12), or -1.
 // 00135c88: moved to src/naka/libkn/obj_observer.cpp
 
-void func_001385c0(void) {
-    D_00347e08 = 0;
-    func_00102c48(1, 0x4baf0, (void*)func_001384d0, 0x1000);
-}
+void func_001385c0(void);  // 0x001385c0: definition moved into src/anon/unit_00138480.cpp
 
 // 00149c08: moved to src/harata/libdk/area.cpp
 
@@ -120,42 +117,25 @@ void func_001520c0(u8* p, s32 a) {
     func_00151d48(p);
 }
 
-s32 func_00167ea8(void) {
-    func_00167e00(D_0034d6c0);
-    return func_00167e00(D_0034d6c0 + 96);
-}
+// 00167ea8: moved to src/anon/unit_00167358.cpp
 
 s32 func_0016f930(s32 a);  // 0x0016f930: definition moved into src/anon/unit_0016e8f8.cpp
 
-void trap_obj_voice(u32* v) {
-    u8* o = *(u8**)(v[0] + 4);
-    (*(void (**)(u8*, u32, u32))(*(u8**)o + 84))(o, v[1], v[2]);
-}
+void trap_obj_voice(u32* v);  // 0x00171810: definition moved into src/anon/unit_00170f58.cpp
 
 // 00177638: moved to src/yasui/libys/party.cpp
 
 void func_0018e108(Q16* a, Q16* b);  // 0x0018e108: definition moved into src/anon/unit_0018d050.cpp
 
-void func_0018f858(u32* p) {
-    p[0] = func_001a4550(p[0], p[1]);
-}
+void func_0018f858(u32* p);  // 0x0018f858: definition moved into src/anon/unit_0018f140.cpp
 
-u32 target_is_exist(const u8* t) {
-    u32 r = 0;
-    if (*(u32*)(t + 8) != 0 || func_00190208(t, 0)) r = 1;
-    return r;
-}
+u32 target_is_exist(const u8* t);  // 0x00190140: definition moved into src/anon/unit_001900d0.cpp
 
 // 00191c50: moved to src/yasui/libys/status.cpp
 
 // 001ac1d0: moved to src/anon/unit_001abb28.cpp
 
-u8* func_001b1ff0(s32 a) {
-    if (a == -1) return 0;
-    D_00350f18 = 2;
-    D_01d44400++;
-    return D_01d44440;
-}
+// 001b1ff0: moved to src/anon/unit_001b1d20.cpp
 
 void func_001b2780(void* a0, void* a1, Q16* a2) {
     Q16 t;
@@ -164,29 +144,18 @@ void func_001b2780(void* a0, void* a1, Q16* a2) {
     func_0016bd60(a1, 20);
 }
 
-u32 func_001bd3e0(u8* p) {
-    if (*(u32*)(*(u8**)(p + 0x9e0) + 0x588) & 0x2000000) return 0;
-    return func_001bd418(p);
-}
+u32 func_001bd3e0(u8* p);  // 0x001bd3e0: definition moved into src/anon/unit_001bc568.cpp
 
-void func_001bd668(u8* p) {
-    while (*(u32*)(p + 0x8c0)) func_001bd618(p, 0);
-}
+void func_001bd668(u8* p);  // 0x001bd668: definition moved into src/anon/unit_001bc568.cpp
 
-void func_001bde58(u8* p) {
-    func_001bc688(p);
-    func_00190128(p + 12);
-}
+void func_001bde58(u8* p);  // 0x001bde58: definition moved into src/anon/unit_001bc568.cpp
 
 void func_001d6538(void** p);  // 0x001d6538: definition moved into src/anon/unit_001d63a8.cpp
 
 u8 func_001d7980(u32 a);  // 0x001d7980: definition moved into src/anon/unit_001d7458.cpp
 
 // Clears flag 0x4000000 on every node of the list at D_00352ae0 (next at +0x28).
-void func_001ddc48(void) {
-    for (u8* n = D_00352ae0; n; n = *(u8**)(n + 40))
-        *(u32*)(n + 8) &= ~0x4000000;
-}
+void func_001ddc48(void);  // 0x001ddc48: definition moved into src/anon/unit_001dd920.cpp
 
 void func_001fb870(u8* a, u8* b) {
     u8* s = a + **(s32**)(b + 12) + 160;

@@ -24,38 +24,8 @@ void func_001c1890(ONode*);
 void func_001c1a30(s32, s32*);
 void func_001c16a0(Mgr*, s32);
 
-void func_001c14e0(Mgr* g) {
-    LList l;
-    QM m;
-    QM* pm = &m;
-    s32 t;
-    u8* buf = func_001050d8(g->cnt * 12);
-    l.n = 0;
-    l.head = 0;
-    QM* a = func_00106a18(1);
-    Cam* c = func_00106a60(1);
-    MulMat(pm, a, c ? &c->m : 0);
-    ONode* cur = g->head;
-    u8* w = buf;
-    ONode* p = cur;
-    t = g->a30;
-    g->n34 = 0;
-    while (p) {
-        cur = ONext(g, cur);
-        if (func_001c18d0(p)) {
-            func_001c1938(p, &l, w, pm);
-            w += 12;
-            g->n34++;
-        } else if (p) {
-            func_001c1890(p);
-        }
-        p = cur;
-    }
-    w = 0;
-    while ((w = (u8*)LNext(&l, (LNode*)w)) != 0) func_001c1a30(((LNode*)w)->v, &t);
-    func_001c16a0(g, g->n34);
-    func_00105110(buf);
-}
+// 001c14e0: moved to src/anon/unit_001c0638.cpp
+void func_001c14e0(Mgr* g);
 }
 
 struct Ent { u16 id; s16 idx; s16 mul; s16 val; };

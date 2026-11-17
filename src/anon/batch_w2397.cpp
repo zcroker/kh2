@@ -51,37 +51,6 @@ void func_0019dbc0(W2397Coll*, u32, W2397Tgt*, s32, s32);
 // Walks obj's collision elements (kind 5 uses the element id, 0x83 maps to the sub-object id) and, for each one that
 // hits this collision, draws it and passes the flattened distance on to func_0019dbc0.
 // The constants and &col.b are locals set before the loop (the original keeps 5/131 in s6/s7 and spills &col.b).
-void func_0019e210(W2397Coll* self, W2397Obj* obj) {
-    if (func_0019c4f8(obj)) return;
-    W2397Elem* el = 0; W2397V* cb = &self->col.b; u32 k5 = 5; u32 k131 = 131;
-    for (;;) {
-        el = W2397Obj_select(obj, 0x4020, el);
-        if (!el) break;
-        u32 id;
-        if (el->kind == k5) {
-            id = el->id;
-            if (id == k131 && obj->sub) id = obj->sub->id;
-        } else {
-            id = obj->id;
-        }
-        if (!func_0019bdc8(obj, id, el->b0)) continue;
-        u16* e = func_0019e5f8(self, id);
-        if (!e) continue;
-        W2397Col c;
-        func_0018a818(&c, obj, el);
-        if (!func_0018a550(&c, &self->col)) continue;
-        W2397V d = c.b - *cb;
-        d.y = 0;
-        s32 dist = (s32)d.normalize();
-        u8 k = el->b0;
-        W2397Tgt tgt;
-        func_00190128(&tgt);
-        W2397Tgt_set_obj(&tgt, obj, k);
-        s32 r = W2397Coll_draw(self, e);
-        W2397X x;
-        func_0016af58(&x, obj);
-        func_0019dbc0(self, *e, &tgt, r, func_0019df08(self, e, &tgt, &x, dist));
-    }
-}
+void func_0019e210(W2397Coll* self, W2397Obj* obj);  // 0x0019e210: definition moved into src/anon/unit_0019ba60.cpp
 
 }

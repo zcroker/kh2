@@ -142,12 +142,7 @@ void func_0015a768(int a, int b) asm("_Z13func_0015a768ii");
 
 // --- 00166880
 void func_001666f0(u8*, u16, u32, u16, u16);  // obj_store_masked
-void func_00166880(u8* p, u8 c, u16 a, u32 b, u16 d, u16 e, s16 x, s16 y) {
-    func_001666f0(p, a, b, d, e);  // obj_store_masked
-    *(s16*)(p + 10) = x;
-    *(s16*)(p + 12) = y;
-    p[14] = c;
-}
+void func_00166880(u8* p, u8 c, u16 a, u32 b, u16 d, u16 e, s16 x, s16 y);  // 0x00166880: definition moved into src/anon/unit_001664c0.cpp
 
 // --- 001675b0
 void func_00167638(f32, f32, f32);
@@ -156,12 +151,7 @@ void func_00167c30(void);
 void func_00167618(void);
 extern u32 D_0032b91c;
 void func_00102788(u32, u32, u32, void (*)(void));
-void func_001675b0(void) {
-    func_00167638(60.0f, 30.0f, 4.0f);
-    func_00167b98();
-    func_00167c30();
-    func_00102788(D_0032b91c, 0, 0x1adb0, func_00167618);
-}
+// 001675b0: moved to src/anon/unit_00167358.cpp
 
 // --- 00167c30
 struct S167a { u8 pad[68]; void* p; u8 pad2[24]; };
@@ -171,12 +161,7 @@ extern S167b D_0034d3c0[];
 extern s32 D_004f5250;
 extern u32 D_0034d780;
 void func_00167f38(int);
-void func_00167c30(void) {
-    for (int i = 0; i < 2; i++) D_0034d6c0[i].p = &D_0034d3c0[i];
-    D_004f5250 = -1;
-    D_0034d780 = 0;
-    func_00167f38(0);
-}
+// 00167c30: moved to src/anon/unit_00167358.cpp
 
 // --- 0016f970
 extern u32 D_0034dc98;
@@ -192,14 +177,7 @@ extern Vec4 D_01c5f4e0;
 void func_00175538(void);
 void func_002fd188(void (*)(void));  // pool_alloc_block
 Vec4 func_00143e50(u16, int);
-void func_00173348(void* p) {
-    if (!D_01c5f4d0) {
-        D_01c5f4d0 = 1;
-        func_002fd188(func_00175538);  // pool_alloc_block
-    }
-    D_01c5f4e0 = func_00143e50(*(u16*)p, 0);
-    *(Vec4**)p = &D_01c5f4e0;
-}
+void func_00173348(void* p);  // 0x00173348: definition moved into src/anon/unit_00171e58.cpp
 
 // --- 00188670
 struct S188 { u32 a; u32 b; u32 c; };
@@ -215,26 +193,12 @@ extern u8 D_00350378;
 extern u8 D_00350379;
 extern u32 D_01c61b40;
 u32 func_00198d20(int);
-void func_00196b88(void) {
-    u32 v = func_00198d20(0);
-    D_00350379 = 0;
-    if ((v & 0x3f) - 2 < 2) {
-        D_00350378 = 1;
-        if (!(v & 0xc0)) D_00350379 = 1;
-    } else {
-        D_00350378 = 0;
-    }
-    D_01c61b40 = 1;
-}
+void func_00196b88(void);  // 0x00196b88: definition moved into src/anon/unit_00195d00.cpp
 
 // --- 00196e98
 int func_00227118(u32);
 void func_001d30f8(u8*, int, int);
-void func_00196e98(u8* p, int x) {
-    if (!x) return;
-    if (func_00227118(*(u32*)(p + 4)) == 2) func_001d30f8(p + 64, 3, x);
-    else func_001d30f8(p + 64, 2, x);
-}
+void func_00196e98(u8* p, int x);  // 0x00196e98: definition moved into src/anon/unit_00195d00.cpp
 
 // --- 001a67e0
 // Walks the list up to n (result unused), then destroys and frees n.
@@ -248,25 +212,12 @@ void func_00105110(void*);
 // Constructor: base ctor, vtable, flags and a sub-object's defaults.
 extern void* D_00350ce0[];
 void func_00185b00(u8*);
-void func_001aea00(u8* p) {
-    func_00185b00(p);
-    *(u32*)p = (u32)D_00350ce0;
-    *(u32*)(p + 1416) |= 0x400;
-    u8* m = p + 1648;
-    *(u32*)(m + 264) = 0;
-    ((Word*)(m + 260))->f = 2000.0f;
-    *(u32*)(p + 2748) |= 0x8404;
-}
+void func_001aea00(u8* p);  // 0x001aea00: definition moved into src/anon/unit_001ada38.cpp
 
 // --- 001afe70
 u8* func_001aff90(u32, u32, u32);
 int func_001affe0(u8*, u32, u32);
-int func_001afe70(u32 a, u32 b, u32 c, u32* out) {
-    u8* r = func_001aff90(a, b, c);
-    if (!r) return -1;
-    *out = r[2];
-    return func_001affe0(r, a, c);
-}
+int func_001afe70(u32 a, u32 b, u32 c, u32* out);  // 0x001afe70: definition moved into src/anon/unit_001ada38.cpp
 
 // --- 001d1fa8
 // Constructor: base part (vtable 0x3525c8), then derived vtable 0x3525e8.
@@ -276,19 +227,7 @@ void func_00320400(u8*);
 void func_001d1678(u8*, int);  // obj_init_28bytes
 void func_001d19e8(u8*, int);
 void func_001d16e8(u8*, int, int);
-void func_001d1fa8(u8* p) {  // obj_ctor_3525c8
-    *(u32*)(p + 4) = 0;
-    *(u32*)p = (u32)D_003525c8;
-    *(u32*)(p + 8) = 0;
-    func_00320400(p + 12);
-    func_001d1678(p, -1);  // obj_init_28bytes
-    *(u32*)(p + 48) = 0;
-    *(u32*)p = (u32)D_003525e8;
-    func_001d19e8(p, -1);
-    *(u32*)(p + 44) = 0;
-    *(u32*)(p + 56) = 0;
-    func_001d16e8(p, 0, 12);
-}
+void func_001d1fa8(u8* p);  // 0x001d1fa8: definition moved into src/anon/unit_001d14e0.cpp
 
 // --- 001d5ec0
 // Replaces the first entry of p[0..n) whose low 15 bits equal table[a-1][b-1]
@@ -516,14 +455,7 @@ extern u32 D_003617f4;
 extern u8 D_003617f8;
 void func_002b8a70(u32);
 void func_00102670(u32, u32);  // to_1025f8
-void func_002bd7d8(void) {
-    func_002b8a70(D_003617ec);
-    D_003617ec = 0;
-    D_003617f0 = 0;
-    func_00102670(D_0032b91c, D_003617f4);  // to_1025f8
-    D_003617f4 = 0;
-    D_003617f8 = 0;
-}
+void func_002bd7d8(void);  // 0x002bd7d8: definition moved into src/anon/unit_002bc978.cpp
 
 // --- 002cf8c0
 union U2cf { u32 w; u16 h[2]; };

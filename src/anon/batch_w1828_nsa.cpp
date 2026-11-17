@@ -84,51 +84,11 @@ union UP { u8* p; u32 u; };
 extern UP D_0035f0dc;
 #define G D_0035f0dc.p
 
-void func_001dcdb8(Obj1dc* o, s32 a, s32 b) {
-    D_01d5bb00 = o;
-    D_01d5bb04 = o->vt->f0(o, a, 0);
-    D_01d5bb08 = D_01d5bb00->vt->f0(D_01d5bb00, b, 0);
-    func_001e6d38(D_01d5bb04, a, D_01d5bb08, b, 512, 448, 512, 416, 112, 216, 0, 0x800d8, 0x31000070,
-                  0x730000007000ULL, 0x19f000001ff0000ULL, 0x5000d, 0, 1);
-    Pair1dc* p = &D_00352ae0;
-    p->a = 0;
-    p->b = 0;
-    D_00352ae8 = 0;
-}
+void func_001dcdb8(Obj1dc* o, s32 a, s32 b);  // 0x001dcdb8: definition moved into src/anon/unit_001dbfd8.cpp
 
-s32 func_00143928(O143* o) {
-    o->h64 = -1;
-    o->flags &= ~(1ULL << 34);
-    f32 t = 10000000.0f;
-    o->h62 = -1;
-    s32 r = func_00165a10() | func_00164718(D_00348804, o);
-    o->i78 = 0;
-    if (func_00165ad8(o, &t) == 0) {
-        if (func_001424c0(D_00348804, o)) o->i78 = 0;
-    } else {
-        o->v10 = v143_sub(o->v30, o->v0);
-        r |= func_00164718(D_00348804, o);
-    }
-    if (t != 10000000.0f) {
-        o->f68 = t;
-        o->flags &= ~(1ULL << 33);
-    }
-    return r;
-}
+s32 func_00143928(O143* o);  // 0x00143928: definition moved into src/anon/unit_00142c90.cpp
 
-s32 func_001bc568(E1bc* e, B1bc* b) {
-    if (elem_is_menu(e)) return 1;
-    if (func_001c8db8(D_00351eb8, 0) || func_001c8db8(D_00351ec0, 0)) return 0;
-    if (func_0019ba60(b) == 0 || (b->f588 & 0x1000000) == 0) return 0;
-    if (func_001c9b38(e) || (b->t->f8 & 0x20)) return 0;
-    switch (b->mode) { case 7: case 12: return 0; }
-    if (e->h4 == 3) {
-        if (func_001bbf40()) return 0;
-    }
-    s32 r = 0;
-    if (!(D_0034f240 & 0x40000)) { s32 lt = (b->p->b1b1 < e->b1c); r = !lt; }
-    return r;
-}
+s32 func_001bc568(E1bc* e, B1bc* b);  // 0x001bc568: definition moved into src/anon/unit_001bc568.cpp
 
 void func_001f5f10(s32 id, A1f5* a, S1f5* s) {
     f32 v[4] __attribute__((aligned(16)));

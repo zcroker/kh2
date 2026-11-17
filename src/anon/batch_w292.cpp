@@ -187,27 +187,5 @@ void func_00141c18(void*, s32, s32, s32, s32);
 s32 func_00141ff0(void*, Seg142*, QV142*, s16*, s32);
 void func_001419f8(void*, u16, Obj142*, QV142);
 
-s32 func_001424c0(void* self, Obj142* o)
-{
-    QV142 p(o->pos);
-    QV142 q(o->pos);
-    f32 r = fabsf(o->rad);  // fabsf
-    if (o->kind == 0) r = clamp142(r, 0.0f, 100.0f);
-    p.y = p.y - o->h - r;
-    q.y = q.y + o->h * 3.0f;
-    Seg142 seg(p, q);
-    QV142 out;
-    s16 hit = -1;
-    func_00141c18(self, 15, 4, 1, 0);
-    if (func_00141ff0(self, &seg, &out, &hit, (s32)(*(u64*)((u8*)o + 112) >> 3) & 0xf)) {
-        o->miss = 0;
-        o->f104 = out.y;
-        func_001419f8(self, hit, o, out);
-        return 1;
-    }
-    o->miss = 1;
-    o->f104 = 320000.0f;
-    func_001419f8(self, hit, o, o->pos);
-    return 0;
-}
+s32 func_001424c0(void* self, Obj142* o);  // 0x001424c0: definition moved into src/anon/unit_00141458.cpp
 }

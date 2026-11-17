@@ -50,31 +50,7 @@ f32 func_001ca8e0(s32);
 Obj* func_001cbc50(s32, QWord*, QWord*, s32);
 s32 func_002ceb08(void);
 
-Obj* func_001cbcf0(QWord* p, void* rot, s32 i) {
-    Obj* r = 0;
-    if (D_00351fe4) {
-        Mtx m;
-        /* s1 is saved but unused in the original: pin a dummy to it */
-        register s32 k asm("$17");
-        asm("" : "=r"(k));
-        func_0011b6a8(&m);
-        func_0011b7b0(&m, rot);
-        QWord t;
-        QWord v;
-        QWord* tr = SetVT(&v, 0.0f, -func_001ca8e0(i), 0.0f, 0.0f, &t);
-        MulMV(tr, &m, &v);
-        VAdd(&v, p, tr);
-        Obj* o = func_001cbc50(D_00351fe4, &D_0036e180[i], &v, 0);
-        o->fn = (void*)D_001cab08;
-        o->flags |= 1;
-        if (D_00361f60 && func_002ceb08() == 2) {
-            asm("" : : "r"(k));
-            o->flags |= 2;
-        }
-        r = o;
-    }
-    return r;
-}
+Obj* func_001cbcf0(QWord* p, void* rot, s32 i);  // 0x001cbcf0: definition moved into src/anon/unit_001ca8e0.cpp
 
 void func_00319bd0(void*);
 void func_00188e08(void*);

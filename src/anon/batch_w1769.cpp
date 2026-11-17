@@ -23,13 +23,5 @@ static inline W1769Vec w1769_div(const W1769Vec* v, f32 s) {
 }
 
 // o->v = o->v / o->s, through a function-local static.
-void func_0016d4d0(W1769Obj* o) {
-    W1769Vec* v = o->v;
-    if (!D_004f6310) {
-        D_004f6310 = 1;
-        func_002fd188(func_0016e890);
-    }
-    D_004f6320 = w1769_div(v, o->s);
-    o->v = &D_004f6320;
-}
+// 0016d4d0: moved to src/anon/unit_0016d2e0.cpp
 }

@@ -75,18 +75,5 @@ void func_00190128(W1816Buf*);
 void func_00190878(W1816Buf*, W1816Act*, s32);
 s32 func_001bd418(s32, s32, s32, W1816Buf*, s32, s32);
 s32 func_001bd3e0(s32, s32, s32, W1816Buf*, s32, s32);
-void func_00189e18(W1816Act* self, s32 a, s32 b) {
-    W1816Act* pl = D_0034e948;
-    if (!func_0019ba60(pl)) return;
-    W1816Buf v; func_00190128(&v);
-    if (W1816F(self, 0x588, u32) & 0x80) {
-        W1816Sub* s = &self->sub;
-        if (W1816F(self, 0x160, u32) & 0x4000) { func_00190878(&v, s->tgt, b); goto done; }
-    }
-    func_00190878(&v, self, b);
-done:
-    if (pl == self) { if (!func_001bd418(W1816F(pl, 0xb44, s32), 1, a, &v, 1, 100)) return; }
-    else if (!func_001bd3e0(W1816F(pl, 0xb44, s32), 1, a, &v, 1, 100)) return;
-    W1816F(pl, 0x50c, s32) = a; W1816F(pl, 0x160, u32) |= 0x20000;
-}
+void func_00189e18(W1816Act* self, s32 a, s32 b);  // 0x00189e18: definition moved into src/anon/unit_00189d38.cpp
 }

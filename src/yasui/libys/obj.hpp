@@ -27,6 +27,7 @@ namespace YS {
         u32 can_capture_control();
         u32 is_ghost();
         u32 is_attach();
+        void detach();
         u32 is_leave();
         u32 is_hover();
         void attach_camera(kn::FMatrix*);

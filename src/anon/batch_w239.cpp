@@ -36,16 +36,7 @@ void* func_001a8f10(void*);  // arg_map_0_1_2
 extern s32 D_00351f30;
 extern u32 D_01d49980[];
 void func_001c97b0(void* a, f32 f) asm("_Z13func_001c97b0Pvf");
-void func_001c97b0(void* a, f32 f) {
-    u8* s0 = (u8*)func_0017e668();
-    if (func_0019ba60(s0)) {
-        if (!(*(volatile u32*)(s0 + 2040) & 0x10)) {
-            func_001ad990((u32)(s0 + 2092), 1.0f, 0.0f, f);
-        }
-        *(u32*)(s0 + 2040) |= 0x10;
-    }
-    D_01d49980[D_00351f30++] = (u32)func_001a8f10(a);  // arg_map_0_1_2
-}
+void func_001c97b0(void* a, f32 f);  // 0x001c97b0: definition moved into src/yasui/libys/sacrifice.cpp
 
 void func_00108698(void*);
 void func_00144450(void*);
@@ -102,10 +93,5 @@ void func_00293e00(s32 a) {
 }
 
 f32 atanf(f32);
-void func_00106fe8(u8* a, f32 x) {
-    f32 k = 0.5f;
-    *(f32*)(a + 64) = x;
-    *(f32*)(a + 68) = atanf(512.0f / *(f32*)(a + 76) * k / x) * 2.0f;
-    *(f32*)(a + 72) = atanf(416.0f / *(f32*)(a + 80) * k / x) * 2.0f;
-}
+// 00106fe8: moved to src/naka/libkn/camera.cpp
 }

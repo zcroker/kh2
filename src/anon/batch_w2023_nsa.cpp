@@ -71,26 +71,7 @@ s32 W2023_ctarget(W2023Pl*) asm("_Z16ctarget_0019ba60jjjj");
 void W2023_rotateY(W2023M*, f32) asm("_ZN2kn7FMatrix7rotateYEf");
 f32 func_001cbf50(f32);
 
-s32 func_001cab28(W2023Ob* o)
-{
-    W2023Pl* pl = W2023_current();
-    f32 t;
-    o->timer -= D_00349e10;
-    if (o->timer <= 0.0f || !W2023_ctarget(pl)) return 0;
-    t = o->timer / D_00351fd8;
-    W2023V v = o->vel;
-    v *= o->vel.w * t;
-    f32 one = 1.0f;
-    v.w = one;
-    W2023M m;
-    func_0011b6a8(&m);
-    if (o->dir) W2023_rotateY(&m, func_001cbf50(D_00351fe0 * (one - t)));
-    else W2023_rotateY(&m, func_001cbf50(-D_00351fe0 * (one - t)));
-    m = W2023Mul(*pl->vt[40](pl), m);
-    o->pos = W2023MulV(m, v);
-    o->b16 = t * 255.0f;
-    return 1;
-}
+s32 func_001cab28(W2023Ob* o);  // 0x001cab28: definition moved into src/anon/unit_001ca8e0.cpp
 
 s32 func_0022a3d0(s32 n, f32 x, s32* a, s32* b, s32* c, s32* d, s32* e, s32* f, s32* g, s32* h, f32* out);
 void W2023_hide(void*) asm("_ZN2dk5Obj2D9localHideEv");
@@ -180,27 +161,5 @@ struct W2023Q {
 } __attribute__((aligned(16)));
 s32 func_002cbf70(void* a, W2023Q* out, W2023Q* p, f32 t);
 
-W2023Q func_002cba88(void* a, const W2023Q& from, const W2023Q& other, f32 t, f32 k)
-{
-    W2023Q o;
-    W2023Q p = from;
-    if (t > 50.0f) t = 50.0f;
-    if (!func_002cbf70(a, &o, &p, t)) {
-        W2023Q r = other;
-        r.w = 0.0f;
-        return r;
-    }
-    W2023Q d1 = o - from;
-    W2023Q d2 = o - p;
-    f32 l1 = d1.normalize();
-    d2.normalize();
-    if (t * 10.0f < l1) {
-        d1.w = 1.0f;
-        return d1;
-    }
-    W2023Q m = d1 * (1.0f - k) + d2 * k;
-    m.normalize();
-    m.w = 1.0f;
-    return m;
-}
+W2023Q func_002cba88(void* a, const W2023Q& from, const W2023Q& other, f32 t, f32 k);  // 0x002cba88: definition moved into src/taito/path.cpp
 }

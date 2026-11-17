@@ -21,11 +21,7 @@ extern "C" {
 // --- 0016d800
 struct VP209 { V209* p; u32 x; f32 y; };
 extern V209 func_0017d348(V209* self, u32 x, f32 y);
-void func_0016d800(VP209* a) {
-    V209* self = a->p;
-    u32 x = a->x;
-    *self = func_0017d348(self, x, a->y);
-}
+// 0016d800: moved to src/anon/unit_0016d2e0.cpp
 
 // --- 001a6600
 extern f32 func_001826e0(void);  // global_float_diff
@@ -81,9 +77,6 @@ void func_00281cf0(u32 a) {
 // --- 002cd3e0
 extern V209* func_0016c028(u32);  // obj_get_attach_or_alt
 extern void func_002cd428(u32, V209*);
-void func_002cd3e0(u32 a, u32 b) {
-    V209 t(*func_0016c028(b));  // obj_get_attach_or_alt
-    func_002cd428(a, &t);
-}
+void func_002cd3e0(u32 a, u32 b);  // 0x002cd3e0: definition moved into src/taito/path.cpp
 
 }

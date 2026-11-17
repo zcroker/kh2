@@ -29,14 +29,7 @@ u32 func_00258b00(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_00138480(0x00000000u, a1, a2, a3);
 }
 
-u32 func_002c0448(u32 a0, u32 a1, u32 a2, u32 a3) {
-    *(u32*)((u32)((u32)&D_00360000) + 6768u) = (u32)(0x00000000u);
-    *(u32*)((u32)(a0) + 0u) = (u32)((u32)&D_00361da8);
-    return func_00105110(a0, a1, a2, a3);
-}
+u32 func_002c0448(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002c0448: definition moved into src/anon/unit_002bebd0.cpp
 
-u32 func_002cb0c0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    *(u32*)((u32)((u32)&D_00360000) + 7760u) = (u32)(0x00000000u);
-    *(u32*)((u32)(a0) + 0u) = (u32)((u32)&D_00361da8);
-    return func_00105110(a0, a1, a2, a3);
-}
+u32 func_002cb0c0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x2cb0c0: moved to src/anon/unit_002cac58.cpp
+

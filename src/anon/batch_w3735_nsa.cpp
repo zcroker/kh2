@@ -50,45 +50,5 @@ void func_00141988(FColl*, FTri*, FPoly*);
 s32 func_00163828(FV*, FV*, FV*);
 
 // Collision triangle hit test: resolves a hit against triangle idx (or a height test when bit 0 is clear).
-void func_001419f8(FColl* c, u16 idx, FRes* r, FV* p) {
-    if (idx == 0xffff) {
-        r->fl.hit = 1;
-        r->idx = -1;
-        return;
-    }
-    if (r->fl.b0) {
-        // Register pins + no-code asm: the triangle pointer lives in s4 and the index offset stays in t7
-        // (without them gcc swaps idx/tri between s3 and s4).
-        FTri* tb = c->tris;
-        register u32 off asm("$15") = (u32)idx << 4;
-        register FTri* t asm("$20") = (FTri*)((u8*)tb + off);
-        asm("" : "+r"(t) : "r"(tb), "r"(off));
-        FV* pl = &c->planes[t->plane];
-        FPoly poly;
-        func_00141988(c, t, &poly);
-        FV v = r->pos;
-        if (!c->noMtx) v = c->mtx * v;
-        if (func_00163828(&v, poly.v[0], pl)) {
-            r->fl.hit = 1;
-        } else {
-            if ((*(u32*)((u8*)c->mats + (t->mat << 2)) & 0xf) == 2) r->fl.hit = 1;
-            else r->fl.hit = 0;
-            r->pos = *p;
-        }
-    } else {
-        f32 z = 0.0f;
-        asm("" : "+f"(z)); // no code: keeps mtc1 zero before the q copy
-
-        FV q = r->base;
-        f32 d = r->x14;
-        if (z < d) q.y += d;
-        if (q.y + (r->x6c - r->x24) + r->x80 - 1.0f < p->y) {
-            r->fl.hit = 1;
-        } else {
-            r->fl.hit = 0;
-            r->pos = *p;
-        }
-    }
-    r->idx = idx;
-}
+void func_001419f8(FColl* c, u16 idx, FRes* r, FV* p);  // 0x001419f8: definition moved into src/anon/unit_00141458.cpp
 }

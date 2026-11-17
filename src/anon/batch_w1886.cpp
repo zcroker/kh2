@@ -47,24 +47,7 @@ inline W1886Obj::~W1886Obj() { func_001b4f40(this); }
 
 extern "C" {
 
-void func_0018a670(W1886Body* a, W1886Body* b, W1886V* out)
-{
-    W1886V s;
-    W1886V inv;
-    W1886V d;
-    inv.x = inv.z = 1.0f / (a->h + b->h);
-    inv.y = 1.0f / (a->r + b->r);
-    d = b->pos - a->pos;
-    s = d * inv;
-    f32 l = s.x * s.x + s.z * s.z;
-    if (0.0f < l) {
-        *out = s * ((__builtin_sqrtf((1.0f - s.y * s.y) / l) - 1.0f) * (a->h + b->h + 5.0f));
-    } else {
-        out->x = a->h + b->h + 5.0f;
-        out->z = 0.0f;
-    }
-    out->y = 0.0f;
-}
+void func_0018a670(W1886Body* a, W1886Body* b, W1886V* out);  // 0x0018a670: definition moved into src/anon/unit_00189d38.cpp
 
 extern u32 D_0034f240;
 extern f32 D_00349e10;

@@ -69,10 +69,7 @@ extern u32 D_004f5250;
 extern u32 D_004f5258[];
 extern s32 D_0034d780;
 void func_00167f38(void);
-void func_00167fc8(void) {
-    D_004f5258[D_0034d780++] = D_004f5250;
-    func_00167f38();
-}
+// 00167fc8: moved to src/anon/unit_00167358.cpp
 
 u32 func_001c0cd8(void*);
 u8* func_0016c028(u8* p) {  // obj_get_attach_or_alt
@@ -105,21 +102,9 @@ void func_00196e00(void*);
 // YS::EVENT::Exit: tear down the current event object, if any.
 u8 opDelete_u8(void*) asm("func_00105110");
 u8 EventExit(void) asm("_ZN2YS5EVENT4ExitEv");
-u8 EventExit(void) {
-    void* e = D_0035037c;
-    if (e) {
-        func_00196e00(e);
-        return opDelete_u8(e);
-    }
-}
+u8 EventExit(void);  // 0x00197be8: definition moved into src/anon/unit_00195d00.cpp
 
-void func_001a49a0(u8* p, u8* a, u8* b) {
-    u8* d = p + 224;
-    if (d != a) asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(d), "r"(a) : "$8", "memory");
-    d = p + 240;
-    if (d != b) asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(d), "r"(b) : "$8", "memory");
-    *(u32*)(p + 4) |= 0x20;
-}
+// 001a49a0: moved to src/anon/unit_001a3e70.cpp
 
 extern s32 D_01c6cba0[2];
 // 001a8510: moved to src/anon/unit_001a82f0.cpp
@@ -256,13 +241,7 @@ void func_002a03a0(void) {
 
 void func_002c6380(void);
 void func_002c6190(void*);
-void func_002c6158(u32* p) {
-    p[0] = 1;
-    p[1] = 26000;
-    p[2] = (u32)func_002c6380;
-    p[3] = 0;
-    func_002c6190(p);
-}
+void func_002c6158(u32* p);  // 0x002c6158: definition moved into src/worldmap/cameramanager.cpp
 
 extern u32 D_00362428;
 void func_002cfeb0(void*, u32, u32, u32);  // obj_init_field1416_bit800

@@ -128,104 +128,10 @@ s32 func_001a2478(W1635Sheet*);
 W1635Default* func_001c0cc8(void) __attribute__((pure));
 
 // Set the sheet up from its data record (null = keep the current one).
-void func_001a11e0(W1635Sheet* s, W1635SheetData* d) {
-    if (d == 0) {
-        W1635SheetData* p = s->data;
-        if (p == 0) return;
-        d = p;
-    }
-    W1635FormInfo* fi = func_001b6fb0(s->form, d->b15);
-    s32 v = d->b5;
-    s->g[0].cur = v;
-    s->g[0].max = v;
-    s->g[0].x8 = 0;
-    s32 m = d->b4;
-    if (v < m) m = v;
-    s->g[0].cur = m;
-    s->x180 = (u32)d->b6 < (u32)d->b7 ? d->b6 : d->b7;
-    s->x184 = d->b7;
-    s->stat[0] = s->stat2[0] = fi->str + d->b9;
-    s->stat[1] = s->stat2[1] = fi->mag + d->b10;
-    s->stat[2] = s->stat2[2] = fi->def + d->b11;
-    s32 r = func_001b73e8(fi, s->form);
-    s->stat[3] = s->stat2[3] = d->b8 + r;
-    s->f1bc = d->b12 * 60.0f;
-    s->f1c0 = d->b13 * 60.0f;
-    W1635Drive* dr = s->drive;
-    if (dr) {
-        s->c[0] = dr->c[0];
-        s->c[1] = dr->c[1];
-        s->c[2] = dr->c[2];
-        s->c[3] = dr->c[3];
-        s->f1b4 = dr->f0;
-        s->f1b8 = dr->f1;
-        s->g[0].x8 = D_01c6cabc.v;
-    }
-    void* sub = s->sub;
-    func_001c2f90(sub, s);
-    for (s32 j = 0; j < 7; j++) s->rate[j] = 100;
-    s32 i;
-    for (i = 0; i < 2; i++) func_001a24a0(s, d->ability[i]);
-    if (s->extra) func_001a24a0(s, *s->extra);
-    for (i = 0; i < d->n10; i++) func_001a24a0(s, d->list10[i]);
-    for (i = 0; i < d->n11; i++) func_001a24a0(s, d->list11[i]);
-    func_001c3060(sub);
-}
+void func_001a11e0(W1635Sheet* s, W1635SheetData* d);  // 0x001a11e0: definition moved into src/anon/unit_0019fb70.cpp
 
 static inline bool W1635_is6(W1635Obj* o) { return o->xb50 == 6; }
 
 // Damage/amount for an attack against this sheet (idx picks the gauge used for the low-gauge bonus).
-s32 func_001a1e20(W1635Sheet* s, W1635Attack* a, W1635AttackData* ad, s32 idx) {
-    s32 v = 0;
-    W1635Sheet* sh = 0;
-    s32 lo, hi;
-    W1635Obj* o = a->obj;
-    if (o && (sh = o->sheet)) {
-        switch (ad->kind) {
-        case 0:
-            v = sh->stat[0];
-            if ((o->flags & 4) && func_001a1de0(sh)) v += func_00177860(a->obj)->bonus;
-            break;
-        case 1:
-            v = sh->stat[1];
-            break;
-        }
-        lo = sh->lo;
-        hi = sh->hi;
-    } else {
-        W1635Default* dft = func_001c0cc8();
-        v = dft->v;
-        lo = dft->lo;
-        hi = dft->hi;
-    }
-    switch (ad->type) {
-    case 5:
-        v = (s->g[idx].max * v * ad->power + 9999) / 10000;
-        break;
-    case 6:
-        v = (v * ad->power + 99) / 100;
-        break;
-    default: {
-        v -= s->stat[2];
-        if (func_001a2478(s)) v -= s->b1fc;
-        s32 mx = lo < s->x1a0 ? lo : s->x1a0;
-        s32 mn = s->x1a4 < hi ? hi : s->x1a4;
-        v = v < mx ? v : mx;
-        v = mn < v ? v : mn;
-        s32 rate = s->rate[ad->elem] * s->rate[6];
-        v = (v * ad->power * rate + 999999) / 1000000;
-        v = func_001a2108(s, v, a->x8);
-        v = func_001a2200(s, v);
-        if (func_0019ba60(s->owner)) {
-            W1635Obj* ow = s->owner;
-            if ((ow->flags & 0x80) && W1635_is6(ow)) v = (s32)(v * D_00352130->f94);
-        }
-        v = func_001a22b0(s, v, sh, ad);
-        v = func_001a2340(s, v, sh, ad);
-        break;
-    }
-    }
-    if ((s32)(s->g[idx].max * s->f240) >= s->g[idx].cur) v = (v * D_00352130->x178 + 99) / 100;
-    return v;
-}
+s32 func_001a1e20(W1635Sheet* s, W1635Attack* a, W1635AttackData* ad, s32 idx);  // 0x001a1e20: definition moved into src/anon/unit_0019fb70.cpp
 }

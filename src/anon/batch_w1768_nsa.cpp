@@ -6,10 +6,5 @@ void* func_001050c8(void);
 void func_002ee8a8(O3*, void*, u32);
 extern u8 D_00361bf0[];
 static inline void vset(V4* v, f32 x, f32 y, f32 z, f32 w) { v->x = x; v->y = y; v->z = z; v->w = w; }
-void func_002c1f08(O3* p, u32 a) {
-    func_002ee8a8(p, func_001050c8(), a);
-    p->vt = D_00361bf0;
-    vset(&p->a, 0.0f, 0.0f, 0.0f, 0.0f);
-    vset(&p->b, 0.0f, 0.0f, 0.0f, 1.0f);
-}
+void func_002c1f08(O3* p, u32 a);  // 0x002c1f08: definition moved into src/anon/unit_002c1e80.cpp
 }

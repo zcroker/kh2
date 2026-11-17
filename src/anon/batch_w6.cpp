@@ -31,12 +31,7 @@ void func_0011c798(u8* p, u32 a) {
 // Set a timer (at least 15000) with a byte parameter and raise its flag.
 struct S4240 { u8 flag; u8 b; u8 pad[2]; s32 time; };
 extern S4240 D_004f4240;
-void func_001671e8(s32 t, u8 b) {
-    if (t < 15000) t = 15000;
-    D_004f4240.time = t;
-    D_004f4240.flag = 1;
-    D_004f4240.b = b;
-}
+void func_001671e8(s32 t, u8 b);  // 0x001671e8: definition moved into src/anon/unit_001664c0.cpp
 
 void func_00170888(void*);
 void func_001badd8(void);
@@ -48,51 +43,32 @@ void ys_area_read(void* task) {
 }
 
 void func_0017f488(u32, u32, f32, f32);
-void func_00171150(u32* p) {
-    func_0017f488(p[0] + 320, p[1], *(f32*)&p[2], 0.0f);
-}
+void func_00171150(u32* p);  // 0x00171150: definition moved into src/anon/unit_00170f58.cpp
 
 void func_001cfac0(u32, f32, f32, f32, f32);
 struct S1a40 { u32* obj; f32 a, b, c, d; };
-void func_00171a40(S1a40* p) {
-    func_001cfac0(p->obj[1], p->a, p->b, p->c, p->d);
-}
+void func_00171a40(S1a40* p);  // 0x00171a40: definition moved into src/anon/unit_00170f58.cpp
 
 void func_00187a18(u32, u32, u32, u32, void*);
-void func_00172f00(u32* p) {
-    func_00187a18(p[0], p[1], p[2], p[3], p + 4);
-}
+void func_00172f00(u32* p);  // 0x00172f00: definition moved into src/anon/unit_00171e58.cpp
 
 // 00178cf8: moved to src/yasui/libys/player.cpp
 
 u32 func_001a6a20(u32, u32);
-void func_0018fd10(u32* p) {
-    p[0] = func_001a6a20(p[0], p[1]);
-}
+void func_0018fd10(u32* p);  // 0x0018fd10: definition moved into src/anon/unit_0018f140.cpp
 
 void func_00187018(u32, u32, u32, u32, f32);
-void func_0018fd40(u32* p) {
-    u32 c = p[2];
-    u32 b = p[1];
-    u32 a = p[0];
-    func_00187018(a, b, c, p[3], *(f32*)&p[4]);
-}
+void func_0018fd40(u32* p);  // 0x0018fd40: definition moved into src/anon/unit_0018f140.cpp
 
 void func_001b9db0(u32);
 void func_00197c90(void);
 void func_001ada38(u32);
-void ys_prepare_scene(void) {
-    func_001b9db0(2000);
-    func_00197c90();
-    func_001ada38(11);
-}
+void ys_prepare_scene(void);  // 0x00197738: definition moved into src/anon/unit_00195d00.cpp
 
 u32 func_0016bff0(void);
 u8 func_00195700(void*, u32);
 extern u8 D_0034fa78;
-u32 ys_is_mark_history(void) {
-    return func_00195700(&D_0034fa78, func_0016bff0());
-}
+// 001a6c60: moved to src/anon/unit_001a6a10.cpp
 
 void func_0017c430(u32);
 void func_0016bd60(u32, u32);
@@ -115,23 +91,15 @@ extern u8 D_00320408;
 
 void func_001be4e0(u8*, u32);
 void func_002ba2e8(u32, u32);
-void func_001be4b0(u8* p) {
-    func_001be4e0(p, *(u32*)(p + 0xaa4) ? 0 : 6);
-    func_002ba2e8(20, 0);
-}
+void func_001be4b0(u8* p);  // 0x001be4b0: definition moved into src/anon/unit_001bc568.cpp
 
 extern u32* D_01d49558;
 extern u8 D_00320c08;
-void func_001c2d48(u32 a) {
-    u32* p = D_01d49558;
-    func_002fd248(a, p + 2, p[1], 8, &D_00320c08);
-}
+void func_001c2d48(u32 a);  // 0x001c2d48: definition moved into src/anon/unit_001c2b58.cpp
 
 u32 func_001a8b68(void);
 u32 func_0017e668(u32);
-u32 ys_can_end(void) {
-    return func_0017e668(func_001a8b68()) == 0;
-}
+u32 ys_can_end(void);  // 0x001c9d88: definition moved into src/yasui/libys/sacrifice.cpp
 
 // Increment a u16 counter, saturating at 999.
 extern u16 D_0032fafe[];
@@ -148,9 +116,7 @@ void func_00168388(u32, void*, void (*)(void), u32);
 extern u32 D_00352aec;
 extern u8 D_01d5bb40;
 void func_001dcd68(void);
-void func_001dcd88(void) {
-    func_00168388(D_00352aec, &D_01d5bb40, func_001dcd68, 0);
-}
+void func_001dcd88(void);  // 0x001dcd88: definition moved into src/anon/unit_001dbfd8.cpp
 
 struct Pair { u32 a, b; };
 void func_001de690(u32);

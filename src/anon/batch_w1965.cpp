@@ -35,24 +35,7 @@ s32 func_0018f010(W1965aTgt*);
 void func_00186a90(u8*, W1965aV*, f32);
 void func_0017f488(u8*, s32, f32, f32);
 void func_0017f5e0(u8*, s32, s32, f32, f32);
-void func_001cf320(u8* o, s32 a1, W1965aTgt* t)
-{
-    f32 spd = 100.0f;
-    W1965aV c;
-    W1965aV n;
-    n = *func_0016c028(t->obj) - *func_0016c028(o);
-    W1965aNormalize(&n);
-    c = W1965aCross(func_0016af58(o), n);
-    s32 id;
-    f32 ang;
-    if (c.y < 0.0f) { id = 140; ang = 1.5707964f; }
-    else { id = 141; ang = -1.5707964f; }
-    { W1965aV t = func_0016af58(o); n = func_0017d538(t, ang); }
-    if (func_0018f010(t)) spd = 2000.0f;
-    func_00186a90(o, &n, spd);
-    func_0017f488(o + 320, id, 0.0f, 0.0f);
-    func_0017f5e0(o + 320, 0, 0, 0.0f, 0.0f);
-}
+void func_001cf320(u8* o, s32 a1, W1965aTgt* t);  // 0x001cf320: definition moved into src/anon/unit_001cf0b0.cpp
 }
 
 // 002df500

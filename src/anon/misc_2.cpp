@@ -92,9 +92,9 @@ void func_002a8a80(void* self) {}
 
 void func_002aece8(void* self) {}
 
-s16 func_002bc988(void* self) { return (s16)(*(s16*)((char*)self + 8)); }
+s16 func_002bc988(void* self);  // 0x002bc988: definition moved into src/anon/unit_002bc978.cpp
 
-s32 func_002cb918(void* self) { return (s32)(*(s32*)((char*)self + 4)); }
+s32 func_002cb918(void* self);  // 0x002cb918: definition moved into src/taito/path.cpp
 
 void func_002d00d8(void* self) { *(s32*)((char*)self + 2832) = 0; }
 

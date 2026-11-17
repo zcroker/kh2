@@ -60,28 +60,7 @@ s32 func_00190140(void*);
 V58e func_00190388(void*);
 
 
-void func_002c04c8(O58a* o, V58a* out1, V58a* out2) {
-    V58a c;
-    V58a a;
-    V58a b;
-    V58a* p = (V58a*)func_0016c028(o->x60);
-    func_001904a8(&a, o->x64);
-    w1958_lerp(&c, p, &a, 0.15f);
-    V58a* q = (V58a*)func_0016c028(o->x60);
-    func_001904a8(&b, o->x64);
-    w1958a_vsub(&a, q, &b);
-    f32 len = w1958a_vlen(&a);
-    f32 t = 0.0f;
-    if (1000.0f < len) {
-        if (len < 6000.0f) t = (len - 1000.0f) / 5000.0f;
-        else t = 1.0f;
-    }
-    w1958_lerp(&b, &D_01e2bc80, &D_01e2bc90, t);
-    w1958a_vadd(&a, &c, &b);
-    *out1 = a;
-    w1958a_vadd(&a, &c, &D_01e2bc70);
-    *out2 = a;
-}
+void func_002c04c8(O58a* o, V58a* out1, V58a* out2);  // 0x002c04c8: definition moved into src/anon/unit_002bebd0.cpp
 
 void func_002deba0(O58b* o, A58b* act, f32 a, f32 b) {
     f32 lo, hi;
@@ -121,20 +100,5 @@ L:
     }
 }
 
-V58e* func_001a4b78(V58e* r, O58e* o) {
-    V58e d;
-    if (func_0019ba60(o->xc)) {
-        *r = func_0016bda8(o->xc) - o->xe0;
-        r->normalize();
-    } else {
-        *r = func_0016af58(o->x84);
-    }
-    if (func_00190140(o->x84->x9f4)) {
-        d = func_00190388(o->x84->x9f4) - o->xe0;
-        d.normalize();
-        *r = *r + d;
-        r->normalize();
-    }
-    return r;
-}
+// 001a4b78: moved to src/anon/unit_001a3e70.cpp
 }

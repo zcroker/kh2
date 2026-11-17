@@ -100,14 +100,7 @@ s32 func_002abff0(s32 a0, s32 a1) {
     }
     return res;
 }
-QV257 func_002cd950(void* self, f32 t, const QV257* p, const QV257* q) {
-    f32 t2 = t * t;
-    f32 h00 = t2 * 6.0f - t * 6.0f;
-    f32 h01 = t2 * -6.0f + t * 6.0f;
-    f32 h10 = t2 * 3.0f - t * 4.0f + 1.0f;
-    f32 h11 = t2 * 3.0f - (t + t);
-    return p[0] * h00 + q[0] * h01 + p[1] * h10 + q[1] * h11;
-}
+QV257 func_002cd950(void* self, f32 t, const QV257* p, const QV257* q);  // 0x002cd950: definition moved into src/taito/path.cpp
 extern s8 D_01e2bd80;
 extern QV257 D_01e2bd90;
 void func_00178cf8(u8*);  // clear_vecs_three
@@ -120,21 +113,7 @@ void func_002cb0e8(u32*, QV257*, f32);
 u32 func_002c1b48(u32);
 void func_002cab98(u32);
 void func_002c17a0(void);
-void func_002c5dc0(u8* a0, u32* a1) {
-    func_00178cf8(a0);  // clear_vecs_three
-    QV257 d = func_00190388(a1) - *func_0016c028(a0);  // vec4_from_arg
-    d.y = 0.0f;
-    normalize257(&d);
-    func_0016aef0(a0, &d);
-    if (!D_01e2bd80) {
-        D_01e2bd80 = 1;
-        set4_257(&D_01e2bd90, 0.0f, 0.0f, 1.0f, 0.0f);
-        func_002fd188(func_002c6118);  // pool_alloc_block
-    }
-    func_002cb0e8(a1, &D_01e2bd90, 0.0f);
-    func_002cab98(func_002c1b48(*a1));
-    func_002c17a0();
-}
+void func_002c5dc0(u8* a0, u32* a1);  // 0x002c5dc0: definition moved into src/anon/unit_002c53c8.cpp
 extern u8* D_00352130;
 struct S32bb { u8 pad[0x3db0]; u16 h; };
 extern S32bb D_0032bb30;
@@ -144,15 +123,5 @@ s32 func_0019ba60(u8*);
 s32 func_0017e280(u8*);
 f32 func_002f8b30(f32, f32);
 #define MAX257(a, b) ((a) > (b) ? (a) : (b))
-void func_001aefa0(u8* a0) {
-    for (s32 i = 0; i < 2; i++) {
-        u8* p = func_0017df58(i);
-        if (func_0019ba60(p)) {
-            if (!func_0017e280(p)) return;
-        }
-    }
-    f32 m = MAX257(func_002f8b30(*(f32*)(D_00352130 + 0xd8), (f32)D_0032bb30.h), *(f32*)(D_00352130 + 0xdc));
-    D_003638d0 *= 0x10dcd;
-    if ((f32)D_003638d0 * 2.3283064365386963e-10f < m) a0[0xc] = 1;
-}
+void func_001aefa0(u8* a0);  // 0x001aefa0: definition moved into src/anon/unit_001ada38.cpp
 }

@@ -20,44 +20,5 @@ s32 func_00181500(s32);
 void func_002f1900(void*, s32, W324Obj*);
 static inline bool cf(W324C4* p) { if (p->r < 2) return false; u32 m = p->a & 2; u32 r = m == 0; return r; }
 static inline bool big(W324C4* p) { return p->r >= 3; }
-void func_002bf650(W324Obj* o, W324C4* p) {
-    s32 m = 151;
-    if (p->r != 0) {
-        if (p->r != 1) {
-            o->b1 = 0; o->b5 = 0;
-            func_002c2228(o->sub->id);  // to_15ee90_if_nonzero
-        } else {
-            o->b1 = 0; o->b5 = 1;
-            m = 161;
-            func_002c2248(o->sub->id);  // to_15ee10_if_nonzero
-        }
-    } else {
-        o->b1 = 1; o->b5 = 1;
-        m = 161;
-        func_002c2248(o->sub->id);  // to_15ee10_if_nonzero
-    }
-    func_0017f540(o->mot, m, 0.0f, 0.0f);
-    if (cf(p)) o->b6 = 0;
-    else o->b6 = 1;
-    if (p->a & 1) {
-        if (o->afc == 0) o->afc = func_0016abf8(o, 3, 1, 0);
-    } else if (o->afc) {
-        func_001dc920(o->afc);
-        o->afc = 0;
-    }
-    if (big(p)) {
-        if (o->b00 == 0) o->b00 = func_0016ac38(o, 5, 1, 0, 0);
-    } else if (o->b00) {
-        func_001dc920(o->b00);
-        o->b00 = 0;
-    }
-    u32 cv = D_00375480[p->r];
-    W324C4* d = &o->col; d->r = cv; d->g = cv >> 8; d->b = cv >> 16; d->a = cv >> 24;
-    if (o->sub->kind == 18) {
-        if (p->r < 2) func_002f1990(o->eff);
-        else if (func_00181500(0x481c)) func_002f1900(o->eff, 8, o);
-        else func_002f1900(o->eff, 6, o);
-    }
-    o->cur = *p;
-}
+void func_002bf650(W324Obj* o, W324C4* p);  // 0x002bf650: definition moved into src/anon/unit_002bebd0.cpp
 }

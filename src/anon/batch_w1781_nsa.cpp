@@ -55,20 +55,8 @@ void w1781_set_pos(void* obj, const W1781Vec* v) asm("_ZN2YS3OBJ7set_posERKN2kn7
 extern f32 D_00349e10;
 void func_0017d748(W1781Vec* out, W1781Obj* self, f32 t);
 
-void func_002c7060(W1781Obj* self, void* obj) {
-    W1781Vec v;
-    f32 dur;
-    self->time += D_00349e10;
-    dur = self->dur;
-    if (self->time < dur) {
-        func_0017d748(&v, self, self->time / dur);
-        w1781_set_pos(obj, &v);
-    } else {
-        w1781_set_pos(obj, &self->p30);
-        w1781_sub(&v, &self->p40, &self->p30);
-        self->dur = 0.0f;
-    }
-}
+void func_002c7060(W1781Obj* self, void* obj);  // 0x2c7060: moved to src/anon/unit_002c6eb8.cpp
+
 
 struct W1781Ent616 { u8 d[616]; };
 struct W1781Mgr616 { W1781Ent616 ent[64]; s32 list[64]; s32 count; };

@@ -52,21 +52,5 @@ s32 func_0019ba60(u32);
 // Partial asm: the "+f"(w) tie stops gcc reusing the first w*t product (the original multiplies twice),
 // the "+r"(pm) tie keeps &m in s0 as the original does, and a is pinned to $f0.
 extern "C" {
-s32 func_001c7720(Obj1c7720* p) {
-    if ((p->f40 -= D_00349e10) <= 0.0f || !func_0019ba60(p->p48)) return 0;
-    f32 w = p->v30.w;
-    f32 t = p->f40 / 80.0f;
-    QM1577 m;
-    func_0011b6a8(&m);
-    QM1577* pm = &m; asm("" : "+r"(pm) : "m"(m));
-    register f32 a asm("$f0") = 150.0f / (w * t);
-    asm("" : "+f"(w));
-    if (!(a < D_01d498c0)) a = D_01d498c0;
-    *pm = *func_0011b720(&m, a);
-    p->v30 = m * p->v30;
-    p->v30.w = w;
-    p->pos = p->v30 * (w * t) + func_0016be98(p->p48);
-    p->b16 = (s32)(t * 255.0f);
-    return 1;
-}
+// 001c7720: moved to src/anon/unit_001c7148.cpp (linked unit)
 }

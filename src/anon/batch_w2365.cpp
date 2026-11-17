@@ -47,15 +47,9 @@ s32 func_0019ad00(W2365_Own* o, s32 id)
     return 0;
 }
 
-u32 func_001ce248(s32 kind, const s8* p)
-{
-    return W2365_Find(D_00352134, kind, p[0] | (p[1] << 8) | (p[2] << 16) | (p[3] << 24))->data;
-}
+// 001ce248: moved to src/anon/unit_001cd660.cpp
+u32 func_001ce248(s32 kind, const s8* p);
 
-void func_001cebb0(void)
-{
-    D_003521d0 = new W2365_Obj;
-    W2365_CreateTask(1, 14001, func_001cec08)->next = func_001cec28;
-}
+void func_001cebb0(void);  // 0x001cebb0: definition moved into src/anon/unit_001ce6e8.cpp
 
 }

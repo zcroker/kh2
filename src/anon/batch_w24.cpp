@@ -5,12 +5,7 @@
 extern "C" {
 
 // 3x3 determinant of a row-major matrix.
-f32 func_0011bd70(f32* m) {  // mat3_det
-    f32 a = m[4] * m[8] - m[5] * m[7];
-    f32 b = m[3] * m[8] - m[5] * m[6];
-    f32 c = m[3] * m[7] - m[4] * m[6];
-    return m[0] * a - m[1] * b + m[2] * c;
-}
+f32 func_0011bd70(f32* m);  // 0x0011bd70: definition moved into src/anon/unit_0011b3f8.cpp
 
 void func_001369d0(void);
 void func_001369f0(void);
@@ -34,19 +29,13 @@ static inline s32 list_has(LNode** hp, u32 a) {
     return 0;
 }
 u8 u_call4_00139d78(u32, u32, u32, u32) asm("_Z16u_call4_00139d78jjjj");
-u8 u_call4_00139d78(u32 a, u32, u32, u32) {
-    D_00347f80->cur = a;
-    return list_has(&D_00347f80->head, a);
-}
+u8 u_call4_00139d78(u32 a, u32, u32, u32);  // 0x00139d78: definition moved into src/anon/unit_001393c8.cpp
 
 // Apply func_00167ad0 to both 384-byte slots.
 void u_call4_00167b08(u32, u32, u32, u32) asm("_Z16u_call4_00167b08jjjj");
 void func_00167ad0(u8*, u32);
 extern u8 D_0034d3c0[];
-void u_call4_00167b08(u32 a, u32, u32, u32) {
-    for (u8* p = D_0034d3c0; (s32)p < (s32)(D_0034d3c0 + 768); p += 384)
-        func_00167ad0(p, a);
-}
+// 00167b08: moved to src/anon/unit_00167358.cpp
 
 void wtarget_0016d230(u32, u32, u32, u32) asm("_Z16wtarget_0016d230jjjj");
 extern u32 D_004f6288;
@@ -66,16 +55,7 @@ u8 func_00170cd0(void);  // 0x00170cd0: definition moved into src/anon/unit_0016
 // YS::FORMRAM::set_ability: store an ability id into the first free slot (bit 15 = equipped).
 struct FormRam { u8 _0[8]; u16 ab[24]; };
 void formram_set_ability(FormRam*, int) asm("_ZN2YS7FORMRAM11set_abilityEi");
-void formram_set_ability(FormRam* self, int id) {
-    id &= 0x7fff;
-    for (s32 i = 0; i < 24; i++) {
-        u16 v = self->ab[i];
-        if ((v & 0x7fff) == 0) {
-            self->ab[i] = (v & 0x8000) | id | 0x8000;
-            return;
-        }
-    }
-}
+void formram_set_ability(FormRam* self, int id);  // 0x001891b8: definition moved into src/anon/unit_00188848.cpp
 
 void func_001bff88(void);
 void func_001c2b70(void);
@@ -93,14 +73,7 @@ extern s32 D_01c61958;
 
 s32 func_00197c28(u32*);
 void func_00196e88(u32*, s32, s32, f32);
-void func_00197390(u32* p) {
-    if (func_00197c28(p)) {
-        p[13] = 1;
-        return;
-    }
-    p[0] |= 2;
-    func_00196e88(p, 4, 0, 0.0f);
-}
+void func_00197390(u32* p);  // 0x00197390: definition moved into src/anon/unit_00195d00.cpp
 
 s32 func_00195700(void*);
 extern u8 D_0034f250;
@@ -115,14 +88,7 @@ s32 func_0019ab30(s32* p) {
 }
 
 s32 func_00181858(u32*);
-s32 func_0019d748(u32* p) {
-    s32 r = 0;
-    if (func_00181858(p)) {
-        u32 m = p[8] & 1;
-        r = m != 0;
-    }
-    return r;
-}
+s32 func_0019d748(u32* p);  // 0x0019d748: definition moved into src/anon/unit_0019ba60.cpp
 
 void func_00239700(u32*);
 s32 func_001ab810(void);  // get_global_1c7cec0
@@ -164,50 +130,28 @@ void u_tail0_001b87b0(void) {
 }
 
 // ids 5, 10 and 13..18
-s32 func_001bcf38(s32* p) {  // state_in_set_5_10_13to18
-    switch (*p) {
-    case 5: case 10: case 13: case 14: case 15: case 16: case 17: case 18:
-        return 1;
-    }
-    return 0;
-}
+s32 func_001bcf38(s32* p);  // 0x001bcf38: definition moved into src/anon/unit_001bc568.cpp
 
 struct N80 { u8 _0[80]; N80* next; };
 extern N80* D_01d49350;
 void func_001c0490(N80*);
-void func_001c0560(void) {
-    N80* n = 0;
-    while ((n = !n ? *(N80* volatile*)&D_01d49350 : n->next) != 0) func_001c0490(n);
-}
+void func_001c0560(void);  // 0x001c0560: definition moved into src/anon/unit_001bff88.cpp
 
 void func_001c23a8(u32*, u32, s32, s32, s32, u32, u32);
 extern void* D_00351d38[];
-void func_001c6e58(u32* p, u32 a, u32 b, u32 c) {
-    func_001c23a8(p, a, 0, 1, 0, c, b);
-    *(void**)p = D_00351d38;
-}
+// 001c6e58: moved to src/anon/unit_001c6e58.cpp (linked unit)
 
 // YS::SUMMON::IsTinkExist
 u8 summon_IsTinkExist(void) asm("_ZN2YS6SUMMON11IsTinkExistEv");
 u32 func_001d6d00(s32);
 s32 func_001c8ab0(void);
 extern u8 D_0032bb30[];
-u8 summon_IsTinkExist(void) {
-    u8 r = 0;
-    u32 id = func_001d6d00(306);
-    if (func_001c8ab0() && D_0032bb30[13605] == id) r = D_0032bb30[13607] != 0;
-    return r;
-}
+// 0x1c8b48: moved to src/yasui/libys/summon.cpp
 
 u32 func_001e3468(u32);
 s32 func_00143fc8(void*, u32);
 extern u8 D_00352b00;
-s32 func_001dccc8(u32* p, u8 flag) {
-    s32 r = 0;
-    if (p[2] & 0x1000000) return 0;
-    if (flag) r = func_00143fc8(&D_00352b00, func_001e3468(p[7]));
-    return r;
-}
+s32 func_001dccc8(u32* p, u8 flag);  // 0x001dccc8: definition moved into src/anon/unit_001dbfd8.cpp
 
 s32 func_002f1670(void*);
 void func_001024a8(u32);
@@ -273,22 +217,12 @@ void func_002ba7c8(u32 a) {
 void func_002baa60(u8*);
 u32* func_00168b38(u32, s32, u32);  // entry_array_find_nth
 void func_002baa08(u32, u32, s32, s32);
-void func_002be568(u8* p, u32 x) {
-    func_002baa60(p);
-    u32* r = func_00168b38(*(u32*)(p + 104), -1, x);  // entry_array_find_nth
-    func_002baa08(r[2], r[3], 16383, 64);
-}
+void func_002be568(u8* p, u32 x);  // 0x002be568: definition moved into src/anon/unit_002be020.cpp
 
 // dk::WM_TOTAL_INFO::fadeout
 void wm_total_info_fadeout(void*) asm("_ZN2dk13WM_TOTAL_INFO7fadeoutEv");
 void func_00138c10(u8*, s32);
-void wm_total_info_fadeout(void* self) {
-    u8* s = (u8*)self + 192;
-    if (*(s32*)(s + 388) != 77) {
-        func_00138c10(s, 77);
-        *(s32*)(s + 392) = -1;
-    }
-}
+void wm_total_info_fadeout(void* self);  // 0x002c14a8: definition moved into src/anon/unit_002c10e0.cpp
 
 // Clear the vector at q+32, then scale p.xyzw by p.w and zero p.z.
 void func_002d5c20(f32*, u8*);

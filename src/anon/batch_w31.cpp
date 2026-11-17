@@ -142,31 +142,11 @@ void func_0014f578(u32 a) {
 // 00155410: moved to src/anon/unit_00153ea0.cpp
 void func_00155410(u8* p);
 
-void func_00167e28(u8* p) {
-    *(u32*)(p + 72) &= ~1;
-    func_00167658(p, 0);
-    *(u64*)p = func_00167cd0(p);
-}
+// 00167e28: moved to src/anon/unit_00167358.cpp
 
-void func_00173558(u8* p) {
-    u32 tmp[4] __attribute__((aligned(16)));
-    func_001a7888(tmp, *(u32*)p, 1, *(f32*)(p + 4), *(f32*)(p + 8));
-    u8* d = D_01c5f480;
-    if ((u8*)tmp != d) {
-        asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(d), "r"(tmp) : "$8", "memory");
-    }
-    *(u8**)p = d;
-}
+void func_00173558(u8* p);  // 0x00173558: definition moved into src/anon/unit_00171e58.cpp
 
-void func_001735b0(u8* p) {
-    u32 tmp[4] __attribute__((aligned(16)));
-    func_001a78c0(tmp, *(u32*)p, 2, *(f32*)(p + 4), *(f32*)(p + 8), *(f32*)(p + 12), *(f32*)(p + 16));
-    u8* d = D_01c5f480;
-    if ((u8*)tmp != d) {
-        asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(d), "r"(tmp) : "$8", "memory");
-    }
-    *(u8**)p = d;
-}
+void func_001735b0(u8* p);  // 0x001735b0: definition moved into src/anon/unit_00171e58.cpp
 
 // 00176d68: moved to src/yasui/libys/party.cpp
 
@@ -174,11 +154,7 @@ typedef int (*VFn4)(void*, u32, int, int);
 // 00179f80: moved to src/yasui/libys/player.cpp
 
 typedef void (*VFn3)(void*, void*, u32);
-void* func_001a07b0(void* p, u32 a, u32 b) {
-    void** o = func_0017aab8(5);
-    (*(VFn3*)(*(u8**)o + 28))(p, o, b);
-    return p;
-}
+void* func_001a07b0(void* p, u32 a, u32 b);  // 0x001a07b0: definition moved into src/anon/unit_0019fb70.cpp
 
 // 001a78c0: moved to src/yasui/libys/bg.cpp
 
@@ -187,34 +163,9 @@ void* func_001a07b0(void* p, u32 a, u32 b) {
 
 // 001ad5a8: moved to src/anon/unit_001abb28.cpp
 
-int func_001c9b38(u8* p) {
-    int r;
-    switch (*(u16*)(p + 2)) {
-    case 4:
-        return func_001c99b0(*(s16*)(p + 4));
-    case 72:
-        r = 2;
-        if (!func_001c9ab8(p)) goto out;
-    default:
-        r = 0;
-    }
-out:
-    return r;
-}
+int func_001c9b38(u8* p);  // 0x001c9b38: definition moved into src/yasui/libys/sacrifice.cpp
 
-int func_001ca448(u8* p) {  // type_is_16_44_161
-    switch (*(s32*)(p + 340)) {
-    case 16:
-    case 44:
-        return 0;
-    case 161: {
-        u32 m = *(u32*)(p + 1416) & 0x80;
-        return m == 0;
-    }
-    default:
-        return 1;
-    }
-}
+int func_001ca448(u8* p);  // 0x001ca448: definition moved into src/anon/unit_001ca148.cpp
 
 // Next 10-byte entry after e (or the first when e is null); null past the end.
 u8* func_001d9e30(u8* e) {  // record_range_check_or_first
@@ -235,21 +186,7 @@ void func_001dbb38(void) {
 }
 
 // Look up key in a 32-byte record table; outputs the record's first two words.
-bool func_001dc018(u8** p, s32 key, u32* a, u32* b) {
-    u8* t = *p;
-    s32 n = *(s32*)(t + 12);
-    u8* e = t + 16;
-    int r = 0;
-    for (s32 i = 0; i < n; i++, e += 32) {
-        if (*(s32*)(e + 8) == key) {
-            *a = *(u32*)e;
-            *b = *(u32*)(e + 4);
-            r = 1;
-            break;
-        }
-    }
-    return r;
-}
+bool func_001dc018(u8** p, s32 key, u32* a, u32* b);  // 0x001dc018: definition moved into src/anon/unit_001dbfd8.cpp
 
 void func_001e2998(void) {
     void* o = D_00352bd0;

@@ -113,32 +113,7 @@ static inline u32 rnd273(void) {
   D_003638d0 = D_003638d0 * 0x10dcd;
   return D_003638d0;
 }
-s32 func_001affe0(Tbl273* t, s32 a1, s32 a2) {
-  s32 out[5];
-  s32 cnt = 0;
-  s32 i = 0;
-  s32 pct = func_00312db8(rnd273(), 0x28f5c29);
-  u8* e = (u8*)t;
-  s32* o = out;
-  for (; i < 5; i++, e += 2) {
-    s32 r = func_001b0148(t, a1, (s8)e[4], a2);
-    if (r >= 0) {
-      if ((s8)e[5] > 0) {
-        pct -= (s8)e[5];
-        if (pct < 0) return r;
-      } else {
-        *o++ = r;
-        cnt++;
-      }
-    }
-  }
-  if (cnt > 0) {
-    u32 s = rnd273();
-    u64_273 d = func_00312db8((u64_273)(u32)(cnt - 1) + 0x100000000ULL, (u32)cnt);
-    return out[(s32)func_00312db8(s, d)];
-  }
-  return -1;
-}
+s32 func_001affe0(Tbl273* t, s32 a1, s32 a2);  // 0x001affe0: definition moved into src/anon/unit_001ada38.cpp
 
 Sub273* func_00120800(Own273*);  // obj_get_sub_ptr_by12
 void func_0011efe8(Own273*, u8*);

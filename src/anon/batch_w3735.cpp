@@ -31,34 +31,7 @@ void func_002827f0(u8* a, s32 b, s32 c) {
 
 // Applies table entries whose type bit is in mask: entry types 7/8/2 are gated by checks on y and x->a,
 // then entry byte [x->idx] (if not 255) is stored to x->o.
-void func_001c20e8(u32 mask, X* x, Y* y) {
-    if (x->fl & 4) return;
-    E* e = D_01d49510->e;
-    for (s32 i = 0; i < D_01d49510->n; i++, e++) {
-        // Constants held in locals: loop.c then keeps 1/7/8 in s5/s7/s8 like the original.
-        s32 one = 1, seven = 7, eight = 8;
-        s32 t = e->type;
-        if (!(mask & (one << t))) continue;
-        if (t == seven) goto c7;
-        if (t >= 8) goto g8;
-        if (t == 2) goto c2;
-    ap: {
-        u8 v = e->v[x->idx];
-        if (v != 255) x->o = v;
-        continue;
-        }
-    c2:
-        if (!x->a) continue;
-        if (!(x->a->f & 0x4000)) continue;
-        goto ap;
-    g8:
-        if (t != eight) goto ap;
-        if (nchk(y) == false) goto ap;
-        continue;
-    c7:
-        if (chk(y)) continue;
-        goto ap;
-    }
-}
+// 001c20e8: moved to src/anon/unit_001c0638.cpp
+void func_001c20e8(u32 mask, X* x, Y* y);
 
 }

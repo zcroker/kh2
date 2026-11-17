@@ -36,62 +36,7 @@ static inline f32 vdist(V2cdcd8* a, V2cdcd8* b)
     asm volatile(".set noreorder\n\tlqc2 $vf1, 0(%1)\n\tvmul.xyz $vf1, $vf1, $vf1\n\tvaddy.x $vf1, $vf1, $vf1y\n\tvaddz.x $vf1, $vf1, $vf1z\n\tvsqrt Q, $vf1x\n\tvwaitq\n\tcfc2.ni $8, $vi22\n\tmtc1 $8, %0\n\t.set reorder" : "=f"(d) : "r"(&r) : "$8");
     return d;
 }
-f32 func_002cdcd8(Path2cdcd8* p, s32* idx, f32* t, V2cdcd8* pos, f32 maxDist)
-{
-    V2cdcd8* v;
-    s32 last;
-    *idx = (s32)p->pos;
-    *t = p->pos - (f32)*idx;
-    if (p->forward && 0.9999f < *t) {
-        (*idx)++;
-        *t = 0.0f;
-    } else if (!p->forward && *t < 0.0001f) {
-        (*idx)--;
-        *t = 1.0f;
-    }
-    last = p->count - 1;
-    if (*idx >= last) {
-        *idx = last;
-        v = func_002cb890(p, last);
-    } else if (*idx < 0) {
-        *idx = 0;
-        *t = 0.0f;
-        v = func_002cb890(p, *idx);
-    } else {
-        f32 lo, hi, bestT, best;
-        s32 bestIdx, n;
-        if (p->forward) {
-            lo = *t;
-            hi = 1.0f;
-        } else {
-            hi = *t;
-            lo = 0.0f;
-        }
-        bestT = *t;
-        best = -1.0f;
-        bestIdx = *idx;
-        for (n = 0; n < 2; n++) {
-            V2cdcd8* a = func_002cb890(p, *idx);
-            V2cdcd8* b = func_002cb890(p, (*idx + 1) % p->count);
-            f32 d = func_002cdb60(p, t, pos, a, b, lo, hi);
-            if (best < 0.0f || d < best) {
-                best = d;
-                bestIdx = *idx;
-                bestT = *t;
-            }
-            if (p->forward) *idx = *idx + 1; else *idx = *idx - 1;
-            if (*idx < 0 || *idx >= p->count - 1) break;
-            *t = 0.0f;
-            hi = 1.0f;
-            lo = *t;
-        }
-        *idx = bestIdx;
-        *t = bestT;
-        if (best < maxDist) return best;
-        return -1.0f;
-    }
-    return vdist(pos, v);
-}
+f32 func_002cdcd8(Path2cdcd8* p, s32* idx, f32* t, V2cdcd8* pos, f32 maxDist);  // 0x002cdcd8: definition moved into src/taito/path.cpp
 }
 
 extern "C" {

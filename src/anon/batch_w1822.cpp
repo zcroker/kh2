@@ -17,23 +17,6 @@ void func_001bf010(W22PC*);
 void func_001be540(W22PC*, W22Menu*);
 void func_001bc780(W22Menu*, s32, s32, s32);
 
-void func_001be778(W22PC* p)
-{
-    W22Menu* m = &p->menu;
-    if (PC_is_override_top(p)) { func_001be890(p, m); return; }
-    Menu_clear(m);
-    func_001be540(p, m);
-    if (Summon_GetMode() == 0) {
-        if (p->f358 > 0) func_001bc780(m, 0x48, 0, 1);
-        else func_001bc780(m, 0x68, 0, 1);
-    } else func_001bc780(m, 0x13c, 0, 1);
-    if (Summon_GetMode() == 2 && Summon_GetCurrent() == 201) {
-        func_001bf010(p);
-        func_001bc780(m, 0x25d, 0, 1);
-    } else {
-        func_001bc780(m, func_001819c0() ? 0x49 : 0x68, 0, 1);
-    }
-    func_001bc780(m, func_00181a18() ? 0x51 : 0x68, 0, 1);
-}
+void func_001be778(W22PC* p);  // 0x001be778: definition moved into src/anon/unit_001bc568.cpp
 
 }

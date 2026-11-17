@@ -94,18 +94,7 @@ extern VObj* D_00347d5c;
 extern s32 D_00347d58;
 extern u32 D_00347d60;
 void func_001b2028(u32);
-void func_00137930(u8* p) {
-    u8* b = p + 896;
-    u8* a = p + 448;
-    if (*(u32*)(p + 1304)) {
-        if (func_00139d78(a)) func_00139510(a);
-        if (func_00139d78(b)) func_00139510(b);
-        (*(void (**)(VObj*))((u8*)D_00347d5c->vt + 20))(D_00347d5c);
-        func_001b2028(*(u32*)(p + 1304));
-    }
-    D_00347d58--;
-    D_00347d60 = 0;
-}
+void func_00137930(u8* p);  // 0x00137930: definition moved into src/anon/unit_001374c8.cpp
 // ---- 001435a0
 // Looks up an entry's 2-bit attribute (bits 14-15) in the current table.
 struct E143 { u8 pad[14]; u16 h14; };
@@ -114,22 +103,7 @@ extern T143* D_00348814;
 void func_00141980(T143*, u8*);
 u32 func_00142848(T143*, u32);
 u32 func_00142688(T143*, u32*, u32, u32);
-u32 func_001435a0(u32 a) {
-    u8 buf[2048];
-    u32 x;
-    u32 r = 0;
-    if (!D_00348814) return r;
-    func_00141980(D_00348814, buf);
-    u32 v = func_00142848(D_00348814, a);
-    x = 0;
-    u32 i = func_00142688(D_00348814, &x, v, a);
-    r = 0;
-    if (i == 0xffff) return r;
-    u32 o = i * 16;
-    T143* t = D_00348814;
-    u32 o2 = ((E143*)((u8*)t->f12 + o))->h14 * 4;
-    return (*(u32*)((u8*)t->f20 + o2) >> 14) & 3;
-}
+u32 func_001435a0(u32 a);  // 0x001435a0: definition moved into src/anon/unit_00142c90.cpp
 // ---- 00159b40
 void func_00141010(f32);
 u8* func_00140df0(void);
@@ -194,21 +168,7 @@ u32 func_0016bc20(u32, u32, s32);
 void func_0018a818(S18b*, u32, u32);
 s32 func_0018a550(S18b*, S18b*);  // state_dispatch_0_1_3
 extern u32 D_0034e948;
-s32 func_0018bd50(u32 a, u32 b) {
-    u32 v = func_0016bc20(a, b, -1);
-    if (!v) return 0;
-    S18b t1;
-    func_0018a818(&t1, a, v);
-    u32 s = D_0034e948;
-    S18b t2;
-    if (s) {
-        u32 w = func_0016bc20(s, 1, -1);
-        if (!w) return 0;
-        func_0018a818(&t2, s, w);
-        if (func_0018a550(&t1, &t2)) return 1;
-    }
-    return 0;
-}
+s32 func_0018bd50(u32 a, u32 b);  // 0x0018bd50: definition moved into src/yasui/libys/npc.cpp
 
 // ---- 00192a80
 s32 func_00192440(u8*, s32);  // is_byte_lt25
@@ -221,18 +181,7 @@ u8* func_0016d080(u32, s32);
 void func_0016cce8(u8*, s32, s32, s32, s32);
 void func_0016cbc8(u8*, s32, s32, s32);
 u32 func_0016cb88(u8*, s32);
-s32 func_00196908(u32 a) {
-    s32 i;
-    for (i = 0; i < 8; i++) if (!D_00350338[i].f4) break;
-    E196* e = &D_00350338[i];
-    u8* v = func_0016d080(a, 0);
-    e->f4 = v;
-    func_0016cce8(v, 2, 0, 0, 0);
-    func_0016cbc8(v, 3, 0, 0);
-    *(u32*)(v + 36) = func_0016cb88(v, 4);
-    e->f0 = 0;
-    return i;
-}
+s32 func_00196908(u32 a);  // 0x00196908: definition moved into src/anon/unit_00195d00.cpp
 // ---- 00199718
 extern u8 D_0032bae0;
 extern u8* D_01c62148[];
@@ -306,37 +255,12 @@ s32 func_001b9c90(u8* p) {
 // ---- 001bf930
 u32 func_0016c028(u8*);  // obj_get_attach_or_alt
 void func_002bc188(s32, u32);
-void func_001bf930(u32, u8* p) {
-    f32 v = *(f32*)(p + 36);
-    if (2.5f < v) {
-        *(f32*)(p + 36) = v * -0.8f;
-        s32 c = *(s32*)(p + 2532);
-        if (c < 2) {
-            func_002bc188(14, func_0016c028(p));
-            c = *(s32*)(p + 2532);
-        }
-        *(s32*)(p + 2532) = c + 1;
-    } else {
-        *(u32*)(p + 2528) |= 1;
-        asm volatile("vsub.wxyz $vf1,$vf0,$vf0\n\tsqc2 $vf1,0(%0)" : : "r"(p + 32) : "memory");
-    }
-    *(u32*)(p + 264) |= 0x8000000;
-}
+void func_001bf930(u32, u8* p);  // 0x001bf930: definition moved into src/anon/unit_001bc568.cpp
 // ---- 001c38c0
 extern f32 D_00349e10;
 void func_0017f488(u8*, s32, f32, f32);
 void func_0017f5e0(u8*, s32, s32, f32, f32);
-void func_001c38c0(u32, u8* p) {
-    if (0.0f < *(f32*)(p + 244)) {
-        if (*(u32*)(p + 268) & 4) *(f32*)(p + 244) -= D_00349e10;
-        else *(f32*)(p + 244) = 0.0f;
-        if (*(f32*)(p + 244) <= 0.0f) {
-            *(f32*)(p + 240) = *(f32*)(p + 248);
-            func_0017f488(p + 320, 204, 0.0f, 0.0f);
-            func_0017f5e0(p + 320, 4, 0, 8.0f, 0.0f);
-        }
-    }
-}
+void func_001c38c0(u32, u8* p);  // 0x001c38c0: definition moved into src/anon/unit_001c2b58.cpp
 // ---- 001c5e88
 s32 func_001dbd68(u8*);
 extern Vq D_01d49880;
@@ -345,31 +269,12 @@ struct E1c5 { u8 pad[16]; Sub1c5 sub; };
 extern E1c5 D_00351680[];
 void func_001c5e18(void);
 static inline void dec1c5(Sub1c5* s) { s->cnt--; }
-void func_001c5e88(u8* p) {
-    s32 v = func_001dbd68(p);
-    if (v) {
-        p[21] = 0;
-        *(u32*)(p + 84) = 0;
-    } else {
-        p[21] = 0x80;
-        p[80] = 10;
-        *(Vq*)(p + 64) = vscale(D_01d49880, 40.0f);
-        *(void**)(p + 84) = (void*)func_001c5e18;
-    }
-    E1c5* e = &D_00351680[p[82]];
-    dec1c5(&e->sub);
-}
+void func_001c5e88(u8* p);  // 0x001c5e88: definition moved into src/anon/unit_001c5b90.cpp
 // ---- 001cbc50
 u8* func_001db888(u8*, s32, void*);  // record_index_calc
 void func_001ca988(u8*, u8*, u32, u32, void*, u32);
 void func_001cab08(void);
-u8* func_001cbc50(u8* p, u32 a, u32 b, u32 c) {
-    u8* q = *(u8**)(p + 2548) + 20;
-    if (!*(u32*)(q + 8)) return 0;
-    u8* v = func_001db888(q, 192, __builtin_return_address(0));  // record_index_calc
-    func_001ca988(v, p, a, b, (void*)func_001cab08, c);
-    return v;
-}
+u8* func_001cbc50(u8* p, u32 a, u32 b, u32 c);  // 0x001cbc50: definition moved into src/anon/unit_001ca8e0.cpp
 // ---- 001eed88
 static inline f32 rnd01(void) {
     f32 r;

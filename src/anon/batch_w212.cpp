@@ -20,12 +20,7 @@ extern u32 D_00362c18;
 
 void func_0018f0b0(s32 a, s32 b);  // 0x0018f0b0: definition moved into src/anon/unit_0018d050.cpp
 
-void func_001bff88() {
-    for (s32 i = 7; i >= 0; i--) D_01d49328[7 - i] = 0;
-    D_01d4934c = 256;
-    D_01d49348 = 0;
-    D_01d49350.clr();
-}
+void func_001bff88();  // 0x001bff88: definition moved into src/anon/unit_001bff88.cpp
 
 u32 func_00244938(u32 x) {
     u32 r = 1;

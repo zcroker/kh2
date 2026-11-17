@@ -33,33 +33,5 @@ extern "C" {
 void func_0011b6a8(W1624Mat*);
 void sceVu0RotMatrixZ(f32, W1624Mat*, W1624Mat*);
 void func_0013ea50(W1624Ft4*, W1624Mat*, W1624Vec, s32*, s32*);
-void func_0013eb00(W1624Ft4* p)
-{
-    s32 left = p->cx - (p->w >> 1);
-    s32 top = p->cy - (p->h >> 1);
-    s32 right = p->cx + (p->w >> 1);
-    s32 bottom = p->cy + (p->h >> 1);
-    W1624Mat m;
-    W1624Vec v;
-    W1624Mat mc;
-    s32 x, y;
-    func_0011b6a8(&m);
-    sceVu0RotMatrixZ(p->rot, &m, &m);
-    v.x = left; v.y = top;
-    mc = m;
-    func_0013ea50(p, &mc, v, &x, &y);
-    p->xyz0 = W1624_GS_XYZ(x, y, p->z);
-    v.x = right; v.y = top;
-    mc = m;
-    func_0013ea50(p, &mc, v, &x, &y);
-    p->xyz1 = W1624_GS_XYZ(x, y, p->z);
-    v.x = left; v.y = bottom;
-    mc = m;
-    func_0013ea50(p, &mc, v, &x, &y);
-    p->xyz2 = W1624_GS_XYZ(x, y, p->z);
-    v.x = right; v.y = bottom;
-    mc = m;
-    func_0013ea50(p, &mc, v, &x, &y);
-    p->xyz3 = W1624_GS_XYZ(x, y, p->z);
-}
+void func_0013eb00(W1624Ft4* p);  // 0x0013eb00: definition moved into src/anon/unit_0013dfb8.cpp
 }

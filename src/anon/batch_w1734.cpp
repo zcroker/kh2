@@ -4,15 +4,7 @@ extern "C" {
 
 struct Slot_1bfd60 { int id; int pad[3]; };
 
-Slot_1bfd60* func_001bfd60(Slot_1bfd60* p, int v) {
-    Slot_1bfd60* empty = 0;
-    for (int i = 0; i < 8; i++) {
-        if (p[i].id == v) return &p[i];
-        if (p[i].id == 0) empty = &p[i];
-    }
-    empty->id = v;
-    return empty;
-}
+Slot_1bfd60* func_001bfd60(Slot_1bfd60* p, int v);  // 0x001bfd60: definition moved into src/anon/unit_001bc568.cpp
 
 struct Node_18f070 { u8 pad[0xc0]; Node_18f070* next; };
 extern Node_18f070* D_01c60cd8;

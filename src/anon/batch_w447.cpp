@@ -19,17 +19,5 @@ static inline __attribute__((always_inline)) W447E1a1* w447_next1a1(W447E1a1* p)
     }
     return 0;
 }
-W447E1a1* func_001a1060(u32 a0)
-{
-    W447E1a1* p = 0;
-    s32 v;
-    v = func_001db5a8(a0);
-    while ((p = w447_next1a1(p)) != 0) {
-        if (p->key == v) {
-            p->cnt++;
-            return p;
-        }
-    }
-    return func_001a1018(a0);
-}
+W447E1a1* func_001a1060(u32 a0);  // 0x001a1060: definition moved into src/anon/unit_0019fb70.cpp
 }

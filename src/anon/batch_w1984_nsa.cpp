@@ -50,48 +50,7 @@ s32 func_0019e758(u8*, u8*);
 s32 func_0019e6e8(u8*, u8*);
 void func_0019ead0(u8*, u8*);
 struct Sub140 { u8 pad[32]; u32 flags; u8 pad2[216]; u32 obj; };
-void func_0019dd10(u8* self)
-{
-    TgtD tgt;
-    u8* ob = *(u8**)(**(u8***)self + 0x9e0);
-    func_00190128(&tgt);
-    if (func_0019c4f8(ob)) return;
-    if (D_0034f240 & 0x4000) return;
-    if (*(u32*)(ob + 0x588) & 0x80) {
-        s32 a1 = *(s32*)(ob + 0xb48);
-        if (a1 && func_0019dbc0(self, a1, ob + 0x9f4, 201, 0)) self[9] = 8;
-    }
-    {
-        u8* v = dd_get_override(**(void***)self, 1);
-        if (v) func_0019dbc0(self, *(u16*)(v + 2), v + 12, 203, 0);
-    }
-    Sub140* sub = (Sub140*)(ob + 0x140);
-    if (*(u32*)(ob + 0x160) & 0x100000) {
-        dd_set_obj(&tgt, sub->obj, 0);
-        if (func_0019dbc0(self, *(s32*)(ob + 0x50c), &tgt, 204, 0)) self[9] = 7;
-    }
-    if (dd_is_exec()) return;
-    if (*(u32*)(ob + 0x588) & 0x2000000) return;
-    {
-        u8* t = func_0016bc20(ob, 1, -1);
-        if (t) {
-            func_0018a818(self + 48, ob, t);
-            func_0019e170(self);
-            func_0019e400(self);
-        }
-    }
-    {
-        s32 f = *(s32*)(self + 36);
-        if (f >= 0 && (f & 0x40000000)) self[9] = 5;
-    }
-    if (dd_is_exist(self + 4)) return;
-    if (!(*(u32*)(ob + 0x588) & 0x80)) return;
-    if (*(u32*)(ob + 0x160) & 0x4000) return;
-    if (!dd_is_pinch(*(u32*)(*(u8**)(ob + 0xb44) + 0x9e8))) return;
-    if (func_0019e758(self, ob)) return;
-    if (func_0019e6e8(self, ob)) return;
-    func_0019ead0(self, ob);
-}
+void func_0019dd10(u8* self);  // 0x0019dd10: definition moved into src/anon/unit_0019ba60.cpp
 
 // 001f7180, 001f7660
 struct F7Gs { u8 pad[16]; u8* ent; u8 pad2[148]; u64 st; };

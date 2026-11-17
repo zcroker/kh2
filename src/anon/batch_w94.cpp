@@ -80,37 +80,7 @@ extern u8* volatile D_00347d64;
 }
 typedef u8* (*AllocFn)(void*, u32, u32);
 
-void u_call0_00137fb8(void) {
-    void** a = *(void***)(D_00347f80 + 20);
-    u8* p = (*(AllocFn*)*a)(a, 18320, 0);
-    *(u32*)(p + 12) = 0;
-    *(u32**)p = D_00347d70;
-    u32* r = (u32*)(p + 48);
-    func_0031a830(p + 32);
-    u8* q = p + 64;
-    for (s32 i = 7; i != -1; i--) {
-        func_0031a350(q);
-        q += 1328;
-    }
-    r[0] = 0;
-    r[1] = 0;
-    u8** r2 = (u8**)(p + 10692);
-    func_0031a830(p + 10688);
-    q = p + 10700;
-    for (s32 i = 15; i != -1; i--) {
-        *(u32**)q = D_00347f98;
-        func_0031a838(q + 12);
-        *(u32**)q = D_00347e60;
-        func_00239700(q + 24);
-        *(u32*)(q + 408) = 0;
-        *(u32**)q = D_00347db0;
-        q += 476;
-    }
-    r2[0] = 0;
-    r2[1] = 0;
-    D_00347d64 = p;
-    func_00137c50(D_00347d64);
-}
+void u_call0_00137fb8(void);  // 0x00137fb8: definition moved into src/anon/unit_001374c8.cpp
 // ---- 00140500
 extern "C" {
 f32 func_0017ce10(f32);
@@ -140,22 +110,7 @@ static inline void addv(V4* out, V4* a, V4* b) {
 }
 
 extern "C" {
-void func_00140500(u8* p) {
-    *(f32*)(p + 192) = func_0017ce10(*(f32*)(p + 192));
-    f32 v = func_0017ce10(*(f32*)(p + 196));
-    *(f32*)(p + 196) = v;
-    if (D_004573f4 < v) *(f32*)(p + 196) = D_004573f4;
-    else if (v < D_004573f0) *(f32*)(p + 196) = D_004573f0;
-    V4 d;
-    f32 m[16] __attribute__((aligned(16)));
-    d.w = d.y = d.x = 0.0f;
-    d.z = 350.0f;
-    func_0011b6a8(m);
-    func_0011b6d8(m, *(f32*)(p + 196));
-    func_0011b720(m, *(f32*)(p + 192));
-    mulv(&d, m, &d);
-    addv((V4*)(p + 128), (V4*)(p + 96), &d);
-}
+void func_00140500(u8* p);  // 0x00140500: definition moved into src/anon/unit_0013fca8.cpp
 }
 // ---- 00156d20
 extern "C" {
@@ -255,19 +210,7 @@ static inline f32 rrange(f32 lo, f32 hi) {
     return lo + frand() * (hi - lo);
 }
 
-void func_001bf168(u8* p, u32* src, u32 arg, u32 owner, f32 f) {
-    func_00169398(p, *src, src, 4, arg, rrange(-3.1415927f, 3.1415927f));
-    *(u32*)(p + 1416) |= 0x40000;
-    *(u32*)(p + 2484) = owner;
-    *(f32*)(p + 2488) = f;
-    *(f32*)(p + 60) = f;
-    *(u32*)p = (u32)D_003512e8;
-    *(u32*)(p + 264) |= 2;
-    *(u32*)(p + 2528) = 0;
-    *(u32*)(p + 2532) = 0;
-    *(u32*)(p + 2536) = 0;
-    func_0016bd60(p, 12);
-}
+void func_001bf168(u8* p, u32* src, u32 arg, u32 owner, f32 f);  // 0x001bf168: definition moved into src/anon/unit_001bc568.cpp
 }
 // ---- 001c0d38
 extern "C" {
@@ -293,28 +236,8 @@ static inline u8 busy2(u8* p) {
 
 #define p ((u8*)self)
 #define owner ((u8*)own)
-u8* u_tail4_001c0d38(u32 self, u32 own, u32 a, u32 b) {
-    if (func_001c0cd8(p)) func_001c0e60(p);
-    *(u16*)(p + 1396) = a;
-    *(u8**)(p + 1392) = owner;
-    *(u16*)(p + 1398) = b;
-    asm volatile("" ::: "memory");
-    u32 st = busy2(p) ? 5 : 0;
-    *(u32*)(p + 1404) = 0;
-    *(u32*)(p + 1400) = st;
-    asm volatile("sqc2 $vf0, 0(%0)" : : "r"(p + 1344) : "memory");
-    if (!(b & 2)) {
-        asm volatile("vsub.xyzw $vf1, $vf0, $vf0\n\tsqc2 $vf1, 0(%0)" : : "r"(p + 1360) : "memory");
-        *(u32*)(p + 2040) |= 8;
-    }
-    func_0016bd60(p, 3);
-    List1c0* l = (List1c0*)(owner + 1888);
-    Node1c0* n = (Node1c0*)(p + 1648);
-    if (l->tail == 0) { l->tail = n; l->head = n; *(u32*)(p + 1884) = 0; } else { l->tail->next = n; *(u32*)(p + 1884) = 0; l->tail = n; }
-    if (*(u32*)(p + 2060) == 0) *(u32*)(p + 1548) = *(u32*)(owner + 2060);
-    else if (*(u32*)(owner + 2060) == 0) *(u32*)(owner + 1548) = *(u32*)(p + 2060);
-    return p + 1392;
-}
+// 001c0d38: moved to src/anon/unit_001c0638.cpp
+u8* u_tail4_001c0d38(u32 self, u32 own, u32 a, u32 b);
 #undef p
 #undef owner
 // ---- 001f04a8

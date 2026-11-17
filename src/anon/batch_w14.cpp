@@ -116,36 +116,14 @@ void func_00128008(u8* p) {
     func_00106420(p);
 }
 
-void func_00137c50(u8* p) {
-    *(s32*)(p + 10696) = 0;
-    *(s32*)(p + 32) = 1;
-    *(s32*)(p + 48) = 0;
-    *(s32*)(p + 52) = 0;
-    *(s32*)(p + 10692) = 0;
-    *(s32*)(p + 10688) = 1;
-    func_001391c8(p, 11100, 0);
-}
+void func_00137c50(u8* p);  // 0x00137c50: definition moved into src/anon/unit_001374c8.cpp
 
 struct Entry20 { u8 pad[16]; u8 on; u8 id; u8 pad2[2]; };
 
 // Clears the 'on' flag of every entry whose id matches.
-void func_001418e8(u8* p, u8 id) {  // clear_records_by_index
-    s32 n = *(s32*)(p + 36);
-    s32 i;
-    for (i = 0; i < n; i++) {
-        if ((*(Entry20**)(p + 8))[i].id == id) (*(Entry20**)(p + 8))[i].on = 0;
-    }
-}
+void func_001418e8(u8* p, u8 id);  // 0x001418e8: definition moved into src/anon/unit_00141458.cpp
 
-void func_0014dc08(u8* p) {
-    func_001666a0(p);  // zero_fields_0_4_6_8
-    *(s32*)(p + 464) = 0;
-    *(s16*)(p + 468) = 0;
-    p[470] = 0;
-    p[471] = 0;
-    p[472] = 0;
-    p[473] = 0;
-}
+// 0014dc08: moved to src/anon/unit_0014d680.cpp
 
 void func_00151b40(u8* p) {
     func_00138c10(p + 840, 0);
@@ -155,21 +133,10 @@ void func_00151b40(u8* p) {
 // Copies the new target into the camera state and flags the change.
 // 0015a6c8: moved to src/harata/libdk/targetcamera.cpp
 
-void func_001668f8(u8* p) {
-    func_001666a0(p);  // zero_fields_0_4_6_8
-    *(s16*)(p + 12) = 0;
-    p[14] = 1;
-    *(s16*)(p + 10) = 0;
-}
+void func_001668f8(u8* p);  // 0x001668f8: definition moved into src/anon/unit_001664c0.cpp
 
 // 128-bit copy of p[1] into the quadword returned for p[0] (skipped on self-copy).
-void func_0016e200(void** p) {
-    u8* d = (u8*)func_001dc648(p[0]);
-    u8* s = (u8*)p[1];
-    if (d != s) {
-        asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(d), "r"(s) : "$8", "memory");
-    }
-}
+// 0016e200: moved to src/anon/unit_0016d2e0.cpp
 
 void func_0016fa58(void);  // 0x0016fa58: definition moved into src/anon/unit_0016e8f8.cpp
 
@@ -179,19 +146,12 @@ void func_0016fa58(void);  // 0x0016fa58: definition moved into src/anon/unit_00
 
 // 001805a8: moved to src/anon/unit_00180408.cpp
 
-void func_00189028(void* a, void* b, void* c, void* d) {
-    func_00188948(func_00188fe0(a, b), c, d);
-}
+void func_00189028(void* a, void* b, void* c, void* d);  // 0x00189028: definition moved into src/anon/unit_00188848.cpp
 
 // Destructor: clears the global current-lockon pointer if it is this one.
-void LOCKON_dtor(void* l) {
-    func_0019cc20(l);
-    D_00350444 = D_00350444 == l ? 0 : D_00350444;
-}
+void LOCKON_dtor(void* l);  // 0x0019c9a8: definition moved into src/anon/unit_0019ba60.cpp
 
-void func_001a0678(void** p) {
-    p[0] = func_001d5af8(p[0], p[1], p[2]);
-}
+void func_001a0678(void** p);  // 0x001a0678: definition moved into src/anon/unit_0019fb70.cpp
 
 void func_001b4300(void) {
     D_01d48cb0 = 0;
@@ -207,41 +167,18 @@ struct Flags16 { u16 lo:9; u16 bit9:1; u16 hi:6; };
 
 // 001bb9f0: moved to src/yasui/libys/mission.cpp
 
-void func_001ca950(u8* p, void* a, void* b, void* c, void* d, u32 e) {
-    func_001c6fa8(p, a, b, c, d);
-    *(u32*)(p + 84) = e;
-    *(u32*)(p + 88) = 0;
-}
+void func_001ca950(u8* p, void* a, void* b, void* c, void* d, u32 e);  // 0x001ca950: definition moved into src/anon/unit_001ca8e0.cpp
 
-void func_001cbbf8(u8* p) {
-    *(void**)p = D_00351ff0;
-    D_00351fe4 = 0;
-    func_001a4e30(p);
-    func_00105110(p);
-}
+void func_001cbbf8(u8* p);  // 0x001cbbf8: definition moved into src/anon/unit_001ca8e0.cpp
 
-void INDICATION_disable(u8* p) {
-    func_001d2710(p + 2932);
-    func_0019cc20(*(void**)(p + 2880));
-    *(u32*)(p + 268) |= 0x200000;
-}
+void INDICATION_disable(u8* p);  // 0x001d07e0: definition moved into src/anon/unit_001cf0b0.cpp
 
-void u_call4_001d2210(u32 a0, u32, u32, u32) {
-    u8* p = (u8*)a0;
-    if (*(u32*)(p + 12) & 4) {
-        (*(void (**)(void*))(*(u8**)p + 8))(p);
-    }
-}
+void u_call4_001d2210(u32 a0, u32, u32, u32);  // 0x001d2210: definition moved into src/anon/unit_001d14e0.cpp
 
 // Increments the counter, saturating at 999.
 void func_001d97c8(void);  // 0x001d97c8: definition moved into src/anon/unit_001d7458.cpp
 
-void func_001ddc08(void) {
-    u8* p;
-    for (p = D_00352ae0; p; p = *(u8**)(p + 40)) {
-        *(u32*)(p + 8) |= 0x4000000;
-    }
-}
+void func_001ddc08(void);  // 0x001ddc08: definition moved into src/anon/unit_001dd920.cpp
 
 s32 func_0020f118(void) {
     sceGsSyncPath(0, 0);
@@ -302,9 +239,7 @@ void func_00292a58(void) {
     func_00292998();
 }
 
-void func_002bf618(u8* p) {
-    func_002bf650(p, func_001b6d70((*(u8**)(p + 2808))[4]));
-}
+void func_002bf618(u8* p);  // 0x002bf618: definition moved into src/anon/unit_002bebd0.cpp
 
 void func_002d4200(u8* p, void* a, void* b) {
     func_002d2948(p, a, 1, b);

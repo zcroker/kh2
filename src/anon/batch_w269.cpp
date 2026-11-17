@@ -115,67 +115,11 @@ extern "C" {
 void func_0011b6a8(f32*);
 f32 sinf(f32);
 f32 cosf(f32);
-void func_0011b408(f32* m, const QV269* a) {
-    func_0011b6a8(m);
-    QV269 v;
-    v = *a;
-    normalize269(&v);
-    f32 x = v.x, y = v.y, z = v.z;
-    f32 s = sinf(a->w);
-    f32 c = cosf(a->w);
-    f32 t = 1.0f - c;
-    f32 xy = x * y, yz = y * z, zx = z * x;
-    f32 xs = x * s, ys = y * s, zs = z * s;
-    m[0] = x * x * t + c;
-    m[1] = xy * t + zs;
-    m[2] = zx * t - ys;
-    m[4] = xy * t - zs;
-    m[5] = y * y * t + c;
-    m[6] = yz * t + xs;
-    m[8] = zx * t + ys;
-    m[9] = yz * t - xs;
-    m[10] = z * z * t + c;
-}
-void func_0011b558(f32* m, const QV269* a) {
-    func_0011b6a8(m);
-    QV269 v;
-    v = *a;
-    normalize269(&v);
-    f32 x = v.x, y = v.y, z = v.z;
-    f32 s = sinf(a->w);
-    f32 c = cosf(a->w);
-    f32 t = 1.0f - c;
-    f32 xy = x * y, yz = y * z, zx = z * x;
-    f32 xs = x * s, ys = y * s, zs = z * s;
-    m[0] = x * x * t + c;
-    m[1] = xy * t + zs;
-    m[2] = zx * t - ys;
-    m[4] = xy * t - zs;
-    m[5] = y * y * t + c;
-    m[6] = yz * t + xs;
-    m[8] = zx * t + ys;
-    m[9] = yz * t - xs;
-    m[10] = z * z * t + c;
-}
+void func_0011b408(f32* m, const QV269* a);  // 0x0011b408: definition moved into src/anon/unit_0011b3f8.cpp
+void func_0011b558(f32* m, const QV269* a);  // 0x0011b558: definition moved into src/anon/unit_0011b3f8.cpp
 
 f32 func_0011bdc0(M269*, s32, s32);
-f32 func_0011be50(M269* m) {
-    M269 t;
-    s32 i, j;
-    for (i = 0; i < 4; i++) {
-        f32* p = t.r[i].v; for (j = 0; j < 4; j++) { *p++ = func_0011bdc0(m, j, i);
-        }
-    }
-    f32 det = 0.0f;
-    for (i = 0; i < 4; i++) det += t.r[i].v[0] * m->r[0].v[i];
-    *m = t;
-    f32 inv = 1.0f / det;
-    m->r[0] *= inv;
-    m->r[1] *= inv;
-    m->r[2] *= inv;
-    m->r[3] *= inv;
-    return det;
-}
+f32 func_0011be50(M269* m);  // 0x0011be50: definition moved into src/anon/unit_0011b3f8.cpp
 
 u16* func_001b8e88(s32);
 s32 func_001b90f0(u16*, s32);
@@ -183,31 +127,7 @@ s32 func_001c11e0(void);
 s32 func_00190140(u32*);
 s32 func_0019c4f8(u32);
 void func_0019da68(u8*, u16*, u32*, s32, s32);
-s32 func_0019dbc0(u8* a0, s32 a1, u32* a2, s32 a3, s32 a4) {
-    if (a3 >= *(s32*)(a0 + 0x50)) {
-        if (a3 != *(s32*)(a0 + 0x50)) goto body;
-        if (a4 < *(s32*)(a0 + 0x24)) goto body;
-    }
-    return 0;
-body:
-    u16* v = func_001b8e88(a1);
-    if (a3 != 201) {
-        s32 k = *(s32*)(**(u8***)a0 + 2528);
-        if (!func_001b90f0(v, k)) return 0;
-        if (*v == 30 || *v == 604) {
-            if (func_001c11e0()) return 0;
-        }
-        if (*v != 456) {
-            u32 ok = 0;
-            if (func_00190140(a2)) ok = *a2 != 0;
-            if ((u8)ok) {
-                if (func_0019c4f8(*a2)) return 0;
-            }
-        }
-    }
-    func_0019da68(a0, v, a2, a3, a4);
-    return 1;
-}
+s32 func_0019dbc0(u8* a0, s32 a1, u32* a2, s32 a3, s32 a4);  // 0x0019dbc0: definition moved into src/anon/unit_0019ba60.cpp
 
 extern PU269 D_0035f230;
 extern s32 D_0035f010;

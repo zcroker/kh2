@@ -29,12 +29,7 @@ extern WB1893 D_0034d6c0;
 
 // --- 00168068: static init/destruction of two global object arrays
 void wtarget_00168068(u32 a, u32 b, u32, u32) asm("_Z16wtarget_00168068jjjj");
-void wtarget_00168068(u32 a, u32 b, u32, u32) {
-    if (b == 0xffff && a == 1) new (&D_0034d3c0) WA1893;
-    if (b == 0xffff && a == 1) new (&D_0034d6c0) WB1893;
-    if (b == 0xffff && a == 0) D_0034d6c0.~WB1893();
-    if (b == 0xffff && a == 0) D_0034d3c0.~WA1893();
-}
+// 00168068: moved to src/anon/unit_00167358.cpp
 
 // --- 00256cc0
 extern u8 D_00372940[];

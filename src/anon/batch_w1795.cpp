@@ -25,16 +25,7 @@ struct W1795Ob2 { u8 pad[0x1f]; u8 kind; };
 
 extern "C" {
 // Is b inside the ellipse around a (radii from the y/z sums)?
-s32 func_0018a250(W1795Ob* a, W1795Ob* b) {
-    W1795V4 m;
-    W1795V4 s;
-    f32 r = 1.0f / (a->y + b->y);
-    s.z = r;
-    s.y = 1.0f / (a->z + b->z);
-    s.x = r;
-    m = (b->p - a->p) * s;
-    return w1795_dot(m, m) < 1.0f;
-}
+s32 func_0018a250(W1795Ob* a, W1795Ob* b);  // 0x0018a250: definition moved into src/anon/unit_00189d38.cpp
 
 s32 func_0019c218(s32, W1795Ob2*);
 s32 W1795_ctarget(s32) asm("_Z16ctarget_0019ba60jjjj");

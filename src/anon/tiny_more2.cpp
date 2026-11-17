@@ -49,13 +49,13 @@ extern u32 D_01d9eab0;
 
 // 00104340: moved to src/common/gumimenu.cpp
 
-u32 func_00105f80(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a1; (void)a2; (void)a3; return *(u32*)((u32)&D_00369ff8 + ((u32)a0 << 2) + (0)); }
+// 00105f80: moved to src/common/world.cpp
 
 extern "C" void func_00107350(u32,f32,f32,f32) asm("_ZN2kn6Camera11setUpVectorEfff");
 
 u32 func_0010aed8(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a1; (void)a2; (void)a3; return *(u32*)((u32)&D_00341698 + ((u32)a0 << 2) + (0)); }
 
-void func_0013a1e8(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a0; (void)a1; (void)a2; (void)a3; D_00347f84 = D_00347f80; }
+void func_0013a1e8(u32 a0,u32 a1,u32 a2,u32 a3);  // 0x0013a1e8: definition moved into src/anon/unit_001393c8.cpp
 
 // 0013a6b8: moved to src/harata/libdk/field2dd.cpp
 
@@ -71,11 +71,11 @@ u32 func_0016f448(u32 a0,u32 a1,u32 a2,u32 a3);  // 0x0016f448: definition moved
 
 // 0017aab8: moved to src/anon/unit_0017a8f8.cpp
 
-u32 func_001a5af0(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a1; (void)a2; (void)a3; return *(u8*)((u32)&D_0036d4d8 + (u32)a0 + (0)); }
+// 001a5af0: moved to src/anon/unit_001a4db0.cpp
 
-u32 func_001bdfe0(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a1; (void)a2; (void)a3; return (*(u16*)((u32)a0 + (2628)) != 0); }
+u32 func_001bdfe0(u32 a0,u32 a1,u32 a2,u32 a3);  // 0x001bdfe0: definition moved into src/anon/unit_001bc568.cpp
 
-void func_001bf100(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a2; (void)a3; u32 v=*(u32*)((u32)a0 + (2736)); u32 bit=1u<<a1; v|=bit; *(u32*)((u32)a0 + (2736)) = v; }
+void func_001bf100(u32 a0,u32 a1,u32 a2,u32 a3);  // 0x001bf100: definition moved into src/anon/unit_001bc568.cpp
 
 void func_001d56f0(u32 a0,u32 a1,u32 a2,u32 a3);  // 0x001d56f0: definition moved into src/anon/unit_001d4f40.cpp
 

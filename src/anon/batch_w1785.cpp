@@ -46,20 +46,7 @@ s8* func_00105ee8(s32);
 struct Res168 { u32 x0; u32 x4; u32* x8; };
 Res168* func_00168b88(void*, s32, s32, s32);
 
-u32* func_0019f7d0(s32 idx, s32 id)
-{
-    s32 a = D_0032bae0.a;
-    if (idx < 0) idx = D_0032bae0.b;
-    void* h = D_01c62fb0;
-    if (id < 0) id = a;
-    s8* p = func_00105ee8(id);
-    Res168* r = func_00168b88(h, 2, p[0] | (p[1] << 8) | (p[2] << 16) | (p[3] << 24), 0);
-    if (r) {
-        u32* t = r->x8;
-        if (t) return t + idx;
-    }
-    return 0;
-}
+u32* func_0019f7d0(s32 idx, s32 id);  // 0x0019f7d0: definition moved into src/anon/unit_0019ee80.cpp
 
 u64 func_00109ea8(u32 mode, s32 flag, u8 v)
 {

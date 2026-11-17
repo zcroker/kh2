@@ -117,37 +117,7 @@ static inline f32 W1975_clampf(f32 v, f32 lo, f32 hi) { if (hi < v) v = hi; else
 
 // 0017d348: moved to src/anon/unit_0017c400.cpp
 
-void func_001bd6a8(W1975Self* self) {
-    if (self->ai == 0) return;
-    if (self->wk == 0) return;
-    func_0017bf40(self->sub4);
-    ((W1975VFn)self->vt[3])(self);
-    func_0019d790(self->sub2552);
-    func_001bdd50(self);
-    if (((W1975AFn)self->ai->vt[16])(self->ai) == 0 || self->isB0() || W1975_ctarget_001c8db8(&D_00351ec8, 0) != 0) {
-        func_001bd3a0(self);
-        self->v.zero();
-        return;
-    }
-    if (self->flags & 2) self->slot.type = 5;
-    self->v = self->wk->v;
-    if (!(self->flags & 2) && (self->wk->d8 & 0x400) && W1975_Slot_is_exist(&self->slot)) {
-        if (self->slot.small()) {
-            s32 r = W1975_u_call4_001b8e88(self->slot.id);
-            if (func_001bd918(self, r, self->slot.arg)) {
-                func_0013c720();
-                self->f8 |= 0x10;
-            }
-        } else if (W1975_Slot_is_beep(&self->slot)) {
-            W1975_systemSePlay(5, 0);
-        }
-    } else {
-        ((W1975VFn)self->vt[4])(self);
-    }
-    if (self->wk->d0 & 0x100) self->f8 |= 1;
-    if (self->wk->d0 & 0x200) self->f8 |= 4;
-    func_001bd3a0(self);
-}
+void func_001bd6a8(W1975Self* self);  // 0x001bd6a8: definition moved into src/anon/unit_001bc568.cpp
 
 static inline f32 W1975_frand() {
     D_003638d0 = D_003638d0 * 0x10dcd;

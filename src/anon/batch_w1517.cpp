@@ -25,11 +25,6 @@ void func_0023ef50(T_0023ef50* a0) {  // list_enable_all
 
 void func_002cdb00(QW_w1517*, f32);
 struct T_002cbf08 { u8 pad[0x18]; f32 f18; };
-QW_w1517* func_002cbf08(QW_w1517* a0, T_002cbf08* a1) {
-    asm volatile("");
-    func_002cdb00(a0, a1->f18);
-    Normalize_w1517(a0);
-    return a0;
-}
+QW_w1517* func_002cbf08(QW_w1517* a0, T_002cbf08* a1);  // 0x002cbf08: definition moved into src/taito/path.cpp
 
 }

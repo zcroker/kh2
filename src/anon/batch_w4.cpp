@@ -68,22 +68,12 @@ void func_0011eef8(void* a, Obj0011eef8* b) {  // obj_init_and_call
 }
 
 // Quadword copy from p+0x50 into dst (unless they alias).
-void func_00107368(u8* p, void* dst) {  // vec_copy_at80_if_diff
-    void* src = p + 80;
-    if (dst != src) {
-        asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(dst), "r"(src) : "$8", "memory");
-    }
-}
+// 00107368: moved to src/naka/libkn/camera.cpp
 
 // 00135670: moved to src/anon/unit_00134668.cpp
 
 // Quadword copy of src into p+0x1a0.
-void func_001391a8(u8* p, void* src) {  // vec_copy_at416_if_diff
-    void* dst = p + 416;
-    if (dst != src) {
-        asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(dst), "r"(src) : "$8", "memory");
-    }
-}
+void func_001391a8(u8* p, void* src);  // 0x001391a8: definition moved into src/anon/unit_00138480.cpp
 
 // 00159700: moved to src/anon/unit_00159240.cpp
 
@@ -113,53 +103,32 @@ struct Args00174168 {
     u32 a;
     f32 f;
 };
-void func_00174168(Args00174168* p) {
-    Obj00174168* o = p->o;
-    u32 a = p->a;
-    u32 m = o->m;
-    func_00183768(m, a, p->f);  // copy_quad_at16_and_len
-}
+void func_00174168(Args00174168* p);  // 0x00174168: definition moved into src/anon/unit_00171e58.cpp
 
 struct ArgsUF {
     u32 a;
     f32 f;
 };
-void func_00174b88(ArgsUF* p) {
-    u32 a = p->a;
-    func_001b1be0(a, p->f);
-}
+void func_00174b88(ArgsUF* p);  // 0x00174b88: definition moved into src/anon/unit_00171e58.cpp
 
-void func_001752e0(u32* p) {
-    func_001cc9c8(((u32*)p[0])[1], ((f32*)p)[1]);
-}
+void func_001752e0(u32* p);  // 0x001752e0: definition moved into src/anon/unit_00171e58.cpp
 
-void func_00175480(u32* p) {
-    func_00153e28(p[0], ((f32*)p)[1], ((f32*)p)[2]);
-}
+void func_00175480(u32* p);  // 0x00175480: definition moved into src/anon/unit_00171e58.cpp
 
 // 00185a98: moved to src/anon/unit_001855e0.cpp
 
-void func_0018fcc0(ArgsUF* p) {
-    u32 a = p->a;
-    func_001a6490(a, p->f);
-}
+void func_0018fcc0(ArgsUF* p);  // 0x0018fcc0: definition moved into src/anon/unit_0018f140.cpp
 
-void func_00196170(void) {
-    D_01c61b00 = func_001b1448(D_00350330);
-}
+void func_00196170(void);  // 0x00196170: definition moved into src/anon/unit_00195d00.cpp
 
 // Virtual call: o->vfunc[9](a, 0).
-void func_0019fd88(void** o, u32 a) {
-    ((void (*)(void*, u32, u32))((void**)*o)[9])(o, a, 0);
-}
+void func_0019fd88(void** o, u32 a);  // 0x0019fd88: definition moved into src/anon/unit_0019fb70.cpp
 
 // 001a8498: moved to src/anon/unit_001a82f0.cpp
 
 // 001bbb08: moved to src/yasui/libys/mission.cpp
 
-s32 func_001c4170(void) {  // global_pair_diff
-    return D_00351604 - D_00351608;
-}
+s32 func_001c4170(void);  // 0x001c4170: definition moved into src/anon/unit_001c4120.cpp
 
 void func_001d71f0(s32 a);  // 0x001d71f0: definition moved into src/anon/unit_001d68e0.cpp
 
@@ -206,16 +175,9 @@ u32 func_0029e0d0(void) {
 }
 
 // Stores the new value and reports whether it was unchanged.
-u32 func_002bd230(s32 a, s32 b) {
-    u32 same = D_003617d8 == a;
-    D_003617d8 = a;
-    D_003617dc = b;
-    return same;
-}
+u32 func_002bd230(s32 a, s32 b);  // 0x002bd230: definition moved into src/anon/unit_002bc978.cpp
 
-void func_002c5460(u32 a) {
-    func_00104f58(a, 1, 0, 0, 0);
-}
+void func_002c5460(u32 a);  // 0x002c5460: definition moved into src/anon/unit_002c53c8.cpp
 
 f32* func_002d5c20(f32* v) {  // vec4_clear
     v[3] = v[2] = v[1] = v[0] = 0.0f;
@@ -309,10 +271,7 @@ extern "C" void func_00138988(dk::SpriteMessage*);
 extern "C" void func_00138de0(dk::SpriteMessage*);
 extern "C" void func_0014a9a0(dk::Fade*, u32);
 
-void dk::SpriteMessage::draw() {
-    func_00138988(this);
-    func_00138de0(this);
-}
+// 0x001390c0: dk::SpriteMessage::draw moved into src/anon/unit_00138480.cpp
 
 void dk::Fade::fadeOut(u32 a0, bool a1) {
     f_f4 = a1;

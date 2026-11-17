@@ -36,20 +36,7 @@ void func_002c85c8(s32);
 void func_002c8648();
 void func_002ca010(s32);
 void func_002ca0a8();
-void func_002c5a48(void* self, S5a48* o) {
-    if (func_002bfdf8() != 0) return;
-    s32 s1 = -1;
-    s32 s2 = -1;
-    if (func_0019ba60(o) != 0) {
-        if (o->a < 0) {
-            s1 = o->p->v;
-        } else {
-            u32 bb = o->b; if ((u8)(bb & 1)) s2 = func_002c1b48(o);
-        }
-    }
-    if (s1 >= 0) func_002c85c8(s1); else func_002c8648();
-    if (s2 >= 0) func_002ca010(s2); else func_002ca0a8();
-}
+void func_002c5a48(void* self, S5a48* o);  // 0x002c5a48: definition moved into src/anon/unit_002c53c8.cpp
 }
 struct E9b90 { u16 id; u16 sub; u8 kind; u8 pad[3]; };
 struct H9b90 { u8 pad[2]; u16 x; u8 pad2[8]; u16 n; };
@@ -79,20 +66,7 @@ extern B91658 D_01c60d50;
 extern "C" {
 void func_00190128(E91658*);
 void wtarget_00191658(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z16wtarget_00191658jjjj");
-void wtarget_00191658(u32 a0, u32 a1, u32 a2, u32 a3) {
-    if (a1 == 0xffff && a0 == 1) {
-        A91658* p = D_01c60d10;
-        for (s32 i = 7; i != -1; i--, p++) p->b = 0;
-    }
-    if (a1 == 0xffff && a0 == 1) {
-        E91658* e = D_01c60d50.e;
-        for (s32 i = 127; i != -1; e++) { i--; func_00190128(e); }
-        B91658* b = &D_01c60d50;
-        s32* q = b->idx;
-        for (s32 j = 0; j < 128; j++) *q++ = j;
-        b->n = 128;
-    }
-}
+void wtarget_00191658(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00191658: definition moved into src/anon/unit_001900d0.cpp
 }
 struct S1f1870 { u8 pad[0x9c]; u8 a; u8 b; u8 c; };
 extern "C" {

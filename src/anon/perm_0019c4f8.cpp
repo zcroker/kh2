@@ -19,17 +19,6 @@ union BD_VALUE
   u32 u;
 };
 s32 func_0019c6f0(u8 *);
-s32 func_0019c4f8(u8 *p)
-{
-  u32 f = *((u32 *) (p + 2040));
-  u32 m;
-  u32 n = f & 4;
-  s32 r = 0;
-  if (((((n || (!(f & 0x400))) || ((*((u32 *) (p + 264))) & 0x40)) || ((*((u32 *) (p + 352))) & 0x8000000)) || func_0019c6f0(p)) || ((*((u32 *) ((*((u8 **) (p + 12))) + 8))) & 0x2000))
-  {
-    r = 1;
-  }
-  return r;
-}
+s32 func_0019c4f8(u8 *p);  // 0x0019c4f8: definition moved into src/anon/unit_0019ba60.cpp
 
 }

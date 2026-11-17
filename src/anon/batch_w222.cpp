@@ -6,18 +6,7 @@ int func_00112c48(u32);
 float func_00112c28(void);
 float func_00112c38(void);
 
-int func_00119f48(u32 a) {
-    int r = func_00112c48(a);
-    a &= 0x200;
-    if (r >= 0) {
-        if (a == 0) {
-            float t = func_00112c28() + 8.0f;
-            float u = func_00112c38();
-            if (u <= t) return 1;
-        }
-    }
-    return 0;
-}
+int func_00119f48(u32 a);  // 0x00119f48: definition moved into src/anon/unit_00119f48.cpp
 
 char* getFieldMode_(void) asm("_Z12getFieldModev");
 char* create_task_(void*, int, int, void*) asm("_ZN12TASK_MANAGER11create_taskEiiPFvP4TASKE");

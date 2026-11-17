@@ -48,18 +48,7 @@ void func_00144860(Box144860* __restrict o, Box144860* a, Box144860* b) {
     o->mx[2] = b->mx[2] < a->mx[2] ? a->mx[2] : b->mx[2];
 }
 
-V11a858 func_0011a858(void) {
-    u8* c = func_00106a60(1);
-    V11a858 p = func_00107388(c);
-    f32 x = *(f32*)(c + 0x18);
-    f32 y = *(f32*)(c + 0x28);
-    f32 z = *(f32*)(c + 0x38);
-    V11a858 d;
-    d.x = x; d.y = y; d.z = z; d.w = 0.0f;
-    V11a858 r = p + d * 300.0f;
-    r.w = 1.0f;
-    return r;
-}
+V11a858 func_0011a858(void);  // 0x0011a858: definition moved into src/anon/unit_0011a660.cpp
 
 // 00134668: moved to src/anon/unit_00134668.cpp
 }

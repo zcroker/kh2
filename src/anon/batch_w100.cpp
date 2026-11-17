@@ -6,37 +6,7 @@ void func_0011b6a8(f32*);
 void func_00106af0(f32*, f32*, f32, f32);
 
 // Build projection (screen) matrix from camera params: out = view * proj, then two viewport setups.
-void func_00106c08(f32* p) {
-    f32 a[16] __attribute__((aligned(16)));
-    f32 b[16] __attribute__((aligned(16)));
-    f32* pb;
-    func_0011b6a8(a);
-    pb = b;
-    a[0] = p[16];
-    a[11] = 1.0f;
-    a[5] = p[16];
-    a[14] = 1.0f;
-    a[10] = 0.0f;
-    a[15] = 0.0f;
-    func_0011b6a8(pb);
-    b[0] = p[19];
-    b[5] = p[20];
-    b[10] = p[21];
-    b[12] = p[22];
-    b[13] = p[23];
-    b[14] = p[24];
-    asm volatile(
-        "lqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 16(%1)\n\tlqc2 $vf3, 32(%1)\n\tlqc2 $vf4, 48(%1)\n\t"
-        "lqc2 $vf5, 0(%2)\n\tlqc2 $vf6, 16(%2)\n\tlqc2 $vf7, 32(%2)\n\tlqc2 $vf8, 48(%2)\n\t"
-        "vmulax.xyzw ACC, $vf1, $vf5x\n\tvmadday.xyzw ACC, $vf2, $vf5y\n\tvmaddaz.xyzw ACC, $vf3, $vf5z\n\tvmaddw.xyzw $vf5, $vf4, $vf5w\n\t"
-        "vmulax.xyzw ACC, $vf1, $vf6x\n\tvmadday.xyzw ACC, $vf2, $vf6y\n\tvmaddaz.xyzw ACC, $vf3, $vf6z\n\tvmaddw.xyzw $vf6, $vf4, $vf6w\n\t"
-        "vmulax.xyzw ACC, $vf1, $vf7x\n\tvmadday.xyzw ACC, $vf2, $vf7y\n\tvmaddaz.xyzw ACC, $vf3, $vf7z\n\tvmaddw.xyzw $vf7, $vf4, $vf7w\n\t"
-        "vmulax.xyzw ACC, $vf1, $vf8x\n\tvmadday.xyzw ACC, $vf2, $vf8y\n\tvmaddaz.xyzw ACC, $vf3, $vf8z\n\tvmaddw.xyzw $vf8, $vf4, $vf8w\n\t"
-        "sqc2 $vf5, 0(%0)\n\tsqc2 $vf6, 16(%0)\n\tsqc2 $vf7, 32(%0)\n\tsqc2 $vf8, 48(%0)"
-        : : "r"(p), "r"(pb), "r"(a) : "memory");
-    func_00106af0(p, p + 32, p[29], p[30]);
-    func_00106af0(p, p + 48, 2047.0f, 2047.0f);
-}
+// 00106c08: moved to src/naka/libkn/camera.cpp
 }
 
 }
@@ -166,21 +136,7 @@ void func_00140150(u8*, f32);
 }
 
 extern "C" {
-void func_00140210(u8* o, u8* b, f32 k) {
-    f32 h, r, sc, v, a, c;
-    if (!func_00184478(*(u32*)(o + 68))) return;
-    if (*(f32*)(b + 60) == 0.0f) return;
-    if (*(f32*)(b + 44) != 0.0f) return;
-    if (!(*(f32*)(b + 52) < 0.9f)) return;
-    h = 1.0f;
-    r = func_0013fd10(o);
-    sc = D_004573e0 + D_004573e4 * (*(f32*)(*(u8**)(o + 68) + 276) - 8.0f);
-    a = (fabsf(*(f32*)(b + 52)) + h) * ((fabsf(*(f32*)(b + 48)) + h) * 2.0f) * *(f32*)(b + 60) * sc * k;
-    v = func_0017ce80(*(f32*)(o + 76), r, a);
-    *(f32*)(o + 76) = v;
-    *(f32*)(o + 80) = v;
-    func_00140150(o, k);
-}
+void func_00140210(u8* o, u8* b, f32 k);  // 0x00140210: definition moved into src/anon/unit_0013fca8.cpp
 }
 
 }
@@ -291,20 +247,7 @@ static inline QWord Scale(const QWord& a, f32 s)
 }
 extern "C" {
 // Build a basis matrix from forward a and side b: rows cross(a,b), cross(-a,..), -a, identity w row.
-void func_00193be8(void* self, const QWord* a, const QWord* b, QWord* m) {
-    m[0] = Cross(*a, *b);
-    Normalize(&m[0]);
-    m[0].f[3] = 0.0f;
-    QWord* z = &m[2];
-    *z = Scale(*a, -1.0f);
-    Normalize(z);
-    z->f[3] = 0.0f;
-    QWord* y = &m[1];
-    *y = Cross(*z, m[0]);
-    Normalize(y);
-    y->f[3] = 0.0f;
-    asm volatile("sqc2 $vf0, 0(%0)" : : "r"(&m[3]) : "memory");
-}
+void func_00193be8(void* self, const QWord* a, const QWord* b, QWord* m);  // 0x00193be8: definition moved into src/anon/unit_00193be8.cpp
 }
 
 }
@@ -338,20 +281,7 @@ void func_00196e88(Obj14*, s32, s32, f32);
 }
 
 extern "C" {
-void func_00197148(Obj14* o) {
-    switch (o->info->kind) {
-    case 1: func_0014aa58(func_0014aba8(), (s32)(o->info->val * 0.5f), 0); break;
-    case 2: func_0014aa58(func_0014aba8(), (s32)(o->info->val * 0.5f), 1); break;
-    case 3: func_0015d540(); break;
-    }
-    if (G01(o->info)) {
-        func_002ef8d0(D_01c61b30, D_0032b96c);
-        if (o->info->type == 16) o->flags |= 4;
-        func_002bc788();
-    }
-    if (G00(o->info)) func_00196e88(o, 1, 1, 0.0f);
-    else func_00196e88(o, 4, 0, 0.0f);
-}
+void func_00197148(Obj14* o);  // 0x00197148: definition moved into src/anon/unit_00195d00.cpp
 }
 
 }
@@ -408,16 +338,7 @@ extern "C" {
 f32 func_0016c4e8(u32);
 
 // Point-in-box test with optional vertical offsets.
-bool func_001a0800(Box16* b, u32 w, f32* d, f32 x, f32 y, f32 z) {
-    f32 top = b->top;
-    f32 bot = b->bottom;
-    if (B1(b)) bot -= func_0016c4e8(w);
-    if (B3(b)) top -= d[2];
-    else top += d[2];
-    if (B4(b)) bot += d[2];
-    else bot -= d[2];
-    return b->x0 <= x && x < b->x1 && y <= top && bot < y && z <= b->z0 && b->z1 < z;
-}
+bool func_001a0800(Box16* b, u32 w, f32* d, f32 x, f32 y, f32 z);  // 0x001a0800: definition moved into src/anon/unit_0019fb70.cpp
 }
 
 }
@@ -440,24 +361,7 @@ void func_002efcc0(u32, u32, s32);
 }
 
 extern "C" {
-u32 func_001adf00(u32 key, u32 buf) {
-    Ent17* e = func_001ae460(key);
-    if (!e) return 0;
-    for (;;) {
-        if (func_002f79c8(1) != 2 || func_002f7be8(e->id, (e->h6 & 0x3fff) + 1, buf, D_00350ca0) != 1) {
-            func_001ae678();  // to_306698_arg10
-            continue;
-        }
-        func_001ae620();
-        if (!(D_00350c88 = func_002f7dc8())) break;
-        func_001ae650();
-    }
-    if (e->flags & 0x40000000) {
-        func_003058a0(0);
-        func_002efcc0(buf, e->dst, ((e->h6 & 0x3fff) << 11) + 2048);
-    }
-    return e->dst;
-}
+u32 func_001adf00(u32 key, u32 buf);  // 0x001adf00: definition moved into src/anon/unit_001ada38.cpp
 
 }
 
@@ -484,22 +388,7 @@ static inline bool Done18(Hdr18* h) {
     return r;
 }
 extern "C" {
-void func_001bd988(Obj18* o) {
-    Ent18* e = Cur18(*o->seq);
-    if (!IsWait18(e)) {
-        if (func_001bc710(e) && !(o->flags & 8)) func_002ba2e8(5, 0);
-        return;
-    }
-    if (!((s32 (*)(Obj18*))o->vt[5])(o)) return;
-    for (;;) {
-        if (Done18(*o->seq)) {
-            func_001bc730(*o->seq, 0);
-            return;
-        }
-        func_001bc730(*o->seq, 0);
-        func_001bd618(o, 0);
-    }
-}
+void func_001bd988(Obj18* o);  // 0x001bd988: definition moved into src/anon/unit_001bc568.cpp
 }
 
 }

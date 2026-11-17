@@ -131,22 +131,7 @@ void* func_001b9bc8(void*);
 s32 func_0016bff0(void*);
 s32 func_0018a550(Info32*, Info32*);  // state_dispatch_0_1_3
 
-void* func_0018bc60(void* a, void* b) {
-    void* v = func_0016bc20(a, b, -1);
-    if (!v) return 0;
-    Info32 i0;
-    func_0018a818(&i0, a, v);
-    void* it = 0;
-    Info32 i1;
-    while ((it = func_001b9bc8(it))) {
-        if (func_0016bff0(it) == func_0016bff0(a)) continue;
-        void* w = func_0016bc20(it, b, -1);
-        if (!w) continue;
-        func_0018a818(&i1, it, w);
-        if (func_0018a550(&i0, &i1)) return it;
-    }
-    return 0;
-}
+void* func_0018bc60(void* a, void* b);  // 0x0018bc60: definition moved into src/yasui/libys/npc.cpp
 
 void func_0018a958(void*, s32, f32, f32);
 s32 func_0019ba60(void*);
@@ -154,21 +139,7 @@ void* func_0016bc20b(void*, s32, void*) asm("func_0016bc20");
 void func_0018a818b(void*, void*, void*) asm("func_0018a818");
 void func_001902a8(void*, void*);
 
-void func_001903d0(void** p, u8* out) {
-    u8* o = (u8*)p[2];
-    if (o) {
-        func_0018a958(out, 0, *(f32*)(o + 256), *(f32*)(o + 260));
-        *(QWord*)(out + 16) = *(QWord*)((u8*)p[2] + 224);
-    } else if (func_0019ba60(p[0])) {
-        void* v = func_0016bc20b(p[0], 7, p[1]);
-        if (v) func_0018a818b(out, p[0], v);
-        else func_001902a8(p, out);
-    } else {
-        // vf0 = (0, 0, 0, 1)
-        asm volatile("sqc2 $vf0, 0(%0)" : : "r"(out + 16) : "memory");
-    }
-    *(f32*)(out + 28) = 1.0f;
-}
+void func_001903d0(void** p, u8* out);  // 0x001903d0: definition moved into src/anon/unit_001900d0.cpp
 
 struct VTest { virtual void f0(); virtual void f4(); virtual s32 test(QWord*); u8 pad[92]; VTest* next; };
 u8* func_00186078(u8*);
@@ -197,45 +168,14 @@ u32* func_00177860(void);
 s32 func_001bc2a8(void*, void*, s32);
 static inline bool lt4(void* c, void* a) { return func_001bc2a8(c, a, 0) < 4; }
 
-bool func_0019ea10(void* a, u8* b, void* c) {
-    u32* bits = func_00177860();
-    switch (b[2]) {
-    case 19: {
-        u32 id = *(u16*)(b + 4);
-        if (!(bits[id >> 5] & (1 << (id & 31)))) return 0;
-        break;
-    }
-    case 20:
-        if (!func_001a3570(*(u16*)b)) return 0;
-        break;
-    }
-    return lt4(c, a);
-}
+bool func_0019ea10(void* a, u8* b, void* c);  // 0x0019ea10: definition moved into src/anon/unit_0019ea10.cpp
 
 extern f32 D_00349e10;
 f32 func_0017c930(void*, void*);
 Vec4 func_00184540(f32, f32);
 s32 func_00180618(void*);
 
-Vec4 func_001a0a48(void* a, u8* o) {
-    Vec4 r;
-    f32 t = *(f32*)(o + 208) + D_00349e10;
-    if (t < *(f32*)(o + 212)) {
-        *(f32*)(o + 208) = t;
-        r.y = func_0017c930(a, o);
-        r.x = r.z = 0.0f;
-        return r;
-    }
-    r = func_00184540(0.95f, 0.9f);
-    u8* s = o + 320;
-    if (*(s32*)(s + 20) == 156 && !func_00180618(s)) {
-        r.y = 0;
-        return r;
-    }
-    *(f32*)(o + 208) = t;
-    r.y = func_0017c930(a, o);
-    return r;
-}
+Vec4 func_001a0a48(void* a, u8* o);  // 0x001a0a48: definition moved into src/anon/unit_0019fb70.cpp
 
 struct Rgba8 { s8 r, g, b, a; };
 extern Rgba8 D_0036da98;
@@ -265,16 +205,8 @@ void* func_001050d8(u32);
 void func_001c1308(void*, void*, void*, void*, void*);
 
 // Constructor: base init, vtable, then create the owned 56-byte helper.
-void func_001c23a8(u8* p, void* a1, void* a2, void* a3, void* t0, void* t1, void* t2) {
-    func_001980d0(p, a1, 4, D_01d49520, 0.0f);
-    *(u32*)p = (u32)D_00351408;
-    *(u32*)(p + 1416) |= 0x100000;
-    void* h = func_001de168b(p + 156, a2, 0, 1, 0, 0);
-    func_001dcc00(h, a3);  // to_1e34e0_field28
-    void* o = func_001050d8(56);
-    func_001c1308(o, h, t0, t1, t2);
-    *(void**)(p + 2548) = o;
-}
+// 001c23a8: moved to src/anon/unit_001c0638.cpp
+void func_001c23a8(u8* p, void* a1, void* a2, void* a3, void* t0, void* t1, void* t2);
 
 s32 func_00186ce8(u8*);
 s32 func_00186d18(u8*);  // check_size140to150

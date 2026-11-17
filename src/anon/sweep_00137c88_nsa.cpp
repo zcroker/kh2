@@ -63,30 +63,5 @@ void func_001375f0(W1622Item1*, u32, u32);
 void func_00137840(W1622Item2*, u32*);
 s32 func_00139d78(void*);
 
-void func_00137c88(W1622Mgr* m) {
-    if (!m->q1.empty()) {
-        W1622Item1* cur = &m->q1.front();
-        if (m->f1.busy() == true) {
-            func_001375f0(cur, cur->f520, cur->f524);
-            m->f1.clearBusy();
-            if (m->f1.more() == true) cur->rate = 0;
-        } else if (!func_00139d78(cur)) {
-            *cur = m->q1.pop();
-            m->f1.setBusy();
-            m->f1.setMore(!m->q1.empty());
-        }
-    }
-    if (!m->q2.empty()) {
-        W1622Item2* cur = &m->q2.front();
-        if (m->f2.busy() == true) {
-            func_00137840(cur, cur->tail);
-            m->f2.clearBusy();
-            if (m->f2.more() == true) cur->rate = 0;
-        } else if (!func_00139d78(cur)) {
-            *cur = m->q2.pop();
-            m->f2.setBusy();
-            m->f2.setMore(!m->q2.empty());
-        }
-    }
-}
+void func_00137c88(W1622Mgr* m);  // 0x00137c88: definition moved into src/anon/unit_001374c8.cpp
 }

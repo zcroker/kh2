@@ -53,12 +53,7 @@ void func_0015b268(u32 a, f32 f) {
 }
 
 void func_001666d0(u8*, u16, u32, u16, u16);
-void func_00166968(u8* p, u8 b, u16 c, u32 d, u16 e, u16 g, s16 h, s16 i) {
-    func_001666d0(p, c, d, e, g);
-    p[14] = b;
-    *(s16*)(p + 10) = h;
-    *(s16*)(p + 12) = i;
-}
+void func_00166968(u8* p, u8 b, u16 c, u32 d, u16 e, u16 g, s16 h, s16 i);  // 0x00166968: definition moved into src/anon/unit_001664c0.cpp
 
 struct E168 { u16 id; u16 pad; s32 val; u32 x, y; };
 struct T168 { u32 f0; s32 count; u32 f8, fc; E168 e[1]; };
@@ -90,49 +85,20 @@ void func_002ee220(u8*);
 void func_002ee5d8(u8*, u32);
 void func_002edfa8(u8*, u8*);
 extern void* D_0034e888[];
-void func_00175370(u32* a) {
-    u8* o = func_001050d8(4736);
-    u32 v = *a;
-    func_002ee220(o);
-    *(void**)o = D_0034e888;
-    func_002ee5d8(o + 36, v);
-    func_002edfa8(o, o + 36);
-}
+void func_00175370(u32* a);  // 0x00175370: definition moved into src/anon/unit_00171e58.cpp
 
 s32 func_00181a70(u32, u32);
 u32* func_00189068(u32, u32);
 // Increments a counter, saturating at 9999.
-void func_001890a8(u32 a, u32 b) {
-    if (func_00181a70(a, b)) {
-        u32* c = func_00189068(a, b);
-        if (c && *c < 9999) (*c)++;
-    }
-}
+void func_001890a8(u32 a, u32 b);  // 0x001890a8: definition moved into src/anon/unit_00188848.cpp
 
 union U195 { u8* p; f32 f; };
 extern U195 D_00352130;
-void func_001957e8(f32* p) {
-    p[0] = 2.0f;
-    p[1] = 8.0f;
-    p[2] = 160.0f;
-    p[3] = 0.19634955f;
-    p[4] = *(f32*)(D_00352130.p + 20);
-    p[6] = 0.95f;
-    p[5] = 0;
-    p[7] = 0;
-    p[8] = 0;
-}
+void func_001957e8(f32* p);  // 0x001957e8: definition moved into src/anon/unit_00194790.cpp
 
 bool func_0013ef80(void);  // get_global_byte_358700
 u8* func_0014aba8(void);
-bool func_00197c28(u8* p) {
-    s32 t = (*(u8**)(p + 60))[1];
-    switch (t) {
-    case 1: case 2: return *(s32*)(func_0014aba8() + 252) != 4;
-    case 3: return !func_0013ef80();  // get_global_byte_358700
-    }
-    return 0;
-}
+bool func_00197c28(u8* p);  // 0x00197c28: definition moved into src/anon/unit_00195d00.cpp
 
 void func_00197930(u32, u32, u8*);
 void func_0019f070(u8*, u32);
@@ -150,14 +116,7 @@ u8* func_001aa310(u32 a0, u32* a, u8* tbl) {
 void func_001b3b70(u8*, u32, u32, u32);
 extern void* D_00350910[];
 struct B600 { u32 lo : 3; u32 m : 4; u32 rest : 25; };
-void func_001a6b58(u8* p, u32 a, u32 b) {
-    func_001b3b70(p, a, 4, b);
-    *(void**)p = D_00350910;
-    *(u32*)(p + 1416) |= 0x100;
-    *(u32*)(p + 944) = 3;
-    ((B600*)(p + 1536))->m = 1;
-    *(u32*)(p + 2748) |= 4;
-}
+// 001a6b58: moved to src/anon/unit_001a6a10.cpp
 
 struct S1bb { u32 f0; u32 flags; };
 union U1bb { S1bb* p; u32 w; };
@@ -357,23 +316,10 @@ void func_00170888(u32);
 extern char D_00375000[];
 extern char D_00374fe8[];
 extern const char* D_0033caf4;
-void func_002be4b0(u32* p) {
-    const char* s = func_00105c30() == 8 ? D_00375000 : D_0033caf4;
-    func_002fee78(p + 16, D_00374fe8, s, p[0]);
-    func_00170518(p + 16, -200, 0);
-    func_00170888(0);
-}
+void func_002be4b0(u32* p);  // 0x002be4b0: definition moved into src/anon/unit_002be020.cpp
 
 // Splits n into count decimal digits (most significant first); returns digits used (min 1).
-s32 func_002c5238(s32 n, s32 count, s32* out) {
-    s32 nz = 0;
-    s32 i = count - 1;
-    do {
-        if (n == 0) out[i] = 0;
-        else { nz++; out[i] = n % 10; n /= 10; }
-    } while (--i >= 0);
-    return nz ? nz : 1;
-}
+s32 func_002c5238(s32 n, s32 count, s32* out);  // 0x002c5238: definition moved into src/anon/unit_002c4ca8.cpp
 
 void func_00182f28(u32);  // store_global_35ed04
 void func_00319f88(u8*);

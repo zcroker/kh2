@@ -42,36 +42,7 @@ W1967Anim* w1967_getSub(void*) asm("_Z13func_00132360Pv");
 void w1967_link(void*, s32) asm("_Z13func_00132368Pvi");
 W1967Anim* w1967_getNext(void*) asm("_ZNK2kn13AnimationWork7getNextEv");
 
-void func_00190b30(s32* self, W1967Obj* obj) {
-    W1967Act* a = 0;
-    f32 best = 0.0f;
-    f32 r = w1967_GetLockOnRatio(self);
-    f32 range = D_00352130->range * r;
-    W1967V p0 = obj->vt->getPos(obj);
-    W1967V p1;
-    w1967_ctarget_0016bda8(&p1, obj);
-    func_00190128(self);
-    while ((a = w1967_ctarget_001b9bc8(a)) != 0) {
-        if (!func_0019bc38(a)) continue;
-        W1967Part* p = 0;
-        f32 lim = 1.0f;
-        while ((p = w1967_each_collision(a, 3, p)) != 0) {
-            if (p->flags & 1) continue;
-            W1967Info info;
-            f32 d;
-            func_0018a818(&info, a, p);
-            if (!(a->flags & 0x400) || r < lim) {
-                f32 d0 = (info.pos - p0).length() - info.r;
-                if (range < d0) continue;
-            }
-            d = (info.pos - p1).length() - info.r;
-            if (*self == 0 || d < best) {
-                best = d;
-                w1967_set_obj(self, a, p->id);
-            }
-        }
-    }
-}
+void func_00190b30(s32* self, W1967Obj* obj);  // 0x00190b30: definition moved into src/anon/unit_001900d0.cpp
 
 void func_0011e600(W1967Owner* self, s32 a, s32 b) {
     W1967Anim* p1;

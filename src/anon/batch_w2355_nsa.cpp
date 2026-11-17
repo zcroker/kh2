@@ -41,35 +41,5 @@ static inline s32 irand_1c4520(s32 n) {
     return ((u64)D_003638d0 * n) >> 32;
 }
 
-Mgr1c4520* func_001c4520(void* parent, Pos1c4520* centre)
-{
-    s32 i;
-    Mgr1c4520* mgr = func_001dba18(parent);
-    if (mgr == 0) {
-        mgr = new Mgr1c4520(parent);
-        D_00351604 = 30;
-        D_00351608 = 0;
-        D_0035160c = 0;
-    }
-    Mgr1c4520* owner = mgr->owner;
-    for (i = 0; i < 7; i++) {
-        f32 x0 = i * 142.8571319580078f - 500.0f;
-        for (s32 j = 0; j < 7; j++) {
-            f32 z0 = j * 142.8571319580078f - 500.0f;
-            Pos1c4520 p(centre->x + (x0 + frand_1c4520(142.8571319580078f)), centre->y,
-                        centre->z + (z0 + frand_1c4520(142.8571319580078f)));
-            func_001a7610(&p, &p, 4, 1000.0f, 200.0f);
-            f32 h = frange_1c4520(300.0f, 400.0f);
-            p.w = 1.0f;
-            p.y -= h + 64.0f;
-            Obj1c4520* o = func_001db888((u8*)owner + 20, 96, __builtin_return_address(0));
-            func_001dbc58(o, owner, &p, &D_01d49580);
-            o->update = (void*)func_001c4e30;
-            o->height = (s32)h;
-            o->variant = irand_1c4520(8);
-            D_00351604++;
-        }
-    }
-    return mgr;
-}
+Mgr1c4520* func_001c4520(void* parent, Pos1c4520* centre);  // 0x001c4520: definition moved into src/anon/unit_001c4120.cpp
 }

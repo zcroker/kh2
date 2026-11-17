@@ -149,25 +149,7 @@ void func_0011b6a8(M4*);
 void func_0011b720(M4*, f32);
 f32 func_0017ce80(f32, f32, f32);
 void func_0013f648(u8*);
-void func_0013f888(u8* p, V4* pos, u8 mode) {
-    f32 d = *(f32*)(p + 0x48) - *(f32*)(p + 0xd0);
-    f32 h = *(f32*)(p + 0xd8) * (d * d);
-    if (mode == 1) *(f32*)(p + 0x4c) = *(f32*)(p + 0x50);
-    else {
-        f32 dt = D_00349e10;
-        *(f32*)(p + 0x4c) = func_0017ce80(*(f32*)(p + 0x4c), *(f32*)(p + 0x50), D_004573dc * dt);
-    }
-    V4 v;
-    v.w = v.y = v.x = 0.0f;
-    v.z = *(f32*)(p + 0x48);
-    M4 m;
-    func_0011b6a8(&m);
-    func_0011b720(&m, *(f32*)(p + 0x4c));
-    ApplyTo(&v, &m, &v);
-    VAddTo((V4*)(p + 0x60), pos, &v);
-    *(f32*)(p + 0x64) = pos->y - -150.0f - h;
-    if (mode == 1) func_0013f648(p);
-}
+void func_0013f888(u8* p, V4* pos, u8 mode);  // 0x0013f888: definition moved into src/anon/unit_0013ef70.cpp
 
 // Quicksort of key[] (floats, ascending) carrying idx[] along.
 void func_001472b8(FI* idx, FI* key, s32 lo, s32 hi) {
@@ -251,27 +233,7 @@ void func_0014b5e8(u8*, u64, u64);
 void func_0014b208(u8*, u64, u64);
 void func_0014b468(u8*, u64, u64);
 void func_0014b628(u8*, u64);
-void func_0015e3b8(u8* p) {
-    *(u32*)(p + 4) = 0;
-    *(u32*)p = (u32)D_0034c6e0;
-    u8* a = p + 144;
-    func_0014b7f0(a);
-    func_0014c050(p + 416);
-    *(u32*)(p + 1200) = 0;
-    func_0014b610(a, 0x131000070ULL);
-    func_0014b608(a, 0x00ffffff00080140ULL);
-    func_0014b5e0(a, 278);
-    func_0014b630(a, 96);
-    func_0014b618(a, 0x3cfe5);
-    func_0014b5e8(a, 0x80008, 0x4080408);
-    func_0014b610(p + 416, 0x131000070ULL);
-    func_0014b5e0(p + 416, 342);
-    func_0014b630(p + 416, 96);
-    func_0014b618(p + 416, 0x3001d);
-    func_0014b208(p + 416, 512, 416);
-    func_0014b468(p + 416, 512, 416);
-    func_0014b628(p + 416, 0x2006a00664022800ULL);
-}
+// 0015e3b8: moved to src/anon/unit_0015e070.cpp
 
 extern u8 D_0034c6c8[];
 extern u8 D_004f3820[];
@@ -285,24 +247,7 @@ void func_0014b220(u8*, u64, u64, u64, u64);
 void func_0014b208(u8*, u64, u64);
 void func_0014b468(u8*, u64, u64);
 void func_0014b628(u8*, u64);
-void func_0015e8c8(u8* p) {
-    *(u32*)(p + 4) = 0;
-    *(u32*)p = (u32)D_0034c6c8;
-    func_0014c050(p + 80);
-    *(u32*)(p + 864) = 0;
-    func_0014b610(D_004f3820, 0x131000070ULL);
-    func_0014b608(D_004f3820, 0x80140);
-    func_0014b5e0(D_004f3820, 6);
-    func_0014b220(D_004f3820, 0, 0, 0, 0);
-    func_0014b208(D_004f3820, 512, 416);
-    func_0014b610(p + 80, 0x131000070ULL);
-    func_0014b5e0(p + 80, 342);
-    func_0014b630(p + 80, 96);
-    func_0014b618(p + 80, 0x3001d);
-    func_0014b208(p + 80, 512, 416);
-    func_0014b468(p + 80, 512, 416);
-    func_0014b628(p + 80, 0x2006a00664022800ULL);
-}
+// 0015e8c8: moved to src/anon/unit_0015e070.cpp
 
 TaskB* func_00102c18(s32, s32, void (*)(void));
 struct TaskMgr { u32 pad; void* q; };
@@ -350,24 +295,7 @@ Vq func_0016be98(u32);
 void func_002bc188(u32, Vq*);
 void func_001c7700(void);
 void func_001c78e0(void);
-void func_001c79a0(Homing* h, u32 target, s32 mode) {
-    h->target = target;
-    Vq v;
-    v = func_0016be98(target);
-    h->dir = h->pos - v;
-    h->dir.w = Normalize(h->dir);
-    switch (mode) {
-    case 0:
-        h->speed = 40.0f;
-        h->step = func_001c7700;
-        break;
-    case 1:
-        h->speed = 80.0f;
-        h->step = func_001c78e0;
-        break;
-    }
-    func_002bc188(h->owner[3], &v);
-}
+// 001c79a0: moved to src/anon/unit_001c7148.cpp (linked unit)
 
 extern SaveBig D_01d499b0;
 extern SaveBig D_0032bb30;
@@ -386,27 +314,8 @@ s32 func_00190140(u32);
 Vq* func_0016c028(u8*);  // obj_get_attach_or_alt
 void func_001902a8(u32, Vq*);
 Vq func_0016af58(u32);
-void func_001cda88(Lockon* l, u32 obj, u32 tgt) {
-    u32* aim = (u32*)&l->aim;
-    Vq* opos = &l->opos;
-    l->target = func_00190140(tgt) ? tgt : 0;
-    aim[3] = 0;
-    l->obj = obj;
-    l->objId = *(u32*)(obj + 2800);
-    QCOPY(opos, func_0016c028((u8*)obj));  // obj_get_attach_or_alt
-    l->t96 = 0;
-    l->t100 = 0;
-    if (l->target) {
-        func_001902a8(l->target, (Vq*)aim);
-        Vq v;
-        v = l->tpos - *opos;
-        v.y = 0;
-        Normalize(v);
-        l->dir = v;
-    } else {
-        l->dir = func_0016af58(l->obj);
-    }
-}
+// 001cda88: moved to src/anon/unit_001cd660.cpp
+void func_001cda88(Lockon* l, u32 obj, u32 tgt);
 
 extern u8 D_0032e020[];
 s32 func_001a8bf8(u32*, s32);  // get_bits5_at
@@ -421,21 +330,7 @@ f32 func_00184a90(u8*);
 Vq* func_0016c028(u8*);  // obj_get_attach_or_alt
 struct VqI { FI x, y, z, w; } __attribute__((aligned(16)));
 // Velocity for a floating object, easing its height towards the ground.
-Vq func_001d2a68(u32, u8* o) {
-    VqI v;
-    QCOPY(&v, o + 2144);
-    v.x.i = 0;
-    v.z.i = 0;
-    f32 z = v.x.f;
-    if (v.y.f < z) v.y.f = z;
-    f32 h = MAX(z, func_00184a90(o) - func_0016c028(o)->y);
-    if (h < 300.0f) {
-        v.y.f = (v.y.f - 0.5f) * 0.95f + 0.5f;
-    } else {
-        v.y.f = MIN(v.y.f + D_00349e10 * 0.2f, 6.0f);
-    }
-    return *(Vq*)&v * D_00349e10;
-}
+Vq func_001d2a68(u32, u8* o);  // 0x001d2a68: definition moved into src/anon/unit_001d2810.cpp
 
 union XfMatPtr { XfMat* p; f32 f; };
 extern XfMatPtr D_01d9e6e8;

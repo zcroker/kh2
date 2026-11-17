@@ -6,32 +6,7 @@ void* func_0010c778(void*); void func_00135aa0(void*); u8* func_00111e38(s32);
 void func_001c0e60(void*); void func_00198970(void*); void func_0013e4b8(void*);
 void func_0014ebd8(void); void func_001ad990(void*, f32, f32, f32); void func_00190128(void*);
 void func_0019cc20(void*); void func_0016bd60(void*, s32);
-void func_0011b250(u8* p) {
-    u8* c;
-    func_00135aa0(func_0010c778((void*)*(u32*)(p + 4)));
-    c = func_00111e38(0);
-    *(u32*)(c + 264) &= ~0x100;
-    *(u32*)(c + 268) &= ~0x4000;
-    *(u32*)((u8*)*(u32*)(p + 4) + 264) &= ~0x100;
-    func_001c0e60((void*)*(u32*)(p + 4));
-    func_00198970((void*)*(u32*)(p + 4));
-    if (*(void**)(p + 48)) {
-        func_0013e4b8(*(void**)(p + 48));
-        *(void**)(p + 48) = 0;
-    }
-    D_0034f240 &= ~0x4000;
-    func_0014ebd8();
-    func_001ad990(c + 2100, 0.0f, 1.0f, 0.0f);
-    func_001ad990((u8*)*(u32*)(p + 4) + 2100, 0.0f, 1.0f, 0.0f);
-    *(u32*)(p + 32) &= ~1;
-    func_00190128((u8*)*(u32*)(p + 4) + 2548);
-    if (*(void**)(c + 2880)) func_0019cc20(*(void**)(c + 2880));
-    if ((*(s32*)(*(u8**)(c + 12) + 4) ^ 0x3f) == 0) {
-        func_0016bd60(c, 0);
-        u8* o = *(u8**)(c + 12);
-        (*(void (**)(void*, void*, f32))(*(u8**)o + 12))(o, c, 0.0f);
-    } else func_0016bd60(c, 0);
-}
+void func_0011b250(u8* p);  // 0x0011b250: definition moved into src/anon/unit_0011a660.cpp
 
 u8* func_0023ee30(s32); void func_0031a838(void*); void func_002369a0(void*); void func_0023c008(void*);  // obj_ctor_36eae8
 void func_0028d7f0(void*, s32, s32, s32, s32, s32, s32, s32, s32);

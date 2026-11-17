@@ -40,28 +40,10 @@ void func_0017d0e8(W1545V4*, f32);
 void func_0016bd60(u8*, s32);
 
 // Finds the first unused entry whose id resolves to key.
-W1545E18* func_0018bae8(W1545O18* self, s32 key) {
-    W1545H18* a = self->h;
-    u16 n = a->hdr->n;
-    W1545E18* p = func_0019b308(a);
-    for (s32 i = 0; i < n; i++) {
-        if (p[i].used == 0 && func_0016b740(p[i].id) == key) return &p[i];
-    }
-    return 0;
-}
+W1545E18* func_0018bae8(W1545O18* self, s32 key);  // 0x0018bae8: definition moved into src/yasui/libys/npc.cpp
 
 // 0 / -1 pass through from the table, anything else is -2; 0 is then rechecked.
-s32 func_00196768(s32 a, s32 b) {
-    s32 idx = func_00196618();
-    s32 r = 0;
-    if (idx >= 0) {
-        s32 t = D_0032bb30.arr[idx].a;
-        if (t != 0 && t != -1) t = -2;
-        if (t == 0) { if (func_001d52a0(a, b)) t = -2; }
-        r = t;
-    }
-    return r;
-}
+s32 func_00196768(s32 a, s32 b);  // 0x00196768: definition moved into src/anon/unit_00195d00.cpp
 
 // Facing vector (struct return): from the angle of -(x, z) when active, else the stored one.
 W1545V4 func_0016af58(W1545OK* o) {  // obj_get_rotation
@@ -78,26 +60,8 @@ W1545V4 func_0016af58(W1545OK* o) {  // obj_get_rotation
 }
 
 // Normalises *v, stores v * v.w at +32, s at +240, then state 5.
-void func_0019fdc0(u8* self, W1545V4* v, f32 s) {  // vec4_normalize_2
-    f32 w = v->w;
-    w1545_vnorm(v);
-    W1545V4* d = (W1545V4*)(self + 32);
-    W1545V4 t;
-    asm volatile(W1545_VSCALE : : "r"(&t), "r"(v), "f"(w) : "$8", "memory");
-    *d = t;
-    *(f32*)(self + 240) = s;
-    func_0016bd60(self, 5);
-}
+void func_0019fdc0(u8* self, W1545V4* v, f32 s);  // 0x0019fdc0: definition moved into src/anon/unit_0019fb70.cpp
 
 // Same as func_0019fdc0 with state 6.
-void func_001a0710(u8* self, W1545V4* v, f32 s) {
-    f32 w = v->w;
-    w1545_vnorm(v);
-    W1545V4* d = (W1545V4*)(self + 32);
-    W1545V4 t;
-    asm volatile(W1545_VSCALE : : "r"(&t), "r"(v), "f"(w) : "$8", "memory");
-    *d = t;
-    *(f32*)(self + 240) = s;
-    func_0016bd60(self, 6);
-}
+void func_001a0710(u8* self, W1545V4* v, f32 s);  // 0x001a0710: definition moved into src/anon/unit_0019fb70.cpp
 }

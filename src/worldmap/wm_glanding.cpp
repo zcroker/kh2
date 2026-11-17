@@ -4,9 +4,7 @@ namespace dk {
 
 
 
-u32 WM_GLANDING::get_jump_flag() {
-    u32 v = *(u32*)((u32)this + 24);
-    return v & 0x1u;
-}
+// WM_GLANDING::get_jump_flag (0x2cab48): moved to src/anon/unit_002ca0e0.cpp
+
 
 }  // namespace dk

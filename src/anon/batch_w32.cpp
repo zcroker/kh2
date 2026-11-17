@@ -126,24 +126,10 @@ void AreaExit(void) {
 // Replaces every entry's key `key` with `val`.
 void func_0018ef98(s32 key, s32 val);  // 0x0018ef98: definition moved into src/anon/unit_0018d050.cpp
 
-s32 func_001a1658(s32 x) {  // state_dispatch_0_1_14
-    switch (x) {
-    case 0: return 0;
-    case 1: case 14: return func_001a15d0(x);
-    default: return func_001a1540(x);
-    }
-}
+s32 func_001a1658(s32 x);  // 0x001a1658: definition moved into src/anon/unit_0019fb70.cpp
 
 // Adds n, capping the sub-object's byte counter at 100.
-void func_001a2578(u8* p, s32 n) {
-    u8* s = *(u8**)(p + 580);
-    if (s) {
-        if (s[9] + n > 100) n = 100 - s[9];
-        s[9] += n;
-    }
-    *(u16*)(p + 392) += n;
-    *(u16*)(p + 400) += n;
-}
+void func_001a2578(u8* p, s32 n);  // 0x001a2578: definition moved into src/anon/unit_0019fb70.cpp
 
 // 001abdf0: moved to src/anon/unit_001abb28.cpp
 
@@ -152,10 +138,7 @@ void func_001a2578(u8* p, s32 n) {
 // Drains two iterators.
 // 001ccda0: moved to src/anon/unit_001cc868.cpp
 
-bool func_001dc738(u32* p) {  // state_gate_flags
-    u32 fl = p[2];
-    return (fl & 0x400000) || ((D_0034f240 & 0x20) && p[1] != 3) || (bool)(((s32)fl >> 26) & 1);
-}
+bool func_001dc738(u32* p);  // 0x001dc738: definition moved into src/anon/unit_001dbfd8.cpp
 
 void func_001ea928(u8* a, u8* b) {
     u8* s = a + **(s32**)(b + 12) + 160;
@@ -167,15 +150,7 @@ void func_001ea928(u8* a, u8* b) {
 }
 
 void EFFECT_free(u8*) asm("_ZN3ryj6EFFECT4freeEv");
-void EFFECT_free(u8* e) {
-    *(u32*)(e + 8) |= 0x10000;
-    void* h = *(void**)(e + 0x1c);
-    if (h) {
-        func_001e2c00(h);
-        func_001e6c00(*(void**)(e + 0x1c));  // alloc_336_align_171
-        *(void**)(e + 0x1c) = 0;
-    }
-}
+void EFFECT_free(u8* e);  // 0x001dc878: definition moved into src/anon/unit_001dbfd8.cpp
 
 struct Binding { u8 pad[0x40]; void* eff; u32 pad44; u32 w48; u8 pad2[0x10]; u32 f5c; Binding* next; };
 void PAX_unbind(u8*, void*) asm("_ZN3ryj3PAX6unbindEPNS_6EFFECTE");

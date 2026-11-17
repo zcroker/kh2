@@ -15,22 +15,7 @@ struct W1779Node {
 };
 struct W1779List { W1779Node* head; W1779Node* tail; };
 extern W1779List D_01e2be18;
-void func_002cb5d8(W1779Node* p, f32 f) {
-    p->m0 = 0; p->m4 = 0; p->m8 = 0; p->mc = 0; p->m10 = 0;
-    p->m14 = f; p->m18 = 0;
-    p->m1c = -2.0f; p->m20 = 0.5f; p->m24 = 20.0f;
-    p->m80 = 0; p->m84 = 1; p->m85 = 0; p->m87 = 0;
-    p->m88 = 0; p->m8c = -1; p->m90 = 0;
-    if (D_01e2be18.tail == 0) {
-        D_01e2be18.tail = p;
-        D_01e2be18.head = p;
-        p->next = 0;
-    } else {
-        D_01e2be18.tail->next = p;
-        p->next = 0;
-        D_01e2be18.tail = p;
-    }
-}
+void func_002cb5d8(W1779Node* p, f32 f);  // 0x002cb5d8: definition moved into src/taito/path.cpp
 
 struct W1779V4 {
     f32 x, y, z, w;

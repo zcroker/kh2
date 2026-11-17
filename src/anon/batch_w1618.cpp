@@ -85,46 +85,7 @@ inline W1618Box::W1618Box() { W1618Box_init(this); }
 
 // Ledge grab test: sweeps a box around the object down to the ledge; on a hit,
 // faces the wall, snaps onto the edge and switches to action 2. Returns 1 on grab.
-bool func_001958d0(W1618Obj* o) {
-    W1618V pos;
-    W1618V hit;
-    W1618V d;
-    W1618V dir;
-    W1618V ea;
-    W1618V eb;
-    W1618Box box;
-    W1618Ledge* l = o->ledge;
-    if (!l || l->minHeight == 0.0f || (o->flags & 0x4000)) return 0;
-    f32 drop = l->drop;
-    W1618Body* b = &o->body;
-    f32 r = b->radius + D_00352130->margin;
-    pos = *func_0016c028(o);
-    pos.y -= drop;
-    W1618Box_set(&box, pos.x - r, pos.y - D_00352130->below, pos.z - r,
-                 pos.x + r, pos.y + D_00352130->above, pos.z + r);
-    dir = func_0016af58(o);
-    if (!func_00143470(&pos, &box, &hit, &ea, &eb, &dir, o->colB34)) return 0;
-    if (hit.y < box.mn[1] || box.mx[1] < hit.y) return 0;
-    if (o->canStep()) {
-        if (W1618_get_step_height(o) - hit.y < l->minHeight) return 0;
-    }
-    d = hit - pos;
-    d.y = 0.0f;
-    if (r < d.length()) return 0;
-    d = eb - ea;
-    d.y = 0.0f;
-    d.normalize();
-    dir.x = -d.z;
-    dir.y = 0.0f;
-    dir.z = d.x;
-    d = dir * -b->radius;
-    d.y = drop;
-    if (!func_0019bfd0(o, hit + d)) return 0;
-    W1618_set_dir(o, dir);
-    W1618_set_pos(o, hit + d);
-    W1618_change_action(o, 2);
-    return 1;
-}
+bool func_001958d0(W1618Obj* o);  // 0x001958d0: definition moved into src/anon/unit_00194790.cpp
 
 // ---- BGM slot restart ----
 extern W1618Bgm D_00347d30[2];

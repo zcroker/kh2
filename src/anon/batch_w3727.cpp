@@ -26,30 +26,7 @@ void wtarget_001dc140(u32* a0, u32 a1, u32 a2, u32 a3) asm("_Z16wtarget_001dc140
 // then hands each listed offset (made absolute) to 001e50a8.
 // Register pins and empty asm: the original keeps the block base in t4 (copied first), the header
 // in t3 for the first loop, and the first loop's cursor in t5.
-void wtarget_001dc140(u32* a0, u32 a1, u32 a2, u32 a3) {
-    s32 d = (u32)a0 - a1;
-    WHdr_w3727* h = (WHdr_w3727*)a0;
-    register u32 base0 asm("$12") = (u32)a0;
-    asm("" : "+r"(base0));
-    s32 i = 0;
-    if (((WHdr_w3727*)a0)->count > 0) {
-        a0 += 4;
-        register u32* p asm("$13") = a0;
-        do {
-            if (*p) *p += d;
-            p += 8;
-            i++;
-        } while (i < h->count);
-        asm("" : "+r"(p));
-        a0 = p;
-    } else {
-        a0 += 4;
-    }
-    s32 n = *a0++;
-    u32 base = base0;
-    asm("" : "+r"(base));
-    for (i = 0; i < n; i++) func_001e50a8(*a0++ + base, d);
-}
+void wtarget_001dc140(u32* a0, u32 a1, u32 a2, u32 a3);  // 0x001dc140: definition moved into src/anon/unit_001dbfd8.cpp
 
 struct O_w3727 { u8 pad[0x48c]; s32 x; };
 extern O_w3727* D_0034e948;

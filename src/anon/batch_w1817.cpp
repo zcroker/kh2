@@ -21,22 +21,5 @@ void w920_set_obj(void*, void*, s32) asm("_ZN2YS6TARGET7set_objEPNS_3OBJEi");
 f32 w920_lockon(void*) asm("_ZN2YS6STATUS14GetLockOnRatioEv");
 extern void* D_0034e948;
 void wtarget_00190920(u8* self, u32 kind, u8* obj, u32 a3) asm("_Z16wtarget_00190920jjjj");
-void wtarget_00190920(u8* self, u32 kind, u8* obj, u32 a3) {
-    switch (kind) {
-    case 0: func_00190a28(self, obj); break;
-    case 1: func_00190a80(self, obj); break;
-    case 2: w920_set_obj(self, D_0034e948, 0); break;
-    case 3: func_00191218(self, obj, 0.0f); break;
-    case 4: func_00190b30(self, obj); break;
-    case 5: func_00191218(self, obj, 10000.0f); break;
-    case 6: {
-        u8* t = *(u8**)(obj + 304);
-        if (t) {
-            func_00190f80(self, obj, *(f32*)(t + 92) * w920_lockon(self));
-        }
-        break;
-    }
-    }
-    *(u32*)(self + 12) = kind;
-}
+void wtarget_00190920(u8* self, u32 kind, u8* obj, u32 a3);  // 0x00190920: definition moved into src/anon/unit_001900d0.cpp
 }

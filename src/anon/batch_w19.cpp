@@ -110,11 +110,7 @@ void func_00115560(void** p) {
 
 // 00136790: moved to src/harata/libdk/bgse.cpp
 
-void jumpeffect_outclear(void) {
-    func_0013f030();
-    func_0013f048();
-    func_0014aa80(func_0014aba8(), 1, 0);
-}
+void jumpeffect_outclear(void);  // 0x0013f160: definition moved into src/anon/unit_0013ef70.cpp
 
 void func_0014f688(u32 a, u32 b, u32 c, u32 d, u32 e) {
     func_00150dc0(D_0034a428, a, b, c, d, e);
@@ -124,27 +120,18 @@ void force_leave_mission_gauge(void* g) {
     if (func_00139d78(g)) func_00151c70(g);
 }
 
-u32 func_00167e70(void) {
-    func_00167d68(D_0034d6c0);
-    return func_00167d68(D_0034d6c0 + 96);
-}
+// 00167e70: moved to src/anon/unit_00167358.cpp
 
 void* get_weapon_entry(const void* self, s32 i);  // 0x0016f6a0: definition moved into src/anon/unit_0016e8f8.cpp
 
 u32 func_0016fac8(u32 a);  // 0x0016fac8: definition moved into src/anon/unit_0016e8f8.cpp
 
-void trap_treasure_get(u32* v) {
-    func_001a8418(func_001a8258(*v));
-    func_001382b8(func_001a8510());
-}
+void trap_treasure_get(u32* v);  // 0x001754d0: definition moved into src/anon/unit_00171e58.cpp
 
 // 001775f8: moved to src/yasui/libys/party.cpp
 
 struct Args18 { u32* a; u32 b, c, d; f32 e, f; };
-void func_0018f248(Args18* p) {
-    u32 b = p->b;
-    func_00186740(p->a[1], b, p->c, p->d, p->e, p->f);
-}
+void func_0018f248(Args18* p);  // 0x0018f248: definition moved into src/anon/unit_0018f140.cpp
 
 void func_0019af98(u8* p) {
     u8* t = *(u8**)(p + 8);
@@ -272,14 +259,7 @@ void func_0022d7e8(void) {
 }
 }
 
-void wtarget_001afa50(u32, u32, u32, u32) {
-    Trio* p;
-    for (p = D_01c94090; (s32)p < (s32)(D_01c94090 + 3); p++) {
-        p->a = 0;
-        p->b = -1;
-        p->c = -1;
-    }
-}
+void wtarget_001afa50(u32, u32, u32, u32);  // 0x001afa50: definition moved into src/anon/unit_001ada38.cpp
 
 struct KeyVal { u32 k, v; };
 // Looks up key in a zero-terminated {key, value} table at (*a)+28.

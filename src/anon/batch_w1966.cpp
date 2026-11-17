@@ -127,19 +127,7 @@ void func_00226090(void) {
     }
 }
 
-void func_001065d8(void) {
-    s32 i;
-    for (i = 0; i < 2; i++) {
-        D_003a81b0[i] = D_003a7b70[i];
-        D_003a83b0[i] = D_003a7f70[i];
-    }
-}
+// 001065d8: moved to src/naka/libkn/camera.cpp
 
-void func_001067b8(void) {
-    s32 i;
-    for (i = 0; i < 2; i++) {
-        D_003a7b70[i] = D_003a81b0[i];
-        D_003a7f70[i] = D_003a83b0[i];
-    }
-}
+// 001067b8: moved to src/naka/libkn/camera.cpp
 }

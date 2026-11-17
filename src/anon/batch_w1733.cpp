@@ -8,10 +8,7 @@ static inline s32 sub_clamp0(s32 a, s32 b) {
     if (v < 0) v = 0;
     return v;
 }
-void func_001a1b30(S1a1b30* s, s32 n) {
-    if (s->b1 == s->b2 || s->b1 < n) s->b0 = 0;
-    s->b1 = sub_clamp0(s->b1, n);
-}
+void func_001a1b30(S1a1b30* s, s32 n);  // 0x001a1b30: definition moved into src/anon/unit_0019fb70.cpp
 
 extern u8* D_00361f60;
 void func_002ceb08(void);

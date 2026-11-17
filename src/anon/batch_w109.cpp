@@ -149,50 +149,7 @@ void func_0023f0c0(u8*);
 void func_002c1460(u8*, s32);
 typedef void (*VFn2c14e8)(u8*);
 struct F2c14e8 { u32 f : 1; };
-void func_002c14e8(u8* self) {
-    s32 ids[3];
-    s32 ids2[2];
-    s32 a, b, c, d;
-    func_00236d60(self);  // clear_64_entries_24
-    if (((F2c14e8*)(self + 24))->f) {
-        if (func_00139d78(self + 28)) func_00139510(self + 28);
-        (*(VFn2c14e8*)(*(u8**)self + 20))(self);
-        return;
-    }
-    if (func_00139538(self + 192)) {
-        ((F2c14e8*)(self + 24))->f = 1;
-        return;
-    }
-    func_0014cbe0(&a, &b, &c, &d);
-    s32 pos = 0;
-    s32 n = func_002c5238(a, 3, ids);
-    s32 step = func_0023aa98(self + 624);
-    if (!func_001396c0(self + 192)) {
-        for (s32 i = 0; i < 3; i++) {
-            u8* o = self + 600 + i * 408;
-            func_00138c10(o, ids[i] + 39);
-            func_00138c68(o, pos, 0);
-            if (2 - i < n) {
-                func_00139580(o);
-                pos += step;
-            } else {
-                func_00139570(o);
-            }
-        }
-    }
-    func_00138c68(self + 1824, pos, 0);
-    pos += func_0023aa98(self + 1848);
-    func_002c5238(b, 2, ids2);
-    u8* o = self + 2232;
-    for (s32 i = 0; i < 2; i++) {
-        func_00138c10(o, ids2[i] + 39);
-        func_00138c68(o, pos, 0);
-        pos += step;
-        o += 408;
-    }
-    func_0023f0c0(self + 28);
-    func_002c1460(self, 2);
-}
+void func_002c14e8(u8* self);  // 0x002c14e8: definition moved into src/anon/unit_002c10e0.cpp
 
 // ---- f9.cpp
 extern void* D_0034a920[];
@@ -414,48 +371,7 @@ void func_001393c8(void);
 void func_001394c0(void);
 void func_001394d8(void);
 void func_00139308(void);
-void func_00139f38(G139f38* arg) {
-    T139f38* o;
-    s32 mode;
-    func_00139dc0(0);
-    D_00347f80_u.p->x20 = arg;
-    G139f38* g = D_00347f80_u.p;
-    g->x8 = 0;
-    g->x4 = 0;
-    s32 m0 = func_00102c80();
-    s32 m1 = func_00103070();
-    s32 m2 = func_001045f0();
-    func_00102180(&mode);
-    if (mode == m0) {
-        func_00102c18(1, 6010, (void*)func_00139de8);
-        o = func_00102c18(1, 100000, (void*)func_00139390);
-        o->x4 = D_00347f80_u.p;
-        o->x48 = (void*)func_001393c8;
-        o = func_00102c18(1, 103500, (void*)func_001394c0);
-        o->x4 = D_00347f80_u.p;
-        o->x48 = (void*)func_001394d8;
-        D_00347f80_u.p->x0 = func_001024b0(arg);
-        func_00102788(D_00347f80_u.p->x0, 0, 103000, (void*)func_00139308)->x4 = D_00347f80_u.p;
-    } else if (mode == m1) {
-        o = func_00102f08(0, 100000, (void*)func_00139390);
-        o->x4 = D_00347f80_u.p;
-        o->x48 = (void*)func_001393c8;
-        o = func_00102f08(0, 125000, (void*)func_001394c0);
-        o->x4 = D_00347f80_u.p;
-        o->x48 = (void*)func_001394d8;
-        D_00347f80_u.p->x0 = func_001024b0(arg);
-        func_00102788(D_00347f80_u.p->x0, 0, 120000, (void*)func_00139308)->x4 = D_00347f80_u.p;
-    } else if (mode == m2) {
-        o = func_00104588(0, 100000, (void*)func_00139390);
-        o->x4 = D_00347f80_u.p;
-        o->x48 = (void*)func_001393c8;
-        o = func_00104588(0, 127500, (void*)func_001394c0);
-        o->x4 = D_00347f80_u.p;
-        o->x48 = (void*)func_001394d8;
-        D_00347f80_u.p->x0 = func_001024b0(arg);
-        func_00102788(D_00347f80_u.p->x0, 0, 110000, (void*)func_00139308)->x4 = D_00347f80_u.p;
-    }
-}
+void func_00139f38(G139f38* arg);  // 0x00139f38: definition moved into src/anon/unit_001393c8.cpp
 
 // ---- f18.cpp
 struct D1ddef0 { u16 id; u8 pad[14]; u32 flags; f32 radius; u8 pad2[4]; f32 v[12]; };

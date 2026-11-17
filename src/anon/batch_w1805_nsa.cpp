@@ -21,23 +21,7 @@ extern w1805_a::A D_0034d800[];
 extern w1805_a::B D_01c6cf00[];
 w1805_a::R* func_001ae460();
 
-w1805_a::A* func_001ae6a8() {
-    using namespace w1805_a;
-    int i;
-    for (i = 0; i < 4; i++) if (!D_0034d800[i].b) break;
-    int j;
-    for (j = 0; j < 4; j++) if (!D_01c6cf00[j].a) break;
-    R* r = func_001ae460();
-    A* a = &D_0034d800[i];
-    B* b = &D_01c6cf00[j];
-    a->x = 0;
-    a->y = b->r = r->m12;
-    a->b = b;
-    a->z = 0;
-    b->a = a;
-    b->p = b->q = r->m8;
-    return a;
-}
+w1805_a::A* func_001ae6a8();  // 0x001ae6a8: definition moved into src/anon/unit_001ada38.cpp
 
 extern w1805_b::Mgr* D_01d9e6e0;
 extern s32 D_01d9ea9c;

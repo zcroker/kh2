@@ -88,31 +88,7 @@ void func_001902a8(void*, S1d2e68*);
 V1d2e68 func_0016bda8(O1d2e68*) asm("_Z16ctarget_0016bda8jjjj");
 V1d2e68 func_0017d538(V1d2e68*, f32);
 V1d2e68 func_0016af58(O1d2e68*);
-V1d2e68 func_001d2e68(void* self, O1d2e68* o) {
-    V1d2e68 r;
-    P1d2e68* prm = *(P1d2e68**)D_00352130;
-    S1d2e68 s;
-    s.d = 0;
-    if (func_00190140(o->tgt)) {
-        func_001902a8(o->tgt, &s);
-        r = sub_1d2e68(s.pos, func_0016bda8(o));
-        f32 d = norm_1d2e68(&r) - s.b;
-        if (d < 0.0f) d = 0.0f;
-        if (d < prm->f104) {
-            f32 t = (d - prm->f104) / (prm->f108 - prm->f104);
-            f32 c;
-            if (t < 0.0f) c = 0.0f;
-            else if (1.0f < t) c = 1.0f;
-            else c = t;
-            r = func_0017d538(&r, prm->f100 * c);
-        }
-        r.w = d;
-    } else {
-        r = func_0016af58(o);
-        *(s32*)&r.w = 0;
-    }
-    return r;
-}
+V1d2e68 func_001d2e68(void* self, O1d2e68* o);  // 0x001d2e68: definition moved into src/anon/unit_001d2810.cpp
 }
 
 // 001eb668: the h8 store goes through a byte-offset cast. As a plain field store it

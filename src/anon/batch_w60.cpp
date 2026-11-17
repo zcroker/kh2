@@ -169,21 +169,9 @@ struct KeyPair { s32 key; s32 val; };
 struct KeyTable { u8 pad[12]; s32 n; KeyPair e[1]; };
 // 001362a0: moved to src/naka/libkn/effect_observer.cpp
 
-void func_0013f648(QWord* p) {
-    func_0013f608(p);
-    p[1] = p[7] = p[6];
-    p[0] = p[9] = p[8];
-    p[2] = p[11] = p[10];
-}
+void func_0013f648(QWord* p);  // 0x0013f648: definition moved into src/anon/unit_0013ef70.cpp
 
-s32 func_00143fc8(void* a, void* b) {
-    s32 i;
-    if (!func_001466b0(a)) return 1;
-    for (i = 0; i < D_00348820; i++) {
-        if (func_00146cb0(D_00348830[i], b)) return 1;
-    }
-    return 0;
-}
+s32 func_00143fc8(void* a, void* b);  // 0x00143fc8: definition moved into src/anon/unit_00142c90.cpp
 
 void func_0014eda8(void) {
     s32 i;
@@ -207,34 +195,10 @@ void func_00152688(u8* a, void* b, void* c, void* d) {
 
 struct Flags167 { u32 a : 1; u32 b : 1; };
 static inline bool flagA167(u8* p) { return ((Flags167*)(p + 72))->a; }
-void func_00167d68(u8* p) {
-    if (flagA167(p)) {
-        func_00167658(p, 0);
-    } else {
-        u64 v = func_00167cd0(p);
-        if (*(u32*)(p + 72) & 2) *(u64*)p = v;
-        func_001676b0(p, v);
-        if (*(s32*)(*(u8**)(p + 68) + 72) == 1) {
-            *(u32*)(p + 72) &= ~2;
-            return;
-        }
-    }
-    *(u32*)(p + 72) |= 2;
-}
+// 00167d68: moved to src/anon/unit_00167358.cpp
 
 struct Args172 { u8** a; void* pos; f32 c; f32 d; s32 e; f32 f; s32 g; };
-void func_00172260(Args172* s) {
-    u8* o = *(u8**)(*(u8**)s + 4);
-    u32 tmp[4] __attribute__((aligned(16)));
-    QCOPY(tmp, s->pos);
-    func_001b2210(o, tmp, s->c, s->d);
-    func_0017f488(o + 320, s->e, s->f, 0.0f);
-    if (s->g) {
-        s32 e = s->e;
-        *(s32*)(o + 256) = e + 1;
-        *(s32*)(o + 260) = e + 2;
-    }
-}
+void func_00172260(Args172* s);  // 0x00172260: definition moved into src/anon/unit_00171e58.cpp
 
 // 00176a90: moved to src/yasui/libys/party.cpp
 
@@ -249,55 +213,19 @@ s32 func_001874a0(void* a, f32 f);
 u8* func_0018db38(void* a, u8* b, s32 c, void* d);  // 0x0018db38: definition moved into src/anon/unit_0018d050.cpp
 
 struct Out1904 { u32 a[3]; u32 z; QWord q; };
-QWord func_001904a8(void* x) {
-    Out1904 l;
-    l.z = 0;
-    func_001903d0(x, &l);
-    return l.q;
-}
+QWord func_001904a8(void* x);  // 0x001904a8: definition moved into src/anon/unit_001900d0.cpp
 
-void func_001bfbd8(void) {
-    func_0016ed50(952, -1, 30);
-    func_0016ed50(953, -1, 30);
-    func_0016ed50(954, -1, 30);
-    func_0016ed50(955, -1, 30);
-}
+void func_001bfbd8(void);  // 0x001bfbd8: definition moved into src/anon/unit_001bc568.cpp
 
-void func_001bfcc8(u8* p, s32 n) {
-    u8 buf[16];
-    s32 i;
-    if (!n) return;
-    func_0016bda8(buf, p);
-    if (*(s32*)(p + 2764) < n) n = *(s32*)(p + 2764);
-    for (i = 0; i < n; i++) func_0016f000(2179, buf, 0.0f);
-    *(s32*)(p + 2764) -= n;
-    if (*(u32*)(p + 1416) & 0x80) func_001991a8(80, n);
-}
+void func_001bfcc8(u8* p, s32 n);  // 0x001bfcc8: definition moved into src/anon/unit_001bc568.cpp
 
 // 8-entry ring: releases the oldest entry and stores x in its slot.
-void func_001c2c00(void* x) {
-    void* o = D_01d49530[D_01d49550];
-    if (o) func_001dc978(o, 4.0f);
-    D_01d49530[D_01d49550] = x;
-    D_01d49550 = (D_01d49550 + 1) % 8;
-}
+void func_001c2c00(void* x);  // 0x001c2c00: definition moved into src/anon/unit_001c2b58.cpp
 
-void func_001c9860(void* p) {
-    s32 i;
-    for (i = 0; i < 2; i++) {
-        void* o = func_0017df58(i);
-        if (func_0019ba60(o) && func_001c9958(p, func_0016a070(o))) func_001c9780(o, 15.0f);
-    }
-}
+void func_001c9860(void* p);  // 0x001c9860: definition moved into src/yasui/libys/sacrifice.cpp
 
 void PrizeTrGetAll(void* o) asm("_ZN2YS8PRIZE_TR6GetAllEPNS_6BTLOBJE");
-void PrizeTrGetAll(void* o) {
-    if (!D_00352668) return;
-    u8* n = 0;
-    while ((n = func_001c16f0(*(void**)(D_00352668 + 2548), n))) {
-        if (*(s32*)(n + 72) == 0) func_001c79a0(n, o, 0);
-    }
-}
+void PrizeTrGetAll(void* o);  // 0x001d29c8: definition moved into src/anon/unit_001d2810.cpp
 
 void func_001d5960(void* p);  // 0x001d5960: definition moved into src/anon/unit_001d4f40.cpp
 
@@ -420,9 +348,7 @@ static inline u8* nextNode2bc(u8* n) {
 }
 void func_002bc708(s32 id);  // 0x002bc708: definition moved into src/anon/unit_002bb8b0.cpp
 
-void func_002c5418(u32 x) {
-    *(u32*)(func_00102788(D_0032b96c, 0, 0x493e0, func_002c53c8) + 4) = x;
-}
+void func_002c5418(u32 x);  // 0x002c5418: definition moved into src/anon/unit_002c53c8.cpp
 
 void func_002eabe8(void* self, u8* o, u8 c) {
     f32 v[4] __attribute__((aligned(16)));

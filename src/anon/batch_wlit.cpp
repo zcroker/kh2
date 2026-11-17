@@ -36,14 +36,11 @@ void func_0028d188(u8* p) {
     *(u32*)(p + 440) = 0;
 }
 
-void func_001375f0(u8* p, u32 a, u32 b) {
-    func_001374c8(p, 79, a, b, 60.0f);
-    *(u32*)(p + 1304) = 0;
-}
+void func_001375f0(u8* p, u32 a, u32 b);  // 0x001375f0: definition moved into src/anon/unit_001374c8.cpp
 
 // 0017c8f0: moved to src/anon/unit_0017c400.cpp
 
-u8* func_002c1a18(u8* p, u32 a, u32 b) { f32 f = 0.95f; func_00184540(p, b, f, f); return p; }
+u8* func_002c1a18(u8* p, u32 a, u32 b);  // 0x002c1a18: definition moved into src/anon/unit_002c10e0.cpp
 
 // Constructor-like init: vtable/type pointer at +0, scale 1.0 at +24.
 void func_00132270(u32* p, u32 a) {  // obj_ctor_347c00
@@ -67,6 +64,6 @@ void func_002e3f58(u32* p) { p[0] = 0; p[1] = 0; p[2] = 0; ((f32*)p)[3] = 1.0f; 
 void func_002e3f78(f32* v) { v[0] = v[1] = v[2] = 0.0f; v[3] = 1.0f; }
 }
 
-u32 u_call4_001c73e0(u32 p, u32, u32, u32) { func_001c71f8(p, -0.8f); return func_001c7440(p, 0); }
-void wtarget_001a5b08(u32 a, u32 b, u32, u32) { if (b == 0xffff && a == 1) D_01c6cb18 = 0.52359873f; }  // 30 degrees
+// 001c73e0: moved to src/anon/unit_001c7148.cpp (linked unit)
+// 001a5b08: moved to src/anon/unit_001a4db0.cpp  // 30 degrees
 // 0017e808: moved to src/yasui/libys/friend.cpp

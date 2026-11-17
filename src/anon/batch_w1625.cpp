@@ -39,35 +39,5 @@ void func_00106de8(u8*, s32, f32);
 u8* func_00106a60(s32);
 void func_00107300(u8*, W1625V4*, W1625Cam*, f32);
 
-void func_001408a0(W1625Cam* c, u8 noUpdate)
-{
-    W1625V4 out, pos, goal, vel;
-    f32 dt = 0.07f;
-    if (!noUpdate && c->target) dt += (c->target->dist - 8.0f) * 0.0006f;
-    pos.set(c->eye); goal.set(c->eyeGoal); vel.set(c->eyeVel);
-    Spring_13f6e8(&out, &pos, &goal, &vel, dt + 0.03f, 2.5f, 0.5f, 1.0f);
-    c->eye = out;
-    pos.set(c->at); goal.set(c->at2); vel.set(c->at3);
-    Spring_13f6e8(&out, &pos, &goal, &vel, dt, 2.5f, 0.5f, 1.0f);
-    c->at = out;
-    pos.set(c->up); goal.set(c->upGoal); vel.set(c->upVel);
-    Spring_13f6e8(&out, &pos, &goal, &vel, dt, 2.5f, 0.5f, 0.001f);
-    c->up = out;
-    if (noUpdate) return;
-    switch (c->mode) {
-    case 0: case 3: case 6: case 8:
-        if (func_0013f9e0(&c->at3, c, &c->at, 1, 0)) c->at2 = c->at;
-        break;
-    case 2:
-        func_0015a4e0(c);
-        break;
-    case 1: case 7: case 9: case 10:
-        func_00140480(c);
-        break;
-    case 11:
-        break;
-    }
-    func_00106de8(func_00106a18(1), 0, c->up.x);
-    func_00107300(func_00106a60(1), &c->at, c, c->up.y);
-}
+void func_001408a0(W1625Cam* c, u8 noUpdate);  // 0x001408a0: definition moved into src/anon/unit_0013fca8.cpp
 }

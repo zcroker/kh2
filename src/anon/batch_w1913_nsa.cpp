@@ -35,40 +35,5 @@ extern "C" {
 void func_0023ade0(W1622Seq*);
 void func_00236d60(void);
 
-void func_00138988(W1622Sprite* s) {
-    if (s->flags & 0x800) {
-        if (s->parent && !W1622_isActive(s->parent)) return;
-        if (s->parentSeq && !W1622_getDrawMode(s->parentSeq)) return;
-    }
-    s32 x, y;
-    if (s->parent) {
-        W1622_getXYAddOff(s->parent, &x, &y);
-        s->setPos(s->parent->posX + x, s->parent->posY + y);
-    } else if (s->parentSeq) {
-        W1622_getActiveXY(s->parentSeq, &x, &y);
-        s->setPos(x + s->parentSeq->x, y + s->parentSeq->y);
-    }
-    if ((s->parent || s->parentSeq) && (s->flags & 0x200)) {
-        u32 c;
-        if (s->parent) c = W1622_getActiveRGBA(&s->parent->seq);
-        else c = W1622_getActiveRGBA(s->parentSeq);
-        W1622Seq* q = &s->seq;
-        f32 r = q->r;
-        f32 g = q->g;
-        f32 b = q->b;
-        f32 a = (f32)(c >> 24) * 0.0078125f;
-        if (!(s->flags & 0x400)) {
-            r = (f32)(c & 0xff) * 0.0078125f;
-            g = (f32)((c & 0xff00) >> 8) * 0.0078125f;
-            b = (f32)((c & 0xff0000) >> 16) * 0.0078125f;
-        }
-        W1622_setRGBA(q, r, g, b, a);
-    }
-    if (!(s->flags & 0x1000)) {
-        W1622Seq* q = &s->seq;
-        q->setPos(s->posX + s->offX, s->posY + s->offY);
-        func_0023ade0(q);
-    }
-    if (s->clear) func_00236d60();
-}
+void func_00138988(W1622Sprite* s);  // 0x00138988: definition moved into src/anon/unit_00138480.cpp
 }

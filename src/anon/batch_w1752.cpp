@@ -14,10 +14,5 @@ extern s32 D_01c61950;
 extern u8 D_01c60d10[];
 void w1752_wt_001cd660(void*) asm("_Z16wtarget_001cd660jjjj");
 
-void func_001900d0(void) {
-    s32 i;
-    for (i = 0; i < 128; i++) D_01c60d50.arr[i] = i;
-    D_01c61950 = 128;
-    w1752_wt_001cd660(D_01c60d10);
-}
+void func_001900d0(void);  // 0x001900d0: definition moved into src/anon/unit_001900d0.cpp
 }

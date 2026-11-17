@@ -39,22 +39,7 @@ void func_0011b6a8(W1816Mx*);
 void* func_001dc648(W1816Vs*);
 void func_0011b7b0(W1816Mx*, void*);
 // o->v = (object matrix) * (0,0,1,0), through a function-local static.
-void func_0016e3e0(W1816Hd* o) {
-    if (!D_004f6370) {
-        new (&D_004f6380) W1816Vs(0.0f, 0.0f, 1.0f, 0.0f);
-        D_004f6370 = 1;
-        func_002fd188(func_0016e8a8);
-    }
-    if (!D_004f6378) {
-        D_004f6378 = 1;
-        func_002fd188(func_0016e8b0);
-    }
-    W1816Mx m;
-    func_0011b6a8(&m);
-    func_0011b7b0(&m, func_001dc648(o->v));
-    D_004f6390 = W1816MulV(&m, &D_004f6380);
-    o->v = &D_004f6390;
-}
+// 0016e3e0: moved to src/anon/unit_0016d2e0.cpp
 
 extern W1816M* D_0035de4c;
 void func_00232590(void);

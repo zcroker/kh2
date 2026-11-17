@@ -62,20 +62,5 @@ void func_0011b6a8(QM1567b*);
 void func_0011b768(QM1567b*, f32);
 f32 func_001cbf50(f32);
 s32 uc1567(u8* o, u32, u32, u32) asm("_Z16u_call4_001caf00jjjj");
-s32 uc1567(u8* o, u32, u32, u32) {
-    Pl1567* pl = func_002d1260();
-    *(f32*)(o + 0x40) -= D_00349e10;
-    if (*(f32*)(o + 0x40) <= 0.0f || !func_0019ba60(pl)) return 0;
-    f32 t = *(f32*)(o + 0x40) / D_00351fd8;
-    QV1567b v(*(QV1567b*)(o + 0x90));
-    v.scale(*(f32*)(o + 0x9c) * t);
-    v.w = 1.0f;
-    QM1567b m;
-    func_0011b6a8(&m);
-    func_0011b768(&m, func_001cbf50(D_00351fe0 * (1.0f - t)));
-    m.r[3] = *(QV1567b*)(pl->vt->get(pl) + 0x30);
-    *(QV1567b*)o = m * v;
-    *(s8*)(o + 0x16) = (s32)(t * 255.0f);
-    return 1;
-}
+s32 uc1567(u8* o, u32, u32, u32);  // 0x001caf00: definition moved into src/anon/unit_001ca8e0.cpp
 }

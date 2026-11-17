@@ -65,23 +65,7 @@ void func_0018c438(u8*);
 s32 func_001883d8(u8*, const char*);
 void func_001880b0(u8*, const char*);
 struct Q265g { u8 pad[8]; u8* t; u8 pad1[2620]; s32 a; u8 pad2[180]; f32 f2816; u32 b0 : 1; u32 rest : 31; Q265g* o; };
-void func_0018b338(Q265g* p, f32 x) {
-    u8* q;
-    if (p->t[4] != 15) return;
-    { s32 a; if (p->b0) a = p->a; else a = 0; func_0017f488((u8*)p + 320, a, x, 0.0f); }
-    if (p->o && func_0019ba60((u8*)p->o)) {
-        s32 a; if (p->b0) a = p->a; else a = 0; func_0017f488((u8*)p->o + 320, a, x, 0.0f);
-    }
-    if (!p->b0) {
-        q = (u8*)p + 1184;
-        if (func_001b0498(q)) func_001b0700(q, 0.0f);  // obj_check_ready_flags
-        *(s32*)((u8*)p + 2720) = 4;
-        func_0018c438((u8*)p + 2624);
-        p->f2816 = *(f32*)((u8*)p + 2840) + 60.0f;
-    }
-    p = (Q265g*)((u8*)p + 768);
-    if (func_001883d8((u8*)p, D_0036cbc0)) func_001880b0((u8*)p, D_0036cbc0);
-}
+void func_0018b338(Q265g* p, f32 x);  // 0x0018b338: definition moved into src/yasui/libys/npc.cpp
 extern u8 D_00361aa0[];
 extern u8* D_00361a90;
 extern u8 D_00347e60[];
@@ -94,46 +78,7 @@ void func_0023c098(u8*);  // set_vtbl_36eae8_then_call
 void func_002369f0(u8*);  // set_vtbl_36eac8_then_call
 typedef void (*VF265)(u8*);
 typedef void (*VF265b)(u8*, u8*);
-void func_002c1320(u8* p) {
-    *(void**)p = D_00361aa0;
-    func_00170950(*(u32*)(p + 188));
-    D_00361a90 = (D_00361a90 == p) ? 0 : D_00361a90;
-    if (p + 2232 != 0) {
-        u8* e = p + 3048;
-    top1:
-        if (p + 2232 == e) goto out1;
-        e -= 408;
-        (*(VF265**)e)[3](e);
-        goto top1;
-    out1:;
-    }
-    {
-        u8* m = p + 1824;
-        *(void**)m = D_00347e60;
-        func_00239870(p + 1848);
-        *(void**)m = D_00347f98;
-        if (p + 600 != 0) {
-        top2:
-            if (p + 600 == m) goto out2;
-            m -= 408;
-            (*(VF265**)m)[3](m);
-            goto top2;
-        out2:;
-        }
-    }
-    *(void**)(p + 192) = D_00347e60;
-    func_00239870(p + 216);
-    *(void**)(p + 192) = D_00347f98;
-    *(void**)(p + 28) = D_0035eb98;
-    func_0023c098(p + 76);  // set_vtbl_36eae8_then_call
-    func_002369f0(p + 52);  // set_vtbl_36eac8_then_call
-    *(void**)(p + 28) = D_00347f98;
-    *(void**)p = D_00347f98;
-    {
-        u8* o = *(u8**)((u8*)D_00347f80 + 20);
-        (*(VF265b**)o)[1](o, p);
-    }
-}
+void func_002c1320(u8* p);  // 0x002c1320: definition moved into src/anon/unit_002c10e0.cpp
 struct N265q { u8 pad[208]; u8 d[40]; u32 fl; V265q* mp; u8 pad2[16]; N265q* next; };
 struct Y265q { u8 pad[44]; N265q* head; };
 void func_001471d8(u8*, N265q*);

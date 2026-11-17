@@ -56,19 +56,7 @@ void func_00169398(void*, u32, void*, s32, s32, f32);
 void func_0016bd60(void*, s32);
 static inline f32 rf() { D_003638d0 = D_003638d0 * 0x10dcd; return (f32)D_003638d0 * 2.3283064e-10f; }
 static inline f32 rnd2(f32 lo, f32 w) { return lo + rf() * w; }
-void func_001bf270(u8* a0, u32* a1, s32 a2, u32 a3, f32 f) {
-    func_00169398(a0, *a1, a1, 4, a2, rnd2(-3.1415927f, 6.2831855f));
-    *(u32*)(a0 + 1416) |= 0x40000;
-    *(u32*)(a0 + 2484) = a3;
-    *(f32*)(a0 + 2488) = f;
-    *(f32*)(a0 + 60) = f;
-    *(u32*)a0 = (u32)&D_003512e8;
-    *(u32*)(a0 + 264) |= 2;
-    *(u32*)(a0 + 2528) = 0;
-    *(u32*)(a0 + 2532) = 0;
-    *(u32*)(a0 + 2536) = 0;
-    func_0016bd60(a0, 12);
-}
+void func_001bf270(u8* a0, u32* a1, s32 a2, u32 a3, f32 f);  // 0x001bf270: definition moved into src/anon/unit_001bc568.cpp
 
 extern u32 D_0034b250;
 extern u32 D_00348698;
@@ -112,23 +100,5 @@ static inline f32 vdot3m(const W253Vec& a, const W253Vec& b) {
     asm volatile("lqc2 vf1,0(%1)\n\tlqc2 vf2,0(%2)\n\tvmul.xyz vf1,vf1,vf2\n\tvaddy.x vf1,vf1,vf1\n\tvaddz.x vf1,vf1,vf1\n\tqmfc2 $8,vf1\n\tmtc1 $8,%0" : "=f"(r) : "r"(&a), "r"(&b) : "$8", "memory");
     return r;
 }
-s32 func_0018a318(u8* a0, u8* a1) {
-    W253Vec d;
-    d = vsub((f32*)(a1 + 16), (f32*)(a0 + 16));
-    f32 dy;
-    dy = fabsf(d.y);  // fabsf
-    f32 r1 = *(f32*)(a1 + 8);
-    f32 r0 = *(f32*)(a0 + 8);
-    if (r0 + r1 <= dy) return 0;
-    f32 lim;
-    if (r1 < dy) {
-        dy = (dy - r1) / r0;
-        lim = __builtin_sqrtf(1.0f - dy * dy) * *(f32*)(a0 + 4) + *(f32*)(a1 + 4);
-    } else {
-        lim = *(f32*)(a0 + 4) + *(f32*)(a1 + 4);
-    }
-    d.y = 0;
-    if (vdot3m(d, d) < lim * lim) return 1;
-    return 0;
-}
+s32 func_0018a318(u8* a0, u8* a1);  // 0x0018a318: definition moved into src/anon/unit_00189d38.cpp
 }

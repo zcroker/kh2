@@ -335,72 +335,13 @@ void func_00169210(void) {
 
 // 00159240: moved to src/anon/unit_00159240.cpp
 
-void func_0018b7f8(u8* p) {
-    Q16 pos = *func_0016c028(p);  // obj_get_attach_or_alt
-    void* t;
-    s32 id;
-    ((f32*)&pos)[1] -= 10.0f;
-    t = *(void**)(p + 2072);
-    if (t == 0) return;
-    id = func_0019b3d0(t, &pos);
-    if (id == *(s32*)(p + 2608)) return;
-    {
-        u8* q = p + 2624;
-        if (q[48] == 0) {
-            func_0018c438(q);
-            if (id != 0) {
-                Q16* v = func_0016c028(p);  // obj_get_attach_or_alt
-                void* tt = *(void**)(p + 2072);
-                u32 k = *(u16*)(*(u8**)((u8*)tt + 8) + 10);
-                func_0018c650(q, v, k, func_0019b308(tt), id, *(f32*)(p + 2856), *(f32*)(p + 2860));
-            }
-        }
-    }
-    *(s32*)(p + 2608) = id;
-}
+void func_0018b7f8(u8* p);  // 0x0018b7f8: definition moved into src/yasui/libys/npc.cpp
 
-void func_00197a00(void* a) {
-    if (D_0035037c != 0) {
-        u8* o;
-        u8 flag;
-        if (func_00197028(D_0035037c) != 0) return;
-        o = (u8*)D_0035037c;
-        flag = *(volatile u16*)(*(u8**)(o + 60) + 2) & 1;
-        if (o != 0) {
-            func_00196e00(o);
-            func_00105110(o);
-        }
-        if (flag && func_001991a8(76, D_01c61b40++) != 0) return;
-    }
-    func_001024a8(a);
-}
+void func_00197a00(void* a);  // 0x00197a00: definition moved into src/anon/unit_00195d00.cpp
 
-void func_001a52a8(void* a0, void** o, u8* c) {
-    struct E1a5* e = &D_0036d578[c[20]];
-    if (e->f > 0.0f) func_00176be0(o, e->f);
-    if (e->b4) (*(VF4*)((u8*)*o + 120))(o, e->b4, 0, 0);
-    if (e->b5) func_00187650(o, e->b5, 0);
-    if (e->b6) {
-        func_00179a68(o, e->b6);
-        func_001d6110(e->b6, o);
-    }
-    if (e->b7) {
-        func_0014f668(e->b7);
-        func_00242500(e->b7);
-    }
-}
+// 001a52a8: moved to src/anon/unit_001a4db0.cpp
 
-void func_001ae4c0(u32 a, u32 b, void* c) {
-    for (;;) {
-        if (func_002f79c8(1) != 2 || func_002f7be8(a, b, c, D_00350ca0) != 1) {
-            func_001ae678();  // to_306698_arg10
-            continue;
-        }
-        func_001ae620();
-        if ((D_00350c88 = func_002f7dc8()) == 0) break;
-        func_001ae650();
-    }
-}
+void func_001ae4c0(u32 a, u32 b, void* c);  // 0x001ae4c0: definition moved into src/anon/unit_001ada38.cpp
 
 void func_00244b38(void) {
     u8* buf;
@@ -433,30 +374,7 @@ void func_0027c2f8(void) {
     func_0028afd0(D_0035f01c, top);  // obj_set_signed18
 }
 
-void func_002c5c50(void* a, u32* b) {
-    func_00178cf8_1(a);
-    if (func_002c5d38(a, func_0016a020(*b)) != 0) {
-        func_002c8648();
-        func_002ca0a8();
-        return;
-    }
-    {
-        Q16 d;
-        Q16 t;
-        func_00190388(&t, b);  // vec4_from_arg
-        asm volatile("lqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 0(%2)\n\tvsub.wxyz $vf1, $vf1, $vf2\n\tsqc2 $vf1, 0(%0)"
-                     : : "r"(&d), "r"(&t), "r"(func_0016c028(a)) : "memory");  // obj_get_attach_or_alt
-        ((s32*)&d)[1] = 0;
-        asm volatile("lqc2 $vf1, 0(%0)\n\tvmul.xyz $vf2, $vf1, $vf1\n\tvaddy.x $vf2, $vf2, $vf2y\n\t"
-                     "vaddz.x $vf2, $vf2, $vf2z\n\tvsqrt Q, $vf2x\n\tvwaitq\n\tcfc2.ni $8, $vi22\n\t"
-                     "vaddq.x $vf2, $vf0, Q\n\tmtc1 $8, $f0\n\tvnop\n\tvdiv Q, $vf0w, $vf2x\n\tvwaitq\n\t"
-                     "vmulq.xyz $vf1, $vf1, Q\n\tsqc2 $vf1, 0(%0)"
-                     : : "r"(&d) : "$8", "$f0", "memory");
-        func_0016aef0(a, &d);
-        func_002c5190(b);
-        func_002c17a0();
-    }
-}
+void func_002c5c50(void* a, u32* b);  // 0x002c5c50: definition moved into src/anon/unit_002c53c8.cpp
 
 // Interpolates between two keys by the current time.
 f32 func_002d60e8(u8* p) {
@@ -519,38 +437,7 @@ Q16* func_0018d840(Q16* out, u8* o, void* a);  // 0x0018d840: definition moved i
 
 // 0017fe10: moved to src/yasui/libys/motion.cpp
 
-void func_001c2f90(struct S1c2* p, u32 a) {
-    s32 i;
-    p->f40 = a;
-    for (i = 0; i < 8; i++) p->w[i] = 0;
-    for (i = 0; i < 5; i++) p->b32[i] = 0;
-    p->f52 = 0;
-    p->b45 = 3;
-    p->b46 = 1;
-    p->f56 = 1.0f;
-    p->f60 = 1.0f;
-    p->f64 = 1.0f;
-    p->b48 = 0;
-    p->h68 = 100;
-    p->h70 = 100;
-    p->f84 = 0;
-    p->f88 = 0;
-    p->f92 = 1.0f;
-    p->f96 = 1.0f;
-    p->f100 = 0;
-    p->f104 = 0;
-    p->h74 = 0;
-    p->h76 = 0;
-    p->h78 = 0;
-    p->h80 = 0;
-    p->f108 = 1.0f;
-    p->b44 = 3;
-    p->b47 = 1;
-    p->h72 = 100;
-    p->f112 = 1.0f;
-    p->h82 = 0;
-    p->f116 = 0;
-}
+void func_001c2f90(struct S1c2* p, u32 a);  // 0x001c2f90: definition moved into src/anon/unit_001c2b58.cpp
 
 void func_00228e58(void);  // 00228e58: moved to src/anon/unit_00228618.cpp (linked unit)
 
@@ -666,16 +553,6 @@ void func_001e9c28(u8* base, u8* a1, u8* a2) {
 
 }
 
-void u_call0_0014dfa8() {
-    void* a = func_0014e638(D_00349f00);
-    void* b = func_0014e648(D_00349f00);  // ptr_add752
-    func_00166968(a, 1, 1, 0, 512, 448, 0, 0);
-    func_0014db78(b, 0, 216, 512, 416, 49, 112);
-    func_0014dd60(b, 0, 0, 0);  // store_3bytes_470
-    func_0014dda0(b, 1);  // store_byte_473
-    func_0014dd18(b);
-    func_0014e2c0(D_00349f00);
-    func_00102788(D_0032b91c, 0, 100000, func_0014df48);
-}
+// 0014dfa8: moved to src/anon/unit_0014d680.cpp
 
 // 001574f8: moved to src/anon/unit_00153ea0.cpp

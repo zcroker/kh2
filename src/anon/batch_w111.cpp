@@ -422,47 +422,7 @@ void func_001a8bb8(E18c*);  // obj_set_header_bytes
 void func_00319d30(void*);
 void func_001d9768(void*);
 // Initialises the owner object: constructs its element arrays and clears the tables.
-void func_00188e08(Obj18* o)
-{
-    {
-        E18a* p = o->a;
-        s32 n = 12;
-        do { func_001888c8(p); p++; } while (--n != -1);
-    }
-    {
-        E18b* p = o->b;
-        s32 n = 9;
-        do { func_00189170(p); p++; } while (--n != -1);
-    }
-    o->c4148 = 0;
-    o->c4150 = 1;
-    o->c4152 = 100;
-    o->c4149 = 0;
-    o->c4153 = 3;
-    o->c4154 = 3;
-    {
-        E18c* p = o->c;
-        s32 n = 18;
-        do { func_001a8bb8(p); p++; } while (--n != -1);
-    }
-    s32 i;
-    for (i = 0; i < 8; i++) o->w4560[i] = 0;
-    o->w4592 = 0;
-    for (i = 0; i < 8; i++) o->w4628[i] = 0;
-    for (i = 0; i < 8; i++) o->w4660[i] = 0;
-    o->w4692 = 0;
-    for (i = 0; i < 10; i++) o->w6296[i] = 0;
-    E18d* d = o->d;
-    {
-        E18d* p = d;
-        s32 n = 63;
-        do { p->on = 0; p->v = 0; p++; } while (--n != -1);
-    }
-    func_00319d30(d + 64);
-    func_001d9768(o->sub6878);
-    o->h6906 = 0;
-    for (i = 0; i < 4; i++) o->h4616[i] = 0;
-}
+void func_00188e08(Obj18* o);  // 0x00188e08: definition moved into src/anon/unit_00188848.cpp
 }
 
 struct Data1c { u16 h0; u16 kind; u8 pad[2]; s8 slot; u8 b7; };
@@ -478,32 +438,7 @@ Src1c* func_001bd570(Owner1c*, s32);
 void func_001bc6a8(Ent1c*, Data1c*, void*, void*, u32);
 s32 func_001bc948(Slot1c*);
 // Appends an entry for `id` (redirected through a linked source when present) and sets its initial state.
-Ent1c* func_001bc780(Mgr1c* o, u32 id, void* body, u32 b)
-{
-    Src1c* s = 0;
-    s32 linked = 0;
-    Data1c* d = func_001b8e88(id);
-    func_0019ba60(o->owner->res);
-    if (d->b7 == 1) s = func_001bd570(o->owner, 0);
-    else if (d->h0 == 81) s = func_001bd570(o->owner, 2);
-    if (s) {
-        body = s->body;
-        b = s->b4;
-        linked = 1;
-        id = s->id;
-        d = func_001b8e88(id);
-    }
-    func_001bc6a8(&o->ent[o->n], d, o->owner->res, body, b);
-    if (linked) { Ent1c* e = &o->ent[o->n]; e->flags |= 1; }
-    if (d->kind == 3 && b == 0) o->ent[o->n].state = 6;
-    s32 v = d->slot;
-    if (v >= 0 && v != 4) {
-        Slot1c* x = (Slot1c*)((u8*)o->owner + v * 116 + 36);
-        if (x->busy == 0) o->ent[o->n].state = 5;
-        else if (!func_001bc948(x)) o->ent[o->n].state = 1;
-    }
-    return &o->ent[o->n++];
-}
+Ent1c* func_001bc780(Mgr1c* o, u32 id, void* body, u32 b);  // 0x001bc780: definition moved into src/anon/unit_001bc568.cpp
 }
 
 struct Pad24 { u8 pad[8]; u64 trig; };

@@ -43,16 +43,7 @@ struct W22Obj {
 
 extern "C" {
 
-void func_0018ad18(W22P* p)
-{
-    func_00198450(p);
-    if (p->f81c) {
-        for (u32 i = 0; i < 7; i++) {
-            if ((u8)((p->f81c->f24 >> i) & 1)) p->bits.Set(i);
-        }
-    }
-    if (p->bits.Test(0)) p->Init();
-}
+void func_0018ad18(W22P* p);  // 0x0018ad18: definition moved into src/yasui/libys/npc.cpp
 
 void func_002373a8(W22Obj*);
 void func_00237680(W22Obj*, s32);

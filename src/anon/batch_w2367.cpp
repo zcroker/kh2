@@ -42,16 +42,7 @@ s32 func_00109788(s32 a, s32 b) {
 }
 
 // Next entry after p (or the first one) whose id matches; id 22 matches any entry.
-W2367Entry* func_0018a100(W2367Table* t, s32 id, W2367Entry* p) {
-    W2367Entry* end;
-    p = p == 0 ? t->e : p + 1;
-    end = t->e + t->n;
-    while (p < end) {
-        if (id == 22 || p->id == id) return p;
-        p++;
-    }
-    return 0;
-}
+W2367Entry* func_0018a100(W2367Table* t, s32 id, W2367Entry* p);  // 0x0018a100: definition moved into src/anon/unit_00189d38.cpp
 
 // Yaw that faces from a towards b, written as (0, yaw, 0).
 f32 f_atan2f(f32, f32);

@@ -46,13 +46,7 @@ s32 func_00199810(W1767D* p) {
     return 1;
 }
 
-W1767Vec func_001c3b20(void* a, W1767Obj* o) {
-    o->v20 *= 0.9f;
-    W1767Vec t;
-    t = o->v20;
-    t.y = func_001c3ba8(a, o);
-    return t * D_00349e10;
-}
+W1767Vec func_001c3b20(void* a, W1767Obj* o);  // 0x001c3b20: definition moved into src/anon/unit_001c2b58.cpp
 
 void func_002ee380(W1767Node* n) {
     W1767Node* prev;

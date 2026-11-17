@@ -13,13 +13,5 @@ void func_001dc920(s32);
 static inline W2368Slot* w2368_slot(W2368Obj* o, s32 i) { return (W2368Slot*)(i * 4 + (u32)o + 0x7b0); }
 
 // v > 0: start sound i if needed and scale its volume by v; otherwise stop it.
-void func_00194218(W2368Obj* o, s32 i, f32 v) {
-    if (v > 0.0f) {
-        if (w2368_slot(o, i)->h == 0) w2368_slot(o, i)->h = func_001de168(o->res, i, 0, 1, 0, o);
-        func_001dc670(w2368_slot(o, i)->h)->vol *= v;
-    } else if (w2368_slot(o, i)->h) {
-        func_001dc920(w2368_slot(o, i)->h);
-        w2368_slot(o, i)->h = 0;
-    }
-}
+void func_00194218(W2368Obj* o, s32 i, f32 v);  // 0x00194218: definition moved into src/anon/unit_00193be8.cpp
 }

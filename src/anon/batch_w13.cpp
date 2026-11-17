@@ -122,21 +122,9 @@ s32 func_00123d90(void* a, s32 b) {
 
 // 001373a0: moved to src/harata/libdk/bgm.cpp
 
-void func_0013f4d8(void) {
-    func_0013f030();
-    u8* v = (u8*)func_00102c80();
-    func_00102818(*(u32*)(v + 4), 1, 0x493e0, (void*)func_0013f450, 4096);
-}
+void func_0013f4d8(void);  // 0x0013f4d8: definition moved into src/anon/unit_0013ef70.cpp
 
-void func_0014dbc8(u8* p) {
-    func_001666a0(p);  // zero_fields_0_4_6_8
-    *(u32*)(p + 464) = 0;
-    *(u16*)(p + 468) = 0;
-    p[470] = 0;
-    p[471] = 0;
-    p[472] = 0;
-    p[473] = 0;
-}
+// 0014dbc8: moved to src/anon/unit_0014d680.cpp
 
 void func_001514b0(u8* p) {
     func_00138c10(p + 496, 0);
@@ -163,11 +151,7 @@ u8 func_0016b518(u8* p, u32 a1, u32 a2) {
     return func_0016b558(p, a2);
 }
 
-void trap_bg_cross_pos(u32* v) {
-    u32 c = v[2];
-    u32 b = v[1];
-    v[0] = func_001a7588(v[0], b, c, v[3]);
-}
+void trap_bg_cross_pos(u32* v);  // 0x001732c8: definition moved into src/anon/unit_00171e58.cpp
 
 // 00179c80: moved to src/yasui/libys/player.cpp
 
@@ -176,80 +160,29 @@ void trap_bg_cross_pos(u32* v) {
 // 00188430: moved to src/anon/unit_00185d10.cpp
 void func_00188430(u8* p, u32 a1, u32 a2);
 
-void func_0019c970(void* p) {
-    func_0019cc20(p);
-    D_00350444 = (D_00350444 == p) ? 0 : D_00350444;
-}
+void func_0019c970(void* p);  // 0x0019c970: definition moved into src/anon/unit_0019ba60.cpp
 
-u8* func_0019f8c0(void) {
-    u8* v = func_0019f7d0();
-    if (v) {
-        u16 t = *(u16*)(v + 2);
-        if (t) return v + t;
-    }
-    return 0;
-}
+u8* func_0019f8c0(void);  // 0x0019f8c0: definition moved into src/anon/unit_0019ee80.cpp
 
-void func_001a6c90(u32 n) {  // set_bit_in_array_b
-    D_0032dec0[n >> 5] |= 1 << (n & 31);
-    func_001d59b0();
-}
+// 001a6c90: moved to src/anon/unit_001a6a10.cpp
 
-void func_001b0210(u8* p, s32 a1, s32 a2, s32 a3) {
-    if ((*(s32*)(p + 8) < 0 && *(s32*)(p + 16) == 0) || a2 >= *(s32*)(p + 12)) {
-        *(s32*)(p + 8) = a1;
-        *(s32*)(p + 12) = a2;
-        *(s32*)(p + 24) = a3;
-    }
-}
+void func_001b0210(u8* p, s32 a1, s32 a2, s32 a3);  // 0x001b0210: definition moved into src/anon/unit_001ada38.cpp
 
-void func_001b2488(u8* p) {
-    func_00105110(*(void**)(p + 20));
-    func_003201e8(&D_01d48c80, p);
-}
+// 001b2488: moved to src/anon/unit_001b1d20.cpp
 
 // 001bb9b0: moved to src/yasui/libys/mission.cpp
 
-void MANAGER_exec_zsort(u8* self) {
-    func_0016a9a0(self);  // to_16a950
-    func_001c14e0(*(void**)(self + 2548));
-}
+// 001c6ee8: moved to src/anon/unit_001c6e58.cpp (linked unit)
 
-void func_001c8750(void) {
-    func_001c8d98(&D_00351ec0, 3);
-    func_0014c9f0(16);
-    func_001bbe78(1);
-    func_0016c640(2);
-}
+// 0x1c8750: moved to src/yasui/libys/summon.cpp
 
-void func_001c9080(void* a0, void* a1, Q128* a2) {
-    Q128 t;
-    asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(&t), "r"(a2) : "$8", "memory");
-    func_0017c4c8(a1, &t);
-    func_0016bd60(a1, 20);
-}
+void func_001c9080(void* a0, void* a1, Q128* a2);  // 0x001c9080: definition moved into src/anon/unit_001c8e80.cpp
 
-void func_001ca718(void** p) {
-    *p = &D_00351f78;
-    D_00351f68 = 0;
-    func_001a4e30(p);
-    func_00105110(p);
-}
+void func_001ca718(void** p);  // 0x001ca718: definition moved into src/anon/unit_001ca638.cpp
 
-void func_001d2070(void** p) {
-    *p = &D_003525e8;
-    func_001d2210(p);
-    func_00106420(p);
-}
+void func_001d2070(void** p);  // 0x001d2070: definition moved into src/anon/unit_001d14e0.cpp
 
-void func_001dcfb0(void) {
-    u8* p = D_00352ae0;
-    while (p) {
-        u8* n = *(u8**)(p + 40);
-        func_001dc878(p);
-        p = n;
-    }
-}
+void func_001dcfb0(void);  // 0x001dcfb0: definition moved into src/anon/unit_001dbfd8.cpp
 
 typedef void (*VFnP)(void*, void*);
 void func_001e0158(void* a) {
@@ -317,23 +250,11 @@ u8 func_0028b7f8(void** p) {
 }
 
 
-void func_002bd538(void) {
-    D_003617e4 = 0;
-    D_003617e0 = func_002b823c();
-    D_003617e8 = 1;
-}
+void func_002bd538(void);  // 0x002bd538: definition moved into src/anon/unit_002bc978.cpp
 
-Q128* func_002cb7c8(Q128* out, void* a, void* b) {  // copy_vec4_result
-    Q128* s = func_002cb890(a, b);  // hash_bucket_get
-    asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(out), "r"(s) : "$8", "memory");
-    return out;
-}
+Q128* func_002cb7c8(Q128* out, void* a, void* b);  // 0x002cb7c8: definition moved into src/taito/path.cpp
 
-void* func_002cd910_f(void* r, u32 a1, f32 f) {
-    s32 i = (s32)f;
-    func_002cd878(r, a1, i, f - (f32)i);
-    return r;
-}
+void* func_002cd910_f(void* r, u32 a1, f32 f);  // 0x002cd910: definition moved into src/taito/path.cpp
 
 void func_002de810(void** p) {
     *p = &D_00362ad8;

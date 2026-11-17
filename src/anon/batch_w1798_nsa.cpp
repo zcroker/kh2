@@ -28,25 +28,7 @@ void func_002be770(Obj_2bf468*);
 s32 func_001b6d70(u8);
 void func_002bf650(Obj_2bf468*, s32);
 
-void func_002bf468(Obj_2bf468* p, s32* key) {
-    func_002be770(p);
-    p->sub.a = 0;
-    p->vt = D_003619c8;
-    Sub_2bf468* s = &p->sub;
-    s->b = 0; s->c = 0;
-    p->ae7 = 0;
-    p->af4 = p->af0 = 0.0f;
-    p->flags |= 0x80000000;
-    p->ent = 0;
-    p->afc = 0;
-    p->b00 = 0;
-    p->b04 = 0;
-    p->b08 = 0;
-    for (u32 i = 0; i < 12; i++) {
-        if (D_00375420[i].id == *key) { p->ent = &D_00375420[i]; break; }
-    }
-    func_002bf650(p, func_001b6d70(p->ent->b4));
-}
+void func_002bf468(Obj_2bf468* p, s32* key);  // 0x002bf468: definition moved into src/anon/unit_002bebd0.cpp
 
 void* tz_alloc_165898(u32, u32) asm("_ZN2Tz13LoadDataAllocEjj");
 void lst_165898(void*) asm("_Z13func_0031a830Pv");

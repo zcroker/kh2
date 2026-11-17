@@ -20,6 +20,7 @@ public:
     void setGsTex0(u64 v);
     void setGsTest(u64 v);
     void setGsPrim(u64 v);
+    void setGsUV(u64, u64, u64, u64);
 };
 
 }  // namespace dk

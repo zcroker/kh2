@@ -36,14 +36,5 @@ Ent00124c48* func_00124c48(Obj00124c48* o, s32 id) {
 }
 
 void wtarget_0019ee28(u32, u32, u32, u32) asm("_Z16wtarget_0019ee28jjjj");
-void wtarget_0019ee28(u32 a, u32 b, u32, u32) {
-    if (b == 0xffff && a == 1) {
-        S00350448* p = &D_00350448;
-        f32 z = 0.0f;
-        p->c = z;
-        asm volatile("");
-        D_00350448.a = 0;
-        D_00350464 = z;
-    }
-}
+void wtarget_0019ee28(u32 a, u32 b, u32, u32);  // 0x0019ee28: definition moved into src/anon/unit_0019ea10.cpp
 }

@@ -33,15 +33,5 @@ s32 func_00161548(Holder* h, s32 n) {
     return r->v;
 }
 
-s32 func_001d1760(Gauge* g, s32 n) {
-    s32 cur = g->cur;
-    s32 r = 0;
-    if (cur > 0) {
-        if (cur < g->max) { if (cur < n) goto end; }
-        else { if (n < cur) goto end; }
-        r = 1;
-    }
-end:
-    return r;
-}
+s32 func_001d1760(Gauge* g, s32 n);  // 0x001d1760: definition moved into src/anon/unit_001d14e0.cpp
 }

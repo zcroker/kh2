@@ -47,37 +47,8 @@ static inline void addE(VecE* d, const VecE* a, const VecE* b) {
     asm volatile("lqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 0(%2)\n\tvadd.wxyz $vf1, $vf1, $vf2\n\tsqc2 $vf1, 0(%0)"
         : : "r"(d), "r"(a), "r"(b) : "memory");
 }
-void func_002cae60(ObjE* self, s32* a1, VecE* a2, f32 f) {
-    PairE pr;
-    f32 z0 = 0.0f;
-    VecE d;
-    VecE v;
-    self->vt = D_00361da8;
-    func_0031cc28(self->m84);
-    *(u32*)&self->f5c = 0;
-    func_002c6420(self);
-    *(u32*)&pr.a.w = 0;
-    self->vt = D_00361e60;
-    D_00361e50 = self;
-    func_001903d0(a1, &pr);
-    d.x = z0;
-    d.y = -pr.a.z;
-    d.z = -pr.a.y;
-    d.w = z0;
-    f32 len = normE(&d);
-    f32 s = len * a2->z;
-    f32 k = s / func_001070a0(func_00106a18(1));
-    v.x = a2->x * k;
-    v.y = a2->y * k;
-    v.z = z0;
-    v.w = z0;
-    VecE& r = (self->p64 = pr.b + v);
-    self->p48 = r + d * s;
-    self->p48.x -= a2->x * k;
-    self->f60 = func_0016a020(*a1) == 1110 ? D_01e2be14 : D_01e2be10;
-    if (f == 0.0f) func_00162058(8.0f);
-    self->f5c = f;
-}
+void func_002cae60(ObjE* self, s32* a1, VecE* a2, f32 f);  // 0x2cae60: moved to src/anon/unit_002cac58.cpp
+
 
 struct EntI { s32 a; s32 b; u8 type; u8 arg; u8 pad[2]; };
 struct HdrI { u8 pad[10]; u8 n; u8 pad2[53]; EntI ent[1]; };

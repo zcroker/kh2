@@ -45,27 +45,7 @@ extern G1f34* D_00351f34;
 s32 func_001ca448(Mv*);  // type_is_16_44_161
 void func_001ca4a8(Mv*);
 void func_0017f540(u8*, s32, f32, f32);
-void func_001c9ee8(void* self, Mv* m) {
-    s32 mot = 0;
-    QWord unused;
-    if (func_001ca448(m) && !(m->flags7f8 & 4)) func_001ca4a8(m);  // type_is_16_44_161
-    if (0.0f < m->dir.f[3]) {
-        if (m->dir.f[0] < 0.0f) mot = 151;
-        else if (0.0f < m->dir.f[0]) mot = 152;
-        m->dir = Scale(m->dir, m->dir.f[3]);
-    } else {
-        Zero(&m->dir);
-    }
-    if (func_001ca448(m)) {  // type_is_16_44_161
-        m->dir.f[2] += D_00351f34->b;
-    } else {
-        Zero(&m->dir);
-        Zero(&m->v2);
-    }
-    m->dir.f[3] = Normalize(&m->dir);
-    u8* sub = m->sub;
-    if (m->flags160 & 4) func_0017f540(sub, mot, 12.0f, 0.0f);
-}
+void func_001c9ee8(void* self, Mv* m);  // 0x001c9ee8: definition moved into src/anon/unit_001c9ea0.cpp
 }
 
 static inline QWord Sub(const QWord& a, const QWord& b)
@@ -91,51 +71,13 @@ void* func_001b9bc8(void*);
 s32 func_0016a020(void*);
 s32 func_001dbe78(void*, QWord*);
 struct Ob { QWord pos; u8 pad[72]; s32 x58; };
-s32 func_001c5f90(Ob* o) {
-    void* ret = 0;
-    QWord v;
-    if (1000 - D_01d498b0 < 300) {
-        o->x58 = 1000;
-        func_001dbb38();
-    } else if (func_001c5f78()) {
-        s32 cnt = 0;
-        while ((ret = func_001b9bc8(ret)) != 0) {
-            if (func_0016a020(ret) == 1469) {
-                if (++cnt >= 2) return 0;
-            }
-        }
-        func_001dbb38();
-    }
-    if (func_00197920()) {
-        v = Sub(D_00352a60, o->pos);
-        if (400.0f < Normalize(&v)) ret = (void*)func_001dbe78(o, &v);
-    } else {
-        ScaleTo(&v, &D_01d49870, -1.0f);
-        ret = (void*)func_001dbe78(o, &v);
-    }
-    return (s32)ret;
-}
+s32 func_001c5f90(Ob* o);  // 0x001c5f90: definition moved into src/anon/unit_001c5b90.cpp
 }
 
 extern "C" {
 QWord func_002cd770(void* p, const QWord* lo, const QWord* hi, f32 t);
 void func_002cd518(void* p, f32* d, void* q, QWord* a, QWord* b);
-f32 func_002cdb60(void* p, f32* out, void* q, const QWord* lo, const QWord* hi, f32 t0, f32 t1) {
-    QWord a = *lo;
-    QWord b = *hi;
-    f32 d0, d1, mid, r;
-    s32 i;
-    for (i = 0; i < 33; i++) {
-        mid = (t0 + t1) * 0.5f;
-        QWord c = func_002cd770(p, lo, hi, mid);
-        func_002cd518(p, &d0, q, &a, &c);
-        func_002cd518(p, &d1, q, &c, &b);
-        if (d0 < d1) { t1 = mid; b = c; r = d1; }
-        else { t0 = mid; a = c; r = d0; }
-    }
-    *out = (t0 + t1) * 0.5f;
-    return r;
-}
+f32 func_002cdb60(void* p, f32* out, void* q, const QWord* lo, const QWord* hi, f32 t0, f32 t1);  // 0x002cdb60: definition moved into src/taito/path.cpp
 }
 
 }

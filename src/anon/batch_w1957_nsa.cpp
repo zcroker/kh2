@@ -131,23 +131,8 @@ static inline bool w1957_flag(W1957Obj* o) {
     return (o->info->flags & 2) || (o->flags & 0x40);
 }
 
-void func_001c1b08(W1957Obj* self, W1957Tgt* tgt, u8 on) {
-    self->tgt = tgt;
-    W1957Vec d;
-    d = w1957_sub(tgt->pos(), func_0016be98(self));
-    f32 len = w1957_len(d);
-    W1957Range* r = tgt->range;
-    f32 lo = r->lo;
-    f32 hi = r->hi;
-    self->dist = lo + w1957_frand() * (hi - lo);
-    s32 act = on ? 20 : 21;
-    self->f2740 = tgt->range->z;
-    self->act = act;
-    func_0017f488((int)self->sub, act, 0.0f, 0.0f);
-    func_001c1fe0(self);
-    if (w1957_flag(self)) w1957_change_action(self, 15);
-    else w1957_change_action(self, 14);
-}
+// 001c1b08: moved to src/anon/unit_001c0638.cpp
+void func_001c1b08(W1957Obj* self, W1957Tgt* tgt, u8 on);
 
 
 struct W1957Face { u8 pad[10]; u16 plane; u8 pad2[4]; };
@@ -173,30 +158,6 @@ static inline f32 w1957_dot(const W1957V& a, const W1957V& b) {
     return r;
 }
 
-s32 func_00142688(W1957Map* map, f32* out, s32 n, W1957Who* who) {
-    f32 best = 10000000.0f;
-    u16 res = 0xffff;
-    W1957V v;
-    W1957V t;
-    v = t = who->pos;
-    t.y -= who->height;
-    for (s32 i = 0; i < n; i++) {
-        s32 id = map->list[i];
-        W1957Face* f = &map->faces[id];
-        W1957V* pl = &map->planes[f->plane];
-        if (w1957_dot(t, *pl) + pl->w < 0.0f) continue;
-        W1957Hit hit;
-        func_00141988(map, f, &hit);
-        if (!func_00162408(&hit, &v)) continue;
-        f32 y = (-pl->w - (pl->x * v.x + pl->z * v.z)) / pl->y;
-        f32 a = fabsf(t.y - y);
-        if (a < best) {
-            best = a;
-            res = id;
-            *out = y;
-        }
-    }
-    return res;
-}
+s32 func_00142688(W1957Map* map, f32* out, s32 n, W1957Who* who);  // 0x00142688: definition moved into src/anon/unit_00141458.cpp
 
 }

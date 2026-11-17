@@ -3,15 +3,10 @@
 namespace dk {
 extern u32 D_00361dd8 asm("D_00361dd8");
 
-bool WM_LANDING::isListType() { return *(u32*)((u32)this + 8244) != 0; }
+// 0x002c5120: definition moved into src/anon/unit_002c4ca8.cpp
 
-bool WM_LANDING::isEpisodeType() { return ((*(u32*)((u32)this + 8244) ^ 2u) == 0); }
+// 0x002c5130: definition moved into src/anon/unit_002c4ca8.cpp
 
-void WM_LANDING_INFO::exit() {
-    u32 ptr = D_00361dd8;
-    if (ptr) {
-        reinterpret_cast<WM_LANDING_INFO*>(ptr)->fadeout();
-        D_00361dd8 = 0;
-    }
-}
+// WM_LANDING_INFO::exit (0x2c8648): moved to src/anon/unit_002c7e68.cpp
+
 }  // namespace dk

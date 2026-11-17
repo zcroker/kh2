@@ -64,16 +64,7 @@ void Activate46(char*) asm("_ZN2YS4UNIT8ActivateEPc");
 struct Col106 { u8 a, b, c; u8 pad; u16 d, e, f; };
 u8* func_001058e8(void);
 VObj* func_00102c80(void);
-void func_00106048(void) {
-    Col106 c;
-    u16 v = 0xffff;
-    c.a = v; c.b = v; c.c = v; c.d = v; c.e = v; c.f = v;
-    func_001058e8()[12] = 15; c.a = 15;
-    func_001058e8()[13] = 0; c.b = 0;
-    func_001058e8()[14] = 0; c.c = 0;
-    VObj* o = func_00102c80();
-    o->vt[0](o);
-}
+// 00106048: moved to src/common/world.cpp
 
 // ---- 0011c828
 struct VObj11c { void (**vt)(VObj11c*, u32, u32); };
@@ -116,10 +107,7 @@ static inline Node139* Next139(Node139* n) {
     if (!n) return h->first;
     return n->next;
 }
-void func_001397d8_i(s32 id) {
-    Node139* n = 0;
-    while ((n = Next139(n))) if (n->id == id) n->vt[5](n);
-}
+void func_001397d8_i(s32 id);  // 0x001397d8: definition moved into src/anon/unit_001393c8.cpp
 
 // ---- 0013e5a8
 s32 func_00139d78(void*);
@@ -127,21 +115,13 @@ void func_00139510(void*);
 void func_0013e610(u32);
 struct O13e { void (**vt)(O13e*); u8 pad[432]; u32 f1b4; u32 pad2[2]; u8 sub[16]; };
 static inline void upd13e(u8* s) { if (func_00139d78(s)) func_00139510(s); }
-void func_0013e5a8(O13e* p) {
-    if (func_00139d78(p)) p->vt[5](p);
-    upd13e(p->sub);
-    func_0013e610(p->f1b4);
-}
+void func_0013e5a8(O13e* p);  // 0x0013e5a8: definition moved into src/anon/unit_0013dfb8.cpp
 
 // ---- 00143a48
 extern u32 D_00348804;
 void func_00141c18(u32, u32, u32, u32, u32);
 void func_00141ff0(u32, u32, u32, void*, u32);
-void func_00143a48(u32 a, u32 b, u32 c) {
-    u8 buf[16];
-    func_00141c18(D_00348804, 15, 4, 1, 1);
-    func_00141ff0(D_00348804, a, b, buf, c);
-}
+void func_00143a48(u32 a, u32 b, u32 c);  // 0x00143a48: definition moved into src/anon/unit_00142c90.cpp
 
 // ---- 00160de0: run func_00160d28 on every listed node with this id
 struct Node160 { u8 pad[128]; Node160* next; u8 pad2[292]; u32 id; };
@@ -157,13 +137,7 @@ static inline Node160* Next160(Node160* n) {
 struct Fl172 { u32 pad; u32 on : 1; };
 void func_0019ae60(u8*);
 void func_0019a1a0(u8*, u32);
-void func_00172a80(u8*** p) {
-    Fl172* o = *(Fl172**)((*p)[1] + 2072);
-    if (o && !(u8)o->on) {
-        func_0019ae60((u8*)o);
-        func_0019a1a0((u8*)o, 0);
-    }
-}
+void func_00172a80(u8*** p);  // 0x00172a80: definition moved into src/anon/unit_00171e58.cpp
 
 // ---- 0017a418
 void func_001d6ae0(u32);
@@ -188,38 +162,19 @@ void func_0019a308(u32);
 
 // ---- 0018a4d8: do two spheres overlap?
 struct Sph18a { u32 pad; f32 r; u32 pad2[2]; Vq c; };
-s32 func_0018a4d8(Sph18a* a, Sph18a* b) {
-    Vq d;
-    d = vsub46n(b->c, a->c);
-    f32 dd = vdot46(d, d);
-    f32 rr = a->r + b->r;
-    return dd < rr * rr;
-}
+s32 func_0018a4d8(Sph18a* a, Sph18a* b);  // 0x0018a4d8: definition moved into src/anon/unit_00189d38.cpp
 
 // ---- 001947c0
 struct E194 { u16 n; u16 off; };
 struct T194 { u32 pad; s32 n; E194 e[1]; };
 extern u8 D_0032bae0;
 extern T194* D_01c61af0;
-u8* ctarget_001947c0(s32 a, s32 b, u32, u32) {
-    u8* g = &D_0032bae0;
-    if (a < 0) a = g[1];
-    if (b < 0) b = g[0];
-    if (b >= 0) {
-        T194* t = D_01c61af0;
-        if (b < t->n && a >= 0 && a < t->e[b].n) return (u8*)t + t->e[b].off + a * 64;
-    }
-    return 0;
-}
+u8* ctarget_001947c0(s32 a, s32 b, u32, u32);  // 0x001947c0: definition moved into src/anon/unit_00194790.cpp
 
 // ---- 0019eb60: activate every unit whose bit is set
 extern u64 D_0034ecc8;
 void func_0015ee90(s32);
-void Activate46(char*) {
-    for (s32 i = 0; i < 64; i++) {
-        if ((u8)((D_0034ecc8 >> i) & 1)) func_0015ee90(i);
-    }
-}
+void Activate46(char*);  // 0x0019eb60: definition moved into src/anon/unit_0019ea10.cpp
 
 // ---- 001a81f0: find a free entry matching (a, b, c)
 struct E1a8 { u8 pad[4]; u8 used, a, b, c; u8 pad2[4]; };
@@ -236,17 +191,7 @@ struct Buf1b2 { u32 n; u32 f4; u32 f8; u32 fc; f32 f10; void* data; Buf1b2* next
 struct List1b2 { Buf1b2* head; Buf1b2* tail; };
 extern List1b2 D_01d48c80;
 void* func_001050d8(u32);
-void func_001b2380(Buf1b2* p, u32 n) {
-    p->f4 = 0;
-    p->n = n;
-    p->f10 = 50.0f;
-    p->f8 = 0;
-    p->fc = 0;
-    p->data = func_001050d8(n << 4);
-    asm volatile("" ::: "memory");
-    if (!D_01d48c80.tail) { D_01d48c80.tail = p; D_01d48c80.head = p; p->next = 0; }
-    else { D_01d48c80.tail->next = p; p->next = 0; D_01d48c80.tail = p; }
-}
+// 001b2380: moved to src/anon/unit_001b1d20.cpp
 
 // ---- 001b27f0
 Vc func_0017c030(u8*, u32*, u8);
@@ -436,15 +381,7 @@ void func_00107368(u8*, u8*);  // vec_copy_at80_if_diff
 void func_00107478(u8*, u8*);  // vec_copy_at96_if_diff
 u8* func_00106a18(u32);  // buffer_get_256
 f32 func_00106f30(u8*, u32);
-void func_002c6420(u8* p) {
-    *(u32*)(p + 84) = 0;
-    u8* v = func_00106a60(1);  // buffer_get_by_index
-    func_00107368(v, p + 16);  // vec_copy_at80_if_diff
-    func_00107478(v, p + 32);  // vec_copy_at96_if_diff
-    f32 f = func_00106f30(func_00106a18(1), 0);
-    *(f32*)(p + 80) = f;
-    *(u32*)(p + 88) = 0;
-}
+// 002c6420: moved to src/anon/unit_002c6420.cpp (linked unit)
 
 // ---- 002ceb48: release and delete the global object
 struct Obj2ce { void (**vt)(Obj2ce*); u8 pad[92]; u32 f60; };

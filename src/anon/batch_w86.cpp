@@ -228,13 +228,7 @@ extern "C" {
 extern Cam* D_00347f80;
 Mtx* func_00106a18(s32);  // buffer_get_256
 Mats* func_00106a60(s32);  // buffer_get_by_index
-void func_00139c90(void)
-{
-    Mtx* d = &D_00347f80->m;
-    Mtx* a = func_00106a18(0);  // buffer_get_256
-    Mats* b = func_00106a60(0);  // buffer_get_by_index
-    *d = Mul(*a, b ? b->m : *(Mtx*)0);
-}
+void func_00139c90(void);  // 0x00139c90: definition moved into src/anon/unit_001393c8.cpp
 }
 }
 
@@ -397,14 +391,7 @@ struct Hdr { u8 f0; u8 n; u16 off; };
 typedef void (*KFn)(Key*, void*);
 static inline bool InRange(f32 t, f32 lo, f32 hi) { return (lo < t && t <= hi) || (hi < 0.0f && t == lo); }
 extern "C" {
-void func_0018a008(Hdr* h, KFn fn, void* arg, f32 lo, f32 hi)
-{
-    Key* k = (Key*)((u8*)h + h->off);
-    for (s32 i = 0; i < h->n; i++) {
-        if (InRange(k->t, lo, hi)) fn(k, arg);
-        k = (Key*)&k->data[k->n];
-    }
-}
+void func_0018a008(Hdr* h, KFn fn, void* arg, f32 lo, f32 hi);  // 0x0018a008: definition moved into src/anon/unit_00189d38.cpp
 }
 }
 
@@ -447,17 +434,7 @@ void func_0017f488(void*, s32, f32, f32);
 void func_0017f5e0(void*, s32, f32, f32, void (*)(void));
 void func_00195c80(void);
 s32 func_00143448(u16);
-void func_00195d00(Obj* o, Ent* e)
-{
-    if (e->f20 < 0.0f) {
-        func_0017f488(e->sub320, 8, 0.0f, 0.0f);
-        func_0017f5e0(e->sub320, 4, 0.0f, 0.0f, func_00195c80);
-        ((void (*)(Obj*, Ent*))o->vt[1])(o, e);
-    } else {
-        if (func_00143448(e->f2868)) return;
-        o->vt[8](o, e, 0);
-    }
-}
+void func_00195d00(Obj* o, Ent* e);  // 0x00195d00: definition moved into src/anon/unit_00195d00.cpp
 }
 }
 
@@ -520,14 +497,8 @@ extern Tbl* D_01d49360;
 extern u32 D_0032f254[];
 void func_001c0a80(void*);
 void func_001c0ab0(void*, void*);
-void func_001c0ae0(void* o)
-{
-    func_001c0a80(o);
-    E* e = D_01d49360->e;
-    for (s32 i = 0; i < D_01d49360->n; i++, e++) {
-        if (D_0032f254[e->id >> 5] & (1 << (e->id & 31))) func_001c0ab0(o, e->data);
-    }
-}
+// 001c0ae0: moved to src/anon/unit_001c0638.cpp
+void func_001c0ae0(void* o);
 }
 }
 
@@ -1090,19 +1061,7 @@ extern "C" {
 QWord* func_002cb828(Obj*, QWord*);  // ring_advance_index
 Pt* func_002cb8e0(Obj*);
 s32 func_002cb920(Obj*);  // get_sum_fields_minus1
-void func_002cd428(Obj* o, QWord* p)
-{
-    if (!o->f8) {
-        func_002cb828(o, p);  // ring_advance_index
-        return;
-    }
-    QWord d = Sub(func_002cb8e0(o)->pos, *p);
-    if (Length(d) < 100.0f) return;
-    Pt* t = func_002cb8e0(o);
-    QWord* q = func_002cb828(o, p);  // ring_advance_index
-    t->dir = Sub(*q, t->pos);
-    t->dir.v[3] = func_002cb920(o) - 1;
-}
+void func_002cd428(Obj* o, QWord* p);  // 0x002cd428: definition moved into src/taito/path.cpp
 }
 }
 

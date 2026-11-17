@@ -73,13 +73,7 @@ void jm_unload(u8* j) asm("_ZN2Tz6JmInfo6UnloadEz");
 
 #define QCOPY(d, s) asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(d), "r"(s) : "$8", "memory")
 
-void func_00107300(u8* p, u8* a, u8* b, f32 f) {  // copy_blocks_and_store_float
-    u8* d = p + 80;
-    if (d != a) QCOPY(d, a);
-    d = p + 96;
-    if (d != b) QCOPY(d, b);
-    *(f32*)(p + 128) = f;
-}
+// 00107300: moved to src/naka/libkn/camera.cpp
 
 u32 func_001231f8(void* o, u32 a1, u32 a2, u32 a3, u32 t0, u8 t1, u32 t2) {
     return (*(u32 (**)(void*, u32, u32, u32, u32, u32, u32, u32))(*(u8**)o + 76))(o, a1, a2, a3, t0, 0, t1, t2);
@@ -94,20 +88,11 @@ void bc_make(void) {
 void func_0016fb00(u32 a);  // 0x0016fb00: definition moved into src/anon/unit_0016e8f8.cpp
 
 struct Args171690 { u32* obj; f32 f; u32 flag; };
-void func_00171690(Args171690* p) {
-    u32 x = p->obj[1];
-    func_00185278(x, p->f, p->flag != 0);
-}
+void func_00171690(Args171690* p);  // 0x00171690: definition moved into src/anon/unit_00170f58.cpp
 
-void trap_obj_search_by_part(u32* v) {
-    u8* out = (u8*)v[0];
-    u32 r = func_0016b800(v[1]);
-    *(u32*)(out + 4) = r;
-}
+void trap_obj_search_by_part(u32* v);  // 0x00172c08: definition moved into src/anon/unit_00171e58.cpp
 
-void trap_player_capture_form(u32* v) {
-    func_001b6bd8(func_001d14a0(), v[0]);
-}
+void trap_player_capture_form(u32* v);  // 0x001741e0: definition moved into src/anon/unit_00171e58.cpp
 
 // 001805e8: moved to src/anon/unit_00180408.cpp
 
@@ -116,19 +101,12 @@ void group_enable(void* g, s32 i) {
     *(u32*)(u + 4) &= ~1;
 }
 
-void func_001a06e0(u32* p) {
-    p[0] = func_001d96c0(p[0], p[1]);
-}
+void func_001a06e0(u32* p);  // 0x001a06e0: definition moved into src/anon/unit_0019fb70.cpp
 
 struct Obj1a1db8 { u8 pad[444]; f32 x, y; };
-void func_001a1db8(Obj1a1db8* p) {
-    p->x = p->y = 0.0f;
-    func_001a1a20(p, *(u32*)((u8*)p + 388), 0);
-}
+void func_001a1db8(Obj1a1db8* p);  // 0x001a1db8: definition moved into src/anon/unit_0019fb70.cpp
 
-u32 func_001b1fc8(u32 a) {
-    return D_00350f18 == 0 && D_00350f1c == a;
-}
+// 001b1fc8: moved to src/anon/unit_001b1d20.cpp
 
 u16 func_001b5af0(void) {
     u8* p = D_01d48cb0;
@@ -138,34 +116,18 @@ u16 func_001b5af0(void) {
 
 // 001bbb28: moved to src/yasui/libys/mission.cpp
 
-void reset_special_command(u8* c) {
-    func_001d48b0(c + 2496);
-    func_001bd668(c);
-}
+void reset_special_command(u8* c);  // 0x001bdc18: definition moved into src/anon/unit_001bc568.cpp
 
-void func_001bdf38(u8* p) {
-    func_001bd2d0(p);
-    func_001bd5b0(p, *(u32*)(p + 2724), 0);
-}
+void func_001bdf38(u8* p);  // 0x001bdf38: definition moved into src/anon/unit_001bc568.cpp
 
-void func_001c0a80(u8* p) {
-    s32 i;
-    for (i = 0; i < 19; i++) p[i] = 0;
-}
+// 001c0a80: moved to src/anon/unit_001c0638.cpp
+void func_001c0a80(u8* p);
 
-void func_001d14b8(u8* p) {
-    if (*(s32*)(p + 2896) != 6) func_00176cd0(p);
-}
+void func_001d14b8(u8* p);  // 0x001d14b8: definition moved into src/anon/unit_001d12e8.cpp
 
-void func_001dc4b8(u32 a) {
-    void* o = D_01d5bb00;
-    (*(void (**)(void*, u32))(*(u8**)o + 4))(o, a);
-}
+void func_001dc4b8(u32 a);  // 0x001dc4b8: definition moved into src/anon/unit_001dbfd8.cpp
 
-void effect_angle(u8* e) {
-    func_001dc9e0(e);
-    func_001e6ce8(*(u32*)(e + 28));
-}
+void effect_angle(u8* e);  // 0x001dc648: definition moved into src/anon/unit_001dbfd8.cpp
 
 void func_001de978(u32 a) {
     void* o = D_01d9e340;

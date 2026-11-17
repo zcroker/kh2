@@ -75,30 +75,11 @@ struct Stack135 {
 // Pushes v; when full (32), flushes first.
 // 00135bd0: moved to src/naka/libkn/obj_observer.cpp
 
-void func_00138650(u8* p, u32 a, u32 b, u32 c) {
-    func_001391c8(p, a, c);
-    func_002362b0(p + 32, b);
-    func_002367c8(p + 32);  // obj_dispatch_bitfield64
-}
+void func_00138650(u8* p, u32 a, u32 b, u32 c);  // 0x00138650: definition moved into src/anon/unit_00138480.cpp
 
-void func_00140f78(u8* a, u8* b) {
-    u32 v = func_00140dc0();
-    u8* g = D_00348710;
-    *(u32*)(g + 64) = 0;
-    func_0013fd78(g);
-    func_0013f558(g);
-    func_00140b68(g, 1);
-    if (a != g + 16) QCOPY(a, g + 16);
-    if (b != g) QCOPY(b, g);
-    *(u32*)(g + 64) = v;
-}
+void func_00140f78(u8* a, u8* b);  // 0x00140f78: definition moved into src/anon/unit_0013fca8.cpp
 
-void func_0014dec0(s16* a, u32 b) {
-    sceGsSetDefStoreImage(D_004574d0, (u16)a[0] << 5, (u16)a[2] >> 6, 1, 0, 0, a[2], a[3]);
-    func_003058a0(0);
-    sceGsSyncPath(0, 0);
-    sceGsExecStoreImage(D_004574d0, b);
-}
+// 0014dec0: moved to src/anon/unit_0014d680.cpp
 
 struct Job168 {
     u8 pad0[4];
@@ -155,14 +136,7 @@ struct Ref173 {
     u32 b;
     Vec4* v;
 };
-void func_00173ce8(Ref173* p) {
-    f32 m[16] __attribute__((aligned(16)));
-    Vec4 t;
-    func_0016b0e0(*(u32*)((u8*)p->a + 4), p->b, m);
-    MULV(m, p->v, &t);
-    if (&t != &D_01c5f480) QCOPY(&D_01c5f480, &t);
-    p->a = (u32*)&D_01c5f480;
-}
+void func_00173ce8(Ref173* p);  // 0x00173ce8: definition moved into src/anon/unit_00171e58.cpp
 
 u32 func_00198510(u8*);
 // 001759f0: moved to src/yasui/libys/party.cpp
@@ -174,27 +148,13 @@ u32 func_00188398(u8*, u32, u32*, u32);
 u32 func_00188340(u8* p, s32 i, u32* a2, u32 a3);
 
 void func_00195430(u8*);
-void func_00195558(u8* p) {
-    u8* q;
-    for (q = p; (s32)q < (s32)(p + 2080); q += 520) func_00195430(q);
-    *(u32*)(p + 2084) = 0;
-}
+void func_00195558(u8* p);  // 0x00195558: definition moved into src/anon/unit_00194790.cpp
 
 void func_00190128(void*);
 void* func_001d45a0(u32, u16);
 void func_00190878(void*, u32, u32);
 void func_0019da68(u8*, void*, void*, u32, u32);
-u32 func_0019ead0(u8* p, u32 b) {
-    u8 buf[32];
-    void* o = func_001d45a0(b, *(u16*)(*(u8**)p + 38));
-    if (o) {
-        func_00190128(buf);
-        func_00190878(buf, b, 0);
-        func_0019da68(p, o, buf, 0, 0);
-        return 1;
-    }
-    return 0;
-}
+u32 func_0019ead0(u8* p, u32 b);  // 0x0019ead0: definition moved into src/anon/unit_0019ea10.cpp
 
 struct E1b8 {
     u8 id;
@@ -227,32 +187,13 @@ s32 func_001c8bb8(s8*);
 u64 func_00312db8(u64, u64);  // libgcc 64-bit unsigned divide
 extern u32 D_003638d0;
 // Picks a random entry from the list filled by func_001c8bb8.
-s8 func_001c8c38(void) {
-    s8 buf[16];
-    s32 n = func_001c8bb8(buf);
-    u32 seed = D_003638d0 * 69069;
-    D_003638d0 = seed;
-    u64 step = func_00312db8((u64)(u32)(n - 1) + 0x100000000ULL, (u32)n);
-    return buf[(s32)func_00312db8(seed, step)];
-}
+// 0x1c8c38: moved to src/yasui/libys/summon.cpp
 
 u32 func_001e6b90(void);
 u32 func_001e6c40(u32, u32, u32, u32, f32);
 void func_001e2c00(u32);
 void func_001e6c00(u32);  // alloc_336_align_171
-s32 func_001dc558(u32* p, f32 f) {
-    s32 ok = 1;
-    if (p[1] != 4) {
-        p[7] = func_001e6b90();
-        ok = func_001e6c40(p[7], p[5], p[6], p[4], f) != 0;
-    }
-    if (!ok && p[7]) {
-        func_001e2c00(p[7]);
-        func_001e6c00(p[7]);  // alloc_336_align_171
-        p[7] = 0;
-    }
-    return ok;
-}
+s32 func_001dc558(u32* p, f32 f);  // 0x001dc558: definition moved into src/anon/unit_001dbfd8.cpp
 
 void puts(const char*);
 void func_002fd348(s32) __attribute__((noreturn));
@@ -424,25 +365,7 @@ u32 func_002b56e8(void) {
 
 void func_00161000(u8);
 void func_00160fd0(u8);
-void func_002c1cb0(u8* c, s32 mode) {
-    switch (mode) {
-    case 1:
-        func_00160fd0(c[0]);
-        func_00161000(c[1]);
-        func_00161000(c[2]);
-        break;
-    case 2:
-        func_00161000(c[0]);
-        func_00160fd0(c[1]);
-        func_00160fd0(c[2]);
-        break;
-    default:
-        func_00161000(c[0]);
-        func_00161000(c[1]);
-        func_00161000(c[2]);
-        break;
-    }
-}
+void func_002c1cb0(u8* c, s32 mode);  // 0x002c1cb0: definition moved into src/anon/unit_002c10e0.cpp
 
 // Wraps an angle into [-pi, pi].
 f32 func_002d0e10(f32 a) {  // float_bucket_index_b

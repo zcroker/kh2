@@ -20,14 +20,7 @@ u32 func_001b6f48(u32 a) {
     return a;
 }
 
-u32 func_002c5fb8(f32* a) {
-    func_0016bda8(a);
-    a[2] = a[2] + 3500.0f;
-    return (u32)a;
-}
+u32 func_002c5fb8(f32* a);  // 0x002c5fb8: definition moved into src/anon/unit_002c53c8.cpp
 
-u32 func_002c1950(u32 a, u32 b) {
-    func_0017f488((void*)(b + 320), 0, 8.0f, 0.0f);
-    return func_002c5fa0(b);
-}
+u32 func_002c1950(u32 a, u32 b);  // 0x002c1950: definition moved into src/anon/unit_002c10e0.cpp
 }

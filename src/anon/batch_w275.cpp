@@ -116,24 +116,7 @@ void func_0016bd60(void*, s32);
 void* func_0016a070(void*);
 void* func_001a3018(void*, void*, s32);
 void func_001a3188(void*, void*, s32);
-void func_001bf378(u8* p, u8* t) {
-    *(u8**)(p + 2536) = t;
-    if (func_001bfca0(p)) {
-        if (*(u32*)(*(u8**)(p + 2536) + 1416) & 0x80) func_001991a8(81, 1);
-        (*(s32*)(*(u8**)(p + 2536) + 2764))++;
-    } else {
-        void* r = func_001a3018(*(void**)(p + 2484), func_0016a070(*(void**)(p + 2536)), 1);
-        if (r) func_001a3188(*(void**)(p + 2484), r, 0);
-    }
-    *(u32*)(p + 2528) |= 4;
-    V7e* d = (V7e*)(p + 2512);
-    *d = *func_0016c028(p) - func_0016be98(*(void**)(p + 2536));
-    f32 l = d->len() * 0.05f;
-    l = l < 30.0f ? 30.0f : (l > 60.0f ? 60.0f : l);
-    *(f32*)(p + 2496) = l;
-    *(f32*)(p + 2492) = l;
-    func_0016bd60(p, 13);
-}
+void func_001bf378(u8* p, u8* t);  // 0x001bf378: definition moved into src/anon/unit_001bc568.cpp
 extern u8* D_00347F80;
 extern u8 D_0035E190;
 extern u8 D_00347F98;

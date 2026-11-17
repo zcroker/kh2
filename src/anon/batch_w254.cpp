@@ -53,55 +53,10 @@ u8* func_00106a18(s32);  // buffer_get_256
 void func_00106de8(u8*, u8*, f32);
 
 // Member lookup: find slot of id a0 in party (1..2), spawn its object, start its fade unless flagged.
-u8* func_001c9c78(s32 a0) {
-    void* m;
-    s32 i;
-    u8* r;
-    if (func_0019ba60(D_0034e948) == 0) return 0;
-    m = func_001a8bd0(-1);
-    for (i = 1; i < 3; i++) {
-        if (func_001a8bf8(m, i) == a0) break;
-    }
-    if (i >= 3) return 0;
-    r = func_0017e4f8(*(u16*)(func_001a8b28() + a0 * 2 + 16), 0, 100.0f, 200.0f, 300.0f);
-    if (r != 0) {
-        if (!(*(u32*)(r + 2040) & 0x10)) {
-            f32 c = 15.0f;
-            f32 b = 1.0f;
-            func_001ad990(r + 2092, 0.0f, b, c);
-        }
-    }
-    return r;
-}
+u8* func_001c9c78(s32 a0);  // 0x001c9c78: definition moved into src/yasui/libys/sacrifice.cpp
 
 // Landing-menu cursor update: switch on select result; confirm copies 10-byte entry then exits.
-void func_002c3c90(u8* a0) {
-    s32 r = func_00289380(*(void**)(a0 + 872));
-    if (func_00289310(*(void**)(a0 + 872))) func_002cac40(1);
-    switch (r) {
-    case -2:
-        func_002cac40(4);
-        *(s32*)(a0 + 8240) = 0;
-        func_002c3da0(a0);
-        return;
-    case -1:
-    case -4:
-        return;
-    }
-    if (func_002891e8(*(void**)(a0 + 872)) == 0) {
-        func_002cac40(2);
-        *(s32*)(a0 + 8240) = 1;
-        *(u32*)(a0 + 24) |= 2;
-        *(W254S10*)(a0 + 13608) = *(W254S10*)func_001c3f58(*(s32*)(a0 + 8236));
-        func_002c3da0(a0);
-        func_002c8648();
-    } else {
-        func_002cac40(2);
-        *(s32*)(a0 + 8240) = 0;
-        func_002c3da0(a0);
-        asm volatile("");
-    }
-}
+void func_002c3c90(u8* a0);  // 0x002c3c90: definition moved into src/anon/unit_002c3c90.cpp
 
 // Walk all objects; type 16 with sub-type 20/21/22/25/26/27 get virtual slot 10 called.
 void func_002d0a78(void) {
@@ -166,16 +121,7 @@ static inline __attribute__((always_inline)) W254PE* w254_next(W254PE* prev) {
 }
 
 // Retarget key a0 -> a1 on every live object and on every pool entry not listed as free.
-void func_00190570(s32 a0, s32 a1) {
-    u8* p = 0;
-    W254PE* e;
-    while ((p = func_00186078(p)) != 0) {
-        if (*(s32*)(p + 2548) == a0) *(s32*)(p + 2548) = a1;
-    }
-    for (e = 0; (e = w254_next(e)) != 0; ) {
-        if (e->key == a0) e->key = a1;
-    }
-}
+void func_00190570(s32 a0, s32 a1);  // 0x00190570: definition moved into src/anon/unit_001900d0.cpp
 }
 
 namespace w254_mtx {

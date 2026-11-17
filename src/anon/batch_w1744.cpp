@@ -27,22 +27,9 @@ using namespace w1744;
 extern "C" {
 extern QWord D_004f62a0;
 
-void func_0016d888(VPair* p) {
-    D_004f62a0 = Cross(*p->a, *p->b);
-    p->a = &D_004f62a0;
-}
+// 0016d888: moved to src/anon/unit_0016d2e0.cpp
 
-s32 func_0018c528(u32 a) {
-    s32 r = 0;
-    switch (a) {
-    case 2: r = 287; break;
-    case 0: case 1: r = 0; break;
-    case 3: break;
-    case 4: case 5: case 6: case 7: case 8: case 9: case 10: case 11: case 12: case 13:
-        r = a + 279; break;
-    }
-    return r;
-}
+s32 func_0018c528(u32 a);  // 0x0018c528: definition moved into src/yasui/libys/npc.cpp
 
 s32 YS_DAMAGE_GetReactionType(s32 a) asm("_ZN2YS6DAMAGE15GetReactionTypeEi");
 // 0018ca48: moved to src/yasui/libys/damage.cpp

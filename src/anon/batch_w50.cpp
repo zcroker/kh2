@@ -211,19 +211,7 @@ s32 func_0011f270(void* o, s32 n) {
 
 void func_0013b1d0(void);  // 0x0013b1d0: definition moved into src/anon/unit_0013a8b8.cpp
 
-void func_0013f0d0(void) {
-    if (func_001991a8(0, 0)) {
-        func_0013f030();
-        func_0013f048();
-        return;
-    }
-    switch (D_00348704 & 0x3fffffff) {
-    case 1: func_0013f288(); break;
-    case 0: func_0015d690(); break;
-    case 2: func_0013f3d0(); break;
-    case 3: func_0013f4d8(); break;
-    }
-}
+void func_0013f0d0(void);  // 0x0013f0d0: definition moved into src/anon/unit_0013ef70.cpp
 
 // 0015cde0: moved to src/anon/unit_0015cdb0.cpp
 
@@ -245,31 +233,9 @@ void YS_OBJ_scatter_prize(u8* self, s32 n) {
 
 // Scales o->v by o->s into a function-static vector (guard byte + atexit
 // registration of its destructor spelled out) and points o->v at it.
-void func_0016d450(Scaled* o) {
-    Vec4* v = o->v;
-    if (!D_004f62f0) {
-        D_004f62f0 = 1;
-        func_002fd188((void*)func_0016e888);  // pool_alloc_block
-    }
-    Vec4 t;
-    asm("lqc2 $vf1, 0(%1)\n\tmfc1 $8, %2\n\tqmtc2 $8, $vf2\n\tvmulx.xyzw $vf1, $vf1, $vf2x\n\tsqc2 $vf1, 0(%0)"
-        : : "r"(&t), "r"(v), "f"(o->s) : "$8", "memory");
-    D_004f6300 = t;
-    o->v = &D_004f6300;
-}
+// 0016d450: moved to src/anon/unit_0016d2e0.cpp
 
-void func_001722e8(S172* s) {
-    u8* o = *(u8**)(s->o + 4);
-    Q16 t;
-    QCOPY(&t, s->v);
-    func_001b6dd0(o, &t);
-    func_0017f488(o + 320, s->n, s->f, 0.0f);
-    if (s->flag) {
-        u32 n = s->n;
-        *(u32*)(o + 256) = n + 1;
-        *(u32*)(o + 260) = n + 2;
-    }
-}
+void func_001722e8(S172* s);  // 0x001722e8: definition moved into src/anon/unit_00171e58.cpp
 
 // 0017d050: moved to src/anon/unit_0017c400.cpp
 
@@ -280,22 +246,10 @@ void func_001722e8(S172* s) {
 // 00186c58: moved to src/anon/unit_00185d10.cpp
 void func_00186c58(u8* o, Q16* v, f32 s);
 
-void func_00194930(void) {
-    u8* v = func_001947c0(D_0032bae0[1], D_0032bae0[0]);
-    func_001a9110(v + D_0032bb30[D_0032bae0[0] + 9196] * 4 + 16);
-}
+void func_00194930(void);  // 0x00194930: definition moved into src/anon/unit_00194790.cpp
 }
 
-void ctarget0_001a5a48(void) {
-    Ent* p = 0;
-    Ent* q;
-    while ((q = func_001c16f0(*(void**)(D_00350790 + 2548), p)) != 0) {
-        p = q;
-        if (!q->on) continue;
-        u32 k = D_0034e948;
-        func_001a53d0(D_00350790, k, q);
-    }
-}
+// 001a5a48: moved to src/anon/unit_001a4db0.cpp
 
 extern "C" {
 void func_001b3098(Arr144* s) {
@@ -307,11 +261,7 @@ void func_001b3098(Arr144* s) {
 
 // 001bb7f8: moved to src/yasui/libys/mission.cpp
 
-void func_001bd4e8(u8* o, u32* v, u32 c) {
-    if (*(u32*)(*(u8**)(o + 2528) + 1416) & 0x2000000) return;
-    func_001bdab0(o);
-    for (s32 i = 0; i < 4; i++) func_001bd3e0(o, i + 3, v[i], c, 1, 100);
-}
+void func_001bd4e8(u8* o, u32* v, u32 c);  // 0x001bd4e8: definition moved into src/anon/unit_001bc568.cpp
 
 void func_001d6938(u8* o, u8* p);  // 0x001d6938: definition moved into src/anon/unit_001d68e0.cpp
 
@@ -425,26 +375,11 @@ void func_002a76d8(void) {
     }
 }
 
-void func_002bd870(void) {
-    if (!func_002b8ac0(D_003617ec)) return;
-    if (D_003617f8) return;
-    u8* p = D_003617f0;
-    if (!p) return;
-    func_00168410(p, D_003617ec, *(u32*)(D_003617ec + 0x4802c), 16, (void*)func_002bd838, 0);
-    D_003617f8 = 1;
-}
+void func_002bd870(void);  // 0x002bd870: definition moved into src/anon/unit_002bc978.cpp
 
-void func_002c6228(u8* o, s32 i, u32 v) {
-    func_002c6280(o, i, v);
-    ((u32*)(o + 16))[i] = v;
-    func_002ef8d0(o, D_0032b96c);
-}
+void func_002c6228(u8* o, s32 i, u32 v);  // 0x002c6228: definition moved into src/worldmap/cameramanager.cpp
 
-f32* func_002cbca0(f32* out, u8* p) {
-    func_002cba88(out, p, *(f32*)(p + 36), 1.0f);
-    out[3] = *(f32*)(p + 20);
-    return out;
-}
+f32* func_002cbca0(f32* out, u8* p);  // 0x002cbca0: definition moved into src/taito/path.cpp
 
 void func_002dc1b8(u8* o, s32 id) {
     if (func_001c0cd8(o) || o[3008]) id = -1;

@@ -252,73 +252,15 @@ void func_0015b368(u32 self, u32 a1, u32 a2, u32 a3) {
 }
 
 // Constructor: vtable + two sprite members, then their draw state.
-void func_0015e4e0(u32 p) {
-    u32 s1, s2;
-    *(u32*)(p + 4) = 0;
-    *(u32*)p = (u32)D_0034c6e0;
-    s1 = p + 144;
-    func_0014b7f0(s1);
-    s2 = p + 416;
-    func_0014c050(s2);
-    *(u32*)(p + 1200) = 0;
-    func_0014b610(s1, 0x131000070ULL);
-    func_0014b608(s1, 0x00ffffff00080140ULL);
-    func_0014b5e0(s1, 278);
-    func_0014b630(s1, 96);
-    func_0014b618(s1, 0x3cfe5);
-    func_0014b5e8(s1, 0x80008, 0x4080408);
-    func_0014b610(s2, 0x131000070ULL);
-    func_0014b5e0(s2, 342);
-    func_0014b630(s2, 96);
-    func_0014b618(s2, 0x3001d);
-    func_0014b208(s2, 512, 416);
-    func_0014b468(s2, 512, 416);
-    func_0014b628(s2, 0x2006a00664022800ULL);
-}
+// 0015e4e0: moved to src/anon/unit_0015e070.cpp
 
 // Constructor: vtable + one sprite member; also sets up a shared global sprite.
-void func_0015e9e0(u32 p) {
-    u32 s2;
-    u32 g;
-    *(u32*)(p + 4) = 0;
-    *(u32*)p = (u32)D_0034c6c8;
-    s2 = p + 80;
-    func_0014c050(s2);
-    *(u32*)(p + 864) = 0;
-    g = (u32)D_004f3820;
-    func_0014b610(g, 0x131000070ULL);
-    func_0014b608(g, 0x80140);
-    func_0014b5e0(g, 6);
-    func_0014b220(g, 0, 0, 0, 0);
-    func_0014b208(g, 512, 416);
-    func_0014b610(s2, 0x131000070ULL);
-    func_0014b5e0(s2, 342);
-    func_0014b630(s2, 96);
-    func_0014b618(s2, 0x3001d);
-    func_0014b208(s2, 512, 416);
-    func_0014b468(s2, 512, 416);
-    func_0014b628(s2, 0x2006a00664022800ULL);
-}
+// 0015e9e0: moved to src/anon/unit_0015e070.cpp
 
 // 00182c60: moved to src/anon/unit_00182780.cpp
 
 // Is point p within (radius r, height h) of actor o?
-s32 func_001a4ff8(u8* o, Vq_w96* p, f32 r, f32 h) {
-    Vq_w96 d;
-    if (*(u32*)(o + 2040) & 4) return 0;
-    if (*(u32*)(*(u8**)(o + 12) + 8) & 0x40000) return 1;
-    if (r <= 0.0f) {
-        r = 120.0f;
-        if (*(u32*)(o + 1416) & 4) r = *(f32*)(func_00177860() + 52) + r;
-    }
-    if (*(u8**)(o + 1164)) r = r + *(f32*)(*(u8**)(o + 1164) + 452);
-    if (h <= 0.0f) h = 30.0f;
-    d = vsubn_w96(*p, *(Vq_w96*)func_0016c028(o));  // obj_get_attach_or_alt
-    if (h < fabsf(d.y)) return 0;
-    d.y = 0.0f;
-    if (vlen_w96(d) <= r) return 1;
-    return 0;
-}
+// 001a4ff8: moved to src/anon/unit_001a4db0.cpp
 
 // Loads a texture archive by name and uploads its images to VRAM.
 void func_001aabd8(void) {
@@ -344,48 +286,10 @@ void func_001aabd8(void) {
 // 001ac970: moved to src/anon/unit_001abb28.cpp
 
 // Finds the next entry of the given kind (after prev) that passes func_001c3850.
-Ent_w96* func_001c3748(u32 kind, Ent_w96* e) {
-    if (e == 0) {
-        s32 i;
-        for (i = 0; i < D_01d49560->count; i++) {
-            if (D_01d49560->ents[i].kind == kind) {
-                e = &D_01d49560->ents[i];
-                break;
-            }
-        }
-    } else {
-        e++;
-    }
-    for (; e != 0 && e < &D_01d49560->ents[D_01d49560->count] && e->kind == kind; e++) {
-        if (func_001c3850(e)) return e;
-    }
-    return 0;
-}
+Ent_w96* func_001c3748(u32 kind, Ent_w96* e);  // 0x001c3748: definition moved into src/anon/unit_001c2b58.cpp
 
 // Quicksort keys (descending) in [lo, hi], permuting the parallel ids array alongside.
-void func_001dd568(u32* ids, FU_w96* keys, s32 lo, s32 hi) {
-    s32 i = lo;
-    s32 j = hi;
-    f32 pivot = keys[(lo + hi) / 2].f;
-    for (;;) {
-        while (pivot < keys[i].f) i++;
-        while (keys[j].f < pivot) j--;
-        if (i >= j) break;
-        {
-            f32 t = keys[i].f;
-            u32 u;
-            keys[i].f = keys[j].f;
-            keys[j].f = t;
-            u = ids[i];
-            ids[i] = ids[j];
-            ids[j] = u;
-        }
-        i++;
-        j--;
-    }
-    if (lo < i - 1) func_001dd568(ids, keys, lo, i - 1);
-    if (j + 1 < hi) func_001dd568(ids, keys, j + 1, hi);
-}
+void func_001dd568(u32* ids, FU_w96* keys, s32 lo, s32 hi);  // 0x001dd568: definition moved into src/anon/unit_001dd2b8.cpp
 
 // Quicksort keys (descending) in [lo, hi], permuting the parallel ids array alongside.
 

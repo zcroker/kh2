@@ -19,31 +19,5 @@ static inline f32 Normalize(QWord* v)
 }
 extern "C" {
 extern f32 D_004f5268;
-u32 func_00167778(u8* self, u8* in) {
-    QWord* out = (QWord*)(self + 0x20);
-    u32 mask = 0;
-    for (s32 i = 0; i < 2; i++) {
-        QWord v;
-        for (s32 j = 0; j < 2; j++) {
-            *(f32*)((u8*)&v + (j << 2)) = in[i * 2 + j + 2] - 127.5f;
-            if (*(f32*)((u8*)&v + (j << 2)) > 0.0f) {
-                *(f32*)((u8*)&v + (j << 2)) -= D_004f5268;
-                if (*(f32*)((u8*)&v + (j << 2)) < 0.0f) *(f32*)((u8*)&v + (j << 2)) = 0.0f;
-                else { u32 nm = ((j + 1) << (i * 4 + 16)) | mask; mask = nm; }
-            } else {
-                *(f32*)((u8*)&v + (j << 2)) += D_004f5268;
-                if (*(f32*)((u8*)&v + (j << 2)) > 0.0f) *(u32*)((u8*)&v + (j << 2)) = 0;
-                else { u32 nm = ((j + 1) << (i * 4 + 18)) | mask; mask = nm; }
-            }
-            *(f32*)((u8*)&v + (j << 2)) /= 127.5f - D_004f5268;
-        }
-        v.v[2] = 0;
-        f32 len = Normalize(&v);
-        if (len > 1.0f) len = 1.0f;
-        v.f[3] = len;
-        *out = v;
-        out++;
-    }
-    return mask;
-}
+// 00167778: moved to src/anon/unit_00167358.cpp
 }

@@ -70,21 +70,7 @@ void func_00102448(u32, u32);
 void* func_001050c8(void);
 typedef void (*VFn)(void*);
 
-void func_001384d0(u32 a)
-{
-    for (;;) {
-        if (!func_001384c0() && D_0032bad8 && !func_00103b38()
-            && *(u32*)(func_0014aba8() + 252) == 0 && !func_002ee530()
-            && (*(u64*)(func_00167f18(0) + 8) & 2)) {
-            u32 v = func_001c1218();
-            if (!v) { if (!func_001688b8()) func_00253180(0, -1); }
-            else func_00253410(v, 0);
-        }
-        func_00102448(a, 0);
-        void* o = func_001050c8();
-        if (o) (*(VFn*)(*(u8**)o + 16))(o);
-    }
-}
+void func_001384d0(u32 a);  // 0x001384d0: definition moved into src/anon/unit_00138480.cpp
 
 extern void* D_00348050;
 extern u8* D_00348058;
@@ -163,16 +149,7 @@ static inline bool InfoFlag(u8* info) { return ((Bits8*)(info + 8))->b0; }
 u8 func_0019f6f0(u8*, u32, u32);
 u8 func_0019f740(u8*, u32, u32);
 u8 func_0019bd08(u8*, u32);
-u8 func_0019bdc8(u8* o, u32 a, u32 b)
-{
-    u8* s = o + 1044;
-    if (func_0019f6f0(s, a, b)) return 1;
-    if (func_0019f740(s, a, b)) return 0;
-    s = o + 948;
-    if (func_0019f6f0(s, a, b)) return 1;
-    if (func_0019f740(s, a, b)) return 0;
-    return func_0019bd08(o, b);
-}
+u8 func_0019bdc8(u8* o, u32 a, u32 b);  // 0x0019bdc8: definition moved into src/anon/unit_0019ba60.cpp
 
 struct FV {
     f32 x, y, z, w;
@@ -264,37 +241,8 @@ static inline ZNode* NextZ(ZList* l, ZNode* n)
     return n->next;
 }
 /* project v by m and insert n into list sorted by depth z/w */
-void func_001c1938(FV* v, ZList* list, ZNode* n, M44* m)
-{
-    v->w = 1.0f;
-    FV t;
-    t = MulMV(m, v);
-    n->pos = v;
-    n->key = t.z / t.w;
-    ZNode* cur = 0;
-    ZNode* prev = 0;
-    while ((cur = NextZ(list, cur))) {
-        if (cur->key >= n->key) break;
-        prev = cur;
-    }
-    if (!prev) {
-        if (!list->head) {
-            list->tail = n;
-            list->head = n;
-            n->next = 0;
-        } else {
-            n->next = list->head;
-            list->head = n;
-        }
-    } else if (prev == list->tail) {
-        prev->next = n;
-        n->next = 0;
-        list->tail = n;
-    } else {
-        n->next = prev->next;
-        prev->next = n;
-    }
-}
+// 001c1938: moved to src/anon/unit_001c0638.cpp
+void func_001c1938(FV* v, ZList* list, ZNode* n, M44* m);
 
 f32 func_00191b70(void);
 extern u32 D_00351d98;
@@ -303,16 +251,7 @@ struct E16 { u32 w[4]; };
 extern E16 D_0036e000[];
 s32 func_001a5bd0(u32, s32, f32);
 void func_001a5420(u32, E16*, u32);
-void func_001c7ca8(u32 a, u32 b)
-{
-    f32 k = func_00191b70();
-    if (D_00351d98) {
-        for (s32 i = 0; i < 9; i++) {
-            for (s32 j = 0; j < func_001a5bd0(b, i, k); j++)
-                func_001a5420(D_00351d98, &D_0036e000[D_0036dfe0[i]], a);
-        }
-    }
-}
+// 0x1c7ca8: moved to src/anon/unit_001c7bc8.cpp
 
 void func_00177dc8(u8*, u32, s32);
 extern u8 D_00352410[];
@@ -324,28 +263,7 @@ s32 func_001d6d88(void);
 u8* func_001c1130(s32);  // copy_record_block_to_table
 u32 func_00192048(s32);
 void func_001c11a8(s32);
-void func_001d0878(u8* o, u32 a, s32 kind)
-{
-    func_00177dc8(o, a, kind);
-    *(u32*)(o + 2920) = 0;
-    *(u32*)o = (u32)D_00352410;
-    *(u32*)(o + 2924) = 0;
-    *(u32*)(o + 1416) |= 0x1000000;
-    *(u32*)(o + 2928) = 0;
-    D_00352400 = (u32)o;
-    if (func_00181978()) {
-        if (D_0034f240 & 0x40000) *(*(u8**)(o + 1164) + 431) = 4;
-        else if (*(s32*)(o + 2896) == 12) func_001a1c90(*(u8**)(o + 1164), 2, -1);
-        else if (func_001d6d88()) *(*(u8**)(o + 1164) + 431) = 3;
-        else *(*(u8**)(o + 1164) + 431) = 1;
-    }
-    if (kind == 6) {
-        u8* r = func_001c1130(29);  // copy_record_block_to_table
-        *(u32*)(r + 24) = func_00192048(0xc44f);
-    } else {
-        func_001c11a8(29);
-    }
-}
+void func_001d0878(u8* o, u32 a, s32 kind);  // 0x001d0878: definition moved into src/anon/unit_001cf0b0.cpp
 
 extern u8 D_0032bb30[];
 extern u8 D_0033bc10[];
@@ -637,30 +555,7 @@ void func_001ad0f8(u8*, u32, s32);
 void func_001ad330(u8*, u32);
 extern u8 D_00361980[];
 union PtrS { u8* p; s32 i; };
-void func_002bec88(u8* o, s32 kind, u32 arg)
-{
-    func_002edf28(o);  // obj_ctor_3637e0
-    *(u32*)(o + 40) = 0;
-    *(u32*)o = (u32)D_00361980;
-    switch (kind) {
-    case 0: {
-        u8* p = func_001050d8(2924);
-        func_001ad0f8(p, arg, 0);
-        ((PtrS*)(o + 36))->p = p;
-        *(s32*)(p + 100) = 2;
-        u8* q = ((PtrS*)(o + 36))->p;
-        *(s32*)(q + 4) = 256;
-        *(s32*)(q + 8) = 48;
-        break;
-    }
-    case 1: {
-        u8* p = func_001050d8(4656);
-        func_001ad330(p, arg);
-        *(u8**)(o + 36) = p;
-        break;
-    }
-    }
-}
+void func_002bec88(u8* o, s32 kind, u32 arg);  // 0x002bec88: definition moved into src/anon/unit_002bebd0.cpp
 
 void func_002369a0(u8*);  // obj_ctor_36eac8
 void func_0023c008(u8*);  // obj_ctor_36eae8
@@ -673,23 +568,7 @@ u8* func_00168b38(u32, s32, s32);  // entry_array_find_nth
 void func_002ef1f8(u8*, u32, u32);
 void func_002bf308(void);
 void func_00102c18(s32, u32, void*);
-void func_002befc0(u8* o)
-{
-    u32 v = (u32)func_001050c8();
-    func_002edf28(o);  // obj_ctor_3637e0
-    *(u32*)(o + 36) = v;
-    *(u32*)o = (u32)D_00363880;
-    func_002369a0(o + 40);  // obj_ctor_36eac8
-    func_0023c008(o + 64);  // obj_ctor_36eae8
-    *(u32*)o = (u32)D_003619a8;
-    D_00361998 = (u32)o;
-    *(u32*)(o + 156) = func_001708f8(func_002beb90(), -1);
-    u8* x = func_00168b38(*(u32*)(o + 156), 28, 0);  // entry_array_find_nth
-    u8* y = func_00168b38(*(u32*)(o + 156), 29, 0);  // entry_array_find_nth
-    func_002ef1f8(o, *(u32*)(x + 8), *(u32*)(y + 8));
-    *(u32*)(o + 4) |= 1;
-    func_00102c18(1, 0x19258, (void*)func_002bf308);
-}
+void func_002befc0(u8* o);  // 0x002befc0: definition moved into src/anon/unit_002bebd0.cpp
 
 struct V4f { f32 x, y, z, w; };
 extern V4f D_01e2bc70;
@@ -697,12 +576,7 @@ extern V4f D_01e2bc80;
 extern V4f D_01e2bc90;
 static inline void Set4(V4f* v, f32 x, f32 y, f32 z, f32 w) { v->x = x; v->y = y; v->z = z; v->w = w; }
 void wtarget_002c0738(u32 a, u32 b, u32 c, u32 d) asm("_Z16wtarget_002c0738jjjj");
-void wtarget_002c0738(u32 a, u32 b, u32 c, u32 d)
-{
-    if (b == 0xffff && a == 1) Set4(&D_01e2bc70, 0.0f, -500.0f, 0.0f, 1.0f);
-    if (b == 0xffff && a == 1) Set4(&D_01e2bc80, 0.0f, -1840.0f, -2400.0f, 0.0f);
-    if (b == 0xffff && a == 1) Set4(&D_01e2bc90, 0.0f, -3450.0f, -3000.0f, 0.0f);
-}
+void wtarget_002c0738(u32 a, u32 b, u32 c, u32 d);  // 0x002c0738: definition moved into src/anon/unit_002bebd0.cpp
 /* sign + decimal digits of v after prefix char c; returns length */
 s32 func_00301480(char* buf, s32 v, s32 c)
 {
@@ -738,26 +612,7 @@ s32 func_0017a538(u8*);
 u32 func_001d1438(s32);
 u32 func_0016a020(u8*);
 static inline bool Is12(u8* p) { return *(s32*)(p + 2896) == 12; }
-void func_001af0c0(u8* o)
-{
-    if (*(u8*)(o + 12) == 0) func_001bb468(o);
-    else *(void**)(o + 44) = (void*)func_001af638;
-    if (*(s32*)o == 3) {
-        *(u32*)(o + 16) = func_001c10f8(33);
-    } else {
-        *(u32*)(o + 16) = func_001c10f8(1);
-        *(void**)(o + 72) = (void*)func_001af6f0;
-    }
-    u8* p = (u8*)D_0034e948;
-    if (p) {
-        u32 v;
-        if (func_0017a538(p) || Is12(p)) v = func_001d1438(0);
-        else v = func_0016a020(p) | 0x20000000;
-        *(u32*)(o + 48) = v;
-    } else {
-        *(u32*)(o + 48) = 0;
-    }
-}
+void func_001af0c0(u8* o);  // 0x001af0c0: definition moved into src/anon/unit_001ada38.cpp
 extern char D_0036ef58[];
 extern char D_0036efb8[];
 extern char D_0036ef98[];

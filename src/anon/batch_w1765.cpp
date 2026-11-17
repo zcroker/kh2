@@ -22,13 +22,7 @@ struct W1765Mg { u8 p0[4]; W1765Slot* ents; u8 p8[8]; s32 n; u8 pad[0x5360 - 0x1
 extern "C" {
 void func_001c4200(void*, s32);
 
-void func_001c4188(void* p, f32 x) {
-    s32 i;
-    for (i = 0; i < D_00351600; i++) {
-        if (D_01d49658[i].f < x) { func_001c4200(p, i); return; }
-    }
-    if (D_00351600 == 0) func_001c4200(p, 0);
-}
+void func_001c4188(void* p, f32 x);  // 0x001c4188: definition moved into src/anon/unit_001c4120.cpp
 
 void func_00146d68(W1765Mg* m) {
     m->f5360 = 0;

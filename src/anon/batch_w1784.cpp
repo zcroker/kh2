@@ -43,17 +43,5 @@ W1784QM func_0017d1d8(f32, void*);
 void* func_001b9bc8(void*);
 s32 func_0019bc38(void*);
 W1784It* func_0016bba8(void*, s32, W1784It*);
-W1784It* func_00190730(W1784Iter* it, W1784It* cur) {
-    if (it->p == 0) {
-        cur = 0;
-        it->p = func_001b9bc8(0);
-    }
-    for (; it->p; cur = 0, it->p = func_001b9bc8(it->p)) {
-        if (!func_0019bc38(it->p)) continue;
-        while ((cur = func_0016bba8(it->p, 3, cur)) != 0) {
-            if (cur->ok()) { it->type = cur->b0; return cur; }
-        }
-    }
-    return 0;
-}
+W1784It* func_00190730(W1784Iter* it, W1784It* cur);  // 0x00190730: definition moved into src/anon/unit_001900d0.cpp
 }

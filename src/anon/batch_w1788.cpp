@@ -69,12 +69,7 @@ void func_00170188(W1788Node* n);  // 0x00170188: definition moved into src/anon
 // 00187be8: moved to src/anon/unit_00185d10.cpp
 s32 func_00187be8(W1788Q* q);
 
-void func_0018b010(void* a, W1788V4* p, void* c) {
-    W1788V4 d;
-    d = *p - *func_0016c028();
-    W1788_norm(&d);
-    func_0018b008(a, &d, c, p);
-}
+void func_0018b010(void* a, W1788V4* p, void* c);  // 0x0018b010: definition moved into src/yasui/libys/npc.cpp
 }
 
 // 001a7610: moved to src/yasui/libys/bg.cpp

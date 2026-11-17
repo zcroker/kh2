@@ -46,28 +46,7 @@ struct Z8 { u8 a; u32 b; Z8() { a = 0; b = 0; } };
 struct E { Z8 e[64]; u32 x[4]; E() __attribute__((always_inline)); };
 inline E::E() { for (s32 i = 0; i < 4; i++) x[i] = 0; }
 extern "C" {
-void func_00188c30(u8* p)
-{
-    new (p) A276[13];
-    new (p + 3588) A56[10];
-    p[4148] = 0;
-    p[4149] = 0;
-    p[4150] = 1;
-    p[4152] = 100;
-    p[4153] = 3;
-    p[4154] = 3;
-    new (p + 4164) A4[19];
-    for (s32 i = 0; i < 8; i++) ((u32*)(p + 4560))[i] = 0;
-    *(u32*)(p + 4592) = 0;
-    for (s32 i = 0; i < 8; i++) ((u32*)(p + 4628))[i] = 0;
-    for (s32 i = 0; i < 8; i++) ((u32*)(p + 4660))[i] = 0;
-    *(u32*)(p + 4692) = 0;
-    for (s32 i = 0; i < 10; i++) ((u32*)(p + 6296))[i] = 0;
-    new (p + 6340) E;
-    func_001d9768(p + 6878);
-    *(s16*)(p + 6906) = 0;
-    for (s32 i = 0; i < 4; i++) ((s16*)(p + 4616))[i] = 0;
-}
+void func_00188c30(u8* p);  // 0x00188c30: definition moved into src/anon/unit_00188848.cpp
 }
 }
 
@@ -166,33 +145,6 @@ void func_0016ace0(u8*, QWord*);
 u32 func_001a37e8(u32, s32);
 void func_00138210(u32);
 typedef void (*VF8)(u8*);
-void func_001bfa08(u8* a0, u8* p)
-{
-    *(f32*)(p + 2492) -= D_00349e10;
-    f32 r;
-    if (func_0019ba60(*(u32*)(p + 2536)) && 0.0f < (r = *(f32*)(p + 2492))) {
-        f32 t = r / *(f32*)(p + 2496);
-        f32 one = 1.0f;
-        f32 pi = 3.14159274f;
-        t = one - sinf((one - t) * pi * 0.5f);
-        QWord v, s, w;
-        ScaleTo(&s, *(QWord*)(p + 2512), t);
-        v = s;
-        v.v[1] -= sinf(t * pi) * 50.0f;
-        func_0016af58(&s, p);
-        func_0016aeb8(p, s.v[3] + (one - t) * 0.52359873f);
-        func_0016be98(&w, *(u32*)(p + 2536));
-        AddTo(&s, w, v);
-        func_0016ace0(p, &s);
-        if (t < 0.1f) {
-            t *= 9.99999905f;
-            *(f32*)(p + 60) = *(f32*)(p + 2488) * t;
-        }
-        return;
-    }
-    u32 h = *(u32*)(p + 2484);
-    if (h) func_00138210(func_001a37e8(h, -1));
-    ((VF8)(*(void***)p)[8])(p);
-}
+void func_001bfa08(u8* a0, u8* p);  // 0x001bfa08: definition moved into src/anon/unit_001bc568.cpp
 }
 }

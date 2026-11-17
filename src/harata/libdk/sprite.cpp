@@ -4,39 +4,16 @@ extern u32 YI_SEQUENCE_GetActiveXY(void*, s32*, s32*) asm("_ZN2YI8SEQUENCE11GetA
 
 namespace dk {
 
-u32 Sprite::getSeqActiveXY(s32& x, s32& y) {
-    return YI_SEQUENCE_GetActiveXY(reinterpret_cast<u8*>(this) + 24u, &x, &y);
-}
+// 0x00138cb8: definition moved into src/anon/unit_00138480.cpp
 
-void Sprite::getSeqActiveXYAddOffset(s32& x, s32& y) {
-    YI_SEQUENCE_GetActiveXY(reinterpret_cast<u8*>(this) + 24u, &x, &y);
-    SpriteLayout* s = reinterpret_cast<SpriteLayout*>(this);
-    x += s->offsetX;
-    y += s->offsetY;
-}
+// 0x00138cd0: definition moved into src/anon/unit_00138480.cpp
 
-void Sprite::setPos(s32 x, s32 y) {
-    SpriteLayout* s = reinterpret_cast<SpriteLayout*>(this);
-    s->posX = x;
-    s->posY = y;
-}
+// 0x00138c40: definition moved into src/anon/unit_00138480.cpp
 
-void Sprite::getPos(s32& x, s32& y) {
-    SpriteLayout* s = reinterpret_cast<SpriteLayout*>(this);
-    x = s->posX;
-    y = s->posY;
-}
+// 0x00138c50: definition moved into src/anon/unit_00138480.cpp
 
-void Sprite::setOffsetPos(s32 x, s32 y) {
-    SpriteLayout* s = reinterpret_cast<SpriteLayout*>(this);
-    s->offsetX = x;
-    s->offsetY = y;
-}
+// 0x00138c68: definition moved into src/anon/unit_00138480.cpp
 
-void Sprite::getOffsetPos(s32& x, s32& y) {
-    SpriteLayout* s = reinterpret_cast<SpriteLayout*>(this);
-    x = s->offsetX;
-    y = s->offsetY;
-}
+// 0x00138c78: definition moved into src/anon/unit_00138480.cpp
 
 }  // namespace dk

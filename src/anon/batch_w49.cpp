@@ -21,25 +21,13 @@ static inline Node139858* next139858(Node139858* o) {
     if (!o) return l->head;
     return o->next;
 }
-void Obj2D_showGroup(int group) {
-    Node139858* o = 0;
-    while ((o = next139858(o)) != 0)
-        if (o->group == group) func_00139580(o);
-}
+void Obj2D_showGroup(int group);  // 0x00139858: definition moved into src/anon/unit_001393c8.cpp
 
 s32 func_00141080(f32);
 void func_001ad990(u32, f32, f32, f32);
 struct S348710 { u8 pad[64]; u32 f64; u32 f68; };
 extern S348710 D_00348710;
-void func_00141010(f32 x) {
-    if (func_00141080(x)) {
-        S348710* s = &D_00348710;
-        if (s->f68) {
-            func_001ad990(s->f68 + 2100, 0.0f, 1.0f, x);
-            s->f64 = 0;
-        }
-    }
-}
+void func_00141010(f32 x);  // 0x00141010: definition moved into src/anon/unit_0013fca8.cpp
 
 
 
@@ -97,45 +85,22 @@ void func_00239988(u8*, u32, u32);
 
 u8* func_001b9bc8(u8*);
 typedef void (*Fn1bf6a8)(u8*);
-void func_001bf6a8(void) {
-    u8* n = 0;
-    while ((n = func_001b9bc8(n)) != 0)
-        if (*(u32*)(n + 1416) & 0x40000) (*(Fn1bf6a8*)(*(u8**)n + 40))(n);
-}
+void func_001bf6a8(void);  // 0x001bf6a8: definition moved into src/anon/unit_001bc568.cpp
 
 extern u32 D_0034e948;
 void func_001bf378(u8*, u32);
-void ttarget0_001bfc28(void) {
-    u32 v = D_0034e948;
-    u8* n = 0;
-    while ((n = func_001b9bc8(n)) != 0)
-        if (*(u32*)(n + 1416) & 0x40000) func_001bf378(n, v);
-}
+void ttarget0_001bfc28(void);  // 0x001bfc28: definition moved into src/anon/unit_001bc568.cpp
 
 extern u32 D_01d49328[8];
 struct S1d49350 { u32 a, b; };
 extern S1d49350 D_01d49350;
-void wtarget_001c05b0(u32 a, u32 b, u32, u32) {
-    if (b == 0xffff && a == 1) {
-        u32* p = D_01d49328;
-        for (s32 i = 7; i >= 0; i--) *p++ = 0;
-    }
-    if (b == 0xffff && a == 1) {
-        D_01d49350.a = 0;
-        D_01d49350.b = 0;
-    }
-}
+void wtarget_001c05b0(u32 a, u32 b, u32, u32);  // 0x001c05b0: definition moved into src/anon/unit_001bff88.cpp
 
 void func_001980d0(u8*, u32, s32, u32);
 s32 func_0016a020(u8*);
 extern u8 D_003513a8[];
-void func_001c2338(u8* p, u32 a, u32 b) {
-    func_001980d0(p, a, 9, b);
-    *(u32*)p = (u32)D_003513a8;
-    *(u32*)(p + 1416) |= 0x80000;
-    p[943] = 64;
-    if (func_0016a020(p) == 1185) *(u32*)(p + 1896) |= 0x10;
-}
+// 001c2338: moved to src/anon/unit_001c0638.cpp
+void func_001c2338(u8* p, u32 a, u32 b);
 
 struct Vq {
     f32 x, y, z, w;
@@ -147,15 +112,7 @@ struct Vq {
 struct M1c7148 { Vq a, b; };
 extern M1c7148 D_01d498d0;
 void func_00143928(M1c7148*);
-void func_001c7148(u8* p) {
-    M1c7148* m = &D_01d498d0;
-    m->a = *(Vq*)p;
-    m->a.y += *(f32*)(*(u8**)(p + 76) + 4);
-    m->a.w = 1.0f;
-    m->b = *(Vq*)(p + 48);
-    m->b.w = 1.0f;
-    func_00143928(m);
-}
+// 001c7148: moved to src/anon/unit_001c7148.cpp (linked unit)
 
 u8* func_001d6cc8(u8*);
 s32 func_001a3570(u16);
@@ -266,25 +223,12 @@ void func_002b5078(void) {
 
 extern u32 D_00361768[];
 void func_002bc470(u32);
-void func_002bcee8(u32* p) {
-    u32* s = D_00361768;
-    for (s32 i = 0; i < 27; i++) {
-        p[0] = *s;
-        p[1] = -1;
-        p[2] = 0;
-        func_002bc470(*s);
-        p += 3;
-        s++;
-    }
-}
+void func_002bcee8(u32* p);  // 0x002bcee8: definition moved into src/anon/unit_002bc978.cpp
 
 struct B2bf5a0 { u8 b0 : 1; };
 u8* func_001b6d70(u8);  // table_entry_ptr_b
 void func_0016ac38(u8*, s32, s32, s32, s32);
-void func_002bf5a0(u8* p) {
-    u8* v = func_001b6d70((*(u8**)(p + 2808))[4]);  // table_entry_ptr_b
-    if (!((B2bf5a0*)(p + 2791))->b0 && ((B2bf5a0*)(v + 3))->b0) func_0016ac38(p, 0, 1, 0, 0);
-}
+void func_002bf5a0(u8* p);  // 0x002bf5a0: definition moved into src/anon/unit_002bebd0.cpp
 
 
 void func_002eb778(u8*, u32, s32, f32);
@@ -306,17 +250,7 @@ union U141988 { u32 v; u16 h; };
 struct Idx141988 { u16 f0; u16 a, b, c, d; };
 struct Out141988 { U141988 v[4]; U141988 n; };
 // Fills three (or four, when the fourth index is set) entry pointers from a 16-byte-stride table.
-void func_00141988(u8* o, Idx141988* ix, Out141988* out) {  // collect_entry_ptrs_by_halves
-    out->v[0].v = *(u32*)(o + 16) + ix->a * 16;
-    out->v[1].v = *(u32*)(o + 16) + ix->b * 16;
-    out->v[2].v = *(u32*)(o + 16) + ix->c * 16;
-    if (ix->d != 0xffff) {
-        out->v[3].v = *(u32*)(o + 16) + ix->d * 16;
-        out->n.v = 4;
-    } else {
-        out->n.v = 3;
-    }
-}
+void func_00141988(u8* o, Idx141988* ix, Out141988* out);  // 0x00141988: definition moved into src/anon/unit_00141458.cpp
 
 // Overlap test of two s16 boxes {min xyz, max xyz}.
 s32 func_00145580(s16* a, s16* b) {  // cmp_halfword_triples
@@ -335,16 +269,7 @@ void func_0016cd48(u8*, s32);
 void func_0016cab8(u8*);
 void func_0016c7d8(u8*);
 extern u32 D_01c61b00;
-void func_00196288(u32 a) {
-    u8* v = func_0016d080(D_01c61b00, 0);
-    u32 t = a;
-    func_0016cbc8(v, 12, &t, 1);
-    func_0016cd48(v, 0);
-    if (v) {
-        func_0016cab8(v);
-        func_0016c7d8(v);
-    }
-}
+void func_00196288(u32 a);  // 0x00196288: definition moved into src/anon/unit_00195d00.cpp
 
 // Takes an entry from the 4-slot free list and pushes it on the active list.
 struct E199468 { u32 f0, f4, f8, f12; f32 f16; E199468* next; };
@@ -439,14 +364,7 @@ void func_002fd188(void (*)(void));  // pool_alloc_block
 void func_001900c8(void);
 Vq func_001a4b78(u32);
 // Function-local static (guarded, destructor registered) refreshed on every call.
-void func_0018f940(u32* p) {
-    if (!D_01c60cf0) {
-        D_01c60cf0 = 1;
-        func_002fd188(func_001900c8);  // pool_alloc_block
-    }
-    D_01c60d00 = func_001a4b78(*p);
-    *p = (u32)&D_01c60d00;
-}
+void func_0018f940(u32* p);  // 0x0018f940: definition moved into src/anon/unit_0018f140.cpp
 
 // Destructor body of an object holding two member arrays with empty element destructors.
 struct A2e4a90 { u8 d[16]; ~A2e4a90() {} } __attribute__((aligned(16)));

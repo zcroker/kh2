@@ -405,9 +405,7 @@ u32 func_00105530(u32 a0, u32 a1, u32 a2, u32 a3) {
 
 // 00105ec8: _GLOBAL__I_ stub, now made by gcc in src/common/shop.cpp
 
-u32 func_00106490(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return srand(a0, a1, a2, a3);
-}
+// 00106490: moved to src/anon/unit_00106490.cpp
 
 u32 func_00108068(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_001124f8(a0, a1, a2, a3);
@@ -425,9 +423,7 @@ u32 func_00119bb8(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_00119b10(0x00000001u, 0x0000ffffu, a2, a3);
 }
 
-u32 func_0011b3e0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_001124e0(a0, a1, a2, a3);
-}
+u32 func_0011b3e0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0011b3e0: definition moved into src/anon/unit_0011a660.cpp
 
 u32 func_0011f6c0(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_0011ef20(a0, a1, a2, a3);
@@ -481,33 +477,21 @@ u32 func_001374a8(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_00137458(0x00000001u, 0x0000ffffu, a2, a3);
 }
 
-u32 func_00138d30(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_00239df0(((u32)(a0) + 24u), a1, a2, a3);
-}
+u32 func_00138d30(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00138d30: definition moved into src/anon/unit_00138480.cpp
 
-u32 func_00138d48(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_00239fd0(((u32)(a0) + 24u), a1, a2, a3);
-}
+u32 func_00138d48(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00138d48: definition moved into src/anon/unit_00138480.cpp
 
 // 0013a898: _GLOBAL__I_ stub, now made by gcc in src/harata/libdk/field2dd.cpp
 
 u32 func_0013df98(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0013df98: definition moved into src/anon/unit_0013a8b8.cpp
 
-u32 func_00140e00(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_00140e30(a0, 0x00000001u, a2, a3);
-}
+u32 func_00140e00(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00140e00: definition moved into src/anon/unit_0013fca8.cpp
 
-u32 func_00140e18(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_00140e30(a0, 0x00000000u, a2, a3);
-}
+u32 func_00140e18(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00140e18: definition moved into src/anon/unit_0013fca8.cpp
 
-u32 func_00140ef8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_00140e30(a0, ((u32)(*(u32*)((u32)(a0) + 60u))), a2, a3);
-}
+u32 func_00140ef8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00140ef8: definition moved into src/anon/unit_0013fca8.cpp
 
-u32 func_00144410(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_001443c0(0x00000001u, 0x0000ffffu, a2, a3);
-}
+u32 func_00144410(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00144410: definition moved into src/anon/unit_00142c90.cpp
 
 u32 func_001445d0(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_00144630(a0, a1, a2, a3);
@@ -576,9 +560,7 @@ u32 func_0015cd90(u32 a0, u32 a1, u32 a2, u32 a3) {
 
 // 0015d7e8: _GLOBAL__I_ stub, now made by gcc in src/anon/unit_0015d440.cpp
 
-u32 func_0015eb68(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_0015eaf8(0x00000001u, 0x0000ffffu, a2, a3);
-}
+// 0015eb68: moved to src/anon/unit_0015e070.cpp
 
 // 0015f7b0: moved to src/harata/libdk/map_effect.cpp
 
@@ -592,22 +574,9 @@ u32 func_00165f50(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_00165f28(0x00000001u, 0x0000ffffu, a2, a3);
 }
 
-u32 func_00167288(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_00167268(0x00000001u, 0x0000ffffu, a2, a3);
-}
+u32 func_00167288(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00167288: definition moved into src/anon/unit_001664c0.cpp
 
-u32 func_00167448(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_00167358(a0, 0x00000000u, 0x00000000u, a3);
-}
-
-u32 func_00167e00(u32 a0, u32 a1, u32 a2, u32 a3) {
-    *(u32*)((u32)(a0) + 72u) = (u32)(((u32)(((u32)(*(u32*)((u32)(a0) + 72u)))) | 0x1u));
-    return func_00167658(a0, 0x00000000u, a2, a3);
-}
-
-u32 func_001681d8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_00168068(0x00000001u, 0x0000ffffu, a2, a3);
-}
+// 001681d8: moved to src/anon/unit_00167358.cpp
 
 // 001688c8: moved to src/yasui/libys/file.cpp
 
@@ -631,15 +600,11 @@ u32 func_0016c5a0(u32 a0, u32 a1, u32 a2, u32 a3) {
 
 // 0016d280: moved to src/anon/unit_0016c770.cpp
 
-u32 func_0016e8b8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_0016e858(0x00000001u, 0x0000ffffu, a2, a3);
-}
+// 0016e8b8: moved to src/anon/unit_0016d2e0.cpp
 
 u32 func_00170518(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00170518: definition moved into src/anon/unit_0016e8f8.cpp
 
-u32 func_00175550(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_00175520(0x00000001u, 0x0000ffffu, a2, a3);
-}
+u32 func_00175550(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00175550: definition moved into src/anon/unit_00171e58.cpp
 
 // 001776f8: moved to src/yasui/libys/party.cpp
 
@@ -670,23 +635,15 @@ u32 func_00187868(u32 a0, u32 a1, u32 a2, u32 a3);
 // 00188828: moved to src/anon/unit_00188550.cpp
 u32 func_00188828(u32 a0, u32 a1, u32 a2, u32 a3);
 
-u32 func_0018c898(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_0018c868(0x00000001u, 0x0000ffffu, a2, a3);
-}
+u32 func_0018c898(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0018c898: definition moved into src/yasui/libys/npc.cpp
 
 // 0018d010: moved to src/yasui/libys/damage.cpp
 
-u32 func_0018f1e0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_001b3c58(((u32)(*(u32*)((u32)(((u32)(*(u32*)((u32)(a0) + 0u)))) + 4u))), ((u32)(*(u32*)((u32)(a0) + 4u))), a2, a3);
-}
+u32 func_0018f1e0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0018f1e0: definition moved into src/anon/unit_0018f140.cpp
 
-u32 func_00190908(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_001908c0(a0, a1, ((u32)(*(u32*)((u32)(a1) + 12u))), a3);
-}
+u32 func_00190908(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00190908: definition moved into src/anon/unit_001900d0.cpp
 
-u32 func_00191738(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_00191658(0x00000001u, 0x0000ffffu, a2, a3);
-}
+u32 func_00191738(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00191738: definition moved into src/anon/unit_001900d0.cpp
 
 // 00191990 YS::STATUS::CageOn: moved to src/yasui/libys/status.cpp
 
@@ -694,45 +651,25 @@ u32 func_00191738(u32 a0, u32 a1, u32 a2, u32 a3) {
 
 // 00193018: moved to src/yasui/libys/message.cpp
 
-u32 func_00194070(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_0011eb08(((u32)(*(u32*)((u32)(a0) + 1648u))), a1, a2, a3);
-}
+u32 func_00194070(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00194070: definition moved into src/anon/unit_00193be8.cpp
 
-u32 func_00194088(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_0011eb78(((u32)(*(u32*)((u32)(a0) + 1648u))), a1, a2, a3);
-}
+u32 func_00194088(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00194088: definition moved into src/anon/unit_00193be8.cpp
 
-u32 func_001940a0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_0011ea98(((u32)(*(u32*)((u32)(a0) + 1648u))), a1, a2, a3);
-}
+u32 func_001940a0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001940a0: definition moved into src/anon/unit_00193be8.cpp
 
-u32 func_001940f0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_0011c7c8(((u32)(*(u32*)((u32)(a0) + 1648u))), a1, a2, a3);
-}
+u32 func_001940f0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001940f0: definition moved into src/anon/unit_00193be8.cpp
 
-u32 func_00194108(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_0011c7f8(((u32)(*(u32*)((u32)(a0) + 1648u))), a1, a2, a3);
-}
+u32 func_00194108(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00194108: definition moved into src/anon/unit_00193be8.cpp
 
-u32 func_00194750(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_00194710(0x00000001u, 0x0000ffffu, a2, a3);
-}
+u32 func_00194750(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00194750: definition moved into src/anon/unit_00193be8.cpp
 
-u32 func_001956d0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_001954a0(((u32)(*(u32*)((u32)(a0) + 2080u))), a1, a2, a3);
-}
+u32 func_001956d0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001956d0: definition moved into src/anon/unit_00194790.cpp
 
-u32 func_001956e8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_001954f8(((u32)(*(u32*)((u32)(a0) + 2080u))), a1, a2, a3);
-}
+u32 func_001956e8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001956e8: definition moved into src/anon/unit_00194790.cpp
 
-u32 func_00195720(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_00195430(((u32)(*(u32*)((u32)(a0) + 2080u))), a1, a2, a3);
-}
+u32 func_00195720(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00195720: definition moved into src/anon/unit_00194790.cpp
 
-u32 func_00197f60(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_00197ea8(0x00000001u, 0x0000ffffu, a2, a3);
-}
+u32 func_00197f60(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00197f60: definition moved into src/anon/unit_00195d00.cpp
 
 // 00199188: moved to src/anon/unit_00198e40.cpp
 
@@ -746,39 +683,25 @@ u32 func_0019ba20(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_0019b970(0x00000001u, 0x0000ffffu, a2, a3);
 }
 
-u32 func_0019ee60(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_0019ee28(0x00000001u, 0x0000ffffu, a2, a3);
-}
+u32 func_0019ee60(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0019ee60: definition moved into src/anon/unit_0019ea10.cpp
 
-u32 func_0019fbc8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_001878e8(a1, a1, a2, a3);
-}
+u32 func_0019fbc8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0019fbc8: definition moved into src/anon/unit_0019fb70.cpp
 
-u32 func_001a0470(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_001d8bd0(((u32)(*(u32*)((u32)(a0) + 0u))), ((u32)(*(u32*)((u32)(a0) + 4u))), ((u32)(*(u32*)((u32)(a0) + 8u))), ((u32)(*(u32*)((u32)(a0) + 12u))));
-}
+u32 func_001a0470(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001a0470: definition moved into src/anon/unit_0019fb70.cpp
 
-u32 func_001a2898(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_001a27f0(0x00000001u, 0x0000ffffu, a2, a3);
-}
+u32 func_001a2898(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001a2898: definition moved into src/anon/unit_0019fb70.cpp
 
 // 001a28f8: moved to src/anon/unit_001a28f8.cpp
 
 // 001a3e30: moved to src/anon/unit_001a3d70.cpp
 
-u32 func_001a5970(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_0016ed50(0x000005c3u, 0x000003fcu, 0x0000001eu, a3);
-}
+// 001a5970: moved to src/anon/unit_001a4db0.cpp
 
-u32 func_001a5b38(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_001a5b08(0x00000001u, 0x0000ffffu, a2, a3);
-}
+// 001a5b38: moved to src/anon/unit_001a4db0.cpp
 
 // 001a69d0: _GLOBAL__I_ stub, now made by gcc in src/yasui/libys/magic.cpp
 
-u32 func_001a7568(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_001a7530(0x00000001u, 0x0000ffffu, a2, a3);
-}
+// 001a7568: _GLOBAL__I_ stub, now made by gcc in src/anon/unit_001a6a10.cpp
 
 // 001a8058: _GLOBAL__I_ stub, now made by gcc in src/yasui/libys/bg.cpp
 
@@ -806,21 +729,15 @@ u32 func_001aba98(u32 a0, u32 a1, u32 a2, u32 a3) {
 
 // 001ad970: moved to src/anon/unit_001abb28.cpp
 
-u32 func_001b0370(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_002bc588(((u32)(*(u32*)((u32)(a0) + 28u))), a1, a2, ((u32)(*(u32*)((u32)(a0) + 20u))));
-}
+u32 func_001b0370(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001b0370: definition moved into src/anon/unit_001ada38.cpp
 
-u32 func_001b0428(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_001b03b0(0x00000001u, 0x0000ffffu, a2, a3);
-}
+u32 func_001b0428(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001b0428: definition moved into src/anon/unit_001ada38.cpp
 
 u32 func_001b1d00(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_001b1c38(0x00000001u, 0x0000ffffu, a2, a3);
 }
 
-u32 func_001b2708(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_001b26e0(0x00000001u, 0x0000ffffu, a2, a3);
-}
+// 001b2708: moved to src/anon/unit_001b1d20.cpp
 
 u32 func_001b2cf8(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_0017cc30(a0, a1, 0x0000000au, a3);
@@ -854,53 +771,33 @@ u32 func_001bc268(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_001bc188(0x00000001u, 0x0000ffffu, a2, a3);
 }
 
-u32 func_001bed30(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_001d42d0(((u32)(a0) + 1080u), a1, a2, a3);
-}
+u32 func_001bed30(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001bed30: definition moved into src/anon/unit_001bc568.cpp
 
-u32 func_001c0618(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_001c05b0(0x00000001u, 0x0000ffffu, a2, a3);
-}
+u32 func_001c0618(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001c0618: definition moved into src/anon/unit_001bff88.cpp
 
-u32 func_001c2b18(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_001c2ad8(0x00000001u, 0x0000ffffu, a2, a3);
-}
+// 001c2b18: moved to src/anon/unit_001c0638.cpp
+u32 func_001c2b18(u32 a0, u32 a1, u32 a2, u32 a3);
 
-u32 func_001c40c0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_001c4080(0x00000001u, 0x0000ffffu, a2, a3);
-}
+u32 func_001c40c0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001c40c0: definition moved into src/anon/unit_001c4050.cpp
 
-u32 func_001c5128(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_001c5060(0x00000001u, 0x0000ffffu, a2, a3);
-}
+u32 func_001c5128(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001c5128: definition moved into src/anon/unit_001c4dc8.cpp
 
-u32 func_001c6e18(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_001c6c78(0x00000001u, 0x0000ffffu, a2, a3);
-}
+u32 func_001c6e18(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001c6e18: definition moved into src/anon/unit_001c6c60.cpp
 
-u32 func_001c7b48(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_001c7ab8(0x00000001u, 0x0000ffffu, a2, a3);
-}
+// 001c7b48: moved to src/anon/unit_001c7148.cpp (linked unit)
 
-u32 func_001c8d60(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_001c8d40(0x00000001u, 0x0000ffffu, a2, a3);
-}
+// 0x1c8d60: moved to src/yasui/libys/summon.cpp
 
 // 001c8e60 _GLOBAL__I_ (static-init stub): moved to src/yasui/libys/mutex.cpp (linked unit).
 
 // 001cd620: moved to src/anon/unit_001cd548.cpp
 
-u32 func_001ce6c8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_001ce668(0x00000001u, 0x0000ffffu, a2, a3);
-}
+// 001ce6c8: moved to src/anon/unit_001cd660.cpp
+u32 func_001ce6c8(u32 a0, u32 a1, u32 a2, u32 a3);
 
-u32 func_001ce820(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_0017cc30(a0, a1, 0x00000016u, a3);
-}
+u32 func_001ce820(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001ce820: definition moved into src/anon/unit_001ce6e8.cpp
 
-u32 func_001d3090(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_001d3060(0x00000001u, 0x0000ffffu, a2, a3);
-}
+u32 func_001d3090(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001d3090: definition moved into src/anon/unit_001d2810.cpp
 
 // 001d35c0: _GLOBAL__I_ stub, now made by gcc in src/anon/unit_001d30b0.cpp
 
@@ -924,33 +821,19 @@ u32 func_001dbba0(u32 a0, u32 a1, u32 a2, u32 a3) {
 
 // 001dbf90: _GLOBAL__I_ stub, now made by gcc in src/anon/unit_001dbbe0.cpp
 
-u32 func_001dcc00(u32 a0, u32 a1, u32 a2, u32 a3) {  // to_1e34e0_field28
-    return func_001e34e0(((u32)(*(u32*)((u32)(a0) + 28u))), a1, a2, a3);
-}
+u32 func_001dcc00(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001dcc00: definition moved into src/anon/unit_001dbfd8.cpp
 
-u32 func_001dcc18(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_001e3538(((u32)(*(u32*)((u32)(a0) + 28u))), a1, a2, a3);
-}
+u32 func_001dcc18(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001dcc18: definition moved into src/anon/unit_001dbfd8.cpp
 
-u32 func_001dd198(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_001e6d28(((u32)(a0) & 0xffu), a1, a2, a3);
-}
+u32 func_001dd198(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001dd198: definition moved into src/anon/unit_001dbfd8.cpp
 
-u32 func_001dd1c8(u32 a0, u32 a1, u32 a2, u32 a3) {  // to_1e7030_masked
-    return func_001e7030(((u32)(a0) & 0xffu), ((u32)(a1) & 0xffu), ((u32)(a2) & 0xffu), a3);
-}
+u32 func_001dd1c8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001dd1c8: definition moved into src/anon/unit_001dbfd8.cpp
 
-u32 func_001dd1e8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_001e7050(((u32)(a0) & 0xffu), ((u32)(a1) & 0xffu), a2, a3);
-}
+u32 func_001dd1e8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001dd1e8: definition moved into src/anon/unit_001dbfd8.cpp
 
-u32 func_001dd208(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_001e70a0(((u32)(a0) & 0xffu), a1, a2, a3);
-}
+u32 func_001dd208(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001dd208: definition moved into src/anon/unit_001dbfd8.cpp
 
-u32 func_001ddcb0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_001ddc88(0x00000001u, 0x0000ffffu, a2, a3);
-}
+u32 func_001ddcb0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001ddcb0: definition moved into src/anon/unit_001dd920.cpp
 
 u32 func_001de750(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_001dc098(((u32)(((u32)(*(u32*)((u32)(a0) + 12u)))) + (u32)(a0)), a1, a2, a3);
@@ -1180,87 +1063,47 @@ u32 func_002bc458(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002bc458: definition mo
 
 u32 func_002bc938(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002bc938: definition moved into src/anon/unit_002bb8b0.cpp
 
-u32 func_002bc990(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_00324750(a0, 0xffffffffu, a2, a3);
-}
+u32 func_002bc990(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002bc990: definition moved into src/anon/unit_002bc978.cpp
 
-u32 func_002bd2f0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    *(u32*)((u32)(a1) + 0u) = (u32)(((u32)(*(u16*)((u32)(a0) + 6u))));
-    return func_002bd2a8(((u32)(*(u16*)((u32)(a0) + 6u))), a1, a2, a3);
-}
+u32 func_002bd2f0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002bd2f0: definition moved into src/anon/unit_002bc978.cpp
 
-u32 func_002c0820(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_002c0738(0x00000001u, 0x0000ffffu, a2, a3);
-}
+u32 func_002c0820(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002c0820: definition moved into src/anon/unit_002bebd0.cpp
 
-u32 func_002c1990(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return YS_OBJ_change_action(a1, 0x0000003bu, a2, a3);
-}
+u32 func_002c1990(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002c1990: definition moved into src/anon/unit_002c10e0.cpp
 
-u32 func_002c21e8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_002c21e0(0x00000001u, 0x0000ffffu, a2, a3);
-}
+// 0x002c21e8: _GLOBAL__I_ stub, now made by gcc in src/anon/unit_002c1e80.cpp (file statics at 0x1e2bca0)
 
-u32 func_002c23d8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return Tz_Jiminy_WMRead(a0, a1, a2, a3);
-}
+u32 func_002c23d8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002c23d8: definition moved into src/anon/unit_002c2228.cpp
 
-u32 func_002c5388(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_002c5298(0x00000001u, 0x0000ffffu, a2, a3);
-}
+u32 func_002c5388(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002c5388: definition moved into src/anon/unit_002c4ca8.cpp
 
-u32 func_002c55f0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_00198690(a0, a1, a2, a3);
-}
+u32 func_002c55f0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002c55f0: definition moved into src/anon/unit_002c53c8.cpp
 
-u32 func_002c5f48(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return YS_OBJ_ControlOff(0x00000000u, a1, a2, a3);
-}
+u32 func_002c5f48(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002c5f48: definition moved into src/anon/unit_002c53c8.cpp
 
-u32 func_002c5f60(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return YS_OBJ_ControlOn(0x00000000u, a1, a2, a3);
-}
+u32 func_002c5f60(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002c5f60: definition moved into src/anon/unit_002c53c8.cpp
 
-u32 func_002c5f78(u32 a0, u32 a1, u32 a2, u32 a3) {
-    *(u32*)((u32)(a0) + 3024u) = (u32)(0x00000000u);
-    return func_002f1900(((u32)(a0) + 3024u), 0x00000002u, a0, a3);
-}
+u32 func_002c5f78(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002c5f78: definition moved into src/anon/unit_002c53c8.cpp
 
-u32 func_002c5fa0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_002f1a38(((u32)(a0) + 3024u), a1, a2, a3);
-}
+u32 func_002c5fa0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002c5fa0: definition moved into src/anon/unit_002c53c8.cpp
 
-u32 func_002c6400(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_002c63c8(0x00000001u, 0x0000ffffu, a2, a3);
-}
+u32 func_002c6400(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002c6400: definition moved into src/worldmap/cameramanager.cpp
 
-u32 func_002c6e78(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_002c6cd8(0x00000001u, 0x0000ffffu, a2, a3);
-}
+// 002c6e78: moved to src/anon/unit_002c6420.cpp (linked unit)
 
-u32 func_002cac40(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_002bc1e8(a0, a1, a2, a3);
-}
+u32 func_002cac40(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x2cac40: moved to src/anon/unit_002ca0e0.cpp
 
-u32 func_002cb1e0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_002cb188(0x00000001u, 0x0000ffffu, a2, a3);
-}
 
-u32 func_002cbcf0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_002cbd20(a0, ((u32)(a0) + 28u), a2, a3);
-}
+u32 func_002cb1e0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x2cb1e0: moved to src/anon/unit_002cac58.cpp
 
-u32 func_002cbd08(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_002cbd20(a0, ((u32)(a0) + 24u), a2, a3);
-}
 
-u32 func_002cbec0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_002ce598(a0, a1, a2, a3);
-}
+u32 func_002cbcf0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002cbcf0: definition moved into src/taito/path.cpp
 
-u32 func_002ce938(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_002ce910(0x00000001u, 0x0000ffffu, a2, a3);
-}
+u32 func_002cbd08(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002cbd08: definition moved into src/taito/path.cpp
+
+u32 func_002cbec0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002cbec0: definition moved into src/taito/path.cpp
+
+u32 func_002ce938(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002ce938: definition moved into src/taito/path.cpp
 
 u32 func_002cec08(u32 a0, u32 a1, u32 a2, u32 a3);  // 002cec08: moved to src/taito/minigame_base.cpp (linked unit)
 

@@ -114,11 +114,7 @@ void func_0011f5a0(void** p) {
     func_00106420(p);
 }
 
-void SpriteImage_change(void* self, void* data) {
-    u8* img = (u8*)self + 32;
-    func_002362b0(img, data);
-    func_002367c8(img);  // obj_dispatch_bitfield64
-}
+void SpriteImage_change(void* self, void* data);  // 0x00138698: definition moved into src/anon/unit_00138480.cpp
 
 void func_0014cfc8(void) {
     func_0014ce20(1);
@@ -146,10 +142,7 @@ void func_0015cc18(s32 i, u8 r, u8 g, u8 b, u8 a) {
     c->r = r; c->g = g; c->b = b; c->a = a;
 }
 
-void trap_obj_idle(u32** bd) {
-    func_001ba028((*bd)[1]);  // list_contains_ptr
-    func_0016bd60((*bd)[1], 0);
-}
+void trap_obj_idle(u32** bd);  // 0x001723d0: definition moved into src/anon/unit_00171e58.cpp
 
 // 00177460: moved to src/yasui/libys/party.cpp
 
@@ -160,19 +153,9 @@ s32 func_00188398(u8* o, void* a, void* b, void* c);
 
 struct Range { s32 cur, max, min; };
 // Adds d to range i and clamps it to [min, max].
-s32 func_001a1910(Range* r, s32 d, s32 i) {  // entry12_add_clamped
-    Range* e = &r[i];
-    s32 v = e->cur + d;
-    return e->cur = v < e->min ? e->min : (e->max < v ? e->max : v);
-}
+s32 func_001a1910(Range* r, s32 d, s32 i);  // 0x001a1910: definition moved into src/anon/unit_0019fb70.cpp
 
-s32 func_001b0148(s32 x, s32 a, s32 v, s32 b) {
-    if (v < 0) {
-        if (v == -3) return func_001afee8(a, b);
-        return -1;
-    }
-    return v;
-}
+s32 func_001b0148(s32 x, s32 a, s32 v, s32 b);  // 0x001b0148: definition moved into src/anon/unit_001ada38.cpp
 
 // 001b1328: moved to src/yasui/libys/lookat.cpp
 
@@ -189,45 +172,18 @@ u8 func_001b8d60(u8* dst) {
     return n;
 }
 
-Slot64* func_001c11e0(void) {
-    s32 i;
-    for (i = 5; i > 0; i--)
-        if (D_01d49388[i].used) return &D_01d49388[i];
-    return 0;
-}
+// 001c11e0: moved to src/anon/unit_001c0638.cpp
+Slot64* func_001c11e0(void);
 
 // Clears an 8-word table; the original has a 3-nop pad in the loop (asm).
-void func_001c2b70(void) {
-    s32* p = D_01d49530;
-    s32 i = 7;
-    do {
-        *p = 0;
-        i--;
-        asm volatile("nop\n\tnop\n\tnop");
-        p++;
-    } while (i >= 0);
-    D_01d49550 = 0;
-}
+void func_001c2b70(void);  // 0x001c2b70: definition moved into src/anon/unit_001c2b58.cpp
 
 // Deleting destructor: reset vtable, run base dtor, free.
-void func_001c7c68(void** p) {
-    *p = &D_00351da8;
-    D_00351d98 = 0;
-    func_001a4e30(p);
-    func_00105110(p);
-}
+// 0x1c7c68: moved to src/anon/unit_001c7bc8.cpp
 
-void func_001c8710(void) {
-    func_001c8d80(&D_00351ec0, 3);
-    func_0014c9d8(16);
-    func_001bbe38(1);
-    func_0016c5b8(2, 0xfff7ffdc);
-}
+// 0x1c8710: moved to src/yasui/libys/summon.cpp
 
-bool EFFECT_is_waiting(u8* self) {
-    func_001dc9e0(self);
-    return func_001e6d08(*(u32*)(self + 28)) != 0;
-}
+bool EFFECT_is_waiting(u8* self);  // 0x001dc9f0: definition moved into src/anon/unit_001dbfd8.cpp
 
 void func_001e2788(u8* p) {
     *(s32*)(p + 3520) = 0;
@@ -291,16 +247,9 @@ void func_0028cc40(void* a) {
     }
 }
 
-void func_002bd188(u32 a, u32 b) {
-    func_002b6adc(2, b);
-    func_002b6adc(0, b);
-    func_002b6ab8();
-}
+void func_002bd188(u32 a, u32 b);  // 0x002bd188: definition moved into src/anon/unit_002bc978.cpp
 
-s32 func_002cb708(u8* p) {
-    func_00105110(*(void**)(p + 128));
-    return func_00325320(&D_01e2be18, p);
-}
+s32 func_002cb708(u8* p);  // 0x002cb708: definition moved into src/taito/path.cpp
 
 // Deleting destructor: reset vtable, run base dtor, free.
 void func_002ddb80(void** p) {

@@ -41,23 +41,8 @@ void func_001902a8(void*, Loc285*);
 Vq285* func_0016c028(s32);  // obj_get_attach_or_alt
 void func_001a7610(Vq285*, Vq285*, s32, f32, f32);
 void func_0016bd60(s32, s32);
-void func_002c6eb8(Obj285* o, s32 id, void* p) {
-    Loc285 l;
-    l.d = 0;
-    func_001902a8(p, &l);
-    o->v40 = l.v;
-    o->v0 = *func_0016c028(id);  // obj_get_attach_or_alt
-    o->v30 = l.v;
-    o->v30.z -= l.b;
-    func_001a7610(&o->v30, &o->v30, 0, 5000.0f, 1000.0f);
-    o->v10 = lerp285(o->v0, o->v30, 0.1f);
-    o->v10.y -= 1000.0f;
-    o->v20 = lerp285(o->v0, o->v30, 0.9f);
-    o->f50 = 0;
-    o->v20.y -= 500.0f;
-    o->f54 = 30.0f;
-    func_0016bd60(id, 58);
-}
+void func_002c6eb8(Obj285* o, s32 id, void* p);  // 0x2c6eb8: moved to src/anon/unit_002c6eb8.cpp
+
 
 
 extern TzObj285* D_0035f100;

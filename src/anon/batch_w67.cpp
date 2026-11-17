@@ -118,15 +118,7 @@ s32 func_00141ff0(u32, s32, s32, s32*, s32);
 extern u32 D_00348804;
 
 // 00143c68
-s32 func_00143c68(s32 a, s32 b)
-{
-    s32 x, y;
-    y = 0;
-    s32 r = func_00165db8(a, b, &x, 512, 512, 0, &y, 15, 0);
-    func_00141c18(D_00348804, 512, 512, 0, 0);
-    r |= func_00141ff0(D_00348804, a, b, &x, 15);
-    return r != 0;
-}
+s32 func_00143c68(s32 a, s32 b);  // 0x00143c68: definition moved into src/anon/unit_00142c90.cpp
 
 struct Sphere { Vec4 c; f32 r; };
 struct PointList { Vec4* v[4]; s32 n; };
@@ -173,19 +165,7 @@ extern f32 D_00349e10;
 Vec4 func_00184540(u8*, f32, f32);
 
 // 001b2170
-Vec4 func_001b2170(void* self, u8* o)
-{
-    f32 y0 = *(f32*)(o + 36);
-    Vec4 r;
-    r = func_00184540(o, *(f32*)(o + 240), *(f32*)(o + 240));
-    f32 v = y0 + *(f32*)(o + 244) * D_00349e10;
-    f32 m = *(f32*)(o + 288);
-    f32 c;
-    if (v < m) c = v; else c = m;
-    *(f32*)(o + 36) = c;
-    r.y = c * D_00349e10;
-    return r;
-}
+// 001b2170: moved to src/anon/unit_001b1d20.cpp
 
 s32 func_001818e8(void*);
 s32 func_001bd590(void*);
@@ -193,47 +173,20 @@ s32 func_001bdb10(void*, s32);
 void func_001bc720(u32);
 
 // 001be410
-void func_001be410(u8* o)
-{
-    if (!func_001818e8(o)) return;
-    if ((**(u64**)(o + 2532) & 0x800000) && !func_001bd590(o)) {
-        if (func_001bdb10(o, 5)) *(u32*)(o + 32) |= 2;
-    } else if (func_001bdb10(o, *(s32*)(o + 2724))) {
-        func_001bc720(**(u32**)(o + 2240));
-        *(u32*)(o + 32) &= ~2;
-    }
-}
+void func_001be410(u8* o);  // 0x001be410: definition moved into src/anon/unit_001bc568.cpp
 
 s32 func_001818a0(void*);
 s32 func_00177870(void*);
 void func_001bc780(void*, s32, s32, s32);
 
 // 001be540
-void func_001be540(u8* o, void* x)
-{
-    if (!func_001818a0(o)) { func_001bc780(x, 104, 0, 1); return; }
-    if (D_0032bae0 == 9) { func_001bc780(x, 136, 0, 1); return; }
-    u8* t = *(u8**)(o + 2528);
-    if (*(s32*)(t + 2896) == 2) { func_001bc780(x, 365, 0, 1); return; }
-    if (func_00177870(t)) func_001bc780(x, 541, 0, 1);
-    else func_001bc780(x, 1, 0, 1);
-}
+void func_001be540(u8* o, void* x);  // 0x001be540: definition moved into src/anon/unit_001bc568.cpp
 
 s32 func_00242dc8(u32);
 extern u32 D_01d49970[];
 
 // 001c8788: test-and-set of a flag bit
-s32 func_001c8788(u32 id, u8* o)
-{
-    if (*(u32*)(o + 2064)) return 0;
-    s32 r = 0;
-    switch (func_00242dc8(id)) {
-    case 1: r = 1; break;
-    case 2: r = (D_01d49970[id >> 5] & (1 << (id & 31))) == 0; break;
-    }
-    if (r) D_01d49970[id >> 5] |= 1 << (id & 31);
-    return r;
-}
+// 0x1c8788: moved to src/yasui/libys/summon.cpp
 
 extern void* D_0035ed70;
 extern void* D_0035ed74;
@@ -387,23 +340,9 @@ void func_00239870(u8*);
 void func_0023c098(u8*);  // set_vtbl_36eae8_then_call
 void func_002369f0(u8*);  // set_vtbl_36eac8_then_call
 
-// 002ca320: destructor
-void func_002ca320(u8* o)
-{
-    *(u8**)o = D_00361e38;
-    D_00361e28 = D_00361e28 == o ? 0 : D_00361e28;
-    func_002c1750(o);
-    *(u8**)(o + 192) = D_00347e60;
-    func_00239870(o + 216);
-    *(u8**)(o + 192) = D_00347f98;
-    *(u8**)(o + 28) = D_0035eb98;
-    func_0023c098(o + 76);  // set_vtbl_36eae8_then_call
-    func_002369f0(o + 52);  // set_vtbl_36eac8_then_call
-    *(u8**)(o + 28) = D_00347f98;
-    *(u8**)o = D_00347f98;
-    u8* m = *(u8**)(D_00347f80 + 20);
-    (*(VFn2*)(*(u8**)m + 4))(m, o);
-}
+
+void func_002ca320(u8* o);  // 0x2ca320: moved to src/anon/unit_002ca0e0.cpp
+
 
 u32* func_002859a0(void);
 u8* func_001a8110(u8*);
@@ -564,20 +503,7 @@ extern u8 D_00351e18[];
 extern u8* D_01d49960[2];
 
 // 001c7f10: constructor; registers itself in a two-slot table
-void func_001c7f10(u8* o)
-{
-    func_0010b978(o);
-    *(u32*)o = (u32)D_00351e18;
-    *(u32*)(o + 1416) |= 0x400000;
-    *(u32*)(o + 1896) &= ~0x10;
-    s32 i;
-    for (i = 0; i < 2; i++) {
-        if (!D_01d49960[i]) { D_01d49960[i] = o; break; }
-    }
-    if (i > 0) func_001e02a0(o + 128, D_01d49960[0] + 128);
-    *(s32*)(o + 152) = 1;
-    func_0010c7f0(o);
-}
+// 0x1c7f10: moved to src/yasui/libys/summon.cpp
 
 void func_002cfeb0(u8*, void*, s32, s32);  // obj_init_field1416_bit800
 extern u8 D_00362b68[];
@@ -609,21 +535,7 @@ void func_0018a818(u8*, void*, void*);
 Vec4 func_0017c030(u8*, s32*, u8);
 
 // 001c96c8
-void func_001c96c8(void* a, u8* o, u8 f)
-{
-    s32 x;
-    Vec4 v = func_0017c030(o, &x, f);
-    if (*(u32*)(o + 268) & 0x10) {
-        v.w = *(f32*)(*(u8**)(o + 300) + 36);
-        func_0017c4c8(o, v);
-        o[1300] = 5;
-    } else {
-        func_0017c4c8(o, v);
-    }
-    func_0017f488(o + 320, x, 0.0f, 0.0f);
-    *(s32*)(o + 256) = 4;
-    *(s32*)(o + 260) = 5;
-}
+void func_001c96c8(void* a, u8* o, u8 f);  // 0x001c96c8: definition moved into src/anon/unit_001c91c8.cpp
 
 s32 func_002282f0(s16);
 void func_0014a768(u8);

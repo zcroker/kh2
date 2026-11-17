@@ -27,9 +27,7 @@ static inline __attribute__((always_inline)) s32 check_001a0920(A2_w2440* a, B_w
     return 1;
 }
 
-s32 func_001a0920(A2_w2440* a, B_w2440* b) {
-    return check_001a0920(a, b);
-}
+s32 func_001a0920(A2_w2440* a, B_w2440* b);  // 0x001a0920: definition moved into src/anon/unit_0019fb70.cpp
 
 /* 001c5060 */
 struct W3_w2440 { u32 a; u32 b; f32 c; };
@@ -37,20 +35,6 @@ extern W3_w2440 D_01d49580;
 extern W3_w2440 D_01d49658[30];
 extern Arr_w2440 D_01d49590;
 void wt_001c5060(u32 a, u32 b, u32, u32) asm("_Z16wtarget_001c5060jjjj");
-void wt_001c5060(u32 a, u32 b, u32, u32) {
-    if (b == 0xffff && a == 1) {
-        D_01d49580.a = 0;
-        D_01d49580.b = 1368;
-        D_01d49580.c = 64.0f;
-    }
-    if (b == 0xffff && a == 1) {
-        W3_w2440* p = D_01d49658;
-        s32 i = 29;
-        do { p->b = 0; i--; p++; } while (i != -1);
-    }
-    if (b == 0xffff && a == 0) {
-        D_01d49590.~Arr_w2440();
-    }
-}
+void wt_001c5060(u32 a, u32 b, u32, u32);  // 0x001c5060: definition moved into src/anon/unit_001c4dc8.cpp
 
 }

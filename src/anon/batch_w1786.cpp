@@ -26,20 +26,7 @@ s32 W1786_ctarget(W1786Ob2*) asm("_Z16ctarget_0019ba60jjjj");
 void W1786_set_obj(W1786Tg*, void*, s32) asm("_ZN2YS6TARGET7set_objEPNS_3OBJEi");
 extern u8 D_01c60d10;
 extern W1786Ob2* D_0034e948;
-void func_00190a80(W1786Tg* t, W1786Ob* o) {
-    W1786Ob2* r = 0;
-    u32 fl = o->f108;
-    u32 m2 = fl & 0x800;
-    u32 m1 = fl & 0x1000;
-    if (!m2 && !m1) r = func_001cd7a8(&D_01c60d10);
-    if (!r) {
-        if (func_0016a090(o) != 1 && o->faec && W1786_ctarget(o->faec) && !(o->faec->f7f8 & 4))
-            r = o->faec;
-        else
-            r = D_0034e948;
-    }
-    W1786_set_obj(t, r, 0);
-}
+void func_00190a80(W1786Tg* t, W1786Ob* o);  // 0x00190a80: definition moved into src/anon/unit_001900d0.cpp
 
 W1786V4 func_0017c870(f32, f32);
 s32 func_001b2d10(void*, W1786V4*);

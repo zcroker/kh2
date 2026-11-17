@@ -60,31 +60,7 @@ s32 func_0029a5f0(s32 idx) {
     }
     return tbl[idx];
 }
-void func_001cfbd8(u8* p, u32 a1, u32 a2, u32 a3) {
-    func_00177dc8(p, a1, 11, a2, a3);
-    *(u32*)(p + 2920) = 0;
-    *(u32*)(p + 2924) = 0;
-    *(u32*)(p + 0) = (u32)D_00352360;
-    *(u8*)(p + 2928) = 0;
-    S2932* s2 = (S2932*)(p + 2932);
-    u8* s = (u8*)s2;
-    s2->a = 0;
-    s2->b = 0;
-    s2->c = 0;
-    *(u32*)(p + 1416) |= 0x2000000;
-    ((Sub1cf*)*(u32*)(p + 1164))->b432 = 0;
-    ((Sub1cf*)*(u32*)(p + 1164))->b433 = 0;
-    ((Sub1cf*)*(u32*)(p + 1164))->b434 = 3;
-    func_0017a480(p, ((Sub1cf*)*(u32*)(p + 1164))->f4, 0, 0);
-    func_001a1a50((Sub1cf*)*(u32*)(p + 1164), 0);
-    f32 k = D_0036e3bc;
-    ((Sub1cf*)*(u32*)(p + 1164))->b431 = 1;
-    if (D_0032bb30.a < 999) D_0032bb30.a++;
-    if (D_0032bb30.b < 999) D_0032bb30.b++;
-    *(u32*)(p + 2748) |= 0x240;
-    func_001d2648(s, 0xbbc2, k);  // clear_fields_0_4_32
-    func_001c8d80(D_00351ec0, 4);
-}
+void func_001cfbd8(u8* p, u32 a1, u32 a2, u32 a3);  // 0x001cfbd8: definition moved into src/anon/unit_001cf0b0.cpp
 
 extern E259 D_00372ed8[];
 extern void* D_0035f64c;

@@ -13,35 +13,9 @@ extern char D_00371698[];
 extern "C" {
 void func_001c1748(W1776Obj*, u32, u32, u32);
 
-void func_001c6fa8(W1776Obj* o, W1776Src* s, u8* p, u32 a, u32 b) {
-    func_001c1748(o, s->f9f4, a, b);
-    o->f28 = 0;
-    W1776V4* v = &o->v30;
-    v->x = v->w = v->z = v->y = 0.0f;
-    o->f40 = 900.0f;
-    o->f50 = s;
-    o->f4c = p;
-    o->b44 = 0;
-    o->b45 = 30;
-    o->f48 = 0;
-    o->b14 = *p;
-    o->b16 = -1;
-}
+// 001c6fa8: moved to src/anon/unit_001c6e58.cpp (linked unit)
 
-void func_001c7048(W1776Obj* o, W1776Src* s, u8* p, u32 a, u32 b) {
-    func_001c1748(o, s->f9f4, a, b);
-    o->f28 = 0;
-    W1776V4* v = &o->v30;
-    v->x = v->w = v->z = v->y = 0.0f;
-    o->f40 = 900.0f;
-    o->f50 = s;
-    o->f4c = p;
-    o->b44 = 0;
-    o->b45 = 30;
-    o->f48 = 0;
-    o->b14 = *p;
-    o->b16 = -1;
-}
+// 001c7048: moved to src/anon/unit_001c6e58.cpp (linked unit)
 
 void strcpy_w1776(char*, const char*) asm("_ZN2Tz16LayFileBuildDataEPvj");
 s32 strlen(const char*);

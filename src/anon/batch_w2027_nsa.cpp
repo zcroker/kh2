@@ -21,9 +21,7 @@ extern "C" {
 
 /* The two by-value struct parameters are unused, but gcc stores BLKmode
    parameters to their stack slots (sd a1,0 / sw a2,16). */
-void func_002bef78(W2027Owner* p, W2027Pair v, W2027Tag w) {
-    p->obj->m4();
-}
+void func_002bef78(W2027Owner* p, W2027Pair v, W2027Tag w);  // 0x002bef78: definition moved into src/anon/unit_002bebd0.cpp
 
 /* Linked-list search: returns 1 when t is in the list at p+0x94. */
 // 0017fdc0: moved to src/yasui/libys/motion.cpp

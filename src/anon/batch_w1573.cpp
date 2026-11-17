@@ -31,69 +31,7 @@ extern f32 D_01d9e360[];
 f32 func_001ed2d8(f32, f32);
 f32 func_001ed488(f32, f32);
 
-void func_001bcf80(u8* p) {
-    u8* m;
-    s32 n;
-    u8* s;
-    s32 k;
-    s32 i;
-    s32* t;
-    u8* q;
-    func_00190128(p + 12);
-    func_0017bf40(p + 4);
-    *(s32*)(p + 32) = 0;
-    *(void**)p = D_00351228;
-    m = p + 36;
-    n = 18;
-    do {
-        s = m + 12;
-        k = 7;
-        do {
-            *(u16*)s = 0;
-            slot_clear(s);
-            k--;
-            s += 12;
-        } while (k != -1);
-        menu_clear(m);
-        menu_reset(m);
-        n--;
-        m += 116;
-    } while (n != -1);
-    s = p + 2244;
-    k = 6;
-    do {
-        *(u16*)s = 0;
-        slot_clear(s);
-        func_00190128(s + 12);
-        func_001bde58(s);
-        k--;
-        s += 36;
-    } while (k != -1);
-    new (p + 2496) W1573_Z12;
-    func_00190128(p + 2508);
-    *(s32*)(p + 2528) = 0;
-    *(s32*)(p + 2532) = 0;
-    q = p + 2552;
-    *(u8**)q = p;
-    func_00190128(p + 2564);
-    *(s32*)(p + 2584) = 0;
-    func_00320730(p + 2588);
-    slot_clear(p + 2588);
-    func_0019d4f8(q);
-    *(f32*)(p + 2624) = 1.0f;
-    func_0017bf40(p + 4);
-    i = 0;
-    m = p;
-    for (; i < 19; i++) {
-        *(s32*)(m + 36) = i;
-        menu_clear(m + 36);
-        menu_reset(m + 36);
-        *(u8**)(m + 40) = p;
-        m += 116;
-    }
-    func_001bd370(p);
-    func_001bd3a0(p);
-}
+void func_001bcf80(u8* p);  // 0x001bcf80: definition moved into src/anon/unit_001bc568.cpp
 
 void func_001ed2e0(u8* o, W1573_RandArg* __restrict__ s, W1573_T1* t)
 {

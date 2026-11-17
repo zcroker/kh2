@@ -148,140 +148,94 @@ extern void Tz_Layout_setNum(s32, s32) asm("_ZN2Tz6Layout6setNumEii");
 
 namespace YS {
 
-void trap_abs(BD_VALUE* bd) { bd->i = YS_abs_int(bd->i); }
+// 0016d2e0: moved to src/anon/unit_0016d2e0.cpp
 
-void method_blur_init(BD_VALUE* bd) { func_0019ec88(*(u32*)((u32)bd + 0u)); }
+// 0016ded8: moved to src/anon/unit_0016d2e0.cpp
 
-void trap_file_is_reading(BD_VALUE* bd) { bd->i = YS_FILE_IsReading(); }
+// 0016dc28: moved to src/anon/unit_0016d2e0.cpp
 
-void trap_file_flush(BD_VALUE* bd) {
-    (void)bd;
-    YS_CACHE_BUFF_Flush(0);
-}
+// 0016dc50: moved to src/anon/unit_0016d2e0.cpp
 
-void trap_progress_set_flag(BD_VALUE* bd) { YS_PROGRESS_SetFlag(bd->i); }
+// 0016dc68: moved to src/anon/unit_0016d2e0.cpp
 
-void trap_worldflag_check(BD_VALUE* bd) { bd->i = YS_WORLDFLAG_Check(bd->i); }
+// 0016de90: moved to src/anon/unit_0016d2e0.cpp
 
-void trap_effect_loop_end(BD_VALUE* bd) { ryj_EFFECT_loop_end(bd->i); }
+// 0016e290: moved to src/anon/unit_0016d2e0.cpp
 
-void trap_effect_loop_end_kill(BD_VALUE* bd) { ryj_EFFECT_loop_end_kill(bd->i); }
+// 0016e2a8: moved to src/anon/unit_0016d2e0.cpp
 
-void trap_effect_kill(BD_VALUE* bd) { ryj_EFFECT_kill(bd->i); }
+// 0016e320: moved to src/anon/unit_0016d2e0.cpp
 
-void trap_memory_free(BD_VALUE* bd) { AREA_Free(bd->i); }
+// 0016e5c8: moved to src/anon/unit_0016d2e0.cpp
 
-void trap_timer_count_down(BD_VALUE* bd) {
-    dk_Timer_setCountDown(bd->i);
-    dk_Timer_start();
-}
+// 0016e5e0: moved to src/anon/unit_0016d2e0.cpp
 
-void trap_saveflag_reset(BD_VALUE* bd) { YS_SAVEFLAG_Reset(bd->i); }
+// 0016e638: moved to src/anon/unit_0016d2e0.cpp
 
-void trap_saveflag_check(BD_VALUE* bd) { bd->i = YS_SAVEFLAG_Check(bd->i); }
+// 0016e650: moved to src/anon/unit_0016d2e0.cpp
 
-void trap_menuflag_reset(BD_VALUE* bd) { YS_MENUFLAG_Reset(bd->i); }
+// 0016e7b8: moved to src/anon/unit_0016d2e0.cpp
 
 u32 trap_screen_cross_fade(u32 a0, u32 a1, u32 a2, u32 a3) asm("_ZN2YS22trap_screen_cross_fadeEP8BD_VALUE");
-u32 trap_screen_cross_fade(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_00153f08(*(u32*)(a0 + 0u), *(u32*)(a0 + 4u), a2, a3);
-}
+// 0016dfb8: moved to src/anon/unit_0016d2e0.cpp
 
-void trap_item_reduce(BD_VALUE* bd) { YS_ITEM_Reduce(bd->i, bd[1].i); }
+// 0016e838: moved to src/anon/unit_0016d2e0.cpp
 
-void trap_obj_set_pos_trans(BD_VALUE* bd) {
-    YS_OBJ_set_pos_trans(*(void**)((char*)bd->i + 4), bd[1].i);
-}
+void trap_obj_set_pos_trans(BD_VALUE* bd);  // 0x001714b0: definition moved into src/anon/unit_00170f58.cpp
 
-void trap_obj_capture_command(BD_VALUE* bd) {
-    YS_STDOBJ_set_special_command(*(void**)((char*)bd->i + 4), bd[1].i);
-}
+void trap_obj_capture_command(BD_VALUE* bd);  // 0x001718f0: definition moved into src/anon/unit_00170f58.cpp
 
 u32 trap_obj_get_weight(u32 a0, u32 a1, u32 a2, u32 a3) asm("_ZN2YS19trap_obj_get_weightEP8BD_VALUE");
-u32 trap_obj_get_weight(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_00198580(*(u32*)(*(u32*)(a0 + 0u) + 4u), *(u32*)(a0 + 4u));  // check_div1000_500
-}
+u32 trap_obj_get_weight(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00171978: definition moved into src/anon/unit_00170f58.cpp
 
-void trap_obj_hook_command_image(BD_VALUE* bd) {
-    YS_STDOBJ_hook_command_image(*(void**)((char*)bd->i + 4));
-}
+void trap_obj_hook_command_image(BD_VALUE* bd);  // 0x00171b28: definition moved into src/anon/unit_00170f58.cpp
 
-void trap_obj_scatter_prize(BD_VALUE* bd) {
-    YS_OBJ_scatter_prize(*(void**)((char*)bd->i + 4), bd[1].i);
-}
+void trap_obj_scatter_prize(BD_VALUE* bd);  // 0x00171f00: definition moved into src/anon/unit_00171e58.cpp
 
-void trap_obj_history_mark(BD_VALUE* bd) {
-    YS_FIELDOBJ_mark_history(*(void**)((char*)bd->i + 4));
-}
+void trap_obj_history_mark(BD_VALUE* bd);  // 0x00172028: definition moved into src/anon/unit_00171e58.cpp
 
 u32 trap_obj_blow(u32 a0, u32 a1, u32 a2, u32 a3) asm("_ZN2YS13trap_obj_blowEP8BD_VALUE");
-u32 trap_obj_blow(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_00186888(*(u32*)(*(u32*)(a0 + 0u) + 4u), *(u32*)(a0 + 4u), a2, a3);
-}
+u32 trap_obj_blow(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001712f8: definition moved into src/anon/unit_00170f58.cpp
 
-void trap_obj_set_skateboard_mode(BD_VALUE* bd) {
-    YS_SORA_set_skateboard_mode(*(void**)((char*)bd->i + 4), bd[1].i);
-}
+void trap_obj_set_skateboard_mode(BD_VALUE* bd);  // 0x001718d0: definition moved into src/anon/unit_00170f58.cpp
 
-void trap_obj_disable_occ(BD_VALUE* bd) {
-    YS_OCC_disable((char*)*(void**)((char*)bd->i + 4) + 2048);
-}
+void trap_obj_disable_occ(BD_VALUE* bd);  // 0x00171b80: definition moved into src/anon/unit_00170f58.cpp
 
-void trap_obj_enable_occ(BD_VALUE* bd) {
-    YS_OCC_enable((char*)*(void**)((char*)bd->i + 4) + 2048);
-}
+void trap_obj_enable_occ(BD_VALUE* bd);  // 0x00171ba0: definition moved into src/anon/unit_00170f58.cpp
 
-void trap_obj_disable_occ_bone(BD_VALUE* bd) {
-    YS_OCC_disable_bone((char*)*(void**)((char*)bd->i + 4) + 2048, bd[1].i);
-}
+void trap_obj_disable_occ_bone(BD_VALUE* bd);  // 0x00171bc0: definition moved into src/anon/unit_00170f58.cpp
 
-void func_obj_control_off(BD_VALUE* bd) { YS_OBJ_ControlOff(bd->i); }
+void func_obj_control_off(BD_VALUE* bd);  // 0x00171c30: definition moved into src/anon/unit_00170f58.cpp
 
-void func_obj_control_on(BD_VALUE* bd) { YS_OBJ_ControlOn(bd->i); }
+void func_obj_control_on(BD_VALUE* bd);  // 0x00171c48: definition moved into src/anon/unit_00170f58.cpp
 
-void trap_obj_detach(BD_VALUE* bd) { YS_OBJ_detach(*(void**)((char*)bd->i + 4)); }
+void trap_obj_detach(BD_VALUE* bd);  // 0x00171cc0: definition moved into src/anon/unit_00170f58.cpp
 
-void trap_obj_act_clear(BD_VALUE* bd) {
-    YS_ACT_clear((char*)*(void**)((char*)bd->i + 4) + 768);
-}
+void trap_obj_act_clear(BD_VALUE* bd);  // 0x00171d08: definition moved into src/anon/unit_00170f58.cpp
 
 u32 trap_obj_act_push(u32 a0, u32 a1, u32 a2, u32 a3) asm("_ZN2YS17trap_obj_act_pushEP8BD_VALUE");
-u32 trap_obj_act_push(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_001880b0(((u32)(*(u32*)(*(u32*)(a0 + 0u) + 4u)) + 768u), *(u32*)(a0 + 4u), a2, a3);
-}
+u32 trap_obj_act_push(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00171d28: definition moved into src/anon/unit_00170f58.cpp
 
 u32 trap_obj_act_start_pri(u32 a0, u32 a1, u32 a2, u32 a3) asm("_ZN2YS22trap_obj_act_start_priEP8BD_VALUE");
-u32 trap_obj_act_start_pri(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_00188170(((u32)(*(u32*)(*(u32*)(a0 + 0u) + 4u)) + 768u), *(u32*)(a0 + 4u), a2, a3);
-}
+u32 trap_obj_act_start_pri(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00171dd8: definition moved into src/anon/unit_00170f58.cpp
 
-void trap_obj_action_lightcycle(BD_VALUE* bd) {
-    YS_OBJ_change_action(*(void**)((char*)bd->i + 4), 0x17);
-}
+void trap_obj_action_lightcycle(BD_VALUE* bd);  // 0x00171e88: definition moved into src/anon/unit_00171e58.cpp
 
 u32 trap_obj_hook_stop(u32 a0, u32 a1, u32 a2, u32 a3) asm("_ZN2YS18trap_obj_hook_stopEP8BD_VALUE");
-u32 trap_obj_hook_stop(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_00177460(*(u32*)(*(u32*)(a0 + 0u) + 4u), 0, a2, a3);
-}
+u32 trap_obj_hook_stop(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00172008: definition moved into src/anon/unit_00171e58.cpp
 
 u32 trap_obj_motion_capture_id(u32 a0, u32 a1, u32 a2, u32 a3)
     asm("_ZN2YS26trap_obj_motion_capture_idEP8BD_VALUE");
-u32 trap_obj_motion_capture_id(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_00180d40(((u32)(*(u32*)(*(u32*)(a0 + 0u) + 4u)) + 320u), *(u32*)(a0 + 4u), a2, a3);
-}
+u32 trap_obj_motion_capture_id(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001725b8: definition moved into src/anon/unit_00171e58.cpp
 
 u32 trap_obj_effect_unbind(u32 a0, u32 a1, u32 a2, u32 a3) asm("_ZN2YS22trap_obj_effect_unbindEP8BD_VALUE");
-u32 trap_obj_effect_unbind(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_001de508(((u32)(*(u32*)(*(u32*)(a0 + 0u) + 4u)) + 128u), *(u32*)(a0 + 4u), a2, a3);
-}
+u32 trap_obj_effect_unbind(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00172710: definition moved into src/anon/unit_00171e58.cpp
 
 }  // namespace YS
 
 namespace gb {
 
-void trap_obj_set_pos(BD_VALUE* bd) {
-    YS_OBJ_set_pos(*(void**)((char*)bd->i + 4), bd[1].i);
-}
+void trap_obj_set_pos(BD_VALUE* bd);  // 0x00171460: definition moved into src/anon/unit_00170f58.cpp
 
 }  // namespace gb
 extern s32 ryj_EFFECT_is_alive(void*) asm("_ZN3ryj6EFFECT8is_aliveEv");
@@ -334,140 +288,99 @@ extern void Ts_TRINITY_SHOT_OBJ_Init(void*) asm("_ZN2Ts16TRINITY_SHOT_OBJ4InitEv
 
 namespace YS {
 
-void trap_effect_set_pos(BD_VALUE* bd) { func_001d97c8(bd); }
+// 0016e168: moved to src/anon/unit_0016d2e0.cpp
 
-void trap_effect_is_alive(BD_VALUE* bd) { bd->i = ryj_EFFECT_is_alive((void*)bd->i); }
+// 0016e2c0: moved to src/anon/unit_0016d2e0.cpp
 
-void trap_effect_is_active(BD_VALUE* bd) { bd->i = ryj_EFFECT_is_active((void*)bd->i); }
+// 0016e2f0: moved to src/anon/unit_0016d2e0.cpp
 
-void trap_memory_alloc(BD_VALUE* bd) { bd->i = AREA_Alloc((u32)bd->i); }
+// 0016e598: moved to src/anon/unit_0016d2e0.cpp
 
-void trap_sound_disable(BD_VALUE* bd) { SOUND_SE3DDisable(bd); }
+// 0016e740: moved to src/anon/unit_0016d2e0.cpp
 
-void trap_menuflag_check(BD_VALUE* bd) { bd->i = YS_MENUFLAG_Check(bd->i); }
+// 0016e7d0: moved to src/anon/unit_0016d2e0.cpp
 
-void trap_obj_dead_mark(BD_VALUE* bd) { YS_BTLOBJ_sys_dead(*(void**)((char*)bd->i + 4)); }
+void trap_obj_dead_mark(BD_VALUE* bd);  // 0x00172b68: definition moved into src/anon/unit_00171e58.cpp
 
-void trap_obj_scatter_medal(BD_VALUE* bd) {
-    YS_PRIZE_CA_Appear(*(void**)((char*)bd->i + 4), bd[1].i);
-}
+void trap_obj_scatter_medal(BD_VALUE* bd);  // 0x00172e88: definition moved into src/anon/unit_00171e58.cpp
 
-void trap_obj_recov_holylight(BD_VALUE* bd) { YS_MICKEY_recov_holylight(*(void**)((char*)bd->i + 4)); }
+void trap_obj_recov_holylight(BD_VALUE* bd);  // 0x00172ea8: definition moved into src/anon/unit_00171e58.cpp
 
-void trap_obj_motion_is_hook(BD_VALUE* bd) {
-    YS_OBJ_set_dir(*(void**)((char*)bd->i + 4), bd[1].i);
-}
+void trap_obj_motion_is_hook(BD_VALUE* bd);  // 0x00173c18: definition moved into src/anon/unit_00171e58.cpp
 
-void trap_obj_sheet(BD_VALUE* bd) { YS_OBJ_texanm_start(*(void**)((char*)bd->i + 4), bd[1].i); }
+void trap_obj_sheet(BD_VALUE* bd);  // 0x00173d80: definition moved into src/anon/unit_00171e58.cpp
 
-void trap_obj_texanm_stop(BD_VALUE* bd) {
-    YS_OBJ_texanm_stop(*(void**)((char*)bd->i + 4), bd[1].i);
-}
+void trap_obj_texanm_stop(BD_VALUE* bd);  // 0x00173da0: definition moved into src/anon/unit_00171e58.cpp
 
-void trap_obj_motion_speed(BD_VALUE* bd) {
-    YS_OBJ_show_part(*(void**)((char*)bd->i + 4), bd[1].i);
-}
+void trap_obj_motion_speed(BD_VALUE* bd);  // 0x001740f8: definition moved into src/anon/unit_00171e58.cpp
 
-void trap_command_cage_off(BD_VALUE* bd) {
-    (void)bd;
-    YS_STATUS_CageOn();
-}
+void trap_command_cage_off(BD_VALUE* bd);  // 0x001742f8: definition moved into src/anon/unit_00171e58.cpp
 
-void trap_event_control_off(BD_VALUE* bd) {
-    (void)bd;
-    YS_EVENT_ControlOff();
-}
+void trap_event_control_off(BD_VALUE* bd);  // 0x001747a8: definition moved into src/anon/unit_00171e58.cpp
 
-void trap_camera_end_scope(BD_VALUE* bd) {
-    (void)bd;
-    dk_ScopeCamera_destroy();
-}
+void trap_camera_end_scope(BD_VALUE* bd);  // 0x00174d38: definition moved into src/anon/unit_00171e58.cpp
 
-void trap_unit_disable(BD_VALUE* bd) { YS_UNIT_GROUP_Disable(bd->i); }
+void trap_unit_disable(BD_VALUE* bd);  // 0x00174f58: definition moved into src/anon/unit_00171e58.cpp
 
-void trap_unit_enable(BD_VALUE* bd) { YS_UNIT_GROUP_Enable(bd->i); }
+void trap_unit_enable(BD_VALUE* bd);  // 0x00174f70: definition moved into src/anon/unit_00171e58.cpp
 
-void trap_prize_get_all_tr(BD_VALUE* bd) { YS_PRIZE_TR_GetAll(*(void**)((char*)bd->i + 4)); }
+void trap_prize_get_all_tr(BD_VALUE* bd);  // 0x00175240: definition moved into src/anon/unit_00171e58.cpp
 
-void trap_btlobj_set_sheet(BD_VALUE* bd) {
-    YS_PIERROT_set_sheet(*(void**)((char*)bd->i + 4), bd[1].i);
-}
+void trap_btlobj_set_sheet(BD_VALUE* bd);  // 0x0018f1c0: definition moved into src/anon/unit_0018f140.cpp
 
-void trap_attack_free(BD_VALUE* bd) { YS_ATTACK_destroy(bd->i); }
+void trap_attack_free(BD_VALUE* bd);  // 0x0018f790: definition moved into src/anon/unit_0018f140.cpp
 
-void trap_limit_reference(BD_VALUE* bd) { func_001b57f8(bd->i); }
+void trap_limit_reference(BD_VALUE* bd);  // 0x0018ff48: definition moved into src/anon/unit_0018f140.cpp
 
-void trap_limit_close_gauge(BD_VALUE* bd) { YS_LIMIT_close_gauge(bd->i); }
+void trap_limit_close_gauge(BD_VALUE* bd);  // 0x0018ff60: definition moved into src/anon/unit_0018f140.cpp
 
-void trap_bonuslevel_up(BD_VALUE* bd) { YS_BONUSLEVEL_Up(bd->i); }
+void trap_bonuslevel_up(BD_VALUE* bd);  // 0x0018ff78: definition moved into src/anon/unit_0018f140.cpp
 
-void trap_event_is_exec(BD_VALUE* bd) { bd->i = YS_EVENT_IsExec(); }
+void trap_event_is_exec(BD_VALUE* bd);  // 0x0019ff90: definition moved into src/anon/unit_0019fb70.cpp
 
-void trap_mission_complete(BD_VALUE* bd) { YS_MISSION_Complete(bd->i); }
+void trap_mission_complete(BD_VALUE* bd);  // 0x0019ffe8: definition moved into src/anon/unit_0019fb70.cpp
 
-void trap_mission_dead_boss(BD_VALUE* bd) { YS_MISSION_DeadBoss(bd->i); }
+void trap_mission_dead_boss(BD_VALUE* bd);  // 0x001a0000: definition moved into src/anon/unit_0019fb70.cpp
 
-void trap_mission_failed(BD_VALUE* bd) {
-    (void)bd;
-    YS_MISSION_Failed();
-}
+void trap_mission_failed(BD_VALUE* bd);  // 0x001a0018: definition moved into src/anon/unit_0019fb70.cpp
 
-void trap_mission_activate2d(BD_VALUE* bd) {
-    (void)bd;
-    YS_MISSION_Activate2d();
-}
+void trap_mission_activate2d(BD_VALUE* bd);  // 0x001a0048: definition moved into src/anon/unit_0019fb70.cpp
 
-void trap_mission_is_activate2d(BD_VALUE* bd) {
-    (void)bd;
-    YS_MISSION_Return();
-}
+void trap_mission_is_activate2d(BD_VALUE* bd);  // 0x001a00b8: definition moved into src/anon/unit_0019fb70.cpp
 
-void trap_mission_restart_timer(BD_VALUE* bd) { YS_MISSION_RestartTimer(bd->i, bd[1].i); }
+void trap_mission_restart_timer(BD_VALUE* bd);  // 0x001a0128: definition moved into src/anon/unit_0019fb70.cpp
 
-void trap_mission_pause_timer(BD_VALUE* bd) {
-    (void)bd;
-    dk_Timer_pauseOn(2);
-}
+void trap_mission_pause_timer(BD_VALUE* bd);  // 0x001a0170: definition moved into src/anon/unit_0019fb70.cpp
 
-void trap_mission_cancel_pause_timer(BD_VALUE* bd) {
-    (void)bd;
-    dk_Timer_pauseOff(2);
-}
+void trap_mission_cancel_pause_timer(BD_VALUE* bd);  // 0x001a0188: definition moved into src/anon/unit_0019fb70.cpp
 
-void trap_mission_warning_timer(BD_VALUE* bd) { YS_MISSION_WarningTimer(bd->i); }
+void trap_mission_warning_timer(BD_VALUE* bd);  // 0x001a0200: definition moved into src/anon/unit_0019fb70.cpp
 
-void trap_mission_disable_timer(BD_VALUE* bd) { YS_MISSION_DisableTimer(bd->i); }
+void trap_mission_disable_timer(BD_VALUE* bd);  // 0x001a0218: definition moved into src/anon/unit_0019fb70.cpp
 
-void trap_mission_set_watch(BD_VALUE* bd) { YS_MISSION_SetWatch(bd->i, bd[1].i); }
+void trap_mission_set_watch(BD_VALUE* bd);  // 0x001a0230: definition moved into src/anon/unit_0019fb70.cpp
 
-void trap_mission_decrement_count(BD_VALUE* bd) { YS_MISSION_SetCount(bd->i, bd[1].i); }
+void trap_mission_decrement_count(BD_VALUE* bd);  // 0x001a0268: definition moved into src/anon/unit_0019fb70.cpp
 
-void trap_mission_add_count(BD_VALUE* bd) { YS_MISSION_AddCount(bd->i, bd[1].i); }
+void trap_mission_add_count(BD_VALUE* bd);  // 0x001a0320: definition moved into src/anon/unit_0019fb70.cpp
 
-void trap_mission_disable_count(BD_VALUE* bd) { YS_MISSION_DisableCount(bd->i, bd[1].i); }
+void trap_mission_disable_count(BD_VALUE* bd);  // 0x001a0358: definition moved into src/anon/unit_0019fb70.cpp
 
-void trap_mission_start_combo_counter(BD_VALUE* bd) {
-    (void)bd;
-    YS_MISSION_ResetComboCounter(0);
-}
+void trap_mission_start_combo_counter(BD_VALUE* bd);  // 0x001a0540: definition moved into src/anon/unit_0019fb70.cpp
 
-void trap_mission_set_combo_counter_param(BD_VALUE* bd) {
-    YS_MISSION_SetMaxComboCounter(bd->i, bd[1].i);
-}
+void trap_mission_set_combo_counter_param(BD_VALUE* bd);  // 0x001a05d8: definition moved into src/anon/unit_0019fb70.cpp
 
-void trap_mission_warning_combo_counter(BD_VALUE* bd) { YS_MISSION_WarningComboCounter(bd->i); }
+void trap_mission_warning_combo_counter(BD_VALUE* bd);  // 0x001a0620: definition moved into src/anon/unit_0019fb70.cpp
 
 }  // namespace YS
 
 namespace gb {
 
-void trap_bg_hide(BD_VALUE* bd) { dk_Map_setHideGroup(bd->i); }
+void trap_bg_hide(BD_VALUE* bd);  // 0x00173298: definition moved into src/anon/unit_00171e58.cpp
 
-void trap_bg_show(BD_VALUE* bd) { dk_Map_setVisibleGroup(bd->i); }
+void trap_bg_show(BD_VALUE* bd);  // 0x001732b0: definition moved into src/anon/unit_00171e58.cpp
 
-void trap_obj_hide_part(BD_VALUE* bd) {
-    YS_OBJ_hide_part(*(void**)((char*)bd->i + 4), bd[1].i);
-}
+void trap_obj_hide_part(BD_VALUE* bd);  // 0x00174118: definition moved into src/anon/unit_00171e58.cpp
 
 }  // namespace gb
 
@@ -542,139 +455,118 @@ extern void YS_JIGSAW_Get(s32, s32) asm("_ZN2YS6JIGSAW3GetEii");
 
 namespace YS {
 
-void func_system_set_game_speed(BD_VALUE* bd) { func_0014ce50(bd->f); }
+// 0016dec0: moved to src/anon/unit_0016d2e0.cpp
 
-void method_blur_start(BD_VALUE* bd) { YS_BLUR_start(bd->i, 0.0f); }
+// 0016def0: moved to src/anon/unit_0016d2e0.cpp
 
-void trap_effect_add_dead_block(BD_VALUE* bd) { YS_EFFECT_AddDeadEffect(bd->i); }
+// 0016e540: moved to src/anon/unit_0016d2e0.cpp
 
-void trap_effect_set_type(BD_VALUE* bd) { bd->f = YS_MATH_FixRadian(bd->f); }
+// 0016e568: moved to src/anon/unit_0016d2e0.cpp
 
 void trap_sysobj_is_exist(BD_VALUE* bd);  // 0x00170f38: definition moved into src/anon/unit_0016e8f8.cpp
 
-void trap_sysobj_moveto(BD_VALUE* bd) { bd->i = YS_OBJ_GetPlayer(); }
+void trap_sysobj_moveto(BD_VALUE* bd);  // 0x00171068: definition moved into src/anon/unit_00170f58.cpp
 
-void trap_obj_dead(BD_VALUE* bd) { YS_BTLOBJ_dead(*(void**)((char*)bd->i + 4)); }
+void trap_obj_dead(BD_VALUE* bd);  // 0x00172b28: definition moved into src/anon/unit_00171e58.cpp
 
-void trap_obj_count_entry(BD_VALUE* bd) { bd->i = YS_OBJ_CountEntry(bd->i); }
+void trap_obj_count_entry(BD_VALUE* bd);  // 0x00172d78: definition moved into src/anon/unit_00171e58.cpp
 
-void trap_bg_set_animation_speed(BD_VALUE* bd) { dk_Map_setAnimationSpeedRatio(2, bd->f); }
+void trap_bg_set_animation_speed(BD_VALUE* bd);  // 0x00173610: definition moved into src/anon/unit_00171e58.cpp
 
-void trap_obj_star(BD_VALUE* bd) { bd->i = YS_PARTY_Get(bd->i); }
+void trap_obj_star(BD_VALUE* bd);  // 0x00173e88: definition moved into src/anon/unit_00171e58.cpp
 
-void trap_obj_fly_to_jump(BD_VALUE* bd) { YS_OBJ_fly_to_jump(*(void**)((char*)bd->i + 4)); }
+void trap_obj_fly_to_jump(BD_VALUE* bd);  // 0x00173eb8: definition moved into src/anon/unit_00171e58.cpp
 
 u32 func_area_activate_unit(u32 a0, u32 a1, u32 a2, u32 a3) asm("_ZN2YS23func_area_activate_unitEP8BD_VALUE");
-u32 func_area_activate_unit(u32 a0, u32 a1, u32 a2, u32 a3) { return func_0019eb60(a0, a1, a2, a3); }
+u32 func_area_activate_unit(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00173680: definition moved into src/anon/unit_00171e58.cpp
 
 u32 trap_obj_check_flag(u32 a0, u32 a1, u32 a2, u32 a3) asm("_ZN2YS19trap_obj_check_flagEP8BD_VALUE");
-u32 trap_obj_check_flag(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_0017ec30(((u32)(*(u32*)(*(u32*)(a0 + 0u) + 4u)) + 320u), *(u32*)(a0 + 4u), a2, a3);
-}
+u32 trap_obj_check_flag(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00173b98: definition moved into src/anon/unit_00171e58.cpp
 
-void trap_player_can_capture_form(BD_VALUE* bd) { bd->i = YS_CHANGEFORM_CanCaptureForm(bd); }
+void trap_player_can_capture_form(BD_VALUE* bd);  // 0x00174230: definition moved into src/anon/unit_00171e58.cpp
 
-void trap_player_set_exec_rc(BD_VALUE* bd) {
-    YS_PLAYER_set_exec_rc(*(void**)((char*)bd->i + 4), bd[1].i);
-}
+void trap_player_set_exec_rc(BD_VALUE* bd);  // 0x00174258: definition moved into src/anon/unit_00171e58.cpp
 
-void trap_target_dup(BD_VALUE* bd) { bd->i = YS_TARGET_dup(bd->i); }
+void trap_target_dup(BD_VALUE* bd);  // 0x001745c8: definition moved into src/anon/unit_00171e58.cpp
 
-void trap_target_free(BD_VALUE* bd) { YS_TARGET_free(bd->i); }
+void trap_target_free(BD_VALUE* bd);  // 0x001745f8: definition moved into src/anon/unit_00171e58.cpp
 
-void trap_target_is_exist(BD_VALUE* bd) { bd->i = YS_TARGET_is_exist(bd->i); }
+void trap_target_is_exist(BD_VALUE* bd);  // 0x00174610: definition moved into src/anon/unit_00171e58.cpp
 
 u32 trap_target_set_obj(u32 a0, u32 a1, u32 a2, u32 a3) asm("_ZN2YS19trap_target_set_objEP8BD_VALUE");
-u32 trap_target_set_obj(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_00190878(*(u32*)(a0 + 0u), *(u32*)(*(u32*)(a0 + 4u) + 4u), 0, a3);
-}
+u32 trap_target_set_obj(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00174640: definition moved into src/anon/unit_00171e58.cpp
 
-void trap_target_clear_before_player(BD_VALUE* bd) {
-    (void)bd;
-    YS_TARGET_ClearBeforePlayer();
-}
+void trap_target_clear_before_player(BD_VALUE* bd);  // 0x00174688: definition moved into src/anon/unit_00171e58.cpp
 
-void trap_event_get_rest_time(BD_VALUE* bd) { bd->f = YS_EVENT_GetRestTime(); }
+void trap_event_get_rest_time(BD_VALUE* bd);  // 0x00174780: definition moved into src/anon/unit_00171e58.cpp
 
-void trap_event_continue_control_off(BD_VALUE* bd) {
-    (void)bd;
-    YS_EVENT_ContinueControlOff();
-}
+void trap_event_continue_control_off(BD_VALUE* bd);  // 0x0019ffb8: definition moved into src/anon/unit_0019fb70.cpp
 
-void trap_status_is_mission(BD_VALUE* bd) { bd->i = YS_MISSION_IsExec(); }
+void trap_status_is_mission(BD_VALUE* bd);  // 0x001748a0: definition moved into src/anon/unit_00171e58.cpp
 
-void trap_status_force_leave_end(BD_VALUE* bd) { bd->i = YS_STATUS_IsBattleMode(); }
+void trap_status_force_leave_end(BD_VALUE* bd);  // 0x00174988: definition moved into src/anon/unit_00171e58.cpp
 
-void trap_status_set_prize_ratio(BD_VALUE* bd) { YS_STATUS_SetPrizeRatio(bd->f); }
+void trap_status_set_prize_ratio(BD_VALUE* bd);  // 0x001749b0: definition moved into src/anon/unit_00171e58.cpp
 
-void trap_camera_apply_pos(BD_VALUE* bd) { func_00226e60((s32)(bd->i != 0)); }
+void trap_camera_apply_pos(BD_VALUE* bd);  // 0x00174c30: definition moved into src/anon/unit_00171e58.cpp
 
 void trap_light_fadeout(BD_VALUE* bd) { YS_LIGHT_fadeout(bd->f); }
 
 void trap_light_fadein(BD_VALUE* bd) { YS_LIGHT_fadein(bd->f); }
 
-void trap_light_create(BD_VALUE* bd) { bd->i = YS_LIGHT_Create(bd->i); }
+void trap_light_create(BD_VALUE* bd);  // 0x00174a90: definition moved into src/anon/unit_00171e58.cpp
 
-void trap_sheet_munny(BD_VALUE* bd) { bd->i = Tz_Munny_Get(); }
+void trap_sheet_munny(BD_VALUE* bd);  // 0x001750b0: definition moved into src/anon/unit_00171e58.cpp
 
-void trap_sheet_add_munny(BD_VALUE* bd) { bd->i = Tz_Munny_Add((u32)bd->i); }
+void trap_sheet_add_munny(BD_VALUE* bd);  // 0x001750d8: definition moved into src/anon/unit_00171e58.cpp
 
 u32 trap_sheet_attack_level(u32 a0, u32 a1, u32 a2, u32 a3) asm("_ZN2YS23trap_sheet_attack_levelEP8BD_VALUE");
-u32 trap_sheet_attack_level(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r16 = a0;
-    u32 r2 = func_001a27d8(*(u32*)(a0 + 0u), a1, a2, a3);
-    *(u32*)(r16 + 0) = r2;
-    return r2;
-}
+u32 trap_sheet_attack_level(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00175170: definition moved into src/anon/unit_00171e58.cpp
 
-void trap_prize_num(BD_VALUE* bd) { bd->i = YS_PRIZE_GetAppearNum(); }
+void trap_prize_num(BD_VALUE* bd);  // 0x00175218: definition moved into src/anon/unit_00171e58.cpp
 
-void trap_prize_num_ca(BD_VALUE* bd) { bd->i = YS_PRIZE_CA_GetAppearNum(); }
+void trap_prize_num_ca(BD_VALUE* bd);  // 0x00175300: definition moved into src/anon/unit_00171e58.cpp
 
-void trap_tutorial_is_open(BD_VALUE* bd) { bd->i = YS_WINDOW_SYSTEM_TUTORIAL_IsOpen(); }
+void trap_tutorial_is_open(BD_VALUE* bd);  // 0x00175438: definition moved into src/anon/unit_00171e58.cpp
 
 u32 trap_picture_change(u32 a0, u32 a1, u32 a2, u32 a3) asm("_ZN2YS19trap_picture_changeEP8BD_VALUE");
-u32 trap_picture_change(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_0023f070(*(u32*)(a0 + 0u), *(u32*)(a0 + 4u), 0xffffffffu, a3);
-}
+u32 trap_picture_change(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00175460: definition moved into src/anon/unit_00171e58.cpp
 
-void trap_jigsaw_get(BD_VALUE* bd) { YS_JIGSAW_Get(bd->i, bd[1].i); }
+void trap_jigsaw_get(BD_VALUE* bd);  // 0x00175500: definition moved into src/anon/unit_00171e58.cpp
 
 void trap_btlobj_target(BD_VALUE* bd);  // 0x0018f100: definition moved into src/anon/unit_0018d050.cpp
 
-void trap_attack_is_hit_bg(BD_VALUE* bd) { func_0018e040(bd->i); }
+void trap_attack_is_hit_bg(BD_VALUE* bd);  // 0x0018f7d8: definition moved into src/anon/unit_0018f140.cpp
 
-void trap_attack_exec_reflect(BD_VALUE* bd) { bd->i = YS_ATTACK_CHECK_NewComboGroup(); }
+void trap_attack_exec_reflect(BD_VALUE* bd);  // 0x0018fbf8: definition moved into src/anon/unit_0018f140.cpp
 
-void trap_summon_is_tink_exist(BD_VALUE* bd) { bd->i = YS_SUMMON_IsTinkExist(); }
+void trap_summon_is_tink_exist(BD_VALUE* bd);  // 0x0018ff90: definition moved into src/anon/unit_0018f140.cpp
 
-void trap_damage_element(BD_VALUE* bd) { bd->f = func_0018cb30(bd->i); }
+void trap_damage_element(BD_VALUE* bd);  // 0x0018f600: definition moved into src/anon/unit_0018f140.cpp
 
-void trap_damage_get_reaction_type(BD_VALUE* bd) { bd->i = YS_DAMAGE_GetReactionType(bd->i); }
+void trap_damage_get_reaction_type(BD_VALUE* bd);  // 0x0018f630: definition moved into src/anon/unit_0018f140.cpp
 
-void trap_damage_is_finish(BD_VALUE* bd) { bd->i = YS_DAMAGE_is_finish(bd->i); }
+void trap_damage_is_finish(BD_VALUE* bd);  // 0x0018f660: definition moved into src/anon/unit_0018f140.cpp
 
-void trap_damage_is_normal(BD_VALUE* bd) { bd->i = YS_DAMAGE_is_normal(bd->i); }
+void trap_damage_is_normal(BD_VALUE* bd);  // 0x0018f690: definition moved into src/anon/unit_0018f140.cpp
 
-void trap_magic_can_add_cost(BD_VALUE* bd) { bd->i = YS_MAGIC_CanAddCost(bd->f); }
+void trap_magic_can_add_cost(BD_VALUE* bd);  // 0x0018fce0: definition moved into src/anon/unit_0018f140.cpp
 
-void trap_mission_get_timer(BD_VALUE* bd) { bd->i = YS_MISSION_GetTimer(bd->i); }
+void trap_mission_get_timer(BD_VALUE* bd);  // 0x001a01a0: definition moved into src/anon/unit_0019fb70.cpp
 
-void trap_mission_get_timer_second(BD_VALUE* bd) { bd->i = YS_MISSION_GetTimerSecond(bd->i); }
+void trap_mission_get_timer_second(BD_VALUE* bd);  // 0x001a01d0: definition moved into src/anon/unit_0019fb70.cpp
 
-void trap_mission_get_count(BD_VALUE* bd) { bd->i = YS_MISSION_GetCount(bd->i); }
+void trap_mission_get_count(BD_VALUE* bd);  // 0x001a02f0: definition moved into src/anon/unit_0019fb70.cpp
 
-void trap_mission_get_gauge_ratio(BD_VALUE* bd) { bd->f = YS_MISSION_GetGaugeRatio(bd->i); }
+void trap_mission_get_gauge_ratio(BD_VALUE* bd);  // 0x001a0440: definition moved into src/anon/unit_0019fb70.cpp
 
-void trap_mission_get_gauge_warning_ratio(BD_VALUE* bd) { bd->f = YS_MISSION_GetGaugeWarningRatio(bd->i); }
+void trap_mission_get_gauge_warning_ratio(BD_VALUE* bd);  // 0x001a0498: definition moved into src/anon/unit_0019fb70.cpp
 
-void trap_mission_is_gauge_warning(BD_VALUE* bd) { bd->i = YS_MISSION_IsGaugeWarning(bd->i); }
+void trap_mission_is_gauge_warning(BD_VALUE* bd);  // 0x001a04c8: definition moved into src/anon/unit_0019fb70.cpp
 
-void trap_mission_set_combo_counter_warning_se(BD_VALUE* bd) {
-    YS_MISSION_SetComboCounterWarningSe(bd->i, bd[1].i);
-}
+void trap_mission_set_combo_counter_warning_se(BD_VALUE* bd);  // 0x001a0638: definition moved into src/anon/unit_0019fb70.cpp
 
-void trap_score_get(BD_VALUE* bd) { bd->i = YS_MINIGAME_GetScore(bd->i); }
+void trap_score_get(BD_VALUE* bd);  // 0x001a06b0: definition moved into src/anon/unit_0019fb70.cpp
 
 }  // namespace YS
 
@@ -705,24 +597,18 @@ namespace kn {
 }  // namespace kn
 namespace YS {
 
-void trap_progress_check_flag(BD_VALUE* bd) {
-    bd->i = PROGRESS::CheckFlag(bd->i);
-}
+// 0016dc80: moved to src/anon/unit_0016d2e0.cpp
 
-void trap_progress_is_second(BD_VALUE* bd) { bd->i = PROGRESS::IsSecond(); }
+// 0016dcb0: moved to src/anon/unit_0016d2e0.cpp
 
-void trap_progress_is_secret_movie(BD_VALUE* bd) {
-    bd->i = BATTLE_REPORT::IsSecretMovie();
-}
+// 0016dcd8: moved to src/anon/unit_0016d2e0.cpp
 
-void trap_progress_is_fm_secret_movie(BD_VALUE* bd) {
-    bd->i = BATTLE_REPORT::IsFMSecretMovie();
-}
+// 0016dd00: moved to src/anon/unit_0016d2e0.cpp
 
-void trap_camera_set_scope_zoom(BD_VALUE* bd) { YS_LIGHT_fadeout(bd->f); }
+void trap_camera_set_scope_zoom(BD_VALUE* bd);  // 0x00174de0: definition moved into src/anon/unit_00171e58.cpp
 
-void trap_camera_set_scope_closeup_distance(BD_VALUE* bd) { YS_LIGHT_fadein(bd->f); }
+void trap_camera_set_scope_closeup_distance(BD_VALUE* bd);  // 0x00174df8: definition moved into src/anon/unit_00171e58.cpp
 
-void trap_attack_is_hit(BD_VALUE* bd) { bd->i = ((ATTACK*)bd->i)->is_hit(); }
+void trap_attack_is_hit(BD_VALUE* bd);  // 0x0018f7a8: definition moved into src/anon/unit_0018f140.cpp
 
 }  // namespace YS

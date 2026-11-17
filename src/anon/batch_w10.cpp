@@ -95,9 +95,7 @@ void wtarget_00228420(u32, u32, u32, u32) asm("_Z16wtarget_00228420jjjj");
 void CampMenu_StartBasic(s32) asm("_ZN2Tz8CampMenu10StartBasicEi");
 void* CMData_GetPtr(s32) asm("_ZN2Tz6CMData6GetPtrEi");
 
-void Peterpan_acceptNotifyPlayerTarget(void* s) {
-    func_00112730(*(void**)((u8*)s + 4), func_00112740(*(void**)((u8*)s + 4)) | 0x200);
-}
+void Peterpan_acceptNotifyPlayerTarget(void* s);  // 0x0011a430: definition moved into src/anon/unit_0011a260.cpp
 
 void* func_00123dd0(void* a) {
     void* o = func_00124748(a, 0);  // list_nth_node_rel
@@ -123,61 +121,27 @@ void func_0015cbb8(u8 a, u8 b, u8 c, u8 d) {  // set_global_rgba
 
 void func_0016eb18(void* a, void* b);  // 0x0016eb18: definition moved into src/anon/unit_0016e8f8.cpp
 
-void func_00171480(u8* p) {
-    u32 tmp[4] __attribute__((aligned(16)));
-    asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(tmp), "r"(*(void**)(p + 4)) : "$8", "memory");
-    func_0016adc8(*(void**)(*(u8**)p + 4), tmp);
-}
+void func_00171480(u8* p);  // 0x00171480: definition moved into src/anon/unit_00170f58.cpp
 
-void trap_obj_leave_force(void* v) {
-    void* o = *(void**)(*(u8**)v + 4);
-    (*(VFn*)(*(u8**)o + 32))(o);
-}
+void trap_obj_leave_force(void* v);  // 0x00171e58: definition moved into src/anon/unit_00171e58.cpp
 
-void func_00174728(u8* p) {
-    u8* o = *(u8**)p;
-    f32 x = *(f32*)(p + 4), y = *(f32*)(p + 8), z = *(f32*)(p + 12);
-    func_001ad990(*(u8**)(o + 4) + 2248, x, y, z);
-}
+void func_00174728(u8* p);  // 0x00174728: definition moved into src/anon/unit_00171e58.cpp
 
-void func_00174af8(u8* p) {
-    void* o = *(void**)p;
-    func_001b1bb8(o, *(u32*)(p + 4), *(u32*)(p + 8), *(u32*)(p + 12), 128, *(f32*)(p + 16));
-}
+void func_00174af8(u8* p);  // 0x00174af8: definition moved into src/anon/unit_00171e58.cpp
 
 // 00180770: moved to src/anon/unit_00180408.cpp
 
 void func_0018ef68(u8* p, void* a, void* b);  // 0x0018ef68: definition moved into src/anon/unit_0018d050.cpp
 
-void func_0018f218(u8* p) {
-    void* o = *(void**)(*(u8**)p + 4);
-    (*(void (**)(void*, void*))(*(u8**)o + 104))(o, *(void**)(p + 4));
-}
+void func_0018f218(u8* p);  // 0x0018f218: definition moved into src/anon/unit_0018f140.cpp
 
-void SHEET_reload(void* s) {
-    func_001a1840(s);
-    func_001a11e0(s, 0);
-}
+void SHEET_reload(void* s);  // 0x001a1460: definition moved into src/anon/unit_0019fb70.cpp
 
-void func_001a1a20(u8* p, void* a, u8 b) {
-    void* o = *(void**)(p + 604);
-    if (o) {
-        func_00187650(o, a);
-    } else {
-        func_001a1990(p, a, b);
-    }
-}
+void func_001a1a20(u8* p, void* a, u8 b);  // 0x001a1a20: definition moved into src/anon/unit_0019fb70.cpp
 
-void FIELDOBJ_mark_history(void* o) {
-    func_001956d0(&D_0034fa78, func_0016bff0(o));
-}
+// 001a6c38: moved to src/anon/unit_001a6a10.cpp
 
-void wtarget_001b26e0(u32 a, u32 b, u32, u32) {
-    if (b == 0xffff && a == 1) {
-        D_01d48c80.b = 0;
-        D_01d48c80.a = 0;
-    }
-}
+// 001b26e0: moved to src/anon/unit_001b1d20.cpp
 
 s32 func_001b81e8(void) {
     func_001b7f88();
@@ -185,36 +149,21 @@ s32 func_001b81e8(void) {
     return D_003511b8;
 }
 
-s32 func_001bdd20(u8* p) {
-    return (*(u32*)(p + 32) & 0x10) || D_0032f218 == 0;
-}
+s32 func_001bdd20(u8* p);  // 0x001bdd20: definition moved into src/anon/unit_001bc568.cpp
 
-void func_001befa8(u8* p) {
-    func_001bdc18(p);
-    func_001bd5b0(p, *(u32*)(p + 2724), 0);
-}
+void func_001befa8(u8* p);  // 0x001befa8: definition moved into src/anon/unit_001bc568.cpp
 
-void MASSOBJ_OVR_exec(void* o) {
-    func_0016a9a0(o);  // to_16a950
-    func_001c1428(*(void**)((u8*)o + 2548));
-}
+// 001c2578: moved to src/anon/unit_001c0638.cpp
+void MASSOBJ_OVR_exec(void* o);
 
-void func_001ce458(u8* p) {
-    func_001dba98(*(void**)(p + 2548));
-    func_0016b5b8(p);
-}
+// 001ce458: moved to src/anon/unit_001cd660.cpp
+void func_001ce458(u8* p);
 
 void func_001d7940(void);  // 0x001d7940: definition moved into src/anon/unit_001d7458.cpp
 
-void EFFECT_color(void* e) {
-    func_001dc9e0(e);
-    func_001e6cf8(*(void**)((u8*)e + 28));
-}
+void EFFECT_color(void* e);  // 0x001dc670: definition moved into src/anon/unit_001dbfd8.cpp
 
-bool EFFECT_is_loop(void* e) {
-    func_001dc9e0(e);
-    return func_001e2c78(*(void**)((u8*)e + 28)) != 0;
-}
+bool EFFECT_is_loop(void* e);  // 0x001dc7e8: definition moved into src/anon/unit_001dbfd8.cpp
 
 void* func_001e0128(void* a) {
     void** o = D_01d9e340;
@@ -297,10 +246,7 @@ bool func_002a8920(void) {
     return *func_001d56c8() >= 2;
 }
 
-void func_002bd730(s32 a, void* b, void* c, void* d) {
-    D_003617f0 = a;
-    func_002b8824(D_003617ec, b, 64, c, d);
-}
+void func_002bd730(s32 a, void* b, void* c, void* d);  // 0x002bd730: definition moved into src/anon/unit_002bc978.cpp
 
 // 002e1f40: moved to src/anon/unit_002e1908.cpp
 

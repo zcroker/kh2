@@ -20,7 +20,7 @@ extern u32 D_00363c2c;
 
 // 00102f70: moved to src/common/title.cpp
 
-f32 func_001070a8(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a1; (void)a2; (void)a3; return *(f32*)((u32)a0 + (108)); }
+// 001070a8: moved to src/naka/libkn/camera.cpp
 
 f32 func_0010f8a8(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a1; (void)a2; (void)a3; return *(f32*)((u32)a0 + (3284)); }
 
@@ -40,9 +40,9 @@ void func_0013b2b8(f32 a0,u32 a1,u32 a2,u32 a3);  // 0x0013b2b8: definition move
 
 void func_0013b2d8(f32 a0,u32 a1,u32 a2,u32 a3);  // 0x0013b2d8: definition moved into src/anon/unit_0013a8b8.cpp
 
-u32 func_00141970(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a1; (void)a2; (void)a3; u32 p = *(u32*)((u32)a0 + (0)); return *(u32*)((u32)p + (12)); }
+u32 func_00141970(u32 a0,u32 a1,u32 a2,u32 a3);  // 0x00141970: definition moved into src/anon/unit_00141458.cpp
 
-u32 func_00143318(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a0; (void)a1; (void)a2; (void)a3; u32 p = D_00348818; return *(u32*)((u32)p + (0)); }
+u32 func_00143318(u32 a0,u32 a1,u32 a2,u32 a3);  // 0x00143318: definition moved into src/anon/unit_00142c90.cpp
 
 u32 func_0016a090(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a1; (void)a2; (void)a3; u32 p = *(u32*)((u32)a0 + (8)); return *(u8*)((u32)p + (74)); }
 
@@ -50,15 +50,15 @@ extern "C" u32 func_00177860(u32,u32,u32,u32) asm("_ZN2YS5PARTY11get_abilityEv")
 
 // 0017fd20: moved to src/yasui/libys/motion.cpp
 
-u32 func_0019fdb0(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a1; (void)a2; (void)a3; u32 v = *(u32*)((u32)a0 + (340)); return (u32)((s32)v + (1)); }
+u32 func_0019fdb0(u32 a0,u32 a1,u32 a2,u32 a3);  // 0x0019fdb0: definition moved into src/anon/unit_0019fb70.cpp
 
 // 001bc0d0: moved to src/yasui/libys/mission.cpp
 
-u32 func_001c5f78(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a1; (void)a2; (void)a3; u32 p = *(u32*)((u32)a0 + (92)); u32 v = *(u32*)((u32)p + (4)); v ^= 0x5bdu; return (v < 1u); }
+u32 func_001c5f78(u32 a0,u32 a1,u32 a2,u32 a3);  // 0x001c5f78: definition moved into src/anon/unit_001c5b90.cpp
 
-u32 func_001c90f0(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a1; (void)a2; (void)a3; u32 v = (u32)((s32)(*(u32*)((u32)a1 + (340))) + (-201)); return (v < (u32)4); }
+u32 func_001c90f0(u32 a0,u32 a1,u32 a2,u32 a3);  // 0x001c90f0: definition moved into src/anon/unit_001c8e80.cpp
 
-u32 func_001ca498(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a1; (void)a2; (void)a3; u32 v = (u32)((s32)(*(u32*)((u32)a0 + (340))) + (-31)); return (v < (u32)2); }
+u32 func_001ca498(u32 a0,u32 a1,u32 a2,u32 a3);  // 0x001ca498: definition moved into src/anon/unit_001ca148.cpp
 
 void func_001e0e40(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a1; (void)a2; (void)a3; u32 v = (u32)((s32)1); *(u32*)((u32)a0 + (36)) = v; }
 
@@ -88,7 +88,7 @@ void func_00276578(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a1; (void)a2; (void)a3; 
 
 void func_0029e950(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a1; (void)a2; (void)a3; u32 p = D_0035f5ac; *(u8*)((u32)p + (4)) = (u8)a0; }
 
-u32 func_002cb920(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a1; (void)a2; (void)a3; u32 v = *(u32*)((u32)a0 + (4)) + *(u32*)((u32)a0 + (8)); return (u32)((s32)v + (-1)); }
+u32 func_002cb920(u32 a0,u32 a1,u32 a2,u32 a3);  // 0x002cb920: definition moved into src/taito/path.cpp
 
 // 002e34c8: moved to src/anon/unit_002e2f08.cpp
 

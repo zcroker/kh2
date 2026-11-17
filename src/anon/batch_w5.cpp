@@ -7,19 +7,10 @@ struct Q16 { u32 w[4]; } __attribute__((aligned(16)));
 extern "C" {
 
 // Copy the quadword at src+0x60 to dst (unless they are the same).
-void func_00107478(u8* src, u8* dst) {  // vec_copy_at96_if_diff
-    src += 0x60;
-    if (dst != src) {
-        asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(dst), "r"(src) : "$8", "memory");
-    }
-}
+// 00107478: moved to src/naka/libkn/camera.cpp
 
 // Copy the quadword at src+0x40 to dst; returns dst.
-void* func_0011a900(void* dst, u8* src) {
-    src += 0x40;
-    asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(dst), "r"(src) : "$8", "memory");
-    return dst;
-}
+void* func_0011a900(void* dst, u8* src);  // 0x0011a900: definition moved into src/anon/unit_0011a660.cpp
 
 // Call the object's first virtual function.
 typedef void (*VFn)(void*);
@@ -69,33 +60,20 @@ void func_0016f7b0(void);  // 0x0016f7b0: definition moved into src/anon/unit_00
 
 // Pass a stack copy of the quadword *pp to func_00158920.
 void func_00158920(Q16*);
-void func_00174e10(Q16** pp) {
-    Q16 tmp;
-    asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(&tmp), "r"(*pp) : "$8", "memory");
-    func_00158920(&tmp);
-}
+void func_00174e10(Q16** pp);  // 0x00174e10: definition moved into src/anon/unit_00171e58.cpp
 
 // 00177a38: moved to src/yasui/libys/party.cpp
 
 struct Obj18f { u32 pad; s32 id; };
 void func_001863a8(s32, s32, f32);
-void func_0018f2a8(BD_VALUE* bd) {
-    Obj18f* o = (Obj18f*)bd[0].p;
-    s32 i = bd[1].i;
-    s32 id = o->id;
-    func_001863a8(id, i, bd[2].f);
-}
+void func_0018f2a8(BD_VALUE* bd);  // 0x0018f2a8: definition moved into src/anon/unit_0018f140.cpp
 
 extern u32 D_00350334;
 extern u32 D_01c61b04;
-void func_00196300(void) {
-    D_01c61b04 = func_001b1448(D_00350334);
-}
+void func_00196300(void);  // 0x00196300: definition moved into src/anon/unit_00195d00.cpp
 
 void func_001d8fa8(u32, u32);
-void func_001a04f8(BD_VALUE* bd) {
-    func_001d8fa8(bd[0].i != 0, bd[1].u);
-}
+void func_001a04f8(BD_VALUE* bd);  // 0x001a04f8: definition moved into src/anon/unit_0019fb70.cpp
 
 // Low five bits of table byte i.
 u8 func_001a8bf8(u8* p, s32 i) {  // get_bits5_at
@@ -103,24 +81,14 @@ u8 func_001a8bf8(u8* p, s32 i) {  // get_bits5_at
 }
 
 void func_0017c660(u8*, u8*);
-void func_001c3cd8(u8* a, u8* b) {
-    *(f32*)(b + 0x11c) = *(f32*)(*(u8**)(b + 0x12c) + 12);
-    func_0017c660(a, b);
-}
+void func_001c3cd8(u8* a, u8* b);  // 0x001c3cd8: definition moved into src/anon/unit_001c2b58.cpp
 
 void func_001c6460(void);
-void func_001c6748(u8* p) {
-    p[0x50] = 2;
-    *(void (**)(void))(p + 0x54) = func_001c6460;
-}
+void func_001c6748(u8* p);  // 0x001c6748: definition moved into src/anon/unit_001c5b90.cpp
 
 extern u32 D_01d49960[2];
 extern u32 D_01d49968;
-void func_001c8a90(void) {
-    D_01d49960[0] = 0;
-    D_01d49960[1] = 0;
-    D_01d49968 = 0;
-}
+// 0x1c8a90: moved to src/yasui/libys/summon.cpp
 
 void func_0021fe28(u8*);
 void func_001facd0(u8* base, u8* o) {
@@ -246,20 +214,11 @@ extern "C" void func_001c9770(void);
 extern "C" void func_001b9c28(u32);
 extern u32 D_01c60528[2];
 namespace YS {
-void trap_partram_add_ability(BD_VALUE* bd) {
-    s32 a = bd[0].i;
-    func_00188b68(a, bd[1].i, bd[2].i != 0);
-}
-void trap_camera_warp(BD_VALUE* bd) {
-    func_00140f10(func_00140df0());
-}
+// 0016e718: moved to src/anon/unit_0016d2e0.cpp
+void trap_camera_warp(BD_VALUE* bd);  // 0x00174ba8: definition moved into src/anon/unit_00171e58.cpp
 class FRIEND { public: static void Init(); };
 // 0017dec0: moved to src/yasui/libys/friend.cpp
-class EVENT { public: static void ControlOff(); };
-void EVENT::ControlOff() {
-    func_001b9c28(0);
-    func_001b9c28(1);
-}
+// 0x00197760 YS::EVENT::ControlOff: definition moved into src/anon/unit_00195d00.cpp
 }  // namespace YS
 
 extern "C" void func_0026bc10(void);
@@ -286,9 +245,8 @@ extern "C" void func_002c6280(u32, u32);
 // assign that class's start() to this file (which defines Timer start()).
 extern "C" {
 void worldmap_closeup_end(void) asm("_ZN8worldmap13CloseUpCamera3endEv");
-void worldmap_closeup_end(void) {
-    func_002c6280(func_002c6218(), 2);
-}
+// worldmap_closeup_end (0x2cb160): moved to src/anon/unit_002cac58.cpp
+
 }
 
 // 64-byte (matrix) copy through four quadword registers.

@@ -37,45 +37,7 @@ void func_001c9110(void*, Ob*);
 void func_0017f540(void*, s32, f32, f32);
 void func_0017f5e0(void*, s32, s32, f32, f32);
 void func_0016bd60(Ob*, s32);
-void func_001c92a0(void* x, Ob* o)
-{
-    QWord v;
-    v = o->q32;
-    Normalize(&v);
-    QWord c;
-    c = Cross(v, o->q16);
-    u32 fl = o->flags;
-    if (fl & 0x10) {
-        f32 d = Dot(v, o->q16);
-        if (func_001c90f0() && !(o->p2884->f8 & 4)) {  // id_in_201_204
-            o->flags &= ~0x10;
-            func_0017f540(o->sub, 202, 0.0f, 0.0f);
-            if (c.f[1] <= 0.0f) func_0017f5e0(o->sub, 203, 0, 0.0f, 0.0f);
-            else func_0017f5e0(o->sub, 204, 0, 0.0f, 0.0f);
-            return;
-        }
-        if (!(o->flags & 0x20)) {
-            void* s = o->sub;
-            if (o->f352 & 4) {
-                if (D_00352130->f188 < d) {
-                    func_0017f540(s, 201, 8.0f, 0.0f);
-                } else {
-                    f32 z = 0.0f; s32 id = 203; if (!(c.f[1] <= z)) id = 204; func_0017f540(s, id, 12.0f, z);
-                }
-                return;
-            }
-        }
-    } else if ((fl & 0x20) && o->f384 == o->f380) {
-        u32 t = o->f352;
-        if (t & 0x10) goto call;
-        if (t & 4) {
-        call:
-            func_0016bd60(o, 0);
-            return;
-        }
-    }
-    func_001c9110(x, o);
-}
+void func_001c92a0(void* x, Ob* o);  // 0x001c92a0: definition moved into src/anon/unit_001c91c8.cpp
 }
 namespace w320_c {
 struct V4r { f32 x, y, z, w; } __attribute__((aligned(16)));
@@ -403,33 +365,7 @@ void func_002baf48(void*, s32, void*, s32, s32, s32);
 s32 func_002ba200(void);
 void* func_002bd2f0(void*, s32*);
 s32 func_002bd230(s32, u32);
-void func_002bd310(Ctx2bd310* c)
-{
-    Heap2bd310* h = c->heap;
-    void* fh = c->file;
-    void* x = c->f12;
-    u32 y = c->f8;
-    func_002ba298(x);
-    s32 sz = func_001688c8(fh);
-    void* raw = h->vt->alloc(h, (sz + 2111) & ~2047, 0);
-    void* buf = (void*)(((u32)raw + 63) & ~63);
-    func_00168388(fh, buf, 0, 0);
-    while (func_00170cd0()) func_00102448(c, 0);
-    func_002baf48(x, 2, buf, sz, 0, 0);
-    while (func_002ba200()) func_00102448(c, 0);
-    s32 out = 0;
-    void* r = func_002bd2f0(buf, &out);
-    h->vt->free(h, raw);
-    if (func_002bd230(out, y)) return;
-    s32 sz2 = func_001688c8(r);
-    void* raw2 = h->vt->alloc(h, (sz2 + 2111) & ~2047, 0);
-    void* buf2 = (void*)(((u32)raw2 + 63) & ~63);
-    func_00168388(r, buf2, 0, 0);
-    while (func_00170cd0()) func_00102448(c, 0);
-    func_002baf48(0, 1, buf2, sz2, 0, 0);
-    while (func_002ba200()) func_00102448(c, 0);
-    h->vt->free(h, raw2);
-}
+void func_002bd310(Ctx2bd310* c);  // 0x002bd310: definition moved into src/anon/unit_002bc978.cpp
 
 }
 namespace w320_d {

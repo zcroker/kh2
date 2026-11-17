@@ -10,41 +10,12 @@ extern u32 D_003617fc asm("D_003617fc");
 
 
 
-bool Libretto::isExec() { return D_003617fc != 0; }
+// 0x002be4a0: definition moved into src/anon/unit_002be020.cpp
 
-void Libretto::leaveAllObj() {
-    s32 i = 0;
-    do {
-        func_002be0b0(this, (u32)i);  // quad_entry_process
-        i += 1;
-    } while (i < 4);
-}
+// 0x002be148: definition moved into src/anon/unit_002be020.cpp
 
-void Libretto::waitFlush() {
-    u8* s0 = (u8*)this;
-    u32 t7 = *(u32*)(s0 + 4);
-    func_00170dd0(*(u32*)(t7 + 16));
-    s8 t = *(s8*)(s0 + 64);
-    if (t != 0) {
-        u32 v = (u32)YS_CACHE_BUFF_Alloc((char const*)(s0 + 64), -1);
-        *(u32*)(s0 + 104) = v;
-    }
-}
+// 0x002be520: definition moved into src/anon/unit_002be020.cpp
 
-u32 Libretto::isExistObj() {
-    s32 i = 0;
-    u32* p = (u32*)(D_003617fc + 44);
-    while (true) {
-        if (*p != 0) {
-            return 1;
-        }
-        p += 1;
-        i += 1;
-        if (i < 4) {
-            continue;
-        }
-        return 0;
-    }
-}
+// 0x002be5b8: definition moved into src/anon/unit_002be020.cpp
 
 }  // namespace worldmap

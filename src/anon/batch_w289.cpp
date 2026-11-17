@@ -43,12 +43,10 @@ static inline __attribute__((always_inline)) void Body2c7e68(u8* p) {
     *(void***)(p + 28) = D_00347f98;
     *(void***)p = D_00347f98;
 }
-void func_002c7e68(u8* p) {
-    Body2c7e68(p);
-}
-void func_002c8028(u8* p) {
-    Body2c7e68(p);
-}
+void func_002c7e68(u8* p);  // 0x2c7e68: moved to src/anon/unit_002c7e68.cpp
+
+void func_002c8028(u8* p);  // 0x2c8028: moved to src/anon/unit_002c7e68.cpp
+
 }
 extern "C" {
 struct GEnt { u16 id; u8 b2; u8 b3; u16 pad; };
@@ -143,22 +141,7 @@ s32 func_0019ba60(u32);
 void func_0011b6a8(QMat*);
 QMat* func_0011b720(QMat*, f32);
 QWord func_0016be98(u32);
-s32 func_001c7540(u8* o) {
-    f32 t = *(f32*)(o + 64) - D_00349e10;
-    *(f32*)(o + 64) = t;
-    if (t <= 0.0f || !func_0019ba60(*(u32*)(o + 72))) return 0;
-    f32 w = *(f32*)(o + 60);
-    f32 r = *(f32*)(o + 64) / 40.0f;
-    QMat m;
-    func_0011b6a8(&m);
-    f32 s = 30.0f / (w * r);
-    m = *func_0011b720(&m, s < D_01d498c4 ? s : D_01d498c4);
-    *(QWord*)(o + 48) = MulV(m, *(QWord*)(o + 48));
-    *(f32*)(o + 60) = w;
-    *(QWord*)o = Add(Scale(*(QWord*)(o + 48), w * r), func_0016be98(*(u32*)(o + 72)));
-    *(u8*)(o + 22) = (s32)(r * 255.0f);
-    return 1;
-}
+// 001c7540: moved to src/anon/unit_001c7148.cpp (linked unit)
 }
 }
 namespace w289_p {
@@ -236,27 +219,6 @@ extern QWord D_00352a60;
 extern u32 D_0034e948;
 QWord func_0016af58(u32);
 void func_001c6900(u8*, QWord*);
-s32 func_001c5c60(u8* o) {
-    if (D_0035169c[o[82] * 8] & 2) {
-    QWord d = Sub(*(QWord*)o, D_00352a60);
-    d.f[1] = 0.0f;
-    QWord dir = func_0016af58(D_0034e948);
-    f32 t = Dot(dir, d);
-    if (t < 0.0f || 1000.0f < t) return 0;
-    QWord up;
-    up.f[0] = 0.0f;
-    up.f[1] = -1.0f;
-    up.f[2] = 0.0f;
-    up.f[3] = 0.0f;
-    QWord c = Cross(up, dir);
-    d.f[0] = Dot(c, d);
-    if (40000.0f < d.f[0] * d.f[0] + d.f[1] * d.f[1]) return 0;
-    d = Sub(*(QWord*)o, D_00352a60);
-    Normalize(&d);
-    func_001c6900(o, &d);
-    return 1;
-    }
-    return 0;
-}
+s32 func_001c5c60(u8* o);  // 0x001c5c60: definition moved into src/anon/unit_001c5b90.cpp
 }
 }

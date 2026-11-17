@@ -21,16 +21,12 @@ f32 func_001142e0(u8* p, s32 i, u8 a, u8 b) {  // entry8_float_by_flags
 
 extern u32 D_00348804;
 u8 func_001652c8(u32, u32, u32, u32, u32, u32, u32, u32);
-u32 func_00143470(u32 a, u32 b, u32 c, u32 d, u32 e, u32 f, u32 g) {
-    return func_001652c8(D_00348804, a, b, c, d, e, f, g);
-}
+u32 func_00143470(u32 a, u32 b, u32 c, u32 d, u32 e, u32 f, u32 g);  // 0x00143470: definition moved into src/anon/unit_00142c90.cpp
 
 extern u8 D_00349f00[];
 void* func_0014e648(void*);  // ptr_add752
 void func_0014dd60(void*, u8, u8, u8);  // store_3bytes_470
-void func_0014e140(u8 a, u8 b, u8 c) {
-    func_0014dd60(func_0014e648(D_00349f00), a, b, c);  // store_3bytes_470
-}
+// 0014e140: moved to src/anon/unit_0014d680.cpp
 
 extern Q16 D_0034aa50[2];
 Q16* func_0016c028(u32);  // obj_get_attach_or_alt
@@ -53,18 +49,10 @@ s32 func_00162b18(f32* a, f32* b, f32* out) {  // vec3_dot_plus_scale
 
 void func_0017d050(void*, u32);
 extern u8 D_004f62a0[];
-void func_0016dad8(u8* p) {
-    u8 tmp[16] __attribute__((aligned(16)));
-    func_0017d050(tmp, *(u32*)p);
-    u8* d = D_004f62a0;
-    if (d != tmp) asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(d), "r"(tmp) : "$8", "memory");
-    *(u8**)p = d;
-}
+// 0016dad8: moved to src/anon/unit_0016d2e0.cpp
 
 u32 func_00180378(u32, u32, u32, f32);
-void func_00172440(u8* p) {
-    *(u32*)p = func_00180378(*(u32*)(*(u8**)p + 4) + 320, *(u32*)(*(u8**)(p + 4) + 4), *(u32*)(p + 8), *(f32*)(p + 12));
-}
+void func_00172440(u8* p);  // 0x00172440: definition moved into src/anon/unit_00171e58.cpp
 
 s32 func_00181500(s32);
 // 001819c0: moved to src/yasui/libys/progress.cpp
@@ -76,18 +64,7 @@ s32 func_001860b0(u32 a, f32* b);
 // Puts an ability (15-bit id + enabled bit) into the first free slot of the 80-entry list.
 struct AbilitySlot { u16 id : 15; u16 on : 1; };
 void partram_add_ability(u8* self, s32 id, u8 on) asm("_ZN2YS7PARTRAM11add_abilityEib");
-void partram_add_ability(u8* self, s32 id, u8 on) {
-    AbilitySlot* a = (AbilitySlot*)(self + 80);
-    for (s32 i = 0; i < 80; i++) {
-        if (a[i + 2].id == 0) {
-            AbilitySlot x;
-            x.id = id;
-            x.on = on != 0;
-            a[i + 2] = x;
-            return;
-        }
-    }
-}
+void partram_add_ability(u8* self, s32 id, u8 on);  // 0x00188b68: definition moved into src/anon/unit_00188848.cpp
 
 struct S24 { u32 w[6]; };
 void func_00192868(u32, u32, S24);
@@ -106,15 +83,7 @@ u32 ctarget_0019b260(u32 id, u32, u32, u32) {
 }
 
 // Adds n to a counter capped at 100, and to two halfword totals.
-void func_001a2668(u8* p, s32 n) {
-    u8* q = *(u8**)(p + 580);
-    if (q) {
-        if (q[8] + n > 100) n = 100 - q[8];
-        q[8] += n;
-    }
-    *(u16*)(p + 398) += n;
-    *(u16*)(p + 406) += n;
-}
+void func_001a2668(u8* p, s32 n);  // 0x001a2668: definition moved into src/anon/unit_0019fb70.cpp
 
 s32 func_001a8f10(s32 x) {  // arg_map_0_1_2
     switch (x) {
@@ -135,44 +104,20 @@ void func_00168328(void*, u32);
 // 001b1490: moved to src/yasui/libys/databuff.cpp
 
 void func_001bc720(u8*);
-void func_001bc730(u8* p, s32 i) {
-    if (i < *(s32*)(p + 8)) {
-        *(s32*)(p + 108) = i;
-        *(u32*)(p + 112) = *(u16*)(i * 12 + (u32)p + 14);
-    } else {
-        func_001bc720(p);
-    }
-}
+void func_001bc730(u8* p, s32 i);  // 0x001bc730: definition moved into src/anon/unit_001bc568.cpp
 
 // Pops the stack pointer at +2240 (clearing the top slot).
 void func_002ba2e8(u32, u32);
-void func_001bd618(u8* p, u8 flag) {
-    void** sp = (void**)(p + 2240);
-    *(void**)*sp = 0;
-    if (*sp == (void*)(p + 2536)) *sp = 0;
-    else *sp = (u8*)*sp - 4;
-    if (flag) func_002ba2e8(4, 0);
-}
+void func_001bd618(u8* p, u8 flag);  // 0x001bd618: definition moved into src/anon/unit_001bc568.cpp
 
 void func_00177dc8(void*, u32, u32, u32, u32);
 void func_001d56f0(void*);  // zero_three_words
 extern u8 D_003521e0[];
-void func_001ced68(u8* p, u32 a1, u32 a2, u32 a3) {
-    func_00177dc8(p, a1, 0, a2, a3);
-    *(u32*)(p + 2920) = 0;
-    *(u32*)(p + 2928) = 0;
-    *(void**)p = D_003521e0;
-    func_001d56f0(p + 2932);  // zero_three_words
-    *(u32*)(p + 1420) |= 4;
-}
+void func_001ced68(u8* p, u32 a1, u32 a2, u32 a3);  // 0x001ced68: definition moved into src/anon/unit_001ce6e8.cpp
 
 void func_001d2110(void*, s32);
 void func_001d2248(void*, s32);
-void func_001d2130(u8* p, s32 n, f32 f) {
-    func_001d2110(p, *(s32*)(p + 44) + n);
-    func_001d2248(p, *(s32*)(p + 44));
-    *(f32*)(p + 60) = f;
-}
+void func_001d2130(u8* p, s32 n, f32 f);  // 0x001d2130: definition moved into src/anon/unit_001d14e0.cpp
 
 // "Assertion failed: %s\n" / "   File %s, Line %u\n" then break.
 extern char D_0036e978[];
@@ -256,30 +201,16 @@ void func_00242d80(u8 f) {
 
 extern char D_01e2bba0[];
 extern char D_00374fa8[];
-char* func_002bd260(u32 a) {
-    func_002fee78(D_01e2bba0, D_00374fa8, a);
-    strlen(D_01e2bba0);  // strlen
-    return D_01e2bba0;
-}
+char* func_002bd260(u32 a);  // 0x002bd260: definition moved into src/anon/unit_002bc978.cpp
 
 extern u8 D_00361980[];
 extern u8 D_003637e0[];
 typedef void (*VFn)(void*);
-void func_002bee58(u8* p) {
-    *(u8**)p = D_00361980;
-    u8* o = *(u8**)(p + 36);
-    (*(VFn*)((*(u8**)o) + 12))(o);
-    *(u8**)p = D_003637e0;
-}
+void func_002bee58(u8* p);  // 0x002bee58: definition moved into src/anon/unit_002bebd0.cpp
 
 void func_00143e50(void*, u16, u32);
 void func_00186a90(void*, void*, f32);
-void func_002c5ff8(u8* p, u32 a) {
-    f32 tmp[4] __attribute__((aligned(16)));
-    asm volatile("vsub.xyzw $vf1, $vf0, $vf0\n\tsqc2 $vf1, 0(%0)" : : "r"(p + 32) : "memory");
-    func_00143e50(tmp, a, 0);
-    func_00186a90(p, tmp, 1000.0f);
-}
+void func_002c5ff8(u8* p, u32 a);  // 0x002c5ff8: definition moved into src/anon/unit_002c53c8.cpp
 
 extern u8 D_003629e8[];
 void func_002e4a90(void*);  // in_even_range

@@ -87,14 +87,5 @@ s32 func_001a3570(u32);
 extern f32 D_00349e10;
 W248V4* func_0016b0a0(W248Mv*);
 void func_0016b070(W248Mv*, W248V4*);
-void func_001cfaf0(void* self, W248Mv* m) {
-    W248V4 v = *func_0016b0a0(m);
-    if (0.0f < m->f1c) {
-        v.y += m->f10 * m->kx * D_00349e10;
-        v.y = W248Clamp(v.y, m->limx);
-        v.x += m->f14 * m->ky * D_00349e10;
-        v.x = W248Clamp(v.x, m->limy);
-        func_0016b070(m, &v);
-    }
-}
+void func_001cfaf0(void* self, W248Mv* m);  // 0x001cfaf0: definition moved into src/anon/unit_001cf0b0.cpp
 }

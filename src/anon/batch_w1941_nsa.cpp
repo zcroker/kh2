@@ -131,25 +131,6 @@ s32 func_0019ba60(Tgt1941*);
 f32 func_001cbf50(f32);
 f32 cosf(f32);
 f32 sinf(f32);
-s32 func_001cad60(Ob1941* self) {
-    Tgt1941* t = func_002d1260();
-    self->f64 -= D_00349e10;
-    if (self->f64 <= 0.0f || !func_0019ba60(t)) return 0;
-    self->f160 += self->f168 * D_00349e10;
-    f32 k = self->f64 / D_00351fd8;
-    f32 a = func_001cbf50(self->f160);
-    self->pos.x = cosf(a);
-    self->pos.y = sinf(a);
-    self->pos.z = 0.0f;
-    qmuls1941(&self->pos, self->f172 * k);
-    Q1941 v = self->v112;
-    qmuls1941(&v, v.w * k);
-    Mot1941* m = t->vt->get(t);
-    Q1941 u;
-    qadd1941(&u, &v, &m->p);
-    qadd1941(&self->pos, &self->pos, &u);
-    self->b22 = (s32)(k * 255.0f);
-    return 1;
-}
+s32 func_001cad60(Ob1941* self);  // 0x001cad60: definition moved into src/anon/unit_001ca8e0.cpp
 
 }

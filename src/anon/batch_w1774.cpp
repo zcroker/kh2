@@ -29,13 +29,6 @@ void func_0018e040(s32 a0);  // 0x0018e040: definition moved into src/anon/unit_
 W1774Vec func_0019fbe0r(void) asm("func_0019fbe0");
 s32 func_001b2d10(void*, W1774Vec*);
 
-W1774Vec* func_001c8fe8(W1774Vec* r, W1774Obj* o, void* x) {
-    W1774Vec t;
-    *r = func_0019fbe0r();
-    if (r->y > 0.0f) {
-        if (func_001b2d10(x, r)) o->v5(x);
-    }
-    return r;
-}
+W1774Vec* func_001c8fe8(W1774Vec* r, W1774Obj* o, void* x);  // 0x001c8fe8: definition moved into src/anon/unit_001c8e80.cpp
 
 }

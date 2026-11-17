@@ -53,39 +53,7 @@ void func_002ce598(void*, void*);
 struct W290Ent { f32 a; f32 b; f32 c; };
 struct W290Dat { u16 h0; u16 n; u8 b4; u8 p5[3]; W290Ent e[1]; };
 struct W290Cd {  u8 p0[12]; u32 n; u8 b16; u8 p17[15]; f32 f32_; u8 p36[92]; u32 buf; u8 p132; u8 b133; u8 b134; u8 p135[9]; W290Dat* dat; };
-W290Cd* func_002cd018(u8* act, W290Dat* d, void* a2, f32 f) {
-    s32 s4 = 0;
-    W290Cd* p = (W290Cd*)func_001050d8(160);
-    func_002cb5d8(p, f);
-    p->n = d->n;
-    p->buf = (u32)func_001050d8(d->n << 5);
-    if (*(u32*)(act + 1416) & 8) s4 = func_0018ac80(act, 3) != 0;
-    for (s32 i = 0; i < d->n; i++) {
-        f32 t[4];
-        t[0] = d->e[i].a;
-        t[1] = d->e[i].b;
-        if (s4) t[1] = d->e[0].b;
-        t[2] = d->e[i].c;
-        t[3] = 1.0f;
-        func_002cb828(p, t);  // ring_advance_index
-    }
-    p->b16 = d->b4 & 1;
-    f32 z = 0.0f;
-    if (!(d->b4 & 2)) z = 0.5f;
-    p->f32_ = z;
-    func_002cc7d0(p);
-    if (*(u32*)(act + 1416) & 8) {
-        p->b134 = func_0018ac80(act, 2);
-        if (func_0018ac80(act, 1)) func_002ce598(p, a2);
-        else func_002ce870(p, act);
-    } else {
-        p->b134 = 0;
-        func_002ce598(p, a2);
-    }
-    p->dat = d;
-    p->b133 = p->b134 == 0;
-    return p;
-}
+W290Cd* func_002cd018(u8* act, W290Dat* d, void* a2, f32 f);  // 0x002cd018: definition moved into src/taito/path.cpp
 
 extern void* D_00361de8[];
 extern u8 D_00347e60[];
@@ -126,10 +94,8 @@ inline W290Big::~W290Big() {
         D_00361dd8 = t;
 }
 
-void func_002c81e8(W290Big* p) {
-    p->~W290Big();
-    func_00105110(p);
-}
+void func_002c81e8(W290Big* p);  // 0x2c81e8: moved to src/anon/unit_002c7e68.cpp
+
 
 struct W290Q { f32 x, y, z, w; } __attribute__((aligned(16)));
 extern W290Q* D_0034a3f4;
@@ -150,16 +116,5 @@ extern W290M D_01d49610;
 extern W290V D_00352a60;
 s32 func_001c4160(W290Fx*);  // get_global_byte_35d60c
 void func_001c4188(W290Fx*, f32);
-void func_001c4e30(W290Fx* o) {
-    W290V l;
-    o->pos = o->v48 + D_01d49590[o->idx];
-    l = D_01d49610 * o->v48;
-    if (func_001c4160(o)) func_001c4188(o, (o->pos - D_00352a60).LengthSq());  // get_global_byte_35d60c
-    if (o->cnt) { o->cnt--; return; }
-    if (l.z < 300.0f) { o->f21 = 0; return; }
-    l = o->pos - D_00352a60;
-    o->f21 = -128;
-    f32 len = l.Normalize();
-    if (len < 1200.0f) o->pos.y -= (1200.0f - len) * 0.5f;
-}
+void func_001c4e30(W290Fx* o);  // 0x001c4e30: definition moved into src/anon/unit_001c4dc8.cpp
 }

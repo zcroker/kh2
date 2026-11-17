@@ -41,17 +41,7 @@ s32 func_0015d440() {
 extern u8* D_00347d64;
 void func_00192c90(u32, void*);
 void func_00192b30(u32);
-void func_00138210(u32 a) {
-    u8* q = D_00347d64 + 10692;
-    s32 h = *(s32*)q;
-    s32 d = h - *(s32*)(q + 4);
-    s32 r = (d + 16) % 16;
-    if (r < 15) {
-        *(s32*)q = (h + 1) % 16;
-        func_00192c90(a, q + h * 476 + 452);
-        func_00192b30(a);
-    }
-}
+void func_00138210(u32 a);  // 0x00138210: definition moved into src/anon/unit_001374c8.cpp
 
 extern f32 D_00349e14;
 s32 func_00197920(void*);

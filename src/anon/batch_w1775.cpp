@@ -18,11 +18,7 @@ static inline bool W1775_CanAct(W1775Obj* o) { bool r = false; if (func_0019c090
 
 
 /* Notifies the held object, then replaces the holder pointer with the object's busy flag. */
-void func_00173878(W1775Self* s) {
-    if (s->h) func_0019ba60(s->h->obj);
-    W1775Obj* o = s->h->obj;
-    *(u32*)s = W1775_Busy(o);
-}
+void func_00173878(W1775Self* s);  // 0x00173878: definition moved into src/anon/unit_00171e58.cpp
 
 // 00179148: moved to src/yasui/libys/player.cpp
 

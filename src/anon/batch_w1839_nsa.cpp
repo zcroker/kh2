@@ -27,31 +27,6 @@ extern "C" {
 u16* func_001c0c80(u16);
 u16* func_001c0cc8(void);
 void wtarget_00194468(Obj* p, u32, u32, u32) asm("_Z16wtarget_00194468jjjj");
-void wtarget_00194468(Obj* p, u32, u32, u32) {
-    switch (p->mode) {
-    case 0: p->f10c |= 0x200; break;
-    case 1: case 2: case 3: setSub(p, p->mode - 1); p->f10c &= ~0x200; break;
-    case 4: case 5: case 6: setSub(p, p->mode - 4); p->f10c |= 0x200; break;
-    }
-}
-void func_001a0ee0(Dst* d, Src* s) {
-    u16* t;
-    s32 i;
-    if (s->id) t = func_001c0c80(s->id);
-    else t = func_001c0cc8();
-    for (i = 0; i < 32; i++) {
-        d->e[i].b = d->e[i].a = (t[0] * s->v[i] + 99) / 100;
-        d->e[i].c = 0;
-    }
-    d->h188 = t[1];
-    d->h18c = t[2];
-    d->w198 = t[3];
-    d->w19c = t[4];
-    s32 r = d->e[0].b;
-    d->w1a0 = (r * s->m44 + 9999) / 10000;
-    d->w1a4 = (r * s->m46 + 9999) / 10000;
-    for (i = 0; i < 7; i++) d->b1a8[i] = s->k[i];
-    d->f1c4 = D_00352130->f;
-    d->src = s;
-}
+void wtarget_00194468(Obj* p, u32, u32, u32);  // 0x00194468: definition moved into src/anon/unit_00193be8.cpp
+void func_001a0ee0(Dst* d, Src* s);  // 0x001a0ee0: definition moved into src/anon/unit_0019fb70.cpp
 }

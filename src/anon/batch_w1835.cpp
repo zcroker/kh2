@@ -97,33 +97,6 @@ void func_001eea30(W1835Obj* self, W1835Src* p, W1835Idx* q) {
 }
 
 
-void func_001bed48(W1835Self* self) {
-    void* sub = self->sub;
-    s32 i = 0;
-    func_001bc778(sub);
-    W1835Tbl* t = &D_0032bb30;
-    u16* alt = D_0036dc88;
-    u16* ids = t->ids;
-    do {
-        u16 id = *ids;
-        W1835Ent* e = func_001b8e88(id);
-        s32 cnt;
-        if (e->type == 3) {
-            W1835Ctx* c = func_00177850(self->o);
-            s32 j;
-            cnt = 0;
-            for (j = 0; j < c->n; j++) {
-                if (c->ids[j] == e->key) cnt++;
-            }
-        } else {
-            if (self->o->mode == 3) id = *alt;
-            cnt = 1;
-        }
-        ids++;
-        alt++;
-        func_001bc780(sub, id, 0, cnt)->idx = i + 1;
-        i++;
-    } while (i < 4);
-}
+void func_001bed48(W1835Self* self);  // 0x001bed48: definition moved into src/anon/unit_001bc568.cpp
 
 }

@@ -61,52 +61,7 @@ int func_0016b740(s32);
 f32 func_00106558(f32);
 f32 func_001db510(O318*, Q318);
 f32 func_001065a8(f32, f32);
-int func_0018c650(R318c* o, Q318* v, int n, E318c* tab, O318* obj, f32 fa, f32 fb) {
-    E318c* sel = 0;
-    int acc = 0;
-    E318c* sp5 = 0;
-    int r = (int)func_001064a8(100);  // int_to_float_scaled
-    for (int i = 0; i < n; i++) {
-        if (tab[i].b0 == obj->h->h2) {
-            if (tab[i].b1 == 3) sp5 = &tab[i];
-            else {
-                int w = tab[i].b2;
-                if (r >= acc && r < acc + w) sel = &tab[i];
-                acc += w;
-            }
-        }
-    }
-    if (sel) {
-    func_0018c438(o);
-    o->a = sel->b1 == 1 ? 6 : 2;
-    o->c = func_0018c528(sel->b1);
-    switch (sel->b3) {
-    case 1:
-        o->b = 1;
-        o->d = func_0016b740(sel->ix);
-        break;
-    case 2:
-        o->b = 2;
-        break;
-    case 3: {
-        o->b = 3;
-        o->q = Q318(sel->x, sel->y, sel->z, 0.0f);
-        break;
-    }
-    case 0:
-    default:
-        o->b = 0;
-    }
-    o->b36 = 0;
-    if (sp5 && func_001064a8(100) < sp5->b2) o->b36 = 1;
-    o->obj = obj;
-    o->f40 = func_00106558(1.0f);
-    o->f44 = func_001db510(o->obj, *v);
-    o->f80 = func_001065a8(fa, fb);
-    return 1;
-    }
-    return 0;
-}
+int func_0018c650(R318c* o, Q318* v, int n, E318c* tab, O318* obj, f32 fa, f32 fb);  // 0x0018c650: definition moved into src/yasui/libys/npc.cpp
 
 s32 func_0013dda0(int);
 s32 func_00158290(void*);

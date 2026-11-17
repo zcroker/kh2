@@ -235,28 +235,5 @@ void func_002d4548(u8* self) {
     *(f32*)(self + 2876) = save;
 }
 
-f32 func_002cd518(u32, f32* out, const QV323* a, const QV323* b, const QV323* c) {
-    QV323 d1 = *c - *b;
-    QV323 d2 = *a - *b;
-    if (d1.dot(d2) < 0.0f) {
-        *out = d2.length();
-        return 0.0f;
-    }
-    f32 len = d1.normalize();
-    QM323 m;
-    m.r[0] = d1 * d1.x;
-    m.r[1] = d1 * d1.y;
-    m.r[2] = d1 * d1.z;
-    d2.w = 0.0f;
-    QV323 p = m * d2;
-    f32 pl = p.length();
-    if (len < pl) {
-        *out = (*a - *c).length();
-        return 1.0f;
-    }
-    f32 h = d2.lensq() - p.lensq();
-    if (h <= 0.0f) *out = 0.0f;
-    else *out = __builtin_sqrtf(h);
-    return pl / len;
-}
+f32 func_002cd518(u32, f32* out, const QV323* a, const QV323* b, const QV323* c);  // 0x002cd518: definition moved into src/taito/path.cpp
 }

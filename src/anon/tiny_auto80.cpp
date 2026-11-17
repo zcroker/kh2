@@ -36,12 +36,7 @@ u32 func_0014a2f0(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_0014d060();
 }
 
-u32 func_00188fc0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2;
-    r4 = 0u;
-    r2 = func_001c2eb8(r4, r5, r6, r7);
-    return func_001b87b0();
-}
+u32 func_00188fc0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00188fc0: definition moved into src/anon/unit_00188848.cpp
 
 // 001919a8: moved to src/yasui/libys/status.cpp
 
@@ -1106,30 +1101,9 @@ extern u8 D_01e2bba0;
 extern u8 D_01e2bbe0;
 extern u8 D_01e38e68;
 
-void func_00106108(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r13, r14, r15;
-    r15 = *(volatile u32*)((u32)r4 + (s32)(4));
-    r14 = (u32)((s32)r4 + (20));
-    r13 = *(volatile u32*)((u32)r4 + (s32)(8));
-    r15 = (u32)(r15 - r14);
-    *(volatile u32*)((u32)r4 + (s32)(12)) = 0u;
-    *(volatile u32*)((u32)r4 + (s32)(20)) = r13;
-    *(volatile u32*)((u32)r4 + (s32)(28)) = r15;
-    *(volatile u32*)((u32)r4 + (s32)(24)) = 0u;
-    *(volatile u32*)((u32)r4 + (s32)(32)) = r4;
-    *(volatile u32*)((u32)r4 + (s32)(16)) = 0u;
-}
+// 00106108: moved to src/naka/libkn/memoryallocator.cpp
 
-void func_00106420(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r14, r15;
-    r5 = r4;
-    if (r4 != 0u) {
-        r4 = *(volatile u32*)((u32)r4 + (s32)(-4));
-        r14 = *(volatile u32*)((u32)r4 + (s32)(0));
-        r15 = *(volatile u32*)((u32)r14 + (s32)(4));
-        ((void(*)(u32,u32,u32,u32))(u32)r15)(r4, r5, r6, r7);
-    }
-}
+// 00106420: moved to src/naka/libkn/memoryallocator.cpp
 
 void func_00113450(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r14, r15;
@@ -1180,27 +1154,9 @@ u32 func_00134020(u32 a0, u32 a1, u32 a2, u32 a3) {
     return r2;
 }
 
-void func_00138c90(u32 a0, u32 a1, u32 a2, u32 a3) {  // sum_fields_to_out
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r14, r15;
-    r14 = *(volatile u32*)((u32)r4 + (s32)(376));
-    r15 = *(volatile u32*)((u32)r4 + (s32)(368));
-    r15 = (u32)(r15 + r14);
-    *(volatile u32*)((u32)r5 + (s32)(0)) = r15;
-    r14 = *(volatile u32*)((u32)r4 + (s32)(380));
-    r15 = *(volatile u32*)((u32)r4 + (s32)(372));
-    r15 = (u32)(r15 + r14);
-    *(volatile u32*)((u32)r6 + (s32)(0)) = r15;
-}
+void func_00138c90(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00138c90: definition moved into src/anon/unit_00138480.cpp
 
-void func_0013f538(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3;
-    *(volatile u32*)((u32)r4 + (s32)(68)) = 0u;
-    *(volatile u8*)((u32)r4 + (s32)(56)) = (u8)0u;
-    *(volatile u8*)((u32)r4 + (s32)(57)) = (u8)0u;
-    *(volatile u8*)((u32)r4 + (s32)(59)) = (u8)0u;
-    *(volatile u32*)((u32)r4 + (s32)(60)) = 0u;
-    *(volatile u32*)((u32)r4 + (s32)(64)) = 0u;
-}
+void func_0013f538(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0013f538: definition moved into src/anon/unit_0013ef70.cpp
 
 void func_00144e30(u32 a0, u32 a1, u32 a2, u32 a3) {  // zero_6_halfwords
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3;
@@ -1221,45 +1177,19 @@ void func_0014a988(u32 a0, u32 a1, u32 a2, u32 a3) {  // clear_fields_244_260
     *(volatile u32*)((u32)r4 + (s32)(256)) = 0u;
 }
 
-void func_001666a0(u32 a0, u32 a1, u32 a2, u32 a3) {  // zero_fields_0_4_6_8
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3;
-    *(volatile u16*)((u32)r4 + (s32)(8)) = (u16)0u;
-    *(volatile u32*)((u32)r4 + (s32)(0)) = 0u;
-    *(volatile u16*)((u32)r4 + (s32)(4)) = (u16)0u;
-    *(volatile u16*)((u32)r4 + (s32)(6)) = (u16)0u;
-}
+void func_001666a0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001666a0: definition moved into src/anon/unit_001664c0.cpp
 
 void func_0016fab0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0016fab0: definition moved into src/anon/unit_0016e8f8.cpp
 
 u32 func_00170c38(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00170c38: definition moved into src/anon/unit_0016e8f8.cpp
 
-u32 func_001740b8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2, r15;
-    r5 = *(volatile u32*)((u32)r4 + (s32)(4));
-    r4 = *(volatile u32*)((u32)r4 + (s32)(0));
-    r2 = ((u32(*)(u32,u32,u32,u32))func_00198c28)(r4, r5, r6, r7);
-    r15 = (u32)((s32)0u + (1));
-    *(volatile u8*)((u32)r2 + (s32)(48)) = (u8)r15;
-    return r2;
-}
+u32 func_001740b8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001740b8: definition moved into src/anon/unit_00171e58.cpp
 
 // 00177a28: moved to src/yasui/libys/party.cpp
 
-void func_0018c438(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3;
-    *(volatile u8*)((u32)r4 + (s32)(49)) = (u8)0u;
-    *(volatile u8*)((u32)r4 + (s32)(48)) = (u8)0u;
-    *(volatile u32*)((u32)r4 + (s32)(0)) = 0u;
-    *(volatile u32*)((u32)r4 + (s32)(4)) = 0u;
-    *(volatile u32*)((u32)r4 + (s32)(12)) = 0u;
-    *(volatile u32*)((u32)r4 + (s32)(32)) = 0u;
-}
+void func_0018c438(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0018c438: definition moved into src/yasui/libys/npc.cpp
 
-void func_0019f480(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3;
-    *(volatile u32*)((u32)r4 + (s32)(4)) = 0u;
-    *(volatile u32*)((u32)r4 + (s32)(0)) = 0u;
-}
+void func_0019f480(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0019f480: definition moved into src/anon/unit_0019ee80.cpp
 
 // 001ac6a0: moved to src/anon/unit_001abb28.cpp
 
@@ -1270,15 +1200,7 @@ void func_001b5ce8(u32 a0, u32 a1, u32 a2, u32 a3) {
     *(volatile u32*)((u32)r4 + (s32)(4)) = r6;
 }
 
-u32 func_001dc540(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2, r15;
-    r15 = *(volatile u32*)((u32)r5 + (s32)(0));
-    r2 = (u32)((s32)0u + (1));
-    *(volatile u32*)((u32)r4 + (s32)(16)) = r7;
-    *(volatile u32*)((u32)r4 + (s32)(20)) = r15;
-    *(volatile u32*)((u32)r4 + (s32)(24)) = r6;
-    return r2;
-}
+u32 func_001dc540(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001dc540: definition moved into src/anon/unit_001dbfd8.cpp
 
 void func_001ddd10(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3;
@@ -1329,38 +1251,15 @@ void func_0023f8a8(u32 a0, u32 a1, u32 a2, u32 a3) {
     *(volatile u32*)((u32)r4 + (s32)(16)) = 0u;
 }
 
-void func_002bce40(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3;
-    *(volatile u8*)((u32)r4 + (s32)(336)) = (u8)0u;
-    *(volatile u32*)((u32)r4 + (s32)(324)) = 0u;
-}
+void func_002bce40(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002bce40: definition moved into src/anon/unit_002bc978.cpp
 
-void func_002c1478(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r14, r15;
-    if (r4 != 0u) {
-        r15 = *(volatile u32*)((u32)r4 + (s32)(0));
-        r14 = *(volatile u32*)((u32)r15 + (s32)(16));
-        ((void(*)(u32,u32,u32,u32))(u32)r14)(r4, r5, r6, r7);
-    }
-}
+void func_002c1478(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002c1478: definition moved into src/anon/unit_002c10e0.cpp
 
-void func_002c8520(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r14, r15;
-    if (r4 != 0u) {
-        r15 = *(volatile u32*)((u32)r4 + (s32)(0));
-        r14 = *(volatile u32*)((u32)r15 + (s32)(16));
-        ((void(*)(u32,u32,u32,u32))(u32)r14)(r4, r5, r6, r7);
-    }
-}
+void func_002c8520(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x2c8520: moved to src/anon/unit_002c7e68.cpp
 
-void func_002c9ea8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r14, r15;
-    if (r4 != 0u) {
-        r15 = *(volatile u32*)((u32)r4 + (s32)(0));
-        r14 = *(volatile u32*)((u32)r15 + (s32)(16));
-        ((void(*)(u32,u32,u32,u32))(u32)r14)(r4, r5, r6, r7);
-    }
-}
+
+void func_002c9ea8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x2c9ea8: moved to src/anon/unit_002c9998.cpp
+
 
 u32 func_002d18e8(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3;

@@ -84,20 +84,7 @@ void func_00140210(void*, s32, f32);
 void func_0013f828(void*);
 void func_0013f888(void*, void*, s32);
 void func_0013fca8(void*);
-void func_001403b0(u8* self)
-{
-    s32 r = 0;
-    func_0013f5f0(self);  // copy_float_220_to_48
-    s32 g = func_00167f18(0);
-    VObj* o = *(VObj**)(self + 68);
-    f32 dt = D_00349e10;
-    if (((VFn)o->vt[16])(o)) r = func_0013ff08(self, g, dt);
-    r = func_00140370(self, r);
-    if (!r && self[58] == 1) func_00140210(self, g, dt);
-    func_0013f828(self);
-    func_0013f888(self, self + 128, r);
-    func_0013fca8(self);
-}
+void func_001403b0(u8* self);  // 0x001403b0: definition moved into src/anon/unit_0013fca8.cpp
 
 // 00143b88: two-stage lookup; the second stage overrides the first on success.
 union Word { void* p; u32 w; u16 h; };
@@ -105,16 +92,7 @@ extern Word D_00348804;
 s32 func_00165db8(u32, u32, u16*, u32, u32, u32, u32*, u32, u32);
 void func_00141c18(void*, u32, u32, u32, u32);
 s32 func_00141ff0(void*, u32, u32, u16*, u32);
-s32 func_00143b88(u32 a0, u32 a1, u16* out, Word* flag, u32 a4)
-{
-    u16 id[2];
-    flag->w = 0;
-    s32 r = func_00165db8(a0, a1, &id[0], 0, 0, 0, &flag->w, a4, 0);
-    *out = id[0];
-    func_00141c18(D_00348804.p, 0, 0, 0, 0);
-    if (func_00141ff0(D_00348804.p, a0, a1, &id[1], a4)) { flag->w = 0; r = 1; *out = id[1]; }
-    return r;
-}
+s32 func_00143b88(u32 a0, u32 a1, u16* out, Word* flag, u32 a4);  // 0x00143b88: definition moved into src/anon/unit_00142c90.cpp
 
 // 00146128
 s32 func_00146730(void*, void*);
@@ -167,18 +145,7 @@ extern u8* D_00352130;
 
 // 00194318: step a fade level by +-16 (clamped 0..128) and apply it to two colour entries.
 u8* func_001bfd60(void*, u32);
-void func_00194318(u8* self)
-{
-    s32 d = self[2268] == 1 ? -16 : 16;
-    s32 v = self[2269] + d;
-    self[2269] = v < 0 ? 0 : (v < 129 ? v : 128);
-    u8* a = func_001bfd60(self + 2272, 0xffc00);
-    u8* b = func_001bfd60(self + 2272, 0x3ff00000);
-    *(u32*)(self + 1656) |= 0x10;
-    u8 x = self[2269];
-    if (x < 64) { a[7] = 0x80; b[7] = self[2269] * 2; }
-    else { a[7] = -(x * 2); b[7] = 0x80; }
-}
+void func_00194318(u8* self);  // 0x00194318: definition moved into src/anon/unit_00193be8.cpp
 
 // 001a2340: apply percentage bonuses gated by ability flags.
 s32 func_00177ba0(u32);
@@ -188,20 +155,7 @@ struct BonusMask { u8 pad[46]; u8 b0 : 1, b1 : 1, b2 : 1; };
 static inline bool Mask0(BonusMask* q) { return q->b0; }
 static inline bool Mask1(BonusMask* q) { return q->b1; }
 static inline bool Mask2(BonusMask* q) { return q->b2; }
-s32 func_001a2340(u32 unused, s32 dmg, BonusSrc* p, BonusMask* q)
-{
-    if (!p) return dmg;
-    if ((p->flags & 0x40) && Mask0(q)) {
-        s32 s = p->r0;
-        dmg += (dmg * (s * func_00177ba0(p->h)) + 99) / 100;
-    } else if ((p->flags & 0x80) && Mask1(q)) {
-        s32 s = p->r1;
-        dmg += (dmg * (s * func_00177bf8(p->h)) + 99) / 100;
-    } else if ((p->flags & 0x100) && Mask2(q)) {
-        dmg += (dmg * p->r2 + 99) / 100;
-    }
-    return dmg;
-}
+s32 func_001a2340(u32 unused, s32 dmg, BonusSrc* p, BonusMask* q);  // 0x001a2340: definition moved into src/anon/unit_0019fb70.cpp
 
 // 001b6b10
 s32 func_0019ba60(void*);
@@ -233,23 +187,7 @@ void func_001b6b10(u8* self, s32 id)
 void func_0016bda8(void*, void*);
 void func_0017cf00(void*, void*);
 void func_0013b2b8(f32);
-void func_001bdd50(u8* self)
-{
-    if (!(*(u32*)(self + 32) & 0x40)) return;
-    u8* t = *(u8**)(self + 2528);
-    f32 step = 0.125f;
-    f32 v = *(f32*)(self + 2624) + step;
-    if (*(u32*)(*(u8**)(t + 12) + 8) & 0x10000) {
-        f32 a[4];
-        f32 b[4];
-        func_0016bda8(b, t);
-        func_0017cf00(a, b);
-        if (a[0] < 1984.0f && 2080.0f < a[1]) v = *(f32*)(self + 2624) - step;
-    }
-    f32 r = v < 0.5f ? 0.5f : (1.0f < v ? 1.0f : v);
-    *(f32*)(self + 2624) = r;
-    func_0013b2b8(r);
-}
+void func_001bdd50(u8* self);  // 0x001bdd50: definition moved into src/anon/unit_001bc568.cpp
 
 // 001c3ba8
 f32 func_00184a90(void*);
@@ -260,11 +198,7 @@ f32* func_0016c028(void*);  // obj_get_attach_or_alt
 struct RangeParam { u8 pad[36]; f32 k; f32 off; f32 max; };
 struct RangeObj { u8 pad[240]; RangeParam* p; };
 static inline f32 Above(RangeObj* o) { f32 t = MAX(HEIGHT(o), 0.0f); return t - o->p->off; }
-f32 func_001c3ba8(u32 unused, RangeObj* o)
-{
-    f32 x = MAX(Above(o), 0.0f);
-    return MIN(x * o->p->k, o->p->max);
-}
+f32 func_001c3ba8(u32 unused, RangeObj* o);  // 0x001c3ba8: definition moved into src/anon/unit_001c2b58.cpp
 
 // 001c7440: fade-in alpha while timer < 12, otherwise tick a countdown and call a hook.
 struct NoTail { ~NoTail() {} };
@@ -272,39 +206,14 @@ void func_001c7148(void*);
 void func_001c71b8(void*);
 void func_001c7420(void);
 extern u64 D_01d49940;
-void func_001c7440(u8* self, u8 flag)
-{
-    NoTail g;
-    f32 lim = 12.0f;
-    f32 t = *(f32*)(self + 64);
-    if (t < lim) {
-        self[22] = (s32)(t * 255.0f / lim);
-    } else {
-        if (flag) {
-            if (--self[69] == 0) {
-                func_001c7148(self);
-                if (D_01d49940 & (1ULL << 32)) *(u32*)(self + 16) = (u32)func_001c7420;
-                self[69] = 30;
-            }
-        }
-        VObj* o = *(VObj**)(self + 80);
-        ((void (*)(void*, void*))o->vt[22])(o, self);
-    }
-    func_001c71b8(self);
-}
+// 001c7440: moved to src/anon/unit_001c7148.cpp (linked unit)
 
 // 001ca758
 extern void* D_00351f68;
 extern const u8 D_0036e0f8[];
 extern const u8 D_0036e108[][16];
 void func_001a5420(void*, const void*, u32);
-void func_001ca758(u32 a0, u8* cnt)
-{
-    if (!D_00351f68) return;
-    for (s32 i = 0; i < 9; i++)
-        for (s32 j = 0; j < cnt[i + 2]; j++)
-            func_001a5420(D_00351f68, D_0036e108[D_0036e0f8[i]], a0);
-}
+void func_001ca758(u32 a0, u8* cnt);  // 0x001ca758: definition moved into src/anon/unit_001ca638.cpp
 
 // 001d3e40
 u32 func_001d3f98(void*);
@@ -843,18 +752,5 @@ void func_00163650(f32* out, FV* p0, FV* p1, FV* p2)
 
 void func_00141988(void*, void*, PtrList*);  // collect_entry_ptrs_by_halves
 u32 wtarget_001423c0(u8* self, u32 a1, FV* out, u32) asm("_Z16wtarget_001423c0jjjj");
-u32 wtarget_001423c0(u8* self, u32 a1, FV* out, u32)
-{
-    u16 i = a1;
-    if (i == 0xffff) return 0;
-    PtrList l;
-    func_00141988(self, *(u8**)(self + 12) + i * 16, &l);  // collect_entry_ptrs_by_halves
-    s32 n = l.n;
-    if (self[209]) {
-        for (s32 k = 0; k < n; k++) *out++ = *l.p[k];
-    } else {
-        for (s32 k = 0; k < n; k++) *out++ = MulMV((M44*)(self + 80), l.p[k]);
-    }
-    return n;
-}
+u32 wtarget_001423c0(u8* self, u32 a1, FV* out, u32);  // 0x001423c0: definition moved into src/anon/unit_00141458.cpp
 }

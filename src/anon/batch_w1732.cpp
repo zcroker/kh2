@@ -9,11 +9,7 @@ void func_00139598(void*);
 extern u8* D_0035037c;
 extern s32 D_0035de60;
 
-void func_00197ac0(void* a) {
-    u8* p = D_0035037c;
-    if (p) func_001d3148(p + 64);
-    else func_001024a8(a);
-}
+void func_00197ac0(void* a);  // 0x00197ac0: definition moved into src/anon/unit_00195d00.cpp
 
 void func_00226ee8(void* p) {
     func_00226ed0(p);

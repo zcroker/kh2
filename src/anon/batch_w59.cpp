@@ -78,28 +78,13 @@ u32 func_0013a7e8(u32);
 void func_001386e0(u8*, u32, u32, u32, u32, u32);
 void func_00139598(u8*);
 void func_00139708(u8*);
-void func_0013e2d8(u8* p, u32 a, u32 b) {
-    *(u32*)(p + 436) = a;
-    func_001386e0(p, 4000, func_0013a7e8(0), b, a, 17);
-    func_001386e0(p + 448, 4000, func_0013a7e8(0), b, 20, 17);
-    func_00139598(p + 448);
-    func_00139708(p + 448);
-}
+void func_0013e2d8(u8* p, u32 a, u32 b);  // 0x0013e2d8: definition moved into src/anon/unit_0013dfb8.cpp
 
 // --- 00141850
 // Clear every entry's flag, then apply each bit set in the 64-bit mask.
 void func_00141928(u8*, u8);  // mark_records_by_index
 struct E141 { u8 pad[16]; u8 f; u8 p2[3]; };
-void func_00141850(u8* p, u64 mask) {
-    s32 j;
-    s32 n = *(s32*)(p + 36);
-    for (j = 0; j < n; j++) (*(E141**)(p + 8))[j].f = 0;
-    s32 i;
-    for (i = 0; i < 64; i++) {
-        u64 one = 1;
-        if (mask & (one << i)) func_00141928(p, i);  // mark_records_by_index
-    }
-}
+void func_00141850(u8* p, u64 mask);  // 0x00141850: definition moved into src/anon/unit_00141458.cpp
 
 // --- 0014ed28
 u32 func_0014ecf8(u32);
@@ -150,13 +135,7 @@ extern u8 D_0034c6f0[];
 u32 func_00167c90(u8*, void*);
 extern u8 D_0036b628[];
 extern void* D_0034d7ac;
-u32 func_00167cd0(u8* p) {
-    u32 r = func_00167c90(p, D_0036b628);
-    if (D_0034d7ac) r |= func_00167c90(p, D_0034d7ac);
-    *(Vec4*)(p + 32) = *(Vec4*)(*(u8**)(p + 68) + 32);
-    *(Vec4*)(p + 48) = *(Vec4*)(*(u8**)(p + 68) + 48);
-    return r;
-}
+// 00167cd0: moved to src/anon/unit_00167358.cpp
 
 // --- 0016d3c8
 // p[0] = &(static vector = *p[0] - *p[1]); the static's guard/atexit is open-coded.
@@ -164,30 +143,12 @@ extern s8 D_004f62d0;
 extern Vec4 D_004f62e0;
 void func_002fd188(void (*)(void));  // pool_alloc_block
 void func_0016e880(void);
-void func_0016d3c8(Vec4** p) {
-    Vec4* a = p[0];
-    Vec4* b = p[1];
-    if (!D_004f62d0) {
-        D_004f62d0 = 1;
-        func_002fd188(func_0016e880);  // pool_alloc_block
-    }
-    Vec4 t;
-    asm volatile("lqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 0(%2)\n\tvsub.xyzw $vf1, $vf1, $vf2\n\tsqc2 $vf1, %0" : "=m"(t) : "r"(a), "r"(b));
-    D_004f62e0 = t;
-    p[0] = &D_004f62e0;
-}
+// 0016d3c8: moved to src/anon/unit_0016d2e0.cpp
 
 // --- 00173f68
 f32 func_00184a90(u32);
 f32* func_0016c028(u32);  // obj_get_attach_or_alt
-void func_00173f68(u8* p) {
-    u32 o = *(u32*)(*(u8**)p + 4);
-    f32 d = func_00184a90(o) - func_0016c028(o)[1];
-    f32 v;
-    if (0.0f < d) v = func_00184a90(o) - func_0016c028(o)[1];
-    else v = 0.0f;
-    *(f32*)p = -v;
-}
+void func_00173f68(u8* p);  // 0x00173f68: definition moved into src/anon/unit_00171e58.cpp
 
 // --- 00176b58
 u32 func_00176b20(s32);
@@ -204,27 +165,12 @@ struct T180 { u8 pad[332]; s32 t[16]; };
 s32 func_001a3570(u16);
 void func_001a34e0(u16, u32);
 struct S188 { u8 pad[18]; bool n; };
-void func_00188ac8(S188* p) {
-    s32 i;
-    for (i = 0; i < p->n; i++) {
-        u16* e = (u16*)((u8*)p + i * 2);
-        if (e[34] && !e[26]) {
-            if (func_001a3570(e[34]) <= 0) continue;
-            func_001a34e0(e[34], 1);
-            e[26] = e[34];
-        }
-    }
-}
+void func_00188ac8(S188* p);  // 0x00188ac8: definition moved into src/anon/unit_00188848.cpp
 
 // --- 00190388
 struct Buf190 { u32 a, b, c, d; Vec4c v; };
 void func_001902a8(u32, Buf190*);
-Vec4c func_00190388(u32 a) {  // vec4_from_arg
-    Buf190 t;
-    t.d = 0;
-    func_001902a8(a, &t);
-    return t.v;
-}
+Vec4c func_00190388(u32 a);  // 0x00190388: definition moved into src/anon/unit_001900d0.cpp
 
 // --- 001b55e8
 u32 func_0016f7d0(u32, u32);
@@ -258,11 +204,7 @@ void func_001b9ee8(s32 lim) {
 // --- 001bdcd0
 u32 func_001819c0(u32);
 u32 func_001bd590(u32);
-u32 func_001bdcd0(u32 a) {
-    u32 r = 0;
-    if (!func_001819c0(a) || func_001bd590(a)) r = 1;
-    return r;
-}
+u32 func_001bdcd0(u32 a);  // 0x001bdcd0: definition moved into src/anon/unit_001bc568.cpp
 
 // --- 001cffe0
 void func_001780d8(u8*);
@@ -271,13 +213,7 @@ void func_0017f488(u8*, u32, f32, f32);
 void func_0017f5e0(u8*, u32, u32, f32, f32);
 void func_001987a8(u8*, void*, u8*);
 extern u8 D_0036e368[];
-void func_001cffe0(u8* p) {
-    func_001780d8(p);
-    func_00198860(p, 1);
-    func_0017f488(p + 320, 191, 0.0f, 0.0f);
-    func_0017f5e0(p + 320, 0, 0, 0.0f, 0.0f);
-    func_001987a8(p, D_0036e368, p);
-}
+void func_001cffe0(u8* p);  // 0x001cffe0: definition moved into src/anon/unit_001cf0b0.cpp
 
 // --- 001d5068
 // bsearch the 2-byte-entry table for key, then use the entry's id.
@@ -430,13 +366,7 @@ void func_002bc608(u32 key);  // 0x002bc608: definition moved into src/anon/unit
 // Constructor: base init, then vtable and flags.
 void func_002be770(u8*);
 extern u8 D_00361b20[];
-void func_002c1aa0(u8* p) {
-    func_002be770(p);
-    *(u32*)p = (u32)D_00361b20;
-    *(u32*)(p + 1420) |= 1;
-    *(u8*)(p + 2792) = 0;
-    *(u32*)(p + 2788) = 0;
-}
+void func_002c1aa0(u8* p);  // 0x002c1aa0: definition moved into src/anon/unit_002c10e0.cpp
 
 // --- 002eda40
 // Count the timer down by one; fire event 151 when it runs out.

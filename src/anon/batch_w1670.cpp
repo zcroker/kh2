@@ -29,14 +29,7 @@ void func_00134450(u32);
 void wtarget_0022d2e0(u32 a, u32 b, u32, u32) asm("_Z16wtarget_0022d2e0jjjj");
 void wtarget_0022d2e0(u32 a, u32 b, u32, u32);  // 0022d2e0: moved to src/sasa/event_layout.cpp (linked unit)
 
-s32 func_00119f08(u8* p) {
-    E6_347770* e = D_00347770;
-    do {
-        if (*(s32*)(p + 0x14) == e->key) return e->val;
-        e++;
-    } while ((s32)e < (s32)(D_00347770 + 6));
-    return 0;
-}
+s32 func_00119f08(u8* p);  // 0x00119f08: definition moved into src/anon/unit_00119bf8.cpp
 
 // 00188490: moved to src/anon/unit_00185d10.cpp
 void func_00188490(s32 a, s32 b, f32 c);
@@ -44,40 +37,15 @@ void func_00188490(s32 a, s32 b, f32 c);
 // 002eaea8: moved to src/anon/unit_002eae08.cpp
 
 void wtarget_00194710(u32 a, u32 b, u32, u32) asm("_Z16wtarget_00194710jjjj");
-void wtarget_00194710(u32 a, u32 b, u32, u32) {
-    if (b == 0xffff && a == 1) {
-        f32 z = 0.0f, o = 1.0f;
-        D_01c61ae0.a = z;
-        D_01c61ae0.b = o;
-        D_01c61ae0.c = z;
-        D_01c61ae0.d = o;
-    }
-}
+void wtarget_00194710(u32 a, u32 b, u32, u32);  // 0x00194710: definition moved into src/anon/unit_00193be8.cpp
 
 void wtarget_001c2ad8(u32 a, u32 b, u32, u32) asm("_Z16wtarget_001c2ad8jjjj");
-void wtarget_001c2ad8(u32 a, u32 b, u32, u32) {
-    if (b == 0xffff && a == 1) {
-        f32 z = 0.0f, o = 1.0f;
-        D_01d49520.a = z;
-        D_01d49520.b = z;
-        D_01d49520.c = z;
-        D_01d49520.d = o;
-    }
-}
+// 001c2ad8: moved to src/anon/unit_001c0638.cpp
+void wtarget_001c2ad8(u32 a, u32 b, u32, u32);
 
-void func_0019f4e8(u32* p, u32 n) {
-    bitclr_w1670(p, n);
-    bitclr_w1670(p + 1, n);
-}
+void func_0019f4e8(u32* p, u32 n);  // 0x0019f4e8: definition moved into src/anon/unit_0019ee80.cpp
 
-void func_001ae788(u8* p) {
-    s32 i;
-    for (i = 0; i < 4; i++) {
-        if (D_01c6cf00[i].a == (s32)p) break;
-    }
-    D_01c6cf00[i].a = 0;
-    *(u32*)(p + 8) = 0;
-}
+void func_001ae788(u8* p);  // 0x001ae788: definition moved into src/anon/unit_001ada38.cpp
 
 // 001cc310: moved to src/anon/unit_001cc048.cpp
 

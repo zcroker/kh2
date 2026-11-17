@@ -87,24 +87,7 @@ void func_0013f5f0(void*);  // copy_float_220_to_48
 void func_0013f608(void*);
 void func_0013f648(void*);
 
-void func_0013f558(u8* p) {
-    p[57] = 0;
-    p[58] = 1;
-    p[56] = 0;
-    p[59] = 0;
-    asm volatile("sqc2 $vf0, 0(%0)" : : "r"(p + 160) : "memory");
-    *(u32*)(p + 52) = 0;
-    if (*(u32*)(p + 68)) {
-        f32 x = func_0013fd10(p);
-        *(f32*)(p + 80) = x;
-        *(f32*)(p + 76) = x;
-        func_0013f828(p);
-        func_0013f888(p, p + 128, 0);
-        func_0013f5f0(p);  // copy_float_220_to_48
-        func_0013f608(p);
-        func_0013f648(p);
-    }
-}
+void func_0013f558(u8* p);  // 0x0013f558: definition moved into src/anon/unit_0013ef70.cpp
 
 extern u32 D_00349394;
 extern u8 D_0034939d;
@@ -134,11 +117,7 @@ u32 func_001667d0(u16);  // ilog2
 struct TexInfo { u32 w0; u16 h4; u16 h6; u16 h8; };
 
 // Build a GS TEX0 register value.
-u64 func_00166730(TexInfo* t) {
-    u32 lg = func_001667d0(t->h4);  // ilog2
-    return (u64)(u32)(t->w0 << 5) | ((u64)(u16)(t->h4 >> 6) << 14) | ((u64)t->h8 << 20) |
-           ((u64)lg << 26) | ((u64)9 << 30) | ((u64)1 << 34) | ((u64)1 << 51) | ((u64)1 << 61);
-}
+u64 func_00166730(TexInfo* t);  // 0x00166730: definition moved into src/anon/unit_001664c0.cpp
 
 struct Allocator;
 struct AllocVt { void* (*alloc)(Allocator*, u32, void*); };
@@ -152,12 +131,7 @@ extern u32 D_0034d8a8;
 u64 func_00312db8(u64, u64);
 
 // Advance the LCG seed and scale it into [0, *p).
-void func_0016dd28(u32* p) {
-    u32 seed = D_0034d8a8 * 0x10dcd;
-    u32 n = *p;
-    D_0034d8a8 = seed;
-    *p = (u64)seed / (((u64)(n - 1) + 0x100000000ull) / n);
-}
+// 0016dd28: moved to src/anon/unit_0016d2e0.cpp
 
 struct Pad10 {
     u8 a, b, c;
@@ -168,11 +142,7 @@ Pad10 func_00199718(u32, s32);
 void func_00104f58(Pad10*, u32, u32, u32, u32);
 union U32x { u32 u; u16 h; u8 b; };
 
-void func_00173008(U32x* p) {
-    Pad10 s;
-    s = func_00199718(p[0].u, -1);
-    func_00104f58(&s, p[1].u, 0, 0, 0);
-}
+void func_00173008(U32x* p);  // 0x00173008: definition moved into src/anon/unit_00171e58.cpp
 
 s32 func_0019ba60(u32);
 u32 func_0016a070(void*);
@@ -205,15 +175,7 @@ void func_001ba028(u32);  // list_contains_ptr
 u32 func_0018db38(u32, void*, u32, u32);
 void func_0018ca10(u32);  // alloc_from_pool_magic
 
-void func_0018fab0(u32* p) {
-    func_001ba028(*(u32*)(p[1] + 4));  // list_contains_ptr
-    u8* o = *(u8**)(p[1] + 4);
-    u32 r = func_0018db38(p[0], o, p[2], p[3]);
-    if (r) {
-        (*(VFn1*)(*(u8**)o + 100))(o, r);
-        func_0018ca10(r);  // alloc_from_pool_magic
-    }
-}
+void func_0018fab0(u32* p);  // 0x0018fab0: definition moved into src/anon/unit_0018f140.cpp
 
 struct Slot88 { s32 a; s32 b; u8 pad[80]; };
 extern Slot88 D_01c61b48[16];
@@ -283,22 +245,8 @@ struct NoTail { ~NoTail() {} };
 void func_001db8b8(void*, LItem*);
 
 // Unlink n from its owner's list.
-void func_001c1808(LItem* n) {
-    NoTail g;
-    LItemList* l = (LItemList*)&n->owner->head;
-    LItem* prev;
-    if (n == l->head) {
-        prev = 0;
-        l->head = n->next;
-    } else {
-        prev = l->head;
-        while (prev->next != n) prev = prev->next;
-        prev->next = n->next;
-    }
-    if (n == l->tail) l->tail = prev;
-    n->next = 0;
-    func_001db8b8((u8*)n->owner + 20, n);
-}
+// 001c1808: moved to src/anon/unit_001c0638.cpp
+void func_001c1808(LItem* n);
 
 void func_002beb28(void);
 void func_00188c10(u32, u32);
@@ -537,29 +485,15 @@ void func_0015f548(void);
 void func_001c8e90(void);
 void func_002be9b0(void);
 
-void func_002be0b0(u8* p, s32 i) {  // quad_entry_process
-    u8** slot = (u8**)((u8*)(i * 4) + (u32)p + 44);
-    if (*slot) {
-        func_002edfd8(p + 8, *slot);  // list_unlink_and_clear
-        if (*slot) (*(VFn*)(*(u8**)*slot + 4))(*slot);
-        *slot = 0;
-    }
-    if (!func_002be5b8(p)) {
-        func_0015f548();
-        func_001c8e90();
-        func_002be9b0();
-    }
-}
+void func_002be0b0(u8* p, s32 i);  // 0x002be0b0: definition moved into src/anon/unit_002be020.cpp
 
 extern f32 D_01e2be10;
 extern f32 D_01e2be14;
 
 }
 
-void wtarget_002cb188(u32 a, u32 b, u32, u32) {
-    if (b == 0xffff && a == 1) D_01e2be10 = 1.1344639f;
-    if (b == 0xffff && a == 1) D_01e2be14 = 1.8325956f;
-}
+// wtarget_002cb188 (0x2cb188): moved to src/anon/unit_002cac58.cpp
+
 
 extern "C" {
 

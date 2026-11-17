@@ -15,20 +15,7 @@ void func_001a3f08(W2380Obj*, W2380Ctx*, u32, u32, W2380Obj**, s32, u32);
 // Looks up the slot for (a2, a3); if it already holds an object with the same
 // key/tag it is kept, otherwise the old one is released and a new 0x2e0-byte object built.
 void wtarget_0019fa58(W2380Mgr* m, u32 key, u32 a2, u32 a3, u32 tag) asm("_Z16wtarget_0019fa58jjjj");
-void wtarget_0019fa58(W2380Mgr* m, u32 key, u32 a2, u32 a3, u32 tag) {
-    s32 id = tag ? m->f4 : -1;
-    W2380Ent* e = func_0019fa08(m, a2, a3);
-    if (e->p4) {
-        if (e->p4->f14 == key && e->f0 == tag) return;
-        func_0018f028(e->p4);
-    }
-    m->p0->faa4 = 0;
-    e->f0 = tag;
-    W2380Obj* n = func_001050d8(0x2e0);
-    func_001a3f08(n, m->p0, a3, key, &e->p4, id, a2);
-    e->p4 = n;
-    m->f4 = n->f20;
-}
+void wtarget_0019fa58(W2380Mgr* m, u32 key, u32 a2, u32 a3, u32 tag);  // 0x0019fa58: definition moved into src/anon/unit_0019ee80.cpp
 }
 
 struct W2380Hdr { u8 kind; u8 opts; u16 pad; u16 n0; u16 n1; u16 n2; u16 n3; u8 p10[0x10]; u16 h1c; };
@@ -105,22 +92,5 @@ struct W2380DrawEnv {
 extern "C" {
 // Builds the draw-environment DMA packet: GIF tag (A+D, 6 regs) for ZBUF, FRAME, TEST, ALPHA,
 // SCISSOR and XYOFFSET, centred on the 4096x4096 GS primitive space.
-void func_0014d948(W2380DrawEnv* e)
-{
-    e->giftag[0] = 0x6000000000008001ULL;
-    e->giftag[1] = 0xeeeeee;
-    e->zbuf = W2380_GS_ZBUF(e->zbp, e->zpsm, 0);
-    e->zbufReg = 0x4e;
-    e->frame = W2380_GS_FRAME(e->fbp, e->w >> 6, e->psm, 0);
-    e->frameReg = 0x4c;
-    e->test = 0x30000;
-    e->testReg = 0x47;
-    e->alpha = 0x44;
-    e->alphaReg = 0x42;
-    e->scissor = W2380_GS_SCISSOR(0, e->w - 1, 0, e->h - 1);
-    e->scissorReg = 0x40;
-    e->xyoffset = W2380_GS_XYOFFSET((2048 - (e->w >> 1)) << 4, (2048 - (e->h >> 1)) << 4);
-    e->xyoffsetReg = 0x18;
-    e->tag.Set(7, e->giftag);
-}
+// 0014d948: moved to src/anon/unit_0014d680.cpp
 }

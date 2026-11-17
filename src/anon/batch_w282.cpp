@@ -31,20 +31,5 @@ extern "C" {
 extern u8 D_00361da8[];
 extern u8 D_00361a60[];
 void func_002c6420(O2bfe08*);
-void func_002bfe08(O2bfe08* o, V4w282b* a, V4w282b* b, f32 f) {
-    o->f84 = 0;
-    o->vt = (u32)D_00361da8;
-    o->f92 = 0;
-    func_002c6420(o);
-    o->f96 = 0;
-    o->vt = (u32)D_00361a60;
-    o->m112 = o->m16;
-    o->m160 = *a + *b;
-    o->m128 = Lerp_w282(o->m16, o->m160, 0.2f);
-    o->m144 = Lerp_w282(o->m16, o->m160, 0.95f);
-    o->m176 = o->m32 - o->m16;
-    o->m192 = *b * -1.0f;
-    o->f100 = f;
-    o->f92 = 0;
-}
+void func_002bfe08(O2bfe08* o, V4w282b* a, V4w282b* b, f32 f);  // 0x002bfe08: definition moved into src/anon/unit_002bebd0.cpp
 }

@@ -1,13 +1,3 @@
 #include "viewfrustum.hpp"
 
-namespace kn {
-class FMatrix;
-}
-
-namespace dk {
-
-
-
-u32 ViewFrustum::setMatrix(const kn::FMatrix&) { return (u32)((s32)(u32)this + (128)); }
-
-}  // namespace dk
+// 00106ad0 dk::ViewFrustum::setMatrix: moved to src/naka/libkn/camera.cpp (linked unit).

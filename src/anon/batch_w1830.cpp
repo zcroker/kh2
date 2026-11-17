@@ -45,27 +45,7 @@ void func_0017f540(f32, f32, void*, s32);
 void func_001c39d0(s32, W1830Obj1*);
 f32 func_001c3ba8(void*, W1830Obj2*);
 
-void func_001c3cf8(s32 a0, W1830Obj1* o) {
-    W1830QW c;
-    s32 id = 0xcd;
-    if (o->dir.w > 0.0f) {
-        W1830QW t = func_0016af58(o);
-        if (w1830_vdot(&t, &o->dir) < 0.98f) {
-            c = w1830_vcross(func_0016af58(o), o->dir);
-            if (c.y > 0.0f) id = 0xce; else id = 0xcf;
-        }
-    }
-    func_0017f540(16.0f, 0.0f, o->snd, id);
-    func_001c39d0(a0, o);
-}
+void func_001c3cf8(s32 a0, W1830Obj1* o);  // 0x001c3cf8: definition moved into src/anon/unit_001c2b58.cpp
 
-W1830QW func_001c3e20(void* a1, W1830Obj2* o) {
-    f32 k = o->prm->f30;
-    f32 len = w1830_vlen(&o->v20);
-    W1830QW c;
-    c = w1830_vscale(func_0016af58(o), o->prm->f20 * (1.0f - k) + len * k);
-    o->v20 = c;
-    c.y = func_001c3ba8(a1, o);
-    return w1830_vscale(c, D_00349e10);
-}
+W1830QW func_001c3e20(void* a1, W1830Obj2* o);  // 0x001c3e20: definition moved into src/anon/unit_001c2b58.cpp
 }

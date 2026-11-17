@@ -24,11 +24,7 @@ void func_00114968(void** p) {
 }
 
 extern u32 D_00347848;
-void func_0011a510(void** p) {
-    *p = &D_00347848;
-    func_00113668(p);
-    func_00105110(p);
-}
+void func_0011a510(void** p);  // 0x0011a510: definition moved into src/anon/unit_0011a260.cpp
 
 typedef u8* (*GetFn)(void*);
 s16 func_0011f238(void* o, s32 i) {
@@ -85,18 +81,12 @@ extern u32 D_0032e020;
 void* func_00189200(void*, u32);
 void func_001891b8(void*, u32);
 void trap_saveram_set_form_ability(u32*) asm("_ZN2YS29trap_saveram_set_form_abilityEP8BD_VALUE");
-void trap_saveram_set_form_ability(u32* v) {
-    func_001891b8(func_00189200(&D_0032e020, v[0]), v[1]);
-}
+// 0016e130: moved to src/anon/unit_0016d2e0.cpp
 
 struct Q16 { u32 w[4]; } __attribute__((aligned(16)));
 struct P173 { u8** a; Q16* q; f32 f; };
 void func_0019fdc0(u8*, Q16*, f32);
-void func_00173808(P173* p) {
-    Q16 t;
-    asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(&t), "r"(p->q) : "$8", "memory");
-    func_0019fdc0(p->a[1], &t, p->f);
-}
+void func_00173808(P173* p);  // 0x00173808: definition moved into src/anon/unit_00171e58.cpp
 
 void func_0017c4c8(void*, Q16*);
 void func_0016bd60(void*, s32);
@@ -114,12 +104,7 @@ Obj198* func_001b9bc8(Obj198*);
 
 struct G19d { u32 pad0; s32 a; u8 pad8[24]; s32 v; s32 b; };
 extern G19d* D_00350444;
-s32 func_0019d380(s32 a, s32 b) {
-    G19d* g = D_00350444;
-    s32 v = g->v;
-    if (v != 0 && g->a == a && g->b == b) return v;
-    return 0;
-}
+s32 func_0019d380(s32 a, s32 b);  // 0x0019d380: definition moved into src/anon/unit_0019ba60.cpp
 
 void func_001991a8(s32, u32);
 struct P1ac { u8 pad[112]; s32 st; u8 pad2[12]; u32 id; };
@@ -127,22 +112,12 @@ struct P1ac { u8 pad[112]; s32 st; u8 pad2[12]; u32 id; };
 
 struct E1af { u32 a; s32 key; u32 c; };
 extern E1af D_01c94090[3];
-s32 func_001afe30(s32 key) {
-    s32 i;
-    for (i = 0; i < 3; i++) {
-        if (D_01c94090[i].key == key) return i;
-    }
-    return -1;
-}
+s32 func_001afe30(s32 key);  // 0x001afe30: definition moved into src/anon/unit_001ada38.cpp
 
 extern u32 D_00350e78;
 void func_001b0330(void*);
 void func_00106420(void*);
-void func_001b01d8(void** p) {
-    *p = &D_00350e78;
-    func_001b0330(p);
-    func_00106420(p);
-}
+void func_001b01d8(void** p);  // 0x001b01d8: definition moved into src/anon/unit_001ada38.cpp
 
 void* func_001b77a8(s32);
 void func_00153468(void*, u32, void*);
@@ -153,31 +128,18 @@ void func_001b7768(u32* a, void* b) {
 struct P1be { u8 pad[2728]; u32 a; u32 b; };
 void func_001bd668(void*);
 void func_001bd5b0(void*, s32, s32);
-void func_001befd8(P1be* p, u32 a, u32 b) {
-    p->a = a;
-    p->b = b;
-    func_001bd668(p);
-    func_001bd5b0(p, 10, 0);
-}
+void func_001befd8(P1be* p, u32 a, u32 b);  // 0x001befd8: definition moved into src/anon/unit_001bc568.cpp
 
 extern u8* D_01d49508;
 extern u32 D_00320898;
 u8 func_002fd248(void*, void*, u32, s32, void*);
-s32 func_001c10f8(void* a) {  // request_pool_block64
-    u8* g = D_01d49508;
-    return func_002fd248(a, g + 8, *(u32*)(g + 4), 64, &D_00320898);
-}
+// 001c10f8: moved to src/anon/unit_001c0638.cpp
+s32 func_001c10f8(void* a);
 
 struct E1c5 { u8 pad[20]; s32 n; u8 pad2[8]; };
 extern E1c5 D_00351680[];
 void func_001c5e88(void*);
-s32 func_001c5f38(u8* p) {
-    if (D_00351680[p[82]].n > 0) {
-        func_001c5e88(p);
-        return 1;
-    }
-    return 0;
-}
+s32 func_001c5f38(u8* p);  // 0x001c5f38: definition moved into src/anon/unit_001c5b90.cpp
 
 extern u16 D_0032fafe[];
 // Bump a saturating counter (max 999).
@@ -288,23 +250,12 @@ u32 ChgMember_isExec(void) {
 }
 
 struct E2bc { s32 v; s32 key; u32 c; };
-s32 func_002bc9d8(u8* p, s32 key) {
-    E2bc* e = (E2bc*)(p + 132);
-    do {
-        if (e->key == key) return e->v;
-        e++;
-    } while ((s32)e < (s32)(p + 300));
-    return -1;
-}
+s32 func_002bc9d8(u8* p, s32 key);  // 0x002bc9d8: definition moved into src/anon/unit_002bc978.cpp
 
 void func_001780d8(void*, void*, void*);
 void func_002c6c60(void*, u32);
 void ObjCamera_start(u8*, void*, void*) asm("_ZN8worldmap9ObjCamera5startEPNS_6PlayerEPN2YS3PADE");
-void ObjCamera_start(u8* self, void* pl, void* pad) {
-    func_001780d8(self, pl, pad);
-    func_0016bd60(self, 47);
-    func_002c6c60(self, *(u32*)(self + 2872));
-}
+void ObjCamera_start(u8* self, void* pl, void* pad);  // 0x002c58c8: definition moved into src/anon/unit_002c53c8.cpp
 
 extern u32 D_003626a8;
 void func_002db530(void*);

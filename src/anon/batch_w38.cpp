@@ -55,10 +55,7 @@ s32 func_002fea18(void);
 void __fixunssfsi(f32);
 
 // Deleting destructor.
-void func_001a4060(Obj1a4060* p) {
-    p->~Obj1a4060();
-    Obj1a4060::operator delete(p);
-}
+// 001a4060: moved to src/anon/unit_001a3e70.cpp
 
 // Deleting destructor.
 void func_00325498(Obj325498* p) {
@@ -77,12 +74,7 @@ void func_00287f30(void) {
 }
 
 // Scales n by a random fraction.
-void func_001064a8(void* n) {  // int_to_float_scaled
-    NoTail g;
-    f32 x = (f32)(u32)n;
-    s32 r = func_002fea18();
-    __fixunssfsi(x * (f32)r / 2147483520.0f);
-}
+// 001064a8: moved to src/anon/unit_00106490.cpp
 
 extern "C" {
 
@@ -96,11 +88,7 @@ static inline Node1399c0* nextNode(Node1399c0* o) {
     if (!o) return l->head;
     return o->next;
 }
-void func_001399c0(void* owner) {
-    Node1399c0* o = 0;
-    while ((o = nextNode(o)) != 0)
-        if (o->owner == owner) func_00139598(o);
-}
+void func_001399c0(void* owner);  // 0x001399c0: definition moved into src/anon/unit_001393c8.cpp
 
 void func_0015a850(void);
 void func_00153c80(void);
@@ -116,22 +104,9 @@ extern u8 D_00348d68[];
 // 00149ec0: moved to src/harata/libdk/area.cpp
 
 void func_001666f0(u8*, u16, u32, u16, u16);  // obj_store_masked
-void func_0014dca8(u8* p, u16 a, u32 b, u16 c, u16 d, u16 e, u32 f) {
-    func_001666f0(p, a, b, c, d);  // obj_store_masked
-    *(u32*)(p + 464) = f;
-    *(u16*)(p + 468) = e;
-    p[470] = 0;
-    p[471] = 0;
-    p[472] = 0;
-    p[473] = 0;
-}
+// 0014dca8: moved to src/anon/unit_0014d680.cpp
 
-void func_00166808(u8* p, u8 k, u16 a, u32 b, u16 c, u16 d, s16 x, s16 y) {
-    func_001666f0(p, a, b, c, d);  // obj_store_masked
-    *(s16*)(p + 10) = x;
-    *(s16*)(p + 12) = y;
-    p[14] = k;
-}
+void func_00166808(u8* p, u8 k, u16 a, u32 b, u16 c, u16 d, s16 x, s16 y);  // 0x00166808: definition moved into src/anon/unit_001664c0.cpp
 
 // RGBA bytes to a float colour normalised by 255 (VU0).
 void func_00153540(f32* v, u8 r, u8 g, u8 b, u8 a) {
@@ -195,37 +170,17 @@ void func_00191f78(s32, u32);
 struct S1964d8 { u8 a, b, c; u16 d, e, f; };
 S1964d8 func_00196328(u32);
 void func_001967f0(u8, u8, s32);
-void func_001964d8(u32 x) {
-    S1964d8 s;
-    u16 m = 0xffff;
-    s.a = m;
-    s.b = m;
-    s.c = m;
-    s.d = m;
-    s.e = m;
-    s.f = m;
-    s = func_00196328(x);
-    func_001967f0(s.a, s.b, 1);
-}
+void func_001964d8(u32 x);  // 0x001964d8: definition moved into src/anon/unit_00195d00.cpp
 
 extern s32 D_00351f30;
 extern u32 D_01d49980[];
 s32 func_001c9d88(u32);
-s32 func_001c9c00(void) {
-    for (s32 i = 0; i < D_00351f30; i++) {
-        if (!func_001c9d88(D_01d49980[i])) return 0;
-    }
-    return 1;
-}
+s32 func_001c9c00(void);  // 0x001c9c00: definition moved into src/yasui/libys/sacrifice.cpp
 
 extern void* D_00352668;
 extern u8 D_0036e3d0[];
 void func_001a5420(void*, void*, void*);
-void func_001d2930(void* a, s32 n) {
-    if (D_00352668) {
-        for (s32 i = 0; i < n; i++) func_001a5420(D_00352668, D_0036e3d0, a);
-    }
-}
+void func_001d2930(void* a, s32 n);  // 0x001d2930: definition moved into src/anon/unit_001d2810.cpp
 
 extern const char D_0036e598[];
 extern u32 D_0035276c;
@@ -375,23 +330,12 @@ u32 func_002bc2e8(u32 a, u32 b, u32 c);  // 0x002bc2e8: definition moved into sr
 
 void func_001dc978(void*, f32);
 void* func_001de168(u32, u32, s32, s32, s32, void*);  // scan_list_by_half
-void func_002c5658(u8* p, u32 a, u32 b) {
-    if (*(void**)(p + 2552)) func_001dc978(*(void**)(p + 2552), 10.0f);
-    *(void**)(p + 2552) = func_001de168(a, b, 0, 1, 0x9c41, p);
-}
+void func_002c5658(u8* p, u32 a, u32 b);  // 0x002c5658: definition moved into src/anon/unit_002c53c8.cpp
 
 // Pushes a 16-byte value into a ring buffer, overwriting the oldest when full.
 struct Ent2cb828 { Q128 v; u8 pad[16]; };
 struct Ring2cb828 { u32 f0; s32 head; s32 cnt; s32 cap; u8 pad[112]; Ent2cb828* buf; };
-Ent2cb828* func_002cb828(Ring2cb828* r, Q128* src) {  // ring_advance_index
-    s32 cnt = r->cnt;
-    s32 head = r->head;
-    s32 idx = (head + cnt) % r->cap;
-    if (cnt < r->cap) r->cnt = cnt + 1;
-    else r->head = head + 1;
-    qcopy(&r->buf[idx].v, src);
-    return &r->buf[idx];
-}
+Ent2cb828* func_002cb828(Ring2cb828* r, Q128* src);  // 0x002cb828: definition moved into src/taito/path.cpp
 
 void func_00110500(u8*);
 Q128* func_0010fa28(u8*);  // ptr_add3072

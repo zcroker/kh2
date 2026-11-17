@@ -68,44 +68,4 @@ void func_0014f300(void* a0) {
 // Partial asm: the same hidden 0x340000 high half as in 0014f300 keeps the heap-pointer load after the D_003486a4
 // store; the store's own high half (lui 0x35) is one volatile asm instruction, and a1/a2 are pinned before it, so the
 // original order (li a1; move a2; lui; sw; lw) is kept. Built with -fno-strict-aliasing (_nsa).
-void u_call0_0013e688(void) {
-    u8* p = func_001063c0(8112, func_001050c8());
-    u8* q = p;
-    u32* r = (u32*)(p + 12);
-    for (s32 i = 8; i != -1; i--) {
-        u32 ve60 = (u32)D_00347e60;
-        u32 ve18 = (u32)D_00347e18;
-        u32 vb0 = (u32)D_003486b0;
-        u32 vf98 = (u32)D_00347f98;
-        r[0] = 0;
-        r[-3] = ve60;
-        func_00239700(q + 24);
-        r[105] = 0;
-        r[-3] = vb0;
-        r[109] = vf98;
-        func_0031a838(q + 460);
-        r[109] = ve60;
-        func_00239700(q + 472);
-        r[109] = ve18;
-        r[217] = 0;
-        q += 896;
-        r += 224;
-    }
-    for (s32 j = 0; j < 9; j++) ((s32*)(p + 8064))[j] = j;
-    u8* b = (u8*)0x340000;
-    asm("" : "+r"(b));
-    *(u32*)(p + 8100) = 9;
-    register u32 n asm("$5") = 448;
-    register s32 z asm("$6") = 0;
-    u8* c;
-    asm volatile("lui %0,0x35" : "=r"(c));
-    *(u8**)(c - 31068) = p; // D_003486a4 = p
-    Heap* hp = (*(Sys**)(b + 0x7f80))->heap;
-    u8* o = (u8*)hp->vt->alloc(hp, n, z);
-    *(u32*)(o + 12) = 0;
-    *(u32**)o = D_00347e80;
-    func_002361a0(o + 32);
-    D_003486a0 = o;
-    func_00138650(D_003486a0, 3700, func_0013a7d0(0), 0);
-    func_0013e890();
-}
+void u_call0_0013e688(void);  // 0x0013e688: definition moved into src/anon/unit_0013dfb8.cpp

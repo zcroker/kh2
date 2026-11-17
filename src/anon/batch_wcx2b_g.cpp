@@ -31,19 +31,5 @@ void* YS_EFFECT_GetSystemPax(void) asm("_ZN2YS6EFFECT12GetSystemPaxEv");
 s32 func_001de168(void*, s32, s32, s32, s32, u8*);
 void func_00190570(u8*, u8*);
 
-void func_001d00a8(void) {
-    s32 id = YS_TABLE_Get();
-    u8* pl = YS_PLAYER_Stun();
-    QWord pos = *func_0016c028(pl);
-    pos.f[1] -= 200.0f;
-    QWord tmp = YS_BG_RandomPos(pos, 200.0f, 200.0f, 0x10000);
-    pos = tmp;
-    QWord d = pos - *func_0016c028(pl);
-    u8* w = AREA_Alloc(0xba0);
-    void* cd = JmInfo_GetCharaData(id);
-    func_001cfcf8(f_atan2f(d.f[0], d.f[2]), w, cd, *(u32*)(pl + 0xb38), &pos);
-    func_00180378(0.0f, w + 0x140, pl, 0xfc);
-    func_001de168(YS_EFFECT_GetSystemPax(), 0x11, 1, 1, 0, pl);
-    func_00190570(pl, w);
-}
+void func_001d00a8(void);  // 0x001d00a8: definition moved into src/anon/unit_001cf0b0.cpp
 }

@@ -18,28 +18,5 @@ void func_001a1a50(Obj196*, s32);
 s32 func_001a1de0(Obj196*, s32);
 s32 func_001a8bd0(s32);
 s32 func_001a8c10(s32, s32);
-void func_00196028(Self* self) {
-    register s32 g asm("$20") = func_001a8bd0(-1);
-    for (s32 i = 0; i < 4; i++) {
-        s32 h = func_001a8c10(g, i);
-        if (h == 0) continue;
-        Obj196* o = func_001a1658(h, -1);
-        if (o->c25c != 0) {
-            register s32 r asm("$5") = 1;
-            if (o->full()) { s32 b = 0; if (!func_001a1de0(o, r)) b = !o->ilt2(); u8 c = b; asm volatile(""); r = 1; if (c) goto done; }
-            func_001a1950(o, r, 0, 0);
-            func_001a1a20(o, 1, 0);
-            self->f9fc = 1;
-        } else {
-            func_001a1a50(o, 0);
-            s32 n = o->a4; func_001a1910(o, n, 0);
-        }
-    done:;
-        func_001a17c8(o);
-    }
-    if (self->f9fd) {
-        self->f9fd = 0;
-        self->f9fc = 1;
-    }
-}
+void func_00196028(Self* self);  // 0x00196028: definition moved into src/anon/unit_00195d00.cpp
 }

@@ -89,9 +89,7 @@ void func_0010a7d8(u8 r, u8 g, u8 b) {  // store_triple_bytes
 
 // 00134dd0: moved to src/anon/unit_00134668.cpp
 
-u8 func_00143448(u16 id) {
-    return func_00141778(D_00348804, id);
-}
+u8 func_00143448(u16 id);  // 0x00143448: definition moved into src/anon/unit_00142c90.cpp
 
 u32 func_0014ca20(void) {
     u32 r = D_00349df8;
@@ -123,28 +121,15 @@ void func_00161ee8(void) {
     D_0034c778 = 0;
 }
 
-void func_00171910(BdObjFloat* a) {
-    func_0016aeb8(a->ref->obj, a->value);  // YS::OBJ::set_rot
-}
+void func_00171910(BdObjFloat* a);  // 0x00171910: definition moved into src/anon/unit_00170f58.cpp
 
-void func_00174d18(BdObjFloat* a) {
-    func_00158870(a->ref->obj, a->value);
-}
+void func_00174d18(BdObjFloat* a);  // 0x00174d18: definition moved into src/anon/unit_00171e58.cpp
 
-void func_00175108(u32* v) {
-    u32 a = v[0];
-    func_001a2438(a, v[1], v[2]);
-}
+void func_00175108(u32* v);  // 0x00175108: definition moved into src/anon/unit_00171e58.cpp
 
-void func_0018fb70(u32* v) {
-    u32 a = v[0];
-    func_001a49a0(a, v[1], v[2]);
-}
+void func_0018fb70(u32* v);  // 0x0018fb70: definition moved into src/anon/unit_0018f140.cpp
 
-void func_00195750(void) {
-    func_00195558(D_0034f250);
-    func_00195558(D_0034fa78);
-}
+void func_00195750(void);  // 0x00195750: definition moved into src/anon/unit_00194790.cpp
 
 void func_001a91f8(s32* p) {  // obj_init_24bytes
     p[0] = -1;
@@ -165,20 +150,9 @@ Vec16* func_001b7ff8(Cursor16* c, s32 n) {  // bump_field8_alloc
     return r;
 }
 
-void func_001d1678(s32* p, s32 a1) {  // obj_init_28bytes
-    p[4] = a1;
-    p[3] = 1;
-    p[1] = 0;
-    p[6] = 0;
-    p[10] = 0;
-}
+void func_001d1678(s32* p, s32 a1);  // 0x001d1678: definition moved into src/anon/unit_001d14e0.cpp
 
-void func_001d2648(s32* p) {  // clear_fields_0_4_32
-    p[0] = 0;
-    p[1] = 0;
-    p[8] = 0;
-    func_001d2690(p);
-}
+void func_001d2648(s32* p);  // 0x001d2648: definition moved into src/anon/unit_001d14e0.cpp
 
 void func_001fb698(u32 base, OffsetHolder* h) {
     func_0021fbc0(base + *h->offsets + 160);
@@ -311,15 +285,9 @@ struct OBJ;
 namespace YS {
 // Virtual slot 8 (byte offset 32) of the message object.
 typedef void (*MsgFn)(void*);
-void method_message_is_end(BD_VALUE* v) {
-    void* o = v[0].p;
-    (*(MsgFn*)((*(u8**)o) + 32))(o);
-}
+void method_message_is_end(BD_VALUE* v);  // 0x00173270: definition moved into src/anon/unit_00171e58.cpp
 
-s32 trap_attack_get_type(BD_VALUE* v) {
-    TRAP* t = (TRAP*)v[0].p;
-    return func_0018e0d8(t, v[1].i);
-}
+s32 trap_attack_get_type(BD_VALUE* v);  // 0x0018f8a0: definition moved into src/anon/unit_0018f140.cpp
 
 // 001a3868 (ITEM::GetCommandElem): moved to src/anon/unit_001a2a50.cpp
 }  // namespace YS

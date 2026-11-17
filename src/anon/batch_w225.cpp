@@ -11,16 +11,7 @@ void func_00239700(void*);
 extern u8 D_0034a660;
 extern u8 D_00347e60;
 
-void func_001904f0(u32* a, u8* b) {
-    func_0019ba60(a[0]);
-    u32 r = func_0016bc20(a[0], 19, a[1]);
-    if (r) {
-        func_0018a818(b, (void*)a[0], r);
-    } else {
-        func_001902a8(a, b);
-    }
-    *(f32*)(b + 28) = 1.0f;
-}
+void func_001904f0(u32* a, u8* b);  // 0x001904f0: definition moved into src/anon/unit_001900d0.cpp
 
 struct K_w225 { s32 a, b, c, d, e; u8 f0, f1, f2, f3; u8 g[24]; };
 void func_0022f528(u8* o) {

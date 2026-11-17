@@ -125,22 +125,5 @@ f32 func_001cbf50(f32);
 f32 cosf(f32);
 f32 sinf(f32);
 
-s32 func_001cb720(W1944Fx* o)
-{
-    W1944Cam* cam = func_002d1260();
-    o->time -= D_00349e10;
-    if (o->time <= 0.0f || func_0019ba60(cam) == 0) return 0;
-    o->ang += o->angVel * D_00349e10;
-    f32 r = o->time / D_00351fd8;
-    f32 a = func_001cbf50(o->ang);
-    o->v.x = cosf(a);
-    o->v.y = sinf(a);
-    o->v.z = 0.0f;
-    o->v *= o->scale * r;
-    W1944QV t = o->ofs;
-    t *= t.w * r;
-    o->v += t + cam->vt->get(cam)->pos;
-    o->alpha = (s8)(s32)(r * 255.0f);
-    return 1;
-}
+s32 func_001cb720(W1944Fx* o);  // 0x001cb720: definition moved into src/anon/unit_001ca8e0.cpp
 }

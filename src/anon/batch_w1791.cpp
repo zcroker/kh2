@@ -6,14 +6,7 @@ struct Uc4 { s32 kind; u8 pad4[8]; Uc4Tgt* tgt; u8 pad10[0x20]; u8 on; u8 pad31[
 s32 func_0018bd50(u32, s32);
 s32 func_0019ba60(Uc4Tgt*);
 u32 u_call4_0018c598(u32 a, u32 b, u32 c, u32 d) asm("_Z16u_call4_0018c598jjjj");
-u32 u_call4_0018c598(u32 a, u32 b, u32 c, u32 d) {
-    Uc4* u = (Uc4*)a;
-    if (!u->on) return 1;
-    if (u->time <= 0.0f) return 1;
-    if (u->kind == 4 && !func_0018bd50(b, 5)) return 1;
-    if (u->kind == 5 && (!func_0019ba60(u->tgt) || u->tgt->id != b || u->tgt->state == 50)) return 1;
-    return 0;
-}
+u32 u_call4_0018c598(u32 a, u32 b, u32 c, u32 d);  // 0x0018c598: definition moved into src/yasui/libys/npc.cpp
 
 void func_0017f540(void*, s32, f32, f32);
 struct Ch {
@@ -25,21 +18,7 @@ struct Ch {
     u8 snd[0x20];
     u32 flags;
 };
-void func_001d22e0(void* a, Ch* c) {
-    s32 id;
-    f32 v = c->f1c;
-    if (v > 0.0f) {
-        if (c->f10 == 0.0f && c->f18 == 0.0f) {
-            if (c->f14 < 0.0f) id = 154; else id = 155;
-        } else {
-            if (v < (c->f110 + c->f114) * 0.5f) id = 1; else id = 2;
-        }
-    } else {
-        id = 0;
-    }
-    void* p = c->snd;
-    if (c->flags & 4) func_0017f540(p, id, 20.0f, 0.0f);
-}
+void func_001d22e0(void* a, Ch* c);  // 0x001d22e0: definition moved into src/anon/unit_001d14e0.cpp
 
 void puts(const char*);
 void func_002fd348(s32) __attribute__((noreturn));

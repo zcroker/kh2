@@ -83,36 +83,7 @@ void func_0017f488(u8*, s32, f32, f32);
 void func_0017f5e0(u8*, s32, f32, f32, void*);
 void func_001d07e0(u8*);
 void func_001d0870(u8*);
-void func_001d0678(u8* p, u8* msg) {
-    switch (*(u16*)(msg + 2)) {
-    case 452: {
-        u8* m = p + 320;
-        p[2804] = msg[28];
-        func_0017f488(m, 194, 8.0f, 0.0f);
-        func_0017f5e0(m, 4, 8.0f, 0.0f, 0);
-        break;
-    }
-    case 455: {
-        u8* m = p + 320;
-        func_0017f488(m, 193, 8.0f, 0.0f);
-        *(void**)(m + 404) = (void*)func_001d0870;
-        asm volatile("" ::: "memory");
-        *(f32*)(p + 2924) = 0.0f;
-        *(f32*)(p + 2920) = 120.0f;
-        break;
-    }
-    case 456:
-        func_0017f488(p + 320, 192, 8.0f, 0.0f);
-        func_001d07e0(p);
-        break;
-    case 457:
-        *(f32*)(p + 2920) = 30.0f;
-        break;
-    default:
-        func_00178ae8(p, msg);
-        break;
-    }
-}
+void func_001d0678(u8* p, u8* msg);  // 0x001d0678: definition moved into src/anon/unit_001cf0b0.cpp
 extern u8 D_0035de26;
 s32 func_002283b0(void);
 s32 func_002283c8(void);
@@ -150,24 +121,7 @@ f32 sinf(f32);
 void* func_00106a18(s32);  // buffer_get_256
 void func_00107300(void*, V4*, V4*, f32);  // copy_blocks_and_store_float
 void func_00106de8(void*, s32, f32);
-s32 func_002c6490(C6490* p) {
-    u32 m = p->flags & 1;
-    if (m == 0) func_002c6420(p);
-    V4 a = p->a1;
-    V4 b = p->b1;
-    if (p->t < p->dur) {
-        p->t += D_00349e10;
-        if (p->t < p->dur) {
-            f32 s = sinf(p->t / p->dur * 1.5707964f);
-            a = Lerp(p->a0, p->a1, s);
-            b = Lerp(p->b0, p->b1, s);
-        }
-    }
-    func_00107300(func_00106a60(1), &a, &b, 0.0f);  // copy_blocks_and_store_float
-    func_00106de8(func_00106a18(1), 0, p->f80);
-    p->flags |= 1;
-    return 1;
-}
+// 002c6490: moved to src/anon/unit_002c6420.cpp (linked unit)
 V4* func_0016c028(u8*);  // obj_get_attach_or_alt
 extern u8* D_0034a990;
 extern f32 D_0034a994;

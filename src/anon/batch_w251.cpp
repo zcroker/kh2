@@ -52,31 +52,6 @@ f32 func_00191c20(void);
 f32 func_00191c40(void);
 f32 func_001906f0(void*, JV*);
 void func_0019cc20(JA*);
-void func_0019cd40(JA* a)
-{
-    JV t[3];
-    t[0].w = 0;
-    switch (a->state) {
-    case 0:
-        return;
-    case 1:
-        if (!func_00190140(&a->p)) break;
-        return;
-    case 2:
-        if (func_00190140(&a->p)) {
-            if (a->p->flags & 0x400) {
-                if (!(func_00191c20() < 1.0f)) return;
-            }
-            JV v;
-            a->o->vt[39](&v, a->o);
-            f32 d = func_001906f0(&a->p, &v);
-            if (!(func_00191c40() < d)) return;
-        }
-        break;
-    default:
-        return;
-    }
-    func_0019cc20(a);
-}
+void func_0019cd40(JA* a);  // 0x0019cd40: definition moved into src/anon/unit_0019ba60.cpp
 
 }

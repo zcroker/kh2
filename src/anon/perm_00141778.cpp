@@ -35,39 +35,6 @@ typedef struct T
   u8 pad2[0x18];
   s32 n;
 } T;
-s32 func_00141778(T *t, u16 v)
-{
-  R *r;
-  s32 i;
-  if (v == 0xffff)
-  {
-    return 0;
-  }
-  if (r || v)
-  {
-    r = t->r;
-  }
-  else
-  {
-    r = t->r;
-  }
-  for (i = 0; i < t->n; i++, r++)
-  {
-    if (r->kind == 1)
-    {
-      if ((v >= r->lo) && (v < r->hi))
-      {
-        return 1;
-      }
-    }
-    else
-      if ((v >= r->lo) && (v < r->hi))
-    {
-      return 0;
-    }
-  }
-
-  return 0;
-}
+s32 func_00141778(T *t, u16 v);  // 0x00141778: definition moved into src/anon/unit_00141458.cpp
 
 }

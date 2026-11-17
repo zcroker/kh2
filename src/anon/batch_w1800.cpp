@@ -32,16 +32,7 @@ static inline __attribute__((always_inline)) void b0a8_add(B0a8V* d, B0a8V* a, B
 static inline __attribute__((always_inline)) void sub_B(B0a8V* a, B0a8V* b, B0a8V* d) {
     asm volatile("lqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 0(%2)\n\tvsub.wxyz $vf1, $vf1, $vf2\n\tsqc2 $vf1, 0(%0)" : : "r"(d), "r"(a), "r"(b) : "memory");
 }
-bool func_001cb0a8(B0a8V* self) {
-    B0a8V d;
-    sub_B(self, func_0016c028(b0a8_current()), &d);
-    f32 len = b0a8_normalize(&d);
-    if (len < 15.0f) return 0;
-    if (6.0f < len) len = 6.0f;
-    b0a8_scale(&d, len);
-    b0a8_add(self, self, &d);
-    return 1;
-}
+bool func_001cb0a8(B0a8V* self);  // 0x001cb0a8: definition moved into src/anon/unit_001ca8e0.cpp
 
 /* 00178fe8 */
 Fe8Atk* fe8_get_partyattack(Fe8Party*, s32) asm("_ZN2YS5PARTY15get_partyattackEi");

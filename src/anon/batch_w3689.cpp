@@ -51,21 +51,7 @@ static inline __attribute__((always_inline)) void gsInit14d() {
     sceGsSyncPath(0, a1);
 }
 // GS init packet, then two sprite objects drawn with a path sync after each.
-void func_0014d6b0(void) {
-    gsInit14d();
-    Spr14d a(1, 0, 512, 448, 49, 112);
-    func_0014dd60(&a, 0, 0, 0);
-    func_0014dda0(&a, 1);
-    func_0014dd18(&a);
-    func_0014ddb0(&a);
-    sceGsSyncPath(0, 0);
-    Spr14d b(0, 216, 512, 416, 49, 112);
-    func_0014dd60(&b, 0, 0, 0);
-    func_0014dda0(&b, 1);
-    func_0014dd18(&b);
-    func_0014ddb0(&b);
-    sceGsSyncPath(0, 0);
-}
+// 0014d6b0: moved to src/anon/unit_0014d680.cpp
 }
 extern "C" {
 s32 func_00103570();

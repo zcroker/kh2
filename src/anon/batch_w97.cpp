@@ -223,30 +223,7 @@ u8 func_0018a250(Shape18a*, Shape18a*);
 u8 func_0018a318(Shape18a*, Shape18a*);
 u8 func_0018a420(Shape18a*, Shape18a*);
 u8 func_0018a4d8(Shape18a*, Shape18a*);
-s32 func_0018a550(Shape18a* a, Shape18a* b) {  // state_dispatch_0_1_3
-    switch (a->type) {
-    case 0:
-        switch (b->type) {
-        case 0: case 3: return func_0018a250(a, b);
-        case 1: return func_0018a318(a, b);
-        }
-        break;
-    case 1:
-        switch (b->type) {
-        case 0: case 3: return func_0018a318(b, a);
-        case 1: return func_0018a420(a, b);
-        }
-        break;
-    case 3:
-        switch (b->type) {
-        case 0: return func_0018a250(a, b);
-        case 1: return func_0018a318(a, b);
-        case 3: return func_0018a4d8(a, b);
-        }
-        break;
-    }
-    return 0;
-}
+s32 func_0018a550(Shape18a* a, Shape18a* b);  // 0x0018a550: definition moved into src/anon/unit_00189d38.cpp
 
 // ---- 0019afd8
 struct Unit19b { u8 pad[72]; u16 f0 : 3; u16 big : 1; u16 rest : 12; bool isBig() { return big; } };
@@ -310,24 +287,7 @@ void func_00190878(u8*, u32, s32);
 u32 func_001b7800(u32);
 void func_001bc780(u8*, u32, u8*, s32);
 s32 func_0017e358(u32);
-void func_001bee78(u8* p) {
-    u8* list = p + 964;
-    s32 flag = func_001b6070(p);
-    func_001bc778(list);
-    u32 grp = func_001a8bd0(-1);
-    for (s32 i = 1; i < 3; i++) {
-        u32 m = func_001a8c10(grp, i);
-        if (!m) continue;
-        u32 c = func_0017e668(m);
-        if (!func_0019ba60(c)) continue;
-        s32 n = *(s32*)(list + 8);
-        u8* e = p + n * 20 + 2664;
-        func_00190878(e, c, 0);
-        func_001bc780(list, func_001b7800(m), e, 1);
-        if (flag && func_0017e358(c)) continue;
-        list[n * 12 + 17] = 5;
-    }
-}
+void func_001bee78(u8* p);  // 0x001bee78: definition moved into src/anon/unit_001bc568.cpp
 
 // ---- 001c99b0
 f32 func_001bbfd0(s32);
@@ -337,23 +297,7 @@ u32 func_0016a070(u32);
 s32 func_001c9958(s32, u32);  // state_pair_check
 s32 func_0017e358(u32);
 static inline bool tooFar(s32 mode) { return 1.0f < func_001bbfd0(mode); }
-s32 func_001c99b0(s32 mode) {
-    s32 cnt = 0;
-    s32 res = 0;
-    if (tooFar(mode)) return 0;
-    if (mode == 3) return 0;
-    for (s32 i = 0; i < 2; i++) {
-        u32 m = func_0017df58(i);
-        u32 c;
-        if (func_0019ba60(m)) c = func_0016a070(m);
-        else c = 0;
-        if (!func_001c9958(mode, c)) continue;
-        if (!c) { res = 2; break; }
-        cnt++;
-        if (!func_0017e358(m)) res = 1;
-    }
-    return cnt ? res : 2;
-}
+s32 func_001c99b0(s32 mode);  // 0x001c99b0: definition moved into src/yasui/libys/sacrifice.cpp
 
 // ---- 001d4180
 struct Ent1d4 { u8 id; u8 pad[63]; };
@@ -610,31 +554,7 @@ void func_002f1990(u8*);
 Vq func_00190388(const void*);  // vec4_from_arg
 const Vq* func_0016c028(u32);  // obj_get_attach_or_alt
 void func_002c6eb8(u8*, u8*, Rec2c5*);
-void func_002c5b20(u8* o, Msg2c5* m) {
-    switch (m->id) {
-    case 518:
-        func_002c5dc0(o, *(u8**)(o + 2884) + 12);
-        break;
-    case 159:
-        func_002c5c50(o, *(u8**)(o + 2884) + 12);
-        break;
-    case 582: {
-        Rec2c5* sr = &(*(Src2c5**)(o + 2880))->r;
-        ((Obj2c5*)o)->r.a = sr->a;
-        ((Obj2c5*)o)->r.b = sr->b;
-        Rec2c5* r = &((Obj2c5*)o)->r;
-        if (func_00190140(r)) {
-            func_002f1990(o + 3024);
-            Vq d = vsub(func_00190388(r), *func_0016c028((u32)o));  // vec4_from_arg
-            func_002c6eb8(o + 2928, o, r);
-        }
-        break;
-    }
-    case 583:
-        func_0016bd60(o, 59);
-        break;
-    }
-}
+void func_002c5b20(u8* o, Msg2c5* m);  // 0x002c5b20: definition moved into src/anon/unit_002c53c8.cpp
 
 // ---- 002d4f60
 union W2d4 { u32 u; f32 f; };

@@ -48,20 +48,5 @@ void func_00155bf0(u8* p, s32 a);
 
 void func_00185118(Obj1792*, QW1792*);
 void func_00143928(QW1792*);
-s32 func_0019bfd0(Obj1792* self, QW1792* v)
-{
-    func_00185118(self, v);
-    self->pos = *v;
-    self->pos.w = 1.0f;
-    /* VU0: store vf0 (0,0,0,1) */
-    asm volatile("sqc2 $vf0, 0(%0)" : : "r"(&self->rot) : "memory");
-    self->flags |= 1;
-    func_00143928(&self->pos);
-    QW1792 d;
-    f32 len;
-    /* VU0 vector subtract and length */
-    asm volatile(".set noreorder\n\tlqc2 $vf1, 0(%0)\n\tlqc2 $vf2, 0(%1)\n\tvsub.wxyz $vf1, $vf1, $vf2\n\tsqc2 $vf1, 0(%2)\n\t.set reorder" : : "r"(&self->tgt), "r"(v), "r"(&d) : "memory");
-    asm volatile(".set noreorder\n\tlqc2 $vf1, 0(%1)\n\tvmul.xyz $vf1, $vf1, $vf1\n\tvaddy.x $vf1, $vf1, $vf1y\n\tvaddz.x $vf1, $vf1, $vf1z\n\tvsqrt Q, $vf1x\n\tvwaitq\n\tcfc2.ni $8, $vi22\n\tmtc1 $8, %0\n\t.set reorder" : "=f"(len) : "r"(&d) : "$8", "memory");
-    return len < 5.0f;
-}
+s32 func_0019bfd0(Obj1792* self, QW1792* v);  // 0x0019bfd0: definition moved into src/anon/unit_0019ba60.cpp
 }

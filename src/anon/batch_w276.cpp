@@ -119,16 +119,5 @@ struct Cam { u8 pad[16]; QM m; QV eye; QV at; QV up; f32 roll; };
 extern "C" {
 void func_0011b6a8(QM*);
 void func_0011b768(QM*, f32);
-void func_00107118(Cam* c) {
-    QM* m = &c->m;
-    func_0011b6a8(m);
-    vsub3(&m->r[2], &c->at, &c->eye);
-    normalize(&m->r[2]);
-    cross(&m->r[0], &m->r[2], &c->up);
-    normalize(&m->r[0]);
-    cross(&m->r[1], &m->r[2], &m->r[0]);
-    transl(m, &c->eye);
-    invortho(m);
-    func_0011b768(m, c->roll);
-}
+// 00107118: moved to src/naka/libkn/camera.cpp
 }

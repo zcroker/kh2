@@ -24,44 +24,5 @@ QW18c* func_0016c028(Obj18c*);
 s32 func_0018c458(s32*);
 s32 ctarget_0019ba60_18c(Obj18c*) asm("_Z16ctarget_0019ba60jjjj");
 extern Obj18c* D_0034e948;
-QW18c func_0018c258(Obj18c* o) {
-    QW18c dir;
-    func_0016af58(&dir, o);
-    if (func_0018c458(&o->kind) && o->mode) {
-        QW18c pos(*func_0016c028(o));
-        pos.y = 0.0f;
-        if (o->kind == 3) {
-            Obj18c* t = o->tgt;
-            if (t && ctarget_0019ba60_18c(t)) return o->v2688;
-        } else {
-            switch (o->mode) {
-            case 1: {
-                Obj18c* t = o->tgt;
-                if (t && ctarget_0019ba60_18c(t)) {
-                    QW18c tp(*func_0016c028(t));
-                    tp.y = 0.0f;
-                    dir = tp - pos;
-                    Normalize18c(&dir);
-                }
-                break;
-            }
-            case 3:
-                dir = o->v2640 - pos;
-                Normalize18c(&dir);
-                break;
-            case 2: {
-                Obj18c* t = D_0034e948;
-                if (t) {
-                    QW18c tp(*func_0016c028(t));
-                    tp.y = 0.0f;
-                    dir = tp - pos;
-                    Normalize18c(&dir);
-                }
-                break;
-            }
-            }
-        }
-    }
-    return dir;
-}
+QW18c func_0018c258(Obj18c* o);  // 0x0018c258: definition moved into src/yasui/libys/npc.cpp
 }

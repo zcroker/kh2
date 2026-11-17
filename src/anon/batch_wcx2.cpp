@@ -175,24 +175,7 @@ static inline VA14 operator-(const VecD& a, const VecD& b)
                  : : "r"(&a), "r"(&b), "r"(&r) : "memory");
     return r;
 }
-void func_00193d38(u8* p, u32 a1)
-{
-    B32 b;
-    VecD out[2];
-    VA14 dir;
-    b.d = 0;
-    u32* q = (u32*)(p + 1636);
-    for (s32 i = 0; i < 2; i++) {
-        func_0018a818(&b, p, *q++);
-        func_001a7610(&b.pos, &out[i], ((s32)(*(s64*)(p + 1536) << 29 >> 32)) & 0xf, 0.0f, b.c);
-    }
-    dir = out[0] - out[1];
-    asm volatile("lqc2 $vf1, 0(%0)\n\tvmul.xyz $vf2, $vf1, $vf1\n\tvaddy.x $vf2, $vf2, $vf2y\n\tvaddz.x $vf2, $vf2, $vf2z\n\t"
-                 "vsqrt Q, $vf2x\n\tvwaitq\n\tcfc2.ni $8, $vi22\n\tvaddq.x $vf2, $vf0, Q\n\tmtc1 $8, $f0\n\tvnop\n\t"
-                 "vdiv Q, $vf0w, $vf2x\n\tvwaitq\n\tvmulq.xyz $vf1, $vf1, Q\n\tsqc2 $vf1, 0(%0)"
-                 : : "r"(&dir) : "$8", "$f0", "memory");
-    func_00193be8(p, &dir, D_01c61ae0, a1);
-}
+void func_00193d38(u8* p, u32 a1);  // 0x00193d38: definition moved into src/anon/unit_00193be8.cpp
 
 struct Def15 {
     u8 pad; u8 mode; u16 b0:4; u16 snd:1; u16 alt:1;
@@ -207,26 +190,7 @@ void func_0014aa58(u32, s32, s32);
 void func_0014aa80(u32, s32, s32);
 void func_0013f160(void);
 void func_00196e88(Obj15*, s32, s32, f32);
-void func_00197430(Obj15* p)
-{
-    if (p->def->Snd()) {
-        func_0014aa58(func_0014abe8(), 0, 0);
-        func_0014aa58(func_0014abf8(), 0, 0);
-    }
-    switch (p->def->mode) {
-    case 1:
-    case 3:
-        func_0013f160();
-        func_0014aa80(func_0014aba8(), (s32)(p->vol * 0.5f), 0);
-        break;
-    case 2:
-        func_0013f160();
-        func_0014aa80(func_0014aba8(), (s32)(p->vol * 0.5f), 1);
-        break;
-    }
-    if (!p->def->Alt()) func_00196e88(p, 7, 2, 0.0f);
-    else func_00196e88(p, 8, 0, 0.0f);
-}
+void func_00197430(Obj15* p);  // 0x00197430: definition moved into src/anon/unit_00195d00.cpp
 
 extern s8 D_0036d0c8[];
 extern u8* D_0034e948;
@@ -249,21 +213,7 @@ void func_001ae620(void);
 void func_001ae650(void);
 void func_001ae678(void);  // to_306698_arg10
 s32 func_002f7dc8(void);
-u32 func_001ae0a0(u32 a0, u32 a1, u32 a2, u16 a3)
-{
-    u8* h = func_001ae460(a0);
-    if (!h) return 0;
-    u8* tbl = func_001ae010(a0) ? D_00350ca8 : D_00350ca0;
-    for (;;) {
-        if (func_002f79c8(1) != 2 || func_002f7be8(*(u32*)(h + 8) + a2, a3, a1, tbl) != 1) {
-            func_001ae678();  // to_306698_arg10
-        } else {
-            func_001ae620();
-            if ((D_00350c88 = func_002f7dc8()) == 0) return a3 << 11;
-            func_001ae650();
-        }
-    }
-}
+u32 func_001ae0a0(u32 a0, u32 a1, u32 a2, u16 a3);  // 0x001ae0a0: definition moved into src/anon/unit_001ada38.cpp
 
 struct Q18 { u32 bits[8]; u8 queue[255]; u8 count; };
 extern Q18 D_0032fb68;
@@ -534,31 +484,7 @@ static inline void Idle3(Obj3* p)
     else ((void (*)(Obj3*))p->vt[5])(p);
 }
 void func_00138840(Obj3* p) asm("_Z13func_00138840Pv");
-void func_00138840(Obj3* p)
-{
-    if (p->flags & 0x100) return;
-    if (!(p->flags & 0x800)) goto update;
-    if (p->wait0 && !func_00139d78(p->wait0)) goto fin;
-    if (!p->wait1 || func_00239d10(p->wait1)) goto update;
-fin:
-    Idle3(p);
-    return;
-update:
-    Anm3* a = &p->anm;
-    func_00239eb8(a, p->speed);
-    func_0023acd8((u8*)a);
-    if (p->dirty) p->dirty = 0;
-    if ((u8)func_00239d30(a, a->cur)) return;
-    if (func_00239d10(a)) return;
-    if (p->next != -1) {
-        func_00138c10(p, p->next);
-        p->next = -1;
-        func_0023acd8((u8*)a);
-        p->dirty = 1;
-        return;
-    }
-    Idle3(p);
-}
+void func_00138840(Obj3* p);  // 0x00138840: definition moved into src/anon/unit_00138480.cpp
 
 extern u32 D_00347fec;
 extern s32 D_00347ff0;
@@ -641,31 +567,7 @@ struct Ent13 { u32 key; union { s32 v; u16 sub; }; u32 a, b; };
 struct Tbl13 { s32 n; Ent13 e[1]; };
 u32 func_001ae210(u32);
 u16 func_001ae270(u32);
-Ent13* func_001ae308(Tbl13* t, u32 name)
-{
-    if (!t) return 0;
-    u32 key = func_001ae210(name);
-    s32 n = t->n;
-    if (n <= 0) return 0;
-    s32 lo = 0, hi = n - 1;
-    Ent13* e;
-    do {
-        s32 mid = (lo + hi) / 2;
-        e = &t->e[mid];
-        if (e->key == key) break;
-        if (e->key < key) lo = mid + 1;
-        else hi = mid - 1;
-    } while (hi - lo >= 0);
-    if (e->key != key) e = 0;
-    if (!e || e->v >= 0) return e;
-    u16 sub = func_001ae270(name);
-    if (e != &t->e[0]) {
-        while (e[-1].key == key) e--;
-    }
-    while (e->key == key && e->sub != sub) e++;
-    if (e->key != key || e->sub != sub) e = 0;
-    return e;
-}
+Ent13* func_001ae308(Tbl13* t, u32 name);  // 0x001ae308: definition moved into src/anon/unit_001ada38.cpp
 
 extern u8 D_003511c2;
 extern u8 D_003511c0;
@@ -705,15 +607,7 @@ extern f32 D_0036dff0[];
 extern f32 D_0036e030[];
 extern u8 D_0036e000[][16];
 void func_001a5420(u32, u8*, u32);
-void func_001c7d90(u32 a0, f32 x)
-{
-    if (!D_00351d98) return;
-    for (s32 i = 0; i < 3; i++) {
-        s32 n = (s32)(x * D_0036dff0[i] / D_0036e030[i]);
-        for (s32 j = 0; j < n; j++) func_001a5420(D_00351d98, D_0036e000[i], a0);
-        x -= D_0036e030[i] * (f32)n;
-    }
-}
+// 0x1c7d90: moved to src/anon/unit_001c7bc8.cpp
 
 struct VB18 {
     f32 x, y, z, w;
@@ -734,22 +628,8 @@ s32 func_001c28f8(It18*, VB18*, s32);
 Pt18* func_001db888(u8*, s32, void*);  // record_index_calc
 void func_001dbc58(Pt18*, u8*, VB18*, u32);
 void func_001ce618();
-void func_001ce508(u8* p, u32 a1, u32 a2)
-{
-    f32 life = 1.0f;
-    It18 it;
-    VB18 pos;
-    func_001c2858(&it, func_0016c028(p), a1, a2);  // copy_2quads_and_ratio
-    u8* pool = *(u8**)(*(u8**)(p + 2548) + 2548);
-    while (func_001c28f8(&it, &pos, 1)) {
-        Pt18* o = func_001db888(pool + 20, 96, __builtin_return_address(0));  // record_index_calc
-        func_001dbc58(o, pool, &pos, *(u32*)(p + 2552));
-        o->rel = pos - *func_0016c028(p);  // obj_get_attach_or_alt
-        o->rel.w = life;
-        o->owner = p;
-        o->fn = (void*)func_001ce618;
-    }
-}
+// 001ce508: moved to src/anon/unit_001cd660.cpp
+void func_001ce508(u8* p, u32 a1, u32 a2);
 
 extern u8 D_01d5baa0[5];
 extern u32 D_003638d0;
@@ -1127,28 +1007,7 @@ void func_0014eda8(void);
 void func_001537f8(void);
 void func_00106420(void*);
 void func_00145ab8(u8*);
-void func_00142f50(void)
-{
-    func_0014eda8();
-    func_001537f8();
-    if (D_00348814) { func_00106420(D_00348814); D_00348814 = 0; }
-    if (D_00348810) { func_00106420(D_00348810); D_00348810 = 0; }
-    if (D_0034880c) { func_00106420(D_0034880c); D_0034880c = 0; }
-    if (D_00348808) { func_00106420(D_00348808); D_00348808 = 0; }
-    if (D_00348818) {
-        Snd5* s = D_00348818;
-        ((void (*)(VObj5*, u32, u32))s->dev->vt[10])(s->dev, s->h, s->a);
-        func_00106420(s);
-        D_00348818 = 0;
-    }
-    if (D_00348804) { func_00106420(D_00348804); D_00348804 = 0; }
-    u8* o = D_00348800;
-    if (o) {
-        func_00145ab8(o);
-        func_00106420(o);
-        D_00348800 = 0;
-    }
-}
+void func_00142f50(void);  // 0x00142f50: definition moved into src/anon/unit_00142c90.cpp
 
 struct Node6 { u8 pad[236]; Node6* sib; Node6* child; u8 pad2[4]; u32 flags; u8 pad3[28]; s16 h280; s16 h282; };
 struct St6 { u32 f; u32 pad; };
@@ -1214,42 +1073,7 @@ void func_0031a260(Sub4*, s32);
 void func_002ba2e8(s32, s32);
 void func_001395a8(u8*);
 void func_00138840__43679(u8*) asm("func_00138840");
-void func_001376b8(u8* p)
-{
-    if (0.0f < *(f32*)(p + 436)) {
-        *(f32*)(p + 436) -= D_00349e14;
-        func_00139598(p);
-        return;
-    }
-    if (*(s32*)(p + 440) != -1 && !*(u32*)(p + 1304)) {
-        if (!func_001b1fc8(*(s32*)(p + 440))) {
-            func_00139598(p);
-            return;
-        }
-        u8* w = p + 480;
-        *(u32*)(p + 1304) = func_001b1ff0(*(s32*)(p + 440));
-        u32 h = func_001b1e70();
-        func_00138650(p + 448, 11100, *(u32*)(p + 1304), 0);
-        func_001386e0((Sub4*)(p + 896), 11100, h, w, 6, 0);
-        func_00236410(w, 14080);  // obj_set4_then_call
-        func_00236428(w, 10752);  // obj_set32_then_call
-        func_002367c8(w);  // obj_dispatch_bitfield64
-        Sub4* s = (Sub4*)(p + 896);
-        s->owner = p;
-        func_001396b0(s);
-        if (s->owner) {
-            s->f400 = 0;
-            func_001396b0(s);
-            if (s->f400) func_0031a260(s, 0);
-        }
-    }
-    if (-20000.0f < *(f32*)(p + 436)) {
-        func_002ba2e8(10, 0);
-        *(f32*)(p + 436) = -20000.0f;
-    }
-    func_001395a8(p);
-    func_00138840__43679(p);
-}
+void func_001376b8(u8* p);  // 0x001376b8: definition moved into src/anon/unit_001374c8.cpp
 
 typedef unsigned int u128 __attribute__((mode(TI)));
 struct Mtx5 { u128 r[4]; };
@@ -1266,40 +1090,7 @@ void func_00141850(Mdl5*, u32);
 void func_0011b6a8(Mtx5*);
 void func_00142940(Mdl5*, Mtx5*);
 void func_00141808(Mdl5*);
-void func_001415e8(Mdl5* m, u32 hp, u32 a2)
-{
-    Hdr5* h = (Hdr5*)hp;
-    m->p4 = 0;
-    m->p8 = 0; m->p12 = 0; m->p16 = 0; m->p20 = 0; m->p24 = 0; m->p28 = 0;
-    m->n32 = 0; m->n36 = 0; m->n40 = 0; m->n44 = 0; m->n48 = 0; m->n52 = 0; m->n56 = 0;
-    m->f60 = 0; m->f64 = 0; m->f68 = 0;
-    m->b208 = 0; m->b209 = 0; m->b210 = 0; m->b211 = 0;
-    m->f212 = 0; m->f216 = 0; m->f220 = 0;
-    m->h = hp;
-    m->p4 = (u32)h + h->o24;
-    m->p8 = (u32)h + h->o32;
-    m->p12 = (u32)h + h->o40;
-    m->p16 = (u32)h + h->o48;
-    m->p24 = (u32)h + h->o56;
-    m->p28 = (u32)h + h->o64;
-    m->p20 = (u32)h + h->o72;
-    m->n32 = h->n28 / 32;
-    m->n36 = h->n36 / 20;
-    m->n40 = h->n44 / 16;
-    m->n44 = h->n52 / 16;
-    m->n52 = h->n60 / 16;
-    m->n56 = h->n68 / 12;
-    m->n48 = h->n76 / 4;
-    func_00141850(m, a2);
-    Mtx5 a;
-    func_0011b6a8(&a);
-    Mtx5 b;
-    // sceVu0CopyMatrix (hand-written lq/sq)
-    asm volatile("lq $8, 0(%1)\n\tlq $9, 16(%1)\n\tlq $10, 32(%1)\n\tlq $11, 48(%1)\n\tsq $8, 0(%0)\n\tsq $9, 16(%0)\n\tsq $10, 32(%0)\n\tsq $11, 48(%0)"
-                 : : "r"(&b), "r"(&a) : "$8", "$9", "$10", "$11", "memory");
-    func_00142940(m, &b);
-    func_00141808(m);
-}
+void func_001415e8(Mdl5* m, u32 hp, u32 a2);  // 0x001415e8: definition moved into src/anon/unit_00141458.cpp
 
 struct VB6 {
     f32 x, y, z, w;
@@ -1321,31 +1112,7 @@ static inline f32 Dist2_6(const VB6& b, const VB6& a)
                  : "=f"(r) : "r"(&b), "r"(&a) : "$2", "memory");
     return r;
 }
-u32 func_00141e78(Mesh6* m, VB6* ray, s32 n, VB6* out)
-{
-    f32 best = 9.99999920e13f;
-    u32 id = 0xffff;
-    VB6 hit;
-    Tri6 tri;
-    for (s32 i = 0; i < n; i++) {
-        u32 k = m->list[i];
-        Face6* f = &m->faces[k];
-        func_00141988(m, f, &tri);  // collect_entry_ptrs_by_halves
-        VB6 nrm(m->norms[f->n]);
-        if (func_001628d8(ray, &tri, &nrm, &hit)) {
-            VB6 a, b;
-            a = *ray;
-            b = hit;
-            f32 d = Dist2_6(b, a);
-            if (d < best) {
-                best = d;
-                *out = hit;
-                id = (u16)k;
-            }
-        }
-    }
-    return id;
-}
+u32 func_00141e78(Mesh6* m, VB6* ray, s32 n, VB6* out);  // 0x00141e78: definition moved into src/anon/unit_00141458.cpp
 
 extern u8 D_0034e958[];
 extern u8 D_01c5f530[];
@@ -1911,33 +1678,7 @@ Node38* func_0016bba8__68827(u8*, s32, Node38*) asm("func_0016bba8");
 void func_0018a818__68827(Hit38*, u8*, Node38*) asm("func_0018a818");
 V38* func_0016c028__68827(u32) asm("func_0016c028");
 s32 func_00190140(Out38*);
-void func_00191218(Out38* out, u32 cam, f32 range)
-{
-    f32 best = 0.0f;
-    Hit38 h;
-    h.n = 0;
-    func_00190128__68827();
-    u8* e = 0;
-    while ((e = func_00185da8(e))) {
-        if (!func_0019bc38(e)) continue;
-        if (!func_0019bb58(e)) continue;
-        Node38* n = 0;
-        while ((n = func_0016bba8__68827(e, 3, n))) {
-            if (n->fl & 1) continue;
-            func_0018a818__68827(&h, e, n);
-            V38 d;
-            d = Sub38(h.pos, *func_0016c028__68827(cam));
-            f32 dist = Len38(d);
-            f32 r = dist;
-            if (*(u32*)(e + 1416) & 0x400) r = dist - range;
-            if (!func_00190140(out) || r < best) {
-                out->e = e;
-                best = r;
-                out->id = n->id;
-            }
-        }
-    }
-}
+void func_00191218(Out38* out, u32 cam, f32 range);  // 0x00191218: definition moved into src/anon/unit_001900d0.cpp
 
 struct Hdr39 { u8 pad[4]; u16 nb; u16 na; };
 struct Ref39 { u8 pad[44]; u16 k; };
@@ -1985,30 +1726,7 @@ s32 func_001c7950(Act40*, u8*, f32, f32);  // copy_quad_if_flag
 static inline bool Is40(u8* e) { return *(s32*)(e + 2896) == 6; }
 struct Vec4x { f32 a,b,c,d; } __attribute__((aligned(16)));
 struct NoTail40 { Vec4x v; ~NoTail40() {} };
-void func_001a5140(u8* o, Act40* a)
-{
-    NoTail40 nt;
-    if (func_001919f8()) a->fl |= 8;
-    if (func_001919d0()) {
-        func_001a5380(o, D_0034e948, a);
-        return;
-    }
-    if ((a->fl & 8) && a->lv >= 3) func_001a5380(o, D_0034e948, a);
-    for (s32 i = 0; i < 3; i++) {
-        u8* e = func_00176b20(i);
-        if (!func_0019ba60(e)) continue;
-        if (*(u32*)(e + 2040) & 4) continue;
-        if (*(u32*)(e + 1416) & 0x80) {
-            if (Is40(e) && a->kind < 2) continue;
-        } else {
-            if ((u32)(a->kind - 7) < 2) continue;
-        }
-        if (func_001c7950(a, e, 0.0f, 0.0f)) {  // copy_quad_if_flag
-            func_001a5380(o, e, a);
-            return;
-        }
-    }
-}
+// 001a5140: moved to src/anon/unit_001a4db0.cpp
 
 struct Obj41 { u8 pad[92]; u32 p92; u32 p96; u8 pad2[12]; s32 n112; u8 pad3[2920 - 116]; s32 n2920; };
 u32 func_001ab800(void);
@@ -2295,28 +2013,7 @@ void func_0023f7a8__84943(Lyt54*, Prm54*) asm("func_0023f7a8");
 s32 func_00139d78(void*);
 void func_00138c10__84943(u8*, s32) asm("func_00138c10");
 void func_002cb0e8(u8*, u8*, f32);
-void func_002c3368(Obj54* o)
-{
-    if (o->st != 2) o->st = 2;
-    for (s32 i = 0; i < o->na; i++) {
-        func_0028b4c0(&o->a[i], func_002c3268(o));  // copy_3halfwords_416
-        func_0028b4f0(&o->a[i], D_003755b0);  // copy_3halfwords_422
-    }
-    for (s32 i = 0; i < o->nb; i++) {
-        func_0028b4c0(&o->b[i], func_002c3268(o));  // copy_3halfwords_416
-        func_0028b4f0(&o->b[i], D_003755b8);  // copy_3halfwords_422
-    }
-    for (s32 i = 0; i < 9; i++) {
-        func_0023f778__84943(&o->lyt[i], func_002c3268(o));
-        func_0023f7a8__84943(&o->lyt[i], &D_00375638[i]);
-    }
-    u8* t = (u8*)o + 11872;
-    if (func_00139d78(t)) {
-        func_00138c10__84943(t, 94);
-        *(s32*)(t + 392) = 95;
-    }
-    func_002cb0e8((u8*)o + 13620, D_01e2bd40, 0.0f);
-}
+void func_002c3368(Obj54* o);  // 0x002c3368: definition moved into src/anon/unit_002c2228.cpp
 
 struct Grid55 { s8 cols; u8 pad; s16 size; };
 struct UV55 { s16 u[4]; s16 v[4]; };
@@ -2443,36 +2140,7 @@ s32 func_001bdd20(Obj63*);
 s32 func_0017a538(u8*);
 s32 func_001917c0(void);
 static inline bool Is63(u8* p) { return *(s32*)(p + 2896) == 6; }
-void func_001be5f0(Obj63* o)
-{
-    u8* m = o->m;
-    if (func_001bd590(o)) {
-        func_001be890(o, m);
-        return;
-    }
-    func_001bc778(m);
-    func_001be540(o, m);
-    if (*(s32*)(o->pl + 2896) == 3) {
-        func_001bf0c8(o);
-        func_001bc780(m, 707, 0, 1);
-    } else {
-        func_001bc780(m, func_001bdfe0(o) ? 2 : 104, 0, 1);
-    }
-    if (func_001bdd20(o)) func_001bc780(m, 104, 0, 1);
-    else func_001bc780(m, 3, 0, 1);
-    u8 pri = 5;
-    if (o->fl & 0x20) {
-        func_001bc780(m, 104, 0, 1);
-        return;
-    }
-    if (func_0017a538(o->pl)) {
-        Snd63* s = func_001bc780(m, 5, 0, 1);
-        if (Is63(o->pl) && func_001917c0()) s->pri = pri;
-    } else {
-        Snd63* s = func_001bc780(m, 4, 0, 1);
-        if (*(s32*)(o->pl + 2896)) s->pri = pri;
-    }
-}
+void func_001be5f0(Obj63* o);  // 0x001be5f0: definition moved into src/anon/unit_001bc568.cpp
 
 struct Snd64 { u8 pad[5]; u8 pri; };
 struct Obj64 { u8 pad[32]; u32 fl; u8 pad2[348]; u8 m[2144]; u8* pl; };
@@ -2486,28 +2154,7 @@ s32 func_001a3570(s32);
 u16* func_001a3868(s32);
 s32 func_001c9b38(u16*);
 Snd64* func_001bc780__91789(u8*, s32, s32, s32) asm("func_001bc780");
-void func_001beb00(Obj64* o)
-{
-    if (o->fl & 0x20) return;
-    u8* m = o->m;
-    func_001bc778(m);
-    if (func_001c8db8(D_00351ec0, 1)) return;
-    if (func_001c8db8(D_00351eb8, 0)) return;
-    if (*(u32*)(*(u8**)(o->pl + 12) + 8) & 0x20) return;
-    if (func_001bbf40()) return;
-    o->fl |= 0x20;
-    for (s32 i = 1; i < 7; i++) {
-        s32 x = func_001a36e0(i);
-        if (func_001a3570(x) <= 0) continue;
-        u16* it = func_001a3868(x);
-        s32 k = func_001c9b38(it);
-        if (k != 2) {
-            Snd64* s = func_001bc780__91789(m, *it, 0, 1);
-            if (k == 1) s->pri = 5;
-        }
-        o->fl &= ~0x20;
-    }
-}
+void func_001beb00(Obj64* o);  // 0x001beb00: definition moved into src/anon/unit_001bc568.cpp
 
 void func_002d1270(s32, s32);
 void func_002d6f28(s32, s32);
@@ -2738,28 +2385,7 @@ void func_0023f7a8__99908(Lyt80*, Prm80*) asm("func_0023f7a8");
 s32 func_00139d78(void*);
 void func_00138c10__99908(u8*, s32) asm("func_00138c10");
 void func_002cb0e8(u8*, u8*, f32);
-void func_002c34d0(Obj80* o)
-{
-    if (o->st != 3) o->st = 3;
-    for (s32 i = 0; i < o->na; i++) {
-        func_0028b4c0__99908(&o->a[i], func_002c3268__99908(o));
-        func_0028b4f0__99908(&o->a[i], D_003755a0);
-    }
-    for (s32 i = 0; i < o->nb; i++) {
-        func_0028b4c0__99908(&o->b[i], func_002c3268__99908(o));
-        func_0028b4f0__99908(&o->b[i], D_003755a8);
-    }
-    for (s32 i = 0; i < 9; i++) {
-        func_0023f778__99908(&o->lyt[i], func_002c3268__99908(o));
-        func_0023f7a8__99908(&o->lyt[i], &D_00375640[i]);
-    }
-    u8* t = (u8*)o + 11872;
-    if (func_00139d78(t)) {
-        func_00138c10__99908(t, 96);
-        *(s32*)(t + 392) = 1;
-    }
-    func_002cb0e8((u8*)o + 13620, D_01e2bd30, 0.0f);
-}
+void func_002c34d0(Obj80* o);  // 0x002c34d0: definition moved into src/anon/unit_002c2228.cpp
 
 struct Obj81 { u32 p0; u32 p4; };
 struct Ent81 { u8 pad[8]; u32 k; };
@@ -2772,35 +2398,7 @@ Ent81* func_001b8800_101452(u8) asm("func_001b8800");
 void func_001b8988(Ent81*, s32);
 void qsort(void*, s32, s32, void*);
 s32 func_002bfcf8(const void*, const void*);
-void func_002bfb90(Obj81* o)
-{
-    if (o->p4) {
-        func_002bfd48(o, o->p4);
-    } else {
-        u8 ids[256];
-        u32 seen[256];
-        s32 n = func_001b8d60(ids);
-        if (!n) return;
-        func_00102448(o->p0, 0);
-        s32 i;
-        s32 cnt = 0;
-        for (i = 0; i < n; i++) func_001b8988(func_001b8800_101452(ids[i]), 1);
-        qsort(ids, n, 1, (void*)func_002bfcf8);
-        for (s32 j = 0; j < n; j++) {
-            Ent81* e = func_001b8800_101452(ids[j]);
-            u32 k = e->k;
-            if (!k) continue;
-            s32 t;
-            for (t = 0; t < cnt; t++) {
-                if (seen[t] == k) break;
-            }
-            if (t != cnt) continue;
-            func_002bfd48(o, e->k);
-            seen[cnt++] = e->k;
-        }
-    }
-    func_002c6280(func_002c6218(), 2);
-}
+void func_002bfb90(Obj81* o);  // 0x002bfb90: definition moved into src/anon/unit_002bebd0.cpp
 
 struct Rec83 { u8 pad[8]; u32 v; };
 struct Obj83 { u32 vt; u8 pad[84]; u8 b88; u8 pad2[7]; u32 h; u32 pad3; u8 sub[4]; void* m; };
@@ -2881,22 +2479,7 @@ static inline void AddTo86(V86& a, const V86& b)
                  : : "r"(&a), "r"(&b) : "memory");
 }
 struct Cam86 { u8 pad[80]; V86 eye; V86 at; V86 up; };
-void func_00107700(Cam86* c, f32 dx, f32 dy)
-{
-    V86 side, up, fwd;
-    fwd = Sub86(c->eye, c->at);
-    Norm86(fwd);
-    up = c->up;
-    Norm86(up);
-    Cross86(side, up, fwd);
-    Norm86(side);
-    Cross86(up, fwd, side);
-    fwd.x = side.x * dx + up.x * dy;
-    fwd.y = side.y * dx + up.y * dy;
-    fwd.z = side.z * dx + up.z * dy;
-    AddTo86(c->eye, fwd);
-    AddTo86(c->at, fwd);
-}
+// 00107700: moved to src/naka/libkn/camera.cpp
 
 struct Rec91 { u16 id; u8 pad[26]; u8 b28; u8 pad2[3]; u16 h32; };
 struct Dat91 { u8 pad; u8 kind; };
@@ -3213,26 +2796,7 @@ void func_002890e0(u32, s32, s32, s32, s32);
 void func_00289038(u32, s32, s32, s32, s32, s32, s32);
 void func_0028d660(u8*, u32);  // record_set_value_refresh
 void func_001396b0_116312(u8*) asm("func_001396b0");
-void func_002c40d8(Obj98* o)
-{
-    u32 lst = o->lst;
-    if (!func_0028d008_116312(0)) {
-        func_0028cc78(0, 1, 1, o->pos, 54, 54);
-        func_0028cf28(0, func_002891d0(lst));  // record408_set_and_refresh
-    }
-    if (!func_0028d008_116312(1)) {
-        func_0028cc78(1, 1, 1, o->pos, 13, 13);
-        func_0028cf28(1, func_002891d0(lst));  // record408_set_and_refresh
-    }
-    if (!func_00289310(lst)) return;
-    s32 k = func_002891e8(lst);
-    func_002890e0(lst, 1, 2, 0, -1);
-    func_00289038(lst, k, 1, 1, 2, 0, -1);
-    func_0028cf28(0, func_002891d0(lst));  // record408_set_and_refresh
-    func_0028cf28(1, func_002891d0(lst));  // record408_set_and_refresh
-    func_0028d660(o->m, func_002891d0(lst));  // record_set_value_refresh
-    func_001396b0_116312(o->m);
-}
+void func_002c40d8(Obj98* o);  // 0x002c40d8: definition moved into src/anon/unit_002c3c90.cpp
 
 // ---- 00226478
 HeapE* GetAllocatorE(void) asm("_ZN4AREA12GetAllocatorEv");
@@ -4763,48 +4327,7 @@ extern Prm1c3* D_00352130_3150 asm("D_00352130");
 Item1c3* func_001a80c8_3150(s32 id) asm("func_001a80c8");
 
 // Apply one equipped ability/item id to the character's stat block, then mark the ability as held.
-void func_001c3150(Stat1c3* s, s32 id) {
-    switch (id) {
-    case 0:
-        return;
-    case 162: s->c44++; break;
-    case 163: s->c45++; break;
-    case 393: s->c46++; break;
-    case 401: s->c47++; break;
-    case 390: s->h74 += D_00352130_3150->h304; break;
-    case 391: s->h76 += D_00352130_3150->h304; break;
-    case 392: s->h78 += D_00352130_3150->h308; break;
-    case 394:
-        s->c44--;
-        s->c45--;
-        break;
-    case 395: s->h82 += D_00352130_3150->h284; break;
-    case 396: s->f84 += D_00352130_3150->f312; break;
-    case 397: s->f60 += D_00352130_3150->f316; break;
-    case 398: s->f64 *= D_00352130_3150->f320; break;
-    case 399: s->f108 *= D_00352130_3150->f364; break;
-    case 400: s->f96 *= D_00352130_3150->f344; break;
-    case 405: s->f52 += D_00352130_3150->f300; break;
-    case 406: s->f100 += D_00352130_3150->f348; break;
-    case 407: s->f104 += D_00352130_3150->f352; break;
-    case 408: s->h68 += D_00352130_3150->h332; break;
-    case 409: s->h70 += D_00352130_3150->h332; break;
-    case 410: s->h72 += D_00352130_3150->h332; break;
-    case 411: s->h80 += D_00352130_3150->h356; break;
-    case 412: s->f88 += D_00352130_3150->f336; break;
-    case 413: s->f56 += D_00352130_3150->f288; break;
-    case 414: s->c48 += D_00352130_3150->b328; break;
-    case 419: s->f92 *= D_00352130_3150->f340; break;
-    case 421: s->f56 += D_00352130_3150->f292; break;
-    case 422: s->f56 += D_00352130_3150->f296; break;
-    case 540: s->f112 *= D_00352130_3150->f368; break;
-    case 542: s->f116 += D_00352130_3150->f372; break;
-    }
-    u32 a = func_001a80c8_3150(id)->abil;
-    u32* p = s->abil;
-    p += a >> 5;
-    *p |= 1 << (a & 31);
-}
+void func_001c3150(Stat1c3* s, s32 id);  // 0x001c3150: definition moved into src/anon/unit_001c2b58.cpp
 
 // ---- 002859f0
 struct Save285 { u32 seen[51]; u32 fresh[64]; };
@@ -5831,23 +5354,7 @@ void func_00107330(void*, f32, f32, f32);
 void func_00107340(void*, f32, f32, f32);
 void func_00107350(void*, f32, f32, f32);
 void func_00107360(void*, f32);
-void func_00107a90(void) {
-    func_00106998(0);
-    func_001069b8(0);  // swap_global_word
-    func_001069f8(0);
-    func_00106d40(D_003a7b70, 512.0f, 0.7999999523162842f, 0.8666666150093079f, 2048.0f, 2048.0f, 1.0f, 16770000.0f, 1.0f, 4000000.0f, 256.0f, 208.0f);
-    func_00106d40(D_003a7b70 + 256, 512.0f, 0.7999999523162842f, 0.8666666150093079f, 2048.0f, 2048.0f, 1.0f, 16770000.0f, 1.0f, 4000000.0f, 256.0f, 208.0f);
-    func_00107330(D_003a7f70, 0.0f, -600.0f, -10000.0f);
-    func_00107340(D_003a7f70, 1000.0f, -1000.0f, 0.0f);
-    func_00107350(D_003a7f70, 0.0f, -1.0f, 0.0f);
-    func_00107360(D_003a7f70, 0.0f);
-    func_00107330(D_003a7f70 + 144, 0.0f, -600.0f, -10000.0f);
-    func_00107340(D_003a7f70 + 144, 1000.0f, -1000.0f, 0.0f);
-    func_00107350(D_003a7f70 + 144, 0.0f, -1.0f, 0.0f);
-    func_00107360(D_003a7f70 + 144, 0.0f);
-    func_00106de8(D_003a7b70, 0, 1.5f);
-    func_00106de8(D_003a7b70 + 256, 0, 1.5f);
-}
+// 00107a90: moved to src/naka/libkn/camera.cpp
 
 // ---- 00157c88
 void func_001396b0(Sub4*);
@@ -6041,47 +5548,7 @@ s32 func_0023f0c0_3e58(u8*) asm("func_0023f0c0");
 s32 func_002c3240(u8*, s32);
 void func_002c3638(u8*);
 void func_002c3c90(u8*);
-void func_002c3e58(u8* p)
-{
-    func_00236d60();  // clear_64_entries_24
-    switch (*(s32*)(p + 8260)) {
-    case 1:
-        func_002c3368_3e58(p);
-        *(s32*)(p + 8260) = 0;
-        break;
-    case 2:
-        func_002c34d0_3e58(p);
-        *(s32*)(p + 8260) = 0;
-        break;
-    case 0:
-        break;
-    }
-    u8* lay = p + 28;
-    if (func_00139d78_3e58(lay) && func_00139538(lay)) {
-        if (func_0028acc8(*(u32*)(p + 872))) func_0028abe0(*(u32*)(p + 872));
-        if (func_002c5120(p)) {
-            for (s32 i = 0; i < 9; i++) VCALL5_e58(p + 188 + i * 76);
-            for (s32 i = 0; i < *(s32*)(p + 8252); i++) {
-                u8* o = p + 1320 + i * 432;
-                if (func_00139d78_3e58(o)) VCALL5_e58(o);
-            }
-            for (s32 i = 0; i < *(s32*)(p + 8256); i++) {
-                u8* o = p + 4776 + i * 432;
-                if (func_00139d78_3e58(o)) VCALL5_e58(o);
-            }
-            if (*(s32*)(p + 12368) && func_0028acc8(*(u32*)(p + 12360))) func_0028abe0(*(u32*)(p + 12360));
-            if (func_00139d78_3e58(p + 13648)) func_00139510(p + 13648);
-        }
-    }
-    if (!func_00139d78_3e58(p + 11872) && !func_00139d78_3e58(lay)) {
-        VCALL5_e58(p);
-        return;
-    }
-    func_002c85c8(*(u32*)(p + 8236));
-    if (func_0023f0c0_3e58(lay) != func_002c3240(p, 2)) return;
-    if (func_002c5120(p)) func_002c3638(p);
-    else func_002c3c90(p);
-}
+void func_002c3e58(u8* p);  // 0x002c3e58: definition moved into src/anon/unit_002c3c90.cpp
 #undef VCALL5_e58
 
 // ---- 002f97c8
@@ -6390,53 +5857,7 @@ void func_0023f618(u8*, u32);
 void func_00139638_4e98(u8*) asm("func_00139638");
 void func_001391c8_4e98(u8*, s32, s32) asm("func_001391c8");
 void func_0023f848(La98*);
-void func_002c4e98(u8* p, u32 res, Init5_98* arg)
-{
-    La98 la;
-    *(Init5_98*)(p + 13620) = *arg;
-    u8 kind = (*(u8**)(arg->obj + 2808))[4];
-    *(u32*)(p + 8236) = kind;
-    if (func_002cb200(p + 8272, kind, p + 8248)) *(s32*)(p + 8244) = 1;
-    else *(s32*)(p + 8244) = 0;
-    func_0023f800(&la);
-    u8* lay = p + 28;
-    *(u32*)(p + 8232) = func_001708f8_4e98(res, -1);
-    func_0023fa08(&la, *(u32*)(p + 8232));
-    u32 w = func_0023f948(&la, 0);
-    u32 h = func_0023f908(&la, 0);
-    func_0023eea0(lay, 30001, w, h, func_002c3240_4e98(p, 0), 0);
-    func_0023ef50(lay);
-    func_0023f0c8(lay, func_002c3240_4e98(p, 2));
-    *(u32*)(p + 13640) = func_0023c4b8_4e98(func_0023f1b0_4e98(lay), 1);
-    *(u32*)(p + 13644) = func_00236ca8_4e98(*(u32*)(func_0023f1b0_4e98(lay) + 40), 1);
-    if (func_002c5120(p)) {
-        func_002cb0e8_4e98(arg, D_01e2bd30, 0.0f);
-        func_002c44b8(p);
-    } else {
-        func_002cb0e8_4e98(arg, D_01e2bd20, 0.0f);
-        func_002c4ca8(p);
-    }
-    if (func_002c5120(p)) {
-        u8* o = p + 188;
-        Ent98* e = D_00375630;
-        s32 i;
-        for (i = 0; i < 9; i++) {
-            func_0023f1e0_4e98(o, 30005, lay, func_002c3268_4e98(p), e, e->a, 0, 0);
-            func_00139620(o);
-            func_001395e8_4e98(o);
-            func_001395f8(o);
-            func_0023f6c0_4e98(o, e->b);
-            o += 76;
-            e++;
-        }
-        func_0023f618(p + 720, func_002c24e0(*(u32*)(p + 8236)));
-        func_00139638_4e98(p + 720);
-        func_0023f618(p + 796, func_002c2518(*(u32*)(p + 8236)));
-        func_00139638_4e98(p + 796);
-    }
-    func_001391c8_4e98(p, 30002, 0);
-    func_0023f848(&la);
-}
+void func_002c4e98(u8* p, u32 res, Init5_98* arg);  // 0x002c4e98: definition moved into src/anon/unit_002c4ca8.cpp
 
 // ---- 0013c820
 u32 func_0013b5d0(u32, u32, u32, u32, u32, u32, u32, u32, u32, u32, f32);
@@ -6604,31 +6025,13 @@ void func_00123c98(u32* p) {
 struct S_00143520 { u8 pad[48]; Vec4 pos; u8 pad2[32]; s16 h96, h98, h100; u8 pad3[6]; f32 f108; u8 pad4[8]; u32 w120; u8 pad5[20]; };
 void func_0031b9e0(S_00143520*);
 void func_00143648(S_00143520*, u32);
-void func_00143520(Vec4* v, u32 a1) {
-    S_00143520 s;
-    func_0031b9e0(&s);
-    if (&s.pos != v) QCOPY(&s.pos, v);
-    s.w120 = 0;
-    s.h96 = -1;
-    s.f108 = 100.0f;
-    s.h100 = -1;
-    s.h98 = -1;
-    func_00143648(&s, a1);
-}
+void func_00143520(Vec4* v, u32 a1);  // 0x00143520: definition moved into src/anon/unit_00142c90.cpp
 
 // ---- 00197318
 void func_00170320(u32);
 void func_00196e88_7318(u32*, u32, u32, f32) asm("func_00196e88");
 union UH_00197318 { u16 h; u32 i; };
-void func_00197318(u32* p) {
-    func_00170320(2000);
-    u32 fl = p[0];
-    p[0] = fl | 1;
-    u8 b = (((UH_00197318*)(p[15] + 2))->h >> 1) & 1;
-    if (b) { func_00196e88_7318(p, 3, 0, 0.0f); return; }
-    p[0] = fl | 3;
-    func_00196e88_7318(p, 4, 0, 0.0f);
-}
+void func_00197318(u32* p);  // 0x00197318: definition moved into src/anon/unit_00195d00.cpp
 
 // ---- 001b5ef0
 extern u32 D_00351214;
@@ -6653,18 +6056,7 @@ struct E_001c3670 { u16 id; u8 pad[6]; };
 struct T_001c3670 { u32 x; s32 n; E_001c3670 e[1]; };
 extern T_001c3670* D_01d49560;
 extern u32 D_0032fca8[];
-void func_001c3670(u32 id) {
-    T_001c3670* t = D_01d49560;
-    E_001c3670* e = t->e;
-    for (s32 i = 0; i < t->n; i++, e++) {
-        if (e->id == id) break;
-    }
-    u32 m = 1 << (id & 31);
-    u32* b = D_0032fca8;
-    b[id >> 5] |= m;
-    b += 4;
-    b[id >> 5] |= m;
-}
+void func_001c3670(u32 id);  // 0x001c3670: definition moved into src/anon/unit_001c2b58.cpp
 
 // ---- 001b14d8
 struct T2_001b14d8 { u32 a, b; };
@@ -6770,16 +6162,7 @@ void func_0011f4b8(u8* p) {
 
 // ---- 00142bf8
 void func_0014ed28(u32, s32);
-void func_00142bf8(u8* p) {
-    for (s32 i = 0; i < *(s32*)(p + 40); i++) {
-        u8* e = *(u8**)(p + 12);
-        e += i * 16;
-        u32* t = *(u32**)(p + 20);
-        t += *(u16*)(e + 14);
-        u32 w = *t;
-        if (w & 0x60000) func_0014ed28((w >> 17) & 3, i);
-    }
-}
+void func_00142bf8(u8* p);  // 0x00142bf8: definition moved into src/anon/unit_00141458.cpp
 
 // ---- 00180378
 void func_0017f380(u8*);  // obj_walk_children
@@ -6803,25 +6186,7 @@ f32* func_0015cc70();
 // ---- 001c0150
 struct L_001c0150 { u8* head; u8* tail; };
 extern L_001c0150 D_01d49350;
-void func_001c0150(u8* p, u32 a1) {  // obj_init_fields_1c0150
-    *(u32*)p = a1;
-    for (s32 i = 0; i < 8; i++) ((u32*)(p + 4))[i] = 0;
-    *(u32*)(p + 36) = 0;
-    *(u32*)(p + 40) = 0;
-    *(u32*)(p + 44) = 0;
-    u8* q = p + 48;
-    for (s32 n = 3; n != -1; n--) { *(u32*)q = 0; q += 8; }
-    L_001c0150* l = &D_01d49350;
-    if (!l->tail) {
-        l->tail = p;
-        l->head = p;
-        *(u8**)(p + 80) = 0;
-    } else {
-        *(u8**)(l->tail + 80) = p;
-        *(u8**)(p + 80) = 0;
-        l->tail = p;
-    }
-}
+void func_001c0150(u8* p, u32 a1);  // 0x001c0150: definition moved into src/anon/unit_001bff88.cpp
 
 // ---- 00265b88
 u8* func_00257770_5b88() asm("func_00257770");
@@ -6916,21 +6281,7 @@ void func_002c6420(u8*);
 extern u8 D_00361da8[];
 extern u8 D_00361a80[];
 extern UA_002c0370 D_00361a70;
-void func_002c0370(u8* p, u32 a1, UA_002c0370* a2) {
-    *(u32*)p = (u32)D_00361da8;
-    func_0031cc28(p + 84);
-    ((UA_002c0370*)(p + 92))->i = 0;
-    func_002c6420(p);
-    ((UA_002c0370*)(p + 96))->i = a1;
-    *(u32*)p = (u32)D_00361a80;
-    ((UA_002c0370*)(p + 100))->i = a2[0].i;
-    ((UA_002c0370*)(p + 104))->i = a2[1].i;
-    ((UA_002c0370*)(p + 108))->i = a2[2].i;
-    ((UA_002c0370*)(p + 112))->i = a2[3].i;
-    ((UA_002c0370*)(p + 116))->i = a2[4].i;
-    D_00361a70.p = p;
-    ((UA_002c0370*)(p + 92))->f = 30.0f;
-}
+void func_002c0370(u8* p, u32 a1, UA_002c0370* a2);  // 0x002c0370: definition moved into src/anon/unit_002bebd0.cpp
 
 // ---- 002fb850
 f32 copysignf(f32, f32);
@@ -7058,20 +6409,7 @@ void func_0017f488_edc0(u8*, u32, f32, f32) asm("func_0017f488");
 void func_0017f5e0(u8*, u32, u32, f32, f32);
 void func_0016bd60_edc0(u8*, u32) asm("func_0016bd60");
 void func_00198860(u8*, u32);
-void func_001cedc0(u8* p) {
-    func_001780d8(p);
-    u8* r = func_0016b740_edc0(1620);
-    *(u8**)(p + 2924) = r;
-    if (r) {
-        func_001c0d38(r, p, 16386, 0);
-        func_0017fd30(p + 320, *(u8**)(p + 2924) + 320);
-    }
-    f32 z = 0.0f;
-    func_0017f488_edc0(p + 320, 44, z, z);
-    func_0017f5e0(p + 320, 0, 0, z, z);
-    func_0016bd60_edc0(p, 23);
-    func_00198860(p, 9);
-}
+void func_001cedc0(u8* p);  // 0x001cedc0: definition moved into src/anon/unit_001ce6e8.cpp
 // ---- 002f8960 (newlib sinf)
 f32 func_002fb460(f32, f32, s32);  // float_to_int
 f32 __kernel_cosf(f32, f32);  // float_to_int_b
@@ -7117,41 +6455,13 @@ void func_00196e88_7828(G197*, u32, u32, f32) asm("func_00196e88");
 struct F197 { u16 pad; u16 b0:1; u16 b1:1; u16 b2:1; u16 b3:1; u16 b4:1; u16 b5:1; };
 static inline u8 b0_197828() { return ((F197*)(*(G197* volatile*)&D_0035037c.g)->o)->b0; }
 static inline u8 b5_197828() { return ((F197*)(*(G197* volatile*)&D_0035037c.g)->o)->b5; }
-void func_00197828(f32 f) {
-    func_0014ce60();
-    if (b0_197828()) {
-        if (!func_00242ea8()) func_001c1130(4);
-        else {
-            if (func_00224e90()) func_00138480(0);
-            func_001c1130(36);  // copy_record_block_to_table
-        }
-    }
-    if (!b5_197828()) func_002bc798();
-    func_00196e88_7828(D_0035037c.g, 5, 0, 0.0f);
-    D_0035037c.g->f144 = f;
-}
+void func_00197828(f32 f);  // 0x00197828: definition moved into src/anon/unit_00195d00.cpp
 // ---- 001cf8d0
 void func_001d86a0(s32, u32);
 void func_001d8820(s32);
 void func_0017f488_f8d0(u8*, u32, f32, f32) asm("func_0017f488");
 void func_0017f5e0(u8*, u32, u32, f32, f32);
-void func_001cf8d0(u8* p, u8* a1) {
-    f32 z;
-    switch (*(u16*)(a1 + 2)) {
-    case 411:
-        z = 0.0f;
-        func_001d86a0(-1, 1);
-        func_0017f488_f8d0(p + 320, 201, z, z);
-        func_0017f5e0(p + 320, 0, 0, z, z);
-        break;
-    case 412:
-        z = 0.0f;
-        func_001d8820(1);
-        func_0017f488_f8d0(p + 320, 161, z, z);
-        func_0017f5e0(p + 320, 0, 0, z, z);
-        break;
-    }
-}
+void func_001cf8d0(u8* p, u8* a1);  // 0x001cf8d0: definition moved into src/anon/unit_001cf0b0.cpp
 // ---- 0028fe38
 void func_00290060(u8*, u32, u32, u32);
 void func_001386e0_fe38(u32, u32, u32, u32, s32, u32) asm("func_001386e0");
@@ -7333,29 +6643,7 @@ void func_0014e8b8(u8*);
 void func_001589d0(u8*);
 
 void wtarget_00140b68(u8* p, u8 flag) asm("_Z16wtarget_00140b68jjjj");
-void wtarget_00140b68(u8* p, u8 flag) {
-    if (*(u32*)(p + 68) == 0) return;
-    if (flag == 0 && func_001069e8() != 0) return;
-    func_00140850(p);
-    switch (*(u32*)(p + 64)) {
-    case 0: func_001403b0(p); break;
-    case 1: func_00140760(p); break;
-    case 2: func_0015a5a8(p); break;
-    case 3: func_00159070_x8002(p); break;
-    case 4: func_00159b00(p); break;
-    case 5: func_00159368(p); break;
-    case 6: func_00158dc0(p); break;
-    case 7: func_00158708(p); break;
-    case 8: func_00158658(p); break;
-    case 9: func_0014e8b8(p); break;
-    case 10: func_001589d0(p); break;
-    case 11: break;
-    }
-    func_0013f608(p);
-    func_00140f30(p);
-    func_001407d0(p);
-    func_001408a0(p, flag);
-}
+void wtarget_00140b68(u8* p, u8 flag);  // 0x00140b68: definition moved into src/anon/unit_0013fca8.cpp
 
 // --------------------
 extern f32 D_00349e14;  // 1.0f
@@ -7555,30 +6843,7 @@ void func_001973f0(T197028*);
 void func_00197430_x8317(T197028*) asm("func_00197430");
 void func_00197568(T197028*);
 void func_001975a0(T197028*);
-s32 func_00197028(T197028* p) {
-    if (func_002ee530(p)) return 1;
-    for (;;) {
-        if (p->wait > 0) {
-            p->wait--;
-            return 1;
-        }
-        if (p->fwait > 0.0f) {
-            p->fwait -= D_00349e10;
-            return 1;
-        }
-        switch (p->state) {
-        case 0: func_00197148(p); break;
-        case 1: func_00197280(p); break;
-        case 2: func_00197318_x8314(p); break;
-        case 3: func_00197390(p); break;
-        case 5: func_001973f0(p); break;
-        case 6: func_00197430_x8317(p); break;
-        case 7: func_00197568(p); break;
-        case 9: func_001975a0(p); return 0;
-        default: return 1;
-        }
-    }
-}
+s32 func_00197028(T197028* p);  // 0x00197028: definition moved into src/anon/unit_00195d00.cpp
 
 // --------------------
 extern s32 D_00350438;
@@ -7596,29 +6861,7 @@ struct S19ef90 { u8 a; u8 b; u8 c; u8 pad; s16 x; s16 y; s16 z; };
 struct T19ef90 { s32 type; S19ef90 s; s32 w; };
 union U19ef90 { s16 h; u16 uh; s32 i; };
 S19ef90 func_00199718(s32, s32);
-void func_0019ef90(T19ef90* d, u8* s) {
-    d->type = ((U19ef90*)s)->h;
-    d->w = ((U19ef90*)(s + 10))->h;
-    switch (((U19ef90*)s)->uh) {
-    case 4:
-        d->s.a = s[2];
-        break;
-    case 1:
-        d->s.a = s[2];
-        d->s.b = s[4];
-        d->s.c = s[6];
-        d->s.z = -1;
-        d->s.y = -1;
-        d->s.x = -1;
-        break;
-    case 2:
-        d->s = func_00199718(*(s16*)(s + 8), *(s16*)(s + 2));
-        d->s.c = s[6];
-        break;
-    case 0: case 6:
-        break;
-    }
-}
+void func_0019ef90(T19ef90* d, u8* s);  // 0x0019ef90: definition moved into src/anon/unit_0019ee80.cpp
 
 // --------------------
 extern u64 D_0032f050;
@@ -7629,38 +6872,7 @@ void func_001adbc0();
 s32 func_001a1658_x8414(s32, s32) asm("func_001a1658");
 void func_001adb80(s32, s32);
 void func_001a17c8_x8416(s32) asm("func_001a17c8");
-void func_001ada38(s32 n) {
-    s32 i;
-    if (n == 0) return;
-    switch (n) {
-    case 1:
-        if (!(D_0032f050 & 0xffff00000000ULL)) break;
-    case 2: case 12:
-        func_001c9770();
-    case 10:
-        func_001adbc0();
-        break;
-    case 5:
-        D_0034f240 |= 0x40000;
-    case 4:
-        if (!(D_0032f050 & 0xffff00000000ULL)) return;
-    case 6:
-        func_001c9770();
-        func_001adbc0();
-        return;
-    case 11:
-        if (D_0032bb30[13604] == 6) {
-            D_0032bb30[13604] = 0;
-            func_001c9770();
-        }
-        return;
-    }
-    for (i = 1; i < 16; i++) {
-        s32 o = func_001a1658_x8414(i, -1);
-        func_001adb80(n, o);
-        func_001a17c8_x8416(o);
-    }
-}
+void func_001ada38(s32 n);  // 0x001ada38: definition moved into src/anon/unit_001ada38.cpp
 
 // --------------------
 struct C1b8520 { u16 type; u16 pad; union { f32 f; s32 i; } v; };
@@ -8342,24 +7554,8 @@ void func_001cbb58(void*, u8*);
 void func_001d2850(void*, u8*);
 void func_001d7458(void*, u8*);
 void func_001da1d8(void*, u8*);
-void* func_001c25e8(u8* d) {
-
-    switch (d[5]) {
-    case 2: return func_001c4520(d);
-    case 3: return func_001c51d8(d);
-    case 4: { void* p = func_001050d8_x9233(2560); func_001c7bc8(p, d); return p; }
-    case 6: { void* p = func_001050d8_x9233(2560); func_001cc048(p, d); return p; }
-    case 7: { void* p = func_001050d8_x9233(2560); func_001ca678(p, d); return p; }
-    case 8: { void* p = func_001050d8_x9233(2560); func_001cce38(p, d); return p; }
-    case 9: { void* p = func_001050d8_x9233(2560); func_001cbb58(p, d); return p; }
-    case 12: { void* p = func_001050d8_x9233(2560); func_001d2850(p, d); return p; }
-    case 13: { void* p = func_001050d8_x9233(2560); func_001d7458(p, d); return p; }
-    case 10: case 11: case 14: return func_001ce488(d);
-    case 15: return func_001d6578(d);
-    case 16: { void* p = func_001050d8_x9233(2560); func_001da1d8(p, d); return p; }
-    }
-    return 0;
-}
+// 001c25e8: moved to src/anon/unit_001c0638.cpp
+void* func_001c25e8(u8* d);
 
 // --------------------
 typedef unsigned int Q1d3148 __attribute__((mode(TI)));
@@ -9875,9 +9071,7 @@ void func_0014b920(u64* p) {
 // --------------------
 extern f32 D_01c60be8;
 void wtarget_0018c868(u32, u32, u32, u32) asm("_Z16wtarget_0018c868jjjj");
-void wtarget_0018c868(u32 a0, u32 a1, u32, u32) {
-    if (a1 == 0xffff && a0 == 1) D_01c60be8 = 0.34906584f;
-}
+void wtarget_0018c868(u32 a0, u32 a1, u32, u32);  // 0x0018c868: definition moved into src/yasui/libys/npc.cpp
 
 // --------------------
 struct YS_DAMAGE { u8 pad[39]; u8 type; };
@@ -9889,36 +9083,19 @@ void func_001ad990(u8*, f32, f32, f32);
 // 001b1be0: moved to src/anon/unit_001b14d8.cpp
 
 // --------------------
-void func_001cfac0(u8* p, f32 a, f32 b, f32 c, f32 d) {
-    *(f32*)(p + 2960) = a * 0.017453292f;
-    *(f32*)(p + 2964) = b * 0.017453292f;
-    *(f32*)(p + 2968) = c * 0.017453292f;
-    *(f32*)(p + 2972) = d * 0.017453292f;
-}
+void func_001cfac0(u8* p, f32 a, f32 b, f32 c, f32 d);  // 0x001cfac0: definition moved into src/anon/unit_001cf0b0.cpp
 
 // --------------------
 void func_001a5990(u8*, f32, s32);
-void func_001d29a0(u8* a, u8* b) {
-    func_001a5990(b, 1.0f, 0);
-}
+void func_001d29a0(u8* a, u8* b);  // 0x001d29a0: definition moved into src/anon/unit_001d2810.cpp
 
 // --------------------
 extern f32 D_01d5ba08;
 void wtarget_001d3060(u32, u32, u32, u32) asm("_Z16wtarget_001d3060jjjj");
-void wtarget_001d3060(u32 a0, u32 a1, u32, u32) {
-    if (a1 == 0xffff && a0 == 1) D_01d5ba08 = 1.57079625f;
-}
+void wtarget_001d3060(u32 a0, u32 a1, u32, u32);  // 0x001d3060: definition moved into src/anon/unit_001d2810.cpp
 
 // --------------------
-void func_002cd260(u8* p) {
-    if (p[135]) {
-        *(s32*)(p + 136) = 0;
-        *(s32*)(p + 4) = 0;
-        *(f32*)(p + 28) = -2.0f;
-        *(s32*)(p + 8) = 0;
-        *(s32*)(p + 24) = 0;
-    }
-}
+void func_002cd260(u8* p);  // 0x002cd260: definition moved into src/taito/path.cpp
 
 // --------------------
 // 002eaee8: static initialiser, now made by gcc in src/anon/unit_002eae08.cpp
@@ -10160,10 +9337,7 @@ struct L3_1c8118 : L2_1c8118 {
         if (n == 0) D_01d49968 = 0;
     }
 };
-void func_001c8118(L3_1c8118* p)
-{
-    p->~L3_1c8118();
-}
+// 0x1c8118: moved to src/yasui/libys/summon.cpp
 
 // --------------------
 struct X2c62c8;
@@ -10172,21 +9346,7 @@ struct X2c62c8 { VT2c62c8* vt; };
 struct O2c62c8 { u8 pad[16]; X2c62c8* slot[3]; X2c62c8* cur; };
 void func_002c65f8__2c62c8(X2c62c8*) asm("func_002c65f8");
 void func_002c6280__2c62c8(O2c62c8*, s32) asm("func_002c6280");
-s32 func_002c62c8(O2c62c8* o)
-{
-    s32 found = 0;
-    s32 i;
-    o->cur = 0;
-    for (i = 2; i >= 0; i--) {
-        X2c62c8* x = o->slot[i];
-        if (!x) continue;
-        if (!found) {
-            if (x->vt->f8(x)) { found = 1; o->cur = o->slot[i]; }
-            else func_002c6280__2c62c8(o, i);
-        } else func_002c65f8__2c62c8(x);
-    }
-    return found;
-}
+s32 func_002c62c8(O2c62c8* o);  // 0x002c62c8: definition moved into src/worldmap/cameramanager.cpp
 
 // --------------------
 // 00159070: moved to src/harata/libdk/lightcyclecamera.cpp
@@ -10198,25 +9358,7 @@ extern E1a6a20 D_01c6cb30[8];
 extern s32 D_01c6cb70;
 void* func_001050d8__1a6a20(u32) asm("func_001050d8");
 void func_002fd310__1a6a20(void*, u32) asm("func_002fd310");
-u8* func_001a6a20(u32 key, u32 n)
-{
-    s32 i;
-    E1a6a20* e;
-    u8* b;
-    for (i = 0; i < D_01c6cb70; i++) {
-        if (D_01c6cb30[i].key == key) {
-            D_01c6cb30[i].buf[0] = 1;
-            return D_01c6cb30[i].buf;
-        }
-    }
-    n++;
-    b = (u8*)func_001050d8__1a6a20(n);
-    func_002fd310__1a6a20(b, n);
-    e = &D_01c6cb30[D_01c6cb70++];
-    e->key = key;
-    ((U1a6a20*)&e->buf)->u = (u32)b;
-    return b;
-}
+// 001a6a20: moved to src/anon/unit_001a6a10.cpp
 
 // --------------------
 extern u8* D_01d49960__1c89a8[2] asm("D_01d49960");
@@ -10226,19 +9368,7 @@ void func_001880b0__1c89a8(u8*, char*) asm("func_001880b0");
 void func_00102448__1c89a8(u32, u32) asm("func_00102448");
 void func_001c9e50__1c89a8(u32) asm("func_001c9e50");
 void func_001c9b90__1c89a8(void) asm("func_001c9b90");
-void func_001c89a8(u32 t)
-{
-    if (func_0019ba60__1c89a8(D_01d49960__1c89a8[0])) {
-        s32 i;
-        func_001880b0__1c89a8(D_01d49960__1c89a8[0] + 768, D_0036e080);
-        for (i = 0; i < 2; i++) {
-            while (D_01d49960__1c89a8[i]) func_00102448__1c89a8(t, 0);
-        }
-    }
-    func_00102448__1c89a8(t, 2);
-    func_001c9e50__1c89a8(t);
-    func_001c9b90__1c89a8();
-}
+// 0x1c89a8: moved to src/yasui/libys/summon.cpp
 
 // --------------------
 struct V1ba340 {
@@ -10431,45 +9561,7 @@ extern char D_0036d000[];
 extern char D_0036d008[];
 extern char D_0036d010[];
 static inline s32 Tag194a30(char* s) { return s[0] | (s[1] << 8) | (s[2] << 16) | (s[3] << 24); }
-void func_00194a30(void)
-{
-    void* b;
-    BarEnt194a30* e;
-    D_01c61af8 = b = func_001b1490__194a30(D_0034f248);
-    func_001ce1a0__194a30(func_00168b88__194a30(b, 1, Tag194a30(D_0036cf28), 0)->data);
-    func_001d23d0__194a30(func_00168b88__194a30(b, 2, Tag194a30(D_0036cf30), 0)->data);
-    func_001b8e78__194a30(func_00168b88__194a30(b, 2, Tag194a30(D_0036cf38), 0)->data);
-    func_00185880__194a30(func_00168b88__194a30(b, 2, Tag194a30(D_0036cf40), 0)->data);
-    func_00185910__194a30(func_00168b88__194a30(b, 2, Tag194a30(D_0036cf48), 0)->data);
-    func_00194790__194a30(func_00168b88__194a30(b, 2, Tag194a30(D_0036cf50), 0)->data);
-    func_001a8098__194a30(func_00168b88__194a30(b, 2, Tag194a30(D_0036cf58), 0)->data);
-    func_001a81e0__194a30(func_00168b88__194a30(b, 2, Tag194a30(D_0036cf60), 0)->data);
-    func_001a8908__194a30(func_00168b88__194a30(b, 2, Tag194a30(D_0036cf68), 0)->data);
-    func_001a97e8__194a30(func_00168b88__194a30(b, 2, Tag194a30(D_0036cf70), 0)->data);
-    func_001b1e58__194a30(func_00168b88__194a30(b, 25, Tag194a30(D_0036cf78), 0)->data);
-    e = func_00168b38__194a30(b, 41, 0);
-    if (e && e->data) func_00264318__194a30(e->data);
-    func_001c2d38__194a30(func_00168b88__194a30(b, 2, Tag194a30(D_0036cf80), 0)->data);
-    func_001d30b0__194a30(func_00168b88__194a30(b, 2, Tag194a30(D_0036cf88), 0)->data);
-    D_01c61afc = b = func_001b1490__194a30(D_0034f24c);
-    func_0019fe80__194a30(func_00168b88__194a30(b, 2, Tag194a30(D_0036cf90), 0)->data);
-    func_001d7eb8__194a30(func_00168b88__194a30(b, 2, Tag194a30(D_0036cf98), 0)->data);
-    func_001db598__194a30(func_00168b88__194a30(b, 2, Tag194a30(D_0036cfa0), 0)->data);
-    func_001a5b58__194a30(func_00168b88__194a30(b, 2, Tag194a30(D_0036cfa8), 0)->data);
-    func_001afa30__194a30(func_00168b88__194a30(b, 2, Tag194a30(D_0036cfb0), 0)->data);
-    func_001b6fa0__194a30(func_00168b88__194a30(b, 2, Tag194a30(D_0036cfb8), 0)->data);
-    func_001c0638__194a30(func_00168b88__194a30(b, 2, Tag194a30(D_0036cfc0), 0)->data);
-    func_001c09f0__194a30(func_00168b88__194a30(b, 2, Tag194a30(D_0036cfc8), 0)->data);
-    func_001c0c70__194a30(func_00168b88__194a30(b, 2, Tag194a30(D_0036cfd0), 0)->data);
-    func_001c20d8__194a30(func_00168b88__194a30(b, 2, Tag194a30(D_0036cfd8), 0)->data);
-    func_001c2d78__194a30(func_00168b88__194a30(b, 2, Tag194a30(D_0036cfe0), 0)->data);
-    func_001d3c08__194a30(func_00168b88__194a30(b, 2, Tag194a30(D_0036cfe8), 0)->data);
-    func_001d6cb8__194a30(func_00168b88__194a30(b, 2, Tag194a30(D_0036cff0), 0)->data);
-    func_001a6648__194a30(func_00168b88__194a30(b, 2, Tag194a30(D_0036cff8), 0)->data);
-    func_001d5030__194a30(func_00168b88__194a30(b, 1, Tag194a30(D_0036d000), 0)->data);
-    func_001d5b68__194a30(func_00168b88__194a30(b, 2, Tag194a30(D_0036d008), 0)->data);
-    func_001d7970__194a30(func_00168b88__194a30(b, 2, Tag194a30(D_0036d010), 0)->data);
-}
+void func_00194a30(void);  // 0x00194a30: definition moved into src/anon/unit_00194790.cpp
 
 // --------------------
 // Player constructor body: sets up state, then creates the per-character controller.
@@ -14290,22 +13382,7 @@ extern u8 D_00361dc8[];
 extern UA_002c6780 D_00361db8;
 extern u8 D_01e2bdd0[];
 extern u8 D_01e2bdc0[];
-void func_002c6780(u8* p, u32 a1, u32 a2) {
-    *(u32*)p = (u32)D_00361da8;
-    func_0031cc28(p + 84);
-    ((UA_002c6780*)(p + 92))->i = 0;
-    func_002c6420(p);
-    *(u32*)p = (u32)D_00361dc8;
-    ((UA_002c6780*)(p + 96))->i = a1;
-    ((UA_002c6780*)(p + 100))->i = a2;
-    QCOPYS_2c6780(p + 112, D_01e2bdd0);
-    QCOPYS_2c6780(p + 128, D_01e2bdc0);
-    D_00361db8.p = p;
-    ((UA_002c6780*)(p + 92))->f = 60.0f;
-    ((UA_002c6780*)(p + 84))->i |= 1;
-    ((UA_002c6780*)(p + 144))->f = 65.0f;
-    ((UA_002c6780*)(p + 88))->f = 60.0f;
-}
+// 002c6780: moved to src/anon/unit_002c6420.cpp (linked unit)
 
 // --------------------
 // lq/sq 128-bit copy and VU0 vf0 store (hand-written VU idioms)
@@ -14530,14 +13607,7 @@ static inline u32 K1a3f08(u8* p)
     if (p != 0 && (q = *(u8**)(p + 0x48c)) != 0) return q[0x24c];
     return 0;
 }
-void func_001a3f08(u8* o, u8* p, u32 a2, u32 a3, u32 x, u32 y, u32 z)
-{
-    func_0018d050(o, p, a2, a3, K1a3f08(p), -1, y);
-    *(u32*)(o + 0xc4) = z;
-    *(u32*)(o + 0x2d0) = x;
-    *(u32*)o = (u32)D_00350758;
-    if (!(*(*(u8**)(o + 0x28) + 0x12) & 0xa)) *(u32*)(o + 0x24) = *(u32*)(o + 0x10) + 128;
-}
+// 001a3f08: moved to src/anon/unit_001a3e70.cpp
 
 // --------------------
 struct N170a90 { u8 pad0[4]; char name[0x24]; s32 f28; u8 pad2c[0x10]; N170a90* next; };
@@ -14624,20 +13694,7 @@ struct V11bfa0 {
 struct M11bfa0 { V11bfa0 r[4]; };
 extern M11bfa0 D_003478f0;
 void wtarget_0011bfa0(s32 init, s32 prio, u32, u32) asm("_Z16wtarget_0011bfa0jjjj");
-void wtarget_0011bfa0(s32 init, s32 prio, u32, u32)
-{
-    if (prio == 0xffff && init == 1) {
-        M11bfa0 m;
-        m.r[0].Set(1.0f, 0.0f, 0.0f, 0.0f);
-        m.r[1].Set(0.0f, 1.0f, 0.0f, 0.0f);
-        m.r[2].Set(0.0f, 0.0f, 1.0f, 0.0f);
-        m.r[3].Set(0.0f, 0.0f, 0.0f, 1.0f);
-        QCOPY_11bfa0(&D_003478f0.r[0], &m.r[0]);
-        QCOPY_11bfa0(&D_003478f0.r[1], &m.r[1]);
-        QCOPY_11bfa0(&D_003478f0.r[2], &m.r[2]);
-        QCOPY_11bfa0(&D_003478f0.r[3], &m.r[3]);
-    }
-}
+void wtarget_0011bfa0(s32 init, s32 prio, u32, u32);  // 0x0011bfa0: definition moved into src/anon/unit_0011b3f8.cpp
 
 // --------------------
 struct P1eaf50 { f32 x, y, z; };
@@ -15074,25 +14131,7 @@ static inline void Init196ca8(X196ca8* x, s32 v)
     A196ca8* p = (A196ca8*)((u8*)x - 4);
     p->a = v; p->b = v; p->c = v; x->d = v; x->e = v; x->f = v;
 }
-void func_00196ca8(u8* p, s32 flags, u32 v)
-{
-    O196ca8* o = (O196ca8*)p;
-    o->f4.u = v;
-    o->f0 = 0;
-    o->f8 = 0;
-    Init196ca8(&o->shorts, 0xffff);
-    u8* m = o->m0c;
-    func_0031cc28(o->m2c);
-    func_0019ef70(m);
-    o->f3c = func_001d30c0(flags & 0x3f);
-    o->f40 = 1;
-    func_0011b6a8_196ca8(o->m50);
-    o->f98 = 0;
-    o->f9c = -1;
-    o->fa0 = -1;
-    o->f94 = 0;
-    if (flags & 0x80) func_00138480(1);
-}
+void func_00196ca8(u8* p, s32 flags, u32 v);  // 0x00196ca8: definition moved into src/anon/unit_00195d00.cpp
 
 // --------------------
 // libgcc fp-bit.c (double): pack_d (no rounding, denormals flushed)
@@ -15501,24 +14540,7 @@ u8* func_0017df58_19e758(s32) asm("func_0017df58");
 s32 func_0019ba60_19e758(u8*) asm("func_0019ba60");
 u8 func_0019e848_19e758(u8*, u8*, u8*, s32) asm("func_0019e848");
 extern u8 D_0036d400[];
-s32 func_0019e758(u8* o, u8* t)
-{
-    if (*(u32*)(t + 1164) != 0 && (*(u32*)(func_00177860_19e758(t) + 4) & 0x1000000)) {
-        s32* p = *(s32**)(*(u8**)(t + 2884) + 2536);
-        if (p == 0 || *p != 6) return 0;
-        s32 found = 0;
-        for (s32 i = 0; i < 2; i++) {
-            u8* m = func_0017df58_19e758(i);
-            if (func_0019ba60_19e758(m) && (*(u32*)(m + 2040) & 4)) {
-                found = 1;
-                break;
-            }
-        }
-        if (!found) return 0;
-        return func_0019e848_19e758(o, t, D_0036d400, 4);
-    }
-    return 0;
-}
+s32 func_0019e758(u8* o, u8* t);  // 0x0019e758: definition moved into src/anon/unit_0019ba60.cpp
 
 // --------------------
 struct Q26b008 { u8 pad[18]; u8 n; u8 pad2[33]; u16 h52[8]; u16 h68[8]; };
@@ -15897,34 +14919,7 @@ extern struct O2c10e0* D_00361a90;
 void func_00170950(u32);
 void func_0023c098(u8*);
 void func_002369f0(u8*);
-void func_002c10e0(O2c10e0* o)
-{
-    o->vt = (u32)D_00361aa0_2c10e0;
-    func_00170950(o->z.f160);
-    if (D_00361a90 == o) D_00361a90 = 0;
-    if ((u8*)o + 2232 != 0) {
-        E2c10e0* p = o->a + 2;
-        E2c10e0* b = o->a;
-        for (;;) { if (b == p) break; --p; p->vt->dtor(p); }
-    }
-    X2c10e0* x = &o->x;
-    x->vt = (u32)D_00347e60_2c10e0;
-    func_00239870(x->y);
-    x->vt = (u32)D_00347f98_2c10e0;
-    if ((u8*)o + 600 != 0) {
-        E2c10e0* p = o->b + 3;
-        E2c10e0* b = o->b;
-        for (;;) { if (b == p) break; --p; p->vt->dtor(p); }
-    }
-    o->y.vt = (u32)D_00347e60_2c10e0;
-    func_00239870(o->y.y);
-    o->y.vt = (u32)D_00347f98_2c10e0;
-    o->z.vt = (u32)D_0035eb98_2c10e0;
-    func_0023c098(o->z.m48);
-    func_002369f0(o->z.m24);
-    o->z.vt = (u32)D_00347f98_2c10e0;
-    o->vt = (u32)D_00347f98_2c10e0;
-}
+void func_002c10e0(O2c10e0* o);  // 0x002c10e0: definition moved into src/anon/unit_002c10e0.cpp
 
 // --------------------
 struct S28c198 { u8 pad[184]; u32 flags; void Set() { flags |= 8; } void Clr() { flags &= ~8; } };
@@ -16124,29 +15119,7 @@ void b15e_0014b838(Rect15e608*) asm("func_0014b838");
 void b15e_0014c350(Rect15e608*) asm("func_0014c350");
 u64 b15e_00166148(u8*, s32, s32) asm("func_00166148");
 u32 b15e_00313bc0(f32) asm("__fixunssfsi");
-void func_0015e608(Owner15e608* o)
-{
-    b15e_0014c350(&D_004f3820);
-    Proj15e608 proj(*b15e_00106a18(0));
-    Cam15e608 cam(*b15e_00106a60(0));
-    Model15e608* mo;
-    s32 n = o->nModels;
-    for (s32 i = 0; i < n; i++) {
-        mo = o->models[i];
-        mo->f32 = 0x31000070;
-        mo->f24 = 0x80140;
-        m15e608_swap(mo->handle);
-        M15e608 mat = Mul15e608(proj.world, cam.m);
-        b15e_0011cdf0(mo->handle, &mat, mo->f128, mo->f8, mo->f269);
-        m15e608_swap(mo->handle);
-    }
-    o->nModels = 0;
-    u32 z = b15e_00313bc0(o->z);
-    mo = o->models[0];
-    r15e608_setZ(&o->rect, z);
-    r15e608_setColor(&o->rect, 128, 128, 128, mo->f235);
-    b15e_0014c350(&o->rect);
-}
+// 0015e608: moved to src/anon/unit_0015e070.cpp
 
 struct Owner15e070 {
     u8 pad0[4];
@@ -16161,34 +15134,7 @@ struct Owner15e070 {
     s16 y; u8 pad4[2];
     u16 size;
 };
-void func_0015e070(Owner15e070* o)
-{
-    r15e608_setZbuf(&D_004f3820, 0x131000070ULL);
-    r15e608_setFrame(&D_004f3820, 0x80140);
-    r15e608_setPrim(&D_004f3820, 6);
-    r15e608_setColor(&D_004f3820, 0, 0, 0, 0);
-    r15e608_setWH(&D_004f3820, 512, 416);
-    b15e_0014c350(&D_004f3820);
-    Proj15e608 proj(*b15e_00106a18(0));
-    Cam15e608 cam(*b15e_00106a60(0));
-    s32 n = o->nModels;
-    for (s32 i = 0; i < n; i++) {
-        Model15e608* mo = o->models[i];
-        mo->f32 = 0x31000070;
-        mo->f24 = 0x80140;
-        m15e608_swap(mo->handle);
-        M15e608 mat = Mul15e608(proj.world, cam.m);
-        b15e_0011cdf0(mo->handle, &mat, mo->f128, mo->f8, mo->f269);
-        m15e608_swap(mo->handle);
-    }
-    o->nModels = 0;
-    r15e608_setXY(&o->rect, o->x, o->y);
-    r15e608_setWH(&o->rect, o->size, o->size);
-    r15e608_setTex0(&o->rect, b15e_00166148(D_0034b280, 0x3500, 0x3540));
-    b15e_0014b838(&o->rect);
-    r15e608_setZ(&o->rect2, b15e_00313bc0(o->z));
-    b15e_0014c350(&o->rect2);
-}
+// 0015e070: moved to src/anon/unit_0015e070.cpp
 
 
 // --------------------
@@ -17287,110 +16233,7 @@ void w1633_00106ac8(W1633Big*) asm("func_00106ac8");
 void w1633_001070c8(W1633Virt*) asm("func_001070c8");
 
 void func_00107d20(int init, int prio) asm("_Z13func_00107d20ii");
-void func_00107d20(int init, int prio) {
-    if (prio == 0xffff && init == 1) {
-        w1633_00106ab8(&w1633_003a7b70[0]);
-        w1633_00106ab8(&w1633_003a7b70[1]);
-    }
-    if (prio == 0xffff && init == 1) {
-        w1633_00106ab8(&w1633_003a7d70[0]);
-        w1633_00106ab8(&w1633_003a7d70[1]);
-    }
-    if (prio == 0xffff && init == 1) {
-        w1633_001070c8(&w1633_003a7f70[0]);
-        w1633_001070c8(&w1633_003a7f70[1]);
-    }
-    if (prio == 0xffff && init == 1) {
-        w1633_001070c8(&w1633_003a8090[0]);
-        w1633_001070c8(&w1633_003a8090[1]);
-    }
-    if (prio == 0xffff && init == 1) {
-        w1633_00106ab8(&w1633_003a81b0[0]);
-        w1633_00106ab8(&w1633_003a81b0[1]);
-    }
-    if (prio == 0xffff && init == 1) {
-        w1633_001070c8(&w1633_003a83b0[0]);
-        w1633_001070c8(&w1633_003a83b0[1]);
-    }
-    if (prio == 0xffff && init == 0) {
-        u32 t = (u32)w1633_003a83b0;
-        if (t != 0) {
-            W1633Virt* p = (W1633Virt*)(t + 288);
-            W1633Virt* base = (W1633Virt*)t;
-        loop_D_003a83b0:
-            if (p == base) goto done_D_003a83b0;
-            --p;
-            p->vtbl[0](p);
-            goto loop_D_003a83b0;
-        done_D_003a83b0:;
-        }
-    }
-    if (prio == 0xffff && init == 0) {
-        u32 t = (u32)w1633_003a81b0;
-        if (t != 0) {
-            W1633Big* p = (W1633Big*)(t + 512);
-            W1633Big* base = (W1633Big*)t;
-        loop_D_003a81b0:
-            if (p == base) goto done_D_003a81b0;
-            --p;
-            w1633_00106ac8(p);
-            goto loop_D_003a81b0;
-        done_D_003a81b0:;
-        }
-    }
-    if (prio == 0xffff && init == 0) {
-        u32 t = (u32)w1633_003a8090;
-        if (t != 0) {
-            W1633Virt* p = (W1633Virt*)(t + 288);
-            W1633Virt* base = (W1633Virt*)t;
-        loop_D_003a8090:
-            if (p == base) goto done_D_003a8090;
-            --p;
-            p->vtbl[0](p);
-            goto loop_D_003a8090;
-        done_D_003a8090:;
-        }
-    }
-    if (prio == 0xffff && init == 0) {
-        u32 t = (u32)w1633_003a7f70;
-        if (t != 0) {
-            W1633Virt* p = (W1633Virt*)(t + 288);
-            W1633Virt* base = (W1633Virt*)t;
-        loop_D_003a7f70:
-            if (p == base) goto done_D_003a7f70;
-            --p;
-            p->vtbl[0](p);
-            goto loop_D_003a7f70;
-        done_D_003a7f70:;
-        }
-    }
-    if (prio == 0xffff && init == 0) {
-        u32 t = (u32)w1633_003a7d70;
-        if (t != 0) {
-            W1633Big* p = (W1633Big*)(t + 512);
-            W1633Big* base = (W1633Big*)t;
-        loop_D_003a7d70:
-            if (p == base) goto done_D_003a7d70;
-            --p;
-            w1633_00106ac8(p);
-            goto loop_D_003a7d70;
-        done_D_003a7d70:;
-        }
-    }
-    if (prio == 0xffff && init == 0) {
-        u32 t = (u32)w1633_003a7b70;
-        if (t != 0) {
-            W1633Big* p = (W1633Big*)(t + 512);
-            W1633Big* base = (W1633Big*)t;
-        loop_D_003a7b70:
-            if (p == base) goto done_D_003a7b70;
-            --p;
-            w1633_00106ac8(p);
-            goto loop_D_003a7b70;
-        done_D_003a7b70:;
-        }
-    }
-}
+// 00107d20: moved to src/naka/libkn/camera.cpp
 
 
 } // extern "C"

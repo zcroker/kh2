@@ -21,13 +21,7 @@ void func_00114f38(void** self) {
 
 void func_0011b6a8_impl(void* dst) asm("_Z13func_0011b6a8Pv");
 extern Q16 D_003478f0[4];
-void func_0011b6a8_impl(void* dst) {
-    asm volatile(".set noreorder\n\t"
-                 "lq $8, 0(%1)\n\tlq $9, 16(%1)\n\tlq $10, 32(%1)\n\tlq $11, 48(%1)\n\t"
-                 "sq $8, 0(%0)\n\tsq $9, 16(%0)\n\tsq $10, 32(%0)\n\tsq $11, 48(%0)\n\t"
-                 ".set reorder"
-                 : : "r"(dst), "r"(D_003478f0) : "$8", "$9", "$10", "$11", "memory");
-}
+void func_0011b6a8_impl(void* dst);  // 0x0011b6a8: definition moved into src/anon/unit_0011b3f8.cpp
 
 extern u8 D_00347bd8;
 void func_00124c08(void*);  // set_vtbl_347b88
@@ -53,19 +47,11 @@ int obj_is_exist_00139768(void*) asm("_Z13func_00139768jjjjjjjj");
 void func_001394c0(void*);
 void func_00102750(u32);
 extern u32* D_00347f80;
-void func_001394d8(void* p) {
-    obj_is_exist_00139768(p);
-    func_001394c0(p);
-    func_00102750(*D_00347f80);
-}
+void func_001394d8(void* p);  // 0x001394d8: definition moved into src/anon/unit_001393c8.cpp
 
 int func_00141970(void*, u32);  // vtable_get12
 void func_001450e8(void*, int, u32);
-void func_00142900(u8* p, u32 a, u32 b) {
-    u8* q = *(u8**)(p + 4);
-    int r = func_00141970(p, a);  // vtable_get12
-    func_001450e8(q + 16, r, b);
-}
+void func_00142900(u8* p, u32 a, u32 b);  // 0x00142900: definition moved into src/anon/unit_00141458.cpp
 
 int func_00139d78(void*);
 void func_00151528(void*);
@@ -89,21 +75,10 @@ void func_001614e8(u8* p, u32 v) {
 }
 
 void func_001666a0(void*);  // zero_fields_0_4_6_8
-void func_00166930(u8* p) {
-    func_001666a0(p);  // zero_fields_0_4_6_8
-    *(u16*)(p + 12) = 0;
-    *(u8*)(p + 14) = 1;
-    *(u16*)(p + 10) = 0;
-}
+void func_00166930(u8* p);  // 0x00166930: definition moved into src/anon/unit_001664c0.cpp
 
 void* func_001dc670(u32);
-void func_0016e500(u32* p) {
-    void* d = func_001dc670(p[0]);
-    void* s = (void*)p[1];
-    if (d != s) {
-        asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(d), "r"(s) : "$8", "memory");
-    }
-}
+// 0016e500: moved to src/anon/unit_0016d2e0.cpp
 
 // 00180dc0: moved to src/anon/unit_00180408.cpp
 
@@ -116,17 +91,10 @@ extern u8 D_0032bb30[];
 // 00181a90: moved to src/yasui/libys/progress.cpp
 
 u32 func_001b58f0(u32, u32, u32, u32);
-void func_0018fee8(u32* p) {
-    p[0] = func_001b58f0(p[0], p[1], p[3], ((u32*)p[2])[1]);
-}
+void func_0018fee8(u32* p);  // 0x0018fee8: definition moved into src/anon/unit_0018f140.cpp
 
 struct Pair12 { u32 a; u32 b; u32 c; };
-Pair12* func_0019f5d8(Pair12* e, u32 a, u32 b) {  // find_entry12_pair
-    for (int i = 0; i < 8; i++) {
-        if (e[i].a == a && e[i].b == b) return &e[i];
-    }
-    return 0;
-}
+Pair12* func_0019f5d8(Pair12* e, u32 a, u32 b);  // 0x0019f5d8: definition moved into src/anon/unit_0019ee80.cpp
 
 void func_0016bd60(void*, u32);
 // 001a2a18: moved to src/anon/unit_001a28f8.cpp
@@ -153,11 +121,7 @@ u8* func_001bbcb0(void);
 // 001bbec0: moved to src/yasui/libys/mission.cpp
 
 void func_001c6fa8(u8*, u32, u32, u32, u32);
-void func_001ca988(u8* p, u32 a1, u32 a2, u32 a3, u32 a4, u32 x) {
-    func_001c6fa8(p, a1, a2, a3, a4);
-    *(u32*)(p + 84) = x;
-    *(u32*)(p + 88) = 0;
-}
+void func_001ca988(u8* p, u32 a1, u32 a2, u32 a3, u32 a4, u32 x);  // 0x001ca988: definition moved into src/anon/unit_001ca8e0.cpp
 
 // Destructor: reset vtable, clear the global instance pointer, destroy base, free.
 extern u8 D_00352060;
@@ -168,10 +132,7 @@ void func_001a4e30(void*);
 u8 func_002fd248(u32, void*, u32, u32, void*);
 extern u8* D_01d5ba00;
 extern u8 D_00321688;
-u8 func_001d22a8(u32 a) {
-    u8* t = D_01d5ba00;
-    return func_002fd248(a, t + 8, *(u32*)(t + 4), 16, &D_00321688);
-}
+u8 func_001d22a8(u32 a);  // 0x001d22a8: definition moved into src/anon/unit_001d14e0.cpp
 
 extern u8* D_01d5ba70;
 extern u8 D_003217a0;
@@ -277,9 +238,7 @@ void SetMsgId_impl(void* self, int id, int) {
 u32 func_002c1b48(void*);
 u32 func_001c2b58(u32);
 void func_002c1b60(void*, u32);
-void func_002c1c50(void* p) {
-    func_002c1b60(p, func_001c2b58(func_002c1b48(p)));
-}
+void func_002c1c50(void* p);  // 0x002c1c50: definition moved into src/anon/unit_002c10e0.cpp
 
 extern u8 D_003621a0;
 void func_002e7328(void*);  // to_2e7458

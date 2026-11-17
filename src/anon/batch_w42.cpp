@@ -75,15 +75,7 @@ void func_001538d8(u8 id)
 extern void* D_0034b244;
 extern void** D_0034b278;
 void func_0031dd50(void*);
-void func_0015def8(void)
-{
-    void** heap = D_0034b278;
-    void** o = (void**)((void* (*)(void*, u32, void*))(*(void***)heap)[0])(heap, 4928, __builtin_return_address(0));
-    func_0031dd50(o);
-    D_0034b244 = o;
-    ((void (*)(void*))(*(void***)o)[0])(o);
-    ((u8*)D_0034b244)[4] = 1;
-}
+// 0015def8: moved to src/anon/unit_0015d828.cpp
 
 // 00168958: init a layout node and push it onto the global list
 struct L168 { L168* next; u32 f4; u8 lay[40]; u32 f48; u8 pad[16]; u32 f68; u16 pad72; u16 f74; };
@@ -114,17 +106,7 @@ extern s8 D_01c5f510;
 extern u128 D_01c5f520;
 extern u8 D_00175548[];
 void func_002fd188(void*);  // pool_alloc_block
-void func_001739b8(u128** out)
-{
-    if (!D_01c5f510) {
-        D_01c5f510 = 1;
-        func_002fd188(D_00175548);  // pool_alloc_block
-    }
-    u128* src = (u128*)(*(u8**)((u8*)*out + 4) + 2128);
-    u128* dst = &D_01c5f520;
-    if (src != dst) asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(dst), "r"(src) : "$8", "memory");
-    *out = dst;
-}
+void func_001739b8(u128** out);  // 0x001739b8: definition moved into src/anon/unit_00171e58.cpp
 
 // 0017d160: moved to src/anon/unit_0017c400.cpp
 
@@ -135,15 +117,7 @@ extern f32 D_00349e10;
 
 // 0018a1b8: next entry after `e` whose bit is in `mask`
 struct E20 { u32 a; u8 bit; u8 pad[15]; };
-E20* func_0018a1b8(u8* p, u32 mask, E20* e)
-{
-    E20* end = (E20*)(p + 64) + *(s32*)p;
-    e = !e ? (E20*)(p + 64) : e + 1;
-    for (; e < end; e++) {
-        if (mask & (1 << e->bit)) return e;
-    }
-    return 0;
-}
+E20* func_0018a1b8(u8* p, u32 mask, E20* e);  // 0x0018a1b8: definition moved into src/anon/unit_00189d38.cpp
 
 // 00198970
 extern u8* D_0034e948;
@@ -174,47 +148,19 @@ struct E344 { u8 pad[328]; s32 x; s32 y; u8 pad2[8]; };
 s32 func_001b9d40(u32);  // vtable_call_slot64_flags
 void func_001d6da8(void*);
 void func_001bc990(void*, void*);
-void func_001be940(u8* p)
-{
-    if (func_001b9d40(*(u32*)(p + 2528))) func_001d6da8(p + 2642);  // vtable_call_slot64_flags
-    command_menu_clear(p + 848);
-    func_001bc990(p + 848, p + 2642);
-}
+void func_001be940(u8* p);  // 0x001be940: definition moved into src/anon/unit_001bc568.cpp
 
 // 001c35a0: for each of 5 groups, record the highest level whose flag is set
 extern u8 D_0036dde8[5][5];
-void func_001c35a0(u32* bits)
-{
-    for (s32 i = 0; i < 5; i++) {
-        for (s32 j = 4; j >= 0; j--) {
-            u8 id = D_0036dde8[i][j];
-            if (bits[id >> 5] & (1 << (id & 31))) {
-                *(u8*)(i + (u32)bits + 32) = j + 1;
-                break;
-            }
-        }
-    }
-}
+void func_001c35a0(u32* bits);  // 0x001c35a0: definition moved into src/anon/unit_001c2b58.cpp
 
 // 001dca70
 void func_001e7070(u32, u32);
 void func_001e7088(u32, u32);
-void func_001dca70(u8* p)
-{
-    if (*(u32*)(p + 8) & 0x40000) func_001e7070(*(u32*)(p + 48), *(u32*)(p + 52));
-    else func_001e7070(0, 0);
-    if (*(u32*)(p + 8) & 0x80000) func_001e7088(*(u32*)(p + 48), *(u32*)(p + 52));
-    else func_001e7088(0, 0);
-}
+void func_001dca70(u8* p);  // 0x001dca70: definition moved into src/anon/unit_001dbfd8.cpp
 
 // 001dcb98: set an effect's colour from 8-bit RGBA (128 = 1.0)
-void func_001dcb98(void* fx, u8* rgba)
-{
-    f32 c[4] __attribute__((aligned(16)));
-    for (s32 i = 0; i < 4; i++) c[i] = rgba[i] * 0.0078125f;
-    u128* d = effect_color(fx);
-    if (d != (u128*)c) asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(d), "r"(c) : "$8", "memory");
-}
+void func_001dcb98(void* fx, u8* rgba);  // 0x001dcb98: definition moved into src/anon/unit_001dbfd8.cpp
 
 // 001dee10: release the attached object
 struct NoTail { ~NoTail() {} };
@@ -363,23 +309,12 @@ s32 func_002ba220(u32 a, u32 b, u32 c, u32 d, u32 e, u32 f)
 // 002bf978: run the handler for every flagged object
 u8* func_002be908(void*);
 void func_002bf8f0(void*);
-void func_002bf978(void)
-{
-    u8* o = 0;
-    while ((o = func_002be908(o)) != 0) {
-        if (*(u32*)(o + 1416) & 0x80000000) func_002bf8f0(o);
-    }
-}
+void func_002bf978(void);  // 0x002bf978: definition moved into src/anon/unit_002bebd0.cpp
 
 // 002c1860
 void func_002c7060(void*);
 static inline bool positive(f32 x) { return 0.0f < x; }
-void func_002c1860(u32, u8* obj)
-{
-    u8* s = obj + 2928;
-    func_002c7060(s);
-    if (!positive(*(f32*)(s + 84))) change_action(obj, 47);
-}
+void func_002c1860(u32, u8* obj);  // 0x002c1860: definition moved into src/anon/unit_002c10e0.cpp
 
 // 002d6d10
 extern void* D_00361f60;

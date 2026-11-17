@@ -7,20 +7,7 @@ f32 atanf(f32);
 struct Proj106 { u8 pad[64]; f32 dist; f32 fovx; f32 fovy; f32 w; f32 h; };
 
 // Sets the projection distance from a field of view (horizontal or vertical) and derives the other angle.
-void func_00106de8(Proj106* p, s32 vert, f32 fov) {
-    if (!vert) {
-        f32 d = 512.0f / p->w * 0.5f / func_002f8a18(fov * 0.5f);
-        p->fovx = fov;
-        p->dist = d;
-        p->fovy = atanf(416.0f / p->h * 0.5f / d) * 2;
-    } else {
-        f32 d = 416.0f / p->h * 0.5f / func_002f8a18(fov * 0.5f);
-        p->dist = d;
-        f32 r = atanf(512.0f / p->w * 0.5f / d) * 2;
-        p->fovy = fov;
-        p->fovx = r;
-    }
-}
+// 00106de8: moved to src/naka/libkn/camera.cpp
 
 struct ImgHdr166 { u8 pad[12]; u16 dataOff; u8 pad2[5]; u8 kind; u16 w; u16 h; };
 extern u8 D_004f41d0[];
@@ -31,31 +18,7 @@ void sceGsSyncPath(s32, s32);
 void sceGsExecStoreImage(void*, u8*);
 
 // Uploads an image once, converting kinds 4/5 to their uploaded kinds 6/7.
-void func_001664c0(u8* p) {
-    ImgHdr166* h = (ImgHdr166*)(p + 16);
-    u8* data = (u8*)h + h->dataOff;
-    if ((u8)(h->kind - 6) < 2) return;
-    func_00166148(p, 10240, 13568);
-    s32 x = 0, y = 0, z = 0;
-    switch (h->kind) {
-    case 4:
-        x = h->w >> 7;
-        y = h->w >> 1;
-        z = h->h >> 2;
-        h->kind = 6;
-        break;
-    case 5:
-        x = h->w >> 7;
-        y = h->w >> 1;
-        z = h->h >> 1;
-        h->kind = 7;
-        break;
-    }
-    sceGsSetDefStoreImage(D_004f41d0, 10240, x, 0, 0, 0, y, z);
-    func_003058a0(0);
-    sceGsSyncPath(0, 0);
-    sceGsExecStoreImage(D_004f41d0, data);
-}
+void func_001664c0(u8* p);  // 0x001664c0: definition moved into src/anon/unit_001664c0.cpp
 
 struct M174 { f32 m[4][4]; } __attribute__((aligned(16)));
 struct IV174 { f32 x, y, z; s32 w; };
@@ -76,19 +39,7 @@ static inline void mulmat174(M174* d, const void* a, const void* b) {
         : : "r"(d), "r"(a), "r"(b) : "memory");
 }
 // Projects *pv to screen space and replaces it with a pointer to the static result vector.
-void func_00174e38(PU174* pv) {
-    M174 m;
-    s32 o[4];
-    u8* a = func_00106a18(1);  // buffer_get_256
-    u8* b = func_00106a60(1);  // buffer_get_by_index
-    mulmat174(&m, a, b ? b + 16 : 0);
-    func_002f47d8(o, &m, pv->p, 0);  // mat4_transform_perspective
-    D_01c5f480.x = (f32)((o[0] >> 4) - 2048);
-    D_01c5f480.y = (f32)((o[1] >> 4) - 2048);
-    D_01c5f480.z = (f32)(o[2] >> 4);
-    D_01c5f480.w = 0;
-    pv->p = &D_01c5f480;
-}
+void func_00174e38(PU174* pv);  // 0x00174e38: definition moved into src/anon/unit_00171e58.cpp
 struct Tmp178 { u8 pad[112]; };
 u8* func_00176fb0(u8*, s32);
 s32 func_001a0920(u8*, u8*);
@@ -606,31 +557,7 @@ void func_002c54c8(u8*, u8*, u32, f32);
 u8* func_002c5ed8(u8*, u32, f32);
 
 // Creates the object for the given type (type 2 is built by its own factory).
-u8* func_002be800(u8* d, u32 a, f32 f) {
-    switch (d[5]) {
-    case 0:
-        {
-            u8* p = func_001050d8(2832);
-            func_002bf468(p, d, a, f);
-            return p;
-        }
-    case 1:
-        {
-            u8* p = func_001050d8(2800);
-            func_002c1aa0(p, d, a, f);
-            return p;
-        }
-    case 2:
-        return func_002c5ed8(d, a, f);
-    case 3:
-        {
-            u8* p = func_001050d8(2560);
-            func_002c54c8(p, d, a, f);
-            return p;
-        }
-    }
-    return 0;
-}
+u8* func_002be800(u8* d, u32 a, f32 f);  // 0x002be800: definition moved into src/anon/unit_002be020.cpp
 
 extern E248** D_0035f6cc;
 extern u8* D_0035f64c;
@@ -676,30 +603,6 @@ void func_002cd3e0(O2cd*, u8*);
 void func_002cd428(O2cd*, QW2cd*);
 
 // Retargets the leash: places the midpoint 110 units short of the new target when it is out of range.
-void func_002cd290(O2cd* o, u8* from, u8* to) {
-    if (!o->on) return;
-    if (o->target == to) return;
-    if (!to) {
-        to = o->target;
-        if (!to) return;
-    }
-    o->target = to;
-    o->f4 = 0;
-    o->f8 = 0;
-    o->f28 = -2.0f;
-    o->f24 = 0;
-    QW2cd* a = func_0016c028(from);  // obj_get_attach_or_alt
-    QW2cd* b = func_0016c028(to);  // obj_get_attach_or_alt
-    QW2cd d, p, e;
-    VSub2cd(&d, b, a);
-    f32 len = VLen2cd(&d);
-    if (o->range + o->range < len) {
-        VScale2cd(&e, &d, (len - 110.0f) / len);
-        VAdd2cd(&p, &e, a);
-        func_002cd3e0(o, from);
-        func_002cd428(o, &p);
-        func_002cd3e0(o, to);
-    }
-}
+void func_002cd290(O2cd* o, u8* from, u8* to);  // 0x002cd290: definition moved into src/taito/path.cpp
 
 }

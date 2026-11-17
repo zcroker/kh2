@@ -1,5 +1,5 @@
 #include "dbg_smenu.hpp"
 
 namespace Tz {
-void DbgSMenu::SignalCall() {}
+// 0x0013f048: definition moved into src/anon/unit_0013ef70.cpp
 }  // namespace Tz

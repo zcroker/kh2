@@ -89,20 +89,5 @@ void func_0031cc28(void*) asm("_Z13func_0031cc28Pv");
 void func_002c6420(O2bff98*);
 extern u8 D_00361da8;
 extern u8 D_00361a60;
-void func_002bff98(O2bff98* self, V2bff98* p, V2bff98* q, f32 t) {
-    self->vt = (u32)&D_00361da8;
-    func_0031cc28(self->sub);
-    self->f5c = 0;
-    func_002c6420(self);
-    self->f60 = 0;
-    self->vt = (u32)&D_00361a60;
-    self->v70 = self->a;
-    self->va0 = add_2bff98(*p, *q);
-    self->v80 = lerp_2bff98(self->a, self->va0, 0.2f);
-    self->v90 = lerp_2bff98(self->a, self->va0, 0.95f);
-    self->vb0 = sub_2bff98(self->b, self->a);
-    self->vc0 = scale_2bff98(*q, -1.0f);
-    self->f64 = t;
-    self->f5c = 0;
-}
+void func_002bff98(O2bff98* self, V2bff98* p, V2bff98* q, f32 t);  // 0x002bff98: definition moved into src/anon/unit_002bebd0.cpp
 }

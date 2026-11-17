@@ -53,21 +53,6 @@ W1972Vec func_0016be98(W1972Obj*);
 W1972Vec func_0017d538(f32, const W1972Vec&);
 
 W1972Vec w1972_ctarget(W1972Obj* self) asm("_Z16ctarget_001c1df8jjjj");
-W1972Vec w1972_ctarget(W1972Obj* self) {
-    W1972Vec d;
-    W1972Vec u;
-    d = w1972_sub(self->tgt->pos(), func_0016be98(self));
-    f32 len = w1972_norm(&d);
-    f32 t = (len - self->dist) * 0.1f;
-    f32 c;
-    if (t < -20.0f) c = -20.0f;
-    else if (20.0f < t) c = 20.0f;
-    else c = t;
-    self->p20 = w1972_scale(d, c);
-    d = func_0017d538(1.5707964f, d);
-    d.y = 0.0f;
-    w1972_norm(&d);
-    w1972_addto(self->p20, w1972_scale(d, self->f2740));
-    return w1972_scale(self->p20, D_00349e10);
-}
+// 001c1df8: moved to src/anon/unit_001c0638.cpp
+W1972Vec w1972_ctarget(W1972Obj* self);
 }

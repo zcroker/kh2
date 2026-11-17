@@ -59,27 +59,14 @@ extern E12w1672 D_00361e70[9];
 extern u8 D_00361ee8;
 void wp_ctor_w1672(u8*, u32, u32, u32, u32) asm("_ZN2YS10WORLDPOINT16GetDisableReasonEi");
 s32 get_part_num_w1672(u8*) asm("_ZN2YS3OBJ12get_part_numEv");
-void func_002cb3f8(u8* p, u32 a1, u32 a2) {
-    wp_ctor_w1672(p, a1, 5, a2, 1);
-    *(u32*)(p + 0x9fc) = 0;
-    *(u32*)p = (u32)&D_00361ee8;
-    s32 n = get_part_num_w1672(p);
-    for (s32 i = 0; i < 9; i++) {
-        if (n == D_00361e70[i].key) { *(s32*)(p + 0x9fc) = D_00361e70[i].val; break; }
-    }
-}
+void func_002cb3f8(u8* p, u32 a1, u32 a2);  // 0x002cb3f8: definition moved into src/anon/unit_002cb200.cpp
 
 void f17f488_w1672(u8*, int, float, float) asm("_Z13func_0017f488iiff");
 u32 GetSystemPax_w1672(void) asm("_ZN2YS6EFFECT12GetSystemPaxEv");
 u32 func_001de168(u32, u32, u32, u32, u32, u8*);
 void func_001a1b30(u32, u32);
 void func_001c8300(u8*, u32);
-void func_001d1380(u8* p, u8* q) {
-    f17f488_w1672(p + 0x140, 0x8a, 8.0f, 0.0f);
-    *(u32*)(p + 0xb68) = func_001de168(GetSystemPax_w1672(), 0x13, 0, 1, 0, p);
-    func_001a1b30(*(u32*)(p + 0x48c), q[0x1c]);
-    func_001c8300(p, *(u16*)q);
-}
+void func_001d1380(u8* p, u8* q);  // 0x001d1380: definition moved into src/anon/unit_001d12e8.cpp
 
 extern u32 D_00352960;
 extern u8 D_0036e680;
@@ -119,12 +106,7 @@ u32 member_Get_w1672(s32) asm("_ZN2YS6MEMBER3GetEi");
 u32 member_get_part_w1672(u32, s32) asm("_ZNK2YS6MEMBER8get_partEi");
 void party_voice_part_w1672(u8*, u32) asm("_ZN2YS5PARTY10voice_partEi");
 void func_001b5ef0(u32);
-void func_001d12e8(u8* p, u32 b) {
-    f17f488_w1672(p + 0x140, 0x89, 0.0f, 0.0f);
-    motion_push_w1672(p + 0x140, 0, 0.0f, 0.0f, 0);
-    party_voice_part_w1672(p, member_get_part_w1672(member_Get_w1672(-1), 3));
-    func_001b5ef0(b);
-}
+void func_001d12e8(u8* p, u32 b);  // 0x001d12e8: definition moved into src/anon/unit_001d12e8.cpp
 
 s32 func_002feac0(u8*);
 typedef void (*FnWw1672)(u32);

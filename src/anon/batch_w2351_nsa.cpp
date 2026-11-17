@@ -110,69 +110,7 @@ extern s8 D_01c62fa0;
 extern Mem D_01c62fa8 __attribute__((aligned(4)));
 extern s32 D_01c62f98;
 
-void func_0019f070(Cmd* o, u32 a1) {
-    Sel s;
-    s32 ff = 0xffff;
-    s.a = ff; s.b = ff; s.c = ff;
-    s.d = ff; s.e = ff; s.f = ff;
-    s32 mode = 0;
-    if (D_01c62fa0 == 0) {
-        func_001a8bb8(&D_01c62fa8);
-        D_01c62fa0 = 1;
-    }
-    u32 fl = 0;
-    s32 t = o->f10;
-    if (t >= 0) {
-        if (t & 0x4000) fl = (t & ~0x4000) | 0x80000000;
-        else fl = t;
-    }
-    s32 v = func_0019f2a8(o, &s);
-    fl |= a1;
-    switch (o->f0) {
-    case 4:
-        fl = 1;
-        if (v) {
-            D_01c62f98 = o->b4;
-        } else {
-            if (D_01c62f98 >= 0) {
-                o->b4 = D_01c62f98;
-                D_01c62f98 = -1;
-            }
-            func_00149fe0(o->b4, 0);
-        }
-        break;
-    case 6:
-        func_0014a138(0);
-        break;
-    case 5:
-        func_00253180(15, -1);
-        break;
-    }
-    if (o->f14 >= 0) {
-        Mem* m = func_001a8bd0(v ? s.a : -1);
-        D_01c62fa8 = *m;
-        func_001a8d40(m, o->f14);
-        Mem* ps = &D_01c62fa8;
-        s32 k = o->f1c;
-        if (k != 0) {
-            s32 a = 0;
-            if (k == 1) goto blk;
-            if (k == 2) {
-                a = 2;
-                func_001d94f8(D_01c62fa8, m);
-            blk:
-                func_001a60c8();
-                func_002533e0(a, ps);
-            }
-            mode = 2;
-        }
-    }
-    if (v) {
-        func_00104f58(&s, fl, mode, 0, o->f18);
-    } else if (o->f18) {
-        func_001ada38(o->f18);
-    }
-}
+void func_0019f070(Cmd* o, u32 a1);  // 0x0019f070: definition moved into src/anon/unit_0019ee80.cpp
 }
 namespace w2351 {
 struct SprInfo { volatile u16 flags; u8 p2[2]; u8 kind; };

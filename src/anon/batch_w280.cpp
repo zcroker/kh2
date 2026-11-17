@@ -71,34 +71,7 @@ extern "C" {
 f32 sinf(f32);
 f32 cosf(f32);
 QMat func_0011b558(const QWord*);
-void func_001074c0(u8* o, s32 mode, f32 ang)
-{
-    QWord* pos = (QWord*)(o + 80);
-    QWord* ctr = (QWord*)(o + 96);
-    QWord d, ax;
-    QMat m;
-    QWord* pax = &ax;
-    QMat* pm = &m;
-    d = Sub(*pos, *ctr);
-    switch (mode) {
-    case 0: {
-        f32 s = sinf(ang);
-        f32 c = cosf(ang);
-        f32 x = c * d.f[0] + s * d.f[2];
-        f32 z = -s * d.f[0] + c * d.f[2];
-        *(f32*)(o + 80) = *(f32*)(o + 96) + x;
-        *(f32*)(o + 88) = *(f32*)(o + 104) + z;
-        break;
-    }
-    case 1: {
-        CrossTo(pax, d, *(QWord*)(o + 112));
-        ax.f[3] = ang;
-        *pm = func_0011b558(pax);
-        *pos = Add(*ctr, MulV(*pm, d));
-        break;
-    }
-    }
-}
+// 001074c0: moved to src/naka/libkn/camera.cpp
 }
 }
 
@@ -139,21 +112,7 @@ extern "C" {
 QWord func_0017fe10(u8*, f32);
 void func_0011b6a8(QMat*);
 QMat* func_0011b720(QMat*, f32);
-void func_00193e88(u8* o)
-{
-    QWord v;
-    QMat m;
-    QMat* pm = &m;
-    v = func_0017fe10(o + 320, -1.0f);
-    func_0011b6a8(pm);
-    pm->r[3].f[0] = -v.f[0];
-    pm->r[3].f[1] = -v.f[1];
-    pm->r[3].f[2] = -v.f[2];
-    *(QMat*)(o + 1712) = Mul(*(QMat*)(o + 64), *func_0011b720(pm, -v.f[3]));
-    *(QWord*)(o + 1840) = *(QWord*)(o + 112);
-    if (*(u32*)(o + 1416) & 0x8000000)
-        ((VF2)((*(void***)o)[32]))(o, (QMat*)(o + 1712));
-}
+void func_00193e88(u8* o);  // 0x00193e88: definition moved into src/anon/unit_00193be8.cpp
 }
 }
 

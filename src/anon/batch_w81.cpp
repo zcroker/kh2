@@ -580,14 +580,7 @@ void func_00200da8(u8* o, Tbl200* t) {
 u8* func_00168b38(u32, s32, u32);  // entry_array_find_nth
 void func_002eedc0(u32, u32, f32);
 void func_002eedd8(u32, u32, f32);  // to_2eefc8_sub456
-void func_002be190(u8* o, s32 idx, u32* list, s32 n) {
-    u32 t = ((u32*)(o + 44))[idx];
-    func_002eedc0(t, *(u32*)(func_00168b38(*(u32*)(o + 104), -1, list[0]) + 8), 0.0f);
-    s32 i;
-    for (i = 1; i < n; i++) {
-        func_002eedd8(t, *(u32*)(func_00168b38(*(u32*)(o + 104), -1, list[i]) + 8), 0.0f);  // to_2eefc8_sub456
-    }
-}
+void func_002be190(u8* o, s32 idx, u32* list, s32 n);  // 0x002be190: definition moved into src/anon/unit_002be020.cpp
 
 // --- 002d0c28
 void func_001dc818(u32);

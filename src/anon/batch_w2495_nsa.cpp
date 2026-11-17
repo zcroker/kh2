@@ -15,30 +15,5 @@ struct S14da40 {
     Pk14da40 pk; u64 tag[2]; u64 prim[2]; u64 tag2[2]; XY14da40 xy[0x10]; u8 pad1d0[6]; u8 r, g, b;
 };
 extern "C" {
-void func_0014da40(S14da40* s) {
-    int n = s->w >> 5;
-    s->tag[0] = GIF_TAG(1, 0, 0, 0, 1, 2);
-    s->tag[1] = 0x10;
-    s->prim[0] = 6;
-    s->prim[1] = GS_RGBAQ(s->r, s->g, s->b, 0x80, 1);
-    s->tag2[0] = GIF_TAG(n, 1, 0, 0, 1, 2);
-    s->tag2[1] = 0x55;
-    u32 x = (s64)(0x800 - (s->w >> 1)) * 16;
-    u32 y = (s64)(0x800 - (s->h >> 1)) * 16;
-    if (n) {
-        u32 xb = x + 512;
-        u32 xa = x;
-        S14da40* q = s;
-        int c = n;
-        do {
-            q->xy[0].a = GS_XYZ(xa, y, 0);
-            q->xy[0].b = GS_XYZ(xb, y + s->h * 16, 0);
-            q = (S14da40*)((u8*)q + 16); xb += 512; xa += 512;
-        } while (--c);
-    }
-    Pk14da40* p = &s->pk;
-    p->id = 0;
-    p->addr = s->tag;
-    s->pk.qwc = (n * sizeof(XY14da40) + 0x30) >> 4;
-}
+// 0014da40: moved to src/anon/unit_0014d680.cpp
 }

@@ -63,61 +63,6 @@ PR *_ZN2YS5PARTY11get_partramEv(void *);
 R* func_001a80c8(u32);
 void func_001bc780(Tbl *, u32, s32, s32);
 void func_001bce00(Tbl *);
-void func_001be9a0(Obj *o)
-{
-  unsigned int new_var;
-  Tbl *t = &o->t;
-  PR *p;
-  _ZN2YS12COMMAND_MENU5clearEv(t);
-  s32 k = 0;
-  p = _ZN2YS5PARTY11get_partramEv(o->party);
-  if (p->n != 0)
-  {
-    do
-    {
-      u32 c = p->b[k];
-      if (c == 0)
-      {
-        c = p->a[k];
-        if (c == 0)
-        {
-          goto next;
-        }
-      }
-      {
-        R *r = func_001a80c8(c);
-        s32 i;
-        for (i = 0; i < t->count; i++)
-        {
-          if (t->e[i].id == r->id)
-          {
-            if (p->a[k])
-            {
-              t->e[i].cnt++;
-            }
-            break;
-          }
-        }
-
-        if (i < t->count)
-        {
-          goto next;
-        }
-        func_001bc780(t, r->id, 0, 1);
-        if (p->a[k] == 0)
-        {
-          ((t->e + t->count) - 1)->cnt = 0;
-          new_var = 6;
-          ((t->e + t->count) - 1)->b5 = new_var;
-        }
-      }
-      next:
-      k++;
-
-    }
-    while (k < p->n);
-  }
-  func_001bce00(t);
-}
+void func_001be9a0(Obj *o);  // 0x001be9a0: definition moved into src/anon/unit_001bc568.cpp
 
 }

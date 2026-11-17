@@ -98,24 +98,4 @@ extern u16 D_0034c876;
 void func_00242980(s32*, s32*);
 void sceGsSetDefDispEnv(sceGsDispEnv*, s16, s16, s16, s16, s16);
 void sceGsPutDispEnv(sceGsDispEnv*);
-void func_001669e0(Screen1669e0* s)
-{
-    sceGsDispEnv env;
-    s32 ox = 0, oy = 0;
-    u16 dx, dy;
-    func_00242980(&ox, &oy);
-    dx = ox; dy = oy;
-    D_0034c870 = dx;
-    D_0034c872 = dy;
-    *(u64*)0x120000d0 = 0;
-    sceGsSetDefDispEnv(&env, s->psm, s->w, s->h, D_0034c874 + (s->x + dx), D_0034c876 + (s->y + dy));
-    env.dispfb.FBP = s->fbp;
-    sceGsPutDispEnv(&env);
-    if (s->direct) {
-        *(u64*)0x12000000 = 0x7f23;
-        *(u64*)0x12000070 = SCE_GS_SET_DISPFB(s->fbp, (u16)s->w >> 6, (u16)s->psm, 0, 0);
-        *(u64*)0x12000090 = SCE_GS_SET_DISPFB(s->fbp, (u16)s->w >> 6, (u16)s->psm, 0, 0);
-        *(u64*)0x12000080 = SCE_GS_SET_DISPLAY(env.display.DX, env.display.DY, env.display.MAGH, env.display.MAGV, env.display.DW, env.display.DH);
-        *(u64*)0x120000a0 = SCE_GS_SET_DISPLAY(env.display.DX, env.display.DY - 1U, env.display.MAGH, env.display.MAGV, env.display.DW, env.display.DH);
-    }
-}
+void func_001669e0(Screen1669e0* s);  // 0x001669e0: definition moved into src/anon/unit_001664c0.cpp

@@ -62,20 +62,7 @@ void func_002abba8(void) {
     }
 }
 
-void func_002be630(void) {
-    s32 v = func_0016b740(931);
-    s32 o = D_0034e948;
-    u_tail4_001c0d38(o, v, 0x4002, 0);
-    // function-local static (guard byte, atexit of its empty destructor)
-    if (!D_01e2bc20) {
-        D_01e2bc20 = 1;
-        D_01e2bc30.x = D_01e2bc30.z = D_01e2bc30.w = 0.0f;
-        D_01e2bc30.y = 3.14159274f;
-        func_002fd188(D_002be6e8);
-    }
-    wtarget_0016b070(o, &D_01e2bc30);
-    func_0017f488(o + 320, 156, 0.0f, 0.0f);
-}
+void func_002be630(void);  // 0x002be630: definition moved into src/anon/unit_002be020.cpp
 
 void func_0013aba8(W1790Obj* o);  // 0x0013aba8: definition moved into src/anon/unit_0013a8b8.cpp
 

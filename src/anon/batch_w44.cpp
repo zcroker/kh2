@@ -210,21 +210,9 @@ extern u32 D_0034f240;
 // 001918c8: moved to src/yasui/libys/status.cpp
 
 extern Pair D_00350338[8];
-void func_00196a40(void) {
-    for (s32 i = 0; i < 8; i++) D_00350338[i].b = 0;
-    u8* t = (u8*)func_00102c18(1, 14002, (void*)func_00196888);
-    *(void**)(t + 48) = (void*)func_00196a08;
-}
+void func_00196a40(void);  // 0x00196a40: definition moved into src/anon/unit_00195d00.cpp
 
-void func_0019cc20(s32* p) {
-    if (*p) {
-        func_0019d228(p);
-        func_0019cbe8(p);
-        if (*p == 2) func_0019d480(p);
-        *p = 0;
-        func_00190128(p + 1);
-    }
-}
+void func_0019cc20(s32* p);  // 0x0019cc20: definition moved into src/anon/unit_0019ba60.cpp
 
 // 001ac2a8: moved to src/anon/unit_001abb28.cpp
 
@@ -243,25 +231,11 @@ u8 func_001d5868(u16* p);  // 0x001d5868: definition moved into src/anon/unit_00
 extern u8 D_00352ae0[];
 extern s32 D_00352ae8;
 extern u8 D_00352b48[];
-void func_001dc418(u8* o) {
-    *(void**)o = D_00352b48;
-    if (*(void**)(o + 28)) {
-        func_001e2c00(*(void**)(o + 28));
-        func_001e6c00(*(void**)(o + 28));  // alloc_336_align_171
-    }
-    func_00321c50(D_00352ae0, o);
-    D_00352ae8--;
-    func_001dc4b8(o);
-}
+void func_001dc418(u8* o);  // 0x001dc418: definition moved into src/anon/unit_001dbfd8.cpp
 
 extern u8 D_00352af0;
 extern u8 D_00352af1;
-void func_001dd2b8(void) {
-    if (D_00352af1) return;
-    if (!D_00352af0) return;
-    void* a = func_00106a18(0);  // buffer_get_256
-    func_001dd320(a, func_00106a60(0), 1);
-}
+void func_001dd2b8(void);  // 0x001dd2b8: definition moved into src/anon/unit_001dd2b8.cpp
 
 extern u8* D_01d9e6e0;
 extern u8* D_01d9e6e8;
@@ -379,28 +353,13 @@ void func_002a1c68(void) {
     D_0035f5e1 = 0;
 }
 
-void func_002bebd0(void*, u8* o) {
-    s32 c = 0;
-    f32 f = *(f32*)(o + 28);
-    if (0.0f < f && !(f < (*(f32*)(o + 272) + *(f32*)(o + 276)) * 0.5f)) c = 153;
-    func_0017f540(o + 320, c, 8.0f, 0.0f);
-}
+void func_002bebd0(void*, u8* o);  // 0x002bebd0: definition moved into src/anon/unit_002bebd0.cpp
 
 struct M64 { Q16 r[4]; };
 extern Q16 D_01e2bcb0;
 extern Q16 D_01e2bca0;
 extern M64 D_01e2bcc0;
-void func_002c2168(Q16* q) {
-    Q16* d = &D_01e2bcb0;
-    if (q != d) asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(d), "r"(q) : "$8", "memory");
-    M64 m;
-    func_0017d8c0(&m, d, &D_01e2bca0);
-    M64* e = &D_01e2bcc0;
-    if (&m != e)
-        asm volatile("lq $8, 0(%1)\n\tlq $9, 16(%1)\n\tlq $10, 32(%1)\n\tlq $11, 48(%1)\n\t"
-                     "sq $8, 0(%0)\n\tsq $9, 16(%0)\n\tsq $10, 32(%0)\n\tsq $11, 48(%0)"
-                     : : "r"(e), "r"(&m) : "$8", "$9", "$10", "$11", "memory");
-}
+void func_002c2168(Q16* q);  // 0x002c2168: definition moved into src/anon/unit_002c1e80.cpp
 
 extern s32 D_00361fa0;
 extern u8* volatile D_00361fa4;

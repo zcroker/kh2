@@ -16,31 +16,11 @@ void func_001396d0(Node139*);
 void func_001396e0(Node139*);
 void func_00139718(Node139*);
 void func_001398d0_i(s32 id) asm("_Z13func_001398d0i");
-void func_001398d0_i(s32 id) {
-    Node139* o = 0;
-    while ((o = nextNode(o)) != 0)
-        if (o->id == id) hide139(o);
-}
-void func_00139948(s32 id) {
-    Node139* o = 0;
-    while ((o = nextNode(o)) != 0)
-        if (o->id == id) lshow139(o);
-}
-void func_00139a38(s32 id) {
-    Node139* o = 0;
-    while ((o = nextNode(o)) != 0)
-        if (o->id == id) func_001396d0(o);
-}
-void func_00139ab0(s32 id) {  // list_find_by_key
-    Node139* o = 0;
-    while ((o = nextNode(o)) != 0)
-        if (o->id == id) func_001396e0(o);
-}
-void func_00139ba0(s32 id) {
-    Node139* o = 0;
-    while ((o = nextNode(o)) != 0)
-        if (o->id == id) func_00139718(o);
-}
+void func_001398d0_i(s32 id);  // 0x001398d0: definition moved into src/anon/unit_001393c8.cpp
+void func_00139948(s32 id);  // 0x00139948: definition moved into src/anon/unit_001393c8.cpp
+void func_00139a38(s32 id);  // 0x00139a38: definition moved into src/anon/unit_001393c8.cpp
+void func_00139ab0(s32 id);  // 0x00139ab0: definition moved into src/anon/unit_001393c8.cpp
+void func_00139ba0(s32 id);  // 0x00139ba0: definition moved into src/anon/unit_001393c8.cpp
 
 
 s32 func_001948c0(s32, s32);

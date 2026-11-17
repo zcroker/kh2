@@ -19,15 +19,7 @@ struct E197 { u8 pad[48]; s32 st; };
 extern E197* D_0035037c;
 extern s32 func_002283f8();
 float GetRestTime_00197b98() asm("_ZN2YS5EVENT11GetRestTimeEv");
-float GetRestTime_00197b98() {
-    float r;
-    E197* p = D_0035037c;
-    if (p) {
-        r = 3600.0f;
-        if (p->st == 8) r = (float)func_002283f8();
-    } else r = 0.0f;
-    return r;
-}
+float GetRestTime_00197b98();  // 0x00197b98: definition moved into src/anon/unit_00195d00.cpp
 
 struct S1b0 { u32 a; u32 pad[2]; u32 b; };
 struct R16 { u8 pad[6]; u16 h; };

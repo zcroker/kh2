@@ -34,22 +34,7 @@ typedef struct Tab
 } Tab;
 extern Tab *D_01d49360;
 extern u32 D_0032f254[];
-void func_001c0ba0(s32 key)
-{
-  s32 i;
-  Ent *e = D_01d49360->e;
-  Tab *t;
-  for (i = 0; i < D_01d49360->n; i++)
-  {
-    if (e->key == key)
-    {
-      u32 id = e->id;
-      u32 *w = &D_0032f254[id >> 5];
-      *w |= 1 << (id & 0x1f);
-    }
-    e++;
-  }
-
-}
+// 001c0ba0: moved to src/anon/unit_001c0638.cpp
+void func_001c0ba0(s32 key);
 
 }

@@ -120,42 +120,7 @@ void func_00138c10(u8*, u32);
 extern "C" {
 void func_001379e0(u8* p);
 }
-void func_001379e0(u8* p) {
-    if (*(s32*)(p + 440) != -1) {
-        if (*(u32*)(p + 1304) == 0) {
-            if (func_001b1fc8(*(s32*)(p + 440)) == 0) {
-                func_00139598(p);
-                return;
-            }
-            u8* m = p + 480;
-            *(u32*)(p + 1304) = func_001b1ff0(*(s32*)(p + 440));
-            u32 t = func_001b1e70();
-            func_00138650(p + 448, 11100, *(u32*)(p + 1304), 0);
-            u8* q = p + 896;
-            func_001386e0(q, 11100, t, m, 2, 0);
-            func_00236410(m, 14080);  // obj_set4_then_call
-            func_00236428(m, 10752);  // obj_set32_then_call
-            func_002367c8(m);  // obj_dispatch_bitfield64
-            *(u8**)(q + 396) = p;
-            settle(q);
-        } else {
-            f32 f = *(f32*)(p + 436);
-            if (0.0f < f) {
-                *(f32*)(p + 436) = f - D_00349e14;
-            } else {
-                u8* v = func_00167f18(0);
-                if (*(s32*)(p + 388) != 78 && (*(u64*)(v + 8) & 0x40c)) {
-                    func_002ba2e8(24, 0);
-                    func_001395a8(p);
-                    func_00138c10(p, 78);
-                    func_00138c10(p + 896, 3);
-                }
-            }
-        }
-    }
-    func_001395a8(p);
-    func_00138840(p);
-}
+void func_001379e0(u8* p);  // 0x001379e0: definition moved into src/anon/unit_001374c8.cpp
 
 // ---- 00276888
 extern "C" {

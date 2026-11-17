@@ -485,14 +485,7 @@ u32 func_00170b30(u32 size);  // 0x00170b30: definition moved into src/anon/unit
 // 00184ad0: moved to src/anon/unit_00183088.cpp
 // 00184eb8: moved to src/anon/unit_00183088.cpp
 // 001920f0: moved to src/yasui/libys/message.cpp
-s32 func_0019bd08(U1_Lk* o, s32 n) {
-    if (!o->lock) return 0;
-    if (func_0019f528(o->b, n)) return 1;
-    if (func_0019f550(o->b, n)) return 0;
-    if (func_0019f528(o->a, n)) return 1;
-    if (func_0019f550(o->a, n)) return 0;
-    return (o->lock->mask & (1 << n)) != 0;
-}
+s32 func_0019bd08(U1_Lk* o, s32 n);  // 0x0019bd08: definition moved into src/anon/unit_0019ba60.cpp
 
 #define U2_W80_MAX(a, b) ((a) > (b) ? (a) : (b))
 // level up while the experience requirement is met
@@ -511,34 +504,10 @@ void func_001b71e8(void* o, U2_Grow* g, U2_GrowOwn* own) {
 }
 
 #define U3_W80_MAX(a, b) ((a) > (b) ? (a) : (b))
-void func_001c0490(U3_TmrSet* s) {
-    s32 i;
-    if (s->f44 > 0.0f) {
-        if (!s->f0 || !func_00186ce8(s->f0)) s->f44 -= D_00349e10;
-    }
-    U3_Tmr* t = s->tm;
-    u32* bits = s->bits;
-    for (i = 0; i < 4; i++, t++) {
-        if (t->id) {
-            t->t -= U3_D_00349e10_u.f;
-            if (t->t <= 0.0f) {
-                u32* w = &bits[t->id >> 5];
-                *w &= ~(1 << (t->id & 31));
-                t->id = 0;
-            }
-        }
-    }
-}
+void func_001c0490(U3_TmrSet* s);  // 0x001c0490: definition moved into src/anon/unit_001bff88.cpp
 
 
-void func_001c39d0(void* self, U4_Mover* m) {
-    if (m->f268 & 4) {
-        f32 d = U4_W80_MAX(func_00184a90(m) - func_0016c028(m)->f4, 0.0f);
-        if (!(d < m->f240->f56)) return;
-    }
-    func_0017f488(m->f320, 4, 16.0f, 0.0f);
-    m->f12->vt->f12(m->f12, m, 0.0f);
-}
+void func_001c39d0(void* self, U4_Mover* m);  // 0x001c39d0: definition moved into src/anon/unit_001c2b58.cpp
 
 static inline void U5_w80_scale_row(f32* row, f32 s) {
     asm volatile("qmtc2 %1, $vf9\n\tlqc2 $vf10, 0(%0)\n\tvmulx.xyz $vf10, $vf10, $vf9x\n\tsqc2 $vf10, 0(%0)" : : "r"(row), "r"(s) : "memory");
@@ -810,30 +779,7 @@ void func_003259a0(u8* o) {
 // 001ad838: moved to src/anon/unit_001abb28.cpp
 
 
-void func_001c81d0(u8* o) {
-    s32 i, n;
-    *(u8**)o = D_00351e18;
-    n = 0;
-    for (i = 0; i < 2; i++) {
-        if (D_01d49960[i]) {
-            if (D_01d49960[i] == o) D_01d49960[i] = 0;
-            else n++;
-        }
-    }
-    if (n == 0) D_01d49968 = 0;
-    *(u8**)o = D_00345c08;
-    if ((u32)o != (u32)-3184) {
-        U22_E16* e = (U22_E16*)(o + 3184) + 6;
-        U22_E16* b = (U22_E16*)(o + 3184);
-        for (;;) {
-            if (b == e) break;
-            e--;
-        }
-    }
-    *(u8**)o = D_0034ebc8;
-    func_00320fa8(o);
-    func_00105110(o);
-}
+// 0x1c81d0: moved to src/yasui/libys/summon.cpp
 
 
 s32 func_002d8a78(U23_Ai* a, U23_AiTgt* t) {

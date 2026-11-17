@@ -21,20 +21,6 @@ union BD_VALUE
 extern void **D_0034b240;
 extern void **D_0034b278;
 void func_0031dd50(void *);
-void func_0015de98(void)
-{
-  void **heap = D_0034b278;
-  void **new_var3;
-  void **o = (void **) ((void *(*)(void *, u32, void *)) (*((void ***) D_0034b278))[0])(heap, 4928, __builtin_return_address(0));
-  void **new_var;
-  void **new_var2;
-  func_0031dd50(o);
-  D_0034b240 = o;
-  new_var = o;
-  new_var2 = new_var;
-  new_var3 = *((void ***) new_var2);
-  o = new_var3;
-  ((void (*)(void *)) o[0])(new_var2);
-}
+// 0015de98: moved to src/anon/unit_0015d828.cpp
 
 }

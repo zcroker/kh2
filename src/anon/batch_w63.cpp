@@ -119,9 +119,7 @@ extern f32 D_01e2c044;
 // 00104e18: moved to src/common/area.cpp
 
 // Scales x by a random integer normalised to [0, 1].
-f32 func_00106558(f32 x) {
-    return x * (f32)func_002fea18() / 2147483520.0f;
-}
+// 00106558: moved to src/anon/unit_00106490.cpp
 
 // Constructor: base ctor, vtable, four 144-byte members, cleared tail fields.
 void func_001324b8(u8* p) {
@@ -200,16 +198,7 @@ void func_00161770(u8* p) {
     func_001447e0(p + 84, a, b);
 }
 
-void func_00167f38(s32 idx) {
-    D_0034d7ac = D_0034d788[idx];
-    u8* p = D_0034d6c0;
-    u8* end = p + 192;
-    do {
-        func_00167658(p, 255);
-        p += 96;
-    } while ((s32)p < (s32)end);
-    D_004f5250 = idx;
-}
+// 00167f38: moved to src/anon/unit_00167358.cpp
 
 struct E16 { u16 id; u16 pad; u32 w[3]; };
 struct H16 { u32 f0; s32 count; u32 pad[2]; E16 e[1]; };
@@ -236,23 +225,11 @@ struct TPool { TGT items[128]; s32 freel[128]; s32 count; };
 extern TPool D_01c60d50;
 TGT* tgt_dup(TGT*) asm("_ZN2YS6TARGET3dupEv");
 // Takes a slot from the free list and copies this target into it.
-TGT* tgt_dup(TGT* self) {
-    s32 n = --D_01c60d50.count;
-    TGT* t = &D_01c60d50.items[D_01c60d50.freel[n]];
-    *t = *self;
-    return t;
-}
+TGT* tgt_dup(TGT* self);  // 0x001907e0: definition moved into src/anon/unit_001900d0.cpp
 
 struct P8 { u32 a; u32 b; };
 extern P8 D_00350338[8];
-void func_00196888(void) {
-    func_0016d110();
-    if (D_0034f240 & 0x20) return;
-    P8* e = D_00350338;
-    for (s32 i = 7; i >= 0; i--, e++) {
-        if (e->b && !e->a) e->a = func_0016cd48(e->b, 0);
-    }
-}
+void func_00196888(void);  // 0x00196888: definition moved into src/anon/unit_00195d00.cpp
 
 struct S36 { u32 w[9]; };
 // 00199098: moved to src/anon/unit_00198e40.cpp
@@ -283,12 +260,7 @@ void func_001b92f8(void) {
     func_00102750(D_00351214);
 }
 
-void func_001bdc88(u8* p) {
-    if (*(u32*)(p + 32) & 0x40) {
-        func_0013b320(p);
-        *(u32*)(p + 32) &= ~0x40;
-    }
-}
+void func_001bdc88(u8* p);  // 0x001bdc88: definition moved into src/anon/unit_001bc568.cpp
 
 struct T64 { u32 f0; s32 count; u8 e[1][64]; };
 extern T64* D_01d5ba28;
@@ -395,20 +367,7 @@ void func_002b9f28(u8 a) {
     func_002bbf98();
 }
 
-void func_002bdac8(u8* p) {
-    func_002be148(p);
-    u8* o = *(u8**)(p + 16);
-    while (o) {
-        u8* next = *(u8**)(o + 32);
-        if (o) (*(VFn*)(*(u8**)o + 4))(o);  // virtual deleting destructor
-        o = next;
-    }
-    if (*(u32*)(p + 104)) func_00170950(*(u32*)(p + 104));
-    func_001b86e0(*(u32*)(p + 4));  // alloc_from_pool_magic_c
-    func_00170320(-200);
-    D_003617fc.v = 0;
-    *(void**)(p + 8) = D_003637e0;
-}
+void func_002bdac8(u8* p);  // 0x002bdac8: definition moved into src/anon/unit_002bc978.cpp
 
 void func_002dbca0(u8* p, u8 flag) {
     func_0017f540(p + 320, 0, 0.0f, 0.0f);

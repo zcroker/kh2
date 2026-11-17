@@ -22,18 +22,5 @@ struct W2437Obj { W2437V4* pos; f32 scale; };
 extern "C" {
 void func_0011b6a8(W2437M4*);
 
-void func_0016d968(W2437Obj* o) {
-    W2437M4 m;
-    func_0011b6a8(&m);
-    W2437V4 s;
-    s.w = 0.0f;
-    s.x = o->scale;
-    s.y = o->scale;
-    s.z = o->scale;
-    W2437_scaleM(&m, &s);
-    m.r[3] = *o->pos;
-    m.r[3].w = 1.0f;
-    s32 i = 4;
-    do { i--; } while (i >= 2);
-}
+// 0016d968: moved to src/anon/unit_0016d2e0.cpp
 }

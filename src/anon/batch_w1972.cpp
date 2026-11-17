@@ -41,31 +41,5 @@ void func_001c7148(W1972Ent*);
 void func_002bc188(s32, W1972Ent*);
 f32 fabsf(f32);
 
-void func_001c71f8(W1972Ent* o, f32 k) {
-    func_001c7148(o);
-    f32 vy = o->vel.y;
-    if (0.0f <= vy && !(D_01d498d0.flags & (1ULL << 32))) {
-        if (5.0f < vy) {
-            o->vel.y = vy * k;
-            if (o->cnt < 2) func_002bc188(o->own->f8, o);
-            o->cnt++;
-        } else {
-            w1972_vzero(&o->vel);
-            o->state = (u32)D_001c7520;
-        }
-    }
-    W1972Vq d;
-    d = w1972_vsub(D_01d498d0.res, D_01d498d0.a);
-    f32 lim = 0.1f;
-    if (lim < fabsf(d.x - o->vel.x)) o->vel.x = -o->vel.x;
-    if (lim < fabsf(d.z - o->vel.z)) o->vel.z = -o->vel.z;
-    o->pos = D_01d498d0.res;
-    o->pos.y -= o->own->y;
-    f32 v = o->vel.y + 3.0f;
-    o->vel.y = v;
-    if (50.0f < v) o->vel.y = 50.0f;
-    o->vel.x *= 0.95f;
-    o->vel.z *= 0.95f;
-    if (0.0f <= o->vel.y) o->flags |= 1;
-}
+// 001c71f8: moved to src/anon/unit_001c7148.cpp (linked unit)
 }

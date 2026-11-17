@@ -2,8 +2,6 @@
 
 namespace worldmap {
 
-u32 Gumi::getCourse() {
-    return this->get_unit_arg(1);
-}
+// 0x002c1b48: definition moved into src/anon/unit_002c10e0.cpp
 
 }  // namespace worldmap

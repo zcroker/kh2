@@ -19,12 +19,7 @@ static inline s32 tag_195360(const s8* s) { return s[0] | (s[1] << 8) | (s[2] <<
 static inline Rec_195360* find_195360(s32 g, s32 id) { return func_00168b88(g, id, tag_195360(D_0036d018), 0); }
 
 // Read the values of entries 0x18 and 0x19 (tagged by the 4-char name at D_0036d018).
-void func_00195360(Pair_195360* out) {
-    Rec_195360* a = find_195360(D_01c61afc, 0x18);
-    Rec_195360* b = find_195360(D_01c61afc, 0x19);
-    s32 x = a->v; s32 y = b->v;
-    out->a = x; out->b = y;
-}
+void func_00195360(Pair_195360* out);  // 0x00195360: definition moved into src/anon/unit_00194790.cpp
 struct Vec_2da238 { f32 x, y, z, w; } __attribute__((aligned(16)));
 struct Info_2da238 { u8 pad[16]; s16 radius; };
 struct Obj_2da238 { u8 pad[1344]; Vec_2da238 pos; u8 pad2[3056 - 1344 - 16]; void* target; };

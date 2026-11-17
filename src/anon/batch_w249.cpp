@@ -11,23 +11,7 @@ static inline __attribute__((always_inline)) u8 valid(u32* t) {
     if (func_00190140(t)) ok = *t != 0;
     return ok;
 }
-u32 func_00119d70(u32* a0, u32 a1, u32* a2, u32* a3, u8 t0) {
-    if (t0) {
-        *a3 = 0;
-        func_00190128(a2);
-        void* p = func_00111e38(0);
-        if (func_0010f6b8(p, 0.25f)) {  // count_reached_threshold
-            if (!valid(a2)) func_00190878(a2, p, 0);
-        }
-        if (valid(a2)) goto one;
-        return 0;
-    } else {
-        func_0010cbc8(a0[1], 1, func_00111e38(0), 0);
-        goto one;
-    }
-one:
-    return 1;
-}
+u32 func_00119d70(u32* a0, u32 a1, u32* a2, u32* a3, u8 t0);  // 0x00119d70: definition moved into src/anon/unit_00119bf8.cpp
 struct S24 { u32 w[6]; };
 struct P2 { u32 x, y; };
 void* func_00192868(void*, void*, S24*, P2*);

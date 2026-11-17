@@ -123,7 +123,5 @@ static inline __attribute__((always_inline)) s32 h1_0019c218(A19* a, B19* b) {
     if ((u8)((b->f0c >> 8) & 1) && (a->f160 & 0x80000)) return 1;
     return h2_0019c218(a, b);
 }
-s32 func_0019c218(A19* a, B19* b) {
-    return h1_0019c218(a, b);
-}
+s32 func_0019c218(A19* a, B19* b);  // 0x0019c218: definition moved into src/anon/unit_0019ba60.cpp
 }

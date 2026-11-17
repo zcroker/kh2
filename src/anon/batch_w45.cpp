@@ -125,11 +125,7 @@ void func_00132f38(u8* a0) {
     }
 }
 
-void func_001386e0(u32 a0, u32 a1, u32 a2, u32 a3, u32 t0, u32 t1) {
-    func_001391c8(a0, a1, t1);
-    func_00138748(a0);
-    func_001387f8(a0, a2, a3, t0);
-}
+void func_001386e0(u32 a0, u32 a1, u32 a2, u32 a3, u32 t0, u32 t1);  // 0x001386e0: definition moved into src/anon/unit_00138480.cpp
 
 // true if any of the a0+624 entries (stride 80) accepts a1
 s32 func_00146088(u8* a0, u32 a1) {
@@ -140,17 +136,7 @@ s32 func_00146088(u8* a0, u32 a1) {
     return 0;
 }
 
-void func_00171fa8(u32* a0) {
-    u32 buf[2];
-    u32 n = 1;
-    u32 s = *(u32*)(a0[0] + 4);
-    buf[0] = s;
-    if (a0[2]) {
-        buf[1] = a0[2];
-        n = 2;
-    }
-    func_00177460(s, func_0016cf00(D_0034d8a0, 0, a0[1], buf, n));
-}
+void func_00171fa8(u32* a0);  // 0x00171fa8: definition moved into src/anon/unit_00171e58.cpp
 
 // 00176c68: moved to src/yasui/libys/party.cpp
 
@@ -168,64 +154,19 @@ void func_0019aa00(BF* a0, u8* a1) {
 }
 
 // add d to the value at +444, clamped to [0, max at +448]; notify when it reaches 0
-void func_001a1d50(u8* a0, f32 d) {
-    f32 max = *(f32*)(a0 + 448);
-    if (0.0f < max) {
-        f32 v = *(f32*)(a0 + 444) + d;
-        f32 r = v < 0.0f ? 0.0f : (max < v ? max : v);
-        *(f32*)(a0 + 444) = r;
-        if (r == 0.0f) func_001a1db8(a0);
-    }
-}
+void func_001a1d50(u8* a0, f32 d);  // 0x001a1d50: definition moved into src/anon/unit_0019fb70.cpp
 
-void func_001aeb80(void) {
-    u32 v = func_001b1490(D_00350de8);
-    for (s32 i = 0; i < 19; i++) {
-        D_01c94040[i] = *(u32*)(func_00168b38(v, 2, i) + 8);  // entry_array_find_nth
-    }
-}
+void func_001aeb80(void);  // 0x001aeb80: definition moved into src/anon/unit_001ada38.cpp
 
 // 001b0858: moved to src/yasui/libys/lookat.cpp
 
 // start the task for id unless it is invalid or already current
-void func_001b1e80(s32 id) {
-    if (id == -1 || id == D_00350f1c) return;
-    Tk* t = func_00102818_t(D_0032b91c, 0, 0x55730, (void*)func_001b1ee8, 4096);
-    D_01d48c44 = t;
-    asm volatile("" ::: "memory");
-    t->id = id;
-}
+// 001b1e80: moved to src/anon/unit_001b1d20.cpp
 
 // init a node and append it to the global list
-void func_001b2308(Lnk* a0, u32 n) {
-    a0->f4 = 0;
-    a0->f0 = n;
-    a0->f16 = 50.0f;
-    a0->f8 = 0;
-    a0->f12 = 0;
-    a0->f20 = func_001050d8(n << 4);
-    asm volatile("" ::: "memory");
-    LList* l = &D_01d48c80;
-    if (l->tail == 0) {
-        l->tail = a0;
-        l->head = a0;
-        a0->next = 0;
-    } else {
-        l->tail->next = a0;
-        a0->next = 0;
-        l->tail = a0;
-    }
-}
+// 001b2308: moved to src/anon/unit_001b1d20.cpp
 
-void ctarget_001c8948(u32, u32, u32, u32) asm("_Z16ctarget_001c8948jjjj");
-void ctarget_001c8948(u32, u32, u32, u32) {
-    if (func_001c8ab0()) {
-        D_01d49968 = 3;
-        D_0032f055 = 0;
-        u8* t = (u8*)func_00102818(D_00351214, 0, 3, (void*)func_001c89a8, 8192);
-        *(void**)(t + 48) = (void*)func_001c8a70;
-    }
-}
+// 0x1c8948: moved to src/yasui/libys/summon.cpp
 
 // 001dbc58: moved to src/anon/unit_001dbbe0.cpp
 
@@ -416,27 +357,10 @@ void func_002a94f8(void) {
 }
 
 // count the nonzero ids (u16 at +4, +8, +12) accepted by func_00181500
-s32 func_002c22f0(u8* a0) {
-    s32 n = 0;
-    u16* p = (u16*)(a0 + 4);
-    for (s32 i = 2; i >= 0; i--) {
-        u16 h = *p;
-        p += 2;
-        if (h && func_00181500(h)) n++;
-    }
-    return n;
-}
+s32 func_002c22f0(u8* a0);  // 0x002c22f0: definition moved into src/anon/unit_002c2228.cpp
 
 // the a1-th element of an iteration
-u8 func_002c2688(u32 a0, s32 a1) {
-    u32 v = 0;
-    s32 i = 0;
-    while ((v = func_001c3748(a0, v)) != 0) {
-        if (i == a1) return func_001c3888(v);
-        i++;
-    }
-    return 0;
-}
+u8 func_002c2688(u32 a0, s32 a1);  // 0x002c2688: definition moved into src/anon/unit_002c2228.cpp
 
 u8* func_002d6ec8(u8* out, u32 a1, u32 a2) {
     u8 tmp[16] __attribute__((aligned(16)));

@@ -131,20 +131,7 @@ void func_0014b208(u8*, s32, s32);
 void func_0013ede0(u8*, s32, s32);
 void func_0014b5e0(u8*, u32);
 void func_0014b618(u8*, u32);
-void func_0013e0f8(u8* o, u32 a1, u32 a2, u32 a3) {
-    func_001391c8(o, a1, a3);
-    *(u32*)(o + 580) = a2;
-    u8* s = o + 32;
-    func_0013ee38(s, 4);
-    func_0013edd0(s, 0.0f);
-    func_0013ee18(s, 0x32001);
-    if (!a2) { func_0014b208(s, 100, 100); return; }
-    func_0014b208(s, 64, 64);
-    func_0013ede0(s, -32, -32);
-    func_0014b5e0(o + 320, 6);
-    func_0014b618(o + 320, 0x32001);
-    func_0014b208(o + 320, 64, 64);
-}
+void func_0013e0f8(u8* o, u32 a1, u32 a2, u32 a3);  // 0x0013e0f8: definition moved into src/anon/unit_0013dfb8.cpp
 }
 }
 
@@ -165,23 +152,7 @@ struct O9 { u8 pad[18]; u8 count; u8 pad2[33]; u16 a[8]; u16 b[8]; };
 extern "C" {
 void func_001a3188(u32, u32, u32);
 // Resizes a slot list: clears new slots, releases removed ones.
-void func_00188958(O9* o, s32 n) {
-    s32 i;
-    if (o->count < n) {
-        for (i = o->count; i < n; i++) {
-            o->a[i] = 0;
-            o->b[i] = 0;
-        }
-    } else {
-        for (i = n; i < o->count; i++) {
-            if (o->a[i]) {
-                func_001a3188(o->a[i], 100, 0);
-                o->a[i] = 0;
-            }
-        }
-    }
-    o->count = n;
-}
+void func_00188958(O9* o, s32 n);  // 0x00188958: definition moved into src/anon/unit_00188848.cpp
 }
 }
 
@@ -190,19 +161,7 @@ namespace n00194120 {
 extern "C" {
 void func_00194218(u8*, s32, f32);
 // Sets a 0..1 level (stored as 0..255) and applies it to the model's parts.
-void func_00194120(u8* o, f32 v) {
-    f32 c = v < 0.0f ? 0.0f : (1.0f < v ? 1.0f : v);
-    o[1696] = (s32)(c * 255.0f);
-    u16 type = *(u16*)(*(u8**)(o + 8) + 76);
-    if (type != 5000) {
-        if (type == 5002) {
-            func_00194218(o, 0, 1.0f - c);
-            func_00194218(o, 1, c);
-        }
-    } else {
-        for (s32 i = 0; i < 10; i++) func_00194218(o, i, c);
-    }
-}
+void func_00194120(u8* o, f32 v);  // 0x00194120: definition moved into src/anon/unit_00193be8.cpp
 }
 }
 
@@ -288,13 +247,7 @@ static inline CEnt* FindC(u32 id) {
 }
 void u_call4_001c2eb8(u32, u32, u32, u32) asm("_Z16u_call4_001c2eb8jjjj");
 // Runs func_001c2d88 on every consecutive table entry with the given id.
-void u_call4_001c2eb8(u32 id, u32, u32, u32) {
-    CEnt* p = FindC(id);
-    while (p < &D_01d4955c->e[D_01d4955c->count] && p->id == id) {
-        func_001c2d88(p);
-        p++;
-    }
-}
+void u_call4_001c2eb8(u32 id, u32, u32, u32);  // 0x001c2eb8: definition moved into src/anon/unit_001c2b58.cpp
 }
 }
 
@@ -816,20 +769,7 @@ namespace n001cea48 {
 struct Cea { s32 state; u32 b0 : 1; u32 b1 : 1; u32 rest : 30; };
 extern "C" {
 void func_002877a0(u8*, u32, u32);
-void func_001cea48(Cea* o, u8* e, u64* pad) {
-    u64 b = *pad;
-    if ((b & (1ULL << 34)) && (u8)o->b0) {
-        func_002877a0((u8*)o + 12, 0, 3);
-        if (o->b1) func_002877a0((u8*)o + 12, 1, 4);
-        *(s32*)(e + 2928) = 1;
-        o->state = 3;
-    } else if ((b & (1ULL << 35)) && o->b1) {
-        func_002877a0((u8*)o + 12, 1, 3);
-        if ((u8)o->b0) func_002877a0((u8*)o + 12, 0, 4);
-        *(s32*)(e + 2928) = 2;
-        o->state = 3;
-    }
-}
+void func_001cea48(Cea* o, u8* e, u64* pad);  // 0x001cea48: definition moved into src/anon/unit_001ce6e8.cpp
 }
 }
 

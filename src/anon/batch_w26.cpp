@@ -148,19 +148,9 @@ void func_00123d40(void* a, void* b, void* c) {
     ((void (*)(void*, void*, void*))((void**)*o)[4])(o, b, c);
 }
 
-void jumpEffectIn_task(void* task) {
-    loadImage(216);
-    TaskYield(task, 0);
-    loadImage(216);
-    TaskYield(task, 0);
-    SignalCall();
-}
+void jumpEffectIn_task(void* task);  // 0x0013f450: definition moved into src/anon/unit_0013ef70.cpp
 
-void func_00140850(u8* p) {
-    qcopy(p + 144, p + 128);
-    qcopy(p + 112, p + 96);
-    qcopy(p + 176, p + 160);
-}
+void func_00140850(u8* p);  // 0x00140850: definition moved into src/anon/unit_0013fca8.cpp
 
 struct Ent28 { u8 flag; u8 id; u8 pad[26]; };
 struct EntList { u8 pad[8]; Ent28* ents; u8 pad2[8]; s32 count; };
@@ -185,18 +175,9 @@ void* func_0016b7a0(void* serial) {
 
 void func_00170ee8(s32 a, s32 b);  // 0x00170ee8: definition moved into src/anon/unit_0016e8f8.cpp
 
-void func_00171848(void** p) {
-    if (*p) ctarget_0019ba60(((void**)*p)[1]);
-    u8* o = (u8*)((void**)*p)[1];
-    if (*(u32*)(o + 1416) & 4) party_use_mp(o);
-}
+void func_00171848(void** p);  // 0x00171848: definition moved into src/anon/unit_00170f58.cpp
 
-void func_00190a28(void* t, u8* o) {
-    void* v = 0;
-    if (!(*(u32*)(o + 264) & 0x800)) v = func_001cd7a8(D_01c60d10);
-    if (!v) v = D_0034e948;
-    target_set_obj(t, v, 0);
-}
+void func_00190a28(void* t, u8* o);  // 0x00190a28: definition moved into src/anon/unit_001900d0.cpp
 
 // 001922c8: moved to src/yasui/libys/message.cpp
 
@@ -210,61 +191,25 @@ void func_0019ae60(u8* p) {
     }
 }
 
-s32 func_0019bf00(u8* o) {
-    if (*(u32*)(o + 1416) & 0x80) {
-        if (func_0017a538(o)) return 1;
-    }
-    u32 m = *(u32*)(o + 264) & 0x100000;
-    return m != 0;
-}
+s32 func_0019bf00(u8* o);  // 0x0019bf00: definition moved into src/anon/unit_0019ba60.cpp
 
-void* func_001a1018(void* a) {
-    void* s = sheet_ctor(a);
-    func_001a0ee0(s, func_001db5a8(a));
-    return s;
-}
+void* func_001a1018(void* a);  // 0x001a1018: definition moved into src/anon/unit_0019fb70.cpp
 
 // 001ac028: moved to src/anon/unit_001abb28.cpp
 
 // 001bbb50: moved to src/yasui/libys/mission.cpp
 
-s32 func_001c0ce8(u8* o) {
-    s32 r = 0;
-    if (obj_is_attach(o)) {
-        u32 m = *(u32*)(*(u8**)(o + 1392) + 1416) & 0x80;
-        r = m != 0;
-    }
-    return r;
-}
+// 001c0ce8: moved to src/anon/unit_001c0638.cpp
+s32 func_001c0ce8(u8* o);
 
 // Returns 1 if either friend has left.
-s32 func_001c9df8(void) {
-    s32 i;
-    for (i = 0; i < 2; i++) {
-        void* f = friend_get(i);
-        if (f && obj_is_leave(f)) return 1;
-    }
-    return 0;
-}
+s32 func_001c9df8(void);  // 0x001c9df8: definition moved into src/yasui/libys/sacrifice.cpp
 
-s32 func_001cf560(u8* o) {
-    s32 r = 0;
-    if (func_001ca448(o) || *(s32*)(o + 340) == 44) r = 1;
-    return r;
-}
+s32 func_001cf560(u8* o);  // 0x001cf560: definition moved into src/anon/unit_001cf0b0.cpp
 
-s32 func_001cf998(void) {
-    s32 r = 0;
-    if (!mission_is_exec() || mission_get_count(1) > 0) r = 1;
-    return r;
-}
+s32 func_001cf998(void);  // 0x001cf998: definition moved into src/anon/unit_001cf0b0.cpp
 
-void func_001d1540(u8* o, void* a, void* b, void* c) {
-    func_00177dc8(o, a, 8, b, c);
-    *(u8**)o = D_003524b8;
-    *(u32*)(o + 1416) |= 0x4000000;
-    func_001befd8(*(void**)(o + 2884), D_0036e3a8, 2);
-}
+void func_001d1540(u8* o, void* a, void* b, void* c);  // 0x001d1540: definition moved into src/anon/unit_001d14e0.cpp
 
 u8* func_001d7ec8(s32 i);  // 0x001d7ec8: definition moved into src/anon/unit_001d7458.cpp
 
@@ -354,13 +299,7 @@ void func_002aa450(u32 i) {
 
 s32 func_002bbd58(u8* o);  // 0x002bbd58: definition moved into src/anon/unit_002bb8b0.cpp
 
-void func_002beea8(u8* o) {
-    *(u8**)o = D_00361980;
-    Obj* c = *(Obj**)(o + 36);
-    (*(void (**)(Obj*))((*(u8**)c) + 12))(c);
-    *(u8**)o = D_003637e0;
-    area_free(o);
-}
+void func_002beea8(u8* o);  // 0x002beea8: definition moved into src/anon/unit_002bebd0.cpp
 
 u8 func_002cff98(u8* o) {
     *(u8**)o = D_0034ee08;

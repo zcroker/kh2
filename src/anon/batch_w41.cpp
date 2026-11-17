@@ -88,20 +88,7 @@ extern "C" {
 
 struct W41S10 { u8 a, b, c; u16 d, e, f; };
 static inline void w41InitS10(W41S10* s, u16 v) { s->a = v; s->b = v; s->c = v; s->d = v; s->e = v; s->f = v; }
-void func_00105fc8(void) {
-    W41S10 s;
-    w41InitS10(&s, 0xffff);
-    func_001058e8()[12] = 15;
-    s.a = 15;
-    func_001058e8()[13] = 0;
-    s.b = 0;
-    u8* p = func_001058e8();
-    u8 v = func_00105f98();
-    p[14] = v;
-    s.c = v;
-    W41VObj* o = func_00102c80();
-    o->vt[0](o);
-}
+// 00105fc8: moved to src/common/world.cpp
 
 // GIF tag (NLOOP=1, EOP, NREG=1, REGS=A+D) followed by one A+D pair (TEXFLUSH).
 struct W41GifTag { u64 nloop:15; u64 eop:1; u64 pad:30; u64 pre:1; u64 prim:11; u64 flg:2; u64 nreg:4; u64 r0:4; u64 rr:60; u64 data; u64 addr; };
@@ -124,12 +111,7 @@ void func_001168c0(u8* p) {
         *(f32*)(p + 0x65c) = func_002f8ad0(*(f32*)(p + 0x660), -*(f32*)(p + 0x664));
 }
 
-void func_00139b28(u32 key) {
-    W41Node* n = 0;
-    while ((n = w41NextNode(D_00347f80_list, n)) != 0) {
-        if (n->key == key) func_00139708(n);
-    }
-}
+void func_00139b28(u32 key);  // 0x00139b28: definition moved into src/anon/unit_001393c8.cpp
 
 // 0014d478: moved to src/anon/unit_0014d298.cpp
 
@@ -149,17 +131,7 @@ W41Ent16* func_00168b88(W41Tbl* t, s32 id, s32 val, s32 k) {  // find_entry16_by
 struct W41SP { u8 pad[72]; u8 flag; };
 char* func_0016f4b8(W41SP* p, char* buf);  // 0x0016f4b8: definition moved into src/anon/unit_0016e8f8.cpp
 
-void func_00173918(u8** p) {
-    // function-local static guard + atexit(dtor)
-    if (!D_01c5f4f0) {
-        D_01c5f4f0 = 1;
-        func_002fd188(func_00175540);  // pool_alloc_block
-    }
-    u8* s = *(u8**)(p[0] + 4) + 2144;
-    if ((u128*)s != &D_01c5f500)
-        asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(&D_01c5f500), "r"(s) : "$8", "memory");
-    *p = (u8*)&D_01c5f500;
-}
+void func_00173918(u8** p);  // 0x00173918: definition moved into src/anon/unit_00171e58.cpp
 
 // 001786e0: moved to src/yasui/libys/player.cpp
 
@@ -181,23 +153,12 @@ struct W41S19 { u32 f0; s32 id; u32 res; };
 void func_0019d548(W41S19*);
 u32 func_0013e610(u32);
 extern u32 D_0036d3b8[];
-void func_0019d588(W41S19* p, s32 id) {
-    if (id != p->id) func_0019d548(p);
-    if (id != 0 && p->res == 0) p->res = func_0013e610(D_0036d3b8[id - 1]);
-    p->id = id;
-}
+void func_0019d588(W41S19* p, s32 id);  // 0x0019d588: definition moved into src/anon/unit_0019ba60.cpp
 
 struct W41BF { u32 lo:3; u32 mode:4; };
 void func_001b3b70(u8*, u32, u32, u32);
 extern void* D_00350910[];
-void func_001a6bc8(u8* p, u32 a, u32 b) {
-    func_001b3b70(p, a, 4, b);
-    *(void**)p = D_00350910;
-    *(u32*)(p + 0x588) |= 0x100;
-    *(u32*)(p + 0x3b0) = 3;
-    ((W41BF*)(p + 0x600))->mode = 1;
-    *(u32*)(p + 0xabc) |= 4;
-}
+// 001a6bc8: moved to src/anon/unit_001a6a10.cpp
 
 struct W41Rect { u32 f0, x, y; u8 pad[0x50]; u32 w, h, mode; };
 void func_001acdc0(W41Rect*, u32, u32, u32, u32, u32);
@@ -209,18 +170,7 @@ void func_001bd3a0(u8*);
 void func_001bdf68(u8*);
 void func_001bdff0(void);
 void func_001d6da8(u8*);
-void func_001bded8(u8* p) {
-    func_001bd370(p);  // clear_4words_plus2240
-    func_001bc720(p + 36);
-    func_001bc720(p + 732);
-    *(u32*)(p + 2528) = 0;
-    func_001bd3a0(p);
-    func_001bdf68(p);
-    func_001bdff0();
-    func_001d6da8(p + 2642);
-    *(u32*)(p + 2728) = 0;
-    *(u32*)(p + 2736) = 0;
-}
+void func_001bded8(u8* p);  // 0x001bded8: definition moved into src/anon/unit_001bc568.cpp
 
 }
 
@@ -411,14 +361,7 @@ void wtarget_002b9bd0(u32, u32, u32, u32) {
 extern "C" {
 
 void func_0017f5e0(u8*, u32, u32, f32, f32);
-void func_002c17d8(u32, u8* p) {
-    *(u32*)(p + 264) |= 2;
-    asm volatile("vsub.xyzw $vf1, $vf0, $vf0\n\tsqc2 $vf1, 0(%0)" : : "r"(p + 32) : "memory");
-    f32 z = 0.0f;
-    u8* q = p + 320;
-    func_0017f488(q, 161, z, z);
-    func_0017f5e0(q, 0, 0, z, z);
-}
+void func_002c17d8(u32, u8* p);  // 0x002c17d8: definition moved into src/anon/unit_002c10e0.cpp
 
 struct W41S24 { u32 w[6]; };
 u32 func_002cec08(u32, W41S24*);

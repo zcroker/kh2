@@ -74,25 +74,6 @@ static inline __attribute__((always_inline)) void cde58_scan(CDE58O* o) {
     }
 }
 extern "C" {
-void func_001cde58(CDE58O* o) {
-    func_001cddb8(o);
-    if (o->f0) func_001cdbc8(o, o->f10, 1);
-    cde58_scan(o);
-    QV v;
-    v = ScaleQ(o->v30, o->f40->f5b0 + o->f40->f130->f2c);
-    CDE58A* a = o->f40;
-    bool hit = func_0019c090(a) || cde58_chk(a);
-    bool ok = !hit;
-    if (ok && o->f40->f810 == 0) {
-        QV r = func_001840c0(o->f40, v);
-        if (func_0019bf50(o->f40, &r)) {
-            cde58_set(o->bits, func_001d7f40(o->f44, 1));
-        }
-    }
-    if (!func_001ce0a8(o)) {
-        if (func_0019c090(o->f40)) cde58_set(o->bits, func_001d7f40(o->f44, 9));
-        else cde58_set(o->bits, func_001d7f40(o->f44, 5));
-        func_001ce0a8(o);
-    }
-}
+// 001cde58: moved to src/anon/unit_001cd660.cpp
+void func_001cde58(CDE58O* o);
 }

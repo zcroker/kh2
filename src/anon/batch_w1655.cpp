@@ -70,114 +70,11 @@ struct W1655Best { W1655Tgt t; f32 v; };
 static inline W1655QW w1655_sub(const W1655QW& a, const W1655QW& b) { W1655QW r; w1655_vsub(&r, &a, &b); return r; }
 extern "C" {
 // Pick the collision element whose bearing from obj is most in front, within lock-on range.
-W1655Tgt func_00190d10(W1655Tgt* cur, W1655Obj* self, f32 scale) {
-    f32 ratio = W1655_GetLockOnRatio();
-    f32 range = D_00352130->lockRange * ratio;
-    W1655QW pos = self->vt->getPos(self);
-    W1655QW d;
-    W1655QW tp = func_00190388(cur);
-    w1655_vsub(&d, &tp, &pos);
-    f32 ang0 = f_atan2f(d.x, d.z);
-    W1655Best b;
-    W1655Obj* o = 0;
-    while ((o = W1655_ctarget(o)) != 0) {
-        if (!func_0019bc38(o)) continue;
-        W1655Elem* e = 0;
-        while ((e = W1655_each_collision(o, 3, e)) != 0) {
-            if (e->flags & 1) continue;
-            if (o == cur->obj && e->id == cur->id) continue;
-            W1655Hit hit;
-            func_0018a818(&hit, o, e);
-            w1655_vsub(&tp, &hit.centre, &pos);
-            f32 dist = w1655_vnorm(&tp) - hit.radius;
-            if (!(o->flags & 0x400) || ratio < 1.0f) {
-                if (range < dist) continue;
-            }
-            f32 r = W1655_FixRadian(f_atan2f(tp.x, tp.z) - ang0) * scale;
-            if (!(0.0f < r)) continue;
-            if (b.t.obj != 0 && !(r < b.v)) continue;
-            b.t.obj = o;
-            b.t.id = e->id;
-            b.v = r;
-        }
-    }
-    return b.t;
-}
+W1655Tgt func_00190d10(W1655Tgt* cur, W1655Obj* self, f32 scale);  // 0x00190d10: definition moved into src/anon/unit_001900d0.cpp
 
 // Lock onto the nearest collision element, weighted by how far it is off self's facing.
-void func_00190f80(W1655Tgt* t, W1655Obj* self, f32 limit) {
-    f32 best = 0.0f;
-    W1655Prm* prm = self->prm;
-    f32 lo = prm->low;
-    f32 hi = prm->high;
-    f32 ratio = W1655_GetLockOnRatio();
-    if (1.0f < ratio) {
-        lo *= ratio;
-        hi *= ratio;
-    }
-    func_00190128(t);
-    W1655Obj* o = 0;
-    while ((o = W1655_ctarget(o)) != 0) {
-        if (!func_0019bc38(o)) continue;
-        if (!func_0019bb58(o)) continue;
-        f32 zero = 0.0f;
-        f32 one = 1.0f;
-        f32 half = 0.5f;
-        W1655Elem* e = 0;
-        while ((e = W1655_each_collision(o, 3, e)) != 0) {
-            if (e->flags & 1) continue;
-            W1655QW h;
-            W1655Hit hit;
-            func_0018a818(&hit, o, e);
-            h = w1655_sub(hit.centre, *func_0016c028(self));
-            f32 dy = h.y;
-            h.y = 0.0f;
-            f32 len = w1655_vnorm(&h);
-            if (zero < limit) {
-                if (dy < lo - hit.height) continue;
-                if (hi + hit.height < dy) continue;
-                if (limit < len - hit.radius) continue;
-            }
-            len += fabsf(dy) * prm->yscale;
-            f32 dot = w1655_vdot(&func_0016af58(self), &h);
-            len *= (one - dot) * half * (one - prm->dirmin) + prm->dirmin;
-            if (t->obj != 0 && !(len < best)) continue;
-            best = len;
-            W1655_set_obj(t, o, e->id);
-        }
-    }
-}
+void func_00190f80(W1655Tgt* t, W1655Obj* self, f32 limit);  // 0x00190f80: definition moved into src/anon/unit_001900d0.cpp
 
 // Pick the nearest collision element lying in direction dir (flattened), within lock-on range.
-W1655Tgt func_001913d8(W1655Tgt* cur, W1655Obj* self, const W1655QW* dir) {
-    f32 ratio = W1655_GetLockOnRatio();
-    f32 range = D_00352130->lockRange * ratio;
-    W1655QW tp = func_00190388(cur);
-    W1655QW pos = self->vt->getPos(self);
-    W1655Best b;
-    W1655Obj* o = 0;
-    while ((o = W1655_ctarget(o)) != 0) {
-        if (!func_0019bc38(o)) continue;
-        W1655Elem* e = 0;
-        while ((e = W1655_each_collision(o, 3, e)) != 0) {
-            if (e->flags & 1) continue;
-            if (o == cur->obj && e->id == cur->id) continue;
-            W1655Hit hit;
-            func_0018a818(&hit, o, e);
-            W1655QW v;
-            w1655_vsub(&v, &hit.centre, &pos);
-            if (range < w1655_vlen(&v) - hit.radius) continue;
-            W1655QW f;
-            w1655_vsub(&f, &hit.centre, &tp);
-            f.y = -f.z;
-            f.z = 0.0f;
-            f32 dist = w1655_vnorm(&f) - hit.radius;
-            if (w1655_vdot(&f, dir) < 0.5f) continue;
-            if (b.t.obj != 0 && !(dist < b.v)) continue;
-            W1655_set_obj(&b.t, o, e->id);
-            b.v = dist;
-        }
-    }
-    return b.t;
-}
+W1655Tgt func_001913d8(W1655Tgt* cur, W1655Obj* self, const W1655QW* dir);  // 0x001913d8: definition moved into src/anon/unit_001900d0.cpp
 }

@@ -12,15 +12,5 @@ static inline f32 frand2(f32 rng, f32 lo) { D_003638d0 = D_003638d0 * 0x10dcd; r
 static inline f32 frnd() { D_003638d0 = D_003638d0 * 0x10dcd; return (f32)D_003638d0 * 2.3283064e-10f; }
 static inline f32 add8(f32 lo, f32 r) { return lo + r; }
 extern "C" {
-u8* func_001a5420(u32 a, u32 b, u32 c) {
-    u8* v = func_001c6f10(a, b, c, (void*)func_001c7420);
-    if (v != 0) {
-        V4* p = (V4*)(v + 0x30);
-        f32 x = add8(-20.0f, frnd() * 40.0f);
-        f32 y = add8(-40.0f, frnd() * 20.0f);
-        f32 z = add8(-20.0f, frnd() * 40.0f);
-        p->y = y; p->x = x; *(s32*)&p->w = 0; p->z = z;
-    }
-    return v;
-}
+// 001a5420: moved to src/anon/unit_001a4db0.cpp
 }

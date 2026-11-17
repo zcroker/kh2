@@ -32,23 +32,6 @@ void push_1d2(void*, s32, f32, f32, void*) asm("_ZN2YS6MOTION4pushEiffPFvPNS_3OB
 void chg_1d2(Obj1d2*, s32) asm("_ZN2YS3OBJ13change_actionENS_6ACTION2IDE");
 extern Cfg1d2* D_00352130;
 extern f32 D_00349e10;
-void func_001d2c78(void* a0, Obj1d2* o) {
-    Cfg1d2* cfg = D_00352130;
-    Res1d2 r = func_001d2e68(a0, o);
-    func_00183768(o, &r, func_001d3000(a0, r.f));
-    QW1d2 v(o->v32);
-    func_0016b010(o, &v);
-    o->timer -= D_00349e10;
-    if (o->timer <= 0.0f) {
-        if (Tgt1d2_is_exist(o->tgt)) {
-            SubL(func_00190388(o->tgt), ctarget_0016bda8_1d2(o), &v);
-            Normalize1d2(&v);
-            o->v32 = v * cfg->k;
-        }
-        f17f488_1d2(o->mot, 153, 0.0f, 0.0f);
-        push_1d2(o->mot, 0, 0.0f, 0.0f, 0);
-        chg_1d2(o, 29);
-    }
-}
+void func_001d2c78(void* a0, Obj1d2* o);  // 0x001d2c78: definition moved into src/anon/unit_001d2810.cpp
 
 }

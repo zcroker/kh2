@@ -104,10 +104,7 @@ void func_0011e410(u8* p, u32 a) {
     func_0011e450(p, a);
 }
 
-void func_0013f498(void) {
-    func_0013efe8();
-    func_00102788(*(u32*)(func_00102c80() + 4), 0, 300000, (void*)func_0013f428);
-}
+void func_0013f498(void);  // 0x0013f498: definition moved into src/anon/unit_0013ef70.cpp
 
 void func_0014a950(void** p) {
     func_0014b638(p);
@@ -132,65 +129,26 @@ void func_00153100(void) {
 // 00154288: moved to src/anon/unit_00153ea0.cpp
 s32 func_00154288(u32, s32 a);
 
-// Run func_00167e28 on both 96-byte entries of D_0034d6c0.
-void func_00167ee0(void) {
-    u8* p = D_0034d6c0;
-    for (s32 i = 0; i < 2; i++) {
-        func_00167e28(p);
-        p += 96;
-    }
-}
+// 00167ee0: moved to src/anon/unit_00167358.cpp
 
 typedef void (*JumpFn)(void*, void*, s32);
-void YS_trap_obj_jump_direct(BD_VALUE* bd) {
-    u8* w = *(u8**)((u8*)bd[0].p + 4);
-    void** o = *(void***)(w + 12);
-    (*(JumpFn*)((u8*)*o + 8))(o, w, bd[1].i);
-}
+void YS_trap_obj_jump_direct(BD_VALUE* bd);  // 0x001721d8: definition moved into src/anon/unit_00171e58.cpp
 
-void func_00172a10(u32* p) {
-    if (p[0]) func_0019ba60(*(u32*)(p[0] + 4));
-    func_0016c018(*(u32*)(p[0] + 4), p[1], p[2]);
-}
+void func_00172a10(u32* p);  // 0x00172a10: definition moved into src/anon/unit_00171e58.cpp
 
 // 00177a78: moved to src/yasui/libys/party.cpp
 
-void func_0018fe48(u32* p) {
-    p[0] = func_001b58f0(p[0], p[1], p[2], 0);
-}
+void func_0018fe48(u32* p);  // 0x0018fe48: definition moved into src/anon/unit_0018f140.cpp
 
-void func_001906f0(void* a, u128* v) {
-    u32 buf[8];
-    u128 t;
-    buf[3] = 0;
-    func_001902a8(a, buf);
-    asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(&t), "r"(v) : "$8", "memory");
-    func_0018a970(buf, &t);
-}
+void func_001906f0(void* a, u128* v);  // 0x001906f0: definition moved into src/anon/unit_001900d0.cpp
 
-void func_001940b8(u8* p, u32 a, u32 b, u32 c, f32 x, f32 y) {  // obj_set_bytes_and_lerp
-    p[1664] = a;
-    p[1665] = b;
-    p[1666] = c;
-    func_001ad990((u32)(p + 2240), *(f32*)(p + 2240), x, y);
-}
+void func_001940b8(u8* p, u32 a, u32 b, u32 c, f32 x, f32 y);  // 0x001940b8: definition moved into src/anon/unit_00193be8.cpp
 
 // 001a3b08: moved to src/yasui/libys/effect.cpp
 
-void func_001ad990(u32 p, f32 a, f32 b, f32 t) {
-    f32* o = (f32*)p;
-    if (0.0f < t) {
-        o[0] = a;
-        o[1] = (b - a) / t;
-    } else {
-        o[0] = b;
-        o[1] = 0.0f;
-    }
-}
+void func_001ad990(u32 p, f32 a, f32 b, f32 t);  // 0x001ad990: definition moved into src/anon/unit_001ad990.cpp
 
-void func_001ae620(void) {
-    while (func_002f71b0(1)) func_001ae678();
-}
+void func_001ae620(void);  // 0x001ae620: definition moved into src/anon/unit_001ada38.cpp
 
 u32 YS_LIMIT_reset_hit_counter(u8* self) {
     u8* h = self + 104;
@@ -207,23 +165,14 @@ void func_001b6dd0(u8* p, u128* v) {
     p[1300] = 3;
 }
 
-void func_001be900(u8* p) {
-    func_001bc778(p + 152);
-    func_001bc990(p + 152, p + 2628);
-}
+void func_001be900(u8* p);  // 0x001be900: definition moved into src/anon/unit_001bc568.cpp
 
-void func_001bf0c8(u8* p) {
-    func_001bc778(p + 1428);
-    func_001bc990(p + 1428, D_00351248);
-}
+void func_001bf0c8(u8* p);  // 0x001bf0c8: definition moved into src/anon/unit_001bc568.cpp
 
 // Destructor-shaped: the member at +20 is destroyed last (as a cleanup, so no tail call).
 struct Member20Dtor { u32* self; ~Member20Dtor() { func_001db7d0(self + 5); } };
-void func_001c13a8(u32* p) {
-    Member20Dtor g = { p };
-    func_001dc920(p[0]);
-    func_00105110((void*)p[12]);
-}
+// 001c13a8: moved to src/anon/unit_001c0638.cpp
+void func_001c13a8(u32* p);
 
 void func_001d74f8(void** p);  // 0x001d74f8: definition moved into src/anon/unit_001d7458.cpp
 

@@ -70,28 +70,7 @@ struct W270It { u8 pad[8]; u16 h8; };
 extern W270Lt* D_0035f5e4;
 extern u8* D_0035f5e8;
 extern "C" {
-f32 func_0018a970(W270Sh* s, const W270V* q) {  // obj_get_distance
-    f32 r = 0.0f;
-    W270V d;
-    W270V u;
-    W270V t = s->pos - *q;
-    d = t;
-    switch (s->type) {
-    case 0:
-        if (r < s->a && r < s->b) {
-            d.y *= s->a / s->b;
-            r = w270_vnorm(&d);
-            w270_vscale(&d, &d, r - s->a);
-            d.y *= s->b / s->a;
-        }
-        r = w270_vlen(&d);
-        break;
-    case 3:
-        r = w270_vlen(&d) - s->a;
-        break;
-    }
-    return r;
-}
+f32 func_0018a970(W270Sh* s, const W270V* q);  // 0x0018a970: definition moved into src/anon/unit_00189d38.cpp
 void W270_SelDtor(W270Sel*) asm("_ZN2Tz6SelectD1Ev");
 void func_00288c20(W270Sel*);
 void W270_dela(void*) asm("_ZdaPv");

@@ -204,27 +204,7 @@ u8* func_002cd018(u8*, u8*, u32, f32);
 union UF91 { f32 f; u32 u; };
 extern u32 D_01c6cabc;
 void wtarget_001a1840(u8* p, u32, u32, u32) asm("_Z16wtarget_001a1840jjjj");
-void wtarget_001a1840(u8* p, u32, u32, u32) {
-    u8* q = *(u8**)(p + 580);
-    if (q) {
-        q[4] = p[0];
-        (*(u8**)(p + 580))[5] = p[4];
-        (*(u8**)(p + 580))[6] = p[384];
-        (*(u8**)(p + 580))[7] = p[388];
-        (*(u8**)(p + 580))[12] = (s32)(*(f32*)(p + 444) / 60.0f);
-        (*(u8**)(p + 580))[13] = (s32)(*(f32*)(p + 448) / 60.0f);
-    }
-    u8* r = *(u8**)(p + 608);
-    if (r) {
-        r[4152] = p[432];
-        r[4153] = p[433];
-        r[4154] = p[434];
-        r[4155] = p[435];
-        ((UF91*)(r + 4156))->f = ((UF91*)(p + 436))->f;
-        ((UF91*)(r + 4160))->f = ((UF91*)(p + 440))->f;
-        D_01c6cabc = ((UF91*)(p + 8))->u;
-    }
-}
+void wtarget_001a1840(u8* p, u32, u32, u32);  // 0x001a1840: definition moved into src/anon/unit_0019fb70.cpp
 
 // --- 001a76c8
 // Tests a vertical segment through the point; on no hit, copies the point out.
@@ -240,23 +220,7 @@ void func_001be410(u8*);
 u32 func_001bdcd0(u8*);
 void func_001be4b0(u8*);
 void func_001bd618(u8*, s32);
-void func_001be060(u8* p) {
-    E1be** cur = *(E1be***)(p + 2240);
-    E1be* e = *cur;
-    if (e && e->type == 10) { func_001bc9e8(e); return; }
-    if (!func_001d48e8(p + 2496, *(u32*)(p + 2528), *cur)) func_001be410(p);
-    e = **(E1be***)(p + 2240);
-    if (!e) return;
-    if (!func_001bc9e8(e)) return;
-    if (!(*(u64*)(*(u8**)(p + 2532) + 8) & 0x10000)) return;
-    E1be** c = *(E1be***)(p + 2240);
-    s32 idx = c ? c - (E1be**)(p + 2536) + 1 : 0;
-    if (idx < 2) {
-        if (!func_001bdcd0(p)) func_001be4b0(p);
-    } else {
-        func_001bd618(p, 1);
-    }
-}
+void func_001be060(u8* p);  // 0x001be060: definition moved into src/anon/unit_001bc568.cpp
 
 // --- 001cc9c8
 // Calls func_001ccac0 for every active entry within `r` (XZ distance) of the object.
@@ -727,24 +691,7 @@ fpn91* func_003141e8(fpn91* a, fpn91* b) {
 
 // --- 001422a0
 // Fetches a vertex position (w = 1), transforms it by the object's matrix and normalizes it.
-Vq* func_001422a0(Vq* out, u8* obj, u16 idx) {  // find_record16_and_copy
-    u8* e = *(u8**)(obj + 12) + idx * 16;
-    *out = *(Vq*)(*(u8**)(obj + 24) + *(u16*)(e + 10) * 16);
-    out->w = 1.0f;
-    if (!obj[209]) {
-        Mc m(*(Mc*)(obj + 80));
-        asm volatile("sqc2 $vf0, 0(%0)" : : "r"(&m.r[3]) : "memory");
-        Vq t;
-        asm volatile(".set noreorder\n\tlqc2 $vf5, 0(%1)\n\tlqc2 $vf1, 0(%2)\n\tlqc2 $vf2, 16(%2)\n\tlqc2 $vf3, 32(%2)\n\tlqc2 $vf4, 48(%2)\n\t"
-                     "vmulax.xyzw ACC, $vf1, $vf5x\n\tvmadday.xyzw ACC, $vf2, $vf5y\n\tvmaddaz.xyzw ACC, $vf3, $vf5z\n\tvmaddw.xyzw $vf5, $vf4, $vf5w\n\t"
-                     "sqc2 $vf5, 0(%0)\n\t.set reorder" : : "r"(&t), "r"(out), "r"(&m) : "memory");
-        *out = t;
-        f32 len;
-        asm volatile("lqc2 $vf1, 0(%1)\n\tvmul.xyz $vf2, $vf1, $vf1\n\tvaddy.x $vf2, $vf2, $vf2y\n\tvaddz.x $vf2, $vf2, $vf2z\n\tvsqrt Q, $vf2x\n\tvwaitq\n\tcfc2 $8, $vi22\n\tvaddq.x $vf2, $vf0, Q\n\tmtc1 $8, %0\n\tvnop\n\tvdiv Q, $vf0w, $vf2x\n\tvwaitq\n\tvmulq.xyz $vf1, $vf1, Q\n\tsqc2 $vf1, 0(%1)"
-                     : "=f"(len) : "r"(out) : "$8", "memory");
-    }
-    return out;
-}
+Vq* func_001422a0(Vq* out, u8* obj, u16 idx);  // 0x001422a0: definition moved into src/anon/unit_00141458.cpp
 
 // --- 001a7790
 struct Ob64 { u8 b[64]; } __attribute__((aligned(16)));

@@ -34,31 +34,5 @@ void func_00144e50(V4n*, BoxN*, u32);
 void func_00141980(ObjN*, u8*);
 void func_00141c38(ObjN*, s32, V4n*, u16*, s32);
 u16 func_00141e78(ObjN*, SegN*, s32, V4n*);
-s32 func_00141ff0(ObjN* o, SegN* ray, V4n* out, u16* id, s32 mask) {
-    SegN s = *ray;
-    if (!o->b209) {
-        s.a = o->m144 * s.a;
-        s.b = o->m144 * s.b;
-    }
-    SegN r2;
-    r2.a = s.a;
-    r2.b = s.b - s.a;
-    r2.b.w = 1.0f;
-    r2.a.w = 1.0f;
-    BoxN box;
-    func_00144618(&box, &s);
-    V4n b;
-    func_00144e30(&b);
-    func_00144e50(&b, &box, func_00141970(o));
-    u16 r = 0;
-    u8 buf[2048];
-    func_00141980(o, buf);
-    func_00141c38(o, 0, &b, &r, mask);
-    u16 v = func_00141e78(o, &r2, r, out);
-    *id = v;
-    if (v == 0xffff) return 0;
-    if (o->b209) return 1;
-    *out = o->m80 * *out;
-    return 1;
-}
+s32 func_00141ff0(ObjN* o, SegN* ray, V4n* out, u16* id, s32 mask);  // 0x00141ff0: definition moved into src/anon/unit_00141458.cpp
 }

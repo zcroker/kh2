@@ -94,14 +94,7 @@ void func_001206e0(u32* p) {
 void func_00139510(void*);
 void func_001b2028(u32);
 void func_001991a8(s32, s32);
-void func_00137630(u8* p) {
-    if (*(u32*)(p + 1304)) {
-        if (func_00139d78(p + 448)) func_00139510(p + 448);
-        if (func_00139d78(p + 896)) func_00139510(p + 896);
-        func_001b2028(*(u32*)(p + 1304));
-    }
-    func_001991a8(36, 0);
-}
+void func_00137630(u8* p);  // 0x00137630: definition moved into src/anon/unit_001374c8.cpp
 
 // Rebuild the cached text when the current value changes.
 extern u8 D_0032bae0;
@@ -137,12 +130,7 @@ extern u8 D_0034c7b0[];
 void sceGsSetDefLoadImage(void*, s32, s32, s32, s32, s32, s32, s32);
 void func_003058a0(s32);
 void sceGsExecLoadImage(void*, u32);
-void func_00166618(u32 a, s16 b, s16 c, s16 d, s16 e, s16 f, s32 i) {
-    u8* s = D_0034c7b0 + i * 96;
-    sceGsSetDefLoadImage(s, c, d >> 6, b, 0, f, d, e);
-    func_003058a0(0);
-    sceGsExecLoadImage(s, a);
-}
+void func_00166618(u32 a, s16 b, s16 c, s16 d, s16 e, s16 f, s32 i);  // 0x00166618: definition moved into src/anon/unit_001664c0.cpp
 
 extern u32 D_0034f240;
 void func_00192260(u32, s32);
@@ -173,25 +161,11 @@ void func_00169178(void) {
 
 Vq* func_001dc648(u32);
 Vq func_0017d050(u32);
-void func_0016e240(u32* p) {
-    Vq* d = func_001dc648(p[0]);
-    *d = func_0017d050(p[1]);
-}
+// 0016e240: moved to src/anon/unit_0016d2e0.cpp
 
 void func_0017c4c8(void*, Vq*);
 void func_0017f488(void*, u32, f32, f32);
-void func_00172158(u32* p) {
-    u8* o = *(u8**)(p[0] + 4);
-    Vq t;
-    asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(&t), "r"(p[1]) : "$8", "memory");
-    func_0017c4c8(o, &t);
-    func_0017f488(o + 320, p[2], *(f32*)&p[3], 0.0f);
-    if (p[4]) {
-        s32 v = p[2];
-        *(s32*)(o + 256) = v + 1;
-        *(s32*)(o + 260) = v + 2;
-    }
-}
+void func_00172158(u32* p);  // 0x00172158: definition moved into src/anon/unit_00171e58.cpp
 
 // First non-zero result of func_0019b380 over the 12-byte table entries.
 struct Ent12 { u32 a, b, c; };
@@ -204,16 +178,7 @@ s32 func_0018b198(void*);
 void func_001ad9c8(void*);  // float_accumulate_clamped
 void func_0016aeb8(void*, f32);
 void func_001b0728(void*, void*, s32, f32);
-void func_0018b110(u8* p) {
-    if (!func_0018b198(p)) return;
-    func_001ad9c8(p + 2592);  // float_accumulate_clamped
-    func_0016aeb8(p, *(f32*)(p + 2564) + *(f32*)(p + 2568) * *(f32*)(p + 2592));
-    if (func_0018b198(p)) return;
-    if (*(u8*)(p + 2560)) {
-        func_001b0728(p + 1184, p + 2576, 0, 20.0f);
-        *(u8*)(p + 2560) = 0;
-    }
-}
+void func_0018b110(u8* p);  // 0x0018b110: definition moved into src/yasui/libys/npc.cpp
 
 // Destructor: drop references, unlink, release.
 extern u8 D_0034ef18[];
@@ -230,12 +195,7 @@ extern Tbl7928 D_0032bb30;
 extern u8* D_01c61b08;
 s32 func_00196388(u32, u32);
 void func_001963f8(s32);
-void func_001966b0(s32 i) {
-    D_0032bb30.arr[i].a = -1;
-    u8* e = (u8*)(i * 2 + (u32)D_01c61b08);
-    s32 r = func_00196388(e[2], e[3]);
-    if (r >= 0) func_001963f8(r);
-}
+void func_001966b0(s32 i);  // 0x001966b0: definition moved into src/anon/unit_00195d00.cpp
 
 // Remove one unit of item `a` (100 = special case).
 void func_001a34e0(s32, s32);
@@ -276,23 +236,12 @@ void func_001b8988(u8* p, u8 v) {
 struct Ent4 { u16 id; u8 b; u8 pad; };
 void func_001bc778(u32);
 u8* func_001bc780(u32, u32, u32, s32);
-void func_001bce90(u32 a, Ent4* e, u32 n, u32 c) {
-    u32 i;
-    func_001bc778(a);
-    for (i = 0; i < n; i++, e++) func_001bc780(a, e->id, c, 1)[6] = e->b;
-}
+void func_001bce90(u32 a, Ent4* e, u32 n, u32 c);  // 0x001bce90: definition moved into src/anon/unit_001bc568.cpp
 
 // Find the 16-byte entry whose first byte is `key`.
 extern u8* D_01d49358;
-u8* func_001c0648(u32 key) {
-    u8* t = D_01d49358;
-    s32 n = *(s32*)(t + 4);
-    u8* e = t + 8;
-    s32 i;
-    for (i = 0; i < n; i++, e += 16)
-        if (*e == key) return e;
-    return 0;
-}
+// 001c0648: moved to src/anon/unit_001c0638.cpp
+u8* func_001c0648(u32 key);
 
 extern u8 D_003525c8[];
 extern u8 D_00352750[];
@@ -410,22 +359,7 @@ void func_002b1208(u32 a) {
 extern u32 D_003616f8[];
 void func_002bc470(u32);
 struct Ent12b { u32 a; s32 b; u32 c; };
-void func_002bce50(u8* p) {
-    p[336] = 0;
-    *(s32*)(p + 328) = 30;
-    *(s32*)(p + 332) = 20;
-    Ent12b* e = (Ent12b*)p;
-    u32* s = D_003616f8;
-    s32 i;
-    for (i = 26; i >= 0; i--) {
-        e->a = *s;
-        e->b = -1;
-        e->c = 0;
-        func_002bc470(*s);
-        e++;
-        s++;
-    }
-}
+void func_002bce50(u8* p);  // 0x002bce50: definition moved into src/anon/unit_002bc978.cpp
 
 void func_002e7108(u32, f32);
 Mq func_002e71a0(u32, u32, s32);
@@ -521,23 +455,6 @@ void func_0023c008(void*);  // obj_ctor_36eae8
 void func_0028d140(void*);
 void func_00167f38(s32);
 void func_002c5f48(void);
-void func_002ca170(u32* p) {
-    p[7] = (u32)D_00347f98;
-    p[0] = (u32)D_00361e38;
-    p[3] = 0;
-    p[6] = 0;
-    func_0031a838(p + 10);
-    p[7] = (u32)D_0035eb98;
-    func_002369a0(p + 13);  // obj_ctor_36eac8
-    func_0023c008(p + 19);  // obj_ctor_36eae8
-    p[47] = 0;
-    func_0028d140(p + 48);
-    p[159] = 0;
-    p[160] = 0;
-    p[161] = 0;
-    p[162] = 0;
-    D_00361e28.v = p;
-    func_00167f38(3);
-    func_002c5f48();
-}
+void func_002ca170(u32* p);  // 0x2ca170: moved to src/anon/unit_002ca0e0.cpp
+
 }

@@ -19,20 +19,6 @@ static inline __attribute__((always_inline)) void vadd(f32* d, f32* s) {
     asm volatile("lqc2 $vf1, 0(%0)\n\tlqc2 $vf2, 0(%1)\n\tvadd.wxyz $vf1, $vf1, $vf2\n\tsqc2 $vf1, 0(%0)" : : "r"(d), "r"(s) : "memory");
 }
 static inline B1a0Mgr* mgr() { return D_00361f60; }
-bool func_001cb1a0(B1a0Obj* self) {
-    if (D_00361f60) {
-        vadd(self->pos, func_002d1f30(D_00361f60));
-    }
-    if (self->timer <= 0.0f) {
-        if (func_001cbab0(self)) {
-            self->fn = (void*)func_001cb180;
-            D_00361f60->vt->f28(D_00361f60, 1, *self->id);
-            func_001ca910(self);
-            return 1;
-        }
-    }
-    self->timer -= D_00349e10;
-    return !func_001ca9c0(self);
-}
+bool func_001cb1a0(B1a0Obj* self);  // 0x001cb1a0: definition moved into src/anon/unit_001ca8e0.cpp
 
 }

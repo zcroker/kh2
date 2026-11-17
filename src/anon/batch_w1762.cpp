@@ -12,9 +12,5 @@ struct T10_1762 {
 };
 
 extern "C" {
-s32 func_0019c090(T10_1762* a0) {
-    s32 r = 0;
-    if (a0->p->F() || a0->A() || a0->q23) r = 1;
-    return r;
-}
+s32 func_0019c090(T10_1762* a0);  // 0x0019c090: definition moved into src/anon/unit_0019ba60.cpp
 }

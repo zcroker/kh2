@@ -36,16 +36,7 @@ void func_00134508(s32 a, s32 b) {
 // Transforms v by the 4x4 matrix m, divides by w and converts to integer
 // screen coordinates (offset by 1792/1840) in a static buffer.
 extern s32 D_003b8b40[4];
-s32* func_0013a178(Vec4* v, Vec4* m) {  // mat4_mul
-    s32* d = D_003b8b40;
-    asm volatile("lqc2 $vf4,0(%1)\n\tlqc2 $vf5,16(%1)\n\tlqc2 $vf6,32(%1)\n\tlqc2 $vf7,48(%1)\n\tlqc2 $vf8,0(%2)\n\t"
-        "vmulax.wxyz ACC,$vf4,$vf8x\n\tvmadday.wxyz ACC,$vf5,$vf8y\n\tvmaddaz.wxyz ACC,$vf6,$vf8z\n\tvmaddw.wxyz $vf12,$vf7,$vf8w\n\t"
-        "vdiv Q,$vf0w,$vf12w\n\tvwaitq\n\tvmulq.wxyz $vf12,$vf12,Q\n\tvftoi0.wxyz $vf13,$vf12\n\tsqc2 $vf13,0(%0)"
-        : : "r"(d), "r"(m), "r"(v) : "memory");
-    D_003b8b40[0] -= 1792;
-    d[1] -= 1840;
-    return d;
-}
+s32* func_0013a178(Vec4* v, Vec4* m);  // 0x0013a178: definition moved into src/anon/unit_001393c8.cpp
 
 // Takes a slot (784 bytes each) from a free-index pool and initialises it.
 struct Pool13a { u8 pad[28224]; s32 free[36]; s32 n; };
@@ -56,11 +47,7 @@ u8* func_0013aca0(u32 a, u32 b, u32 c, u32 d, u32 e, u32 f);  // 0x0013aca0: def
 struct S13e { u8 pad[388]; s32 f388; u8 pad2[56]; u8 sub[16]; };
 void func_00138c10(void*, s32);
 void func_00139510(void*);
-void func_0013e4b8(S13e* p) {
-    if (!func_00139d78(p)) return;
-    func_00138c10(p, p->f388 - 1);
-    if (func_00139d78(p->sub)) func_00139510(p->sub);
-}
+void func_0013e4b8(S13e* p);  // 0x0013e4b8: definition moved into src/anon/unit_0013dfb8.cpp
 
 struct N160 { u8 pad[128]; N160* next; u8 pad2[292]; s32 key; };
 extern N160* D_004f3b38;
@@ -71,13 +58,7 @@ static inline N160* Next160(N160* n) { if (!n) return D_004f3b38; return n->next
 union U173 { f32 f[4]; u32 u[4]; } __attribute__((aligned(16)));
 extern U173 D_01c5f480;
 f32 func_00184a90(void*);
-void func_00173f08(u32* p) {
-    U173* v = (U173*)func_0016c028(*(void**)(p[0] + 4));  // obj_get_attach_or_alt
-    U173* d = &D_01c5f480;
-    if (v != d) QCOPY(d, v);
-    d->f[1] = func_00184a90(*(void**)(p[0] + 4));
-    *p = (u32)d;
-}
+void func_00173f08(u32* p);  // 0x00173f08: definition moved into src/anon/unit_00171e58.cpp
 
 s32 func_0017df70(void);
 u8* func_0016e920(s32);
@@ -109,9 +90,7 @@ void func_0016a9b8(u32);
 // Calls func_0015ee10 for every bit set in the 64-bit mask.
 extern u64 D_0034ecc8;
 void func_0015ee10(s32);
-void func_0019ebc0(void) {
-    for (s32 i = 0; i < 64; i++) if ((u8)((D_0034ecc8 >> i) & 1)) func_0015ee10(i);
-}
+void func_0019ebc0(void);  // 0x0019ebc0: definition moved into src/anon/unit_0019ea10.cpp
 
 void func_001a98e8(void*, u32, u32, u32, u32);
 void func_001a9ae8(void*, u32, u32, u32);
@@ -358,14 +337,7 @@ struct G13e { u32 v; };
 extern u8* D_003486a4;
 extern G13e D_003486a0;
 void func_0013e2d8(u8*, u32, u32);
-u8* func_0013e610(u32 a) {
-    Pool13e* p = (Pool13e*)D_003486a4;
-    s32 n = p->n - 1;
-    p->n = n;
-    u8* r = (u8*)p + p->free[n] * 896;
-    func_0013e2d8(r, a, D_003486a0.v + 32);
-    return r;
-}
+u8* func_0013e610(u32 a);  // 0x0013e610: definition moved into src/anon/unit_0013dfb8.cpp
 
 s32 func_00228378(u8*, u8*);
 s32 func_00147240(u8* p, u8* q, f32 f) {
@@ -381,18 +353,8 @@ struct T1ce { u32 a; u32 b; u32 c; };
 struct F1ce { u32 a; u32 b; f32 c; };
 extern T1ce D_01d5b9e0;
 extern F1ce D_01d5b9f0;
-void wtarget_001ce668(u32 a, u32 b, u32, u32) {
-    if (b == 0xffff && a == 1) {
-        D_01d5b9e0.a = 0;
-        D_01d5b9e0.b = 0;
-        D_01d5b9e0.c = 0;
-    }
-    if (b == 0xffff && a == 1) {
-        D_01d5b9f0.b = 0;
-        D_01d5b9f0.c = 335.99997f;
-        D_01d5b9f0.a = 0;
-    }
-}
+// 001ce668: moved to src/anon/unit_001cd660.cpp
+void wtarget_001ce668(u32 a, u32 b, u32, u32);
 
 // The original reloads p->f4 after the first store (no strict aliasing); the
 // union destination reproduces that.

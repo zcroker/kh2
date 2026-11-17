@@ -69,61 +69,14 @@ s32 func_001585a0(In13*);
 s32 func_001584f8(In13*);
 s32 func_00158548(In13*);
 f32 func_0017ce10(f32);
-s32 func_0013ff08(Ob13* o, In13* in, f32 dt) {
-  s32 r = 0;
-  if (func_0019c498(o->x44) && (in->x8 & 0x400000)) {
-    o->x40 = 1;
-    o->xc0 = o->x4c + 0x1.921fb4p+1f;
-    func_0013fd88(o);
-    { f32 c = 30.0f; f32 a = 1.0f; func_001ad990(o->x44 + 0x834, a, 0.0f, c); }
-  } else if (in->x8 & 0x20000) {
-    func_0013fec0(o);
-    r = 0;
-    if (in->x3c != 0.0f) r = 1;
-  } else if (func_001584f8(in)) {
-    o->x4c += D_004573e8 * in->x2c * dt;
-    o->x50 = o->x4c = func_0017ce10(o->x4c);
-  } else if (func_00158548(in)) {
-    o->x4c -= D_004573e8 * in->x2c * dt;
-    o->x50 = o->x4c = func_0017ce10(o->x4c);
-  }
-  if (!func_0019c4d0(o->x44) || (in->x0 & (1ull << 32))) {
-    func_0013fdf0(o, in, dt);
-  }
-  o->x3a = 1;
-  if (func_001585a0(in)) o->x3a = 0;
-  return r;
-}
+s32 func_0013ff08(Ob13* o, In13* in, f32 dt);  // 0x0013ff08: definition moved into src/anon/unit_0013fca8.cpp
 
 QV_bfa0* func_0016c028(void*);  // obj_get_attach_or_alt
-void func_0018bfa0(Act_bfa0* a, void* b, f32 dist) {
-  QV_bfa0 d = *func_0016c028(a) - *func_0016c028(b);  // obj_get_attach_or_alt
-  normalize_bfa0(&d);
-  QV_bfa0 c = cross_bfa0(d, QV_bfa0(0.0f, 1.0f, 0.0f, 0.0f));
-  normalize_bfa0(&c);
-  scale_bfa0(&c, dist);
-  QV_bfa0 s = *func_0016c028(b) + c;
-  QV_bfa0 t = s - *func_0016c028(a);  // obj_get_attach_or_alt
-  normalize_bfa0(&t);
-  a->xa80 = t;
-}
+void func_0018bfa0(Act_bfa0* a, void* b, f32 dist);  // 0x0018bfa0: definition moved into src/yasui/libys/npc.cpp
 
 void func_002ce2a0(Ob_c620*, s32*, f32*, QV_bfa0*);
 QV_bfa0 func_002cda68(Ob_c620*, s32, f32);
-void func_002cc620(Ob_c620* o, void* a, void* b) {
-  if (o->x86) return;
-  QV_bfa0 d = *func_0016c028(a) - *func_0016c028(b);  // obj_get_attach_or_alt
-
-  if (normalize_bfa0(&d) < 0.01f) return;
-  s32 i; f32 f;
-  func_002ce2a0(o, &i, &f, func_0016c028(a));
-  QV_bfa0 v = func_002cda68(o, i, f);
-  if (normalize_bfa0(&v) < 0.01f) return;
-  QV_bfa0 w = v * -1.0f;
-  f32 dv = dot_c620(d, v);
-  f32 dw = dot_c620(d, w);
-  o->x84 = dw <= dv;
-}
+void func_002cc620(Ob_c620* o, void* a, void* b);  // 0x002cc620: definition moved into src/taito/path.cpp
 
 void func_001143d8(Ob_b0a8*);
 Ch_b0a8* func_00111e38(s32);
@@ -139,30 +92,7 @@ Fx_b0a8* func_0013e610(s32);
 void func_0013e890(void);
 void func_0016bd60(Ch_b0a8*, s32);
 void func_0014eb48(Ch_b0a8*, QV_b0a8*, f32);
-void func_0011b0a8(Ob_b0a8* o) {
-  func_001143d8(o);
-  o->x28 = 0.0f;
-  o->x24 = 100.0f;
-  Ch_b0a8* c = func_00111e38(0);
-  func_00135aa0(func_0010c778(o->x4));
-  o->x20 |= 1;
-  c->x108 |= 0x100;
-  c->x10c |= 0x4000;
-  o->x4->x108 |= 0x100;
-  func_001c0d38(o->x4, c, 0x4000, 4);
-  func_0016ace0(o->x4, QV_b0a8(0.0f, 0.0f, -o->x28, 0.0f));
-  func_00198860(o->x4, 5);
-  func_001ad990(c->x834, 1.0f, 0.0f, 0.0f);
-  func_001ad990(o->x4->x834, 1.0f, 0.0f, 0.0f);
-  func_00190128(o->x4->x9f4);
-  if (c->xb40) func_0019ca90(c->xb40, 3, 0);
-  o->x2c = 3;
-  o->x30 = func_0013e610(3);
-  o->x30->vt->f7(o->x30, o->x40);
-  func_0013e890();
-  func_0016bd60(c, 62);
-  func_0014eb48(c, &o->x40, o->x24);
-}
+void func_0011b0a8(Ob_b0a8* o);  // 0x0011b0a8: definition moved into src/anon/unit_0011a660.cpp
 
 struct Hd_5680 { u8 p0[0x14]; s32 x14; u32 x18; s32 x1c; u32 x20; s32 x24; u32 x28; };
 struct El_5680 { s32 x0; s32 x4; };

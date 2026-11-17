@@ -43,16 +43,7 @@ int w260_is_same(void*, void*) asm("_ZNK2YS6TARGET7is_sameERKS0_");
 void func_0019d548(W260Ent*);
 void func_0019d588(W260Ent*, int);
 
-void func_0019d5f8(W260Ent* e, W260Hdr* h)
-{
-    W260Z* z = w260_u_call4(h->h2);
-    if (e->hdr.h2 != h->h2 || !w260_is_same(&e->d, h->p8)) func_0019d548(e);
-    if (e->hdr.h2 == h->h2 && e->hdr.b5 != h->b5 && e->hdr.b5 == 8 && (u8)((z->f12 >> 3) & 1)) h->h0 |= 2;
-    e->hdr = *h;
-    __builtin_memcpy(&e->d, h->p8, 20);
-    e->hdr.p8 = &e->d;
-    func_0019d588(e, h->b5 == 8 ? 0 : z->b36);
-}
+void func_0019d5f8(W260Ent* e, W260Hdr* h);  // 0x0019d5f8: definition moved into src/anon/unit_0019ba60.cpp
 
 u8 sceVu0CopyVector(void*, void*);  // memcpy16
 void sceVu0Normalize(W260Q*, W260Q*);  // vec4_normalize

@@ -29,28 +29,7 @@ extern f32 D_00349e10;
 extern f32 D_00349e10_b asm("D_00349e10");
 extern Prmfbe0* D_00352130_b asm("D_00352130");
 // Horizontal speed clamp + vertical step on o->vel; returns the scaled velocity.
-V4fbe0 func_0019fbe0(void* unused, Objfbe0* o) {
-    o->f248 = o->f248 + D_00349e10;
-    V4fbe0 r;
-    r = o->vel;
-    r.y = 0;
-    f32 B, C, D;
-    register f32 L asm("$f3") = r.normalize();
-    register f32 K asm("$f3") = L; asm("" : "+f"(K));  // placeholder keeps $f3 busy to the end (orig puts vel.y in $f4)
-    f32 P = D_00352130->a;
-    f32 A = L * P;
-    f32 M = o->f244;
-    if (!(M < A)) A = M;
-    B = r.x * A; C = r.z * A;
-    o->vel.x = B; o->vel.z = C;
-    if (o->vel.y < 0) o->vel.y = o->vel.y * D_00352130_b->b;
-    C = o->vel.y;
-    D = C + 0.40816324949264526f;
-    if (!(D < o->f288)) D = o->f288;
-    o->vel.y = D;
-    r = o->vel.mulk(D_00349e10_b, K);
-    return r;
-}
+V4fbe0 func_0019fbe0(void* unused, Objfbe0* o);  // 0x0019fbe0: definition moved into src/anon/unit_0019fb70.cpp
 }
 
 extern "C" {

@@ -35,50 +35,5 @@ void func_001af398(void);
 void func_001af3e0(void);
 
 // Initialises the manager, registers it globally and starts its timer (built with -fno-strict-aliasing).
-void func_001aedf8(Mgr* m, s32 arg1, s32 mode) {
-    m->mode = mode;
-    m->f4 = 0;
-    m->f8 = 0;
-    m->fc = 0;
-    {
-        Sub* p = &m->s1;
-        Sub* q = &m->s2;
-        m->s1.a = 0;
-        p->b = 0;
-        q->a = 0;
-        CLEAR_BYTE(m, 28); CLEAR_WORD(m, 32); CLEAR_WORD(m, 36); CLEAR_WORD(m, 40);   // s1.c..f
-        p->g = 0;
-        q->b = 0;
-        CLEAR_BYTE(m, 56); CLEAR_WORD(m, 60); CLEAR_WORD(m, 64); CLEAR_WORD(m, 68);   // s2.c..f
-        q->g = 0;
-    }
-    D_00350df0 = m;
-    if (m->mode == 0) {
-        if (func_001bb9f0()) func_001aefa0(m);
-    }
-    D_0034f240 |= 2;
-    if (m->mode != 2) {
-        func_001c8d80(D_00351ec8, 1);
-        func_001af0c0(m);
-    }
-    func_001373a0();
-    switch (m->mode) {
-    case 0: case 2: case 3:
-        func_002ba2e8(19, 0);
-        break;
-    case 1:
-        func_002ba2e8(51, 0);
-        break;
-    }
-    if (arg1 != 0) {
-        s32 r = func_00195328(0);
-        void* o = func_001050d8(0xb0);
-        func_00196ca8(o, 15, r);
-        func_00196e98(o, arg1);
-        func_00196f00(o);
-    }
-    func_00138480(2);
-    m->f4c = func_00102c18(1, 15000, (void*)func_001af398);
-    m->f4c->f30 = (void*)func_001af3e0;
-}
+void func_001aedf8(Mgr* m, s32 arg1, s32 mode);  // 0x001aedf8: definition moved into src/anon/unit_001ada38.cpp
 }

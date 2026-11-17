@@ -19,9 +19,7 @@ void func_00190128(void*);
 f32 func_001065a8(f32, f32) asm("_Z13func_001065a8jjjjjjjj");
 
 void wtarget_002ce910(u32 a0, u32 a1, u32, u32) asm("_Z16wtarget_002ce910jjjj");
-void wtarget_002ce910(u32 a0, u32 a1, u32, u32) {
-    if (a1 == 0xffff && a0 == 1) { D_01e2be18.b = 0; D_01e2be18.a = 0; }
-}
+void wtarget_002ce910(u32 a0, u32 a1, u32, u32);  // 0x002ce910: definition moved into src/taito/path.cpp
 void wtarget_002e7610(u32 a0, u32 a1, u32, u32) asm("_Z16wtarget_002e7610jjjj");
 void wtarget_002e7610(u32 a0, u32 a1, u32, u32) {
     if (a1 == 0xffff && a0 == 1) { D_01e2bf00.b = 0; D_01e2bf00.a = 0; }
@@ -30,9 +28,7 @@ void wtarget_002ee540(u32 a0, u32 a1, u32, u32) asm("_Z16wtarget_002ee540jjjj");
 void wtarget_002ee540(u32 a0, u32 a1, u32, u32) {
     if (a1 == 0xffff && a0 == 1) { D_01e2c080.b = 0; D_01e2c080.a = 0; }
 }
-void func_001cbf20(u32 a0, u32 a1) {
-    if (a1 == 0xffff && a0 == 1) { D_00351fe0 = 4.7123885f; }
-}
+void func_001cbf20(u32 a0, u32 a1);  // 0x001cbf20: definition moved into src/anon/unit_001ca8e0.cpp
 void wtarget_0014d240(u32 a0, u32 a1, u32, u32) asm("_Z16wtarget_0014d240jjjj");
 void wtarget_0014d240(u32 a0, u32 a1, u32, u32) {
     if (a1 == 0xffff && a0 == 1) { D_004574b8.a = 0; D_004574b8.b = 0; D_004574b8.c = 1.0f; }
@@ -54,10 +50,7 @@ void func_00153c98(W1669VObj* p) {
 // 00177678: moved to src/yasui/libys/party.cpp
 // 001556c0: moved to src/anon/unit_00153ea0.cpp
 void func_001556c0(u8* p);
-void func_0019d518(u8* p) {
-    func_001bc688(p + 36);
-    func_00190128(p + 12);
-}
+void func_0019d518(u8* p);  // 0x0019d518: definition moved into src/anon/unit_0019ba60.cpp
 void func_001a9160(u32 n) {
     D_0032df30[n >> 5] |= 1 << (n & 31);
 }

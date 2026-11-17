@@ -212,93 +212,19 @@ static inline bool Bit187920(u32 x, u32 m) { return (x & m) != 0; }
 // 00187920: moved to src/anon/unit_00185d10.cpp
 s32 func_00187920(u8* p);
 
-void func_001a1b68(u8* p, f32 d) {
-    func_0019ba60(*(u32*)(p + 604));
-    s32 m = *(s32*)(*(u8**)(p + 604) + 2896);
-    bool neg = m == 6;
-    if (neg) {
-        if (0.0f < d) d = -d;
-    }
-    s32 a = func_001a1c30(p);
-    f32 v = *(f32*)(p + 436) + d;
-    f32 r;
-    if (v < 0.0f) r = 0.0f;
-    else if (*(f32*)(p + 440) < v) r = *(f32*)(p + 440);
-    else r = v;
-    *(f32*)(p + 436) = r;
-    if (p[431] == 3) func_001d6f28(a - func_001a1c30(p));
-}
+void func_001a1b68(u8* p, f32 d);  // 0x001a1b68: definition moved into src/anon/unit_0019fb70.cpp
 
 // 001ad738: moved to src/anon/unit_001abb28.cpp
 
 struct E1bcc28 { u16 pad; u16 id; u8 pad2[2]; u8 kind; u8 pad3[5]; };
 struct T1bcc28 { u32 pad; u32 owner; s32 n; E1bcc28 e[8]; s32 sel; };
-void func_001bcc28(T1bcc28* p) {
-    u32 t1 = p->owner;
-    s32 n = p->n;
-    u32 a3 = *(u32*)(t1 + 2532);
-    p->sel = -1;
-    for (s32 i = 0; i < n; i++) {
-        if (*(u64*)(a3 + 8) & D_0036dc48[p->e[i].kind - 1]) { p->sel = i; break; }
-    }
-    s32 idx = p->sel;
-    if (idx >= 0) {
-        E1bcc28* e = p->e;
-        u16 v = e[idx].id;
-        if (v != 0) {
-            if (v == 454) { *(u32*)(t1 + 8) |= 2; return; }
-            func_001bd988(p->owner);
-            return;
-        }
-    }
-    u64 fl = *(u64*)(a3 + 8);
-    if (fl & 0x100) *(u32*)(t1 + 8) |= 2;
-    else if (fl & 0x200) *(u32*)(t1 + 8) |= 8;
-}
+void func_001bcc28(T1bcc28* p);  // 0x001bcc28: definition moved into src/anon/unit_001bc568.cpp
 
 union U1c1a30 { f32 f; u8* p; u8 b; };
-void func_001c1a30(u8* p, U1c1a30** out) {
-    *(U1c1a30**)(p + 32) = *out;
-    switch (*(s32*)(*(u8**)(p + 28) + 4)) {
-    case 0:
-        (*out)[0].f = *(f32*)(p + 0);
-        (*out)[1].f = *(f32*)(p + 4);
-        (*out)[2].f = *(f32*)(p + 8);
-        ((u8*)*out)[12] = p[20];
-        ((u8*)*out)[13] = p[21];
-        ((u8*)*out)[14] = p[22];
-        ((u8*)*out)[15] = p[23];
-        *out += 4;
-        break;
-    case 1:
-        (*out)[0].f = *(f32*)(p + 0);
-        (*out)[1].f = *(f32*)(p + 4);
-        (*out)[2].f = *(f32*)(p + 8);
-        ((u8*)*out)[12] = p[21];
-        ((u8*)*out)[13] = p[23];
-        ((u8*)*out)[14] = p[24];
-        ((u8*)*out)[15] = p[22];
-        *out += 4;
-        break;
-    }
-}
+// 001c1a30: moved to src/anon/unit_001c0638.cpp
+void func_001c1a30(u8* p, U1c1a30** out);
 
-void func_001cf9e0(u8* p, s32 mode) {
-    switch (mode) {
-    case 0:
-        if (!*(u32*)(p + 2976)) *(u32*)(p + 2976) = func_0016ac38(p, 12, 1, 0, 0);
-        if (*(u32*)(p + 2980)) { func_001dc840(*(u32*)(p + 2980)); *(u32*)(p + 2980) = 0; }
-        func_001940f0(p, 2);
-        func_00194108(p, 1);
-        break;
-    case 1:
-        if (!*(u32*)(p + 2980)) *(u32*)(p + 2980) = func_0016ac38(p, 13, 1, 0, 0);
-        if (*(u32*)(p + 2976)) { func_001dc840(*(u32*)(p + 2976)); *(u32*)(p + 2976) = 0; }
-        func_001940f0(p, 1);
-        func_00194108(p, 2);
-        break;
-    }
-}
+void func_001cf9e0(u8* p, s32 mode);  // 0x001cf9e0: definition moved into src/anon/unit_001cf0b0.cpp
 
 typedef void (*VF233490)(u8*, V4*, u32);
 void func_00233490(u8* p) {
@@ -450,23 +376,8 @@ void func_0023fa08(T2caa50*, u32);
 u32 func_0023f948(T2caa50*, u32);
 u32 func_0023f908(T2caa50*, u32);
 void func_0023f848(T2caa50*);
-void func_002caa50(u8* p, u32 a, u32 b) {
-    *(u32*)(p + 640) = b;
-    *(u32*)(p + 648) = 0;
-    T2caa50 t;
-    func_0023f800(&t);
-    u32 r = func_001708f8(a, -1);
-    *(u32*)(p + 636) = r;
-    func_0023fa08(&t, r);
-    u32 x = func_0023f948(&t, 0);
-    u32 y = func_0023f908(&t, 0);
-    func_0023eea0(p + 28, 30001, x, y, func_002ca3d0(p, 0), 0);
-    func_0023ef50(p + 28);
-    func_0023f0c8(p + 28, func_002ca3d0(p, 2));
-    func_002ca828(p);
-    func_001391c8(p, 30002, 0);
-    func_0023f848(&t);
-}
+void func_002caa50(u8* p, u32 a, u32 b);  // 0x2caa50: moved to src/anon/unit_002ca0e0.cpp
+
 
 // Class with a vtable: implicit assignment copies every field but the vptr.
 struct C2ef258 { virtual void f(); u32 a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14; f32 b, c, d, e; u32 g; u8 h; u32 i, j; };
@@ -550,16 +461,8 @@ struct T1ce0a8 { s32 n; E1ce0a8 e[1]; };
 s32 func_001d7f40(T1ce0a8*, s32);  // find_slot_by_byte
 static inline u32 Bit1ce0a8(u32* b, u32 i) { return b[i >> 5] & (1 << (i & 31)); }
 #define TAB1ce0a8 (*(T1ce0a8**)(p + 68))
-E1ce0a8* func_001ce0a8(u8* p) {
-    E1ce0a8* r = 0;
-    for (s32 i = 0; i < TAB1ce0a8->n; i++) {
-        if (Bit1ce0a8((u32*)(p + 96), i)) {
-            if (TAB1ce0a8->e[i].link == TAB1ce0a8->e[i].a || TAB1ce0a8->e[i].id != *(u32*)(*(u8**)(p + 64) + 340)) return &TAB1ce0a8->e[i];
-            if (!r && TAB1ce0a8->e[i].link >= 0) r = &TAB1ce0a8->e[func_001d7f40(TAB1ce0a8, TAB1ce0a8->e[i].link)];
-        }
-    }
-    return r;
-}
+// 001ce0a8: moved to src/anon/unit_001cd660.cpp
+E1ce0a8* func_001ce0a8(u8* p);
 
 extern char D_00374470[];
 u8* func_00192cc0(u8*, const char*);

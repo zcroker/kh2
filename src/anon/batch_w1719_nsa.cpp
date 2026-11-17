@@ -54,34 +54,5 @@ W1719Vec* func_0016c028(W1719Obj*);
 W1719Vec func_0017d538(f32, const W1719Vec&);
 
 // Compares object b's position with object a's facing direction.
-// Returns { x: side sign (+1/-1), y: 0, z: width-test sign (+1/-1/0), w: distance }.
-W1719Vec func_001ca148(f32 width, W1719Obj* a, W1719Obj* b) {
-    W1719Vec dirA = func_0016af58(a);
-    W1719Vec aimA, axis, toB;
-    W1719Vec* posA = func_0016c028(a);
-    w1719_scale(&toB, &dirA, D_00351f34->reach);
-    w1719_scale(&axis, &toB, D_00349e10);
-    w1719_add(&aimA, posA, &axis);
-    W1719Vec dirB = func_0016af58(b);
-    W1719Vec posB = *func_0016c028(b);
-    W1719Vec side;
-    W1719Vec r;
-    r.zero();
-    axis = func_0017d538(1.57079625f, dirB);
-    toB = posB - dirB * width - aimA;
-    side = w1719_cross(axis, toB);
-    if (side.y < 0.0f) {
-        r.z = 1.0f;
-    } else {
-        toB = posB + dirB * width - aimA;
-        side = w1719_cross(axis, toB);
-        if (side.y > 0.0f) r.z = -1.0f;
-    }
-    axis = posB - aimA;
-    r.w = axis.normalize();
-    side = w1719_cross(axis, dirA);
-    if (side.y < 0.0f) r.x = 1.0f;
-    else r.x = -1.0f;
-    return r;
-}
+// Returns;  // 0x001ca148: definition moved into src/anon/unit_001ca148.cpp
 }

@@ -33,11 +33,7 @@ extern "C" {
 s32 w1735_Obj_is_attach(w1735::Obj*) asm("_ZN2YS3OBJ9is_attachEv");
 extern w1735::BitRow D_0032dfd0[];
 
-s32 func_0019bad8(w1735::Obj* o) {
-    if (!o->flag7f8) return 0;
-    if (o->flag108) return 0;
-    return w1735_Obj_is_attach(o) == 0;
-}
+s32 func_0019bad8(w1735::Obj* o);  // 0x0019bad8: definition moved into src/anon/unit_0019ba60.cpp
 
 s32 func_001d9d48(w1735::BitKey* k) {
     return w1735::BitTest(D_0032dfd0[k->id].w, k->bit);

@@ -175,18 +175,7 @@ void func_00175528(void);
 void func_002fd188(void (*)(void));  // pool_alloc_block
 u32 func_0016f000(u32, V4*, f32);
 // Function-local static vector (0,0,0,1) with its guard and atexit registration.
-void func_00170f98(u32* p) {
-    if (D_01c5f490 == 0) {
-        f32 z = 0.0f;
-        D_01c5f4a0.x = z;
-        D_01c5f4a0.y = z;
-        D_01c5f4a0.z = z;
-        D_01c5f4a0.w = 1.0f;
-        D_01c5f490 = 1;
-        func_002fd188(func_00175528);  // pool_alloc_block
-    }
-    *p = func_0016f000(*p, &D_01c5f4a0, 3.14159274f);
-}
+void func_00170f98(u32* p);  // 0x00170f98: definition moved into src/anon/unit_00170f58.cpp
 
 static inline bool isPos(f32 x) { return 0.0f < x; }
 struct S17f { u8 pad[48]; f32 f30; f32 f34; u8 pad2[104]; Vr v; };
@@ -206,16 +195,7 @@ void act_pri_start(Act* a) asm("_ZN2YS3ACT9pri_startEPc");
 
 s32 func_001c0cd8(u8*);
 // Parity of negative components, combined recursively with the linked object.
-s32 func_001943e8(u8* p) {
-    s32 r = 0;
-    f32* v = (f32*)(p + 48);
-    for (s32 i = 2; i >= 0; i--) {
-        if (*v < 0.0f) r ^= 1;
-        v++;
-    }
-    if (func_001c0cd8(p)) r = (r ^ func_001943e8(*(u8**)(p + 1392))) != 0;
-    return r;
-}
+s32 func_001943e8(u8* p);  // 0x001943e8: definition moved into src/anon/unit_00193be8.cpp
 
 struct S19b {
     u8 pad[1344];
@@ -228,14 +208,7 @@ struct S19b {
 };
 void func_00185118(S19b*);
 void func_00143928(Vq*);
-s32 func_0019bf50(S19b* p, Vq* v) {
-    func_00185118(p);
-    p->b = p->a;
-    p->c = *v;
-    p->w &= ~1ULL;
-    func_00143928(&p->b);
-    return (s32)(p->w >> 32) & 1;
-}
+s32 func_0019bf50(S19b* p, Vq* v);  // 0x0019bf50: definition moved into src/anon/unit_0019ba60.cpp
 
 void func_001b0330(u32);
 void* func_001050d8(u32);
@@ -266,24 +239,10 @@ void u_call4_001b8e88(u32 a0, u32 a1, u32 a2, u32 a3) {
 struct E1bc { u8 pad[5]; u8 type; u8 pad2[6]; };
 struct S1bc { u8 pad[8]; s32 n; E1bc e[1]; };
 static inline bool isLow(E1bc* e) { return e->type < 4; }
-s32 func_001bc948(S1bc* s) {
-    for (s32 i = 0; i < s->n; i++) {
-        if (isLow(&s->e[i])) return 1;
-    }
-    return 0;
-}
+s32 func_001bc948(S1bc* s);  // 0x001bc948: definition moved into src/anon/unit_001bc568.cpp
 
 // Wraps an angle into [-pi, pi].
-f32 func_001cbf50(f32 a) {  // float_bucket_index_c
-    if (0.0f < a) {
-        if (3.14159274f < a) {
-            do a -= 6.28318548f; while (3.14159274f < a);
-        }
-    } else {
-        while (a < -3.14159274f) a += 6.28318548f;
-    }
-    return a;
-}
+f32 func_001cbf50(f32 a);  // 0x001cbf50: definition moved into src/anon/unit_001ca8e0.cpp
 
 void func_001c8d98(u8*, u32);
 void func_001c9b90(void);
@@ -298,20 +257,7 @@ extern u8 D_0034ee08[];
 extern u8 D_00351eb8[];
 extern u8 D_00351ec0[];
 // Destructor chain: own vtable, then the two base levels.
-void func_001cfeb0(u8* p) {
-    NoTail g;
-    *(u32*)p = (u32)D_00352360;
-    func_001c8d98(D_00351eb8, 0);
-    func_001c8d98(D_00351ec0, 4);
-    func_001c9b90();
-    func_001d2710(p + 2932);
-    *(u32*)p = (u32)D_0034e8b8;
-    func_00319f88(p + 2824);
-    *(u32*)p = (u32)D_0034ee08;
-    func_0019f9a8(p + 2568);  // array8_free_slots
-    func_001c0248(p + 2640);
-    func_00319fb0(p);  // big_obj_dtor
-}
+void func_001cfeb0(u8* p);  // 0x001cfeb0: definition moved into src/anon/unit_001cf0b0.cpp
 
 void func_001d1678(u8*, s32);  // obj_init_28bytes
 void func_001d19e8(u8*, s32);
@@ -437,20 +383,7 @@ void func_001b86e0(u32);  // alloc_from_pool_magic_c
 void func_00170320(s32);
 extern u32 D_003617fc;
 extern u8 D_003637e0[];
-void func_002bda38(u8* p) {
-    func_002be148(p);
-    VObj2b* o = *(VObj2b**)(p + 16);
-    while (o) {
-        VObj2b* n = o->next;
-        if (o) o->vt[1](o);  // virtual deleting destructor
-        o = n;
-    }
-    if (*(u32*)(p + 104)) func_00170950(*(u32*)(p + 104));
-    func_001b86e0(*(u32*)(p + 4));  // alloc_from_pool_magic_c
-    func_00170320(-200);
-    D_003617fc = 0;
-    *(u32*)(p + 8) = (u32)D_003637e0;
-}
+void func_002bda38(u8* p);  // 0x002bda38: definition moved into src/anon/unit_002bc978.cpp
 
 s32 func_002cf270(u8*, u32);
 void func_002cf2b0(u8*, u32);

@@ -54,19 +54,6 @@ static inline QWord Dir(Obj1a4* o, u32 id)
     if (o->flags & 4) return Sub(o->pos, o->prev);
     return Sub(*func_0016c028(id), o->pos);
 }
-QWord func_001a49f8(Obj1a4* o, u32 id)
-{
-    QWord r;
-    r = Dir(o, id);
-    if (r.v[0] == 0.0f && r.v[2] == 0.0f) {
-        QWord t;
-        func_0016af58(&t, id);
-        r = Scale(t, -1.0f);
-    }
-    r.v[1] = 0.0f;
-    Normalize(&r);
-    r.v[3] = 1.0f;
-    return r;
-}
+// 001a49f8: moved to src/anon/unit_001a3e70.cpp
 }
 }

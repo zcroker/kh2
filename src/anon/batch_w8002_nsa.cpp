@@ -52,45 +52,10 @@ bool func_001ca9c0(Obj1832*);
 void func_001ca910(Obj1832*);
 u8 ys_max_mp_1adb80(void*, bool) asm("_ZN2YS5SHEET6max_mpEb");
 u8 func_001a1910_u8(void*, s32, s32) asm("func_001a1910");
-void func_00189d38(Obj189d38* self, Arg189d38* arg) {
-    u8* owner = self->owner;
-    if (func_00180dc0(self, arg->id) == 0) {
-        s32 r;
-        if (*self->list != 0) r = func_001de168(self->list, arg->id, 1, 1, 0, owner);
-        else r = 0;
-        u8* t = self->alt ?: owner;
-        if (func_001b5918(self->list, owner, arg->id, r) == 0 && *(s32*)(t + 0x484) != 0) {
-            Msg189d38 m;
-            m.a = (s32)owner;
-            m.b = arg->id;
-            m.c = r;
-            func_0016cce8(*(s32*)(t + 0x484), 16, &m, 3, 0);
-        }
-    }
-}
+void func_00189d38(Obj189d38* self, Arg189d38* arg);  // 0x00189d38: definition moved into src/anon/unit_00189d38.cpp
 
 
-bool func_001ca9e0(Obj1832* self) {
-    if (func_001cbab0()) {
-        QV1832* d = &self->dir;
-        self->b8 = func_001064a8(2);
-        void** o = func_002d1260();
-        QM1832* m = ((QM1832* (*)(void**))((void**)*o)[41])(o);
-        *d = *m * self->pos;
-        self->dir.w = norm1832(d);
-        self->f40 = D_00351fd8;
-        self->fn = &D_001cad40;
-        void* g = D_00361f60;
-        ((void (*)(void*, s32, s32))((void**)*(void**)g)[10])(g, 1, *self->p4c);
-        func_001ca910(self);
-        return 1;
-    }
-    return !func_001ca9c0(self);
-}
+bool func_001ca9e0(Obj1832* self);  // 0x001ca9e0: definition moved into src/anon/unit_001ca8e0.cpp
 
-u8 func_001adb80(void* a0, S1adb80* a1) {
-    ys_max_mp_1adb80(a1, 0);
-    s32 b = a1->b;
-    return func_001a1910_u8(a1, b, 0);
-}
+u8 func_001adb80(void* a0, S1adb80* a1);  // 0x001adb80: definition moved into src/anon/unit_001ada38.cpp
 }

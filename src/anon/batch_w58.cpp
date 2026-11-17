@@ -34,10 +34,7 @@ extern s32 D_0033cc40;
 struct E144 { u8 pad[144]; };
 extern E144 D_003a7f70[];
 extern E144 D_003a8090[];
-E144* func_00106a60(u8 a) {  // buffer_get_by_index
-    if (a || D_0033cc44) return &D_003a7f70[D_0033cc40];
-    return &D_003a8090[D_0033cc40];
-}
+// 00106a60: moved to src/naka/libkn/camera.cpp
 
 // Walks a chunk chain until a chunk with the given tag (or the "_KN5" end tag).
 s32 func_00132208(void*);
@@ -126,24 +123,10 @@ extern s8 D_004f62b0;
 extern Vec4 D_004f62c0;
 void func_002fd188(void (*)(void));  // pool_alloc_block
 void func_0016e878(void);
-void func_0016d340(Vec4** p) {
-    Vec4* a = p[0];
-    Vec4* b = p[1];
-    if (!D_004f62b0) {
-        D_004f62b0 = 1;
-        func_002fd188(func_0016e878);  // pool_alloc_block
-    }
-    Vec4 t;
-    asm volatile("lqc2 $vf1,0(%1)\n\tlqc2 $vf2,0(%2)\n\tvadd.xyzw $vf1,$vf1,$vf2\n\tsqc2 $vf1,0(%0)"
-        : : "r"(&t), "r"(a), "r"(b) : "memory");
-    if (&t != &D_004f62c0) cpq(&D_004f62c0, &t);
-    p[0] = &D_004f62c0;
-}
+// 0016d340: moved to src/anon/unit_0016d2e0.cpp
 
 u32 func_001de168(u32, u32, u32, u32, u32, u32);  // scan_list_by_half
-void func_00174858(u32* p) {
-    p[0] = func_001de168(p[0], p[1], p[3], 1, p[4], ((u32*)p[2])[1]);  // scan_list_by_half
-}
+void func_00174858(u32* p);  // 0x00174858: definition moved into src/anon/unit_00171e58.cpp
 
 void func_0016b668(u8*);
 // 00175a70: moved to src/yasui/libys/party.cpp
@@ -153,80 +136,23 @@ u8* func_001a80c8(u32);  // table24_find_by_id
 // 00185890: moved to src/anon/unit_001855e0.cpp
 
 void func_00114580(u8*);
-void func_001888c8(u8* p) {
-    p[4] = 100;
-    p[5] = 100;
-    p[6] = 100;
-    p[7] = 100;
-    p[9] = 0;
-    p[10] = 0;
-    p[11] = 0;
-    p[12] = 0;
-    p[13] = 0;
-    p[14] = 0;
-    p[15] = 1;
-    p[16] = 1;
-    p[17] = 1;
-    p[18] = 0;
-    u16* h = (u16*)(p + 84);
-    for (s32 i = 79; i != -1; i--) *h++ = 0;
-    func_00114580(p + 244);
-}
+void func_001888c8(u8* p);  // 0x001888c8: definition moved into src/anon/unit_00188848.cpp
 
 // Puts id v into the first free slot of a, borrowing it from b if present.
 struct S188 { u8 pad[18]; u8 n; u8 pad2[33]; u16 a[8]; u16 b[8]; };
-void func_00188a28(S188* p, u32 v) {
-    s32 i, j;
-    for (i = 0; i < p->n; i++) {
-        if (p->a[i] == 0) {
-            if (p->b[i] == v) { p->a[i] = v; return; }
-            if (p->b[i] == 0) {
-                for (j = 0; j < p->n; j++) {
-                    if (p->b[j] == v) { p->b[i] = v; break; }
-                }
-                p->a[i] = v;
-                return;
-            }
-        }
-    }
-}
+void func_00188a28(S188* p, u32 v);  // 0x00188a28: definition moved into src/anon/unit_00188848.cpp
 
 u32* func_001b6fb0(u32, u32);
 extern u32 D_0032f210;
-s32 func_00188bb0(u8* p, u32 a) {
-    u8 n = p[15];
-    if (n >= 99) return 0;
-    return *func_001b6fb0(a, n) - D_0032f210;
-}
+s32 func_00188bb0(u8* p, u32 a);  // 0x00188bb0: definition moved into src/anon/unit_00188848.cpp
 
 void* func_00186078(void*);
 u8* func_0016bba8(void*, s32, u8*);
-void func_001a4388(void) {
-    VObj* o = 0;
-    while ((o = (VObj*)func_00186078(o)) != 0) {
-        if (*(u32*)((u8*)o + 268) & 0x100000) continue;
-        u8* e = 0;
-        while ((e = func_0016bba8(o, 13, e)) != 0)
-            ((void (*)(void*, u16, u8, void*, s32))o->vt[20])(o, *(u16*)(e + 2), e[0], o, 0);
-    }
-}
+// 001a4388: moved to src/anon/unit_001a3e70.cpp
 
 // CRC-16/CCITT of a string, processed from the last character backwards.
 u32 strlen(const char*);  // strlen
-u16 func_001ae270(const char* s) {
-    u16 crc = 0xffff;
-    u32 n = strlen(s);  // strlen
-    const s8* p = (const s8*)s + n - 1;
-    for (u32 i = 0; i < n; i++) {
-        crc ^= *p-- << 8;
-        for (s32 j = 7; j >= 0; j--) {
-            if (crc & 0x8000) crc = (crc << 1) ^ 0x1021;
-            else crc = crc << 1;
-        }
-    }
-    crc = ~crc;
-    return crc;
-}
+u16 func_001ae270(const char* s);  // 0x001ae270: definition moved into src/anon/unit_001ada38.cpp
 
 struct Nd20 { f32 f0; u32 f4; u32 f8; u32 f12; u32 f16; Nd20* next; };
 struct L20 { Nd20* head; Nd20* tail; };
@@ -237,23 +163,14 @@ s32 func_001a3888(u32);  // id_in_range_5_7_131
 
 u32 func_001b8e88(u16);
 void func_001bd918(u8*, u32, s32);
-void func_001bd8c8(u8* p) {
-    NoTail g;
-    u8* t = **(u8***)(p + 2240);
-    s32 off = *(s32*)(t + 108) * 12;
-    func_001bd918(p, func_001b8e88(*(u16*)(t + off + 14)), 0);
-}
+void func_001bd8c8(u8* p);  // 0x001bd8c8: definition moved into src/anon/unit_001bc568.cpp
 
 // Fills 8 angles (k * 2pi/8) into a 16-byte-stride table.
 void func_001db8f8(void*, u32, s32, s32);
 extern u8 D_00351618[];
 struct E16f { u8 pad[12]; f32 v; };
 extern E16f D_01d49590[];
-void func_001c4498(u8* p, u32 a1) {
-    func_001db8f8(p, a1, 0, 1500);
-    *(void**)p = D_00351618;
-    for (s32 i = 0; i < 8; i++) D_01d49590[i].v = (f32)i * 0.125f * 6.2831855f;
-}
+void func_001c4498(u8* p, u32 a1);  // 0x001c4498: definition moved into src/anon/unit_001c4120.cpp
 
 u32* func_001d3350(void*, s32);
 void func_001d3388(u32);
@@ -286,19 +203,7 @@ extern VObj* D_01d5bb00;
 extern u32 D_01d5bb04;
 extern u32 D_01d5bb08;
 extern u8 D_00352af0;
-void func_001dced0(void) {
-    func_001dcfb0();
-    if (D_01d5bb04) {
-        ((void (*)(void*, u32))D_01d5bb00->vt[1])(D_01d5bb00, D_01d5bb04);
-        D_01d5bb04 = 0;
-    }
-    if (D_01d5bb08) {
-        ((void (*)(void*, u32))D_01d5bb00->vt[1])(D_01d5bb00, D_01d5bb08);
-        D_01d5bb08 = 0;
-    }
-    func_001dd208(0);
-    D_00352af0 = 0;
-}
+void func_001dced0(void);  // 0x001dced0: definition moved into src/anon/unit_001dbfd8.cpp
 
 void func_002bc358(s32, s32);
 void func_001dee10(u8*);
@@ -439,13 +344,7 @@ void func_002bb100(Nd28* n, s32 a1, s32 a2);  // 0x002bb100: definition moved in
 
 void func_002be770(u8*);
 extern u8 D_00361b20[];
-void func_002c1a58(u8* p) {
-    func_002be770(p);
-    p[2792] = 0;
-    *(void**)p = D_00361b20;
-    *(u32*)(p + 1420) |= 1;
-    *(u32*)(p + 2788) = 0;
-}
+void func_002c1a58(u8* p);  // 0x002c1a58: definition moved into src/anon/unit_002c10e0.cpp
 
 void func_002df160(u32);
 Vec4* func_0016c028(u32);  // obj_get_attach_or_alt

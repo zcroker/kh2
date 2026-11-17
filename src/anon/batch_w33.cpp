@@ -14,10 +14,7 @@ extern Buf256 D_003a7b70[];
 extern Buf256 D_003a7d70[];
 extern s32 D_0033cc40;
 extern u8 D_0033cc44;
-void* func_00106a18(u8 a) {  // buffer_get_256
-    if (a || D_0033cc44) return &D_003a7b70[D_0033cc40];
-    return &D_003a7d70[D_0033cc40];
-}
+// 00106a18: moved to src/naka/libkn/camera.cpp
 
 extern u32 D_003a99f0[];
 struct Obj148 { u8 pad[287]; u8 slot; };
@@ -36,10 +33,7 @@ extern u64 D_0034a970[];
 // 001584a0, 001584f8: moved to src/harata/libdk/cameraconfig.cpp
 
 void* func_00167f18(s32);
-void func_0016dbe0(s32* p) {
-    u64* v = (u64*)func_00167f18(0);
-    *p = (u8)((v[1] >> *p) & 1);
-}
+// 0016dbe0: moved to src/anon/unit_0016d2e0.cpp
 
 struct Lim177 { u8 pad[45]; s8 max; };
 struct Obj177 { u8 pad[2820]; u8 n; };
@@ -62,14 +56,7 @@ void func_00181178(void*);
 struct Sub1a2 { u8 pad[10]; u8 v; };
 struct Obj1a2 { u8 pad[394]; u16 a; u8 pad2[6]; u16 b; u8 pad3[580 - 404]; Sub1a2* s; };
 // Add n to two counters, and to a sub-value capped at 100.
-void func_001a25c8(Obj1a2* o, s32 n) {
-    if (o->s) {
-        if (o->s->v + n > 100) n = 100 - o->s->v;
-        o->s->v += n;
-    }
-    o->a += n;
-    o->b += n;
-}
+void func_001a25c8(Obj1a2* o, s32 n);  // 0x001a25c8: definition moved into src/anon/unit_0019fb70.cpp
 
 struct Ent1a8 { u16 id; u16 pad; u8 type; u8 pad2[7]; };
 struct Tbl1a8 { u16 pad; u16 count; Ent1a8 e[1]; };
@@ -85,22 +72,13 @@ extern St32 D_0032bb30;
 void* func_001a15d0(s32, s32);
 void func_001a1c70(void*);
 void func_001a17c8(void*);
-void func_001adbc0(void) {
-    D_0032bb30.a = 0;
-    D_0032bb30.b = 0;
-    void* v = func_001a15d0(1, -1);
-    func_001a1c70(v);
-    func_001a17c8(v);
-}
+void func_001adbc0(void);  // 0x001adbc0: definition moved into src/anon/unit_001ada38.cpp
 
 extern void* D_00350dec;
 void* func_001708f8(void*, s32);
 void* func_001af7c0(void*, void*);
 struct Obj1af { u8 pad[4]; void* a; u8 pad2[40]; void* b; void* c; };
-void func_001af778(Obj1af* o) {
-    o->a = func_001708f8(D_00350dec, -1);
-    o->c = func_001af7c0(o, o->b);
-}
+void func_001af778(Obj1af* o);  // 0x001af778: definition moved into src/anon/unit_001ada38.cpp
 
 struct Obj1b4 { u8 pad[64]; u32 flags; };
 extern Obj1b4* D_01d48cb0;
@@ -135,11 +113,7 @@ void u_call0_001b5400(void) {
 }
 
 s32 func_001dc738(void*);  // state_gate_flags
-s32 func_001dc790(u32* p) {
-    s32 r = 0;
-    if (func_001dc738(p) || (p[2] & 0x200000)) r = 1;
-    return r;
-}
+s32 func_001dc790(u32* p);  // 0x001dc790: definition moved into src/anon/unit_001dbfd8.cpp
 
 // VU0 random: five vrnext steps seeded with -1, plus 1.0 (hand-written VU0 macro code).
 f32 func_00203a40(void) {  // vu_const_5f
@@ -258,9 +232,7 @@ extern u8 D_003617e8;
 extern s32 D_003617e4;
 void func_002b8434(s32);
 void ResetPauseImpl_002bd6d0(void) asm("_ZN2Tz9MenuSound14ResetPauseImplEv");
-void ResetPauseImpl_002bd6d0(void) {
-    if (D_003617e8 != 1 && D_003617e4 > 0 && --D_003617e4 == 0) func_002b8434(0);
-}
+void ResetPauseImpl_002bd6d0(void);  // 0x002bd6d0: definition moved into src/anon/unit_002bc978.cpp
 
 extern void* D_00362908[];
 void func_002e7328(void*);  // to_2e7458

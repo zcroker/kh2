@@ -26,19 +26,5 @@ f32 func_002cdfb0(W1952Path*, s32*, f32*, W1952Vec*);
 f32 func_002ce2a0(W1952Path*, s32*, f32*, W1952Vec*);
 W1952Seg* func_002cb890(W1952Path*, s32);
 W1952Vec func_002cd770(W1952Path*, W1952Seg*, W1952Seg*, f32);
-f32 func_002ce6b8(W1952Path* p, W1952Vec* out, f32 lim) {
-    s32 i;
-    f32 f;
-    f32 r = -1.0f;
-    if (p->n >= 3) r = func_002cdfb0(p, &i, &f, out);
-    if (r < 0.0f || r >= lim) r = func_002ce2a0(p, &i, &f, out);
-    p->s0 = *func_002cb890(p, i);
-    p->s1 = *func_002cb890(p, (i + 1) % p->n);
-    p->t = (f32)i + f;
-    W1952Vec d = p->s1.a - p->s0.a;
-    p->len = W1952Len(d);
-    W1952Vec q = func_002cd770(p, &p->s0, &p->s1, f);
-    *out = q;
-    return r;
-}
+f32 func_002ce6b8(W1952Path* p, W1952Vec* out, f32 lim);  // 0x002ce6b8: definition moved into src/taito/path.cpp
 }

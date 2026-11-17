@@ -100,10 +100,7 @@ void wtarget_0013b4b0(u32, u32, u32, u32);  // 0x0013b4b0: definition moved into
 // Clears the first of four slots whose id matches.
 void wtarget_001d7a08(u32 a, u32 b, u32, u32);  // 0x001d7a08: definition moved into src/anon/unit_001d7458.cpp
 
-void trap_camera_at(void** v) {
-    func_00107478(func_00106a60(1), D_01c5f480);  // vec_copy_at96_if_diff
-    *v = D_01c5f480;
-}
+void trap_camera_at(void** v);  // 0x00174d98: definition moved into src/anon/unit_00171e58.cpp
 
 void func_00281008_impl(void* p) {
     u32* e = (u32*)((u8*)p + 20);
@@ -127,12 +124,7 @@ static inline bool in_1_6(s32 a) { return a != 0 && a < 7; }
 
 extern "C" {
 
-void func_00143348(u8* p) {  // state_get_entry
-    s16 t[2];
-    *(s32*)t = 0;
-    *(s16*)(p + 0x118) = func_00147050(D_00348800, 0, p, 0, t);
-    *(s16*)(p + 0x11a) = t[0];
-}
+void func_00143348(u8* p);  // 0x00143348: definition moved into src/anon/unit_00142c90.cpp
 
 // GS SCISSOR register value from x/y/w/h.
 void func_0014b950(u8* p, s16 x, s16 y, u16 w, u16 h) {
@@ -160,15 +152,7 @@ s32 func_00162b68(f32* a, f32* b, f32* out) {
     return a[4] < d ? 0 : 1;
 }
 
-void func_00171ea8(u8* p) {
-    u8 tmp[16] __attribute__((aligned(16)));
-    func_001ca148(tmp, *(u32*)(*(u8**)p + 4), *(u32*)(*(u8**)(p + 4) + 4), *(f32*)(p + 8));
-    u8* d = D_01c5f480;
-    if (d != tmp) {
-        asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(d), "r"(tmp) : "$8", "memory");
-    }
-    *(u8**)p = d;
-}
+void func_00171ea8(u8* p);  // 0x00171ea8: definition moved into src/anon/unit_00171e58.cpp
 
 struct E19f740 {
     u32 a;
@@ -177,14 +161,7 @@ struct E19f740 {
 };
 
 // 1 if one of the 8 entries matches a and b (-1 = any b) and is not flagged.
-s32 func_0019f740(E19f740* e, u32 a, s32 b) {
-    s32 m = -1;
-    E19f740* end = e + 8;
-    for (; (s32)e < (s32)end; e++) {
-        if (e->a == a && (e->b == m || e->b == b) && !e->c) return 1;
-    }
-    return 0;
-}
+s32 func_0019f740(E19f740* e, u32 a, s32 b);  // 0x0019f740: definition moved into src/anon/unit_0019ee80.cpp
 
 struct Q3 {
     u32 a, b, c;
@@ -205,34 +182,16 @@ void func_001aa7f0(u32* p, u32 a) {
     func_001ab750(p[0], q);
 }
 
-void func_001aebf0(u8* a) {
-    s32* t = D_01c94040[a[0]];
-    if (a[1] >= *t) D_01c9408c = 0;
-    else D_01c9408c = (u8*)t + a[1] * 24 + 4;
-}
+void func_001aebf0(u8* a);  // 0x001aebf0: definition moved into src/anon/unit_001ada38.cpp
 
 struct F28 {
     u8 pad[0x28];
     u32 on : 1;
 };
 
-s32 func_001c7950(u8* p, void* o) {  // copy_quad_if_flag
-    if (!((F28*)p)->on) return 0;
-    f32 v[4] __attribute__((aligned(16)));
-    asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(v), "r"(p) : "$8", "memory");
-    v[1] += *(f32*)(*(u8**)(p + 0x4c) + 4);
-    return func_001a4ff8(o, v);
-}
+// 001c7950: moved to src/anon/unit_001c7148.cpp (linked unit)
 
-u8 func_001c9958(s32 a, s32 b) {  // state_pair_check
-    if (!in_1_6(a)) return 0;
-    switch (a) {
-    case 2: return b == 2;
-    case 1: return b == 3;
-    case 3: return 0;
-    }
-    return 1;
-}
+u8 func_001c9958(s32 a, s32 b);  // 0x001c9958: definition moved into src/yasui/libys/sacrifice.cpp
 
 void func_001d4ef0(u8* p, u8* a);  // 0x001d4ef0: definition moved into src/anon/unit_001d3c08.cpp
 

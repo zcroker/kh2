@@ -89,17 +89,5 @@ extern W1888cM D_01e2bcc0;
 void func_0011b6a8(W1888cM*);
 W1888cM* func_0011b7b0(W1888cM*, W1888cV*);
 void func_002eee68(W1888cO*, W1888cA, W1888cB);
-void func_002c1f90(W1888cO* o, W1888cA a, W1888cB b)
-{
-    W1888cM m;
-    W1888cV* t = &m.r[3];
-    func_0011b6a8(&m);
-    m = *func_0011b7b0(&m, &o->v210);
-    *t = o->v220;
-    {
-        W1888cM r = D_01e2bcc0 * m;
-        o->m150 = r;
-    }
-    func_002eee68(o, a, b);
-}
+void func_002c1f90(W1888cO* o, W1888cA a, W1888cB b);  // 0x002c1f90: definition moved into src/anon/unit_002c1e80.cpp
 }

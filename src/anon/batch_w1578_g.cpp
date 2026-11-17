@@ -89,17 +89,9 @@ s32 func_00134278(void) {
 
 // 001682b8: moved to src/yasui/libys/file.cpp
 
-void func_001a5928(void) {
-    func_001c70e8();
-    void* p = W1578_AREA_Alloc(0xa00);
-    func_001a4df0(p, W1578_JmInfo_GetCharaData(0x5c3), 0x100, 0x60);
-}
+// 001a5928: moved to src/anon/unit_001a4db0.cpp
 
-void func_001d0068(void) {
-    void* t = W1578_YS_TABLE_Get();
-    W1578_YS_CACHE_BUFF_Clear(5000);
-    W1578_wtarget_0016ed50(t, 5000, 7);
-}
+void func_001d0068(void);  // 0x001d0068: definition moved into src/anon/unit_001cf0b0.cpp
 
 void func_001de808(void) {
     W1578Mode* f = W1578_getFieldMode();
@@ -116,17 +108,7 @@ void func_001de808(void) {
     }
 }
 
-void func_001af938(void) {
-    W1578_YS_SUMMON_LeaveTink();
-    u32 obj = D_0034e948;
-    u8* p = (u8*)W1578_AREA_Alloc(0xd00);
-    void* cd = W1578_JmInfo_GetCharaData(0x4f4);
-    s32 r = func_0016c028(obj);
-    func_001c7fb8(W1578_ObjCamera_getObjBackDirection(obj), p, cd, r);
-    W1578_YS_ACT_push(p + 0x300, D_0036d8b8);
-    D_0034f240 &= ~2;
-    func_001373d8();
-}
+void func_001af938(void);  // 0x001af938: definition moved into src/anon/unit_001ada38.cpp
 
 void func_0018d620(void);  // 0x0018d620: definition moved into src/anon/unit_0018d050.cpp
 

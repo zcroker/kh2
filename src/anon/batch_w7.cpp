@@ -71,13 +71,9 @@ struct Args { u32 a; u32 b; f32 c; u32 d; };
 
 // Symbol table names this with eight u32 params; the body takes floats in f12/f13.
 f32 func_001065a8(f32 a, f32 b) asm("_Z13func_001065a8jjjjjjjj");
-f32 func_001065a8(f32 a, f32 b) {
-    return a + func_00106558(b - a);
-}
+// 001065a8: moved to src/anon/unit_00106490.cpp
 
-void func_00119c88(u32 a0) {
-    func_00119e60(a0, func_001c8cd8());
-}
+void func_00119c88(u32 a0);  // 0x00119c88: definition moved into src/anon/unit_00119bf8.cpp
 
 // Virtual call (slot 15) on the object at +20, forwarding the field at +260.
 void func_0011c7c8(u8* a0, u32 a1) {
@@ -101,20 +97,12 @@ void func_0016b010(u8* a0, f32* a1) {  // obj_set_float1644_from_pair
 
 // trap_obj_hide: virtual slot 17 on the trap object.
 void trap_obj_hide_impl(u32* bd) asm("_ZN2YS13trap_obj_hideEP8BD_VALUE");
-void trap_obj_hide_impl(u32* bd) {
-    VObj* o = *(VObj**)(*bd + 4);
-    ((void (*)(VObj*))o->vtbl[17])(o);
-}
+void trap_obj_hide_impl(u32* bd);  // 0x00171348: definition moved into src/anon/unit_00170f58.cpp
 
 void trap_obj_search_by_entry_impl(u32* bd) asm("_ZN2gm24trap_obj_search_by_entryEP8BD_VALUE");
-void trap_obj_search_by_entry_impl(u32* bd) {
-    u32* out = (u32*)bd[0];
-    out[1] = func_0016b740(bd[1]);
-}
+void trap_obj_search_by_entry_impl(u32* bd);  // 0x00172ba8: definition moved into src/anon/unit_00171e58.cpp
 
-void func_00173e38(u32* a0) {
-    func_00188470(*(u32*)(a0[0] + 4) + 768, a0[1], *(f32*)&a0[2]);
-}
+void func_00173e38(u32* a0);  // 0x00173e38: definition moved into src/anon/unit_00171e58.cpp
 
 // 00179e18: moved to src/yasui/libys/player.cpp
 
@@ -124,22 +112,13 @@ void func_00173e38(u32* a0) {
 // 00186d18: moved to src/anon/unit_00185d10.cpp
 bool func_00186d18(u8* a0);
 
-void func_0018fde0(Args* a) {
-    u32 p = a->a;
-    func_001b50e0(p, a->b, a->c, a->d != 0);
-}
+void func_0018fde0(Args* a);  // 0x0018fde0: definition moved into src/anon/unit_0018f140.cpp
 
 // 00191bf0: moved to src/yasui/libys/status.cpp
 
-u32 func_001979d8(u32 a0) {
-    return func_0019f2a8(D_0035037c + 12, a0);
-}
+u32 func_001979d8(u32 a0);  // 0x001979d8: definition moved into src/anon/unit_00195d00.cpp
 
-void func_001ae650(void) {
-    func_002f7e60();
-    func_002f71b0(0);
-    func_002f79c8(0);
-}
+void func_001ae650(void);  // 0x001ae650: definition moved into src/anon/unit_001ada38.cpp
 
 void func_001b2c18(u32 a0, u32 a1) {
     func_0017c430(a1);
@@ -161,15 +140,9 @@ void control_off(s32 i) {
 
 // Hands out a new combo group id, wrapping back to 256.
 s32 new_combo_group(void) asm("_ZN2YS12ATTACK_CHECK13NewComboGroupEv");
-s32 new_combo_group(void) {
-    if (++D_01d4934c > 0x10000000) D_01d4934c = 256;
-    return D_01d4934c;
-}
+s32 new_combo_group(void);  // 0x001c0090: definition moved into src/anon/unit_001bff88.cpp
 
-void func_001c90c0(u32 a0, u32 a1) {
-    func_0017c430(a1);
-    func_0016bd60(a1, 20);
-}
+void func_001c90c0(u32 a0, u32 a1);  // 0x001c90c0: definition moved into src/anon/unit_001c8e80.cpp
 
 // 001cd520: moved to src/anon/unit_001cd078.cpp
 
@@ -180,10 +153,7 @@ s32 func_001db888(s32* a0) {  // record_index_calc
 }
 
 u32 effect_pos(u32 self) asm("_ZN3ryj6EFFECT3posEv");
-u32 effect_pos(u32 self) {
-    func_001dc9e0(self);
-    return func_001e6cd0(*(u32*)(self + 28));
-}
+u32 effect_pos(u32 self);  // 0x001dc5f8: definition moved into src/anon/unit_001dbfd8.cpp
 
 void func_001de7d8(u32 a0) {
     D_01d9e340 = a0;

@@ -17,17 +17,7 @@ extern u8 D_01c61af4;
 Entry2363* ctarget_001947c0_w2363(s32 a, s32 b) asm("_Z16ctarget_001947c0jjjj");
 s32 has_ansem_entry_w2363(u32 id) asm("_ZN2Tz6JmInfo13HasAnsemEntryEj");
 void ctarget0_00194980(void) asm("_Z17ctarget0_00194980v");
-void ctarget0_00194980(void)
-{
-    u8 found = 0;
-    Entry2363* e = ctarget_001947c0_w2363(-1, -1);
-    /* the loop (one pass at most) keeps gcc from if-converting found = 1 */
-    while (e->id != 0 && has_ansem_entry_w2363(e->id) > 0) {
-        found = 1;
-        break;
-    }
-    D_01c61af4 = found;
-}
+void ctarget0_00194980(void);  // 0x00194980: definition moved into src/anon/unit_00194790.cpp
 
 
 /* 001443c0: static-destruction hook for the 16-entry table at D_00348830 (each entry holds five
@@ -38,10 +28,7 @@ struct Entry50_2363 { Slot2363 s[5]; };
 struct Table2363 { Entry50_2363 e[16]; };
 extern Table2363 D_00348830;
 void wtarget_001443c0(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z16wtarget_001443c0jjjj");
-void wtarget_001443c0(u32 a0, u32 a1, u32 a2, u32 a3)
-{
-    if (a1 == 0xffff && a0 == 0) D_00348830.~Table2363();
-}
+void wtarget_001443c0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001443c0: definition moved into src/anon/unit_00142c90.cpp
 
 }
 

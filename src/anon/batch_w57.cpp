@@ -51,14 +51,7 @@ void func_00135e50(void*);
 u32 func_0013a7e8(u32);
 u32 func_0013d7e0(void);
 void func_00138d60(void*, u32, u32, u32, u32, u32, u32);
-void func_001374c8(u8* t, f32 f, u32 a, u32 b, u32 c) {
-    u32 x = func_0013a7e8(1);
-    u32 y = func_0013d7e0();
-    func_00138d60(t, 11100, x, y, a, b, 13);
-    *(u32*)(t + 424) = 16;
-    *(f32*)(t + 436) = f;
-    *(u32*)(t + 440) = c;
-}
+void func_001374c8(u8* t, f32 f, u32 a, u32 b, u32 c);  // 0x001374c8: definition moved into src/anon/unit_001374c8.cpp
 
 // Constructor: reset state.
 struct T13a {
@@ -71,18 +64,11 @@ void func_0013afe8(T13a* t);  // 0x0013afe8: definition moved into src/anon/unit
 extern u32 D_00348804;
 void func_00141c18(u32, u32, u32, u32, u32);
 u32 func_00141ff0(u32, u32, u32, u32, u32);
-void func_00143dd0(u32 a, u32 b, u32 c, u32 d, u32 e) {
-    NoTail g;
-    func_00141c18(D_00348804, 15, d, 0, 0);
-    func_00141ff0(D_00348804, a, b, c, e);
-}
+void func_00143dd0(u32 a, u32 b, u32 c, u32 d, u32 e);  // 0x00143dd0: definition moved into src/anon/unit_00142c90.cpp
 
 void func_00166618(u32, u32, u32, u32, u32, u32, u32);
 struct P14d { u32 pad; s16 w; u16 h; };
-void func_0014de30(P14d* p, u8* q, s32 n) {
-    func_00166618((u32)q, 1, (s16)(n << 5), p->w, (u32)p->h >> 1, 0, 0);
-    func_00166618((u32)(q + 0x4e000), 1, (s16)(n << 5), p->w, (u32)p->h >> 1, (u32)p->h >> 1, 1);
-}
+// 0014de30: moved to src/anon/unit_0014d680.cpp
 
 
 // Either of two registered lookups is missing: fall back to the default entry.
@@ -104,11 +90,7 @@ void func_0015b2d0(void) {
 
 s32 func_0014aba8(void);
 void func_0014aa80(u32, u32, u32);
-void func_0016e048(f32* p) {
-    s32 n = (s32)(p[0] * 0.5f);
-    u32 v = func_0014aba8();
-    func_0014aa80(v, n, 0);
-}
+// 0016e048: moved to src/anon/unit_0016d2e0.cpp
 
 // CACHE_BUFF::Clear(int): walk the list and release the entries selected by the sign of n.
 void func_00170018(void*);
@@ -204,7 +186,7 @@ struct C4 : Base4 {
     }
 };
 void u_call4_001a4e30(u32 a, u32, u32, u32) asm("_Z16u_call4_001a4e30jjjj");
-void u_call4_001a4e30(u32 a, u32, u32, u32) { ((C4*)a)->~C4(); }
+// 001a4e30: moved to src/anon/unit_001a4db0.cpp
 
 // Release every live entry of the 32-slot table.
 struct Ent22 { void** obj; u32 x; };
@@ -282,12 +264,7 @@ extern u32 D_0032b91c;
 void func_002b871c(void);
 u32 func_00102788(u32, u32, u32, u32);
 void func_002bd870(void);
-void func_002bd788(u32 a) {
-    D_003617f8 = 0;
-    D_003617ec = a;
-    func_002b871c();
-    D_003617f4 = func_00102788(D_0032b91c, 0, 0x5cc60, (u32)func_002bd870);
-}
+void func_002bd788(u32 a);  // 0x002bd788: definition moved into src/anon/unit_002bc978.cpp
 
 // Destructor: tear down the layered members and chain to the base.
 void func_00319f88(void*);
@@ -360,20 +337,7 @@ void func_001c6760(void*);
 u32 func_001dbd68(void*);
 void func_001c6748(void*);
 struct T1c6 { u8 p[4]; f32 f4; u8 p2[13]; u8 b21; u8 p3[30]; f32 f52; u8 p4[20]; f32 f76; u8 b80; };
-void func_001c6850(T1c6* t) {
-    if (func_001c5f38(t)) return;
-    if (t->f76 > 0.0f) {
-        func_001c6760(t);
-        return;
-    }
-    t->f4 = t->f52;
-    t->b21 = 0;
-    if (t->b80) {
-        t->b80--;
-        return;
-    }
-    if (func_001dbd68(t)) func_001c6748(t);
-}
+void func_001c6850(T1c6* t);  // 0x001c6850: definition moved into src/anon/unit_001c5b90.cpp
 
 // OR the pending bitset (640 bits) into the destination set, then free it.
 u32* func_002859a0(void);

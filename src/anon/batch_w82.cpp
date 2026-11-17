@@ -86,16 +86,7 @@ void func_00170188(Node0017*);
 
 // 0013a368: moved to src/harata/libdk/field2dd.cpp
 
-void func_0013fdf0(u8* o, u8* p, f32 s)
-{
-    if (func_00158450(p)) {
-        *(f32*)(o + 72) -= *(f32*)(p + 44) * 8.0f * s;
-        func_0013fda0(o);
-    } else if (func_001584a0(p)) {
-        *(f32*)(o + 72) += *(f32*)(p + 44) * 8.0f * s;
-        func_0013fdc8(o);
-    }
-}
+void func_0013fdf0(u8* o, u8* p, f32 s);  // 0x0013fdf0: definition moved into src/anon/unit_0013fca8.cpp
 
 // Allocates a 6192-byte object from the global heap and constructs it.
 void* func_0014f8d0(u32 a, u32 b, u32 c, u32 d, u32 e, u32 f, u32 g, u32 h)
@@ -179,40 +170,10 @@ Vec82* func_0016c028(u32);  // obj_get_attach_or_alt
 s32 func_001b9d40(u8*, u8*);  // vtable_call_slot64_flags
 void func_0016af58(void*, u8*);
 
-void func_001902a8(u8* a0, u8* a1)
-{
-    u8* o = *(u8**)(a0 + 8);
-    if (o) {
-        func_0018a958(a1, 0, *(f32*)(o + 256), *(f32*)(o + 260));
-        *(Vec82*)(a1 + 16) = *(Vec82*)(*(u8**)(a0 + 8) + 224);
-    } else if (func_0019ba60(*(u32*)a0)) {
-        u32 v = func_00190208(a0, 1);
-        if (v) func_0018a818(a1, *(u32*)a0, v);
-        else *(Vec82*)(a1 + 16) = *func_0016c028(*(u32*)a0);  // obj_get_attach_or_alt
-    } else {
-        // identity row (0,0,0,1) from vf0
-        asm volatile("sqc2 $vf0, 0(%0)" : : "r"(a1 + 16) : "memory");
-    }
-    {
-        // 1.0f read through its pool address; the original repeats the %hi in every branch,
-        // which the literal-pool retargeting cannot pair, so name the constant directly.
-        const f32* k;
-        asm("" : "=r"(k) : "0"(&D_0036cd18));
-        *(f32*)(a1 + 28) = *k;
-    }
-}
+void func_001902a8(u8* a0, u8* a1);  // 0x001902a8: definition moved into src/anon/unit_001900d0.cpp
 
 // True when a0 is active and both its facing vectors point along a1 (cos >= 0.7).
-s32 func_0019c778(u8* a0, u8* a1)
-{
-    s32 r = 0;
-    Vec82 t;
-    if (func_001b9d40(a0, a1) && 0.0f < *(f32*)(a0 + 28)) {  // vtable_call_slot64_flags
-        func_0016af58(&t, a0);
-        if (Dot82(a1, &t) >= 0.7f && Dot82(a1, a0 + 16) >= 0.7f) r = 1;
-    }
-    return r;
-}
+s32 func_0019c778(u8* a0, u8* a1);  // 0x0019c778: definition moved into src/anon/unit_0019ba60.cpp
 }
 
 struct Mat82 { f32 m[16]; } __attribute__((aligned(16)));
@@ -263,49 +224,10 @@ void func_00178888(u8*);
 s32 func_00197920(S001d*);
 void func_001d2668(S001d*, u32, f32);
 
-void func_001cf7d8(u8* a0)
-{
-    u8 tmp[32] __attribute__((aligned(16)));
-    u8* s = *(u8**)(a0 + 2884) + 1660;
-    u8* v;
-    func_001bc778(s);
-    v = func_001bc780(s, 411, 0, 1);
-    v[6] = 1;
-    if (func_001cf998()) {
-        func_001cf9e0(a0, 0);
-    } else {
-        func_001cf9e0(a0, 1);
-        v[5] = 5;
-    }
-    if (func_001d8898(1)) {
-        func_00190128(tmp);
-        func_00190878(tmp, a0, 0);
-        func_001bd3e0(*(u32*)(a0 + 2884), 1, 412, tmp, 1, 100);
-    }
-    func_00178888(a0);
-}
+void func_001cf7d8(u8* a0);  // 0x001cf7d8: definition moved into src/anon/unit_001cf0b0.cpp
 
 // Advances a 3-entry ring of queued requests once the current one's timer has run out.
-void func_001d2750(S001d* a0)
-{
-    u32 w;
-    s32 i;
-    if (func_00197920(a0)) return;
-    w = a0->cur_a;
-    if (w) {
-        a0->timer -= D_00349e10;
-        if (a0->timer <= 0.0f) w = 0;
-        if (w) return;
-    }
-    i = a0->cur;
-    if (i != a0->end) {
-        Q001d* q = &a0->e[i];
-        a0->cur = (i + 1) % 3;
-        func_001d2668(a0, q->a, q->f.f);
-    } else if (a0->cur_a) {
-        func_001d2668(a0, a0->cur_a, a0->cur_f);
-    }
-}
+void func_001d2750(S001d* a0);  // 0x001d2750: definition moved into src/anon/unit_001d14e0.cpp
 }
 
 extern s32 D_01d9eab4;
@@ -652,23 +574,7 @@ u8* func_0016bc20(u32, s32, s32);
 void func_0017f540(u8*, s32, f32, f32);
 s32 func_001c0cd8(u32);
 
-void func_002c66b8(u8* a0, u32 a1, u32 a2)
-{
-    *(u32*)(a0 + 84) = 0;
-    *(u32*)a0 = (u32)D_00361da8;
-    *(u32*)(a0 + 92) = 0;
-    func_002c6420(a0);
-    *(u32*)(a0 + 96) = a1;
-    *(u32*)a0 = (u32)D_00361dc8;
-    *(u32*)(a0 + 100) = a2;
-    QCopy82(a0 + 112, D_01e2bdd0);
-    QCopy82(a0 + 128, D_01e2bdc0);
-    D_00361db8.p = a0;
-    *(u32*)(a0 + 84) |= 1;
-    *(f32*)(a0 + 144) = 65.0f;
-    *(f32*)(a0 + 92) = 60.0f;
-    *(f32*)(a0 + 88) = 60.0f;
-}
+// 002c66b8: moved to src/anon/unit_002c6420.cpp (linked unit)
 
 // Returns the target in slot a1 if it is within its own reach radius of this object.
 u32 func_002d2660(u8* a0, s32 a1)

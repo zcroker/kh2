@@ -37,11 +37,7 @@ void func_0010f9f0(u8* p, u8* src, u8 flag) {  // obj_set_vec_flag
 extern u32 D_003477a0;
 void func_00113668(void*);
 void func_00105110(void*);
-void func_00119d08(void** p) {
-    *p = &D_003477a0;
-    func_00113668(p);
-    func_00105110(p);
-}
+void func_00119d08(void** p);  // 0x00119d08: definition moved into src/anon/unit_00119bf8.cpp
 
 // --- 00124748
 u8* func_00124748(u8* a, s32 n) {  // list_nth_node_rel
@@ -56,21 +52,13 @@ u8* func_00124748(u8* a, s32 n) {  // list_nth_node_rel
 
 // --- 0013f608
 f32 func_0017ce10(f32);
-void func_0013f608(f32* p) {
-    f32 a = p[13];
-    p[41] = a;
-    p[40] = p[12];
-    p[41] = func_0017ce10(a);
-}
+void func_0013f608(f32* p);  // 0x0013f608: definition moved into src/anon/unit_0013ef70.cpp
 
 // --- 0014d910
 extern u32 D_00349ef8;
 void sceGsSyncPath(u32, u32);
 void func_002f3918(u32, u32);
-void func_0014d910(u32 a) {
-    sceGsSyncPath(0, 0);
-    func_002f3918(D_00349ef8, a);
-}
+// 0014d910: moved to src/anon/unit_0014d680.cpp
 
 // --- 00153310
 extern u8* D_0034a6f0;
@@ -96,28 +84,18 @@ void GAUGE_PLAYER_update(u8*) asm("_ZN2dk12GAUGE_PLAYER6updateEv");
 extern s32 D_0034d780;
 extern u32 D_004f5258[];
 void func_00167f38(u32);
-void func_00168008(void) {
-    func_00167f38(D_004f5258[--D_0034d780]);
-}
+// 00168008: moved to src/anon/unit_00167358.cpp
 
 // --- 00172368
 void func_001a0710(u32, void*, f32);
-void func_00172368(u32** p) {
-    u32 v[4] __attribute__((aligned(16)));
-    asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(v), "r"(p[1]) : "$8", "memory");
-    func_001a0710(p[0][1], v, *(f32*)&p[2]);
-}
+void func_00172368(u32** p);  // 0x00172368: definition moved into src/anon/unit_00171e58.cpp
 
 // --- 00173518
 // Spawn a task and seed its float parameter.
 void func_001734b0(void);
 u8* func_00102c18(u32, u32, void (*)(void));
 struct T173 { u32 pad; f32 a; f32 b; };
-void func_00173518(f32* p) {
-    T173* t = (T173*)func_00102c18(1, 14002, func_001734b0);
-    t->a = 0;
-    t->b = *p;
-}
+void func_00173518(f32* p);  // 0x00173518: definition moved into src/anon/unit_00171e58.cpp
 
 // --- 0017a1c8
 void func_001762f8(void*);
@@ -138,13 +116,7 @@ extern u8 D_0036cea0[];
 
 // --- 00195468
 s32 ctarget_00195468(u32, u32, u32, u32) asm("_Z16ctarget_00195468jjjj");
-s32 ctarget_00195468(u32 a, u32 key, u32, u32) {
-    s16* q = (s16*)(a + 8);
-    for (s32 i = 0; i < 256; i++) {
-        if (q[i] == (s32)key) return i;
-    }
-    return -1;
-}
+s32 ctarget_00195468(u32 a, u32 key, u32, u32);  // 0x00195468: definition moved into src/anon/unit_00194790.cpp
 
 // --- 001aae28
 struct S1aae28 { u32 a, b, c, d; u8 e, f, g, h; u32 j; u32 i; };
@@ -164,9 +136,7 @@ void func_001aae28(S1aae28* s, u32 a, u32 b, u32 c, u32 d, u32 e, u32 f, u32 g, 
 // --- 001af328
 void* func_001050d8(u32);
 void func_001aedf8(void*, u32, u32);
-void func_001af328(u32 a) {
-    func_001aedf8(func_001050d8(80), a, 2);
-}
+void func_001af328(u32 a);  // 0x001af328: definition moved into src/anon/unit_001ada38.cpp
 
 // --- 001b6d00
 extern u8* D_00351184;
@@ -202,33 +172,19 @@ extern G1d48cc8 D_01d48cc8;
 
 // --- 001c0458
 // Clear bit o->id in the bitset at bits+4.
-void func_001c0458(u8* bits, u8* o) {
-    u32 i = *(u32*)(o + 28);
-    u32* w = (u32*)(bits + 4);
-    w += i >> 5;
-    *w &= ~(1 << (i & 31));
-}
+void func_001c0458(u8* bits, u8* o);  // 0x001c0458: definition moved into src/anon/unit_001bff88.cpp
 
 // --- 001c13e8
 void func_001dc920(u32);
 u8 func_001db7d0(void*);
-u32 func_001c13e8(u32* p) {
-    func_001dc920(p[0]);
-    func_00105110((void*)p[12]);
-    return func_001db7d0(p + 5);
-}
+// 001c13e8: moved to src/anon/unit_001c0638.cpp
+u32 func_001c13e8(u32* p);
 
 // --- 001c1708
 // Walk a linked list (next at +36) and process each node.
 void func_001c1890(u8*);
-void func_001c1708(u8* p) {
-    u8* n = *(u8**)(p + 12);
-    while (n) {
-        u8* nx = *(u8**)(n + 36);
-        if (n) func_001c1890(n);
-        n = nx;
-    }
-}
+// 001c1708: moved to src/anon/unit_001c0638.cpp
+void func_001c1708(u8* p);
 
 // --- 001d7e78
 void func_0019aa00(u32, void*);
@@ -356,14 +312,7 @@ void MenuSound_StopBgSeHandle(u32, u32) asm("_ZN2Tz9MenuSound14StopBgSeHandleEz"
 
 // --- 002bca10
 struct E2bc { s32 b; s32 a; s32 c; };
-s32 func_002bca10(E2bc* t, s32 a, s32 b) {  // table_find_two_words
-    E2bc* e = t;
-    do {
-        if (e->a == a && e->b == b) return b;
-        e++;
-    } while ((s32)e < (s32)(t + 11));
-    return -1;
-}
+s32 func_002bca10(E2bc* t, s32 a, s32 b);  // 0x002bca10: definition moved into src/anon/unit_002bc978.cpp
 
 // --- 002dad40
 extern u32 D_003627c8;

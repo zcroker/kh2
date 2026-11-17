@@ -53,53 +53,21 @@ u32 func_002febb0(u32, u32, u32, u32);
 u32 _free_r(u32, u32, u32, u32);
 u32 func_003037b0(u32, u32, u32, u32);
 
-u32 func_0013a218(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r15 = 0u;
-    r15 = (u32)(0x0034u << 16);
-    r4 = *(u32*)((u32)r15 + (s32)(32640));
-    return func_001393f8(r4, r5, r6, r7);
-}
+u32 func_0013a218(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0013a218: definition moved into src/anon/unit_001393c8.cpp
 
 u32 func_0013b2f8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0013b2f8: definition moved into src/anon/unit_0013a8b8.cpp
 
 u32 func_0013dab0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0013dab0: definition moved into src/anon/unit_0013a8b8.cpp
 
-u32 func_001431e8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r15 = 0u;
-    r15 = (u32)(0x0035u << 16);
-    r4 = *(u32*)((u32)r15 + (s32)(-30720));
-    return func_00148528(r4, r5, r6, r7);
-}
+u32 func_001431e8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001431e8: definition moved into src/anon/unit_00142c90.cpp
 
-u32 func_00143208(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r15 = 0u;
-    r15 = (u32)(0x0035u << 16);
-    r4 = *(u32*)((u32)r15 + (s32)(-30720));
-    return func_00148560(r4, r5, r6, r7);
-}
+u32 func_00143208(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00143208: definition moved into src/anon/unit_00142c90.cpp
 
-u32 func_00143228(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r14 = 0u, r15 = 0u;
-    r14 = (u32)((s32)0u + (1));
-    r15 = (u32)(0x0035u << 16);
-    *(u8*)((u32)r15 + (s32)(-30691)) = (u8)r14;
-    return func_00143208(r4, r5, r6, r7);
-}
+u32 func_00143228(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00143228: definition moved into src/anon/unit_00142c90.cpp
 
-u32 func_00143248(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r15 = 0u;
-    r15 = (u32)(0x0035u << 16);
-    *(u8*)((u32)r15 + (s32)(-30691)) = (u8)0u;
-    return func_001431e8(r4, r5, r6, r7);
-}
+u32 func_00143248(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00143248: definition moved into src/anon/unit_00142c90.cpp
 
-u32 func_00143328(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r15 = 0u;
-    r5 = r4;
-    r15 = (u32)(0x0035u << 16);
-    r4 = *(u32*)((u32)r15 + (s32)(-30720));
-    return func_00146e88(r4, r5, r6, r7);
-}
+u32 func_00143328(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00143328: definition moved into src/anon/unit_00142c90.cpp
 
 u32 func_0014ce30(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r15 = 0u;
@@ -124,90 +92,27 @@ u32 func_0014f668(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_00151df0(r4, r5, r6, r7);
 }
 
-u32 func_001720d0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r14 = 0u, r15 = 0u;
-    r15 = *(u32*)((u32)r4 + (s32)(0));
-    r5 = *(u32*)((u32)r4 + (s32)(4));
-    r14 = *(u32*)((u32)r15 + (s32)(4));
-    r4 = *(u32*)((u32)r14 + (s32)(1648));
-    return func_0011c828(r4, r5, r6, r7);
-}
+u32 func_001720d0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001720d0: definition moved into src/anon/unit_00171e58.cpp
 
-u32 func_001724f8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r14 = 0u, r15 = 0u;
-    r14 = *(u32*)((u32)r4 + (s32)(4));
-    r15 = *(u32*)((u32)r4 + (s32)(0));
-    r5 = *(u32*)((u32)r14 + (s32)(4));
-    r4 = *(u32*)((u32)r15 + (s32)(4));
-    r5 = (u32)((s32)r5 + (320));
-    r4 = (u32)((s32)r4 + (320));
-    return func_0017fd30(r4, r5, r6, r7);
-}
+u32 func_001724f8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001724f8: definition moved into src/anon/unit_00171e58.cpp
 
-u32 func_00174400(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r14 = 0u, r15 = 0u;
-    r15 = (u32)(0x0035u << 16);
-    r14 = *(u32*)((u32)r15 + (s32)(-5816));
-    r4 = *(u32*)((u32)r14 + (s32)(2876));
-    return func_001d6ab0(r4, r5, r6, r7);
-}
+u32 func_00174400(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00174400: definition moved into src/anon/unit_00171e58.cpp
 
-u32 func_00174420(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r14 = 0u, r15 = 0u;
-    r15 = (u32)(0x0035u << 16);
-    r5 = (u32)((s32)0u + (6));
-    r14 = *(u32*)((u32)r15 + (s32)(-5816));
-    r4 = *(u32*)((u32)r14 + (s32)(2884));
-    return func_001be4e0(r4, r5, r6, r7);
-}
+u32 func_00174420(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00174420: definition moved into src/anon/unit_00171e58.cpp
 
-u32 func_001744b8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r14 = 0u, r15 = 0u;
-    r15 = (u32)(0x0035u << 16);
-    r14 = *(u32*)((u32)r15 + (s32)(-5816));
-    r5 = *(u32*)((u32)r4 + (s32)(0));
-    r4 = *(u32*)((u32)r14 + (s32)(2884));
-    return func_001bf100(r4, r5, r6, r7);
-}
+u32 func_001744b8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001744b8: definition moved into src/anon/unit_00171e58.cpp
 
-u32 func_0018f478(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r14 = 0u, r15 = 0u;
-    r14 = *(u32*)((u32)r4 + (s32)(4));
-    r15 = *(u32*)((u32)r4 + (s32)(0));
-    r5 = *(u32*)((u32)r14 + (s32)(4));
-    r4 = *(u32*)((u32)r15 + (s32)(4));
-    return func_001b3cb0(r4, r5, r6, r7);
-}
+u32 func_0018f478(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0018f478: definition moved into src/anon/unit_0018f140.cpp
 
-u32 func_001afa30(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r15 = 0u;
-    r15 = (u32)(0x01c9u << 16);
-    *(u32*)((u32)r15 + (s32)(16564)) = r4;
-    return func_001afa50(r4, r5, r6, r7);
-}
+u32 func_001afa30(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001afa30: definition moved into src/anon/unit_001ada38.cpp
 
 // 001b83d0 YS::LIBRETTO::Ensure: moved to src/anon/unit_001b82d8.cpp
 
-u32 func_001c8cd8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r15 = 0u;
-    r15 = (u32)(0x0033u << 16);
-    r4 = (u32)(*(u8*)((u32)r15 + (s32)(-4009)));
-    return func_001c8cc0(r4, r5, r6, r7);
-}
+// 0x1c8cd8: moved to src/yasui/libys/summon.cpp
 
-u32 func_001cec08(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r15 = 0u;
-    r15 = (u32)(0x0035u << 16);
-    r4 = *(u32*)((u32)r15 + (s32)(8656));
-    return func_001ce930(r4, r5, r6, r7);
-}
+u32 func_001cec08(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001cec08: definition moved into src/anon/unit_001ce6e8.cpp
 
-u32 func_001d0ce8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r15 = 0u;
-    r15 = (u32)(0x0035u << 16);
-    *(u32*)((u32)r15 + (s32)(9216)) = 0u;
-    return func_00178280(r4, r5, r6, r7);
-}
+u32 func_001d0ce8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001d0ce8: definition moved into src/anon/unit_001d0cb8.cpp
 
 u32 func_001d6d88(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001d6d88: definition moved into src/anon/unit_001d68e0.cpp
 
@@ -325,21 +230,9 @@ u32 func_002ba390(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_002ba330(r4, r5, r6, r7);
 }
 
-u32 func_002be3a8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r15 = 0u;
-    r5 = r4;
-    r15 = (u32)(0x0036u << 16);
-    r4 = *(u32*)((u32)r15 + (s32)(6140));
-    return func_002bdb58(r4, r5, r6, r7);
-}
+u32 func_002be3a8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002be3a8: definition moved into src/anon/unit_002be020.cpp
 
-u32 func_002be408(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r15 = 0u;
-    r5 = r4;
-    r15 = (u32)(0x0036u << 16);
-    r4 = *(u32*)((u32)r15 + (s32)(6140));
-    return func_002bdb70(r4, r5, r6, r7);
-}
+u32 func_002be408(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002be408: definition moved into src/anon/unit_002be020.cpp
 
 u32 func_002df140(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r15 = 0u;

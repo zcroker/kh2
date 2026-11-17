@@ -1223,38 +1223,7 @@ s32 func_001dbd68(N1c6460*);
 void func_001c5f90(N1c6460*);
 double func_00313b80(f32);
 s32 func_003142e0(double, double);
-void func_001c6460(N1c6460* n)
-{
-    if (func_001c5f38(n)) return;
-    if (func_001c5c08(n)) return;
-    V1c6460 d, p;
-    d = n->pos - D_00352a60;
-    d.y = 0.0f;
-    f32 dist = d.normalize();
-    if (n->cool) {
-        if (1400.0f < dist) n->cool = 1;
-        if (--n->cool == 0) n->active = 0;
-        return;
-    }
-    p = D_01d497f0 * n->pos;
-    if (p.z < 1000.0f && p.lengthSq() < 90000.0f) {
-        n->active = 0;
-        return;
-    }
-    if (__builtin_expect(n->active != 0, 1)) {
-        n->timer -= D_00349e10;
-        n->pos += d * D_00349e10 * -30.0f;
-        n->pos.w = 1.0f;
-        if (func_003142e0(func_00313b80(n->timer), 0.0) > 0) return;
-        func_001c6310(n);
-    } else if (860.0f < dist) {
-        n->pos = n->home + d * 12.0f * 30.0f;
-        n->timer = 12.0f;
-        n->active = 0x80;
-    } else if (400.0f < dist) {
-        if (func_001dbd68(n)) func_001c5f90(n);
-    }
-}
+void func_001c6460(N1c6460* n);  // 0x001c6460: definition moved into src/anon/unit_001c5b90.cpp
 }
 
 // --------------------
@@ -1367,46 +1336,7 @@ struct O193330 {
 void func_001b7c80(void*, Box193330*);
 s32 func_00180cd0(void*);
 void func_00144be0(Box193330*, V193330*);
-void func_00193330(O193330* o)
-{
-    Box193330 box;
-    V193330 t;
-    V193330 corners[8];
-    if (!o->shape) {
-        if (o->p2088) func_001b7c80(o->p2088, &o->world);
-    } else {
-        if (func_00180cd0((u8*)o + 320) && o->shape->kind() < 2) {
-            V193330 p, q;
-            o->shape->bounds(&p, &q);
-            box.minx = p.x;
-            box.miny = p.y;
-            box.minz = p.z;
-            box.maxx = q.x;
-            box.maxy = q.y;
-            box.maxz = q.z;
-        } else {
-            box = o->getLocal();
-            f32 r = o->shape->radius();
-            box.minx -= r;
-            box.miny -= r;
-            box.minz -= r;
-            box.maxx += r;
-            box.maxy += r;
-            box.maxz += r;
-        }
-        func_00144be0(&box, corners);
-        o->world.init(o->mtx * corners[0]);
-        for (s32 i = 1; i < 8; i++) {
-            t = o->mtx * corners[i];
-            if (t.x < o->world.minx) o->world.minx = t.x;
-            else if (o->world.maxx < t.x) o->world.maxx = t.x;
-            if (t.y < o->world.miny) o->world.miny = t.y;
-            else if (o->world.maxy < t.y) o->world.maxy = t.y;
-            if (t.z < o->world.minz) o->world.minz = t.z;
-            else if (o->world.maxz < t.z) o->world.maxz = t.z;
-        }
-    }
-}
+void func_00193330(O193330* o);  // 0x00193330: definition moved into src/anon/unit_00193038.cpp
 
 struct Alloc123e30 {
     virtual u8* alloc(u32 size, void* ra);

@@ -152,19 +152,7 @@ char* func_00192388(char*);  // skip_control_codes
 
 // ---- 0x196540: id -> message ----
 void func_001963c8(s32);
-void func_00196540(s32 id) {
-    switch (id) {
-    case 2232: func_001963c8(47); return;
-    case 4193: func_001963c8(30); return;
-    case 5151: func_001963c8(9); return;
-    case 6178:
-    case 6263: func_001963c8(31); return;
-    case 8227: func_001963c8(41); return;
-    case 10274: func_001963c8(38); return;
-    case 12306: func_001963c8(19); return;
-    case 16414: func_001963c8(16); return;
-    }
-}
+void func_00196540(s32 id);  // 0x00196540: definition moved into src/anon/unit_00195d00.cpp
 
 // ---- 0x1b90f0 ----
 s32 func_0016a080(void*);
@@ -195,38 +183,13 @@ static inline bool entry_busy(void* e) {
     if (func_001bcf18(e) || func_001bcf38(e)) b = true;
     return b;
 }
-s32 func_001bcd08(u8* p) {
-    void** s = (*(S2240**)(p + 4))->sp;
-    while (!entry_busy(*s)) {
-        if (*(s32*)((u8*)*s + 8) == 0) {
-            while (!((*(S2240**)(p + 4))->sp < s)) {
-                func_001bc720(*(*(S2240**)(p + 4))->sp);
-                func_001bd618(*(void**)(p + 4), 0);
-            }
-            func_002ba2e8(4, 0);
-            return 1;
-        }
-        s--;
-    }
-    return 0;
-}
+s32 func_001bcd08(u8* p);  // 0x001bcd08: definition moved into src/anon/unit_001bc568.cpp
 
 // ---- 0x1c91c8 ----
 void func_0017f488(void*, s32, f32, f32);
 void func_0017f5e0(void*, s32, s32, f32, f32);
 extern u8* D_00352130;
-void func_001c91c8(void* unused, u8* p) {
-    f32 tmp[4] __attribute__((aligned(16)));
-    f32* dst = (f32*)(p + 32);
-    f32 s = *(f32*)(*(u8**)(p + 300) + 36);
-    asm volatile("lqc2 $vf1, 0(%1)\n\tmfc1 $8, %2\n\tqmtc2 $8, $vf2\n\tvmulx.xyzw $vf1, $vf1, $vf2x\n\tsqc2 $vf1, 0(%0)" : : "r"(tmp), "r"(p + 16), "f"(s) : "$8", "memory");
-    if (dst != tmp)
-        asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(dst), "r"(tmp) : "$8", "memory");
-    *(u32*)(p + 268) = (*(u32*)(p + 268) | 0x10) & ~0x20;
-    func_0017f488(p + 320, 202, 0.0f, 0.0f);
-    func_0017f5e0(p + 320, 201, 0, 0.0f, 0.0f);
-    *(f32*)(p + 240) = *(f32*)(D_00352130 + 192);
-}
+void func_001c91c8(void* unused, u8* p);  // 0x001c91c8: definition moved into src/anon/unit_001c91c8.cpp
 
 // ---- 0x222080: allocates a node and links it at the head of a list ----
 u8* func_00221f98(u8*);
@@ -657,33 +620,8 @@ void func_00287df0(s32, s32, s32, s32, s32);
 void func_002cac40(s32);
 void func_002ca5b8(void*);
 void func_002ca0a8(void);
-void func_002ca4c0(u8* p) {
-    s32 a = func_00289380(*(void**)(p + 188));
-    func_00287df0(a, func_00289310(*(void**)(p + 188)), 0, 0, 1);
-    switch (a) {
-    case -2:
-        func_002cac40(4);
-        *(s32*)(p + 644) = 0;
-        func_002ca5b8(p);
-        break;
-    case -4:
-    case -1:
-        break;
-    default:
-        if (func_002891e8(*(void**)(p + 188)) == 0) {
-            func_002cac40(2);
-            *(s32*)(p + 644) = 1;
-            *(u32*)(p + 24) |= 1;
-            func_002ca5b8(p);
-            func_002ca0a8();
-        } else {
-            func_002cac40(2);
-            *(s32*)(p + 644) = 0;
-            func_002ca5b8(p);
-        }
-        break;
-    }
-}
+void func_002ca4c0(u8* p);  // 0x2ca4c0: moved to src/anon/unit_002ca0e0.cpp
+
 // ---- 0x1c3060: re-registers flagged ids (high bit set) from two slot tables ----
 void* func_001a80c8(u16);  // table24_find_by_id
 void func_001c3150(void*, u16);
@@ -711,13 +649,6 @@ static inline __attribute__((always_inline)) void slots_b(u8* p, u16* b) {
         }
     }
 }
-void func_001c3060(u8* p) {
-    O40* o = *(O40**)(p + 40);
-    u8* a = o->a;
-    u16* b = o->b;
-    slots_a(p, a, b);
-    slots_b(p, b);
-    func_001c35a0(p);
-}
+void func_001c3060(u8* p);  // 0x001c3060: definition moved into src/anon/unit_001c2b58.cpp
 
 }

@@ -18,23 +18,8 @@ u32 func_00112d90(u32* p) {
     return r;
 }
 
-void func_00172928(T218* t) {
-    u32 s = t->o[1];
-    V4 v;
-    u32 q = func_0016a020(s);
-    u32 z = t->z;
-    func_0019b0e8(&v, q, z, t->x, t->y);
-    func_0016ace0(s, &v);
-}
+void func_00172928(T218* t);  // 0x00172928: definition moved into src/anon/unit_00171e58.cpp
 
 void ctarget_001ae9a0(u8* p) asm("_Z16ctarget_001ae9a0jjjj");
-void ctarget_001ae9a0(u8* p) {
-    func_00185b00(p);
-    *(u32*)p = (u32)D_00350ce0;
-    *(u32*)(p + 1416) |= 0x400;
-    UF218* q = (UF218*)(p + 1648);
-    q[66].u = 0;
-    q[65].f = 2000.0f;
-    ((UF218*)(p + 2748))->u |= 0x8404;
-}
+void ctarget_001ae9a0(u8* p);  // 0x001ae9a0: definition moved into src/anon/unit_001ada38.cpp
 }

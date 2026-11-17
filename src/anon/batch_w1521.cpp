@@ -37,13 +37,6 @@ struct W1521Holder { s32 a, b; u8 sub[4]; };
 void func_002ee040(void*);
 void func_002ee0b0(void*, W1521Pos, W1521Col);
 extern W1521Holder* D_003617fc;
-void func_002be428(void* a0) {
-    if (D_003617fc == 0) {
-        func_001024a8(a0);
-        return;
-    }
-    func_002ee040(D_003617fc->sub);
-    func_002ee0b0(D_003617fc->sub, W1521Pos(0, 0), W1521Col(128, 128, 128, 128));
-}
+void func_002be428(void* a0);  // 0x002be428: definition moved into src/anon/unit_002be020.cpp
 
 }

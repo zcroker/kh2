@@ -51,12 +51,6 @@ extern "C" {
 extern s32 D_0033cc40;
 void func_00106c08(W2399A*);
 void func_00107118(W2399B*);
-void func_00107888(void)
-{
-    D_003a7d70[D_0033cc40] = D_003a7b70[D_0033cc40];
-    D_003a8090[D_0033cc40] = D_003a7f70[D_0033cc40];
-    func_00106c08(&D_003a7b70[D_0033cc40]);
-    func_00107118(&D_003a7f70[D_0033cc40]);
-}
+// 00107888: moved to src/naka/libkn/camera.cpp
 
 }

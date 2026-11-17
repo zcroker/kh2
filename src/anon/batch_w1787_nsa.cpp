@@ -9,17 +9,7 @@ void func_0013eb00(Obj13eeb8*);
 void func_001b7e68(Pkt13eeb8*, s32);
 void func_001b80d8(Pkt13eeb8*);
 void func_001b7f30(Pkt13eeb8*);
-void func_0013eeb8(Obj13eeb8* o) {
-    o->t.tag = (u64)o->c[0] | ((u64)o->c[1] << 8) | ((u64)o->c[2] << 16) | ((u64)o->c[3] << 24) | ((u64)1 << 32);
-    func_0013eb00(o);
-    Pkt13eeb8 k;
-    k.p = 0; k.b = 0; k.a = 0;
-    func_001b7e68(&k, 240);
-    Pkt13eeb8* pk = &k; u128* src = o->q;
-    for (s32 i = 14; i >= 0; i--) { *pk->p = *src++; pk->p++; }
-    func_001b80d8(&k);
-    func_001b7f30(&k);
-}
+void func_0013eeb8(Obj13eeb8* o);  // 0x0013eeb8: definition moved into src/anon/unit_0013dfb8.cpp
 
 /* 00236200 */
 extern u64 D_0035e3c0[6];

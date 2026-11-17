@@ -17,13 +17,7 @@ struct W1760C3 {
     W1760C3(int v) : r(v), g(v), b(v), q(v) {}
 };
 
-W1760C3* func_00196328(W1760C3* p, s32 i) {
-    new (p) W1760C3(0xffff);
-    p->r = D_01c61b04[i * 4 + 0];
-    p->g = D_01c61b04[i * 4 + 1];
-    p->b = D_01c61b04[i * 4 + 2];
-    return p;
-}
+W1760C3* func_00196328(W1760C3* p, s32 i);  // 0x00196328: definition moved into src/anon/unit_00195d00.cpp
 
 struct W1760S2 { u8 pad[0x6c]; s32 a; u64 b, c, d, e; };
 struct W1760S3 { u8 pad[0xc]; s32 a; u8 p2[0x24 - 0x10]; s32 b; u8 p3[4]; s32 c; };

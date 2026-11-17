@@ -37,25 +37,6 @@ typedef struct O2
 void *func_001c3748(u8, void *);
 s32 func_001c3888(void *);
 void func_002f1900(void *, s32, void *);
-void func_002bf8f0(O2 *p)
-{
-  O2 *new_var;
-  void *e;
-  if (p->kind < 2)
-  {
-    return;
-  }
-  e = 0;
-  while ((e = func_001c3748(p->q->b4, e)) != 0)
-  {
-    if (func_001c3888(e))
-    {
-      new_var = p;
-      func_002f1900(p->w, 4, new_var);
-      return;
-    }
-  }
-
-}
+void func_002bf8f0(O2 *p);  // 0x002bf8f0: definition moved into src/anon/unit_002bebd0.cpp
 
 }

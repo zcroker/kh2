@@ -126,21 +126,6 @@ extern W1980ColList80 D_01e2bfb0;
 
 s32 func_001a0920(W1980Ent81*, void*);
 s32 func_001a0800(W1980Ent81*, void*, W1980Tgt81*, f32, f32, f32);
-void func_001cdbc8(W1980Self81* self, W1980Tgt81* t, s32 kind) {
-    W1980V81 d;
-    d = t->pos - self->pos;
-    f32 dy = d.y;
-    d.y = 0;
-    f32 h = d.normalize() - t->h;
-    if (h < 0.0f) h = 0.0f;
-    f32 c = d.dot(self->dir) < 1.0f ? d.dot(self->dir) : 1.0f;
-    s32 i;
-    for (i = 0; i < self->list->count; i++) {
-        if (self->list->e[i].kind == kind && func_001a0920(&self->list->e[i], self->ctx)) {
-            if (func_001a0800(&self->list->e[i], self->ctx, t, h, dy, c)) {
-                self->bits.set(i);
-            }
-        }
-    }
-}
+// 001cdbc8: moved to src/anon/unit_001cd660.cpp
+void func_001cdbc8(W1980Self81* self, W1980Tgt81* t, s32 kind);
 }

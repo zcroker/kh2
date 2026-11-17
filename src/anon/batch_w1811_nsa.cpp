@@ -36,16 +36,7 @@ extern "C" {
 W1811V func_00190388(W1811Tgt*);
 W1811V func_0017d348(W1811V*, W1811V*, f32);
 
-void func_001c6760(W1811Part* o) {
-    o->vel.x *= 0.95f;
-    o->vel.z *= 0.95f;
-    f32 y = o->vel.y + D_00349e10 * 0.41666666f;
-    o->vel.y = (30.0f < y) ? 30.0f : y;
-    o->pos += o->vel * D_00349e10;
-    f32 tm = o->vel.w;
-    if (tm < 4.0f) o->alpha = (s32)(tm * 0.25f * 128.0f);
-    o->vel.w = tm - D_00349e10;
-}
+void func_001c6760(W1811Part* o);  // 0x001c6760: definition moved into src/anon/unit_001c5b90.cpp
 
 void func_002ed630(W1811Homer* o) {
     if ((o->flags & 1) == 1) {

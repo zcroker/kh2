@@ -31,18 +31,4 @@ void func_00102670(W2374Link*, s32);
 }
 
 // 001393f8: destroy every object in the owner's list that has flag bit 0 set.
-void func_001393f8(int a)
-{
-    W2374Owner* o = (W2374Owner*)a;
-    W2374Obj* n = (W2374Obj*)o->list.head;
-    while (n) {
-        W2374Obj* next = n->next;
-        s32 m = n->flags & 1;
-        if (m) {
-            o->list.Remove((W2374Link*)n);
-            func_00102670(o->h, n->id);
-            (*n->vt[0])(n);
-        }
-        n = next;
-    }
-}
+void func_001393f8(int a);  // 0x001393f8: definition moved into src/anon/unit_001393c8.cpp

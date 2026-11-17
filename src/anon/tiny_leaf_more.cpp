@@ -28,42 +28,11 @@ void func_00132cb8(u32 a0, u32 a1, u32 a2, u32 a3) {
 
 u32 func_0013dce8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0013dce8: definition moved into src/anon/unit_0013a8b8.cpp
 
-u32 func_0018ac80(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u, r14 = 0u, r15 = 0u;
-    r15 = (u32)(r5 >> 5);
-    r14 = (u32)((s32)0u + (1));
-    r15 = (u32)(r15 << 2);
-    r5 = (u32)(r5 & 0x001fu);
-    r4 = (u32)(r4 + r15);
-    r14 = (u32)(r14 << (r5 & 31));
-    r2 = *(u32*)((u32)r4 + (s32)(2820));
-    r2 = (u32)(r2 & r14);
-    r2 = ((u32)0u < (u32)r2);
-    return r2;
-}
+u32 func_0018ac80(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0018ac80: definition moved into src/yasui/libys/npc.cpp
 
-u32 func_0019f550(u32 a0, u32 a1, u32 a2, u32 a3) {  // test_bit_addressable
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u, r14 = 0u, r15 = 0u;
-    r15 = (u32)(r5 >> 5);
-    r14 = (u32)((s32)0u + (1));
-    r15 = (u32)(r15 << 2);
-    r5 = (u32)(r5 & 0x001fu);
-    r4 = (u32)(r4 + r15);
-    r14 = (u32)(r14 << (r5 & 31));
-    r2 = *(u32*)((u32)r4 + (s32)(4));
-    r2 = (u32)(r2 & r14);
-    r2 = ((u32)0u < (u32)r2);
-    return r2;
-}
+u32 func_0019f550(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0019f550: definition moved into src/anon/unit_0019ee80.cpp
 
-u32 func_0019ff78(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u, r15 = 0u;
-    r15 = *(u32*)((u32)r4 + (s32)(24));
-    r4 = (u32)(r4 + r15);
-    if (r15 == 0u) r4 = 0u;
-    r2 = r4;
-    return r2;
-}
+u32 func_0019ff78(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0019ff78: definition moved into src/anon/unit_0019fb70.cpp
 
 u32 func_0021e9a8(u32 a0, u32 a1, u32 a2, u32 a3) {  // select_vif_regs
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u, r13 = 0u, r14 = 0u, r15 = 0u;
@@ -79,10 +48,4 @@ u32 func_0021e9a8(u32 a0, u32 a1, u32 a2, u32 a3) {  // select_vif_regs
     return r2;
 }
 
-u32 func_002bc978(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u, r15 = 0u;
-    r15 = *(u32*)((u32)r4 + (s32)(16));
-    r2 = (u32)((s32)0u + (1));
-    if (r15 != 0u) r2 = r15;
-    return r2;
-}
+u32 func_002bc978(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002bc978: definition moved into src/anon/unit_002bc978.cpp

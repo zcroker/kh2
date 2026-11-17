@@ -49,48 +49,6 @@ V func_0016af58(Self*);
 V func_0017d538(const V&, f32);
 f32 func_0018cb30(Tgt*);
 
-void func_001cf0d8(Self* self, Tgt* t)
-{
-    V n;
-    V d;
-    n = Cross(func_0016af58(self), t->v);
-    switch (t->info->kind) {
-    case 0:
-        mo488_w2046(&self->mot, 30, 0.0f, 0.0f);
-        mopush_w2046(&self->mot, 0, 0.0f, 0.0f, 0);
-        break;
-    case 1: {
-        s32 id = motIdB(&self->mot);
-        Mot* m = &self->mot;
-        f32 k;
-        if (0.0f < n.y) {
-            k = 1.5707964f;
-            mo488_w2046(m, 32, 0.0f, 0.0f);
-            id++;
-        } else {
-            k = -1.5707964f;
-            mo488_w2046(m, 31, 0.0f, 0.0f);
-        }
-        d = func_0017d538(func_0016af58(self), k);
-        ct186a90_w2046(self, &d, func_0018cb30(t));
-        if (self->flags & 4) {
-            if (ct19ba60_w2046(self->party)) {
-                f16ac38_w2046(self->party, id, 1, 0, 0);
-            }
-        }
-        mopush_w2046(m, 0, 0.0f, 0.0f, 0);
-        break;
-    }
-    case 2:
-        mo488_w2046(&self->mot, 16, 0.0f, 0.0f);
-        mopush_w2046(&self->mot, 0, 0.0f, 0.0f, 0);
-        break;
-    case 3:
-        if (0.0f < n.y) mo488_w2046(&self->mot, 33, 0.0f, 0.0f);
-        else mo488_w2046(&self->mot, 34, 0.0f, 0.0f);
-        mopush_w2046(&self->mot, 0, 0.0f, 0.0f, 0);
-        break;
-    }
-}
+void func_001cf0d8(Self* self, Tgt* t);  // 0x001cf0d8: definition moved into src/anon/unit_001cf0b0.cpp
 }
 }

@@ -77,12 +77,7 @@ static inline W1825QV w1825_hermite(const W1825QV& p0, const W1825QV& m0, const 
     return p0 * h00 + p1 * h01 + m0 * h10 + m1 * h11;
 }
 extern "C" {
-W1825QV func_002cb938(f32 t, W1825Hermite* c)
-{
-    W1825QV r = w1825_hermite(c->p0, c->m0, c->p1, c->m1, t - c->m0.w);
-    r.w = 1.0f;
-    return r;
-}
+W1825QV func_002cb938(f32 t, W1825Hermite* c);  // 0x002cb938: definition moved into src/taito/path.cpp
 }
 
 // 00186ec0
@@ -115,25 +110,8 @@ static inline bool w1825_dead(void* p)
     return r;
 }
 extern "C" {
-void func_001cd690(W1825Slot* s, u32 val, void* obj)
-{
-    W1825Slot* e;
-    s32 i;
-    W1825Slot* found;
-    for (i = 7, e = s; i >= 0; i--, e++) {
-        if (!w1825_dead(e->obj)) {
-            if (!func_0019ba60(e->obj)) e->obj = 0;
-        }
-    }
-    if (!func_0019ba60(obj)) return;
-    found = 0;
-    for (i = 0; i < 8; i++) {
-        if (s[i].obj == obj) { found = &s[i]; break; }
-        if (w1825_dead(s[i].obj)) found = &s[i];
-    }
-    found->val = val;
-    found->obj = obj;
-}
+// 001cd690: moved to src/anon/unit_001cd660.cpp
+void func_001cd690(W1825Slot* s, u32 val, void* obj);
 }
 
 // 001871c8

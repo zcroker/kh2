@@ -99,41 +99,7 @@ void SEQUENCE_dtor(u8*) asm("_ZN2YI8SEQUENCED1Ev");
 void func_0023c098(u8*);  // set_vtbl_36eae8_then_call
 void func_002369f0(u8*);  // set_vtbl_36eac8_then_call
 typedef void (*VF12)(u8*);
-void func_002c1200(u8* p) {
-    u8* e;
-    *(u8**)p = D_00361aa0;
-    CACHE_BUFF_Free(*(void**)(p + 188));
-    D_00361a90 = (D_00361a90 == p) ? 0 : D_00361a90;
-    if (p + 2232) {
-        e = p + 3048;
-    L1:
-        if (p + 2232 != e) {
-            e -= 408;
-            (*(VF12*)(*(u8**)e + 12))(e);
-            goto L1;
-        }
-    }
-    e = p + 1824;
-    *(u8**)(p + 1824) = D_00347e60;
-    SEQUENCE_dtor(p + 1848);
-    *(u8**)(p + 1824) = D_00347f98;
-    if (p + 600) {
-    L2:
-        if (p + 600 != e) {
-            e -= 408;
-            (*(VF12*)(*(u8**)e + 12))(e);
-            goto L2;
-        }
-    }
-    *(u8**)(p + 192) = D_00347e60;
-    SEQUENCE_dtor(p + 216);
-    *(u8**)(p + 192) = D_00347f98;
-    *(u8**)(p + 28) = D_0035eb98;
-    func_0023c098(p + 76);  // set_vtbl_36eae8_then_call
-    func_002369f0(p + 52);  // set_vtbl_36eac8_then_call
-    *(u8**)(p + 28) = D_00347f98;
-    *(u8**)(p + 0) = D_00347f98;
-}
+void func_002c1200(u8* p);  // 0x002c1200: definition moved into src/anon/unit_002c10e0.cpp
 
 void Aabbox_init(Box3w258*) asm("_ZN2dk6Aabbox4initEv");
 void func_0016ac38(u8*, s32, s32, s32, s32);
@@ -162,20 +128,5 @@ void func_002de3e0(u8* p) {
 f32 func_002ce2a0(Rail258*, s32*, f32*, u32);
 Seg258* func_002cb890(Rail258*, s32);  // hash_bucket_get
 f32 wtarget_002ce598(Rail258* p, u32 a1) asm("_Z16wtarget_002ce598jjjj");
-f32 wtarget_002ce598(Rail258* p, u32 a1) {
-    s32 i;
-    f32 fr;
-    V4w258* pa = &p->a0;
-    f32 r = func_002ce2a0(p, &i, &fr, a1);
-    Seg258* s = func_002cb890(p, i);  // hash_bucket_get
-    *pa = s->a;
-    p->b0 = s->b;
-    V4w258* pb = &p->a1;
-    s = func_002cb890(p, (i + 1) % p->n);  // hash_bucket_get
-    *pb = s->a;
-    p->b1 = s->b;
-    p->f18 = (f32)i + fr;
-    p->f28 = (*pb - *pa).len();
-    return r;
-}
+f32 wtarget_002ce598(Rail258* p, u32 a1);  // 0x002ce598: definition moved into src/taito/path.cpp
 }

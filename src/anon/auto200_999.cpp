@@ -114,15 +114,7 @@ static inline u32 addr_D_00350e60() { return (u32)&D_00350e60; }
 
 // 00135e10: moved to src/naka/libkn/effect_observer.cpp
 
-u32 func_0013e900(u32 a0) {
-    u32 s0 = a0;
-    ((u32 (*)(u32))func_0014b150)(a0);
-    *(u32 *)(s0 + 272) = 0;
-    *(u32 *)(s0 + 276) = 0;
-    *(u32 *)s0 = (u32)&D_003486f0;
-    *(u32 *)(s0 + 280) = 0;
-    return ((u32 (*)(u32))func_0013e940)(s0);
-}
+u32 func_0013e900(u32 a0);  // 0x0013e900: definition moved into src/anon/unit_0013dfb8.cpp
 
 void func_0015cb18(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6,
                    u32 a7) {
@@ -149,28 +141,7 @@ void dk_MapColor_getOnColorTable(u32 a0, u32 a1) {
 u32 func_001570a0(u8 *a0);
 
 u32 func_001665d8(u32 a0, u32 *a1, u32 *a2, u32 *a3, u32 *a4, u32 *a5,
-                  u32 *a6) {
-    register u32 p asm("$13") = a0 + 16;
-    asm volatile("" : "+r"(p));
-    register u32 v15 asm("$15") = *(u16 *)(p + 20);
-    *a1 = v15;
-    asm volatile("" : "+r"(p));
-    v15 = *(u16 *)(p + 22);
-    *a2 = v15;
-    asm volatile("" : "+r"(p));
-    register u32 v14 asm("$14") = *(u32 *)(p + 24);
-    *a3 = v14;
-    asm volatile("" : "+r"(p));
-    v15 = *(u32 *)(p + 32);
-    *a4 = v15;
-    asm volatile("" : "+r"(p));
-    v14 = *(u32 *)(a0 + 16);
-    *a5 = v14;
-    asm volatile("" : "+r"(p));
-    v15 = *(u32 *)(p + 4);
-    *a6 = v15;
-    return *(u32 *)(p + 40);
-}
+                  u32 *a6);  // 0x001665d8: definition moved into src/anon/unit_001664c0.cpp
 
 u32 func_00170e18();  // 0x00170e18: definition moved into src/anon/unit_0016e8f8.cpp
 
@@ -295,15 +266,7 @@ void func_0014bb00(u32 a0, u32 a1, u32 a2, u32 a3, u32 t0) {
     *(volatile u16 *)(a0 + 324) = a3;
 }
 
-void func_0014dd60(u32 a0, u32 a1, u32 a2, u32 a3) {  // store_3bytes_470
-    a1 &= 0xff;
-    a2 &= 0xff;
-    a3 &= 0xff;
-    asm volatile("" : "+r"(a1), "+r"(a2), "+r"(a3));
-    *(volatile u8 *)(a0 + 470) = a1;
-    *(volatile u8 *)(a0 + 472) = a3;
-    *(volatile u8 *)(a0 + 471) = a2;
-}
+// 0014dd60: moved to src/anon/unit_0014d680.cpp
 
 // 001493b8: moved to src/harata/libdk/mapfile.cpp
 
@@ -317,45 +280,13 @@ u32 func_0018f010(u32 a0);  // 0x0018f010: definition moved into src/anon/unit_0
 
 // 00192498: moved to src/yasui/libys/message.cpp
 
-u32 ctarget_00189200(u32 a0, u32 a1, u32, u32) {
-    if (a1 - 1 < 10) {
-        return a0 + a1 * 56 + 3532;
-    }
-    return 0;
-}
+u32 ctarget_00189200(u32 a0, u32 a1, u32, u32);  // 0x00189200: definition moved into src/anon/unit_00188848.cpp
 
-u32 func_001977d8() {
-    u32 p = D_0035037c;
-    u32 ret = 0;
-    if (p != 0) {
-        u32 v = *(u32 *)p;
-        v &= 1;
-        ret = v != 0;
-    }
-    return ret;
-}
+u32 func_001977d8();  // 0x001977d8: definition moved into src/anon/unit_00195d00.cpp
 
-u32 func_00197800() {
-    u32 p = D_0035037c;
-    u32 ret = 0;
-    if (p != 0) {
-        u32 v = *(u32 *)p;
-        v &= 2;
-        ret = v != 0;
-    }
-    return ret;
-}
+u32 func_00197800();  // 0x00197800: definition moved into src/anon/unit_00195d00.cpp
 
-u32 func_001bf140(u32 a0, u32 a1) {
-    u32 ret = 0;
-    if (a1 != 0) {
-        u32 v = *(u32 *)(a0 + 2736);
-        u32 mask = 1u << a1;
-        v &= mask;
-        ret = v != 0;
-    }
-    return ret;
-}
+u32 func_001bf140(u32 a0, u32 a1);  // 0x001bf140: definition moved into src/anon/unit_001bc568.cpp
 
 f32 func_0016a0a0(u32 a0) {
     u32 p = (u32)&D_0036c1a0;
@@ -392,22 +323,7 @@ u32 func_00187e20(u32 a0);
 // 0018ca10: moved to src/yasui/libys/damage.cpp
 
 void YS_TARGET_free(u32 a0) asm("_ZN2YS6TARGET4freeEv");
-void YS_TARGET_free(u32 a0) {
-    register u32 base asm("$12") = (u32)&D_01c60d50;
-    register u32 magic asm("$13") = 0xcccccccd;
-    a0 -= base;
-    asm volatile("" : "+r"(a0), "+r"(base));
-    register u32 count asm("$15") = *(u32 *)(base + 3072);
-    asm volatile("" : "+r"(count), "+r"(a0));
-    a0 = (s32)a0 >> 2;
-    a0 *= magic;
-    asm volatile("" : "+r"(a0), "+r"(count));
-    register u32 off asm("$14") = count << 2;
-    count += 1;
-    off += base;
-    *(u32 *)(base + 3072) = count;
-    *(u32 *)(off + 2560) = a0;
-}
+void YS_TARGET_free(u32 a0);  // 0x00190840: definition moved into src/anon/unit_001900d0.cpp
 
 namespace Tz {
 u32 MenuSound::GetSeId(s32 se) {
@@ -423,49 +339,11 @@ u32 MenuSound::GetSeId(s32 se) {
 
 // 0017d130: moved to src/anon/unit_0017c400.cpp
 
-u32 func_0019f528(u32 a0, u32 a1) {  // test_bit_by_index
-    register u32 word asm("$14") = a1 >> 5;
-    register u32 mask asm("$15") = 1;
-    word <<= 2;
-    a1 &= 0x1f;
-    word += a0;
-    mask <<= a1;
-    u32 v = *(u32 *)word;
-    v &= mask;
-    return v != 0;
-}
+u32 func_0019f528(u32 a0, u32 a1);  // 0x0019f528: definition moved into src/anon/unit_0019ee80.cpp
 
-u32 func_0019f5a8(u32 a0) {
-    u32 end = a0 + 96;
-    u32 ret = a0;
-    do {
-        if (*(u32 *)a0 == 0) {
-            return ret;
-        }
-        a0 += 12;
-        if ((s32)a0 >= (s32)end) {
-            return 0;
-        }
-        ret = a0;
-    } while (1);
-}
+u32 func_0019f5a8(u32 a0);  // 0x0019f5a8: definition moved into src/anon/unit_0019ee80.cpp
 
-u32 func_0019c498(u32 a0) {
-    register u32 p asm("$14") = *(u32 *)(a0 + 12);
-    register u32 v asm("$15") = *(u32 *)(p + 8);
-    v &= 0x80;
-    u32 ret = 0;
-    if (v != 0) {
-        v = *(u32 *)(a0 + 352);
-        v &= 0x4000;
-        if (v == 0) {
-            v = *(u32 *)(a0 + 360);
-            v &= 2;
-            ret = v < 1;
-        }
-    }
-    return ret;
-}
+u32 func_0019c498(u32 a0);  // 0x0019c498: definition moved into src/anon/unit_0019ba60.cpp
 
 u32 func_001aa6f0(u32 a0, u32 a1) {
     register u32 scale asm("$13") = *(u8 *)(a0 + 63);
@@ -503,30 +381,11 @@ u32 func_002943b0(u32 a0) {  // test_bit_global_array
     return v;
 }
 
-u32 ctarget_0019c440(u32 a0, u32, u32, u32) {
-    register u32 p asm("$14") = *(u32 *)(a0 + 8);
-    register u32 v asm("$15") = *(u16 *)(p + 72);
-    v >>= 5;
-    v &= 1;
-    v &= 0xff;
-    asm volatile("" : "+r"(v));
-    u32 ret = 0;
-    if (v != 0) {
-        v = *(u8 *)(a0 + 2268);
-        v ^= 1;
-        ret = v < 1;
-    }
-    return ret;
-}
+u32 ctarget_0019c440(u32 a0, u32, u32, u32);  // 0x0019c440: definition moved into src/anon/unit_0019ba60.cpp
 
 u32 func_001d7f10(u32 a0);  // 0x001d7f10: definition moved into src/anon/unit_001d7458.cpp
 
-void func_001c7ee0() {
-    u32 p = D_00351d98;
-    if (p != 0) {
-        func_001c1708(*(u32 *)(p + 2548));
-    }
-}
+// 0x1c7ee0: moved to src/anon/unit_001c7bc8.cpp
 
 // 001badd8: YS::MISSION::Prepare, moved to src/anon/unit_001ba7e0.cpp
 
@@ -548,73 +407,24 @@ void func_001f0868(u32 a0, u32 a1) {
 
 // 00190128: YS::TARGET::TARGET(), moved to src/yasui/libys/target.cpp
 
-void func_00194668(u32 a0) {
-    u32 v0 = *(u32 *)(a0 + 268);
-    u32 v1 = *(u32 *)(a0 + 1896);
-    v0 &= 0xffffffbf;
-    *(u32 *)(a0 + 1936) = 0;
-    v1 &= 0xffffefff;
-    *(u32 *)(a0 + 268) = v0;
-    *(u32 *)(a0 + 1896) = v1;
-}
+void func_00194668(u32 a0);  // 0x00194668: definition moved into src/anon/unit_00193be8.cpp
 
 u32 YS_OBJ_get_draw_color(u32) asm("_ZN2YS3OBJ14get_draw_colorEv");
-u32 YS_OBJ_get_draw_color(u32 a0) {
-    u32 flag = *(u32 *)(a0 + 1416);
-    u32 alt = a0 + 1880;
-    flag &= 0x20000000;
-    a0 += 2236;
-    if (flag == 0) {
-        a0 = alt;
-    }
-    return a0;
-}
+u32 YS_OBJ_get_draw_color(u32 a0);  // 0x001946f0: definition moved into src/anon/unit_00193be8.cpp
 
-u32 func_001949d0() {
-    u32 ret = 0;
-    if (D_01c61af4 != 0) {
-        ret = D_01c61af5 < 1;
-    }
-    return ret;
-}
+u32 func_001949d0();  // 0x001949d0: definition moved into src/anon/unit_00194790.cpp
 
-void func_001963c8(u32 a0) {
-    u32 idx = a0 >> 5;
-    u32 *p = (u32 *)((u8 *)&D_0032da20 + (idx << 2));
-    a0 &= 31;
-    u32 val = *p;
-    u32 mask = 1u << a0;
-    *p = val | mask;
-}
+void func_001963c8(u32 a0);  // 0x001963c8: definition moved into src/anon/unit_00195d00.cpp
 
 // 00198e70: moved to src/anon/unit_00198e40.cpp
 
 // 00198ea8: moved to src/anon/unit_00198e40.cpp
 
-void func_0019f490(u32 a0, u32 a1) {
-    u32 idx = a1 >> 5;
-    u32 mask = 1;
-    idx <<= 2;
-    a1 &= 31;
-    a0 += idx;
-    mask <<= a1;
-    u32 val = *(u32 *)a0;
-    *(u32 *)a0 = val | mask;
-}
+void func_0019f490(u32 a0, u32 a1);  // 0x0019f490: definition moved into src/anon/unit_0019ee80.cpp
 
-void func_001a1c70(u32 a0) {
-    u8 v = *(u8 *)(a0 + 434);
-    *(u8 *)(a0 + 432) = 100;
-    *(u8 *)(a0 + 433) = v;
-    *(u32 *)(a0 + 436) = 0;
-    *(u32 *)(a0 + 440) = 0;
-}
+void func_001a1c70(u32 a0);  // 0x001a1c70: definition moved into src/anon/unit_0019fb70.cpp
 
-void func_001a1d40(u32 a0, f32 f12) {
-    *(u32 *)(a0 + 384) = 0;
-    *(f32 *)(a0 + 448) = f12;
-    *(f32 *)(a0 + 444) = f12;
-}
+void func_001a1d40(u32 a0, f32 f12);  // 0x001a1d40: definition moved into src/anon/unit_0019fb70.cpp
 
 // 001a3888: moved to src/anon/unit_001a2a50.cpp
 
@@ -684,15 +494,7 @@ void func_00287d08() {
     D_0035f310 = 0xffffffff;
 }
 
-void func_002c5628(u32 a0) {
-    u32 v1 = *(u32 *)(a0 + 264);
-    u32 v2 = *(u32 *)(a0 + 268);
-    v1 &= 0xfffffffdu;
-    v1 &= 0xffffffbfu;
-    v2 &= 0xfffffeffu;
-    *(u32 *)(a0 + 264) = v1;
-    *(u32 *)(a0 + 268) = v2;
-}
+void func_002c5628(u32 a0);  // 0x002c5628: definition moved into src/anon/unit_002c53c8.cpp
 
 void func_003191d0(u32 a0, u32 a1, u64 a2) {
     a1 <<= 2;
@@ -701,13 +503,7 @@ void func_003191d0(u32 a0, u32 a1, u64 a2) {
     *(u64 *)p = a2;
 }
 
-void func_001c6c60(u32 a0) {
-    s32 t7 = 0x001c0000;
-    *(volatile u8 *)(a0 + 21) = 0;
-    asm volatile("" : "+r"(t7)::"memory");
-    t7 += 27176;
-    *(u32 *)(a0 + 84) = t7;
-}
+void func_001c6c60(u32 a0);  // 0x001c6c60: definition moved into src/anon/unit_001c6c60.cpp
 
 void func_001e0dc8(u32 a0) {
     u32 idx = *(u32 *)(a0 + 32);
@@ -766,41 +562,17 @@ class RectBase {
     void setGsUV(u64, u64);
 };
 
-void Pause::disable(s32 a0) {
-    u32 mask = 1u << a0;
-    D_00347e08 |= mask;
-}
+// 0x00138480: definition moved into src/anon/unit_00138480.cpp
 
-void Ft4Base::setGsUV(u64 a0, u64 a1, u64 a2, u64 a3) {
-    *(volatile u64 *)((u8 *)this + 208) = a0;
-    *(volatile u64 *)((u8 *)this + 256) = a3;
-    *(volatile u64 *)((u8 *)this + 224) = a1;
-    *(volatile u64 *)((u8 *)this + 240) = a2;
-}
+// 0x0013ee40: definition moved into src/anon/unit_0013dfb8.cpp
 
-void ObjCamera::returnMode() {
-    if (*(u8 *)((u8 *)this + 59) != 0) {
-        *(u32 *)((u8 *)this + 64) = 2;
-        return;
-    }
-    *(u32 *)((u8 *)this + 64) = 0;
-}
+// 0x00140dd0: definition moved into src/anon/unit_0013fca8.cpp
 
 // 0014b5e8: moved to src/harata/libdk/rect.cpp
 } // namespace dk
 
 void func_0019f4b8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6,
-                   u32 a7) {
-    u32 idx = a1 >> 5;
-    a0 += 4;
-    idx <<= 2;
-    a1 &= 31;
-    a0 += idx;
-    u32 val = *(u32 *)a0;
-    u32 mask = 1u << a1;
-    val |= mask;
-    *(u32 *)a0 = val;
-}
+                   u32 a7);  // 0x0019f4b8: definition moved into src/anon/unit_0019ee80.cpp
 
 void func_001a98e8(u32 *a0, u32 a1, u32 a2, u32 a3, u32 a4) {
     a0[0] = 0;
@@ -864,14 +636,8 @@ u32 WORLDFLAG::Check(s32 a0) {
 }
 } // namespace YS
 
-u32 func_001c09c0(u32 a0) {
-    u32 idx = a0 >> 5;
-    u32 *p = (u32 *)((u8 *)&D_0032f234 + (idx << 2));
-    u32 bit = a0 & 31;
-    u32 val = *p;
-    u32 mask = 1u << bit;
-    return (val & mask) != 0;
-}
+// 001c09c0: moved to src/anon/unit_001c0638.cpp
+u32 func_001c09c0(u32 a0);
 
 u32 func_001d5668(u32 a0);  // 0x001d5668: definition moved into src/anon/unit_001d4f40.cpp
 
@@ -927,24 +693,7 @@ void func_00257000() {
     } while (c < 2);
 }
 
-void func_002bcf58(u32 *a0) {
-    u32 thirty = 30;
-    u32 neg1 = 0xFFFFFFFF;
-    a0[82] = thirty;
-    s32 i = 13;
-    a0 = (u32 *)((u8 *)a0 + 132);
-    u32 *base = (u32 *)&D_003616f8;
-    u32 *src = (u32 *)((u8 *)base + 44);
-    do {
-        u32 v = src[0];
-        i -= 1;
-        a0[0] = v;
-        src = (u32 *)((u8 *)src + 4);
-        a0[1] = neg1;
-        a0[2] = 0;
-        a0 = (u32 *)((u8 *)a0 + 12);
-    } while (i >= 0);
-}
+void func_002bcf58(u32 *a0);  // 0x002bcf58: definition moved into src/anon/unit_002bc978.cpp
 
 void func_0031e2c8(u32 a0, u32 a1) {
     u32 t7 = *(u32 *)a0;

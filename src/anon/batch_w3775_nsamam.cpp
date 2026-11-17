@@ -25,40 +25,7 @@ static inline bool skf(Tree* t, s32* f) {
   return sk;
 }
 
-void func_00141c38(Tree* t, s32 n, void* box, u16* cnt, s32 arg) {
-  TNode* nd = &t->nodes[n];
-  if (!func_00145580(nd->box, box)) return;
-   
-  s32 ne = nd->end;
-  for (s32 i = nd->first; i < ne; i++) {
-    TItem* it = &t->items[i];
-    if (it->on && func_00145580(it, box)) {
-      s32 end = it->hi;
-      for (s32 j = it->lo; j < end; j++) {
-        TLeaf* lf = &t->leafs[j];
-        s32* f = &t->flags[lf->idx];
-        if (okf(t, f)) {
-          if (skf(t, f) || func_0031b940(t, arg, f)) {
-            if (lf->c == 0xffff || func_00145580(&t->boxes[lf->c], box)) {
-              if (*cnt >= 1023) return;
-              t->out[*cnt] = j;
-              (*cnt)++;
-            }
-          }
-        }
-      }
-    }
-  }
-  asm("" : : "r"(nd));
-  s16* c = nd->child;
-  s32 m;
-  for (m = 0; m < 8; m++) {
-    s32 k = *c++;
-    if (k == -1) return;
-    func_00141c38(t, k, box, cnt, arg);
-  }
-    asm("" : : "r"(ne));
-}
+void func_00141c38(Tree* t, s32 n, void* box, u16* cnt, s32 arg);  // 0x00141c38: definition moved into src/anon/unit_00141458.cpp
 }
 
 // 0020ab48: effect emitter update (advance animation frames, spawn new parts).

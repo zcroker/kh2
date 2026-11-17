@@ -28,11 +28,11 @@ s32 func_00133718(void* self) { return (s32)(*(s32*)((char*)self + 24)); }
 
 void func_0013b258(void* self, s32 v);  // 0x0013b258: definition moved into src/anon/unit_0013a8b8.cpp
 
-f32 func_0013edd8(void* self) { return (f32)(*(f32*)((char*)self + 272)); }
+f32 func_0013edd8(void* self);  // 0x0013edd8: definition moved into src/anon/unit_0013dfb8.cpp
 
-void func_0013ee30(void* self, s64 v) { *(s64*)((char*)self + 112) = v; }
+void func_0013ee30(void* self, s64 v);  // 0x0013ee30: definition moved into src/anon/unit_0013dfb8.cpp
 
-void func_0013fd88(void* self) { *(s32*)((char*)self + 196) = 0; }
+void func_0013fd88(void* self);  // 0x0013fd88: definition moved into src/anon/unit_0013fca8.cpp
 
 void func_00146070(void* self, s32 v) { *(s32*)((char*)self + 28) = v; }
 
@@ -78,7 +78,7 @@ s64 func_0014ca78(s64 param0, s64 param1, s64 param2, s64 param3) {
 
 void func_0014cf80(void* self) {}
 
-void func_0014dd10(void* self) {}
+// 0014dd10: moved to src/anon/unit_0014d680.cpp
 
 void func_0014f1f8(void* self) {}
 
@@ -88,13 +88,13 @@ void func_00161540(void* self, s32 v) { *(s32*)((char*)self + 64) = v; }
 
 // 0017ebe8: moved to src/yasui/libys/motion.cpp
 
-void func_0018b008(void* self) {}
+void func_0018b008(void* self);  // 0x0018b008: definition moved into src/yasui/libys/npc.cpp
 
 // 00198e40: moved to src/anon/unit_00198e40.cpp
 
 // 00198e48: moved to src/anon/unit_00198e40.cpp
 
-void func_001b24c0(void* self) {}
+// 001b24c0: moved to src/anon/unit_001b1d20.cpp
 
 // 001d3388: moved to src/anon/unit_001d30b0.cpp
 
@@ -102,7 +102,7 @@ void func_001b24c0(void* self) {}
 
 void func_001d5458(void* self);  // 0x001d5458: definition moved into src/anon/unit_001d4f40.cpp
 
-s32 func_001dc5f0(void* self) { return (s32)(*(s32*)((char*)self + 20)); }
+s32 func_001dc5f0(void* self);  // 0x001dc5f0: definition moved into src/anon/unit_001dbfd8.cpp
 
 void func_001e0370(void* self) {}
 

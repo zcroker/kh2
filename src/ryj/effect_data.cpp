@@ -1,7 +1,3 @@
 #include "effect_data.hpp"
 
-namespace ryj {
-
-
-void EFFECT_DATA::set(void* v) { reinterpret_cast<EFFECT_DATA_Layout*>(this)->value = v; }
-}  // namespace ryj
+// 0x001dc010 EFFECT_DATA::set: definition moved into src/anon/unit_001dbfd8.cpp

@@ -124,26 +124,11 @@ u8* wtarget_001337f0(u32 a, u32 n, u32 c, u32) {
     return v + 16;
 }
 
-void func_00138140(void) {
-    func_001398d0(13);
-    func_001397d8(13);
-    G347* p = D_00347d64.p;
-    p->f20 = 1;
-    p->f30 = 0;
-    p->f34 = 0;
-    G347* q = D_00347d64.p;
-    q->f29c0 = 1;
-    q->f29c4 = 0;
-    q->f29c8 = 0;
-}
+void func_00138140(void);  // 0x00138140: definition moved into src/anon/unit_001374c8.cpp
 
 // 0014b468: moved to src/anon/unit_0014b150.cpp
 
-void func_0014db78(u8* p, u16 a, u32 b, u16 c, u16 d, u16 e, u32 f) {
-    func_001666d0(p, a, b, c, d);
-    *(u16*)(p + 0x1d4) = e;
-    *(u32*)(p + 0x1d0) = f;
-}
+// 0014db78: moved to src/anon/unit_0014d680.cpp
 
 // Clamp p[0] towards p[2] in the direction of p[1]; returns 0 once clamped.
 u32 func_0014f068(f32* p) {
@@ -155,16 +140,7 @@ u32 func_0014f068(f32* p) {
     return 1;
 }
 
-void wtarget_00167658(u32 a, u64 m, u32, u32) {
-    u64* p = (u64*)a;
-    p[0] &= m;
-    p[1] &= m;
-    p[2] &= m;
-    p[3] &= m;
-    *(u32*)(a + 64) = 0;
-    asm volatile("vsub.xyzw $vf1, $vf0, $vf0\n\tsqc2 $vf1, 0(%0)" : : "r"(a + 32) : "memory");
-    asm volatile(".set noreorder\n\tvsub.xyzw $vf1, $vf0, $vf0\n\tsqc2 $vf1, 0(%0)\n\t.set reorder" : : "r"(a + 48) : "memory");
-}
+// 00167658: moved to src/anon/unit_00167358.cpp
 
 Q16* func_0016c508(Q16* out, u8* o) {
     QCOPY(out, func_0016c028((u32)o));  // obj_get_attach_or_alt
@@ -176,27 +152,13 @@ Q16* func_0016c508(Q16* out, u8* o) {
 static inline bool cache_header_full(u8* h) { return *(s32*)(h + 0x28) >= 10000; }
 u32 cache_buff_alloc(const char* name, s32 n);  // 0x001708f8: definition moved into src/anon/unit_0016e8f8.cpp
 
-void func_00171418(u8** p) {
-    Q16* v = func_0016c028(*(u32*)(*p + 4));  // obj_get_attach_or_alt
-    if (v != &D_01c5f480) QCOPY(&D_01c5f480, v);
-    *p = (u8*)&D_01c5f480;
-}
+void func_00171418(u8** p);  // 0x00171418: definition moved into src/anon/unit_00170f58.cpp
 
-void func_00172890(u8** p) {
-    Q16 t;
-    func_001850a0(&t, *(u32*)(*p + 4));
-    if (&t != &D_01c5f480) QCOPY(&D_01c5f480, &t);
-    *p = (u8*)&D_01c5f480;
-}
+void func_00172890(u8** p);  // 0x00172890: definition moved into src/anon/unit_00171e58.cpp
 
 // 0017dbb8: moved to src/yasui/libys/friend.cpp
 
-void func_00196710(u32 i) {
-    func_00196698(i);
-    u8* e = (u8*)(i * 2) + (u32)D_01c61b08;
-    s32 r = func_00196388(e[2], e[3]);
-    if (r >= 0) func_001963f8(r);
-}
+void func_00196710(u32 i);  // 0x00196710: definition moved into src/anon/unit_00195d00.cpp
 
 // Find the entry with the given id (any entry when id < 0) in a variable-size list.
 u8* func_0019b328(u8* p, s32 id) {
@@ -208,46 +170,18 @@ u8* func_0019b328(u8* p, s32 id) {
     return 0;
 }
 
-u32 func_0019c838(u8* p) {
-    u32 r = 0;
-    if (func_0019bad8(p) || (*(u32*)(p + 0x588) & 0x8000000)) {
-        u32 m = *(u32*)(p + 0x108) & 0x80;
-        r = m == 0;
-    }
-    return r;
-}
+u32 func_0019c838(u8* p);  // 0x0019c838: definition moved into src/anon/unit_0019ba60.cpp
 
-void func_0019c920(u8* p) {
-    *(u32*)p = 0;
-    func_00190128(p + 4);
-    *(u32*)(p + 0x18) = 0;
-    *(u32*)(p + 0x20) = 0;
-    *(u32*)(p + 0x2c) = 0;
-    func_0019ca20(p);
-    D_00350444 = D_00350444 ? D_00350444 : p;
-}
+void func_0019c920(u8* p);  // 0x0019c920: definition moved into src/anon/unit_0019ba60.cpp
 
-void func_0019ec20(void) {
-    func_0019ec88(D_00350448);
-    func_0019ed48(D_00350448);
-    func_00102c18(1, 0xa410, func_0019ec68);
-}
+void func_0019ec20(void);  // 0x0019ec20: definition moved into src/anon/unit_0019ea10.cpp
 
 // 001ac258: moved to src/anon/unit_001abb28.cpp
 
-void func_001c1060(void) {
-    void* p = 0;
-    while ((p = func_001b9bc8(p)) != 0) {
-        if (func_001c0cd8(p)) func_001c0e60(p);
-    }
-}
+// 001c1060: moved to src/anon/unit_001c0638.cpp
+void func_001c1060(void);
 
-void func_001c2c98(u8* p) {
-    func_001d7cd0(p);
-    *(void**)p = D_00351468;
-    *(u32*)(p + 0x588) |= 0x200000;
-    *(u32*)(p + 0xabc) |= 4;
-}
+void func_001c2c98(u8* p);  // 0x001c2c98: definition moved into src/anon/unit_001c2b58.cpp
 
 u8* func_001d3f98(u8* p);  // 0x001d3f98: definition moved into src/anon/unit_001d3c08.cpp
 
@@ -324,21 +258,9 @@ void func_002aae30(u32 n) {
     if (!(v & bit)) *w = v | bit;
 }
 
-void func_002be7b8(u8* p, u32 a, u32 b) {
-    func_00185ed8(p, a, 4, b);
-    *(void**)p = D_00361810;
-    *(u32*)(p + 0x588) |= 0x40000000;
-}
+void func_002be7b8(u8* p, u32 a, u32 b);  // 0x002be7b8: definition moved into src/anon/unit_002be020.cpp
 
-void func_002bfb40(void) {
-    D_00361a50 = 0;
-    func_001c11a8(12);
-    u8* q = *(u8**)(D_0034e948 + 0xb40);
-    *(u32*)(q + 0x2c) &= ~1;
-    func_00197780();
-    func_00197cc0();
-    func_00139858(201);
-}
+void func_002bfb40(void);  // 0x002bfb40: definition moved into src/anon/unit_002bebd0.cpp
 
 u32 func_002cebc8(u32 a);  // 002cebc8: moved to src/taito/minigame_base.cpp (linked unit)
 

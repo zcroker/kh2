@@ -9,21 +9,7 @@ extern "C" {
 void FlushCache(s32);
 s32 func_002f7dc8();
 extern W1786S350 D_00350cb0;
-void func_001adc48(s32 x) {
-    if (x == 1 && D_00350cb0.fn) {
-        FlushCache(0);
-        if (func_002f7dc8()) {
-            D_00350cb0.c = -1;
-            D_00350cb0.fn(D_00350cb0.a, D_00350cb0.b, -1);
-            D_00350cb0.fn = 0;
-        } else {
-            D_00350cb0.c = 0;
-            D_00350cb0.fn(D_00350cb0.a, D_00350cb0.b, 0);
-            D_00350cb0.fn = 0;
-            D_00350cb0.p->x += (D_00350cb0.b + 0x7ff) >> 11;
-        }
-    }
-}
+void func_001adc48(s32 x);  // 0x001adc48: definition moved into src/anon/unit_001ada38.cpp
 
 void func_001fa668(u8*, s32, void*);
 void W1786_wtarget(W1786Vn*, void*, W1786Vn*) asm("_Z17sceVu0ApplyMatrixjjjj");
