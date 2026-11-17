@@ -180,18 +180,7 @@ void func_00242ca0(u8 on) {
 struct Pad267 { u8 pad[28]; u16 mask; };
 extern Pad267* D_0035f0e4;
 // Index among the set bits of a 10-bit mask: how many set bits precede bit n (-1 if none).
-s32 func_002670f8(s32 n) {
-    s32 r = -1;
-    s32 m = D_0035f0e4->mask;
-    s32 c = 0;
-    for (s32 i = 0; i < 10; i++) {
-        if ((u8)((m >> i) & 1)) {
-            if (i == n) { r = c; break; }
-            c++;
-        }
-    }
-    return r;
-}
+s32 func_002670f8(s32 n);  // 0x002670f8: definition moved into src/anon/unit_00265580.cpp
 
 void func_00257708(s32);
 extern s32* D_0035f2b4;

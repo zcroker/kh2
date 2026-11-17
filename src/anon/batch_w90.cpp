@@ -301,18 +301,7 @@ static inline void StopIfActive(VObj* o) { if (func_00139d78(o)) ((VoidFn)o->vt[
 u8* func_00257770(void);
 void func_00139510(void*);
 void func_0028abe0(void*);
-void func_00265ab8(void)
-{
-    u8* w = func_00257770();
-    if (func_00139d78(w)) func_00139510(w);
-    u8* p = w;
-    for (s32 i = 19; i >= 0; i--) {
-        StopIfActive((VObj*)(p + 24304));
-        p += 436;
-    }
-    if (func_0028acc8(D_0035f01c)) func_0028abe0(D_0035f01c);
-    if (func_0028acc8(D_0035f020)) func_0028abe0(D_0035f020);
-}
+void func_00265ab8(void);  // 0x00265ab8: definition moved into src/anon/unit_00265580.cpp
 
 // 00285760
 s32 func_00289380(void*);

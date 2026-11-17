@@ -181,8 +181,8 @@ void func_00236ce0(BD_VALUE* bd) { func_00236d10(bd); }
 void func_002539d0(BD_VALUE* bd) { func_00253978(bd); }
 void func_0025f550(BD_VALUE* bd);  // 0x0025f550: definition moved into src/anon/unit_0025da20.cpp
 void func_002631f8(BD_VALUE* bd);  // 0x002631f8: definition moved into src/anon/unit_0025f6b8.cpp
-void func_00267608(BD_VALUE* bd) { func_00267690(bd); }
-void func_002677d8(BD_VALUE* bd) { func_002817b8(bd); }
+void func_00267608(BD_VALUE* bd);  // 0x00267608: definition moved into src/anon/unit_00265580.cpp
+void func_002677d8(BD_VALUE* bd);  // 0x002677d8: definition moved into src/anon/unit_00265580.cpp
 void func_00277008(BD_VALUE* bd) { func_00277070(bd); }
 void func_0027b510(BD_VALUE* bd) { func_00257be0(bd); }
 void func_00280ec8(BD_VALUE* bd) { func_00281008(bd); }

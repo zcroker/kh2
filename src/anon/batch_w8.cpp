@@ -161,11 +161,7 @@ void func_00258dc8(void);  // 0x00258dc8: definition moved into src/anon/unit_00
 void func_00257388(u32, u32);
 void func_002571e0(u32);
 void func_00287cc0(u32);
-void func_00269378(void) {
-    func_00257388(0xc22e, 0);
-    func_002571e0(0);
-    func_00287cc0(0);
-}
+void func_00269378(void);  // 0x00269378: definition moved into src/anon/unit_00268b30.cpp
 
 u8* func_00257770(void);
 void func_0028dac8(u8*, u32);

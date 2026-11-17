@@ -16,26 +16,8 @@ extern "C" void func_00269ef8();
 extern "C" void func_00281b30();
 extern "C" void func_00281c50();
 
-void CmEquip::FadeOutAll() {
-    u32 v = func_00287bc0();
-    if (v == 2 || v == 5 || v == 6 || v == 7 || v == 8 || v == 9) {
-        func_00269e20();
-        CmTop::LeaveShortCutInfo();
-        func_00281b30();
-        if (func_00287db0() != 0) {
-            CmTop::FadeOutPadHelp();
-        }
-    }
-}
+// 0x002676e8: definition moved into src/anon/unit_00265580.cpp
 
-void CmEquip::LeaveAll() {
-    u32 v = func_00287bc0();
-    if (v == 2 || v == 5 || v == 6 || v == 7 || v == 8 || v == 9) {
-        func_00269ef8();
-        CmTop::LeaveShortCutInfo();
-        func_00281c50();
-        func_00256ea8();
-    }
-}
+// 0x00267768: definition moved into src/anon/unit_00265580.cpp
 
 }  // namespace Tz

@@ -250,30 +250,9 @@ void func_00249358(void) {
     }
 }
 
-s32 func_002671e8(s32 n) {  // find_free_bit_index
-    s32 r = -1;
-    s32 cnt = 0;
-    u8* g = D_0035f0e4;
-    s32 base = *(s8*)(g + 32) * 10;
-    u32 bits = *(u32*)(g + 24);
-    for (s32 i = 0; i < 10; i++) {
-        s32 b = base + i;
-        if (bits & (1 << b)) {
-            if (cnt == n) { r = b; break; }
-            cnt++;
-        }
-    }
-    return r;
-}
+s32 func_002671e8(s32 n);  // 0x002671e8: definition moved into src/anon/unit_00265580.cpp
 
-s32 func_00269f58(void) {
-    s32 r = func_00257780();
-    if (r) return r;
-    if (D_0035f04c) r = func_0028be58(D_0035f04c) != 0;
-    if (r) return r;
-    if (D_0035f01c) r = func_0028acc8(D_0035f01c) != 0;
-    return r;
-}
+s32 func_00269f58(void);  // 0x00269f58: definition moved into src/anon/unit_00269a60.cpp
 
 void func_0028e5e0(void* a, s16* l, s32 n);  // 0028e5e0: moved to src/anon/unit_0028c878.cpp
 

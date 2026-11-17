@@ -182,18 +182,7 @@ void u_call4_00224780(u32 a0, u32, u32, u32) {
 }
 
 // Index of the n-th set bit among the low 10 bits of the mask, or -1.
-s32 func_002670a0(s32 n) {
-    s32 r = -1;
-    u16 m = D_0035f0e4->mask;
-    s32 c = 0;
-    for (s32 i = 0; i < 10; i++) {
-        if ((u8)((m >> i) & 1)) {
-            if (c == n) { r = i; break; }
-            c++;
-        }
-    }
-    return r;
-}
+s32 func_002670a0(s32 n);  // 0x002670a0: definition moved into src/anon/unit_00265580.cpp
 
 // Looks up key in a -1 terminated (key, value) table; last match wins.
 s32 func_00282c68(s32 key) {

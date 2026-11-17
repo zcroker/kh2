@@ -12536,27 +12536,9 @@ void func_00264408();  // 0x00264408: definition moved into src/anon/unit_002640
 
 void func_00264458();  // 0x00264458: definition moved into src/anon/unit_002640a8.cpp
 
-u32 func_00267248() {  // global_ptr_by_flag32
-    if (*(s8*)((*(u32*)(u32)&D_0035f0e4) + 32u) != 0) {
-        return *(u32*)(u32)&D_0035f020;
-    }
-    return *(u32*)(u32)&D_0035f01c;
-}
+u32 func_00267248();  // 0x00267248: definition moved into src/anon/unit_00265580.cpp
 
-u32 func_002674b8() {
-    u32 v0 = 0u;
-    u32 c = 0u;
-    s32 bits = *(u16*)((*(u32*)(u32)&D_0035f0e4) + 28u);
-    do {
-        u32 next = v0 + 1u;
-        u32 t = (((bits >> c) ^ 1u) & 1u);
-        c += 1u;
-        if (t == 0u) {
-            v0 = next;
-        }
-    } while ((s32)c < 10);
-    return v0;
-}
+u32 func_002674b8();  // 0x002674b8: definition moved into src/anon/unit_00265580.cpp
 
 u32 duplicate_unplaced_002691c8() {
     func_00257388(0x846au, 0u);

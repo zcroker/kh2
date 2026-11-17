@@ -301,17 +301,7 @@ u8* func_00281180(u32, u32);
 u8* func_001a80c8(u16);  // table24_find_by_id
 struct Ent267 { u16 id : 15; u16 on : 1; };
 // Sums byte 7 of every enabled entry's record over the 80-entry list.
-s32 func_00267150(u32 a) {
-    u8* o = func_00281180(D_0035f010, a);
-    Ent267* p = (Ent267*)(*(u8**)(o + 580) + 84);
-    s32 sum = 0;
-    for (s32 i = 79; i >= 0; i--) {
-        u16 id = p->id;
-        if (id && p->on) sum += func_001a80c8(id)[7];
-        p++;
-    }
-    return sum;
-}
+s32 func_00267150(u32 a);  // 0x00267150: definition moved into src/anon/unit_00265580.cpp
 
 void func_00139d78(u8*);
 s16* func_0028ac98(u8*, u32);  // lookup_by_index_align

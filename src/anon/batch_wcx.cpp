@@ -2032,18 +2032,7 @@ u8* func_00257770(void);
 s32 func_00287bc0(void);
 s32 func_002570a0(s32);
 s32 func_00269508(s32);
-s32 func_00269fc0(void)
-{
-    s32 r = 0;
-    u8* o = func_00257770();
-    s32 k = func_00287bc0();
-    if (o && u_call4_00139d78(o)) {
-        s32 v = 228;
-        if (k != 2) v = D_00373798[func_00269508(func_002570a0(2))].c;
-        r = *(s32*)(o + 388) == v;
-    }
-    return r;
-}
+s32 func_00269fc0(void);  // 0x00269fc0: definition moved into src/anon/unit_00269a60.cpp
 extern u32 D_0035f4bc, D_0035f4c0, D_0035f4c4, D_0035f4c8, D_0035f4cc, D_0035f4d0;
 extern u16 D_0035f4d8, D_0035f4e0;
 extern u8 D_0035f4e2;

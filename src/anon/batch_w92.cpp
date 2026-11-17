@@ -625,36 +625,7 @@ extern u32 D_0035f0ec;
 extern u32 D_0035f01c;
 extern u32 D_0035f04c;
 
-void func_00268c68(void) {
-    s32 cur = 0;
-    s32 top = 0;
-    s32 k = func_002570a0(2);
-    u32 mode = func_00269508(k);
-    s32 n = func_00281f18(D_0035f0ec);
-    u16 id = func_00281f20(func_00257130())[k].id;
-    if (id) {
-        E268* p = func_00281f20(D_0035f0ec);
-        for (s32 i = 0; i < n; i++, p++) {
-            if (p->id == id) {
-                cur = i;
-                if (mode >= 2) cur = i + 1;
-                break;
-            }
-        }
-    }
-    if (mode >= 2) n++;
-    if (cur >= 8) {
-        top = cur - 7;
-        cur = 7;
-    }
-    if (n != 0 && top + cur >= n) {
-        top = cur - n + 1;
-        cur = n - 1;
-    }
-    func_002891f0(D_0035f01c, cur, 0, -1, -1);
-    func_0028afd0(D_0035f01c, top);  // obj_set_signed18
-    func_0028be78(D_0035f04c, top);
-}
+void func_00268c68(void);  // 0x00268c68: definition moved into src/anon/unit_00268b30.cpp
 }
 
 // ---- 275b60 ----

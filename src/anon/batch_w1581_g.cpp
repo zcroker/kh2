@@ -25,15 +25,7 @@ void func_00262a30(void);  // 0x00262a30: definition moved into src/anon/unit_00
 
 void func_00262f58(void);  // 0x00262f58: definition moved into src/anon/unit_0025f6b8.cpp
 
-s32 func_00265740(void) {
-    u32 p = func_00257770();
-    func_00139d78(p);
-    return *(s32*)(p + 0x184) == 0x8D;
-}
+s32 func_00265740(void);  // 0x00265740: definition moved into src/anon/unit_00265580.cpp
 
-s32 func_00265c10(void) {
-    u32 p = func_00257770();
-    func_00139d78(p);
-    return *(s32*)(p + 0x184) == 0x141;
-}
+s32 func_00265c10(void);  // 0x00265c10: definition moved into src/anon/unit_00265580.cpp
 }

@@ -355,10 +355,7 @@ extern u32 D_0035f010;
 extern u32* D_0035f0e4;
 u32 func_002811b0(u32, int);
 u32 func_001a1728(u32, int);
-void func_00267320(void) {
-    u32 h = func_002811b0(D_0035f010, 0);
-    for (int i = 0; i < 6; i++) ((Word*)&D_0035f0e4[i])->u = func_001a1728(h, i);
-}
+void func_00267320(void);  // 0x00267320: definition moved into src/anon/unit_00265580.cpp
 
 // --- 00272a00
 u8* func_00257770(void);

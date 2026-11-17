@@ -49,23 +49,7 @@ s32 func_002827e0(u32, s32);
 s32 func_002813b8();
 s32 func_00281420();
 
-s32 func_002695a0(s32 a) {
-    s32 v[5];
-    s32 i, n;
-    s32 m;
-    for (i = 0; i < 5; i++) v[i] = func_002827e0(func_00257130(), i);
-    i = 0;
-    m = func_002813b8() & func_00281420();
-    a -= v[0];
-    n = 0;
-    for (; i < 7; i++) {
-        if ((u8)((m >> i) & 1)) {
-            if (a == n) return i;
-            n++;
-        }
-    }
-    return i;
-}
+s32 func_002695a0(s32 a);  // 0x002695a0: definition moved into src/anon/unit_00268b30.cpp
 
 // ---- 0028abe0 Tz::Select::Destroy
 union ItemU1593 { Obj1593* p; s16 h; u8 c; };

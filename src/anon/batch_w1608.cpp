@@ -64,50 +64,5 @@ s32 func_00266c70(void);
 union InfoP { Info* p; s32 i; };
 extern InfoP D_0035f0e4;
 
-void func_00266df8(u32 arg0) {
-    s32 i;
-    s32 b;
-    D_0035f0e4.p->mask = 0;
-    switch (arg0) {
-    case 0: case 7: case 8: case 9:
-        for (i = 0; i < 6; i++) D_0035f0e4.p->mask |= 1 << i;
-        for (i = 10; i < 17; i++) D_0035f0e4.p->mask |= 1 << i;
-        if (arg0 == 0) {
-            if (func_00266c70()) D_0035f0e4.p->mask |= 0x40;
-            D_0035f0e4.p->mask |= 0x80;
-            for (i = 0; i < 7; i++) {
-                if (((D_0035f0e4.p->b1f >> i) ^ 1) & 1) continue;
-                b = 0;
-                switch (i) {
-                case 1: b = 17; break;
-                case 2: b = 8; break;
-                case 3: b = 18; break;
-                case 4: b = 9; break;
-                case 5: b = 19; break;
-                }
-                D_0035f0e4.p->mask |= 1 << b;
-            }
-        }
-        break;
-    case 1: case 2: case 3: case 4: case 5:
-        for (i = 0; i < 4; i++) D_0035f0e4.p->mask |= 1 << i;
-        for (i = 10; i < 17; i++) D_0035f0e4.p->mask |= 1 << i;
-        break;
-    case 6:
-        for (i = 0; i < 4; i++) D_0035f0e4.p->mask |= 1 << i;
-        for (i = 0; i < 4; i++) {
-            if ((D_0035f0e4.p->b1e >> i) & 1) {
-                b = 0;
-                switch (i) {
-                case 0: b = 10; break;
-                case 1: b = 11; break;
-                case 2: b = 12; break;
-                case 3: b = 13; break;
-                }
-                D_0035f0e4.p->mask |= 1 << b;
-            }
-        }
-        break;
-    }
-}
+void func_00266df8(u32 arg0);  // 0x00266df8: definition moved into src/anon/unit_00265580.cpp
 }

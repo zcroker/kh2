@@ -67,19 +67,7 @@ u32 func_00257070(s32);
 s32 func_00286418(s32);
 void func_002865d0(s32);
 
-void func_00266b58(void) {
-    s32 n;
-    if (func_00287bc0() != 24) return;
-    switch (func_00257070(23)) {
-    case 1: n = 0; break;
-    case 2: n = 1; break;
-    case 3: n = 2; break;
-    case 4: n = 3; break;
-    case 5: n = 4; break;
-    default: return;
-    }
-    if (func_00286418(n)) func_002865d0(n);
-}
+void func_00266b58(void);  // 0x00266b58: definition moved into src/anon/unit_00265580.cpp
 
 
 struct O1592 { u8 p[0x188]; s32 v; };

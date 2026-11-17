@@ -439,27 +439,7 @@ extern u32 D_0035ef64;
 extern u32 D_0035ef68;
 extern u32 D_0035f03c;
 
-void func_00268b30(s32 idx) {
-    u8* w = func_00257770();
-    u32 st = func_00287bc0();
-    if (st - 5 >= 2) return;
-    u16 id = func_001a8190(func_0026a178(func_002570a0(2), 2))[1];
-    if (!id) return;
-    u8* o = w + 2504;
-    id = func_001a80c8(id)[4];
-    u8* m = w + 1656;
-    func_0028d980(o, idx + 1, D_0035ef68, D_0035ef64, D_0035f03c, func_00257140(2), -1, -1, 0);
-    *(u32*)(o + 408) = func_00192048(id);
-    func_0028dcc0(o, w + 1632);
-    func_00139620(o);
-    func_001395f8(o);
-    u32 a = func_0023aa18(m);
-    u32 b = func_0023aa38(m);
-    u32 c = func_0023aa98(m);
-    func_00138c68(o, a, b);
-    *(u32*)(o + 424) = c;
-    *(u32*)(o + 432) = 1;
-}
+void func_00268b30(s32 idx);  // 0x00268b30: definition moved into src/anon/unit_00268b30.cpp
 }
 // ---- 00284538
 extern "C" {

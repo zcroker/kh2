@@ -158,9 +158,7 @@ void func_00225298(void) {
     D_01dad910[1] = -1;
 }
 
-void func_00265c50(void) {
-    func_0028da70(func_00257770(), 321);
-}
+void func_00265c50(void);  // 0x00265c50: definition moved into src/anon/unit_00265580.cpp
 
 u32 func_0029e0d0(void) {
     return func_00139d78((u8*)func_002766d0() + 18528);

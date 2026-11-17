@@ -155,7 +155,7 @@ s32 func_0023d300(s32* out) {
 
 u32 func_00257770();
 void func_0028da70(u32, u32);
-void func_00265780() { func_0028da70(func_00257770(), 141); }
+void func_00265780();  // 0x00265780: definition moved into src/anon/unit_00265580.cpp
 
 extern u32 D_0035f264;
 u8 func_00139d78(u32);
@@ -256,7 +256,4 @@ void wtarget_001efd38(u32 a0, u32 a1, u32, u32) {
 
 extern "C" void func_00267620();
 extern u32 D_0035f0ec;
-void Tz::CmEquip::Init() {
-    D_0035f0ec = 0;
-    func_00267620();
-}
+// 0x002675e8: definition moved into src/anon/unit_00265580.cpp

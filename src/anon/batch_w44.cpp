@@ -261,11 +261,7 @@ void func_0024b078(void) {
 
 extern void* D_0035f04c;
 extern void* D_0035f01c;
-void func_00269ef8(void) {
-    func_002579e0();
-    if (func_0028be58(D_0035f04c)) func_0028be18(D_0035f04c);
-    if (func_0028acc8(D_0035f01c)) func_0028abe0(D_0035f01c);
-}
+void func_00269ef8(void);  // 0x00269ef8: definition moved into src/anon/unit_00269a60.cpp
 
 extern u32 D_0035f2c0;
 extern u8 D_00374348[];

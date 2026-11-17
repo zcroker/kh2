@@ -363,18 +363,7 @@ void func_0024bcb8(void)
 
 void func_0025e370(void);  // 0x0025e370: definition moved into src/anon/unit_0025da20.cpp
 
-void func_002655e8(void)
-{
-    u8* base = func_00257770();
-    s32 i;
-    if (func_00139d78(base)) func_00139510(base);
-    for (i = 0; i < 20; i++) {
-        u8* e = base + i * 436;
-        if (func_00139d78(e + 13840)) VCall5_82((VObj82*)(e + 13840));
-        if (func_00139d78(e + 24304)) VCall5_82((VObj82*)(e + 24304));
-    }
-    if (func_0028acc8(D_0035f01c)) func_0028abe0(D_0035f01c);
-}
+void func_002655e8(void);  // 0x002655e8: definition moved into src/anon/unit_00265580.cpp
 }
 
 extern u32 D_0035f0ec;
@@ -393,24 +382,7 @@ u32 func_00192048(s32);
 void wt82(u8*, u32, u32) asm("_Z16wtarget_002fde18jjjj");
 
 // Looks up entry idx of the current table (mode 2 = active slot) and returns its item record.
-u8* func_0026a178(s32 idx, s32 mode)
-{
-    u8* tbl;
-    s32 ok;
-    if (mode < 0) mode = func_00287bc0();
-    if (mode == 2) {
-        tbl = func_00281f20(func_00257130());
-        ok = func_00281f18(func_00257130());
-    } else {
-        tbl = func_00281f20(D_0035f0ec);
-        ok = func_00281f18(D_0035f0ec);
-    }
-    if (ok) {
-        u16 id = *(u16*)(tbl + idx * 6);
-        if (id) return func_001a80c8(id);  // table24_find_by_id
-    }
-    return 0;
-}
+u8* func_0026a178(s32 idx, s32 mode);  // 0x0026a178: definition moved into src/anon/unit_00269a60.cpp
 
 void func_00280148(void)
 {

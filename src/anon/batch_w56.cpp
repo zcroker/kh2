@@ -290,18 +290,7 @@ void func_002530f0(s32 a)
 u8* func_00257770(void);
 void func_0028acc8(u32);
 extern u32 D_0035f01c;
-void func_002656c0(void)
-{
-    NoTail g;
-    u8* p = func_00257770();
-    if (u_call4_00139d78(p)) return;
-    for (s32 i = 0; i < 20; i++) {
-        if (u_call4_00139d78(p + 13840)) return;
-        if (u_call4_00139d78(p + 24304)) return;
-        p += 436;
-    }
-    func_0028acc8(D_0035f01c);
-}
+void func_002656c0(void);  // 0x002656c0: definition moved into src/anon/unit_00265580.cpp
 
 // 0027af58: pick the bucket a value falls into from a table of 4 weights
 s32 func_00287bc0(void);

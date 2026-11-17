@@ -210,52 +210,7 @@ void func_00138c68(u8*, s32, s32);
 s32 func_0028b040(u32);
 void func_00256bb0(u8*);
 
-void func_0026a3b8(void* target, u8 follow)
-{
-    u8* work = func_00257770();
-    u8* obj = work + 816;
-    s32 active = func_00139d78(obj);
-    s32 mode = func_00287bc0();
-    s32 kind;
-    s32 x;
-    s32 y;
-
-    if (func_0028d008(target)) {
-        if (!active) {
-            s32 id = 249;
-            s32 n = D_0035f3d4 + 2;
-            if (mode != 2) {
-                kind = func_00269508(func_002570a0(2));
-                id = D_003737e8[kind + 5];
-            }
-            func_0028d8c0(obj, n, D_0035ef68, D_0035ef64, D_0035f03c, id, -1, 0);
-            func_0028dcc0(obj, work);
-            func_00138c78(*(u32*)(func_0028d0e0(target) + 396), &x, &y);
-            func_00138c68(obj, x, y);
-        }
-        if (follow) {
-            func_00138c78(*(u32*)(func_0028d0e0(target) + 396), &x, &y);
-            func_00138c68(obj, x, y);
-        }
-        if (func_00139d78(work + 2504) && !follow) return;
-        if (mode == 2) {
-            kind = func_00269508(func_0028b040(D_0035f01c));
-        } else {
-            kind = func_00269508(func_002570a0(2));
-        }
-        if (mode == 2 && kind == 4) {
-            func_00256bb0(func_0028d0e0(target));
-            return;
-        }
-    } else {
-        if (active) {
-            func_00139510(obj);
-            return;
-        }
-    }
-    if ((u32)(mode - 5) < 2) return;
-    func_00256c40();
-}
+void func_0026a3b8(void* target, u8 follow);  // 0x0026a3b8: definition moved into src/anon/unit_00269a60.cpp
 }
 
 extern "C" {

@@ -130,45 +130,5 @@ extern Row D_00373530[2];
 extern Row D_003735a8[2];
 extern Row D_00373620[2];
 
-void func_002657a8(void) {
-    Big* b = func_00257770();
-    s32 i;
-    Row* tbl[2] = { 0, 0 };
-    func_002fde18(D_0035f0e4 + 0x524, 0, 0x280);
-    Elem* e = b->e;
-    for (i = 19; i >= 0; i--) {
-        func_00138c10(e, D_0035ef6c);
-        e->v = 0;
-        e++;
-    }
-    u32 t = func_002670a0(func_0028b040(D_0035f01c));
-    func_00266df8(t);
-    switch (t) {
-    case 0: case 7: case 8: case 9:
-        for (i = 0; i < 2; i++) tbl[i] = &D_00373530[i];
-        break;
-    case 1: case 2: case 3: case 4: case 5:
-        for (i = 0; i < 2; i++) tbl[i] = &D_003735a8[i];
-        break;
-    case 6:
-        for (i = 0; i < 2; i++) tbl[i] = &D_00373620[i];
-        break;
-    }
-    Row** tp = tbl;
-    s32 off = 0;
-    for (i = 0; i < 2; i++, tp++, off += 10 * sizeof(Elem)) {
-        s32 cnt = 0;
-        for (s32 j = 0; j < 10; j++) {
-            if (((Info*)D_0035f0e4)->mask & (1 << (i * 10 + j))) {
-                Elem* o = &((Big*)(off + (u32)b))->e[j];
-                func_00138c10(o, D_00373500[(*tp)->r[j].idx].h);
-                s32 a = func_0023aa98(o->sub);
-                func_00138c68(o, i * a, cnt * func_0023aa78(o->sub));
-                cnt++;
-                o->v = func_00192048((*tp)->r[j].id);
-            }
-        }
-    }
-    func_00265c78();
-}
+void func_002657a8(void);  // 0x002657a8: definition moved into src/anon/unit_00265580.cpp
 }

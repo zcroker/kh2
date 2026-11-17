@@ -15,22 +15,7 @@ extern u32 D_0035f04c;
 static inline void set_0026a060(u8* q, s32 v) {
     if (func_00139d78(q) && *(s32*)(q + 0x184) != v) func_00138c10(q, v);
 }
-void func_0026a060(void) {
-    u8* p = func_00257770();
-    s32 a, b;
-    if (func_00287bc0() == 2) {
-        a = 0xe4; b = 0x120;
-    } else {
-        s32 i = func_00269508(func_002570a0(2));
-        a = D_00373798[i].c;
-        b = D_003737c8[i].c;
-    }
-    if (p) set_0026a060(p, a);
-    if (p) set_0026a060(p + 0xb350, b);
-    if (func_0028be58(D_0035f04c)) {
-        func_0028bd60(D_0035f04c);
-    }
-}
+void func_0026a060(void);  // 0x0026a060: definition moved into src/anon/unit_00269a60.cpp
 s32 func_00287cd0(void);
 s32 func_002576d0(void);
 void func_002575a8(void);

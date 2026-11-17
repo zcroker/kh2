@@ -67,43 +67,6 @@ extern u32 D_0035f01c;
 extern s32 D_003734f8;
 extern s32 D_003734fc;
 
-void func_00266988(void) {
-    u32 base = func_00257770();
-    s32 mode = func_00287bc0();
-    s32 v = func_0028b040(D_0035f01c);
-    u32 tgt;
-    s32 k, n;
-    if (mode == 23) {
-        tgt = D_0035f01c;
-        switch (func_002670a0(v)) {
-        case 1: k = 0; break;
-        case 2: k = 1; break;
-        case 3: k = 2; break;
-        case 4: k = 3; break;
-        case 5: k = 4; break;
-        default: return;
-        }
-    } else {
-        v = func_00257070(23);
-        if (v != 6) return;
-        tgt = func_00267248();
-        if (tgt == D_0035f01c) return;
-        switch ((E00266988)func_002671e8(func_0028b040(tgt))) {
-        case 10: k = 5; break;
-        case 11: k = 6; break;
-        case 12: k = 7; break;
-        default: k = 8; break;
-        }
-    }
-    if (func_00286418(k) == 0) return;
-    func_002865d0(k);
-    if (func_002864f8(k) != 0) k = D_003734fc;
-    else k = D_003734f8;
-    if (mode == 23 || v == 6) {
-        s32 i = func_0028b040(tgt);
-        if (mode != 23) i = func_002671e8(i);
-        func_00138c10(base + i * 0x198 + 0x87D0, k);
-    }
-}
+void func_00266988(void);  // 0x00266988: definition moved into src/anon/unit_00265580.cpp
 
 }
