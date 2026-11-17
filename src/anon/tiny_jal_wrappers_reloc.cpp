@@ -165,13 +165,7 @@ u32 func_002de750(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002de750: definition mo
 
 u32 func_002de788(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002de788: definition moved into src/anon/unit_002de3c8.cpp
 
-u32 sceCdChgSys(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u;
-    r4 = (u32)&D_00376da0;
-    r2 = func_003080d0(r4, r5, r6, r7);
-    r2 = (u32)((s32)0u + (2));
-    return r2;
-}
+u32 sceCdChgSys(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002f7fe8: definition moved into src/sdk/libcdvd_002f77b0.c
 
 u32 func_0031a2b0(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u, r15 = 0u, r16 = 0u;

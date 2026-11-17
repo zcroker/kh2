@@ -19,45 +19,4 @@ extern void func_003080d0(void *);
 extern int func_00305640(int s);
 extern void func_002f6910(void *);
 extern int sceSifCallRpc(void *cd, unsigned int fno, unsigned int mode, void *send, int ssize, void *recv, int rsize, void *end, void *endp);
-int func_002f7be8(unsigned int lsn, unsigned int sec, void *buf, RMode *mode)
-{
-    int size;
-    RArg *p = &D_00363e80;
-    if (!((*(volatile int*)&D_00363db8) & 1) && func_002f7118() == 6)
-        return 0;
-    if (!func_002f6fc0(4))
-        return 0;
-    p->lsn = lsn;
-    p->sec = sec;
-    p->buf = buf;
-    p->t = mode->trycount;
-    p->s = mode->spindlctrl;
-    p->d = mode->datapattern;
-    p->ee = D_00364e80;
-    p->rd = &D_00364f40;
-    switch (mode->datapattern) {
-    case 1: size = sec * 2328; break;
-    case 2: size = sec * 2340; break;
-    case 0: default: size = sec << 11; break;
-    }
-    D_00364f40 = 0;
-    if (!((*(volatile int*)&D_00363db8) & 2))
-        func_00308a80(buf, size);
-    func_00308a80(D_00364e80, 144);
-    func_00308a80(p, 24);
-    func_00308a80(&D_00364f40, 4);
-    if (D_00363d90 > 0)
-        func_003080d0(D_00376d78);
-    (*(volatile int*)&D_00363de0) = 1;
-    (*(volatile int*)&D_00363db4) = 1;
-    if (sceSifCallRpc(D_00364f50, 1, 1, p, 24, 0, 0, func_002f6910, D_00364e80) < 0) {
-        (*(volatile int*)&D_00363de0) = 0;
-        __asm__ volatile("" ::: "memory");
-        (*(volatile int*)&D_00363db4) = 0;
-        func_00305640(D_00363da8);
-        return 0;
-    }
-    if (D_00363d90 > 0)
-        func_003080d0(D_00376d90);
-    return 1;
-}
+int func_002f7be8(unsigned int lsn, unsigned int sec, void *buf, RMode *mode);  // 0x002f7be8: definition moved into src/sdk/libcdvd_002f77b0.c

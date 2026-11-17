@@ -38,19 +38,7 @@ int func_002f5cb0(void);  // 0x002f5cb0: definition moved into src/sdk/libpad2.c
 extern int func_002f71b0(int);
 extern int D_01e331c0;
 extern int D_01e331c4;
-int func_002f6698(int a)
-{
-    int old, s;
-    if (func_002f71b0(1) != 0)
-        return 0;
-    s = DIntr();
-    old = D_01e331c0;
-    D_01e331c0 = a;
-    asm volatile("sw $gp, %0" : "=m"(D_01e331c4));
-    if (s)
-        EIntr();
-    return old;
-}
+int func_002f6698(int a);  // 0x002f6698: definition moved into src/sdk/libcdvd_002f6698.c
 
 extern int D_00363d90;
 extern int D_00376c90;
@@ -58,14 +46,4 @@ extern int D_00365900;
 extern void func_003080d0(int *);
 extern void func_00306698(int);
 extern int func_003096b8(int *);
-int func_002f7250(int a)
-{
-    if (a == 0) {
-        if (D_00363d90 > 0)
-            func_003080d0(&D_00376c90);
-        while (func_003096b8(&D_00365900))
-            func_00306698(4000);
-        return 0;
-    }
-    return func_003096b8(&D_00365900);
-}
+int func_002f7250(int a);  // 0x002f7250: definition moved into src/sdk/libcdvd_002f6870.c

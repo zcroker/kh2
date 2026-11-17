@@ -28,55 +28,11 @@ extern char D_00364f50[];
 
 #define V_w1260(x) (*(volatile int *)&(x))
 
-void func_002f6700(int *p)
-{
-    V_w1260(D_00363de0) = *p;
-    V_w1260(D_00363de4) = V_w1260(D_00363de0);
-    if (V_w1260(D_00363de0) == 11) {
-        V_w1260(D_00363de0) = 0;
-        V_w1260(D_00363db4) = 0;
-        return;
-    }
-    func_00305650(V_w1260(D_00363da8));
-    if (V_w1260(D_00363d94) != 0 && V_w1260(D_01e331c0) != 0) {
-        func_00305650(V_w1260(D_00363da0));
-    } else {
-        V_w1260(D_00363db4) = 0;
-    }
-    V_w1260(D_00363de0) = 0;
-}
+void func_002f6700(int *p);  // 0x002f6700: definition moved into src/sdk/libcdvd_002f6698.c
 
-void func_002f6ab0(void)
-{
-    int s;
-    if (D_00363d94 != 0) {
-        D_00363de0 = -1;
-        __asm__ volatile("" ::: "memory");
-        func_00305640(D_00363da0);
-    }
-    func_00305630(D_00363da8);
-    func_00305630(D_00363dac);
-    func_00305630(D_00363db0);
-    func_00305630(D_00363da0);
-    s = DIntr();
-    func_00308730(0x80000012);
-    if (s != 0)
-        EIntr();
-}
+void func_002f6ab0(void);  // 0x002f6ab0: definition moved into src/sdk/libcdvd_002f6870.c
 
-int func_002f71b0(int mode)
-{
-    if (mode == 0) {
-        if (D_00363d90 > 0)
-            func_003080d0(D_00376c80);
-        while (D_00363db4 != 0 || func_003096b8(D_00364f50) != 0)
-            func_00306698(4000);
-        return 0;
-    }
-    if (D_00363db4 || func_003096b8(D_00364f50))
-        return 1;
-    return 0;
-}
+int func_002f71b0(int mode);  // 0x002f71b0: definition moved into src/sdk/libcdvd_002f6870.c
 
 typedef struct { int ret; int pad; char name[252]; } Buf_w1260;
 extern Buf_w1260 D_01e38c40;

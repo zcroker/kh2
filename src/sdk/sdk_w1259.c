@@ -39,34 +39,12 @@ extern void func_00305640(int);
 extern char D_00364f50[];
 extern char D_00363e00[];
 extern int D_00363da8;
-int func_002f7118(void)
-{
-    int r;
-    if (!func_002f6fc0(2)) return 0;
-    if (sceSifCallRpc(D_00364f50, 14, 0, 0, 0, D_00363e00, 4, 0, 0) < 0) {
-        func_00305640(D_00363da8);
-        return 0;
-    }
-    r = *(int *)((u32)D_00363e00 | 0x20000000);
-    func_00305640(D_00363da8);
-    return r;
-}
+int func_002f7118(void);  // 0x002f7118: definition moved into src/sdk/libcdvd_002f6870.c
 
 extern char D_00365900[];
 extern char D_00364f80[];
 extern int D_00363dac;
-int func_002f7dc8(void)
-{
-    int r;
-    if (!func_002f72c0(3)) return -1;
-    if (sceSifCallRpc(D_00365900, 4, 0, 0, 0, D_00364f80, 4, 0, 0) < 0) {
-        func_00305640(D_00363dac);
-        return -1;
-    }
-    r = *(int *)((u32)D_00364f80 | 0x20000000);
-    func_00305640(D_00363dac);
-    return r;
-}
+int func_002f7dc8(void);  // 0x002f7dc8: definition moved into src/sdk/libcdvd_002f77b0.c
 
 typedef struct { int status; void *func; void *stack; int size; void *gp; int prio; int cur; u32 attr; void *option; } TP;
 extern TP D_01e331d8;
@@ -76,43 +54,11 @@ extern char D_00376b70[];
 extern int func_00305420(TP *);
 extern void func_00306760(int, int);
 extern void func_003054b0(int, int);
-int sceCdInitEeCB(int prio, void *stack, int size)
-{
-    int r;
-    r = 1;
-    if (D_00363d94 == 0) {
-        D_01e331d8.size = size;
-        D_01e331d8.func = D_002f67a0;
-        D_01e331d8.stack = stack;
-        D_01e331d8.prio = prio;
-        D_01e331d8.option = D_00376b70;
-        D_01e331d8.gp = 0;
-        D_00363d94 = func_00305420(&D_01e331d8);
-        func_00306760(D_00363d94, 0);
-    } else {
-        func_003054b0(D_00363d94, prio);
-        r = 0;
-    }
-    return r;
-}
+int sceCdInitEeCB(int prio, void *stack, int size);  // 0x002f6870: definition moved into src/sdk/libcdvd_002f6870.c
 
 extern int sceOpen(void *, int);
 extern int sceRead(int, void *, int);
 extern int sceClose(int);
 extern int atoi(char *);
 extern char D_003762c8[];
-int func_002f2020(void)
-{
-    char buf[256];
-    char *p;
-    u32 i;
-    int fd;
-    fd = sceOpen(D_003762c8, 1);
-    if (fd < 0) return -1;
-    for (i = 0, p = buf; i < 256; i++) {
-        sceRead(fd, p, 1);
-        if (*p++ == 0) break;
-    }
-    sceClose(fd);
-    return atoi(&buf[i - 9]) > 0x1315670;
-}
+int func_002f2020(void);  // 0x002f2020: definition moved into src/sdk/libgraph_002f1e18.c

@@ -948,13 +948,7 @@ u32 func_002ee530(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002ee530: definition mo
 
 // 002ee840: moved to src/menu/tutorial_widget.cpp
 
-u32 sceGsGetGParam(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_363c40
-    (void)a0;
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    return (u32)&D_00363c40;
-}
+u32 sceGsGetGParam(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002f1fa8: definition moved into src/sdk/libgraph_002f1e18.c
 
 u32 func_003037b0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x003037b0: definition moved into src/newlib/libc/locale.c
 

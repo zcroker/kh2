@@ -32,18 +32,7 @@ extern Port_w1055 D_01e2fe48[];
 
 void func_002f6240(int n);  // 0x002f6240: definition moved into src/sdk/libpad2.c
 
-int func_002f6c28(void)
-{
-    int st;
-    D_00363da4 = 1;
-    st = DIntr();
-    func_003086b8(0x80000012, D_002f6bd0, 0);
-    if (st)
-        EIntr();
-    D_00363da4 = 0;
-    D_00363dc8 = 1;
-    return 1;
-}
+int func_002f6c28(void);  // 0x002f6c28: definition moved into src/sdk/libcdvd_002f6870.c
 
 int u_call4_0030d998(int a) asm("_Z16u_call4_0030d998jjjj");
 int u_call4_0030d998(int a);  // 0x0030d998: definition moved into src/sdk/iopheap.c

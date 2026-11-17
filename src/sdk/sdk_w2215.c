@@ -9,6 +9,6 @@ void func_001002a0(void) { func_0030f468(); }
 
 void func_0030f3a8(void);  // 0x0030f3a8: definition moved into src/sdk/libkernl_0030f290.c
 
-void func_00305aa0(void) { D_003660c8 = 0; }
+void func_00305aa0(void);  // 0x00305aa0: definition moved into src/sdk/libkernl_00305aa0.c
 
 void func_0030a300(void);  // 0x0030a300: definition moved into src/sdk/libkernl_00309860.c

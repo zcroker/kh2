@@ -634,13 +634,7 @@ u32 func_002ed8c0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002ed8c0: definition mo
 
 // 002f11b0: moved to src/naka/libkn/trapfunctions.cpp
 
-u32 func_002f6fa0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2;
-    r6 = 0u;
-    u32 (*fp_call4_002f6ca0)(u32, u32, u32, u32) = sceCdSearchFile;
-    r2 = fp_call4_002f6ca0(r4, r5, r6, r7);
-    return r2;
-}
+u32 func_002f6fa0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002f6fa0: definition moved into src/sdk/libcdvd_002f6870.c
 
 void _Bfree(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00303c18: definition moved into src/newlib/libc/mprec.c
 

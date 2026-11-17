@@ -12,21 +12,7 @@ extern int D_003653c0[];
 extern int D_00365928;
 extern int D_0036592c;
 extern int D_00365930;
-int func_002f7f18(int a)
-{
-    int r;
-    int *p = D_003653c0;
-    if (!func_002f72c0(34)) return 0;
-    *p = a;
-    func_00308a80(p, 4);
-    if (sceSifCallRpc(D_00365900, D_00365928, 0, p, D_0036592c, D_00364f80, D_00365930, 0, 0) < 0) {
-        func_00305640(D_00363dac);
-        return 0;
-    }
-    r = *(int *)((u32)D_00364f80 | 0x20000000);
-    func_00305640(D_00363dac);
-    return r;
-}
+int func_002f7f18(int a);  // 0x002f7f18: definition moved into src/sdk/libcdvd_002f77b0.c
 
 typedef struct { int x0; volatile int x4; unsigned char *x8; } Q1328;
 typedef struct { int pad[6]; Q1328 *x18; } S1328;

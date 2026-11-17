@@ -44,20 +44,7 @@ extern int D_01e331c8;
 extern int D_01e331cc;
 extern int D_01e331d0;
 extern void func_002f6c28(void);
-int func_002f6b50(int a, int b)
-{
-    int old, s;
-    if (D_00363dc8 < 0)
-        func_002f6c28();
-    s = DIntr();
-    old = D_01e331c8;
-    D_01e331d0 = b;
-    D_01e331c8 = a;
-    /* save the caller's $gp: C has no way to read it */
-    asm volatile("sw $28,%0" : "=m"(D_01e331cc));
-    if (s) EIntr();
-    return old;
-}
+int func_002f6b50(int a, int b);  // 0x002f6b50: definition moved into src/sdk/libcdvd_002f6870.c
 
 extern int func_003071d0(void *, void *, u32, const char *, va_list);
 extern int func_00307f40();

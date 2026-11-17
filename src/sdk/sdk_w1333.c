@@ -33,39 +33,7 @@ extern int func_00305320(int, int);
 extern int func_00305960(int);
 extern int DisableIntc(int);
 #define CSR ((volatile unsigned long *)0x12001000)
-void func_002f1e18(short mode, short inter, short omode, short ffmode)
-{
-    GP *p;
-    switch (mode) {
-    case 0:
-        p = sceGsGetGParam();
-        *CSR = 0x200;
-        p->inter = inter;
-        p->omode = omode;
-        p->version = (*CSR >> 16) & 0xff;
-        func_00305960(0xff00);
-        p->ffmode = ffmode != 0;
-        if (p->f8) {
-            DisableIntc(2);
-            func_00305320(2, p->fc);
-            p->f8 = 0;
-            p->fc = 0;
-        }
-        func_00305220(inter & 1, omode & 0xff, ffmode & 1);
-        break;
-    case 1:
-        *CSR = 0x100;
-        break;
-    case 5:
-        p = sceGsGetGParam();
-        p->ffmode = ffmode != 0;
-        p->inter = inter;
-        p->omode = omode;
-        p->version = (*CSR >> 16) & 0xff;
-        func_00305220(inter & 1, omode & 0xff, ffmode & 1);
-        break;
-    }
-}
+void func_002f1e18(short mode, short inter, short omode, short ffmode);  // 0x002f1e18: definition moved into src/sdk/libgraph_002f1e18.c
 
 typedef struct { int size; int count; int pad8; char *wp; char buf[1]; } Ring;
 typedef struct { int sock; volatile int wlen; volatile int rlen; volatile int busy; char *wbuf; char *rbuf; Ring *ring; } TI;

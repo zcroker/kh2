@@ -15,22 +15,7 @@ extern volatile int D_00363dac;
 extern volatile int D_00363de0;
 extern char D_00365900[];
 extern char D_00364f80[];
-int func_002f7e60(void)
-{
-    int r;
-    if (!func_002f72c0(30))
-        return 0;
-    D_00363de0 = 8;
-    if (sceSifCallRpc(D_00365900, 22, 0, 0, 0, D_00364f80, 4, 0, 0) < 0) {
-        func_00305640(D_00363dac);
-        D_00363de0 = 0;
-        return 0;
-    }
-    D_00363de0 = 0;
-    r = *(int *)((int)D_00364f80 | 0x20000000);
-    func_00305640(D_00363dac);
-    return r;
-}
+int func_002f7e60(void);  // 0x002f7e60: definition moved into src/sdk/libcdvd_002f77b0.c
 
 /* libkernl */
 extern int func_00305320(int, int);

@@ -14,23 +14,7 @@ extern volatile int D_00363dac;
 extern volatile int D_00363db0;
 extern volatile int D_00363da0;
 extern volatile int D_00363db4;
-void func_002f69c8(void)
-{
-    SemaParam1328 s;
-    if (D_00363da8 != -1 && D_00363dac != -1 && D_00363db0 != -1) return;
-    s.initCount = 1;
-    s.maxCount = 1;
-    s.option = (unsigned int)"SceCdNcmdSema";
-    D_00363da8 = func_00305620(&s);
-    s.option = (unsigned int)"SceCdScmdSema";
-    D_00363dac = func_00305620(&s);
-    s.option = (unsigned int)"SceCdRcmdSema";
-    D_00363db0 = func_00305620(&s);
-    s.initCount = 0;
-    s.option = (unsigned int)"SceCdCallbackSema";
-    D_00363da0 = func_00305620(&s);
-    D_00363db4 = 0;
-}
+void func_002f69c8(void);  // 0x002f69c8: definition moved into src/sdk/libcdvd_002f6870.c
 
 typedef struct { int x[9]; int serve; int pad[32]; } CdRpc;
 extern int D_00363d90;
@@ -46,68 +30,12 @@ extern int func_002f71b0(int);
 extern void func_00308b30(int);
 extern int sceSifBindRpc(CdRpc *, unsigned int, int);
 
-int func_002f6fc0(int cmd)
-{
-    int i;
-    func_002f69c8();
-    if (D_00363da8 != func_00305670(D_00363da8)) {
-        if (D_00363d90 > 0)
-            func_003080d0("Ncmd fail sema cur_cmd:%d keep_cmd:%d\n", cmd, D_00363d9c);
-        return 0;
-    }
-    D_00363d9c = cmd;
-    if (func_002f71b0(1)) {
-        func_00305640(D_00363da8);
-        return 0;
-    }
-    func_00308b30(0);
-    if (D_00363dbc < 0) {
-        while (1) {
-            if (sceSifBindRpc(&D_00364f50, 0x80000595, 0) < 0) {
-                if (D_00363d90 > 0) func_003080d0("Libcdvd bind err N CMD\n");
-                i = 0x100000; while (i--) ;
-                continue;
-            }
-            if (D_00364f50.serve != 0) break;
-            i = 0x100000; while (i--) ;
-        }
-        D_00363dbc = 0;
-    }
-    return 1;
-}
+int func_002f6fc0(int cmd);  // 0x002f6fc0: definition moved into src/sdk/libcdvd_002f6870.c
 
 extern int D_00363d98;
 extern int D_00363dd4;
 extern CdRpc D_00365900;
 extern int func_002f7250(int);
 
-int func_002f72c0(int cmd)
-{
-    int i;
-    func_002f69c8();
-    if (D_00363dac != func_00305670(D_00363dac)) {
-        if (D_00363d90 > 0)
-            func_003080d0("Scmd fail sema cur_cmd:%d keep_cmd:%d\n", cmd, D_00363d98);
-        return 0;
-    }
-    D_00363d98 = cmd;
-    if (func_002f7250(1)) {
-        func_00305640(D_00363dac);
-        return 0;
-    }
-    func_00308b30(0);
-    if (D_00363dd4 < 0) {
-        while (1) {
-            if (sceSifBindRpc(&D_00365900, 0x80000593, 0) < 0) {
-                if (D_00363d90 > 0) func_003080d0("Libcdvd bind err S cmd\n");
-                i = 0x100000; while (i--) ;
-                continue;
-            }
-            if (D_00365900.serve != 0) break;
-            i = 0x100000; while (i--) ;
-        }
-        D_00363dd4 = 0;
-    }
-    return 1;
-}
+int func_002f72c0(int cmd);  // 0x002f72c0: definition moved into src/sdk/libcdvd_002f6870.c
 
