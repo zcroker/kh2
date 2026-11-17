@@ -1,4 +1,4 @@
-// Linked unit 0x0023e5d0-0x0023f340: Tz::MenuObj, Tz::Layout (gap functions written here).
+// Linked unit 0x0023e5d0-0x0023f5b8: Tz::MenuObj, Tz::Layout, Tz::LayMsg update/draw (gap functions written here).
 #include "../common/types.h"
 #include "auto80_199_queue_decls.hpp"
 #include "auto80_199_queue_structs.hpp"
@@ -912,3 +912,90 @@ void func_0023f1e0(Snd23* p, u32 a1, u32 bank, u32 a3, u32 t0, u32 t1, u32 t2, u
 }
 }  // namespace n0023f1e0
 
+// 0023f340, 0023f418 (were unwritten gaps: LayMsg update and draw)
+namespace n0023f340 {
+struct LM {
+    void** vt;
+    u8 pad4[8];
+    u32 flags;      // 12
+    u8 pad10[8];
+    u32 bank;       // 24
+    u32 voice;      // 28
+    u32 f32_;       // 32
+    s32 f36;        // 36
+    u32 f40;        // 40
+    s16 ids[3];     // 44
+    s16 sel[3];     // 50
+    s16 cur;        // 56
+    u8 pad3[2];
+    u32 color;      // 60
+    s32 len;        // 64
+    u32 f68;        // 68
+    u32 f72;        // 72
+};
+s32 func_00139d78(u32) asm("func_00139d78");
+u8* func_0023f1b0(u32) asm("func_0023f1b0");
+u32 func_0023c3e0(u8*, s16, s32) asm("func_0023c3e0");
+u32 func_0023aa78(u32) asm("func_0023aa78");
+void func_0023f740(LM*, u32) asm("func_0023f740");
+void func_0023f340(LM* p) asm("func_0023f340");
+void func_0023f340(LM* p) {
+    if (p->f36 < 0 && p->f32_ == 0) return;
+    if (func_00139d78(p->bank) == 0) {
+        ((void (*)(LM*))p->vt[5])(p);
+        p->voice = 0;
+        return;
+    }
+    s32 id = *(s32*)(func_0023f1b0(p->bank) + 76);
+    if (id == p->cur) return;
+    for (s32 i = 0; i < 3; i++) {
+        if (id == p->ids[i]) {
+            u32 m = func_0023c3e0(func_0023f1b0(p->bank), p->sel[i], 0);
+            p->voice = m;
+            func_0023f740(p, func_0023aa78(m));
+            return;
+        }
+    }
+}
+
+void func_0023a9c0(u32, s32*, s32*) asm("func_0023a9c0");
+s32 func_0023aa18(u32) asm("func_0023aa18");
+s32 func_0023aa38(u32) asm("func_0023aa38");
+u32 func_0023a918(u32) asm("func_0023a918");
+struct SPR { u8 b[96]; };
+void func_001a98e8(SPR*, u32, u32, s32, u32) asm("func_001a98e8");
+void func_001aa6d0(SPR*, u32) asm("func_001aa6d0");
+void func_001a9ae8(SPR*, s32, s32, u32) asm("func_001a9ae8");
+void func_0023f418(LM* p) asm("func_0023f418");
+void func_0023f418(LM* p) {
+    u32 m = 0;
+    if (p->f36 < 0 && p->f32_ == 0) return;
+    if (func_00139d78(p->bank) == 0) return;
+    for (s32 i = 0; i < 3; i++) {
+        if (*(s32*)(func_0023f1b0(p->bank) + 76) == p->ids[i]) {
+            m = func_0023c3e0(func_0023f1b0(p->bank), p->sel[i], 0);
+            break;
+        }
+    }
+    if (p->voice != m) {
+        p->voice = m;
+        func_0023f740(p, func_0023aa78(m));
+    }
+    s32 x, y;
+    func_0023a9c0(p->voice, &x, &y);
+    if (p->flags & 0x10) {
+        x += func_0023aa18(p->voice);
+        y += func_0023aa38(p->voice);
+    }
+    u32 color = p->color;
+    if (p->flags & 4) {
+        u32 v = func_0023a918(p->voice);
+        if (p->flags & 8) { v &= 0xff000000; color &= 0xffffff; color |= v; }
+        else color = v;
+    }
+    SPR s;
+    func_001a98e8(&s, p->f40, p->f32_, p->len, p->f72);
+    func_001aa6d0(&s, p->f68);
+    func_001a9ae8(&s, x, y, color);
+}
+}  // namespace n0023f340
