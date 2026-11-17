@@ -269,13 +269,7 @@ s32 func_0028acc8(u32);
 s32 func_0028acb8(u32);
 void func_0028aa40(u32);
 extern u32 D_0035f01c;
-void func_0027a108(void) {
-    u32 o = func_00257770();
-    if (func_00287bc0() == 15) {
-        func_0028dac8(o, 142);
-        if (func_0028acc8(D_0035f01c) && !func_0028acb8(D_0035f01c)) func_0028aa40(D_0035f01c);
-    }
-}
+void func_0027a108(void);  // 0x0027a108: definition moved into src/anon/unit_0027a108.cpp
 
 struct W41VA { u32 (**vt)(W41VA*, u32, u32); };
 struct W41SysA { u8 pad[0x14]; W41VA* alloc; };

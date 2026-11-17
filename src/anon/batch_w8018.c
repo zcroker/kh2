@@ -17,33 +17,7 @@ H* func_00294000(s32);
 s32 func_002944d0(E8*);
 s32 func_00276c18(void);
 
-void func_00279860(void) {
-    s32 i;
-    s32 v;
-    s32 a, b;
-    s32 k;
-    s32 r;
-    for (i = 0; i < (s8)D_0035f230[7]; i++) {
-        D_0035f230[i * 8 + 0x12] = 0xff;
-    }
-    if (func_00287bc0() == 15) {
-        v = func_0028b040(D_0035f01c);
-    } else {
-        v = func_002570a0(15);
-    }
-    func_0027aed8(v, &a, &b);
-    k = 0;
-    if (a == 0) k = b;
-    if (k != 0) {
-        s32 base = *(s32*)(func_00281180(D_0035f010, k) + 0x244);
-        for (i = 0; i < (s8)D_0035f230[7]; i++) {
-            if (func_001a80c8(*(u16*)(D_0035f230 + i * 8 + 0xc))[6] == 2) {
-                v = func_001145b0(*(u16*)(D_0035f230 + i * 8 + 0xc));
-                D_0035f230[i * 8 + 0x12] = *(u8*)(v + base + 0xf5);
-            }
-        }
-    }
-}
+void func_00279860(void);  // 0x00279860: definition moved into src/anon/unit_002793b0.cpp
 
 s32 func_002a6500(void) {
     s32 i; s32 r = 0;

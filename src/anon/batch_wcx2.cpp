@@ -9616,52 +9616,7 @@ struct Ent279a10 { u16 id; u8 type; };
 union MgrP279a10 { Mgr279a10* p; u32 u; u8 c; };
 extern MgrP279a10 D_0035f230;
 Ent279a10* func_001a8110_x13535(Ent279a10* p) asm("func_001a8110");
-void func_00279a10(void)
-{
-    s16 order[80];
-    Item279a10 t;
-    Ent279a10* p;
-    s32 i, j, n;
-    s16 o;
-
-    p = 0;
-    if (D_0035f230.p->count == 0) return;
-    for (i = 0; i < D_0035f230.p->count; i++) order[i] = -1;
-    for (i = 0; i < D_0035f230.p->count; i++) {
-        for (j = i + 1; j < D_0035f230.p->count; j++) {
-            if (D_0035f230.p->items[i].kind > D_0035f230.p->items[j].kind) {
-                t = D_0035f230.p->items[i];
-                D_0035f230.p->items[i] = D_0035f230.p->items[j];
-                D_0035f230.p->items[j] = t;
-            }
-        }
-    }
-    n = 0;
-    for (;;) {
-        p = func_001a8110_x13535(p);
-        if (p == 0) break;
-        if (p->type == 19) {
-            for (i = 0; i < D_0035f230.p->count; i++) {
-                if (D_0035f230.p->items[i].id == p->id) order[i] = n;
-            }
-        }
-        n++;
-    }
-    for (i = 0; i < D_0035f230.p->count; i++) {
-        if (D_0035f230.p->items[i].kind == 3) continue;
-        for (j = i + 1; j < D_0035f230.p->count; j++) {
-            if (D_0035f230.p->items[i].kind != D_0035f230.p->items[j].kind) break;
-            if (order[i] > order[j]) {
-                t = D_0035f230.p->items[i];
-                D_0035f230.p->items[i] = D_0035f230.p->items[j];
-                D_0035f230.p->items[j] = t;
-                o = order[i];
-                order[i] = order[j];
-                order[j] = o;
-            }
-        }
-    }
-}
+void func_00279a10(void);  // 0x00279a10: definition moved into src/anon/unit_002793b0.cpp
 
 // --------------------
 // newlib _free_r (dlmalloc 2.6.x fREe; no mmap; EE: 64-bit long).

@@ -47,43 +47,5 @@ static inline void addEnt(s32 n, s32 id) {
     D_0035f230.p->ent[n].f = -1;
 }
 
-void func_00279620(void) {
-    s32 kind;
-    s32 idx;
-    s32 h;
-    s32 c;
-    if ((c = func_00287bc0()) == 15) h = func_0028b040(D_0035f01c);
-    else h = func_002570a0(15);
-    func_0027aed8(h, &kind, &idx);
-    Obj* o = func_00281180(D_0035f010, kind ? 0 : idx);
-    s32 n = D_0035f230.p->count;
-    s32 it = func_001a80c8(o->sub->id);
-    if (func_001a8190(it)->next) {
-        it = func_001a8190(it)->next;
-        func_001a80c8(it);
-        addEnt(n, it);
-        n++;
-    }
-    if (kind == 1) {
-        s32 sel = -1;
-        c = 0;
-        s32 j;
-        for (j = 0; j < 16; j++) {
-            bool off = !((D_0035f230.p->mask >> j) & 1);
-            if ((u8)off) continue;
-            if (c == idx) { sel = j; break; }
-            c++;
-        }
-        if (func_00281388(sel)) {
-            it = func_001a80c8(func_002814b0(sel));
-            if (func_001a8190(it)->next) {
-                it = func_001a8190(it)->next;
-                func_001a80c8(it);
-                addEnt(n, it);
-                n++;
-            }
-        }
-    }
-    D_0035f230.p->count = n;
-}
+void func_00279620(void);  // 0x00279620: definition moved into src/anon/unit_002793b0.cpp
 }

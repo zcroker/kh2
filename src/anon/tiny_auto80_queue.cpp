@@ -12463,16 +12463,7 @@ u32 func_00276fa8();  // 0x00276fa8: definition moved into src/anon/unit_002748a
 
 extern "C" void func_00277128() asm("_ZN2Tz9CmAbility8LeaveAllEv");
 
-u32 func_0027a1c8() {
-    u32 v0 = func_00257780();
-    if (v0 == 0u) {
-        u32 a0 = *(u32*)(u32)&D_0035f01c;
-        if (a0 != 0u) {
-            v0 = (u32)(0u < func_0028acc8(a0));
-        }
-    }
-    return v0;
-}
+u32 func_0027a1c8();  // 0x0027a1c8: definition moved into src/anon/unit_0027a108.cpp
 
 u32 func_0027bba0(u32 a0);  // 0x0027bba0: definition moved into src/anon/unit_0027a6d8.cpp
 

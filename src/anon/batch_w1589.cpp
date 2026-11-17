@@ -28,15 +28,7 @@ extern W1589G D_0035f230;
 
 void func_00277020(void);  // 0x00277020: definition moved into src/anon/unit_002748a0.cpp
 
-void func_002799b0(void)
-{
-    s32 i;
-    D_0035f230.p->h4 = 0;
-    for (i = 0; i < D_0035f230.p->n; i++) {
-        W1589S* p = D_0035f230.p;
-        if (p->e[i].a) p->h4 += p->e[i].b;
-    }
-}
+void func_002799b0(void);  // 0x002799b0: definition moved into src/anon/unit_002793b0.cpp
 
 void func_0029c568(void)
 {

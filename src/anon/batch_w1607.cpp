@@ -183,66 +183,7 @@ void func_00256e80(void);
 void func_0027ac38(void);
 void func_00287bd0(s32, s32);
 void func_002831e0(s32, s32);
-void func_00278dd0(void) {
-    s32 r = func_00289380(D_0035f01c);
-    s32 st = func_00287cd0();
-    if (st == 2) {
-        s32 m = func_00287c10();
-        if (func_0027ad80() || func_0028f930(2) || func_00256ef0()) {
-            if (r != -1 || func_00289310(D_0035f01c)) {
-                func_00287f90(0);
-                func_0027acf8();
-            }
-        } else {
-            func_00287c30();
-            if (m == 16) {
-                func_00279040();
-                func_00277d20();
-            }
-        }
-        return;
-    }
-    if ((r != -1 || func_00289310(D_0035f01c)) && func_0027a990() == 0) {
-        func_0027aa10();
-        func_0028fa98(-1);
-    }
-    if (st == 0 && func_0027a990()) {
-        func_0027b6b8();
-        func_00287c90(1);
-    }
-    {
-        s32 n = func_0028afa8(D_0035f01c);
-        if (func_00242848(func_00287df0(r, func_00289310(D_0035f01c), 1, func_0027c3e0, 1)) == 0) {
-            switch (r) {
-            case -1:
-                break;
-            default:
-                if (r < 0 || r >= n) break;
-                func_0027c1c0();
-            case -2:
-                func_00263c60();
-                func_00256e80();
-                func_0028f6f0(2);
-                func_0027ac38();
-                func_00287c90(1);
-                func_00287c00(16);
-                break;
-            case -7: {
-                s32 m = func_00287bc0();
-                func_00287bd0(37, 0);
-                func_002831e0(2, m);
-                break;
-            }
-            case -4:
-                func_00287da0();
-                break;
-            }
-        }
-    }
-    if (func_00288040()) {
-        func_00288018();
-    }
-}
+void func_00278dd0(void);  // 0x00278dd0: definition moved into src/anon/unit_00278dd0.cpp
 extern T270* D_0035f12c;
 extern s32 D_0035f014;
 extern s32 D_0035f04c;
