@@ -311,14 +311,7 @@ void func_002c85c8(u32 a);  // 0x2c85c8: moved to src/anon/unit_002c7e68.cpp
 // 002d3128
 u8* func_002d1878(u32);
 extern u32 D_00361f60;
-void func_002d3128(u8* p, s32 n)
-{
-    f32 s = *(f32*)(func_002d1878(D_00361f60) + 80);
-    for (s32 i = 0; i < 64 && n > 0; i++) {
-        f32* a = (f32*)(p + 2944) + i;
-        if (a[1] < 0.0f) { n--; a[1] = s * (f32)n; }
-    }
-}
+void func_002d3128(u8* p, s32 n);  // 0x002d3128: definition moved into src/anon/unit_002d2498.cpp
 
 // 003015a8: vsprintf-style formatting into a string through a fake FILE
 struct StrFile { u8* p; s32 r; s32 w; s16 flags; s16 file; u8* base; s32 size; u8 pad[60]; void* data; u8 pad2[8]; };

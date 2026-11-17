@@ -240,11 +240,7 @@ void func_0029e258(s32 i) {
 
 u8 func_002c22b8(u32 a);  // 0x002c22b8: definition moved into src/anon/unit_002c2228.cpp
 
-u8 func_002d47e8(u8* p) {
-    *(void**)p = &D_003621a0;
-    func_002e7328(p + 3208);  // to_2e7458
-    return func_002d2a08(p);
-}
+u8 func_002d47e8(u8* p);  // 0x002d47e8: definition moved into src/anon/unit_002d4548.cpp
 
 u8 func_00315700(void* p) {
     *(void**)p = &D_00367848;

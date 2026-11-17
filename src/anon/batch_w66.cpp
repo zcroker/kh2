@@ -375,15 +375,7 @@ s32 func_002a8870(s32 a) {
 // ---- 002d56a0
 u8* func_0016bc20p(u32, s32, s32) asm("func_0016bc20");
 Vq* func_0016c028v(u32) asm("func_0016c028");
-s32 func_002d56a0(u8* p) {
-    Vq* pos = (Vq*)(p + 1344);
-    if (!*(u32*)(p + 3100)) return 0;
-    u8* v = func_0016bc20p(*(u32*)(p + 3100), 5, -1);
-    f32 rad = *(s16*)(v + 16);
-    Vq* q = func_0016c028v(*(u32*)(p + 3100));
-    f32 l = vlen(vsub(*pos, *q));
-    return l < rad ? 1 : 0;
-}
+s32 func_002d56a0(u8* p);  // 0x002d56a0: definition moved into src/anon/unit_002d4548.cpp
 // ---- 002e7e58
 void func_0016bd60(u8*, s32);
 void func_002e7e58(u8** p) {

@@ -227,12 +227,7 @@ static inline u8* nextNode(u8* n) {
 // Clear flag 4 on every list node whose type byte is 2.
 void func_002bbe80(void);  // 0x002bbe80: definition moved into src/anon/unit_002bb8b0.cpp
 
-void func_002d4828(void** p) {
-    *p = D_003621a0;
-    func_002e7328((u8*)p + 3208);  // to_2e7458
-    func_002d2a08(p);
-    func_00105110(p);
-}
+void func_002d4828(void** p);  // 0x002d4828: definition moved into src/anon/unit_002d4548.cpp
 
 void func_002dac50(u8* p, u32 a, u32 b) {
     func_002cfeb0(p, a, 3, b);  // obj_init_field1416_bit800

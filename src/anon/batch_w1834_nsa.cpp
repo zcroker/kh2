@@ -35,18 +35,7 @@ static inline W1834Vec w1834_lerp(const W1834Vec& a, const W1834Vec& b, f32 t) {
     return r;
 }
 
-W1834Vec func_002d2740(void* self, W1834VObj* o, f32 t0, f32 t1) {
-    W1834Vec x;
-    W1834Vec d = o->b;
-    d.w = w1834_norm(&d);
-    if (d.w <= o->a.w) {
-        x = w1834_lerp(w1834_mul(o->a, o->a.w), o->b, t0);
-    } else {
-        x = w1834_lerp(w1834_mul(o->a, o->a.w), o->b, t1);
-    }
-    o->b = x;
-    return w1834_mul(x, D_00349e10);
-}
+W1834Vec func_002d2740(void* self, W1834VObj* o, f32 t0, f32 t1);  // 0x002d2740: definition moved into src/anon/unit_002d2498.cpp
 
 struct W1834E12 { s32 a, b, c; };
 struct W1834H4 { s16 a, b, c, d; };

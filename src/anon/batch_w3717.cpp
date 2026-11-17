@@ -20,24 +20,7 @@ typedef struct O2d4_w3717 {
 // Constructor: base init, vtable, then clears the colour/scale fields.
 // The empty asm ties the x store to the c10 store (the original stores x after c10
 // although it is independent); v is pinned to $f1 as in the original.
-void func_002d49c0(O2d4_w3717* o) {
-    func_002d0ea8(o);
-    o->vt = D_003622c0;
-    o->bf0.i = 0;
-    V4_w3717* q = &o->c00;
-    register f32 v asm("$f1") = o->bf0.f;
-    q->y = v;
-    q->z = v;
-    q->w = v;
-    o->c34 = 0.0f;
-    o->c14 = 0.0f;
-    o->c18 = 0.0f;
-    o->c1c = 0.0f;
-    o->c30 = 0.0f;
-    o->c10 = 0.004f;
-    asm("" : "+f"(v) : "m"(o->c10));
-    q->x = v;
-}
+void func_002d49c0(O2d4_w3717* o);  // 0x002d49c0: definition moved into src/anon/unit_002d4548.cpp
 
 u8* func_002766d0(void);
 s32 func_0023aa18(u8*);

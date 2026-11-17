@@ -187,17 +187,9 @@ u32 func_002b4fb8(void) {
     return v;
 }
 
-void func_002d2a58(void** p) {
-    *p = D_00362230;
-    func_002cff98(p);
-    func_00105110(p);
-}
+void func_002d2a58(void** p);  // 0x002d2a58: definition moved into src/anon/unit_002d2498.cpp
 
-u32 func_002d5dd0(u8* p) {
-    *(void**)p = D_00362428;
-    func_002e7328(p + 0xb38);  // to_2e7458
-    return func_002cff98(p);
-}
+u32 func_002d5dd0(u8* p);  // 0x002d5dd0: definition moved into src/anon/unit_002d4548.cpp
 
 // 002e7738: moved to src/anon/unit_002e7658.cpp
 

@@ -37,21 +37,5 @@ extern f32 D_00349e10;
 s32 func_001c0cd8(void*);
 s32 func_002cf270(void*, s32);
 void func_0016bda8(QVW2037a*, void*);
-QVW2037a func_002d3fa8(ObjW2037a* a, ObjW2037a* b) {
-    QVW2037a r(0.0f);
-    if (b == a || (b->flags & 0x80) || func_001c0cd8(b) || ((b->flags & 0x08000000) && func_002cf270(b->sub, 0x400)))
-        return QVW2037a(0.0f);
-    QVW2037a pa, pb, d;
-    func_0016bda8(&pa, a);
-    func_0016bda8(&pb, b);
-    vsubW2037a(&d, &pa, &pb);
-    *(s32*)&d.z = 0;
-    d.w = normalizeW2037a(&d);
-    f32 lim = a->lim;
-    if (lim != 0.0f && lim <= d.w) return QVW2037a(0.0f);
-    QVW2037a s2 = mulSW2037a(&d, a->scale, (d.w - a->base) * a->mul);
-    vaddW2037a(&r, &r, &s2);
-    vscaleW2037a(&r, &r, D_00349e10);
-    return r;
-}
+QVW2037a func_002d3fa8(ObjW2037a* a, ObjW2037a* b);  // 0x002d3fa8: definition moved into src/anon/unit_002d2498.cpp
 }

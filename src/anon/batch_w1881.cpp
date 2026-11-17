@@ -22,27 +22,5 @@ void func_002d6518(void*);
 void func_001991a8(s32, s32);
 void func_002d4868(s32);
 
-void func_002d5748(Act5748* self, u16* msg)
-{
-    Mg5748* g = D_00361f60;
-    if (g == 0) return;
-    s32 c = *msg;
-    if ((u16)c == 0x1f0) {
-        func_002d6518(self->c14);
-        g->f140 = 0;
-        if (self->c34) ekill5748(self->c34);
-        void* e = (void*)st_eff5748(self, 1, 0, 0);
-        self->c34 = e;
-        if (e) *epos5748(e) = getpos5748(self->c14);
-        if (self->c30) ekill5748(self->c30);
-        e = (void*)st_eff5748(self, 0, 0, 0);
-        self->c30 = e;
-        if (e) *epos5748(e) = getpos5748(self);
-    } else if ((u16)c == 0x1f1) {
-        func_001991a8(21, 0);
-        func_002d4868(self->c1c);
-    } else if ((u32)((c - 0x242) & 0xffff) < 2) {
-        tornado5748(self);
-    }
-}
+void func_002d5748(Act5748* self, u16* msg);  // 0x002d5748: definition moved into src/anon/unit_002d4548.cpp
 }

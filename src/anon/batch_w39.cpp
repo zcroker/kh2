@@ -434,14 +434,7 @@ S2cf* func_002cf8c0(int idx, u32 a, u32 b, U2cf* c);  // 0x002cf8c0: definition 
 
 // --- 002d4a30
 void func_0016aef0(u8*, f32*);
-void func_002d4a30(u8* p, Vec4* v) {
-    f32 t[4];
-    t[0] = 1.0f;
-    t[3] = t[2] = t[1] = 0.0f;
-    func_0016aef0(p, t);
-    *(Vec4*)(p + 1344) = *v;
-    *(f32*)(p + 1352) = *(f32*)(p + 3056);
-}
+void func_002d4a30(u8* p, Vec4* v);  // 0x002d4a30: definition moved into src/anon/unit_002d4548.cpp
 
 // --- 002f0b60
 struct S2f0 { u8 pad[16]; Vec4 a; Vec4 b; };

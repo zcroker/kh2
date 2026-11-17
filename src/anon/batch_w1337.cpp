@@ -74,27 +74,7 @@ QM1337* func_002d1f10(u8*);
 QM1337* func_002d1f00(u8*);
 void func_0016b010(void*, QV1337*);
 
-void func_002d5f48(u8* self) {
-    u8* other;
-    BtlObj_pre_exec(self);
-    other = D_00361f60;
-    if (other == 0) return;
-    if (Obj_is_attach(self) == 0) {
-        QV1337 pos(*func_0016c028(self));
-        QM1337 m(*func_002d1f10(other));
-        m.invOrtho();
-        pos.w = 1.0f;
-        QV1337 local = m * pos;
-        local.z = 0.0f;
-        QV1337 world = *func_002d1f00(other) * local;
-        world.z = 0.0f;
-        Obj_set_pos(self, &world);
-        QV1337 v(*(QV1337*)(self + 0xb20));
-        func_0016b010(self, &v);
-    } else {
-        *(u32*)(self + 0x108) |= 2;
-    }
-}
+void func_002d5f48(u8* self);  // 0x002d5f48: definition moved into src/anon/unit_002d4548.cpp
 
 
 s32 func_00143b88(Seg1337*, Hit1337*, u16*, s32*, s32);

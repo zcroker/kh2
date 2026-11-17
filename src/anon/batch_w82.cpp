@@ -426,23 +426,7 @@ s32 func_001c0cd8(u32);
 // 002c66b8: moved to src/anon/unit_002c6420.cpp (linked unit)
 
 // Returns the target in slot a1 if it is within its own reach radius of this object.
-u32 func_002d2660(u8* a0, s32 a1)
-{
-    u32* slot = (u32*)(a1 * 4 + (u32)a0 + 320);
-    u8* o;
-    f32 r;
-    u8 a[16] __attribute__((aligned(16)));
-    u8 b[16] __attribute__((aligned(16)));
-    u8 d[16] __attribute__((aligned(16)));
-    if (!slot[1]) return 0;
-    o = func_002d1260(a0);
-    r = *(s16*)(func_0016bc20(slot[1], 5, -1) + 16);
-    QCopy82(a, func_0016c028((u32)o));  // obj_get_attach_or_alt
-    QCopy82(b, func_0016c028(slot[1]));  // obj_get_attach_or_alt
-    VSub82(d, a, b);
-    if (VLen82(d) < r) return slot[1];
-    return 0;
-}
+u32 func_002d2660(u8* a0, s32 a1);  // 0x002d2660: definition moved into src/anon/unit_002d2498.cpp
 
 void func_002da040(u8* a0)
 {

@@ -74,54 +74,6 @@ f32 func_002d48b8(f32);
 f32 cosf(f32);
 f32 sinf(f32);
 // Moves the object: attach check, circular path around "to", pending timers, bobbing.
-void func_002d31b0(O2d31b0* o)
-{
-    func_0016a9a0(o);
-    void* g = D_00361f60;
-    // Partial asm: the original loads f264 only after g, with f264 in t7 (the register the
-    // lui of g just freed). gcc hoists the load above g and picks t6.
-    register u32 f asm("$15"); asm("lw %0,%1" : "=r"(f) : "m"(o->f264), "r"(g));
-    o->f264 = f | 2;
-    asm volatile(""); // keeps the f264 store above the f2944 load
-    if (o->f2944 && !o->InAir()) o2d31b0_set(o->lflag, 4, 0);
-    if (!o->rec) return;
-    if (o2d31b0_is_attach(o)) return;
-    V2d31b0 v(*func_002d1f20(D_00361f60));
-    bool air = o->InAir();
-    f32 zero = 0.0f;
-    if (air) {
-        o->pos.z = zero;
-        o->pos.x += v.x;
-    } else {
-        V2d31b0 c = o->pos - o->to;
-        V2d31b0 w(o->dir);
-        w *= w.w * D_00349e10;
-        v.z = zero;
-        v.y = zero;
-        w.x += v.x;
-        c += w;
-        o->ang = func_002d48b8(o->ang + o->angVel * D_00349e10);
-        f32 cs = cosf(o->ang);
-        V2d31b0 r(cs, sinf(o->ang), 0.0f, 0.0f);
-        r *= o->radius;
-        o->pos = c + r;
-        o->pos.y += o->bob;
-        o->to = o->pos - c;
-        o->pos.z = zero;
-    }
-    o->pos += func_002d2870(g, o);
-    for (s32 i = 0; i < 64; i++) {
-        if (0.0f <= o->timer[i]) {
-            o->timer[i] -= D_00349e10;
-            if (o->timer[i] < 0.0f) func_002d36f0(o);
-        }
-    }
-    if (0.0f < o->period) {
-        f32 a = o->phase * 6.2831855f / o->period;
-        o->phase += D_00349e10;
-        while (o->period < o->phase) o->phase -= o->period;
-        o->bob = sinf(a) * o->f2908;
-    }
-}
+void func_002d31b0(O2d31b0* o);  // 0x002d31b0: definition moved into src/anon/unit_002d2498.cpp
 
 }

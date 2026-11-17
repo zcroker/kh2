@@ -369,24 +369,7 @@ extern u8 D_00362380[];
 extern u8 D_00362388[];
 union PtrWord { void* p; u32 w; };
 extern PtrWord D_00361f60;
-void func_002d5e50(u8* self)
-{
-    func_002d00a0(self);
-    s32 z = func_00181500(9271) == 0;
-    D_00362380[1] = 21 - z;
-    func_001c0d38(self, func_002d1260(), 67, 0);
-    *(u32*)(self + 264) |= 2;
-    asm volatile("vsub.wxyz $vf1, $vf0, $vf0\n\tsqc2 $vf1, 0(%0)" : : "r"(self + 2848) : "memory");
-    *(u32*)(self + 2864) = 0;
-    *(u32*)(self + 2868) = 0;
-    u8* x = self + 2872;
-    void* q = D_00361f60.p;
-    if (q) {
-        u8* a = func_002d1878(q);
-        u8* b = func_002d1878(q);
-        func_002e7340(x, self, 3, D_00362388, *(f32*)(a + 256), *(f32*)(b + 260));
-    }
-}
+void func_002d5e50(u8* self);  // 0x002d5e50: definition moved into src/anon/unit_002d4548.cpp
 
 // 002ed738
 s32 func_00190140(void*);

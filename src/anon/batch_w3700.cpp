@@ -16,35 +16,7 @@ void ctarget_0016bda8(QW2d3*, Act2d3*) asm("_Z16ctarget_0016bda8jjjj");
 void ctarget_00186a90(Act2d3*, QW2d3*, f32) asm("_Z16ctarget_00186a90jjjj");
 void func_0016ac38(Act2d3*, s32, s32, s32, s32);
 f32 fabsf(f32);
-void func_002d39c8(Act2d3* a, Hit2d3* h) {
-    QW2d3 d, pa, pb;
-    Act2d3* b = h->other;
-    if (!(b->flags & 0x8000000)) return;
-    if (IsPos2d3(a->fadc)) return;
-    if (IsPos2d3(b->fadc)) return;
-    s16 ha = a->sub->h;
-    if (ha == 0) return;
-    s16 hb = b->sub->h;
-    if (hb == 0) return;
-    if (hb < ha) return;
-    if (!(a->f7f8 & 0x10)) func_001ad990(a->snd, 1.0f, 0.0f, 0.0f);
-    // s0 for &pa: local-alloc priority gives it to &pb otherwise (partial asm, see asm_review.tsv)
-    register QW2d3* ppa asm("$16");
-        ppa = &pa;
-    func_0016ac38(a, 0, 1, 0, 0);
-    a->bb80 = 1;
-    ctarget_0016bda8(ppa, a);
-    ctarget_0016bda8(&pb, h->other);
-    asm volatile("lqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 0(%2)\n\tvsub.wxyz $vf1, $vf1, $vf2\n\tsqc2 $vf1, 0(%0)" : : "r"(&d), "r"(ppa), "r"(&pb) : "memory");
-    d.z = 0.0f;
-    {
-        f32 r;
-        asm volatile("lqc2 $vf1, 0(%1)\n\tvmul.xyz $vf2, $vf1, $vf1\n\tvaddy.x $vf2, $vf2, $vf2y\n\tvaddz.x $vf2, $vf2, $vf2z\n\tvsqrt Q, $vf2x\n\tvwaitq\n\tcfc2.ni $8, $vi22\n\tvaddq.x $vf2, $vf0, Q\n\tmtc1 $8, %0\n\tvnop\n\tvdiv Q, $vf0w, $vf2x\n\tvwaitq\n\tvmulq.xyz $vf1, $vf1, Q\n\tsqc2 $vf1, 0(%1)"
-                     : "=f"(r) : "r"(&d) : "$8", "memory");
-    }
-    if (a->fb78 < 0.0f) asm volatile("vsub.wxyz $vf1, $vf0, $vf0\n\tsqc2 $vf1, 0(%0)" : : "r"(&d) : "memory");
-    ctarget_00186a90(a, &d, fabsf(a->fb78));
-}
+void func_002d39c8(Act2d3* a, Hit2d3* h);  // 0x002d39c8: definition moved into src/anon/unit_002d2498.cpp
 }
 
 

@@ -353,16 +353,7 @@ s32 func_002ab100(s32 n);  // 0x002ab100: definition moved into src/anon/unit_00
 
 void func_002c5900(u8* p);  // 0x002c5900: definition moved into src/anon/unit_002c53c8.cpp
 
-Q16* func_002d2870(Q16* out, u8* b, u32 c) {
-    f32* v = (f32*)out;
-    v[3] = v[2] = v[1] = v[0] = 0.0f;
-    if (func_002d5c40(func_002d1260()) == 2) {
-        Q16 t;
-        func_002d3fa8(&t, *(u32*)(b + 324), c);
-        if (out != &t) copyQ(out, &t);
-    }
-    return out;
-}
+Q16* func_002d2870(Q16* out, u8* b, u32 c);  // 0x002d2870: definition moved into src/anon/unit_002d2498.cpp
 
 }
 

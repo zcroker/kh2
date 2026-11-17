@@ -193,33 +193,7 @@ struct P1 { s32 n0; s32 n1; f32 f8; f32 f12; f32 f16; f32 f20; };
 extern "C" {
 QWord func_002d38e8(u32);
 u8* func_001cbe30(QWord*, u32, s32);
-void func_002d3568(u32 a, P1* p, u32 c)
-{
-    s32* pn1 = &p->n1;
-    f32* pf12 = &p->f12;
-    f32* pf8 = &p->f8;
-    f32* pf16 = &p->f16;
-    QWord q = func_002d38e8(a);
-    s32* pn0 = &p->n0;
-    for (s32 i = 0; i < *pn0; i++) {
-        f32 y = (f32)i * *pf8;
-        for (s32 j = 0; j < *pn1; j++) {
-            u8* e = func_001cbe30(&q, c, 0);
-            if (e) {
-                f32 v = (f32)j * 6.2831854820251465f / (f32)*pn1 - 3.1415927410125732f;
-                *(QWord*)(e + 112) = q;
-                ((FU*)(e + 160))->f = v;
-                ((FU*)(e + 168))->f = *pf16;
-                ((FU*)(e + 172))->f = 0.0f;
-                ((FU*)(e + 180))->f = *pf12;
-                ((FU*)(e + 96))->f = y;
-                ((FU*)(e + 100))->f = 120.0f;
-                ((FU*)(e + 104))->f = p->f20;
-                ((FU*)(e + 64))->f = 0.0f;
-            }
-        }
-    }
-}
+void func_002d3568(u32 a, P1* p, u32 c);  // 0x002d3568: definition moved into src/anon/unit_002d2498.cpp
 }
 }
 

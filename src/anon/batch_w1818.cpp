@@ -42,19 +42,7 @@ extern "C" {
 // --- 002d24e8: keep the nearer of two objects with id 2031/2032
 extern Vec1818* func_0016c028(Obj1818*);  // obj_get_attach_or_alt
 extern Obj1818* func_002d1260(void);
-void func_002d24e8(Owner1818* s, Obj1818* o) {
-    s32 id = *o->id;
-    u32 r = (u32)(id - 2031) < 2;
-    u8 i = id != 2031;
-    if (r) {
-        Slot1818* t = (Slot1818*)((i << 2) + (u32)s + 320);
-        if (t->p == 0) { t->p = o; return; }
-        Vec1818 base(*func_0016c028(func_002d1260()));
-        Vec1818 d1 = *func_0016c028(t->p) - base;
-        Vec1818 d2 = *func_0016c028(o) - base;
-        if (vlen1818(d2) < vlen1818(d1)) t->p = o;
-    }
-}
+void func_002d24e8(Owner1818* s, Obj1818* o);  // 0x002d24e8: definition moved into src/anon/unit_002d2498.cpp
 
 // --- 002eb098: target within +-30 height and 50 horizontal distance
 extern Vec1818* func_0016c028_a(Act1818*) asm("func_0016c028");

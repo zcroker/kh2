@@ -7,12 +7,7 @@ extern "C" {
 // --- 002d5588: true when the linked object's id is 0x38 or 0x37
 struct I_w1731 { u8 pad[4]; s32 id; };
 struct P_w1731 { u8 pad[12]; I_w1731* i; };
-s32 func_002d5588(P_w1731* p) {
-    s32 t = p->i->id;
-    s32 r = 0;
-    if ((t ^ 0x38) == 0 || (t ^ 0x37) == 0) r = 1;
-    return r;
-}
+s32 func_002d5588(P_w1731* p);  // 0x002d5588: definition moved into src/anon/unit_002d4548.cpp
 
 // --- 002ef340: by-value struct params (spilled, unused), call member at +0x40 then a global update
 struct A_w1731 { u32 x, y; };

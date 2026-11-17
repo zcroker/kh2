@@ -72,34 +72,7 @@ W1986Obj* func_001cbe30(W1986Tmp*, s32, s32);
 f32 sinf(f32);
 f32 cosf(f32);
 
-void func_002d36f0(void* a)
-{
-    W1986Tmp t;
-    void* g = D_00361f60;
-    func_002d38e8(&t, a);
-    W1986Cfg* c = func_002d1878(g);
-    f32 h = c->f58 / 60.0f;
-    f32 w = c->f4c;
-    s32& n = c->n;
-    f32& wd = c->f48;
-    f32& st = c->f50;
-    for (s32 j = 0; j < 1; j++) {
-        f32 z = (f32)j * st;
-        for (s32 i = 0; i < n; i++) {
-            W1986Obj* o = func_001cbe30(&t, 1, 1);
-            if (o) {
-                f32 ang = (wd * (f32)i) / (f32)(n - 1) - wd * 0.5f;
-                f32 cs = sinf(ang);
-                o->v90 = W1986V4(cs, -cosf(ang), 0, w);
-                o->v80 = W1986V4(0, h, 0, 0);
-                o->f60 = z;
-                o->f64 = 120.0f;
-                o->f68 = c->f54;
-                o->x40 = 0;
-            }
-        }
-    }
-}
+void func_002d36f0(void* a);  // 0x002d36f0: definition moved into src/anon/unit_002d2498.cpp
 
 // 00175f68
 struct W1986Ob;

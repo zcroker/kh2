@@ -64,30 +64,5 @@ W1809R2d5* func_0016bc20(void*, s32, s32);
 void func_0016bda8(W1809V2d5*, void*);
 
 // VU0 macro code: d = a - b, then the xyz length of d.
-s32 func_002d55b8(u8* a0) {
-    s32 r = 0;
-    if (D_00361f60 != 0) {
-        void* t = *(void**)(a0 + 0xc14);
-        if (t != 0) {
-            if (func_001c0cd8(t) != 0) goto no;
-            {
-            W1809V2d5 d, a, b;
-            W1809V2d5* pd = &d;
-            f32 len;
-            f32 range = func_0016bc20(*(void**)(a0 + 0xc14), 5, -1)->h10;
-            func_0016bda8(&a, a0);
-            func_0016bda8(&b, *(void**)(a0 + 0xc14));
-            asm volatile(".set noreorder\n\tlqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 0(%2)\n\tvsub.wxyz $vf1, $vf1, $vf2\n\tsqc2 $vf1, 0(%0)\n\t.set reorder" : : "r"(pd), "r"(&a), "r"(&b) : "memory");
-            pd->z = 0.0f;
-            asm volatile(".set noreorder\n\tlqc2 $vf1, 0(%1)\n\tvmul.xyz $vf1, $vf1, $vf1\n\tvaddy.x $vf1, $vf1, $vf1y\n\tvaddz.x $vf1, $vf1, $vf1z\n\tvsqrt Q, $vf1x\n\tvwaitq\n\tcfc2.ni $8, $vi22\n\tmtc1 $8, %0\n\t.set reorder" : "=f"(len) : "r"(pd) : "$8", "memory");
-            r = 1;
-            if (len < range) goto out;
-            }
-        no:
-            r = 0;
-        }
-    }
-out:
-    return r;
-}
+s32 func_002d55b8(u8* a0);  // 0x002d55b8: definition moved into src/anon/unit_002d4548.cpp
 }

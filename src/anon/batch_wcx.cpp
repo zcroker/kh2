@@ -2050,23 +2050,7 @@ u8* func_002d1f00(u32);  // ptr_add160
 void func_0016ace0(u8*, V4*);
 void func_0016aef0(u8*, V4*);
 void func_0016bd60(u8*, s32);
-void func_002d4aa0(u8* p)
-{
-    func_001780d8(p);
-    func_00198860(p, 6);
-    V4 a, b;
-    asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(&a), "r"(func_002d1f00(D_00361f60) + 48) : "$8", "memory");  // ptr_add160
-    *(u32*)&a.z = 0;
-    func_0016ace0(p, &a);
-    asm volatile("vsub.wxyz $vf1, $vf0, $vf0\n\tsqc2 $vf1, 0(%0)" : : "r"(p + 3104) : "memory");
-    f32 z = 0.0f;
-    b.x = 1.0f;
-    b.y = z;
-    b.z = z;
-    b.w = z;
-    func_0016aef0(p, &b);
-    func_0016bd60(p, 37);
-}
+void func_002d4aa0(u8* p);  // 0x002d4aa0: definition moved into src/anon/unit_002d4548.cpp
 struct HT { u8* head; u8* tail; };
 extern HT D_01e2c080;
 extern u8 D_00363808[];

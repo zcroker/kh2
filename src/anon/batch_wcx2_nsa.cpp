@@ -247,66 +247,7 @@ V2d3b78 o2d3b78_0016bda8(O2d3b78*) asm("_Z16ctarget_0016bda8jjjj");
 void func_0017f488(void*, s32, f32, f32);
 void o2d3b78_push(void*, s32, f32, f32, void*) asm("_ZN2YS6MOTION4pushEiffPFvPNS_3OBJEE");
 f32 fabsf(f32);
-void func_002d3b78(O2d3b78* o, Hit2d3b78* h)
-{
-    void* g = D_00361f60;
-    if (o->f2924 >= 0) return;
-    if (o->f2944) return;
-    O2d3b78* t = h->other;
-    if (t && !(t->flags & 0x80)) {
-        if ((t->flags & 0x08000000) && t->f2924 < 0) {
-            func_002d39c8(o, h);
-            return;
-        }
-    }
-    s32 done = 0;
-    s32 kind = func_002d5c40(o2d3b78_current());
-    func_001b3e88(o, h);
-    o->hits++;
-    s32 eff = -1;
-    s32 need;
-    if (kind == 2) {
-        eff = 1;
-        need = o->tbl[1];
-    } else if (kind == 3) {
-        eff = 2;
-        need = o->tbl[2];
-    } else {
-        need = o->tbl[0];
-    }
-    if (eff >= 0 && h->f28) {
-        void* e = o2d3b78_start_effect(h->other, eff, 1, 0);
-        if (e) *o2d3b78_effect_pos(e) = D_0034eef0;
-    }
-    if (o2d3b78_appear_prize_ok(o2d3b78_current())) {
-        if (*o->kind == 1629 || (need > 0 && !(o->hits < need))) done = 1;
-    }
-    if (done) {
-        if (*o->kind == 1629) func_002d3128(o, o2d3b78_config(g)->f64);
-        else if (*o->kind == 1627) func_002d3568(o, o2d3b78_config(g)->tab216, 0);
-        else func_002d3568(o, o2d3b78_config(g)->tab40, 2);
-    }
-    if (need > 0 && !(o->hits < need)) {
-        if (!(o->f2040 & 0x10)) func_001ad990(o->f2092, 1.0f, 0.0f, 0.0f);
-        func_0016ac38(o, 0, 1, 0, 0);
-        o->f2944 = 1;
-    } else if (*o->kind != 1626) {
-        func_0017f488(o->motion, 14, 0.0f, 0.0f);
-        o2d3b78_push(o->motion, 0, 0.0f, 0.0f, 0);
-    }
-    if (!h->other) return;
-    if (*o->kind == 1627 || *o->kind == 1629) {
-        V2d3b78 v;
-        v.Set(1.0f, 0.0f, 0.0f, 0.0f);
-        o2d3b78_00186a90(o, &v, fabsf(o->f2936));
-    } else {
-        V2d3b78 v = o2d3b78_0016bda8(o) - o2d3b78_0016bda8(h->other);
-        v.z = 0.0f;
-        v.normalize();
-        if (o->f2936 < 0.0f) v.Zero();
-        o2d3b78_00186a90(o, &v, fabsf(o->f2936));
-    }
-}
+void func_002d3b78(O2d3b78* o, Hit2d3b78* h);  // 0x002d3b78: definition moved into src/anon/unit_002d2498.cpp
 }
 
 // --------------------
@@ -375,51 +316,7 @@ struct Tgt2d4b40 {
 void func_001bd3e0(s32, s32, s32, Tgt2d4b40*, s32, s32);
 s32 func_002d55b8(O2d4b40*);
 void* func_002d2660(void*, s32);
-void func_002d4b40(O2d4b40* o)
-{
-    func_002d10a0(o);
-    void* g = D_00361f60;
-    if (!g) return;
-    {
-    W2d4b40Vec p(*func_0016c028(o));
-    W2d4b40Mtx m(*func_002d1f10(g));
-    m.invOrtho();
-    p.w = 1.0f;
-    W2d4b40Vec a = m * p;
-    a.z = 0.0f;
-    W2d4b40Vec b = *func_002d1f00(g) * a;
-    b.z = 0.0f;
-    o2d4b40_set_pos(o, &b);
-    }
-    if (!o->h3092) o->h3092 = func_0016b740(1565);
-    if (!o->h3096) o->h3096 = func_0016b740(1628);
-    if (func_002d5588(o)) return;
-    if (func_002d56a0(o) && o->h3092 && o2d4b40_is_attach(o->h3092)) {
-        Tgt2d4b40 t(o->f3100);
-        func_001bd3e0(o->f2884, 1, 497, &t, 1, 100);
-        return;
-    }
-    if (func_002d55b8(o)) {
-        Tgt2d4b40 t(o->h3092);
-        func_001bd3e0(o->f2884, 1, 496, &t, 1, 100);
-        return;
-    }
-    void* r = func_002d2660(g, 0);
-    if (r) {
-        Tgt2d4b40 t(r);
-        func_001bd3e0(o->f2884, 1, 578, &t, 1, 100);
-        o->f3128 = r;
-        o->f3132 = 0;
-        return;
-    }
-    r = func_002d2660(g, 1);
-    if (r) {
-        Tgt2d4b40 t(r);
-        func_001bd3e0(o->f2884, 1, 579, &t, 1, 100);
-        o->f3128 = r;
-        o->f3132 = 1;
-    }
-}
+void func_002d4b40(O2d4b40* o);  // 0x002d4b40: definition moved into src/anon/unit_002d4548.cpp
 }
 
 extern "C" {
@@ -500,42 +397,7 @@ void func_002d3f18(O2d5200*);
 Cfg2d5200* o2d5200_config(void*) asm("_ZN2Ti9MGOarashi6configEv");
 void o2d5200_00186a90(O2d5200*, V2d5200*, f32) asm("_Z16ctarget_00186a90jjjj");
 f32 fabsf(f32);
-void func_002d5200(O2d5200* o, Hit2d5200* h)
-{
-    G2d5200* g = g2d5200_game;
-    if (!g) return;
-    if (o->vt->busy(o)) return;
-    V2d5200 d = o2d5200_0016bda8(o) - o2d5200_0016bda8(h->other);
-    d.z = 0.0f;
-    if (d.normalize() < 0.01f) {
-        f32 zero = 0.0f;
-        d.x = 1.0f; d.z = zero; d.y = zero;
-    }
-    if (!func_002d51f0(o)) {
-        O2d5200* t = h->other;
-        if (t && (t->flags & 0x08000000) && t->InAir()) return;
-        func_0017f488(o->motion, 14, 0.0f, 0.0f);
-        o2d5200_push(o->motion, 0, 0.0f, 0.0f, 0);
-        if (o->h3096) {
-            func_0017f488(o->h3096->motion, 14, 0.0f, 0.0f);
-            o2d5200_push(o->h3096->motion, 0, 0.0f, 0.0f, 0);
-        }
-        if (o->h3092 && o2d5200_is_attach(o->h3092)) {
-            g->f320 = 1;
-            func_002d6600(o->h3092, &d);
-        }
-        if (h->f28) {
-            void* e = o2d5200_start_effect(h->other, 1, 1, 0);
-            if (e) *o2d5200_effect_pos(e) = g2d5200_zero;
-        }
-        if (h->other && (h->other->flags & 0x08000000)) {
-            o2d5200_set(h->other->lflag, 256, 0);
-            func_002d3f18(h->other);
-        }
-    }
-    if (o2d5200_config(g)->knock < 0.0f) d.Zero();
-    o2d5200_00186a90(o, &d, fabsf(o2d5200_config(g)->knock));
-}
+void func_002d5200(O2d5200* o, Hit2d5200* h);  // 0x002d5200: definition moved into src/anon/unit_002d4548.cpp
 }
 
 extern "C" {

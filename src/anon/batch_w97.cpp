@@ -504,22 +504,7 @@ struct Rec2d4 { u32 a; Quad2d4 b; };
 struct Src2d4 { u32 f0; Rec2d4 r; };
 struct Obj2d4 { u8 pad[1344]; Vq pos; u8 pad1360[2548 - 1360]; Rec2d4 r; u8 pad2568[3104 - 2568]; Vq dir; };
 Vq func_00190388(const void*);  // vec4_from_arg
-Vq func_002d4f60(Obj2d4* o) {
-    Rec2d4* rr = &o->r;
-    Rec2d4* sr = &(*(Src2d4**)((u8*)o + 2880))->r;
-    o->r.a = sr->a;
-    o->r.b = sr->b;
-    Vq d;
-    d.w = d.z = d.y = d.x = 0.0f;
-    if (rr->b.v[2].u == 6) {
-        d = vsubn(func_00190388(rr), o->pos);  // vec4_from_arg
-        vnormalize(&d);
-        o->dir = d;
-    }
-    Vq r;
-    vcopy(&r, &o->dir);
-    return r;
-}
+Vq func_002d4f60(Obj2d4* o);  // 0x002d4f60: definition moved into src/anon/unit_002d4548.cpp
 
 // ---- 002da3d8
 struct Range2da { u8 pad[12]; f32 near; f32 far; };

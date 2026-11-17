@@ -298,11 +298,7 @@ f32 func_002d0e10(f32 a);  // 0x002d0e10: definition moved into src/anon/unit_00
 void func_002e7458(u8*);
 void func_002e7568(u8*, u32, u8*, f32);
 extern u8 D_00362190[];
-void func_002d4868(u8* p) {
-    func_002e7458(p + 3208);
-    func_002e7568(p, 2, D_00362190, 1.0f);
-    *(u32*)(p + 2876) = 0;
-}
+void func_002d4868(u8* p);  // 0x002d4868: definition moved into src/anon/unit_002d4548.cpp
 
 void func_002def70(u8*, u32);
 u8* func_002dc7c8(u32);

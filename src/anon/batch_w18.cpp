@@ -202,11 +202,7 @@ void func_002d1840(void** p);  // 0x002d1840: definition moved into src/anon/uni
 extern u32 D_00362428;
 void func_002cfeb0(void*, u32, u32, u32);  // obj_init_field1416_bit800
 void func_002e7308(void*);
-void func_002d5d50(u8* p, u32 a, u32 b) {
-    func_002cfeb0(p, a, 1, b);  // obj_init_field1416_bit800
-    *(void**)p = &D_00362428;
-    func_002e7308(p + 2872);
-}
+void func_002d5d50(u8* p, u32 a, u32 b);  // 0x002d5d50: definition moved into src/anon/unit_002d4548.cpp
 
 extern u8* D_00361f60;
 void func_002ceb08(void);

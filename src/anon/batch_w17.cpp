@@ -226,11 +226,7 @@ void func_002c6158(u32* p);  // 0x002c6158: definition moved into src/worldmap/c
 extern u32 D_00362428;
 void func_002cfeb0(void*, u32, u32, u32);  // obj_init_field1416_bit800
 void func_002e7308(void*);
-void func_002d5d10(u8* p, u32 a, u32 b) {
-    func_002cfeb0(p, a, 1, b);  // obj_init_field1416_bit800
-    *(void**)p = &D_00362428;
-    func_002e7308(p + 2872);
-}
+void func_002d5d10(u8* p, u32 a, u32 b);  // 0x002d5d10: definition moved into src/anon/unit_002d4548.cpp
 
 void func_0017c430(void*);
 void func_0016bd60(void*, u32);

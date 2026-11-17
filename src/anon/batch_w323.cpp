@@ -167,29 +167,7 @@ QV323& func_0016c028(void);  // obj_get_attach_or_alt
 QV323 func_002d1d30(u8*, const QV323&);
 f32 rnd2d4548(f32, f32) asm("_Z13func_001065a8jjjjjjjj");
 f32 fabsf(f32);  // fabsf
-void func_002d4548(u8* self) {
-    u8* cam = D_00361f60;
-    f32 save = *(f32*)(self + 2876);
-    QV323 v = func_0016c028();  // obj_get_attach_or_alt
-    QV323 r = func_002d1d30(cam, v);
-    if ((0.8f < r.x && 0.0f < *(f32*)(self + 2864)) || (r.x < -0.8f && *(f32*)(self + 2864) < 0.0f) ||
-        (0.8f < r.y && 0.0f < *(f32*)(self + 2868)) || (r.y < -0.8f && *(f32*)(self + 2868) < 0.0f)) {
-        f32 a, b;
-        do {
-            a = rnd2d4548(-1.0f, 1.0f);
-            b = rnd2d4548(-1.0f, 1.0f);
-        } while (fabsf(a) < 0.001f && fabsf(b) < 0.001f);  // fabsf
-        if (0.7f < r.x) a = -fabsf(a);  // fabsf
-        if (r.x < -0.7f) a = fabsf(a);  // fabsf
-        if (0.7f < r.y) b = -fabsf(b);  // fabsf
-        if (r.y < -0.7f) b = fabsf(b);  // fabsf
-        *(f32*)(self + 2864) = a;
-        *(f32*)(self + 2868) = b;
-        *(f32*)(self + 2872) = 0.0f;
-    }
-    ((QV323*)(self + 2864))->normalize0();
-    *(f32*)(self + 2876) = save;
-}
+void func_002d4548(u8* self);  // 0x002d4548: definition moved into src/anon/unit_002d4548.cpp
 
 f32 func_002cd518(u32, f32* out, const QV323* a, const QV323* b, const QV323* c);  // 0x002cd518: definition moved into src/taito/path.cpp
 }

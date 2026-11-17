@@ -456,32 +456,6 @@ static inline f32 vlen(const QV* v) {
 }
 extern "C" {
 // Returns the nearest active actor of kind 20 that passes the area checks.
-u8* func_002d5958(u32 id) {
-    u8* best = 0;
-    f32 bestd = 0.0f;
-    u32 area = D_00361f60;
-    Info64 info;
-    QV pos;
-    u8* a = 0;
-    func_0016b0e0(id, 67, &info);
-    qcopy(&pos, &info.pos);
-    while ((a = func_001b9bc8(a))) {
-        if (!(*(u32*)(a + 1416) & 0x8000000)) continue;
-        if (func_0016a060(a) != 20) continue;
-        if (func_002cf270(a + 2800, 128)) continue;
-        if (!func_002ceef8(area, a)) continue;
-        if (best) {
-            QV d;
-            vsub(&d, func_0016c028(a), &pos);  // obj_get_attach_or_alt
-            if (vlen(&d) < bestd) best = a;
-        } else {
-            QV d;
-            best = a;
-            vsub(&d, func_0016c028(a), &pos);  // obj_get_attach_or_alt
-            bestd = vlen(&d);
-        }
-    }
-    return best;
-}
+u8* func_002d5958(u32 id);  // 0x002d5958: definition moved into src/anon/unit_002d4548.cpp
 }
 }

@@ -215,11 +215,7 @@ void func_002c1c50(void* p);  // 0x002c1c50: definition moved into src/anon/unit
 extern u8 D_003621a0;
 void func_002e7328(void*);  // to_2e7458
 u8 func_002d2a08(void*);
-u8 func_002d47a8(void** self) {
-    *self = &D_003621a0;
-    func_002e7328((u8*)self + 3208);  // to_2e7458
-    return func_002d2a08(self);
-}
+u8 func_002d47a8(void** self);  // 0x002d47a8: definition moved into src/anon/unit_002d4548.cpp
 
 void func_0016a9a0(void*);  // to_16a950
 void func_002db610(void*, s32);

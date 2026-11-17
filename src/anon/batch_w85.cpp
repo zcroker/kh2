@@ -405,15 +405,7 @@ void func_0017f5e0(u8*, s32, s32, f32, f32);
         if (*(u8**)(o + 3096)) { f32 z = 0.0f; \
             func_0017f488(*(u8**)(o + 3096) + 320, 151, z, z); \
             func_0017f5e0(*(u8**)(o + 3096) + 320, 0, 0, z, z); }
-void func_002d54a8(u8* o) {
-    if (!func_002d5578(o) || (*(u32*)(o + 352) & 0x10)) {  // is_field340_eq151
-        if (*(f32*)(o + 3116) == 0.0f) {
-            if (0.0f <= *(f32*)(o + 1360)) *(f32*)(o + 3104) = 1.0f;
-            else *(f32*)(o + 3104) = -1.0f;
-        }
-        TAIL
-    }
-}
+void func_002d54a8(u8* o);  // 0x002d54a8: definition moved into src/anon/unit_002d4548.cpp
 struct Buf302 { u8* base; s32 size; };
 struct File302 {
     u8* p; s32 r; s32 w; s16 flags; s16 file; Buf302 bf; s32 lbfsize;

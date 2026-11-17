@@ -1288,19 +1288,9 @@ u32 func_002d1f20(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002d1f20: definition mo
 
 u32 func_002d1f30(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002d1f30: definition moved into src/anon/unit_002cf260.cpp
 
-u32 func_002d51f0(u32 a0, u32 a1, u32 a2, u32 a3) {  // obj_state_is_14
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    return ((*(u32*)((u32)a0 + (340)) ^ 0x000eu) == 0);
-}
+u32 func_002d51f0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002d51f0: definition moved into src/anon/unit_002d4548.cpp
 
-u32 func_002d5578(u32 a0, u32 a1, u32 a2, u32 a3) {  // is_field340_eq151
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    return ((*(u32*)((u32)a0 + (340)) ^ 0x0097u) == 0);
-}
+u32 func_002d5578(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002d5578: definition moved into src/anon/unit_002d4548.cpp
 
 u32 func_002d8110(u32 a0, u32 a1, u32 a2, u32 a3) {
     (void)a1;

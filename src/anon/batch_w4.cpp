@@ -169,10 +169,7 @@ u32 func_002bd230(s32 a, s32 b);  // 0x002bd230: definition moved into src/anon/
 
 void func_002c5460(u32 a);  // 0x002c5460: definition moved into src/anon/unit_002c53c8.cpp
 
-f32* func_002d5c20(f32* v) {  // vec4_clear
-    v[3] = v[2] = v[1] = v[0] = 0.0f;
-    return v;
-}
+f32* func_002d5c20(f32* v);  // 0x002d5c20: definition moved into src/anon/unit_002d4548.cpp
 
 struct Args002e8070 {
     u32 a, b, c;

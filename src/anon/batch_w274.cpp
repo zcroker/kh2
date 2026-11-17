@@ -133,26 +133,7 @@ extern u8* D_00361f60;
 s32 func_001b9d40(void);  // vtable_call_slot64_flags
 s32 func_002d5588(C5088*);
 u8* func_002d1878(u8*);
-void func_002d5088(C5088* p) {
-    Zero(&p->v);
-    if (!func_001b9d40()) return;
-    u8* cfg = D_00361f60;
-    V4 a = *(V4*)(p->o2872 + 48);
-    a.z = 0.0f;
-    a.w = Length(&a);
-    V4 b;
-    f32 z = a.z;
-    b.x = a.x; b.y = a.y; b.z = z; b.w = z;
-    if (Normalize(&b) < 0.1f) {
-        b.w = z;
-    } else {
-        p->v3104 = b;
-        *(f32*)((u8*)p + 3116) = 1.0f;
-        if (func_002d5588(p)) b.w = *(f32*)(func_002d1878(cfg) + 204);
-        else b.w = *(f32*)(func_002d1878(cfg) + 4);
-    }
-    p->v = b;
-}
+void func_002d5088(C5088* p);  // 0x002d5088: definition moved into src/anon/unit_002d4548.cpp
 extern u32 D_0034f240;
 extern u8* D_0034e948;
 s32 func_0019ba60(u8*);

@@ -326,14 +326,7 @@ s32 func_002cf270(u8*, u32);
 void func_002cf2b0(u8*, u32);
 void func_0016ac38(u8*, u32, u32, u32, u32);
 void func_002cf280(u8*, u32, u32);
-void func_002d3f18(u8* p) {
-    u8* s = p + 2800;
-    if (*(s32*)(p + 2924) >= 0) return;
-    if (!func_002cf270(s, 256)) return;
-    func_002cf2b0(s, 256);
-    func_0016ac38(p, 0, 1, 0, 0);
-    func_002cf280(s, 4, 0);
-}
+void func_002d3f18(u8* p);  // 0x002d3f18: definition moved into src/anon/unit_002d2498.cpp
 
 void func_00198690(u8*);
 void func_0016b070(u8*, f32*);

@@ -234,14 +234,7 @@ void func_002ca010(u32 a);  // 0x2ca010: moved to src/anon/unit_002c9998.cpp
 void func_002cedd0(s32 n, E16* e);  // 002cedd0: moved to src/taito/minigame_base.cpp (linked unit)
 
 // Wrap an angle into [-pi, pi].
-f32 func_002d48b8(f32 x) {
-    if (0.0f < x) {
-        while (3.1415927f < x) x -= 6.2831855f;
-    } else {
-        while (x < -3.1415927f) x += 6.2831855f;
-    }
-    return x;
-}
+f32 func_002d48b8(f32 x);  // 0x002d48b8: definition moved into src/anon/unit_002d4548.cpp
 
 void func_002db808(u8* p, u32 a, u32 b) {
     NoTail g;

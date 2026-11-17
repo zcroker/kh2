@@ -4143,88 +4143,15 @@ u32 func_002cdb00(u32 a0, u32 a1, f32 a2);  // 0x002cdb00: definition moved into
 
 void func_002ce870(u8* a0, u32 a1);  // 0x002ce870: definition moved into src/taito/path.cpp
 
-void func_002d2948(u8* a0) {
-    u8* s0 = a0;
+void func_002d2948(u8* a0);  // 0x002d2948: definition moved into src/anon/unit_002d2498.cpp
 
-    func_002cfeb0((u32)a0);  // obj_init_field1416_bit800
+void func_002d29a8(u8* a0);  // 0x002d29a8: definition moved into src/anon/unit_002d2498.cpp
 
-    *(u32*)(s0 + 0) = (u32)(&D_00360000 + 0x2230);
-    func_002cf280(s0 + 2800, 1, 0);
+void func_002d5af0(u32 a0);  // 0x002d5af0: definition moved into src/anon/unit_002d4548.cpp
 
-    u32 t7 = *(u32*)(s0 + 268);
-    u32 t6 = *(u32*)(s0 + 264);
-    t7 = t7 | 0x8000;
-    *(u32*)(s0 + 2852) = 0;
-    t6 = t6 | 0x1;
-    *(u32*)(s0 + 268) = t7;
-    *(u32*)(s0 + 264) = t6;
-}
+void func_002d5b48(u32 a0);  // 0x002d5b48: definition moved into src/anon/unit_002d4548.cpp
 
-void func_002d29a8(u8* a0) {
-    u8* s0 = a0;
-
-    func_002cfeb0((u32)a0);  // obj_init_field1416_bit800
-
-    *(u32*)(s0 + 0) = (u32)(&D_00360000 + 0x2230);
-    func_002cf280(s0 + 2800, 1, 0);
-
-    u32 t7 = *(u32*)(s0 + 268);
-    u32 t6 = *(u32*)(s0 + 264);
-    t7 = t7 | 0x8000;
-    *(u32*)(s0 + 2852) = 0;
-    t6 = t6 | 0x1;
-    *(u32*)(s0 + 268) = t7;
-    *(u32*)(s0 + 264) = t6;
-}
-
-void func_002d5af0(u32 a0) {
-    u32 s0 = a0;
-    u32 p = *(u32*)(s0 + 3128);
-    func_002cf2b0(p + 2800, 1);
-    func_002d2a90(*(u32*)(s0 + 3128));
-    func_00190128(s0 + 2548);
-    u32 a1 = 56;
-    if (*(u32*)(s0 + 3132) == 0) {
-        a1 = 55;
-    }
-    func_0016bd60(s0, a1);
-}
-
-void func_002d5b48(u32 a0) {
-    u8* s0 = (u8*)a0;
-    s32 t7 = -1;
-    u32 v0 = *(u32*)(s0 + 3128);
-    if (v0 != 0) {
-        if (*(s32*)(s0 + 3132) >= 0) {
-            u32* vtbl = *(u32**)v0;
-            ((void (*)(u32))vtbl[8])(v0);
-            t7 = -1;
-        }
-    }
-    *(u32*)(s0 + 3128) = 0;
-    *(s32*)(s0 + 3132) = t7;
-    func_0016bd60(a0, 37);
-}
-
-u32 func_002d5c40(u32 a0) {
-    u32 s0 = a0;
-    u32 t4;
-    if (func_002d5578(a0) != 0) {  // is_field340_eq151
-        t4 = 1;
-    } else {
-        u32 t6 = *(u32*)(*(u32*)(s0 + 12) + 4);
-        t4 = 2;
-        if ((t6 ^ 0x37) != 0) {
-            u32 a0v = t6 ^ 0x38;
-            u32 t7 = 3;
-            t4 = 0;
-            if (a0v == 0) {
-                t4 = t7;
-            }
-        }
-    }
-    return t4;
-}
+u32 func_002d5c40(u32 a0);  // 0x002d5c40: definition moved into src/anon/unit_002d4548.cpp
 
 void func_002d7390(u32 a0) {
     *(u32*)a0 = (u32)&D_003625a8;

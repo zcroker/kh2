@@ -26,10 +26,6 @@ struct w1736_In { u8 p[4]; s32 kind; };
 struct w1736_Ob { u8 p[0xc]; w1736_In* in; };
 u8 func_00179b68(w1736_Ob*);
 
-s32 func_002d5bd8(w1736_Ob* o) {
-    u32 k = o->in->kind;
-    if ((k ^ 0x38) == 0 || (k ^ 0x37) == 0) return 1;
-    return func_00179b68(o);
-}
+s32 func_002d5bd8(w1736_Ob* o);  // 0x002d5bd8: definition moved into src/anon/unit_002d4548.cpp
 
 }

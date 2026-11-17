@@ -211,11 +211,7 @@ void func_00292a58(void);  // 00292a58: moved to src/anon/unit_00292998.cpp
 
 void func_002bf618(u8* p);  // 0x002bf618: definition moved into src/anon/unit_002bebd0.cpp
 
-void func_002d4200(u8* p, void* a, void* b) {
-    func_002d2948(p, a, 1, b);
-    *(u8**)p = D_003621a0;
-    func_002e7308(p + 3208);
-}
+void func_002d4200(u8* p, void* a, void* b);  // 0x002d4200: definition moved into src/anon/unit_002d2498.cpp
 
 // Skips n variable-length records (64 bytes + 12 per sub-entry) after a 16-byte header.
 // 002e34d8: moved to src/anon/unit_002e2f08.cpp

@@ -241,10 +241,7 @@ void func_002bfd48(u32* p, u32 a);  // 0x002bfd48: definition moved into src/ano
 
 void ctarget_002cf3f8(void);  // 0x002cf3f8: definition moved into src/anon/unit_002cf260.cpp
 
-void func_002d28f8(u32 x, u32 m, s32 i) {
-    W3 t = D_00375a40;
-    func_001d86a0(t.w[i] * m, 0);
-}
+void func_002d28f8(u32 x, u32 m, s32 i);  // 0x002d28f8: definition moved into src/anon/unit_002d2498.cpp
 
 void func_002daa50(u32* p, u32 a, u32 b) {
     func_002cfeb0(p, a, 3, b);  // obj_init_field1416_bit800

@@ -365,23 +365,7 @@ void func_0027c2f8(void);  // 0x0027c2f8: definition moved into src/anon/unit_00
 void func_002c5c50(void* a, u32* b);  // 0x002c5c50: definition moved into src/anon/unit_002c53c8.cpp
 
 // Interpolates between two keys by the current time.
-f32 func_002d60e8(u8* p) {
-    void* o = D_00361f60;
-    u8* a = func_002d1878(o);
-    u8* b = func_002d1878(o);
-    u8* c = func_002d1878(o);
-    u8* d = func_002d1878(o);
-    f32 x = *(f32*)(p + 2868);
-    f32 k = *(f32*)(b + 160);
-    f32 w;
-    if (x < k) return *(f32*)(a + 156);
-    w = *(f32*)(c + 164);
-    if (x < k + w) {
-        f32 t = (x - k) / w;
-        return *(f32*)(a + 156) * (1.0f - t) + *(f32*)(d + 168) * t;
-    }
-    return *(f32*)(d + 168);
-}
+f32 func_002d60e8(u8* p);  // 0x002d60e8: definition moved into src/anon/unit_002d4548.cpp
 
 void func_002daee8(u8* p) {
     f32 v;
@@ -399,26 +383,7 @@ void func_002daee8(u8* p) {
     }
 }
 
-Q16* func_002d38e8(Q16* out, u8* o) {
-    if (*(void**)(o + 1296) != 0) {
-        f32 m[6];
-        func_00144450(m);
-        func_001b7c80(*(void**)(o + 1296), m);
-        Q16 s;
-        Q16 r;
-        ((f32*)&s)[3] = 0.0f;
-        ((f32*)&s)[0] = m[0] + m[3];
-        ((f32*)&s)[1] = m[1] + m[4];
-        ((f32*)&s)[2] = m[2] + m[5];
-        vu0_scaled(r, s, 0.5f);
-        *out = r;
-        ((s32*)out)[2] = 0;
-    } else {
-        *out = *func_0016c028(o);
-        ((s32*)out)[2] = 0;
-    }
-    return out;
-}
+Q16* func_002d38e8(Q16* out, u8* o);  // 0x002d38e8: definition moved into src/anon/unit_002d2498.cpp
 
 // Flat (y = 0) unit direction from the target to the actor, or the reversed facing.
 Q16* func_0018d840(Q16* out, u8* o, void* a);  // 0x0018d840: definition moved into src/anon/unit_0018d050.cpp

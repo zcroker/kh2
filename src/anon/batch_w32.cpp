@@ -187,12 +187,7 @@ u8* func_002b23e0(s32 i) {  // list_entry_by_index_checked
 
 void func_002bc398(void* a, void* b);  // 0x002bc398: definition moved into src/anon/unit_002bb8b0.cpp
 
-void func_002d5e10(void** p) {
-    p[0] = D_00362428;
-    func_002e7328((u8*)p + 0xb38);  // to_2e7458
-    func_002cff98(p);
-    func_00105110(p);
-}
+void func_002d5e10(void** p);  // 0x002d5e10: definition moved into src/anon/unit_002d4548.cpp
 
 void func_002daca0(u8* p, void* b, void* c) {
     func_002cfeb0(p, b, 3, c);  // obj_init_field1416_bit800

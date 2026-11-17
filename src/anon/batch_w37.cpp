@@ -276,12 +276,7 @@ void func_00192048(u16);
 
 u8* func_001b9bc8(void*);
 void func_002d24e8(void*, void*);
-void func_002d25f0(void* a) {
-    u8* v = 0;
-    while ((v = func_001b9bc8(v)) != 0) {
-        if (*(u32*)(v + 1416) & 0x08000000) func_002d24e8(a, v);
-    }
-}
+void func_002d25f0(void* a);  // 0x002d25f0: definition moved into src/anon/unit_002d2498.cpp
 
 typedef s32 (*VFnB)(void*);
 s32 func_002ee040(u8* p) {

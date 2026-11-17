@@ -437,18 +437,7 @@ extern "C" {
 void* func_0016abf8(VO*, s32, s32, s32);
 QWord* func_001dc5f8(void*);
 QWord func_0016bda8(VO*);
-void func_002d2a90(VO* o) {
-    s32 st = *(s32*)((u8*)o + 2924);
-    if (st < 0) return;
-    if (st == 0) {
-        o->vt[20](o, 1548, 0, o, 0);
-    } else {
-        o->vt[20](o, 1549, 0, o, 0);
-        void* x = func_0016abf8(o, 1, 1, 0);
-        if (x) *func_001dc5f8(x) = func_0016bda8(o);
-    }
-    *(u32*)((u8*)o + 2876) = 0;
-}
+void func_002d2a90(VO* o);  // 0x002d2a90: definition moved into src/anon/unit_002d2498.cpp
 }
 }
 
