@@ -1,8 +1,22 @@
 #include "../common/types.h"
 
-// Ts target searcher (0x2e9a00-0x2ea0f0, plus the gap fn 0x2ea0f0 at the end): init, the "already locked" ring of recent targets, the
+// Ts target searcher (0x2e99c8-0x2ea0f0, the gap fn 0x2e99c8 is the C2 twin of the init 0x2e9a00, plus the gap fn 0x2ea0f0 at the end): init, the "already locked" ring of recent targets, the
 // target filters, the nearest/farthest search and the nearest-hit-sphere search. Each function keeps
 // the declarations of the source it was matched in (namespace nADDR); every symbol is bound by asm label.
+
+// 002e99c8 (gap): twin of func_002e9a00 below
+namespace n002e99c8 {
+struct T { u32 a; u32 b; u32 c; u32 d; u32 e; f32 r; f32 ang; };
+extern "C" void func_002e99c8(T* p, u32 a1) {
+    p->a = a1;
+    p->b = 0;
+    p->c = 0;
+    p->d = 0;
+    p->e = 0;
+    p->ang = 3.1415925f;
+    p->r = 1000.0f;
+}
+}  // namespace n002e99c8
 
 // 002e9a00 (from src/anon/auto200_999.cpp)
 namespace n002e9a00 {

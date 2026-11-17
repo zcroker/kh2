@@ -1,4 +1,4 @@
-// Linked unit 0x00113628-0x00113af0 (one namespace per old matched source; class methods in their own namespace).
+// Linked unit 0x00113628-0x00113fb0 (one namespace per old matched source; class methods in their own namespace).
 #include "../common/types.h"
 #include "tiny_auto80_solver_structs.hpp"
 #include "../tozawa/cmenu_top.hpp"
@@ -342,3 +342,127 @@ u8 func_00113a40(Owner* o, Req* a, St5* st, s32* out, u8 mode) {
 }
 }
 
+
+// 00113af0, 00113d70 (never written before): pick a target for an ability. With mode set they fill the
+// target from the owner's lock-on, the party leader and the owner's partner (each only within 0.45 and
+// while the target is still empty), then try the ability ids of one table row (row 1 when at least two
+// candidates were found) and store the first usable id in *out. With mode clear they apply *out.
+namespace g00113af0 {
+struct Tgt { u32 w[5]; };
+struct Owner { u32 x0; void* in; };
+struct Req;
+extern "C" const f32 D_0036a57c = 0.0f;
+extern u32 D_00345ca8[2][5] asm("D_00345ca8");
+extern u32 D_00345cd0[2][4] asm("D_00345cd0");
+void* func_0010fb08(void*) asm("func_0010fb08");
+void func_00190128(Tgt*) asm("func_00190128");
+s32 func_00190140(Tgt*) asm("func_00190140");
+void func_00190878(Tgt*, void*, s32) asm("func_00190878");
+s32 func_0010f6b8(void*, f32) asm("func_0010f6b8");
+s32 func_0010f6f8(void*, f32) asm("func_0010f6f8");
+void* func_00111e38(s32) asm("func_00111e38");
+void* func_00111e20(void*) asm("func_00111e20");
+u8* func_00112570(void*) asm("func_00112570");
+s32 func_001145b0(u32) asm("func_001145b0");
+s32 func_0010f748(void*, u32) asm("func_0010f748");
+void func_0010cbc8(void*, s32, u32, s32) asm("func_0010cbc8");
+static inline bool IsValid(Tgt* s) {
+    bool ok = false;
+    if (func_00190140(s)) ok = s->w[0] != 0;
+    return ok;
+}
+u8 func_00113af0(Owner* o, Req* a, Tgt* t, s32* out, u8 mode) asm("func_00113af0");
+u8 func_00113af0(Owner* o, Req* a, Tgt* t, s32* out, u8 mode) {
+    static const f32 kRange = 0.45f;
+    static const s32 kNum = 5;
+    if (mode) {
+        u32 id = 0;
+        s32 n = 0;
+        void* lock = func_0010fb08(o->in);
+        *out = 0;
+        func_00190128(t);
+        func_00190878(t, lock, 0);
+        if (func_0010f6b8(o->in, kRange)) {
+            if (!IsValid(t)) func_00190878(t, o->in, 0);
+            n++;
+        }
+        void* p = func_00111e38(0);
+        if (func_0010f6b8(p, kRange)) {
+            if (!IsValid(t)) func_00190878(t, p, 0);
+            n++;
+        }
+        p = func_00111e20(o->in);
+        if (p && func_0010f6b8(p, kRange)) {
+            if (!IsValid(t)) func_00190878(t, p, 0);
+            n++;
+        }
+        if (IsValid(t)) {
+            s32 row = n >= 2;
+            u8* tab = func_00112570(o->in);
+            s32 k = row * 5;
+            u32* e = (u32*)D_00345ca8 + k;
+            for (s32 i = 0; i < kNum; i++) {
+                s32 lv = tab[func_001145b0(e[i]) + 1];
+                if (lv < 2 || lock) {
+                    if (func_0010f748(o->in, e[i])) {
+                        id = e[i];
+                        break;
+                    }
+                }
+            }
+        }
+        *out = id;
+        return id != 0;
+    }
+    u32 w = t->w[0];
+    func_0010cbc8(o->in, *out, w, 1);
+    return 1;
+}
+u8 func_00113d70(Owner* o, Req* a, Tgt* t, s32* out, u8 mode) asm("func_00113d70");
+u8 func_00113d70(Owner* o, Req* a, Tgt* t, s32* out, u8 mode) {
+    static const f32 kRange = 0.45f;
+    static const s32 kNum = 4;
+    if (mode) {
+        f32 range = kRange;
+        u32 id = 0;
+        s32 n = 0;
+        void* lock = func_0010fb08(o->in);
+        *out = 0;
+        func_00190128(t);
+        if (func_0010f6f8(o->in, range)) {
+            func_00190878(t, o->in, 0);
+            n++;
+        }
+        void* p = func_00111e38(0);
+        if (func_0010f6f8(p, range)) {
+            if (!IsValid(t)) func_00190878(t, p, 0);
+            n++;
+        }
+        p = func_00111e20(o->in);
+        if (p && func_0010f6f8(p, kRange)) {
+            if (!IsValid(t)) func_00190878(t, p, 0);
+            n++;
+        }
+        if (IsValid(t)) {
+            s32 row = n >= 2;
+            u8* tab = func_00112570(o->in);
+            s32 k = row * 4;
+            u32* e = (u32*)D_00345cd0 + k;
+            for (s32 i = 0; i < kNum; i++) {
+                s32 lv = tab[func_001145b0(e[i]) + 1];
+                if (lv < 2 || lock) {
+                    if (func_0010f748(o->in, e[i])) {
+                        id = e[i];
+                        break;
+                    }
+                }
+            }
+        }
+        *out = id;
+        return id != 0;
+    }
+    u32 w = t->w[0];
+    func_0010cbc8(o->in, *out, w, 1);
+    return 1;
+}
+}  // namespace g00113af0

@@ -433,9 +433,7 @@ u32 func_00133c60(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00133c60: definition mo
 
 u32 func_00133c78(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00133c78: definition moved into src/anon/unit_00131418.cpp
 
-u32 func_001374a8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_00137458(0x00000001u, 0x0000ffffu, a2, a3);
-}
+// 001374a8: _GLOBAL__I_ stub, now made by gcc in src/harata/libdk/bgm.cpp
 
 u32 func_00138d30(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00138d30: definition moved into src/anon/unit_00138480.cpp
 
@@ -545,9 +543,7 @@ u32 func_00175550(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00175550: definition mo
 
 // 001776f8: moved to src/yasui/libys/party.cpp
 
-u32 func_0017a8b8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_0017a7e0(0x00000001u, 0x0000ffffu, a2, a3);
-}
+// 0017a8b8: _GLOBAL__I_ stub, now made by gcc in src/yasui/libys/player.cpp
 
 u32 func_0017bf00(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0017bf00: definition moved into src/anon/unit_0017a8f8.cpp
 

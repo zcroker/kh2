@@ -1,4 +1,5 @@
 #include "../common/types.h"
+// Linked unit 0x2bb5f8-0x2bb8b0 (one function, -G0 -g -fno-strict-aliasing; .rodata at 0x374f90).
 // VU0 vector / matrix helpers (inline asm like the game's vector library).
 struct W1685Vec {
     f32 x, y, z, w;

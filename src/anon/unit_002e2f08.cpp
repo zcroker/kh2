@@ -1,8 +1,16 @@
 #include "../common/types.h"
 
 // Ti path follow actions (vtables at 0x362ef0/0x362f20 stay retail data) and the Ti path traps
-// (0x2e2f08-0x2e3f38; the action method at 0x2e2ed0 before it is not linked yet). Linked unit; trap table .data at 0x362f48, return buffers .bss at 0x1e2be20.
+// (0x2e2ed0-0x2e3f38, starting with an action method at 0x2e2ed0). Linked unit; trap table .data at 0x362f48, return buffers .bss at 0x1e2be20.
 
+
+
+// ---- 2e2ed0 (gap: action method, sets special command 11 and flag 0x40)
+void set_special_command_2ed0(u8*, s32) asm("_ZN2YS6STDOBJ19set_special_commandEi");
+extern "C" void func_002e2ed0(void* self, u8* o) {
+    set_special_command_2ed0(o, 11);
+    *(u32*)(o + 2748) |= 0x40;
+}
 
 // ---- 2e2f08 (src/anon/batch_wcx2.cpp)
 namespace n2e2f08 {

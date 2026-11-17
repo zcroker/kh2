@@ -1,7 +1,7 @@
 #include "../common/types.h"
 
-// YS::MOTION, second part (0x180408-0x180f28): the rest of src/yasui/libys/motion.cpp after the capture
-// helper 0x180378 (a separate function: it needs strict aliasing, the first part does not). Effects
+// YS::MOTION, second part (0x180378-0x180f28): the rest of src/yasui/libys/motion.cpp from the capture
+// helper 0x180378 (this part needs strict aliasing, the first part does not). Effects
 // linked to a motion, the anmatr flags, YS::VOICE::stop and the id tables; incl. the never-written
 // 0x180d88. Each function keeps the declarations of the source it was matched in (namespace gN); every
 // symbol is bound by asm label.
@@ -12,6 +12,23 @@ public:
     u32 is_no_motion() asm("_ZN2YS6MOTION12is_no_motionEv");
 };
 }  // namespace YS
+
+// 00180378 (src/anon/batch_wcx2.cpp): the motion capture helper
+namespace g40 {
+void func_0017f380(u8*) asm("func_0017f380");  // obj_walk_children
+u32 func_0017ec98(u8*, u32) asm("func_0017ec98");
+u32 func_0017edf0(u8*, u32) asm("func_0017edf0");
+void func_001801b0(u32, u32, u32, u8*, u32, f32) asm("func_001801b0");
+void func_00180378(u8* p, u8* a1, u32 a2, f32 x) asm("_Z13func_00180378PhPhjf");
+void func_00180378(u8* p, u8* a1, u32 a2, f32 x) {
+    func_0017f380(a1 + 320);  // obj_walk_children
+    u32 r = func_0017edf0(p, func_0017ec98(p, a2));
+    u32 o = *(u32*)(p + 8);
+    func_001801b0(o, r, *(u32*)(p + 240), a1, o + 1160, x);
+    *(u32*)(a1 + 340) = a2;
+    *(u8**)(a1 + 576) = *(u8**)p;
+}
+}  // namespace g40
 
 // 00180408 (src/anon/batch_w13.cpp)
 namespace g41 {

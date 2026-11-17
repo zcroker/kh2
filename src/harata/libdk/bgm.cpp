@@ -1,7 +1,7 @@
-// dk::BGM (0x136a98-0x137458): the two background music slots (field music and battle music) and
-// the battle-mode watcher task that crossfades between them. The file's static init (0x137458, the
-// slot ctor loop that sets flags = 0) and its _GLOBAL__I_ stub (0x1374a8) stay separate functions:
-// gcc unrolls that 2-element ctor loop here, retail keeps it a loop.
+// dk::BGM (0x136a98-0x1374c8): the two background music slots (field music and battle music) and
+// the battle-mode watcher task that crossfades between them. The file was built with
+// -fno-strength-reduce: its two 2-element loops (the slot flag clear in 0x136fd0 and the slot
+// ctor loop of the static init 0x137458, which sets flags = 0) stay loops instead of being unrolled.
 #include "../../common/types.h"
 
 struct TASK;
@@ -12,6 +12,7 @@ struct BGM_SLOT {
     s32 cur;
     s32 vol;
     u32 flags;
+    BGM_SLOT() { flags = 0; }
 };
 
 extern "C" {
@@ -211,13 +212,20 @@ void func_00137180(Pair36fd0*);
 void func_00136fd0(void) {
     Half36fd0* v = (Half36fd0*)func_001a9130();
     union { u32 w[2]; u16 h; } s;
+    Flag36fd0* f;
+    s32 i;
+    u32 (*w)[2];
     s.w[0] = v->h[0];
     s.w[1] = v->h[1];
-    for (s32 i = 0; i < 2; i++) {
-        D_00347d30_flg[i].f0 = 0;
-        D_00347d30_flg[i].f1 = 0;
-    }
-    if (s.w[0] == s.w[1]) func_00137058((Pair36fd0*)&s);
+    f = D_00347d30_flg;
+    w = &s.w;
+    i = 1;
+    do {
+        f->f0 = 0;
+        f->f1 = 0;
+        f++;
+    } while (--i >= 0);
+    if ((*w)[0] == s.w[1]) func_00137058((Pair36fd0*)&s);
     else func_00137180((Pair36fd0*)&s);
 }
 

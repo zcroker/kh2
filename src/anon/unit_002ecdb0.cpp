@@ -1,4 +1,4 @@
-// Linked unit 0x002ecdb0-0x002ee588 (one namespace per old matched source; class methods in their own namespace).
+// Linked unit 0x002ecd98-0x002ee588 (0x2ecd98 is a gap action method before 0x2ecdb0) (one namespace per old matched source; class methods in their own namespace).
 #include "../common/types.h"
 #include "../kn/fvector.hpp"
 #include "./tiny_auto80_queue_structs.hpp"
@@ -14,6 +14,13 @@ typedef unsigned int u128 __attribute__((mode(TI)));
 #include "../harata/libdk/treasure_info.hpp"
 #include "../tozawa/help_gra.hpp"
 #include "../tozawa/menu_sound.hpp"
+
+
+// 002ecd98 (gap): action method, clears the velocity and copies the base height
+extern "C" void func_002ecd98(u32, u8* o) {
+    asm volatile("vsub.xyzw $vf1, $vf0, $vf0\n\tsqc2 $vf1, 0(%0)" : : "r"(o + 32) : "memory");
+    *(f32*)(o + 240) = *(f32*)(o + 296);
+}
 
 // 002ecdb0 (was src/anon/batch_w3.cpp)
 namespace n002ecdb0 {

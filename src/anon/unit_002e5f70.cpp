@@ -1,4 +1,4 @@
-// Linked unit 0x002e5f70-0x002e7658.
+// Linked unit 0x002e5f28-0x002e7658 (0x2e5f28 is a twin of 0x2e5f70).
 #include "../common/types.h"
 #include "../taito/afp.hpp"
 #include "../kn/fvector.hpp"
@@ -19,6 +19,16 @@ namespace n002e5f70 {
 // 0x002dc788: definition moved into src/anon/unit_002da040.cpp
 
 void func_00108398(void*) asm("func_00108398");
+// 0x2e5f28 (gap): twin of func_002e5f70 below (C2/C1 pair)
+extern "C" void func_002e5f28(u8* p) {
+    func_00108398(p + 16);
+    func_00108398(p + 288);
+    *(u32*)(p + 544) = 0;
+    *(u32*)(p + 548) = 0;
+    *(u32*)(p + 552) = 0;
+    *(u32*)(p + 556) = 0;
+    *(u64*)(p + 560) = 0;
+}
 /*TARGET 002e5f70*/
 // clear_quads_set_flags
 void func_002e5f70(u8* p) asm("func_002e5f70");

@@ -343,24 +343,7 @@ u32 wtarget_00105620(u32 a, u32 b, u32, u32) {
     return 2;
 }
 
-void wtarget_0017a7e0(u32 init, u32 prio, u32, u32) {
-    NoTail g;
-    if (prio == 0xffff && init == 1) {
-        func_001bcf80(D_01c5f530);
-        *(u32*)D_01c5f530 = (u32)D_00351260;
-        func_00190128(D_01c5f530 + 2664);
-        func_00190128(D_01c5f530 + 2684);
-        func_00190128(D_01c5f530 + 2704);
-        func_0019c920(D_01c5f530 + 2752);
-        func_0031e2b8(D_01c5f530 + 2800);
-    }
-    if (prio == 0xffff && init == 0) {
-        u8* o = D_01c5f530;
-        func_0019c9a8(o + 2752);
-        *(u32*)D_01c5f530 = (u32)D_00351228;
-        func_001d48b0(o + 2496);
-    }
-}
+// 0017a7e0: static initialiser, now made by gcc in src/yasui/libys/player.cpp
 
 // 001917d0: moved to src/yasui/libys/status.cpp
 

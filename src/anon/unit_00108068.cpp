@@ -189,3 +189,59 @@ void func_00108398(Pkt* p) {  // clear_quads_set_flags
 }
 }  // namespace n00108398
 
+
+// 00108438, 001084f0: 7-register A+D GS packets (never written before; same shape as 0x108098).
+namespace n00108438 {
+typedef unsigned int u128 __attribute__((mode(TI)));
+struct GifTag7 {
+    u64 NLOOP:15; u64 EOP:1; u64 pad16:30; u64 PRE:1; u64 PRIM:11; u64 FLG:2; u64 NREG:4;
+    u64 REGS0:4; u64 REGS1:4; u64 REGS2:4; u64 REGS3:4; u64 REGS4:4; u64 REGS5:4; u64 REGS6:4; u64 REGS7:4;
+    u64 REGS8:4; u64 REGS9:4; u64 REGS10:4; u64 REGS11:4; u64 REGS12:4; u64 REGS13:4; u64 REGS14:4; u64 REGS15:4;
+} __attribute__((aligned(16)));
+struct AD7 { u64 data; u64 addr; };
+struct Pkt7 { GifTag7 tag; AD7 ad[7]; };
+void func_00108438(Pkt7* p) asm("func_00108438");
+void func_00108438(Pkt7* p) {
+    *(u128*)&p->tag = 0;
+    p->tag.NLOOP = 7;
+    p->tag.EOP = 1;
+    p->tag.NREG = 1;
+    p->tag.REGS0 = 0xE;
+    p->ad[0].addr = 0x3f;
+    p->ad[1].addr = 0x34;
+    p->ad[2].addr = 0x36;
+    p->ad[3].addr = 0x16;
+    p->ad[4].addr = 0x14;
+    p->ad[5].addr = 6;
+    p->ad[6].addr = 8;
+    p->ad[0].data = 0;
+    p->ad[1].data = 0;
+    p->ad[2].data = 0;
+    p->ad[3].data = 0x2000000001300000ULL;
+    p->ad[4].data = 0x60;
+    p->ad[5].data = 0x2000000664023500ULL;
+    p->ad[6].data = 5;
+}
+void func_001084f0(Pkt7* p) asm("func_001084f0");
+void func_001084f0(Pkt7* p) {
+    *(u128*)&p->tag = 0;
+    p->tag.NLOOP = 7;
+    p->tag.EOP = 1;
+    p->tag.NREG = 1;
+    p->tag.REGS0 = 0xE;
+    p->ad[0].addr = 0x3f;
+    p->ad[1].addr = 0x34;
+    p->ad[2].addr = 0x36;
+    p->ad[3].addr = 0x16;
+    p->ad[4].addr = 0x14;
+    p->ad[5].addr = 6;
+    p->ad[6].addr = 8;
+    p->ad[0].data = 0;
+    p->ad[1].data = 0;
+    p->ad[2].data = 0;
+    p->ad[3].data = 0x2000000001300000ULL;
+    p->ad[4].data = 0x60;
+    p->ad[5].data = 0x2000000664023500ULL;
+    p->ad[6].data = 5;
+}
+}  // namespace n00108438

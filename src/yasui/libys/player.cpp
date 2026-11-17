@@ -1,10 +1,9 @@
 #include "../../common/types.h"
 
-// YS::PLAYER (0x177dc8-0x17a7e0): Sora as a party object: construction (C2/C1), control, commands,
+// YS::PLAYER (0x177dc8-0x17a8f8): Sora as a party object: construction (C2/C1), control, commands,
 // damage and the PLAYER vtable entries (retail data at 0x34e950), incl. the never-written entries
-// 0x178e80, 0x178eb0, 0x179898, 0x17a1b8, 0x17a208 and 0x17a260. The static initialiser (the global
-// player object at 0x1c5f530 with its member ctors/dtors) and the I/D stubs 0x17a7e0-0x17a8f8 stay
-// outside. Each function keeps the declarations of the source it was matched in (namespace qN); every
+// 0x178e80, 0x178eb0, 0x179898, 0x17a1b8, 0x17a208 and 0x17a260, then the static initialiser of the
+// player resource object at 0x1c5f530 (.bss) and its I/D stubs (0x17a7e0-0x17a8f8). Each function keeps the declarations of the source it was matched in (namespace qN); every
 // symbol is bound by asm label.
 
 
@@ -2293,3 +2292,45 @@ namespace q_a7d8 {
 void PLAYER_lockon_end(u8*) asm("_ZN2YS6PLAYER10lockon_endEv");
 void PLAYER_lockon_end(u8*) {}
 }  // namespace q_a7d8
+
+// 0017a7e0: static initialiser of the player resource object at 0x1c5f530 (a YS object built by the
+// base ctor 0x1bcf80, with three YS::TARGETs, a YS::LOCKON and a list head), and its I/D stubs.
+// The members' ctors are called out of line, as gcc does inside the synthesized ctor.
+namespace q_a7e0 {
+void func_001bcf80(void*) asm("func_001bcf80");
+void TARGET_ctor(void*) asm("_ZN2YS6TARGETC1Ev");
+void func_0019c920(void*) asm("func_0019c920");
+void LOCKON_dtor(void*) asm("_ZN2YS6LOCKOND1Ev");
+void func_0031e2b8(void*) asm("_Z13func_0031e2b8Pv");
+void func_001d48b0(void*) asm("_Z16u_call4_001d48b0jjjj");
+extern u8 D_00351260[] asm("D_00351260");
+extern u8 D_00351228[] asm("D_00351228");
+struct PlayerRes {
+    u8 body[2664];
+    u32 t0[5];
+    u32 t1[5];
+    u32 t2[5];
+    u8 pad[28];
+    u8 lock[48];
+    u32 head;
+    u8 pad2[12];
+    PlayerRes()
+    {
+        func_001bcf80(this);
+        *(u8**)this = D_00351260;
+        TARGET_ctor(t0);
+        TARGET_ctor(t1);
+        TARGET_ctor(t2);
+        func_0019c920(lock);
+        func_0031e2b8(&head);
+    }
+    ~PlayerRes()
+    {
+        LOCKON_dtor(lock);
+        *(u8**)this = D_00351228;
+        void (*d)(void*) = func_001d48b0;  // called, not tail-jumped, as in retail
+        d(body + 2496);
+    }
+} __attribute__((aligned(16)));
+static PlayerRes s_res asm("D_01c5f530");
+}  // namespace q_a7e0

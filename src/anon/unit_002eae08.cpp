@@ -28,6 +28,25 @@ f32 D_00363500 = 3.0f;
 Vec128 func_00184540(u32, f32, f32);
 Vec128 func_002ede48(u32, Vec128*, f32, f32);
 
+/* ---- 002ead98 (gap): action method, sets flag 0x1000, clears the velocity, loads the default params ---- */
+void func_002ead98(u32, u8* o) {
+    *(u32*)(o + 2748) |= 0x1000;
+    asm volatile("vsub.xyzw $vf1, $vf0, $vf0\n\tsqc2 $vf1, 0(%0)" : : "r"(o + 32) : "memory");
+    *(f32*)(o + 272) = D_003634e8;
+    *(f32*)(o + 276) = D_003634ec;
+    *(f32*)(o + 284) = D_003634f0;
+}
+
+/* ---- 002eadd8 (gap): action method, clears flag 0x1000, loads params from the table at +300 ---- */
+void func_002eadd8(u32, u8* o) {
+    union UF { u32 u; };
+    ((UF*)(o + 2748))->u &= ~0x1000;
+    f32* t = *(f32**)(o + 300);
+    *(f32*)(o + 272) = t[0];
+    *(f32*)(o + 276) = t[1];
+    *(f32*)(o + 284) = t[3];
+}
+
 /* ---- 002eae08 ---- */
 Vec128* func_002eae08(Vec128* out, u32 a1, u32 a2) {
     *out = func_00184540(a2, D_003634f4, 1.0f - D_003634f8);

@@ -3186,14 +3186,7 @@ void func_0017f380(u8*);  // obj_walk_children
 u32 func_0017ec98(u8*, u32);
 u32 func_0017edf0(u8*, u32);
 void func_001801b0(u32, u32, u32, u8*, u32, f32);
-void func_00180378(u8* p, u8* a1, u32 a2, f32 x) {
-    func_0017f380(a1 + 320);  // obj_walk_children
-    u32 r = func_0017edf0(p, func_0017ec98(p, a2));
-    u32 o = *(u32*)(p + 8);
-    func_001801b0(o, r, *(u32*)(p + 240), a1, o + 1160, x);
-    *(u32*)(a1 + 340) = a2;
-    *(u8**)(a1 + 576) = *(u8**)p;
-}
+void func_00180378(u8* p, u8* a1, u32 a2, f32 x);  // 0x00180378: definition moved into src/anon/unit_00180408.cpp
 
 // ---- 001b1a30
 struct C4_001b1a30 { u8 r, g, b, a; };

@@ -18,6 +18,13 @@
 extern "C" float fabsf(float);
 #include "tiny_auto80_solver_structs.hpp"
 
+// 0010b438: second copy of 0x10b450 (C2/C1 pair; never written before)
+namespace n0010b438 {
+void func_0010b550(void*) asm("_Z13func_0010b550Pv");
+void func_0010b438(BD_VALUE* bd) asm("func_0010b438");
+void func_0010b438(BD_VALUE* bd) { func_0010b550(bd); }
+}  // namespace n0010b438
+
 // 0010b450 (was src/anon/tiny.cpp)
 namespace n0010b450 {
 void func_0010b550(void*) asm("_Z13func_0010b550Pv");
