@@ -155,13 +155,7 @@ void func_0014f9a8(void* p) {
 void func_0015b4c0(void* p);  // 0x0015b4c0: definition moved into src/anon/unit_0015b100.cpp
 
 // Passes a stack copy of a 4x4 matrix.
-void func_00165830(u8* p, void* m) {
-    u32 tmp[16] __attribute__((aligned(16)));
-    asm volatile("lq $8, 0(%1)\n\tlq $9, 16(%1)\n\tlq $10, 32(%1)\n\tlq $11, 48(%1)\n\t"
-                 "sq $8, 0(%0)\n\tsq $9, 16(%0)\n\tsq $10, 32(%0)\n\tsq $11, 48(%0)"
-                 : : "r"(tmp), "r"(m) : "$8", "$9", "$10", "$11", "memory");
-    func_00142940(*(u32*)(p + 4), tmp);
-}
+void func_00165830(u8* p, void* m);  // 0x00165830: definition moved into src/anon/unit_001656b8.cpp
 
 // 0017a230: moved to src/yasui/libys/player.cpp
 

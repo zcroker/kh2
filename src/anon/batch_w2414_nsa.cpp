@@ -150,31 +150,5 @@ void func_0031b9e0(Hit165ad8*);
 Ent165ad8* func_00165ef0(Ent165ad8*);
 s32 func_00142b70(void*);
 s32 func_001424c0(void*, Hit165ad8*);
-s32 func_00165ad8(Hit165ad8* h, f32* minDist)
-{
-    Ent165ad8* e = 0;
-    s32 found = 0;
-    f32 bestD = 10000000.0f;
-    *minDist = bestD;
-    Hit165ad8 best;
-    func_0031b9e0(&best);
-    f32 saved = h->v3.y;
-    u64 mask = (u64)1 << 32;  /* fl.c0 tested as a 64-bit word: the original keeps this mask in s4 */
-    while ((e = func_00165ef0(e)) != 0) {
-        if (e->id == h->owner) continue;
-        if (func_00142b70(e->body)) continue;
-        if (!func_001424c0(e->body, h)) continue;
-        h->ent = e;
-        if (!(*(u64*)&h->a & mask)) {
-            if (h->v3.y < bestD) {
-                bestD = h->v3.y;
-                best = *h;
-                found = 1;
-            }
-        } else if (*minDist > h->dist) *minDist = h->dist;
-        h->v3.y = saved;
-    }
-    if (found == 1) *h = best;
-    return found;
-}
+s32 func_00165ad8(Hit165ad8* h, f32* minDist);  // 0x00165ad8: definition moved into src/anon/unit_001656b8.cpp
 }

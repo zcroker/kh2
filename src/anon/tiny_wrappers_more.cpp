@@ -560,9 +560,7 @@ u32 func_0015cd90(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0015cd90: definition mo
 
 // 00161488: moved to src/anon/unit_001611a8.cpp
 
-u32 func_00165f50(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_00165f28(0x00000001u, 0x0000ffffu, a2, a3);
-}
+u32 func_00165f50(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00165f50: definition moved into src/anon/unit_00165db8.cpp
 
 u32 func_00167288(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00167288: definition moved into src/anon/unit_001664c0.cpp
 

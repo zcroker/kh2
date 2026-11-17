@@ -115,12 +115,7 @@ extern Vq D_0034a9d0;
 struct Pool16 { u8 e[64][16]; s32 idx[64]; s32 n; };
 extern u8* D_0034c7a0;
 void func_001656d0(void*, u32, u32);
-void* func_001659b8(u32 a, u32 b) {
-    Pool16* s = (Pool16*)D_0034c7a0;
-    void* r = s->e[s->idx[--s->n]];
-    func_001656d0(r, a, b);
-    return r;
-}
+void* func_001659b8(u32 a, u32 b);  // 0x001659b8: definition moved into src/anon/unit_001656b8.cpp
 
 extern u8 D_0034c7b0[];
 void sceGsSetDefLoadImage(void*, s32, s32, s32, s32, s32, s32, s32);

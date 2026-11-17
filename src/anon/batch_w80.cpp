@@ -438,25 +438,7 @@ void func_00131da8(U0_Node* n) {
 void func_0013d550(u32 a, u32 b);  // 0x0013d550: definition moved into src/anon/unit_0013a8b8.cpp
 // 00159fd0: moved to src/harata/libdk/targetcamera.cpp
 // unlink n from the active list and return it to the pool
-void func_00165768(U0_Link* n) {  // list_pop_head
-    U0_Link* prev;
-    U0_LinkPool* pool;
-    s32 k;
-    if (n == D_004f41c0.head) {
-        D_004f41c0.head = n->next;
-        prev = 0;
-    } else {
-        for (prev = D_004f41c0.head; prev->next != n; prev = prev->next) ;
-        prev->next = n->next;
-    }
-    if (n == D_004f41c0.tail) D_004f41c0.tail = prev;
-    n->next = 0;
-    if (n->buf) func_00106420(n->buf);
-    n->buf = 0;
-    asm volatile("" ::: "memory");
-    pool = D_0034c7a0;
-    pool->freeIdx[pool->nfree++] = n - pool->e;
-}
+void func_00165768(U0_Link* n);  // 0x00165768: definition moved into src/anon/unit_001656b8.cpp
 void func_0016a1b8(U0_Chr* c, u32 id) {
     U0_Info* v;
     c->id = id;

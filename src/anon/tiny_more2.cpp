@@ -65,7 +65,7 @@ void func_00150660(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a1; (void)a2; (void)a3; 
 
 void func_00151bd8(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a1; (void)a2; (void)a3; *(u32*)((u32)a0 + (1232)) = (u32)((s32)4); *(u32*)((u32)a0 + (2864)) = (u32)((s32)10); }
 
-void func_001656c0(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a1; (void)a2; (void)a3; *(u32*)((u32)a0 + (0)) = 0; *(u32*)((u32)a0 + (4)) = 0; *(u32*)((u32)a0 + (8)) = 0; }
+void func_001656c0(u32 a0,u32 a1,u32 a2,u32 a3);  // 0x001656c0: definition moved into src/anon/unit_001656b8.cpp
 
 u32 func_0016f448(u32 a0,u32 a1,u32 a2,u32 a3);  // 0x0016f448: definition moved into src/anon/unit_0016e8f8.cpp
 

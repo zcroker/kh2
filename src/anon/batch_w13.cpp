@@ -137,12 +137,7 @@ void Camera_onceCover(void* task) {
     func_001024a8(task);
 }
 
-u8* func_00165ef0(u8* p) {
-    do {
-        p = p ? *(u8**)(p + 12) : D_004f41c0;
-    } while (p && (*(u32*)(p + 8) & 2));
-    return p;
-}
+u8* func_00165ef0(u8* p);  // 0x00165ef0: definition moved into src/anon/unit_00165db8.cpp
 
 u8 func_0016b518(u8* p, u32 a1, u32 a2) {
     if (*(u32*)(p + 1416) & 4) {

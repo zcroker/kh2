@@ -142,20 +142,7 @@ struct Me165 { Vn81 pos; Vn81 dir; u8 pad[16]; Vn81 tgt; u8 pad2[60]; u32 id; };
 Ent165* func_00165ef0(Ent165*);
 s32 func_00142b70(u32);  // len_sq_compare_at80
 s32 func_00164718(u32, Me165*);
-s32 func_00165a10(Me165* m) {
-    Ent165* e = 0;
-    s32 found = 0;
-    while ((e = func_00165ef0(e)) != 0) {
-        if (e->id == m->id) continue;
-        u32 f = e->flags & 1;
-        if (f) continue;
-        if (func_00142b70(e->obj)) continue;
-        if (!func_00164718(e->obj, m)) continue;
-        found = 1;
-        m->dir = vsub81n(m->tgt, m->pos);
-    }
-    return found;
-}
+s32 func_00165a10(Me165* m);  // 0x00165a10: definition moved into src/anon/unit_001656b8.cpp
 
 // --- 0016a4e8: deleting destructor
 extern u8 D_0034d850[];

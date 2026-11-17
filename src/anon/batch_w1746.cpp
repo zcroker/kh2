@@ -21,14 +21,7 @@ extern "C" {
 extern W1746ElemArray* D_0034c7a0;
 void LoadDataFree(...) asm("_ZN2Tz12LoadDataFreeEz");
 
-void func_00165968(void) {
-    W1746ElemArray* p = D_0034c7a0;
-    if (p) {
-        p->~W1746ElemArray();
-        LoadDataFree(p);
-        D_0034c7a0 = 0;
-    }
-}
+void func_00165968(void);  // 0x00165968: definition moved into src/anon/unit_001656b8.cpp
 
 W1746DItype muldi3_00311aa0(W1746DItype u, W1746DItype v) asm("_Z8__muldi3xx");
 W1746DItype muldi3_00311aa0(W1746DItype u, W1746DItype v)

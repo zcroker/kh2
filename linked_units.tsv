@@ -231,6 +231,9 @@ src/harata/libdk/map.cpp	0015eba8	0015efa0	.rodata@0036b468	-G0
 src/harata/libdk/map_effect.cpp	0015f268	0015f7f0	.data@0034c6f0	-G0
 src/harata/libdk/bgobj.cpp	0015f7f0	001610c0	.data@0034c738,.rodata@0036b470	-G0 -g -fno-strict-aliasing
 src/anon/unit_001611a8.cpp	001611a8	001614a8	.bss@004f3b30	-G0 -g -fno-strict-aliasing
+src/anon/unit_00164578.cpp	00164578	001652c8	.rodata@0036b4c8	-G0 -g -fno-strict-aliasing -fmove-all-movables
+src/anon/unit_001656b8.cpp	001656b8	00165db8	.rodata@0036b4ec	-G0 -fno-strict-aliasing
+src/anon/unit_00165db8.cpp	00165db8	00165f70	-	-G0
 src/anon/unit_00165f70.cpp	00165f70	00166148	-	-G0
 src/anon/unit_001664c0.cpp	001664c0	001672c8	.rodata@0036b518	-G0 -fno-strict-aliasing
 src/anon/unit_002e8b50.cpp	002e8b50	002e9248	.bss@01e2bf90,.rodata@00376088	-G0 -fno-strict-aliasing

@@ -36,20 +36,5 @@ extern Pair_165898 D_004f41c0;
 extern s32 D_0034c7a4;
 extern Pool_165898* D_0034c7a0;
 
-void func_00165898(u32 arg) {
-    D_004f41c0.b = 0;
-    D_0034c7a4 = arg;
-    D_004f41c0.a = 0;
-    Pool_165898* p = (Pool_165898*)tz_alloc_165898(sizeof(Pool_165898), arg);
-    Node_165898* n = p->n;
-    for (s32 i = 63; i != -1; i--) {
-        n->a = 0; n->b = 0;
-        lst_165898(n->c);
-        lst_165898(n->c);
-        n++;
-    }
-    for (s32 i = 0; i < 64; i++) p->idx[i] = i;
-    p->cnt = 64;
-    D_0034c7a0 = p;
-}
+void func_00165898(u32 arg);  // 0x00165898: definition moved into src/anon/unit_001656b8.cpp
 }

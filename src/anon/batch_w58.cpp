@@ -107,16 +107,7 @@ extern union { u32 v; u8 c; } D_0034c7a4;
 void func_001656c0(Nd12*);
 void* func_001063c0(u32, u32);
 void func_001415e8(void*, u32, s32);
-void func_001656d0(Nd12* n, u32 a1, u32 a2) {
-    func_001656c0(n);
-    n->f0 = a2;
-    void* o = func_001063c0(224, D_0034c7a4.v);
-    func_001415e8(o, a1, -1);
-    n->f4 = o;
-    asm volatile("" ::: "memory");
-    if (!D_004f41c0.tail) { D_004f41c0.tail = n; D_004f41c0.head = n; n->next = 0; }
-    else { D_004f41c0.tail->next = n; n->next = 0; D_004f41c0.tail = n; }
-}
+void func_001656d0(Nd12* n, u32 a1, u32 a2);  // 0x001656d0: definition moved into src/anon/unit_001656b8.cpp
 
 // p[0] = p[0] + p[1] (vector), returned through a function-local static.
 extern s8 D_004f62b0;

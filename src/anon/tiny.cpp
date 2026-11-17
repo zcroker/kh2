@@ -437,11 +437,7 @@ u32 func_00162098(u32 a0, u32 a1, u32 a2, u32 a3) {
     return (u32)(*(u8*)((u32)b + (-14480)));
 }
 
-void func_00165870(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 t = *(u32*)((u32)a0 + (8));
-    t |= 0x0001u;
-    *(u32*)((u32)a0 + (8)) = t;
-}
+void func_00165870(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00165870: definition moved into src/anon/unit_001656b8.cpp
 
 void func_00167218(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00167218: definition moved into src/anon/unit_001664c0.cpp
 

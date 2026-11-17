@@ -63,51 +63,5 @@ static inline __attribute__((always_inline)) bool W3868InBox(const W3868V& p, co
 yes:
     o = 1; return o;
 }
-s32 func_00164d60(void* self, W3868Poly* p, W3868V* c, W3868V* out, W3868V* outA, W3868V* outB) {
-    if (!D_004f41a0) {
-        new (&D_004f41b0) W3868V(0.008f, 0.008f, 0.008f, 1.0f);
-        D_004f41a0 = 1;
-        func_002fd188(func_001656b8);
-    }
-    W3868V buf[4];
-    W3868V bufA[4];
-    W3868V bufB[4];
-    s32 cnt = 0;
-    s32 n = p->n;
-    const s32* next = n == 3 ? D_0034c780 : D_0034c790;
-    s32 i;
-    for (i = 0; i < n; i++) {
-        W3868V* pa = p->v[i];
-        W3868V* pb = p->v[next[i]];
-        W3868V a; a = *pa;
-        W3868V b; b = *pb;
-        W3868Line l;
-        l.o = a;
-        l.d = b - a;
-        l.d.w = 1.0f;
-        l.o.w = 1.0f;
-        *out = l.d * -((l.o - *c).dot(l.d) / l.d.lenSq()) + l.o;
-        W3868V lo = a + D_004f41b0;
-        W3868V hi = b + D_004f41b0;
-        if (W3868InBox(*out, lo, hi)) {
-            bufA[cnt] = a;
-            bufB[cnt] = b;
-            buf[cnt++] = *out;
-        }
-    }
-    if (cnt != 0) {
-        if (cnt == 1) { *out = buf[0]; *outA = bufA[0]; *outB = bufB[0]; return 1; }
-        f32 best = 99999991988224.0f;
-        s32 idx = 0;
-        for (s32 j = 0; j < cnt; j++) {
-            f32 d = W3868Dist2(*c, buf[j]);
-            if (d < best) { best = d; idx = j; }
-        }
-        *out = buf[idx];
-        *outA = bufA[idx];
-        *outB = bufB[idx];
-        return 1;
-    }
-    return 0;
-}
+s32 func_00164d60(void* self, W3868Poly* p, W3868V* c, W3868V* out, W3868V* outA, W3868V* outB);  // 0x00164d60: definition moved into src/anon/unit_00164578.cpp
 }

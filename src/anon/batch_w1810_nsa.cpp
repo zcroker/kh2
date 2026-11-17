@@ -53,19 +53,7 @@ int w1810_getcharadata(u32) asm("_ZN2Tz6JmInfo12GetCharaDataEj");
 void w1810_set_mode(void*, int) asm("_ZN2YS6MOTION8set_modeEi");
 W1810Vec* func_0016c028(int);
 
-f32 func_00164c70(void* self, const W1810Vec& a, const W1810Vec& b, const W1810Vec& c)
-{
-    W1810Seg2 s;
-    s.a = a;
-    s.b = c;
-    W1810Ray r;
-    r.o = s.a;
-    r.d = s.b - s.a;
-    r.d.w = 1.0f;
-    r.o.w = 1.0f;
-    w1810_norm(&r.d);
-    return w1810_len(&(r.d - b)) * 10.0f;
-}
+f32 func_00164c70(void* self, const W1810Vec& a, const W1810Vec& b, const W1810Vec& c);  // 0x00164c70: definition moved into src/anon/unit_00164578.cpp
 
 int func_0017a538(void*);
 void func_00185468(void*, int, void*, u32, int, int);
