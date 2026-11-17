@@ -276,10 +276,4 @@ void func_00325aa0(u8* p) {
 
 // Sets bit `i` in the bitset returned by func_002859a0 (if not already set).
 extern "C" u32* func_002859a0(void);
-void func_00285f50(void* a) {
-    u32 i = (u32)a;
-    u32* bits = func_002859a0();
-    u32* w = (u32*)((i >> 5) * 4 + (u32)bits);
-    u32 m = 1 << (i & 31);
-    if (!(*w & m)) *w |= m;
-}
+void func_00285f50(void* a);  // 0x00285f50: definition moved into src/anon/unit_002853b8.cpp

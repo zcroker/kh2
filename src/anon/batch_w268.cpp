@@ -75,27 +75,7 @@ extern s32 func_001033b0(s32);
 extern W268FnHolder* func_00253330(s32);
 extern W268FnHolder* func_00243150(s32);
 extern void func_0023fad0(void*);
-void func_002881c0(void)
-{
-    if (D_0035f328) {
-        s32 id = func_00103398(D_0035f32a);
-        if (func_001033b0(D_0035f32a) != 1) {
-            func_00253330(id)->fn();
-        } else {
-            func_00243150(id)->fn();
-            func_0023fad0(D_0035f3a8);
-        }
-    }
-    if (D_0035f334) { D_0035f334->vt[1](D_0035f334); D_0035f334 = 0; }
-    if (D_0035f338) { D_0035f338->vt[4](D_0035f338); D_0035f338 = 0; }
-    if (D_0035f33c) { D_0035f33c->vt[1](D_0035f33c); D_0035f33c = 0; }
-    if (D_0035f340) { D_0035f340->vt[1](D_0035f340); D_0035f340 = 0; }
-    D_0035f32a = -1;
-    D_0035f344 = 0;
-    D_0035f32c = -1;
-    D_0035f328 = 0;
-    D_0035f32e = -1;
-}
+void func_002881c0(void);  // 0x002881c0: definition moved into src/anon/unit_002880b8.cpp
 
 s32 func_002fdfc8(const char*, ...);  // device_vprintf_va
 extern char D_0036e978[], D_0036ed60[], D_0036e998[], D_0036e9d0[], D_0036ed78[], D_0036ed98[];

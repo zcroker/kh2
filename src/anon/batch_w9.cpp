@@ -162,9 +162,7 @@ void func_0027f9b0(void) {
     func_00287cc0(0);
 }
 
-s32 func_00288088(void) {
-    return *(u64*)(func_00167f18(0) + 8) != 0;
-}
+s32 func_00288088(void);  // 0x00288088: definition moved into src/anon/unit_00286d28.cpp
 
 void func_0028d708(void* p);  // 0028d708: moved to src/anon/unit_0028c878.cpp
 

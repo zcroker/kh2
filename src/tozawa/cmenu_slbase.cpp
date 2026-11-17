@@ -25,10 +25,7 @@ extern u32 D_0035f678 asm("D_0035f678");
 extern u8* D_0035f6cc asm("D_0035f6cc");
 extern u8 D_0035f6d0 asm("D_0035f6d0");
 
-void MenuBase::SetExit() {
-    u32 v = (u32)((s32)1);
-    *(u8*)&D_0035f314 = (u8)v;
-}
+// 0x00287da0: definition moved into src/anon/unit_00286d28.cpp
 
 extern "C" u32 func_00287bd0(...);
 extern "C" u32 func_0023f948(...);
@@ -37,38 +34,27 @@ extern "C" u32 func_00103570(...);
 extern "C" void func_00236a58(...);
 extern "C" void func_0023c100(...);
 
-u32 MenuBase::NextMode2Mode() {
-    u32 r15 = (u32)(0x0036u << 16);
-    u32 r5 = 0u;
-    u32 r4 = *(u32*)((u32)r15 + (s32)(-3328));
-    return func_00287bd0(r4, r5);
-}
+// 0x00287c30: definition moved into src/anon/unit_00286d28.cpp
 
-void MenuBase::SetSignal(s32 v) { D_0035f2e8 = (u32)v; }
+// 0x00287b08: definition moved into src/anon/unit_00286d28.cpp
 
-void MenuBase::SetModeMax(s32 modeMax, s32 smodeMax) {
-    D_0035f2f0 = (u32)modeMax;
-    D_0035f2f4 = (u32)smodeMax;
-}
+// 0x00287b18: definition moved into src/anon/unit_00286d28.cpp
 
-s32 MenuBase::GetMode() { return (s32)D_0035f2f8; }
+// 0x00287bc0: definition moved into src/anon/unit_00286d28.cpp
 
-void MenuBase::SetNextMode(s32 v) { D_0035f300 = (u32)v; }
+// 0x00287c00: definition moved into src/anon/unit_00286d28.cpp
 
-s32 MenuBase::GetNextMode() { return (s32)D_0035f300; }
+// 0x00287c10: definition moved into src/anon/unit_00286d28.cpp
 
-void MenuBase::IncSMode(s32 delta) { D_0035f304 = D_0035f304 + (u32)delta; }
+// 0x00287c90: definition moved into src/anon/unit_00286d28.cpp
 
-void MenuBase::SetPhase(s32 v) { D_0035f30c = (u32)v; }
+// 0x00287d20: definition moved into src/anon/unit_00286d28.cpp
 
-s32 MenuBase::GetPhase() { return (s32)D_0035f30c; }
+// 0x00287d30: definition moved into src/anon/unit_00286d28.cpp
 
-void* MenuBase::GetMenuObj() { return reinterpret_cast<void*>(D_0035f31c); }
+// 0x00287dc0: definition moved into src/anon/unit_00286d28.cpp
 
-void MenuBasic::SetNextMenu(s32 nextMenu, s32 nextMenu2) {
-    *(u16*)&D_0035f32c = (u16)nextMenu;
-    *(u16*)&D_0035f32e = (u16)nextMenu2;
-}
+// 0x00288658: definition moved into src/anon/unit_002880b8.cpp
 
 extern u32 D_0035f2fc asm("D_0035f2fc");
 extern u64* D_0035f324 asm("D_0035f324");
@@ -103,102 +89,19 @@ extern "C" void func_0028b8e0(void*, u32);
 extern void* D_0035f674 asm("D_0035f674");
 extern u8 D_0035f3a8 asm("D_0035f3a8");
 
-u32 MenuBase::IsChgMode() {
-    s32 t = (s32)D_0035f2fc;
-    if (t >= 0) {
-        return ((u32)(D_0035f2f8 ^ (u32)t)) != 0u;
-    }
-    return 0u;
-}
+// 0x00287c50: definition moved into src/anon/unit_00286d28.cpp
 
-u32 MenuBase::isSavePad() {
-    u64* p = D_0035f324;
-    u32 v0 = 0u;
-    if (p == (u64*)0) {
-        goto end;
-    }
-    if (p[0] != 0ull) {
-        goto one;
-    }
-    if (p[1] != 0ull) {
-        goto one;
-    }
-    if (p[2] != 0ull) {
-        goto one;
-    }
-    if (p[3] != 0ull) {
-        goto one;
-    }
-    goto end;
-one:
-    v0 = 1u;
-end:
-    return v0;
-}
+// 0x00288040: definition moved into src/anon/unit_00286d28.cpp
 
-void MenuBasic::Setup() {
-    u32 s2 = func_0023f948(D_0035f334, 0);
-    u32 s0 = func_0023f908(D_0035f334, 0);
-    u32 t = func_00103570();
+// 0x00288370: definition moved into src/anon/unit_002880b8.cpp
 
-    func_00236a58(D_0035f33c, s0, t);
-    t = func_00103570();
+// 0x00288750: definition moved into src/anon/unit_002880b8.cpp
 
-    func_0023c100(D_0035f340, s2, D_0035f33c, t);
-}
+// 0x002887c8: definition moved into src/anon/unit_002880b8.cpp
 
-void MenuBasic::EndFade(void (*cb)()) {
-    u32 s1 = (u32)cb;
-    if (func_00258cd8(s1) != 0) {
-        func_00258bc0(s1);
-        return;
-    }
+// 0x00288820: definition moved into src/anon/unit_002880b8.cpp
 
-    func_00139d78(D_0035f338);
-    func_00138c10(D_0035f338, 4);
-    *(u32*)(D_0035f338 + 392) = 0xFFFFFFFFu;
-    D_0035f344 = s1;
-}
-
-u32 MenuBasic::isExistFade() {
-    u32 t5 = 0;
-
-    if (func_00258cd8() != 0) {
-        t5 = func_00258c18();
-        goto ret;
-    }
-
-    {
-        u32 t7 = D_0035f338;
-        if (t7 != 0) {
-            t5 = func_00139d78(t7);
-        }
-    }
-
-ret:
-    return t5;
-}
-
-u32 MenuBasic::CheckFade() {
-    u32 v0;
-    if (func_00258cd8() != 0u) {
-        v0 = func_00258c48();
-    } else {
-        func_00139d78(*(u32*)((u8*)&D_00360000 - 3272u));
-        u32 t6 = *(u32*)((u8*)&D_00360000 - 3272u);
-        v0 = (*(u32*)(t6 + 388u)) == 1u;
-    }
-    return v0;
-}
-
-s32 MenuBasic::GetMenuId() {
-    s32 a0 = (s16)D_0035f32a;
-    s32 v0 = -1;
-    if (a0 >= 0) {
-        v0 = (s32)func_00103398((u32)a0);
-    }
-    return v0;
-}
+// 0x002888c8: definition moved into src/anon/unit_002880b8.cpp
 
 void CmSLBase::FadeOutWarningWin() {
     u8* t5 = D_0035f6cc;

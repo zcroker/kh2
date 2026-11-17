@@ -219,13 +219,7 @@ void func_002835d8(void) {
     func_00283960(1);
 }
 
-void func_00287b30(void) {
-    D_0035f2f0 = 0;
-    D_0035f2f4 = 0;
-    D_0035f2f8 = 0;
-    D_0035f2fc = -1;
-    func_00287c78(0);
-}
+void func_00287b30(void);  // 0x00287b30: definition moved into src/anon/unit_00286d28.cpp
 
 u8 func_0028b7f8(void** p);  // 0x0028b7f8: definition moved into src/anon/unit_00288b00.cpp
 

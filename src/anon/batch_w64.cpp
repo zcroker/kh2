@@ -354,22 +354,7 @@ void func_002854d8(s32, s32);
 void func_00287bd0(s32, s32);
 void func_00287cc0(s32);
 
-void func_00284fd8(void) {
-    u8* v = func_00167f18(0);
-    if (*(s32*)(D_0035f2cc + 824) != 8) return;
-    u64 fl = *(u64*)(v + 8);
-    if (fl & 4) {
-        func_00242618(8, 1);
-        func_002854d8(0xceca, 0);
-        func_00287bd0(1, 0);
-        func_00287cc0(0);
-    } else if (fl & 8) {
-        func_00242618(8, 1);
-        func_002854d8(0xcecb, 1);
-        func_00287bd0(2, 0);
-        func_00287cc0(0);
-    }
-}
+void func_00284fd8(void);  // 0x00284fd8: definition moved into src/anon/unit_00284220.cpp
 
 // ---------------------------------------------------------------------------
 extern u8* D_0035f3fc;

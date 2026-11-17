@@ -3499,35 +3499,7 @@ static inline void MarkSeen(u32* have, u32 id) {
 }
 
 // Flag equipment/items the player now holds that were not owned before.
-void ucall_2859f0(void) {
-    s32 i;
-    u16* it = 0;
-    u32* have = func_002859a0();
-    void* party = func_001a8bd0_59f0(-1);
-    for (i = 0; i < 4; i++) {
-        u32 m = func_001a8c10(party, i);
-        if (!m) continue;
-        u8* c = func_001a1658(m, -1);  // state_dispatch_0_1_14
-        u16* eq = *(u16**)(c + 580);
-        s32 k;
-        for (k = 0; k < 2; k++) MarkFresh(have, eq[k]);
-        for (k = 0; k < 8; k++) MarkFresh(have, eq[10 + k]);
-        for (k = 0; k < 8; k++) MarkFresh(have, eq[18 + k]);
-        for (k = 0; k < 8; k++) MarkFresh(have, eq[26 + k]);
-        func_001a17c8(c);
-    }
-    s32 mask = func_00281420();
-    for (i = 0; i < 7; i++) {
-        if ((mask >> i) & 1) MarkFresh(have, func_002814b0(i));
-    }
-    for (;;) {
-        it = func_001a8110(it);
-        if (!it) break;
-        if (!func_00285d18(((u8*)it)[2])) continue;
-        if (!func_001a3570_59f0(it[0])) continue;
-        MarkSeen(have, it[0]);
-    }
-}
+void ucall_2859f0(void);  // 0x002859f0: definition moved into src/anon/unit_002853b8.cpp
 
 // ---- 002b47a0
 struct VObj2b4 { void (**vt)(VObj2b4*); };
@@ -7837,14 +7809,7 @@ extern void* D_0035f324;
 void func_00167658(void*, s32);
 void func_00288018();
 void* func_001063c0_x10951(s32, s32) asm("func_001063c0");
-void func_00287ed8(s32 a) {
-    if (!D_0035f324) {
-        void* p = func_001063c0_x10951(80, a);
-        func_00167658(p, 0);
-        D_0035f324 = p;
-    }
-    func_00288018();
-}
+void func_00287ed8(s32 a);  // 0x00287ed8: definition moved into src/anon/unit_00286d28.cpp
 
 // --------------------
 // 00155ee8: moved to src/anon/unit_00153ea0.cpp

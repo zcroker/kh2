@@ -164,17 +164,9 @@ void func_00240e10(void) {
 
 void func_0025cd40(void);  // 0x0025cd40: definition moved into src/anon/unit_002588e8.cpp
 
-void func_00287b98(void) {
-    D_0035f2f8--;
-    func_00287c78();
-    func_00287c20();  // clear_global_flag_return_m1
-}
+void func_00287b98(void);  // 0x00287b98: definition moved into src/anon/unit_00286d28.cpp
 
-void func_00287d68(void) {  // copy_globals_3words
-    D_0035f2fc = D_0035f2f8;
-    D_0035f308 = D_0035f304;
-    D_0035f310 = D_0035f30c;
-}
+void func_00287d68(void);  // 0x00287d68: definition moved into src/anon/unit_00286d28.cpp
 
 s32 func_002a0360(void) {
     s8 c = *D_0035f5d0;

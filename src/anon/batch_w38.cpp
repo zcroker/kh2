@@ -64,12 +64,7 @@ void func_00325498(Obj325498* p) {
 }
 
 extern Obj287f30* D_0035f324;
-void func_00287f30(void) {
-    if (D_0035f324) {
-        delete D_0035f324;
-        D_0035f324 = 0;
-    }
-}
+void func_00287f30(void);  // 0x00287f30: definition moved into src/anon/unit_00286d28.cpp
 
 }
 

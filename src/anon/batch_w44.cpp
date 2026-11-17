@@ -265,14 +265,7 @@ void func_00269ef8(void);  // 0x00269ef8: definition moved into src/anon/unit_00
 
 extern u32 D_0035f2c0;
 extern u8 D_00374348[];
-void func_00284e40(void) {
-    void** o = (void**)func_00103580();
-    u32 v = (**(AllocFn**)o)(o, 0x48800, 0);
-    u32 a = (v + 63) & ~63;
-    D_0035f2c0 = v;
-    func_002bd788(a);
-    func_002bd730(D_00374348, 16383, 0, 0);
-}
+void func_00284e40(void);  // 0x00284e40: definition moved into src/anon/unit_00284220.cpp
 
 void func_0028a908(u8* o);  // 0x0028a908: definition moved into src/anon/unit_00288b00.cpp
 

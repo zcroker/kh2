@@ -10,19 +10,7 @@ O285828* func_001063c0(s32, s32);
 void func_00323ad0(void*);
 void func_002fde18(void*, s32, s32);
 void func_002859c0();
-void func_00285828() {
-    s32* p; s32 n;
-    O285828* o = func_001063c0(0x11c, func_00103570());
-    p = o->a; n = 19; do { *p = 0; n--; p++; } while (n >= 0);
-    p = o->b; n = 2; do { *p = 0; n--; p++; } while (n >= 0);
-    p = o->c; n = 17; do { *p = 0; n--; p++; } while (n >= 0);
-    p = o->d; n = 8; do { *p = 0; n--; p++; } while (n >= 0);
-    o->e = 0;
-    func_00323ad0(o->f);
-    D_0035f2e4 = o;
-    func_002fde18(D_0035f2e4, 0, 0x11c);
-    func_002859c0();
-}
+void func_00285828();  // 0x00285828: definition moved into src/anon/unit_002853b8.cpp
 
 // ---- 002822c0
 struct E2822c0 { u16 id; u8 kind; u8 z; s16 v; };

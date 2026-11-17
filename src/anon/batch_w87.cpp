@@ -342,68 +342,15 @@ void func_001039f8(void);
 s32 func_00287bc0(void);
 void func_00285070(void);
 void func_00284fd8(void);
-s32 func_00284ef0(void) {
-    func_00287d68();  // copy_globals_3words
-    if (func_00287db0()) {
-        if (D_0035f2d4 == 2 && func_00284538()) {
-            if ((*(s32*)(func_0014aba8() + 252) ^ 4) == 0) func_002843e8();
-            return 0;
-        }
-        if (func_00284538()) return 0;
-        func_001039f8();
-        return 1;
-    }
-    if (D_0035f2d0) return 0;
-    switch (func_00287bc0()) {
-    case 0: func_00284fd8(); break;
-    case 1: case 2: func_00285070(); break;
-    }
-    return 0;
-}
+s32 func_00284ef0(void);  // 0x00284ef0: definition moved into src/anon/unit_00284220.cpp
 // ---- 0x286418 / 0x2864f8: flag-bit queries ----
 struct Flags { u8 pad[200]; u32 bits[2]; };
 struct Flags2 { u8 pad[204]; u32 bits[2]; };
 extern Flags* D_0035f2e4;
 s32 func_002812e0(void);
-s32 func_00286418(s32 n) {
-    s32 r;
-    if (n >= 0) {
-        u32* w = &D_0035f2e4->bits[(u32)n >> 5];
-        r = (*w & (1 << (n & 31))) != 0;
-        if (func_002812e0() && n < 5) r = 0;
-    } else {
-        for (s32 i = 0; i < 9; i++) {
-            u32* w = &D_0035f2e4->bits[(u32)i >> 5];
-            r = (*w & (1 << (i & 31))) != 0;
-            if (func_002812e0() && i < 5) r = 0;
-            if (r) break;
-        }
-    }
-    return r;
-}
+s32 func_00286418(s32 n);  // 0x00286418: definition moved into src/anon/unit_002853b8.cpp
 Flags2* func_002859a0(void);
-s32 func_002864f8(s32 n) {
-    Flags2* t = func_002859a0();
-    s32 r = 1;
-    if (n >= 0) {
-        u32 m = 1 << (n & 31);
-        u32 w = (u32)n >> 5;
-        s32 res = 0;
-        u32* pa = &D_0035f2e4->bits[w];
-        if (*pa & m) { u32* pb = &t->bits[w]; res = (*pb & m) != 0; }
-        return res;
-    }
-    u32* db = D_0035f2e4->bits;
-    u32* tb = t->bits;
-    for (s32 i = 0; i < 9; i++) {
-        u32 m = 1 << (i & 31);
-        if (db[(u32)i >> 5] & m) {
-            r = (tb[(u32)i >> 5] & m) != 0;
-            if (!r) return r;
-        }
-    }
-    return r;
-}
+s32 func_002864f8(s32 n);  // 0x002864f8: definition moved into src/anon/unit_002853b8.cpp
 
 // ---- 0x29c880 ----
 union GB { u8* p; u16 h; u32 u; };

@@ -596,29 +596,7 @@ void func_0023d4f8(void*, u32);
 void func_00287c20(void);  // clear_global_flag_return_m1
 void func_0028c3f0(u32);
 void func_00287ed8(u32);
-void func_00287910(u32 a, u32 b, u8 c) {
-    func_00139e00(func_00103570(), c);
-    func_0023edb0(func_00103570());
-    func_00288b18(func_00103570());
-    func_00236d60();  // clear_64_entries_24
-    func_00287b30();
-    func_00287d08();
-    func_0023ed00(7);
-    D_0035f318 = b;
-    D_0035f2ec = a;
-    if (b) {
-        Heap2* h = D_00347f80.p->heap;
-        void* m = h->vt->alloc(h, 5360, 0);
-        func_0023d4f8(m, D_0035f318);
-        D_0035f31c = m;
-    }
-    D_0035f314 = 0;
-    func_00287c20();  // clear_global_flag_return_m1
-    func_0028c3f0(func_00103570());
-    D_0035f2e8 = 0;
-    D_0035f320 = 0;
-    func_00287ed8(func_00103570());
-}
+void func_00287910(u32 a, u32 b, u8 c);  // 0x00287910: definition moved into src/anon/unit_00286d28.cpp
 
 extern u8 D_0035f4f0;
 union SeReqRef { SeReq* p; s16 h; };

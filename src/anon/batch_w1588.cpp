@@ -43,17 +43,7 @@ void func_0029edb8(void) {  // alloc_global_obj
 
 void func_00264388(void);  // 0x00264388: definition moved into src/anon/unit_002640a8.cpp
 
-s32 func_00285d18(s32 x) {  // byte_list_contains
-    s32 r = 0;
-    s32 i;
-    for (i = 0; D_003743c0[i] >= 0; i++) {
-        if (D_003743c0[i] == x) {
-            r = 1;
-            break;
-        }
-    }
-    return r;
-}
+s32 func_00285d18(s32 x);  // 0x00285d18: definition moved into src/anon/unit_002853b8.cpp
 
 u32 ResetVoiceState() asm("_ZN2Tz9MenuSound15ResetVoiceStateEv");
 u32 ResetVoiceState() {

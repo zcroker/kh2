@@ -272,26 +272,7 @@ void func_00243cd8(void) {
     func_002b4388(D_0035ed08, &D_003719e8[sel], 0);
 }
 
-void func_002874b0(u8* self) {
-    u8* o;
-    s32 i;
-    o = heap_alloc_w96(448);
-    *(u32*)(o + 12) = 0;
-    *(u32*)o = (u32)D_00347e80;
-    func_002361a0(o + 32);
-    *(u8**)self = o;
-    func_0023f800((u32)self + 12);
-    for (i = 0; i < 2; i++) {
-        o = heap_alloc_w96(408);
-        *(u32*)(o + 12) = 0;
-        *(u32*)o = (u32)D_00347e60;
-        func_00239700((u32)o + 24);
-        ((u8**)(self + 4))[i] = o;
-    }
-    func_002fee78(D_01e21ef8, D_003743f8, D_0033caf4);
-    func_0023fa90((u32)self + 12, D_01e21ef8);
-    func_00138650(*(u8**)self, 26000, func_0023f988((u32)self + 12, 0), 0);
-}
+void func_002874b0(u8* self);  // 0x002874b0: definition moved into src/anon/unit_00286d28.cpp
 
 // Resets the channel table: n channels back to defaults.
 void func_0028e190(u8* self, s32 n);  // 0028e190: moved to src/anon/unit_0028c878.cpp

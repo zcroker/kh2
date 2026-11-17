@@ -278,19 +278,6 @@ void func_001c6850(T1c6* t);  // 0x001c6850: definition moved into src/anon/unit
 u32* func_002859a0(void);
 void func_00106420(void*);
 extern union { u32* p; u8 c; } D_0035f2e4;
-void func_00285910(void) {
-    u32* dst = func_002859a0();
-    s32 i = 0;
-    do {
-        u8* s = (u8*)D_0035f2e4.p;
-        u32 off = ((u32)i >> 5) << 2;
-        if (*(u32*)(s + off + 204) & (1 << (i & 31))) *(u32*)((u8*)dst + off) |= 1 << (i & 31);
-        i++;
-    } while (i < 640);
-    if (D_0035f2e4.p) {
-        func_00106420(D_0035f2e4.p);
-        D_0035f2e4.p = 0;
-    }
-}
+void func_00285910(void);  // 0x00285910: definition moved into src/anon/unit_002853b8.cpp
 
 }

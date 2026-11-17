@@ -22,9 +22,9 @@ extern "C" void func_0028dac8(...);
 
 u32 Selector::SelExit() { return SelExitImpl(); }
 
-void Selector::SetState(s32 v) { D_0035f304 = (u32)v; }
+// 0x00287cc0: definition moved into src/anon/unit_00286d28.cpp
 
-u32 Selector::GetState() { return D_0035f304; }
+// 0x00287cd0: definition moved into src/anon/unit_00286d28.cpp
 
 // 00290738: moved to src/anon/unit_0028f1e0.cpp
 

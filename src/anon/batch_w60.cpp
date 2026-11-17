@@ -298,14 +298,7 @@ void func_0026b470(void) {
     }
 }
 
-void func_00287430(s32 a, s32 b) {
-    u32* bits = (u32*)(func_002859a0() + 164);
-    if (a == 7) a--;
-    a--;
-    u32 bit = a * 48 + b;
-    u32 m = 1 << (bit & 31);
-    if (!(bits[bit >> 5] & m)) bits[bit >> 5] |= m;
-}
+void func_00287430(s32 a, s32 b);  // 0x00287430: definition moved into src/anon/unit_00286d28.cpp
 
 void func_002937c0(void) {
     if (func_002938f0()) {

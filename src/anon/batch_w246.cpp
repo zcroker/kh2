@@ -22,22 +22,7 @@ extern void* D_0035f33c;
 extern void* D_0035f340;
 extern void (*D_0035f344)();
 
-void func_00288670(void (*cb)()) {
-    if (isPause()) {
-        StartFade(cb);
-        return;
-    }
-    s32 on = 1;
-    u_call4_00139d78(D_0035f338.c);
-    void* seq = GetSequenceUnit(D_0035f340, 0);
-    u8* img = GetImage(D_0035f33c, 0);
-    img[400] = on;
-    func_001386e0(D_0035f338.c, 30036, seq, img, 5, 0);
-    *(s32*)(D_0035f338.c + 392) = on;
-    D_0035f338.o->sub.set(8);
-    D_0035f338.c[405] = on;
-    D_0035f344 = cb;
-}
+void func_00288670(void (*cb)());  // 0x00288670: definition moved into src/anon/unit_002880b8.cpp
 
 W246Sram* GetSram(void) asm("_ZN2Tz9JmNewInfo7GetSramEv");
 u8* JmInfo_GetData(s32) asm("_ZN2Tz6JmInfo7GetDataEi");

@@ -728,36 +728,7 @@ extern s16 D_0035f32e;
 extern u8 D_0035f330;
 extern u8 D_0035f3a8;
 
-void func_00288478(void* ctx) {
-    func_002883f8(ctx);
-    func_00102448(ctx, 1);
-    s32 id = func_00103398(D_0035f32a);
-    s32 kind = func_001033b0(D_0035f32a);
-    if (kind != 1) {
-        func_002530c8();  // set_state_30012
-        func_00253330(id)->f4();
-    } else {
-        func_00242fa0();
-        func_00243150(id)->f4();
-    }
-    D_0035f330 = 0;
-    func_00103ea0(func_00288638);  // set_hook_ptr
-    for (;;) {
-        func_00236d60();  // clear_64_entries_24
-        func_00288870();
-        if (D_0035f330) break;
-        func_00102448(ctx, 0);
-    }
-    if (kind != 1) {
-        func_00253330(id)->f8();
-    } else {
-        func_00243150(id)->f8();
-        func_0023fad0(&D_0035f3a8);
-    }
-    D_0035f32a = D_0035f32c;
-    D_0035f32c = D_0035f32e;
-    D_0035f32e = -1;
-}
+void func_00288478(void* ctx);  // 0x00288478: definition moved into src/anon/unit_002880b8.cpp
 }
 
 // ---- 2a10e0 ----

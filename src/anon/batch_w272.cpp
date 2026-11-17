@@ -24,23 +24,5 @@ s32 func_0027aa78(void);
 s32 func_002812e0(void);
 static inline bool TestBit(u32* a, u32 b) { return (a[b >> 5] & (1 << (b & 31))) != 0; }
 static inline s32 IsOffI(s32 f, s32 i) { return (u8)!((f >> i) & 1); }
-s32 func_00286ec8(s32 sel, s32 n) {
-    s32 res = 0;
-    s32 flags = func_002813b8();
-    if (func_0027aa78()) flags |= 0x80;
-    s32 k = 0;
-    for (s32 i = 1; i < 8; i++, k++) {
-        if (i == 6) { k--; continue; }
-        if (sel >= 0 && i != sel) continue;
-        if (func_002812e0() && i != 7) continue;
-        if (IsOffI(flags, i)) continue;
-        for (s32 j = 0; j < 48; j++) {
-            if (n >= 0 && j != n) continue;
-            res = TestBit((u32*)(D_0035f2e4 + 164), k * 48 + j);
-            if (res) break;
-        }
-        if (res) break;
-    }
-    return res;
-}
+s32 func_00286ec8(s32 sel, s32 n);  // 0x00286ec8: definition moved into src/anon/unit_00286d28.cpp
 }

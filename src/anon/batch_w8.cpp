@@ -173,11 +173,7 @@ extern s32 D_0035f2f8;
 void func_00287c20(void);  // clear_global_flag_return_m1
 void func_00287c78(s32);
 void next_mode_to_mode(s32 mode, s32 next) asm("_ZN2Tz8MenuBase14NextModeToModeEz");
-void next_mode_to_mode(s32 mode, s32 next) {
-    D_0035f2f8 = mode;
-    func_00287c20();  // clear_global_flag_return_m1
-    func_00287c78(next);
-}
+void next_mode_to_mode(s32 mode, s32 next);  // 0x00287bd0: definition moved into src/anon/unit_00286d28.cpp
 
 void func_00139d78(void*);
 void func_00139510(void*);

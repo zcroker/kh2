@@ -176,18 +176,7 @@ s32 func_00139d78(u8*);
 void func_00139510(u8*);
 s32 func_0028acc8(u8*);
 void func_0028abe0(u8*);
-void func_002843e8(void) {
-    s32 i;
-    if (func_00139d78(D_0035f2c8)) VCALL269(D_0035f2c8);
-    if (func_00139d78(D_0035f2cc)) func_00139510(D_0035f2cc);
-    if (func_00139d78(D_0035f2cc + 436)) func_00139510(D_0035f2cc + 436);
-    for (i = 0; i < 8; i++) {
-        if (func_00139d78(D_0035f2cc + i * 436 + 872)) VCALL269(D_0035f2cc + i * 436 + 872);
-        if (func_00139d78(D_0035f2cc + i * 436 + 4360)) VCALL269(D_0035f2cc + i * 436 + 4360);
-    }
-    if (func_00139d78(D_0035f2d8)) VCALL269(D_0035f2d8);
-    if (func_0028acc8(D_0035f2dc)) func_0028abe0(D_0035f2dc);
-}
+void func_002843e8(void);  // 0x002843e8: definition moved into src/anon/unit_00284220.cpp
 
 extern u8* D_0035f5ac;
 extern u8* D_0035f5b0;

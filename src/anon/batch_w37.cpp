@@ -252,15 +252,7 @@ void func_00253b30(void*, u32);
 void func_0023fa90(u32, void*);
 extern u32 D_0035f2bc;
 extern u32 D_0035f2c4;
-void func_002853b8(void) {
-    u8 buf[128];
-    if (!func_00293fb0()) {
-        func_00293e00(func_00103570());
-        func_00293fc0();
-    }
-    func_00253b30(buf, D_0035f2bc);
-    func_0023fa90(D_0035f2c4, buf);
-}
+void func_002853b8(void);  // 0x002853b8: definition moved into src/anon/unit_002853b8.cpp
 
 s32 func_0028b1c0(void*, s32);  // test_bit_field32
 void func_00289b30(void*, void*, void*);

@@ -614,23 +614,7 @@ static inline s32 Check286(u32* got, u32 i)
     return (got[i >> 5] & m) != 0;
 }
 
-s32 func_00286160(s32 id)
-{
-    s32 r = 1;
-    u32* got = func_002859a0();
-    s32 i;
-    if (id >= 0) {
-        r = Check286(got, id);
-    } else {
-    for (i = 0; i < 640; i++) {
-        if (!(D_0035f2e4[(u32)i >> 5] & (1 << ((u32)i & 31)))) continue;
-        if (!func_00286058(func_001a80c8(i)[2])) continue;
-        r = (got[(u32)i >> 5] & (1 << ((u32)i & 31))) != 0;
-        if (!r) break;
-    }
-    }
-    return r;
-}
+s32 func_00286160(s32 id);  // 0x00286160: definition moved into src/anon/unit_002853b8.cpp
 }
 
 // ---- 002a7dc8

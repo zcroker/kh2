@@ -203,12 +203,7 @@ int func_002519d0(void) {
 typedef void (*VFn)(void*);
 void func_002878c8(void*);
 u8 func_0023f848(void*);
-u8 func_00287760(u8* p) {
-    func_002878c8(p);
-    void** o = *(void***)p;
-    (*(VFn*)((*(u8**)o) + 20))(o);
-    return func_0023f848(p + 12);
-}
+u8 func_00287760(u8* p);  // 0x00287760: definition moved into src/anon/unit_00286d28.cpp
 
 extern u16 D_0035f470[3];
 void func_0028f4a0(u16* src);  // 0028f4a0: moved to src/anon/unit_0028f1e0.cpp

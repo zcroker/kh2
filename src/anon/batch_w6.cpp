@@ -170,12 +170,7 @@ u32 func_00256b80(s32 i) {
 
 // Clear four doublewords of the buffer.
 extern volatile u64* volatile D_0035f324;
-void func_00288018(void) {  // global_zero_4dwords
-    D_0035f324[0] = 0;
-    D_0035f324[1] = 0;
-    D_0035f324[2] = 0;
-    D_0035f324[3] = 0;
-}
+void func_00288018(void);  // 0x00288018: definition moved into src/anon/unit_00286d28.cpp
 
 u32 func_00287bc0(void);
 void func_00276c50(u32, u32);

@@ -336,24 +336,7 @@ extern s32 D_0035f2f4;
 extern VObj* D_0035f31c;
 extern void* D_0035f2e8;
 
-void func_00287a28(void) {
-    func_0028c4f8();
-    func_0023ede8();
-    func_00288b78();
-    func_0023ed38();
-    D_0035f2ec = -1;
-    D_0035f318 = 0;
-    D_0035f2f0 = 0;
-    D_0035f2f4 = 0;
-    func_00287c20();  // clear_global_flag_return_m1
-    if (D_0035f31c) {
-        D_0035f31c->vt[4](D_0035f31c);
-        D_0035f31c = 0;
-    }
-    func_00287f30();
-    if (D_0035f2e8) func_001991a8((u32)D_0035f2e8, 0);
-    D_0035f2e8 = 0;
-}
+void func_00287a28(void);  // 0x00287a28: definition moved into src/anon/unit_00286d28.cpp
 
 /* ---- 002a9048 ---- */
 s8* func_00276568(void);

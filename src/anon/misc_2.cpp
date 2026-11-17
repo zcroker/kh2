@@ -40,15 +40,9 @@ void func_00281f10(void* self) {}
 
 typedef s64 (*Func4)(s64, s64, s64, s64);
 
-s64 func_00286058(s64 param0, s64 param1, s64 param2, s64 param3) {
-    s64 result = 0, arg0 = param0, arg1 = param1, arg2 = param2, arg3 = param3, returnAddr = 0;
-    arg0 = (s64)((u64)arg0 ^ 0x0012);
-    arg0 = ((u64)arg0 < (u64)((s64)1)) ? 1 : 0;
-    result = arg0 + 0;
-    return result;
-}
+s64 func_00286058(s64 param0, s64 param1, s64 param2, s64 param3);  // 0x00286058: definition moved into src/anon/unit_002853b8.cpp
 
-void func_002883f8(void* self) {}
+void func_002883f8(void* self);  // 0x002883f8: definition moved into src/anon/unit_002880b8.cpp
 
 s32 func_0028b1b8(void* self);  // 0x0028b1b8: definition moved into src/anon/unit_00288b00.cpp
 

@@ -312,22 +312,7 @@ void func_0028ab20(void*);
 void func_00287df0(s32, s32, s32, s32, s32);
 extern void* D_0035f2dc;
 extern void* D_0035f2d8;
-s32 func_00285760(void)
-{
-    s32 r = func_00289380(D_0035f2dc);
-    if (r != -1 || func_00289310(D_0035f2dc)) {
-        if (!func_0028ae28(D_0035f2dc, 0)) {
-            func_00138c10(D_0035f2d8, 5);
-            func_0028ab20(D_0035f2dc);
-        }
-    }
-    func_00287df0(r, func_00289310(D_0035f2dc), 0, 0, 1);
-    switch (r) {
-    case 0: case -2: return 0;
-    case 1: return 1;
-    default: return -1;
-    }
-}
+s32 func_00285760(void);  // 0x00285760: definition moved into src/anon/unit_002853b8.cpp
 
 // 00290098
 union HeapRef { u8* p; u32 w; };

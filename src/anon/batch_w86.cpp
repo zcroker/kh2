@@ -755,19 +755,7 @@ s32 func_00139d78(void*);
 s32 func_002854c0(void);
 void func_0023f070(void*, s32, s32);
 void func_00138c10(void*, s32);
-void func_00284650(void)
-{
-    func_00139d78(D_0035f2c8);
-    func_0023f070(D_0035f2c8, D_00374360[func_002854c0()].anim, -1);
-    func_00139d78(&D_0035f2cc[0]);
-    func_00138c10(&D_0035f2cc[0], 2);
-    func_00139d78(&D_0035f2cc[1]);
-    func_00138c10(&D_0035f2cc[1], 8);
-    for (s32 i = 0; i < 8; i++) {
-        func_00139d78(&D_0035f2cc[i + 2]);
-        func_00138c10(&D_0035f2cc[i + 2], 5);
-    }
-}
+void func_00284650(void);  // 0x00284650: definition moved into src/anon/unit_00284220.cpp
 }
 }
 
@@ -778,19 +766,7 @@ extern "C" {
 extern u32* D_0035f2e4;
 Rec* func_001a80c8(s32);  // table24_find_by_id
 s32 func_00285d18(u8);
-s32 func_00285d58(s32 id)
-{
-    s32 r = 0;
-    if (id >= 0) {
-        r = (D_0035f2e4[(u32)id >> 5] & (1 << (id & 31))) != 0;
-    } else {
-        for (s32 i = 0; i < 640; i++) {
-            if (!(D_0035f2e4[(u32)i >> 5] & (1 << (i & 31)))) continue;
-            if (func_00285d18(func_001a80c8(i)->kind)) { r = 1; break; }
-        }
-    }
-    return r;
-}
+s32 func_00285d58(s32 id);  // 0x00285d58: definition moved into src/anon/unit_002853b8.cpp
 }
 }
 
@@ -808,18 +784,7 @@ Save* func_002859a0(void);
 void* func_00258108(void);
 void* func_002811b0(void*, s32);
 s32 func_001b7818(void*);
-void func_00287358(s32 mode, u32 id)
-{
-    Save* s = func_002859a0();
-    void* v = func_00258108();
-    if (!mode) {
-        SetBit(s->a, id);
-    } else {
-        s32 k = func_001b7818(func_002811b0(v, mode));
-        k -= 2;
-        SetBit(s->b, k * 48 + id);
-    }
-}
+void func_00287358(s32 mode, u32 id);  // 0x00287358: definition moved into src/anon/unit_00286d28.cpp
 }
 }
 

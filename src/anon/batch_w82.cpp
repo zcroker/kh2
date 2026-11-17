@@ -419,31 +419,8 @@ void func_0028dd28(u8*, u32);
 static inline s32 Bit0028(s32 i) { return (D_0035f2e4[(u32)i >> 5] & (1 << (i & 31))) != 0; }
 
 // id >= 0: whether item id is flagged and usable; id < 0: whether any of the 640 is.
-s32 func_00286068(s32 id)
-{
-    s32 r = 0;
-    if (id >= 0) {
-        if (id != 0 && func_00286058(func_001a80c8(id)[2])) r = Bit0028(id);
-    } else {
-        s32 i;
-        for (i = 0; i < 640; i++) {
-            if (Bit0028(i) && func_00286058(func_001a80c8(i)[2])) {
-                r = 1;
-                break;
-            }
-        }
-    }
-    return r;
-}
-void func_002877a0(u8* a0, s32 a1, s32 a2)
-{
-    u32* slot = (u32*)(a1 * 4 + (u32)a0);
-    if (func_00139d78((void*)slot[1])) {
-        func_00138c10((u8*)slot[1], D_00374410[a1][a2]);
-        return;
-    }
-    func_001386e0(slot[1], 26006, func_0023f9c8(a0 + 12, 0), *(u32*)a0 + 32, D_00374410[a1][a2], 0);
-}
+s32 func_00286068(s32 id);  // 0x00286068: definition moved into src/anon/unit_002853b8.cpp
+void func_002877a0(u8* a0, s32 a1, s32 a2);  // 0x002877a0: definition moved into src/anon/unit_00286d28.cpp
 
 
 void func_0028b300(u8* a0, u32 a1, u32 a2, u32 a3, u32 t0, u32 t1, u32 t2, u32 t3);  // 0x0028b300: definition moved into src/anon/unit_00288b00.cpp

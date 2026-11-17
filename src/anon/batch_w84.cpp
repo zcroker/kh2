@@ -344,33 +344,7 @@ struct Tbl {
     PU a;
     PU b;
 };
-void func_002889f0(Tbl* p, s32 n, u8 c) {
-    p->f0 = 0;
-    p->n = n;
-    p->f2 = -1;
-    p->f28 = 1;
-    p->c36 = c;
-    p->f20 = -1;
-    p->f4 = 0;
-    p->f18 = 0;
-    p->f22 = 0;
-    p->f24 = 0;
-    p->f26 = 0;
-    p->c37 = 0;
-    p->c38 = 0;
-    p->c39 = 0;
-    func_00288c58(p, n);
-    func_00288f48(p, 16, 32, 0, 0);
-    for (s32 i = 0; i < p->n; i++) {
-        for (s32 j = 0; j < 4; j++) {
-            p->a.p[i][j] = -1;
-            p->b.p[i][j] = -1;
-        }
-    }
-    p->f14 = 0;
-    func_0028af18(p, 115);
-    func_0028b1b0(p, 0);
-}
+void func_002889f0(Tbl* p, s32 n, u8 c);  // 0x002889f0: definition moved into src/anon/unit_002880b8.cpp
 
 // Tz::Select::Start
 union S16U { s16 v; s32 i; };

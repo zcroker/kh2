@@ -4292,46 +4292,9 @@ void func_00283fb0(void) {
     *(u8*)(D_0035f2b8 + 400) = 1;
 }
 
-void func_00284738(u32 a0) {
-    u32 s0 = a0;
+void func_00284738(u32 a0);  // 0x00284738: definition moved into src/anon/unit_00284220.cpp
 
-    if (func_00170cd0(s0) != 0) {
-        func_00170888(s0);
-    }
-
-    func_00285418();
-    func_00170888(s0);
-    func_00102448(s0, 1);
-    func_002853b8();
-    func_002847e0();
-
-    if (D_0035f2d0 == 0) {
-        func_00284e40();
-    }
-
-    while (1) {
-        func_00236d60();  // clear_64_entries_24
-        if (func_00284ef0() != 0) {
-            return;
-        }
-        func_002851e0();
-        func_00102448(s0, 0);
-    }
-}
-
-void func_002856c8(void) {
-    func_0028dac8(D_0035f2d8, 6);
-
-    if (func_0028acc8(D_0035f2dc) == 0) {
-        return;
-    }
-
-    if (func_0028acb8(D_0035f2dc) != 0) {
-        return;
-    }
-
-    func_0028aa40(D_0035f2dc);
-}
+void func_002856c8(void);  // 0x002856c8: definition moved into src/anon/unit_002853b8.cpp
 
 void duplicate_unplaced_00288370(void) {
     u32 s2 = func_0023f948(D_0035f334, 0);
@@ -4344,36 +4307,9 @@ void duplicate_unplaced_00288370(void) {
     func_0023c100(D_0035f340, s2, D_0035f33c, t);
 }
 
-u32 func_00288400(u32 a0) {
-    if (D_0035f32a < 0) {
-        func_001039f8();
-        return 1;
-    }
+u32 func_00288400(u32 a0);  // 0x00288400: definition moved into src/anon/unit_002880b8.cpp
 
-    if (func_00287db0() != 0) {
-        func_00287ad0();
-    }
-
-    D_0035f328 = 1;
-    func_00288478(a0);
-    D_0035f328 = 0;
-    return 0;
-}
-
-void func_00288870(void) {
-    if (D_0035f344 == 0) {
-        return;
-    }
-
-    if (func_00139d78(D_0035f338) != 0) {
-        if (func_00288820() == 0) {
-            return;
-        }
-    }
-
-    ((void(*)(void))D_0035f344)();
-    D_0035f344 = 0;
-}
+void func_00288870(void);  // 0x00288870: definition moved into src/anon/unit_002880b8.cpp
 
 void func_00288b18(u32 a0);  // 0x00288b18: definition moved into src/anon/unit_00288b00.cpp
 

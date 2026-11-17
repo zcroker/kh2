@@ -192,12 +192,7 @@ s32 func_00244a10(void) {
 extern u32 D_0035f2c0;
 void func_002bd7d8(void);
 VObj* func_00103580(void);
-void func_00284ea8(void) {
-    func_002bd7d8();
-    VObj* o = func_00103580();
-    ((VFn)o->vt[1])(o, (void*)D_0035f2c0);
-    D_0035f2c0 = 0;
-}
+void func_00284ea8(void);  // 0x00284ea8: definition moved into src/anon/unit_00284220.cpp
 
 s32 func_00181500(u16);
 s32 func_001a3570(u16);

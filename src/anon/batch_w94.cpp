@@ -455,24 +455,7 @@ typedef void (*VFn284)(u8*);
 #define VCALL20(o) (*(VFn284*)(*(u8**)(o) + 20))(o)
 
 extern "C" {
-s32 func_00284538(void) {
-    s32 r = func_00139d78(D_0035f2c8);
-    if (r) goto out;
-    r = func_00139d78(D_0035f2cc);
-    if (r) goto out;
-    r = func_00139d78(D_0035f2cc + 436);
-    if (r) goto out;
-    for (s32 i = 0; i < 8; i++) {
-        if (func_00139d78(D_0035f2cc + i * 436 + 872)) VCALL20(D_0035f2cc + i * 436 + 872);
-        if (func_00139d78(D_0035f2cc + i * 436 + 4360)) VCALL20(D_0035f2cc + i * 436 + 4360);
-    }
-    if (r) goto out;
-    r = func_00139d78(D_0035f2d8);
-    if (r) goto out;
-    r = func_0028acc8(D_0035f2dc);
-out:
-    return r;
-}
+s32 func_00284538(void);  // 0x00284538: definition moved into src/anon/unit_00284220.cpp
 }
 // ---- 0029e808
 extern "C" {

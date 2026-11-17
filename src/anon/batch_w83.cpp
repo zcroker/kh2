@@ -410,33 +410,7 @@ void func_0028b1b0(void*, s32);
 union S16Ptr { s16* p; s16 h; };
 struct Grid { s16 h0, h2, h4, pad6, pad8, pad10, pad12, h14, h16, h18, h20, h22, h24, h26, h28, pad30, pad32, pad34; u8 b36, b37, b38, b39; u32 pad40; S16Ptr f44; S16Ptr f48; };
 
-void func_002888f8(Grid* g, s32 n, u8 kind) {
-    g->h0 = 0;
-    g->h16 = n;
-    g->h2 = -1;
-    g->h28 = 1;
-    g->b36 = kind;
-    g->h20 = -1;
-    g->h4 = 0;
-    g->h18 = 0;
-    g->h22 = 0;
-    g->h24 = 0;
-    g->h26 = 0;
-    g->b37 = 0;
-    g->b38 = 0;
-    g->b39 = 0;
-    func_00288c58(g, n);
-    func_00288f48(g, 16, 32, 0, 0);
-    for (s32 i = 0; i < g->h16; i++) {
-        for (s32 j = 0; j < 4; j++) {
-            g->f44.p[i * 4 + j] = -1;
-            g->f48.p[i * 4 + j] = -1;
-        }
-    }
-    g->h14 = 0;
-    func_0028af18(g, 115);
-    func_0028b1b0(g, 0);
-}
+void func_002888f8(Grid* g, s32 n, u8 kind);  // 0x002888f8: definition moved into src/anon/unit_002880b8.cpp
 
 void* func_0023f1b0(s32);
 void* func_0023c4b8(void*, s32);

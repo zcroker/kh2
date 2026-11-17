@@ -41,15 +41,5 @@ s32 func_001a3570(s32);
 s32 func_001a36e0(s32);
 void u_call0_00286298(void) asm("_Z16u_call0_00286298v");
 // Separate counters per loop give each loop its own PRE copy of i*2.
-void u_call0_00286298(void)
-{
-    u32 i = 0;
-    BitsCC_w8004* cur = func_002859a0();
-    for (; D_003743d8[i] >= 0; i++) {
-        if (func_001a3570(func_001a36e0(D_003743d8[i])) && !cur->bits.Test(i)) D_0035f2e4->bits.Set(i);
-    }
-    for (u32 j = 0; D_003743e8[j] >= 0; j++) {
-        if (func_001a3570(D_003743e8[j]) && !cur->bits.Test(j + 5)) D_0035f2e4->bits.Set(j + 5);
-    }
-}
+void u_call0_00286298(void);  // 0x00286298: definition moved into src/anon/unit_002853b8.cpp
 }

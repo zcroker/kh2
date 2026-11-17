@@ -324,24 +324,7 @@ extern u32* D_0035f2e4;
 
 }
 // 00285fa0
-void u_call0_00285fa0(void)
-{
-    u8* e = 0;
-    u32* bits = func_002859a0();
-    for (;;) {
-        e = func_001a8110(e);
-        if (!e) break;
-        if (!func_00286058(e[2])) continue;
-        if (!func_001a3570(*(u16*)e)) continue;
-        u16 id = *(u16*)e;
-        u32 m = 1 << (id & 31);
-        u32 off = id >> 5;
-        if (bits[off] & m) continue;
-        u32* d = D_0035f2e4;
-        d += off;
-        *d |= m;
-    }
-}
+void u_call0_00285fa0(void);  // 0x00285fa0: definition moved into src/anon/unit_002853b8.cpp
 extern "C" {
 
 struct BitInfo { u32 a, b; s32 n; };

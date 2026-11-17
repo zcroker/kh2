@@ -422,10 +422,7 @@ u32 func_00282228(u32 a0, u32 a1, u32 a2) {  // bit_test_idx
     return a2;
 }
 
-void func_00287d08() {
-    D_0035f30c = 0;
-    D_0035f310 = 0xffffffff;
-}
+void func_00287d08();  // 0x00287d08: definition moved into src/anon/unit_00286d28.cpp
 
 void func_002c5628(u32 a0);  // 0x002c5628: definition moved into src/anon/unit_002c53c8.cpp
 

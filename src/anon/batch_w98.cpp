@@ -378,21 +378,7 @@ u8* func_001a80c8(s32);  // table24_find_by_id
 s32 func_00285d18(u8);
 static inline u32 Bit285(u32* a, s32 i) { return a[(u32)i >> 5] & (1 << (i & 31)); }
 // True when the id (or, for id < 0, every enabled id that qualifies) is also set in the obtained mask.
-s32 func_00285e30(s32 id) {
-    s32 ok = 1;
-    u32* got = func_002859a0();
-    if (id >= 0) {
-        ok = Bit285(D_0035f2e4, id) && Bit285(got, id);
-    } else {
-        for (s32 i = 0; i < 640; i++) {
-            if (!Bit285(D_0035f2e4, i)) continue;
-            if (!func_00285d18(func_001a80c8(i)[2])) continue;
-            ok = Bit285(got, i) != 0;
-            if (!ok) break;
-        }
-    }
-    return ok;
-}
+s32 func_00285e30(s32 id);  // 0x00285e30: definition moved into src/anon/unit_002853b8.cpp
 
 struct W280 { void** vt; u8 pad[432]; };
 extern u8* D_0035f250;

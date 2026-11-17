@@ -22,24 +22,6 @@ union BD_VALUE
 };
 s32 func_00167f18(void) asm("_ZN2Tz10MenuCursor13GetInputStateEz");
 extern volatile long * volatile D_0035f324;
-void func_00287f90(u64 *s)
-{
-  u64 a;
-  u64 b;
-  u64 c;
-  u64 d;
-  if (!s)
-  {
-    s = (u64 *) func_00167f18();
-  }
-  a = s[0];
-  b = s[1];
-  c = s[2];
-  d = s[3];
-  D_0035f324[0] |= a;
-  D_0035f324[1] |= b;
-  D_0035f324[2] |= c;
-  D_0035f324[3] |= d;
-}
+void func_00287f90(u64 *s);  // 0x00287f90: definition moved into src/anon/unit_00286d28.cpp
 
 }

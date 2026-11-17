@@ -42,36 +42,4 @@ extern W1949_Flags* D_0035f2e4;
 s32 func_00258108(void);
 s32 func_002811b0(s32, s32);
 s32 func_001b7818(s32);
-s32 func_00286d28(s32 a, s32 b) {
-    s32 r = 0;
-    s32 ctx = func_00258108();
-    s32 i;
-    if (a <= 0) {
-        if (b < 0) {
-            for (i = 0; i < 80; i++) {
-                r = W1949_Bit(D_0035f2e4->f80, i);
-                if (r) break;
-            }
-        } else {
-            r = W1949_Bit(D_0035f2e4->f80, b);
-        }
-        if (r || a == 0) return r;
-    }
-    for (i = 1; i < 4; i++) {
-        if (a < 0 || i == a) {
-            s32 v = func_002811b0(ctx, i);
-            if (v) {
-                s32 g = func_001b7818(v) - 2;
-                s32 j;
-                for (j = 0; j < 48; j++) {
-                    if (b < 0 || j == b) {
-                        v = g * 48 + j; r = W1949_Bit(D_0035f2e4->f92, v);
-                        if (r) break;
-                    }
-                }
-                if (r) break;
-            }
-        }
-    }
-    return r;
-}
+s32 func_00286d28(s32 a, s32 b);  // 0x00286d28: definition moved into src/anon/unit_00286d28.cpp

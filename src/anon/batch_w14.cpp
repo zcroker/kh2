@@ -201,12 +201,7 @@ void func_0023d3d0(void) {
 
 void func_00242368(void* a);  // 00242368: moved to src/tozawa/crc.cpp (linked unit)
 
-s32 func_00287720(u8* p) {
-    func_002878c8(p);
-    void** o = *(void***)p;
-    (*(void (**)(void*))(*(u8**)o + 20))(o);
-    return func_0023f848(p + 12);
-}
+s32 func_00287720(u8* p);  // 0x00287720: definition moved into src/anon/unit_00286d28.cpp
 
 void func_0028b830(u8* p);  // 0x0028b830: definition moved into src/anon/unit_00288b00.cpp
 

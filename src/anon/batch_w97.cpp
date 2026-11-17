@@ -469,27 +469,7 @@ void func_002fee78(char*, char*, u32);
 void func_0023fa90(u8*, char*);
 u32 func_0023f988(u8*, s32);
 void func_00138650(u8*, s32, u32, s32);
-void func_002875e8(u8** o) {
-    Alloc287* a = D_00347f80->alloc;
-    u8* v = a->vt[0](a, 448, 0);
-    *(u32*)(v + 12) = 0;
-    *(u32*)v = (u32)D_00347e80;
-    func_002361a0(v + 32);
-    o[0] = v;
-    func_0023f800((u8*)(o + 3));
-    u8** slot = o + 1;
-    for (s32 k = 1; k >= 0; k--) {
-        a = D_00347f80->alloc;
-        v = a->vt[0](a, 408, 0);
-        *(u32*)(v + 12) = 0;
-        *(u32*)v = (u32)D_00347e60;
-        func_00239700(v + 24);
-        *slot++ = v;
-    }
-    func_002fee78(D_01e21ef8, D_003743f8, D_0033caf4);
-    func_0023fa90((u8*)(o + 3), D_01e21ef8);
-    func_00138650(o[0], 26000, func_0023f988((u8*)(o + 3), 0), 0);
-}
+void func_002875e8(u8** o);  // 0x002875e8: definition moved into src/anon/unit_00286d28.cpp
 
 // ---- 002ae660
 struct Ent2ae { u8 f0; u8 f1; u8 pad[14]; };
