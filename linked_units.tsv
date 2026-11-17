@@ -392,7 +392,7 @@ src/anon/unit_00193be8.cpp	00193be8	00194790	.rodata@0036ced4	-G0
 src/anon/unit_00194790.cpp	00194790	00195c80	.rodata@0036d020	-G0 -fno-strict-aliasing
 src/anon/unit_00195c80.cpp	00195c80	00195d00	-	-G0 -g -fno-strict-aliasing
 src/anon/unit_00195d00.cpp	00195d00	00196bf0	.rodata@0036d048	-G0 -fno-strict-aliasing
-src/anon/unit_00196ca8.cpp	00196ca8	00197fe0	.rodata@0036d078	-G0 -fno-strict-aliasing
+src/anon/unit_00196ca8.cpp	00196bf0	00197fe0	.rodata@0036d078	-G0 -fno-strict-aliasing
 src/harata/libdk/talkcamera.cpp	00159790	00159ce0	.data@0034aa10,.bss@004f3600,.rodata@0036b364	-G0 -fno-strict-aliasing
 src/harata/libdk/targetcamera.cpp	00159ce0	0015a810	.data@0034aa30,.bss@004f3604,.rodata@0036b378	-G0
 src/anon/unit_00159240.cpp	00159240	00159790	.data@0034aa08,.bss@004f35b0,.rodata@0036b32c	-G0 -fno-strict-aliasing

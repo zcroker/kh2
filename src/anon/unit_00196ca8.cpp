@@ -1,7 +1,7 @@
-// Linked unit 0x196ca8-0x197fe0: YS::EVENT and its helpers, up to the file's static initialiser
+// Linked unit 0x196bf0-0x197fe0: a record init (gap 0x196bf0), YS::EVENT and its helpers, up to the file's static initialiser
 // (0x197ea8, three event tasks at 0x1c61b10, written as a plain function like its I stub 0x197f60),
 // then the YS::STDOBJ C2 ctor copy 0x197f80 (its C1 0x197fe0 is unit_00197fe0.cpp).
-// Gap functions written: 0x197af8, 0x197cf0, 0x197d40, 0x197ea8, 0x197f80. .rodata 0x36d078-0x36d0ac.
+// Gap functions written: 0x196bf0, 0x197af8, 0x197cf0, 0x197d40, 0x197ea8, 0x197f80. .rodata 0x36d078-0x36d0ac.
 // Flags: -G0 -fno-strict-aliasing.
 #include "../common/types.h"
 #include "../tozawa/cmenu_top.hpp"
@@ -18,6 +18,41 @@
 #include "../harata/libdk/sprite.hpp"
 #include "../harata/libdk/treasure_info.hpp"
 #include "../tozawa/help_gra.hpp"
+
+// ---- 00196bf0 gap: record init (area id triples reset to 0xffff at +16/+20), same placement-new
+// triple ctors as the EVENT88 constructors (unit_00198e40.cpp).
+namespace n00196bf0 {
+inline void* operator new(unsigned int, void* p) { return p; }
+struct C3 { u8 a, b, c; C3(u32 x, u32 y, u32 z) { a = x; b = y; c = z; } };
+struct S3 { u16 a; s16 b; s16 c; S3(u32 x, s32 y, s32 z) { a = x; b = y; c = z; } };
+struct REC {
+    u32 f0; u32 f4; u32 f8; u8 f12[4]; u8 f16[3]; u8 pad19; u16 f20[3]; u8 pad26[18]; u32 f44;
+    u8 pad48[12]; s32 f60; s32 f64; u8 pad68[12]; u8 f80[68]; s32 f148; s32 f152; s32 f156; s32 f160;
+};
+void func_0019ef70(u8*) asm("func_0019ef70");
+s32 func_001d30c0(u32) asm("func_001d30c0");
+void func_0011b6a8(u8*) asm("func_0011b6a8");
+void func_00138480(s32) asm("func_00138480");
+void func_00196bf0(REC* o, u32 flags, u32 v) asm("func_00196bf0");
+void func_00196bf0(REC* o, u32 flags, u32 v) {
+    s32 m = 0xffff;
+    o->f4 = v;
+    o->f0 = 0;
+    o->f8 = 0;
+    new (o->f16) C3(m, m, m);
+    new (o->f20) S3(m, m, m);
+    o->f44 = 0;
+    func_0019ef70(o->f12);
+    o->f60 = func_001d30c0(flags & 0x3f);
+    o->f64 = 1;
+    func_0011b6a8(o->f80);
+    o->f148 = 0;
+    o->f152 = 0;
+    o->f156 = -1;
+    o->f160 = -1;
+    if (flags & 0x80) func_00138480(1);
+}
+}  // namespace n00196bf0
 
 // ---- 00196ca8 from src/anon/batch_wcx2.cpp
 namespace n00196ca8 {
