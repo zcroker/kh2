@@ -1521,35 +1521,7 @@ extern s32 D_01d9ea9c;
 extern Gs100* D_01d9e6e0;
 u8* func_001e7a98(Gs100*, u8*);
 void func_002226b8(u8*, u8*);  // vec3_copy
-void func_001fc1a0(u8* o, Req100* r, Ctx100* c)
-{
-    u8* sa = o + c->idx->f8 + 160;
-    if (*sa & 2) return;
-    if (*(s32*)(o + 12) == r->id) {
-        if (r->on) *sa |= 1;
-        else *sa &= ~1;
-    }
-    if (D_01d9ea9c) return;
-    if (D_01d9e6e0->st & 0xff0000ff00ULL) return;
-    u8* sb = o + c->idx->f4 + 160;
-    u8 en = sb[16] & 1;
-    if (!en) return;
-    if (r->snd == -1) return;
-    u8* w = 0;
-    u8* q = D_01d9e6e0->tab + r->snd * 16;
-    if (q) {
-        w = func_001e7a98(D_01d9e6e0, q);
-        *(u8**)(w + 4) = o;
-    }
-    u8* sc = o + c->idx->f0 + 160;
-    u8* dst = w + r->off + 160;
-    u8 hit = *sa & 1;
-    if (!hit) {
-        *sa |= 2;
-        sc = sb;
-    }
-    func_002226b8(dst, sc);  // vec3_copy
-}
+void func_001fc1a0(u8* o, Req100* r, Ctx100* c);  // 0x001fc1a0: definition moved into src/anon/unit_001fb350.cpp
 
 extern s8 D_0035ed14;
 extern u8* D_0035ed04;
@@ -3765,14 +3737,7 @@ void func_00123c20(u32* p);  // 0x00123c20: definition moved into src/anon/unit_
 // ---- 001fb720
 void func_001fa950(u8*, u8*, u8*);
 union UH_001fb720 { u16 h; f32 f; };
-void func_001fb720(u8* a0, u8* a1, u8* a2) {
-    u8* q = a0 + **(s32**)(a2 + 12) + 160;
-    func_001fa950(a0, a1, a2);
-    if (*(u32*)a1 == *(u32*)(a0 + 12)) {
-        *(f32*)(q + 68) = *(f32*)(a1 + 12);
-        *(f32*)(q + 64) = ((UH_001fb720*)(a1 + 20))->h;
-    }
-}
+void func_001fb720(u8* a0, u8* a1, u8* a2);  // 0x001fb720: definition moved into src/anon/unit_001fb350.cpp
 
 // ---- 00294f00
 extern bool D_0035f580;

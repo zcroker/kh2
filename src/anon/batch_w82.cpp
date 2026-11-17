@@ -222,16 +222,7 @@ void sceVu0CopyMatrix(u8*, u8*);
 void sceVu0MulMatrix(u8*, u8*, u8*);
 void func_0021ec80(u8*, s32*);
 
-void func_001fcb90(u8* a0, u32, u8* a2)
-{
-    u8* p = a0 + *(u32*)(*(u8**)(a2 + 12) + 4) + 160;
-    sceVu0ScaleVector(D_01d9e6e8 + 80, D_01d9e6e8 + 16, D_00354be0[0]);  // vec_scale_by_f12
-    sceVu0ScaleVector(D_01d9e6e8 + 96, D_01d9e6e8 + 32, D_00354be0[1]);  // vec_scale_by_f12
-    sceVu0ScaleVector(D_01d9e6e8 + 112, D_01d9e6e8 + 48, D_00354be0[2]);  // vec_scale_by_f12
-    sceVu0ApplyMatrix(D_01d9e6e8 + 128, D_01d9e840, D_01d9e6e8 + 64);
-    sceVu0CopyMatrix(p, D_01d9e6e8 + 80);
-    sceVu0MulMatrix(D_01d9e6e8 + 80, D_01d9e8c0, D_01d9e6e8 + 80);
-}
+void func_001fcb90(u8* a0, u32, u8* a2);  // 0x001fcb90: definition moved into src/anon/unit_001fcaf8.cpp
 
 // Converts the global euler angles (radians) to 16-bit fixed angles and applies them.
 void func_00200fd8(u8* a0, u8* a1)

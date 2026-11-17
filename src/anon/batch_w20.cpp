@@ -135,11 +135,7 @@ u8 func_001d7980(u32 a);  // 0x001d7980: definition moved into src/anon/unit_001
 // Clears flag 0x4000000 on every node of the list at D_00352ae0 (next at +0x28).
 void func_001ddc48(void);  // 0x001ddc48: definition moved into src/anon/unit_001dd920.cpp
 
-void func_001fb870(u8* a, u8* b) {
-    u8* s = a + **(s32**)(b + 12) + 160;
-    func_0021fa10(s);
-    s[8] = 4;
-}
+void func_001fb870(u8* a, u8* b);  // 0x001fb870: definition moved into src/anon/unit_001fb350.cpp
 
 void func_00236a18(void** p);  // 0x00236a18: definition moved into src/anon/unit_00236180.cpp
 

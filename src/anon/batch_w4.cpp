@@ -129,9 +129,7 @@ void func_001efc28(u8* p, u8* q) {
 
 void func_001fa928(u8* p, u8* q);  // 0x001fa928: definition moved into src/anon/unit_001fa1b8.cpp
 
-void func_001fbc78(u8* p, u8* q) {
-    func_00220070(p + *(s32*)*(u32*)(q + 12) + 160);
-}
+void func_001fbc78(u8* p, u8* q);  // 0x001fbc78: definition moved into src/anon/unit_001fb350.cpp
 
 // d.xyz = a.xyz - b.xyz (VU0 macro mode).
 void func_00222730(void* d, void* a, void* b);  // 0x00222730: definition moved into src/anon/unit_00222548.cpp

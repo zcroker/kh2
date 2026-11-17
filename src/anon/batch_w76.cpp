@@ -255,17 +255,7 @@ void func_001f6b68(u8* base, u8* in, u8* desc);  // 0x001f6b68: definition moved
 extern u8 D_00354be0[];
 void sceVu0CopyVector(u8*, void*);  // memcpy16
 void func_001fb8b8(u8*, s32, s32);
-void func_001fb9a8(u8* base, u8* in, u8* desc)
-{
-    u8* p = base + **(u32**)(desc + 12);
-    u8* q = p + 160;
-    q[36] = (s32)(in[8] * *(f32*)(D_01d9e6e0 + 48));
-    q[37] = (s32)(in[9] * *(f32*)(D_01d9e6e0 + 52));
-    q[38] = (s32)(in[10] * *(f32*)(D_01d9e6e0 + 56));
-    q[39] = (s32)(in[11] * *(f32*)(D_01d9e6e0 + 60));
-    sceVu0CopyVector(p + 176, D_00354be0);  // memcpy16
-    func_001fb8b8(q, 0, 0);
-}
+void func_001fb9a8(u8* base, u8* in, u8* desc);  // 0x001fb9a8: definition moved into src/anon/unit_001fb350.cpp
 
 void func_00201ca0(u8* p, s32* x, s32* w, s32* y, s32* h)
 {

@@ -9,17 +9,7 @@ struct Arg2 { void* a; s32 b; void* c; f32 d; s16 e; u16 f; void* g; };
 extern u8 D_01d9e8c0;
 void func_0021fe40(Arg2*, s32);
 struct T2 { u8 pad[0x20]; f32 f20; s32 w24; f32 f28; u16 h2c; };
-void func_001fbab8(T2* a0) {
-    Arg2 s;
-    s.b = a0->w24;
-    s.d = a0->f20;
-    s.e = (s32)a0->f28;
-    s.f = a0->h2c;
-    s.c = &D_01d9e8c0;
-    s.g = (char*)a0 + 16;
-    s.a = a0;
-    func_0021fe40(&s, 0);
-}
+void func_001fbab8(T2* a0);  // 0x001fbab8: definition moved into src/anon/unit_001fb350.cpp
 void func_001fbab9(T2* a0);
 char* GetImage(void* t, s32 i) asm("_ZN2YI12IMAGE_FREEZE8GetImageEi");
 struct Sub { u8 pad[0x28]; void* img; };

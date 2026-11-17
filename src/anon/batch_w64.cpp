@@ -248,16 +248,7 @@ u8* func_001ddb78(void* a0, u32 a1, u32 a2, u32 a3, u32 a4);  // 0x001ddb78: def
 union Word1fb928 { f32 f; u16 h[2]; u32 w; };
 void func_001fab48(u8*, u32*, u8*);
 
-void func_001fb928(u8* p, u32* q, u8* r) {
-    Word1fb928* d = (Word1fb928*)(p + **(s32**)(r + 12) + 160);
-    func_001fab48(p, q, r);
-    Word1fb928* s = (Word1fb928*)q;
-    if (s[0].w == *(u32*)(p + 12)) {
-        d[8].f = s[3].f;
-        d[10].f = s[4].h[0];
-        d[11].f = s[4].h[1];
-    }
-}
+void func_001fb928(u8* p, u32* q, u8* r);  // 0x001fb928: definition moved into src/anon/unit_001fb350.cpp
 
 // ---------------------------------------------------------------------------
 extern u8* D_01d9e6e8;

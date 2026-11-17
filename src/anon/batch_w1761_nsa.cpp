@@ -10,17 +10,7 @@ extern "C" {
 void func_0021f5d8(void*);
 extern u8 D_003590b0;
 
-void func_001fb478(char* a0, s32** a1) {
-    W1761S1* p = (W1761S1*)(a0 + *a1[3] + 0xa0);
-    func_0021f5d8(p);
-    p->w9c = 0;
-    p->wa8 = 0;
-    p->b8c = D_003590b0;
-    p->b8d = 2;
-    p->bc0 = 0;
-    p->bc1 = 0;
-    D_003590b0++;
-}
+void func_001fb478(char* a0, s32** a1);  // 0x001fb478: definition moved into src/anon/unit_001fb350.cpp
 
 extern s32 D_0035e360;
 extern s32 D_0035e368;

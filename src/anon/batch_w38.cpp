@@ -264,15 +264,7 @@ void func_0031cf18(u8* p) {
 struct Out1fbb20 { u8 pad[32]; f32 f32_; u32 f36; f32 f40; u16 f44; };
 struct In1fbb20 { u32 id; u8 pad[8]; f32 f12; u16 f16 : 16; u16 f18 : 16; };
 void func_001facf8(u8*, In1fbb20*, u8*);
-void func_001fbb20(u8* p, In1fbb20* q, u8* r) {
-    Out1fbb20* d = (Out1fbb20*)(p + **(s32**)(r + 12) + 160);
-    func_001facf8(p, q, r);
-    if (q->id == *(u32*)(p + 12)) {
-        d->f32_ = q->f12;
-        d->f40 = q->f16;
-        d->f44 = q->f18;
-    }
-}
+void func_001fbb20(u8* p, In1fbb20* q, u8* r);  // 0x001fbb20: definition moved into src/anon/unit_001fb350.cpp
 
 void* func_001d9e30(void*);  // record_range_check_or_first
 s32 func_001d9d48(void*);

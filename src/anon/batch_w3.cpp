@@ -112,7 +112,7 @@ struct Writer {
 void func_001da3d8(Writer* w, Bytes4* src);  // 0x001da3d8: definition moved into src/anon/unit_001d9d00.cpp
 
 void func_0021fe28(u32);
-void func_001fba88(u32 base, const u32* info) { func_0021fe28(base + **(const u32* const*)(info + 3) + 160); }
+void func_001fba88(u32 base, const u32* info);  // 0x001fba88: definition moved into src/anon/unit_001fb350.cpp
 
 // dst.xy = a.xy + b.xy (VU0).
 void func_00222710(void* dst, void* a, void* b);  // 0x00222710: definition moved into src/anon/unit_00222548.cpp

@@ -188,17 +188,7 @@ extern u8* D_01d9e6e0;
 void sceVu0CopyVector(void*, void*);  // memcpy16
 void func_001fb508(void*, s32, s32);
 extern u8 D_00354be0[];
-void func_001fb5b8(u8* base, u8* c, u8* a2)
-{
-    base += **(u32**)(a2 + 12);
-    u8* p = base + 160;
-    p[36] = (s32)(c[8] * *(f32*)(D_01d9e6e0 + 48));
-    p[37] = (s32)(c[9] * *(f32*)(D_01d9e6e0 + 52));
-    p[38] = (s32)(c[10] * *(f32*)(D_01d9e6e0 + 56));
-    p[39] = (s32)(c[11] * *(f32*)(D_01d9e6e0 + 60));
-    sceVu0CopyVector(base + 176, D_00354be0);  // memcpy16
-    func_001fb508(p, 0, 0);
-}
+void func_001fb5b8(u8* base, u8* c, u8* a2);  // 0x001fb5b8: definition moved into src/anon/unit_001fb350.cpp
 
 // 00248900
 s32 func_00287bc0(void);

@@ -209,15 +209,7 @@ void func_001f6778(u8* base, A1f* a1, u8* a2);  // 0x001f6778: definition moved 
 extern f32 D_00354be0[];
 void sceVu0CopyVector(u8*, f32*);  // memcpy16
 void func_001fb6c8(u8*, u32, u32);
-void func_001fb790(u8* base, u8* c, u8* a2) {
-    u8* s = base + **(u32**)(a2 + 12) + 160;
-    s[72] = (s32)(c[8] * *(f32*)(D_01d9e6e0 + 48));
-    s[73] = (s32)(c[9] * *(f32*)(D_01d9e6e0 + 52));
-    s[74] = (s32)(c[10] * *(f32*)(D_01d9e6e0 + 56));
-    s[75] = (s32)(c[11] * *(f32*)(D_01d9e6e0 + 60));
-    sceVu0CopyVector(s + 48, D_00354be0);  // memcpy16
-    func_001fb6c8(s, 0, 0);
-}
+void func_001fb790(u8* base, u8* c, u8* a2);  // 0x001fb790: definition moved into src/anon/unit_001fb350.cpp
 
 // --- 001fcd70
 extern u8 D_01dad890[];
@@ -227,14 +219,7 @@ extern u8 D_01d9e8c0[];
 void sceVu0MulMatrix(u8*, u8*, u8*);
 void sceVu0ScaleVector(u8*, u8*, f32);  // vec_scale_by_f12
 void sceVu0ApplyMatrix(u8*, u8*, u8*);
-void func_001fcd70(void) {
-    sceVu0MulMatrix(D_01dad890, D_01d9e840, D_01dad8d0);
-    sceVu0ScaleVector(D_01d9e6e8.p + 80, D_01d9e6e8.p + 16, D_00354be0[0]);  // vec_scale_by_f12
-    sceVu0ScaleVector(D_01d9e6e8.p + 96, D_01d9e6e8.p + 32, D_00354be0[1]);  // vec_scale_by_f12
-    sceVu0ScaleVector(D_01d9e6e8.p + 112, D_01d9e6e8.p + 48, D_00354be0[2]);  // vec_scale_by_f12
-    sceVu0ApplyMatrix(D_01d9e6e8.p + 128, D_01d9e840, D_01d9e6e8.p + 64);
-    sceVu0MulMatrix(D_01d9e6e8.p + 80, D_01d9e8c0, D_01d9e6e8.p + 80);
-}
+void func_001fcd70(void);  // 0x001fcd70: definition moved into src/anon/unit_001fcd70.cpp
 
 // --- 0024a270
 s32 func_00287bc0(void);

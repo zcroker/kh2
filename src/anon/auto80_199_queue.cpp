@@ -1022,47 +1022,9 @@ void func_001fa950(u32 a0, u32 a1, u32 a2);  // 0x001fa950: definition moved int
 
 void func_001facf8(u32 a0, u32 a1, u32 a2);  // 0x001facf8: definition moved into src/anon/unit_001fa1b8.cpp
 
-void func_001fb558(u32 a0, u32 a1, u32 a2) {
-    u32 s0 = a0;
-    u32 s1 = a1;
-    u32 t6 = *(u32*)(a2 + 12);
-    u32 t7 = *(u32*)(t6 + 0);
-    u32 t7p = a0 + t7;
-    u32 s2 = t7p + 160;
-    func_001fa7b0(s0, s1, a2);
+void func_001fb558(u32 a0, u32 a1, u32 a2);  // 0x001fb558: definition moved into src/anon/unit_001fb350.cpp
 
-    u32 t6b = *(u32*)(s0 + 12);
-    u32 t7b = *(u32*)(s1 + 0);
-    if (t7b != t6b) {
-        return;
-    }
-    f32 f0 = *(f32*)(s1 + 12);
-    *(f32*)(s2 + 32) = f0;
-}
-
-void func_001fc678(u32 a0) {
-    u32 buf[20];
-    volatile u32* gp = (volatile u32*)0x01da0000;
-    u32 s0 = *(u32*)(a0 + 4);
-    u32 s2 = s0 + 16;
-    u32 s3 = (u32)buf + 64;
-
-    sceVu0Normalize((u32)buf, s2);  // vec4_normalize
-    sceVu0Normalize((u32)buf + 16, s0 + 32);  // vec4_normalize
-    u32 a0c = (u32)buf + 32;
-    u32 a1c = s0 + 48;
-    s0 = a1c;
-    sceVu0Normalize(a0c, a1c);  // vec4_normalize
-
-    u32 t6 = gp[-1606];
-    sceVu0ApplyMatrix(s3, s2, t6 + 64);
-
-    u32 t4 = gp[-1606] + 16;
-    sceVu0MulMatrix(t4, (u32)buf, t4);
-
-    u32 t5 = gp[-1606] + 64;
-    sceVu0CopyVector(t5, s3);  // memcpy16
-}
+void func_001fc678(u32 a0);  // 0x001fc678: definition moved into src/anon/unit_001fb350.cpp
 
 s32 func_00203a88(u32 a0) {
     u32 s0 = a0 & 0xFF;

@@ -8,15 +8,7 @@ extern u8 D_01d9e8c0[];
 extern W1746Node* D_01e2aa80;
 void func_0021fa28(W1746CallArg*, s32);
 
-void func_001fb508(u8* o) {
-    W1746CallArg a;
-    a.obj = o;
-    a.v4 = *(u32*)(o + 36);
-    a.tbl = D_01d9e8c0;
-    a.f = *(f32*)(o + 32);
-    a.sub = o + 16;
-    func_0021fa28(&a, 0);
-}
+void func_001fb508(u8* o);  // 0x001fb508: definition moved into src/anon/unit_001fb350.cpp
 
 static inline W1746Node* w1746_next(W1746Node* p) {
     if (!p) return D_01e2aa80;

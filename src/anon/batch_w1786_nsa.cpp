@@ -16,16 +16,5 @@ void W1786_wtarget(W1786Vn*, void*, W1786Vn*) asm("_Z17sceVu0ApplyMatrixjjjj");
 void sceVu0ScaleVector(void*, W1786Vn*, f32);
 void func_001faea8(void*, s32, s32);
 extern u8* D_01d9e6e8;
-void func_001fb3c8(u8* a0, s32 a1, W1786A1fb* a2) {
-    func_001fa668(a0, a1, a2);
-    u8* base = a0 + *a2->p;
-    u8* pb = base + 0x150;
-    u8* pa = base + 0xa0;
-    W1786Vn v;
-    f32 one = 1.0f;
-    v.x = 0; v.y = 0; v.z = 0; v.w = one;
-    W1786_wtarget(&v, D_01d9e6e8 + 0x50, &v);
-    sceVu0ScaleVector(pb, &v, one / v.w);
-    func_001faea8(pa, 0, 0);
-}
+void func_001fb3c8(u8* a0, s32 a1, W1786A1fb* a2);  // 0x001fb3c8: definition moved into src/anon/unit_001fb350.cpp
 }

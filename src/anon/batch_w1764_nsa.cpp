@@ -16,17 +16,7 @@ void func_001b7f30(W1764Pkt*);
 
 // 001ad158: moved to src/anon/unit_001abb28.cpp
 
-void func_001fb8b8(u8* o) {
-    W1764Arg s;
-    s.a = o;
-    s.b = *(u32*)(o + 36);
-    s.c = D_01d9e8c0;
-    s.d = *(f32*)(o + 32);
-    s.x = (s16)*(f32*)(o + 40);
-    s.y = (s16)*(f32*)(o + 44);
-    s.e = o + 16;
-    func_0021fbd8(&s, 0);
-}
+void func_001fb8b8(u8* o);  // 0x001fb8b8: definition moved into src/anon/unit_001fb350.cpp
 
 void func_0014b9a8(u128* src);  // 0x0014b9a8: definition moved into src/anon/unit_0014b838.cpp
 }

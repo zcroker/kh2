@@ -13,31 +13,7 @@ f32 func_002229a0(void*);  // vec3_length
 void sceVu0Normalize(void*, void*);  // vec4_normalize
 void sceVu0ScaleVector(void*, void*, f32);  // vec_scale_by_f12
 void func_00222750(void*, void*, void*);
-void func_001fbfd8(u8* a, K* k, X* x) {
-    u8 buf[16];
-    S** slot = (S**)(a + ((XC*)x->c)->o8 + 160);
-    if (*(s32*)(a + 12) == k->id) {
-        s32 i = k->idx;
-        S* v;
-        if (i != -1) v = (S*)(*(u8**)(D_01d9e6e0->tbl + i * 16 + 4) + k->off + 160);
-        else v = (S*)D_01d9e360;
-        *(s32*)slot = (s32)v;
-        if (*(s32*)(a + 12) == 0 && a[157] == 0) return;
-    }
-    if (D_01d9ea9c != 0) return;
-    if (D_01d9e6e0->fl & 0xff0000ff00ULL) return;
-    S* s = *slot;
-    if (s == (S*)D_01d9e360) return;
-    XC* c = (XC*)x->c;
-    u8* d = a + c->o4 + 160;
-    sceVu0SubVector(buf, s->p8, a + c->o0 + 160);  // vec4_sub
-    f32 len = func_002229a0(buf);  // vec3_length
-    sceVu0Normalize(buf, buf);  // vec4_normalize
-    if (len < s->f0) {
-        sceVu0ScaleVector(buf, buf, (1.0f - len / s->f0) * s->f4);  // vec_scale_by_f12
-        func_00222750(d, d, buf);
-    }
-}
+void func_001fbfd8(u8* a, K* k, X* x);  // 0x001fbfd8: definition moved into src/anon/unit_001fb350.cpp
 }
 
 #define QCOPY(d, s) asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(d), "r"(s) : "$8", "memory")

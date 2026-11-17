@@ -38,19 +38,4 @@ extern u128_w2370 D_0035da80;
 void func_001e8fe0(void*, PVec_w2370*);
 
 /* Moves entry 0 to entry 1's position, passing the move delta on. */
-void func_001fc5b8(u8* base, s32 a1, PartCmd_w2370* cmd) {
-    s32* o = cmd->offs;
-    PartEnt_w2370* e;
-    PVec_w2370* to;
-    s32 x, y, z;
-    PVec8_w2370 d;
-    e = (PartEnt_w2370*)(base + o[0] + 0xa0);
-    to = (PVec_w2370*)(base + o[1] + 0xa0);
-    D_01d9ea94 = e;
-    d = e->pos;
-    x = to->x; y = to->y; z = to->z;
-    d.x -= x; d.y -= y; d.z -= z;
-    e->pos.x = x; e->pos.y = y; e->pos.z = z;
-    func_001e8fe0(e->work, (PVec_w2370*)&d);
-    e->m70 = D_0035da80;
-}
+void func_001fc5b8(u8* base, s32 a1, PartCmd_w2370* cmd);  // 0x001fc5b8: definition moved into src/anon/unit_001fb350.cpp

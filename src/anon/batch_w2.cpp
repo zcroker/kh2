@@ -130,9 +130,7 @@ void func_001d1678(s32* p, s32 a1);  // 0x001d1678: definition moved into src/an
 
 void func_001d2648(s32* p);  // 0x001d2648: definition moved into src/anon/unit_001d14e0.cpp
 
-void func_001fb698(u32 base, OffsetHolder* h) {
-    func_0021fbc0(base + *h->offsets + 160);
-}
+void func_001fb698(u32 base, OffsetHolder* h);  // 0x001fb698: definition moved into src/anon/unit_001fb350.cpp
 
 // VU0 macro: d.xyz = s.xyz.
 void func_002226b8(void* d, void* s);  // 0x002226b8: definition moved into src/anon/unit_00222548.cpp

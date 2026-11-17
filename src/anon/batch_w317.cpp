@@ -25,45 +25,7 @@ s32 func_002225a8(void*);
 void sceVu0ScaleVector(void*, void*, f32);  // vec_scale_by_f12
 void sceVu0AddVector(void*, void*, void*);  // vec4_add
 void func_00222730(void*, void*, void*);
-void func_001fc320(u8* self, W317P* p, W317Q* q) {
-    W317X* x = (W317X*)(self + q->of->o8 + 160);
-    W317L l;
-    u8 fl = x->flags;
-    bool b = fl & 1;
-    if (b) return;
-    if (*(s32*)(self + 12) == p->a) {
-        s32 k = p->k;
-        W317Y* y;
-        if (k != -1) y = (W317Y*)((*(W317E16**)(D_01d9e6e0 + 128))[k].b + p->off + 160);
-        else y = &D_01d9e360;
-        x->y = (u32)y;
-        if (p->flag) x->flags = fl | 2;
-        if (*(s32*)(self + 12) == 0) { if (self[157] == 0) return; }
-    }
-    if (D_01d9ea9c) return;
-    if (*(u64*)(D_01d9e6e0 + 168) & 0xff0000ff00ULL) return;
-    W317Y* y = (W317Y*)x->y;
-    if (y == &D_01d9e360) return;
-    f32 f = y->f;
-    u8* s4 = self + q->of->o0 + 160;
-    u8* s3 = self + q->of->o4 + 160;
-    if (f == 0.0f) return;
-    l.t = f;
-    sceVu0SubVector(&l, s4, y->m4.p);  // vec4_sub
-    sceVu0CopyVector(l.b, s3);  // memcpy16
-    if (!func_002225a8(&l)) return;
-    f32 u = l.u;
-    if (u < 0.0f) return;
-    if (1.0f < u) return;
-    x->flags |= 1;
-    sceVu0ScaleVector(l.c, l.b, u);  // vec_scale_by_f12
-    sceVu0AddVector(l.c, l.c, &l);  // vec4_add
-    sceVu0AddVector(x, ((W317Y*)x->y)->m4.p, l.c);  // vec4_add
-    if (x->flags & 2) {
-        func_00222730(s3, x, s4);
-        *(s32*)(self + 12) = 0xffff0000;
-    }
-}
+void func_001fc320(u8* self, W317P* p, W317Q* q);  // 0x001fc320: definition moved into src/anon/unit_001fb350.cpp
 
 s32 func_0013cb90(void);
 u32 func_001b8e88(u32);

@@ -287,6 +287,10 @@ src/anon/atan2_001f6eb8_nosched.c	001f6eb8	001f7010	.rodata@003701f8	-G0 -fno-sc
 src/anon/unit_001f7010.cpp	001f7010	001f7b40	.rodata@00370208	-G0 -fno-strict-aliasing
 src/anon/unit_001f7b40.cpp	001f7b40	001f87f0	.rodata@00370218	-G0 -fno-strict-aliasing
 src/anon/unit_001fa1b8.cpp	001fa1b8	001faea8	.rodata@00370250	-G0 -fno-strict-aliasing
+src/anon/unit_001fb350.cpp	001fb350	001fc720	.rodata@00370260	-G0 -fno-strict-aliasing
+src/anon/batch_w2428_nsa.c	001fc720	001fcaf8	.rodata@00370278	-G0 -fno-strict-aliasing
+src/anon/unit_001fcaf8.cpp	001fcaf8	001fcc58	-	-G0 -fno-strict-aliasing
+src/anon/unit_001fcd70.cpp	001fcd70	001fd368	-	-G0 -fno-strict-aliasing
 src/anon/unit_00198b88.cpp	00198b88	00198d50	-	-G0
 src/anon/unit_00198e40.cpp	00198e40	001991a8	.bss@01c61b48	-G0
 src/anon/unit_001991a8.cpp	001991a8	00199688	.bss@01c620c8,.rodata@0036d0d0	-G0 -fno-strict-aliasing

@@ -39,45 +39,7 @@ void func_002cf938(s32);
 void func_002cfb30(void);
 extern f32 D_00349e10;
 
-void func_001fbd78(A0_w1983* a0, A1_w1983* a1, A2_w1983* a2) {
-    V4_w1983 v;
-    struct { s64 a, b; } r;
-    V4_w1983 u;
-    Sub_w1983* s = (Sub_w1983*)((char*)a0 + a2->t->o8 + 0xa0);
-    if (a0->id == a1->id) {
-        s32 idx;
-        char* p;
-        s->f0 = a1->f4;
-        idx = a1->idx;
-        if (idx != -1) {
-            p = D_01d9e6e0->e[idx].p + a1->off + 0xa0;
-        } else {
-            p = D_01d9e360;
-        }
-        s->p4 = p;
-        if (a0->id == 0 && a0->b9d == 0) return;
-    }
-    if (D_01d9ea9c != 0) return;
-    if (D_01d9e6e0->fl & 0xFF0000FF00ULL) return;
-    if (s->p4 == D_01d9e360) return;
-    {
-        Tbl_w1983* t = a2->t;
-        char* p2 = (char*)a0 + t->o4 + 0xa0;
-        sceVu0SubVector(&v, s->p4, (char*)a0 + t->o0 + 0xa0);
-        sceVu0Normalize(&v, &v);
-        sceVu0CopyVector(&u, p2);
-        f32 len = func_002229a0(&u);
-        sceVu0Normalize(&u, &u);
-        sceVu0AddVector(&r, &u, &v);
-        if (r.a == 0 && r.b == 0) {
-            (&v.x)[func_00222568() % 3] += 0.05f;
-        }
-        sceVu0InterVector(&v, &v, &u, s->f0);
-        sceVu0Normalize(&v, &v);
-        sceVu0ScaleVector(&v, &v, len);
-        func_002226b8(p2, &v);
-    }
-}
+void func_001fbd78(A0_w1983* a0, A1_w1983* a1, A2_w1983* a2);  // 0x001fbd78: definition moved into src/anon/unit_001fb350.cpp
 }
 
 #define HH_w1983(o) ((H_w1983*)(o))

@@ -206,12 +206,7 @@ extern u8 D_01d9e840[];
 extern u8 D_01d9e8c0[];
 void sceVu0MulMatrix(u8*, u8*, u8*);
 void sceVu0CopyMatrix(u8*, u8*);
-void func_001fcb18(u8* p, u32, u8* const q) {
-    u8* s = p + *(u32*)(*(u8**)(q + 12) + 4) + 160;
-    sceVu0MulMatrix(D_01d9e6e8 + 80, D_01d9e840, D_01d9e6e8 + 16);
-    sceVu0CopyMatrix(s, D_01d9e6e8 + 80);
-    sceVu0MulMatrix(D_01d9e6e8 + 80, D_01d9e8c0, D_01d9e6e8 + 80);
-}
+void func_001fcb18(u8* p, u32, u8* const q);  // 0x001fcb18: definition moved into src/anon/unit_001fcaf8.cpp
 
 // ---- 002256c8
 s32 func_00224e90(u8*, u32);
