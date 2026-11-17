@@ -141,10 +141,7 @@ void func_0029df98(void);  // 0x0029df98: definition moved into src/anon/unit_00
 
 void func_002ba330(u32 a0, u32 a1, u32 a2);  // 0x002ba330: definition moved into src/anon/unit_002b9ab8.cpp
 
-void func_002e7b10(u32* v) {
-    u32 a = v[0];
-    func_001a55a8(a, v[1]);
-}
+void func_002e7b10(u32* v);  // 0x002e7b10: definition moved into src/anon/unit_002e7b10.cpp
 
 typedef void (*VFn3)(void*, u32, u32);
 void func_002ead20(void** o, u32 a1);  // 002ead20: moved to src/anon/unit_002eaa68.cpp

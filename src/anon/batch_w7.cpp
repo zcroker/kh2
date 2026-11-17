@@ -166,10 +166,7 @@ void func_002ba3b8(u32 a0, u32 a1, u32 a2, u32 a3, u32 t0, u32 t1, u32 t2);  // 
 
 void func_002ba948(void);  // 0x002ba948: definition moved into src/anon/unit_002b9ab8.cpp
 
-void func_002e8220(Args* a) {
-    u32 p = *(u32*)(a->a + 4);
-    func_002eb990(p, a->b, a->c);
-}
+void func_002e8220(Args* a);  // 0x002e8220: definition moved into src/anon/unit_002e7b10.cpp
 
 // 002f0798: moved to src/naka/libkn/trapfunctions.cpp
 

@@ -398,7 +398,7 @@ namespace Ti {
 
 namespace Ts {
 
-void trap_lockon_hide(BD_VALUE* bd) { dk_LockOn_show(bd); }
+void trap_lockon_hide(BD_VALUE* bd);  // 0x002e8150: definition moved into src/anon/unit_002e7b10.cpp
 
 // 002e8bd0: moved to src/anon/unit_002e8b50.cpp
 
@@ -582,7 +582,7 @@ namespace Ts {
 
 // 002e9120: moved to src/anon/unit_002e8b50.cpp
 
-void trap_bghit_get_cross_pos(BD_VALUE* bd) { bd->i = func_001d36e8(bd->i); }
+void trap_bghit_get_cross_pos(BD_VALUE* bd);  // 0x002e8600: definition moved into src/anon/unit_002e7b10.cpp
 
 // 002e91a0: moved to src/anon/unit_002e8b50.cpp
 

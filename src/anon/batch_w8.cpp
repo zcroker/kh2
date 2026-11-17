@@ -159,10 +159,7 @@ void func_002bb070(u32 a, u32 b, u32 c, u32 d, u32 e);  // 0x002bb070: definitio
 void func_002eda90(u32, u32, f32);
 extern u32 D_003637d0;
 struct S2e8290 { u32 a; f32 f; };
-void func_002e8290(S2e8290* p) {
-    u32 g = D_003637d0;
-    func_002eda90(g, p->a, p->f);
-}
+void func_002e8290(S2e8290* p);  // 0x002e8290: definition moved into src/anon/unit_002e7b10.cpp
 
 // Is o->field_c->field_4 one of 0x33 / 0x3d?
 // 002eb068: moved to src/anon/unit_002eaf38.cpp

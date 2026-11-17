@@ -323,20 +323,7 @@ Vq* func_0016c028v(u32) asm("func_0016c028");
 s32 func_002d56a0(u8* p);  // 0x002d56a0: definition moved into src/anon/unit_002d4548.cpp
 // ---- 002e7e58
 void func_0016bd60(u8*, s32);
-void func_002e7e58(u8** p) {
-    u8* o = *(u8**)(p[0] + 4);
-    Vq* v = (Vq*)(o + 32);
-    *v = *(Vq*)p[1];
-    *(u32*)(o + 36) = 0;
-    asm volatile("lqc2 $vf1, 0(%0)\n\tvmul.xyz $vf2, $vf1, $vf1\n\tvaddy.x $vf2, $vf2, $vf2y\n\tvaddz.x $vf2, $vf2, $vf2z\n\t"
-                 "vsqrt Q, $vf2x\n\tvwaitq\n\tcfc2.ni $8, $vi22\n\tvaddq.x $vf2, $vf0, Q\n\tmtc1 $8, $f0\n\tvnop\n\t"
-                 "vdiv Q, $vf0w, $vf2x\n\tvwaitq\n\tvmulq.xyz $vf1, $vf1, Q\n\tsqc2 $vf1, 0(%0)"
-                 : : "r"(v) : "$8", "$f0", "memory");
-    asm volatile("lqc2 $vf1, 0(%0)\n\tmfc1 $8, %1\n\tqmtc2 $8, $vf2\n\tvmulx.wxyz $vf1, $vf1, $vf2x\n\tsqc2 $vf1, 0(%0)"
-                 : : "r"(v), "f"(*(f32*)(p + 3)) : "$8", "memory");
-    *(f32*)(o + 36) = -*(f32*)(p + 2);
-    func_0016bd60(o, 36);
-}
+void func_002e7e58(u8** p);  // 0x002e7e58: definition moved into src/anon/unit_002e7b10.cpp
 
 }
 

@@ -155,10 +155,7 @@ void func_002e77a8(u8*);
 // 002e7768: moved to src/anon/unit_002e7658.cpp
 
 void func_0016c568(u32, u32, f32);
-void func_002e7c78(u32* p) {
-    u32 o = ((u32*)p[0])[1];
-    func_0016c568(o, p[1], *(f32*)&p[2]);
-}
+void func_002e7c78(u32* p);  // 0x002e7c78: definition moved into src/anon/unit_002e7b10.cpp
 // 002f0948: moved to src/naka/libkn/trapfunctions.cpp
 
 // atoi: (int)strtol(s, 0, 10).

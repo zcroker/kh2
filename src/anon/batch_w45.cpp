@@ -201,17 +201,7 @@ u8* func_002d6ec8(u8* out, u32 a1, u32 a2);  // 0x002d6ec8: definition moved int
 
 // 002e3a78: moved to src/anon/unit_002e2f08.cpp
 
-void func_002e7f80(u32* a0) {
-    u8 m[32] __attribute__((aligned(16)));
-    u8 v1[16] __attribute__((aligned(16)));
-    u8 v2[16] __attribute__((aligned(16)));
-    func_00190128(m);
-    u8* s = (u8*)a0[0];
-    asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(v1), "r"(a0[2]) : "$8", "memory");
-    asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(v2), "r"(a0[1]) : "$8", "memory");
-    func_002e9d08(s, m, v2, v1, 1, a0[3] != 0, 0);
-    a0[0] = s[5];
-}
+void func_002e7f80(u32* a0);  // 0x002e7f80: definition moved into src/anon/unit_002e7b10.cpp
 
 void u_call4_002eec58(u32, u32, u32, u32) asm("_Z16u_call4_002eec58jjjj");
 // 002eec58: moved to src/anon/unit_002ee8a8.cpp

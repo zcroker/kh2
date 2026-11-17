@@ -225,15 +225,7 @@ extern Vq D_01e2be20;
 // 002e3b88: moved to src/anon/unit_002e2f08.cpp
 
 void func_002e9d08(u32, u32, const Vq&, const Vq&, s32, s32, s32);
-void func_002e7c18(u32* o) {
-    u32 a = o[0];
-    Vq d = *(Vq*)o[3];
-    Vq c = *(Vq*)o[2];
-    s32 g = o[6] != 0;
-    s32 e = o[4] != 0;
-    s32 f = o[5] != 0;
-    func_002e9d08(a, o[1], c, d, e, f, g);
-}
+void func_002e7c18(u32* o);  // 0x002e7c18: definition moved into src/anon/unit_002e7b10.cpp
 
 struct Bigint { void* next; s32 k; s32 maxwds; s32 sign; s32 wds; u32 x[1]; };
 /* newlib __mcmp: compare two bigints */

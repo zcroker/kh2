@@ -186,11 +186,7 @@ void* func_002cd910_f(void* r, u32 a1, f32 f);  // 0x002cd910: definition moved 
 
 void func_002de810(void** p);  // 0x002de810: definition moved into src/anon/unit_002de3c8.cpp
 
-void func_002e7ff8(u32* p) {
-    Q128 t;
-    asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(&t), "r"(p[1]) : "$8", "memory");
-    *(f32*)p = func_001906f0((void*)p[0], &t);
-}
+void func_002e7ff8(u32* p);  // 0x002e7ff8: definition moved into src/anon/unit_002e7b10.cpp
 
 u32 func_002f1898(void);  // 0x002f1898: definition moved into src/anon/unit_002f17e0.cpp
 

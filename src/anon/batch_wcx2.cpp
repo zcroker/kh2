@@ -499,31 +499,7 @@ void func_0018a818(B32*, u8*, u32);
 s32 func_0019ba60(u8*);
 u8* func_0016bba8(u8*, s32, u8*);
 struct Find30 { s32 idx; VB30* target; };
-void func_002e7d20(Find30* f)
-{
-    f32 best = 0.0f;
-    s32 idx = -1;
-    u8* obj = *(u8**)(*(u8**)f + 4);
-    VB30* t = f->target;
-    VB30 d;
-    B30 b;
-    b.d.u = 0;
-    func_0019ba60(obj);
-    u8* o = 0;
-    while ((o = func_0016bba8(obj, 2, o)) != 0) {
-        func_0018a818((B32*)&b, obj, (u32)o);
-        d = *t - b.pos;
-        f32 l2;
-        asm volatile("lqc2 $vf1, 0(%1)\n\tvmul.xyz $vf1, $vf1, $vf1\n\tvaddy.x $vf1, $vf1, $vf1y\n\tvaddz.x $vf1, $vf1, $vf1z\n\tqmfc2 $8, $vf1\n\tmtc1 $8, %0"
-                     : "=f"(l2) : "r"(&d) : "$8", "memory");
-        d.w = l2;
-        if (idx < 0 || l2 < best) {
-            best = l2;
-            idx = o[1];
-        }
-    }
-    f->idx = idx;
-}
+void func_002e7d20(Find30* f);  // 0x002e7d20: definition moved into src/anon/unit_002e7b10.cpp
 
 union UD16 { u32 u; f32 f; };
 struct B16 { f32 a, y, c; UD16 d; f32 pos[4]; };
@@ -8210,36 +8186,7 @@ struct A2e87e0 { V2e87e0* dir; V2e87e0* up; };
 extern V2e87e0 D_01e2bf80;
 void func_0011b6a8_2e87e0(M2e87e0*) asm("func_0011b6a8");
 void func_0011bac8(M2e87e0*, V2e87e0*);
-void func_002e87e0(A2e87e0* a)
-{
-    M2e87e0 m;
-    V2e87e0& r1 = m.r[1];
-    V2e87e0& r2 = m.r[2];
-    V2e87e0 z(*a->dir);
-    V2e87e0* up = a->up;
-    Normalize2e87e0(&z);
-    Normalize2e87e0(up);
-    z.w = 0.0f;
-    up->w = 0.0f;
-    if (up == &z) {
-        z.z = z.w;
-        z.y = -1.0f;
-        z.x = z.w;
-    }
-    func_0011b6a8_2e87e0(&m);
-    m.r[0] = Cross2e87e0(*up, z);
-    Normalize2e87e0(&m.r[0]);
-    m.r[0].w = 0.0f;
-    r2 = Scale2e87e0(z, -1.0f);
-    r2.w = 0.0f;
-    *up = Cross2e87e0(z, m.r[0]);
-    r1 = Cross2e87e0(r2, m.r[0]);
-    Normalize2e87e0(&r1);
-    r1.w = 0.0f;
-    asm volatile("vsub.xyzw $vf1, $vf0, $vf0\n\tsqc2 $vf1, 0(%0)" : : "r"(&D_01e2bf80) : "memory");
-    func_0011bac8(&m, &D_01e2bf80);
-    a->dir = &D_01e2bf80;
-}
+void func_002e87e0(A2e87e0* a);  // 0x002e87e0: definition moved into src/anon/unit_002e7b10.cpp
 
 // --------------------
 // VU0 macro-mode vector helpers (hand-written vu0 library idioms) and lq/sq copy

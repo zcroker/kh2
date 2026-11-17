@@ -297,13 +297,6 @@ extern "C" {
 s32 func_001b9bc8(u32);
 
 // Call slot 17 on every other object with the same part number as this one.
-void func_002e8a28(u32** p) {
-    u32 me = (*p)[1];
-    u32 type = func_0016a070((void*)me);
-    u32 o = 0;
-    while ((o = func_001b9bc8(o)) != 0) {
-        if (func_0016a070((void*)o) == type && o != me) (*(VFn*)(*(u8**)o + 68))((void*)o);
-    }
-}
+void func_002e8a28(u32** p);  // 0x002e8a28: definition moved into src/anon/unit_002e7b10.cpp
 
 }

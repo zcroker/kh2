@@ -150,13 +150,10 @@ void func_002c6280(u32, u32);
 void func_002c0700();  // 0x002c0700: definition moved into src/anon/unit_002bebd0.cpp
 
 void func_002eac70(f32, f32, f32, f32);
-void func_002e7b88(f32* v) { func_002eac70(v[0], v[1], v[2], v[3]); }
+void func_002e7b88(f32* v);  // 0x002e7b88: definition moved into src/anon/unit_002e7b10.cpp
 
 void func_002e9a00(s32, s32);
-void func_002e7be0(BD_VALUE* bd) {
-    BD_VALUE a = bd[0];
-    func_002e9a00(a.i, bd[1].i);
-}
+void func_002e7be0(BD_VALUE* bd);  // 0x002e7be0: definition moved into src/anon/unit_002e7b10.cpp
 
 struct VObj {
     virtual void v0();

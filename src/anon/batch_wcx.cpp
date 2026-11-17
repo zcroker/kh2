@@ -602,17 +602,7 @@ void wtarget_002e2440(u32, u32, u32, u32) asm("_Z16wtarget_002e2440jjjj");
 u8* func_001b9bc8(u8*);
 s32 func_0019c6f0(u32);
 void func_0016c568(u8*, u32, f32);
-void func_002e8400(u8* p)
-{
-    u8* a = *(u8**)(*(u8**)p + 4);
-    u8* b = *(u8**)(*(u8**)(p + 12) + 4);
-    u8* n = 0;
-    while ((n = func_001b9bc8(n))) {
-        if (n == a || n == b) continue;
-        if ((*(u32*)(n + 1416) & 0x40) && !func_0019c6f0(*(u32*)(n + 2548))) continue;
-        func_0016c568(n, *(u32*)(p + 4), *(f32*)(p + 8));
-    }
-}
+void func_002e8400(u8* p);  // 0x002e8400: definition moved into src/anon/unit_002e7b10.cpp
 
 s32* func_00316e10(void);  // get_data_369928
 s32 DIntr(void);

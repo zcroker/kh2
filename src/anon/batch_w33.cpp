@@ -148,12 +148,7 @@ struct Own2e8 { u8 pad[4]; void* h; };
 struct Obj2e8 { Own2e8* o; void* v; f32 a; f32 b; };
 void func_001b2210(void*, void*, f32, f32);
 void func_0016bd60(void*, s32);
-void func_002e8390(Obj2e8* o) {
-    u8 tmp[16] __attribute__((aligned(16)));
-    asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(tmp), "r"(o->v) : "$8", "memory");
-    func_001b2210(o->o->h, tmp, o->a, o->b);
-    func_0016bd60(o->o->h, 9);
-}
+void func_002e8390(Obj2e8* o);  // 0x002e8390: definition moved into src/anon/unit_002e7b10.cpp
 
 void func_001c23a8(void*, void*, s32, s32, s32, s32, void*);
 extern void* D_00363758[];

@@ -148,11 +148,7 @@ f32* func_002d5c20(f32* v);  // 0x002d5c20: definition moved into src/anon/unit_
 struct Args002e8070 {
     u32 a, b, c;
 };
-void func_002e8070(Args002e8070* p) {
-    u32 b = p->b;
-    u32 a = p->a;
-    func_002e9cb8(a, b, p->c);
-}
+void func_002e8070(Args002e8070* p);  // 0x002e8070: definition moved into src/anon/unit_002e7b10.cpp
 
 void func_002e9c98(u32 x, Pair* p);  // 002e9c98: moved to src/anon/unit_002e9a00.cpp
 

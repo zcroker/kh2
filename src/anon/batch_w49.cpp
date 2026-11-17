@@ -251,15 +251,7 @@ s32 func_002636b0(void);  // 0x002636b0: definition moved into src/anon/unit_002
 u32 func_00190140(u8*);
 u32 func_00176fb0(u8*, u32);
 void func_00177008(u8*, u32, u8*);
-void func_002e8770(u8** a) {
-    NoTail g;
-    u8* o = a[0];
-    if (*(u32*)(o + 1416) & 0x80) {
-        u8* q = *(u8**)(o + 2880) + 4;
-        func_00190140(q);
-        func_00177008(o, func_00176fb0(o, (u32)a[1]), q);
-    }
-}
+void func_002e8770(u8** a);  // 0x002e8770: definition moved into src/anon/unit_002e7b10.cpp
 
 extern s8 D_01c60cf0;
 extern Vq D_01c60d00;

@@ -198,15 +198,7 @@ struct Elem64 { u8 d[64]; ~Elem64() {} } __attribute__((aligned(16)));
 // delete[] of an array of 64-byte elements with an empty destructor.
 void func_002e7058(u8* p);  // 0x002e7058: definition moved into src/anon/unit_002e5f70.cpp
 
-void func_002e8578(u8* p) {
-    u32 tmp[4] __attribute__((aligned(16)));
-    func_001d3698(tmp, *(u32*)p);
-    u8* d = D_01e2bf80;
-    if ((u8*)tmp != d) {
-        asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(d), "r"(tmp) : "$8", "memory");
-    }
-    *(u8**)p = d;
-}
+void func_002e8578(u8* p);  // 0x002e8578: definition moved into src/anon/unit_002e7b10.cpp
 
 typedef void (*VFn2)(void*, void*);
 void func_002ece48(void** p, u8* q);  // 0x002ece48: definition moved into src/anon/unit_002ecdb0.cpp
