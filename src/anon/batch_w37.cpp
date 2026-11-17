@@ -231,14 +231,7 @@ extern u8 D_01e2a410[];
 void func_002bcfe8(void*);
 void func_002bd030(void*);
 void func_002b6adc(u32, s32);
-void func_002ba040(void) {
-    func_002bcfe8(D_01e2a410);
-    func_002bd030(D_01e2a410);
-    for (s32 i = 0; i < 2; i++) {
-        func_002b6adc(2, i + 20);
-        func_002b6adc(0, i + 20);
-    }
-}
+void func_002ba040(void);  // 0x002ba040: definition moved into src/anon/unit_002b9ab8.cpp
 
 void* func_001c3748(void*, void*);
 void func_00192048(u16);

@@ -283,15 +283,7 @@ void func_00102788(u32, u32, u32, void (*)(void));
 void func_002b9c60(void);
 extern u32 D_0032b91c;
 }
-void wtarget_002b9bd0(u32, u32, u32, u32) {
-    func_002b691c(0);
-    func_002bbde0();
-    func_002bacc0();
-    func_002b9ad0();
-    func_002b9c80();
-    func_002bd538();
-    func_00102788(D_0032b91c, 0, 0x7a12a, func_002b9c60);
-}
+void wtarget_002b9bd0(u32, u32, u32, u32);  // 0x002b9bd0: definition moved into src/anon/unit_002b9ab8.cpp
 
 extern "C" {
 

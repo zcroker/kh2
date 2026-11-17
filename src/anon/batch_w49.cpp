@@ -164,19 +164,11 @@ extern u8 D_0035f6d0;
 s32 func_0028acc8(u32);
 void func_0028abe0(u32);
 typedef void (*Fn2b4f50)(u8*);
-void func_002b4f50(void) {
-    if (func_00139d78(D_0035f654)) (*(Fn2b4f50*)(*(u8**)D_0035f654 + 20))(D_0035f654);
-    if (func_0028acc8(D_0035f650)) func_0028abe0(D_0035f650);
-    D_0035f6d0 = 0;
-}
+void func_002b4f50(void);  // 0x002b4f50: definition moved into src/anon/unit_002b3ac8.cpp
 
 extern u8* D_0035f6cc;
 void func_0028ab20(u32);
-void func_002b5078(void) {
-    func_00139d78(D_0035f654);
-    func_0028da70((u32)D_0035f654, *(s16*)(*(u8**)(D_0035f6cc + 20) + 4));
-    if (func_0028acc8(D_0035f650)) func_0028ab20(D_0035f650);
-}
+void func_002b5078(void);  // 0x002b5078: definition moved into src/anon/unit_002b3ac8.cpp
 
 extern u32 D_00361768[];
 void func_002bc470(u32);

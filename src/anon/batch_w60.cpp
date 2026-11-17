@@ -254,15 +254,7 @@ void func_00287430(s32 a, s32 b);  // 0x00287430: definition moved into src/anon
 
 void func_002937c0(void);  // 0x002937c0: definition moved into src/anon/unit_00292e60.cpp
 
-void func_002b5658(void) {
-    if (D_0035f658 && func_00139d78(D_0035f658)) {
-        u8* o = D_0035f658;
-        (*(void (**)(void*))(*(u8**)o + 20))(o);
-    }
-    if (D_0035f64c && func_0028acc8(D_0035f64c)) func_0028abe0(D_0035f64c);
-    if (func_0028be58(D_0035f678)) func_0028be18(D_0035f678);
-    func_002b5af0();
-}
+void func_002b5658(void);  // 0x002b5658: definition moved into src/anon/unit_002b3ac8.cpp
 
 static inline u8* nextNode2bc(u8* n) {
     if (!n) return D_01e2aa80;

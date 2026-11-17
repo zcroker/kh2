@@ -734,20 +734,7 @@ static inline T* NewT(void* p)
     t->vt = (u32)D_0035ebb8;
     return t;
 }
-void func_002b3d00(Obj* o)
-{
-    o->a = 0;
-    o->b = 0;
-    o->c = 0;
-    o->a = (u32)NewT(g_sys.p->alloc->vt[0](g_sys.p->alloc, 76, 0));
-    u32* y = (u32*)g_sys.p->alloc->vt[0](g_sys.p->alloc, 232, 0);
-    y[0] = 3;
-    T* e = (T*)(y + 1);
-    T* p = e;
-    for (s32 k = 2; k != -1; k--, p++) NewT(p);
-    o->b = (u32)e;
-    o->c = (u32)NewT(g_sys.p->alloc->vt[0](g_sys.p->alloc, 76, 0));
-}
+void func_002b3d00(Obj* o);  // 0x002b3d00: definition moved into src/anon/unit_002b3ac8.cpp
 }
 }
 

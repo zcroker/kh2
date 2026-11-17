@@ -184,15 +184,9 @@ u32 func_00276df8(void);  // 0x00276df8: definition moved into src/anon/unit_002
 
 void func_00288610(void);  // 0x00288610: definition moved into src/anon/unit_002880b8.cpp
 
-void func_002ba3b8(u32 a0, u32 a1, u32 a2, u32 a3, u32 t0, u32 t1, u32 t2) {
-    s32 x = -1;
-    func_002ba3e8(a0, a1, a2, a3, t0, &x, t1, t2);
-}
+void func_002ba3b8(u32 a0, u32 a1, u32 a2, u32 a3, u32 t0, u32 t1, u32 t2);  // 0x002ba3b8: definition moved into src/anon/unit_002b9ab8.cpp
 
-void func_002ba948(void) {
-    func_002b70b8(0, 0x3000, 240);
-    func_002b70b8(1, 0x3000, 240);
-}
+void func_002ba948(void);  // 0x002ba948: definition moved into src/anon/unit_002b9ab8.cpp
 
 void func_002e8220(Args* a) {
     u32 p = *(u32*)(a->a + 4);

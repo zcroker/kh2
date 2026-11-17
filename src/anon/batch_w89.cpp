@@ -378,14 +378,7 @@ struct VB { void (**vt)(VB*); };
 struct Res3 { VB* a; Elem76* arr; VB* c; };
 extern "C" {
 // Releases the three owned resources.
-void func_002b3ef0(Res3* r) {
-    if (r->a) { r->a->vt[4](r->a); r->a = 0; }
-    if (r->arr) {
-        delete[] r->arr;
-        r->arr = 0;
-    }
-    if (r->c) { r->c->vt[4](r->c); r->c = 0; }
-}
+void func_002b3ef0(Res3* r);  // 0x002b3ef0: definition moved into src/anon/unit_002b3ac8.cpp
 }
 }
 

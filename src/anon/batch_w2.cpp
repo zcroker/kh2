@@ -164,9 +164,7 @@ void func_0028dfe8(u32* p);  // 0028dfe8: moved to src/anon/unit_0028c878.cpp
 
 void func_0029df98(void);  // 0x0029df98: definition moved into src/anon/unit_0029d008.cpp
 
-void func_002ba330(u32 a0, u32 a1, u32 a2) {
-    func_002b73ac(2, a0, a2, (u32)-1, a1);
-}
+void func_002ba330(u32 a0, u32 a1, u32 a2);  // 0x002ba330: definition moved into src/anon/unit_002b9ab8.cpp
 
 void func_002e7b10(u32* v) {
     u32 a = v[0];

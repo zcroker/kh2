@@ -367,26 +367,7 @@ void func_00228e58(void);  // 00228e58: moved to src/anon/unit_00228618.cpp (lin
 
 void func_0022c108(void);  // 0022c108: moved to src/sasa/event_countdown.cpp (linked unit)
 
-void func_002b6138(s32 x, s32 y, s32 a2, s32 a3, s32 key) {
-    u8 buf[96];
-    s32 i;
-    s32 n = -1;
-    struct Ent8* e;
-    for (i = 0; i < 4; i++) {
-        if (D_0035f680[i] == key) {
-            n = i;
-            break;
-        }
-    }
-    e = D_0035f660[n].e;
-    for (i = 0; i < 5; i++, e++) {
-        u32* s;
-        if (e->v == 0) break;
-        s = func_002b6118(e->id);
-        func_001a98e8(buf, 1, e->v, 14, s[2]);
-        func_001a9ae8(buf, s[0] + x, s[1] + y, a3);
-    }
-}
+void func_002b6138(s32 x, s32 y, s32 a2, s32 a3, s32 key);  // 0x002b6138: definition moved into src/anon/unit_002b60e8.cpp
 
 // Deleting destructor: tears down the member arrays, then frees through the allocator.
 void func_00322608(u8* p) {

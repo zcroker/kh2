@@ -7,20 +7,6 @@ extern Slot64_w96 D_01e22084[];
 void func_003058a0(u32);
 
 // Counts slots (owner read via the +4 view of the table, as the original addresses it) in state 15 (optionally only those owned by who).
-s32 func_002b7148(s32 who) {
-    s32 i;
-    s32 n = 0;
-    func_003058a0(0);
-    if (who < 0) {
-        for (i = 0; i < 512; i++) {
-            if (D_01e22080[i].state == 15) n++;
-        }
-    } else {
-        for (i = 0; i < 512; i++) {
-            if (D_01e22080[i].state == 15 && D_01e22084[i].state == who) n++;
-        }
-    }
-    return n;
-}
+s32 func_002b7148(s32 who);  // 0x002b7148: definition moved into src/anon/unit_002b6f28.cpp
 
 }

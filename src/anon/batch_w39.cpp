@@ -357,17 +357,7 @@ struct VObj { void** vt; u8 pad[432]; VObj* f436; };
 extern VObj* D_0035f680[4];
 int func_00139d78_2b5(VObj*) asm("func_00139d78");
 void LeaveListItemImpl_impl(void) asm("_ZN2Tz8CmSLBase17LeaveListItemImplEv");
-void LeaveListItemImpl_impl(void) {
-    for (int i = 0; i < 4; i++) {
-        if (D_0035f680[i]) {
-            if (func_00139d78_2b5(D_0035f680[i])) {
-                D_0035f680[i]->f436 = 0;
-                (*(void (**)(VObj*))((*(u8**)D_0035f680[i]) + 20))(D_0035f680[i]);
-            }
-            D_0035f680[i] = 0;
-        }
-    }
-}
+void LeaveListItemImpl_impl(void);  // 0x002b5768: definition moved into src/anon/unit_002b3ac8.cpp
 
 // --- 002bc518
 struct Node2bc { u8 pad[28]; Node2bc* next; u8 pad2[17]; u8 kind; };

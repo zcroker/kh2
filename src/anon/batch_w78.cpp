@@ -479,18 +479,7 @@ u8* func_002b23e0(s32);  // list_entry_by_index_checked
 u8* w78_9d68(void) asm("func_002a9d68");
 s32 func_002b2380(s16, s16);
 extern u8* D_0035f638;
-s32 func_002b3c38(u32 mask) {
-    s32 r = 1;
-    u8* a = func_002b23e0(-1);  // list_entry_by_index_checked
-    u8* b = w78_9d68();
-    u8* t = D_0035f638;
-    s32 k = (*(u32*)(t + 52) >> 10) & 2;
-    u8* tk = (u8*)k + (u32)t;
-    s32 v = func_002b2380(*(s16*)(tk + 28), *(s16*)(tk + 32));
-    s8 x = *(s8*)(b + (a[2] * 48 + v) * 4 + 488);
-    if ((mask & 0xc0004) && !(*(u32*)(D_0035f638 + 52) & 0x800)) r = x >= 0;
-    return r;
-}
+s32 func_002b3c38(u32 mask);  // 0x002b3c38: definition moved into src/anon/unit_002b3ac8.cpp
 
 u32 func_002bc988(u32);
 s32 func_002bc9d8(u8*, u32);

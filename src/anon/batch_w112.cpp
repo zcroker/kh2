@@ -296,38 +296,7 @@ void func_002bce10(u8*, s32);  // find_entry12_set_flag
 }
 extern "C" {
 // Issues a request of the given kind, then registers the transfer(s) and callback on success.
-s32 func_002ba3e8(s32 cmd, u32 a, u32 b, u32 c, u32 d, s32* out, void (*cb)(u32), u32 arg) {
-    s32 ok = 1;
-    s32 res;
-    *out = -1;
-    res = -1;
-    switch (cmd) {
-    case 2:
-    case 3:
-        break;
-    case 20:
-        func_002bcbf0(D_01e2a410, a, c, out, &res);
-        break;
-    case 30:
-        if (func_002ba620()) ok = 0;
-        else if (!func_002bca78(D_01e2a410, a, c, out, &res)) ok = 0;
-        break;
-    default:
-        ok = 0;
-        if (!func_002ba620()) ok = func_002bcb60(D_01e2a410, cmd, a, c, out, &res) != 0;
-        break;
-    }
-    if (res < 0 || !ok) {
-        if (cb) cb(arg);
-        return res;
-    }
-    if (c) {
-        func_002baf48(*out, 0, a, b, 0, 0);
-        func_002baf48(*out, 1, c, d, cb, arg);
-    } else func_002baf48(*out, 0, a, b, cb, arg);
-    func_002bce10(D_01e2a410, *out);  // find_entry12_set_flag
-    return res;
-}
+s32 func_002ba3e8(s32 cmd, u32 a, u32 b, u32 c, u32 d, s32* out, void (*cb)(u32), u32 arg);  // 0x002ba3e8: definition moved into src/anon/unit_002b9ab8.cpp
 }
 }
 

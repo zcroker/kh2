@@ -12458,23 +12458,9 @@ u32 duplicate_unplaced_002b3420(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, 
 }
 
 
-void func_002b60e8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {  // slot8_store_pair
-    u32 off = ((a0 << 2) + a0 + a1) << 3;
-    u32 base = *(volatile u32*)&D_0035f660;
-    *(volatile u32*)(off + base) = a2;
-    u32 base2 = *(volatile u32*)&D_0035f660;
-    *(volatile u32*)(off + base2 + 4) = a3;
-}
+void func_002b60e8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);  // 0x002b60e8: definition moved into src/anon/unit_002b60e8.cpp
 
-u32 func_002b6118(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {  // entry_ptr_12
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r2, r14, r15;
-    r14 = (u32)((s32)0u + (12));
-    r4 = (u32)(r4 * r14);
-    r15 = (u32)&D_00374d30;
-    r4 = (u32)(r4 + r15);
-    r2 = r4;
-    return r2;
-}
+u32 func_002b6118(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);  // 0x002b6118: definition moved into src/anon/unit_002b60e8.cpp
 
 u32 duplicate_unplaced_002b6530(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r15;
@@ -12602,19 +12588,7 @@ u32 duplicate_unplaced_002ba948(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, 
     return ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_002b70b8)(r4, r5, r6, r7, r8, r9, r10, r11);
 }
 
-u32 func_002ba978(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32 base = (u32)&D_01e2a400;
-    u32 s0 = 0x00360000u;
-    u32 idx = *(volatile u32*)(s0 + 5856);
-    idx <<= 2;
-    u32 ptr = idx + base;
-    *(volatile u32*)ptr = a0;
-    u32 r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_002b6c04)(a0, a1, a2, a3, a4, a5, a6, a7);
-    u32 count = *(volatile u32*)(s0 + 5856);
-    count++;
-    *(volatile u32*)(s0 + 5856) = count;
-    return r2;
-}
+u32 func_002ba978(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);  // 0x002ba978: definition moved into src/anon/unit_002b9ab8.cpp
 
 void func_002bb0c8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);  // 0x002bb0c8: definition moved into src/anon/unit_002bb070.cpp
 

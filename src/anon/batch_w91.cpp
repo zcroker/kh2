@@ -370,28 +370,10 @@ void func_002bcc60(u8*, u32, u32, s32*, s32*);
 u32 func_002bccd8(u8*, u32, u32, u32, s32*, s32*);
 void func_002baf48(s32, s32, u32, u32, u32, u32);
 void func_002bce10(u8*, s32);  // find_entry12_set_flag
-s32 func_002ba630(u32 a, u32 b, u32 c, u32 d) {
-    s32 h[2];
-    h[0] = -1;
-    h[1] = -1;
-    func_002bcc60(D_01e2a410, a, c, &h[0], &h[1]);
-    func_002baf48(h[0], 0, a, b, 0, 0);
-    if (c) func_002baf48(h[0], 1, c, d, 0, 0);
-    func_002bce10(D_01e2a410, h[0]);  // find_entry12_set_flag
-    return h[1];
-}
+s32 func_002ba630(u32 a, u32 b, u32 c, u32 d);  // 0x002ba630: definition moved into src/anon/unit_002b9ab8.cpp
 
 // --- 002ba6f0
-s32 func_002ba6f0(u32 a, u32 b, u32 c, u32 d, u32 e, s32* out) {
-    *out = -1;
-    s32 r = -1;
-    if (func_002bccd8(D_01e2a410, a, b, d, out, &r)) {
-        func_002baf48(*out, 0, b, c, 0, 0);
-        if (d) func_002baf48(*out, 1, d, e, 0, 0);
-        func_002bce10(D_01e2a410, *out);  // find_entry12_set_flag
-    }
-    return r;
-}
+s32 func_002ba6f0(u32 a, u32 b, u32 c, u32 d, u32 e, s32* out);  // 0x002ba6f0: definition moved into src/anon/unit_002b9ab8.cpp
 
 // --- 002f86f0
 // ceilf (newlib, no denormals).

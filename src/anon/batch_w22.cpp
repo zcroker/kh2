@@ -213,13 +213,7 @@ void func_002b7078(u32);
 void func_002b72e4(s32, s32, u32);
 void func_002baa60(void);
 void func_002b83b4(void);
-void func_002ba8a8(void) {
-    func_002b7078(0);
-    func_002b7078(1);
-    func_002b72e4(-100, -1, 0);
-    func_002baa60();
-    func_002b83b4();
-}
+void func_002ba8a8(void);  // 0x002ba8a8: definition moved into src/anon/unit_002b9ab8.cpp
 
 // --- 002bc358
 u32 func_002bbda0(u32);

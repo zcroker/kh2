@@ -1137,45 +1137,7 @@ void func_0028b218(s32, s32);
 void func_0028b248(s32, s32);
 void func_00287cc0(s32);
 
-void func_002b5188(s32 arg0, s32 arg1) {
-    s32 i;
-    s32 a, b;
-    func_0028d8c0(D_0035f658, 0x755f, D_0035f644, D_0035f640, D_0035f664, D_0035f6cc->p->x, D_0035f6cc->p->y, 0);
-    { Sub2b5* sb = &D_0035f658->sub; sb->f.b3 = 1; }
-    s32 u = func_0023c4b8(func_0023f1b0(D_0035f664), D_0035f644);
-    s32* q = func_0023f1b0(D_0035f664);
-    s32 bb = D_0035f640;
-    s32 im = func_00236ca8(q[10], bb);
-    s32 saved = D_0035f3d4;
-    D_0035f3d4 = 0x755f;
-    func_0028bae0(D_0035f678, 0x755f, u, im, arg0, 99, 4, 0, 0);
-    for (i = 0; i < 4; i++) {
-        func_00288d80(D_0035f64c, i, D_0035f644, D_0035f640, D_0035f664, -1, D_0035f6cc->a, D_0035f6cc->b);
-        func_001395f8(func_002891b8(D_0035f64c, i));
-        func_00288e08(D_0035f64c, i, 0, -1);
-        func_00139620(func_002891b8(D_0035f64c, i));
-    }
-    func_002b57e0();
-    D_0035f3d4 = 0x7560;
-    for (i = 0; i < 4; i++) {
-        O2b5* r = func_0028c198(D_0035f648, D_0035f644, D_0035f640, D_0035f664, -1, 0);
-        D_0035f680[i] = r;
-        func_0028dcc0(D_0035f680[i], func_002891b8(D_0035f64c, i));
-        func_001395f8(D_0035f680[i]);
-        func_00139620(D_0035f680[i]);
-        D_0035f680[i]->cb = (void*)func_002b6138;
-    }
-    D_0035f3d4 = saved;
-    func_0028af90(D_0035f64c, 99);
-    if (func_0023d2e0(&a) && a == func_00240ba0()) func_0023d300(&b);
-    else b = func_002418b8();
-    func_002891f0(D_0035f64c, b, 1, 0, 2);
-    func_002b5c30(arg1);
-    if (func_00233e60()) func_00234570(func_00240ba0(), 0);
-    func_0028b218(D_0035f64c, 1);
-    func_0028b248(D_0035f64c, 4);
-    func_00287cc0(0);
-}
+void func_002b5188(s32 arg0, s32 arg1);  // 0x002b5188: definition moved into src/anon/unit_002b3ac8.cpp
 }
 
 struct Obj1db808 { void** vt; };

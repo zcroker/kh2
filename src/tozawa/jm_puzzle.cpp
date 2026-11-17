@@ -8,9 +8,6 @@ extern "C" void func_002fde18(void*, u32, u32);
 
 // 0x002aeb28: definition moved into src/anon/unit_002aeb28.cpp
 
-u32 JmPuzzle::CalcMaxPiece(s32 a0) {
-    s8* p = (s8*)((u8*)&D_00374cd0 + (a0 << 2));
-    return (s32)p[0] * (s32)p[1];
-}
+// 0x002b3ac8: definition moved into src/anon/unit_002b3ac8.cpp
 
 }  // namespace Tz

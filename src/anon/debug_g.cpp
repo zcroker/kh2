@@ -21,12 +21,5 @@ void func_002b5108(s32, s32);
 void func_0028f4d8(s32, u32, s32);
 void func_00287d20(s32);
 void func_00234570(s32, s32);
-void func_002b4c10(void) {
-    s32 i = func_00240ba0();
-    func_002b4dd0(-1);
-    func_002b5108(0x8a89, i);
-    func_0028f4d8(1, D_0035f6cc->e[i].id, 0);
-    func_00287d20(0);
-    func_00234570(i, 0);
-}
+void func_002b4c10(void);  // 0x002b4c10: definition moved into src/anon/unit_002b3ac8.cpp
 }

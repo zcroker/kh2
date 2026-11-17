@@ -21,10 +21,7 @@ void func_001712b0(A171* a);  // 0x001712b0: definition moved into src/anon/unit
 
 u32 func_00271828(u32 i, u32 b);  // 0x00271828: definition moved into src/anon/unit_002713c8.cpp
 
-void func_002ba140(u32 a, u32 b, u32 c) {
-    func_002bc608(a);
-    func_002b6f28(a, b, c);
-}
+void func_002ba140(u32 a, u32 b, u32 c);  // 0x002ba140: definition moved into src/anon/unit_002b9ab8.cpp
 
 // 002eba30: moved to src/anon/unit_002eaf38.cpp
 }

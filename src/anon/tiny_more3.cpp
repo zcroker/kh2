@@ -21,4 +21,4 @@ void func_0011ee98(u32 a0,u32 a1,u32 a2,u32 a3);  // 0x0011ee98: definition move
 
 u32 func_002537c8(u32 a0,u32 a1,u32 a2,u32 a3);  // 0x002537c8: definition moved into src/anon/unit_002530c8.cpp
 
-u32 func_002b50e8(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a0; (void)a1; (void)a2; (void)a3; s32 v=*(s8*)&D_0035f6d0; return (v!=0); }
+u32 func_002b50e8(u32 a0,u32 a1,u32 a2,u32 a3);  // 0x002b50e8: definition moved into src/anon/unit_002b3ac8.cpp

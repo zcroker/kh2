@@ -237,31 +237,7 @@ void func_002acda8(void);  // 0x002acda8: definition moved into src/anon/unit_00
 
 s32 func_002b3318(void);  // 0x002b3318: definition moved into src/anon/unit_002b2a18.cpp
 
-void func_002baa78(void) {
-    s32 i;
-    func_002b6adc(2, 4);
-    func_002b6adc(0, 4);
-    func_002b6adc(2, 5);
-    func_002b6adc(0, 5);
-    func_002b6adc(2, 6);
-    func_002b6adc(0, 6);
-    func_002b6adc(2, 7);
-    func_002b6adc(0, 7);
-    func_002b6adc(0, 10);
-    func_002b6adc(2, 10);
-    func_002b6adc(2, 11);
-    func_002b6adc(2, 12);
-    func_002b6adc(2, 13);
-    func_002b6adc(2, 14);
-    for (i = 0; i < 14; i++) {
-        func_002b6adc(2, i + 30);
-        func_002b6adc(0, i + 30);
-    }
-    for (i = 0; i < 2; i++) {
-        func_002b6adc(2, i + 20);
-        func_002b6adc(0, i + 20);
-    }
-}
+void func_002baa78(void);  // 0x002baa78: definition moved into src/anon/unit_002b9ab8.cpp
 
 // Advances a queued sequence by dt, pulling the next queued entry when the current one ends.
 // 002ef028: moved to src/anon/unit_002ee8a8.cpp

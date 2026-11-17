@@ -103,130 +103,20 @@ extern u8 D_0035f3a8 asm("D_0035f3a8");
 
 // 0x002888c8: definition moved into src/anon/unit_002880b8.cpp
 
-void CmSLBase::FadeOutWarningWin() {
-    u8* t5 = D_0035f6cc;
-    u8* t6 = *(u8**)(t5 + 20);
-    func_0028dac8(D_0035f654, (s32)*(s16*)(t6 + 2));
+// 0x002b4ee0: definition moved into src/anon/unit_002b3ac8.cpp
 
-    if (func_0028acc8(D_0035f650) != 0) {
-        if (func_0028acb8(D_0035f650) == 0) {
-            func_0028aa40(D_0035f650);
-        }
-    }
+// 0x002b4ff8: definition moved into src/anon/unit_002b3ac8.cpp
 
-    D_0035f6d0 = 0;
-}
+// 0x002b5490: definition moved into src/anon/unit_002b3ac8.cpp
 
-u32 CmSLBase::isLoopWarningWin() {
-    func_00139d78((void*)D_0035f654);
+// 0x002b54f8: definition moved into src/anon/unit_002b3ac8.cpp
 
-    u8* t3 = D_0035f654;
-    u8* t5 = D_0035f6cc;
-    u32 t6 = *(u32*)(t3 + 388);
-    u8* t4 = *(u8**)(t5 + 20);
-    s32 t7 = (s32)*(s16*)(t4 + 4);
+// 0x002b5558: definition moved into src/anon/unit_002b3ac8.cpp
 
-    u32 s0 = ((t6 ^ (u32)t7) < 1u);
-    if (func_0028acc8(D_0035f650) != 0) {
-        if (s0 != 0) {
-            s0 = func_0028ae28(D_0035f650, 0);
-        }
-    }
+// 0x002b55e0: definition moved into src/anon/unit_002b3ac8.cpp
 
-    return s0;
-}
+// 0x002b5af0: definition moved into src/anon/unit_002b3ac8.cpp
 
-u32 CmSLBase::isLoopList() {
-    u8* t7 = D_0035f658;
-    if (t7 != 0) {
-        func_00139d78((void*)t7);
-        t7 = D_0035f658;
-    }
-
-    u32 t4 = *(u32*)(t7 + 388);
-    u8* t6 = D_0035f6cc;
-    u8* t5 = *(u8**)(t6 + 24);
-    s32 t7i = (s32)*(s16*)(t5 + 4);
-
-    u32 v0 = ((t4 ^ (u32)t7i) < 1u);
-    if (v0 != 0) {
-        v0 = func_0028ae28(D_0035f64c, 0);
-    }
-    return v0;
-}
-
-void CmSLBase::LoopList() {
-    u8* t7 = D_0035f658;
-    if (t7 != 0) {
-        func_00139d78((void*)t7);
-    }
-
-    u8* t6 = D_0035f6cc;
-    u8* t5 = *(u8**)(t6 + 24);
-    func_00138c10((void*)D_0035f658, (s32)*(s16*)(t5 + 4));
-
-    func_0028ab20(D_0035f64c);
-    func_0028bd60(D_0035f678);
-}
-
-void CmSLBase::FadeOutList() {
-    u8* t5 = D_0035f6cc;
-    u8* t6 = *(u8**)(t5 + 24);
-    func_0028dac8(D_0035f658, (s32)*(s16*)(t6 + 2));
-
-    if (func_0028acc8(D_0035f64c) != 0) {
-        if (func_0028acb8(D_0035f64c) == 0) {
-            func_0028aa40(D_0035f64c);
-        }
-    }
-
-    if (func_0028be58(D_0035f678) != 0) {
-        func_0028bdb8(D_0035f678);
-    }
-}
-
-void CmSLBase::isExistList() {
-    u32 v0 = 0;
-
-    if (D_0035f658 != 0) {
-        v0 = func_00139d78(D_0035f658);
-    }
-    if (v0 != 0) {
-        return;
-    }
-
-    if (D_0035f64c != 0) {
-        v0 = func_0028acc8(D_0035f64c);
-    }
-    if (v0 != 0) {
-        return;
-    }
-
-    v0 = func_0028be58(D_0035f678);
-    if (v0 != 0) {
-        return;
-    }
-
-    func_002b5a20();
-    v0 = 0;
-}
-
-void CmSLBase::LeaveListItem() {
-    u32 r2 = 0u;
-    r2 = func_002b5a50();
-    (void)r2;
-    func_002b5768();
-}
-
-void CmSLBase::SetLeadData() {
-    u32 v0 = func_00103570();
-    void* s0 = func_001063c0(36, v0);
-    func_0028b788(s0);
-    D_0035f674 = s0;
-
-    u32 s0i = func_002537c8(1);
-    func_0023fa08(&D_0035f3a8, s0i);
-    func_0028b8e0(D_0035f674, s0i);
-}
+// 0x002b63a8: definition moved into src/anon/unit_002b60e8.cpp
 
 }  // namespace Tz

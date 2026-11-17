@@ -271,14 +271,7 @@ s32 func_0028ad50(u8* p);  // 0x0028ad50: definition moved into src/anon/unit_00
 
 void func_00291110(u32 a, u32 b, u32 c, u32 d, u32 e, u32 f, u32 g);  // 00291110: moved to src/anon/unit_00290f78.cpp
 
-void func_002b5b38(u32 a, s32 b, u32 c) {
-    if (func_00287cd0() != 1) return;
-    if (!func_00289310(a)) return;
-    func_002890e0(a, 1, 2, 0, -1);
-    func_00289038(a, func_002891e8(a), 1, 1, 2, 0, -1);
-    if (b == 12 && func_00289358(D_0035f64c)) func_002b5c30(0);
-    if (func_0028d008(c)) func_0028cf28(c, func_002891d0(a));
-}
+void func_002b5b38(u32 a, s32 b, u32 c);  // 0x002b5b38: definition moved into src/anon/unit_002b3ac8.cpp
 
 struct T2caa50 { u8 d[32]; };
 void func_0023f800(T2caa50*);

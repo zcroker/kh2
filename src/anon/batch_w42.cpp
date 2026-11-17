@@ -206,11 +206,7 @@ void func_00296b08(void);  // 0x00296b08: definition moved into src/anon/unit_00
 
 // 002ba220
 s32 func_002b7010(u32, u32, u32, u32, u32, u32);
-s32 func_002ba220(u32 a, u32 b, u32 c, u32 d, u32 e, u32 f)
-{
-    wtarget_002b7078();
-    return func_002b7010(a, b, c, d, e, f);
-}
+s32 func_002ba220(u32 a, u32 b, u32 c, u32 d, u32 e, u32 f);  // 0x002ba220: definition moved into src/anon/unit_002b9ab8.cpp
 
 // 002bf978: run the handler for every flagged object
 u8* func_002be908(void*);

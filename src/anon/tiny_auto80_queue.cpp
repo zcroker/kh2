@@ -2601,14 +2601,7 @@ extern u8 D_00374cd0;
 extern "C" u32 func_002b56e8(...);
 extern "C" u32 func_002b5978(...);
 
-u32 func_002b5a20(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r2;
-    r2 = ((u32(*)())func_002b56e8)();
-    if (r2 == 0u) {
-        r2 = ((u32(*)())func_002b5978)();
-    }
-    return r2;
-}
+u32 func_002b5a20(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);  // 0x002b5a20: definition moved into src/anon/unit_002b3ac8.cpp
 
 
 extern u8 D_00374d30;
@@ -11914,19 +11907,7 @@ void duplicate_unplaced_002ba948() {
     func_002b70b8(1, 12288, 240);
 }
 
-void func_002bac08(u32 a0, u32 a1) {
-    if (a1 == 0xffffu && a0 == 1u) {
-        u32 p = (u32)&D_01e2a410;
-        s32 i = 26;
-        do {
-            *(s32*)(p + 0) = -1;
-            *(s32*)(p + 4) = -1;
-            *(u32*)(p + 8) = 0;
-            i -= 1;
-            p += 12;
-        } while (i != -1);
-    }
-}
+void func_002bac08(u32 a0, u32 a1);  // 0x002bac08: definition moved into src/anon/unit_002b9ab8.cpp
 
 // 002bac78: moved to src/anon/unit_002bac78.cpp
 

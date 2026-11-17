@@ -761,31 +761,12 @@ u32 func_002a4390(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002a4390: definition mo
 
 u32 func_002a43d0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002a43d0: definition moved into src/anon/unit_002a40c8.cpp
 
-u32 func_002b5b10(u32 a0, u32 a1, u32 a2, u32 a3) {  // entry_get_short
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2, r15;
-    r4 = (u32)(r4 << 1);
-    r2 = (u32)((s32)0u + (9));
-    if (r5 == 0u) {
-        r15 = (u32)&D_00374d80;
-        r15 = (u32)(r4 + r15);
-        r2 = (u32)(s32)(*(s16*)((u32)r15 + (s32)(0)));
-    }
-    return r2;
-}
+u32 func_002b5b10(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002b5b10: definition moved into src/anon/unit_002b3ac8.cpp
 
 
-u32 func_002ba200(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2;
-    u32 (*fp_call4_002baf38)(u32, u32, u32, u32) = func_002baf38;
-    r2 = fp_call4_002baf38(r4, r5, r6, r7);
-    return r2;
-}
+u32 func_002ba200(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002ba200: definition moved into src/anon/unit_002b9ab8.cpp
 
-u32 func_002ba830(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3;
-    r6 = (u32)(r6 << 3);
-    return func_002b70b8(r4, r5, r6, r7);
-}
+u32 func_002ba830(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002ba830: definition moved into src/anon/unit_002b9ab8.cpp
 
 u32 func_002c1c88(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002c1c88: definition moved into src/anon/unit_002c10e0.cpp
 
@@ -1245,11 +1226,4 @@ extern u8 D_00362cc8;
 u32 func_00150bc0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00150bc0: definition moved into src/anon/unit_0014ecb8.cpp
 
 // 00158250: moved to src/anon/unit_00158050.cpp
-u32 func_002b6530(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r15;
-    if (r4 == 0u) {
-        r15 = (u32)(0x0036u << 16);
-        r4 = *(u32*)((u32)r15 + (s32)(-2340));
-    }
-    return func_00290a60(r4, r5, r6, r7);
-}
+u32 func_002b6530(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002b6530: definition moved into src/anon/unit_002b60e8.cpp

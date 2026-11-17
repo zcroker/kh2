@@ -281,11 +281,7 @@ struct NoTail { ~NoTail() {} };
 
 void func_002b1660(void);  // 0x002b1660: definition moved into src/anon/unit_002b0950.cpp
 
-void func_002b6338(u32 a, u32 b, u32 c, u32 d) {  // hash_with_seed_choice
-    u32 id = !d ? 0xb7d4 : 0xb7d5;
-    u32 x = func_00192048(c);
-    func_00192e50(x, a, b, func_00192048(id));
-}
+void func_002b6338(u32 a, u32 b, u32 c, u32 d);  // 0x002b6338: definition moved into src/anon/unit_002b60e8.cpp
 
 // 002baf48: moved to src/anon/unit_002bac78.cpp
 

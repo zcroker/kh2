@@ -923,29 +923,17 @@ u32 func_002a8748(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002a8748: definition mo
 
 u32 func_002a9888(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002a9888: definition moved into src/anon/unit_002a92a0.cpp
 
-u32 func_002ba188(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_002b6c44(a0, a1, a2, 0x00000000u);
-}
+u32 func_002ba188(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002ba188: definition moved into src/anon/unit_002b9ab8.cpp
 
-u32 func_002ba298(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_002b7078(a0, a1, a2, a3);
-}
+u32 func_002ba298(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002ba298: definition moved into src/anon/unit_002b9ab8.cpp
 
-u32 func_002ba2b0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_002b70b8(a1, 0x00000000u, a0, a3);
-}
+u32 func_002ba2b0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002ba2b0: definition moved into src/anon/unit_002b9ab8.cpp
 
-u32 func_002ba310(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_002b72e4(0x00000002u, a0, a1, a3);
-}
+u32 func_002ba310(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002ba310: definition moved into src/anon/unit_002b9ab8.cpp
 
-u32 func_002baa48(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_002b78ec(a0, a1, a2, a3);
-}
+u32 func_002baa48(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002baa48: definition moved into src/anon/unit_002b9ab8.cpp
 
-u32 func_002bac58(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_002bac08(0x00000001u, 0x0000ffffu, a2, a3);
-}
+u32 func_002bac58(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002bac58: definition moved into src/anon/unit_002b9ab8.cpp
 
 // 002bb050: _GLOBAL__I_ stub, now made by gcc in src/anon/unit_002bac78.cpp
 

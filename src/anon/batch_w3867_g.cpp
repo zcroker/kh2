@@ -63,45 +63,5 @@ extern void* D_0035f6c8;
 extern u8 D_0035f6d0;
 extern s32 D_0035f3d4;
 
-void func_002b4440(void)
-{
-    s32 i, j;
-    func_0014a4b0();
-    func_0023fd40(func_00103570());
-    func_00240b90(0);
-    func_00233ce0();
-    func_00287b18(25, 3);
-    D_0035f664 = 0;
-    D_0035f654 = 0;
-    D_0035f668 = 0;
-    D_0035f66c = 0;
-    D_0035f670 = 0;
-    D_0035f674 = 0;
-    D_0035f678 = 0;
-    D_0035f67c = 0;
-    D_0035f6d0 = 0;
-    func_0028d068(30065, -1);
-    for (i = 0; i < 4; i++) D_0035f680[i] = 0;
-    for (i = 0; i < 3; i++)
-        for (j = 0; j < 4; j++) D_0035f690[i][j] = 0;
-    D_0035f64c = new List(4, 1);
-    D_0035f650 = new List(2, 0);
-    func_00288f48(D_0035f650, 128, 64, 0, 0);
-    D_0035f654 = (s32)new WorkEx;
-    D_0035f658 = (s32)new Work;
-    D_0035f65c = func_001063f0(224, func_00103570());
-    void** p660 = &D_0035f660;
-    *p660 = func_001063f0(160, func_00103570());
-    D_0035f678 = (s32)new Obj52;
-    D_0035f67c = (s32)new Obj444;
-    D_0035f6c0 = (s32)new Obj460;
-    D_0035f6c4 = func_001063f0(512, func_00103570());
-    void* b = func_001063f0(512, func_00103570());
-    void* a = D_0035f6c4;
-    asm("" : "+r"(b) : "r"(a));
-    D_0035f6c8 = b;
-    func_002fde18(a, 0, 512);
-    func_002fde18(D_0035f6c8, 0, 512);
-    D_0035f3d4 = 30045;
-}
+void func_002b4440(void);  // 0x002b4440: definition moved into src/anon/unit_002b3ac8.cpp
 }

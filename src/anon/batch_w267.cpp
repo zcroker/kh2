@@ -44,24 +44,7 @@ void func_00138c78(u32, s32*, s32*);
 s32 func_0023aa18(u32);
 s32 func_0023aa38(u32);
 void func_00138c68(u32, s32, s32);
-void func_002b4c88(void* p) {
-  s32 pos[2];
-  func_002b6418(p);
-  func_00259108(D_0035f650, 30064, D_0035f644, D_0035f640, D_0035f664, p, D_0035f6cc[4]);
-  func_00288f48(D_0035f650, 128, 64, 0, 0);
-  func_0028af28(D_0035f650, 64);
-  if (func_00139d78(D_0035f654)) {
-    s32 i = 0;
-    while (i < func_002892f8(D_0035f650)) {
-      func_0028dcc0(func_002891b8(D_0035f650, i), D_0035f654);
-      func_00138c78(func_002891b8(D_0035f650, i), &pos[0], &pos[1]);
-      pos[0] += func_0023aa18(D_0035f654 + 24);
-      pos[1] += func_0023aa38(D_0035f654 + 24);
-      func_00138c68(func_002891b8(D_0035f650, i), pos[0], pos[1]);
-      i++;
-    }
-  }
-}
+void func_002b4c88(void* p);  // 0x002b4c88: definition moved into src/anon/unit_002b3ac8.cpp
 extern char D_00362dc8[];
 extern char D_00375eb8[];
 extern char D_00362d90[];

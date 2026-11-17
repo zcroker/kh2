@@ -278,28 +278,7 @@ static inline void* alloc76(s32 n) {
     void* a = *(void**)(D_00347f80.p + 20);
     return (*(AllocFn*)(*(u8**)a))(a, n, 0);
 }
-void func_002b3df8(GA* p) {
-    p[0].u = 0;
-    p[1].u = 0;
-    p[2].u = 0;
-    T76* o = (T76*)alloc76(76);
-    o->f12 = 0;
-    *(u32*)o = (u32)D_0035ebb8;
-    p[0].v = o;
-    u32* q = (u32*)alloc76(232);
-    q[0] = 3;
-    T76* e = (T76*)(q + 1);
-    T76* it = e;
-    for (s32 n = 2; n != -1; n--, it++) {
-        it->f12 = 0;
-        it->vt = D_0035ebb8;
-    }
-    p[1].v = e;
-    o = (T76*)alloc76(76);
-    o->f12 = 0;
-    o->vt = D_0035ebb8;
-    p[2].v = o;
-}
+void func_002b3df8(GA* p);  // 0x002b3df8: definition moved into src/anon/unit_002b3ac8.cpp
 
 // ---- 0x117e98: deleting destructor ----
 struct Elem64 { u8 p8[8]; void* h; u8 d[52]; ~Elem64() {} } __attribute__((aligned(16)));

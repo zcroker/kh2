@@ -186,11 +186,7 @@ s8 func_00295228(u32 x);  // 0x00295228: definition moved into src/anon/unit_002
 
 u32 func_002b1aa0(void);  // 0x002b1aa0: definition moved into src/anon/unit_002b0950.cpp
 
-char* func_002ba0f8(u32 x) {
-    func_002fee78(D_01e2a5a8, D_00374f80, x);
-    strlen(D_01e2a5a8);  // strlen
-    return D_01e2a5a8;
-}
+char* func_002ba0f8(u32 x);  // 0x002ba0f8: definition moved into src/anon/unit_002b9ab8.cpp
 
 extern u32 D_01e2aa80;
 static inline u8* nextNode(u8* n) {

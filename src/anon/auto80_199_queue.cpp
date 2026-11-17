@@ -2920,80 +2920,13 @@ u32 func_002aecf0(u32 a0);  // 0x002aecf0: definition moved into src/anon/unit_0
 
 s32 func_002b2380(s32 a0, s32 a1);  // 0x002b2380: definition moved into src/anon/unit_002b1db8.cpp
 
-void func_002b4388(Obj4388* a0, u8* a1, u32 a2) {
-    u8* s0 = a1 + 20;
-    s32 s1 = 2;
-    u32 s2 = 0;
-
-    do {
-        u32 t7 = *(u16*)(s0 + 0);
-        s0 += 2;
-        if (t7 != 0) {
-            func_0023f5b8((void*)(a0->p4 + s2), t7, a2);
-        }
-        s1 -= 1;
-        s2 += 76;
-    } while (s1 >= 0);
-
-    u32 v = *(u16*)(a1 + 26);
-    if (v != 0) {
-        func_0023f5b8((void*)a0->p8, v, a2);
-    }
-}
+void func_002b4388(Obj4388* a0, u8* a1, u32 a2);  // 0x002b4388: definition moved into src/anon/unit_002b3ac8.cpp
 
 
-u32 func_002b5978(void) {
-    u32 s2 = 0;
-    u32 s4 = 0;
-
-    while (1) {
-        u32 s1 = 0;
-        u32 off = s2 << 2;
-        void** s0 = &D_0035f690[off];
-
-        while (1) {
-            void* t7 = *s0;
-            s0 = s0 + 1;
-
-            if (t7 != 0) {
-                if (func_00139d78(t7) != 0) {
-                    s4 = 1;
-                    break;
-                }
-            }
-
-            s1 = s1 + 1;
-            if ((s32)s1 < 4) {
-                continue;
-            }
-            break;
-        }
-
-        s2 = s2 + 1;
-        if ((s32)s2 < 3) {
-            continue;
-        }
-        return s4;
-    }
-}
+u32 func_002b5978(void);  // 0x002b5978: definition moved into src/anon/unit_002b3ac8.cpp
 
 
-u32 func_002ba848(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    (void)a4;
-    (void)a5;
-    (void)a6;
-    (void)a7;
-
-    u32 s0 = a0;
-    func_002b70b8(0, 0, s0);
-    func_002b70b8(1, 0, s0);
-    func_002b73ac(-100, -1, 0, 0, s0);
-    func_002baa60();
-    return func_002b83b4();
-}
+u32 func_002ba848(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);  // 0x002ba848: definition moved into src/anon/unit_002b9ab8.cpp
 
 u32 func_002bb1c8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);  // 0x002bb1c8: definition moved into src/anon/unit_002bb070.cpp
 

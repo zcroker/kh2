@@ -31,14 +31,6 @@ extern void* D_0035f6c8;
 char* func_00192048(s32);
 void func_002b6338(void*, s32, s32, s32);
 // Sets the current message: a non-negative b loads it into D_0035f6c8, otherwise a message string by id.
-void func_002b5108(s32 a, s32 b) {
-    func_00139d78(D_0035f654);
-    if (b >= 0) {
-        func_002b6338(D_0035f6c8, 0x200, a, b);
-        D_0035f654->x198 = D_0035f6c8;
-    } else {
-        D_0035f654->x198 = func_00192048(a);
-    }
-}
+void func_002b5108(s32 a, s32 b);  // 0x002b5108: definition moved into src/anon/unit_002b3ac8.cpp
 
 }

@@ -254,21 +254,7 @@ void func_0028e560(void* p, s16* a, s32 n, u32 a3);  // 0028e560: moved to src/a
 
 void func_00298e48(void);  // 0x00298e48: definition moved into src/anon/unit_002982f0.cpp
 
-void func_002b9f28(u8 a) {
-    if (a) func_002b7fbc(1);
-    else func_002b7fbc(0);
-    func_002bc798();
-    func_002ba9c0();
-    func_002bc470(2);
-    func_002bc470(3);
-    func_002bcf58(&D_01e2a410);
-    func_002bcfa0(&D_01e2a410);
-    func_002baa60();
-    func_002bc608(0);
-    func_002bc608(1);
-    func_002bc608(2);
-    func_002bbf98();
-}
+void func_002b9f28(u8 a);  // 0x002b9f28: definition moved into src/anon/unit_002b9ab8.cpp
 
 void func_002bdac8(u8* p);  // 0x002bdac8: definition moved into src/anon/unit_002bc978.cpp
 

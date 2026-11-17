@@ -301,16 +301,6 @@ void func_001fbb20(u8* p, In1fbb20* q, u8* r) {
 void* func_001d9e30(void*);  // record_range_check_or_first
 s32 func_001d9d48(void*);
 s32 func_00276c18(void);
-s32 func_002b3ae8(void) {
-    void* p = 0;
-    s32 found = 0;
-    while ((p = func_001d9e30(p)) != 0) {  // record_range_check_or_first
-        if (func_001d9d48(p)) {
-            found = 1;
-            break;
-        }
-    }
-    return found || func_00276c18();
-}
+s32 func_002b3ae8(void);  // 0x002b3ae8: definition moved into src/anon/unit_002b3ac8.cpp
 
 }

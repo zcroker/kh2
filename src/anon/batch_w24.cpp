@@ -154,18 +154,10 @@ void func_00280240(void);  // 0x00280240: definition moved into src/anon/unit_00
 extern u8 D_01e2a410;
 void func_002bc9a8(void*, s32, s32);  // find_entry12_set_field
 void func_002bce10(void*, s32);  // find_entry12_set_flag
-void func_002b9b78(void) {
-    void* o = &D_01e2a410;
-    func_002bc9a8(o, 2, 0);  // find_entry12_set_field
-    func_002bce10(o, 2);  // find_entry12_set_flag
-    func_002bc9a8(o, 3, 999);  // find_entry12_set_field
-    func_002bce10(o, 3);  // find_entry12_set_flag
-}
+void func_002b9b78(void);  // 0x002b9b78: definition moved into src/anon/unit_002b9ab8.cpp
 
 void func_00102448(u32, s32);
-void func_002ba7c8(u32 a) {
-    while (func_002ba200()) func_00102448(a, 0);
-}
+void func_002ba7c8(u32 a);  // 0x002ba7c8: definition moved into src/anon/unit_002b9ab8.cpp
 
 void func_002baa60(u8*);
 u32* func_00168b38(u32, s32, u32);  // entry_array_find_nth

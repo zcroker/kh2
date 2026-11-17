@@ -30,56 +30,6 @@ extern u8 D_00374f30[];
 extern u8 D_00374f40[];
 extern u8 D_00374f50[];
 extern u8 D_00374f60[];
-void func_002b9c80(void)
-{
-  s32 new_var;
-  s32 size;
-  s32 buf;
-  s32 p;
-  size = func_001688c8(D_00374f30);
-  buf = func_00170b30((size + 0x83f) & (~0x7ff));
-  p = (buf + 0x3f) & (~0x3f);
-  func_001682b8(D_00374f30, p);
-  func_002ba1b8(2, p, size);
-  while (func_002b6f78())
-  {
-    func_002b6ab8();
-  }
-
-  func_00170c00(buf);
-  size = func_001688c8(D_00374f40);
-  buf = func_00170b30((size + 0x83f) & (~0x7ff));
-  p = (buf + 0x3f) & (~0x3f);
-  func_001682b8(D_00374f40, p);
-  func_002ba1b8(3, p, size);
-  while (func_002b6f78())
-  {
-    func_002b6ab8();
-  }
-
-  func_00170c00(buf);
-  size = func_001688c8(D_00374f50);
-  buf = func_00170b30((size + 0x83f) & (~0x7ff));
-  p = (buf + 0x3f) & (~0x3f);
-  func_001682b8(D_00374f50, p);
-  func_002ba188(2, p, size);
-  while (func_002b6f78())
-  {
-    func_002b6ab8();
-  }
-
-  func_00170c00(buf);
-  size = (new_var = func_001688c8(D_00374f60));
-  buf = func_00170b30((size + 0x83f) & (~0x7ff));
-  p = (buf + 0x3f) & (~0x3f);
-  func_001682b8(D_00374f60, p);
-  func_002ba188(3, p, new_var);
-  while (func_002b6f78())
-  {
-    func_002b6ab8();
-  }
-
-  func_00170c00(buf);
-}
+void func_002b9c80(void);  // 0x002b9c80: definition moved into src/anon/unit_002b9ab8.cpp
 
 }

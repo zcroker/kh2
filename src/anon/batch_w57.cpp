@@ -175,10 +175,7 @@ void func_0028d660(T28d* t, u32 v);  // 0028d660: moved to src/anon/unit_0028c87
 
 void func_002bc470(u32);
 void func_002b6e24(u32, u32, u32);
-void func_002ba1b8(u32 a, u32 b, u32 c) {
-    func_002bc470(a);
-    func_002b6e24(a, b, c);
-}
+void func_002ba1b8(u32 a, u32 b, u32 c);  // 0x002ba1b8: definition moved into src/anon/unit_002b9ab8.cpp
 
 extern u32 D_003617ec, D_003617f4;
 extern u8 D_003617f8;

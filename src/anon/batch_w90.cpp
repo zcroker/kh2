@@ -427,12 +427,7 @@ public:
 };
 struct W90Owner { W90Res* a; W90Part* parts; W90Res* c; };
 extern "C" {
-void func_002b3fb0(W90Owner* self)
-{
-    if (self->a) { delete self->a; self->a = 0; }
-    if (self->parts) { delete[] self->parts; self->parts = 0; }
-    if (self->c) { delete self->c; self->c = 0; }
-}
+void func_002b3fb0(W90Owner* self);  // 0x002b3fb0: definition moved into src/anon/unit_002b3ac8.cpp
 }
 
 struct FV {

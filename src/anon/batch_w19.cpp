@@ -168,13 +168,7 @@ s32 func_002a0360(void);  // 0x002a0360: definition moved into src/anon/unit_002
 
 u8* func_002a6368(s32 i);  // 0x002a6368: definition moved into src/anon/unit_002a5a90.cpp
 
-u32 func_002b4fb8(void) {
-    void* o = D_0035f654;
-    u32 v = 0;
-    if (o) v = func_00139d78(o);
-    if (v) v = func_0028acc8(D_0035f650);
-    return v;
-}
+u32 func_002b4fb8(void);  // 0x002b4fb8: definition moved into src/anon/unit_002b3ac8.cpp
 
 void func_002d2a58(void** p);  // 0x002d2a58: definition moved into src/anon/unit_002d2498.cpp
 

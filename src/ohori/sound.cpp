@@ -15,17 +15,10 @@ extern u8 D_003616f0;
 
 namespace SOUND {
 
-u32 isSeAlertPlay() {
-    u32 b = (0x0036u << 16);
-    return (u32)(*(u8*)((u32)b + 5860));
-}
+u32 isSeAlertPlay();  // 0x002ba358: definition moved into src/anon/unit_002b9ab8.cpp
 
 // 0x002bc788 SE3DDisable, 0x002bc798 SE3DEnable: definitions moved into src/anon/unit_002bb8b0.cpp
 
-void seVoicePcmStop() {
-    func_002b72e4(-100, -1, 0u);
-    func_002baa60();
-    func_002b83b4();
-}
+void seVoicePcmStop();  // 0x002ba8e8: definition moved into src/anon/unit_002b9ab8.cpp
 
 }  // namespace SOUND

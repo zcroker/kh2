@@ -256,18 +256,7 @@ extern u8* D_0035f620;
 u32 func_002ad338(void);  // 0x002ad338: definition moved into src/anon/unit_002a99c8.cpp
 
 extern u8* D_0035f680[4];
-u32 func_002b56e8(void) {
-    s32 i;
-    u32 r = 0;
-    for (i = 0; i < 4; i++) {
-        u8* o = D_0035f680[i];
-        if (o && func_00139d78(o)) {
-            r = 1;
-            break;
-        }
-    }
-    return r;
-}
+u32 func_002b56e8(void);  // 0x002b56e8: definition moved into src/anon/unit_002b3ac8.cpp
 
 void func_00161000(u8);
 void func_00160fd0(u8);

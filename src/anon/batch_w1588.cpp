@@ -33,17 +33,5 @@ void func_00264388(void);  // 0x00264388: definition moved into src/anon/unit_00
 s32 func_00285d18(s32 x);  // 0x00285d18: definition moved into src/anon/unit_002853b8.cpp
 
 u32 ResetVoiceState() asm("_ZN2Tz9MenuSound15ResetVoiceStateEv");
-u32 ResetVoiceState() {
-    s32 t = D_003616e0;
-    u32 a = 0;
-    if (t) {
-        s32 n = t - 1;
-        D_003616e0 = n;
-        if (n > 0) {
-            u32 k = t - 2;
-            a = D_01e2a400[k];
-        }
-    }
-    return func_002b6c04(a);
-}
+u32 ResetVoiceState();  // 0x002ba9c0: definition moved into src/anon/unit_002b9ab8.cpp
 }

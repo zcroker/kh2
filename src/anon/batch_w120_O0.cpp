@@ -10,25 +10,4 @@ void func_003058a0(s32);
 extern "C" {
 s32 ctarget_002b79cc(s32 a, s32 b, s32 c) asm("_Z16ctarget_002b79ccjjjj");
 }
-s32 ctarget_002b79cc(s32 a, s32 b, s32 c)
-{
-    s32 i;
-    s32 cnt = 0;
-    func_003058a0(0);
-    if (c == 0) {
-        if (b < 0) {
-            for (i = 0; i < 512; i++)
-                if (D_01e22080[i].h[0] == 29 && D_01e22080[i].h[1] == a) cnt++;
-        } else {
-            for (i = 0; i < 512; i++)
-                if (D_01e22080[i].h[0] == 29 && D_01e22080[i].h[1] == a && D_01e22080[i].h[2] == b) cnt++;
-        }
-    } else if (c < 0) {
-        for (i = 0; i < 512; i++)
-            if (D_01e22080[i].h[0] == 25) cnt++;
-    } else {
-        for (i = 0; i < 512; i++)
-            if (D_01e22080[i].h[0] == 25 && D_01e22080[i].h[1] == c) cnt++;
-    }
-    return cnt;
-}
+s32 ctarget_002b79cc(s32 a, s32 b, s32 c);  // 0x002b79cc: definition moved into src/anon/unit_002b6f28.cpp

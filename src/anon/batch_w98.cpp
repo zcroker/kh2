@@ -393,16 +393,7 @@ s32 func_00240ba0(void);
 void func_00287cc0(s32);
 
 // Builds the two-entry list from the current table and focuses the default entry.
-void func_002b4b00(void) {
-    for (s32 i = 0; i < 2; i++) {
-        func_00288d80(D_0035f64c, i, D_0035f644, D_0035f640, D_0035f664, (*D_0035f6cc)[i].id, &(*D_0035f6cc)[i], (*D_0035f6cc)[i].name);
-        func_00288e08(D_0035f64c, i, 0, -1);
-        func_00139620(func_002891b8(D_0035f64c, i));
-        func_001395f8(func_002891b8(D_0035f64c, i));
-    }
-    func_002891f0(D_0035f64c, func_00240ba0(), 1, 0, 2);
-    func_00287cc0(0);
-}
+void func_002b4b00(void);  // 0x002b4b00: definition moved into src/anon/unit_002b3ac8.cpp
 
 }
 typedef struct { f32 x, y, z, w; } __attribute__((aligned(16))) QW2cd;

@@ -248,6 +248,14 @@ src/anon/unit_002b0950.cpp	002b0950	002b1db8	-	-G0 -g -fno-strict-aliasing -fmov
 src/anon/unit_002b1db8.cpp	002b1db8	002b2a18	-	-G0 -g -fno-strict-aliasing
 src/anon/unit_002b2a18.cpp	002b2a18	002b3440	-	-G0 -g -fno-strict-aliasing -fmove-all-movables
 src/anon/unit_002b3440.cpp	002b3440	002b3908	-	-G0 -g -fno-strict-aliasing
+src/anon/unit_002b3ac8.cpp	002b3ac8	002b5c30	.rodata@00374c80	-G0 -g -fno-strict-aliasing
+src/anon/unit_002b60e8.cpp	002b60e8	002b6550	-	-G0
+src/anon/unit_002b6678.cpp	002b6678	002b6708	-	-G0 -O0
+src/anon/unit_002b6ab8.cpp	002b6ab8	002b6c44	-	-G0 -O0
+src/anon/unit_002b6f28.cpp	002b6f28	002b823c	.rodata@00374e78	-G0 -O0
+src/anon/unit_002b8274.cpp	002b8274	002b9404	-	-G0 -O0
+src/anon/unit_002b95e8.cpp	002b95e8	002b9ab8	-	-G0 -O0
+src/anon/unit_002b9ab8.cpp	002b9ab8	002bac78	-	-G0
 src/anon/unit_002bac78.cpp	002bac78	002bb070	.bss@01e2a5e8	-G0 -fno-strict-aliasing
 src/anon/unit_002bb070.cpp	002bb070	002bb5f8	-	-G0 -fno-strict-aliasing
 src/anon/unit_002bb8b0.cpp	002bb8b0	002bc978	.rodata@00374fa4	-G0 -fno-strict-aliasing

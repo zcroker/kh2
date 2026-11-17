@@ -162,18 +162,7 @@ s32 func_002a9b88(s32 id);  // 0x002a9b88: definition moved into src/anon/unit_0
 // Tz::CmSLBase::GetCurrentListItem: release every live item in the 3x4 slot grid
 extern u8* D_0035f690[3][4];
 void CmSLBase_GetCurrentListItem(void) asm("_ZN2Tz8CmSLBase18GetCurrentListItemEv");
-void CmSLBase_GetCurrentListItem(void)
-{
-    for (s32 i = 0; i < 3; i++) {
-        u8** p = D_0035f690[i];
-        for (s32 j = 3; j >= 0; j--, p++) {
-            if (*p) {
-                if (u_call4_00139d78(*p)) (*(VFn*)(*(u8**)*p + 20))(*p);
-                *p = 0;
-            }
-        }
-    }
-}
+void CmSLBase_GetCurrentListItem(void);  // 0x002b5a50: definition moved into src/anon/unit_002b3ac8.cpp
 
 f32 func_00106558(f32);
 s32 func_001064a8(s32);  // int_to_float_scaled
@@ -1466,29 +1455,7 @@ void func_002bce50(u8*);
 void func_002b9b78(void);
 void func_002bd218(void);
 void u_tail0_002b9ad0(void) asm("_Z16u_tail0_002b9ad0v");
-void u_tail0_002b9ad0(void)
-{
-    func_002b7fbc(0);
-    func_002b6bc4(1);
-    func_002b9ab8(20);
-    func_002ba298(0);
-    func_002ba298(1);
-    func_002ba390();
-    func_002bce40(D_01e2a410);
-    func_002bce50(D_01e2a410);
-    func_002b9b78();
-    func_002bd218();
-    D_003616e0 = 0;
-    u32* w = D_01e2a400;
-    s32 i = 2;
-    do {
-        *w = 0;
-        i--;
-        // R5900 short-loop padding
-        asm volatile("nop\n\tnop\n\tnop");
-        w++;
-    } while (i >= 0);
-}
+void u_tail0_002b9ad0(void);  // 0x002b9ad0: definition moved into src/anon/unit_002b9ab8.cpp
 extern f32 D_00349e10;
 void func_00187750(u8*);
 f32 fabsf(f32);  // fabsf

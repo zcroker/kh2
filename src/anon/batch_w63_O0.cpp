@@ -6,12 +6,5 @@ extern u8 D_01e22040;
 extern u32 D_01e21f40[64];
 
 // Retries an RPC call (send/receive through the same 256-byte buffer) until it succeeds.
-u32 func_002b8434(u32 a) {
-    s32 r;
-    D_01e21f40[0] = a;
-    do {
-        r = sceSifCallRpc(&D_01e22040, 3, 0, D_01e21f40, 256, D_01e21f40, 256, 0, 0);
-    } while (r != 0);
-    return a;
-}
+u32 func_002b8434(u32 a);  // 0x002b8434: definition moved into src/anon/unit_002b8274.cpp
 }

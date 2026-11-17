@@ -163,14 +163,10 @@ void func_0028c170(void* p);  // 0x0028c170: definition moved into src/anon/unit
 
 void func_002b726c(u32, s32, s32, u32, u32);
 void sound_system_se_play(s32 a, s32 b) asm("_ZN5SOUND12systemSePlayEii");
-void sound_system_se_play(s32 a, s32 b) {
-    func_002b726c(2, a, b, 16383, 64);
-}
+void sound_system_se_play(s32 a, s32 b);  // 0x002ba2e8: definition moved into src/anon/unit_002b9ab8.cpp
 
 void func_002baf48(u32, u32, u32, u32, u32, u32);
-void func_002ba5d0(u32 a, u32 b) {
-    func_002baf48(10, 1, a, b, 0, 0);
-}
+void func_002ba5d0(u32 a, u32 b);  // 0x002ba5d0: definition moved into src/anon/unit_002b9ab8.cpp
 
 void func_002bb070(u32 a, u32 b, u32 c, u32 d, u32 e);  // 0x002bb070: definition moved into src/anon/unit_002bb070.cpp
 

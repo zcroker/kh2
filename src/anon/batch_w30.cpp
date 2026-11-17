@@ -187,30 +187,11 @@ void func_00258ce8(u16* a);  // 0x00258ce8: definition moved into src/anon/unit_
 // Sets bit n in the bitmap returned by func_002a9d68.
 void func_002aa048(u32 n);  // 0x002aa048: definition moved into src/anon/unit_002a99c8.cpp
 
-void func_002b9e80(void) {
-    func_002b7fbc(0);
-    func_002bce40(D_01e2a410);
-    func_002bce50(D_01e2a410);
-    func_002b9b78();
-    func_002ba390();
-    func_002b9ed0();
-}
+void func_002b9e80(void);  // 0x002b9e80: definition moved into src/anon/unit_002b9ab8.cpp
 
-void func_002b9ed0(void) {
-    func_002baa78();
-    func_002bcfe8(D_01e2a410);
-    func_002bd030(D_01e2a410);
-    func_002bd078(D_01e2a410);
-    func_002bd0b8(D_01e2a410);
-    func_002bd100(D_01e2a410);
-    func_002bd140(D_01e2a410);
-}
+void func_002b9ed0(void);  // 0x002b9ed0: definition moved into src/anon/unit_002b9ab8.cpp
 
-void* func_002ba0b0(u32 a) {
-    func_002fee78(D_01e2a568, D_00374f70, a);
-    strlen(D_01e2a568);  // strlen
-    return D_01e2a568;
-}
+void* func_002ba0b0(u32 a);  // 0x002ba0b0: definition moved into src/anon/unit_002b9ab8.cpp
 
 // Deleting destructor.
 void func_002d0028(u8* p);  // 0x002d0028: definition moved into src/anon/unit_002cf260.cpp

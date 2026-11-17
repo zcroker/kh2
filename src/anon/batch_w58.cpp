@@ -240,22 +240,7 @@ void func_002baa60(void);
 void func_002bc608(s32);
 void func_002bbf98(void);
 extern u8 D_01e2a410[];
-void func_002b9fb0(void) {
-    func_002b7fbc(1);
-    func_002bced8(D_01e2a410);
-    func_002bcee8(D_01e2a410);
-    func_002b9b78();
-    func_002ba390();
-    func_002bc798();
-    func_002ba9c0();
-    func_002bc470(2);
-    func_002bc470(3);
-    func_002baa60();
-    func_002bc608(0);
-    func_002bc608(1);
-    func_002bc608(2);
-    func_002bbf98();
-}
+void func_002b9fb0(void);  // 0x002b9fb0: definition moved into src/anon/unit_002b9ab8.cpp
 
 // Init a node with a fresh nonzero id and append it to the global list.
 struct Nd28 { u8 pad[20]; s32 id; u8 pad2[4]; Nd28* next; u8 pad3[4]; s32 f36; u16 h40 : 16; u8 pad4[2]; u16 h44 : 16; u8 pad5[2]; u8 b48; u8 b49; };
