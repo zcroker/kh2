@@ -129,7 +129,7 @@ void func_00109e90(BD_VALUE* bd);  // 00109e90: moved to src/anon/unit_00109c30.
 void func_0010b450(BD_VALUE* bd);  // 0x0010b450: definition moved into src/anon/unit_0010b450.cpp
 void func_0010d900(BD_VALUE* bd);  // 0x0010d900: definition moved into src/anon/unit_0010d900.cpp
 void func_0010f648(BD_VALUE* bd);  // 0x0010f648: definition moved into src/anon/unit_0010f338.cpp
-void func_0011d710(BD_VALUE* bd) { func_00127a88(bd); }
+void func_0011d710(BD_VALUE* bd);  // 0x0011d710: definition moved into src/anon/unit_0011c128.cpp
 // 001369b8: moved to src/harata/libdk/bgse.cpp
 void func_001390a8(BD_VALUE* bd);  // 0x001390a8: definition moved into src/anon/unit_00138480.cpp
 void func_001444b0(BD_VALUE* bd) { dk_Aabbox_set_vectors(bd); }
@@ -1154,19 +1154,9 @@ void func_00113668(u32 a0, u32 a1, u32 a2, u32 a3) {
     *(u32*)((u32)a0 + (0)) = (u32)&D_00345cf8;
 }
 
-void func_0011ee58(u32 a0, u32 a1, u32 a2, u32 a3) {  // set_vtbl_347940
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    *(u32*)((u32)a0 + (0)) = (u32)&D_00347940;
-}
+void func_0011ee58(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0011ee58: definition moved into src/anon/unit_0011c128.cpp
 
-void func_00124c08(u32 a0, u32 a1, u32 a2, u32 a3) {  // set_vtbl_347b88
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    *(u32*)((u32)a0 + (0)) = (u32)&D_00347b88;
-}
+void func_00124c08(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00124c08: definition moved into src/anon/unit_00123990.cpp
 
 u32 func_00132170(u32 a0, u32 a1, u32 a2, u32 a3) {
     (void)a1;

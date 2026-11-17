@@ -92,29 +92,7 @@ void func_001324b8(Node*, void*);
 void func_00133198(Node*, void*);
 void func_00132358(Node*, Node*);
 // Builds TEXA (texture) and UVSC (uv scroll) nodes from a chunk list and appends them to the owner's list.
-void func_0011e450(Owner* o, void* c) {
-    Node* tail;
-    void* ch;
-    if (!c) return;
-    tail = o->list;
-    while (tail && func_00132350(tail)) tail = (Node*)func_00132350(tail);
-    for (ch = func_00132180(c, 0x41584554); ch; ch = func_00132180(func_00132130(ch), 0x41584554)) {
-        Node* n = ((AllocFn)o->alloc->vt[0])(o->alloc, 656, 0);
-        func_001324b8(n, c);
-        ((LoadFn)n->vt[2])(n, ch);
-        if (!tail) o->list = n;
-        else func_00132358(tail, n);
-        tail = n;
-    }
-    for (ch = func_00132180(c, 0x43535655); ch; ch = func_00132180(func_00132130(ch), 0x43535655)) {
-        Node* n = ((AllocFn)o->alloc->vt[0])(o->alloc, 44, 0);
-        func_00133198(n, c);
-        ((LoadFn)n->vt[2])(n, ch);
-        if (!tail) o->list = n;
-        else func_00132358(tail, n);
-        tail = n;
-    }
-}
+void func_0011e450(Owner* o, void* c);  // 0x0011e450: definition moved into src/anon/unit_0011c128.cpp
 }
 }
 

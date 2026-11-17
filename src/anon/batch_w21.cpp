@@ -95,11 +95,7 @@ void func_001157d0(void** p) {
     func_00105110(p);
 }
 
-void func_0011e410(u8* p, u32 a) {
-    func_0011e350(p, *(u32*)(p + 56));
-    *(u32*)(p + 56) = 0;
-    func_0011e450(p, a);
-}
+void func_0011e410(u8* p, u32 a);  // 0x0011e410: definition moved into src/anon/unit_0011c128.cpp
 
 void func_0013f498(void);  // 0x0013f498: definition moved into src/anon/unit_0013ef70.cpp
 

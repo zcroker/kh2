@@ -113,10 +113,7 @@ void func_00115090(void* p) {
     func_00105110(p);
 }
 
-u32 func_00123e00(void* a) {
-    void* o = func_00124748(a, 0);  // list_nth_node_rel
-    return (*(VFnR*)(*(u8**)o + 32))(o);
-}
+u32 func_00123e00(void* a);  // 0x00123e00: definition moved into src/anon/unit_00123990.cpp
 
 // Skips a header (size from func_001320f0 plus 8); 0 when the rest is invalid.
 u8* func_00132130(u8* p) {

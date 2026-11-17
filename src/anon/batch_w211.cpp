@@ -9,16 +9,7 @@ struct W211H { u8 c0, c1, c2, c3; f32 f; u32 z; u32 nx; };
 extern "C" {
 extern W211Q D_00359110;
 
-void func_0011eea8(W211List* l, W211Node* x) {
-    W211Node* h = l->head;
-    if (h == x) { l->head = x->next; return; }
-    W211Node* c = h->next; W211Node* p = h;
-    if (c == 0) goto out;
-    if (c == x) goto out;
-    do { W211Node* n = c->next; p = c; c = n; if (!n) break; } while (c != x);
-out:
-    p->next = x->next;
-}
+void func_0011eea8(W211List* l, W211Node* x);  // 0x0011eea8: definition moved into src/anon/unit_0011c128.cpp
 
 void func_001e1df8(u8* p) {
     if (20.0f <= *(f32*)(p + 0xde4)) {

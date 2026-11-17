@@ -42,15 +42,7 @@ struct Entry20648 { u32 b0 : 1; u32 m : 28; u32 b29 : 1; u32 hi : 2; u32 pad[7];
 struct Hdr20648 { u8 pad[0x1c]; s32 n; Entry20648 e[1]; };
 
 // Constructor: base ctor, vtable, then collect flag bits from the entry list.
-void func_00120648(u8* self) {
-    func_0011ee18(self);  // obj_ctor_347940
-    Hdr20648* h = *(Hdr20648**)(self + 4);
-    *(u32*)self = (u32)D_00347a28;
-    for (s32 i = 0; i < h->n; i++) {
-        if (h->e[i].b0) *(u32*)(self + 12) |= 1;
-        if (h->e[i].b29) *(u32*)(self + 12) |= 2;
-    }
-}
+void func_00120648(u8* self);  // 0x00120648: definition moved into src/anon/unit_00120648.cpp
 
 // ---------------------------------------------------------------------------
 u16* func_001a9130(void);

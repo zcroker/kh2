@@ -205,33 +205,10 @@ void wtarget_0010f918(u32 a, u32, u32, u32);  // 0x0010f918: definition moved in
 extern "C" {
 
 // Shifts packed nibbles up: whole 64-bit words, then the leftover bytes.
-void func_0011f120(void* o, u8* p) {
-    s32 n = (*(s32 (**)(void*))(*(u8**)o + 48))(o);
-    s32 rem = n & 7;
-    n >>= 3;
-    u64 m = D_0036a938;
-    s32 i;
-    u64* q = (u64*)p;
-    for (i = 0; i < n; i++) {
-        *q = (*q & m) << 4;
-        q++;
-    }
-    p = (u8*)q;
-    for (i = 0; i < rem; i++) {
-        *p = (*p & 0xf) << 4;
-        p++;
-    }
-}
+void func_0011f120(void* o, u8* p);  // 0x0011f120: definition moved into src/anon/unit_0011c128.cpp
 
 // Wraps an angle into [-pi, pi].
-f32 func_00127de8(f32 a) {  // clampf
-    if (a > 0.0f) {
-        while (a > 3.1415927f) a -= 6.2831855f;
-    } else {
-        while (a < -3.1415927f) a += 6.2831855f;
-    }
-    return a;
-}
+f32 func_00127de8(f32 a);  // 0x00127de8: definition moved into src/anon/unit_00127a88.cpp
 
 // Walks the list from a (up to b) and returns the first node whose virtual test accepts.
 void* func_00132390(void* a, void* b, u32 c, u32 d, u32 e) {

@@ -44,42 +44,5 @@ W1967Anim* w1967_getNext(void*) asm("_ZNK2kn13AnimationWork7getNextEv");
 
 void func_00190b30(s32* self, W1967Obj* obj);  // 0x00190b30: definition moved into src/anon/unit_001900d0.cpp
 
-void func_0011e600(W1967Owner* self, s32 a, s32 b) {
-    W1967Anim* p1;
-    W1967Anim* p;
-    W1967Anim* q;
-    if (a == 0 || b == 0 || a == b) return;
-    p1 = self->head;
-    if (!p1) return;
-    do {
-        if (w1967_getType(p1) == a || w1967_getType(p1) == b) {
-            q = w1967_getSub(p1);
-            if (q && (w1967_getType(q) == a || w1967_getType(q) == b)) {
-                w1967_link(p1, 0);
-            }
-        }
-    } while ((p1 = w1967_getNext(p1)) != 0);
-    p = self->head;
-    if (!p) return;
-    do {
-        if (w1967_getType(p) == a) {
-            for (q = w1967_getNext(p); q; q = w1967_getNext(q)) {
-                if (w1967_getType(q) == b && q->vt->canLink(q, p)) {
-                    w1967_link(q, (s32)p);
-                }
-            }
-        }
-    } while ((p = w1967_getNext(p)) != 0);
-    p = self->head;
-    if (!p) return;
-    do {
-        if (w1967_getType(p) == b) {
-            for (q = w1967_getNext(p); q; q = w1967_getNext(q)) {
-                if (w1967_getType(q) == a && q->vt->canLink(q, p)) {
-                    w1967_link(q, (s32)p);
-                }
-            }
-        }
-    } while ((p = w1967_getNext(p)) != 0);
-}
+void func_0011e600(W1967Owner* self, s32 a, s32 b);  // 0x0011e600: definition moved into src/anon/unit_0011c128.cpp
 }

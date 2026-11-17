@@ -119,32 +119,11 @@ void func_001002a0(s32) __attribute__((noreturn));
 Slot88* func_00109c30(void);  // 00109c30: moved to src/anon/unit_00109c30.cpp
 
 // Release the pending entry and every node of the list through the owner's vtable slot 1.
-void func_0011c3b0(u8* p) {
-    NoTail g;
-    if (*(void**)(p + 40)) {
-        u8* o = *(u8**)(p + 16);
-        (*(Fn1*)(*(u8**)o + 4))(o, *(void**)(p + 40));
-        *(u32*)(p + 40) = 0;
-    }
-    for (Node12* n = *(Node12**)(p + 292); n;) {
-        u8* o = *(u8**)(p + 16);
-        Node12* next = n->next;
-        (*(Fn1*)(*(u8**)o + 4))(o, n);
-        n = next;
-    }
-    func_0011e350(p, *(u32*)(p + 56));
-    func_0011c438(p);
-}
+void func_0011c3b0(u8* p);  // 0x0011c3b0: definition moved into src/anon/unit_0011c128.cpp
 
-void wtarget_0011e9a8(u32 a, u32 b, u32 c, u32 d, f32 x) {
-    void* p = 0;
-    while ((p = func_0011e7e0(a, p, b, c, d)) != 0) func_00132370(p, x);
-}
+void wtarget_0011e9a8(u32 a, u32 b, u32 c, u32 d, f32 x);  // 0x0011e9a8: definition moved into src/anon/unit_0011c128.cpp
 
-u32 func_00124578(u32 a0, u32 a1, u32 a2, u32 a3, u32 t0, u32 t1, u8 t2, u32 t3) {
-    u8* o = func_00124748(a0, 0);  // list_nth_node_rel
-    return (*(Fn8*)(*(u8**)o + 76))(o, a1, a2, a3, t0, t1, t2, t3);
-}
+u32 func_00124578(u32 a0, u32 a1, u32 a2, u32 a3, u32 t0, u32 t1, u8 t2, u32 t3);  // 0x00124578: definition moved into src/anon/unit_00123990.cpp
 
 void func_001387f8(u8* p, u32 a1, u32 a2, u32 a3);  // 0x001387f8: definition moved into src/anon/unit_00138480.cpp
 

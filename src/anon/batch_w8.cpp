@@ -12,16 +12,10 @@ extern "C" {
 // 001072d0: moved to src/naka/libkn/camera.cpp
 
 // Forward to the owned object's virtual slot 16 with this->field_104.
-void func_0011c7f8(u8* self, u32 x) {
-    void** o = *(void***)(self + 20);
-    ((VF3)(*(void***)o)[16])(o, *(u32*)(self + 260), x);
-}
+void func_0011c7f8(u8* self, u32 x);  // 0x0011c7f8: definition moved into src/anon/unit_0011c128.cpp
 
 void** func_00124748(void*, u32);  // list_nth_node_rel
-void func_00123d10(void* p) {
-    void** o = func_00124748(p, 0);  // list_nth_node_rel
-    ((VFn)(*(void***)o)[3])(o);
-}
+void func_00123d10(void* p);  // 0x00123d10: definition moved into src/anon/unit_00123990.cpp
 
 // 64-byte (matrix) copy src -> dst unless they are the same.
 void func_00146680(u8* dst, u8* src) {  // copy_quad4_if_diff

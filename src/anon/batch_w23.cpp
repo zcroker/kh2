@@ -27,11 +27,7 @@ extern u32 D_00347808;
 void func_0011a340(void** p);  // 0x0011a340: definition moved into src/anon/unit_0011a260.cpp
 
 void func_0011d440(void*);
-void func_0011c4b0(u8* p) {
-    func_0011d440(p);
-    void* o = *(void**)(p + 20);
-    (*(void (**)(void*, void*))((*(u8**)o) + 44))(o, p);
-}
+void func_0011c4b0(u8* p);  // 0x0011c4b0: definition moved into src/anon/unit_0011c128.cpp
 
 struct Node135 { void* vt; u32 pad; Node135* next; };
 extern u32 D_00347d00;

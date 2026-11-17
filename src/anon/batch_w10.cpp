@@ -97,10 +97,7 @@ void* CMData_GetPtr(s32) asm("_ZN2Tz6CMData6GetPtrEi");
 
 void Peterpan_acceptNotifyPlayerTarget(void* s);  // 0x0011a430: definition moved into src/anon/unit_0011a260.cpp
 
-void* func_00123dd0(void* a) {
-    void* o = func_00124748(a, 0);  // list_nth_node_rel
-    return (*(void* (**)(void*))(*(u8**)o + 28))(o);
-}
+void* func_00123dd0(void* a);  // 0x00123dd0: definition moved into src/anon/unit_00123990.cpp
 
 // 00135ff0: moved to src/naka/libkn/effect_observer.cpp
 

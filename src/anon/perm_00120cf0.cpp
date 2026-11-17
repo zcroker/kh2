@@ -47,15 +47,6 @@ struct B120cf0
   U120cf0 mid;
 };
 u32 func_00120a20(S120cf0 *, B120cf0 *, u32, u32, s32);
-void func_00120cf0(S120cf0 *s, B120cf0 *b, u32 base)
-{
-  U120cf0 new_var2;
-  u32 end;
-  b->base.u = base;
-  b->mid.u = b->base.u + (s->vt->count(s) * 4);
-  end = ((b->mid.u + (s->vt->count(s) * 4)) + 15) & (~15);
-  base = func_00120a20(s, b, b->base.u, end, 0);
-  func_00120a20(s, b, (new_var2 = b->mid).u, base, 1);
-}
+void func_00120cf0(S120cf0 *s, B120cf0 *b, u32 base);  // 0x00120cf0: definition moved into src/anon/unit_00120648.cpp
 
 }

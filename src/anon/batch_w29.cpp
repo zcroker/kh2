@@ -116,13 +116,7 @@ extern u8 D_00362dc8[];
 extern u8 D_0034ee08[];
 
 // Calls a virtual method (slot 5) with t on every animation work in o's list.
-void func_0011ea40(u8* o, f32 t) {
-    void* p = *(void**)(o + 56);
-    while (p) {
-        (*(VFnF*)((*(u8**)p) + 20))(p, t);
-        p = anim_getNext(p);
-    }
-}
+void func_0011ea40(u8* o, f32 t);  // 0x0011ea40: definition moved into src/anon/unit_0011c128.cpp
 
 void createTask(void);  // 0x00140ce8: definition moved into src/anon/unit_0013fca8.cpp
 

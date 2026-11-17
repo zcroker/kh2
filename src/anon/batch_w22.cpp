@@ -29,15 +29,7 @@ void func_00105110(void*);
 void func_00119d08(void** p);  // 0x00119d08: definition moved into src/anon/unit_00119bf8.cpp
 
 // --- 00124748
-u8* func_00124748(u8* a, s32 n) {  // list_nth_node_rel
-    u8* base = *(u8**)(a + 4);
-    u8* r = 0;
-    for (u32* q = (u32*)(base + 16); *q; q++) {
-        r = base + *q;
-        if (--n == -1) break;
-    }
-    return r;
-}
+u8* func_00124748(u8* a, s32 n);  // 0x00124748: definition moved into src/anon/unit_00123990.cpp
 
 // --- 0013f608
 f32 func_0017ce10(f32);

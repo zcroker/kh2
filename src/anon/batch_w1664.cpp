@@ -8,7 +8,7 @@ void wtarget_001124e0(u32, u32, u32, u32) asm("_Z16wtarget_001124e0jjjj");
 void wtarget_001124e0(u32, u32, u32, u32);  // 0x001124e0: definition moved into src/anon/unit_001117d8.cpp
 void func_00112568(void);  // 0x00112568: definition moved into src/anon/unit_001117d8.cpp
 void wtarget_00127de0(u32, u32, u32, u32) asm("_Z16wtarget_00127de0jjjj");
-void wtarget_00127de0(u32, u32, u32, u32) {}
+void wtarget_00127de0(u32, u32, u32, u32);  // 0x00127de0: definition moved into src/anon/unit_00127a88.cpp
 void func_001391f8(void);  // 0x001391f8: definition moved into src/anon/unit_001391c8.cpp
 void wtarget_00158988(u32, u32, u32, u32) asm("_Z16wtarget_00158988jjjj");
 // 00158988: static initialiser, now made by gcc in src/yasui/libys/light.cpp

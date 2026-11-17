@@ -5622,17 +5622,7 @@ u64 duplicate_unplaced_0011c230(u32 a0) {
 
 extern "C" u32 func_0011d468(...);
 
-f32 func_0011d6c0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32 s0 = a1;
-    u32 s1 = a0;
-    func_0011d468(a0, a1, a2, a3, a4, a5, a6, a7);
-    s0 = (u32)((u32)s0 << 6);
-    u32 r4 = *(volatile u32*)((u32)s1 + (s32)(20));
-    u32 t7 = *(volatile u32*)((u32)r4 + (s32)(0));
-    u32 v0 = ((u32(*)(u32))(*(volatile u32*)((u32)t7 + (s32)(32))))(r4);
-    v0 = (u32)(v0 + s0);
-    return *(volatile f32*)((u32)v0 + (s32)(28));
-}
+f32 func_0011d6c0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);  // 0x0011d6c0: definition moved into src/anon/unit_0011c128.cpp
 
 extern "C" u32 func_0011e350(...);
 extern "C" u32 func_0011e450(...);
@@ -5659,12 +5649,7 @@ void duplicate_unplaced_0011ee18(u32 a0, u32 a1) {
     ((u32*)(u32)a0)[3] = 0u;
 }
 
-u32 func_0011ef70(u32 a0, u32 a1) {
-    if (a1 != 0u) {
-        return *(volatile u32*)((u32)a1 + (s32)(4));
-    }
-    return *(volatile u32*)((u32)a0 + (s32)(8));
-}
+u32 func_0011ef70(u32 a0, u32 a1);  // 0x0011ef70: definition moved into src/anon/unit_0011c128.cpp
 
 s32 duplicate_unplaced_0011f238(u32 a0, u32 a1) {
     u32 s0 = a1;
@@ -14463,41 +14448,9 @@ void duplicate_unplaced_0011c4b0(C4B0_State* a0) {
     a4->vtbl->fn11(a4, s0);
 }
 
-u32 func_001208b8(u8* a0) {
-    u32 t6 = *(u32*)a0;
-    u32 (*fn)(u8*) = *(u32 (**)(u8*))(t6 + 0x1c);
-    u32 s0 = *(u32*)(a0 + 4);
-    u32 v0 = fn(a0);
-    u32 t7 = 0;
-    if (v0 != 0) {
-        u32 t8 = *(u32*)(s0 + 20);
-        t7 = s0;
-        t7 += t8;
-    }
-    return t7;
-}
+u32 func_001208b8(u8* a0);  // 0x001208b8: definition moved into src/anon/unit_00120648.cpp
 
-void func_00127cf8(u32 a0) {
-    if (a0 == 0) {
-        return;
-    }
-
-    u64 mask = 1;
-    mask <<= 53;
-    u64 flags = *(u64*)(a0 + 16);
-    if ((flags & mask) != 0) {
-        return;
-    }
-
-    *(u32*)(a0 + 16) = 0;
-loop:
-    a0 += 32;
-    flags = *(u64*)(a0 + 16);
-    if ((flags & mask) == 0) {
-        *(u32*)(a0 + 16) = 0;
-        goto loop;
-    }
-}
+void func_00127cf8(u32 a0);  // 0x00127cf8: definition moved into src/anon/unit_00127a88.cpp
 
 void func_00133690(u32 a0) {
     u32 s0 = a0;

@@ -16,24 +16,7 @@ extern "C" {
 extern S00350448 D_00350448;
 extern f32 D_00350464;
 
-Ent00124c48* func_00124c48(Obj00124c48* o, s32 id) {
-    register Hdr00124c48* h asm("$14") = o->h;
-    Ent00124c48* e = h->cnt ? (Ent00124c48*)((u8*)h + h->off) : 0;
-    if (e) {
-        register s32 cur asm("$12") = e->id;
-        if (cur != -1) {
-            for (;;) {
-                register Item00124c48* it asm("$13") = (Item00124c48*)(e + 1);
-                if (cur == id) return e;
-                e = (Ent00124c48*)(it + e->n);
-                register s32 nx asm("$14") = e->id;
-                if (nx == -1) break;
-                cur = nx;
-            }
-        }
-    }
-    return 0;
-}
+Ent00124c48* func_00124c48(Obj00124c48* o, s32 id);  // 0x00124c48: definition moved into src/anon/unit_00123990.cpp
 
 void wtarget_0019ee28(u32, u32, u32, u32) asm("_Z16wtarget_0019ee28jjjj");
 void wtarget_0019ee28(u32 a, u32 b, u32, u32);  // 0x0019ee28: definition moved into src/anon/unit_0019ea10.cpp

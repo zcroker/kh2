@@ -96,27 +96,7 @@ extern u8 D_00347a90[];
 typedef s32 (*PartFn)(void*);
 struct Obj123 { void* vtbl; u8* data; u8 pad[8]; s32 n; s32 a[3]; s32 b[3]; };
 // constructor: walks the part offset table, accumulating running sizes
-void func_001239d8(Obj123* o) {
-    s32 s3, s4;
-    u8* d;
-    s32* list;
-    s4 = 0; s3 = 0;
-    func_0011ee18(o);  // obj_ctor_347940
-    d = o->data;
-    o->n = 0;
-    o->vtbl = D_00347a90;
-    list = (s32*)(d + 16);
-    while (*list) {
-        s32* p = (s32*)(d + *list);
-        list++;
-        func_0011f2f0(p);
-        s4 += ((PartFn*)*p)[2](p);
-        o->a[o->n] = s4;
-        s3 += ((PartFn*)*p)[12](p);
-        o->b[o->n] = s3;
-        o->n++;
-    }
-}
+void func_001239d8(Obj123* o);  // 0x001239d8: definition moved into src/anon/unit_00123990.cpp
 
 void func_00188340(void*, s32, s32, s32);
 void func_0016cce8(void*, s32, s32, s32, s32);

@@ -50,42 +50,7 @@ s32 func_00132d60(s32);
 void func_001097e8(s32, s32, s32, s32, s32, s32, s32, s32, s32);
 void func_00133c60(void*, void*, s32, s32, s32);
 void func_001094e0(void*, s32);
-void func_001217a0(W2024a_Obj* o, void* ctx, s32 n, void* a3, W2024a_Hdr* h) {
-    W2024a_Ent* e = (W2024a_Ent*)(n * 32 + (u32)o->ents);
-    s32 k = e->idx;
-    u8* base = (u8*)h;
-    W2024a_Bb* bb;
-    W2024a_Tx* tx;
-    s32 cnt;
-    s32* p;
-    tx = (W2024a_Tx*)((u32)h + (h->off18 + k * 0xa0));
-    s32 x = (base + h->off10)[k] * 0x90;
-    x += 0x90;
-    bb = (W2024a_Bb*)((u32)h + (h->off14 + x));
-    func_00109788(ctx, base + h->off14);
-    func_00109708(ctx);
-    func_00109788(ctx, bb);
-    cnt = func_00132f98(a3, e->idx, D_003a99f0, 0x3c00, func_00132018(h));
-    if (cnt > 0) {
-        p = D_003a99f0;
-        s32 c = cnt;
-        do {
-            s32 s = *p++;
-            if (func_00132d90(s, 0) != 0) {
-                s32 r0 = func_00132c98(s);
-                s32 r1 = func_00132cd0(s);
-                s32 r2 = func_00132d00(s);
-                s32 r3 = func_00132d30(s);
-                s32 r4 = func_00132d60(s);
-                s32 r5 = func_00132d90(s, 0);
-                func_001097e8(r0, (s32)((bb->bitblt & 0x3fffULL << 32) >> 32), (s32)((tx->tex0 & 0xfc000ULL) >> 14), r1, r2, r3, r4, (s32)((tx->tex0 & 0x3f00000ULL) >> 20), r5);
-                func_00133c60(ctx, (void*)r0, 0, 0, 0);
-                func_001094e0(bb, r0);
-            }
-        } while (--c != 0);
-    }
-    func_00133c60(ctx, tx, 0, 0, 0);
-}
+void func_001217a0(W2024a_Obj* o, void* ctx, s32 n, void* a3, W2024a_Hdr* h);  // 0x001217a0: definition moved into src/anon/unit_00120648.cpp
 
 W2024b_Vec* func_0016c028(void*);
 void func_002e10d0(W2024b_Mtx*, W2024b_Cam*);

@@ -94,10 +94,5 @@ extern s32 D_00351ec8;
 
 struct VObj_w1671 { void** vt; };
 s32 func_0011f078(void*, s32);
-void func_0011c890(u8* a0, s32 a1) {
-    VObj_w1671* o = *(VObj_w1671**)(a0 + 0x14);
-    ((void (*)(VObj_w1671*, s32, s32))o->vt[0x48 / 4])(o, *(s32*)(a0 + 0x104), a1);
-    if (func_0011f078(*(void**)(a0 + 0x14), *(s32*)(a0 + 0x104))) *(u32*)(a0 + 0xc) |= 2;
-    else *(u32*)(a0 + 0xc) &= ~2;
-}
+void func_0011c890(u8* a0, s32 a1);  // 0x0011c890: definition moved into src/anon/unit_0011c128.cpp
 }

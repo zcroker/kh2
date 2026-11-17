@@ -117,20 +117,5 @@ s32 func_001affe0(Tbl273* t, s32 a1, s32 a2);  // 0x001affe0: definition moved i
 
 Sub273* func_00120800(Own273*);  // obj_get_sub_ptr_by12
 void func_0011efe8(Own273*, u8*);
-void func_00121218(Own273* o, u8* fl, u16* list) {
-  Sub273* a = o->sub;
-  Sub273* b = func_00120800(o);  // obj_get_sub_ptr_by12
-  s32 i;
-  func_0011efe8(o, fl);
-  while ((s16)*list != -1) {
-    s16 m = *list & 0x8000;
-    u8 bit = m ? 2 : 1;
-    for (i = 0; i < a->n; i++)
-      if (((a->e[i].w >> 6) & 0x1f) == (u32)(*list & 0x7fff)) fl[i] |= bit;
-    if (b)
-      for (i = 0; i < b->n; i++)
-        if ((b->e[i].w & 0x1f) == (u32)(*list & 0x7fff)) fl[a->n + i] |= bit;
-    list++;
-  }
-}
+void func_00121218(Own273* o, u8* fl, u16* list);  // 0x00121218: definition moved into src/anon/unit_00120648.cpp
 }

@@ -43,29 +43,10 @@ struct Node11c {
 };
 
 // Releases the pending handle and every queued node, then tears down.
-void func_0011c328(u8* p) {
-    if (*(u32*)(p + 40)) {
-        Obj* o = *(Obj**)(p + 16);
-        o->vt[1](o, *(u32*)(p + 40));
-        *(u32*)(p + 40) = 0;
-    }
-    Node11c* n = *(Node11c**)(p + 292);
-    while (n) {
-        Obj* o = *(Obj**)(p + 16);
-        Node11c* next = n->next;
-        o->vt[1](o, n);
-        n = next;
-    }
-    NoTail nt;  // keeps the last call a jal
-    func_0011e350(p, *(u32*)(p + 56));
-    func_0011c438(p);
-}
+void func_0011c328(u8* p);  // 0x0011c328: definition moved into src/anon/unit_0011c128.cpp
 
 // Visits every match from func_0011e7e0 and calls its slot-4 virtual.
-void func_0011e880(u32 a, u32 b, u32 c, u32 d) {
-    Obj* o = 0;
-    while ((o = func_0011e7e0(a, o, b, c, d)) != 0) o->vt[4](o, c, d);
-}
+void func_0011e880(u32 a, u32 b, u32 c, u32 d);  // 0x0011e880: definition moved into src/anon/unit_0011c128.cpp
 
 struct Stack135 {
     u8 pad[12];

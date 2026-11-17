@@ -80,19 +80,7 @@ struct W1985SkelVt { void* f[8]; W1985Bone* (*bones)(void*); };
 struct W1985Skel { W1985SkelVt* vt; };
 struct W1985Bones { u32 f0; W1985Mtx* mats; u8 pad[12]; W1985Skel* skel; };
 
-void func_00124848(W1985Bones* self, s32 idx, W1985Mtx* out)
-{
-    W1985Bone* b = self->skel->vt->bones(self->skel);
-    if (b[idx].parent >= 0 && (b[b[idx].parent].flags & 0x100000000ULL)) {
-        W1985Mtx m(self->mats[idx]);
-        s32 p;
-        for (p = b[idx].parent; p >= 0 && (b[p].flags & 0x100000000ULL); p = b[p].parent)
-            m = W1985Mul(self->mats[p], m);
-        *out = m;
-    } else {
-        *out = self->mats[idx];
-    }
-}
+void func_00124848(W1985Bones* self, s32 idx, W1985Mtx* out);  // 0x00124848: definition moved into src/anon/unit_00123990.cpp
 
 struct W1985Vec { f32 x, y, z, w; } __attribute__((aligned(16)));
 static inline void w1985_vadd(W1985Vec* d, const W1985Vec* a) {

@@ -33,37 +33,14 @@ void func_0011e600(void*, void*, void*);
 struct ChunkList { s16 tag; s16 pad; u32 n; };
 struct ChunkUser { u8 pad[52]; ChunkList* list; };
 static inline void* ChunkAt(ChunkList* c, s32 i) { return func_00132018(func_00132068(c, i)); }
-void func_0011e260(ChunkUser* self, ChunkList* c)
-{
-    self->list = c;
-    func_0011e410(self, ChunkAt(self->list, 0));
-    if (self->list && self->list->tag == -1) {
-        for (u32 i = 1; i < self->list->n; i++) {
-            func_0011e450(self, ChunkAt(self->list, i));
-            void* a = ChunkAt(self->list, 0);
-            func_0011e600(self, a, ChunkAt(self->list, i));
-        }
-    }
-}
+void func_0011e260(ChunkUser* self, ChunkList* c);  // 0x0011e260: definition moved into src/anon/unit_0011c128.cpp
 
 // 0011f2f0: initialise by kind, then run the object's two virtual hooks.
 void func_00123ac0(void*, void*);
 void func_0011f4b8(void*, void*);
 void func_001206e0(void*, void*);
 void func_0011ed90(s32, s32);
-VObj* func_0011f2f0(u8* self)
-{
-    VObj* o = 0;
-    u8* p = self + 144;
-    switch (*(s32*)p) {
-    case -1: func_00123ac0(self, p); o = (VObj*)self; break;
-    case 2: func_0011f4b8(self, p); o = (VObj*)self; break;
-    case 3: func_001206e0(self, p); o = (VObj*)self; break;
-    }
-    s32 a = ((VFn)o->vt[7])(o);
-    func_0011ed90(((VFn)o->vt[8])(o), a);
-    return o;
-}
+VObj* func_0011f2f0(u8* self);  // 0x0011f2f0: definition moved into src/anon/unit_0011c128.cpp
 
 // 0013ba60: table lookups with fallbacks.
 extern u32 D_00348060[][12];

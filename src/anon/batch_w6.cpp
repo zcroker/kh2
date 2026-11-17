@@ -19,10 +19,7 @@ extern VObj* D_0032b9cc;
 // True when the state at +0xb6c is 16, 12 or 15.
 u32 func_00111278(u8* p);  // 0x00111278: definition moved into src/anon/unit_00110b00.cpp
 
-void func_0011c798(u8* p, u32 a) {
-    VObj* o = *(VObj**)(p + 20);
-    ((void (*)(VObj*, u32, u32))o->vt[13])(o, *(u32*)(p + 260), a);
-}
+void func_0011c798(u8* p, u32 a);  // 0x0011c798: definition moved into src/anon/unit_0011c128.cpp
 
 // Set a timer (at least 15000) with a byte parameter and raise its flag.
 struct S4240 { u8 flag; u8 b; u8 pad[2]; s32 time; };

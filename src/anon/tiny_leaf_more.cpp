@@ -4,14 +4,7 @@
 
 u32 func_00112720(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00112720: definition moved into src/anon/unit_001117d8.cpp
 
-u32 func_00120800(u32 a0, u32 a1, u32 a2, u32 a3) {  // obj_get_sub_ptr_by12
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u, r15 = 0u;
-    r2 = *(u32*)((u32)r4 + (s32)(4));
-    r15 = *(u32*)((u32)r2 + (s32)(12));
-    r2 = (u32)(r2 + r15);
-    if (r15 == 0u) r2 = 0u;
-    return r2;
-}
+u32 func_00120800(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00120800: definition moved into src/anon/unit_00120648.cpp
 
 void func_00132cb8(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r14 = 0u, r15 = 0u;

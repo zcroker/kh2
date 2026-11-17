@@ -71,10 +71,7 @@ void func_00108698(u8* p);  // 00108698: moved to src/anon/unit_001085a8.cpp
 struct VObj1246 { u32 (**vt)(...); };
 VObj1246* func_00124748(u32, u32);  // list_nth_node_rel
 typedef u32 (*Fn1246)(VObj1246*, u32, u32, u32, u32, u8, u32);
-u32 func_001246b8(u32 a0, u32 a1, u32 a2, u32 a3, u32 t0, u8 t1, u32 t2) {
-    VObj1246* o = func_00124748(a0, 0);  // list_nth_node_rel
-    return ((Fn1246)o->vt[22])(o, a1, a2, a3, t0, t1, t2);
-}
+u32 func_001246b8(u32 a0, u32 a1, u32 a2, u32 a3, u32 t0, u8 t1, u32 t2);  // 0x001246b8: definition moved into src/anon/unit_00123990.cpp
 
 void func_00132270(u8*);  // obj_ctor_347c00
 void func_00108398(u8*);  // clear_quads_set_flags

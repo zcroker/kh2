@@ -186,12 +186,7 @@ f32 func_00114328(Tbl* t, s32 i, u8 a, u8 b) {
 }
 
 // Walks up the bone hierarchy past bones with flag bit 32 set.
-s32 func_0011f270(void* o, s32 n) {
-    Bone* b = (*(BoneFn*)((*(u8**)o) + 32))(o);
-    s32 i = b[n].parent;
-    while (i >= 0 && (b[i].flags & 0x100000000ull)) i = b[i].parent;
-    return i;
-}
+s32 func_0011f270(void* o, s32 n);  // 0x0011f270: definition moved into src/anon/unit_0011c128.cpp
 
 // Removes the entry for key (if its value is still current), then refreshes.
 // 00136200: moved to src/naka/libkn/effect_observer.cpp

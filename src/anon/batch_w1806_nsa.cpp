@@ -35,13 +35,7 @@ void func_00165870(s32);
 s32 func_001659b8(void*, s32);
 extern s32 D_01d48c90;
 
-void func_0011d5e0(W1806Obj* o, s32 i, W1806Vec* out, f32 s) {
-    W1806Elem* e = &o->src->get()[i];
-    W1806Vec v(e->len * s, 0.0f, 0.0f, 1.0f);
-    *out = o->mtx[i] * v;
-    out->y = -out->y;
-    out->z = -out->z;
-}
+void func_0011d5e0(W1806Obj* o, s32 i, W1806Vec* out, f32 s);  // 0x0011d5e0: definition moved into src/anon/unit_0011c128.cpp
 
 void func_001b2f38(W1806Set* o, W1806Hdr* h, u8 flag);  // 0x001b2f38: definition moved into src/anon/unit_001b2780.cpp
 }

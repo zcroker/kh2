@@ -1371,43 +1371,7 @@ Mdl123e30* func_00124748(Mdl123e30*, s32);
 void func_0011c2d0(Obj123e30*);
 u8* func_00120a20(Mdl123e30*, Obj123e30*, u8*, u8*, s32);
 void func_0011eef8(Mdl123e30*, Obj123e30*);
-Obj123e30* func_00123e30(Mdl123e30* mdl, Alloc123e30* al)
-{
-    s32 i = 0;
-    Hdr123e30* h = func_00124748(mdl, 0)->hdr;
-    u32 off = (mdl->b[mdl->n - 1] + 15) & ~15;
-    Obj123e30* o = (Obj123e30*)al->alloc(304 + off + h->cnt * 48 + mdl->a[mdl->n - 1] * 2, __builtin_return_address(0));
-    func_0011c2d0(o);
-    o->vis = (u8*)o + 304;
-    for (i = 0; i < mdl->parts(); i++) o->vis[i] = 1;
-    u8* p = o->vis + off;
-    o->p28 = p;
-    p += h->cnt * 16;
-    o->p32 = p;
-    p += h->cnt * 16;
-    o->p36 = p;
-    u8* q = al->alloc(h->cnt * 192, __builtin_return_address(0));
-    o->p40 = q;
-    q += h->cnt * 64;
-    o->p44 = q;
-    q += h->cnt * 64;
-    o->al = al;
-    o->p48 = q;
-    s32 tot = 0;
-    for (i = 0; i < mdl->n; i++) tot += func_00124748(mdl, i)->parts();
-    o->p264 = o->p36 + h->cnt * 16;
-    o->p268 = o->p264 + tot * 4;
-    u8* d = (u8*)(((u32)(o->p268 + tot * 4) + 15) & ~15);
-    tot = 0;
-    for (i = 0; i < mdl->n; i++) {
-        Mdl123e30* s = func_00124748(mdl, i);
-        d = func_00120a20(s, o, o->p264 + tot * 4, d, 0);
-        d = func_00120a20(s, o, o->p268 + tot * 4, d, 1);
-        tot += s->parts();
-    }
-    func_0011eef8(mdl, o);
-    return o;
-}
+Obj123e30* func_00123e30(Mdl123e30* mdl, Alloc123e30* al);  // 0x00123e30: definition moved into src/anon/unit_00123990.cpp
 
 struct V1253c0 {
     f32 x, y, z, w;
@@ -1452,30 +1416,7 @@ struct Skel1253c0 {
 struct Self1253c0 { u8 pad0[20]; Skel1253c0* skel; u8 pad1[16]; M1253c0* local; M1253c0* world; };
 extern M1253c0 D_003a99f0[];
 s32 func_0011f270(Skel1253c0*, s32);
-void func_001253c0(Self1253c0* s, s32 a1, s32 a2, s32 a3, s32 a4, s32 a5, s32 idx, f32 f)
-{
-    Bone1253c0* bones = s->skel->bones();
-    M1253c0* mats = D_003a99f0;
-    V1253c0* scales = (V1253c0*)&mats[s->skel->count()];
-    while (idx >= 0) {
-        V1253c0 t;
-        s32 parent;
-        if (!bones[idx].hasParent) parent = func_0011f270(s->skel, idx);
-        else parent = bones[idx].parent;
-        if (parent < 0) {
-            mats[idx] = s->local[idx];
-            t = s->local[idx].r[3];
-        } else {
-            mats[idx] = mats[parent] * s->local[idx];
-            t = s->world[parent] * s->local[idx].r[3];
-        }
-        s->world[idx] = mats[idx];
-        s->world[idx].scale(scales[idx]);
-        s->world[idx].r[3] = t;
-        if (bones[idx].child >= 0) func_001253c0(s, a1, a2, a3, a4, a5, bones[idx].child, f);
-        idx = bones[idx].sibling;
-    }
-}
+void func_001253c0(Self1253c0* s, s32 a1, s32 a2, s32 a3, s32 a4, s32 a5, s32 idx, f32 f);  // 0x001253c0: definition moved into src/anon/unit_00123990.cpp
 
 struct V1e1988 {
     f32 x, y, z, w;

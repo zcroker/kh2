@@ -134,22 +134,7 @@ typedef void (*Fn11a)(VObj11*, u8*, Mtx11*, u32, u32, f32);
 typedef void (*Fn11b)(VObj11*, u8*);
 // Sets the object's work matrix (and negates its two direction vectors), publishes it, then runs the setup hook.
 #define WORK_MTX(o) ((Mtx11*)((o) + 128))
-void func_0011c4e8(u8* o, Mtx11* m, VObj11* src, u32 a3, u32 a4, Mtx11* m2, f32 f)
-{
-    func_0011d440();
-    if (m) {
-        if (WORK_MTX(o) != m) MCOPY(WORK_MTX(o), m);
-        VScale(o + 144, -1.0f);
-        VScale(o + 160, -1.0f);
-    } else func_0011b6a8(WORK_MTX(o));
-    if (WORK_MTX(o) != &D_00347af0) MCOPY(&D_00347af0, WORK_MTX(o));
-    if (m2) { if (m2 != &D_00347b30) MCOPY(&D_00347b30, m2); }
-    else func_0011b6a8(&D_00347b30);
-    if (src) ((Fn11a)src->vt[3])(src, o, m, a3, a4, f);
-    else { VObj11* p = *(VObj11**)(o + 20); ((Fn11b)p->vt[11])(p, o); }
-    *(VObj11**)(o + 24) = src;
-    *(u32*)(o + 12) &= ~1;
-}
+void func_0011c4e8(u8* o, Mtx11* m, VObj11* src, u32 a3, u32 a4, Mtx11* m2, f32 f);  // 0x0011c4e8: definition moved into src/anon/unit_0011c128.cpp
 }
 
 #define QCOPY12(d, s) asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(d), "r"(s) : "$8", "memory")
@@ -179,39 +164,7 @@ void memcpy(void*, void*, s32);
 Dst12* func_00127a88(Src12* o, Heap12* heap) asm("_Z13func_00127a88Pv");
 typedef s32 (*CountFn12)(Src12Sub*);
 typedef s32 (*SubFn12)(Src12Sub*, Src12*, Heap12*);
-Dst12* func_00127a88(Src12* o, Heap12* heap)
-{
-    s32 n = ((CountFn12)o->shape->vt[7])(o->shape);
-    Dst12* r = (Dst12*)((AllocFn12)heap->vt[0])(heap, n * 80 + 32, __builtin_return_address(0));
-    func_00124828(r);
-    r->f12 = 0;
-    V12* p = (V12*)((u8*)r + 32);
-    r->pos = p;
-    r->tbl = 0;
-    r->mtx = (M12*)(p + n);
-    r->shape = o->shape;
-    for (s32 i = 0; i < n; i++) {
-        r->pos[i] = o->pos[i];
-        V12& d = r->pos[i]; V12& sv = o->scl[i]; d.w = sv.x;
-        r->mtx[i] = o->mtx[i];
-    }
-    if (o->flags & 1) r->b25 = 1;
-    if (o->sub) {
-        r->f12 = ((SubFn12)o->sub->vt[4])(o->sub, o, heap);
-        s32 k = o->sub->info->kind;
-        if (k == 1) r->b24 = k; else r->b24 = 0;
-        Src12Tbl* t = (Src12Tbl*)func_00124c48(o->sub, 0);
-        if (t) {
-            s32 sz = t->n * 4;
-            r->tbl = ((AllocFn12)heap->vt[0])(heap, sz + 4, 0);
-            memcpy(r->tbl, t->data, sz);
-            s16* e = (s16*)(sz + (u32)r->tbl);
-            e[1] = -1;
-            e[0] = -1;
-        }
-    }
-    return r;
-}
+Dst12* func_00127a88(Src12* o, Heap12* heap);  // 0x00127a88: definition moved into src/anon/unit_00127a88.cpp
 }
 
 struct Node14 { s16 child[8]; u8 box[24]; s16 first; s16 end; u8 pad[4]; };

@@ -30,16 +30,7 @@ struct N1777 { N1777Fn* vt; };
 struct O1777 { u8 pad[0x38]; N1777* first; };
 extern "C" {
 N1777* anim_next_1777(N1777*) asm("_ZNK2kn13AnimationWork7getNextEv");
-N1777* func_0011e7e0(O1777* o, N1777* from, s32 a, s32 b, s32 c) {
-    N1777* n = from;
-    if (n == 0) n = o->first;
-    else n = anim_next_1777(n);
-    while (n) {
-        if (n->vt[3](n, a, b, c)) return n;
-        n = anim_next_1777(n);
-    }
-    return 0;
-}
+N1777* func_0011e7e0(O1777* o, N1777* from, s32 a, s32 b, s32 c);  // 0x0011e7e0: definition moved into src/anon/unit_0011c128.cpp
 
 const unsigned char* func_00314b00(const unsigned char*, W1777UnwindWord*); /* read_uleb128 */
 const W1777TypeInfo* func_00314dd8(W1777LsdaHeaderInfo*, W1777UnwindWord); /* get_ttype_entry */

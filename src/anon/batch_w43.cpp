@@ -310,17 +310,7 @@ u32 Tz::Munny::Add(u32 n) {
     return *(u32*)(func_001058e8() + 9280);
 }
 
-void ctarget_0011e350(u32 a, u32 b, u32, u32) {
-    u8* s = (u8*)a;
-    u8* o = (u8*)b;
-    while (o) {
-        u8* n = (u8*)func_00132350(o);
-        (*(void (**)(void*))(*(u8**)o + 0))(o);
-        u8* q = *(u8**)(s + 16);
-        (*(void (**)(void*, void*))(*(u8**)q + 4))(q, o);
-        o = n;
-    }
-}
+void ctarget_0011e350(u32 a, u32 b, u32, u32);  // 0x0011e350: definition moved into src/anon/unit_0011c128.cpp
 
 // 001a6ae8: moved to src/anon/unit_001a6a10.cpp
 

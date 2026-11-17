@@ -72,18 +72,7 @@ struct Obj5 { void** vt; };
 s32 func_00132338(u8*);  // get_field8
 void func_00132cb8(u8*);
 u8* func_00132350(u8*);
-s32 func_0011c8f8(u8* p, u8* a1, u8 flag, Obj5* o, u32 a4, u32 a5)
-{
-    s32 r = ((Fn5)o->vt[19])(o, p + 64, a4, a1, a5, *(u32*)(p + 56), flag, *(u32*)(a1 + 52));
-    if (!flag && (*(u32*)(p + 12) & 2))
-        ((Fn5)o->vt[21])(o, p + 64, a4, a1, a5, *(u32*)(p + 56), 0, *(u32*)(a1 + 52));
-    if (r || flag) {
-        for (u8* q = *(u8**)(p + 56); q; q = func_00132350(q)) {
-            if (func_00132338(q) == 1) func_00132cb8(q);  // get_field8
-        }
-    }
-    return r;
-}
+s32 func_0011c8f8(u8* p, u8* a1, u8 flag, Obj5* o, u32 a4, u32 a5);  // 0x0011c8f8: definition moved into src/anon/unit_0011c128.cpp
 
 struct V4f { f32 x, y, z, w; };
 // 00144be0: eight corners of the box min(0,1,2)/max(3,4,5), y and z negated
@@ -5209,49 +5198,7 @@ u32 func_00109ea8(s32, u32, u8);
 u32 func_0010ae90(void);  // get_table_34ed8
 void func_00108ae0(u32, s32, u64, u64, u32, u32, s32, s32);
 void func_00109670(void);
-void func_001219b8(u8* p, u32 a1, u32 a2, u8* q, u32 a4, u8 flag, u32 a6, u32 a7)
-{
-    func_001217a0(p, a1, a2, a4, a6);
-    func_00134408();
-    func_00134428(76, 0x40140);
-    func_00134428(78, *(u64*)(q + 24) | (1ull << 32));
-    func_00134428(71, 0x30003);
-    func_00134428(8, 5);
-    func_00134428(24, (15ull << 43) | 0x7800);
-    func_00134428(64, 0xff000000ff0000ull);
-    func_00134428(66, (1ull << 39) | 0x44);
-    func_00134428(0, 86);
-    func_00134428(1, 0x3f80000080808080ull);
-    func_00134428(2, 0);
-    func_00134428(5, 0x78007800);
-    func_00134428(2, 0x3f8000003f800000ull);
-    func_00134428(5, (17ull << 27) | 0x8800);
-    func_00134450(1);
-    func_001217a0(p, a1, a2, a4, a7);
-    func_00134408();
-    func_00134428(76, 0xff00000000040140ull);
-    func_00134428(8, 5);
-    func_00134428(0, 86);
-    func_00134428(1, ((u64)((q[40] >> 1) & 0xff) << 24) | 0x3f80000000808080ull);
-    func_00134428(2, 0);
-    func_00134428(5, 0x78007800);
-    func_00134428(2, 0x3f8000003f800000ull);
-    func_00134428(5, (17ull << 27) | 0x8800);
-    func_00134428(24, (115ull << 40) | 0x7000);
-    func_00134428(64, 0x19f000001ff0000ull);
-    func_00134428(6, 0x2000000620012800ull);
-    func_00134450(1);
-    if (!flag) {
-        u32 x = func_00109f58(7, *(u32*)(*(u8**)(p + 4) + 4), q[7]);
-        u32 y = func_00109ea8(7, *(u32*)(*(u8**)(p + 4) + 4), q[7]);
-        func_00108ae0(func_0010ae90(), 15, *(u64*)(q + 16), *(u64*)(q + 24) & ~(1ull << 32), y, x, 0, 0);
-    } else {
-        u32 x = func_00109f58(11, *(u32*)(*(u8**)(p + 4) + 4), q[7]);
-        u32 y = func_00109ea8(11, *(u32*)(*(u8**)(p + 4) + 4), q[7]);
-        func_00108ae0(func_0010ae90(), 15, *(u64*)(q + 16) | (0xffull << 56), *(u64*)(q + 24) | (1ull << 32), y, x, 0, 0);
-    }
-    func_00109670();
-}
+void func_001219b8(u8* p, u32 a1, u32 a2, u8* q, u32 a4, u8 flag, u32 a6, u32 a7);  // 0x001219b8: definition moved into src/anon/unit_00120648.cpp
 
 // ---- 002f8420
 typedef union { f32 value; u32 word; } FloatShapeAt;
@@ -5462,13 +5409,7 @@ extern u8 D_00347a90[];
 void func_0011f3b8(u8*);
 void func_0011ee58(u32*);  // set_vtbl_347940
 struct NoTail_00123c20 { ~NoTail_00123c20() {} };
-void func_00123c20(u32* p) {
-    NoTail_00123c20 nt;
-    u8* q = (u8*)p[1];
-    *p = (u32)D_00347a90;
-    for (s32* s = (s32*)(q + 16); *s; s++) func_0011f3b8(q + *s);
-    func_0011ee58(p);  // set_vtbl_347940
-}
+void func_00123c20(u32* p);  // 0x00123c20: definition moved into src/anon/unit_00123990.cpp
 
 // ---- 001fb720
 void func_001fa950(u8*, u8*, u8*);
@@ -5506,13 +5447,7 @@ void func_0029a368() {
 
 // ---- 00123c98
 void func_00106420_3c98(u32*) asm("func_00106420");
-void func_00123c98(u32* p) {
-    u8* q = (u8*)p[1];
-    *p = (u32)D_00347a90;
-    for (s32* s = (s32*)(q + 16); *s; s++) func_0011f3b8(q + *s);
-    func_0011ee58(p);  // set_vtbl_347940
-    func_00106420_3c98(p);
-}
+void func_00123c98(u32* p);  // 0x00123c98: definition moved into src/anon/unit_00123990.cpp
 
 // ---- 00143520
 struct S_00143520 { u8 pad[48]; Vec4 pos; u8 pad2[32]; s16 h96, h98, h100; u8 pad3[6]; f32 f108; u8 pad4[8]; u32 w120; u8 pad5[20]; };
@@ -5625,17 +5560,7 @@ void func_0017f488(u8*, s32, f32, f32);
 union UC_0011f4b8 { u16 h; u32 i; };
 void func_0011ee18(u8*);  // obj_ctor_347940
 extern u8 D_003479a8[];
-void func_0011f4b8(u8* p) {
-    func_0011ee18(p);  // obj_ctor_347940
-    u8* t = *(u8**)(p + 4);
-    *(u32*)p = (u32)D_003479a8;
-    for (s32 i = 0; i < ((UC_0011f4b8*)(t + 16))->h; i++) {
-        u8* e = t + i * 16;
-        if (*(u32*)(e + 40) > 0xffff) *(u32*)(p + 12) |= 1;
-        u16 f = *(u16*)(e + 38) & 1;
-        if (f) *(u32*)(p + 12) |= 2;
-    }
-}
+void func_0011f4b8(u8* p);  // 0x0011f4b8: definition moved into src/anon/unit_0011c128.cpp
 
 // ---- 00142bf8
 void func_0014ed28(u32, s32);
@@ -12967,16 +12892,7 @@ void func_0031c450(O31c450* o)
 struct F11c148 { u64 lo : 51; u64 b51 : 1; u64 b52 : 1; u64 b53 : 1; u64 hi : 10; };
 struct O11c148 { u8 pad[0x10]; F11c148 fl; f32 k; u16 h; u16 id; };
 u16 func_0011f238(u32, u32);
-void func_0011c148(O11c148* o, u32 a, u32 id, u8 x, u8 y, f32 k)
-{
-    u16 h = func_0011f238(a, id);
-    o->k = k;
-    o->id = id;
-    o->fl.b52 = x != 0;
-    o->fl.b51 = y != 0;
-    o->fl.b53 = 0;
-    o->h = h;
-}
+void func_0011c148(O11c148* o, u32 a, u32 id, u8 x, u8 y, f32 k);  // 0x0011c148: definition moved into src/anon/unit_0011c128.cpp
 
 // --------------------
 struct A196ca8 { u8 a, b, c; };
@@ -14351,47 +14267,7 @@ s32 func_00124788(Mdl11ca20*, u32);
 Res11ca20* func_00109d00(Self11ca20*, s32, Mdl11ca20*, s32*, s32);
 Xf11ca20* f11ca20_get(s32) asm("func_00106a60");
 void f11ca20_submit(Xf11ca20*) asm("func_001070e8");
-Res11ca20* func_0011ca20(Self11ca20* s, const M11ca20* w, const M11ca20* l, s32 arg, u32 idx)
-{
-    s->local = *l;
-    s->local.r[1] *= -1.0f;
-    s->local.r[2] *= -1.0f;
-    s->world = *w * s->local;
-    Mdl11ca20* m = s->mdl;
-    Mdl11ca20* o = m;
-    s32 multi = 0;
-    s32* tbl = s->tbl;
-    s32 base = s->base;
-    if (m->seq->id == -1) {
-        m = func_00124748(m, idx);
-        multi = 1;
-        s32 k = func_00124788(o, idx);
-        tbl = s->tbl + k;
-        base = s->base + k;
-    }
-    Res11ca20* r = func_00109d00(s, arg, m, tbl, base);
-    if (!r->xf && (m->flags & 2)) {
-        Xf11ca20 x(*f11ca20_get(1));
-        M11ca20::mul(&s->xf, &x.m, &s->local);
-        r->xf = &s->xf;
-        f11ca20_submit(&x);
-    }
-    s->nframes = m->frames(s->base);
-    if (r && r->hdr) {
-        Hdr11ca20* h = r->hdr;
-        if (h->kind == -1) {
-            if (multi) {
-                if (idx >= h->count) idx = h->count - 1;
-                r->hdr = (Hdr11ca20*)((u8*)h + h->off[idx]);
-            } else if (r->b64 == 0) {
-                r->hdr = (Hdr11ca20*)((u8*)h + h->off[0]);
-            } else if (r->b64 == 255) {
-                r->hdr = (Hdr11ca20*)((u8*)h + h->off[1]);
-            }
-        }
-    }
-    return r;
-}
+Res11ca20* func_0011ca20(Self11ca20* s, const M11ca20* w, const M11ca20* l, s32 arg, u32 idx);  // 0x0011ca20: definition moved into src/anon/unit_0011c128.cpp
 
 struct V125860 { f32 x, y, z, w; } __attribute__((aligned(16)));
 struct M125860 { V125860 r[4]; };
@@ -14422,68 +14298,7 @@ static inline void cross125860(V125860* d, const V125860* a, const V125860* b)
 	lqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 0(%2)\n\tvsub.wxyz $vf3, $vf0, $vf0\n\tvopmula.xyz ACC, $vf1, $vf2\n\tvopmsub.xyz $vf3, $vf2, $vf1\n\tsqc2 $vf3, 0(%0)\n\t.set reorder"
                  : : "r"(d), "r"(a), "r"(b) : "memory");
 }
-void func_00125860(M125860* d, const M125860* a, const M125860* b, f32 t)
-{
-    lerp125860(&d->r[3], &a->r[3], &b->r[3], t);
-    f32 d0 = dot125860(&a->r[0], &b->r[0]);
-    f32 d1 = dot125860(&a->r[1], &b->r[1]);
-    f32 d2 = dot125860(&a->r[2], &b->r[2]);
-    if (d1 <= d0 && d2 <= d0) {
-        lerp125860(&d->r[0], &a->r[0], &b->r[0], t);
-        norm125860(&d->r[0]);
-        if (d2 <= d1) {
-            lerp125860(&d->r[1], &a->r[1], &b->r[1], t);
-            norm125860(&d->r[1]);
-            cross125860(&d->r[2], &d->r[0], &d->r[1]);
-            norm125860(&d->r[2]);
-            cross125860(&d->r[1], &d->r[2], &d->r[0]);
-            norm125860(&d->r[1]);
-        } else {
-            lerp125860(&d->r[2], &a->r[2], &b->r[2], t);
-            norm125860(&d->r[2]);
-            cross125860(&d->r[1], &d->r[2], &d->r[0]);
-            norm125860(&d->r[1]);
-            cross125860(&d->r[2], &d->r[0], &d->r[1]);
-            norm125860(&d->r[2]);
-        }
-    } else if (d2 <= d1 && d0 <= d1) {
-        lerp125860(&d->r[1], &a->r[1], &b->r[1], t);
-        norm125860(&d->r[1]);
-        if (d2 <= d0) {
-            lerp125860(&d->r[0], &a->r[0], &b->r[0], t);
-            norm125860(&d->r[0]);
-            cross125860(&d->r[2], &d->r[0], &d->r[1]);
-            norm125860(&d->r[2]);
-            cross125860(&d->r[0], &d->r[1], &d->r[2]);
-            norm125860(&d->r[0]);
-        } else {
-            lerp125860(&d->r[2], &a->r[2], &b->r[2], t);
-            norm125860(&d->r[2]);
-            cross125860(&d->r[0], &d->r[1], &d->r[2]);
-            norm125860(&d->r[0]);
-            cross125860(&d->r[2], &d->r[0], &d->r[1]);
-            norm125860(&d->r[2]);
-        }
-    } else {
-        lerp125860(&d->r[2], &a->r[2], &b->r[2], t);
-        norm125860(&d->r[2]);
-        if (d1 <= d0) {
-            lerp125860(&d->r[0], &a->r[0], &b->r[0], t);
-            norm125860(&d->r[0]);
-            cross125860(&d->r[1], &d->r[2], &d->r[0]);
-            norm125860(&d->r[1]);
-            cross125860(&d->r[0], &d->r[1], &d->r[2]);
-            norm125860(&d->r[0]);
-        } else {
-            lerp125860(&d->r[1], &a->r[1], &b->r[1], t);
-            norm125860(&d->r[1]);
-            cross125860(&d->r[0], &d->r[1], &d->r[2]);
-            norm125860(&d->r[0]);
-            cross125860(&d->r[1], &d->r[2], &d->r[0]);
-            norm125860(&d->r[1]);
-        }
-    }
-}
+void func_00125860(M125860* d, const M125860* a, const M125860* b, f32 t);  // 0x00125860: definition moved into src/anon/unit_00123990.cpp
 
 struct V14e8b8 {
     f32 x, y, z, w;

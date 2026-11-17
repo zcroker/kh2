@@ -76,29 +76,5 @@ struct Cam11de88 {
     ~Cam11de88() { cam11de88_dtor(this); }
 };
 extern "C" {
-void func_0011de88(Self11de88* s, Desc11de88* d, void* a2, void* a3, void* e)
-{
-    Out11de88 o;
-    Mat11de88 mt;
-    V11de88 box[8];
-    func_0011dd08(box, a3);
-    if (d->flags & 1) {
-        Cam11de88 c;
-        V11de88 ctr;
-        ctr = (box[0] + box[6]) * 0.5f;
-        ctr.y -= (box[6] - box[0]).length() * 8.0f;
-        func_00134d60(&c, &ctr);
-        func_00134df8(&c, box, &o, &mt, e);
-    } else {
-        func_00134df8(func_00135640(), box, &o, &mt, e);
-    }
-    if (s->res->k->kind != 2) {
-        M11de88 t(s->m64);
-        func_0011be50(&t);
-        mt.m = mt.m * s->m128 * t;
-    } else {
-        mt.m = mt.m * s->m128;
-    }
-    func_0010abf0(s, &s->m64, d, a2, &mt, &o, a3, e);
-}
+void func_0011de88(Self11de88* s, Desc11de88* d, void* a2, void* a3, void* e);  // 0x0011de88: definition moved into src/anon/unit_0011c128.cpp
 }

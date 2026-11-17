@@ -3,9 +3,7 @@
 extern "C" {
 
 // Clears two quadwords.
-void func_0011c138(void* p) {  // vec4_zero
-    asm volatile(".set noreorder\n\tsq $0, 0(%0)\n\tsq $0, 16(%0)\n\t.set reorder" : : "r"(p) : "memory");
-}
+void func_0011c138(void* p);  // 0x0011c138: definition moved into src/anon/unit_0011c128.cpp
 
 struct Pair8 { u8 a; u8 b; u8 pad[2]; s32 c; };
 void func_0010b550(Pair8* p);  // 0x0010b550: definition moved into src/anon/unit_0010b450.cpp

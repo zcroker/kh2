@@ -43,14 +43,4 @@ struct O_0011efe8;
 struct Ovt_0011efe8 { u8 pad[0x30]; s32 (*fn)(struct O_0011efe8*); };
 struct O_0011efe8 { struct Ovt_0011efe8* vt; };
 
-void func_0011efe8(struct O_0011efe8* o, u8* p) {
-    s32 n = o->vt->fn(o);
-    s32 r = n & 7;
-    s32 i;
-    u64 m = 0xf0f0f0f0f0f0f0f0ULL;
-    n >>= 3;
-    u64* q = (u64*)p;
-    for (i = 0; i < n; i++) { *q = *q & m; q++; }
-    p = (u8*)q;
-    for (i = 0; i < r; i++) { *p = *p & 0xf0; p++; }
-}
+void func_0011efe8(struct O_0011efe8* o, u8* p);  // 0x0011efe8: definition moved into src/anon/unit_0011c128.cpp

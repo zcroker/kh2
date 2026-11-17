@@ -55,37 +55,14 @@ s32 func_001145b0(s32 x) {
 // Unlink the node with this key from the list at +292 and hand it to the owner's release method.
 struct Node { s32 key; u32 pad; Node* prev; Node* next; };
 struct VObj { void** vt; };
-void func_0011ecc8(u8* p, s32 key) {
-    Node* n;
-    for (n = *(Node**)(p + 292); n; n = n->next) {
-        if (n->key == key) {
-            if (n->prev) n->prev->next = n->next;
-            else *(Node**)(p + 292) = n->next;
-            if (n->next) n->next->prev = n->prev;
-            VObj* o = *(VObj**)(p + 16);
-            ((void (*)(VObj*, Node*))o->vt[1])(o, n);
-            return;
-        }
-    }
-}
+void func_0011ecc8(u8* p, s32 key);  // 0x0011ecc8: definition moved into src/anon/unit_0011c128.cpp
 
 // Constructor: base init, vtable, then collect flag bits 0 / 29 of each 32-byte entry.
 struct FlagEnt { u32 f; u32 x[7]; };
 struct FlagHdr { u8 pad[28]; s32 n; FlagEnt e[1]; };
 void func_0011ee18(void*);  // obj_ctor_347940
 extern u8 D_00347a28[];
-void func_001206e0(u32* p) {
-    func_0011ee18(p);  // obj_ctor_347940
-    p[0] = (u32)D_00347a28;
-    FlagHdr* d = (FlagHdr*)p[1];
-    s32 i;
-    for (i = 0; i < d->n; i++) {
-        u32 m = d->e[i].f & 1;
-        if (m) p[3] |= 1;
-        m = d->e[i].f >> 29 & 1;
-        if (m) p[3] |= 2;
-    }
-}
+void func_001206e0(u32* p);  // 0x001206e0: definition moved into src/anon/unit_00120648.cpp
 
 void func_00139510(void*);
 void func_001b2028(u32);

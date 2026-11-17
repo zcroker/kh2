@@ -8,9 +8,9 @@ s32 func_001137e0(void* self) { return (s32)(*(s32*)((char*)self + 12)); }
 
 s32 func_001137e8(void* self) { return (s32)(*(s32*)((char*)self + 16)); }
 
-u16 func_0011c228(void* self) { return (u16)(*(u16*)((char*)self + 30)); }
+u16 func_0011c228(void* self);  // 0x0011c228: definition moved into src/anon/unit_0011c128.cpp
 
-void func_00124840(void* self) {}
+void func_00124840(void* self);  // 0x00124840: definition moved into src/anon/unit_00123990.cpp
 
 void func_00131f40(void* self) {}
 

@@ -7,10 +7,7 @@ void wtarget_001c05b0(u32, u32, u32, u32) asm("_Z16wtarget_001c05b0jjjj");
 
 void func_0011c798(u32, u32);
 void func_0011ca20(u32, u32, u32, u32, u32);
-void func_0011cd80(u32 a, u32 b, u32 c, u32 d, u32 e, u32 f) {
-    func_0011c798(a, e);
-    func_0011ca20(a, b, c, d, f);
-}
+void func_0011cd80(u32 a, u32 b, u32 c, u32 d, u32 e, u32 f);  // 0x0011cd80: definition moved into src/anon/unit_0011c128.cpp
 
 struct Node139858 { u32 f0; Node139858* next; u8 pad8[8]; s32 group; };
 struct List139858 { u32 f0; Node139858* head; };

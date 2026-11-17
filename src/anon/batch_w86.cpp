@@ -146,26 +146,7 @@ extern "C" {
 extern u8 D_00347a90[];
 void func_0011ee18(Obj*);  // obj_ctor_347940
 void func_0011f2f0(Elem*);
-void func_00123ac0(Obj* o)
-{
-    s32 a = 0;
-    s32 b = 0;
-    func_0011ee18(o);  // obj_ctor_347940
-    u32* t = o->tbl;
-    o->n = 0;
-    o->vt = D_00347a90;
-    u32* p = t + 4;
-    while (*p) {
-        Elem* e = (Elem*)((u8*)t + *p++);
-        func_0011f2f0(e);
-        a += VT(e)[2](e);
-        o->a[o->n] = a;
-        b += VT(e)[12](e);
-        s32 n = o->n;
-        o->b[n] = b;
-        o->n = n + 1;
-    }
-}
+void func_00123ac0(Obj* o);  // 0x00123ac0: definition moved into src/anon/unit_00123990.cpp
 }
 }
 

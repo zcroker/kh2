@@ -153,11 +153,7 @@ void func_002edf68(u32 a0) {
     *(volatile u32 *)(a0 + 28) = 0;
 }
 
-void func_0011c210(u32 a0) {
-    u64 v = *(u64 *)(a0 + 16);
-    u64 mask = 1ull << 53;
-    *(u64 *)(a0 + 16) = v | mask;
-}
+void func_0011c210(u32 a0);  // 0x0011c210: definition moved into src/anon/unit_0011c128.cpp
 
 void func_0010dee8(u32 a0, u32 *a1, u32 *a2);  // 0x0010dee8: definition moved into src/anon/unit_0010dee8.cpp
 
@@ -199,19 +195,9 @@ void func_0010a800(u8 *a0, u8 *a1, u8 *a2);  // 0010a800: moved to src/anon/unit
 
 void func_0010ef28(u32 a0, u32 a1);  // 0x0010ef28: definition moved into src/anon/unit_0010dee8.cpp
 
-u64 func_0011c230(u32 a0) {
-    u64 v = *(u64 *)(a0 + 16);
-    return (v >> 53) & 1;
-}
+u64 func_0011c230(u32 a0);  // 0x0011c230: definition moved into src/anon/unit_0011c128.cpp
 
-void func_0011ee18(u32 a0, u32 a1) {  // obj_ctor_347940
-    u32 p = (u32)&D_00347940;
-    *(u32 *)(a0 + 4) = a1;
-    p += 0;
-    *(u32 *)(a0 + 8) = 0;
-    *(u32 *)a0 = p;
-    *(u32 *)(a0 + 12) = 0;
-}
+void func_0011ee18(u32 a0, u32 a1);  // 0x0011ee18: definition moved into src/anon/unit_0011c128.cpp
 
 u32 func_0014c908() {
     func_0014c8e0();

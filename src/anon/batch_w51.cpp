@@ -21,21 +21,7 @@ typedef void (*VFn1)(void*, u32);
 f32 func_00111808(u8* p);  // 0x00111808: definition moved into src/anon/unit_001117d8.cpp
 
 // Copy matrix i of the table into m, then negate its Y and Z columns.
-void func_0011d468(u8* p, s32 i, f32* m) {
-    u8* s = *(u8**)(p + 44) + (i << 6);
-    if ((u8*)m != s)
-        asm volatile("lq $8, 0(%1)\n\tlq $9, 16(%1)\n\tlq $10, 32(%1)\n\tlq $11, 48(%1)\n\t"
-                     "sq $8, 0(%0)\n\tsq $9, 16(%0)\n\tsq $10, 32(%0)\n\tsq $11, 48(%0)"
-                     : : "r"(m), "r"(s) : "$8", "$9", "$10", "$11", "memory");
-    m[1] = -m[1];
-    m[5] = -m[5];
-    m[9] = -m[9];
-    m[13] = -m[13];
-    m[2] = -m[2];
-    m[6] = -m[6];
-    m[10] = -m[10];
-    m[14] = -m[14];
-}
+void func_0011d468(u8* p, s32 i, f32* m);  // 0x0011d468: definition moved into src/anon/unit_0011c128.cpp
 
 // Cubic Hermite interpolation between (t0, p0, m0) and (t1, p1, m1).
 f32 func_001286d0(f32 t, f32 t0, f32 p0, f32 m0, f32 t1, f32 p1, f32 m1);  // 0x001286d0: definition moved into src/anon/unit_00128480.cpp

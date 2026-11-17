@@ -69,14 +69,7 @@ VObj* func_00102c80(void);
 // ---- 0011c828
 struct VObj11c { void (**vt)(VObj11c*, u32, u32); };
 s32 func_0011f078(VObj11c*, u32);
-void wtarget_0011c828(u8* o, u32 a1, u32, u32) {
-    VObj11c* x = *(VObj11c**)(o + 20);
-    x->vt[17](x, *(u32*)(o + 260), a1);
-    if (func_0011f078(*(VObj11c**)(o + 20), *(u32*)(o + 260)))
-        *(u32*)(o + 12) |= 2;
-    else
-        *(u32*)(o + 12) &= ~2;
-}
+void wtarget_0011c828(u8* o, u32 a1, u32, u32);  // 0x0011c828: definition moved into src/anon/unit_0011c128.cpp
 
 // ---- 00132ec0
 u8* func_00132c68(u8*, u32);

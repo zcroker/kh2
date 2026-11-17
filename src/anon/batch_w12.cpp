@@ -100,19 +100,10 @@ void func_00114b90(void** p) {
     func_00105110(p);
 }
 
-void func_0011f3e0(void* p) {
-    u8* c = 0;
-    while ((c = (u8*)func_0011ef70(p, c)) != 0)
-        *(void**)(c + 20) = p;
-    func_0011f2f0(p);
-}
+void func_0011f3e0(void* p);  // 0x0011f3e0: definition moved into src/anon/unit_0011c128.cpp
 
 // Deleting destructor: reset vtable, run base dtor, free.
-void func_0011f5a0(void** p) {
-    *p = &D_003479a8;
-    func_0011ee58(p);  // set_vtbl_347940
-    func_00106420(p);
-}
+void func_0011f5a0(void** p);  // 0x0011f5a0: definition moved into src/anon/unit_0011c128.cpp
 
 void SpriteImage_change(void* self, void* data);  // 0x00138698: definition moved into src/anon/unit_00138480.cpp
 

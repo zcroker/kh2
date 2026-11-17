@@ -25,17 +25,7 @@ struct Loc285 { f32 a, b, c; s32 d; Vq285 v; };
 struct Obj285 { Vq285 v0, v10, v20, v30, v40; s32 f50; f32 f54; };
 struct TzObj285 { void (**vt)(TzObj285*); };
 extern "C" {
-void func_001256c0(f32 (*d)[4], f32 (*a)[4], f32 (*b)[4], f32 t) {
-    vlerp(d[3], a[3], b[3], t);
-    vlerp(d[0], a[0], b[0], t);
-    vnorm(d[0]);
-    vlerp(d[1], a[1], b[1], t);
-    vnorm(d[1]);
-    vouter(d[2], d[0], d[1]);
-    vnorm(d[2]);
-    vouter(d[1], d[2], d[0]);
-    vnorm(d[1]);
-}
+void func_001256c0(f32 (*d)[4], f32 (*a)[4], f32 (*b)[4], f32 t);  // 0x001256c0: definition moved into src/anon/unit_00123990.cpp
 
 void func_001902a8(void*, Loc285*);
 Vq285* func_0016c028(s32);  // obj_get_attach_or_alt

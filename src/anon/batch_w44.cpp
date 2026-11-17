@@ -118,32 +118,13 @@ extern u32 D_0032ba18;
 s32 func_00112d28(u8* p);  // 0x00112d28: definition moved into src/anon/unit_001117d8.cpp
 
 // Any of the first count() flag bytes has bit 2 set.
-s32 func_0011f078(void** o, u8* flags) {
-    for (s32 i = 0; i < (*(IFn*)((u8*)*o + 48))(o); i++) {
-        if (flags[i] & 4) return 1;
-    }
-    return 0;
-}
+s32 func_0011f078(void** o, u8* flags);  // 0x0011f078: definition moved into src/anon/unit_0011c128.cpp
 
 // Destructor: release each offset-listed entry of the attached table.
 extern u32 D_00347a90;
-void func_00123ba8(u32* self) {
-    u8* a = (u8*)self[1];
-    self[0] = (u32)&D_00347a90;
-    for (u32* p = (u32*)(a + 16); *p; p++) func_0011f3b8(a + *p);
-    NoTail g;
-    func_0011ee58(self);  // set_vtbl_347940
-}
+void func_00123ba8(u32* self);  // 0x00123ba8: definition moved into src/anon/unit_00123990.cpp
 
-u32 wtarget_00127d40(u32 a, u32, u32, u32) {
-    u32 r = 0;
-    u32 s = a + 144;
-    switch (*(s32*)s) {
-    case 0: func_00127f40(a, s); r = a; break;
-    case 1: func_001316f0(a, s); r = a; break;
-    }
-    return r;
-}
+u32 wtarget_00127d40(u32 a, u32, u32, u32);  // 0x00127d40: definition moved into src/anon/unit_00127a88.cpp
 
 extern volatile u8 D_00347cb4;
 void f1340e8(void* p) {

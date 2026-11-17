@@ -108,17 +108,10 @@ void func_00114cc8(void** p) {
     func_00105110(p);
 }
 
-void func_001207c8(void** p) {
-    *p = &D_00347a28;
-    func_0011ee58(p);  // set_vtbl_347940
-    func_00106420(p);
-}
+void func_001207c8(void** p);  // 0x001207c8: definition moved into src/anon/unit_00120648.cpp
 
 typedef s32 (*VFn2)(void*, s32);
-s32 func_00123d90(void* a, s32 b) {
-    void* o = func_00124748(a, 0);  // list_nth_node_rel
-    return (*(VFn2*)(*(u8**)o + 24))(o, b);
-}
+s32 func_00123d90(void* a, s32 b);  // 0x00123d90: definition moved into src/anon/unit_00123990.cpp
 
 // 001373a0: moved to src/harata/libdk/bgm.cpp
 

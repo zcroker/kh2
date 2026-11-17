@@ -23,19 +23,7 @@ struct Obj1792 {
 
 extern "C" {
 void func_0011efe8(void*);
-void func_0011f6e8(O4_1792* o, u8* bits, s16* list) {
-    D18_1792* d = o->d;
-    func_0011efe8(o);
-    if (*list != -1) {
-        s32* tbl = (s32*)((u8*)d + d->off18);
-        s16 v;
-        while ((v = *list++) != -1) {
-            s16* q = (s16*)((u8*)d + tbl[v & 0x7fff]);
-            u8 flag = (v & ~0x7fff) ? 2 : 1;
-            for (; *q >= 0; q++) bits[*q] |= flag;
-        }
-    }
-}
+void func_0011f6e8(O4_1792* o, u8* bits, s16* list);  // 0x0011f6e8: definition moved into src/anon/unit_0011c128.cpp
 
 extern s8 D_004f3590;
 extern f32 D_004f3598;

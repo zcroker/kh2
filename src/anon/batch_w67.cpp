@@ -67,21 +67,7 @@ static inline bool stateIsOne(u8* c) { return *(s32*)(c + 4) == 1; }
 void func_0010c940(u8* p, s32 n, f32 t);  // 0x0010c940: definition moved into src/anon/unit_0010b978.cpp
 
 // 00124b10: obj->matrix = m * obj->matrix (VU0)
-void func_00124b10(u8* p, Mtx* m)
-{
-    Mtx* d = *(Mtx**)(p + 4);
-    Mtx t;
-    asm volatile(".set noreorder\n\t"
-        "lqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 16(%1)\n\tlqc2 $vf3, 32(%1)\n\tlqc2 $vf4, 48(%1)\n\t"
-        "lqc2 $vf5, 0(%2)\n\tlqc2 $vf6, 16(%2)\n\tlqc2 $vf7, 32(%2)\n\tlqc2 $vf8, 48(%2)\n\t"
-        "vmulax.xyzw ACC, $vf1, $vf5x\n\tvmadday.xyzw ACC, $vf2, $vf5y\n\tvmaddaz.xyzw ACC, $vf3, $vf5z\n\tvmaddw.xyzw $vf5, $vf4, $vf5w\n\t"
-        "vmulax.xyzw ACC, $vf1, $vf6x\n\tvmadday.xyzw ACC, $vf2, $vf6y\n\tvmaddaz.xyzw ACC, $vf3, $vf6z\n\tvmaddw.xyzw $vf6, $vf4, $vf6w\n\t"
-        "vmulax.xyzw ACC, $vf1, $vf7x\n\tvmadday.xyzw ACC, $vf2, $vf7y\n\tvmaddaz.xyzw ACC, $vf3, $vf7z\n\tvmaddw.xyzw $vf7, $vf4, $vf7w\n\t"
-        "vmulax.xyzw ACC, $vf1, $vf8x\n\tvmadday.xyzw ACC, $vf2, $vf8y\n\tvmaddaz.xyzw ACC, $vf3, $vf8z\n\tvmaddw.xyzw $vf8, $vf4, $vf8w\n\t"
-        "sqc2 $vf5, 0(%0)\n\tsqc2 $vf6, 16(%0)\n\tsqc2 $vf7, 32(%0)\n\tsqc2 $vf8, 48(%0)\n\t.set reorder"
-        : : "r"(&t), "r"(m), "r"(d) : "memory");
-    *d = t;
-}
+void func_00124b10(u8* p, Mtx* m);  // 0x00124b10: definition moved into src/anon/unit_00123990.cpp
 
 s16* func_001aec40(void*);  // get_global_1c9408c
 void func_002b9ab8(s32);

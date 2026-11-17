@@ -14,9 +14,7 @@ void* func_0011a900(void* dst, u8* src);  // 0x0011a900: definition moved into s
 
 // Call the object's first virtual function.
 typedef void (*VFn)(void*);
-void func_0011f3b8(void** obj) {
-    (*(VFn**)obj)[0](obj);
-}
+void func_0011f3b8(void** obj);  // 0x0011f3b8: definition moved into src/anon/unit_0011c128.cpp
 
 // 00134d78: moved to src/anon/unit_00134668.cpp
 

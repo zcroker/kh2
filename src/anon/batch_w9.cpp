@@ -75,9 +75,7 @@ void jm_unload(u8* j) asm("_ZN2Tz6JmInfo6UnloadEz");
 
 // 00107300: moved to src/naka/libkn/camera.cpp
 
-u32 func_001231f8(void* o, u32 a1, u32 a2, u32 a3, u32 t0, u8 t1, u32 t2) {
-    return (*(u32 (**)(void*, u32, u32, u32, u32, u32, u32, u32))(*(u8**)o + 76))(o, a1, a2, a3, t0, 0, t1, t2);
-}
+u32 func_001231f8(void* o, u32 a1, u32 a2, u32 a3, u32 t0, u8 t1, u32 t2);  // 0x001231f8: definition moved into src/anon/unit_00123138.cpp
 
 // 00135c50: moved to src/naka/libkn/obj_observer.cpp
 

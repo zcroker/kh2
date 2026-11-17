@@ -29,19 +29,7 @@ void func_001002b0(void) {
 // Sum a virtual query over the objects referenced by an offset table.
 u32 func_00124748(void*);  // list_nth_node_rel
 typedef s32 (*VFn124)(u8*);
-s32 func_00124788(u8* a) {
-    s32 sum = 0;
-    u8* end = (u8*)func_00124748(a);  // list_nth_node_rel
-    u8* base = *(u8**)(a + 4);
-    s32* p = (s32*)(base + 16);
-    while (*p) {
-        u8* o = base + *p;
-        if (o == end) break;
-        p++;
-        sum += (*(VFn124*)((*(u8**)o) + 48))(o);
-    }
-    return sum;
-}
+s32 func_00124788(u8* a);  // 0x00124788: definition moved into src/anon/unit_00123990.cpp
 
 // Allocate and construct an object that points back at its owner slot.
 void* func_001050d8(u32);

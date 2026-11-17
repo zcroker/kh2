@@ -401,15 +401,7 @@ namespace w70_q {
 extern "C" {
 typedef void (*Fn52)(u8*, s32, u32);
 u8* func_00124748(u8*, s32);  // list_nth_node_rel
-void func_001241b8(u8* p, s32 base, u32 c)
-{
-    u8* o = func_00124748(p, 0);  // list_nth_node_rel
-    (*(Fn52*)(*(u8**)o + 52))(o, base, c);
-    for (s32 i = 1; i < *(s32*)(p + 16); i++) {
-        o = func_00124748(p, i);  // list_nth_node_rel
-        (*(Fn52*)(*(u8**)o + 52))(o, base + ((s32*)(p + 28))[i], c);
-    }
-}
+void func_001241b8(u8* p, s32 base, u32 c);  // 0x001241b8: definition moved into src/anon/unit_00123990.cpp
 void func_00138988(u8*);
 void func_00138de0(u8*);
 extern s32 D_0034805c;
@@ -835,15 +827,7 @@ void func_001025f8(u8*, u8*);
 void wtarget_00102688(u32, u32, u32, u32) asm("_Z16wtarget_00102688jjjj");
 typedef void (*Fn60)(u8*, s32, u32);
 u8* func_00124748(u8*, s32);  // list_nth_node_rel
-void func_00124278(u8* p, s32 base, u32 c)
-{
-    u8* o = func_00124748(p, 0);  // list_nth_node_rel
-    (*(Fn60*)(*(u8**)o + 60))(o, base, c);
-    for (s32 i = 1; i < *(s32*)(p + 16); i++) {
-        o = func_00124748(p, i);  // list_nth_node_rel
-        (*(Fn60*)(*(u8**)o + 60))(o, base + ((s32*)(p + 28))[i], c);
-    }
-}
+void func_00124278(u8* p, s32 base, u32 c);  // 0x00124278: definition moved into src/anon/unit_00123990.cpp
 f32* func_001333c8(u8*);
 f32 fabsf(f32);  // fabsf
 void func_0013fda0(u8*);
@@ -1186,15 +1170,7 @@ struct V4 { f32 x, y, z, w; } __attribute__((aligned(16)));
 extern "C" {
 typedef void (*Fn64)(u8*, s32, u32);
 u8* func_00124748(u8*, s32);  // list_nth_node_rel
-void func_00124338(u8* p, s32 base, u32 c)
-{
-    u8* o = func_00124748(p, 0);  // list_nth_node_rel
-    (*(Fn64*)(*(u8**)o + 64))(o, base, c);
-    for (s32 i = 1; i < *(s32*)(p + 16); i++) {
-        o = func_00124748(p, i);  // list_nth_node_rel
-        (*(Fn64*)(*(u8**)o + 64))(o, base + ((s32*)(p + 28))[i], c);
-    }
-}
+void func_00124338(u8* p, s32 base, u32 c);  // 0x00124338: definition moved into src/anon/unit_00123990.cpp
 u32 __fixunssfsi(f32);
 u32 func_001333f8(u8* p, u32 a, u32 b)
 {
@@ -1504,15 +1480,7 @@ namespace w73_f1 {
 extern "C" {
 typedef void (*Fn68)(u8*, s32, u32);
 u8* func_00124748(u8*, s32);  // list_nth_node_rel
-void func_001243f8(u8* p, s32 base, u32 c)
-{
-    u8* o = func_00124748(p, 0);  // list_nth_node_rel
-    (*(Fn68*)(*(u8**)o + 68))(o, base, c);
-    for (s32 i = 1; i < *(s32*)(p + 16); i++) {
-        o = func_00124748(p, i);  // list_nth_node_rel
-        (*(Fn68*)(*(u8**)o + 68))(o, base + ((s32*)(p + 28))[i], c);
-    }
-}
+void func_001243f8(u8* p, s32 base, u32 c);  // 0x001243f8: definition moved into src/anon/unit_00123990.cpp
 u32 __fixunssfsi(f32);
 u32 func_001334a8(u8* p, u32 a, u32 b)
 {
@@ -1831,15 +1799,7 @@ struct V4 { f32 x, y, z, w; } __attribute__((aligned(16)));
 extern "C" {
 typedef void (*Fn72)(u8*, s32, u32);
 u8* func_00124748(u8*, s32);  // list_nth_node_rel
-void func_001244b8(u8* p, s32 base, u32 c)
-{
-    u8* o = func_00124748(p, 0);  // list_nth_node_rel
-    (*(Fn72*)(*(u8**)o + 72))(o, base, c);
-    for (s32 i = 1; i < *(s32*)(p + 16); i++) {
-        o = func_00124748(p, i);  // list_nth_node_rel
-        (*(Fn72*)(*(u8**)o + 72))(o, base + ((s32*)(p + 28))[i], c);
-    }
-}
+void func_001244b8(u8* p, s32 base, u32 c);  // 0x001244b8: definition moved into src/anon/unit_00123990.cpp
 extern f32 D_00349e10;
 f32 func_0017ce10(f32);
 f32 fabsf(f32);  // fabsf

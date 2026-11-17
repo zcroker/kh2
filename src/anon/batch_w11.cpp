@@ -20,10 +20,7 @@ extern u32 D_00347848;
 void func_0011a510(void** p);  // 0x0011a510: definition moved into src/anon/unit_0011a260.cpp
 
 typedef u8* (*GetFn)(void*);
-s16 func_0011f238(void* o, s32 i) {
-    u8* b = (*(GetFn*)((*(u8**)o) + 32))(o);
-    return *(s16*)(b + i * 64 + 4);
-}
+s16 func_0011f238(void* o, s32 i);  // 0x0011f238: definition moved into src/anon/unit_0011c128.cpp
 
 struct Node135 { void* vt; u32 pad; Node135* next; };
 extern u32 D_00347d00;

@@ -143,10 +143,7 @@ s32 func_001182d0(void) {
     return n;
 }
 
-void func_00123d40(void* a, void* b, void* c) {
-    void** o = (void**)func_00124748(a, 0);  // list_nth_node_rel
-    ((void (*)(void*, void*, void*))((void**)*o)[4])(o, b, c);
-}
+void func_00123d40(void* a, void* b, void* c);  // 0x00123d40: definition moved into src/anon/unit_00123990.cpp
 
 void jumpEffectIn_task(void* task);  // 0x0013f450: definition moved into src/anon/unit_0013ef70.cpp
 

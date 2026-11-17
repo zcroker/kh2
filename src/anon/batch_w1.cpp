@@ -54,9 +54,7 @@ void func_0010c828(u8* p);  // 0x0010c828: definition moved into src/anon/unit_0
 void func_0011a918(u8* d, u8* s);  // 0x0011a918: definition moved into src/anon/unit_0011a660.cpp
 
 // Virtual call: slot 0.
-void func_00127da0(void** o) {
-    (*(void (**)(void*))*o)(o);
-}
+void func_00127da0(void** o);  // 0x00127da0: definition moved into src/anon/unit_00127a88.cpp
 
 void func_0013a200(void);  // 0x0013a200: definition moved into src/anon/unit_001393c8.cpp
 

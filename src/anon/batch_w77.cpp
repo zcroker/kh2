@@ -8,20 +8,7 @@ typedef s32 (*CountFn)(VObj*);
 struct VObj { void** vt; };
 extern "C" {
 void func_00124848(u8*, s32, u32);
-void func_00124a40(u8* p)
-{
-    if (p[25]) return;
-    VObj* o = *(VObj**)(p + 20);
-    u8* arr = ((GetFn)o->vt[8])(o);
-    s32 i = 0;
-    o = *(VObj**)(p + 20);
-    s32 n = ((CountFn)o->vt[7])(o);
-    for (; i < n; i++) {
-        if (!(*(u64*)(arr + i * 64 + 8) & (1ULL << 32)))
-            func_00124848(p, i, *(u32*)(p + 4) + i * 64);
-    }
-    p[25] = 1;
-}
+void func_00124a40(u8* p);  // 0x00124a40: definition moved into src/anon/unit_00123990.cpp
 }
 }
 

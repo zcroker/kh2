@@ -43,18 +43,7 @@ void func_0011d440(void);
 void func_0011b6a8(Mtx*);
 void func_00125f78(u8*, u32, u32, u32, u32, u32, f32);
 // Loads the given matrix (or identity when null) into the shared work matrix, then sets up the object.
-void func_0011c6a8(u8* o, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, Mtx* m, f32 f) {
-    func_0011d440();
-    if (m != 0) {
-        if (m != &D_00347b30)
-            asm volatile("lq $8, 0(%1)\n\tlq $9, 16(%1)\n\tlq $10, 32(%1)\n\tlq $11, 48(%1)\n\t"
-                         "sq $8, 0(%0)\n\tsq $9, 16(%0)\n\tsq $10, 32(%0)\n\tsq $11, 48(%0)"
-                         : : "r"(&D_00347b30), "r"(m) : "$8", "$9", "$10", "$11", "memory");
-    } else func_0011b6a8(&D_00347b30);
-    func_00125f78(o, a1, a2, a3, a4, a5, f);
-    *(u32*)(o + 24) = 0;
-    *(u32*)(o + 12) |= 1;
-}
+void func_0011c6a8(u8* o, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, Mtx* m, f32 f);  // 0x0011c6a8: definition moved into src/anon/unit_0011c128.cpp
 }
 }
 

@@ -462,18 +462,7 @@ struct TA1213c0 { u8 pad[28]; s32 n; EA1213c0 e[1]; };
 struct TB1213c0 { u8 pad[28]; s32 n; EB1213c0 e[1]; };
 TB1213c0* func_00120800(u8*);  // obj_get_sub_ptr_by12
 // Mark every entry of the given kind (-1 = all) in both tables as state 1.
-void func_001213c0(u8* p, F1213c0* fl, s32 kind) {
-    TA1213c0* t = *(TA1213c0**)(p + 4);
-    TB1213c0* b = func_00120800(p);  // obj_get_sub_ptr_by12
-    for (s32 i = 0; i < t->n; i++) {
-        if (kind == -1 || t->e[i].kind == kind) fl[i].st = 1;
-    }
-    if (b) {
-        for (s32 i = 0; i < b->n; i++) {
-            if (kind == -1 || b->e[i].kind == kind) fl[t->n + i].st = 1;
-        }
-    }
-}
+void func_001213c0(u8* p, F1213c0* fl, s32 kind);  // 0x001213c0: definition moved into src/anon/unit_00120648.cpp
 
 } // extern "C"
 

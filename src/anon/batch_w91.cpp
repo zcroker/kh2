@@ -58,19 +58,7 @@ void func_0010c9f8(u8* p, f32 a, f32 b, f32 c, f32 d, f32 e);  // 0x0010c9f8: de
 // --- 001215b8
 // Flags (|= 4) every entry of both tables whose id field matches (or all when id == -1).
 u8* func_00120800(u8*);  // obj_get_sub_ptr_by12
-void func_001215b8(u8* p, u8* flags, s32 id) {
-    u8* q = *(u8**)(p + 4);
-    u8* r = func_00120800(p);  // obj_get_sub_ptr_by12
-    s32 i;
-    for (i = 0; i < *(s32*)(q + 28); i++) {
-        if (id == -1 || ((*(u32*)(q + 32 + i * 32) >> 6) & 0x1f) == id) flags[i] |= 4;
-    }
-    if (r) {
-        for (i = 0; i < *(s32*)(r + 28); i++) {
-            if (id == -1 || (*(u32*)(r + 32 + i * 32) & 0x1f) == id) flags[*(s32*)(q + 28) + i] |= 4;
-        }
-    }
-}
+void func_001215b8(u8* p, u8* flags, s32 id);  // 0x001215b8: definition moved into src/anon/unit_00120648.cpp
 
 // --- 00131810
 // Copies the current frame's matrices into the destination's matrix buffer.

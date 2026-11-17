@@ -30,13 +30,7 @@ static inline __attribute__((always_inline)) s32 tableSize(u8* p) {
 }
 
 // Total size of the object's main table plus its optional second table.
-s32 func_001208f8(void* a0) {
-    u8* s = *(u8**)((u8*)a0 + 4);
-    s32 o = func_00120800(a0);
-    s32 r = tableSize(s);
-    if (o) r += tableSize((u8*)o);
-    return r;
-}
+s32 func_001208f8(void* a0);  // 0x001208f8: definition moved into src/anon/unit_00120648.cpp
 
 struct PadState { s32 a; s32 b; s32 c; u32 f; };
 void func_00136b78(s32, s32);

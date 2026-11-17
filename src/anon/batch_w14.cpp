@@ -105,10 +105,7 @@ void func_00114de0(u8* p) {
     func_00105110(p);
 }
 
-void func_00124100(void* a, s32 b) {
-    void** o = (void**)func_00124748(a, 0);  // list_nth_node_rel
-    (*(void (**)(void*, s32))(*(u8**)o + 44))(o, b);
-}
+void func_00124100(void* a, s32 b);  // 0x00124100: definition moved into src/anon/unit_00123990.cpp
 
 void func_00128008(u8* p) {
     *(u8**)p = D_00347bb0;

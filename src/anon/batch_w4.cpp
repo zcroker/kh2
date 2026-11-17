@@ -60,12 +60,7 @@ struct Obj0011eef8 {
     u32 f10;
     void* f14;
 };
-void func_0011eef8(void* a, Obj0011eef8* b) {  // obj_init_and_call
-    b->fc = 0;
-    b->f14 = a;
-    b->f8 = 0;
-    func_0011ee98(a, b);
-}
+void func_0011eef8(void* a, Obj0011eef8* b);  // 0x0011eef8: definition moved into src/anon/unit_0011c128.cpp
 
 // Quadword copy from p+0x50 into dst (unless they alias).
 // 00107368: moved to src/naka/libkn/camera.cpp

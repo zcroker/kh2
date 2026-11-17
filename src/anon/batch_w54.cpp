@@ -85,30 +85,11 @@ struct Link64 {
     u8 pad[56];
 };
 // rebuild the link fields of a 64-byte record table
-void func_0011ed90(Link64* p, s32 n) {
-    s32 i;
-    for (i = 0; i < n; i++) {
-        p[i].b = 0xffff;
-        p[i].d = 0xffff;
-    }
-    for (i = 0; i < n; i++) {
-        s16 c = p[i].c;
-        s32 t = p[i].a - i;
-        if (c >= 0 && c >= t) {
-            Link64* q = (Link64*)((u8*)((c - t) * 64) + (u32)p);
-            u16 tmp = q->d;
-            q->d = i + t;
-            p[i].b = tmp;
-        }
-    }
-}
+void func_0011ed90(Link64* p, s32 n);  // 0x0011ed90: definition moved into src/anon/unit_0011c128.cpp
 
 typedef s32 (*VFn124)(void*, s32, s32, s32, s32, s32, u8, s32);
 void* func_00124748(void*, s32);  // list_nth_node_rel
-s32 func_00124618(void* a0, s32 a1, s32 a2, s32 a3, s32 t0, s32 t1, u8 t2, s32 t3) {
-    void* o = func_00124748(a0, 0);  // list_nth_node_rel
-    return (*(VFn124*)((*(u8**)o) + 80))(o, a1, a2, a3, t0, t1, t2, t3);
-}
+s32 func_00124618(void* a0, s32 a1, s32 a2, s32 a3, s32 t0, s32 t1, u8 t2, s32 t3);  // 0x00124618: definition moved into src/anon/unit_00123990.cpp
 
 struct Snd132 {
     u8 pad[2];

@@ -197,172 +197,21 @@ u32 func_0011b868(u32 a0, f32* a1);  // 0x0011b868: definition moved into src/an
 
 f32 func_0011bdc0(f32* a0, u32 a1, u32 a2);  // 0x0011bdc0: definition moved into src/anon/unit_0011b3f8.cpp
 
-void func_0011c2d0(u8* a0) {  // obj_clear_16_onwards
-    *(u32*)(a0 + 0x10) = 0;
-    *(u32*)(a0 + 0x14) = 0;
-    *(u32*)(a0 + 0x18) = 0;
-    *(u32*)(a0 + 0x1c) = 0;
-    *(u32*)(a0 + 0x20) = 0;
-    *(u32*)(a0 + 0x24) = 0;
-    *(u32*)(a0 + 0x28) = 0;
-    *(u32*)(a0 + 0x2c) = 0;
-    *(u32*)(a0 + 0x30) = 0;
-    *(u32*)(a0 + 0x34) = 0;
-    *(u32*)(a0 + 0x38) = 0;
-    *(u32*)(a0 + 0x100) = 0;
-    *(u32*)(a0 + 0x104) = 0;
-    *(u32*)(a0 + 4) = 0;
-    *(u32*)(a0 + 0x124) = 0;
+void func_0011c2d0(u8* a0);  // 0x0011c2d0: definition moved into src/anon/unit_0011c128.cpp
 
-    u32 next = D_00347930;
-    *(u32*)(a0 + 0) = next;
-    D_00347930 = (u32)a0;
+void func_0011c438(u8* a0);  // 0x0011c438: definition moved into src/anon/unit_0011c128.cpp
 
-    *(u32*)(a0 + 0x108) = 0;
-    *(u32*)(a0 + 0x10c) = 0;
-}
+void func_0011ea98(u32 a0, u32 a1);  // 0x0011ea98: definition moved into src/anon/unit_0011c128.cpp
 
-void func_0011c438(u8* a0) {
-    u8* s0 = a0;
-    func_0011eea8(*(u32*)(a0 + 0x14), (u32)s0);
+void func_0011eb08(u32 a0, u32 a1);  // 0x0011eb08: definition moved into src/anon/unit_0011c128.cpp
 
-    u8* t7 = (u8*)D_00347930;
-    u8* t5 = 0;
+void func_0011eb78(u32 a0, u32 a1);  // 0x0011eb78: definition moved into src/anon/unit_0011c128.cpp
 
-    if (t7 != 0 && t7 != s0) {
-        do {
-            t5 = t7;
-            t7 = *(u8**)t7;
-            if (t7 == 0) {
-                break;
-            }
-        } while (t7 != s0);
-    }
+void func_0011ec28(u8* a0, u32 a1, u32 a2, u32 a3);  // 0x0011ec28: definition moved into src/anon/unit_0011c128.cpp
 
-    if (t5 != 0) {
-        *(u32*)t5 = *(u32*)s0;
-    } else {
-        D_00347930 = *(u32*)s0;
-    }
-}
+u32 func_00124140(u8* a0);  // 0x00124140: definition moved into src/anon/unit_00123990.cpp
 
-void func_0011ea98(u32 a0, u32 a1) {
-    u32 s0 = *(u32*)(a0 + 0x38);
-    u32 s1 = a1;
-
-    while (s0 != 0) {
-        u32 t7 = *(u32*)s0;
-        u32 v0 = ((Fn4)(*(u32*)(t7 + 0xc)))(s0, 1, 0xffff, s1);
-        if (v0 != 0) {
-            func_00132e28(s0, s1);
-        }
-        v0 = func_00132350(s0);
-        if (v0 != 0) {
-            s0 = v0;
-            continue;
-        }
-        break;
-    }
-}
-
-void func_0011eb08(u32 a0, u32 a1) {
-    u32 s0 = *(u32*)(a0 + 0x38);
-    u32 s1 = a1;
-
-    while (s0 != 0) {
-        u32 t7 = *(u32*)s0;
-        u32 v0 = ((Fn4)(*(u32*)(t7 + 0xc)))(s0, 1, 0xffff, s1);
-        if (v0 != 0) {
-            func_00132ec0(s0, s1);
-        }
-        v0 = func_00132350(s0);
-        if (v0 != 0) {
-            s0 = v0;
-            continue;
-        }
-        break;
-    }
-}
-
-void func_0011eb78(u32 a0, u32 a1) {
-    u32 s0 = *(u32*)(a0 + 0x38);
-    u32 s1 = a1;
-
-    while (s0 != 0) {
-        u32 t7 = *(u32*)s0;
-        u32 v0 = ((Fn4)(*(u32*)(t7 + 0xc)))(s0, 1, 0xffff, s1);
-        if (v0 != 0) {
-            func_00132f38(s0);
-        }
-        v0 = func_00132350(s0);
-        if (v0 != 0) {
-            s0 = v0;
-            continue;
-        }
-        break;
-    }
-}
-
-void func_0011ec28(u8* a0, u32 a1, u32 a2, u32 a3) {
-    u32 s1 = a3;
-    u8* s2 = a0;
-    u32 s3 = a1;
-
-    func_0011ecc8();
-    u32 s4 = a2;
-
-    u32 obj = *(u32*)(s2 + 0x10);
-    u32 t7 = *(u32*)obj;
-    u32 v0 = ((FnAlloc)(*(u32*)(t7 + 0x0)))(obj, s1 + 0x10, 0);
-
-    *(u32*)(v0 + 0x0) = s3;
-    *(u32*)(v0 + 0x4) = s1;
-    *(u32*)(v0 + 0x8) = 0;
-    *(u32*)(v0 + 0xc) = 0;
-    memcpy(v0 + 0x10, s4, s1);
-
-    *(u32*)(v0 + 0x8) = 0;
-    *(u32*)(v0 + 0xc) = *(u32*)(s2 + 0x124);
-    *(u32*)(s2 + 0x124) = v0;
-}
-
-u32 func_00124140(u8* a0) {
-    s32 s1 = 0;
-    u32 s2 = 0;
-
-    s32 t7 = *(s32*)(a0 + 0x10);
-    if (t7 > 0) {
-        do {
-            VObj* obj = func_00124748((u32)a0, (u32)s1);  // list_nth_node_rel
-            VCall48 fn = (VCall48)obj->vtbl[12];
-            u32 v = fn(obj);
-            s1 = s1 + 1;
-            t7 = *(s32*)(a0 + 0x10);
-            s2 = s2 + v;
-        } while (s1 < t7);
-    }
-
-    return s2;
-}
-
-void func_00127c70(u32 a0, Obj* a1, u32 a2) {
-    Obj* s0 = a1;
-    u32 s1 = a2;
-
-    u32 t7 = *(u32*)(s1 + 12);
-    if (t7 != 0) {
-        ((VCall4)s0->vtbl[1])(s0, t7);
-    }
-
-    t7 = *(u32*)(s1 + 16);
-    if (t7 != 0) {
-        ((VCall4)s0->vtbl[1])(s0, t7);
-    }
-
-    func_00124840(s1);
-    ((VCall4)s0->vtbl[1])(s0, s1);
-    (void)a0;
-}
+void func_00127c70(u32 a0, Obj* a1, u32 a2);  // 0x00127c70: definition moved into src/anon/unit_00127a88.cpp
 
 u32 func_00129008(u32 a0, u32 a1, u8* a2, u32 a3, u32 a4, u32 a5);  // 0x00129008: definition moved into src/anon/unit_00128480.cpp
 

@@ -76,10 +76,7 @@ f32 func_001065a8(f32 a, f32 b) asm("_Z13func_001065a8jjjjjjjj");
 void func_00119c88(u32 a0);  // 0x00119c88: definition moved into src/anon/unit_00119bf8.cpp
 
 // Virtual call (slot 15) on the object at +20, forwarding the field at +260.
-void func_0011c7c8(u8* a0, u32 a1) {
-    VObj* o = *(VObj**)(a0 + 20);
-    ((void (*)(VObj*, u32, u32))o->vtbl[15])(o, *(u32*)(a0 + 260), a1);
-}
+void func_0011c7c8(u8* a0, u32 a1);  // 0x0011c7c8: definition moved into src/anon/unit_0011c128.cpp
 
 void func_0013b1a0(u32 a0);  // 0x0013b1a0: definition moved into src/anon/unit_0013a8b8.cpp
 
