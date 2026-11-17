@@ -409,9 +409,7 @@ u32 func_00109340(u32 a0, u32 a1, u32 a2, u32 a3);  // 00109340: moved to src/an
 
 u32 func_00109670(u32 a0, u32 a1, u32 a2, u32 a3);  // 00109670: moved to src/anon/unit_001085a8.cpp
 
-u32 func_00119bb8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_00119b10(0x00000001u, 0x0000ffffu, a2, a3);
-}
+u32 func_00119bb8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00119bb8: definition moved into src/anon/unit_001195a8.cpp
 
 u32 func_0011b3e0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0011b3e0: definition moved into src/anon/unit_0011a660.cpp
 
@@ -980,9 +978,7 @@ u32 func_002e18b8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002e18b8: definition mo
 
 // 002e3ef8: moved to src/anon/unit_002e2f08.cpp
 
-u32 func_002e7638(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_002e7610(0x00000001u, 0x0000ffffu, a2, a3);
-}
+u32 func_002e7638(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002e7638: definition moved into src/anon/unit_002e5f70.cpp
 
 // 002e7aa0: _GLOBAL__I_ stub, now made by gcc in src/anon/unit_002e7658.cpp
 

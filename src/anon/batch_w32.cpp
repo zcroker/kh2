@@ -148,9 +148,7 @@ void func_002d5e10(void** p);  // 0x002d5e10: definition moved into src/anon/uni
 void func_002daca0(u8* p, void* b, void* c);  // 0x002daca0: definition moved into src/anon/unit_002da040.cpp
 
 // delete[] of the 64-byte element array.
-void func_002e70b0(u8* o) {
-    delete[] *(Elem64**)(o + 4);
-}
+void func_002e70b0(u8* o);  // 0x002e70b0: definition moved into src/anon/unit_002e5f70.cpp
 
 // 002e9338: moved to src/sugi/flare.cpp
 

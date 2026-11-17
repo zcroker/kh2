@@ -74,26 +74,7 @@ void func_001dc920(void*);
 void func_00117910(void*, s32);  // entry64_clear_fields
 void func_0018f028(void*);
 void func_00113668(void*);
-void func_00117d18(u8* p) {
-    NoTail nt;
-    *(void**)p = D_003476f0;
-    s32 i = 0;
-    void** e = (void**)(p + 40);
-    do {
-        void* o = *e;
-        e += 16;
-        if (o) func_001dc920(o);
-        func_00117910(p, i);  // entry64_clear_fields
-        i++;
-    } while (i < 24);
-    void* x = *(void**)(p + 1568);
-    if (x) {
-        func_0018f028(x);
-        *(void**)(p + 1568) = 0;
-    }
-    ((Arr24*)(p + 32))->~Arr24();
-    func_00113668(p);
-}
+void func_00117d18(u8* p);  // 0x00117d18: definition moved into src/anon/unit_001178b8.cpp
 
 extern s32 D_0034a7d8[];
 extern s32 D_0034a7e8[];
@@ -314,14 +295,7 @@ void sel_start(Sel* s);  // 0x0028aa40: definition moved into src/anon/unit_0028
 // Quaternion product o = a * b.
 struct Qt { f32 x, y, z, w; };
 void func_002e3f58(Qt*, Qt*, Qt*);
-Qt* func_002e46d0(Qt* o, Qt* a, Qt* b) {
-    func_002e3f58(o, a, b);
-    o->w = a->w * b->w - (a->x * b->x + a->y * b->y + a->z * b->z);
-    o->x = (a->w * b->x + b->w * a->x) + (a->y * b->z - a->z * b->y);
-    o->y = (a->w * b->y + b->w * a->y) + (a->z * b->x - a->x * b->z);
-    o->z = (a->w * b->z + b->w * a->z) + (a->x * b->y - a->y * b->x);
-    return o;
-}
+Qt* func_002e46d0(Qt* o, Qt* a, Qt* b);  // 0x002e46d0: definition moved into src/anon/unit_002e3f58.cpp
 
 extern void* D_0034a5b0[];
 extern void* D_00347e80[];
@@ -477,19 +451,7 @@ static inline K96* KeyAt(K96* k, s32 i) {
     K96* r = k + i;
     return r;
 }
-f32 func_002e51b0(K96* k, f32 t) {
-    f32 r = 0.0f;
-    f32 x = k->x;
-    t += x * 0.5f;
-    t /= x;
-    if (t < 0.0f || 1.0f < t) return r;
-    f32 s = t * 40.0f;
-    s32 i = (s32)s;
-    s32 j = i + 1;
-    t = s - (f32)i;
-    if (t < 9.99999975e-05f) return KeyAt(k, i)->v;
-    return KeyAt(k, i)->v * (1.0f - t) + KeyAt(k, j)->v * t;
-}
+f32 func_002e51b0(K96* k, f32 t);  // 0x002e51b0: definition moved into src/anon/unit_002e3f58.cpp
 
 u8* func_00257770(void);
 u32 func_00257140(s32);

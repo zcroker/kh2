@@ -196,9 +196,7 @@ struct NoTail { ~NoTail() {} };
 void operator delete[](void*) asm("func_00106450");
 struct Elem64 { u8 d[64]; ~Elem64() {} } __attribute__((aligned(16)));
 // delete[] of an array of 64-byte elements with an empty destructor.
-void func_002e7058(u8* p) {
-    delete[] *(Elem64**)(p + 4);
-}
+void func_002e7058(u8* p);  // 0x002e7058: definition moved into src/anon/unit_002e5f70.cpp
 
 void func_002e8578(u8* p) {
     u32 tmp[4] __attribute__((aligned(16)));

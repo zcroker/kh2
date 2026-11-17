@@ -50,34 +50,5 @@ struct V2e4d30 {
 struct Node2e4d30 { V2e4d30 pos; V2e4d30 vel; u8 pad[32]; V2e4d30 force; u8 fixed; u8 pad2[15]; };
 struct Spring2e4d30 { f32 k, damp, rest; };
 struct Rope2e4d30 { u8 hdr[16]; Node2e4d30 n[41]; Spring2e4d30 s[40]; };
-void func_002e4d30(Rope2e4d30* r)
-{
-    for (s32 i = 0; i < 41; i++) {
-        Node2e4d30* n = &r->n[i];
-        if (!n->fixed) {
-            V2e4d30 v(n->vel);
-            v *= -1.0f;
-            f32 s = n->vel.length();
-            v.normalize();
-            n->force += v * (s * s) * 0.1f;
-        }
-    }
-    s32 j;
-    for (s32 i = 0; i < 40; i = j) {
-        Spring2e4d30* sp = &r->s[i];
-        Node2e4d30* p = &r->n[i];
-        j = i + 1;
-        Node2e4d30* q = &r->n[j];
-        V2e4d30 d = p->pos - q->pos;
-        V2e4d30 dv = p->vel - q->vel;
-        f32 rest = sp->rest;
-        f32 len = d.length();
-        f32 inv = 1.0f / len;
-        f32 f = -(dv.dot(d) * sp->damp * inv + (len - rest) * sp->k);
-        V2e4d30 F = d * inv * f;
-        V2e4d30 G = F * -1.0f;
-        if (!p->fixed) p->force += F;
-        if (!q->fixed) q->force += G;
-    }
-}
+void func_002e4d30(Rope2e4d30* r);  // 0x002e4d30: definition moved into src/anon/unit_002e3f58.cpp
 }

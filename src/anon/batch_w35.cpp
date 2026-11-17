@@ -159,15 +159,7 @@ void func_00105110(void*);
 void func_002dc788(u8* p);  // 0x002dc788: definition moved into src/anon/unit_002da040.cpp
 
 void func_00108398(void*);  // clear_quads_set_flags
-void func_002e5f70(u8* p) {
-    func_00108398(p + 16);  // clear_quads_set_flags
-    func_00108398(p + 288);  // clear_quads_set_flags
-    *(u32*)(p + 544) = 0;
-    *(u32*)(p + 548) = 0;
-    *(u32*)(p + 552) = 0;
-    *(u32*)(p + 556) = 0;
-    *(u64*)(p + 560) = 0;
-}
+void func_002e5f70(u8* p);  // 0x002e5f70: definition moved into src/anon/unit_002e5f70.cpp
 
 void func_001c1748(void*, u32, u32, u32);  // obj_init_from_src
 void func_00190128(void*);

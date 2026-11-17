@@ -199,8 +199,8 @@ void func_002baba8(BD_VALUE* bd);  // 0x002baba8: definition moved into src/anon
 void func_002bd588(BD_VALUE* bd);  // 0x002bd588: definition moved into src/anon/unit_002bc978.cpp
 void func_002bd5c8(BD_VALUE* bd);  // 0x002bd5c8: definition moved into src/anon/unit_002bc978.cpp
 void func_002dabd0(BD_VALUE* bd);  // 0x002dabd0: definition moved into src/anon/unit_002da040.cpp
-void func_002e7310(BD_VALUE* bd) { func_002e7458(bd); }
-void func_002e7328(BD_VALUE* bd) { func_002e7458(bd); }
+void func_002e7310(BD_VALUE* bd);  // 0x002e7310: definition moved into src/anon/unit_002e5f70.cpp
+void func_002e7328(BD_VALUE* bd);  // 0x002e7328: definition moved into src/anon/unit_002e5f70.cpp
 // 002e7670, 002e7698, 002e76b0: moved to src/anon/unit_002e7658.cpp
 void func_002f8ab8(BD_VALUE* bd);  // 0x002f8ab8: definition moved into src/newlib/libm/wf_asin.c
 void func_002f8b30(BD_VALUE* bd);  // 0x002f8b30: definition moved into src/newlib/libm/wf_pow.c

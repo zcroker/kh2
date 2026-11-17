@@ -134,14 +134,7 @@ struct Obj { void (**vt)(Obj*); };
 // 001024b0: moved to src/global/unit_001022c0.cpp
 
 // Counts objects that are not culled.
-s32 func_001182d0(void) {
-    s32 n = 0;
-    void* p = 0;
-    while ((p = func_0010cce0(p)) != 0) {
-        if (!obj_is_culling(p)) n++;
-    }
-    return n;
-}
+s32 func_001182d0(void);  // 0x001182d0: definition moved into src/anon/unit_001182d0.cpp
 
 void func_00123d40(void* a, void* b, void* c);  // 0x00123d40: definition moved into src/anon/unit_00123990.cpp
 

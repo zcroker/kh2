@@ -60,25 +60,7 @@ struct S2e0 {
   void* f112;
 };
 void func_002e0be0(S2e0* p, u32 a1);  // 0x002e0be0: definition moved into src/anon/unit_002de3c8.cpp
-f32* func_002e4588(f32* m, f32* q) {
-  m[0] = 1.0f - (q[1] * q[1] + q[2] * q[2]) * 2.0f;
-  m[1] = (q[0] * q[1] + q[3] * q[2]) * 2.0f;
-  m[2] = (q[0] * q[2] - q[3] * q[1]) * 2.0f;
-  m[3] = 0.0f;
-  m[4] = (q[0] * q[1] - q[3] * q[2]) * 2.0f;
-  m[5] = 1.0f - (q[0] * q[0] + q[2] * q[2]) * 2.0f;
-  m[6] = (q[1] * q[2] + q[3] * q[0]) * 2.0f;
-  m[7] = 0.0f;
-  m[8] = (q[0] * q[2] + q[3] * q[1]) * 2.0f;
-  m[9] = (q[1] * q[2] - q[3] * q[0]) * 2.0f;
-  m[10] = 1.0f - (q[0] * q[0] + q[1] * q[1]) * 2.0f;
-  m[11] = 0.0f;
-  m[12] = 0.0f;
-  m[13] = 0.0f;
-  m[14] = 0.0f;
-  m[15] = 1.0f;
-  return m;
-}
+f32* func_002e4588(f32* m, f32* q);  // 0x002e4588: definition moved into src/anon/unit_002e3f58.cpp
 #define QCOPY267(d, s) asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(d), "r"(s) : "$8", "memory")
 struct QV267 {
   f32 x, y, z, w;

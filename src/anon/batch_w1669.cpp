@@ -21,9 +21,7 @@ f32 func_001065a8(f32, f32) asm("_Z13func_001065a8jjjjjjjj");
 void wtarget_002ce910(u32 a0, u32 a1, u32, u32) asm("_Z16wtarget_002ce910jjjj");
 void wtarget_002ce910(u32 a0, u32 a1, u32, u32);  // 0x002ce910: definition moved into src/taito/path.cpp
 void wtarget_002e7610(u32 a0, u32 a1, u32, u32) asm("_Z16wtarget_002e7610jjjj");
-void wtarget_002e7610(u32 a0, u32 a1, u32, u32) {
-    if (a1 == 0xffff && a0 == 1) { D_01e2bf00.b = 0; D_01e2bf00.a = 0; }
-}
+void wtarget_002e7610(u32 a0, u32 a1, u32, u32);  // 0x002e7610: definition moved into src/anon/unit_002e5f70.cpp
 void wtarget_002ee540(u32 a0, u32 a1, u32, u32) asm("_Z16wtarget_002ee540jjjj");
 void wtarget_002ee540(u32 a0, u32 a1, u32, u32);  // 0x002ee540: definition moved into src/anon/unit_002ecdb0.cpp
 void func_001cbf20(u32 a0, u32 a1);  // 0x001cbf20: definition moved into src/anon/unit_001ca8e0.cpp
@@ -43,7 +41,5 @@ void func_00153c98(W1669VObj* p);  // 0x00153c98: definition moved into src/anon
 void func_001556c0(u8* p);
 void func_0019d518(u8* p);  // 0x0019d518: definition moved into src/anon/unit_0019ba60.cpp
 void func_001a9160(u32 n);  // 0x001a9160: definition moved into src/anon/unit_001a9130.cpp
-void func_002e73a8(u8* p) {
-    *(f32*)(p + 0x1c) = func_001065a8(*(f32*)(p + 0x10), *(f32*)(p + 0x14));
-}
+void func_002e73a8(u8* p);  // 0x002e73a8: definition moved into src/anon/unit_002e5f70.cpp
 }

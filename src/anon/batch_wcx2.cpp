@@ -3122,10 +3122,7 @@ extern Nd_002e7518* D_01e2bf00;
 void func_002e73d8(Nd_002e7518*);
 static inline Nd_002e7518* Next_002e7518(Nd_002e7518* n) { if (!n) return D_01e2bf00; return n->next; }
 void wt_002e7518() asm("_Z16wtarget_002e7518jjjj");
-void wt_002e7518() {
-    Nd_002e7518* n = 0;
-    while ((n = Next_002e7518(n))) func_002e73d8(n);
-}
+void wt_002e7518();  // 0x002e7518: definition moved into src/anon/unit_002e5f70.cpp
 
 // ---- 001b9bc8
 extern u8* D_01d48da0;
@@ -4572,10 +4569,7 @@ void func_00261668();  // 0x00261668: definition moved into src/anon/unit_0025f6
 
 // --------------------
 struct V2e4a08 { f32 x, y; };
-void func_002e4a08(V2e4a08* v) {
-    v->x = 15.0f;
-    v->y = 6.0f;
-}
+void func_002e4a08(V2e4a08* v);  // 0x002e4a08: definition moved into src/anon/unit_002e3f58.cpp
 
 // --------------------
 struct S246070 { u8 b[26]; u16 h26; u8 c[8]; };
@@ -8472,14 +8466,7 @@ s32 func_002ac748(s32 key);  // 0x002ac748: definition moved into src/anon/unit_
 // --------------------
 struct O2e50f8 { u8 pad[4]; f32 w; u8 pad8[0x1148]; f32 tbl[22]; };
 f32 func_002e51b0(O2e50f8*, f32);
-f32 func_002e50f8(O2e50f8* o, f32 a, f32 b)
-{
-    f32 h = 0.5f;
-    f32 v = func_002e51b0(o, a);
-    if (fabsf(b) > o->w * h) return v;
-    b = fabsf(b * h);
-    return v * o->tbl[(s32)(b * 21.0f / o->w + h)];
-}
+f32 func_002e50f8(O2e50f8* o, f32 a, f32 b);  // 0x002e50f8: definition moved into src/anon/unit_002e3f58.cpp
 
 // --------------------
 struct E131e80 { u8 pad[0x74]; u32 ptr; u8 pad78[0x18]; };
@@ -9666,48 +9653,7 @@ void* f119830_cam(s32) asm("func_00106a60");
 void func_00107368(void*, V119830*);
 f32 func_0010f660(void);
 void func_00113338(Model119830*, V119830*, Handle119830*, s32, s32, s32);
-void func_00119830(Who119830* w, s32 kind)
-{
-    s32 n = 0;
-    void* leader = func_00111e38(0);
-    switch (kind) {
-    case 0:
-    case 2:
-        func_00117b20(w, func_00117970(w, 1, w->model, 108, -1, 0, 1, 0));
-        n = 1;
-        if ((w->model->f268 & 0x10000) && kind != 2) {
-            func_00117b20(w, func_00117970(w, 1, leader, 0x4003, -1, 0, 1, 0));
-            n = 2;
-        }
-        break;
-    case 1:
-    case 3:
-        func_00117b20(w, func_00117970(w, 1, w->model, 54, -1, 0, 1, 0));
-        n = 1;
-        if ((w->model->f268 & 0x10000) && kind != 3) {
-            func_00117b20(w, func_00117970(w, 1, leader, 0x4003, -1, 0, 1, 0));
-            n = 2;
-        }
-        break;
-    }
-    if (w->model->f268 & 0x10000) {
-        if (!(w->model->h.valid() && func_001901c0(&w->model->h))) func_00118da0(w);
-        if (w->model->h.valid() && func_001901c0(&w->model->h)) {
-            V119830 base;
-            func_00107368(f119830_cam(1), &base);
-            while (n-- > 0) {
-                V119830 p;
-                p = base;
-                p.x += (func_0010f660() - 0.5f) * 2.0f * 200.0f;
-                p.y += (func_0010f660() - 0.5f) * 2.0f * 200.0f;
-                V119830 q(p);
-                func_00113338(w->model, &q, &w->model->h, 883, -1, 2);
-            }
-        }
-    } else if (!kind) {
-        w->count++;
-    }
-}
+void func_00119830(Who119830* w, s32 kind);  // 0x00119830: definition moved into src/anon/unit_001195a8.cpp
 
 
 struct V11ca20 {

@@ -285,19 +285,7 @@ static inline bool has23(N23* x) {
     return false;
 }
 void f_002e7458(N23* n) asm("_Z13func_002e7458Pv");
-void f_002e7458(N23* n) {
-    N23* prev;
-    if (!has23(n)) return;
-    if (n == D_01e2bf00.head) {
-        D_01e2bf00.head = n->next;
-        prev = 0;
-    } else {
-        for (prev = D_01e2bf00.head; prev->next != n; prev = prev->next) ;
-        prev->next = n->next;
-    }
-    if (n == D_01e2bf00.tail) D_01e2bf00.tail = prev;
-    n->next = 0;
-}
+void f_002e7458(N23* n);  // 0x002e7458: definition moved into src/anon/unit_002e5f70.cpp
 
 /* 002eae08: moved to src/anon/unit_002eae08.cpp */
 

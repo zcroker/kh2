@@ -36,19 +36,7 @@ extern "C" {
 // ---- func_002e5350
 void func_002e4d30(W1962Sys*);
 
-void func_002e5350(W1962Sys* s, f32 t, s32 n) {
-    f32 h = t / (f32)n;
-    f32 k = 1.0f / (f32)n;
-    s32 i, j, k2, m;
-    for (i = 0; i < n; i++) {
-        for (k2 = 0; k2 < 41; k2++) s->p[k2].imp = s->p[k2].frc * k;
-        func_002e4d30(s);
-        for (j = 0; j < 41; j++) {
-            W1962Pt* e = &s->p[j]; W1962QV& f = e->imp; W1962QV& p = e->pos; W1962QV& a = e->acc; a = f * 100.0f; e->vel += a * h; p += e->vel * h;
-        }
-    }
-    for (m = 0; m < 41; m++) s->p[m].frc = W1962QV(0.0f, 0.0f, 0.0f, 0.0f);
-}
+void func_002e5350(W1962Sys* s, f32 t, s32 n);  // 0x002e5350: definition moved into src/anon/unit_002e3f58.cpp
 
 // ---- func_0018ddc0
 W1962QVb oc_get_normal(u16, bool) asm("_ZN2dk6Octree9getNormalEtb");

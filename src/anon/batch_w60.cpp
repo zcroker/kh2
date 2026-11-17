@@ -131,15 +131,7 @@ void func_00111060(u8* p, void* v);  // 0x00111060: definition moved into src/an
 // 8-byte constant (a member-function pointer) passed by value.
 struct Pmf8 { u64 v; } __attribute__((packed));
 extern const Pmf8 D_0036a840;
-void func_00118d10(u8* p) {
-    func_001169e8(p);
-    func_0017f540(*(u8**)(p + 4) + 320, 161, 4.0f, 0.0f);
-    void* r = func_001144e8(p, D_0036a840.v);
-    if (r) {
-        func_0010eed8(*(void**)(p + 4), r, 0);
-        func_00112730(*(void**)(p + 4), func_00112740(*(void**)(p + 4)) | 4);
-    }
-}
+void func_00118d10(u8* p);  // 0x00118d10: definition moved into src/anon/unit_00118958.cpp
 
 // Follows redirect nodes (type -1) and returns the entry of a type-0 node.
 u8* func_00132018(u8* p);  // 0x00132018: definition moved into src/anon/unit_00131418.cpp

@@ -37,48 +37,5 @@ static inline s32 w2404_first(void* obs, W2404Obj* cur) {
     }
     return v;
 }
-void func_00118da0(W2404Self* self) {
-    W2404Party* party = w2404_party(0);
-    void* obs;
-    obs = w2404_obs(self->fr);
-    W2404Tgt* ft = &self->fr->tgt;
-    W2404Obj* cur = ft->obj;
-    func_00190128(ft);
-    W2404Tgt t;
-    func_00190128(&t);
-    func_00190128(&t);
-    W2404PC* pc = party->pc;
-    bool ok; W2404Tgt* src;
-    if (pc) {
-        src = &pc->tgt;
-        t = *src;
-        ok = w2404_valid(&t);
-        if (ok && (t.obj->flags & 0x10) && w2404_can_attack(&t) && func_00135c88(obs, t.obj) < 0) {
-            func_00135bd0(obs, t.obj);
-        set:
-            self->fr->tgt = t;
-            return;
-        }
-    }
-    {
-        func_00190128(&t);
-        s32 i = 0;
-        while ((i = func_00190730(&t, i)) != 0) {
-            if (w2404_can_attack(&t) && !w2404_is_culling(t.obj)) {
-                if (func_00135c88(obs, t.obj) < 0) { func_00135bd0(obs, t.obj); self->fr->tgt = t; return; }
-            }
-        }
-        func_00190128(&t);
-        s32 n = w2404_entry_num(obs);
-        s32 k = w2404_first(obs, cur);
-        for (s32 j = k; j < k + n; j++) {
-            W2404Obj* o = func_00135d00(obs, j);
-            if (!w2404_is_culling(o)) {
-                func_00112df0(o, &t, 0, 0.0f);
-                ok = w2404_valid(&t);
-                if (ok && w2404_can_attack(&t)) goto set;
-            }
-        }
-    }
-}
+void func_00118da0(W2404Self* self);  // 0x00118da0: definition moved into src/anon/unit_00118958.cpp
 }

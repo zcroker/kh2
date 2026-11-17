@@ -6,24 +6,7 @@ extern "C" {
 extern V D_003a99d0;
 extern V D_003a99e0;
 void func_wt119b10(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z16wtarget_00119b10jjjj");
-void func_wt119b10(u32 a0, u32 a1, u32 a2, u32 a3) {
-    if (a1 == 0xffff) {
-        if (a0 == 1) {
-            D_003a99d0.x = -218.0f;
-            D_003a99d0.w = 0;
-            D_003a99d0.z = 1024.0f;
-            D_003a99d0.y = 55.0f;
-        }
-    }
-    if (a1 == 0xffff) {
-        if (a0 == 1) {
-            D_003a99e0.x = 185.0f;
-            D_003a99e0.w = 0;
-            D_003a99e0.z = 1024.0f;
-            D_003a99e0.y = 125.0f;
-        }
-    }
-}
+void func_wt119b10(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00119b10: definition moved into src/anon/unit_001195a8.cpp
 void* func_00304fb0(void*, u32, u32);
 E* f303b70(O* o, u32 idx) asm("_Z7_Ballocjjjj");
 E* f303b70(O* o, u32 idx) {

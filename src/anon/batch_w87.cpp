@@ -34,27 +34,7 @@ void func_0011b6a8(void*);
 void func_00117910(void*, s32);  // entry64_clear_fields
 extern u8 D_003476f0[];
 extern u8 D_00347588;
-void func_00117c28(u8* p) {
-    func_00113628(p);
-    *(u32*)p = (u32)D_003476f0;
-    func_0031a060(p + 32);
-    *(s32*)(p + 12) = 7;
-    *(void**)(p + 16) = &D_00347588;
-    FU* v = (FU*)func_00114490(p, 128);
-    *(FU**)(p + 20) = v;
-    ((FU*)(p + 1584))->i = 0;
-    ((FU*)(p + 1648))->i = 0;
-    ((FU*)(p + 1652))->f = v[1].f;
-    asm volatile("vsub.xyzw $vf1, $vf0, $vf0\n\tsqc2 $vf1, 0(%0)" : : "r"(p + 1600) : "memory");
-    asm volatile("vsub.xyzw $vf1, $vf0, $vf0\n\tsqc2 $vf1, 0(%0)" : : "r"(p + 1616) : "memory");
-    *(f32*)(p + 1608) = *(f32*)(p + 1624) = 1024.0f;
-    *(f32*)(p + 1576) = 15.0f;
-    *(f32*)(p + 1580) = 0.19634954631328583f;
-    func_0011b6a8(p + 1728);
-    for (s32 i = 0; i < 24; i++) func_00117910(p, i);  // entry64_clear_fields
-    *(s32*)(p + 1568) = 0;
-    *(s32*)(p + 1928) = 0;
-}
+void func_00117c28(u8* p);  // 0x00117c28: definition moved into src/anon/unit_001178b8.cpp
 
 // ---- 0x1285f8: binary search of x in a sorted float table -> bracketing indices ----
 struct Curve { u8 pad[32]; s32 count; u8 pad2[32]; s32 off; };
@@ -259,30 +239,7 @@ void func_001dc920(void*);
 void func_0018f028(void*);
 void func_00113668(void*);
 void func_00105110(void*);
-void func_00117e98(u8* p) {
-    *(u32*)p = (u32)D_003476f0;
-    s32 i = 0;
-    do {
-        void* o = ((Obj117*)p)->e[i].h;
-        if (o) func_001dc920(o);
-        func_00117910(p, i);  // entry64_clear_fields
-    } while (++i < 24);
-    if (*(void**)(p + 1568)) {
-        func_0018f028(*(void**)(p + 1568));
-        *(void**)(p + 1568) = 0;
-    }
-    Elem64* b = ((Obj117*)p)->e;
-    if (b) {
-        Elem64* e = b + 24;
-        for (;;) {
-            if (b == e) break;
-            e--;
-            e->~Elem64();
-        }
-    }
-    func_00113668(p);
-    func_00105110(p);
-}
+void func_00117e98(u8* p);  // 0x00117e98: definition moved into src/anon/unit_001178b8.cpp
 
 // ---- 0x1ad638: destructor body (two arrays of polymorphic 344-byte members) ----
 extern u8 D_00350a70[];

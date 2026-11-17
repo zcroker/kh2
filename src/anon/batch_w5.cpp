@@ -112,10 +112,7 @@ u32 func_002ddbb8(u8* p);  // 0x002ddbb8: definition moved into src/anon/unit_00
 
 struct Pair { u32 a, b; };
 extern Pair D_01e2bf00;
-void func_002e7500(void) {
-    D_01e2bf00.a = 0;
-    D_01e2bf00.b = 0;
-}
+void func_002e7500(void);  // 0x002e7500: definition moved into src/anon/unit_002e5f70.cpp
 
 void func_002e95a0(u32, f32, f32);
 // 002e8c58: moved to src/anon/unit_002e8b50.cpp

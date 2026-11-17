@@ -110,28 +110,7 @@ void func_0031a060(void*);
 FU* func_00114490(Obj*, s32);
 void func_0011b6a8(void*);
 void func_00117910(Obj*, s32);  // entry64_clear_fields
-void func_00117b38(Obj* o)
-{
-    func_00113628(o);
-    o->vt = D_003476f0;
-    func_0031a060(o->sub32);
-    o->f12 = 7;
-    o->f16 = D_00347588;
-    o->f20 = func_00114490(o, 128);
-    o->f1584 = 0;
-    o->f1648 = 0;
-    o->f1652 = o->f20[1].f;
-    Zero(&o->a);
-    Zero(&o->b);
-    o->b.z = 1024.0f;
-    o->a.z = 1024.0f;
-    o->f1576 = 15.0f;
-    o->f1580 = 0.19634955f;
-    func_0011b6a8(o->sub1728);
-    for (s32 i = 0; i < 24; i++) func_00117910(o, i);  // entry64_clear_fields
-    o->f1568 = 0;
-    o->f1928 = 0;
-}
+void func_00117b38(Obj* o);  // 0x00117b38: definition moved into src/anon/unit_001178b8.cpp
 }
 }
 

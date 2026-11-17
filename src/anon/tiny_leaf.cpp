@@ -8,24 +8,9 @@ u32 func_0010f8e0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0010f8e0: definition mo
 
 void func_00111040(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00111040: definition moved into src/anon/unit_00110b00.cpp
 
-void func_00117aa8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r14 = 0u, r15 = 0u;
-    r5 = (u32)(r5 << 6);
-    r14 = (u32)(0x4000u << 16);
-    r5 = (u32)(r5 + r4);
-    r15 = *(u32*)((u32)r5 + (s32)(32));
-    r15 = (u32)(r15 | r14);
-    *(u32*)((u32)r5 + (s32)(32)) = r15;
-}
+void func_00117aa8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00117aa8: definition moved into src/anon/unit_001178b8.cpp
 
-void func_00117b20(u32 a0, u32 a1, u32 a2, u32 a3) {  // entry64_set_bit10
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r15 = 0u;
-    r5 = (u32)(r5 << 6);
-    r5 = (u32)(r5 + r4);
-    r15 = *(u32*)((u32)r5 + (s32)(32));
-    r15 = (u32)(r15 | 0x0010u);
-    *(u32*)((u32)r5 + (s32)(32)) = r15;
-}
+void func_00117b20(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00117b20: definition moved into src/anon/unit_001178b8.cpp
 
 void func_001336d8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001336d8: definition moved into src/anon/unit_00131418.cpp
 

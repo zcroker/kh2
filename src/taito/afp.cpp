@@ -3,8 +3,5 @@
 namespace Ti {
 
 
-s32 Afp::getCount(void* p) {
-    (void)p;
-    return reinterpret_cast<AfpLayout*>(this)->count;
-}
+// 0x002e64b0: definition moved into src/anon/unit_002e5f70.cpp
 }  // namespace Ti

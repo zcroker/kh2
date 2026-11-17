@@ -1825,40 +1825,11 @@ void func_002e0f20(u32 a0);  // 0x002e0f20: definition moved into src/anon/unit_
 
 // 002e3de0: moved to src/anon/unit_002e2f08.cpp
 
-void func_002e3fa0(f32* a0, f32* a1, f32 a2) {
-    f32 v = cosf((u32)a0, (u32)a1);
-    a0[3] = v;
-    f32 s = sinf(a2);
+void func_002e3fa0(f32* a0, f32* a1, f32 a2);  // 0x002e3fa0: definition moved into src/anon/unit_002e3f58.cpp
 
-    a0[0] = a1[0] * s;
-    a0[1] = a1[1] * s;
-    a0[2] = a1[2] * s;
-}
+void func_002e4010(f32* a0, f32* a1, f32 a2);  // 0x002e4010: definition moved into src/anon/unit_002e3f58.cpp
 
-void func_002e4010(f32* a0, f32* a1, f32 a2) {
-    f32 v = cosf((u32)a0, (u32)a1);
-    a0[3] = v;
-    f32 s = sinf(a2);
-
-    a0[0] = a1[0] * s;
-    a0[1] = a1[1] * s;
-    a0[2] = a1[2] * s;
-}
-
-void func_002e73d8(u32 a0) {  // timer_decrement
-    f32 t = *(f32*)(a0 + 28) - D_00349e10;
-    *(f32*)(a0 + 28) = t;
-    if (t <= 0.0f) {
-        u32 v0 = func_001064a8(*(u32*)(a0 + 8));  // int_to_float_scaled
-        u32 obj = *(u32*)(a0 + 4);
-        u32 t7 = *(u32*)(a0 + 12) + v0;
-        u32 vt = *(u32*)obj;
-        u32 a2 = *(u32*)(a0 + 24);
-        VFn73d8 fn = *(VFn73d8*)(vt + 84);
-        fn(obj, *(u8*)t7, a2);
-        func_002e73a8(a0);
-    }
-}
+void func_002e73d8(u32 a0);  // 0x002e73d8: definition moved into src/anon/unit_002e5f70.cpp
 
 // 002eb920: moved to src/anon/unit_002eaf38.cpp
 

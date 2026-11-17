@@ -266,13 +266,7 @@ void func_002dc1b8(u8* o, s32 id);  // 0x002dc1b8: definition moved into src/ano
 
 void func_002dea00(u8* o, f32 a, f32 b);  // 0x002dea00: definition moved into src/anon/unit_002de3c8.cpp
 
-void func_002e7108(List64* l, f32 x) {
-    s32 n = l->n;
-    for (s32 i = 0; i < n; i++) {
-        u8* e = l->arr + i * 64;
-        func_002e6ab0(func_002e64b8(i, l->f0), e, x);
-    }
-}
+void func_002e7108(List64* l, f32 x);  // 0x002e7108: definition moved into src/anon/unit_002e5f70.cpp
 
 // Next 64-byte slot after p (or the first) whose index is not in the in-use list.
 // 002e97b8: moved to src/sugi/flare.cpp

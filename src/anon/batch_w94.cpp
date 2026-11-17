@@ -470,18 +470,4 @@ static inline void mmul(void* d, void* a, void* b) {
 }
 
 // Builds a bone's model matrix by walking up its parent chain.
-f32* ctarget_002e71a0(u32 out_, u32 skel_, u32 a, u32 b) {
-    f32* out = (f32*)out_;
-    Skel2e7* sk = (Skel2e7*)skel_;
-    u32 i = func_002e64e8(a, b, sk->id);
-    u8* bone = func_002e64b8(i, sk->id);  // list_advance_count
-    mcopy4(out, sk->mats + i * 64);
-    u32 p;
-    while ((p = bone[2]) < 255) {
-        f32 tmp[16] __attribute__((aligned(16)));
-        bone = func_002e64b8(p, sk->id);  // list_advance_count
-        mmul(tmp, sk->mats + p * 64, out);
-        if (out != tmp) mcopy4(out, tmp);
-    }
-    return out;
-}
+f32* ctarget_002e71a0(u32 out_, u32 skel_, u32 a, u32 b);  // 0x002e71a0: definition moved into src/anon/unit_002e5f70.cpp

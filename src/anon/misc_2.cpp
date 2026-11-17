@@ -94,11 +94,11 @@ f32 func_002df1a0(void* self);  // 0x002df1a0: definition moved into src/anon/un
 
 // 002e34c0: moved to src/anon/unit_002e2f08.cpp
 
-void func_002e44b8(void* self) {}
+void func_002e44b8(void* self);  // 0x002e44b8: definition moved into src/anon/unit_002e3f58.cpp
 
-f32 func_002e4af0(void* self) { return (f32)(*(f32*)((char*)self + 0)); }
+f32 func_002e4af0(void* self);  // 0x002e4af0: definition moved into src/anon/unit_002e3f58.cpp
 
-void func_002e7308(void* self) {}
+void func_002e7308(void* self);  // 0x002e7308: definition moved into src/anon/unit_002e5f70.cpp
 
 // 002e77a0: moved to src/anon/unit_002e7658.cpp
 

@@ -40,8 +40,8 @@ void func_00132270(u32* p, u32 a);  // 0x00132270: definition moved into src/ano
 // 001bbfd0: moved to src/yasui/libys/mission.cpp
 
 // Vector (0, 0, 0, 1).
-void func_002e3f58(u32* p) { p[0] = 0; p[1] = 0; p[2] = 0; ((f32*)p)[3] = 1.0f; }
-void func_002e3f78(f32* v) { v[0] = v[1] = v[2] = 0.0f; v[3] = 1.0f; }
+void func_002e3f58(u32* p);  // 0x002e3f58: definition moved into src/anon/unit_002e3f58.cpp
+void func_002e3f78(f32* v);  // 0x002e3f78: definition moved into src/anon/unit_002e3f58.cpp
 }
 
 // 001c73e0: moved to src/anon/unit_001c7148.cpp (linked unit)

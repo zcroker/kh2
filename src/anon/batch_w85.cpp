@@ -63,18 +63,7 @@ void func_0018f028(void*);
 void func_00113668(void*);
 extern u8 D_003476f0[];
 // destructor body: release the 24 slots, then the base part
-void func_00117dd8(Obj117* o) {
-    NoTail g;
-    s32 i;
-    o->vtbl = D_003476f0;
-    for (i = 0; i < 24; i++) {
-        if (o->slots.s[i].p) func_001dc920(o->slots.s[i].p);
-        func_00117910(o, i);  // entry64_clear_fields
-    }
-    if (o->f1568) { func_0018f028(o->f1568); o->f1568 = 0; }
-    o->slots.~SlotArr117();
-    func_00113668(o);
-}
+void func_00117dd8(Obj117* o);  // 0x00117dd8: definition moved into src/anon/unit_001178b8.cpp
 
 void func_0011ee18(void*);  // obj_ctor_347940
 void func_0011f2f0(void*);

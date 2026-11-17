@@ -22,10 +22,6 @@ u32 func_00112c70(u8* p);  // 0x00112c70: definition moved into src/anon/unit_00
 u32 func_002be750(void);  // 0x002be750: definition moved into src/anon/unit_002be020.cpp
 void func_00113408(u8* p);  // 0x00113408: definition moved into src/anon/unit_001117d8.cpp
 void func_00113420(u8* p);  // 0x00113420: definition moved into src/anon/unit_001117d8.cpp
-u8* func_001178b8(u8* d, u8* s) {
-    s += 1600;
-    asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(d), "r"(s) : "$8", "memory");
-    return d;
-}
+u8* func_001178b8(u8* d, u8* s);  // 0x001178b8: definition moved into src/anon/unit_001178b8.cpp
 void func_001431d0(void);  // 0x001431d0: definition moved into src/anon/unit_00142c90.cpp
 }

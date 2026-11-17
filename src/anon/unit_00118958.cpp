@@ -1,0 +1,298 @@
+// Linked unit 0x00117778-0x00119bf8.
+#include "../naka/libkn/stitch.hpp"
+#include "../common/types.h"
+#include "../kn/fvector.hpp"
+#include "./tiny_auto80_queue_structs.hpp"
+#include "../yasui/libys/areadata.hpp"
+#include "../yasui/libys/progress.hpp"
+#include <stdarg.h>
+
+// 00118958 (was src/anon/tiny_auto80_queue.cpp)
+namespace n00118958 {
+u32 func_0010f6f8(...) asm("func_0010f6f8");
+// count_reached_threshold_b
+extern "C" u32 func_00111e38(...) asm("func_00111e38");
+/*TARGET 00118958*/
+u32 func_00118958(u32 a0) asm("_Z13func_00118958j");
+u32 func_00118958(u32 a0) {
+    u32 s0 = a0;
+    u32 r2 = func_00111e38(0u);
+    u32 t7 = *(volatile u32*)((u32)s0 + (s32)(20));
+    u32 v0 = ((u32(*)(u32, f32))func_0010f6f8)(r2, *(volatile f32*)((u32)t7 + (s32)(12)));
+    return (u32)(0u < v0);
+}
+}  // namespace n00118958
+
+// 00118998 (was src/anon/batch_w2424.cpp)
+namespace n00118998 {
+struct Tgt118998;
+struct V118998b {
+    f32 x, y, z, w;
+    V118998b() {}
+    V118998b& operator=(const V118998b& o)
+    {
+        if (this != &o) asm volatile(".set noreorder\n\tlq $8, 0(%1)\n\tsq $8, 0(%0)\n\t.set reorder" : : "r"(this), "r"(&o) : "$8", "memory");
+        return *this;
+    }
+    V118998b operator-(const V118998b& b) const
+    {
+        V118998b r;
+        asm volatile(".set noreorder\n\tlqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 0(%2)\n\tvsub.wxyz $vf1, $vf1, $vf2\n\tsqc2 $vf1, 0(%0)\n\t.set reorder" : : "r"(&r), "r"(this), "r"(&b) : "memory");
+        return r;
+    }
+    void zero() { asm volatile(".set noreorder\n\tvsub.wxyz $vf1, $vf0, $vf0\n\tsqc2 $vf1, 0(%0)\n\t.set reorder" : : "r"(this) : "memory"); }
+    f32 normalize()
+    {
+        f32 len;
+        asm volatile(".set noreorder\n\tlqc2 $vf1, 0(%1)\n\tvmul.xyz $vf2, $vf1, $vf1\n\tvaddy.x $vf2, $vf2, $vf2y\n\tvaddz.x $vf2, $vf2, $vf2z\n\tvsqrt Q, $vf2x\n\tvwaitq\n\tcfc2.ni $8, $vi22\n\tvaddq.x $vf2, $vf0, Q\n\tmtc1 $8, %0\n\tvnop\n\tvdiv Q, $vf0w, $vf2x\n\tvwaitq\n\tvmulq.xyz $vf1, $vf1, Q\n\tsqc2 $vf1, 0(%1)\n\t.set reorder" : "=f"(len) : "r"(this) : "$8", "memory");
+        return len;
+    }
+} __attribute__((aligned(16)));
+struct V118998 {
+    f32 x, y, z, w;
+    V118998() {}
+    V118998& operator=(const V118998b& o)
+    {
+        if ((void*)this != (void*)&o) asm volatile(".set noreorder\n\tlq $8, 0(%1)\n\tsq $8, 0(%0)\n\t.set reorder" : : "r"(this), "r"(&o) : "$8", "memory");
+        return *this;
+    }
+    V118998b sub(const V118998& b) const
+    {
+        V118998b r;
+        asm volatile(".set noreorder\n\tlqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 0(%2)\n\tvsub.wxyz $vf1, $vf1, $vf2\n\tsqc2 $vf1, 0(%0)\n\t.set reorder" : : "r"(&r), "r"(this), "r"(&b) : "memory");
+        return r;
+    }
+    V118998& operator=(const V118998& o)
+    {
+        if (this != &o) asm volatile(".set noreorder\n\tlq $8, 0(%1)\n\tsq $8, 0(%0)\n\t.set reorder" : : "r"(this), "r"(&o) : "$8", "memory");
+        return *this;
+    }
+    V118998 operator-(const V118998& b) const
+    {
+        V118998 r;
+        asm volatile(".set noreorder\n\tlqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 0(%2)\n\tvsub.wxyz $vf1, $vf1, $vf2\n\tsqc2 $vf1, 0(%0)\n\t.set reorder" : : "r"(&r), "r"(this), "r"(&b) : "memory");
+        return r;
+    }
+    void zero() { asm volatile(".set noreorder\n\tvsub.wxyz $vf1, $vf0, $vf0\n\tsqc2 $vf1, 0(%0)\n\t.set reorder" : : "r"(this) : "memory"); }
+    f32 normalize()
+    {
+        f32 len;
+        asm volatile(".set noreorder\n\tlqc2 $vf1, 0(%1)\n\tvmul.xyz $vf2, $vf1, $vf1\n\tvaddy.x $vf2, $vf2, $vf2y\n\tvaddz.x $vf2, $vf2, $vf2z\n\tvsqrt Q, $vf2x\n\tvwaitq\n\tcfc2.ni $8, $vi22\n\tvaddq.x $vf2, $vf0, Q\n\tmtc1 $8, %0\n\tvnop\n\tvdiv Q, $vf0w, $vf2x\n\tvwaitq\n\tvmulq.xyz $vf1, $vf1, Q\n\tsqc2 $vf1, 0(%1)\n\t.set reorder" : "=f"(len) : "r"(this) : "$8", "memory");
+        return len;
+    }
+} __attribute__((aligned(16)));
+void func_00190128(Tgt118998*) asm("func_00190128");
+struct Tgt118998 {
+    s32 f0, f4, f8, f12, f16;
+    Tgt118998() { func_00190128(this); }
+};
+struct Model118998 { u8 pad0[268]; u32 f268; u8 pad1[352 - 272]; u32 f352; };
+struct Lead118998 { u8 pad[1164]; void* f1164; };
+struct Who118998 {
+    u8 pad0[4];
+    Model118998* model;
+    u8 pad1[1576 - 8];
+    f32 maxSpeed;
+    u8 pad2[4];
+    s32 f1584;
+    s32 state;
+    u8 pad3[1600 - 1592];
+    V118998 from;
+    V118998 to;
+    V118998 dir;
+};
+struct Ent118998;
+extern f32 D_00349e18 asm("D_00349e18");
+Lead118998* func_00111e38(s32) asm("func_00111e38");
+void func_00190878(Tgt118998*, s32, s32) asm("func_00190878");
+s32 func_001b58a8(void) asm("func_001b58a8");
+s32 func_0010f8c0(Model118998*) asm("func_0010f8c0");
+s32 func_00118958(Who118998*) asm("func_00118958");
+void func_001169e8(Who118998*, s32) asm("func_001169e8");
+void func_001168c0(Who118998*) asm("func_001168c0");
+s32 func_00116d08(Who118998*) asm("func_00116d08");
+void func_0017f488(void*, s32, f32, f32) asm("func_0017f488");
+void func_0017f5e0(void*, s32, f32, f32, void*) asm("func_0017f5e0");
+void func_001a1a50(void*, s32) asm("func_001a1a50");
+void func_0016ac38(Model118998*, s32, s32, s32, Lead118998*) asm("func_0016ac38");
+void* func_00117970(Who118998*, s32, Model118998*, s32, s32, s32, s32, s32) asm("func_00117970");
+/*TARGET 00118998*/
+s32 func_00118998(Who118998* w, Ent118998* e, Tgt118998* t, s32* score, u8 check) asm("func_00118998");
+s32 func_00118998(Who118998* w, Ent118998* e, Tgt118998* t, s32* score, u8 check)
+{
+    Lead118998* lead = func_00111e38(0);
+    if (check) {
+        *score = 0;
+        Tgt118998 tmp;
+        func_00190878(&tmp, 0, 0);
+        *t = tmp;
+        if (func_001b58a8()) return 0;
+        if (w->model->f268 & 0x800) return 0;
+        if (w->model->f352 & 0x40000000) return 0;
+        if (!func_0010f8c0(w->model)) {
+            if (!func_00118958(w)) return 0;
+        ret1:
+            return 1;
+        }
+        switch (w->state) {
+        case 0: case 1: case 2: return 1;
+        case 3: return 0;
+        }
+        goto ret1;
+    }
+    if (!func_0010f8c0(w->model)) {
+        w->state = 0;
+        func_001169e8(w, 7);
+    }
+    switch (w->state) {
+    case 0: {
+        w->dir = w->to - w->from;
+        f32 len = w->dir.normalize();
+        f32 sp = len * D_00349e18;
+        w->dir.w = sp;
+        if (w->maxSpeed < sp) w->dir.w = w->maxSpeed;
+        func_001168c0(w);
+        if (len < 100.0f) {
+            w->to.w = 0.0f;
+            w->state++;
+        }
+        break;
+    }
+    case 1: {
+        w->dir = w->to.sub(w->from);
+        f32 sp = w->dir.normalize() * D_00349e18;
+        w->dir.w = sp;
+        if (w->maxSpeed < sp) w->dir.w = w->maxSpeed;
+        if (func_00116d08(w)) w->state++;
+        break;
+    }
+    case 2: {
+        w->dir.zero();
+        w->from = w->to;
+        func_0017f488((u8*)w->model + 320, 204, 0.0f, 0.0f);
+        func_0017f5e0((u8*)w->model + 320, 0, 0.0f, 0.0f, 0);
+        func_001a1a50(lead->f1164, 0);
+        func_0016ac38(w->model, 10, 1, 0, lead);
+        func_00117970(w, 11, w->model, -1, 204, 0, 1, 0);
+        w->state++;
+        break;
+    }
+    }
+    return 1;
+}
+}  // namespace n00118998
+
+// 0036a840: the member-function pointer constant {0x118108, 0} (an unlisted method) that 0x118d10 passes on; it
+// sits between 0x118998's literal and 0x118d10's in .rodata.
+extern const u32 R_0036a840[2] asm("D_0036a840") __attribute__((aligned(4))) = { 0x118108, 0 };
+
+// 00118d10 (was src/anon/batch_w60.cpp)
+namespace n00118d10 {
+void func_001169e8(void*) asm("func_001169e8");
+void func_0017f540(void*, s32, f32, f32) asm("func_0017f540");
+void* func_001144e8(void*, u64) asm("func_001144e8");
+void func_0010eed8(void*, void*, s32) asm("func_0010eed8");
+u32 func_00112740(void*) asm("func_00112740");
+// get_field2940
+void func_00112730(void*, u32) asm("func_00112730");
+// 0x00111060: definition moved into src/anon/unit_00110b00.cpp
+
+// 8-byte constant (a member-function pointer) passed by value.
+struct Pmf8 { u64 v; } __attribute__((packed));
+extern const Pmf8 D_0036a840 asm("D_0036a840");
+/*TARGET 00118d10*/
+void func_00118d10(u8* p) asm("func_00118d10");
+void func_00118d10(u8* p) {
+    func_001169e8(p);
+    func_0017f540(*(u8**)(p + 4) + 320, 161, 4.0f, 0.0f);
+    void* r = func_001144e8(p, D_0036a840.v);
+    if (r) {
+        func_0010eed8(*(void**)(p + 4), r, 0);
+        func_00112730(*(void**)(p + 4), func_00112740(*(void**)(p + 4)) | 4);
+    }
+}
+}  // namespace n00118d10
+
+// 00118da0 (was src/anon/batch_w2404.cpp)
+namespace n00118da0 {
+struct W2404Obj { u8 pad[0x588]; u32 flags; };
+struct W2404Tgt {
+    W2404Obj* obj; s32 a, b, c, d;
+};
+void func_00190128(W2404Tgt*) asm("func_00190128");
+s32 w2404_is_exist(W2404Tgt*) asm("_ZNK2YS6TARGET8is_existEv");
+s32 w2404_can_attack(W2404Tgt*) asm("_ZNK2YS6TARGET10can_attackEv");
+s32 func_00190730(W2404Tgt*, s32) asm("func_00190730");
+s32 func_00135c88(void*, W2404Obj*) asm("func_00135c88");
+void func_00135bd0(void*, W2404Obj*) asm("func_00135bd0");
+s32 w2404_entry_num(void*) asm("_ZN2kn11ObjObserver11getEntryNumEv");
+W2404Obj* func_00135d00(void*, s32) asm("func_00135d00");
+s32 w2404_is_culling(W2404Obj*) asm("_ZN2YS3OBJ10is_cullingEv");
+void func_00112df0(W2404Obj*, W2404Tgt*, s32, f32) asm("func_00112df0");
+struct W2404Party { u8 pad[0xb40]; struct W2404PC* pc; };
+struct W2404PC { s32 x; W2404Tgt tgt; };
+struct W2404Friend { u8 pad[0x9f4]; W2404Tgt tgt; };
+W2404Party* w2404_party(s32) asm("_ZN2kn6Friend13getPartyCharaEi");
+void* w2404_obs(W2404Friend*) asm("_ZN2kn6Friend14getObjObserverEv");
+struct W2404Self { s32 x; W2404Friend* fr; };
+static inline bool w2404_valid(W2404Tgt* t) {
+    bool r = false;
+    if (w2404_is_exist(t)) r = t->obj != 0;
+    return r;
+}
+static inline s32 w2404_first(void* obs, W2404Obj* cur) {
+    s32 v = 0;
+    if (cur) {
+        v = func_00135c88(obs, cur);
+        if (v >= 0) v++; else v = 0;
+    }
+    return v;
+}
+/*TARGET 00118da0*/
+void func_00118da0(W2404Self* self) asm("func_00118da0");
+void func_00118da0(W2404Self* self) {
+    W2404Party* party = w2404_party(0);
+    void* obs;
+    obs = w2404_obs(self->fr);
+    W2404Tgt* ft = &self->fr->tgt;
+    W2404Obj* cur = ft->obj;
+    func_00190128(ft);
+    W2404Tgt t;
+    func_00190128(&t);
+    func_00190128(&t);
+    W2404PC* pc = party->pc;
+    bool ok; W2404Tgt* src;
+    if (pc) {
+        src = &pc->tgt;
+        t = *src;
+        ok = w2404_valid(&t);
+        if (ok && (t.obj->flags & 0x10) && w2404_can_attack(&t) && func_00135c88(obs, t.obj) < 0) {
+            func_00135bd0(obs, t.obj);
+        set:
+            self->fr->tgt = t;
+            return;
+        }
+    }
+    {
+        func_00190128(&t);
+        s32 i = 0;
+        while ((i = func_00190730(&t, i)) != 0) {
+            if (w2404_can_attack(&t) && !w2404_is_culling(t.obj)) {
+                if (func_00135c88(obs, t.obj) < 0) { func_00135bd0(obs, t.obj); self->fr->tgt = t; return; }
+            }
+        }
+        func_00190128(&t);
+        s32 n = w2404_entry_num(obs);
+        s32 k = w2404_first(obs, cur);
+        for (s32 j = k; j < k + n; j++) {
+            W2404Obj* o = func_00135d00(obs, j);
+            if (!w2404_is_culling(o)) {
+                func_00112df0(o, &t, 0, 0.0f);
+                ok = w2404_valid(&t);
+                if (ok && w2404_can_attack(&t)) goto set;
+            }
+        }
+    }
+}
+}  // namespace n00118da0
+

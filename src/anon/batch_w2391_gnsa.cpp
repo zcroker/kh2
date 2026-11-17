@@ -29,22 +29,5 @@ struct PathKey { KV pos; KV pad; };
 struct Path { u32 pad0; s32 count; f32 start; u32 padc; PathKey key[1]; };
 static inline QV conv(const KV& p) { return QV(p.x, -p.y, -p.z, 0.0f); }
 extern "C" {
-void func_002e6930(Path* p, QV* out, f32 t)
-{
-    s32 n = p->count - 1;
-    s32 i = (s32)(t - p->start);
-    if (i < 0) i = 0;
-    if (i >= n) {
-        QV a = conv(p->key[n - 1].pos);
-        QV b = conv(p->key[n].pos);
-        QV d = b - a;
-        *out = d;
-    } else {
-        QV a = conv(p->key[i].pos);
-        QV b = conv(p->key[i + 1].pos);
-        QV d = b - a;
-        *out = d;
-    }
-    Normalize(out);
-}
+void func_002e6930(Path* p, QV* out, f32 t);  // 0x002e6930: definition moved into src/anon/unit_002e5f70.cpp
 }

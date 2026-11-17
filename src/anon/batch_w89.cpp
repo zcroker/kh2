@@ -383,27 +383,7 @@ struct KEnt { u8 pad[12]; u32 loop : 1; u32 rest : 31; u8 pad2[12]; f32 t; };
 struct KHdr { u32 f0; s32 count; u8 pad[8]; KEnt e[1]; };
 extern "C" {
 // Finds the key segment containing t: index of the left key and the blend fraction.
-void func_002e66f0(KHdr* h, s32* idx, f32* frac, f32 t) {
-    s32 n = h->count;
-    if (h->e[0].t >= t) { *idx = 0; goto zero; }
-    if (h->e[n - 1].t <= t) { *idx = n - 1; goto zero; }
-    {
-        s32 hi = n - 1, lo = 0;
-        while (hi - lo >= 2) {
-            s32 mid = (hi - lo) / 2 + lo;
-            f32 m = *(f32*)((u8*)h + (mid << 5) + 44);
-            if (t == m) { *idx = mid; goto zero; }
-            if (*(f32*)((u8*)h + (lo << 5) + 44) < t && t <= m) hi = mid;
-            else lo = mid;
-        }
-        *idx = lo;
-        if (h->e[lo].loop) goto zero;
-        *frac = (t - h->e[lo].t) / (h->e[hi].t - h->e[lo].t);
-        return;
-    }
-zero:
-    *frac = 0.0f;
-}
+void func_002e66f0(KHdr* h, s32* idx, f32* frac, f32 t);  // 0x002e66f0: definition moved into src/anon/unit_002e5f70.cpp
 }
 }
 

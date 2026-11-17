@@ -72,52 +72,7 @@ struct Path { u8 pad0[3]; u8 flags; s32 count; f32 start; u32 padc; PathKey key[
 static inline QV conv(const KV& p) { return QV(p.x, -p.y, -p.z, 0.0f); }
 void path_seek(Path* p, s32* idx, f32* frac, f32 t) asm("func_002e66f0");
 extern "C" {
-void func_002e6ab0(Path* p, Mtx* m, f32 t)
-{
-    s32 idx;
-    f32 frac;
-    path_seek(p, &idx, &frac, t);
-    PathKey* k0 = &p->key[idx];
-    PathKey* k1 = &p->key[idx + 1];
-    if (frac > 0.0001f) {
-        QV r0(k0->rot.x, -k0->rot.y, -k0->rot.z, 0.0f);
-        QV r1(k1->rot.x, -k1->rot.y, -k1->rot.z, 0.0f);
-        Mtx m0, m1;
-        m0.Identity();
-        m1.Identity();
-        m0.RotateXYZ(r0);
-        m1.RotateXYZ(r1);
-        Quat q0;
-        quat_from_mtx(&q0, &m0);
-        Quat q1;
-        quat_from_mtx(&q1, &m1);
-        Quat q = func_002e47a8(q0, q1, frac);
-        QV a = conv(k0->pos);
-        QV b = conv(k1->pos);
-        QV pos = a + (b - a) * frac;
-        m->Identity();
-        if (p->flags & 1) {
-            m->AddTrans(QV(0.0f, 100.0f, 0.0f, 0.0f));
-            *m = quat_to_mtx(q) * *m;
-            m->AddTrans(QV(0.0f, -100.0f, 0.0f, 0.0f));
-        } else {
-            *m = quat_to_mtx(q);
-        }
-        m->AddTrans(pos);
-    } else {
-        QV pos = conv(k0->pos);
-        QV rot(k0->rot.x, -k0->rot.y, -k0->rot.z, 0.0f);
-        m->Identity();
-        if (p->flags & 1) {
-            m->AddTrans(QV(0.0f, 100.0f, 0.0f, 1.0f));
-            m->RotateXYZ(rot);
-            m->AddTrans(QV(0.0f, -100.0f, 0.0f, 1.0f));
-        } else {
-            m->RotateXYZ(rot);
-        }
-        m->AddTrans(pos);
-    }
-}
+void func_002e6ab0(Path* p, Mtx* m, f32 t);  // 0x002e6ab0: definition moved into src/anon/unit_002e5f70.cpp
 }
 }
 

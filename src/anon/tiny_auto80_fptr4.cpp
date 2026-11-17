@@ -241,15 +241,7 @@ u32 func_00115780(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00115780: definition mo
 
 u32 func_001157a8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001157a8: definition moved into src/anon/unit_00114a90.cpp
 
-void func_00117910(u32 a0, u32 a1, u32 a2, u32 a3) {  // entry64_clear_fields
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r15;
-    r5 = (u32)(r5 << 6);
-    r15 = (u32)((s32)0u + (-1));
-    r5 = (u32)(r5 + r4);
-    r5 = (u32)((s32)r5 + (32));
-    *(u32*)((u32)r5 + (s32)(4)) = r15;
-    *(u32*)((u32)r5 + (s32)(8)) = 0u;
-}
+void func_00117910(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00117910: definition moved into src/anon/unit_001178b8.cpp
 
 u32 func_00119ce0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00119ce0: definition moved into src/anon/unit_00119bf8.cpp
 

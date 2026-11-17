@@ -5069,57 +5069,18 @@ extern u8 D_003478b0;
 
 u32 func_0011a750(u32 a0);  // 0x0011a750: definition moved into src/anon/unit_0011a660.cpp
 
-u32 func_001178d0(u32 a0) {
-    u32 v0 = 0u;
-    u32 t6 = (u32)((s32)a0 + (32));
-    u32 t5;
-    u32 t7;
-L_check:
-    t7 = *(volatile u32*)((u32)t6 + (s32)(4));
-    t5 = (u32)((u32)v0 << 6);
-    if ((s32)t7 < 0) {
-        t7 = *(volatile u32*)((u32)t6 + (s32)(8));
-        if (t7 == 0u) goto L_done;
-    }
-    v0 = (u32)(v0 + 1u);
-    if ((s32)v0 < 24) {
-        t6 = (u32)((s32)t6 + (64));
-        goto L_check;
-    }
-    t5 = (u32)((u32)v0 << 6);
-L_done:
-    t7 = (u32)(t5 + a0);
-    *(volatile u32*)((u32)t7 + (s32)(32)) = 0u;
-    return v0;
-}
+u32 func_001178d0(u32 a0);  // 0x001178d0: definition moved into src/anon/unit_001178b8.cpp
 
 extern "C" u32 func_0010f6b8(...);  // count_reached_threshold
 extern "C" u32 func_00111e38(...);
 extern "C" u32 func_001182d0(...);
 
-u32 func_00118328(u32 a0) {
-    u32 s0 = a0;
-    u32 r2 = func_00111e38(0u);
-    u32 t7 = *(volatile u32*)((u32)s0 + (s32)(20));
-    u32 v0 = ((u32(*)(u32, f32))func_0010f6b8)(r2, *(volatile f32*)((u32)t7 + (s32)(8)));
-    u32 r15 = 0u;
-    if (v0 != 0u) {
-        v0 = func_001182d0();
-        r15 = (u32)((s32)0 < (s32)v0);
-    }
-    return r15;
-}
+u32 func_00118328(u32 a0);  // 0x00118328: definition moved into src/anon/unit_001182d0.cpp
 
 extern "C" u32 func_0010f6f8(...);  // count_reached_threshold_b
 extern "C" u32 func_00111e38(...);
 
-u32 func_00118958(u32 a0) {
-    u32 s0 = a0;
-    u32 r2 = func_00111e38(0u);
-    u32 t7 = *(volatile u32*)((u32)s0 + (s32)(20));
-    u32 v0 = ((u32(*)(u32, f32))func_0010f6f8)(r2, *(volatile f32*)((u32)t7 + (s32)(12)));
-    return (u32)(0u < v0);
-}
+u32 func_00118958(u32 a0);  // 0x00118958: definition moved into src/anon/unit_00118958.cpp
 
 extern u8 D_00347880;
 extern u8 D_003478b0;
@@ -11590,43 +11551,13 @@ void func_002e13d8(u32 a0);  // 0x002e13d8: definition moved into src/anon/unit_
 
 // 002e3be8: moved to src/anon/unit_002e2f08.cpp
 
-void func_002e40a8(u32 a0, u32 a1) {
-    volatile f32* s = (volatile f32*)a1;
-    f32 f0 = s[3];
-    f32 f1 = s[0];
-    f32 f2 = s[1];
-    f32 f3 = s[2];
-    *(volatile f32*)(a0 + 12) = f0;
-    *(volatile f32*)(a0 + 0) = f1;
-    *(volatile f32*)(a0 + 4) = f2;
-    *(volatile f32*)(a0 + 8) = f3;
-}
+void func_002e40a8(u32 a0, u32 a1);  // 0x002e40a8: definition moved into src/anon/unit_002e3f58.cpp
 
-u32 func_002e44c0(u32 a0, f32 a1) {  // vec4_scale
-    *(f32*)(a0 + 0) *= a1;
-    *(f32*)(a0 + 4) *= a1;
-    *(f32*)(a0 + 8) *= a1;
-    *(f32*)(a0 + 12) *= a1;
-    return a0;
-}
+u32 func_002e44c0(u32 a0, f32 a1);  // 0x002e44c0: definition moved into src/anon/unit_002e3f58.cpp
 
-f32 func_002e49a8(u32 a0, u32 a1) {  // vec4_dot_2
-    f32* p = (f32*)a0;
-    f32* q = (f32*)a1;
-    return p[0] * q[0] + p[1] * q[1] + p[2] * q[2] + p[3] * q[3];
-}
+f32 func_002e49a8(u32 a0, u32 a1);  // 0x002e49a8: definition moved into src/anon/unit_002e3f58.cpp
 
-u32 func_002e64b8(s32 a0, u32 a1) {  // list_advance_count
-    u32 v0 = a1 + 16;
-    if (a0 > 0) {
-        do {
-            u32 t = *(u32*)(v0 + 12);
-            a0 -= 1;
-            v0 = v0 + t;
-        } while (a0 != 0);
-    }
-    return v0;
-}
+u32 func_002e64b8(s32 a0, u32 a1);  // 0x002e64b8: definition moved into src/anon/unit_002e5f70.cpp
 
 u32 func_002e9a38(u32* a0, u32 a1, u32 a2);  // 002e9a38: moved to src/anon/unit_002e9a00.cpp
 

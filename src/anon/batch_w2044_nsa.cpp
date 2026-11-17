@@ -73,34 +73,5 @@ struct W2044Seg { f32 a; s32 b; f32 len; };
 struct W2044Rope { f32 len; u8 pad[12]; W2044Node n[41]; W2044Seg s[40]; f32 tbl[11]; };
 extern "C" {
 f32 func_002f8ae8(f32);
-void func_002e4af8(W2044Rope* r) {
-  f32 h = r->len * 0.5f;
-  s32 i;
-  for (i = 0; i < 41; i++) {
-    W2044Node* n = &r->n[i];
-    n->pos = W2044QV(r->len * i / 40.0f - h, 0.0f, 0.0f, 0.0f);
-    n->v3 = W2044QV(0.0f, 0.0f, 0.0f, 0.0f);
-    n->v4 = W2044QV(0.0f, 0.0f, 0.0f, 0.0f);
-    n->v2 = W2044QV(0.0f, 0.0f, 0.0f, 0.0f);
-    n->v1 = W2044QV(0.0f, 0.0f, 0.0f, 0.0f);
-    n->flag = 0;
-  }
-  r->n[0].flag = 1;
-  r->n[40].flag = 1;
-  s32 j = 0;
-  for (; j < 40; ) {
-    s32 k = j + 1;
-    W2044Seg* s = &r->s[j];
-    s->a = 1000.0f;
-    s->b = 0;
-    s->len = vlen(r->n[j].pos - r->n[k].pos);
-    j = k;
-  }
-  s32 m;
-  s32 n = 10;
-  for (m = 0; m <= n; m++) {
-    f32 x = m * 1.3f / n;
-    r->tbl[m] = func_002f8ae8(-x * x);
-  }
-}
+void func_002e4af8(W2044Rope* r);  // 0x002e4af8: definition moved into src/anon/unit_002e3f58.cpp
 }

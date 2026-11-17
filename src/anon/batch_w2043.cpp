@@ -86,43 +86,7 @@ W2043b_Ent* func_0018db38(void*, W2043b_Tg*, u32, u32);
 void func_0018ca10(W2043b_Ent*);
 void func_001a55a8(W2043b_Vq*, s32);
 
-void func_00118378(W2043b_Obj* o, s32 a1) {
-    W2043b_Vq base;
-    W2043b_Vq dir;
-    func_00107368(func_00106a60(1), &base);
-    if (o->f620 == 0) {
-        void* p = func_001050d8(208);
-        func_0018d238(p, o->f4, 0, 1210, 0, -1, -1);
-        o->f620 = p;
-        o->f624 = a1;
-    }
-    void* n = 0;
-    W2043b_Hdl it;
-    func_00190128(&it);
-    W2043b_Res r;
-    r.a.w = 0;
-    func_00190128(&it);
-    while ((n = func_00190730(&it, n)) != 0) {
-        if (!func_00112d90(&it)) continue;
-        if (!func_001901c0(&it)) continue;
-        W2043b_Tg* t = it.p;
-        if (!func_0018d940(o->f620, t)) continue;
-        if (func_0019c410(t)) continue;
-        void* v = func_00112f88(&it);
-        if (!v) continue;
-        func_0018a818(&r, t, v);
-        dir = W2043b_vsub(r.b, base);
-        W2043b_vnormalize(&dir);
-        W2043b_Ent* e = func_0018db38(o->f620, t, 0, 0);
-        if (!e) continue;
-        s32 f = (e->f18 & 1) ^ 1;
-        e->v = dir;
-        t->vt->f64(t, e);
-        func_0018ca10(e);
-        if (!f) continue;
-        if (!t->vt->f60(t)) func_001a55a8(&r.b, 111);
-    }
-}
+void func_00118378(W2043b_Obj* o, s32 a1);  // 0x00118378: definition moved into src/anon/unit_001182d0.cpp
 
 
 struct W2043c_Vq { f32 x, y, z, w; W2043c_Vq() {} W2043c_Vq(f32 a, f32 b, f32 c, f32 e) { x = a; y = b; z = c; w = e; } } __attribute__((aligned(16)));

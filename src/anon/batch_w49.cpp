@@ -279,9 +279,7 @@ struct C2e4a90 {
     A2e4a90 a[861];
     ~C2e4a90() {}
 };
-void func_002e4a90(C2e4a90* c) {  // in_even_range
-    c->~C2e4a90();
-}
+void func_002e4a90(C2e4a90* c);  // 0x002e4a90: definition moved into src/anon/unit_002e3f58.cpp
 
 // Hand-written VU0 macro code (uses vf6 / a3 from the caller); kept as asm.
 extern u8 D_00363cd0[];

@@ -169,15 +169,7 @@ s32 func_001064a8(s32);  // int_to_float_scaled
 typedef void (*Fn84)(u8*, s32, s32);
 
 // 002e7568: with probability x pick a random entry of the table and apply it
-s32 func_002e7568(u8* obj, s32 n, u8* tbl, f32 x)
-{
-    s32 m = n - 1;
-    if (x < 1.0f && x < func_00106558(1.0f)) return -1;
-    s32 a = tbl[0];
-    s32 b = tbl[func_001064a8(m) + 1];
-    (*(Fn84*)(*(u8**)obj + 84))(obj, b, a);
-    return b;
-}
+s32 func_002e7568(u8* obj, s32 n, u8* tbl, f32 x);  // 0x002e7568: definition moved into src/anon/unit_002e5f70.cpp
 
 u32 func_002eaf40(u8*);
 s32 func_001c0cd8(u32);

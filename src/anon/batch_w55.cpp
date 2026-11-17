@@ -317,13 +317,7 @@ Q16* func_002d2870(Q16* out, u8* b, u32 c);  // 0x002d2870: definition moved int
 
 extern "C" {
 
-void func_002e6fc0(u32* p, u32 b) {
-    p[0] = b;
-    p[1] = 0;
-    u32 n = func_002e64b0(b);
-    p[2] = n;
-    p[1] = (u32) new (func_001050c8()) ElemW55[n];
-}
+void func_002e6fc0(u32* p, u32 b);  // 0x002e6fc0: definition moved into src/anon/unit_002e5f70.cpp
 
 }
 
