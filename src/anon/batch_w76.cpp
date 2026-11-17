@@ -250,21 +250,7 @@ extern u32 D_01d9eab4;
 extern u8* D_01d9e6e0;
 void func_001f69c0(void);
 void func_0021ee48(u8*, u8*, void*, u8*, s16, u8, u8);
-void func_001f6b68(u8* base, u8* in, u8* desc)
-{
-    if (D_01d9eab4) return;
-    if (D_01d9ea9c) return;
-    if (*(u64*)(D_01d9e6e0 + 168) & 0xff0000ff00ULL) return;
-    if (in[7] == 0) return;
-    u8* q = base + **(u32**)(desc + 12) + 160;
-    if (q[2] == 0) {
-        q[2] = in[7];
-        if (*(s32*)(in + 12) == -1) return;
-        if (*(s32*)(in + 20) == -1) return;
-        func_0021ee48(base, in, (void*)func_001f69c0, q, *(s16*)(in + 4), in[8], in[6]);
-    }
-    q[2]--;
-}
+void func_001f6b68(u8* base, u8* in, u8* desc);  // 0x001f6b68: definition moved into src/anon/unit_001f6b68.cpp
 
 extern u8 D_00354be0[];
 void sceVu0CopyVector(u8*, void*);  // memcpy16

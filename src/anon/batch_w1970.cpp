@@ -22,25 +22,5 @@ static inline u8* getp_w1970(Mgr_w1970* m, s32 a, X_w1970* x) {
     return (u8*)v + x->off + 0xa0;
 }
 extern "C" {
-void func_001f6c58(s32 a, X_w1970* x, Y_w1970* y) {
-    u8* s3 = getp_w1970(D_01d9e6e0, a, x);
-    func_002226b8(s3, (u8*)a + y->c->o4 + 0xa0);
-    Sl_w1970* s = (Sl_w1970*)((u8*)a + y->c->o0 + 0xa0);
-    if (s->p == 0) {
-        s->f = 1.0f / (f32)(x->n + 1);
-    } else {
-        V4_w1970 m; V4_w1970 b; V4_w1970 c;
-        sceVu0CopyVector(&m, s->p);
-        sceVu0SubVector(&b, s3, &m);
-        f32 t = (f32)x->n;
-        f32 f = s->f;
-        while (0.0f < t) {
-            u8* p = getp_w1970(D_01d9e6e0_b, a, x);
-            sceVu0ScaleVector(f * t, &c, &b);
-            t -= 1.0f;
-            func_00222750(p, &m, &c);
-        }
-    }
-    s->p = s3;
-}
+void func_001f6c58(s32 a, X_w1970* x, Y_w1970* y);  // 0x001f6c58: definition moved into src/anon/unit_001f6b68.cpp
 }

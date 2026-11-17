@@ -7736,44 +7736,7 @@ void sceGsSetDefLoadImage(u8* p, u32 a, s32 b, u32 c, s32 d, s32 e, s32 f, s32 g
 void func_00222aa8(s32 a, s32 b, u8* p, f32 x);
 void func_0020e7a8(u8* p, s32 a, s32 b, s32 c);
 void func_00222d40(s32 tex, u8* pos, u32 frame, s32 y, s32 z, s32 a, s32 b);
-void func_001f7398(u8* o, Req1f7398* r, Ctx1f7398* c)
-{
-    Mot1f7398* m = (Mot1f7398*)(o + c->idx->f8 + 160);
-    if (D_01d9ea9c == 0 && !(D_01d9e6e0_x13984->st & 0xff0000ff00ULL)) {
-        m->vx += m->ax;
-        m->vy += m->ay;
-        m->vz += m->az;
-        m->x += m->vx;
-        m->y += m->vy;
-        m->z += m->vz;
-        if (((IdU1f7398*)(o + 12))->v == ((IdU1f7398*)&r->id)->v) {
-            m->x += r->dx;
-            m->vx += r->dvx;
-            m->ax += r->dax;
-            m->y += r->dy;
-            m->vy += r->dvy;
-            m->ay += r->day;
-            m->z += r->dz;
-            m->vz += r->dvz;
-            m->az += r->daz;
-        }
-    }
-    if (r->tex == 0xffff) return;
-    {
-        s32 off = r->tex * 36;
-        u32 frame = r->frame * 4;
-        u8* p = D_01d9eaa4 + 16;
-        u32 bits = ((Tex1f7398*)(D_01d9e6e4->ent + off))->bits;
-        u8* q;
-        sceGsSetDefLoadImage(p, ((bits >> 5) & 0x3fff) + frame, 4, (bits >> 19) & 0xf, 0, 0, 16, 16);
-        ((TagU1f7398*)(p + 80))->v = 0x0800000000008100ULL;
-        q = ((PkU1f7398*)&D_01d9eaa4)->p;
-        func_00222aa8(r->sx, r->sy, q + 112, m->x);
-        func_0020e7a8(D_01d9eaa4, 263, 0, 0);
-        ((PkU1f7398*)&D_01d9eaa4)->p = q + 4208;
-        func_00222d40(r->tex, o + c->idx->f0 + 160, frame, (s32)m->y, (s32)m->z, 1, 0);
-    }
-}
+void func_001f7398(u8* o, Req1f7398* r, Ctx1f7398* c);  // 0x001f7398: definition moved into src/anon/unit_001f7010.cpp
 
 // --------------------
 // Effect particle: integrate motion, apply the per-frame delta, then emit its sprite.
@@ -7797,44 +7760,7 @@ void sceGsSetDefLoadImage(u8* p, u32 a, s32 b, u32 c, s32 d, s32 e, s32 f, s32 g
 void func_00222aa8(s32 a, s32 b, u8* p, f32 x);
 void func_0020e7a8(u8* p, s32 a, s32 b, s32 c);
 void func_00222d40(s32 tex, u8* pos, u32 frame, s32 y, s32 z, s32 a, s32 b);
-void func_001f7878(u8* o, Req1f7878* r, Ctx1f7878* c)
-{
-    Mot1f7878* m = (Mot1f7878*)(o + c->idx->f8 + 160);
-    if (D_01d9ea9c == 0 && !(D_01d9e6e0_x14045->st & 0xff0000ff00ULL)) {
-        m->vx += m->ax;
-        m->vy += m->ay;
-        m->vz += m->az;
-        m->x += m->vx;
-        m->y += m->vy;
-        m->z += m->vz;
-        if (((IdU1f7878*)(o + 12))->v == ((IdU1f7878*)&r->id)->v) {
-            m->x += r->dx;
-            m->vx += r->dvx;
-            m->ax += r->dax;
-            m->y += r->dy;
-            m->vy += r->dvy;
-            m->ay += r->day;
-            m->z += r->dz;
-            m->vz += r->dvz;
-            m->az += r->daz;
-        }
-    }
-    if (r->tex == 0xffff) return;
-    {
-        s32 off = r->tex * 36;
-        u32 frame = r->frame * 4;
-        u8* p = D_01d9eaa4 + 16;
-        u32 bits = ((Tex1f7878*)(D_01d9e6e4_x14046->ent + off))->bits;
-        u8* q;
-        sceGsSetDefLoadImage(p, ((bits >> 5) & 0x3fff) + frame, 4, (bits >> 19) & 0xf, 0, 0, 16, 16);
-        ((TagU1f7878*)(p + 80))->v = 0x0800000000008100ULL;
-        q = ((PkU1f7878*)&D_01d9eaa4)->p;
-        func_00222aa8(r->sx, r->sy, q + 112, m->x);
-        func_0020e7a8(D_01d9eaa4, 263, 0, 0);
-        ((PkU1f7878*)&D_01d9eaa4)->p = q + 4208;
-        func_00222d40(r->tex, o + c->idx->f0 + 160, frame, (s32)m->y, (s32)m->z, r->f56, 0);
-    }
-}
+void func_001f7878(u8* o, Req1f7878* r, Ctx1f7878* c);  // 0x001f7878: definition moved into src/anon/unit_001f7010.cpp
 
 // --------------------
 // Effect particle: integrate motion, apply the per-frame delta, then emit its sprite.

@@ -70,60 +70,6 @@ void sceGsSetDefLoadImage(u8* p, u32 a, s32 b, u32 c, s32 d, s32 e, s32 f, s32 g
 void func_00222aa8(s32 a, s32 b, u8* p, f32 x);
 void func_0020e7a8(u8* p, s32 a, s32 b, s32 c);
 void func_00222d40(s32 tex, u8* pos, u32 frame, s32 y, s32 z, s32 a, s32 b);
-void func_001f7180(u8* o, F7Req* r, F7Ctx* c)
-{
-    F7Mot* m = (F7Mot*)(o + c->idx->f8 + 160);
-    if (D_01d9ea9c == 0 && !(D_01d9e6e0->st & 0xff0000ff00ULL)) {
-        m->vx += m->ax;
-        m->x += m->vx;
-        if (((F7IdU*)(o + 12))->v == ((F7IdU*)&r->id)->v) {
-            m->x += r->dx;
-            m->vx += r->dvx;
-            m->ax += r->dax;
-        }
-    }
-    if (r->tex == 0xffff) return;
-    {
-        s32 off = r->tex * 36;
-        u32 frame = r->frame * 4;
-        u8* p = D_01d9eaa4 + 16;
-        u32 bits = ((F7Tex*)(D_01d9e6e4->ent + off))->bits;
-        u8* q;
-        sceGsSetDefLoadImage(p, ((bits >> 5) & 0x3fff) + frame, 4, (bits >> 19) & 0xf, 0, 0, 16, 16);
-        ((F7TagU*)(p + 80))->v = 0x0800000000008100ULL;
-        q = ((F7PkU*)&D_01d9eaa4)->p;
-        func_00222aa8(r->sx, r->sy, q + 112, m->x);
-        func_0020e7a8(D_01d9eaa4, 263, 0, 0);
-        ((F7PkU*)&D_01d9eaa4)->p = q + 4208;
-        func_00222d40(r->tex, o + c->idx->f0 + 160, frame, 0, 0, 1, 0);
-    }
-}
-void func_001f7660(u8* o, F7Req* r, F7Ctx* c)
-{
-    F7Mot* m = (F7Mot*)(o + c->idx->f8 + 160);
-    if (D_01d9ea9c == 0 && !(D_01d9e6e0->st & 0xff0000ff00ULL)) {
-        m->vx += m->ax;
-        m->x += m->vx;
-        if (((F7IdU*)(o + 12))->v == ((F7IdU*)&r->id)->v) {
-            m->x += r->dx;
-            m->vx += r->dvx;
-            m->ax += r->dax;
-        }
-    }
-    if (r->tex == 0xffff) return;
-    {
-        s32 off = r->tex * 36;
-        u32 frame = r->frame * 4;
-        u8* p = D_01d9eaa4 + 16;
-        u32 bits = ((F7Tex*)(D_01d9e6e4->ent + off))->bits;
-        u8* q;
-        sceGsSetDefLoadImage(p, ((bits >> 5) & 0x3fff) + frame, 4, (bits >> 19) & 0xf, 0, 0, 16, 16);
-        ((F7TagU*)(p + 80))->v = 0x0800000000008100ULL;
-        q = ((F7PkU*)&D_01d9eaa4)->p;
-        func_00222aa8(r->sx, r->sy, q + 112, m->x);
-        func_0020e7a8(D_01d9eaa4, 263, 0, 0);
-        ((F7PkU*)&D_01d9eaa4)->p = q + 4208;
-        func_00222d40(r->tex, o + c->idx->f0 + 160, frame, 0, 0, r->f29, 0);
-    }
-}
+void func_001f7180(u8* o, F7Req* r, F7Ctx* c);  // 0x001f7180: definition moved into src/anon/unit_001f7010.cpp
+void func_001f7660(u8* o, F7Req* r, F7Ctx* c);  // 0x001f7660: definition moved into src/anon/unit_001f7010.cpp
 }
