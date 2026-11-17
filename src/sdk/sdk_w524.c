@@ -63,15 +63,7 @@ int EnableDmac(int a)
 
 extern int func_002f3588(int);
 extern void func_002f3490(int *);
-void func_002f3918(int *p, int b)
-{
-    int r = func_002f3588(b);
-    func_002f3490(p);
-    if ((unsigned int)p[12] != 0xffffffff)
-        p[12] = r;
-    p[8] = 0;
-    p[0] = (p[0] & ~0xc) | 0x105;
-}
+void func_002f3918(int *p, int b);  // 0x002f3918: definition moved into src/sdk/libdma.c
 
 extern void sceVu0CopyVector(int, int);
 void func_002f4480(int p, int a, int b, int c, int d)

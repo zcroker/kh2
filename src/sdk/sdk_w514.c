@@ -5,12 +5,7 @@ typedef char *va_list;
 
 typedef struct { int f0; int f4, f8, fc, f10, f14, f18, f1c, f20; } Q;
 extern void func_002f3490(Q *);
-void func_002f3a70(Q *q)
-{
-    func_002f3490(q);
-    q->f20 = 0;
-    q->f0 = (((q->f0 & ~0xc) | 4) & ~1) | 0x100;
-}
+void func_002f3a70(Q *q);  // 0x002f3a70: definition moved into src/sdk/libdma.c
 
 extern int D_01e3b508;
 extern int func_00305a50(int, void *);

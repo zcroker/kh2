@@ -15,16 +15,7 @@ long func_003105b0(int id)
 
 extern int func_003080d0(const char *, ...);
 extern void func_002f3c28(volatile int *);
-void func_002f3490(volatile int *d)
-{
-    int i = 0x1000000;
-    while (*d & 0x100) {
-        if (--i < 0) {
-            func_003080d0("libdma: sync timeout\n");
-            func_002f3c28(d);
-        }
-    }
-}
+void func_002f3490(volatile int *d);  // 0x002f3490: definition moved into src/sdk/libdma.c
 
 extern char D_01e33480[], D_01e33500[];
 extern int D_01e34a40;

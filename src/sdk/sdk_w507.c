@@ -18,23 +18,11 @@ extern int D_003660dc;
 extern void func_00308650(void);
 void func_00308cd0(void) { func_00308650(); D_003660dc = 0; }
 
-unsigned int func_002f3588(unsigned int a)
-{
-    if ((a >> 28) == 7) {
-        a &= 0x0fffffff;
-        a |= 0x80000000;
-    }
-    return a;
-}
+unsigned int func_002f3588(unsigned int a);  // 0x002f3588: definition moved into src/sdk/libdma.c
 
 extern int D_00363c90[];
 int ctarget_002f35e8(unsigned int a) asm("_Z16ctarget_002f35e8jjjj");
-int ctarget_002f35e8(unsigned int a)
-{
-    if (a < 10)
-        return D_00363c90[a];
-    return 0;
-}
+int ctarget_002f35e8(unsigned int a);  // 0x002f35e8: definition moved into src/sdk/libdma.c
 
 extern void func_0030f468(int);
 int func_00305df8(int a, int b)

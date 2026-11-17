@@ -20,38 +20,11 @@ extern int D_01e3b300;
 
 typedef struct { int flags; int pad[3]; unsigned int x10; int pad2[3]; int x20; } Ch_w1055;
 
-void func_002f3980(Ch_w1055 *c, int a, int b)
-{
-    int v = func_002f3588(a);
-    func_002f3490(c);
-    if (c->x10 != 0xffffffff)
-        c->x10 = v;
-    c->x20 = b;
-    c->flags = (c->flags & ~0xc) | 0x101;
-}
+void func_002f3980(Ch_w1055 *c, int a, int b);  // 0x002f3980: definition moved into src/sdk/libdma.c
 
-void func_002f39f8(Ch_w1055 *c, int a, int b)
-{
-    int v = func_002f3588(a);
-    func_002f3490(c);
-    if (c->x10 != 0xffffffff)
-        c->x10 = v;
-    c->x20 = b;
-    c->flags = (c->flags & ~0xc) | 0x109;
-}
+void func_002f39f8(Ch_w1055 *c, int a, int b);  // 0x002f39f8: definition moved into src/sdk/libdma.c
 
-void func_002f3ab8(Ch_w1055 *c, int a, int b)
-{
-    int v = func_002f3588(a);
-    unsigned int f;
-    func_002f3490(c);
-    if (c->x10 != 0xffffffff)
-        c->x10 = v;
-    c->x20 = b;
-    f = c->flags & ~0xc;
-    c->flags = f;
-    c->flags = (c->flags & ~1) | 0x100;
-}
+void func_002f3ab8(Ch_w1055 *c, int a, int b);  // 0x002f3ab8: definition moved into src/sdk/libdma.c
 
 typedef struct { unsigned char a, b, c, d; int x4; char pad[20]; char buf[96]; int x7c; } Ent_w1055;
 typedef struct { char pad[16]; Ent_w1055 *ent; char pad2[820 - 20]; } Port_w1055;

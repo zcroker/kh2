@@ -75,15 +75,7 @@ int func_00310768(int a, int b, int c, int d)
 typedef struct { int flags; int p4, p8, pc; u32 x10; int p14, p18, p1c; int x20; } Fd;
 extern int func_002f3588(int);
 extern void func_002f3490(Fd *);
-void func_002f3b38(Fd *f, int a, int b)
-{
-    int r = func_002f3588(a);
-    func_002f3490(f);
-    if (f->x10 != 0xffffffff)
-        f->x10 = r;
-    f->x20 = b;
-    f->flags = (((f->flags & ~0xc) | 8) & ~1) | 0x100;
-}
+void func_002f3b38(Fd *f, int a, int b);  // 0x002f3b38: definition moved into src/sdk/libdma.c
 
 extern int D_00363dc8;
 extern int D_01e331c8;

@@ -20,20 +20,7 @@ int func_0030f900(void)
     return 0;
 }
 
-int func_002f3c28(volatile u32 *p)
-{
-    int st; u32 v, old, c, m;
-    st = DIntr();
-    v = *(volatile u32 *)0x1000f520;
-    if (!(v & 0x10000)) *(volatile u32 *)0x1000f590 = v | 0x10000;
-    m = 0xfffffeff;
-    c = *(volatile u32 *)0x1000e000;
-    old = *p;
-    *p = old & m;
-    *(volatile u32 *)0x1000f590 = v;
-    if (st) EIntr();
-    return old;
-}
+int func_002f3c28(volatile u32 *p);  // 0x002f3c28: definition moved into src/sdk/libdma.c
 
 typedef struct L { int f0, f4, f8, fc, f10; struct L *next; } L;
 typedef struct { char pad[0x28]; L *head; } LH;

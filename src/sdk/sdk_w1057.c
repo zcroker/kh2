@@ -3,17 +3,7 @@ typedef struct { int p0, p4, p8, pc; volatile unsigned int p10; } Q;
 extern int D_003767d0;
 extern void func_003080d0(void *);
 extern void func_002f3c28(Q *);
-void func_002f3500(Q *q, unsigned int n, int t)
-{
-    int c = 0x01000000;
-    if (t) c = t;
-    while (q->p10 < n) {
-        if (--c < 0) {
-            func_003080d0(&D_003767d0);
-            func_002f3c28(q);
-        }
-    }
-}
+void func_002f3500(Q *q, unsigned int n, int t);  // 0x002f3500: definition moved into src/sdk/libdma.c
 
 typedef struct N { struct N *next; struct N *prev; int p8, pc; unsigned long long a; unsigned long long b; unsigned long long c; } N;
 typedef struct { int pad[6]; N *head; } NL;

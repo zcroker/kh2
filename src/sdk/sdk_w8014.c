@@ -5,30 +5,7 @@ extern Ch1328 *D_00363c90[];
 extern int D_003767e8[];
 extern void func_002f35b0(void *, int);
 extern int func_002f36f0(void *);
-int func_002f3610(int mode)
-{
-    int buf[8];
-    int r;
-    int i;
-    r = *(volatile u_int *)0x1000e000 & 1;
-    for (i = 0; i < 10; i++) {
-        if (D_003767e8[i]) {
-            D_00363c90[i]->x0 = 0;
-            D_00363c90[i]->x30 = 0;
-            D_00363c90[i]->x10 = 0;
-            D_00363c90[i]->x50 = 0;
-            D_00363c90[i]->x40 = 0;
-            D_00363c90[i]->x80 = 0;
-        }
-    }
-    *(volatile u_int *)0x1000e010 = 0xff1f;
-    *(u_int *)0x1000e010 = *(volatile u_int *)0x1000e010 & 0xff1f0000;
-    func_002f35b0(buf, 20);
-    func_002f36f0(buf);
-    if (mode == 1)
-        *(volatile u_int *)0x1000e000 = *(volatile u_int *)0x1000e000 | 1;
-    return r;
-}
+int func_002f3610(int mode);  // 0x002f3610: definition moved into src/sdk/libdma.c
 
 typedef struct { int currentCount; int maxCount; int initCount; int numWaitThreads; unsigned int attr; unsigned int option; } SemaParam1328;
 extern int func_00305620(SemaParam1328 *);

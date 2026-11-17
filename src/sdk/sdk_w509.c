@@ -1,27 +1,11 @@
 /* Sony PS2 Runtime Library 3.0.0: libkernl (EE kernel/SIO/libc helpers). Built with ee-gcc 2.9-991111 -O2 -G0. */
-void func_002f35b0(char *p, int n)
-{
-    while (n--)
-        *p++ = 0;
-}
+void func_002f35b0(char *p, int n);  // 0x002f35b0: definition moved into src/sdk/libdma.c
 
 extern void func_002f3500(void *, unsigned int, int);
-int func_002f3bf0(int *p, unsigned int a, int b, int c)
-{
-    if (b == 1)
-        return (unsigned int)p[4] < a;
-    func_002f3500(p, a, c);
-    return 0;
-}
+int func_002f3bf0(int *p, unsigned int a, int b, int c);  // 0x002f3bf0: definition moved into src/sdk/libdma.c
 
 extern void func_002f3490(void *, int);
-int func_002f3bb8(unsigned int *p, int a)
-{
-    if (a == 1)
-        return (*p >> 8) & 1;
-    func_002f3490(p, a);
-    return 0;
-}
+int func_002f3bb8(unsigned int *p, int a);  // 0x002f3bb8: definition moved into src/sdk/libdma.c
 
 extern int func_002fbd38(int, int, int, int);
 extern int D_00365948;

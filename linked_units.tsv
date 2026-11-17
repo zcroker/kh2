@@ -525,3 +525,4 @@ src/anon/unit_0015cb18.cpp	0015cb18	0015cdb0	.rodata@0036b3f8	-G0
 src/sdk/libpad2.c	002f5c70	002f6524	.data@00363d18,.rodata@00376ae8	-G0
 src/sdk/libvib.c	002f6528	002f6694	-	-G0
 src/sdk/libmc.c	002fb928	002fd15c	.rodata@00377820	-G0
+src/sdk/libdma.c	002f3490	002f3cd4	.rodata@003767d0	-G0
