@@ -69,15 +69,7 @@ void wtarget_0014ce88(void)
 extern s32 D_0034a77c;
 extern u8* D_0034a790;
 void func_00153948(u8);
-void func_00153840(u64 mask)
-{
-    s32 n = D_0034a77c;
-    for (s32 i = 0; i < n; i++) D_0034a790[i * 64 + 48] = 1;
-    for (s32 i = 0; i < 64; i++) {
-        u64 bit = 1ULL << i;
-        if (mask & bit) func_00153948(i);
-    }
-}
+void func_00153840(u64 mask);  // 0x00153840: definition moved into src/anon/unit_00153678.cpp
 
 // 0015c068
 s32 func_001665d8(void*, f32*, f32*, f32*, f32*, f32*, f32*);

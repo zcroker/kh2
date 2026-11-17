@@ -120,16 +120,7 @@ void func_0014b950(u8* p, s16 x, s16 y, u16 w, u16 h) {
     *(u64*)(p + 16) = (u64)x | ((u64)(x + w - 1) << 16) | ((u64)y << 32) | ((u64)(y + h - 1) << 48);
 }
 
-void func_0014f528(void) {
-    func_001398d0(7);
-    func_001398d0(9);
-    func_001398d0(8);
-    func_001398d0(10);
-    func_00139a38(7);
-    func_00139a38(9);
-    func_00139a38(8);
-    func_00139a38(10);
-}
+void func_0014f528(void);  // 0x0014f528: definition moved into src/anon/unit_0014ecb8.cpp
 
 // dot(a.xyz, b.xyz) + b.w -> *out; returns 1 when it is <= a[4].
 s32 func_00162b68(f32* a, f32* b, f32* out) {

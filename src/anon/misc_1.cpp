@@ -80,9 +80,9 @@ void func_0014cf80(void* self) {}
 
 // 0014dd10: moved to src/anon/unit_0014d680.cpp
 
-void func_0014f1f8(void* self) {}
+void func_0014f1f8(void* self);  // 0x0014f1f8: definition moved into src/anon/unit_0014ecb8.cpp
 
-void func_0014f200(void* self) {}
+void func_0014f200(void* self);  // 0x0014f200: definition moved into src/anon/unit_0014ecb8.cpp
 
 void func_00161540(void* self, s32 v) { *(s32*)((char*)self + 64) = v; }
 

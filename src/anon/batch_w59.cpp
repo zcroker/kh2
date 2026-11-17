@@ -78,26 +78,13 @@ u32 func_00136958(void);
 u32 func_002bc2e8(u32, u32, u32);
 extern s32 D_0034a400;
 extern u32 D_0034a408[];
-void func_0014ed28(u32 a, u32 b) {
-    u32 r = func_0014ecf8(a);
-    if (r) {
-        u32 x = func_00136958();
-        D_0034a408[D_0034a400] = func_002bc2e8(r, x, b);
-        D_0034a400++;
-    }
-}
+void func_0014ed28(u32 a, u32 b);  // 0x0014ed28: definition moved into src/anon/unit_0014ecb8.cpp
 
 // --- 00152508
 u32 func_0013d7e0(void);
 void func_00138d60(u8*, u32, u32, u32, u32, u32, u32);
 void func_0023aa78(u8*);
-void func_00152508(u8* p, u32 a, u32 b, u32 c, u32 d) {
-    u32 r = func_0013a7e8(1);
-    func_00138d60(p, 9000, r, func_0013d7e0(), a, c, 14);
-    *(u32*)(p + 372) = d;
-    *(u32*)(p + 424) = 14;
-    func_0023aa78(p + 24);
-}
+void func_00152508(u8* p, u32 a, u32 b, u32 c, u32 d);  // 0x00152508: definition moved into src/anon/unit_0014ecb8.cpp
 
 // --- 00157160
 u8* func_0017df58(u32);

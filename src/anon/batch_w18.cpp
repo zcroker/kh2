@@ -40,9 +40,7 @@ void func_002f3918(void*, void*);
 
 u32 func_00139d78(void*);
 void func_00151bf0(void*);
-void func_0014fb00(void* p) {
-    if (func_00139d78(p)) func_00151bf0(p);
-}
+void func_0014fb00(void* p);  // 0x0014fb00: definition moved into src/anon/unit_0014ecb8.cpp
 
 extern u8 D_0034d3c0[];
 u8 func_001678f0(void*);

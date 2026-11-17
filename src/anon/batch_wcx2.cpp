@@ -397,33 +397,7 @@ void func_00150b68(u8*);
 struct NoTail7 { ~NoTail7() {} };
 struct Fl7 { u32 busy : 1; u32 alt : 1; u32 rest : 30; };
 struct Obj7 { u8 pad[972]; Fl7 fl; };
-void func_00150a18(u8* p)
-{
-    NoTail7 nt;
-    func_0014fcd8(p);
-    u8* m = p + 48;
-    if (func_00139538(m)) {
-        (*(void (**)(u8*))(*(u8**)p + 20))(p);
-        func_00139510(p + 560);
-        ((Obj7*)p)->fl.busy = 0;
-        return;
-    }
-    Obj7* o = (Obj7*)p;
-    if (o->fl.busy) return;
-    if (m[404] && !o->fl.alt) o->fl.alt = 1;
-    if (!o->fl.alt) {
-        func_0014b950(p + 496, 0, *(s16*)(p + 36), 1, 1);
-    } else {
-        func_0014b950(p + 496, 0, *(s16*)(p + 36), (u16)func_0023aa98(p + 72), 64);
-        if (0.0f < *(f32*)(p + 976)) {
-            *(f32*)(p + 976) -= D_00349e14;
-        } else {
-            if (--*(s32*)(m + 412) < *(s32*)(p + 968)) func_00150b68(p);
-        }
-    }
-    func_00138c40(m, 0, *(s32*)(p + 36));
-    func_00138c40(p + 560, 0, *(s32*)(p + 36));
-}
+void func_00150a18(u8* p);  // 0x00150a18: definition moved into src/anon/unit_0014ecb8.cpp
 
 extern f32 D_00349e10;
 extern u8* D_00352130;

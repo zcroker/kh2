@@ -92,10 +92,7 @@ u32 func_0014ca20(void) {
     return r;
 }
 
-u32 func_00152598(u32 a0, s32 i, s32 second, Pair32* tbl) {  // pair_get
-    if (!second) return tbl[i].a;
-    return tbl[i].b;
-}
+u32 func_00152598(u32 a0, s32 i, s32 second, Pair32* tbl);  // 0x00152598: definition moved into src/anon/unit_0014ecb8.cpp
 
 // Clamp to 0..128 and store.
 void func_00161a80(s32 v) {
@@ -235,9 +232,7 @@ class Layout {
 public:
     void init(void);
 };
-void Layout::init(void) {
-    func_0023edb0(func_001050c8());  // AREA::GetAllocator
-}
+// 0x00153c60: definition moved into src/anon/unit_00153678.cpp
 }  // namespace dk
 
 namespace YS {

@@ -136,13 +136,13 @@ void func_001444b0(BD_VALUE* bd) { dk_Aabbox_set_vectors(bd); }
 void func_001444f8(BD_VALUE* bd) { func_00144860(bd); }
 void func_00146bd8(BD_VALUE* bd) { func_00146ab0(bd); }
 // 001491c0: moved to src/harata/libdk/mapfile.cpp
-void func_0014f1e0(BD_VALUE* bd) { func_0015b100(bd); }
-void func_0014f208(BD_VALUE* bd) { func_0014f300(bd); }
-void func_0014f220(BD_VALUE* bd) { func_0014f428(bd); }
-void func_0014f238(BD_VALUE* bd) { func_0014f4d8(bd); }
-void func_0014f250(BD_VALUE* bd) { func_0014f528(bd); }
-void func_00150648(BD_VALUE* bd) { func_001505b0(bd); }
-void func_00153c80(BD_VALUE* bd) { func_0023ede8(bd); }
+void func_0014f1e0(BD_VALUE* bd);  // 0x0014f1e0: definition moved into src/anon/unit_0014ecb8.cpp
+void func_0014f208(BD_VALUE* bd);  // 0x0014f208: definition moved into src/anon/unit_0014ecb8.cpp
+void func_0014f220(BD_VALUE* bd);  // 0x0014f220: definition moved into src/anon/unit_0014ecb8.cpp
+void func_0014f238(BD_VALUE* bd);  // 0x0014f238: definition moved into src/anon/unit_0014ecb8.cpp
+void func_0014f250(BD_VALUE* bd);  // 0x0014f250: definition moved into src/anon/unit_0014ecb8.cpp
+void func_00150648(BD_VALUE* bd);  // 0x00150648: definition moved into src/anon/unit_0014ecb8.cpp
+void func_00153c80(BD_VALUE* bd);  // 0x00153c80: definition moved into src/anon/unit_00153678.cpp
 // 00154b80: moved to src/anon/unit_00153ea0.cpp
 void func_00154b80(BD_VALUE* bd);
 // 001554a8: moved to src/anon/unit_00153ea0.cpp
@@ -212,7 +212,7 @@ void func_001393e0(BD_VALUE* bd);  // 0x001393e0: definition moved into src/anon
 void func_001394c0(BD_VALUE* bd);  // 0x001394c0: definition moved into src/anon/unit_001393c8.cpp
 void func_00139de8(BD_VALUE* bd);  // 0x00139de8: definition moved into src/anon/unit_001393c8.cpp
 void func_0013e8a8(BD_VALUE* bd);  // 0x0013e8a8: definition moved into src/anon/unit_0013dfb8.cpp
-void func_00153140(BD_VALUE* bd) { func_00139858(14); }
+void func_00153140(BD_VALUE* bd);  // 0x00153140: definition moved into src/anon/unit_0014ecb8.cpp
 void func_00161868(BD_VALUE* bd) { func_00109e30(1); }
 namespace kn { void setCameraNumber(s32); }
 void func_00161a10(BD_VALUE* bd) { kn::setCameraNumber(0); }

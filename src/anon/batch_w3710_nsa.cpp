@@ -38,30 +38,7 @@ extern u8* D_003486a0;
 // System heap: Sys at 0x347f80 (= hi 0x340000 + 0x7f80), heap->vt->alloc(heap, size, 0).
 static inline void* halloc1(u8* b, u32 n) { register Sys* s asm("$14") = *(Sys**)(b + 0x7f80); return s->heap->vt->alloc(s->heap, n, 0); }
 static inline void* halloc(u8* b, u32 n) { Sys* s = *(Sys**)(b + 0x7f80); return s->heap->vt->alloc(s->heap, n, 0); }
-void func_0014f300(void* a0) {
-    func_0014fba0(a0);
-    u8* b = (u8*)0x340000;
-    asm("" : "+r"(b));
-    void* p = halloc1(b, 0x19b0);
-    func_0031bd98(p);
-    D_0034a428 = p;
-    u8* q = (u8*)halloc(b, 0x3e0);
-    *(s32*)(q + 0xc) = 0;
-    *(void**)q = D_0034a568;
-    func_0031be70(q + 0x30);
-    *(void**)(q + 0x230) = D_00347f98;
-    func_0031a838(q + 0x23c);
-    *(void**)(q + 0x230) = D_00347e60;
-    func_00239700(q + 0x248);
-    *(s32*)(q + 0x3cc) = 0;
-    D_0034a42c = q;
-    p = halloc(b, 0xb54);
-    func_0031bed8(p);
-    D_0034a430 = p;
-    p = halloc(b, 0xb54);
-    func_0031bf50(p);
-    D_0034a434 = p;
-}
+void func_0014f300(void* a0);  // 0x0014f300: definition moved into src/anon/unit_0014ecb8.cpp
 
 // 0013e688: builds the 9-entry table (896-byte records, three sub-objects each), stores it in D_003486a4, then
 // allocates the 448-byte object kept in D_003486a0 and registers it.

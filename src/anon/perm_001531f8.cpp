@@ -57,27 +57,6 @@ inline int inline_fn(s32 arg0, Q *arg1)
   return ((arg0 - arg1->tail) + 16) % 16;
 }
 
-void func_001531f8(s32 a0, s32 a1, s32 a2, s32 a3, s32 a4)
-{
-  Q *q = &D_0034a6f0->q;
-  s32 h = q->head;
-  if (inline_fn(h, q) < 15)
-  {
-    q->head = (h + 1) % 16;
-    Ent *e = &q->e[h];
-    func_00192c90(a1, &e->m1);
-    func_00192b30(a1);
-    if (a2)
-    {
-      func_00192c90(a2, &e->m2);
-      func_00192b30(a2);
-    }
-    e->a4 = a4;
-    e->a0 = a0;
-    e->p2 = a2;
-    e->a3 = a3;
-    e->z = 0;
-  }
-}
+void func_001531f8(s32 a0, s32 a1, s32 a2, s32 a3, s32 a4);  // 0x001531f8: definition moved into src/anon/unit_00153158.cpp
 
 }

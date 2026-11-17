@@ -102,13 +102,9 @@ void func_00115560(void** p);  // 0x00115560: definition moved into src/anon/uni
 
 void jumpeffect_outclear(void);  // 0x0013f160: definition moved into src/anon/unit_0013ef70.cpp
 
-void func_0014f688(u32 a, u32 b, u32 c, u32 d, u32 e) {
-    func_00150dc0(D_0034a428, a, b, c, d, e);
-}
+void func_0014f688(u32 a, u32 b, u32 c, u32 d, u32 e);  // 0x0014f688: definition moved into src/anon/unit_0014ecb8.cpp
 
-void force_leave_mission_gauge(void* g) {
-    if (func_00139d78(g)) func_00151c70(g);
-}
+void force_leave_mission_gauge(void* g);  // 0x0014fb60: definition moved into src/anon/unit_0014ecb8.cpp
 
 // 00167e70: moved to src/anon/unit_00167358.cpp
 

@@ -128,13 +128,7 @@ void func_002369f0(void*);  // set_vtbl_36eac8_then_call
 // dk Field: start the title task.
 void TitleStart(bool flag);  // 0014a138: moved to src/anon/unit_00149fa8.cpp
 
-void func_0014f578(u32 a) {
-    if (func_00150bc0(D_0034a42c)) {
-        func_00150940(D_0034a42c, a);
-    } else {
-        func_001507b8(D_0034a42c, a);
-    }
-}
+void func_0014f578(u32 a);  // 0x0014f578: definition moved into src/anon/unit_0014ecb8.cpp
 
 // 00155410: moved to src/anon/unit_00153ea0.cpp
 void func_00155410(u8* p);

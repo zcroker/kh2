@@ -141,9 +141,7 @@ void func_00145c28(u8* p, u8 id) {
     }
 }
 
-void func_0014f9a8(void* p) {
-    if (func_00139d78(p)) func_00150678(p);
-}
+void func_0014f9a8(void* p);  // 0x0014f9a8: definition moved into src/anon/unit_0014ecb8.cpp
 
 void func_0015b4c0(void* p);  // 0x0015b4c0: definition moved into src/anon/unit_0015b100.cpp
 

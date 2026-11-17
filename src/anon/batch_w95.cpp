@@ -182,34 +182,7 @@ void func_00151d48(u8*);
 u32 func_0023aa78(u8*);
 void func_0014fc40(u8*, u32, u32, u32, u32, u32);
 }
-void wtarget_00151df0(u32 a, u32 b, u32, u32) {
-    u8* p = (u8*)a;
-    if (func_00152100(a, b)) {
-        func_001520c0(a, b);
-        return;
-    }
-    *(u32*)(p + 2892) = b;
-    u32 w = func_0013e678();
-    u32 m = func_0013a7e8(0);
-    u8* q = p + 48;
-    func_001386e0(q, 4600, m, w, 17, 7);
-    *(u32*)(q + 396) = 0;
-    func_001396b0(q);
-    if (*(u32*)(q + 396)) {
-        *(u32*)(q + 400) = 0;
-        func_001396b0(q);
-        if (*(u32*)(q + 400)) func_0031a260(q, 0);
-    }
-    func_00138c40(q, 0, *(u32*)(p + 36));
-    u8* r = p + 456;
-    for (s32 i = 0; i < 7; i++) {
-        func_00239988(r, m, w);
-        func_00239bf8(r, 28);
-        r += 344;
-    }
-    func_00151d48(p);
-    func_0014fc40(p, 17, func_0023aa78(p + 72), 4600, 7, 0);
-}
+void wtarget_00151df0(u32 a, u32 b, u32, u32);  // 0x00151df0: definition moved into src/anon/unit_0014ecb8.cpp
 extern "C" {
 
 extern f32 D_00349e10;

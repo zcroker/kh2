@@ -154,22 +154,9 @@ void wtarget_00133ae8(u32 a0, u32 a1, u32, u32) {
     c->top = 0;
 }
 
-void func_0014fba0(void) {
-    for (s32 i = 0; i < 19; i++)
-        for (s32 j = 0; j < 3; j++)
-            D_0034a458[i][j] = 0;
-}
+void func_0014fba0(void);  // 0x0014fba0: definition moved into src/anon/unit_0014ecb8.cpp
 
-void func_00151f40(u8* p) {
-    func_0014fcd8(p);
-    if (func_00139538(p + 48)) {
-        (*(VFn*)(*(u8**)p + 20))(p);
-        return;
-    }
-    func_00138c40(p + 48, 0, *(u32*)(p + 36));
-    for (s32 i = 0; i < *(s32*)(p + 2896); i++)
-        func_0023acd8(p + 456 + i * 344);
-}
+void func_00151f40(u8* p);  // 0x00151f40: definition moved into src/anon/unit_0014ecb8.cpp
 
 void* cam_sxfs(u32, u32) asm("_ZN2dk6Camera20singleCrossFadeStartEf");
 // Allocates and constructs a 164-byte cross-fade object.

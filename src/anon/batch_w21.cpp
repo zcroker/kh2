@@ -100,13 +100,7 @@ void func_0014a950(void** p);  // 0x0014a950: definition moved into src/harata/l
 void func_0014ad20(void);  // 0x0014ad20: definition moved into src/harata/libdk/fade.cpp
 
 // Release the object held in D_0034a6f0 (virtual slot 4) and clear the pointer.
-void func_00153100(void) {
-    void** o = D_0034a6f0;
-    if (o) {
-        (*(void (**)(void*))((u8*)*o + 16))(o);
-        D_0034a6f0 = 0;
-    }
-}
+void func_00153100(void);  // 0x00153100: definition moved into src/anon/unit_0014ecb8.cpp
 
 // 00154288: moved to src/anon/unit_00153ea0.cpp
 s32 func_00154288(u32, s32 a);

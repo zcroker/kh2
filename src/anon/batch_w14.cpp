@@ -118,10 +118,7 @@ void func_001418e8(u8* p, u8 id);  // 0x001418e8: definition moved into src/anon
 
 // 0014dc08: moved to src/anon/unit_0014d680.cpp
 
-void func_00151b40(u8* p) {
-    func_00138c10(p + 840, 0);
-    func_00138c10(p + 2472, 6);
-}
+void func_00151b40(u8* p);  // 0x00151b40: definition moved into src/anon/unit_0014ecb8.cpp
 
 // Copies the new target into the camera state and flags the change.
 // 0015a6c8: moved to src/harata/libdk/targetcamera.cpp

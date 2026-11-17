@@ -46,9 +46,7 @@ void func_0014cf88(void) {
 void forceLeaveCounter(void* c) asm("_ZN2dk11INFORMATION17forceLeaveCounterEPNS_7COUNTERE");
 u32 func_00139d78(void*);
 void func_001506e0(void*);
-void forceLeaveCounter(void* c) {
-    if (func_00139d78(c)) func_001506e0(c);
-}
+void forceLeaveCounter(void* c);  // 0x0014fa08: definition moved into src/anon/unit_0014ecb8.cpp
 
 void func_00152508(void*, u32, u32, u32, u32);
 

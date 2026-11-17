@@ -70,15 +70,7 @@ s32 func_00139538(u8*);
 void func_00138c40(u8*, s32, u32);
 void func_0023acd8(u8*);
 
-void func_00152318(u8* p) {
-    func_0014fcd8(p);
-    if (func_00139538(p + 48)) {
-        (*(VFn*)(*(u8**)p + 20))(p);
-        return;
-    }
-    func_00138c40(p + 48, 0, *(u32*)(p + 36));
-    for (s32 i = 0; i < *(s32*)(p + 2896); i++) func_0023acd8(p + 456 + i * 344);
-}
+void func_00152318(u8* p);  // 0x00152318: definition moved into src/anon/unit_0014ecb8.cpp
 
 // ---------------------------------------------------------------------------
 f32 func_0017ce10(f32);

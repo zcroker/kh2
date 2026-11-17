@@ -36,10 +36,7 @@ void Vsync_setGameSpeed(f32 a, f32 b, f32 c) {
 }
 
 void func_00138c10(void*, s32);
-void func_00150578(u8* p) {
-    func_00138c10(p + 840, 0);
-    func_00138c10(p + 1248, 6);
-}
+void func_00150578(u8* p);  // 0x00150578: definition moved into src/anon/unit_0014ecb8.cpp
 
 void func_001581f8(void*);
 s32 func_00154ee8(void*);  // field24_state_code

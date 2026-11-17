@@ -222,20 +222,7 @@ void func_0013d620(void);  // 0x0013d620: definition moved into src/anon/unit_00
 
 void func_001407d0(u8* p);  // 0x001407d0: definition moved into src/anon/unit_0013fca8.cpp
 
-void func_00151aa8(u8* p) {
-    func_0014fcd8(p);
-    if (*(s32*)(p + 2896) == 1) {
-        if (!func_00139d78(p + 840)) {
-            func_00151c70(p);
-        }
-        return;
-    }
-    func_00138c40(p + 840, *(u32*)(p + 32), *(u32*)(p + 36));
-    f32 f = **(f32**)(p + 2884);
-    *(f32*)(p + 2888) = f;
-    if (*(f32*)(p + 2892) != f) func_001519f8(p);
-    *(f32*)(p + 2892) = *(f32*)(p + 2888);
-}
+void func_00151aa8(u8* p);  // 0x00151aa8: definition moved into src/anon/unit_0014ecb8.cpp
 
 // 0015a5a8: moved to src/harata/libdk/targetcamera.cpp
 

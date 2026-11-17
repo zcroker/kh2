@@ -126,16 +126,7 @@ void wtarget_00146730(u32 a, u32 b) {
     func_001466b0(a, buf);  // mat4_transform_vecs
 }
 
-void func_0014f4d8(void) {
-    func_00139858(7);
-    func_00139858(9);
-    func_00139858(8);
-    func_00139858(10);
-    func_00139ab0(7);
-    func_00139ab0(9);
-    func_00139ab0(8);
-    func_00139ab0(10);
-}
+void func_0014f4d8(void);  // 0x0014f4d8: definition moved into src/anon/unit_0014ecb8.cpp
 
 // 00154ee8: moved to src/anon/unit_00153ea0.cpp
 u32 func_00154ee8(u8* p);

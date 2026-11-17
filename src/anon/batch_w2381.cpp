@@ -30,24 +30,5 @@ static inline void w2381_spring(W2381V4& cur, const W2381V4& goal, const W2381V4
 }
 
 void w2381_ctarget(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z16ctarget_0014fcd8jjjj");
-void w2381_ctarget(u32 a0, u32, u32, u32)
-{
-    W2381Spring* o = (W2381Spring*)a0;
-    W2381V4 vel;
-    W2381V4 pos;
-    W2381V4 goal;
-    w2381_zero3(&vel, &pos, &goal);
-    f32 c = o->cur;
-    pos.x = c;
-    o->vel = c;
-    vel.x = c;
-    s32 t = func_0014fbf8(o);
-    if (t != o->tgt) {
-        goal.x = (f32)t;
-        w2381_spring(pos, goal, vel, 0.4f, 1.2f, 0.5f, 0.1f);
-        f32 r = pos.x;
-        o->cur = r;
-        o->tgt = (s32)r;
-    }
-}
+void w2381_ctarget(u32 a0, u32, u32, u32);  // 0x0014fcd8: definition moved into src/anon/unit_0014ecb8.cpp
 }

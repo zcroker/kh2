@@ -41,9 +41,7 @@ void func_00323ad0(u32* p) {
 }
 void func_001e7440(void);  // 0x001e7440: definition moved into src/anon/unit_001e0cb8.cpp
 struct W1669VObj { void** vt; };
-void func_00153c98(W1669VObj* p) {
-    if (p) ((void (*)(W1669VObj*))p->vt[4])(p);
-}
+void func_00153c98(W1669VObj* p);  // 0x00153c98: definition moved into src/anon/unit_00153678.cpp
 // 00177678: moved to src/yasui/libys/party.cpp
 // 001556c0: moved to src/anon/unit_00153ea0.cpp
 void func_001556c0(u8* p);

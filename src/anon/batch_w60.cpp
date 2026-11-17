@@ -162,21 +162,9 @@ void func_0013f648(QWord* p);  // 0x0013f648: definition moved into src/anon/uni
 
 s32 func_00143fc8(void* a, void* b);  // 0x00143fc8: definition moved into src/anon/unit_00142c90.cpp
 
-void func_0014eda8(void) {
-    s32 i;
-    for (i = 0; i < D_0034a400; i++) {
-        s32 v = D_0034a408[i];
-        if (v != -1) func_002bc358(v, 1);
-    }
-}
+void func_0014eda8(void);  // 0x0014eda8: definition moved into src/anon/unit_0014ecb8.cpp
 
-void func_00152688(u8* a, void* b, void* c, void* d) {
-    char name[16];
-    u8 obj[96];
-    void* r = func_00192cc0(name, D_0036b248, *(u32*)(a + 444));
-    func_001a98e8(obj, 1, r, *(u32*)(a + 424), 0);
-    func_001a9ae8(obj, b, c, d);
-}
+void func_00152688(u8* a, void* b, void* c, void* d);  // 0x00152688: definition moved into src/anon/unit_0014ecb8.cpp
 
 // 00159308: moved to src/anon/unit_00159240.cpp
 

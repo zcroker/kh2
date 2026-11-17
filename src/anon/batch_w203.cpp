@@ -18,10 +18,7 @@ struct W203Fl { u8 pad[0x70]; float f; };
 W203Fl* w203_config(void) asm("_ZN2Ti6MGJump6configEv");
 
 struct W203C { u8 p[0x1b4]; u32 a, b, c, d; };
-void func_00152ab8(W203C* a, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-  a->c = a5; a->b = a4; a->a = a2; a->d = a6;
-  func_00152508(a, 108, a2, a3, a7);
-}
+void func_00152ab8(W203C* a, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);  // 0x00152ab8: definition moved into src/anon/unit_0014ecb8.cpp
 
 // 00159c20: moved to src/harata/libdk/talkcamera.cpp
 

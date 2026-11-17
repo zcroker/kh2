@@ -62,24 +62,7 @@ s32 func_00139d78(void*);
 void func_00139510(void*);
 void func_001396b0(void*);
 void func_0031a260(void*, s32);
-void func_00151c70(Own* p)
-{
-    if (func_00139d78(p)) ((VFn)p->vt[5])(p);
-    if (func_00139d78(p->sub)) func_00139510(p->sub);
-    Elem* e = p->e;
-    for (s32 i = 0; i < 5; i++, e++) {
-        if (func_00139d78(e)) {
-            p->e[i].f396 = 0;
-            func_001396b0(e);
-            if (p->e[i].f396) {
-                p->e[i].f400 = 0;
-                func_001396b0(e);
-                if (p->e[i].f400) func_0031a260(e, 0);
-            }
-            ((VFn)p->e[i].vt[5])(e);
-        }
-    }
-}
+void func_00151c70(Own* p);  // 0x00151c70: definition moved into src/anon/unit_0014ecb8.cpp
 }
 }
 

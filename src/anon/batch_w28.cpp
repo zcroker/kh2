@@ -131,14 +131,7 @@ void func_00138140(void);  // 0x00138140: definition moved into src/anon/unit_00
 // 0014db78: moved to src/anon/unit_0014d680.cpp
 
 // Clamp p[0] towards p[2] in the direction of p[1]; returns 0 once clamped.
-u32 func_0014f068(f32* p) {
-    if (p[1] >= 0.0f) {
-        if (p[2] <= p[0]) { p[0] = p[2]; return 0; }
-    } else {
-        if (p[0] <= p[2]) { p[0] = p[2]; return 0; }
-    }
-    return 1;
-}
+u32 func_0014f068(f32* p);  // 0x0014f068: definition moved into src/anon/unit_0014ecb8.cpp
 
 // 00167658: moved to src/anon/unit_00167358.cpp
 

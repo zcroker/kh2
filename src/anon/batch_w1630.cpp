@@ -45,57 +45,5 @@ void func_00150be8(W1630Menu2*);
 
 void wtarget_00150e00(W1630Menu2* self, u32 a1, u32 a2, s32 mode, u32 a4) asm("_Z16wtarget_00150e00jjjj");
 // (Re)builds the menu panel: root sprite, title sequence, base/item sprites, then the shared init.
-void wtarget_00150e00(W1630Menu2* self, u32 a1, u32 a2, s32 mode, u32 a4) {
-    void* s5;
-    s32 num;
-    s32 i;
-    W1630Sprite* p;
-    s32 cr;
-    if (func_00151590(self)) {
-        func_001514e8(self);
-        return;
-    }
-    if (!func_00139d78(&self->root)) {
-        func_00138650(&self->root, 3600, a1, 9);
-        if (func_0013a9d0()) {
-            func_002368e8((u8*)&self->root + 32, 0.8f);
-            func_002367c8((u8*)&self->root + 32);
-        }
-    } else if (func_00139538(&self->root)) {
-        func_00139520(&self->root);
-    }
-    s5 = (u8*)&self->root + 32;
-    self->f6552 = 0;
-    self->f6556 = a2;
-    num = 0;
-    switch (mode) {
-    case 0: num = 26; break;
-    case 2: num = 25; break;
-    case 1: num = 27; break;
-    }
-    func_00239988(&self->seq, a2, s5);
-    func_00239c38(&self->seq, num);
-    func_0023acd8(&self->seq);
-    self->x = func_0023a950(&self->seq);
-    func_001386e0(&self->title, 3600, a2, s5, 3, 9);
-    if (!func_00139d78(&self->base)) {
-        func_001386e0(&self->base, 3600, a2, s5, 9, 9);
-    }
-    for (i = 0; i < 6; i++) {
-        if (!func_00139d78(&self->items[i])) {
-            func_001386e0(&self->items[i], 3600, a2, s5, 12, 9);
-        }
-    }
-    if (!func_00139d78(&self->extra)) {
-        func_001386e0(&self->extra, 3600, a2, s5, 23, 9);
-    }
-    if (!func_00139d78(&self->extra2)) {
-        func_001386e0(&self->extra2, 3600, a2, s5, 24, 9);
-    }
-    cr = func_0023aa78(&self->title.seq);
-    if (!func_00139d78(self)) {
-        func_0014fc40(self, a4, cr, 3600, 9, mode);
-    }
-    func_00150be8(self);
-}
+void wtarget_00150e00(W1630Menu2* self, u32 a1, u32 a2, s32 mode, u32 a4);  // 0x00150e00: definition moved into src/anon/unit_0014ecb8.cpp
 }

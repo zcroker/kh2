@@ -104,14 +104,7 @@ void func_001666f0(u8*, u16, u32, u16, u16);  // obj_store_masked
 void func_00166808(u8* p, u8 k, u16 a, u32 b, u16 c, u16 d, s16 x, s16 y);  // 0x00166808: definition moved into src/anon/unit_001664c0.cpp
 
 // RGBA bytes to a float colour normalised by 255 (VU0).
-void func_00153540(f32* v, u8 r, u8 g, u8 b, u8 a) {
-    v[0] = r;
-    v[1] = g;
-    v[2] = b;
-    v[3] = a;
-    asm volatile(".set noreorder\n\tlqc2 $vf1, 0(%0)\n\tmfc1 $8, %1\n\tqmtc2 $8, $vf2\n\tvdiv Q, $vf0w, $vf2x\n\tvwaitq\n\tvmulq.xyzw $vf1, $vf1, Q\n\tsqc2 $vf1, 0(%0)\n\t.set reorder"
-                 : : "r"(v), "f"(255.0f) : "$8", "memory");
-}
+void func_00153540(f32* v, u8 r, u8 g, u8 b, u8 a);  // 0x00153540: definition moved into src/anon/unit_00153158.cpp
 
 f32 func_00166d38(void*);
 f32 func_00166d10(void*, u32);

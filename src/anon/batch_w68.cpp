@@ -75,15 +75,7 @@ f32 func_00151690(void*);  // scale_ratio_2888_2880
 void func_00239f18(void*, f32);  // obj_set_float312_and_flags
 void func_00138c68(void*, s32, u32);
 
-void func_001519f8(u8* p) {
-    u8* a = p + 1272;
-    u8* b = p + 1680;
-    u8* c = p + 2064;
-    f32 n = (f32)func_0023aa98(p + 2088);
-    func_00239f18(a, func_00151690(p));  // obj_set_float312_and_flags
-    func_00239f18(b, 1.0f - func_00151690(p));  // obj_set_float312_and_flags
-    func_00138c68(c, (s32)(func_00151690(p) * n), 0);
-}
+void func_001519f8(u8* p);  // 0x001519f8: definition moved into src/anon/unit_0014ecb8.cpp
 
 /* ---- 0015c0f8 ---- */
 struct Alloc1;

@@ -111,10 +111,7 @@ void func_0014cfc8(void) {
     D_00349e08 = 0;
 }
 
-void COUNTER_alertLoop(u8* self) {
-    func_00138c10(self + 840, 1);
-    func_00138c10(self + 1248, 7);
-}
+void COUNTER_alertLoop(u8* self);  // 0x00150610: definition moved into src/anon/unit_0014ecb8.cpp
 
 // 00159be0: moved to src/harata/libdk/talkcamera.cpp
 

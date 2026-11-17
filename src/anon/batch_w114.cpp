@@ -60,41 +60,7 @@ static inline void settle(u8* m) {
 extern "C" {
 void func_00150be8(u8* p);
 }
-void func_00150be8(u8* p) {
-    u8* m = p + 496;
-    u8* e;
-    s32 i, off;
-    *(u32*)(p + 6568) = 0;
-    *(u32*)(m + 392) = 4;
-    *(u32*)(p + 1296) = 10;
-    e = m;
-    for (i = 9; i >= 0; i--) {
-        *(u8**)(e + 396) = m;
-        settle(e);
-        func_00139660(e);
-        func_00139688(e);
-        e += 408;
-    }
-    *(u32*)(m + 396) = 0;
-    settle(m);
-    func_00138c40(m, *(u32*)(p + 32), *(u32*)(p + 36));
-    func_00138c68(p + 1312, 0, 0);
-    off = func_0023aa98(p + 1336);
-    func_00138c68(p + 1720, off, 0);
-    off += func_0023aa98(p + 1744);
-    func_00138c68(p + 3760, off, 0);
-    off += func_0023aa98(p + 3784);
-    func_00138c68(p + 2128, off, 0);
-    off += func_0023aa98(p + 2152);
-    func_00138c68(p + 2536, off, 0);
-    off += func_0023aa98(p + 2560);
-    func_00138c68(p + 4168, off, 0);
-    off += func_0023aa98(p + 4192);
-    func_00138c68(p + 2944, off, 0);
-    off += func_0023aa98(p + 2968);
-    func_00138c68(p + 3352, off, 0);
-    *(s32*)(p + 6564) = -1;
-}
+void func_00150be8(u8* p);  // 0x00150be8: definition moved into src/anon/unit_0014ecb8.cpp
 
 // ---- 001379e0
 extern "C" {

@@ -47,14 +47,7 @@ s32 func_0010fea0(u8* p);  // 0x0010fea0: definition moved into src/anon/unit_00
 extern u8* D_0034a790;
 extern s32 D_0034a77c;
 extern u8* D_0034a778;
-void func_001538d8(u8 id)
-{
-    if (!D_0034a790) return;
-    s32 n = D_0034a77c;
-    for (s32 i = 0; i < n; i++) {
-        if (*(u32*)(D_0034a778 + i * 24) == id) D_0034a790[i * 64 + 48] = 1;
-    }
-}
+void func_001538d8(u8 id);  // 0x001538d8: definition moved into src/anon/unit_00153678.cpp
 
 // 0015def8: allocate (heap vcall with caller address), construct and init the singleton
 extern void* D_0034b244;

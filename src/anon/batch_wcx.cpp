@@ -44,17 +44,7 @@ struct E344 { u8 d[344]; };
 struct S151 { u8 pad[456]; E344 e[7]; s32 arr[7]; u32 key; s32 n; };
 
 // 00151d48: load up to 7 entries and keep a running total of their sizes
-void func_00151d48(S151* p)
-{
-    s32 buf[8];
-    s32 sum = 0;
-    p->n = func_0015b4f8(D_0034a5e8, p->key, buf);
-    for (s32 i = 0; i < p->n; i++) {
-        func_00239c38(&p->e[i], buf[i]);
-        sum += func_0023aa98(&p->e[i]);
-        p->arr[i] = sum;
-    }
-}
+void func_00151d48(S151* p);  // 0x00151d48: definition moved into src/anon/unit_0014ecb8.cpp
 
 extern void* D_0034aaa8;
 extern void* D_0034aaa4;
@@ -383,17 +373,7 @@ s32 func_0023aa98(void*);
 extern u8 D_0034a630[];
 struct E344 { u8 d[344]; };
 struct S151 { u8 pad[456]; E344 e[7]; s32 arr[7]; u32 key; s32 n; };
-void func_00152120(S151* p)
-{
-    s32 buf[8];
-    s32 sum = 0;
-    p->n = func_0015b4f8(D_0034a630, p->key, buf);
-    for (s32 i = 0; i < p->n; i++) {
-        func_00239c38(&p->e[i], buf[i]);
-        sum += func_0023aa98(&p->e[i]);
-        p->arr[i] = sum;
-    }
-}
+void func_00152120(S151* p);  // 0x00152120: definition moved into src/anon/unit_0014ecb8.cpp
 }
 
 }
@@ -1398,20 +1378,7 @@ void func_002ba2e8(s32, s32);
 void func_001395a8(u8*);
 void func_001a98e8(T96*, s32, u32, s32, s32);
 s32 func_0023aa18(u8*);
-void func_001508a0(u8* p, u32 a)
-{
-    func_002ba2e8(34, 0);
-    u8* q = p + 48;
-    *(u32*)(p + 972) &= ~2;
-    func_001395a8(p + 560);
-    T96 t;
-    func_001a98e8(&t, 0, a, 0, 0);
-    s32 v = func_0023aa18(p + 72);
-    *(s32*)(p + 968) = v - t.v;
-    *(s32*)(q + 412) = v;
-    *(s32*)(q + 416) = 0;
-    *(f32*)(p + 976) = 180.0f;
-}
+void func_001508a0(u8* p, u32 a);  // 0x001508a0: definition moved into src/anon/unit_0014ecb8.cpp
 void func_00139598(u8*);
 }
 
@@ -1709,15 +1676,7 @@ void func_0014ad58(void);  // 0x0014ad58: definition moved into src/harata/libdk
 extern u8 D_0034a6b8[];
 u32 func_00152598(u8*, u32, u32, u8*);
 void func_00152508(u8*, u32, u32, u32, u32);
-void func_00152990(u8* p, u32 a1, u32 b, u32 c, u32 d, u32 e, u32 f, u32 g)
-{
-    u32 r = func_00152598(p, f, d, D_0034a6b8);
-    *(u32*)(p + 448) = f;
-    *(u32*)(p + 444) = e;
-    *(u32*)(p + 440) = d;
-    *(u32*)(p + 436) = b;
-    func_00152508(p, r, b, c, g);
-}
+void func_00152990(u8* p, u32 a1, u32 b, u32 c, u32 d, u32 e, u32 f, u32 g);  // 0x00152990: definition moved into src/anon/unit_0014ecb8.cpp
 extern u8 D_0035eb98[];
 extern u8 D_0034a7c0[];
 u8* func_0023ee30(s32);
@@ -1726,18 +1685,7 @@ void func_0023c008(u8*);  // obj_ctor_36eae8
 void func_00153cc8(u8*, u32, s32, u32, s32);
 s32 func_0013a9d0(void);
 void func_00236bb8(u8*, f32);
-u8* func_00153d70(u32 a, u32 b)
-{
-    u8* o = func_0023ee30(164);
-    *(u32*)(o + 12) = 0;
-    *(void**)o = D_0035eb98;
-    func_002369a0(o + 24);  // obj_ctor_36eac8
-    func_0023c008(o + 48);  // obj_ctor_36eae8
-    *(void**)o = D_0034a7c0;
-    func_00153cc8(o, a, 4800, b, 0);
-    if (func_0013a9d0()) func_00236bb8(o + 24, 1.0f);
-    return o;
-}
+u8* func_00153d70(u32 a, u32 b);  // 0x00153d70: definition moved into src/anon/unit_00153678.cpp
 extern u8 D_0034af40[];
 extern u8 D_0034b0e0[];
 void func_00236788(u8*);  // to_236830

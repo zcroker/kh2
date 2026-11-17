@@ -96,17 +96,9 @@ void func_001385c0(void);  // 0x001385c0: definition moved into src/anon/unit_00
 
 // 00149c08: moved to src/harata/libdk/area.cpp
 
-void func_001514e8(u8* p) {
-    func_00138c10(p + 496, 3);
-    func_00138c10(p + 904, 9);
-    func_00150be8(p);
-}
+void func_001514e8(u8* p);  // 0x001514e8: definition moved into src/anon/unit_0014ecb8.cpp
 
-void func_001520c0(u8* p, s32 a) {
-    *(s32*)(p + 0xb4c) += a;
-    func_00138c10(p + 48, 17);
-    func_00151d48(p);
-}
+void func_001520c0(u8* p, s32 a);  // 0x001520c0: definition moved into src/anon/unit_0014ecb8.cpp
 
 // 00167ea8: moved to src/anon/unit_00167358.cpp
 

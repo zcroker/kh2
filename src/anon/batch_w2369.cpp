@@ -46,37 +46,4 @@ void func_001397d8(s32);
 }
 
 // Reset three sub-records of the manager and set bit 0 of each one's c word.
-void u_call0_00153158(void) {
-    func_001398d0(14);
-    func_001397d8(14);
-    {
-        CallMgr* m = (CallMgr*)D_0034a6f0;
-        CallSub* s = &m->s0;
-        *(f32*)((u8*)m + 24) = 0;
-        *(u32*)((u8*)s + 4) = 0;
-        *(u32*)((u8*)m + 32) = 0;
-        *(u32*)((u8*)s + 12) = 0;
-        s->c |= 1;
-        *(u32*)((u8*)m + 40) = 0;
-    }
-    {
-        CallMgr* m = (CallMgr*)D_0034a6f0;
-        CallSub* s = &m->s1;
-        *(f32*)((u8*)m + 9644) = 0;
-        *(u32*)((u8*)s + 4) = 0;
-        *(u32*)((u8*)m + 9652) = 0;
-        *(u32*)((u8*)s + 12) = 0;
-        s->c |= 1;
-        *(u32*)((u8*)m + 9660) = 0;
-    }
-    {
-        CallMgr* m = (CallMgr*)D_0034a6f0;
-        CallSub* s = &m->s2;
-        *(f32*)((u8*)m + 12064) = 0;
-        *(u32*)((u8*)s + 4) = 0;
-        *(u32*)((u8*)m + 12072) = 0;
-        *(u32*)((u8*)s + 12) = 0;
-        s->c |= 1;
-        *(u32*)((u8*)m + 12080) = 0;
-    }
-}
+void u_call0_00153158(void);  // 0x00153158: definition moved into src/anon/unit_00153158.cpp

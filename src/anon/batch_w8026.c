@@ -13,13 +13,7 @@ struct A1Mgr { u8 pad[0x14]; struct A1Obj* heap; };
 extern struct A1Mgr* D_00347f80;
 void func_0031bcf8(void*);
 void func_001516b0(void*, s32, s32, s32, f32, s32, s32);
-void* func_0014fa48(s32 a, s32 b, s32 c, f32 f, s32 d, s32 e) {
-    struct A1Obj* h = D_00347f80->heap;
-    void* p = h->vt->alloc(h, 0xb60, 0);
-    func_0031bcf8(p);
-    func_001516b0(p, a, b, c, f, d, e);
-    return p;
-}
+void* func_0014fa48(s32 a, s32 b, s32 c, f32 f, s32 d, s32 e);  // 0x0014fa48: definition moved into src/anon/unit_0014ecb8.cpp
 
 /* 00180448 */
 struct VObj;

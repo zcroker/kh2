@@ -96,41 +96,7 @@ extern u8 D_0034a4f0[]; extern u8 D_0034a518[];
 void func_0014fcd8(void*); s32 func_00139d78(void*); void func_001506e0(void*);
 void func_00138c40(void*, u32, u32); void func_00150260(void*, u32, s32, s32*);
 void func_00138c10(void*, s32); void func_001395a8(void*); void func_00139598(void*);
-void func_00150328(u8* self) {
-    s32 buf[8];
-    func_0014fcd8(self);
-    if (FLD(s32, 6176) == 1) {
-        if (!func_00139d78(self + 840)) func_001506e0(self);
-        return;
-    }
-    func_00138c40(self + 840, FLD(u32, 32), FLD(u32, 36));
-    FLD(u32, 6148) = **(u32**)(self + 6144);
-    FLD(u32, 6160) = **(u32**)(self + 6156);
-    if (FLD(u32, 6152) != FLD(u32, 6148)) {
-        func_00150260(D_0034a4f0, FLD(u32, 6148), 5, buf);
-        for (s32 i = FLD(s32, 6168) - 1; i >= 0; i--) {
-            func_00138c10(self + 1656 + i * 408, buf[i]);
-            func_001395a8(self + 1656 + i * 408);
-        }
-        for (s32 j = FLD(s32, 6168) - 1; j > 0; j--) {
-            if (buf[j] != 12) break;
-            if (FLD(s32, 6172) == 2) func_00139598(self + 1656 + j * 408);
-            else func_00138c10(self + 1656 + j * 408, 22);
-        }
-    }
-    if (FLD(u32, 6164) != FLD(u32, 6160) && FLD(s32, 6172) == 1) {
-        func_00150260(D_0034a518, FLD(u32, 6160), 5, buf);
-        for (s32 k = FLD(s32, 6168) - 1; k >= 0; k--) {
-            func_00138c10(self + 3696 + k * 408, buf[k]);
-        }
-        for (s32 l = FLD(s32, 6168) - 1; l > 0; l--) {
-            if (buf[l] != 24) break;
-            func_00138c10(self + 3696 + l * 408, 34);
-        }
-    }
-    FLD(u32, 6164) = FLD(u32, 6160);
-    FLD(u32, 6152) = FLD(u32, 6148);
-}
+void func_00150328(u8* self);  // 0x00150328: definition moved into src/anon/unit_0014ecb8.cpp
 }
 extern "C" {
 extern u8 D_0033cc50;

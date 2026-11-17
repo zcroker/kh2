@@ -124,15 +124,7 @@ void func_00140480(Q16* p);  // 0x00140480: definition moved into src/anon/unit_
 void func_001391c8(void*, s32, s32);
 s32 func_0014fbf8(void*);
 extern S16c D_0034a458[][3];
-void func_0014fc40(u8* p, s32 a1, s32 a2, s32 a3, s32 t0, s32 t1) {
-    func_001391c8(p, a3, t0);
-    D_0034a458[a1][t1].v = a2;
-    *(s32*)(p + 24) = a1;
-    *(s32*)(p + 28) = t1;
-    s32 r = func_0014fbf8(p);
-    *(s32*)(p + 36) = r;
-    *(f32*)(p + 40) = *(f32*)(p + 44) = (f32)r;
-}
+void func_0014fc40(u8* p, s32 a1, s32 a2, s32 a3, s32 t0, s32 t1);  // 0x0014fc40: definition moved into src/anon/unit_0014ecb8.cpp
 
 void func_00159ce0(void*, Q16*);
 // out = from + (to - from) * t

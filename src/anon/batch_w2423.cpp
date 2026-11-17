@@ -61,21 +61,5 @@ struct W1631Disp {
 };
 extern "C" {
 
-void func_00152bd8(W1631Disp* self) {
-    {
-        W1631Queue<16>& q = self->q0;
-        if (!self->q0.ring.isEmpty() && (s32)(self->q0.flags & 1) == 1) q.process<func_001525b8>();
-        q.check();
-    }
-    {
-        W1631Queue<4>& q = self->q1;
-        if (!self->q1.ring.isEmpty() && (s32)(self->q1.flags & 1) == 1) q.process<func_00152990>();
-        q.check();
-    }
-    {
-        W1631Queue<4>& q = self->q2;
-        if (!self->q2.ring.isEmpty() && (s32)(self->q2.flags & 1) == 1) q.process<func_00152ab8>();
-        q.check();
-    }
-}
+void func_00152bd8(W1631Disp* self);  // 0x00152bd8: definition moved into src/anon/unit_0014ecb8.cpp
 }

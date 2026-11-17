@@ -44,9 +44,7 @@ void func_002f3918(u32, u32);
 // --- 00153310
 extern u8* D_0034a6f0;
 void func_0031cc30(u8*, u32, u32, u32, u32, u32, u32);
-void func_00153310(u32 a, u32 b, u32 c, u32 d, u32 e) {
-    func_0031cc30(D_0034a6f0 + 24, 1, a, b, c, d, e);
-}
+void func_00153310(u32 a, u32 b, u32 c, u32 d, u32 e);  // 0x00153310: definition moved into src/anon/unit_00153158.cpp
 
 // --- 00154b40
 u32 func_0013d810(void);

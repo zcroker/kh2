@@ -51,9 +51,7 @@ void func_00142900(u8* p, u32 a, u32 b);  // 0x00142900: definition moved into s
 
 int func_00139d78(void*);
 void func_00151528(void*);
-void func_0014f830(void* p) {
-    if (func_00139d78(p)) func_00151528(p);
-}
+void func_0014f830(void* p);  // 0x0014f830: definition moved into src/anon/unit_0014ecb8.cpp
 
 void func_001386e0(u8*, u32, u32, u32, u32, u32);
 // 00158050: moved to src/anon/unit_00158050.cpp

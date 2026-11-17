@@ -54,4 +54,4 @@ struct Obj152f40 : ObjB1577 {
 extern "C" {
 extern Obj152f40* volatile D_0034a6f0;
 }
-void u_tail0_00152f40(void) { register Obj152f40* o asm("$20") = (Obj152f40*)D_00347f80->heap->Alloc(14484, 0); new (o) ObjB1577; {EC1577<0>* eb; asm("addiu %0,%1,44" : "=r"(eb) : "r"(o));P1577* p; asm("addiu %0,%1,36" : "=r"(p) : "r"(o)); func_0031cc28(&o->g0.s); new (eb) EC1577<0>[16]; p->clr();} {P1577* p=&o->g1.in.p; func_0031cc28(&o->g1.s); new (o->g1.in.e) EC1577<1>[4]; p->clr();} {P1577* p=&o->g2.in.p; func_0031cc28(&o->g2.s); new (o->g2.in.e) EC1577<2>[4]; p->clr();} D_0034a6f0 = o; func_00152b50(D_0034a6f0); }
+void u_tail0_00152f40(void);  // 0x00152f40: definition moved into src/anon/unit_0014ecb8.cpp

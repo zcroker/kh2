@@ -89,14 +89,7 @@ void func_00170188(Node0017*);
 void func_0013fdf0(u8* o, u8* p, f32 s);  // 0x0013fdf0: definition moved into src/anon/unit_0013fca8.cpp
 
 // Allocates a 6192-byte object from the global heap and constructs it.
-void* func_0014f8d0(u32 a, u32 b, u32 c, u32 d, u32 e, u32 f, u32 g, u32 h)
-{
-    Alloc0014* hp = D_00347f80->heap;
-    void* p = hp->vt->alloc(hp, 6192, 0);
-    func_0031bc58(p);
-    func_0014fe00(p, a, b, c, d, e, f, g, h);
-    return p;
-}
+void* func_0014f8d0(u32 a, u32 b, u32 c, u32 d, u32 e, u32 f, u32 g, u32 h);  // 0x0014f8d0: definition moved into src/anon/unit_0014ecb8.cpp
 
 static inline s32 FlagOff0016(u32 a) { return !(*(u8*)(a + 72) & 1); }
 

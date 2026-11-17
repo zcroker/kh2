@@ -60,10 +60,7 @@ void func_0013a200(void);  // 0x0013a200: definition moved into src/anon/unit_00
 
 void func_00143b60(u32 a0, u32 a1, u32 a2);  // 0x00143b60: definition moved into src/anon/unit_00142c90.cpp
 
-void func_00150de0(u8* p, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5) {
-    *(u32*)(p + 0x19a0) = a5;
-    func_00150e00(p, a1, a2, a3, a4, -1);
-}
+void func_00150de0(u8* p, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5);  // 0x00150de0: definition moved into src/anon/unit_0014ecb8.cpp
 
 // 00154b18: moved to src/anon/unit_00153ea0.cpp
 void func_00154b18(u8* p);

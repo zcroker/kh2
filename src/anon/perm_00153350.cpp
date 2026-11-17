@@ -52,29 +52,6 @@ struct Mgr
 extern Mgr *D_0034a6f0;
 void func_00192c90(s32, M64 *) asm("_ZNK2YS7MESSAGE3dupEPc");
 void func_00192b30(s32) asm("_ZNK2YS7MESSAGE8get_sizeEv");
-void func_00153350(s32 a0, s32 a1, s32 a2, s32 a3, s32 a4)
-{
-  int new_var;
-  Q *q = &D_0034a6f0->q;
-  s32 h = q->head;
-  new_var = ((h - q->tail) + 4) % 4;
-  if (new_var < 3)
-  {
-    q->head = (h + 1) % 4;
-    Ent *e = &q->e[h];
-    func_00192c90(a1, &e->m1);
-    func_00192b30(a1);
-    if (a2)
-    {
-      func_00192c90(a2, &e->m2);
-      func_00192b30(a2);
-    }
-    e->a4 = a4;
-    e->a0 = a0;
-    e->p2 = a2;
-    e->a3 = a3;
-    e->z = 0;
-  }
-}
+void func_00153350(s32 a0, s32 a1, s32 a2, s32 a3, s32 a4);  // 0x00153350: definition moved into src/anon/unit_00153158.cpp
 
 }

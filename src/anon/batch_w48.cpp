@@ -44,12 +44,7 @@ s32 func_00150bc0(void*);
 s32 func_00150be0(void*);
 void func_00150b68(void*);
 extern void* D_0034a42c;
-void func_0014f5d0(s32 id) {
-    if (!func_00150bc0(D_0034a42c)) return;
-    if (id != 0 && func_00150be0(D_0034a42c) != id) return;
-    if (!func_00139d78(D_0034a42c)) return;
-    func_00150b68(D_0034a42c);
-}
+void func_0014f5d0(s32 id);  // 0x0014f5d0: definition moved into src/anon/unit_0014ecb8.cpp
 
 extern u8* D_004f3b38;
 void func_001604d8(u8*);

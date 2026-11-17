@@ -308,37 +308,7 @@ s32 func_00162bb0(Sph14*, Pts14*, Vq14*, f32*, Vq14*);
 s32 func_00162c28(Sph14*, Pts14*, Vq14*);
 s32 func_00163168(Sph14*, Pts14*, Vq14*);
 // Picks the point of object `id` nearest the camera (within 5000 units); *direct tells whether it was a direct hit.
-s32 func_0014ee28(s32 id, Vq14* out, u8* direct)
-{
-    Vq14 cam;
-    Vq14 hit;
-    Sph14 s;
-    Vq14 dir;
-    Pts14 pts;
-    Vq14 alt;
-    f32 t;
-    func_00107368(func_00106a60(0), &cam);  // vec_copy_at80_if_diff
-    s.c = cam;
-    s.r = 5000.0f;
-    dir = *func_00143ec8(id);
-    pts = *func_00143ea8(id);
-    if (func_00162b68(&s, &dir, &t)) {
-        if (func_00162bb0(&s, &pts, &dir, &t, &hit)) {
-            *direct = 1;
-            *out = hit;
-            return 1;
-        }
-    }
-    f32 d2 = 0.0f;
-    if (func_00162c28(&s, &pts, &hit)) {
-        f32 d1 = DistSq14(&cam, &hit);
-        if (func_00163168(&s, &pts, &alt)) d2 = DistSq14(&cam, &alt);
-        if (d2 < d1) { *direct = 0; *out = alt; }
-        else { *direct = 0; *out = hit; }
-        return 1;
-    }
-    return 0;
-}
+s32 func_0014ee28(s32 id, Vq14* out, u8* direct);  // 0x0014ee28: definition moved into src/anon/unit_0014ecb8.cpp
 }
 
 struct Motor17 { void** vt; };

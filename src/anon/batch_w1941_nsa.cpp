@@ -71,30 +71,7 @@ extern OutEnt1941* D_0034a790;
 void func_001535f0(f32, f32, f32);
 void func_001535b0(OutEnt1941*, s32);
 void func_00153840(void*);
-void func_00153678(InHdr1941* h, void* p, Al1941* al) {
-    D_0034a78c = al;
-    if (h == 0) {
-        D_0034a77c = 0;
-        D_0034a778 = 0;
-        D_0034a790 = 0;
-        return;
-    }
-    D_0034a778 = (InEnt1941*)((u8*)h + h->off);
-    D_0034a77c = h->size / 24;
-    D_0034a790 = (OutEnt1941*)al->vt->alloc(al, D_0034a77c << 6, 0);
-    func_001535f0(0.125f, 0.5f, 16.0f);
-    s32 n = D_0034a77c;
-    for (s32 i = 0; i < n; i++) {
-        OutEnt1941* o = &D_0034a790[i];
-        f32 x = D_0034a778[i].x, y = D_0034a778[i].y, z = D_0034a778[i].z, w = D_0034a778[i].w;
-        o->x = x;
-        o->y = y;
-        o->z = z;
-        o->w = w;
-        func_001535b0(&D_0034a790[i], i);
-    }
-    func_00153840(p);
-}
+void func_00153678(InHdr1941* h, void* p, Al1941* al);  // 0x00153678: definition moved into src/anon/unit_00153678.cpp
 
 // --- 00162560: is the point inside the polygon (every edge cross product faces away from the normal)
 extern s32 D_0034c780[];

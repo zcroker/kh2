@@ -240,13 +240,7 @@ extern void* D_0034a428;
 }
 #define RELEASE_GLOBAL(g) if (g) { (*(VFn*)(*(u8**)g + 16))(g); g = 0; }
 // 0014f428: release four global objects
-void func_0014f428(void*)
-{
-    RELEASE_GLOBAL(D_0034a434);
-    RELEASE_GLOBAL(D_0034a430);
-    RELEASE_GLOBAL(D_0034a42c);
-    RELEASE_GLOBAL(D_0034a428);
-}
+void func_0014f428(void*);  // 0x0014f428: definition moved into src/anon/unit_0014ecb8.cpp
 
 // 00281c50: Tz CmItem LeavePopup
 extern "C" {

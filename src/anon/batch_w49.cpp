@@ -37,12 +37,7 @@ struct E34a778 { u32 id; u8 pad[20]; };
 extern E34a790* D_0034a790;
 extern s32 D_0034a77c;
 extern E34a778* D_0034a778;
-void func_00153948(u8 id) {
-    if (D_0034a790 == 0) return;
-    s32 n = D_0034a77c;
-    for (s32 i = 0; i < n; i++)
-        if (D_0034a778[i].id == id) D_0034a790[i].f48 = 0;
-}
+void func_00153948(u8 id);  // 0x00153948: definition moved into src/anon/unit_00153678.cpp
 
 void func_00138c10(u8*, s32);
 // 00154b98: moved to src/anon/unit_00153ea0.cpp

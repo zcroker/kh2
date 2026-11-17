@@ -189,37 +189,7 @@ void _Bfree(void*, Bigint_w96*);  // push_entry_onto_slot_list
 
 // Builds the widget: icons, 7 child panels, then hands off to the shared init.
 void wtarget_001521c8(u32 a0, u32 a1, u32, u32) asm("_Z16wtarget_001521c8jjjj");
-void wtarget_001521c8(u32 self, u32 id, u32, u32) {
-    u32 obj, s3, s4, p;
-    s32 i;
-    if (func_001524e8(self, id)) {
-        func_00152498(self, id);
-        return;
-    }
-    *(u32*)(self + 2892) = id;
-    s4 = func_0013e678();
-    s3 = func_0013a7e8(0);
-    obj = self + 48;
-    func_001386e0(obj, 4500, s3, s4, 48, 7);
-    *(u32*)(obj + 396) = 0;
-    func_001396b0(obj);
-    if (*(u32*)(obj + 396) != 0) {
-        *(u32*)(obj + 400) = 0;
-        func_001396b0(obj);
-        if (*(u32*)(obj + 400) != 0) {
-            func_0031a260(obj, 0);
-        }
-    }
-    func_00138c40(obj, 0, *(u32*)(self + 36));
-    p = self + 456;
-    for (i = 6; i >= 0; i--) {
-        func_00239988(p, s3, s4);
-        func_00239bf8(p, 38);
-        p += 344;
-    }
-    func_00152120(self);
-    func_0014fc40(self, 14, func_0023aa78(self + 72), 4500, 7, 0);
-}
+void wtarget_001521c8(u32 self, u32 id, u32, u32);  // 0x001521c8: definition moved into src/anon/unit_0014ecb8.cpp
 
 // 001558b8: moved to src/anon/unit_00153ea0.cpp
 void func_001558b8(u32 self, u32 a1, s32 idx);

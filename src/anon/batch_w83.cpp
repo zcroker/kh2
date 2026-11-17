@@ -81,22 +81,7 @@ void func_00192c90(char*, char*);
 void func_00192b30(char*);
 
 // Push an entry into a 4-slot ring buffer if there is room.
-void func_00153468(s32 a, char* name, s32 b) {
-    Ring600* r = (Ring600*)(D_0034a6f0 + 12076);
-    s32 idx = r->head;
-    s32 n = (idx - r->tail + 4) % 4;
-    if (n < 3) {
-        r->head = (idx + 1) % 4;
-        Entry600* e = &r->e[idx];
-        func_00192c90(name, e->name);
-        func_00192b30(name);
-        e->f456 = a;
-        e->f464 = b;
-        e->f452 = 0;
-        e->f460 = 0;
-        e->f468 = 0;
-    }
-}
+void func_00153468(s32 a, char* name, s32 b);  // 0x00153468: definition moved into src/anon/unit_00153158.cpp
 
 s32 func_00181500(s32);
 s32 func_001a3570(s32);

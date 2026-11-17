@@ -17,9 +17,4 @@ typedef struct W2433_B {
     u8 pad[24]; W2433_S s1; u8 pad2[9644 - 24 - 20]; W2433_S s2; u8 pad3[12064 - 9644 - 20]; W2433_S s3;
 } W2433_B;
 
-void func_00152b50(W2433_B* p) {
-    { W2433_S* s1 = &p->s1; p->s1.a = 0; s1->b = 0; p->s1.c = 0; *(u32*)((u8*)s1 + 8) |= 1; s1->d = 0; p->s1.e = 0; }
-    { W2433_S* s2 = &p->s2; p->s2.a = 0; s2->b = 0; p->s2.c = 0; *(u32*)((u8*)s2 + 8) |= 1; s2->d = 0; p->s2.e = 0; }
-    { W2433_S* s3 = &p->s3; p->s3.a = 0; s3->b = 0; p->s3.c = 0; *(u32*)((u8*)s3 + 8) |= 1; s3->d = 0; p->s3.e = 0; }
-    func_001391c8(p, 9000, 0);
-}
+void func_00152b50(W2433_B* p);  // 0x00152b50: definition moved into src/anon/unit_0014ecb8.cpp

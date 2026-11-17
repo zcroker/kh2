@@ -99,55 +99,17 @@ void func_001396b0(void*);
 void func_0031a260(void*, s32);
 struct Ent506 { void (**vt)(Ent506*); u8 pad[392]; u32 a; u32 b; u8 pad2[4]; };
 struct Own506 { void (**vt)(Own506*); u8 pad[44]; u8 sub[792]; Ent506 e[13]; };
-void func_001506e0(Own506* p) {
-    if (u_call4_00139d78(p)) p->vt[5](p);
-    if (u_call4_00139d78(p->sub)) func_00139510(p->sub);
-    for (s32 i = 0; i < 13; i++) {
-        if (u_call4_00139d78(&p->e[i])) {
-            p->e[i].a = 0;
-            func_001396b0(&p->e[i]);
-            if (p->e[i].a) {
-                p->e[i].b = 0;
-                func_001396b0(&p->e[i]);
-                if (p->e[i].b) func_0031a260(&p->e[i], 0);
-            }
-            p->e[i].vt[5](&p->e[i]);
-        }
-    }
-}
+void func_001506e0(Own506* p);  // 0x001506e0: definition moved into src/anon/unit_0014ecb8.cpp
 
 // --- 001515b0
-void func_001515b0(u8* p) {
-    s32 i;
-    if (u_call4_00139d78(p)) (*(void (**)(u8*))(*(u8**)p + 20))(p);
-    if (u_call4_00139d78(p + 48)) func_00139510(p + 48);
-    for (i = 0; i < 10; i++) {
-        u8* o = p + 496 + i * 408;
-        if (u_call4_00139d78(o)) (*(void (**)(u8*))(*(u8**)o + 20))(o);
-    }
-    for (i = 0; i < 4; i++) {
-        u8* o = p + 4576 + i * 408;
-        if (u_call4_00139d78(o)) (*(void (**)(u8*))(*(u8**)o + 20))(o);
-    }
-}
+void func_001515b0(u8* p);  // 0x001515b0: definition moved into src/anon/unit_0014ecb8.cpp
 
 // --- 001525b8
 extern char D_0034a678[];
 extern char D_0034a698[];
 u32 func_00152598(u8*, u32, u32, char*);
 void func_00152508(u8*, u32, u32, u32, u32);
-void func_001525b8(u8* p, s32 mode, u32 a, u32 b, u32 c, u32 d, u32 e, u32 f) {
-    u32 r = 0;
-    switch (mode) {
-    case 0: r = func_00152598(p, e, c, D_0034a678); break;
-    case 1: r = func_00152598(p, e, c, D_0034a698); break;
-    }
-    *(u32*)(p + 448) = e;
-    *(u32*)(p + 444) = d;
-    *(u32*)(p + 440) = c;
-    *(u32*)(p + 436) = a;
-    func_00152508(p, r, a, b, f);
-}
+void func_001525b8(u8* p, s32 mode, u32 a, u32 b, u32 c, u32 d, u32 e, u32 f);  // 0x001525b8: definition moved into src/anon/unit_0014ecb8.cpp
 
 // --- 00154de8
 f32 func_0017ce10(f32);

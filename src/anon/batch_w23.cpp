@@ -41,10 +41,7 @@ void func_0014a470(void);  // 0014a470: moved to src/anon/unit_00149fa8.cpp
 struct E24 { u8 pad[20]; u8 a, b, c, d; };
 extern E24* D_0034a778;
 void func_00153540(void*, u32, u32, u32, u32);
-void func_001535b0(u8* p, s32 i) {
-    E24* e = (E24*)(i * 24 + (u32)D_0034a778);
-    func_00153540(p + 32, e->a, e->b, e->c, e->d);
-}
+void func_001535b0(u8* p, s32 i);  // 0x001535b0: definition moved into src/anon/unit_00153158.cpp
 
 s32 func_001a1de0(void*);
 void func_00138c10(void*, s32);

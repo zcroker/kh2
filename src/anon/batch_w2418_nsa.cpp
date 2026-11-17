@@ -58,53 +58,7 @@ static inline void W2418_setParent(W2418Sprite* obj, W2418Sprite* parent) {
     }
 }
 
-void func_001516b0(W2418Menu3* self, u32 a1, u32 a2, s32 mode, f32* pv, u32 a5, f32 f) {
-    s32 num;
-    void* s5;
-    s32 cr, i;
-    self->p2884.u = (u32)pv;
-    self->f2880.f = f;
-    self->f2896.i = 0;
-    self->f2888 = *pv;
-    func_00138650(&self->root, 3400, a1, 10);
-    s32 r = func_0013a9d0();
-    if (__builtin_expect(r, 0)) {
-        s5 = (u8*)&self->root + 32;
-        func_002368e8(s5, 0.8f);
-        func_002367c8(s5);
-    } else {
-        s5 = (u8*)&self->root + 32;
-    }
-    num = 0;
-    switch (mode) {
-    case 0: num = 16; break;
-    case 2: num = 15; break;
-    case 1: num = 17; break;
-    }
-    func_00239988(&self->title, a2, s5);
-    func_00239c38(&self->title, num);
-    func_0023acd8(&self->title);
-    self->x = func_0023a950(&self->title);
-    func_001386e0(&self->spr[0], 3400, a2, s5, 3, 10);
-    func_001386e0(&self->spr[1], 3400, a2, s5, 12, 10);
-    func_001386e0(&self->spr[2], 3400, a2, s5, 13, 10);
-    func_001386e0(&self->spr[3], 3400, a2, s5, 14, 10);
-    func_001386e0(&self->spr[4], 3400, a2, s5, 9, 10);
-    cr = func_0023aa78(&self->spr[0].seq);
-    func_0014fc40(self, a5, cr, 3400, 10, mode);
-    func_001519f8(self);
-    for (i = 0; i < 5; i++) {
-        W2418_setParent(&self->spr[i], &self->spr[0]);
-        func_00139660(&self->spr[i]);
-        func_00139688(&self->spr[i]);
-        func_00138c68(&self->spr[i], func_0023a950(&self->spr[0].seq), func_0023a988(&self->spr[0].seq));
-    }
-    func_00138c68(&self->spr[2], func_0023aa18(&self->spr[0].seq), func_0023aa38(&self->spr[0].seq));
-    W2418_setParent(&self->spr[0], 0);
-    func_00138c40(&self->spr[0], self->x, self->y);
-    func_00151bd8(self);
-    self->f2892 = -1.0f;
-}
+void func_001516b0(W2418Menu3* self, u32 a1, u32 a2, s32 mode, f32* pv, u32 a5, f32 f);  // 0x001516b0: definition moved into src/anon/unit_0014ecb8.cpp
 }
 
 extern "C" {

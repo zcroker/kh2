@@ -43,34 +43,6 @@ inline static void setm(Sub *p, s32 x)
   p->m198 = x;
 }
 
-void func_00150940(Obj *o, s32 x)
-{
-  int new_var2;
-  Sub *new_var;
-  if (o->f0)
-  {
-    Sub *a = &o->a;
-    Sub *b = &o->b;
-    a->m198 = x;
-    func_001508a0(o, x);
-    func_00138c10(a, 0);
-    new_var2 = 1;
-    func_00138c10(b, 0);
-    a->m188 = new_var2;
-    new_var = b;
-    new_var->m188 = 2;
-    o->f0 = 0;
-  }
-  else
-  {
-    Sub *a = &o->a;
-    a->m198 = x;
-    func_00138c10(a, 1);
-    a->m188 = -1;
-    func_00138c10(&o->b, 2);
-    func_001508a0(o, x);
-    o->f1 = 1;
-  }
-}
+void func_00150940(Obj *o, s32 x);  // 0x00150940: definition moved into src/anon/unit_0014ecb8.cpp
 
 }

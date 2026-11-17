@@ -69,19 +69,7 @@ u8* func_0013bb58(void* a0, u8* a1, s32 a2, s32 a3, u8 b, s32 c, s32 d);  // 0x0
 void func_0023a9c0(void*, s32*, s32*);
 u32 func_0023a918(void*);
 s32 func_0023aa98(void*);
-void func_00152820(u8* p, s32* x, s32* y, s32* r, s32* b, u32* fl) {
-    s32 ox = 0;
-    s32 oy = 0;
-    u8* o = p + 24;
-    func_0023a9c0(o, &ox, &oy);
-    *fl = *(u32*)(p + 420);
-    u32 v = func_0023a918(o);
-    *fl = (*fl & 0xffffff) | (v & 0xff000000);
-    *x = *(s32*)(p + 368) + ox;
-    *y = *(s32*)(p + 372) + oy;
-    *r = *x + func_0023aa98(o);
-    *b = *y;
-}
+void func_00152820(u8* p, s32* x, s32* y, s32* r, s32* b, u32* fl);  // 0x00152820: definition moved into src/anon/unit_0014ecb8.cpp
 
 // ---- 0x154c10 ----
 void func_00138c10(void*, s32);

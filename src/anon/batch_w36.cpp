@@ -76,12 +76,7 @@ u32 wtarget_00142208(u32 a0, u32 a1, u32, u32);  // 0x00142208: definition moved
 
 // 00149c40: moved to src/harata/libdk/area.cpp
 
-f32 func_00153610(f32 x) {
-    f32 r = 1.0f / (D_0034a780 + D_0034a784 * x + D_0034a788 * x * x);
-    if (1.0f < r) r = 1.0f;
-    if (r < 0.0f) r = 0.0f;
-    return r;
-}
+f32 func_00153610(f32 x);  // 0x00153610: definition moved into src/anon/unit_00153158.cpp
 
 // 001542c8: moved to src/anon/unit_00153ea0.cpp
 void func_001542c8(u8* p, u32 a, u32 b);
