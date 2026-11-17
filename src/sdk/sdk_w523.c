@@ -47,36 +47,11 @@ int func_002fbb50(void)
     return 1;
 }
 
-Pad* func_002f6310(int port)
-{
-    Pad *a[2];
-    Pad *p = D_01e2fe48[port].f10;
-    a[0] = p;
-    a[1] = p + 1;
-    func_00305f18(p, (char *)p + 255);
-    return a[a[0]->x7c < a[1]->x7c];
-}
+Pad* func_002f6310(int port);  // 0x002f6310: definition moved into src/sdk/libpad2.c
 
-Pad* func_002f6378(int port)
-{
-    Pad *a[2];
-    Pad *p = D_01e2fe48[port].f10;
-    a[0] = p;
-    a[1] = p + 1;
-    func_00305f18(p, (char *)p + 256);
-    return a[a[0]->x7c < a[1]->x7c];
-}
+Pad* func_002f6378(int port);  // 0x002f6378: definition moved into src/sdk/libpad2.c
 
-int func_002f63e0(int port)
-{
-    int v = func_002f6310(port)->x7c;
-    if (v == 0)
-        return 0;
-    if (v == D_01e2fe48[port].f8)
-        return 0;
-    D_01e2fe48[port].f8 = v;
-    return 1;
-}
+int func_002f63e0(int port);  // 0x002f63e0: definition moved into src/sdk/libpad2.c
 
 int func_003101d0(int a, int b)
 {

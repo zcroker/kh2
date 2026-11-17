@@ -98,20 +98,7 @@ int func_0030f128(void)
 extern int D_00363d28;
 extern int D_01e2fe48[];
 extern int func_002f5e20(int);
-int func_002f5cb0(void)
-{
-    int i, r;
-    int *p = D_01e2fe48;
-    D_00363d28 = 0;
-    for (i = 0; i < 16; i++, p += 205) {
-        if (*p) {
-            r = func_002f5e20(i);
-            if (r < 0)
-                return r;
-        }
-    }
-    return 1;
-}
+int func_002f5cb0(void);  // 0x002f5cb0: definition moved into src/sdk/libpad2.c
 
 extern int func_002f71b0(int);
 extern int D_01e331c0;

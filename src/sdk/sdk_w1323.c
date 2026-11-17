@@ -13,38 +13,7 @@ int sceDbcResetSocket(int x);  // 0x002f5338: definition moved into src/sdk/libd
 int sceDbcGetDeviceStatus(int x);  // 0x002f53e8: definition moved into src/sdk/libdbc.c
 
 typedef struct { int on, kind, x8, xc; } E;
-int func_002f6440(unsigned char *bits, E *e)
-{
-    int i, bit = 0, t1 = 0, a3 = 0;
-    for (i = 0; i < 40; i++, e++) {
-        if ((*bits >> bit) & 1) {
-            e->on = 1;
-            e->x8 = t1;
-            e->xc = a3;
-            if ((i >= 16 && i < 32) || (i >= 35 && i < 39)) {
-                e->kind = 8;
-                t1++;
-            } else {
-                a3++;
-                e->kind = 1;
-                if ((a3 & 7) == 0) {
-                    t1++;
-                    a3 = 0;
-                }
-            }
-        } else {
-            e->on = 0;
-            e->x8 = 0;
-            e->xc = 0;
-        }
-        bit++;
-        if ((bit & 7) == 0) {
-            bits++;
-            bit = 0;
-        }
-    }
-    return 1;
-}
+int func_002f6440(unsigned char *bits, E *e);  // 0x002f6440: definition moved into src/sdk/libpad2.c
 
 typedef float V4[4] __attribute__((aligned(16)));
 extern void sceVu0UnitMatrix(V4 *);

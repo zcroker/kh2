@@ -101,11 +101,4 @@ int func_002f4a20(void);  // 0x002f4a20: definition moved into src/sdk/libdbc.c
 typedef struct { int a; int b; int c; int d; char pad[820 - 16]; } Ent;
 extern Ent D_01e2fe48[];
 extern int sceDbcGetDepNumber(int);
-int func_002f62b8(int i)
-{
-    int r = sceDbcGetDepNumber(i);
-    if (r < 0) return r;
-    D_01e2fe48[i].d = r;
-    D_01e2fe48[i].b = 1;
-    return r;
-}
+int func_002f62b8(int i);  // 0x002f62b8: definition moved into src/sdk/libpad2.c

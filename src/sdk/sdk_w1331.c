@@ -278,37 +278,4 @@ extern int func_002f63e0(int);
 extern unsigned char *func_002f6378(int);
 extern void func_002f6240(int);
 extern int sceDbcReceiveData(int, int, int *, unsigned char *);
-int func_002f6020(int port)
-{
-    PadCmd cmd;
-    unsigned char res;
-    int tmp;
-    unsigned char *p;
-
-    if (D_01e2fe48[port].active == 0) {
-        if (func_002f62b8(port) < 0)
-            return 0;
-    }
-    if (func_002f63e0(port)) {
-        p = func_002f6378(port);
-        if (((int *)p)[1] == 0) {
-            if (func_002f62b8(port) < 0)
-                goto fail;
-        }
-        res = *p;
-        goto out;
-    } else {
-        cmd.s.a = 12;
-        cmd.s.b = 2;
-        cmd.s.c = 1;
-        cmd.s.d = 1;
-        if (sceDbcReceiveData(port, cmd.i, &tmp, &res) >= 0)
-            goto out;
-    }
-fail:
-    D_01e2fe48[port].active = 0;
-    func_002f6240(port);
-    return 0;
-out:
-    return res;
-}
+int func_002f6020(int port);  // 0x002f6020: definition moved into src/sdk/libpad2.c

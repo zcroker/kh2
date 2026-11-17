@@ -51,18 +51,7 @@ int func_003096b8(Ref *r)
 typedef struct { int a, b, c, d; char pad[804]; } Ent;
 extern int D_00363d28;
 extern Ent D_01e2fe48[16];
-int func_002f5c70(void)
-{
-    int i;
-    D_00363d28 = 1;
-    for (i = 0; i < 16; i++) {
-        D_01e2fe48[i].a = 0;
-        D_01e2fe48[i].b = 0;
-        D_01e2fe48[i].c = 0;
-        D_01e2fe48[i].d = 0;
-    }
-    return 1;
-}
+int func_002f5c70(void);  // 0x002f5c70: definition moved into src/sdk/libpad2.c
 
 typedef struct { char pad[0x1c]; char *tab; int n; } Tbl;
 extern void* func_00308dc0(Tbl *, int);

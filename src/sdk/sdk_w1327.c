@@ -165,25 +165,7 @@ extern int func_002f62b8(int);
 extern Pkt *func_002f6378(int);
 extern void func_002f6440(u8 *, void *);
 
-int func_002f5f50(int port, void *buf)
-{
-    Pkt *p;
-    int n;
-    func_002f6020(port);
-    if (D_01e2fe48[port].x4 == 0) {
-        if (func_002f62b8(port) < 0)
-            return -1;
-    }
-    p = func_002f6378(port);
-    n = p->len;
-    if (n && p->data) {
-        memcpy(buf, (u8 *)(p->off + (int)p) + 28, n);
-        func_002f6440(p->data + p->off, &D_01e2fe48[port].x10 + 1);
-    }
-    if (p->x4 == 0)
-        return -1;
-    return p->len;
-}
+int func_002f5f50(int port, void *buf);  // 0x002f5f50: definition moved into src/sdk/libpad2.c
 
 typedef struct { int x0, x4, x8, xc, x10, x14, x18, x1c, x20, x24, x28; } Pk;
 extern Pk *func_00308dc0(int);

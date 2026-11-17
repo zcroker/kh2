@@ -57,21 +57,7 @@ typedef struct { unsigned char a, b, c, d; int x4; char pad[20]; char buf[96]; i
 typedef struct { char pad[16]; Ent_w1055 *ent; char pad2[820 - 20]; } Port_w1055;
 extern Port_w1055 D_01e2fe48[];
 
-void func_002f6240(int n)
-{
-    int i;
-    Ent_w1055 *e = D_01e2fe48[n].ent;
-    for (i = 1; i >= 0; i--) {
-        e->a = 0;
-        e->x7c = 0;
-        e->b = 0;
-        e->d = 0;
-        e->c = 0;
-        e->x4 = 0;
-        func_002fde18(e->buf, 0xff, 0x20);
-        e++;
-    }
-}
+void func_002f6240(int n);  // 0x002f6240: definition moved into src/sdk/libpad2.c
 
 int func_002f6c28(void)
 {

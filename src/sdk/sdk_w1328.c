@@ -78,21 +78,7 @@ extern int func_002f62b8(int);
 extern F1328 *func_002f6310(int);
 extern void *memcpy(void *, void *, int);
 extern int func_002f6440(void *, void *);
-int func_002f5e78(int port, void *buf)
-{
-    F1328 *p;
-    int n;
-    if (D_01e2fe48[port].x0 == 0) return -1;
-    if (D_01e2fe48[port].x4 == 0 && func_002f62b8(port) < 0) return -1;
-    p = func_002f6310(port);
-    n = p->x2;
-    if (n != 0 && p->x1c != 0) {
-        memcpy(buf, p->x1c, n);
-        func_002f6440(p->x1c + p->x2, D_01e2fe48[port].x14);
-    }
-    if (p->x4 == 0) return -1;
-    return p->x2;
-}
+int func_002f5e78(int port, void *buf);  // 0x002f5e78: definition moved into src/sdk/libpad2.c
 
 typedef struct { int a; int b; } G1328;
 extern G1328 D_003670d8[];

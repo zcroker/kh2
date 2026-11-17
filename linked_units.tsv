@@ -522,3 +522,5 @@ src/anon/unit_0015a810.cpp	0015a810	0015af48	.rodata@0036b3ac	-G0
 src/anon/unit_0015b100.cpp	0015b100	0015b7f8	.rodata@0036b3b0	-G0
 src/anon/unit_0015bab8.cpp	0015bab8	0015c958	.rodata@0036b3d0	-G0 -fno-strict-aliasing
 src/anon/unit_0015cb18.cpp	0015cb18	0015cdb0	.rodata@0036b3f8	-G0
+src/sdk/libpad2.c	002f5c70	002f6524	.data@00363d18,.rodata@00376ae8	-G0
+src/sdk/libvib.c	002f6528	002f6694	-	-G0
