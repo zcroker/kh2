@@ -22,31 +22,5 @@ static inline void set(QWord* a, u16 b, s32 j, f32 v) { *(f32*)((u32)a + (b << 4
 extern "C" {
 // 00128480: copies the pose keys (scale/rotation/translation per bone) from the source, then applies
 // per-channel overrides (channel 0-2 scale, 3-5 rotation, 6-8 translation xyz).
-void func_00128480(Self* self, Pose* p) {
-    Hdr* h = self->hdr;
-    s32 n = h->n;
-    Key* k = p->src->vt->get(p->src);
-    s32 i;
-    for (i = 0; i < n; i++, k++) {
-        p->s[i] = k->s;
-        p->r[i] = k->r;
-        p->t[i] = k->t;
-    }
-    n = h->cnt;
-    if (n == 0) return;
-    Chan* c = (Chan*)((u8*)h + h->off);
-    for (i = 0; i < n; i++, c++) {
-        switch (c->ch) {
-        case 0: case 1: case 2:
-            set(p->s, c->bone, c->ch, c->val);
-            break;
-        case 3: case 4: case 5:
-            set(p->r, c->bone, c->ch - 3, c->val);
-            break;
-        case 6: case 7: case 8:
-            set(p->t, c->bone, c->ch - 6, c->val);
-            break;
-        }
-    }
-}
+void func_00128480(Self* self, Pose* p);  // 0x00128480: definition moved into src/anon/unit_00128480.cpp
 }

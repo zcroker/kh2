@@ -63,28 +63,7 @@ void func_00117c28(u8* p) {
 
 // ---- 0x1285f8: binary search of x in a sorted float table -> bracketing indices ----
 struct Curve { u8 pad[32]; s32 count; u8 pad2[32]; s32 off; };
-void func_001285f8(u8* p, f32 x, s32* lo, s32* hi) {
-    Curve* c = *(Curve**)(p + 4);
-    f32* arr = (f32*)((u8*)c + c->off);
-    if (arr[c->count - 1] <= x) {
-        *lo = c->count - 1;
-        *hi = c->count;
-        return;
-    }
-    if (x <= arr[0]) {
-        *lo = -1;
-        *hi = 0;
-        return;
-    }
-    *lo = 0;
-    *hi = c->count - 1;
-    while (*hi - *lo > 1) {
-        s32 m = (*lo + *hi) / 2;
-        if (x < arr[m]) *hi = m;
-        else if (arr[m] < x) *lo = m;
-        else { *hi = m; *lo = m; return; }
-    }
-}
+void func_001285f8(u8* p, f32 x, s32* lo, s32* hi);  // 0x001285f8: definition moved into src/anon/unit_00128480.cpp
 
 // ---- 0x13bb58 ----
 s32 func_0013ba60(void*, s32, s32, u8*, s32, s32*, s32*);

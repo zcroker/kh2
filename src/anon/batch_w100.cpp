@@ -108,18 +108,7 @@ static inline f32 Normalize(QWord* v)
 }
 
 extern "C" {
-void func_00128d40(const QWord* fwd, const QWord* up, QWord* out) {  // vec4_copy_normalize
-    asm volatile(".set noreorder\n\t.set reorder"); // keeps gas from moving the prologue into the first branch delay slot
-    out[0] = *fwd;
-    Normalize(&out[0]);
-    QWord s;
-    s = Cross(*fwd, *up);
-    out[1] = Cross(s, *fwd);
-    Normalize(&out[1]);
-    out[2] = Cross(*fwd, out[1]);
-    Normalize(&out[2]);
-    out[0].f[3] = out[1].f[3] = out[2].f[3] = 0.0f;
-}
+void func_00128d40(const QWord* fwd, const QWord* up, QWord* out);  // 0x00128d40: definition moved into src/anon/unit_00128480.cpp
 }
 
 }

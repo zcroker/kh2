@@ -43,17 +43,7 @@ static inline W1888eM* w1888eWorld(W1888eC* ctx, W1888eP* pose, s32 i) {
     return &ctx->worldX[i - m->boneCount];
 }
 extern "C" {
-void func_00128e98(W1888eC* ctx, W1888eP* pose, s32 i, s32 j, W1888eV* out, W1888eM* m, W1888eV* out2)
-{
-    if (j >= 0) {
-        W1888eV a = w1888eWorld(ctx, pose, i)->r[3];
-        W1888eV b = w1888eWorld(ctx, pose, j)->r[3];
-        *out = (a + b) * 0.5f;
-    } else {
-        *out = w1888eWorld(ctx, pose, i)->r[3];
-    }
-    if (m && out2) *out2 = *m * *out;
-}
+void func_00128e98(W1888eC* ctx, W1888eP* pose, s32 i, s32 j, W1888eV* out, W1888eM* m, W1888eV* out2);  // 0x00128e98: definition moved into src/anon/unit_00128480.cpp
 }
 
 // func_002c1f90: rotation matrix with translation, premultiplied by the global view matrix.

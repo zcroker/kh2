@@ -45,20 +45,7 @@ void func_0011d468(u8* p, s32 i, f32* m) {
 }
 
 // Cubic Hermite interpolation between (t0, p0, m0) and (t1, p1, m1).
-f32 func_001286d0(f32 t, f32 t0, f32 p0, f32 m0, f32 t1, f32 p1, f32 m1) {
-    f32 inv = t1 - t0;
-    t = t - t0;
-    inv = 1.0f / inv;
-    f32 t2 = t * t;
-    f32 t3 = t2 * t;
-    f32 a = t2 * 3.0f;
-    f32 inv2 = inv * inv;
-    f32 c = t2 * inv;
-    f32 b = t3 * inv2;
-    a = a * inv2;
-    f32 d = (b + b) * inv;
-    return p0 * (d - a + 1.0f) + p1 * (a - d) + m0 * (b - (c + c) + t) + m1 * (b - c);
-}
+f32 func_001286d0(f32 t, f32 t0, f32 p0, f32 m0, f32 t1, f32 p1, f32 m1);  // 0x001286d0: definition moved into src/anon/unit_00128480.cpp
 
 struct Pkt { u16 h0; u8 b2; u8 b3; u32 w4; u32 w8; u32 w12; };
 union PktCursor { Pkt* p; u32 u; u16 h; };

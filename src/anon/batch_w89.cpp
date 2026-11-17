@@ -65,25 +65,7 @@ struct AnTrack { u8 pad0; u8 flag; u8 pad[6]; u16 count; u16 start; };
 struct AnData { u8 pad[80]; s32 trackOff; s32 nTracks; s32 keyOff; };
 extern "C" {
 // Samples every on/off track at time t (binary search over its keys).
-void func_00130c18(u8* o, f32 t) {
-    AnData* a = *(AnData**)(o + 4);
-    AnTrack* tr = (AnTrack*)((u8*)a + a->trackOff);
-    AnKey* keys = (AnKey*)((u8*)a + a->keyOff);
-    for (s32 i = 0; i < a->nTracks; i++, tr++) {
-        if (tr->count == 0) continue;
-        s32 lo = tr->start;
-        s32 hi = lo + tr->count - 1;
-        if (t < keys[lo].t) { tr->flag = keys[lo].v == 0; continue; }
-        if (keys[hi].t <= t) { tr->flag = keys[hi].v != 0; continue; }
-        while (hi - lo >= 2) {
-            s32 mid = (lo + hi) / 2;
-            if (t < keys[mid].t) hi = mid;
-            else if (keys[mid].t < t) lo = mid;
-            else { lo = mid; break; }
-        }
-        tr->flag = keys[lo].v != 0;
-    }
-}
+void func_00130c18(u8* o, f32 t);  // 0x00130c18: definition moved into src/anon/unit_00128480.cpp
 }
 }
 

@@ -35,30 +35,5 @@ struct M129960 {
 void func_0011b6a8(M129960*);
 /* Re-orthonormalize a matrix's rotation rows, keeping each row's length;
    when the x row is nearly vertical, rebuild the basis around an up axis. */
-void func_00129960(const M129960* src, M129960* dst)
-{
-    V129960 x(src->r[0]);
-    V129960 y(src->r[1]);
-    V129960 z(src->r[2]);
-    f32 lx = x.normalize();
-    f32 ly = y.normalize();
-    f32 lz = z.normalize();
-    f32 xy = x.y;
-    if (0.6499999761581421f <= xy || xy <= -0.6499999761581421f) {
-        func_0011b6a8(dst);
-        V129960 up;
-        if (xy < 0.0f) { up.set(0.0f, -1.0f, 0.0f, 0.0f); dst->r[0] = up; }
-        else { up.set(0.0f, 1.0f, 0.0f, 0.0f); dst->r[0] = up; }
-        dst->r[2].cross(dst->r[0], y);
-        dst->r[2].normalize();
-        dst->r[1].cross(dst->r[2], dst->r[0]);
-        dst->r[1].normalize();
-        dst->r[0] *= lx;
-        dst->r[1] *= ly;
-        dst->r[2] *= lz;
-        dst->r[3] = src->r[3];
-    } else {
-        *dst = *src;
-    }
-}
+void func_00129960(const M129960* src, M129960* dst);  // 0x00129960: definition moved into src/anon/unit_00128480.cpp
 }

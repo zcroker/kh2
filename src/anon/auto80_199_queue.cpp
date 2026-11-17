@@ -521,25 +521,7 @@ void func_00127c70(u32 a0, Obj* a1, u32 a2) {
     (void)a0;
 }
 
-u32 func_00129008(u32 a0, u32 a1, u8* a2, u32 a3, u32 a4, u32 a5) {
-    u32 t3 = a3;
-    u32 t5 = a4;
-    u32 t4 = a5;
-
-    u32 out_a3 = -1;
-    u32 out_a4 = t3;
-    u32 out_a5 = t5;
-    u32 out_a6 = t4;
-
-    if (*(u8*)(a2 + 0) == 5) {
-        out_a3 = *(u16*)(a2 + 6);
-        a2 = (u8*)(u32)(*(u16*)(a2 + 4));
-        return func_00128e98(a0, a1, (u32)a2, out_a3, out_a4, out_a5, out_a6);
-    }
-
-    a2 = (u8*)(u32)(*(u16*)(a2 + 4));
-    return func_00128e98(a0, a1, (u32)a2, out_a3, out_a4, out_a5, out_a6);
-}
+u32 func_00129008(u32 a0, u32 a1, u8* a2, u32 a3, u32 a4, u32 a5);  // 0x00129008: definition moved into src/anon/unit_00128480.cpp
 
 u32 func_00132208(u32 a0) {
     u32 t5 = 0;

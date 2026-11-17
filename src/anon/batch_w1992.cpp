@@ -62,32 +62,7 @@ static inline s32 w1992_off2(P16eb48* p) { return !(p->b48 & 1); }
 
 extern "C" {
 
-void func_00128b38(Obj128b38* o, Out128b38* out, f32 t) {
-    s32 s0, s1;
-    func_001285f8(o, &s0, &s1);
-    Hdr128b38* h = o->h;
-    Key128b38* k = (Key128b38*)((u8*)h + h->off1);
-    s32 n = h->n1;
-    for (s32 i = 0; i < n; i++, k++) {
-        f32 v = func_00128750(o, k, s0, s1, t);
-        switch (k->ch) {
-        case 0: case 1: case 2: { u8* q = (u8*)out->a + k->idx * 16; s32 j = k->ch * 4; *(f32*)(q + j) = v; } break;
-        case 3: case 4: case 5: { u8* q = (u8*)out->b + k->idx * 16; s32 j = k->ch - 3; s32 j4 = j * 4; *(f32*)(q + j4) = v; } break;
-        case 6: case 7: case 8: { u8* q = (u8*)out->c + k->idx * 16; s32 j = k->ch - 6; s32 j4 = j * 4; *(f32*)(q + j4) = v; } break;
-        }
-    }
-    M4w1992* m = (M4w1992*)((u8*)h + h->offM);
-    k = (Key128b38*)((u8*)h + h->off2);
-    n = h->n2;
-    for (s32 i = 0; i < n; i++, k++) {
-        f32 v = func_00128750(o, k, s0, s1, t);
-        switch (k->ch) {
-        case 0: case 1: case 2: { u8* q = (u8*)m + k->idx * 64; s32 j = (k->ch) * 4; *(f32*)(q + j + 16) = v; } break;
-        case 3: case 4: case 5: { u8* q = (u8*)m + k->idx * 64; s32 j = k->ch - 3; s32 j4 = j * 4; *(f32*)(q + j4 + 32) = v; } break;
-        case 6: case 7: case 8: { u8* q = (u8*)m + k->idx * 64; s32 j = k->ch - 6; s32 j4 = j * 4; *(f32*)(q + j4 + 48) = v; } break;
-        }
-    }
-}
+void func_00128b38(Obj128b38* o, Out128b38* out, f32 t);  // 0x00128b38: definition moved into src/anon/unit_00128480.cpp
 
 void w1992_tail4_16eb48(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z16u_tail4_0016eb48jjjj");
 void w1992_tail4_16eb48(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0016eb48: definition moved into src/anon/unit_0016e8f8.cpp
