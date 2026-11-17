@@ -8,21 +8,7 @@ void func_002f3500(Q *q, unsigned int n, int t);  // 0x002f3500: definition move
 typedef struct N { struct N *next; struct N *prev; int p8, pc; unsigned long long a; unsigned long long b; unsigned long long c; } N;
 typedef struct { int pad[6]; N *head; } NL;
 extern NL D_00367118;
-void func_0030fba0(N *n)
-{
-    N *prev = 0;
-    N *p = D_00367118.head;
-    unsigned long long k = n->c + n->a - n->b;
-    while (p && p->c + p->a - p->b <= k) {
-        prev = p;
-        p = p->next;
-    }
-    n->prev = prev;
-    n->next = p;
-    if (p) p->prev = n;
-    if (prev) prev->next = n;
-    else D_00367118.head = n;
-}
+void func_0030fba0(N *n);  // 0x0030fba0: definition moved into src/sdk/libkernl_0030f688.c
 
 extern int DIntr(void);
 extern void EIntr();

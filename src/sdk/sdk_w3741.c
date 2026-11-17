@@ -6,45 +6,7 @@ extern AG D_00367118;
 extern void func_0030f6a0(int);
 extern void func_0030f6b0(int);
 
-void func_0030fa10(u_long now)
-{
-    AG *g = &D_00367118;
-    Al *a;
-    unsigned int mode; int sh;
-    u_long best, t;
-    a = g->head;
-    if (g->x1c >= 0) return;
-    mode = *(volatile unsigned int *)0x10001010;
-    if (a == 0) {
-        func_0030f6b0(0);
-        func_0030f6a0(mode & ~0x800);
-        return;
-    }
-    best = a->c + a->a - a->b;
-    a = a->next;
-    if (a) {
-        t = a->c + a->a - a->b;
-        if (t < best + 0x7333) {
-            best = t;
-            for (;;) {
-                a = a->next;
-                if (!a) goto done;
-                t = a->c + a->a - a->b;
-                if (t >= best + 0x7333) goto done;
-                best = t;
-            }
-        }
-    }
-done:
-    sh = mode & 3;
-    if ((long)(best - now) < 0x7333) {
-        func_0030f6b0(*(volatile int *)0x10001000 + (int)(0x7333UL >> (sh * 4)));
-        func_0030f6a0(mode & ~0x800);
-        return;
-    }
-    func_0030f6a0(mode & ~0x800);
-    func_0030f6b0((int)(best >> (sh * 4)));
-}
+void func_0030fa10(u_long now);  // 0x0030fa10: definition moved into src/sdk/libkernl_0030f688.c
 
 /* 002f25a0 sceGsSyncPath (libgraph). */
 extern void func_003080d0(const char *, ...);

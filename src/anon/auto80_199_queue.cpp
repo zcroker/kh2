@@ -1830,17 +1830,7 @@ s32 func_003050b8(u32* out, u32 a1, u32 a2);  // 0x003050b8: definition moved in
 
 s32 func_00305110(u32* out, u32 a1, u32 a2, u32 a3);  // 0x00305110: definition moved into src/newlib/libc/lseekr.c
 
-void func_0030f068() {
-    func_0030ee18();
-    func_0030ef58();
-    func_0030f548();
-    func_0030f6c0(2u);
-    func_0030f900();
-    func_003063f8();
-    func_0030f190();
-    func_00311368();
-    func_00310d80();
-}
+void func_0030f068();  // 0x0030f068: definition moved into src/sdk/libkernl_0030f068.c
 
 u32 __cxa_begin_catch(u32 a0) {
     u32 s0 = a0 - 48u;

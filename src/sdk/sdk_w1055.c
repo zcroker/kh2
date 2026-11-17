@@ -50,21 +50,7 @@ int u_call4_0030d998(int a);  // 0x0030d998: definition moved into src/sdk/iophe
 
 typedef struct { int next; volatile int id; } Sem_w1055;
 
-int func_00310d08(unsigned int id)
-{
-    Sem_w1055 *s = (Sem_w1055 *)((id >> 8) << 4);
-    int r, t;
-    if ((int)id < 0 || ((id ^ s->id) & 0xff))
-        return 0x80008002;
-    r = func_00310090(s->id);
-    if (r == 0) {
-        t = D_01e3b300;
-        D_01e3b300 = (int)s;
-        s->next = t;
-        s->id = 0;
-    }
-    return r;
-}
+int func_00310d08(unsigned int id);  // 0x00310d08: definition moved into src/sdk/libkernl_00310048.c
 
 void func_00305f18(unsigned int a, unsigned int b)
 {

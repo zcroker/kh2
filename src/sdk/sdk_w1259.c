@@ -6,19 +6,7 @@ extern void func_0030f6a0(int);
 extern int func_0030ff08(void);
 extern void func_0030fa10(int);
 
-int func_0030f900(void)
-{
-    int st = DIntr();
-    u32 v = *(volatile u32 *)0x10001010;
-    if (v & 0x80) {
-        if (st) EIntr();
-        return 1;
-    }
-    func_0030f6a0((v & ~0xc00) | 0x80);
-    func_0030fa10(func_0030ff08());
-    if (st) EIntr();
-    return 0;
-}
+int func_0030f900(void);  // 0x0030f900: definition moved into src/sdk/libkernl_0030f688.c
 
 int func_002f3c28(volatile u32 *p);  // 0x002f3c28: definition moved into src/sdk/libdma.c
 

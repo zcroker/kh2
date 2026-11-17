@@ -27,33 +27,7 @@ void func_00305ab0(void)
 }
 
 extern unsigned long D_00367118;
-unsigned long func_0030ff58(void)
-{
-    int s;
-    unsigned long r;
-    s = DIntr();
-    /* hand-written timer read (original inline asm block) */
-    asm volatile(
-        ".set noreorder\n\t"
-        "lwu %0,0(%1)\n\t"
-        "lw $8,16(%1)\n\t"
-        "ld $10,%2\n\t"
-        "andi $9,$8,0x800\n\t"
-        "beqz $9,1f\n\t"
-        "li $9,2\n\t"
-        "lwu %0,0(%1)\n\t"
-        "daddiu $10,$10,1\n"
-        "1:\tandi $8,$8,3\n\t"
-        "dsll $10,$10,16\n\t"
-        "movz $9,$0,$8\n\t"
-        "or %0,%0,$10\n\t"
-        "dsllv $9,$9,$8\n\t"
-        "dsllv %0,%0,$9\n\t"
-        ".set reorder"
-        : "=&r"(r) : "r"((volatile unsigned int *)0x10001000), "m"(D_00367118) : "$8", "$9", "$10");
-    if (s) EIntr();
-    return r;
-}
+unsigned long func_0030ff58(void);  // 0x0030ff58: definition moved into src/sdk/libkernl_0030ff58.c
 
 typedef struct { int status; int f4; char *stack; int stackSize; int pad[8]; } ThreadStat;
 extern int func_003060f0(void);

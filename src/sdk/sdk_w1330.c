@@ -41,30 +41,7 @@ extern int D_00366968[2];
 extern void func_0030f280(int, int);
 extern int func_0030f240(int, void *, int);
 extern int strlen(const char *);
-int func_0030f290(const char *name, int argc, char **argv)
-{
-    int area = D_003674b8;
-    int p = area + 64;
-    int ret = p;
-    int len;
-    int i;
-    func_0030f280(D_00366968[0], D_00366968[1]);
-    if (argc >= 16)
-        argc = 15;
-    func_0030f240(area, &p, 4);
-    area += 4;
-    len = strlen(name) + 1;
-    func_0030f240(p, (void *)name, len);
-    p += len;
-    for (i = 0; i < argc; i++) {
-        func_0030f240(area, &p, 4);
-        area += 4;
-        len = strlen(argv[i]) + 1;
-        func_0030f240(p, argv[i], len);
-        p += len;
-    }
-    return ret;
-}
+int func_0030f290(const char *name, int argc, char **argv);  // 0x0030f290: definition moved into src/sdk/libkernl_0030f290.c
 
 typedef struct { int port; int slot; int c; int d; int e; char name[1024]; } SendDir;
 extern SendDir D_01e33530;

@@ -196,13 +196,7 @@ void iDisableIntc() {
 // libkernel: enable interrupts, return whether EIE was already set.
 // The mfc0/lui/and sequence is in asm: this area is hand-written / other-compiler
 // code that uses v0/v1 as scratch.
-s32 EIntr() {  // ee_intr_get_enable
-    register u32 r asm("$2");
-    register u32 m asm("$3");
-    asm volatile("mfc0 %0, $12\n\tlui %1, 1\n\tand %0, %0, %1" : "=r"(r), "=r"(m));
-    asm volatile("ei");
-    return r != 0;
-}
+s32 EIntr();  // 0x0030ee00: definition moved into src/sdk/libkernl_0030ee00.c
 
 }  // extern "C"
 

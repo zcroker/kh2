@@ -5,16 +5,6 @@ extern void func_0030f3a8(void);
 extern void func_00305260(int, int, char **);
 extern void func_00305a40(int, char **);
 
-void func_0030f420(const char *name, int argc, char **argv)
-{
-    int r = func_0030f290(name, argc, argv);
-    func_0030f3a8();
-    func_00305260(r, argc, (char **)(D_003674b8 + 4));
-}
+void func_0030f420(const char *name, int argc, char **argv);  // 0x0030f420: definition moved into src/sdk/libkernl_0030f290.c
 
-void func_0030f490(int argc, char **argv)
-{
-    func_0030f290("", argc, argv);
-    func_0030f3a8();
-    func_00305a40(argc, (char **)(D_003674b8 + 4));
-}
+void func_0030f490(int argc, char **argv);  // 0x0030f490: definition moved into src/sdk/libkernl_0030f290.c

@@ -631,3 +631,16 @@ src/newlib/libc/fstatr.c	003050b8	00305110	-	-G0 -fno-builtin
 src/newlib/libc/lseekr.c	00305110	00305168	-	-G0 -fno-builtin
 src/newlib/libc/readr.c	00305168	003051c8	-	-G0 -fno-builtin
 src/sdk/glue.c	00305be8	00305e70	-	-G0
+src/sdk/libkernl_0030ee00.c	0030ee00	0030ee84	.rodata@003783f0	-G0
+src/sdk/libkernl_0030ef20.c	0030ef20	0030f054	-	-G0
+src/sdk/libkernl_0030f068.c	0030f068	0030f0bc	-	-G0
+src/sdk/libkernl_0030f128.c	0030f128	0030f23c	-	-G0
+src/sdk/libkernl_0030f290.c	0030f290	0030f4dc	.rodata@00378410	-G0
+src/sdk/libkernl_0030f548.c	0030f548	0030f61c	-	-G0
+src/sdk/libkernl_0030f688.c	0030f688	0030fc60	-	-G0
+src/sdk/libkernl_0030ff58.c	0030ff58	0030ffd4	-	-G0
+src/sdk/libkernl_00310048.c	00310048	00310f34	-	-G0
+src/sdk/libkernl_00310fe0.c	00310fe0	003112fc	-	-G0
+src/sdk/libkernl_00311368.c	00311368	0031142c	-	-G0
+src/sdk/libkernl_00311460.c	00311460	00311490	-	-G0
+src/sdk/libkernl_003114f0.c	003114f0	00311530	-	-G0

@@ -32,31 +32,12 @@ int func_0030a690(void);  // 0x0030a690: definition moved into src/sdk/filestub.
 
 extern int *D_00366188;
 extern void func_0030ee88(void *, void *, int);
-int func_0030ef20(int i)
-{
-    int v;
-    func_0030ee88(&v, D_00366188 + i, 4);
-    return v;
-}
+int func_0030ef20(int i);  // 0x0030ef20: definition moved into src/sdk/libkernl_0030ef20.c
 
 extern int func_00305a50(int, void *);
 struct A3 { int a; int b; int c; };
-int func_00311100(int a, int b, unsigned short c)
-{
-    struct A3 s;
-    s.a = a;
-    s.b = b;
-    s.c = c;
-    return func_00305a50(-5, &s);
-}
-int func_00311138(int a, int b, unsigned short c)
-{
-    struct A3 s;
-    s.a = a;
-    s.b = b;
-    s.c = c;
-    return func_00305a50(-6, &s);
-}
+int func_00311100(int a, int b, unsigned short c);  // 0x00311100: definition moved into src/sdk/libkernl_00310fe0.c
+int func_00311138(int a, int b, unsigned short c);  // 0x00311138: definition moved into src/sdk/libkernl_00310fe0.c
 
 extern int func_00307ee8();
 extern int func_003071d0(void *, void *, int, int, int);

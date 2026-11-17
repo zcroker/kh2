@@ -88,19 +88,7 @@ extern void func_0030f4e0(int, int);
 extern void func_0030f4f0(int, void *, int);
 extern int func_0030f538(int);
 extern void func_003058a0(int);
-void func_0030f548(void)
-{
-    unsigned int i;
-    if (*(volatile int *)0x10001810 & 0x100) return;
-    func_0030f4e0(D_003670d8[0].a, D_003670d8[0].b);
-    func_0030f4f0(0x80076000, D_00366970, 0x740);
-    func_0030f4f0(0x82000, D_003670b0, 0x28);
-    func_003058a0(0);
-    func_003058a0(2);
-    func_0030f4e0(D_003670d8[1].a, D_003670d8[1].b);
-    for (i = 2; i < 8; i++)
-        func_0030f4e0(D_003670d8[i].a, func_0030f538(D_003670d8[i].a));
-}
+void func_0030f548(void);  // 0x0030f548: definition moved into src/sdk/libkernl_0030f548.c
 
 typedef struct { int a; int type; union { unsigned char b; unsigned short h; int w; } v; } I1328;
 extern I1328 D_01e38c40;

@@ -50,27 +50,10 @@ u32 func_0030dc70(int a);  // 0x0030dc70: definition moved into src/sdk/iopheap.
 u32 func_0030dcf0(int a);  // 0x0030dcf0: definition moved into src/sdk/iopheap.c
 
 extern void func_0030f6a0(u32);
-int func_0030f990(void)
-{
-    int s = DIntr();
-    u32 v = *(volatile u32 *)0x10001010;
-    if (!(v & 0x80)) {
-        if (s) EIntr();
-        return 0;
-    }
-    func_0030f6a0(v & 0xfffff37f);
-    if (s) EIntr();
-    return 1;
-}
+int func_0030f990(void);  // 0x0030f990: definition moved into src/sdk/libkernl_0030f688.c
 
 extern int func_00310670(int, int, int, int);
-int func_00310768(int a, int b, int c, int d)
-{
-    int s = DIntr();
-    int r = func_00310670(a, b, c, d);
-    if (s) EIntr();
-    return r;
-}
+int func_00310768(int a, int b, int c, int d);  // 0x00310768: definition moved into src/sdk/libkernl_00310048.c
 
 typedef struct { int flags; int p4, p8, pc; u32 x10; int p14, p18, p1c; int x20; } Fd;
 extern int func_002f3588(int);

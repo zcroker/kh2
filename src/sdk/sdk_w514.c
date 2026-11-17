@@ -9,13 +9,7 @@ void func_002f3a70(Q *q);  // 0x002f3a70: definition moved into src/sdk/libdma.c
 
 extern int D_01e3b508;
 extern int func_00305a50(int, void *);
-int func_00310fe0(unsigned int a, int b, int c)
-{
-    int s[4];
-    s[0] = a & 0xffff; s[1] = b; s[2] = c;
-    s[3] = (int)&D_01e3b508 | 0x20000000;
-    return func_00305a50(1, s);
-}
+int func_00310fe0(unsigned int a, int b, int c);  // 0x00310fe0: definition moved into src/sdk/libkernl_00310fe0.c
 
 extern int func_003071d0(void *, void *, int, const char *, va_list);
 extern int func_00307ee8();
@@ -26,22 +20,10 @@ int func_00307f90(void *a, void *b, int *n, const char *fmt, ...);  // 0x00307f9
 extern int DIntr(void);
 extern int func_0030ffd8(void);
 extern void EIntr(void);
-int func_00310048(void)
-{
-    int s = DIntr();
-    int r = func_0030ffd8();
-    if (s) EIntr();
-    return r;
-}
+int func_00310048(void);  // 0x00310048: definition moved into src/sdk/libkernl_00310048.c
 
 typedef struct { int f0, f4, f8, fc; long f10, f18; } T;
-long func_00310518(int id)
-{
-    T *t = (T *)(((unsigned)id >> 10) << 6);
-    if (id < 0 || (id & 0x3ff) != t->f8) return -1;
-    if (t->fc & 1) return t->f10 - t->f18;
-    return 0;
-}
+long func_00310518(int id);  // 0x00310518: definition moved into src/sdk/libkernl_00310048.c
 
 typedef struct { int a, b, c; } E;
 extern E *D_01e357e4;

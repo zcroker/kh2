@@ -5,21 +5,4 @@ extern void EIntr(void);
 extern int func_00310130(int);
 extern Sem_w8025 *D_01e3b300;
 
-int func_00310c60(unsigned int id)
-{
-    int s, t;
-    Sem_w8025 *p = (Sem_w8025 *)((id >> 8) << 4);
-    s = DIntr();
-    if ((int)id < 0 || ((id ^ p->id) & 0xff)) {
-        if (s)
-            EIntr();
-        return 0x80008002;
-    }
-    t = func_00310130(p->id);
-    p->next = D_01e3b300;
-    D_01e3b300 = p;
-    p->id = 0;
-    if (s)
-        EIntr();
-    return 0;
-}
+int func_00310c60(unsigned int id);  // 0x00310c60: definition moved into src/sdk/libkernl_00310048.c

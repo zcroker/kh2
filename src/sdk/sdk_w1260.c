@@ -89,28 +89,6 @@ typedef struct { int x0, x4, x8, xc; int count; Blk_w1260 *free; int x18; unsign
 extern Mgr_w1260 D_00367118;
 extern void func_0030fc28(Blk_w1260 *b);
 
-int func_00310090(unsigned int id)
-{
-    Blk_w1260 *b = (Blk_w1260 *)((id >> 10) << 6);
-    if ((int)id < 0 || (id & 0x3ff) != b->id)
-        return 0x80008002;
-    if (D_00367118.cur == id)
-        return 0x80000010;
-    if (b->flags & 2)
-        func_0030fc28(b);
-    b->id = 0;
-    b->flags = 0;
-    b->next = D_00367118.free;
-    D_00367118.free = b;
-    D_00367118.count--;
-    return 0;
-}
+int func_00310090(unsigned int id);  // 0x00310090: definition moved into src/sdk/libkernl_00310048.c
 
-void func_003107e8(unsigned long clock, int *sec, int *usec)
-{
-    int s = func_00312db8(clock, 147456000);
-    if (sec)
-        *sec = s;
-    if (usec)
-        *usec = func_00312db8((clock - (unsigned long)(unsigned int)s * 147456000) * 1000000, 147456000);
-}
+void func_003107e8(unsigned long clock, int *sec, int *usec);  // 0x003107e8: definition moved into src/sdk/libkernl_00310048.c

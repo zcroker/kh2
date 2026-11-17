@@ -7,7 +7,7 @@ extern int SignalSema(int sid);
 
 void func_001002a0(void) { func_0030f468(); }
 
-void func_0030f3a8(void) { func_003114f0(); }
+void func_0030f3a8(void);  // 0x0030f3a8: definition moved into src/sdk/libkernl_0030f290.c
 
 void func_00305aa0(void) { D_003660c8 = 0; }
 

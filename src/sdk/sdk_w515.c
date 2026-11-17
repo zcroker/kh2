@@ -3,62 +3,24 @@ extern int DIntr(void);
 extern int EIntr(void);
 
 extern int func_00310090(int);
-int func_00310130(int a)
-{
-    int s = DIntr();
-    int r = func_00310090(a);
-    if (s) EIntr();
-    return r;
-}
+int func_00310130(int a);  // 0x00310130: definition moved into src/sdk/libkernl_00310048.c
 
 extern int func_00310230(int);
-int func_003102e0(int a)
-{
-    int s = DIntr();
-    int r = func_00310230(a);
-    if (s) EIntr();
-    return r;
-}
+int func_003102e0(int a);  // 0x003102e0: definition moved into src/sdk/libkernl_00310048.c
 
 extern int func_00310330(int);
-int func_003103f8(int a)
-{
-    int s = DIntr();
-    int r = func_00310330(a);
-    if (s) EIntr();
-    return r;
-}
+int func_003103f8(int a);  // 0x003103f8: definition moved into src/sdk/libkernl_00310048.c
 
 extern int func_00310518(int);
-int func_00310560(int a)
-{
-    int s = DIntr();
-    int r = func_00310518(a);
-    if (s) EIntr();
-    return r;
-}
+int func_00310560(int a);  // 0x00310560: definition moved into src/sdk/libkernl_00310048.c
 
 extern int func_003105b0(int);
-int func_00310620(int a)
-{
-    int s = DIntr();
-    int r = func_003105b0(a);
-    if (s) EIntr();
-    return r;
-}
+int func_00310620(int a);  // 0x00310620: definition moved into src/sdk/libkernl_00310048.c
 
 typedef struct E { struct E *next; int a, b, c; } E;
 extern E D_01e3af00[64];
 extern E *D_01e3b300;
-int func_00310990(void)
-{
-    int i;
-    D_01e3b300 = D_01e3af00;
-    for (i = 0; i < 64; i++)
-        D_01e3af00[i].next = &D_01e3af00[i + 1];
-    D_01e3af00[63].next = 0;
-    return 0;
-}
+int func_00310990(void);  // 0x00310990: definition moved into src/sdk/libkernl_00310048.c
 
 extern void sceVu0RotMatrixZ(void *, float);
 extern void* sceVu0RotMatrixY(void *, void *, float);
@@ -77,14 +39,7 @@ int func_0030ec50(void);  // 0x0030ec50: definition moved into src/sdk/iopreset.
 
 struct S7118 { int a, b, c, d, e; };
 extern struct S7118 D_00367118;
-int func_00310180(int *p, int *q)
-{
-    volatile struct S7118 *s = &D_00367118;
-    if (s->c < 0) return 0x80008001;
-    if (p) *p = s->e;
-    if (q) *q = 128 - s->e;
-    return 0;
-}
+int func_00310180(int *p, int *q);  // 0x00310180: definition moved into src/sdk/libkernl_00310048.c
 
 extern int sceSifCallRpc(void *, int, int, void *, int, void *, int, int, int);
 extern char D_01e2d980[];

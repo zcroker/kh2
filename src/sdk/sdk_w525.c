@@ -1,17 +1,7 @@
 /* Sony PS2 Runtime Library 3.0.0: libkernl (timers, stdio sema, sif cmd), libdma, libmc, libcdvd-ish RPC wrappers. */
 typedef struct { int p0, p4; int id; int flags; long start; long acc; } Tm;
 extern long func_0030ff08(void);
-long func_003105b0(int id)
-{
-    Tm *t = (Tm *)(((unsigned int)id >> 10) << 6);
-    long r;
-    if (id < 0 || (id & 0x3ff) != t->id)
-        return -1;
-    r = t->acc;
-    if (t->flags & 1)
-        r += func_0030ff08() - t->start;
-    return r;
-}
+long func_003105b0(int id);  // 0x003105b0: definition moved into src/sdk/libkernl_00310048.c
 
 extern int func_003080d0(const char *, ...);
 extern void func_002f3c28(volatile int *);
@@ -58,8 +48,4 @@ unsigned int func_0030db90(void);  // 0x0030db90: definition moved into src/sdk/
 unsigned int func_0030dc00(void);  // 0x0030dc00: definition moved into src/sdk/iopheap.c
 
 extern unsigned long func_00312db8(unsigned long, unsigned long);
-unsigned long func_00310890(unsigned int s, unsigned int u)
-{
-    unsigned long x = (unsigned long)s * 147456000;
-    return x + func_00312db8((unsigned long)u * 147456000, 1000000);
-}
+unsigned long func_00310890(unsigned int s, unsigned int u);  // 0x00310890: definition moved into src/sdk/libkernl_00310048.c

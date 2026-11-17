@@ -76,16 +76,7 @@ void func_002f4480(int p, int a, int b, int c, int d)
 
 extern void func_003056d0(unsigned int *);
 extern void func_003056c0(unsigned int *);
-int func_0030f128(void)
-{
-    unsigned int old, v;
-    func_003056d0(&old);
-    v = (old & 0xffff1fff) | 0x2000;
-    func_003056c0(&v);
-    func_003056d0(&v);
-    func_003056c0(&old);
-    return ((v >> 13) & 7) == 0;
-}
+int func_0030f128(void);  // 0x0030f128: definition moved into src/sdk/libkernl_0030f128.c
 
 extern int D_00363d28;
 extern int D_01e2fe48[];

@@ -123,43 +123,7 @@ extern void func_0030f690(int);
 extern void func_0030f6a0(int);
 extern void func_0030f6b0(int);
 extern void EnableIntc(int);
-int func_0030f6c0(int mode)
-{
-    TMgr *m = &D_00367118;
-    int i;
-    int h;
-    int intr;
-    unsigned int t;
-
-    if (m->handler >= 0)
-        return 0x80008001;
-    D_00367118.x0 = 0;
-    m->count = 0;
-    func_002fde18(D_01e38f00, 0, 8192);
-    m->free = D_01e38f00;
-    for (i = 127; i >= 0; i--)
-        D_01e38f00[i].next = &D_01e38f00[i + 1];
-    D_01e38f00[127].next = 0;
-    func_00310990();
-    h = func_00305310(11, func_0030fc60, 0, 0);
-    if (h < 0)
-        return 0x80009021;
-    D_00367118.handler = h;
-    intr = DIntr();
-    t = *(volatile unsigned int *)0x10001010;
-    t = (t & ~3) | mode;
-    t |= 0x300;
-    if (!(t & 0x80)) {
-        func_0030f690(0);
-        t |= 0xc80;
-        func_0030f6b0(0xffff);
-    }
-    func_0030f6a0(t);
-    EnableIntc(11);
-    if (intr)
-        EIntr();
-    return 0;
-}
+int func_0030f6c0(int mode);  // 0x0030f6c0: definition moved into src/sdk/libkernl_0030f688.c
 
 /* libkernl sif: sceSifResetIop */
 typedef struct { unsigned int psize:8; unsigned int dsize:24; unsigned int dest; unsigned int cid; unsigned int opt; } RHdr;

@@ -19,35 +19,4 @@ static inline void free_alarm(Alarm *a)
     a->next = D_01e3b300;
     D_01e3b300 = a;
 }
-int func_00310a40(long time, void *handler, void *arg)
-{
-    Alarm *a;
-    int st;
-    int id;
-    if (handler == 0)
-        return 0x80000016;
-    st = DIntr();
-    a = alloc_alarm();
-    if (a == 0) {
-        if (st)
-            EIntr();
-        return 0x80008005;
-    }
-    id = func_00310048();
-    if (id < 0) {
-        free_alarm(a);
-        a->id = 0;
-        if (st)
-            EIntr();
-        return id;
-    } else {
-        a->handler = handler;
-        a->arg = arg;
-        a->id = id;
-        func_00310768(id, time, func_003109e0, a);
-        func_003102e0(id);
-        if (st)
-            EIntr();
-    }
-    return ((int)a << 4) | (id & 0xfe) | 1;
-}
+int func_00310a40(long time, void *handler, void *arg);  // 0x00310a40: definition moved into src/sdk/libkernl_00310048.c

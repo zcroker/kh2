@@ -9,53 +9,12 @@ extern long func_0030ff08(void);
 extern void func_0030fc28(Ctr *c);
 extern void func_0030fa10(long);
 
-int func_00310330(unsigned int id)
-{
-    Ctr *c = (Ctr *)((id >> 10) << 6);
-    long now;
-    unsigned int f;
-    if ((int)id < 0 || (id & 0x3ff) != c->id)
-        return 0x80008002;
-    if (D_00367118.cur == id)
-        return 0x80000010;
-    if (!(c->flags & 1))
-        return 0;
-    now = func_0030ff08();
-    f = c->flags;
-    c->total += now - c->start;
-    c->flags = f & ~1;
-    if (f & 2) {
-        func_0030fc28(c);
-        func_0030fa10(now);
-    }
-    return 1;
-}
+int func_00310330(unsigned int id);  // 0x00310330: definition moved into src/sdk/libkernl_00310048.c
 
 extern int DIntr(void);
 extern void EIntr(void);
 
-long func_00310448(unsigned int id, long val)
-{
-    Ctr *c = (Ctr *)((id >> 10) << 6);
-    int st = DIntr();
-    long old, now;
-    if ((int)id < 0 || (id & 0x3ff) != c->id || D_00367118.cur == id) {
-        if (st)
-            EIntr();
-        return -1;
-    }
-    old = c->total;
-    if (c->flags & 1) {
-        now = func_0030ff08();
-        old += now - c->start;
-        c->start = now;
-        c->total = val;
-    } else
-        c->total = val;
-    if (st)
-        EIntr();
-    return old;
-}
+long func_00310448(unsigned int id, long val);  // 0x00310448: definition moved into src/sdk/libkernl_00310048.c
 
 typedef struct { int count, max_count, init_count, wait_threads; unsigned int attr; unsigned int option; } SemaParam;
 extern int func_00305620(SemaParam *);
@@ -98,19 +57,7 @@ extern u32 func_00311348(u32);
 extern void func_00311300(u32, void *, int);
 extern void func_003058a0(int);
 
-void func_00311368(void)
-{
-    u32 i;
-    func_00311358(D_003674c0[0].a, D_003674c0[0].v);
-    func_00311300(0x80075000, &D_00367140, 0x330);
-    func_003058a0(0);
-    func_003058a0(2);
-    func_00311358(D_003674c0[1].a, D_003674c0[1].v);
-    func_00311358(D_003674c0[2].a, D_003674c0[2].v);
-    for (i = 3; i < 8; i++)
-        func_00311358(D_003674c0[i].a, func_00311348(D_003674c0[i].a));
-    D_003674b8 = func_00311348(3);
-}
+void func_00311368(void);  // 0x00311368: definition moved into src/sdk/libkernl_00311368.c
 
 typedef struct { int x[9]; void *server; int pad[6]; } RpcCD;
 typedef struct { int x0, a, b; int pad[9]; } McArg;

@@ -6,15 +6,7 @@ int func_0030df00(void);  // 0x0030df00: definition moved into src/sdk/eeloadfil
 
 typedef struct Lnk { struct Lnk *next; struct Lnk *prev; } Lnk;
 extern Lnk *D_00367130;
-Lnk* func_0030fc28(Lnk *n)
-{
-    Lnk *nx = n->next;
-    if (n->prev) n->prev->next = nx;
-    else D_00367130 = nx;
-    if (nx) nx->prev = n->prev;
-    n->prev = 0;
-    return nx;
-}
+Lnk* func_0030fc28(Lnk *n);  // 0x0030fc28: definition moved into src/sdk/libkernl_0030f688.c
 
 typedef struct { int size; int count; char *rd; int pad; char buf[1]; } Ring;
 void func_00306968(Ring *r)
@@ -83,8 +75,4 @@ void func_00309ba8(int a)
 extern int func_00305a80(void);
 extern int func_00311530(void);
 extern int func_00305a90(void);
-int func_003114f0(void)
-{
-    if (func_00305a80() == 0x2000000) return func_00311530();
-    return func_00305a90();
-}
+int func_003114f0(void);  // 0x003114f0: definition moved into src/sdk/libkernl_003114f0.c

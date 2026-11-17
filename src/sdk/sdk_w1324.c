@@ -39,55 +39,13 @@ extern void func_0030f6a0(int);
 extern void func_0030f690(int);
 struct S1324 { long long a; int b; int pad; volatile int c; };
 extern struct S1324 D_00367118;
-int func_0030f818(void)
-{
-    int s;
-    struct S1324 *p = &D_00367118;
-    if (p->b < 0)
-        return 0x80008001;
-    if (p->c != 0)
-        return 0x80000010;
-    s = DIntr();
-    if (func_00305320(11, p->b) == 0) {
-        DisableIntc(11);
-        func_0030f6a0(0xc00);
-        func_0030f690(0);
-    }
-    D_00367118.a = 0;
-    p->b = -1;
-    if (s)
-        EIntr();
-    return 0;
-}
+int func_0030f818(void);  // 0x0030f818: definition moved into src/sdk/libkernl_0030f688.c
 
 struct E1324 { int a; int b; int gp; int pad; };
 extern struct E1324 *D_00367138;
 extern unsigned int D_0036713c;
 extern struct E1324 D_01e3b308[];
-int func_00310e28(int id, int a, int b)
-{
-    struct E1324 *t, *p;
-    unsigned int n;
-    int s;
-    if (id < 0) {
-        t = D_01e3b308;
-        id &= 0x7fffffff;
-        n = 32;
-    } else {
-        t = D_00367138;
-        n = D_0036713c;
-    }
-    if ((unsigned int)id >= n)
-        return 0x80000069;
-    s = DIntr();
-    p = (struct E1324 *)((id << 4) + (int)t);
-    p->a = a;
-    p->b = b;
-    { int g; asm volatile("move %0,$gp" : "=r"(g)); p->gp = g; }
-    if (s)
-        EIntr();
-    return 0;
-}
+int func_00310e28(int id, int a, int b);  // 0x00310e28: definition moved into src/sdk/libkernl_00310048.c
 
 /* libdbc */
 extern int D_00363d10;

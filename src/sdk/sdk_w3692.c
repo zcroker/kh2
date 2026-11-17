@@ -6,17 +6,4 @@
  * The u64 -> float conversion calls libgcc's __floatdisf at 0x311af0 directly (gcc's own expansion
  * would link to a different copy). */
 extern float __floatdisf(long);
-float func_00310900(unsigned long x)
-{
-    float d;
-    float n = 147456000.0f;
-    float r;
-    if ((long)x >= 0)
-        d = __floatdisf(x);
-    else {
-        d = __floatdisf((x & 1) | (x >> 1));
-        d = d + d;
-    }
-    __asm__(".set noreorder\n\tnop\n\tnop\n\tdiv.s %0,%1,%2\n\t.set reorder" : "=f"(r) : "f"(n), "f"(d));
-    return r;
-}
+float func_00310900(unsigned long x);  // 0x00310900: definition moved into src/sdk/libkernl_00310048.c

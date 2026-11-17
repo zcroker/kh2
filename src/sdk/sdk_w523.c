@@ -44,50 +44,14 @@ Pad* func_002f6378(int port);  // 0x002f6378: definition moved into src/sdk/libp
 
 int func_002f63e0(int port);  // 0x002f63e0: definition moved into src/sdk/libpad2.c
 
-int func_003101d0(int a, int b)
-{
-    int s = DIntr();
-    int r = func_00310180(a, b);
-    if (s)
-        EIntr();
-    return r;
-}
+int func_003101d0(int a, int b);  // 0x003101d0: definition moved into src/sdk/libkernl_00310048.c
 
 typedef struct Node { struct Node *next; int x4; int (*fn)(unsigned int, int, int, int); int arg; } Node;
 
-int func_003109e0(unsigned int a, int b, int c, Node* n)
-{
-    int r = n->fn(((unsigned int)n << 4) | (a & 0xfe) | 1, b, c, n->arg);
-    if (r == 0) {
-        asm volatile("");
-        n->next = (Node *)D_01e3b300;
-        D_01e3b300 = (int)n;
-        n->x4 = 0;
-        return -1;
-    }
-    return r;
-}
+int func_003109e0(unsigned int a, int b, int c, Node* n);  // 0x003109e0: definition moved into src/sdk/libkernl_00310048.c
 
 int func_002f4d60(void);  // 0x002f4d60: definition moved into src/sdk/libdbc.c
 
-void func_0030ee18(void)
-{
-    SemaParam s1, s2;
-    s1.max_count = 1;
-    s1.init_count = 1;
-    s1.option = (unsigned int)"SceKernelLibc";
-    s2.max_count = 1;
-    s2.init_count = 1;
-    s2.option = (unsigned int)"SceKernelLibcEh";
-    D_003661a0 = func_00305620(&s1);
-    D_003661a4 = func_00305620(&s2);
-}
+void func_0030ee18(void);  // 0x0030ee18: definition moved into src/sdk/libkernl_0030ee00.c
 
-int func_00311218(int a)
-{
-    D_00367470 = a;
-    func_003052d0(1, func_00311740);
-    func_003052d0(2, func_00311740);
-    func_003052d0(3, func_00311740);
-    return a;
-}
+int func_00311218(int a);  // 0x00311218: definition moved into src/sdk/libkernl_00310fe0.c

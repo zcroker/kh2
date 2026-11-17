@@ -95,29 +95,7 @@ extern void func_0030fc28(struct AL *);
 extern int func_0030ff08(void);
 struct KS { int pad[7]; int cur; };
 extern struct KS D_00367118;
-int func_00310670(int id, long long time, void (*handler)(), void *arg)
-{
-    struct AL *p = (struct AL *)(((unsigned int)id >> 10) << 6);
-    if (id < 0 || (id & 0x3ff) != p->id)
-        return 0x80008002;
-    if (((volatile struct KS *)&D_00367118)->cur == id)
-        return 0x80000010;
-    if (p->flags & 2)
-        func_0030fc28(p);
-    p->handler = handler;
-    if (handler == 0) {
-        p->flags &= ~2U;
-    } else {
-        p->time = time;
-        p->flags |= 2;
-        asm volatile("sw $gp,%0" : "=m"(p->gp) : : "memory");
-        p->arg = arg;
-        if (p->flags & 1)
-            func_0030fba0(p);
-    }
-    func_0030fa10(func_0030ff08());
-    return 0;
-}
+int func_00310670(int id, long long time, void (*handler)(), void *arg);  // 0x00310670: definition moved into src/sdk/libkernl_00310048.c
 
 struct MC { struct MC *next; volatile int id; int a; int b; };
 extern int func_0030ffd8(void);
@@ -138,27 +116,7 @@ static __inline__ void mc_free(struct MC *p)
     p->next = h;
     p->id = 0;
 }
-int func_00310b70(int a0, int a1, int a2)
-{
-    struct MC *p;
-    int id;
-    if (a1 == 0)
-        return 0x80000016;
-    p = mc_alloc();
-    if (p == 0)
-        return 0x80008005;
-    id = func_0030ffd8();
-    if (id < 0) {
-        mc_free(p);
-        return id;
-    }
-    p->a = a1;
-    p->b = a2;
-    p->id = id;
-    func_00310670(id, a0, func_003109e0, p);
-    func_00310230(id);
-    return ((int)p << 4) | (id & 0xfe) | 1;
-}
+int func_00310b70(int a0, int a1, int a2);  // 0x00310b70: definition moved into src/sdk/libkernl_00310048.c
 
 struct B64 { unsigned char b[64]; };
 extern void func_00305f18(void *, void *);
@@ -174,26 +132,7 @@ extern int D_0030eed0[];
 extern int D_0030ee98[];
 extern int D_00366190[4];
 extern unsigned int D_00366188;
-void func_0030ef58(void)
-{
-    unsigned int a, b, pa, pb;
-    func_0030f058(D_00366190[0], D_00366190[1]);
-    func_0030f058(D_00366190[2], D_00366190[3]);
-    a = func_0030ef10(0x80000000, 0x80080000, D_0030eed0);
-    b = func_0030ef10(0x80000000, 0x80080000, D_0030ee98);
-    pa = a - 0x20c;
-    pb = b - 0x168;
-    while (pa != pb) {
-        if (pa < pb) {
-            a = func_0030ef10(a + 4, 0x80080000, D_0030eed0);
-            pa = a - 0x20c;
-        } else {
-            b = func_0030ef10(b + 4, 0x80080000, D_0030ee98);
-            pb = b - 0x168;
-        }
-    }
-    D_00366188 = pa;
-}
+void func_0030ef58(void);  // 0x0030ef58: definition moved into src/sdk/libkernl_0030ef20.c
 
 extern int sceSifBindRpc(void *cd, unsigned int rpc, int mode);
 struct CD { int pad[9]; void *serve; int pad2[2]; };

@@ -11641,40 +11641,17 @@ void func_0030e508(u32 a0, u32 a1, u32 a2);  // 0x0030e508: definition moved int
 void func_0030e770(u32 a0, u32 a1, u32 a2);  // 0x0030e770: definition moved into src/sdk/eeloadfile.c
 
 extern "C" u32 func_00305a50(...);
-u32 func_00311028(u32 a0) {
-    u32 v = a0;
-    return func_00305a50(2, &v);
-}
+u32 func_00311028(u32 a0);  // 0x00311028: definition moved into src/sdk/libkernl_00310fe0.c
 
-void func_00311080(u32 a0) {
-    u32 args[1];
-    args[0] = a0;
-    func_00305a50(4, args);
-}
+void func_00311080(u32 a0);  // 0x00311080: definition moved into src/sdk/libkernl_00310fe0.c
 
-void func_003110d8(u32 a0) {
-    u32 args[1];
-    args[0] = a0;
-    func_00305a50(33, args);
-}
+void func_003110d8(u32 a0);  // 0x003110d8: definition moved into src/sdk/libkernl_00310fe0.c
 
-void func_003111a0(u32 a0) {
-    u32 args[1];
-    args[0] = a0;
-    func_00305a50((u32)-8, args);
-}
+void func_003111a0(u32 a0);  // 0x003111a0: definition moved into src/sdk/libkernl_00310fe0.c
 
-void func_003111c8(u32 a0) {
-    u32 args[1];
-    args[0] = a0;
-    func_00305a50((u32)-9, args);
-}
+void func_003111c8(u32 a0);  // 0x003111c8: definition moved into src/sdk/libkernl_00310fe0.c
 
-void func_003111f0(u32 a0) {
-    u32 args[1];
-    args[0] = a0;
-    func_00305a50(16, args);
-}
+void func_003111f0(u32 a0);  // 0x003111f0: definition moved into src/sdk/libkernl_00310fe0.c
 
 u64 __umoddi3(u32 a0, u32 a1);  // 0x00313498: definition moved into src/libgcc/_umoddi3.c
 

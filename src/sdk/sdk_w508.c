@@ -18,7 +18,7 @@ int func_0030ec28(void);  // 0x0030ec28: definition moved into src/sdk/iopreset.
 
 extern void func_0030f3a8(int);
 extern void func_00305240(int);
-void func_0030f468(int a) { func_0030f3a8(a); func_00305240(a); }
+void func_0030f468(int a);  // 0x0030f468: definition moved into src/sdk/libkernl_0030f290.c
 
 extern void func_0030a278(void);
 extern void func_00305660(int);
@@ -30,8 +30,8 @@ typedef struct { char pad0[0x14]; Entry *base; int n; char pad1[8]; int idx; } E
 Entry* func_00308dc0(EntryRing *q) { int i = q->idx % q->n; Entry *e = &q->base[i]; q->idx = i + 1; return e; }
 
 extern int func_00305a50(int, void *);
-int func_00311050(int a, char b) { int s[2]; s[0] = a; s[1] = b; return func_00305a50(3, s); }
-int func_003110a8(unsigned char a, int b, int c) { int s[8]; s[0] = a; s[1] = b; s[2] = c; return func_00305a50(0x20, s); }
+int func_00311050(int a, char b);  // 0x00311050: definition moved into src/sdk/libkernl_00310fe0.c
+int func_003110a8(unsigned char a, int b, int c);  // 0x003110a8: definition moved into src/sdk/libkernl_00310fe0.c
 
 extern int func_00311450(int);
-int func_00311460(int x) { if ((u32)(x - 13) >= 35) return -1; return func_00311450(x); }
+int func_00311460(int x);  // 0x00311460: definition moved into src/sdk/libkernl_00311460.c
