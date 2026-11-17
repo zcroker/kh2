@@ -173,11 +173,7 @@ void func_0023fb00(s32 a) {
     D_0035ebec = 0;
 }
 
-void CampMenu_StartBasic(s32) {
-    func_00288648();
-    func_00103500(func_00253330(10)[1]);
-    func_001037b8();
-}
+void CampMenu_StartBasic(s32);  // 0x00253538: definition moved into src/anon/unit_002530c8.cpp
 
 void func_0025ccc0(void);  // 0x0025ccc0: definition moved into src/anon/unit_002588e8.cpp
 

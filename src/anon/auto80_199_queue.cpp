@@ -2315,143 +2315,23 @@ extern "C" void func_00250748(void) asm("_ZN2Tz4LMMU7CtrlSelEv");
 
 extern "C" void func_002510d0(u32) asm("_ZN2Tz4CANA11PauseThreadEP4TASK");
 
-void func_00251a08(void) {
-    if (func_00139d78(D_0035ee80) != 0) {
-        u32 p = D_0035ee80;
-        u32 vt = *(u32*)p;
-        ((void(*)(u32))(*(u32*)(vt + 20)))(p);
-    }
-    if (func_0028acc8(D_0035ee5c) != 0) {
-        func_0028abe0(D_0035ee5c);
-    }
-}
+void func_00251a08(void);  // 0x00251a08: definition moved into src/anon/unit_00250fb8.cpp
 
-void func_00251f40(void) {
-    if (func_00139d78(D_0035ee68) == 0) {
-        func_0028d980(D_0035ee68, 30022, 2, 2, D_0035ee60, 20, 21, -1, 0);
+void func_00251f40(void);  // 0x00251f40: definition moved into src/anon/unit_00250fb8.cpp
 
-        u32 s0 = D_0035ee68;
-        *(u32*)(s0 + 408) = func_00192048(18405);
+u32 func_00252098(u32 a0);  // 0x00252098: definition moved into src/anon/unit_00250fb8.cpp
 
-        *(u32*)(D_0035ee68 + 432) = 2;
+void func_00252180(void);  // 0x00252180: definition moved into src/anon/unit_00250fb8.cpp
 
-        u32 a = D_0035ee68 + 24;
-        *(u32*)(a + 184) = *(u32*)(a + 184) | 8;
+void func_00252810(void);  // 0x00252810: definition moved into src/anon/unit_00250fb8.cpp
 
-        *(u8*)(D_0035ee68 + 405) = 1;
-    }
-}
+void func_00252890(u32 a0);  // 0x00252890: definition moved into src/anon/unit_00250fb8.cpp
 
-u32 func_00252098(u32 a0) {
-    u32 s0 = a0;
-    u32 v0 = 1;
-    u32 t = D_003725d0[a0];
-    if (t != 0) {
-        v0 = func_001a6d08(t);
-    }
-    if (s0 == 1) {
-        v0 = (v0 ^ 1) & 0xFF;
-    }
-    return v0;
-}
+void func_00253818(s32 a0);  // 0x00253818: definition moved into src/anon/unit_002530c8.cpp
 
-void func_00252180(void) {
-    func_00139d78(D_0035ee6c);
-    if (func_00252098(1) != 0) {
-        func_0028b300(D_0035ee6c, 30003, 1, 1, D_0035ee60, (u32)&D_00372608, (u32)&D_00372618, 26, 0);
-        *(u8*)(D_0035ee6c + 405) = 1;
-        u32 a = D_0035ee6c + 24;
-        *(u32*)(a + 184) = *(u32*)(a + 184) | 8;
-    }
-}
+void func_00253978(u32 a0, u32 a1, Entry00253978* a2);  // 0x00253978: definition moved into src/anon/unit_002530c8.cpp
 
-void func_00252810(void) {
-    u32 p = D_0035ee9c;
-    if (p != 0) {
-        func_00106450(p);
-        D_0035ee9c = 0;
-    }
-
-    p = D_0035eea8;
-    if (p != 0) {
-        u32 vt = *(u32*)p;
-        ((void(*)(u32))(*(u32*)(vt + 16)))(p);
-        D_0035eea8 = 0;
-    }
-
-    p = D_0035eea4;
-    if (p != 0) {
-        u32 vt = *(u32*)p;
-        ((void(*)(u32))(*(u32*)(vt + 16)))(p);
-        D_0035eea4 = 0;
-    }
-}
-
-void func_00252890(u32 a0) {
-    u32 s0 = a0;
-    func_002430d8(D_0035ee88);
-    func_00102448(s0, 1);
-    func_00252900();
-    while (1) {
-        func_00236d60();  // clear_64_entries_24
-        if (func_00252ad8() != 0) {
-            return;
-        }
-        func_00252f98();
-        func_00102448(s0, 0);
-    }
-}
-
-void func_00253818(s32 a0) {  // entry16_find_free
-    s32 s0 = 1;
-    u8* t7 = &D_0035eee0;
-    Entry00253818* s1 = (Entry00253818*)(t7 + 16);
-    s32 s2 = a0;
-
-    while (1) {
-        if (s0 != s2) {
-            if (s1->a3 != 0) {
-                func_00253888(s1->a0);
-            }
-        }
-
-        s0 = s0 + 1;
-        if (s0 < 7) {
-            s1 = s1 + 1;
-            continue;
-        }
-        break;
-    }
-}
-
-void func_00253978(u32 a0, u32 a1, Entry00253978* a2) {
-    (void)a0;
-
-    if (a2 != 0) {
-        if (a2->v12 != 0) {
-            a2->v8 = a1;
-            a2->v4 = 1;
-            u32* s0 = &D_0035ef50;
-            u32 v0 = func_00253948(a1);
-            *s0 = *s0 + v0;
-        }
-    }
-
-    D_0035ef58 = 0;
-}
-
-u32 func_00253b30(u32 a0, u32 a1) {
-    u32 s0 = a0;
-    u32 s1 = a1;
-
-    if (strcmp(D_0035eed4) == 0) {  // strcmp
-        func_002fee78(s0, &D_00372858, D_0033caf4, s1);
-        return s0;
-    }
-
-    func_002fee78(s0, &D_00372868, D_0033caf0, s1);
-    return s0;
-}
+u32 func_00253b30(u32 a0, u32 a1);  // 0x00253b30: definition moved into src/anon/unit_002530c8.cpp
 
 void func_00254f08(void) {
     if (func_00139d78(D_0035f02c) != 0) {

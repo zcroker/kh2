@@ -200,10 +200,7 @@ u32 func_002402e0(void) {
     return D_01dae6a0;
 }
 
-void func_00252618(void) {
-    s32 i = func_00252110(func_002891e8(D_0035ee58));
-    func_0028dac8(D_0035ee7c, D_00372650[i].b);
-}
+void func_00252618(void);  // 0x00252618: definition moved into src/anon/unit_00250fb8.cpp
 
 // Look the current id up in a -1 terminated table.
 void func_00258080(s32* a, s32* b) {

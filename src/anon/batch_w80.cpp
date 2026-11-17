@@ -545,35 +545,10 @@ void w80_JmBattle_LeaveAllInner(void) asm("_ZN2Tz8JmBattle13LeaveAllInnerEv");
 void w80_JmBattle_LeaveAllInner(void);  // 0x002a67a8: definition moved into src/anon/unit_002a5a90.cpp
 
 
-void func_0024e678(void) {
-    void* o;
-    s32 i;
-    func_00287b18(5, 3);
-    o = func_00288be8(56);
-    func_002889f0(o, 5, 1);
-    D_0035ee04 = o;
-    func_00288f48(o, 64, 128, 0, 0);
-    D_0035ee08 = 0;
-    D_0035ee0c = 0;
-    D_0035ee10 = 0;
-    D_0035ee2c = -1;
-    for (i = 0; i < 5; i++) D_0035ee18[i] = 0;
-    func_00287bd0(0, 0);
-    func_00102818(func_00103eb0()->f4, 0, 2000, func_0024e7e8, 4096);
-}
+void func_0024e678(void);  // 0x0024e678: definition moved into src/anon/unit_0024cda8.cpp
 
 static inline void U14_w80_cur_setflag(U14_CurSub* s, u32 f) { s->f184 |= f; }
-void func_00252540(void) {
-    s32 i = func_00252110(func_002891e8(D_0035ee58));
-    if (!func_00139d78(U14_D_0035ee7c_u.p)) {
-        func_0028d8c0(U14_D_0035ee7c_u.p, 30015, 3, 3, D_0035ee60, D_00372650[i].x, D_00372650[i].y, 0);
-        U14_D_0035ee7c_u.p->f405 = 1;
-        U14_w80_cur_setflag(&U14_D_0035ee7c_u.p->sub, 8);
-    } else {
-        func_0028da70(U14_D_0035ee7c_u.p, D_00372650[i].y);
-        U14_D_0035ee7c_u.p->f392 = -1;
-    }
-}
+void func_00252540(void);  // 0x00252540: definition moved into src/anon/unit_00250fb8.cpp
 
 
 s32 func_0027ed48(s32 key);  // 0x0027ed48: definition moved into src/anon/unit_0027e920.cpp

@@ -64,37 +64,6 @@ void func_0024eff8(s32);
 
 typedef void (*VFn)(u8*);
 
-void func_0024edd8(void) {
-    if (func_00287db0()) {
-        if (!func_00139d78(D_0035ee08)) return;
-        if (func_0023f0c0(D_0035ee08) == 2) return;
-        if (func_00139d78(D_0035ee08)) {
-            if (func_0023f0c0(D_0035ee08) != 2) func_0023f070(D_0035ee08, 2, -1);
-        }
-        if (D_0035ee0c && func_00139d78(D_0035ee0c)) {
-            (*(VFn*)(*(u8**)D_0035ee0c + 20))(D_0035ee0c);
-        }
-        if (D_0035ee10 && func_00139d78(D_0035ee10)) {
-            (*(VFn*)(*(u8**)D_0035ee10 + 20))(D_0035ee10);
-        }
-        func_00288e88(D_0035ee04);
-        func_0024eac0();
-        func_0024f1a0();
-        func_0028cdb8(0);  // record408_alloc_init
-    } else {
-        s32 r;
-        func_0024f2d0();
-        r = func_002891e8(D_0035ee04);
-        if (func_00139d78(D_0035ee08) && func_00287cd0() == 1 && func_0028d008(0) == 0) {
-            func_0028cc78(0, 2, 2, D_0035ee08, 4, 4);
-            func_0028cf98(0, func_0024efc0(r));
-        }
-        if (!func_00289310(D_0035ee04)) return;
-        if (!func_0028d008(0)) return;
-        func_0024f1a0();
-        func_0028cf98(0, func_0024efc0(r));
-        func_0024eff8(r);
-    }
-}
+void func_0024edd8(void);  // 0x0024edd8: definition moved into src/anon/unit_0024e7e8.cpp
 
 }

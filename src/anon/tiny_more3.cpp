@@ -19,6 +19,6 @@ void func_0011ee98(u32 a0,u32 a1,u32 a2,u32 a3);  // 0x0011ee98: definition move
 
 // 00136b90: moved to src/harata/libdk/bgm.cpp
 
-u32 func_002537c8(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a1; (void)a2; (void)a3; u32 p=(u32)&D_0035eee0 + ((u32)a0 << 4); return *(u32*)((u32)p + (12)); }
+u32 func_002537c8(u32 a0,u32 a1,u32 a2,u32 a3);  // 0x002537c8: definition moved into src/anon/unit_002530c8.cpp
 
 u32 func_002b50e8(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a0; (void)a1; (void)a2; (void)a3; s32 v=*(s8*)&D_0035f6d0; return (v!=0); }

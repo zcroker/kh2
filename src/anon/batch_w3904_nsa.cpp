@@ -52,29 +52,6 @@ void func_00102818(s32, s32, s32, void*, s32);
 void func_002510d0(void);
 
 // Sets up two work buffers, then allocates and constructs the module objects.
-void func_00250a50(void) {
-    void* p;
-    func_00287b18(4, 3);
-    p = func_00288be8(56);
-    func_002889f0(p, 4, 1);
-    D_0035ee58 = p;
-    func_00288f48(p, 64, 128, 0, 0);
-    p = func_00288be8(56);
-    func_002889f0(p, 2, 0);
-    // Register pin: the hard-register copy raises the allocator load's sched1
-    // priority so it issues before the three global stores, as in the original.
-    register AH* h asm("$14") = D_00347f80;
-    D_0035ee5c = p;
-    D_0035ee60 = 0;
-    D_0035ee64 = 0;
-    D_0035ee68 = new (h) X;
-    D_0035ee6c = new Y;
-    D_0035ee70 = new Y[4];
-    D_0035ee74 = new Y[4];
-    D_0035ee78 = new Y;
-    D_0035ee7c = new Z;
-    D_0035ee80 = new Z;
-    func_00102818(func_00103eb0()->f4, 0, 2000, (void*)func_002510d0, 4096);
-}
+void func_00250a50(void);  // 0x00250a50: definition moved into src/anon/unit_0024fbd0.cpp
 }
 }

@@ -115,9 +115,9 @@ void func_00241a70(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a0; (void)a1; (void)a2; 
 
 extern "C" u32 func_00242ee8(u32,u32,u32,u32) asm("_ZN2Tz6Config12isChapterAllEv");
 
-u32 func_0024f2b8(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a1; (void)a2; (void)a3; return *(u32*)((u32)&D_00372368 + ((u32)a0 << 2) + (0)); }
+u32 func_0024f2b8(u32 a0,u32 a1,u32 a2,u32 a3);  // 0x0024f2b8: definition moved into src/anon/unit_0024e7e8.cpp
 
-u32 func_00253598(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a0; (void)a1; (void)a2; (void)a3; u32 v=D_0035eeb8; v ^= 0x1u; return (v < 1u); }
+u32 func_00253598(u32 a0,u32 a1,u32 a2,u32 a3);  // 0x00253598: definition moved into src/anon/unit_002530c8.cpp
 
 void func_00258d40(u32 a0,u32 a1,u32 a2,u32 a3);  // 0x00258d40: definition moved into src/anon/unit_002588e8.cpp
 

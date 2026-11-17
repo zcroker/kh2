@@ -274,15 +274,7 @@ void func_0028abe0(void*);
 void func_00250928(void);
 void func_0028ce38(void);
 
-void func_0024fe30(void) {
-    if (func_00139d78(D_0035ee3c)) D_0035ee3c->f20();
-    if (func_00139d78(D_0035ee44)) D_0035ee44->f20();
-    if (func_00139d78(D_0035ee40)) D_0035ee40->f20();
-    if (func_0028acc8(D_0035ee34)) func_0028abe0(D_0035ee34);
-    if (func_0028acc8(D_0035ee38)) func_0028abe0(D_0035ee38);
-    func_00250928();
-    func_0028ce38();
-}
+void func_0024fe30(void);  // 0x0024fe30: definition moved into src/anon/unit_0024fbd0.cpp
 
 u8* func_00257770(void);
 extern void* D_0035f01c;

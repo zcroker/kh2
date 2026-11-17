@@ -242,19 +242,7 @@ void func_00252e50(void);
 u8* func_00167f18(u32);
 void func_00242618(u32, u32);
 void func_0023f108(u32);
-void func_00252c20(void) {
-    s32 n = func_00287bc0();
-    s16 id = *(s16*)(D_0035ee90[n - 1] + 4);
-    if (func_0023f100(D_0035eea4) == -1) {
-        func_00252ce0();
-        func_00252d88();
-        func_00252e50();
-    }
-    if (func_0023f0c0(D_0035eea4) != id) return;
-    if (!(*(u64*)(func_00167f18(0) + 8) & 4)) return;
-    func_00242618(2, 1);
-    func_0023f108(D_0035eea4);
-}
+void func_00252c20(void);  // 0x00252c20: definition moved into src/anon/unit_00250fb8.cpp
 
 // --- 00257458
 extern u32 D_0035f034;

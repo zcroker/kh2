@@ -259,31 +259,10 @@ void func_00240a70(u8* p) {
 }
 
 #define SETANIM(o, id) if (func_00139d78(o)) { if (func_0023f0c0(o) != (id)) func_0023f070(o, id, -1); }
-void func_0024d4a0(void) {
-    SETANIM(D_0035edd4, 32);
-    if (func_0028acc8(D_0035edcc)) {
-        func_0028ab20(D_0035edcc);
-        u8* s = func_0024e008(func_002891e8(D_0035edcc));
-        SETANIM(D_0035eddc, *(s16*)(s + 4));
-    }
-    SETANIM(D_0035edd8, 35);
-    func_0028da70(D_0035ede0, 33);
-    func_0028da70(D_0035ede4, 41);
-}
+void func_0024d4a0(void);  // 0x0024d4a0: definition moved into src/anon/unit_0024cda8.cpp
 
 static inline void Or8(u8* o) { *(u32*)(o + 184) |= 8; }
-void func_0024e158(void) {
-    if (!func_001a6d08(7)) return;
-    func_0028d980(D_0035ede4, 30011, 0, 0, D_0035edd4, 39, 41, -1, 0);
-    func_00139620(D_0035ede4);
-    func_001395f8(D_0035ede4);
-    *(u32*)(D_0035ede4 + 432) = 2;
-    *(u8*)(D_0035ede4 + 405) = 1;
-    Or8((u8*)(D_0035ede4 + 24));
-    func_002fde18(D_0035edf8, 0, 32);
-    *(u32*)(D_0035ede4 + 408) = D_0035edf8;
-    func_0024e228();
-}
+void func_0024e158(void);  // 0x0024e158: definition moved into src/anon/unit_0024cda8.cpp
 
 typedef void (*VF2830b8)(u8*);
 void func_002830b8(void);  // 0x002830b8: definition moved into src/anon/unit_00282c68.cpp

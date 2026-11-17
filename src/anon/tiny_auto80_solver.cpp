@@ -10813,16 +10813,7 @@ u32 duplicate_unplaced_00246968(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, 
     return r2;
 }
 
-u32 func_0024efc0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {  // to_28dbf8_entry6
-    a2 = a0 * 6;
-    u32 r14 = (u32)&D_0035ee08;
-    a1 = (u32)&D_00372380;
-    u32 tmp = *(volatile u32*)r14;
-    u32 tbl = (u32)&D_00372348;
-    a0 = tmp;
-    a2 += tbl;
-    return ((u32(*)(...))func_0028dbf8)(a0, a1, a2, a3, a4, a5, a6, a7);
-}
+u32 func_0024efc0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);  // 0x0024efc0: definition moved into src/anon/unit_0024e7e8.cpp
 
 u32 duplicate_unplaced_00251e90(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r14, r15;
@@ -10892,23 +10883,9 @@ u32 duplicate_unplaced_002538f8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, 
     return r2;
 }
 
-u32 func_00253928(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {  // entry16_get_bit1
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r2, r15;
-    r15 = (u32)&D_0035eee0;
-    r4 = (u32)(r4 << 4);    r4 = (u32)(r4 + r15);
-    r2 = *(volatile u32*)((u32)r4 + (s32)(4));
-    r2 = (u32)((s32)r2 >> 1);
-    r2 = (u32)(r2 & 0x0001u);
-    return r2;
-}
+u32 func_00253928(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);  // 0x00253928: definition moved into src/anon/unit_002530c8.cpp
 
-u32 func_00253b00(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {  // get_global_ptr_1dae6c0
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r2, r14, r15;
-    r15 = (u32)(0x0036u << 16);
-    r14 = (u32)&D_01dae6c0;
-    r2 = *(volatile u32*)((u32)r15 + (s32)(-4272));    r2 = (u32)(r2 + r14);
-    return r2;
-}
+u32 func_00253b00(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);  // 0x00253b00: definition moved into src/anon/unit_002530c8.cpp
 
 u32 duplicate_unplaced_00256a58(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r2, r14, r15;

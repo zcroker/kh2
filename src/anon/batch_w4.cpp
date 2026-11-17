@@ -256,7 +256,4 @@ public:
 extern "C" void func_00258b00(void);
 extern "C" void func_00258af0(s32);
 
-void Tz::CampMenu::RestartSelector(const YS::SELECTOR*, const YS::SELECTOR::ARGS*) {
-    func_00258b00();
-    func_00258af0(9);
-}
+// 0x00253480: definition moved into src/anon/unit_002530c8.cpp

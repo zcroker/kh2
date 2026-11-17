@@ -259,26 +259,12 @@ char* func_00232498(char* name);  // 0x00232498: definition moved into src/anon/
 
 // ---- 0024eb50
 extern VObj* D_0035ee18[5];
-void func_0024eb50(void) {
-    for (s32 i = 0; i < 5; i++) {
-        if (D_0035ee18[i]) {
-            if (func_00139d78(D_0035ee18[i])) D_0035ee18[i]->vt[5](D_0035ee18[i]);
-            else D_0035ee18[i] = 0;
-        }
-    }
-}
+void func_0024eb50(void);  // 0x0024eb50: definition moved into src/anon/unit_0024e7e8.cpp
 
 // ---- 002535d0
 extern s8 D_003726c8[];
 s32 func_00102fa0(void);
-s32 func_002535d0(s32 a) {
-    s32 r = -1;
-    for (s32 i = 0; D_003726c8[i] >= 0; i++) {
-        if (a == D_003726c8[i]) { r = 2; break; }
-    }
-    if (func_00102fa0()) r = 2;
-    return r;
-}
+s32 func_002535d0(s32 a);  // 0x002535d0: definition moved into src/anon/unit_002530c8.cpp
 
 // ---- 00263c60
 s32 func_00263cc0(void);

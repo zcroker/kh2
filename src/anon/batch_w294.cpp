@@ -66,32 +66,6 @@ void func_0028dcc0(u8*, Sc*);
 void func_002891f0(void*, s32, s32, s32, s32);
 void func_0028af28(void*, s32);
 void func_00287cc0(s32);
-void func_002515a0(void) {
-    s16 a[2][4];
-    s32 i;
-    for (i = 0; i < 2; i++) {
-        for (s32 j = 0; j < 4; j++) {
-            if (i == 1) a[1][j] = 11;
-            else a[i][j] = 10;
-        }
-    }
-    func_0028d8c0(D_0035ee80, 30013, 2, 2, D_0035ee60, 7, 8, 0);
-    D_0035ee80->f405 = 1;
-    D_0035ee80->sub.set8();
-    s32 save = D_0035f3d4.v;
-    D_0035f3d4.v = 30014;
-    for (i = 0; i < 2; i++) {
-        func_00288d80(D_0035ee5c, i, 2, 2, D_0035ee60, D_003725c0[i], a[0], a[1]);
-        u8* o = func_002891b8(D_0035ee5c, i);
-        func_00288e08(D_0035ee5c, i, 0, func_0023aa78(o + 24));
-        func_00139620(o);
-        *(s32*)(o + 432) = 2;
-        func_0028dcc0(o, D_0035ee80);
-    }
-    D_0035f3d4.v = save;
-    func_002891f0(D_0035ee5c, 1, 1, 0, 2);
-    func_0028af28(D_0035ee5c, 64);
-    func_00287cc0(0);
-}
+void func_002515a0(void);  // 0x002515a0: definition moved into src/anon/unit_00250fb8.cpp
 }
 }

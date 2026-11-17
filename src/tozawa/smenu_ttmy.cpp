@@ -9,18 +9,6 @@ extern "C" void func_0024e850();
 extern "C" u32 func_0024ebc0();
 extern "C" void func_0024edd8();
 
-void TTMY::PauseThread(TASK* a0) {
-    u32 s0 = (u32)a0;
-    func_002430d8(D_0035ee00);
-    func_00102448(s0, 1);
-    func_0024e850();
-    while (1) {
-        if (func_0024ebc0() != 0) {
-            return;
-        }
-        func_0024edd8();
-        func_00102448(s0, 0);
-    }
-}
+// 0x0024e7e8: definition moved into src/anon/unit_0024e7e8.cpp
 
 }  // namespace Tz

@@ -458,21 +458,7 @@ s32 func_00139d78(u32);
 void func_001039f8(void);
 void func_0024d910(void);
 void func_0024d7a0(void);
-s32 func_0024d6c8(void)
-{
-    s32 st = func_00287bc0();
-    func_00287d68();  // copy_globals_3words
-    if (func_00287db0()) {
-        if (func_0028acc8(D_0035edcc) || func_0028acc8(D_0035edd0) || func_00139d78(D_0035edd4) || func_00139d78(D_0035edd8) || func_00139d78(D_0035eddc)) return 0;
-        func_001039f8();
-        return 1;
-    }
-    switch (st) {
-    case 0: func_0024d7a0(); break;
-    case 1: func_0024d910(); break;
-    }
-    return 0;
-}
+s32 func_0024d6c8(void);  // 0x0024d6c8: definition moved into src/anon/unit_0024cda8.cpp
 }
 }
 

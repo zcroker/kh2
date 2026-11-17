@@ -265,12 +265,7 @@ void func_003147a0(FLO*, FPN*);
 FPN* func_00313c58(FPN*, FPN*, FPN*);
 double func_003146c8(FPN*);
 
-void func_00251ec8(s32 i) {
-    if (D_0035ee64 && func_00139d78(D_0035ee64)) {
-        u32 v = D_00372668[i];
-        func_0023f5b8(D_0035ee64, v, 0);
-    }
-}
+void func_00251ec8(s32 i);  // 0x00251ec8: definition moved into src/anon/unit_00250fb8.cpp
 
 s32 func_00262290(void);  // 0x00262290: definition moved into src/anon/unit_0025f6b8.cpp
 

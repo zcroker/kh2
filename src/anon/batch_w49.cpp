@@ -123,11 +123,7 @@ s32 func_00139d78(void*);
 s32 func_0024f2b8(u32);  // word_table_372368
 struct E372390 { s16 a, b, c; };
 extern E372390 D_00372390[];
-s32 func_0024f240(void) {
-    if (D_0035ee10 == 0 || !func_00139d78(D_0035ee10)) return 1;
-    s32 i = func_0024f2b8(D_0035ee2c);  // word_table_372368
-    return *(s32*)(D_0035ee10 + 388) == D_00372390[i].b;
-}
+s32 func_0024f240(void);  // 0x0024f240: definition moved into src/anon/unit_0024e7e8.cpp
 
 extern u8* D_0035f038;
 void func_00257970(void) {

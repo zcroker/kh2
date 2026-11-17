@@ -148,10 +148,7 @@ void func_0023fb90(void* a) {
 }
 
 // Round up to a multiple of 64
-s32 func_00253948(s32 x) {
-    if (x & 63) x = x / 64 * 64 + 64;
-    return x;
-}
+s32 func_00253948(s32 x);  // 0x00253948: definition moved into src/anon/unit_002530c8.cpp
 
 extern u8* D_0035f20c;
 void func_0028dac8(void*, s32);

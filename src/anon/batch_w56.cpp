@@ -245,19 +245,7 @@ void func_00287a28(void);
 void func_0028d068(s32, s32);
 void func_00242790(void);
 void func_0023d368(void);
-void func_002530f0(s32 a)
-{
-    func_00253330(a)->fn();
-    D_0035eeb4 = -1;
-    func_00258dc8();
-    func_0028ca78();
-    func_00287a28();
-    D_0035f3d4 = D_01dae6a8[0];
-    s32 v = D_01dae6a8[1];
-    if (v >= 0) func_0028d068(v, -1);
-    if (a != 9) func_00242790();
-    func_0023d368();
-}
+void func_002530f0(s32 a);  // 0x002530f0: definition moved into src/anon/unit_002530c8.cpp
 
 // 002656c0
 u8* func_00257770(void);

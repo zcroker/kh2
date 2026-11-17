@@ -220,23 +220,7 @@ u8* func_0028c198(s32, s32, s32, s32, s32, s32);
 s32 func_0024efc0(s32);  // to_28dbf8_entry6
 void func_001396b0(void*);
 void func_0031ac78(void*, s32);
-void func_0024e9c0(void) {
-    for (s32 i = 0; i < 5; i++) {
-        s32 id = D_00372308[i];
-        if (id == 0 || func_001a6d08(id)) {
-            D_0035ee18[i].p = func_0028c198(0, 2, 2, D_0035ee08, -1, 0);
-            ((UP*)(D_0035ee18[i].p + 392))->i = 1;
-            u8* o = D_0035ee18[i].p;
-            *(s32*)(o + 400) = func_0024efc0(i);
-            func_001396b0(o);
-            if (*(s32*)(o + 400)) {
-                *(s32*)(o + 396) = 0;
-                func_001396b0(o);
-                if (*(s32*)(o + 396)) func_0031ac78(o, 0);
-            }
-        }
-    }
-}
+void func_0024e9c0(void);  // 0x0024e9c0: definition moved into src/anon/unit_0024e7e8.cpp
 
 // ---- 0x2816f0: reset state and release three owned objects ----
 typedef void (*VFn)(void*);

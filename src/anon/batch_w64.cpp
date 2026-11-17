@@ -321,12 +321,7 @@ struct Ent253330 { s16 id; u8 pad[14]; };
 extern Ent253330 D_003726d0[];
 
 // Returns the last table entry with the given id (table ends at a negative id).
-Ent253330* func_00253330(s32 key) {
-    Ent253330* r = 0;
-    for (s32 i = 0; D_003726d0[i].id >= 0; i++)
-        if (D_003726d0[i].id == key) r = &D_003726d0[i];
-    return r;
-}
+Ent253330* func_00253330(s32 key);  // 0x00253330: definition moved into src/anon/unit_002530c8.cpp
 
 // ---------------------------------------------------------------------------
 u8* func_00257770(void);

@@ -27,33 +27,7 @@ void func_00168388(u8*, s32, void (*)(void*), Slot*);
 // queues it with a completion callback.
 // key is pinned to s2 (both buffer results share it); the empty asm keeps a label at the
 // start of the non-6 arm, so the first beq's delay slot is filled from its target as in the original.
-s32 func_002539e8(s32 idx0, u32 key0)
-{
-    u8 buf[128];
-    s32 idx = idx0;
-    if (D_0035ef58) return -1;
-    register u32 key asm("$18") = key0;
-    if (!key) key = D_0035eec0[idx];
-    if (idx != 6) {
-        lab: asm("" :: "X"(&&lab));
-        key = (u32)func_00253b30(buf, key);
-    } else {
-        func_002ff2e8(buf);
-        key = (u32)buf;
-    }
-    Slot* s = &D_0035eee0[idx];
-    s->id = D_0035ef54++;
-    s->st = 2;
-    s->d = func_00253b00();
-    s->c = 0;
-    if (idx != 6) {
-        func_001684c0((u8*)key, s->d, func_00253978, s);
-    } else {
-        Slot* q = &D_0035eee0[6]; func_00168388((u8*)key, q->d, func_002539d0, q);
-    }
-    D_0035ef58 = 1;
-    return 0;
-}
+s32 func_002539e8(s32 idx0, u32 key0);  // 0x002539e8: definition moved into src/anon/unit_002530c8.cpp
 
 extern Nd2List D_01d48db0;
 void func_001b9b28(Nd2*);

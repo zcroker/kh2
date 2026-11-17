@@ -66,19 +66,7 @@ void func_0023c008(u32*);  // obj_ctor_36eae8
 void func_0028d7f0(u32*, s32, s32, s32, s32, s32, s32, s32, s32);
 void func_0023ef50(u32*);
 void func_00252d88();
-void func_00252900() {
-    func_002529a8();
-    u32* p = func_0023ee30(160);
-    *p = (u32)D_00347f98;
-    func_0031a838(p + 3);
-    *p = (u32)D_0035eb98;
-    func_002369a0(p + 6);  // obj_ctor_36eac8
-    func_0023c008(p + 12);  // obj_ctor_36eae8
-    D_0035eea4 = p;
-    func_0028d7f0(p, 30002, 0, 0, D_0035ee9c[0], D_0035ee9c[1], 0, 0, 0);
-    func_0023ef50(D_0035eea4);
-    func_00252d88();
-}
+void func_00252900();  // 0x00252900: definition moved into src/anon/unit_00250fb8.cpp
 
 extern u32 D_00367920;
 extern u8 D_01e4c798[];

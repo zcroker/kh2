@@ -54,34 +54,6 @@ void func_0024f348(void);
 void func_0023f1e0(u8 *, s32, u8 *, void *, void *, s32, s32, s32);
 void func_0023f6c0(u8 *, s32);
 void func_00287cc0(s32) asm("_ZN2Tz8Selector8SetStateEi");
-void func_0024e850(void)
-{
-  u8 *o;
-  u8 *p;
-  s32 i;
-  o = func_0023ee30(160);
-  *((u32 *) (o + 12)) = 0;
-  *((u8 **) o) = D_0035eb98;
-  func_002369a0(o + 24);
-  func_0023c008(o + 48);
-  p = o;
-  D_0035ee08 = o;
-  func_0028d7f0(p, 30002, 0, 0, 0, 1, 0, 0, 0);
-  for (i = 0; i < 5; i++)
-  {
-    func_00288ce0(D_0035ee04, 0, i, 0, 0);
-  }
-
-  func_002891f0(D_0035ee04, 0, 0, -1, -1);
-  func_0024f348();
-  func_002891f0(D_0035ee04, func_002891e8(D_0035ee04), 0, -1, -1);
-  p = D_00347f80->heap->vt->alloc(D_00347f80->heap, 76, 0);
-  *((u32 *) (p + 12)) = 0;
-  *((u8 **) p) = D_0035ebb8;
-  D_0035ee0c = p;
-  func_0023f1e0(p, 30003, D_0035ee08, &D_00372380, &D_00372388, -1, 0, 0);
-  func_0023f6c0(D_0035ee0c, 2);
-  func_00287cc0(0);
-}
+void func_0024e850(void);  // 0x0024e850: definition moved into src/anon/unit_0024e7e8.cpp
 
 }

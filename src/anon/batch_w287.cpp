@@ -43,39 +43,7 @@ s32 func_00253380(u32);
 void func_00253538(s32);
 void func_001037b8(void);
 void wtarget_00253180(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z16wtarget_00253180jjjj");
-void wtarget_00253180(u32 a0, u32 a1, u32 a2, u32 a3) {
-    s32 v1 = a1;
-    s32 flag = 0;
-    if (D_0033cbb0) return;
-    if (a0 == 5) func_00197c90();
-    Ent253* e = func_00253330(a0);
-    s32 cur = func_00103550();
-    if (func_00103b38() || cur != -1) {
-        if (func_00103428(cur) && !func_00103428(e->id)) {
-            func_00103500(e->id);
-        } else if (!func_00103428(e->id)) {
-            if (func_00103560() == -1) func_00103500(e->id);
-        } else if (func_00103428(cur)) {
-            u32 v = func_00103428(e->id);
-            if (e->id == 50 && (u8)(v & 1)) func_00103500(e->id);
-        }
-        flag = 1;
-    }
-    s32* p = e->val;
-    if (p && v1 != -999) {
-        if (a0 == 0) {
-            if (v1 < 0) v1 = 1;
-            *p = v1;
-        } else *p = v1;
-    }
-    if (flag) return;
-    if (!func_00253380(a0)) {
-        func_00103500(e->id);
-        func_001037b8();
-        return;
-    }
-    func_00253538(e->id);
-}
+void wtarget_00253180(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00253180: definition moved into src/anon/unit_002530c8.cpp
 }
 struct E27 { u8 pad[5]; u8 key; u8 pad2[2]; };
 extern "C" {

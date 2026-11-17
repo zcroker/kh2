@@ -9,21 +9,8 @@ extern u32 D_0035ef54 asm("D_0035ef54");
 extern "C" u32 func_001688b8(...);
 extern "C" void func_002fde18(...);
 
-void CMData::Exit() {
-    func_002fde18((void*)&D_0035eee0, 0, 112);
-    D_0035ef50 = 0;
-    D_0035ef54 = 0;
-    if (D_0035ef58 != 0) {
-        if (func_001688b8() == 0) {
-            D_0035ef58 = 0;
-        }
-    }
-}
+// 0x00253768: definition moved into src/anon/unit_002530c8.cpp
 
-u32 CMData::isBackRead() {
-    (void)D_0035ef58;
-    u32 b = (0x0036u << 16);
-    return (u32)(*(u8*)((u32)b + (-4264)));
-}
+// 0x00253918: definition moved into src/anon/unit_002530c8.cpp
 
 }  // namespace Tz

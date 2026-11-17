@@ -184,13 +184,7 @@ extern void* D_0035ee5c;
 s32 func_002892f8(void*);
 s32 func_0028acc8(void*);
 void func_00288e88(void*);
-void func_00252020(void) {
-    if (!D_0035ee5c) return;
-    s32 r = func_002892f8(D_0035ee5c);
-    if (func_0028acc8(D_0035ee5c)) return;
-    if (!r) return;
-    func_00288e88(D_0035ee5c);
-}
+void func_00252020(void);  // 0x00252020: definition moved into src/anon/unit_00250fb8.cpp
 
 void* func_002570a0(u32);
 u16* func_002632d0(void*);

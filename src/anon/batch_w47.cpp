@@ -142,14 +142,7 @@ s32 func_002282f0u(u16) asm("func_002282f0");
 void func_002322b8(u8* p);  // 0x002322b8: definition moved into src/anon/unit_00231500.cpp
 
 extern u8* D_0035ee48;
-void func_00250928(void) {
-    for (s32 i = 0; i < 5; i++) {
-        if (func_00139d78(D_0035ee48 + i * 408)) {
-            u8* o = (u8*)(i * 408 + (u32)D_0035ee48);
-            (*(void (**)(u8*))(*(u8**)o + 20))(o);
-        }
-    }
-}
+void func_00250928(void);  // 0x00250928: definition moved into src/anon/unit_0024fbd0.cpp
 
 s32 func_002538f8(u32);  // entry16_get_flag_bit
 s32 func_00253928(u32);  // entry16_get_bit1

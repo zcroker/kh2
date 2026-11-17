@@ -241,45 +241,7 @@ void func_00252660(s32);
 void func_00287bd0(s32, s32);
 void func_00287cc0(s32);
 
-void func_00251148(void)
-{
-    u8* o;
-    u8* p;
-    s32 i;
-    s32 n;
-    s32 sel;
-
-    o = func_0023ee30(160);
-    *(u8**)o = D_00347f98;
-    func_0031a838(o + 12);
-    *(u8**)o = D_0035eb98;
-    func_002369a0(o + 24);  // obj_ctor_36eac8
-    func_0023c008(o + 48);  // obj_ctor_36eae8
-    D_0035ee60 = o;
-    func_0028d7f0(o, 30002, 0, 0, 0, 1, 0, 0, 0);
-    func_0023ef50(D_0035ee60);
-    n = 0;
-    for (i = 0; i < 4; i++) {
-        if (func_00252098(i)) {
-            func_00288ce0(D_0035ee58, 0, n, 0, 0);
-            n++;
-        }
-    }
-    p = D_00347f80->heap->vt->alloc(D_00347f80->heap, 76, 0);
-    *(u32*)(p + 12) = 0;
-    *(u8**)p = D_0035ebb8;
-    D_0035ee64 = p;
-    func_0023f1e0(p, 30003, D_0035ee60, &D_00372608, &D_00372630, -1, 0, 0);
-    func_0023f6c0(D_0035ee64, 2);
-    func_00252180();
-    sel = func_00252428();
-    func_00252320();
-    func_00252208();
-    func_002891f0(D_0035ee58, func_00252148(sel), 0, -1, -1);
-    func_00252660(func_00252110(func_002891e8((void*)D_0035ee58)));
-    func_00287bd0(0, 0);
-    func_00287cc0(0);
-}
+void func_00251148(void);  // 0x00251148: definition moved into src/anon/unit_00250fb8.cpp
 }
 
 extern "C" {

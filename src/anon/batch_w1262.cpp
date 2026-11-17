@@ -19,40 +19,7 @@ void func_0028cf28(s32, s32);
 u8* func_0024e058(void);
 void func_002b4388(s32, void *, s32);
 void func_0024e228(void);
-void func_0024dd68(s32 a0, s32 a1, s32 a2)
-{
-  s32 idx;
-  u8 *p;
-  if ((func_00287cd0_a(a0) == 1) && (func_00289310_a(a0) != 0))
-  {
-    idx = func_002891e8_a(a0);
-    func_002890e0(a0, 1, 2, 0, -1);
-    func_00289038(a0, idx, 1, 1, 2, 0, -1);
-    if (a1 == 0)
-    {
-      func_0023f070(D_0035eddc, func_0024e008(idx)[2], -1);
-      func_0024e5b0();
-    }
-    if (func_0028d008(a2) != 0)
-    {
-      func_0028cf28(a2, func_002891d0(a0));
-    }
-    p = D_00372298;
-    if (a1 == 0)
-    {
-      if (a0 || p)
-      {
-        p = func_0024e058();
-      }
-      else
-      {
-        p = func_0024e058();
-      }
-    }
-    func_002b4388(D_0035edec, p + (idx * 36), 0);
-    func_0024e228();
-  }
-}
+void func_0024dd68(s32 a0, s32 a1, s32 a2);  // 0x0024dd68: definition moved into src/anon/unit_0024cda8.cpp
 
 
 

@@ -17,24 +17,7 @@ s32 func_00250fb8(void);
 void func_001039f8(void);
 void func_00251780(void);
 void func_002513b0(void);
-u32 func_00251318(void) {
-    s32 mode = func_00287bc0();
-    func_00287d68();
-    func_00252020();
-    if (func_00287db0() != 0) {
-        if (func_00250fb8() == 0) {
-            func_00252020();
-            func_001039f8();
-            return 1;
-        }
-        return 0;
-    }
-    switch (mode) {
-    case 0: func_002513b0(); break;
-    case 1: func_00251780(); break;
-    }
-    return 0;
-}
+u32 func_00251318(void);  // 0x00251318: definition moved into src/anon/unit_00250fb8.cpp
 void func_00225b88(void);
 void func_00225cd8(void);
 s32 func_00225aa8(void);
@@ -223,47 +206,7 @@ s32 func_00287c50(void);
 void func_0028ce98(s32, s32);
 void func_0024dd68(s32, s32, s32);
 struct NoTaildb28 { ~NoTaildb28() {} };
-void func_0024db28(void) {
-    NoTaildb28 nt;
-    s32 mode = func_00287bc0();
-    s32 sub = func_00287cd0();
-    if (func_00287db0() != 0) {
-        if (func_002887c8() == 0) {
-            func_0028dae0(D_0035edd4, 31);
-            if (func_0028acc8(D_0035edcc) != 0 && func_00139d78(D_0035eddc) != 0) {
-                func_0028dae0(D_0035eddc, func_0024e008(func_002891e8(D_0035edcc))->b);
-            }
-            func_0028dae0(D_0035edd8, 34);
-            if (func_0028acc8(D_0035edcc) != 0 && func_0028acb8(D_0035edcc) == 0) {
-                func_0028aa40(D_0035edcc);
-            }
-            if (func_0028acc8(D_0035edd0) != 0 && func_0028acb8(D_0035edd0) == 0) {
-                func_0028aa40(D_0035edd0);
-            }
-            func_0028dac8(D_0035ede0, 32);
-            func_0028dac8(D_0035ede4, 40);
-        }
-        func_0024e530();
-        func_0028ce38();
-    }
-    func_0024dea8();
-    if (func_00287db0() == 0) {
-        s32 obj = mode == 0 ? D_0035edcc : D_0035edd0;
-        s32 side = mode != 0;
-        if (func_0028acc8(obj) != 0 && sub == 1) {
-            if (func_0028d008(side) == 0) {
-                func_0028cc78(side, 0, 0, D_0035edd4, 15, 14);
-                func_0028cf28(side, func_002891d0(obj));
-            }
-        } else if (sub == 2 && func_0028d008(side) != 0) {
-            func_0028cdb8(side);
-        }
-        if (func_00287c50() != 0 && func_0028d008(0) != 0) {
-            func_0028ce98(0, side);
-        }
-        func_0024dd68(obj, mode, side);
-    }
-}
+void func_0024db28(void);  // 0x0024db28: definition moved into src/anon/unit_0024cda8.cpp
 struct T0328 { s16 a; s16 b; s16 c; };
 extern T0328 D_00372448[];
 extern s32 D_0035ee34;
@@ -293,44 +236,5 @@ s32 func_00287c50(void);
 void func_0028ce98(s32, s32);
 void func_00250550(s32, s32, s32);
 struct NoTail0328 { ~NoTail0328() {} };
-void func_00250328(void) {
-    NoTail0328 nt;
-    s32 mode = func_00287bc0();
-    s32 sub = func_00287cd0();
-    if (func_00287db0() != 0) {
-        if (func_002887c8() == 0) {
-            func_0028dae0(D_0035ee3c, 31);
-            if (func_0028acc8(D_0035ee34) != 0 && func_00139d78(D_0035ee44) != 0) {
-                s32 i = func_002891e8(D_0035ee34);
-                func_0028dae0(D_0035ee44, D_00372448[i].b);
-            }
-            func_0028dae0(D_0035ee40, 34);
-            if (func_0028acc8(D_0035ee34) != 0 && func_0028acb8(D_0035ee34) == 0) {
-                func_0028aa40(D_0035ee34);
-            }
-            if (func_0028acc8(D_0035ee38) != 0 && func_0028acb8(D_0035ee38) == 0) {
-                func_0028aa40(D_0035ee38);
-            }
-        }
-        func_00250928();
-        func_0028ce38();
-    }
-    func_00250698();
-    if (func_00287db0() == 0) {
-        s32 obj = mode == 0 ? D_0035ee34 : D_0035ee38;
-        s32 side = mode != 0;
-        if (func_0028acc8(obj) != 0 && sub == 1) {
-            if (func_0028d008(side) == 0) {
-                func_0028cc78(side, 0, 0, D_0035ee3c, 15, 14);
-                func_0028cf28(side, func_002891d0(obj));
-            }
-        } else if (sub == 2 && func_0028d008(side) != 0) {
-            func_0028cdb8(side);
-        }
-        if (func_00287c50() != 0 && func_0028d008(0) != 0) {
-            func_0028ce98(0, side);
-        }
-        func_00250550(obj, mode, side);
-    }
-}
+void func_00250328(void);  // 0x00250328: definition moved into src/anon/unit_0024fbd0.cpp
 }

@@ -398,20 +398,7 @@ extern s32 D_003722ec;
 extern s32 D_003722f0;
 extern u8 D_003722e0[];
 extern u8 D_003722e8[];
-s32 func_0024e080(void) {
-    if (func_00276c18()) return 1;
-    s32 any = 0;
-    s32 n;
-    if (!D_0035edf4) n = D_003722ec;
-    else n = D_003722f0;
-    for (s32 i = 0; i < n; i++) {
-        u8* e;
-        if (!D_0035edf4) e = func_001d56c8(D_003722e0[i]);
-        else e = func_001d56c8(D_003722e8[i]);
-        if (*e >= 2) { any = 1; break; }
-    }
-    return any;
-}
+s32 func_0024e080(void);  // 0x0024e080: definition moved into src/anon/unit_0024cda8.cpp
 
 u32 func_00257770(void);
 s32 func_00287bc0(void);

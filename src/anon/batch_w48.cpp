@@ -151,12 +151,7 @@ void func_00232db0(s32 id);  // 0x00232db0: definition moved into src/anon/unit_
 extern void* D_0035ee0c;
 extern u32 D_003723a0[];
 void func_0023f5b8(void*, u32, s32);
-void func_0024eff8(s32 i) {
-    if (!D_0035ee0c) return;
-    if (!func_00139d78(D_0035ee0c)) return;
-    u32 v = D_003723a0[i];
-    func_0023f5b8(D_0035ee0c, v, 0);
-}
+void func_0024eff8(s32 i);  // 0x0024eff8: definition moved into src/anon/unit_0024e7e8.cpp
 
 struct Obj253410 { u8 pad[37]; u8 active : 1; };
 u8* func_0014aba8(void);
@@ -165,36 +160,14 @@ void* func_002535d0(s32);
 void func_00242740(void*);
 void func_00253180(s32, s32);
 static inline u8 isOff253410(Obj253410* o) { return !o->active; }
-void func_00253410(Obj253410* o, s32 a1) {
-    if (!isOff253410(o)) *(u32*)(func_0014aba8() + 252) = 0;
-    func_00258b00(o, a1);
-    func_00242740(func_002535d0(8));
-    func_00253180(8, -1);
-}
+void func_00253410(Obj253410* o, s32 a1);  // 0x00253410: definition moved into src/anon/unit_002530c8.cpp
 
 struct E2538 { s32 a; s32 b; s32 c; u8* d; };
 extern E2538 D_0035eee0[7];
 extern u8 D_01dae6c0[];
 extern s32 D_0035ef50;
 extern s32 D_0035ef54;
-void func_00253888(s32 a) {
-    u8* base = D_01dae6c0;
-    E2538* e = D_0035eee0;
-    s32 r = 0;
-    for (s32 i = 6; i >= 0; i--, e++) {
-        if (e->d) {
-            if (!(e->a < a)) {
-                if (e->a == a) r = e->d - base;
-                e->a = 0;
-                e->b = 0;
-                e->d = 0;
-                e->c = 0;
-            }
-        }
-    }
-    D_0035ef50 = r;
-    D_0035ef54 = a;
-}
+void func_00253888(s32 a);  // 0x00253888: definition moved into src/anon/unit_002530c8.cpp
 }
 
 extern "C" {

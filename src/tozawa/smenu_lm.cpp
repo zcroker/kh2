@@ -11,20 +11,6 @@ extern "C" void func_00236d60();  // clear_64_entries_24
 extern "C" u32 func_0024ff08();
 extern "C" void func_00250328();
 
-void LMMU::PauseThread(TASK* a0) {
-    u32 s0 = (u32)a0;
-    func_002430d8(D_0035ee30);
-    func_00102448(s0, 1);
-    func_0024f710();
-    func_00242678(12022);
-    while (1) {
-        func_00236d60();  // clear_64_entries_24
-        if (func_0024ff08() != 0) {
-            return;
-        }
-        func_00250328();
-        func_00102448(s0, 0);
-    }
-}
+// 0x0024f698: definition moved into src/anon/unit_0024e7e8.cpp
 
 }  // namespace Tz

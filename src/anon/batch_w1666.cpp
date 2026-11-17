@@ -9,7 +9,7 @@ extern u8 D_00347d28;
 extern u8 D_0034c740;
 extern s8 D_00361800;
 extern u8* D_00348818;
-s32 func_002535c0(void) { return D_0035eebc; }
+s32 func_002535c0(void);  // 0x002535c0: definition moved into src/anon/unit_002530c8.cpp
 void func_00258b28(s32 a);  // 0x00258b28: definition moved into src/anon/unit_002588e8.cpp
 u8 func_0025f568(void);  // 0x0025f568: definition moved into src/anon/unit_0025da20.cpp
 void func_0025f578(void);  // 0x0025f578: definition moved into src/anon/unit_0025da20.cpp

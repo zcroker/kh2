@@ -26,21 +26,7 @@ extern u32 D_0035ee70, D_0035ee74, D_0035ee58, D_0035ee5c;
 s32 call4_w256(u32) asm("_Z16u_call4_00139d78jjjj");
 s32 iscreated_w256(u32) asm("_ZN2Tz6Select9isCreatedEz");
 
-void func_00250fb8(void) {
-  NoTail_w256 nt;
-  if (call4_w256(D_0035ee60)) return;
-  if (call4_w256(D_0035ee68)) return;
-  if (call4_w256(D_0035ee6c)) return;
-  if (call4_w256(D_0035ee7c)) return;
-  if (call4_w256(D_0035ee78)) return;
-  if (call4_w256(D_0035ee80)) return;
-  for (s32 i = 0; i < 4; i++) {
-    if (call4_w256(D_0035ee70 + i * 432)) return;
-    if (call4_w256(D_0035ee74 + i * 432)) return;
-  }
-  if (iscreated_w256(D_0035ee58)) return;
-  iscreated_w256(D_0035ee5c);
-}
+void func_00250fb8(void);  // 0x00250fb8: definition moved into src/anon/unit_00250fb8.cpp
 
 extern T27* D_0035f230;
 extern u32 D_0035f01c;

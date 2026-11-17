@@ -45,25 +45,7 @@ void func_002890e0(void*, s32, s32, s32, s32);
 void func_00289038(void*, s32, s32, s32, s32, s32, s32);
 s32 func_002891d0(void*);
 void func_0028cf28(s32, s32);
-void func_00251d80(void* obj, s32 mode, s32 h)
-{
-    if (!func_00289310(obj)) return;
-    if (mode == 0) {
-        if (func_0028d008(0)) {
-            func_0028cf98(0, func_00251e90(h));
-            func_00251ec8(h);
-            func_00252660(h);
-        }
-        func_00252540();
-        if (func_00252000()) func_00251fe0();
-        return;
-    }
-    func_002890e0(obj, 1, 2, 0, -1);
-    s32 s = func_002891e8((s32)obj);
-    func_00289038(obj, s, 1, 1, 2, 0, -1);
-    s = func_002891d0(obj);
-    func_0028cf28(1, s);
-}
+void func_00251d80(void* obj, s32 mode, s32 h);  // 0x00251d80: definition moved into src/anon/unit_00250fb8.cpp
 
 // ---- 002657a8
 struct Rec { u16 id; u16 x; s16 idx; };

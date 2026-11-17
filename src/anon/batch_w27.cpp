@@ -163,20 +163,10 @@ extern S6 D_00372160[];
 extern S6 D_00372178[];
 extern u32 D_0035edf4;
 void func_0024dfe0(void);
-S6* func_0024e008(s32 i) {
-    func_0024dfe0();
-    if (D_0035edf4 == 0) return &D_00372160[i];
-    return &D_00372178[i];
-}
+S6* func_0024e008(s32 i);  // 0x0024e008: definition moved into src/anon/unit_0024cda8.cpp
 
 extern s16 D_003726b8[];
-s32 func_00253380(s32 x) {
-    s32 r = 0;
-    for (s32 i = 0; D_003726b8[i] >= 0; i++) {
-        if (D_003726b8[i] == x) { r = 1; break; }
-    }
-    return r;
-}
+s32 func_00253380(s32 x);  // 0x00253380: definition moved into src/anon/unit_002530c8.cpp
 
 u32 func_0023aa18(void*);
 u32 func_0023aa38(void*);

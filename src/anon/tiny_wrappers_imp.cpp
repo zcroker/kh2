@@ -125,31 +125,11 @@ u32 func_00226fa8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00226fa8: definition mo
 
 u32 func_00242fa0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00242fa0: definition moved into src/anon/unit_00242478.cpp
 
-u32 func_002519b0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r15 = 0u;
-    r15 = (u32)(0x0036u << 16);
-    r5 = (u32)((s32)0u + (9));
-    r4 = *(u32*)((u32)r15 + (s32)(-4480));
-    return func_0028dac8(r4, r5, r6, r7);
-}
+u32 func_002519b0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002519b0: definition moved into src/anon/unit_00250fb8.cpp
 
-u32 func_00251fe0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r15 = 0u;
-    r15 = (u32)(0x0036u << 16);
-    r5 = (u32)((s32)0u + (22));
-    r4 = *(u32*)((u32)r15 + (s32)(-4504));
-    return func_0028dac8(r4, r5, r6, r7);
-}
+u32 func_00251fe0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00251fe0: definition moved into src/anon/unit_00250fb8.cpp
 
-u32 func_002530c8(u32 a0, u32 a1, u32 a2, u32 a3) {  // set_state_30012
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r14 = 0u, r15 = 0u;
-    r14 = (u32)((s32)0u + (30012));
-    r15 = (u32)(0x0036u << 16);
-    *(u32*)((u32)r15 + (s32)(-3116)) = r14;
-    r4 = (u32)((s32)0u + (30026));
-    r5 = (u32)((s32)0u + (-1));
-    return func_0028d068(r4, r5, r6, r7);
-}
+u32 func_002530c8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002530c8: definition moved into src/anon/unit_002530c8.cpp
 
 u32 func_00280678(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00280678: definition moved into src/anon/unit_0027f2b0.cpp
 

@@ -295,20 +295,7 @@ void func_001e9078(u8* a, u8* b, u8* c);  // 0x001e9078: definition moved into s
 // Sum of two VU0 randoms, or twice one.
 f32 func_001eeb90(u8 a);  // 0x001eeb90: definition moved into src/anon/unit_001ec098.cpp
 
-s32 func_0024ebc0(void) {
-    func_00287d68();  // copy_globals_3words
-    if (func_00287db0()) {
-        if (!Select_isCreated(D_0035ee04) && !func_00139d78(D_0035ee08) && !func_00139d78(D_0035ee10)) {
-            func_0024eb50();
-            func_0024f2d0();
-            func_001039f8();
-            return 1;
-        }
-        return 0;
-    }
-    func_0024ec50();
-    return 0;
-}
+s32 func_0024ebc0(void);  // 0x0024ebc0: definition moved into src/anon/unit_0024e7e8.cpp
 
 void func_00259570(u32 a, u32 b, u8 c, u8 d);  // 0x00259570: definition moved into src/anon/unit_002588e8.cpp
 

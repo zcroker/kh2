@@ -184,11 +184,7 @@ extern u32 D_0035ee80;
 extern u32 D_0035ee5c;
 u8 func_00139d78_u8(u32) asm("func_00139d78");
 u8 func_0028acc8(u32);
-int func_002519d0(void) {
-    int r = func_00139d78_u8(D_0035ee80);
-    if (!r) r = func_0028acc8(D_0035ee5c);
-    return r;
-}
+int func_002519d0(void);  // 0x002519d0: definition moved into src/anon/unit_00250fb8.cpp
 
 typedef void (*VFn)(void*);
 void func_002878c8(void*);

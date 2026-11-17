@@ -242,12 +242,7 @@ void func_00239e60(u8* p, f32 x, f32 y, f32 z) {
     ((F184*)(p + 184))->b1 = !(x == 1.0f && y == 1.0f && z == 1.0f);
 }
 
-s32 func_00252710(void) {
-    s32 r = 0;
-    u8 c = D_00372600[func_00252110()];
-    if (c) r = func_001a6d08(c) != 0;
-    return r;
-}
+s32 func_00252710(void);  // 0x00252710: definition moved into src/anon/unit_00250fb8.cpp
 
 void cmitem_leave(void) asm("_ZN2Tz6CmItem13LeaveCategoryEv");
 void cmitem_leave(void);  // 0x00262208: definition moved into src/anon/unit_0025f6b8.cpp

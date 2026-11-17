@@ -247,33 +247,11 @@ struct Obj408 {
     u8 pad[404];
 };
 extern Obj408* D_0035ede8;
-void func_0024e530(void) {
-    s32 i;
-    for (i = 0; i < func_0024dfe0(); i++) {
-        if (func_00139d78(&D_0035ede8[i])) {
-            Obj408* o = (Obj408*)((u8*)(i * 408) + (u32)D_0035ede8);
-            ((void (*)(Obj408*))o->vtbl[5])(o);
-        }
-    }
-}
+void func_0024e530(void);  // 0x0024e530: definition moved into src/anon/unit_0024cda8.cpp
 
 extern u8* D_0035ee18[5];
 void func_00138c10(void*, s32);
-void func_0024eac0(void) {
-    s32 i;
-    for (i = 0; i < 5; i++) {
-        if (D_0035ee18[i]) {
-            if (func_00139d78(D_0035ee18[i])) {
-                if (*(s32*)(D_0035ee18[i] + 388) != 2) {
-                    func_00138c10(D_0035ee18[i], 2);
-                    *(s32*)(D_0035ee18[i] + 392) = -1;
-                }
-            } else {
-                D_0035ee18[i] = 0;
-            }
-        }
-    }
-}
+void func_0024eac0(void);  // 0x0024eac0: definition moved into src/anon/unit_0024e7e8.cpp
 
 u8* func_002632d0(void);
 s32 func_002635d8(void);  // 0x002635d8: definition moved into src/anon/unit_002632d0.cpp

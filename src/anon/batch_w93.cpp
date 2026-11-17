@@ -255,23 +255,6 @@ W93Mdl* func_0028c198(s32, s32, s32, u32, u32, u32);
 void func_00138c10(W93Mdl*, s32);
 u32 func_00192048(u32);
 // Switches the displayed model slot and reloads/rebinds the model for it.
-void func_0024f070(s32 idx)
-{
-    s32 prev = D_0035ee2c;
-    D_0035ee2c = idx;
-    s32 r = func_0024f2b8();  // word_table_372368
-    u32 res = D_003723b8[D_0035ee18[idx] ? idx + 5 : idx];
-    if (!func_00139d78(D_0035ee10.p)) {
-        W93Six* e = &D_00372390[r];
-        D_0035ee10.p = func_0028c198(e->id, 2, 2, D_0035ee08, res, 0);
-        D_0035ee10.p->f392 = e->val;
-        D_0035ee10.p->f432 = 2;
-    } else if (prev != D_0035ee2c) {
-        W93Six* e = &D_00372390[r];
-        func_00138c10(D_0035ee10.p, e->id);
-        D_0035ee10.p->f392 = e->val;
-        D_0035ee10.p->f408 = func_00192048(res);
-    }
-}
+void func_0024f070(s32 idx);  // 0x0024f070: definition moved into src/anon/unit_0024e7e8.cpp
 
 }

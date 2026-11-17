@@ -361,15 +361,7 @@ void func_0027dc20(u32 *a0, u32 *a1);  // 0x0027dc20: definition moved into src/
 
 void func_00232718();  // 0x00232718: definition moved into src/anon/unit_00231500.cpp
 
-u32 func_002538f8(u32 a0) {  // entry16_get_flag_bit
-    u32 base = (u32)&D_0035eee0;
-    a0 <<= 4;
-    a0 += base;
-    u32 v = *(u32 *)(a0 + 4);
-    v &= 1;
-    asm volatile("" : "+r"(v));
-    return v & 0xff;
-}
+u32 func_002538f8(u32 a0);  // 0x002538f8: definition moved into src/anon/unit_002530c8.cpp
 
 void func_002f5c48(u32, ...) {
     volatile u8 pad[64];

@@ -134,10 +134,7 @@ void func_00241740(s32 x) {
 void func_0026d808(const void*);
 void func_00253180(u32, s32);
 void camp_start_party(s32 a, const void* b) asm("_ZN2Tz8CampMenu10StartPartyEiPKv");
-void camp_start_party(s32 a, const void* b) {
-    func_0026d808(b);
-    func_00253180(6, a);
-}
+void camp_start_party(s32 a, const void* b);  // 0x002533e0: definition moved into src/anon/unit_002530c8.cpp
 
 extern s16 D_0035f090;
 extern s16 D_0035f092;

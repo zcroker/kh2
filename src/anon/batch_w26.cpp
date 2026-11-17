@@ -226,10 +226,7 @@ void func_002349e8(void);  // 0x002349e8: definition moved into src/anon/unit_00
 
 s32 func_0024ad50(void);  // 0x0024ad50: definition moved into src/anon/unit_00249ef0.cpp
 
-void ctrl_sel(void) {
-    s32 f = D_00372438[select_get_current(D_0035ee34)];
-    if (!menuflag_check(f)) func_001a6c90(f);  // set_bit_in_array_b
-}
+void ctrl_sel(void);  // 0x00250748: definition moved into src/anon/unit_0024fbd0.cpp
 
 bool func_0027f2b0(void);  // 0x0027f2b0: definition moved into src/anon/unit_0027f2b0.cpp
 

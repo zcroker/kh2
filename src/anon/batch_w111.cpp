@@ -380,53 +380,7 @@ void func_00287da0(void);
 s32 func_00288040(void);
 void func_00288018(void);  // global_zero_4dwords
 // Menu update: handles the confirm/close states and dispatches the chosen entry.
-void func_00251780(void)
-{
-    s32 st = func_00287cd0();
-    s32 sel = func_00289380(D_0035ee5c);
-    if (st == 2) {
-        if (func_002519d0()) {
-            if (sel != -1 || func_00289310(D_0035ee5c)) {
-                func_00287f90(0);
-                func_00251a08();
-            }
-            return;
-        }
-        func_0028af18(D_0035ee5c, 115);
-        func_00287bd0(0, 0);
-        return;
-    }
-    if (sel != -1 || func_00289310(D_0035ee5c)) {
-        if (!func_0028ae28(D_0035ee5c, 0)) func_0028ab20(D_0035ee5c);
-    }
-    if (st == 0 && func_0028ae28(D_0035ee5c, 0)) func_00287c90(1);
-    func_00287df0(sel, func_00289310(D_0035ee5c), 0, 0, 1);
-    switch (sel) {
-    case -1:
-        break;
-    case -2:
-    case 1:
-        func_0028aa40(D_0035ee5c);
-        func_002519b0();
-        func_00287c90(1);
-        break;
-    case 0: {
-        s32 k;
-        switch (func_00252110(func_002891e8(D_0035ee58))) {
-        case 0: k = 60; break;
-        case 1: k = 61; break;
-        case 2: k = 62; break;
-        case 3: k = 63; break;
-        default: k = -1; break;
-        }
-        func_00287b08(k);
-        func_00252618();
-        func_00287da0();
-        break;
-    }
-    }
-    if (func_00288040()) func_00288018();
-}
+void func_00251780(void);  // 0x00251780: definition moved into src/anon/unit_00250fb8.cpp
 }
 
 extern "C" {
