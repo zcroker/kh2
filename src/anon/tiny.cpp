@@ -1134,12 +1134,7 @@ u32 func_0010fa28(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0010fa28: definition mo
 
 u32 func_0010fa58(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0010fa58: definition moved into src/anon/unit_0010f338.cpp
 
-void func_00113668(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    *(u32*)((u32)a0 + (0)) = (u32)&D_00345cf8;
-}
+void func_00113668(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00113668: definition moved into src/anon/unit_00113628.cpp
 
 void func_0011ee58(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0011ee58: definition moved into src/anon/unit_0011c128.cpp
 
@@ -1675,53 +1670,17 @@ f32 func_00112c28(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00112c28: definition mo
 
 f32 func_00112c38(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00112c38: definition moved into src/anon/unit_001117d8.cpp
 
-f32 func_001142a0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    u32 p = *(u32*)((u32)a0 + (8));
-    return *(f32*)((u32)p + (96));
-}
+f32 func_001142a0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001142a0: definition moved into src/anon/unit_001142a0.cpp
 
-f32 func_001142b0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    u32 p = *(u32*)((u32)a0 + (8));
-    return *(f32*)((u32)p + (100));
-}
+f32 func_001142b0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001142b0: definition moved into src/anon/unit_001142a0.cpp
 
-f32 func_001142c0(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_float_104
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    u32 p = *(u32*)((u32)a0 + (8));
-    return *(f32*)((u32)p + (104));
-}
+f32 func_001142c0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001142c0: definition moved into src/anon/unit_001142a0.cpp
 
-f32 func_001142d0(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_float_at_ptr108
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    u32 p = *(u32*)((u32)a0 + (8));
-    return *(f32*)((u32)p + (108));
-}
+f32 func_001142d0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001142d0: definition moved into src/anon/unit_001142a0.cpp
 
-f32 func_00114380(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    u32 p = *(u32*)((u32)a0 + (8));
-    return *(f32*)((u32)p + (132));
-}
+f32 func_00114380(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00114380: definition moved into src/anon/unit_001142a0.cpp
 
-f32 func_00114390(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    u32 p = *(u32*)((u32)a0 + (8));
-    return *(f32*)((u32)p + (136));
-}
+f32 func_00114390(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00114390: definition moved into src/anon/unit_001142a0.cpp
 
 // 00136b48: moved to src/harata/libdk/bgm.cpp
 

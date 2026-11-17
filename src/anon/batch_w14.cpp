@@ -99,11 +99,7 @@ static inline u8* next_node(u8* p, u8* q) {
 
 // 00102a08: moved to src/global/unit_001022c0.cpp
 
-void func_00114de0(u8* p) {
-    *(u8**)p = D_00346960;
-    func_00113668(p);
-    func_00105110(p);
-}
+void func_00114de0(u8* p);  // 0x00114de0: definition moved into src/anon/unit_00114a90.cpp
 
 void func_00124100(void* a, s32 b);  // 0x00124100: definition moved into src/anon/unit_00123990.cpp
 

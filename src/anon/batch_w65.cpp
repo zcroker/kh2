@@ -45,12 +45,7 @@ void func_0031a838(void*);
 // Index of x in the 7-entry table, else 7 + secondary lookup.
 extern s16 D_00345d30[];
 s32 func_00114738(s32);
-s32 func_001145b0(s32 x) {
-    s32 i;
-    for (i = 0; i < 7; i++)
-        if (D_00345d30[i] == x) return i;
-    return func_00114738(x) + 7;
-}
+s32 func_001145b0(s32 x);  // 0x001145b0: definition moved into src/anon/unit_001142a0.cpp
 
 // Unlink the node with this key from the list at +292 and hand it to the owner's release method.
 struct Node { s32 key; u32 pad; Node* prev; Node* next; };

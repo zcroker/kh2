@@ -10,11 +10,7 @@ s32 func_0010f6b8(P10f6b8* p, f32 scale);  // 0x0010f6b8: definition moved into 
 extern u32 D_003464b0;
 void func_00113668(void*);
 void func_00105110(void*);
-void func_00114968(void** p) {
-    *p = &D_003464b0;
-    func_00113668(p);
-    func_00105110(p);
-}
+void func_00114968(void** p);  // 0x00114968: definition moved into src/anon/unit_001142a0.cpp
 
 extern u32 D_00347848;
 void func_0011a510(void** p);  // 0x0011a510: definition moved into src/anon/unit_0011a260.cpp

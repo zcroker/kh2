@@ -26,46 +26,7 @@ void func_0016b010(u32, Vec4*);  // obj_set_float1644_from_pair
 void func_0016af58(Vec4*, u8*);
 void func_0010f9f0(u32, Vec4*, s32);
 
-u8 func_00113848(u32 param_1, u32 param_2, Rec20* param_3, u32* param_4, u8 param_5) {
-    if (param_5 != 0) {
-        *param_4 = 0;
-        u32 o = *(u32*)(param_1 + 4);
-        param_3->w[0] = *(u32*)(o + 2548);
-        param_3->w[1] = *(u32*)(o + 2552);
-        param_3->w[2] = *(u32*)(o + 2556);
-        param_3->w[3] = *(u32*)(o + 2560);
-        param_3->w[4] = *(u32*)(o + 2564);
-        if (func_0010f8c0(*(u32*)(param_1 + 4)) != 0) {  // test_field2940_bit2
-            if (func_0010f8e0(*(u32*)(param_1 + 4)) != 0) {  // get_bit3_of_field2940
-                return 0;
-            }
-            if (func_0010f8a8(*(u32*)(param_1 + 4)) <= 0.0f) {  // get_float_3284
-                return 0;
-            }
-        } else if (func_0010f9e0(*(u32*)(param_1 + 4), param_2) != 0) {
-            return 0;
-        }
-        return (u8)(func_0010ef48(*(u32*)(param_1 + 4)) ^ 1);
-    }
-
-    if (func_0010f8c0(*(u32*)(param_1 + 4)) == 0) {  // test_field2940_bit2
-        u32 obj = *(u32*)(param_1 + 8);
-        f32 f12 = *(f32*)(obj + 112);
-        f32 f13 = *(f32*)(obj + 116);
-        func_0010f880(f12, f13, *(u32*)(param_1 + 4));
-    }
-    Vec4 v;
-    if (func_0010cc80(*(u32*)(param_1 + 4)) != 0) {
-        u8* q = func_0010cc70(*(u32*)(param_1 + 4));
-        // 128-bit copy (hand-written lq/sq)
-        asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(&v), "r"(q + 32) : "$8", "memory");
-        func_0016b010(*(u32*)(param_1 + 4), &v);  // obj_set_float1644_from_pair
-    }
-    func_0016af58(&v, *(u8**)(param_1 + 4));
-    *(u32*)&v.w = 0;
-    func_0010f9f0(*(u32*)(param_1 + 4), &v, 0);
-    return 1;
-}
+u8 func_00113848(u32 param_1, u32 param_2, Rec20* param_3, u32* param_4, u8 param_5);  // 0x00113848: definition moved into src/anon/unit_00113628.cpp
 
 typedef s32 (*Fn5)(void*, void*, u32, void*, u32, u32, u8, u32);
 struct Obj5 { void** vt; };
@@ -381,26 +342,7 @@ struct Cam1 {
     bool On() { return on; }
 };
 // 00116798: keep the two (x, y) pairs inside their wrap ranges
-void func_00116798(Cam1* p)
-{
-    if (!p->On()) return;
-    if (p->ax < -400.0f && p->bx < -400.0f) {
-        p->ax += 800.0f;
-        p->bx += 800.0f;
-    }
-    if (400.0f < p->ax && 400.0f < p->bx) {
-        p->ax -= 800.0f;
-        p->bx -= 800.0f;
-    }
-    if (p->ay < -320.0f && p->by < -320.0f) {
-        p->ay += 640.0f;
-        p->by += 640.0f;
-    }
-    if (320.0f < p->ay && 320.0f < p->by) {
-        p->ay -= 640.0f;
-        p->by -= 640.0f;
-    }
-}
+void func_00116798(Cam1* p);  // 0x00116798: definition moved into src/anon/unit_00114a90.cpp
 
 struct Anm3 { u8 pad[276]; s32 cur; };
 struct Obj3 {
@@ -10090,83 +10032,7 @@ void func_00116938(Obj1169e8* p, f32* px, f32* py);
 void func_00116990(Obj1169e8* p, f32* px, f32* py);
 f32 func_0010f660(void);
 u32 func_0010f648(s32 n);
-void func_001169e8(Obj1169e8* p, s32 mode)
-{
-    f32 r;
-    f32* px = &p->x;
-    p->z = 1024.0f;
-    switch (mode) {
-    case 0:
-        p->x = -135.0f;
-        p->y = 110.0f;
-    case 1:
-        p->x = -260.0f;
-        p->y = -180.0f;
-        break;
-    case 2:
-        p->x = 260.0f;
-        p->y = -180.0f;
-        break;
-    case 3:
-        p->x = 260.0f;
-        p->y = 180.0f;
-        break;
-    case 4:
-        p->x = -260.0f;
-        p->y = 180.0f;
-        break;
-    case 5:
-        p->x = 0.0f;
-        p->y = 0.0f;
-        break;
-    case 6:
-        p->x = -230.0f;
-        p->y = 90.0f;
-        break;
-    case 7:
-        p->x = 138.0f;
-        p->y = 106.0f;
-        break;
-    default:
-        if (func_0010f660() < 0.5f) {
-            if (p->dir < 0.0f) func_00116938(p, px, &p->y);
-            else func_00116990(p, px, &p->y);
-            break;
-        }
-        r = (func_0010f660() * 0.5f + 0.5f) * 60.0f;
-        switch (func_0010f648(4)) {
-        case 3:
-            if (p->dir < 0.0f) func_00116938(p, px, &p->y);
-            else func_00116990(p, px, &p->y);
-            p->y -= 640.0f;
-            break;
-        case 2:
-            if (p->dir < 0.0f) func_00116938(p, px, &p->y);
-            else func_00116990(p, px, &p->y);
-            p->y += 640.0f - r;
-            break;
-        case 0:
-            if (p->dir < 0.0f) {
-                func_00116990(p, px, &p->y);
-                p->x -= r;
-            } else {
-                func_00116938(p, px, &p->y);
-                p->x += r;
-            }
-            break;
-        case 1:
-            if (p->dir < 0.0f) {
-                func_00116990(p, px, &p->y);
-                p->x -= 800.0f;
-            } else {
-                func_00116938(p, px, &p->y);
-                p->x += 800.0f;
-            }
-            break;
-        }
-        break;
-    }
-}
+void func_001169e8(Obj1169e8* p, s32 mode);  // 0x001169e8: definition moved into src/anon/unit_00114a90.cpp
 
 // --------------------
 // Sort the slot list by kind, then by the order the ids appear in the 0x13-type entry list.
@@ -13689,43 +13555,7 @@ f32 func_001070a0(s32);
 u8* func_00106a60(u8);
 void f115c08_euler(W115c08Mtx*, W115c08Vec*) asm("func_0011bac8");
 f32 func_0017ce10(f32);
-void func_00115c08(O115c08* o, W115c08Mtx* m, W115c08Vec* scaleOut, W115c08Vec* rotOut, W115c08Vec* posOut, u8 cam)
-{
-    W115c08Vec scale, rot, pos;
-    W115c08Mtx a, b;
-    f115c08_node(o->model, 0x4002, &a);
-    a.inverse();
-    a = a * *m;
-    a = o->view * a;
-    a.r3.x = a.r3.x * 1024.0f / a.r3.z;
-    a.r3.y = a.r3.y * 1024.0f / a.r3.z;
-    a.r3.z = func_001070a0(func_00106a18(cam));
-    u8* p = func_00106a60(cam);
-    b = *(W115c08Mtx*)(p ? p + 16 : 0);
-    b.inverse();
-    a = b * a;
-    scale.x = a.r0.normalize();
-    scale.y = a.r1.normalize();
-    scale.z = a.r2.normalize();
-    rot.zero();
-    f115c08_euler(&a, &rot);
-    rot.x = func_0017ce10(rot.x);
-    rot.y = func_0017ce10(rot.y);
-    rot.z = func_0017ce10(rot.z);
-    pos = a.r3;
-    if (scaleOut) {
-        scale.w = scaleOut->w;
-        *scaleOut = scale;
-    }
-    if (rotOut) {
-        rot.w = rotOut->w;
-        *rotOut = rot;
-    }
-    if (posOut) {
-        pos.w = posOut->w;
-        *posOut = pos;
-    }
-}
+void func_00115c08(O115c08* o, W115c08Mtx* m, W115c08Vec* scaleOut, W115c08Vec* rotOut, W115c08Vec* posOut, u8 cam);  // 0x00115c08: definition moved into src/anon/unit_00114a90.cpp
 
 
 // --------------------
@@ -13822,43 +13652,7 @@ struct O1161c8 { u8 pad0[1792]; W1161c8Mtx view; };
 void* func_00111e38(s32);
 void f1161c8_node(void*, s32, W1161c8Mtx*) asm("func_0016b0e0");
 void f1161c8_euler(W1161c8Mtx*, W1161c8Vec*) asm("func_0011bac8");
-void func_001161c8(O1161c8* o, W1161c8Mtx* m, W1161c8Vec* scaleOut, W1161c8Vec* rotOut, W1161c8Vec* posOut, u8 cam)
-{
-    W1161c8Vec scale, rot, pos;
-    W1161c8Mtx work, a, b;
-    f1161c8_node(func_00111e38(0), 0x4002, &a);
-    a.inverse();
-    a = a * *m;
-    a = o->view * a;
-    a.r3.x = a.r3.x * 1024.0f / a.r3.z;
-    a.r3.y = a.r3.y * 1024.0f / a.r3.z;
-    a.r3.z = f1161c8_fov(f1161c8_cam(cam));
-    scale.x = a.r0.normalize();
-    scale.y = a.r1.normalize();
-    scale.z = a.r2.normalize();
-    u8* p = f1161c8_camm(cam);
-    b = *(W1161c8Mtx*)(p ? p + 16 : 0);
-    b.inverse();
-    a = b * a;
-    rot.zero();
-    f1161c8_euler(&a, &rot);
-    rot.x = func_0017ce10(rot.x);
-    rot.y = func_0017ce10(rot.y);
-    rot.z = func_0017ce10(rot.z);
-    pos = a.r3;
-    if (scaleOut) {
-        scale.w = scaleOut->w;
-        *scaleOut = scale;
-    }
-    if (rotOut) {
-        rot.w = rotOut->w;
-        *rotOut = rot;
-    }
-    if (posOut) {
-        pos.w = posOut->w;
-        *posOut = pos;
-    }
-}
+void func_001161c8(O1161c8* o, W1161c8Mtx* m, W1161c8Vec* scaleOut, W1161c8Vec* rotOut, W1161c8Vec* posOut, u8 cam);  // 0x001161c8: definition moved into src/anon/unit_00114a90.cpp
 
 
 // --------------------

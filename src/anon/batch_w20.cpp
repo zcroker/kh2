@@ -85,18 +85,9 @@ extern void* D_00362908[];
 // 00105da8: moved to src/common/shop.cpp
 
 // Returns the i-th 32-byte entry of the table hanging off p->f8, or 0 when out of range.
-u8* func_00113808(u8* p, s32 i) {
-    u8* h = *(u8**)(p + 8);
-    if (!h) return 0;
-    if (i < 0 || i >= *(s32*)(h + 0xa8)) return 0;
-    return h + *(s32*)(h + 0xac) + i * 32;
-}
+u8* func_00113808(u8* p, s32 i);  // 0x00113808: definition moved into src/anon/unit_00113628.cpp
 
-void func_001156b8(void** p) {
-    *p = D_003473c8;
-    func_00113668(p);
-    func_00105110(p);
-}
+void func_001156b8(void** p);  // 0x001156b8: definition moved into src/anon/unit_00114a90.cpp
 
 // Index of v in the id list at p+16 (count at p+12), or -1.
 // 00135c88: moved to src/naka/libkn/obj_observer.cpp

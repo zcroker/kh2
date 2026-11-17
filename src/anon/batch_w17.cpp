@@ -15,11 +15,7 @@ void func_001037f8(void);
 extern u32 D_00346e80;
 void func_00113668(void*);
 void func_00105110(void*);
-void func_00115290(void** p) {
-    *p = &D_00346e80;
-    func_00113668(p);
-    func_00105110(p);
-}
+void func_00115290(void** p);  // 0x00115290: definition moved into src/anon/unit_00114a90.cpp
 
 extern u32 D_00347c60;
 void func_001322f0(void*);  // set_vtbl_347c00

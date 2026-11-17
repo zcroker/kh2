@@ -94,11 +94,7 @@ void ScisSpriteMessage_draw(u8*) asm("_ZN2dk17ScisSpriteMessage4drawEv");
 
 
 // Deleting destructor: reset vtable, run base dtor, free.
-void func_00114b90(void** p) {
-    *p = &D_00346658;
-    func_00113668(p);
-    func_00105110(p);
-}
+void func_00114b90(void** p);  // 0x00114b90: definition moved into src/anon/unit_00114a90.cpp
 
 void func_0011f3e0(void* p);  // 0x0011f3e0: definition moved into src/anon/unit_0011c128.cpp
 

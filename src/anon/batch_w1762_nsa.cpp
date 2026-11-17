@@ -30,13 +30,5 @@ void func_002e7340(Node1762* n, s32 a, s32 b, u8* p, f32 x, f32 y) {
     func_002e73a8(n);
 }
 
-E1762* func_001144e8(T1762* p, Key1762 k) {
-    s32 i;
-    if (p->e == 0) return 0;
-    for (i = 0; i < p->n; i++) {
-        E1762* e = &p->e[i];
-        if (e->a == k.a && (e->b == k.b || e->a == 0)) return e;
-    }
-    return 0;
-}
+E1762* func_001144e8(T1762* p, Key1762 k);  // 0x001144e8: definition moved into src/anon/unit_001142a0.cpp
 }

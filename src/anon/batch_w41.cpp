@@ -97,10 +97,7 @@ void func_00109690(u32 a);  // 00109690: moved to src/anon/unit_001085a8.cpp
 // soft-double helpers linked in the game image (float->double, double !=)
 double func_00313b80(f32);  // float_to_double
 s32 func_003142e0(double, double);  // double_compare
-void func_001168c0(u8* p) {
-    if (func_003142e0(func_00313b80(*(f32*)(p + 0x660)), 0.0) != 0 || func_003142e0(func_00313b80(*(f32*)(p + 0x664)), 0.0) != 0)
-        *(f32*)(p + 0x65c) = func_002f8ad0(*(f32*)(p + 0x660), -*(f32*)(p + 0x664));
-}
+void func_001168c0(u8* p);  // 0x001168c0: definition moved into src/anon/unit_00114a90.cpp
 
 void func_00139b28(u32 key);  // 0x00139b28: definition moved into src/anon/unit_001393c8.cpp
 

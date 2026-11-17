@@ -89,11 +89,7 @@ typedef void* (*AllocFn)(void*, u32, void*);
 
 u32 func_0010c7b0(u8* p);  // 0x0010c7b0: definition moved into src/anon/unit_0010b978.cpp
 
-void func_001157d0(void** p) {
-    *p = &D_00347550;
-    func_00113668(p);
-    func_00105110(p);
-}
+void func_001157d0(void** p);  // 0x001157d0: definition moved into src/anon/unit_00114a90.cpp
 
 void func_0011e410(u8* p, u32 a);  // 0x0011e410: definition moved into src/anon/unit_0011c128.cpp
 

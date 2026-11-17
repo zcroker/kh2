@@ -4,25 +4,13 @@ namespace kn {
 class Friend;
 
 
-f32 FriendPersonality::getBattleCancelDistance() const {
-    u32 p = *(u32*)((u32)this + 8);
-    return *(f32*)((u32)p + 128);
-}
+// 0x00114370: definition moved into src/anon/unit_001142a0.cpp
 
 extern "C" u32 func_0010eed8(...);
 extern "C" u32 func_001c0cd8(...);
 extern "C" u32 func_001c0e60(...);
 
-void FriendPersonality::start_limit() {
-    u32 s0 = (u32)this;
-    func_0010eed8(*(volatile u32*)((u32)this + (s32)(4)), 0u, 0u);
-    u32 v0 = func_001c0cd8(*(volatile u32*)((u32)s0 + (s32)(4)));
-    if (v0 != 0u) {
-        func_001c0e60(*(volatile u32*)((u32)s0 + (s32)(4)));
-    }
-}
+// 0x001143d8: definition moved into src/anon/unit_001142a0.cpp
 
-void FriendPersonality::setObj(Friend* v) {
-    reinterpret_cast<FriendPersonalityLayout*>(this)->obj = v;
-}
+// 0x001136b0: definition moved into src/anon/unit_00113628.cpp
 }  // namespace kn

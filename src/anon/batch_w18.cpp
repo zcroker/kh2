@@ -16,11 +16,7 @@ void func_00109cc0(s32 i, u32 v);  // 00109cc0: moved to src/anon/unit_00109c30.
 extern u32 D_00347050;
 void func_00113668(void*);
 void func_00105110(void*);
-void func_001153e8(void** p) {
-    *p = &D_00347050;
-    func_00113668(p);
-    func_00105110(p);
-}
+void func_001153e8(void** p);  // 0x001153e8: definition moved into src/anon/unit_00114a90.cpp
 
 extern u8 D_00347c88[];
 void func_00133bb8(void*, u32, u32, u32);  // forward_sub24_to_133848

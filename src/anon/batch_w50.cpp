@@ -177,13 +177,7 @@ extern u8* D_01e2bfa0;
 // Clears a 3-quadword GS packet and fills in its GIFtags and A+D register ids.
 void func_00108398(Pkt* p);  // 00108398: moved to src/anon/unit_00108068.cpp
 
-f32 func_00114328(Tbl* t, s32 i, u8 a, u8 b) {
-    if (a) {
-        if (b) return t->e[i + 4].v;
-        return t->e[i + 8].v;
-    }
-    return t->e[i].v;
-}
+f32 func_00114328(Tbl* t, s32 i, u8 a, u8 b);  // 0x00114328: definition moved into src/anon/unit_001142a0.cpp
 
 // Walks up the bone hierarchy past bones with flag bit 32 set.
 s32 func_0011f270(void* o, s32 n);  // 0x0011f270: definition moved into src/anon/unit_0011c128.cpp

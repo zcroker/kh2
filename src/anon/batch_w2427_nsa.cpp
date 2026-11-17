@@ -81,56 +81,5 @@ Ent115848* func_001144e8(Who115848*, Pick115848);
 void func_0010eed8(Fr115848*, Ent115848*, s32);
 void func_0010ff08(Fr115848*);
 f32 func_0017ce80(f32, f32, f32);
-void func_00115848(Fr115848* o)
-{
-    Lead115848* lead = D_00341708;
-    func_0016bd60(o, 3);
-    if (!o->busy() && !(o->f352 & 0x40000000)) goto tail;
-    {
-        if (o->busy()) {
-            if (!(o->flags & 0x80000000)) o->flags |= 0x80000000;
-            if (!o->who->fb.init) {
-                V115848 z;
-                z.w = z.z = z.y = z.x = 0.0f;
-                func_00117808(o->who, &z);
-                o->who->f1584 |= 1;
-            }
-        }
-        func_00116798(o->who);
-        o->who->v1632.zero();
-        s32 pick = 0;
-        if (func_001917c0() && !func_001b58a8() && o->who->parm->f16 < (f32)o->who->count) {
-            if (func_0010f660() < o->who->parm->f20) pick = 1;
-            o->who->count = 0;
-        }
-        if (pick) {
-            Stats115848* st = lead->stats;
-            Ent115848* e;
-            s32 h0=st->f0, m=st->f388, m0=st->f4, h=st->f384; if (h*m0 < h0*m) e = func_001144e8(o->who, D_0036a760);
-            else e = func_001144e8(o->who, D_0036a768);
-            Tgt115848 t;
-            s32 score = 0;
-            func_00190128(&t);
-            func_0010eed8(o, 0, 0);
-            o->flags &= ~4;
-            (o->who->*e->pick)(e, &t, &score, 0);
-            func_0010eed8(o, e, 0);
-        } else {
-            Ent115848* prev = o->cur;
-            func_0010ff08(o);
-            if (prev != o->cur || !(o->flags & 4)) o->who->count++;
-        }
-        Who115848* w = o->who;
-        f32 r = func_0017ce80(w->v1600.w, w->v1616.w, w->f1580 * D_00349e10);
-        o->who->v1600 += o->who->v1632 * o->who->v1632.w * D_00349e10;
-        o->who->v1600.w = r;
-    }
-tail:
-    if (lead->stats->full()) return;
-    o->who->f1652 -= D_00349e10;
-    if (o->who->f1652 <= 0.0f) {
-        lead->act(1, 0, 0);
-        o->who->f1652 = o->who->parm->f4;
-    }
-}
+void func_00115848(Fr115848* o);  // 0x00115848: definition moved into src/anon/unit_00114a90.cpp
 }

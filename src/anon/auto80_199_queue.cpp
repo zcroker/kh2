@@ -129,65 +129,13 @@ u32 func_00112cc8(s32* a0);  // 0x00112cc8: definition moved into src/anon/unit_
 
 void func_001132d8(u32 a0, u32 a1, u32 a2);  // 0x001132d8: definition moved into src/anon/unit_001117d8.cpp
 
-u8 func_00113990(u32 param_1, u32 param_2, u32 param_3, u32* param_4, u8 param_5) {
-    (void)param_2;
-    (void)param_3;
+u8 func_00113990(u32 param_1, u32 param_2, u32 param_3, u32* param_4, u8 param_5);  // 0x00113990: definition moved into src/anon/unit_00113628.cpp
 
-    if (param_5 != 0) {
-        *param_4 = 0;
-        if (func_0010f8c0(*(u32*)(param_1 + 4)) != 0) {  // test_field2940_bit2
-            if (func_0010f8e0(*(u32*)(param_1 + 4)) != 0) {  // get_bit3_of_field2940
-                return 0;
-            }
-            if (func_0010f8a8(*(u32*)(param_1 + 4)) <= 0.0f) {  // get_float_3284
-                return 0;
-            }
-        }
-        return (u8)(func_0010ef48(*(u32*)(param_1 + 4)) ^ 1);
-    }
+void func_00115128(u32 param_1, u32 param_2);  // 0x00115128: definition moved into src/anon/unit_00114a90.cpp
 
-    if (func_0010f8c0(*(u32*)(param_1 + 4)) == 0) {  // test_field2940_bit2
-        u32 obj = *(u32*)(param_1 + 8);
-        f32 f12 = *(f32*)(obj + 0x78);
-        f32 f13 = *(f32*)(obj + 0x7c);
-        func_0010f880(f12, f13, *(u32*)(param_1 + 4));
-    }
-    func_00110630(*(u32*)(param_1 + 4));
-    return 1;
-}
+void func_00116938(u32 param_1, f32* param_2, f32* param_3);  // 0x00116938: definition moved into src/anon/unit_00114a90.cpp
 
-void func_00115128(u32 param_1, u32 param_2) {
-    u32 s1 = param_1;
-    if (param_2 != 0) {
-        u32 a1 = *(u32*)(param_2 + 0x20);
-        if (a1 != 0) {
-            if (((u16)*(u16*)(a1 + 2) - 0x2dcu) < 2u) {
-                u32 s0 = (u32)&D_0036a698;
-                u32 a0 = *(u32*)(param_1 + 4);
-                if (func_001883d8(a0 + 0x300, s0) != 0) {
-                    func_00188170(*(u32*)(s1 + 4) + 0x300, s0);
-                    return;
-                }
-            }
-        }
-    }
-}
-
-void func_00116938(u32 param_1, f32* param_2, f32* param_3) {  // float_table_lookup_b
-    (void)param_1;
-    s32 iVar1 = (s32)func_0010f648(6);
-    Pair00116938* p = &D_00347688[iVar1];
-    *param_2 = p->x;
-    *param_3 = p->y;
-}
-
-void func_00116990(u32 param_1, f32* param_2, f32* param_3) {  // float_table_lookup_a
-    (void)param_1;
-    s32 iVar1 = (s32)func_0010f648(6);
-    Pair00116990* p = &D_003476b8[iVar1];
-    *param_2 = p->x;
-    *param_3 = p->y;
-}
+void func_00116990(u32 param_1, f32* param_2, f32* param_3);  // 0x00116990: definition moved into src/anon/unit_00114a90.cpp
 
 u32 func_0011a7f0(u8* a0, u8* a1, u32* a2, u32* a3, u32 a4);  // 0x0011a7f0: definition moved into src/anon/unit_0011a660.cpp
 

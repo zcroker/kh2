@@ -13,11 +13,7 @@ struct List8 { u32 _0; u32 _4; Node38* head; };
 extern u8 D_00346b08;
 void func_00113668(void*);
 void func_00105110(void*);
-void func_00114f38(void** self) {
-    *self = &D_00346b08;
-    func_00113668(self);
-    func_00105110(self);
-}
+void func_00114f38(void** self);  // 0x00114f38: definition moved into src/anon/unit_00114a90.cpp
 
 void func_0011b6a8_impl(void* dst) asm("_Z13func_0011b6a8Pv");
 extern Q16 D_003478f0[4];

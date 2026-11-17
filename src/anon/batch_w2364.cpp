@@ -15,29 +15,9 @@ struct Own2364 { u8 pad[8]; Tbl2364* t; };
 extern "C" {
 
 // Finds the entry with this id in the first list (0 if none).
-Ent2364* func_00114438(Own2364* o, s32 id) {
-    Ent2364* r = 0;
-    Tbl2364* t = o->t;
-    if (t) {
-        Ent2364* e = (Ent2364*)((u8*)t + t->off);
-        for (s32 i = 0; i < o->t->n; i++) {
-            if (e[i].id == id) { r = &e[i]; break; }
-        }
-    }
-    return r;
-}
+Ent2364* func_00114438(Own2364* o, s32 id);  // 0x00114438: definition moved into src/anon/unit_001142a0.cpp
 
 // Finds the entry with this id in the second list (0 if none).
-Ent2364* func_00114490(Own2364* o, s32 id) {
-    Ent2364* r = 0;
-    Tbl2364* t = o->t;
-    if (t) {
-        Ent2364* e = (Ent2364*)((u8*)t + t->off2);
-        for (s32 i = 0; i < o->t->n2; i++) {
-            if (e[i].id == id) { r = &e[i]; break; }
-        }
-    }
-    return r;
-}
+Ent2364* func_00114490(Own2364* o, s32 id);  // 0x00114490: definition moved into src/anon/unit_001142a0.cpp
 
 }

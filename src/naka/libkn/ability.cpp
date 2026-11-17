@@ -3,38 +3,8 @@
 extern u8 D_00345d40;
 namespace kn {
 
-u32 AbilityInfo::ability2item(s32 a0) {
-    u32 t6 = 0;
-    u8* v2 = &D_00345d40;
-    while (1) {
-        u32 t7 = *(u32*)(v2 + 0);
-        if (t7 == (u32)a0) {
-            return *(u32*)(v2 + 4);
-        }
-        t6 += 1;
-        if ((s32)t6 < 29) {
-            v2 += 16;
-            continue;
-        }
-        return 0;
-    }
-}
+// 0x00114620: definition moved into src/anon/unit_001142a0.cpp
 
-s32 AbilityInfo::item2index(s32 a0) {
-    u32 t6 = 0;
-    u8* v2 = &D_00345d40;
-    while (1) {
-        u32 t7 = *(u32*)(v2 + 4);
-        if (t7 == (u32)a0) {
-            return *(s32*)(v2 + 12);
-        }
-        t6 += 1;
-        if ((s32)t6 < 29) {
-            v2 += 16;
-            continue;
-        }
-        return -1;
-    }
-}
+// 0x00114738: definition moved into src/anon/unit_001142a0.cpp
 
 }  // namespace kn

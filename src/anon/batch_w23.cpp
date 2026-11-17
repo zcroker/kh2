@@ -17,11 +17,7 @@ void func_00170320(void*);
 extern u32 D_003461e8;
 void func_00113668(void*);
 void func_00105110(void*);
-void func_00114850(void** p) {
-    *p = &D_003461e8;
-    func_00113668(p);
-    func_00105110(p);
-}
+void func_00114850(void** p);  // 0x00114850: definition moved into src/anon/unit_001142a0.cpp
 
 extern u32 D_00347808;
 void func_0011a340(void** p);  // 0x0011a340: definition moved into src/anon/unit_0011a260.cpp

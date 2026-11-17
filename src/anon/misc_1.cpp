@@ -4,9 +4,9 @@ void func_00105860(void* self, s32 v) { *(s32*)((char*)self + 9368) = v; }
 
 void func_00108990(void* self);  // 00108990: moved to src/anon/unit_001085a8.cpp
 
-s32 func_001137e0(void* self) { return (s32)(*(s32*)((char*)self + 12)); }
+s32 func_001137e0(void* self);  // 0x001137e0: definition moved into src/anon/unit_00113628.cpp
 
-s32 func_001137e8(void* self) { return (s32)(*(s32*)((char*)self + 16)); }
+s32 func_001137e8(void* self);  // 0x001137e8: definition moved into src/anon/unit_00113628.cpp
 
 u16 func_0011c228(void* self);  // 0x0011c228: definition moved into src/anon/unit_0011c128.cpp
 

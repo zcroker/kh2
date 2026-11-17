@@ -51,27 +51,7 @@ u32 func_001145b0(u32);
 #define ENTS ((E1136*)s->ents)
 
 // Links each entry to the resource record with the same id and resolves its handles.
-void func_001136b8(S1136* s)
-{
-    s32 i, j;
-    if (!s->data) return;
-    R1136* res = (R1136*)(s->data + DATA->off);
-    for (i = 0; i < s->count; i++) {
-        ENTS[i].res = 0;
-        for (j = 0; j < DATA->count; j++) {
-            if (ENTS[i].id == res[j].id) {
-                ENTS[i].res = (u32)&res[j];
-                break;
-            }
-        }
-        if (ENTS[i].a) {
-            u32 h = func_00114620(ENTS[i].a);
-            ENTS[i].b = h;
-        }
-        E1136* e = (E1136*)(i * sizeof(E1136) + s->ents);
-        if (e->b) e->c = func_001145b0(e->b);
-    }
-}
+void func_001136b8(S1136* s);  // 0x001136b8: definition moved into src/anon/unit_00113628.cpp
 #undef DATA
 #undef ENTS
 }

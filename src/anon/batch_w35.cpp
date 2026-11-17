@@ -11,13 +11,7 @@ extern void* D_0032bb1c;
 // Allocates a heap of `size` bytes and installs it.
 // 00105370: moved to src/common/area.cpp
 
-f32 func_001142e0(u8* p, s32 i, u8 a, u8 b) {  // entry8_float_by_flags
-    if (a) {
-        if (b) return *(f32*)(*(u8**)(p + 8) + i * 8 + 32);
-        return *(f32*)(*(u8**)(p + 8) + i * 8 + 64);
-    }
-    return *(f32*)(*(u8**)(p + 8) + i * 8);
-}
+f32 func_001142e0(u8* p, s32 i, u8 a, u8 b);  // 0x001142e0: definition moved into src/anon/unit_001142a0.cpp
 
 extern u32 D_00348804;
 u8 func_001652c8(u32, u32, u32, u32, u32, u32, u32, u32);

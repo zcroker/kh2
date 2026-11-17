@@ -1803,18 +1803,7 @@ void func_001244b8(u8* p, s32 base, u32 c);  // 0x001244b8: definition moved int
 extern f32 D_00349e10;
 f32 func_0017ce10(f32);
 f32 fabsf(f32);  // fabsf
-s32 func_00116d08(u8* p)
-{
-    V4 d;
-    asm volatile("lqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 0(%2)\n\tvsub.wxyz $vf1, $vf1, $vf2\n\tsqc2 $vf1, 0(%0)" : : "r"(&d), "r"(p + 1600), "r"(p + 1616) : "memory");
-    f32 len;
-    asm volatile("lqc2 $vf1, 0(%1)\n\tvmul.xyz $vf1, $vf1, $vf1\n\tvaddy.x $vf1, $vf1, $vf1y\n\tvaddz.x $vf1, $vf1, $vf1z\n\tvsqrt Q, $vf1x\n\tvwaitq\n\tcfc2.ni $8, $vi22\n\tmtc1 $8, %0" : "=f"(len) : "r"(&d) : "$8", "memory");
-    if (!(len < *(f32*)(p + 1576) * D_00349e10)) return 0;
-    f32 a = fabsf(func_0017ce10(d.w));  // fabsf
-    f32 k = D_00349e10;
-    if (a < *(f32*)(p + 1580) * k) return 1;
-    return 0;
-}
+s32 func_00116d08(u8* p);  // 0x00116d08: definition moved into src/anon/unit_00114a90.cpp
 void func_00136200(u8*, u32);
 void func_00136020(u8*);
 u32 func_001dc5f0(u32);

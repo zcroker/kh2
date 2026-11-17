@@ -102,11 +102,7 @@ void MANAGER_exec_zsort(u8*) asm("_ZN2YS10MASSEFFECT7MANAGER10exec_zsortEv");
 void SEQUENCE_D0(void*) asm("_ZN2YI8SEQUENCED0Ev");
 void* func_002cd910_f(void*, u32, f32) asm("_Z13func_002cd910f");
 
-void func_00114cc8(void** p) {
-    *p = &D_003467b8;
-    func_00113668(p);
-    func_00105110(p);
-}
+void func_00114cc8(void** p);  // 0x00114cc8: definition moved into src/anon/unit_00114a90.cpp
 
 void func_001207c8(void** p);  // 0x001207c8: definition moved into src/anon/unit_00120648.cpp
 

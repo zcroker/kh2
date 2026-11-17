@@ -96,11 +96,7 @@ void trap_stitch_shot_effect(u32* v) asm("_ZN2kn23trap_stitch_shot_effectEP8BD_V
 
 void func_0010f960(u8* p);  // 0x0010f960: definition moved into src/anon/unit_0010f338.cpp
 
-void func_00115560(void** p) {
-    *p = D_00347220;
-    func_00113668(p);
-    func_00105110(p);
-}
+void func_00115560(void** p);  // 0x00115560: definition moved into src/anon/unit_00114a90.cpp
 
 // 00136790: moved to src/harata/libdk/bgse.cpp
 

@@ -107,11 +107,7 @@ extern void* D_003520c0;
 // 00102c48: moved to src/common/unit_00102a70.cpp
 
 // Destructor body: set vtable, destroy members, chain to the base.
-void func_00115090(void* p) {
-    *(void**)p = &D_00346cd8;
-    func_00113668(p);
-    func_00105110(p);
-}
+void func_00115090(void* p);  // 0x00115090: definition moved into src/anon/unit_00114a90.cpp
 
 u32 func_00123e00(void* a);  // 0x00123e00: definition moved into src/anon/unit_00123990.cpp
 
