@@ -1987,17 +1987,7 @@ extern u8 D_003497e0[];
 extern u8 D_003498f0[];
 void func_0014b1e0(u8*, s32, s32);
 void func_0014b208(u8*, s32, s32);
-void func_0014ad58(void)
-{
-    func_0014b1e0(D_003495c0, 0, 0);
-    func_0014b208(D_003495c0, 512, 35);
-    func_0014b1e0(D_003496d0, 0, 381);
-    func_0014b208(D_003496d0, 512, 35);
-    func_0014b1e0(D_003497e0, 0, 0);
-    func_0014b208(D_003497e0, 512, 35);
-    func_0014b1e0(D_003498f0, 0, 381);
-    func_0014b208(D_003498f0, 512, 35);
-}
+void func_0014ad58(void);  // 0x0014ad58: definition moved into src/harata/libdk/fade.cpp
 extern u8 D_0034a6b8[];
 u32 func_00152598(u8*, u32, u32, u8*);
 void func_00152508(u8*, u32, u32, u32, u32);

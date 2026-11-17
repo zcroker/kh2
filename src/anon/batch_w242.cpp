@@ -11,19 +11,7 @@ u32 func_00199810(char*);
 u32 func_0019ab30(char*, u32);
 void func_00199938(char*, char*) asm("_ZNK2YS13UNIT_DATA_OBJ6appearEPNS_10UNIT_GROUPE");
 
-void func_0014a9a0(char* p, u32 n) {
-    if (!n) n = 1;
-    float f = (float)(n << 1);
-    *(float*)(p + 256) = f;
-    *(float*)(p + 260) = 128.0f / f;
-    if (*(u8*)(p + 244) == 0) {
-        func_0014b220x(p, 0, 0, 0, 0);
-        func_0014b620x(p, 68);
-    } else {
-        func_0014b220x(p, 255, 255, 255, 0);
-        func_0014b620x(p, 72);
-    }
-}
+void func_0014a9a0(char* p, u32 n);  // 0x0014a9a0: definition moved into src/harata/libdk/fade.cpp
 
 void func_0016bf38(char* a, u32 a1, char* c) {
     *(u32*)(a + 0x81c) = (u32)c;

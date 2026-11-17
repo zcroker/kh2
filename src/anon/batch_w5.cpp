@@ -27,10 +27,7 @@ void func_0013d798(void);  // 0x0013d798: definition moved into src/anon/unit_00
 void func_0014ace8(void);
 extern u32 D_003493a0;
 void func_0014a988(void*);  // clear_fields_244_260
-void func_0014acf8(void) {
-    func_0014ace8();
-    func_0014a988(&D_003493a0);  // clear_fields_244_260
-}
+void func_0014acf8(void);  // 0x0014acf8: definition moved into src/harata/libdk/fade.cpp
 
 void func_001398d0(u32);
 void func_00139a38(u32);

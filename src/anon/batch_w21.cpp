@@ -106,16 +106,9 @@ void func_0011e410(u8* p, u32 a) {
 
 void func_0013f498(void);  // 0x0013f498: definition moved into src/anon/unit_0013ef70.cpp
 
-void func_0014a950(void** p) {
-    func_0014b638(p);
-    *p = &D_00349b28;
-    func_0014a988(p);  // clear_fields_244_260
-}
+void func_0014a950(void** p);  // 0x0014a950: definition moved into src/harata/libdk/fade.cpp
 
-void func_0014ad20(void) {
-    func_0014acf8();
-    func_00102788(D_0032b91c, 0, 0x50910, (void*)func_0014ac18);
-}
+void func_0014ad20(void);  // 0x0014ad20: definition moved into src/harata/libdk/fade.cpp
 
 // Release the object held in D_0034a6f0 (virtual slot 4) and clear the pointer.
 void func_00153100(void) {

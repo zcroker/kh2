@@ -228,13 +228,9 @@ u32 func_0014a768(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_0014b248((u32)&D_00349270, ((u32)(a0) & 0xffu), a2, a3);
 }
 
-u32 func_0014ac48(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_0014aaa8((u32)&D_003494b0, a1, a2, a3);
-}
+u32 func_0014ac48(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0014ac48: definition moved into src/harata/libdk/fade.cpp
 
-u32 func_0014ac90(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_0014aaa8((u32)&D_00349a00, a1, a2, a3);
-}
+u32 func_0014ac90(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0014ac90: definition moved into src/harata/libdk/fade.cpp
 
 // 0014e118: moved to src/anon/unit_0014d680.cpp
 

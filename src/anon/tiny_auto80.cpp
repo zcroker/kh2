@@ -1168,14 +1168,7 @@ void func_00144e30(u32 a0, u32 a1, u32 a2, u32 a3) {  // zero_6_halfwords
     *(volatile u16*)((u32)r4 + (s32)(2)) = (u16)0u;
 }
 
-void func_0014a988(u32 a0, u32 a1, u32 a2, u32 a3) {  // clear_fields_244_260
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3;
-    *(volatile u32*)((u32)r4 + (s32)(260)) = 0u;
-    *(volatile u32*)((u32)r4 + (s32)(248)) = 0u;
-    *(volatile u8*)((u32)r4 + (s32)(244)) = (u8)0u;
-    *(volatile u32*)((u32)r4 + (s32)(252)) = 0u;
-    *(volatile u32*)((u32)r4 + (s32)(256)) = 0u;
-}
+void func_0014a988(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0014a988: definition moved into src/harata/libdk/fade.cpp
 
 void func_001666a0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001666a0: definition moved into src/anon/unit_001664c0.cpp
 

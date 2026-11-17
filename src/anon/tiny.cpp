@@ -407,10 +407,7 @@ void func_0014a4f0(u32 a0, u32 a1, u32 a2, u32 a3) {
     *(u8*)((u32)b + (-28052)) = (u8)0;
 }
 
-void func_0014ace8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 b = (0x0035u << 16);
-    *(u8*)((u32)b + (-25840)) = (u8)0;
-}
+void func_0014ace8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0014ace8: definition moved into src/harata/libdk/fade.cpp
 
 u32 func_0014ca38(u32 a0, u32 a1, u32 a2, u32 a3) {
     (void)a0;
@@ -1314,61 +1311,19 @@ void func_0014a7e8(u32 a0, u32 a1, u32 a2, u32 a3) {
     *(u8*)&D_0034939d = (u8)v;
 }
 
-u32 func_0014aba8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a0;
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    return (u32)&D_003493a0;
-}
+u32 func_0014aba8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0014aba8: definition moved into src/harata/libdk/fade.cpp
 
-u32 func_0014abb8(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_data_359840
-    (void)a0;
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    return (u32)&D_003497e0;
-}
+u32 func_0014abb8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0014abb8: definition moved into src/harata/libdk/fade.cpp
 
-u32 func_0014abc8(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_data_359950
-    (void)a0;
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    return (u32)&D_003498f0;
-}
+u32 func_0014abc8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0014abc8: definition moved into src/harata/libdk/fade.cpp
 
-u32 func_0014abd8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a0;
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    return (u32)&D_003494b0;
-}
+u32 func_0014abd8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0014abd8: definition moved into src/harata/libdk/fade.cpp
 
-u32 func_0014abe8(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_data_3595a0
-    (void)a0;
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    return (u32)&D_003495c0;
-}
+u32 func_0014abe8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0014abe8: definition moved into src/harata/libdk/fade.cpp
 
-u32 func_0014abf8(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_data_3596b0
-    (void)a0;
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    return (u32)&D_003496d0;
-}
+u32 func_0014abf8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0014abf8: definition moved into src/harata/libdk/fade.cpp
 
-u32 func_0014ac08(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a0;
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    return (u32)&D_00349a00;
-}
+u32 func_0014ac08(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0014ac08: definition moved into src/harata/libdk/fade.cpp
 
 u32 func_0014ca10(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_global_359e0c
     (void)a0;
@@ -2060,13 +2015,7 @@ void func_0014a238(u32 a0, u32 a1, u32 a2, u32 a3) {
     *(u8*)&D_00349269 = (u8)v;
 }
 
-void func_0014acd8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    u32 v = (u32)((s32)1);
-    *(u8*)&D_00349b10 = (u8)v;
-}
+void func_0014acd8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0014acd8: definition moved into src/harata/libdk/fade.cpp
 
 // 0014b248: moved to src/anon/unit_0014b150.cpp
 

@@ -270,20 +270,7 @@ void func_0014ac48(void);
 void func_0014ac68(void);
 void func_0014ac90(void);
 void func_0014acb0(void);
-void func_0014ae10(void)
-{
-    func_0014a988(D_003495c0);  // clear_fields_244_260
-    func_0014a988(D_003496d0);  // clear_fields_244_260
-    func_0014a988(D_003497e0);  // clear_fields_244_260
-    func_0014a988(D_003498f0);  // clear_fields_244_260
-    func_0014a988(D_00349a00);  // clear_fields_244_260
-    func_0014a988(D_003494b0);  // clear_fields_244_260
-    func_0014ad58();
-    func_00102c18(0, 80000, func_0014ac48);
-    func_00102c18(0, 80000, func_0014ac68);
-    func_00102c18(0, 0x19640, func_0014ac90);
-    func_00102c18(0, 0x19a28, func_0014acb0);
-}
+void func_0014ae10(void);  // 0x0014ae10: definition moved into src/harata/libdk/fade.cpp
 }
 }
 

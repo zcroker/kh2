@@ -9252,12 +9252,7 @@ extern "C" u32 func_0014aaa8(...);
 extern u8 D_003493a0;
 extern u8 D_00349b10;
 
-void func_0014ac18() {
-    if (D_00349b10 == (u8)0u) {
-        func_0014aaa8((u32)&D_003493a0);
-        return;
-    }
-}
+void func_0014ac18();  // 0x0014ac18: definition moved into src/harata/libdk/fade.cpp
 
 extern "C" u32 func_00102788(...);
 extern "C" u32 func_0014acf8(...);

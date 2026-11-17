@@ -190,6 +190,7 @@ src/anon/unit_0011a660.cpp	0011a660	0011b3f8	.rodata@0036a8b8	-G0 -fno-strict-al
 src/anon/unit_0011b3f8.cpp	0011b3f8	0011c128	.rodata@0036a8d0	-G0
 src/harata/libdk/mapfile.cpp	001491a8	00149be8	.rodata@0036afb8	-G0
 src/harata/libdk/area.cpp	00149be8	00149fa8	.data@00348d68	-G0
+src/harata/libdk/fade.cpp	0014a950	0014aed0	.rodata@0036b0b0	-G0
 src/anon/unit_00167358.cpp	001672c8	00168218	.data@0034d3c0,.bss@004f4250,.rodata@0036b568	-G0 -fno-strict-aliasing
 src/yasui/libys/file.cpp	00168218	00168aa0	.data@0034d800,.bss@004f5280	-G0 -g -fmove-all-movables -fno-strict-aliasing
 src/anon/unit_0016c770.cpp	0016c770	0016d2e0	-	-G0 -fno-strict-aliasing

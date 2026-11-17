@@ -6660,36 +6660,7 @@ struct W14aaa8 {
     f32 scale;
 };
 void wtarget_0014aaa8(W14aaa8* p) asm("_Z16wtarget_0014aaa8jjjj");
-void wtarget_0014aaa8(W14aaa8* p) {
-    switch (p->state) {
-    case 0:
-        return;
-    case 1:
-        if (p->count == 0) p->state = 2;
-        p->count--;
-        p->alpha = 0x80;
-        break;
-    case 2:
-        p->t -= D_00349e14;
-        p->alpha = (s32)(p->scale * p->t);
-        if (p->t <= 0.0f) {
-            p->alpha = 0;
-            p->state = 0;
-        }
-        break;
-    case 3:
-        p->t -= D_00349e14;
-        p->alpha = 0x80 - (s32)(p->scale * p->t);
-        if (p->t <= 0.0f) {
-            p->alpha = 0x80;
-            p->state = 4;
-        }
-        break;
-    case 4:
-        break;
-    }
-    p->v2();
-}
+// 0x0014aaa8: definition moved into src/harata/libdk/fade.cpp
 
 // --------------------
 s32 func_00155d80_r(u8*) asm("func_00155d80");

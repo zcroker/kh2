@@ -273,11 +273,7 @@ extern "C" void func_0014a9a0(dk::Fade*, u32);
 
 // 0x001390c0: dk::SpriteMessage::draw moved into src/anon/unit_00138480.cpp
 
-void dk::Fade::fadeOut(u32 a0, bool a1) {
-    f_f4 = a1;
-    f_fc = 3;
-    func_0014a9a0(this, a0);
-}
+// 0x0014aa58 dk::Fade::fadeOut: definition moved into src/harata/libdk/fade.cpp
 
 extern "C" void func_001da458(void*, u32);  // stream_init_fields
 extern "C" void func_0016ce90(void*, u32);
