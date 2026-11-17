@@ -13,40 +13,5 @@ void func_0021efc0(W1652S21fa28*);
 void func_0021f060(W1652S21fa28*);
 extern u8 D_01d9e360;
 extern W1652M21fa28 D_01d9e840;
-void func_0021fa28(W1652A21fa28* a, s32 id) {
-    W1652M21fa28 m;
-    W1652S21fa28 st;
-    W1652H21fa28* h;
-    u8* o;
-    h = a->h;
-    o = h->obj;
-    if (o == &D_01d9e360) return;
-    if (h->n == 0) return;
-    if (*(f32*)(o + 124) == 0.0f) return;
-    if (*(u8*)(o + 143)) {
-        W1652_ucall4(&m, o);
-    } else {
-        sceVu0UnitMatrix(&m);
-        m.m[3][0] = D_01d9e840.m[3][0] + *(f32*)(o + 128);
-        m.m[3][1] = D_01d9e840.m[3][1] + *(f32*)(o + 132);
-        m.m[3][2] = D_01d9e840.m[3][2] + *(f32*)(o + 136);
-    }
-    m.m[0][0] *= a->scale;
-    m.m[1][1] *= a->scale;
-    sceVu0ScaleVector(a->rot[0], m.m[0], m.m[0]);
-    sceVu0ScaleVector(a->rot[1], m.m[1], m.m[1]);
-    sceVu0ScaleVector(a->rot[2], m.m[2], m.m[2]);
-    W1652_wtarget(&m, a->f8, &m);
-    *(s32*)&st.col = a->col;
-    st.col.a = (s32)((f32)st.col.a * *(f32*)(o + 124));
-    st.n = h->n;
-    st.p = (u8*)h + 8;
-    func_0021efc0(&st);
-    st.f18 = id;
-    st.mtx = &m;
-    st.f44 = 0;
-    st.f24 = 0;
-    st.f28 = 0;
-    func_0021f060(&st);
-}
+void func_0021fa28(W1652A21fa28* a, s32 id);  // 0x0021fa28: definition moved into src/anon/unit_0021e988.cpp
 }

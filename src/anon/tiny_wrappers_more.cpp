@@ -814,10 +814,7 @@ u32 func_0020efe8(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_0020edd0(a0, ((u32)(a0) + (u32)(((u32)(*(u32*)((u32)(a0) + 60u))))), a2, a3);
 }
 
-u32 func_0021fe08(u32 a0, u32 a1, u32 a2, u32 a3) {
-    *(u32*)((u32)(a0) + 4u) = (u32)(a1);
-    return func_0021efa8(((u32)(a0) + 8u), a1, a2, a3);
-}
+u32 func_0021fe08(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0021fe08: definition moved into src/anon/unit_0021e988.cpp
 
 u32 func_00227a08(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00227a08: definition moved into src/anon/unit_00224780.cpp
 

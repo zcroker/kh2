@@ -9,19 +9,5 @@ extern DB* D_01d9e6e8;
 s32 func_00222568();
 typedef void (*CB)(s32, s32, s32);
 
-void func_0021ee48(s32 a0, s32 a1, CB cb, u16* pidx, s16 gi, u8 rnd, u8 cnt) {
-    G8* g = &D_01d9e6e4->g[gi];
-    s32 base = D_01d9e6e8->base;
-    s32 i;
-    if (base == 0) base = D_01d9e6e4->e[g->a].base;
-    if (rnd) i = func_00222568() % g->n;
-    else i = *pidx;
-    while (cnt != 0) {
-        cb(a0, a1, base + g->list[i++] * 6);
-        if (rnd) i = func_00222568() % g->n;
-        else if (i >= g->n) i = 0;
-        cnt--;
-    }
-    *pidx = i;
-}
+void func_0021ee48(s32 a0, s32 a1, CB cb, u16* pidx, s16 gi, u8 rnd, u8 cnt);  // 0x0021ee48: definition moved into src/anon/unit_0021e988.cpp
 }

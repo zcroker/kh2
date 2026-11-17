@@ -102,13 +102,7 @@ u32 func_001e0ce8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001e0ce8: definition mo
 
 u32 func_001e2760(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001e2760: definition moved into src/anon/unit_001e0cb8.cpp
 
-void func_0021efa8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r14 = 0u, r15 = 0u;
-    r15 = *(u32*)((u32)r5 + (s32)(0));
-    r14 = (u32)(*(u16*)((u32)r15 + (s32)(18)));
-    *(u8*)((u32)r4 + (s32)(2)) = (u8)0u;
-    *(u16*)((u32)r4 + (s32)(0)) = (u16)r14;
-}
+void func_0021efa8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0021efa8: definition moved into src/anon/unit_0021e988.cpp
 
 extern "C" void func_00226ed0(u32, u32, u32, u32) asm("_ZN2sa5EVENT12readWaitInitEv");
 

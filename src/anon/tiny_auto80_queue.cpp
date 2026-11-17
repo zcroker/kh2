@@ -10319,17 +10319,7 @@ void func_0020ce60(u32 a0, u8* a1) {
     }
 }
 
-void func_00220088(u8* a0, u32 a1) {  // list_set_flag_clear
-    u8* n = *(u8**)(a0 + 24);
-    a1 |= 8;
-    while (n != 0) {
-        u32 f = *(u16*)(n + 62);
-        *(u32*)(n + 12) = 0;
-        f |= a1;
-        *(u16*)(n + 62) = f;
-        n = *(u8**)(n + 8);
-    }
-}
+void func_00220088(u8* a0, u32 a1);  // 0x00220088: definition moved into src/anon/unit_0021e988.cpp
 
 void func_00222a00(u32 a0, u32 a1);  // 0x00222a00: definition moved into src/anon/unit_00222548.cpp
 

@@ -1447,75 +1447,15 @@ u32 func_0020ecc8(u32 a0, u32 a1) {
     return (u32)s16;
 }
 
-void func_0021eb50(void* a0, u32 a1) {
-    u32 s0 = a1;
-    S64 b0;
-    S64 b1;
-    S64 b2;
-    S64 b3;
+void func_0021eb50(void* a0, u32 a1);  // 0x0021eb50: definition moved into src/anon/unit_0021e988.cpp
 
-    func_0021ea50(&b0, *(u32*)(s0 + 4));  // table_float_pair_lookup_b
-    func_0021ead0(&b1, *(u32*)(s0 + 8));  // table_float_pair_lookup
-    sceVu0MulMatrix((u32)&b2, (u32)&b0, (u32)&b1);
-    func_0021e9d0(&b3, *(u32*)(s0 + 0));  // table_float_pair_lookup_c
-    sceVu0MulMatrix((u32)a0, (u32)&b2, (u32)&b3);
-}
+void func_0021ebe8(void* a0, u32 a1);  // 0x0021ebe8: definition moved into src/anon/unit_0021e988.cpp
 
-void func_0021ebe8(void* a0, u32 a1) {
-    u32 s0 = a1;
-    S64 b0;
-    S64 b1;
-    S64 b2;
-    S64 b3;
+void func_0021ec80(void* a0, u32 a1);  // 0x0021ec80: definition moved into src/anon/unit_0021e988.cpp
 
-    func_0021e9d0(&b0, *(u32*)(s0 + 0));  // table_float_pair_lookup_c
-    func_0021ead0(&b1, *(u32*)(s0 + 8));  // table_float_pair_lookup
-    sceVu0MulMatrix((u32)&b2, (u32)&b0, (u32)&b1);
-    func_0021ea50(&b3, *(u32*)(s0 + 4));  // table_float_pair_lookup_b
-    sceVu0MulMatrix((u32)a0, (u32)&b2, (u32)&b3);
-}
+void func_0021ed18(void* a0, u32 a1);  // 0x0021ed18: definition moved into src/anon/unit_0021e988.cpp
 
-void func_0021ec80(void* a0, u32 a1) {
-    u32 s0 = a1;
-    S64 b0;
-    S64 b1;
-    S64 b2;
-    S64 b3;
-
-    func_0021ead0(&b0, *(u32*)(s0 + 8));  // table_float_pair_lookup
-    func_0021e9d0(&b1, *(u32*)(s0 + 0));  // table_float_pair_lookup_c
-    sceVu0MulMatrix((u32)&b2, (u32)&b0, (u32)&b1);
-    func_0021ea50(&b3, *(u32*)(s0 + 4));  // table_float_pair_lookup_b
-    sceVu0MulMatrix((u32)a0, (u32)&b2, (u32)&b3);
-}
-
-void func_0021ed18(void* a0, u32 a1) {
-    u32 s0 = a1;
-    S64 b0;
-    S64 b1;
-    S64 b2;
-    S64 b3;
-
-    func_0021ea50(&b0, *(u32*)(s0 + 4));  // table_float_pair_lookup_b
-    func_0021e9d0(&b1, *(u32*)(s0 + 0));  // table_float_pair_lookup_c
-    sceVu0MulMatrix((u32)&b2, (u32)&b0, (u32)&b1);
-    func_0021ead0(&b3, *(u32*)(s0 + 8));  // table_float_pair_lookup
-    sceVu0MulMatrix((u32)a0, (u32)&b2, (u32)&b3);
-}
-
-void func_0021edb0(void* a0, u32 a1) {
-    u32 s0 = a1;
-    S64 b0;
-    S64 b1;
-    S64 b2;
-    S64 b3;
-
-    func_0021e9d0(&b0, *(u32*)(s0 + 0));  // table_float_pair_lookup_c
-    func_0021ea50(&b1, *(u32*)(s0 + 4));  // table_float_pair_lookup_b
-    sceVu0MulMatrix((u32)&b2, (u32)&b0, (u32)&b1);
-    func_0021ead0(&b3, *(u32*)(s0 + 8));  // table_float_pair_lookup
-    sceVu0MulMatrix((u32)a0, (u32)&b2, (u32)&b3);
-}
+void func_0021edb0(void* a0, u32 a1);  // 0x0021edb0: definition moved into src/anon/unit_0021e988.cpp
 
 void func_00221fb8(u32 a0, u32 a1, u32 a2);  // 0x00221fb8: definition moved into src/anon/unit_00221e28.cpp
 

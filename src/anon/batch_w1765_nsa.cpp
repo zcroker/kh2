@@ -8,14 +8,5 @@ extern s32 D_01d9eaa4;
 extern "C" {
 s32 func_0021d048(u8*, void*, s32);
 
-void func_0021f060(W1765S3* p) {
-    W1765Hd* a = p->a;
-    W1765E0* e = (W1765E0*)(a->base + p->b[2] * 8);
-    p->f18 = 0;
-    p->f28 = 0;
-    p->f24 = D_01d9eaa4;
-    p->f1c = 0x12;
-    p->f12 |= 0x30;
-    D_01d9eaa4 = func_0021d048(a->base + e->h, &p->p10, 0);
-}
+void func_0021f060(W1765S3* p);  // 0x0021f060: definition moved into src/anon/unit_0021e988.cpp
 }

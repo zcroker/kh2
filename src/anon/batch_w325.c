@@ -11,29 +11,7 @@ char* func_001e6188(void);  // 0x001e6188: definition moved into src/anon/unit_0
 typedef unsigned int u128 __attribute__((mode(TI)));
 typedef union { u128 q; u64 d[2]; u32 w[4]; f32 f[4]; } Q128;
 
-Q128* func_0021c810(Q128* p, s32 a, s32 b) {
-    s32 i;
-    p->q = 0;
-    if (a == 0) p->w[3] = 0x6c40004f; else p->w[3] = 0x6c40023f;
-    p++;
-    for (i = 8; i != 0; i--) {
-        p[0].d[0] = b ? 0x703b400000008001ULL : 0x702b400000008001ULL;
-        p[0].d[1] = 0x042412e6;
-        p[1].q = 0;
-        p[2].d[0] = 0;
-        p[2].d[1] = 66;
-        p[3].q = 0;
-        p[4].q = 0;
-        p[5].q = 0;
-        p[6].q = 0;
-        p[7].q = 0;
-        p[5].w[3] = 0x8000;
-        p[6].f[2] = 1.0f;
-        p[3].f[2] = 1.0f;
-        p += 8;
-    }
-    return p;
-}
+Q128* func_0021c810(Q128* p, s32 a, s32 b);  // 0x0021c810: definition moved into src/anon/unit_0021aee8.cpp
 
 void func_002fdfc8(const char*, ...);  // device_vprintf_va
 void func_001e2ad8(const char*, const char*, s32, const char*);

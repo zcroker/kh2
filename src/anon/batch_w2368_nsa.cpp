@@ -19,24 +19,7 @@ u16 func_001a3958(s32);
 
 // Advances the animation clock by 0x200; on reaching the frame's duration steps to the next
 // frame, and at the end of the table either rewinds (flag 0x80) or holds the last frame.
-void func_0021efc0(W2368AnimObj* o) {
-    W2368AnimState* st = o->st;
-    W2368AnimFrame* f = &(*o->hdr)->frm[st->frame];
-    st->time += 0x200;
-    if (st->time >= f->dur) {
-        st->time -= f->dur;
-        st->frame++;
-        if (st->frame >= (*o->hdr)->count) {
-            if (f->flags & 0x80) {
-                st->frame = 0;
-                st->time = 0;
-            } else {
-                st->frame--;
-                st->time = 0;
-            }
-        }
-    }
-}
+void func_0021efc0(W2368AnimObj* o);  // 0x0021efc0: definition moved into src/anon/unit_0021e988.cpp
 
 // Clears entry 6's field, then for item kinds 1, 4 and 5 makes sure that kind's entry has a value.
 // 001a38b8: moved to src/anon/unit_001a2a50.cpp

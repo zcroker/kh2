@@ -279,14 +279,7 @@ void func_00209df0(u8* p, u32 a1, u8* r) {
 extern f32 D_00359a20[];
 
 // Rotation matrix about X from a 16-bit angle (sine table lookup).
-void func_0021e9d0(f32* m, u32 a) {  // table_float_pair_lookup_c
-    f32 s = D_00359a20[(a >> 4) & 0xfff];
-    f32 c = D_00359a20[((a + 0x4000) >> 4) & 0xfff];
-    m[0] = 1.0f; m[4] = 0; m[8] = 0; m[12] = 0;
-    m[1] = 0; m[5] = c; m[9] = -s; m[13] = 0;
-    m[2] = 0; m[6] = s; m[10] = c; m[14] = 0;
-    m[3] = 0; m[7] = 0; m[11] = 0; m[15] = 1.0f;
-}
+void func_0021e9d0(f32* m, u32 a);  // 0x0021e9d0: definition moved into src/anon/unit_0021e988.cpp
 
 // ---------------------------------------------------------------------------
 struct Bits239f78 { u32 b0 : 1; u32 b1 : 1; u32 rest : 30; };

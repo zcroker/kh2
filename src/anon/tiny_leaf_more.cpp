@@ -16,18 +16,6 @@ u32 func_0019f550(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0019f550: definition mo
 
 u32 func_0019ff78(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0019ff78: definition moved into src/anon/unit_0019fb70.cpp
 
-u32 func_0021e9a8(u32 a0, u32 a1, u32 a2, u32 a3) {  // select_vif_regs
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u, r13 = 0u, r14 = 0u, r15 = 0u;
-    r13 = (u32)(0x01dau << 16);
-    r14 = (u32)(0x7000u << 16);
-    r15 = (u32)(*(u8*)((u32)r13 + (s32)(-6480)));
-    r2 = (u32)(0x7000u << 16);
-    r14 = (u32)(r14 | 0x1e00u);
-    r2 = (u32)(r2 | 0x2f00u);
-    r15 = (u32)(r15 ^ 0x0001u);
-    *(u8*)((u32)r13 + (s32)(-6480)) = (u8)r15;
-    if (r15 == 0u) r2 = r14;
-    return r2;
-}
+u32 func_0021e9a8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0021e9a8: definition moved into src/anon/unit_0021e988.cpp
 
 u32 func_002bc978(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002bc978: definition moved into src/anon/unit_002bc978.cpp

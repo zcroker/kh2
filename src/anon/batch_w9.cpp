@@ -130,10 +130,7 @@ void func_0020eac0(void) {
     D_00359808 = 0;
 }
 
-void func_0021cda0(s32 a) {
-    if (a == 0) func_001e72a8(D_0032a980);
-    else func_001e72a8(D_0032b100);
-}
+void func_0021cda0(s32 a);  // 0x0021cda0: definition moved into src/anon/unit_0021aee8.cpp
 
 void func_0022acd0(void* p);  // 0022acd0: moved to src/sasa/musical_input.cpp (linked unit)
 

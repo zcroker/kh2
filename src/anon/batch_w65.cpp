@@ -196,14 +196,7 @@ void func_001d7cd0(u8* p, u8* q, u32 c);  // 0x001d7cd0: definition moved into s
 
 // Y-axis rotation matrix from the sine table (angle in 1/65536 turns).
 extern f32 D_00359a20[];
-void func_0021ea50(f32* m, u32 a) {  // table_float_pair_lookup_b
-    f32 s = D_00359a20[(a >> 4) & 0xfff];
-    f32 c = D_00359a20[((a + 0x4000) >> 4) & 0xfff];
-    m[0] = c; m[4] = 0; m[8] = s; m[12] = 0;
-    m[1] = 0; m[5] = 1.0f; m[9] = 0; m[13] = 0;
-    m[2] = -s; m[6] = 0; m[10] = c; m[14] = 0;
-    m[3] = 0; m[7] = 0; m[11] = 0; m[15] = 1.0f;
-}
+void func_0021ea50(f32* m, u32 a);  // 0x0021ea50: definition moved into src/anon/unit_0021e988.cpp
 
 // Store a copy of the 40-byte record in the first free (-1) slot.
 struct Rec40 { s32 id; u8 b[36]; };

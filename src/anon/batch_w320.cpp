@@ -79,52 +79,7 @@ void sceVu0ScaleVector(V4r*, V4r*, f32);  // vec_scale_by_f12
 void sceVu0MulMatrix(M4r*, void*, M4r*);
 void func_0021efc0(DrawReq*);
 void func_0021f060(DrawReq*);
-void func_0021fe40(DrawArg* a, u32 id) {
-    M4r m;
-    DrawReq req;
-    DrawSrc* src = a->src;
-    Model* md = src->model;
-    if (md == &D_01d9e360) return;
-    if (!src->tex) return;
-    if (md->scale == 0.0f) return;
-    f32 lim = 0.0f;
-    f32 k = md->size / (f32)a->div;
-    if (!(1.0f < k)) lim = 1.0f - k;
-    if (md->noOffset) {
-        sceVu0CopyMatrix(&m, md);
-    } else {
-        sceVu0UnitMatrix(&m);  // vu_store_w_splat
-        m.r[3].x = D_01d9e840.pos[0] + md->off[0];
-        m.r[3].y = D_01d9e840.pos[1] + md->off[1];
-        m.r[3].z = D_01d9e840.pos[2] + md->off[2];
-    }
-    f32 s = a->len;
-    m.r[0].x = s;
-    switch (a->mx) {
-    case 1: m.r[0].x = s * lim; break;
-    case 2: m.r[0].x = s * (k + 1.0f); break;
-    }
-    m.r[1].y = s;
-    switch (a->my) {
-    case 1: m.r[1].y = s * lim; break;
-    case 2: m.r[1].y = s * (k + 1.0f); break;
-    }
-    sceVu0ScaleVector(&m.r[0], &m.r[0], a->scl[0]);  // vec_scale_by_f12
-    sceVu0ScaleVector(&m.r[1], &m.r[1], a->scl[1]);  // vec_scale_by_f12
-    sceVu0MulMatrix(&m, a->mtx, &m);
-    req.color = a->color;
-    req.c[3] = (s32)(req.c[3] * md->scale * lim);
-    req.tex = src->tex;
-    req.data = (u32)src->data;
-    func_0021efc0(&req);
-    req.id = id;
-    req.mtx = &m;
-    req.f44 = 0;
-    req.f24 = 0;
-    req.f28 = 0;
-    req.f30 = 0;
-    func_0021f060(&req);
-}
+void func_0021fe40(DrawArg* a, u32 id);  // 0x0021fe40: definition moved into src/anon/unit_0021e988.cpp
 }
 extern "C" {
 extern u16* D_0035f230;

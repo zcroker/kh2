@@ -93,9 +93,9 @@ u32 func_001ed978(u32 a0,f32 a1,u32 a2,u32 a3);  // 0x001ed978: definition moved
 
 f32 func_001ee5c8(f32 a0,f32 a1,u32 a2,u32 a3);  // 0x001ee5c8: definition moved into src/anon/unit_001ec098.cpp
 
-u32 func_0021e988(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a0; (void)a1; (void)a2; (void)a3; return 0x70001e00u; }
+u32 func_0021e988(u32 a0,u32 a1,u32 a2,u32 a3);  // 0x0021e988: definition moved into src/anon/unit_0021e988.cpp
 
-u32 func_0021e998(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a0; (void)a1; (void)a2; (void)a3; return 0x70002f00u; }
+u32 func_0021e998(u32 a0,u32 a1,u32 a2,u32 a3);  // 0x0021e998: definition moved into src/anon/unit_0021e988.cpp
 
 void func_002248f8(u32 a0,u32 a1,u32 a2,u32 a3);  // 0x002248f8: definition moved into src/anon/unit_00224780.cpp
 

@@ -31,37 +31,6 @@ void func_001fa668(u8* a, u32 a1, u8* c) {
 
 // ---- 0021c8c8: DMA header + 8 GIF packets (tag, TEX0, A+D, 4 x ST/RGBAQ/XYZ)
 union W1807Q { w1807_u128 q; struct { f32 x, y, z; u32 w; } f; u32 w[4]; u64 d[2]; };
-W1807Q* func_0021c8c8(W1807Q* p, s32 a1, s32 a2) {
-    p->q = 0;
-    if (!a1) p->w[3] = 0x6c78008f;
-    else p->w[3] = 0x6c78027f;
-    p++;
-    for (s32 i = 8; i != 0; i--) {
-        if (a2) p[0].d[0] = 0xe03a400000008001ULL; else p[0].d[0] = 0xe02a400000008001ULL;
-        p[0].d[1] = 0x00412412412412e6ULL;
-        p[1].q = 0;
-        p[2].d[0] = 0; p[2].d[1] = 0x42;
-        p[14].q = 0;
-        p[13].q = 0;
-        p[12].q = 0;
-        p[11].q = 0;
-        p[10].q = 0;
-        p[9].q = 0;
-        p[8].q = 0;
-        p[7].q = 0;
-        p[6].q = 0;
-        p[5].q = 0;
-        p[4].q = 0;
-        p[3].q = 0;
-        p[8].w[3] = 0x8000;
-        p[5].w[3] = 0x8000;
-        p[12].f.z = 1.0f;
-        p[9].f.z = 1.0f;
-        p[6].f.z = 1.0f;
-        p[3].f.z = 1.0f;
-        p += 15;
-    }
-    return p;
-}
+W1807Q* func_0021c8c8(W1807Q* p, s32 a1, s32 a2);  // 0x0021c8c8: definition moved into src/anon/unit_0021aee8.cpp
 
 }

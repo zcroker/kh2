@@ -460,20 +460,7 @@ static inline void func_0021f908_seed(U6_OscSet* s, u32 seed) {
         s->e[i].val = (f32)(s32)seed / 65535.0f;
     }
 }
-void func_0021f908(U6_OscSet* s, u32 a, u32 seed) {
-    s32 i;
-    s->f4 = a;
-    for (i = 0; i < s->n; i++) func_0021efa8(&s->e[i], a);
-    if (s->flags & 1) return;
-    {
-        u32 sd = seed;
-        for (i = 0; i < s->n; i++) {
-            sd = (u16)(sd * 2061 + 7);
-            s->e[i].val = (f32)(s32)sd / 65535.0f;
-        }
-    }
-    s->flags |= 1;
-}
+void func_0021f908(U6_OscSet* s, u32 a, u32 seed);  // 0x0021f908: definition moved into src/anon/unit_0021e988.cpp
 
 
 void func_002328c0(U7_SeReq* r);  // 0x002328c0: definition moved into src/anon/unit_00231500.cpp

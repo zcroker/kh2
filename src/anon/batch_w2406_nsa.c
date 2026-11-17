@@ -25,59 +25,7 @@ static inline void shpAssert(const char* e, const char* f, s32 l) {
     func_002fdfc8(D_00370ae8, f, l);
     asm volatile("break");
 }
-void func_0021cdd0(Shape21cdd0* sh, ShpWork21cdd0* w)
-{
-    s32 n, q, q1;
-    u64* spr;
-    u64* src;
-    u64* dst;
-    Tag21cdd0* t;
-    Tag21cdd0* p;
-    if (!(sh->counter <= 8)) {
-        shpAssert(D_00370ab8, D_00370ad8, 338);
-    }
-    if (D_00352c38) {
-        w->b = w->g = w->r = (s32)((f32)w->r * 0.30000001192092896f + (f32)w->g * 0.5899999737739563f + (f32)w->b * 0.10999999940395355f);
-    }
-    w->flags = sh->flags;
-    w->counter = sh->counter;
-    w->tex = sh->tex;
-    src = (u64*)((u8*)sh + sh->dataOff);
-    spr = w->spr;
-    dst = spr;
-    n = sh->counter;
-    while (n--) *dst++ = *src++;
-    q = (s32)(((u64)(sh->counter * 8) + 15) & ~15) / 16;
-    t = (Tag21cdd0*)((u8*)spr + q * 16);
-    p = t;
-    p->qwc = 7;
-    p->id = 0x30;
-    p->addr = (u32)w | 0x80000000;
-    p->vif[0] = 0;
-    p->vif[1] = 0x6c078000;
-    p = t + 1;
-    q1 = (s32)(((u64)sh->dataOff - 32 + 15) & ~15) / 16;
-    p->qwc = q1;
-    p->id = 0x30;
-    p->addr = (u32)sh->data;
-    p->vif[0] = 0;
-    p->vif[1] = (q1 << 17) | 0x6d008007;
-    p = t + 2;
-    p->qwc = q;
-    p->id = 0x30;
-    p->addr = (u32)spr | 0x80000000;
-    p->vif[0] = 0;
-    p->vif[1] = (q << 18) | 0x6e00c01f;
-    p = t + 3;
-    p->qwc = 0;
-    p->id = 0x70;
-    p->addr = 0;
-    p->vif[0] = 0x13000000;
-    p->vif[1] = 0x17000000;
-    func_001e75a8((u32)t | 0x80000000);
-    if (sh->flags & 8) D_01da8cd0.masked += sh->counter;
-    D_01da8cd0.sprites += sh->counter;
-}
+void func_0021cdd0(Shape21cdd0* sh, ShpWork21cdd0* w);  // 0x0021cdd0: definition moved into src/anon/unit_0021aee8.cpp
 
 typedef unsigned long u_long;
 typedef struct { u_long EN1:1; u_long EN2:1; u_long CRTMD:3; u_long MMOD:1; u_long AMOD:1; u_long SLBG:1; u_long ALP:8; u_long p0:48; } sceGsPmode;

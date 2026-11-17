@@ -222,11 +222,7 @@ f32 func_00207260(void) {
     return r;
 }
 
-void func_0021f5d8(u8* p) {
-    D_01d9e6e0[168] = 2;
-    sceVu0UnitMatrix(p + 64);  // vu_store_w_splat
-    *(f32*)(p + 172) = 1.0f;
-}
+void func_0021f5d8(u8* p);  // 0x0021f5d8: definition moved into src/anon/unit_0021e988.cpp
 
 struct BitWord {
     u32 lo : 7;

@@ -261,14 +261,7 @@ f32 func_00209fb8(void) {  // vu_const_5f_c
 }
 
 // Rotation about Z from a 16-bit angle (4096-entry sine table).
-void func_0021ead0(f32* m, u32 ang) {  // table_float_pair_lookup
-    f32 s = D_00359a20[(ang >> 4) & 0xfff];
-    f32 c = D_00359a20[((ang + 0x4000) >> 4) & 0xfff];
-    m[0] = c; m[4] = -s; m[8] = 0; m[12] = 0;
-    m[1] = s; m[5] = c; m[9] = 0; m[13] = 0;
-    m[2] = 0; m[6] = 0; m[10] = 1.0f; m[14] = 0;
-    m[3] = 0; m[7] = 0; m[11] = 0; m[15] = 1.0f;
-}
+void func_0021ead0(f32* m, u32 ang);  // 0x0021ead0: definition moved into src/anon/unit_0021e988.cpp
 
 // Debug print of a vec4 (floats promoted through the soft-double helper).
 void func_00223608(u32 x, f32* v);  // 0x00223608: definition moved into src/anon/unit_00222aa8.cpp
