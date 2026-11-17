@@ -23,21 +23,6 @@ void func_002db968(u8*, u8);
 extern s32 D_0034e948;
 struct W1799Obj { u8 pad[200]; u8 flag; u8 active; };
 
-s32 func_002d94b8(W1799Obj* self) {
-    if (self->active) {
-        if (!w1799_IsExec() || w1799_GetRestTime() < 1.0f) {
-            self->active = 0;
-            u8* o = func_0016b740(1630);
-            w1799_texanm_start(o, 12);
-            if (self->flag) {
-                w1799_ut_1c0d38(o, D_0034e948, 67, 0);
-                w1799_change(o + 320, 0, 0.0f, 0.0f);
-            }
-            func_002db968(o, self->flag);
-            return 1;
-        }
-    }
-    return 0;
-}
+s32 func_002d94b8(W1799Obj* self);  // 0x002d94b8: definition moved into src/anon/unit_002d6f70.cpp
 
 }

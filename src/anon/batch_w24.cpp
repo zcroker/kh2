@@ -184,14 +184,7 @@ void wm_total_info_fadeout(void* self);  // 0x002c14a8: definition moved into sr
 
 // Clear the vector at q+32, then scale p.xyzw by p.w and zero p.z.
 void func_002d5c20(f32*, u8*);
-f32* func_002d6e08(f32* p, u32, u8* q) {
-    asm volatile("vsub.xyzw $vf1, $vf0, $vf0\n\tsqc2 $vf1, 0(%0)" : : "r"(q + 32) : "memory");
-    func_002d5c20(p, q);
-    asm volatile("lqc2 $vf1, 0(%0)\n\tmfc1 $8, %1\n\tqmtc2 $8, $vf2\n\tvmulx.xyzw $vf1, $vf1, $vf2x\n\tsqc2 $vf1, 0(%0)"
-                 : : "r"(p), "f"(p[3]) : "$8", "memory");
-    p[2] = 0;
-    return p;
-}
+f32* func_002d6e08(f32* p, u32, u8* q);  // 0x002d6e08: definition moved into src/anon/unit_002d62d0.cpp
 
 void func_002cfeb0(u8*, u32, s32, u32);  // obj_init_field1416_bit800
 u8 func_002e7308(u8*);

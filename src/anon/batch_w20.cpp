@@ -184,11 +184,7 @@ u8* func_002a7f20(s32 i) {
     return b + i * 8;
 }
 
-void func_002d6af0(void** p) {
-    *p = D_00362398;
-    func_002cff98(p);
-    func_00105110(p);
-}
+void func_002d6af0(void** p);  // 0x002d6af0: definition moved into src/anon/unit_002d62d0.cpp
 
 s32 func_002db8a8(void** p) {
     *p = D_00362908;

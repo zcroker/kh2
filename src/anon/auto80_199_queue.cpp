@@ -4153,71 +4153,11 @@ void func_002d5b48(u32 a0);  // 0x002d5b48: definition moved into src/anon/unit_
 
 u32 func_002d5c40(u32 a0);  // 0x002d5c40: definition moved into src/anon/unit_002d4548.cpp
 
-void func_002d7390(u32 a0) {
-    *(u32*)a0 = (u32)&D_003625a8;
-    u32 s0 = *(u32*)(a0 + 160);
-    if (s0 != 0) {
-        func_002e70b0(s0);
-        func_00106420(s0);
-    }
-    func_002cea28(a0);
-    func_00105110(a0);
-}
+void func_002d7390(u32 a0);  // 0x002d7390: definition moved into src/anon/unit_002d6f70.cpp
 
-void func_002d7420(u32 a0) {
-    u8* s1 = (u8*)a0;
-    u32 s0 = 0;
-    while (1) {
-        u8* t7 = *(u8**)(s1 + 184);
-        u32 t6 = t7[9];
-        if (s0 == t6) {
-            func_0015ee90(s0);
-            func_00160f10(s0);
-        } else {
-            func_0015ee10(s0);
-        }
-        s0 += 1;
-        if (!(s0 < 16)) {
-            u8* t7f = *(u8**)(s1 + 184);
-            u8* t6p = t7f + 12;
-            u8 t5 = t6p[4];
-            u8 t7v = t6p[5];
-            f32 f12 = (f32)*(s32*)(t6p + 8);
-            f32 f13 = (f32)*(s32*)(t6p + 12);
-            f32 f14 = (f32)t5;
-            f32 f15 = (f32)t7v;
-            func_0015ca40(
-                t6p[0],
-                t6p[1],
-                t6p[2],
-                f12,
-                f13,
-                f14,
-                f15);
-            return;
-        }
-    }
-}
+void func_002d7420(u32 a0);  // 0x002d7420: definition moved into src/anon/unit_002d6f70.cpp
 
-void func_002d7630(u32 a0) {
-    *(u32*)(a0 + 468) = 0;
-    *(u32*)(a0 + 472) = 0;
-    *(u8*)(a0 + 144) = 0;
-    u32 t5 = a0;
-    s32 t4 = 2;
-    do {
-        *(u32*)(t5 + 108) = 0;
-        t4 -= 1;
-        *(u32*)(t5 + 120) = 0;
-        *(u32*)(t5 + 132) = 0;
-        t5 += 4;
-    } while (t4 >= 0);
-    u32 a1 = *(u32*)(a0 + 104);
-    *(u8*)(a0 + 192) = 0;
-    *(u8*)(a0 + 193) = 0;
-    *(u8*)(a0 + 201) = 0;
-    func_002d74c8(a0, a1 & 0xfff, 0);
-}
+void func_002d7630(u32 a0);  // 0x002d7630: definition moved into src/anon/unit_002d6f70.cpp
 
 void func_002da8f0(u32 a0, u32 a1) {
     u32 s0 = a0;

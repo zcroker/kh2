@@ -262,15 +262,7 @@ void func_002beea8(u8* o);  // 0x002beea8: definition moved into src/anon/unit_0
 
 u8 func_002cff98(u8* o);  // 0x002cff98: definition moved into src/anon/unit_002cf260.cpp
 
-u8 func_002d72e0(u8* o) {
-    *(u8**)o = D_003625a8;
-    void* p = *(void**)(o + 160);
-    if (p) {
-        func_002e70b0(p);
-        LoadDataFree(p);
-    }
-    return func_002cea28(o);
-}
+u8 func_002d72e0(u8* o);  // 0x002d72e0: definition moved into src/anon/unit_002d6f70.cpp
 
 void func_002d96d8(u8* o) {
     func_002d0ea8(o);

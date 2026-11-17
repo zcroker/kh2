@@ -45,46 +45,7 @@ void func_001ca8f8(f32, f32);
 
 void func_002cf320(s32 n);  // 0x002cf320: definition moved into src/anon/unit_002cf260.cpp
 
-void func_002d6a00(s32 a0)
-{
-    func_002d00a0(a0);
-    func_0016bd60(a0, 3);
-    func_001c0d38(a0, func_002d1260(), 0x55, 0);
-    V4_w8024 r(-1.57079625f, -1.57079625f, 0.0f, 0.0f);
-    func_0016b070(a0, &r);
-    V4_w8024 t(0.0f, 0.0f, 0.0f, 0.0f);
-    func_0016ace0(a0, &t);
-}
+void func_002d6a00(s32 a0);  // 0x002d6a00: definition moved into src/anon/unit_002d62d0.cpp
 
-void func_002d74c8(O2d_w8024* o, s32 a1, u8 a2)
-{
-    R2e_w8024* r;
-    s32 i;
-    o->bb4 = 0;
-    o->ma8 = a1;
-    o->b1e0 = 0;
-    r = func_002e34d8(o->bc);
-    o->rb8 = r;
-    o->ma4 = r->b8;
-    o->fac = (f32)r->i0;
-    if (a2) {
-        func_002d0a78();
-        func_001a58f8();
-    }
-    func_002d7420(o);
-    a1 = func_002d1260();
-    func_002da040(a1);
-    func_002cf2d8();
-    func_002cf938(1);
-    o->m6c += func_002cf308(0);
-    o->m70 += func_002cf308(1);
-    o->m74 += func_002cf308(2);
-    for (i = 0; i < 3; i++) o->a84[i] = 0;
-    o->b1d0 = 1;
-    if (o->ma4 == 5) func_002d9220(o, 0);
-    else if (o->ma4 == 6) func_002d9220(o, 1);
-    o->fb0 = o->fac - 1.0f;
-    P2d_w8024* p = func_002d73f0(o);
-    func_001ca8f8(p->f24, func_002d73f0(o)->f20);
-}
+void func_002d74c8(O2d_w8024* o, s32 a1, u8 a2);  // 0x002d74c8: definition moved into src/anon/unit_002d6f70.cpp
 }

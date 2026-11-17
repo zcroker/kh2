@@ -86,27 +86,7 @@ void W270_17f488(void*, s32, f32, f32) asm("_Z13func_0017f488iiff");
 W270Cfg* W270_config(void*) asm("_ZN2Ti9MGOarashi6configEv");
 void func_002e7568(W270Ys*, s32, void*, f32);
 void func_002e7340(void*, W270Ys*, s32, void*, f32, f32);
-void func_002d6600(W270Ys* o, W270V* dir) {
-    void* g = D_00361f60;
-    if (!W270_is_attach(o)) return;
-    W270_detach(o);
-    W270_change_action(o, 38);
-    W270V t;
-    W270_ctarget(&t, D_0034e948);
-    t.z = 0.0f;
-    W270_set_pos(o, &t);
-    W270_set_rot(o, 0.0f);
-    W270_17f488(o->sub320, 153, 0.0f, 0.0f);
-    o->v2848 = *dir;
-    o->v2848.z = 0.0f;
-    w270_vnorm(&o->v2848);
-    o->f2864 = 0.0f;
-    o->f2868 = 0.0f;
-    func_002e7568(o, 5, D_00362370, 1.0f);
-    W270Cfg* a = W270_config(g);
-    W270Cfg* b = W270_config(g);
-    func_002e7340(o->sub2872, o, 5, D_00362378, a->f256, b->f260);
-}
+void func_002d6600(W270Ys* o, W270V* dir);  // 0x002d6600: definition moved into src/anon/unit_002d62d0.cpp
 void func_00323978(u8* p) {
     w270_init(p);
     w270_init(p + 436);

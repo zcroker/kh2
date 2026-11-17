@@ -309,13 +309,7 @@ s32 func_002c22f0(u8* a0);  // 0x002c22f0: definition moved into src/anon/unit_0
 // the a1-th element of an iteration
 u8 func_002c2688(u32 a0, s32 a1);  // 0x002c2688: definition moved into src/anon/unit_002c2228.cpp
 
-u8* func_002d6ec8(u8* out, u32 a1, u32 a2) {
-    u8 tmp[16] __attribute__((aligned(16)));
-    func_00184540(tmp, a2, 0.8f, 0.0f);
-    if (out != tmp) asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(out), "r"(tmp) : "$8", "memory");
-    *(f32*)(out + 8) = 0.0f;
-    return out;
-}
+u8* func_002d6ec8(u8* out, u32 a1, u32 a2);  // 0x002d6ec8: definition moved into src/anon/unit_002d62d0.cpp
 
 // 002e3a78: moved to src/anon/unit_002e2f08.cpp
 

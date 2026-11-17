@@ -60,49 +60,5 @@ void func_0014aa80(void*, s32, s32);
 void* func_002d1260(void);
 void func_002daa00(void*, u8);
 void func_001991a8(s32, s32);
-void func_002d7698(ObjI* self) {
-    s32 i = 0;
-    HdrI* h = func_002e34d8(self->sub, self->i168);
-    self->b192 = 0;
-    self->i196 = -1;
-    self->b193 = 0;
-    s32 n = h->n;
-    for (; i < n; i++) {
-        EntI* e = &h->ent[i];
-        if (e->a < 0) return;
-        f32 fa = (f32)e->a;
-        f32 fb = (f32)e->b;
-        s32 len = (e->b - e->a) * 2 + 2;
-        f32 cur = self->cur;
-        s32 in1 = 0;
-        if (fa <= cur && cur <= fb) in1 = 1;
-        s32 in2 = 0;
-        if (self->prev < fa && fa <= cur) in2 = 1;
-        if (in1) {
-            u32 t = e->type;
-            switch (t) {
-            case 0: break;
-            case 1: self->b192 = t; break;
-            case 6 ... 8:
-                if (in1) self->i196 = e->type - 6;
-                break;
-            }
-        }
-        if (in2) {
-            switch (e->type) {
-            case 2: func_0014aa58(func_0014abd8(), len, 0); break;
-            case 3: func_0014aa80(func_0014abd8(), len, 0); break;
-            case 4: func_0014aa58(func_0014abd8(), len, 1); break;
-            case 5: func_0014aa80(func_0014abd8(), len, 1); break;
-            case 11: func_002daa00(func_002d1260(), e->arg); break;
-            case 12:
-                if (!self->b90) {
-                    func_001991a8(21, 0);
-                    self->b90 = 1;
-                }
-                break;
-            }
-        }
-    }
-}
+void func_002d7698(ObjI* self);  // 0x002d7698: definition moved into src/anon/unit_002d6f70.cpp
 }

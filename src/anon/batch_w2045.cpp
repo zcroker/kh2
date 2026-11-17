@@ -94,30 +94,6 @@ s32 func_001bc9e8(u8* p);  // 0x001bc9e8: definition moved into src/anon/unit_00
 void func_001dd320(s32 a0, W2045_Arg1* a1, u8 a2);  // 0x001dd320: definition moved into src/anon/unit_001dd2b8.cpp
 
 // ---- 0x2d62d0 (VU0 normalize asm, lq/sq copy) ----
-void func_002d62d0(W2045_Self* self) {
-    W2045_V4b v;
-    W2045_V4b o;
-    void* s = D_00361f60;
-    W2045_V4b* pv = &v;
-    W2045_V4b* src = func_0016c028();
-    asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(pv), "r"(src) : "$8", "memory");
-    func_002d1d30(&o, s, pv);
-    if ((o.x > 0.8f && self->dir.x > 0.0f) || (o.x < -0.8f && self->dir.x < 0.0f)
-        || (o.y > 0.8f && self->dir.y > 0.0f) || (o.y < -0.8f && self->dir.y < 0.0f)) {
-        f32 a, b;
-        do {
-            a = func_001065a8(-1.0f, 1.0f);
-            b = func_001065a8(-1.0f, 1.0f);
-        } while (fabsf(a) < 0.001f && fabsf(b) < 0.001f);
-        if (o.x > 0.7f) a = -fabsf(a);
-        if (o.x < -0.7f) a = fabsf(a);
-        if (o.y > 0.7f) b = -fabsf(b);
-        if (o.y < -0.7f) b = fabsf(b);
-        self->dir.x = a;
-        self->dir.y = b;
-        self->dir.z = 0.0f;
-        w2045_norm(&self->dir);
-    }
-}
+void func_002d62d0(W2045_Self* self);  // 0x002d62d0: definition moved into src/anon/unit_002d62d0.cpp
 
 }

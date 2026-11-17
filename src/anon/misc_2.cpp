@@ -94,7 +94,7 @@ void func_002d00d8(void* self);  // 0x002d00d8: definition moved into src/anon/u
 
 void func_002d5950(void* self, s32 v);  // 0x002d5950: definition moved into src/anon/unit_002d4548.cpp
 
-void func_002d9208(void* self, s32 v) { *(s32*)((char*)self + 476) = v; }
+void func_002d9208(void* self, s32 v);  // 0x002d9208: definition moved into src/anon/unit_002d6f70.cpp
 
 u8 func_002df198(void* self) { return (u8)(*(u8*)((char*)self + 48)); }
 

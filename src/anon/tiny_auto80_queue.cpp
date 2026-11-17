@@ -13025,39 +13025,13 @@ void duplicate_unplaced_002d5d50(u32 a0, u32 a1, u32 a2) {
 
 u32 func_002d5cc8(u32 a0);  // 0x002d5cc8: definition moved into src/anon/unit_002d4548.cpp
 
-void func_002d6cd8(u32 a0) {
-    u32* base = (u32*)0x00360000;
-    u32 p = func_002d1878(*(u32*)((u8*)base + 0x1f60));
-    *(f32*)(a0 + 12) = *(f32*)(p + 172);
-}
+void func_002d6cd8(u32 a0);  // 0x002d6cd8: definition moved into src/anon/unit_002d62d0.cpp
 
-void func_002d6dd0(u32 a0) {
-    u32* base = (u32*)0x00360000;
-    u32 p = func_002d1878(*(u32*)((u8*)base + 0x1f60));
-    *(f32*)(a0 + 12) = *(f32*)(p + 176);
-}
+void func_002d6dd0(u32 a0);  // 0x002d6dd0: definition moved into src/anon/unit_002d62d0.cpp
 
-void func_002d6d88(u32 a0, u32 a1) {
-    f32 zero = 0.0f;
-    f32 dec = D_00349e10;
-    u32 self = a0;
-    f32 v = *(f32*)(a0 + 12) - dec;
-    *(f32*)(self + 12) = v;
-    if (v <= zero) {
-        func_002d5b48(a1);
-    }
-}
+void func_002d6d88(u32 a0, u32 a1);  // 0x002d6d88: definition moved into src/anon/unit_002d62d0.cpp
 
-void func_002d6e60(u32 a0, u32 a1) {
-    f32 zero = 0.0f;
-    f32 dec = D_00349e10;
-    u32 self = a0;
-    f32 v = *(f32*)(a0 + 12) - dec;
-    *(f32*)(self + 12) = v;
-    if (v <= zero) {
-        func_002d5b48(a1);
-    }
-}
+void func_002d6e60(u32 a0, u32 a1);  // 0x002d6e60: definition moved into src/anon/unit_002d62d0.cpp
 
 void duplicate_unplaced_002daa50(u32 a0, u32 a1, u32 a2) {
     func_002cfeb0(a0, a1, 3, a2);  // obj_init_field1416_bit800

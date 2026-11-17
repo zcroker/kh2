@@ -231,12 +231,7 @@ u32 func_00291370(u32 a0, u32 a1, u32 a2, u32 a3) {
 
 void func_002c5608(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002c5608: definition moved into src/anon/unit_002c53c8.cpp
 
-u32 func_002d8898(u32 a0, u32 a1, u32 a2, u32 a3) {  // invert_byte192
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u;
-    r2 = (u32)(*(u8*)((u32)r4 + (s32)(192)));
-    r2 = (u32)(r2 ^ 0x0001u);
-    return r2;
-}
+u32 func_002d8898(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002d8898: definition moved into src/anon/unit_002d6f70.cpp
 
 void func_002eda10(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r15 = 0u;

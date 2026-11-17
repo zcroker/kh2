@@ -68,33 +68,7 @@ void func_002d6600(Act2d6*, V299*);
 void func_002d3f18(Act2d6*);
 f32 fabsf(f32);  // fabsf
 static inline u8 pos2d6(Act2d6* t) { return 0.0f < t->f2780; }
-void func_002d6750(Act2d6* a, Ctx2d6* c) {
-    Mg2d6* g = D_00361f60;
-    Cfg2d6* cf = config2d6(g);
-    if (is_attach2d6(a)) return;
-    if (cf->f156 > a->f2868) return;
-    if (a->vt->f96(a)) return;
-    Act2d6* t = c->f16;
-    if (!t) return;
-    if ((t->f1416 & 0x8000000) && pos2d6(t)) return;
-    if (!t) return;
-    V299 d = getpos2d6(a) - getpos2d6(c->f16);
-    d.z = 0;
-    f32 len = d.Normalize();
-    if (len < 0.01f) {
-        d.y = d.z = 0.0f;
-        d.x = 1.0f;
-    }
-    g->f320 = 1;
-    if (is_attach2d6(a)) {
-        func_002d6600(a, &d);
-    } else {
-        if (config2d6(g)->f140 < 0.0f) d.Zero();
-        setdir2d6(a, &d, fabsf(config2d6(g)->f140));  // fabsf
-    }
-    wt2cf280((u8*)c->f16 + 2800, 256, 0);
-    func_002d3f18(c->f16);
-}
+void func_002d6750(Act2d6* a, Ctx2d6* c);  // 0x002d6750: definition moved into src/anon/unit_002d62d0.cpp
 struct Obj2d69 { u8 pad[56]; f32 f56; };
 void func_002d6948(Act2d6* a, Obj2d69* o) {
     if (is_attach2d6(a)) return;

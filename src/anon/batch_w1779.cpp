@@ -22,13 +22,5 @@ static inline f32 w1779_vlen(const W1779Vec* v) {
         : "=f"(len) : "r"(v) : "$8", "memory");
     return len;
 }
-s32 func_002d8910(W1779A* a, W1779B* b) {
-    W1779Vec d;
-    W1779Src* s = b->src;
-    W1779Vec v(s->x, s->y, s->z);
-    w1779_vsub(&d, &a->pos, &v);
-    f32 len = w1779_vlen(&d);
-    if (func_002d73f0(a)->range < len) return 0;
-    return b->flags & 1;
-}
+s32 func_002d8910(W1779A* a, W1779B* b);  // 0x002d8910: definition moved into src/anon/unit_002d6f70.cpp
 }

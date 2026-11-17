@@ -935,47 +935,13 @@ u32 func_002d2a08(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002d2a08: definition mo
 
 u32 func_002d2a30(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002d2a30: definition moved into src/anon/unit_002d2498.cpp
 
-u32 func_002d6aa0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2, r15;
-    r15 = (u32)&D_00362398;
-    *(u32*)((u32)r4 + (s32)(0)) = r15;
-    u32 (*fp_call4_002cff98)(u32, u32, u32, u32) = func_002cff98;
-    r2 = fp_call4_002cff98(r4, r5, r6, r7);
-    return r2;
-}
+u32 func_002d6aa0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002d6aa0: definition moved into src/anon/unit_002d62d0.cpp
 
-u32 func_002d6ac8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2, r15;
-    r15 = (u32)&D_00362398;
-    *(u32*)((u32)r4 + (s32)(0)) = r15;
-    u32 (*fp_call4_002cff98)(u32, u32, u32, u32) = func_002cff98;
-    r2 = fp_call4_002cff98(r4, r5, r6, r7);
-    return r2;
-}
+u32 func_002d6ac8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002d6ac8: definition moved into src/anon/unit_002d62d0.cpp
 
-u32 func_002d6f28(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2, r16, r17;
-    r16 = r4;
-    r17 = r5;
-    r4 = (u32)((s32)0u + (496));
-    u32 (*fp_call4_001050d8)(u32, u32, u32, u32) = func_001050d8;
-    r2 = fp_call4_001050d8(r4, r5, r6, r7);
-    r5 = r16;
-    r6 = r17;
-    r4 = r2;
-    r7 = 0u;
-    return func_002d7128(r4, r5, r6, r7);
-}
+u32 func_002d6f28(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002d6f28: definition moved into src/anon/unit_002d62d0.cpp
 
-u32 func_002d73f0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2, r15;
-    r15 = *(u32*)((u32)r4 + (s32)(164));
-    r2 = *(u32*)((u32)r4 + (s32)(204));
-    r15 = (u32)(r15 << 7);
-    r2 = (u32)(r2 + r15);
-    r2 = (u32)((s32)r2 + (-128));
-    return r2;
-}
+u32 func_002d73f0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002d73f0: definition moved into src/anon/unit_002d6f70.cpp
 
 u32 func_002dab08(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2, r15;

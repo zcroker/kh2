@@ -65,56 +65,5 @@ s32 func_002d8898(X2d7af0*);
 // y=-150 to y=+250), rebuild its axes from the hit triangle's normal, store it
 // as the current matrix, then probe left/right (x=-600/+600 at y=-80) and keep
 // the hit points' local x as the lo/hi limits.
-void func_002d7af0(X2d7af0* x)
-{
-    if (x->off) x->cur = x->base;
-    W2d7af0Mtx m(x->base);
-    W2d7af0Vec& up = m.r1;
-    W2d7af0Vec& pos = m.r3;
-    W2d7af0Vec hit;
-    W2d7af0Vec p0, p1;
-    Seg2d7af0 seg;
-    u16 id;
-    p0 = m * W2d7af0Vec(0.0f, -150.0f, 0.0f, 1.0f);
-    p1 = m * W2d7af0Vec(0.0f, 250.0f, 0.0f, 1.0f);
-    seg.Set(p0, p1);
-    if (!func_00143dd0(&seg, &hit, &id, 1, 15)) {
-        x->cur = m;
-        return;
-    }
-    pos = hit;
-    up = func_00143e50(id, 0);
-    up *= -1.0f;
-    m.r0 = Q7Cross(up, x->base.r2);
-    m.r2 = Q7Cross(m.r0, up);
-    m.r0.Normalize();
-    up.Normalize();
-    m.r2.Normalize();
-    m.r0.w = 0.0f;
-    m.r1.w = 0.0f;
-    m.r2.w = 0.0f;
-    x->cur = m;
-    if (func_002d8898(x)) {
-        W2d7af0Vec c = m * W2d7af0Vec(0.0f, -80.0f, 0.0f, 1.0f);
-        W2d7af0Vec l = m * W2d7af0Vec(-600.0f, -80.0f, 0.0f, 1.0f);
-        W2d7af0Vec r = m * W2d7af0Vec(600.0f, -80.0f, 0.0f, 1.0f);
-        Seg2d7af0 sr(c, r), sl(c, l);
-        W2d7af0Vec hl, hr;
-        u16 id2;
-        s32 a = func_00143dd0(&sr, &hr, &id2, 2, 15);
-        s32 b = func_00143dd0(&sl, &hl, &id2, 2, 15);
-        if (!a && !b) {
-            x->hi = 0.0f;
-            x->lo = 0.0f;
-        } else {
-            hl.w = 1.0f;
-            hr.w = 1.0f;
-            m.InvertOrtho();
-            hl = m * hl;
-            hr = m * hr;
-            x->hi = hr.x;
-            x->lo = hl.x;
-        }
-    }
-}
+void func_002d7af0(X2d7af0* x);  // 0x002d7af0: definition moved into src/anon/unit_002d6f70.cpp
 }

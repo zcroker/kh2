@@ -67,31 +67,5 @@ void func_002cf248(); void func_002cfb30(); W291R2d* func_002d1260(); void func_
 void func_002da8f0(W291R2d*, s32); void func_002da958(s32); void func_002d9218(W291O2d*);
 void func_002e7108(s32, f32); W291Mtx2d func_002e71a0(s32, u8, s32); void func_002d7af0(W291O2d*);
 void func_002d84a8_w(W291O2d* o) asm("_Z13func_002d84a8i");
-void func_002d84a8_w(W291O2d* o)
-{
-    func_002cf248();
-    func_002cfb30();
-    W291R2d* r = func_002d1260();
-    func_002d7698(o);
-    func_002da8f0(r, o->f196);
-    if (!o->b480 && o->f164 == 4 && 671.0f <= o->f172) {
-        func_002da958(D_0034e948);
-        o->b480 = 1;
-    }
-    if (o->b201) {
-        func_002d9218(o);
-    } else {
-        func_002e7108(o->f160, o->f172);
-        o->m400 = func_002e71a0(o->f160, o->p184->b8, 1);
-        o->m208 = func_002e71a0(o->f160, o->p184->b8, 2);
-        func_002d7af0(o);
-        if (o->b464) {
-            o->m336 = o->m272;
-            o->b464 = 0;
-        }
-    }
-    u8 t = 0;
-    if (o->p184->b8 == 7 && 250.0f <= o->f172) t = 1;
-    r->b3077 = t;
-}
+void func_002d84a8_w(W291O2d* o);  // 0x002d84a8: definition moved into src/anon/unit_002d6f70.cpp
 }

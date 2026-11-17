@@ -8,11 +8,6 @@ void func_00104f58(S10_w1756*, s32, s32, s32, s32);
 
 void func_002d2070();  // 0x002d2070: definition moved into src/anon/unit_002cf260.cpp
 
-void func_002d88a8()
-{
-    S10_w1756 x = D_0032bae0;
-    func_00195750();
-    func_00104f58(&x, 1, 0, 0, 0);
-}
+void func_002d88a8();  // 0x002d88a8: definition moved into src/anon/unit_002d6f70.cpp
 
 }

@@ -731,33 +731,7 @@ void func_002d74c8(P2d86*, s32, s32);
 void func_001991a8_2d8670(s32, s32) asm("func_001991a8");
 void func_002d8670_(s32) asm("_Z13func_002d8670i");
 
-void func_002d8670_(s32 a)
-{
-    P2d86* p = (P2d86*)a;
-    if (p->b465) goto copy;
-    if (!p->done) {
-        p->prev = p->t;
-        p->t += *func_002d73f0(p) * D_00349e10 * 0.5f;
-        s32 end = p->b201 ? func_002d94b8(p) : ((f32)p->info[1] < p->t);
-        if (end) {
-            s32 n = ++p->frame;
-            if (!(n < p->count)) {
-                if (!p->played) {
-                    func_001991a8_2d8670(21, 0);
-                    p->played = 1;
-                }
-                p->frame = p->count - 1;
-                p->t = (f32)p->info[1];
-                p->done = 1;
-            } else {
-                func_002d74c8(p, n, 1);
-            }
-        }
-    }
-copy:
-    p->dst = p->src;
-    p->dirty = 1;
-}
+void func_002d8670_(s32 a);  // 0x002d8670: definition moved into src/anon/unit_002d6f70.cpp
 }
 
 // ---- 002dfba8

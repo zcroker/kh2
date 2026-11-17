@@ -245,14 +245,7 @@ void func_002c1860(u32, u8* obj);  // 0x002c1860: definition moved into src/anon
 // 002d6d10
 extern void* D_00361f60;
 void func_002d2740(void*, void*, u32, f32, f32);
-void* func_002d6d10(void* ret, u32, u32 a2)
-{
-    void* c = D_00361f60;
-    u8* x = oarashi_config(c);
-    u8* y = oarashi_config(c);
-    func_002d2740(ret, c, a2, *(f32*)(x + 208), *(f32*)(y + 212));
-    return ret;
-}
+void* func_002d6d10(void* ret, u32, u32 a2);  // 0x002d6d10: definition moved into src/anon/unit_002d62d0.cpp
 
 // 002dd448: add score (10/5/1 per rank) to the mission counter
 struct Score3 { s32 v[3]; };

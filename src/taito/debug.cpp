@@ -3,5 +3,5 @@
 namespace Ti {
 
 
-void Debug::set_param(s32 v) { (void)v; }
+// 0x002d9218: definition moved into src/anon/unit_002d6f70.cpp
 }  // namespace Ti

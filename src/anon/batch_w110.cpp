@@ -373,32 +373,7 @@ CamP* func_002d1878(void*);
 QV func_002d4f60(void*);
 QV func_002d2740(void*, void*, f32, f32);
 // Camera target: clamps the follow distance, refreshes the target vector and returns it scaled.
-QV func_002d6b30(CamIn* in, u8* o) {
-    void* w = D_00361f60;
-    QV r;
-    if (func_002d5cc8(o)) {
-        CamP* a = func_002d1878(w);
-        CamP* b = func_002d1878(w);
-        CamP* c = func_002d1878(w);
-        f32 d = a->f16 - b->f20 * in->f12;
-        if (d < c->f24) d = c->f24;
-        QV* v16 = (QV*)(o + 16);
-        *v16 = func_002d4f60(o);
-        *(f32*)(o + 28) = d;
-        r = *v16;
-        ScaleQIn(&r, r.w * D_00349e10);
-        in->f12 += D_00349e10;
-        *(QV*)(o + 32) = ScaleQ(*v16, *(f32*)(o + 28));
-    } else {
-        CamP* a = func_002d1878(w);
-        CamP* b = func_002d1878(w);
-        r = func_002d2740(w, o, a->f8, b->f12);
-        in->f12 = 0.0f;
-    }
-    r.z = 0.0f;
-    r.w = 1.0f;
-    return r;
-}
+QV func_002d6b30(CamIn* in, u8* o);  // 0x002d6b30: definition moved into src/anon/unit_002d62d0.cpp
 }
 
 struct Ent8 { u8 f0, f1, f2, f3; u16 f4, f6; };

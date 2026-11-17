@@ -35,24 +35,5 @@ void func_00106c08(void*);
 void wtarget_002d78a8(u32 a0, u32, u32, u32) asm("_Z16wtarget_002d78a8jjjj");
 /* 002d78a8: target matrix update. One variable c holds both call results (camera in the first branch,
    object in the second), which gives the original's saved-register order. */
-void wtarget_002d78a8(u32 a0, u32, u32, u32) {
-    WTgt* t = (WTgt*)a0;
-    WM* pm;
-    WCam* c;
-    if (t->bC9) {
-        pm = &t->mat;
-        c = func_00106a60(1);
-        WM m = *c;
-        *pm = m;
-        pm->invOrtho();
-    } else {
-        c = (WCam*)func_00106a18();
-        func_00106de8(c, 1, t->f64);
-        func_00106c08(c);
-        WM m = t->mat;
-        m.invOrtho();
-        func_00106a60(1)->WM::operator=(m);
-        t->bB4 = 1;
-    }
-}
+void wtarget_002d78a8(u32 a0, u32, u32, u32);  // 0x002d78a8: definition moved into src/anon/unit_002d6f70.cpp
 }

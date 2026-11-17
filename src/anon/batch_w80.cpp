@@ -687,15 +687,7 @@ void func_003259a0(u8* o) {
 // 0x1c81d0: moved to src/yasui/libys/summon.cpp
 
 
-s32 func_002d8a78(U23_Ai* a, U23_AiTgt* t) {
-    U23_W80Vec d = a->pos - *w80_pos_vec(t);
-    f32 dist = U23_w80_vlen(&d);
-    if (func_002d73f0(a)->range < dist) return 1;
-    if (func_002ceef8(a, t)) t->f2820 = 0;
-    else t->f2820 += D_00349e10;
-    if (60.0f < t->f2820) return 1;
-    return 0;
-}
+s32 func_002d8a78(U23_Ai* a, U23_AiTgt* t);  // 0x002d8a78: definition moved into src/anon/unit_002d6f70.cpp
 void func_002e1668(U23_W80Obj* o, void* p, const U23_W80Vec* ofs, U23_W80Vec* acc) {
     if (func_00197920(o)) return;
     if (!o->active) return;

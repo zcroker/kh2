@@ -22,36 +22,7 @@ struct MG_d7128 {
     u8 p2[24]; u32 fbc; u8 p3[12]; u32 fcc; u8 p4[256]; u8 f1d0; u8 f1d1; u8 f1d2; u8 p5[9]; u32 f1dc;
 };
 void u_tail4_002d7128(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z16u_tail4_002d7128jjjj");
-void u_tail4_002d7128(u32 a0, u32 a1, u32 a2, u32 a3) {
-    MG_d7128* p = (MG_d7128*)a0;
-    char buf[64];
-    func_002ce958(p, 1, a2, 2048);
-    p->f68 = a3;
-    p->f98 = a1;
-    p->vt = (u32)D_003625a8;
-    p->f64 = 1.04719746f;
-    f2e34b8(&p->fbc);
-    p->f1d0 = 0; p->f1d1 = 0; p->f1dc = 0; p->f9c = 0;
-    mg_make_data_path(p, buf, D_00375b68);
-    void* cb = cb_alloc(buf, -1);
-    p->f60 = cb;
-    func_00168b38(cb, 42, 0);  // entry_array_find_nth
-    p->fcc = func_00168b38(cb, 42, 0)->data + 16;
-    func_00168b38(cb, 42, 1);  // entry_array_find_nth
-    f2e34c0(&p->fbc, func_00168b38(cb, 42, 1)->data);  // entry_array_find_nth
-    func_00168b38(cb, 42, 2);  // entry_array_find_nth
-    p->f9c = func_00168b38(cb, 42, 2)->data;
-    func_00168b38(cb, 42, p->f98 + 3);  // entry_array_find_nth
-    p->f5c = func_00168b38(cb, 42, p->f98 + 3)->data;
-    p->f94 = func_002e34c8(&p->fbc);  // obj_get_field8_by_vtable
-    void* d = tz_load_data_alloc(12, area_get_allocator());
-    func_002e6fc0(d, p->f9c);
-    p->fa0 = d;
-    getFieldMode_();
-    func_002d7630(p);
-    p->f1d2 = 0;
-    func_002cedd0(3, D_00362570);
-}
+void u_tail4_002d7128(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002d7128: definition moved into src/anon/unit_002d6f70.cpp
 
 // --- 0028f4d8
 struct Lay { u8 p[40]; void* f28; };

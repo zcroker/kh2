@@ -413,16 +413,7 @@ struct Pt4 {
     Pt4(f32 a, f32 b, f32 c, f32 d) { x = a; y = b; z = c; w = d; }
 } __attribute__((aligned(16)));
 
-s32 func_002d89b0(u8* p, u8* a) {
-    s32* t = *(s32**)(a + 12);
-    if ((u32)(t[0] - 2034) < 2) return 1;
-    Pt4 q(((f32*)t)[1], ((f32*)t)[2], ((f32*)t)[3], 0.0f);
-    Vec4 d;
-    vsub(&d, p + 448, &q);
-    f32 dist = vlen(&d);
-    if (*(f32*)(func_002d73f0() + 20) < dist) return 0;
-    return func_002cee58(p, t);
-}
+s32 func_002d89b0(u8* p, u8* a);  // 0x002d89b0: definition moved into src/anon/unit_002d6f70.cpp
 
 extern void* D_00361f60;
 void* func_002d9210(void*);

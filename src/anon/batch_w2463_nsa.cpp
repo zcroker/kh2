@@ -212,55 +212,6 @@ Obj* func_001b9bc8(Obj*);
 QV* func_0016c028(Obj*);
 s32 func_0018a550(Hit*, Hit*);
 void func_002cf280(LFlag*, u32, u32);
-s32 func_002d8d68(void* self, Obj* obj, Mtx* m2, Mtx* m3)
-{
-    Quat qa;
-    quat_from_mtx(&qa, m3);
-    QV va = m3->r[3];
-    Quat qb;
-    quat_from_mtx(&qb, m2);
-    QV vb = m2->r[3];
-    Rgn* rg = func_0016bc20(obj, 2, -1);
-    if (!rg) return 0;
-    Mtx mats[5];
-    Hit x;
-    func_0018a818(&x, obj, rg);
-    for (s32 i = 1; i < 5; i++) {
-        f32 t = (f32)i / 5.0f;
-        mats[i] = quat_to_mtx(quat_slerp(qa, qb, t));
-        mats[i].r[3] = (vb - va) * t + va;
-        mats[i].r[3].w = 1.0f;
-    }
-    PV pts[5];
-    {
-        QV w((f32)rg->x, (f32)rg->y, (f32)rg->z, 1.0f);
-        for (s32 k = 1; k < 5; k++) pts[k] = mats[k] * w;
-    }
-    for (s32 k = 1; k < 5; k++) mats[k].InvOrtho();
-    s32 n = 0;
-    Obj* e = 0;
-    f32 range = 1000.0f;
-    while ((e = func_001b9bc8(e)) != 0) {
-        if (e->kind->kind != 21) continue;
-        if (lflag_check(&e->flag, 64)) continue;
-        QV d = *func_0016c028(e) - *func_0016c028(obj);
-        if (d.Length() > range) continue;
-        Rgn* h = func_0016bc20(e, 6, -1);
-        if (!h) continue;
-        Hit y;
-        y.c = 0;
-        func_0018a818(&y, e, h);
-        for (s32 j = 1; j < 5; j++) {
-            x.v = pts[j];
-            if (func_0018a550(&x, &y) && !(e->f7f8 & 4)) {
-                func_002cf280(&e->flag, 256, 0);
-                n++;
-                e->vt[8](e);
-                break;
-            }
-        }
-    }
-    return n;
-}
+s32 func_002d8d68(void* self, Obj* obj, Mtx* m2, Mtx* m3);  // 0x002d8d68: definition moved into src/anon/unit_002d6f70.cpp
 }
 }

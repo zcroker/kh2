@@ -42,34 +42,5 @@ W2d8150Mtx c2d8150(X2d8150*, f32*, const W2d8150Mtx&, f32) asm("_Z16ctarget_002d
 // between lo+30 and hi-30, shift along the matrix x axis by it, drop onto the
 // ground found by a ray test from y=-100 to y=+100, then take the rotation rows
 // from x and add the height offset h.
-W2d8150Mtx c2d8150(X2d8150* x, f32* y, const W2d8150Mtx& base, f32 h)
-{
-    W2d8150Mtx m(base);
-    if (x->off) {
-        *y = 0.0f;
-        return m;
-    }
-    if (x->hi - 30.0f < x->lo + 30.0f) {
-        *y = (x->hi + x->lo) * 0.5f;
-    } else {
-        if (*y < x->lo + 30.0f) *y = x->lo + 30.0f;
-        if (x->hi - 30.0f < *y) *y = x->hi - 30.0f;
-    }
-    W2d8150Vec hit;
-    W2d8150Vec p0, p1;
-    Seg2d8150 seg;
-    u16 id;
-    W2d8150Vec d = m * W2d8150Vec(*y, 0.0f, 0.0f, 0.0f);
-    m.AddTransXYZ(d);
-    p0 = m * W2d8150Vec(0.0f, -100.0f, 0.0f, 1.0f);
-    p1 = m * W2d8150Vec(0.0f, 100.0f, 0.0f, 1.0f);
-    seg.Set(p0, p1);
-    if (func_00143dd0(&seg, &hit, &id, 1, 15)) m.r3 = hit;
-    W2d8150Vec t = m * W2d8150Vec(0.0f, h, 0.0f, 0.0f);
-    m.r0 = x->r0;
-    m.r1 = x->r1;
-    m.r2 = x->r2;
-    m.r3 += t;
-    return m;
-}
+W2d8150Mtx c2d8150(X2d8150* x, f32* y, const W2d8150Mtx& base, f32 h);  // 0x002d8150: definition moved into src/anon/unit_002d6f70.cpp
 }

@@ -231,8 +231,8 @@ void func_002b4370(BD_VALUE* bd) { func_0023f5b8(bd->i); }
 void func_002bd570(BD_VALUE* bd);  // 0x002bd570: definition moved into src/anon/unit_002bc978.cpp
 void func_002bdb58(BD_VALUE* bd);  // 0x002bdb58: definition moved into src/anon/unit_002bc978.cpp
 void func_002d1f50(BD_VALUE* bd);  // 0x002d1f50: definition moved into src/anon/unit_002cf260.cpp
-void func_002d8cf0(BD_VALUE* bd) { func_002d84a8(bd[1].i); }
-void func_002d8d28(BD_VALUE* bd) { func_002d8670(bd[1].i); }
+void func_002d8cf0(BD_VALUE* bd);  // 0x002d8cf0: definition moved into src/anon/unit_002d6f70.cpp
+void func_002d8d28(BD_VALUE* bd);  // 0x002d8d28: definition moved into src/anon/unit_002d6f70.cpp
 void func_002dd198(BD_VALUE* bd) { func_002dcc90(bd[1].i); }
 void func_002dd1e8(BD_VALUE* bd) { func_002dc988(bd[1].i); }
 void func_002dd200(BD_VALUE* bd) { func_002dcf90(bd[1].i); }
@@ -1292,19 +1292,9 @@ u32 func_002d51f0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002d51f0: definition mo
 
 u32 func_002d5578(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002d5578: definition moved into src/anon/unit_002d4548.cpp
 
-u32 func_002d8110(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    return (u32)((s32)a0 + (272));
-}
+u32 func_002d8110(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002d8110: definition moved into src/anon/unit_002d6f70.cpp
 
-u32 func_002d8900(u32 a0, u32 a1, u32 a2, u32 a3) {  // obj_state_is_4
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    return ((*(u32*)((u32)a0 + (164)) ^ 0x0004u) == 0);
-}
+u32 func_002d8900(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002d8900: definition moved into src/anon/unit_002d6f70.cpp
 
 u32 func_002da110(u32 a0, u32 a1, u32 a2, u32 a3) {  // is_field340_eq14
     (void)a1;

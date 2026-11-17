@@ -224,16 +224,7 @@ void func_002cffe0(u8* p);  // 0x002cffe0: definition moved into src/anon/unit_0
 extern u32 D_003625a8;
 void func_002e70b0(void*);
 void func_002cea28(void*);
-void func_002d7338(u8* p) {
-    NoTail g;
-    *(void**)p = &D_003625a8;
-    void* c = *(void**)(p + 160);
-    if (c) {
-        func_002e70b0(c);
-        func_00106420(c);
-    }
-    func_002cea28(p);
-}
+void func_002d7338(u8* p);  // 0x002d7338: definition moved into src/anon/unit_002d6f70.cpp
 
 extern u32 D_003625e0;
 void func_002d0ea8(void*);

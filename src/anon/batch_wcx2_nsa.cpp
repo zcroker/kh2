@@ -424,44 +424,7 @@ void o2d9220_texanm_stop(Obj2d9220*, s32) asm("_ZN2YS3OBJ11texanm_stopEi");
 struct Names2d9220 { const char* n[2]; };
 // the {"00", "10"} initialiser table the compiler placed in .rodata
 extern const Names2d9220 D_00375cb0;
-void func_002d9220(O2d9220* o, s32 mode)
-{
-    o->f172 = 0;
-    o->started = 1;
-    void* pl = g2d9220_player;
-    Obj2d9220* a = o2d9220_0016b740(1630);
-    Obj2d9220* b = o2d9220_0016b740(1633);
-    Obj2d9220* c = func_0016f000(mode ? 2035 : 2034, V2d9220(0.0f, 0.0f, 0.0f, 0.0f), 0.0f);
-    o->attached = o2d9220_is_attach(a);
-    o2d9220_stop_voice(a);
-    if (o2d9220_is_attach(a)) o2d9220_detach(a);
-    if (o2d9220_is_attach(b)) o2d9220_detach(b);
-    o2d9220_0016b070(a, V2d9220(0.0f, 0.0f, 0.0f, 0.0f));
-    o2d9220_set_pos(a, V2d9220(0.0f, 0.0f, 0.0f, 0.0f));
-    o2d9220_0016b070(b, V2d9220(0.0f, 0.0f, 0.0f, 0.0f));
-    o2d9220_set_pos(b, V2d9220(0.0f, 0.0f, 0.0f, 0.0f));
-    o2d9220_0016b070(c, V2d9220(0.0f, 0.0f, 0.0f, 0.0f));
-    o2d9220_set_pos(c, V2d9220(0.0f, 0.0f, 0.0f, 0.0f));
-    Names2d9220 names = D_00375cb0;
-    switch (mode) {
-    case 0:
-        o2d9220_001987a8(a, names.n[0], 0);
-        func_00180378(a->motion, pl, 252, 0.0f);
-        func_0017f488(a->motion, 171, 0.0f, 0.0f);
-        func_0017f488(b->motion, 171, 0.0f, 0.0f);
-        func_0017f488(c->motion, 161, 0.0f, 0.0f);
-        o2d9220_texanm_stop(a, 12);
-        break;
-    case 1:
-        o2d9220_001987a8(a, names.n[1], 0);
-        func_00180378(a->motion, pl, 253, 0.0f);
-        func_0017f488(a->motion, 172, 0.0f, 0.0f);
-        func_0017f488(b->motion, 172, 0.0f, 0.0f);
-        func_0017f488(c->motion, 170, 0.0f, 0.0f);
-        o2d9220_texanm_stop(a, 12);
-        break;
-    }
-}
+void func_002d9220(O2d9220* o, s32 mode);  // 0x002d9220: definition moved into src/anon/unit_002d6f70.cpp
 }
 
 // --------------------
