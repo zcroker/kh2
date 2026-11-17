@@ -1,4 +1,4 @@
-// Linked unit 0x0025f6b8-0x00263210 (one namespace per old matched source; class methods in their own namespace).
+// Linked unit 0x0025f6b8-0x002632d0 (one namespace per old matched source; class methods in their own namespace).
 #include "../tozawa/cmenu_item.hpp"
 #include "../tozawa/cmenu_slbase.hpp"
 #include "../tozawa/cmenu_top.hpp"
@@ -2193,3 +2193,25 @@ void func_002631f8(BD_VALUE* bd) asm("_Z13func_002631f8P8BD_VALUE");
 void func_002631f8(BD_VALUE* bd) { func_00257be0(bd); }
 }  // namespace n002631f8
 
+
+// 00263210 (was gap): item name draw: printer set-up from the sequence position, then draw at it.
+namespace n00263210 {
+extern u32 D_0035f01c asm("D_0035f01c");
+s32 func_0028b160(u32, u8*) asm("func_0028b160");
+u32 func_00257130() asm("func_00257130");
+s32 func_00281f30(u32) asm("func_00281f30");
+void func_001a98e8(u8*, s32, s32, u32, s32) asm("func_001a98e8");
+s32 func_0023aa18(u8*) asm("func_0023aa18");
+s32 func_0023aa38(u8*) asm("func_0023aa38");
+u32 func_0023a918(u8*) asm("func_0023a918");
+void func_001a9ae8(u8*, s32, s32, u32) asm("func_001a9ae8");
+static inline u32 Get(u8* p, s32 off) { return *(u32*)(p + off); }
+void func_00263210(s32 x, s32 y, s32 a2, s32 a3, u8* o) asm("func_00263210");
+void func_00263210(s32 x, s32 y, s32 a2, s32 a3, u8* o) {
+    u8 buf[96];
+    s32 n = func_0028b160(D_0035f01c, o);
+    s32 w = func_00281f30(func_00257130()) + n * 80;
+    func_001a98e8(buf, 1, w, Get(o, 424), 1);
+    func_001a9ae8(buf, func_0023aa18(o + 24) + x, func_0023aa38(o + 24) + y, func_0023a918(o + 24));
+}
+}  // namespace n00263210

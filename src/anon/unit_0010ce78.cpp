@@ -1,4 +1,4 @@
-// Linked unit 0x0010cdd8-0x0010d468 (one namespace per old matched source; class methods in their own namespace).
+// Linked unit 0x0010cdd8-0x0010d900 (one namespace per old matched source; class methods in their own namespace).
 #include "../common/types.h"
 #include "../tozawa/cmenu_top.hpp"
 #include <stdarg.h>
@@ -292,3 +292,108 @@ void func_0010d2b8_impl(Act10d* self, void* unused, Tgt10d* out) {
 }
 }  // namespace n0010d2b8
 
+
+// 0010d468, 0010d570, 0010d730, 0010d8f8 (were gap): friend target picks (the commanded target, the nearest one in range
+// that is also near the leader, the farthest one from the leader within twice the range) and an empty method.
+namespace g0010d468 {
+struct QW { f32 x, y, z, w;
+    QW() {}
+    QW(const QW& o) { asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(this), "r"(&o) : "$8", "memory"); }
+} __attribute__((aligned(16)));
+struct Tgt { s32 a, b, c, d, e; };
+struct Hit { s32 p0; f32 r; s32 p8; s32 z; QW v; Hit() { z = 0; } };
+struct Act { u8 pad[0xb60]; s32 b60; };
+extern Tgt D_003417b0 asm("D_003417b0");
+extern Act* D_00341708 asm("D_00341708");
+f32 func_001142c0(s32) asm("func_001142c0");
+f32 func_00114380(s32) asm("func_00114380");
+void func_00190128(Tgt*) asm("func_00190128");
+QW* func_0016c028(Act*) asm("func_0016c028");
+void func_00112df0(s32, Tgt*, QW*, f32) asm("func_00112df0");
+s32 Tgt_is_exist(Tgt*) asm("_ZNK2YS6TARGET8is_existEv");
+s32 Tgt_can_attack(Tgt*) asm("_ZNK2YS6TARGET10can_attackEv");
+s32 func_00190730(Tgt*, s32) asm("func_00190730");
+s32 func_00112d90(Tgt*) asm("func_00112d90");
+void func_0018a818(Hit*, s32, s32) asm("func_0018a818");
+void func_0010da40(Act*, s32, Tgt*) asm("func_0010da40");
+static inline f32 dist(QW* a, QW* b, QW* d) {
+    f32 len;
+    asm volatile("lqc2 $vf1, 0(%0)\n\tlqc2 $vf2, 0(%1)\n\tvsub.wxyz $vf1, $vf1, $vf2\n\tsqc2 $vf1, 0(%2)" : : "r"(a), "r"(b), "r"(d) : "memory");
+    asm volatile("lqc2 $vf1, 0(%1)\n\tvmul.xyz $vf1, $vf1, $vf1\n\tvaddy.x $vf1, $vf1, $vf1y\n\tvaddz.x $vf1, $vf1, $vf1z\n\tvsqrt Q, $vf1x\n\tvwaitq\n\tcfc2.ni $8, $vi22\n\tmtc1 $8, %0" : "=f"(len) : "r"(d) : "$8", "memory");
+    return len;
+}
+static inline u8 valid(Tgt* t) {
+    u8 r = 0;
+    if (Tgt_is_exist(t)) r = t->a != 0;
+    return r;
+}
+void func_0010d468(Act* self, s32 a1, Tgt* out) asm("func_0010d468");
+void func_0010d468(Act* self, s32 a1, Tgt* out) {
+    Tgt it;
+    func_00190128(&it);
+    func_00190128(&it);
+    func_0010da40(self, a1, &it);
+    if (valid(&it) && Tgt_can_attack(&it)) {
+        *out = it;
+        return;
+    }
+    if (func_00112d90(&D_003417b0)) {
+        QW pos(*func_0016c028(self));
+        s32 id = D_003417b0.a;
+        f32 r = func_001142c0(self->b60);
+        func_00112df0(id, out, &pos, r);
+    }
+}
+void func_0010d570(Act* self, s32, Tgt* out) asm("func_0010d570");
+void func_0010d570(Act* self, s32, Tgt* out) {
+    Hit hit;
+    Tgt it;
+    QW d1, d2;
+    f32 lim = func_00114380(self->b60);
+    f32 best = func_001142c0(self->b60);
+    s32 k = 0;
+    func_00190128(&it);
+    while ((k = func_00190730(&it, k)) != 0) {
+        if (!func_00112d90(&it)) continue;
+        if (!Tgt_can_attack(&it)) continue;
+        func_0018a818(&hit, it.a, k);
+        f32 len = dist(&hit.v, func_0016c028(self), &d1) - hit.r;
+        if (!(len < best)) continue;
+        f32 len2 = dist(&hit.v, func_0016c028(D_00341708), &d2) - hit.r;
+        if (!(len2 < lim)) continue;
+        // Same code in both arms (a permuter find): the dead test keeps gcc from splitting self's live range for the loop.
+        if (self->b60) {
+            best = len;
+            *out = it;
+        } else {
+            best = len;
+            *out = it;
+        }
+    }
+}
+void func_0010d730(Act* self, s32, Tgt* out) asm("func_0010d730");
+void func_0010d730(Act* self, s32, Tgt* out) {
+    Hit hit;
+    Tgt it;
+    QW d1, d2;
+    f32 best = -1.0f;
+    f32 range = func_001142c0(self->b60);
+    range = range + range;
+    s32 k = 0;
+    func_00190128(&it);
+    while ((k = func_00190730(&it, k)) != 0) {
+        if (!func_00112d90(&it)) continue;
+        if (!Tgt_can_attack(&it)) continue;
+        func_0018a818(&hit, it.a, k);
+        f32 len = dist(&hit.v, func_0016c028(self), &d1) - hit.r;
+        if (!(len < range)) continue;
+        f32 len2 = dist(&hit.v, func_0016c028(D_00341708), &d2) - hit.r;
+        if (best < 0.0f || best < len2) {
+            best = len2;
+            *out = it;
+        }
+    }
+}
+void func_0010d8f8(void) asm("func_0010d8f8");
+void func_0010d8f8(void) {}
+}  // namespace g0010d468

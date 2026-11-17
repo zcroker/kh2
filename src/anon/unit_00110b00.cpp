@@ -1,4 +1,4 @@
-// Linked unit 0x001109c8-0x00111520 (one namespace per old matched source; class methods in their own namespace).
+// Linked unit 0x001109c8-0x001117d8 (one namespace per old matched source; class methods in their own namespace).
 #include "../common/types.h"
 #include "../tozawa/cmenu_top.hpp"
 #include <stdarg.h>
@@ -466,3 +466,105 @@ void func_001112a8(Fr1112a8* o)
 }
 }  // namespace n001112a8
 
+
+// 00111520 (was gap): friend per-frame update (old position/velocity, timers, state handler, move command).
+namespace n00111520 {
+struct QW {
+    f32 x, y, z, w;
+    QW() {}
+    QW& operator=(const QW& o) {
+        if (this != &o) asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(this), "r"(&o) : "$8", "memory");
+        return *this;
+    }
+    void Zero() { asm volatile("vsub.wxyz $vf1, $vf0, $vf0\n\tsqc2 $vf1, 0(%0)" : : "r"(this) : "memory"); }
+    QW operator*(f32 k) const {
+        QW r;
+        asm volatile(".set noreorder\n\tlqc2 $vf1, 0(%1)\n\tmfc1 $8, %2\n\tqmtc2 $8, $vf2\n\tvmulx.wxyz $vf1, $vf1, $vf2x\n\tsqc2 $vf1, 0(%0)\n\t.set reorder" : : "r"(&r), "r"(this), "f"(k) : "$8", "memory");
+        return r;
+    }
+} __attribute__((aligned(16)));
+struct Fr;
+typedef void (Fr::*Pmf)();
+typedef void (*VFn)(Fr*);
+struct Fr {
+    VFn* vt;            // 0x000
+    u8 pad004[0x10 - 0x4];
+    QW dir;             // 0x010 (w = speed)
+    QW vel;             // 0x020
+    u8 pad030[0x160 - 0x30];
+    u32 f160;           // 0x160
+    u8 pad164[0x300 - 0x164];
+    u8 sub300[0xaec - 0x300]; // 0x300
+    s32 faec;           // 0xaec
+    u8 padaf0[0xb64 - 0xaf0];
+    Pmf pmf;            // 0xb64
+    u8 padb6c[0xb7c - 0xb6c];
+    u32 flags;          // 0xb7c
+    u8 padb80[0xc00 - 0xb80];
+    QW pos;             // 0xc00
+    QW oldPos;          // 0xc10
+    QW oldVel;          // 0xc20
+    u8 cmd[0x20];       // 0xc30
+    u8 padc50[0xcd4 - 0xc50];
+    f32 tmr0;           // 0xcd4
+    u8 padcd8[0xcdc - 0xcd8];
+    f32 tmr1;           // 0xcdc
+};
+extern void* D_00341708 asm("D_00341708");
+extern u8 D_00341700 asm("D_00341700");
+extern f32 D_00349e10 asm("D_00349e10");
+void func_0017bf40(u8*) asm("func_0017bf40");
+void func_00187f90(u8*) asm("func_00187f90");
+void func_0010eed8(Fr*, s32, s32) asm("func_0010eed8");
+s32 func_001774e0(Fr*) asm("func_001774e0");
+s32 func_001917c0(void) asm("func_001917c0");
+void func_0010eee8(Fr*) asm("func_0010eee8");
+void func_0016a950(Fr*) asm("func_0016a950");
+void func_00175c88(Fr*, u8*) asm("func_00175c88");
+void func_0010c940(Fr*, f32, u32) asm("func_0010c940");
+void func_001110e8(Fr*) asm("func_001110e8");
+static inline bool AnyMoveFlag(u32 f) { u32 g = f, h = f; return (f & 4) || (g & 8) || (h & 0x10); }
+void func_00111520(Fr* o) asm("func_00111520");
+void func_00111520(Fr* o) {
+    if (!(o->flags & 0x20000000)) {
+        o->vt[37](o);
+        o->flags |= 0x20000000;
+    }
+    if (!D_00341708) return;
+    o->oldPos = o->pos;
+    o->pos.Zero();
+    o->oldVel = o->vel;
+    func_0017bf40(o->cmd);
+    u32 fl = o->flags;
+    o->flags = fl & ~0x80;
+    if (o->faec && !(fl & 0x2000)) {
+        func_00187f90(o->sub300);
+        func_0010eed8(o, 0, 0);
+        o->flags |= 0x2000;
+    }
+    if (!func_001774e0(o)) {
+        o->flags &= ~0x2000;
+        f32 dt = D_00349e10;
+        if (0.0f < o->tmr1) o->tmr1 -= dt;
+        if (0.0f < o->tmr0) o->tmr0 -= dt;
+        if (!func_001917c0() && D_00341700) func_0010eee8(o);
+        if (o->pmf) (o->*(o->pmf))();
+        func_0016a950(o);
+        u32 f = o->f160;
+        u8 b = AnyMoveFlag(f);
+        if (b || (f & 0x40000000)) {
+            u16 m = *(u16*)o->cmd;
+            if (m != 0) {
+                o->dir.w = 0;
+                if (m == 2) *(u16*)o->cmd = 0;
+                func_00175c88(o, o->cmd);
+            } else {
+                if (*(u64*)o->cmd & (1ULL << 33)) func_0010c940(o, *(f32*)(o->cmd + 0x1c), *(u32*)(o->cmd + 0x20));
+                else func_001110e8(o);
+            }
+        }
+        if (o->flags & 0x4000) o->vel = o->dir * o->dir.w;
+    }
+    o->flags &= ~0x10000000;
+}
+}  // namespace n00111520
