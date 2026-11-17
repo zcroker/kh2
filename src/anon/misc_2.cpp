@@ -60,9 +60,9 @@ void func_00297008(void* self);  // 0x00297008: definition moved into src/anon/u
 
 void func_00297df8(void* self);  // 0x00297df8: definition moved into src/anon/unit_00295d28.cpp
 
-void func_002995a0(void* self) {}
+void func_002995a0(void* self);  // 0x002995a0: definition moved into src/anon/unit_002982f0.cpp
 
-void func_0029ee30(void* self) {}
+void func_0029ee30(void* self);  // 0x0029ee30: definition moved into src/anon/unit_0029d008.cpp
 
 void func_002a2148(void* self) {}
 

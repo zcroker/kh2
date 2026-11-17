@@ -17,18 +17,7 @@ extern u8 D_00350c50;
 
 s32 func_00287bc0(void);
 void func_00276c50(s32, s32);
-void func_0029ea30(void) {
-    s32 v;
-    switch (func_00287bc0()) {
-    case 14: v = 0x48ee; break;
-    case 15: v = 0x48ef; break;
-    case 18: v = 0x48f0; break;
-    default: v = 0x48f3; break;
-    case 21: v = 0x48f1; break;
-    case 16: case 19: case 22: v = 0x48f2; break;
-    }
-    func_00276c50(v, 0);
-}
+void func_0029ea30(void);  // 0x0029ea30: definition moved into src/anon/unit_0029d008.cpp
 
 u32 func_001024a8(...);
 struct W1521Pos { s32 x, y; W1521Pos(s32 a, s32 b) : x(a), y(b) {} };

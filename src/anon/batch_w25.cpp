@@ -203,13 +203,7 @@ extern u32 D_0035f59c;
 s32 func_0023f900(u32);
 void func_0023fad0(u32);
 void func_00293d80(u32);
-void LayFileReset(void) {
-    if (D_0035f5a2) {
-        if (func_0023f900(D_0035f59c)) func_0023fad0(D_0035f59c);
-    }
-    func_00293d80(5101);
-    D_0035f5a2 = 0;
-}
+void LayFileReset(void);  // 0x00298f90: definition moved into src/anon/unit_002982f0.cpp
 
 extern u32 D_003616f8[];
 void func_002b6adc(u32, u32);

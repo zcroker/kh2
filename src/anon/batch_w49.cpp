@@ -153,13 +153,7 @@ u32 func_00293de8(s32);
 void func_00293cb8(char*, s32, u32);
 char* func_002ff918(char*, const char*);
 void func_002931a8(char*);
-void func_0029dd00(void) {
-    char buf[128];
-    func_00293cb8(buf, 4, func_00293de8(D_0035f5ac[4]));
-    char* r = func_002ff918(buf, D_0035f5c8);
-    if (r) func_002ff2e8(r, D_0035f5cc);
-    func_002931a8(buf);
-}
+void func_0029dd00(void);  // 0x0029dd00: definition moved into src/anon/unit_0029d008.cpp
 
 extern s8* D_0035f5ec;
 u32 func_002a6368(s32);

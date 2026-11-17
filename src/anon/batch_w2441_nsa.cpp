@@ -18,7 +18,5 @@ s32 func_00276c18();
 extern W1595List* D_0035f5ac;
 void func_002ac678(s32 idx);  // 0x002ac678: definition moved into src/anon/unit_002a99c8.cpp
 
-void func_0029ca50(void) { s32 i = 0; s32 n = 0; W1595Hdr* h = (W1595Hdr*)func_00294000(3); s8 k = D_0035f5ac->kind; W1595Ent* base = h->e;
- for (; i < h->count; i++) { W1595Ent* e = &base[i]; if (e->kind != k) continue; if (!func_002943b0(e) && !func_00276c18()) continue; D_0035f5ac->list[n++] = i; }
- D_0035f5ac->n = n; }
+void func_0029ca50(void);  // 0x0029ca50: definition moved into src/anon/unit_0029ba88.cpp
 }

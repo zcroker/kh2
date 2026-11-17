@@ -337,16 +337,7 @@ s32 Select_isCreated(u8* s);  // 0x0028acc8: definition moved into src/anon/unit
 
 extern "C" {
 
-void func_0029aa30(void) {
-    NoTail keep_frame; // forces jal instead of a sibling call
-    s32 m = func_00287bc0();
-    if ((u32)(m - 14) < 2 || m == 18 || m == 21 || m == 16 || m == 19 || m == 22 || m == 17 || m == 20 || m == 23) {
-        func_0029df98();
-        func_0029e050();
-        func_0029e258(0);
-        func_0029e258(1);
-    }
-}
+void func_0029aa30(void);  // 0x0029aa30: definition moved into src/anon/unit_00299920.cpp
 
 // Tests flag n, or whether any of the 96 flags is set when n is negative.
 s32 func_002ab100(s32 n);  // 0x002ab100: definition moved into src/anon/unit_002a99c8.cpp

@@ -48,40 +48,6 @@ s32 func_00192048(s16 id);
 void func_001a98e8(void *t, s32 a, s32 b, s32 c, s32 d);
 void func_001aa6d0(void *t, s32 w);
 void func_001a9ae8(void *t, s32 x, s32 y, s32 z);
-void func_0029dba0(s32 x, s32 y, s32 z)
-{
-  u8 buf[96];
-  s32 lo = 15;
-  u8 *ent;
-  s32 sc;
-  s32 *new_var;
-  s32 a;
-  s32 b;
-  ent = func_002766d0() + 24;
-  sc = func_0028b040(D_0035f200);
-  func_0014b950(D_0035f224 + 32, x, y, 512 - x, D_0035f5b0->col * 7);
-  func_0014b9a8(D_0035f224 + 32);
-  a = func_0023aa58(ent);
-  b = func_0023aa78(ent);
-  if (a)
-  {
-    lo = a;
-  }
-  sc *= b;
-  {
-    Rc29dba0 *r = func_001aae68(3);
-    b -= lo;
-    y -= sc;
-    b -= r->w;
-  }
-  if (b < 0)
-  {
-    b = 0;
-  }
-  func_001a98e8(buf, 3, func_00192048(D_0035f5b0->id), lo, 0);
-  func_001aa6d0(buf, b);
-  func_001a9ae8(buf, x, *(new_var = &y), z);
-  func_0014b9a8(D_0035f224);
-}
+void func_0029dba0(s32 x, s32 y, s32 z);  // 0x0029dba0: definition moved into src/anon/unit_0029d008.cpp
 
 }

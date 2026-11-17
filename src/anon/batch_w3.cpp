@@ -167,7 +167,7 @@ void func_00281e70(u32 a);  // 0x00281e70: definition moved into src/anon/unit_0
 
 u32 func_002766d0();
 void func_0028dac8(u32, u32);
-void func_0029e050() { func_0028dac8(func_002766d0() + 18528, 6); }
+void func_0029e050();  // 0x0029e050: definition moved into src/anon/unit_0029d008.cpp
 
 u8* func_002b23e0();  // list_entry_by_index_checked
 void func_002ac678(u8);

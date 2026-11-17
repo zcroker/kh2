@@ -2493,18 +2493,7 @@ extern "C" u32 func_00274ac8(...) asm("_ZN2Tz6Jiminy13JmCommonLeaveEv");
 extern "C" u32 func_00287bc0(...);
 extern "C" u32 func_0029a310(...);
 
-u32 func_002995a8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r2, r15;
-    r2 = ((u32(*)())func_00287bc0)();
-    r15 = (u32)((s32)0u + (13));
-    if (r2 == r15) {
-        r2 = ((u32(*)())func_0029a310)();
-        r2 = ((u32(*)())func_00274ac8)();
-        r15 = (u32)(0x0036u << 16);
-        *(volatile u8*)((u32)r15 + (s32)(-2647)) = (u8)0u;
-    }
-    return r2;
-}
+u32 func_002995a8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);  // 0x002995a8: definition moved into src/anon/unit_002982f0.cpp
 
 
 
@@ -8238,11 +8227,7 @@ extern "C" void func_00296ed0() asm("_ZN2Tz8JmReport10DrawUpdateEPNS_6SelectEii"
 
 extern "C" u32 func_0029a740() asm("_ZN2Tz12JmCollection10DrawUpdateEPNS_6SelectEii");
 
-void func_0029a718(void) {
-    if (func_00289310() != 0u) {
-        func_0029a740();
-    }
-}
+void func_0029a718(void);  // 0x0029a718: definition moved into src/anon/unit_00299920.cpp
 
 f32 duplicate_unplaced_001070a8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
     return *(volatile f32*)((u32)a0 + (s32)(108));
@@ -12568,20 +12553,9 @@ void func_0029dd60() {
     func_00292b40(&tmp, 1);
 }
 
-u32 func_0029e0f8() {
-    u32 s1 = 0;
-    u32 s0 = func_002766d0() + 18528;
-    if (func_00139d78((void*)s0) != 0) {
-        s1 = (*(u32*)(s0 + 388) == 5);
-    }
-    return s1;
-}
+u32 func_0029e0f8();  // 0x0029e0f8: definition moved into src/anon/unit_0029d008.cpp
 
-void func_0029ee38() {
-    if ((u32)(func_00287bc0() - 24u) < 2u) {
-        func_00274ac8();
-    }
-}
+void func_0029ee38();  // 0x0029ee38: definition moved into src/anon/unit_0029d008.cpp
 
 u32 duplicate_unplaced_002a01c8(u32 a0) {
     u32 s0 = a0;

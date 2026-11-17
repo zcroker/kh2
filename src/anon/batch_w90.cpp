@@ -328,21 +328,7 @@ extern u8* D_0035f3d4;
 extern u32 D_0035f148;
 extern u32 D_0035f14c;
 extern u32 D_0035f210;
-void func_0029e170(s32 a0)
-{
-    u8* w = func_002766d0();
-    s32 n = a0 + 1;
-    u8* o = w + n * 408 + 17304;
-    u8* h = D_0035f3d4 + 4;
-    if (!func_00139d78(o)) {
-        func_0028d8c0(o, h, D_0035f14c, D_0035f148, D_0035f210, 7, 8, 0);
-        func_0028dcc0(o, w);
-    }
-    s32 xy[2];
-    func_00138cb8(w, &xy[0], &xy[1]);
-    if (!a0) func_00138c68(o, 340 - xy[0], 208 - xy[1]);
-    else func_00138c68(o, 256 - xy[0], 208 - xy[1]);
-}
+void func_0029e170(s32 a0);  // 0x0029e170: definition moved into src/anon/unit_0029d008.cpp
 
 // 002aa148 / 002aa378 / 002ab368: test unlock bits against the "available" mask.
 struct Flags { u8 pad[136]; u32 a136[41]; u32 a300[4]; u32 a316[8]; };

@@ -391,19 +391,7 @@ u32 func_00292f18(void);  // 0x00292f18: definition moved into src/anon/unit_002
 // Returns early as soon as any of the menu's sprites is still alive.
 extern u8* D_0035f5b0;
 struct NoTail91 { ~NoTail91() {} };
-void func_0029ad40(void) {
-    NoTail91 nt;
-    if (u_call4_00139d78(D_0035f5b0)) return;
-    if (u_call4_00139d78(D_0035f5b0 + 436)) return;
-    if (u_call4_00139d78(D_0035f5b0 + 872)) return;
-    if (u_call4_00139d78(D_0035f5b0 + 1308)) return;
-    for (s32 i = 0; i < 5; i++) {
-        if (u_call4_00139d78(D_0035f5b0 + i * 436 + 1744)) return;
-        if (u_call4_00139d78(D_0035f5b0 + i * 436 + 3924)) return;
-    }
-    if (u_call4_00139d78(D_0035f5b0 + 6104)) return;
-    u_call4_00139d78(D_0035f5b0 + 6512);
-}
+void func_0029ad40(void);  // 0x0029ad40: definition moved into src/anon/unit_00299920.cpp
 
 // --- 002a17e8
 // Shows the help text for the highlighted entry (or clears it when nothing is selected).

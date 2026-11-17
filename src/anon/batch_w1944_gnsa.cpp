@@ -38,29 +38,7 @@ s32 func_00293148(s32);
 s8* func_0029da68(s32);
 void func_0029dda8();
 static inline __attribute__((always_inline)) void w1944_set8(u8* p, s32 v) { *p = v; }
-void func_0029de18(void) {
-    u8* w = func_002766d0();
-    func_0029dda8();
-    u8* obj = w + 0x4398;
-    s32 kind = func_0029da68(D_0035f5ac[func_00276638(0xF) + 4])[1];
-    if (func_00292a90(kind) == 0) return;
-    if (func_00139d78(obj) != 0) return;
-    u8* s3 = w + 0x18;
-    s32 s1 = D_0035f3d4 + 2;
-    s32 s2 = func_0023c4b8(func_0023f1b0(D_0035f210), 0);
-    u8* e = w + 0xDCA0;
-    func_002362b0(e, func_00293148(kind));
-    w1944_set8(e + 0x190, 1);
-    func_001386e0(obj, s1, s2, e, 1, 0);
-    *(s32*)(obj + 0x188) = 2;
-    func_00139620(obj);
-    W1944S43* f = (W1944S43*)(w + 0x43B0);
-    f->fl |= 8;
-    obj[0x195] = 1;
-    func_0028dcc0(obj, w);
-    s32 a = func_0023aa18(s3);
-    func_00138c68(obj, a, func_0023aa38(s3));
-}
+void func_0029de18(void);  // 0x0029de18: definition moved into src/anon/unit_0029d008.cpp
 }
 
 // 001cb720: VU0 vector macros (lqc2/vmulx/vadd) and an lq/sq copy as asm.

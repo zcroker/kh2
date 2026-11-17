@@ -239,34 +239,7 @@ static inline s32 usable12(s32 i) { return func_00294348(func_002983d8(D_0035f59
 extern "C" {
 void func_00298c60(s32 dir);
 }
-void func_00298c60(s32 dir) {
-    s32 cur = D_0035f5a0;
-    s32 i;
-    if (dir == -10) {
-        for (i = cur + 1; i < D_0035f598->count; i++) {
-            if (usable12(i)) break;
-        }
-        if (i >= 8) {
-            for (i = 0; i < cur; i++) {
-                if (usable12(i)) break;
-            }
-        }
-        cur = i;
-        if (i >= D_0035f598->count) cur = 0;
-    } else {
-        for (i = cur - 1; i >= 0; i--) {
-            if (usable12(i)) break;
-        }
-        if (i < 0) {
-            for (i = D_0035f598->count - 1; cur < i; i--) {
-                if (usable12(i)) break;
-            }
-        }
-        cur = i >= 0 ? i : D_0035f598->count - 1;
-    }
-    D_0035f5a0 = cur;
-    func_00299290();
-}
+void func_00298c60(s32 dir);  // 0x00298c60: definition moved into src/anon/unit_002982f0.cpp
 
 // ---- 00273368
 extern "C" {

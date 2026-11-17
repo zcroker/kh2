@@ -341,20 +341,7 @@ void func_00287bd0(s32, s32);
 void func_0029dd00(void);
 void func_002765e8(s32, s32, s32);
 void func_0029be08(void);
-void func_0029c880(s8* p, s32 k) {
-    D_0035f5c4 = k;
-    D_0035f5ac.p[5] = p[0];
-    u8* o = D_0035f5ac.p;
-    o[4] = k == 6 ? *func_00276568() : 16;
-    for (s32 i = 0; i < p[0]; i++) ((u16*)(D_0035f5ac.p + 8))[i] = *(u16*)(p + 80 + i * 8);
-    func_00287bd0(16, 0);
-    func_0029dd00();
-    s32 a = p[1];
-    s32 b = 0;
-    if (a >= 10) { b = a - 9; a = 9; }
-    func_002765e8(15, a, b);
-    func_0029be08();
-}
+void func_0029c880(s8* p, s32 k);  // 0x0029c880: definition moved into src/anon/unit_0029ba88.cpp
 
 // ---- 0x2b3df8: allocates one object, an array of three, and one more ----
 typedef void* (*AllocFn)(void*, s32, s32);

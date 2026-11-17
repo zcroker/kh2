@@ -28,9 +28,7 @@ void Tz_SubMenu_Start(s32 a) {
     func_00243020(func_00243190(a));
 }
 
-void func_00298e20(u32 a0, s32 a1) {
-    if (a1 == 4) func_00299290();
-}
+void func_00298e20(u32 a0, s32 a1);  // 0x00298e20: definition moved into src/anon/unit_002982f0.cpp
 
 void func_0025ee58(void);  // 0x0025ee58: definition moved into src/anon/unit_0025da20.cpp
 

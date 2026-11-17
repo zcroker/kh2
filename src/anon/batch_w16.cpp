@@ -232,11 +232,7 @@ void func_0025dba8(void);  // 0x0025dba8: definition moved into src/anon/unit_00
 
 void func_00290870(void* p);  // 00290870: moved to src/anon/unit_0028f1e0.cpp
 
-void func_0029e258(s32 i) {
-    u8* b = func_002766d0(i);
-    i++;
-    func_0028dac8(b + i * 408 + 17304, 9);
-}
+void func_0029e258(s32 i);  // 0x0029e258: definition moved into src/anon/unit_0029d008.cpp
 
 u8 func_002c22b8(u32 a);  // 0x002c22b8: definition moved into src/anon/unit_002c2228.cpp
 

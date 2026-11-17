@@ -217,15 +217,7 @@ void func_002908a8(u8* p);  // 002908a8: moved to src/anon/unit_0028f1e0.cpp
 
 u8* func_002924d0(u8* p, u32 a);  // 002924d0: moved to src/anon/unit_00290f78.cpp
 
-void func_00299550(void) {
-    D_0035f5a8 = 0;
-    D_0035f5a9 = 0;
-    if (D_0035f5a4) {
-        u8* o = D_0035f5a4;
-        (*(void (**)(void*))(*(u8**)o + 4))(o);
-        D_0035f5a4 = 0;
-    }
-}
+void func_00299550(void);  // 0x00299550: definition moved into src/anon/unit_002982f0.cpp
 
 // Set bit n in a bitset at +0x94 (stores only when it changes).
 void func_002aae30(u32 n);  // 0x002aae30: definition moved into src/anon/unit_002a99c8.cpp

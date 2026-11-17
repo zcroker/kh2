@@ -210,9 +210,7 @@ void* CMData_GetPtr(s32);  // 0x002806c8: definition moved into src/anon/unit_00
 
 void func_0028b218(u8* p, u8 on);  // 0x0028b218: definition moved into src/anon/unit_00288b00.cpp
 
-void func_00299260(void) {
-    func_00276c50(func_00287bc0() == 4 ? 18648 : 18649, 0);
-}
+void func_00299260(void);  // 0x00299260: definition moved into src/anon/unit_002982f0.cpp
 
 bool func_002a8920(void) {
     return *func_001d56c8() >= 2;

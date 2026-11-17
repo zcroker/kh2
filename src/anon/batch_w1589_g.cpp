@@ -32,15 +32,7 @@ void func_00242740(s32 a)
 
 void func_002957b8(void);  // 0x002957b8: definition moved into src/anon/unit_00292e60.cpp
 
-void func_002994f8(void)
-{
-    void* o;
-    D_0035f5a8 = 0;
-    D_0035f5a9 = 0;
-    o = func_001063c0(28, func_00103570());
-    func_0023f800(o);
-    D_0035f5a4 = o;
-}
+void func_002994f8(void);  // 0x002994f8: definition moved into src/anon/unit_002982f0.cpp
 
 void func_0026ba48(void);  // 0x0026ba48: definition moved into src/anon/unit_0026a900.cpp
 

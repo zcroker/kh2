@@ -12346,17 +12346,7 @@ u32 duplicate_unplaced_00296fa0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, 
     return r2;
 }
 
-u32 func_002983d8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r2, r15, r16;
-    r16 = r4;
-    r4 = (u32)((s32)0u + (2));
-    r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_00294000)(r4, r5, r6, r7, r8, r9, r10, r11);
-    r15 = (u32)((s32)0u + (12));
-    r16 = (u32)(r16 * r15);
-    r2 = (u32)((s32)r2 + (16));
-    r2 = (u32)(r2 + r16);
-    return r2;
-}
+u32 func_002983d8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);  // 0x002983d8: definition moved into src/anon/unit_002982f0.cpp
 
 u32 duplicate_unplaced_00299238(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r2;
@@ -12377,17 +12367,7 @@ u32 duplicate_unplaced_00299260(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, 
     return ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_00276c50)(r4, r5, r6, r7, r8, r9, r10, r11);
 }
 
-u32 func_0029da68(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r2, r15, r16;
-    r16 = r4;
-    r4 = (u32)((s32)0u + (3));
-    r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_00294000)(r4, r5, r6, r7, r8, r9, r10, r11);
-    r15 = (u32)((s32)0u + (36));
-    r16 = (u32)(r16 * r15);
-    r2 = (u32)((s32)r2 + (16));
-    r2 = (u32)(r2 + r16);
-    return r2;
-}
+u32 func_0029da68(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);  // 0x0029da68: definition moved into src/anon/unit_0029d008.cpp
 
 u32 duplicate_unplaced_0029df98(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r2;

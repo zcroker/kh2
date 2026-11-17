@@ -175,6 +175,12 @@ src/anon/unit_00292998.cpp	00292998	00292e60	-	-G0
 src/anon/unit_00292e60.cpp	00292e60	002958b0	.rodata@00374690	-G0 -g -fno-strict-aliasing -fmove-all-movables
 src/anon/unit_00295d28.cpp	00295d28	002978f0	.rodata@003746cc	-G0 -g -fno-strict-aliasing
 src/anon/unit_00297b30.cpp	00297b30	00297e68	-	-G0 -g -fno-strict-aliasing
+src/anon/unit_002982f0.cpp	002982f0	00299920	.rodata@00374790	-G0 -g -fno-strict-aliasing -fmove-all-movables
+src/anon/unit_00299920.cpp	00299920	0029af20	.rodata@003747c8	-G0 -g -fno-strict-aliasing
+src/anon/unit_0029b378.cpp	0029b378	0029b698	-	-G0 -g -fno-strict-aliasing
+src/anon/unit_0029ba88.cpp	0029ba88	0029cdf8	.rodata@00374964	-G0 -g -fno-strict-aliasing
+src/anon/unit_0029cdf8.c	0029cdf8	0029d008	-	-G0 -fmove-all-movables
+src/anon/unit_0029d008.cpp	0029d008	0029ee68	.rodata@00374a00	-G0 -g -fno-strict-aliasing
 src/anon/unit_002200c0.c	002200c0	00221348	.rodata@00370b80	-G0 -fno-strict-aliasing
 src/rikeda/saveram_gumibattle.cpp	001e0808	001e0c98	.data@00352b88,.bss@01d9e350,.rodata@0036e860	-G0
 src/anon/unit_001e0cb8.cpp	001e0cb8	001e8558	.rodata@0036e8b8	-G0 -g -fno-strict-aliasing

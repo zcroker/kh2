@@ -128,9 +128,7 @@ void func_0026c450(void);  // 0x0026c450: definition moved into src/anon/unit_00
 
 u8* func_002766d0(void);
 void func_0028da70(u8*, u32);
-void func_0029e148(void) {
-    func_0028da70(func_002766d0() + 18528, 5);
-}
+void func_0029e148(void);  // 0x0029e148: definition moved into src/anon/unit_0029d008.cpp
 
 struct S2dd { u8 pad[0x12]; u16 flags; };
 u32 func_002ddbb8(u8* p) {  // get_bit0_of_field2808

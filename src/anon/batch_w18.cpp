@@ -182,11 +182,7 @@ void func_00293fc0(void);  // 0x00293fc0: definition moved into src/anon/unit_00
 
 u8* func_002766d0(void);
 void func_0028da70(void*, u32);
-void func_0029e3a0(s32 i) {
-    u8* v = func_002766d0();
-    i++;
-    func_0028da70((u8*)v + i * 408 + 17304, 8);
-}
+void func_0029e3a0(s32 i);  // 0x0029e3a0: definition moved into src/anon/unit_0029d008.cpp
 
 u8* func_00294000(u32);
 u8* func_002a01c8(s32 i) {  // obj4_entry_by_index

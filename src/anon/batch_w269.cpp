@@ -169,54 +169,7 @@ void func_0031abd8(u8*);
 void func_0031acc0(u8*);
 void func_00239870(u8*);
 void func_0031a840(u8*);
-void func_0029a8e0(void) {
-    if (D_0035f5ac) {
-        func_00106420(D_0035f5ac);
-        D_0035f5ac = 0;
-    }
-    u8* o = D_0035f5b0;
-    if (o) {
-        u8* p;
-        func_0031abd8(o + 6512);
-        p = o + 6104;
-        func_0031abd8(p);
-        if (o + 3924 != 0) {
-            u8* e1 = o + 3924;
-        top1:
-            if (e1 == p) goto out1;
-            p -= 436;
-            KVCALL269(p, 12);
-            goto top1;
-        }
-    out1:
-        if (o + 1744 != 0) {
-            u8* q = o + 3924;
-            u8* e2 = o + 1744;
-        top2:
-            if (e2 == q) goto out2;
-            q -= 436;
-            KVCALL269(q, 12);
-            goto top2;
-        }
-    out2:
-        func_0031acc0(o + 1308);
-        func_0031acc0(o + 872);
-        func_0031acc0(o + 436);
-        *(u32*)o = (u32)D_00347e60;
-        func_00239870(o + 24);
-        func_0031a840(o);
-        func_00106420(o);
-        D_0035f5b0 = 0;
-    }
-    if (D_0035f5bc) {
-        KVCALL269(D_0035f5bc, 16);
-        D_0035f5bc = 0;
-    }
-    D_0035f5b4 = 0;
-    D_0035f5b6 = -1;
-    D_0035f5b8 = 0;
-    D_0035f5c4 = -1;
-}
+void func_0029a8e0(void);  // 0x0029a8e0: definition moved into src/anon/unit_00299920.cpp
 
 void func_002d0bd8(LO269*, const LM269*);
 void func_002da520(LO269* a0, const LM269* a1) {

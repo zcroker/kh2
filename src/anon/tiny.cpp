@@ -1798,13 +1798,7 @@ void func_0028b200(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0028b200: definition m
 
 void func_00293bb0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00293bb0: definition moved into src/anon/unit_00292e60.cpp
 
-void func_0029ae30(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    u32 v = (u32)((s32)1);
-    *(u8*)&D_0035f5b4 = (u8)v;
-}
+void func_0029ae30(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0029ae30: definition moved into src/anon/unit_00299920.cpp
 
 u32 func_002b3b60(u32 a0, u32 a1, u32 a2, u32 a3) {  // halfword_table_374cb0
     (void)a1;

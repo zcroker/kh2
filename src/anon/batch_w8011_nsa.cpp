@@ -9,17 +9,5 @@ Tbl* func_00294000(s32);
 s8* func_00276568();
 s32 func_00294348(Ent12*);
 s32 func_00276c18();
-void func_002982f0() {
-    s32 i;
-    s32 n = 0;
-    func_002fde18(D_0035f598, 0, 0x14);
-    Tbl* t = func_00294000(2);
-    s32 id = *func_00276568();
-    Ent12* b = t->e;
-    i = 0;
-    if (t->count > 0) do {
-        if (id == b[i].id) { if (func_00294348(&b[i]) || func_00276c18()) D_0035f598->ids[n++] = i; }
-    } while (++i < t->count);
-    D_0035f598->count = n;
-}
+void func_002982f0();  // 0x002982f0: definition moved into src/anon/unit_002982f0.cpp
 }

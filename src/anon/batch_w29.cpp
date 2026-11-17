@@ -226,13 +226,7 @@ u32 func_00258a30(void);  // 0x00258a30: definition moved into src/anon/unit_002
 
 s32 SelCheck(s32 i);  // 0x002956c0: definition moved into src/anon/unit_00292e60.cpp
 
-void func_0029e3e0(u32 a) {
-    func_00292630();
-    func_0029e430();
-    D_0035f5b6 = a;
-    func_00293c40((s16)a, D_0035f228 == 1);
-    func_002925c0();
-}
+void func_0029e3e0(u32 a);  // 0x0029e3e0: definition moved into src/anon/unit_0029d008.cpp
 
 // Sets bit n in the bitset at +136 (only if not already set).
 void func_002ab258(u32 n);  // 0x002ab258: definition moved into src/anon/unit_002a99c8.cpp

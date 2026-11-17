@@ -6,22 +6,7 @@ s32 func_00139d78(void*);
 void func_00139510(void*);
 struct W265Sub { virtual void v0(); virtual void v1(); virtual void v2(); virtual void v3(); virtual void v4(); virtual void v5(); u8 pad[432]; };
 struct W265Big { u8 pad[1744]; W265Sub arr[10]; };
-void func_0029ac00(void) {
-    s32 i;
-    s32 off;
-    if (D_0035f5b0 == 0) return;
-    if (func_00139d78(D_0035f5b0)) func_00139510(D_0035f5b0);
-    if (func_00139d78(D_0035f5b0 + 436)) func_00139510(D_0035f5b0 + 436);
-    if (func_00139d78(D_0035f5b0 + 872)) func_00139510(D_0035f5b0 + 872);
-    if (func_00139d78(D_0035f5b0 + 6104)) func_00139510(D_0035f5b0 + 6104);
-    if (func_00139d78(D_0035f5b0 + 6512)) func_00139510(D_0035f5b0 + 6512);
-    off = 0;
-    for (i = 4; i >= 0; i--) {
-        if (func_00139d78(&((W265Big*)D_0035f5b0)->arr[off])) ((W265Big*)D_0035f5b0)->arr[off].v5();
-        if (func_00139d78(&((W265Big*)D_0035f5b0)->arr[off + 5])) ((W265Big*)D_0035f5b0)->arr[off].v5();
-        off++;
-    }
-}
+void func_0029ac00(void);  // 0x0029ac00: definition moved into src/anon/unit_00299920.cpp
 struct I265 { s32 id; s32 b; s32 c; s32 n; s32 x; s32 y; };
 struct O265 { u8 pad[64]; s32 h; u8 pad2[260]; s32 x; s32 y; u8 pad3[8]; };
 struct P265 { u8 pad[16]; u8* tbl; u8* recs; u8 pad2[24]; O265* objs; s32 cnt; s32 st; u8 padx[4]; f32 lim; u8 pad3[8]; s32 sel; u8 pad4[4]; s32 dx; s32 dy; };

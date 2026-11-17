@@ -33,45 +33,7 @@ extern s32 D_0035f3d4;
 extern s8 D_0035f5a0;
 extern Cnt* D_0035f598;
 
-void func_002986e0(void) {
-    struct { s16 arr[2][4]; u32 attr; } L;
-    register s32 i asm("$16");
-    register u8* a asm("$23"); u8* b;
-    a = func_00276348();
-    b = func_002766d0();
-    func_00288e88(D_0035f200);
-    func_00276690(1);
-    func_00298fe8(D_0035f5a0);
-    for (i = 0; i < 2; i++) {
-        for (s32 j = 0; j < 4; j++) L.arr[i][j] = 87;
-    }
-    u8* c = b + 0xd30;
-    i = D_0035f3d4 - 1; asm("" : "+r"(i));
-    L.attr = 0x60000000;
-    func_00276e78();
-    func_0028d8c0(b, i, D_0035f14c, D_0035f148, D_0035f210, 86, -1, 0);
-    L.attr |= 8;
-    func_00139620(b);
-    func_0028dcc0(b, a);
-    func_0028d980(c, i, D_0035f14c, D_0035f148, D_0035f210, 88, -1, -1, 0);
-    func_00139620(c);
-    func_0028dcc0(c, a);
-    *(s32*)(c + 0x1ac) = 3;
-    *(u32*)(c + 0x1a4) = L.attr;
-    func_001395f8(c);
-    func_00288d80(D_0035f200, 0, D_0035f14c, D_0035f148, D_0035f210, -1, L.arr[0], L.arr[1]);
-    func_00139620(func_002891b8(D_0035f200, 0));
-    func_0028dcc0(func_002891b8(D_0035f200, 0), b);
-    *(s32*)(func_002891b8(D_0035f200, 0) + 0x1ac) = 3;
-    *(u32*)(func_002891b8(D_0035f200, 0) + 0x1a4) = L.attr;
-    func_001395f8(func_002891b8(D_0035f200, 0));
-    for (i = 0; ({ register s32 n asm("$15") = D_0035f598->n; i < n; }); i++) func_00294348(func_002983d8(D_0035f598->id[i]));
-    func_0028af18(D_0035f200, func_0028af88(D_0035f200) | 0xc000);
-    func_0028af28(D_0035f200, 16);
-    func_00298e48();
-    func_00299260();
-    func_00287cc0(0);
-}
+void func_002986e0(void);  // 0x002986e0: definition moved into src/anon/unit_002982f0.cpp
 }
 
 extern "C" {

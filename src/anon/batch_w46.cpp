@@ -317,19 +317,7 @@ u32 func_00293148(s32 id);  // 0x00293148: definition moved into src/anon/unit_0
 s32 func_0028b040(u32);
 extern u32 D_0035f200;
 extern s32* D_0035f5ac;
-s32 func_0029c9d8(s32 n) {
-    if (n < 0) n = func_0028b040(D_0035f200);
-    s32 m = *D_0035f5ac;
-    s32 c = 0;
-    s32 i;
-    for (i = 0; i < 19; i++) {
-        if ((u8)((m >> i) & 1)) {
-            if (c == n) break;
-            c++;
-        }
-    }
-    return i ? i - 1 : 16;
-}
+s32 func_0029c9d8(s32 n);  // 0x0029c9d8: definition moved into src/anon/unit_0029ba88.cpp
 
 // ---- 002a74c0: is any of the 64 flag bits set?
 s32 func_002a74c0(void) {

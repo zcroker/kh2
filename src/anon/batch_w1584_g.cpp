@@ -51,34 +51,6 @@ s32 func_002983d8(s32);
 s32 func_002a9d68();
 u32 func_002aa5b8(s32, s32);
 void func_002aa8e0(s32, s32);
-void func_00299290(void) {
-    s32 s2 = func_002a9d68();
-    s32 s3 = func_002766d0();
-    if (*(s32*)D_0035f598 == 0) return;
-    s32 mode = func_00287bc0();
-    s32 idx;
-    if (mode == 4) {
-        idx = func_0028b040(D_0035f200);
-    } else {
-        idx = D_0035f5a0;
-    }
-    s32 id = D_0035f598[idx + 2];
-    if (func_00294348(func_002983d8(id)) == 0) return;
-    s32 c = *func_00276568();
-    u32 bit = func_002aa5b8(c, id);
-    s32 q = s2 + c * 4;
-    q += (bit >> 5) * 4;
-    if (*(u32*)(q + 0x44) & (1 << (bit & 0x1f))) return;
-    func_002aa8e0(*func_00276568(), id);
-    if (mode != 4) return;
-    s32 p = 0x198;
-    p = func_002891e8(D_0035f200) * p;
-    u8* qq = (u8*)s3;
-    qq += p;
-    qq += 0xA998;
-    p = (s32)qq;
-    if (func_00139d78(p) == 0) return;
-    func_00138c10(p, 0x5D);
-}
+void func_00299290(void);  // 0x00299290: definition moved into src/anon/unit_002982f0.cpp
 void func_00294b80(void);  // 0x00294b80: definition moved into src/anon/unit_00292e60.cpp
 }

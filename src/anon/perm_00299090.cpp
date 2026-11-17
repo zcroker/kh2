@@ -79,45 +79,6 @@ extern s32 D_0035f3d4;
 extern s32 D_0035f59c;
 extern s8 D_0035f5a1;
 extern u8 D_0035f5a3;
-void func_00299090(void)
-{
-  Base2990 *base = func_002766d0();
-  Ctl2990 *new_var;
-  Ctl2990 *c = &base->ctl;
-  if (func_00139d78(c))
-  {
-    return;
-  }
-  if ((D_0035f5a3 == 0) && (D_0035f5a1 >= 0))
-  {
-    func_00298fe8(D_0035f5a1);
-    return;
-  }
-  if ((double) ((D_0035f5a1 < 0) || func_00292630()))
-  {
-    return;
-  }
-  func_00298ee0();
-  Q2990 *q = &base->q;
-  s32 f = D_0035f210;
-  s32 x = D_0035f3d4;
-  void *s = base->s18;
-  s32 r = func_0023c4b8(func_0023f1b0(f), 1);
-  func_002362b0(q, func_0023f988(D_0035f59c, 0));
-  q->b190 = 1;
-  func_001386e0(c, x, r, q, 1, 0);
-  c->mode = 2;
-  new_var = c;
-  func_00139620(new_var);
-  Sub2990 *sb = &base->ctl.sub;
-  sb->flags |= 8;
-  SetC(c, 1);
-  func_0028dcc0(c, base);
-  s32 a = func_0023aa18(s);
-  D_0035f3d4 += 0;
-  func_00138c68(c, a, func_0023aa38(s));
-  D_0035f5a1 = -1;
-  D_0035f5a3 = 0;
-}
+void func_00299090(void);  // 0x00299090: definition moved into src/anon/unit_002982f0.cpp
 
 }

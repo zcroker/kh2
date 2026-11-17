@@ -306,23 +306,10 @@ void func_00242880(void) {
 
 void func_00288c58(u8* o, s32 n);  // 0x00288c58: definition moved into src/anon/unit_00288b00.cpp
 
-void func_0029c958(void) {
-    u32 mask = 0;
-    for (s32 i = 0; i < 15; i++) {
-        if (func_002954e0(i) || func_00276c18()) mask |= 1 << (i + 1);
-    }
-    mask |= 1;
-    *D_0035f5ac = mask;
-}
+void func_0029c958(void);  // 0x0029c958: definition moved into src/anon/unit_0029ba88.cpp
 
 // Is id in the zero-terminated u16 list?
-s32 func_0029ec40(u32 id) {
-    s32 r = 0;
-    for (s32 i = 0; D_00374aa0[i]; i++) {
-        if (D_00374aa0[i] == id) { r = 1; break; }
-    }
-    return r;
-}
+s32 func_0029ec40(u32 id);  // 0x0029ec40: definition moved into src/anon/unit_0029d008.cpp
 
 void func_002a76d8(void) {
     if (D_0035f600) {

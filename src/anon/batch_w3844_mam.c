@@ -24,36 +24,4 @@ extern u32 D_0035f214;
 extern Lst9cd* D_0035f5ac;
 extern u32 D_00374ad0;
 extern u32 D_00374ad4;
-void func_0029cdf8(void) {
-    Big9cd* b = func_002766d0();
-    s32 n = func_0028b038(D_0035f200);
-    s32 i, k, cnt, v;
-    func_0028be78(D_0035f214, n);
-    for (i = 0; i < 10; i++) func_00138c10(&b->spr[i], 2);
-    func_002fde18(D_0035f5ac->names, 0, 640);
-    k = 0;
-    cnt = func_0028afa8(D_0035f200);
-    if (cnt >= 11) cnt = 10;
-    i = 0;
-    if (k < cnt) {
-      Spr9cd* sp = b->spr;
-      for (; i < 19 && k < cnt; i++) {
-        if (i < n) continue;
-        if ((u8)((u32)(D_0035f5ac->mask >> i) & 1)) {
-            s32 id = i ? i - 1 : 16;
-            s32 h = func_00295430(id, 1);
-            v = func_002954e0(id);
-            if (v) func_00192c90(func_00192048(h), D_0035f5ac->names[k]);
-            else func_0028de08(h, D_0035f5ac->names[k], 64);
-            func_002891b8(D_0035f200, k)->name = D_0035f5ac->names[k];
-            if (v && func_002aa098(id)) {
-                s32 r = func_002aa148(id);
-                func_00138c10(sp, r ? D_00374ad4 : D_00374ad0);
-                asm("" :: "r"(v)); /* no code: one more use of v so it outranks n for a saved register (v s7, n s8) */
-            }
-            k++;
-            sp++;
-        }
-      }
-    }
-}
+void func_0029cdf8(void);  // 0x0029cdf8: definition moved into src/anon/unit_0029cdf8.c

@@ -76,65 +76,6 @@ volatile unsigned short func_0029e960(void);
 void func_0029ea30(void);
 void func_00287cc0(s32 a);
 void func_0029dba0(void);
-void func_0029be08(void)
-{
-  s16 c[2][4];
-  s32 i;
-  s32 j;
-  s32 n;
-  s32 m;
-  void *o = func_00276348();
-  void *w = func_002766d0();
-  u8 *t;
-  u32 fl;
-  for (i = 0; i < 2; i++)
-  {
-    for (j = 0; j < 4; j++)
-    {
-      c[i][j] = 2;
-    }
-
-  }
-
-  m = D_0035f3d4 - 1;
-  func_00293d80(5101);
-  func_0029dd00();
-  func_0029dd60();
-  func_00276e78();
-  n = 0;
-  func_0028d8c0(w, m, D_0035f14c, D_0035f148, D_0035f210, 75, -1, 0);
-  func_00139620(w);
-  func_0028dcc0(w, o);
-  func_00288d80(D_0035f200.p, 0, D_0035f14c, D_0035f148, D_0035f210, -1, c[0], c[1]);
-  func_00139620(func_002891b8(D_0035f200.p, 0));
-  func_0028dcc0(func_002891b8(D_0035f200.p, 0), w);
-  func_002891b8(D_0035f200.p, 0)->f428 = 3;
-  func_002891b8(D_0035f200.p, 0)->f420 = 0x60000008;
-  func_002891b8(D_0035f200.p, 0)->f436 = (void *) func_0029dba0;
-  func_001395f8(func_002891b8(D_0035f200.p, 0));
-  func_0029d318();
-  func_0029daa0();
-  func_00276690(1);
-  func_0028af28(D_0035f200.p, 16);
-  t = func_00294000(3) + 16;
-  for (i = 0; i < D_0035f5ac->count; i++)
-  {
-    if (func_002943b0(t + (D_0035f5ac->ids[i] * 36)))
-    {
-      n++;
-    }
-  }
-
-  fl = func_0028af88(D_0035f200.p);
-  if (n >= 2)
-  {
-    fl |= 0xc000;
-  }
-  func_0028af18(D_0035f200.p, fl | 0x200);
-  func_0028b1e8(D_0035f200.p, 0);
-  func_0029e960();
-  func_0029ea30();
-  func_00287cc0(0);
-}
+void func_0029be08(void);  // 0x0029be08: definition moved into src/anon/unit_0029ba88.cpp
 
 }

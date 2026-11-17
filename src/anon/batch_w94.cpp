@@ -469,23 +469,7 @@ void func_0023e8d8(u32, s32, f32);
 extern s16* D_0035f5ac;
 extern u32 D_0035f5bc;
 
-void func_0029e808(s32 dir) {
-    u8* e = func_0029da68(D_0035f5ac[func_00276638(15) + 4]);
-    f32 v[4] __attribute__((aligned(16)));
-    func_0023e788(v, D_0035f5bc, 0);
-    f32 a = v[1];
-    if (dir == -12) {
-        a += 2.0f;
-        if (func_0029ec40(*(u16*)(e + 12)) && 16.0f < a) a = 16.0f;
-    } else {
-        a -= 2.0f;
-        if (func_0029ec40(*(u16*)(e + 12)) && a < -16.0f) a = -16.0f;
-    }
-    double d = func_00313b80(a);  // float_to_double
-    if (func_003142e0(360.0, d) <= 0) a -= 360.0f;
-    else if (func_003142e0(d, -360.0) <= 0) a += 360.0f;
-    func_0023e8d8(D_0035f5bc, 0, a);
-}
+void func_0029e808(s32 dir);  // 0x0029e808: definition moved into src/anon/unit_0029d008.cpp
 }
 // ---- 002a4470
 extern "C" {

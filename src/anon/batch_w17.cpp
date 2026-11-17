@@ -208,10 +208,7 @@ void func_00293f78(void* a);  // 0x00293f78: definition moved into src/anon/unit
 
 u8* func_002766d0(void);
 u8 func_00139d78_u8(void*) asm("func_00139d78");
-u8 func_0029e2f8(s32 i) {
-    i++;
-    return func_00139d78_u8(func_002766d0() + i * 408 + 17304);
-}
+u8 func_0029e2f8(s32 i);  // 0x0029e2f8: definition moved into src/anon/unit_0029d008.cpp
 
 u32 func_00287bc0(void);
 void func_00276c50(u32, u32);

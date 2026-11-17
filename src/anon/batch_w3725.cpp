@@ -34,72 +34,7 @@ void func_00287c00(s32);
 void func_0029e808(s32);
 s32 func_00288040(void);
 void func_00288018(void);
-void func_0029c5c8(void)
-{
-    register s32 r asm("$17") = func_00289380(D_0035f200);
-    s32 mode = func_00287cd0();
-    register s32 m asm("$18") = func_00287bc0();
-    register s32 i asm("$16");
-    if (mode != 2 && !func_0029e2f8(1)) func_0029e4c8(1);
-    if (__builtin_expect(mode == 2, 1)) {
-        for (i = 0; i < 2; i++)
-            if (func_0029e2f8(i)) goto found;
-        if (func_00292630()) return;
-        func_0029e430();
-        func_00287c30();
-        m = func_00287bc0();
-        func_0028af18(D_0035f200, 115);
-        if (m == 16 || m == 19 || m == 22) {
-            s32 f;
-            func_0028af28(D_0035f200, 16);
-            f = func_0028af88(D_0035f200);
-            {
-                s32 g = f;
-                S29c* q = D_0035f5ac;
-                s32 h = f | 0xc000;
-                if (q->b5 >= 2) g = h;
-                asm("" : "+r"(g) : "r"(h), "r"(q));
-                func_0028af18(D_0035f200, g | 0x200);
-            }
-            func_0028b1e8(D_0035f200, 0);
-            if (func_0028afa8(D_0035f200) >= 2) {
-                func_0028b218(D_0035f200, 1);
-                func_0028b248(D_0035f200, 7);
-            }
-            func_0029ea30();
-            func_00287cc0(0);
-        }
-        return;
-    found:
-        if (r != -1) {
-            func_00287f90(0);
-            for (i = 0; i < 2; i++) func_0029e298(i);
-        }
-    } else {
-        if ((r != -1 || func_00289310(D_0035f200)) && !func_0029e0f8()) func_0029e148();
-        if (mode == 0 && func_0029e0f8()) func_00287c90(1);
-        if (r == -2) func_00242618(3, 1);
-        switch (r) {
-        case -2: {
-            s32 id = 16;
-            if (m != 17) id = (m != 17) ? 22 : 16;
-            asm("" : : "r"(m));
-            func_0029e050();
-            func_0029e258(1);
-            func_00287c00(id);
-            func_00287cc0(2);
-            break;
-        }
-        case -11: case -10: case -9: case -8: case -7: case -6: case -5: case -4: case -3: case -1:
-            break;
-        case -13:
-        case -12:
-            func_0029e808(r);
-            break;
-        }
-        if (func_00288040()) func_00288018();
-    }
-}
+void func_0029c5c8(void);  // 0x0029c5c8: definition moved into src/anon/unit_0029ba88.cpp
 }
 
 // func_0020e198: empty asm keeps the shifted value live so the srl is not tied to a1; see asm_review.tsv.

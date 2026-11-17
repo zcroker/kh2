@@ -29,17 +29,9 @@ void func_002a82f8(void) {
 
 void func_002a9570(void);  // 0x002a9570: definition moved into src/anon/unit_002a92a0.cpp
 
-void func_0029edf8(void) {  // release_global_obj
-    if (D_0035f5d0) {
-        func_00106420(D_0035f5d0);
-        D_0035f5d0 = 0;
-    }
-}
+void func_0029edf8(void);  // 0x0029edf8: definition moved into src/anon/unit_0029d008.cpp
 
-void func_0029edb8(void) {  // alloc_global_obj
-    D_0035f5d0 = func_001063c0(20, func_00103570());
-    func_002fde18(D_0035f5d0, 0, 20);
-}
+void func_0029edb8(void);  // 0x0029edb8: definition moved into src/anon/unit_0029d008.cpp
 
 void func_00264388(void);  // 0x00264388: definition moved into src/anon/unit_002640a8.cpp
 

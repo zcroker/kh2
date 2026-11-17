@@ -131,9 +131,7 @@ void func_0026dd18(s32 a0, s32 a1, s32 a2);  // 0x0026dd18: definition moved int
 
 void func_00281108(void);  // 0x00281108: definition moved into src/anon/unit_0027f2b0.cpp
 
-void func_00299238(void) {
-    func_0028dac8((u8*)func_002766d0() + 17304, 3);
-}
+void func_00299238(void);  // 0x00299238: definition moved into src/anon/unit_002982f0.cpp
 
 void func_002eac70(f32 a, f32 b, f32 c, f32 d);  // 002eac70: moved to src/anon/unit_002eaa68.cpp
 

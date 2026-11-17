@@ -358,16 +358,7 @@ void func_0028ff18(SprRef* p);  // 0028ff18: moved to src/anon/unit_0028f1e0.cpp
 extern u16 D_00374aa8[];
 
 // Is id in the zero-terminated list?
-s32 func_0029ec98(u32 id) {  // table_contains_short
-    s32 r = 0;
-    for (s32 i = 0; D_00374aa8[i] != 0; i++) {
-        if (D_00374aa8[i] == id) {
-            r = 1;
-            break;
-        }
-    }
-    return r;
-}
+s32 func_0029ec98(u32 id);  // 0x0029ec98: definition moved into src/anon/unit_0029d008.cpp
 
 extern u8* D_0035f610;
 static inline u32 flagTest(u32 n) {

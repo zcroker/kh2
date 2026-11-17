@@ -160,9 +160,7 @@ void func_00225298(void) {
 
 void func_00265c50(void);  // 0x00265c50: definition moved into src/anon/unit_00265580.cpp
 
-u32 func_0029e0d0(void) {
-    return func_00139d78((u8*)func_002766d0() + 18528);
-}
+u32 func_0029e0d0(void);  // 0x0029e0d0: definition moved into src/anon/unit_0029d008.cpp
 
 // Stores the new value and reports whether it was unchanged.
 u32 func_002bd230(s32 a, s32 b);  // 0x002bd230: definition moved into src/anon/unit_002bc978.cpp

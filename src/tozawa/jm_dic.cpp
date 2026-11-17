@@ -15,27 +15,8 @@ extern u32 D_0035f14c asm("D_0035f14c");
 extern u32 D_0035f148 asm("D_0035f148");
 extern u32 D_0035f210 asm("D_0035f210");
 
-void JmDic::RequestGraLoad() {
-    s16 tmp;
-    u32 v0 = func_00276638(15);
-    u32 base = 0x00360000u;
-    v0 = v0 << 1;
-    v0 = v0 + *(u32*)(base + (s32)-2644);
-    v0 = func_0029da68((u32)(s16)*(u16*)(v0 + 8));
-    tmp = *(s8*)(v0 + 1);
-    func_00292b40(&tmp, 1);
-}
+// 0x0029dd60: definition moved into src/anon/unit_0029d008.cpp
 
-void JmDic::SetupCharaInfo() {
-    u32 s1 = func_002766d0();
-    u32 s0 = s1 + 0x4860;
-
-    if (func_00139d78(s0) != 0) {
-        return;
-    }
-
-    func_0028d8c0(s0, 30055, D_0035f14c, D_0035f148, D_0035f210, 4, 5, 0);
-    func_0028dcc0(s0, s1);
-}
+// 0x0029dfc0: definition moved into src/anon/unit_0029d008.cpp
 
 }  // namespace Tz

@@ -659,22 +659,7 @@ u32 func_00287bc0(void);
 void func_00276150(u32, s32*, s32*);
 s8* func_00276568(void);
 s32 func_0029a5f0(s32);
-s32 func_0029a780(s32 a)
-{
-    s32 r = 0;
-    u32 o = func_00287bc0();
-    if ((u32)(a + 9) < 2) {
-        s32 x, y;
-        func_00276150(o, &x, &y);
-        s32 v = a == -8 ? y : x;
-        s32 c = *func_00276568();
-        if (v != 2) r = 1;
-        else if ((u32)c < 15) r = 1;
-    } else {
-        r = (u32)func_0029a5f0(a) < 12;
-    }
-    return r;
-}
+s32 func_0029a780(s32 a);  // 0x0029a780: definition moved into src/anon/unit_00299920.cpp
 
 u8* func_00294000(s32);
 extern u32* D_0035f610;
@@ -1970,17 +1955,7 @@ void func_002ff2e8(char*, const char*);
 void func_002feee8(char*, const char*);
 u32 func_00293db8(s32, char*);
 void func_0023fa08(u32, u32);
-void func_00298ee0(void)
-{
-    char buf[32];
-    func_0023f900(D_0035f59c);
-    if (func_00292630()) return;
-    s8* s = func_002983d8(D_0035f598[D_0035f5a1 + 2]);
-    func_002ff2e8(buf, func_00293de8(s[0]));
-    func_002feee8(buf, (char*)s + 1);
-    func_0023fa08(D_0035f59c, func_00293db8(3, buf));
-    D_0035f5a2 = 1;
-}
+void func_00298ee0(void);  // 0x00298ee0: definition moved into src/anon/unit_002982f0.cpp
 extern u8* D_0035f5f4;
 extern u8* D_0035f5f8;
 extern s8 D_0035f5fc;

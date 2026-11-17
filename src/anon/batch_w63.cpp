@@ -277,15 +277,7 @@ void func_002865d0(u32 bit);  // 0x002865d0: definition moved into src/anon/unit
 
 void func_0028e560(void* p, s16* a, s32 n, u32 a3);  // 0028e560: moved to src/anon/unit_0028c878.cpp
 
-void func_00298e48(void) {
-    if (func_00287bc0() != 5) return;
-    u8* v;
-    u8* s = func_002766d0() + 3376;
-    v = func_002983d8(D_0035f598[D_0035f5a0 + 2]);
-    *(u32*)(s + 408) = func_00192048(*(u16*)(v + 8));
-    u8* s2 = func_002891b8(D_0035f200, 0);
-    *(u32*)(s2 + 408) = func_00192048(*(u16*)(v + 10));
-}
+void func_00298e48(void);  // 0x00298e48: definition moved into src/anon/unit_002982f0.cpp
 
 void func_002b9f28(u8 a) {
     if (a) func_002b7fbc(1);

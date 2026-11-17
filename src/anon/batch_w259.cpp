@@ -46,20 +46,7 @@ s32 func_002a8870(s32);
 s32 func_002b3ae8(void);
 s32 func_002a6500(void);
 s32 func_002a7530(void);
-s32 func_0029a5f0(s32 idx) {
-    s32 tbl[12];
-    s32* p = tbl;
-    for (s32 i = 0; i < 12; i++) {
-        if (i == 0 && !func_002a0360()) continue;
-        if (i == 7 && !func_002a9b88(-1)) continue;
-        if (i == 8 && !func_002a8870(-1)) continue;
-        if (i == 5 && !func_002b3ae8()) continue;
-        if (i == 9 && !func_002a6500()) continue;
-        if (i == 10 && !func_002a7530()) continue;
-        *p++ = i;
-    }
-    return tbl[idx];
-}
+s32 func_0029a5f0(s32 idx);  // 0x0029a5f0: definition moved into src/anon/unit_00299920.cpp
 void func_001cfbd8(u8* p, u32 a1, u32 a2, u32 a3);  // 0x001cfbd8: definition moved into src/anon/unit_001cf0b0.cpp
 
 extern E259 D_00372ed8[];

@@ -12,26 +12,7 @@ void LayFileSetImdData(u32, u32);
 void LayFileReset();
 void LoadDataFlush();
 
-void JmAlbum::RequestGraLoad(s32 a0) {
-    u8 buf[32];
-    s32 idx = (s8)a0;
-    u32 off = (u32)idx;
-    off <<= 1;
-    off += D_0035f598;
-    D_0035f5a1 = (s8)a0;
-    u32 s0 = (u32)GetAlbumData(*(s16*)(off + 4));
-    if (LoadDataIsFlushing() != 0) {
-        D_0035f5a3 = 0;
-        return;
-    }
-    u32 v = GetImageName(*(s8*)s0);
-    LayFileBuildData(buf, v);
-    LayFileSetImdData((u32)buf, s0 + 1);
-    LayFileReset();
-    RequestLoad(3, buf, 0);
-    LoadDataFlush();
-    D_0035f5a3 = 1;
-}
+// 0x00298fe8: definition moved into src/anon/unit_002982f0.cpp
 
 // 0x00293de8: definition moved into src/anon/unit_00292e60.cpp
 

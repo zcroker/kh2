@@ -175,9 +175,7 @@ Entry8* func_0028ac98(Table8* t, s32 id);  // 0x0028ac98: definition moved into 
 
 void func_0028dfe8(u32* p);  // 0028dfe8: moved to src/anon/unit_0028c878.cpp
 
-void func_0029df98(void) {
-    func_0028dac8(func_002766d0() + 17304, 3);  // Tz::Select::FadeOut(Jiminy seq table, 3)
-}
+void func_0029df98(void);  // 0x0029df98: definition moved into src/anon/unit_0029d008.cpp
 
 void func_002ba330(u32 a0, u32 a1, u32 a2) {
     func_002b73ac(2, a0, a2, (u32)-1, a1);

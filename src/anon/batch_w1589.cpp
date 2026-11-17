@@ -30,14 +30,7 @@ void func_00277020(void);  // 0x00277020: definition moved into src/anon/unit_00
 
 void func_002799b0(void);  // 0x002799b0: definition moved into src/anon/unit_002793b0.cpp
 
-void func_0029c568(void)
-{
-    func_0029dfc0();
-    func_0029e4c8(1);
-    func_00276690(1);
-    func_0028af18(D_0035f200, ((func_0028af88(D_0035f200) & ~0x50) | 0x30000) & ~3);
-    func_00287cc0(0);
-}
+void func_0029c568(void);  // 0x0029c568: definition moved into src/anon/unit_0029ba88.cpp
 
 void func_002736f8(void);  // 0x002736f8: definition moved into src/anon/unit_00271e08.cpp
 

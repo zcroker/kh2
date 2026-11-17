@@ -86,7 +86,7 @@ u32 func_00242e48(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a0; (void)a1; (void)a2; (
 
 void func_00276578(u32 a0,u32 a1,u32 a2,u32 a3);  // 0x00276578: definition moved into src/anon/unit_002748a0.cpp
 
-void func_0029e950(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a1; (void)a2; (void)a3; u32 p = D_0035f5ac; *(u8*)((u32)p + (4)) = (u8)a0; }
+void func_0029e950(u32 a0,u32 a1,u32 a2,u32 a3);  // 0x0029e950: definition moved into src/anon/unit_0029d008.cpp
 
 u32 func_002cb920(u32 a0,u32 a1,u32 a2,u32 a3);  // 0x002cb920: definition moved into src/taito/path.cpp
 
