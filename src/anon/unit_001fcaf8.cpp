@@ -1,4 +1,4 @@
-// Linked unit 0x001fcaf8-0x001fcc58 (one namespace per old matched source; class methods in their own namespace).
+// Linked unit 0x001fcaf8-0x001fcd70 (one namespace per old matched source; class methods in their own namespace).
 #include "../common/types.h"
 #include "auto80_199_queue_decls.hpp"
 #include "auto80_199_queue_structs.hpp"
@@ -67,3 +67,37 @@ void func_001fcb90(u8* a0, u32, u8* a2)
 }
 }  // namespace n001fcb90
 
+
+// 001fcc58 (gap, written for the unit)
+namespace n001fcc58 {
+extern f32* D_01d9e6e8 asm("D_01d9e6e8");
+extern f32 D_01dad8d0[] asm("D_01dad8d0");
+void func_0021edb0(f32*, u8*) asm("func_0021edb0");
+void sceVu0UnitMatrix(f32*) asm("sceVu0UnitMatrix");
+void sceVu0CopyVector(f32*, f32*) asm("sceVu0CopyVector");
+static inline void ScaleRow(f32* row, f32 s) {
+    asm volatile("qmtc2 %2, $vf9\n\tlqc2 $vf10, 0(%1)\n\tvmulx.xyz $vf10, $vf10, $vf9x\n\tsqc2 $vf10, 0(%0)" : : "r"(row), "r"(row), "r"(s) : "memory");
+}
+void func_001fcc58(u8* o, u8* a1, u8* t) asm("func_001fcc58");
+void func_001fcc58(u8* o, u8* a1, u8* t) {
+    u32* d = *(u32**)(t + 12);
+    f32* m = D_01dad8d0;
+    u8* p0 = o + d[0];
+    u8* p1 = o + d[1];
+    u8* p2 = o + d[2];
+    f32* tt = (f32*)(p0 + 160);
+    f32* s = (f32*)(p2 + 160);
+    func_0021edb0(m, p1 + 160);
+    ScaleRow(m, s[0]);
+    ScaleRow(m + 4, s[1]);
+    ScaleRow(m + 8, s[2]);
+    D_01dad8d0[12] = tt[0];
+    D_01dad8d0[13] = tt[1];
+    D_01dad8d0[14] = tt[2];
+    sceVu0UnitMatrix(D_01d9e6e8 + 4);
+    D_01d9e6e8[4] = s[0];
+    D_01d9e6e8[9] = s[1];
+    D_01d9e6e8[14] = s[2];
+    sceVu0CopyVector(D_01d9e6e8 + 16, &D_01dad8d0[12]);
+}
+}  // namespace n001fcc58
