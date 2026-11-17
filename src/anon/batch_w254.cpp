@@ -145,18 +145,7 @@ void func_002e71a0(Mtx*, u32, u8, s32);
 
 void wtarget_002e1178(u8* a0, u32, u32, u32) asm("_Z16wtarget_002e1178jjjj");
 // Set camera FOV from degrees, rebuild projection, then store the inverse of a fresh view matrix.
-void wtarget_002e1178(u8* a0, u32, u32, u32) {
-    u8* v = func_00106a18(1);  // buffer_get_256
-    Mtx tmp;
-    Mtx* d;
-    func_00106de8(v, 1, D_00362d70 * 0.017453292f);
-    func_00106c08(v);
-    u8* c = func_00106a60(1);  // buffer_get_by_index
-    func_002e71a0(&tmp, *(u32*)(a0 + 112), (*(u8**)(a0 + 100))[8], 1);
-    d = (Mtx*)(c + 16);
-    MtxCopy(d, &tmp);
-    MtxInverseOrtho(d);
-}
+void wtarget_002e1178(u8* a0, u32, u32, u32);  // 0x002e1178: definition moved into src/anon/unit_002de3c8.cpp
 }
 }
 

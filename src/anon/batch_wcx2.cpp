@@ -4792,13 +4792,7 @@ void func_00180c88(u8*, u32, f32);
 s32 func_00197920();
 void func_001d86a0(s32, u32);
 void func_002dd4f8(u8*);
-void func_002e0698(VT_002e0698** o, u8* p) {
-    u32 t = (*o)->f(o);
-    func_00180c88(p + 320, t, 0.0f);
-    u8* g = D_00361f60;
-    if (*(s32*)(g + 0x8000 + 116) > 0 && *(s32*)(g + 128) == 2 && !func_00197920()) func_001d86a0(-1, 1);
-    func_002dd4f8(g);
-}
+void func_002e0698(VT_002e0698** o, u8* p);  // 0x002e0698: definition moved into src/anon/unit_002de3c8.cpp
 
 // ---- 002eb6f8
 u8* func_002eaf40(u8*);
@@ -7006,10 +7000,7 @@ struct O2e0720;
 struct VT2e0720 { u8 pad[44]; s32 (*f44)(O2e0720*); };
 struct O2e0720 { VT2e0720* vt; };
 void func_0017f488(u8*, s32, f32, f32);
-void func_002e0720(O2e0720* o, u8* p) {
-    u8* q = p + 320;
-    func_0017f488(q, o->vt->f44(o), 8.0f, 0.0f);
-}
+void func_002e0720(O2e0720* o, u8* p);  // 0x002e0720: definition moved into src/anon/unit_002de3c8.cpp
 
 // --------------------
 struct E230838 { s32 a; s32 b; };

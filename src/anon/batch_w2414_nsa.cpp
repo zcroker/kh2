@@ -77,53 +77,7 @@ void func_002de3e0(void*);
 void func_002dd4a8(G2dff60*, s32);
 void p2dff60_AddCount(s32, s32) asm("_ZN2YS7MISSION8AddCountEii");
 void p2dff60_ready(P2dff60*, H2dff60*) asm("_ZN2Ti12MGJumpPlayer19ready_jump_reactionEv");
-void func_002dff60(P2dff60* p, H2dff60* h)
-{
-    G2dff60* g = D_00361f60;
-    s32 hit = 0;
-    if (!func_002ddbb8(p->gim) && (h->flags & 0x10000)) {
-        p->fell = 1;
-        hit = 1;
-    }
-    if (func_002dd2b0(g) <= p->f44 || p->fell) {
-        if (g->alt && p->lane == 3 && p2dff60_reset_stage(p->gim) > 0) func_002dd530(g, p2dff60_reset_stage(p->gim));
-        f32 t = func_002de6e8(p->gim);
-        f32 d[1];
-        s32 lane;
-        if (func_002ddbb8(p->gim)) {
-            p->fell = 1;
-            p->f84 = 1;
-            lane = g->alt ? 11 : 10;
-            f32 a = func_002dd250(g, lane) * 0.01f;
-            d[0] = a - (-t - D_00375d40) * 0.01f;
-            p->vx = a;
-        } else {
-            lane = p->lane * 2 + (!p->fell ? 2 : 3);
-            f32 e = -(p->f76 - t);
-            f32 a = (func_002dd250(g, lane) + e) * 0.01f;
-            d[0] = a;
-            p->vx = -(t + D_00375d40) * 0.01f + a;
-        }
-        f32 z = func_002dd280(g, lane);
-        f32 y = -(t + D_00375d40) * 0.01f;
-        p->vz = z;
-        p->vy = y;
-        func_002e0870(p, &p->f88, &p->vz, d);
-        p->f36 = p->vy;
-        p->f40 = 0;
-        p->f44 = 0.0f;
-        p->f96 = p->vz / p->f88;
-        func_002de3e0(p->gim);
-        p->vt->land(p, h, hit);
-        p->gim = 0;
-        func_002dd4a8(g, 1);
-        if (g->mode == 1) p2dff60_AddCount(1, 0);
-    } else {
-        p2dff60_ready(p, h);
-        p->f36 = -D_00375d40 * 0.01f;
-        p->f44 += D_00349e10;
-    }
-}
+void func_002dff60(P2dff60* p, H2dff60* h);  // 0x002dff60: definition moved into src/anon/unit_002de3c8.cpp
 }
 
 extern "C" {

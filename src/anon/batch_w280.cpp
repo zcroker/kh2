@@ -142,37 +142,7 @@ void func_002e0230(u8*, u8*);
 void func_002deda8(u8*, u8*);
 f32 func_002de6e8(u32);
 f32 func_002dc248(u8*);
-void func_002dfcb0(u8* a, u8* b)
-{
-    u8* g = D_00361f60;
-    if (!g) return;
-    {
-        QWord v(0.0f, 0.0f, -1.0f, 0.0f);
-        func_0016aef0(b, &v);
-    }
-    QWord p = *func_0016c028(b);  // obj_get_attach_or_alt
-    p.f[2] = 0.0f;
-    func_0016ace0(b, &p);
-    if (*(u32*)(a + 72)) func_002dff60(a, b);
-    else func_002e0230(a, b);
-    if (*(u32*)(a + 72)) {
-        QZero((QWord*)(b + 16));
-        QWord w = *func_0016c028(b);  // obj_get_attach_or_alt
-        w.f[1] = func_002de6e8(*(u32*)(a + 72));
-        func_0016ace0(b, &w);
-    } else {
-        func_002deda8(a, b);
-    }
-    if (*(f32*)(a + 40) <= 0.0f) {
-        if (func_002dc248(g) <= p.f[1]) *(u8*)(a + 84) = 0;
-    }
-    u8 r = 0;
-    if (*(u8*)(a + 84)) {
-        if (p.f[1] < func_002dc248(g)) r = 1;
-    }
-    *(u8*)(g + 0x8000 + 108) = r;
-    *(u32*)(b + 264) &= 0xfffeffff;
-}
+void func_002dfcb0(u8* a, u8* b);  // 0x002dfcb0: definition moved into src/anon/unit_002de3c8.cpp
 }
 }
 

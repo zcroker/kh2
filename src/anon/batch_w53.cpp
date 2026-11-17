@@ -238,16 +238,7 @@ f32 func_002d48b8(f32 x);  // 0x002d48b8: definition moved into src/anon/unit_00
 
 void func_002db808(u8* p, u32 a, u32 b);  // 0x002db808: definition moved into src/anon/unit_002da040.cpp
 
-void func_002df7d8(u8* p, u32 b) {
-    func_002def70(p);
-    u32 s = D_00361f60;
-    u8* x1 = func_002dc7c8(s);
-    u8* y1 = func_002dc7c8(s);
-    func_002deac0(p, *(f32*)(x1 + 244), *(f32*)(y1 + 248));  // set_float24_scaled
-    u8* x2 = func_002dc7c8(s);
-    u8* y2 = func_002dc7c8(s);
-    func_002deba0(p, b, *(f32*)(x2 + 252), *(f32*)(y2 + 256));
-}
+void func_002df7d8(u8* p, u32 b);  // 0x002df7d8: definition moved into src/anon/unit_002de3c8.cpp
 
 // Returns (o+16) scaled by D_00363440 (VU0).
 Q16* func_002eaba8(Q16* ret, u32, u8* o);  // 002eaba8: moved to src/anon/unit_002eaa68.cpp

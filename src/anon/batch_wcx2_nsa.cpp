@@ -624,61 +624,7 @@ f32 fabsf(f32);
 f32 func_002dd250(void*, s32);
 f32 func_002dd280(void*, s32);
 void func_002e0870(O2e0898*, f32*, f32*, f32*);
-void func_002e0898(O2e0898* o, P2e0898* p, f32 x)
-{
-    void* g = g2e0898_game;
-    x *= 0.01f;
-    void* fld = func_002df140();
-    f32 h = func_002e51b0(fld, x);
-    f32 h1 = func_002e51b0(fld, x + 0.2f);
-    f32 h2 = func_002e51b0(fld, x - 0.2f);
-    if (h < h1) h = h1;
-    if (h < h2) h = h2;
-    f32 bounce = fabsf(o->vel * o->f12) * 0.3f;
-    if (o->onGround) {
-        o->wait(p, o->time, x, bounce);
-        if (o->ready(p, o->time)) {
-            s32 big = o->big != 0;
-            o->base = h;
-            o->onGround = 0;
-            o->top = func_002dd250(g, big) * 0.01f;
-            f32 dist = o->top - o->base;
-            o->v0 = func_002dd280(g, big);
-            func_002e0870(o, &o->grav, &o->v0, &dist);
-            o->vel = 0.0f;
-            o->y = o->base;
-            o->time = 0.0f;
-            o->dur = o->v0 / o->grav;
-            o->jump(p, o->big != 0);
-        } else {
-            o->y = h;
-            o->time += g2e0898_one;
-        }
-        return;
-    }
-    f32 t = o->time / 60.0f;
-    G2e0898* gs = g2e0898_gs;
-    f32 rate = 1.0f;
-    if (o->dur < t) {
-        rate = gs->speed;
-        f32 dt = t - o->dur;
-        o->vel = -o->f92 * dt;
-        o->y = o->top - o->f92 * 0.5f * dt * dt;
-    } else {
-        gs->speed = rate;
-        o->vel = o->v0 - o->grav * t;
-        o->y = o->base + (o->v0 * t - o->grav * 0.5f * t * t);
-    }
-    o->time += g2e0898_one * rate;
-    if (o->vel < 0.0f && o->y <= h) {
-        o->y = h;
-        func_002e5010(fld, x, -bounce);
-        o->time = 0.0f;
-        o->onGround = 1;
-        o->land(p);
-        o->big = 0;
-    }
-}
+void func_002e0898(O2e0898* o, P2e0898* p, f32 x);  // 0x002e0898: definition moved into src/anon/unit_002de3c8.cpp
 }
 
 // --------------------

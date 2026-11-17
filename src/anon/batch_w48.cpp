@@ -265,15 +265,7 @@ void func_002bc9a8(void*, s32, s32);  // find_entry12_set_field
 void func_002bcbf0(u8* o, s32 a1, s32 a2, s32* a3, s32* t0);  // 0x002bcbf0: definition moved into src/anon/unit_002bc978.cpp
 
 struct VObj { s32 (**vt)(VObj*); };
-s32 func_002df0d8(VObj* o, u8* b) {
-    u8* s = b + 320;
-    s32 x = *(s32*)(s + 20);
-    s32 r = 0;
-    if (x != ((s32 (*)(VObj*))(((void**)o->vt)[12]))(o)) {
-        if (*(f32*)(s + 48) >= 8.0f) r = 1;
-    }
-    return r;
-}
+s32 func_002df0d8(VObj* o, u8* b);  // 0x002df0d8: definition moved into src/anon/unit_002de3c8.cpp
 
 Vq func_002cb7c8(u32, u32);
 extern Vq D_01e2be20;

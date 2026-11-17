@@ -37,14 +37,7 @@ void func_0016aef0(u8*, V4_df040*);
 V4_df040* func_0016c028(u8*);
 void func_0016ace0(u8*, V4_df040*);
 void func_002deda8(u8*, u8*);
-void func_002df040(u8* a0, u8* a1) {
-    V4_df040 v(0.0f, 0.0f, -1.0f, 0.0f);
-    func_0016aef0(a1, &v);
-    v = *func_0016c028(a1);
-    v.z = *(f32*)(a0 + 0x14);
-    func_0016ace0(a1, &v);
-    func_002deda8(a0, a1);
-}
+void func_002df040(u8* a0, u8* a1);  // 0x002df040: definition moved into src/anon/unit_002de3c8.cpp
 
 /* libgcc fp-bit unpack_d (double) */
 struct Fpn_3147a0 { s32 cls; u32 sign; s32 normal_exp; s32 pad; u64 ll; };

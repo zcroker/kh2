@@ -29,25 +29,6 @@ typedef struct W
   u8 pad[0x9b8];
   s32 h;
 } W;
-void func_002df6d8(void *a0, W *p)
-{
-  s32 r;
-  u8 *new_var2;
-  s32 g = D_00361f60;
-  u8 *new_var;
-  s32 h;
-  r = 0;
-  h = p->h;
-  new_var2 = D_00362c08;
-  if (h)
-  {
-    r = func_001b0320(h);
-  }
-  if (!((u8) r))
-  {
-    new_var = new_var2;
-    func_002e7568(((f32 *) func_002dc7c8(g))[0xcc / 4], p, 6, new_var);
-  }
-}
+void func_002df6d8(void *a0, W *p);  // 0x002df6d8: definition moved into src/anon/unit_002de3c8.cpp
 
 }

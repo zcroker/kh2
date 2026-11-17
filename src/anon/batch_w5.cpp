@@ -131,11 +131,7 @@ void func_0028da70(u8*, u32);
 void func_0029e148(void);  // 0x0029e148: definition moved into src/anon/unit_0029d008.cpp
 
 struct S2dd { u8 pad[0x12]; u16 flags; };
-u32 func_002ddbb8(u8* p) {  // get_bit0_of_field2808
-    S2dd* s = *(S2dd**)(p + 0xaf8);
-    if (s) return (s->flags & 1) != 0;
-    return 0;
-}
+u32 func_002ddbb8(u8* p);  // 0x002ddbb8: definition moved into src/anon/unit_002dd650.cpp
 
 struct Pair { u32 a, b; };
 extern Pair D_01e2bf00;

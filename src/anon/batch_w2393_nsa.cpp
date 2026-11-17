@@ -63,28 +63,5 @@ f32 func_002df1a8(W2393Obj*, f32);
 /* 002deda8: scales the entity velocity by its w, snaps x to the height from func_002df1a8 (two
    paths, kept apart so cross-jumping only merges from the v.x store on), then recomputes y and
    renormalises the velocity, keeping its length in w. */
-void func_002deda8(W2393Obj* self, W2393Ent* e) {
-    W2393V* pos = (W2393V*)func_0016c028(e);
-    W2393V v = e->vel;
-    v.scale(v.w);
-    f32 old = self->f40;
-    if (func_002df198(self)) {
-        f32 h = func_002df1a8(self, pos->x);
-        v.x = h - pos->x;
-        ((W2393Fn)self->vt[9])(self, e, h);
-    } else {
-        f32 t = pos->x + v.x;
-        t = func_002df1a8(self, t);
-        v.x = t - pos->x;
-        ((W2393Fn)self->vt[9])(self, e, t);
-    }
-    if (old >= 0.0f && self->f40 < 0.0f) ((W2393Fn2)self->vt[14])(self, e);
-    f32 g = func_002df1a0(self);
-    v.y = (-g * 100.0f - D_00375d40 - pos->y) / D_00349e10;
-    v.z = 0.0f;
-    e->vel = v;
-    f32 len = e->vel.length();
-    e->vel.normalize();
-    e->vel.w = len;
-}
+void func_002deda8(W2393Obj* self, W2393Ent* e);  // 0x002deda8: definition moved into src/anon/unit_002de3c8.cpp
 }

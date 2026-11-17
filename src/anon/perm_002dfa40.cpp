@@ -34,23 +34,6 @@ inline f32 inline_fn(s32 arg0)
   return ((f32 *) func_002dc7c8(arg0))[0xcc / 4];
 }
 
-void func_002dfa40(void *a0, W *p)
-{
-  s32 r;
-  s32 g = D_00361f60;
-  u8 *new_var;
-  s32 h;
-  r = 0;
-  h = p->h;
-  new_var = D_00362c00;
-  if (h)
-  {
-    r = func_001b0320(h);
-  }
-  if (!((u8) r))
-  {
-    func_002e7568(inline_fn(g), p, 6, new_var);
-  }
-}
+void func_002dfa40(void *a0, W *p);  // 0x002dfa40: definition moved into src/anon/unit_002de3c8.cpp
 
 }

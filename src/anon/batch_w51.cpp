@@ -404,12 +404,7 @@ extern Vec4f D_00362d80;
 
 }
 
-void wtarget_002e1878(u32 a, u32 b, u32, u32) {
-    if (b == 0xffff && a == 1) {
-        D_00362d80.x = D_00362d80.y = D_00362d80.w = 0.0f;
-        D_00362d80.z = 590.0f;
-    }
-}
+void wtarget_002e1878(u32 a, u32 b, u32, u32);  // 0x002e1878: definition moved into src/anon/unit_002de3c8.cpp
 
 extern "C" {
 

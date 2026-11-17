@@ -86,30 +86,7 @@ void func_002df040(u8*, u8*);
 QWord* func_0016c028(u8*);  // obj_get_attach_or_alt
 u8* func_002dc7c8(u8*);
 void func_002dd2d8(u8*, f32*, f32*);
-void func_002df868(u8* s, u8* o)
-{
-    func_002df040(s, o);
-    u8* m = D_00361f60;
-    QWord t = *func_0016c028(o);  // obj_get_attach_or_alt
-    QWord* d = (QWord*)(o + 16);
-    t.v[0] = t.v[0] + *(f32*)(func_002dc7c8(m) + 240) * (f32)*(s32*)(s + 52);
-    f32 lo, hi;
-    func_002dd2d8(m, &lo, &hi);
-    hi *= 0.95f;
-    lo *= 0.95f;
-    if (hi < t.v[0]) t.v[0] = hi;
-    if (t.v[0] < lo) t.v[0] = lo;
-    ScaleIn(d, *(f32*)(o + 28));
-    *(f32*)(o + 16) = t.v[0] - func_0016c028(o)->v[0];
-    f32 len = Length(d);
-    Normalize(d);
-    *(f32*)(o + 28) = len;
-    if (*(s32*)(s + 56) == 0) {
-        QWord e = Sub(*func_0016c028(D_0034e948), t);  // obj_get_attach_or_alt
-        f32 dist = Length(&e);
-        if (dist <= *(f32*)(func_002dc7c8(m) + 260)) *(s32*)(s + 56) = 1;
-    }
-}
+void func_002df868(u8* s, u8* o);  // 0x002df868: definition moved into src/anon/unit_002de3c8.cpp
 }
 }
 

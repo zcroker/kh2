@@ -25,11 +25,6 @@ s32* func_002e34d8(W2030Q*, s32);
 
 // 002bacc0: moved to src/anon/unit_002bac78.cpp
 
-void func_002e0fa0(W2030P* p, s32 a) {
-    p->a = a;
-    p->r = func_002e34d8(&p->q, a);
-    p->f = (f32)*p->r;
-    p->b = 1;
-}
+void func_002e0fa0(W2030P* p, s32 a);  // 0x002e0fa0: definition moved into src/anon/unit_002de3c8.cpp
 
 }

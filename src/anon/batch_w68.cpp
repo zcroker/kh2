@@ -372,17 +372,7 @@ void func_002b1a00(void) {
 void func_002cfeb0(void*, void*, u32, u32);  // obj_init_field1416_bit800
 extern void* D_00362b68;
 union U20 { u32 id; f32 f; };
-void func_002dda88(u8* o, U20* a1, u32 a2) {
-    func_002cfeb0(o, a1, 3, a2);  // obj_init_field1416_bit800
-    *(u32*)o = (u32)&D_00362b68;
-    *(f32*)(o + 2840) = 300.0f;
-    switch (a1->id) {
-    case 1636: *(s32*)(o + 2836) = 2; break;
-    case 1637: *(s32*)(o + 2836) = 1; break;
-    case 1638: *(s32*)(o + 2836) = 0; break;
-    case 1639: *(s32*)(o + 2836) = 3; break;
-    }
-}
+void func_002dda88(u8* o, U20* a1, u32 a2);  // 0x002dda88: definition moved into src/anon/unit_002dd650.cpp
 
 /* ---- 002e7458 ---- */
 struct N23 { N23* next; };

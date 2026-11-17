@@ -337,15 +337,7 @@ f32* func_002cbca0(f32* out, u8* p);  // 0x002cbca0: definition moved into src/t
 
 void func_002dc1b8(u8* o, s32 id);  // 0x002dc1b8: definition moved into src/anon/unit_002da040.cpp
 
-void func_002dea00(u8* o, f32 a, f32 b) {  // obj_init_with_floats
-    *(u32*)(o + 4) = 30;
-    *(u32*)(o + 8) = 256;
-    *(u8**)o = D_00362d20;
-    *(f32*)(o + 12) = b;
-    *(f32*)(o + 16) = 10.0f;
-    *(f32*)(o + 20) = a;
-    *(s32*)(o + 56) = -1;
-}
+void func_002dea00(u8* o, f32 a, f32 b);  // 0x002dea00: definition moved into src/anon/unit_002de3c8.cpp
 
 void func_002e7108(List64* l, f32 x) {
     s32 n = l->n;

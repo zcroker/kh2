@@ -347,13 +347,7 @@ void func_002ceb48(void);  // 002ceb48: moved to src/taito/minigame_base.cpp (li
 void func_001780d8(u8*);
 void func_00198860(u8*, u32);
 void func_0017a7d8(u8*);
-void func_002dd730(u8* p) {
-    func_001780d8(p);
-    func_00198860(p, 8);
-    *(Vq*)(p + 3056) = *(Vq*)(p + 1344);
-    func_0017a7d8(p);
-    *(f32*)(p + 3072) = 1.0f;
-}
+void func_002dd730(u8* p);  // 0x002dd730: definition moved into src/anon/unit_002dd650.cpp
 
 // ---- 002e3ce8
 extern Vq D_01e2be20;

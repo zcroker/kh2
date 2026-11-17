@@ -236,7 +236,7 @@ void func_002d8d28(BD_VALUE* bd);  // 0x002d8d28: definition moved into src/anon
 void func_002dd198(BD_VALUE* bd);  // 0x002dd198: definition moved into src/anon/unit_002da040.cpp
 void func_002dd1e8(BD_VALUE* bd);  // 0x002dd1e8: definition moved into src/anon/unit_002da040.cpp
 void func_002dd200(BD_VALUE* bd);  // 0x002dd200: definition moved into src/anon/unit_002da040.cpp
-void func_002e1758(BD_VALUE* bd) { func_002e13d8(bd[1].i); }
+void func_002e1758(BD_VALUE* bd);  // 0x002e1758: definition moved into src/anon/unit_002de3c8.cpp
 void func_001059d0(BD_VALUE* bd) { func_001058f8(1, 0xffff); }
 void func_001059f0(BD_VALUE* bd) { func_001058f8(0, 0xffff); }
 // 00108028: moved to src/naka/libkn/camera.cpp
@@ -1293,19 +1293,9 @@ u32 func_002da110(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002da110: definition mo
 
 u32 func_002dc7e8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002dc7e8: definition moved into src/anon/unit_002da040.cpp
 
-void func_002dea80(u32 a0, u32 a1, u32 a2, u32 a3) {  // set_vtbl_362d20
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    *(u32*)((u32)a0 + (0)) = (u32)&D_00362d20;
-}
+void func_002dea80(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002dea80: definition moved into src/anon/unit_002de3c8.cpp
 
-u32 func_002e10c0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    return (u32)((s32)a0 + (144));
-}
+u32 func_002e10c0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002e10c0: definition moved into src/anon/unit_002de3c8.cpp
 
 // 002e2920: moved to src/anon/unit_002e1908.cpp
 

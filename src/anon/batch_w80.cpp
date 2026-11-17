@@ -688,24 +688,7 @@ void func_003259a0(u8* o) {
 
 
 s32 func_002d8a78(U23_Ai* a, U23_AiTgt* t);  // 0x002d8a78: definition moved into src/anon/unit_002d6f70.cpp
-void func_002e1668(U23_W80Obj* o, void* p, const U23_W80Vec* ofs, U23_W80Vec* acc) {
-    if (func_00197920(o)) return;
-    if (!o->active) return;
-    if (!(*(u32*)((u8*)p + 1416) & 0x80)) return;
-    {
-        U23_W80Vec u, t;
-        U23_w80_vadd(&t, w80_pos_vec(p), ofs);
-        U23_w80_vadd(&u, &t, acc);
-        U23_w80_vcopy(&t, &u);
-        func_002e1440(o, &t, &o->f208, &o->f224);
-        {
-            U23_W80Vec x, w;
-            U23_w80_vsub(&w, &t, &u);
-            U23_w80_vadd(&x, &w, acc);
-            *acc = x;
-        }
-    }
-}
+void func_002e1668(U23_W80Obj* o, void* p, const U23_W80Vec* ofs, U23_W80Vec* acc);  // 0x002e1668: definition moved into src/anon/unit_002de3c8.cpp
 
 
 U24_W80Eff* func_002ed350(U24_W80Own* own, u32 a1, const U24_W80Param* prm, u32 a3, const U24_W80Vec* pos) {

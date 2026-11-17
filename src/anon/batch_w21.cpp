@@ -190,17 +190,7 @@ void func_002dab30(void** p);  // 0x002dab30: definition moved into src/anon/uni
 struct BaseDtor { void** self; ~BaseDtor() { func_002cff98(self); } };
 void func_002db8e8(void** p);  // 0x002db8e8: definition moved into src/anon/unit_002da040.cpp
 
-void func_002df160(f32* p) {
-    p[8] = 0.0f;
-    f32 a = p[6];
-    f32 b = p[8];
-    ((u8*)p)[48] = 0;
-    ((u8*)p)[49] = 0;
-    p[7] = a;
-    p[10] = b;
-    p[9] = a;
-    p[11] = b;
-}
+void func_002df160(f32* p);  // 0x002df160: definition moved into src/anon/unit_002de3c8.cpp
 
 // 002f0da8: moved to src/naka/libkn/trapfunctions.cpp
 

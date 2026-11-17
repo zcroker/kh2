@@ -228,15 +228,7 @@ void func_002bfb40(void);  // 0x002bfb40: definition moved into src/anon/unit_00
 
 u32 func_002cebc8(u32 a);  // 002cebc8: moved to src/taito/minigame_base.cpp (linked unit)
 
-u8 func_002e0e70(u8* p) {
-    *(void**)p = D_00362dc8;
-    u8* s = *(u8**)(p + 0x70);
-    if (s) {
-        func_002e70b0(s);
-        func_00106420(s);
-    }
-    return func_002cea28(p);
-}
+u8 func_002e0e70(u8* p);  // 0x002e0e70: definition moved into src/anon/unit_002de3c8.cpp
 
 // 002e3840: moved to src/anon/unit_002e2f08.cpp
 

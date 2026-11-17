@@ -67,23 +67,7 @@ void func_001b7c80(void*, Box3w258*);
 V4w258* func_0016c028(u8*);  // obj_get_attach_or_alt
 void func_002de500(u8*, V4w258*);
 void wtarget_002cf280(u8*, s32, s32) asm("_Z16wtarget_002cf280jjjj");
-void func_002de3e0(u8* p) {
-    V4w258 t;
-    func_0016ac38(p, 0, 1, 0, 0);
-    if (*(void**)(p + 1296) != 0) {
-        Box3w258 b;
-        Aabbox_init(&b);
-        func_001b7c80(*(void**)(p + 1296), &b);
-        V4w258 c(b.mn[0] + b.mx[0], b.mn[1] + b.mx[1], b.mn[2] + b.mx[2], 0.0f);
-        t = c * 0.5f;
-    } else {
-        t = *func_0016c028(p);  // obj_get_attach_or_alt
-    }
-    t.z = 0.0f;
-    func_002de500(p, &t);
-    wtarget_002cf280(p + 2800, 4, 0);
-    wtarget_002cf280(p + 2800, 0x4000, 0);
-}
+void func_002de3e0(u8* p);  // 0x002de3e0: definition moved into src/anon/unit_002de3c8.cpp
 
 f32 func_002ce2a0(Rail258*, s32*, f32*, u32);
 Seg258* func_002cb890(Rail258*, s32);  // hash_bucket_get

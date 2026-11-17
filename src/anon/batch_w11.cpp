@@ -225,14 +225,7 @@ void func_002db530(void*);
 void func_002db730(void** p);  // 0x002db730: definition moved into src/anon/unit_002da040.cpp
 
 void func_002d10a0(void*);
-void func_002dd790(u8* p) {
-    func_002d10a0(p);
-    u8* d = p + 3056;
-    u8* s = p + 1344;
-    if (d != s) {
-        asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(d), "r"(s) : "$8", "memory");
-    }
-}
+void func_002dd790(u8* p);  // 0x002dd790: definition moved into src/anon/unit_002dd650.cpp
 
 extern u32 D_00363c2c;
 extern u32 D_00363c28;

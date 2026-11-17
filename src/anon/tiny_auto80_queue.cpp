@@ -3402,15 +3402,7 @@ u32 duplicate_unplaced_002ddb80(u32 a0) {
 extern "C" u32 func_002d00a0(...);
 
 
-u32 func_002de738(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r2, r15;
-    r15 = *(volatile u32*)((u32)r4 + (s32)(2808));
-    r2 = (u32)((s32)0u + (-1));
-    if (r15 != 0u) {
-        r2 = (u32)(s32)(*(s16*)((u32)r15 + (s32)(22)));
-    }
-    return r2;
-}
+u32 func_002de738(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);  // 0x002de738: definition moved into src/anon/unit_002de3c8.cpp
 
 extern "C" u32 func_002cfeb0(...);  // obj_init_field1416_bit800
 extern u8 D_00362ad8;
@@ -3457,20 +3449,7 @@ u32 duplicate_unplaced_002e0bb0(u32 a0, u32 a1) {
 
 extern "C" u32 func_002e34d8(...);  // list_walk_stride12
 
-u32 func_002e0fe8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r2, r14, r15;
-    r5 = *(volatile u32*)((u32)r4 + (s32)(116));
-    r4 = (u32)((s32)r4 + (104));
-    r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_002e34d8)(r4, r5, r6, r7, r8, r9, r10, r11);
-    r14 = (u32)(*(u8*)((u32)r2 + (s32)(8)));
-    r15 = (u32)((s32)0u + (1));
-    r2 = 0u;
-    if (r14 != r15) {
-        r15 = (u32)(r14 ^ 0x0005u);
-        r2 = ((u32)0u < (u32)r15);
-    }
-    return r2;
-}
+u32 func_002e0fe8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);  // 0x002e0fe8: definition moved into src/anon/unit_002de3c8.cpp
 
 extern "C" u32 func_001050d8(...);
 extern "C" u32 func_002e20d8(...);
@@ -13037,20 +13016,9 @@ f32 func_002dd348(u32 a0, f32 a1);  // 0x002dd348: definition moved into src/ano
 
 void func_002dd4a8(u32 a0, u32 a1);  // 0x002dd4a8: definition moved into src/anon/unit_002da040.cpp
 
-f32 func_002de6e8(u32 a0) {
-    u32 s0 = a0;
-    u32 v0 = func_0016bc20(a0, 2, 0xffffffffu);
+f32 func_002de6e8(u32 a0);  // 0x002de6e8: definition moved into src/anon/unit_002de3c8.cpp
 
-    u32 w[6];
-    w[3] = 0;
-    func_0018a818((u32)w, s0, v0);
-
-    return *(f32*)&w[5] - *(f32*)&w[2];
-}
-
-void func_002e13d8(u32 a0) {
-    func_002e7108(*(u32*)(a0 + 112), *(f32*)(a0 + 120));
-}
+void func_002e13d8(u32 a0);  // 0x002e13d8: definition moved into src/anon/unit_002de3c8.cpp
 
 // 002e3980: moved to src/anon/unit_002e2f08.cpp
 

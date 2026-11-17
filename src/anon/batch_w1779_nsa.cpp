@@ -28,11 +28,5 @@ struct W1779V4 {
 } __attribute__((aligned(16)));
 struct W1779Obj { u8 pad[0x7c]; s32 m7c; u8 p80[4]; u8 m84; u8 p85[0xd0 - 0x85]; W1779V4 md0; W1779V4 me0; };
 void func_002e0fa0(W1779Obj*, s32);
-void func_002e1020(W1779Obj* p) {
-    p->m7c = 100;
-    p->m84 = 0;
-    p->md0 = W1779V4(80.0f, 155.0f, 0.0f, 0.0f);
-    p->me0 = W1779V4(100.0f, 85.0f, 0.0f, 0.0f);
-    func_002e0fa0(p, 0);
-}
+void func_002e1020(W1779Obj* p);  // 0x002e1020: definition moved into src/anon/unit_002de3c8.cpp
 }

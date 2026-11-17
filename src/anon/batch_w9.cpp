@@ -166,9 +166,7 @@ void func_0028d708(void* p);  // 0028d708: moved to src/anon/unit_0028c878.cpp
 
 u32 func_002bc158(s32 a);  // 0x002bc158: definition moved into src/anon/unit_002bb8b0.cpp
 
-void func_002e0bb0(u32 a) {
-    func_002e0d28(func_001050d8(240), a);
-}
+void func_002e0bb0(u32 a);  // 0x002e0bb0: definition moved into src/anon/unit_002de3c8.cpp
 
 struct Flags2e9fb8 { u32 lo : 16; u32 flag : 1; u32 hi : 15; };
 void func_002e9fb8(u8* p, u8 b);  // 002e9fb8: moved to src/anon/unit_002e9a00.cpp

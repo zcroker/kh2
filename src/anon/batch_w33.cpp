@@ -203,11 +203,7 @@ void func_002db928(u8* p);  // 0x002db928: definition moved into src/anon/unit_0
 extern void* D_00361f60;
 void func_002cf280(void*, s32, s32);
 u8* func_002dc7c8(void*);
-void func_002de698(u8* p) {
-    void* m = D_00361f60;
-    func_002cf280(p + 2800, 8, 0);
-    *(f32*)(p + 3060) = *(f32*)(func_002dc7c8(m) + 172);
-}
+void func_002de698(u8* p);  // 0x002de698: definition moved into src/anon/unit_002de3c8.cpp
 
 struct Own2e8 { u8 pad[4]; void* h; };
 struct Obj2e8 { Own2e8* o; void* v; f32 a; f32 b; };

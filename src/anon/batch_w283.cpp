@@ -135,35 +135,7 @@ extern void* D_00361f60;
 W283_JCfg* W283_MGJump_config(void*) asm("_ZN2Ti6MGJump6configEv");
 W283_JTbl* func_002dd650(void*);
 W283_JObj* func_001cbeb8(W283_V4*, u32);
-void func_002de500(void* self, W283_V4* pos) {
-    void* mg = D_00361f60;
-    if (mg == 0) return;
-    W283_JCfg* cfg = W283_MGJump_config(mg);
-    f32* p188 = &cfg->step;
-    f32* p192 = &cfg->f192;
-    f32* p196 = &cfg->f196;
-    W283_JTbl* t = func_002dd650(mg);
-    s32 n = t->n;
-    for (s32 j = 0; j < n; j++) {
-        f32 y = (f32)j * *p188;
-        u32 kind = ((u8*)t)[4 + j * 2];
-        s32 cnt = ((u8*)t)[5 + j * 2];
-        for (s32 i = 0; i < cnt; i++) {
-            W283_JObj* o = func_001cbeb8(pos, kind);
-            if (o == 0) continue;
-            f32 a = (f32)i * 6.2831855f / (f32)cnt - 3.1415927f;
-            o->pos = *pos;
-            o->ang = a;
-            o->f168 = *p196;
-            o->f172 = 0.0f;
-            o->f180 = *p192;
-            o->f96 = y;
-            o->f100 = 120.0f;
-            o->f104 = p188[3];
-            o->f64 = 0.0f;
-        }
-    }
-}
+void func_002de500(void* self, W283_V4* pos);  // 0x002de500: definition moved into src/anon/unit_002de3c8.cpp
 
 void func_00190128(W283_Tgt*);
 void W283_set_obj(W283_Tgt*, void*, s32) asm("_ZN2YS6TARGET7set_objEPNS_3OBJEi");

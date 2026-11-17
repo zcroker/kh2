@@ -114,18 +114,6 @@ f32 fabsf(f32);
 
 void func_002dc2b8(W2040Obj* self, s32 x, s32 y);  // 0x002dc2b8: definition moved into src/anon/unit_002da040.cpp
 void func_002dc4e0(W2040Obj* self, s32 x, s32 y);  // 0x002dc4e0: definition moved into src/anon/unit_002da040.cpp
-void func_002e1440(void* self, C2040Vec* v, C2040Vec* mn, C2040Vec* mx) {
-    C2040Mtx m = func_002e10d0(self);
-    C2040Mtx inv = m.inverse();
-    v->w = 1.0f;
-    *v = inv * *v;
-    f32 t = func_002f8a18(D_00362d70 * 0.5f * 0.017453292f) * fabsf(v->z);
-    f32 hx = t * 4.0f / 3.0f;
-    if (hx - mx->x < v->x) v->x = hx - mx->x;
-    if (v->x < mn->x - hx) v->x = mn->x - hx;
-    if (t - mx->y < v->y) v->y = t - mx->y;
-    if (v->y < mn->y - t) v->y = mn->y - t;
-    *v = m * *v;
-}
+void func_002e1440(void* self, C2040Vec* v, C2040Vec* mn, C2040Vec* mx);  // 0x002e1440: definition moved into src/anon/unit_002de3c8.cpp
 // 001a2b50: moved to src/anon/unit_001a2a50.cpp
 }

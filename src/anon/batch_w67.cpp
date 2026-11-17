@@ -403,18 +403,7 @@ void func_002cfeb0(u8*, void*, s32, s32);  // obj_init_field1416_bit800
 extern u8 D_00362b68[];
 
 // 002dd9e0: constructor
-void func_002dd9e0(u8* o, Word* p, s32 c)
-{
-    func_002cfeb0(o, p, 3, c);  // obj_init_field1416_bit800
-    *(u8**)o = D_00362b68;
-    *(f32*)(o + 2840) = 300.0f;
-    switch (p->u) {
-    case 1637: *(s32*)(o + 2836) = 1; break;
-    case 1636: *(s32*)(o + 2836) = 2; break;
-    case 1638: *(s32*)(o + 2836) = 0; break;
-    case 1639: *(s32*)(o + 2836) = 3; break;
-    }
-}
+void func_002dd9e0(u8* o, Word* p, s32 c);  // 0x002dd9e0: definition moved into src/anon/unit_002dd650.cpp
 
 extern s32 D_01e2bfb0;
 extern u8 D_01e2bfc0[];

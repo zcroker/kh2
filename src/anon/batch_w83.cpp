@@ -427,26 +427,7 @@ bool func_002da308(u8* p);  // 0x002da308: definition moved into src/anon/unit_0
 s32 func_002e0fe8(void*);
 
 // Direction (scaled xy, normalized) with its length in w; zero if a is not ready.
-Vec4 func_002e17a0(void* a, f32* b) {
-    if (!func_002e0fe8(a)) {
-        return Vec4(0.0f, 0.0f, 0.0f, 0.0f);
-    }
-    Vec4 t;
-    t.x = b[0];
-    t.y = b[1];
-    t.w = t.z = 0.0f;
-    f32 k = 25.0f;
-    asm volatile("lqc2 $vf1, 0(%0)\n\tmfc1 $8, %1\n\tqmtc2 $8, $vf2\n\tvmulx.xyzw $vf1, $vf1, $vf2x\n\tsqc2 $vf1, 0(%0)"
-                 : : "r"(&t), "f"(k) : "$8", "memory");
-    f32 len;
-    asm volatile("lqc2 $vf1, 0(%1)\n\tvmul.xyz $vf2, $vf1, $vf1\n\tvaddy.x $vf2, $vf2, $vf2y\n\t"
-                 "vaddz.x $vf2, $vf2, $vf2z\n\tvsqrt Q, $vf2x\n\tvwaitq\n\tcfc2 $8, $vi22\n\t"
-                 "vaddq.x $vf2, $vf0, Q\n\tmtc1 $8, %0\n\tvnop\n\tvdiv Q, $vf0w, $vf2x\n\tvwaitq\n\t"
-                 "vmulq.xyz $vf1, $vf1, Q\n\tsqc2 $vf1, 0(%1)"
-                 : "=f"(len) : "r"(&t) : "$8", "memory");
-    t.w = len;
-    return t;
-}
+Vec4 func_002e17a0(void* a, f32* b);  // 0x002e17a0: definition moved into src/anon/unit_002de3c8.cpp
 
 f32 func_002f8ad0(f32, f32);
 f32 func_0017ce10(f32);

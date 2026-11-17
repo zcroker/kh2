@@ -48,50 +48,5 @@ void* func_0016bc20(Obj2e0230*, s32, s32);
 s32 func_0018a550(void*, void*);
 s32 func_002df198(Self2e0230*);
 void func_002dfe38(Self2e0230*, void*, Obj2e0230*, s32, f32);
-s32 func_002e0230(Self2e0230* self, void* ent)
-{
-    V2e0230 prev = self->pos;
-    V2e0230 cur = *func_0016c028(ent);
-    Col2e0230* col = func_0016bba8(ent, 6, 0);
-    if (!col) return 0;
-    V2e0230 a[5];
-    Box2e0230 me;
-    func_0018a818(&me, ent, col);
-    for (s32 i = 1; i < 5; i++) {
-        f32 k = (f32)i / 5.0f;
-        a[i] = (cur - prev) * k + prev;
-    }
-    V2e0230 b[5];
-    {
-        V2e0230 ofs((f32)col->x, (f32)(col->top - col->bottom), (f32)col->z, 1.0f);
-        for (s32 i = 1; i < 5; i++) b[i] = a[i] + ofs;
-    }
-    f32 h = 0.0f;
-    s32 hit = 0;
-    Obj2e0230* o = 0;
-    while (!hit && (o = func_001b9bc8(o)) != 0) {
-        if (func_0019c768(o)) continue;
-        if (func_0019c5d0(o)) continue;
-        if (o->info->kind != 22) continue;
-        if (func_002cf270(o->flag, 4)) continue;
-        void* t = func_0016bc20(o, 2, -1);
-        if (!t) continue;
-        Info2e0230 box;
-        func_0018a818(&box, o, t);
-        for (s32 j = 1; j < 5; j++) {
-            me.pos = b[j];
-            if (func_0018a550(&me, &box)) {
-                hit++;
-                h = box.pos.y - box.z;
-                break;
-            }
-        }
-    }
-    if (hit > 0 && o && !func_002df198(self) && self->f40 < 0.0f) {
-        s32 k = o->f2836;
-        func_002dfe38(self, ent, o, k, h);
-    }
-    self->pos = cur;
-    return hit;
-}
+s32 func_002e0230(Self2e0230* self, void* ent);  // 0x002e0230: definition moved into src/anon/unit_002de3c8.cpp
 }

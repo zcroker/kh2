@@ -62,43 +62,7 @@ V58e func_00190388(void*);
 
 void func_002c04c8(O58a* o, V58a* out1, V58a* out2);  // 0x002c04c8: definition moved into src/anon/unit_002bebd0.cpp
 
-void func_002deba0(O58b* o, A58b* act, f32 a, f32 b) {
-    f32 lo, hi;
-    if (act->x588 & 0x80) return;
-    func_002dd2d8(D_00361f60, &lo, &hi);
-    lo *= 0.8f;
-    hi *= 0.8f;
-    f32* p = (f32*)func_0016c028(act);
-    if (o->x38 != 0) {
-        o->x38 = -1;
-        f32 v = func_00106558(1.0f);
-        s32 s;
-        if (v < a) {
-            if (o->x34 <= 0) o->x34 = 1;
-            else o->x34 = -1;
-            s = o->x38;
-        } else if (v < a + b) {
-            s = o->x38 = 0;
-        } else {
-            s = o->x38;
-        }
-        if (s >= 0) goto L;
-        if (o->x34 >= 0) {
-            if (hi <= *p) o->x34 = -1;
-            if (o->x34 > 0) return;
-        }
-        if (*p <= lo) o->x34 = 1;
-        return;
-    }
-L:
-    {
-        f32* q = (f32*)func_0016c028(D_0034e948);
-        f32* m = (f32*)func_0016c028(act);
-        o->x34 = (*q >= *m) ? 1 : -1;
-        if (o->x34 >= 0 && hi <= *p) o->x34 = 0;
-        if (o->x34 <= 0 && *p <= lo) o->x34 = 0;
-    }
-}
+void func_002deba0(O58b* o, A58b* act, f32 a, f32 b);  // 0x002deba0: definition moved into src/anon/unit_002de3c8.cpp
 
 // 001a4b78: moved to src/anon/unit_001a3e70.cpp
 }

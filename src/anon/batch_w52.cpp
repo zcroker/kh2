@@ -305,16 +305,7 @@ u8* func_002dc7c8(u32);
 void func_002deac0(u8*, f32, f32);  // set_float24_scaled
 void func_002deba0(u8*, u32, f32, f32);
 extern u32 D_00361f60;
-void func_002df470(u8* p, u32 b) {
-    func_002def70(p, b);
-    u32 g = D_00361f60;
-    u8* a1 = func_002dc7c8(g);
-    u8* a2 = func_002dc7c8(g);
-    func_002deac0(p, *(f32*)(a1 + 220), *(f32*)(a2 + 224));  // set_float24_scaled
-    u8* a3 = func_002dc7c8(g);
-    u8* a4 = func_002dc7c8(g);
-    func_002deba0(p, b, *(f32*)(a3 + 228), *(f32*)(a4 + 232));
-}
+void func_002df470(u8* p, u32 b);  // 0x002df470: definition moved into src/anon/unit_002de3c8.cpp
 
 extern Vec4 D_00362e70;
 // 002e2e50: moved to src/anon/unit_002e2d18.cpp

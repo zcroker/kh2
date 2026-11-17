@@ -239,15 +239,7 @@ void func_002d28f8(u32 x, u32 m, s32 i);  // 0x002d28f8: definition moved into s
 
 void func_002daa50(u32* p, u32 a, u32 b);  // 0x002daa50: definition moved into src/anon/unit_002da040.cpp
 
-u8 func_002e0ec8(u8* p) {
-    *(void**)p = D_00362dc8;
-    void* q = *(void**)(p + 112);
-    if (q) {
-        func_002e70b0(q);
-        func_00106420(q);
-    }
-    return func_002cea28(p);
-}
+u8 func_002e0ec8(u8* p);  // 0x002e0ec8: definition moved into src/anon/unit_002de3c8.cpp
 
 // 002eb460: moved to src/anon/unit_002eaf38.cpp
 

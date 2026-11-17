@@ -29,15 +29,7 @@ u32 func_00244938(u32 x) {
     return r;
 }
 
-void func_002dfac0(u32* t) {
-    func_002dea00(0.0f, 50.0f);  // obj_init_with_floats
-    t[2] |= 0x800;
-    t[0] = (u32)&D_00362c18;
-}
+void func_002dfac0(u32* t);  // 0x002dfac0: definition moved into src/anon/unit_002de3c8.cpp
 
-void func_002dfb10(u32* t) {
-    func_002dea00(0.0f, 50.0f);  // obj_init_with_floats
-    t[2] |= 0x800;
-    t[0] = (u32)&D_00362c18;
-}
+void func_002dfb10(u32* t);  // 0x002dfb10: definition moved into src/anon/unit_002de3c8.cpp
 }

@@ -88,34 +88,7 @@ struct S2e0 {
   u32 f108;
   void* f112;
 };
-void func_002e0be0(S2e0* p, u32 a1) {
-  char buf[64];
-  u8* o;
-  void* n;
-  u32 v;
-  func_002ce958(p, 4, a1, 0);
-  p->vt = D_00362dc8;
-  func_002e34b8(p->f104);
-  p->f108 = 0;
-  func_002ceae8(p, buf, D_00375eb8);
-  v = func_001708f8(buf, -1);
-  p->f96 = v;
-  func_002e34c0(p->f104, *(u32*)(func_00168b38(v, 42, 0) + 8));
-  p->f108 = *(u32*)(func_00168b38(v, 42, 1) + 8);  // entry_array_find_nth
-  n = func_001063c0(12, func_001050c8());
-  func_002e6fc0(n, p->f108);
-  p->f112 = n;
-  func_00102c80();
-  func_002e1020(p);
-  func_002cedd0(3, D_00362d90);
-  o = D_0034e948;
-  func_0016bd60(o, 24);
-  *(u32*)(o + 264) |= 1;
-  o = func_0016b740(1514);
-  func_0016bd60(o, 25);
-  *(u32*)(o + 264) |= 1;
-  p->f88 = 1;
-}
+void func_002e0be0(S2e0* p, u32 a1);  // 0x002e0be0: definition moved into src/anon/unit_002de3c8.cpp
 f32* func_002e4588(f32* m, f32* q) {
   m[0] = 1.0f - (q[1] * q[1] + q[2] * q[2]) * 2.0f;
   m[1] = (q[0] * q[1] + q[3] * q[2]) * 2.0f;

@@ -334,17 +334,7 @@ extern u8 D_003628f0[];
 void func_002dba40(u8* p);  // 0x002dba40: definition moved into src/anon/unit_002da040.cpp
 
 // wrap an angle into [-pi, pi]
-f32 func_002de968(f32 a) {  // clamp_angle
-    if (a > 0.0f) {
-        if (a > 3.1415927f) {
-            do a -= 6.2831855f;
-            while (a > 3.1415927f);
-        }
-    } else {
-        while (a < -3.1415927f) a += 6.2831855f;
-    }
-    return a;
-}
+f32 func_002de968(f32 a);  // 0x002de968: definition moved into src/anon/unit_002de3c8.cpp
 
 struct Glob363 {
     u8 pad[16];

@@ -331,17 +331,7 @@ void func_002d3f18(u8* p);  // 0x002d3f18: definition moved into src/anon/unit_0
 void func_00198690(u8*);
 void func_0016b070(u8*, f32*);
 void func_0016ace0(u8*, f32*);
-void func_002de8e8(u8* p) {
-    f32 a[4];
-    f32 b[4];
-    func_00198690(p);
-    if (!func_001c0cd8(p)) return;
-    a[1] = a[0] = -1.57079625f;
-    a[3] = a[2] = 0.0f;
-    func_0016b070(p, a);
-    b[3] = b[2] = b[1] = b[0] = 0.0f;
-    func_0016ace0(p, b);
-}
+void func_002de8e8(u8* p);  // 0x002de8e8: definition moved into src/anon/unit_002de3c8.cpp
 
 extern f32 D_01e2c040;
 void func_002eb9d8(u8*, u8*, u32, f32);

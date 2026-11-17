@@ -312,15 +312,7 @@ Vec4* func_0016c028(u32);  // obj_get_attach_or_alt
 f32 func_002df1a0(u32);
 void func_0016ace0(u32, Vec4*);
 extern f32 D_00375d40;
-void func_002deb18(u32 a0, u32 a1) {
-    Vec4 v;
-    func_002df160(a0);
-    cpq(&v, func_0016c028(a1));  // obj_get_attach_or_alt
-    f32 r = func_002df1a0(a0);
-    v.z = 0;
-    v.y = -r * 100.0f - D_00375d40;
-    func_0016ace0(a1, &v);
-}
+void func_002deb18(u32 a0, u32 a1);  // 0x002deb18: definition moved into src/anon/unit_002de3c8.cpp
 
 s32 func_002eb3b8(u32);
 s32 func_002eb098(u32);

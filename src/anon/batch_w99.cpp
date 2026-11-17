@@ -755,24 +755,7 @@ void func_002deb18(P2dfb*, u8*);
 V2dfb* func_0016c028_2dfba8(u8*) asm("func_0016c028");
 f32* func_002dc7c8(u32);
 
-void func_002dfba8(P2dfb* p, u8* o)
-{
-    u32 m = D_00361f60;
-    f32 k = 0.01f;
-    p->f24 = func_002dd250(m, 0) * k;
-    func_002deb18(p, o);
-    p->b49 = 0;
-    p->w72 = 0;
-    p->b84 = 0;
-    p->pos = *func_0016c028_2dfba8(o);
-    p->w96 = 0;
-    p->f24 = func_002dd250(m, 0) * k;
-    p->f88 = 10.0f;
-    p->f92 = func_002dc7c8(m)[36];
-    p->f60 = func_002dc7c8(m)[1];
-    p->f64 = func_002dc7c8(m)[2];
-    p->f68 = func_002dc7c8(m)[3];
-}
+void func_002dfba8(P2dfb* p, u8* o);  // 0x002dfba8: definition moved into src/anon/unit_002de3c8.cpp
 }
 
 // ---- 002e0d28
@@ -797,30 +780,5 @@ void func_002cedd0(s32, void*);
 void func_0016bd60(u8*, s32);
 u8* func_0016b740(s32);
 
-void func_002e0d28(u8* p, u32 a)
-{
-    Buf2e0d s;
-    func_002ce958(p, 4, a, 0);
-    *(u8**)p = D_00362dc8;
-    func_002e34b8(p + 104);
-    *(u32*)(p + 108) = 0;
-    func_002ceae8(p, &s, D_00375eb8);
-    u8* r = func_001708f8(&s, -1);
-    *(u8**)(p + 96) = r;
-    func_002e34c0(p + 104, *(u32*)(func_00168b38(r, 42, 0) + 8));
-    *(u32*)(p + 108) = *(u32*)(func_00168b38(r, 42, 1) + 8);
-    u8* x = func_001063c0(12, func_001050c8());
-    func_002e6fc0(x, *(u32*)(p + 108));
-    *(u8**)(p + 112) = x;
-    func_00102c80();
-    func_002e1020(p);
-    func_002cedd0(3, D_00362d90);
-    u8* o = D_0034e948;
-    func_0016bd60(o, 24);
-    *(u32*)(o + 264) |= 1;
-    o = func_0016b740(1514);
-    func_0016bd60(o, 25);
-    *(u32*)(o + 264) |= 1;
-    p[88] = 1;
-}
+void func_002e0d28(u8* p, u32 a);  // 0x002e0d28: definition moved into src/anon/unit_002de3c8.cpp
 }

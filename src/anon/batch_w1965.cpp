@@ -77,28 +77,5 @@ W1965bV* w1965_pos(void*) asm("func_0016c028");
 void func_002df040(void);
 W1965bPrm* func_002dc7c8(s32);
 void func_002dd2d8(s32, f32*, f32*);
-void func_002df500(W1965bCtl* a, W1965bBod* b)
-{
-    func_002df040();
-    s32 id = D_00361f60;
-    W1965bV p = *w1965_pos(b);
-    W1965bV* vel = &b->vel;
-    p.x += func_002dc7c8(id)->f216 * (f32)a->i52;
-    f32 lo, hi;
-    func_002dd2d8(id, &lo, &hi);
-    hi *= 0.95f;
-    lo *= 0.95f;
-    if (hi < p.x) p.x = hi;
-    if (p.x < lo) p.x = lo;
-    *vel *= ((W1965bBodV*)b)->spd;
-    ((W1965bBodV*)b)->vx = p.x - w1965_pos(b)->x;
-    f32 len = vel->length();
-    vel->normalize();
-    ((W1965bBodV*)b)->spd = len;
-    if (a->i56 == 0) {
-        W1965bV d = *w1965_pos(D_0034e948) - p;
-        f32 dl = d.length();
-        if (dl <= func_002dc7c8(id)->f236) a->i56 = 1;
-    }
-}
+void func_002df500(W1965bCtl* a, W1965bBod* b);  // 0x002df500: definition moved into src/anon/unit_002de3c8.cpp
 }

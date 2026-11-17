@@ -5,16 +5,7 @@ static inline f32 f_from_bits(u32 x) { union { u32 u; f32 f; } v; v.u = x; retur
 
 void func_0013f5f0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0013f5f0: definition moved into src/anon/unit_0013ef70.cpp
 
-void func_002e0870(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3;
-    f32 f0 = 0.0f, f1 = 0.0f;
-    f1 = *(f32*)((u32)r4 + (s32)(32));
-    f0 = *(f32*)((u32)r7 + (s32)(0));
-    f1 = f1 * f1;
-    f0 = f0 + f0;
-    f1 = f1 / f0;
-    *(f32*)((u32)r5 + (s32)(0)) = f1;
-}
+void func_002e0870(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002e0870: definition moved into src/anon/unit_002de3c8.cpp
 
 void func_002ed720(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r15 = 0u;

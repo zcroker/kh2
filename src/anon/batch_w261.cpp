@@ -57,21 +57,6 @@ void func_0017f488(u8*, u32, f32, f32);
 s32 func_002ddbb8(u32);  // get_bit0_of_field2808
 void* func_0016b740(s32);
 void func_002e7568(void*, s32, void*, f32);
-void func_002dfe38(W261Act* o, u8* a1, u32 a2, u32 a3, f32 f) {
-    func_002de698(a2);
-    o->f72 = a2;
-    o->f80 = a3;
-    o->f76 = f;
-    o->b49 = 0;
-    u32 v = o->vt[12].f(o);
-    func_0017f488(a1 + 320, v, 0.0f, 0.0f);
-    o->f40 = 0.0f;
-    o->f44 = 0.0f;
-    o->f28 = -(o->f76 + D_00375d40) * 0.01f;
-    if (func_002ddbb8(o->f72)) {  // get_bit0_of_field2808
-        void* p = func_0016b740(1635);
-        if (p) func_002e7568(p, 2, D_00362bf8, 1.0f);
-    }
-}
+void func_002dfe38(W261Act* o, u8* a1, u32 a2, u32 a3, f32 f);  // 0x002dfe38: definition moved into src/anon/unit_002de3c8.cpp
 
 }

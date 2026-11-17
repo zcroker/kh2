@@ -202,11 +202,7 @@ void func_002bd188(u32 a, u32 b);  // 0x002bd188: definition moved into src/anon
 s32 func_002cb708(u8* p);  // 0x002cb708: definition moved into src/taito/path.cpp
 
 // Deleting destructor: reset vtable, run base dtor, free.
-void func_002ddb80(void** p) {
-    *p = &D_00362b68;
-    func_002cff98(p);
-    func_00105110(p);
-}
+void func_002ddb80(void** p);  // 0x002ddb80: definition moved into src/anon/unit_002dd650.cpp
 
 // 002e2dd8: moved to src/anon/unit_002e2d18.cpp
 

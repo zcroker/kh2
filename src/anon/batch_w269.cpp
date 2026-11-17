@@ -180,24 +180,7 @@ void func_001991a8(s32, s32);
 void func_002e0fa0(NO269*, s32);
 NM269 func_002e71a0(s32, u8, s32);
 void wt269(NO269* a0, u32, u32, u32) asm("_Z16wtarget_002e1288jjjj");
-void wt269(NO269* a0, u32, u32, u32) {
-    a0->flag = 0;
-    if (!a0->stop) {
-        a0->time += (f32)a0->speed * D_00349e10 * 0.5f / 100.0f;
-    }
-    if ((f32)a0->info->frames + 1.0f <= a0->time) {
-        a0->idx++;
-        if (a0->idx >= func_002e34c8(a0->sub)) {  // obj_get_field8_by_vtable
-            func_001991a8(21, 0);
-            a0->idx = func_002e34c8(a0->sub) - 1;
-            a0->time = (f32)a0->info->frames;
-        } else {
-            func_002e0fa0(a0, a0->idx);
-        }
-    }
-    NM269 t = func_002e71a0(a0->f112, a0->info->b8, 1);
-    ncopy269(&a0->mtx, &t);
-}
+void wt269(NO269* a0, u32, u32, u32);  // 0x002e1288: definition moved into src/anon/unit_002de3c8.cpp
 
 s32 func_003050b8(u8*, s32, SS269*);
 void* mal269(u8*, u32) asm("_Z9_malloc_rjjjj");

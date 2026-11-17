@@ -216,11 +216,7 @@ Q128* func_002cb7c8(Q128* out, void* a, void* b);  // 0x002cb7c8: definition mov
 
 void* func_002cd910_f(void* r, u32 a1, f32 f);  // 0x002cd910: definition moved into src/taito/path.cpp
 
-void func_002de810(void** p) {
-    *p = &D_00362ad8;
-    func_002cff98(p);
-    func_00105110(p);
-}
+void func_002de810(void** p);  // 0x002de810: definition moved into src/anon/unit_002de3c8.cpp
 
 void func_002e7ff8(u32* p) {
     Q128 t;
