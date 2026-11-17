@@ -210,12 +210,7 @@ void func_002fdfc8(const char*, ...);  // device_vprintf_va
 extern char D_00370bd8[];
 extern char D_00370bf8[];
 extern char D_00370c10[];
-void func_00223448(u32 a, u32 b, u32 c, u32 d) {
-    func_002fdfc8(D_00370bd8, a);  // device_vprintf_va
-    func_002fdfc8(D_00370bf8, b, c);  // device_vprintf_va
-    func_002fdfc8(D_00370c10, d);  // device_vprintf_va
-    asm volatile("break");
-}
+void func_00223448(u32 a, u32 b, u32 c, u32 d);  // 0x00223448: definition moved into src/anon/unit_00222aa8.cpp
 
 u32 func_0022b9e0(u8*, u32, u32);
 void func_001386e0(u8*, u32, u32, u32, u32, u32);

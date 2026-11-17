@@ -79,54 +79,7 @@ void sceVu0SubVector(V222aa8*, V222aa8*, V222aa8*);
 void sceVu0DivVector(V222aa8*, V222aa8*, f32);
 void sceVu0AddVector(V222aa8*, V222aa8*, V222aa8*);
 u32 __fixunssfsi(f32); /* __fixunssfsi in the game image */
-void func_00222aa8(u32 colA, u32 colB, u32* clut, f32 pos)
-{
-    Swz222aa8* sw = (Swz222aa8*)func_0020eaf8(32);
-    s32 n, i;
-    u32* p;
-    f32 len;
-    V222aa8 d, c;
-    ((u128*)sw)[0] = ((u128*)&D_0035da40)[0];
-    ((u128*)sw)[1] = ((u128*)&D_0035da40)[1];
-    n = pos;
-    if (n < 0) {
-        if (n < -256) n = -256;
-        n += 256;
-        p = clut + (n & 0xe0) + D_0035da60[n & 31];
-        for (i = n; i < 256; i++) {
-            *p = colA;
-            p += sw->v[i & 31];
-        }
-        len = n;
-        p = clut;
-        i = 0;
-    } else {
-        if (!(n < 256)) n = 255;
-        p = clut;
-        for (i = 0; i < n; i++) {
-            *p = colB;
-            p += sw->v[i & 31];
-        }
-        len = 256.0f - n;
-        n = 256;
-    }
-    c.x = ((u8*)&colB)[0];
-    c.y = ((u8*)&colB)[1];
-    c.z = ((u8*)&colB)[2];
-    c.w = ((u8*)&colB)[3];
-    d.x = ((u8*)&colA)[0];
-    d.y = ((u8*)&colA)[1];
-    d.z = ((u8*)&colA)[2];
-    d.w = ((u8*)&colA)[3];
-    sceVu0SubVector(&d, &d, &c);
-    sceVu0DivVector(&d, &d, len);
-    for (; i < n; i++) {
-        *p = (__fixunssfsi(c.w) << 24 | __fixunssfsi(c.y) << 8) | (__fixunssfsi(c.x) | __fixunssfsi(c.z) << 16);
-        sceVu0AddVector(&c, &c, &d);
-        p += sw->v[i & 31];
-    }
-    func_0020ebd8(32);
-}
+void func_00222aa8(u32 colA, u32 colB, u32* clut, f32 pos);  // 0x00222aa8: definition moved into src/anon/unit_00222aa8.cpp
 }
 
 // 00316188 is libsupc++'s __vmi_class_type_info::__do_upcast (tinfo.cc, GCC 3.2), written as a plain function:

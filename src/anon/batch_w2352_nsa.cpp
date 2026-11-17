@@ -92,53 +92,5 @@ void sceVu0MulMatrix(void*, void*, void*);
 s32 func_0020f1e0(u32*, Param*, s32);
 
 /* 00222d40: builds a draw parameter block for sprite idx (colour col, position x/y, flags fl) and submits it. */
-void func_00222d40(s32 idx, u16* col, s32 z, s32 x, s32 y, u8 fl, s32 extra)
-{
-    Ent24* e;
-    u32* d;
-    u8 buf[0x40];
-    Param p;
-    if (idx == 0xffff) return;
-    e = &D_01d9e6e4->ents[idx];
-    d = e->data;
-    p.flags = 0;
-    if (fl & 2) {
-        p.flags = 4;
-        if ((*d & 1) == 0) p.flags |= 8;
-    } else {
-        if ((bool)(fl & 1)) p.flags = 0x80;
-        if ((*d & 1) == 0) p.flags |= 8;
-    }
-    if ((*d & 2) == 0) p.flags |= 0x10;
-    if (fl & 4) p.flags |= 0x200;
-    if (fl & 8) p.flags |= 0x100;
-    if (fl & 0x10) {
-        p.flags |= 0x2000;
-        p.p30 = buf;
-        sceVu0MulMatrix(buf, D_01d9e840, D_01d9e6e8->a);
-    }
-    p.f44 = (fl & 0x20) ? extra : 0;
-    /* These two go through casts: as field stores gcc lets the global loads below move above them. */
-    *(u16*)((u8*)&p + 8) = ((u16*)d)[0x16 / 2];
-    *(s32*)((u8*)&p + 0x1c) = 0;
-    p.f38 = D_01d9e6e8->f90;
-    p.f3c = D_01d9e6e8->f94;
-    p.h0e = z;
-    p.p04 = D_01d9eac0;
-    p.x = x << 16;
-    p.y = y << 16;
-    p.c[0] = col[0] >> 7;
-    p.c[1] = col[1] >> 7;
-    p.c[2] = col[2] >> 7;
-    p.c[3] = col[3] >> 7;
-    p.p20 = D_01d9e6e8->b;
-    p.p24 = D_01d9e9c0;
-    p.p28 = D_01d9e980;
-    p.p2c = D_01d9e6e8->a;
-    p.prev = D_01d9eaa4;
-    p.h0c = 0;
-    p.f40 = 0;
-    p.b0a = 0;
-    D_01d9eaa4 = func_0020f1e0(d, &p, e->f20);
-}
+void func_00222d40(s32 idx, u16* col, s32 z, s32 x, s32 y, u8 fl, s32 extra);  // 0x00222d40: definition moved into src/anon/unit_00222aa8.cpp
 }

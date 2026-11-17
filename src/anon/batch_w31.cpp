@@ -182,11 +182,7 @@ bool func_001dc018(u8** p, s32 key, u32* a, u32* b);  // 0x001dc018: definition 
 void func_001e2998(void);  // 0x001e2998: definition moved into src/anon/unit_001e0cb8.cpp
 
 // Print two messages and trap.
-void func_002233f0(u32 a, u32 b, u32 c) {
-    func_002fdfc8(D_00370bd8, a);  // device_vprintf_va
-    func_002fdfc8(D_00370bf8, b, c);  // device_vprintf_va
-    asm volatile("break");
-}
+void func_002233f0(u32 a, u32 b, u32 c);  // 0x002233f0: definition moved into src/anon/unit_00222aa8.cpp
 
 char* func_0022c4b8(u32 x);  // 0022c4b8: moved to src/sasa/event_layout.cpp (linked unit)
 

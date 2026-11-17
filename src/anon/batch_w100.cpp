@@ -359,9 +359,7 @@ asm("fptodp = func_00313b80");
 extern "C" {
 extern char D_00370c20[];
 s32 func_002fdfc8(const char*, ...);  // device_vprintf_va
-void func_002234c0(const char* name, f32* m) {
-    func_002fdfc8(D_00370c20, name, m[0], m[1], m[2], m[3], m[4], m[5], m[6], m[7], m[8], m[9], m[10], m[11], m[12], m[13], m[14], m[15]);  // device_vprintf_va
-}
+void func_002234c0(const char* name, f32* m);  // 0x002234c0: definition moved into src/anon/unit_00222aa8.cpp
 }
 
 }

@@ -10,46 +10,7 @@ extern s32 D_01da8bf4;
 void* func_0020eaf8(s32);
 void func_0020ebd8(s32);
 
-void func_00222f88(W2042A* a) {
-    W2042P* p = (W2042P*)func_0020eaf8(0x90);
-    p->a0 = (1ULL << 62) | 1;
-    p->a8 = 0xeeee;
-    p->a10 = (a->m40 & ~(0xffULL << 26)) | (0x55ULL << 27);
-    p->a18 = 6;
-    if (a->m3c & 4) p->a20 = 0x31001; else p->a20 = 0x71001;
-    p->a28 = 0x47;
-    p->a30 = 0x44;
-    p->a38 = 0x42;
-    u64 v = a->m48;
-    p->a40 = ((v & 0x7ff) << 4) | (((v >> 32) & 0x7ff) << 24) | ((((v >> 16) & 0x7ff) - 1) << 14) | 0xa | ((((v >> 48) & 0x7ff) - 1) << 34);
-    p->a48 = 8;
-    p->a50 = (0xc0bbULL << 46) | 0xa;
-    p->a58 = 0x412;
-    p->a60 = (1ULL << 60) | 0x8001;
-    p->a68 = 0xe;
-    p->b70 = D_01da8bf0;
-    p->b74 = D_01da8bf4;
-    p->a78 = 0x47;
-    u64 x = a->m50; p->b80 = (s32)(x - 8);
-    u64 y = a->m54; p->b84 = (s32)(y - 8);
-    void* q28 = a->m28;
-    void* q20 = a->m20;
-    asm volatile(
-        "lqc2 $vf25,0(%0)\n\tlqc2 $vf27,16(%0)\n\tlqc2 $vf29,32(%0)\n\tlqc2 $vf21,48(%0)\n\t"
-        "lqc2 $vf14,64(%0)\n\tlqc2 $vf20,80(%0)\n\tlqc2 $vf9,96(%0)\n\tlqc2 $vf3,112(%0)\n\t"
-        "lqc2 $vf2,0(%1)\n\tlqc2 $vf31,16(%1)\n\tvadd.y $vf2,$vf0,$vf31\n\t"
-        "lui $2,0x3a80\n\tqmtc2 $2,$vf24\n\t"
-        "lqc2 $vf4,0(%2)\n\tlqc2 $vf5,16(%2)\n\tlqc2 $vf6,32(%2)\n\tlqc2 $vf7,48(%2)\n\t"
-        "lqc2 $vf11,128(%0)\n\tvitof4.wxyz $vf11,$vf11\n\t"
-        "lqc2 $vf31,80(%3)\n\tvmove.x $vf15,$vf0\n\tvaddw.y $vf15,$vf0,$vf31w\n\tvaddz.x $vf17,$vf0,$vf31z\n\tvmove.y $vf17,$vf0\n\t"
-        "lui $2,0x3f35\n\tori $2,$2,0x4f3\n\tdsll $2,$2,0x10\n\tori $2,$2,0x3f35\n\tdsll $2,$2,0x10\n\tori $2,$2,0x4f3\n\t"
-        "qmtc2 $2,$vf16\n\tvmul.xy $vf16,$vf16,$vf2\n\tlqc2 $vf1,48(%3)\n\tvmul.xy $vf1,$vf2,$vf1\n\t"
-        "vmulz.xy $vf18,$vf2,$vf1z\n\tvmulz.xy $vf19,$vf16,$vf1z\n\tvmul.x $vf16,$vf16,$vf17\n\tvmul.y $vf16,$vf16,$vf15\n\t"
-        "vmul.y $vf15,$vf15,$vf2\n\tvmul.x $vf17,$vf17,$vf2\n\t"
-        "lui $2,0x4580\n\tqmtc2 $2,$vf28\n\tvaddx.y $vf28,$vf0,$vf28x\n\tvaddw.z $vf26,$vf0,$vf0w\n\tvsubw.w $vf30,$vf0,$vf0w"
-        : : "r"(p), "r"(q20), "r"(q28), "r"(a) : "$2", "memory");
-    func_0020ebd8(0x90);
-}
+void func_00222f88(W2042A* a);  // 0x00222f88: definition moved into src/anon/unit_00222aa8.cpp
 
 // ---- 00184780 ----
 struct W2042Vec {
