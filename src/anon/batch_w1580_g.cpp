@@ -163,44 +163,7 @@ void func_00261fb8(void) {
     }
 }
 
-void func_0025b5e0(void) {
-    s32 x = func_00240ba0();
-    s32 m = func_00287cd0();
-    if (m == 2) {
-        if (func_002b4fb8() == 0) {
-            func_00287c30();
-            func_00287d20(0);
-            s32 k = func_00287bc0();
-            func_00287cc0(0);
-            if (k == 12) {
-                func_002417a0();
-                func_002b5188(D_00372ea0, 0);
-            }
-        }
-        return;
-    }
-    if (m == 0) {
-        func_00287cc0(1);
-    }
-    s32 lt = func_00241f10()[1] < func_002408d0(0);
-    s32 ok = lt == 0;
-    if ((func_00241a00() && func_00241a48()) ||
-        (func_00241a00() && !(func_00241f10()[1] < func_002408d0(2)))) {
-        ok = 1;
-    } else if (func_00241a48()) {
-        if (!(func_00241f10()[1] < func_002408d0(1))) ok = 1;
-    }
-    if (ok) {
-        func_002b4ee0();
-        func_00287c00(12);
-        func_00287cc0(2);
-    } else {
-        func_00234570(x, 0);
-        func_002b5108(0xC6C8, x);
-        func_00287bd0(7, 0);
-        func_002b4c88(0);
-    }
-}
+void func_0025b5e0(void);  // 0x0025b5e0: definition moved into src/anon/unit_002588e8.cpp
 
 void func_00251a70(void) {
     s32 mode = func_00287bc0();

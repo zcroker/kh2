@@ -165,11 +165,7 @@ s32 func_0023d2e0(s32* out) {  // store_global_test_result
     return none ^ 1;
 }
 
-void func_00258d58(s32 a, s32 b, s32 c) {
-    D_0035f090 = a;
-    D_0035f092 = b;
-    D_0035f096 = c;
-}
+void func_00258d58(s32 a, s32 b, s32 c);  // 0x00258d58: definition moved into src/anon/unit_002588e8.cpp
 
 u8 func_00263688(void) {
     return func_001a3888(*func_002632d0());  // id_in_range_5_7_131

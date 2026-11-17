@@ -28,7 +28,7 @@ void func_0023c598(void* self) { *(s32*)((char*)self + 64) = 0; }
 
 s32 func_002420d0(void* self) { return (s32)(*(s32*)((char*)self + 4)); }
 
-void func_0025f6b0(void* self) {}
+void func_0025f6b0(void* self);  // 0x0025f6b0: definition moved into src/anon/unit_0025da20.cpp
 
 void func_00263e10(void* self) {}
 

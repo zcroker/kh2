@@ -61,29 +61,7 @@ extern u16 D_0035f096;
 void func_0014cbe0(u32*, u32*, u32*, u32*);
 void func_0028e560(s32, u16*, s32, s32);
 void func_00258eb8_i(s32 a) asm("_Z13func_00258eb8i");
-void func_00258eb8_i(s32 a)
-{
-  u16 buf[16];
-  u32 h, m, s, f;
-  s32 i, j, n;
-  u16* p = buf;
-  for (i = 8; i >= 0; i--) *p++ = D_0035f090;
-  func_0014cbe0(&h, &m, &s, &f);
-  n = 0;
-  for (i = 0; i < 2; i++) {
-    u32 v, lead; s32 nd;
-    if (i == 0) { v = m; nd = 2; lead = *(volatile u32*)&h; } else { v = h; lead = 0; nd = 3; }
-    if (i != 0) buf[n++] = D_0035f092;
-    for (j = 0; j < nd; j++) {
-      u32 r = v % 10;
-      v = v / 10;
-      if (i != 0 && j != 0 && r == 0 && v == 0 && lead == 0) break;
-      buf[n++] = r + D_0035f096;
-    }
-    if (j < nd) break;
-  }
-  func_0028e560(a, buf, 9, -1);
-}
+void func_00258eb8_i(s32 a);  // 0x00258eb8: definition moved into src/anon/unit_002588e8.cpp
 
 // ---- c4.cpp
 union UG_0028f280 { u8* p; u32 i; };

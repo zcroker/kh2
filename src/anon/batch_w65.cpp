@@ -275,10 +275,7 @@ s32 func_002421e8(u8* p) {
 
 void func_00258d40(u32, u32);
 void func_00258d58(u32, u32, u32);
-void func_00258d78(u32 a, u32 b, u32 c, u32 d) {
-    func_00258d40(a, c);
-    func_00258d58(a, b, d);
-}
+void func_00258d78(u32 a, u32 b, u32 c, u32 d);  // 0x00258d78: definition moved into src/anon/unit_002588e8.cpp
 
 void func_00138c10(void*, s32);
 // 0028da70: moved to src/anon/unit_0028c878.cpp

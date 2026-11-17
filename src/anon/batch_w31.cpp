@@ -206,16 +206,7 @@ char* func_0022c4b8(u32 x);  // 0022c4b8: moved to src/sasa/event_layout.cpp (li
 struct KV { s16 k; u16 v; };
 extern KV D_00372be0[];
 // Map key to value through a table terminated by a negative key; -1 if absent.
-int func_002594b8(int k) {
-    int r = -1;
-    for (s32 i = 0; D_00372be0[i].k >= 0; i++) {
-        if (D_00372be0[i].k == k) {
-            r = D_00372be0[i].v;
-            break;
-        }
-    }
-    return r;
-}
+int func_002594b8(int k);  // 0x002594b8: definition moved into src/anon/unit_002588e8.cpp
 
 void* memset_(void*, int, u32) asm("func_002fde18");
 void func_00281f90(u8* p) {

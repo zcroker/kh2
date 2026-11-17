@@ -205,10 +205,7 @@ void CampMenu_StartBasic(s32) {
     func_001037b8();
 }
 
-void func_0025ccc0(void) {
-    func_0014aa58(func_0014aba8(), 15, 0);
-    func_00287cc0(0);
-}
+void func_0025ccc0(void);  // 0x0025ccc0: definition moved into src/anon/unit_002588e8.cpp
 
 void func_0026b448(void) {
     func_0026b470();

@@ -69,45 +69,5 @@ extern s32 D_0035f3d4;
 extern u16 D_0035f098[2][4];
 extern u16 D_0035f0a8[];
 
-void func_00259108(s32 o, s32 id, s32 a2, s32 a3, s32 a4, s32 two, u16* src) {
-    u32 vals[2];
-    s32 sid = id;
-    s32 b2 = a2;
-    s32 b3 = a3;
-    s32 save = D_0035f3d4;
-    D_0035f3d4 = id < 0 ? save : id;
-    s32 kind = 64;
-    s32 n;
-    s32 i;
-    if (two == 0) {
-        n = 1;
-        vals[0] = D_0035f0a8[0];
-        kind = 67;
-    } else {
-        n = 2;
-        vals[0] = D_0035f0a8[2];
-        vals[1] = D_0035f0a8[1];
-    }
-    for (i = 0; i < 2; i++) {
-        s32 k;
-        for (k = 0; k < 3; k++) D_0035f098[i][k] = src[k];
-        D_0035f098[i][3] = 0xffff;
-        if (i + 1 >= 2) D_0035f098[i][2] = src[3];
-    }
-    for (i = 0; i < n; i++) {
-        func_00288d80(o, i, b2, b3, a4, vals[i] | 0x8000, D_0035f098[0], D_0035f098[1]);
-        s32 x = func_0023aa78(func_002891b8(o, i) + 24);
-        s32 y = func_0023aa98(func_002891b8(o, i) + 24);
-        func_00288e08(o, i, x, 0);
-        func_00139620(func_002891b8(o, i));
-        *(s32*)(func_002891b8(o, i) + 432) = 2;
-        u8* p = func_002891b8(o, i);
-        *(s32*)(p + 412) = y;
-        *(s32*)(p + 416) = 0;
-    }
-    func_0028af28(o, kind);
-    func_002891f0(o, 0, 1, 0, 2);
-    func_0028af90(o, -1);
-    if (sid >= 0) D_0035f3d4 = save;
-}
+void func_00259108(s32 o, s32 id, s32 a2, s32 a3, s32 a4, s32 two, u16* src);  // 0x00259108: definition moved into src/anon/unit_002588e8.cpp
 }

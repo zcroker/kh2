@@ -162,12 +162,7 @@ extern s16 D_0035f090;
 extern s16 D_0035f092;
 extern s16 D_0035f094;
 extern s16 D_0035f096;
-void func_00258dc8(void) {
-    D_0035f090 = -1;
-    D_0035f092 = -1;
-    D_0035f094 = -1;
-    D_0035f096 = -1;
-}
+void func_00258dc8(void);  // 0x00258dc8: definition moved into src/anon/unit_002588e8.cpp
 
 void func_00257388(u32, u32);
 void func_002571e0(u32);

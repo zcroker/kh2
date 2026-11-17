@@ -361,27 +361,7 @@ void func_0024bcb8(void)
     func_0028ce38();
 }
 
-void func_0025e370(void)
-{
-    s32 v = func_00287cd0();
-    if (v == 2) {
-        if (func_002b4fb8()) return;
-        if (func_00287c10() == 1) {
-            func_00233e70(0);
-            if (!func_00233e60()) return;
-        }
-        func_00287c30();
-        func_00287d20(0);
-        if (func_00287bc0() == 12) func_002b5188(D_00373110, 1);
-        return;
-    }
-    if (v == 0) func_00287cc0(1);
-    func_00240bb0(8000);  // global_store_half2
-    func_002417a0();
-    func_002b4ee0();
-    func_00287c00(12);
-    func_00287cc0(2);
-}
+void func_0025e370(void);  // 0x0025e370: definition moved into src/anon/unit_0025da20.cpp
 
 void func_002655e8(void)
 {

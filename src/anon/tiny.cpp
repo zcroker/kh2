@@ -179,7 +179,7 @@ void func_002330b0(BD_VALUE* bd) { func_00226030(bd); }
 void func_00236788(BD_VALUE* bd) { func_00236830(bd); }
 void func_00236ce0(BD_VALUE* bd) { func_00236d10(bd); }
 void func_002539d0(BD_VALUE* bd) { func_00253978(bd); }
-void func_0025f550(BD_VALUE* bd) { func_0028f878(bd); }
+void func_0025f550(BD_VALUE* bd);  // 0x0025f550: definition moved into src/anon/unit_0025da20.cpp
 void func_002631f8(BD_VALUE* bd) { func_00257be0(bd); }
 void func_00267608(BD_VALUE* bd) { func_00267690(bd); }
 void func_002677d8(BD_VALUE* bd) { func_002817b8(bd); }
@@ -223,7 +223,7 @@ void func_001ae678(BD_VALUE* bd);  // 0x001ae678: definition moved into src/anon
 void func_001ae690(BD_VALUE* bd);  // 0x001ae690: definition moved into src/anon/unit_001ada38.cpp
 void func_00225248(BD_VALUE* bd) { func_001398d0(11); }
 // 0022b930: moved to src/sasa/musical_2d.cpp (linked unit)
-void func_0025f698(BD_VALUE* bd) { func_002634c8(0); }
+void func_0025f698(BD_VALUE* bd);  // 0x0025f698: definition moved into src/anon/unit_0025da20.cpp
 void func_0026d168(BD_VALUE* bd) { func_00257530(1); }
 void func_0028ff00(BD_VALUE* bd);  // 0028ff00: moved to src/anon/unit_0028f1e0.cpp
 void func_00290420(BD_VALUE* bd);  // 00290420: moved to src/anon/unit_0028f1e0.cpp

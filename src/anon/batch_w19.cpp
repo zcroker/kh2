@@ -166,11 +166,7 @@ void func_00240e10(void) {
     func_00234590(*D_0035ec94, D_0035ec9c, 99, D_0035ec88, 0);
 }
 
-void func_0025cd40(void) {
-    func_0014aa58(func_0014aba8(), 15, 0);
-    func_002bd760(60);
-    func_00287cc0(0);
-}
+void func_0025cd40(void);  // 0x0025cd40: definition moved into src/anon/unit_002588e8.cpp
 
 void func_00287b98(void) {
     D_0035f2f8--;

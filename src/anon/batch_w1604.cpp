@@ -77,71 +77,7 @@ void func_002b4c88(s32);
 void func_00234570(s32, s32);
 s32 func_00288040(void);
 void func_00288018(void);
-void func_0025a468(void)
-{
-    if (!func_0028db48(D_0035f654)) return;
-    if (func_00287cd0() == 0) func_00287cc0(1);
-    s32 h = func_00240ba0();
-    switch (func_00287d30()) {
-    case 0:
-        if (func_00233e70(0) == 0) {
-            s32 m;
-            s32 r;
-            func_002419d0(0);
-            r = func_00234888(h, 0);
-            switch (func_002348a8(h, 0)) {
-            case 3:
-                goto bad;
-            case 4:
-                func_002b5108(0x8aae, h);
-                r = -1;
-                m = 6;
-                break;
-            default:
-                if (func_00234848(h, 0) != 2) {
-                bad:
-                    func_002b5108(0xb85d, h);
-                    r = -1;
-                    m = 2;
-                } else if (!func_00234868(h, 0)) {
-                    func_002419d0(1);
-                    m = 5;
-                } else {
-                    func_002b5108(0x8a89, h);
-                    m = 1;
-                }
-                break;
-            }
-            func_00287d20(m);
-            func_00240bb0(r);
-        }
-        break;
-    case 1:
-        func_00287bd0(4, 0);
-        func_00287d20(10);
-        func_00241450(1);
-        break;
-    case 2:
-        func_002b4c88(0);
-        func_00287bd0(5, 0);
-        func_00234570(h, 0);
-        break;
-    case 3:
-        func_002b4c88(1);
-        func_00287bd0(8, 0);
-        func_00234570(h, 0);
-        break;
-    case 5:
-        func_00287bd0(11, 0);
-        break;
-    case 6:
-        func_002b4c88(0);
-        func_00287bd0(7, 0);
-        func_00234570(h, 0);
-        break;
-    }
-    if (func_00288040()) func_00288018();
-}
+void func_0025a468(void);  // 0x0025a468: definition moved into src/anon/unit_002588e8.cpp
 struct Ent { u8 p0[276]; s32 f114; u8 p118[68]; s32 f15c; u8 f160; u8 p161[3]; f32 f164; u8 p168[8]; f32 f170; f32 f174; s32 f178; };
 struct Obj;
 typedef void (*VFn)(Obj*);

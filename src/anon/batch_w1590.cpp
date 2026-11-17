@@ -11,14 +11,7 @@ s32 func_00281fe0(s32, s32, s32);
 void func_002822c0(s32, s32, s32);
 void func_002823b0(s32, s32, s32);
 
-void func_002589b0(void) {
-    if (D_0035f07c && func_00139d78(D_0035f07c)) {
-        D_0035f07c->vt->fn(D_0035f07c);
-    }
-    if (D_0035f078 && func_00139d78(D_0035f078)) {
-        D_0035f078->vt->fn(D_0035f078);
-    }
-}
+void func_002589b0(void);  // 0x002589b0: definition moved into src/anon/unit_002588e8.cpp
 
 void func_00282240(s32 a, s32 b, s32 c) {
     s32 r;

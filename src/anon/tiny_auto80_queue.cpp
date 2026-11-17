@@ -12555,17 +12555,7 @@ void duplicate_unplaced_0025ccc0() {
     func_00287cc0(0);
 }
 
-void func_0025ccf0() {
-    u32 v0 = func_0014aba8();
-    u32 t7 = *(u32*)(v0 + 252);
-    t7 ^= 4;
-    if (t7 == 0) {
-        func_00103c80(1);
-        func_00287cc0(2);
-        func_00287da0();
-        func_002597f0();
-    }
-}
+void func_0025ccf0();  // 0x0025ccf0: definition moved into src/anon/unit_002588e8.cpp
 
 void duplicate_unplaced_0025cd40() {
     u32 v0 = func_0014aba8();

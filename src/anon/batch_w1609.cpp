@@ -34,77 +34,7 @@ s32 func_002b4fb8(void);
 s32 func_002b4ff8(void);
 void func_002b5108(s32, s32);
 void func_002b5c30(s32);
-void func_0025ebb0(void)
-{
-    s32 flag = 0;
-    s32 h = func_00240ba0();
-    if (func_00287cd0() == 2) {
-        if (func_002b4fb8()) return;
-        if (func_00287c10() == 1) {
-            func_00233e70(0);
-            if (!func_00233e60()) return;
-        }
-        func_00287c30();
-        func_00287d20(0);
-        s32 r = func_00287bc0();
-        if (r == 12) {
-            func_002b5c30(1);
-            func_00287cc0(0);
-        } else if (r == 23) {
-            func_0025ee58();
-        }
-        return;
-    }
-    if (!func_002b4ff8()) return;
-    if (func_00287cd0() == 0) func_00287c90(1);
-    switch (func_00287d30()) {
-    case 50:
-        if (func_00233e70(0) == 0) {
-            if (func_00234798()) flag = 1;
-            else {
-                func_00240360(func_00240bd0());
-                func_00241450(0);
-                func_00287d20(51);
-            }
-        }
-        break;
-    case 52:
-        if (func_00233e70(0) == 0) {
-            if (func_002347d8()) flag = 1;
-            else {
-                func_00240b48(0);
-                func_00242908();
-                s32 a = func_00240ba0();
-                func_0023d2c8(a, func_00240bd0());
-                func_00242618(13, 1);
-                func_002b4ee0();
-                func_00287c00(23);
-                func_00287c90(1);
-                func_00287d20(0);
-                func_00257000();
-                func_001cd2b8();
-            }
-        }
-        break;
-    case 51:
-        if (func_00233e70(0) == 0) {
-            if (func_00234798()) flag = 1;
-            else {
-                func_00240360(func_00240bd0());
-                func_002415a0(2, 0, 0);
-                func_00287d20(52);
-            }
-        }
-        break;
-    }
-    if (flag) {
-        func_002b4c88(0);
-        func_002b5108(0x8a8d, h);
-        func_00287bd0(7, 0);
-        func_00234570(h, 0);
-        D_0035f0b3 = 0;
-    }
-}
+void func_0025ebb0(void);  // 0x0025ebb0: definition moved into src/anon/unit_0025da20.cpp
 struct AllocVt259 { void* (*alloc)(void* self, u32 size, void* ra); };
 struct AllocObj259 { AllocVt259* vt; };
 struct Holder259 { u8 pad[20]; AllocObj259* al; };
@@ -148,49 +78,7 @@ void func_00259e90(void);
 static inline void* Alloc259(u32 size) { return D_0032ba14->vt->alloc(D_0032ba14, size, __builtin_return_address(0)); }
 
 enum E259 { E0, E1, E2 };
-void func_00259998(void)
-{
-    s32 h;
-    u8* o = func_0023ee30(160);
-    *(u32*)(o + 12) = 0;
-    *(u8**)o = D_0035eb98;
-    func_002369a0(o + 24);
-    func_0023c008(o + 48);
-    D_0035f664 = o;
-    func_0028d7f0(D_0035f664, 30039, 0, 0, 0, 1, func_0023f948(D_0035f674, 0), 0, 0);
-    func_0023ef50(D_0035f664);
-    func_0028f280(0, 0, D_0035f664, D_00372e80, D_00372ec0);
-    func_00263960(0, 0, D_0035f664, D_00372e70, D_00372ec8);
-    AllocObj259* al = D_00347f80->al;
-    u8* m = (u8*)al->vt->alloc(al, 76, 0);
-    *(u32*)(m + 12) = 0;
-    *(u8**)m = D_0035ebb8;
-    D_0035f668 = m;
-    func_002590b0(m, 30040, D_0035f664, D_00372e70, D_00372e78, -1, 0, 0);
-    if (D_0035f0b2) func_0023f618(D_0035f668, func_00192048(0xce7b));
-    u32 seq = func_0023c4b8(GetLayout259(D_0035f664), 0);
-    u32 img = func_00236ca8(*(u32*)(GetLayout259(D_0035f664) + 40), 0);
-    void* p = Alloc259(20);
-    func_0028fc78(p, 19, 28, D_00372e88);
-    D_0035f66c = p;
-    func_0028fe38(p, 30045, seq, img, 0);
-    void* q = Alloc259(20);
-    func_00290198(q, 19, 48, 38, D_00372e88 + 6);
-    D_0035f670 = q;
-    func_00290368(q, 30045, seq, img, 0);
-    func_0023d2e0(&h);
-    func_00240b90(h);
-    func_00287bd0(D_0035f0b2 != 0, 0);
-    func_00287cc0(0);
-    switch ((E259)func_00287bc0()) {
-    case E0:
-        func_00259e90();
-        break;
-    case E1:
-        func_0025a1d0();
-        break;
-    }
-}
+void func_00259998(void);  // 0x00259998: definition moved into src/anon/unit_002588e8.cpp
 extern s32 D_0035f3d4;
 extern s32 D_0035ef68;
 extern s32 D_0035ef64;

@@ -237,11 +237,7 @@ void func_00251e90(s32 i) {  // to_28dbf8_entry8_b
     func_0028dbf8(D_0035ee60, D_00372608, D_00372610[i]);
 }
 
-void func_0025dba8(void) {
-    func_002b4b00();
-    func_00240be0();
-    func_0028f4d8(0, 0x8a7f, 0);
-}
+void func_0025dba8(void);  // 0x0025dba8: definition moved into src/anon/unit_0025da20.cpp
 
 void func_00290870(void* p);  // 00290870: moved to src/anon/unit_0028f1e0.cpp
 

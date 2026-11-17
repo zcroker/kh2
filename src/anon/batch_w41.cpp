@@ -263,13 +263,7 @@ void func_00244db8(void) {
 
 struct W41KV { s16 key, val; };
 extern W41KV D_00372c30[];
-s32 func_00259510(s32 k) {
-    s32 r = 11;
-    for (s32 i = 0; D_00372c30[i].key != -1; i++) {
-        if (D_00372c30[i].key == k) { r = D_00372c30[i].val; break; }
-    }
-    return r;
-}
+s32 func_00259510(s32 k);  // 0x00259510: definition moved into src/anon/unit_002588e8.cpp
 
 u32 func_00257770(void);
 s32 func_00287bc0(void);

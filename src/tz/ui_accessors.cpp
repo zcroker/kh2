@@ -7,7 +7,7 @@
 namespace Tz {
 extern "C" u32 func_00139d78(...);
 
-s64 CmComm::GetIconMsgSize() { return 2; }
+// 0x002595e0: definition moved into src/anon/unit_002588e8.cpp
 s32 PartyInfo::GetPartyMax() { return reinterpret_cast<PartyInfoLayout*>(this)->partyMax; }
 s32 PartyInfo::GetParty(s32 index) {
     return (s32)(*(s16*)((char*)this + ((u32)index * 20) + 4));

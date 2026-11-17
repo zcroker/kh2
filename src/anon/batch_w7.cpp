@@ -184,9 +184,7 @@ u32 func_00243190(u32 v) {
     return i;
 }
 
-void func_00258a88(void) {
-    func_0023fa08(D_0035f074, func_002537c8(0));
-}
+void func_00258a88(void);  // 0x00258a88: definition moved into src/anon/unit_002588e8.cpp
 
 void func_002691c8(void) {
     func_00257388(0x846a, 0);

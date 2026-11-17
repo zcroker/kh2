@@ -356,26 +356,9 @@ s32 func_0024ebc0(void) {
     return 0;
 }
 
-void func_00259570(u32 a, u32 b, u8 c, u8 d) {
-    func_002595b8(func_00259460(a, c), b, d);
-}
+void func_00259570(u32 a, u32 b, u8 c, u8 d);  // 0x00259570: definition moved into src/anon/unit_002588e8.cpp
 
-s32 func_0025d620(s32 a) {
-    s32 r = 1;
-    switch (func_00287bc0()) {
-    case 0:
-        if (a && func_00253578()) r = 0;
-        break;
-    case 1:
-    case 12:
-        r = 1;
-        break;
-    default:
-        r = 0;
-        break;
-    }
-    return r;
-}
+s32 func_0025d620(s32 a);  // 0x0025d620: definition moved into src/anon/unit_002588e8.cpp
 
 s32 func_002638e0(s32 a) {
     s32 r = 0;

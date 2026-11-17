@@ -44,49 +44,7 @@ s32 func_00240430(); void func_00240118(s32, s32, s32); void func_00241450(s32);
 s32 func_00233e70(s32); s32 func_00234798(); s32 func_00234758(); void func_00240e10(s32);
 void func_002b5108(s32, s32); void func_002b4c88(s32); s32 func_00241a88(s32); void func_00241a60();
 s32 func_00288040(); void func_00288018();  // global_zero_4dwords
-void func_0025b050()
-{
-    s32 r;
-    s32 a = func_00240ba0();
-    s32 st = func_00287cd0();
-    if (st == 2) return;
-    if (!func_002b4ff8()) return;
-    if (st == 0) func_00287cc0(1);
-    if (!func_00241a48()) { func_00287bd0(21, 0); return; }
-    switch (func_00287d30()) {
-    case 90:
-        func_00240118(func_00240430(), 0, 1);
-        func_00241450(0);
-        func_00287d20(91);
-        break;
-    case 91:
-        if (func_00233e70(0)) break;
-        if (func_00234798()) goto give;
-        func_00240e10(-4);
-        func_00287d20(92);
-        break;
-    case 92: {
-        if (func_00233e70(0)) break;
-        r = func_00234758();
-        if (r == 0) { func_00287d20(93); break; }
-        if (r == 1) goto fail;
-    give:
-        func_002b5108(0x8a8c, a);
-        func_00287bd0(7, 0);
-        func_002b4c88(0);
-        D_0035f0b0 = 0;
-        break;
-    }
-    case 93:
-        if (!func_00241a88(1)) {
-    fail:
-            func_00241a60();
-        }
-        func_00287bd0(21, 0);
-        break;
-    }
-    if (func_00288040()) func_00288018();
-}
+void func_0025b050();  // 0x0025b050: definition moved into src/anon/unit_002588e8.cpp
 
 extern W291P28* D_0035f2b4;
 extern W291T28 D_003742c8[];

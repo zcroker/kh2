@@ -174,12 +174,7 @@ s32 func_002538f8(u32);  // entry16_get_flag_bit
 s32 func_00253928(u32);  // entry16_get_bit1
 s32 func_00253918(void);
 s32 func_002539e8(u32, s32);
-s32 func_00259350(u32 a) {
-    if (func_002538f8(a)) return 1;
-    if (func_00253928(a)) return 1;
-    if (func_00253918()) return 0;
-    return func_002539e8(a, 0) == 0;
-}
+s32 func_00259350(u32 a);  // 0x00259350: definition moved into src/anon/unit_002588e8.cpp
 
 extern u8* D_0035f20c;
 u32 func_00192048(s32);

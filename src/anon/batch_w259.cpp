@@ -73,17 +73,7 @@ void func_00139620(u32);
 void func_001395f8(u32);
 void func_002891f0(void*, s32, s32, s32, s32);
 void func_0028af18(void*, s32);
-void func_00259e90(void) {
-    for (s32 i = 0; i < 2; i++) {
-        if (i == 1 && func_00253578() == 2) break;
-        func_00288d80(D_0035f64c, i, 0, 0, D_0035f664, D_00372ed8[i].h18, &D_00372ed8[i], D_00372ed8[i].f8);
-        func_00288e08(D_0035f64c, i, 0, -1);
-        func_00139620(func_002891b8(D_0035f64c, i));
-        func_001395f8(func_002891b8(D_0035f64c, i));
-    }
-    func_002891f0(D_0035f64c, 0, 1, 0, 2);
-    func_0028af18(D_0035f64c, 115);
-}
+void func_00259e90(void);  // 0x00259e90: definition moved into src/anon/unit_002588e8.cpp
 
 s32 func_002282f0(s32);
 void* func_002282d8(void);  // limit_15000_or_25000

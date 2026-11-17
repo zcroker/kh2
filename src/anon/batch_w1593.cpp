@@ -41,20 +41,7 @@ s32 func_00287db0();
 extern u8 D_002586e0[];
 extern s16 D_0035f06c;
 
-s32 func_00258630(void) {
-    u32 list = getMenuMode1593()->list;
-    u32 key = (u32)D_002586e0;
-    if (func_00102a38(list, key)) return 0;
-    if (D_0035f06c < 0) {
-        func_00258a30();
-        func_001039f8();
-        return 1;
-    }
-    if (func_00287db0()) func_00287ad0();
-    func_002530c8();
-    func_00102818(getMenuMode1593()->list, 0, 1999, key, 0x1000);
-    return 0;
-}
+s32 func_00258630(void);  // 0x00258630: definition moved into src/anon/unit_002584c8.cpp
 
 // ---- 002695a0
 u32 func_00257130();

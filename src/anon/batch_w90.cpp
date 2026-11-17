@@ -316,26 +316,7 @@ extern u8 D_00373100[];
 extern u8 D_00373108[];
 extern u8 D_00373130[];
 extern u8 D_00373138[];
-void func_0025d918(void)
-{
-    u8* o = func_0023ee30(160);
-    *(u32*)(o + 12) = 0;
-    *(void**)o = D_0035eb98;
-    func_002369a0(o + 24);  // obj_ctor_36eac8
-    func_0023c008(o + 48);  // obj_ctor_36eae8
-    D_0035f664 = o;
-    s32 v = func_0023f948(D_0035f674, 1);
-    func_0028d7f0(D_0035f664, 30039, 0, 0, 0, 1, v, 0, 0);
-    func_0023ef50(D_0035f664);
-    func_0028f280(0, 0, D_0035f664, D_00373108, D_00373130);
-    func_00263960(0, 0, D_0035f664, D_00373100, D_00373138);  // store_globals_and_init
-    u32 tmp;
-    func_0023d2e0(&tmp);  // store_global_test_result
-    func_00240b90(tmp);
-    func_00287bd0(1, 0);
-    func_00287cc0(0);
-    func_0025dba8();
-}
+void func_0025d918(void);  // 0x0025d918: definition moved into src/anon/unit_002588e8.cpp
 
 // 00265ab8: stop every active effect slot.
 typedef void (*VoidFn)(void*);

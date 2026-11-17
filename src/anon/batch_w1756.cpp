@@ -42,18 +42,7 @@ u32 wtarget_002341e8(u32 a0, u32 a1, u32 a2, u32 a3)
 
 struct E6_w1756 { s16 id; s16 a; s16 b; };
 extern E6_w1756 D_00372b50[];
-s32 func_00259460(s32 id, u8 f)
-{
-    s32 r = 11;
-    s32 i;
-    for (i = 0; D_00372b50[i].id >= 0; i++) {
-        if (D_00372b50[i].id == id) {
-            if (f) r = D_00372b50[i].b; else r = D_00372b50[i].a;
-            break;
-        }
-    }
-    return r;
-}
+s32 func_00259460(s32 id, u8 f);  // 0x00259460: definition moved into src/anon/unit_002588e8.cpp
 
 void* ctarget_001b9bc8(void*) asm("_Z16ctarget_001b9bc8jjjj");
 void* func_002be908(void* p);  // 0x002be908: definition moved into src/anon/unit_002be020.cpp

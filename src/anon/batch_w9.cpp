@@ -154,11 +154,7 @@ u32 func_00241770(s32 i) {
     return (*(s32*)(D_0035ec94 + i * 32 + 8) >> 4) & 1;
 }
 
-void func_0025a1d0(void) {
-    func_002b4b00();
-    func_0028f4d8(0, D_00372eea, 0);
-    func_00240be0();
-}
+void func_0025a1d0(void);  // 0x0025a1d0: definition moved into src/anon/unit_002588e8.cpp
 
 void func_002631b0(void) {
     func_0028da70(func_00257770() + 0xb350, 307);

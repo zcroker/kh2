@@ -32,10 +32,7 @@ void func_00298e20(u32 a0, s32 a1) {
     if (a1 == 4) func_00299290();
 }
 
-void func_0025ee58(void) {
-    func_0014aa58(func_0014aba8(), 15, 0);
-    func_00287cc0(0);
-}
+void func_0025ee58(void);  // 0x0025ee58: definition moved into src/anon/unit_0025da20.cpp
 
 void func_0027c4d8(void) { D_0035f234 = (u32)func_001063f0(10, func_00103570()); }
 

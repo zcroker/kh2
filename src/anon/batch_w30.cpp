@@ -209,19 +209,7 @@ void func_00242088(u8* p) {
     }
 }
 
-void func_00258ce8(u16* a) {
-    if (!a) {
-        D_0035f0a8[0] = 0x9fcf;
-        D_0035f0a8[1] = 0x9fd0;
-        D_0035f0a8[2] = 0x9fd1;
-        return;
-    }
-    u16* d = D_0035f0a8;
-    s32 i;
-    for (i = 2; i >= 0; i--) {
-        *d++ = *a++;
-    }
-}
+void func_00258ce8(u16* a);  // 0x00258ce8: definition moved into src/anon/unit_002588e8.cpp
 
 // Sets bit n in the bitmap returned by func_002a9d68.
 void func_002aa048(u32 n);  // 0x002aa048: definition moved into src/anon/unit_002a99c8.cpp

@@ -42,27 +42,9 @@ void func_0025f588(void);
 extern u32 D_0035f67c;
 extern u32 D_0035f64c;
 
-void func_0025d3c8(u32 a0, s32 a1, u32 a2) {
-    if (func_00287cd0() != 1) return;
-    if (!func_00289310(a0)) return;
-    func_002890e0(a0, 1, 2, 0, -1);
-    func_00289038(a0, func_002891e8(a0), 1, 1, 2, 0, -1);
-    if (a1 == 12 && func_00289358(a0)) func_002b5c30(0);
-    if (func_0028d008(a2)) func_0028cf28(a2, func_002891d0(a0));
-    if (func_0028d6e8(D_0035f67c)) func_0028d660(D_0035f67c, func_002891d0(a0));
-    func_0025d560();
-}
+void func_0025d3c8(u32 a0, s32 a1, u32 a2);  // 0x0025d3c8: definition moved into src/anon/unit_002588e8.cpp
 
-void func_0025f430(u32 a0, s32 a1, u32 a2) {
-    if (func_00287cd0() != 1) return;
-    if (!func_00289310(a0)) return;
-    func_002890e0(a0, 1, 2, 0, -1);
-    func_00289038(a0, func_002891e8(a0), 1, 1, 2, 0, -1);
-    if (a1 == 12 && func_00289358(D_0035f64c)) func_002b5c30(1);
-    if (func_0028d008(a2)) func_0028cf28(a2, func_002891d0(a0));
-    if (func_0028d6e8(D_0035f67c)) func_0028d660(D_0035f67c, func_002891d0(a0));
-    func_0025f588();
-}
+void func_0025f430(u32 a0, s32 a1, u32 a2);  // 0x0025f430: definition moved into src/anon/unit_0025da20.cpp
 
 struct P6 { s16 x, y, z; };
 extern P6* D_0035f4e8;

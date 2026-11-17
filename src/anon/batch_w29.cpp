@@ -226,12 +226,7 @@ s32 func_00257ff8(s32 n) {
     return r;
 }
 
-u32 func_00258a30(void) {
-    u32 r = 0;
-    if (D_0035f07c) r = func_00139d78(D_0035f07c) != 0;
-    if (!r && D_0035f078) r = func_00139d78(D_0035f078) != 0;
-    return r;
-}
+u32 func_00258a30(void);  // 0x00258a30: definition moved into src/anon/unit_002588e8.cpp
 
 // 0028d140: moved to src/anon/unit_0028c878.cpp
 

@@ -109,58 +109,7 @@ void func_002b4c88(s32);
 void func_00240e10(s32);
 void func_00234570(s32, s32);
 
-void func_0025bbe0(void) {
-    s32 fail = 0;
-    s32 id = func_00240ba0();
-    s32 st = func_00287cd0();
-    if (st == 2) return;
-    if (func_002b4ff8() == 0) return;
-    if (st == 0) func_00287cc0(1);
-    switch (func_00287d30()) {
-    case 0x3c:
-        if (func_00233e70(0) == 0) {
-            if (func_00234798() != 0) {
-                fail = 1;
-            } else {
-                func_00241450(0);
-                func_00287d20(0x3d);
-            }
-        }
-        break;
-    case 0x3e:
-        if (func_00233e70(0) == 0) {
-            if (func_00234758() != 0) {
-                fail = 1;
-            } else if (func_00241c40(0) != 0) {
-                func_00287bd0(0xe, 0);
-                func_00287d20(0x46);
-                func_002400f8(1);
-            } else {
-                func_002b5108(0xc6c8, id);
-                func_00287bd0(0x16, 0);
-                func_002b4c88(0);
-            }
-        }
-        break;
-    case 0x3d:
-        if (func_00233e70(0) == 0) {
-            if (func_00234798() != 0) {
-                fail = 1;
-            } else {
-                func_00240e10(-4);
-                func_00287d20(0x3e);
-            }
-        }
-        break;
-    }
-    if (fail) {
-        func_002b4c88(0);
-        func_002b5108(0x8a8b, id);
-        func_00287bd0(7, 0);
-        func_00234570(id, 0);
-        D_0035f0b0 = 0;
-    }
-}
+void func_0025bbe0(void);  // 0x0025bbe0: definition moved into src/anon/unit_002588e8.cpp
 
 extern u8* D_00361f60;
 void func_0016a9a0(void);

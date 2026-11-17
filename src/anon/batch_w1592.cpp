@@ -59,17 +59,7 @@ s32 func_00253918(void);
 s32 func_002539e8(void*, s32);
 void func_00102448(void*, s32);
 
-s32 func_002593b8(void* a, void* t) {
-    if (func_002538f8(a)) return 1;
-    if (!func_00253928(a)) {
-    top:
-        if (!func_00253918() && !func_002539e8(a, 0)) goto out;
-        func_00102448(t, 0); goto top;
-    }
-out:
-    if (!func_002538f8(a)) { func_00102448(t, 0); goto out; }
-    return 1;
-}
+s32 func_002593b8(void* a, void* t);  // 0x002593b8: definition moved into src/anon/unit_002588e8.cpp
 
 
 s32 func_00287bc0(void);

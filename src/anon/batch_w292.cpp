@@ -75,42 +75,7 @@ void func_00287c00(s32);
 void func_0025ccc0(void);
 void func_00287bd0(s32, s32);
 
-void func_0025caf0(void)
-{
-    s32 a = func_00289380(D_0035f650);
-    s32 st = func_00287cd0();
-    if (st == 2) {
-        if (func_0028acc8(D_0035f650)) {
-            if (a != -1 || func_00289310(D_0035f650)) {
-                func_00287f90(0);
-                func_0028abe0(D_0035f650);
-            }
-        } else {
-            func_00287c30();
-            func_0025d560();
-        }
-        return;
-    }
-    if (a != -1 || func_00289310(D_0035f650)) {
-        if (!func_0028ae28(D_0035f650, 0)) func_0028ab20(D_0035f650);
-    }
-    if (st == 0 && func_0028ae28(D_0035f650, 0)) func_00287cc0(1);
-    if (func_00242848(func_00287df0(a, func_00289310(D_0035f650), 1, 0, 1))) return;
-    switch (a) {
-    case -1:
-        break;
-    case -2:
-    case 0:
-        func_0028aa40(D_0035f650);
-        func_00287cc0(2);
-        func_00287c00(0);
-        break;
-    case 1:
-        func_0025ccc0();
-        func_00287bd0(23, 0);
-        break;
-    }
-}
+void func_0025caf0(void);  // 0x0025caf0: definition moved into src/anon/unit_002588e8.cpp
 
 struct K231 { u8 b[16]; };
 struct H231 { u8 pad[6]; struct { u16 start, count; } ch[8]; u8 pad2[40 - 38]; K231 keys[1]; };
