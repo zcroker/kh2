@@ -35,3 +35,32 @@ void func_003096f8(L *a, int b)
     EIntr();
 }
 
+
+/* ---- 0x309790 (gap): sceSifRegisterRpc */
+typedef struct SR SR;
+typedef struct QR QR;
+typedef int (*SRFn)(int, void *, int);
+struct SR { unsigned int sid; SRFn func; void *buff; int size; SRFn cfunc; void *cbuff; int csize; void *client;
+            void *paddr; unsigned int fno; void *receive; int rsize; int rmode; unsigned int rid; SR *link; SR *next; QR *base; };
+struct QR { int key, active; SR *link; SR *start; SR *end; QR *next; };
+void func_00309790(SR *sd, int sid, SRFn func, void *buff, SRFn cfunc, void *cbuff, QR *qd)
+{
+    SR *p;
+    DIntr();
+    sd->next = 0;
+    sd->link = 0;
+    sd->sid = sid;
+    sd->func = func;
+    sd->buff = buff;
+    sd->cfunc = cfunc;
+    sd->cbuff = cbuff;
+    sd->base = qd;
+    if ((p = qd->link) == 0) {
+        qd->link = sd;
+    } else {
+        SR *q = p;
+        while (q->link) q = q->link;
+        q->link = sd;
+    }
+    EIntr();
+}
