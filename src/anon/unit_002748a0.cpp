@@ -1,4 +1,4 @@
-// Linked unit 0x002748a0-0x002772c8 (one namespace per old matched source; class methods in their own namespace).
+// Linked unit 0x00274460-0x002772c8 (one namespace per old matched source; class methods in their own namespace).
 #include "../common/types.h"
 #include "../tozawa/jiminy.hpp"
 #include "../kn/fvector.hpp"
@@ -16,6 +16,174 @@
 #include "tiny_auto80_solver_structs.hpp"
 #include "../tozawa/cmenu_stat.hpp"
 #include "../tozawa/cmenu_ability.hpp"
+
+// 00274460 (was gap, written for the unit): Jiminy menu exit (frees what 0x273fa0 made)
+namespace n00274460 {
+struct T32 { u8 d[32]; ~T32() {} } __attribute__((aligned(16)));
+struct Ob;
+typedef void (*ObFn)(Ob*);
+struct Ob { ObFn* vt; };
+struct Hp;
+struct HpVt { void* a; void (*free)(Hp*, void*); };
+struct Hp { HpVt* vt; };
+extern s32 D_0035f138 asm("D_0035f138");
+extern s32 D_0035f13c asm("D_0035f13c");
+extern u32 D_0035f140 asm("D_0035f140");
+extern s32 D_0035f144 asm("D_0035f144");
+extern s8* D_0035f1fc asm("D_0035f1fc");
+extern void* D_0035f200 asm("D_0035f200");
+extern Ob* D_0035f204 asm("D_0035f204");
+extern Ob* D_0035f208 asm("D_0035f208");
+extern u8* D_0035f20c asm("D_0035f20c");
+extern Ob* D_0035f210 asm("D_0035f210");
+extern void* D_0035f214 asm("D_0035f214");
+extern Ob* D_0035f218 asm("D_0035f218");
+extern u8* D_0035f21c asm("D_0035f21c");
+extern u8 D_0035f220 asm("D_0035f220");
+extern u8 D_0035f221 asm("D_0035f221");
+extern T32* D_0035f224 asm("D_0035f224");
+extern s8 D_0035f228 asm("D_0035f228");
+extern Hp* D_0032ba14 asm("D_0032ba14");
+extern u8 D_00347e60[] asm("D_00347e60");
+void func_0013aa38(s32) asm("func_0013aa38");
+void JmInfoExit(void) asm("_ZN2Tz6JmInfo4ExitEv");
+void func_002a2010(void) asm("func_002a2010");
+void func_00294550(void) asm("func_00294550");
+void func_00295810(void) asm("func_00295810");
+void func_00296fd0(void) asm("func_00296fd0");
+void func_00297d78(void) asm("func_00297d78");
+void func_00299550(void) asm("func_00299550");
+void func_0029a8e0(void) asm("func_0029a8e0");
+void func_0029edf8(void) asm("func_0029edf8");
+void func_002a06b8(void) asm("func_002a06b8");
+void func_002a4d48(void) asm("func_002a4d48");
+void func_002a6970(void) asm("func_002a6970");
+void func_002a76d8(void) asm("func_002a76d8");
+void func_002a8a00(void) asm("func_002a8a00");
+void func_002a9d30(void) asm("func_002a9d30");
+void func_002aceb0(void) asm("func_002aceb0");
+void func_002aeba0(void) asm("func_002aeba0");
+void SelectDtor(void*) asm("_ZN2Tz6SelectD1Ev");
+void func_00288c20(void*) asm("func_00288c20");
+void func_0028ba80(void*) asm("func_0028ba80");
+void func_0031abd8(u8*) asm("func_0031abd8");
+void func_0031acc0(u8*) asm("func_0031acc0");
+void SeqDtor(u8*) asm("_ZN2YI8SEQUENCED1Ev");
+void func_0031a840(u8*) asm("func_0031a840");
+void LoadDataFree(void*) asm("func_00106420");
+void func_0028d068(s32, s32) asm("_Z16wtarget_0028d068jjjj");
+void func_0028f3e8(void) asm("func_0028f3e8");
+void func_002927b8(void) asm("func_002927b8");
+void func_00274460(void) asm("func_00274460");
+void func_00274460(void) {
+    if (D_0035f228 >= 0) func_0013aa38(D_0035f228);
+    D_0035f228 = -1;
+    if (!(D_0035f140 & 4)) JmInfoExit();
+    func_002a2010();
+    func_00294550();
+    func_00295810();
+    func_00296fd0();
+    func_00297d78();
+    func_00299550();
+    func_0029a8e0();
+    func_0029edf8();
+    func_002a06b8();
+    func_002a4d48();
+    func_002a6970();
+    func_002a76d8();
+    func_002a8a00();
+    func_002a9d30();
+    func_002aceb0();
+    func_002aeba0();
+    D_0035f144 = -1;
+    if (D_0035f200) {
+        void* s = D_0035f200;
+        SelectDtor(s);
+        func_00288c20(s);
+        D_0035f200 = 0;
+    }
+    if (D_0035f210) {
+        D_0035f210->vt[4](D_0035f210);
+        D_0035f210 = 0;
+    }
+    if (D_0035f204) {
+        D_0035f204->vt[4](D_0035f204);
+        D_0035f204 = 0;
+    }
+    if (D_0035f208) {
+        D_0035f208->vt[4](D_0035f208);
+        D_0035f208 = 0;
+    }
+    if (D_0035f214) {
+        void* l = D_0035f214;
+        func_0028ba80(l);
+        D_0032ba14->vt->free(D_0032ba14, l);
+        D_0035f214 = 0;
+    }
+    if (D_0035f218) {
+        D_0035f218->vt[4](D_0035f218);
+        D_0035f218 = 0;
+    }
+    if (D_0035f20c) {
+        u8* q = D_0035f20c;
+        func_0031acc0(q + 1308);
+        func_0031acc0(q + 872);
+        func_0031acc0(q + 436);
+        *(u32*)q = (u32)D_00347e60;
+        SeqDtor(q + 24);
+        func_0031a840(q);
+        LoadDataFree(q);
+        D_0035f20c = 0;
+    }
+    if (D_0035f1fc) {
+        LoadDataFree(D_0035f1fc);
+        D_0035f1fc = 0;
+    }
+    if (D_0035f21c) {
+        u8* p = D_0035f21c;
+        u8* e;
+        if (p + 0xdca0) {
+            e = p + 0x110a0; for (;;) { if (p + 0xdca0 == e) break; e -= 416; ((Ob*)e)->vt[0]((Ob*)e); }
+        }
+        if (p + 0xa998) {
+            e = p + 0xdc98; for (;;) { if (p + 0xa998 == e) break; e -= 408; ((Ob*)e)->vt[3]((Ob*)e); }
+        }
+        if (p + 30360) {
+            e = p + 0xa998; for (;;) { if (p + 30360 == e) break; e -= 408; ((Ob*)e)->vt[3]((Ob*)e); }
+        }
+        if (p + 17304) {
+            e = p + 30360; for (;;) { if (p + 17304 == e) break; e -= 408; ((Ob*)e)->vt[3]((Ob*)e); }
+        }
+        if (p + 4248) {
+            e = p + 17304; for (;;) { if (p + 4248 == e) break; e -= 408; ((Ob*)e)->vt[3]((Ob*)e); }
+        }
+        func_0031acc0(p + 3812);
+        func_0031acc0(p + 3376);
+        func_0031acc0(p + 2940);
+        func_0031acc0(p + 2504);
+        func_0031acc0(p + 2068);
+        func_0031acc0(p + 1632);
+        func_0031abd8(p + 1224);
+        func_0031abd8(p + 816);
+        func_0031abd8(p + 408);
+        *(u32*)p = (u32)D_00347e60;
+        SeqDtor(p + 24);
+        func_0031a840(p);
+        LoadDataFree(p);
+        D_0035f21c = 0;
+    }
+    if (D_0035f224) {
+        delete[] D_0035f224;
+        D_0035f224 = 0;
+    }
+    func_0028d068(D_0035f13c, -1);
+    D_0035f138 = D_0035f13c = -1;
+    D_0035f220 = 0;
+    D_0035f221 = 0;
+    func_0028f3e8();
+    func_002927b8();
+}
+}  // namespace n00274460
 
 // 002748a0 (was src/anon/batch_w98.cpp)
 namespace n002748a0 {

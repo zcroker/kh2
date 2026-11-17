@@ -1,4 +1,4 @@
-// Linked unit 0x00271e08-0x00273e88 (one namespace per old matched source; class methods in their own namespace).
+// Linked unit 0x00271e08-0x00273fa0 (one namespace per old matched source; class methods in their own namespace).
 #include "../common/types.h"
 #include "../tozawa/menu_sound.hpp"
 #include "../kn/fvector.hpp"
@@ -1274,3 +1274,44 @@ extern const u32 R_00373aa8[2] asm("D_00373aa8") __attribute__((aligned(4))) = {
 extern const u32 R_00373ab0[12] asm("D_00373ab0") __attribute__((aligned(4))) = { 0x9e558486, 0x1d, 0x9e568487, 0x11d, 0x9e578488, 0x21d, 0x9e588489, 0x31d, 0x9e59848a, 0x41d, 0x9e5a848b, 0x51d };
 extern const u32 R_00373ae0[6] asm("D_00373ae0") __attribute__((aligned(4))) = { 0x9e5b9e4e, 0x1a, 0x9e5c9e4f, 0x11b, 0x9e5d9e50, 0x21c };
 extern const u32 R_00373af8[4] asm("D_00373af8") __attribute__((aligned(4))) = { 0x9e5e9e51, 0x1a, 0x9e5f9e52, 0x21c };
+
+// 00273e88 (was gap, written for the unit): Jiminy menu: is entry k selectable in the current mode
+namespace n00273e88 {
+struct E8 { s16 id; s16 a; s16 b; s16 c; };
+struct H8 { u8 p0[8]; E8 e[1]; };
+extern u32 D_0035f010 asm("D_0035f010");
+extern u32 D_0035f01c asm("D_0035f01c");
+extern H8* D_0035f12c asm("D_0035f12c");
+s32 GetMode(void) asm("_ZN2Tz8MenuBase7GetModeEv");
+s32 GetPartyMax(u32) asm("_ZN2Tz9PartyInfo11GetPartyMaxEv");
+s32 GetSelectPos(s32) asm("_ZN2Tz5CmTop12GetSelectPosEi");
+s32 GetData(u32) asm("func_0028b040");
+s32 func_00272b60(s32) asm("func_00272b60");
+s32 func_00273e88(s32 k) asm("func_00273e88");
+s32 func_00273e88(s32 k)
+{
+    s32 r;
+    s32 m = GetMode();
+    if (m == 25) {
+        r = 1;
+    } else if (m == 26 || m == 27) {
+        if (k == -11 || k == -10) {
+            r = (GetPartyMax(D_0035f010) < 2) == 0;
+        } else {
+            r = 1;
+            if (GetSelectPos(25)) {
+                func_00272b60(GetData(D_0035f01c));
+            } else {
+                m = GetData(D_0035f01c);
+                if (func_00272b60(m) == 1 && (k >= 0 || k == -6)) {
+                    if (D_0035f12c->e[m].id == 24) r = 0;
+                }
+            }
+        }
+    } else {
+        m = func_00272b60(GetSelectPos(26));
+        r = m != 0x21;
+    }
+    return r;
+}
+}  // namespace n00273e88

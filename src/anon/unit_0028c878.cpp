@@ -1636,3 +1636,80 @@ void func_0028ebf8(Obj* o)
 }
 }  // namespace n0028ebf8
 
+
+// 0028edf0 (was gap, written for the unit): Tz::MultiSeq draw pass: positions and colours of each sequence
+namespace n0028edf0 {
+// gcc's soft-float libcalls bound to the game's copies
+asm("fptodp = func_00313b80");
+asm("dpmul = func_00313f40");
+asm("dptofp = __truncdfsf2");
+struct Seq { u8 p0[280]; f32 r; f32 g; f32 b; u8 p124[36]; s32 x; s32 y; u8 p150[24]; s32 ox; s32 oy; u8 p170[8]; Seq* parent; };
+struct Obj { void* vt; u8 p4[8]; u32 flags; u8 p10[8]; s32 n; s32 x; s32 y; s32 ox; s32 oy; u8 p2c[4]; u8* sub; s32 align; Seq* ents; };
+s32 func_00139d78(void*) asm("_Z16u_call4_00139d78jjjj");
+void getSeqActiveXYAddOffset(void*, s32*, s32*) asm("_ZN2dk6Sprite23getSeqActiveXYAddOffsetERiS1_");
+void getPos(void*, s32*, s32*) asm("_ZN2dk6Sprite6getPosERiS1_");
+s32 GetPlayMode(Seq*) asm("_ZN2YI8SEQUENCE11GetPlayModeEv");
+void GetActiveXY(Seq*, s32*, s32*) asm("_ZN2YI8SEQUENCE11GetActiveXYEPiS1_");
+u32 GetActiveRGBA(void*) asm("_ZN2YI8SEQUENCE13GetActiveRGBAEv");
+void SetRGBA(Seq*, f32, f32, f32, f32) asm("_Z16wtarget_00239fd0jjjj");
+void func_0023ade0(Seq*) asm("func_0023ade0");
+s32 GetParamEx(Seq*) asm("_ZN2YI8SEQUENCE10GetParamExEv");
+void func_0028edf0(Obj* o) asm("func_0028edf0");
+void func_0028edf0(Obj* o)
+{
+    s32 ax, ay, bx, by;
+    s32 i;
+    s32 x, y;
+    if (o->sub && !func_00139d78(o->sub)) return;
+    if (o->sub) {
+        getSeqActiveXYAddOffset(o->sub, &ax, &ay);
+        getPos(o->sub, &bx, &by);
+        o->x = bx + ax;
+        o->y = by + ay;
+    }
+    x = o->x + o->ox;
+    y = o->y + o->oy;
+    for (i = 0; i < o->n; i++) {
+        s32 px = x;
+        s32 py = y;
+        if (o->ents[i].parent) {
+            if (!GetPlayMode(o->ents[i].parent)) return;
+            GetActiveXY(o->ents[i].parent, &ax, &ay);
+            Seq* p = o->ents[i].parent;
+            bx = p->x;
+            px = ax + bx;
+            by = p->y;
+            py = ay + by;
+        }
+        if ((o->sub || o->ents[i].parent) && (o->flags & 0x200)) {
+            void* q = o->sub;
+            if (q) q = (u8*)q + 24; else q = o->ents[i].parent;
+            u32 c = GetActiveRGBA(q);
+            Seq* e = &o->ents[i];
+            f32 r = e->r;
+            f32 g = e->g;
+            f32 b = e->b;
+            f32 a = (f32)(c >> 24) / 128.0;
+            if (!(o->flags & 0x400)) {
+                r = (f32)(c & 0xff) / 128.0;
+                g = (f32)((c & 0xff00) >> 8) / 128.0;
+                b = (f32)((c & 0xff0000) >> 16) / 128.0;
+            }
+            SetRGBA(&o->ents[i], r, g, b, a);
+        }
+        {
+            Seq* e = &o->ents[i];
+            e->x = px + e->ox;
+            e->y = py + e->oy;
+            func_0023ade0(e);
+        }
+        s32 d = GetParamEx(&o->ents[i]);
+        switch (o->align) {
+        case 1: x += d; break;
+        case 2: y += d; break;
+        case 3: x -= d; break;
+        case 4: y -= d; break;
+        }
+    }
+}
+}  // namespace n0028edf0
