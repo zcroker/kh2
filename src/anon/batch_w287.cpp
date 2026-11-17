@@ -128,42 +128,7 @@ u8* func_001145b0(u16);
 u8* func_00281180(s32, s32);
 void func_0027c118(s32, s32);
 #define REC(i) (D_0035f230 + (i) * 8)
-void func_0027bf68(void) {
-    s32 a, b;
-    func_0027aed8(func_002570a0(15), &a, &b);
-    s32 busy = func_0027af58();  // check_state16_then_loop
-    s32 idx = func_0028b040(D_0035f01c);
-    s8 f16 = *(s8*)(REC(idx) + 16);
-    s32 ok;
-    E27* v;
-    s32 i;
-    u8* sp_;
-    u8* w;
-    if (a != 0 || b == 0 || busy != 0 || f16 != 0 || func_0027c3b8(idx)) goto early;
-    v = func_00273180(4, -1);  // state_dispatch_2_3
-    if (*(s8*)(REC(idx) + 14) != 0) {
-        for (i = 0; i < 3; i++) {
-            if (v[i].key == *(s8*)(REC(idx) + 18)) break;
-        }
-    } else {
-        i = -1;
-    }
-    if (i + 1 < 3) {
-        REC(idx)[18] = v[i + 1].key;
-        sp_ = func_001145b0(*(u16*)(REC(idx) + 12));
-        w = func_00281180(D_0035f010, b);
-        (sp_ + *(s32*)(w + 580))[245] = REC(idx)[18];
-        ok = 1;
-    } else {
-        REC(idx)[18] = -1;
-        ok = 0;
-    }
-    func_0027c118(idx, ok);
-    return;
-early:
-    ok = *(s8*)(REC(idx) + 14) == 0;
-    func_0027c118(idx, ok);
-}
+void func_0027bf68(void);  // 0x0027bf68: definition moved into src/anon/unit_0027a6d8.cpp
 }
 struct T15 { u8 id; u8 b1; u8 b2; u8 pad; f32 f4; f32 f8; f32 f12; f32 f16; };
 struct S15 { u8 pad[68]; T15 t; };

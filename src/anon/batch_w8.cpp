@@ -165,9 +165,7 @@ void func_00269378(void);  // 0x00269378: definition moved into src/anon/unit_00
 
 u8* func_00257770(void);
 void func_0028dac8(u8*, u32);
-void func_0027b4e8(void) {
-    func_0028dac8(func_00257770() + 0xb350, 274);
-}
+void func_0027b4e8(void);  // 0x0027b4e8: definition moved into src/anon/unit_0027a6d8.cpp
 
 extern s32 D_0035f2f8;
 void func_00287c20(void);  // clear_global_flag_return_m1

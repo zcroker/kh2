@@ -175,22 +175,7 @@ static inline void vstop(u8* o) { (*(VFn10*)((*(u8**)o) + 20))(o); }
 extern "C" {
 void func_0027e770(void);
 }
-void func_0027e770(void) {
-    s32 g, j, off;
-    if (func_00139d78(D_0035f244)) vstop(D_0035f244);
-    for (g = 0; g < 4; g++) {
-        if (func_00139d78(D_0035f248 + g * 5116)) func_00139510(D_0035f248 + g * 5116);
-        if (func_00139d78(D_0035f248 + g * 5116 + 436)) func_00139510(D_0035f248 + g * 5116 + 436);
-        for (j = 0, off = g * 5116; j < 2; j++, off += 408) {
-            if (func_00139d78((u8*)(off + (u32)D_0035f248 + 844))) vstop((u8*)(off + (u32)D_0035f248 + 844));
-            if (func_00139d78((u8*)(off + (u32)D_0035f248 + 1660))) vstop((u8*)(off + (u32)D_0035f248 + 1660));
-        }
-        for (j = 0, off = g * 5116; j < 3; j++, off += 436) {
-            if (func_00139d78((u8*)(off + (u32)D_0035f248 + 2476))) vstop((u8*)(off + (u32)D_0035f248 + 2476));
-            if (func_00139d78((u8*)(off + (u32)D_0035f248 + 3784))) vstop((u8*)(off + (u32)D_0035f248 + 3784));
-        }
-    }
-}
+void func_0027e770(void);  // 0x0027e770: definition moved into src/anon/unit_0027e6e0.cpp
 
 // ---- 0023d820
 struct SubT { u8 pad[12]; u32 items[16]; };

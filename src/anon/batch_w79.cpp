@@ -360,19 +360,7 @@ void func_00244b38(void) {
     }
 }
 
-void func_0027c2f8(void) {
-    s32 sel = func_00257070(16);
-    s32 top = func_00257088(16);
-    s32 cnt = func_0028afa8(D_0035f01c);
-    s32 vis = func_002892f8(D_0035f01c);
-    if (cnt < top + vis) top = vis < cnt ? cnt - vis : 0;
-    if (!(vis < cnt) && !(sel < cnt)) {
-        sel = cnt - 1;
-        top = 0;
-    }
-    func_002891f0(D_0035f01c, sel, 0, -1, -1);
-    func_0028afd0(D_0035f01c, top);  // obj_set_signed18
-}
+void func_0027c2f8(void);  // 0x0027c2f8: definition moved into src/anon/unit_0027a6d8.cpp
 
 void func_002c5c50(void* a, u32* b);  // 0x002c5c50: definition moved into src/anon/unit_002c53c8.cpp
 

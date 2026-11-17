@@ -339,16 +339,7 @@ s32 func_0025d620(s32 a);  // 0x0025d620: definition moved into src/anon/unit_00
 
 s32 func_002638e0(s32 a);  // 0x002638e0: definition moved into src/anon/unit_002632d0.cpp
 
-bool func_0027a908(u8 a) {
-    bool r = func_002577b0();
-    if (r) return r;
-    if (a) r = func_0027b528();
-    if (r) return r;
-    if (D_0035f04c) r = func_0028be58(D_0035f04c) != 0;
-    if (r) return r;
-    if (D_0035f01c) r = Select_isCreated(D_0035f01c) != 0;
-    return r;
-}
+bool func_0027a908(u8 a);  // 0x0027a908: definition moved into src/anon/unit_0027a6d8.cpp
 
 }
 

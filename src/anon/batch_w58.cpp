@@ -261,21 +261,7 @@ s32 PauseTaskIsDone(void* a) asm("_ZN2Tz15PauseTaskIsDoneEz");
 s32 PauseTaskIsDone(void* a);  // 0x0026e5b8: definition moved into src/anon/unit_0026c450.cpp
 
 s32 func_0027ae20(void);
-void func_0027aed8(s32 a, s32* o1, s32* o2) {
-    if (a == 0) {
-        *o1 = 0;
-        *o2 = 0;
-        return;
-    }
-    s32 n = func_0027ae20();
-    if (n != 0 && a < n + 1) {
-        *o1 = 1;
-        *o2 = a - 1;
-    } else {
-        *o1 = 0;
-        *o2 = a - n;
-    }
-}
+void func_0027aed8(s32 a, s32* o1, s32* o2);  // 0x0027aed8: definition moved into src/anon/unit_0027a6d8.cpp
 
 s32 func_00168aa0(u32, u32);
 u8* func_00168b38(u32, u32, s32);  // entry_array_find_nth

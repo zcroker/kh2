@@ -280,19 +280,7 @@ void func_001039f8(void);
 void func_00242618(u32, u32);
 void func_00287da0(void);
 extern u32 D_0035f238;
-u32 func_0027db58(void) {
-    u8* o = func_00167f18(0);
-    if (func_00287db0()) {
-        if (func_00290740(D_0035f238)) return 0;
-        func_001039f8();
-        return 1;
-    }
-    if (*(u64*)(o + 8) & 0xc) {
-        func_00242618(9, 1);
-        func_00287da0();
-    }
-    return 0;
-}
+u32 func_0027db58(void);  // 0x0027db58: definition moved into src/anon/unit_0027d2e8.cpp
 
 // --- 002a6718
 u32 func_00276368(void);

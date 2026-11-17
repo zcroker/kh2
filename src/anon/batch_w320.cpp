@@ -316,40 +316,7 @@ void func_001396b0(u8*);
 void func_0031a260(u8*, s32);
 u8* func_002891d0(u32);
 void func_0028d660(u8*, s32);  // record_set_value_refresh
-void func_0027d5d8(void)
-{
-    u8* base = func_00257770();
-    s32 mode = func_00287cd0();
-    if (!func_0028acc8(D_0035f01c)) return;
-    if (mode == 1) {
-        u8* w = base + 816;
-        s32 a = func_002891e8(D_0035f01c);
-        s32 b = func_0028b038(D_0035f01c);
-        D_01e21ef0 = func_0027d4f0(a + b);
-        if (!func_00139d78(w)) {
-            func_0028d8c0(w, D_0035f3d4 + 1, D_0035ef68, D_0035ef64, D_0035f03c, D_01e21ef0->h4, -1, 0);
-            func_0028dcc0(w, func_0027d488(a, b));
-            return;
-        }
-        s32 cur = *(s32*)(w + 396);
-        if (cur == func_0027d488(a, b) && !func_00289358(D_0035f01c)) return;
-        func_00138c10(w, D_01e21ef0->h4);
-        *(s32*)(w + 396) = func_0027d488(a, b);
-        func_001396b0(w);
-        if (*(s32*)(w + 396)) {
-            *(s32*)(w + 400) = 0;
-            func_001396b0(w);
-            if (*(s32*)(w + 400)) func_0031a260(w, 0);
-        }
-        if (!func_00139d78(D_0035f050)) return;
-        s32 v = *(s32*)(D_0035f050 + 396);
-        if (v == *(s32*)(func_002891d0(D_0035f01c) + 396)) return;
-        func_0028d660(D_0035f050, *(s32*)(func_002891d0(D_0035f01c) + 396));  // record_set_value_refresh
-    } else {
-        u8* w = base + 816;
-        if (func_00139d78(w)) func_00139510(w);
-    }
-}
+void func_0027d5d8(void);  // 0x0027d5d8: definition moved into src/anon/unit_0027d2e8.cpp
 }
 struct Heap2bd310;
 struct Heap2bd310Vt { void* (*alloc)(Heap2bd310*, u32, s32); void (*free)(Heap2bd310*, void*); };

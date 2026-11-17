@@ -386,24 +386,7 @@ void func_0027aed8(u32, s32*, s32*);
 u32 func_00281140(u32, s32);
 u32 func_00192048(u32);
 extern s16* D_0035f230;
-u32 func_0027b5d0(void) {
-    u32 r = 0;
-    u16* v = func_0026b850();
-    s32 oa, ob;
-    func_0027aed8(cmtop_select_pos(15), &oa, &ob);
-    if (oa == 0) {
-        r = func_00281140(D_0035f010, ob);
-    } else {
-        s32 n = 0;
-        for (s32 i = 0; i < 16; i++) {
-            if (i == 6) continue;
-            if ((u8)(((*D_0035f230 >> i) ^ 1) & 1)) continue;
-            if (ob == n) { r = func_00192048(i == 7 ? 0xb2ec : v[i]); break; }
-            n++;
-        }
-    }
-    return r;
-}
+u32 func_0027b5d0(void);  // 0x0027b5d0: definition moved into src/anon/unit_0027a6d8.cpp
 
 // --- 00290198
 extern u8* D_00347f80;

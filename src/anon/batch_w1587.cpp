@@ -34,7 +34,7 @@ void func_00298e20(u32 a0, s32 a1) {
 
 void func_0025ee58(void);  // 0x0025ee58: definition moved into src/anon/unit_0025da20.cpp
 
-void func_0027c4d8(void) { D_0035f234 = (u32)func_001063f0(10, func_00103570()); }
+void func_0027c4d8(void);  // 0x0027c4d8: definition moved into src/anon/unit_0027a6d8.cpp
 
 struct W1587_S { u32 a; u8* b; };
 void func_00242088(void*);

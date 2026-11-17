@@ -488,28 +488,7 @@ s32 func_0027c3b8(u32);
 ColEnt* func_00273180(u32, s32);  // state_dispatch_2_3
 u8* func_001145b0(u32);
 u8* func_00281180(u32, u32);
-void func_0027c1c0(void) {
-    u32 x = func_002570a0(16);
-    s32 b = func_0028b040(D_0035f01c);
-    func_0027c118(x, b != 0);
-    u32 y = func_002570a0(15);
-    u32 z = func_0027af58();  // check_state16_then_loop
-    s32 o1, o0;
-    func_0027aed8(y, &o0, &o1);
-    s8 lock = D_0035f230->s[x].lock;
-    if (o0 != 0) return;
-    if (o1 == 0) return;
-    if (z != 0) return;
-    if (lock != 0) return;
-    if (func_0027c3b8(x)) return;
-    z = (u32)func_00273180(4, -1);  // state_dispatch_2_3
-    y = (u32)func_001145b0(D_0035f230->s[x].id);
-    x = func_0028b040(D_0035f01c);
-    if (!x) return;
-    u32 off = *(u32*)(func_00281180(D_0035f010, o1) + 580);
-    ((u8*)y)[off + 245] = ((ColEnt*)z)[x - 1].col;
-    func_002570a0(16);
-}
+void func_0027c1c0(void);  // 0x0027c1c0: definition moved into src/anon/unit_0027a6d8.cpp
 
 u8* func_001a8110(u8*);
 // Assign each entry its table order (+1000 unless type 18), then sort by it.

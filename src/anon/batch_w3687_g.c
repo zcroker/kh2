@@ -41,13 +41,4 @@ extern SeqEntry3687 D_00373e30[];
 /* Refreshes the menu list buffer and starts its selection sequence (231 in mode 16, else
    from the table entry of the current item). The two register pins make the buffer copy
    into a0 come before the copy into s0 (partial asm, see asm_review.tsv). */
-void func_0027aa10(void) {
-    u8* t = Tz_CmTop_GetListBuffer();
-    register u8* a asm("$4") = t;
-    register u8* p asm("$16") = t;
-    s32 n;
-    u_call4_00139d78(a);
-    if (Tz_MenuBase_GetMode() == 16) n = 231;
-    else n = D_00373e30[func_0027af58()].seq;
-    Tz_Select_SetSequence(p, n);
-}
+void func_0027aa10(void);  // 0x0027aa10: definition moved into src/anon/unit_0027a6d8.cpp

@@ -21,40 +21,7 @@ extern s8 D_0035f24e;
 extern char D_00373fd8[];
 extern char D_00373fe0[];
 
-void func_0027eb10(void) {
-    s32 n = D_0035f24e == 4 ? func_00281100(D_0035f010) : 1;
-    s32 i;
-    for (i = 0; i < n; i++) {
-        s32 k = D_0035f24e;
-        if (k == 4) k = i;
-        Obj* o = func_00281180(D_0035f010, k);
-        switch (D_0035f24d) {
-        case 0:
-            func_00192cc0((char*)(i * 5116 + (u32)D_0035f248 + 0x13e4), D_00373fd8, o->sub->lv);
-            { s32 hm = o->hpmax; func_00192cc0((char*)(i * 5116 + (u32)D_0035f248 + 0x13ec), D_00373fe0, o->hp, hm); }
-            func_00192cc0((char*)(i * 5116 + (u32)D_0035f248 + 0x13f4), D_00373fe0, o->mp, o->mpmax);
-            func_00239f18((f32)o->hp / (f32)o->hpmax, D_0035f248[i].g0);
-            func_00239f18((f32)o->mp / (f32)o->mpmax, D_0035f248[i].g1);
-            break;
-        case 1:
-            func_00192cc0((char*)(i * 5116 + (u32)D_0035f248 + 0x13e4), D_00373fd8, o->a188);
-            break;
-        case 2:
-            func_00192cc0((char*)(i * 5116 + (u32)D_0035f248 + 0x13e4), D_00373fd8, o->a18c);
-            break;
-        case 3:
-            func_00192cc0((char*)(i * 5116 + (u32)D_0035f248 + 0x13e4), D_00373fd8, o->a18a);
-            break;
-        case 4:
-            func_00192cc0((char*)(i * 5116 + (u32)D_0035f248 + 0x13e4), D_00373fd8, o->a18e);
-            break;
-        case 5:
-            func_00192cc0((char*)(i * 5116 + (u32)D_0035f248 + 0x13e4), D_00373fd8, o->b1b1);
-            func_00239f18((f32)o->b1b0 / 100.0f, D_0035f248[i].g0);
-            break;
-        }
-    }
-}
+void func_0027eb10(void);  // 0x0027eb10: definition moved into src/anon/unit_0027e920.cpp
 
 void func_00288d80(s32, s32, s32, s32, s32, s32, u16*, u16*);
 u8* func_002891b8(s32, s32);

@@ -38,17 +38,7 @@ extern "C" void func_0031a260(...);
 
 u32 CmTop::ExitParty() { return ExitPartyImpl(); }
 
-u32 CmTop::isExistListAll() {
-    u32 r16 = GetTopBase();
-    u32 r2 = func_00139d78(r16);
-    u32 r4 = 0u;
-    if (r2 != 0u) {
-        u32 r15 = *(volatile u32*)((u32)r16 + (s32)(388));
-        r15 = (u32)(r15 ^ 0x00eau);
-        r4 = ((u32)r15 < 0x00000001u);
-    }
-    return r4;
-}
+// 0x0027d408: definition moved into src/anon/unit_0027d2e8.cpp
 
 dk::Sprite* CmTop::GetBaseSprite(s32 index) {
     u32 base = D_0035f028;

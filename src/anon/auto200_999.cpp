@@ -385,10 +385,7 @@ u32 func_00258068(u32 a0) {  // get_global_bit
     return ret;
 }
 
-void func_0027dc20(u32 *a0, u32 *a1) {
-    *a0 = D_0035f240;
-    *a1 = D_0035f23c;
-}
+void func_0027dc20(u32 *a0, u32 *a1);  // 0x0027dc20: definition moved into src/anon/unit_0027d2e8.cpp
 
 void func_00232718() {  // decrement_global_clamped
     s32 v = D_0035de2c;

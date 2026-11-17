@@ -150,13 +150,7 @@ void func_0026dcb8(void);  // 0x0026dcb8: definition moved into src/anon/unit_00
 struct Ent8 { u8 _0[2]; s8 flag; u8 _3[2]; s8 lim; u8 _6[2]; };
 struct Hdr8 { s16 _0; s16 a; s16 b; u8 _6[6]; Ent8 e[1]; };
 extern Hdr8* D_0035f230;
-s32 func_0027bf20(s32 i) {
-    Hdr8* h = D_0035f230;
-    s32 d = h->a - h->b;
-    if (d < 0) d = 0;
-    if (h->e[i].flag) return 1;
-    return !(d < h->e[i].lim);
-}
+s32 func_0027bf20(s32 i);  // 0x0027bf20: definition moved into src/anon/unit_0027a6d8.cpp
 
 void func_0028dac8(u8*, s32);
 extern u8* D_0035f264;

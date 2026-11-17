@@ -144,17 +144,7 @@ void func_00257970(void) {
 void func_0028da70(u32, s32);
 
 extern s16* D_0035f230;
-s32 func_0027ae78(s32 n) {
-    s32 k = 0;
-    s32 i;
-    for (i = 0; i < 8; i++) {
-        if (i == 6) continue;
-        if (!((*D_0035f230 >> i) & 1)) continue;
-        if (n == k) break;
-        k++;
-    }
-    return i;
-}
+s32 func_0027ae78(s32 n);  // 0x0027ae78: definition moved into src/anon/unit_0027a6d8.cpp
 
 extern s8* D_0035f5ac;
 extern char* D_0035f5c8;

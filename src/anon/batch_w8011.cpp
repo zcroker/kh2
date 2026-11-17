@@ -18,44 +18,7 @@ void func_00256cc0(s32, s32, s32);
 void func_0028af18(s32, u32);
 void func_0027aaa0(void);
 
-void func_0027bbe0(s32 a0, s32 a1) {
-    if (a1 == 15) {
-        func_00279ec8();
-    } else if (a1 == 16) {
-        s32 st0, st1;
-        u32 f;
-        s32 id;
-        func_0027aed8(func_002570a0(15), &st0, &st1);
-        func_0027a6d8();
-        func_0027a208();
-        if (st0 == 0) func_0027b248(1);
-        f = func_0028af88(a0);
-        if (st0 == 0) {
-            E27bb* e;
-            a1 = func_0028b040(a0);
-            e = (E27bb*)((u32)(a1 << 3) + (u32)D_0035f230) + 2;
-            if (!e->f1) f &= ~0x200;
-            else f |= 0x200;
-        }
-        id = -1;
-        if (func_00283ab8(2)) {
-            f |= 0x400;
-            id = 0xcbdd;
-        } else {
-            f &= ~0x400;
-        }
-        if (func_00258068(0)) {
-            func_00256cc0(0xb373, 0xb61a, id);
-        } else if (id >= 0) {
-            func_00256cc0(0xb61a, id, -1);
-        }
-        func_0028af18(a0, f);
-    } else {
-        func_0027aaa0();
-        func_0027b248(func_0028b040(a0) != 0);
-    }
-    func_0027b6b8();
-}
+void func_0027bbe0(s32 a0, s32 a1);  // 0x0027bbe0: definition moved into src/anon/unit_0027a6d8.cpp
 
 struct Sub283790 { u8 pad[184]; u32 flags; };
 struct Obj283790 { u8 pad[24]; Sub283790 sub; u8 pad2[392 - 24 - 188]; s32 mode; u8 pad3[405 - 396]; u8 on; u8 pad4[2]; };

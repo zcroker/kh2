@@ -355,25 +355,7 @@ u32 func_0028b040(u32);
 u32 func_002570a0(u32);
 void func_0027aed8(u32, s32*, s32*);
 s32 func_0027bf20(u32);
-s32 func_0027c3e0(s32 id) {
-    s32 m = func_00287bc0();
-    u32 h = func_0028b040(D_0035f01c);
-    if (m == 15) return 1;
-    if (m != 16) return 1;
-    s32 b;
-    s32 a;
-    func_0027aed8(func_002570a0(15), &a, &b);
-    if (id == -7) return 1;
-    if (id == -6) return func_0027bf20(h);
-    if ((u32)(id + 11) < 2) {
-        s32 r = 0;
-        if (*(s8*)(D_0035f230 + 6) >= 2) r = 1;
-        return r;
-    }
-    if (id == -5) return 1;
-    if (*(s8*)(D_0035f230 + id * 8 + 17) != 0 && a == 0) return func_0027bf20(h);
-    return 0;
-}
+s32 func_0027c3e0(s32 id);  // 0x0027c3e0: definition moved into src/anon/unit_0027a6d8.cpp
 
 // --- 0028ab20: release every entry's id (-1) and clear the current selection
 u8* func_0028ac98(u8*, s32);  // lookup_by_index_align

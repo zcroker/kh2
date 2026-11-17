@@ -27,11 +27,7 @@ extern s32 D_0035f04c;
 struct E6 { s16 a; s16 b; s16 c; };
 extern E6 D_00373e30[];
 
-void func_0027d450(void) {
-    s32 p = func_00257770();
-    func_00139d78(p);
-    func_0028da70(p, 0xEA);
-}
+void func_0027d450(void);  // 0x0027d450: definition moved into src/anon/unit_0027d2e8.cpp
 void func_002944f8(void) {
     D_0035f580 = 0;
     D_0035f581 = 0;
@@ -39,23 +35,8 @@ void func_002944f8(void) {
     func_0023f800(r);
     D_0035f57c = r;
 }
-void func_0027acf8(void) {
-    s32 p = func_00257770();
-    func_00257a00();
-    p += 0x814;
-    if (func_00139d78(p)) func_00139510(p);
-    if (func_0028be58(D_0035f04c)) func_0028be18(D_0035f04c);
-    if (func_0028acc8(D_0035f01c)) func_0028abe0(D_0035f01c);
-}
-void func_0027ac38(void) {
-    s32 p = func_00257770();
-    if ((u32)(func_00287bc0() - 0x11) >= 3) return;
-    func_0028dac8(p, D_00373e30[func_0027af58()].b);
-    if (func_0028be58(D_0035f04c)) func_0028bdb8(D_0035f04c);
-    if (!func_0028acc8(D_0035f01c)) return;
-    if (func_0028acb8(D_0035f01c)) return;
-    func_0028aa40(D_0035f01c);
-}
+void func_0027acf8(void);  // 0x0027acf8: definition moved into src/anon/unit_0027a6d8.cpp
+void func_0027ac38(void);  // 0x0027ac38: definition moved into src/anon/unit_0027a6d8.cpp
 s32 func_00287cd0(void);
 s32 func_00285728(void);
 s32 func_00287c10(void);

@@ -79,35 +79,7 @@ void sp_sop(void*, s32, s32) asm("_ZN2dk6Sprite12setOffsetPosEii");
 s32 jm_gd(u32) asm("_ZN2Tz8JmReport7GetDataEj");
 void cm_csci(void*) asm("_ZN2Tz5CmTop18CreateShortCutInfoEPN2dk6SpriteE");
 void cm_lsci(void) asm("_ZN2Tz5CmTop17LeaveShortCutInfoEv");
-void func_0027bd40(void* p, u8 flag) {
-  s32 v[4];
-  u8* w = cm_glb();
-  s32 m = mb_gm();
-  u8* o = w + 816;
-  { s32* q = &v[1]; func_0027aed8(cm_gsp(15), q - 1, q); }
-  s32 act = chk_139d78(o);
-  if (func_0028d008(p)) {
-  if (!act) {
-    s32 c = 249;
-    s32 s = D_0035f3d4 + 2;
-    if (m != 16) c = D_00373e50.t[func_0027af58()];
-    pz_cfo(o, s, D_0035ef68, D_0035ef64, D_0035f03c, c, -1, 0);
-    mc_as(o, w);
-    sp_gop(*(u32*)(mc_gs(p) + 396), &v[2], &v[3]);
-    sp_sop(o, v[2], v[3]);
-  }
-  if (flag) {
-    sp_gop(*(u32*)(mc_gs(p) + 396), &v[2], &v[3]);
-    sp_sop(o, v[2], v[3]);
-  }
-  if (chk_139d78(w + 2504) && !flag) return;
-  s32 r = jm_gd(D_0035f01c);
-  if (m == 16 && v[0] == 0 && D_0035f230[r * 8 + 17]) { cm_csci(mc_gs(p)); return; }
-  } else {
-    if (act) lv_139510(o);
-  }
-  cm_lsci();
-}
+void func_0027bd40(void* p, u8 flag);  // 0x0027bd40: definition moved into src/anon/unit_0027a6d8.cpp
 extern u8 D_00340ed0[3];
 extern u32 D_00340ed4;
 extern u64 D_00340ed8[];

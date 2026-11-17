@@ -138,34 +138,7 @@ s32 func_0028b040(s32);
 void func_0023d1d0();  // set_global_word1
 void func_0023d1e0();  // zero_global_d
 void func_002b6bc4(s32);
-void func_0027d868(u8 dir) {
-    s32 k = func_0028b040(D_0035f01c);
-    s32 v = D_0035f234[k];
-    if (dir) {
-        v--;
-        if (v < 0) v = D_00373f10[k].max - 1;
-    } else {
-        v++;
-        if (!(v < D_00373f10[k].max)) v = 0;
-    }
-    D_0035f234[k] = v;
-    if (k == 6) {
-        if (D_0035f234[6] == 0) func_0023d1d0();  // set_global_word1
-        else func_0023d1e0();  // zero_global_d
-    } else if (k == 7) {
-        s8 m = D_0035f234[7];
-        if (m == 2) v = 0;
-        else v = (m == 1) ? 2 : 1;
-        func_002b6bc4(v);
-    }
-    if (k == 0) {
-        s8* p = D_0035f234;
-        if (p[0] == 1 && p[1] == 1) p[1] = 0;
-    } else if (k == 1) {
-        s8* p = D_0035f234;
-        if (p[0] == 1 && p[1] == 1) p[0] = 0;
-    }
-}
+void func_0027d868(u8 dir);  // 0x0027d868: definition moved into src/anon/unit_0027d2e8.cpp
 }
 /* VU0 random float in [0,1): vrnext chain seeded by vf2 = -1 (hand-written asm macro) */
 #define VRAND278(out) asm volatile( \

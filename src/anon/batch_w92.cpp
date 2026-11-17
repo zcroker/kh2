@@ -685,25 +685,7 @@ extern u32 D_0035ef68;
 extern u32 D_0035ef64;
 extern u32 D_0035f3d4;
 
-void func_0027c5a0(void) {
-    u32 a = func_00257770();
-    func_0028f4d8(0, -1, 0);
-    func_0027c9a8();
-    func_0027ccf8();
-    func_002891f0(D_0035f01c, func_00257070(36), 0, -1, -1);
-    func_0028afd0(D_0035f01c, func_00257088(36));  // obj_set_signed18
-    func_0028af90(D_0035f01c, 10);  // obj_set_field22_from_arg
-    func_0028b218(D_0035f01c, 1);  // obj_set_flag39_bits3000
-    func_0028b248(D_0035f01c, 9);  // set_field28_half
-    u32 b = func_0023c4b8(func_0023f1b0(D_0035f03c), D_0035ef68);
-    u32 c = func_00236ca8(*(u32*)(func_0023f1b0(D_0035f03c) + 40), D_0035ef64);
-    u32 d = D_0035f3d4;
-    func_0028bae0(D_0035f04c, d, b, c, func_002570f0(), 10, 9, a, 0);
-    func_0028af28(D_0035f01c, 16);
-    func_0027d810(func_0028b040(D_0035f01c));
-    func_0027d008();
-    func_00287cc0(0);
-}
+void func_0027c5a0(void);  // 0x0027c5a0: definition moved into src/anon/unit_0027a6d8.cpp
 }
 
 // ---- 288478 ----

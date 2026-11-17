@@ -39,13 +39,7 @@ extern Group* D_0035f248;
 extern s8 D_0035f24c;
 extern s8 D_0035f24d;
 extern s8 D_0035f24e;
-void func_0027dd18(void) {
-    if (D_0035f244) { delete D_0035f244; D_0035f244 = 0; }
-    if (D_0035f248) { delete[] D_0035f248; D_0035f248 = 0; }
-    D_0035f24c = -1;
-    D_0035f24d = -1;
-    D_0035f24e = -1;
-}
+void func_0027dd18(void);  // 0x0027dd18: definition moved into src/anon/unit_0027d2e8.cpp
 }
 }
 

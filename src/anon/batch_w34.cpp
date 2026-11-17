@@ -250,17 +250,7 @@ void* func_0024b1a0(s32 n) {
 }
 
 // Counts set bits 0-5 and 7 of the flag word.
-s32 func_0027ae20(void) {
-    s32 n = 0;
-    for (s32 i = 0; i < 7; i++) {
-        if (i != 6) {
-            if (!((*D_0035f230 >> i) & 1)) continue;
-            n++;
-        }
-    }
-    if (*(u16*)D_0035f230 & 0x80) n++;
-    return n;
-}
+s32 func_0027ae20(void);  // 0x0027ae20: definition moved into src/anon/unit_0027a6d8.cpp
 
 // Keeps the final call from becoming a sibling call.
 struct NoTail {

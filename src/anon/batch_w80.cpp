@@ -636,15 +636,7 @@ void func_00252540(void) {
 }
 
 
-s32 func_0027ed48(s32 key) {  // copy_static_data
-    U15_IdMapTbl t = D_00374008;
-    s32 i;
-    s32 r = -1;
-    for (i = 0; t.e[i].key >= 0; i++) {
-        if (t.e[i].key == key) { r = t.e[i].val; break; }
-    }
-    return r;
-}
+s32 func_0027ed48(s32 key);  // 0x0027ed48: definition moved into src/anon/unit_0027e920.cpp
 
 
 s32 func_00283ab8(s32 type);  // 0x00283ab8: definition moved into src/anon/unit_00282c68.cpp

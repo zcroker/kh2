@@ -121,7 +121,7 @@ u32 func_00253598(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a0; (void)a1; (void)a2; (
 
 void func_00258d40(u32 a0,u32 a1,u32 a2,u32 a3);  // 0x00258d40: definition moved into src/anon/unit_002588e8.cpp
 
-void func_0027dc08(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a2; (void)a3; D_0035f240 = a0; D_0035f23c = a1; }
+void func_0027dc08(u32 a0,u32 a1,u32 a2,u32 a3);  // 0x0027dc08: definition moved into src/anon/unit_0027d2e8.cpp
 
 u32 func_002811e0(u32 a0,u32 a1,u32 a2,u32 a3);  // 0x002811e0: definition moved into src/anon/unit_0027f2b0.cpp
 

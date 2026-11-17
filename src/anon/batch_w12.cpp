@@ -200,12 +200,7 @@ void func_00241568(void) {
     func_00234670(*D_0035ec94, D_0035ec88, 0, 0, 0);
 }
 
-void func_0027d598(void* p) {
-    func_0027d008(p);
-    func_0027d540();
-    func_0027d5d8();
-    func_0027d810(JmReport_GetData((s16*)p));
-}
+void func_0027d598(void* p);  // 0x0027d598: definition moved into src/anon/unit_0027d2e8.cpp
 
 s32 JmReport_GetData(s16* self);  // 0x0028b040: definition moved into src/anon/unit_00288b00.cpp
 

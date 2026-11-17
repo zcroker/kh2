@@ -282,26 +282,7 @@ u32 func_00103570(void);
 u8* func_001063f0(u32, u32);
 void func_003237e0(void*);
 typedef u8* (*AllocFn)(void*, u32, u32);
-void func_0027dc40(void) {
-    VObj* h = D_00347f80->a;
-    u8* o = ((AllocFn*)h->vt)[0](h, 408, 0);
-    *(u32*)(o + 12) = 0;
-    *(void**)o = D_00347e60;
-    func_00239700(o + 24);
-    D_0035f244 = o;
-    u8* m = func_001063f0(20468, func_00103570());
-    *(u32*)m = 4;
-    u8* arr = m + 4;
-    u8* q = arr;
-    for (s32 i = 3; i != -1; i--) {
-        func_003237e0(q);
-        q += 5116;
-    }
-    D_0035f248 = arr;
-    D_0035f24c = 0xff;
-    D_0035f24d = 0xff;
-    D_0035f24e = 0xff;
-}
+void func_0027dc40(void);  // 0x0027dc40: definition moved into src/anon/unit_0027d2e8.cpp
 
 u32 func_00316e00(void);  // get_367918
 s32* func_00316e10(void);  // get_data_369928

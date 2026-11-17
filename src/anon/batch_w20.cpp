@@ -168,9 +168,7 @@ void func_00242980(s32* a, s32* b) {
     *b = v->y;
 }
 
-void func_0027ead0(void) {
-    func_0028da70(D_0035f244, D_00374050[D_0035f24c].v);
-}
+void func_0027ead0(void);  // 0x0027ead0: definition moved into src/anon/unit_0027e920.cpp
 
 // Dispatches through slot 0 of the object at D_0035f34c, passing the caller's return address.
 u32 func_00288be8(u32 a);  // 0x00288be8: definition moved into src/anon/unit_00288b00.cpp

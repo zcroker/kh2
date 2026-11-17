@@ -1999,16 +1999,7 @@ void func_00277070(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a
 
 extern "C" u32 func_00106450(...);
 
-void func_0027c508(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {  // release_global_slots
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r15, r16;
-    r16 = (u32)(0x0036u << 16);
-    r15 = *(volatile u32*)((u32)r16 + (s32)(-3532));
-    r4 = r15;
-    if (r15 != 0u) {
-        ((void(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_00106450)(r4, r5, r6, r7, r8, r9, r10, r11);
-        *(volatile u32*)((u32)r16 + (s32)(-3532)) = 0u;
-    }
-}
+void func_0027c508(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);  // 0x0027c508: definition moved into src/anon/unit_0027a6d8.cpp
 
 extern "C" u32 func_001058e8(...);
 
@@ -2123,12 +2114,7 @@ u32 duplicate_unplaced_0027b4e8(u32 a0, u32 a1) {
 extern "C" u32 func_0027d2e8(...);
 extern "C" u32 func_00287bc0(...);
 
-u32 func_0027c540(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r2, r15;
-    r2 = ((u32(*)())func_00287bc0)();
-    if (r2 != 36u) return r2;
-    return ((u32(*)())func_0027d2e8)();
-}
+u32 func_0027c540(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);  // 0x0027c540: definition moved into src/anon/unit_0027a6d8.cpp
 
 extern "C" u32 func_0027d350(...);
 extern "C" u32 func_00287bc0(...);
@@ -2155,17 +2141,7 @@ u32 duplicate_unplaced_0027d598(u32 a0) {
 extern "C" u32 func_00287db0(...);
 extern "C" u32 func_0028dac8(...);
 
-u32 func_0027dbd8(u32 a0, u32 a1) {
-    u32 r4 = a0, r5 = a1, r2, r15;
-    r2 = ((u32(*)())func_00287db0)();
-    r5 = (u32)((s32)0u + (1));
-    if (r2 != 0u) {
-        r15 = (u32)(0x0036u << 16);
-        r4 = *(volatile u32*)((u32)r15 + (s32)(-3528));
-        r2 = ((u32(*)(u32,u32))func_0028dac8)(r4, r5);
-    }
-    return r2;
-}
+u32 func_0027dbd8(u32 a0, u32 a1);  // 0x0027dbd8: definition moved into src/anon/unit_0027d2e8.cpp
 
 extern "C" u32 func_002800d0(...) asm("_ZN2Tz9GumiPause12UpdateAdviceEv");
 extern "C" u32 func_00280148(...);
@@ -12604,25 +12580,9 @@ u32 func_0027a1c8() {
     return v0;
 }
 
-u32 func_0027bba0(u32 a0) {
-    u32 p = (a0 << 3) + *(u32*)(u32)&D_0035f230;
-    u32 v = *(u16*)(p + 12u);
-    if (v != 0u) {
-        return func_001a80c8(v);  // table24_find_by_id
-    }
-    return 0u;
-}
+u32 func_0027bba0(u32 a0);  // 0x0027bba0: definition moved into src/anon/unit_0027a6d8.cpp
 
-u32 func_0027d4f0(u32 a0) {
-    s16 v = *(s16*)((u32)&D_00373f10 + a0 * 20u);
-    if (v == 1) {
-        return (u32)&D_00373ef8;
-    }
-    if (v == 2) {
-        return (u32)&D_00373f00;
-    }
-    return (u32)&D_00373f08;
-}
+u32 func_0027d4f0(u32 a0);  // 0x0027d4f0: definition moved into src/anon/unit_0027d2e8.cpp
 
 void duplicate_unplaced_0027dc20(u32* a0, u32* a1) {
     *a0 = *(u32*)(u32)&D_0035f240;

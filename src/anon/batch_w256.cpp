@@ -51,32 +51,7 @@ s32 func_0027af58(void);  // check_state16_then_loop
 I27* func_00273180(s32, s32);  // state_dispatch_2_3
 void func_002891f0(u32, s32, s32, s32, s32);
 void func_0027b248(s32);
-void func_0027afe0(void) {
-  s32 a, b;
-  s32 r = 0;
-  func_0027aed8(getselpos_w256(15), &a, &b);
-  s32 k = getselpos_w256(16);
-  s32 v = func_0027af58();  // check_state16_then_loop
-  s8 f = D_0035f230->e[k].b;
-  if (!D_0035f230->e[k].a) goto out;
-  if (a) goto one;
-  if (!b) goto one;
-  if (v) goto one;
-  if (f) goto one;
-  if (getitemtbl_w256(k)) goto one;
-  {
-    I27* p = func_00273180(4, -1);  // state_dispatch_2_3
-    s32 i;
-    for (i = 0; i < 3; i++) if (p[i].b5 == D_0035f230->e[k].c) break;
-    r = i + 1;
-  }
-  goto out;
-one:
-  r = 1;
-out:
-  func_002891f0(D_0035f01c, r, 0, -1, -1);
-  func_0027b248(r != 0);
-}
+void func_0027afe0(void);  // 0x0027afe0: definition moved into src/anon/unit_0027a6d8.cpp
 
 
 extern H2d* D_00361f60;

@@ -17,28 +17,6 @@ s32 func_00286ec8(s32, s8);
 void func_00287358(s32, s8);
 void func_00287430(s32, s8);
 
-void func_0027a6d8(void) {
-    s32 mode;
-    s32 h;
-    func_0027aed8(func_002570a0(15), &mode, &h);
-    s32 i = func_0028b040(D_0035f01c);
-    Ent27a6d8Byte c = D_0035f230->e[i].v;
-    s8 k;
-    if (c.v == 0xff) return;
-    if (mode == 0) {
-        k = c.v & 0x7f;
-        if (func_00286d28(h, k)) func_00287358(h, k);
-    } else {
-        k = c.v & 0x7f;
-        if ((s8)c.v & 0x80) {
-            if (func_00286ec8(func_0027ae78(h), k)) func_00287430(func_0027ae78(h), k);
-        } else {
-            /* register pin: puts the a1 copy before the a0 zero so reorg can share it with the
-               branch delay slot like the original */
-            register s32 r5 asm("$5") = k;
-            if (func_00286d28(0, r5)) func_00287358(0, k);
-        }
-    }
-}
+void func_0027a6d8(void);  // 0x0027a6d8: definition moved into src/anon/unit_0027a6d8.cpp
 
 }

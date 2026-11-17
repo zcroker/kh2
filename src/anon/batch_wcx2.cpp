@@ -6883,39 +6883,7 @@ void func_00242b10(s32);
 void func_00242a28(s32);
 void func_00242a90(s32);
 void func_00242ca0(s32);
-void func_0027cb48() {
-    s32 i;
-    for (i = 0; i < 10; i++) {
-        switch (i) {
-        case 0: func_00242b88(D_0035f234[i] == 0); break;
-        case 1: func_00242c00(D_0035f234[i] == 0); break;
-        case 2: func_00242d80(D_0035f234[i] == 1); break;
-        case 3: func_00242d10(D_0035f234[i] == 1); break;
-        case 4: {
-            s8 t = D_0035f234[i];
-            s32 v;
-            if (t == 2) v = 0;
-            else if (t == 0) v = 2;
-            else v = 1;
-            func_00242df0(v);
-            break;
-        }
-        case 5: func_00242b10(D_0035f234[i] == 0); break;
-        case 6: func_00242a28(D_0035f234[i] == 0); break;
-        case 7: {
-            s8 t = D_0035f234[i];
-            s32 v;
-            if (t == 2) v = 0;
-            else if (t == 1) v = 2;
-            else v = 1;
-            func_00242a90(v);
-            break;
-        }
-        case 8: func_00242ca0(D_0035f234[i] == 0); break;
-        case 9: break;
-        }
-    }
-}
+void func_0027cb48();  // 0x0027cb48: definition moved into src/anon/unit_0027a6d8.cpp
 
 // --------------------
 extern s8* D_0035f234;
@@ -6930,39 +6898,7 @@ s32 func_00242a68();
 s32 func_00242c70();
 s32 func_001058e8_x9950() asm("func_001058e8");
 s8 func_00105868(s32);
-void func_0027c9a8() {
-    s32 i;
-    for (i = 0; i < 10; i++) {
-        switch (i) {
-        case 0: D_0035f234[i] = func_00242b58() == 0; break;
-        case 1: D_0035f234[i] = func_00242bd0() == 0; break;
-        case 2: D_0035f234[i] = func_00242d58() != 0; break;
-        case 3: D_0035f234[i] = func_00242ce8() != 0; break;
-        case 4: {
-            s32 v = func_00242dc8();
-            if (v == 0) D_0035f234[i] = 2;
-            else if (v == 2) D_0035f234[i] = 0;
-            else D_0035f234[i] = 1;
-            break;
-        }
-        case 5: D_0035f234[i] = func_00242ae8() == 0; break;
-        case 6: D_0035f234[i] = func_00242a00() == 0; break;
-        case 7: {
-            s32 v = func_00242a68();
-            if (v == 0) D_0035f234[i] = 2;
-            else if (v == 2) D_0035f234[i] = 1;
-            else D_0035f234[i] = 0;
-            break;
-        }
-        case 8: D_0035f234[i] = func_00242c70() == 0; break;
-        case 9: {
-            s8* p = &D_0035f234[i];
-            *p = func_00105868(func_001058e8_x9950());
-            break;
-        }
-        }
-    }
-}
+void func_0027c9a8();  // 0x0027c9a8: definition moved into src/anon/unit_0027a6d8.cpp
 
 // --------------------
 extern s32 D_0035f01c_27c asm("D_0035f01c");
@@ -7004,72 +6940,7 @@ void func_0027d2e8();
 void func_00287c00(s32);
 s32 func_00288040();
 void func_00288018();
-void func_0027c700() {
-    s32 r = func_00289380_x9988(D_0035f01c_27c);
-    s32 a = func_00287cd0();
-    if (a == 2) {
-        s32 st = func_00287c10();
-        if (!func_0027d3b0() && !func_0028f930(0)) goto idle;
-        if (r != -1 || func_00289310_x9993(D_0035f01c_27c)) {
-            func_00287f90(0);
-            func_0027d350();
-        }
-        return;
-    idle:
-        func_00287c30();
-        func_0028af18_x9997(D_0035f01c_27c, 115);
-        if (st) return;
-        func_0028f7e8(0);
-        func_002551b8();
-        return;
-    }
-    if (r != -1 || func_00289310_x9993(D_0035f01c_27c)) {
-        if (!func_0027d408()) {
-            func_0027d450();
-            func_0028ab20_x10002(D_0035f01c_27c);
-            func_0028fa98(-1);
-        }
-    }
-    if (!a && func_0027d408()) {
-        func_00287c90(1);
-        func_0027d540();
-        func_0027d5d8();
-    }
-    func_0028afa8_x10007(D_0035f01c_27c);
-    if (!func_00242848(func_00287df0_27c(r, func_00289310_x9993(D_0035f01c_27c), 1, func_0027d9e8, 1))) {
-        switch (r) {
-        case -4: {
-            func_0027cb48();
-            func_0013a460();
-            func_00287da0();
-            s32 n = func_002891e8_x10016(D_0035f01c_27c);
-            func_00257050_x10018(36, n, func_0028b038_x10017(D_0035f01c_27c));
-            break;
-        }
-        case -11: case -10: case -9: case -8: case -7: case -6: case -5: case -3: case -1:
-            break;
-        case -13: case -12:
-            func_0027d868(r == -12);
-            func_0027d008();
-            func_0027d540();
-            break;
-        case -2: {
-            func_0027cb48();
-            func_0013a460();
-            func_00263c60();
-            func_00256e80();
-            func_0028f6f0(0);
-            func_0027d2e8();
-            func_00287c90(1);
-            func_00287c00(0);
-            s32 n = func_002891e8_x10016(D_0035f01c_27c);
-            func_00257050_x10018(36, n, func_0028b038_x10017(D_0035f01c_27c));
-            break;
-        }
-        }
-    }
-    if (func_00288040()) func_00288018();
-}
+void func_0027c700();  // 0x0027c700: definition moved into src/anon/unit_0027a6d8.cpp
 
 // --------------------
 extern s32 D_0035f200_2a5 asm("D_0035f200");

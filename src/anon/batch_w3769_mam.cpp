@@ -11,22 +11,5 @@ extern O27* D_0035f248;
 
 // Returns the first nonzero func_00139d78 result over D_0035f244 and, for each of the four
 // entries of D_0035f248, its a, b[0], b[1]/b[3], b[2]/b[4], then c[0]/c[3] .. c[2]/c[5].
-s32 func_0027e920(void)
-{
-    s32 i, j;
-    s32 r = func_00139d78(D_0035f244);
-    for (i = 0; i < 4 && r == 0; i++) {
-        r = func_00139d78(&D_0035f248[i].a);
-        if (r == 0) r = func_00139d78(&D_0035f248[i].b[0]);
-        for (j = 0; j < 2 && r == 0; j++) {
-            r = func_00139d78(&D_0035f248[i].b[j + 1]);
-            if (r == 0) r = func_00139d78(&D_0035f248[i].b[j + 3]);
-        }
-        for (j = 0; j < 3 && r == 0; j++) {
-            r = func_00139d78(&D_0035f248[i].c[j]);
-            if (r == 0) r = func_00139d78(&D_0035f248[i].c[j + 3]);
-        }
-    }
-    return r;
-}
+s32 func_0027e920(void);  // 0x0027e920: definition moved into src/anon/unit_0027e920.cpp
 }

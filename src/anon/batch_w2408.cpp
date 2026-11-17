@@ -21,54 +21,7 @@ extern u32 D_00373de8;
 extern s32 D_00373df4;
 extern s32 D_00373df8;
 
-void func_0027b248(s32 arg0) {
-    s32 la, lb;
-    u8 flag = arg0;
-    u8* w = func_00257770();
-    u8* o = w + 0xb350;
-    func_00139d78(o);
-    if (((s8*)D_0035f230)[7] == 0) {
-        func_00139570(w + 0xb504);
-        func_00139570(w + 0xb6b8);
-        return;
-    }
-    s32 cur = *(s16*)(D_0035f230 + 4);
-    s32 max = *(s16*)(D_0035f230 + 2);
-    f32 fmax = max;
-    *(s32*)(o + 0x198) = func_00192cc0(D_0035f230 + 652, &D_00373de8, cur, max);
-    f32 r1 = (f32)cur / fmax;
-    if (1.0f < r1) r1 = 1.0f;
-    func_0027aed8(func_002570a0(15), &la, &lb);
-    s32 m = func_00287bc0();
-    s32 idx;
-    if (m == 16) idx = func_0028b040(D_0035f01c);
-    else idx = func_002570a0(16);
-    W2408Ent* e = (W2408Ent*)((u32)(idx * 8) + (u32)D_0035f230);
-    s32 delta = e->b11;
-    if (m == 16) {
-        if (e->b0e && la != 1) delta = -delta;
-    } else if (e->b0e ? flag != 0 : flag == 0) {
-        delta = 0;
-    } else {
-        delta = ((W2408Ent*)(D_0035f230 + idx * 8))->b0e ? -delta : delta;
-    }
-    if (max < cur + delta) delta = max - cur;
-    f32 r2 = (f32)func_002fd178(cur + delta) / fmax;
-    if (1.0f < r2) r2 = 1.0f;
-    if (delta == 0 || la == 1) func_00139570(w + 0xb504);
-    else func_00139580(w + 0xb504);
-    u8* q = w + 0xb504;
-    func_0023aa58(q + 24);
-    func_00138c10(q, (r1 <= r2) ? D_00373df4 : D_00373df8);
-    f32 f = r1;
-    u8* p1 = w + 0xb51c;
-    if (!(r2 <= r1)) f = r2;
-    func_00239f18(f, p1);
-    f32 g = r1;
-    u8* p2 = w + 0xb6d0;
-    if (!(r1 < r2)) g = r2;
-    func_00239f18(g, p2);
-}
+void func_0027b248(s32 arg0);  // 0x0027b248: definition moved into src/anon/unit_0027a6d8.cpp
 
 struct W2408Name { u8 c[16]; };
 struct W2408Rec { u16 h0; u16 h2; };

@@ -297,18 +297,7 @@ s32 func_00287bc0(void);
 s32 func_0028b040(u32);
 s32 func_002570a0(s32);
 extern s8* D_0035f230;
-s32 func_0027af58(void)
-{
-    s32 v = func_00287bc0();
-    if (v == 16) v = func_0028b040(D_0035f01c);
-    else v = func_002570a0(16);
-    s32 sum = 0, r = -1;
-    for (s32 i = 0; i < 4; i++) {
-        sum += D_0035f230[i + 8];
-        if (v < sum) { r = i; break; }
-    }
-    return r;
-}
+s32 func_0027af58(void);  // 0x0027af58: definition moved into src/anon/unit_0027a6d8.cpp
 
 // 002ac268: set bit k in a per-index bit array (only if not already set)
 u8* func_002a9d68(s32, u32);
