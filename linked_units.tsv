@@ -745,7 +745,7 @@ src/libgcc/_muldi3.c	00311aa0	00311af0	-	-G0
 src/libgcc/unwind-dw2-fde.c	001003c8	00101ce0	.data@0032b918,.rodata@00369d54,.bss@0037aa28	-G0 -fexceptions
 src/libgcc/crtend.c	00101ce0	00101d50	.init@00319798	-G0
 src/global/unit_00101d50.cpp	00101d50	00102298	.data@0032b91c,.gnu.linkonce.d._ZTV4PROC@0032b928,.bss@0037aa40	-G0 -fno-strict-aliasing
-src/anon/asm_00103100.s	00103100	001031b0	-	-
+src/common/unit_00103100.cpp	00103100	001031b0	-	-G0 -fno-sched-interblock
 src/anon/unit_00105550.cpp	00105550	001056e8	-	-G0
 src/anon/asm_00123650.s	00123650	00123990	-	-
 src/anon/unit_00127f40.cpp	00127ec8	00128040	-	-G0

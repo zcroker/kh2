@@ -3,7 +3,7 @@
 // Menu mode (0x1031b0-0x103f68): set-up and per-frame step of the menu (camp / pause) mode, its
 // allocators, the pending map id and warp location, the menu hooks and the static initialiser of
 // the menu mode object (0x32b9e8). All globals (0x32b9e8-0x32ba64) are reached as data.
-// The set-up hook 0x103100 (before the task manager constructor) stays a separate function.
+// The set-up hook 0x103100 (before the task manager constructor) is its own unit, unit_00103100.cpp.
 
 struct TASK;
 
