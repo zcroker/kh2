@@ -2056,3 +2056,50 @@ s32 func_0019e758(u8* o, u8* t)
 }
 }  // namespace n0019e758
 
+
+// ---- 0019e848 (was whole asm in src/anon/batch_w3885.s)
+namespace n0019e848 {
+struct Rec { s32 w[8]; };
+struct Ent { u8 pad[0x10]; u16 x10; };
+struct Info { u8 pad[0x26]; u16 x26; };
+void func_00190128(Rec*) asm("func_00190128");
+void func_00190878(Rec*, s32, s32) asm("func_00190878");
+Ent* func_001a80c8(u16) asm("func_001a80c8");
+u16* func_001b8e88(u16) asm("func_001b8e88");
+s32 func_0019ea10(s32, Ent*, u16*) asm("func_0019ea10");
+extern u32 D_003638d0 asm("D_003638d0");
+struct Obj {
+    Info* in;
+    void Set(u16*, Rec*, s32, s32) asm("func_0019da68");
+    s32 Pick(s32 key, u16* ids, s32 cnt) asm("func_0019e848");
+};
+// `this` is a const pointer: its spill slot is an unchanging MEM, so every register save has an output
+// dependence on the spill store (sw a0,32(s8)) and sched2 puts it after them and after the VLA sp save.
+s32 Obj::Pick(s32 key, u16* ids, s32 cnt) {
+    Rec rec;
+    s32 i = 0;
+    s32 n = 0;
+    func_00190128(&rec);
+    func_00190878(&rec, key, 0);
+    u16* list[cnt];
+    for (; i < cnt; i++) {
+        Ent* e = func_001a80c8(ids[i]);
+        u16* q = func_001b8e88(e->x10);
+        if (func_0019ea10(key, e, q)) {
+            if (in->x26 == *q) {
+                Set(q, &rec, 0, 0);
+                return 1;
+            }
+            list[n++] = q;
+        }
+    }
+    if (n > 0) {
+        D_003638d0 *= 0x10dcd;
+        u32 m = n;
+        s32 idx = (u64)D_003638d0 / ((0x100000000ull + (m - 1)) / m);
+        Set(list[idx], &rec, 0, 0);
+        return 1;
+    }
+    return 0;
+}
+}  // namespace n0019e848
