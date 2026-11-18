@@ -16,6 +16,32 @@
 
 #define QCOPY(d, s) asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(d), "r"(s) : "$8", "memory")
 
+// ---- 001cefb0 (was whole asm, never written in C): message handler (motion per message id, base handler for the rest).
+// Each case calls play then returns push (sibcall); 403/410 pass a local 0.0f (kept in $f20); the base call
+// result goes through r (initialised from m) so it stays a jal, like 0x1d1190.
+namespace n001cefb0 {
+struct Msg1cefb0 { u16 f0; u16 id; };
+struct Obj1cefb0 { u8 pad[320]; u8 motion[16]; };
+u32 func_001cf0b0(Obj1cefb0*) asm("_Z13func_001cf0b0Ph");
+s32 func_00178bf0(Obj1cefb0*, Msg1cefb0*) asm("func_00178bf0");
+void func_0017f488(void*, s32, f32, f32) asm("func_0017f488");
+s32 func_0017f5e0(void*, s32, f32, f32, void*) asm("_ZN2YS6MOTION4pushEiffPFvPNS_3OBJEE");
+
+s32 func_001cefb0(Obj1cefb0* o, Msg1cefb0* m) asm("func_001cefb0");
+s32 func_001cefb0(Obj1cefb0* o, Msg1cefb0* m)
+{
+    s32 r = (s32)m;
+    switch (m->id) {
+    case 401: if (func_001cf0b0(o)) { func_0017f488(o->motion, 181, 0.0f, 0.0f); } else { func_0017f488(o->motion, 184, 0.0f, 0.0f); } return func_0017f5e0(o->motion, 0, 0.0f, 0.0f, 0);
+    default: r = func_00178bf0(o, m); break;
+    case 402: if (func_001cf0b0(o)) { func_0017f488(o->motion, 187, 0.0f, 0.0f); } else { func_0017f488(o->motion, 188, 0.0f, 0.0f); } return func_0017f5e0(o->motion, 0, 0.0f, 0.0f, 0);
+    case 403: { f32 f = 0.0f; func_0017f488(o->motion, 189, f, 0.0f); return func_0017f5e0(o->motion, 0, 0.0f, 0.0f, 0); }
+    case 410: { f32 f = 0.0f; func_0017f488(o->motion, 190, f, 0.0f); return func_0017f5e0(o->motion, 0, 0.0f, 0.0f, 0); }
+    }
+    return r;
+}
+}  // namespace n001cefb0
+
 // ---- 001cf0b0 from src/anon/tiny_auto80_queue.cpp
 namespace n001cf0b0 {
 u32 func_001cf0b0(u8* a0) asm("_Z13func_001cf0b0Ph");

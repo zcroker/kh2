@@ -1,4 +1,4 @@
-// Linked unit 0x00254020-0x002581b0.
+// Linked unit 0x00254020-0x002582f8 (0x2581b0 was whole asm).
 #include "../common/types.h"
 #include "../tozawa/cmenu_selector.hpp"
 #include "../tozawa/cmenu_top.hpp"
@@ -2642,3 +2642,56 @@ u32 func_00258190(u32 a0, u32 a1, u32 a2, u32 a3) {
 }
 }  // namespace n00258190
 
+// 002581b0 (was whole asm, never written in C): CmTop init. The layout file object is built with a
+// new-expression (operator new on the heap, then the Tz::LayFile constructor), which gives retail's store order.
+void* operator new(unsigned int, u32) asm("func_001063c0");
+namespace Tz {
+class LayFile {
+public:
+    LayFile();
+    u8 pad[28];
+};
+}  // namespace Tz
+namespace n002581b0 {
+struct AV { void* (*alloc)(void*, u32, u32); };
+struct AO { AV* vt; };
+struct AH { u8 pad[20]; AO* a; };
+extern AH* D_00347f80 asm("D_00347f80");
+extern u8 D_00347e60[] asm("D_00347e60");
+extern u8 D_0035f068 asm("D_0035f068");
+extern u8 D_0035f069 asm("D_0035f069");
+extern u8 D_0035f06a asm("D_0035f06a");
+extern s8 D_0035f06b asm("D_0035f06b");
+extern s16 D_0035f06c asm("D_0035f06c");
+extern s16 D_0035f06e asm("D_0035f06e");
+extern void* D_0035f074 asm("D_0035f074");
+extern void* D_0035f078 asm("D_0035f078");
+extern void* D_0035f07c asm("D_0035f07c");
+extern void* D_0035f088 asm("D_0035f088");
+void func_002ef7f0(s32) asm("func_002ef7f0");
+u32 func_00103570(void) asm("func_00103570");
+void* func_001063c0(s32, u32) asm("func_001063c0");
+void func_0023f800(void*) asm("func_0023f800");
+void func_00239700(u8*) asm("func_00239700");
+void func_0026dd18(s32, s32, s32) asm("func_0026dd18");
+u8* func_00103eb0(void) asm("func_00103eb0");
+void func_00102818(u32, s32, s32, void (*)(u32), s32) asm("func_00102818");
+void func_00258468(u32) asm("func_00258468");
+static inline u8* mk(void) { AO* a = D_00347f80->a; u8* p = (u8*)a->vt->alloc(a, 408, 0); *(u8**)p = D_00347e60; *(u32*)(p + 12) = 0; func_00239700(p + 24); return p; }
+void func_002581b0(void) asm("func_002581b0");
+void func_002581b0(void) {
+    D_0035f068 = 1;
+    func_002ef7f0(1);
+    D_0035f074 = new (func_00103570()) Tz::LayFile;
+    D_0035f078 = 0;
+    D_0035f07c = mk();
+    D_0035f06c = 9;
+    D_0035f088 = mk();
+    D_0035f06e = -1;
+    func_0026dd18(0, 0, -1);
+    D_0035f069 = 0;
+    D_0035f06a = 0;
+    D_0035f06b = 0;
+    func_00102818(*(u32*)(func_00103eb0() + 4), 0, 1998, func_00258468, 4096);
+}
+}

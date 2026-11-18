@@ -15,6 +15,42 @@
 
 #define QCOPY(d, s) asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(d), "r"(s) : "$8", "memory")
 
+// ---- 001d1190 (was whole asm, never written in C): message handler. The result variable starts as the message
+// pointer (r = (s32)m): that copy is what puts m in v0 at entry, and `r = base(); return r;` keeps the base call a jal.
+namespace n001d1190 {
+struct Msg { u16 a; u16 id; s16 arg; };
+s32 func_00178ae8(u8*, Msg*) asm("func_00178ae8");
+u8* func_001d61b8(u8*, s32) asm("func_001d61b8");
+u8* func_001b90c8(u8*) asm("func_001b90c8");
+void func_001a1b30(u8*, u8) asm("func_001a1b30");
+void func_001d97f0(u8*) asm("func_001d97f0");
+s32 func_001b6b10(u8*, u8*) asm("func_001b6b10");
+s32 func_001d1380(u8*, Msg*) asm("func_001d1380");
+s32 func_001b4430(u16, u8*) asm("func_001b4430");
+s32 func_001d1408(u8*, Msg*) asm("func_001d1408");
+s32 func_001d12e8(u8*, u32) asm("func_001d12e8");
+s32 func_001d1190(u8* p, Msg* m) asm("func_001d1190");
+s32 func_001d1190(u8* p, Msg* m) {
+    s32 r = (s32)m;
+    switch (m->id) {
+    default: r = func_00178ae8(p, m); break;
+    case 5: r = func_001b6b10(p, 0); *(u32*)(p + 264) |= 0x100; break;
+    case 4: {
+        u8* e = func_001d61b8(p, m->arg);
+        func_001a1b30(*(u8**)(p + 1164), func_001b90c8(e)[28]);
+        func_001d97f0(e);
+        return func_001b6b10(p, e);
+    }
+    case 72: return func_001d1380(p, m);
+    case 81: case 707: return func_001b4430(*(u16*)(*(u8**)(p + 2884) + 6), p);
+    case 316: return func_001d1408(p, m);
+    case 73: return func_001d12e8(p, *(u32*)(*(u8**)(p + 2884) + 12));
+    }
+    return r;
+}
+}  // namespace n001d1190
+
+
 // ---- 001d12e8 from src/anon/batch_w1672.cpp
 namespace n001d12e8 {
 void f17f488_w1672(u8*, int, float, float) asm("_Z13func_0017f488iiff");
