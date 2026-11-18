@@ -312,21 +312,6 @@ u32 __fixunssfsi(f32 f);  // 0x00313bc0: definition moved into src/libgcc/_sf_to
 extern u8 D_0034a660[];
 extern u8 D_00347f98[];
 void func_00239870(u8*);
-void func_0031c7a8(u8* p) {
-    *(u32*)p = (u32)D_0034a660;
-    if (p + 456) {
-        u8* e = p + 2864;
-        for (;;) {
-            if (p + 456 == e) break;
-            e -= 344;
-            typedef void (*Fn)(u8*);
-            (**(Fn**)e)(e);
-        }
-    }
-    *(u32*)(p + 48) = (u32)D_00347e60;
-    func_00239870(p + 72);
-    *(u32*)(p + 48) = (u32)D_00347f98;
-    *(u32*)p = (u32)D_00347f98;
-}
+void func_0031c7a8(u8* p);  // 0x0031c7a8: definition moved into src/anon/unit_0031b9e0.cpp
 
 }

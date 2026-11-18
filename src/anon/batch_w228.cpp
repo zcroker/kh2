@@ -32,20 +32,7 @@ void func_002b740c(u32, u32, u32, u32);
 
 void func_002bd8f8(u32* p, u32 a1);  // 0x002bd8f8: definition moved into src/anon/unit_002bc978.cpp
 
-void func_0031c2c8(u32* p) {
-    p[0] = (u32)D_0034a568;
-    p[140] = (u32)D_00347e60;
-    func_00239870(p + 146);
-    u32* q = p + 12;
-    q[0] = (u32)D_00347e60;
-    p[140] = (u32)D_00347f98;
-    func_00239870(p + 18);
-    func_0031a840(q);
-    p[0] = (u32)D_00347f98;
-    asm volatile("" ::: "memory");
-    Obj* o = D_00347f80->o;
-    ((void(*)(Obj*, void*))o->vt[1])(o, p);
-}
+void func_0031c2c8(u32* p);  // 0x0031c2c8: definition moved into src/anon/unit_0031b9e0.cpp
 
 // 001843d8: moved to src/anon/unit_00183088.cpp
 

@@ -655,12 +655,7 @@ u32 func_00317128(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00317128: definition mo
 
 void func_003191f0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x003191f0: definition moved into src/libgcc/unwind-dw2.c
 
-void func_0031ae00(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a0;
-    (void)a1;
-    (void)a2;
-    (void)a3;
-}
+void func_0031ae00(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0031ae00: definition moved into src/anon/unit_003197d0.cpp
 
 // merged from: tiny_patterns2.cpp
 extern u32 D_0032b968;
@@ -960,47 +955,17 @@ u32 func_00316e00(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00316e00: definition mo
 
 u32 func_00316e10(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00316e10: definition moved into src/libgcc/ee-gthr.c
 
-void func_0031a840(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    *(u32*)((u32)a0 + (0)) = (u32)&D_00347f98;
-}
+void func_0031a840(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0031a840: definition moved into src/anon/unit_003197d0.cpp
 
-void func_0031b910(u32 a0, u32 a1, u32 a2, u32 a3) {  // set_vtbl_3486a8_d
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    *(u32*)((u32)a0 + (0)) = (u32)&D_00348698;
-}
+void func_0031b910(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0031b910: definition moved into src/anon/unit_003197d0.cpp
 
-void func_0031baa8(u32 a0, u32 a1, u32 a2, u32 a3) {  // set_vtbl_3486a8_b
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    *(u32*)((u32)a0 + (0)) = (u32)&D_00348698;
-}
+void func_0031baa8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0031baa8: definition moved into src/anon/unit_0031b9e0.cpp
 
-void func_0031bb08(u32 a0, u32 a1, u32 a2, u32 a3) {  // set_vtbl_3486a8
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    *(u32*)((u32)a0 + (0)) = (u32)&D_00348698;
-}
+void func_0031bb08(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0031bb08: definition moved into src/anon/unit_0031b9e0.cpp
 
-void func_0031bbc8(u32 a0, u32 a1, u32 a2, u32 a3) {  // set_vtbl_348c08_b
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    *(u32*)((u32)a0 + (0)) = (u32)&D_00348698;
-}
+void func_0031bbc8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0031bbc8: definition moved into src/anon/unit_0031b9e0.cpp
 
-void func_0031d6b0(u32 a0, u32 a1, u32 a2, u32 a3) {  // set_vtbl_3486a8_c
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    *(u32*)((u32)a0 + (0)) = (u32)&D_00348698;
-}
+void func_0031d6b0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0031d6b0: definition moved into src/anon/unit_0031b9e0.cpp
 
 // merged from: tiny_patterns3.cpp
 extern u32 D_0032b998;
@@ -1302,19 +1267,9 @@ void func_002d1f40(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002d1f40: definition m
 
 // 002e7688: moved to src/anon/unit_002e7658.cpp
 
-void func_0031e938(u32 a0, u32 a1, u32 a2, u32 a3) {  // store_zero_u32
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    *(u32*)((u32)a0 + (0)) = 0;
-}
+void func_0031e938(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0031e938: definition moved into src/anon/unit_0031e268.cpp
 
-void func_00320400(u32 a0, u32 a1, u32 a2, u32 a3) {
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    *(u32*)((u32)a0 + (0)) = 0;
-}
+void func_00320400(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00320400: definition moved into src/anon/unit_0031f2f8.cpp
 // 001bbcb0: moved to src/yasui/libys/mission.cpp
 
 // 0x1c8ab0: moved to src/yasui/libys/summon.cpp

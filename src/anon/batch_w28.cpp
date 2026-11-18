@@ -217,19 +217,7 @@ void func_002f47d8(void* d, void* m, void* v, u32 f) {  // mat4_transform_perspe
 struct StrFile { u8* p; u32 r; u32 w; u16 flags; u16 file; u8* base; u32 size; u32 pad[15]; u32 data; u32 pad2[2]; };
 s32 func_00301550(u8* buf, u32 fmt, u32 ap);  // 0x00301550: definition moved into src/newlib/libc/vsprintf.c
 
-void func_0031ce70(u8* p) {
-    *(void**)p = D_0035eb98;
-    func_0023c098(p + 48);  // set_vtbl_36eae8_then_call
-    func_002369f0(p + 24);  // set_vtbl_36eac8_then_call
-    *(void**)p = D_00347f98;
-    func_0023ee68(p);
-}
+void func_0031ce70(u8* p);  // 0x0031ce70: definition moved into src/anon/unit_0031b9e0.cpp
 
-void func_00320198(u8* p) {
-    *(void**)p = D_0034ee08;
-    func_0019f9a8(p + 0xa08);  // array8_free_slots
-    func_001c0248(p + 0xa50);
-    func_00319fb0(p);  // big_obj_dtor
-    func_00105110(p);
-}
+void func_00320198(u8* p);  // 0x00320198: definition moved into src/anon/unit_0031f2f8.cpp
 }

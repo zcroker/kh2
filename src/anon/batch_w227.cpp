@@ -22,39 +22,8 @@ extern u8 D_00347e80[];
 extern u8 D_00347e60[];
 extern u8 D_00347f98[];
 
-void func_0031bcf8(u32* t) {
-    t[0] = (u32)D_0034a5d0;
-    t[12] = (u32)D_00347e80;
-    t[3] = 0;
-    t[15] = 0;
-    func_002361a0((u8*)t + 80);
-    func_00239700((u8*)t + 496);
-    u32* s = (u32*)((u8*)t + 840);
-    for (int i = 4; i != -1; i--) {
-        s[3] = 0;
-        s[0] = (u32)D_00347e60;
-        func_00239700((u8*)s + 24);
-        s = (u32*)((u8*)s + 408);
-    }
-}
+void func_0031bcf8(u32* t);  // 0x0031bcf8: definition moved into src/anon/unit_0031b9e0.cpp
 
-void func_0031c5d0(u32* t) {
-    t[0] = (u32)D_0034a5d0;
-    if (t != (u32*)-840) {
-        u8* p = (u8*)t + 2880;
-        u8* q = (u8*)t + 840;
-    top:
-        if (q == p) goto out;
-        p -= 408;
-        ((void(*)(void*))(*(u32**)p)[3])(p);
-        goto top;
-    }
-out:
-    func_00239870((u8*)t + 496);
-    t[12] = (u32)D_00347e80;
-    func_002361d0((u8*)t + 80);
-    t[12] = (u32)D_00347f98;
-    t[0] = (u32)D_00347f98;
-}
+void func_0031c5d0(u32* t);  // 0x0031c5d0: definition moved into src/anon/unit_0031b9e0.cpp
 
 }

@@ -75,13 +75,7 @@ f32 func_0017ce10(f32);
 void func_0011b6a8(M159790*);
 void func_0011b720(M159790*, f32);
 void func_0013f648(C159790*);
-C0031a9d8* func_0031a9d8(C0031a9d8* d, C0031a9d8* s) {
-    *(M4_0*)d = *(M4_0*)s;
-    s32 a0 = s->fa0, a8 = s->fa8; d->fa0 = a0; d->fa8 = a8;
-    C0031a9d8* q; asm("" : "=r"(q) : "0"(s), "m"(d->fa0), "m"(d->fa8));
-    s32 xac = q->fac, x90 = q->f90, x94 = q->f94, x98 = q->f98, x9c = q->f9c, xa4 = q->fa4, x8c = q->f8c;
-    d->f8c = x8c; d->f90 = x90; d->f94 = x94; d->f98 = x98; d->f9c = x9c; d->fa4 = xa4; d->fac = xac;
-    return d; }
+C0031a9d8* func_0031a9d8(C0031a9d8* d, C0031a9d8* s);  // 0x0031a9d8: definition moved into src/anon/unit_003197d0.cpp
 
 // 00159790: moved to src/harata/libdk/talkcamera.cpp
 }

@@ -396,26 +396,7 @@ struct Obj31a {
     u8 p, q;
 };
 void func_0031a850(u8*, u8*);
-Obj31a* func_0031a1a0(Obj31a* d, Obj31a* s) {
-    *(u32*)((u8*)d + 4) = *(u32*)((u8*)s + 4);
-    *(u32*)((u8*)d + 8) = *(u32*)((u8*)s + 8);
-    *(u32*)((u8*)d + 12) = *(u32*)((u8*)s + 12);
-    d->d.x = s->d.x;
-    d->d.y = s->d.y;
-    func_0031a850(d->sub, s->sub);
-    d->f = s->f;
-    d->g = s->g;
-    d->h = s->h;
-    d->i = s->i;
-    d->j = s->j;
-    d->k = s->k;
-    d->l = s->l;
-    d->m = s->m;
-    d->n = s->n;
-    d->p = s->p;
-    d->q = s->q;
-    return d;
-}
+Obj31a* func_0031a1a0(Obj31a* d, Obj31a* s);  // 0x0031a1a0: definition moved into src/anon/unit_003197d0.cpp
 
 // --- 001cd2b8: restore the saved block and reset the id state
 struct Blk1cd { u64 d[8696]; } __attribute__((aligned(16)));

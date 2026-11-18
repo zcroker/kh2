@@ -201,11 +201,7 @@ u8 func_00315700(void* p);  // 0x00315700: definition moved into src/libsupc++/t
 
 void func_003157b8(void* p);  // 0x003157b8: definition moved into src/libsupc++/tinfo.cpp
 
-void func_00320c80(void* p) {
-    *(void**)p = &D_00352878;
-    func_0031ffc0(p);
-    func_00105110(p);
-}
+void func_00320c80(void* p);  // 0x00320c80: definition moved into src/anon/unit_00320528.cpp
 
 }  // extern "C"
 

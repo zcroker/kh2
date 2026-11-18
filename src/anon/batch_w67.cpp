@@ -258,23 +258,7 @@ void func_002ad110(void);  // 0x002ad110: definition moved into src/anon/unit_00
 extern u8 D_0034ab80[];
 
 // 0031da48: destructor (seven 344-byte members with virtual destructors)
-void func_0031da48(u8* o)
-{
-    *(u8**)o = D_0034ab80;
-    if (o + 440) {
-        u8* p = o + 2848;
-        for (;;) {
-            if (o + 440 == p) break;
-            p -= 344;
-            (**(VFn**)p)(p);
-        }
-    }
-    *(u8**)o = D_00347e60;
-    func_00239870(o + 24);
-    *(u8**)o = D_00347f98;
-    u8* m = *(u8**)(D_00347f80 + 20);
-    (*(VFn2*)(*(u8**)m + 4))(m, o);
-}
+void func_0031da48(u8* o);  // 0x0031da48: definition moved into src/anon/unit_0031b9e0.cpp
 
 extern u8 D_00350bb0[];
 extern u8 D_0034e8a8[];
@@ -283,25 +267,7 @@ void func_001ac5b8(u8*);
 void func_00105110(u8*);
 
 // 0031f590: destructor (four 344-byte members with virtual destructors)
-void func_0031f590(u8* o)
-{
-    *(u8**)o = D_00350bb0;
-    if (o + 1544) {
-        u8* p = o + 2920;
-        for (;;) {
-            if (o + 1544 == p) break;
-            p -= 344;
-            (**(VFn**)p)(p);
-        }
-    }
-    func_00239870(o + 1200);
-    func_00239870(o + 848);
-    func_00239870(o + 484);
-    *(u8**)(o + 132) = D_0034e8a8;
-    func_00239848(o + 132);  // set_vtbl_36eb28_then_call
-    func_001ac5b8(o);
-    func_00105110(o);
-}
+void func_0031f590(u8* o);  // 0x0031f590: definition moved into src/anon/unit_0031f2f8.cpp
 
 void func_002d0718(void*);
 void func_0011b6a8(Mtx*);

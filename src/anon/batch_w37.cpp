@@ -241,28 +241,12 @@ extern u8 D_00347e60[];
 extern u8 D_00347f98[];
 extern u8* D_00347f80_p asm("D_00347f80");
 typedef void (*VFn2)(void*, void*);
-void func_0031b000(u8* p) {
-    *(void**)p = D_003485b0;
-    func_00239870(p + 436);
-    *(void**)p = D_00347e60;
-    func_00239870(p + 24);
-    *(u8**)p = (u8*)D_00347f98;
-    u8* o = *(u8**)(D_00347f80_p + 20);
-    (*(VFn2*)(*(u8**)o + 4))(o, p);
-}
+void func_0031b000(u8* p);  // 0x0031b000: definition moved into src/anon/unit_003197d0.cpp
 
 void func_002361d0(void*);
 extern u8 D_0034a800[];
 extern u8 D_00348608[];
-void func_0031b648(u8* p) {
-    *(void**)p = D_00348608;
-    *(void**)(p + 64) = D_0034a800;
-    func_002361d0(p + 480);
-    *(void**)(p + 64) = D_00347e60;
-    func_00239870(p + 88);
-    *(void**)(p + 64) = D_00347f98;
-    *(void**)p = D_00347f98;
-}
+void func_0031b648(u8* p);  // 0x0031b648: definition moved into src/anon/unit_003197d0.cpp
 }
 
 extern "C" void func_0013ee88(void*);

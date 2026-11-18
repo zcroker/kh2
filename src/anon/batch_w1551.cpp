@@ -25,9 +25,6 @@ extern L2cb678 D_01e2be18;
 void func_002cb678(N2cb678* n);  // 0x002cb678: definition moved into src/taito/path.cpp
 
 // Deleting destructor.
-void func_00324a30(O324a30* p) {
-    p->~O324a30();
-    func_00105110(p);
-}
+void func_00324a30(O324a30* p);  // 0x00324a30: definition moved into src/anon/unit_00324808.cpp
 
 }

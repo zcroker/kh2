@@ -267,42 +267,10 @@ u32 func_002eaa70(u32 a0, u32 a1, u32 a2, u32 a3);  // 002eaa70: moved to src/an
 
 u32 __i2b(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00303fc0: definition moved into src/newlib/libc/mprec.c
 
-u32 func_0031e8e0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u, r16 = 0u;
-    r16 = r4;
-    r2 = func_0016bda8(r4, r5, r6, r7);
-    r2 = r16;
-    return r2;
-}
+u32 func_0031e8e0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0031e8e0: definition moved into src/anon/unit_0031e268.cpp
 
-u32 func_0031eb18(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u, r14 = 0u, r15 = 0u, r16 = 0u;
-    r14 = (u32)((s32)0u + (-257));
-    r16 = r4;
-    r15 = *(u32*)((u32)r4 + (s32)(268));
-    r15 = (u32)(r15 & r14);
-    *(u32*)((u32)r4 + (s32)(268)) = r15;
-    r2 = func_00194468(r4, r5, r6, r7);
-    r15 = *(u32*)((u32)r16 + (s32)(268));
-    r14 = (u32)((s32)0u + (-1025));
-    r15 = (u32)(r15 & r14);
-    *(u32*)((u32)r16 + (s32)(268)) = r15;
-    return r2;
-}
+u32 func_0031eb18(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0031eb18: definition moved into src/anon/unit_0031e268.cpp
 
-u32 func_00320938(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u, r16 = 0u;
-    r5 = r6;
-    r16 = r4;
-    r2 = func_001c1df8(r4, r5, r6, r7);
-    r2 = r16;
-    return r2;
-}
+u32 func_00320938(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00320938: definition moved into src/anon/unit_00320528.cpp
 
-u32 func_00321468(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u, r16 = 0u;
-    r16 = r4;
-    r2 = func_0017a968(r4, r5, r6, r7);
-    r2 = r16;
-    return r2;
-}
+u32 func_00321468(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00321468: definition moved into src/anon/unit_00320528.cpp

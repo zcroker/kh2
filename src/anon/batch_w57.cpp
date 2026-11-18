@@ -208,25 +208,13 @@ struct C319 : B319 {
     E16 arr[6];
     ~C319() { vt = &D_00345c08; }
 };
-void func_00319d68(C319* t) { t->~C319(); }
+void func_00319d68(C319* t);  // 0x00319d68: definition moved into src/anon/unit_003197d0.cpp
 
 void func_00239870(void*);
 void func_002361d0(void*);
 void func_0031a840(void*);
 extern u8 D_00347d90, D_00347e60, D_00347f98, D_00347e80;
-void func_0031a5a0(u8* t) {
-    NoTail g;
-    *(void**)t = &D_00347d90;
-    *(void**)(t + 896) = &D_00347e60;
-    func_00239870(t + 920);
-    *(void**)(t + 896) = &D_00347f98;
-    *(void**)(t + 448) = &D_00347e80;
-    func_002361d0(t + 480);
-    *(void**)(t + 448) = &D_00347f98;
-    *(void**)t = &D_00347e60;
-    func_00239870(t + 24);
-    func_0031a840(t);
-}
+void func_0031a5a0(u8* t);  // 0x0031a5a0: definition moved into src/anon/unit_003197d0.cpp
 
 
 // Notify every attached listener, then clear the busy flag.

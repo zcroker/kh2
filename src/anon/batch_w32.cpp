@@ -162,31 +162,11 @@ void func_002ed2b0(void** p, void* b, void* c);  // 0x002ed2b0: definition moved
 u8* func_00314b38(u8* p, s64* out);  // 0x00314b38: definition moved into src/libsupc++/eh_personality.cpp
 
 struct VObj { void** vt; };
-void func_0031d770(void** p) {
-    *(void**)p = D_00347f98;
-    VObj* o = *(VObj**)((u8*)D_00347f80 + 0x14);
-    ((void (*)(VObj*, void*))o->vt[1])(o, p);
-}
+void func_0031d770(void** p);  // 0x0031d770: definition moved into src/anon/unit_0031b9e0.cpp
 
-void func_00322d70(void** p) {
-    p[0] = D_0035eb98;
-    func_0023c098((u8*)p + 48);  // set_vtbl_36eae8_then_call
-    func_002369f0((u8*)p + 24);  // set_vtbl_36eac8_then_call
-    p[0] = D_00347f98;
-}
+void func_00322d70(void** p);  // 0x00322d70: definition moved into src/anon/unit_00321728.cpp
 
-s32 func_00324938(void** p) {
-    p[0] = D_0034ee08;
-    func_0019f9a8((u8*)p + 0xa08);  // array8_free_slots
-    func_001c0248((u8*)p + 0xa50);
-    return func_00319fb0(p);  // big_obj_dtor
-}
+s32 func_00324938(void** p);  // 0x00324938: definition moved into src/anon/unit_00324808.cpp
 
-void func_00325b80(void** p) {
-    p[0] = D_003638a8;
-    func_00239870((u8*)p + 0x1d4);
-    func_002361d0((u8*)p + 48);
-    p[0] = D_003637e0;
-    func_00106420(p);
-}
+void func_00325b80(void** p);  // 0x00325b80: definition moved into src/anon/unit_00324808.cpp
 }

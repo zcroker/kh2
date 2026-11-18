@@ -260,27 +260,12 @@ u32 strtol(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002ffbb0: definition moved int
 
 u32 func_003037c0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x003037c0: definition moved into src/newlib/libc/locale.c
 
-u32 func_00321a70(u32 a0, u32 a1, u32 a2, u32 a3) {
-    *(u32*)((u32)(a0) + 0u) = (u32)((u32)&D_00352a20);
-    return func_00105110(a0, a1, a2, a3);
-}
+u32 func_00321a70(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00321a70: definition moved into src/anon/unit_00321728.cpp
 
-u32 func_00321aa0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    *(u32*)((u32)(a0) + 0u) = (u32)((u32)&D_00352a20);
-    return func_00105110(a0, a1, a2, a3);
-}
+u32 func_00321aa0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00321aa0: definition moved into src/anon/unit_00321728.cpp
 
-u32 func_00321ad0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    *(u32*)((u32)(a0) + 0u) = (u32)((u32)&D_00352a20);
-    return func_00105110(a0, a1, a2, a3);
-}
+u32 func_00321ad0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00321ad0: definition moved into src/anon/unit_00321728.cpp
 
-u32 func_00321b00(u32 a0, u32 a1, u32 a2, u32 a3) {
-    *(u32*)((u32)(a0) + 0u) = (u32)((u32)&D_00352a20);
-    return func_00105110(a0, a1, a2, a3);
-}
+u32 func_00321b00(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00321b00: definition moved into src/anon/unit_00321728.cpp
 
-u32 func_003251f8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    *(u32*)((u32)(a0) + 0u) = (u32)((u32)&D_00361da8);
-    return func_00105110(a0, a1, a2, a3);
-}
+u32 func_003251f8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x003251f8: definition moved into src/anon/unit_00324808.cpp

@@ -349,71 +349,9 @@ void func_00257000();  // 0x00257000: definition moved into src/anon/unit_002540
 
 void func_002bcf58(u32 *a0);  // 0x002bcf58: definition moved into src/anon/unit_002bc978.cpp
 
-void func_0031e2c8(u32 a0, u32 a1) {
-    u32 t7 = *(u32 *)a0;
-    u32 t5;
+void func_0031e2c8(u32 a0, u32 a1);  // 0x0031e2c8: definition moved into src/anon/unit_0031e268.cpp
 
-    if (a1 == t7) {
-        u32 t7n = *(u32 *)(a1 + 40);
-        t5 = 0;
-        *(u32 *)a0 = t7n;
-    } else {
-        u32 t6 = *(u32 *)(t7 + 40);
-        if (t6 != a1) {
-            do {
-                u32 t7x = *(u32 *)(t6 + 40);
-                t5 = t6;
-                if (t7x == a1) {
-                    break;
-                }
-                t6 = t7x;
-            } while (1);
-        } else {
-            t5 = t7;
-        }
-        u32 t7n = *(u32 *)(a1 + 40);
-        *(u32 *)(t5 + 40) = t7n;
-    }
-
-    u32 t7c = *(u32 *)(a0 + 4);
-    if (a1 == t7c) {
-        *(u32 *)(a0 + 4) = t5;
-    }
-    *(u32 *)(a1 + 40) = 0;
-}
-
-void func_0031e328(u32 a0, u32 a1) {
-    u32 t7 = *(u32 *)a0;
-    u32 t5;
-
-    if (a1 == t7) {
-        u32 t7n = *(u32 *)(a1 + 60);
-        t5 = 0;
-        *(u32 *)a0 = t7n;
-    } else {
-        u32 t6 = *(u32 *)(t7 + 60);
-        if (t6 != a1) {
-            do {
-                u32 t7x = *(u32 *)(t6 + 60);
-                t5 = t6;
-                if (t7x == a1) {
-                    break;
-                }
-                t6 = t7x;
-            } while (1);
-        } else {
-            t5 = t7;
-        }
-        u32 t7n = *(u32 *)(a1 + 60);
-        *(u32 *)(t5 + 60) = t7n;
-    }
-
-    u32 t7c = *(u32 *)(a0 + 4);
-    if (a1 == t7c) {
-        *(u32 *)(a0 + 4) = t5;
-    }
-    *(u32 *)(a1 + 60) = 0;
-}
+void func_0031e328(u32 a0, u32 a1);  // 0x0031e328: definition moved into src/anon/unit_0031e268.cpp
 
 #define UNLINK_BODY(link_offset)                                               \
     u32 t7 = *(u32 *)a0;                                                       \
@@ -445,17 +383,17 @@ void func_0031e328(u32 a0, u32 a1) {
     }                                                                          \
     *(u32 *)(a1 + (link_offset)) = 0;
 
-void func_0031ee68(u32 a0, u32 a1) { UNLINK_BODY(192) }
+void func_0031ee68(u32 a0, u32 a1);  // 0x0031ee68: definition moved into src/anon/unit_0031e268.cpp
 // 0031f298: LIST<YS::MAGIC>::Remove, now made by gcc in src/yasui/libys/magiclist.cpp
-void func_0031fe00(u32 a0, u32 a1) { UNLINK_BODY(124) }
-void func_003201e8(u32 a0, u32 a1) { UNLINK_BODY(24) }
-void func_00320468(u32 a0, u32 a1) { UNLINK_BODY(2232) }
+void func_0031fe00(u32 a0, u32 a1);  // 0x0031fe00: definition moved into src/anon/unit_0031f2f8.cpp
+void func_003201e8(u32 a0, u32 a1);  // 0x003201e8: definition moved into src/anon/unit_0031f2f8.cpp
+void func_00320468(u32 a0, u32 a1);  // 0x00320468: definition moved into src/anon/unit_0031f2f8.cpp
 // 003204c8: LIST<YS::ITEM_EFFECT>::Remove, now made by gcc in src/yasui/libys/itemeffectlist.cpp
-void wtarget_00320828(u32 a0, u32 a1, u32 a2, u32 a3) { UNLINK_BODY(80) }
-void func_003208a8(u32 a0, u32 a1) { UNLINK_BODY(36) }
+void wtarget_00320828(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00320828: definition moved into src/anon/unit_00320528.cpp
+void func_003208a8(u32 a0, u32 a1);  // 0x003208a8: definition moved into src/anon/unit_00320528.cpp
 // 003216c8: LIST<ATTRACT>::Remove, now made by gcc in src/anon/attractlist.cpp
-void func_00321c50(u32 a0, u32 a1) { UNLINK_BODY(40) }
-void func_00321ce8(u32 a0, u32 a1) { UNLINK_BODY(96) }
+void func_00321c50(u32 a0, u32 a1);  // 0x00321c50: definition moved into src/anon/unit_00321728.cpp
+void func_00321ce8(u32 a0, u32 a1);  // 0x00321ce8: definition moved into src/anon/unit_00321728.cpp
 
 #undef UNLINK_BODY
 
@@ -471,137 +409,23 @@ u32 func_002cff00(u32 a0);  // 0x002cff00: definition moved into src/anon/unit_0
 
 u32 func_002d0ef0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002d0ef0: definition moved into src/anon/unit_002cf260.cpp
 
-void func_0031a2f0(u32 self) {
-    u32 s16 = self;
-    *(u32 *)s16 = addr_D_00347e60();
-    func_00239870(s16 + 24);
-    *(u32 *)s16 = addr_D_00347f98();
-    u32 t = D_00347f80;
-    u32 obj = *(u32 *)(t + 20);
-    Fn_00322908 fn = (Fn_00322908) * (u32 *)(*(u32 *)obj + 4);
-    fn(obj, s16);
-}
+void func_0031a2f0(u32 self);  // 0x0031a2f0: definition moved into src/anon/unit_003197d0.cpp
 
-void func_0031ac18(u32 self) {
-    u32 s16 = self;
-    *(u32 *)s16 = addr_D_00347e60();
-    func_00239870(s16 + 24);
-    *(u32 *)s16 = addr_D_00347f98();
-    u32 t = D_00347f80;
-    u32 obj = *(u32 *)(t + 20);
-    Fn_00322908 fn = (Fn_00322908) * (u32 *)(*(u32 *)obj + 4);
-    fn(obj, s16);
-}
+void func_0031ac18(u32 self);  // 0x0031ac18: definition moved into src/anon/unit_003197d0.cpp
 
-void func_0031ad00(u32 self) {
-    u32 s16 = self;
-    *(u32 *)s16 = addr_D_00347e60();
-    func_00239870(s16 + 24);
-    *(u32 *)s16 = addr_D_00347f98();
-    u32 t = D_00347f80;
-    u32 obj = *(u32 *)(t + 20);
-    Fn_00322908 fn = (Fn_00322908) * (u32 *)(*(u32 *)obj + 4);
-    fn(obj, s16);
-}
+void func_0031ad00(u32 self);  // 0x0031ad00: definition moved into src/anon/unit_003197d0.cpp
 
-void func_0031ada0(u32 self) {
-    u32 s16 = self;
-    *(u32 *)s16 = addr_D_00347e60();
-    func_00239870(s16 + 24);
-    *(u32 *)s16 = addr_D_00347f98();
-    u32 t = D_00347f80;
-    u32 obj = *(u32 *)(t + 20);
-    Fn_00322908 fn = (Fn_00322908) * (u32 *)(*(u32 *)obj + 4);
-    fn(obj, s16);
-}
+void func_0031ada0(u32 self);  // 0x0031ada0: definition moved into src/anon/unit_003197d0.cpp
 
-void func_0031bfc8(u32 self) {
-    u32 s16 = self;
-    *(u32 *)s16 = addr_D_00347e60();
-    func_00239870(s16 + 24);
-    *(u32 *)s16 = addr_D_00347f98();
-    u32 t = D_00347f80;
-    u32 obj = *(u32 *)(t + 20);
-    Fn_00322908 fn = (Fn_00322908) * (u32 *)(*(u32 *)obj + 4);
-    fn(obj, s16);
-}
+void func_0031bfc8(u32 self);  // 0x0031bfc8: definition moved into src/anon/unit_0031b9e0.cpp
 
-void func_0031d700(u32 self) {
-    u32 s16 = self;
-    *(u32 *)s16 = addr_D_00347e60();
-    func_00239870(s16 + 24);
-    *(u32 *)s16 = addr_D_00347f98();
-    u32 t = D_00347f80;
-    u32 obj = *(u32 *)(t + 20);
-    Fn_00322908 fn = (Fn_00322908) * (u32 *)(*(u32 *)obj + 4);
-    fn(obj, s16);
-}
+void func_0031d700(u32 self);  // 0x0031d700: definition moved into src/anon/unit_0031b9e0.cpp
 
-void func_0031d840(u32 self) {
-    u32 s16 = self;
-    *(u32 *)s16 = addr_D_00347e60();
-    func_00239870(s16 + 24);
-    *(u32 *)s16 = addr_D_00347f98();
-    u32 t = D_00347f80;
-    u32 obj = *(u32 *)(t + 20);
-    Fn_00322908 fn = (Fn_00322908) * (u32 *)(*(u32 *)obj + 4);
-    fn(obj, s16);
-}
+void func_0031d840(u32 self);  // 0x0031d840: definition moved into src/anon/unit_0031b9e0.cpp
 
-void func_00319fb0(u32 self) {  // big_obj_dtor
-    u32 s18 = self;
-    *(u32 *)s18 = addr_D_003503e0();
+void func_00319fb0(u32 self);  // 0x00319fb0: definition moved into src/anon/unit_003197d0.cpp
 
-    if (s18 != (u32)-2524) {
-        u32 s16 = s18 + 2548;
-        u32 s17 = s18 + 2524;
-        do {
-            if (s17 == s16) {
-                break;
-            }
-            s16 -= 12;
-            func_001d5718(s16);  // list_free_nodes
-        } while (1);
-    }
-
-    *(u32 *)(s18 + 2492) = addr_D_00350e48();
-    func_001b0188(s18 + 2492);
-    func_0016a358(s18);
-    u32 t = s18;
-    (void)t;
-}
-
-void func_0031e690(u32 self) {
-    u32 c0 = addr_D_0034e8b8();
-    u32 c2824 = addr_D_00350e60();
-    *(u32 *)(self + 2824) = c2824;
-    *(u32 *)(self + 0) = c0;
-
-    u32 s18 = self;
-    func_001b0188(s18 + 2824);
-
-    *(u32 *)(s18 + 0) = addr_D_0034ee08();
-    func_0019f9a8(s18 + 2568);  // array8_free_slots
-    func_001c0248(s18 + 2640);
-
-    *(u32 *)(s18 + 0) = addr_D_003503e0();
-    if (s18 != (u32)-2524) {
-        u32 s16 = s18 + 2548;
-        u32 s17 = s18 + 2524;
-        do {
-            if (s17 == s16) {
-                break;
-            }
-            s16 -= 12;
-            func_001d5718(s16);  // list_free_nodes
-        } while (1);
-    }
-
-    func_0031e7f8(s18 + 2492);
-    func_0016a358(s18);
-    u32 t = s18;
-    (void)t;
-}
+void func_0031e690(u32 self);  // 0x0031e690: definition moved into src/anon/unit_0031e268.cpp
 
 u32 func_003149e8(u32 a0);  // 0x003149e8: definition moved into src/libsupc++/eh_personality.cpp
 

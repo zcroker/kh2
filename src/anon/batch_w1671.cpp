@@ -9,15 +9,7 @@ extern u8 D_0034a9e8;
 
 struct LNode_w1671 { u8 pad[0x7c]; LNode_w1671* next; };
 struct LList_w1671 { LNode_w1671* head; LNode_w1671* tail; };
-void func_0031fdb0(LList_w1671* l, LNode_w1671* after, LNode_w1671* n) {
-    if (after == 0) {
-        LNode_w1671* h = l->head;
-        if (h == 0) { l->tail = n; l->head = n; n->next = 0; return; }
-        n->next = h; l->head = n; return;
-    }
-    if (after == l->tail) { after->next = n; n->next = 0; l->tail = n; return; }
-    n->next = after->next; after->next = n;
-}
+void func_0031fdb0(LList_w1671* l, LNode_w1671* after, LNode_w1671* n);  // 0x0031fdb0: definition moved into src/anon/unit_0031f2f8.cpp
 
 void func_001fa610(u8* a0, u8* a1, u8* a2);  // 0x001fa610: definition moved into src/anon/unit_001fa1b8.cpp
 

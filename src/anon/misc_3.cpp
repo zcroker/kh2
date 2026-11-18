@@ -14,14 +14,14 @@ s32 func_00317120(void* self);  // 0x00317120: definition moved into src/libgcc/
 
 s32 func_003191e8(void* self);  // 0x003191e8: definition moved into src/libgcc/unwind-dw2.c
 
-void func_0031a060(void* self) {}
+void func_0031a060(void* self);  // 0x0031a060: definition moved into src/anon/unit_003197d0.cpp
 
-void func_0031a830(void* self) { *(s32*)((char*)self + 0) = 0; }
+void func_0031a830(void* self);  // 0x0031a830: definition moved into src/anon/unit_003197d0.cpp
 
-void func_0031cc28(void* self) { *(s32*)((char*)self + 0) = 0; }
+void func_0031cc28(void* self);  // 0x0031cc28: definition moved into src/anon/unit_0031b9e0.cpp
 
-void func_0031e2b8(void* self) { *(s32*)((char*)self + 0) = 0; }
+void func_0031e2b8(void* self);  // 0x0031e2b8: definition moved into src/anon/unit_0031e268.cpp
 
-void func_0031e2c0(void* self) { *(s32*)((char*)self + 0) = 0; }
+void func_0031e2c0(void* self);  // 0x0031e2c0: definition moved into src/anon/unit_0031e268.cpp
 
-void func_00324710(void* self) { *(s32*)((char*)self + 0) = 0; }
+void func_00324710(void* self);  // 0x00324710: definition moved into src/anon/unit_00324380.cpp

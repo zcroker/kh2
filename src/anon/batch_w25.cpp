@@ -169,28 +169,12 @@ extern u8* D_00347f80;
 void func_00239870(void*);
 void func_0031a840(void*);
 void func_0031cd50(void*);
-void func_0031c928(u32* o) {
-    o[0] = (u32)&D_00347e60;
-    func_00239870(o + 6);
-    func_0031a840(o);
-    VObj* m = *(VObj**)(D_00347f80 + 20);
-    ((VFn)m->vt[1])(m, o);
-}
+void func_0031c928(u32* o);  // 0x0031c928: definition moved into src/anon/unit_0031b9e0.cpp
 
-void func_0031c9a8(u32* o) {
-    o[0] = (u32)&D_00347e40;
-    func_0031cd50(o);
-    VObj* m = *(VObj**)(D_00347f80 + 20);
-    ((VFn)m->vt[1])(m, o);
-}
+void func_0031c9a8(u32* o);  // 0x0031c9a8: definition moved into src/anon/unit_0031b9e0.cpp
 
 extern u8 D_0034c720;
 extern VObj* D_0034c738;
 void func_00160268(void*);
-void func_0031e110(u32* o) {
-    o[0] = (u32)&D_0034c720;
-    func_00160268(o);
-    VObj* m = D_0034c738;
-    ((VFn)m->vt[1])(m, o);
-}
+void func_0031e110(u32* o);  // 0x0031e110: definition moved into src/anon/unit_0031b9e0.cpp
 }

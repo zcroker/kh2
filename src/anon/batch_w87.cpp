@@ -259,55 +259,14 @@ extern u8 D_0034a820[];
 extern u8 D_00347e60[];
 void func_00239700(void*);
 struct E408b { void* vt; u32 f4, f8, f12; u8 pad[8]; u8 sub[384]; };
-void func_0031b4f0(u8* p) {
-    *(u32*)(p + 12) = 0;
-    *(void**)p = D_0034a820;
-    E408b* e = (E408b*)(p + 48);
-    for (s32 n = 5; n != -1; n--) {
-        e->f12 = 0;
-        e->vt = D_00347e60;
-        func_00239700(e->sub);
-        e++;
-    }
-    u8* row = p + 2496;
-    for (s32 r = 15; r != -1; r--) {
-        E408b* q = (E408b*)row;
-        for (s32 n = 1; n != -1; n--) {
-            q->f12 = 0;
-            q->vt = D_00347e60;
-            func_00239700(q->sub);
-            q++;
-        }
-        row += 816;
-    }
-}
+void func_0031b4f0(u8* p);  // 0x0031b4f0: definition moved into src/anon/unit_003197d0.cpp
 // ---- 0x31e398: deleting destructor ----
 extern u8 D_0034e888[];
 extern u8 D_00363828[];
 extern u8 D_003637e0[];
 void func_0031e590(void*);
 void func_002ee380(void*);
-void func_0031e398(u8* p) {
-    void** q36 = (void**)(p + 36);
-    u8* o = p + 80;
-    *(void**)p = D_0034e888;
-    *q36 = D_00363828;
-    *(void**)o = D_00350ab0;
-    if (o + 3280) {
-        u8* e = o + 4656;
-        u8* b = o + 3280;
-        for (;;) {
-            if (b == e) break;
-            e -= 344;
-            (**(VFn**)e)(e);
-        }
-    }
-    func_00239870(o + 2936);
-    func_0031e590(o);
-    *q36 = D_003637e0;
-    func_002ee380(p);
-    func_00105110(p);
-}
+void func_0031e398(u8* p);  // 0x0031e398: definition moved into src/anon/unit_0031e268.cpp
 
 // ---- 0x2ca4c0 ----
 s32 func_00289380(void*);

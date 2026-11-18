@@ -58,10 +58,7 @@ void __fixunssfsi(f32);
 // 001a4060: moved to src/anon/unit_001a3e70.cpp
 
 // Deleting destructor.
-void func_00325498(Obj325498* p) {
-    p->~Obj325498();
-    Obj325498::operator delete(p);
-}
+void func_00325498(Obj325498* p);  // 0x00325498: definition moved into src/anon/unit_00324808.cpp
 
 extern Obj287f30* D_0035f324;
 void func_00287f30(void);  // 0x00287f30: definition moved into src/anon/unit_00286d28.cpp
@@ -248,15 +245,7 @@ void func_00239870(void*);
 typedef void (*VFn2)(void*, void*);
 extern void* D_00347f80v asm("D_00347f80");
 // Destructor body: unwinds the vtables and unregisters from the manager.
-void func_0031cf18(u8* p) {
-    *(void**)p = D_0034a800;
-    func_002361d0(p + 416);
-    *(void**)p = &D_00347e60;
-    func_00239870(p + 24);
-    *(void**)p = D_00347f98;
-    void** o = *(void***)((u8*)D_00347f80v + 20);
-    (*(VFn2*)((u8*)*o + 4))(o, p);
-}
+void func_0031cf18(u8* p);  // 0x0031cf18: definition moved into src/anon/unit_0031b9e0.cpp
 
 
 // Bitfield members carry the struct's alias set, so these loads stay after

@@ -246,22 +246,9 @@ void sceVu0MulMatrix(u32 d, u32 m, u32 v, u32 n) {
 
 void __malloc_unlock(void);  // 0x002fdf30: definition moved into src/newlib/libc/mlock.c
 
-void func_0031ca20(u8* o) {
-    *(u8**)o = D_00347e40;
-    func_0031cd50(o);
-    Obj* m = *(Obj**)(D_00347f80 + 20);
-    ((void (*)(Obj*, void*))m->vt[1])(m, o);
-}
+void func_0031ca20(u8* o);  // 0x0031ca20: definition moved into src/anon/unit_0031b9e0.cpp
 
-void func_0031ebb0(u8* o) {
-    *(u8**)o = D_0034ee08;
-    func_0019f9a8(o + 2568);  // array8_free_slots
-    func_001c0248(o + 2640);
-    func_00319fb0(o);  // big_obj_dtor
-    area_free(o);
-}
+void func_0031ebb0(u8* o);  // 0x0031ebb0: definition moved into src/anon/unit_0031e268.cpp
 // Copy-constructs a block in place.
-void func_00323af8(W26Blk* d, const W26Blk* s) {  // obj_copy_48_bytes
-    new (d) W26Blk(*s);
-}
+void func_00323af8(W26Blk* d, const W26Blk* s);  // 0x00323af8: definition moved into src/anon/unit_00323978.cpp
 }

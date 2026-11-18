@@ -393,14 +393,6 @@ struct VT31b { u32 a[4]; };
 extern VT31b D_0034a618;
 extern VT31b D_00347e60;
 void func_00239700(u8*);
-void func_0031bf50(u8* p) {
-    *(u32*)p = (u32)&D_0034a618;
-    *(u32*)(p + 48) = (u32)&D_00347e60;
-    *(u32*)(p + 12) = 0;
-    *(u32*)(p + 60) = 0;
-    func_00239700(p + 72);
-    u8* q = p + 456;
-    for (int i = 6; i != -1; i--, q += 344) func_00239700(q);
-}
+void func_0031bf50(u8* p);  // 0x0031bf50: definition moved into src/anon/unit_0031b9e0.cpp
 
 }  // extern "C"

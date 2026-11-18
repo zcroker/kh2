@@ -363,21 +363,6 @@ void func_00239870(u8*);
 void func_002361d0(u8*);
 
 // Destructor: destroys the 13-element member array (408 bytes each) back to front.
-void func_0031c1b0(u8* p) {
-    *(u32*)p = (u32)D_0034a548;
-    if (p != (u8*)-840) {
-        u8* e = p + 6144;
-        for (;;) {
-            if (p + 840 == e) break;
-            e -= 408;
-            (*(VFn*)(*(u8**)e + 12))(e);
-        }
-    }
-    func_00239870(p + 496);
-    *(void**)(p + 48) = D_00347e80;
-    func_002361d0(p + 80);
-    *(void**)(p + 48) = D_00347f98;
-    *(void**)p = D_00347f98;
-}
+void func_0031c1b0(u8* p);  // 0x0031c1b0: definition moved into src/anon/unit_0031b9e0.cpp
 
 }

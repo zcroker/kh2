@@ -18,36 +18,7 @@ void func_001c97b0(void* a, f32 f);  // 0x001c97b0: definition moved into src/ya
 void func_00108698(void*);
 void func_00144450(void*);
 void func_0011b6a8(void*);
-void func_0031e158(u32* a) {  // obj_init_large
-    u8* s = (u8*)a;
-    a[0] = 0;
-    func_00108698(s + 8);
-    func_00144450(s + 208);
-    *(u32*)(s + 244) = 0;
-    *(u32*)(s + 240) = 0;
-    *(f32*)(s + 264) = 2100.0f;
-    s[232] = 0x80;
-    s[233] = 0x80;
-    s[234] = 0x80;
-    s[235] = 0x80;
-    *(u32*)(s + 248) = 0;
-    *(u32*)(s + 252) = 0;
-    *(u32*)(s + 256) = 0;
-    *(u32*)(s + 260) = 0;
-    s[269] = 0;
-    *(u32*)(s + 272) = 0;
-    *(u32*)(s + 276) = 0;
-    *(u16*)(s + 280) = 0;
-    *(u16*)(s + 282) = 0;
-    s[286] = 0;
-    s[287] = 0;
-    *(u32*)(s + 288) = 0;
-    s[271] = 0;
-    s[270] = 0;
-    func_0011b6a8(s + 64);
-    func_0011b6a8(s + 128);
-    *(u32*)(s + 248) = 2060;
-}
+void func_0031e158(u32* a);  // 0x0031e158: definition moved into src/anon/unit_0031b9e0.cpp
 
 void* func_001063c0(s32, s32);
 void func_002907c0(void*, s32, s32);

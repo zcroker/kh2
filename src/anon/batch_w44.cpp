@@ -268,13 +268,5 @@ extern u8 D_00348590[];
 extern u8 D_00347e60[];
 extern u8 D_00347f98[];
 extern void* D_00347f80;
-void func_0031b0c0(u8* o) {
-    *(void**)o = D_00348590;
-    *(void**)(o + 260) = D_00347e60;
-    func_00239870(o + 284);
-    *(void**)(o + 260) = D_00347f98;
-    *(void**)o = D_00347f98;
-    void** m = *(void***)((u8*)D_00347f80 + 20);
-    (*(void (**)(void*, void*))(*(u8**)m + 4))(m, o);
-}
+void func_0031b0c0(u8* o);  // 0x0031b0c0: definition moved into src/anon/unit_003197d0.cpp
 }

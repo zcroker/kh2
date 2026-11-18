@@ -36,6 +36,6 @@ inline W263S::W263S() {}
 inline void* operator new(unsigned int, void* p) { return p; }
 
 extern "C" {
-void func_00323408(W263S* p) { new (p) W263S; }
+void func_00323408(W263S* p);  // 0x00323408: definition moved into src/anon/unit_00321728.cpp
 
 }

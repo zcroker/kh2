@@ -660,43 +660,7 @@ struct S319 {
 };
 
 // constructs the per-map table block (all slots cleared)
-void func_00319bd0(void* sp) {  // clear_18x64_entries
-    S319* s = (S319*)sp;
-    G319* g = s->grid;
-    for (s32 n = 18; n != -1; n--) {
-        C319* c = g->c;
-        for (s32 k = 63; k != -1; k--) {
-            c->a = 0;
-            c->b = 0;
-            c->c = 0;
-            c++;
-        }
-        g++;
-    }
-    R319* r = s->rows;
-    for (s32 n = 18; n != -1; n--) {
-        for (s32 i = 0; i < 8; i++) r->w[i] = 0;
-        r++;
-    }
-    s->f7908 = 0;
-    s->f7912 = 0;
-    P319* p = s->pairs;
-    for (s32 n = 18; n != -1; n--) {
-        p->a = 0;
-        p->b = 0;
-        p++;
-    }
-    for (s32 i = 0; i < 7; i++) s->w9092[i] = 0;
-    for (s32 i = 0; i < 16; i++) s->w9120[i] = 0;
-    for (s32 i = 0; i < 16; i++) s->w9204[i] = 0;
-    s->f9360 = 0;
-    P319* q = s->tail;
-    for (s32 n = 9; n != -1; n--) {
-        q->a = 0;
-        q->b = 0;
-        q++;
-    }
-}
+void func_00319bd0(void* sp);  // 0x00319bd0: definition moved into src/anon/unit_003197d0.cpp
 }
 
 // ---- 31b3b8 ----
@@ -714,33 +678,5 @@ extern u8 D_0034a848[];
 extern u8 D_0034a958[];
 extern u8 D_00348658[];
 
-void func_0031b3b8(u8* s) {
-    *(u32*)(s + 12) = 0;
-    *(u32*)s = (u32)D_00348608;
-    *(u32*)(s + 64) = (u32)D_00347f98;
-    func_0031a838(s + 76);
-    *(u32*)(s + 64) = (u32)D_00347e60;
-    func_00239700(s + 88);
-    *(u32*)(s + 64) = (u32)D_0034a800;
-    func_002361a0(s + 480);
-    *(u32*)s = (u32)D_0034a848;
-    u8* e = s + 916;
-    for (s32 n = 3; n != -1; n--) {
-        *(u32*)e = (u32)D_00347f98;
-        func_0031a838(e + 12);
-        *(u32*)e = (u32)D_00347e60;
-        func_00239700(e + 24);
-        *(u32*)e = (u32)D_0034a958;
-        e += 412;
-    }
-    e = s + 2576;
-    for (s32 n = 4; n != -1; n--) {
-        *(u32*)e = (u32)D_00347f98;
-        func_0031a838(e + 12);
-        *(u32*)e = (u32)D_00348658;
-        func_0013ee88(e + 32);
-        func_0014b668(e + 320);
-        e += 592;
-    }
-}
+void func_0031b3b8(u8* s);  // 0x0031b3b8: definition moved into src/anon/unit_003197d0.cpp
 }

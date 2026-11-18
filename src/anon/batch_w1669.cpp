@@ -29,10 +29,7 @@ void wtarget_0014d240(u32 a0, u32 a1, u32, u32) asm("_Z16wtarget_0014d240jjjj");
 void wtarget_0014d240(u32 a0, u32 a1, u32, u32);  // 0x0014d240: definition moved into src/anon/unit_0014c7f0.cpp
 void func_00149f30(int a0, int a1) asm("_Z13func_00149f30ii");
 // 00149f30: static initialiser, now made by gcc in src/harata/libdk/area.cpp
-void func_00323ad0(u32* p) {
-    s32 i = 19;
-    do { *p = 0; i--; __asm__ volatile("nop\n\tnop\n\tnop"); p++; } while (i >= 0);
-}
+void func_00323ad0(u32* p);  // 0x00323ad0: definition moved into src/anon/unit_00323978.cpp
 void func_001e7440(void);  // 0x001e7440: definition moved into src/anon/unit_001e0cb8.cpp
 struct W1669VObj { void** vt; };
 void func_00153c98(W1669VObj* p);  // 0x00153c98: definition moved into src/anon/unit_00153678.cpp

@@ -342,40 +342,7 @@ void func_0022c108(void);  // 0022c108: moved to src/sasa/event_countdown.cpp (l
 void func_002b6138(s32 x, s32 y, s32 a2, s32 a3, s32 key);  // 0x002b6138: definition moved into src/anon/unit_002b60e8.cpp
 
 // Deleting destructor: tears down the member arrays, then frees through the allocator.
-void func_00322608(u8* p) {
-    u8* q;
-    u8* a;
-    *(u32*)p = (u32)D_0035e238;
-    *(u32*)(p + 5072) = (u32)D_00347e60;
-    q = p + 5072;
-    func_00239870(p + 5096);
-    *(u32*)(p + 5072) = (u32)D_00347f98;
-    if (p + 1680 != 0) {
-        u8* b = p + 1680;
-    l1:
-        if (b == q) goto d1;
-        q -= 848;
-        (*(DtorFn*)(*(u8**)q + 12))(q);
-        goto l1;
-    }
-d1:
-    if (p + 440 != 0) {
-        u8* b;
-        q = p + 1676;
-        b = p + 440;
-    l2:
-        if (b == q) goto d2;
-        q -= 412;
-        (*(DtorFn*)(*(u8**)q + 12))(q);
-        goto l2;
-    }
-d2:
-    *(u32*)p = (u32)D_00347e60;
-    func_00239870(p + 24);
-    func_0031a840(p);
-    a = *(u8**)(D_00347f80 + 20);
-    (*(FreeFn*)(*(u8**)a + 4))(a, p);
-}
+void func_00322608(u8* p);  // 0x00322608: definition moved into src/anon/unit_00321728.cpp
 
 void func_002bbbc8(struct S2bb* p);  // 0x002bbbc8: definition moved into src/anon/unit_002bb8b0.cpp
 

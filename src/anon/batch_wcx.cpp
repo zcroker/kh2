@@ -202,54 +202,14 @@ void func_00239870(u8*);
 void func_00239848(u8*);  // set_vtbl_36eb28_then_call
 void func_001ac5b8(u8*);
 void func_00105110(u8*);
-void func_0031f820(u8* p)
-{
-    *(void**)p = D_00350bb0;
-    if (p != (u8*)-1544) {
-        u8* q = p + 2920;
-        u8* a = p + 1544;
-    loop1544:
-        if (a == q) goto done1544;
-        q -= 344;
-        (**(VFn**)q)(q);
-        goto loop1544;
-    }
-done1544:
-    func_00239870(p + 1200);
-    func_00239870(p + 848);
-    func_00239870(p + 484);
-    *(void**)(p + 132) = D_0034e8a8;
-    func_00239848(p + 132);  // set_vtbl_36eb28_then_call
-    func_001ac5b8(p);
-    func_00105110(p);
-}
+void func_0031f820(u8* p);  // 0x0031f820: definition moved into src/anon/unit_0031f2f8.cpp
 extern u8 D_0034a5d0[];
 extern u8 D_00347e80[];
 extern u8 D_00347f98[];
 extern u32 D_00347f80;
 void func_002361d0(u8*);
 typedef void (*FreeFn)(u8*, u8*);
-void func_0031c518(u8* p)
-{
-    *(void**)p = D_0034a5d0;
-    if (p != (u8*)-840) {
-        u8* q = p + 2880;
-        u8* a = p + 840;
-    loop840:
-        if (a == q) goto done840;
-        q -= 408;
-        (*(VFn*)(*(u8**)q + 12))(q);
-        goto loop840;
-    }
-done840:
-    func_00239870(p + 496);
-    *(void**)(p + 48) = D_00347e80;
-    func_002361d0(p + 80);
-    *(u32*)(p + 48) = (u32)D_00347f98;
-    *(u32*)p = (u32)D_00347f98;
-    u8* al = *(u8**)(D_00347f80 + 20);
-    (*(FreeFn*)(*(u8**)al + 4))(al, p);
-}
+void func_0031c518(u8* p);  // 0x0031c518: definition moved into src/anon/unit_0031b9e0.cpp
 }
 
 extern "C" {
@@ -616,27 +576,7 @@ void func_00239848(u8*);  // set_vtbl_36eb28_then_call
 void func_001ac5b8(u8*);
 void func_00105110(u8*);
 // same shape as 0031f820
-void func_0031fa18(u8* p)
-{
-    *(void**)p = D_00350bb0;
-    if (p != (u8*)-1544) {
-        u8* q = p + 2920;
-        u8* a = p + 1544;
-    loop:
-        if (a == q) goto done;
-        q -= 344;
-        (**(VFn**)q)(q);
-        goto loop;
-    }
-done:
-    func_00239870(p + 1200);
-    func_00239870(p + 848);
-    func_00239870(p + 484);
-    *(void**)(p + 132) = D_0034e8a8;
-    func_00239848(p + 132);  // set_vtbl_36eb28_then_call
-    func_001ac5b8(p);
-    func_00105110(p);
-}
+void func_0031fa18(u8* p);  // 0x0031fa18: definition moved into src/anon/unit_0031f2f8.cpp
 f32 func_001142a0(u32);
 f32 func_0010f660(void);  // cvt_20001_scaled
 void func_001111c8(u8* p);  // 0x001111c8: definition moved into src/anon/unit_00110b00.cpp
@@ -1006,41 +946,10 @@ void func_00239870(u8*);
 void func_00239848(u8*);  // set_vtbl_36eb28_then_call
 void func_001ac5b8(u8*);
 struct NoTail { ~NoTail() {} };
-void func_0031e590(u8* p)
-{
-    NoTail g;
-    *(void**)p = D_00350bb0;
-    if (p != (u8*)-1544) {
-        u8* q = p + 2920;
-        u8* a = p + 1544;
-    loop:
-        if (a == q) goto done;
-        q -= 344;
-        (**(VFn**)q)(q);
-        goto loop;
-    }
-done:
-    func_00239870(p + 1200);
-    func_00239870(p + 848);
-    func_00239870(p + 484);
-    *(void**)(p + 132) = D_0034e8a8;
-    func_00239848(p + 132);  // set_vtbl_36eb28_then_call
-    func_001ac5b8(p);
-}
+void func_0031e590(u8* p);  // 0x0031e590: definition moved into src/anon/unit_0031e268.cpp
 s32 func_00168aa0(u32, s32);
 u8* func_00168b38(u32, s32, s32);  // entry_array_find_nth
-void func_0031ae58(u32* p, u32 a)
-{
-    p[0] = a;
-    s32 n = func_00168aa0(a, 25);
-    p[1] = n;
-    for (s32 i = 0; i < (s32)p[1]; i++) {
-        u32* e = p + i * 2;
-        e[3] = *(u32*)(func_00168b38(p[0], 25, i) + 8);  // entry_array_find_nth
-        if (func_00168b38(p[0], 24, 0)) e[2] = *(u32*)(func_00168b38(p[0], 24, i) + 8);  // entry_array_find_nth
-        else e[2] = 0;
-    }
-}
+void func_0031ae58(u32* p, u32 a);  // 0x0031ae58: definition moved into src/anon/unit_003197d0.cpp
 u8* func_001b9bc8(u8*);
 s32 func_0016a070(u8*);
 s32 func_0016c008(u8*, s32);
@@ -1607,42 +1516,9 @@ void func_00239870(u8*);
 void func_002361d0(u8*);
 void func_0031a840(u8*);
 typedef void (*FreeFn)(u8*, u8*);
-void func_0031a460(u8* p)
-{
-    *(void**)p = D_00347dd0;
-    *(void**)(p + 896) = D_00347e60;
-    func_00239870(p + 920);
-    *(void**)(p + 896) = D_00347f98;
-    *(void**)(p + 448) = D_00347e80;
-    func_002361d0(p + 480);
-    *(void**)(p + 448) = D_00347f98;
-    *(void**)p = D_00347e60;
-    func_00239870(p + 24);
-    func_0031a840(p);
-    u8* al = *(u8**)(D_00347f80 + 20);
-    (*(FreeFn*)(*(u8**)al + 4))(al, p);
-}
+void func_0031a460(u8* p);  // 0x0031a460: definition moved into src/anon/unit_003197d0.cpp
 extern u8 D_0034a618[];
-void func_0031c6f8(u8* p)
-{
-    *(void**)p = D_0034a618;
-    if (p != (u8*)-456) {
-        u8* q = p + 2864;
-        u8* a = p + 456;
-    loop:
-        if (a == q) goto done;
-        q -= 344;
-        (**(VFn**)q)(q);
-        goto loop;
-    }
-done:
-    *(void**)(p + 48) = D_00347e60;
-    func_00239870(p + 72);
-    *(u32*)(p + 48) = (u32)D_00347f98;
-    *(u32*)p = (u32)D_00347f98;
-    u8* al = *(u8**)(D_00347f80 + 20);
-    (*(FreeFn*)(*(u8**)al + 4))(al, p);
-}
+void func_0031c6f8(u8* p);  // 0x0031c6f8: definition moved into src/anon/unit_0031b9e0.cpp
 }
 
 }
@@ -1891,42 +1767,9 @@ extern u32 D_00347f80;
 void func_00239870(u8*);
 void func_002361d0(u8*);
 void func_0031a840(u8*);
-void func_0031a628(u8* p)
-{
-    *(void**)p = D_00347d90;
-    *(void**)(p + 896) = D_00347e60;
-    func_00239870(p + 920);
-    *(void**)(p + 896) = D_00347f98;
-    *(void**)(p + 448) = D_00347e80;
-    func_002361d0(p + 480);
-    *(void**)(p + 448) = D_00347f98;
-    *(void**)p = D_00347e60;
-    func_00239870(p + 24);
-    func_0031a840(p);
-    u8* al = *(u8**)(D_00347f80 + 20);
-    (*(FreeFn*)(*(u8**)al + 4))(al, p);
-}
+void func_0031a628(u8* p);  // 0x0031a628: definition moved into src/anon/unit_003197d0.cpp
 extern u8 D_0034a660[];
-void func_0031c838(u8* p)
-{
-    *(void**)p = D_0034a660;
-    if (p != (u8*)-456) {
-        u8* q = p + 2864;
-        u8* a = p + 456;
-    loop:
-        if (a == q) goto done;
-        q -= 344;
-        (**(VFn**)q)(q);
-        goto loop;
-    }
-done:
-    *(void**)(p + 48) = D_00347e60;
-    func_00239870(p + 72);
-    *(u32*)(p + 48) = (u32)D_00347f98;
-    *(u32*)p = (u32)D_00347f98;
-    u8* al = *(u8**)(D_00347f80 + 20);
-    (*(FreeFn*)(*(u8**)al + 4))(al, p);
-}
+void func_0031c838(u8* p);  // 0x0031c838: definition moved into src/anon/unit_0031b9e0.cpp
 extern u8 D_0034a568[];
 void func_002d00a0(u8*);
 void func_0016bd60(u8*, s32);

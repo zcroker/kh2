@@ -59,15 +59,5 @@ struct W2417_Big {
     W2417_T p;
 };
 extern "C" {
-void func_00323110(W2417_Big* p)
-{
-    void* va = D_00347f98;
-    new (&p->a0) W2417_A; new (&p->a1) W2417_A; new (&p->a2) W2417_A; new (&p->a3) W2417_A;
-    { W2417_B* h = &p->h0; *(void**)h = va; func_0031a838(h->m0c); h->vt = D_00347e60; func_00239700(h->m); h->vt = D_00347e40; h->f198 = 0; }
-    { W2417_B* h = &p->h1; *(void**)h = va; func_0031a838(h->m0c); h->vt = D_00347e60; func_00239700(h->m); h->vt = D_00347e40; h->f198 = 0; }
-    { W2417_B* h = &p->h2; *(void**)h = va; func_0031a838(h->m0c); h->vt = D_00347e60; func_00239700(h->m); h->vt = D_00347e40; h->f198 = 0; }
-    { W2417_B* h = &p->h3; *(void**)h = va; func_0031a838(h->m0c); h->vt = D_00347e60; func_00239700(h->m); h->vt = D_00347e40; h->f198 = 0; }
-    new (p->x) W2417_B[24]; new (p->y) W2417_B[24]; new (p->z) W2417_B[24]; new (p->w) W2417_A[24];
-    new (&p->p) W2417_T;
-}
+void func_00323110(W2417_Big* p);  // 0x00323110: definition moved into src/anon/unit_00321728.cpp
 }

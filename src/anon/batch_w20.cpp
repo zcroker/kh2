@@ -164,18 +164,8 @@ s32 func_002db8a8(void** p);  // 0x002db8a8: definition moved into src/anon/unit
 
 // 002f0a68: moved to src/naka/libkn/trapfunctions.cpp
 
-void func_0031f008(void** p) {
-    *p = D_00350388;
-    func_0016a358(p);
-    func_00105110(p);
-}
+void func_0031f008(void** p);  // 0x0031f008: definition moved into src/anon/unit_0031e268.cpp
 
 // 1 if v is in the list headed at *p (next at +0x1c).
-u32 func_00324718(u8** p, u8* v) {
-    u8* n = 0;
-    while ((n = !n ? *p : *(u8**)(n + 0x1c)) != 0) {
-        if (n == v) return 1;
-    }
-    return 0;
-}
+u32 func_00324718(u8** p, u8* v);  // 0x00324718: definition moved into src/anon/unit_00324380.cpp
 }

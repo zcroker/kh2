@@ -5,24 +5,7 @@ extern "C" {
 extern char D_00347d70[]; extern char D_00347f98[];
 void func_0031a508(void*);
 void func_0031a3d8(void*);
-void func_0031a790(char* t) {
-  *(char**)t = D_00347d70;
-  if ((u32)(t + 10692) != 0xfffffff8u) {
-    char* s0 = t + 18316;
-    char* s1 = t + 10700;
-    l1: if (s1 == s0) goto o1;
-    s0 -= 476; func_0031a508(s0); goto l1;
-  }
-  o1:
-  if ((u32)(t + 48) != 0xfffffff0u) {
-    char* s0 = t + 10688;
-    char* s1 = t + 64;
-    l2: if (s1 == s0) goto o2;
-    s0 -= 1328; func_0031a3d8(s0); goto l2;
-  }
-  o2:
-  *(char**)t = D_00347f98;
-}
+void func_0031a790(char* t);  // 0x0031a790: definition moved into src/anon/unit_003197d0.cpp
 
 /* 002bea88 */
 extern u8 D_00361898;

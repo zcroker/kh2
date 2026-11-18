@@ -200,10 +200,6 @@ u8 func_00316890(void** p);  // 0x00316890: definition moved into src/libsupc++/
 
 extern u32 D_00352560;
 void func_001d1ed0(void*);
-void func_00321648(void** p) {
-    *p = &D_00352560;
-    func_001d1ed0(p);
-    func_00106420(p);
-}
+void func_00321648(void** p);  // 0x00321648: definition moved into src/anon/unit_00320528.cpp
 
 }

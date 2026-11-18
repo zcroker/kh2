@@ -498,22 +498,7 @@ void func_002b2c80(void);  // 0x002b2c80: definition moved into src/anon/unit_00
 void func_002bbc90(U20_Fade* f);  // 0x002bbc90: definition moved into src/anon/unit_002bb8b0.cpp
 
 
-void func_003259a0(u8* o) {
-    u8* s = o + 44;
-    *(u8**)o = D_00363828;
-    *(u8**)s = D_00350ab0;
-    U21_W80_DTOR_ARR(s, 3280, 4)
-    func_00239870(s + 2936);
-    *(u8**)s = D_00350bb0;
-    U21_W80_DTOR_ARR(s, 1544, 4)
-    func_00239870(s + 1200);
-    func_00239870(s + 848);
-    func_00239870(s + 484);
-    func_0031e668(s + 132);
-    func_001ac5b8(s);
-    *(u8**)o = D_003637e0;
-    func_00106420(o);
-}
+void func_003259a0(u8* o);  // 0x003259a0: definition moved into src/anon/unit_00324808.cpp
 // 001ad838: moved to src/anon/unit_001abb28.cpp
 
 
@@ -527,26 +512,5 @@ void func_002e1668(U23_W80Obj* o, void* p, const U23_W80Vec* ofs, U23_W80Vec* ac
 U24_W80Eff* func_002ed350(U24_W80Own* own, u32 a1, const U24_W80Param* prm, u32 a3, const U24_W80Vec* pos);  // 0x002ed350: definition moved into src/anon/unit_002ecdb0.cpp
 
 
-void func_00319870(u8* p) {  // init_18x4_entries
-    s32 i;
-    u8* q;
-    u8* s;
-    u32* w;
-    for (i = 18, q = p; i != -1; i--, q += 4) {
-        q[0] = 0;
-        q[1] = 0;
-        q[2] = 0;
-        q[3] = 0;
-    }
-    s = p + 76;
-    w = (u32*)s;
-    for (i = 0; i < 8; i++) w[i] = 0;
-    s[287] = 0;
-    q = p + 364;
-    for (i = 31; i != -1; i--) *q++ = 0;
-    p += 396;
-    w = (u32*)p;
-    for (i = 0; i < 4; i++) w[i] = 0;
-    func_00319d30(p + 16);
-}
+void func_00319870(u8* p);  // 0x00319870: definition moved into src/anon/unit_003197d0.cpp
 }

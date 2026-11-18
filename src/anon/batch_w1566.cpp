@@ -19,18 +19,5 @@ void wtarget_002e98f0(u32 a, u32 b) asm("_Z16wtarget_002e98f0jjjj");
 // 002e98f0: static initialiser, now made by gcc in src/sugi/flare.cpp
 
 // deleting destructor: three vtable levels, member array of 16-byte objects, then operator delete
-void func_00319df8(u8* p) {
-    *(void**)p = D_00345c08;
-    if ((W1566E16*)(p + 3184)) {
-        W1566E16* e = (W1566E16*)(p + 3280);
-        for (;;) { if ((W1566E16*)(p + 3184) == e) break; e--; }
-    }
-    *(void**)p = D_0034e8b8;
-    func_00319f88(p + 2824);
-    *(void**)p = D_0034ee08;
-    func_0019f9a8(p + 2568);
-    func_001c0248(p + 2640);
-    func_00319fb0(p);
-    func_00105110(p);
-}
+void func_00319df8(u8* p);  // 0x00319df8: definition moved into src/anon/unit_003197d0.cpp
 }

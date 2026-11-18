@@ -4,7 +4,7 @@
 
 void pppPartDrawEnd();  // 0x001e6af8: definition moved into src/anon/unit_001e0cb8.cpp
 
-void ErrorRaise(void* self) { reinterpret_cast<IntSlot*>(self)->value = 0; }
+void ErrorRaise(void* self);  // 0x0031a838: definition moved into src/anon/unit_003197d0.cpp
 
 // libgcc's 64-bit helpers live in the game itself (__divdi3 0x3125c0, __udivdi3
 // 0x312db8, __muldi3 0x311aa0). Defining them here, in an

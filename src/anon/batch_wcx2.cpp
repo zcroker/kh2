@@ -1381,25 +1381,7 @@ struct St84 {
     s32 a[16]; s32 f64; s32 b[16]; s32 f132; s32 c[3]; s32 d[6]; s32 e[16]; s32 f[16]; s32 g[4];
     s32 f316, f320; Pr84 h[10]; Pr84 k[10]; s16 f484, f486;
 };
-void func_00319a60(St84* s)
-{
-    s32 i;
-    for (i = 0; i < 16; i++) s->a[i] = 0;
-    s->f64 = 0;
-    { s32* p = s->b; i = 16; while (i--) *p++ = 0; }
-    s->f132 = 0;
-    for (i = 0; i < 3; i++) s->c[i] = 0;
-    for (i = 0; i < 6; i++) s->d[i] = 0;
-    { s32* p = s->e; i = 16; while (i--) *p++ = 0; }
-    for (i = 0; i < 16; i++) s->f[i] = 0;
-    for (i = 0; i < 4; i++) s->g[i] = 0;
-    s->f316 = 0;
-    s->f320 = 0;
-    { Pr84* p = s->h; i = 10; while (i--) { p->x = 0; p->y = 0; p++; } }
-    { Pr84* p = s->k; i = 10; while (i--) { p->x = 0; p->y = 0; p++; } }
-    s->f484 = 0;
-    s->f486 = 0;
-}
+void func_00319a60(St84* s);  // 0x00319a60: definition moved into src/anon/unit_003197d0.cpp
 
 struct V86 {
     f32 x, y, z, w;
@@ -5922,53 +5904,7 @@ struct Obj324bc0 {
 };
 extern u8 D_0035eaf8[];
 void func_00324d50(Obj324bc0* d, Obj324bc0* s);
-void func_00324bc0(Obj324bc0* d, Obj324bc0* s)
-{
-    func_00324d50(d, s);
-    d->vt = (u32)D_0035eaf8;
-    d->f176 = s->f176;
-    d->f180 = s->f180;
-    d->a184[0].v = s->a184[0].v;
-    d->a184[1].v = s->a184[1].v;
-    d->a184[2].v = s->a184[2].v;
-    d->a184[3].v = s->a184[3].v;
-    d->a184[4].v = s->a184[4].v;
-    d->a184[5].v = s->a184[5].v;
-    d->a184[6].v = s->a184[6].v;
-    d->a184[7].v = s->a184[7].v;
-    d->a184[8].v = s->a184[8].v;
-    d->a184[9].v = s->a184[9].v;
-    d->a184[10].v = s->a184[10].v;
-    d->a184[11].v = s->a184[11].v;
-    d->a184[12].v = s->a184[12].v;
-    d->f236 = s->f236;
-    d->f240 = s->f240;
-    d->f244 = s->f244;
-    d->f248 = s->f248;
-    d->f252 = s->f252;
-    d->f256 = s->f256;
-    d->f260 = s->f260;
-    d->f264 = s->f264;
-    d->f268 = s->f268;
-    d->f272 = s->f272;
-    d->f276 = s->f276;
-    d->f280 = s->f280;
-    d->f284 = s->f284;
-    d->f288 = s->f288;
-    d->f292 = s->f292;
-    d->f296 = s->f296;
-    d->f300 = s->f300;
-    d->f304 = s->f304;
-    d->f308 = s->f308;
-    d->f312 = s->f312;
-    d->f316 = s->f316;
-    d->f320 = s->f320;
-    d->f324 = s->f324;
-    d->f328 = s->f328;
-    d->f332 = s->f332;
-    d->f336 = s->f336;
-    d->f340 = s->f340;
-}
+void func_00324bc0(Obj324bc0* d, Obj324bc0* s);  // 0x00324bc0: definition moved into src/anon/unit_00324808.cpp
 
 // --------------------
 // dk::Camera::draw2Camera: lazily construct the two full-screen fade sprites, then draw them.
@@ -6479,15 +6415,7 @@ union G31a6d0 { u8* p; u32 u; };
 extern G31a6d0 D_00347f80_31a6d0 asm("D_00347f80");
 extern u8 D_00347d70_31a6d0[] asm("D_00347d70");
 extern u8 D_00347f98_31a6d0[] asm("D_00347f98");
-void func_0031a6d0(O31a6d0* o)
-{
-    o->vt = (u32)D_00347d70_31a6d0;
-    DelA31a6d0(&o->sa);
-    DelB31a6d0(&o->sb);
-    o->vt = (u32)D_00347f98_31a6d0;
-    AL31a6d0* al = *(AL31a6d0**)(D_00347f80_31a6d0.p + 20);
-    al->vt->free(al, o);
-}
+void func_0031a6d0(O31a6d0* o);  // 0x0031a6d0: definition moved into src/anon/unit_003197d0.cpp
 
 // --------------------
 struct E31c450;
@@ -6523,17 +6451,7 @@ static inline __attribute__((always_inline)) void DelB31c450(O31c450* o)
         }
     }
 }
-void func_0031c450(O31c450* o)
-{
-    o->vt = (u32)D_0034a5b0_31c450;
-    func_00239870(o->m1840);
-    DelA31c450(o);
-    DelB31c450(o);
-    o->vt2 = (u32)D_00347e80_31c450;
-    func_002361d0(o->m50);
-    o->vt2 = (u32)D_00347f98_31c450;
-    o->vt = (u32)D_00347f98_31c450;
-}
+void func_0031c450(O31c450* o);  // 0x0031c450: definition moved into src/anon/unit_0031b9e0.cpp
 
 // --------------------
 struct F11c148 { u64 lo : 51; u64 b51 : 1; u64 b52 : 1; u64 b53 : 1; u64 hi : 10; };
@@ -6626,19 +6544,7 @@ static inline __attribute__((always_inline)) void DelA322c98(O322c98* o)
         }
     }
 }
-void func_00322c98(O322c98* o)
-{
-    o->vt = (u32)D_0035eb60_322c98;
-    func_0023d7c8(o);
-    o->v3 = (u32)D_00348698_322c98;
-    o->v2 = (u32)D_00348698_322c98;
-    o->v1 = (u32)D_00348698_322c98;
-    DelB322c98(o);
-    DelA322c98(o);
-    o->vt = (u32)D_00347f98_322c98;
-    AO322c98* al = D_00347f80_322c98.h->al;
-    al->vt->free(al, o);
-}
+void func_00322c98(O322c98* o);  // 0x00322c98: definition moved into src/anon/unit_00321728.cpp
 
 // --------------------
 u8* func_002a9d68_2ab180() asm("func_002a9d68");
@@ -6755,16 +6661,7 @@ static inline __attribute__((always_inline)) void name(M* m) \
 DEL31ca70(DelC31ca70, MB31ca70, 4, func_0031c9f8)
 DEL31ca70(DelB31ca70, MB31ca70, 4, func_0031c980)
 DEL31ca70(DelA31ca70, MA31ca70, 16, func_0031c8e8)
-void func_0031ca70(O31ca70* o)
-{
-    o->vt = (u32)D_0034a700_31ca70;
-    DelC31ca70(&o->c);
-    DelB31ca70(&o->b);
-    DelA31ca70(&o->a);
-    o->vt = (u32)D_00347f98_31ca70;
-    AO31ca70* al = D_00347f80_31ca70.h->al;
-    al->vt->free(al, o);
-}
+void func_0031ca70(O31ca70* o);  // 0x0031ca70: definition moved into src/anon/unit_0031b9e0.cpp
 
 // --------------------
 u8* func_00177860_19e758(u8*) asm("func_00177860");
@@ -6823,14 +6720,7 @@ static inline __attribute__((always_inline)) void DelM31db80(M31db80* m)
     m->vt = (u32)D_00349b40_31db80;
     func_0031bb08(m);
 }
-void func_0031db80(O31db80* o)
-{
-    o->vt = (u32)D_0034af08_31db80;
-    DelM31db80(&o->m);
-    o->vt = (u32)D_00347f98_31db80;
-    AO31db80* al = D_00347f80_31db80.h->al;
-    al->vt->free(al, o);
-}
+void func_0031db80(O31db80* o);  // 0x0031db80: definition moved into src/anon/unit_0031b9e0.cpp
 
 // --------------------
 struct AVt322300 { void* alloc; void (*free)(void* self, void* p); };
@@ -6850,29 +6740,7 @@ struct EB322300 { EBVt322300* vt; u8 pad[844]; };
 struct X322300 { u32 vt; u8 pad[20]; u8 y[16]; };
 struct O322300 { u32 vt; u8 pad[20]; u8 m24[416]; EA322300 a[1]; u8 p2[12]; EB322300 b[2]; X322300 x; };
 void func_0031a840(O322300*);
-void func_00322300(O322300* o)
-{
-    o->vt = (u32)D_0035e1b8_322300;
-    X322300* x = &o->x;
-    x->vt = (u32)D_00347e60_322300;
-    func_00239870(x->y);
-    x->vt = (u32)D_00347f98_322300;
-    if ((u8*)o + 864 != 0) {
-        EB322300* p = o->b + 2;
-        EB322300* b = o->b;
-        for (;;) { if (b == p) break; --p; p->vt->dtor(p); }
-    }
-    if ((u8*)o + 440 != 0) {
-        EA322300* p = o->a + 1;
-        EA322300* b = o->a;
-        for (;;) { if (b == p) break; --p; p->vt->dtor(p); }
-    }
-    o->vt = (u32)D_00347e60_322300;
-    func_00239870(o->m24);
-    func_0031a840(o);
-    AO322300* al = D_00347f80_322300.h->al;
-    al->vt->free(al, o);
-}
+void func_00322300(O322300* o);  // 0x00322300: definition moved into src/anon/unit_00321728.cpp
 
 // --------------------
 u8* func_002a9d68_2ab9c8() asm("func_002a9d68");

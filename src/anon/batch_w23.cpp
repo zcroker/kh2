@@ -199,16 +199,9 @@ typedef union { f32 value; u32 word; } ieee_float_shape_type;
 f32 copysignf(f32 x, f32 y);  // 0x002fb900: definition moved into src/newlib/libm/sf_copysign.c
 
 void func_001acd78(void*);
-void func_0031fd78(void* p) {
-    func_001acd78(p);
-    (*(void (**)(void*))((*(u8**)p) + 32))(p);
-}
+void func_0031fd78(void* p);  // 0x0031fd78: definition moved into src/anon/unit_0031f2f8.cpp
 
 extern u32 D_00362a20;
 void func_002d0f38(void*);
-void func_00325550(void** p) {
-    *p = &D_00362a20;
-    func_002d0f38(p);
-    func_00105110(p);
-}
+void func_00325550(void** p);  // 0x00325550: definition moved into src/anon/unit_00324808.cpp
 }

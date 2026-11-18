@@ -248,27 +248,11 @@ void func_002ed508(u8* p, u8* q, u32 c, u32 d, u32 e);  // 0x002ed508: definitio
 // Region code: 'US', 'JP' or 'EU'.
 // 002efbb8: moved to src/anon/unit_002efbb8.cpp
 
-void func_0031afa8(void** p) {
-    *p = D_003485b0;
-    func_00239870((u8*)p + 436);
-    *p = D_00347e60;
-    func_00239870((u8*)p + 24);
-    *p = D_00347f98;
-}
+void func_0031afa8(void** p);  // 0x0031afa8: definition moved into src/anon/unit_003197d0.cpp
 
-void func_0031d978(void** p) {
-    *p = D_00347f98;
-    void** o = (void**)D_00347f80[5];
-    ((void (*)(void*, void*))((void**)*o)[1])(o, p);
-}
+void func_0031d978(void** p);  // 0x0031d978: definition moved into src/anon/unit_0031b9e0.cpp
 
-void func_00324b08(void** p) {
-    *p = D_0034ee08;
-    func_0019f9a8((u8*)p + 2568);  // array8_free_slots
-    func_001c0248((u8*)p + 2640);
-    func_00319fb0(p);  // big_obj_dtor
-    func_00105110(p);
-}
+void func_00324b08(void** p);  // 0x00324b08: definition moved into src/anon/unit_00324808.cpp
 }
 
 void u_tail0_0014d008(void);  // 0x0014d008: definition moved into src/anon/unit_0014c7f0.cpp

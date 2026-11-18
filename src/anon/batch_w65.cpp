@@ -260,20 +260,7 @@ extern u8 D_00347dd0[];
 extern u8 D_00347e80[];
 void func_00239700(void*);
 void func_002361a0(void*);
-void func_0031a350(u32* p) {
-    p[0] = (u32)D_00347f98;
-    func_0031a838(p + 3);
-    p[0] = (u32)D_00347e60;
-    func_00239700(p + 6);
-    p[102] = 0;
-    p[115] = 0;
-    p[0] = (u32)D_00347dd0;
-    p[112] = (u32)D_00347e80;
-    func_002361a0(p + 120);
-    p[224] = (u32)D_00347e60;
-    p[227] = 0;
-    func_00239700(p + 230);
-}
+void func_0031a350(u32* p);  // 0x0031a350: definition moved into src/anon/unit_003197d0.cpp
 
 u32 func_0016bc20(u32, s32, s32);
 Vr func_0016bda8(u32);

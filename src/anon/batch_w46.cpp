@@ -306,13 +306,6 @@ void func_001a9350(u8*);
 // ---- 0031e520
 s32 func_002ee6d8(u8*);
 void func_002edfd8(VObj*, u8*);  // list_unlink_and_clear
-s32 func_0031e520(VObj* p) {
-    if (func_002ee6d8((u8*)p + 36)) {
-        func_002edfd8(p, (u8*)p + 36);  // list_unlink_and_clear
-        if (p) p->vt[1](p);
-        return 0;
-    }
-    return 1;
-}
+s32 func_0031e520(VObj* p);  // 0x0031e520: definition moved into src/anon/unit_0031e268.cpp
 
 }

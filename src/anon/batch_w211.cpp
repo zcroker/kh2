@@ -18,13 +18,5 @@ void wtarget_0020e9f8(f32 a, f32 b);  // 0x0020e9f8: definition moved into src/a
 
 s32 func_0028b160(W211S28* s, u32 key);  // 0x0028b160: definition moved into src/anon/unit_00288b00.cpp
 
-void func_0031e268(W211H* h) {
-    h = (W211H*)((u8*)h + 4);
-    s32 i = 7;
-    do {
-        *(u32*)((u8*)h - 4) = 0;
-        u32 k = 128; h->c0 = k; h->c1 = k; h->c2 = k; h->c3 = k;
-        h->f = 1.0f; h->z = 0; h++; i--;
-    } while (i != -1);
-}
+void func_0031e268(W211H* h);  // 0x0031e268: definition moved into src/anon/unit_0031e268.cpp
 }

@@ -24,15 +24,5 @@ struct Rec_w2372 {
 
 extern "C" {
 // Copies one 132-byte record: six quadwords, then the scalar tail group by group.
-void func_00319e90(Rec_w2372* d, Rec_w2372* s) {
-    d->q0 = s->q0; d->q1 = s->q1; d->q2 = s->q2; d->q3 = s->q3; d->q4 = s->q4; d->q5 = s->q5;
-    {
-        u16 h0 = R96(s)->h0, h1 = R96(s)->h1, h2 = R96(s)->h2, h3 = R96(s)->h3;
-        f32 f0 = R96(s)->f0, f1 = R96(s)->f1;
-        R96(d)->f0 = f0; R96(d)->h0 = h0; R96(d)->h1 = h1; R96(d)->h2 = h2; R96(d)->h3 = h3; R96(d)->f1 = f1;
-    }
-    *(u32*)((u8*)d + 112) = *(u32*)((u8*)s + 112);
-    *(u32*)((u8*)d + 116) = *(u32*)((u8*)s + 116);
-    R120(d)->a = R120(s)->a; R120(d)->b = R120(s)->b; R120(d)->c = R120(s)->c;
-}
+void func_00319e90(Rec_w2372* d, Rec_w2372* s);  // 0x00319e90: definition moved into src/anon/unit_003197d0.cpp
 }

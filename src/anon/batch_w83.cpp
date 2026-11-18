@@ -377,58 +377,13 @@ extern RegPtr D_00347f80;
 void func_00239870(void*);
 void func_002361d0(void*);
 
-void func_0031c368(u8* p) {
-    *(u32*)p = (u32)D_0034a5b0;
-    func_00239870(p + 6208);
-    if (p + 4576) {
-        E408* e = (E408*)(p + 6208);
-        for (;;) {
-            if ((E408*)(p + 4576) == e) break;
-            --e;
-            e->f12();
-        }
-    }
-    if (p + 496) {
-        E408* e = (E408*)(p + 4576);
-        for (;;) {
-            if ((E408*)(p + 496) == e) break;
-            --e;
-            e->f12();
-        }
-    }
-    *(u32*)(p + 48) = (u32)D_00347e80;
-    func_002361d0(p + 80);
-    *(u32*)(p + 48) = (u32)D_00347f98;
-    *(u32*)p = (u32)D_00347f98;
-    (*(VReg**)(D_00347f80.p + 20))->f4(p);
-}
+void func_0031c368(u8* p);  // 0x0031c368: definition moved into src/anon/unit_0031b9e0.cpp
 
 extern u32 D_0034a848[];
 extern u32 D_00348608[];
 void func_0031cec0(void*);
 
-void func_0031d0f8(u8* p) {
-    *(u32*)p = (u32)D_0034a848;
-    if (p + 2576) {
-        E592* e = (E592*)(p + 5536);
-        for (;;) {
-            if ((E592*)(p + 2576) == e) break;
-            --e;
-            e->f12();
-        }
-    }
-    if (p + 916) {
-        E412* e = (E412*)(p + 2564);
-        for (;;) {
-            if ((E412*)(p + 916) == e) break;
-            --e;
-            e->f12();
-        }
-    }
-    *(u32*)p = (u32)D_00348608;
-    func_0031cec0(p + 64);
-    *(u32*)p = (u32)D_00347f98;
-}
+void func_0031d0f8(u8* p);  // 0x0031d0f8: definition moved into src/anon/unit_0031b9e0.cpp
 
 extern u32 D_00350ab0[];
 extern u32 D_00350bb0[];
@@ -437,33 +392,6 @@ void func_00239848(void*);  // set_vtbl_36eb28_then_call
 void func_001ac5b8(void*);
 
 // Deleting destructor.
-void func_0031fb90(u8* p) {
-    *(u32*)p = (u32)D_00350ab0;
-    if (p + 3280) {
-        E344* e = (E344*)(p + 4656);
-        for (;;) {
-            if ((E344*)(p + 3280) == e) break;
-            --e;
-            e->f0();
-        }
-    }
-    func_00239870(p + 2936);
-    *(u32*)p = (u32)D_00350bb0;
-    if (p + 1544) {
-        E344* e = (E344*)(p + 2920);
-        for (;;) {
-            if ((E344*)(p + 1544) == e) break;
-            --e;
-            e->f0();
-        }
-    }
-    func_00239870(p + 1200);
-    func_00239870(p + 848);
-    func_00239870(p + 484);
-    *(u32*)(p + 132) = (u32)D_0034e8a8;
-    func_00239848(p + 132);  // set_vtbl_36eb28_then_call
-    func_001ac5b8(p);
-    func_00105110(p);
-}
+void func_0031fb90(u8* p);  // 0x0031fb90: definition moved into src/anon/unit_0031f2f8.cpp
 
 }

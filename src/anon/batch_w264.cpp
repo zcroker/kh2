@@ -30,29 +30,7 @@ extern u8 D_01d9e360;
 // reproduce the original's non-strict-aliasing ordering.
 
 // Member-wise copy (skips the word at 0); the 16-byte rows copy as alias-set-0 block moves.
-W264Blk* func_0031a068(W264Blk* d, W264Blk* s)
-{
-    d->a = s->a;
-    d->b = s->b;
-    d->c = s->c;
-    __builtin_memcpy(&d->m.q[0], &s->m.q[0], 16);
-    __builtin_memcpy(&d->m.q[1], &s->m.q[1], 16);
-    __builtin_memcpy(&d->m.q[2], &s->m.q[2], 16);
-    __builtin_memcpy(&d->m.q[3], &s->m.q[3], 16);
-    __builtin_memcpy(&d->m.q[4], &s->m.q[4], 16);
-    __builtin_memcpy(&d->m.q[5], &s->m.q[5], 16);
-    __builtin_memcpy(&d->m.q[6], &s->m.q[6], 16);
-    __builtin_memcpy(&d->m.q[7], &s->m.q[7], 16);
-    __builtin_memcpy(&d->m.q[8], &s->m.q[8], 16);
-    __builtin_memcpy(&d->m.q[9], &s->m.q[9], 16);
-    __builtin_memcpy(&d->m.q[10], &s->m.q[10], 16);
-    __builtin_memcpy(&d->m.q[11], &s->m.q[11], 16);
-    d->n = s->n;
-    d->e = s->e;
-    d->f = s->f;
-    d->g = s->g;
-    return d;
-}
+W264Blk* func_0031a068(W264Blk* d, W264Blk* s);  // 0x0031a068: definition moved into src/anon/unit_003197d0.cpp
 
 f32 func_001eeb90(u8);
 s8 func_001eeb60(s8, f32);  // fix8_mul_sub

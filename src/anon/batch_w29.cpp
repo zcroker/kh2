@@ -200,11 +200,5 @@ u32 func_002ffc08(u32 a, u32* p);  // 0x002ffc08: definition moved into src/newl
 // Soft-float double binary op (libgcc dp-bit style): unpack both, combine, pack.
 u64 func_00314190(u64 a, u64 b);  // 0x00314190: definition moved into src/libgcc/_div_df.c
 
-void func_00320290(u8* p) {
-    *(void**)p = D_0034ee08;
-    func_0019f9a8(p + 2568);  // array8_free_slots
-    func_001c0248(p + 2640);
-    func_00319fb0(p);  // big_obj_dtor
-    func_00105110(p);
-}
+void func_00320290(u8* p);  // 0x00320290: definition moved into src/anon/unit_0031f2f8.cpp
 }

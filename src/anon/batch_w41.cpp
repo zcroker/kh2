@@ -289,43 +289,15 @@ struct W41VS { void (**vt)(W41VS*, u8*); };
 struct W41SysS { u8 pad[0x14]; W41VS* s; };
 extern void* D_00347f80;
 void func_002361d0(u8*);
-void func_0031ab78(u8* p) {
-    *(void**)p = D_00347e80;
-    func_002361d0(p + 32);
-    *(void**)p = D_00347f98;
-    W41VS* s = ((W41SysS*)D_00347f80)->s;
-    s->vt[1](s, p);
-}
+void func_0031ab78(u8* p);  // 0x0031ab78: definition moved into src/anon/unit_003197d0.cpp
 
 extern void* D_00347e60[];
 extern void* D_0034a440[];
 void func_0031a838(u8*);
 void func_00239700(u8*);
 void func_0014b920(u8*);
-void func_0031be70(u8* p) {
-    *(void**)p = D_00347f98;
-    func_0031a838(p + 12);
-    *(void**)p = D_00347e60;
-    func_00239700(p + 24);
-    *(void**)p = D_0034a440;
-    *(u32*)(p + 408) = 0;
-    func_0014b920(p + 448);
-    func_0014b920(p + 480);
-}
+void func_0031be70(u8* p);  // 0x0031be70: definition moved into src/anon/unit_0031b9e0.cpp
 
-void func_0031e208(u32, u8* p, u32* flags, u32 v, u8* src) {  // gpr_field_update
-    if (*(u64*)(p + 112) & 0x78) return;
-    if (*flags & 0x800) {
-        u8* d = p + 64;
-        *(u16*)(p + 98) = v;
-        if (d != src) asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(d), "r"(src) : "$8", "memory");
-        asm volatile("" ::: "memory");
-    }
-    if (*flags & 0x1000) {
-        u8* d = p + 80;
-        *(u16*)(p + 100) = v;
-        if (d != src) asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(d), "r"(src) : "$8", "memory");
-    }
-}
+void func_0031e208(u32, u8* p, u32* flags, u32 v, u8* src);  // 0x0031e208: definition moved into src/anon/unit_0031b9e0.cpp
 
 }

@@ -249,31 +249,7 @@ extern u8 D_0034a568[];
 void func_00239870(void*);
 void func_002361d0(void*);
 void func_0031a840(void*);
-void func_0031a3d8(u8* p)
-{
-    NoTail g;
-    *(void**)p = D_00347dd0;
-    *(void**)(p + 896) = D_00347e60;
-    func_00239870(p + 920);
-    *(void**)(p + 896) = D_00347f98;
-    *(void**)(p + 448) = D_00347e80;
-    func_002361d0(p + 480);
-    *(void**)(p + 448) = D_00347f98;
-    *(void**)p = D_00347e60;
-    func_00239870(p + 24);
-    func_0031a840(p);
-}
-void func_0031c248(u8* p)
-{
-    *(void**)p = D_0034a568;
-    *(void**)(p + 560) = D_00347e60;
-    func_00239870(p + 584);
-    u8* b = p + 48;
-    *(void**)(p + 560) = D_00347f98;
-    *(void**)b = D_00347e60;
-    func_00239870(p + 72);
-    func_0031a840(b);
-    *(void**)p = D_00347f98;
-}
+void func_0031a3d8(u8* p);  // 0x0031a3d8: definition moved into src/anon/unit_003197d0.cpp
+void func_0031c248(u8* p);  // 0x0031c248: definition moved into src/anon/unit_0031b9e0.cpp
 
 }

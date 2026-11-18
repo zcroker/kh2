@@ -166,22 +166,11 @@ u32 func_002d5dd0(u8* p);  // 0x002d5dd0: definition moved into src/anon/unit_00
 
 // 002f09d8: moved to src/naka/libkn/trapfunctions.cpp
 
-void func_0031e630(void** p) {
-    *p = D_0034e8a8;
-    func_00239848(p);  // set_vtbl_36eb28_then_call
-    func_00106420(p);
-}
+void func_0031e630(void** p);  // 0x0031e630: definition moved into src/anon/unit_0031e268.cpp
 
-void func_00320768(u8* p) {
-    *(void**)p = D_00351228;
-    func_001d48b0(p + 0x9c0);
-    func_00106420(p);
-}
+void func_00320768(u8* p);  // 0x00320768: definition moved into src/anon/unit_00320528.cpp
 
-u32 func_00322ba8(u8* p) {
-    func_00108698(p + 56);
-    return func_001ddd10(p + 192);
-}
+u32 func_00322ba8(u8* p);  // 0x00322ba8: definition moved into src/anon/unit_00321728.cpp
 
 void func_0022d7e8(void);  // 0x0022d7e8: definition moved into src/anon/unit_0022d358.cpp
 }

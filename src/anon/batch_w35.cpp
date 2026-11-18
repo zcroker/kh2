@@ -184,31 +184,16 @@ extern u8 D_00347e60[];
 extern void* D_00347f98[];
 void func_002361d0(void*);
 void func_00239870(void*);
-void func_0031cec0(u8* p) {
-    *(void**)p = D_0034a800;
-    func_002361d0(p + 416);
-    *(void**)p = D_00347e60;
-    func_00239870(p + 24);
-    *(void***)p = D_00347f98;
-}
+void func_0031cec0(u8* p);  // 0x0031cec0: definition moved into src/anon/unit_0031b9e0.cpp
 
 extern void*** D_00347f80;
 typedef void (*VFn2)(void*, void*);
-void func_00322e18(u8* p) {
-    *(void***)p = D_00347f98;
-    void** o = (void**)D_00347f80[5];
-    ((VFn2)((void**)*o)[1])(o, p);
-}
+void func_00322e18(u8* p);  // 0x00322e18: definition moved into src/anon/unit_00321728.cpp
 
 extern u8 D_00363880[];
 void func_0023c098(void*);  // set_vtbl_36eae8_then_call
 void func_002369f0(void*);  // set_vtbl_36eac8_then_call
-void func_00325aa0(u8* p) {
-    *(void**)p = D_00363880;
-    func_0023c098(p + 64);  // set_vtbl_36eae8_then_call
-    func_002369f0(p + 40);  // set_vtbl_36eac8_then_call
-    *(void**)p = D_003637e0;
-}
+void func_00325aa0(u8* p);  // 0x00325aa0: definition moved into src/anon/unit_00324808.cpp
 }
 
 // Sets bit `i` in the bitset returned by func_002859a0 (if not already set).

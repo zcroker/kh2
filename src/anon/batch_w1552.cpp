@@ -40,17 +40,7 @@ void func_0019f9a8(void*);
 void func_001c0248(void*);
 void func_00319fb0(void*);
 void AREA_Free_25158(void*) asm("_ZN4AREA4FreeEPv");
-void func_00325158(u8* p) {
-    *(u32**)p = &D_00361d00;
-    ((H_25158*)(p + 0xb70))->~H_25158();
-    *(u32**)p = &D_0034e8b8;
-    func_00319f88(p + 0xb08);
-    *(u32**)p = &D_0034ee08;
-    func_0019f9a8(p + 0xa08);
-    func_001c0248(p + 0xa50);
-    func_00319fb0(p);
-    AREA_Free_25158(p);
-}
+void func_00325158(u8* p);  // 0x00325158: definition moved into src/anon/unit_00324808.cpp
 
 f32 func_0017d130(f32);
 void func_0017c400(u8*, s32);

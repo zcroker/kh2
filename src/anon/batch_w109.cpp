@@ -118,18 +118,11 @@ static inline __attribute__((always_inline)) void Body31d290(u8* p) {
     *(void***)p = D_00347f98;
 }
 // Destructor: resets vtables and destroys the member object arrays (last to first).
-void func_0031d290(u8* p) {
-    Body31d290(p);
-}
+void func_0031d290(u8* p);  // 0x0031d290: definition moved into src/anon/unit_0031b9e0.cpp
 typedef void (*Free31d290)(u8*, u8*);
 extern u8* D_00347f80;
 // Deleting destructor: same, then frees through the global allocator.
-void func_0031d490(u8* p) {
-    Body31d290(p);
-    asm volatile("" ::: "memory");  // keeps the final vtable store ahead of the allocator lookup
-    u8* a = *(u8**)(D_00347f80 + 20);
-    (*(Free31d290*)(*(u8**)a + 4))(a, p);
-}
+void func_0031d490(u8* p);  // 0x0031d490: definition moved into src/anon/unit_0031b9e0.cpp
 
 // ---- f12.cpp
 struct List27ff00 {

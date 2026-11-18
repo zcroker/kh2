@@ -92,17 +92,7 @@ static inline void CtorC2(u8* q) {
 }
 extern "C" {
 // Constructs the member objects (vtable chain A -> B -> C) of a 6.5 KB container.
-void func_00323fd8(u8* p) {
-    CtorC(p);
-    CtorC(p + 436);
-    CtorC(p + 872);
-    CtorC(p + 1308);
-    CtorArr(p + 1744);
-    u8* q = p + 3924;
-    for (s32 i = 4; i != -1; i--, q += 436) CtorC2(q);
-    CtorB(p + 6104);
-    CtorB(p + 6512);
-}
+void func_00323fd8(u8* p);  // 0x00323fd8: definition moved into src/anon/unit_00323978.cpp
 }
 
 typedef unsigned int u128 __attribute__((mode(TI)));

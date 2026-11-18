@@ -288,29 +288,7 @@ Qt* func_002e46d0(Qt* o, Qt* a, Qt* b);  // 0x002e46d0: definition moved into sr
 extern void* D_0034a5b0[];
 extern void* D_00347e80[];
 void func_002361a0(void*);
-void func_0031bd98(u8* p) {
-    *(u32*)p = (u32)D_0034a5b0;
-    *(u32*)(p + 48) = (u32)D_00347e80;
-    *(u32*)(p + 12) = 0;
-    *(u32*)(p + 60) = 0;
-    func_002361a0(p + 80);
-    u8* e = p + 496;
-    for (s32 i = 9; i != -1; i--) {
-        *(u32*)(e + 12) = 0;
-        *(void**)e = D_00347e60;
-        func_00239700(e + 24);
-        e += 408;
-    }
-    e = p + 4576;
-    for (s32 i = 3; i != -1; i--) {
-        *(u32*)(e + 12) = 0;
-        *(void**)e = D_00347e60;
-        func_00239700(e + 24);
-        e += 408;
-    }
-    func_00239700(p + 6208);
-    *(u32*)(p + 6552) = 0;
-}
+void func_0031bd98(u8* p);  // 0x0031bd98: definition moved into src/anon/unit_0031b9e0.cpp
 
 // Destructor: virtual-destroy two 4-element member arrays, then members and base.
 struct E344 { VFn* vt; u8 pad[340]; };
@@ -320,36 +298,7 @@ extern void* D_0034e8a8[];
 void func_00239870(void*);
 void func_00239848(void*);  // set_vtbl_36eb28_then_call
 void func_001ac5b8(void*);
-void func_0031fc78(u8* p) {
-    NoTail nt;
-    *(void**)p = D_00350ab0;
-    if (p + 3280 != 0) {
-        E344* q = (E344*)(p + 4656);
-        E344* b = (E344*)(p + 3280);
-        while (1) {
-            if (b == q) break;
-            --q;
-            q->vt[0](q);
-        }
-    }
-    func_00239870(p + 2936);
-    *(void**)p = D_00350bb0;
-    if (p + 1544 != 0) {
-        E344* q = (E344*)(p + 2920);
-        E344* b = (E344*)(p + 1544);
-        while (1) {
-            if (b == q) break;
-            --q;
-            q->vt[0](q);
-        }
-    }
-    func_00239870(p + 1200);
-    func_00239870(p + 848);
-    func_00239870(p + 484);
-    *(void**)(p + 132) = D_0034e8a8;
-    func_00239848(p + 132);  // set_vtbl_36eb28_then_call
-    func_001ac5b8(p);
-}
+void func_0031fc78(u8* p);  // 0x0031fc78: definition moved into src/anon/unit_0031f2f8.cpp
 
 // Adds each id from the list that is not present yet and passes the mask.
 u16 func_002642a8(u16);

@@ -250,24 +250,5 @@ extern "C" {
 struct F112 { u32 b0 : 1; u32 b1 : 2; u32 b3 : 4; u32 rest : 25; };
 struct F116 { u32 c0 : 1; u32 c1 : 1; u32 c2 : 1; u32 rest : 29; };
 // Resets state flags and clears six vectors to (0,0,0,1) with VU0 vf0.
-void func_0031b9e0(u8* p) {
-    F112* a = (F112*)(p + 112);
-    F116* b = (F116*)(p + 116);
-    *(u32*)(p + 104) = 0;
-    *(u32*)(p + 108) = 0;
-    *(u32*)(p + 120) = 0;
-    *(u32*)(p + 124) = 0;
-    *(u32*)(p + 128) = 0;
-    a->b0 = 0;
-    a->b1 = 2;
-    a->b3 = 6;
-    *(s16*)(p + 96) = -1;
-    *(s16*)(p + 98) = -1;
-    *(s16*)(p + 100) = -1;
-    b->c0 = 0;
-    b->c1 = 1;
-    b->c2 = 0;
-    asm volatile(".set noreorder\n\tsqc2 $vf0, 0(%0)\n\tsqc2 $vf0, 0(%1)\n\tsqc2 $vf0, 0(%2)\n\tsqc2 $vf0, 0(%3)\n\tsqc2 $vf0, 0(%4)\n\tsqc2 $vf0, 0(%5)\n\t.set reorder"
-        : : "r"(p), "r"(p + 16), "r"(p + 32), "r"(p + 48), "r"(p + 64), "r"(p + 80) : "memory");
-}
+void func_0031b9e0(u8* p);  // 0x0031b9e0: definition moved into src/anon/unit_0031b9e0.cpp
 }

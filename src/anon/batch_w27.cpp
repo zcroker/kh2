@@ -216,20 +216,8 @@ extern u32 D_00347f98;
 void func_0023c098(void*);  // set_vtbl_36eae8_then_call
 void func_002369f0(void*);  // set_vtbl_36eac8_then_call
 void func_0023ee68(void*);
-void func_0031cdd8(u8* p) {
-    *(void**)p = &D_0035eb98;
-    func_0023c098(p + 48);  // set_vtbl_36eae8_then_call
-    func_002369f0(p + 24);  // set_vtbl_36eac8_then_call
-    *(void**)p = &D_00347f98;
-    func_0023ee68(p);
-}
+void func_0031cdd8(u8* p);  // 0x0031cdd8: definition moved into src/anon/unit_0031b9e0.cpp
 
-void func_0031f340(u8* p) {
-    *(void**)p = &D_0034ee08;
-    func_0019f9a8(p + 2568);  // array8_free_slots
-    func_001c0248(p + 2640);
-    func_00319fb0(p);  // big_obj_dtor
-    func_00105110(p);
-}
+void func_0031f340(u8* p);  // 0x0031f340: definition moved into src/anon/unit_0031f2f8.cpp
 
 }

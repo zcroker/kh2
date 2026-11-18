@@ -166,9 +166,7 @@ void iEnableIntc(u32 n);  // 0x003062a0: definition moved into src/sdk/libkernl_
 u32 func_00308200(s32 i);  // 0x00308200: definition moved into src/sdk/libkernl_003081d0.c
 
 typedef void (*VFn1)(void*);
-void func_00322968(void** o) {
-    ((VFn1*)*o)[5](o);
-}
+void func_00322968(void** o);  // 0x00322968: definition moved into src/anon/unit_00321728.cpp
 }
 
 // ---- C++ symbols ----

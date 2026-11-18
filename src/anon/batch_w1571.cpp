@@ -9,14 +9,7 @@ static inline void c3237e0_A(u8* p) { *(void**)p = D_00347f98; func_0031a838(p +
 static inline void cB(u8* p) { c3237e0_A(p); *(void**)p = D_00347e60; func_00239700(p + 0x18); }
 static inline void cC(u8* p) { cB(p); *(void**)p = D_00347e40; *(u32*)(p + 0x198) = 0; }
 static inline void cD(u8* p) { *(u32*)(p + 0xc) = 0; *(void**)p = D_00347e60; func_00239700(p + 0x18); }
-void func_003237e0(u8* p) {
-    cC(p);
-    cD(p + 0x1b4);
-    { u8* q = p + 0x34c; s32 i = 1; do { cD(q); i--; q += 0x198; } while (i != -1); }
-    { u8* q = p + 0x67c; s32 i = 1; do { cD(q); i--; q += 0x198; } while (i != -1); }
-    { u8* q = p + 0x9ac; s32 i = 2; do { cC(q); i--; q += 0x1b4; } while (i != -1); }
-    { u8* q = p + 0xec8; s32 i = 2; do { cC(q); i--; q += 0x1b4; } while (i != -1); }
-}
+void func_003237e0(u8* p);  // 0x003237e0: definition moved into src/anon/unit_00321728.cpp
 // Static init/destroy (priority 0xffff); the empty destructor loop gets the r5900 short-loop nop padding.
 void func_0031e2b8(void*);
 struct V4f1c6c78 { f32 x, y, z, w; };

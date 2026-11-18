@@ -194,31 +194,16 @@ void func_002f1a80(void);  // 0x002f1a80: definition moved into src/anon/unit_00
 extern u32 D_00347e60;
 void func_00239870(void*);
 u8 func_0031a840(void*);
-s32 func_0031a508(u8* p) {
-    *(void**)p = &D_00347e60;
-    func_00239870(p + 24);
-    return func_0031a840(p);
-}
+s32 func_0031a508(u8* p);  // 0x0031a508: definition moved into src/anon/unit_003197d0.cpp
 
-void func_0031f940(u8* p) {
-    void* o = *(void**)(p + 24);
-    (*(VFn*)((*(u8**)o) + 16))(o);
-}
+void func_0031f940(u8* p);  // 0x0031f940: definition moved into src/anon/unit_0031f2f8.cpp
 
 extern u32 D_00351100;
 void func_0031fec0(void*);
-void func_0031fe88(void** p) {
-    *p = &D_00351100;
-    func_0031fec0(p);
-    func_00105110(p);
-}
+void func_0031fe88(void** p);  // 0x0031fe88: definition moved into src/anon/unit_0031f2f8.cpp
 
 extern u32 D_00362cc8;
 void func_002dea80(void*);  // set_vtbl_362d20
-void func_003255b8(void** p) {
-    *p = &D_00362cc8;
-    func_002dea80(p);  // set_vtbl_362d20
-    func_00106420(p);
-}
+void func_003255b8(void** p);  // 0x003255b8: definition moved into src/anon/unit_00324808.cpp
 
 }

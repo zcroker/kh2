@@ -202,25 +202,8 @@ void sceVu0UnitMatrix(void* m) {  // vu_store_w_splat
 }
 
 // 64-byte (4 quadword) copy.
-void func_0031bae0(void* d, void* s) {  // memcpy64
-    asm volatile(
-        ".set noreorder\n\t"
-        "lq $8, 0(%1)\n\t"
-        "lq $9, 16(%1)\n\t"
-        "lq $10, 32(%1)\n\t"
-        "lq $11, 48(%1)\n\t"
-        "sq $8, 0(%0)\n\t"
-        "sq $9, 16(%0)\n\t"
-        "sq $10, 32(%0)\n\t"
-        "sq $11, 48(%0)\n\t"
-        ".set reorder"
-        : : "r"(d), "r"(s) : "$8", "$9", "$10", "$11", "memory");
-}
+void func_0031bae0(void* d, void* s);  // 0x0031bae0: definition moved into src/anon/unit_0031b9e0.cpp
 
-void func_0031e0b8(u8* p) {
-    *(void**)(p + 80) = &D_00348698;
-    *(void**)p = &D_00348d58;
-    func_00106420(p);
-}
+void func_0031e0b8(u8* p);  // 0x0031e0b8: definition moved into src/anon/unit_0031b9e0.cpp
 
 }

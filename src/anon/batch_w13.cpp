@@ -195,22 +195,10 @@ u32 func_002f1898(void);  // 0x002f1898: definition moved into src/anon/unit_002
 union DblBits { double d; u64 u; };
 s32 func_00304db0(double d);  // 0x00304db0: definition moved into src/newlib/libc/s_isnan.c
 
-u8 func_0031c8e8(void** p) {
-    *p = &D_00347e60;
-    func_00239870((u8*)p + 24);
-    return func_0031a840(p);
-}
+u8 func_0031c8e8(void** p);  // 0x0031c8e8: definition moved into src/anon/unit_0031b9e0.cpp
 
-void func_00320050(void** p) {
-    *p = &D_00350e60;
-    func_001b0188(p);
-    func_00106420(p);
-}
+void func_00320050(void** p);  // 0x00320050: definition moved into src/anon/unit_0031f2f8.cpp
 
-void func_00325678(void** p) {
-    *p = &D_00362c18;
-    func_002dea80(p);  // set_vtbl_362d20
-    func_00106420(p);
-}
+void func_00325678(void** p);  // 0x00325678: definition moved into src/anon/unit_00324808.cpp
 
 }

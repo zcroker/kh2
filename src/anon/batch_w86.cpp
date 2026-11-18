@@ -702,30 +702,7 @@ static inline void DestroyArr(Elem* a, s32 n)
         }
     }
 }
-void func_0031d030(Obj* o)
-{
-    o->vt = (u32)D_0034a820;
-    if (o->b) {
-        Elem* e = o->b + 32;
-    nb:
-        if (o->b != e) {
-            --e;
-            e->vt[3](e);
-            goto nb;
-        }
-    }
-    if (o->a) {
-        Elem* e = o->a + 6;
-    na:
-        if (o->a != e) {
-            --e;
-            e->vt[3](e);
-            goto na;
-        }
-    }
-    o->vt = (u32)D_00347f98;
-    g_sys.p->alloc->vt[1](g_sys.p->alloc, o);
-}
+void func_0031d030(Obj* o);  // 0x0031d030: definition moved into src/anon/unit_0031b9e0.cpp
 }
 }
 

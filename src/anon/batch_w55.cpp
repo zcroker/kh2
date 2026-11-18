@@ -339,16 +339,6 @@ extern "C" {
 // Soft-float binary op: unpack both doubles, combine, pack.
 double func_00313e80(double a, double b);  // 0x00313e80: definition moved into src/libgcc/_addsub_df.c
 
-void func_0031b5c8(u8* p) {
-    *(u32*)p = (u32)D_00348608;
-    *(u32*)(p + 64) = (u32)D_0034a800;
-    func_002361d0(p + 480);
-    *(u32*)(p + 64) = (u32)D_00347e60;
-    func_00239870(p + 88);
-    *(u32*)(p + 64) = (u32)D_00347f98;
-    *(u32*)p = (u32)D_00347f98;
-    u8* o = *(u8**)(D_00347f80 + 20);
-    (*(void (**)(void*, u8*))(*(u8**)o + 4))(o, p);
-}
+void func_0031b5c8(u8* p);  // 0x0031b5c8: definition moved into src/anon/unit_003197d0.cpp
 
 }

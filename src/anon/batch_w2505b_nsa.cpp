@@ -26,12 +26,5 @@ static inline __attribute__((always_inline)) void L408(u8* q)
 {
     s32 i = 31; do { *(u32*)(q + 12) = 0; *(volatile u32*)q = (u32)D_00347e60; func_00239700(q + 24); i--; q += 408; } while (i != -1);
 }
-void func_00323540(u8* p) {
-    u32 vb = (u32)D_00347e60; u32 va = (u32)D_00347f98;
-    H408(p, vb); H408(p + 408, vb); H408(p + 816, vb); H408(p + 1224, vb);
-    H436(p + 1632, va, vb); H436(p + 2068, va, vb); H436(p + 2504, va, vb);
-    H436(p + 2940, va, vb); H436(p + 3376, va, vb); H436b(p + 3812, va, vb);
-    L408(p + 4248); L408(p + 17304); L408(p + 30360); L408(p + 43416);
-    { u8* q = p + 56480; s32 i = 31; do { W2505_ImageCtor(q); i--; q += 416; } while (i != -1); }
-}
+void func_00323540(u8* p);  // 0x00323540: definition moved into src/anon/unit_00321728.cpp
 }

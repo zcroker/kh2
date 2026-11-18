@@ -206,33 +206,11 @@ void func_002ece48(void** p, u8* q);  // 0x002ece48: definition moved into src/a
 // Unpack a single-precision float into class/sign/exponent/fraction.
 void func_00314640(u32* in, s32* out);  // 0x00314640: definition moved into src/libgcc/_unpack_sf.c
 
-void func_0031c0b8(void** p) {
-    *p = D_00347f98;
-    void* o = *(void**)(D_00347f80 + 20);
-    (*(VFn2*)(*(u8**)o + 4))(o, p);
-}
+void func_0031c0b8(void** p);  // 0x0031c0b8: definition moved into src/anon/unit_0031b9e0.cpp
 
-void func_003218c8(void** p) {
-    NoTail g;
-    *p = D_0034ee08;
-    func_0019f9a8((u8*)p + 2568);  // array8_free_slots
-    func_001c0248((u8*)p + 2640);
-    func_00319fb0(p);  // big_obj_dtor
-}
+void func_003218c8(void** p);  // 0x003218c8: definition moved into src/anon/unit_00321728.cpp
 
-void func_00321910(void** p) {
-    *p = D_0034ee08;
-    func_0019f9a8((u8*)p + 2568);  // array8_free_slots
-    func_001c0248((u8*)p + 2640);
-    func_00319fb0(p);  // big_obj_dtor
-    func_00105110(p);
-}
+void func_00321910(void** p);  // 0x00321910: definition moved into src/anon/unit_00321728.cpp
 
-void func_00325ae8(void** p) {
-    *p = D_00363880;
-    func_0023c098((u8*)p + 64);  // set_vtbl_36eae8_then_call
-    func_002369f0((u8*)p + 40);  // set_vtbl_36eac8_then_call
-    *p = D_003637e0;
-    func_00106420(p);
-}
+void func_00325ae8(void** p);  // 0x00325ae8: definition moved into src/anon/unit_00324808.cpp
 }

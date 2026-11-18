@@ -42,50 +42,5 @@ struct Obj31a850 : Obj31a850Base {
 extern "C" {
 void func_0031a9d8(Obj31a850*, Obj31a850*);
 
-Obj31a850* func_0031a850(Obj31a850* d, Obj31a850* s) {
-    func_0031a9d8(d, s);
-    d->mb0 = s->mb0;
-    d->mb4 = s->mb4;
-    ((s32*)d)[0x2e] = ((s32*)s)[0x2e];
-    ((s32*)d)[0x2f] = ((s32*)s)[0x2f];
-    ((s32*)d)[0x30] = ((s32*)s)[0x30];
-    ((s32*)d)[0x31] = ((s32*)s)[0x31];
-    ((s32*)d)[0x32] = ((s32*)s)[0x32];
-    ((s32*)d)[0x33] = ((s32*)s)[0x33];
-    ((s32*)d)[0x34] = ((s32*)s)[0x34];
-    ((s32*)d)[0x35] = ((s32*)s)[0x35];
-    ((s32*)d)[0x36] = ((s32*)s)[0x36];
-    ((s32*)d)[0x37] = ((s32*)s)[0x37];
-    ((s32*)d)[0x38] = ((s32*)s)[0x38];
-    ((s32*)d)[0x39] = ((s32*)s)[0x39];
-    ((s32*)d)[0x3a] = ((s32*)s)[0x3a];
-    d->mec = s->mec;
-    d->mf0 = s->mf0;
-    d->mf4 = s->mf4;
-    d->mf8 = s->mf8;
-    d->mfc = s->mfc;
-    d->m100 = s->m100;
-    d->m104 = s->m104;
-    d->m108 = s->m108;
-    d->m10c = s->m10c;
-    d->m110 = s->m110;
-    d->m114 = s->m114;
-    d->m118 = s->m118;
-    d->m11c = s->m11c;
-    d->m120 = s->m120;
-    d->m124 = s->m124;
-    d->m128 = s->m128;
-    d->m12c = s->m12c;
-    d->m130 = s->m130;
-    d->m134 = s->m134;
-    d->m138 = s->m138;
-    d->m13c = s->m13c;
-    d->m140 = s->m140;
-    d->m144 = s->m144;
-    d->m148 = s->m148;
-    d->m14c = s->m14c;
-    d->m150 = s->m150;
-    d->m154 = s->m154;
-    return d;
-}
+Obj31a850* func_0031a850(Obj31a850* d, Obj31a850* s);  // 0x0031a850: definition moved into src/anon/unit_003197d0.cpp
 }

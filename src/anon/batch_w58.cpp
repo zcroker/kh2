@@ -251,44 +251,14 @@ u8* func_002ed4b8(u32 a0, u32 a1, Vec4* a2, Vec4* a3);  // 0x002ed4b8: definitio
 struct Mgr { u8 pad[20]; VObj* f20; };
 extern u8 D_003486b0[];
 extern union { Mgr* p; u8 c; } D_00347f80;
-void func_0031b858(u8* p) {
-    *(void**)p = D_003486b0;
-    *(void**)(p + 448) = D_00347e60;
-    func_00239870(p + 472);
-    *(void**)p = D_00347e60;
-    *(void**)(p + 448) = D_00347f98;
-    func_00239870(p + 24);
-    *(void**)p = D_00347f98;
-    VObj* o = D_00347f80.p->f20;
-    ((void (*)(void*, void*))o->vt[1])(o, p);
-}
+void func_0031b858(u8* p);  // 0x0031b858: definition moved into src/anon/unit_003197d0.cpp
 
 // Destructor: 7 344-byte members destroyed in reverse through their vtables.
 extern u8 D_0034a618[];
-void func_0031c668(u8* p) {
-    *(void**)p = D_0034a618;
-    if ((s32)p != -456) {
-        u8* e = p + 2864;
-        for (;;) {
-            if (p + 456 == e) break;
-            e -= 344;
-            ((VFn)(*(VObj*)e).vt[0])(e);
-        }
-    }
-    *(void**)(p + 48) = D_00347e60;
-    func_00239870(p + 72);
-    *(void**)(p + 48) = D_00347f98;
-    *(void**)p = D_00347f98;
-}
+void func_0031c668(u8* p);  // 0x0031c668: definition moved into src/anon/unit_0031b9e0.cpp
 
 extern u8 D_0034aad8[];
 void func_002361d0(void*);
-void func_0031d8a0(u8* p) {
-    *(void**)p = D_0034aad8;
-    func_002361d0(p + 416);
-    *(void**)p = D_00347e60;
-    func_00239870(p + 24);
-    *(void**)p = D_00347f98;
-}
+void func_0031d8a0(u8* p);  // 0x0031d8a0: definition moved into src/anon/unit_0031b9e0.cpp
 
 }

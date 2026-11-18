@@ -209,13 +209,5 @@ void u_call4_002eec58(u32, u32, u32, u32) asm("_Z16u_call4_002eec58jjjj");
 // 002f0640: moved to src/anon/unit_002efd68.cpp
 
 // destructor chain: three vtables, two embedded members
-void func_0031b7e8(u8* a0) {
-    *(void**)a0 = D_003486b0;
-    *(void**)(a0 + 448) = D_00347e60;
-    func_00239870(a0 + 472);
-    *(void**)a0 = D_00347e60;
-    *(void**)(a0 + 448) = D_00347f98;
-    func_00239870(a0 + 24);
-    *(void**)a0 = D_00347f98;
-}
+void func_0031b7e8(u8* a0);  // 0x0031b7e8: definition moved into src/anon/unit_003197d0.cpp
 }

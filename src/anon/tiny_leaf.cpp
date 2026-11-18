@@ -124,12 +124,6 @@ void func_002eda10(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002eda10: definition m
 
 u32 func_002f1ac8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002f1ac8: definition moved into src/anon/unit_002f1a68.cpp
 
-void func_00319d58(u32 a0, u32 a1, u32 a2, u32 a3) {  // store_zero_byte
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3;
-    *(u8*)((u32)r4 + (s32)(0)) = (u8)0u;
-}
+void func_00319d58(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00319d58: definition moved into src/anon/unit_003197d0.cpp
 
-void func_00320730(u32 a0, u32 a1, u32 a2, u32 a3) {  // zero_halfword
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3;
-    *(u16*)((u32)r4 + (s32)(0)) = (u16)0u;
-}
+void func_00320730(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00320730: definition moved into src/anon/unit_00320528.cpp

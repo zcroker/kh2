@@ -228,17 +228,6 @@ void func_002eb6f8(void*, s32, f32);
 
 // 00321728: cache lookup; on miss reuse the entry with the lowest age
 struct E4 { u8 a; u8 age; u16 key; };
-E4* func_00321728(E4* e, u32 a, u32 k)
-{
-    E4* best = 0;
-    for (s32 i = 0; i < 128; i++, e++) {
-        if (e->a == a && e->key == k) return e;
-        if (!best || best->age > e->age) best = e;
-    }
-    best->a = a;
-    best->key = k;
-    best->age = 0;
-    return best;
-}
+E4* func_00321728(E4* e, u32 a, u32 k);  // 0x00321728: definition moved into src/anon/unit_00321728.cpp
 
 }

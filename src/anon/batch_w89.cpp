@@ -453,27 +453,7 @@ void func_0031bbc8(u8*);  // set_vtbl_348c08_b
 void func_0031b910(u8*);  // set_vtbl_3486a8_d
 void func_0031bb08(u8*);  // set_vtbl_3486a8
 // Destructor body: own vtable, inlined member destructor (two arrays, members, base), base vtable.
-void func_0031dc78(u8* o) {
-    *(u32*)o = (u32)D_0034af08;
-    u8* m = o + 48;
-    if (m + 1904 != 0) {
-        E256* p = (E256*)(m + 1904) + 4;
-        E256* b = (E256*)(m + 1904);
-    top1:
-        if (b != p) { p--; p->vt[0](p); goto top1; }
-    }
-    if (m + 880 != 0) {
-        E256* p = (E256*)(m + 880) + 4;
-        E256* b = (E256*)(m + 880);
-    top2:
-        if (b != p) { p--; p->vt[0](p); goto top2; }
-    }
-    func_0031bbc8(m + 624);  // set_vtbl_348c08_b
-    func_0031b910(m + 336);  // set_vtbl_3486a8_d
-    *(u32*)m = (u32)D_00349b40;
-    func_0031bb08(m);  // set_vtbl_3486a8
-    *(u32*)o = (u32)D_00347f98;
-}
+void func_0031dc78(u8* o);  // 0x0031dc78: definition moved into src/anon/unit_0031b9e0.cpp
 }
 }
 

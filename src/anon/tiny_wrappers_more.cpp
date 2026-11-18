@@ -1077,22 +1077,12 @@ u32 func_002f8b00(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002f8b00: definition mo
 
 u32 func_002f8b18(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002f8b18: definition moved into src/newlib/libm/wf_log.c
 
-u32 func_0031a030(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_0019fa58(((u32)(a0) + 2568u), a1, a2, a3);
-}
+u32 func_0031a030(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0031a030: definition moved into src/anon/unit_003197d0.cpp
 
-u32 func_0031a048(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_0019fb48(((u32)(a0) + 2568u), a1, a2, a3);
-}
+u32 func_0031a048(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0031a048: definition moved into src/anon/unit_003197d0.cpp
 
-u32 func_0031fb60(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_001abd10(((u32)(a0) + 828u), a1, a2, a3);
-}
+u32 func_0031fb60(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0031fb60: definition moved into src/anon/unit_0031f2f8.cpp
 
-u32 func_0031fb78(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_001ac078(((u32)(a0) + 1196u), a1, a2, a3);
-}
+u32 func_0031fb78(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0031fb78: definition moved into src/anon/unit_0031f2f8.cpp
 
-u32 func_0031fd60(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_001ac2a8(((u32)(a0) + 2924u), a1, a2, a3);
-}
+u32 func_0031fd60(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0031fd60: definition moved into src/anon/unit_0031f2f8.cpp

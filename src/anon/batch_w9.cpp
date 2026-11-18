@@ -171,17 +171,9 @@ void sceVu0InterVector(f32* d, f32* a, f32* b, f32 t) {  // vec4_lerp
 struct Args314480 { u32 a, b, c; u64 d; };
 void func_00314480(u32 a, u32 b, u32 c, u64 d);  // 0x00314480: definition moved into src/libgcc/_make_df.c
 
-void func_003197f8(u8* p) {
-    void* o = *(void**)(p + 4);
-    (*(void (**)(void*))(*(u8**)o + 4))(o);
-}
+void func_003197f8(u8* p);  // 0x003197f8: definition moved into src/anon/unit_003197d0.cpp
 
-void func_0031e068(u8* p) {
-    *(u8**)(p + 416) = D_00348698;
-    *(u8**)(p + 144) = D_00348698;
-    *(u8**)(p + 0) = D_00348d58;
-    func_00106420(p);
-}
+void func_0031e068(u8* p);  // 0x0031e068: definition moved into src/anon/unit_0031b9e0.cpp
 }
 
 void wtarget_0016b070(u32 a0, u32 a1, u32, u32);  // 0x0016b070: definition moved into src/anon/unit_00169f98.cpp

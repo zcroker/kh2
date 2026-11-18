@@ -1,0 +1,48 @@
+// Linked unit 0x00324750: linkonce (template) copies of game code that the linker gathered after the
+// toolchain libraries. One namespace per old matched source.
+#include "../common/types.h"
+#include "auto80_199_queue_decls.hpp"
+#include "auto80_199_queue_structs.hpp"
+#include "../harata/libdk/ft4.hpp"
+#include "../harata/libdk/sprite.hpp"
+#include "../harata/libdk/treasure_info.hpp"
+#include "../tozawa/cmenu_top.hpp"
+#include "../tozawa/help_gra.hpp"
+#include <stdarg.h>
+#include "../kn/fvector.hpp"
+#include "./tiny_auto80_queue_structs.hpp"
+#include "../yasui/libys/areadata.hpp"
+#include "../yasui/libys/progress.hpp"
+#include "../tozawa/menu_sound.hpp"
+#include "../global/misc.hpp"
+
+
+// 00324750 (was src/anon/batch_w2373_gnsa_nogcse.cpp)
+namespace n00324750 {
+struct WT324750 { u8 pad[10]; u16 count; u8 pad2[4]; s32 offs[1]; };
+s32 wt_00324750(WT324750* p, s32 idx) asm("_Z16wtarget_00324750jjjj");
+/*TARGET 00324750*/
+/* 00324750: return the 16-bit value of entry idx (for idx == -1, of the first valid entry), or -1.
+   Needs -fno-gcse: the original re-extends the u16 count on every loop test. */
+s32 wt_00324750(WT324750* p, s32 idx) asm("_Z16wtarget_00324750jjjj");
+/* 00324750: return the 16-bit value of entry idx (for idx == -1, of the first valid entry), or -1.
+   Needs -fno-gcse: the original re-extends the u16 count on every loop test. */
+s32 wt_00324750(WT324750* p, s32 idx) {
+    if (idx == -1) {
+        u16 n = p->count;
+        s32 i = 0;
+        while (i < (s16)n) {
+            s32 r;
+            s32 off = p->offs[i];
+            if (off >= 0) { u8* q = (u8*)p + (s16)n * 4 + off; r = (q[0x12] << 8) + q[0x11]; }
+            else r = -1;
+            if (r != -1) return r;
+            i++;
+        }
+        return -1;
+    }
+    s32 off = p->offs[idx];
+    if (off >= 0) { u8* q = (u8*)p + (s16)p->count * 4 + off; return (q[0x12] << 8) + q[0x11]; }
+    return -1;
+}
+}  // namespace n00324750

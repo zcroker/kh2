@@ -306,25 +306,7 @@ extern void* D_00347f80_v asm("D_00347f80");
 void func_00239870(void*);
 void func_002361d0(void*);
 
-void func_0031c0f8(u8* o) {
-    *(u32*)o = (u32)&D_0034a548;
-    if (o + 840) {
-        u8* p = o + 6144;
-        u8* end = o + 840;
-    loop:
-        if (end == p) goto done;
-        p -= 408;
-        ((VF*)*(void**)p)[3](p);
-        goto loop;
-    }
-done:
-    func_00239870(o + 496);
-    *(void**)(o + 48) = &D_00347e80;
-    func_002361d0(o + 80);
-    *(void**)o = *(void**)(o + 48) = &D_00347f98;
-    void** m = *(void***)((u8*)D_00347f80_v + 20);
-    ((void (**)(void*, void*))*m)[1](m, o);
-}
+void func_0031c0f8(u8* o);  // 0x0031c0f8: definition moved into src/anon/unit_0031b9e0.cpp
 
 /* ---- 00134030: wait for VIF1 / GIF / VU0 / IPU idle ---- */
 s32 func_00134030(void);  // 0x00134030: definition moved into src/anon/unit_00133cf0.cpp
@@ -348,24 +330,5 @@ extern void* D_0034e8a8;
 void func_00239848(void*);  // set_vtbl_36eb28_then_call
 void func_001ac5b8(void*);
 void func_00105110(void*);
-void func_0031f6d8(u8* o) {
-    *(u32*)o = (u32)&D_00350bb0;
-    if (o + 1544) {
-        u8* p = o + 2920;
-        u8* end = o + 1544;
-    loop:
-        if (end == p) goto done;
-        p -= 344;
-        ((VF*)*(void**)p)[0](p);
-        goto loop;
-    }
-done:
-    func_00239870(o + 1200);
-    func_00239870(o + 848);
-    func_00239870(o + 484);
-    *(void**)(o + 132) = &D_0034e8a8;
-    func_00239848(o + 132);  // set_vtbl_36eb28_then_call
-    func_001ac5b8(o);
-    func_00105110(o);
-}
+void func_0031f6d8(u8* o);  // 0x0031f6d8: definition moved into src/anon/unit_0031f2f8.cpp
 }

@@ -318,36 +318,7 @@ extern u8 D_0035e1b8[];
 extern u8 D_00347f98[];
 void func_00239870(void*);
 void func_0031a840(void*);
-void func_00322228(u8* self)
-{
-    NoTail2 g;
-    u8* m = self + 2560;
-    *(void**)self = D_0035e1b8;
-    *(void**)m = D_00347e60;
-    func_00239870(m + 24);
-    *(void**)m = D_00347f98;
-    if (self + 864) {
-        u8* p = m;
-    l1:
-        if (self + 864 == p) goto d1;
-        p -= 848;
-        ((VoidFn)((VObj*)p)->vt[3])(p);
-        goto l1;
-    }
-d1:
-    if (self + 440) {
-        u8* p = self + 440 + 412;
-    l2:
-        if (self + 440 == p) goto d2;
-        p -= 412;
-        ((VoidFn)((VObj*)p)->vt[3])(p);
-        goto l2;
-    }
-d2:
-    *(void**)self = D_00347e60;
-    func_00239870(self + 24);
-    func_0031a840(self);
-}
+void func_00322228(u8* self);  // 0x00322228: definition moved into src/anon/unit_00321728.cpp
 
 }
 

@@ -189,20 +189,10 @@ void func_003158c8(void** p);  // 0x003158c8: definition moved into src/libsupc+
 
 extern u32 D_00351228;
 void func_001d48b0(void*);
-void func_003206f0(u8* p) {
-    *(void**)p = &D_00351228;
-    func_001d48b0(p + 2496);
-    func_00106420(p);
-}
+void func_003206f0(u8* p);  // 0x003206f0: definition moved into src/anon/unit_00320528.cpp
 
 struct Node321 { u8 pad[20]; Node321* next; };
 u32 u_call4_00321cb0(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z16u_call4_00321cb0jjjj");
-u32 u_call4_00321cb0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    Node321* n = 0;
-    while ((n = !n ? *(Node321**)a0 : n->next) != 0) {
-        if (n == (Node321*)a1) return 1;
-    }
-    return 0;
-}
+u32 u_call4_00321cb0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00321cb0: definition moved into src/anon/unit_00321728.cpp
 
 }

@@ -94,36 +94,6 @@ struct Obj
   T9 m140;
 };
 extern u8 D_0035eae8;
-void func_00324d50(Obj *d, const Obj *s)
-{
-  d->vptr = &D_0035eae8;
-  d->m4.a = s->m4.a;
-  d->m4.b = s->m4.b;
-  d->m4.c = s->m4.c;
-  d->b16 = s->b16;
-  d->b28 = s->b28;
-  d->b40 = s->b40;
-  d->m52.a = s->m52.a;
-  d->m52.b = s->m52.b;
- do { d->m52.c = s->m52.c; d->m52.d = s->m52.d; d->m68 = s->m68; d->m72.x = s->m72.x; d->m72.y = s->m72.y; d->b80 = s->b80; d->b92 = s->b92; } while (0);
-  d->m104 = s->m104;
-  d->m108.a = s->m108.a;
-  d->m108.b = s->m108.b;
-  d->m108.c = s->m108.c;
-  d->m108.d = s->m108.d;
-  d->m108.e = s->m108.e;
-  d->m108.f = s->m108.f;
-  d->m108.g = s->m108.g;
-  d->m136 = s->m136;
-  ((Q8 *) (&d->m140))->f = ((const Q8 *) (&s->m140))->f;
-  ((Q8 *) (&d->m140))->h = ((const Q8 *) (&s->m140))->h;
-  (&d->m140)->a = ((const Q8 *) (&s->m140))->a;
-  d->m140.b = s->m140.b;
-  d->m140.c = s->m140.c;
-  d->m140.d = s->m140.d;
-  d->m140.e = s->m140.e;
-  d->m140.g = s->m140.g;
-  d->m140.i = s->m140.i;
-}
+void func_00324d50(Obj *d, const Obj *s);  // 0x00324d50: definition moved into src/anon/unit_00324808.cpp
 
 }

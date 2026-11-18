@@ -177,25 +177,12 @@ void func_002ddb80(void** p);  // 0x002ddb80: definition moved into src/anon/uni
 
 void func_002eaaf0(void* p);  // 002eaaf0: moved to src/anon/unit_002eaa68.cpp
 
-void ScisSpriteMessage_draw(u8* self) {
-    func_00138988(self);
-    func_0014b9a8(self + 448);
-    func_00138de0(self);
-    func_0014b9a8(self + 480);
-}
+void ScisSpriteMessage_draw(u8* self);  // 0x0031c068: definition moved into src/anon/unit_0031b9e0.cpp
 
 // Deleting destructor: reset vtable, run base dtor, free.
-void func_0031ff88(void** p) {
-    *p = &D_00352878;
-    func_0031ffc0(p);
-    func_00105110(p);
-}
+void func_0031ff88(void** p);  // 0x0031ff88: definition moved into src/anon/unit_0031f2f8.cpp
 
 // Deleting destructor: reset vtable, run base dtor, free.
-void func_00325618(void** p) {
-    *p = &D_00362c70;
-    func_002dea80(p);  // set_vtbl_362d20
-    func_00106420(p);
-}
+void func_00325618(void** p);  // 0x00325618: definition moved into src/anon/unit_00324808.cpp
 
 }

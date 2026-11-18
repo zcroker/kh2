@@ -257,33 +257,10 @@ static inline void Dtor1cb58c(u8* self) {
         if (self + 8 != e) { e -= 600; func_0031c8e8(e); goto l; }
     }
 }
-void func_0031cb58(u8* o) {
-    *(u32*)o = (u32)D_0034a700;
-    Dtor1cb58a(o + 12076);
-    Dtor1cb58b(o + 9656);
-    Dtor1cb58c(o + 36);
-    *(u32*)o = (u32)D_00347f98;
-}
+void func_0031cb58(u8* o);  // 0x0031cb58: definition moved into src/anon/unit_0031b9e0.cpp
 
 typedef void (*VF31d1b8)(u8*, u8*);
-void func_0031d1b8(u8* o) {
-    *(u32*)o = (u32)D_0034a848;
-    if (o + 2576 != 0) {
-        u8* e = o + 5536;
-    l1:
-        if (o + 2576 != e) { e -= 592; (*(Dtor*)(*(u8**)e + 12))(e); goto l1; }
-    }
-    if (o + 916 != 0) {
-        u8* e = o + 2564;
-    l2:
-        if (o + 916 != e) { e -= 412; (*(Dtor*)(*(u8**)e + 12))(e); goto l2; }
-    }
-    *(u32*)o = (u32)D_00348608;
-    func_0031cec0(o + 64);
-    *(u32*)o = (u32)D_00347f98;
-    u8* m = *(u8**)(D_00347f80 + 20);
-    (*(VF31d1b8*)(*(u8**)m + 4))(m, o);
-}
+void func_0031d1b8(u8* o);  // 0x0031d1b8: definition moved into src/anon/unit_0031b9e0.cpp
 
 struct E19ad58 { u8 pad[12]; u32 obj; u8 pad2[24]; u8 kind; u8 pad3; u16 id; u8 pad4[16]; u8 lv; u8 pad5[3]; };
 struct T19ad58 { u8 pad[4]; u16 n; u8 pad2[26]; E19ad58 e[1]; };

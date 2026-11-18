@@ -37,30 +37,7 @@ extern u32 D_0034b268;
 extern u32 D_0034b278;
 struct VObj { void (**vt)(...); };
 typedef void (*DtorFn)(u8*);
-void func_0031dee8(u8* a0) {
-    *(u32*)a0 = (u32)&D_0034b250;
-    u8* end = a0 + 4144;
-    *(u32*)end = (u32)&D_00348698;
-    if (a0 + 2608) {
-        u8* e = end;
-    t1:
-        if (a0 + 2608 != e) { e -= 256; (*(DtorFn*)*(u32*)e)(e); goto t1; }
-    }
-    if (a0 + 1072) {
-        u8* e = a0 + 2608;
-    t2:
-        if (a0 + 1072 != e) { e -= 256; (*(DtorFn*)*(u32*)e)(e); goto t2; }
-    }
-    if (a0 + 544) {
-        u8* e = a0 + 1072;
-    t3:
-        if (a0 + 544 != e) { e -= 528; (*(DtorFn*)*(u32*)e)(e); goto t3; }
-    }
-    *(u32*)(a0 + 16) = (u32)&D_00348698;
-    *(u32*)a0 = (u32)&D_0034b268;
-    VObj* o = (VObj*)D_0034b278;
-    ((void (*)(VObj*, u8*))o->vt[1])(o, a0);
-}
+void func_0031dee8(u8* a0);  // 0x0031dee8: definition moved into src/anon/unit_0031b9e0.cpp
 
 f32 fabsf(f32);  // fabsf
 static inline W253Vec vsub(const f32* a, const f32* b) {

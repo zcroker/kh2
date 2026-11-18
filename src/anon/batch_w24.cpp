@@ -195,32 +195,15 @@ extern Mgr20* D_00347f80m asm("D_00347f80");
 extern void* D_00347e60[];
 void func_00239870(u8*);
 void func_0031a840(u8*);
-void func_0031a548(u8* p) {
-    *(void**)p = D_00347e60;
-    func_00239870(p + 24);
-    func_0031a840(p);
-    VObj* o = D_00347f80m->o;
-    ((void (*)(VObj*, u8*))o->vt[1])(o, p);
-}
+void func_0031a548(u8* p);  // 0x0031a548: definition moved into src/anon/unit_003197d0.cpp
 
 extern void* D_00348590[];
 extern void* D_00347f98[];
-void func_0031b070(u8* p) {
-    *(void**)p = D_00348590;
-    *(void**)(p + 260) = D_00347e60;
-    func_00239870(p + 284);
-    *(void**)(p + 260) = D_00347f98;
-    *(void**)p = D_00347f98;
-}
+void func_0031b070(u8* p);  // 0x0031b070: definition moved into src/anon/unit_003197d0.cpp
 
 extern void* D_0035eb98[];
 void func_0023c098(u8*);  // set_vtbl_36eae8_then_call
 void func_002369f0(u8*);  // set_vtbl_36eac8_then_call
-void func_0031cd90(u8* p) {
-    *(void**)p = D_0035eb98;
-    func_0023c098(p + 48);  // set_vtbl_36eae8_then_call
-    func_002369f0(p + 24);  // set_vtbl_36eac8_then_call
-    *(void**)p = D_00347f98;
-}
+void func_0031cd90(u8* p);  // 0x0031cd90: definition moved into src/anon/unit_0031b9e0.cpp
 
 }

@@ -50,17 +50,6 @@ void func_002c7060(W1781Obj* self, void* obj);  // 0x2c7060: moved to src/anon/u
 struct W1781Ent616 { u8 d[616]; };
 struct W1781Mgr616 { W1781Ent616 ent[64]; s32 list[64]; s32 count; };
 
-W1781Ent616* func_0031f168(W1781Mgr616* m, W1781Ent616* p) {
-    if (p) p++; else p = m->ent;
-    while (p < &m->ent[64]) {
-        s32 idx = p - m->ent;
-        s32 i;
-        for (i = 0; i < m->count; i++) {
-            if (m->list[i] == idx) { p++; break; }
-        }
-        if (i == m->count) return p;
-    }
-    return 0;
-}
+W1781Ent616* func_0031f168(W1781Mgr616* m, W1781Ent616* p);  // 0x0031f168: definition moved into src/anon/unit_0031e268.cpp
 
 }

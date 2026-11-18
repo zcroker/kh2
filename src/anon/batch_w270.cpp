@@ -87,14 +87,7 @@ W270Cfg* W270_config(void*) asm("_ZN2Ti9MGOarashi6configEv");
 void func_002e7568(W270Ys*, s32, void*, f32);
 void func_002e7340(void*, W270Ys*, s32, void*, f32, f32);
 void func_002d6600(W270Ys* o, W270V* dir);  // 0x002d6600: definition moved into src/anon/unit_002d62d0.cpp
-void func_00323978(u8* p) {
-    w270_init(p);
-    w270_init(p + 436);
-    u8* q = p + 872;
-    for (s32 n = 7; n != -1; n--) { w270_init(q); q += 436; }
-    u8* r = p + 4360;
-    for (s32 n = 7; n != -1; n--) { w270_init(r); r += 436; }
-}
+void func_00323978(u8* p);  // 0x00323978: definition moved into src/anon/unit_00323978.cpp
 s32 func_002a4990(s32);
 s32 func_002a4ad8(s32);
 s32 func_002a4430(void);

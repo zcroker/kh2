@@ -253,19 +253,11 @@ u32 trap_btlobj_is_reflect_motion(u32**) asm("_ZN2kn29trap_btlobj_is_reflect_mot
 // --- 0031f4b8
 extern u32 D_00350bf0;
 void func_001ac5b8(void*);
-void func_0031f4b8(void** p) {
-    *p = &D_00350bf0;
-    func_001ac5b8(p);
-    func_00105110(p);
-}
+void func_0031f4b8(void** p);  // 0x0031f4b8: definition moved into src/anon/unit_0031f2f8.cpp
 
 // --- 00325408
 extern u32 D_003622c0;
 void func_002d0f38(void*);
-void func_00325408(void** p) {
-    *p = &D_003622c0;
-    func_002d0f38(p);
-    func_00105110(p);
-}
+void func_00325408(void** p);  // 0x00325408: definition moved into src/anon/unit_00324808.cpp
 
 }

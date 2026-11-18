@@ -197,33 +197,12 @@ f32 func_00314698(s32, u32, s32, u32);
 // Software double -> float (libgcc fp-bit __truncdfsf2).
 f32 __truncdfsf2(u64 a);  // 0x003144b0: definition moved into src/libgcc/_df_to_sf.c
 
-void func_0031ae18(void** p) {
-    *p = D_00347f98;
-    void** o = (void**)D_00347f80[5];
-    (*(void (**)(void*, void*))((u8*)*o + 4))(o, p);
-}
+void func_0031ae18(void** p);  // 0x0031ae18: definition moved into src/anon/unit_003197d0.cpp
 
-s32 func_0031eb68(u8* p) {
-    *(void**)p = D_0034ee08;
-    func_0019f9a8(p + 2568);  // array8_free_slots
-    func_001c0248(p + 2640);
-    return func_00319fb0(p);  // big_obj_dtor
-}
+s32 func_0031eb68(u8* p);  // 0x0031eb68: definition moved into src/anon/unit_0031e268.cpp
 
-void func_00320bc0(u8* p) {
-    *(void**)p = D_0034ee08;
-    func_0019f9a8(p + 2568);  // array8_free_slots
-    func_001c0248(p + 2640);
-    func_00319fb0(p);  // big_obj_dtor
-    func_00105110(p);
-}
+void func_00320bc0(u8* p);  // 0x00320bc0: definition moved into src/anon/unit_00320528.cpp
 
-void func_00322db8(u8* p) {
-    *(void**)p = D_0035eb98;
-    func_0023c098(p + 48);  // set_vtbl_36eae8_then_call
-    func_002369f0(p + 24);  // set_vtbl_36eac8_then_call
-    *(void**)p = D_00347f98;
-    func_0023ee68(p);
-}
+void func_00322db8(u8* p);  // 0x00322db8: definition moved into src/anon/unit_00321728.cpp
 
 }

@@ -174,17 +174,9 @@ void func_002df160(f32* p);  // 0x002df160: definition moved into src/anon/unit_
 
 // 002f0e60: moved to src/naka/libkn/trapfunctions.cpp
 
-void func_0031f238(void** p) {
-    *p = &D_00350778;
-    func_0018d420(p);
-    func_00105110(p);
-}
+void func_0031f238(void** p);  // 0x0031f238: definition moved into src/anon/unit_0031e268.cpp
 
-void worldmap_ObjWidget_D0(void** p) {
-    *p = &D_00361bf0;
-    func_002eec58(p);
-    func_00105110(p);
-}
+void worldmap_ObjWidget_D0(void** p);  // 0x00324b78: definition moved into src/anon/unit_00324808.cpp
 
 struct E24 { u8 a; u32 b; u32 pad[4]; };
 extern E24 D_0035e440[64];

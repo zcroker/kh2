@@ -358,6 +358,6 @@ struct Obj322 : Base31 {
 
 extern "C" {
 void func_001e2898(Obj1e2* p);  // 0x001e2898: definition moved into src/anon/unit_001e0cb8.cpp
-void func_0031cf88(Obj31c* p) { p->~Obj31c(); }
-void func_00322be0(Obj322* p) { p->~Obj322(); }
+void func_0031cf88(Obj31c* p);  // 0x0031cf88: definition moved into src/anon/unit_0031b9e0.cpp
+void func_00322be0(Obj322* p);  // 0x00322be0: definition moved into src/anon/unit_00321728.cpp
 }

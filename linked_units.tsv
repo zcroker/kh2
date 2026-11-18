@@ -901,5 +901,15 @@ src/sdk/libcdvd_002f6870.c	002f6870	002f7418	.rodata@00376b70	-G0
 src/sdk/libcdvd_002f77b0.c	002f77b0	002f800c	.rodata@00376d10	-G0
 src/sdk/libkernl_00305aa0.c	00305aa0	00305b40	-	-G0
 src/anon/gcc_crt_init.s	00319788	003197ac	-	-
+src/anon/unit_003197d0.cpp	003197d0	0031b940	-	-G0 -fno-strict-aliasing
+src/anon/unit_0031b9e0.cpp	0031b9e0	0031e268	.rodata@0036b474	-G0 -fno-strict-aliasing
+src/anon/unit_0031e268.cpp	0031e268	0031f298	.rodata@0036c238	-G0 -fno-strict-aliasing
+src/anon/unit_0031f2f8.cpp	0031f2f8	003204c8	-	-G0 -fno-strict-aliasing
+src/anon/unit_00320528.cpp	00320528	003216c8	-	-G0
+src/anon/unit_00321728.cpp	00321728	00323978	-	-G0 -fno-strict-aliasing
+src/anon/unit_00323978.cpp	00323978	003241a0	-	-G0
 src/anon/batch_w3901.s	003241a0	00324380	-	-
+src/anon/unit_00324380.cpp	00324380	00324750	-	-G0 -fno-strict-aliasing
+src/anon/unit_00324750.cpp	00324750	00324808	-	-G0 -g -fno-strict-aliasing -fno-gcse
+src/anon/unit_00324808.cpp	00324808	00325bd0	-	-G0 -fno-strict-aliasing
 src/sdk/sdk_asm_00366ad0.s	00366ad0	00366c10	-	-

@@ -431,22 +431,6 @@ static inline void ctor_323(u8* e) {
     *(u32*)e = (u32)D_00347e40;
     *(u32*)(e + 408) = 0;
 }
-void func_00323e98(u8* p) {
-    {
-        u8* e = p + 4;
-        s32 i = 4;
-        do { ctor_323(e); i--; e += 436; } while (i != -1);
-    }
-    {
-        u8* e = p + 2184;
-        s32 i = 4;
-        do { ctor_323(e); i--; e += 436; } while (i != -1);
-    }
-    {
-        u8* e = p + 4364;
-        s32 i = 14;
-        do { ctor_323(e); i--; e += 436; } while (i != -1);
-    }
-}
+void func_00323e98(u8* p);  // 0x00323e98: definition moved into src/anon/unit_00323978.cpp
 
 }

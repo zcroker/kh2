@@ -11665,76 +11665,18 @@ void duplicate_unplaced_003191d0(u32* a0, u32 a1, unsigned long long a2) {
     *(unsigned long long*)a0[a1] = a2;
 }
 
-void func_00319d30(u32* a0) {
-    s32 t7 = 3;
-    do {
-        *a0 = 0;
-        t7 -= 1;
-        a0 += 1;
-    } while (t7 >= 0);
-}
+void func_00319d30(u32* a0);  // 0x00319d30: definition moved into src/anon/unit_003197d0.cpp
 
-void func_0031a260(u8* s0, u32 a1) {
-    while (1) {
-        *(u32*)(s0 + 0x18c) = a1;
-        func_001396b0((u32)s0);
-        if (*(u32*)(s0 + 0x18c) == 0) {
-            break;
-        }
-        *(u32*)(s0 + 0x190) = 0;
-        func_001396b0((u32)s0);
-        if (*(u32*)(s0 + 0x190) == 0) {
-            break;
-        }
-        a1 = 0;
-    }
-}
+void func_0031a260(u8* s0, u32 a1);  // 0x0031a260: definition moved into src/anon/unit_003197d0.cpp
 
 extern "C" void func_0031a260(...);
-void func_0031ac78(u8* a0, u32 a1) {
-    *(u32*)(a0 + 0x190) = a1;
-    func_001396b0((u32)a0);
-    if (*(u32*)(a0 + 0x190) != 0) {
-        func_0031a260((u32)a0, 0);
-    }
-}
+void func_0031ac78(u8* a0, u32 a1);  // 0x0031ac78: definition moved into src/anon/unit_003197d0.cpp
 
-void func_003200c0(u32* a0) {
-    s32 t5 = 0;
-    u32* t6 = (u32*)((u8*)a0 + 640);
-    while (1) {
-        *t6 = (u32)t5;
-        t5 += 1;
-        if (t5 >= 16) {
-            break;
-        }
-        t6 += 1;
-    }
-    a0[704 / 4] = 16;
-}
+void func_003200c0(u32* a0);  // 0x003200c0: definition moved into src/anon/unit_0031f2f8.cpp
 
-void func_00320418(u32* a0) {
-    s32 t5 = 0;
-    u32* t6 = (u32*)((u8*)a0 + 160);
-    while (1) {
-        *t6 = (u32)t5;
-        t5 += 1;
-        if (t5 >= 8) {
-            break;
-        }
-        t6 += 1;
-    }
-    a0[192 / 4] = 8;
-}
+void func_00320418(u32* a0);  // 0x00320418: definition moved into src/anon/unit_0031f2f8.cpp
 
-void func_00321198(u32* a0) {  // zero_3_words
-    s32 t7 = 2;
-    do {
-        *a0 = 0;
-        t7 -= 1;
-        a0 += 1;
-    } while (t7 >= 0);
-}
+void func_00321198(u32* a0);  // 0x00321198: definition moved into src/anon/unit_00320528.cpp
 
 void func_00102158(u32* a0, u32 a1);  // 0x00102158: definition moved into src/global/unit_00101d50.cpp
 

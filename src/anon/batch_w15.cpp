@@ -183,20 +183,9 @@ u8 func_00315678(void** self);  // 0x00315678: definition moved into src/libsupc
 
 extern u8 D_003512e8;
 void func_0016a358(void*);
-void func_003207c8(void** self) {
-    *self = &D_003512e8;
-    func_0016a358(self);
-    func_00105110(self);
-}
+void func_003207c8(void** self);  // 0x003207c8: definition moved into src/anon/unit_00320528.cpp
 
 struct Ent8 { u16 id; u16 _2; u32 _4; };
-Ent8* func_00320c18(u8* p, u32 id) {  // table_find_short
-    int n = *(int*)(p + 4);
-    Ent8* e = (Ent8*)(p + 8);
-    for (int i = 0; i < n; i++, e++) {
-        if (e->id == id) return e;
-    }
-    return 0;
-}
+Ent8* func_00320c18(u8* p, u32 id);  // 0x00320c18: definition moved into src/anon/unit_00320528.cpp
 
 }

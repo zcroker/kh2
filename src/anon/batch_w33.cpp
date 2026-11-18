@@ -165,23 +165,13 @@ struct VObj31d { void** vt; };
 struct Mgr31d { u8 pad[20]; VObj31d* o; };
 extern void* D_00347f80;
 extern void* D_00347f98[];
-void func_0031d7c0(void** p) {
-    *p = D_00347f98;
-    VObj31d* o = ((Mgr31d*)D_00347f80)->o;
-    ((void (*)(VObj31d*, void*))o->vt[1])(o, p);
-}
+void func_0031d7c0(void** p);  // 0x0031d7c0: definition moved into src/anon/unit_0031b9e0.cpp
 
 extern void* D_0034ee08[];
 void func_0019f9a8(void*);  // array8_free_slots
 void func_001c0248(void*);
 void func_00319fb0(void*);  // big_obj_dtor
-void func_00324980(u8* p) {
-    *(void**)p = D_0034ee08;
-    func_0019f9a8(p + 2568);  // array8_free_slots
-    func_001c0248(p + 2640);
-    func_00319fb0(p);  // big_obj_dtor
-    func_00105110(p);
-}
+void func_00324980(u8* p);  // 0x00324980: definition moved into src/anon/unit_00324808.cpp
 
 
 }
