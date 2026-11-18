@@ -1,4 +1,4 @@
-// Linked unit 0x002335e8-0x00234a30 (one namespace per old matched source; gap functions written here).
+// Linked unit 0x002335e8-0x00234f60 (one namespace per old matched source; gap functions written here).
 #include "../common/types.h"
 #include "auto80_199_queue_decls.hpp"
 #include "auto80_199_queue_structs.hpp"
@@ -1161,3 +1161,222 @@ void func_002349e8(void) {
 }
 }  // namespace n002349e8
 
+
+// .rodata word at 0x3713c0 that no code loads (sits before the dispatcher's jump table).
+extern "C" const s32 D_003713c0 = 42;
+
+// 00234a30 (was gap, then src/anon/asm_00234a30.s)
+namespace n00234a30 {
+/* Memory card request dispatcher: pops the next request from the 64-entry ring into the work globals
+   (D_0035e370 = request type, D_0035e374 = step, D_0035e36c = request id); with an empty ring it runs the
+   periodic connection poll. Case 1 clears the step itself and returns (the stores are then scheduled in
+   its own block; the shared `D_0035e374 = 0` after the switch is only for the other cases). */
+extern s32 D_0035e36c asm("D_0035e36c");
+extern s32 D_0035e374 asm("D_0035e374");
+extern s32 D_01dae400 asm("D_01dae400");
+extern s32 D_01dae404 asm("D_01dae404");
+extern s32 D_01dae408 asm("D_01dae408");
+extern s32 D_01dae40c asm("D_01dae40c");
+extern s32 D_01dae410 asm("D_01dae410");
+extern s32 D_01dae414 asm("D_01dae414");
+extern s32 D_01dae418 asm("D_01dae418");
+extern s32 D_01dae41c asm("D_01dae41c");
+extern s32 D_01dae46c asm("D_01dae46c");
+extern s32 D_01dae478 asm("D_01dae478");
+extern s32 D_01dae47c asm("D_01dae47c");
+struct McEnt { s32 type, id, a, b, c, d, e, f; };
+struct McPoll { u8 on; s32 interval; s32 timer; s32 port; s32 slot; };
+extern McEnt D_01dadc00[64] asm("D_01dadc00");
+extern s32 D_0035e360 asm("D_0035e360");
+extern s32 D_0035e364 asm("D_0035e364");
+extern s32 D_0035e370 asm("D_0035e370");
+extern McPoll D_01dae420 asm("D_01dae420");
+extern s32 D_01dae588[2] asm("D_01dae588");
+void func_00234a30(void) asm("func_00234a30");
+void func_00234a30(void) {
+    if (D_0035e360 != D_0035e364) {
+        switch (D_01dadc00[D_0035e364].type) {
+        case 1: {
+            s32 t = D_0035e364;
+            McEnt* e = &D_01dadc00[t];
+            D_0035e370 = 1;
+            D_0035e374 = 0;
+            D_01dae400 = 3;
+            D_01dae404 = 0;
+            D_01dae478 = e->a;
+            D_01dae47c = e->b;
+            D_01dae41c = e->c;
+            D_0035e36c = e->id;
+            D_0035e364 = (t + 1) & 63;
+            return; }
+        case 2: {
+            s32 t = D_0035e364;
+            McEnt* e = &D_01dadc00[t];
+            D_0035e370 = 2;
+            D_01dae478 = e->a;
+            D_01dae47c = e->b;
+            D_01dae46c = e->c;
+            D_01dae418 = e->d;
+            D_01dae408 = e->e;
+            D_01dae41c = e->f;
+            D_0035e36c = e->id;
+            D_0035e364 = (t + 1) & 63;
+            break; }
+        case 3: {
+            s32 t = D_0035e364;
+            McEnt* e = &D_01dadc00[t];
+            D_0035e370 = 3;
+            D_01dae478 = e->a;
+            D_01dae47c = e->b;
+            D_01dae408 = e->c;
+            D_01dae46c = e->d;
+            D_01dae418 = e->e;
+            D_01dae41c = e->f;
+            D_0035e36c = e->id;
+            D_0035e364 = (t + 1) & 63;
+            break; }
+        case 4: {
+            s32 t = D_0035e364;
+            McEnt* e = &D_01dadc00[t];
+            D_0035e370 = 4;
+            D_01dae478 = e->a;
+            D_01dae47c = e->b;
+            D_01dae41c = e->c;
+            D_0035e36c = e->id;
+            D_0035e374 = 0;
+            D_01dae400 = 0;
+            D_01dae404 = 0;
+            D_0035e364 = (t + 1) & 63;
+            return; }
+        case 5: {
+            s32 t = D_0035e364;
+            McEnt* e = &D_01dadc00[t];
+            D_0035e370 = 5;
+            D_01dae478 = e->a;
+            D_01dae47c = e->b;
+            D_01dae41c = e->c;
+            D_0035e36c = e->id;
+            D_0035e374 = 0;
+            D_01dae400 = 0;
+            D_01dae404 = 0;
+            D_0035e364 = (t + 1) & 63;
+            return; }
+        case 6: {
+            s32 t = D_0035e364;
+            McEnt* e = &D_01dadc00[t];
+            D_0035e370 = 6;
+            D_01dae478 = e->a;
+            D_01dae47c = e->b;
+            D_01dae408 = e->c;
+            D_01dae41c = e->d;
+            D_0035e36c = e->id;
+            D_0035e364 = (t + 1) & 63;
+            break; }
+        case 7: {
+            s32 t = D_0035e364;
+            McEnt* e = &D_01dadc00[t];
+            D_0035e370 = 7;
+            D_01dae478 = e->a;
+            D_01dae47c = e->b;
+            D_01dae408 = e->c;
+            D_01dae41c = e->d;
+            D_0035e36c = e->id;
+            D_0035e364 = (t + 1) & 63;
+            break; }
+        case 8: {
+            s32 t = D_0035e364;
+            McEnt* e = &D_01dadc00[t];
+            D_0035e370 = 8;
+            D_01dae478 = e->a;
+            D_01dae47c = e->b;
+            D_01dae408 = e->c;
+            D_01dae410 = e->d;
+            D_01dae414 = e->e;
+            D_01dae41c = e->f;
+            D_0035e36c = e->id;
+            D_0035e364 = (t + 1) & 63;
+            break; }
+        case 9: {
+            s32 t = D_0035e364;
+            McEnt* e = &D_01dadc00[t];
+            D_0035e370 = 9;
+            D_01dae478 = e->a;
+            D_01dae47c = e->b;
+            D_01dae408 = e->c;
+            D_01dae41c = e->d;
+            D_0035e36c = e->id;
+            D_0035e364 = (t + 1) & 63;
+            break; }
+        case 10: {
+            s32 t = D_0035e364;
+            McEnt* e = &D_01dadc00[t];
+            D_0035e370 = 10;
+            D_01dae478 = e->a;
+            D_01dae47c = e->b;
+            D_01dae408 = e->c;
+            D_01dae410 = e->d;
+            D_01dae414 = e->e;
+            D_01dae41c = e->f;
+            D_0035e36c = e->id;
+            D_0035e364 = (t + 1) & 63;
+            break; }
+        case 11: {
+            s32 t = D_0035e364;
+            McEnt* e = &D_01dadc00[t];
+            D_0035e370 = 11;
+            D_01dae478 = e->a;
+            D_01dae47c = e->b;
+            D_01dae408 = e->c;
+            D_01dae410 = e->d;
+            D_01dae414 = e->e;
+            D_01dae41c = e->f;
+            D_0035e36c = e->id;
+            D_0035e364 = (t + 1) & 63;
+            break; }
+        case 12: {
+            s32 t = D_0035e364;
+            McEnt* e = &D_01dadc00[t];
+            D_0035e370 = 12;
+            D_01dae478 = e->a;
+            D_01dae47c = e->b;
+            D_01dae408 = e->c;
+            D_01dae40c = e->d;
+            D_01dae41c = e->e;
+            D_0035e36c = e->id;
+            D_0035e364 = (t + 1) & 63;
+            break; }
+        case 13: {
+            s32 t = D_0035e364;
+            McEnt* e = &D_01dadc00[t];
+            D_0035e370 = 13;
+            D_01dae41c = e->a;
+            D_0035e36c = e->id;
+            D_0035e364 = (t + 1) & 63;
+            return; }
+        default: return;
+        }
+        D_0035e374 = 0;
+    } else if (D_01dae420.on) {
+        if (D_01dae420.timer != 0) {
+            D_01dae420.timer--;
+            return;
+        }
+        s32 port = D_01dae420.port;
+        s32 slot = D_01dae420.slot;
+        D_0035e370 = 1;
+        D_01dae420.timer = D_01dae420.interval;
+        D_0035e374 = 0;
+        D_01dae400 = 0;
+        D_01dae404 = 0;
+        D_01dae478 = port;
+        D_01dae47c = slot;
+        D_01dae41c = 0;
+        if (slot == D_01dae588[port] - 1) {
+            D_01dae420.slot = 0;
+            D_01dae420.port = (port + 1) % 2;
+        } else {
+            D_01dae420.slot = slot + 1;
+        }
+    }
+}
+}  // namespace n00234a30
