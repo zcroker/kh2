@@ -1,4 +1,4 @@
-// Linked unit 0x00254020-0x002582f8 (0x2581b0 was whole asm).
+// Linked unit 0x00253ba8-0x002582f8 (0x253ba8 and 0x2581b0 were whole asm).
 #include "../common/types.h"
 #include "../tozawa/cmenu_selector.hpp"
 #include "../tozawa/cmenu_top.hpp"
@@ -17,6 +17,181 @@
 #include "./tiny_auto80_queue_structs.hpp"
 #include "../yasui/libys/areadata.hpp"
 #include "../yasui/libys/progress.hpp"
+
+// 00253ba8 (was whole asm, src/anon/batch_w3908.s)
+// Menu system init. Plain C++ once it is written with real classes: virtual Alloc calls, class
+// operator new / new[] and inline constructors (the C-style emulation with function-pointer
+// structs never scheduled the allocator loads like retail), globals reset in address order.
+namespace n00253ba8 {
+struct Heap3ba8 { virtual void* Alloc(u32 size, void* ra); };
+struct Sys3ba8 { u8 pad[20]; Heap3ba8* heap; };
+extern Sys3ba8* D_00347f80 asm("D_00347f80");
+extern Heap3ba8* D_0032ba14 asm("D_0032ba14");
+extern u8 D_00347e60[] asm("D_00347e60");
+extern u8 D_00347e40[] asm("D_00347e40");
+extern u8 D_00347f98[] asm("D_00347f98");
+extern u8 D_0035ef60 asm("D_0035ef60");
+extern s32 D_0035ef64 asm("D_0035ef64");
+extern s32 D_0035ef68 asm("D_0035ef68");
+extern s32 D_0035ef6c asm("D_0035ef6c");
+extern s16 D_0035ef70 asm("D_0035ef70");
+void func_00177710(void) asm("func_00177710");
+void func_001a3710(void) asm("func_001a3710");
+void func_00287b18(s32, s32) asm("func_00287b18");
+void func_00253818(s32) asm("func_00253818");
+void func_00259350(s32) asm("func_00259350");
+void func_0028d068(s32, s32) asm("func_0028d068");
+s32 func_001a8bd0(s32) asm("func_001a8bd0");
+void func_00280eb0(void*, s32) asm("func_00280eb0");
+void func_00281ec8(void*) asm("func_00281ec8");
+s32 func_00103570(void) asm("func_00103570");
+void* func_001063c0(u32, s32) asm("func_001063c0");
+void func_00290b00(void*) asm("func_00290b00");
+void* func_00288be8(u32) asm("func_00288be8");
+void func_002889f0(void*, s32, s32) asm("func_002889f0");
+void func_00239700(void*) asm("func_00239700");
+void func_0028b9b0(void*) asm("func_0028b9b0");
+void func_0028d140(void*) asm("func_0028d140");
+void func_0031a838(void*) asm("func_0031a838");
+void func_00323110(void*) asm("func_00323110");
+void func_00285828(void) asm("func_00285828");
+void func_0025f698(void) asm("func_0025f698");
+void func_002675e8(void) asm("func_002675e8");
+void func_0026ba48(void) asm("func_0026ba48");
+void func_00264388(void) asm("func_00264388");
+void func_0026ec98(void) asm("func_0026ec98");
+void func_00276fe8(void) asm("func_00276fe8");
+void func_0027c4d8(void) asm("func_0027c4d8");
+void func_00282f68(void) asm("func_00282f68");
+void func_002926c0(s32) asm("func_002926c0");
+void func_002815d8(void) asm("func_002815d8");
+void func_0027dc40(void) asm("func_0027dc40");
+void func_00293708(void) asm("func_00293708");
+void func_00293240(void) asm("func_00293240");
+void func_002936d8(void) asm("func_002936d8");
+void func_00257c78(void) asm("func_00257c78");
+void func_00254568(void) asm("func_00254568");
+void func_00287bd0(s32, s32) asm("func_00287bd0");
+void func_00287cc0(s32) asm("func_00287cc0");
+s32 func_00283b78(void) asm("func_00283b78");
+struct Th3ba8 { s32 f0; s32 f4; };
+Th3ba8* func_00103eb0(void) asm("func_00103eb0");
+void func_00254648(void) asm("func_00254648");
+void func_00102818(s32, s32, s32, void (*)(void), s32) asm("func_00102818");
+
+// Allocated from the main heap; the allocator gets this function's return address.
+struct MainObj {
+    static void* operator new(u32 size) { return D_0032ba14->Alloc(size, __builtin_return_address(0)); }
+};
+// Allocated from the menu system's own heap.
+struct MenuObj {
+    static void* operator new(u32 size) { return D_00347f80->heap->Alloc(size, 0); }
+    static void* operator new[](u32 size) { return D_00347f80->heap->Alloc(size, 0); }
+};
+// 408-byte sequence holder (vtable 0x347e60, YI::SEQUENCE at +24). The destructor makes new[] keep a count.
+struct Seq408 : MenuObj {
+    void* vt; u8 pad4[8]; s32 f12; u8 pad16[8]; u8 seq[384];
+    Seq408() { f12 = 0; vt = D_00347e60; func_00239700(seq); }
+    ~Seq408();
+};
+struct Seq436 : MenuObj {
+    void* vt; u8 pad4[8]; s32 f12; u8 pad16[8]; u8 seq[384]; s32 f408; u8 pad412[24];
+    Seq436() { vt = D_00347f98; func_0031a838(&f12); vt = D_00347e60; func_00239700(seq); f408 = 0; vt = D_00347e40; }
+};
+struct Obj88 : MainObj { u8 b[88]; Obj88(s32 x) { func_00280eb0(this, x); } };
+struct Obj4196 : MainObj { u8 b[4196]; Obj4196() { func_00281ec8(this); } void func_00281f40(Obj88*) asm("func_00281f40"); };
+struct Lay11084 { u8 b[11084]; Lay11084() { func_00290b00(this); } static void* operator new(u32 n, s32 sys) { return func_001063c0(n, sys); } };
+struct Obj56 { u8 b[56]; Obj56(s32 a, s32 c) { func_002889f0(this, a, c); } static void* operator new(u32 n) { return func_00288be8(n); } };
+struct Obj52 : MainObj { u8 b[52]; Obj52() { func_0028b9b0(this); } };
+struct Obj444 : MenuObj { u8 b[444]; Obj444() { func_0028d140(this); } };
+struct Lay47212 { u8 b[47212]; Lay47212() { func_00323110(this); } static void* operator new(u32 n, s32 sys) { return func_001063c0(n, sys); } };
+
+extern Obj88* D_0035f010 asm("D_0035f010");
+extern Obj4196* D_0035f014 asm("D_0035f014");
+extern Lay11084* D_0035f018 asm("D_0035f018");
+extern Obj56* D_0035f01c asm("D_0035f01c");
+extern Obj56* D_0035f020 asm("D_0035f020");
+extern Obj56* D_0035f024 asm("D_0035f024");
+extern Seq408* D_0035f028 asm("D_0035f028");
+extern Seq408* D_0035f02c asm("D_0035f02c");
+extern Seq408* D_0035f030 asm("D_0035f030");
+extern Seq436* D_0035f034 asm("D_0035f034");
+extern Lay47212* D_0035f038 asm("D_0035f038");
+extern s32 D_0035f03c asm("D_0035f03c");
+extern s32 D_0035f040 asm("D_0035f040");
+extern s32 D_0035f044 asm("D_0035f044");
+extern s32 D_0035f048 asm("D_0035f048");
+extern Obj52* D_0035f04c asm("D_0035f04c");
+extern Obj444* D_0035f050 asm("D_0035f050");
+extern u8 D_0035f054 asm("D_0035f054");
+extern u8 D_0035f055 asm("D_0035f055");
+extern u8 D_0035f057 asm("D_0035f057");
+extern u8 D_0035f05b asm("D_0035f05b");
+extern u8 D_0035f05c asm("D_0035f05c");
+
+/*TARGET 00253ba8*/
+void func_00253ba8(void) asm("func_00253ba8");
+void func_00253ba8(void) {
+    func_00177710();
+    func_001a3710();
+    func_00287b18(38, 3);
+    func_00253818(2);
+    func_00259350(2);
+
+    D_0035ef64 = 0;
+    D_0035ef68 = 1;
+    D_0035ef6c = 31;
+    D_0035f03c = 0;
+    D_0035f040 = 0;
+    D_0035f044 = 0;
+    D_0035f048 = 0;
+    D_0035f04c = 0;
+    D_0035f050 = 0;
+    D_0035f054 = 0;
+    D_0035f055 = 1;
+    D_0035f057 = 0;
+
+    func_0028d068(30026, -1);
+    D_0035f010 = new Obj88(func_001a8bd0(-1));
+    D_0035f014 = new Obj4196;
+    D_0035f018 = new (func_00103570()) Lay11084;
+    D_0035f014->func_00281f40(D_0035f010);
+    D_0035f01c = new Obj56(38, 1);
+    D_0035f020 = new Obj56(38, 1);
+    D_0035f024 = new Obj56(38, 0);
+    D_0035f028 = new Seq408[3];
+    D_0035f02c = new Seq408;
+    D_0035f030 = new Seq408;
+    D_0035f04c = new Obj52;
+    D_0035f050 = new Obj444;
+    D_0035f034 = new Seq436;
+    D_0035f038 = new (func_00103570()) Lay47212;
+    func_00285828();
+    func_0025f698();
+    func_002675e8();
+    func_0026ba48();
+    func_00264388();
+    func_0026ec98();
+    func_00276fe8();
+    func_0027c4d8();
+    func_00282f68();
+    func_002926c0(0);
+    func_002815d8();
+    func_0027dc40();
+    func_00293708();
+    func_00293240();
+    func_002936d8();
+    func_00257c78();
+    func_00254568();
+    func_00287bd0(0, 0);
+    func_00287cc0(0);
+    D_0035ef60 = 0;
+    D_0035ef70 = 0;
+    D_0035f05b = func_00283b78() != 0;
+    D_0035f05c = 0;
+    func_00102818(func_00103eb0()->f4, 0, 2000, func_00254648, 4096);
+}
+}  // namespace n00253ba8
 
 // 00254020 (was src/anon/batch_w1616.cpp)
 namespace n00254020 {
