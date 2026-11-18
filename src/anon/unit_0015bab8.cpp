@@ -389,140 +389,23 @@ void func_0015c4b8(void) {
 }
 }  // namespace n0015c4b8
 
-// ---- 0x0015c500 (src/anon/batch_w292.cpp)
-namespace n0015c500 {
-struct Fog15c { u8 r, g, b, a; f32 near, far, fmin, fmax; };
-struct Cfg15c { u8 pad[0x44]; Fog15c fog; };
-extern Cfg15c D_004f3700 asm("D_004f3700");
-extern Cfg15c D_004f36a8 asm("D_004f36a8");
-extern Cfg15c D_004f3650 asm("D_004f3650");
-void func_0015cbb8(s32, s32, s32, s32) asm("func_0015cbb8");
-void func_0015c4b8(void) asm("func_0015c4b8");
-void func_0015cc18(s32, s32, s32, s32, s32) asm("func_0015cc18");
-s32 func_0015cc80(Fog15c*) asm("func_0015cc80");
-void func_0010a8a8(f32, f32) asm("func_0010a8a8");
-void func_0010a828(f32, f32) asm("func_0010a828");
-void func_0010a7d8(u8, u8, u8) asm("func_0010a7d8");
-void func_001dd1e8(u8, u8) asm("func_001dd1e8");
-void func_001dd1b0(f32, f32) asm("func_001dd1b0");
-void func_001dd1c8(u8, u8, u8) asm("func_001dd1c8");
-void func_0015c500(void) asm("func_0015c500");
-void func_0015c500(void)
-{
-    s32 i;
-    Fog15c* f;
-    func_0015cbb8(0, 0, 0, 128);
-    func_0015c4b8();
-    for (i = 0; i < 16; i++) func_0015cc18(i, 128, 128, 128, 128);
-    f = &D_004f3700.fog;
-    f->near = 1000.0f;
-    f->fmin = 0.0f;
-    f->far = 1000000.0f;
-    f->fmax = 255.0f;
-    s32 c = 128;
-    f->r = c;
-    f->g = c;
-    f->b = c;
-    f->a = c;
-    if (!func_0015cc80(f)) {  // test_float12_zero_and_bits
-        func_0010a8a8(f->fmin, f->fmax);  // store_global_float_pair
-        func_0010a828(f->near, f->far);
-        func_0010a7d8(f->r, f->g, f->b);  // store_triple_bytes
-    }
-    func_001dd1e8((s32)f->fmin, (s32)f->fmax);
-    func_001dd1b0(f->near, f->far);  // to_1e7018
-    func_001dd1c8(f->r, f->g, f->b);  // to_1e7030_masked
-    D_004f36a8 = D_004f3700;
-    D_004f3650 = D_004f36a8;
-}
-}  // namespace n0015c500
-
-// ---- 0x0015c6d0 (src/anon/batch_w287.cpp)
-namespace n0015c6d0 {
-struct T15 { u8 id; u8 b1; u8 b2; u8 pad; f32 f4; f32 f8; f32 f12; f32 f16; };
-struct S15 { u8 pad[68]; T15 t; };
-extern S15 D_004f36a8 asm("D_004f36a8");
-extern S15 D_004f3650 asm("D_004f3650");
-extern S15 D_004f3700 asm("D_004f3700");
-extern T15 D_004f3744 asm("D_004f3744");
-void func_0015c4b8(void) asm("func_0015c4b8");
-s32 func_0015cc80(T15*) asm("func_0015cc80");
-void func_0010a8a8(f32, f32) asm("func_0010a8a8");
-void func_0010a828(f32, f32) asm("func_0010a828");
-void func_0010a7d8(u8, u8, u8) asm("func_0010a7d8");
-void func_001dd1e8(u8, u8) asm("func_001dd1e8");
-void func_001dd1b0(f32, f32) asm("func_001dd1b0");
-void func_001dd1c8(u8, u8, u8) asm("func_001dd1c8");
-void func_0015c6d0(S15* a0) asm("func_0015c6d0");
-void func_0015c6d0(S15* a0) {
-    D_004f36a8 = *a0;
-    D_004f3650 = D_004f36a8;
-    D_004f3700 = *a0;
-    func_0015c4b8();
-    S15* p = &D_004f3700;
-    if (p->t.f16 == 0.0f) p->t.f16 = 255.0f;
-    T15* t = &p->t;
-    T15* g = &D_004f3744;
-    if (!func_0015cc80(t)) {  // test_float12_zero_and_bits
-        func_0010a8a8(t->f12, t->f16);  // store_global_float_pair
-        func_0010a828(t->f4, t->f8);
-        func_0010a7d8(g->id, t->b1, t->b2);  // store_triple_bytes
-    }
-    func_001dd1e8((s32)t->f12, (s32)t->f16);
-    func_001dd1b0(t->f4, t->f8);  // to_1e7018
-    func_001dd1c8(g->id, t->b1, t->b2);  // to_1e7030_masked
-}
-}  // namespace n0015c6d0
-
-// ---- 0x0015c880 (src/anon/batch_w3720.cpp)
-namespace n0015c880 {
-struct S4f3694 { u8 r, g, b, a; f32 x, y, z, w; };
-extern u8 D_00340eb0 asm("D_00340eb0");
-extern struct S4f3694 D_004f3694 asm("D_004f3694");
-void func_0010a8a8(f32, f32) asm("func_0010a8a8");
-void func_0010a828(f32, f32) asm("func_0010a828");
-void func_0010a7d8(u8, u8, u8) asm("func_0010a7d8");
-void func_001dd1e8(u8, u8) asm("func_001dd1e8");
-void func_001dd1b0(f32, f32) asm("func_001dd1b0");
-void func_001dd1c8(u8, u8, u8) asm("func_001dd1c8");
-static inline __attribute__((always_inline)) void init_4f3694(f32 z, f32 w, f32 y) {
-    s32 t;
-    register f32 yy asm("$f2") = y;
-    asm("swc1 %1,%0" : "=m"(D_004f3694.y) : "f"(yy), "m"(D_00340eb0));
-    asm("li %0,128" : "=r"(t) : "m"(D_004f3694.y), "m"(D_004f3694.x), "m"(D_004f3694.z), "m"(D_004f3694.w));
-    D_004f3694.r = 0;
-    D_004f3694.g = 0;
-    D_004f3694.x = z;
-    D_004f3694.z = z;
-    D_004f3694.w = w;
-    asm("" : "+r"(t) : "m"(D_004f3694.x), "m"(D_004f3694.y), "m"(D_004f3694.z), "m"(D_004f3694.w));
-    D_004f3694.a = t;
-    D_004f3694.b = 0;
-    func_0010a8a8(z, w);
-}
-void func_0015c880(f32 arg0) asm("func_0015c880");
-void func_0015c880(f32 arg0) {
-    register s32 one asm("$14") = 1;
-    D_00340eb0 = one;
-    init_4f3694(0.0f, 255.0f, arg0);
-    func_0010a828(D_004f3694.x, D_004f3694.y);
-    func_0010a7d8(D_004f3694.r, D_004f3694.g, D_004f3694.b);
-    func_001dd1e8((s32)D_004f3694.z, (s32)D_004f3694.w);
-    func_001dd1b0(D_004f3694.x, D_004f3694.y);
-    func_001dd1c8(D_004f3694.r, D_004f3694.g, D_004f3694.b);
-}
-}  // namespace n0015c880
-
-// ---- 0x0015c958 (was whole asm, src/anon/asm_0015c958.s)
-// Plain C++: the colour is a base class set through a free inline (pointer parameter), the fog values
-// are stored through the global, and the draw calls are an inline member; the fog flag is a struct member.
-namespace n0015c958 {
+// ---- Fog state shared by 0x15c500..0x15ca40: three colour/fog sets (D_004f3650, D_004f36a8,
+// D_004f3700) and the fog flag. The colour is a base class set through a free inline (pointer
+// parameter); the draw calls are inline members called on the global object.
+namespace nfog {
 struct FogFlag { u8 on; };
 struct Rgba { u8 r, g, b, a; };
-struct Fog : Rgba { f32 near, far, min, max; inline void apply(); };
+struct Fog : Rgba {
+    f32 near, far, min, max;
+    void setRange(f32 n, f32 f, f32 lo, f32 hi) { near = n; far = f; min = lo; max = hi; }
+    inline void apply();
+    inline void update();
+};
 struct MapColor { Rgba base; Rgba table[16]; Fog fog; };
 extern FogFlag D_00340eb0 asm("D_00340eb0");
 extern MapColor D_004f3650 asm("D_004f3650");
+extern MapColor D_004f36a8 asm("D_004f36a8");
+extern MapColor D_004f3700 asm("D_004f3700");
 void func_0010a8a8(f32, f32) asm("func_0010a8a8");
 void func_0010a828(f32, f32) asm("func_0010a828");
 void func_0010a7d8(u8, u8, u8) asm("func_0010a7d8");
@@ -543,6 +426,69 @@ inline void Fog::apply() {
     func_001dd1b0(near, far);
     func_001dd1c8(r, g, b);
 }
+s32 func_0015cc80(Fog*) asm("func_0015cc80");
+inline void Fog::update() {
+    if (!func_0015cc80(this)) {
+        func_0010a8a8(min, max);
+        func_0010a828(near, far);
+        func_0010a7d8(r, g, b);
+    }
+    func_001dd1e8((s32)min, (s32)max);
+    func_001dd1b0(near, far);
+    func_001dd1c8(r, g, b);
+}
+}  // namespace nfog
+
+// ---- 0x0015c500 (src/anon/batch_w292.cpp)
+namespace n0015c500 {
+using namespace nfog;
+void func_0015cbb8(s32, s32, s32, s32) asm("func_0015cbb8");
+void func_0015c4b8(void) asm("func_0015c4b8");
+void func_0015cc18(s32, s32, s32, s32, s32) asm("func_0015cc18");
+void func_0015c500(void) asm("func_0015c500");
+void func_0015c500(void) {
+    s32 i;
+    func_0015cbb8(0, 0, 0, 128);
+    func_0015c4b8();
+    for (i = 0; i < 16; i++) func_0015cc18(i, 128, 128, 128, 128);
+    D_004f3700.fog.setRange(1000.0f, 1000000.0f, 0.0f, 255.0f);
+    SetRgba(&D_004f3700.fog, 128, 128, 128, 128);
+    D_004f3700.fog.update();
+    D_004f36a8 = D_004f3700;
+    D_004f3650 = D_004f36a8;
+}
+}  // namespace n0015c500
+
+// ---- 0x0015c6d0 (src/anon/batch_w287.cpp)
+namespace n0015c6d0 {
+using namespace nfog;
+void func_0015c4b8(void) asm("func_0015c4b8");
+void func_0015c6d0(MapColor* src) asm("func_0015c6d0");
+void func_0015c6d0(MapColor* src) {
+    D_004f36a8 = *src;
+    D_004f3650 = D_004f36a8;
+    D_004f3700 = *src;
+    func_0015c4b8();
+    if (D_004f3700.fog.max == 0.0f) D_004f3700.fog.max = 255.0f;
+    D_004f3700.fog.update();
+}
+}  // namespace n0015c6d0
+
+// ---- 0x0015c880 (src/anon/batch_w3720.cpp)
+namespace n0015c880 {
+using namespace nfog;
+void func_0015c880(f32 far) asm("func_0015c880");
+void func_0015c880(f32 far) {
+    D_00340eb0.on = 1;
+    D_004f3650.fog.setRange(0.0f, far, 0.0f, 255.0f);
+    SetRgba(&D_004f3650.fog, 0, 0, 0, 128);
+    D_004f3650.fog.apply();
+}
+}  // namespace n0015c880
+
+// ---- 0x0015c958 (was whole asm, src/anon/asm_0015c958.s)
+namespace n0015c958 {
+using namespace nfog;
 void func_0015c958(s32 near, u8 r, u8 g, u8 b, s32 min, s32 max) asm("func_0015c958");
 void func_0015c958(s32 near, u8 r, u8 g, u8 b, s32 min, s32 max) {
     D_00340eb0.on = 1;
@@ -553,3 +499,18 @@ void func_0015c958(s32 near, u8 r, u8 g, u8 b, s32 min, s32 max) {
     D_004f3650.fog.apply();
 }
 }  // namespace n0015c958
+
+// ---- 0x0015ca40 (was whole asm, src/anon/asm_0015ca40.s)
+// update() first asks func_0015cc80 whether to skip the setters.
+namespace n0015ca40 {
+using namespace nfog;
+void func_0015ca40(u8 r, u8 g, u8 b, f32 near, f32 far, f32 min, f32 max) asm("func_0015ca40");
+void func_0015ca40(u8 r, u8 g, u8 b, f32 near, f32 far, f32 min, f32 max) {
+    D_004f36a8.fog.far = far;
+    D_004f36a8.fog.near = near;
+    D_004f36a8.fog.min = min;
+    D_004f36a8.fog.max = max;
+    SetRgba(&D_004f36a8.fog, r, g, b, 128);
+    D_004f36a8.fog.update();
+}
+}  // namespace n0015ca40
