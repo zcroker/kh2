@@ -1,8 +1,9 @@
 #include "../common/types.h"
 
 // YS::PRIZE (prize effect set) and YS::PRIZE_CA, first part (0x1cc048-0x1cc3b8): the effect set's
-// constructor and destructors, prize spawning, and the pick-up hand-over. The burst spawners after
-// it (0x1cc3b8, 0x1cc5c8) are still separate functions; unit_001cc868.cpp and unit_001cd078.cpp continue the file.
+// constructor and destructors, prize spawning, the pick-up hand-over and the ring burst spawner
+// (0x1cc3b8). The burst spawner after it (0x1cc5c8) is still a separate function; unit_001cc868.cpp
+// and unit_001cd078.cpp continue the file.
 
 struct Vn1cc0 {
     f32 x, y, z, w;
@@ -21,7 +22,8 @@ struct O1cc220 { u8 pad[0x588]; u32 flags; u8 pad2[0x7f8 - 0x58c]; u32 flags2; }
 extern "C" {
 extern u8 D_00352060;
 extern void* D_00352050;
-extern u8 D_0036e228[];
+extern f32 D_0036e228[];   // prize effect parameters ([1]: height above the ground)
+extern u32 D_003638d0;
 extern f32 D_0036d4a8;
 u32 func_001a4db0(u32, u32, u32, u32);
 u32 func_001a4e30(...);
@@ -98,7 +100,7 @@ void func_001cc0e8(void** self) {
 u8* PrizeSetAppear(void* self, void* pos) asm("_ZN2YS5PRIZE6appearEPKNS_11PRIZEEFFECT5PARAMERKN2kn7FVectorE");
 u8* PrizeSetAppear(void* self, void* pos)
 {
-    u8* p = func_001a5420(self, D_0036e228, pos);
+    u8* p = func_001a5420(self, (u8*)D_0036e228, pos);
     if (p) *(u32*)(p + 40) |= 4;
     return p;
 }
@@ -155,5 +157,43 @@ s32 func_001cc358(void)
     func_001c71f8(p, -0.5f);
     if (p[68] >= 2) { PrizeSet* s = (PrizeSet*)D_00352050; s->vt->take(s, p); }
     return 1;
+}
+
+struct Prize1cc3b8 { u8 pad[16]; void (*func)(Prize1cc3b8*); u8 pad2[28]; Vn1cc0 vel; };
+f32 func_002f8960(f32);
+f32 func_002f87c0(f32);
+void func_001a7610(Vn1cc0*, Vn1cc0*, s32, f32, f32);
+void func_001c7520(Prize1cc3b8*);
+
+// The game's random generator (seed at D_003638d0), written with arithmetic helpers: the
+// multiplier and the 1/2^32 scale are helper arguments, which is what decides the loop hoisting.
+static inline u32 Mulu(u32 a, u32 b) { return a * b; }
+static inline f32 Mulf(f32 a, f32 b) { return a * b; }
+static inline f32 Rand(f32 range)
+{
+    D_003638d0 = Mulu(D_003638d0, 0x10dcd);
+    return Mulf((f32)D_003638d0, 2.3283064e-10f) * range;
+}
+
+// Spawn n prizes on a ring around pos: random radius (0..300) and angle, dropped to the ground.
+void func_001cc3b8(Vn1cc0* pos, s32 n)
+{
+    if (!D_00352050) return;
+    Vn1cc0 off;
+    off.w = off.z = off.y = off.x = 0.0f;
+    for (s32 i = 0; i < n; i++) {
+        Vn1cc0 g;
+        Vn1cc0 p;
+        f32 r = Rand(300.0f);
+        f32 a = Rand(6.2831855f);
+        off.x = func_002f8960(a) * r;
+        off.z = func_002f87c0(a) * r;
+        asm volatile("lqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 0(%2)\n\tvadd.wxyz $vf1, $vf1, $vf2\n\tsqc2 $vf1, 0(%0)" : : "r"(&p), "r"(pos), "r"(&off) : "memory");
+        func_001a7610(&p, &g, 4, 1000.0f, 200.0f);
+        g.y -= D_0036e228[1];
+        Prize1cc3b8* fx = (Prize1cc3b8*)PrizeSetAppear(D_00352050, &g);
+        fx->func = func_001c7520;
+        asm volatile("vsub.wxyz $vf1, $vf0, $vf0\n\tsqc2 $vf1, 0(%0)" : : "r"(&fx->vel) : "memory");
+    }
 }
 }

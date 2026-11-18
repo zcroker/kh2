@@ -71,7 +71,6 @@ src/anon/unit_001c9ea0.cpp	001c9ea0	001ca060	.rodata@0036e0c8	-G0 -fno-strict-al
 src/anon/unit_001ca148.cpp	001ca148	001ca638	.rodata@0036e0d0	-G0 -fno-strict-aliasing
 src/anon/unit_001ca638.cpp	001ca638	001ca8e0	-	-G0
 src/anon/unit_001ca8e0.cpp	001ca8e0	001cc008	.rodata@0036e140	-G0 -fno-strict-aliasing
-src/anon/batch_w3873.s	001cc3b8	001cc5c8	-	-
 src/anon/asm_001cc5c8.s	001cc5c8	001cc868	-	-
 src/anon/batch_w3951.s	001e8558	001e8ac8	-	-
 src/anon/batch_w3958.s	001f1978	001f25d0	-	-
@@ -630,7 +629,7 @@ src/sugi/flare.cpp	002e9248	002e99c8	.data@01e2bfa0,.rodata@00376090	-G0 -fno-st
 src/anon/unit_002e9a00.cpp	002e99c8	002ea2b8	.rodata@00376098	-G0
 src/anon/unit_002ea2b8.cpp	002ea2b8	002eaa68	.rodata@003760c8	-G0 -fno-strict-aliasing
 src/anon/unit_002eaa68.cpp	002eaa68	002ead98	.rodata@003760d4	-G0
-src/anon/unit_001cc048.cpp	001cc008	001cc3b8	.rodata@0036e1c0	-G0 -g
+src/anon/unit_001cc048.cpp	001cc008	001cc5c8	.rodata@0036e1c0	-G0 -g
 src/anon/unit_001cc868.cpp	001cc868	001cd078	.rodata@0036e1fc	-G0 -g
 src/anon/unit_001cd078.cpp	001cd078	001cd548	.rodata@0036e238	-G0 -g
 src/anon/unit_001cd548.cpp	001cd548	001cd660	-	-G0
