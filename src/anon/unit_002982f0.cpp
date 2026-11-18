@@ -1,4 +1,4 @@
-// Linked unit 0x002982f0-0x00299920 (one namespace per old matched source; class methods in their own namespace).
+// Linked unit 0x00297e68-0x00299920 (one namespace per old matched source; class methods in their own namespace).
 #include "../common/types.h"
 #include "tiny_auto80_solver_structs.hpp"
 #include <stdarg.h>
@@ -15,6 +15,134 @@
 #include "../harata/libdk/treasure_info.hpp"
 #include "../tozawa/cmenu_top.hpp"
 #include "../tozawa/help_gra.hpp"
+
+// 00297e68 (album menu setup; was whole asm src/anon/batch_w3900.s)
+namespace n00297e68 {
+u8* jm_parent(void) asm("_ZN2Tz6Jiminy9GetParentEv");
+u8* jm_seqtbl(void) asm("_ZN2Tz6Jiminy9GetSeqTblEv");
+s32 func_0028f930(s32) asm("func_0028f930");
+void func_0028f4d8(s32, s32, s32) asm("func_0028f4d8");
+void func_00276e78(void) asm("func_00276e78");
+void func_00288e88(s32) asm("func_00288e88");
+void pz_cfo(void*, s32, s32, s32, s32, s32, s32, s32) asm("_ZN2Tz5Pause16CreateFadeObjectEz");
+void obj_xyoff(void*) asm("_ZN2dk5Obj2D17getSeqPraramXYOffEv");
+void mc_as(void*, void*) asm("_ZN2Tz10MenuCursor12AttachSpriteEz");
+s32 yi_cr(void*) asm("_ZN2YI8SEQUENCE10GetParamCrEv");
+void sel_set(s32) asm("_ZN2Tz8Selector8SetStateEi");
+s32 mb_mode(void) asm("_ZN2Tz8MenuBase7GetModeEv");
+s32 jm_curpos(s32) asm("_ZN2Tz6Jiminy9GetCurPosEi");
+void jm_savecur(s32, s32, s32) asm("_ZN2Tz6Jiminy10SaveCurPosEiii");
+void jm_hidel(s32) asm("_ZN2Tz6Jiminy18SetHideLightCursorEb");
+void jm_hide(s32) asm("_ZN2Tz6Jiminy13SetHideCursorEb");
+s8* jm_info(void) asm("_ZN2Tz6Jiminy11GetMenuInfoEv");
+u8* jmi_data(s32) asm("_ZN2Tz6JmInfo7GetDataEi");
+s32 jmi_album(void*) asm("_ZN2Tz6JmInfo13isEnableAlbumEPKNS_15JmAlbumDataInfoE");
+void sel_dis(s32, s32) asm("_ZN2Tz6Select16SetDisableButtonEj");
+extern s32 D_0035f3d4 asm("D_0035f3d4");
+extern s32 D_0035f14c asm("D_0035f14c");
+extern s32 D_0035f148 asm("D_0035f148");
+extern s32 D_0035f210 asm("D_0035f210");
+extern s32 D_0035f200 asm("D_0035f200");
+extern s8 D_0035f5a0 asm("D_0035f5a0");
+extern s8 D_0035f5a1 asm("D_0035f5a1");
+extern s8 D_0035f5a2 asm("D_0035f5a2");
+extern s8 D_0035f5a3 asm("D_0035f5a3");
+struct Fade { u8 pad[408]; };
+struct Obj { u8 pad[408]; void* x198; u8 pad2[8]; s32 x1a4; u8 pad3[4]; s32 x1ac; s32 x1b0; u8 pad4[4]; };
+void func_00288d80(s32, s32, s32, s32, s32, s32, s16*, s16*) asm("func_00288d80");
+Obj* sel_item(s32, s32) asm("_ZN2Tz6Select10GetItemPtrEi");
+void reset_alpha(Obj*) asm("_ZN2dk5Obj2D17resetSeqAlphaOnlyEv");
+void set_off(Obj*, s32, s32) asm("_ZN2dk6Sprite12setOffsetPosEii");
+void spr_num(Fade*, s32) asm("_ZN2dk6Sprite6setNumEi");
+void func_0028af90(s32, s32) asm("func_0028af90");
+void func_002891f0(s32, s32, s32, s32, s32) asm("func_002891f0");
+void func_002982f0(void) asm("func_002982f0");
+void func_00299260(void) asm("func_00299260");
+void func_00299290(void) asm("func_00299290");
+void func_002fde18(void*, s32, s32) asm("func_002fde18");
+void* func_00192048(s32) asm("func_00192048");
+void func_0028de08(s32, void*, s32) asm("func_0028de08");
+s32 func_002983d8(s32) asm("func_002983d8");
+s32 func_002aa668(s32, s32) asm("func_002aa668");
+s32 func_002aa788(s32, s32) asm("func_002aa788");
+struct Name { u8 b[64]; };
+struct Seq { u8 pad[0x110a0]; Name names[10]; };
+struct Album { u8 pad[8]; u16 msg; u8 pad2[2]; };
+struct List { s32 count; s16 ids[1]; };
+extern List* D_0035f598 asm("D_0035f598");
+void msg_dup2(void*, void*) asm("_ZNK2YS7MESSAGE3dupEPc");
+extern s32 D_003747c0 asm("D_003747c0");
+extern s32 D_bc asm("D_003747bc");
+void func_00297e68(void) asm("func_00297e68");
+void func_00297e68(void) {
+    u8* par = jm_parent();
+    Seq* seq = (Seq*)jm_seqtbl();
+    D_0035f5a0 = -1;
+    D_0035f5a1 = -1;
+    D_0035f5a3 = 0;
+    D_0035f5a2 = 0;
+    func_00288e88(D_0035f200);
+    if (!func_0028f930(0)) func_0028f4d8(0, -1, 0);
+    s32 pg;
+    s16 h[2][4];
+    s32 i;
+    for (i = 0; i < 2; i++)
+        for (s32 j = 0; j < 4; j++) h[i][j] = 2;
+    s32 n = D_0035f3d4 - 1;
+    func_00276e78();
+    pz_cfo(seq, n, D_0035f14c, D_0035f148, D_0035f210, 90, -1, 0);
+    obj_xyoff(seq);
+    mc_as(seq, par);
+    s32 cr = yi_cr((u8*)seq + 24);
+    n = D_0035f3d4;
+    for (i = 0; i < 8; i++) {
+        func_00288d80(D_0035f200, i, D_0035f14c, D_0035f148, D_0035f210, -1, h[0], h[1]);
+        Obj* it = sel_item(D_0035f200, i);
+        obj_xyoff(it);
+        mc_as(it, seq);
+        set_off(it, 0, i * cr);
+        u32 bf = 3u << 29;
+        bf |= 8;
+        it->x1a4 = bf;
+        it->x1ac = 3;
+        reset_alpha(it);
+        Fade* c = (Fade*)((u8*)seq + 0xa998) + i;
+        pz_cfo(c, n + 1, D_0035f14c, D_0035f148, D_0035f210, 2, -1, 0);
+        mc_as(c, it);
+    }
+    func_002982f0();
+    func_002fde18(seq->names, 0, sizeof(seq->names));
+    s32 cnt = D_0035f598->count;
+    if (cnt == 0) {
+        pg = 1;
+        jm_hide(1);
+        sel_item(D_0035f200, 0)->x198 = func_00192048(13021);
+    } else {
+        pg = cnt;
+        Album* al = (Album*)(jmi_data(2) + 16);
+        for (i = 0; i < cnt; i++) {
+            s32 en = jmi_album((void*)func_002983d8(D_0035f598->ids[i]));
+            register s32 id asm("$18") = D_0035f598->ids[i];  // pin: id s2 / en s3 (global alloc picks them swapped otherwise)
+            s32 m = al[id].msg;
+            if (en == 0) func_0028de08(m, &seq->names[i], 64);
+            else msg_dup2(func_00192048(m), &seq->names[i]);
+            Obj* it = sel_item(D_0035f200, i);
+            it->x198 = &seq->names[i];
+            Fade* cc = (Fade*)((u8*)seq + 0xa998) + i;
+            if (en && func_002aa668(*jm_info(), id))
+                spr_num(cc, func_002aa788(*jm_info(), id) ? D_003747c0 : D_bc);
+        }
+    }
+    func_0028af90(D_0035f200, pg);
+    func_002891f0(D_0035f200, jm_curpos(mb_mode()), 0, -1, -1);
+    jm_savecur(mb_mode(), 0, 0);
+    if (D_0035f598->count == 0) sel_dis(D_0035f200, 16);
+    func_00299260();
+    func_00299290();
+    jm_hidel(1);
+    sel_set(0);
+}
+}  // namespace n00297e68
 
 // 002982f0 (was src/anon/batch_w8011_nsa.cpp)
 namespace n002982f0 {
