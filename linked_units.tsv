@@ -662,6 +662,25 @@ src/libgcc/_muldi3.c	00311aa0	00311af0	-	-G0
 src/libgcc/unwind-dw2-fde.c	001003c8	00101ce0	.data@0032b918,.rodata@00369d54,.bss@0037aa28	-G0 -fexceptions
 src/libgcc/crtend.c	00101ce0	00101d50	.init@00319798	-G0
 src/global/unit_00101d50.cpp	00101d50	00102298	.data@0032b91c,.gnu.linkonce.d._ZTV4PROC@0032b928,.bss@0037aa40	-G0 -fno-strict-aliasing
+src/anon/asm_00103100.s	00103100	001031b0	-	-
+src/anon/asm_00123650.s	00123650	00123990	-	-
+src/anon/asm_00130ea0.s	00130ea0	00131418	-	-
+src/anon/asm_00133c90.s	00133c90	00133cf0	-	-
+src/anon/asm_001610c0.s	001610c0	001611a8	-	-
+src/anon/asm_00169990.s	00169990	00169f98	-	-
+src/anon/asm_00171e00.s	00171e00	00171e58	-	-
+src/anon/asm_0017c290.s	0017c290	0017c400	-	-
+src/anon/asm_001c5580.s	001c557c	001c5b90	-	-
+src/anon/asm_001c6a28.s	001c6a28	001c6c60	-	-
+src/anon/asm_001ca060.s	001ca060	001ca148	-	-
+src/anon/asm_001cefb0.s	001cefb0	001cf0b0	-	-
+src/anon/asm_001d0a88.s	001d0a88	001d0cb8	-	-
+src/anon/asm_001d1190.s	001d1190	001d12e8	-	-
+src/anon/asm_001d7418.s	001d7418	001d7458	-	-
+src/anon/asm_001dd268.s	001dd268	001dd2b8	-	-
+src/anon/asm_001f2f78.s	001f2f74	001f4498	-	-
+src/anon/asm_001f5670.s	001f5670	001f5978	-	-
+src/anon/asm_001f69c0.s	001f69c0	001f6b68	-	-
 src/anon/unit_002f12b0.cpp	002f12b0	002f17e0	.rodata@0037623c	-G0
 src/anon/unit_002f17e0.cpp	002f17e0	002f1a68	.data@00363c20,.rodata@00376260,.bss@01e2c0d0	-G0
 src/anon/unit_002f1a68.cpp	002f1a68	002f1b48	.data@00363c28,.rodata@00376270,.bss@01e2c100	-G0
@@ -740,6 +759,26 @@ src/anon/unit_001fe158.cpp	001fe158	001fe8d8	-	-G0 -fno-strict-aliasing
 src/anon/unit_001fd530.cpp	001fd530	001fe158	.rodata@00370280	-G0 -fno-strict-aliasing
 src/anon/unit_001f95a8.cpp	001f95a8	001f95d8	-	-G0
 src/anon/unit_001ff928.cpp	001ff928	001ff958	-	-G0
+src/anon/asm_00202708.s	00202708	00202978	-	-
+src/anon/asm_00208cb0.s	00208cb0	002090c0	-	-
+src/anon/asm_0020cfd8.s	0020cfd8	0020d178	-	-
+src/anon/asm_0020e590.s	0020e590	0020e758	-	-
+src/anon/asm_00234a30.s	00234a30	00234f60	-	-
+src/anon/asm_0023e188.s	0023e188	0023e580	-	-
+src/anon/asm_002581b0.s	002581b0	002582f8	-	-
+src/anon/asm_002586e0.s	002586e0	002588e8	-	-
+src/anon/asm_00273fa0.s	00273fa0	00274460	-	-
+src/anon/asm_00284088.s	00284088	00284220	-	-
+src/anon/asm_002978f0.s	002978f0	00297b30	-	-
+src/anon/asm_002b3908.s	002b3908	002b3ac8	-	-
+src/anon/asm_002c0860.s	002c0860	002c0ca0	-	-
+src/anon/asm_002d2330.s	002d2330	002d2498	-	-
+src/anon/asm_002d9588.s	002d9588	002d96d8	-	-
+src/anon/asm_002d9f10.s	002d9f10	002da040	-	-
+src/anon/asm_002ddbf0.s	002ddbf0	002de010	-	-
+src/anon/asm_002de028.s	002de028	002de3c8	-	-
+src/anon/asm_002e18f8.s	002e18f8	002e1908	-	-
+src/anon/asm_002e2c98.s	002e2c98	002e2d18	-	-
 src/libgcc/_floatdisf.c	00311af0	00311bb8	-	-G0 -fno-builtin
 src/libgcc/_fixunsdfdi.c	00311bb8	00311cc0	-	-G0 -fno-builtin
 src/libgcc/_fixunssfdi.c	00311cc0	00311dd0	-	-G0 -fno-builtin
