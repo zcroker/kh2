@@ -897,3 +897,121 @@ void HBTE::PauseThread(TASK* a0) {
 }
 }  // Tz
 
+// 0024b588 (was src/anon/batch_w3882_mam.s)
+namespace n0024b588 {
+struct Ent36 { u8 pad0[8]; u8 name[8]; s8 f10; u8 flag; u16 f12; u8 pad14[8]; s8 req[4]; u8 pad32[4]; };
+u8* func_0023ee30(u32) asm("func_0023ee30");
+void func_0031a838(u8*) asm("func_0031a838");
+void func_002369a0(u8*) asm("func_002369a0");
+void func_0023c008(u8*) asm("func_0023c008");
+void func_0028d7f0(u8*, s32, s32, s32, s32, s32, s32, s32, s32) asm("func_0028d7f0");
+void func_0023ef50(u8*) asm("func_0023ef50");
+s32 func_002431d0(s32, s32) asm("func_002431d0");
+void func_00288d80(void*, s32, s32, s32, u8*, s32, u8*, u8*) asm("func_00288d80");
+u8* func_002891b8(void*, s32) asm("func_002891b8");
+s32 func_0023aa98(u8*) asm("func_0023aa98");
+s32 func_0023aa78(u8*) asm("func_0023aa78");
+s32 func_0028dd90(s32) asm("func_0028dd90");
+s32 func_0028ddd8(s32) asm("func_0028ddd8");
+void func_001395f8(u8*) asm("func_001395f8");
+void func_00139570(u8*) asm("func_00139570");
+s32 func_002892f8(void*) asm("func_002892f8");
+void func_00138c68(u8*, s32, s32) asm("func_00138c68");
+void func_002891f0(void*, s32, s32, s32, s32) asm("func_002891f0");
+s32 func_002891e8(void*) asm("func_002891e8");
+void func_002b4070(void*, s32, u8*, u8*, u8*, u8*, u8*, u8*, u8*, s32, Ent36*, s32, s32) asm("func_002b4070");
+void func_0024c650(void) asm("func_0024c650");
+void func_0024bbb0(void) asm("func_0024bbb0");
+void func_0024bd80(void) asm("func_0024bd80");
+s32 func_001a6d08(s32) asm("func_001a6d08");
+void func_00287bd0(s32, s32) asm("func_00287bd0");
+void func_00287cc0(s32) asm("func_00287cc0");
+s32 func_002887c8(void) asm("func_002887c8");
+void func_00288750(void (*)(void)) asm("func_00288750");
+extern u8 D_00347f98[] asm("D_00347f98");
+extern u8 D_0035eb98[] asm("D_0035eb98");
+static inline u8* NewLayout(void) {
+    u8* o = func_0023ee30(160);
+    *(u8**)o = D_00347f98;
+    func_0031a838(o + 12);
+    *(u8**)o = D_0035eb98;
+    func_002369a0(o + 24);
+    func_0023c008(o + 48);
+    return o;
+}
+extern "C" u8 D_0035edc4;
+extern "C" u8 D_0035edc5;
+extern u8* D_0035edb0 asm("D_0035edb0");
+extern u8* D_0035edb4 asm("D_0035edb4");
+extern u8* D_0035edb8 asm("D_0035edb8");
+extern u8* D_0035edc0 asm("D_0035edc0");
+extern void* D_0035eda8 asm("D_0035eda8");
+extern Ent36 D_00372030[] asm("D_00372030");
+extern s16 D_00371ff0[][3] asm("D_00371ff0");
+extern "C" u8 D_00371fe8[];
+extern "C" u8 D_00372008[];
+extern "C" u8 D_00372010[];
+extern "C" u8 D_00372018[];
+extern "C" u8 D_00372020[];
+extern "C" u8 D_00372028[];
+void func_0024b588(void) asm("func_0024b588");
+void func_0024b588(void) {
+    s32 i, j, ok;
+    s32 sel;
+    s32 n, w, half;
+    u8* o;
+    sel = 0;
+    D_0035edc4 = 0;
+    D_0035edb0 = NewLayout();
+    func_0028d7f0(D_0035edb0, 30002, 0, 0, 30, 32, 0, 0, 0);
+    func_0023ef50(D_0035edb0);
+    for (i = 0; i < 3; i++) {
+        o = 0;
+        ok = 1;
+        for (j = 0; j < 4; j++) {
+            s32 t = D_00372030[i].req[j];
+            if (t < 0) break;
+            if (!func_001a6d08(t)) { ok = 0; break; }
+        }
+        if (ok) {
+            if (func_002431d0(7, i) == 0) D_0035edc5 |= 1 << i;
+            if (D_00372030[i].f10) sel = i;
+            func_00288d80(D_0035eda8, i, 0, 0, D_0035edb0, D_00372030[i].f12, (u8*)&D_00372030[i], D_00372030[i].name);
+            o = func_002891b8(D_0035eda8, i);
+            s32 p = func_0023aa98(o + 24);
+            *(s32*)(o + 432) = func_0028dd90(p);
+            *(s32*)(o + 428) = func_0028ddd8(p);
+            func_001395f8(o);
+        }
+        if (!(D_00372030[i].flag&1)) func_00139570(o);
+    }
+    i = 0;
+    n = func_002892f8(D_0035eda8);
+    o = func_002891b8(D_0035eda8, 0);
+    w = func_0023aa78(o + 24);
+    half = (w * n) / 2;
+    for (; i < n; i++) {
+        o = func_002891b8(D_0035eda8, i);
+        func_00138c68(o, 0, -half + w * i);
+    }
+    func_002891f0(D_0035eda8, sel, 0, -1, -1);
+    func_0024c650();
+    sel = func_002891e8(D_0035eda8);
+    o = func_002891b8(D_0035eda8, sel);
+    func_002891f0(D_0035eda8, sel, 1, 0, 2);
+    func_002b4070(D_0035edc0, 30003, D_0035edb0, D_00371fe8, D_00372008, D_00372010, D_00372018, D_00372020, D_00372028, 2985, &D_00372030[sel], 0, 0);
+    D_0035edb8 = NewLayout();
+    func_0028d7f0(D_0035edb8, 30002, 0, 0, D_00371ff0[sel][0], D_00371ff0[sel][2], 0, 0, 0);
+    func_0023ef50(D_0035edb8);
+    D_0035edb4 = NewLayout();
+    func_0028d7f0(D_0035edb4, 30019, 0, 0, 33, 35, 0, 0, 0);
+    func_0023ef50(D_0035edb4);
+    func_00287bd0(0, 0);
+    func_00287cc0(0);
+    if (func_002887c8()) {
+        func_0024bbb0();
+        D_0035edc4 = 1;
+        func_00288750(func_0024bd80);
+    }
+}
+}
