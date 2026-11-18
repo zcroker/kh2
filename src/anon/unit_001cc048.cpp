@@ -1,12 +1,13 @@
 #include "../common/types.h"
 
-// YS::PRIZE (prize effect set) and YS::PRIZE_CA, first part (0x1cc048-0x1cc3b8): the effect set's
-// constructor and destructors, prize spawning, the pick-up hand-over and the ring burst spawner
-// (0x1cc3b8). The burst spawner after it (0x1cc5c8) is still a separate function; unit_001cc868.cpp
-// and unit_001cd078.cpp continue the file.
+// YS::PRIZE (prize effect set) and YS::PRIZE_CA, first part (0x1cc048-0x1cc868): the effect set's
+// constructor and destructors, prize spawning, the pick-up hand-over, the ring burst spawner
+// (0x1cc3b8) and the prize transfer between two objects (0x1cc5c8). unit_001cc868.cpp and
+// unit_001cd078.cpp continue the file.
 
 struct Vn1cc0 {
     f32 x, y, z, w;
+    void set(f32 ax, f32 ay, f32 az, f32 aw) { x = ax; y = ay; z = az; w = aw; }
     Vn1cc0& operator=(const Vn1cc0& o) {
         if (this != &o) asm volatile(".set noreorder\n\tlq $8, 0(%1)\n\tsq $8, 0(%0)\n\t.set reorder" : : "r"(this), "r"(&o) : "$8", "memory");
         return *this;
@@ -195,5 +196,49 @@ void func_001cc3b8(Vn1cc0* pos, s32 n)
         fx->func = func_001c7520;
         asm volatile("vsub.wxyz $vf1, $vf0, $vf0\n\tsqc2 $vf1, 0(%0)" : : "r"(&fx->vel) : "memory");
     }
+}
+
+struct Prize1cc5c8 { u8 pad0[16]; void (*phase)(void); u8 pad14[28]; Vn1cc0 pos; u8 pad40[8]; u8* target; };
+extern s8 D_01d49990;      // guard of the function-static offset below
+extern Vn1cc0 D_01d499a0;  // static FVector(0, -100, -80, 1)
+void func_001ccdf0(void);
+void func_001cc868(void);
+void func_002fd188(void (*)(void));
+
+// Random number in [lo, hi). The range and the scale are helper arguments again (see Rand above);
+// the range is computed after the unsigned->float branch, which lets the loop hoist it.
+static inline f32 Addf(f32 a, f32 b) { return b + a; }
+static inline f32 RandRange(f32 lo, f32 hi)
+{
+    D_003638d0 = Mulu(D_003638d0, 0x10dcd);
+    return lo + Mulf(Mulf((f32)D_003638d0, 2.3283064e-10f), hi - lo);
+}
+// The prize effect set, taken by reference (the loop hoists its address first because of this).
+static inline void*& PrizeSet1cc5c8() { return D_00352050; }
+
+// Moves up to n prizes from one object to another: each one appears at a fixed offset
+// (0, -100, -80) in the source's local frame and flies to a random spot around the target.
+// Returns 1 when the source runs out or no prize could be made.
+s32 func_001cc5c8(u8* from, u8* to, s32 n)
+{
+    if (D_01d49990 == 0) {
+        D_01d49990 = 1;
+        D_01d499a0.set(0.0f, -100.0f, -80.0f, 1.0f);
+        func_002fd188(func_001ccdf0);
+    }
+    Vn1cc0 ofs;
+    asm volatile("lqc2 $vf5, 0(%2)\n\tlqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 16(%1)\n\tlqc2 $vf3, 32(%1)\n\tlqc2 $vf4, 48(%1)\n\tvmulax.wxyz ACC, $vf1, $vf5x\n\tvmadday.wxyz ACC, $vf2, $vf5y\n\tvmaddaz.wxyz ACC, $vf3, $vf5z\n\tvmaddw.wxyz $vf5, $vf4, $vf5w\n\tsqc2 $vf5, 0(%0)" : : "r"(&ofs), "r"(from + 64), "r"(&D_01d499a0) : "memory");
+    const Vn1cc0 pos = func_0016bda8(to);
+    for (s32 i = 0; i < n; i++) {
+        if (*(s32*)(from + 2760) == 0) return 1;
+        Prize1cc5c8* p = (Prize1cc5c8*)PrizeSetAppear(PrizeSet1cc5c8(), &ofs);
+        if (!p) return 1;
+        p->target = to;
+        p->phase = func_001cc868;
+        p->pos.set(Addf(RandRange(-50.0f, 50.0f), pos.x), -4.0f, Addf(RandRange(-20.0f, 20.0f), pos.z), 0.0f);
+        (*(s32*)(from + 2760))--;
+        (*(s32*)(to + 2760))++;
+    }
+    return 0;
 }
 }
