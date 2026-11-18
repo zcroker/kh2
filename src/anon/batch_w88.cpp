@@ -300,25 +300,7 @@ void func_001213c0(u8* p, F1213c0* fl, s32 kind);  // 0x001213c0: definition mov
 
 } // extern "C"
 
-u32 wtarget_00105620(u32 a, u32 b, u32, u32) {
-    register u32 save asm("$4") = a;
-    register u32 load asm("$5") = b;
-    asm volatile(
-        "sq $28, 0(%0)\n\tsq $29, 16(%0)\n\tsq $30, 32(%0)\n\tsq $31, 48(%0)\n\t"
-        "sq $16, 64(%0)\n\tsq $17, 80(%0)\n\tsq $18, 96(%0)\n\tsq $19, 112(%0)\n\t"
-        "sq $20, 128(%0)\n\tsq $21, 144(%0)\n\tsq $22, 160(%0)\n\tsq $23, 176(%0)\n\t"
-        "swc1 $f20, 192(%0)\n\tswc1 $f21, 196(%0)\n\tswc1 $f22, 200(%0)\n\tswc1 $f23, 204(%0)\n\t"
-        "swc1 $f24, 208(%0)\n\tswc1 $f25, 212(%0)\n\tswc1 $f26, 216(%0)\n\tswc1 $f27, 220(%0)\n\t"
-        "swc1 $f28, 224(%0)\n\tswc1 $f29, 228(%0)\n\tswc1 $f30, 232(%0)\n\tswc1 $f31, 236(%0)\n\t"
-        "lq $28, 0(%1)\n\tlq $29, 16(%1)\n\tlq $30, 32(%1)\n\tlq $31, 48(%1)\n\t"
-        "lq $16, 64(%1)\n\tlq $17, 80(%1)\n\tlq $18, 96(%1)\n\tlq $19, 112(%1)\n\t"
-        "lq $20, 128(%1)\n\tlq $21, 144(%1)\n\tlq $22, 160(%1)\n\tlq $23, 176(%1)\n\t"
-        "lwc1 $f20, 192(%1)\n\tlwc1 $f21, 196(%1)\n\tlwc1 $f22, 200(%1)\n\tlwc1 $f23, 204(%1)\n\t"
-        "lwc1 $f24, 208(%1)\n\tlwc1 $f25, 212(%1)\n\tlwc1 $f26, 216(%1)\n\tlwc1 $f27, 220(%1)\n\t"
-        "lwc1 $f28, 224(%1)\n\tlwc1 $f29, 228(%1)\n\tlwc1 $f30, 232(%1)\n\tlwc1 $f31, 236(%1)"
-        : : "r"(save), "r"(load) : "memory");
-    return 2;
-}
+u32 wtarget_00105620(u32 a, u32 b, u32, u32);  // 0x00105620: definition moved into src/anon/unit_00105550.cpp
 
 // 0017a7e0: static initialiser, now made by gcc in src/yasui/libys/player.cpp
 

@@ -16,17 +16,7 @@ namespace Tz { class Select { public: u32 isCursorMove(); u32 isSelectTopMove();
 
 u32 func_001003c8(u32 a0);  // 0x001003c8: definition moved into src/libgcc/unwind-dw2-fde.c
 
-void func_00100350(void) {
-    if (func_00100690 != 0) {
-        func_00100690(&D_00378ae8, (u32)&D_0037aa08);
-    }
-
-    if (*(u32*)&D_0037a4b0 != 0) {
-        if (func_00000000 != 0) {
-            func_00000000(&D_0037a4b0);
-        }
-    }
-}
+void func_00100350(void);  // 0x00100350: definition moved into src/anon/unit_001002b0.cpp
 
 // 001022e8: moved to src/global/unit_001022c0.cpp
 

@@ -5,7 +5,7 @@ extern void func_0030f468(void);
 extern void func_003114f0(void);
 extern int SignalSema(int sid);
 
-void func_001002a0(void) { func_0030f468(); }
+void func_001002a0(void);  // 0x001002a0: definition moved into src/sdk/sdk_asm_001002a0.s
 
 void func_0030f3a8(void);  // 0x0030f3a8: definition moved into src/sdk/libkernl_0030f290.c
 

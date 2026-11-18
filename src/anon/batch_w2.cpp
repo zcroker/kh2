@@ -73,9 +73,7 @@ void* func_001050c8();
 void func_0023edb0(void*);
 
 // Empty function that still saves ra (clobber forces the frame).
-void func_00100338(void) {
-    asm volatile("" : : : "$31");
-}
+void func_00100338(void);  // 0x00100338: definition moved into src/anon/unit_001002b0.cpp
 
 // Set the current RGB colour.
 void func_0010a7d8(u8 r, u8 g, u8 b);  // 0010a7d8: moved to src/anon/unit_00109c30.cpp

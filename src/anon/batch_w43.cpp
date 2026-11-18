@@ -144,17 +144,7 @@ void func_00112388(void);  // 0x00112388: definition moved into src/anon/unit_00
 
 void func_001129d8(u32 a);  // 0x001129d8: definition moved into src/anon/unit_001117d8.cpp
 
-void func_00127f40(P3* p) {
-    func_00124bb8(p);  // obj_ctor_347b88
-    p->vt = (u32)D_00347bb0;
-    H3* h = p->h;
-    s32 n = h->hi - h->lo;
-    p->base = (u32)D_003a99f0;
-    p->a = (u32)(D_003a99f0 + h->hi);
-    p->b = (u32)((E64*)p->a + n);
-    p->c = (u32)((E64*)p->b + n);
-    func_0011ed90((u8*)h + h->off, n);
-}
+void func_00127f40(P3* p);  // 0x00127f40: definition moved into src/anon/unit_00127f40.cpp
 
 u32 func_0016b740(u32 id);  // 0x0016b740: definition moved into src/anon/unit_00169f98.cpp
 

@@ -103,11 +103,7 @@ void func_00114de0(u8* p);  // 0x00114de0: definition moved into src/anon/unit_0
 
 void func_00124100(void* a, s32 b);  // 0x00124100: definition moved into src/anon/unit_00123990.cpp
 
-void func_00128008(u8* p) {
-    *(u8**)p = D_00347bb0;
-    func_00124c08(p);  // set_vtbl_347b88
-    func_00106420(p);
-}
+void func_00128008(u8* p);  // 0x00128008: definition moved into src/anon/unit_00127f40.cpp
 
 void func_00137c50(u8* p);  // 0x00137c50: definition moved into src/anon/unit_001374c8.cpp
 

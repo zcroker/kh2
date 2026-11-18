@@ -22,21 +22,7 @@ void func_0014aa58(u32, s32, s32);
 void func_0013f020();
 void func_0023acd8(void*);
 void func_0023ade0(void*);
-s32 func_0015d440() {
-    func_00236788(D_0034af40);  // to_236830
-    if (!(u8)func_00239d30(&D_0034b0e0, D_0034b0e0.f114)) {
-        if (!func_00239d10(&D_0034b0e0)) {
-            func_0014aa58(func_0014aba8(), 1, 0);
-            func_0013f020();
-            return 1;
-        }
-    }
-    func_0023acd8(&D_0034b0e0);
-    D_0034b0e0.f148 = 0;
-    D_0034b0e0.f14c = 0;
-    func_0023ade0(&D_0034b0e0);
-    return 0;
-}
+s32 func_0015d440();  // 0x0015d440: definition moved into src/anon/unit_0015d440a.cpp
 
 extern u8* D_00347d64;
 void func_00192c90(u32, void*);

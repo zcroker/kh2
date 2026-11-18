@@ -11,21 +11,7 @@ extern "C" {
 extern u8 D_0037aa00;
 extern void (**D_0032b914)();
 extern BD_VALUE D_00378ae8;
-void func_001002b0(void) {
-    if (!D_0037aa00) {
-        void (**p)();
-        void (*f)();
-        while ((f = *(p = D_0032b914)) != 0) {
-            D_0032b914 = p + 1;
-            f();
-        }
-        u32 r = 1;
-        if (func_001008d0) {
-            func_001008d0(&D_00378ae8);
-        }
-        D_0037aa00 = r;
-    }
-}
+void func_001002b0(void);  // 0x001002b0: definition moved into src/anon/unit_001002b0.cpp
 
 // Sum a virtual query over the objects referenced by an offset table.
 u32 func_00124748(void*);  // list_nth_node_rel

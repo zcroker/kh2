@@ -2857,18 +2857,7 @@ struct OBJOCC { OTab_001b3208* tab; OObj_001b3208* objs; void disable(int); };
 extern "C" {
 
 // ---- 001055b8
-s32 func_001055b8(void* a0) {
-    // Hand-written longjmp in the original.
-    asm volatile(
-        "lq $28, 0(%0)\n\tlq $29, 16(%0)\n\tlq $30, 32(%0)\n\tlq $31, 48(%0)\n\t"
-        "lq $16, 64(%0)\n\tlq $17, 80(%0)\n\tlq $18, 96(%0)\n\tlq $19, 112(%0)\n\t"
-        "lq $20, 128(%0)\n\tlq $21, 144(%0)\n\tlq $22, 160(%0)\n\tlq $23, 176(%0)\n\t"
-        "lwc1 $f20, 192(%0)\n\tlwc1 $f21, 196(%0)\n\tlwc1 $f22, 200(%0)\n\tlwc1 $f23, 204(%0)\n\t"
-        "lwc1 $f24, 208(%0)\n\tlwc1 $f25, 212(%0)\n\tlwc1 $f26, 216(%0)\n\tlwc1 $f27, 220(%0)\n\t"
-        "lwc1 $f28, 224(%0)\n\tlwc1 $f29, 228(%0)\n\tlwc1 $f30, 232(%0)\n\tlwc1 $f31, 236(%0)"
-        : : "r"(a0));
-    return 1;
-}
+s32 func_001055b8(void* a0);  // 0x001055b8: definition moved into src/anon/unit_00105550.cpp
 
 // ---- 00123c20
 extern u8 D_00347a90[];

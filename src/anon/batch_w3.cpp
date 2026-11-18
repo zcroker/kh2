@@ -15,7 +15,7 @@ public:
 extern "C" {
 
 // Empty function that still saves ra (the clobber forces the frame).
-void func_001003b0() { asm volatile("" ::: "$31"); }
+void func_001003b0();  // 0x001003b0: definition moved into src/anon/unit_001002b0.cpp
 
 // 001041c0: moved to src/common/gumibattle.cpp
 

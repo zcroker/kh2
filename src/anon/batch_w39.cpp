@@ -24,76 +24,11 @@ extern "C" {
 // --- 00100228
 // crt0 helper: zero [v0, v1) (bytes up to 16-byte alignment, then quadwords,
 // then the tail). Hand-written assembly: register inputs v0/v1, sq loop.
-void func_00100228(void) {  // align_and_zero_fill
-    asm volatile(
-        ".set noreorder\n"
-        "1:\n\t"
-        "andi $4, $2, 0xf\n\t"
-        "beqz $4, 2f\n\t"
-        "nop\n\t"
-        "sb $0, 0($2)\n\t"
-        "addiu $2, $2, 1\n\t"
-        "nop\n\t"
-        "j 1b\n\t"
-        "nop\n"
-        "2:\n\t"
-        "lui $4, 0xffff\n\t"
-        "ori $4, $4, 0xfff0\n\t"
-        "and $4, $3, $4\n"
-        "3:\n\t"
-        "beq $2, $4, 4f\n\t"
-        "nop\n\t"
-        "sq $0, 0($2)\n\t"
-        "addiu $2, $2, 16\n\t"
-        "nop\n\t"
-        "nop\n\t"
-        "j 3b\n\t"
-        "nop\n"
-        "4:\n\t"
-        "beq $2, $3, 5f\n\t"
-        "nop\n\t"
-        "sb $0, 0($2)\n\t"
-        "addiu $2, $2, 1\n\t"
-        "nop\n\t"
-        "nop\n\t"
-        "j 4b\n\t"
-        "nop\n"
-        "5:\n"
-        ".set reorder"
-        ::: "$4", "memory");
-}
+void func_00100228(void);  // 0x00100228: definition moved into src/anon/unit_00100228.cpp
 
 // --- 00105550
 // setjmp: saves gp/sp/fp/ra/s0-s7 (128-bit) and f20-f31. Hand-written assembly.
-int func_00105550(void* jb) {
-    asm volatile(
-        "sq $28, 0(%0)\n\t"
-        "sq $29, 16(%0)\n\t"
-        "sq $30, 32(%0)\n\t"
-        "sq $31, 48(%0)\n\t"
-        "sq $16, 64(%0)\n\t"
-        "sq $17, 80(%0)\n\t"
-        "sq $18, 96(%0)\n\t"
-        "sq $19, 112(%0)\n\t"
-        "sq $20, 128(%0)\n\t"
-        "sq $21, 144(%0)\n\t"
-        "sq $22, 160(%0)\n\t"
-        "sq $23, 176(%0)\n\t"
-        "swc1 $f20, 192(%0)\n\t"
-        "swc1 $f21, 196(%0)\n\t"
-        "swc1 $f22, 200(%0)\n\t"
-        "swc1 $f23, 204(%0)\n\t"
-        "swc1 $f24, 208(%0)\n\t"
-        "swc1 $f25, 212(%0)\n\t"
-        "swc1 $f26, 216(%0)\n\t"
-        "swc1 $f27, 220(%0)\n\t"
-        "swc1 $f28, 224(%0)\n\t"
-        "swc1 $f29, 228(%0)\n\t"
-        "swc1 $f30, 232(%0)\n\t"
-        "swc1 $f31, 236(%0)"
-        : : "r"(jb) : "memory");
-    return 0;
-}
+int func_00105550(void* jb);  // 0x00105550: definition moved into src/anon/unit_00105550.cpp
 
 // --- 0010ab08
 extern u8 D_00341060[];
