@@ -255,3 +255,39 @@ void func_001c3f48(u32 a0, u32 a1, u32 a2, u32 a3) {
 }
 }  // namespace n001c3f48
 
+// ---- 001c3f58 (was whole asm, src/anon/asm_001c3f58.s): find the table entry with this id and the
+// current kind, fill the static result record D_01d49570 from it and return the record.
+// Two returns (one inside the loop, one after it) are what make the epilogue load the address as one `la`.
+namespace n001c3f58 {
+struct Ent { u8 id; u8 kind; u8 c; u8 d; };
+struct Tbl { u32 pad; s32 count; Ent e[1]; };
+struct S3 { u16 x, y, z; };
+struct R { u8 a, b, c, pad; S3 s; };
+struct Q { u8 x; u8 kind; };
+extern Tbl* D_01d49568 asm("D_01d49568");
+extern R D_01d49570 asm("D_01d49570");
+Q* func_001b6d70(s32) asm("func_001b6d70");
+R func_00199718(u8 c, s32 id) asm("func_00199718");
+static inline void init3(S3* s, u32 a, u32 m) { s->x = a; s->y = m; s->z = m; }
+R* func_001c3f58(s32 id) asm("func_001c3f58");
+R* func_001c3f58(s32 id) {
+    Q* q = func_001b6d70(id);
+    Ent* e = D_01d49568->e;
+    for (s32 i = 0; i < D_01d49568->count; i++, e++) {
+        if (e->id == id && e->kind == q->kind) {
+            u8 c = e->c;
+            if (c < 51) {
+                u8 d = e->d;
+                D_01d49570.a = id;
+                D_01d49570.b = c;
+                D_01d49570.c = d;
+                init3(&D_01d49570.s, 0xffff, 0xffff);
+            } else {
+                D_01d49570 = func_00199718(c, id);
+            }
+            return &D_01d49570;
+        }
+    }
+    return &D_01d49570;
+}
+}  // namespace n001c3f58
