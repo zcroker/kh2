@@ -1,6 +1,6 @@
 #include "../common/types.h"
 
-// GS packet / sprite helpers (0x1085a8-0x109708), incl. the never-written 0x108988 (empty) and 0x108a88 (masked A+D register setter). D_0036a194 is an unused .rodata word. Old _nsa copies decided -fno-strict-aliasing.
+// GS packet / sprite helpers (0x1085a8-0x109788), incl. the never-written 0x108988 (empty) and 0x108a88 (masked A+D register setter). D_0036a194 is an unused .rodata word. Old _nsa copies decided -fno-strict-aliasing.
 // Each function keeps the declarations of the source it was matched in (namespace nADDR); every symbol
 // is bound by asm label.
 #include "../harata/libdk/ft4.hpp"
@@ -894,3 +894,23 @@ void func_00109690(u32 a) {
 }
 }  // namespace n00109690
 
+// 00109708 (was whole asm in src/anon/batch_w3877.s)
+namespace n00109708 {
+typedef unsigned int u128 __attribute__((mode(TI)));
+u64* func_00133ba0(u32, u32, u32) asm("func_00133ba0");
+
+// GIF tag (NLOOP=1, EOP, NREG=1, REGS=A+D) followed by one A+D pair (TEX2_1). The 64-bit register value
+// is a literal: gcc keeps it in the constant pool (.rodata 0x36a288), it was never a global.
+struct GifTagAD { u64 nloop:15; u64 eop:1; u64 pad:30; u64 pre:1; u64 prim:11; u64 flg:2; u64 nreg:4; u64 r0:4; u64 rr:60; u64 data; u64 addr; };
+void func_00109708(u32 a) asm("func_00109708");
+void func_00109708(u32 a) {
+    GifTagAD* t = (GifTagAD*)func_00133ba0(a, 2, 0x13000000);
+    *(u128*)t = 0;
+    t->nloop = 1;
+    t->eop = 1;
+    t->nreg = 1;
+    t->r0 = 0xe;
+    t->addr = 0x16;
+    t->data = 0x4000000001300000;
+}
+}  // namespace n00109708
