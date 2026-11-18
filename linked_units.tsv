@@ -523,7 +523,7 @@ src/anon/unit_002d96d8.cpp	002d96d8	002d9f10	.rodata@00375cd8	-G0 -g -fno-strict
 src/anon/unit_002da040.cpp	002da040	002dd650	.rodata@00375cec	-G0 -g -fno-strict-aliasing
 src/anon/unit_002dd650.cpp	002dd650	002ddbf0	.rodata@00375dd8	-G0 -g -fno-strict-aliasing
 src/anon/unit_002de010.cpp	002de010	002de028	-	-G0 -g -fno-strict-aliasing
-src/anon/unit_002de3c8.cpp	002de3c8	002e18f8	.rodata@00375e10	-G0 -g -fno-strict-aliasing
+src/anon/unit_002de3c8.cpp	002de3c8	002e1908	.rodata@00375e10	-G0 -g -fno-strict-aliasing
 src/anon/unit_002cb200.cpp	002cb200	002cb538	-	-G0 -g -fno-strict-aliasing
 src/taito/path.cpp	002cb538	002ce958	.rodata@00375878	-G0 -g -fno-strict-aliasing
 src/yasui/libys/damage.cpp	0018c8b8	0018d050	.bss@01c60bf0,.rodata@0036cc28	-G0 -fno-strict-aliasing -finline-limit=1000
@@ -878,7 +878,6 @@ src/anon/asm_002d9588.s	002d9588	002d96d8	-	-
 src/anon/asm_002d9f10.s	002d9f10	002da040	-	-
 src/anon/asm_002ddbf0.s	002ddbf0	002de010	-	-
 src/anon/asm_002de028.s	002de028	002de3c8	-	-
-src/anon/asm_002e18f8.s	002e18f8	002e1908	-	-
 src/anon/asm_002e2c98.s	002e2c98	002e2d18	-	-
 src/libgcc/_floatdisf.c	00311af0	00311bb8	-	-G0 -fno-builtin
 src/libgcc/_fixunsdfdi.c	00311bb8	00311cc0	-	-G0 -fno-builtin

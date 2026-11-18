@@ -3280,3 +3280,9 @@ u32 func_002e18d8(u32 a0, u32 a1, u32 a2, u32 a3) asm("func_002e18d8");
 u32 func_002e18d8(u32 a0, u32 a1, u32 a2, u32 a3) { return init(0, 0xffff, a2, a3); }
 }  // namespace n002e18d8
 
+
+// ---- 2e18f8 (gap, was src/anon/asm_002e18f8.s): sets bit 0x40 in the flag word at +0xabc of the second argument.
+namespace n002e18f8 {
+void func_002e18f8(void*, u8* p) asm("func_002e18f8");
+void func_002e18f8(void*, u8* p) { *(u32*)(p + 0xabc) |= 0x40; }
+}  // namespace n002e18f8
