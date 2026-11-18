@@ -19,7 +19,6 @@ src/common/saveram.cpp	00105748	00105a10	.data@0032bb30	-G0
 src/anon/batch_w3877.s	00109708	00109788	-	-
 src/anon/asm_001097e8.s	001097e8	00109c30	-	-
 src/anon/asm_0010fb10.s	0010fb10	0010fea0	-	-
-src/anon/asm_00117588.s	00117588	00117778	-	-
 src/anon/asm_0011f7a8.s	0011f7a8	00120520	-	-
 src/anon/batch_w3960.s	00121cc8	00123138	-	-
 src/anon/batch_w3962.s	00125f78	00127a88	-	-
@@ -570,7 +569,7 @@ src/anon/unit_001117d8.cpp	001117d8	00113628	.rodata@0036a560	-G0 -g -fno-strict
 src/anon/unit_00113628.cpp	00113628	00113fb0	.rodata@0036a57c	-G0 -fno-strict-aliasing
 src/anon/unit_00113fb0.cpp	00113fb0	001149a0	-	-G0 -fno-strict-aliasing
 src/anon/unit_00114a90.cpp	001149a0	00117588	.rodata@0036a770	-G0 -fno-strict-aliasing
-src/anon/unit_00117778.cpp	00117778	00117808	-	-G0
+src/anon/unit_00117778.cpp	00117588	00117808	.rodata@0036a7ec	-G0
 src/anon/batch_w2371_nsi.cpp	00117808	001178b8	.rodata@0036a800	-G0 -fno-sched-interblock
 src/anon/unit_001178b8.cpp	001178b8	001182d0	.rodata@0036a808	-G0
 src/anon/unit_001182d0.cpp	001182d0	00118958	.rodata@0036a838	-G0
