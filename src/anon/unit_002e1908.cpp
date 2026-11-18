@@ -1,6 +1,6 @@
 #include "../common/types.h"
 
-// Ti::MG_EHSidecar (the side-car shooting minigame: path, camera task, target list), 0x2e1908-0x2e2c98.
+// Ti::MG_EHSidecar (the side-car shooting minigame: path, camera task, target list), 0x2e1908-0x2e2d18.
 // Linked unit (the rest is unit_002e2d18.cpp). The vtables and task tables (0x362e80-0x362f48) stay retail data.
 
 typedef unsigned int u128 __attribute__((mode(TI)));
@@ -803,5 +803,32 @@ extern "C" void func_002e2c80(TASK* t) {
     wtarget_002e2570(*(void**)((u8*)t + 4));
 }
 
+// ---- 2e2c98 (was src/anon/unit_002e2c98.cpp, before that whole asm)
+namespace n2e2c98 {
+struct FV {
+    f32 x, y, z, w;
+    FV() {}
+    FV(f32 a, f32 b, f32 c, f32 d) { x = a; y = b; z = c; w = d; }
+    ~FV() {}
+    void Scale(f32 k) {
+        asm volatile(".set noreorder\n\tlqc2 $vf1, 0(%0)\n\tmfc1 $8, %1\n\tqmtc2 $8, $vf2\n\tvmulx.wxyz $vf1, $vf1, $vf2x\n\tsqc2 $vf1, 0(%0)\n\t.set reorder" : : "r"(this), "f"(k) : "$8", "memory");
+    }
+    f32 Normalize() {
+        f32 r;
+        asm volatile("lqc2 $vf1, 0(%1)\n\tvmul.xyz $vf2, $vf1, $vf1\n\tvaddy.x $vf2, $vf2, $vf2y\n\tvaddz.x $vf2, $vf2, $vf2z\n\tvsqrt Q, $vf2x\n\tvwaitq\n\tcfc2.ni $8, $vi22\n\tvaddq.x $vf2, $vf0, Q\n\tmtc1 $8, %0\n\tvnop\n\tvdiv Q, $vf0w, $vf2x\n\tvwaitq\n\tvmulq.xyz $vf1, $vf1, Q\n\tsqc2 $vf1, 0(%1)"
+                 : "=f"(r) : "r"(this) : "$8", "memory");
+        return r;
+    }
+} __attribute__((aligned(16)));
 
-
+// Direction from a 2D point: (x, y, 0, 0) scaled by 25, normalised, w = the length before normalising.
+// The point is read as fields of the vector type (not through a float pointer): then the w, y and z stores
+// do not wait for the reads and the 25.0 is loaded after them, as in retail.
+FV func_002e2c98(void*, const FV* v) asm("func_002e2c98");
+FV func_002e2c98(void*, const FV* v) {
+    FV r(v->x, v->y, 0.0f, 0.0f);
+    r.Scale(25.0f);
+    r.w = r.Normalize();
+    return r;
+}
+}  // namespace n2e2c98

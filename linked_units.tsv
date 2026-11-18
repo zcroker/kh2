@@ -143,8 +143,7 @@ src/anon/unit_002e2f08.cpp	002e2ed0	002e3f38	.data@00362f48,.bss@01e2be20,.rodat
 src/anon/unit_002e3f58.cpp	002e3f38	002e5518	.rodata@00375f70	-G0 -fno-strict-aliasing
 src/anon/batch_w3957.s	002e5518	002e5f28	-	-
 src/anon/unit_002e5f70.cpp	002e5f28	002e7658	.rodata@00376040	-G0 -g -fno-strict-aliasing
-src/anon/unit_002e1908.cpp	002e1908	002e2c98	.rodata@00375f08	-G0 -fno-strict-aliasing
-src/anon/unit_002e2c98.cpp	002e2c98	002e2d18	.rodata@00375f4c	-G0 -fno-strict-aliasing -fno-schedule-insns
+src/anon/unit_002e1908.cpp	002e1908	002e2d18	.rodata@00375f08	-G0 -fno-strict-aliasing
 src/anon/unit_002e2d18.cpp	002e2d18	002e2ed0	.data@00362e70,.rodata@00375f50	-G0 -fno-strict-aliasing
 src/anon/unit_002eae08.cpp	002ead98	002eaf38	.data@003634e8,.rodata@003760d8	-G0
 src/anon/unit_002eaf38.cpp	002eaf38	002ec5f8	.rodata@003760e0	-G0 -fno-strict-aliasing
