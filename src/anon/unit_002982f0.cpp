@@ -121,8 +121,9 @@ void func_00297e68(void) {
         pg = cnt;
         Album* al = (Album*)(jmi_data(2) + 16);
         for (i = 0; i < cnt; i++) {
-            s32 en = jmi_album((void*)func_002983d8(D_0035f598->ids[i]));
-            register s32 id asm("$18") = D_0035f598->ids[i];  // pin: id s2 / en s3 (global alloc picks them swapped otherwise)
+            s32 id = func_002983d8(D_0035f598->ids[i]);
+            s32 en = jmi_album((void*)id);
+            id = D_0035f598->ids[i];
             s32 m = al[id].msg;
             if (en == 0) func_0028de08(m, &seq->names[i], 64);
             else msg_dup2(func_00192048(m), &seq->names[i]);
