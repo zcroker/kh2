@@ -23,7 +23,7 @@ src/anon/asm_00117588.s	00117588	00117778	-	-
 src/anon/asm_0011f7a8.s	0011f7a8	00120520	-	-
 src/anon/batch_w3960.s	00121cc8	00123138	-	-
 src/anon/batch_w3962.s	00125f78	00127a88	-	-
-src/anon/batch_w3886_g.s	00128040	00128480	-	-
+src/anon/unit_00128040.cpp	00128040	00128480	.rodata@0036a9ec	-G0 -fno-strict-aliasing -fno-rerun-loop-opt
 src/anon/unit_0014b150.cpp	0014b150	0014b518	-	-G0
 src/anon/unit_0014b518.c	0014b518	0014b5e0	-	-G0
 src/harata/libdk/rect.cpp	0014b5e0	0014b638	-	-G0
