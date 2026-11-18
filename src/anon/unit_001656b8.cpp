@@ -1,6 +1,108 @@
 #include "../common/types.h"
 #include "../tozawa/cmenu_top.hpp"
 
+// 001652c8 (ray/box triangle query; whole asm -> C 2026-11-19)
+namespace n001652c8 {
+struct V4n {
+    f32 x, y, z, w;
+    V4n() {}
+    ~V4n() {}
+    V4n(const V4n& o) { asm volatile(".set noreorder\n\tlq $8, 0(%1)\n\tsq $8, 0(%0)\n\t.set reorder" : : "r"(this), "r"(&o) : "$8", "memory"); }
+    V4n& operator=(const V4n& o) {
+        if (this == &o) return *this;
+        asm volatile(".set noreorder\n\tlq $8, 0(%1)\n\tsq $8, 0(%0)\n\t.set reorder" : : "r"(this), "r"(&o) : "$8", "memory");
+        return *this;
+    }
+    V4n operator-(const V4n& o) const {
+        V4n r;
+        asm volatile(".set noreorder\n\tlqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 0(%2)\n\tvsub.wxyz $vf1, $vf1, $vf2\n\tsqc2 $vf1, 0(%0)\n\t.set reorder" : : "r"(&r), "r"(this), "r"(&o) : "memory");
+        return r;
+    }
+} __attribute__((aligned(16)));
+struct M4n {
+    V4n r[4];
+    V4n operator*(const V4n& v) const {
+        V4n o;
+        asm volatile(".set noreorder\n\tlqc2 $vf5, 0(%2)\n\tlqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 16(%1)\n\tlqc2 $vf3, 32(%1)\n\tlqc2 $vf4, 48(%1)\n\tvmulax.wxyz ACC, $vf1, $vf5x\n\tvmadday.wxyz ACC, $vf2, $vf5y\n\tvmaddaz.wxyz ACC, $vf3, $vf5z\n\tvmaddw.wxyz $vf5, $vf4, $vf5w\n\tsqc2 $vf5, 0(%0)\n\t.set reorder" : : "r"(&o), "r"(this), "r"(&v) : "memory");
+        return o;
+    }
+};
+// VU0: xyz length
+static inline f32 len3(const V4n* v) {
+    f32 l;
+    asm volatile(".set noreorder\n\tlqc2 $vf1, 0(%1)\n\tvmul.xyz $vf1, $vf1, $vf1\n\tvaddy.x $vf1, $vf1, $vf1y\n\tvaddz.x $vf1, $vf1, $vf1z\n\tvsqrt Q, $vf1x\n\tvwaitq\n\tcfc2.ni $8, $vi22\n\tmtc1 $8, %0\n\t.set reorder"
+        : "=f"(l) : "r"(v) : "$8", "memory");
+    return l;
+}
+struct SegN { V4n a, b; };
+struct AabbN { f32 v[6]; };
+struct TriN { V4n a, b; };
+struct ObjN { u8 p0[12]; u8* f12; u8 p16[44]; u16* f60; u8 p64[16]; M4n m80; M4n m144; };
+void func_001449a8(AabbN*, M4n*) asm("func_001449a8");
+void func_00144e30(V4n*) asm("func_00144e30");
+u32 func_00141970(ObjN*) asm("func_00141970");
+void func_00144e50(V4n*, AabbN*, u32) asm("func_00144e50");
+void func_00141980(ObjN*, u8*) asm("func_00141980");
+void func_00141c18(ObjN*, s32, s32, s32, s32) asm("func_00141c18");
+void func_00141c38(ObjN*, s32, V4n*, u16*, s32) asm("func_00141c38");
+void func_00141988(ObjN*, u8*, TriN*) asm("func_00141988");
+s32 func_00164d60(ObjN*, TriN*, V4n*, V4n*, V4n*, V4n*) asm("func_00164d60");
+f32 func_00164c70(ObjN*, const V4n&, const V4n&, const V4n&) asm("func_00164c70");
+
+s32 func_001652c8(ObjN* o, V4n& pos, AabbN* box, V4n* outA, V4n* outB, V4n& outC, V4n& dir, u16* outId) asm("func_001652c8");
+s32 func_001652c8(ObjN* o, V4n& pos, AabbN* box, V4n* outA, V4n* outB, V4n& outC, V4n& dir, u16* outId)
+{
+    AabbN s = *box;
+    func_001449a8(&s, &o->m144);
+    V4n b;
+    func_00144e30(&b);
+    func_00144e50(&b, &s, func_00141970(o));
+    u16 r = 0;
+    u8 buf[2048];
+    func_00141980(o, buf);
+    func_00141c18(o, 1024, 1024, 0, 0);
+    func_00141c38(o, 0, &b, &r, 15);
+    if (r == 0) return 0;
+    f32 best = 99999991988224.0f;
+    s32 found = 0;
+    TriN t;
+    V4n q;
+    V4n v[2];
+    V4n p = pos;
+    p = o->m144 * p;
+    for (s32 i = 0; i < r; i++) {
+        u16 id = o->f60[i];
+        func_00141988(o, o->f12 + id * 16, &t);
+        if (func_00164d60(o, &t, &p, &q, &v[0], &v[1])) {
+            SegN s2;
+            s2.a = p;
+            s2.b = q;
+            SegN ray;
+            ray.a = s2.a;
+            ray.b = s2.b - s2.a;
+            ray.b.w = 1.0f;
+            ray.a.w = 1.0f;
+            f32 d = len3(&ray.b);
+            d += func_00164c70(o, pos, dir, q);
+            if (d <= best) {
+                best = d;
+                *outA = q;
+                *outB = v[0];
+                outC = v[1];
+                *outId = id;
+                found = 1;
+            }
+        }
+    }
+    if (found == 1) {
+        *outA = o->m80 * *outA;
+        *outB = o->m80 * *outB;
+        outC = o->m80 * outC;
+    }
+    return found;
+}
+} // n001652c8
+
 // 001656b8 (gap: __tcf_0 of the local static in 0x164d60, empty)
 namespace n001656b8 {
 void func_001656b8(void) asm("func_001656b8");
