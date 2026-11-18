@@ -1,5 +1,28 @@
-// Linked unit 0x00127f40-0x00128040.
+// Linked unit 0x00127ec8-0x00128040.
 #include "../common/types.h"
+
+// 00127ec8 (gap: the other constructor clone, same body as 0x127f40)
+namespace g00127ec8 {
+void func_00124bb8(void*) asm("func_00124bb8");
+extern void* D_00347bb0[] asm("D_00347bb0");
+struct E64 { u8 b[64]; };
+extern E64 D_003a99f0[] asm("D_003a99f0");
+void func_0011ed90(u8*, s32) asm("func_0011ed90");
+struct H3 { u8 pad[16]; u32 lo : 16; u32 hi : 16; u32 pad2; u32 off; };
+struct P3 { u32 vt; H3* h; u32 base; u32 a; u32 b; u32 c; };
+void func_00127ec8(P3* p) asm("func_00127ec8");
+void func_00127ec8(P3* p) {
+    func_00124bb8(p);  // obj_ctor_347b88
+    p->vt = (u32)D_00347bb0;
+    H3* h = p->h;
+    s32 n = h->hi - h->lo;
+    p->base = (u32)D_003a99f0;
+    p->a = (u32)(D_003a99f0 + h->hi);
+    p->b = (u32)((E64*)p->a + n);
+    p->c = (u32)((E64*)p->b + n);
+    func_0011ed90((u8*)h + h->off, n);
+}
+}  // namespace g00127ec8
 
 // 00127f40 (was src/anon/batch_w43.cpp)
 namespace n00127f40 {

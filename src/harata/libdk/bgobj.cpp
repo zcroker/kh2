@@ -1,8 +1,8 @@
 // dk::BgObj (0x15f7f0-0x1610c0; the file goes on in unit_001611a8.cpp): the map's background objects. A small derived class (ctor
 // C2/C1 0x15f7f0/0x15f8d8, empty draw 0x15f9c0) and dk::BgObj itself: ctor C2/C1, dtor D2/D1/D0,
 // motion, bounding box, colour, the exec/draw/destroy tasks, the object lists (all objects,
-// the draw list, the destroy list), show/hide by group or number. The unwritten re-light loop
-// 0x1610c0 stays outside: its colour stores schedule differently here.
+// the draw list, the destroy list), show/hide by group or number. The re-light loop 0x1610c0 is the
+// first function of unit_001611a8.cpp (its colour stores schedule like retail there).
 // Each matched function keeps the struct view it was matched with (one namespace per view);
 // every symbol is bound by asm label. The vtables (0x34c718, 0x34c748) stay retail data.
 #include "../../common/types.h"
