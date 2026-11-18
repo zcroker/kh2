@@ -512,3 +512,44 @@ void func_0015c880(f32 arg0) {
     func_001dd1c8(D_004f3694.r, D_004f3694.g, D_004f3694.b);
 }
 }  // namespace n0015c880
+
+// ---- 0x0015c958 (was whole asm, src/anon/asm_0015c958.s)
+// Plain C++: the colour is a base class set through a free inline (pointer parameter), the fog values
+// are stored through the global, and the draw calls are an inline member; the fog flag is a struct member.
+namespace n0015c958 {
+struct FogFlag { u8 on; };
+struct Rgba { u8 r, g, b, a; };
+struct Fog : Rgba { f32 near, far, min, max; inline void apply(); };
+struct MapColor { Rgba base; Rgba table[16]; Fog fog; };
+extern FogFlag D_00340eb0 asm("D_00340eb0");
+extern MapColor D_004f3650 asm("D_004f3650");
+void func_0010a8a8(f32, f32) asm("func_0010a8a8");
+void func_0010a828(f32, f32) asm("func_0010a828");
+void func_0010a7d8(u8, u8, u8) asm("func_0010a7d8");
+void func_001dd1e8(u8, u8) asm("func_001dd1e8");
+void func_001dd1b0(f32, f32) asm("func_001dd1b0");
+void func_001dd1c8(u8, u8, u8) asm("func_001dd1c8");
+static inline void SetRgba(Rgba* c, s32 r, s32 g, s32 b, s32 a) {
+    c->r = r;
+    c->g = g;
+    c->b = b;
+    c->a = a;
+}
+inline void Fog::apply() {
+    func_0010a8a8(min, max);
+    func_0010a828(near, far);
+    func_0010a7d8(r, g, b);
+    func_001dd1e8((s32)min, (s32)max);
+    func_001dd1b0(near, far);
+    func_001dd1c8(r, g, b);
+}
+void func_0015c958(s32 near, u8 r, u8 g, u8 b, s32 min, s32 max) asm("func_0015c958");
+void func_0015c958(s32 near, u8 r, u8 g, u8 b, s32 min, s32 max) {
+    D_00340eb0.on = 1;
+    D_004f3650.fog.min = min;
+    D_004f3650.fog.max = max;
+    D_004f3650.fog.near = near;
+    SetRgba(&D_004f3650.fog, r, g, b, 128);
+    D_004f3650.fog.apply();
+}
+}  // namespace n0015c958
