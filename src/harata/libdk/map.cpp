@@ -1,8 +1,8 @@
 #include "map.hpp"
 
 // dk::Map, first part (0x15eba8-0x15efa0): map load/unload, visible groups, the PAX getters and the
-// animation speed. The colour/fog tint setter after it (0x15efa0) is still a separate function;
-// the rest of the file (effects, the PAX itself and the static init) is map_effect.cpp.
+// animation speed, then the colour/fog tint setter (0x15efa0). The rest of the file (effects, the
+// PAX itself and the static init) is map_effect.cpp.
 
 namespace ryj { class PAX; }
 extern ryj::PAX D_0034c6f0 asm("D_0034c6f0");
@@ -131,3 +131,98 @@ void Map::setAnimationSpeedRatio(kn::AnimationWork::TYPE type, f32 r)
     func_00161248(type, r);
 }
 }  // namespace dk
+
+// ---- 0x0015efa0 (was whole asm, src/anon/batch_w3876.s): tint the map. The ambient colour and the
+// fog colour are multiplied by (r, g, b) / 128, then the models, the background objects and the
+// map's effects get the tint. The colour and the fog share the base struct Rgba (as in the fog
+// functions at 0x15c500-0x15ca40): the fog's r store and the local colour's a store are then
+// different fields of one type and do not depend on each other.
+namespace n0015efa0 {
+struct Rgba { u8 r, g, b, a; };
+struct Fog : Rgba {
+    f32 near, far, min, max;
+    inline void update();
+};
+s32 func_0015f268(void) asm("func_0015f268");
+void func_0015cb18(u8*, u8*, u8*, u8*) asm("func_0015cb18");
+void func_0015cbb8(u8, u8, u8, u8) asm("func_0015cbb8");
+void func_0015c4b8(void) asm("func_0015c4b8");
+Fog* func_0015cc60(void) asm("func_0015cc60");
+Fog* func_0015cc50(void) asm("func_0015cc50");
+s32 func_0015cc80(Fog*) asm("func_0015cc80");
+void func_0010a8a8(f32, f32) asm("func_0010a8a8");
+void func_0010a828(f32, f32) asm("func_0010a828");
+void func_0010a7d8(u8, u8, u8) asm("func_0010a7d8");
+void func_001dd1e8(u8, u8) asm("func_001dd1e8");
+void func_001dd1b0(f32, f32) asm("func_001dd1b0");
+void func_001dd1c8(u8, u8, u8) asm("func_001dd1c8");
+void func_001432f0(u8, u8, u8) asm("func_001432f0");
+void func_001611a8(u8, u8, u8) asm("func_001611a8");
+u8* func_001de4b0(void*, s32, u8*) asm("func_001de4b0");
+s32 func_001dc9e0(u8*) asm("func_001dc9e0");
+f32* func_001dc670(u8*) asm("func_001dc670");
+static inline void SetRgba(Rgba* c, s32 r, s32 g, s32 b, s32 a) {
+    c->r = r;
+    c->g = g;
+    c->b = b;
+    c->a = a;
+}
+inline void Fog::update() {
+    if (!func_0015cc80(this)) {
+        func_0010a8a8(min, max);
+        func_0010a828(near, far);
+        func_0010a7d8(r, g, b);
+    }
+    func_001dd1e8((s32)min, (s32)max);
+    func_001dd1b0(near, far);
+    func_001dd1c8(r, g, b);
+}
+void func_0015efa0(u8 r, u8 g, u8 b) asm("func_0015efa0");
+void func_0015efa0(u8 r, u8 g, u8 b)
+{
+    Rgba c;
+    Rgba m;
+    if (func_0015f268()) return;
+    s32 alpha = 0x80;
+    m.r = r;
+    m.g = g;
+    m.b = b;
+    m.a = alpha;
+    f32 fg, fr;
+    fr = r * 0.0078125f;
+    fg = g * 0.0078125f;
+    f32 fb = b * 0.0078125f;
+    func_0015cb18(&c.r, &c.g, &c.b, &c.a);
+    c.r = (c.r * m.r) >> 7;
+    c.g = (c.g * m.g) >> 7;
+    c.b = (c.b * m.b) >> 7;
+    c.a = (c.a * m.a) >> 7;
+    func_0015cbb8(c.r, c.g, c.b, c.a);
+    func_0015c4b8();
+    Fog* src = func_0015cc60();
+    Fog* t = func_0015cc50();
+    c.r = src->r;
+    c.g = src->g;
+    c.b = src->b;
+    c.r = (c.r * m.r) >> 7;
+    c.g = (c.g * m.g) >> 7;
+    c.b = (c.b * m.b) >> 7;
+    c.a = (c.a * m.a) >> 7;
+    SetRgba(t, c.r, c.g, c.b, alpha);
+    t->update();
+    u8* o = 0;
+    func_001432f0(r, g, b);
+    func_001611a8(r, g, b);
+    if (D_0034c70c != 1) return;
+    for (s32 i = 0; i < 64; i++) {
+        while ((o = func_001de4b0(&D_0034c6f0, i, o))) {
+            if (func_001dc9e0(o)) {
+                f32* col = func_001dc670(o);
+                col[0] = fr;
+                col[1] = fg;
+                col[2] = fb;
+            }
+        }
+    }
+}
+}  // namespace n0015efa0

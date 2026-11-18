@@ -35,7 +35,6 @@ src/anon/unit_00157688.cpp	00157688	00158050	.bss@004f3588,.rodata@0036b300	-G0
 src/anon/unit_00158050.cpp	00158050	00158450	-	-G0
 src/anon/batch_w3930.s	0015af48	0015b100	-	-
 src/anon/asm_0015b7f8.s	0015b7f8	0015bab8	-	-
-src/anon/batch_w3876.s	0015efa0	0015f268	-	-
 src/anon/batch_w3959.s	00163898	00164578	-	-
 src/anon/asm_001652c8.s	001652c8	001656b8	-	-
 src/anon/asm_00166148.s	00166148	001664c0	-	-
@@ -616,7 +615,7 @@ src/harata/libdk/fpscamera.cpp	0014e2c0	0014ecb8	.data@0034a3f0,.bss@004f3580,.r
 src/anon/unit_0014ecb8.cpp	0014ecb8	00153158	.rodata@0036b20c	-G0 -fno-strict-aliasing
 src/anon/unit_00153158.cpp	00153158	00153678	.rodata@0036b250	-G0
 src/anon/unit_00153678.cpp	00153678	00153ea0	.rodata@0036b258	-G0 -g -fno-strict-aliasing
-src/harata/libdk/map.cpp	0015eba8	0015efa0	.rodata@0036b468	-G0
+src/harata/libdk/map.cpp	0015eba8	0015f268	.rodata@0036b468	-G0
 src/harata/libdk/map_effect.cpp	0015f268	0015f7f0	.data@0034c6f0	-G0
 src/harata/libdk/bgobj.cpp	0015f7f0	001610c0	.data@0034c738,.rodata@0036b470	-G0 -g -fno-strict-aliasing
 src/anon/unit_001611a8.cpp	001610c0	001614a8	.bss@004f3b30	-G0 -g -fno-strict-aliasing
