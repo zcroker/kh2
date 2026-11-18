@@ -1,4 +1,4 @@
-// Linked unit 0x00237d38-0x002398d0: YI::SPRITE draw tail and YI::SEQUENCE ctor/dtor.
+// Linked unit 0x00237d38-0x00239988: YI::SPRITE draw tail, YI::SEQUENCE ctor/dtor and the GS packet setup.
 #include "../common/types.h"
 #include "tiny_auto80_solver_structs.hpp"
 #include "../tozawa/cmenu_top.hpp"
@@ -924,3 +924,47 @@ void SEQUENCE_D0(void* self) {
 }
 }  // namespace n00239898
 
+
+// 002398d0 (was whole asm, src/anon/asm_002398d0.s)
+namespace n002398d0 {
+void func_003058a0(s32) asm("func_003058a0");
+// One GS register packet: DMA end tag (2 qwords follow), GIF tag (1 A+D register), then data and register address.
+struct GsPk { u64 tag, pad, gif, regs, data, reg; };
+extern GsPk D_01dae590[2] asm("D_01dae590");    // TEX1_1 by filter: linear, nearest
+extern u64 D_01dae5f0[3][6] asm("D_01dae5f0");  // ALPHA_1 by blend mode: normal, add, subtract
+/*TARGET 002398d0*/
+// Builds the five register packets the sprite draw sends (TEX1 filter x2, ALPHA blend x3).
+// The filter packets are written as fields of the global, the blend packets through a plain u64 pointer:
+// that mix (typed stores next to untyped ones) is what fixes retail's instruction order after reload.
+void u_call0_002398d0(void) asm("_Z16u_call0_002398d0v");
+void u_call0_002398d0(void) {
+    u64* q;
+    D_01dae590[0].tag = 0x70000002;
+    D_01dae590[0].gif = 0x1000000000008001ULL;
+    D_01dae590[0].regs = 14;
+    D_01dae590[0].data = 0x60;
+    D_01dae590[0].reg = 0x14;
+    D_01dae590[1].tag = 0x70000002;
+    D_01dae590[1].gif = 0x1000000000008001ULL;
+    D_01dae590[1].regs = 14;
+    D_01dae590[1].data = 0;
+    D_01dae590[1].reg = 0x14;
+    q = D_01dae5f0[0];
+    q[0] = 0x70000002;
+    q[2] = 0x1000000000008001ULL;
+    q[3] = 14;
+    q[4] = 0x44;
+    q[5] = 0x42;
+    q[6] = 0x70000002;
+    q[8] = 0x1000000000008001ULL;
+    q[9] = 14;
+    q[10] = 0x48;
+    q[11] = 0x42;
+    q[12] = 0x70000002;
+    q[14] = 0x1000000000008001ULL;
+    q[15] = 14;
+    q[16] = 0x42;
+    q[17] = 0x42;
+    func_003058a0(0);
+}
+}  // namespace n002398d0

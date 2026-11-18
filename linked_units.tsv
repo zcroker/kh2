@@ -95,8 +95,7 @@ src/anon/unit_00234f60.cpp	00234f60	00236180	.rodata@003713fc	-G0
 src/anon/unit_00236180.cpp	00236180	00236d98	-	-G0 -fno-strict-aliasing
 src/anon/batch_w3875.s	00236d98	00237068	-	-
 src/anon/unit_00237068.cpp	00237068	00237d38	.rodata@00371478	-G0 -fno-strict-aliasing
-src/anon/unit_002384f8.cpp	00237d38	002398d0	.rodata@003714a4	-G0 -fno-strict-aliasing
-src/anon/asm_002398d0.s	002398d0	00239988	-	-
+src/anon/unit_002384f8.cpp	00237d38	00239988	.rodata@003714a4	-G0 -fno-strict-aliasing
 src/anon/unit_00239988.cpp	00239988	0023bc58	.rodata@003714b4	-G0 -fno-strict-aliasing
 src/anon/unit_0023bc58.cpp	0023bc58	0023c968	.rodata@003714f8	-G0 -fno-strict-aliasing
 src/anon/unit_0023c968.cpp	0023c968	0023d260	.rodata@00371500	-G0 -fno-strict-aliasing
