@@ -31,7 +31,7 @@ It builds the current executable:
 |---|---|
 | Functions matched | **11,509 / 11,509 (100.0%)** |
 | Code matched (by size) | **100.0%** |
-| Source-file chunks fully matched ("linked" groundwork) | 140 of 140, with 140 at 90% or more |
+| Source-file chunks fully matched ("linked" groundwork) | 141 of 141, with 141 at 90% or more |
 
 Every commit keeps the rebuilt `kh2.elf` byte-identical to the retail executable.
 
