@@ -16,7 +16,6 @@ src/sdk/sdk_asm_001002a0.s	001002a0	001002b0	-	-
 src/anon/unit_001002b0.cpp	001002b0	001003c8	-	-G0
 src/anon/unit_001056e8.cpp	001056e8	00105748	.data@0032bb28,.bss@003a7b60	-G0
 src/common/saveram.cpp	00105748	00105a10	.data@0032bb30	-G0
-src/anon/asm_001097e8.s	001097e8	00109c30	-	-
 src/anon/asm_0010fb10.s	0010fb10	0010fea0	-	-
 src/anon/asm_0011f7a8.s	0011f7a8	00120520	-	-
 src/anon/batch_w3960.s	00121cc8	00123138	-	-
@@ -545,6 +544,7 @@ src/naka/libkn/camera.cpp	001065d8	00108068	.data@0033cc38,.rodata@0036a0a0	-G0
 src/anon/unit_00108068.cpp	00108068	001085a8	.rodata@0036a120	-G0
 src/anon/unit_001085a8.cpp	001085a8	00109788	.rodata@0036a170	-G0 -fno-strict-aliasing
 src/anon/unit_00109788.cpp	00109788	001097e8	-	-G0
+src/anon/unit_001097e8.cpp	001097e8	00109c30	.rodata@0036a290	-G0 -fno-strict-aliasing
 src/anon/unit_00109c30.cpp	00109c30	0010a918	.rodata@0036a37c	-G0 -g -fno-strict-aliasing
 src/anon/unit_0010a918.cpp	0010a918	0010aef0	.rodata@0036a3e8	-G0 -fno-strict-aliasing
 src/anon/unit_0010aef0.cpp	0010aef0	0010b438	.rodata@0036a418	-G0
