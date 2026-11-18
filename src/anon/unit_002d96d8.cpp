@@ -427,3 +427,61 @@ void func_002d9e00(u8* o)
 }
 }  // namespace n002d9e00
 
+
+// 002d9f10 (F17: was whole asm, src/anon/asm_002d9f10.s)
+namespace n002d9f10 {
+// Sideways push of a minigame object: (target's v.x, 0, 0, 0) * 15 * rate * frame time * 0.5, negated by a mode test.
+// The x component is read as a field of the same vector type (`t->v.x`): a store to V::w/y/z can then never
+// overlap that read, so only the x store waits for it and the 15.0f load is not pulled in front of the stores.
+struct V {
+    f32 x, y, z, w;
+    V(f32 ax, f32 ay, f32 az, f32 aw) { x = ax; y = ay; z = az; w = aw; }
+    V& operator*=(f32 k)
+    {
+        asm volatile(".set noreorder\n\tlqc2 $vf1, 0(%0)\n\tmfc1 $8, %1\n\tqmtc2 $8, $vf2\n\tvmulx.wxyz $vf1, $vf1, $vf2x\n\tsqc2 $vf1, 0(%0)\n\t.set reorder" : : "r"(this), "f"(k) : "$8", "memory");
+        return *this;
+    }
+    V& operator=(const V& o)
+    {
+        if (this != &o) asm volatile(".set noreorder\n\tlq $8, 0(%1)\n\tsq $8, 0(%0)\n\t.set reorder" : : "r"(this), "r"(&o) : "$8", "memory");
+        return *this;
+    }
+    void Zero() { asm volatile("vsub.wxyz $vf1, $vf0, $vf0\n\tsqc2 $vf1, 0(%0)" : : "r"(this) : "memory"); }
+} __attribute__((aligned(16)));
+struct Tgt {
+    u8 pad0[8];
+    u32 flags;
+    u8 pad1[2608 - 12];
+    V v;
+};
+struct Obj {
+    u8 pad0[16];
+    V move;
+    u8 pad1[2884 - 32];
+    Tgt* target;
+    u8 pad2[3068 - 2888];
+    u8 f3068;
+};
+extern u8* D_00361f60 asm("D_00361f60");
+extern f32 D_00349e10 asm("D_00349e10");
+s32 func_002d8898(u8*) asm("func_002d8898");
+s32 func_002d8900(u8*) asm("func_002d8900");
+f32* func_002d73f0(u8*) asm("func_002d73f0");
+
+void func_002d9f10(Obj* o) asm("func_002d9f10");
+void func_002d9f10(Obj* o)
+{
+    o->move.Zero();
+    u8* g = D_00361f60;
+    if (!g || o->f3068) return;
+    if (!func_002d8898(g)) return;
+    Tgt* t = o->target;
+    V d(t->v.x, 0.0f, 0.0f, 0.0f);
+    f32 k = 15.0f;
+    if (t->flags & 4) k = func_002d73f0(g)[2] * k;
+    else k = func_002d73f0(g)[1] * k;
+    d *= k * D_00349e10 * 0.5f;
+    if (!func_002d8900(g)) d *= -1.0f;
+    o->move = d;
+}
+}  // namespace n002d9f10
