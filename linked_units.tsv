@@ -270,7 +270,7 @@ src/anon/unit_001d3c08.cpp	001d3c08	001d4f40	.rodata@0036e454	-G0
 src/anon/unit_001d4f40.cpp	001d4f40	001d63a8	.rodata@0036e530	-G0
 src/anon/unit_001d63a8.cpp	001d63a8	001d68e0	.rodata@0036e5d8	-G0
 src/anon/unit_001d68e0.cpp	001d68e0	001d7418	-	-G0
-src/anon/unit_001d7458.cpp	001d7458	001d9d00	.rodata@0036e5f8	-G0
+src/anon/unit_001d7458.cpp	001d7418	001d9d00	.rodata@0036e5f8	-G0
 src/harata/libdk/field2dd.cpp	0013a368	0013a8b8	.data@00347fb0,.rodata@0036acb0	-G0
 src/anon/unit_0013a8b8.cpp	0013a8b8	0013dfb8	.rodata@0036ad08	-G0 -fno-strict-aliasing -fmove-all-movables
 src/anon/unit_0013dfb8.cpp	0013dfb8	0013ef70	.rodata@0036ad98	-G0 -fno-strict-aliasing
@@ -607,7 +607,7 @@ src/anon/unit_00169f98.cpp	00169f98	0016c770	.rodata@0036c1a8	-G0 -fno-strict-al
 src/anon/unit_0016c770.cpp	0016c770	0016d2e0	-	-G0 -fno-strict-aliasing
 src/anon/unit_0016d2e0.cpp	0016d2e0	0016e8f8	.rodata@0036c240	-G0 -fno-strength-reduce -fno-strict-aliasing
 src/anon/unit_0016e8f8.cpp	0016e8f8	00170f58	.rodata@0036c3d8	-G0
-src/anon/unit_00170f58.cpp	00170f58	00171e00	.rodata@0036c490	-G0 -fno-strict-aliasing
+src/anon/unit_00170f58.cpp	00170f58	00171e58	.rodata@0036c490	-G0 -fno-strict-aliasing
 src/anon/unit_00171e58.cpp	00171e58	00175590	.rodata@0036c4a4	-G0 -fno-strict-aliasing
 src/yasui/libys/party.cpp	00175670	00177dc8	.rodata@0036c4ac	-G0 -fno-strict-aliasing
 src/yasui/libys/player.cpp	00177dc8	0017a8f8	.rodata@0036c4c8,.bss@01c5f530	-G0 -fno-strict-aliasing
@@ -757,7 +757,6 @@ src/anon/unit_0015d440a.cpp	0015d440	0015d4e8	-	-G0
 src/anon/asm_0015d4e8.s	0015d4e8	0015d540	-	-
 src/anon/asm_001610c0.s	001610c0	001611a8	-	-
 src/anon/asm_00169990.s	00169990	00169f98	-	-
-src/anon/asm_00171e00.s	00171e00	00171e58	-	-
 src/anon/asm_0017c290.s	0017c290	0017c400	-	-
 src/anon/asm_0017e858.s	0017e858	0017e9d0	-	-
 src/anon/unit_0017e9d0.cpp	0017e9d0	0017eb68	.rodata@0036c594	-G0 -fno-strict-aliasing
@@ -769,7 +768,6 @@ src/anon/asm_001ca060.s	001ca060	001ca148	-	-
 src/anon/asm_001cefb0.s	001cefb0	001cf0b0	-	-
 src/anon/asm_001d0a88.s	001d0a88	001d0cb8	-	-
 src/anon/asm_001d1190.s	001d1190	001d12e8	-	-
-src/anon/asm_001d7418.s	001d7418	001d7458	-	-
 src/anon/asm_001dd268.s	001dd268	001dd2b8	-	-
 src/anon/asm_001f2f78.s	001f2f74	001f4498	-	-
 src/anon/asm_001f5670.s	001f5670	001f5978	-	-

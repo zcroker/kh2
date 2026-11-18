@@ -1,7 +1,6 @@
 // YS script traps, second part of the file 0x170f58-0x175590 (see unit_00170f58.cpp): object,
 // camera, bg, flag and table traps, then the file's empty static init, the five empty atexit
 // destructors of its function-local static vectors, and the _GLOBAL__I_/_GLOBAL__D_ stubs.
-// 0x171e00 (gap trap before this unit) stays outside the units.
 #include "../common/types.h"
 #include "../yasui/libys/attack.hpp"
 #include "../yasui/libys/battlereport.hpp"

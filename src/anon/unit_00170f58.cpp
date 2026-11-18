@@ -1,6 +1,6 @@
 // YS script traps, first part of the file 0x170f58-0x175590 (object/actor traps of the VM trap
-// table at 0x34dd00). The file is linked as two units around the never-written trap 0x171e00
-// (its post-call reload of the flags word does not match): unit_00170f58.cpp and unit_00171e58.cpp.
+// table at 0x34dd00). The file is linked as two units: unit_00170f58.cpp (up to and including the
+// gap trap 0x171e00, whose flags word is volatile for the reload after the call) and unit_00171e58.cpp.
 // Each function keeps the declarations of the source it was matched in (one namespace per
 // function); functions marked "gap" were never written before and come from the trap table.
 #include "../common/types.h"
@@ -814,3 +814,15 @@ u32 trap_obj_act_start_pri(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_00188170(((u32)(*(u32*)(*(u32*)(a0 + 0u) + 4u)) + 768u), *(u32*)(a0 + 4u), a2, a3);
 }
 }  // namespace n00171dd8
+
+// ---- 00171e00 gap
+namespace g00171e00 {
+struct O171 { char p[0x7f8]; volatile u32 fl; char q[0x30]; };
+void func_001ad990(void* a, f32 b, f32 c, f32 d) asm("_Z13func_001ad990jfff");
+void func_00171e00(BD_VALUE* bd) asm("func_00171e00");
+void func_00171e00(BD_VALUE* bd) {
+    O171* o = *(O171**)((u8*)bd[0].p + 4);
+    if (!(o->fl & 0x10)) func_001ad990((char*)o + 2092, 1.0f, 0.0f, 0.0f);
+    o->fl |= 0x10;
+}
+}  // namespace g00171e00
