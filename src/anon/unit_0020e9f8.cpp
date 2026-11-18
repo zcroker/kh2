@@ -1,4 +1,4 @@
-// Linked unit 0x0020e9f8-0x0020edd0 (after whole-asm 0x20e960): fog/colour setters, packet stack allocator, file size helpers (.rodata 0x3707c0).
+// Linked unit 0x0020e960-0x0020edd0: fog reset, fog/colour setters, packet stack allocator, file size helpers (.rodata 0x3707b0).
 #include "../common/types.h"
 typedef unsigned int u128 __attribute__((mode(TI)));
 typedef unsigned int w3728_u128 __attribute__((mode(TI)));
@@ -10,6 +10,39 @@ typedef unsigned int w3728_u128 __attribute__((mode(TI)));
 #include "../harata/libdk/treasure_info.hpp"
 #include "../tozawa/cmenu_top.hpp"
 #include "../tozawa/help_gra.hpp"
+
+// 0020e960 (was whole asm, src/anon/asm_0020e960.s)
+namespace n0020e960 {
+// Fog table: sixteen separately named floats (fog a/b, max, min, ...). Named fields, not an array: with f32 m[16]
+// the m[0] store counts as overlapping its neighbour m[1] and is scheduled one slot early.
+struct FogTable { f32 f0, f1, f2, f3, f4, f5, f6, f7, f8, f9, f10, f11, f12, f13, f14, f15; };
+extern FogTable D_00359110 asm("D_00359110");
+extern u8 D_00359150[3] asm("D_00359150");
+/*TARGET 0020e960*/
+// Resets the fog table and the fog colour (grey 0x80). The colour is one chained assignment at the end
+// (it stores [2] first and [0] last) and f5 is written before f4: both orders show in the retail schedule.
+void u_call0_0020e960(void) asm("_Z16u_call0_0020e960v");
+void u_call0_0020e960(void) {
+    f32 z = 0.0f;
+    D_00359110.f0 = z;
+    D_00359110.f1 = z;
+    D_00359110.f2 = 255.0f;
+    D_00359110.f3 = z;
+    D_00359110.f5 = z;
+    D_00359110.f4 = z;
+    D_00359110.f6 = 255.0f;
+    D_00359110.f7 = 255.0f;
+    D_00359110.f8 = 0.79999995f;
+    D_00359110.f9 = -32.0f;
+    D_00359110.f10 = 128.0f;
+    D_00359110.f11 = z;
+    D_00359110.f12 = z;
+    D_00359110.f13 = 128.0f;
+    D_00359110.f14 = 128.0f;
+    D_00359110.f15 = z;
+    D_00359150[0] = D_00359150[1] = D_00359150[2] = 0x80;
+}
+}  // namespace n0020e960
 
 // 0020e9f8 (was src/anon/batch_w211.cpp)
 namespace n0020e9f8 {
