@@ -1005,4 +1005,17 @@ EFF* func_001dd240(EFF* e) {
     if (!e) e = h;
     return e;
 }
+// 0x1dd268: the entry before e in the list (count - 1 steps forward, wrapping at the end).
+EFF* func_001dd268(EFF* e) asm("func_001dd268");
+EFF* func_001dd268(EFF* e) {
+    EFF* p;
+    if (!e) p = D_00352ae0[0];
+    else p = e;
+    for (s32 i = 0; i < D_00352ae8 - 1; i++) {
+        EFF* h = D_00352ae0[0];
+        p = p->next;
+        if (!p) p = h;
+    }
+    return p;
+}
 }  // namespace n001dd220

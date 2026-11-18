@@ -236,7 +236,7 @@ src/common/title.cpp	00102d10	00103100	.data@0032b9a0,.rodata@00369d88	-G0 -g
 src/common/unit_001031b0.cpp	001031b0	00103f68	-	-G0 -fno-strict-aliasing
 src/anon/unit_001d9d00.cpp	001d9d00	001dbbe0	.rodata@0036e668	-G0 -g -fno-strict-aliasing
 src/anon/unit_001dbbe0.cpp	001dbbe0	001dbfd0	.data@00352ad0,.bss@01d5bab0,.rodata@0036e7b0	-G0
-src/anon/unit_001dbfd8.cpp	001dbfd0	001dd268	.rodata@0036e7e0	-G0 -fno-strict-aliasing
+src/anon/unit_001dbfd8.cpp	001dbfd0	001dd2b8	.rodata@0036e7e0	-G0 -fno-strict-aliasing
 src/anon/unit_001dd2b8.cpp	001dd2b8	001dd6a0	-	-G0 -fno-strict-aliasing
 src/anon/unit_001dd6a0.c	001dd6a0	001dd920	.rodata@0036e7f8	-G0 -fno-strict-aliasing
 src/anon/unit_001dd920.cpp	001dd920	001ddcf0	.data@00352ae0	-G0 -fno-strict-aliasing
@@ -753,7 +753,6 @@ src/anon/asm_001c6a28.s	001c6a28	001c6c60	-	-
 src/anon/unit_001c70e8.cpp	001c70e8	001c7148	.rodata@0036df88	-G0 -fno-schedule-insns
 src/anon/asm_001ca060.s	001ca060	001ca148	-	-
 src/anon/asm_001d0a88.s	001d0a88	001d0cb8	-	-
-src/anon/asm_001dd268.s	001dd268	001dd2b8	-	-
 src/anon/asm_001f2f78.s	001f2f74	001f4498	-	-
 src/anon/asm_001f5670.s	001f5670	001f5978	-	-
 src/anon/asm_001f87f0.s	001f87f0	001f8dd0	-	-
