@@ -165,12 +165,10 @@ src/anon/unit_002efbb8.cpp	002efbb8	002efcc0	-	-G0
 src/anon/unit_002efcc0.c	002efcc0	002efd68	-	-G0 -g -fno-strict-aliasing -fno-gcse
 src/anon/unit_002efd68.cpp	002efd68	002f0700	.rodata@00376220	-G0
 src/naka/libkn/trapfunctions.cpp	002f0700	002f12b0	.data@00363a40,.bss@01e2c0c0	-G0
-src/sdk/sdk_asm_002f1b48.s	002f1b48	002f1c60	-	-
-src/sdk/sdk_asm_002f1c60.s	002f1c60	002f1cc0	-	-
+src/sdk/sifrpc_002f1b48.c	002f1b48	002f1cc0	.rodata@003762a0	cc=ee-gcc2.96
 src/sdk/sdk_asm_002f1cc0.s	002f1cc0	002f1d30	-	-
 src/sdk/sdk_asm_002f1d30.s	002f1d30	002f1da0	-	-
-src/sdk/sdk_asm_002f1da0.s	002f1da0	002f1e00	-	-
-src/sdk/sdk_asm_002f1e00.s	002f1e00	002f1e18	-	-
+src/sdk/sifrpc_002f1da0.c	002f1da0	002f1e18	-	cc=ee-gcc2.96
 src/libkernl/asm_002f20c0.s	002f20c0	002f20d0	-	-
 src/anon/batch_w3932.s	002f20d0	002f2448	-	-
 src/sdk/sdk_asm_002f44e8.s	002f44e8	002f45ec	-	-

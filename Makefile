@@ -27,6 +27,8 @@ CFLAGS := -O2 -g0 -x c -ffunction-sections
 SDK_CC := /work/tools/compilers/ee-gcc2.9-991111/bin/ee-gcc
 SDK_CFLAGS := -O2 -G0 -g0 -x c -ffunction-sections
 # A linked SDK unit (src/sdk/*.c row in linked_units.tsv) gets its UNIT_FLAGS too (-fno-function-sections comes last).
+# Some Sony code was built with ee-gcc 2.96 instead: a `cc=ee-gcc2.96` token in the row's flags column sets UNIT_CC
+# (tools/compilers/ee-gcc2.96, fetched by docker/ps2/prepare.sh). See notes/linking.md.
 ASFLAGS := -G0
 VERIFY_AUTODIFF_COUNT ?= 3
 VERIFY_SMALL_DIFF_MAX ?= 32
@@ -174,7 +176,7 @@ out/build/%.o: %.cpp
 
 out/build/src/sdk/%.o: src/sdk/%.c
 	@mkdir -p $(dir $@)
-	@$(SDK_CC) $(SDK_CFLAGS) $(UNIT_FLAGS) -c -o $@ $<
+	@$(or $(UNIT_CC),$(SDK_CC)) $(SDK_CFLAGS) $(UNIT_FLAGS) -c -o $@ $<
 
 out/build/%.o: %.c
 	@mkdir -p $(dir $@)

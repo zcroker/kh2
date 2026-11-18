@@ -13,6 +13,17 @@ The list of units is `linked_units.tsv` at the repo root. The first unit is
 - `build_elf.py objects`: every `layout.tsv` function inside the range gets status `cxx` with the
   unit's source, whatever `functions.tsv` says. `objects.mk` gets
   `UNIT_FLAGS := -fno-function-sections <flags>` for the unit's object.
+- Compiler choice: game code uses ee-gcc 3.2. `src/sdk/*.c` rows use ee-gcc 2.9-991111 (`SDK_CC`).
+- The `cc=NAME` token: put it in the `flags` column of a `src/sdk/*.c` row to build that row with
+  `tools/compilers/NAME/bin/ee-gcc`. `objects.mk` then gets `UNIT_CC`. The token does not go to the compiler.
+- Sony code built with ee-gcc 2.96 uses `cc=ee-gcc2.96`. Example: the SIF RPC client
+  (`src/sdk/sifrpc_002f1b48.c`, `sifrpc_002f1da0.c`). Signs of 2.96: branch-likely, and a `while (i--);`
+  delay loop unrolled by 4.
+- `docker/ps2/prepare.sh` gets both old compilers from decomp.me's compiler releases into
+  `tools/compilers/` (not committed).
+- The link's `_gp` is not the game's 0x37a800. Setting it to 0x37a800 breaks the gp-relative references
+  of game code that is linked far away. So a unit cannot use a real `-G8` small-data symbol. Write such a
+  read through `$28` (`register int *gp asm("$28")`, or a one-load `asm`).
 - Every row of `linked_units.tsv` is compiled and linked, also a row whose range holds no
   `layout.tsv` function at all (only never-written gap functions, for example between two
   whole-asm functions: `unit_001fd530.cpp`). Its object goes into the link order at its start address.

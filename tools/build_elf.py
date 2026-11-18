@@ -698,12 +698,25 @@ def generate_layout_outputs() -> int:
         + "ORDERED_OBJS :=\n"
         + "".join(f"ORDERED_OBJS += {obj}\n" for obj in objects)
         # Linked units are compiled whole (functions stay in source order in one .text).
-        + "".join(f"{src_to_obj(u.source)}: UNIT_FLAGS := -fno-function-sections {u.flags}\n"
-                  f"{src_to_obj(u.source)}: linked_units.tsv\n" for u in units)
+        + "".join(unit_make_rules(u) for u in units)
     )
     LAYOUT_STATUS_OUT.write_text("addr\tmode\tsource\n" + "".join(status_rows))
     write_symbols_ld(SYMBOLS_LD_OUT)
     return 0
+
+
+def unit_make_rules(u) -> str:
+    """objects.mk lines for one linked unit. A `cc=NAME` token in the flags column picks the compiler
+    tools/compilers/NAME/bin/ee-gcc (for example cc=ee-gcc2.96 for Sony code built with ee-gcc 2.96);
+    the other tokens are compiler flags."""
+    obj = src_to_obj(u.source)
+    tokens = u.flags.split()
+    cc = [t[3:] for t in tokens if t.startswith("cc=")]
+    flags = " ".join(t for t in tokens if not t.startswith("cc="))
+    out = f"{obj}: UNIT_FLAGS := -fno-function-sections {flags}\n"
+    if cc:
+        out += f"{obj}: UNIT_CC := /work/tools/compilers/{cc[-1]}/bin/ee-gcc\n"
+    return out + f"{obj}: linked_units.tsv\n"
 
 
 def load_layout_cxx_sources() -> dict[int, str]:
