@@ -1,5 +1,49 @@
-// Linked unit 0x001f6b68-0x001f6eb8 (ppp programs; one namespace per old matched source, gap functions written for the unit).
+// Linked unit 0x001f69c0-0x001f6eb8 (ppp programs; one namespace per old matched source, gap functions written for the unit).
 #include "../common/types.h"
+// gcc 3.2 soft-float double helpers in this toolchain: bind them to the retail libgcc copies.
+asm("dpdiv = func_00314190");
+asm("fptodp = func_00313b80");
+asm("dptoli = func_003143e0");
+
+// 001f69c0 (gap, written for the unit): s16 direction -> transformed point -> two atan2 angles in 0x8000 units.
+namespace n001f69c0 {
+struct V4 { f32 x, y, z, w; } __attribute__((aligned(16)));
+struct El { u8 p[16]; };
+struct Mgr { u8 p[0x80]; El* arr; };
+struct Obj { u8 p[4]; s32 owner; };
+struct X { u8 p[0xc]; s32 idx; s32 o16; u8 q[4]; s32 o24; };
+extern Mgr* D_01d9e6e0 asm("D_01d9e6e0");
+Obj* func_001e7a98(Mgr*, El*) asm("func_001e7a98");
+void func_002226b8(void*, V4*) asm("func_002226b8");
+s32 func_001f6868(V4*, f32*) asm("func_001f6868");
+f32 func_00222978(f32) asm("func_00222978");
+void func_001f69c0(s32 a, X* x, s16* v) asm("func_001f69c0");
+void func_001f69c0(s32 a, X* x, s16* v) {
+    Mgr* m = D_01d9e6e0;
+    Obj* o = 0;
+    El* el = &m->arr[x->idx];
+    if (el) { o = func_001e7a98(m, el); o->owner = a; }
+    V4 p;
+    f32 ang;
+    u8* d = (u8*)o + x->o16 + 160;
+    p.x = v[0];
+    p.y = v[1];
+    p.z = v[2];
+    p.w = 1.0f;
+    func_002226b8(d, &p);
+    f32 y = p.y;
+    f32 px = p.x;
+    s32* r = (s32*)((u8*)o + x->o24 + 160);
+    p.y = px;
+    p.x = -y;
+    if (func_001f6868(&p, &ang)) r[2] = (s32)((double)(ang * 32768.0f) / 3.141592654);
+    y = y * y + px * px;
+    p.x = func_00222978(y);
+    p.y = -p.z;
+    if (func_001f6868(&p, &ang)) r[0] = (s32)((double)(ang * 32768.0f) / 3.141592654);
+    r[1] = 0;
+}
+}  // namespace n001f69c0
 
 // 001f6b68 (was src/anon/batch_w76.cpp)
 namespace n001f6b68 {
