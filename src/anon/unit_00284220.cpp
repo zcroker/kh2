@@ -1,4 +1,4 @@
-// Linked unit 0x00284220-0x00285070 (one namespace per old matched source; class methods in their own namespace).
+// Linked unit 0x00284088-0x00285070 (0x284088 was whole asm; one namespace per old matched source; class methods in their own namespace).
 #include "../common/types.h"
 #include "../kn/fvector.hpp"
 #include "./tiny_auto80_queue_structs.hpp"
@@ -19,6 +19,85 @@
 #include "../tozawa/menu_sound.hpp"
 #include "../tz/ui_accessors.hpp"
 #include "../tozawa/cmenu_item.hpp"
+
+// 00284088 (was whole asm, src/anon/asm_00284088.s)
+// Init of the ending menu. Plain C++ with real classes: class operator new (menu heap through a
+// virtual Alloc), inline constructors calling the out-of-line ones, and `D_x = new T;` statements
+// (same idiom as 0x253ba8).
+namespace n00284088 {
+struct Heap4088 { virtual void* Alloc(u32 size, void* ra); };
+struct Sys4088 { u8 pad[20]; Heap4088* heap; };
+extern Sys4088* D_00347f80 asm("D_00347f80");
+extern u8 D_00347e60[] asm("D_00347e60");
+extern u8 D_00347e40[] asm("D_00347e40");
+void func_00287b18(s32, s32) asm("func_00287b18");
+s32 func_002887c8(void) asm("func_002887c8");
+void func_002ba848(s32) asm("func_002ba848");
+void func_00136a18(void) asm("func_00136a18");
+void set_flag(void) asm("_ZN2YS13TEST_PROGRESS8set_flagEi");
+void func_00102ff0(s32) asm("func_00102ff0");
+void func_0023f800(void*) asm("func_0023f800");
+void func_00323978(void*) asm("func_00323978");
+void func_0028d140(void*) asm("func_0028d140");
+void func_00287bd0(s32, s32) asm("func_00287bd0");
+void* func_00288be8(u32) asm("func_00288be8");
+void func_002889f0(void*, s32, s32) asm("func_002889f0");
+void func_00239700(void*) asm("func_00239700");
+s32 func_00103570(void) asm("func_00103570");
+void* func_001063c0(u32, s32) asm("func_001063c0");
+struct Th4088 { s32 f0; s32 f4; };
+Th4088* func_00103eb0(void) asm("func_00103eb0");
+void func_00102818(s32, s32, s32, void (*)(void), s32) asm("func_00102818");
+void func_00284738(void) asm("_Z13func_00284738j");
+
+struct MenuObj {
+    static void* operator new(u32 size) { return D_00347f80->heap->Alloc(size, 0); }
+};
+struct Lay28 { u8 b[28]; Lay28() { func_0023f800(this); } static void* operator new(u32 n, s32 sys) { return func_001063c0(n, sys); } };
+struct Lay8360 { u8 b[8360]; Lay8360() { func_00323978(this); } static void* operator new(u32 n, s32 sys) { return func_001063c0(n, sys); } };
+struct Seq408 : MenuObj {
+    void* vt; u8 pad4[8]; s32 f12; u8 pad16[8]; u8 seq[384];
+    Seq408() { f12 = 0; vt = D_00347e60; func_00239700(seq); }
+};
+struct Seq436 : Seq408 {
+    s32 f408; u8 pad412[24];
+    Seq436() { f408 = 0; vt = D_00347e40; }
+};
+struct Obj56 { u8 b[56]; Obj56(s32 a, s32 c) { func_002889f0(this, a, c); } static void* operator new(u32 n) { return func_00288be8(n); } };
+struct Obj444 : MenuObj { u8 b[444]; Obj444() { func_0028d140(this); } };
+
+extern s32 D_0035f2c0 asm("D_0035f2c0");
+extern Lay28* D_0035f2c4 asm("D_0035f2c4");
+extern s32 D_0035f2c8 asm("D_0035f2c8");
+extern Lay8360* D_0035f2cc asm("D_0035f2cc");
+extern u8 D_0035f2d0 asm("D_0035f2d0");
+extern s32 D_0035f2d4 asm("D_0035f2d4");
+extern Seq436* D_0035f2d8 asm("D_0035f2d8");
+extern Obj56* D_0035f2dc asm("D_0035f2dc");
+extern Obj444* D_0035f2e0 asm("D_0035f2e0");
+
+void func_00284088(void) asm("func_00284088");
+void func_00284088(void) {
+    func_00287b18(4, 3);
+    if (!func_002887c8()) {
+        func_002ba848(960);
+        func_00136a18();
+        D_0035f2c0 = 0;
+        set_flag();
+        func_00102ff0(1);
+    }
+    D_0035f2c4 = new (func_00103570()) Lay28;
+    D_0035f2c8 = 0;
+    D_0035f2cc = new (func_00103570()) Lay8360;
+    D_0035f2d0 = 0;
+    D_0035f2d8 = new Seq436;
+    D_0035f2dc = new Obj56(2, 0);
+    D_0035f2e0 = new Obj444;
+    D_0035f2d4 = 0;
+    func_00287bd0(0, 0);
+    func_00102818(func_00103eb0()->f4, 0, 2000, func_00284738, 4096);
+}
+}  // namespace n00284088
 
 // 00284220 (was src/anon/perm_00284220.cpp)
 namespace n00284220 {

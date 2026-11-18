@@ -345,7 +345,7 @@ src/anon/unit_00282b00.cpp	00282b00	00282c68	-	-G0 -fno-strict-aliasing -fmove-a
 src/anon/unit_00282c68.cpp	00282c68	00283eb8	-	-G0 -fno-strict-aliasing
 src/anon/unit_00283eb8.cpp	00283eb8	00283f50	-	-G0 -fno-strict-aliasing -fno-sched-interblock
 src/anon/unit_00283f50.cpp	00283f50	00284088	-	-G0 -fno-strict-aliasing
-src/anon/unit_00284220.cpp	00284220	00285070	-	-G0 -fno-strict-aliasing
+src/anon/unit_00284220.cpp	00284088	00285070	-	-G0 -fno-strict-aliasing
 src/anon/unit_00285070.cpp	00285070	002853b8	-	-G0 -g -fno-strict-aliasing
 src/anon/unit_002853b8.cpp	002853b8	00286d28	-	-G0 -fno-strict-aliasing
 src/anon/unit_00286d28.cpp	00286d28	002880b8	-	-G0
@@ -849,7 +849,6 @@ src/anon/asm_0020e590.s	0020e590	0020e758	-	-
 src/anon/asm_0023e188.s	0023e188	0023e580	-	-
 src/anon/asm_002586e0.s	002586e0	002588e8	-	-
 src/anon/asm_00273fa0.s	00273fa0	00274460	-	-
-src/anon/asm_00284088.s	00284088	00284220	-	-
 src/anon/asm_002978f0.s	002978f0	00297b30	-	-
 src/anon/asm_002b3908.s	002b3908	002b3ac8	-	-
 src/anon/asm_002c0860.s	002c0860	002c0ca0	-	-
