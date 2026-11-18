@@ -1,8 +1,8 @@
 #include "../common/types.h"
 
-// 0x17bf40-0x17c290: start of the file before YS::FRIEND (its classes have vtables at 0x34eb58/0x34eb88,
-// retail data, with the base methods 0x17a8f8/0x17a938 from the previous file). The VU0 vtable method
-// 0x17c290 was never written and stays outside; the file goes on in src/anon/unit_0017c400.cpp.
+// 0x17bf40-0x17c400: start of the file before YS::FRIEND (its classes have vtables at 0x34eb58/0x34eb88,
+// retail data, with the base methods 0x17a8f8/0x17a938 from the previous file), up to the VU0 vtable
+// method 0x17c290 (never written before 2026-11-18); the file goes on in src/anon/unit_0017c400.cpp.
 // Each function keeps the declarations of the source it was matched in (namespace xN); every symbol
 // is bound by asm label.
 
@@ -287,3 +287,68 @@ void func_0017c160(void* self, W1834Obj* o) {
     func_0017c108(self, o, r);
 }
 }  // namespace x5
+
+// 0017c290 (gap: the object's move direction: from func_00184540 when steered, else its velocity
+// normalised and scaled, with the scaled copy kept at +32)
+namespace g0017c290 {
+struct V {
+    f32 x, y, z, w;
+    V() {}
+    V(const V& o) { asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(this), "r"(&o) : "$8", "memory"); }
+    V& operator=(const V& o) {
+        if (this != &o) asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(this), "r"(&o) : "$8", "memory");
+        return *this;
+    }
+    f32 normalize() {
+        f32 len;
+        asm volatile("lqc2 $vf1, 0(%1)\n\tvmul.xyz $vf2, $vf1, $vf1\n\tvaddy.x $vf2, $vf2, $vf2y\n\tvaddz.x $vf2, $vf2, $vf2z\n\tvsqrt Q, $vf2x\n\tvwaitq\n\tcfc2.ni $8, $vi22\n\tvaddq.x $vf2, $vf0, Q\n\tmtc1 $8, %0\n\tvnop\n\tvdiv Q, $vf0w, $vf2x\n\tvwaitq\n\tvmulq.xyz $vf1, $vf1, Q\n\tsqc2 $vf1, 0(%1)"
+                     : "=f"(len) : "r"(this) : "$8", "memory");
+        return len;
+    }
+    void zero() { asm volatile("vsub.wxyz $vf1, $vf0, $vf0\n\tsqc2 $vf1, 0(%0)" : : "r"(this) : "memory"); }
+} __attribute__((aligned(16)));
+static inline V operator*(const V& a, f32 s) {
+    V r;
+    asm volatile("lqc2 $vf1, 0(%1)\n\tmfc1 $8, %2\n\tqmtc2 $8, $vf2\n\tvmulx.wxyz $vf1, $vf1, $vf2x\n\tsqc2 $vf1, 0(%0)" : : "r"(&r), "r"(&a), "f"(s) : "$8", "memory");
+    return r;
+}
+struct P { u8 pad[40]; f32 f40, f44; };
+struct Obj {
+    u8 pad0[16];
+    V vel;          // 16
+    V dir;          // 32
+    u8 pad48[192];
+    f32 f240;       // 240
+    u8 pad244[56];
+    P* p300;        // 300
+    u8 pad304[48];
+    u32 f352;       // 352
+    u32 f356;       // 356
+    u8 pad360[1704];
+    u32 f2064;      // 2064
+};
+extern f32 D_00349e10 asm("D_00349e10");
+V func_00184540(Obj*, f32, f32) asm("func_00184540");
+V func_0017c290(void* self, Obj* o) asm("func_0017c290");
+V func_0017c290(void* self, Obj* o) {
+    if (o->f352 & 0x40) return func_00184540(o, o->f240, o->f240);
+    if ((bool)(o->f356 & 1)) {
+        f32 y;
+        if (o->f2064) y = o->p300->f40; else y = o->p300->f44;
+        return func_00184540(o, o->p300->f40, y);
+    }
+    V v;
+    v = o->vel;
+    f32 w = v.w;
+    if (0.0f < w) {
+        v.normalize();
+        v = v * (w * D_00349e10);
+        o->dir = v * w;
+    } else {
+        v.zero();
+        o->dir.zero();
+    }
+    v.w = 1.0f;
+    return v;
+}
+}  // namespace g0017c290

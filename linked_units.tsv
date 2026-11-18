@@ -611,7 +611,7 @@ src/anon/unit_00171e58.cpp	00171e58	00175590	.rodata@0036c4a4	-G0 -fno-strict-al
 src/yasui/libys/party.cpp	00175670	00177dc8	.rodata@0036c4ac	-G0 -fno-strict-aliasing
 src/yasui/libys/player.cpp	00177dc8	0017a8f8	.rodata@0036c4c8,.bss@01c5f530	-G0 -fno-strict-aliasing
 src/anon/unit_0017a8f8.cpp	0017a8f8	0017bf40	.rodata@0036c4f8	-G0
-src/anon/unit_0017bf40.cpp	0017bf40	0017c290	.rodata@0036c500	-G0
+src/anon/unit_0017bf40.cpp	0017bf40	0017c400	.rodata@0036c500	-G0
 src/anon/unit_0017c400.cpp	0017c400	0017d968	.rodata@0036c50c	-G0 -fno-strict-aliasing
 src/yasui/libys/friend.cpp	0017d968	0017e858	.bss@01c60520,.rodata@0036c578	-G0 -g
 src/yasui/libys/motion.cpp	0017eb68	00180378	.data@0034ec60,.rodata@0036c5a0	-G0 -fno-strict-aliasing
@@ -754,7 +754,6 @@ src/anon/asm_00133c90.s	00133c90	00133cf0	-	-
 src/anon/unit_0015d440a.cpp	0015d440	0015d4e8	-	-G0
 src/anon/asm_0015d4e8.s	0015d4e8	0015d540	-	-
 src/anon/asm_00169990.s	00169990	00169f98	-	-
-src/anon/asm_0017c290.s	0017c290	0017c400	-	-
 src/anon/unit_0017e9d0.cpp	0017e858	0017eb68	.rodata@0036c588	-G0 -fno-strict-aliasing
 src/anon/unit_001a82b0.cpp	001a82b0	001a82f0	-	-G0 -fno-sched-interblock
 src/anon/asm_001c5580.s	001c557c	001c5b90	-	-
