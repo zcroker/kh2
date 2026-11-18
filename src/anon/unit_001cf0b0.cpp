@@ -1100,3 +1100,77 @@ void func_001d0980(u8* p, s32 a1, s32 a2) {
 }
 }  // namespace n001d0980
 
+
+// ---- 001d0a88 (was whole asm, never written in C): _OVR_initialize override, motion set-up by mode.
+// A switch on the mode (case 0, case 3, default): the case 0 body then ends in a jump (break), which keeps the
+// argument set-up of its three motion calls in source order.
+namespace n001d0a88 {
+struct QV1d0a88 {
+    f32 x, y, z, w;
+    QV1d0a88() {}
+    QV1d0a88(const QV1d0a88& o) { asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(this), "r"(&o) : "$8", "memory"); }
+    QV1d0a88(int) { asm volatile("vsub.wxyz $vf1, $vf0, $vf0\n\tsqc2 $vf1, 0(%0)" : : "r"(this) : "memory"); }
+    static QV1d0a88 Zero() { QV1d0a88 r; r.zero(); return r; }
+    void zero() { asm volatile("vsub.wxyz $vf1, $vf0, $vf0\n\tsqc2 $vf1, 0(%0)" : : "r"(this) : "memory"); }
+} __attribute__((aligned(16)));
+struct Ctl1d0a88 { u8 pad[431]; u8 b431; };
+struct Obj1d0a88 {
+    u8 pad0[264]; u32 f264;
+    u8 pad1[320 - 268]; u8 motion[1164 - 320];
+    Ctl1d0a88* ctl;
+    u8 pad2[2896 - 1168]; s32 f2896;
+    u8 pad3[2924 - 2900]; s32 mode;
+};
+extern u8 D_00351eb8[] asm("D_00351eb8");
+void func_001780d8(Obj1d0a88*) asm("_ZN2YS6PLAYER15_OVR_initializeEv");
+void func_00187818(Obj1d0a88*) asm("_ZN2YS6BTLOBJ4deadEv");
+void func_0019fdc0(Obj1d0a88*, QV1d0a88, f32) asm("func_0019fdc0");
+void func_001c8d80(void*, s32) asm("_ZN2YS5MUTEX4lockEi");
+void func_0016ac38(Obj1d0a88*, s32, s32, s32, s32) asm("func_0016ac38");
+void func_0017f488(void*, s32, f32, f32) asm("func_0017f488");
+void func_0017f5e0(void*, s32, f32, f32, void*) asm("_ZN2YS6MOTION4pushEiffPFvPNS_3OBJEE");
+extern u8 D_001d0cb8[] asm("func_001d0cb8");
+
+static inline bool chk1d0a88(s32 v, s32 lo, s32 hi) { return v != lo && v < hi; }
+void func_001d0a88(Obj1d0a88* o) asm("func_001d0a88");
+void func_001d0a88(Obj1d0a88* o)
+{
+    func_001780d8(o);
+    s32 m = o->mode;
+    switch (m) {
+    case 0:
+        if (chk1d0a88(o->f2896, 0, 7)) {
+            func_0017f488(o->motion, 53, 0.0f, 0.0f);
+            func_0017f5e0(o->motion, 6, 8.0f, 0.0f, 0);
+            func_0017f5e0(o->motion, 0, 0.0f, 0.0f, 0);
+            o->ctl->b431 = 2;
+            func_001c8d80(D_00351eb8, 0);
+        }
+        break;
+    case 3: func_00187818(o); break;
+    default:
+        if (o->f2896 == 0) {
+            o->f264 |= 0x100000;
+            if (m == 1) {
+                func_0017f488(o->motion, 0, 0.0f, 0.0f);
+                func_0017f488(o->motion, 0, 0.0f, 0.0f);
+            } else {
+                func_0017f488(o->motion, 4, 0.0f, 0.0f);
+            }
+            for (s32 i = 15; i < 28; i++) func_0016ac38(o, i, 1, 0, 0);
+        } else {
+            func_0017f488(o->motion, 53, 0.0f, 0.0f);
+            if (o->mode == 1) {
+                func_0017f5e0(o->motion, 6, 8.0f, 0.0f, 0);
+                func_0017f5e0(o->motion, 0, 0.0f, 0.0f, 0);
+            } else {
+                QV1d0a88 v;
+                v.zero();
+                func_0019fdc0(o, v, 1.0f);
+                func_0017f5e0(o->motion, 4, 8.0f, 0.0f, D_001d0cb8);
+            }
+        }
+        break;
+    }
+}
+}
