@@ -12,6 +12,13 @@
 source	text_start	text_end	sections	flags
 src/anon/unit_001056e8.cpp	001056e8	00105748	.data@0032bb28,.bss@003a7b60	-G0
 src/common/saveram.cpp	00105748	00105a10	.data@0032bb30	-G0
+src/anon/batch_w3877.s	00109708	00109788	-	-
+src/anon/asm_001097e8.s	001097e8	00109c30	-	-
+src/anon/asm_0010fb10.s	0010fb10	0010fea0	-	-
+src/anon/asm_00117588.s	00117588	00117778	-	-
+src/anon/asm_0011f7a8.s	0011f7a8	00120520	-	-
+src/anon/batch_w3960.s	00121cc8	00123138	-	-
+src/anon/batch_w3962.s	00125f78	00127a88	-	-
 src/anon/batch_w3886_g.s	00128040	00128480	-	-
 src/anon/unit_0014b150.cpp	0014b150	0014b518	-	-G0
 src/anon/unit_0014b518.c	0014b518	0014b5e0	-	-G0
@@ -22,20 +29,36 @@ src/anon/unit_0014b838.cpp	0014b838	0014c7f0	.rodata@0036b0c8	-G0 -fno-strict-al
 src/anon/unit_0014c7f0.cpp	0014c7f0	0014d298	.rodata@0036b0e8	-G0 -g -fno-strict-aliasing
 src/anon/unit_00157688.cpp	00157688	00158050	.bss@004f3588,.rodata@0036b300	-G0
 src/anon/unit_00158050.cpp	00158050	00158450	-	-G0
+src/anon/batch_w3930.s	0015af48	0015b100	-	-
+src/anon/asm_0015b7f8.s	0015b7f8	0015bab8	-	-
+src/anon/asm_0015c958.s	0015c958	0015ca40	-	-
+src/anon/asm_0015ca40.s	0015ca40	0015cb18	-	-
+src/anon/batch_w3876.s	0015efa0	0015f268	-	-
+src/anon/batch_w3959.s	00163898	00164578	-	-
+src/anon/asm_001652c8.s	001652c8	001656b8	-	-
+src/anon/asm_00166148.s	00166148	001664c0	-	-
+src/anon/asm_00169398.s	00169398	00169990	-	-
+src/anon/batch_w3952.s	00193608	00193be8	-	-
+src/anon/batch_w3885.s	0019e848	0019ea10	-	-
 src/anon/unit_0019ee80.cpp	0019ee80	0019fb70	.rodata@0036d40c	-G0 -g -fno-strict-aliasing
 src/anon/unit_0019fb70.cpp	0019fb70	001a28b8	.rodata@0036d440	-G0 -g -fno-strict-aliasing
 src/anon/unit_001a28f8.cpp	001a28b8	001a2a50	-	-G0
 src/anon/unit_001a2a50.cpp	001a2a50	001a3a50	.bss@01c6cac0,.rodata@0036d458	-G0 -fno-strict-aliasing
+src/anon/asm_001ab260.s	001ab260	001ab598	-	-
 src/yasui/libys/databuff.cpp	001b13d8	001b14d8	.data@00350e88,.bss@01c94100	-G0
 src/anon/unit_001b14d8.cpp	001b14d8	001b1d20	.rodata@0036d998	-G0 -fno-strict-aliasing
 src/anon/unit_001b1d20.cpp	001b1d20	001b2728	.rodata@0036d9c0	-G0
 src/anon/unit_001b2780.cpp	001b2728	001b65e0	.rodata@0036d9d4	-G0 -g -fno-strict-aliasing
 src/anon/asm_001b65e0.s	001b65e0	001b6a50	-	-
 src/anon/unit_001b6a50.cpp	001b6a50	001b82d8	.rodata@0036dac4	-G0 -g -fno-strict-aliasing
+src/anon/batch_w3910.s	001bfda0	001bff88	-	-
 src/anon/unit_001c2b58.cpp	001c2b58	001c38c0	.rodata@0036dddc	-G0
 src/anon/unit_001c38c0.cpp	001c38c0	001c3f58	.rodata@0036de08	-G0
+src/anon/asm_001c3f58.s	001c3f58	001c4050	-	-
 src/anon/unit_001c4050.cpp	001c4050	001c40e0	-	-G0
+src/anon/batch_w3883.s	001c4918	001c4dc8	-	-
 src/anon/unit_001c5168.cpp	001c5168	001c51d8	-	-G0
+src/anon/batch_w3933.s	001c51d8	001c557c	-	-
 src/anon/unit_001c5b90.cpp	001c5b90	001c6a28	.rodata@0036dec0	-G0 -fno-strict-aliasing
 src/anon/unit_001c6c60.cpp	001c6c60	001c6e58	.rodata@0036df6c	-G0
 src/anon/unit_001c7bc8.cpp	001c7b88	001c7f10	-	-G0
@@ -48,6 +71,8 @@ src/anon/unit_001c9ea0.cpp	001c9ea0	001ca060	.rodata@0036e0c8	-G0 -fno-strict-al
 src/anon/unit_001ca148.cpp	001ca148	001ca638	.rodata@0036e0d0	-G0 -fno-strict-aliasing
 src/anon/unit_001ca638.cpp	001ca638	001ca8e0	-	-G0
 src/anon/unit_001ca8e0.cpp	001ca8e0	001cc008	.rodata@0036e140	-G0 -fno-strict-aliasing
+src/anon/batch_w3873.s	001cc3b8	001cc5c8	-	-
+src/anon/asm_001cc5c8.s	001cc5c8	001cc868	-	-
 src/anon/asm_001fd368.s	001fd368	001fd530	-	-
 src/anon/unit_00228490.cpp	00228490	00228618	-	-G0
 src/anon/unit_00228618.cpp	00228618	00228f18	.data@0035dfb0,.rodata@0037109c	-G0
