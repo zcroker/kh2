@@ -1,5 +1,5 @@
 // Ti::MiniGame: the minigame base (current game in 0x361f60, vtable 0x361f70). Linked unit
-// 0x2cea28-0x2cf268; the first function of the file (0x2ce958) is whole asm and stays outside.
+// 0x2cea28-0x2cf268; the constructor pair in front (0x2ce958) is in minigame_ctor.cpp (other flags).
 #include "../common/types.h"
 
 #define QCOPY(d, s) asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(d), "r"(s) : "$8", "memory")

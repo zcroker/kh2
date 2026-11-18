@@ -143,7 +143,7 @@ src/anon/batch_w3939.s	002b01d8	002b05f8	-	-
 src/anon/batch_w3943.s	002b5c30	002b60e8	-	-
 src/anon/batch_w3940.s	002c0ca0	002c10e0	-	-
 src/anon/batch_w3953.s	002c3638	002c3c90	-	-
-src/anon/batch_w3878.s	002ce958	002cea28	-	-
+src/taito/minigame_ctor.cpp	002ce958	002cea28	-	-G0 -fno-strict-aliasing
 src/anon/unit_002e2f08.cpp	002e2ed0	002e3f38	.data@00362f48,.bss@01e2be20,.rodata@00375f60	-G0
 src/anon/unit_002e3f58.cpp	002e3f38	002e5518	.rodata@00375f70	-G0 -fno-strict-aliasing
 src/anon/batch_w3957.s	002e5518	002e5f28	-	-
