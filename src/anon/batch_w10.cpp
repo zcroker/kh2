@@ -187,19 +187,7 @@ void func_002bd730(s32 a, void* b, void* c, void* d);  // 0x002bd730: definition
 bool func_002f1ae0(u32 n);  // 0x002f1ae0: definition moved into src/anon/unit_002f1a68.cpp
 
 // Store a 4x4 identity matrix at m (rows written last-to-first).
-void sceVu0UnitMatrix(void* m) {  // vu_store_w_splat
-    asm volatile(
-        "vsub.xyzw $vf4, $vf0, $vf0\n\t"
-        "vadd.w $vf4, $vf4, $vf0\n\t"
-        "vmr32.xyzw $vf5, $vf4\n\t"
-        "vmr32.xyzw $vf6, $vf5\n\t"
-        "vmr32.xyzw $vf7, $vf6\n\t"
-        "sqc2 $vf4, 48(%0)\n\t"
-        "sqc2 $vf5, 32(%0)\n\t"
-        "sqc2 $vf6, 16(%0)\n\t"
-        "sqc2 $vf7, 0(%0)"
-        : : "r"(m) : "memory");
-}
+void sceVu0UnitMatrix(void* m);  // 0x002f4000: definition moved into src/sdk/libvu0_002f3cd8.s
 
 // 64-byte (4 quadword) copy.
 void func_0031bae0(void* d, void* s);  // 0x0031bae0: definition moved into src/anon/unit_0031b9e0.cpp

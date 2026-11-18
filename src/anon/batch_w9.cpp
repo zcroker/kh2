@@ -154,19 +154,7 @@ void func_002e9fb8(u8* p, u8 b);  // 002e9fb8: moved to src/anon/unit_002e9a00.c
 // 002f0a38: moved to src/naka/libkn/trapfunctions.cpp
 
 // VU0 vector blend: d = a*t + b*(1-t).
-void sceVu0InterVector(f32* d, f32* a, f32* b, f32 t) {  // vec4_lerp
-    asm volatile(
-        "lqc2 $vf4, 0(%1)\n\t"
-        "lqc2 $vf5, 0(%2)\n\t"
-        "mfc1 $8, %3\n\t"
-        "qmtc2 $8, $vf6\n\t"
-        "vaddw.x $vf7, $vf0, $vf0w\n\t"
-        "vsub.x $vf8, $vf7, $vf6\n\t"
-        "vmulax.xyzw ACC, $vf4, $vf6x\n\t"
-        "vmaddx.xyzw $vf9, $vf5, $vf8x\n\t"
-        "sqc2 $vf9, 0(%0)"
-        : : "r"(d), "r"(a), "r"(b), "f"(t) : "$8", "memory");
-}
+void sceVu0InterVector(f32* d, f32* a, f32* b, f32 t);  // 0x002f3ed0: definition moved into src/sdk/libvu0_002f3cd8.s
 
 struct Args314480 { u32 a, b, c; u64 d; };
 void func_00314480(u32 a, u32 b, u32 c, u64 d);  // 0x00314480: definition moved into src/libgcc/_make_df.c

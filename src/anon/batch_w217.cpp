@@ -25,33 +25,6 @@ void func_001ac970(u32*, u32, u32, u32, u32, u32, u32, u32);
 
 // hand-written: hardware register setup (DMA/VU0 control) then lq/sq copy
 extern u32 D_00363ce0[];
-void func_002f49c0(void) {
-    asm volatile(
-        ".set push\n\t.set noreorder\n\t.set noat\n\t"
-        "lui $2,0x1000\n\t"
-        "lui $4,0x1000\n\t"
-        "ori $2,$2,0x3830\n\t"
-        "ori $4,$4,0x3820\n\t"
-        "sw $0,0($2)\n\t"
-        "lui $3,0x1000\n\t"
-        "sw $0,0($4)\n\t"
-        "ori $3,$3,0x3810\n\t"
-        "li $2,1\n\t"
-        "sw $2,0($3)\n\t"
-        "cfc2.ni $8,$28\n\t"
-        "ori $8,$8,0x2\n\t"
-        "ctc2.ni $8,$28\n\t"
-        "sync.p\n\t"
-        "lui $4,%hi(D_00363ce0)\n\t"
-        "lui $5,0x1000\n\t"
-        "addiu $4,$4,%lo(D_00363ce0)\n\t"
-        "ori $5,$5,0x4000\n\t"
-        "lq $2,0($4)\n\t"
-        "sq $2,0($5)\n\t"
-        "lq $3,16($4)\n\t"
-        "jr $31\n\t"
-        "sq $3,0($5)\n\t"
-        ".set pop\n\t");
-}
+void func_002f49c0(void);  // 0x002f49c0: definition moved into src/sdk/libvu0_002f49c0.c
 
 }

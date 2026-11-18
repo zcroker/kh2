@@ -172,18 +172,5 @@ void func_002e8220(Args* a);  // 0x002e8220: definition moved into src/anon/unit
 
 // d = m translated by v: copies rows 0-2, row 3 = m.row3 + v (xyz).
 // 128-bit moves and the VU0 macro op are written as asm.
-void sceVu0TransMatrix(void* d, void* m, void* v) {
-    asm volatile(
-        "lqc2 $vf4, 0(%2)\n\t"
-        "lqc2 $vf5, 48(%1)\n\t"
-        "lq $7, 0(%1)\n\t"
-        "lq $8, 16(%1)\n\t"
-        "lq $9, 32(%1)\n\t"
-        "vadd.xyz $vf5, $vf5, $vf4\n\t"
-        "sq $7, 0(%0)\n\t"
-        "sq $8, 16(%0)\n\t"
-        "sq $9, 32(%0)\n\t"
-        "sqc2 $vf5, 48(%0)"
-        : : "r"(d), "r"(m), "r"(v) : "$7", "$8", "$9", "memory");
-}
+void sceVu0TransMatrix(void* d, void* m, void* v);  // 0x002f3f58: definition moved into src/sdk/libvu0_002f3cd8.s
 }

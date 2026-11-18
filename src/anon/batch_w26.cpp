@@ -221,28 +221,7 @@ u8 func_002d72e0(u8* o);  // 0x002d72e0: definition moved into src/anon/unit_002
 void func_002d96d8(u8* o);  // 0x002d96d8: definition moved into src/anon/unit_002d96d8.cpp
 
 // Hand-written VU0 routine: transforms four vectors by a 4x4 matrix.
-void sceVu0MulMatrix(u32 d, u32 m, u32 v, u32 n) {
-    asm volatile(
-        ".set noreorder\n\t"
-        "lqc2 $vf4, 0($5)\n\t"
-        "lqc2 $vf5, 16($5)\n\t"
-        "lqc2 $vf6, 32($5)\n\t"
-        "lqc2 $vf7, 48($5)\n\t"
-        "li $7, 4\n"
-        "1:\n\t"
-        "lqc2 $vf8, 0($6)\n\t"
-        "vmulax.xyzw ACC, $vf4, $vf8x\n\t"
-        "vmadday.xyzw ACC, $vf5, $vf8y\n\t"
-        "vmaddaz.xyzw ACC, $vf6, $vf8z\n\t"
-        "vmaddw.xyzw $vf9, $vf7, $vf8w\n\t"
-        "sqc2 $vf9, 0($4)\n\t"
-        "addi $7, $7, -1\n\t"
-        "addi $6, $6, 16\n\t"
-        "bne $0, $7, 1b\n\t"
-        "addi $4, $4, 16\n\t"
-        ".set reorder"
-        : : : "memory");
-}
+void sceVu0MulMatrix(u32 d, u32 m, u32 v, u32 n);  // 0x002f3d08: definition moved into src/sdk/libvu0_002f3cd8.s
 
 void __malloc_unlock(void);  // 0x002fdf30: definition moved into src/newlib/libc/mlock.c
 

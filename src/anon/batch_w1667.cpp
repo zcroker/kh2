@@ -37,11 +37,7 @@ void func_001e0310(u32 a);  // 0x001e0310: definition moved into src/anon/unit_0
 
 void func_001e2aa0(void);  // 0x001e2aa0: definition moved into src/anon/unit_001e0cb8.cpp
 
-void func_002f4820(f32* d, f32* s) {
-    d[0] = s[0];
-    d[1] = s[1];
-    d[2] = s[2];
-}
+void func_002f4820(f32* d, f32* s);  // 0x002f4820: definition moved into src/sdk/libvu0_002f4820.c
 
 void func_00302dd0(u32 a);  // 0x00302dd0: definition moved into src/newlib/libc/findfp.c
 

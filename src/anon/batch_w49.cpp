@@ -267,40 +267,6 @@ void func_002e4a90(C2e4a90* c);  // 0x002e4a90: definition moved into src/anon/u
 
 // Hand-written VU0 macro code (uses vf6 / a3 from the caller); kept as asm.
 extern u8 D_00363cd0[];
-void func_002f4028(u32, u32, u32, u32) {  // build_transform_matrix
-    asm volatile(
-        ".set noreorder\n\t"
-        "lui $8, %%hi(D_00363cd0)\n\t"
-        "addiu $8, $8, %%lo(D_00363cd0)\n\t"
-        "lqc2 $vf5, 0($8)\n\t"
-        "vmr32.w $vf6, $vf6\n\t"
-        "vaddx.x $vf4, $vf0, $vf6x\n\t"
-        "vmul.x $vf6, $vf6, $vf6\n\t"
-        "vmulx.yzw $vf4, $vf4, $vf0x\n\t"
-        "vmulw.xyzw $vf8, $vf5, $vf6w\n\t"
-        "vsub.xyzw $vf5, $vf0, $vf0\n\t"
-        "vmulx.xyzw $vf8, $vf8, $vf6x\n\t"
-        "vmulx.xyz $vf8, $vf8, $vf6x\n\t"
-        "vaddw.x $vf4, $vf4, $vf8w\n\t"
-        "vmulx.xy $vf8, $vf8, $vf6x\n\t"
-        "vaddz.x $vf4, $vf4, $vf8z\n\t"
-        "vmulx.x $vf8, $vf8, $vf6x\n\t"
-        "vaddy.x $vf4, $vf4, $vf8y\n\t"
-        "vaddx.x $vf4, $vf4, $vf8x\n\t"
-        "vaddx.xy $vf4, $vf5, $vf4x\n\t"
-        "vmul.x $vf7, $vf4, $vf4\n\t"
-        "vsubx.w $vf7, $vf0, $vf7x\n\t"
-        "vsqrt Q, $vf7w\n\t"
-        "vwaitq\n\t"
-        "bnez $7, 1f\n\t"
-        "vaddq.x $vf7, $vf0, Q\n\t"
-        "b 2f\n\t"
-        "vaddx.x $vf4, $vf5, $vf7x\n"
-        "1:\n\t"
-        "vsubx.x $vf4, $vf5, $vf7x\n"
-        "2:\n\t"
-        ".set reorder"
-        : : : "$8", "memory");
-}
+void func_002f4028(u32, u32, u32, u32);  // 0x002f4028: definition moved into src/sdk/libvu0_002f3cd8.s
 
 }

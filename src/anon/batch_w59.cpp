@@ -278,24 +278,7 @@ void func_002edca0(u32 key, u32 arg);  // 0x002edca0: definition moved into src/
 // --- 002f4888
 // Hand-written VU0 routine: compares the point's x/y against (0,0) and
 // (4096,4096) and returns the x/y sign bits of the MAC flags.
-u32 func_002f4888(void* p) {
-    register u32 r asm("$2");
-    asm volatile(
-        "vsub.xyzw $vf4, $vf0, $vf0\n\t"
-        "lui $2, 0x4580\n\t"
-        "dsll $2, $2, 16\n\t"
-        "ori $2, $2, 0x4580\n\t"
-        "dsll $2, $2, 16\n\t"
-        "lqc2 $vf7, 0(%1)\n\t"
-        "qmtc2 $2, $vf6\n\t"
-        "ctc2 $0, $vi16\n\t"
-        "vsub.xyw $vf5, $vf7, $vf4\n\t"
-        "vsub.xy $vf5, $vf6, $vf7\n\t"
-        "vnop\n\tvnop\n\tvnop\n\tvnop\n\tvnop\n\t"
-        "cfc2 $2, $vi16"
-        : "=r"(r) : "r"(p));
-    return r & 0xc0;
-}
+u32 func_002f4888(void* p);  // 0x002f4888: definition moved into src/sdk/libvu0_002f4840.s
 
 // --- 00313bc0
 // libgcc fp-bit: float -> unsigned int.

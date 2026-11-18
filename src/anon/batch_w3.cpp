@@ -170,15 +170,10 @@ struct VObj {
 void func_002ecdb0(VObj* o);  // 0x002ecdb0: definition moved into src/anon/unit_002ecdb0.cpp
 
 // dst = a * b, componentwise (VU0).
-void sceVu0MulVector(void* dst, void* a, void* b) {
-    asm volatile("lqc2 $vf4, 0(%1)\n\tlqc2 $vf5, 0(%2)\n\tvmul.xyzw $vf6, $vf4, $vf5\n\tsqc2 $vf6, 0(%0)"
-                 : : "r"(dst), "r"(a), "r"(b) : "memory");
-}
+void sceVu0MulVector(void* dst, void* a, void* b);  // 0x002f3f28: definition moved into src/sdk/libvu0_002f3cd8.s
 
 // 16-byte copy.
-void sceVu0CopyVector(void* dst, void* src) {  // memcpy16
-    asm volatile("lq $6, 0(%1)\n\tsq $6, 0(%0)" : : "r"(dst), "r"(src) : "$6", "memory");
-}
+void sceVu0CopyVector(void* dst, void* src);  // 0x002f3f88: definition moved into src/sdk/libvu0_002f3cd8.s
 
 // Returns 1 when interrupts are disabled (Status.IE clear).
 s32 func_003060f0();  // 0x003060f0: definition moved into src/sdk/libkernl_00306058.c

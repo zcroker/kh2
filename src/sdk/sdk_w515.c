@@ -25,12 +25,7 @@ int func_00310990(void);  // 0x00310990: definition moved into src/sdk/libkernl_
 extern void sceVu0RotMatrixZ(void *, float);
 extern void* sceVu0RotMatrixY(void *, void *, float);
 extern void sceVu0RotMatrixX(void *, void *, float);
-void sceVu0RotMatrix(void *a, void *b, float *v)
-{
-    sceVu0RotMatrixZ(a, v[2]);
-    sceVu0RotMatrixY(a, a, v[1]);
-    sceVu0RotMatrixX(a, a, v[0]);
-}
+void sceVu0RotMatrix(void *a, void *b, float *v);  // 0x002f4298: definition moved into src/sdk/libvu0_002f4298.c
 
 extern int func_00305a30(int);
 extern int func_00305aa0(void);

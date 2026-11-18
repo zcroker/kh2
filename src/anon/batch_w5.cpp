@@ -121,21 +121,10 @@ extern u32 D_00363410;
 void func_002ea2d8(u32* p);  // 002ea2d8: moved to src/anon/unit_002ea2b8.cpp
 
 // VU0 macro code: dst = a x b (outer product), dst.w = 0.
-void sceVu0OuterProduct(void* dst, void* a, void* b) {  // vec3_cross
-    asm volatile(
-        "lqc2 $vf4, 0(%1)\n\tlqc2 $vf5, 0(%2)\n\t"
-        "vopmula.xyz ACC, vf4, vf5\n\tvopmsub.xyz $vf6, $vf5, $vf4\n\t"
-        "vsub.w $vf6, $vf6, $vf6\n\tsqc2 $vf6, 0(%0)"
-        : : "r"(dst), "r"(a), "r"(b) : "memory");
-}
+void sceVu0OuterProduct(void* dst, void* a, void* b);  // 0x002f3d50: definition moved into src/sdk/libvu0_002f3cd8.s
 
 // VU0 macro code: dst.xyz = v.xyz * s.
-void func_002f4870(void* dst, void* v, f32 s) {  // vec3_scale_by_f12
-    asm volatile(
-        "lqc2 $vf4, 0(%1)\n\tmfc1 $8, %2\n\tqmtc2 $8, $vf5\n\t"
-        "vmulx.xyz $vf4, $vf4, $vf5x\n\tsqc2 $vf4, 0(%0)"
-        : : "r"(dst), "r"(v), "f"(s) : "$8", "memory");
-}
+void func_002f4870(void* dst, void* v, f32 s);  // 0x002f4870: definition moved into src/sdk/libvu0_002f4840.s
 
 void func_003053f0(void);
 void iDisableDmac(void);  // 0x00306300: definition moved into src/sdk/libkernl_00306058.c
@@ -190,9 +179,4 @@ void worldmap_closeup_end(void) asm("_ZN8worldmap13CloseUpCamera3endEv");
 }
 
 // 64-byte (matrix) copy through four quadword registers.
-void sceVu0CopyMatrix(u32 dst, u32 src, u32 a2, u32 a3) {
-    asm volatile(
-        "lq $6, 0(%1)\n\tlq $7, 16(%1)\n\tlq $8, 32(%1)\n\tlq $9, 48(%1)\n\t"
-        "sq $6, 0(%0)\n\tsq $7, 16(%0)\n\tsq $8, 32(%0)\n\tsq $9, 48(%0)"
-        : : "r"(dst), "r"(src) : "$6", "$7", "$8", "$9", "memory");
-}
+void sceVu0CopyMatrix(u32 dst, u32 src, u32 a2, u32 a3);  // 0x002f3f98: definition moved into src/sdk/libvu0_002f3cd8.s

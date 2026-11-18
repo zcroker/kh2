@@ -197,14 +197,7 @@ extern u32 D_01e2be20[4];
 // 002e37c0: moved to src/anon/unit_002e2f08.cpp
 
 // 4x4 matrix transpose (MMI): d = transpose(s).
-void sceVu0TransposeMatrix(void* d, void* s) {  // memcpy64_2
-    asm volatile(
-        "lq $8, 0(%1)\n\tlq $9, 16(%1)\n\tlq $10, 32(%1)\n\tlq $11, 48(%1)\n\t"
-        "pextlw $12, $9, $8\n\tpextuw $13, $9, $8\n\tpextlw $14, $11, $10\n\tpextuw $15, $11, $10\n\t"
-        "pcpyld $8, $14, $12\n\tpcpyud $9, $12, $14\n\tpcpyld $10, $15, $13\n\tpcpyud $11, $13, $15\n\t"
-        "sq $8, 0(%0)\n\tsq $9, 16(%0)\n\tsq $10, 32(%0)\n\tsq $11, 48(%0)"
-        : : "r"(d), "r"(s) : "$8", "$9", "$10", "$11", "$12", "$13", "$14", "$15", "memory");
-}
+void sceVu0TransposeMatrix(void* d, void* s);  // 0x002f3dd8: definition moved into src/sdk/libvu0_002f3cd8.s
 
 // strstr
 char* func_002ff918(char* s, char* sub);  // 0x002ff918: definition moved into src/newlib/libc/strstr.c

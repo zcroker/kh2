@@ -170,16 +170,4 @@ extern Pair D_01c6ced0;
 // 001ad948: moved to src/anon/unit_001abb28.cpp
 
 // dst = mat * vec (VU0 COP2 macro sequence, written as asm).
-void sceVu0ApplyMatrix(u32 a0, u32 a1, u32 a2, u32) {
-    asm volatile(
-        "lqc2 $vf4, 0(%1)\n\t"
-        "lqc2 $vf5, 16(%1)\n\t"
-        "lqc2 $vf6, 32(%1)\n\t"
-        "lqc2 $vf7, 48(%1)\n\t"
-        "lqc2 $vf8, 0(%2)\n\t"
-        "vmulax.xyzw ACC, $vf4, $vf8x\n\t"
-        "vmadday.xyzw ACC, $vf5, $vf8y\n\t"
-        "vmaddaz.xyzw ACC, $vf6, $vf8z\n\t"
-        "vmaddw.xyzw $vf9, $vf7, $vf8w\n\t"
-        "sqc2 $vf9, 0(%0)" : : "r"(a0), "r"(a1), "r"(a2) : "memory");
-}
+void sceVu0ApplyMatrix(u32 a0, u32 a1, u32 a2, u32);  // 0x002f3cd8: definition moved into src/sdk/libvu0_002f3cd8.s

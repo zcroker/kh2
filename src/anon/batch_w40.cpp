@@ -225,35 +225,6 @@ void func_002db610(u8* p, s32 id);  // 0x002db610: definition moved into src/ano
 
 // Inverts an orthonormal 4x4 matrix (transpose 3x3, negate rotated translation).
 // Hand-written VU0/MMI asm in the original.
-void sceVu0InversMatrix(f32* d, f32* s) {  // convert_vectors_to_scalar
-    asm volatile(
-        "lq $8, 0(%1)\n\t"
-        "lq $9, 16(%1)\n\t"
-        "lq $10, 32(%1)\n\t"
-        "lqc2 $vf4, 48(%1)\n\t"
-        "vmove.xyzw $vf5, $vf4\n\t"
-        "vsub.xyz $vf4, $vf4, $vf4\n\t"
-        "vmove.xyzw $vf9, $vf4\n\t"
-        "qmfc2 $11, $vf4\n\t"
-        "pextlw $12, $9, $8\n\t"
-        "pextuw $13, $9, $8\n\t"
-        "pextlw $14, $11, $10\n\t"
-        "pextuw $15, $11, $10\n\t"
-        "pcpyld $8, $14, $12\n\t"
-        "pcpyud $9, $12, $14\n\t"
-        "pcpyld $10, $15, $13\n\t"
-        "qmtc2 $8, $vf6\n\t"
-        "qmtc2 $9, $vf7\n\t"
-        "qmtc2 $10, $vf8\n\t"
-        "vmulax.xyz ACC, $vf6, $vf5x\n\t"
-        "vmadday.xyz ACC, $vf7, $vf5y\n\t"
-        "vmaddz.xyz $vf4, $vf8, $vf5z\n\t"
-        "vsub.xyz $vf4, $vf9, $vf4\n\t"
-        "sq $8, 0(%0)\n\t"
-        "sq $9, 16(%0)\n\t"
-        "sq $10, 32(%0)\n\t"
-        "sqc2 $vf4, 48(%0)"
-        : : "r"(d), "r"(s) : "$8", "$9", "$10", "$11", "$12", "$13", "$14", "$15", "memory");
-}
+void sceVu0InversMatrix(f32* d, f32* s);  // 0x002f3e20: definition moved into src/sdk/libvu0_002f3cd8.s
 
 }

@@ -145,32 +145,10 @@ void func_002e8070(Args002e8070* p);  // 0x002e8070: definition moved into src/a
 void func_002e9c98(u32 x, Pair* p);  // 002e9c98: moved to src/anon/unit_002e9a00.cpp
 
 // Dot product of a.xyz and b.xyz (VU0 macro mode).
-f32 sceVu0InnerProduct(void* a, void* b) {  // vec3_dot
-    f32 r;
-    asm volatile("lqc2 $vf4, 0(%1)\n\t"
-                 "lqc2 $vf5, 0(%2)\n\t"
-                 "vmul.xyz $vf5, $vf4, $vf5\n\t"
-                 "vaddy.x $vf5, $vf5, $vf5y\n\t"
-                 "vaddz.x $vf5, $vf5, $vf5z\n\t"
-                 "qmfc2 $2, $vf5\n\t"
-                 "mtc1 $2, %0"
-                 : "=f"(r)
-                 : "r"(a), "r"(b)
-                 : "$2");
-    return r;
-}
+f32 sceVu0InnerProduct(void* a, void* b);  // 0x002f3d70: definition moved into src/sdk/libvu0_002f3cd8.s
 
 // d = a * s (VU0 macro mode).
-void sceVu0ScaleVector(void* d, void* a, f32 s) {  // vec_scale_by_f12
-    asm volatile("lqc2 $vf4, 0(%1)\n\t"
-                 "mfc1 $8, %2\n\t"
-                 "qmtc2 $8, $vf5\n\t"
-                 "vmulx.xyzw $vf6, $vf4, $vf5x\n\t"
-                 "sqc2 $vf6, 0(%0)"
-                 :
-                 : "r"(d), "r"(a), "f"(s)
-                 : "$8", "memory");
-}
+void sceVu0ScaleVector(void* d, void* a, f32 s);  // 0x002f3f40: definition moved into src/sdk/libvu0_002f3cd8.s
 
 // Library code: the original compiler allocated v0 for the temporary.
 s32 func_00305dd8(u32 a, u8* p);  // 0x00305dd8: definition moved into src/sdk/glue.c

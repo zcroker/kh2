@@ -18,13 +18,7 @@ extern void func_002f3490(int *);
 void func_002f3918(int *p, int b);  // 0x002f3918: definition moved into src/sdk/libdma.c
 
 extern void sceVu0CopyVector(int, int);
-void func_002f4480(int p, int a, int b, int c, int d)
-{
-    sceVu0CopyVector(p, a);
-    sceVu0CopyVector(p + 16, b);
-    sceVu0CopyVector(p + 32, c);
-    sceVu0CopyVector(p + 48, d);
-}
+void func_002f4480(int p, int a, int b, int c, int d);  // 0x002f4480: definition moved into src/sdk/libvu0_002f4310.c
 
 extern void func_003056d0(unsigned int *);
 extern void func_003056c0(unsigned int *);

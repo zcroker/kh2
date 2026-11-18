@@ -21,18 +21,7 @@ extern void sceVu0OuterProduct(float *, float *, float *);
 extern void sceVu0Normalize(float *, float *);
 extern void sceVu0TransMatrix(V4 *, V4 *, float *);
 extern void sceVu0InversMatrix(V4 *, V4 *);
-void func_002f4310(V4 *m, float *p, float *zd, float *yd)
-{
-    V4 m0[4];
-    V4 xd;
-    sceVu0UnitMatrix(m0);
-    sceVu0OuterProduct(xd, yd, zd);
-    sceVu0Normalize(m0[0], xd);
-    sceVu0Normalize(m0[2], zd);
-    sceVu0OuterProduct(m0[1], m0[2], m0[0]);
-    sceVu0TransMatrix(m0, m0, p);
-    sceVu0InversMatrix(m, m0);
-}
+void func_002f4310(V4 *m, float *p, float *zd, float *yd);  // 0x002f4310: definition moved into src/sdk/libvu0_002f4310.c
 
 typedef struct { int a, b; } P;
 extern P D_00366950[];

@@ -175,24 +175,7 @@ void func_0011a918(void*, u32);
 // 002f1230: moved to src/naka/libkn/trapfunctions.cpp
 
 // Normalise a 3-vector (VU0 macro code)
-void sceVu0Normalize(f32* d, const f32* s) {  // vec4_normalize
-    asm volatile(
-        "lqc2 $vf4, 0(%1)\n\t"
-        "vmul.xyz $vf5, $vf4, $vf4\n\t"
-        "vaddy.x $vf5, $vf5, $vf5y\n\t"
-        "vaddz.x $vf5, $vf5, $vf5z\n\t"
-        "vsqrt Q, $vf5x\n\t"
-        "vwaitq\n\t"
-        "vaddq.x $vf5, $vf0, Q\n\t"
-        "vnop\n\t"
-        "vnop\n\t"
-        "vdiv Q, $vf0w, $vf5x\n\t"
-        "vsub.xyzw $vf6, $vf0, $vf0\n\t"
-        "vwaitq\n\t"
-        "vmulq.xyz $vf6, $vf4, Q\n\t"
-        "sqc2 $vf6, 0(%0)"
-        : : "r"(d), "r"(s) : "memory");
-}
+void sceVu0Normalize(f32* d, const f32* s);  // 0x002f3d98: definition moved into src/sdk/libvu0_002f3cd8.s
 
 typedef union { f32 value; u32 word; } ieee_float_shape_type;
 // copysignf

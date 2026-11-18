@@ -194,24 +194,7 @@ u8 func_002e0e70(u8* p);  // 0x002e0e70: definition moved into src/anon/unit_002
 // 002e3840: moved to src/anon/unit_002e2f08.cpp
 
 // d = ftoi4(project(m * v)); with f set, zw are converted with ftoi0 instead.
-void func_002f47d8(void* d, void* m, void* v, u32 f) {  // mat4_transform_perspective
-    asm volatile(
-        "lqc2 $vf4, 0(%1)\n\t"
-        "lqc2 $vf5, 16(%1)\n\t"
-        "lqc2 $vf6, 32(%1)\n\t"
-        "lqc2 $vf7, 48(%1)\n\t"
-        "lqc2 $vf8, 0(%2)\n\t"
-        "vmulax.xyzw ACC, $vf4, $vf8x\n\t"
-        "vmadday.xyzw ACC, $vf5, $vf8y\n\t"
-        "vmaddaz.xyzw ACC, $vf6, $vf8z\n\t"
-        "vmaddw.xyzw $vf9, $vf7, $vf8w\n\t"
-        "vdiv Q, $vf0w, $vf9w\n\t"
-        "vwaitq\n\t"
-        "vmulq.xyz $vf9, $vf9, Q\n\t"
-        "vftoi4.xyzw $vf10, $vf9" : : "r"(d), "r"(m), "r"(v) : "memory");
-    if (f) asm volatile("vftoi0.zw $vf10, $vf9");
-    asm volatile("sqc2 $vf10, 0(%0)" : : "r"(d) : "memory");
-}
+void func_002f47d8(void* d, void* m, void* v, u32 f);  // 0x002f47d8: definition moved into src/sdk/libvu0_002f45f0.s
 
 // vsprintf-style: format into buf through a string FILE.
 struct StrFile { u8* p; u32 r; u32 w; u16 flags; u16 file; u8* base; u32 size; u32 pad[15]; u32 data; u32 pad2[2]; };

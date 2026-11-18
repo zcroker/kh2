@@ -110,27 +110,16 @@ void func_00299238(void);  // 0x00299238: definition moved into src/anon/unit_00
 void func_002eac70(f32 a, f32 b, f32 c, f32 d);  // 002eac70: moved to src/anon/unit_002eaa68.cpp
 
 // VU0: d = a / s.
-void sceVu0DivVector(f32* d, f32* a, f32 s) {  // vec4_scale_by_1_f12
-    asm volatile("lqc2 $vf4, 0(%1)\n\tmfc1 $8, %2\n\tqmtc2 $8, $vf5\n\tvdiv Q, $vf0w, $vf5x\n\tvwaitq\n\tvmulq.xyzw $vf4, $vf4, Q\n\tsqc2 $vf4, 0(%0)"
-                 : : "r"(d), "r"(a), "f"(s) : "$8", "memory");
-}
+void sceVu0DivVector(f32* d, f32* a, f32 s);  // 0x002f3e90: definition moved into src/sdk/libvu0_002f3cd8.s
 
 // VU0: d = a + b.
-void sceVu0AddVector(f32* d, f32* a, f32* b) {  // vec4_add
-    asm volatile("lqc2 $vf4, 0(%1)\n\tlqc2 $vf5, 0(%2)\n\tvadd.xyzw $vf6, $vf4, $vf5\n\tsqc2 $vf6, 0(%0)"
-                 : : "r"(d), "r"(a), "r"(b) : "memory");
-}
+void sceVu0AddVector(f32* d, f32* a, f32* b);  // 0x002f3ef8: definition moved into src/sdk/libvu0_002f3cd8.s
 
 // VU0: float vector -> 12.4 fixed-point ints.
-void sceVu0FTOI4Vector(s32* d, f32* a) {
-    asm volatile("lqc2 $vf4, 0(%1)\n\tvftoi4.xyzw $vf5, $vf4\n\tsqc2 $vf5, 0(%0)" : : "r"(d), "r"(a) : "memory");
-}
+void sceVu0FTOI4Vector(s32* d, f32* a);  // 0x002f3fc0: definition moved into src/sdk/libvu0_002f3cd8.s
 
 // VU0: d = clamp(a, lo, hi) per component.
-void sceVu0ClampVector(f32* d, f32* a, f32 lo, f32 hi) {  // vec4_clamp_to_range
-    asm volatile("mfc1 $8, %2\n\tmfc1 $9, %3\n\tlqc2 $vf6, 0(%1)\n\tqmtc2 $8, $vf4\n\tqmtc2 $9, $vf5\n\tvmaxx.xyzw $vf6, $vf6, $vf4x\n\tvminix.xyzw $vf6, $vf6, $vf5x\n\tsqc2 $vf6, 0(%0)"
-                 : : "r"(d), "r"(a), "f"(lo), "f"(hi) : "$8", "$9", "memory");
-}
+void sceVu0ClampVector(f32* d, f32* a, f32 lo, f32 hi);  // 0x002f42e8: definition moved into src/sdk/libvu0_002f42e8.s
 
 // fabsf by clearing the sign bit.
 f32 fabsf(f32 f);  // 0x002f8870: definition moved into src/newlib/libm/sf_fabs.c

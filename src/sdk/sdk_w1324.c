@@ -63,19 +63,7 @@ typedef float VEC1324[4] __attribute__((aligned(16)));
 extern void sceVu0ScaleVector(float *, float *, float);
 extern void sceVu0Normalize(float *, float *);
 extern void sceVu0TransposeMatrix(VEC1324 *, VEC1324 *);
-void func_002f43c0(VEC1324 *m, float *a, float *b, float *c)
-{
-    VEC1324 w;
-    sceVu0ScaleVector(w, a, -1.0f);
-    sceVu0Normalize(m[0], w);
-    sceVu0ScaleVector(w, b, -1.0f);
-    sceVu0Normalize(m[1], w);
-    sceVu0ScaleVector(w, c, -1.0f);
-    sceVu0Normalize(m[2], w);
-    m[3][0] = m[3][1] = m[3][2] = 0.0f;
-    m[3][3] = 1.0f;
-    sceVu0TransposeMatrix(m, m);
-}
+void func_002f43c0(VEC1324 *m, float *a, float *b, float *c);  // 0x002f43c0: definition moved into src/sdk/libvu0_002f4310.c
 
 /* libgraph */
 struct GP1324 { short a, b, c, mode; };

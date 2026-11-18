@@ -145,15 +145,10 @@ typedef void (*VFn3)(void*, u32, u32);
 void func_002ead20(void** o, u32 a1);  // 002ead20: moved to src/anon/unit_002eaa68.cpp
 
 // VU0 macro: d = a - b.
-void sceVu0SubVector(void* d, void* a, void* b) {  // vec4_sub
-    asm volatile("lqc2 $vf4, 0(%0)\n\tlqc2 $vf5, 0(%1)\n\tvsub.xyzw $vf6, $vf4, $vf5\n\tsqc2 $vf6, 0(%2)"
-                 : : "r"(a), "r"(b), "r"(d) : "memory");
-}
+void sceVu0SubVector(void* d, void* a, void* b);  // 0x002f3f10: definition moved into src/sdk/libvu0_002f3cd8.s
 
 // VU0 macro: d = ftoi0(s).
-void sceVu0FTOI0Vector(void* d, void* s) {  // vec4_ftoi0_trunc
-    asm volatile("lqc2 $vf4, 0(%0)\n\tvftoi0.xyzw $vf5, $vf4\n\tsqc2 $vf5, 0(%1)" : : "r"(s), "r"(d) : "memory");
-}
+void sceVu0FTOI0Vector(void* d, void* s);  // 0x002f3fd0: definition moved into src/sdk/libvu0_002f3cd8.s
 
 // Lower-case to upper-case through the ctype table.
 s32 toupper(s32 c);  // 0x002ffbe0: definition moved into src/newlib/libc/toupper.c
