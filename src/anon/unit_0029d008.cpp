@@ -1,4 +1,4 @@
-// Linked unit 0x0029d008-0x0029ee68 (one namespace per old matched source; class methods in their own namespace).
+// Linked unit 0x0029d008-0x0029f220 (one namespace per old matched source; class methods in their own namespace).
 #include "../common/types.h"
 #include <stdarg.h>
 #include "tiny_auto80_solver_structs.hpp"
@@ -1316,3 +1316,121 @@ void func_0029ee38() {
 }
 }  // namespace n0029ee38
 
+// 0029ee68 (was whole asm src/anon/asm_0029ee68.s; Jiminy list page init, up to 10 rows)
+// Natural shapes that mattered: one `n` for the row count and the scroll-bar count (if/else clamps),
+// `id` re-read before the loop with `id + 1` in the loop, `i * step` and `&cursor[i]` left to the
+// strength reducer, and the second table row taken once into a local before the loop.
+namespace n0029ee68 {
+extern s32 D_0035f148 asm("D_0035f148");
+extern s32 D_0035f14c asm("D_0035f14c");
+extern s32 D_0035f200 asm("D_0035f200");
+extern s32 D_0035f210 asm("D_0035f210");
+extern s32 D_0035f214 asm("D_0035f214");
+extern s32 D_0035f3d4 asm("D_0035f3d4");
+struct RD { s8 x0; s8 x1; s8 x2; s8 x3; u16 x4; s8 items[1]; };
+extern RD* D_0035f5d0 asm("D_0035f5d0");
+struct Lay { u8 pad[40]; s32 img; };
+struct Obj { u8 pad[408]; s32 x198; u8 pad2[8]; u32 x1a4; u8 pad3[4]; s32 x1ac; s32 x1b0; void* x1b4; };
+struct Cur { u8 pad[408]; };
+void setOffsetPos(void*, s32, s32) asm("func_00138c68");
+void reset_alpha(void*) asm("func_001395f8");
+void obj_xyoff(void*) asm("func_00139620");
+s32 yi_img(s32, s32) asm("func_00236ca8");
+s32 yi_cr(void*) asm("func_0023aa78");
+s32 yi_unit(void*, s32) asm("func_0023c4b8");
+Lay* lay_get(s32) asm("func_0023f1b0");
+u8* jm_parent() asm("func_00276348");
+s32 jm_curpos(s32) asm("func_00276608");
+s32 jm_curtop(s32) asm("func_00276620");
+u8* jm_scrbar() asm("func_00276678");
+void jm_hide(s32) asm("func_002766b0");
+u8* jm_seqtbl() asm("func_002766d0");
+void func_00276e78() asm("func_00276e78");
+s32 mb_mode() asm("func_00287bc0");
+void sel_set(s32) asm("func_00287cc0");
+void func_00288d80(s32, s32, s32, s32, s32, s32, s16*, s16*) asm("func_00288d80");
+Obj* sel_item(s32, s32) asm("func_002891b8");
+void func_002891f0(s32, s32, s32, s32, s32) asm("func_002891f0");
+void func_0028af90(s32, s32) asm("func_0028af90");
+void func_0028afd0(s32, s32) asm("func_0028afd0");
+void func_0028b218(s32, s32) asm("func_0028b218");
+void func_0028b248(s32, s32) asm("func_0028b248");
+void func_0028bae0(s32, s32, s32, s32, u8*, s32, s32, u8*, s32) asm("func_0028bae0");
+void pz_cfo(void*, s32, s32, s32, s32, s32, s32, s32) asm("func_0028d8c0");
+void mc_as(void*, void*) asm("func_0028dcc0");
+s32 func_0028f930(s32) asm("func_0028f930");
+void func_0028f4d8(s32, s32, s32) asm("func_0028f4d8");
+void func_0029fbf0() asm("func_0029fbf0");
+void func_0029fcb0() asm("func_0029fcb0");
+void func_002a03a0() asm("func_002a03a0");
+void func_002a03d0() asm("func_002a03d0");
+/*TARGET 0029ee68*/
+void func_0029ee68(void) asm("func_0029ee68");
+void func_0029ee68(void) {
+    s16 tab[2][4];
+    s32 step;
+    u8* w2;
+    s32 id;
+    s32 n;
+    s32 i;
+
+    u8* cam = jm_parent();
+    u8* w = jm_seqtbl();
+    func_0029fbf0();
+    if (func_0028f930(0) == 0) {
+        func_0028f4d8(0, -1, 0);
+    }
+    for (i = 0; i < 2; i++) {
+        for (s32 j = 0; j < 4; j++) {
+            tab[i][j] = 2;
+        }
+    }
+    s16* r1 = tab[1];
+    w2 = w + 0x4C8;
+    id = D_0035f3d4 - 1;
+    func_00276e78();
+    pz_cfo(w, id, D_0035f14c, D_0035f148, D_0035f210, 90, -1, 0);
+    obj_xyoff(w);
+    mc_as(w, cam);
+    pz_cfo(w2, id, D_0035f14c, D_0035f148, D_0035f210, 95, -1, 0);
+    obj_xyoff(w2);
+    mc_as(w2, cam);
+    step = yi_cr(w + 0x18);
+    s32 t = D_0035f5d0->x0;
+    if (t < 10) n = t; else n = 10;
+    id = D_0035f3d4;
+    for (i = 0; i < n; i++) {
+        func_00288d80(D_0035f200, i, D_0035f14c, D_0035f148, D_0035f210, -1, tab[0], r1);
+        Obj* o = sel_item(D_0035f200, i);
+        obj_xyoff(o);
+        mc_as(o, w);
+        setOffsetPos(o, 0, i * step);
+        o->x1ac = 3;
+        u32 bf = 3u << 29;
+        bf |= 8;
+        o->x1a4 = bf;
+        reset_alpha(o);
+        Cur* c = (Cur*)(w + 0xA998) + i;
+        pz_cfo(c, id + 1, D_0035f14c, D_0035f148, D_0035f210, 2, -1, 0);
+        mc_as(c, o);
+    }
+    s32 cnt = D_0035f5d0->x0;
+    func_002891f0(D_0035f200, jm_curpos(mb_mode()), 0, -1, -1);
+    func_0028af90(D_0035f200, cnt);
+    func_0028afd0(D_0035f200, jm_curtop(mb_mode()));
+    if (cnt >= 2) {
+        func_0028b218(D_0035f200, 1);
+        func_0028b248(D_0035f200, 10);
+    }
+    id = D_0035f3d4;
+    if (cnt > 10) n = cnt; else n = 10;
+    s32 a = yi_unit(lay_get(D_0035f210), D_0035f14c);
+    s32 b = yi_img(lay_get(D_0035f210)->img, D_0035f148);
+    func_0028bae0(D_0035f214, id, a, b, jm_scrbar(), n, 10, w2, 0);
+    func_0029fcb0();
+    func_002a03d0();
+    func_002a03a0();
+    jm_hide(1);
+    sel_set(0);
+}
+}  // namespace n0029ee68
