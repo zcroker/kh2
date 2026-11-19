@@ -489,7 +489,7 @@ src/anon/unit_002ca0e0.cpp	002ca0e0	002cac58	.rodata@00375818	-G0
 src/anon/unit_002cac58.cpp	002cac58	002cb200	.rodata@00375868	-G0 -fno-strict-aliasing
 src/taito/minigame_base.cpp	002cea28	002cf260	.data@00361f60,.rodata@00375958	-G0
 src/anon/unit_002cf260.cpp	002cf260	002d2330	.rodata@00375980	-G0 -g -fno-strict-aliasing
-src/anon/unit_002d2498.cpp	002d2498	002d4548	.rodata@00375a3c	-G0 -g -fno-strict-aliasing
+src/anon/unit_002d2498.cpp	002d2330	002d4548	.rodata@00375a34	-G0 -g -fno-strict-aliasing
 src/anon/unit_002d4548.cpp	002d4548	002d62d0	.rodata@00375ac0	-G0 -g -fno-strict-aliasing
 src/anon/unit_002d62d0.cpp	002d62d0	002d6f70	.rodata@00375b28	-G0 -g -fno-strict-aliasing
 src/anon/unit_002d6f70.cpp	002d6f70	002d9588	.rodata@00375b68	-G0 -g -fno-strict-aliasing
@@ -836,7 +836,6 @@ src/anon/asm_00273fa0.s	00273fa0	00274460	-	-
 src/anon/asm_002978f0.s	002978f0	00297b30	-	-
 src/anon/asm_002b3908.s	002b3908	002b3ac8	-	-
 src/anon/asm_002c0860.s	002c0860	002c0ca0	-	-
-src/anon/asm_002d2330.s	002d2330	002d2498	-	-
 src/anon/asm_002d9588.s	002d9588	002d96d8	-	-
 src/anon/unit_002ddbf0.cpp	002ddbf0	002de010	.rodata@00375df0	-G0 -g -fno-strict-aliasing
 src/anon/asm_002de028.s	002de028	002de3c8	-	-

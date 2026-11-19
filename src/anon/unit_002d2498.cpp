@@ -14,6 +14,51 @@
 #include "../yasui/libys/progress.hpp"
 #include <stdarg.h>
 
+// 002d2330 (was never written: gap function; was whole asm src/anon/asm_002d2330.s)
+// Keep-in-range test for an object: position + offset + out, clamped by the camera frustum (002d1bf8; 002d1b90 is
+// the same with the default margins, so it takes only the camera and the position).
+namespace n002d2330 {
+struct V {
+    f32 x, y, z, w;
+    V() {}
+    V(f32 a, f32 b, f32 c, f32 d) { x = a; y = b; z = c; w = d; }
+    V(const V& o) { asm volatile(".set noreorder\n\tlq $8, 0(%1)\n\tsq $8, 0(%0)\n\t.set reorder" : : "r"(this), "r"(&o) : "$8", "memory"); }
+    V& operator=(const V& o) {
+        if (this != &o) asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(this), "r"(&o) : "$8", "memory");
+        return *this;
+    }
+    V operator+(const V& b) const {
+        V r;
+        asm volatile(".set noreorder\n\tlqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 0(%2)\n\tvadd.wxyz $vf1, $vf1, $vf2\n\tsqc2 $vf1, 0(%0)\n\t.set reorder" : : "r"(&r), "r"(this), "r"(&b) : "memory");
+        return r;
+    }
+    V operator-(const V& b) const {
+        V r;
+        asm volatile(".set noreorder\n\tlqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 0(%2)\n\tvsub.wxyz $vf1, $vf1, $vf2\n\tsqc2 $vf1, 0(%0)\n\t.set reorder" : : "r"(&r), "r"(this), "r"(&b) : "memory");
+        return r;
+    }
+} __attribute__((aligned(16)));
+V* func_0016c028(u8*) asm("func_0016c028");
+void func_002d1b90(u8*, V*) asm("func_002d1b90");
+void func_002d1bf8(u8*, V*, V*, V*) asm("func_002d1bf8");
+void func_002d2330(u8* self, u8* o, const V& off, V& out) asm("func_002d2330");
+void func_002d2330(u8* self, u8* o, const V& off, V& out)
+{
+    if (!self[88]) return;
+    if (!(*(u32*)(o + 1416) & 0x80) && **(s32**)(o + 8) != 1565) return;
+    V u = (*func_0016c028(o) + off) + out;
+    V t = u;
+    if (*(u32*)(o + 1416) & 0x80) {
+        func_002d1b90(self, &t);
+    } else {
+        V a(50.0f, 30.0f, 0.0f, 0.0f);
+        V b(50.0f, 30.0f, 0.0f, 0.0f);
+        func_002d1bf8(self, &t, &a, &b);
+    }
+    out = (t - u) + out;
+}
+}  // namespace n002d2330
+
 // 002d2498 (was never written: gap function)
 namespace n002d2498 {
 struct V4g { f32 x, y, z, w; V4g(f32 a, f32 b, f32 c, f32 d) { x = a; y = b; z = c; w = d; } };
