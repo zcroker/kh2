@@ -341,3 +341,66 @@ void func_00279cd8(void)
 }
 }  // namespace n00279cd8
 
+
+// 00279ec8 (was src/anon/asm_00279ec8.s, whole asm until 2026-11-19)
+namespace n00279ec8 {
+u8* func_00257770(void) asm("func_00257770");
+void func_00279040(void) asm("func_00279040");
+void func_001398d0(s32) asm("func_001398d0");
+void func_00139858(s32) asm("func_00139858");
+void func_00138c10(s32, s32) asm("func_00138c10");
+s32 func_00259618(u16, s32, s32) asm("func_00259618");
+s32 func_002595b8(s32, s32, s32) asm("func_002595b8");
+s32 func_00257140(s32) asm("func_00257140");
+u8* func_00273180(s32, s32) asm("func_00273180");
+struct Ent { u16 id; s8 on; u8 p0; s8 col; u8 p1; s8 kind; u8 p2; };
+struct Tbl { u8 pad[7]; s8 n; u8 pad2[4]; Ent e[1]; };
+extern Tbl* D_0035f230 asm("D_0035f230");
+extern s32 D_0035ef6c asm("D_0035ef6c");
+extern s16 D_00373e10[] asm("D_00373e10");
+
+static inline s32 colOf(s32 c) { return D_00373e10[c]; }
+static inline u8 k4(s32 k) { return func_00273180(4, k)[4]; }
+/*TARGET 00279ec8*/
+void func_00279ec8(void) asm("func_00279ec8");
+void func_00279ec8(void) {
+    s32 o;
+    s32 r = 0;
+    u8* b = func_00257770();
+    func_00279040();
+    if (D_0035f230->n == 0) func_001398d0(100);
+    else func_00139858(100);
+    for (s32 j = 0; j < 20; j++) {
+        o = (s32)(b + j * 0x1B4 + 0x3610);
+        func_00138c10(o, D_0035ef6c);
+        *(s32*)(o + 0x198) = 0;
+        o = (s32)(b + j * 0x1B4 + 0xD30);
+        func_00138c10(o, D_0035ef6c);
+        *(s32*)(o + 0x198) = 0;
+    }
+    s32 n = D_0035f230->n;
+    s32 i = 20;
+    if (n == 0) return;
+    s32 lim = n;
+    if (n > 20) lim = i;
+    s32 cnt = 0;
+    for (i = 0; i < D_0035f230->n && cnt < lim; i++) {
+        if (D_0035f230->e[i].on) {
+            o = (s32)(b + cnt * 0x1B4 + 0x3610);
+            r = colOf(D_0035f230->e[i].col);
+            func_00138c10(o, r);
+            r = func_00259618(D_0035f230->e[i].id, (s32)(b + 0xAE10 + cnt * 32), 1);
+            *(s32*)(o + 0x198) = r;
+            if (D_0035f230->e[i].kind >= 0 && D_0035f230->e[i].on) {
+                o = (s32)(b + cnt * 0x1B4 + 0xD30);
+                func_00138c10(o, func_00257140(0));
+                r = k4(D_0035f230->e[i].kind);
+                r = func_002595b8(r, (s32)(b + 0xB110 + cnt * 4), 1);
+                *(s32*)(o + 0x198) = r;
+            }
+            cnt++;
+        }
+    }
+    if (cnt == 0) func_001398d0(100);
+}
+}  // namespace n00279ec8
