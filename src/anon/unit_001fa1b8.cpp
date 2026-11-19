@@ -1,4 +1,4 @@
-// Linked unit 0x001fa1b8-0x001faea8 (ppp programs and sprite wrappers; one namespace per old matched source, gap functions written for the unit).
+// Linked unit 0x001fa1b8-0x001fb350 (ppp programs and sprite wrappers; one namespace per old matched source, gap functions written for the unit).
 #include "../common/types.h"
 struct BD_VALUE;
 #include "./auto80_199_queue_decls.hpp"
@@ -645,3 +645,145 @@ void func_001fae80(u8* p, u8* q) {
 }
 }  // namespace n001fae80
 
+
+// 001faea8 (was whole asm src/anon/asm_001faea8.s; C since 2026-11-19)
+// partMng: builds the GS draw-environment packet (sceGsDrawEnv1 layout), then every (step+1) frames projects the
+// object's position, clips a w*h box to the scissor rectangle, reads that part of the z-buffer back
+// (sceGsSetDefStoreImage / sceGsExecStoreImage shapes) and counts the pixels nearer than the object:
+// vis = count / (w*h), alpha *= vis.
+// Matching notes: the three store-image calls return int (unused); the scissor Y0 temp reuses the loop counter k
+// and is read first; the loop walks its own pointer q so the buffer pointer p stays cold.
+namespace n001faea8 {
+typedef unsigned int u128 __attribute__((mode(TI)));
+typedef struct { u64 FBP:9; u64 p0:7; u64 FBW:6; u64 p1:2; u64 PSM:6; u64 p2:2; u64 FBMSK:32; } GsFrame4ea8;
+typedef struct { u64 ZBP:9; u64 p0:15; u64 PSM:4; u64 p1:4; u64 ZMSK:1; u64 p2:31; } GsZbuf4ea8;
+typedef struct { u64 OFX:16; u64 p0:16; u64 OFY:16; u64 p1:16; } GsXyoffset4ea8;
+typedef struct { u64 SCAX0:11; u64 p0:5; u64 SCAX1:11; u64 p1:5; u64 SCAY0:11; u64 p2:5; u64 SCAY1:11; u64 p3:5; } GsScissor4ea8;
+typedef struct {
+    union { u128 q; struct { GsFrame4ea8 v; u64 addr; } r; } frame;
+    union { u128 q; struct { GsZbuf4ea8 v; u64 addr; } r; } zbuf;
+    union { u128 q; struct { GsXyoffset4ea8 v; u64 addr; } r; } xyoffset;
+    union { u128 q; struct { GsScissor4ea8 v; u64 addr; } r; } scissor;
+    union { u128 q; struct { u64 v; u64 addr; } r; } prmodecont;
+    union { u128 q; struct { u64 v; u64 addr; } r; } colclamp;
+    union { u128 q; struct { u64 v; u64 addr; } r; } dthe;
+    union { u128 q; struct { u64 v; u64 addr; } r; } test;
+} Env4ea8;
+typedef struct { s32 x, y, z, w; } Pt4ea8;
+typedef struct { s32 x0, y0, x1, y1; } Rect4ea8;
+typedef struct {
+    u8 pad0[124]; f32 alpha;        /* 0x7c */
+    u8 pad80[12]; u8 phase;         /* 0x8c */
+    u8 step;                        /* 0x8d */
+    u8 pad8e[30]; f32 vis;          /* 0xac */
+    f32 pos[4];                     /* 0xb0 */
+    u8 w, h;                        /* 0xc0 */
+} Obj4ea8;
+extern u64 D_00352c00 asm("D_00352c00");
+extern u64 D_00352c08 asm("D_00352c08");
+extern u64 D_00352c10 asm("D_00352c10");
+extern u64 D_00352c18 asm("D_00352c18");
+extern u64 D_00352c20 asm("D_00352c20");
+extern u64 D_00352c28 asm("D_00352c28");
+extern u64 D_00352c30 asm("D_00352c30");
+extern Env4ea8 D_01da8ad0 asm("D_01da8ad0");
+void* func_0020eaf8(s32) asm("func_0020eaf8");
+void func_0020ebd8(s32) asm("func_0020ebd8");
+void func_002f3fc0(Pt4ea8*, f32*) asm("func_002f3fc0");
+int func_002f2aa0(void*, s16, s16, s16, s16, s16, s16, s16) asm("func_002f2aa0");
+void func_003058a0(s32) asm("func_003058a0");
+int func_002f2d60(void*, u8*) asm("func_002f2d60");
+int func_002f25a0(s32, s32) asm("func_002f25a0");
+void func_001faea8(Obj4ea8* o, s32 unused, s32 frame) asm("func_001faea8");
+void func_001faea8(Obj4ea8* o, s32 unused, s32 frame)
+{
+    Env4ea8* e;
+    Pt4ea8 scr;
+    Rect4ea8 r;
+    Rect4ea8 c;
+    u8 work[112];
+    s32 a, n, nx, ny, sx, sy, bw, k, w, h;
+    u32 zlim;
+    u8* p;
+    u8* q;
+    GsScissor4ea8 sc;
+    s32 sx0, sx1, sy1;
+    f32 sum;
+    *(u128*)((u32)&D_01da8ad0 + 0) = D_00352c00;
+    *(u128*)((u32)&D_01da8ad0 + 16) = D_00352c08;
+    *(u128*)((u32)&D_01da8ad0 + 32) = D_00352c10;
+    *(u128*)((u32)&D_01da8ad0 + 48) = D_00352c18;
+    *(u128*)((u32)&D_01da8ad0 + 64) = 0;
+    *(u128*)((u32)&D_01da8ad0 + 80) = D_00352c30;
+    *(u128*)((u32)&D_01da8ad0 + 96) = D_00352c28;
+    *(u128*)((u32)&D_01da8ad0 + 112) = D_00352c20;
+    D_01da8ad0.frame.r.addr = 0x4c;
+    D_01da8ad0.zbuf.r.addr = 0x4e;
+    D_01da8ad0.xyoffset.r.addr = 0x18;
+    D_01da8ad0.scissor.r.addr = 0x40;
+    D_01da8ad0.prmodecont.r.addr = 0x1a;
+    D_01da8ad0.colclamp.r.addr = 0x46;
+    D_01da8ad0.dthe.r.addr = 0x45;
+    D_01da8ad0.test.r.addr = 0x47;
+    if (o->alpha == 0.0f) return;
+    n = o->step + 1;
+    if (o->phase % n != frame % n) {
+        o->alpha = o->alpha * o->vis;
+        return;
+    }
+    e = &D_01da8ad0;
+    sx = e->xyoffset.r.v.OFX;
+    sy = e->xyoffset.r.v.OFY;
+    sc = e->scissor.r.v;
+    k = sc.SCAY0;
+    sx0 = sc.SCAX0;
+    sx1 = sc.SCAX1;
+    sy1 = sc.SCAY1;
+    c.x0 = sx + (sx0 << 4);
+    c.y0 = sy + (k << 4);
+    c.x1 = sx + ((sx1 + 1) << 4);
+    c.y1 = sy + ((sy1 + 1) << 4);
+    func_002f3fc0(&scr, o->pos);
+    w = o->w;
+    h = o->h;
+    r.x0 = scr.x - w * 8;
+    r.y0 = scr.y - h * 8;
+    r.x1 = scr.x + w * 8;
+    r.y1 = scr.y + h * 8;
+    if (r.x0 < c.x0) r.x0 = c.x0; else if (r.x0 > c.x1) r.x0 = c.x1;
+    if (r.y0 < c.y0) r.y0 = c.y0; else if (r.y0 > c.y1) r.y0 = c.y1;
+    if (r.x1 < c.x0) r.x1 = c.x0; else if (r.x1 > c.x1) r.x1 = c.x1;
+    if (r.y1 < c.y0) r.y1 = c.y0; else if (r.y1 > c.y1) r.y1 = c.y1;
+    nx = (r.x1 - r.x0 + 15) >> 4;
+    ny = (r.y1 - r.y0 + 15) >> 4;
+    if (nx <= 0 || ny <= 0) {
+        o->alpha = 0.0f;
+        o->vis = 0.0f;
+        return;
+    }
+    sum = 0.0f;
+    sx = (r.x0 - sx) >> 4;
+    sy = (r.y0 - sy) >> 4;
+    bw = (nx + 7) & ~7;
+    a = (ny + 3) & ~3;
+    p = (u8*)func_0020eaf8(0x3060);
+    func_002f2aa0(work, (*(u16*)&e->zbuf & 0x1ff) << 5, e->frame.r.v.FBW, 49, sx, sy, bw, a);
+    p += 96;
+    func_003058a0(0);
+    func_002f2d60(work, p);
+    func_002f25a0(0, 0);
+    zlim = scr.z >> 4;
+    q = p;
+    for (n = 0; n < ny; n++) {
+        for (k = 0; k < nx; k++) {
+            if ((u32)(q[0] | (q[1] << 8) | (q[2] << 16)) < zlim) sum += 1.0f;
+            q += 3;
+        }
+        q += (bw - nx) * 3;
+    }
+    func_0020ebd8(0x3060);
+    sum = sum / (f32)(w * h);
+    o->vis = sum;
+    o->alpha = o->alpha * sum;
+}
+}  // namespace n001faea8
