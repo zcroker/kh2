@@ -44,7 +44,7 @@ src/yasui/libys/databuff.cpp	001b13d8	001b14d8	.data@00350e88,.bss@01c94100	-G0
 src/anon/unit_001b14d8.cpp	001b14d8	001b1d20	.rodata@0036d998	-G0 -fno-strict-aliasing
 src/anon/unit_001b1d20.cpp	001b1d20	001b2728	.rodata@0036d9c0	-G0
 src/anon/unit_001b2780.cpp	001b2728	001b65e0	.rodata@0036d9d4	-G0 -g -fno-strict-aliasing
-src/anon/asm_001b65e0.s	001b65e0	001b6a50	-	-
+src/anon/unit_001b65e0.cpp	001b65e0	001b6a50	.rodata@0036dab4	-G0 -g -fno-strict-aliasing
 src/anon/unit_001b6a50.cpp	001b6a50	001b82d8	.rodata@0036dac4	-G0 -g -fno-strict-aliasing
 src/anon/batch_w3910.s	001bfda0	001bff88	-	-
 src/anon/unit_001c2b58.cpp	001c2b58	001c38c0	.rodata@0036dddc	-G0
