@@ -839,7 +839,7 @@ src/anon/asm_002b3908.s	002b3908	002b3ac8	-	-
 src/anon/asm_002c0860.s	002c0860	002c0ca0	-	-
 src/anon/asm_002d2330.s	002d2330	002d2498	-	-
 src/anon/asm_002d9588.s	002d9588	002d96d8	-	-
-src/anon/asm_002ddbf0.s	002ddbf0	002de010	-	-
+src/anon/unit_002ddbf0.cpp	002ddbf0	002de010	.rodata@00375df0	-G0 -g -fno-strict-aliasing
 src/anon/asm_002de028.s	002de028	002de3c8	-	-
 src/libgcc/_floatdisf.c	00311af0	00311bb8	-	-G0 -fno-builtin
 src/libgcc/_fixunsdfdi.c	00311bb8	00311cc0	-	-G0 -fno-builtin
