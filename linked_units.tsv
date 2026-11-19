@@ -61,7 +61,7 @@ src/yasui/libys/mutex.cpp	001c8d80	001c8e80	.data@00351eb8	-G0
 src/anon/unit_001c8e80.cpp	001c8e80	001c91c8	-	-G0
 src/anon/unit_001c91c8.cpp	001c91c8	001c9770	.rodata@0036e098	-G0
 src/yasui/libys/sacrifice.cpp	001c9770	001c9ea0	.rodata@0036e0a4	-G0
-src/anon/unit_001c9ea0.cpp	001c9ea0	001ca060	.rodata@0036e0c8	-G0 -fno-strict-aliasing
+src/anon/unit_001c9ea0.cpp	001c9ea0	001ca148	.rodata@0036e0c8	-G0 -fno-strict-aliasing
 src/anon/unit_001ca148.cpp	001ca148	001ca638	.rodata@0036e0d0	-G0 -fno-strict-aliasing
 src/anon/unit_001ca638.cpp	001ca638	001ca8e0	-	-G0
 src/anon/unit_001ca8e0.cpp	001ca8e0	001cc008	.rodata@0036e140	-G0 -fno-strict-aliasing
@@ -736,7 +736,6 @@ src/anon/unit_001a82b0.cpp	001a82b0	001a82f0	-	-G0 -fno-sched-interblock
 src/anon/asm_001c5580.s	001c557c	001c5b90	-	-
 src/anon/asm_001c6a28.s	001c6a28	001c6c60	-	-
 src/anon/unit_001c70e8.cpp	001c70e8	001c7148	.rodata@0036df88	-G0 -fno-schedule-insns
-src/anon/asm_001ca060.s	001ca060	001ca148	-	-
 src/anon/asm_001f2f78.s	001f2f74	001f4498	-	-
 src/anon/asm_001f5670.s	001f5670	001f5978	-	-
 src/anon/asm_001f87f0.s	001f87f0	001f8dd0	-	-

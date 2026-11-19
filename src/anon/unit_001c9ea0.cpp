@@ -1,6 +1,6 @@
 // Linked unit 0x1c9ea0-0x1ca060: first part of the file with the vtable at 0x351f40 and the cached
 // parameter pointer D_00351f34 (gap method 0x1c9ea0 written here). .rodata at 0x36e0c8.
-// 0x1ca060 (vtable slot 7, 0.8f at 0x36e0cc) stays a separate gap: gcc swaps $f0/$f1 in its blend.
+// 0x1ca060 (vtable slot 7, 0.8f at 0x36e0cc) is the last function of the unit.
 // unit_001ca148.cpp continues the file.
 
 #include "../common/types.h"
@@ -89,3 +89,37 @@ void func_001c9ee8(void* self, Mv* m) {
 }
 }  // namespace n001c9ee8
 
+
+// ---- 001ca060 gap: vtable 0x351f40 slot 7 (reuses the QWord/Scale classes above)
+namespace n001ca060 {
+using n001c9ee8::QWord;
+using n001c9ee8::Scale;
+struct Mv {
+    u8 pad0[16];
+    QWord dir;           // +16, w = speed
+    QWord v2;            // +32, z blended toward the target
+    u8 pad1[1416 - 48];
+    u32 flags588;
+    u8 pad2[1644 - 1420];
+    f32 f66c;
+};
+struct G1f34 { f32 a, b; u8 pad[32]; f32 f28; };
+extern G1f34* D_00351f34 asm("D_00351f34");
+extern f32 D_00349e10 asm("D_00349e10");
+QWord func_0017d538(f32, const QWord&) asm("func_0017d538");
+QWord func_001ca060(void* self, Mv* m) asm("func_001ca060");
+QWord func_001ca060(void* self, Mv* m) {
+    f32 k;
+    if (m->flags588 & 0x80) k = D_00351f34->f28;
+    else k = 0.8f;
+    QWord w;
+    w = Scale(m->dir, m->dir.f[3]);
+    f32 z = w.f[2];
+    z = z + (m->v2.f[2] - z) * k;
+    w.f[2] = z;
+    m->v2.f[2] = z;
+    f32 f = m->f66c;   // a local for the call argument: gives z the f0 register
+    w = func_0017d538(f, w);
+    return Scale(w, D_00349e10);
+}
+}  // namespace n001ca060
