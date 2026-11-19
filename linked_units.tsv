@@ -153,7 +153,6 @@ src/libkernl/asm_002f20c0.s	002f20c0	002f20d0	-	-
 src/anon/batch_w3932.s	002f20d0	002f2448	-	-
 src/sdk/sdk_asm_002f44e8.s	002f44e8	002f45ec	-	-
 src/sdk/libdbc.c	002f4a20	002f5c70	.rodata@00376840	-G0
-src/sdk/sdk_asm_002f67a0.s	002f67a0	002f6870	-	-
 src/anon/batch_w3879.s	002f74c8	002f77b0	-	-
 src/anon/newlib_memcpy.s	002fdd68	002fde18	-	-
 src/anon/newlib_memset.s	002fde18	002fded8	-	-
@@ -879,7 +878,7 @@ src/libsupc++/eh_exception.cpp	003167f8	003168d8	.gnu.linkonce.d._ZTVSt13bad_exc
 src/libsupc++/eh_globals.cpp	003168d8	00316d08	.data@00367920,.bss@01e4c790	-G0 -fexceptions -frtti
 src/libgcc/unwind-dw2.c	00316e20	00319788	.data@00369d50,.rodata@00378618,.bss@01e4c7b0	-G0 -fexceptions
 src/sdk/libgraph_002f1e18.c	002f1e18	002f20c0	.rodata@003762c8	-G0
-src/sdk/libcdvd_002f6698.c	002f6698	002f67a0	-	-G0
+src/sdk/libcdvd_002f6698.c	002f6698	002f6870	-	-G0
 src/sdk/libcdvd_002f6870.c	002f6870	002f7418	.rodata@00376b70	-G0
 src/sdk/libcdvd_002f77b0.c	002f77b0	002f800c	.rodata@00376d10	-G0
 src/sdk/libkernl_00305aa0.c	00305aa0	00305b40	-	-G0
