@@ -69,7 +69,7 @@ src/anon/batch_w3951.s	001e8558	001e8ac8	-	-
 src/anon/batch_w3958.s	001f1978	001f25d0	-	-
 src/anon/asm_001f25d0.s	001f25d0	001f2f74	-	-
 src/anon/asm_00205d60.s	00205d60	002061d8	-	-
-src/anon/batch_w3872_g.s	00209328	00209d68	-	-
+src/anon/unit_00209328.c	00209328	00209d68	.rodata@00370688	-G0 -fno-strict-aliasing
 src/anon/batch_w3954.s	0020d528	0020dde8	-	-
 src/anon/batch_w3905.s	00212338	00213ea8	-	-
 src/anon/batch_w3961.s	0021d048	0021e988	-	-
