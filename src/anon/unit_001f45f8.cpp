@@ -773,3 +773,40 @@ void func_001f5658(u8* self, u8* t) {
     *(self + (*(s32**)(t + 12))[1] + 160) = 0;
 }
 }  // namespace n001f5658
+
+// 001f5670 (was whole asm; gap code written for the unit)
+namespace n001f5670 {
+struct C4 { u16 r, g, b, a; };
+struct M { u8 pad[0xa8]; u64 flags; };
+struct P { s32 id; C4 c0, c1, c2, c3; f32 x, y, r, z; u8 b; };
+struct W { C4 c0, c1, c2, c3; f32 x, y, r, z; };
+struct V { u8 pad[80]; u8 b; u8 p4[27]; f32 r; C4 c0, c1, c2, c3; };
+struct S { u8 pad[12]; f32 x; u8 p1[20]; f32 y; u8 p2[4]; f32 z; };
+struct O { u8 pad[12]; s32 id; u8 p2[157 - 16]; u8 b157; };
+struct X { u8 pad[12]; s32* ofs; };
+extern s32 D_01d9ea9c asm("D_01d9ea9c");
+extern M* D_01d9e6e0 asm("D_01d9e6e0");
+void func_001f5670(O* o, P* p, X* c) asm("func_001f5670");
+void func_001f5670(O* o, P* p, X* c) {
+    if (D_01d9ea9c != 0) return;
+    if (D_01d9e6e0->flags & 0xff0000ff00ULL) return;
+    s32* d = c->ofs;
+    W* w = (W*)((u8*)o + d[0] + 160);
+    V* v = (V*)((u8*)o + d[1] + 160);
+    S* s = (S*)((u8*)o + d[1] + 176);
+    if (o->id == p->id) {
+        v->b = p->b;
+        w->r += p->r; w->x += p->x; w->y += p->y; w->z += p->z;
+        w->c0.r += p->c0.r; w->c0.g += p->c0.g; w->c0.b += p->c0.b; w->c0.a += p->c0.a;
+        w->c1.r += p->c1.r; w->c1.g += p->c1.g; w->c1.b += p->c1.b; w->c1.a += p->c1.a;
+        w->c2.r += p->c2.r; w->c2.g += p->c2.g; w->c2.b += p->c2.b; w->c2.a += p->c2.a;
+        w->c3.r += p->c3.r; w->c3.g += p->c3.g; w->c3.b += p->c3.b; w->c3.a += p->c3.a;
+        if (o->id == 0 && o->b157 == 0) return;
+    }
+    v->r += w->r; s->x += w->x; s->y += w->y; s->z += w->z;
+    v->c0.r += w->c0.r; v->c0.g += w->c0.g; v->c0.b += w->c0.b; v->c0.a += w->c0.a;
+    v->c1.r += w->c1.r; v->c1.g += w->c1.g; v->c1.b += w->c1.b; v->c1.a += w->c1.a;
+    v->c2.r += w->c2.r; v->c2.g += w->c2.g; v->c2.b += w->c2.b; v->c2.a += w->c2.a;
+    v->c3.r += w->c3.r; v->c3.g += w->c3.g; v->c3.b += w->c3.b; v->c3.a += w->c3.a;
+}
+}  // namespace n001f5670
