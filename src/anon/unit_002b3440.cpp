@@ -136,3 +136,56 @@ void func_002b3440(void) {
 }
 }  // namespace n002b3440
 
+// 002b3908 (puzzle shuffle, was whole asm; matched by L143)
+namespace n002b3908 {
+u8* func_00294000(s32) asm("func_00294000");
+u8* func_002a9d68(void) asm("func_002a9d68");
+u32 func_002b3ac8(s32) asm("_ZN2Tz8JmPuzzle12CalcMaxPieceEi");
+u32 func_001064a8(s32) asm("func_001064a8");
+struct PzEnt { s8 id; u8 kind; u8 pad[14]; };
+struct PzTbl { u8 pad[8]; s32 count; u8 pad2[4]; PzEnt e[1]; };
+void func_002b3908(s32 sel) asm("func_002b3908");
+void func_002b3908(s32 sel)
+{
+    s32 arr[48];
+    PzTbl* t = (PzTbl*)func_00294000(9);
+    u8* base = (u8*)func_002a9d68();
+    u8* sv;
+    PzEnt* e = t->e;
+    s32 i;
+    PzTbl* t2;
+    s32 j;
+    t2 = t;
+    i = 0;
+    // sv is copied from the call result only after the loop guard (do-while inside the if)
+    if (0 < t2->count) {
+        sv = base;
+        do {
+            s8 k = e->kind & 0xf;
+            if (sel < 0 || e->id == sel) {
+                s32 n = func_002b3ac8(k);
+                for (j = 0; j < n; j++) arr[j] = n - 1 - j;
+                for (j = 0; j < 256; j++) {
+                    u32 a = func_001064a8(-1) % n;
+                    s32 b = j % n;
+                    s32 x = arr[a];
+                    arr[a] = arr[b];
+                    arr[b] = x;
+                }
+                // second counter jj (stepped before j) keeps loop.c from sharing j*4 between the arr and piece addresses
+                s32 jj = 0;
+                for (j = 0; j < n; jj++, j++) {
+                    u8* p = sv + 480 + jj * 4;
+                    u8 r;
+                    p[8] = arr[j];
+                    r = (p[9] = func_001064a8(8) & 3);
+                    if ((s8)p[8] == j && r == 0) p[9] = func_001064a8(8) % 3 + 1;
+                }
+            }
+            i++;
+            sv += 192;
+            e++;
+        } while (i < t2->count);
+    }
+}
+}  // namespace n002b3908

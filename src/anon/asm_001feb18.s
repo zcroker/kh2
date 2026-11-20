@@ -1,174 +1,15 @@
-# Whole-function assembly: gap code that was never written in C (not in layout.tsv before; L77 2026-11-18).
-# Transcribed from the retail disassembly; calls and globals with a func_/D_ symbol are referenced
-# through it. Linked as its own unit (close-out of linking); replace with C/C++ later.
-#   No C draft saved.
+# Whole-function assembly: gap code that was never written in C (L77 2026-11-18); split from asm_001fe8d8.s by L142 (the 2104-byte blob held three functions).
 #     No symbol, written as literal lui/lo values: 0x00370284, 0x00370288
 	.set noreorder
 	.set noat
 	.set nomacro
 
-	.section .text.func_001fe8d8,"ax",@progbits
+	.section .text.func_001feb18,"ax",@progbits
 	.align 3
-	.globl func_001fe8d8
-	.type func_001fe8d8, @function
-	.ent func_001fe8d8
-func_001fe8d8:
-	addiu	$29,$29,-64
-	lui	$15,%hi(D_01d9ea9c)
-	sd	$19,40($29)
-	sd	$16,16($29)
-	sd	$17,24($29)
-	sd	$18,32($29)
-	sd	$20,48($29)
-	sd	$31,56($29)
-	lw	$14,%lo(D_01d9ea9c)($15)
-	bnez	$14,.L001feaac
-	move	$19,$5
-	lui	$14,%hi(D_01d9e6e0)
-	lw	$13,%lo(D_01d9e6e0)($14)
-	li	$14,255
-	ld	$15,168($13)
-	dsll32	$14,$14,0x0
-	ori	$14,$14,0xff00
-	and	$15,$15,$14
-	bnezl	$15,.L001feab0
-	ld	$16,16($29)
-	lw	$15,12($6)
-	lui	$20,%hi(D_01d9e6e8)
-	lw	$13,12($4)
-	lw	$14,0($15)
-	addu	$14,$4,$14
-	bnez	$13,.L001fe9a4
-	addiu	$18,$14,160
-	lbu	$15,157($4)
-	bnezl	$15,.L001fe9a8
-	lbu	$4,1($18)
-	lbu	$15,33($5)
-	beqz	$15,.L001feaf8
-	move	$4,$29
-	lw	$6,%lo(D_01d9e6e8)($20)
-	lui	$5,%hi(D_01d9e6f0)
-	addiu	$5,$5,%lo(D_01d9e6f0)
-	jal	sceVu0ApplyMatrix
-	addiu	$6,$6,64
-	lui	$14,0x37
-	addiu	$14,$14,644
-	lwc1	$f0,0($14)
-.L001fe97c:
-	swc1	$f0,12($29)
-	lbu	$17,0($18)
-	blez	$17,.L001fe9a4
-	addiu	$16,$18,16
-.L001fe98c:
-	move	$4,$16
-	jal	sceVu0CopyVector
-	move	$5,$29
-	addiu	$17,$17,-1
-	bgtz	$17,.L001fe98c
-	addiu	$16,$16,16
-.L001fe9a4:
-	lbu	$4,1($18)
-.L001fe9a8:
-	andi	$15,$4,0xff
-	bnez	$15,.L001fe9c4
-	addiu	$4,$4,-1
-	lbu	$15,0($18)
-	sb	$15,1($18)
-	move	$4,$15
-	addiu	$4,$4,-1
-.L001fe9c4:
-	sb	$4,1($18)
-	lbu	$15,33($19)
-	beqz	$15,.L001fead4
-	lw	$6,%lo(D_01d9e6e8)($20)
-	andi	$4,$4,0xff
-	sll	$4,$4,0x4
-	lui	$5,0x1da
-	addu	$4,$18,$4
-	addiu	$6,$6,64
-	addiu	$4,$4,16
-	jal	sceVu0ApplyMatrix
-	addiu	$5,$5,-6416
-	lbu	$15,1($18)
-	lui	$14,0x37
-	addiu	$14,$14,644
-	sll	$15,$15,0x4
-	lwc1	$f0,0($14)
-	addu	$15,$15,$18
-	swc1	$f0,28($15)
-	lui	$15,%hi(D_01d9e6e4)
-.L001fea14:
-	lw	$13,4($19)
-	lw	$12,%lo(D_01d9e6e4)($15)
-	sll	$13,$13,0x3
-	lhu	$10,4($18)
-	lw	$14,20($12)
-	lhu	$11,2($18)
-	andi	$15,$10,0xffff
-	addu	$14,$14,$13
-	sll	$15,$15,0x3
-	lw	$12,0($14)
-	sh	$10,6($18)
-	addu	$15,$12,$15
-	addiu	$9,$15,16
-	lhu	$14,8($19)
-	addu	$5,$11,$14
-	sh	$5,2($18)
-	andi	$15,$5,0xffff
-	lhu	$11,2($9)
-	sll	$14,$11,0x10
-	sra	$14,$14,0x10
-	slt	$15,$15,$14
-	bnez	$15,.L001feab0
-	ld	$16,16($29)
-	subu	$14,$5,$11
-	addiu	$13,$10,1
-	sh	$14,2($18)
-	andi	$15,$13,0xffff
-	sh	$13,4($18)
-	lh	$14,6($12)
-	slt	$15,$15,$14
-	bnez	$15,.L001feab4
-	ld	$17,24($29)
-	lb	$15,4($9)
-	andi	$15,$15,0x80
-	beqzl	$15,.L001feacc
-	sh	$10,4($18)
-	sh	$0,2($18)
-	sh	$0,4($18)
-.L001feaac:
-	ld	$16,16($29)
-.L001feab0:
-	ld	$17,24($29)
-.L001feab4:
-	ld	$18,32($29)
-	ld	$19,40($29)
-	ld	$20,48($29)
-	ld	$31,56($29)
-	jr	$31
-	addiu	$29,$29,64
-.L001feacc:
-	b	.L001feaac
-	sh	$0,2($18)
-.L001fead4:
-	andi	$4,$4,0xff
-	lw	$5,-6424($20)
-	sll	$4,$4,0x4
-	addu	$4,$18,$4
-	addiu	$5,$5,64
-	jal	func_002226b8
-	addiu	$4,$4,16
-	b	.L001fea14
-	lui	$15,0x1da
-.L001feaf8:
-	lw	$5,-6424($20)
-	jal	sceVu0CopyVector
-	addiu	$5,$5,64
-	lui	$15,0x37
-	addiu	$15,$15,644
-	b	.L001fe97c
-	lwc1	$f0,0($15)
-	nop
+	.globl func_001feb18
+	.type func_001feb18, @function
+	.ent func_001feb18
+func_001feb18:
 	addiu	$29,$29,-400
 	li	$15,0xffff
 	sd	$16,288($29)
@@ -553,17 +394,5 @@ func_001fe8d8:
 	b	.L001feca4
 	sh	$0,226($29)
 	nop
-	lw	$15,12($5)
-	lw	$14,0($15)
-	addu	$4,$4,$14
-	li	$15,31
-	addiu	$13,$4,160
-	sb	$15,160($4)
-	sb	$0,1($13)
-	sh	$0,2($13)
-	sh	$0,4($13)
-	jr	$31
-	sh	$0,6($13)
-	nop
-	.end func_001fe8d8
-	.size func_001fe8d8, 2104
+	.end func_001feb18
+	.size func_001feb18, 1480
