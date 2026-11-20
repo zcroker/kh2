@@ -1,7 +1,9 @@
 // Linked unit 0x23e188-0x23e580: draw of the 4-slot model viewer (Mgr23da00 in unit_0023d260): sorts the active slots by kind, drops dead
-// handles, then draws each slot (screen offset, camera matrix, effect list, colour). L130 2026-11-19: matched with two empty asm reads
-// (less-asm, see asm_review.tsv): `asm("" :: "r"(idx))` fixes the global-alloc order of the loop counter and idx; `asm("" : "+r"(w))`
-// makes the effect-array pointer a block-crossing pseudo so the pointer giv is one `addiu`. VU0 matrix multiply is inline asm (mulmat).
+// handles, then draws each slot (screen offset, camera matrix, effect list, colour). L130 2026-11-19: matched with two empty asm reads.
+// O16 2026-11-20: one left (less-asm, see asm_review.tsv): `asm("" :: "r"(idx))` before the screen-offset adds gives idx one more
+// ref in a hot block so global-alloc ranks it above the loop counter i (retail idx s3, i s4). The effect pointer needs no asm:
+// `u8* e = o->m192;` before the test makes the call block {a0 = e, giv = o+220, li k}, so li k stays after the jal.
+// Handles b[]/c[] are s32 as in 0x23de00 (handleB at 0x14c0). VU0 matrix multiply is inline asm (mulmat).
 // Flags -G0 -fno-strict-aliasing like the neighbours; no rodata.
 #include "../common/types.h"
 namespace n0023e188 {
@@ -46,14 +48,14 @@ struct Mgr {
     u8 gs1[784];
     u8 gs2[784];
     void* a[4];
-    void* b[4];
-    void* c[4];
+    s32 b[4];
+    s32 c[4];
     u8 flag[3];
 };
-s32 func_00139d78(void*) asm("func_00139d78");
+s32 func_00139d78(s32) asm("func_00139d78");
 void func_0023e9f0(Mgr*) asm("func_0023e9f0");
-void func_00138c50(void*, s32*, s32*) asm("func_00138c50");
-void func_00138cb8(void*, s32*, s32*) asm("func_00138cb8");
+void func_00138c50(s32, s32*, s32*) asm("func_00138c50");
+void func_00138cb8(s32, s32*, s32*) asm("func_00138cb8");
 void func_0014c350(u8*) asm("func_0014c350");
 void func_0011cdf0(s32, M*, M*, u8*, s32) asm("func_0011cdf0");
 void func_001de590(u8*) asm("func_001de590");
@@ -121,7 +123,6 @@ void func_0023e188(Mgr* m)
         o = &m->obj[m->slot[idx]];
         x = 0;
         y = 0;
-        asm("" :: "r"(idx));
         if (o->active) {
             if (m->flag[1] && m->b[idx]) {
                 func_00138c50(m->b[idx], &x, &y);
@@ -142,8 +143,10 @@ void func_0023e188(Mgr* m)
                 func_0011cdf0(o->w48, &mtx, &o->mtx, o->f56, 0);
             }
         }
-        if (*(s32*)o->m192) { s32* w = o->w220; asm("" : "+r"(w)); func_001de590(o->m192);
-            for (s32 k = 0; k < 16; k++) { if (w[k]) func_001dcb98(w[k], o->col); } }
+        u8* e = o->m192;
+        if (*(s32*)e) { func_001de590(e);
+            for (s32 k = 0; k < 16; k++) { if (o->w220[k]) func_001dcb98(o->w220[k], o->col); } }
+        asm("" :: "r"(idx));
         x += m->sx[idx];
         y += m->sy[idx];
         if (o->active) {
