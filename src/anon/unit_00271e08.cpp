@@ -1,4 +1,4 @@
-// Linked unit 0x00271e08-0x00273fa0 (one namespace per old matched source; class methods in their own namespace).
+// Linked unit 0x00271e08-0x00274460 (one namespace per old matched source; class methods in their own namespace).
 #include "../common/types.h"
 #include "../tozawa/menu_sound.hpp"
 #include "../kn/fvector.hpp"
@@ -1315,3 +1315,206 @@ s32 func_00273e88(s32 k)
     return r;
 }
 }  // namespace n00273e88
+// 00273fa0: Jiminy menu init (mode 41; exit thread 0x274b40). The store order between the two func_0028d068 calls is the final
+// order; the f20c/f21c objects are real new-expressions (their address highs are evaluated before the allocation calls).
+namespace n00273fa0 {
+struct Sys;
+void func_0014b920(void*) asm("func_0014b920");
+struct T32 { u8 d[32]; T32() { func_0014b920(this); } ~T32() {} } __attribute__((aligned(16)));
+void* operator new[](unsigned int, Sys*) asm("_Znaj");
+struct Hp;
+struct HpVt { void* (*alloc)(Hp*, u32, void*); void (*free)(Hp*, void*); };
+struct Hp { HpVt* vt; };
+struct Sys { u8 pad[20]; Hp* heap; };
+struct Mm { u32 a; u32 b; };
+extern u32 D_0035f138 asm("D_0035f138");
+extern s32 D_0035f13c asm("D_0035f13c");
+extern u32 D_0035f140 asm("D_0035f140");
+extern s32 D_0035f144 asm("D_0035f144");
+extern u32 D_0035f148 asm("D_0035f148");
+extern u32 D_0035f14c asm("D_0035f14c");
+extern u32 D_0035f150 asm("D_0035f150");
+extern s8* D_0035f1fc asm("D_0035f1fc");
+struct Cur;
+extern Cur* D_0035f200 asm("D_0035f200");
+extern u32 D_0035f204 asm("D_0035f204");
+extern u32 D_0035f208 asm("D_0035f208");
+extern u8* D_0035f20c asm("D_0035f20c");
+extern u32 D_0035f210 asm("D_0035f210");
+struct Lst;
+extern Lst* D_0035f214 asm("D_0035f214");
+struct IStat;
+extern IStat* D_0035f218 asm("D_0035f218");
+extern void* D_0035f21c asm("D_0035f21c");
+extern u8 D_0035f220 asm("D_0035f220");
+extern u8 D_0035f221 asm("D_0035f221");
+extern u8 D_0035f222 asm("D_0035f222");
+extern T32* D_0035f224 asm("D_0035f224");
+extern s8 D_0035f228 asm("D_0035f228");
+extern s32 D_0035f3d4 asm("D_0035f3d4");
+extern Hp* D_0032ba14 asm("D_0032ba14");
+extern Sys* D_00347f80 asm("D_00347f80");
+extern u8 D_00347f98[] asm("D_00347f98");
+extern u8 D_00347e60[] asm("D_00347e60");
+extern u8 D_00347e40[] asm("D_00347e40");
+void func_00292540(void) asm("func_00292540");
+void SetModeMax(s32, s32) asm("_ZN2Tz8MenuBase10SetModeMaxEii");
+void func_00253818(s32) asm("func_00253818");
+void func_00259350(s32) asm("func_00259350");
+s32 GetPri(s32) asm("_ZN2Tz10MenuCursor6GetPriEi");
+void func_0028d068(s32, s32) asm("_Z16wtarget_0028d068jjjj");
+void* func_00288be8(s32) asm("func_00288be8");
+void func_002889f0(void*, s32, s32) asm("func_002889f0");
+struct Cur { u8 d[56]; Cur(s32 a, s32 b) { func_002889f0(this, a, b); } static void* operator new(unsigned int n) { return func_00288be8(n); } };
+void func_0028b9b0(void*) asm("func_0028b9b0");
+struct Lst { u8 d[52]; Lst() { func_0028b9b0(this); } static void* operator new(unsigned int n, Hp* h) { return h->vt->alloc(h, n, __builtin_return_address(0)); } };
+struct IStat { u8 d[444]; IStat(); static void* operator new(unsigned int n, Hp* h, void* ra) { return h->vt->alloc(h, n, ra); } };
+void ItemStatCtor(void*) asm("_ZN2Tz8ItemStatC1Ev");
+inline IStat::IStat() { ItemStatCtor(this); }
+Sys* LoadDataGetSystem(void) asm("func_00103570");
+void* LoadDataAlloc(u32, Sys*) asm("func_001063c0");
+void SeqCtor(u8*) asm("_ZN2YI8SEQUENCEC1Ev");
+void func_0031a838(u8*) asm("func_0031a838");
+void func_00323540(void*) asm("func_00323540");
+u8* NewArr(u32, void*) asm("_Znaj");
+s32 isMonochrome(void) asm("_ZN2dk10Monochrome12isMonochromeEv");
+s8 func_0013aa38(s32) asm("func_0013aa38");
+s32 func_002535c0(void) asm("func_002535c0");
+s8 func_002764b0(u32) asm("func_002764b0");
+void func_00293e00(void*) asm("func_00293e00");
+void func_00288670(void (*)(void)) asm("func_00288670");
+void func_002766c0(void) asm("func_002766c0");
+void func_002a1f88(void) asm("func_002a1f88");
+void func_002a9ce8(void) asm("func_002a9ce8");
+void func_002acda8(void) asm("func_002acda8");
+void func_002944f8(void) asm("func_002944f8");
+void func_002957b8(void) asm("func_002957b8");
+void func_00296fa0(void) asm("func_00296fa0");
+void func_00297cf8(void) asm("func_00297cf8");
+void func_002994f8(void) asm("func_002994f8");
+void func_0029a820(void) asm("func_0029a820");
+void func_0029edb8(void) asm("func_0029edb8");
+void func_002a0588(void) asm("func_002a0588");
+void func_002a4c68(void) asm("func_002a4c68");
+void func_002a68e8(void) asm("func_002a68e8");
+void func_002a7678(void) asm("func_002a7678");
+void func_002a8948(void) asm("func_002a8948");
+void func_002aea98(void) asm("func_002aea98");
+void func_002926c0(s32) asm("func_002926c0");
+void NextModeToMode(s32, s32) asm("func_00287bd0");
+void SetState(s32) asm("_ZN2Tz8Selector8SetStateEi");
+Mm* getMenuMode(void) asm("func_00103eb0");
+void func_00102818(u32, s32, s32, void (*)(void), s32) asm("func_00102818");
+void PauseThread(void) asm("func_00274b40");
+static inline void CtorA(u8* q) {
+    *(u32*)(q + 12) = 0;
+    *(u32*)q = (u32)D_00347e60;
+    SeqCtor(q + 24);
+    *(u32*)q = (u32)D_00347e40;
+    *(u32*)(q + 408) = 0;
+}
+static inline void CtorB1(u8* q, u32 f98) {
+    *(u32*)q = f98;
+    func_0031a838(q + 12);
+    *(u32*)q = (u32)D_00347e60;
+    SeqCtor(q + 24);
+    *(u32*)(q + 408) = 0;
+    *(u32*)q = (u32)D_00347e40;
+}
+static inline void CtorB2(u8* q, u32 f98) {
+    *(u32*)q = f98;
+    func_0031a838(q + 12);
+    *(u32*)q = (u32)D_00347e60;
+    SeqCtor(q + 24);
+    *(u32*)(q + 408) = 0;
+    *(u32*)q = (u32)D_00347e40;
+}
+static inline void CtorB3(u8* q, u32 f98) {
+    *(u32*)q = f98;
+    func_0031a838(q + 12);
+    *(u32*)q = (u32)D_00347e60;
+    SeqCtor(q + 24);
+    *(u32*)q = (u32)D_00347e40;
+    *(u32*)(q + 408) = 0;
+}
+struct Q4 { u8 d[1872]; Q4() { u8* q = (u8*)this; u32 k98 = (u32)D_00347f98; CtorA(q); CtorB1(q + 436, k98); CtorB2(q + 872, k98); CtorB3(q + 1308, k98); } static void* operator new(unsigned int n, Sys* s) { return LoadDataAlloc(n, s); } };
+struct Big { u8 d[0x11320]; Big() { func_00323540(this); } static void* operator new(unsigned int n, Sys* s) { return LoadDataAlloc(n, s); } };
+void func_00273fa0(void) asm("func_00273fa0");
+void func_00273fa0(void) {
+    s32 sel;
+    s32 mode;
+    func_00292540();
+    SetModeMax(41, 3);
+    func_00253818(3);
+    func_00259350(3);
+    D_0035f13c = GetPri(0);
+    func_0028d068(30065, -1);
+    D_0035f214 = 0;
+    D_0035f218 = 0;
+    if (!(D_0035f140 & 4)) D_0035f140 = 0;
+    D_0035f14c = 5;
+    D_0035f144 = -1;
+    D_0035f148 = 0;
+    D_0035f150 = 1;
+    D_0035f210 = 0;
+    D_0035f204 = 0;
+    D_0035f208 = 0;
+    func_0028d068(30065, -1);
+    D_0035f200 = new Cur(18, 1);
+    D_0035f214 = new (D_0032ba14) Lst;
+    D_0035f218 = new (D_00347f80->heap, 0) IStat;
+    D_0035f20c = (u8*)new (LoadDataGetSystem()) Q4;
+    D_0035f1fc = (s8*)LoadDataAlloc(4, LoadDataGetSystem());
+    D_0035f21c = new (LoadDataGetSystem()) Big;
+    D_0035f224 = new (LoadDataGetSystem()) T32[2];
+    D_0035f1fc[0] = -1;
+    D_0035f228 = -1;
+    if (isMonochrome()) D_0035f228 = func_0013aa38(0);
+    D_0035f3d4 = 30045;
+    sel = func_002535c0();
+    if (sel < 0) sel = 0;
+    D_0035f1fc[2] = sel == 2;
+    if (sel != 2) {
+        s8* p = D_0035f1fc;
+        *p = func_002764b0(D_0035f138);
+        if (D_0035f1fc[0] < 0) sel = 0;
+    }
+    mode = 0;
+    switch (sel) {
+    case 0: D_0035f1fc[0] = -1; break;
+    case 1: mode = 2; break;
+    case 2: mode = 1; D_0035f1fc[0] = 19; break;
+    case 3: mode = 11; break;
+    }
+    if (!(D_0035f140 & 4)) {
+        func_00293e00((void*)LoadDataGetSystem());
+        D_0035f222 = 0;
+    } else {
+        D_0035f222 = 1;
+        func_00288670(func_002766c0);
+    }
+    D_0035f220 = 0;
+    D_0035f221 = 0;
+    func_002a1f88();
+    func_002a9ce8();
+    func_002acda8();
+    func_002944f8();
+    func_002957b8();
+    func_00296fa0();
+    func_00297cf8();
+    func_002994f8();
+    func_0029a820();
+    func_0029edb8();
+    func_002a0588();
+    func_002a4c68();
+    func_002a68e8();
+    func_002a7678();
+    func_002a8948();
+    func_002aea98();
+    func_002926c0(1);
+    D_0035f1fc[1] = 0;
+    NextModeToMode(mode, 0);
+    SetState(0);
+    func_00102818(getMenuMode()->b, 0, 2000, PauseThread, 4096);
+}
+}  // namespace n00273fa0
