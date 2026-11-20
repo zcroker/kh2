@@ -1,4 +1,4 @@
-// Linked unit 0x00269a60-0x0026a5a0 (one namespace per old matched source; class methods in their own namespace).
+// Linked unit 0x00269a60-0x0026a900 (one namespace per old matched source; class methods in their own namespace).
 #include "../common/types.h"
 #include <stdarg.h>
 
@@ -380,3 +380,129 @@ void func_0026a3b8(void* target, u8 follow)
 }
 }  // namespace n0026a3b8
 
+// 0026a5a0 (was whole asm src/anon/batch_w3912.s)
+// The two list/menu globals are read through inline accessors returning a reference: the BLOCK notes of the
+// inlined body sit between each `high` and its load, which gives the loop-2 highs a loop.c lifetime of 2 so they
+// are hoisted, spilled and rematerialised (retail's lui s0/t5/t6).
+namespace n0026a5a0 {
+struct P { u8 pad[408]; s32 f408; };
+struct E1 { u8 pad[408]; s32 f408; u8 pad2[24]; };
+struct E2 { u8 pad[408]; };
+struct B { u8 pad[3376]; E1 a[64]; };
+struct R1 { u16 h0; u16 h2; };
+struct R2 { u8 pad[8]; u16 h8; };
+extern s32 D_0035f0ec asm("D_0035f0ec");
+extern s32 D_0035f01c asm("D_0035f01c");
+extern s32 D_0035f04c asm("D_0035f04c");
+extern s32 D_0035ef6c asm("D_0035ef6c");
+extern s16 D_00373800[] asm("D_00373800");
+extern s32 D_00373730 asm("D_00373730");
+extern s32 D_00373734 asm("D_00373734");
+s32 func_00281f18(s32) asm("func_00281f18");
+B* func_00257770(void) asm("func_00257770");
+s32 func_00139d78(void*) asm("func_00139d78");
+s32 func_00287bc0(void) asm("func_00287bc0");
+s32 func_0028b038(s32) asm("func_0028b038");
+void func_0028be78(s32, s32) asm("func_0028be78");
+s32 func_002892f8(s32) asm("func_002892f8");
+P* func_002891b8(s32, s32) asm("func_002891b8");
+void func_00138c10(void*, s32) asm("func_00138c10");
+void func_002827f0(s32, s32, s32) asm("func_002827f0");
+s32 func_002570a0(s32) asm("func_002570a0");
+s32 func_00269508(s32) asm("func_00269508");
+s32 func_00282d68(void) asm("func_00282d68");
+s32 func_00192048(s32) asm("func_00192048");
+s32 func_00281f30(s32) asm("func_00281f30");
+s32 func_00282d58(s32) asm("func_00282d58");
+u16* func_0026a178(s32, s32) asm("func_0026a178");
+R1* func_001a8190(u16*) asm("func_001a8190");
+R2* func_001a80c8(u16) asm("func_001a80c8");
+s32 func_00285d58(u16) asm("func_00285d58");
+s32 func_00285e30(u16) asm("func_00285e30");
+void func_0026a5a0(void) asm("func_0026a5a0");
+static inline s32& Lst() { return D_0035f01c; }
+static inline s32& Mnu() { return D_0035f0ec; }
+void func_0026a5a0(void) {
+    s32 adj;
+    s32 st;
+    s32 i;
+    s32 sel;
+    s32 k;
+    s32 h;
+    s32 base;
+    s32 c0;
+    s32 fl;
+    s32 f;
+    s32 s;
+    s32 n;
+    s32 v;
+    s32 j;
+    s32 cnt;
+    B* b;
+    c0 = func_00281f18(Mnu());
+    b = func_00257770();
+    func_00139d78(b);
+    st = func_00287bc0();
+    sel = func_0028b038(Lst());
+    func_0028be78(D_0035f04c, sel);
+    v = func_002892f8(Lst());
+    n = v;
+    for (i = 0; i < n; i++) {
+        func_002891b8(Lst(), i)->f408 = 0;
+        E1* e = &b->a[i];
+        if (func_00139d78(e)) {
+            func_00138c10(e, D_0035ef6c);
+            e->f408 = 0;
+        }
+        func_00138c10(&((E2*)((u8*)b + 0x87d0))[i], D_0035ef6c);
+    }
+    s = sel;
+    v = func_00281f18(Mnu());
+    f = (st == 5 || st == 6);
+    if (v >= 9) v = 8;
+    if (!f) s = sel - (sel > 0);
+    func_002827f0(Mnu(), s, v);
+    if (f) h = D_00373800[func_00269508(func_002570a0(2))];
+    else h = -1;
+    if ((st == 5 || st == 6) && c0 == 0) {
+        P* p = func_002891b8(Lst(), 0);
+        p->f408 = func_00192048(func_00282d68());
+        return;
+    }
+    i = sel;
+    cnt = 0;
+    k = 0;
+    base = func_00281f30(Mnu());
+    adj = !(st == 5 || st == 6);
+    n = adj + c0;
+    for (; i < n; i++) {
+        fl = (st == 5 || st == 6);
+        if (k >= 8) break;
+        j = i;
+        if (!fl) {
+            if (i == 0) {
+                k++;
+                func_002891b8(Lst(), 0)->f408 = func_00282d58(Mnu());
+                continue;
+            }
+            j = i - 1;
+        }
+        func_002891b8(Lst(), k)->f408 = base + cnt * 80 + 16;
+        cnt++;
+        if ((st == 5 || st == 6)) {
+            u16 x = func_001a8190(func_0026a178(j, -1))->h2;
+            if (x) {
+                s = func_001a80c8(x)->h8;
+                E1* e = &b->a[k];
+                func_00138c10(e, h);
+                e->f408 = func_00192048(s);
+            }
+        }
+        if (func_00285d58(*func_0026a178(j, -1))) {
+            s = func_00285e30(*func_0026a178(j, -1)) ? D_00373734 : D_00373730;
+            func_00138c10(&((E2*)((u8*)b + 0x87d0))[k], s);
+        }
+        k++;
+    }
+}
+}  // namespace n0026a5a0
