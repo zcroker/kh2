@@ -672,7 +672,7 @@ src/libkernl/asm_0030f538.s	0030f538	0030f548	-	-
 src/sdk/sdk_asm_0030f620.s	0030f620	0030f688	-	-
 src/sdk/sdk_asm_0030fc60.s	0030fc60	0030ff08	-	-
 src/sdk/sdk_asm_0030ff08.s	0030ff08	0030ff58	-	-
-src/sdk/sdk_asm_0030ffd8.s	0030ffd8	00310048	-	-
+src/sdk/libkernl_0030ffd8.c	0030ffd8	00310048	-	-G0
 src/sdk/sdk_asm_00310f38.s	00310f38	00310fe0	-	-
 src/libkernl/asm_00311300.s	00311300	00311310	-	-
 src/libkernl/asm_00311348.s	00311348	00311368	-	-
