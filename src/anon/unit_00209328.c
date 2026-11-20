@@ -1,7 +1,7 @@
 // Linked unit 0x00209328-0x00209d68 (was whole asm). Projected sprite/quad -> GIF packet:
 // two edge widths from the camera, 8 corners, colour scale + clamp, ST/RGBA/XYZ2 vertices, DMA kick.
-// Plain C except one empty asm in the vertex loop (asm("" :: "r"(&uv[i]))): without it the uv giv and the
-// i<4 flag swap s1/s2 and i / the i*16 giv swap s4/s5 (priority order in global-alloc).
+// Plain C. The perspective path calls func_002f3f40 once per iw[] in an if/else; cross-jumping merges the
+// two calls, but the second &uv[i] use before that gives the uv giv the global-alloc priority it has in retail.
 // The clamp loop reuses i as its counter: that is what makes the live-range pass split i around the first
 // corner loop (retail's `move s0,s4`) without an extra `li s4,8`.
 // 0x01da8be0 is a qword constant (no symbol in the retail data map).
@@ -211,10 +211,9 @@ void func_00209328(u8* base, Spr* s, SprSrc* src)
     n = 0;
     for (i = 0; i < 8; i++) {
         if (func_002f4888(&c[i]) == 0) {
-            asm("" :: "r"(&uv[i]));
             if (s->persp) {
-                f32 f = i < 4 ? iw[0] : iw[1];
-                func_002f3f40(&t, &uv[i], f);
+                if (i < 4) func_002f3f40(&t, &uv[i], iw[0]);
+                else func_002f3f40(&t, &uv[i], iw[1]);
                 *(f32*)w++ = t.x;
                 *(f32*)w++ = t.y;
                 *(f32*)w++ = t.z;
