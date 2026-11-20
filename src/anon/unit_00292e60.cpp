@@ -2047,3 +2047,116 @@ u32 func_00295868(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7
 }
 }  // namespace n00295868
 
+
+// 002958b0 (was whole asm src/anon/batch_w3949.s)
+namespace n002958b0 {
+u8* jm_parent(void) asm("_ZN2Tz6Jiminy9GetParentEv");
+u8* jm_seqtbl(void) asm("_ZN2Tz6Jiminy9GetSeqTblEv");
+void jm_cover(s32) asm("_ZN2Tz6Jiminy8SetCoverEi");
+void jm_mainframe(void) asm("_ZN2Tz6Jiminy14SetupMainFrameEv");
+void func_00288e88(s32) asm("func_00288e88");
+void func_002969e0(void) asm("func_002969e0");
+void func_00276088(s32, s32*, s32*) asm("func_00276088");
+void func_00275f68(s32, s32) asm("func_00275f68");
+s32 func_00295430(s32, s32) asm("func_00295430");
+void func_00275e68(s32) asm("func_00275e68");
+void pz_cfo(void*, s32, s32, s32, s32, s32, s32, s32) asm("_ZN2Tz5Pause16CreateFadeObjectEz");
+void obj_xyoff(void*) asm("_ZN2dk5Obj2D17getSeqPraramXYOffEv");
+void mc_as(void*, void*) asm("_ZN2Tz10MenuCursor12AttachSpriteEz");
+s32 yi_cr(void*) asm("_ZN2YI8SEQUENCE10GetParamCrEv");
+void sel_set(s32) asm("_ZN2Tz8Selector8SetStateEi");
+s32 mb_mode(void) asm("_ZN2Tz8MenuBase7GetModeEv");
+s32 jm_curpos(s32) asm("_ZN2Tz6Jiminy9GetCurPosEi");
+void jm_savecur(s32, s32, s32) asm("_ZN2Tz6Jiminy10SaveCurPosEiii");
+s8* jm_info(void) asm("_ZN2Tz6Jiminy11GetMenuInfoEv");
+u32 sel_gen(s32) asm("_ZN2Tz6Select15GetEnableButtonEv");
+void sel_sen(s32, u32) asm("_ZN2Tz6Select15SetEnableButtonEj");
+void jr_draw(void) asm("_ZN2Tz8JmReport10DrawUpdateEPNS_6SelectEii");
+extern s32 D_0035f3d4 asm("D_0035f3d4");
+extern s32 D_0035f14c asm("D_0035f14c");
+extern s32 D_0035f148 asm("D_0035f148");
+extern s32 D_0035f210 asm("D_0035f210");
+extern s32 D_0035f200 asm("D_0035f200");
+struct Obj { u8 pad[408]; void* x198; u8 pad2[8]; s32 x1a4; u8 pad3[4]; s32 x1ac; s32 x1b0; u8 pad4[4]; };
+void func_00288d80(s32, s32, s32, s32, s32, s32, s16*, s16*) asm("func_00288d80");
+Obj* sel_item(s32, s32) asm("_ZN2Tz6Select10GetItemPtrEi");
+void reset_alpha(void*) asm("_ZN2dk5Obj2D17resetSeqAlphaOnlyEv");
+void set_off(Obj*, s32, s32) asm("_ZN2dk6Sprite12setOffsetPosEii");
+void mc_create(void*, s32, s32, s32, s32, s32, s32, s32, s32) asm("_ZN2Tz10MenuCursor6CreateEz");
+void func_002891f0(s32, s32, s32, s32, s32) asm("func_002891f0");
+void func_00296b80(s32) asm("func_00296b80");
+void func_002960d0(void) asm("func_002960d0");
+void func_00295d28(void) asm("func_00295d28");
+struct Cur { u8 pad[432]; s32 x1b0; };
+/*TARGET 002958b0*/
+void func_002958b0(void) asm("func_002958b0");
+void func_002958b0(void) {
+    s16 h[2][4];
+    s32 a, b;
+    s32 i = 0;
+    s32 cr;
+    u8* par = jm_parent();
+    u8* seq = jm_seqtbl();
+    u8* A;
+    u8* B;
+    jm_cover(1);
+    func_00288e88(D_0035f200);
+    func_002969e0();
+    jm_mainframe();
+    func_00276088(mb_mode(), &a, &b);
+    func_00275f68(a, b);
+    func_00275e68(func_00295430(*jm_info(), 0));
+    for (i = 0; i < 2; i++)
+        for (s32 j = 0; j < 4; j++) h[i][j] = 3;
+    s32 n = D_0035f3d4 - 1;
+    pz_cfo(seq, n, D_0035f14c, D_0035f148, D_0035f210, 159, -1, 0);
+    i = 0;
+    obj_xyoff(seq);
+    mc_as(seq, par);
+    A = seq + 816;
+    pz_cfo(A, n, D_0035f14c, D_0035f148, D_0035f210, 169, -1, 0);
+    obj_xyoff(A);
+    mc_as(A, par);
+    B = seq + 1632;
+    mc_create(B, n, D_0035f14c, D_0035f148, D_0035f210, 167, -1, -1, 0);
+    reset_alpha(B);
+    mc_as(B, par);
+    Cur* c1 = (Cur*)(seq + 2068);
+    mc_create(c1, n, D_0035f14c, D_0035f148, D_0035f210, 3, -1, -1, 0);
+    obj_xyoff(c1);
+    mc_as(c1, B);
+    c1->x1b0 = 2;
+    u8* c2 = seq + 2504;
+    mc_create(c2, n, D_0035f14c, D_0035f148, D_0035f210, 168, -1, -1, 0);
+    reset_alpha(c2);
+    mc_as(c2, par);
+    Cur* c3 = (Cur*)(seq + 2940);
+    mc_create(c3, n, D_0035f14c, D_0035f148, D_0035f210, 3, -1, -1, 0);
+    obj_xyoff(c3);
+    mc_as(c3, c2);
+    c3->x1b0 = 2;
+    cr = yi_cr(seq + 24);
+    n = D_0035f3d4;
+    for (i = 0; i < 9; i++) {
+        func_00288d80(D_0035f200, i, D_0035f14c, D_0035f148, D_0035f210, -1, h[0], h[1]);
+        Obj* it = sel_item(D_0035f200, i);
+        obj_xyoff(it);
+        mc_as(it, seq);
+        set_off(it, 0, i * cr);
+        u8* e = seq + 30360 + i * 408;
+        pz_cfo(e, n + 1, D_0035f14c, D_0035f148, D_0035f210, 3, -1, 0);
+        mc_as(e, it);
+        e = seq + 0xa998 + i * 408;
+        pz_cfo(e, n + 2, D_0035f14c, D_0035f148, D_0035f210, 3, -1, 0);
+        mc_as(e, it);
+    }
+    func_00296b80(0);
+    func_002891f0(D_0035f200, jm_curpos(mb_mode()), 0, -1, -1);
+    jm_savecur(mb_mode(), 0, 0);
+    func_002960d0();
+    func_00295d28();
+    sel_sen(D_0035f200, sel_gen(D_0035f200) | 0x3000);
+    jr_draw();
+    sel_set(0);
+}
+}  // namespace n002958b0
