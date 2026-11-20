@@ -380,7 +380,7 @@ src/anon/batch_w1336.c	00207350	00208298	.rodata@00370588	-G0
 src/anon/batch_w2339_gnsa.c	00208298	002086e0	-	-G0 -g -fno-strict-aliasing
 src/anon/unit_002086e0.cpp	002086e0	00208a30	.rodata@0037060c	-G0 -fno-strict-aliasing
 src/anon/batch_w3703_nosched.c	00208a30	00208cb0	.rodata@00370634	-G0 -fno-schedule-insns
-src/anon/unit_002090c0.cpp	002090c0	00209328	.rodata@00370668	-G0 -fno-strict-aliasing
+src/anon/unit_002090c0.cpp	00208cb0	00209328	.rodata@00370664	-G0 -fno-strict-aliasing
 src/anon/unit_00209d68.cpp	00209d68	0020a090	-	-G0 -fno-strict-aliasing
 src/anon/unit_0020a090.c	0020a090	0020a510	.rodata@0037068c	-G0 -fno-sched-interblock
 src/anon/unit_0020a510.cpp	0020a510	0020a658	.rodata@00370698	-G0 -fno-strict-aliasing
@@ -827,7 +827,6 @@ src/anon/unit_001ff928.cpp	001ff928	001ff958	-	-G0
 src/anon/batch_w3860_nsa.c	001ff958	001ffd70	.rodata@00370294	-G0 -fno-strict-aliasing
 src/anon/asm_001ffd70.s	001ffd70	00200578	-	-
 src/anon/asm_00202708.s	00202708	00202978	-	-
-src/anon/asm_00208cb0.s	00208cb0	002090c0	-	-
 src/anon/asm_0020cfd8.s	0020cfd8	0020d178	-	-
 src/anon/asm_0020e590.s	0020e590	0020e758	-	-
 src/anon/asm_002586e0.s	002586e0	002588e8	-	-
