@@ -870,7 +870,7 @@ src/libsupc++/eh_globals.cpp	003168d8	00316d08	.data@00367920,.bss@01e4c790	-G0 
 src/libgcc/unwind-dw2.c	00316e20	00319788	.data@00369d50,.rodata@00378618,.bss@01e4c7b0	-G0 -fexceptions
 src/sdk/libgraph_002f1e18.c	002f1e18	002f20c0	.rodata@003762c8	-G0
 src/sdk/libcdvd_002f6698.c	002f6698	002f6870	-	-G0
-src/sdk/libcdvd_002f6870.c	002f6870	002f7418	.rodata@00376b70	-G0
+src/sdk/libcdvd_002f6870.c	002f6870	002f74c8	.rodata@00376b70	-G0
 src/sdk/libcdvd_002f77b0.c	002f77b0	002f800c	.rodata@00376d10	-G0
 src/sdk/libkernl_00305aa0.c	00305aa0	00305b40	-	-G0
 src/anon/gcc_crt_init.s	00319788	003197ac	-	-
@@ -894,7 +894,6 @@ src/sdk/libvu0_002f45f0.s	002f45f0	002f4820	-	-
 src/sdk/libvu0_002f4820.c	002f4820	002f483c	-	-G0
 src/sdk/libvu0_002f4840.s	002f4840	002f49c0	-	-
 src/sdk/libvu0_002f49c0.c	002f49c0	002f4a1c	-	-G0
-src/sdk/libcdvd_002f7418.s	002f7418	002f74c8	-	-
 src/libkernl/syscall_00305200.s	00305200	00305220	-	-
 src/libkernl/syscall_00305230.s	00305230	00305240	-	-
 src/libkernl/syscall_00305250.s	00305250	00305260	-	-

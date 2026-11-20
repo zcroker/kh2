@@ -377,3 +377,25 @@ int func_002f72c0(int cmd)
     }
     return 1;
 }
+
+/* 0x2f7418: maps an RPC function number to its result buffer; stores it through out. */
+extern int D_00363da8_p asm("D_00363da8");
+extern volatile int D_00363dac_p asm("D_00363dac");
+extern char D_00363e00_p[] asm("D_00363e00");
+extern char D_00363e80_p[] asm("D_00363e80");
+extern char D_00364f50_p[] asm("D_00364f50");
+extern char D_00364f80_p[] asm("D_00364f80");
+extern char D_003653c0_p[] asm("D_003653c0");
+extern char D_00365900_p[] asm("D_00365900");
+int func_002f7418(int fno, void **out)
+{
+    *out = fno == 0x8001 ? (void *)D_00363da8_p
+         : fno == 0x8003 ? (void *)D_00363e00_p
+         : fno == 0x8002 ? (void *)D_00363e80_p
+         : fno == 0x8004 ? (void *)D_00364f50_p
+         : fno == 0x8011 ? (void *)D_00363dac_p
+         : fno == 0x8013 ? (void *)D_00364f80_p
+         : fno == 0x8012 ? (void *)D_003653c0_p
+         : fno == 0x8014 ? (void *)D_00365900_p : 0;
+    return 1;
+}
