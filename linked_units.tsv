@@ -567,7 +567,7 @@ src/anon/unit_0011a660.cpp	0011a660	0011b3f8	.rodata@0036a8b8	-G0 -fno-strict-al
 src/anon/unit_0011b3f8.cpp	0011b3f8	0011c128	.rodata@0036a8d0	-G0
 src/anon/unit_0011c128.cpp	0011c128	0011f7a8	.rodata@0036a908	-G0 -fno-strict-aliasing -fmove-all-movables
 src/anon/unit_00120520.cpp	00120520	00121cc8	.rodata@0036a970	-G0 -fno-strict-aliasing -fmove-all-movables
-src/anon/unit_00123138.cpp	00123138	00123650	.rodata@0036a9b4	-G0 -fno-strict-aliasing -fmove-all-movables
+src/anon/unit_00123138.cpp	00123138	00123990	.rodata@0036a9b4	-G0 -fno-strict-aliasing -fmove-all-movables
 src/anon/unit_00123990.cpp	00123990	00125f78	.rodata@0036a9c8	-G0 -fno-strict-aliasing -fmove-all-movables
 src/anon/unit_00127a88.cpp	00127a88	00127ec8	.rodata@0036a9e0	-G0 -fno-strict-aliasing -fmove-all-movables
 src/harata/libdk/mapfile.cpp	001491a8	00149be8	.rodata@0036afb8	-G0
@@ -723,7 +723,6 @@ src/libgcc/crtend.c	00101ce0	00101d50	.init@00319798	-G0
 src/global/unit_00101d50.cpp	00101d50	00102298	.data@0032b91c,.gnu.linkonce.d._ZTV4PROC@0032b928,.bss@0037aa40	-G0 -fno-strict-aliasing
 src/common/unit_00103100.cpp	00103100	001031b0	-	-G0 -fno-sched-interblock
 src/anon/unit_00105550.cpp	00105550	001056e8	-	-G0
-src/anon/asm_00123650.s	00123650	00123990	-	-
 src/anon/unit_00127f40.cpp	00127ec8	00128040	-	-G0
 src/anon/asm_00133c90.s	00133c90	00133cf0	-	-
 src/anon/unit_0015d440a.cpp	0015d440	0015d4e8	-	-G0

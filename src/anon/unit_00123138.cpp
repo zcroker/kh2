@@ -152,3 +152,95 @@ s32 func_00123228(W3721bObj* o, W3721bMtx* mtx, s32* ids, W3721bDesc* d, u8* mas
 }
 }  // namespace n00123228
 
+// 00123650 (was whole asm, never written in C before)
+namespace g00123650 {
+typedef unsigned int u128 __attribute__((mode(TI)));
+struct Tex { u8 pad[3]; u8 vis; };
+struct Part { u32 w0; u8 pad[28]; };
+struct Mdl { u8 pad[28]; s32 count; Part parts[1]; };
+struct Obj { u8 pad[4]; Mdl* mdl; };
+struct Desc { u8 pad[24]; u64 flags; u8 pad2[9]; u8 r, g, b; };
+struct Mtx {
+    u128 row[4];
+    Mtx& operator=(const Mtx& o) {
+        if (this != &o)
+            asm volatile("lq $8, 0(%1)\n\tlq $9, 16(%1)\n\tlq $10, 32(%1)\n\tlq $11, 48(%1)\n\t"
+                         "sq $8, 0(%0)\n\tsq $9, 16(%0)\n\tsq $10, 32(%0)\n\tsq $11, 48(%0)"
+                         : : "r"(this), "r"(&o) : "$8", "$9", "$10", "$11", "memory");
+        return *this;
+    }
+} __attribute__((aligned(16)));
+struct Hdr { u8 pad[16]; u32 r, g, b, a; u8 pad2[48]; Mtx mtx; };
+struct Prim { f32 f0, f4; u32 f8, f12; f32 f16, f20; u32 f24, f28; };
+s32 func_0010ae90(void) asm("func_0010ae90");
+Tex* func_00108930(Desc*, s32) asm("func_00108930");
+u64 func_00109048(s32) asm("func_00109048");
+u64 func_00109068(s32) asm("func_00109068");
+void func_0010ab80(void) asm("func_0010ab80");
+void func_00108dd8(s32, u64) asm("func_00108dd8");
+void func_00109008(s32) asm("func_00109008");
+s32 func_001344f8(void) asm("func_001344f8");
+void func_00109360(s32, s32) asm("func_00109360");
+Hdr* func_00108730(Desc*, s32) asm("func_00108730");
+Prim* func_00133bb8(s32, s32, u32, u32) asm("func_00133bb8");
+void func_00133c60(s32, s32, s32, s32, s32) asm("func_00133c60");
+u64 func_00109040(s32) asm("func_00109040");
+u64 func_00109050(s32) asm("func_00109050");
+u64 func_00109058(s32) asm("func_00109058");
+u64 func_00109060(s32) asm("func_00109060");
+void func_00108ae0(s32, u32, u64, u64, u64, u64, u64, u64) asm("func_00108ae0");
+// Draws the masked (flag 4) visible parts of an object's model as a second pass.
+s32 func_00123650(Obj* o, Mtx* mtx, s32* ids, Desc* d, u8* mask) asm("func_00123650");
+s32 func_00123650(Obj* o, Mtx* mtx, s32* ids, Desc* d, u8* mask)
+{
+    Tex* tex[32];
+    Mdl* mdl = o->mdl;
+    s32 n = 0;
+    s32 i;
+    { Desc* src = d; for (i = 0; i < 32; i++) tex[i] = func_00108930(src, i); }
+    for (i = 0; i < mdl->count; i++) {
+        u8 f = mask[i] & 0xf;
+        if (f && (f & 4)) {
+            Tex* p = (Tex*)(((mdl->parts[i].w0 >> 6) & 0x1f) * 4 + (u32)tex); p = *(Tex**)p; if (p->vis) n++;
+        }
+    }
+    if (n) {
+        s32 pk = func_0010ae90();
+        u32 a = func_00109048(pk);
+        u32 b = func_00109068(pk);
+        func_0010ab80();
+        func_00108dd8(pk, d->flags & ~(1ULL << 32));
+        func_00109008(pk);
+        s32 g = func_001344f8();
+        func_00109360(g, 4);
+        Hdr* h = func_00108730(d, g);
+        h->r = d->r;
+        h->g = d->g;
+        h->b = d->b;
+        h->a = 128;
+        h->mtx = *mtx;
+        Prim* p = func_00133bb8(g, 2, 0x01000101, 0x6c02400a);
+        p->f28 = 0;
+        p->f8 = 0;
+        p->f12 = 0;
+        p->f24 = 0;
+        p->f0 = 0.001953125f;
+        p->f16 = -3.5f;
+        p->f20 = -4.42307663f;
+        p->f4 = 0.00240384601f;
+        for (i = 0; i < mdl->count; i++) {
+            u8 f = mask[i] & 0xf;
+            if (f && (f & 4)) {
+                Tex* p = (Tex*)(((mdl->parts[i].w0 >> 6) & 0x1f) * 4 + (u32)tex); p = *(Tex**)p;
+                if (p->vis) {
+                    func_00133bb8(g, 0, 0x11000000, 0x13000000);
+                    func_00133c60(g, ids[i], 0, 0, 0);
+                }
+            }
+        }
+        func_00108ae0(pk, 63, func_00109040(pk), a, func_00109050(pk), func_00109058(pk), func_00109060(pk), b);
+    }
+    return 1;
+}
+}  // namespace g00123650
+
