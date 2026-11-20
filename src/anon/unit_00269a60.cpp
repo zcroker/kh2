@@ -1,6 +1,132 @@
-// Linked unit 0x00269a60-0x0026a900 (one namespace per old matched source; class methods in their own namespace).
+// Linked unit 0x00269658-0x0026a900 (one namespace per old matched source; class methods in their own namespace).
 #include "../common/types.h"
 #include <stdarg.h>
+
+// 00269658 (was whole asm src/anon/asm_00269658.s)
+// Fills the 9 list rows of a menu page, then walks 5 categories (counts from func_002827e0, ability mask from
+// func_002813b8 & func_00281420) and sets each visible row's icon/text from the s16/u16 tables at 0x00373738...
+// cat is the counter of loops 1 and 2 (the live-range pass copies it: retail `move s5,zero ... move s2,s5`);
+// D_00373738 is read through a reference accessor (gives the retail order/regs of the three hoisted table chains).
+// The loop-1 value is pinned to $17: unpinned, the cat range copy outranks it in global alloc and takes s1 (see the
+// ledger experiment log O10_00269658).
+namespace n00269658 {
+extern u32 D_0035f01c asm("D_0035f01c");
+extern u32 D_0035f04c asm("D_0035f04c");
+extern u32 D_0035ef6c asm("D_0035ef6c");
+extern s16 D_00373738[] asm("D_00373738");
+extern s16 D_00373748[] asm("D_00373748");
+extern s16 D_00373758[] asm("D_00373758");
+extern u16 D_00373768[] asm("D_00373768");
+extern s16 D_00373778[] asm("D_00373778");
+extern u16 D_00373788[] asm("D_00373788");
+u32 func_00257130(void) asm("func_00257130");
+s32 func_00281f18(u32) asm("func_00281f18");
+u8* func_00257770(void) asm("func_00257770");
+s32 func_00139d78(void*) asm("func_00139d78");
+s32 func_0028b038(u32) asm("func_0028b038");
+void func_0028be78(u32, s32) asm("func_0028be78");
+s32 func_00257140(s32) asm("func_00257140");
+u8* func_002891b8(u32, s32) asm("func_002891b8");
+void func_00138c10(void*, s32) asm("func_00138c10");
+s32 func_002827e0(u32, s32) asm("func_002827e0");
+s32 func_002813b8(void) asm("func_002813b8");
+s32 func_00281420(void) asm("func_00281420");
+u8* func_00281f30(u32) asm("func_00281f30");
+u8* func_00281f20(u32) asm("func_00281f20");
+s32 func_0028afa8(u32) asm("func_0028afa8");
+s32 func_00192048(s32) asm("func_00192048");
+s32 func_00257158(u16, u8, s32) asm("func_00257158");
+static inline s16& A38(s32 k) { return D_00373738[k]; }
+/*TARGET 00269658*/
+void func_00269658(void) asm("func_00269658");
+void func_00269658(void)
+{
+    s32 n[5];
+    s32 top;
+    s32 mask;
+    s32 lim;
+    u8* w40;
+    u8* w44;
+    s32 nwrap;
+    u8* base;
+    s32 cat = 0;
+    s32 slot;
+    s32 i;
+    s16 a;
+    u32 b;
+    register s32 v asm("$17");
+    nwrap = func_00281f18(func_00257130());
+    base = func_00257770();
+    func_00139d78(base);
+    func_0028be78(D_0035f04c, func_0028b038(D_0035f01c));
+    v = func_00257140(0);
+    for (; cat < 9; cat++) {
+        func_00138c10(func_002891b8(D_0035f01c, cat), D_0035ef6c);
+        func_00138c10(base + cat * 436 + 24304, v);
+        *(s32*)(base + cat * 436 + 24712) = 0;
+        func_00138c10(base + cat * 436 + 3376, D_0035ef6c);
+        *(s32*)(base + cat * 436 + 3784) = 0;
+    }
+    for (cat = 0; cat < 5; cat++) n[cat] = func_002827e0(func_00257130(), cat);
+
+    mask = 0;
+    if (n[1]) {
+        s32 m = func_002813b8();
+        mask = m & func_00281420();
+    }
+    s32 k = 0;
+    slot = 0;
+    cat = 0;
+    top = func_0028b038(D_0035f01c);
+    w40 = func_00281f30(func_00257130());
+    w44 = func_00281f20(func_00257130());
+    lim = func_0028afa8(D_0035f01c);
+    for (;;) {
+        if (top + slot >= lim) break;
+        for (s32 j = 0; j < n[cat] && slot < 9; j++, k++) {
+            if (k < top) continue;
+            i = -1;
+            if (j == 0 || cat == 1) {
+                b = -1;
+                a = -1;
+                if (cat != 1) {
+                    a = D_00373758[cat];
+                    b = D_00373768[cat];
+                } else {
+                    s32 c = 0;
+                    for (i = 0; i < 7; i++) {
+                        if ((u8)((mask >> i) & 1)) {
+                            if (c == j) {
+                                a = D_00373778[i];
+                                b = D_00373788[i];
+                                break;
+                            }
+                            c++;
+                        }
+                    }
+                }
+                u8* o = base + slot * 436 + 3376;
+                func_00138c10(o, a);
+                *(s32*)(o + 408) = func_00192048(b);
+            }
+            if (cat != 1) a = A38(cat); else a = D_00373748[i];
+            b = (top + slot) % nwrap;
+            func_00138c10(func_002891b8(D_0035f01c, slot), a);
+            i = func_00257140(0);
+            if (cat == 4) {
+                i = func_00257140(func_00257158(*(u16*)&w44[b * 6], w44[b * 6 + 2], w44[b * 6 + 3] != 0));
+            }
+            u8* o = base + slot * 436 + 24304;
+            slot++;
+            func_00138c10(o, i);
+            *(u8**)(o + 408) = w40 + b * 80 + 16;
+        }
+        if (cat + 1 >= 5 && slot < 9) cat = -1;
+        cat++;
+        if (cat >= 5 || slot >= 9) break;
+    }
+}
+}  // namespace n00269658
 
 // 00269a60 (was src/anon/batch_w2427.cpp)
 namespace n00269a60 {
