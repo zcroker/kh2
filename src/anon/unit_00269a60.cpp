@@ -7,8 +7,8 @@
 // func_002813b8 & func_00281420) and sets each visible row's icon/text from the s16/u16 tables at 0x00373738...
 // cat is the counter of loops 1 and 2 (the live-range pass copies it: retail `move s5,zero ... move s2,s5`);
 // D_00373738 is read through a reference accessor (gives the retail order/regs of the three hoisted table chains).
-// The loop-1 value is pinned to $17: unpinned, the cat range copy outranks it in global alloc and takes s1 (see the
-// ledger experiment log O10_00269658).
+// v also holds the func_0028b038 result before it is reused for the loop-1 value: the extra refs give v a
+// higher global-alloc priority than the cat range copy, so v gets s1 (ledger logs O10_00269658, O15_00269658).
 namespace n00269658 {
 extern u32 D_0035f01c asm("D_0035f01c");
 extern u32 D_0035f04c asm("D_0035f04c");
@@ -54,11 +54,12 @@ void func_00269658(void)
     s32 i;
     s16 a;
     u32 b;
-    register s32 v asm("$17");
+    s32 v;
     nwrap = func_00281f18(func_00257130());
     base = func_00257770();
     func_00139d78(base);
-    func_0028be78(D_0035f04c, func_0028b038(D_0035f01c));
+    v = func_0028b038(D_0035f01c);
+    func_0028be78(D_0035f04c, v);
     v = func_00257140(0);
     for (; cat < 9; cat++) {
         func_00138c10(func_002891b8(D_0035f01c, cat), D_0035ef6c);
