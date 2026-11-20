@@ -1,5 +1,5 @@
-/* Sony PS2 Runtime Library 3.0.0: libcdvd (libcdvd.a), 0x2f77b0-0x2f8010: the end of the object after the
- * whole-asm sceCdInit (0x2f74c8): sceCdDiskReady (old and new RPC versions), sceCdRead, the S-command
+/* Sony PS2 Runtime Library 3.0.0: libcdvd (libcdvd.a), 0x2f77b0-0x2f8010: the end of the object after
+ * sceCdInit (0x2f74c8): sceCdDiskReady (old and new RPC versions), sceCdRead, the S-command
  * wrappers and sceCdChgSys. Built with ee-gcc 2.9-991111 -O2 -G0.
  * Third-party code notice: rebuilt to match Sony Computer Entertainment's PS2 SDK library code that
  * the game links. It is not covered by this project's MIT License.

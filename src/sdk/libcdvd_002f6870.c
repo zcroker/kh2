@@ -1,6 +1,6 @@
-/* Sony PS2 Runtime Library 3.0.0: libcdvd (libcdvd.a), 0x2f6870-0x2f7418: the C run after the whole-asm callback
- * thread (0x2f67a0): sceCdInitEeCB, the read-end copy, semaphore setup, the callback helpers, sceCdSearchFile and
- * the N/S command checks. Built with ee-gcc 2.9-991111 -O2 -G0.
+/* Sony PS2 Runtime Library 3.0.0: libcdvd (libcdvd.a), 0x2f6870-0x2f77b0: the C run after the whole-asm callback
+ * thread (0x2f67a0): sceCdInitEeCB, the read-end copy, semaphore setup, the callback helpers, sceCdSearchFile,
+ * the N/S command checks and sceCdInit. Built with ee-gcc 2.9-991111 -O2 -G0.
  * Third-party code notice: rebuilt to match Sony Computer Entertainment's PS2 SDK library code that
  * the game links. It is not covered by this project's MIT License.
  * Linked unit (linked_units.tsv): a part of the object, compiled as one file. Its .rodata (thread and semaphore
@@ -398,4 +398,103 @@ int func_002f7418(int fno, void **out)
          : fno == 0x8012 ? (void *)D_003653c0_p
          : fno == 0x8014 ? (void *)D_00365900_p : 0;
     return 1;
+}
+
+/* 0x2f74c8: sceCdInit. Plain C (F41, 2026-11-20). The order of the init stores is what the register allocation
+ * needs: the -1 store written last (0x363dc8) is issued first by the scheduler (the -1 register dies there) and its
+ * address gets v0; the 0x363dd8 store written before it keeps its address register live to the end, so it is stored
+ * last. Log: experiments/F41_002f74c8.md in the ledger. */
+extern volatile int D_00363da0_ci asm("D_00363da0");
+extern volatile int D_00363da4_ci asm("D_00363da4");
+extern volatile int D_00363da8_ci asm("D_00363da8");
+extern volatile int D_00363dac_ci asm("D_00363dac");
+extern volatile int D_00363db8_ci asm("D_00363db8");
+extern int D_00363dbc_ci asm("D_00363dbc");
+extern int D_00363dc4_ci asm("D_00363dc4");
+extern int D_00363dc8_ci asm("D_00363dc8");
+extern int D_00363dcc_ci asm("D_00363dcc");
+extern int D_00363dd0_ci asm("D_00363dd0");
+extern int D_00363dd4_ci asm("D_00363dd4");
+extern int D_00363dd8_ci asm("D_00363dd8");
+extern int D_00363ddc_ci asm("D_00363ddc");
+extern CdClient D_01e333e8_ci asm("D_01e333e8");
+extern int D_01e33440_ci[4] asm("D_01e33440");
+extern int D_00364f80_ci[4] asm("D_00364f80");
+int sceCdInit(int mode)
+{
+    int i;
+    int r;
+    int ret;
+    if (func_002f7250(1))
+        return 0;
+    func_00308b30(0);
+    D_00363da4_ci = 1;
+    D_00363dcc_ci = -1;
+    D_00363dbc_ci = -1;
+    D_00363dd4_ci = -1;
+    D_00363dd0_ci = -1;
+    D_00363dd8_ci = -1;
+    D_00363dc8_ci = -1;
+    D_00363db8_ci = 0;
+    D_00363ddc_ci++;
+    while (1) {
+        if ((r = sceSifBindRpc(&D_01e333e8_ci, 0x80000592, 0)) < 0) {
+            if (D_00363d90 > 0)
+                scePrintf("Libcdvd bind err %d CD_Init %d\n", r, D_00363ddc_ci);
+            i = 0x100000;
+            while (i--)
+                ;
+            continue;
+        }
+        if (D_01e333e8_ci.serve != 0) {
+            D_00363dd8_ci = 0;
+            D_01e33440_ci[0] = mode;
+            func_00308a80(D_01e33440_ci, 4);
+            r = sceSifCallRpc(&D_01e333e8_ci, 0, 0, D_01e33440_ci, 4, D_00364f80_ci, 16, 0, 0);
+            break;
+        }
+        i = 0x100000;
+        while (i--)
+            ;
+    }
+    if (r < 0) {
+        D_00363da4_ci = 0;
+        return 0;
+    }
+    {
+        int a = *(int *)((unsigned int)&D_00364f80_ci[1] | 0x20000000);
+        int b = *(int *)((unsigned int)&D_00364f80_ci[2] | 0x20000000);
+        int c = *(int *)((unsigned int)&D_00364f80_ci[3] | 0x20000000);
+        ret = 1;
+        if (c != 255) {
+            if (c == 254)
+                D_00363d90 = 1;
+            else if (a / 256 < 2 || b / 256 < 2)
+                ret = 2;
+        }
+    }
+    D_00363da4_ci = 0;
+    switch (mode) {
+    case 0:
+    case 1:
+        func_002f69c8();
+        func_002f6c28();
+        D_00363dc4_ci = 1;
+        break;
+    case 5:
+        if (D_00363d90 > 0)
+            scePrintf("Libcdvd Exit\n");
+        func_002f6ab0();
+        D_00363da8_ci = -1;
+        D_00363dac_ci = -1;
+        D_00363da0_ci = -1;
+        D_00363dc4_ci = 0;
+        break;
+    default:
+        func_002f69c8();
+        func_002f6c28();
+        D_00363dc4_ci = 1;
+        break;
+    }
+    return ret;
 }
