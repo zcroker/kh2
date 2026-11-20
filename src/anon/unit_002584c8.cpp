@@ -1,4 +1,4 @@
-// Linked unit 0x002582f8-0x002586e0 (one namespace per old matched source; class methods in their own namespace).
+// Linked unit 0x002582f8-0x002588e8 (one namespace per old matched source; class methods in their own namespace).
 #include "../common/types.h"
 #include "../tozawa/cmenu_pause.hpp"
 #include "auto80_199_queue_decls.hpp"
@@ -207,3 +207,81 @@ s32 func_00258630(void) {
 }
 }  // namespace n00258630
 
+
+// 002586e0 (was src/anon/asm_002586e0.s: whole asm, never written in C)
+namespace n002586e0 {
+struct MenuFn { void (*f0)(); void (*f4)(); void (*f8)(); };
+extern u8 D_0035f069 asm("D_0035f069");
+extern u8 D_0035f06a asm("D_0035f06a");
+extern s16 D_0035f06c asm("D_0035f06c");
+extern s16 D_0035f06e asm("D_0035f06e");
+extern u8 D_0035f070 asm("D_0035f070");
+void func_002585a0() asm("func_002585a0");
+void func_00102448(u32, s32) asm("func_00102448");
+s32 func_002be750() asm("func_002be750");
+s32 func_00170cd0() asm("func_00170cd0");
+u32 func_001050c8() asm("func_001050c8");
+void func_00274ee8(u32) asm("func_00274ee8");
+void func_002535b0(s32) asm("func_002535b0");
+void func_00253568(s32) asm("func_00253568");
+MenuFn* func_00253330(s32) asm("func_00253330");
+void func_00103ea0(void (*)()) asm("func_00103ea0");
+void func_00258ab0() asm("func_00258ab0");
+void func_00258c80() asm("_Z13func_00258c80v");
+s32 func_0025f568() asm("func_0025f568");
+void func_00258b28(s32) asm("func_00258b28");
+void func_002589b0() asm("func_002589b0");
+
+/*TARGET 002586e0*/
+void func_002586e0(u32 key) asm("func_002586e0");
+void func_002586e0(u32 key) {
+    D_0035f06a = 1;
+    func_002585a0();
+    func_00102448(key, 1);
+    if (D_0035f06c == 4 && func_002be750()) {
+        while (func_00170cd0()) func_00102448(key, 0);
+        func_00274ee8(func_001050c8());
+        func_002535b0(0);
+    } else if (D_0035f06c == 1) {
+        func_00253568(2);
+    }
+    func_00253330(D_0035f06c)->f4();
+    D_0035f070 = 0;
+    func_00103ea0(func_00258ab0);
+    for (;;) {
+        func_00258c80();
+        if (!D_0035f070) goto W;
+        if (D_0035f06c != 3) goto T1;
+        if (func_0025f568()) goto M1;
+        goto E3;
+    W:
+        func_00102448(key, 1);
+        continue;
+    E3:
+        D_0035f069 = 1;
+        D_0035f06e = 9;
+        break;
+    T1:
+        if (D_0035f06c != 1) goto T4;
+        D_0035f069 = 1;
+        D_0035f06e = 9;
+        break;
+    M1:
+        func_00258b28(1);
+        D_0035f06e = -1;
+        break;
+    T4:
+        if (D_0035f06c == 4) {
+            D_0035f06e = 9;
+            D_0035f069 = 1;
+        }
+        break;
+    }
+    if (D_0035f06e < 0) func_002589b0();
+    func_00102448(key, 1);
+    func_00253330(D_0035f06c)->f8();
+    D_0035f06c = D_0035f06e;
+    D_0035f06e = -1;
+    D_0035f06a = 0;
+}
+}  // namespace n002586e0

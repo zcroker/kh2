@@ -202,7 +202,7 @@ src/sdk/sdk_asm_003086b8.s	003086b8	00308730	-	-
 src/sdk/sdk_asm_00308938.s	00308938	00308a80	-	-
 src/sdk/sdk_asm_00308a80.s	00308a80	00308b2c	-	-
 src/sdk/sdk_asm_00308e30.s	00308e30	00308f00	-	-
-src/sdk/sdk_asm_003094b8.s	003094b8	003096b8	-	-
+src/sdk/libkernl_003094b8.c	003094b8	003096b8	.rodata@003780f0	-G0
 src/sdk/sdk_asm_0030a3b0.s	0030a3b0	0030a3f8	-	-
 src/sdk/filestub.c	0030a3f8	0030d820	.rodata@003781a0	-G0
 src/sdk/iopheap.c	0030d820	0030dd6c	-	-G0
@@ -288,7 +288,7 @@ src/anon/unit_00250fb8.cpp	00250fb8	00252fe8	.rodata@0037259c	-G0 -g -fno-strict
 src/anon/unit_00252fe8.cpp	00252fe8	002530c8	-	-G0 -fno-sched-interblock
 src/anon/unit_002530c8.cpp	002530c8	00253ba8	-	-G0 -g -fno-strict-aliasing -fmove-all-movables
 src/anon/unit_00254020.cpp	00253ba8	002582f8	.rodata@00372878	-G0 -g -fno-strict-aliasing
-src/anon/unit_002584c8.cpp	002582f8	002586e0	-	-G0 -g
+src/anon/unit_002584c8.cpp	002582f8	002588e8	-	-G0 -g
 src/anon/unit_002588e8.cpp	002588e8	0025da20	.rodata@00372c74	-G0 -g
 src/anon/unit_0025da20.cpp	0025da20	0025f6b8	.rodata@00372fb8	-G0 -g
 src/anon/unit_0025f6b8.cpp	0025f6b8	002632d0	.rodata@003731dc	-G0 -g -fno-strict-aliasing -fmove-all-movables
@@ -827,7 +827,6 @@ src/anon/asm_001ffd70.s	001ffd70	00200578	-	-
 src/anon/asm_00202708.s	00202708	00202978	-	-
 src/anon/asm_0020cfd8.s	0020cfd8	0020d178	-	-
 src/anon/asm_0020e590.s	0020e590	0020e758	-	-
-src/anon/asm_002586e0.s	002586e0	002588e8	-	-
 src/anon/asm_00273fa0.s	00273fa0	00274460	-	-
 src/anon/unit_002c0860.cpp	002c0860	002c0ca0	-	-G0 -fno-strict-aliasing -fno-gcse
 src/anon/unit_002d9588.cpp	002d9588	002d96d8	.rodata@00375cc0	-G0 -g -fno-strict-aliasing
