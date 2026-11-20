@@ -1064,3 +1064,70 @@ u32 func_002978d0(u32 a0, u32 a1, u32 a2, u32 a3) {
 }
 }  // namespace n002978d0
 
+
+// 002978f0 (gap: story list draw)
+namespace n002978f0 {
+
+struct Ent { u16 id; s16 idx; s16 mul; s16 val; };
+struct Hdr { s16 n; s16 m; s16 z; s16 pad; Ent e[64]; };
+struct Rc { u8 pad[20]; s32 w; };
+extern s32 D_0035f200 asm("D_0035f200");
+extern u8* D_0035f224 asm("D_0035f224");
+extern Hdr* D_0035f594 asm("D_0035f594");
+u8* func_002766d0(void) asm("func_002766d0");
+s32 func_0028b040(s32) asm("func_0028b040");
+void func_0014b950(void*, s16, s16, u16, u16) asm("func_0014b950");
+void func_0014b9a8(void*) asm("func_0014b9a8");
+s32 func_0023aa58(void*) asm("func_0023aa58");
+s32 func_0023aa78(void*) asm("func_0023aa78");
+Rc* func_001aae68(s32) asm("func_001aae68");
+s32 func_00192048(u16) asm("func_00192048");
+void func_001a98e8(void*, s32, s32, s32, s32) asm("func_001a98e8");
+void func_001aa6d0(void*, s32) asm("func_001aa6d0");
+void func_001a9ae8(void*, s32, s32, s32) asm("func_001a9ae8");
+void func_002978f0(s32 x, s32 y, s32 z) asm("func_002978f0");
+void func_002978f0(s32 x, s32 y, s32 z) {
+    u8 buf[96];
+    s32 lo;
+    s32 sel;
+    s32 i;
+    s32 zz = z;
+    lo = 15;
+    i = 0;
+    u8* ent = func_002766d0() + 24;
+    s32 v = func_0028b040(D_0035f200);
+    s32 lim;
+    s32 py;
+    s32 b, acc, w;
+    func_0014b950(D_0035f224 + 32, x, y, 512 - x, D_0035f594->m * 10);
+    func_0014b9a8(D_0035f224 + 32);
+    lim = y + D_0035f594->m * 10;
+    py = y;
+    sel = 0;
+    acc = func_0023aa58(ent);
+    b = func_0023aa78(ent);
+    if (acc) lo = acc;
+    acc = 0;
+    for (; i < D_0035f594->n; i++) {
+        if (v == acc || v < acc + D_0035f594->e[i].val) {
+            py = py - (v - acc) * D_0035f594->m;
+            sel = i;
+            break;
+        }
+        acc += D_0035f594->e[i].val;
+    }
+    {
+        Rc* r = func_001aae68(3);
+        w = b - lo - r->w;
+    }
+    if (w < 0) w = 0;
+    for (i = sel; i < D_0035f594->n; i++) {
+        func_001a98e8(buf, 3, func_00192048(D_0035f594->e[i].id), lo, 0);
+        func_001aa6d0(buf, w);
+        func_001a9ae8(buf, x, py, zz);
+        py += D_0035f594->e[i].mul;
+        if (py >= lim) break;
+    }
+    func_0014b9a8(D_0035f224);
+}
+}  // namespace n002978f0
