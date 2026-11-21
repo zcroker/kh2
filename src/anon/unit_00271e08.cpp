@@ -1,4 +1,4 @@
-// Linked unit 0x00271e08-0x00274460 (one namespace per old matched source; class methods in their own namespace).
+// Linked unit 0x00271b78-0x00274460 (one namespace per old matched source; class methods in their own namespace).
 #include "../common/types.h"
 #include "../tozawa/menu_sound.hpp"
 #include "../kn/fvector.hpp"
@@ -14,6 +14,74 @@
 #include "../harata/libdk/treasure_info.hpp"
 #include "../tozawa/cmenu_top.hpp"
 #include "../tozawa/help_gra.hpp"
+
+// 00271b78 (was whole asm in src/anon/batch_w3931.s)
+namespace n00271b78 {
+struct Ent8 { u8 pad[8]; s16 h; };
+void func_00139d78(u8*) asm("_Z16u_call4_00139d78jjjj");
+s32 func_002891e8(s32) asm("func_002891e8");
+void func_00271b58(s32) asm("_Z13func_00271b58jjjj");
+void func_002713a0(s32, s8**, s32*) asm("func_002713a0");
+s32 func_00257140(s32) asm("_ZN2Tz5CmTop18GetFontColorSeqNumEi");
+s32 func_00257158(s32, s32, s32) asm("func_00257158");
+s32 func_00272c20(s32) asm("func_00272c20");
+void setNum(u8*, s32) asm("_ZN2dk6Sprite6setNumEi");
+u8* GetListBuffer() asm("_ZN2Tz5CmTop13GetListBufferEv");
+extern s32 D_0035ef6c asm("D_0035ef6c");
+extern u32 D_0035f01c asm("D_0035f01c");
+extern u8* D_0035f12c asm("D_0035f12c");
+extern s8* D_01e21ed4 asm("D_01e21ed4");
+extern const s16 D_00373990[] asm("D_00373990");
+/*TARGET 00271b78*/
+void func_00271b78(void) asm("func_00271b78");
+// Font colour of list entry idx in group i (kind 3 has the default colour).
+static inline s32 EntryColor(s32 i, s32 idx) {
+    if (D_01e21ed4[i] != 3) return func_00257140(func_00257158(((Ent8*)(D_0035f12c + idx * 8))->h, 1, D_01e21ed4[i] == 1));
+    return func_00257140(0);
+}
+static inline s8*& Kinds() { return D_01e21ed4; }
+// Menu sprite list setup: 72 sprites of 436 bytes at +0xd30 (three banks of 24), 32-byte entries at +0xae10,
+// 4-byte entries at +0xb110. Each group starts on an even slot.
+void func_00271b78(void) {
+    s32 vals[8];
+    s32 cnt;
+    s32 i, flag, n, tex, base, idx;
+    u8* m = GetListBuffer();
+    func_00139d78(m);
+    flag = func_002891e8(D_0035f01c);
+    func_00271b58(flag);
+    func_002713a0(flag, &D_01e21ed4, &cnt);
+    s32 col = func_00257140(0);
+    for (i = 0; i < 18; i++) {
+        u8* p = m + i * 436;
+        setNum(p + 13840, D_0035ef6c);
+        setNum(p + 24304, col);
+        *(s32*)(p + 24712) = 0;
+        *(s32*)(p + 3784) = 0;
+    }
+    for (i = 0; i < cnt; i++) vals[i] = func_00272c20(D_01e21ed4[i]);
+    idx = 0;
+    base = 0;
+    for (i = 0; i < cnt; i++) {
+        n = vals[i];
+        tex = D_00373990[Kinds()[i]];
+        for (s32 j = 0; j < n; j++) {
+            s32 no = base + j + 24;
+            setNum(m + no * 436 + 3376, tex);
+            u8* e32b = m + 0xae10; u8* e4b = m + 0xb110;
+            u8* e32p = e32b + idx * 32; u8* e4p = e4b + idx * 4;
+            u8* sp = m + (base + j) * 436;
+            col = EntryColor(i, idx);
+            setNum(sp + 24304, col);
+            *(u8**)(sp + 24712) = e32p;
+            if (flag && D_01e21ed4[i] != 3) *(u8**)(sp + 3784) = e4p;
+            idx++;
+        }
+        base += n;
+        base += n & 1;
+    }
+}
+}
 
 // 00271e08 (was src/anon/batch_w40.cpp)
 namespace n00271e08 {
