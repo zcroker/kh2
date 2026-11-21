@@ -247,3 +247,83 @@ s32 func_00202428(u8* base, u8* e, Ctx* c)
     }
     if (set->w0 == set->w8 * 2 + 2) func_00201d60((TrObj*)set, e, st);
 }
+
+/* 00202708 (was whole asm): trail draw: fill the packet and hand it to the model drawer. The matrix pointer is stored in each
+   branch (the two stores are merged after register allocation); the three zero stores go through an inline helper. */
+typedef struct {
+    u32 flags; void* tex; u16 h08; u8 b0a; u8 pad0b; s32 f0c; s64 pos; u8 c[4]; s32 f1c;
+    void* mtx; void* p24; void* p28; void* p2c; void* p30; s32 prev; s32 f38; s32 f3c; s32 f40;
+    void* p44; u8 pad48[4]; u8 b4c; u8 b4d; u8 pad4e[0x12];
+} Pk;
+typedef f32 Mtx[4][4] __attribute__((aligned(16)));
+typedef struct { u32 w0; u8 pad4[18]; u16 h22; } Model;
+typedef struct { u8 pad0[28]; Model* model; s32 f32; } Ent;
+typedef struct { u8 pad0[16]; Ent* ents; } Bank;
+typedef struct { u8 pad0[4]; s32 id; u8 b8, b9, b10, b11, b12; u8 pad13[8]; u8 b21; u8 pad22[3]; u8 b25; } Par;
+extern u8* D_01d9e6e8;
+extern s32 D_01d9eaa4;
+extern u8 D_01d9eac0[];
+extern u8 D_01d9e9c0[];
+extern u8 D_01d9e980[];
+extern u8 D_01d9e900[];
+
+extern f32 D_01d9e840[4][4];
+extern f32 D_01d9ea00[4][4];
+void sceVu0MulMatrix(f32 (*)[4], f32 (*)[4], f32 (*)[4]);
+void sceVu0UnitMatrix(f32 (*)[4]);
+s32 func_0020f1e0(Model*, Pk*, s32);
+void func_002f4820(f32* d, f32* s);
+static inline void ini(Pk* q, Model* md) { q->p44 = 0; q->h08 = md->h22; q->f1c = 0; q->b0a = 0; }
+static inline void clr(Pk* q) { q->f0c = 0; q->pos = 0; q->f40 = 0; }
+void func_00202708(u8* base, Par* d, Ctx* c)
+{
+    Pk p;
+    Mtx m;
+    u8* col;
+    Ent* ent;
+    Model* md;
+    if (d->id == 0xffff) return;
+    col = base + c->off[1] + 160;
+    if ((p.c[3] = col[11]) == 0) return;
+    ent = &((Bank*)D_01d9e6e4)->ents[d->id];
+    md = ent->model;
+    p.flags = 0;
+    if (d->b8 & 2) {
+        p.flags = 4;
+        if ((md->w0 & 1) == 0) p.flags |= 8;
+    } else {
+        if (d->b8 & 1) p.flags = 128;
+        if ((md->w0 & 1) == 0) p.flags |= 8;
+    }
+    if ((md->w0 & 2) == 0) p.flags |= 0x10;
+    if (d->b9) p.flags |= 0x200;
+    if (d->b11) p.flags |= 0x100;
+    if (d->b10) {
+        p.flags |= 0x2000;
+        p.p30 = m;
+        sceVu0MulMatrix(m, D_01d9e840, (f32 (*)[4])(D_01d9e6e8 + 16));
+    }
+    ini(&p, md);
+    p.f38 = *(s32*)(D_01d9e6e8 + 144);
+    p.f3c = *(s32*)(D_01d9e6e8 + 148);
+    p.tex = D_01d9eac0;
+    if (d->b21) {
+        sceVu0UnitMatrix((f32 (*)[4])(D_01d9e6e8 + 80));
+        func_002f4820((f32*)(D_01d9e6e8 + 128), &D_00354bc0.x);
+        sceVu0MulMatrix((f32 (*)[4])(D_01d9e6e8 + 80), D_01d9ea00, (f32 (*)[4])(D_01d9e6e8 + 80));
+        p.mtx = D_01d9e6e8 + 80;
+    } else {
+        p.mtx = D_01d9e900;
+    }
+    clr(&p);
+    p.c[0] = col[8];
+    p.c[1] = col[9];
+    p.c[2] = col[10];
+    p.p24 = D_01d9e9c0;
+    p.p28 = D_01d9e980;
+    p.p2c = D_01d9e6e8 + 16;
+    p.prev = D_01d9eaa4;
+    p.b4c = d->b12;
+    p.b4d = d->b25;
+    D_01d9eaa4 = func_0020f1e0(md, &p, ent->f32);
+}
