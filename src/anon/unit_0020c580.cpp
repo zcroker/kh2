@@ -1,4 +1,4 @@
-// Linked unit 0x0020c580-0x0020cfd8 (one namespace per old matched source; class methods in their own namespace).
+// Linked unit 0x0020c580-0x0020d178 (one namespace per old matched source; class methods in their own namespace).
 #include "../common/types.h"
 #include "auto80_199_queue_decls.hpp"
 #include "auto80_199_queue_structs.hpp"
@@ -475,3 +475,42 @@ void func_0020cfb8(void) {
 }
 }  // namespace n0020cfb8
 
+
+// 0020cfd8 (was whole asm, src/anon/asm_0020cfd8.s)
+// Motion update of one effect element: add the definition's deltas when the ids agree, then integrate
+// (velocity += acceleration, position += velocity, scale likewise) and write the scaled position.
+namespace n0020cfd8 {
+struct Vec3 { f32 x, y, z; };
+struct Motion {
+    Vec3 out, vel, acc, pos;
+    f32 s, sv, sa;
+    void AddAcc(f32 x, f32 y, f32 z) { acc.x += x; acc.y += y; acc.z += z; }
+    void AddVel(f32 x, f32 y, f32 z) { vel.x += x; vel.y += y; vel.z += z; }
+    void AddPos(f32 x, f32 y, f32 z) { pos.x += x; pos.y += y; pos.z += z; }
+};
+struct MotionDef { s32 id; Vec3 p, v, a; f32 s, sv, sa; };
+extern s32 D_01d9ea9c asm("D_01d9ea9c");
+extern u8* D_01d9e6e0 asm("D_01d9e6e0");
+void func_0020cfd8(u8* base, MotionDef* d, u8* c) asm("func_0020cfd8");
+void func_0020cfd8(u8* base, MotionDef* d, u8* c) {
+    if (D_01d9ea9c != 0) return;
+    if (*(u64*)(D_01d9e6e0 + 168) & 0xff0000ff00ULL) return;
+    u8* b = base + (*(s32**)(c + 12))[0];
+    Motion* m = (Motion*)(b + 160);
+    if (d->id == *(s32*)(base + 12)) {
+        m->AddAcc(d->a.x, d->a.y, d->a.z);
+        m->AddVel(d->v.x, d->v.y, d->v.z);
+        m->AddPos(d->p.x, d->p.y, d->p.z);
+        m->s += d->s;
+        m->sv += d->sv;
+        m->sa += d->sa;
+    }
+    m->AddVel(m->acc.x, m->acc.y, m->acc.z);
+    m->AddPos(m->vel.x, m->vel.y, m->vel.z);
+    m->sv += m->sa;
+    m->s += m->sv;
+    m->out.x = m->pos.x * m->s;
+    m->out.y = m->pos.y * m->s;
+    m->out.z = m->pos.z * m->s;
+}
+}  // namespace n0020cfd8
