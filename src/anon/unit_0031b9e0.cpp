@@ -1192,7 +1192,7 @@ void func_0031cb58(u8* o) {
 // 0031cc28 (was src/anon/misc_3.cpp)
 namespace n0031cc28 {
 /*TARGET 0031cc28*/
-void func_0031cc28(void* self) asm("_Z13func_0031cc28Pv");
+void func_0031cc28(void* self) asm("_ZN9W1637TabAIvE5ClearEv");  // the out-of-line W1637Tab Clear() of unit_00169398.cpp
 void func_0031cc28(void* self) { *(s32*)((char*)self + 0) = 0; }
 }  // namespace n0031cc28
 

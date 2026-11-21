@@ -1,8 +1,5 @@
-// 00169398: object constructor (vtable D_0034d850), base-object (C2) clone. The complete-object (C1) clone at
-// 0x169990 inlines less and is still whole asm (asm_00169990.s), so this unit emits C2 only: the constructor is
-// inline, built with -fno-weak (a local copy in .text instead of a linkonce section), and the never-called
-// W1637Keep constructor at the end (own section, not linked into the game image) is its one reference.
-// Slot loop: the next slot pointer is taken before the element's call and assigned after it.
+// 00169398 / 00169990: object constructor (vtable D_0034d850), base-object (C2) and complete-object (C1) clones
+// from one source. The clones differ only in the two one-word table Clear() calls (see W1637TabA/B below).
 #include "../common/types.h"
 
 struct W1637Param { u8 p0[6]; u8 b6; u8 p7[0x41]; u16 h48; u8 p4a[10]; u8 b54; u8 p55; u8 b56; };
@@ -17,7 +14,6 @@ extern u32 D_0034f240;
 void func_001ddd10(void*);
 void func_001957e8(void*);
 void func_0017e9d0(void*, void*);
-void func_0031cc28(void*);
 void func_0019f578(void*);
 void func_0031e2c0(void*);
 void func_0031b9e0(void*);
@@ -54,11 +50,17 @@ struct W1637V3 { f32 x, y, z; };
 struct W1637M9 { W1637V3 v[3]; W1637_AI inline W1637M9() { v[0].x = 0.0f; v[2].z = 0.0f; v[0].z = 0.0f; v[1].x = 0.0f; v[1].y = 0.0f; v[1].z = 0.0f; v[2].x = 0.0f; v[2].y = 0.0f; v[0].y = 0.0f; } };
 struct W1637X110 { u8 d[0x30]; W1637_AI inline W1637X110() { func_001957e8(this); } };
 struct W1637X140 { u8 d[0x1c0]; W1637_AI inline W1637X140(void* own) { func_0017e9d0(this, own); } };
-struct W1637H4 { s32 v; };
-struct W1637Slot { s32 a; W1637H4 h; };
+// One-element pointer tables. Clear() is a template member: gcc inlines it only at its first use in the file
+// (while the instantiation is still pending) and calls the out-of-line copy everywhere after that, which is
+// what makes the two constructor clones differ (C2 inlines one Clear per table, C1 inlines none).
+template <class T> struct W1637TabA { T* v[1]; inline void Clear() asm("_Z13func_0031cc28Pv"); };
+template <class T> inline void W1637TabA<T>::Clear() { for (s32 i = 0; i < 1; i++) v[i] = 0; }
+template <class T> struct W1637TabB { T* v[1]; inline void Clear() asm("_Z13func_0031e2b8Pv"); };
+template <class T> inline void W1637TabB<T>::Clear() { for (s32 i = 0; i < 1; i++) v[i] = 0; }
+struct W1637Slot { s32 a; W1637TabA<void> h; inline W1637Slot() { a = 0; h.Clear(); h.Clear(); } };
 struct W1637S300 {
-    s32 a, b; W1637Slot slot[16]; s32 c[6]; s32 d;
-    W1637_AI inline W1637S300() { W1637Slot* p = slot; s32 n = 15; do { W1637Slot* q = p + 1; p->a = 0; p->h.v = 0; n--; func_0031cc28(&p->h); p = q; } while (n != -1); a = 0; b = 0; c[0] = 0; c[1] = 0; c[2] = 0; c[3] = 0; c[4] = 0; c[5] = 0; d = 0; }
+    s32 a, b; W1637Slot slot[16]; s32 c[5]; W1637TabB<void> e; s32 d;
+    W1637_AI inline W1637S300() { a = 0; b = 0; c[0] = 0; c[1] = 0; c[2] = 0; c[3] = 0; c[4] = 0; e.Clear(); d = 0; }
 };
 struct W1637X60 { u8 d[0x60]; W1637_AI inline W1637X60() { func_0019f578(this); } };
 struct W1637X4 { u32 d; W1637_AI inline W1637X4() { func_0031e2c0(this); } };
@@ -157,7 +159,7 @@ struct W1637Obj {
     s32 f9b0;               // 0x9b0
 
     static void* operator new(unsigned int, void* p) { return p; }
-    inline W1637Obj(u32 id, W1637Param* prm, s32 a3, const W1637V& pos, f32 rot);
+    W1637Obj(u32 id, W1637Param* prm, s32 a3, const W1637V& pos, f32 rot);
 };
 
 extern "C" {
@@ -175,7 +177,7 @@ void func_001a9560(void*, W1637Obj*, void*, void*);
 
 W1637_AI inline void W1637S7a0::Attach(void* own, void* p, void* q) { func_001a9560(this, (W1637Obj*)own, p, q); }
 
-inline W1637Obj::W1637Obj(u32 id, W1637Param* prm, s32 a3, const W1637V& pos, f32 rot)
+W1637Obj::W1637Obj(u32 id, W1637Param* prm, s32 a3, const W1637V& pos, f32 rot)
     : vt(D_0034d850), self(this), param(prm),
       v010(0.0f, 0.0f, 0.0f, 0.0f), v020(0.0f, 0.0f, 0.0f, 0.0f), v030(1.0f, 1.0f, 1.0f, 1.0f),
       f100(-1), f104(5), f108(0), f10c(0), o140(this), col3ac(0x80), f3b0(0), f474(0), f47c(0), f484(0), f488(0), f48c(0),
@@ -231,10 +233,3 @@ inline W1637Obj::W1637Obj(u32 id, W1637Param* prm, s32 a3, const W1637V& pos, f3
     s7a0.Attach(this, &o09c, s7a0.o18);
 }
 
-
-
-
-// Emits only the base-object (C2) clone of the inline constructor above: this never-called derived
-// constructor lives in its own section and is the one reference to it.
-struct W1637Keep : W1637Obj { W1637Keep(u32 id, W1637Param* prm, s32 a3, const W1637V& pos, f32 rot) __attribute__((section(".kh2keep"))); };
-W1637Keep::W1637Keep(u32 id, W1637Param* prm, s32 a3, const W1637V& pos, f32 rot) : W1637Obj(id, prm, a3, pos, rot) {}

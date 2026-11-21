@@ -40,7 +40,7 @@ void func_0031e268(W211H* h) {
 // 0031e2b8 (was src/anon/misc_3.cpp)
 namespace n0031e2b8 {
 /*TARGET 0031e2b8*/
-void func_0031e2b8(void* self) asm("_Z13func_0031e2b8Pv");
+void func_0031e2b8(void* self) asm("_ZN9W1637TabBIvE5ClearEv");  // the out-of-line W1637Tab Clear() of unit_00169398.cpp
 void func_0031e2b8(void* self) { *(s32*)((char*)self + 0) = 0; }
 }  // namespace n0031e2b8
 
