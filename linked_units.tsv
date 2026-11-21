@@ -33,7 +33,6 @@ src/anon/unit_00158050.cpp	00158050	00158450	-	-G0
 src/anon/batch_w3930.s	0015af48	0015b100	-	-
 src/anon/batch_w3959.s	00163898	00164578	-	-
 src/anon/asm_00166148.s	00166148	001664c0	-	-
-src/anon/asm_00169398.s	00169398	00169990	-	-
 src/anon/batch_w3952.s	00193608	00193be8	-	-
 src/anon/unit_0019ee80.cpp	0019ee80	0019fb70	.rodata@0036d40c	-G0 -g -fno-strict-aliasing
 src/anon/unit_0019fb70.cpp	0019fb70	001a28b8	.rodata@0036d440	-G0 -g -fno-strict-aliasing
@@ -571,6 +570,7 @@ src/harata/libdk/fade.cpp	0014a918	0014b150	.data@003493a0,.rodata@0036b0b0	-G0
 src/anon/unit_00167358.cpp	001672c8	00168218	.data@0034d3c0,.bss@004f4250,.rodata@0036b568	-G0 -fno-strict-aliasing
 src/yasui/libys/file.cpp	00168218	00168aa0	.data@0034d800,.bss@004f5280	-G0 -g -fmove-all-movables -fno-strict-aliasing
 src/anon/unit_00168aa0.cpp	00168aa0	00169398	.rodata@0036bf48	-G0 -fno-strict-aliasing
+src/anon/unit_00169398.cpp	00169398	00169990	.rodata@0036c180	-G0 -fno-strict-aliasing -fno-weak
 src/anon/unit_00169f98.cpp	00169f98	0016c770	.rodata@0036c1a8	-G0 -fno-strict-aliasing
 src/anon/unit_0016c770.cpp	0016c770	0016d2e0	-	-G0 -fno-strict-aliasing
 src/anon/unit_0016d2e0.cpp	0016d2e0	0016e8f8	.rodata@0036c240	-G0 -fno-strength-reduce -fno-strict-aliasing
