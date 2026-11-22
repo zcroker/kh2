@@ -1,4 +1,4 @@
-// Linked unit 0x001e0cb8-0x001e8558 (particle manager: partMng.c, pppPart.c; one namespace per old matched source).
+// Linked unit 0x001e0cb8-0x001e8ac8 (particle manager: partMng.c, pppPart.c; one namespace per old matched source).
 // Built as C++ with -G0 -g -fno-strict-aliasing. The .rodata (0x36e8b8-0x36efb4) holds the files' assert strings in place.
 #include "../common/types.h"
 typedef unsigned int u128 __attribute__((mode(TI)));
@@ -4805,3 +4805,194 @@ void func_001e8330(Self_e* self)
 }
 }  // namespace n001e8330
 
+// 001e8558 (was whole asm in src/anon/batch_w3951.s): per-group callback pass over the node lists (two handler
+// callbacks per node, each timed with the EE timer at 0x10000000), then the restart / free / relink pass.
+// Plain C++: the globals of loops 1-2 are read through reference-returning inline accessors and the restart is an
+// inline with value parameters (loop-invariant motion, see notes); the j loop is a natural for loop.
+namespace n001e8558 {
+typedef struct Tm { s32 start; s32 sum; s32 max; s32 pad; } Tm;
+typedef struct Hd Hd;
+struct Hd { u8 pad0[0x14]; u32 x14; s32 x18; s32 x1c; s32 off20; u8 pad24[2]; s16 nslots; };
+typedef struct Node Node;
+struct Node { Node* next; u8 pad4[4]; Hd** hd; s32 val; u8 pad10[0x9c - 0x10]; u8 b9c; u8 b9d; u8 b9e; };
+typedef struct Hnd Hnd;
+struct Hnd { u8 pad0[4]; void (*fn1)(Node*, s32*, void*); u8 pad8[4]; void (*fn2)(Node*, s32*, void*); u8 pad10[0x28 - 0x10]; Tm t1; Tm t2; };
+typedef struct Slot { Hnd* h; u16 add; u8 pad[10]; } Slot;
+typedef struct Grp { u8 pad0[0x20]; s32 off; u8 pad24[2]; s16 nslots; Slot slot[1]; } Grp;
+typedef struct Ent { Grp* g; Node* first; u8 pad8[4]; u16 n; u8 pade[2]; } Ent;
+typedef struct Self { u8 pad0[0x68]; s32 count; u8 pad6c[0x74 - 0x6c]; Node* list; u8 pad78[0x80 - 0x78]; Ent* ents; u8 b84; u8 b85; } Self;
+typedef struct Dev { u8 pad[0xa8]; u64 flags; } Dev;
+extern Dev* D_01d9e6e0 asm("D_01d9e6e0");
+extern Node* D_01d9e6e8 asm("D_01d9e6e8");
+extern s32 D_01d9ea9c asm("D_01d9ea9c");
+extern s32 D_01d9eab4 asm("D_01d9eab4");
+void func_001e7948(Node*) asm("func_001e7948");
+void func_001e7be0(Node*) asm("func_001e7be0");
+void func_001e8e28(Self*, Node*) asm("func_001e8e28");
+static inline s32& GStop() { return D_01d9ea9c; }
+static inline Dev*& GDev() { return D_01d9e6e0; }
+static inline Node*& GCur() { return D_01d9e6e8; }
+static inline u64 Tst(u64 m) { return GDev()->flags & m; }
+static inline void Restart(Node* n, s32 v, u8 f) { n->val = v; n->b9d = f; func_001e7948(n); }
+#define T0_8558 (*(volatile s32*)0x10000000)
+/*TARGET 001e8558*/
+void func_001e8558(Self* self, s32 flag) asm("func_001e8558");
+void func_001e8558(Self* self, s32 flag)
+{
+    s32 i;
+    Ent* e;
+    s32 j;
+    Slot* sl;
+    void (*fn1)(Node*, s32*, void*);
+    void (*fn2)(Node*, s32*, void*);
+    Grp* g;
+    Hnd* h;
+    s32 k;
+    Node* nd;
+    Node* next;
+    s32** pp;
+    s32* p;
+    s32* q;
+    Tm* t; u8* w;
+    s32** pp2;
+    s32* p2;
+    s32* q2;
+    u32 acc;
+    Node** link;
+    Hd* hd;
+    Node* cur;
+    Node* nx;
+    Node* n2;
+    Node* n3;
+    s32 k2;
+
+    for (i = 0; i < self->count; i++) {
+        e = &self->ents[i];
+        g = e->g;
+        if (e->n == 0)
+            continue;
+        for (j = 0; j < g->nslots; j++) {
+            sl = &g->slot[j];
+            h = sl->h;
+            nd = e->first;
+            fn1 = h->fn1;
+            fn2 = h->fn2;
+            if (fn2 == 0)
+                continue;
+            if (fn1 != 0) {
+                k = e->n;
+                do {
+                    next = nd->next;
+                    w = (u8*)nd + g->off + j * 4;
+                    if (!nd->b9c) {
+                        p = *(s32**)w;
+                        q = (s32*)((u8*)p + sl->add);
+                        GCur() = nd;
+                        if (GStop() == 0 && !Tst(0xff0000ff00ULL) && nd->b9e) {
+                            Restart(nd, 0, 1);
+                            nd->b9e = 0;
+                        }
+                        if (*q == nd->val) {
+                            p = q;
+                            *(s32**)w = p;
+                        }
+                                                h->t1.start = T0_8558;
+                        w = (u8*)&h->t1;
+                        fn1(nd, p, sl);
+                        ((Tm*)w)->sum += T0_8558 - h->t1.start;
+                        if (((Tm*)w)->max < ((Tm*)w)->sum)
+                            ((Tm*)w)->max = ((Tm*)w)->sum;
+                        if (flag) {
+                            h->t2.start = T0_8558;
+                            w = (u8*)&h->t2;
+                            fn2(nd, p, sl);
+                            ((Tm*)w)->sum += T0_8558 - h->t2.start;
+                            if (((Tm*)w)->max < ((Tm*)w)->sum)
+                                ((Tm*)w)->max = ((Tm*)w)->sum;
+                        }
+                    }
+                    nd = next;
+                } while (--k);
+            } else {
+                k = e->n;
+                do {
+                    pp2 = (s32**)((u8*)nd + g->off + j * 4);
+                    if (!nd->b9c) {
+                        p2 = *pp2;
+                        q2 = (s32*)((u8*)p2 + sl->add);
+                        GCur() = nd;
+                        if (*q2 == nd->val) {
+                            p2 = q2;
+                            *pp2 = p2;
+                        }
+                        if (flag) {
+                            h->t2.start = T0_8558;
+                            t = &h->t2;
+                            fn2(nd, p2, sl);
+                            t->sum += T0_8558 - h->t2.start;
+                            if (t->max < t->sum)
+                                t->max = t->sum;
+                        }
+                    }
+                    nd = nd->next;
+                } while (--k);
+            }
+        }
+        if (D_01d9ea9c == 0 && !(D_01d9e6e0->flags & 0xff0000ff00ULL)) {
+            n3 = e->first;
+            k2 = e->n;
+            do {
+                if (!n3->b9c) {
+                    n3->val += 0x1000;
+                    if (n3->val > 0x6fffffff)
+                        n3->val = 0x6ffff000;
+                } else
+                    n3->b9c = 0;
+                n3 = n3->next;
+            } while (--k2);
+        }
+    }
+    if (D_01d9ea9c == 0 && !(D_01d9e6e0->flags & 0xff0000ff00ULL)) {
+        acc = 0;
+        link = &self->list;
+        for (cur = self->list; cur; cur = nx) {
+            nx = cur->next;
+            hd = *cur->hd;
+            if (!self->b85 && cur->val >= hd->x1c && hd->x18 <= 0x6fffffff && hd->x1c <= 0x6fffffff) {
+                cur->val = 0;
+                cur->b9d = 1;
+                func_001e7948(cur);
+                if (hd->x18 == 0) {
+                    D_01d9eab4 = 1;
+                    func_001e8e28(self, cur);
+                    D_01d9eab4 = 0;
+                    cur->b9e = 1;
+                } else {
+                    D_01d9eab4 = 1;
+                    while (cur->val < hd->x18)
+                        func_001e8e28(self, cur);
+                    D_01d9eab4 = 0;
+                }
+            } else {
+                acc |= hd->x14;
+                if ((u32)cur->val >= hd->x14) {
+                    *link = nx;
+                    func_001e7be0(cur);
+                    continue;
+                }
+            }
+            link = &cur->next;
+        }
+        if (self->b84 && self->b85 && acc == 0x70000000) {
+            n2 = self->list;
+            while (n2) {
+                cur = n2->next;
+                func_001e7be0(n2);
+                n2 = cur;
+            }
+            self->list = 0;
+        }
+    }
+}
+#undef T0_8558
+}  // namespace n001e8558

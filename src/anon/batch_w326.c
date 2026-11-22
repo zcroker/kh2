@@ -14,7 +14,7 @@ static inline void ryjAssert(const char* e, const char* f, s32 l) {
     func_002fdfc8(D_0036ef98, f, l);  // device_vprintf_va
     asm volatile("break");
 }
-void func_001e8558(void*, void*);
+void func_001e8558(void*, s32);
 void func_001e78e0(void*);
 extern s32 D_01d9ea9c;
 extern u8* D_01d9e6e0;

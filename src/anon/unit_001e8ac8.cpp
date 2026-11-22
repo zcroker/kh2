@@ -84,7 +84,7 @@ static inline void ryjAssert(const char* e, const char* f, s32 l) {
     func_002fdfc8(D_0036ef98, f, l);  // device_vprintf_va
     asm volatile("break");
 }
-void func_001e8558(void*, void*) asm("func_001e8558");
+void func_001e8558(void*, s32) asm("func_001e8558");
 void func_001e78e0(void*) asm("func_001e78e0");
 extern s32 D_01d9ea9c asm("D_01d9ea9c");
 extern u8* D_01d9e6e0 asm("D_01d9e6e0");
@@ -93,7 +93,7 @@ s32 func_001e8c28(u8* p, void* b) asm("func_001e8c28");
 s32 func_001e8c28(u8* p, void* b) {
     s32 v, nv;
     if (!p) ryjAssert(D_0036efc8, D_0036ef88, 1000);
-    func_001e8558(p, b);
+    func_001e8558(p, (s32)b);
     func_001e78e0(p);
     if (D_01d9ea9c != 0 || (*(u64*)(D_01d9e6e0 + 0xa8) & 0xff0000ff00ULL)) return 0;
     v = *(s32*)(p + 0x58);
