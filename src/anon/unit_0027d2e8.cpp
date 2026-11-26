@@ -542,3 +542,216 @@ void func_0027dd18(void) {
 }
 }  // namespace n0027dd18
 
+
+// 0027dee8 (was whole asm src/anon/batch_w3904.s; O22 2026-11-26)
+// Status panel builder: name, frame, then per row a label, a value text and (style 0 / 5) a bar and a gauge.
+// The value colour and the gauge id are one variable (d); the MP label id and MP gauge id are variables (mp, g99), so
+// the early if-conversion sees registers; the bar/gauge calls read the three resource handles through reference
+// accessors (loop.c hoists them like retail). __builtin_expect on the label-text row test reproduces retail's block
+// frequencies (s4/s5 global-alloc tie); no natural form found yet (ledger: experiments/O22_0027dee8.md).
+namespace n0027dee8 {
+struct W1714Spr {
+    u8 pad0[0x18];
+    u8 seq[0x180];
+};
+struct W1714Obj {
+    u8 pad0[0x18];
+    u8 seq[0x180];
+    char* text;      // 0x198
+    u8 pad19c[0xc];
+    s32 size;        // 0x1a8
+    u8 pad1ac[4];
+    s32 mode;        // 0x1b0
+};
+struct W1714Panel {
+    W1714Obj name;        // 0x000
+    W1714Spr frame;       // 0x1b4
+    W1714Spr bar[2];      // 0x34c
+    W1714Spr gauge[2];    // 0x67c
+    W1714Obj label[3];    // 0x9ac
+    W1714Obj value[3];    // 0xec8
+    char str[3][8];       // 0x13e4
+};
+struct W1714Pos { s16 x; s16 y; s16 z; };
+
+s32 func_0027e920(void) asm("func_0027e920");
+void func_0027eb10(void) asm("func_0027eb10");
+s32 func_00281100(s32) asm("func_00281100");
+char* func_00281140(s32, s32) asm("func_00281140");
+void func_0028d8c0(void*, s32, s32, s32, s32, s32, s32, s32) asm("func_0028d8c0");
+void func_0028d980(void*, s32, s32, s32, s32, s32, s32, s32, s32) asm("func_0028d980");
+void func_0028dcc0(void*, void*) asm("func_0028dcc0");
+s32 func_0023aa18(void*) asm("func_0023aa18");
+s32 func_0023aa38(void*) asm("func_0023aa38");
+s32 func_0023aa58(void*) asm("func_0023aa58");
+s32 func_0023aa78(void*) asm("func_0023aa78");
+s32 func_0023aa98(void*) asm("func_0023aa98");
+void func_00138c68(void*, s32, s32) asm("func_00138c68");
+void func_00139620(void*) asm("func_00139620");
+void func_001395f8(void*) asm("func_001395f8");
+s32 func_00257140(s32) asm("func_00257140");
+char* func_00192048(u32) asm("func_00192048");
+extern s32 D_0035ef64 asm("D_0035ef64");
+extern s32 D_0035ef68 asm("D_0035ef68");
+extern s32 D_0035f010 asm("D_0035f010");
+extern s32 D_0035f03c asm("D_0035f03c");
+extern W1714Obj* D_0035f244 asm("D_0035f244");
+extern W1714Panel* D_0035f248 asm("D_0035f248");
+extern s8 D_0035f24c asm("D_0035f24c");
+extern s8 D_0035f24d asm("D_0035f24d");
+extern s8 D_0035f24e asm("D_0035f24e");
+extern const s32 D_00374044 asm("D_00374044");
+extern const s32 D_00374048 asm("D_00374048");
+extern const W1714Pos D_00374050[] asm("D_00374050");
+extern const s16 D_00374060[] asm("D_00374060");
+extern const u16 D_00374070[] asm("D_00374070");
+
+static inline s32& W1714R0() { return D_0035ef68; }
+static inline s32& W1714R1() { return D_0035ef64; }
+static inline s32& W1714R2() { return D_0035f03c; }
+static inline void W1714SetText(W1714Obj* o, char* s) { o->text = s; }
+static inline void W1714SetSize(W1714Obj* o, s32 v) { o->size = v; }
+static inline void W1714SetMode(W1714Obj* o, s32 v) { o->mode = v; }
+void func_0027dee8(s32 layout, s32 style, s32 type) asm("func_0027dee8");
+void func_0027dee8(s32 layout, s32 style, s32 type) {
+    s32 i;
+    s32 count;
+    s32 h;
+    s32 w;
+    s32 size;
+    s32 px;
+    s32 py;
+    s32 lh;
+    s32 n;
+    s32 j;
+    s32 x, y, t, c, d;
+    s32 mp, g99;
+
+    mp = 0xb9fe;
+    g99 = 99;
+    func_0027e920();
+    D_0035f24c = layout;
+    D_0035f24d = style;
+    D_0035f24e = type;
+    if (type == 4) {
+        count = func_00281100(D_0035f010);
+    } else {
+        count = 1;
+    }
+    func_0028d8c0(D_0035f244, 0x753b, D_0035ef68, D_0035ef64, D_0035f03c,
+                  D_00374050[D_0035f24c].x, D_00374050[D_0035f24c].z, 0);
+    h = func_0023aa78(D_0035f244->seq);
+    w = func_0023aa98(D_0035f244->seq);
+    for (i = 0; i < count; i++) {
+        func_0028d980(&D_0035f248[i], 0x753c, D_0035ef68, D_0035ef64, D_0035f03c,
+                      (D_0035f24d != 5) ? D_00374044 : D_00374048, -1, -1, 0);
+        if (D_0035f24c == 0) {
+            y = 0;
+            x = w * (count - i);
+        } else {
+            y = h * (i / 2);
+            x = w * (i % 2);
+        }
+        func_00138c68(&D_0035f248[i], x, y);
+        func_00139620(&D_0035f248[i]);
+        func_0028dcc0(&D_0035f248[i], D_0035f244);
+        if (type == 4) {
+            t = i;
+        } else {
+            t = D_0035f24e;
+        }
+        W1714SetText(&D_0035f248[i].name, func_00281140(D_0035f010, t));
+        W1714SetMode(&D_0035f248[i].name, 2);
+        func_0028d8c0(&D_0035f248[i].frame, 0x753c, D_0035ef68, D_0035ef64, D_0035f03c,
+                      D_00374060[D_0035f24d], -1, 0);
+        func_00139620(&D_0035f248[i].frame);
+        func_0028dcc0(&D_0035f248[i].frame, &D_0035f248[i]);
+        px = func_0023aa18(D_0035f248[i].frame.seq);
+        py = func_0023aa38(D_0035f248[i].frame.seq);
+        size = func_0023aa58(D_0035f248[i].frame.seq);
+        lh = func_0023aa78(D_0035f248[i].frame.seq);
+        n = 3;
+        if (D_0035f24d != 0) {
+            n = 1;
+        }
+        for (j = 0; j < n; j++) {
+            if (D_0035f24d == 0) {
+                if (j == 0) {
+                    c = d = 2;
+                } else if (j == 1) {
+                    c = d = 4;
+                } else {
+                    c = d = 6;
+                }
+            } else {
+                c = 0;
+                d = 2;
+            }
+            func_0028d980(&D_0035f248[i].label[j], 0x753c, D_0035ef68, D_0035ef64, D_0035f03c,
+                          func_00257140(c), -1, -1, 0);
+            func_00139620(&D_0035f248[i].label[j]);
+            y = lh * j;
+            func_00138c68(&D_0035f248[i].label[j], 0, y);
+            W1714SetSize(&D_0035f248[i].label[j], size);
+            func_001395f8(&D_0035f248[i].label[j]);
+            func_0028dcc0(&D_0035f248[i].label[j], &D_0035f248[i].frame);
+            if (D_0035f24d == 0) {
+                if (__builtin_expect(j == 0, 0)) {
+                    t = D_00374070[0];
+                } else {
+                    t = (j == 1) ? 0xb9fd : mp;
+                }
+            } else {
+                t = D_00374070[D_0035f24d];
+            }
+            y += py;
+            W1714SetText(&D_0035f248[i].label[j], func_00192048(t));
+            func_0028d980(&D_0035f248[i].value[j], 0x753c, D_0035ef68, D_0035ef64, D_0035f03c,
+                          func_00257140(d), -1, -1, 0);
+            func_00139620(&D_0035f248[i].value[j]);
+            func_00138c68(&D_0035f248[i].value[j], px, y);
+            W1714SetSize(&D_0035f248[i].value[j], size);
+            func_001395f8(&D_0035f248[i].value[j]);
+            func_0028dcc0(&D_0035f248[i].value[j], &D_0035f248[i].frame);
+            D_0035f248[i].str[j][0] = 0;
+            W1714SetText(&D_0035f248[i].value[j], D_0035f248[i].str[j]);
+            W1714SetMode(&D_0035f248[i].value[j], 1);
+            func_0028dcc0(&D_0035f248[i].value[j], &D_0035f248[i].frame);
+            t = j;
+            switch (D_0035f24d) {
+            case 0:
+                c = 95;
+                if (j == 0) continue;
+                d = (j == 1) ? 98 : g99;
+                t = j - 1;
+                break;
+            case 5:
+                c = 97;
+                d = 96;
+                break;
+            case 1:
+            case 2:
+            case 3:
+            case 4:
+            default:
+                c = -1;
+                d = 100;
+                break;
+            }
+            if (c >= 0) {
+                func_0028d8c0(&D_0035f248[i].bar[t], 0x753c, W1714R0(), W1714R1(), W1714R2(), c, -1, 0);
+                func_00139620(&D_0035f248[i].bar[t]);
+                y = lh * j;
+                func_00138c68(&D_0035f248[i].bar[t], 0, y);
+                func_0028dcc0(&D_0035f248[i].bar[t], &D_0035f248[i].frame);
+            }
+            func_0028d8c0(&D_0035f248[i].gauge[t], 0x753d, W1714R0(), W1714R1(), W1714R2(), d, -1, 0);
+            func_00139620(&D_0035f248[i].gauge[t]);
+            y = lh * j;
+            func_00138c68(&D_0035f248[i].gauge[t], 0, y);
+            func_0028dcc0(&D_0035f248[i].gauge[t], &D_0035f248[i].frame);
+        }
+    }
+    func_0027eb10();
+}
+}  // namespace n0027dee8
