@@ -259,3 +259,125 @@ void func_0029b378(void)
 }
 }  // namespace n0029b378
 
+// 0029b698 (was whole asm in src/anon/batch_w3917.s): sets up a menu page (two windows, ten list rows each with
+// its frame, the scroll bar). Natural shapes that mattered: `w2` is assigned right before its own pz_cfo (after
+// mc_as(w, cam)), the second table row is passed as tab[1] (no local), `i * step` and the frame address are left
+// to the strength reducer, the attribute word is one expression, one `id` for all three reads of D_0035f3d4.
+namespace n0029b698 {
+extern s32 D_0035f148 asm("D_0035f148");
+extern s32 D_0035f14c asm("D_0035f14c");
+extern s32 D_0035f200 asm("D_0035f200");
+extern s32 D_0035f210 asm("D_0035f210");
+extern s32 D_0035f214 asm("D_0035f214");
+extern s32 D_0035f3d4 asm("D_0035f3d4");
+struct SelState { u32 f0; s8 f4; s8 cnt; };
+extern SelState* D_0035f5ac asm("D_0035f5ac");
+struct Lay { u8 pad[40]; s32 img; };
+struct Obj { u8 pad[408]; s32 x198; u8 pad2[8]; u32 x1a4; u8 pad3[4]; s32 x1ac; s32 x1b0; void* x1b4; };
+struct Cur { u8 pad[408]; };
+void setOffsetPos(void*, s32, s32) asm("func_00138c68");
+void reset_alpha(void*) asm("func_001395f8");
+void obj_xyoff(void*) asm("func_00139620");
+s32 yi_img(s32, s32) asm("func_00236ca8");
+s32 yi_cr(void*) asm("func_0023aa78");
+s32 yi_unit(void*, s32) asm("func_0023c4b8");
+Lay* lay_get(s32) asm("func_0023f1b0");
+u8* jm_parent() asm("func_00276348");
+s32 jm_curpos(s32) asm("func_00276608");
+s32 jm_curtop(s32) asm("func_00276620");
+u8* jm_scrbar() asm("func_00276678");
+void jm_x(s32) asm("func_00276690");
+void jm_hide(s32) asm("func_002766b0");
+u8* jm_seqtbl() asm("func_002766d0");
+void func_00276e78() asm("func_00276e78");
+s32 mb_mode() asm("func_00287bc0");
+void sel_set(s32) asm("func_00287cc0");
+void func_00288d80(s32, s32, s32, s32, s32, s32, s16*, s16*) asm("func_00288d80");
+Obj* sel_item(s32, s32) asm("func_002891b8");
+void func_002891f0(s32, s32, s32, s32, s32) asm("func_002891f0");
+void func_0028af28(s32, s32) asm("func_0028af28");
+void func_0028af90(s32, s32) asm("func_0028af90");
+void func_0028afd0(s32, s32) asm("func_0028afd0");
+void func_0028b218(s32, s32) asm("func_0028b218");
+void func_0028b248(s32, s32) asm("func_0028b248");
+void func_0028bae0(s32, s32, s32, s32, u8*, s32, s32, u8*, s32) asm("func_0028bae0");
+void func_0028be78(s32, s32) asm("func_0028be78");
+void pz_cfo(void*, s32, s32, s32, s32, s32, s32, s32) asm("func_0028d8c0");
+void mc_as(void*, void*) asm("func_0028dcc0");
+s32 func_0028f930(s32) asm("func_0028f930");
+void func_0028f4d8(s32, s32, s32) asm("func_0028f4d8");
+void func_0029ca50() asm("func_0029ca50");
+void func_0029d008() asm("func_0029d008");
+void func_0029eaa8() asm("func_0029eaa8");
+void func_0029ea30() asm("func_0029ea30");
+void func_0029b698(void) asm("func_0029b698");
+void func_0029b698(void) {
+    s16 tab[2][4];
+    s32 step;
+    s32 id;
+    u8* w2;
+    s32 n;
+    s32 i;
+
+    u8* cam = jm_parent();
+    u8* w = jm_seqtbl();
+    if (mb_mode() == 15) {
+        if (func_0028f930(1) == 0) func_0028f4d8(1, -1, 1);
+    } else {
+        if (func_0028f930(0) == 0) func_0028f4d8(0, -1, 0);
+    }
+    for (i = 0; i < 2; i++) {
+        for (s32 j = 0; j < 4; j++) {
+            tab[i][j] = 2;
+        }
+    }
+    id = D_0035f3d4 - 1;
+    func_00276e78();
+    pz_cfo(w, id, D_0035f14c, D_0035f148, D_0035f210, 90, -1, 0);
+    obj_xyoff(w);
+    mc_as(w, cam);
+    w2 = w + 0x4C8;
+    pz_cfo(w2, id, D_0035f14c, D_0035f148, D_0035f210, 95, -1, 0);
+    obj_xyoff(w2);
+    mc_as(w2, cam);
+    step = yi_cr(w + 0x18);
+    id = D_0035f3d4;
+    for (i = 0; i < 10; i++) {
+        func_00288d80(D_0035f200, i, D_0035f14c, D_0035f148, D_0035f210, -1, tab[0], tab[1]);
+        Obj* o = sel_item(D_0035f200, i);
+        obj_xyoff(o);
+        mc_as(o, w);
+        setOffsetPos(o, 0, i * step);
+        o->x1ac = 3;
+        o->x1a4 = (3u << 29) | 8;
+        reset_alpha(o);
+        Cur* c = (Cur*)(w + 0xA998) + i;
+        pz_cfo(c, id + 1, D_0035f14c, D_0035f148, D_0035f210, 2, -1, 0);
+        mc_as(c, o);
+    }
+    func_0029ca50();
+    s32 cnt = D_0035f5ac->cnt;
+    s32 a0 = jm_curpos(15);
+    s32 a1 = jm_curtop(15);
+    func_0028af90(D_0035f200, cnt ? cnt : 1);
+    func_002891f0(D_0035f200, a0, 0, -1, -1);
+    func_0028afd0(D_0035f200, a1);
+    func_0028b218(D_0035f200, 1);
+    func_0028b248(D_0035f200, 10);
+    if (cnt == 0) {
+        jm_x(1);
+        func_0028af28(D_0035f200, 16);
+    }
+    id = D_0035f3d4;
+    if (cnt > 10) n = cnt; else n = 10;
+    s32 a = yi_unit(lay_get(D_0035f210), D_0035f14c);
+    s32 b = yi_img(lay_get(D_0035f210)->img, D_0035f148);
+    func_0028bae0(D_0035f214, id, a, b, jm_scrbar(), n, 10, w2, 0);
+    func_0028be78(D_0035f214, a1);
+    func_0029d008();
+    func_0029eaa8();
+    func_0029ea30();
+    jm_hide(1);
+    sel_set(0);
+}
+}  // namespace n0029b698
