@@ -1,4 +1,4 @@
-// Linked unit 0x1aaea8-0x1ab260 (YS file 0x1a8618-0x1abad8, part).
+// Linked unit 0x1aaea8-0x1ab598 (YS file 0x1a8618-0x1abad8, part).
 #include "../common/types.h"
 #include "auto80_199_queue_decls.hpp"
 #include "auto80_199_queue_structs.hpp"
@@ -93,3 +93,62 @@ s32 func_001aafe8(Tex1aafe8* t, Pkt1aafe8* p, s32 x, s32 y, u32 color, s32 code,
 }
 } // n001aafe8
 
+// 001ab260 (was whole asm in src/anon/asm_001ab260.s)
+namespace n001ab260 {
+struct Tex1ab260 { u8 pad[8]; s32 tw; s32 th; u8 pad2[2]; u8 cw; u8 ch; };
+struct Q1ab260 { s32 x, y, z, w; };
+struct T1ab260 { u64 tag, reg; };
+struct Pkt1ab260 { u8 pad[8]; Q1ab260* cur; };
+static inline void put1ab260(Pkt1ab260* p, s32 x, s32 y, s32 z, s32 w)
+{
+    p->cur->x = x;
+    p->cur->y = y;
+    p->cur->z = z;
+    p->cur->w = w;
+    p->cur++;
+}
+static inline void ad1ab260(Pkt1ab260* p, u64 reg, u64 data)
+{
+    ((T1ab260*)p->cur)->tag = data;
+    ((T1ab260*)p->cur)->reg = reg;
+    p->cur++;
+}
+extern s32 D_00350a30 asm("D_00350a30");
+s32 func_001aaf98(Tex1ab260*, s32, s32, s32, s32) asm("func_001aaf98");
+u64 func_001aaea8(Tex1ab260*, s32) asm("func_001aaea8");
+// Slanted twin of 001aafe8: one glyph as a triangle strip (4 UV/XYZ pairs); returns 0 when clipped.
+// The glyph number is copied to a local and the parameter is then used as a scratch variable: cleared
+// at the top (a dead store) and later set to the texel width (cw - 1) * 16. The parameter's pseudo so
+// has two lives (the entry copy from t1, then the width) and is allocated globally with a preference
+// for its incoming register t1: the width lands in t1, tied neither to cw - 1 (t7) nor to u2 (t2).
+// Without the `c = 0` the copy is forwarded back into the parameter and it takes s0 for the whole
+// function. (Same code without the dead store: -fno-gcse -fno-cse-follow-jumps -fno-cse-skip-blocks.)
+s32 func_001ab260(Tex1ab260* t, Pkt1ab260* p, s32 x, s32 y, u32 color, s32 c, s32 slant, f32 scale, f32 aspect) asm("func_001ab260");
+s32 func_001ab260(Tex1ab260* t, Pkt1ab260* p, s32 x, s32 y, u32 color, s32 c, s32 slant, f32 scale, f32 aspect)
+{
+    s32 code = c;
+    c = 0;
+    y += D_00350a30;
+    s32 w = (s32)(t->cw * 16 * scale * aspect);
+    s32 h = (s32)(t->ch * 16 * scale);
+    if (func_001aaf98(t, x, y, w + slant, h)) return 0;
+    s32 cols = (1 << t->tw) / t->cw;
+    s32 rows = (1 << t->th) / t->ch;
+    s32 v = code % (cols * rows) / cols * t->ch * 16 + 8;
+    s32 u = code % cols * t->cw * 16 + 8;
+    ad1ab260(p, 6, func_001aaea8(t, code));
+    put1ab260(p, color & 0xff, (color >> 8) & 0xff, (color >> 16) & 0xff, color >> 24);
+    c = (t->cw - 1) << 4;
+    s32 u2 = u + c;
+    s32 v2 = v + t->ch * 16;
+    put1ab260(p, u, v, 0, 0);
+    put1ab260(p, x + slant, y - h, 0, 0x8000);
+    put1ab260(p, u2, v, 0, 0);
+    put1ab260(p, x + w + slant, y - h, 0, 0x8000);
+    put1ab260(p, u, v2, 0, 0);
+    put1ab260(p, x - slant, y, 0, 0);
+    put1ab260(p, u2, v2, 0, 0);
+    put1ab260(p, x + w - slant, y, 0, 0);
+    return 1;
+}
+} // n001ab260
