@@ -1,6 +1,6 @@
 // Linked unit 0x193038-0x193608 (YS model object per-frame colour/shadow update and its helper 0x193330).
 // The whole-asm function 0x193608 (src/anon/batch_w3952.s) follows this unit; unit_00193be8.cpp follows it.
-// 0x193038 is partial asm (moved as is from batch_w3906_g.cpp).
+// 0x193038 is plain C++ (was partial asm from batch_w3906_g.cpp).
 // Flags: -G0 -g -fno-strict-aliasing (old copies: 0x193038 _g, 0x193330 _nsa).
 #include "../common/types.h"
 
@@ -8,34 +8,13 @@
 namespace n00193038 {
 struct Rgba193038 {
     u8 r, g, b, a;
-    Rgba193038 operator*(Rgba193038 t) const
+    Rgba193038 operator*(const Rgba193038 t) const
     {
-                                                                                      
         Rgba193038 c;
-        asm("lbu $13,%4\n\t"
-            "la $14,%4\n\t"
-            "lbu $15,%5\n\t"
-            "lbu $12,1($14)\n\t"
-            "mult $13,$13,$15\n\t"
-            "lbu $10,3($14)\n\t"
-            "lbu $11,2($14)\n\t"
-            "lbu $14,%7\n\t"
-            "lbu $15,%6\n\t"
-            "sra $13,$13,7\n\t"
-            "mult $11,$11,$14\n\t"
-            "sb $13,%0\n\t"
-            "mult $12,$12,$15\n\t"
-            "sra $11,$11,7\n\t"
-            "lbu $15,%8\n\t"
-            "sra $12,$12,7\n\t"
-            "sb $12,%1\n\t"
-            "mult $10,$10,$15\n\t"
-            "sb $11,%2\n\t"
-            "sra $10,$10,7\n\t"
-            "sb $10,%3"
-            : "=m"(c.r), "=m"(c.g), "=m"(c.b), "=m"(c.a)
-            : "m"(r), "m"(t.r), "m"(t.g), "m"(t.b), "m"(t.a)
-            : "$10", "$11", "$12", "$13", "$14", "$15");
+        c.r = r * t.r >> 7;
+        c.g = g * t.g >> 7;
+        c.b = b * t.b >> 7;
+        c.a = a * t.a >> 7;
         return c;
     }
 };
@@ -59,7 +38,7 @@ struct O193038 {
     u8 pad7[1700 - 1668];
     s32 f1700;
     u8 pad8[1880 - 1704];
-    Rgba193038 outColor;
+    u8 outColor[4];
     u8 pad9[1896 - 1884];
     u32 f1896;
     u8 pad10[1908 - 1900];
@@ -96,29 +75,11 @@ void func_00193038(O193038* o)
         c = o->color * o->tint;
     }
     f32 k = func_00194690(o);
-    {
-                                                                                    
-        register s32 a asm("$15");
-        register O193038* arg asm("$4");
-        asm("lbu $15,%6\n\t"
-            "lbu $13,%8\n\t"
-            "move $4,%5\n\t"
-            "lbu $14,%9\n\t"
-            "mtc1 $15,$f0\n\t"
-            "cvt.s.w $f0,$f0\n\t"
-            "lbu $15,%7\n\t"
-            "sb $15,%0\n\t"
-            "sb $13,%1\n\t"
-            "mul.s $f0,$f0,%10\n\t"
-            "sb $14,%2\n\t"
-            "cvt.w.s $f1,$f0\n\t"
-            "mfc1 $15,$f1"
-            : "=m"(o->outColor.r), "=m"(o->outColor.g), "=m"(o->outColor.b), "=r"(a), "=r"(arg)
-            : "r"(o), "m"(o->color.a), "m"(c.r), "m"(c.g), "m"(c.b), "f"(k)
-            : "$13", "$14", "$f0", "$f1");
-        o->outColor.a = a;
-        func_0016a070(arg);
-    }
+    o->outColor[0] = c.r;
+    o->outColor[1] = c.g;
+    o->outColor[2] = c.b;
+    o->outColor[3] = (s32)(o->color.a * k);
+    func_0016a070(o);
     if (func_0019bad8(o)) {
         o->shadow = 0;
         if (o->castsShadow()) {
@@ -134,7 +95,7 @@ void func_00193038(O193038* o)
     } else {
         o->f1656 &= ~2;
     }
-    o->f1700 = func_001bfda0((u8*)o + 2272, &o->outColor);
+    o->f1700 = func_001bfda0((u8*)o + 2272, (Rgba193038*)o->outColor);
     if (func_001943e8(o)) o->f1656 |= 8;
     else o->f1656 &= ~8;
     if (func_0019c5d0(o)) o->f1896 &= ~4;
