@@ -2,7 +2,7 @@
 // Flags: -G0 -g -fno-strict-aliasing. .rodata@00374c18: the two format strings.
 // Notes: (1) the format pointer is a local set before the v[] reads, so the %hi of the string lives 6 insns and
 // loop.c hoists it (rematerialised by reload in t6); (2) RowOff() does the same for %hi(D_0035f604) at the loop head;
-// (3) w pinned to $17 (o in s1, a in s2).
+// (3) w reused for the func_002ab100 result at the tail (raises its global-alloc priority: o in s1, a in s2).
 #include "../common/types.h"
 extern "C" {
 struct LEnt { s16 a; s16 b; };
@@ -44,7 +44,7 @@ void func_002a8330(void)
 {
     s32 i;
     s32 t;
-    register s32 w asm("$17");
+    s32 w;
     u8* base = func_002766d0();
     s32 top = func_0028b038(D_0035f200);
     func_0028be78(D_0035f214, top);
@@ -105,7 +105,8 @@ void func_002a8330(void)
                 func_00192c90(func_00192048(it->h4), buf + w);
             }
         }
-        if (func_002ab100(D_0035f600->e[k].b)) {
+        w = func_002ab100(D_0035f600->e[k].b);
+        if (w) {
             if (func_002ab180(D_0035f600->e[k].b)) t = D_00374c30;
             else t = D_00374c2c;
             func_00138c10(base + i * 408 + 0xa998, t);
