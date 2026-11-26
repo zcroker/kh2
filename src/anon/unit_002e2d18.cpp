@@ -22,7 +22,6 @@ void func_00105110(void*);
 void func_002cebc0(void*);
 s32 func_002e34c8(void*);
 void func_002e2728(u8*, s32, s32);
-void func_002ceb08(void*);
 void func_002e2660(u8*);
 void func_002e26c0(u8*);
 }
@@ -30,8 +29,10 @@ void wtarget_002e2440(void*) asm("_Z16wtarget_002e2440jjjj");
 void wtarget_002e2570(void*) asm("_Z16wtarget_002e2570jjjj");
 void wtarget_002e27c8(void*) asm("_Z16wtarget_002e27c8jjjj");
 
-void ceb08_noarg(void) asm("func_002ceb08");
 namespace Ti {
+struct MiniGame {
+    static s32 type();
+};
 struct MG_EHSidecar {
     static void MoveToBeforePoint();
     static s32 GetCurrentPoint();
@@ -44,17 +45,14 @@ struct MG_EHSidecar {
 namespace Ti {
 void MG_EHSidecar::MoveToBeforePoint() {
     u8* m = D_00361f60;
-    if (m) ceb08_noarg();
+    if (m) MiniGame::type();
     func_002e26c0(m);
 }
 }
 
 extern "C" void func_002e2d50(void) {
     u8* m = D_00361f60;
-    if (m != 0) {
-        asm volatile("");
-        ceb08_noarg();
-    }
+    if (m) Ti::MiniGame::type();
     func_002e2660(m);
 }
 
@@ -62,21 +60,21 @@ void u_tail4_002e2d88(s32 a, u32 b) asm("_Z16u_tail4_002e2d88jjjj");
 void u_tail4_002e2d88(s32 a, u32 b) {
     u8 c = b;
     u8* m = D_00361f60;
-    if (m) ceb08_noarg();
+    if (m) Ti::MiniGame::type();
     *(s32*)(m + 276) = a;
     m[280] = c;
 }
 
 extern "C" s32 func_002e2dd8(void) {
     u8* m = D_00361f60;
-    if (m) ceb08_noarg();
+    if (m) Ti::MiniGame::type();
     return *(s32*)(m + 272) != 0;
 }
 
 namespace Ti {
 s32 MG_EHSidecar::GetCurrentPoint() {
     u8* m = D_00361f60;
-    if (m) ceb08_noarg();
+    if (m) MiniGame::type();
     return *(s32*)(m + 264);
 }
 }
