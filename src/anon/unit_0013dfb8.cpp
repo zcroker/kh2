@@ -287,6 +287,8 @@ extern u32 D_00347e18[] asm("D_00347e18");
 extern u32 D_003486b0[] asm("D_003486b0");
 extern u32 D_00347e80[] asm("D_00347e80");
 extern u8* D_003486a0 asm("D_003486a0");
+extern u8* D_003486a4 asm("D_003486a4");
+extern Sys* D_00347f80 asm("D_00347f80");
 void u_call0_0013e688(void) asm("_Z16u_call0_0013e688v");
 void u_call0_0013e688(void) {
     u8* p = func_001063c0(8112, func_001050c8());
@@ -311,17 +313,12 @@ void u_call0_0013e688(void) {
         q += 896;
         r += 224;
     }
+    Sys** ap = &D_00347f80;
     for (s32 j = 0; j < 9; j++) ((s32*)(p + 8064))[j] = j;
-    u8* b = (u8*)0x340000;
-    asm("" : "+r"(b));
     *(u32*)(p + 8100) = 9;
-    register u32 n asm("$5") = 448;
-    register s32 z asm("$6") = 0;
-    u8* c;
-    asm volatile("lui %0,0x35" : "=r"(c));
-    *(u8**)(c - 31068) = p;                  
-    Heap* hp = (*(Sys**)(b + 0x7f80))->heap;
-    u8* o = (u8*)hp->vt->alloc(hp, n, z);
+    D_003486a4 = p;
+    Heap* hp = (*ap)->heap;
+    u8* o = (u8*)hp->vt->alloc(hp, 448, 0);
     *(u32*)(o + 12) = 0;
     *(u32**)o = D_00347e80;
     func_002361a0(o + 32);
