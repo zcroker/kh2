@@ -38,17 +38,22 @@ typedef struct PktList347 { u32 a; u32 b; PktNode347* volatile tail; u32 c; } Pk
 extern PktList347 D_01dac450[16] asm("D_01dac450");
 /*TARGET 0020e7a8*/
 /* Clears node n, writes its tag (count - 1, type 0x20000000) and links it after the tail of
-   priority list pri (clamped to 0..15). sq $0 zero store: hand asm. The empty asm keeps the
-   list address from being scheduled above the tag store (partial asm, see asm_review.tsv). */
+   priority list pri (clamped to 0..15). sq $0 zero store: hand asm (no C form found: a TI zero store
+   is por+sq). The empty `while (0);` leaves loop notes that sched treats as a barrier, which keeps the
+   list address below the tag store (retail order). */
 void func_0020e7a8(PktNode347* n, s32 count, s32 pri) asm("func_0020e7a8");
 /* Clears node n, writes its tag (count - 1, type 0x20000000) and links it after the tail of
-   priority list pri (clamped to 0..15). sq $0 zero store: hand asm. The empty asm keeps the
-   list address from being scheduled above the tag store (partial asm, see asm_review.tsv). */
+   priority list pri (clamped to 0..15). sq $0 zero store: hand asm (no C form found: a TI zero store
+   is por+sq). The empty `while (0);` leaves loop notes that sched treats as a barrier, which keeps the
+   list address below the tag store (retail order). */
 void func_0020e7a8(PktNode347* n, s32 count, s32 pri) {
     PktList347* l;
     asm volatile("sq $0, 0(%0)" : : "r"(n) : "memory");
-    n->tag = (count - 1) | 0x20000000;
-    asm volatile("");
+    {
+        u32 tag = (count - 1) | 0x20000000;
+        while (0);
+        n->tag = tag;
+    }
     if (pri <= 0) pri = 0;
     if (pri > 15) pri = 15;
     l = D_01dac450;
@@ -77,8 +82,11 @@ void func_0020e800(PktNode347* n, s32 count, s32 pri) asm("func_0020e800");
 void func_0020e800(PktNode347* n, s32 count, s32 pri) {
     PktList347* l;
     asm volatile("sq $0, 0(%0)" : : "r"(n) : "memory");
-    n->tag = (count - 1) | 0x20000000;
-    asm volatile("");
+    {
+        u32 tag = (count - 1) | 0x20000000;
+        while (0);
+        n->tag = tag;
+    }
     if (pri <= 0) pri = 0;
     if (pri > 15) pri = 15;
     l = D_01dad550;
@@ -103,18 +111,21 @@ extern PktList3687 D_01dac550[256] asm("D_01dac550");
 /*TARGET 0020e858*/
 /* Clears node n, writes its tag (count - 1, type 0x20000000) and links it after the tail of
    priority list pri (clamped to 0..255). Twin of func_0020e7a8 (batch_w3685_g.c). sq $0 zero
-   store: hand asm. The empty asm keeps the list address from being scheduled above the tag
-   store (partial asm, see asm_review.tsv). */
+   store: hand asm. The empty `while (0);` (loop notes, a sched barrier) keeps the list address
+   below the tag store. */
 void func_0020e858(PktNode3687* n, s32 count, s32 pri) asm("func_0020e858");
 /* Clears node n, writes its tag (count - 1, type 0x20000000) and links it after the tail of
    priority list pri (clamped to 0..255). Twin of func_0020e7a8 (batch_w3685_g.c). sq $0 zero
-   store: hand asm. The empty asm keeps the list address from being scheduled above the tag
-   store (partial asm, see asm_review.tsv). */
+   store: hand asm. The empty `while (0);` (loop notes, a sched barrier) keeps the list address
+   below the tag store. */
 void func_0020e858(PktNode3687* n, s32 count, s32 pri) {
     PktList3687* l;
     asm volatile("sq $0, 0(%0)" : : "r"(n) : "memory");
-    n->tag = (count - 1) | 0x20000000;
-    asm volatile("");
+    {
+        u32 tag = (count - 1) | 0x20000000;
+        while (0);
+        n->tag = tag;
+    }
     if (pri <= 0) pri = 0;
     if (pri > 255) pri = 255;
     l = D_01dac550;
