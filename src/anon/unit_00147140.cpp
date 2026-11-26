@@ -221,17 +221,11 @@ void func_001473e8(W1649Mgr* m)
             }
         }
     }
+    if (cnt >= 2) func_001472b8(sorted, keys, 0, cnt - 1);
     last = cnt - 1;
-    if (cnt >= 2) {
-        // The original loads 0x70001000 with one unsplit `li` (gas expands it to lui+ori after
-        // scheduling); gcc splits a C constant before sched1 and pairs the two luis instead.
-        void* p;
-        asm("li %0,0x70001000" : "=r"(p));
-        func_001472b8(p, keys, 0, last);
-    }
     for (s32 i = 0; i < n; i++) {
         W1649Ent* e = &m->ents[i];
-        if (__builtin_expect(!(e->flags & 2), 1)) continue;
+        if (!(e->flags & 2)) continue;
         W1649Ob* o = e->obj;
         if (!(o->flags & 0x2000)) {
             if (!(o->flags & 0x40)) {
