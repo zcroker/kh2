@@ -16,7 +16,6 @@ src/sdk/sdk_asm_001002a0.s	001002a0	001002b0	-	-
 src/anon/unit_001002b0.cpp	001002b0	001003c8	-	-G0
 src/anon/unit_001056e8.cpp	001056e8	00105748	.data@0032bb28,.bss@003a7b60	-G0
 src/common/saveram.cpp	00105748	00105a10	.data@0032bb30	-G0
-src/anon/asm_0010fb10.s	0010fb10	0010fea0	-	-
 src/anon/asm_0011f7a8.s	0011f7a8	00120520	-	-
 src/anon/batch_w3960.s	00121cc8	00123138	-	-
 src/anon/batch_w3962.s	00125f78	00127a88	-	-
@@ -534,6 +533,7 @@ src/anon/unit_0010d900.cpp	0010d900	0010dee8	-	-G0 -fno-strict-aliasing
 src/anon/unit_0010dee8.cpp	0010dee8	0010ef48	.rodata@0036a468	-G0
 src/anon/unit_0010ef48.cpp	0010ef48	0010f338	-	-G0 -g -fno-strict-aliasing -fno-gcse
 src/anon/unit_0010f338.cpp	0010f338	0010fb10	.rodata@0036a52c	-G0
+src/anon/unit_0010fb10.cpp	0010fb10	0010fea0	.bss@003a9290	-G0 -fno-strict-aliasing -fno-gcse
 src/anon/unit_0010fea0.cpp	0010fea0	001109c8	.rodata@0036a530	-G0 -fno-strict-aliasing
 src/anon/unit_00110b00.cpp	001109c8	001117d8	.rodata@0036a53c	-G0 -fno-strict-aliasing
 src/anon/unit_001117d8.cpp	001117d8	00113628	.rodata@0036a560	-G0 -g -fno-strict-aliasing
