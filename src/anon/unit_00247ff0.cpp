@@ -1,4 +1,4 @@
-// Linked unit 0x00247ff0-0x002499b8.
+// Linked unit 0x00247ff0-0x00249ef0.
 #include "../tozawa/smenu_mu.hpp"
 #include "../common/types.h"
 #include <stdarg.h>
@@ -983,3 +983,152 @@ void TRTE::PauseThread(TASK* a0) {
 }
 }  // Tz
 
+
+// 002499b8 (was src/anon/batch_w3898.s)
+namespace n002499b8 {
+struct Ent36 { u8 pad0[8]; u8 name[8]; s8 f10; u8 pad11; u16 f12; u8 pad14[8]; s8 req[4]; u8 pad32[4]; };
+u8* func_0023ee30(u32) asm("func_0023ee30");
+void func_0031a838(u8*) asm("func_0031a838");
+void func_002369a0(u8*) asm("func_002369a0");
+void func_0023c008(u8*) asm("func_0023c008");
+void func_0028d7f0(u8*, s32, s32, s32, s32, s32, s32, s32, s32) asm("func_0028d7f0");
+void func_0023ef50(u8*) asm("func_0023ef50");
+s32 func_002431d0(s32, s32) asm("func_002431d0");
+void func_00288d80(void*, s32, s32, s32, u8*, s32, void*, u8*) asm("func_00288d80");
+u8* func_002891b8(void*, s32) asm("func_002891b8");
+s32 func_0023aa98(u8*) asm("func_0023aa98");
+s32 func_0023aa78(u8*) asm("func_0023aa78");
+s32 func_0028dd90(s32) asm("func_0028dd90");
+s32 func_0028ddd8(s32) asm("func_0028ddd8");
+void func_001395f8(u8*) asm("func_001395f8");
+void func_00139620(u8*) asm("func_00139620");
+s32 func_002892f8(void*) asm("func_002892f8");
+void func_00138c68(u8*, s32, s32) asm("func_00138c68");
+void func_002891f0(void*, s32, s32, s32, s32) asm("func_002891f0");
+s32 func_002891e8(void*) asm("func_002891e8");
+void func_002b4070(u8*, s32, u8*, u8*, u8*, u8*, u8*, u8*, u8*, s32, Ent36*, s32, s32) asm("func_002b4070");
+s32 func_001a6d08(s32) asm("func_001a6d08");
+void func_0028af40(void*, s32) asm("func_0028af40");
+void func_0028d980(u8*, s32, s32, s32, u8*, s32, s32, s32, s32) asm("func_0028d980");
+void func_00287bd0(s32, s32) asm("func_00287bd0");
+void func_00287cc0(s32) asm("func_00287cc0");
+s32 func_002887c8(void) asm("func_002887c8");
+void func_00288750(void (*)(void)) asm("func_00288750");
+Ent36* func_0024ac38(s32) asm("func_0024ac38");
+void func_0024abe8(void) asm("func_0024abe8");
+s16* func_0024b1a0(s32) asm("func_0024b1a0");
+s32 func_0024ad50(void) asm("func_0024ad50");
+void func_0024ada0(void) asm("func_0024ada0");
+void func_0024a048(void) asm("func_0024a048");
+void func_0024a260(void) asm("func_0024a260");
+s32 func_0024ac88(void) asm("func_0024ac88");
+void func_002b4388(u8*, Ent36*, s32) asm("func_002b4388");
+extern u8 D_00347f98[] asm("D_00347f98");
+extern u8 D_0035eb98[] asm("D_0035eb98");
+extern u8 D_0035ed94 asm("D_0035ed94");
+extern u8 D_0035ed9c asm("D_0035ed9c");
+extern u8* D_0035ed78 asm("D_0035ed78");
+extern u8* D_0035ed7c asm("D_0035ed7c");
+extern u8* D_0035ed80 asm("D_0035ed80");
+extern u8* D_0035ed84 asm("D_0035ed84");
+extern u8* D_0035ed90 asm("D_0035ed90");
+extern void* D_0035ed70 asm("D_0035ed70");
+extern Ent36* D_0035eda0 asm("D_0035eda0");
+extern u8 D_00371ea0[] asm("D_00371ea0");
+extern u8 D_00371ec0[] asm("D_00371ec0");
+extern u8 D_00371ec8[] asm("D_00371ec8");
+extern u8 D_00371ed0[] asm("D_00371ed0");
+extern u8 D_00371ed8[] asm("D_00371ed8");
+extern u8 D_00371ee0[] asm("D_00371ee0");
+extern Ent36 D_00371ee8[] asm("D_00371ee8");
+
+static inline u8* NewLayout(void) {
+    u8* o = func_0023ee30(160);
+    *(u8**)o = D_00347f98;
+    func_0031a838(o + 12);
+    *(u8**)o = D_0035eb98;
+    func_002369a0(o + 24);
+    func_0023c008(o + 48);
+    return o;
+}
+static inline Ent36* GetEnt(s32 i) { return D_0035eda0 = func_0024ac38(i); }
+/*TARGET 002499b8*/
+void func_002499b8(void) asm("func_002499b8");
+void func_002499b8(void) {
+    s32 i, j, ok;
+    s32 sel;
+    s32 n, w, half;
+    u8* o;
+    Ent36* e;
+    s32 p;
+    sel = 0;
+    D_0035ed94 = 0;
+    D_0035ed78 = NewLayout();
+    func_0028d7f0(D_0035ed78, 30002, 0, 0, 30, 32, 0, 0, 0);
+    func_0023ef50(D_0035ed78);
+    for (i = 0; i < 2; i++) {
+        ok = 1;
+        for (j = 0; j < 4; j++) {
+            s32 t = GetEnt(i)->req[j];
+            if (t < 0) break;
+            if (!func_001a6d08(t)) { ok = 0; break; }
+        }
+        if (ok) {
+            if (func_002431d0(2, i) == 0) D_0035ed9c |= 1 << i;
+            e = GetEnt(i);
+            if (e->f10) sel = i;
+            func_00288d80(D_0035ed70, i, 0, 0, D_0035ed78, e->f12, e, e->name);
+            o = func_002891b8(D_0035ed70, i);
+            p = func_0023aa98(o + 24);
+            *(s32*)(o + 432) = func_0028dd90(p);
+            *(s32*)(o + 428) = func_0028ddd8(p);
+            func_001395f8(o);
+        }
+    }
+    i = 0;
+    n = func_002892f8(D_0035ed70);
+    w = func_0023aa78(func_002891b8(D_0035ed70, 0) + 24);
+    half = (w * n) / 2;
+    for (; i < n; i++) {
+        func_00138c68(func_002891b8(D_0035ed70, i), 0, -half + w * i);
+    }
+    func_002891f0(D_0035ed70, sel, 0, -1, -1);
+    func_0024abe8();
+    sel = func_002891e8(D_0035ed70);
+    func_002891f0(D_0035ed70, sel, 1, 0, 2);
+    half = 0xcb96;
+    func_002b4070(D_0035ed90, 30003, D_0035ed78, D_00371ea0, D_00371ec0, D_00371ec8, D_00371ed0, D_00371ed8, D_00371ee0, half, D_0035eda0, 0, 0);
+    D_0035ed80 = NewLayout();
+    {
+        s16* r = func_0024b1a0(sel);
+        func_0028d7f0(D_0035ed80, 30002, 0, 0, r[0], r[2], 0, 0, 0);
+    }
+    func_0023ef50(D_0035ed80);
+    D_0035ed7c = NewLayout();
+    func_0028d7f0(D_0035ed7c, 30019, 0, 0, 33, 35, 0, 0, 0);
+    func_0023ef50(D_0035ed7c);
+    if (func_001a6d08(9) && func_0024ad50()) {
+        func_0028af40(D_0035ed70, 512);
+        func_0028d980(D_0035ed84, 30011, 0, 0, D_0035ed78, 31, 33, 1074, 0);
+        func_00139620(D_0035ed84);
+        func_001395f8(D_0035ed84);
+        *(u8*)(D_0035ed84 + 405) = 1;
+        { u8* a = D_0035ed84 + 24; *(u32*)(a + 184) |= 8; }
+        *(s32*)(D_0035ed84 + 432) = 2;
+    }
+    func_0024ada0();
+    func_00287bd0(0, 0);
+    func_00287cc0(0);
+    if (func_002887c8()) {
+        func_0024a048();
+        D_0035ed94 = 1;
+        func_00288750(func_0024a260);
+    }
+    sel = func_002891e8(D_0035ed70);
+    if (sel == 1 && func_0024ac88()) {
+        func_002b4388(D_0035ed90, &D_00371ee8[2], 0);
+        return;
+    }
+    func_002b4388(D_0035ed90, &D_00371ee8[sel], 0);
+}
+}  // namespace n002499b8

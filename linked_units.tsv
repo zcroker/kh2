@@ -101,7 +101,6 @@ src/anon/unit_0023e5d0.cpp	0023e5d0	0023f5b8	.rodata@00371560	-G0 -fno-strict-al
 src/anon/unit_0023f5b8.cpp	0023f5b8	00241c40	-	-G0 -fno-strict-aliasing
 src/anon/batch_w3693_mam.c	00241c40	00241e18	-	-G0 -fmove-all-movables
 src/anon/unit_00241e18.cpp	00241e18	00241f20	-	-G0 -fno-strict-aliasing
-src/anon/batch_w3898.s	002499b8	00249ef0	-	-
 src/anon/asm_00268460.s	00268460	00268b30	-	-
 src/anon/asm_0026ee78.s	0026ee78	0026f0a0	-	-
 src/anon/batch_w3914.s	0027ccf8	0027d008	-	-
@@ -268,7 +267,7 @@ src/anon/unit_00241f20.cpp	00241f20	00241f98	.bss@01dae688	-G0
 src/anon/unit_00241fd0.cpp	00241f98	002422b8	-	-G0 -g -fno-strict-aliasing
 src/tozawa/crc.cpp	002422b8	00242478	.data@0035ecbc	-G0 -fno-strict-aliasing
 src/anon/unit_00242478.cpp	00242478	00247ff0	.rodata@0037190c	-G0 -g -fno-strict-aliasing
-src/anon/unit_00247ff0.cpp	00247ff0	002499b8	.rodata@00371ce4	-G0 -g -fno-strict-aliasing -fmove-all-movables
+src/anon/unit_00247ff0.cpp	00247ff0	00249ef0	.rodata@00371ce4	-G0 -g -fno-strict-aliasing -fmove-all-movables
 src/anon/unit_00249ef0.cpp	00249ef0	0024ba58	.rodata@00371e54	-G0 -g -fno-strict-aliasing -fmove-all-movables
 src/anon/unit_0024ba58.cpp	0024ba58	0024cda8	.rodata@00371fac	-G0 -g -fno-strict-aliasing -fmove-all-movables
 src/anon/unit_0024cda8.cpp	0024cda8	0024e7e8	.rodata@003720f4	-G0 -g -fno-strict-aliasing -fmove-all-movables
