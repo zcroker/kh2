@@ -1,6 +1,6 @@
 // func_00201d60 (w3853) + gap func_00202428 (trail update): C, -fno-strict-aliasing (_nsa). Builds the trail strip: spline-sampled key points
-// into obj->out, optional fade, then the alpha/colour/vertex records. Two empty asm readers (partial asm):
-// one ties the loop index i (allocation priority, i in s1), one keeps the "step = c" register copy.
+// into obj->out, optional fade, then the alpha/colour/vertex records. i is reused as the count passed to
+// func_00201978 (gives i its s1 priority). One empty asm reader left (partial asm): it keeps the "step = c" register copy.
 #include "../common/types.h"
 typedef struct { f32 x, y, z, w; } Vq __attribute__((aligned(16)));
 typedef struct { u32 cur; u8 cnt; u8 on; u8 pad[2]; Vq (*key)[2]; } TrSt;
@@ -40,9 +40,9 @@ void func_00201d60(TrObj* obj, u8* prm, TrSt* st)
             if (idx < 0) idx += cnt;
             sceVu0CopyVector(&tmp[i], &(*key)[idx * 2 + k]);
             if (prm[21]) sceVu0SubVector(&tmp[i], &tmp[i], &D_00354bc0);
-            asm("" :: "r"(i), "r"(i));
         }
-        func_00201978(tmp, cnt, coef);
+        i = cnt;
+        func_00201978(tmp, i, coef);
         for (i = 0; i < n + 1; i++) {
             s16* o = (s16*)(off + (u32)out) + i * 6;
             func_00201b30(&res, tmp, coef, (f32)i / (f32)n * (f32)(cnt - 1));
