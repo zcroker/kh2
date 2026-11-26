@@ -125,8 +125,6 @@ void func_0024ce18(void) {
         s8* r;
         e = &tbl[i];
         o = 0;
-        asm("" :: "r"(e));
-        asm("" : "+r"(o));
         ok = 1;
         for (j = 0, r = e->req; j < 4; j++) {
             s32 t = *r++;
@@ -147,7 +145,7 @@ void func_0024ce18(void) {
     }
     i = 0;
     cnt = func_002892f8(D_0035edcc);
-    w = func_0023aa78(func_002891b8(D_0035edcc, 0) + 24);
+    o = func_002891b8(D_0035edcc, 0); w = func_0023aa78(o + 24);
     half = (w * cnt) / 2; n = half;
     for (; i < cnt; i++) {
         func_00138c68(func_002891b8(D_0035edcc, i), 0, w * i - n);
@@ -156,7 +154,7 @@ void func_0024ce18(void) {
     func_0024df90();
     sel = func_002891e8(D_0035edcc);
     func_002891f0(D_0035edcc, sel, 1, 0, 2);
-    { register s32 k asm("$5") = 0xcb96; func_002b4070(D_0035edec, 30003, D_0035edd4, D_00372158, D_00372190, D_00372198, D_003721a0, D_003721a8, D_003721b0, k, &tbl[sel], 0, 0); }
+    n = 0xcb96; func_002b4070(D_0035edec, 30003, D_0035edd4, D_00372158, D_00372190, D_00372198, D_003721a0, D_003721a8, D_003721b0, n, &tbl[sel], 0, 0);
     D_0035eddc = NewLayout();
     {
         s16* r = func_0024e008(sel);
