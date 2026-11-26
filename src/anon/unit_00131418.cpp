@@ -2219,3 +2219,21 @@ u32 func_00133c78(u32 a0, u32 a1, u32 a2, u32 a3) {
 }
 }  // namespace n00133c78
 
+
+// 00133c90 (gap, was src/anon/asm_00133c90.s): take n bytes, 16-aligned, from the top of a double-buffered area.
+// The end is summed in each branch (the tails are cross-jumped after reload) and `top` is updated in place.
+namespace n00133c90 {
+struct Q { u8 dbl; u8 pad[7]; u32 base0; u32 base1; u32 size; u32 used; u32 min; };
+u32 func_00133c90(Q* o, u32 n) asm("func_00133c90");
+u32 func_00133c90(Q* o, u32 n) {
+    u32 top;
+    n = (n + 15) & ~15;
+    if (!o->dbl) top = o->base0 + o->size; else top = o->base1 + o->size;
+    top &= ~15;
+    top -= o->used;
+    u32 r = top - n;
+    if (r < o->min) return 0;
+    o->used += n;
+    return r;
+}
+}  // namespace n00133c90
