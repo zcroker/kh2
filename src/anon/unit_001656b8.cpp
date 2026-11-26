@@ -131,7 +131,7 @@ void func_001656d0(Nd12* n, u32 a1, u32 a2) {
     void* o = func_001063c0(224, D_0034c7a4.v);
     func_001415e8(o, a1, -1);
     n->f4 = o;
-    asm volatile("" ::: "memory");
+
     if (!D_004f41c0.tail) { D_004f41c0.tail = n; D_004f41c0.head = n; n->next = 0; }
     else { D_004f41c0.tail->next = n; n->next = 0; D_004f41c0.tail = n; }
 }
@@ -146,7 +146,7 @@ extern U0_LinkList D_004f41c0 asm("D_004f41c0");
 extern U0_LinkPool* D_0034c7a0 asm("D_0034c7a0");
 void func_00106420(void*) asm("func_00106420");
 void func_00165768(U0_Link* n) asm("func_00165768");
-void func_00165768(U0_Link* n) {                  
+void func_00165768(U0_Link* n) {
     U0_Link* prev;
     U0_LinkPool* pool;
     s32 k;
@@ -161,7 +161,7 @@ void func_00165768(U0_Link* n) {
     n->next = 0;
     if (n->buf) func_00106420(n->buf);
     n->buf = 0;
-    asm volatile("" ::: "memory");
+
     pool = D_0034c7a0;
     pool->freeIdx[pool->nfree++] = n - pool->e;
 }
@@ -332,7 +332,7 @@ s32 func_00165ad8(Hit165ad8* h, f32* minDist)
     Hit165ad8 best;
     func_0031b9e0(&best);
     f32 saved = h->v3.y;
-    u64 mask = (u64)1 << 32;                                                                         
+    u64 mask = (u64)1 << 32;
     while ((e = func_00165ef0(e)) != 0) {
         if (e->id == h->owner) continue;
         if (func_00142b70(e->body)) continue;

@@ -252,7 +252,7 @@ typedef unsigned short u16;
 typedef unsigned int u32;
 typedef signed int s32;
 void func_0013dbb0(void) asm("func_0013dbb0");
-volatile short func_001a2a50(u32, s32, s32, s32) asm("func_001a2a50");
+short func_001a2a50(u32, s32, s32, s32) asm("func_001a2a50");
 void func_001a3458(u32, s32) asm("func_001a3458");
 s32 func_002570a0(s32) asm("func_002570a0");
 u16 *func_002632d0(s32) asm("func_002632d0");
@@ -350,7 +350,7 @@ extern u32 D_0035f0c0 asm("D_0035f0c0");
 extern u8* D_00347f80 asm("D_00347f80");
 extern u8 D_00347e60[] asm("D_00347e60");
 extern u8 D_0035f360[] asm("D_0035f360");
-extern u32* volatile D_0035f0dc asm("D_0035f0dc");
+extern u32* D_0035f0dc asm("D_0035f0dc");
 void func_00263bb0(u32, u32) asm("func_00263bb0");
 void func_00239700(u32*) asm("func_00239700");
 /*TARGET 00263960*/
@@ -367,7 +367,7 @@ void func_00263960(u32 a, u32 b, u32 c, u32 d, u32 e) {  // store_globals_and_in
     o[0] = (u32)D_00347e60;
     func_00239700(o + 6);
     o[102] = 0;
-    *(volatile u32*)o = (u32)D_0035f360;
+    *(u32*)o = (u32)D_0035f360;
     D_0035f0dc = o;
 }
 }  // namespace n00263960

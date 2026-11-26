@@ -40,22 +40,24 @@ void func_002c3c90(u8* a0) {
         return;
     case -1:
     case -4:
-        return;
-    }
-    if (func_002891e8(*(void**)(a0 + 872)) == 0) {
-        func_002cac40(2);
-        *(s32*)(a0 + 8240) = 1;
-        *(u32*)(a0 + 24) |= 2;
-        *(W254S10*)(a0 + 13608) = *(W254S10*)func_001c3f58(*(s32*)(a0 + 8236));
-        func_002c3da0(a0);
-        func_002c8648();
-    } else {
-        func_002cac40(2);
-        *(s32*)(a0 + 8240) = 0;
-        func_002c3da0(a0);
-        asm volatile("");
+        break;
+    default:
+        if (func_002891e8(*(void**)(a0 + 872)) == 0) {
+            func_002cac40(2);
+            *(s32*)(a0 + 8240) = 1;
+            *(u32*)(a0 + 24) |= 2;
+            *(W254S10*)(a0 + 13608) = *(W254S10*)func_001c3f58(*(s32*)(a0 + 8236));
+            func_002c3da0(a0);
+            func_002c8648();
+        } else {
+            func_002cac40(2);
+            *(s32*)(a0 + 8240) = 0;
+            func_002c3da0(a0);
+        }
+        break;
     }
 }
+
 }  // namespace n002c3c90
 
 // ---- 002c3da0 from src/anon/auto80_199_queue.cpp

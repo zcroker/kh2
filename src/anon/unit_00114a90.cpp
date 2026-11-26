@@ -76,14 +76,11 @@ void func_00113628(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a
 /*TARGET 00114ab0*/
 u32 func_00114ab0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) asm("_Z13func_00114ab0jjjjjjjj");
 u32 func_00114ab0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32 r16 = a0;
+    u32* p = (u32*)a0;
     u32 r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_00113628)(a0, a1, a2, a3, a4, a5, a6, a7);
-    u32 r15 = (u32)&D_003464e8;
-    u32 r14 = (u32)&D_00340000;
-    *(volatile u32*)(r16 + 16) = r15;
-    r14 = (u32)&D_00346658;
-    *(volatile u32*)r16 = r14;
-    *(volatile u32*)(r16 + 12) = 10;
+    p[0] = (u32)&D_00346658;
+    p[3] = 10;
+    p[4] = (u32)&D_003464e8;
     return r2;
 }
 }  // namespace n00114ab0
@@ -97,14 +94,11 @@ void func_00113628(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a
 /*TARGET 00114af8*/
 u32 func_00114af8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) asm("_Z13func_00114af8jjjjjjjj");
 u32 func_00114af8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32 r16 = a0;
+    u32* p = (u32*)a0;
     u32 r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_00113628)(a0, a1, a2, a3, a4, a5, a6, a7);
-    u32 r15 = (u32)&D_003464e8;
-    u32 r14 = (u32)&D_00340000;
-    *(volatile u32*)(r16 + 16) = r15;
-    r14 = (u32)&D_00346658;
-    *(volatile u32*)r16 = r14;
-    *(volatile u32*)(r16 + 12) = 10;
+    p[0] = (u32)&D_00346658;
+    p[3] = 10;
+    p[4] = (u32)&D_003464e8;
     return r2;
 }
 }  // namespace n00114af8
@@ -182,14 +176,11 @@ void func_00113628(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a
 /*TARGET 00114be8*/
 u32 func_00114be8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) asm("_Z13func_00114be8jjjjjjjj");
 u32 func_00114be8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32 r16 = a0;
+    u32* p = (u32*)a0;
     u32 r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_00113628)(a0, a1, a2, a3, a4, a5, a6, a7);
-    u32 r15 = (u32)&D_00346690;
-    u32 r14 = (u32)&D_00340000;
-    *(volatile u32*)(r16 + 16) = r15;
-    r14 = (u32)&D_003467b8;
-    *(volatile u32*)r16 = r14;
-    *(volatile u32*)(r16 + 12) = 8;
+    p[0] = (u32)&D_003467b8;
+    p[3] = 8;
+    p[4] = (u32)&D_00346690;
     return r2;
 }
 }  // namespace n00114be8
@@ -203,14 +194,11 @@ void func_00113628(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a
 /*TARGET 00114c30*/
 u32 func_00114c30(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) asm("_Z13func_00114c30jjjjjjjj");
 u32 func_00114c30(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32 r16 = a0;
+    u32* p = (u32*)a0;
     u32 r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_00113628)(a0, a1, a2, a3, a4, a5, a6, a7);
-    u32 r15 = (u32)&D_00346690;
-    u32 r14 = (u32)&D_00340000;
-    *(volatile u32*)(r16 + 16) = r15;
-    r14 = (u32)&D_003467b8;
-    *(volatile u32*)r16 = r14;
-    *(volatile u32*)(r16 + 12) = 8;
+    p[0] = (u32)&D_003467b8;
+    p[3] = 8;
+    p[4] = (u32)&D_00346690;
     return r2;
 }
 }  // namespace n00114c30
@@ -279,7 +267,7 @@ u32 func_00114d00(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7
     u32 r14 = (u32)&D_00340000;
     *(volatile u32*)(r16 + 16) = r15;
     r14 = (u32)&D_00346960;
-    *(volatile u32*)r16 = r14;
+    *(u32*)r16 = r14;
     *(volatile u32*)(r16 + 12) = 10;
     return r2;
 }
@@ -294,14 +282,11 @@ void func_00113628(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a
 /*TARGET 00114d48*/
 u32 func_00114d48(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) asm("_Z13func_00114d48jjjjjjjj");
 u32 func_00114d48(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32 r16 = a0;
+    u32* p = (u32*)a0;
     u32 r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_00113628)(a0, a1, a2, a3, a4, a5, a6, a7);
-    u32 r15 = (u32)&D_003467f0;
-    u32 r14 = (u32)&D_00340000;
-    *(volatile u32*)(r16 + 16) = r15;
-    r14 = (u32)&D_00346960;
-    *(volatile u32*)r16 = r14;
-    *(volatile u32*)(r16 + 12) = 10;
+    p[0] = (u32)&D_00346960;
+    p[3] = 10;
+    p[4] = (u32)&D_003467f0;
     return r2;
 }
 }  // namespace n00114d48
@@ -394,14 +379,11 @@ void func_00113628(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a
 /*TARGET 00114e58*/
 u32 func_00114e58(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) asm("_Z13func_00114e58jjjjjjjj");
 u32 func_00114e58(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32 r16 = a0;
+    u32* p = (u32*)a0;
     u32 r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_00113628)(a0, a1, a2, a3, a4, a5, a6, a7);
-    u32 r15 = (u32)&D_00346998;
-    u32 r14 = (u32)&D_00340000;
-    *(volatile u32*)(r16 + 16) = r15;
-    r14 = (u32)&D_00346b08;
-    *(volatile u32*)r16 = r14;
-    *(volatile u32*)(r16 + 12) = 10;
+    p[0] = (u32)&D_00346b08;
+    p[3] = 10;
+    p[4] = (u32)&D_00346998;
     return r2;
 }
 }  // namespace n00114e58
@@ -415,14 +397,11 @@ void func_00113628(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a
 /*TARGET 00114ea0*/
 u32 func_00114ea0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) asm("_Z13func_00114ea0jjjjjjjj");
 u32 func_00114ea0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32 r16 = a0;
+    u32* p = (u32*)a0;
     u32 r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_00113628)(a0, a1, a2, a3, a4, a5, a6, a7);
-    u32 r15 = (u32)&D_00346998;
-    u32 r14 = (u32)&D_00340000;
-    *(volatile u32*)(r16 + 16) = r15;
-    r14 = (u32)&D_00346b08;
-    *(volatile u32*)r16 = r14;
-    *(volatile u32*)(r16 + 12) = 10;
+    p[0] = (u32)&D_00346b08;
+    p[3] = 10;
+    p[4] = (u32)&D_00346998;
     return r2;
 }
 }  // namespace n00114ea0
@@ -512,14 +491,11 @@ void func_00113628(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a
 /*TARGET 00114fb0*/
 u32 func_00114fb0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) asm("_Z13func_00114fb0jjjjjjjj");
 u32 func_00114fb0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32 r16 = a0;
+    u32* p = (u32*)a0;
     u32 r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_00113628)(a0, a1, a2, a3, a4, a5, a6, a7);
-    u32 r15 = (u32)&D_00346b40;
-    u32 r14 = (u32)&D_00340000;
-    *(volatile u32*)(r16 + 16) = r15;
-    r14 = (u32)&D_00346cd8;
-    *(volatile u32*)r16 = r14;
-    *(volatile u32*)(r16 + 12) = 11;
+    p[0] = (u32)&D_00346cd8;
+    p[3] = 11;
+    p[4] = (u32)&D_00346b40;
     return r2;
 }
 }  // namespace n00114fb0
@@ -533,14 +509,11 @@ void func_00113628(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a
 /*TARGET 00114ff8*/
 u32 func_00114ff8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) asm("_Z13func_00114ff8jjjjjjjj");
 u32 func_00114ff8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32 r16 = a0;
+    u32* p = (u32*)a0;
     u32 r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_00113628)(a0, a1, a2, a3, a4, a5, a6, a7);
-    u32 r15 = (u32)&D_00346b40;
-    u32 r14 = (u32)&D_00340000;
-    *(volatile u32*)(r16 + 16) = r15;
-    r14 = (u32)&D_00346cd8;
-    *(volatile u32*)r16 = r14;
-    *(volatile u32*)(r16 + 12) = 11;
+    p[0] = (u32)&D_00346cd8;
+    p[3] = 11;
+    p[4] = (u32)&D_00346b40;
     return r2;
 }
 }  // namespace n00114ff8
@@ -670,14 +643,11 @@ void func_00113628(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a
 /*TARGET 001151b0*/
 u32 func_001151b0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) asm("_Z13func_001151b0jjjjjjjj");
 u32 func_001151b0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32 r16 = a0;
+    u32* p = (u32*)a0;
     u32 r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_00113628)(a0, a1, a2, a3, a4, a5, a6, a7);
-    u32 r15 = (u32)&D_00346d10;
-    u32 r14 = (u32)&D_00340000;
-    *(volatile u32*)(r16 + 16) = r15;
-    r14 = (u32)&D_00346e80;
-    *(volatile u32*)r16 = r14;
-    *(volatile u32*)(r16 + 12) = 10;
+    p[0] = (u32)&D_00346e80;
+    p[3] = 10;
+    p[4] = (u32)&D_00346d10;
     return r2;
 }
 }  // namespace n001151b0
@@ -691,14 +661,11 @@ void func_00113628(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a
 /*TARGET 001151f8*/
 u32 func_001151f8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) asm("_Z13func_001151f8jjjjjjjj");
 u32 func_001151f8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32 r16 = a0;
+    u32* p = (u32*)a0;
     u32 r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_00113628)(a0, a1, a2, a3, a4, a5, a6, a7);
-    u32 r15 = (u32)&D_00346d10;
-    u32 r14 = (u32)&D_00340000;
-    *(volatile u32*)(r16 + 16) = r15;
-    r14 = (u32)&D_00346e80;
-    *(volatile u32*)r16 = r14;
-    *(volatile u32*)(r16 + 12) = 10;
+    p[0] = (u32)&D_00346e80;
+    p[3] = 10;
+    p[4] = (u32)&D_00346d10;
     return r2;
 }
 }  // namespace n001151f8
@@ -788,14 +755,11 @@ void func_00113628(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a
 /*TARGET 00115308*/
 u32 func_00115308(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) asm("_Z13func_00115308jjjjjjjj");
 u32 func_00115308(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32 r16 = a0;
+    u32* p = (u32*)a0;
     u32 r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_00113628)(a0, a1, a2, a3, a4, a5, a6, a7);
-    u32 r15 = (u32)&D_00346eb8;
-    u32 r14 = (u32)&D_00340000;
-    *(volatile u32*)(r16 + 16) = r15;
-    r14 = (u32)&D_00347050;
-    *(volatile u32*)r16 = r14;
-    *(volatile u32*)(r16 + 12) = 11;
+    p[0] = (u32)&D_00347050;
+    p[3] = 11;
+    p[4] = (u32)&D_00346eb8;
     return r2;
 }
 }  // namespace n00115308
@@ -809,14 +773,11 @@ void func_00113628(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a
 /*TARGET 00115350*/
 u32 func_00115350(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) asm("_Z13func_00115350jjjjjjjj");
 u32 func_00115350(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32 r16 = a0;
+    u32* p = (u32*)a0;
     u32 r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_00113628)(a0, a1, a2, a3, a4, a5, a6, a7);
-    u32 r15 = (u32)&D_00346eb8;
-    u32 r14 = (u32)&D_00340000;
-    *(volatile u32*)(r16 + 16) = r15;
-    r14 = (u32)&D_00347050;
-    *(volatile u32*)r16 = r14;
-    *(volatile u32*)(r16 + 12) = 11;
+    p[0] = (u32)&D_00347050;
+    p[3] = 11;
+    p[4] = (u32)&D_00346eb8;
     return r2;
 }
 }  // namespace n00115350
@@ -920,14 +881,11 @@ void func_00113628(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a
 /*TARGET 00115480*/
 u32 func_00115480(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) asm("_Z13func_00115480jjjjjjjj");
 u32 func_00115480(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32 r16 = a0;
+    u32* p = (u32*)a0;
     u32 r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_00113628)(a0, a1, a2, a3, a4, a5, a6, a7);
-    u32 r15 = (u32)&D_00347088;
-    u32 r14 = (u32)&D_00340000;
-    *(volatile u32*)(r16 + 16) = r15;
-    r14 = (u32)&D_00347220;
-    *(volatile u32*)r16 = r14;
-    *(volatile u32*)(r16 + 12) = 11;
+    p[0] = (u32)&D_00347220;
+    p[3] = 11;
+    p[4] = (u32)&D_00347088;
     return r2;
 }
 }  // namespace n00115480
@@ -941,14 +899,11 @@ void func_00113628(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a
 /*TARGET 001154c8*/
 u32 func_001154c8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) asm("_Z13func_001154c8jjjjjjjj");
 u32 func_001154c8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32 r16 = a0;
+    u32* p = (u32*)a0;
     u32 r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_00113628)(a0, a1, a2, a3, a4, a5, a6, a7);
-    u32 r15 = (u32)&D_00347088;
-    u32 r14 = (u32)&D_00340000;
-    *(volatile u32*)(r16 + 16) = r15;
-    r14 = (u32)&D_00347220;
-    *(volatile u32*)r16 = r14;
-    *(volatile u32*)(r16 + 12) = 11;
+    p[0] = (u32)&D_00347220;
+    p[3] = 11;
+    p[4] = (u32)&D_00347088;
     return r2;
 }
 }  // namespace n001154c8
@@ -1040,14 +995,11 @@ void func_00113628(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a
 /*TARGET 001155d8*/
 u32 func_001155d8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) asm("_Z13func_001155d8jjjjjjjj");
 u32 func_001155d8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32 r16 = a0;
+    u32* p = (u32*)a0;
     u32 r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_00113628)(a0, a1, a2, a3, a4, a5, a6, a7);
-    u32 r15 = (u32)&D_00347258;
-    u32 r14 = (u32)&D_00340000;
-    *(volatile u32*)(r16 + 16) = r15;
-    r14 = (u32)&D_003473c8;
-    *(volatile u32*)r16 = r14;
-    *(volatile u32*)(r16 + 12) = 10;
+    p[0] = (u32)&D_003473c8;
+    p[3] = 10;
+    p[4] = (u32)&D_00347258;
     return r2;
 }
 }  // namespace n001155d8
@@ -1061,14 +1013,11 @@ void func_00113628(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a
 /*TARGET 00115620*/
 u32 func_00115620(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) asm("_Z13func_00115620jjjjjjjj");
 u32 func_00115620(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32 r16 = a0;
+    u32* p = (u32*)a0;
     u32 r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_00113628)(a0, a1, a2, a3, a4, a5, a6, a7);
-    u32 r15 = (u32)&D_00347258;
-    u32 r14 = (u32)&D_00340000;
-    *(volatile u32*)(r16 + 16) = r15;
-    r14 = (u32)&D_003473c8;
-    *(volatile u32*)r16 = r14;
-    *(volatile u32*)(r16 + 12) = 10;
+    p[0] = (u32)&D_003473c8;
+    p[3] = 10;
+    p[4] = (u32)&D_00347258;
     return r2;
 }
 }  // namespace n00115620
@@ -1134,7 +1083,7 @@ u32 func_001156f0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7
     u32 r14 = (u32)&D_00340000;
     *(volatile u32*)(r16 + 16) = r15;
     r14 = (u32)&D_00347550;
-    *(volatile u32*)r16 = r14;
+    *(u32*)r16 = r14;
     *(volatile u32*)(r16 + 12) = 9;
     return r2;
 }
@@ -1149,14 +1098,11 @@ void func_00113628(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a
 /*TARGET 00115738*/
 u32 func_00115738(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) asm("_Z13func_00115738jjjjjjjj");
 u32 func_00115738(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32 r16 = a0;
+    u32* p = (u32*)a0;
     u32 r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_00113628)(a0, a1, a2, a3, a4, a5, a6, a7);
-    u32 r15 = (u32)&D_00347400;
-    u32 r14 = (u32)&D_00340000;
-    *(volatile u32*)(r16 + 16) = r15;
-    r14 = (u32)&D_00347550;
-    *(volatile u32*)r16 = r14;
-    *(volatile u32*)(r16 + 12) = 9;
+    p[0] = (u32)&D_00347550;
+    p[3] = 9;
+    p[4] = (u32)&D_00347400;
     return r2;
 }
 }  // namespace n00115738
@@ -2082,7 +2028,7 @@ void func_00116db0(E116Obj* o)
             if (o->slots[i].flags & 0x10) {
                 o->slots[i].flags |= 3;
                 register E116Vec* qp asm("$16");
-                register s32 one asm("$4") = 1;
+                s32 one = 1;
                 asm volatile("" : "+r"(one));
                 qp = &o->slots[i].pos;
                 asm("" : "+r"(qp));

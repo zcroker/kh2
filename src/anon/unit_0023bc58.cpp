@@ -509,13 +509,13 @@ void func_0023c728(Obj* o, s32 idx) {
 // 0023c900 (was src/anon/tiny_auto80_queue.cpp)
 namespace n0023c900 {
 /*TARGET 0023c900*/
+struct L { u8 pad[56]; s32 f56; u8 pad2[4]; f32 f64; f32 f68; u8 pad3[8]; u8 f80; };
 u32 func_0023c900(u32 a0) asm("_Z13func_0023c900j");
 u32 func_0023c900(u32 a0) {
-    if ((u32)(*(u32*)(a0 + 56) - 1) < 2) {
-        if (*(u8*)(a0 + 80) == 0) {
-            f32 f1 = *(volatile f32*)(a0 + 68);
-            f32 f0 = *(volatile f32*)(a0 + 64);
-            if (f1 <= f0) {
+    L* o = (L*)a0;
+    if ((u32)(o->f56 - 1) < 2) {
+        if (o->f80 == 0) {
+            if (o->f64 >= o->f68) {
                 return 0;
             }
         }

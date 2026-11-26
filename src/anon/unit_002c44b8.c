@@ -3,7 +3,7 @@
 // Moved here as is from src/anon/batch_w3796b_nsa.c.
 // C, not C++ (C++ adds an extra andi 0xff on the flags & 1 test), built with
 // -fno-strict-aliasing (_nsa rule).
-// Partial inline asm: two empty non-volatile asm ties (no code) that keep the
+// Partial inline asm: two empty non-asm ties (no code) that keep the
 // row offset live past the add, so local-alloc does not put the multiply in a2.
 // No register pins, no hand-written instructions.
 extern s32 D_0035f3d4;

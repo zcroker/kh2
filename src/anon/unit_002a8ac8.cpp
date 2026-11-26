@@ -134,7 +134,7 @@ s32 func_00288040(void) asm("func_00288040");
 void func_00288018(void) asm("func_00288018");
 extern void *D_0035f200 asm("D_0035f200");
 s32 func_0028acc8(void *s) asm("func_0028acc8");
-volatile unsigned int func_0028af18_b(void *s, u32 a) asm("func_0028af18");
+unsigned int func_0028af18_b(void *s, u32 a) asm("func_0028af18");
 s32 func_00289310(void *s) asm("func_00289310");
 s32 func_00287df0(s32 a, s32 b, s32 c, void (*d)(void), s32 e) asm("func_00287df0");
 s32 func_002891e8(void *s) asm("func_002891e8");

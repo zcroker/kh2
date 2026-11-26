@@ -44,11 +44,11 @@ extern "C" void func_0014a950(void** p) {
 // 0x14a988: reset the fade state
 extern "C" void func_0014a988(void* v) {
     u8* p = (u8*)v;
-    *(volatile u32*)(p + 260) = 0;
-    *(volatile u32*)(p + 248) = 0;
-    *(volatile u8*)(p + 244) = 0;
-    *(volatile u32*)(p + 252) = 0;
-    *(volatile u32*)(p + 256) = 0;
+    *(u32*)(p + 248) = 0;
+    *(u8*)(p + 244) = 0;
+    *(u32*)(p + 252) = 0;
+    *(float*)(p + 256) = 0.0f;
+    *(float*)(p + 260) = 0.0f;
 }
 
 // 0x14a9a0: dk::Fade::fadeSetup

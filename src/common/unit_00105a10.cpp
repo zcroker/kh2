@@ -36,7 +36,7 @@ void func_00105a18(void) {
 }
 
 void func_00105a20(void) {
-    volatile u8 pad[64];
+    u8 pad[64];
 
     func_002bd260(0);
 

@@ -26,7 +26,7 @@ namespace Tz { class Select { public: u32 isCursorMove(); u32 isSelectTopMove();
 namespace n002c2228 {
 void func_0015ee90(...) asm("func_0015ee90");
 void func_002c2228(u32 a0) asm("_Z13func_002c2228j");
-void func_002c2228(u32 a0) {                         
+void func_002c2228(u32 a0) {
     if (a0 != 0) {
         func_0015ee90(a0);
     }
@@ -37,7 +37,7 @@ void func_002c2228(u32 a0) {
 namespace n002c2248 {
 void func_0015ee10(...) asm("func_0015ee10");
 void func_002c2248(u32 a0) asm("_Z13func_002c2248j");
-void func_002c2248(u32 a0) {                         
+void func_002c2248(u32 a0) {
     if (a0 != 0) {
         func_0015ee10(a0);
     }
@@ -48,7 +48,7 @@ void func_002c2248(u32 a0) {
 namespace n002c2268 {
 void func_00160fd0(...) asm("func_00160fd0");
 void func_002c2268(u32 a0) asm("_Z13func_002c2268j");
-void func_002c2268(u32 a0) {                         
+void func_002c2268(u32 a0) {
     if (a0 != 0) {
         func_00160fd0(a0);
     }
@@ -149,7 +149,7 @@ extern "C" void func_00274ee8(u32) asm("_ZN2Tz6Jiminy6WMInitEP9ALLOCATOR");
 void func_00288b18(u32 a0) asm("_Z13func_00288b18j");
 void func_002c23f0() asm("_Z13func_002c23f0v");
 void func_002c23f0() {
-    u32 v0 = func_00170b30(0x00100000u);                   
+    u32 v0 = func_00170b30(0x00100000u);
     D_00361c08 = v0;
     func_001036d0(v0, 0x00100000u);
     u32 s0 = func_00103570();
@@ -264,7 +264,7 @@ void* func_001c3748(s32, void*) asm("func_001c3748");
 s32 u_tail4(u32, void*) asm("_Z16u_tail4_00192048jjjj");
 s32 func_002c2610(s32 a0, s32 n) asm("func_002c2610");
 s32 func_002c2610(s32 a0, s32 n) {
-    register s32 nn asm("$17") = n; s32 i = 0; s32 aa = a0; register void* p asm("$5") = 0;
+    s32 nn = n; s32 i = 0; s32 aa = a0; void* p = 0;
     while ((p = func_001c3748(aa, p)) != 0) {
         if (i == nn) { return u_tail4(((u16*)p)[3], p); }
         i++;
@@ -703,12 +703,12 @@ void func_002c3368(Obj54* o)
 {
     if (o->st != 2) o->st = 2;
     for (s32 i = 0; i < o->na; i++) {
-        func_0028b4c0(&o->a[i], func_002c3268(o));                        
-        func_0028b4f0(&o->a[i], D_003755b0);                        
+        func_0028b4c0(&o->a[i], func_002c3268(o));
+        func_0028b4f0(&o->a[i], D_003755b0);
     }
     for (s32 i = 0; i < o->nb; i++) {
-        func_0028b4c0(&o->b[i], func_002c3268(o));                        
-        func_0028b4f0(&o->b[i], D_003755b8);                        
+        func_0028b4c0(&o->b[i], func_002c3268(o));
+        func_0028b4f0(&o->b[i], D_003755b8);
     }
     for (s32 i = 0; i < 9; i++) {
         func_0023f778__84943(&o->lyt[i], func_002c3268(o));

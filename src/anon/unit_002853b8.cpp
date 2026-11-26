@@ -73,10 +73,10 @@ u32 func_00285460(u32 a0) asm("_Z13func_00285460j");
 u32 func_00285460(u32 a0) {
     u32 r4 = a0, r2, r16;
     r16 = (u32)(0x0036u << 16);
-    r4 = *(volatile u32*)((u32)r16 + (s32)(-3388));
+    r4 = *(u32*)((u32)r16 + (s32)(-3388));
     r2 = ((u32(*)(u32))func_0023f900)(r4);
     if (r2 != 0u) {
-        r4 = *(volatile u32*)((u32)r16 + (s32)(-3388));
+        r4 = *(u32*)((u32)r16 + (s32)(-3388));
         r2 = ((u32(*)(u32))func_0023fad0)(r4);
     }
     r2 = ((u32(*)())func_00293eb0)();
@@ -809,7 +809,7 @@ void u_tail0_00286628(void) {
                 }
             }
             if (!found) {
-                
+
                 if (W1716Test(s->bits1, bit) == 0) {
                     u32* h = s->bits1;
                     h += bit >> 5;
@@ -853,7 +853,7 @@ void u_tail0_00286628(void) {
                 }
             }
             if (!found) {
-                
+
                 if (W1716Test(s->bits2, bit) == 0) {
                     u32* h = s->bits2;
                     h += bit >> 5;

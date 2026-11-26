@@ -103,7 +103,7 @@ u32 func_00213ea8(MdlHdr* mdl, u128* param)
 {
     register MdlHdr* obj asm("$17") = mdl;
     asm volatile("");
-    register SprWork* spr asm("$19") = D_00359788[D_00359780.s++];
+    SprWork* spr = D_00359788[D_00359780.s++];
     DrawParam* h = &spr->dp;
     D_00359788[D_00359780.s] = (SprWork*)((u8*)spr + 0x2800);
     QCOPY(h, param);
@@ -113,10 +113,10 @@ u32 func_00213ea8(MdlHdr* mdl, u128* param)
     QCOPY((u8*)spr + 0x340, param + 4);
     asm volatile("sq $0, %0" : "=m"(spr->cnt.q));
     h->pktEnd.v = (h->pktEnd.v + 63) & 0x0fffffc0;
-    register u8* pos asm("$8");
-    register u8* p1 asm("$13") = h->pos.p;
-    if (p1 == 0) pos = (u8*)obj + obj->posOfs; else { asm(""); pos = p1; }
-    register u8* nrm asm("$18");
+    u8* pos;
+    u8* p1 = h->pos.p;
+    if (p1 == 0) pos = (u8*)obj + obj->posOfs; else {  pos = p1; }
+    u8* nrm;
     if (h->nrm.p) nrm = h->nrm.p; else nrm = (u8*)obj + obj->nrmOfs;
     h->pos.p = pos;
     h->nrm.p = nrm;
@@ -151,7 +151,7 @@ u32 func_00213ea8(MdlHdr* mdl, u128* param)
         "\tsqc2 $vf31, 880($19)\n"
         ".set at\n.set reorder\n"
         : : "r"(&h->color2), "r"(spr) : "$2", "memory");
-    register u8* vb asm("$14") = h->vtxBuf + obj->nVtx * 16;
+    u8* vb = h->vtxBuf + obj->nVtx * 16;
     spr->vtxEnd.p = vb;
     spr->vtxBase.p = h->vtxBuf;
     u32 flags = h->flags;
@@ -262,7 +262,7 @@ u32 func_00213ea8(MdlHdr* mdl, u128* param)
             : "$2", "$3", "$4", "$7", "$8", "$9", "$10",  "memory");
         if (obj->nNrm != 0 && !(flags & 0x20)) {
             u128 mtx[4];
-            register u8* out asm("$16");
+            u8* out;
             asm("move %0, %1" : "=r"(out) : "r"(vb));
             func_00224600(mtx, h->mtx2, h->mtx3);
             asm volatile(
@@ -318,13 +318,13 @@ u32 func_00213ea8(MdlHdr* mdl, u128* param)
         } else {
         void* m0 = h->mtx0;
         if (h->mtxSave.v == 0) h->mtxSave.v = m0;
-        register s32 n asm("$11") = obj->nVtx;
+        s32 n = obj->nVtx;
         register u8* base asm("$9") = h->vtxBuf;
         register u8* out asm("$16") = base + n * 16;
-        register void* r_m0 asm("$10") = m0;
-        register void* r_m1 asm("$13") = h->mtx1;
+        void* r_m0 = m0;
+        void* r_m1 = h->mtx1;
         register void* r_m2 asm("$12") = h->mtx2;
-        register void* r_m3 asm("$14") = h->mtx3;
+        void* r_m3 = h->mtx3;
         register s32 cnt asm("$15") = n;
 
         asm volatile(
@@ -601,7 +601,7 @@ u32 func_00213ea8(MdlHdr* mdl, u128* param)
         case 1: {
             spr->tag1f8.v = 0x414141;
             spr->tag1f0.v = 0x6025c00000008001ULL;
-            register s32 left asm("$24") = cmd->count;
+            s32 left = cmd->count;
             D_01da8cd0[1].s += left;
             t = cmd->type;
             cmd++;
@@ -886,11 +886,11 @@ u32 func_00213ea8(MdlHdr* mdl, u128* param)
         case 3: {
             spr->tag1f0.v = 0x902dc00000008001ULL;
             spr->tag1f8.v = 0x412412412ULL;
-            register u8* tb asm("$12") = D_00359180;
+            u8* tb = D_00359180;
             spr->tex.v = cmd->tex + h->texOfs;
             spr->clut.v = cmd->clut + (h->clutOfs << 5);
-            register s32 w asm("$14") = h->texW;
-            register s32 hh asm("$15") = h->texH;
+            s32 w = h->texW;
+            s32 hh = h->texH;
             asm volatile(
         ".set noreorder\n.set noat\n"
         "\tsq $0, 864($19)\n"
@@ -928,9 +928,9 @@ u32 func_00213ea8(MdlHdr* mdl, u128* param)
         ".set at\n.set reorder\n"
                 : "+r"(w), "+r"(hh) : "r"(tb), "r"(spr)
                 : "$2", "$3", "$4", "$5",  "hi", "lo", "memory");
-            register s32 left asm("$24") = cmd->count;
+            s32 left = cmd->count;
             D_01da8cd0[1].s += left;
-            register s32 t3 asm("$13") = cmd->type;
+            s32 t3 = cmd->type;
             cmd++;
             if (t3 == 3) goto crash;
             asm volatile(
@@ -1248,7 +1248,7 @@ u32 func_00213ea8(MdlHdr* mdl, u128* param)
         case 5: {
             spr->tag1f8.v = 0x41414141;
             spr->tag1f0.v = 0x8026400000008001ULL;
-            register s32 left asm("$24") = cmd->count;
+            s32 left = cmd->count;
             D_01da8cd0[0].s += left;
             t = cmd->type;
             cmd++;
@@ -1557,11 +1557,11 @@ u32 func_00213ea8(MdlHdr* mdl, u128* param)
         case 7: {
             spr->tag1f0.v = 0xc02e400000008001ULL;
             spr->tag1f8.v = 0x412412412412ULL;
-            register u8* tb asm("$12") = D_00359180;
+            u8* tb = D_00359180;
             spr->tex.v = cmd->tex + h->texOfs;
             spr->clut.v = cmd->clut + (h->clutOfs << 5);
-            register s32 w asm("$14") = h->texW;
-            register s32 hh asm("$15") = h->texH;
+            s32 w = h->texW;
+            s32 hh = h->texH;
             asm volatile(
         ".set noreorder\n.set noat\n"
         "\tsq $0, 864($19)\n"
@@ -1599,9 +1599,9 @@ u32 func_00213ea8(MdlHdr* mdl, u128* param)
         ".set at\n.set reorder\n"
                 : "+r"(w), "+r"(hh) : "r"(tb), "r"(spr)
                 : "$2", "$3", "$4", "$5",  "hi", "lo", "memory");
-            register s32 left asm("$24") = cmd->count;
+            s32 left = cmd->count;
             D_01da8cd0[0].s += left;
-            asm volatile("" :: "r"(w));
+
             t = cmd->type;
             cmd++;
             if (t == 7) goto crash;
@@ -1954,7 +1954,7 @@ u32 func_00213ea8(MdlHdr* mdl, u128* param)
         }
     }
 crash:
-    *(volatile u8*)0 = 0;
+    *(u8*)0 = 0;
 done:
     D_01da8cd0[5].s += spr->cnt.w[0];
     D_01da8cd0[4].s += spr->cnt.w[1];
@@ -2092,15 +2092,15 @@ u32 func_00215f28(MdlHdr* mdl, u128* param)
 {
     register MdlHdr* obj asm("$16") = mdl;
     asm volatile("");
-    register SprWork* spr asm("$25") = D_00359788[D_00359780.s++];
-    register DrawParam* h asm("$21") = &spr->dp;
+    SprWork* spr = D_00359788[D_00359780.s++];
+    DrawParam* h = &spr->dp;
     D_00359788[D_00359780.s] = (SprWork*)((u8*)spr + 0x2800);
     QCOPY(h, param);
     QCOPY((u8*)spr + 0x310, param + 1);
     QCOPY((u8*)spr + 0x320, param + 2);
     QCOPY((u8*)spr + 0x330, param + 3);
     QCOPY((u8*)spr + 0x340, param + 4);
-    asm("" : "+r"(h));
+
     asm volatile("sq $0, %0" : "=m"(spr->cnt.q));
     h->pktEnd.v = (h->pktEnd.v + 63) & 0x0fffffc0;
     {
@@ -2108,7 +2108,7 @@ u32 func_00215f28(MdlHdr* mdl, u128* param)
         u8* pos;
         u8* nrm;
         if (p1 == 0) pos = (u8*)obj + obj->posOfs;
-        else { asm(""); pos = p1; }
+        else {  pos = p1; }
         nrm = h->nrm.p;
         if (nrm == 0) nrm = (u8*)obj + obj->nrmOfs;
         h->nrm.p = nrm;
@@ -2133,7 +2133,7 @@ u32 func_00215f28(MdlHdr* mdl, u128* param)
         "vmul.wxyz $vf31,$vf31,$vf30\n"
         "sqc2 $vf31,848(%[r_t9])\n"
         ".set at\n.set reorder"
-        : 
+        :
         : [r_t7] "r" (h->color.word), [r_t9] "r" (spr)
         : "$2", "$3", "memory");
     asm volatile(".set noreorder\n.set noat\n"
@@ -2144,12 +2144,12 @@ u32 func_00215f28(MdlHdr* mdl, u128* param)
         "vitof0.wxyz $vf31,$vf31\n"
         "sqc2 $vf31,880(%[r_t9])\n"
         ".set at\n.set reorder"
-        : 
+        :
         : [r_t6] "r" (&h->color2), [r_t9] "r" (spr)
         : "$2", "memory");
     {
     register u8* vtx asm("$20") = h->vtxBuf;
-    register u8* tbl asm("$14") = D_00359110;
+    u8* tbl = D_00359110;
     u8* vend;
     spr->vtxBase.p = vtx;
     vend = h->vtxBuf + obj->nVtx * 16;
@@ -2299,7 +2299,7 @@ u32 func_00215f28(MdlHdr* mdl, u128* param)
         "addiu $7,$7,16\n"
         "4:\n"
         ".set at\n.set reorder"
-        : 
+        :
         : [r_t6] "r" (tbl), [r_t9] "r" (spr), [r_s5] "r" (h), [r_s0] "r" (obj)
         : "$2", "$3", "$4", "$6", "$7", "$8", "$9", "$10", "memory");
     {
@@ -2333,13 +2333,13 @@ u32 func_00215f28(MdlHdr* mdl, u128* param)
     spr->tag2e0.v = 0x1000000000008001ULL;
     spr->tag2e8.v = 14;
     {
-    register u8* ft asm("$13") = D_00359970;
+    u8* ft = D_00359970;
     asm volatile(".set noreorder\n.set noat\n"
         "lqc2 $vf27,48(%[r_t5])\n"
         "lqc2 $vf28,64(%[r_t5])\n"
         "lqc2 $vf29,80(%[r_t5])\n"
         ".set at\n.set reorder"
-        : 
+        :
         : [r_t5] "r" (ft)
         : "memory");
     }
@@ -2398,7 +2398,7 @@ u32 func_00215f28(MdlHdr* mdl, u128* param)
         "add $7,$7,$2\n"
         "sw $7,728(%[r_t9])\n"
         ".set at\n.set reorder"
-        : 
+        :
         : [r_t9] "r" (spr)
         : "$2", "$3", "$4", "$5", "$6", "$7", "memory");
     for (;;) {
@@ -2711,9 +2711,9 @@ u32 func_00215f28(MdlHdr* mdl, u128* param)
         }
         case 2: {
             register s32 left asm("$24");
-            register u8* tb asm("$12") = D_00359180;
-            register s32 tw asm("$14");
-            register s32 th asm("$15");
+            u8* tb = D_00359180;
+            s32 tw;
+            s32 th;
             spr->tag1f0.v = 0x903dc00000008001ULL;
             spr->tag1f8.v = 0x412412412ULL;
             spr->tex.v = cmd->tex + h->texOfs;
@@ -3434,9 +3434,9 @@ u32 func_00215f28(MdlHdr* mdl, u128* param)
         }
         case 6: {
             register s32 left asm("$24");
-            register u8* tb asm("$12") = D_00359180;
-            register s32 tw asm("$14");
-            register s32 th asm("$15");
+            u8* tb = D_00359180;
+            s32 tw;
+            s32 th;
             spr->tag1f0.v = 0xc03e400000008001ULL;
             spr->tag1f8.v = 0x412412412412ULL;
             spr->tex.v = cmd->tex + h->texOfs;
@@ -3910,7 +3910,7 @@ done:
         "1:\n"
         "nop\n"
         ".set at\n.set reorder"
-        : 
+        :
         : [r_t9] "r" (spr)
         : "$2", "$3", "$4", "$5", "$6", "$7", "memory");
     D_00359780.s--;
@@ -4023,7 +4023,7 @@ u32 func_00217d80(Mdl* m_, u128* src) {
     register MdlHdr* h asm("$21");
     register u8* pos asm("$19");
     register u8* nrm asm("$23");
-    register u8* vtx asm("$25");
+    u8* vtx;
     register u8* nout asm("$22");
     register Prim* prim asm("$24");
     u32 flags;
@@ -4071,7 +4071,7 @@ u32 func_00217d80(Mdl* m_, u128* src) {
         "vmul.wxyz $vf31,$vf31,$vf30\n"
         "sqc2 $vf31,848(%[r_s4])\n"
         ".set at\n.set reorder"
-        : 
+        :
         : [r_t7] "r" (h->col.w), [r_s4] "r" (w)
         : "$2", "$3", "memory");
     asm volatile(".set noreorder\n.set noat\n"
@@ -4082,7 +4082,7 @@ u32 func_00217d80(Mdl* m_, u128* src) {
         "vitof0.wxyz $vf31,$vf31\n"
         "sqc2 $vf31,880(%[r_s4])\n"
         ".set at\n.set reorder"
-        : 
+        :
         : [r_t6] "r" (&h->col2), [r_s4] "r" (w)
         : "$2", "memory");
     w->nrmOut = h->vtx + m->nvtx * 16;
@@ -4177,7 +4177,7 @@ u32 func_00217d80(Mdl* m_, u128* src) {
                 "addiu $7,$7,16\n"
                 "2:\n"
                 ".set at\n.set reorder"
-                : 
+                :
                 : [r_s5] "r" (h), [r_s8] "r" (m), [r_s4] "r" (w)
                 : "$2", "$7", "$8", "$9", "$10", "memory");
         } else {
@@ -4283,7 +4283,7 @@ u32 func_00217d80(Mdl* m_, u128* src) {
                 "addiu $7,$7,16\n"
                 "2:\n"
                 ".set at\n.set reorder"
-                : 
+                :
                 : [r_s5] "r" (h), [r_s8] "r" (m), [r_s4] "r" (w)
                 : "$2", "$3", "$4", "$7", "$8", "$9", "$10", "memory");
         }
@@ -4300,7 +4300,7 @@ u32 func_00217d80(Mdl* m_, u128* src) {
                     "lqc2 $vf22,32(%[r_sp])\n"
                     "lqc2 $vf23,48(%[r_sp])\n"
                     ".set at\n.set reorder"
-                    : 
+                    :
                     : [r_sp] "r" (mtx)
                     : "memory");
                 asm volatile(".set noreorder\n.set noat\n"
@@ -4309,7 +4309,7 @@ u32 func_00217d80(Mdl* m_, u128* src) {
                     "lqc2 $vf26,32(%[r_t7])\n"
                     "lqc2 $vf27,48(%[r_t7])\n"
                     ".set at\n.set reorder"
-                    : 
+                    :
                     : [r_t7] "r" (h->mtx36)
                     : "memory");
                 n = m->nnrm;
@@ -4350,7 +4350,7 @@ u32 func_00217d80(Mdl* m_, u128* src) {
                         "addiu %[r_t7],%[r_t7],6\n"
                         ".set at\n.set reorder"
                         : [r_s3] "+r" (n), [r_t7] "+r" (p), [r_s1] "+r" (o)
-                        : 
+                        :
                         : "$6", "$7", "$8", "$9", "memory");
                 }
             }
@@ -4359,10 +4359,10 @@ u32 func_00217d80(Mdl* m_, u128* src) {
         vtx = w->vtxOut;
     } else {
         register u8* o1 asm("$18");
-        register u8* o2 asm("$17");
+        u8* o2;
         register s32 n asm("$16");
-        register void* pa asm("$12");
-        register void* pb asm("$15");
+        void* pa;
+        void* pb;
         register void* pc asm("$14");
         register void* pd asm("$13");
         vtx = w->vtxOut;
@@ -4427,7 +4427,7 @@ u32 func_00217d80(Mdl* m_, u128* src) {
             "li $10,1\n"
             "dsll32 $10,$10,0x0\n"
             ".set at\n.set reorder"
-            : 
+            :
             : [r_t4] "r" (pa), [r_t7] "r" (pb), [r_t6] "r" (pc), [r_t5] "r" (pd)
             : "$10", "$11", "memory");
         if (n > 0) {
@@ -4551,7 +4551,7 @@ u32 func_00217d80(Mdl* m_, u128* src) {
                 "nop\n"
                 ".set at\n.set reorder"
                 : [r_s3] "+r" (pos), [r_s7] "+r" (nrm), [r_s2] "+r" (o1), [r_s1] "+r" (o2), [r_s0] "+r" (n)
-                : 
+                :
                 : "$2", "$3", "$4", "$5", "$6", "$7", "$8", "$9", "memory");
         }
     }
@@ -4570,9 +4570,9 @@ u32 func_00217d80(Mdl* m_, u128* src) {
     }
     w->r312 = 66;
     {
-        register u128* tp asm("$15") = (h->flags & 8) ? D_01da8c40 : D_01da8bb0;
+        u128* tp = (h->flags & 8) ? D_01da8c40 : D_01da8bb0;
         register u128 q asm("$14") = tp[3];
-        asm("" : "+r"(q));
+
         w->q320 = q;
     }
     if (m->flags & 4) {
@@ -4586,15 +4586,15 @@ u32 func_00217d80(Mdl* m_, u128* src) {
         "lqc2 $vf28,64(%[r_t7])\n"
         "lqc2 $vf29,80(%[r_t7])\n"
         ".set at\n.set reorder"
-        : 
+        :
         : [r_t7] "r" (D_00359970)
         : "memory");
     for (;;) {
-        register s32 n asm("$19");
+        s32 n;
         s32 type;
         s32 tsw = prim->type; switch (tsw) {
         case 32: {
-            register u32* tbl asm("$12");
+            u32* tbl;
             register s32 su asm("$13");
             register s32 sv asm("$15");
             w->primTag = K_902dc;
@@ -4709,7 +4709,7 @@ u32 func_00217d80(Mdl* m_, u128* src) {
                 "ori $4,$4,0x105\n"
                 "sw $4,0($2)\n"
                 ".set at\n.set reorder"
-                : 
+                :
                 : [r_s4] "r" (w)
                 : "$2", "$3", "$4", "$5", "$6", "memory");
             n = prim->count;
@@ -4987,7 +4987,7 @@ u32 func_00217d80(Mdl* m_, u128* src) {
                 "ori $4,$4,0x105\n"
                 "sw $4,0($2)\n"
                 ".set at\n.set reorder"
-                : 
+                :
                 : [r_s4] "r" (w)
                 : "$2", "$3", "$4", "$5", "$6", "memory");
             n = prim->count;
@@ -5545,7 +5545,7 @@ u32 func_00217d80(Mdl* m_, u128* src) {
                 "ori $4,$4,0x105\n"
                 "sw $4,0($2)\n"
                 ".set at\n.set reorder"
-                : 
+                :
                 : [r_s4] "r" (w)
                 : "$2", "$3", "$4", "$5", "$6", "memory");
             n = prim->count;
@@ -6082,7 +6082,7 @@ u32 func_00217d80(Mdl* m_, u128* src) {
                 "ori $4,$4,0x105\n"
                 "sw $4,0($2)\n"
                 ".set at\n.set reorder"
-                : 
+                :
                 : [r_s4] "r" (w)
                 : "$2", "$3", "$4", "$5", "$6", "memory");
             asm volatile(".set noreorder\n"
@@ -6699,7 +6699,7 @@ u32 func_00217d80(Mdl* m_, u128* src) {
                 "ori $4,$4,0x105\n"
                 "sw $4,0($2)\n"
                 ".set at\n.set reorder"
-                : 
+                :
                 : [r_s4] "r" (w)
                 : "$2", "$3", "$4", "$5", "$6", "memory");
             asm volatile(".set noreorder\n"
@@ -7290,10 +7290,10 @@ done:
             u32 busy;
             D_01da8cd0.c[5] += w->cnt.w[0];
             D_01da8cd0.c[4] += w->cnt.w[1];
-            chcr = (volatile u32*)0x1000a000;
+            chcr = (u32*)0x1000a000;
             do {
                 busy = *chcr & 0x100;
-                asm volatile("nop\n\tnop\n\tnop");
+
             } while (busy);
             D_00359780--;
             return w->hdr.ret;

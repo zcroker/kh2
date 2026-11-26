@@ -2280,10 +2280,10 @@ extern "C" u32 func_0017a718(...) asm("func_0017a718");
 extern u8 D_0034e948 asm("D_0034e948");
 
 void func_0017a798() {
-    if (func_0019ba60(*(volatile u32*)((u32)&D_0034e948 + (s32)(0))) == 0u) {
+    if (func_0019ba60(*(u32*)((u32)&D_0034e948 + (s32)(0))) == 0u) {
         return;
     }
-    func_0017a718(*(volatile u32*)((u32)&D_0034e948 + (s32)(0)));
+    func_0017a718(*(u32*)((u32)&D_0034e948 + (s32)(0)));
 }
 }  // namespace q63
 

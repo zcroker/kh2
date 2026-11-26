@@ -24,7 +24,7 @@ void func_00305ab0(void)
     /* hand-written: sync after the INTC_STAT write, nop padding in the poll loop */
     do {
         x = *(volatile u32 *)0x1000f000 & 4;
-        asm volatile("nop");
+
     } while (!x);
     s = DIntr();
     *(volatile u32 *)0x1000f000 = 4;

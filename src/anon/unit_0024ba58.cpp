@@ -626,10 +626,10 @@ void func_0024c950(void) {
     D_0035eddc = 0;
     u8* c = D_0032ba14->vt->alloc(D_0032ba14, 12, __builtin_return_address(0));
     func_002b3df8(c);
-    register u8* f7 asm("$15"); register u8* f0 asm("$14");
+    u8* f7; u8* f0;
     asm("lui %0,%%hi(D_0035edec)\n\tlui %1,%%hi(D_0035edf0)" : "=r"(f7), "=r"(f0));
     asm("sw %1,%%lo(D_0035edec)(%2)" : "=m"(*(u8**)f7) : "r"(c), "r"(f7));
-    register s32 a1 asm("$5");
+    s32 a1;
     asm("li %1,436\n\tsb $0,%%lo(D_0035edf0)(%2)" : "=m"(*f0), "=r"(a1) : "r"(f0));
     Alloc* h = D_00347f80->heap;
     u8* p = h->vt->alloc(h, a1, 0);
@@ -667,12 +667,12 @@ void func_0024c950(void) {
             e += 408;
         } while (i != -1);
     }
-    register u8* t7 asm("$15");
+    u8* t7;
     asm volatile("lui %0,%%hi(D_0035ede8)" : "=r"(t7));
-    register u8* fc asm("$14");
+    u8* fc;
     asm volatile("lui %0,%%hi(D_0035edfc)" : "=r"(fc));
     {register u8* ar asm("$19") = arr; asm volatile("sw %0,%%lo(D_0035ede8)(%1)" : : "r"(ar), "r"(t7));}
-    register s32 a0 asm("$4");
+    s32 a0;
     asm volatile("li %0,30026" : "=r"(a0));
     asm volatile("sb $0,%%lo(D_0035edfc)(%0)" : : "r"(fc));
     func_0028d068(a0, -1);

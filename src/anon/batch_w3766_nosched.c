@@ -59,7 +59,7 @@ static inline __attribute__((always_inline)) void fill_0020e2e8(u32 addr0, u16 d
 void func_0020e2e8(u32 addr, s32 n, u16 dbp, s32 sync)
 {
     Pkt* p;
-    volatile Tag* t;
+    Tag* t;
     if (n > 16) return;
     p = func_0020eaf8(2048);
     sceGsSetDefLoadImage(p, (s16)dbp, 1, 0, 0, 0, 16, 16);

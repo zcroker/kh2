@@ -68,16 +68,17 @@ u8 wtarget_0010b468(u32 a0, u32 a1, u32, u32) {
         Vec4* p = t->pts;
         for (i = 31; i >= 0; i--) { *p = *v; p++; }
         t->cur = 0;
+        t->changed = 1;
     } else {
         Vec4 d;
         vu_sub_to(&d, v, &t->pts[t->cur]);
-        if (!(2025.0f <= vu_dot(&d, &d))) return t->changed;
-        t->cur = (t->cur + 1) % 32;
-        t->pts[t->cur] = *v;
-        t->moved = 1;
+        if (2025.0f <= vu_dot(&d, &d)) {
+            t->cur = (t->cur + 1) % 32;
+            t->pts[t->cur] = *v;
+            t->changed = 1;
+            t->moved = 1;
+        }
     }
-    t->changed = 1;
-    asm volatile("" ::: "memory");
     return t->changed;
 }
 }  // namespace n0010b468

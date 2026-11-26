@@ -39,7 +39,7 @@ s32 func_00146730(Sys83*, Box83*) asm("func_00146730");
 /*TARGET 00148c50*/
 void func_00148c50(Tree83* t, s32 node, void* q, s32* cnt, s32 k, void* x) asm("func_00148c50");
 void func_00148c50(Tree83* t, s32 node, void* q, s32* cnt, s32 k, void* x) {
-    register void* xin asm("$9");
+    void* xin;
     void* xx;
     s32 kp = k + 1;
     Node83* n = &t->nodes[node];

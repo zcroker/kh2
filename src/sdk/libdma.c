@@ -11,7 +11,7 @@ extern int DIntr(void);
 extern void EIntr(void);
 extern int func_003080d0(const char *, ...);
 
-extern void func_002f3c28_v(volatile void *) asm("func_002f3c28");
+extern void func_002f3c28_v(void *) asm("func_002f3c28");
 extern void func_002f3490_2(void *, int) asm("func_002f3490");
 
 /* 0x2f3490 wait until the channel stops (CHCR.STR), reset it on timeout */
@@ -90,12 +90,12 @@ int func_002f3610(int mode)
             D_00363c90_c[i]->x80 = 0;
         }
     }
-    *(volatile u_int *)0x1000e010 = 0xff1f;
+    *(u_int *)0x1000e010 = 0xff1f;
     *(u_int *)0x1000e010 = *(volatile u_int *)0x1000e010 & 0xff1f0000;
     func_002f35b0((char *)buf, 20);
     func_002f36f0_v(buf);
     if (mode == 1)
-        *(volatile u_int *)0x1000e000 = *(volatile u_int *)0x1000e000 | 1;
+        *(u_int *)0x1000e000 = *(u_int *)0x1000e000 | 1;
     return r;
 }
 

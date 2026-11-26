@@ -153,14 +153,14 @@ void func_001902a8(u8* a0, u8* a1)
     } else if (func_0019ba60(*(u32*)a0)) {
         u32 v = func_00190208(a0, 1);
         if (v) func_0018a818(a1, *(u32*)a0, v);
-        else *(Vec82*)(a1 + 16) = *func_0016c028(*(u32*)a0);                          
+        else *(Vec82*)(a1 + 16) = *func_0016c028(*(u32*)a0);
     } else {
-                                          
+
         asm volatile("sqc2 $vf0, 0(%0)" : : "r"(a1 + 16) : "memory");
     }
     {
-                                                                                            
-                                                                                         
+
+
         const f32* k;
         asm("" : "=r"(k) : "0"(&D_0036cd18));
         *(f32*)(a1 + 28) = *k;
@@ -179,7 +179,7 @@ struct Vec4c {
 struct Buf190 { u32 a, b, c, d; Vec4c v; };
 void func_001902a8(u32, Buf190*) asm("func_001902a8");
 Vec4c func_00190388(u32 a) asm("func_00190388");
-Vec4c func_00190388(u32 a) {                  
+Vec4c func_00190388(u32 a) {
     Buf190 t;
     t.d = 0;
     func_001902a8(a, &t);
@@ -225,7 +225,7 @@ void func_001903d0(void** p, u8* out) {
         if (v) func_0018a818b(out, p[0], v);
         else func_001902a8(p, out);
     } else {
-                             
+
         asm volatile("sqc2 $vf0, 0(%0)" : : "r"(out + 16) : "memory");
     }
     *(f32*)(out + 28) = 1.0f;
@@ -402,23 +402,14 @@ TGT* tgt_dup(TGT* self) {
 
 // ---- 00190840 from src/anon/auto200_999.cpp
 namespace n00190840 {
-extern u8 D_01c60d50 asm("D_01c60d50");
-void YS_TARGET_free(u32 a0) asm("_ZN2YS6TARGET4freeEv");
-void YS_TARGET_free(u32 a0) {
-    register u32 base asm("$12") = (u32)&D_01c60d50;
-    register u32 magic asm("$13") = 0xcccccccd;
-    a0 -= base;
-    asm volatile("" : "+r"(a0), "+r"(base));
-    register u32 count asm("$15") = *(u32 *)(base + 3072);
-    asm volatile("" : "+r"(count), "+r"(a0));
-    a0 = (s32)a0 >> 2;
-    a0 *= magic;
-    asm volatile("" : "+r"(a0), "+r"(count));
-    register u32 off asm("$14") = count << 2;
-    count += 1;
-    off += base;
-    *(u32 *)(base + 3072) = count;
-    *(u32 *)(off + 2560) = a0;
+struct TGT { u32 w[5]; };
+struct TPool { TGT items[128]; s32 freel[128]; s32 count; };
+extern TPool D_01c60d50 asm("D_01c60d50");
+void YS_TARGET_free(TGT* t) asm("_ZN2YS6TARGET4freeEv");
+void YS_TARGET_free(TGT* t) {
+    s32 i = t - D_01c60d50.items;
+    D_01c60d50.freel[D_01c60d50.count] = i;
+    D_01c60d50.count++;
 }
 }  // namespace n00190840
 
@@ -434,7 +425,7 @@ u32 func_00190878(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7
     r18 = r5;
     r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_00190128)(r4, r5, r6, r7, r8, r9, r10, r11);
     *(u32*)((u32)r16 + (s32)(0)) = r18;
-    *(volatile u32*)((u32)r16 + (s32)(4)) = r17;
+    *(u32*)((u32)r16 + (s32)(4)) = r17;
     return r2;
 }
 }  // namespace n00190878
@@ -451,7 +442,7 @@ u32 func_001908c0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7
     r18 = r5;
     r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_00190128)(r4, r5, r6, r7, r8, r9, r10, r11);
     *(u32*)((u32)r16 + (s32)(8)) = r18;
-    *(volatile u32*)((u32)r16 + (s32)(0)) = r17;
+    *(u32*)((u32)r16 + (s32)(0)) = r17;
     return r2;
 }
 }  // namespace n001908c0

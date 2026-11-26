@@ -171,7 +171,7 @@ void Timer::start() {
 
 // 0014c9d8 (was src/anon/batch_w1725_g.cpp)
 namespace n0014c9d8 {
-// dk::Timer pause flags. volatile + -g: the original keeps the store before
+// dk::Timer pause flags. + -g: the original keeps the store before
 // jr ra with an unfilled (nop) delay slot.
 extern volatile u32 D_00349dec asm("D_00349dec");
 void Timer_pauseOn(u32 f) asm("_ZN2dk5Timer7pauseOnEj");
@@ -182,7 +182,7 @@ void Timer_pauseOn(u32 f) { D_00349dec |= f; }
 
 // 0014c9f0 (was src/anon/batch_w1725_g.cpp)
 namespace n0014c9f0 {
-// dk::Timer pause flags. volatile + -g: the original keeps the store before
+// dk::Timer pause flags. + -g: the original keeps the store before
 // jr ra with an unfilled (nop) delay slot.
 extern volatile u32 D_00349dec asm("D_00349dec");
 void Timer_pauseOff(u32 f) asm("_ZN2dk5Timer8pauseOffEj");
@@ -259,9 +259,9 @@ u32 func_0014ca48(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7
     r2 = ((u32(*)())func_0014ca10)();
     r14 = (u32)(0x0035u << 16);
     if (r2 == 0u) {
-        r15 = *(volatile u32*)((u32)r14 + (s32)(-25112));
+        r15 = *(u32*)((u32)r14 + (s32)(-25112));
         r15 = (u32)((s32)r15 + (1));
-        *(volatile u32*)((u32)r14 + (s32)(-25112)) = r15;
+        *(u32*)((u32)r14 + (s32)(-25112)) = r15;
     }
     return r2;
 }
@@ -385,9 +385,9 @@ W1804CntP* func_001058e8(void) asm("func_001058e8");
 extern s32 D_0032b984 asm("D_0032b984");
 extern u8 D_0032bae0 asm("D_0032bae0");
 /*TARGET 0014ccb8*/
-// Saturating counters (limit 0xCDFE5C3) kept in volatile locals.
+// Saturating counters (limit 0xCDFE5C3) kept in locals.
 void func_0014ccb8(void) asm("func_0014ccb8");
-// Saturating counters (limit 0xCDFE5C3) kept in volatile locals.
+// Saturating counters (limit 0xCDFE5C3) kept in locals.
 void func_0014ccb8(void)
 {
     W1804CntP* q = func_001058e8();

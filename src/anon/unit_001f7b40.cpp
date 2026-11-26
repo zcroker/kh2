@@ -233,10 +233,10 @@ void func_001f7e90(Req7e90* r)
     f36 = r->f36;
     b->cache = r->cache;
     {
-        register void* p48 asm("$14") = r->col0;
+        void* p48 = r->col0;
         register void* p20 asm("$13") = r->mtx;
         register void* p16 asm("$12") = r->cam;
-        register void* p52 asm("$15") = r->col1;
+        void* p52 = r->col1;
         asm volatile(
     "vsub.xyzw $vf9,$vf0,$vf0\n"
     "lqc2 $vf31,0(%[p16])\n"

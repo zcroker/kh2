@@ -54,7 +54,7 @@ void func_001f59b0(void* owner, W2417Prm* prm_, W2417Ctx* c) asm("func_001f59b0"
 // (t: idx so idx++ is issued before move v0,zero; a/q inputs place the lui after addiu s0 and before addu t6).
 void func_001f59b0(void* owner, W2417Prm* prm_, W2417Ctx* c)
 {
-    register W2417Prm* prm asm("$18") = prm_;
+    W2417Prm* prm = prm_;
     register s32 r asm("$17");
     W2417Grp* g;
     W2417Grp* g2;
@@ -88,7 +88,7 @@ void func_001f59b0(void* owner, W2417Prm* prm_, W2417Ctx* c)
     if (rnd != 0) idx = r % g->cnt;
     else idx = *slot;
     for (n = prm->n; n > 0; n--) {
-        W2417Mgr* st; s32 k; register u8* t asm("$15"); W2417Ent* e; u8* a; u8* q;
+        W2417Mgr* st; s32 k; u8* t; W2417Ent* e; u8* a; u8* q;
         { register u16* lp asm("$13") = (u16*)(idx * 2); lp = (u16*)((u8*)lp + (u32)g->list); idx++; k = *lp; }
         st = D_01d9e6e0;
         t = st->tbl + prm->idx * 16;

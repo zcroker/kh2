@@ -111,9 +111,9 @@ void func_002827f0(u8* a, s32 b, s32 c) asm("func_002827f0");
 // as the original does.
 void func_002827f0(u8* a, s32 b, s32 c) {
     func_00281f70(a, b, c);
-    register u8* p asm("$18") = a;
+    u8* p = a;
     s32 t = *(s32*)(p + 4104);
-    register u8* r4 asm("$4") = p;
+    u8* r4 = p;
     register s32 r5 asm("$5") = b;
     register s32 r6 asm("$6") = c;
     if (t == 0) { func_00282858(r4, r5, r6); return; }

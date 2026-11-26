@@ -117,14 +117,13 @@ struct Tk { u32 f0; s32 id; };
 Tk* func_00102818_t(u32, u32, u32, void*, u32) asm("func_00102818");
 extern s32 D_00350f1c asm("D_00350f1c");
 extern u32 D_0032b91c asm("D_0032b91c");
-extern Tk* D_01d48c44 asm("D_01d48c44");
+extern u32 D_01d48c44 asm("D_01d48c44");
 void func_001b1ee8(void) asm("func_001b1ee8");
 void func_001b1e80(s32 id) asm("func_001b1e80");
 void func_001b1e80(s32 id) {
     if (id == -1 || id == D_00350f1c) return;
     Tk* t = func_00102818_t(D_0032b91c, 0, 0x55730, (void*)func_001b1ee8, 4096);
-    D_01d48c44 = t;
-    asm volatile("" ::: "memory");
+    D_01d48c44 = (u32)t;
     t->id = id;
 }
 }  // namespace n001b1e80

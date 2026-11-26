@@ -29,7 +29,7 @@ unsigned long func_0030ff58(void)
         "dsllv $9,$9,$8\n\t"
         "dsllv %0,%0,$9\n\t"
         ".set reorder"
-        : "=&r"(r) : "r"((volatile unsigned int *)0x10001000), "m"(D_00367118) : "$8", "$9", "$10");
+        : "=&r"(r) : "r"((unsigned int *)0x10001000), "m"(D_00367118) : "$8", "$9", "$10");
     if (s) EIntr();
     return r;
 }

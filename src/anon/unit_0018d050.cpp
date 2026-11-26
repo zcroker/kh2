@@ -24,17 +24,17 @@ void func_001c0150(void*, s32) asm("func_001c0150");
 void func_0018e0d8(void*, u32) asm("func_0018e0d8");
 s32 func_001b5a10(void) asm("func_001b5a10");
 struct W296Obj {
-    void* vt;          
-    u32 flags;         
-    u8* p8;            
-    u8* pc;            
-    u8* p10;            
-    s32 a14;            
-    s32 a18;            
-    s32 a1c;            
-    s32 a20;            
-    u8* p24;            
-    u8* p28;            
+    void* vt;
+    u32 flags;
+    u8* p8;
+    u8* pc;
+    u8* p10;
+    s32 a14;
+    s32 a18;
+    s32 a1c;
+    s32 a20;
+    u8* p24;
+    u8* p28;
     u8 pad2c[4];
     u8 sub30[0x54];
     s32 a84;
@@ -45,14 +45,14 @@ struct W296Obj {
     u8 pad9c[8];
     u8 ba4;
     u8 pada5[0x1b];
-    W296Obj* next;          
+    W296Obj* next;
 };
 struct W296List { W296Obj* head; W296Obj* tail; };
 extern W296List D_list asm("D_01c60cd8");
 void func_0018d050(W296Obj* o, u8* a1, u8* a2, s32 a3, s32 a4, s32 a5, s32 a6) asm("func_0018d050");
 void func_0018d050(W296Obj* o, u8* a1, u8* a2, s32 a3, s32 a4, s32 a5, s32 a6) {
     s32 v;
-    *(volatile u32*)&o->flags = 0;
+    *(u32*)&o->flags = 0;
     o->p10 = a2;
     o->vt = D_0034ef18;
     o->p8 = a1;
@@ -62,7 +62,7 @@ void func_0018d050(W296Obj* o, u8* a1, u8* a2, s32 a3, s32 a4, s32 a5, s32 a6) {
     o->a1c = a5 >= 0 ? a5 : func_001bffd8();
     o->p24 = a1 ? a1 + 128 : 0;
     o->p28 = func_0019fe90(a3, a4);
-    func_001c0150(o->sub30, 0);                           
+    func_001c0150(o->sub30, 0);
     o->p88 = a1;
     o->a84 = 0;
     o->a8c = 0;
@@ -106,17 +106,17 @@ void func_001c0150(void*, s32) asm("func_001c0150");
 void func_0018e0d8(void*, u32) asm("func_0018e0d8");
 s32 func_001b5a10(void) asm("func_001b5a10");
 struct W296Obj {
-    void* vt;          
-    u32 flags;         
-    u8* p8;            
-    u8* pc;            
-    u8* p10;            
-    s32 a14;            
-    s32 a18;            
-    s32 a1c;            
-    s32 a20;            
-    u8* p24;            
-    u8* p28;            
+    void* vt;
+    u32 flags;
+    u8* p8;
+    u8* pc;
+    u8* p10;
+    s32 a14;
+    s32 a18;
+    s32 a1c;
+    s32 a20;
+    u8* p24;
+    u8* p28;
     u8 pad2c[4];
     u8 sub30[0x54];
     s32 a84;
@@ -127,14 +127,14 @@ struct W296Obj {
     u8 pad9c[8];
     u8 ba4;
     u8 pada5[0x1b];
-    W296Obj* next;          
+    W296Obj* next;
 };
 struct W296List { W296Obj* head; W296Obj* tail; };
 extern W296List D_list asm("D_01c60cd8");
 void func_0018d238(W296Obj* o, u8* a1, u8* a2, s32 a3, s32 a4, s32 a5, s32 a6) asm("func_0018d238");
 void func_0018d238(W296Obj* o, u8* a1, u8* a2, s32 a3, s32 a4, s32 a5, s32 a6) {
     s32 v;
-    *(volatile u32*)&o->flags = 0;
+    *(u32*)&o->flags = 0;
     o->p10 = a2;
     o->vt = D_0034ef18;
     o->p8 = a1;
@@ -144,7 +144,7 @@ void func_0018d238(W296Obj* o, u8* a1, u8* a2, s32 a3, s32 a4, s32 a5, s32 a6) {
     o->a1c = a5 >= 0 ? a5 : func_001bffd8();
     o->p24 = a1 ? a1 + 128 : 0;
     o->p28 = func_0019fe90(a3, a4);
-    func_001c0150(o->sub30, 0);                           
+    func_001c0150(o->sub30, 0);
     o->p88 = a1;
     o->a84 = 0;
     o->a8c = 0;
@@ -210,7 +210,7 @@ void func_0018d420(Node18d* o) {
     o->next = 0;
     if (!(o->flags & 0x400)) {
         func_0018e040(o);
-        func_001c0058(o->h);                       
+        func_001c0058(o->h);
     }
     func_001c0248(o->sub);
 }
@@ -259,7 +259,7 @@ void func_0018d590(u32* p) {
     func_0031ee68(D_01c60cd8, p);
     if (!(p[1] & 0x400)) {
         func_0018e040(p);
-        func_001c0058(p[7]);                       
+        func_001c0058(p[7]);
     }
     func_001c0248(p + 12);
     func_00105110(p);
@@ -366,7 +366,7 @@ Vec4* func_0016c028(void*) asm("func_0016c028");
 Vec4 func_0018d808(u8* b) asm("func_0018d808");
 Vec4 func_0018d808(u8* b) {
     Vec4 r;
-    Vec4* s = func_0016c028(*(void**)(b + 8));                          
+    Vec4* s = func_0016c028(*(void**)(b + 8));
     asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(&r), "r"(s) : "$8", "memory");
     return r;
 }
@@ -409,7 +409,7 @@ Q16* func_0018d840(Q16* out, u8* o, void* a) asm("func_0018d840");
 Q16* func_0018d840(Q16* out, u8* o, void* a) {
     if (*(u8**)(o + 12) != 0) {
         Q16 d;
-        vu0_sub(d, *func_0016c028(a), *(Q16*)(*(u8**)(o + 12) + 1840));                          
+        vu0_sub(d, *func_0016c028(a), *(Q16*)(*(u8**)(o + 12) + 1840));
         *out = d;
         ((s32*)out)[1] = 0;
         vu0_normalize_f1(*out);
@@ -466,7 +466,7 @@ u8* func_0018da18(u8* o, u8* act, u8* info) {
     *(u32*)(o + 4) |= 2;
     if (*(u32*)(r + 24) & 4) return r;
     if (ActFlags18d(act) & 0x2000) return r;
-    if (*(s32*)(info + 28) >= 0) func_00198580(*(u8**)(o + 16), *(s32*)(info + 28));                      
+    if (*(s32*)(info + 28) >= 0) func_00198580(*(u8**)(o + 16), *(s32*)(info + 28));
     u32* e = *(u32**)(o + 36);
     if (!e) return r;
     if (!*e) return r;
@@ -541,7 +541,7 @@ s32 func_0018dc28(Obj1337* self, const QV1337* from, const QV1337* to) {
     s32 res;
     seg.set(*from, *to);
     res = 0;
-    asm volatile("" ::: "memory");
+
     if (self->coll->enable && !self->isBusy() && (self->b8 || !self->isB1())) {
         if (func_00143b88(&seg, &hit, &id, &res, 4) != 0) {
             goto found;
@@ -737,7 +737,7 @@ W93V func_0018e160(const W93Pos* p, const W93Orb* o)
     if (d.y < -r) y = -r;
     else if (r < d.y) y = r;
     else y = d.y;
-    f32 c = fabsf(y / r);          
+    f32 c = fabsf(y / r);
     f32 s = __builtin_sqrtf(1.0f - c * c);
     d.y = 0;
     asm volatile("lqc2 $vf1, 0(%0)\n\tvmul.xyz $vf2, $vf1, $vf1\n\tvaddy.x $vf2, $vf2, $vf2y\n\tvaddz.x $vf2, $vf2, $vf2z\n\t"
@@ -769,7 +769,7 @@ void func_0018e298(void** a0, void* a1, void* a2) asm("func_0018e298");
 void func_0018e298(void** a0, void* a1, void* a2)
 {
     s32 mode;
-    if (VT(a1, 24)(a1) != 0 || func_001c0298((u8*)a1 + 2640, *a0) == 0) {                    
+    if (VT(a1, 24)(a1) != 0 || func_001c0298((u8*)a1 + 2640, *a0) == 0) {
         mode = 4;
     } else {
         mode = 1;
@@ -793,14 +793,14 @@ void func_0018e298(void** a0, void* a1, void* a2)
         func_0018ef68((u8*)*a0 + 140, &st, 3);
     }
     F(*a0, 4, u32) &= ~0x1000;
-    asm volatile("" ::: "memory");
+
     u8 x = F(F(*a0, 40, u8*), 47, u8);
     if (x) {
         void* o = F(*a0, 12, void*);
         VT(o, 30)(o, x, 0, 0);
     }
     VTv(a1, 25)(a1, r);
-    func_0018ca10(r);                          
+    func_0018ca10(r);
 }
 } // n0018e298
 
@@ -995,7 +995,7 @@ void func_0018e8f0(W93Act* a, u32 x, u32 y, W93Act* b)
 {
     if (a->h->flags & 0x80) return;
     if (b->h->flags & 0x80) return;
-    void* r = func_001de168(x, y, 1, 1, 10000, 0);                      
+    void* r = func_001de168(x, y, 1, 1, 10000, 0);
     if (r) {
         W93Vec d;
         d = b->pos - a->pos;
@@ -1142,7 +1142,7 @@ void func_0018ed18(List18e* l) {
 // 0018ee10 (from src/anon/tiny_auto80_queue.cpp)
 namespace n0018ee10 {
 u32 func_0018ee10(u32 a0) asm("func_0018ee10");
-u32 func_0018ee10(u32 a0) {                       
+u32 func_0018ee10(u32 a0) {
     if (a0 == 0u) {
         u32 t7 = (u32)(0x01c6u << 16);
         return *(u32*)((u32)t7 + (s32)(3288));
@@ -1208,7 +1208,7 @@ s32 func_0018ee60(s32 a, s32 b, Tgt* t, QWord* v, u8 flag)
         r = (res->f24 & 1) ^ 1;
         res->q = *v;
         t->vt[25](t, res);
-        func_0018ca10(res);                          
+        func_0018ca10(res);
     }
     func_0018f028(q);
     return r;
@@ -1250,7 +1250,7 @@ void func_0018efe8(u32 a0) {
 // 0018f010 (from src/anon/auto200_999.cpp)
 namespace n0018f010 {
 u32 func_0018f010(u32 a0) asm("func_0018f010");
-u32 func_0018f010(u32 a0) {                    
+u32 func_0018f010(u32 a0) {
     u32 p = *(u32 *)(a0 + 40);
     u32 v = *(u8 *)(p + 4);
     v -= 2;
@@ -1271,7 +1271,7 @@ void func_0018f028(u32 a0) {
     if (t6 == 0u) {
         return;
     }
-    if (func_0018f070() == 0u) {                        
+    if (func_0018f070() == 0u) {
         return;
     }
     u32 t7v = *(u32*)((u32)s0 + (s32)(4));

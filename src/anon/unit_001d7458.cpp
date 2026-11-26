@@ -437,7 +437,7 @@ u32 func_001d7bd0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7
     r16 = r4;
     r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_001d1678)(r4, r5, r6, r7, r8, r9, r10, r11);
     *(u32*)((u32)r16 + (s32)(44)) = 0u;
-    *(volatile u32*)((u32)r16 + (s32)(48)) = 0u;
+    *(u32*)((u32)r16 + (s32)(48)) = 0u;
     return r2;
 }
 } // n001d7bd0
@@ -489,11 +489,11 @@ u32 func_001d7c90(u32 a0) asm("func_001d7c90");
 u32 func_001d7c90(u32 a0) {
     u32 r4 = a0, r2, r15, r16;
     r16 = r4;
-    r15 = *(volatile u32*)((u32)r4 + (s32)(44));
+    r15 = *(u32*)((u32)r4 + (s32)(44));
     r4 = r15;
     if (r15 != 0u) {
         r2 = ((u32(*)(u32))func_0014f830)(r4);
-        *(volatile u32*)((u32)r16 + (s32)(44)) = 0u;
+        *(u32*)((u32)r16 + (s32)(44)) = 0u;
     }
     r4 = r16;
     return ((u32(*)(u32))func_001d1708)(r4);
@@ -593,7 +593,7 @@ namespace n001d7f10 {
 u32 func_001d7f10(u32 a0) asm("func_001d7f10");
 u32 func_001d7f10(u32 a0) {
     u32 base_addr = 0x00350000u;
-    register u32 off asm("$14") = a0 << 2;
+    u32 off = a0 << 2;
     register u32 base asm("$13") = *(u32 *)(base_addr + 10488);
     u32 ret = 0;
     u32 count = *(u32 *)(base + 4);
@@ -704,7 +704,7 @@ u32 func_001d8158(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7
     r15 = 0u;
     if (r2 != 0u) {
         r2 = ((u32(*)())func_001bbcb0)();
-        r15 = *(volatile u32*)((u32)r2 + (s32)(4));
+        r15 = *(u32*)((u32)r2 + (s32)(4));
         r15 = (u32)(r15 & 0x0001u);
     }
     r2 = r15;

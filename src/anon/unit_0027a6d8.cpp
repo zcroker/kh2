@@ -683,7 +683,7 @@ s32 func_0028b040(s32) asm("_ZN2Tz8JmReport7GetDataEj");
 s32 func_002570a0(s32) asm("_ZN2Tz5CmTop12GetSelectPosEi");
 void func_0027aed8(s32, s32 *, s32 *) asm("func_0027aed8");
 void func_00263a58(s32, s32) asm("_ZN2Tz9CMenuHelp6CreateEib");
-volatile short func_00263a90(s32, s32) asm("func_00263a90");
+short func_00263a90(s32, s32) asm("func_00263a90");
 u8 *func_0027bba0(s32) asm("_Z16ctarget_0027bba0jjjj");
 s32 func_00192048(s32) asm("_Z16u_tail4_00192048jjjj");
 s32 func_00192b30(s32) asm("_ZNK2YS7MESSAGE8get_sizeEv");
@@ -1271,11 +1271,11 @@ void func_0027c508(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a
 void func_0027c508(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {  // release_global_slots
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r15, r16;
     r16 = (u32)(0x0036u << 16);
-    r15 = *(volatile u32*)((u32)r16 + (s32)(-3532));
+    r15 = *(u32*)((u32)r16 + (s32)(-3532));
     r4 = r15;
     if (r15 != 0u) {
         ((void(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_00106450)(r4, r5, r6, r7, r8, r9, r10, r11);
-        *(volatile u32*)((u32)r16 + (s32)(-3532)) = 0u;
+        *(u32*)((u32)r16 + (s32)(-3532)) = 0u;
     }
 }
 }  // namespace n0027c508

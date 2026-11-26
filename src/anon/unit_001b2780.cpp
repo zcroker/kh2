@@ -2045,7 +2045,7 @@ void u_call0_001b5400(void) asm("_Z16u_call0_001b5400v");
 void u_call0_001b5400(void) {
     if (D_01d48cb0) {
         D_01d48cb0->flags |= 0x10;
-        asm volatile("" ::: "memory"); // the original reloads the global after the flag store
+         // the original reloads the global after the flag store
         func_001b5460(D_01d48cb0);
         Obj1b4* p = D_01d48cb0;
         if (p) {

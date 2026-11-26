@@ -105,10 +105,10 @@ STR8 s_gif[] = "sceGsSyncPath: GIF does not terminate\r\n";
 
 #define vu_stat() ({ asm volatile(".set noreorder\n\tcfc2 %0, $vi29\n\t.set reorder" : "=r"(stat)); stat; })
 
-/* printf(f, *a) with the volatile register read in the jal delay slot. The original has this at
- * every site, but ee-gcc 2.9 never fills a delay slot with a volatile load, so jal/lw are written by
+/* printf(f, *a) with the register read in the jal delay slot. The original has this at
+ * every site, but ee-gcc 2.9 never fills a delay slot with a load, so jal/lw are written by
  * hand. The empty asm only ranks the address above the format string in the scheduler. */
-#define PR(f, a) { register const char *a0_ asm("$4") = (f); register unsigned int *v0_ asm("$2") = (unsigned int *)(a); asm("" : "+r"(v0_)); \
+#define PR(f, a) { const char *a0_ = (f); register unsigned int *v0_ asm("$2") = (unsigned int *)(a); asm("" : "+r"(v0_)); \
     asm volatile(".set noreorder\n\tjal func_003080d0\n\tlw $5,0(%0)\n\t.set reorder" : "+r"(v0_), "+r"(a0_) : : "$3","$5","$6","$7","$8","$9","$10","$11","$12","$13","$14","$15","$24","$25","$31","memory"); }
 
 /* 0x2f25a0 */

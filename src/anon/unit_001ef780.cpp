@@ -426,15 +426,15 @@ namespace n001f0080 {
 /*TARGET 001f0080*/
 // 0x001e0cb8: definition moved into src/anon/unit_001e0cb8.cpp
 
-void func_001f0080(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z13func_001f0080jjjj");
+struct Quad { u32 w[4]; };
+void func_001f0080(u32 a0, Quad* q) asm("_Z13func_001f0080jjjj");
 // 0x001e0cb8: definition moved into src/anon/unit_001e0cb8.cpp
 
-void func_001f0080(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3;
-    *(volatile u32*)((u32)r5 + (s32)(12)) = r4;
-    *(volatile u32*)((u32)r5 + (s32)(8)) = 0u;
-    *(volatile u32*)((u32)r5 + (s32)(4)) = 0u;
-    *(volatile u32*)((u32)r5 + (s32)(0)) = 0u;
+void func_001f0080(u32 a0, Quad* q) {
+    q->w[1] = 0;
+    q->w[0] = 0;
+    q->w[3] = a0;
+    q->w[2] = 0;
 }
 }  // namespace n001f0080
 

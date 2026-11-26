@@ -19,11 +19,11 @@ int func_0030d820(void)
         i = 0x100000;
         do {
             i--;
-            asm volatile("nop"); asm volatile("nop"); asm volatile("nop"); asm volatile("nop");
+
         } while (i != -1);
     }
     D_0036617c_0d820 = 0;
-    
+
     asm volatile("");
     return 0;
 }

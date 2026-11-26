@@ -99,8 +99,8 @@ void func_002f6910(RD *d)
 /* ---- Creates the N/S/R command and callback semaphores once. */
 typedef struct { int currentCount; int maxCount; int initCount; int numWaitThreads; unsigned int attr; unsigned int option; } SemaParam;
 extern int func_00305620(SemaParam *);
-extern volatile int D_00363da8_v asm("D_00363da8");
-extern volatile int D_00363dac_v asm("D_00363dac");
+extern int D_00363da8_v asm("D_00363da8");
+extern int D_00363dac_v asm("D_00363dac");
 extern volatile int D_00363db0_v asm("D_00363db0");
 extern volatile int D_00363da0_v asm("D_00363da0");
 extern volatile int D_00363db4_v asm("D_00363db4");

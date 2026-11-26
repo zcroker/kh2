@@ -485,11 +485,9 @@ static inline f32 Normalize_w1517(QW_w1517* v)
     return r;
 }
 void func_002cdb00(QW_w1517*, f32) asm("func_002cdb00");
-struct T_002cbf08 { u8 pad[0x18]; f32 f18; };
-QW_w1517* func_002cbf08(QW_w1517* a0, T_002cbf08* a1) asm("func_002cbf08");
-QW_w1517* func_002cbf08(QW_w1517* a0, T_002cbf08* a1) {
-    asm volatile("");
-    func_002cdb00(a0, a1->f18);
+QW_w1517* func_002cbf08(QW_w1517* a0, u32 a1) asm("func_002cbf08");
+QW_w1517* func_002cbf08(QW_w1517* a0, u32 a1) {
+    func_002cdb00(a0, *(f32*)(a1 + 24));
     Normalize_w1517(a0);
     return a0;
 }

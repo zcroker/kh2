@@ -480,7 +480,7 @@ void f10e810_followMove(Fr10e810* o, const VecSet10e810* vs)
         V10e810 out;
         p = *f10e810_attach(o);
         p.y -= o->f1532 * 0.4f;
-        { register f32 w asm("$f1") = *(volatile f32*)&o->dir.w; f32 f = *(volatile f32*)&o->f1456; a = o->dir * (f + w); }
+        { register f32 w asm("$f1") = *(f32*)&o->dir.w; f32 f = *(f32*)&o->f1456; a = o->dir * (f + w); }
         a.w = 1.0f;
         f32 len = a.normalize();
         b = o->up.cross(a);

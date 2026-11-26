@@ -159,7 +159,7 @@ void func_001391a8(void*, Vq) asm("func_001391a8");
 s32 func_00139d78(void*) asm("func_00139d78");
 void func_0013e3b0(u8* o, Vq* v) asm("func_0013e3b0");
 void func_0013e3b0(u8* o, Vq* v) {
-    func_001391a8(o, *v);                           
+    func_001391a8(o, *v);
     if (func_00139d78(o + 448)) func_001391a8(o + 448, *v);
 }
 }  // namespace n0013e3b0
@@ -185,7 +185,7 @@ void func_0013e470(u32 a0) {
     func_001390f0(a0);
     u32 dst = (u32)((s32)base + (448));
     if (func_00139d78(dst) != 0u) {
-        *(volatile f32*)((u32)dst + (s32)(384)) = *(volatile f32*)((u32)base + (s32)(384));
+        *(f32*)((u32)dst + (s32)(384)) = *(f32*)((u32)base + (s32)(384));
     }
 }
 }  // namespace n0013e470
@@ -319,7 +319,7 @@ void u_call0_0013e688(void) {
     register s32 z asm("$6") = 0;
     u8* c;
     asm volatile("lui %0,0x35" : "=r"(c));
-    *(u8**)(c - 31068) = p;                  
+    *(u8**)(c - 31068) = p;
     Heap* hp = (*(Sys**)(b + 0x7f80))->heap;
     u8* o = (u8*)hp->vt->alloc(hp, n, z);
     *(u32*)(o + 12) = 0;
@@ -476,22 +476,22 @@ struct W1624Vec {
 } __attribute__((aligned(16)));
 struct W1624Ft4 {
     u8 _pad0[4];
-    u16 w;                    
-    u16 h;                    
-    s16 ofsX;                 
-    s16 ofsY;                 
-    u32 z;                    
+    u16 w;
+    u16 h;
+    s16 ofsX;
+    s16 ofsY;
+    u32 z;
     u8 _pad10[0xd8 - 0x10];
-    u64 xyz0;                 
+    u64 xyz0;
     u64 _pad0e0;
-    u64 xyz1;                 
+    u64 xyz1;
     u64 _pad0f0;
-    u64 xyz2;                 
+    u64 xyz2;
     u64 _pad100;
-    u64 xyz3;                  
-    f32 rot;                   
-    s32 cx;                    
-    s32 cy;                    
+    u64 xyz3;
+    f32 rot;
+    s32 cx;
+    s32 cy;
 };
 #define W1624_GS_XYZ(x, y, z) ((u64)(x) | ((u64)(y) << 16) | ((u64)(z) << 32))
 void func_0011b6a8(W1624Mat*) asm("func_0011b6a8");
@@ -602,10 +602,10 @@ void Ft4Base::setGsPrim(u64 v) { reinterpret_cast<Ft4BaseLayout*>(this)->gs_prim
 // ---- 0013ee40 from src/anon/auto200_999.cpp
 namespace dk {
 void Ft4Base::setGsUV(u64 a0, u64 a1, u64 a2, u64 a3) {
-    *(volatile u64 *)((u8 *)this + 208) = a0;
-    *(volatile u64 *)((u8 *)this + 256) = a3;
-    *(volatile u64 *)((u8 *)this + 224) = a1;
-    *(volatile u64 *)((u8 *)this + 240) = a2;
+    *(u64 *)((u8 *)this + 208) = a0;
+    *(u64 *)((u8 *)this + 224) = a1;
+    *(u64 *)((u8 *)this + 240) = a2;
+    *(u64 *)((u8 *)this + 256) = a3;
 }
 }  // namespace dk
 

@@ -232,8 +232,8 @@ done:
     }
     {
         /* Partial asm (no code emitted): a0 pinned and BUSDIR's address passed through an empty
-         * volatile asm, so the last BUSDIR store is a plain store that reorg puts in the jal delay
-         * slot like the original (a volatile store never fills a call slot in ee-gcc 2.9). */
+         * asm, so the last BUSDIR store is a plain store that reorg puts in the jal delay
+         * slot like the original (a store never fills a call slot in ee-gcc 2.9). */
         register int a0 asm("$4");
         u_long *busdir;
         *VIF1_STAT = 0;

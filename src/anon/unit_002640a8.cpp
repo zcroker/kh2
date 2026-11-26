@@ -188,11 +188,11 @@ void func_002643d0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a
 void func_002643d0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {  // release_global_buffer
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r15, r16;
     r16 = (u32)(0x0036u << 16);
-    r15 = *(volatile u32*)((u32)r16 + (s32)(-3868));
+    r15 = *(u32*)((u32)r16 + (s32)(-3868));
     r4 = r15;
     if (r15 != 0u) {
         ((void(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_00106420)(r4, r5, r6, r7, r8, r9, r10, r11);
-        *(volatile u32*)((u32)r16 + (s32)(-3868)) = 0u;
+        *(u32*)((u32)r16 + (s32)(-3868)) = 0u;
     }
 }
 }  // namespace n002643d0

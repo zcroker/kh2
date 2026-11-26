@@ -220,16 +220,16 @@ namespace n00288f48 {
 void func_00288f48(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) asm("_Z13func_00288f48jjjjjjjj");
 void func_00288f48(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7;
-    *(volatile u16*)((u32)r4 + (s32)(6)) = (u16)r5;
-    *(volatile u16*)((u32)r4 + (s32)(12)) = (u16)r8;
-    *(volatile u16*)((u32)r4 + (s32)(8)) = (u16)r6;
-    *(volatile u16*)((u32)r4 + (s32)(10)) = (u16)r7;
+    *(u16*)((u32)r4 + (s32)(6)) = (u16)r5;
+    *(u16*)((u32)r4 + (s32)(8)) = (u16)r6;
+    *(u16*)((u32)r4 + (s32)(10)) = (u16)r7;
+    *(u16*)((u32)r4 + (s32)(12)) = (u16)r8;
 }
 }  // namespace n00288f48
 
 // 00288f60 (was src/anon/batch_w1528.cpp)
 namespace n00288f60 {
-struct W1528_S5 { u8 pad[0x2c]; u16* volatile a; u16* volatile b; };
+struct W1528_S5 { u8 pad[0x2c]; u16* a; u16* b; };
 /*TARGET 00288f60*/
 void func_00288f60(W1528_S5* p, s32 n, u16* s, u16* t) asm("func_00288f60");
 void func_00288f60(W1528_S5* p, s32 n, u16* s, u16* t) {  // anim_copy4
@@ -243,7 +243,7 @@ void func_00288f60(W1528_S5* p, s32 n, u16* s, u16* t) {  // anim_copy4
 namespace n00288fd8 {
 // --- 00288fd8
 // Fills the 4 entries of row i of both tables (second one with w, or v if w is 0).
-struct S288 { u8 pad[44]; u16* volatile a; u16* volatile b; };
+struct S288 { u8 pad[44]; u16* a; u16* b; };
 /*TARGET 00288fd8*/
 void func_00288fd8(S288* p, int i, int v, int w) asm("func_00288fd8");
 void func_00288fd8(S288* p, int i, int v, int w) {  // anim_store4
@@ -1686,7 +1686,7 @@ u32 func_0028b870(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7
     r16 = r4;
     r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_0023f8a8)(r4, r5, r6, r7, r8, r9, r10, r11);
     *(u32*)((u32)r16 + (s32)(28)) = 0u;
-    *(volatile u32*)((u32)r16 + (s32)(32)) = 0u;
+    *(u32*)((u32)r16 + (s32)(32)) = 0u;
     return r2;
 }
 }  // namespace n0028b870
@@ -1702,7 +1702,7 @@ u32 func_0028b8a0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7
     r16 = r4;
     r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_0023f8c8)(r4, r5, r6, r7, r8, r9, r10, r11);
     *(u32*)((u32)r16 + (s32)(28)) = 0u;
-    *(volatile u32*)((u32)r16 + (s32)(32)) = 0u;
+    *(u32*)((u32)r16 + (s32)(32)) = 0u;
     return r2;
 }
 }  // namespace n0028b8a0

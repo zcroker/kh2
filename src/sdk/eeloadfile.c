@@ -32,7 +32,7 @@ int func_0030dd70(void)
             D_01e38e68_0dd70 = D_01e38c40_b4_0dd70;
             return 0;
         }
-        i = 0x100000; do { i--; __asm__ volatile("nop"); __asm__ volatile("nop"); __asm__ volatile("nop"); __asm__ volatile("nop"); } while (i != -1);
+        i = 0x100000; do { i--;     } while (i != -1);
         goto retry;
     }
     return 0;

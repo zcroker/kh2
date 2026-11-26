@@ -242,7 +242,7 @@ void func_00137058(Pair36fd0* arg) {
     PadState* e = d;
     do {
         s32 v = *p;
-        if (__builtin_expect(e->a != v, 0) || __builtin_expect(e->b != v, 0)) {
+        if ((e->a != v) || __builtin_expect(e->b != v, 0)) {
             e->a = v;
             func_002ba2b0(0xF0, i);
             if (i == 0) {

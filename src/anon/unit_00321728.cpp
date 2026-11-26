@@ -1698,23 +1698,23 @@ extern u8 D_00347e60[] asm("D_00347e60");
 extern u8 D_00347e40[] asm("D_00347e40");
 static inline __attribute__((always_inline)) void H436(u8* e, u32 a, u32 b)
 {
-    *(volatile u32*)e = a; func_0031a838(e + 12);
-    *(volatile u32*)e = b; func_00239700(e + 24);
+    *(u32*)e = a; func_0031a838(e + 12);
+    *(u32*)e = b; func_00239700(e + 24);
     *(u32*)(e + 408) = 0; *(volatile u32*)e = (u32)D_00347e40;
 }
 static inline __attribute__((always_inline)) void H436b(u8* e, u32 a, u32 b)
 {
     *(volatile u32*)e = a; func_0031a838(e + 12);
-    *(volatile u32*)e = b; func_00239700(e + 24);
-    *(volatile u32*)e = (u32)D_00347e40; *(u32*)(e + 408) = 0;
+    *(u32*)e = b; func_00239700(e + 24);
+    *(u32*)e = (u32)D_00347e40; *(u32*)(e + 408) = 0;
 }
 static inline __attribute__((always_inline)) void H408(u8* e, u32 b)
 {
-    *(u32*)(e + 12) = 0; *(volatile u32*)e = b; func_00239700(e + 24);
+    *(u32*)(e + 12) = 0; *(u32*)e = b; func_00239700(e + 24);
 }
 static inline __attribute__((always_inline)) void L408(u8* q)
 {
-    s32 i = 31; do { *(u32*)(q + 12) = 0; *(volatile u32*)q = (u32)D_00347e60; func_00239700(q + 24); i--; q += 408; } while (i != -1);
+    s32 i = 31; do { *(u32*)(q + 12) = 0; *(u32*)q = (u32)D_00347e60; func_00239700(q + 24); i--; q += 408; } while (i != -1);
 }
 /*TARGET 00323540*/
 void func_00323540(u8* p) asm("func_00323540");

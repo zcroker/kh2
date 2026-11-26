@@ -138,7 +138,7 @@ int func_003071d0(OutFn fn, void *arg, int size, const char *fmt, va_list ap)
     int len, flags, width, prec, plen, count, n, padc, left, isstr;
     unsigned long uv;
     float f;
-    register float z asm("$f0");
+    float z;
     int c;
 
     end = &buf[31];

@@ -363,7 +363,7 @@ int sceLseek(int fd, int off, int whence)
     D_01e37280_0ad00.sema = s;
     if (nw) {
         func_00305660_0ad00(D_00366174_0ad00);
-        
+
         { register int n asm("$16") = nw; i = 0; asm("" : "+r"(n) : "r"(i)); busy = n; }
         for (; i < 32; i++) {
             if (D_003660e0_0ad00[i] == -1) {
@@ -374,7 +374,7 @@ int sceLseek(int fd, int off, int whence)
         }
         func_00305640_0ad00(D_00366174_0ad00);
     } else {
-       int z = 0; do { } while (z); busy = z; 
+       int z = 0; do { } while (z); busy = z;
     }
     if (func_00309d60_0ad00(D_01e38980_0ad00, 4, 0, &D_01e37280_0ad00, 28, D_01e37ec0_0ad00, 4, 0, 0, busy) < 0) {
         func_00305630_0ad00(s);
@@ -447,8 +447,8 @@ int sceRead(int fd, void *buf, int len)
     D_01e37280_0af40.sema = sema;
     if (nw) {
         func_00305660_0af40(D_00366174_0af40);
-        asm volatile("");
-        { int *t = D_003660e0_0af40; asm("" : "+r"(t)); i = 0; asm volatile(""); nr = nw; } 
+
+        { int *t = D_003660e0_0af40;  i = 0; asm volatile(""); nr = nw; }
         for (; i < 32; i++) {
             if (D_003660e0_0af40[i] == -1) {
                 D_003660e0_0af40[i] = q->sema;
@@ -458,7 +458,7 @@ int sceRead(int fd, void *buf, int len)
         }
         func_00305640_0af40(D_00366174_0af40);
     } else
-        { int z = 0; do { } while (z); nr = z; } 
+        { int z = 0; do { } while (z); nr = z; }
     if (!(mode & 0x20000000))
         func_00308a80_0af40(buf, len);
     func_00308a80_0af40(q, 32);
@@ -534,8 +534,8 @@ int sceWrite(int fd, void *buf, int len)
     D_01e37280_w_0b1b0.sema = sema;
     if (nw) {
         func_00305660_0b1b0(D_00366174_0b1b0);
-        asm volatile("");
-        { int *t = D_003660e0_0b1b0; asm("" : "+r"(t)); i = 0; asm volatile(""); nr = nw; } 
+
+        { int *t = D_003660e0_0b1b0;  i = 0; asm volatile(""); nr = nw; }
         for (; i < 32; i++) {
             if (D_003660e0_0b1b0[i] == -1) {
                 D_003660e0_0b1b0[i] = q->sema;
@@ -545,7 +545,7 @@ int sceWrite(int fd, void *buf, int len)
         }
         func_00305640_0b1b0(D_00366174_0b1b0);
     } else
-        { unsigned int t = (unsigned int)buf & 0xf; register int z asm("$0"); asm("" :: "r"(t)); nr = z; } 
+        { unsigned int t = (unsigned int)buf & 0xf; register int z asm("$0"); asm("" :: "r"(t)); nr = z; }
     if (((unsigned int)buf & 0xf) == 0)
         n = 0;
     else
@@ -624,7 +624,7 @@ int sceIoctl(int fd, int req, void *arg)
     switch (req) {
     case 1:
         func_00305660_0b470(D_00366174_0b470);
-        { int *t = D_003660e0_0b470; asm("" : "+r"(t)); i = 0; asm volatile(""); } 
+        { int *t = D_003660e0_0b470;  i = 0; asm volatile(""); }
         for (; i < 32; i++)
             if (D_003660e0_0b470[i] != -1)
                 break;
@@ -1497,7 +1497,7 @@ s64_0cf60 sceLseek64(int fd, s64_0cf60 off, int whence)
     D_01e37280_0cf60.sema = s;
     if (nw) {
         func_00305660_0cf60(D_00366174_0cf60);
-        
+
         { register int n asm("$16") = nw; i = 0; asm("" : "+r"(n) : "r"(i)); busy = n; }
         for (; i < 32; i++) {
             if (D_003660e0_0cf60[i] == -1) {
@@ -1508,7 +1508,7 @@ s64_0cf60 sceLseek64(int fd, s64_0cf60 off, int whence)
         }
         func_00305640_0cf60(D_00366174_0cf60);
     } else {
-        int z = 0; do { } while (z); busy = z; 
+        int z = 0; do { } while (z); busy = z;
     }
     if (func_00309d60_0cf60(D_01e38980_0cf60, 22, 0, &D_01e37280_0cf60, 32, D_01e37ec0_0cf60, 4, 0, 0, busy) < 0) {
         func_00305630_0cf60(s);

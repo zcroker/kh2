@@ -56,18 +56,18 @@ u32 func_001bffd8(void) {
 namespace n001c0058 {
 extern u8 D_01d49328 asm("D_01d49328");
 void func_001c0058(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) asm("_Z13func_001c0058jjjjjjjj");
-void func_001c0058(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {                       
+void func_001c0058(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
     u32 idx = a0 >> 5;
     u32 base = (u32)&D_01d49328;
     idx <<= 2;
     idx += base;
     a0 &= 31;
     u32 mask = 1;
-    u32 val = *(volatile u32*)idx;
+    u32 val = *(u32*)idx;
     mask <<= a0;
     mask = ~mask;
     val &= mask;
-    *(volatile u32*)idx = val;
+    *(u32*)idx = val;
 }
 }  // namespace n001c0058
 
@@ -132,7 +132,7 @@ struct PoolI {
 struct L_001c0150 { u8* head; u8* tail; };
 extern L_001c0150 D_01d49350 asm("D_01d49350");
 void func_001c0150(u8* p, u32 a1) asm("func_001c0150");
-void func_001c0150(u8* p, u32 a1) {                           
+void func_001c0150(u8* p, u32 a1) {
     *(u32*)p = a1;
     for (s32 i = 0; i < 8; i++) ((u32*)(p + 4))[i] = 0;
     *(u32*)(p + 36) = 0;
@@ -223,7 +223,7 @@ static inline void SetBit(u32* bits, u32 k) {
 }
 u8* func_001c0320(u8* a, u8* b, u8* out) asm("func_001c0320");
 u8* func_001c0320(u8* a, u8* b, u8* out) {
-    u8 r = func_001c0298(a, b, out);                    
+    u8 r = func_001c0298(a, b, out);
     *out = r;
     if (r) {
         if (*(u32*)(b + 32) != *(u32*)(a + 36)) {

@@ -35,7 +35,7 @@ void func_0013ef70(u32 a0, u32 a1, u32 a2, u32 a3) {
 // ---- 0013ef80 from src/anon/tiny.cpp
 namespace n0013ef80 {
 u32 func_0013ef80(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z13func_0013ef80jjjj");
-u32 func_0013ef80(u32 a0, u32 a1, u32 a2, u32 a3) {                           
+u32 func_0013ef80(u32 a0, u32 a1, u32 a2, u32 a3) {
     (void)a0;
     (void)a1;
     (void)a2;
@@ -177,7 +177,7 @@ void func_0013f198(u32 a0) asm("_Z13func_0013f198j");
 void func_0013f198(u32 a0) {
     u32 s0 = a0;
     u32 r2 = func_0014aba8();
-    u32 t7 = *(volatile u32*)((u32)r2 + (s32)(252));
+    u32 t7 = *(u32*)((u32)r2 + (s32)(252));
     t7 = (u32)(t7 ^ 4u);
     if (t7 == 0u) {
         func_001024a8(s0);
@@ -196,7 +196,7 @@ void func_0013f1e8(u32 a0) asm("_Z13func_0013f1e8j");
 void func_0013f1e8(u32 a0) {
     u32 s0 = a0;
     u32 r2 = func_0014aba8();
-    u32 t7 = *(volatile u32*)((u32)r2 + (s32)(252));
+    u32 t7 = *(u32*)((u32)r2 + (s32)(252));
     if (t7 == 0u) {
         func_001024a8(s0);
         func_0013f048();
@@ -259,7 +259,7 @@ void func_0013f330(u32 a0) asm("_Z13func_0013f330j");
 void func_0013f330(u32 a0) {
     u32 s0 = a0;
     u32 r2 = func_0014aba8();
-    u32 t7 = *(volatile u32*)((u32)r2 + (s32)(252));
+    u32 t7 = *(u32*)((u32)r2 + (s32)(252));
     if (t7 == 0u) {
         func_001024a8(s0);
         func_0013f048();
@@ -358,9 +358,9 @@ void func_0013f518(u32 a0, u32 a1, u32 a2, u32 a3) asm("func_0013f518");
 void func_0013f518(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0;
     *(volatile u32*)((u32)r4 + (s32)(68)) = 0u;
-    *(volatile u8*)((u32)r4 + (s32)(56)) = (u8)0u;
+    *(u8*)((u32)r4 + (s32)(56)) = (u8)0u;
     *(volatile u8*)((u32)r4 + (s32)(57)) = (u8)0u;
-    *(volatile u8*)((u32)r4 + (s32)(59)) = (u8)0u;
+    *(u8*)((u32)r4 + (s32)(59)) = (u8)0u;
     *(volatile u32*)((u32)r4 + (s32)(60)) = 0u;
     *(volatile u32*)((u32)r4 + (s32)(64)) = 0u;
 }
@@ -368,15 +368,15 @@ void func_0013f518(u32 a0, u32 a1, u32 a2, u32 a3) {
 
 // ---- 0013f538 from src/anon/tiny_auto80.cpp
 namespace n0013f538 {
-void func_0013f538(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z13func_0013f538jjjj");
-void func_0013f538(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3;
-    *(volatile u32*)((u32)r4 + (s32)(68)) = 0u;
-    *(volatile u8*)((u32)r4 + (s32)(56)) = (u8)0u;
-    *(volatile u8*)((u32)r4 + (s32)(57)) = (u8)0u;
-    *(volatile u8*)((u32)r4 + (s32)(59)) = (u8)0u;
-    *(volatile u32*)((u32)r4 + (s32)(60)) = 0u;
-    *(volatile u32*)((u32)r4 + (s32)(64)) = 0u;
+struct W538 { u8 pad0[56]; u8 b38; u8 b39; u8 b3a; u8 b3b; u32 w3c; u32 w40; u32 w44; };
+void func_0013f538(W538* a0, u32 a1, u32 a2, u32 a3) asm("_Z13func_0013f538jjjj");
+void func_0013f538(W538* a0, u32 a1, u32 a2, u32 a3) {
+    a0->b38 = 0;
+    a0->b39 = 0;
+    a0->b3b = 0;
+    a0->w3c = 0;
+    a0->w40 = 0;
+    a0->w44 = 0;
 }
 }  // namespace n0013f538
 
@@ -402,7 +402,7 @@ void func_0013f558(u8* p) {
         *(f32*)(p + 76) = x;
         func_0013f828(p);
         func_0013f888(p, p + 128, 0);
-        func_0013f5f0(p);                         
+        func_0013f5f0(p);
         func_0013f608(p);
         func_0013f648(p);
     }
@@ -412,7 +412,7 @@ void func_0013f558(u8* p) {
 // ---- 0013f5f0 from src/anon/tiny_leaf_fpu.cpp
 namespace n0013f5f0 {
 void func_0013f5f0(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z13func_0013f5f0jjjj");
-void func_0013f5f0(u32 a0, u32 a1, u32 a2, u32 a3) {                         
+void func_0013f5f0(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3;
     f32 f0 = 0.0f, f1 = 0.0f;
     f0 = *(f32*)((u32)r4 + (s32)(220));
@@ -516,7 +516,7 @@ static inline f32 Length13f6(const V13f6& v)
 }
 static inline f32 Dot13f6(const V13f6& a, const V13f6& b)
 {
-    register f32 r asm("$f0");
+    f32 r;
     asm volatile("lqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 0(%2)\n\tvmul.xyz $vf1, $vf1, $vf2\n\tvaddy.x $vf1, $vf1, $vf1y\n\t"
         "vaddz.x $vf1, $vf1, $vf1z\n\tqmfc2 $8, $vf1\n\tmtc1 $8, %0"
         : "=f"(r) : "r"(&a), "r"(&b) : "$8", "memory");
@@ -555,7 +555,7 @@ u32* func_0016c028(u32) asm("func_0016c028");
 void func_0013f828(u32* t) asm("func_0013f828");
 void func_0013f828(u32* t) {
     u32* s0 = t + 32;
-    u32* v = func_0016c028(t[17]);                          
+    u32* v = func_0016c028(t[17]);
     if (s0 != v) asm volatile("lq $8,0(%1)\n\tsq $8,0(%0)" :: "r"(s0), "r"(v) : "$8", "memory");
     ((f32*)t)[33] = ((f32*)t)[33] - 170.0f;
 }

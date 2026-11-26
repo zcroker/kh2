@@ -71,8 +71,8 @@ u32 wtarget_00105620(u32 a, u32 b, u32, u32) asm("_Z16wtarget_00105620jjjj");
 // extern "C"
 
 u32 wtarget_00105620(u32 a, u32 b, u32, u32) {
-    register u32 save asm("$4") = a;
-    register u32 load asm("$5") = b;
+    u32 save = a;
+    u32 load = b;
     asm volatile(
         "sq $28, 0(%0)\n\tsq $29, 16(%0)\n\tsq $30, 32(%0)\n\tsq $31, 48(%0)\n\t"
         "sq $16, 64(%0)\n\tsq $17, 80(%0)\n\tsq $18, 96(%0)\n\tsq $19, 112(%0)\n\t"

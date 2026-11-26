@@ -1042,7 +1042,7 @@ u32 func_002db4b0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7
     r15 = (u32)&D_00362738;
     r14 = (u32)((s32)0u + (-1));
     *(u32*)((u32)r16 + (s32)(2836)) = r14;
-    *(volatile u32*)((u32)r16 + (s32)(0)) = r15;
+    *(u32*)((u32)r16 + (s32)(0)) = r15;
     return r2;
 }
 }  // namespace n002db4b0
@@ -1062,7 +1062,7 @@ u32 func_002db4f0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7
     r15 = (u32)&D_00362738;
     r14 = (u32)((s32)0u + (-1));
     *(u32*)((u32)r16 + (s32)(2836)) = r14;
-    *(volatile u32*)((u32)r16 + (s32)(0)) = r15;
+    *(u32*)((u32)r16 + (s32)(0)) = r15;
     return r2;
 }
 }  // namespace n002db4f0
@@ -1522,7 +1522,7 @@ void func_002dbb88(u8* a0) asm("func_002dbb88");
 void func_002dbb88(u8* a0) {
     func_00198690(a0);
     if (func_001c0cd8(a0)) {
-        register f32 z asm("$f20") = 0.0f;
+        f32 z = 0.0f;
         f32 v[4];
         f32 w[4];
         v[0] = -1.570796251296997f; v[1] = -1.570796251296997f; v[2] = z; v[3] = z;
@@ -2453,22 +2453,17 @@ f32 func_002dceb0(u8* p) {
 // 002dcf18 (was src/anon/batch_w3707.cpp)
 namespace n002dcf18 {
 typedef struct JumpCfg { u8 pad[0xa0]; f32 max; } JumpCfg;
-JumpCfg* MGJump_config(void) asm("_ZN2Ti6MGJump6configEv");
+JumpCfg* MGJump_config(u8* self) asm("_ZN2Ti6MGJump6configEv");
 extern f32 D_00349e10 asm("D_00349e10");
 /* 1.0f */
 typedef struct JS { u8 pad[0x68]; f32 v; u8 flag; } JS;
 /*TARGET 002dcf18*/
-/* Ramp a value up toward the jump config's maximum, or back down to 0, by 1.0 per call.
-   Register pins ($14 for the offset, $13 for the flag) reproduce the original's t6/t5 numbering. */
+/* Ramp a value up toward the jump config's maximum, or back down to 0, by 1.0 per call. */
 void func_002dcf18(u8* a0) asm("func_002dcf18");
-/* Ramp a value up toward the jump config's maximum, or back down to 0, by 1.0 per call.
-   Register pins ($14 for the offset, $13 for the flag) reproduce the original's t6/t5 numbering. */
 void func_002dcf18(u8* a0) {
-    register u32 off asm("$14") = 0x8000;
-    JS* s = (JS*)(a0 + off);
-    register u32 f asm("$13") = s->flag;
-    if (f) {
-        if (s->v < MGJump_config()->max) s->v = s->v + D_00349e10;
+    JS* s = (JS*)(a0 + 0x8000);
+    if (s->flag) {
+        if (s->v < MGJump_config(a0)->max) s->v = s->v + D_00349e10;
     } else {
         if (s->v > 0.0f) s->v = s->v - D_00349e10;
     }

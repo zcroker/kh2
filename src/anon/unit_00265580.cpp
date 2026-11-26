@@ -456,9 +456,9 @@ void func_00266248(void) {
                 u32 item = func_002891b8(sel, n);
                 *(u32*)(item + 0x198) = func_00192048(((Item6*)*pt)[j].id);
                 // colour table base: lui before the store above, addiu after it, as in the original
-                register u32 hi asm("$15");
+                u32 hi;
                 asm ("lui %0,%%hi(D_00373500)" : "=r"(hi));
-                register Col4* ctab asm("$11");
+                Col4* ctab;
                 asm volatile("addiu %0,%1,%%lo(D_00373500)" : "=r"(ctab) : "r"(hi));
                 // cursor pinned to t4 and fenced so its init issues before the pt reload, as in the original
                 register s16* cp asm("$12") = cols;

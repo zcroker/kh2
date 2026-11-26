@@ -54,8 +54,9 @@ void func_002880b8(void) {
     func_0023f800(r);
     Holder* h = D_00347f80;
     // The original loads D_00347f80 before this store and its field after it: the store
-    // goes through a hidden high half pinned to t7, the register the original uses.
-    register u32 hs asm("$15") = 0x360000; asm("" : "+r"(hs));
+    // goes through a hidden high half pinned to t7, the the original uses.
+    register u32 hs
+ = 0x360000; asm("" : "+r"(hs));
     *(s32*)(hs - 3276) = r;
     Alloc* a = (Alloc*)h->a;
     u8* p = (u8*)a->vt->alloc(a, 0x198, 0);

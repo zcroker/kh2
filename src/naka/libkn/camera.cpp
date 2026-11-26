@@ -143,7 +143,7 @@ namespace n001069b8 {
 extern u32 D_0033cc38 asm("D_0033cc38");
 extern u32 D_0033cc3c asm("D_0033cc3c");
 void func_001069b8(u32 v) asm("func_001069b8");
-void func_001069b8(u32 v) {  
+void func_001069b8(u32 v) {
     D_0033cc3c = D_0033cc38;
     D_0033cc38 = v;
 }
@@ -199,7 +199,7 @@ extern Buf256 D_003a7d70[] asm("D_003a7d70");
 extern s32 D_0033cc40 asm("D_0033cc40");
 extern u8 D_0033cc44 asm("D_0033cc44");
 void* func_00106a18(u8 a) asm("func_00106a18");
-void* func_00106a18(u8 a) {  
+void* func_00106a18(u8 a) {
     if (a || D_0033cc44) return &D_003a7b70[D_0033cc40];
     return &D_003a7d70[D_0033cc40];
 }
@@ -213,7 +213,7 @@ struct E144 { u8 pad[144]; };
 extern E144 D_003a7f70[] asm("D_003a7f70");
 extern E144 D_003a8090[] asm("D_003a8090");
 E144* func_00106a60(u8 a) asm("func_00106a60");
-E144* func_00106a60(u8 a) {  
+E144* func_00106a60(u8 a) {
     if (a || D_0033cc44) return &D_003a7f70[D_0033cc40];
     return &D_003a8090[D_0033cc40];
 }
@@ -228,7 +228,7 @@ void func_00106ab0(void) {}
 // ---- 00106ab8 (from src/anon/tiny.cpp)
 namespace n00106ab8 {
 void func_00106ab8(u32 a0, u32 a1, u32 a2, u32 a3) asm("func_00106ab8");
-void func_00106ab8(u32 a0, u32 a1, u32 a2, u32 a3) {  
+void func_00106ab8(u32 a0, u32 a1, u32 a2, u32 a3) {
     (void)a0;
     (void)a1;
     (void)a2;
@@ -256,13 +256,13 @@ namespace n00106af0 {
 void func_0011b6a8(f32* m) asm("func_0011b6a8");
 struct ProjCam {
     u8 pad0[64];
-    f32 scale;      
+    f32 scale;
     u8 pad1[8];
-    f32 aspectX;    
-    f32 aspectY;    
+    f32 aspectX;
+    f32 aspectY;
     u8 pad2[24];
-    f32 nearZ;      
-    f32 farZ;       
+    f32 nearZ;
+    f32 farZ;
 };
 void func_00106af0(ProjCam* c, f32* m, f32 w, f32 h) asm("func_00106af0");
 void func_00106af0(ProjCam* c, f32* m, f32 w, f32 h)
@@ -437,7 +437,7 @@ void func_001070b8(u32 a0) { *(u32*)((u32)a0 + (0)) = (u32)&D_0033cc50; }
 namespace n001070c8 {
 extern u32 D_0033cc50 asm("D_0033cc50");
 void func_001070c8(u32 a0, u32 a1, u32 a2, u32 a3) asm("func_001070c8");
-void func_001070c8(u32 a0, u32 a1, u32 a2, u32 a3) {  
+void func_001070c8(u32 a0, u32 a1, u32 a2, u32 a3) {
     (void)a1;
     (void)a2;
     (void)a3;
@@ -458,7 +458,7 @@ u32 func_001070f8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7
 u32 func_001070f8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r15;
     r15 = (u32)&D_0033cc50;
-    *(volatile u32*)((u32)r4 + (s32)(0)) = r15;
+    *(u32*)((u32)r4 + (s32)(0)) = r15;
     return ((u32(*)())func_00106420)();
 }
 }  // namespace n001070f8
@@ -545,7 +545,7 @@ void func_001072d0(u8* p, u8* a, u8* b) {
 namespace n00107300 {
 #define QCOPY(d, s) asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(d), "r"(s) : "$8", "memory")
 void func_00107300(u8* p, u8* a, u8* b, f32 f) asm("func_00107300");
-void func_00107300(u8* p, u8* a, u8* b, f32 f) {  
+void func_00107300(u8* p, u8* a, u8* b, f32 f) {
     u8* d = p + 80;
     if (d != a) QCOPY(d, a);
     d = p + 96;
@@ -574,13 +574,13 @@ void Camera::setUpVector(f32 x, f32 y, f32 z) {
     *(f32*)((u32)this + 116) = y;
     *(f32*)((u32)this + 120) = z;
 }
-void Camera::setRoll(f32 roll) { *(volatile f32*)((u32)this + (s32)(128)) = roll; }
+void Camera::setRoll(f32 roll) { *(f32*)((u32)this + (s32)(128)) = roll; }
 }  // namespace kn
 
 // ---- 00107368 (from src/anon/batch_w4.cpp)
 namespace n00107368 {
 void func_00107368(u8* p, void* dst) asm("func_00107368");
-void func_00107368(u8* p, void* dst) {  
+void func_00107368(u8* p, void* dst) {
     void* src = p + 80;
     if (dst != src) {
         asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(dst), "r"(src) : "$8", "memory");
@@ -637,7 +637,7 @@ f32* func_00107388(f32* out, u8* o) {
 // ---- 00107478 (from src/anon/batch_w5.cpp)
 namespace n00107478 {
 void func_00107478(u8* src, u8* dst) asm("func_00107478");
-void func_00107478(u8* src, u8* dst) {  
+void func_00107478(u8* src, u8* dst) {
     src += 0x60;
     if (dst != src) {
         asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(dst), "r"(src) : "$8", "memory");
@@ -923,7 +923,7 @@ void func_00107360(void*, f32) asm("func_00107360");
 void func_00107a90(void) asm("func_00107a90");
 void func_00107a90(void) {
     func_00106998(0);
-    func_001069b8(0);  
+    func_001069b8(0);
     func_001069f8(0);
     func_00106d40(D_003a7b70, 512.0f, 0.7999999523162842f, 0.8666666150093079f, 2048.0f, 2048.0f, 1.0f, 16770000.0f, 1.0f, 4000000.0f, 256.0f, 208.0f);
     func_00106d40(D_003a7b70 + 256, 512.0f, 0.7999999523162842f, 0.8666666150093079f, 2048.0f, 2048.0f, 1.0f, 16770000.0f, 1.0f, 4000000.0f, 256.0f, 208.0f);

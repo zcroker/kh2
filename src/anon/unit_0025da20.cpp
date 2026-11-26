@@ -578,7 +578,7 @@ void func_0025e450(void)
         if (r == 2) goto E;
         {
             register s32 a1 asm("$5") = 2;
-            register s32 a0 asm("$4") = -1;
+            s32 a0 = -1;
             func_00240fd8(a0, a1);
         }
     G:

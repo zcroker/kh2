@@ -224,7 +224,7 @@ s32 func_001d3e40(u8* self)
 // 001d3f38 (from src/anon/batch_w27.cpp)
 namespace n001d3f38 {
 s32 func_001d3f38(u8* p) asm("func_001d3f38");
-s32 func_001d3f38(u8* p) {                        
+s32 func_001d3f38(u8* p) {
     switch (*(u16*)(p + 40)) {
     case 282:
     case 344:
@@ -491,8 +491,8 @@ Z* func_001d45a0(void* self, u32 id) {
         if (!func_001d3e40(e)) continue;
         void* o = func_0017e668(e->b1);
         if (!(func_00177860(o)->w10 & 2)) continue;
-        V4* p1 = func_0016c028(o);                          
-        V4* p2 = func_0016c028(self);                          
+        V4* p1 = func_0016c028(o);
+        V4* p2 = func_0016c028(self);
         V4 d;
         asm volatile("lqc2 $vf1, 0(%0)\n\tlqc2 $vf2, 0(%1)\n\tvsub.xyzw $vf1, $vf1, $vf2\n\tsqc2 $vf1, 0(%2)" : : "r"(p1), "r"(p2), "r"(&d) : "memory");
         d.y = 0.0f;
@@ -518,7 +518,7 @@ Z* func_001d45a0(void* self, u32 id) {
 // 001d4808 (from src/anon/tiny_leaf.cpp)
 namespace n001d4808 {
 u32 func_001d4808(u32 a0, u32 a1, u32 a2, u32 a3) asm("func_001d4808");
-u32 func_001d4808(u32 a0, u32 a1, u32 a2, u32 a3) {                       
+u32 func_001d4808(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u;
     r2 = (u32)(*(u16*)((u32)r4 + (s32)(42)));
     r2 = ((u32)r2 < 0x00000001u);
@@ -545,16 +545,14 @@ void func_001d4818(u32* p, s32 a1, u32 a2, u32 a3, u32 a4) {
 
 // 001d48b0 (from src/anon/tiny_auto80_queue.cpp)
 namespace n001d48b0 {
-u32 func_0013d620(...) asm("func_0013d620");
-void func_001d48b0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) asm("func_001d48b0");
-void func_001d48b0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r15, r16;
-    r15 = *(volatile u32*)((u32)r4 + (s32)(0));
-    r16 = r4;
-    if (r15 != 0u) {
-        ((void(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_0013d620)(r4, r5, r6, r7, r8, r9, r10, r11);
-        *(volatile u32*)((u32)r16 + (s32)(4)) = 0u;
-        *(volatile u32*)((u32)r16 + (s32)(0)) = 0u;
+struct Obj { u32 f0; u32 f4; };
+void func_0013d620(Obj*) asm("func_0013d620");
+void func_001d48b0(Obj* o) asm("func_001d48b0");
+void func_001d48b0(Obj* o) {
+    if (o->f0 != 0) {
+        func_0013d620(o);
+        o->f0 = 0;
+        o->f4 = 0;
     }
 }
 } // n001d48b0
@@ -656,7 +654,7 @@ void func_001d4bb8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a
     r15 = (u32)&D_01d5ba58;
     r4 = (u32)(r4 << 2);    r14 = (u32)((s32)0u + (488));
     r4 = (u32)(r4 + r15);
-    *(volatile u16*)((u32)r4 + (s32)(0)) = (u16)r14;
+    *(u16*)((u32)r4 + (s32)(0)) = (u16)r14;
 }
 } // n001d4bb8
 
@@ -702,7 +700,7 @@ void func_001d4c98(u8* p) {
     *(u32*)p = (u32)D_003525c8;
     *(u32*)(p + 8) = 0;
     *(u32*)(p + 12) = 0;
-    func_001d1678(p, -1);                     
+    func_001d1678(p, -1);
     *(u32*)(p + 48) = 0;
     *(u32*)p = (u32)D_00352750;
     u8* e = p + 57;
@@ -729,7 +727,7 @@ void func_001d4d28(u32* p) {
     p[0] = (u32)D_003525c8;
     p[2] = 0;
     func_00320400(p + 3);
-    func_001d1678(p, -1);                     
+    func_001d1678(p, -1);
     p[12] = 0;
     p[0] = (u32)D_00352750;
     u8* q = (u8*)p + 57;

@@ -123,7 +123,7 @@ void func_00271e80() {
 namespace n00271ec8 {
 u32 func_00257780(u32, u32, u32, u32) asm("_Z13func_00257780jjjj");
 /*TARGET 00271ec8*/
-/*NOSYM*/ 
+/*NOSYM*/
 u32 func_00271ec8(u32 a0, u32 a1, u32 a2, u32 a3);
 // 0x0026aaf8: definition moved into src/anon/unit_0026a900.cpp
 
@@ -643,7 +643,7 @@ void func_00272c90(void) asm("func_00272c90");
 // Partial inline asm (asm_review.tsv): register pins for id/mode/has/k/t/i/o and one pinned subu.
 void func_00272c90(void)
 {
-    register s32 id asm("$19") = -1;
+    s32 id = -1;
     s32 id2 = -1;
     register s32 mode asm("$18") = func_00287bc0();
     u8* base = func_00257770();
@@ -675,7 +675,7 @@ void func_00272c90(void)
         else id = 0x9df7;
     } else if (mode == 30) {
         v = func_0028b040(D_0035f01c);
-        register u16* o asm("$14") = &D_00373a80[v];
+        u16* o = &D_00373a80[v];
         id = *o;
     } else if (mode == 31) {
         v = func_0028b040(D_0035f01c);
@@ -1223,7 +1223,7 @@ s32 func_00273b30(void)
 // 00273c40 (was src/anon/auto80_199_queue.cpp)
 namespace n00273c40 {
 /*TARGET 00273c40*/
-/*NOSYM*/ 
+/*NOSYM*/
 void func_00273c40(s32 a0);
 // 0x0026ed48: definition moved into src/anon/unit_0026c450.cpp
 

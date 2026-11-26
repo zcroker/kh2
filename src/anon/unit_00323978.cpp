@@ -54,7 +54,7 @@ void func_00323ad0(u32* p) asm("func_00323ad0");
 // 00149f30: static initialiser, now made by gcc in src/harata/libdk/area.cpp
 void func_00323ad0(u32* p) {
     s32 i = 19;
-    do { *p = 0; i--; __asm__ volatile("nop\n\tnop\n\tnop"); p++; } while (i >= 0);
+    do { *p = 0; i--;  p++; } while (i >= 0);
 }
 }  // namespace n00323ad0
 

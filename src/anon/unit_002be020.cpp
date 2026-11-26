@@ -32,7 +32,7 @@ u32 func_002be020(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7
     u32 s19 = a1;
     u32 s18 = a2;
 
-    func_002be0b0(s17);                       
+    func_002be0b0(s17);
 
     if (func_002be5b8(s17) == 0) {
         func_0015f618();
@@ -58,10 +58,10 @@ void func_0015f548(void) asm("func_0015f548");
 void func_001c8e90(void) asm("func_001c8e90");
 void func_002be9b0(void) asm("func_002be9b0");
 void func_002be0b0(u8* p, s32 i) asm("func_002be0b0");
-void func_002be0b0(u8* p, s32 i) {                       
+void func_002be0b0(u8* p, s32 i) {
     u8** slot = (u8**)((u8*)(i * 4) + (u32)p + 44);
     if (*slot) {
-        func_002edfd8(p + 8, *slot);                          
+        func_002edfd8(p + 8, *slot);
         if (*slot) (*(VFn*)(*(u8**)*slot + 4))(*slot);
         *slot = 0;
     }
@@ -79,7 +79,7 @@ namespace worldmap {
 void Libretto::leaveAllObj() {
     s32 i = 0;
     do {
-        func_002be0b0(this, (u32)i);                       
+        func_002be0b0(this, (u32)i);
         i += 1;
     } while (i < 4);
 }
@@ -96,7 +96,7 @@ void func_002be190(u8* o, s32 idx, u32* list, s32 n) {
     func_002eedc0(t, *(u32*)(func_00168b38(*(u32*)(o + 104), -1, list[0]) + 8), 0.0f);
     s32 i;
     for (i = 1; i < n; i++) {
-        func_002eedd8(t, *(u32*)(func_00168b38(*(u32*)(o + 104), -1, list[i]) + 8), 0.0f);                     
+        func_002eedd8(t, *(u32*)(func_00168b38(*(u32*)(o + 104), -1, list[i]) + 8), 0.0f);
     }
 }
 }  // namespace n002be190
@@ -125,10 +125,10 @@ void func_002be258(u32 a0, u32 a1, u32 a2, s32 a3, u32 a4, u32 a5, u32 a6, u32 a
     u32 a2v = *(u32*)s17;
 
 L290:
-    u32 h = func_00168b38(*(u32*)(s19 + 104), -1, a2v);                         
+    u32 h = func_00168b38(*(u32*)(s19 + 104), -1, a2v);
     s16 = s16 - 1;
     s17 = s17 + 4;
-    func_002eedd8(s18, *(u32*)(h + 8), 0.0f);                     
+    func_002eedd8(s18, *(u32*)(h + 8), 0.0f);
     if (s16 != 0) {
         a2v = *(u32*)s17;
         goto L290;
@@ -141,7 +141,7 @@ namespace n002be2d8 {
 struct V205 { f32 x, y, z, w; };
 struct O205 { char pad[544]; V205 v; };
 void func_002be2d8(char* a0, s32 a1, V205* a2) asm("func_002be2d8");
-void func_002be2d8(char* a0, s32 a1, V205* a2) {                   
+void func_002be2d8(char* a0, s32 a1, V205* a2) {
     O205* o = *(O205**)(a0 + a1 * 4 + 44);
     o->v.x = a2->x;
     V205* q = &o->v;
@@ -154,7 +154,7 @@ void func_002be2d8(char* a0, s32 a1, V205* a2) {
 // ---- 002be318 from src/anon/tiny_auto80_queue.cpp
 namespace n002be318 {
 void func_002be318(u32 a0, u32 a1, kn::FVector* a2) asm("_Z13func_002be318jjPN2kn7FVectorE");
-void func_002be318(u32 a0, u32 a1, kn::FVector* a2) {                   
+void func_002be318(u32 a0, u32 a1, kn::FVector* a2) {
     u32 p = (a1 << 2) + a0;
     kn::FVector* dst = (kn::FVector*)(*(u32*)(p + 44) + 0x210);
     *dst = *a2;
@@ -171,7 +171,7 @@ void task_end_002be3c8(void*) asm("_ZN8worldmap8Libretto14finalizeThreadEP4TASK"
 void func_002be428(void) asm("func_002be428");
 void func_00102c18(s32, s32, void*) asm("func_00102c18");
 void func_002be340(u32 a) asm("func_002be340");
-void func_002be340(u32 a) {                         
+void func_002be340(u32 a) {
     void* o = func_001050d8(108);
     func_002bd998(o, a);
     u8* r = func_00102c48(1, 15000, (void*)func_002be3a8, 8192);
@@ -201,7 +201,7 @@ void func_002be3c8(u32 a0) asm("_Z13func_002be3c8j");
 void func_002be3c8(u32 a0) {
     u32 r4 = a0, r15, r16;
     r15 = (u32)(0x0036u << 16);
-    r16 = *(volatile u32*)((u32)r15 + (s32)(6140));
+    r16 = *(u32*)((u32)r15 + (s32)(6140));
     r4 = r16;
     if (r16 != 0u) {
     u32 (*fp_call4_002bdac8)(u32) = (u32(*)(u32))func_002bdac8;
@@ -297,7 +297,7 @@ void func_002baa08(u32, u32, s32, s32) asm("func_002baa08");
 void func_002be568(u8* p, u32 x) asm("func_002be568");
 void func_002be568(u8* p, u32 x) {
     func_002baa60(p);
-    u32* r = func_00168b38(*(u32*)(p + 104), -1, x);                         
+    u32* r = func_00168b38(*(u32*)(p + 104), -1, x);
     func_002baa08(r[2], r[3], 16383, 64);
 }
 }  // namespace n002be568
@@ -354,7 +354,7 @@ void func_002be630(void) {
     s32 v = func_0016b740(931);
     s32 o = D_0034e948;
     u_tail4_001c0d38(o, v, 0x4002, 0);
-                                                                         
+
     if (!D_01e2bc20) {
         D_01e2bc20 = 1;
         D_01e2bc30.x = D_01e2bc30.z = D_01e2bc30.w = 0.0f;

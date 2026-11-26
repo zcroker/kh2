@@ -21,12 +21,12 @@ struct Box { f32 v[6]; };
 void Aabbox_init(Box* b) asm("_ZN2dk6Aabbox4initEv");
 void Aabbox_init(Box* b) {
     f32 z = 0.0f;
-    *(volatile f32*)&b->v[0] = z;
-    *(volatile f32*)&b->v[5] = z;
-    *(volatile f32*)&b->v[4] = z;
-    *(volatile f32*)&b->v[3] = z;
-    *(volatile f32*)&b->v[2] = z;
-    *(volatile f32*)&b->v[1] = z;
+    b->v[5] = z;
+    b->v[4] = z;
+    b->v[3] = z;
+    b->v[2] = z;
+    b->v[1] = z;
+    b->v[0] = z;
 }
 
 // Aabbox(f32 x6): C2 (0x144470, never written) and C1
@@ -405,17 +405,17 @@ namespace n00144e30 {
 /*TARGET 00144e30*/
 // 0x0013f538: definition moved into src/anon/unit_0013ef70.cpp
 
-void func_00144e30(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z13func_00144e30jjjj");
+struct SAabbox { s16 h[6]; };
+void func_00144e30(SAabbox* s) asm("_Z13func_00144e30jjjj");
 // 0x0013f538: definition moved into src/anon/unit_0013ef70.cpp
 
-void func_00144e30(u32 a0, u32 a1, u32 a2, u32 a3) {  // zero_6_halfwords
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3;
-    *(volatile u16*)((u32)r4 + (s32)(0)) = (u16)0u;
-    *(volatile u16*)((u32)r4 + (s32)(10)) = (u16)0u;
-    *(volatile u16*)((u32)r4 + (s32)(8)) = (u16)0u;
-    *(volatile u16*)((u32)r4 + (s32)(6)) = (u16)0u;
-    *(volatile u16*)((u32)r4 + (s32)(4)) = (u16)0u;
-    *(volatile u16*)((u32)r4 + (s32)(2)) = (u16)0u;
+void func_00144e30(SAabbox* s) {  // dk::SAabbox::SAabbox(): zero_6_halfwords
+    s->h[5] = 0;
+    s->h[4] = 0;
+    s->h[3] = 0;
+    s->h[2] = 0;
+    s->h[1] = 0;
+    s->h[0] = 0;
 }
 }  // namespace n00144e30
 

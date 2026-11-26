@@ -28,7 +28,7 @@ u32 func_0011a260(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7
     u32 r14 = (u32)&D_00340000;
     *(volatile u32*)(r16 + 16) = r15;
     r14 = (u32)&D_00347808;
-    *(volatile u32*)r16 = r14;
+    *(u32*)r16 = r14;
     *(volatile u32*)(r16 + 12) = 1;
     return r2;
 }
@@ -48,7 +48,7 @@ u32 func_0011a2a8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7
     u32 r14 = (u32)&D_00340000;
     *(volatile u32*)(r16 + 16) = r15;
     r14 = (u32)&D_00347808;
-    *(volatile u32*)r16 = r14;
+    *(u32*)r16 = r14;
     *(volatile u32*)(r16 + 12) = 1;
     return r2;
 }

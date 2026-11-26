@@ -371,22 +371,22 @@ typedef void (*Fn_002f0798)(u32);
 typedef void (*Fn_002f07c8)(u32);
 
 void func_0016ce90(u32 a0) {
-    u32 t6 = *(volatile u32*)((u32)a0 + (s32)(28));
+    u32 t6 = *(u32*)((u32)a0 + (s32)(28));
     u32 t7 = (u32)(t6 & 2u);
     if (t7 != 0u) {
         return;
     }
-    u32 t5 = *(volatile u32*)((u32)a0 + (s32)(56));
+    u32 t5 = *(u32*)((u32)a0 + (s32)(56));
     if (t5 == 0u) {
         t7 = (u32)(t6 | 2u);
     } else {
-        t7 = *(volatile u32*)((u32)t5 + (s32)(1160));
+        t7 = *(u32*)((u32)t5 + (s32)(1160));
         t7 = (u32)((s32)t7 + (-1));
-        *(volatile u32*)((u32)t5 + (s32)(1160)) = t7;
-        t6 = *(volatile u32*)((u32)a0 + (s32)(28));
+        *(u32*)((u32)t5 + (s32)(1160)) = t7;
+        t6 = *(u32*)((u32)a0 + (s32)(28));
         t7 = (u32)(t6 | 2u);
     }
-    *(volatile u32*)((u32)a0 + (s32)(28)) = t7;
+    *(u32*)((u32)a0 + (s32)(28)) = t7;
 }
 }  // namespace v13
 
@@ -821,8 +821,8 @@ void func_0016d1f0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a
 // 0016d230 (src/anon/batch_w24.cpp)
 namespace v25 {
 struct LNode { u32 _0; LNode* next; };
-struct LMgr { u32 _0; LNode* head; u8 _8[92]; volatile u32 cur; };
-extern LMgr* volatile D_00347f80 asm("D_00347f80");
+struct LMgr { u32 _0; LNode* head; u8 _8[92]; u32 cur; };
+extern LMgr* D_00347f80 asm("D_00347f80");
 static inline s32 list_has(LNode** hp, u32 a) {
     LNode* n = 0;
     while ((n = !n ? *(LNode* volatile*)hp : n->next) != 0) {

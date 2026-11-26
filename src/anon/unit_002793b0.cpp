@@ -66,7 +66,7 @@ void func_002793b0(void) {
             for (k = 0; k < 48; k++) {
                 if (((Rows*)base)->r[row][k] == t->e[c].id) break;
             }
-            {register s32 m asm("$15"); t->e[c].kind = k < 48 ? (m = -128, m = k | m, m) : -1;}
+            {s32 m; t->e[c].kind = k < 48 ? (m = -128, m = k | m, m) : -1;}
             c++;
         }
     }

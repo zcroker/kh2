@@ -194,7 +194,7 @@ s32 func_00110c90(O110c90* o)
             b.hy += d.y;
             b.hz += d.z;
             s32 ok = func_00110b00(o, &w->pts[i], pb);
-            if (__builtin_expect(ok, 1)) {
+            if ((ok)) {
                 f32 dist = (w->pts[i] - q).lengthSq();
                 if (best == -1 || dist < bestDist) {
                     bestDist = dist;

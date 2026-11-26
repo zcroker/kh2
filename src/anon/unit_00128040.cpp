@@ -89,16 +89,16 @@ extern "C" bool func_00128040(void* ctx, Limit* lim, LVec* org, LVec* io) {
                 }
             }
         } else {
-register f32 z1 asm("$f21") = 0.0f; register f32 z2 asm("$f22") = z1; { f32* pc; f32* pio; i = 0; pio=&io->x; pc=&c.x;
+register f32 z1 asm("$f21") = 0.0f; f32 z2 = z1; { f32* pc; f32* pio; i = 0; pio=&io->x; pc=&c.x;
 for (; i < 3; pio++, pc++, i++) {
                 register f32 base asm("$f2"); f32 k, m, ov, x;
-                if (en[i * 2] && (m = lim->margin, x = d[i], z1 < (ov = lim->lo[i] + m - x))) { ov = ov / m; m = lim->soft; m = m - 1.0f; m = m * ov; 
+                if (en[i * 2] && (m = lim->margin, x = d[i], z1 < (ov = lim->lo[i] + m - x))) { ov = ov / m; m = lim->soft; m = m - 1.0f; m = m * ov;
                     f32 e = func_002f8ae8(m);
                     hit = true;
                     base = lim->lo[i];
                     base += lim->margin;
                     k = 1.0f - e;
-                 } else if (en[i * 2 + 1] && (m = lim->margin, z2 < (ov = d[i] - (lim->hi[i] - m)))) { ov = ov / m; m = lim->soft; m = m - 1.0f; m = m * ov; 
+                 } else if (en[i * 2 + 1] && (m = lim->margin, z2 < (ov = d[i] - (lim->hi[i] - m)))) { ov = ov / m; m = lim->soft; m = m - 1.0f; m = m * ov;
                     f32 e = func_002f8ae8(m);
                     hit = true;
                     base = lim->hi[i];

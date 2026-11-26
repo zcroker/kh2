@@ -21,7 +21,7 @@ namespace src0 {
 void func_001b0448(S1b0* a0, u32 a1) asm("func_001b0448");
 void func_001b0448(S1b0* a0, u32 a1) {
     R16* v = func_0016bc20(a1, 12, -1);
-    if (v) { a0->a = a1; asm volatile("" ::: "memory"); a0->b = v->h; }
+    if (v) { a0->a = a1;  a0->b = v->h; }
 }
 }
 
@@ -132,14 +132,14 @@ Res278* func_001b0580(Src278* s) {
     case 2:
         D_01c940d0.v = s->v;
         D_01c940d0.v.w = (1.0f - cosf(s->t * 3.1415927f)) * 0.5f;
-        asm volatile("" ::: "memory");
+
         D_01c940d0.id = s->id;
         D_01c940d0.flag = 0;
         break;
     case 3:
         D_01c940d0.v = s->v;
         D_01c940d0.v.w = (1.0f - cosf(s->t * 3.1415927f)) * 0.5f;
-        asm volatile("" ::: "memory");
+
         D_01c940d0.id = s->id;
         D_01c940d0.flag = 1;
         break;
@@ -207,7 +207,7 @@ struct Q16 {
 };
 
 
-struct OBv { u32 f0; volatile s32 f4; s32 f8; volatile s32 f12; u8 pad16[32]; volatile s32 f48; u8 pad52[12]; Q16 v64; s32 f80; };
+struct OBv { u32 f0; s32 f4; s32 f8; s32 f12; u8 pad16[32]; s32 f48; u8 pad52[12]; Q16 v64; s32 f80; };
 
 
 struct VB { u16 a, b, c, d; };

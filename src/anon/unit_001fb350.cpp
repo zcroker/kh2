@@ -844,7 +844,7 @@ namespace n001fc678 {
 void func_001fc678(u32 a0) asm("_Z13func_001fc678j");
 void func_001fc678(u32 a0) {
     u32 buf[20];
-    volatile u32* gp = (volatile u32*)0x01da0000;
+    u32* gp = (u32*)0x01da0000;
     u32 s0 = *(u32*)(a0 + 4);
     u32 s2 = s0 + 16;
     u32 s3 = (u32)buf + 64;

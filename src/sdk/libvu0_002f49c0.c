@@ -8,7 +8,7 @@ extern u128 D_00363ce0[2];
 
 /* ---- 0x2f49c0: VIF0 MARK/ERR cleared, FBRST reset, VU0 FBRST (vi28) bit 1 via cfc2/ctc2 (partial asm:
  * the COP2 control-register access; .set noreorder keeps gas from adding a hazard nop), then the two
- * initial VIF0 qwords go to the VIF0 FIFO. The last store is written without volatile so 2.9 puts it in
+ * initial VIF0 qwords go to the VIF0 FIFO. The last store is written without so 2.9 puts it in
  * the jr delay slot as the original does. */
 void func_002f49c0(void)
 {

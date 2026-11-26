@@ -19,7 +19,7 @@ void wtarget_0020edd0(u32 a0, u32 a1, u32 a2, u32 a3)
     RelocHdr3780* s = (RelocHdr3780*)a1;
     s32 i;
     u32* dst;
-    if (a1 & 0xf) *(volatile s32*)0 = 0;
+    if (a1 & 0xf) *(s32*)0 = 0;
     // First count read as a plain u16 (other alias set), so gcse does not share it with the loop test.
     if (((u16*)a1)[33]) {
         u32* src = (u32*)(s->o4 + a1);
@@ -35,7 +35,7 @@ void wtarget_0020edd0(u32 a0, u32 a1, u32 a2, u32 a3)
                 if (v) *w = v + a1;
                 w++;
             }
-            asm("" : : "r"(ph));
+
         }
     }
     if (s->n44) {

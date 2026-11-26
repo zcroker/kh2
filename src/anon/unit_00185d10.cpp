@@ -1719,7 +1719,7 @@ namespace src38 {
 void func_001879f0(u32* p) asm("func_001879f0");
 void func_001879f0(u32* p) {
     s32 i = 127;
-    do { *p = 0; i--; asm volatile("nop\n\tnop\n\tnop"); p += 8; } while (i >= 0);
+    do { *p = 0; i--;  p += 8; } while (i >= 0);
 }
 }
 
@@ -1985,13 +1985,13 @@ u32 func_00187e20(u32 a0) {
     register u32 v asm("$15") = *(u32 *)(a0 + 156);
     v &= 1;
     v &= 0xff;
-    asm volatile("" : "+r"(v));
+
     u32 ret = 0;
     if (v == 0) {
         register u32 p asm("$14") = *(u32 *)(a0 + 136);
-        register u32 q asm("$13") = *(u32 *)(p + 4);
+        u32 q = *(u32 *)(p + 4);
         v = *(u32 *)(q + 352);
-        register u32 mask asm("$14") = 0x40000;
+        u32 mask = 0x40000;
         v &= mask;
         ret = v != 0;
     }

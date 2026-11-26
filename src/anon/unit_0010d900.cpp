@@ -40,7 +40,7 @@ extern s32 D_003417a8 asm("D_003417a8");
 void func_00190878(Tgt*, u32, s32) asm("func_00190878");
 s32 func_00190730(Tgt*, s32) asm("func_00190730");
 s32 func_001901c0(Tgt*) asm("func_001901c0");
-s32 func_00112d28(u32, s32) asm("func_00112d28");
+s32 func_00112d28(u32) asm("func_00112d28");
 /*TARGET 0010d918*/
 void func_0010d918(s32 a0, s32 a1, Tgt* out) asm("func_0010d918");
 void func_0010d918(s32 a0, s32 a1, Tgt* out) {
@@ -54,14 +54,7 @@ void func_0010d918(s32 a0, s32 a1, Tgt* out) {
         while ((k = func_00190730(&it, k)) != 0) {
             if (it.a != D_00341788[i]) break;
             if (!func_001901c0(&it)) continue;
-            {
-                // The empty asm (copy of k, memory clobber) keeps sched1 from
-                // hoisting the a1 argument above the previous test, so reorg
-                // fills that branch's delay slot from its target like the original.
-                s32 kk = k;
-                asm("" : "+r"(kk) : : "memory");
-                if (!func_00112d28(D_00341788[i], kk)) continue;
-            }
+            if (!func_00112d28(D_00341788[i])) continue;
             *out = it;
             break;
         }

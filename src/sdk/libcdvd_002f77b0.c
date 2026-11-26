@@ -168,7 +168,7 @@ int func_002f7be8(unsigned int lsn, unsigned int sec, void *buf, RMode *mode)
 {
     int size;
     RArg *p = &D_00363e80;
-    if (!((*(volatile int*)&D_00363db8) & 1) && func_002f7118() == 6)
+    if (!((*(int*)&D_00363db8) & 1) && func_002f7118() == 6)
         return 0;
     if (!func_002f6fc0(4))
         return 0;
@@ -196,9 +196,9 @@ int func_002f7be8(unsigned int lsn, unsigned int sec, void *buf, RMode *mode)
     (*(volatile int*)&D_00363de0) = 1;
     (*(volatile int*)&D_00363db4) = 1;
     if (sceSifCallRpc(D_00364f50, 1, 1, p, 24, 0, 0, func_002f6910, D_00364e80) < 0) {
-        (*(volatile int*)&D_00363de0) = 0;
+        (*(int*)&D_00363de0) = 0;
         __asm__ volatile("" ::: "memory");
-        (*(volatile int*)&D_00363db4) = 0;
+        (*(int*)&D_00363db4) = 0;
         func_00305640(D_00363da8);
         return 0;
     }

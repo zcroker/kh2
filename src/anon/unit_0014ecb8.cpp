@@ -208,11 +208,11 @@ u32 func_0014f068(u32) asm("_Z13func_0014f068j");
 /*TARGET 0014f0b0*/
 u32 func_0014f0b0(u32 a0) asm("func_0014f0b0");
 u32 func_0014f0b0(u32 a0) {
-    f32 f1 = *(volatile f32*)((u32)a0 + (s32)(0));
-    f32 f0 = *(volatile f32*)((u32)a0 + (s32)(4));
+    f32 f1 = *(f32*)((u32)a0 + (s32)(0));
+    f32 f0 = *(f32*)((u32)a0 + (s32)(4));
     f0 = (f32)(f0 + f0);
     f1 = (f32)(f1 + f0);
-    *(volatile f32*)((u32)a0 + (s32)(0)) = f1;
+    *(f32*)((u32)a0 + (s32)(0)) = f1;
     u32 (*fp)(u32) = func_0014f068;
     u32 v0 = fp(a0);
     return v0;
@@ -225,13 +225,13 @@ u32 func_0014f068(u32) asm("_Z13func_0014f068j");
 /*TARGET 0014f0e0*/
 u32 func_0014f0e0(u32 a0) asm("_Z13func_0014f0e0j");
 u32 func_0014f0e0(u32 a0) {
-    f32 f1 = *(volatile f32*)((u32)a0 + (s32)(0));
+    f32 f1 = *(f32*)((u32)a0 + (s32)(0));
     u32 t7 = (u32)(0x0035u << 16);
-    f32 f2 = *(volatile f32*)((u32)t7 + (s32)(-25072));
-    f32 f0 = *(volatile f32*)((u32)a0 + (s32)(4));
+    f32 f2 = *(f32*)((u32)t7 + (s32)(-25072));
+    f32 f0 = *(f32*)((u32)a0 + (s32)(4));
     f0 = (f32)(f0 * f2);
     f1 = (f32)(f1 + f0);
-    *(volatile f32*)((u32)a0 + (s32)(0)) = f1;
+    *(f32*)((u32)a0 + (s32)(0)) = f1;
     u32 (*fp)(u32) = func_0014f068;
     u32 v0 = fp(a0);
     return v0;
@@ -669,10 +669,10 @@ extern u8 D_0034a428 asm("D_0034a428");
 /*TARGET 0014f6c8*/
 void func_0014f6c8() asm("_Z13func_0014f6c8v");
 void func_0014f6c8() {
-    if (func_00139d78(*(volatile u32*)((u32)&D_0034a428 + (s32)(0))) == 0u) {
+    if (func_00139d78(*(u32*)((u32)&D_0034a428 + (s32)(0))) == 0u) {
         return;
     }
-    func_00151528(*(volatile u32*)((u32)&D_0034a428 + (s32)(0)));
+    func_00151528(*(u32*)((u32)&D_0034a428 + (s32)(0)));
 }
 }  // namespace n0014f6c8
 
@@ -684,10 +684,10 @@ extern u8 D_0034a428 asm("D_0034a428");
 /*TARGET 0014f708*/
 void func_0014f708() asm("_Z13func_0014f708v");
 void func_0014f708() {
-    if (func_00139d78(*(volatile u32*)((u32)&D_0034a428 + (s32)(0))) == 0u) {
+    if (func_00139d78(*(u32*)((u32)&D_0034a428 + (s32)(0))) == 0u) {
         return;
     }
-    func_001514b0(*(volatile u32*)((u32)&D_0034a428 + (s32)(0)));
+    func_001514b0(*(u32*)((u32)&D_0034a428 + (s32)(0)));
 }
 }  // namespace n0014f708
 
@@ -699,10 +699,10 @@ extern u8 D_0034a428 asm("D_0034a428");
 /*TARGET 0014f748*/
 void func_0014f748() asm("_Z13func_0014f748v");
 void func_0014f748() {
-    if (func_00139d78(*(volatile u32*)((u32)&D_0034a428 + (s32)(0))) == 0u) {
+    if (func_00139d78(*(u32*)((u32)&D_0034a428 + (s32)(0))) == 0u) {
         return;
     }
-    func_001515b0(*(volatile u32*)((u32)&D_0034a428 + (s32)(0)));
+    func_001515b0(*(u32*)((u32)&D_0034a428 + (s32)(0)));
 }
 }  // namespace n0014f748
 
@@ -1015,14 +1015,14 @@ extern u8 D_0034a458 asm("D_0034a458");
 /*TARGET 0014fdd0*/
 void func_0014fdd0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) asm("_Z13func_0014fdd0jjjjjjjj");
 void func_0014fdd0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {  // entry_clear_by_fields
-    u32 x = *(volatile u32*)(a0 + 24);
-    u32 y = *(volatile u32*)(a0 + 28);
+    u32 x = *(u32*)(a0 + 24);
+    u32 y = *(u32*)(a0 + 28);
     u32 idx = x << 1;
     idx += x;
     idx += y;
     idx <<= 1;
     u32 base = (u32)&D_0034a458;
-    *(volatile u16*)(idx + base) = 0;
+    *(u16*)(idx + base) = 0;
 }
 }  // namespace n0014fdd0
 
@@ -2749,7 +2749,7 @@ void func_00152718(u32 a0, u32 a1, u32 a2, u32 a3) {
         return;
     }
 
-    volatile u32* vp = (volatile u32*)a0;
+    volatile u32* vp = (u32*)a0;
     u32 a1v = vp[107];
     u32 a3v = vp[106];
     func_001a98e8(buf, a1v, n, a3v, 0);
@@ -2905,7 +2905,7 @@ void func_00152ae8(u32 a0) {
 namespace n00152b50 {
 // 0x001cbe30: definition moved into src/anon/unit_001ca8e0.cpp
 
-/* 00152b50: three sub-inits; volatile fields keep the store order, the c rmw goes through a cast */
+/* 00152b50: three sub-inits; fields keep the store order, the c rmw goes through a cast */
 s32 func_001391c8(void*, s32, s32) asm("func_001391c8");
 typedef struct W2433_S { u32 a; volatile u32 b; volatile u32 c; volatile u32 d; volatile u32 e; } W2433_S;
 typedef struct W2433_B {
@@ -2963,7 +2963,7 @@ template <int N> struct W1631Queue {
             W1631Entry* e = ring.pop();
             acc += fn(e, e->a, e->b, e->info, e->hasExt ? e->ext : 0, e->c, e->d, acc);
             s32 em = ring.isEmpty();
-            if (__builtin_expect(em, 1)) break;
+            if ((em)) break;
         }
         flags &= ~1;
     }

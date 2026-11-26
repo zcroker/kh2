@@ -41,7 +41,7 @@ void func_001a9140(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a
     r15 = (u32)&D_0032bb30;
     r5 = (u32)((s32)r5 + (-1));    r4 = (u32)(r4 + r15);
     r4 = (u32)((s32)r4 + (9184));
-    *(volatile u8*)((u32)r4 + (s32)(12)) = (u8)r5;
+    *(u8*)((u32)r4 + (s32)(12)) = (u8)r5;
 }
 } // n001a9140
 
@@ -65,11 +65,11 @@ void func_001a9190(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a
     idx += base;
     a0 &= 31;
     u32 mask = 1;
-    u32 val = *(volatile u32*)idx;
+    u32 val = *(u32*)idx;
     mask <<= a0;
     mask = ~mask;
     val &= mask;
-    *(volatile u32*)idx = val;
+    *(u32*)idx = val;
 }
 } // n001a9190
 
@@ -90,7 +90,7 @@ u32 SAVEFLAG_Check(u32 a0) {
 // 001a91f8 (from src/anon/batch_w2.cpp)
 namespace n001a91f8 {
 void func_001a91f8(s32* p) asm("func_001a91f8");
-void func_001a91f8(s32* p) {                     
+void func_001a91f8(s32* p) {
     p[0] = -1;
     p[1] = 0;
     p[3] = 0;
@@ -106,8 +106,8 @@ void func_001a9218(u32* a0) {
     u32 v0 = func_0016f470(a0[2], 0);
     a0[3] = func_001708f8(v0, a0[0]);
 
-    if (func_0016f6f8(a0[1]) == 0) {                         
-        if (func_0016f770(a0[1]) == 0) {                        
+    if (func_0016f6f8(a0[1]) == 0) {
+        if (func_0016f770(a0[1]) == 0) {
             u32 t7 = ((u8*)(a0[2]))[0x48];
             t7 = t7 ^ 1;
             t7 = t7 & 1;
@@ -118,7 +118,7 @@ void func_001a9218(u32* a0) {
         }
     }
 
-    if (func_0016f6f8(a0[1]) == 0) {                         
+    if (func_0016f6f8(a0[1]) == 0) {
         v0 = func_0016f520(a0[2], a0[1], 0);
         if (v0 != 0) {
             a0[5] = func_001708f8(v0, 0xffffffffU);
@@ -187,7 +187,7 @@ void func_001a9350(u32* a0) {
         func_00170950(t7);
     }
 
-    func_001a91f8(a0);                     
+    func_001a91f8(a0);
 }
 } // n001a9350
 
@@ -211,11 +211,11 @@ u32 func_001a93e8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r2, r15;
     r5 = (u32)((s32)0u + (4));
     r6 = 0u;
-    r4 = *(volatile u32*)((u32)r4 + (s32)(12));
+    r4 = *(u32*)((u32)r4 + (s32)(12));
     r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_00168b38)(r4, r5, r6, r7, r8, r9, r10, r11);
     r15 = 0u;
     if (r2 != 0u) {
-        r15 = *(volatile u32*)((u32)r2 + (s32)(8));
+        r15 = *(u32*)((u32)r2 + (s32)(8));
     }
     r2 = r15;
     return r2;
@@ -230,11 +230,11 @@ u32 func_001a9420(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r2, r15;
     r5 = (u32)((s32)0u + (7));
     r6 = 0u;
-    r4 = *(volatile u32*)((u32)r4 + (s32)(12));
+    r4 = *(u32*)((u32)r4 + (s32)(12));
     r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_00168b38)(r4, r5, r6, r7, r8, r9, r10, r11);
     r15 = 0u;
     if (r2 != 0u) {
-        r15 = *(volatile u32*)((u32)r2 + (s32)(8));
+        r15 = *(u32*)((u32)r2 + (s32)(8));
     }
     r2 = r15;
     return r2;
@@ -273,7 +273,7 @@ u32 func_001a9458(u8* o, s32 a, s32 b) {
         r = func_001a97b8(*(u32*)(o + 20), a);
     }
     u8* v;
-    if (r && (v = func_00168b38(r, 9, 0)) != 0) return *(u32*)(v + 8);                         
+    if (r && (v = func_00168b38(r, 9, 0)) != 0) return *(u32*)(v + 8);
     return 0;
 }
 } // n001a9458
@@ -286,11 +286,11 @@ u32 func_001a9528(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r2, r15;
     r5 = (u32)((s32)0u + (18));
     r6 = 0u;
-    r4 = *(volatile u32*)((u32)r4 + (s32)(12));
+    r4 = *(u32*)((u32)r4 + (s32)(12));
     r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_00168b38)(r4, r5, r6, r7, r8, r9, r10, r11);
     r15 = 0u;
     if (r2 != 0u) {
-        r15 = *(volatile u32*)((u32)r2 + (s32)(8));
+        r15 = *(u32*)((u32)r2 + (s32)(8));
     }
     r2 = r15;
     return r2;
@@ -311,17 +311,17 @@ void func_001a9560(u8* self, s32 a1, s32 a2, s32* out) {
     s32 i;
     switch (*(u16*)(o + 76)) {
     case 5013:
-        for (i = 0; i < 3; i++) out[i] = func_001de168(a2, i, 0, 1, 0, a1);                      
+        for (i = 0; i < 3; i++) out[i] = func_001de168(a2, i, 0, 1, 0, a1);
         break;
     case 1016:
     case 5002:
         *out = func_001de168(a2, 0, 0, 1, 0, a1);
         break;
     case 5026:
-        for (i = 0; i < 9; i++) out[i] = func_001de168(a2, i, 0, 1, 0, a1);                      
+        for (i = 0; i < 9; i++) out[i] = func_001de168(a2, i, 0, 1, 0, a1);
         break;
     case 5066:
-        for (i = 0; i < 14; i++) out[i] = func_001de168(a2, i, 0, 1, 0, a1);                      
+        for (i = 0; i < 14; i++) out[i] = func_001de168(a2, i, 0, 1, 0, a1);
         break;
     default:
         switch (*(u32*)o) {
@@ -329,7 +329,7 @@ void func_001a9560(u8* self, s32 a1, s32 a2, s32* out) {
             *out = func_001de168(a2, 0, 0, 1, 0, a1);
             break;
         case 2185:
-            for (i = 0; i < 4; i++) out[i] = func_001de168(a2, i, 0, 1, 0, a1);                      
+            for (i = 0; i < 4; i++) out[i] = func_001de168(a2, i, 0, 1, 0, a1);
             break;
         }
         break;
@@ -392,7 +392,7 @@ u32 func_001a97b8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7
     r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_00168b38)(r4, r5, r6, r7, r8, r9, r10, r11);
     r15 = 0u;
     if (r2 != 0u) {
-        r15 = *(volatile u32*)((u32)r2 + (s32)(8));
+        r15 = *(u32*)((u32)r2 + (s32)(8));
     }
     r2 = r15;
     return r2;
@@ -444,7 +444,7 @@ void func_001a9860(u32* a0, u32 a1, u32 a2, u32 a3, u32 a4) {
     a0[4] = 0;
     a0[5] = 0;
     a0[6] = 0;
-    func_00192f78(a0 + 9);                         
+    func_00192f78(a0 + 9);
 
     a0[22] = a4;
     a0[19] = 0;
@@ -468,7 +468,7 @@ void func_001a98e8(u32 *a0, u32 a1, u32 a2, u32 a3, u32 a4) {
     a0[4] = 0;
     a0[5] = 0;
     a0[6] = 0;
-    func_00192f78(a0 + 9);                         
+    func_00192f78(a0 + 9);
 
     a0[22] = a4;
     a0[19] = 0;
@@ -902,7 +902,7 @@ void func_001aa558(u8* o) asm("func_001aa558");
 void func_001aa558(u8* o) {
     u8* n = *(u8**)(o + 12);
     while (n) {
-        if (func_00192440(n, 0)) {                 
+        if (func_00192440(n, 0)) {
             switch (*n) {
             case 0:
             case 16:
@@ -910,9 +910,9 @@ void func_001aa558(u8* o) {
                 break;
             case 5:
                 if (*(u8**)(o + 24)) {
-                    u32 a = func_00192498(n, 1);                
-                    u32 b = func_00192498(n, 3);                
-                    u32 c = func_00192498(n, 5);                
+                    u32 a = func_00192498(n, 1);
+                    u32 b = func_00192498(n, 3);
+                    u32 c = func_00192498(n, 5);
                     u8* t = *(u8**)(o + 24);
                     (*(void (**)(u8*, u32, u32, u32))(*(u8**)t + 28))(t, a, b, c);
                 }
@@ -920,7 +920,7 @@ void func_001aa558(u8* o) {
             }
         }
         if (!n) break;
-        n = func_00192388(n);                       
+        n = func_00192388(n);
     }
 }
 } // n001aa558
@@ -955,7 +955,7 @@ u32 func_001aa688(u32 a0) {
 namespace n001aa6d0 {
 u32 func_001aa388(u32, u32, u32, u32) asm("func_001aa388");
 u32 func_001aa6d0(u32 a0, u32 a1, u32 a2, u32 a3) asm("func_001aa6d0");
-u32 func_001aa6d0(u32 a0, u32 a1, u32 a2, u32 a3) {                           
+u32 func_001aa6d0(u32 a0, u32 a1, u32 a2, u32 a3) {
     *(u32*)((u32)(a0) + 48u) = (u32)(a1);
     return func_001aa388(a0, ((u32)(*(u32*)((u32)(a0) + 12u))), a2, a3);
 }
@@ -965,20 +965,11 @@ u32 func_001aa6d0(u32 a0, u32 a1, u32 a2, u32 a3) {
 namespace n001aa6f0 {
 u32 func_001aa6f0(u32 a0, u32 a1) asm("func_001aa6f0");
 u32 func_001aa6f0(u32 a0, u32 a1) {
-    register u32 scale asm("$13") = *(u8 *)(a0 + 63);
-    register u32 alpha asm("$15") = a1 >> 24;
-    register u32 mask asm("$14") = 0x00ffffff;
-    alpha *= scale;
-    a1 &= mask;
-    mask = 255;
-    alpha >>= 7;
-    scale = alpha < 256;
-    if (scale == 0) {
-        alpha = mask;
+    u32 alpha = ((a1 >> 24) * *(u8 *)(a0 + 63)) >> 7;
+    if (alpha >= 256) {
+        alpha = 255;
     }
-    alpha <<= 24;
-    a1 |= alpha;
-    return a1;
+    return (a1 & 0x00ffffff) | (alpha << 24);
 }
 } // n001aa6f0
 
@@ -1004,7 +995,7 @@ void func_001aa790(u32* p, u32 a) {
     p[0] = a;
     p[5] = 0x60000000;
     p[1] = 0;
-    func_00192f78(p + 8);                         
+    func_00192f78(p + 8);
     p[14] = 0;
     p[15] = 0;
     Tri* q = (Tri*)(p + 16);
@@ -1028,7 +1019,7 @@ void func_001aa7f0(u32* p, u32 a) {
     p[0] = a;
     p[5] = 0x60000000;
     p[1] = 0;
-    func_00192f78(p + 8);                         
+    func_00192f78(p + 8);
     p[14] = 0;
     p[15] = 0;
     Q3* q = (Q3*)(p + 16);

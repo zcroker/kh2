@@ -335,23 +335,15 @@ void func_0019f4e8(u32* p, u32 n) {
 // ---- 0019f528 from src/anon/auto200_999.cpp
 namespace n0019f528 {
 u32 func_0019f528(u32 a0, u32 a1) asm("_Z13func_0019f528jj");
-u32 func_0019f528(u32 a0, u32 a1) {                      
-    register u32 word asm("$14") = a1 >> 5;
-    register u32 mask asm("$15") = 1;
-    word <<= 2;
-    a1 &= 0x1f;
-    word += a0;
-    mask <<= a1;
-    u32 v = *(u32 *)word;
-    v &= mask;
-    return v != 0;
+u32 func_0019f528(u32 a0, u32 a1) {
+    return (((u32 *)a0)[a1 >> 5] & (1 << (a1 & 0x1f))) != 0;
 }
 }  // namespace n0019f528
 
 // ---- 0019f550 from src/anon/tiny_leaf_more.cpp
 namespace n0019f550 {
 u32 func_0019f550(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z13func_0019f550jjjj");
-u32 func_0019f550(u32 a0, u32 a1, u32 a2, u32 a3) {                         
+u32 func_0019f550(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u, r14 = 0u, r15 = 0u;
     r15 = (u32)(r5 >> 5);
     r14 = (u32)((s32)0u + (1));
@@ -401,7 +393,7 @@ u32 func_0019f5a8(u32 a0) {
 namespace n0019f5d8 {
 struct Pair12 { u32 a; u32 b; u32 c; };
 Pair12* func_0019f5d8(Pair12* e, u32 a, u32 b) asm("func_0019f5d8");
-Pair12* func_0019f5d8(Pair12* e, u32 a, u32 b) {                      
+Pair12* func_0019f5d8(Pair12* e, u32 a, u32 b) {
     for (int i = 0; i < 8; i++) {
         if (e[i].a == a && e[i].b == b) return &e[i];
     }
@@ -418,7 +410,7 @@ void func_0019f610(u32 a0, u32 a1, u32 a2) {
     u32 s2 = a2;
     u32 v0;
 
-    v0 = func_0019f5d8(s0);                      
+    v0 = func_0019f5d8(s0);
     if (v0 == 0) {
         v0 = func_0019f5a8(s0);
     }
@@ -437,7 +429,7 @@ void func_0019f670(u32 a0, u32 a1, u32 a2) {
     u32 s2 = a2;
     u32 v0;
 
-    v0 = func_0019f5d8(s0);                      
+    v0 = func_0019f5d8(s0);
     if (v0 == 0) {
         v0 = func_0019f5a8(s0);
     }
@@ -452,7 +444,7 @@ namespace n0019f6c8 {
 u32 func_0019f5d8(...) asm("func_0019f5d8");
 void func_0019f6c8(void) asm("_Z13func_0019f6c8v");
 void func_0019f6c8(void) {
-    u32 v0 = func_0019f5d8();                      
+    u32 v0 = func_0019f5d8();
     if (v0 != 0u) {
         *(u32*)((u32)v0 + (s32)0) = 0u;
     }
@@ -606,7 +598,7 @@ void func_0019f950(W1753S1* p, u32 v) {
 namespace n0019f9a8 {
 void func_0018f028(void*) asm("func_0018f028");
 void func_0019f9a8(u8* o) asm("func_0019f9a8");
-void func_0019f9a8(u8* o) {                      
+void func_0019f9a8(u8* o) {
     u8* p = o;
     for (s32 i = 7; i >= 0; i--) {
         if (*(void**)(p + 12)) {

@@ -861,14 +861,14 @@ u32 func_002ba978(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7
 u32 func_002ba978(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
     u32 base = (u32)&D_01e2a400;
     u32 s0 = 0x00360000u;
-    u32 idx = *(volatile u32*)(s0 + 5856);
+    u32 idx = *(u32*)(s0 + 5856);
     idx <<= 2;
     u32 ptr = idx + base;
-    *(volatile u32*)ptr = a0;
+    *(u32*)ptr = a0;
     u32 r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_002b6c04)(a0, a1, a2, a3, a4, a5, a6, a7);
-    u32 count = *(volatile u32*)(s0 + 5856);
+    u32 count = *(u32*)(s0 + 5856);
     count++;
-    *(volatile u32*)(s0 + 5856) = count;
+    *(u32*)(s0 + 5856) = count;
     return r2;
 }
 }  // namespace n002ba978

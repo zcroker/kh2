@@ -13,15 +13,15 @@ void func_001f0868(u32 a0, u32 a1) asm("_Z13func_001f0868jj");
 
 
 void func_001f0868(u32 a0, u32 a1) {
-    register f32 f1 asm("$f1") = *(volatile f32 *)(a0 + 8);
-    register f32 z asm("$f0") = 0.0f;
-    *(volatile f32 *)(a1 + 4) = f1;
-    register f32 f2 asm("$f2") = *(volatile f32 *)(a0 + 20);
-    asm volatile("" : "+f"(f2));
+    f32 f1 = *(f32 *)(a0 + 8);
+    f32 z = 0.0f;
+    *(f32 *)(a1 + 4) = f1;
+    f32 f2 = *(volatile f32 *)(a0 + 20);
+
     *(volatile u32 *)a1 = a0;
-    *(volatile f32 *)(a1 + 16) = f2;
+    *(f32 *)(a1 + 16) = f2;
     *(volatile f32 *)(a1 + 8) = z;
-    *(volatile f32 *)(a1 + 24) = z;
+    *(f32 *)(a1 + 24) = z;
     *(volatile f32 *)(a1 + 20) = z;
     *(volatile f32 *)(a1 + 12) = z;
 }

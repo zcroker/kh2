@@ -342,7 +342,7 @@ void func_00182f38(void) asm("func_00182f38");
 // 0x002c2168: definition moved into src/anon/unit_002c1e80.cpp
 
 extern s32 D_00361fa0 asm("D_00361fa0");
-extern u8* volatile D_00361fa4 asm("D_00361fa4");
+extern u8* D_00361fa4 asm("D_00361fa4");
 /*TARGET 002cf938*/
 void func_002cf938(u8 on) asm("func_002cf938");
 void func_002cf938(u8 on) {  // count_entries_masked
@@ -1108,11 +1108,11 @@ u32 func_002d0d48(u32 a0) asm("_Z13func_002d0d48j");
 u32 func_002d0d48(u32 a0) {
     u32 r4 = a0, r2, r15, r16;
     r16 = r4;
-    r15 = *(volatile u32*)((u32)r4 + (s32)(2828));
+    r15 = *(u32*)((u32)r4 + (s32)(2828));
     r4 = r15;
     if (r15 != 0u) {
         r2 = ((u32(*)(u32))func_001dc818)(r4);
-        *(volatile u32*)((u32)r16 + (s32)(2828)) = 0u;
+        *(u32*)((u32)r16 + (s32)(2828)) = 0u;
     }
     r4 = r16;
     return ((u32(*)(u32))func_00186020)(r4);
@@ -1764,8 +1764,8 @@ u32 func_002d18e8(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z13func_002d18e8jjjj");
 
 u32 func_002d18e8(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3;
-    *(volatile u32*)((u32)r4 + (s32)(328)) = 0u;
-    *(volatile u32*)((u32)r4 + (s32)(324)) = 0u;
+    *(u32*)((u32)r4 + (s32)(324)) = 0u;
+    *(u32*)((u32)r4 + (s32)(328)) = 0u;
     return ((u32(*)(u32,u32,u32,u32))func_002d25f0)(r4, r5, r6, r7);
 }
 }  // namespace n002d18e8

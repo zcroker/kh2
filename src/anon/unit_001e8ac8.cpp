@@ -697,13 +697,13 @@ void func_001e9c28(u8* base, u8* a1, u8* a2) {
         u8* dst = base + offs[1];
         struct KE* e = &D_01d9e6e4->f24[k];
         s16* p = D_01d9e6e4->f16[e->h0].f20 + e->f4[*(u16*)(src + 160)] * 3;
-        volatile f32* d = (volatile f32*)(dst + 160);
+        volatile f32* d = (f32*)(dst + 160);
         v[0].f = p[0];
         v[1].f = p[1];
         v[2].f = p[2];
         v[3].f = 1.0f;
         sceVu0ApplyMatrix(v, *(u8**)(base + 4) + 16, v);
-        d[0] = *(volatile f32*)&v[0].f;
+        d[0] = *(f32*)&v[0].f;
         {
             f32 z = *(volatile f32*)&v[2].f;
             f32 y = *(volatile f32*)&v[1].f;

@@ -88,7 +88,7 @@ void func_00141458(Mdl5* m, u32 hp, u32 a2)
     Mtx5 a;
     func_0011b6a8(&a);
     Mtx5 b;
-                                            
+
     asm volatile("lq $8, 0(%1)\n\tlq $9, 16(%1)\n\tlq $10, 32(%1)\n\tlq $11, 48(%1)\n\tsq $8, 0(%0)\n\tsq $9, 16(%0)\n\tsq $10, 32(%0)\n\tsq $11, 48(%0)"
                  : : "r"(&b), "r"(&a) : "$8", "$9", "$10", "$11", "memory");
     func_00142940(m, &b);
@@ -167,7 +167,7 @@ void func_001415e8(Mdl5* m, u32 hp, u32 a2)
     Mtx5 a;
     func_0011b6a8(&a);
     Mtx5 b;
-                                            
+
     asm volatile("lq $8, 0(%1)\n\tlq $9, 16(%1)\n\tlq $10, 32(%1)\n\tlq $11, 48(%1)\n\tsq $8, 0(%0)\n\tsq $9, 16(%0)\n\tsq $10, 32(%0)\n\tsq $11, 48(%0)"
                  : : "r"(&b), "r"(&a) : "$8", "$9", "$10", "$11", "memory");
     func_00142940(m, &b);
@@ -266,7 +266,7 @@ void func_00141850(u8* p, u64 mask) {
     s32 i;
     for (i = 0; i < 64; i++) {
         u64 one = 1;
-        if (mask & (one << i)) func_00141928(p, i);                          
+        if (mask & (one << i)) func_00141928(p, i);
     }
 }
 }  // namespace n00141850
@@ -275,7 +275,7 @@ void func_00141850(u8* p, u64 mask) {
 namespace n001418e8 {
 struct Entry20 { u8 pad[16]; u8 on; u8 id; u8 pad2[2]; };
 void func_001418e8(u8* p, u8 id) asm("func_001418e8");
-void func_001418e8(u8* p, u8 id) {                           
+void func_001418e8(u8* p, u8 id) {
     s32 n = *(s32*)(p + 36);
     s32 i;
     for (i = 0; i < n; i++) {
@@ -288,7 +288,7 @@ void func_001418e8(u8* p, u8 id) {
 namespace n00141928 {
 struct E20 { u8 pad[16]; u8 flag; u8 id; u8 pad2[2]; };
 void func_00141928(u8* o, u8 id) asm("func_00141928");
-void func_00141928(u8* o, u8 id) {                          
+void func_00141928(u8* o, u8 id) {
     s32 n = *(s32*)(o + 36);
     s32 i;
     for (i = 0; i < n; i++) {
@@ -317,7 +317,7 @@ union U141988 { u32 v; u16 h; };
 struct Idx141988 { u16 f0; u16 a, b, c, d; };
 struct Out141988 { U141988 v[4]; U141988 n; };
 void func_00141988(u8* o, Idx141988* ix, Out141988* out) asm("func_00141988");
-void func_00141988(u8* o, Idx141988* ix, Out141988* out) {                                 
+void func_00141988(u8* o, Idx141988* ix, Out141988* out) {
     out->v[0].v = *(u32*)(o + 16) + ix->a * 16;
     out->v[1].v = *(u32*)(o + 16) + ix->b * 16;
     out->v[2].v = *(u32*)(o + 16) + ix->c * 16;
@@ -386,12 +386,12 @@ void func_001419f8(FColl* c, u16 idx, FRes* r, FV* p) {
         return;
     }
     if (r->fl.b0) {
-                                                                                                         
-                                                              
+
+
         FTri* tb = c->tris;
         register u32 off asm("$15") = (u32)idx << 4;
-        register FTri* t asm("$20") = (FTri*)((u8*)tb + off);
-        asm("" : "+r"(t) : "r"(tb), "r"(off));
+        FTri* t = (FTri*)((u8*)tb + off);
+
         FV* pl = &c->planes[t->plane];
         FPoly poly;
         func_00141988(c, t, &poly);
@@ -406,7 +406,7 @@ void func_001419f8(FColl* c, u16 idx, FRes* r, FV* p) {
         }
     } else {
         f32 z = 0.0f;
-        asm("" : "+f"(z));                                              
+        asm("" : "+f"(z));
 
         FV q = r->base;
         f32 d = r->x14;
@@ -442,8 +442,8 @@ struct TItem { u8 box[12]; u16 lo; u16 hi; u8 on; u8 pad[3]; };
 struct TLeaf { u8 pad[12]; u16 c; u16 idx; };
 struct TBox { u8 b[12]; };
 struct Tree {
-  u8 pad0[4]; TNode* nodes; TItem* items; TLeaf* leafs; u8 pad16[4]; s32* flags; u8 pad24[4]; TBox* boxes;         
-  u8 pad32[60-32]; u16* out; s32 mask; s32 val;            
+  u8 pad0[4]; TNode* nodes; TItem* items; TLeaf* leafs; u8 pad16[4]; s32* flags; u8 pad24[4]; TBox* boxes;
+  u8 pad32[60-32]; u16* out; s32 mask; s32 val;
   u8 pad72[208-72]; u8 mode; u8 pad209; u8 b210; u8 b211;
 };
 s32 func_00145580(void*, void*) asm("func_00145580");
@@ -461,7 +461,7 @@ void func_00141c38(Tree* t, s32 n, void* box, u16* cnt, s32 arg) asm("func_00141
 void func_00141c38(Tree* t, s32 n, void* box, u16* cnt, s32 arg) {
   TNode* nd = &t->nodes[n];
   if (!func_00145580(nd->box, box)) return;
-   
+
   s32 ne = nd->end;
   for (s32 i = nd->first; i < ne; i++) {
     TItem* it = &t->items[i];
@@ -539,7 +539,7 @@ u32 func_00141e78(Mesh6* m, VB6* ray, s32 n, VB6* out)
     for (s32 i = 0; i < n; i++) {
         u32 k = m->list[i];
         Face6* f = &m->faces[k];
-        func_00141988(m, f, &tri);                                 
+        func_00141988(m, f, &tri);
         VB6 nrm(m->norms[f->n]);
         if (func_001628d8(ray, &tri, &nrm, &hit)) {
             VB6 a, b;
@@ -668,7 +668,7 @@ struct Mc {
     Mc(const Mc& o) { asm volatile("lq $8, 0(%1)\n\tlq $9, 16(%1)\n\tlq $10, 32(%1)\n\tlq $11, 48(%1)\n\tsq $8, 0(%0)\n\tsq $9, 16(%0)\n\tsq $10, 32(%0)\n\tsq $11, 48(%0)" : : "r"(this), "r"(&o) : "$8", "$9", "$10", "$11", "memory"); }
 } __attribute__((aligned(16)));
 Vq* func_001422a0(Vq* out, u8* obj, u16 idx) asm("func_001422a0");
-Vq* func_001422a0(Vq* out, u8* obj, u16 idx) {                           
+Vq* func_001422a0(Vq* out, u8* obj, u16 idx) {
     u8* e = *(u8**)(obj + 12) + idx * 16;
     *out = *(Vq*)(*(u8**)(obj + 24) + *(u16*)(e + 10) * 16);
     out->w = 1.0f;
@@ -739,7 +739,7 @@ u32 wtarget_001423c0(u8* self, u32 a1, FV* out, u32)
     u16 i = a1;
     if (i == 0xffff) return 0;
     PtrList l;
-    func_00141988(self, *(u8**)(self + 12) + i * 16, &l);                                 
+    func_00141988(self, *(u8**)(self + 12) + i * 16, &l);
     s32 n = l.n;
     if (self[209]) {
         for (s32 k = 0; k < n; k++) *out++ = *l.p[k];
@@ -780,7 +780,7 @@ s32 func_001424c0(void* self, Obj142* o)
 {
     QV142 p(o->pos);
     QV142 q(o->pos);
-    f32 r = fabsf(o->rad);          
+    f32 r = fabsf(o->rad);
     if (o->kind == 0) r = clamp142(r, 0.0f, 100.0f);
     p.y = p.y - o->h - r;
     q.y = q.y + o->h * 3.0f;
@@ -818,11 +818,11 @@ struct W1957Face { u8 pad[10]; u16 plane; u8 pad2[4]; };
 struct W1957Hit { u8 d[32]; };
 struct W1957Map {
     u8 pad0[12];
-    W1957Face* faces;             
+    W1957Face* faces;
     u8 pad10[8];
-    W1957V* planes;               
+    W1957V* planes;
     u8 pad1c[32];
-    u16* list;                    
+    u16* list;
 };
 struct W1957Who { u8 pad[48]; W1957V pos; u8 pad40[44]; f32 height; };
 void func_00141988(W1957Map*, W1957Face*, W1957Hit*) asm("func_00141988");
@@ -878,7 +878,7 @@ u16 func_00142848(u8* o, u8* p)
     Seg a;
     V4 b;
     func_00144490(&a, *(f32*)(p + 48), *(f32*)(p + 52) - *(f32*)(p + 108), *(f32*)(p + 56), *(f32*)(p + 48), *(f32*)(p + 52) + 320000.0f, *(f32*)(p + 56));
-    func_00144e30(&b);                     
+    func_00144e30(&b);
     func_00144e50(&b, &a, func_00141970(o));
     u16 r = 0;
     func_00141c18(o, 0, 0, 0, 0);
@@ -894,7 +894,7 @@ void func_001450e8(void*, int, u32) asm("func_001450e8");
 void func_00142900(u8* p, u32 a, u32 b) asm("func_00142900");
 void func_00142900(u8* p, u32 a, u32 b) {
     u8* q = *(u8**)(p + 4);
-    int r = func_00141970(p, a);                 
+    int r = func_00141970(p, a);
     func_001450e8(q + 16, r, b);
 }
 }  // namespace n00142900
@@ -950,7 +950,7 @@ static inline f32 lsq(const void* v) {
     return r;
 }
 s32 func_00142b70(u8* p) asm("func_00142b70");
-s32 func_00142b70(u8* p) {                        
+s32 func_00142b70(u8* p) {
     if (lsq(p + 80) < 0.01f || lsq(p + 96) < 0.01f || lsq(p + 112) < 0.01f) return 1;
     return 0;
 }

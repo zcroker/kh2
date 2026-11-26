@@ -529,7 +529,7 @@ void func_002937c0(void) asm("func_002937c0");
 void func_002937c0(void) {
     if (func_002938f0()) {
         D_0035f4f9 = 0;
-        
+
     }
     if (D_0035f4f9 == 0) {
         D_0035f4f9 = 1;
@@ -940,7 +940,7 @@ namespace Tz { // method 00294000
 u32 JmInfo::GetData(s32 index) {
     u32 r5 = (u32)index;
     u32 r15 = (u32)(0x0036u << 16);
-    u32 r4 = *(volatile u32*)((u32)r15 + (s32)(-2700));
+    u32 r4 = *(u32*)((u32)r15 + (s32)(-2700));
     return GetDataImpl(r4, r5);
 }
 }  // Tz
@@ -1260,7 +1260,7 @@ u32 func_002945a8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7
         r2 = ((u32(*)())func_00294ea8)();
         r2 = ((u32(*)())func_00274ac8)();
         r15 = (u32)(0x0036u << 16);
-        *(volatile u8*)((u32)r15 + (s32)(-2687)) = (u8)0u;
+        *(u8*)((u32)r15 + (s32)(-2687)) = (u8)0u;
     }
     return r2;
 }
@@ -2041,7 +2041,7 @@ u32 func_00295868(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7
         r2 = ((u32(*)())func_00296ab0)();
         r2 = ((u32(*)())func_00274ac8)();
         r15 = (u32)(0x0036u << 16);
-        *(volatile u8*)((u32)r15 + (s32)(-2671)) = (u8)0u;
+        *(u8*)((u32)r15 + (s32)(-2671)) = (u8)0u;
     }
     return r2;
 }

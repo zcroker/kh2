@@ -607,7 +607,7 @@ void func_002a7dc8(void)
                 D_0035f600.p->e[n].b = -1;
                 n++;
             }
-            D_0035f600.p->e[n].a = *(volatile u16*)&e->id;
+            D_0035f600.p->e[n].a = es[i].id;
             D_0035f600.p->e[n].b = i;
             n++;
         }

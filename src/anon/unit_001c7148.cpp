@@ -319,11 +319,10 @@ s32 func_001c7720(Obj1c7720* p) {
     f32 w = p->v30.w;
     f32 t = p->f40 / 80.0f;
     QM1577 m;
-    func_0011b6a8(&m);
-    QM1577* pm = &m; asm("" : "+r"(pm) : "m"(m));
-    register f32 a asm("$f0") = 150.0f / (w * t);
-    asm("" : "+f"(w));
-    if (!(a < D_01d498c0)) a = D_01d498c0;
+    QM1577* pm = &m;
+    func_0011b6a8(pm);
+    f32 x = 150.0f / (w * t);
+    f32 a = (x < D_01d498c0) ? x : D_01d498c0;
     *pm = *func_0011b720(&m, a);
     p->v30 = m * p->v30;
     p->v30.w = w;
