@@ -700,13 +700,14 @@ void func_002d31b0(O2d31b0* o)
 {
     func_0016a9a0(o);
     void* g = D_00361f60;
-    // Partial asm: the original loads f264 only after g, with f264 in t7 (the register the
-    // lui of g just freed). gcc hoists the load above g and picks t6.
-    register u32 f asm("$15"); asm("lw %0,%1" : "=r"(f) : "m"(o->f264), "r"(g));
-    o->f264 = f | 2;
-    asm volatile(""); // keeps the f264 store above the f2944 load
-    if (o->f2944 && !o->InAir()) o2d31b0_set(o->lflag, 4, 0);
-    if (!o->rec) return;
+    // One scratch word for the flag update, the f2944 test and the rec check (a global pseudo,
+    // which gets t7 like the original). The for/break loop keeps the f264 load after g.
+    u32 t;
+    for (;;) { t = o->f264; o->f264 = t | 2; break; }
+    t = o->f2944;
+    if (t && !o->InAir()) o2d31b0_set(o->lflag, 4, 0);
+    t = (u32)o->rec;
+    if (!t) return;
     if (o2d31b0_is_attach(o)) return;
     V2d31b0 v(*func_002d1f20(D_00361f60));
     bool air = o->InAir();
