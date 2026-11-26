@@ -30,7 +30,7 @@ s32 func_00241c40(s32 mode)
             sum += func_00240440(r->val);
             if (strcmp(r->name, D_0035ec88) == 0) {
                 if (mode == 0) {
-                    { s32 rv = r->val; asm volatile("" ::: "memory"); /* keeps r->val loaded before e[2].val, as the original */ if (__builtin_expect(rv >= e[2].val, 0)) cnt++; }
+                    { s32 rv = r->val; while (0); /* empty loop: its notes keep r->val loaded before e[2].val, as the original */ if (__builtin_expect(rv >= e[2].val, 0)) cnt++; }
                 } else if (r->val == D2_01dae688[2].val) cnt++;
             } else {
                 for (j = 0; j < 2; j++, e++) {
