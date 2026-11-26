@@ -54,8 +54,7 @@ void func_001024a8(u32);
 void func_0013f048(void);
 
 // 0x15d440 (one step of the player) and 0x15d4e8 (the task that waits for it to finish) open this
-// file, but are not linked here yet: retail sets the TaskYield arguments before the loop label of
-// 0x15d4e8 and leaves that jal's delay slot empty, which no C form tried so far gives.
+// file; they are linked in unit_0015d440a.cpp.
 s32 func_0015d440();
 void func_0015d4e8(u32 task);
 

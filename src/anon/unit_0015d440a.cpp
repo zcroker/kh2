@@ -34,3 +34,22 @@ s32 func_0015d440() {
 }
 }  // namespace n0015d440
 
+
+// 0015d4e8 (gap: the field task that waits until the demo sequence ends). The first step is written out
+// before the loop; cross-jumping merges the two TaskYield calls, which puts the argument moves before the loop label.
+namespace n0015d4e8 {
+s32 func_0015d440() asm("func_0015d440");
+void func_00102448(u32, s32) asm("func_00102448");  // Tz::TaskYield
+void func_0014e098(s32) asm("func_0014e098");
+/*TARGET 0015d4e8*/
+void func_0015d4e8(u32 task) asm("func_0015d4e8");
+void func_0015d4e8(u32 task) {
+    if (func_0015d440()) return;
+    func_00102448(task, 0);
+    func_0014e098(216);
+    while (!func_0015d440()) {
+        func_00102448(task, 0);
+        func_0014e098(216);
+    }
+}
+}  // namespace n0015d4e8

@@ -717,8 +717,7 @@ src/common/unit_00103100.cpp	00103100	001031b0	-	-G0 -fno-sched-interblock
 src/anon/unit_00105550.cpp	00105550	001056e8	-	-G0
 src/anon/unit_00127f40.cpp	00127ec8	00128040	-	-G0
 src/anon/asm_00133c90.s	00133c90	00133cf0	-	-
-src/anon/unit_0015d440a.cpp	0015d440	0015d4e8	-	-G0
-src/anon/asm_0015d4e8.s	0015d4e8	0015d540	-	-
+src/anon/unit_0015d440a.cpp	0015d440	0015d540	-	-G0
 src/anon/unit_0017e9d0.cpp	0017e858	0017eb68	.rodata@0036c588	-G0 -fno-strict-aliasing
 src/anon/unit_001a82b0.cpp	001a82b0	001a82f0	-	-G0 -fno-sched-interblock
 src/anon/unit_001c557c.cpp	001c557c	001c5b90	.rodata@0036deb4	-G0 -fno-strict-aliasing -fmove-all-movables
