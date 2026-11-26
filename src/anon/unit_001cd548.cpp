@@ -23,7 +23,6 @@ void wt_001cd548(u32 init, u32 prio, u32, u32)
     if (prio == 0xffff && init == 1) {
         /* member constructors */
         G1cd548* g = &D_01d499b0;
-        asm("" : "+r"(g));
         func_00319bd0(&g->a);
         func_00188e08(&g->b);
         func_00319870(&g->c);
@@ -50,7 +49,6 @@ void wt_001cd548(u32 init, u32 prio, u32, u32)
     struct NoTail { ~NoTail() {} } nt;
     if (prio == 0xffff && init == 0) {
         G1cd548* g = &D_01d499b0;
-        asm("" : "+r"(g));
         f_002e77a0(&g->e);
     }
 }
