@@ -110,8 +110,7 @@ void func_00159308(u8* p) {
     }
 }
 
-// Camera follow. The pinned &b pointer and empty asm at the final copy steer global-alloc so
-// &b lands in t4 (partial asm, carried from the function match).
+// Camera follow.
 void func_00159368(Cam159368* c)
 {
     static V159368 s_ofs(600.0f, -500.0f, 0.0f, 1.0f);
@@ -124,11 +123,10 @@ void func_00159368(Cam159368* c)
     V159368 p;
     V159368 b;
     V159368 a;
-    f32 k;
     if (D_0034aa08) {
         a = s_fixEye;
         b = s_fixAt;
-        k = 1.5f;
+        c->f48 = 1.5f;
     } else {
         a = c->pos;
         t = *func_0016c028(c->obj);
@@ -146,14 +144,11 @@ void func_00159368(Cam159368* c)
         d *= l / 200.0f;
         a = a + d;
         b = a + s_ofs;
-        k = D_004f35b0;
+        c->f48 = D_004f35b0;
     }
-    c->f48 = k;
     c->f52 = 0.0f;
     c->f128 = a;
-    register V159368* pb asm("$12") = &b;
-    asm("" : "+r"(pb));
-    c->f96 = *pb;
+    c->f96 = b;
     func_0013f648(c);
 }
 
