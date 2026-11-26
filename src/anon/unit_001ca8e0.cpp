@@ -967,7 +967,6 @@ u8* func_001cbc50(u8* p, u32 a, u32 b, u32 c) {
 namespace n001cbcf0 {
 struct QWord {
     f32 x, y, z, w;
-    QWord() {}
 } __attribute__((aligned(16)));
 struct Mtx { QWord r[4]; };
 struct Obj { u8 pad[16]; void* fn; u8 pad2[20]; s32 flags; };
@@ -982,12 +981,9 @@ static inline void VAdd(QWord* r, const QWord* a, const QWord* b)
     asm volatile("lqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 0(%2)\n\tvadd.wxyz $vf1, $vf1, $vf2\n\tsqc2 $vf1, 0(%0)"
         : : "r"(r), "r"(a), "r"(b) : "memory");
 }
-static inline QWord* SetVT(QWord* d, f32 x, f32 y, f32 z, f32 w, QWord* t)
+static inline void SetV(QWord* d, f32 x, f32 y, f32 z, f32 w)
 {
-    QWord* tr;
-    asm("la %0,%1" : "=r"(tr) : "m"(*t), "f"(y));
     d->x = x; d->y = y; d->z = z; d->w = w;
-    return tr;
 }
 extern s32 D_00351fe4 asm("D_00351fe4");
 extern s32 D_00361f60 asm("D_00361f60");
@@ -1010,9 +1006,9 @@ Obj* func_001cbcf0(QWord* p, void* rot, s32 i) {
         func_0011b7b0(&m, rot);
         QWord t;
         QWord v;
-        QWord* tr = SetVT(&v, 0.0f, -func_001ca8e0(i), 0.0f, 0.0f, &t);
-        MulMV(tr, &m, &v);
-        VAdd(&v, p, tr);
+        SetV(&v, 0.0f, -func_001ca8e0(i), 0.0f, 0.0f);
+        MulMV(&t, &m, &v);
+        VAdd(&v, p, &t);
         Obj* o = func_001cbc50(D_00351fe4, &D_0036e180[i], &v, 0);
         o->fn = (void*)D_001cab08;
         o->flags |= 1;
