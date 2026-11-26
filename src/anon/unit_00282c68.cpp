@@ -90,9 +90,9 @@ struct SortList { union { s32 n; u16 h; }; SortEnt e[1]; };
 u8* func_001a8110(u8*) asm("func_001a8110");
 /*TARGET 00282d70*/
 // Assign each entry its table order (+1000 unless type 18), then sort by it.
-void func_00282d70(SortList* l) asm("func_00282d70");
+void Tz__ItemInfo__SortItemInfo(SortList* l) asm("Tz__ItemInfo__SortItemInfo");
 // Assign each entry its table order (+1000 unless type 18), then sort by it.
-void func_00282d70(SortList* l) {
+void Tz__ItemInfo__SortItemInfo(SortList* l) {
     u8* v = 0;
     s32 i = 0;
     for (;;) {
@@ -161,8 +161,8 @@ extern u8 *D_0035f2b0 asm("D_0035f2b0");
 extern u8 *D_0035f2b4 asm("D_0035f2b4");
 extern u8 *D_0035f2b8 asm("D_0035f2b8");
 /*TARGET 00282f68*/
-void func_00282f68(void) asm("func_00282f68");
-void func_00282f68(void)
+void Tz__CmTutorial__Init(void) asm("Tz__CmTutorial__Init");
+void Tz__CmTutorial__Init(void)
 {
   s32 new_var;
   u8 *a = func_001063c0(0x18, func_00103570());
@@ -275,7 +275,7 @@ void func_00257708(s32) asm("func_00257708");
 extern s32* D_0035f2b4 asm("D_0035f2b4");
 void func_00283d00(void*) asm("func_00283d00");
 void func_00283f50(void) asm("func_00283f50");
-void func_002833f8(void) asm("func_002833f8");
+void Tz__CmTutorial__CreateList(void) asm("Tz__CmTutorial__CreateList");
 /*TARGET 002831e0*/
 void func_002831e0(void* a, s32 b) asm("func_002831e0");
 void func_002831e0(void* a, s32 b) {
@@ -283,7 +283,7 @@ void func_002831e0(void* a, s32 b) {
     *D_0035f2b4 = b;
     func_00283d00(a);
     func_00283f50();
-    func_002833f8();
+    Tz__CmTutorial__CreateList();
 }
 }  // namespace n002831e0
 
@@ -302,21 +302,21 @@ s32 func_002839f0(s32) asm("func_002839f0");
 s32 func_00283618() asm("func_00283618");
 void func_00284048() asm("func_00284048");
 void func_00283f50() asm("func_00283f50");
-void func_002833f8() asm("func_002833f8");
+void Tz__CmTutorial__CreateList() asm("Tz__CmTutorial__CreateList");
 void func_00287cc0(s32) asm("func_00287cc0");
 void func_00257708(s32) asm("func_00257708");
 void func_00283c50() asm("func_00283c50");
 void func_00287bd0(s32, s32) asm("func_00287bd0");
 void func_002937c0(s32) asm("func_002937c0");
-s32 func_00170cd0() asm("func_00170cd0");
+s32 YS__CACHE_BUFF__IsFlushing() asm("YS__CACHE_BUFF__IsFlushing");
 void func_00283fb0() asm("func_00283fb0");
-void func_00283790() asm("func_00283790");
+void Tz__CmTutorial__CreateGra() asm("Tz__CmTutorial__CreateGra");
 s32 func_00283668() asm("func_00283668");
 void func_00242618(s32, s32) asm("func_00242618");
 void func_00283e48() asm("func_00283e48");
 /*TARGET 00283230*/
-void func_00283230() asm("func_00283230");
-void func_00283230()
+void Tz__CmTutorial__Ctrl() asm("Tz__CmTutorial__Ctrl");
+void Tz__CmTutorial__Ctrl()
 {
     W291Q28* q = func_00167f18(0);
     s32 st = func_00287cd0();
@@ -343,14 +343,14 @@ void func_00283230()
             return;
         }
         func_00283f50();
-        func_002833f8();
+        Tz__CmTutorial__CreateList();
         func_00287cc0(0);
         return;
     }
-    if (func_00170cd0()) return;
+    if (YS__CACHE_BUFF__IsFlushing()) return;
     if (!func_002839f0(0)) {  // entry416_by_masked_index
         func_00283fb0();
-        func_00283790();
+        Tz__CmTutorial__CreateGra();
     }
     if (st == 0) {
         if (!func_00283668()) return;
@@ -383,8 +383,8 @@ extern char D_00374250[] asm("D_00374250");
 extern Ent283 D_003742c8[] asm("D_003742c8");
 extern u16 D_00374318[] asm("D_00374318");
 /*TARGET 002833f8*/
-void func_002833f8(void) asm("func_002833f8");
-void func_002833f8(void) {
+void Tz__CmTutorial__CreateList(void) asm("Tz__CmTutorial__CreateList");
+void Tz__CmTutorial__CreateList(void) {
     if (!u_call4_00139d78_283(D_0035f2b8 + 852)) {
         func_0028d980(D_0035f2b8 + 852, 30022, D_0035ef68, D_0035ef64, D_0035f03c, 18, 19, -1, 0);
         *(s8**)(D_0035f2b8 + 1260) = D_0035f2b4 + 15;
@@ -423,7 +423,7 @@ u32 func_002835a8(void) {
 namespace n002835d8 {
 s32 func_00139d78(void*) asm("func_00139d78");
 void func_00139510(void*) asm("func_00139510");
-void func_00283960(s32) asm("func_00283960");
+void Tz__CmTutorial__LeaveList(s32) asm("Tz__CmTutorial__LeaveList");
 extern void (*D_0035e380[])(void) asm("D_0035e380");
 extern u8* D_0035f2b8 asm("D_0035f2b8");
 /*TARGET 002835d8*/
@@ -432,7 +432,7 @@ void func_002835d8(void) {
     if (func_00139d78(D_0035f2b8 + 852)) {
         func_00139510(D_0035f2b8 + 852);
     }
-    func_00283960(1);
+    Tz__CmTutorial__LeaveList(1);
 }
 }  // namespace n002835d8
 
@@ -482,8 +482,8 @@ s32 func_00283668(void) {
 // 00283730 (was src/anon/auto80_199_queue.cpp)
 namespace n00283730 {
 /*TARGET 00283730*/
-void func_00283730(void) asm("_Z13func_00283730v");
-void func_00283730(void) {
+void Tz__SelHist__Loop(void) asm("_Z17Tz__SelHist__Loopv");
+void Tz__SelHist__Loop(void) {
     func_0028da70(D_0035f2b8 + 852, 19);
     func_0028da70(D_0035f2b8 + 416, 16);
     func_0028da70(D_0035f2b8 + 1288, 2);
@@ -505,10 +505,10 @@ s32 func_00139d78(void*) asm("func_00139d78");
 static inline void SetFlag283790(u8* p) { ((Sub283790*)p)->flags |= 8; }
 u32 func_0023f1b0(u32) asm("func_0023f1b0");
 u32 func_0023c4b8(u32, s32) asm("func_0023c4b8");
-void func_001386e0(void*, s32, u32, u8*, s32, s32) asm("func_001386e0");
+void dk__Sprite__create(void*, s32, u32, u8*, s32, s32) asm("dk__Sprite__create");
 /*TARGET 00283790*/
-void func_00283790(void) asm("func_00283790");
-void func_00283790(void)
+void Tz__CmTutorial__CreateGra(void) asm("Tz__CmTutorial__CreateGra");
+void Tz__CmTutorial__CreateGra(void)
 {
     s32 same = 0;
     u8* b;
@@ -516,7 +516,7 @@ void func_00283790(void)
         u32 v = func_0023c4b8(func_0023f1b0(D_0035f03c), 0);
         b = D_0035f2b8;
         Obj283790* o = (Obj283790*)(b + 1288);
-        func_001386e0(o, 30022, v, b, 1, 0);
+        dk__Sprite__create(o, 30022, v, b, 1, 0);
         o->mode = 2;
         o->on = 1;
         SetFlag283790(b + 1312);
@@ -527,7 +527,7 @@ void func_00283790(void)
         u32 v = func_0023c4b8(func_0023f1b0(D_0035f03c), 0);
         b = D_0035f2b8;
         Obj283790* o = (Obj283790*)(b + 1696);
-        func_001386e0(o, 30022, v, b, 4, 0);
+        dk__Sprite__create(o, 30022, v, b, 4, 0);
         o->mode = 5;
         o->on = 1;
         SetFlag283790(b + 1720);
@@ -551,8 +551,8 @@ void func_00283900(u32 a0) {
 // 00283960 (was src/anon/auto80_199_queue.cpp)
 namespace n00283960 {
 /*TARGET 00283960*/
-void func_00283960(u32 a0) asm("_Z13func_00283960j");
-void func_00283960(u32 a0) {
+void Tz__CmTutorial__LeaveList(u32 a0) asm("_Z25Tz__CmTutorial__LeaveListj");
+void Tz__CmTutorial__LeaveList(u32 a0) {
     if ((a0 & 0xffu) != 0) {
         if (func_00139d78(D_0035f2b8 + 416) != 0) {
             func_00139510(D_0035f2b8 + 416);

@@ -16,11 +16,11 @@ u8 func_001c71f8(u32 p, f32 f);
 u8 func_001c7440(u32 p, u32 z);
 void func_001374c8(u8* p, s32 n, u32 a, u32 b, f32 f);
 void func_0017c870(u8* p, f32 a, f32 b);
-void func_00184540(u8* p, u32 a, f32 x, f32 y);
+void kn__MotionPrototype0__calcLimitValue(u8* p, u32 a, f32 x, f32 y);
 s32 func_001bb4a0(void);
 u8* func_001bbcb0(void);
 
-void func_0014ce60(void);  // 0x0014ce60: definition moved into src/anon/unit_0014c7f0.cpp
+void dk__Vsync__initGameSpeed(void);  // 0x0014ce60: definition moved into src/anon/unit_0014c7f0.cpp
 
 // 00159f90: moved to src/harata/libdk/targetcamera.cpp
 

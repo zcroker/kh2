@@ -69,7 +69,7 @@ void o2d31b0_set(void*, u32, s32) asm("_Z16wtarget_002cf280jjjj");
 s32 o2d31b0_is_attach(O2d31b0*) asm("_ZN2YS3OBJ9is_attachEv");
 V2d31b0* func_002d1f20(void*);
 V2d31b0 func_002d2870(void*, O2d31b0*);
-void func_002d36f0(O2d31b0*);
+void Ti__MGOarashiGimObj__appear_fall_prize(O2d31b0*);
 f32 func_002d48b8(f32);
 f32 cosf(f32);
 f32 sinf(f32);

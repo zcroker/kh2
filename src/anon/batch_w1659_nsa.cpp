@@ -254,12 +254,12 @@ void func_0011b6a8(MotMtx*);
 u32 FMatrix_rotateX(MotMtx*, f32) asm("_ZN2kn7FMatrix7rotateXEf");
 void FMatrix_rotateXYZ(MotMtx*, MotVec*) asm("_ZN2kn7FMatrix9rotateXYZERKNS_7FVectorE");
 void func_0011bac8(MotMtx*, MotVec*);
-void func_00124ca8(MotVec*, MotVec*, s32, f32, f32, MotMtx*, MotMtx*, f32, f32, MotVec*);
+void gm__GRID__draw(MotVec*, MotVec*, s32, f32, f32, MotMtx*, MotMtx*, f32, f32, MotVec*);
 void func_00128040(MotCtx*, void*, MotVec*, MotVec*);
 void func_00128d40(MotVec*, MotVec*, MotMtx*);
 void func_00128e98(MotCtx*, MotPose*, u32, u32, MotVec*, MotMtx*, MotVec*);
 void func_00129008(MotCtx*, MotPose*, MotConstraint*, MotVec*, MotMtx*, MotVec*);
-f32 func_00129060(MotCtx*, MotPose*, u16);
+f32 kn__MotionPrototype0__evalExpression(MotCtx*, MotPose*, u16);
 void func_00129960(MotMtx*, MotMtx*);
 s32 func_00143c68(MotVec*, MotVec*);
 
@@ -294,10 +294,10 @@ static inline MotMtx* motWorld(MotCtx* ctx, MotPose* pose, s32 i) {
 static inline void motSetRot(MotMtx* m, MotVec* r) { func_0011bac8(m, r); }
 static inline void motRotXYZ(MotMtx* m, MotVec* r) { FMatrix_rotateXYZ(m, r); }
 static inline void motIK2(MotVec* a, MotVec* b, f32& l1, f32& l2, MotMtx* m1, MotMtx* m2, f32& r1, f32& r2, s32 type, MotVec* pole) {
-    func_00124ca8(a, b, type, l1, l2, m1, m2, r1, r2, pole);
+    gm__GRID__draw(a, b, type, l1, l2, m1, m2, r1, r2, pole);
 }
 static inline void motIK1(MotVec* a, MotVec* b, f32& l1, MotMtx* m1, f32& r1, MotVec* pole) {
-    func_00124ca8(a, b, 0, l1, 0.0f, m1, 0, r1, 0.0f, pole);
+    gm__GRID__draw(a, b, 0, l1, 0.0f, m1, 0, r1, 0.0f, pole);
 }
 static inline void motLimit(MotCtx* ctx, void* lim, MotVec v, MotVec* io) { func_00128040(ctx, lim, &v, io); }
 static inline bool motIsEndType(s32 t) {

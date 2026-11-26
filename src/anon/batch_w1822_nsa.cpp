@@ -12,7 +12,7 @@ struct W22Bits {
 };
 extern "C" {
 struct W22P;
-void func_00198450(W22P*);
+void YS__STDOBJ___OVR_initialize(W22P*);
 W22Ent* func_0019b308(W22Q*);
 s32 func_0018c528(u8);
 }
@@ -43,7 +43,7 @@ struct W22Obj {
 
 extern "C" {
 
-void func_0018ad18(W22P* p);  // 0x0018ad18: definition moved into src/yasui/libys/npc.cpp
+void YS__NPC___OVR_initialize(W22P* p);  // 0x0018ad18: definition moved into src/yasui/libys/npc.cpp
 
 void func_002373a8(W22Obj*);
 void func_00237680(W22Obj*, s32);

@@ -54,7 +54,7 @@ static inline bool Has_001ddd30(Nd_001ddd30* x) {
     while ((n = Next_001ddd30(n))) { if (n == x) return true; }
     return false;
 }
-void func_001dde40_dd30(Nd_001ddd30*) asm("func_001dde40");
+void func_001dde40_dd30(Nd_001ddd30*) asm("ryj__PAX__ensure");
 /*TARGET 001ddd30*/
 void func_001ddd30(Nd_001ddd30* a0) asm("func_001ddd30");
 void func_001ddd30(Nd_001ddd30* a0) {
@@ -65,7 +65,7 @@ void func_001ddd30(Nd_001ddd30* a0) {
 // 001ddd88 (was src/anon/batch_w28.cpp)
 namespace n001ddd88 {
 u32 func_00321cb0(void*, void*) asm("func_00321cb0");
-void func_001dde40(void*) asm("func_001dde40");
+void ryj__PAX__ensure(void*) asm("ryj__PAX__ensure");
 extern u8 D_01d9e348[] asm("D_01d9e348");
 // 0x001d9148: definition moved into src/anon/unit_001d7458.cpp
 
@@ -74,7 +74,7 @@ void func_001ddd88(void* p) asm("_ZN3ryj3PAXD1Ev");
 /*TARGET 001ddd88*/
 void func_001ddd88(void* p) asm("_ZN3ryj3PAXD1Ev");
 void func_001ddd88(void* p) {
-    if (func_00321cb0(D_01d9e348, p)) func_001dde40(p);
+    if (func_00321cb0(D_01d9e348, p)) ryj__PAX__ensure(p);
 }
 }  // namespace n001ddd88
 
@@ -100,10 +100,10 @@ extern LList2 D_01d9e348 asm("D_01d9e348");
 // 001dbc58: moved to src/anon/unit_001dbbe0.cpp
 
 // init a node from a data block and append it to the global list
-void wtarget_001dddd0(u32, u32, u32, u32) asm("_Z16wtarget_001dddd0jjjj");
+void ryj__PAX__init(u32, u32, u32, u32) asm("_Z14ryj__PAX__initjjjj");
 /*TARGET 001dddd0*/
-void wtarget_001dddd0(u32 x0, u32 x1, u32, u32) asm("_Z16wtarget_001dddd0jjjj");
-void wtarget_001dddd0(u32 x0, u32 x1, u32, u32) {
+void ryj__PAX__init(u32 x0, u32 x1, u32, u32) asm("_Z14ryj__PAX__initjjjj");
+void ryj__PAX__init(u32 x0, u32 x1, u32, u32) {
     Lnk2* a0 = (Lnk2*)x0;
     u8* a1 = (u8*)x1;
     a0->f0 = (u32)a1;
@@ -131,8 +131,8 @@ extern LList D_01d9e348 asm("D_01d9e348");
 s32 func_00321cb0(void*, void*) asm("func_00321cb0");
 void func_001de450(void*) asm("func_001de450");
 /*TARGET 001dde40*/
-void func_001dde40(LNode* n) asm("func_001dde40");
-void func_001dde40(LNode* n) {
+void ryj__PAX__ensure(LNode* n) asm("ryj__PAX__ensure");
+void ryj__PAX__ensure(LNode* n) {
     LNode* prev;
     if (!func_00321cb0(&D_01d9e348, n)) return;
     func_001de450(n);
@@ -161,7 +161,7 @@ f32* func_001dc648(u8*) asm("func_001dc648");
 f32* func_001dc620(u8*) asm("func_001dc620");
 u8* func_001de948(s32) asm("func_001de948");
 void func_001dea80(u8*, u8*, D1ddef0*, u8*, f32) asm("func_001dea80");
-void func_001df670(u8*) asm("func_001df670");
+void ryj__PAX__MANAGER__get_obj_data(u8*) asm("ryj__PAX__MANAGER__get_obj_data");
 void func_00180df8(u8*, u8*) asm("func_00180df8");
 extern s32 D_00352b50 asm("D_00352b50");
 /*TARGET 001ddef0*/
@@ -194,7 +194,7 @@ u8* func_001ddef0(u8* self, D1ddef0* d, s32 a2, s32 a3, s32 a4, u8* w) {
         list[0] = n;
     }
     if (d->flags & 1) {
-        func_001df670(n);
+        ryj__PAX__MANAGER__get_obj_data(n);
         if ((d->flags & 0x20) && D_00352b50 == 1) func_00180df8(w + 320, o);
     }
     return o;
@@ -210,7 +210,7 @@ struct Res_de0a0 { u8 pad[0xc]; Obj_de0a0* owner; };
 struct P_de0a0 { u8 pad[0x38]; f32 f; };
 Res_de0a0* eff_create_001dcff0(f32, void*, u16) asm("_ZN3ryj6EFFECT6CreateERNS_11EFFECT_DATAEjjjif");
 Node_de0a0* func_001de948(s32) asm("func_001de948");
-void func_001dec78(f32, Node_de0a0*, Res_de0a0*, u16*, P_de0a0*) asm("func_001dec78");
+void ryj__PAX__MANAGER__MANAGER_2(f32, Node_de0a0*, Res_de0a0*, u16*, P_de0a0*) asm("ryj__PAX__MANAGER__MANAGER_2");
 /*TARGET 001de0a0*/
 Res_de0a0* func_001de0a0(Obj_de0a0* a0, u16* a1, s32 a2, s32 a3, s32 t0, P_de0a0* p) asm("func_001de0a0");
 Res_de0a0* func_001de0a0(Obj_de0a0* a0, u16* a1, s32 a2, s32 a3, s32 t0, P_de0a0* p) {
@@ -218,7 +218,7 @@ Res_de0a0* func_001de0a0(Obj_de0a0* a0, u16* a1, s32 a2, s32 a3, s32 t0, P_de0a0
     Res_de0a0* r = eff_create_001dcff0(f, a0->sub, *a1);
     r->owner = a0;
     Node_de0a0* n = func_001de948(0x70);
-    func_001dec78(f, n, r, a1, p);
+    ryj__PAX__MANAGER__MANAGER_2(f, n, r, a1, p);
     List_de0a0* l = &a0->list;
     if (a0->list.head == 0) {
         l->tail = n;
@@ -238,8 +238,8 @@ namespace n001de168 {
 
 u8 func_001ddef0(u32**, u8*) asm("func_001ddef0");
 /*TARGET 001de168*/
-u32 func_001de168(u32** o, u32 id) asm("func_001de168");
-u32 func_001de168(u32** o, u32 id) {  // scan_list_by_half
+u32 ryj__PAX__start(u32** o, u32 id) asm("ryj__PAX__start");
+u32 ryj__PAX__start(u32** o, u32 id) {  // scan_list_by_half
     u32 r = 0;
     s32 n = (*o)[2];
     s32 i;
@@ -286,8 +286,8 @@ namespace n001de228 {
 // 0x1c88a8: moved to src/yasui/libys/summon.cpp
 void func_001ddef0(u8**, u8*, u32, u32, u32, u32) asm("func_001ddef0");
 /*TARGET 001de228*/
-void func_001de228(u8** p, u32 k, u32 c, u32 d, u32 e, u32 f) asm("func_001de228");
-void func_001de228(u8** p, u32 k, u32 c, u32 d, u32 e, u32 f)
+void ryj__PAX__start_group(u8** p, u32 k, u32 c, u32 d, u32 e, u32 f) asm("ryj__PAX__start_group");
+void ryj__PAX__start_group(u8** p, u32 k, u32 c, u32 d, u32 e, u32 f)
 {
     s32 n = *(s32*)(p[0] + 8);
     for (s32 i = 0; i < n; i++) {
@@ -594,14 +594,14 @@ void func_001de6d0(void) {
 // 001de710 (was src/anon/tiny_auto80_queue.cpp)
 namespace n001de710 {
 extern u32 D_01d9e348 asm("D_01d9e348");
-u32 func_001dde40(...) asm("func_001dde40");
+u32 ryj__PAX__ensure(...) asm("ryj__PAX__ensure");
 /*TARGET 001de710*/
 void func_001de710(void) asm("_Z13func_001de710v");
 void func_001de710(void) {
     u32 s0 = D_01d9e348;
     while (s0 != 0u) {
         u32 next = *(u32*)(u32)(s0 + 20);
-        func_001dde40(s0);
+        ryj__PAX__ensure(s0);
         s0 = next;
     }
 }
@@ -656,7 +656,7 @@ u32 func_001de7b0(u32 a0) {
 // 001de7d8 (was src/anon/batch_w7.cpp)
 namespace n001de7d8 {
 void func_001dcdb8(void) asm("func_001dcdb8");
-void func_001de808(void) asm("func_001de808");
+void ryj__PAX__TaskStart(void) asm("ryj__PAX__TaskStart");
 extern u32 D_01d9e340 asm("D_01d9e340");
 struct ZeroPair { u32 a, b; };
 extern ZeroPair D_01d9e348 asm("D_01d9e348");
@@ -671,7 +671,7 @@ void func_001de7d8(u32 a0) {
     func_001dcdb8();
     D_01d9e348.a = 0;
     D_01d9e348.b = 0;
-    func_001de808();
+    ryj__PAX__TaskStart();
 }
 }  // namespace n001de7d8
 
@@ -686,10 +686,10 @@ void func_001de8a8(s32, s32, s32, s32) asm("func_001de8a8");
 /*TARGET 001de808*/
 // 0x001d0068: definition moved into src/anon/unit_001cf0b0.cpp
 
-void func_001de808(void) asm("func_001de808");
+void ryj__PAX__TaskStart(void) asm("ryj__PAX__TaskStart");
 // 0x001d0068: definition moved into src/anon/unit_001cf0b0.cpp
 
-void func_001de808(void) {
+void ryj__PAX__TaskStart(void) {
     W1578Mode* f = W1578_getFieldMode();
     W1578Mode* g = W1578_getGumiBattleMode();
     W1578Mode* cur;

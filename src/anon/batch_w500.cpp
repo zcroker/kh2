@@ -2,7 +2,7 @@
 
 extern "C" {
 
-// 2D sprite keyframe animation (func_0023ade0 draws one animated sprite).
+// 2D sprite keyframe animation (YI__SEQUENCE__Draw draws one animated sprite).
 // One keyframe of the track (0x90 bytes).
 struct SprKey {
     u32 flags;        // 0x00
@@ -62,8 +62,8 @@ void func_002f3918(u32, void*);
 void func_002376d8(SprAnim*, s32);
 void func_00237740(SprAnim*, f32, f32, f32);
 void func_00237a68(SprAnim*, f32, f32, f32);
-void func_00238570(SprAnim*, s32, s32, s32, s32);
-void func_00238c90(SprAnim*, s32, s32, s32, s32);
+void YI__SPRITE___Draw(SprAnim*, s32, s32, s32, s32);
+void YI__SPRITE___Draw2(SprAnim*, s32, s32, s32, s32);
 f32 sinf(f32);
 f32 cosf(f32);
 u32 __fixunssfsi(f32) __attribute__((const)); // __fixunssfsi (float -> u32)
@@ -75,6 +75,6 @@ extern u8 D_01dae5f0[][0x30];
 #define ILERP(a, b, t) ((a) + (s32)((f32)((b) - (a)) * (t)))
 #define FLERP(a, b, t) ((a) + ((b) - (a)) * (t))
 
-void func_0023ade0(SprAnim* o);  // 0x0023ade0: definition moved into src/anon/unit_00239988.cpp
+void YI__SEQUENCE__Draw(SprAnim* o);  // 0x0023ade0: definition moved into src/anon/unit_00239988.cpp
 
 }

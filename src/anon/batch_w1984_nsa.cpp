@@ -27,7 +27,7 @@ extern "C" {
 extern CbPrm* D_00352130;
 extern u32 D_003638d0;
 s32 func_0018ca48(u8);
-CbV* func_0016c028(u32);
+CbV* YS__OBJ__get_pos(u32);
 void func_0018cd28(CbSelf*, f32*, f32*);
 // 0018cb30: moved to src/yasui/libys/damage.cpp
 
@@ -36,21 +36,21 @@ struct TgtD { u8 pad[32]; };
 extern s32 D_0034f240;
 void func_00190128(void*);
 void dd_set_obj(TgtD*, u32, s32) asm("_ZN2YS6TARGET7set_objEPNS_3OBJEi");
-s32 func_0019c4f8(u8*);
-s32 func_0019dbc0(u8* a0, s32 a1, void* a2, s32 a3, s32 a4);
+s32 YS__OBJ__is_disable_rc(u8*);
+s32 YS__RC_SEARCHER__check_set(u8* a0, s32 a1, void* a2, s32 a3, s32 a4);
 u8* dd_get_override(void*, s32) asm("_ZN2YS14PLAYER_COMMAND12get_overrideEi");
 s32 dd_is_exec(void) asm("_ZN2YS5LIMIT6IsExecEv");
 u8* func_0016bc20(void* a, s32 b, s32 id);
-void func_0018a818(u8*, u8*, u8*);
-void func_0019e170(u8*);
-void func_0019e400(u8*);
+void YS__COLLISION__set(u8*, u8*, u8*);
+void YS__RC_SEARCHER__check_all_obj(u8*);
+void YS__RC_SEARCHER__check_magic(u8*);
 s32 dd_is_exist(u8*) asm("_ZN2YS12COMMAND_SLOT8is_existEv");
 s32 dd_is_pinch(u32) asm("_ZNK2YS5SHEET8is_pinchEv");
-s32 func_0019e758(u8*, u8*);
+s32 YS__RC_SEARCHER__check_auto_summon(u8*, u8*);
 s32 func_0019e6e8(u8*, u8*);
 void func_0019ead0(u8*, u8*);
 struct Sub140 { u8 pad[32]; u32 flags; u8 pad2[216]; u32 obj; };
-void func_0019dd10(u8* self);  // 0x0019dd10: definition moved into src/anon/unit_0019ba60.cpp
+void YS__RC_SEARCHER__exec(u8* self);  // 0x0019dd10: definition moved into src/anon/unit_0019ba60.cpp
 
 // 001f7180, 001f7660
 struct F7Gs { u8 pad[16]; u8* ent; u8 pad2[148]; u64 st; };

@@ -50,7 +50,7 @@ void func_0023e858(f32, O26c*, s32) asm("func_0023e858");
 void func_0023e8b8(f32, O26c*, s32) asm("func_0023e8b8");
 void func_0023e8d8(f32, O26c*, s32) asm("func_0023e8d8");
 s32 func_002811b0(s32, s32) asm("func_002811b0");
-void func_0023eae0(O26c*, s32, s32, s32) asm("func_0023eae0");
+void Tz__MenuObj__SetHidePartAll(O26c*, s32, s32, s32) asm("Tz__MenuObj__SetHidePartAll");
 void func_0023eac0(O26c*, s32, s32) asm("func_0023eac0");
 void func_0023e958(O26c*, s32, s32, s32, s32, s32) asm("func_0023e958");
 void func_0028d8c0(void*, s32, s32, s32, s32, s32, s32, s32) asm("func_0028d8c0");
@@ -91,7 +91,7 @@ void func_0026c140(void) {
         func_0023e858(-100.0f, o, id);
         func_0023e8b8(0.0f, o, id);
         func_0023e8d8(0.0f, o, id);
-        if (func_002811b0(D_0035f010, id) == 8) func_0023eae0(o, id, 20, 32);
+        if (func_002811b0(D_0035f010, id) == 8) Tz__MenuObj__SetHidePartAll(o, id, 20, 32);
         func_0023eac0(o, id, c);
         func_0023e958(o, id, 96, 96, 96, -1);
         if (D_0035f0f0) {

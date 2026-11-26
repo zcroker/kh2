@@ -124,7 +124,7 @@ u32 func_00168370(void) {
     return func_001ae4b8();
 }
 
-void func_00168388(const char* name, void* buf, REQ_CB cb, u32 arg) {
+void YS__FILE__ReadBack(const char* name, void* buf, REQ_CB cb, u32 arg) {
     REQ* r = new (__builtin_return_address(0)) REQ(0, name);
     r->buf = buf;
     r->cb = cb;
@@ -140,7 +140,7 @@ void func_00168410(const char* name, void* buf, u32 ofs, u16 n, REQ_CB cb, u32 a
     r->n = n;
 }
 
-void func_001684c0(const char* name, void* buf, REQ_CB cb, u32 arg) {
+void YS__FILE__ReadBarBack(const char* name, void* buf, REQ_CB cb, u32 arg) {
     REQ* r = new (__builtin_return_address(0)) REQ(1, name);
     r->buf = buf;
     r->cb = cb;

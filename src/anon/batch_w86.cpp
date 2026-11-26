@@ -64,7 +64,7 @@ extern "C" {
 extern s32 D_00341780;
 extern Ent D_003a9050[];
 s32 func_001917c0(void);
-s32 func_00110c90(Obj*);
+s32 kn__Friend__searchWarpPoint(Obj*);
 void func_00111060(Obj*, Ent*);
 void func_001110e8(Obj* o);  // 0x001110e8: definition moved into src/anon/unit_00110b00.cpp
 }
@@ -137,7 +137,7 @@ struct Cam { u8 p0[32]; Mtx m; };
 struct Mats { u8 p0[16]; Mtx m; };
 extern "C" {
 extern Cam* D_00347f80;
-Mtx* func_00106a18(s32);  // buffer_get_256
+Mtx* kn__getProjection(s32);  // buffer_get_256
 Mats* func_00106a60(s32);  // buffer_get_by_index
 void func_00139c90(void);  // 0x00139c90: definition moved into src/anon/unit_001393c8.cpp
 }
@@ -178,11 +178,11 @@ void func_00187b90(void*);
 void func_0016cab8(void*);
 void func_0016c7d8(void*);
 void func_001de450(void*);
-void func_001dde40(void*);
+void ryj__PAX__ensure(void*);
 void func_0016a2b0(Obj*);  // clear_15_words_at1976
 s32 func_001c0cd8(Obj*);
 void func_001c0e60(Obj*);
-void func_0016b668(Obj* o);  // 0x0016b668: definition moved into src/anon/unit_00169f98.cpp
+void YS__OBJ___OVR_leave(Obj* o);  // 0x0016b668: definition moved into src/anon/unit_00169f98.cpp
 }
 }
 
@@ -237,7 +237,7 @@ typedef void (*OFn)(Obj*);
 struct Ctl { CFn* vt; };
 struct Obj { OFn* vt; u8 p4[8]; Ctl* ctl; u8 p16[248]; u32 f264; u8 p268[500]; u8 sub768[388]; void* f1156; };
 extern "C" {
-void func_00188340(void*, s32, s32, s32);
+void YS__ACT__callback(void*, s32, s32, s32);
 void func_0016cce8(void*, s32, s32, s32, s32);
 // 00184308: moved to src/anon/unit_00183088.cpp
 }
@@ -272,9 +272,9 @@ struct Tgt { TFn* vt; };
 struct Q { u8 p0[40]; s32 f40; };
 extern "C" {
 Q* func_001050d8(s32);
-void func_0018d238(Q*, s32, s32, s32, s32, s32, s32);
+void YS__ATTACK__ATTACK_2(Q*, s32, s32, s32, s32, s32, s32);
 Res* func_0018da18(Q*, Tgt*, s32, s32);
-Res* func_0018db38(Q*, Tgt*, s32, s32);
+Res* YS__ATTACK__strike(Q*, Tgt*, s32, s32);
 void func_0018ca10(Res*);  // alloc_from_pool_magic
 void func_0018f028(Q*);
 s32 func_0018ee60(s32 a, s32 b, Tgt* t, QWord* v, u8 flag);  // 0x0018ee60: definition moved into src/anon/unit_0018d050.cpp
@@ -293,7 +293,7 @@ void func_0017f488(void*, s32, f32, f32);
 void func_0017f5e0(void*, s32, f32, f32, void (*)(void));
 void func_00195c80(void);
 s32 func_00143448(u16);
-void func_00195d00(Obj* o, Ent* e);  // 0x00195d00: definition moved into src/anon/unit_00195d00.cpp
+void YS__ACTION_HANG__control(Obj* o, Ent* e);  // 0x00195d00: definition moved into src/anon/unit_00195d00.cpp
 }
 }
 
@@ -305,7 +305,7 @@ s32 func_001a3888(s32);  // id_in_range_5_7_131
 void* func_001a8bd0(s32);
 s32 func_001a8c10(void*, s32);
 void func_001a2b50(void*, s32, s32, s32);
-s32 func_001a2e50(void*, s32);
+s32 YS__ITEM__CanUseSub(void*, s32);
 // 001a2a50: moved to src/anon/unit_001a2a50.cpp
 // 001a2d78: moved to src/anon/unit_001a2a50.cpp
 }
@@ -327,7 +327,7 @@ struct List { s32 n; u8 p4[12]; Item items[1]; };
 extern "C" {
 void* func_001b7998(void*, void*);
 void func_0018a7d0(void*, void*, QWord*);
-void func_001b7b10(void*, List*, QWord*, QWord*);
+void YS__OBJCLSN__avoid(void*, List*, QWord*, QWord*);
 void func_001b7958(void*, QWord*);  // add_vec_to_records
 void func_001b7a18(void* o, List* l, QWord* acc);  // 0x001b7a18: definition moved into src/anon/unit_001b6a50.cpp
 }
@@ -365,8 +365,8 @@ static inline f32 Length(const QWord& v)
 }
 extern "C" {
 extern void* D_0034e948;
-s32 func_0019ba60(void*);
-QWord* func_0016c028(void*);  // obj_get_attach_or_alt
+s32 YS__OBJ__is_exist(void*);
+QWord* YS__OBJ__get_pos(void*);  // obj_get_attach_or_alt
 f32 fabsf(f32);  // fabsf
 s32 func_001da070(void* o);  // 0x001da070: definition moved into src/anon/unit_001d9d00.cpp
 }
@@ -398,11 +398,11 @@ struct Obj { u8 p0[8]; AP act; };
 extern "C" {
 extern Tbl* D_0035de50;
 extern s32 D_0035de20;
-s32 func_00225b00(s32);  // flag_query_by_index
+s32 sa__EVENT__isJumpMode(s32);  // flag_query_by_index
 Obj* func_00227d10(s32);
-s32 func_001ba028(Act*);  // list_contains_ptr
+s32 YS__OBJ__is_valid(Act*);  // list_contains_ptr
 s32 func_00227d58(s32);
-void func_0022ca00(void);  // 0022ca00: moved to src/sasa/event_layout.cpp (linked unit)
+void sa__EVENT__light_ctrl(void);  // 0022ca00: moved to src/sasa/event_layout.cpp (linked unit)
 }
 }
 
@@ -442,7 +442,7 @@ struct Item { u8 p0[344]; };
 struct Obj { u8 p0[16]; Ent* ents; Grp* grps; u8 p24[20]; Item* items; };
 extern "C" {
 s32 func_00239b50(Item*, s32);  // find_entry_in_group
-s32 func_0023c5f0(Obj* o, s32 g);  // 0x0023c5f0: definition moved into src/anon/unit_0023bc58.cpp
+s32 YI__LAYOUT__GetAllFrame(Obj* o, s32 g);  // 0x0023c5f0: definition moved into src/anon/unit_0023bc58.cpp
 }
 }
 
@@ -482,8 +482,8 @@ void* func_002469a0(void*);
 Info* func_002468a0(void*);
 Info* func_0024b1a0(void*);
 void func_0028da70(void*, s32);
-void func_00245be8(void);  // 0x00245be8: definition moved into src/anon/unit_00242478.cpp
-void func_0024a048(void);  // 0x0024a048: definition moved into src/anon/unit_00249ef0.cpp
+void Tz__HECO__LoopAll(void);  // 0x00245be8: definition moved into src/anon/unit_00242478.cpp
+void Tz__TRTE__LoopAll(void);  // 0x0024a048: definition moved into src/anon/unit_00249ef0.cpp
 }
 }
 
@@ -492,11 +492,11 @@ namespace n00274cf0 {
 extern "C" {
 extern s8* D_0035f1fc;
 void func_00293bd0(s32, s32, s32);
-s32 func_002953c8(s32);
+s32 Tz__JmWorldSel__GetId2Info(s32);
 s32 func_002941d8(s32);
 s32 func_00296f90(void);  // get_global_36f598
 s32 func_00296f80(void);  // get_global_36f594
-void func_00274cf0(s32 m);  // 0x00274cf0: definition moved into src/anon/unit_002748a0.cpp
+void Tz__Jiminy__LoadData(s32 m);  // 0x00274cf0: definition moved into src/anon/unit_002748a0.cpp
 }
 }
 
@@ -559,7 +559,7 @@ Save* func_002859a0(void);
 void* func_00258108(void);
 void* func_002811b0(void*, s32);
 s32 func_001b7818(void*);
-void func_00287358(s32 mode, u32 id);  // 0x00287358: definition moved into src/anon/unit_00286d28.cpp
+void Tz__CmNewFlg__SetAbilityFlgMember(s32 mode, u32 id);  // 0x00287358: definition moved into src/anon/unit_00286d28.cpp
 }
 }
 

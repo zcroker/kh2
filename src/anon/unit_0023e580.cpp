@@ -18,12 +18,12 @@ struct Mgr {
     u8 kind[4];
     u8 slot[4];
 };
-void* func_001a9458(void*, s32, s32) asm("func_001a9458");
+void* YS__OBJDATA__get_kna(void*, s32, s32) asm("YS__OBJDATA__get_kna");
 void func_0023e580(Mgr* m, s32 idx, s32 a) asm("func_0023e580");
 void func_0023e580(Mgr* m, s32 idx, s32 a)
 {
     Obj* o = &m->obj[m->slot[idx]];
     o->a3 = a;
-    o->mot = func_001a9458(o->mdl, a, o->t0);
+    o->mot = YS__OBJDATA__get_kna(o->mdl, a, o->t0);
 }
 }  // namespace n0023e580

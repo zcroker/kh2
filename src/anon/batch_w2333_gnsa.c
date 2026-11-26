@@ -77,4 +77,4 @@ static inline void ryjAssert1e66e8(const char* e, const char* f, u32 l)
     func_002fdfc8(D_0036e998, f, l);
     asm volatile("break"); /* assert trap */
 }
-s32 func_001e66e8(Part1e66e8* p);  // 0x001e66e8: definition moved into src/anon/unit_001e0cb8.cpp
+s32 pppPartDraw(Part1e66e8* p);  // 0x001e66e8: definition moved into src/anon/unit_001e0cb8.cpp

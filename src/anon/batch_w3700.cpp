@@ -12,11 +12,11 @@ struct Hit2d3 { u8 pad[16]; Act2d3* other; };
 static inline u8 IsPos2d3(f32 v) { return v > 0.0f; }
 void func_001ad990(void*, f32, f32, f32);
 extern "C" {
-void ctarget_0016bda8(QW2d3*, Act2d3*) asm("_Z16ctarget_0016bda8jjjj");
-void ctarget_00186a90(Act2d3*, QW2d3*, f32) asm("_Z16ctarget_00186a90jjjj");
+void YS__OBJ__get_target_pos(QW2d3*, Act2d3*) asm("_Z23YS__OBJ__get_target_posjjjj");
+void YS__BTLOBJ__set_hitback(Act2d3*, QW2d3*, f32) asm("_Z23YS__BTLOBJ__set_hitbackjjjj");
 void func_0016ac38(Act2d3*, s32, s32, s32, s32);
 f32 fabsf(f32);
-void func_002d39c8(Act2d3* a, Hit2d3* h);  // 0x002d39c8: definition moved into src/anon/unit_002d2498.cpp
+void Ti__MGOarashiGimObj__exec_damage_self(Act2d3* a, Hit2d3* h);  // 0x002d39c8: definition moved into src/anon/unit_002d2498.cpp
 }
 
 
@@ -69,7 +69,7 @@ extern W1640Pool* D_00348054;
 s32 func_0013cb90(void);
 s32 func_0013cb80(void);
 s32 func_0013cb30(void);
-u8* func_001b8e88(u32);
+u8* YS__COMMAND_ELEM__Get(u32);
 u32 func_00192048(u32);
 void* func_0013b5d0(W1640Cmd*, s32, s32, void*, u32, s32, s32, u32, f32, u32, s32);
 void func_00139580(void*);
@@ -77,7 +77,7 @@ void func_00139570(void*);
 void func_00139740(void*);
 s32 func_001396c0(void*);
 void func_0013cdc8(W1640Cmd*, void*);
-void func_001386e0(W1640Spr*, s32, s32, s32, s32, s32);
+void dk__Sprite__create(W1640Spr*, s32, s32, s32, s32, s32);
 void func_00138c40(W1640Spr*, s32, s32);
 f32 func_0013b2e8(void);
 void func_00138d48(f32, f32, f32, f32, W1640Spr*);

@@ -105,6 +105,6 @@ bool func_001ca9c0(W1985Self*);
 void func_001caee0(void*);
 
 // Signature-mangled stub name: only a0 (the object) is read.
-u32 u_call4_001cb278(W1985Self* self, u32, u32, u32) asm("_Z16u_call4_001cb278jjjj");
-u32 u_call4_001cb278(W1985Self* self, u32, u32, u32);  // 0x001cb278: definition moved into src/anon/unit_001ca8e0.cpp
+u32 YS__PRIZEEFFECT_PO__phase_move_po06_rot(W1985Self* self, u32, u32, u32) asm("_Z39YS__PRIZEEFFECT_PO__phase_move_po06_rotjjjj");
+u32 YS__PRIZEEFFECT_PO__phase_move_po06_rot(W1985Self* self, u32, u32, u32);  // 0x001cb278: definition moved into src/anon/unit_001ca8e0.cpp
 }

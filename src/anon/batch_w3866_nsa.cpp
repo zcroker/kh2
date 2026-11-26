@@ -84,5 +84,5 @@ static inline void vmul1dee88(W1dee88Vec* out, const W1dee88Vec* a, const W1dee8
     asm volatile(".set noreorder\n\tlqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 0(%2)\n\tvmul.wxyz $vf1, $vf1, $vf2\n\tsqc2 $vf1, 0(%0)\n\t.set reorder" : : "r"(out), "r"(a), "r"(b) : "memory");
 }
 // Writes a node's position, rotation and scale slots: from the key (world matrix times position) or from the source (world times local transform, axes normalised, lengths kept for scale).
-void func_001dee88(O1dee88* o);  // 0x001dee88: definition moved into src/anon/unit_001deb58.cpp
+void ryj__PAX__MANAGER__bind(O1dee88* o);  // 0x001dee88: definition moved into src/anon/unit_001deb58.cpp
 }

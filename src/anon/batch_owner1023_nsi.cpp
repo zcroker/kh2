@@ -3,12 +3,12 @@ extern "C" {
 void func_0023d320();
 s32 func_002888c8();
 s32 func_002535d0(s32);
-void func_00242740(s32);
+void Tz__MenuSound__SetPause(s32);
 s32 func_0028cbf8();
 s16 func_0028d0c8(s32);
 void func_00287910(s32, s32, s32);
 s32 func_00103570();
-void func_0028c878(s32, s32);
+void Tz__MenuCursor__Init(s32, s32);
 void func_002530c8();
 void func_002425d0(s32);
 struct W1595Fns { void (*f0)(); void (*f4)(); };

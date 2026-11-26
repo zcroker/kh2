@@ -265,7 +265,7 @@ static inline f32 VNormalize_w2387(QWord_w2387* v)
 }
 struct Act_w2387 { u8 pad[340]; s32 state; };
 struct Self_w2387 { u8 pad[36]; s32 f24; s32 f28; };
-QWord_w2387 actor_pos_w2387(Act_w2387*) asm("_Z16ctarget_0016bda8jjjj");
+QWord_w2387 actor_pos_w2387(Act_w2387*) asm("_Z23YS__OBJ__get_target_posjjjj");
 extern Act_w2387* D_0034e948 asm("D_0034e948");
 extern u32 D_003638d0 asm("D_003638d0");
 Act_w2387* friend_get_w2387(s32) asm("_ZN2YS6FRIEND3GetEi");
@@ -274,10 +274,10 @@ void func_001e0d68(Self_w2387*, QWord_w2387*) asm("func_001e0d68");
 /*TARGET 001e0e50*/
 /* Pick D_0034e948 or party actor 0 (by state 270/271, else a random bit), then store the
    normalized direction from this object's point to that actor's position. */
-void func_001e0e50(Self_w2387* o) asm("func_001e0e50");
+void ryj__LASER__attack(Self_w2387* o) asm("ryj__LASER__attack");
 /* Pick D_0034e948 or party actor 0 (by state 270/271, else a random bit), then store the
    normalized direction from this object's point to that actor's position. */
-void func_001e0e50(Self_w2387* o) {
+void ryj__LASER__attack(Self_w2387* o) {
     Act_w2387* p = D_0034e948;
     Act_w2387* q = friend_get_w2387(0);
     QWord_w2387 v;
@@ -366,7 +366,7 @@ union UF91 { f32 f; u32 u; };
 
 // --- 001e1070
 u8* func_001050d8(u32) asm("func_001050d8");
-void func_0018d238(u8*, u32, u32, u32, u32, s32, s32) asm("func_0018d238");
+void YS__ATTACK__ATTACK_2(u8*, u32, u32, u32, u32, s32, s32) asm("YS__ATTACK__ATTACK_2");
 UF91* func_0018da18(u8*, u8*, u32, u32) asm("func_0018da18");
 void func_0018ca10(UF91*) asm("func_0018ca10");
 // alloc_from_pool_magic
@@ -375,11 +375,11 @@ extern u8* D_00352bd0 asm("D_00352bd0");
 // Unused 16-byte local with trivial ctor/dtor: reserves the frame slot and blocks the tail call.
 struct NT16 { u32 x[4]; NT16() {} ~NT16() {} };
 /*TARGET 001e1070*/
-void func_001e1070(u32, u8* a) asm("func_001e1070");
-void func_001e1070(u32, u8* a) {
+void ryj__LASER__strike(u32, u8* a) asm("ryj__LASER__strike");
+void ryj__LASER__strike(u32, u8* a) {
     NT16 nt;
     u8* o = func_001050d8(208);
-    func_0018d238(o, *(u32*)(D_00352bd0 + 3536), 0, 1143, 0, -1, -1);
+    YS__ATTACK__ATTACK_2(o, *(u32*)(D_00352bd0 + 3536), 0, 1143, 0, -1, -1);
     UF91* m = func_0018da18(o, a, *(u32*)(o + 40), 0);
     if (m) {
         m[3].f = m[2].f = m[0].f = 0.0f;
@@ -485,30 +485,30 @@ struct ActSub { u8 pad[20]; s32 state; };
 struct Actor { u8 pad[320]; ActSub sub; u8 pad344[1072]; u32 flags; };
 struct HitCtx { u8 pad[36]; s32 mode; };
 extern u32 D_00352bd0 asm("D_00352bd0");
-s32 func_0019ba60(Actor*) asm("func_0019ba60");
+s32 YS__OBJ__is_exist(Actor*) asm("YS__OBJ__is_exist");
 const QP& func_001e0cc8(HitCtx*) asm("func_001e0cc8");
 // entry64_by_field32
 u32 func_0016bc20(Actor*, s32, s32) asm("func_0016bc20");
-void func_0018a818(HitShape*, Actor*, u32) asm("func_0018a818");
+void YS__COLLISION__set(HitShape*, Actor*, u32) asm("YS__COLLISION__set");
 s32 func_0018a550(Sph*, HitShape*) asm("func_0018a550");
 // state_dispatch_0_1_3
 s32 func_00180618(ActSub*) asm("func_00180618");
 void func_001e2660(u32, QP*) asm("func_001e2660");
 void func_002bc188(u32, QP*) asm("func_002bc188");
-void func_001e1070(HitCtx*, Actor*) asm("func_001e1070");
+void ryj__LASER__strike(HitCtx*, Actor*) asm("ryj__LASER__strike");
 void func_001e23b0(u32, QP*) asm("func_001e23b0");
 /*TARGET 001e1350*/
 // Hit check around the context position: big sphere vs downed actor (state 254-256), else small sphere.
-s32 func_001e1350(HitCtx* c, Actor* o) asm("func_001e1350");
+s32 ryj__LASER__check_obj_hit(HitCtx* c, Actor* o) asm("ryj__LASER__check_obj_hit");
 // Hit check around the context position: big sphere vs downed actor (state 254-256), else small sphere.
-s32 func_001e1350(HitCtx* c, Actor* o) {
-    if (o && func_0019ba60(o)) {
+s32 ryj__LASER__check_obj_hit(HitCtx* c, Actor* o) {
+    if (o && YS__OBJ__is_exist(o)) {
         QP pos;
         pos = func_001e0cc8(c);  // entry64_by_field32
         Sph near(pos, 50.0f);
         Sph far(pos, 200.0f);
         HitShape sh;
-        func_0018a818(&sh, o, func_0016bc20(o, 1, -1));
+        YS__COLLISION__set(&sh, o, func_0016bc20(o, 1, -1));
         if (func_0018a550(&far, &sh)) {  // state_dispatch_0_1_3
             ActSub* q = &o->sub;
             if (q->state == 254) goto down;
@@ -525,7 +525,7 @@ s32 func_001e1350(HitCtx* c, Actor* o) {
         }
     skip:
         if (func_0018a550(&near, &sh)) {  // state_dispatch_0_1_3
-            func_001e1070(c, o);
+            ryj__LASER__strike(c, o);
             func_001e23b0(D_00352bd0, &pos);
             func_002bc188(0x5b51f, &pos);
             c->mode = 6;
@@ -574,7 +574,7 @@ namespace n001e15a8 {
 // 0x001dc4e8: definition moved into src/anon/unit_001dbfd8.cpp
 
 void func_001e1500(void*) asm("func_001e1500");
-s32 func_001e1350(void*, u32) asm("func_001e1350");
+s32 ryj__LASER__check_obj_hit(void*, u32) asm("ryj__LASER__check_obj_hit");
 u32 func_0017df58(u32) asm("func_0017df58");
 extern u32 D_0034e948 asm("D_0034e948");
 extern f32 D_00349e10 asm("D_00349e10");
@@ -582,8 +582,8 @@ extern f32 D_00349e10 asm("D_00349e10");
 void func_001e15a8(u8* p) asm("func_001e15a8");
 void func_001e15a8(u8* p) {
     func_001e1500(p);
-    if (func_001e1350(p, D_0034e948)) return;
-    if (func_001e1350(p, func_0017df58(0))) return;
+    if (ryj__LASER__check_obj_hit(p, D_0034e948)) return;
+    if (ryj__LASER__check_obj_hit(p, func_0017df58(0))) return;
     f32 t = *(f32*)(p + 40);
     if (60.0f <= t) {
         *(f32*)(p + 40) = 0.0f;
@@ -684,8 +684,8 @@ struct O17 {
     u8 pad2[3568 - 3556]; s32 x3568; u8 pad3[3584 - 3572]; s32 x3584;
 };
 /*TARGET 001e17b8*/
-void func_001e17b8(O17* p) asm("func_001e17b8");
-void func_001e17b8(O17* p) {
+void ryj__LAST_XEMNUS_LASER__init(O17* p) asm("ryj__LAST_XEMNUS_LASER__init");
+void ryj__LAST_XEMNUS_LASER__init(O17* p) {
     s32 i, j;
     w_memset(p->a, 0, 160);
     w_memset(p->b, 0, 160);
@@ -708,8 +708,8 @@ void func_001e17b8(O17* p) {
 // 001e18d8 (was src/anon/auto80_199_queue.cpp)
 namespace n001e18d8 {
 /*TARGET 001e18d8*/
-void func_001e18d8(u32 a0) asm("_Z13func_001e18d8j");
-void func_001e18d8(u32 a0) {
+void ryj__LAST_XEMNUS_LASER__ExecTaskFinalizer(u32 a0) asm("_Z41ryj__LAST_XEMNUS_LASER__ExecTaskFinalizerj");
+void ryj__LAST_XEMNUS_LASER__ExecTaskFinalizer(u32 a0) {
     u32 s0 = a0;
     u32 v0 = *(u32*)(s0 + 3540);
     if (v0 != 0) {
@@ -800,8 +800,8 @@ void func_0011b6a8(M1e1988*) asm("func_0011b6a8");
 void func_0011b720(M1e1988*, f32) asm("func_0011b720");
 void func_001e0de8(void*) asm("func_001e0de8");
 /*TARGET 001e1988*/
-void func_001e1988(Self1e1988* s) asm("func_001e1988");
-void func_001e1988(Self1e1988* s)
+void ryj__LAST_XEMNUS_LASER__setup(Self1e1988* s) asm("ryj__LAST_XEMNUS_LASER__setup");
+void ryj__LAST_XEMNUS_LASER__setup(Self1e1988* s)
 {
     s32 n = 6;
     s32 idx = 0;
@@ -847,11 +847,11 @@ void func_001e1988(Self1e1988* s)
 
 // 001e1ce0 (was src/anon/batch_w15.cpp)
 namespace n001e1ce0 {
-void func_001e1988(void*) asm("func_001e1988");
+void ryj__LAST_XEMNUS_LASER__setup(void*) asm("ryj__LAST_XEMNUS_LASER__setup");
 /*TARGET 001e1ce0*/
 void func_001e1ce0(u8* p) asm("func_001e1ce0");
 void func_001e1ce0(u8* p) {
-    func_001e1988(p);
+    ryj__LAST_XEMNUS_LASER__setup(p);
     *(u32*)(p + 3520) = 1;
     *(u32*)(p + 3564) = *(u32*)(p + 3532);
     *(u32*)(p + 3560) = 0;
@@ -942,7 +942,7 @@ struct W333O {
 extern u32 D_003638d0[] asm("D_003638d0");
 extern f32 D_00349e10[] asm("D_00349e10");
 s32 func_002bc1e8(s32) asm("func_002bc1e8");
-void func_001e0e50(W333E48*) asm("func_001e0e50");
+void ryj__LASER__attack(W333E48*) asm("ryj__LASER__attack");
 s32 func_001e0fd0(W333E48*) asm("func_001e0fd0");
 void func_001e0f90(W333E48*) asm("func_001e0f90");
 /* Random pick in [0, m): seed *= 69069; seed / ceil(2^32 / m). */
@@ -958,7 +958,7 @@ void func_001e1e40(W333O* o) {
         for (s32 i = 0; i < o->n; i++) {
             W333E48* e = (W333E48*)(W333Rand(o->n) * sizeof(W333E48) + o->arru);
             if (e->w24 == 2) {
-                func_001e0e50(e);
+                ryj__LASER__attack(e);
                 break;
             }
         }
@@ -992,7 +992,7 @@ namespace n001e2130 {
 // 0x001d5f30: definition moved into src/anon/unit_001d4f40.cpp
 
 // 001e2130
-void func_001e0e50(void*) asm("func_001e0e50");
+void ryj__LASER__attack(void*) asm("ryj__LASER__attack");
 /*TARGET 001e2130*/
 void func_001e2130(u8* self) asm("func_001e2130");
 void func_001e2130(u8* self)
@@ -1002,7 +1002,7 @@ void func_001e2130(u8* self)
     for (s32 i = 0; i < n; i++)
         if (*(s32*)(*(u8**)(self + 3528) + i * 48 + 36) != 2) { all = 0; break; }
     if (!all) return;
-    for (s32 i = 0; i < *(s32*)(self + 3532); i++) func_001e0e50(*(u8**)(self + 3528) + i * 48);
+    for (s32 i = 0; i < *(s32*)(self + 3532); i++) ryj__LASER__attack(*(u8**)(self + 3528) + i * 48);
     *(s32*)(self + 3572) = 0;
     *(s32*)(self + 3520) = 6;
     *(s32*)(self + 3556) = 0;
@@ -1051,7 +1051,7 @@ namespace n001e2298 {
 
 // --------------------
 extern f32 D_00349e10 asm("D_00349e10");
-s32 func_0019ba60(u8*) asm("func_0019ba60");
+s32 YS__OBJ__is_exist(u8*) asm("YS__OBJ__is_exist");
 void func_001e1ce0(u8*) asm("func_001e1ce0");
 void func_001e1d20(u8*) asm("func_001e1d20");
 void func_001e1df0(u8*) asm("func_001e1df0");
@@ -1066,7 +1066,7 @@ void func_001e2640(u8*) asm("func_001e2640");
 /*TARGET 001e2298*/
 void func_001e2298(u8* p) asm("func_001e2298");
 void func_001e2298(u8* p) {
-    if (!func_0019ba60(*(u8**)(p + 3536))) *(s32*)(p + 3520) = 7;
+    if (!YS__OBJ__is_exist(*(u8**)(p + 3536))) *(s32*)(p + 3520) = 7;
     switch (*(u32*)(p + 3520)) {
     case 0: func_001e1ce0(p); break;
     case 1: func_001e1d20(p); break;
@@ -1280,14 +1280,14 @@ u32 func_001e2778(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a1; (void)a2; (void)a3; u
 
 // 001e2788 (was src/anon/batch_w12.cpp)
 namespace n001e2788 {
-void func_001e17b8(void*) asm("func_001e17b8");
+void ryj__LAST_XEMNUS_LASER__init(void*) asm("ryj__LAST_XEMNUS_LASER__init");
 /*TARGET 001e2788*/
 // 0x001dc9f0: definition moved into src/anon/unit_001dbfd8.cpp
 
-void func_001e2788(u8* p) asm("func_001e2788");
+void ryj__LAST_XEMNUS_LASER__LAST_XEMNUS_LASER(u8* p) asm("ryj__LAST_XEMNUS_LASER__LAST_XEMNUS_LASER");
 // 0x001dc9f0: definition moved into src/anon/unit_001dbfd8.cpp
 
-void func_001e2788(u8* p) {
+void ryj__LAST_XEMNUS_LASER__LAST_XEMNUS_LASER(u8* p) {
     *(s32*)(p + 3520) = 0;
     *(s32*)(p + 3524) = 0;
     *(s32*)(p + 3532) = 0;
@@ -1295,13 +1295,13 @@ void func_001e2788(u8* p) {
     *(s32*)(p + 3556) = 0;
     *(s32*)(p + 3564) = 0;
     *(s32*)(p + 3584) = -1;
-    func_001e17b8(p);
+    ryj__LAST_XEMNUS_LASER__init(p);
 }
 }  // namespace n001e2788
 
 // 001e27c0 (was src/anon/batch_w13.cpp)
 namespace n001e27c0 {
-void func_001e17b8(void*) asm("func_001e17b8");
+void ryj__LAST_XEMNUS_LASER__init(void*) asm("ryj__LAST_XEMNUS_LASER__init");
 extern void (*D_0035e380[])(void) asm("D_0035e380");
 /*TARGET 001e27c0*/
 void func_001e27c0(u8* p) asm("func_001e27c0");
@@ -1313,13 +1313,13 @@ void func_001e27c0(u8* p) {
     *(s32*)(p + 3556) = 0;
     *(s32*)(p + 3564) = 0;
     *(s32*)(p + 3520) = 0;
-    func_001e17b8(p);
+    ryj__LAST_XEMNUS_LASER__init(p);
 }
 }  // namespace n001e27c0
 
 // 001e27f8 (gap, written for the unit)
 namespace n001e27f8 {
-void func_001e18d8_g(u32 a0) asm("_Z13func_001e18d8j");
+void func_001e18d8_g(u32 a0) asm("_Z41ryj__LAST_XEMNUS_LASER__ExecTaskFinalizerj");
 static inline __attribute__((always_inline)) void DestroyArr(u8* t, s32 off, s32 end)
 {
     // member array of 16-byte vectors with an empty dtor, destroyed back to front
@@ -1347,14 +1347,14 @@ namespace n001e2898 {
 // ---- destructors and others (C++ part)
 
 struct E16 { u8 d[16]; ~E16() {} };
-void func_001e18d8(void*) asm("func_001e18d8");
+void ryj__LAST_XEMNUS_LASER__ExecTaskFinalizer(void*) asm("ryj__LAST_XEMNUS_LASER__ExecTaskFinalizer");
 // 00135690: moved to src/anon/unit_00134668.cpp
 
 struct Obj1e2 {
     E16 a[10];
     E16 b[10];
     E16 c[200];
-    ~Obj1e2() { func_001e18d8(this); }
+    ~Obj1e2() { ryj__LAST_XEMNUS_LASER__ExecTaskFinalizer(this); }
 };
 /*TARGET 001e2898*/
 void func_001e2898(Obj1e2* p) asm("func_001e2898");
@@ -1409,8 +1409,8 @@ void func_001e2938(void) asm("func_001e2938");
 void func_001e2998(void) asm("func_001e2998");
 extern int D_00352bd0 asm("D_00352bd0");
 /*TARGET 001e29e0*/
-void func_001e29e0(int a) asm("func_001e29e0");
-void func_001e29e0(int a) {
+void ryj__LAST_XEMNUS_LASER__Start(int a) asm("ryj__LAST_XEMNUS_LASER__Start");
+void ryj__LAST_XEMNUS_LASER__Start(int a) {
     char* r = getFieldMode_();
     char* x = create_task_(*(void**)(r + 4), 1, 20500, (void*)func_001e2938);
     *(void**)(x + 48) = (void*)func_001e2998;
@@ -1639,10 +1639,10 @@ namespace n001e2c80 {
 /*TARGET 001e2c80*/
 // 0x001ddb58: definition moved into src/anon/unit_001dd920.cpp
 
-void func_001e2c80(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z13func_001e2c80jjjj");
+void pppLoopEnd(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z10pppLoopEndjjjj");
 // 0x001ddb58: definition moved into src/anon/unit_001dd920.cpp
 
-void func_001e2c80(u32 a0, u32 a1, u32 a2, u32 a3) {
+void pppLoopEnd(u32 a0, u32 a1, u32 a2, u32 a3) {
     (void)a1;
     (void)a2;
     (void)a3;
@@ -3507,8 +3507,8 @@ static inline void ryjAssert1e66e8(const char* e, const char* f, u32 l)
     asm volatile("break"); /* assert trap */
 }
 /*TARGET 001e66e8*/
-s32 func_001e66e8(Part1e66e8* p) asm("func_001e66e8");
-s32 func_001e66e8(Part1e66e8* p)
+s32 pppPartDraw(Part1e66e8* p) asm("pppPartDraw");
+s32 pppPartDraw(Part1e66e8* p)
 {
     s32 ret = 1;
     PartTime1e66e8* td;
@@ -3668,8 +3668,8 @@ extern void* D_01d9e6e4 asm("D_01d9e6e4");
 void func_002fde18(void*, u32, u32) asm("func_002fde18");
 u8 func_001e7798(void*, void*) asm("func_001e7798");
 /*TARGET 001e6c00*/
-u8 func_001e6c00(void* p) asm("func_001e6c00");
-u8 func_001e6c00(void* p) {  // alloc_336_align_171
+u8 pppDeleteMng(void* p) asm("pppDeleteMng");
+u8 pppDeleteMng(void* p) {  // alloc_336_align_171
     func_002fde18(p, 171, 336);
     return func_001e7798(D_01d9e6e4, p);
 }

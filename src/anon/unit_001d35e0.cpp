@@ -10,17 +10,17 @@ struct LINE { VEC a, b; };
 struct BGHIT { u8 pad[16]; s32 hit; s32 id; };
 
 extern "C" {
-s32 func_00143b88(LINE*, BGHIT*, u16*, s32*, u32);
-s32 func_00143ae0(LINE*, BGHIT*, u16*);
+s32 dk__Octree__intersectLine(LINE*, BGHIT*, u16*, s32*, u32);
+s32 dk__Octree__intersectLineMap_2(LINE*, BGHIT*, u16*);
 void func_00143e50(void*, u32, u32);
 void func_001422a0(void*, u32, u32);
 u32* func_00142398(u32, u32);
 u32 func_00143f28(u32, u32);
-s32 func_0019bb98(u8*);
+s32 YS__OBJ__is_heavy(u8*);
 s32 func_0016a040(u8*);
-VEC* func_0016c028(u8*);
+VEC* YS__OBJ__get_pos(u8*);
 f32 func_0016a0a0(u8*);
-void func_0017d538(f32, VEC*, VEC*);
+void YS__MATH__VectorRotY(f32, VEC*, VEC*);
 void* func_001050d8(u32);
 void func_00105110(void*);
 extern f32 D_00349e10;
@@ -31,7 +31,7 @@ static LIST<ATTRACT> D_01d5ba20;
 extern "C" {
 
 // Line test from a to b (w forced to 1); fills o->hit / o->id. Returns whether something was hit.
-s32 func_001d35e0(BGHIT* o, const VEC& a, const VEC& b, u32 flags) {
+s32 YS__BGHIT__check_line(BGHIT* o, const VEC& a, const VEC& b, u32 flags) {
     LINE l; u16 id; VEC* pb = &l.b;
     l.a = a; *pb = b; l.a.w = 1.0f; pb->w = 1.0f;
     o->id = -1;
@@ -41,10 +41,10 @@ s32 func_001d35e0(BGHIT* o, const VEC& a, const VEC& b, u32 flags) {
         u32 f = flags & 0xffff;
         asm("" : "+r"(f));
         s32* hit = &o->hit;
-        r = func_00143b88(&l, o, &id, hit, f);
+        r = dk__Octree__intersectLine(&l, o, &id, hit, f);
     } else {
         o->hit = 0;
-        r = func_00143ae0(&l, o, &id);
+        r = dk__Octree__intersectLineMap_2(&l, o, &id);
     }
     if (r) o->id = id;
     return o->id != -1;
@@ -116,11 +116,11 @@ static inline f32 VNormalize(VEC* v) {
 extern "C" {
 
 // Adds this field's pull on object t to vel.
-void func_001d38a0(ATTRACT* f, VEC* vel, u8* t) {
-    if (func_0019bb98(t)) return;
+void YS__VACUUM__add_movement(ATTRACT* f, VEC* vel, u8* t) {
+    if (YS__OBJ__is_heavy(t)) return;
     if (f->mask & (1 << func_0016a040(t))) return;
     VEC d, b, a;
-    VSub(&d, &f->pos, func_0016c028(t));
+    VSub(&d, &f->pos, YS__OBJ__get_pos(t));
     d.y = 0.0f;
     d.w = VNormalize(&d);
     if (f->range != 0.0f && f->range <= d.w) return;
@@ -133,7 +133,7 @@ void func_001d38a0(ATTRACT* f, VEC* vel, u8* t) {
     VScale(&b, &a, k);
     VAdd(vel, vel, &b);
     if (f->swirl == 0.0f) return;
-    func_0017d538(1.5707964f, &b, &d);
+    YS__MATH__VectorRotY(1.5707964f, &b, &d);
     d = b;
     VScale(&b, &d, f->swirl);
     VAdd(vel, vel, &b);
@@ -146,7 +146,7 @@ VEC* func_001d3ac0(VEC* out, u8* b) {
     VEC acc;
     acc.w = acc.z = acc.y = acc.x = 0.0f;
     ATTRACT* n = 0;
-    while ((n = NextAttract(n))) func_001d38a0(n, &acc, b);
+    while ((n = NextAttract(n))) YS__VACUUM__add_movement(n, &acc, b);
     asm volatile("lqc2 $vf1, 0(%1)\n\tmfc1 $8, %2\n\tqmtc2 $8, $vf2\n\tvmulx.wxyz $vf1, $vf1, $vf2x\n\tsqc2 $vf1, 0(%0)" : : "r"(out), "r"(&acc), "f"(D_00349e10) : "$8", "memory");
     return out;
 }

@@ -10,18 +10,18 @@ void func_001e0670(void);
 extern char D_001e0690[];
 // 001e06b8: moved to src/anon/unit_001e0398.cpp
 s32 func_00287bc0(void);
-void func_00287d68(void);
+void Tz__MenuBase__SaveMode(void);
 void func_00252020(void);
 s32 func_00287db0(void);
 s32 func_00250fb8(void);
 void func_001039f8(void);
 void func_00251780(void);
 void func_002513b0(void);
-u32 func_00251318(void);  // 0x00251318: definition moved into src/anon/unit_00250fb8.cpp
+u32 Tz__CANA__Control(void);  // 0x00251318: definition moved into src/anon/unit_00250fb8.cpp
 void func_00225b88(void);
 void func_00225cd8(void);
 s32 func_00225aa8(void);
-s32 func_00225b00(s32);
+s32 sa__EVENT__isJumpMode(s32);
 s32 func_002263f0(s32*, void*);
 s32 func_002ef7b8(void);
 s32 func_002ef7a0(s32, s32);
@@ -57,22 +57,22 @@ void func_0028ce38(void);
 void func_00244db8(void);
 void func_00244888(void);
 s32 func_0028d008(s32);
-void func_0028cc78(s32, s32, s32, s32, s32, s32);
+void Tz__MenuCursor__Create(s32, s32, s32, s32, s32, s32);
 s32 func_002891d0(s32);
-void func_0028cf28(s32, s32);
+void Tz__MenuCursor__SetParent(s32, s32);
 void func_0028cdb8(s32);
 s32 func_00287c50(void);
-void func_0028ce98(s32, s32);
-void func_00244708(s32, s32, s32);
+void Tz__MenuCursor__SetType(s32, s32);
+void Tz__HEFT__DrawSelector(s32, s32, s32);
 struct NoTail4b8 { ~NoTail4b8() {} };
-void func_002444b8(void);  // 0x002444b8: definition moved into src/anon/unit_00242478.cpp
+void Tz__HEFT__Draw(void);  // 0x002444b8: definition moved into src/anon/unit_00242478.cpp
 extern s32 D_0035ed20;
 extern s32 D_0035ed24;
 extern s32 D_0035ed28;
 extern s32 D_0035ed2c;
 extern s32 D_0035ed30;
 s32 func_00287bc0(void);
-void func_00287d68(void);
+void Tz__MenuBase__SaveMode(void);
 void func_00246708(void);
 s32 func_00287db0(void);
 s32 func_0028acc8(s32);
@@ -81,7 +81,7 @@ void func_00246f80(void);
 void func_001039f8(void);
 void func_00246070(void);
 void func_00245eb8(void);
-u32 func_00245dd0(void);  // 0x00245dd0: definition moved into src/anon/unit_00242478.cpp
+u32 Tz__HECO__Control(void);  // 0x00245dd0: definition moved into src/anon/unit_00242478.cpp
 struct T1d40 { s16 a; s16 b; s16 c; };
 extern T1d40 D_00371d40[];
 extern s32 D_0035ed4c;
@@ -103,15 +103,15 @@ void func_0028ce38(void);
 void func_00249358(void);
 void func_00249098(void);
 s32 func_0028d008(s32);
-void func_0028cc78(s32, s32, s32, s32, s32, s32);
+void Tz__MenuCursor__Create(s32, s32, s32, s32, s32, s32);
 s32 func_002891d0(s32);
-void func_0028cf28(s32, s32);
+void Tz__MenuCursor__SetParent(s32, s32);
 void func_0028cdb8(s32);
 s32 func_00287c50(void);
-void func_0028ce98(s32, s32);
-void func_00248f50(s32, s32, s32);
+void Tz__MenuCursor__SetType(s32, s32);
+void Tz__MUMI__DrawSelector(s32, s32, s32);
 struct NoTail8d28 { ~NoTail8d28() {} };
-void func_00248d28(void);  // 0x00248d28: definition moved into src/anon/unit_00247ff0.cpp
+void Tz__MUMI__Draw(void);  // 0x00248d28: definition moved into src/anon/unit_00247ff0.cpp
 struct Ta710 { s16 a; s16 b; s16 c; };
 extern s32 D_0035ed70;
 extern s32 D_0035ed74;
@@ -135,15 +135,15 @@ void func_0028dac8(s32, s32);
 void func_0028ce38(void);
 void func_0024ab00(void);
 s32 func_0028d008(s32);
-void func_0028cc78(s32, s32, s32, s32, s32, s32);
+void Tz__MenuCursor__Create(s32, s32, s32, s32, s32, s32);
 s32 func_002891d0(s32);
-void func_0028cf28(s32, s32);
+void Tz__MenuCursor__SetParent(s32, s32);
 void func_0028cdb8(s32);
 s32 func_00287c50(void);
-void func_0028ce98(s32, s32);
+void Tz__MenuCursor__SetType(s32, s32);
 void func_0024a948(s32, s32, s32);
 struct NoTaila710 { ~NoTaila710() {} };
-void func_0024a710(void);  // 0x0024a710: definition moved into src/anon/unit_00249ef0.cpp
+void Tz__TRTE__Draw(void);  // 0x0024a710: definition moved into src/anon/unit_00249ef0.cpp
 struct Tc1a8 { s16 a; s16 b; s16 c; };
 extern Tc1a8 D_00371ff0[];
 extern s32 D_0035eda8;
@@ -165,15 +165,15 @@ void func_0028ce38(void);
 void func_0024c828(void);
 void func_0024c568(void);
 s32 func_0028d008(s32);
-void func_0028cc78(s32, s32, s32, s32, s32, s32);
+void Tz__MenuCursor__Create(s32, s32, s32, s32, s32, s32);
 s32 func_002891d0(s32);
-void func_0028cf28(s32, s32);
+void Tz__MenuCursor__SetParent(s32, s32);
 void func_0028cdb8(s32);
 s32 func_00287c50(void);
-void func_0028ce98(s32, s32);
-void func_0024c420(s32, s32, s32);
+void Tz__MenuCursor__SetType(s32, s32);
+void Tz__HBTE__DrawSelector(s32, s32, s32);
 struct NoTailc1a8 { ~NoTailc1a8() {} };
-void func_0024c1a8(void);  // 0x0024c1a8: definition moved into src/anon/unit_0024ba58.cpp
+void Tz__HBTE__Draw(void);  // 0x0024c1a8: definition moved into src/anon/unit_0024ba58.cpp
 struct Tdb28 { s16 a; s16 b; s16 c; };
 extern s32 D_0035edcc;
 extern s32 D_0035edd0;
@@ -198,15 +198,15 @@ void func_0028ce38(void);
 void func_0024e530(void);
 void func_0024dea8(void);
 s32 func_0028d008(s32);
-void func_0028cc78(s32, s32, s32, s32, s32, s32);
+void Tz__MenuCursor__Create(s32, s32, s32, s32, s32, s32);
 s32 func_002891d0(s32);
-void func_0028cf28(s32, s32);
+void Tz__MenuCursor__SetParent(s32, s32);
 void func_0028cdb8(s32);
 s32 func_00287c50(void);
-void func_0028ce98(s32, s32);
-void func_0024dd68(s32, s32, s32);
+void Tz__MenuCursor__SetType(s32, s32);
+void Tz__TTPT__DrawSelector(s32, s32, s32);
 struct NoTaildb28 { ~NoTaildb28() {} };
-void func_0024db28(void);  // 0x0024db28: definition moved into src/anon/unit_0024cda8.cpp
+void Tz__TTPT__Draw(void);  // 0x0024db28: definition moved into src/anon/unit_0024cda8.cpp
 struct T0328 { s16 a; s16 b; s16 c; };
 extern T0328 D_00372448[];
 extern s32 D_0035ee34;
@@ -228,13 +228,13 @@ void func_0028ce38(void);
 void func_00250928(void);
 void func_00250698(void);
 s32 func_0028d008(s32);
-void func_0028cc78(s32, s32, s32, s32, s32, s32);
+void Tz__MenuCursor__Create(s32, s32, s32, s32, s32, s32);
 s32 func_002891d0(s32);
-void func_0028cf28(s32, s32);
+void Tz__MenuCursor__SetParent(s32, s32);
 void func_0028cdb8(s32);
 s32 func_00287c50(void);
-void func_0028ce98(s32, s32);
-void func_00250550(s32, s32, s32);
+void Tz__MenuCursor__SetType(s32, s32);
+void Tz__LMMU__DrawSelector(s32, s32, s32);
 struct NoTail0328 { ~NoTail0328() {} };
-void func_00250328(void);  // 0x00250328: definition moved into src/anon/unit_0024fbd0.cpp
+void Tz__LMMU__Draw(void);  // 0x00250328: definition moved into src/anon/unit_0024fbd0.cpp
 }

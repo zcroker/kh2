@@ -31,11 +31,11 @@ struct W1625Cam {
 // W1625V4 func_0013f6e8(W1625V4 pos, W1625V4 goal, W1625V4 vel, f32 dt, f32 k, f32 damp, f32 rest),
 // spelled with its hidden return pointer so the four 16-byte temporaries keep fixed stack slots.
 void Spring_13f6e8(W1625V4* out, W1625V4* pos, W1625V4* goal, W1625V4* vel, f32 dt, f32 k, f32 damp, f32 rest) asm("func_0013f6e8");
-u8 func_0013f9e0(W1625V4*, W1625Cam*, W1625V4*, s32, s32);
+u8 dk__ObjCamera__collision_2(W1625V4*, W1625Cam*, W1625V4*, s32, s32);
 void func_00140480(W1625Cam*);
 void func_0015a4e0(W1625Cam*);
-u8* func_00106a18(s32);
-void func_00106de8(u8*, s32, f32);
+u8* kn__getProjection(s32);
+void kn__Projection__setFOV(u8*, s32, f32);
 u8* func_00106a60(s32);
 void func_00107300(u8*, W1625V4*, W1625Cam*, f32);
 

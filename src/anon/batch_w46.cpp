@@ -77,8 +77,8 @@ s32 func_001325c8(u8*, u32, u32);
 void func_00132ec0(u8* p, u32 id);  // 0x00132ec0: definition moved into src/anon/unit_00131418.cpp
 
 // ---- 001367e0
-void func_00168388(u32, u32, u32, u32);
-s32 func_00170cd0(void);
+void YS__FILE__ReadBack(u32, u32, u32, u32);
+s32 YS__CACHE_BUFF__IsFlushing(void);
 void func_00102448(u32, u32);
 // 001367e0: moved to src/harata/libdk/bgse.cpp
 
@@ -99,7 +99,7 @@ void func_00139510(void*);
 void func_0013e610(u32);
 struct O13e { void (**vt)(O13e*); u8 pad[432]; u32 f1b4; u32 pad2[2]; u8 sub[16]; };
 static inline void upd13e(u8* s) { if (func_00139d78(s)) func_00139510(s); }
-void func_0013e5a8(O13e* p);  // 0x0013e5a8: definition moved into src/anon/unit_0013dfb8.cpp
+void dk__LockOn__change(O13e* p);  // 0x0013e5a8: definition moved into src/anon/unit_0013dfb8.cpp
 
 // ---- 00143a48
 extern u32 D_00348804;
@@ -167,7 +167,7 @@ extern T1a8* D_01c6cb98;
 // 001a81f0: moved to src/anon/unit_001a8098.cpp
 
 // ---- 001b1360
-u8* func_001b9bc8(u8*);
+u8* YS__OBJ__Each(u8*);
 // 001b1360: moved to src/yasui/libys/lookat.cpp
 
 // ---- 001b2380: init a buffer and append it to the global list
@@ -181,7 +181,7 @@ void* func_001050d8(u32);
 Vc func_0017c030(u8*, u32*, u8);
 void func_001b6dd0(u8*, Vc);
 void func_0017f488(u8*, u32, f32, f32);
-void func_001b27f0(u32, u8* p, u8 f);  // 0x001b27f0: definition moved into src/anon/unit_001b2780.cpp
+void YS__ACTION_CARPET__party_jump(u32, u8* p, u8 f);  // 0x001b27f0: definition moved into src/anon/unit_001b2780.cpp
 
 // ---- 001cd4c0
 s32 func_001bbf00(void);
@@ -192,7 +192,7 @@ extern u8 D_00350378;
 // ---- 001df9c8
 void func_001dc840(u32);
 void func_001dc978(u32, f32);
-void func_001df9c8(u8* p);  // 0x001df9c8: definition moved into src/anon/unit_001deb58.cpp
+void ryj__PAX__MANAGER__system_delete(u8* p);  // 0x001df9c8: definition moved into src/anon/unit_001deb58.cpp
 
 // ---- 001e0750
 extern u8 D_00352b60[];
@@ -216,7 +216,7 @@ extern u32 D_0035db18;
 void func_002256c8(u8* p, u32 b);  // 0x002256c8: definition moved into src/anon/unit_00224780.cpp
 
 // ---- 0022d1d8
-s32 func_002282f0(s32);
+s32 sa__EVENT__checkStart(s32);
 u32 func_00227ca8(u8*);
 void func_0015c958(u32, u32, u32, u32, u32, u32);
 void func_0022d1d8(u8* p);  // 0022d1d8: moved to src/sasa/event_layout.cpp (linked unit)
@@ -249,7 +249,7 @@ s32 func_00263cc0(void);
 void func_00138c10(u8*, s32);
 extern s16 D_0035f0d8;
 extern u8* D_0035f0dc;
-void func_00263c60(void);  // 0x00263c60: definition moved into src/anon/unit_002632d0.cpp
+void Tz__CMenuHelp__FadeOut(void);  // 0x00263c60: definition moved into src/anon/unit_002632d0.cpp
 
 // ---- 0028e350
 void ctarget_0028e350(u8* p, u32, u32, u32);  // 0028e350: moved to src/anon/unit_0028c878.cpp
@@ -264,16 +264,16 @@ u32 func_00293148(s32 id);  // 0x00293148: definition moved into src/anon/unit_0
 s32 func_0028b040(u32);
 extern u32 D_0035f200;
 extern s32* D_0035f5ac;
-s32 func_0029c9d8(s32 n);  // 0x0029c9d8: definition moved into src/anon/unit_0029ba88.cpp
+s32 Tz__JmDic__GetCur2World(s32 n);  // 0x0029c9d8: definition moved into src/anon/unit_0029ba88.cpp
 
 // ---- 002a74c0: is any of the 64 flag bits set?
-s32 func_002a74c0(void);  // 0x002a74c0: definition moved into src/anon/unit_002a7308.cpp
+s32 Tz__JmSynthe__isEnableMaterial(void);  // 0x002a74c0: definition moved into src/anon/unit_002a7308.cpp
 
 // ---- 002c6420
 u8* func_00106a60(u32);  // buffer_get_by_index
-void func_00107368(u8*, u8*);  // vec_copy_at80_if_diff
+void kn__Camera__getPosition(u8*, u8*);  // vec_copy_at80_if_diff
 void func_00107478(u8*, u8*);  // vec_copy_at96_if_diff
-u8* func_00106a18(u32);  // buffer_get_256
+u8* kn__getProjection(u32);  // buffer_get_256
 f32 func_00106f30(u8*, u32);
 // 002c6420: moved to src/anon/unit_002c6420.cpp (linked unit)
 
@@ -287,7 +287,7 @@ void func_002ceb48(void);  // 002ceb48: moved to src/taito/minigame_base.cpp (li
 void func_001780d8(u8*);
 void func_00198860(u8*, u32);
 void func_0017a7d8(u8*);
-void func_002dd730(u8* p);  // 0x002dd730: definition moved into src/anon/unit_002dd650.cpp
+void Ti__MGJumpPlayer___OVR_initialize(u8* p);  // 0x002dd730: definition moved into src/anon/unit_002dd650.cpp
 
 // ---- 002e3ce8
 extern Vq D_01e2be20;

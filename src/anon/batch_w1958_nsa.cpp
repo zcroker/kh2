@@ -44,7 +44,7 @@ static inline f32 w1958a_vlen(const V58a* a) {
     return len;
 }
 extern "C" {
-void* func_0016c028(void*);
+void* YS__OBJ__get_pos(void*);
 void func_001904a8(V58a*, void*);
 extern V58a D_01e2bc70;
 extern V58a D_01e2bc80;
@@ -53,16 +53,16 @@ void func_002dd2d8(s32, f32*, f32*);
 f32 func_00106558(f32);
 extern s32 D_00361f60;
 extern void* D_0034e948;
-s32 func_0019ba60(s32);
-V58e func_0016bda8(s32);
-V58e func_0016af58(S58e*);
+s32 YS__OBJ__is_exist(s32);
+V58e YS__OBJ__get_target_pos(s32);
+V58e YS__OBJ__get_dir(S58e*);
 s32 func_00190140(void*);
 V58e func_00190388(void*);
 
 
-void func_002c04c8(O58a* o, V58a* out1, V58a* out2);  // 0x002c04c8: definition moved into src/anon/unit_002bebd0.cpp
+void worldmap__LockOnCamera__getEyeAt(O58a* o, V58a* out1, V58a* out2);  // 0x002c04c8: definition moved into src/anon/unit_002bebd0.cpp
 
-void func_002deba0(O58b* o, A58b* act, f32 a, f32 b);  // 0x002deba0: definition moved into src/anon/unit_002de3c8.cpp
+void Ti__ACTION_PO_JUMP__decide_way(O58b* o, A58b* act, f32 a, f32 b);  // 0x002deba0: definition moved into src/anon/unit_002de3c8.cpp
 
 // 001a4b78: moved to src/anon/unit_001a3e70.cpp
 }

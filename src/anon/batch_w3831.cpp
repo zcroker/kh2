@@ -12,5 +12,5 @@ extern "C" {
 s32 func_001178d0(W3831SlotMgr*);
 s32 func_00111e38(s32);
 
-s32 func_00117970(W3831SlotMgr* m, s32 a, s32 y, s32 z, s32 w, u8 b, s32 c, s32 d);  // 0x00117970: definition moved into src/anon/unit_001178b8.cpp
+s32 kn__Stitch__startEffect(W3831SlotMgr* m, s32 a, s32 y, s32 z, s32 w, u8 b, s32 c, s32 d);  // 0x00117970: definition moved into src/anon/unit_001178b8.cpp
 }

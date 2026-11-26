@@ -14,9 +14,9 @@ union W1610CU { W1610Cur* p; s16 h; }; extern W1610CU D_0035f5d4;
 extern u8* D_0035f5d8;
 s32 func_00139d78(void*);
 void func_00138c68(void*, s32, s32);
-void func_002a16b8(void);
-void func_002a17e8(void);
-void func_002a1220(void);
+void Tz__JmDiagram__CalcSelIdx(void);
+void Tz__JmDiagram__SetCharaName(void);
+void Tz__JmDiagram__CreateActive(void);
 void func_002a13e0(W1610Pad* p);  // 0x002a13e0: definition moved into src/anon/unit_002a0908.cpp
 extern s32 D_0035f01c;
 s32 func_00289380(s32);
@@ -43,7 +43,7 @@ s32 func_00287df0(s32, s32, s32, void (*)(void), s32);
 s32 func_00242848(s32);
 W1610Ob* func_002891b8(s32, s32);
 void func_0028fb68(s32, s32);
-void func_00263c60(void);
+void Tz__CMenuHelp__FadeOut(void);
 void func_00271e08(void);
 void func_00287c00(s32);
 s32 func_00257070(s32);
@@ -52,8 +52,8 @@ void func_00257050(s32, s32, s32);
 s32 func_00288040(void);
 void func_00288018(void);
 void func_00287da0(void);
-void func_0028f6f0(s32);
-void func_0026f0a0(void);  // 0x0026f0a0: definition moved into src/anon/unit_0026f0a0.cpp
+void Tz__SelHist__FadeOut(s32);
+void Tz__CmCustom__CtrlTop(void);  // 0x0026f0a0: definition moved into src/anon/unit_0026f0a0.cpp
 extern s32 D_0035f020;
 s32 func_002630d8(void);
 s32 func_00262e30(void);
@@ -66,7 +66,7 @@ void func_0025ffd0(void);
 void func_00260808(void);
 s32 func_00263160(void);
 void func_00263188(void);
-s32 func_002638e0(s32);
+s32 Tz__CmItem__SelCheck(s32);
 s32 func_00263720(s32);
 void func_00242618(s32, s32);
 void func_00263778(s32);
@@ -81,7 +81,7 @@ void func_002612c8(void);  // 0x002612c8: definition moved into src/anon/unit_00
 extern u8 D_00374498[];
 extern u8 D_003744a0[];
 s32 func_001a1728(s32, s32);
-void func_001a17c8(s32);
+void YS__SHEET__Free(s32);
 s32 func_00291370(u8*, s32);
 s32 func_0023aa18(void*);
 s32 func_0023aa38(void*);
@@ -93,7 +93,7 @@ s32 func_00292148(u8*, s32*, s32, s32, s32);
 s32 func_002921d0(u8*, s32*, s32, s32, s32);
 s32 func_00292258(u8*, s32*, s32, s32, s32);
 s32 func_002922e0(u8*, s32*, s32, s32, s32, s32);
-void func_00291de0(u8* w, s32 mode, s32 p2, s32 p3, s32 p4, s32 p5, s32 mask);  // 00291de0: moved to src/anon/unit_00290f78.cpp
+void Tz__ItemStat__UpdateNextStat(u8* w, s32 mode, s32 p2, s32 p3, s32 p4, s32 p5, s32 mask);  // 00291de0: moved to src/anon/unit_00290f78.cpp
 extern W1610Tb* D_0035f5ac;
 extern s16 D_0035f5b6;
 extern W1610Mdl* D_0035f5bc;
@@ -113,7 +113,7 @@ void func_0023e8d8(W1610Mdl*, s32, f32);
 void func_0023e918(W1610Mdl*, s32, f32, f32, f32);
 void func_0023e9c8(W1610Mdl*, s32, u8*);
 void func_0023ec38(W1610Mdl*, s32);
-void func_0023eb50(W1610Mdl*, s32, s32);
+void Tz__MenuObj__SetHidePart(W1610Mdl*, s32, s32);
 s32 func_0029e7b0(u16);
 void func_0023e660(W1610Mdl*, s32, s32);
 void func_0029e4c8(s32 n);  // 0x0029e4c8: definition moved into src/anon/unit_0029d008.cpp

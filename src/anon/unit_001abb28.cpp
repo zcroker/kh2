@@ -12,11 +12,11 @@ namespace c {  // common callees
 void func_00239700(void*) asm("func_00239700");
 u32 func_001ab810(void) asm("func_001ab810");
 u32 func_001ab800(void) asm("func_001ab800");
-void func_00239988(void*, u32, u32) asm("func_00239988");
+void YI__SEQUENCE__Init(void*, u32, u32) asm("YI__SEQUENCE__Init");
 void func_00239bf8(void*, u32) asm("func_00239bf8");
 s32 func_00239d10(void*) asm("func_00239d10");
 void func_0023acd8(void*) asm("func_0023acd8");
-void func_0023ade0(void*) asm("func_0023ade0");
+void YI__SEQUENCE__Draw(void*) asm("YI__SEQUENCE__Draw");
 void func_002ba2e8(s32, s32) asm("func_002ba2e8");
 }
 
@@ -24,7 +24,7 @@ namespace w24 {
 void func_00239700(u32*) asm("func_00239700");
 s32 func_001ab810(void) asm("func_001ab810");
 s32 func_001ab800(void) asm("func_001ab800");
-void func_00239988(u32*, s32, s32) asm("func_00239988");
+void YI__SEQUENCE__Init(u32*, s32, s32) asm("YI__SEQUENCE__Init");
 // 001abad8 (gap): first copy of the same constructor (C2/C1 twins are byte-identical)
 void func_001abad8(u32* p) asm("func_001abad8");
 void func_001abad8(u32* p) {
@@ -32,7 +32,7 @@ void func_001abad8(u32* p) {
     func_00239700(p + 5);
     s32 a = func_001ab810();
     s32 b = func_001ab800();
-    func_00239988(p + 5, a, b);
+    YI__SEQUENCE__Init(p + 5, a, b);
 }
 }
 
@@ -40,14 +40,14 @@ namespace w24 {
 void func_00239700(u32*) asm("func_00239700");
 s32 func_001ab810(void) asm("func_001ab810");
 s32 func_001ab800(void) asm("func_001ab800");
-void func_00239988(u32*, s32, s32) asm("func_00239988");
+void YI__SEQUENCE__Init(u32*, s32, s32) asm("YI__SEQUENCE__Init");
 void func_001abb28(u32* p) asm("func_001abb28");
 void func_001abb28(u32* p) {
     p[0] = 0;
     func_00239700(p + 5);
     s32 a = func_001ab810();
     s32 b = func_001ab800();
-    func_00239988(p + 5, a, b);
+    YI__SEQUENCE__Init(p + 5, a, b);
 }
 }
 
@@ -65,7 +65,7 @@ namespace w1745 {
 struct Inner_1abba8 { u8 pad[0x148]; s32 a; s32 b; };
 struct A_1abba8 { u32 pad[3]; s32 c; s32 d; Inner_1abba8 in; };
 void func_0023acd8(void*) asm("func_0023acd8");
-void func_0023ade0(void*) asm("func_0023ade0");
+void YI__SEQUENCE__Draw(void*) asm("YI__SEQUENCE__Draw");
 void func_001abba8(A_1abba8* a) asm("func_001abba8");
 void func_001abba8(A_1abba8* a) {
     Inner_1abba8* s = &a->in;
@@ -74,7 +74,7 @@ void func_001abba8(A_1abba8* a) {
     s32 d = a->d;
     s->a = c;
     s->b = d;
-    func_0023ade0(s);
+    YI__SEQUENCE__Draw(s);
 }
 }
 
@@ -86,8 +86,8 @@ void func_00239bf8(u8*, s32) asm("func_00239bf8");
 s32 func_00239d10(u8*) asm("func_00239d10");
 void func_001991a8(u32, s32) asm("func_001991a8");
 void func_001ac728(u8*) asm("func_001ac728");
-void func_001abbf0(S1abb* s, u8* q, Pad1abb* pad) asm("func_001abbf0");
-void func_001abbf0(S1abb* s, u8* q, Pad1abb* pad)
+void YS__CURSOR__exec(S1abb* s, u8* q, Pad1abb* pad) asm("YS__CURSOR__exec");
+void YS__CURSOR__exec(S1abb* s, u8* q, Pad1abb* pad)
 {
     switch (s->state) {
     case 1: {
@@ -138,14 +138,14 @@ void func_00239700(u8*) asm("func_00239700");
 void func_001abb28(u8*) asm("func_001abb28");
 u32 func_001ab810(void) asm("func_001ab810");
 u32 func_001ab800(void) asm("func_001ab800");
-void func_00239988(u8*, u32, u32) asm("func_00239988");
+void YI__SEQUENCE__Init(u8*, u32, u32) asm("YI__SEQUENCE__Init");
 void func_001abd30(u8* p) asm("func_001abd30");
 void func_001abd30(u8* p) {
     *(u32*)p = 0;
     func_00239700(p + 4);
     func_001abb28(p + 348);
     u32 a = func_001ab810();
-    func_00239988(p + 4, a, func_001ab800());
+    YI__SEQUENCE__Init(p + 4, a, func_001ab800());
 }
 void func_001abd90(u8* p) asm("func_001abd90");
 void func_001abd90(u8* p) {
@@ -153,7 +153,7 @@ void func_001abd90(u8* p) {
     func_00239700(p + 4);
     func_001abb28(p + 348);
     u32 x = func_001ab810();
-    func_00239988(p + 4, x, func_001ab800());
+    YI__SEQUENCE__Init(p + 4, x, func_001ab800());
 }
 }
 
@@ -184,9 +184,9 @@ void func_001abe48(u32* a0) {
 namespace w63 {
 void func_002ba2e8(s32, s32) asm("func_002ba2e8");
 void func_001ac728(u32) asm("func_001ac728");
-void func_001abbf0(u8*) asm("func_001abbf0");
-void func_001abe80(s32* a0, u32 a1, u8* a2) asm("func_001abe80");
-void func_001abe80(s32* a0, u32 a1, u8* a2) {
+void YS__CURSOR__exec(u8*) asm("YS__CURSOR__exec");
+void YS__TURNPAGE__exec(s32* a0, u32 a1, u8* a2) asm("YS__TURNPAGE__exec");
+void YS__TURNPAGE__exec(s32* a0, u32 a1, u8* a2) {
     switch (*a0) {
     case 0:
         break;
@@ -197,7 +197,7 @@ void func_001abe80(s32* a0, u32 a1, u8* a2) {
         }
         break;
     case 2:
-        func_001abbf0((u8*)a0 + 348);
+        YS__CURSOR__exec((u8*)a0 + 348);
         break;
     }
 }
@@ -214,10 +214,10 @@ u32 func_001abf00(s32* p) {
 
 namespace wcx1 {
 void func_0023acd8(u8*) asm("func_0023acd8");
-void func_0023ade0(u8*) asm("func_0023ade0");
+void YI__SEQUENCE__Draw(u8*) asm("YI__SEQUENCE__Draw");
 void func_001abba8(u8*, u32, u32) asm("func_001abba8");
-void func_001abf38(s32* p, u32 a, u32 b) asm("func_001abf38");
-void func_001abf38(s32* p, u32 a, u32 b)
+void YS__TURNPAGE__draw(s32* p, u32 a, u32 b) asm("YS__TURNPAGE__draw");
+void YS__TURNPAGE__draw(s32* p, u32 a, u32 b)
 {
     u8* q = (u8*)p + 4;
     switch (p[0]) {
@@ -227,7 +227,7 @@ void func_001abf38(s32* p, u32 a, u32 b)
         func_0023acd8(q);
         *(u32*)(q + 328) = a;
         *(u32*)(q + 332) = b;
-        func_0023ade0(q);
+        YI__SEQUENCE__Draw(q);
         break;
     case 2:
         func_001abba8((u8*)p + 348, a, b);
@@ -240,14 +240,14 @@ namespace w25 {
 void func_00239700(void*) asm("func_00239700");
 u32 func_001ab810(void) asm("func_001ab810");
 u32 func_001ab800(void) asm("func_001ab800");
-void func_00239988(void*, u32, u32) asm("func_00239988");
+void YI__SEQUENCE__Init(void*, u32, u32) asm("YI__SEQUENCE__Init");
 void func_001abfd8(u8* o) asm("func_001abfd8");
 void func_001abfd8(u8* o) {
     o[0] = 0;
     func_00239700(o + 4);
     u32 x = func_001ab810();
     u32 y = func_001ab800();
-    func_00239988(o + 4, x, y);
+    YI__SEQUENCE__Init(o + 4, x, y);
 }
 }
 
@@ -255,13 +255,13 @@ namespace w26 {
 void func_00239700(void*) asm("func_00239700");
 void* func_001ab810(void) asm("func_001ab810");
 void* font_get_image(void) asm("_ZN2YS4FONT8GetImageEv");
-void func_00239988(void*, void*, void*) asm("func_00239988");
+void YI__SEQUENCE__Init(void*, void*, void*) asm("YI__SEQUENCE__Init");
 void func_001ac028(u8* p) asm("func_001ac028");
 void func_001ac028(u8* p) {
     p[0] = 0;
     func_00239700(p + 4);
     void* a = func_001ab810();
-    func_00239988(p + 4, a, font_get_image());
+    YI__SEQUENCE__Init(p + 4, a, font_get_image());
 }
 }
 
@@ -295,7 +295,7 @@ namespace w89 {
 struct W108 { u8 on; u8 b1; u8 mode : 8; };
 extern f32 D_00350a58[4] asm("D_00350a58");
 void func_0023acd8(u8*) asm("func_0023acd8");
-void func_0023ade0(u8*) asm("func_0023ade0");
+void YI__SEQUENCE__Draw(u8*) asm("YI__SEQUENCE__Draw");
 // Positions a child widget relative to (x, y) using the alignment mode.
 void func_001ac108(W108* o, s32 x, s32 y, s32 w, s32 h) asm("func_001ac108");
 void func_001ac108(W108* o, s32 x, s32 y, s32 w, s32 h) {
@@ -307,7 +307,7 @@ void func_001ac108(W108* o, s32 x, s32 y, s32 w, s32 h) {
     func_0023acd8(p);
     *(s32*)(p + 328) = x;
     *(s32*)(p + 332) = y;
-    func_0023ade0(p);
+    YI__SEQUENCE__Draw(p);
 }
 }
 
@@ -324,14 +324,14 @@ namespace w27 {
 void func_00239700(void*) asm("func_00239700");
 u32 func_001ab810(void) asm("func_001ab810");
 u32 func_001ab800(void) asm("func_001ab800");
-void func_00239988(void*, u32, u32) asm("func_00239988");
+void YI__SEQUENCE__Init(void*, u32, u32) asm("YI__SEQUENCE__Init");
 void func_001ac208(u32* p) asm("func_001ac208");
 void func_001ac208(u32* p) {
     p[0] = 0;
     func_00239700(p + 3);
     u32 a = func_001ab810();
     u32 b = func_001ab800();
-    func_00239988(p + 3, a, b);
+    YI__SEQUENCE__Init(p + 3, a, b);
 }
 }
 
@@ -339,13 +339,13 @@ namespace w28 {
 void func_00239700(u8*) asm("func_00239700");
 u32 func_001ab810(void) asm("func_001ab810");
 u32 func_001ab800(void) asm("func_001ab800");
-void func_00239988(u8*, u32, u32) asm("func_00239988");
-void func_001ac258(u8* p) asm("func_001ac258");
-void func_001ac258(u8* p) {
+void YI__SEQUENCE__Init(u8*, u32, u32) asm("YI__SEQUENCE__Init");
+void YS__WINDOW_TUTORIAL__WINDOW_TUTORIAL(u8* p) asm("YS__WINDOW_TUTORIAL__WINDOW_TUTORIAL");
+void YS__WINDOW_TUTORIAL__WINDOW_TUTORIAL(u8* p) {
     *(u32*)p = 0;
     func_00239700(p + 12);
     u32 a = func_001ab810();
-    func_00239988(p + 12, a, func_001ab800());
+    YI__SEQUENCE__Init(p + 12, a, func_001ab800());
 }
 }
 
@@ -363,7 +363,7 @@ void wtarget_001ac2a8(u32 a, u32 b, u32 c, u32 d) {
 
 namespace w48 {
 void func_0023acd8(u8*) asm("func_0023acd8");
-void func_0023ade0(u8*) asm("func_0023ade0");
+void YI__SEQUENCE__Draw(u8*) asm("YI__SEQUENCE__Draw");
 void func_001ac310(u8* o) asm("func_001ac310");
 void func_001ac310(u8* o) {
     if (*(u32*)o == 0) return;
@@ -373,7 +373,7 @@ void func_001ac310(u8* o) {
     u32 b = *(u32*)(o + 8);
     *(u32*)(s + 328) = a;
     *(u32*)(s + 332) = b;
-    func_0023ade0(s);
+    YI__SEQUENCE__Draw(s);
 }
 }
 
@@ -385,7 +385,7 @@ struct List { Node* head; Node* tail; };
 extern u8 D_00350c50[] asm("D_00350c50");
 extern List D_01c6ced0 asm("D_01c6ced0");
 s32 func_00192048(s32) asm("func_00192048");
-void func_001a98e8(void*, s32, s32, s32, s32) asm("func_001a98e8");
+void YS__MESSAGEDRAW__MESSAGEDRAW(void*, s32, s32, s32, s32) asm("YS__MESSAGEDRAW__MESSAGEDRAW");
 s32 func_001a9808(s32, s32) asm("func_001a9808");
 void func_0031fdb0(List*, Node*, Node*) asm("func_0031fdb0");
 static inline Node* nextOf(Node* p) { return p ? p->next : D_01c6ced0.head; }
@@ -394,7 +394,7 @@ void func_001ac378(Node* self, s32 a1, s32 a2, s32 a3, s32 pri, s32 b4, s32 b8) 
     self->f4 = b4;
     self->f8 = b8;
     self->vt = D_00350c50;
-    func_001a98e8(self->sub, a1, func_00192048(a3), 0, 0);
+    YS__MESSAGEDRAW__MESSAGEDRAW(self->sub, a1, func_00192048(a3), 0, 0);
     self->f6c = func_001a9808(a2, -1);
     self->f64 = 3;
     self->f80 = a3;
@@ -429,7 +429,7 @@ void func_001ac4c0(Node* self, s32 a1, s32 a2, s32 a3, s32 pri, s32 b4, s32 b8) 
     self->f4 = b4;
     self->f8 = b8;
     self->vt = D_00350c50;
-    func_001a98e8(self->sub, a1, func_00192048(a3), 0, 0);
+    YS__MESSAGEDRAW__MESSAGEDRAW(self->sub, a1, func_00192048(a3), 0, 0);
     self->f6c = func_001a9808(a2, -1);
     self->f64 = 3;
     self->f80 = a3;
@@ -493,8 +493,8 @@ void func_001ac660(void** p) {
 
 namespace ta80 {
 typedef void (*VF)(u32, u32, u32, u32);
-void func_001ac6a0(u32 a0, u32 a1, u32 a2, u32 a3) asm("func_001ac6a0");
-void func_001ac6a0(u32 a0, u32 a1, u32 a2, u32 a3) {
+void YS__WINDOW__destroy(u32 a0, u32 a1, u32 a2, u32 a3) asm("YS__WINDOW__destroy");
+void YS__WINDOW__destroy(u32 a0, u32 a1, u32 a2, u32 a3) {
     if (a0 != 0u) {
         (*(VF*)(*(u32*)a0 + 8))(a0, a1, a2, a3);
     }
@@ -502,18 +502,18 @@ void func_001ac6a0(u32 a0, u32 a1, u32 a2, u32 a3) {
 }
 
 namespace tw2 {
-u32 func_001a9ae8(u32, u32, u32, u32) asm("func_001a9ae8");
-u32 func_001ac6d0(u32 a0, u32 a1, u32 a2, u32 a3) asm("func_001ac6d0");
-u32 func_001ac6d0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_001a9ae8(((u32)(a0) + 12u), ((u32)(*(u32*)((u32)(a0) + 4u))), ((u32)(*(u32*)((u32)(a0) + 8u))), ((u32)(*(u32*)((u32)(((u32)(*(u32*)((u32)(a0) + 108u)))) + 0u))));
+u32 YS__MESSAGEDRAW__draw(u32, u32, u32, u32) asm("YS__MESSAGEDRAW__draw");
+u32 YS__WINDOW__draw(u32 a0, u32 a1, u32 a2, u32 a3) asm("YS__WINDOW__draw");
+u32 YS__WINDOW__draw(u32 a0, u32 a1, u32 a2, u32 a3) {
+    return YS__MESSAGEDRAW__draw(((u32)(a0) + 12u), ((u32)(*(u32*)((u32)(a0) + 4u))), ((u32)(*(u32*)((u32)(a0) + 8u))), ((u32)(*(u32*)((u32)(((u32)(*(u32*)((u32)(a0) + 108u)))) + 0u))));
 }
 }
 
 namespace w11 {
 void func_001991a8(s32, u32) asm("func_001991a8");
 struct P1ac { u8 pad[112]; s32 st; u8 pad2[12]; u32 id; };
-void func_001ac700(P1ac* p) asm("func_001ac700");
-void func_001ac700(P1ac* p) {
+void YS__WINDOW__close(P1ac* p) asm("YS__WINDOW__close");
+void YS__WINDOW__close(P1ac* p) {
     p->st = 4;
     func_001991a8(34, p->id);
 }
@@ -634,7 +634,7 @@ void func_001ac028(u32) asm("func_001ac028");
 void func_00239700(u32) asm("func_00239700");
 u32 func_001ab810(void) asm("func_001ab810");
 u32 func_001ab800(void) asm("func_001ab800");
-void func_00239988(u32, u32, u32) asm("func_00239988");
+void YI__SEQUENCE__Init(u32, u32, u32) asm("YI__SEQUENCE__Init");
 void func_00239bf8(u32, u32) asm("func_00239bf8");
 void func_001aa668(u32, u32) asm("func_001aa668");
 extern u8 D_00350bb0[] asm("D_00350bb0");
@@ -661,12 +661,12 @@ void func_001ac970(u32 self, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32
     *(u32*)(self + 2920) = 0;
     {
         u32 a = func_001ab810();
-        func_00239988(self + 132, a, func_001ab800());
+        YI__SEQUENCE__Init(self + 132, a, func_001ab800());
     }
     func_00239bf8(self + 132, D_00350a38[*(u32*)(self + 476)].c[0]);
     for (s32 i = 0; i < 4; i++) {
         u32 a = func_001ab810();
-        func_00239988(self + 1544 + i * 344, a, func_001ab800());
+        YI__SEQUENCE__Init(self + 1544 + i * 344, a, func_001ab800());
     }
     func_001aa668(self + 12, self);
 }
@@ -680,14 +680,14 @@ void func_001ac028(u8*) asm("func_001ac028");
 void func_00239700(u8*) asm("func_00239700");
 u32 func_001ab810(void) asm("func_001ab810");
 u32 func_001ab800(void) asm("func_001ab800");
-void func_00239988(u8*, u32, u32) asm("func_00239988");
+void YI__SEQUENCE__Init(u8*, u32, u32) asm("YI__SEQUENCE__Init");
 void func_00239bf8(u8*, u8) asm("func_00239bf8");
 void func_001aa668(u8*, u8*) asm("func_001aa668");
 extern u8 D_00350bb0[] asm("D_00350bb0");
 extern u8 D_0034e8a8[] asm("D_0034e8a8");
 extern u8 D_00350a38[][3] asm("D_00350a38");
-void func_001aca98(u8* p, u32 a1, u32 a2, u32 a3, s32 a4, u32 a5, u32 a6, u32 kind) asm("func_001aca98");
-void func_001aca98(u8* p, u32 a1, u32 a2, u32 a3, s32 a4, u32 a5, u32 a6, u32 kind) {
+void YS__WINDOW_BASE__WINDOW_BASE(u8* p, u32 a1, u32 a2, u32 a3, s32 a4, u32 a5, u32 a6, u32 kind) asm("YS__WINDOW_BASE__WINDOW_BASE");
+void YS__WINDOW_BASE__WINDOW_BASE(u8* p, u32 a1, u32 a2, u32 a3, s32 a4, u32 a5, u32 a6, u32 kind) {
     func_001ac378(p, a1, a2, a3, a4, a5, a6);
     *(u32*)p = (u32)D_00350bb0;
     func_002395b8(p + 132);
@@ -704,12 +704,12 @@ void func_001aca98(u8* p, u32 a1, u32 a2, u32 a3, s32 a4, u32 a5, u32 a6, u32 ki
     *(u32*)(p + 2920) = 0;
     {
         u32 x = func_001ab810();
-        func_00239988(p + 132, x, func_001ab800());
+        YI__SEQUENCE__Init(p + 132, x, func_001ab800());
     }
     func_00239bf8(p + 132, D_00350a38[*(u32*)(p + 476)][0]);
     for (s32 i = 0; i < 4; i++) {
         u32 x = func_001ab810();
-        func_00239988(p + 1544 + i * 344, x, func_001ab800());
+        YI__SEQUENCE__Init(p + 1544 + i * 344, x, func_001ab800());
     }
     func_001aa668(p + 12, p);
 }
@@ -739,13 +739,13 @@ s32 func_00239d10(void*) asm("func_00239d10");
 void func_00239bf8(void*, u32) asm("func_00239bf8");
 void func_001aa558(void*) asm("func_001aa558");
 void func_001abdf0(void*, s32) asm("func_001abdf0");
-void func_001abe80(void*, T*, s32) asm("func_001abe80");
+void YS__TURNPAGE__exec(void*, T*, s32) asm("YS__TURNPAGE__exec");
 void func_001ac728(T*) asm("func_001ac728");
 void func_001ac0d0(void*) asm("func_001ac0d0");
 s32 func_001ac1d0(void*) asm("func_001ac1d0");
 inline static u8 isEnd(Sub* s) { return s->state == 3; }
-void func_001acbc0(T* t) asm("func_001acbc0");
-void func_001acbc0(T* t)
+void YS__WINDOW_BASE__update(T* t) asm("YS__WINDOW_BASE__update");
+void YS__WINDOW_BASE__update(T* t)
 {
     s32 r = func_00167f18(0);
     int new_var;
@@ -772,7 +772,7 @@ void func_001acbc0(T* t)
         Sub* s = t->f1192;
         new_var = 0 == s;
         if (new_var) {
-            func_001abe80(t->s480, t, r);
+            YS__TURNPAGE__exec(t->s480, t, r);
             return;
         }
         if (isEnd(s)) {
@@ -802,8 +802,8 @@ void func_001acbc0(T* t)
 
 namespace flex {
 u32 func_001abe48(u32, u32, u32, u32) asm("_Z16ctarget_001abe48jjjj");
-u32 func_001acd78(u32 a0, u32 a1, u32 a2, u32 a3) asm("func_001acd78");
-u32 func_001acd78(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 YS__WINDOW_BASE__page_end(u32 a0, u32 a1, u32 a2, u32 a3) asm("YS__WINDOW_BASE__page_end");
+u32 YS__WINDOW_BASE__page_end(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r = func_001abe48(a0 + 480, a1, a2, a3);
     *(u32*)(a0 + 112) = 3;
     return r;
@@ -812,9 +812,9 @@ u32 func_001acd78(u32 a0, u32 a1, u32 a2, u32 a3) {
 
 namespace tiny {
 union BD_VALUE { s32 i; f32 f; void* p; u32 u; };
-void func_001ac700(BD_VALUE*) asm("func_001ac700");
-void func_001acda8(BD_VALUE* bd) asm("func_001acda8");
-void func_001acda8(BD_VALUE* bd) { func_001ac700(bd); }
+void YS__WINDOW__close(BD_VALUE*) asm("YS__WINDOW__close");
+void YS__WINDOW_BASE__close(BD_VALUE* bd) asm("YS__WINDOW_BASE__close");
+void YS__WINDOW_BASE__close(BD_VALUE* bd) { YS__WINDOW__close(bd); }
 }
 
 namespace wcx2 {
@@ -824,10 +824,10 @@ void func_00236788(u32) asm("func_00236788");
 void func_002367a0(void) asm("func_002367a0");
 void func_0023bc58(u8*, u32, u32) asm("func_0023bc58");
 void func_0023acd8(u8*) asm("func_0023acd8");
-void func_0023ade0(u8*) asm("func_0023ade0");
+void YI__SEQUENCE__Draw(u8*) asm("YI__SEQUENCE__Draw");
 void func_001ac108(u8*, u32, u32, u32, u32) asm("func_001ac108");
-void func_001ac6d0(Obj41*) asm("func_001ac6d0");
-void func_001abf38(u8*, u32, u32) asm("func_001abf38");
+void YS__WINDOW__draw(Obj41*) asm("YS__WINDOW__draw");
+void YS__TURNPAGE__draw(u8*, u32, u32) asm("YS__TURNPAGE__draw");
 void func_00239bf8(u8*, s32) asm("func_00239bf8");
 void func_001acdc0(Obj41* o, u32 a, u32 b, u32 c, u32 d, u32 e) asm("func_001acdc0");
 void func_001acdc0(Obj41* o, u32 a, u32 b, u32 c, u32 d, u32 e)
@@ -839,15 +839,15 @@ void func_001acdc0(Obj41* o, u32 a, u32 b, u32 c, u32 d, u32 e)
     func_0023acd8(s);
     *(u32*)(s + 328) = a;
     *(u32*)(s + 332) = b;
-    func_0023ade0(s);
+    YI__SEQUENCE__Draw(s);
     if (o->n112 > 0) func_001ac108((u8*)o + 1196, a, b, o->p92, o->p96);
     if ((u32)(o->n112 - 1) < 5) {
-        func_001ac6d0(o);
-        if (o->n112 >= 2) func_001abf38((u8*)o + 480, c, d);
+        YS__WINDOW__draw(o);
+        if (o->n112 >= 2) YS__TURNPAGE__draw((u8*)o + 480, c, d);
         s32 i;
         for (i = 0; i < o->n2920; i++) {
             func_0023acd8((u8*)o + 1544 + i * 344);
-            func_0023ade0((u8*)o + 1544 + i * 344);
+            YI__SEQUENCE__Draw((u8*)o + 1544 + i * 344);
         }
         for (i = o->n2920; i < 4; i++) func_00239bf8((u8*)o + 1544 + i * 344, 0);
         o->n2920 = 0;
@@ -860,8 +860,8 @@ void func_001acdc0(Obj41* o, u32 a, u32 b, u32 c, u32 d, u32 e)
 namespace w41 {
 struct W41Rect { u32 f0, x, y; u8 pad[0x50]; u32 w, h, mode; };
 void func_001acdc0(W41Rect*, u32, u32, u32, u32, u32) asm("func_001acdc0");
-void func_001acf38(W41Rect* r) asm("func_001acf38");
-void func_001acf38(W41Rect* r) {
+void YS__WINDOW_BASE__draw(W41Rect* r) asm("YS__WINDOW_BASE__draw");
+void YS__WINDOW_BASE__draw(W41Rect* r) {
     u32 dummy;  // dead store after the second call keeps it from being a tail call
     if (r->mode == 2) {
         func_001acdc0(r, r->x, r->y + r->h / 2, r->x + r->w / 2, r->y + r->h, 0);
@@ -877,8 +877,8 @@ s32 func_00239bf8(void*, u32) asm("func_00239bf8");
 struct B3 { u8 a, b, c; };
 extern B3 D_00350a38[] asm("D_00350a38");
 // Only the first arm is a tail call: the function falls off the end otherwise.
-s32 func_001acfb0(u8* o, s32 n) asm("func_001acfb0");
-s32 func_001acfb0(u8* o, s32 n) {
+s32 YS__WINDOW_BASE__set_type(u8* o, s32 n) asm("YS__WINDOW_BASE__set_type");
+s32 YS__WINDOW_BASE__set_type(u8* o, s32 n) {
     if (n == *(s32*)(o + 476)) return;
     *(s32*)(o + 476) = n;
     if (*(u32*)(o + 112) == 0) return func_00239bf8(o + 132, D_00350a38[n].a);
@@ -890,8 +890,8 @@ namespace w42 {
 void wtarget_00239bf8(void*, s32) asm("_Z16wtarget_00239bf8jjjj");
 // Append an entry at a 4.4 fixed-point position.
 struct E344 { u8 pad[328]; s32 x; s32 y; u8 pad2[8]; };
-void func_001ad020(u8* p, s32 x, s32 y, s32 a3) asm("func_001ad020");
-void func_001ad020(u8* p, s32 x, s32 y, s32 a3)
+void YS__WINDOW_BASE__draw_anime(u8* p, s32 x, s32 y, s32 a3) asm("YS__WINDOW_BASE__draw_anime");
+void YS__WINDOW_BASE__draw_anime(u8* p, s32 x, s32 y, s32 a3)
 {
     E344* e = &((E344*)(p + 1544))[(*(s32*)(p + 2920))++];
     wtarget_00239bf8(e, a3 + 10);
@@ -958,7 +958,7 @@ void func_001ad228(u8* p, u32 b) {
 namespace wcx3 {
 extern u8 D_00350ab0[] asm("D_00350ab0");
 void func_001ac970(u8*, s32, s32, u32, s32, s32, s32, s32) asm("func_001ac970");
-void func_001ac258(u8*) asm("func_001ac258");
+void YS__WINDOW_TUTORIAL__WINDOW_TUTORIAL(u8*) asm("YS__WINDOW_TUTORIAL__WINDOW_TUTORIAL");
 void func_00239700(u8*) asm("func_00239700");
 void func_001a9970(u8*, s32) asm("func_001a9970");
 void func_001ad280(u8* p, u32 a) asm("func_001ad280");
@@ -966,7 +966,7 @@ void func_001ad280(u8* p, u32 a)
 {
     func_001ac970(p, 0, 6, a, 0, 256, 52, 4);
     *(void**)p = D_00350ab0;
-    func_001ac258(p + 2924);
+    YS__WINDOW_TUTORIAL__WINDOW_TUTORIAL(p + 2924);
     u8* q = p + 3280;
     for (s32 k = 3; k != -1; k--) { func_00239700(q); q += 344; }
     func_001a9970(p + 12, 16);
@@ -978,7 +978,7 @@ void func_001ad330(u8* p, u32 a)
 {
     func_001ac970(p, 0, 6, a, 0, 256, 52, 4);
     *(void**)p = D_00350ab0;
-    func_001ac258(p + 2924);
+    YS__WINDOW_TUTORIAL__WINDOW_TUTORIAL(p + 2924);
     u8* q = p + 3280;
     for (s32 k = 3; k != -1; k--) { func_00239700(q); q += 344; }
     func_001a9970(p + 12, 16);
@@ -990,8 +990,8 @@ void func_001ad330(u8* p, u32 a)
 namespace w29 {
 void func_001acdc0(u32*, u32, u32, u32, u32, u32) asm("func_001acdc0");
 void func_001ac310(u8*) asm("func_001ac310");
-void func_001ad3e0(u32* p) asm("func_001ad3e0");
-void func_001ad3e0(u32* p) {
+void YS__WINDOW_TUTORIAL__draw(u32* p) asm("YS__WINDOW_TUTORIAL__draw");
+void YS__WINDOW_TUTORIAL__draw(u32* p) {
     func_001acdc0(p, p[1], p[2], p[1] + (p[23] >> 1), p[2] + (p[24] >> 1), 432);
     func_001ac310((u8*)p + 2924);
 }
@@ -1001,7 +1001,7 @@ namespace w43 {
 void func_001ac970(u8*, u32, u32, u32, u32, u32, u32, u32) asm("func_001ac970");
 extern void* D_00350b30[] asm("D_00350b30");
 void func_001ac078(void*, s32, s32, s32) asm("_Z16wtarget_001ac078jjjj");
-void func_001aa388(void*, u32) asm("func_001aa388");
+void YS__MESSAGEDRAW__set_page(void*, u32) asm("YS__MESSAGEDRAW__set_page");
 void func_001ad430(u8* p, u32 a) asm("func_001ad430");
 void func_001ad430(u8* p, u32 a) {
     func_001ac970(p, 3, 5, a, 0, 256, 336, 0);
@@ -1010,7 +1010,7 @@ void func_001ad430(u8* p, u32 a) {
     *(void***)p = D_00350b30;
     func_001ac078(p + 1196, 1, 1, 0);
     u8* q = p + 12;
-    func_001aa388(q, *(u32*)(q + 12));
+    YS__MESSAGEDRAW__set_page(q, *(u32*)(q + 12));
 }
 }
 
@@ -1018,7 +1018,7 @@ namespace w44c {
 void func_001ac970(u8*, u32, u32, u32, u32, u32, u32, u32) asm("func_001ac970");
 extern u8 D_00350b30[] asm("D_00350b30");
 void func_001ac078(void*, s32, s32, s32) asm("_Z16wtarget_001ac078jjjj");
-void func_001aa388(void*, u32) asm("func_001aa388");
+void YS__MESSAGEDRAW__set_page(void*, u32) asm("YS__MESSAGEDRAW__set_page");
 void func_001ad4a8(u8* o, u32 a) asm("func_001ad4a8");
 void func_001ad4a8(u8* o, u32 a) {
     func_001ac970(o, 3, 5, a, 0, 256, 336, 0);
@@ -1027,7 +1027,7 @@ void func_001ad4a8(u8* o, u32 a) {
     *(void**)o = D_00350b30;
     func_001ac078(o + 1196, 1, 1, 0);
     u8* b = o + 12;
-    func_001aa388(b, *(u32*)(b + 12));
+    YS__MESSAGEDRAW__set_page(b, *(u32*)(b + 12));
 }
 }
 

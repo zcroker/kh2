@@ -1,7 +1,7 @@
 #include "libretto.hpp"
 
 extern "C" void func_00170dd0(...);
-extern "C" void func_002be0b0(...);  // quad_entry_process
+extern "C" void worldmap__Libretto__leaveObj(...);  // quad_entry_process
 extern void* YS_CACHE_BUFF_Alloc(char const*, s32) asm("_ZN2YS10CACHE_BUFF5AllocEPKci");
 
 namespace worldmap {

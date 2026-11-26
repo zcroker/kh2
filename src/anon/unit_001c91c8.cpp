@@ -9,8 +9,8 @@ void func_0017f488(void*, s32, f32, f32) asm("func_0017f488");
 void func_0017f5e0(void*, s32, s32, f32, f32) asm("func_0017f5e0");
 extern u8* D_00352130 asm("D_00352130");
 struct Elem64 { u8 p8[8]; void* h; u8 d[52]; ~Elem64() {} } __attribute__((aligned(16)));
-void func_001c91c8(void* unused, u8* p) asm("func_001c91c8");
-void func_001c91c8(void* unused, u8* p) {
+void YS__ACTION_LKDASH__start(void* unused, u8* p) asm("YS__ACTION_LKDASH__start");
+void YS__ACTION_LKDASH__start(void* unused, u8* p) {
     f32 tmp[4] __attribute__((aligned(16)));
     f32* dst = (f32*)(p + 32);
     f32 s = *(f32*)(*(u8**)(p + 300) + 36);
@@ -68,8 +68,8 @@ void func_001c9110(void*, Ob*) asm("func_001c9110");
 void func_0017f540(void*, s32, f32, f32) asm("func_0017f540");
 void func_0017f5e0(void*, s32, s32, f32, f32) asm("func_0017f5e0");
 void func_0016bd60(Ob*, s32) asm("func_0016bd60");
-void func_001c92a0(void* x, Ob* o) asm("func_001c92a0");
-void func_001c92a0(void* x, Ob* o)
+void YS__ACTION_LKDASH__control(void* x, Ob* o) asm("YS__ACTION_LKDASH__control");
+void YS__ACTION_LKDASH__control(void* x, Ob* o)
 {
     QWord v;
     v = o->q32;
@@ -115,7 +115,7 @@ namespace n001c94c8 {
 struct V94c8 { f32 x, y, z, w; } __attribute__((aligned(16)));
 extern u8* D_00352130 asm("D_00352130");
 extern f32 D_00349e10 asm("D_00349e10");
-V94c8 func_00184540(u8*, f32, f32) asm("func_00184540");
+V94c8 kn__MotionPrototype0__calcLimitValue(u8*, f32, f32) asm("kn__MotionPrototype0__calcLimitValue");
 u32 func_001c90f0(void*, u8*) asm("_Z13func_001c90f0jjjj");
 void func_0017f540(u8*, s32, f32, f32) asm("_ZN2YS6MOTION6changeEiff");
 void func_0017f5e0(u8*, s32, s32, f32, f32) asm("_ZN2YS6MOTION4pushEiffPFvPNS_3OBJEE");
@@ -143,7 +143,7 @@ V94c8 func_001c94c8(void* self, u8* o) {
         }
         v = *(f32*)(D_00352130 + 196);
     }
-    return func_00184540(o, v, v);
+    return kn__MotionPrototype0__calcLimitValue(o, v, v);
 }
 }  // namespace n001c94c8
 
@@ -163,7 +163,7 @@ struct V9608 {
         return len;
     }
 } __attribute__((aligned(16)));
-void func_0017c4c8(u8*, V9608) asm("func_0017c4c8");
+void YS__OBJ__prepare_jump(u8*, V9608) asm("YS__OBJ__prepare_jump");
 void func_0016bd60(u8*, s32) asm("_ZN2YS3OBJ13change_actionENS_6ACTION2IDE");
 void func_0017f488(u8*, s32, f32, f32) asm("func_0017f488");
 void func_001c9608(void* self, u8* o) asm("func_001c9608");
@@ -172,7 +172,7 @@ void func_001c9608(void* self, u8* o) {
     v = *(V9608*)(o + 2144);
     v.y = 0.0f;
     v.w = v.normalize();
-    func_0017c4c8(o, v);
+    YS__OBJ__prepare_jump(o, v);
     func_0016bd60(o, 26);
     func_0017f488(o + 320, 4, 8.0f, 0.0f);
     *(u32*)(o + 264) |= 0x4000000;
@@ -203,20 +203,20 @@ struct Mtx {
         return *this;
     }
 } __attribute__((aligned(16)));
-void func_0017c4c8(void*, Vec4) asm("func_0017c4c8");
+void YS__OBJ__prepare_jump(void*, Vec4) asm("YS__OBJ__prepare_jump");
 void func_0017f488(void*, s32, f32, f32) asm("func_0017f488");
 Vec4 func_0017c030(u8*, s32*, u8) asm("func_0017c030");
-void func_001c96c8(void* a, u8* o, u8 f) asm("func_001c96c8");
-void func_001c96c8(void* a, u8* o, u8 f)
+void YS__ACTION_LKDASH__party_jump(void* a, u8* o, u8 f) asm("YS__ACTION_LKDASH__party_jump");
+void YS__ACTION_LKDASH__party_jump(void* a, u8* o, u8 f)
 {
     s32 x;
     Vec4 v = func_0017c030(o, &x, f);
     if (*(u32*)(o + 268) & 0x10) {
         v.w = *(f32*)(*(u8**)(o + 300) + 36);
-        func_0017c4c8(o, v);
+        YS__OBJ__prepare_jump(o, v);
         o[1300] = 5;
     } else {
-        func_0017c4c8(o, v);
+        YS__OBJ__prepare_jump(o, v);
     }
     func_0017f488(o + 320, x, 0.0f, 0.0f);
     *(s32*)(o + 256) = 4;

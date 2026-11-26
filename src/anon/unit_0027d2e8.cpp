@@ -323,7 +323,7 @@ void func_0027d9f0(void) {
     u32 v = func_00290610(s0);
     D_0035f238 = s0;
     v = func_00103eb0();
-    func_00102818(*(u32*)(v + 4), 0, 2000, (u32)func_0027dab8, 4096);
+    TASK_MANAGER__create_thread(*(u32*)(v + 4), 0, 2000, (u32)func_0027dab8, 4096);
     func_0014acd8();
 }
 }  // namespace n0027d9f0
@@ -357,7 +357,7 @@ void func_0027dab8(u32 a0) {
     func_0027db28();
     func_00242618(11, 1);
     while (true) {
-        func_00236d60();  // clear_64_entries_24
+        YI__IMAGE_CACHE__Clear();  // clear_64_entries_24
         if (func_0027db58() != 0) {
             break;
         }
@@ -472,8 +472,8 @@ u8* func_001063f0(u32, u32) asm("func_001063f0");
 void func_003237e0(void*) asm("func_003237e0");
 typedef u8* (*AllocFn)(void*, u32, u32);
 /*TARGET 0027dc40*/
-void func_0027dc40(void) asm("func_0027dc40");
-void func_0027dc40(void) {
+void Tz__SimpleStat__Init(void) asm("Tz__SimpleStat__Init");
+void Tz__SimpleStat__Init(void) {
     VObj* h = D_00347f80->a;
     u8* o = ((AllocFn*)h->vt)[0](h, 408, 0);
     *(u32*)(o + 12) = 0;

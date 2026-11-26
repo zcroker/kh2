@@ -39,7 +39,7 @@ void func_00177710(void) asm("func_00177710");
 void func_001a3710(void) asm("func_001a3710");
 void func_00287b18(s32, s32) asm("func_00287b18");
 void func_00253818(s32) asm("func_00253818");
-void func_00259350(s32) asm("func_00259350");
+void Tz__CmComm__DataLoad(s32) asm("Tz__CmComm__DataLoad");
 void func_0028d068(s32, s32) asm("func_0028d068");
 s32 func_001a8bd0(s32) asm("func_001a8bd0");
 void func_00280eb0(void*, s32) asm("func_00280eb0");
@@ -53,21 +53,21 @@ void func_00239700(void*) asm("func_00239700");
 void func_0028b9b0(void*) asm("func_0028b9b0");
 void func_0028d140(void*) asm("func_0028d140");
 void func_0031a838(void*) asm("func_0031a838");
-void func_00323110(void*) asm("func_00323110");
+void sa__MUSICAL_SCORE2__init(void*) asm("sa__MUSICAL_SCORE2__init");
 void func_00285828(void) asm("func_00285828");
 void func_0025f698(void) asm("func_0025f698");
 void func_002675e8(void) asm("func_002675e8");
 void func_0026ba48(void) asm("func_0026ba48");
-void func_00264388(void) asm("func_00264388");
+void Tz__CmStat__Init(void) asm("Tz__CmStat__Init");
 void func_0026ec98(void) asm("func_0026ec98");
 void func_00276fe8(void) asm("func_00276fe8");
-void func_0027c4d8(void) asm("func_0027c4d8");
-void func_00282f68(void) asm("func_00282f68");
-void func_002926c0(s32) asm("func_002926c0");
-void func_002815d8(void) asm("func_002815d8");
-void func_0027dc40(void) asm("func_0027dc40");
+void Tz__CmConfig__Init(void) asm("Tz__CmConfig__Init");
+void Tz__CmTutorial__Init(void) asm("Tz__CmTutorial__Init");
+void Tz__UnitLoad__Init(s32) asm("Tz__UnitLoad__Init");
+void Tz__ItemPicDraw__Init(void) asm("Tz__ItemPicDraw__Init");
+void Tz__SimpleStat__Init(void) asm("Tz__SimpleStat__Init");
 void func_00293708(void) asm("func_00293708");
-void func_00293240(void) asm("func_00293240");
+void Tz__ChgWeapon__Init(void) asm("Tz__ChgWeapon__Init");
 void func_002936d8(void) asm("func_002936d8");
 void func_00257c78(void) asm("func_00257c78");
 void func_00254568(void) asm("func_00254568");
@@ -77,7 +77,7 @@ s32 func_00283b78(void) asm("func_00283b78");
 struct Th3ba8 { s32 f0; s32 f4; };
 Th3ba8* func_00103eb0(void) asm("func_00103eb0");
 void func_00254648(void) asm("func_00254648");
-void func_00102818(s32, s32, s32, void (*)(void), s32) asm("func_00102818");
+void TASK_MANAGER__create_thread(s32, s32, s32, void (*)(void), s32) asm("TASK_MANAGER__create_thread");
 
 // Allocated from the main heap; the allocator gets this function's return address.
 struct MainObj {
@@ -104,7 +104,7 @@ struct Lay11084 { u8 b[11084]; Lay11084() { func_00290b00(this); } static void* 
 struct Obj56 { u8 b[56]; Obj56(s32 a, s32 c) { func_002889f0(this, a, c); } static void* operator new(u32 n) { return func_00288be8(n); } };
 struct Obj52 : MainObj { u8 b[52]; Obj52() { func_0028b9b0(this); } };
 struct Obj444 : MenuObj { u8 b[444]; Obj444() { func_0028d140(this); } };
-struct Lay47212 { u8 b[47212]; Lay47212() { func_00323110(this); } static void* operator new(u32 n, s32 sys) { return func_001063c0(n, sys); } };
+struct Lay47212 { u8 b[47212]; Lay47212() { sa__MUSICAL_SCORE2__init(this); } static void* operator new(u32 n, s32 sys) { return func_001063c0(n, sys); } };
 
 extern Obj88* D_0035f010 asm("D_0035f010");
 extern Obj4196* D_0035f014 asm("D_0035f014");
@@ -136,7 +136,7 @@ void func_00253ba8(void) {
     func_001a3710();
     func_00287b18(38, 3);
     func_00253818(2);
-    func_00259350(2);
+    Tz__CmComm__DataLoad(2);
 
     D_0035ef64 = 0;
     D_0035ef68 = 1;
@@ -170,16 +170,16 @@ void func_00253ba8(void) {
     func_0025f698();
     func_002675e8();
     func_0026ba48();
-    func_00264388();
+    Tz__CmStat__Init();
     func_0026ec98();
     func_00276fe8();
-    func_0027c4d8();
-    func_00282f68();
-    func_002926c0(0);
-    func_002815d8();
-    func_0027dc40();
+    Tz__CmConfig__Init();
+    Tz__CmTutorial__Init();
+    Tz__UnitLoad__Init(0);
+    Tz__ItemPicDraw__Init();
+    Tz__SimpleStat__Init();
     func_00293708();
-    func_00293240();
+    Tz__ChgWeapon__Init();
     func_002936d8();
     func_00257c78();
     func_00254568();
@@ -189,7 +189,7 @@ void func_00253ba8(void) {
     D_0035ef70 = 0;
     D_0035f05b = func_00283b78() != 0;
     D_0035f05c = 0;
-    func_00102818(func_00103eb0()->f4, 0, 2000, func_00254648, 4096);
+    TASK_MANAGER__create_thread(func_00103eb0()->f4, 0, 2000, func_00254648, 4096);
 }
 }  // namespace n00253ba8
 
@@ -249,9 +249,9 @@ void func_002643d0(void) asm("func_002643d0");
 void func_00277008(void) asm("func_00277008");
 void func_0027c508(void) asm("func_0027c508");
 void func_002830b8(void) asm("func_002830b8");
-void func_0028f3e8(void) asm("func_0028f3e8");
+void Tz__SelHist__Exit(void) asm("Tz__SelHist__Exit");
 void func_002639f8(void) asm("func_002639f8");
-void func_002927b8(void) asm("func_002927b8");
+void Tz__UnitLoad__Exit(void) asm("Tz__UnitLoad__Exit");
 void func_002816f0(void) asm("func_002816f0");
 void func_0027dd18(void) asm("func_0027dd18");
 void func_002932f8(void) asm("func_002932f8");
@@ -434,9 +434,9 @@ void ExitPartyImpl_4020(void) {
     func_00277008();
     func_0027c508();
     func_002830b8();
-    func_0028f3e8();
+    Tz__SelHist__Exit();
     func_002639f8();
-    func_002927b8();
+    Tz__UnitLoad__Exit();
     func_002816f0();
     func_0027dd18();
     func_002932f8();
@@ -475,7 +475,7 @@ namespace n00254568 {
 s32 func_00281100(s32) asm("func_00281100");
 s32 func_002811b0(s32, s32) asm("func_002811b0");
 s32 func_001058e8() asm("func_001058e8");
-u16* func_00188fe0(s32, s32) asm("func_00188fe0");
+u16* YS__SAVERAM_BATTLE__get_partram(s32, s32) asm("YS__SAVERAM_BATTLE__get_partram");
 void func_00293500(s32, s32, u32) asm("func_00293500");
 s32 func_00281480(s32, s32) asm("func_00281480");
 s32 func_002815b8() asm("func_002815b8");
@@ -489,7 +489,7 @@ void func_00254568(void) {
     s32 n = func_00281100(D_0035f010);
     for (; i < n; i++) {
         s32 e = func_002811b0(D_0035f010, i);
-        func_00293500(e, 0, *func_00188fe0(func_001058e8() + 9456, e));
+        func_00293500(e, 0, *YS__SAVERAM_BATTLE__get_partram(func_001058e8() + 9456, e));
         if (func_00281480(D_0035f010, i)) {
             s32 o = func_002815b8();
             if (func_00281388(o)) func_00293500(e, 1, func_002814b0(o));
@@ -531,18 +531,18 @@ static inline V13f6 operator-(const V13f6& a, const V13f6& b)
 }
 extern u8 D_0035f05c asm("D_0035f05c");
 extern u32 D_0035f010 asm("D_0035f010");
-void func_002593b8(s32, u32) asm("func_002593b8");
+void Tz__CmComm__DataLoadWait(s32, u32) asm("Tz__CmComm__DataLoadWait");
 void func_00256b40(void) asm("func_00256b40");
 void func_00274ea0(void) asm("func_00274ea0");
 void func_00170888(u32) asm("func_00170888");
 u32 func_00103570(void) asm("func_00103570");
 void func_00274ee8(u32) asm("func_00274ee8");
-void func_002a9ce8(void) asm("func_002a9ce8");
-u8 func_002acc98(void) asm("func_002acc98");
+void Tz__JmNewInfo__Init(void) asm("Tz__JmNewInfo__Init");
+u8 Tz__JmNewInfo__isAnyNew(void) asm("Tz__JmNewInfo__isAnyNew");
 void func_002a9d30(void) asm("func_002a9d30");
 void func_00274f50(void) asm("func_00274f50");
 void func_00102448(u32, s32) asm("func_00102448");
-void func_00254770(void) asm("func_00254770");
+void Tz__CmTop__Setup(void) asm("Tz__CmTop__Setup");
 void func_00242618(s32, s32) asm("func_00242618");
 s32 func_00293ba0(void) asm("func_00293ba0");
 s32 func_002938e0(void) asm("func_002938e0");
@@ -550,34 +550,34 @@ s32 func_002938f0(void) asm("func_002938f0");
 u32 func_00293bc0(void) asm("func_00293bc0");
 void func_002810c8(u32, u32) asm("func_002810c8");
 void func_00293bb0(void) asm("func_00293bb0");
-void func_00236d60(void) asm("func_00236d60");
+void YI__IMAGE_CACHE__Clear(void) asm("YI__IMAGE_CACHE__Clear");
 // clear_64_entries_24
-void func_00293520(void) asm("func_00293520");
+void Tz__ChgWeapon__Update(void) asm("Tz__ChgWeapon__Update");
 s32 func_00255588(void) asm("func_00255588");
 void func_00255df0(void) asm("func_00255df0");
 /*TARGET 00254648*/
 void func_00254648(u32 a) asm("func_00254648");
 void func_00254648(u32 a)
 {
-    func_002593b8(2, a);
+    Tz__CmComm__DataLoadWait(2, a);
     func_00256b40();
     func_00274ea0();
     func_00170888(a);
     func_00274ee8(func_00103570());
-    func_002a9ce8();
-    D_0035f05c = func_002acc98();
+    Tz__JmNewInfo__Init();
+    D_0035f05c = Tz__JmNewInfo__isAnyNew();
     func_002a9d30();
     func_00274f50();
     func_00102448(a, 1);
-    func_00254770();
+    Tz__CmTop__Setup();
     func_00242618(11, 1);
     for (;;) {
         if (!func_00293ba0() && func_002938e0() && func_002938f0()) {
             func_002810c8(D_0035f010, func_00293bc0());
             func_00293bb0();
         }
-        func_00236d60();  // clear_64_entries_24
-        func_00293520();
+        YI__IMAGE_CACHE__Clear();  // clear_64_entries_24
+        Tz__ChgWeapon__Update();
         if (func_00255588()) break;
         func_00255df0();
         func_00102448(a, 0);
@@ -631,15 +631,15 @@ extern u8 D_00372998[] asm("D_00372998");
 extern u16 D_00372aa6 asm("D_00372aa6");
 u8* func_0023ee30(u32 size) asm("func_0023ee30");
 void func_0031a838(u8* p) asm("func_0031a838");
-void func_002369a0(u8* p) asm("func_002369a0");
+void YI__IMAGE_FREEZE__IMAGE_FREEZE(u8* p) asm("YI__IMAGE_FREEZE__IMAGE_FREEZE");
 // obj_ctor_36eac8
-void func_0023c008(u8* p) asm("func_0023c008");
+void YI__LAYOUT__LAYOUT(u8* p) asm("YI__LAYOUT__LAYOUT");
 // obj_ctor_36eae8
-void func_0028d7f0(u8* a, u32 b, u32 c, u32 d, u32 e, u32 f, u32 g, u32 h, u32 i) asm("func_0028d7f0");
-void func_0023ef50(u8* p) asm("func_0023ef50");
+void Tz__MenuUtil__CreateLay(u8* a, u32 b, u32 c, u32 d, u32 e, u32 f, u32 g, u32 h, u32 i) asm("Tz__MenuUtil__CreateLay");
+void Tz__Layout__SetImageCache(u8* p) asm("Tz__Layout__SetImageCache");
 void func_00290cf0(u32 a, u8* b, u32 c, u32 d, s32 e, u8* f, u8* g) asm("func_00290cf0");
-void func_0028f280(u32 a, u32 b, u8* c, u8* d, u8* e) asm("func_0028f280");
-void func_00263960(u32 a, u32 b, u8* c, u8* d, u8* e) asm("func_00263960");
+void Tz__SelHist__Init(u32 a, u32 b, u8* c, u8* d, u8* e) asm("Tz__SelHist__Init");
+void Tz__CMenuHelp__Init(u32 a, u32 b, u8* c, u8* d, u8* e) asm("Tz__CMenuHelp__Init");
 // store_globals_and_init
 void func_002590b0(u8* a, u32 b, u8* c, u8* d, u8* e, s32 f, u32 g, u32 h) asm("func_002590b0");
 u8* GetLayout254(u8* p) asm("func_0023f1b0");
@@ -648,7 +648,7 @@ u32 func_00236ca8(u32 p, u32 a) asm("func_00236ca8");
 void func_0028fc78(void* p, u32 a, u32 b, u8* c) asm("func_0028fc78");
 void func_0028fe38(void* p, u32 a, u32 b, u32 c, u32 d) asm("func_0028fe38");
 void func_00290198(void* p, u32 a, u32 b, u32 c, u8* d) asm("func_00290198");
-void func_00290368(void* p, u32 a, u32 b, u32 c, u32 d) asm("func_00290368");
+void Tz__TimeDraw__Create(void* p, u32 a, u32 b, u32 c, u32 d) asm("Tz__TimeDraw__Create");
 void func_00292870(void) asm("func_00292870");
 s32 func_00287bc0(void) asm("func_00287bc0");
 void func_0028fb28(u32 a, u32 b) asm("func_0028fb28");
@@ -663,27 +663,27 @@ void func_00288750(void (*fn)(void)) asm("func_00288750");
 static inline void* Alloc254(u32 size) { return D_0032ba14->vt->alloc(D_0032ba14, size, __builtin_return_address(0)); }
 /*TARGET 00254770*/
 // Build the menu layout objects for this screen and start its fade.
-void func_00254770(void) asm("func_00254770");
+void Tz__CmTop__Setup(void) asm("Tz__CmTop__Setup");
 // Build the menu layout objects for this screen and start its fade.
-void func_00254770(void) {
+void Tz__CmTop__Setup(void) {
     D_0035f057 = 0;
     u8* o = func_0023ee30(160);
     *(u8**)o = D_00347f98;
     func_0031a838(o + 12);
     *(u8**)o = D_0035eb98;
-    func_002369a0(o + 24);  // obj_ctor_36eac8
-    func_0023c008(o + 48);  // obj_ctor_36eae8
+    YI__IMAGE_FREEZE__IMAGE_FREEZE(o + 24);  // obj_ctor_36eac8
+    YI__LAYOUT__LAYOUT(o + 48);  // obj_ctor_36eae8
     g_menuObj254 = o;
     AllocObj254* al = D_00347f80->al;
     u8* m = (u8*)al->vt->alloc(al, 76, 0);
     *(u32*)(m + 12) = 0;
     *(u8**)m = D_0035ebb8;
     D_0035f040 = m;
-    func_0028d7f0(g_menuObj254, 30002, 0, 0, 0, 1, 0, 0, 0);
-    func_0023ef50(g_menuObj254);
+    Tz__MenuUtil__CreateLay(g_menuObj254, 30002, 0, 0, 0, 1, 0, 0, 0);
+    Tz__Layout__SetImageCache(g_menuObj254);
     func_00290cf0(D_0035f018, g_menuObj254, D_0035ef68, D_0035ef64, D_0035f3d4 + 3, D_00372a18, D_00372978);
-    func_0028f280(D_0035ef64, D_0035ef68, g_menuObj254, D_003729a8, D_003729b0);
-    func_00263960(D_0035ef64, D_0035ef68, g_menuObj254, D_00372988, D_003729b8);  // store_globals_and_init
+    Tz__SelHist__Init(D_0035ef64, D_0035ef68, g_menuObj254, D_003729a8, D_003729b0);
+    Tz__CMenuHelp__Init(D_0035ef64, D_0035ef68, g_menuObj254, D_00372988, D_003729b8);  // store_globals_and_init
     func_002590b0(D_0035f040, 30003, g_menuObj254, D_00372988, D_00372990, -1, 0, 0);
     u32 seq = func_0023c4b8(GetLayout254(g_menuObj254), D_0035ef68);
     u8* lay = GetLayout254(g_menuObj254);
@@ -696,7 +696,7 @@ void func_00254770(void) {
     p = Alloc254(20);
     func_00290198(p, 31, 71, 61, D_00372998 + 6);
     g_sel1_254 = p;
-    func_00290368(p, 30011, seq, img, 0);
+    Tz__TimeDraw__Create(p, 30011, seq, img, 0);
     func_00292870();
     s32 mode = func_00287bc0();
     if (mode == 20 || mode == 21) {
@@ -762,15 +762,15 @@ void func_0023e858(List254* l, s32 i, f32 f) asm("func_0023e858");
 void func_0023e8b8(List254* l, s32 i, f32 f) asm("func_0023e8b8");
 void func_0023e8d8(List254* l, s32 i, f32 f) asm("func_0023e8d8");
 s32 func_002811b0(void* p, s32 i) asm("func_002811b0");
-void func_0023eae0(List254* l, s32 i, s32 a, s32 b) asm("func_0023eae0");
+void Tz__MenuObj__SetHidePartAll(List254* l, s32 i, s32 a, s32 b) asm("Tz__MenuObj__SetHidePartAll");
 void func_0023eac0(List254* l, s32 i, s32 k) asm("func_0023eac0");
 // store_byte_2912
 void func_0023e958(List254* l, s32 i, s32 a, s32 b, s32 c, s32 d) asm("func_0023e958");
 void func_0023e9c8(List254* l, s32 i, u8* p) asm("func_0023e9c8");
 void func_0023e9e0(List254* l, s32 i, u8* p) asm("func_0023e9e0");
 /*TARGET 00254ab8*/
-void func_00254ab8(void) asm("func_00254ab8");
-void func_00254ab8(void) {
+void Tz__CmTop__SetupPartyObj(void) asm("Tz__CmTop__SetupPartyObj");
+void Tz__CmTop__SetupPartyObj(void) {
     u8 any = 0;
     s32 y = 0;
     if (!func_00139d78_4ab8(D_0035f02c)) func_0028d8c0(D_0035f02c, 30003, D_0035ef68, D_0035ef64, D_0035f03c, 46, 47, 0);
@@ -809,7 +809,7 @@ void func_00254ab8(void) {
         func_0023e858(lst, i, -100.0f);
         func_0023e8b8(lst, i, 0.0f);
         func_0023e8d8(lst, i, 0.0f);
-        if (func_002811b0(D_0035f010_4ab8, i) == 8) func_0023eae0(lst, i, 20, 32);
+        if (func_002811b0(D_0035f010_4ab8, i) == 8) Tz__MenuObj__SetHidePartAll(lst, i, 20, 32);
         func_0023eac0(lst, i, k);  // store_byte_2912
         func_0023e958(lst, i, 96, 96, 96, -1);
         func_0023e9c8(lst, i, D_0035f02c);
@@ -890,7 +890,7 @@ s32 func_00139d78(void*) asm("func_00139d78");
 s32 func_0028acc8(u32) asm("func_0028acc8");
 void func_0028abe0(u32) asm("func_0028abe0");
 void func_00254f08(void) asm("func_00254f08");
-void func_0028f878(void) asm("func_0028f878");
+void Tz__SelHist__LeaveAll(void) asm("Tz__SelHist__LeaveAll");
 void func_0028d620(u32) asm("func_0028d620");
 void func_00263d28(void) asm("func_00263d28");
 void func_002579e0(void) asm("func_002579e0");
@@ -912,8 +912,8 @@ void func_002831b0(void) asm("func_002831b0");
 void func_0027e770(void) asm("func_0027e770");
 void func_00264458(void) asm("func_00264458");
 /*TARGET 00254f80*/
-void func_00254f80(void) asm("func_00254f80");
-void func_00254f80(void)
+void Tz__CmTop__LeaveAll(void) asm("Tz__CmTop__LeaveAll");
+void Tz__CmTop__LeaveAll(void)
 {
     if (func_00139d78(D_0035f03c__80579)) D_0035f03c__80579->v5();
     if (func_0028acc8(D_0035f01c)) func_0028abe0(D_0035f01c);
@@ -921,7 +921,7 @@ void func_00254f80(void)
     if (func_0028acc8(D_0035f024)) func_0028abe0(D_0035f024);
     if (func_00139d78(D_0035f030)) D_0035f030->v5();
     func_00254f08();
-    func_0028f878();
+    Tz__SelHist__LeaveAll();
     func_0028d620(D_0035f050);
     func_00263d28();
     func_002579e0();
@@ -1001,8 +1001,8 @@ void func_002937c0(void) asm("func_002937c0");
 void func_00288f48(u32, s32, s32, s32, s32) asm("func_00288f48");
 void func_0028b1e8(u32, s32) asm("func_0028b1e8");
 s32 func_00257e00(void) asm("func_00257e00");
-void func_00288d80(u32, s32, u32, u32, u32, u16, Ent36*, u8*) asm("func_00288d80");
-void func_00288e08(u32, s32, u32, s32) asm("func_00288e08");
+void Tz__Select__SetItem(u32, s32, u32, u32, u32, u16, Ent36*, u8*) asm("Tz__Select__SetItem");
+void Tz__Select__SetExOffset(u32, s32, u32, s32) asm("Tz__Select__SetExOffset");
 u8* func_002891b8(u32, s32) asm("func_002891b8");
 void func_00139620(u8*) asm("func_00139620");
 void func_001395f8(u8*) asm("func_001395f8");
@@ -1010,21 +1010,21 @@ u32 func_0023aa18(u8*) asm("func_0023aa18");
 u32 func_0023aa38(u8*) asm("func_0023aa38");
 s32 func_00285d58(s32) asm("func_00285d58");
 s32 func_00285e30(s32) asm("func_00285e30");
-s32 func_00286d28(s32, s32) asm("func_00286d28");
-s32 func_00286ec8(s32, s32) asm("func_00286ec8");
-s32 func_00287028(s32, s32) asm("func_00287028");
+s32 Tz__CmNewFlg__isAbilityNewMember(s32, s32) asm("Tz__CmNewFlg__isAbilityNewMember");
+s32 Tz__CmNewFlg__isAbilityNewForm(s32, s32) asm("Tz__CmNewFlg__isAbilityNewForm");
+s32 Tz__CmNewFlg__isAbilityHistMember(s32, s32) asm("Tz__CmNewFlg__isAbilityHistMember");
 s32 func_00287218(s32, s32) asm("func_00287218");
 s32 func_00286068(s32) asm("func_00286068");
 s32 func_00286160(s32) asm("func_00286160");
-s32 func_00286418(s32) asm("func_00286418");
+s32 Tz__CmNewFlg__isStatNew(s32) asm("Tz__CmNewFlg__isStatNew");
 s32 func_002864f8(s32) asm("func_002864f8");
 void func_0028d8c0(u8*, s32, u32, u32, u32, s32, s32, s32) asm("func_0028d8c0");
 void func_0028dcc0(u8*, u8*) asm("func_0028dcc0");
 void func_00138c68(u8*, u32, u32) asm("func_00138c68");
 s32 func_00257070(s32) asm("func_00257070");
 s32 func_00257ff8(s32) asm("func_00257ff8");
-void func_002891f0(u32, s32, s32, s32, s32) asm("func_002891f0");
-void func_00254ab8(void) asm("func_00254ab8");
+void Tz__Select__SetCurrent(u32, s32, s32, s32, s32) asm("Tz__Select__SetCurrent");
+void Tz__CmTop__SetupPartyObj(void) asm("Tz__CmTop__SetupPartyObj");
 void func_0027dee8(s32, s32, s32) asm("func_0027dee8");
 s32 func_00287bc0(void) asm("func_00287bc0");
 void func_00287bd0(s32, s32) asm("func_00287bd0");
@@ -1046,8 +1046,8 @@ void func_002551b8(void)
         if (((D_0035ef70 >> i) ^ 1) & 1 & 0xff) continue;
         r = -1;
         Ent36* e = (Ent36*)((u8*)(i * 36) + (u32)D_00372a28);
-        func_00288d80(D_0035f01c, n, D_0035ef68, D_0035ef64, D_0035f03c, e->id, e, (u8*)(i * 36) + (u32)D_00372a28[0].text);
-        func_00288e08(D_0035f01c, n, 0, -1);
+        Tz__Select__SetItem(D_0035f01c, n, D_0035ef68, D_0035ef64, D_0035f03c, e->id, e, (u8*)(i * 36) + (u32)D_00372a28[0].text);
+        Tz__Select__SetExOffset(D_0035f01c, n, 0, -1);
         u8* o = func_002891b8(D_0035f01c, n);
         func_00139620(o);
         func_001395f8(o);
@@ -1056,14 +1056,14 @@ void func_002551b8(void)
         if (i == 0) {
             if (func_00285d58(-1)) r = func_00285e30(-1) ? D_0037296c : D_00372968;
         } else if (i == 1) {
-            if (func_00286d28(-1, -1) || func_00286ec8(-1, -1)) {
-                if (func_00287028(-1, -1)) r = func_00287218(-1, -1) ? D_0037296c : D_00372968;
+            if (Tz__CmNewFlg__isAbilityNewMember(-1, -1) || Tz__CmNewFlg__isAbilityNewForm(-1, -1)) {
+                if (Tz__CmNewFlg__isAbilityHistMember(-1, -1)) r = func_00287218(-1, -1) ? D_0037296c : D_00372968;
                 else r = D_00372968;
             }
         } else if (i == 2) {
             if (func_00286068(-1)) r = func_00286160(-1) ? D_0037296c : D_00372968;
         } else if (i == 4) {
-            if (func_00286418(-1)) r = func_002864f8(-1) ? D_0037296c : D_00372968;
+            if (Tz__CmNewFlg__isStatNew(-1)) r = func_002864f8(-1) ? D_0037296c : D_00372968;
         } else if (i == 5) {
             if (D_0035f05c) r = 50;
         }
@@ -1076,8 +1076,8 @@ void func_002551b8(void)
     }
     r = func_00257ff8(func_00257070(0));
     if (r < 0) r = 0;
-    func_002891f0(D_0035f01c, r, 1, 0, 2);
-    func_00254ab8();
+    Tz__Select__SetCurrent(D_0035f01c, r, 1, 0, 2);
+    Tz__CmTop__SetupPartyObj();
     func_0027dee8(0, 0, 4);
     if (D_0035f05b) {
         r = func_00287bc0();
@@ -1104,12 +1104,12 @@ void func_0013a368(void) asm("func_0013a368");
 s32 func_0013a4b8(void) asm("func_0013a4b8");
 s32 func_001688b8(void) asm("func_001688b8");
 W1580Word4* func_001a8bd0(s32) asm("func_001a8bd0");
-void func_00254f80(void) asm("func_00254f80");
+void Tz__CmTop__LeaveAll(void) asm("Tz__CmTop__LeaveAll");
 void func_00256aa0(void) asm("func_00256aa0");
 void func_00256f18(void) asm("func_00256f18");
-void func_00287d68(void) asm("func_00287d68");
+void Tz__MenuBase__SaveMode(void) asm("Tz__MenuBase__SaveMode");
 void* func_00287dc0(void) asm("func_00287dc0");
-s32 func_00288088(void) asm("func_00288088");
+s32 Tz__MenuBase__isPressAnyKey(void) asm("Tz__MenuBase__isPressAnyKey");
 void func_00290420(void*) asm("func_00290420");
 s32 func_00290580(void*) asm("func_00290580");
 s32 func_00293668(void) asm("func_00293668");
@@ -1121,29 +1121,29 @@ s32 func_00293948(void) asm("func_00293948");
 s32 func_00293b70(void) asm("func_00293b70");
 void func_00255900(void) asm("func_00255900");
 void func_0025fb48(void) asm("func_0025fb48");
-void func_00267e00(void) asm("func_00267e00");
+void Tz__CmEquip__SetupEquip(void) asm("Tz__CmEquip__SetupEquip");
 void func_002691f8(void) asm("func_002691f8");
-void func_002693a8(void) asm("func_002693a8");
-void func_00268db8(void) asm("func_00268db8");
+void Tz__CmEquip__CtrlAbilityWarning(void) asm("Tz__CmEquip__CtrlAbilityWarning");
+void Tz__CmEquip__CtrlEquip(void) asm("Tz__CmEquip__CtrlEquip");
 void func_00260418(void) asm("func_00260418");
 void func_00260ce0(void) asm("func_00260ce0");
 void func_002612c8(void) asm("func_002612c8");
-void func_00261668(void) asm("func_00261668");
-void func_002618d8(void) asm("func_002618d8");
+void Tz__CmItem__CtrlItemUseWarning(void) asm("Tz__CmItem__CtrlItemUseWarning");
+void Tz__CmItem__CtrlItemDumpConfirm(void) asm("Tz__CmItem__CtrlItemDumpConfirm");
 void func_00277938(void) asm("func_00277938");
 void func_00278318(void) asm("func_00278318");
 void func_00278dd0(void) asm("func_00278dd0");
 void func_0026c470(void) asm("func_0026c470");
-void func_0026c9f0(void) asm("func_0026c9f0");
-void func_0026c818(void) asm("func_0026c818");
-void func_002648b8(void) asm("func_002648b8");
-void func_00265018(void) asm("func_00265018");
-void func_0026f0a0(void) asm("func_0026f0a0");
+void Tz__CmParty__CtrlInfo(void) asm("Tz__CmParty__CtrlInfo");
+void Tz__CmParty__Ctrl2ndSel(void) asm("Tz__CmParty__Ctrl2ndSel");
+void Tz__CmStat__CtrlTop(void) asm("Tz__CmStat__CtrlTop");
+void Tz__CmStat__CtrlHelp(void) asm("Tz__CmStat__CtrlHelp");
+void Tz__CmCustom__CtrlTop(void) asm("Tz__CmCustom__CtrlTop");
 void func_0026f920(void) asm("func_0026f920");
-void func_0026ff78(void) asm("func_0026ff78");
-void func_002708c0(void) asm("func_002708c0");
-void func_0027c700(void) asm("func_0027c700");
-void func_00283230(void) asm("func_00283230");
+void Tz__CmCustom__CtrlAutoConfirm(void) asm("Tz__CmCustom__CtrlAutoConfirm");
+void Tz__CmCustom__CtrlCustom(void) asm("Tz__CmCustom__CtrlCustom");
+void Tz__CmConfig__Ctrl(void) asm("Tz__CmConfig__Ctrl");
+void Tz__CmTutorial__Ctrl(void) asm("Tz__CmTutorial__Ctrl");
 /*TARGET 00255588*/
 // 0x00251a70: definition moved into src/anon/unit_00250fb8.cpp
 
@@ -1151,7 +1151,7 @@ s32 func_00255588(void) asm("func_00255588");
 // 0x00251a70: definition moved into src/anon/unit_00250fb8.cpp
 
 s32 func_00255588(void) {
-    func_00287d68();
+    Tz__MenuBase__SaveMode();
     func_00256f18();
     if (func_00287db0()) {
         if (!func_002938f0()) return 0;
@@ -1167,42 +1167,42 @@ s32 func_00255588(void) {
         if (func_00139d78(D_0035f03c)) return 0;
         if (func_0013a4b8()) func_0013a368();
         func_00256aa0();
-        func_00254f80();
+        Tz__CmTop__LeaveAll();
         D_0035f060 = *func_001a8bd0(-1);
         func_001039f8();
         return 1;
     }
     if (func_00290580(D_0035f048)) func_00290420(D_0035f048);
     if (func_00139d78(D_0035f03c) && func_0023f0c0(D_0035f03c) != 1) {
-        if (func_00288088()) func_0023f070(D_0035f03c, 1, -1);
+        if (Tz__MenuBase__isPressAnyKey()) func_0023f070(D_0035f03c, 1, -1);
         else return 0;
     }
     switch (func_00287bc0()) {
     case 0: func_00255900(); break;
     case 1: func_0025fb48(); break;
-    case 2: func_00267e00(); break;
+    case 2: Tz__CmEquip__SetupEquip(); break;
     case 3: func_002691f8(); break;
-    case 4: func_002693a8(); break;
-    case 5: case 6: case 7: case 8: case 9: func_00268db8(); break;
+    case 4: Tz__CmEquip__CtrlAbilityWarning(); break;
+    case 5: case 6: case 7: case 8: case 9: Tz__CmEquip__CtrlEquip(); break;
     case 10: func_00260418(); break;
     case 11: func_00260ce0(); break;
     case 12: func_002612c8(); break;
-    case 13: func_00261668(); break;
-    case 14: func_002618d8(); break;
+    case 13: Tz__CmItem__CtrlItemUseWarning(); break;
+    case 14: Tz__CmItem__CtrlItemDumpConfirm(); break;
     case 15: func_00277938(); break;
     case 16: func_00278318(); break;
     case 17: case 18: case 19: func_00278dd0(); break;
     case 20: func_0026c470(); break;
-    case 21: func_0026c9f0(); break;
-    case 22: func_0026c818(); break;
-    case 23: func_002648b8(); break;
-    case 24: func_00265018(); break;
-    case 25: func_0026f0a0(); break;
+    case 21: Tz__CmParty__CtrlInfo(); break;
+    case 22: Tz__CmParty__Ctrl2ndSel(); break;
+    case 23: Tz__CmStat__CtrlTop(); break;
+    case 24: Tz__CmStat__CtrlHelp(); break;
+    case 25: Tz__CmCustom__CtrlTop(); break;
     case 26: case 27: func_0026f920(); break;
-    case 28: func_0026ff78(); break;
-    case 29: case 30: case 31: case 32: case 33: func_002708c0(); break;
-    case 36: func_0027c700(); break;
-    case 37: func_00283230(); break;
+    case 28: Tz__CmCustom__CtrlAutoConfirm(); break;
+    case 29: case 30: case 31: case 32: case 33: Tz__CmCustom__CtrlCustom(); break;
+    case 36: Tz__CmConfig__Ctrl(); break;
+    case 37: Tz__CmTutorial__Ctrl(); break;
     }
     return 0;
 }
@@ -1214,7 +1214,7 @@ s32 func_00289380(void*) asm("func_00289380");
 s32 func_00287cd0(void) asm("func_00287cd0");
 s32 func_002938e0(void) asm("func_002938e0");
 s32 func_002938f0(void) asm("func_002938f0");
-void func_00254ab8(void) asm("func_00254ab8");
+void Tz__CmTop__SetupPartyObj(void) asm("Tz__CmTop__SetupPartyObj");
 void* func_00287dc0(void) asm("func_00287dc0");
 void func_0023d820(void*) asm("func_0023d820");
 s32 func_0028acc8(void*) asm("func_0028acc8");
@@ -1228,15 +1228,15 @@ void func_0027e770(void) asm("func_0027e770");
 void func_00287c30(void) asm("func_00287c30");
 s32 func_00287bc0(void) asm("func_00287bc0");
 void func_0025f7f0(s32) asm("func_0025f7f0");
-void func_002772c8(s32) asm("func_002772c8");
+void Tz__CmAbility__SetupTop(s32) asm("Tz__CmAbility__SetupTop");
 void func_0026bc10(void) asm("func_0026bc10");
-void func_002644a0(s32) asm("func_002644a0");
-void func_0026ee78(void) asm("func_0026ee78");
-void func_0027c5a0(void) asm("func_0027c5a0");
+void Tz__CmStat__SetupTop(s32) asm("Tz__CmStat__SetupTop");
+void Tz__CmCustom__SetupTop(void) asm("Tz__CmCustom__SetupTop");
+void Tz__CmConfig__Setup(void) asm("Tz__CmConfig__Setup");
 s32 func_0028ae28(void*, s32) asm("func_0028ae28");
 void func_0028ab20(void*) asm("func_0028ab20");
 void func_0027ead0(void) asm("func_0027ead0");
-void func_00256a58(void) asm("func_00256a58");
+void Tz__CmTop__UpdateHelpMess(void) asm("Tz__CmTop__UpdateHelpMess");
 void func_00287c90(s32) asm("func_00287c90");
 s32 func_00287df0(s32, s32, s32, void (*)(void), s32) asm("func_00287df0");
 s32 func_00242848(s32) asm("func_00242848");
@@ -1248,11 +1248,11 @@ void func_00257050(s32, s32, s32) asm("func_00257050");
 void func_002535b0(s32) asm("func_002535b0");
 void func_00288658(s32, s32) asm("func_00288658");
 void func_00288670(void (*)(void)) asm("func_00288670");
-void func_00254f80(void) asm("func_00254f80");
+void Tz__CmTop__LeaveAll(void) asm("Tz__CmTop__LeaveAll");
 void func_00287da0(void) asm("func_00287da0");
 void func_00287c00(s32) asm("func_00287c00");
 void func_0028aa40(void*) asm("func_0028aa40");
-void func_00263c60(void) asm("func_00263c60");
+void Tz__CMenuHelp__FadeOut(void) asm("Tz__CMenuHelp__FadeOut");
 void func_00254e60(void) asm("func_00254e60");
 void func_0027e6e0(void) asm("func_0027e6e0");
 s32 func_002891e8(void*) asm("func_002891e8");
@@ -1274,7 +1274,7 @@ void func_00255900(void) {
     mode = func_00287cd0();
     if ((func_002938e0() && func_002938f0()) || !D_0035f056) {
         if (D_0035ef60) {
-            if (mode != 2) func_00254ab8();
+            if (mode != 2) Tz__CmTop__SetupPartyObj();
             else func_0023d820(func_00287dc0());
         }
     }
@@ -1292,11 +1292,11 @@ void func_00255900(void) {
         func_00287c30();
         k = func_00287bc0();
         if (k == 1) func_0025f7f0(-1);
-        else if (k == 15) func_002772c8(-1);
+        else if (k == 15) Tz__CmAbility__SetupTop(-1);
         else if (k == 20) func_0026bc10();
-        else if (k == 23) func_002644a0(1);
-        else if (k == 25) func_0026ee78();
-        else if (k == 36) func_0027c5a0();
+        else if (k == 23) Tz__CmStat__SetupTop(1);
+        else if (k == 25) Tz__CmCustom__SetupTop();
+        else if (k == 36) Tz__CmConfig__Setup();
         return;
     }
     if ((r != -1 || func_00289310(D_0035f01c)) && !func_0028ae28(D_0035f01c, 0)) {
@@ -1304,7 +1304,7 @@ void func_00255900(void) {
         func_0027ead0();
     }
     if (mode == 0 && func_0028ae28(D_0035f01c, 0)) {
-        func_00256a58();
+        Tz__CmTop__UpdateHelpMess();
         func_00287c90(1);
     }
     if (!func_00242848(func_00287df0(r, func_00289310(D_0035f01c), 1, func_00258118, 1))) {
@@ -1334,7 +1334,7 @@ void func_00255900(void) {
                 k = -1;
                 func_002535b0(func_00257fa8(r) == 5 ? 1 : 2);
                 func_00288658(2, 0);
-                func_00288670(func_00254f80);
+                func_00288670(Tz__CmTop__LeaveAll);
                 func_00287da0();
                 if (func_002938e0() && !func_002938f0()) func_0023d820(obj);
                 break;
@@ -1345,7 +1345,7 @@ void func_00255900(void) {
             if (k >= 0) {
                 func_00287c00(k);
                 func_0028aa40(D_0035f01c);
-                func_00263c60();
+                Tz__CMenuHelp__FadeOut();
                 func_00254e60();
                 func_0027e6e0();
                 func_00287c90(1);
@@ -1421,20 +1421,20 @@ SelItem* func_002891d0(u32) asm("func_002891d0");
 void func_00258080(s32*, s32*) asm("func_00258080");
 s32 func_00287cd0(void) asm("func_00287cd0");
 s32 func_0028d008(s32) asm("func_0028d008");
-void func_0028cc78(s32, u32, u32, u32, s32, s32) asm("func_0028cc78");
-void func_0028cf28(s32, void*) asm("func_0028cf28");
+void Tz__MenuCursor__Create(s32, u32, u32, u32, s32, s32) asm("Tz__MenuCursor__Create");
+void Tz__MenuCursor__SetParent(s32, void*) asm("Tz__MenuCursor__SetParent");
 s32 func_0028d6e8(LightCur*) asm("func_0028d6e8");
-void func_0028d1c0(LightCur*, s32, u32, u32, u32, void*, s32) asm("func_0028d1c0");
-void func_0028ce98(s32, s32) asm("func_0028ce98");
+void Tz__LightCur__Create(LightCur*, s32, u32, u32, u32, void*, s32) asm("Tz__LightCur__Create");
+void Tz__MenuCursor__SetType(s32, s32) asm("Tz__MenuCursor__SetType");
 void func_0028d660(LightCur*, void*) asm("func_0028d660");
 s32 func_0028cf10(s32) asm("func_0028cf10");
 void func_0028cdb8(s32) asm("func_0028cdb8");
 void func_002566f0(u32, s32, s32) asm("func_002566f0");
 s32 func_00289310(u32) asm("func_00289310");
-void func_0026a3b8(s32, s32) asm("func_0026a3b8");
+void Tz__CmEquip__UpdateTopSelActive(s32, s32) asm("Tz__CmEquip__UpdateTopSelActive");
 void func_0026d620(s32, s32) asm("func_0026d620");
-void func_00273368(s32, s32) asm("func_00273368");
-void func_0027bd40(s32, s32) asm("func_0027bd40");
+void Tz__CmCustom__UpdateTopSelActive(s32, s32) asm("Tz__CmCustom__UpdateTopSelActive");
+void Tz__CmAbility__UpdateTopSelActive(s32, s32) asm("Tz__CmAbility__UpdateTopSelActive");
 void func_002633a8(s32, s32) asm("func_002633a8");
 extern u32 D_0035ef64 asm("D_0035ef64");
 extern u32 D_0035ef68 asm("D_0035ef68");
@@ -1523,21 +1523,21 @@ void func_00255df0(void)
         func_00258080(&px, &py);
         if (func_0028acc8(sel) && func_00287cd0() == 1) {
             if (!func_0028d008(n)) {
-                func_0028cc78(n, D_0035ef68, D_0035ef64, D_0035f03c, px, py);
-                func_0028cf28(n, func_002891d0(sel));
+                Tz__MenuCursor__Create(n, D_0035ef68, D_0035ef64, D_0035f03c, px, py);
+                Tz__MenuCursor__SetParent(n, func_002891d0(sel));
                 if (!func_0028d6e8(D_0035f050))
-                    func_0028d1c0(D_0035f050, 30026, D_0035ef68, D_0035ef64, D_0035f03c, D_003729b0, 0);
+                    Tz__LightCur__Create(D_0035f050, 30026, D_0035ef68, D_0035ef64, D_0035f03c, D_003729b0, 0);
                 if (n != 0) {
                     for (s32 i = 0; i < n; i++) {
                         if (func_0028d008(i)) {
-                            func_0028ce98(i, 1);
+                            Tz__MenuCursor__SetType(i, 1);
                         } else {
                             u32 s;
                             if (i == 0) s = D_0035f01c;
                             else s = (sel == D_0035f024) ? D_0035f020 : D_0035f024;
-                            func_0028cc78(i, D_0035ef68, D_0035ef64, D_0035f03c, px, py);
-                            func_0028cf28(i, func_002891d0(s));
-                            func_0028ce98(i, 1);
+                            Tz__MenuCursor__Create(i, D_0035ef68, D_0035ef64, D_0035f03c, px, py);
+                            Tz__MenuCursor__SetParent(i, func_002891d0(s));
+                            Tz__MenuCursor__SetType(i, 1);
                         }
                     }
                 }
@@ -1546,20 +1546,20 @@ void func_00255df0(void)
         } else if (func_00287cd0() == 2 && D_0035f055 == 0) {
             if (func_0028d008(n)) {
                 if (n == 0) {
-                    if (func_0028cf10(0) != 1) func_0028ce98(0, 1);
+                    if (func_0028cf10(0) != 1) Tz__MenuCursor__SetType(0, 1);
                 }
             } else {
-                func_0028cc78(n, D_0035ef68, D_0035ef64, D_0035f03c, px, py);
-                func_0028cf28(n, func_002891d0(sel));
-                func_0028ce98(n, 1);
+                Tz__MenuCursor__Create(n, D_0035ef68, D_0035ef64, D_0035f03c, px, py);
+                Tz__MenuCursor__SetParent(n, func_002891d0(sel));
+                Tz__MenuCursor__SetType(n, 1);
                 if (!func_0028d6e8(D_0035f050))
-                    func_0028d1c0(D_0035f050, 30026, D_0035ef68, D_0035ef64, D_0035f03c, D_003729b0, 0);
+                    Tz__LightCur__Create(D_0035f050, 30026, D_0035ef68, D_0035ef64, D_0035f03c, D_003729b0, 0);
             }
         } else if (func_00287cd0() == 2 && D_0035f055 != 0) {
             if (func_0028d008(n)) {
                 func_0028cdb8(n);
                 if (n != 0) {
-                    func_0028ce98(n - 1, 0);
+                    Tz__MenuCursor__SetType(n - 1, 0);
                     if (mode == 36) target = func_002891d0(D_0035f01c)->sub;
                     else target = func_002891d0(D_0035f01c);
                     func_0028d660(D_0035f050, target);
@@ -1596,13 +1596,13 @@ void func_00255df0(void)
     if (mode < 37) {
         func_002566f0(sel, mode, n);
         if (mode == 2 || mode == 5 || mode == 6 || mode == 7 || mode == 8 || mode == 9) {
-            func_0026a3b8(0, func_00289310(sel));
+            Tz__CmEquip__UpdateTopSelActive(0, func_00289310(sel));
         } else if (mode == 20 || mode == 22) {
             func_0026d620(n, func_00289310(sel));
         } else if (mode == 26 || mode == 27 || mode == 29 || mode == 30 || mode == 31 || mode == 32 || mode == 33) {
-            func_00273368(0, func_00289310(sel));
+            Tz__CmCustom__UpdateTopSelActive(0, func_00289310(sel));
         } else if (mode >= 16 && mode <= 19) {
-            func_0027bd40(0, func_00289310(sel));
+            Tz__CmAbility__UpdateTopSelActive(0, func_00289310(sel));
         } else if (mode >= 11 && mode <= 13) {
             func_002633a8(n, func_00289310(sel));
         }
@@ -1612,12 +1612,12 @@ void func_00255df0(void)
 
 // 002566f0 (was src/anon/batch_w1613.cpp)
 namespace n002566f0 {
-void func_00256a58(void) asm("func_00256a58");
+void Tz__CmTop__UpdateHelpMess(void) asm("Tz__CmTop__UpdateHelpMess");
 void func_00263340(s32, s32, s32) asm("func_00263340");
 void func_00266678(s32, s32, s32) asm("func_00266678");
 s32 func_00267270(void) asm("func_00267270");
-void func_0026a238(s32, s32, s32) asm("func_0026a238");
-void func_00273228(s32, s32, s32) asm("func_00273228");
+void Tz__CmEquip__DrawUpdate(s32, s32, s32) asm("Tz__CmEquip__DrawUpdate");
+void Tz__CmCustom__DrawUpdate(s32, s32, s32) asm("Tz__CmCustom__DrawUpdate");
 void func_0027bbe0(s32, s32, s32) asm("func_0027bbe0");
 void func_0027d598(s32, s32, s32) asm("func_0027d598");
 s32 func_00287cd0(void) asm("func_00287cd0");
@@ -1627,7 +1627,7 @@ void* func_002891d0(s32) asm("func_002891d0");
 s32 func_002891e8(s32) asm("func_002891e8");
 s32 func_00289310(s32) asm("func_00289310");
 s32 func_00289358(s32) asm("func_00289358");
-void func_0028cf28(s32, void*) asm("func_0028cf28");
+void Tz__MenuCursor__SetParent(s32, void*) asm("Tz__MenuCursor__SetParent");
 s32 func_0028d008(s32) asm("func_0028d008");
 void func_0028d660(s32, void*) asm("func_0028d660");
 s32 func_0028d6e8(s32) asm("func_0028d6e8");
@@ -1645,7 +1645,7 @@ void func_002566f0(s32 a0, s32 a1, s32 a2) {
             func_00289038(a0, s4, 1, 1, 2, 0, -1);
         }
         if (func_0028d008(a2) != 0) {
-            func_0028cf28(a2, func_002891d0(a0));
+            Tz__MenuCursor__SetParent(a2, func_002891d0(a0));
         }
         if (func_0028d6e8(D_0035f050) != 0) {
             void* p;
@@ -1655,11 +1655,11 @@ void func_002566f0(s32 a0, s32 a1, s32 a2) {
         }
     }
     if (s1 == 0 && func_00289358(a0) == 0) return;
-    if (a1 == 0) { func_00256a58(); return; }
+    if (a1 == 0) { Tz__CmTop__UpdateHelpMess(); return; }
     if (a1 == 1 || a1 == 10 || a1 == 11 || a1 == 12 || a1 == 13 || a1 == 14) { func_00263340(a0, a1, a2); return; }
     if ((u32)(a1 - 15) < 5) { func_0027bbe0(a0, a1, a2); return; }
-    if (a1 == 2 || a1 == 5 || a1 == 6 || a1 == 7 || a1 == 8 || a1 == 9) { func_0026a238(a0, a1, a2); return; }
-    if ((u32)(a1 - 25) < 3 || a1 == 29 || a1 == 30 || a1 == 31 || a1 == 32 || a1 == 33) { func_00273228(a0, a1, a2); return; }
+    if (a1 == 2 || a1 == 5 || a1 == 6 || a1 == 7 || a1 == 8 || a1 == 9) { Tz__CmEquip__DrawUpdate(a0, a1, a2); return; }
+    if ((u32)(a1 - 25) < 3 || a1 == 29 || a1 == 30 || a1 == 31 || a1 == 32 || a1 == 33) { Tz__CmCustom__DrawUpdate(a0, a1, a2); return; }
     if (a1 == 36) { func_0027d598(a0, 36, a2); return; }
     if ((u32)(a1 - 23) < 2) { func_00266678(a0, a1, a2); return; }
 }
@@ -1675,8 +1675,8 @@ s32 func_0028b040_x10886(s32) asm("func_0028b040");
 s32 func_00257fa8(s32) asm("func_00257fa8");
 void func_00263a58(s32, s32) asm("func_00263a58");
 /*TARGET 00256a58*/
-void func_00256a58() asm("func_00256a58");
-void func_00256a58() {
+void Tz__CmTop__UpdateHelpMess() asm("Tz__CmTop__UpdateHelpMess");
+void Tz__CmTop__UpdateHelpMess() {
     func_00263a58(D_00372a28[func_00257fa8(func_0028b040_x10886(D_0035f01c_256))].id, 1);
 }
 }  // namespace n00256a58
@@ -1704,7 +1704,7 @@ void func_00256aa0(void) {
         func_00290488(D_0035f048);
     }
 
-    func_0028f878();
+    Tz__SelHist__LeaveAll();
 }
 }  // namespace n00256aa0
 
@@ -1812,8 +1812,8 @@ void memcpy(u8*, u8*, s32) asm("memcpy");
 s32 func_00139d78(u8*) asm("func_00139d78");
 void func_0028d980(u8*, u32, u32, u32, u32, s32, s32, s32, s32) asm("func_0028d980");
 /*TARGET 00256cc0*/
-void func_00256cc0(s32 a, s32 b, s32 c) asm("func_00256cc0");
-void func_00256cc0(s32 a, s32 b, s32 c)
+void Tz__CmTop__CreatePadHelp(s32 a, s32 b, s32 c) asm("Tz__CmTop__CreatePadHelp");
+void Tz__CmTop__CreatePadHelp(s32 a, s32 b, s32 c)
 {
     u8 sep[16];
     s32 len = 0;
@@ -2092,7 +2092,7 @@ void func_001396b0(W1950Obj *) asm("_ZN2Tz6Select10BeginLeaveEz");
 s32 func_00139d78(W1950Mgr *) asm("_Z16u_call4_00139d78jjjj");
 s32 func_0023aa18(void *) asm("_ZN2YI8SEQUENCE9GetParamXEv");
 s32 func_0023aa38(void *) asm("_ZN2YI8SEQUENCE9GetParamYEv");
-void func_00259108(void *, s32, s32, s32, s32, s32, void *) asm("func_00259108");
+void Tz__CmComm__CreateConfirmSelector(void *, s32, s32, s32, s32, s32, void *) asm("Tz__CmComm__CreateConfirmSelector");
 void func_00288f48(void *, s32, s32, s32, s32) asm("_ZN2Tz6Select10SetMoveKeyEiiii");
 W1950Obj *func_002891b8(void *, s32) asm("_ZN2Tz6Select10GetItemPtrEi");
 s32 func_002892f8(void *) asm("_ZN2Tz6Select10GetItemMaxEv");
@@ -2113,7 +2113,7 @@ void func_002571e0(s32 arg0)
   s32 y;
   W1950Mgr **new_var;
   W1950Obj *o;
-  func_00259108(D_0035f024, 0x7549, D_0035ef68, D_0035ef64, D_0035f03c, arg0, D_00372a10);
+  Tz__CmComm__CreateConfirmSelector(D_0035f024, 0x7549, D_0035ef68, D_0035ef64, D_0035f03c, arg0, D_00372a10);
   func_00288f48(D_0035f024, 0x80, 0x40, 0, 0);
   func_0028af28(D_0035f024, 0x40);
   if (func_00139d78(D_0035f034) == 0)
@@ -2478,13 +2478,13 @@ void func_00257970(void) {
 // 002579e0 (was src/anon/tiny_jal_tail_wrappers.cpp)
 namespace n002579e0 {
 u32 func_00257a00() asm("_Z13func_00257a00v");
-u32 func_00257be0() asm("_Z13func_00257be0v");
+u32 Tz__CmTop__LeaveListSubWin() asm("_Z26Tz__CmTop__LeaveListSubWinv");
 /*TARGET 002579e0*/
 u32 func_002579e0(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z13func_002579e0jjjj");
 u32 func_002579e0(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u;
     r2 = func_00257a00();
-    return func_00257be0();
+    return Tz__CmTop__LeaveListSubWin();
 }
 }  // namespace n002579e0
 
@@ -2526,10 +2526,10 @@ namespace n00257be0 {
 s32 func_00139d78(void*) asm("func_00139d78");
 void func_00139510(void*) asm("func_00139510");
 extern u8* D_0035f038 asm("D_0035f038");
-void func_00257be0(void*) asm("_Z13func_00257be0Pv");
+void Tz__CmTop__LeaveListSubWin(void*) asm("_Z26Tz__CmTop__LeaveListSubWinPv");
 /*TARGET 00257be0*/
-void func_00257be0(void*) asm("_Z13func_00257be0Pv");
-void func_00257be0(void*) {
+void Tz__CmTop__LeaveListSubWin(void*) asm("_Z26Tz__CmTop__LeaveListSubWinPv");
+void Tz__CmTop__LeaveListSubWin(void*) {
     if (func_00139d78(D_0035f038 + 0xb350)) func_00139510(D_0035f038 + 0xb350);
     if (func_00139d78(D_0035f038 + 0xb504)) func_00139510(D_0035f038 + 0xb504);
     if (func_00139d78(D_0035f038 + 0xb6b8)) func_00139510(D_0035f038 + 0xb6b8);
@@ -2850,7 +2850,7 @@ void func_0023f800(void*) asm("func_0023f800");
 void func_00239700(u8*) asm("func_00239700");
 void func_0026dd18(s32, s32, s32) asm("func_0026dd18");
 u8* func_00103eb0(void) asm("func_00103eb0");
-void func_00102818(u32, s32, s32, void (*)(u32), s32) asm("func_00102818");
+void TASK_MANAGER__create_thread(u32, s32, s32, void (*)(u32), s32) asm("TASK_MANAGER__create_thread");
 void func_00258468(u32) asm("func_00258468");
 static inline u8* mk(void) { AO* a = D_00347f80->a; u8* p = (u8*)a->vt->alloc(a, 408, 0); *(u8**)p = D_00347e60; *(u32*)(p + 12) = 0; func_00239700(p + 24); return p; }
 void func_002581b0(void) asm("func_002581b0");
@@ -2867,6 +2867,6 @@ void func_002581b0(void) {
     D_0035f069 = 0;
     D_0035f06a = 0;
     D_0035f06b = 0;
-    func_00102818(*(u32*)(func_00103eb0() + 4), 0, 1998, func_00258468, 4096);
+    TASK_MANAGER__create_thread(*(u32*)(func_00103eb0() + 4), 0, 1998, func_00258468, 4096);
 }
 }

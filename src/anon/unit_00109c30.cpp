@@ -63,8 +63,8 @@ struct W1821N { s32 a0; W1821Ctx* ctx; s32 a3; s32 a4; u8 pad[8]; W1821B38 b; };
 W1821N* func_00109c30() asm("func_00109c30");
 void func_00109cc0(s32, W1821N*) asm("func_00109cc0");
 extern s32 D_0033cca4 asm("D_0033cca4");
-W1821N* func_00109d00(s32 a0, W1821B38* b, W1821Ctx* c, s32 a3, s32 a4) asm("func_00109d00");
-W1821N* func_00109d00(s32 a0, W1821B38* b, W1821Ctx* c, s32 a3, s32 a4) {
+W1821N* kn__VU1Draw__draw(s32 a0, W1821B38* b, W1821Ctx* c, s32 a3, s32 a4) asm("kn__VU1Draw__draw");
+W1821N* kn__VU1Draw__draw(s32 a0, W1821B38* b, W1821Ctx* c, s32 a3, s32 a4) {
     W1821N* n = func_00109c30();
     s32 m = 4;
     n->a0 = a0;
@@ -181,7 +181,7 @@ typedef void (*CB7)(N7*, s32);
 struct N7 { u32* w0; u32 w4; u32 w8; u32 w12; N7* next; u8 pad20[4]; u32 w24; u8 b28, b29, b30, b31, b32, b33, b34; u8 pad35[5]; u64 d40; u64 d48; u8 pad56[24]; CB7 cb80; CB7 cb84; };
 s32 func_00109f58(u32, u32, u8) asm("func_00109f58");
 s32 func_00109ea8(u32, u32, u8) asm("func_00109ea8");
-void func_00108c00(u64*, u32, u64, u64, s32, s32, u64, u64) asm("func_00108c00");
+void kn__VU1DrawContext__setPacket(u64*, u32, u64, u64, s32, s32, u64, u64) asm("kn__VU1DrawContext__setPacket");
 s32 func_0011c8f8(u32*, u32*, s32, u32, u32, u32) asm("func_0011c8f8");
 void func_00134490(void) asm("func_00134490");
 void func_00109fe8(N7* n) asm("func_00109fe8");
@@ -192,7 +192,7 @@ void func_00109fe8(N7* n) {
       if ((s8)n->b31 < 0) {
         s32 a = func_00109f58(D_00340ed4, *(u32*)(*(u32*)(*(u32*)((u8*)n->w0 + 20) + 4) + 4), n->b31);
         s32 b = func_00109ea8(D_00340ed4, *(u32*)(*(u32*)(*(u32*)((u8*)n->w0 + 20) + 4) + 4), n->b31);
-        func_00108c00(D_00340ed8, 63, n->d40, n->d48 & ~(1ull << 32), b, a,
+        kn__VU1DrawContext__setPacket(D_00340ed8, 63, n->d40, n->d48 & ~(1ull << 32), b, a,
           ((u64)n->b32 << 0) | ((u64)n->b33 << 8) | ((u64)n->b34 << 16),
           ((u64)n->b28 << 0) | ((u64)n->b29 << 8) | ((u64)n->b30 << 16) | ((u64)n->b31 << 24) | ((u64)0x3f800000 << 32));
         u32* s = n->w0;
@@ -256,7 +256,7 @@ extern s32 D_00340ed4 asm("D_00340ed4");
 extern u8 D_00340ed8[] asm("D_00340ed8");
 u32 f10a1d0_w(s32, s32, u8) asm("func_00109f58");
 u32 f10a1d0_h(s32, s32, u8) asm("func_00109ea8");
-void func_00108c00(u8*, s32, u64, u64, u32, u32, u64, u64) asm("func_00108c00");
+void kn__VU1DrawContext__setPacket(u8*, s32, u64, u64, u32, u32, u64, u64) asm("kn__VU1DrawContext__setPacket");
 s32 f10a1d0_draw(Img10a1d0*, s32*, s32, s32, s32, s32) asm("func_0011c8f8");
 void func_00134490(void) asm("func_00134490");
 void func_0010a1d0(E10a1d0* e) asm("func_0010a1d0");
@@ -267,7 +267,7 @@ void func_0010a1d0(E10a1d0* e)
             if ((s8)e->a >= 0) {
                 u32 w = f10a1d0_w(D_00340ed4, e->img->l3->l4->id, e->a);
                 u32 h = f10a1d0_h(D_00340ed4, e->img->l3->l4->id, e->a);
-                func_00108c00(D_00340ed8, 63, e->alpha, e->test & ~((u64)1 << 32), h, w,
+                kn__VU1DrawContext__setPacket(D_00340ed8, 63, e->alpha, e->test & ~((u64)1 << 32), h, w,
                               GS_SET_FOGCOL(e->fr, e->fg, e->fb), GS_SET_RGBAQ(e->r, e->g, e->b, e->a, 0x3f800000));
                 Img10a1d0* img = e->img;
                 if (e->pre) e->pre(e, 0);
@@ -281,7 +281,7 @@ void func_0010a1d0(E10a1d0* e)
                 if ((s8)e->a >= 0) func_00134490();
                 u32 w = f10a1d0_w(D_00340ed4, e->img->l3->l4->id, e->a);
                 u32 h = f10a1d0_h(D_00340ed4, e->img->l3->l4->id, e->a);
-                func_00108c00(D_00340ed8, 63, e->alpha | ((u64)0xff << 56), e->test | ((u64)1 << 32), h, w,
+                kn__VU1DrawContext__setPacket(D_00340ed8, 63, e->alpha | ((u64)0xff << 56), e->test | ((u64)1 << 32), h, w,
                               GS_SET_FOGCOL(e->fr, e->fg, e->fb), GS_SET_RGBAQ(e->r, e->g, e->b, e->a, 0x3f800000));
                 if (e->pre) e->pre(e, 1);
                 f10a1d0_draw(e->img, &e->f24, 1, e->f4, e->f8, e->f12);
@@ -384,7 +384,7 @@ void func_00109fe8(void*) asm("func_00109fe8");
 void func_0010a1d0(void*) asm("func_0010a1d0");
 void func_0010a5f0(void) asm("func_0010a5f0");
 u64 func_00109050(void*) asm("func_00109050");
-void func_00108ae0(void*, u32, u64, u64, u64, u64, u64, u64) asm("func_00108ae0");
+void kn__VU1DrawContext__setPacketForce(void*, u32, u64, u64, u64, u64, u64, u64) asm("kn__VU1DrawContext__setPacketForce");
 void func_0010a580(void*) asm("func_0010a580");
 void func_0010a4d0(void) asm("func_0010a4d0");
 void func_00108a10(void*) asm("func_00108a10");
@@ -408,7 +408,7 @@ void ctarget0_0010a618(void) {
         D_00340ed4 = 2;
         func_0010a1d0(D_0033cc78[0]);
         func_0010a5f0();
-        func_00108ae0(D_00340ed8, 4, 0, 0, func_00109050(D_00340ed8), 0, 0, 0);
+        kn__VU1DrawContext__setPacketForce(D_00340ed8, 4, 0, 0, func_00109050(D_00340ed8), 0, 0, 0);
     }
     if (D_0033cc78[1]) {
         D_00340ed4 = 3;
@@ -416,7 +416,7 @@ void ctarget0_0010a618(void) {
         D_00340ed4 = 4;
         func_0010a1d0(D_0033cc78[1]);
         func_0010a5f0();
-        func_00108ae0(D_00340ed8, 4, 0, 0, func_00109050(D_00340ed8), 0, 0, 0);
+        kn__VU1DrawContext__setPacketForce(D_00340ed8, 4, 0, 0, func_00109050(D_00340ed8), 0, 0, 0);
     }
     D_00340ed4 = 5;
     func_00109fe8(D_0033cc78[2]);

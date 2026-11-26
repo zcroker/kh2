@@ -34,7 +34,7 @@ struct Obj
 extern u8 D_0036c5e0[][4];
 s32 func_0017ebc8(Obj *);
 s32 func_0019bf00(Chr *);
-s32 func_00176258(Chr *);
+s32 YS__PARTY__have_weapon(Chr *);
 s32 func_001a97b8(void *, s32) asm("_ZNK2YS9MOTIONSET9is_playerEv");
 // 0017ec98: moved to src/yasui/libys/motion.cpp
 

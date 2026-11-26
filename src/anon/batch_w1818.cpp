@@ -40,12 +40,12 @@ struct Act1818 { u8 pad[0x508]; u32 p; };
 extern "C" {
 
 // --- 002d24e8: keep the nearer of two objects with id 2031/2032
-extern Vec1818* func_0016c028(Obj1818*);  // obj_get_attach_or_alt
+extern Vec1818* YS__OBJ__get_pos(Obj1818*);  // obj_get_attach_or_alt
 extern Obj1818* func_002d1260(void);
-void func_002d24e8(Owner1818* s, Obj1818* o);  // 0x002d24e8: definition moved into src/anon/unit_002d2498.cpp
+void Ti__MGOarashi__set_current_tornado(Owner1818* s, Obj1818* o);  // 0x002d24e8: definition moved into src/anon/unit_002d2498.cpp
 
 // --- 002eb098: target within +-30 height and 50 horizontal distance
-extern Vec1818* func_0016c028_a(Act1818*) asm("func_0016c028");
+extern Vec1818* func_0016c028_a(Act1818*) asm("YS__OBJ__get_pos");
 extern Vec1818 func_002cbed8(u32);
 // 002eb098: moved to src/anon/unit_002eaf38.cpp
 

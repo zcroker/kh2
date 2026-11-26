@@ -17,11 +17,11 @@ struct FindWk { u8 pad[0x9e0]; FindPl* pl; };
 struct FindCtx { FindWk** w; };
 
 extern "C" {
-FindEnt* func_001b8e88(s32);
+FindEnt* YS__COMMAND_ELEM__Get(s32);
 s32 func_001917c0(void);
 
 // Look up entity id; reject it by flag bits 4/6 and the player's state/id.
-FindEnt* func_0019e5f8(FindCtx* c, s32 id);  // 0x0019e5f8: definition moved into src/anon/unit_0019ba60.cpp
+FindEnt* YS__RC_SEARCHER__get_command_elem(FindCtx* c, s32 id);  // 0x0019e5f8: definition moved into src/anon/unit_0019ba60.cpp
 }
 
 struct Blk36 { u32 w[9]; };
@@ -46,4 +46,4 @@ void func_001397d8(s32);
 }
 
 // Reset three sub-records of the manager and set bit 0 of each one's c word.
-void u_call0_00153158(void);  // 0x00153158: definition moved into src/anon/unit_00153158.cpp
+void dk__LEVELUP_INFO__off(void);  // 0x00153158: definition moved into src/anon/unit_00153158.cpp

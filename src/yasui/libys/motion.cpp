@@ -105,13 +105,13 @@ typedef void (*Fn_002ed478)(u32);
 typedef void (*Fn_002f0798)(u32);
 typedef void (*Fn_002f07c8)(u32);
 extern "C" u32 func_00168b38(...) asm("func_00168b38");  // entry_array_find_nth
-extern "C" u32 func_0017ec98(...) asm("func_0017ec98");
+extern "C" u32 YS__MOTION__id_to_num(...) asm("YS__MOTION__id_to_num");
 extern "C" u32 func_0017ec28(...) asm("func_0017ec28");
 extern "C" u32 func_001a97b8(...) asm("func_001a97b8");
 
 void func_0017ec30(u32 a0) {
     u32 s0 = a0;
-    u32 v0 = func_0017ec98(a0);
+    u32 v0 = YS__MOTION__id_to_num(a0);
     v0 = func_001a97b8(*(u32*)((u32)s0 + (s32)(0)), v0);
     a0 = s0;
     if (v0 != 0u) {
@@ -146,10 +146,10 @@ struct Obj
 extern u8 D_0036c5e0[][4] asm("D_0036c5e0");
 s32 func_0017ebc8(Obj *) asm("func_0017ebc8");
 s32 func_0019bf00(Chr *) asm("func_0019bf00");
-s32 func_00176258(Chr *) asm("func_00176258");
+s32 YS__PARTY__have_weapon(Chr *) asm("YS__PARTY__have_weapon");
 s32 func_001a97b8(void *, s32) asm("_ZNK2YS9MOTIONSET9is_playerEv");
-s32 func_0017ec98(Obj *o, s32 id) asm("func_0017ec98");
-s32 func_0017ec98(Obj *o, s32 id)
+s32 YS__MOTION__id_to_num(Obj *o, s32 id) asm("YS__MOTION__id_to_num");
+s32 YS__MOTION__id_to_num(Obj *o, s32 id)
 {
   u8 new_var3;
   int new_var;
@@ -171,7 +171,7 @@ s32 func_0017ec98(Obj *o, s32 id)
     new_var2 = 4;
     if (c->flags & new_var2)
     {
-      if (func_00176258(c))
+      if (YS__PARTY__have_weapon(c))
       {
         k ^= 1;
       }
@@ -315,10 +315,10 @@ struct O6 {
     u8 p14c[0x194 - 0x14c];
     s32 f194;     // 194
 };
-s32 func_0019c6f0(C6*) asm("func_0019c6f0");
+s32 YS__OBJ__is_stop(C6*) asm("YS__OBJ__is_stop");
 void func_001d7a50(void*) asm("func_001d7a50");
 void func_00180ce0(O6*) asm("func_00180ce0");
-void func_00189258(O6*) asm("func_00189258");
+void YS__ANMATR__Reset(O6*) asm("YS__ANMATR__Reset");
 R6* func_00168b38(void*, s32, s32) asm("func_00168b38");
 void func_00180800(O6*, s32) asm("func_00180800");
 void func_001807d0(O6*, f32) asm("func_001807d0");
@@ -326,14 +326,14 @@ void func_0017eee8(O6*, f32, f32) asm("func_0017eee8");
 void func_0017f938(O6*) asm("func_0017f938");
 void func_001807a0(O6*, f32, f32) asm("func_001807a0");
 
-s32 func_0017efa0(O6* o, void* r, f32 a, f32 b) {
-    if (func_0019c6f0(o->p8)) func_001d7a50((u8*)o->p8 + 0x518);
+s32 YS__MOTION__start_motion(O6* o, void* r, f32 a, f32 b) {
+    if (YS__OBJ__is_stop(o->p8)) func_001d7a50((u8*)o->p8 + 0x518);
     if (o->ref) {
         (*o->ref)--;
         o->ref = 0;
     }
     func_00180ce0(o);
-    func_00189258(o);
+    YS__ANMATR__Reset(o);
     if (!r) {
         o->fc = 0;
         return 0;
@@ -378,7 +378,7 @@ typedef void (*RelFn)(VObj*, u32);
 struct Nd { u32 h; u32 f4; u32 f8; u8 p12[12]; u32 f24; u8 p28[120]; Nd* child; u8 p152[4]; Nd* next; u8 p160[80]; u32 f240; u8 p244[8]; u32 f252; u32 f256; };
 s32 func_001a9798(u32) asm("func_001a9798");
 u32 func_0017edf0(Nd*, u32) asm("func_0017edf0");
-s32 func_0017efa0(Nd*, u32, f32, f32) asm("func_0017efa0");
+s32 YS__MOTION__start_motion(Nd*, u32, f32, f32) asm("YS__MOTION__start_motion");
 u32 func_0017eda8(Nd*, u32) asm("func_0017eda8");
 void func_00180800(Nd*, u32) asm("func_00180800");
 s32 func_0017f178(Nd* p, u32 a, f32 x, f32 y) asm("func_0017f178");
@@ -394,7 +394,7 @@ s32 func_0017f178(Nd* p, u32 a, f32 x, f32 y)
     p->f252 = 0;
     p->f256 = 0;
     p->f240 = p->f8 + 128;
-    if (!func_0017efa0(p, func_0017edf0(p, a), x, y)) return 0;
+    if (!YS__MOTION__start_motion(p, func_0017edf0(p, a), x, y)) return 0;
     p->f24 = a;
     func_00180800(p, func_0017eda8(p, a));
     Nd* c = 0;
@@ -406,7 +406,7 @@ s32 func_0017f178(Nd* p, u32 a, f32 x, f32 y)
 // 0017f268 (src/anon/batch_w256.cpp)
 namespace g16 {
 struct M256 { u8 pad[20]; s32 i20; s32 i24; u32 i28; };
-s32 func_0017ec98(M256*, s32) asm("func_0017ec98");
+s32 YS__MOTION__id_to_num(M256*, s32) asm("YS__MOTION__id_to_num");
 s32 func_0017ebc8(M256*) asm("func_0017ebc8");
 s32 func_0017f178(M256*, s32, f32, f32) asm("func_0017f178");
 u32 mo_start_num_w256(M256*, s32) asm("_ZN2YS6MOTION9start_numEiff");
@@ -414,7 +414,7 @@ s32 mo_is_exist_w256(M256*, s32) asm("_ZN2YS6MOTION8is_existEi");
 s32 mo_push_w256(M256*, s32, f32, f32, void*) asm("_ZN2YS6MOTION4pushEiffPFvPNS_3OBJEE");
 
 s32 func_0017f268(M256* m, s32 a1, f32 x, f32 y) {
-  s32 k = func_0017ec98(m, a1);
+  s32 k = YS__MOTION__id_to_num(m, a1);
   if (func_0017ebc8(m) && !a1) {
     u32 v = mo_start_num_w256(m, k);
     u32 t = m->i28;
@@ -438,11 +438,11 @@ namespace g17 {
 struct Node17f { u8 pad[60]; s32 a; s32 b; u8 pad2[148 - 68]; Node17f* child; u8 pad3[4]; Node17f* next; };
 
 // Clear two fields on a node and, recursively, on all its children.
-void func_0017f380(Node17f* n) {  // obj_walk_children
+void YS__MOTION__clear_queue(Node17f* n) {  // obj_walk_children
     n->a = 0;
     n->b = 0;
     Node17f* c = 0;
-    while ((c = !c ? n->child : c->next) != 0) func_0017f380(c);  // obj_walk_children
+    while ((c = !c ? n->child : c->next) != 0) YS__MOTION__clear_queue(c);  // obj_walk_children
 }
 }  // namespace g17
 
@@ -481,8 +481,8 @@ struct Obj {
 
 };
 typedef void (*VCall4)(Obj*, u32);
-void func_0017f380(u32) asm("func_0017f380");
-void func_0017efa0(u32, u32, f32, f32) asm("func_0017efa0");
+void YS__MOTION__clear_queue(u32) asm("YS__MOTION__clear_queue");
+void YS__MOTION__start_motion(u32, u32, f32, f32) asm("YS__MOTION__start_motion");
 typedef void (*FnA0)(u32);
 typedef void (*VirtCall)(u32 a0, u32 a1, u32 a2);
 typedef void (*VirtCall2)(u32 a0, u32 a1);
@@ -538,8 +538,8 @@ void func_0017f430(u32 a0, u32 a1, f32 a2, f32 a3) {
     u32 s0 = a0;
     u32 s1 = a1;
 
-    func_0017f380(s0);  // obj_walk_children
-    func_0017efa0(s0, s1, f21, f20);
+    YS__MOTION__clear_queue(s0);  // obj_walk_children
+    YS__MOTION__start_motion(s0, s1, f21, f20);
 }
 }  // namespace g19
 
@@ -551,7 +551,7 @@ void MISSION_Activate2d(void*) asm("_ZN2YS7MISSION10Activate2dEv");
 void EFFECT_kill(void*) asm("_ZN3ryj6EFFECT4killEv");
 u32 wtarget_002342f0(u32, u32, u32, u32) asm("_Z16wtarget_002342f0jjjj");
 void Layout_setNum(void*, s32, s32) asm("_ZN2Tz6Layout6setNumEii");
-void u_tail4_002e2d88(u32, u32, u32, u32) asm("_Z16u_tail4_002e2d88jjjj");
+void Ti__MG_EHSidecar__PlayPath(u32, u32, u32, u32) asm("_Z26Ti__MG_EHSidecar__PlayPathjjjj");
 void func_0014cfc8(void) asm("func_0014cfc8");
 void func_0014c908(void) asm("func_0014c908");
 void sceGsSyncVCallback(void*) asm("sceGsSyncVCallback");
@@ -559,13 +559,13 @@ void func_0014d308(void) asm("func_0014d308");
 void func_0014cf18(void) asm("func_0014cf18");
 void func_0014cf88(void) asm("func_0014cf88");
 void func_00102788(u32, u32, u32, void*) asm("func_00102788");
-void func_0017f380(s32) asm("func_0017f380");  // obj_walk_children
+void YS__MOTION__clear_queue(s32) asm("YS__MOTION__clear_queue");  // obj_walk_children
 void func_0017f268(s32, s32, f32, f32) asm("func_0017f268");
 extern u32 D_0032b91c asm("D_0032b91c");
 typedef void (*VFn)(void*);
 
 void f17f488(s32 a, s32 b, f32 x, f32 y) {
-    func_0017f380(a);  // obj_walk_children
+    YS__MOTION__clear_queue(a);  // obj_walk_children
     func_0017f268(a, b, x, y);
 }
 }  // namespace g20
@@ -575,12 +575,12 @@ namespace g21 {
 void func_002fd188(void (*)(void)) asm("func_002fd188");  // pool_alloc_block
 typedef s32 (*VFn)(void*);
 typedef void (*VFn0)(void*);
-void* func_0017ec98(void*) asm("func_0017ec98");
+void* YS__MOTION__id_to_num(void*) asm("YS__MOTION__id_to_num");
 void* func_0017edf0(void*, void*) asm("func_0017edf0");
 u8* func_00168b38(void*, u32, u32) asm("func_00168b38");  // entry_array_find_nth
 
 s32 func_0017f4e0(u8* p) {
-    void* v = func_0017edf0(p, func_0017ec98(p));
+    void* v = func_0017edf0(p, YS__MOTION__id_to_num(p));
     if (v) {
         u8* q = func_00168b38(v, 9, 0);  // entry_array_find_nth
         if (*(u32*)(p + 12) != *(u32*)(q + 8)) return 1;
@@ -606,7 +606,7 @@ struct Obj {
 };
 typedef void (*VCall4)(Obj*, u32);
 u32 func_0017f488(...) asm("func_0017f488");
-void func_0017f380(u32) asm("func_0017f380");
+void YS__MOTION__clear_queue(u32) asm("YS__MOTION__clear_queue");
 u32 func_0017f4e0(u32, u32) asm("func_0017f4e0");
 f32 func_00180448(u32, u32, f32, f32) asm("func_00180448");
 typedef void (*FnA0)(u32);
@@ -664,7 +664,7 @@ void func_0017f540(u32 a0, u32 a1, f32 a2, f32 a3) {
     u32 s0 = a0;
     u32 s1 = a1;
 
-    func_0017f380(s0);  // obj_walk_children
+    YS__MOTION__clear_queue(s0);  // obj_walk_children
     u32 v0 = func_0017f4e0(s0, s1);
 
     if (v0 != 0) {
@@ -787,9 +787,9 @@ void W1638_exec_trigger(W1638Motion*, f32, f32) asm("_ZNK2YS6ANMATR12exec_trigge
 void W1638_check_range(W1638Motion*, f32) asm("_ZNK2YS6ANMATR11check_rangeEPNS_6MOTIONEf");
 u32 W1638_is_player(u32, s32) asm("_ZNK2YS9MOTIONSET9is_playerEv");
 void func_0017fef0(W1638Motion*, f32) asm("func_0017fef0");
-void func_00189258(W1638Motion*) asm("func_00189258");
+void YS__ANMATR__Reset(W1638Motion*) asm("YS__ANMATR__Reset");
 void func_0019be88(u8*) asm("func_0019be88");
-void func_001801b0(u32, u32, u32, u8*, u32, f32) asm("func_001801b0");
+void YS__MOTION___Capture(u32, u32, u32, u8*, u32, f32) asm("YS__MOTION___Capture");
 void func_0017f268(W1638Motion*, s32, f32, f32) asm("func_0017f268");
 void W1638_identity(W1638Mtx*) asm("_Z13func_0011b6a8Pv");
 W1638Mtx& W1638_rotateY(W1638Mtx*, f32) asm("_ZN2kn7FMatrix7rotateYEf");
@@ -798,7 +798,7 @@ u32 W1638_copy_pose(u32, u32) asm("_Z13func_00127a88Pv");
 void W1638_matrix_swap(u32) asm("_ZN2kn8ModelObj10matrixSwapEv");
 
 // ---- 0017f620: advance the motion by dt: hold/loop handling, end of clip, next queued request, triggers.
-void func_0017f620(W1638Motion* m, f32 dt) {
+void YS__MOTION__add_time(W1638Motion* m, f32 dt) {
     m->bf9 = 0;
     if (W1638_is_no_motion(m)) return;
     W1638Vq* rot = &m->rot;
@@ -843,7 +843,7 @@ void func_0017f620(W1638Motion* m, f32 dt) {
             if (q->e[h].flags % 2) {
                 m->cur = e->id;
                 u32 sv = m->f100;
-                func_001801b0(m->ffc, W1638_is_player(sv, e->id), m->ff0, m->obj, 0, e->blend);
+                YS__MOTION___Capture(m->ffc, W1638_is_player(sv, e->id), m->ff0, m->obj, 0, e->blend);
                 m->f100 = sv;
             } else {
                 func_0017f268(m, e->id, e->blend, e->start);
@@ -853,7 +853,7 @@ void func_0017f620(W1638Motion* m, f32 dt) {
     } else {
         W1638_exec_trigger(m, old, m->time);
     }
-    func_00189258(m);
+    YS__ANMATR__Reset(m);
     W1638_check_range(m, m->has_hold() ? m->loop_start : m->time);
 }
 }  // namespace g25
@@ -962,7 +962,7 @@ void W1638_matrix_swap(u32) asm("_ZN2kn8ModelObj10matrixSwapEv");
 void func_0017ee68(W1638Motion*) asm("func_0017ee68");
 void func_0017fff8(W1638Motion*) asm("func_0017fff8");
 void func_0017fdf8(W1638Motion*) asm("func_0017fdf8");
-void func_001808c0(W1638Motion*, W1638Node*) asm("func_001808c0");
+void YS__MOTION__make_ik_adjust(W1638Motion*, W1638Node*) asm("YS__MOTION__make_ik_adjust");
 void func_00124b10(u32, W1638Mtx*) asm("func_00124b10");
 u32 func_001b0580(u8*) asm("func_001b0580");
 void func_0011c4e8(u32, u8*, W1638Anim*, u32, W1638Node*, u32, f32) asm("func_0011c4e8");
@@ -985,7 +985,7 @@ void func_0017f938(W1638Motion* m) {
                 mtx = W1638_rotateY(&mtx, m->prev.w);
                 func_00124b10(m->fd0, &mtx);
             }
-            func_001808c0(m, nodes);
+            YS__MOTION__make_ik_adjust(m, nodes);
             func_0011c4e8(model, m->obj + 0x40, m->anim, func_001b0580(m->obj + 0x4a0), nodes, 0, m->loop_start);
             m->fd4 = W1638_copy_pose(model, W1638_get_allocator());
             if (!(m->f104 & 2)) m->fd0 = W1638_copy_pose(model, W1638_get_allocator());
@@ -1022,20 +1022,20 @@ struct Obj1941 {
 static inline bool gt0_1941(f32 x) { return 0.0f < x; }
 s32 func_00180cd0(Obj1941*) asm("func_00180cd0");
 void func_0011c4b0(void*) asm("func_0011c4b0");
-void func_001808c0(Obj1941*, E1941*) asm("func_001808c0");
+void YS__MOTION__make_ik_adjust(Obj1941*, E1941*) asm("YS__MOTION__make_ik_adjust");
 void func_00180a10(Obj1941*, E1941*) asm("func_00180a10");
 s32 func_001b0580(void*) asm("func_001b0580");
 void func_0011c6a8(f32, void*, s32, s32, s32, s32, E1941*, s32) asm("func_0011c6a8");
 void func_0011c4e8(f32, void*, s32, s32, s32, E1941*, s32) asm("func_0011c4e8");
 
-void func_0017fba0(Obj1941* self, s32 a) {
+void YS__MOTION__calc(Obj1941* self, s32 a) {
     void* h = self->sub->p1648;
     self->flags32 &= ~0x80;
     self->flags260 = (self->flags260 | 1) & ~2;
     if (h != 0) {
         if (func_00180cd0(self) == 0) {
             E1941 arr[16];
-            func_001808c0(self, arr);
+            YS__MOTION__make_ik_adjust(self, arr);
             s32 r = func_001b0580(self->sub->m);
             f32 d = self->f52;
             bool pos = gt0_1941(d);
@@ -1219,8 +1219,8 @@ typedef void (*VF0)(void*);
 typedef s32 (*VF24)(void*, f32*, f32);
 typedef void (*DtorFn)(void*);
 typedef void (*FreeFn)(void*, void*);
-void func_00178cf8(void*, void*) asm("func_00178cf8");  // clear_vecs_three
-void func_00178cf8_1(void*) asm("func_00178cf8");
+void YS__PLAYER__move_stop(void*, void*) asm("YS__PLAYER__move_stop");  // clear_vecs_three
+void func_00178cf8_1(void*) asm("YS__PLAYER__move_stop");
 s32 func_00180cd0(void*) asm("func_00180cd0");
 f32 func_002f8ad0(f32, f32) asm("func_002f8ad0");
 void func_00102788(u32, s32, s32, void (*)(void)) asm("func_00102788");
@@ -1427,10 +1427,10 @@ void func_0017fff8(u32 a0) {
 // 00180058 (src/anon/batch_w99.cpp)
 namespace g37 {
 u8* func_00168b88(u32, s32, s32, s32) asm("func_00168b88");  // find_entry16_by_half_word
-void func_0017efa0(u8*, u32, f32, f32) asm("func_0017efa0");
+void YS__MOTION__start_motion(u8*, u32, f32, f32) asm("YS__MOTION__start_motion");
 void func_00180800(u8*, s32) asm("func_00180800");
 
-void func_00180058(u8* p, u32 res, s8* id, u32 a, u32 b, s32* ref, f32 s)
+void YS__MOTION___capture(u8* p, u32 res, s8* id, u32 a, u32 b, s32* ref, f32 s)
 {
     s32 i;
     for (i = 0; i < 4; i++) {
@@ -1440,7 +1440,7 @@ void func_00180058(u8* p, u32 res, s8* id, u32 a, u32 b, s32* ref, f32 s)
             *(u32*)(p + 36) |= 4;
             *(u32*)(p + 252) = b;
             *(u32*)(p + 256) = 0;
-            func_0017efa0(p, *(u32*)(e + 8), s, 0.0f);
+            YS__MOTION__start_motion(p, *(u32*)(e + 8), s, 0.0f);
             func_00180800(p, i);
             if (ref) {
                 *(u32*)(p + 328) = (u32)ref;
@@ -1449,7 +1449,7 @@ void func_00180058(u8* p, u32 res, s8* id, u32 a, u32 b, s32* ref, f32 s)
             return;
         }
     }
-    func_0017efa0(p, 0, 0.0f, 0.0f);
+    YS__MOTION__start_motion(p, 0, 0.0f, 0.0f);
 }
 }  // namespace g37
 
@@ -1461,21 +1461,21 @@ extern char D_0036c5b0[] asm("D_0036c5b0");
 extern s32 D_0034ec60 asm("D_0034ec60");
 u32 func_0016a080(u8*) asm("func_0016a080");
 s32 func_002fee78(char*, const char*, ...) asm("func_002fee78");
-void func_00180058(u8*, u32, char*, u32, u32, u32, f32) asm("func_00180058");
+void YS__MOTION___capture(u8*, u32, char*, u32, u32, u32, f32) asm("YS__MOTION___capture");
 
-s32 func_001801b0(u32 a, u32 b, u32 c, u8* o, u32 d, f32 k) {
+s32 YS__MOTION___Capture(u32 a, u32 b, u32 c, u8* o, u32 d, f32 k) {
     char name[16];
     u8** m;
     s32 i;
     func_002fee78(name, D_0036c5b0, func_0016a080(o));
-    func_00180058(o + 320, b, name, c, a, d, k);
+    YS__MOTION___capture(o + 320, b, name, c, a, d, k);
     if (*(u32*)(o + 1416) & 4) {
         m = (u8**)(o + 2808);
         for (i = 1; i >= 0; i--) {
             u8* p;
             name[3]++;
             p = *m++;
-            if (p) func_00180058(p + 320, b, name, c, a, d, k);
+            if (p) YS__MOTION___capture(p + 320, b, name, c, a, d, k);
         }
     }
     if (--D_0034ec60 >= 0) D_0034ec60 = -1;
@@ -1500,9 +1500,9 @@ struct Obj {
 
 };
 typedef void (*VCall4)(Obj*, u32);
-void func_0017f380(u32) asm("func_0017f380");
+void YS__MOTION__clear_queue(u32) asm("YS__MOTION__clear_queue");
 u32 func_001a97b8(u32, u32) asm("func_001a97b8");
-void func_001801b0(u32, u32, u32, u32, u32, f32) asm("func_001801b0");
+void YS__MOTION___Capture(u32, u32, u32, u32, u32, f32) asm("YS__MOTION___Capture");
 typedef void (*FnA0)(u32);
 typedef void (*VirtCall)(u32 a0, u32 a1, u32 a2);
 typedef void (*VirtCall2)(u32 a0, u32 a1);
@@ -1561,10 +1561,10 @@ void func_001802d8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, f32 a6) {
     u32 s3 = a4;
     u32 s5 = a5;
 
-    func_0017f380(s0 + 320);  // obj_walk_children
+    YS__MOTION__clear_queue(s0 + 320);  // obj_walk_children
     u32 v0 = func_001a97b8(s2, s3);
 
-    func_001801b0(s4, v0, s1, s0, s5, f20);
+    YS__MOTION___Capture(s4, v0, s1, s0, s5, f20);
 
     *(u32*)(s0 + 576) = s2;
     *(u32*)(s0 + 340) = s3;

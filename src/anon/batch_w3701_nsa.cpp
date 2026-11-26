@@ -156,7 +156,7 @@ struct W3701Pkt { u8 pad0[20]; u32 xy; u8 pad24[56]; void* cb0; void* cb1; };
 extern "C" {
 void func_00147c78(W3701Mgr*, W3701Ob*);
 void func_00106fe8(W3701Proj*, f32);
-void func_00106c08(W3701Proj*);
+void kn__Projection__calcMatrix(W3701Proj*);
 W3701Pkt* func_0011ca20(s32, void*, W3701Mtx*, void*, u8);
 void func_00147e80(void);
 void func_00147ed0(void);

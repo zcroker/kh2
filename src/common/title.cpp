@@ -62,7 +62,7 @@ void func_00170c00(Allocator*);
 void func_00170320(u32);
 void func_002fde18(void*, s32, u32);  // memset
 u32 func_00102788(u32, s32, s32, void*);  // TASK_MANAGER::create_task
-u32 func_00102818(u32, s32, s32, void*, u32);
+u32 TASK_MANAGER__create_thread(u32, s32, s32, void*, u32);
 }
 
 namespace TITLE {
@@ -121,7 +121,7 @@ u32 func_00102f08(s32 a, s32 b, void* fn) {
 }
 
 u32 func_00102f38(s32 a, s32 b, void* fn, u32 d) {
-    return func_00102818(D_0032b9a0.manager, a, b, fn, d);
+    return TASK_MANAGER__create_thread(D_0032b9a0.manager, a, b, fn, d);
 }
 
 u32 func_00102f70(void) { return D_0032b9d8.w & 1; }

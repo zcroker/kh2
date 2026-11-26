@@ -10,7 +10,7 @@ u8* func_00281180(u32, s32);
 s32 func_00192cc0(u8*, const char*, ...);
 s32 func_00188bb0(u32, u32);
 u8 func_00267150(s32);
-u8* func_00189200(u8*, u32);
+u8* YS__SAVERAM_BATTLE__get_formram(u8*, u32);
 u8 func_001d5c70(u32, u8*);
 u8* func_001d5c10(u32, u8*);
 u8 func_001d5d20();

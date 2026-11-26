@@ -21,18 +21,18 @@ void func_0015b7f8(void*) asm("func_0015b7f8");
 void func_0015bab8(void*) asm("func_0015bab8");
 void Radar_create(RadarS*, void*) asm("_ZN2dk5Radar6createEPv");
 extern u32 D_0032e020 asm("D_0032e020");
-void* func_00189200(void*, u32) asm("func_00189200");
+void* YS__SAVERAM_BATTLE__get_formram(void*, u32) asm("YS__SAVERAM_BATTLE__get_formram");
 void func_001891b8(void*, u32) asm("func_001891b8");
 void trap_saveram_set_form_ability(u32*) asm("_ZN2YS29trap_saveram_set_form_abilityEP8BD_VALUE");
 struct Q16 { u32 w[4]; } __attribute__((aligned(16)));
-void func_0017c4c8(void*, Q16*) asm("func_0017c4c8");
+void YS__OBJ__prepare_jump(void*, Q16*) asm("YS__OBJ__prepare_jump");
 void func_0016bd60(void*, s32) asm("func_0016bd60");
 
 void f17a8f8(void*, void*, Q16*) asm("_Z13func_0017a8f8Pv");
 void f17a8f8(void*, void* o, Q16* q) {
     Q16 t;
     asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(&t), "r"(q) : "$8", "memory");
-    func_0017c4c8(o, &t);
+    YS__OBJ__prepare_jump(o, &t);
     func_0016bd60(o, 1);
 }
 }  // namespace b0
@@ -42,11 +42,11 @@ namespace b1 {
 typedef void (*VFn)(void*);
 typedef void (*VF3)(void*, u32, u32);
 typedef u32 (*VR3)(void*, u32, u32);
-void func_0017c430(void*) asm("func_0017c430");
+void YS__OBJ__prepare_jump_height(void*) asm("YS__OBJ__prepare_jump_height");
 void func_0016bd60(void*, u32) asm("func_0016bd60");
 
 void func_0017a938(void*, void* o) {
-    func_0017c430(o);
+    YS__OBJ__prepare_jump_height(o);
     func_0016bd60(o, 1);
 }
 }  // namespace b1
@@ -62,7 +62,7 @@ struct HeapW55;
 void* operator new[](unsigned int, HeapW55*) asm("func_001063f0");
 typedef void (*CbW55)(u8*, u32);
 void func_0016bd60(u32, s32) asm("func_0016bd60");
-u32 func_001b9bc8(u32) asm("func_001b9bc8");
+u32 YS__OBJ__Each(u32) asm("YS__OBJ__Each");
 s32 func_0016a040(u32) asm("func_0016a040");
 void func_0016c568(u32, u32, f32) asm("func_0016c568");
 extern s8 D_01c60500 asm("D_01c60500");

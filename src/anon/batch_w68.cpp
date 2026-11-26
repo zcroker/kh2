@@ -20,11 +20,11 @@ extern void* D_0032b91c;
 
 /* ---- 00113338 ---- */
 void* func_001050d8(u32);
-void func_0018d238(void*, u32, u32, u32, u32, s32, u32);
+void YS__ATTACK__ATTACK_2(void*, u32, u32, u32, u32, s32, u32);
 s32 func_001130b0(u128*, u32, void*, u32);
 void func_0018f028(void*);
 
-s32 func_00113338(u32 a0, u128* a1, u32 a2, u32 a3, u32 a4, u32 a5);  // 0x00113338: definition moved into src/anon/unit_001117d8.cpp
+s32 kn__Friend__strike_2(u32 a0, u128* a1, u32 a2, u32 a3, u32 a4, u32 a5);  // 0x00113338: definition moved into src/anon/unit_001117d8.cpp
 
 /* ---- 00137890 ---- */
 extern u8* D_00347d5c;
@@ -39,7 +39,7 @@ extern Pair1 D_00348578[];
 u8* func_0013cb80(void);  // get_global_358050
 s32 func_0013cb90(void);
 u32 func_0013cb30(void);
-void func_001386e0(void*, u32, u32, void*, u32, u32);
+void dk__Sprite__create(void*, u32, u32, void*, u32, u32);
 void func_00138c40(void*, u32, u32);
 f32 func_0013b2a8(void*);  // mul_float684_692
 void func_00138d48(void*, f32, f32, f32, f32);
@@ -60,7 +60,7 @@ s32 func_00146c08(f32* pl, f32* box);  // 0x00146c08: definition moved into src/
 /* ---- 001519f8 ---- */
 s32 func_0023aa98(void*);
 f32 func_00151690(void*);  // scale_ratio_2888_2880
-void func_00239f18(void*, f32);  // obj_set_float312_and_flags
+void YI__SEQUENCE__SetScaleX(void*, f32);  // obj_set_float312_and_flags
 void func_00138c68(void*, s32, u32);
 
 void func_001519f8(u8* p);  // 0x001519f8: definition moved into src/anon/unit_0014ecb8.cpp
@@ -103,7 +103,7 @@ void func_00168958(void*, u32, u32);  // obj_init_name_string
 /* ---- 001849d8 ---- */
 struct Bits3 { u64 lo:3; u64 kind:4; u64 mid:26; u64 dirty:1; };
 struct Ent3 { u8 pad[1528]; f32 val; u32 pad2; union { u64 raw; Bits3 b; } u; };
-void* func_0016c028(Ent3*);  // obj_get_attach_or_alt
+void* YS__OBJ__get_pos(Ent3*);  // obj_get_attach_or_alt
 s32 func_001a7610(void*, f32*, s32, f32, f32);
 static inline bool clean3(Ent3* e) { return !e->u.b.dirty; }
 
@@ -111,8 +111,8 @@ static inline bool clean3(Ent3* e) { return !e->u.b.dirty; }
 
 /* ---- 00191ab8 ---- */
 void* func_00176b20(s32);
-s32 func_0019ba60(void*);
-s32 func_00185ac0(void*);
+s32 YS__OBJ__is_exist(void*);
+s32 YS__WEAPON__is_equip(void*);
 
 // 00191ab8: moved to src/yasui/libys/status.cpp
 
@@ -131,7 +131,7 @@ struct Rec5 { s16 h[5]; };
 extern Rec5 D_0032bb00;
 extern u8 D_0032bae0;
 s32 func_001991a8(u32, u32);
-void func_00104f58(void*, u32, u32, u32, u32);
+void AREA__MapJump(void*, u32, u32, u32, u32);
 union Obj5b { struct { u32 f0, f4; u16* info; } s; s16 h[6]; };
 
 void func_0019a610(Obj5b* o, Rec5* src);  // 0x0019a610: definition moved into src/anon/unit_00199688.cpp
@@ -139,9 +139,9 @@ void func_0019a610(Obj5b* o, Rec5* src);  // 0x0019a610: definition moved into s
 /* ---- 0019bb98 ---- */
 f32 func_0016a0a0(void*);
 s32 func_001c0cd8(void*);
-s32 func_0019c6f0(void*);
+s32 YS__OBJ__is_stop(void*);
 
-s32 func_0019bb98(u8* p);  // 0x0019bb98: definition moved into src/anon/unit_0019ba60.cpp
+s32 YS__OBJ__is_heavy(u8* p);  // 0x0019bb98: definition moved into src/anon/unit_0019ba60.cpp
 
 /* ---- 001c2858 ---- */
 // 001c2858: moved to src/anon/unit_001c0638.cpp
@@ -165,7 +165,7 @@ u32 func_001ce248(u32, const char*);
 u32 func_001ce2a0(u32, u32, u32);
 
 // 001ce1a0: moved to src/anon/unit_001cd660.cpp
-void func_001ce1a0(u32 a);
+void YS__PREF__Init(u32 a);
 
 /* ---- 001dde40: unlink n from the list ---- */
 struct LNode { u32 used; u32 pad[4]; LNode* next; };
@@ -174,7 +174,7 @@ extern LList D_01d9e348;
 s32 func_00321cb0(void*, void*);
 void func_001de450(void*);
 
-void func_001dde40(LNode* n);  // 0x001dde40: definition moved into src/anon/unit_001ddcf0.cpp
+void ryj__PAX__ensure(LNode* n);  // 0x001dde40: definition moved into src/anon/unit_001ddcf0.cpp
 
 /* ---- 00227950 ---- */
 struct E11 { s32 kind; s32 sub; u8 off; u8 pad[3]; s32 key; u8 rest[68]; };
@@ -190,7 +190,7 @@ union U12 { E12* p; s32 i; };
 extern U12 D_0035dcf4;
 s32 func_001de568(void*);
 
-void func_0022e288(void);  // 0x0022e288: definition moved into src/anon/unit_0022d358.cpp
+void sa__EVENT__leaveAllEffect(void);  // 0x0022e288: definition moved into src/anon/unit_0022d358.cpp
 
 /* ---- 0023ec48: out = obj->mtx(+128) * m (VU0) ---- */
 void func_0011d6c0(u32, u32, f32*);
@@ -212,7 +212,7 @@ u8* func_00257770(void);
 s32 func_00287bc0(void);
 s32 func_00139d78(void*);
 u32 func_002570a0(s32);
-s32 func_00272b60(u32);
+s32 Tz__CmCustom__CurPos2CustomType(u32);
 
 s32 func_00272538(void);  // 0x00272538: definition moved into src/anon/unit_00271e08.cpp
 
@@ -242,7 +242,7 @@ extern s32 D_0035f2f4;
 extern VObj* D_0035f31c;
 extern void* D_0035f2e8;
 
-void func_00287a28(void);  // 0x00287a28: definition moved into src/anon/unit_00286d28.cpp
+void Tz__MenuBase__Exit(void);  // 0x00287a28: definition moved into src/anon/unit_00286d28.cpp
 
 /* ---- 002a9048 ---- */
 s8* func_00276568(void);
@@ -253,7 +253,7 @@ extern void* D_0035f200;
 s32 func_0028afa8(void*);
 void func_0028afd0(void*, s32);  // obj_set_signed18
 
-void func_002a9048(void);  // 0x002a9048: definition moved into src/anon/unit_002a8ac8.cpp
+void Tz__JmQuest__AdjustPos(void);  // 0x002a9048: definition moved into src/anon/unit_002a8ac8.cpp
 
 /* ---- 002ad1b0 ---- */
 u8* func_00294000(s32);
@@ -263,10 +263,10 @@ s32 func_002ad1b0(s32 id);  // 0x002ad1b0: definition moved into src/anon/unit_0
 /* ---- 002b1a00 ---- */
 struct E19 { u16 a; s16 b; };
 extern E19 D_00374c68[];
-u32* func_002b23e0(s32);  // list_entry_by_index_checked
+u32* Tz__JmPuzzle__GetImageInfo(s32);  // list_entry_by_index_checked
 void func_00276c50(s32, u32);
 
-void func_002b1a00(void);  // 0x002b1a00: definition moved into src/anon/unit_002b0950.cpp
+void Tz__JmPuzzle__UpdateHelpMess(void);  // 0x002b1a00: definition moved into src/anon/unit_002b0950.cpp
 
 /* ---- 002dda88 ---- */
 void func_002cfeb0(void*, void*, u32, u32);  // obj_init_field1416_bit800
@@ -292,7 +292,7 @@ void f_002e7458(N23* n);  // 0x002e7458: definition moved into src/anon/unit_002
 /* ---- 002f13b0 ---- */
 union F25 { f32 f; u8 c; };
 extern F25 D_00349e10;
-s32 func_001ba028(u32);  // list_contains_ptr
+s32 YS__OBJ__is_valid(u32);  // list_contains_ptr
 f32 func_0017ce10(f32);
 void func_0016aeb8(u32, f32);
 struct O21 { u32 f0; u32 h; f32 time; f32 dflt; f32 speed; f32 val; };

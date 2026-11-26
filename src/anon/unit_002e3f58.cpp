@@ -708,8 +708,8 @@ f32 fabsf(f32 x) asm("fabsf");
 struct O2e50f8 { u8 pad[4]; f32 w; u8 pad8[0x1148]; f32 tbl[22]; };
 f32 func_002e51b0(O2e50f8*, f32) asm("func_002e51b0");
 /*TARGET 002e50f8*/
-f32 func_002e50f8(O2e50f8* o, f32 a, f32 b) asm("func_002e50f8");
-f32 func_002e50f8(O2e50f8* o, f32 a, f32 b)
+f32 Ti__Cord__init(O2e50f8* o, f32 a, f32 b) asm("Ti__Cord__init");
+f32 Ti__Cord__init(O2e50f8* o, f32 a, f32 b)
 {
     f32 h = 0.5f;
     f32 v = func_002e51b0(o, a);

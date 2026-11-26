@@ -42,11 +42,11 @@ s32 W1622_getParamY(W1622Seq*) asm("_ZN2YI8SEQUENCE9GetParamYEv");
 s32 W1622_getParamCr(W1622Seq*) asm("_ZN2YI8SEQUENCE10GetParamCrEv");
 u32 W1622_getActiveRGBA(W1622Seq*) asm("_ZN2YI8SEQUENCE13GetActiveRGBAEv");
 struct W1622Printer { u8 b[96]; };
-void W1622_print(W1622Printer*, s32, s32, u32) asm("_Z16wtarget_001a9ae8jjjj");
+void W1622_print(W1622Printer*, s32, s32, u32) asm("_Z21YS__MESSAGEDRAW__drawjjjj");
 
 extern "C" {
-void func_001a98e8(W1622Printer*, s32, const void*, s32, s32);
-void func_001aa6d0(W1622Printer*, s32);
+void YS__MESSAGEDRAW__MESSAGEDRAW(W1622Printer*, s32, const void*, s32, s32);
+void YS__MESSAGEDRAW__set_line_space(W1622Printer*, s32);
 
-u32 func_00138de0(W1622Sprite* s);  // 0x00138de0: definition moved into src/anon/unit_00138480.cpp
+u32 dk__SpriteMessage__drawMessage(W1622Sprite* s);  // 0x00138de0: definition moved into src/anon/unit_00138480.cpp
 }

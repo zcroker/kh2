@@ -50,9 +50,9 @@ s32 func_00132d60(s32);
 void func_001097e8(s32, s32, s32, s32, s32, s32, s32, s32, s32);
 void func_00133c60(void*, void*, s32, s32, s32);
 void func_001094e0(void*, s32);
-void func_001217a0(W2024a_Obj* o, void* ctx, s32 n, void* a3, W2024a_Hdr* h);  // 0x001217a0: definition moved into src/anon/unit_00120520.cpp
+void kn__ModelSKL__setTexture(W2024a_Obj* o, void* ctx, s32 n, void* a3, W2024a_Hdr* h);  // 0x001217a0: definition moved into src/anon/unit_00120520.cpp
 
-W2024b_Vec* func_0016c028(void*);
+W2024b_Vec* YS__OBJ__get_pos(void*);
 void func_002e10d0(W2024b_Mtx*, W2024b_Cam*);
 void func_002e1140(W2024b_Mtx*, W2024b_Cam*);
 void func_0011b6a8(void*);

@@ -232,9 +232,9 @@ u32 func_0010ef48(u32 a0) asm("func_0010ef48");
 u32 func_0010f9e0(u32 a0, u32 a1) asm("func_0010f9e0");
 u32 func_0010cc80(u32 a0) asm("func_0010cc80");
 u8* func_0010cc70(u32 a0) asm("func_0010cc70");
-void func_0016b010(u32, Vec4*) asm("func_0016b010");
+void YS__OBJ__set_wish_dir(u32, Vec4*) asm("YS__OBJ__set_wish_dir");
 // obj_set_float1644_from_pair
-void func_0016af58(Vec4*, u8*) asm("func_0016af58");
+void YS__OBJ__get_dir(Vec4*, u8*) asm("YS__OBJ__get_dir");
 void func_0010f9f0(u32, Vec4*, s32) asm("func_0010f9f0");
 /*TARGET 00113848*/
 u8 func_00113848(u32 param_1, u32 param_2, Rec20* param_3, u32* param_4, u8 param_5) asm("func_00113848");
@@ -271,9 +271,9 @@ u8 func_00113848(u32 param_1, u32 param_2, Rec20* param_3, u32* param_4, u8 para
         u8* q = func_0010cc70(*(u32*)(param_1 + 4));
         // 128-bit copy (hand-written lq/sq)
         asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(&v), "r"(q + 32) : "$8", "memory");
-        func_0016b010(*(u32*)(param_1 + 4), &v);  // obj_set_float1644_from_pair
+        YS__OBJ__set_wish_dir(*(u32*)(param_1 + 4), &v);  // obj_set_float1644_from_pair
     }
-    func_0016af58(&v, *(u8**)(param_1 + 4));
+    YS__OBJ__get_dir(&v, *(u8**)(param_1 + 4));
     *(u32*)&v.w = 0;
     func_0010f9f0(*(u32*)(param_1 + 4), &v, 0);
     return 1;
@@ -364,7 +364,7 @@ void* func_00111e38(s32) asm("func_00111e38");
 void* func_00111e20(void*) asm("func_00111e20");
 u8* func_00112570(void*) asm("func_00112570");
 s32 func_001145b0(u32) asm("func_001145b0");
-s32 func_0010f748(void*, u32) asm("func_0010f748");
+s32 kn__Friend__canItemAction(void*, u32) asm("kn__Friend__canItemAction");
 void func_0010cbc8(void*, s32, u32, s32) asm("func_0010cbc8");
 static inline bool IsValid(Tgt* s) {
     bool ok = false;
@@ -404,7 +404,7 @@ u8 func_00113af0(Owner* o, Req* a, Tgt* t, s32* out, u8 mode) {
             for (s32 i = 0; i < kNum; i++) {
                 s32 lv = tab[func_001145b0(e[i]) + 1];
                 if (lv < 2 || lock) {
-                    if (func_0010f748(o->in, e[i])) {
+                    if (kn__Friend__canItemAction(o->in, e[i])) {
                         id = e[i];
                         break;
                     }
@@ -451,7 +451,7 @@ u8 func_00113d70(Owner* o, Req* a, Tgt* t, s32* out, u8 mode) {
             for (s32 i = 0; i < kNum; i++) {
                 s32 lv = tab[func_001145b0(e[i]) + 1];
                 if (lv < 2 || lock) {
-                    if (func_0010f748(o->in, e[i])) {
+                    if (kn__Friend__canItemAction(o->in, e[i])) {
                         id = e[i];
                         break;
                     }

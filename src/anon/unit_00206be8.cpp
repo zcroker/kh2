@@ -85,8 +85,8 @@ void sceVu0UnitMatrix(f32 (*m)[4]) asm("sceVu0UnitMatrix");
 // sceVu0UnitMatrix
 u8* func_0021d048(u8* data, DrawParam206b* p, s32 x) asm("func_0021d048");
 /*TARGET 00206be8*/
-void func_00206be8(List206b* list) asm("func_00206be8");
-void func_00206be8(List206b* list) {
+void draw_lamp(List206b* list) asm("draw_lamp");
+void draw_lamp(List206b* list) {
     DrawParam206b p;
     FMTX206 local;
     u32 i;
@@ -171,15 +171,15 @@ void func_00206be8(List206b* list) {
 // 00206fd8 (was gap, written for the unit)
 namespace n00206fd8 {
 struct BufG { s32 n0, n1, n2; u8* p0; u8* p1; u8* p2; };
-void func_002065b0(BufG*) asm("func_002065b0");
-void func_002068d0(BufG*) asm("func_002068d0");
-void func_00206be8(BufG*) asm("func_00206be8");
+void draw_shape(BufG*) asm("draw_shape");
+void draw_model(BufG*) asm("draw_model");
+void draw_lamp(BufG*) asm("draw_lamp");
 void func_00206fd8(u8* base, u8* d, u8* c) asm("func_00206fd8");
 void func_00206fd8(u8* base, u8* d, u8* c) {
     BufG* s = (BufG*)(base + (*(s32**)(c + 12))[0] + 160);
-    func_002065b0(s);
-    func_002068d0(s);
-    void (*f)(BufG*) = func_00206be8;
+    draw_shape(s);
+    draw_model(s);
+    void (*f)(BufG*) = draw_lamp;
     f(s);
 }
 void func_00207020(u8* base, u8* c) asm("func_00207020");
@@ -202,9 +202,9 @@ extern u32 D_01d9e6e4 asm("D_01d9e6e4");
 void func_001e7798(u32, u32) asm("func_001e7798");
 /*TARGET 00207050*/
 // Releases the three handles at +12/+16/+20 of the sub-block.
-void func_00207050(u8* p, u8* d) asm("func_00207050");
+void pppRyjMegaPlaceDes(u8* p, u8* d) asm("pppRyjMegaPlaceDes");
 // Releases the three handles at +12/+16/+20 of the sub-block.
-void func_00207050(u8* p, u8* d) {
+void pppRyjMegaPlaceDes(u8* p, u8* d) {
     u32* s = (u32*)(p + **(s32**)(d + 12) + 160);
     if (s[3]) { func_001e7798(D_01d9e6e4, s[3]); s[3] = 0; }
     if (s[4]) { func_001e7798(D_01d9e6e4, s[4]); s[4] = 0; }
@@ -285,8 +285,8 @@ void func_002071a8(u8* base, u8* c) {
 // 002071d8 (was src/anon/auto80_199_queue.cpp)
 namespace n002071d8 {
 /*TARGET 002071d8*/
-void func_002071d8(u32 a0, u32 a1, u32 a2) asm("_Z13func_002071d8jjj");
-void func_002071d8(u32 a0, u32 a1, u32 a2) {
+void pppRyjMegaPlaceLamp(u32 a0, u32 a1, u32 a2) asm("_Z19pppRyjMegaPlaceLampjjj");
+void pppRyjMegaPlaceLamp(u32 a0, u32 a1, u32 a2) {
     u32 t5 = a0;
     u32 t6 = *(u32*)(a2 + 12);
     u32 t7 = *(u32*)(t6 + 4);

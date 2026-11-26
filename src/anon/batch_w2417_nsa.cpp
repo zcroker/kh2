@@ -25,7 +25,7 @@ void func_002fde18(void*, s32, s32);
 s32 func_00276c18(void);
 void* func_00192048(u32);
 void func_00192c90(void*, char*);
-void func_0028de08(u32, char*, s32);
+void Tz__MenuUtil__MakeQuestionStr(u32, char*, s32);
 
 void func_002b1db8(void);  // 0x002b1db8: definition moved into src/anon/unit_002b1db8.cpp
 }
@@ -59,5 +59,5 @@ struct W2417_Big {
     W2417_T p;
 };
 extern "C" {
-void func_00323110(W2417_Big* p);  // 0x00323110: definition moved into src/anon/unit_00321728.cpp
+void sa__MUSICAL_SCORE2__init(W2417_Big* p);  // 0x00323110: definition moved into src/anon/unit_00321728.cpp
 }

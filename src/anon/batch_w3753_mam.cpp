@@ -20,7 +20,7 @@ void func_0028f4d8(s32, s32, s32);
 void func_00266c90(void);
 s32 func_00257100(s32);
 s32 func_00257118(s32);
-void func_00288d80(u32, s32, u32, u32, u32, s32, s32, s32);
+void Tz__Select__SetItem(u32, s32, u32, u32, u32, s32, s32, s32);
 u8* func_002891b8(u32, s32);
 s32 func_0023aa98(u8*);
 s32 func_0023aa18(u8*);
@@ -31,19 +31,19 @@ void func_001395f8(u8*);
 void func_0028d8c0(u8*, s32, u32, u32, u32, s32, s32, s32);
 void func_0028dcc0(u8*, u8*);
 s32 func_0028afa8(u32);
-s32 func_00267408(s32);
+s32 Tz__CmStat__GetSelMsg(s32);
 s32 func_002670a0(s32);
-s32 func_00286418(s32);
+s32 Tz__CmNewFlg__isStatNew(s32);
 s32 func_002864f8(s32);
 s32 func_00192048(s32);
 void func_00138c10(u8*, s32);
 s32 func_00257070(s32);
 s32 func_002670f8(s32);
-void func_002891f0(u32, s32, s32, s32, s32);
-void func_002653a0(void);
+void Tz__Select__SetCurrent(u32, s32, s32, s32, s32);
+void Tz__CmStat__CreateTopList(void);
 void func_002657a8(void);
-void func_00266988(void);
+void Tz__CmStat__UpdateNew(void);
 void func_002666a8(void);
 void func_00287cc0(s32);
-void func_002644a0(u8 flag);  // 0x002644a0: definition moved into src/anon/unit_002640a8.cpp
+void Tz__CmStat__SetupTop(u8 flag);  // 0x002644a0: definition moved into src/anon/unit_002640a8.cpp
 }

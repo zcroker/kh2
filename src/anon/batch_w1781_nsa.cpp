@@ -3,7 +3,7 @@
 extern "C" {
 
 s32 func_00224910(void);
-void func_00239f18(void* p, f32 v);
+void YI__SEQUENCE__SetScaleX(void* p, f32 v);
 
 static inline f32 w1781_clamp(f32 x, f32 lo, f32 hi) {
     f32 r;
@@ -22,8 +22,8 @@ struct W1781VObj {
 };
 struct W1781Ent40 { s32 a; s32 b; W1781VObj* obj; u8 pad[28]; };
 extern W1781Ent40* D_0035dcfc;
-void func_001ba028(W1781VObj*);
-void func_00232db0(s32);
+void YS__OBJ__is_valid(W1781VObj*);
+void sa__EVENT__clearMotionCtrlWk(s32);
 
 void func_0022d440(void);  // 0x0022d440: definition moved into src/anon/unit_0022d358.cpp
 
@@ -44,7 +44,7 @@ void w1781_set_pos(void* obj, const W1781Vec* v) asm("_ZN2YS3OBJ7set_posERKN2kn7
 extern f32 D_00349e10;
 void func_0017d748(W1781Vec* out, W1781Obj* self, f32 t);
 
-void func_002c7060(W1781Obj* self, void* obj);  // 0x2c7060: moved to src/anon/unit_002c6eb8.cpp
+void worldmap__Warp__exec(W1781Obj* self, void* obj);  // 0x2c7060: moved to src/anon/unit_002c6eb8.cpp
 
 
 struct W1781Ent616 { u8 d[616]; };

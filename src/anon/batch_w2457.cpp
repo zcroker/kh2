@@ -15,5 +15,5 @@ s32 func_00291370(u8*, s32);
 void func_0028dcc0(u8*, u8*);
 u8* func_001a80c8(s32);
 void func_00192cc0(u8*, u32*, s32);
-void func_00291510(u8* obj, s32 mode, s32 id, s32 mask);  // 00291510: moved to src/anon/unit_00290f78.cpp
+void Tz__ItemStat__Update(u8* obj, s32 mode, s32 id, s32 mask);  // 00291510: moved to src/anon/unit_00290f78.cpp
 }

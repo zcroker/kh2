@@ -35,9 +35,9 @@ void func_002fde18(void*, s32, s32);
 ItemRec* func_001a82b0(ItemRec*);
 s32 func_00181500(u16);
 s32 func_002a4390(ItemRec*);
-u8 func_002764b0(u8);
-void func_002a2ff8(void);
-s32 func_002ab540(s32);
+u8 Tz__Jiminy__AreaWorld2JmWorld(u8);
+void Tz__JmTreasure__SortList(void);
+s32 Tz__JmNewInfo__isTreasureNew(s32);
 s32 func_002ab620(s32);
 void func_002a2a80(void);  // 0x002a2a80: definition moved into src/anon/unit_002a1d38.cpp
 
@@ -93,7 +93,7 @@ static inline bool w1957_flag(W1957Obj* o) {
 }
 
 // 001c1b08: moved to src/anon/unit_001c0638.cpp
-void func_001c1b08(W1957Obj* self, W1957Tgt* tgt, u8 on);
+void YS__BTLOBJ__tornado(W1957Obj* self, W1957Tgt* tgt, u8 on);
 
 
 struct W1957Face { u8 pad[10]; u16 plane; u8 pad2[4]; };

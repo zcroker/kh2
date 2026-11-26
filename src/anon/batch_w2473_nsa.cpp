@@ -174,7 +174,7 @@ void func_00108998(void*);
 s32 func_0010abb8(s32);
 s32 func_00109f58(s32, s32, u8);
 s32 func_00109ea8(s32, s32, u8);
-void func_00108c00(void*, s32, u64, u64, s32, s32, u64, u64);
+void kn__VU1DrawContext__setPacket(void*, s32, u64, u64, s32, s32, u64, u64);
 void func_00108a10(void*);
 void func_001342a8();
 s32 func_00133d38();

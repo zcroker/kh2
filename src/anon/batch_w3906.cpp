@@ -14,7 +14,7 @@ struct W3906Q {
 struct W3906Seg {
     W3906Q v[2];
 };
-/* collision hit info filled by func_00143d10 */
+/* collision hit info filled by dk__Octree__intersectLineCamera */
 struct W3906HitInfo {
     u16 id;
     u8 _pad2[14];
@@ -42,11 +42,11 @@ static inline void W3906VScale(W3906Q& r, const W3906Q& v, f32 s)
 extern "C" {
 void func_0015a8a0(void);
 s32 func_0015a8d0(W3906Seg*, W3906Q*);
-s32 func_00143d10(W3906Seg*, W3906Q*, W3906HitInfo*, W3906HitObj*);
+s32 dk__Octree__intersectLineCamera(W3906Seg*, W3906Q*, W3906HitInfo*, W3906HitObj*);
 void func_00143e50(W3906Q*, u16, s32);
 s32 func_00143f28(u16, s32);
 void func_001422a0(W3906Q*, u8*, u16);
-s32 func_0013f9e0(W3906Q* pos, W3906Q* from, W3906Q* to, u8 mode, u8 flag)
+s32 dk__ObjCamera__collision_2(W3906Q* pos, W3906Q* from, W3906Q* to, u8 mode, u8 flag)
 {
     W3906HitInfo info;
     W3906Q hit;
@@ -76,7 +76,7 @@ s32 func_0013f9e0(W3906Q* pos, W3906Q* from, W3906Q* to, u8 mode, u8 flag)
             ret = 1;
         }
     }
-    if (func_00143d10(ps, ph, &info, &res)) {
+    if (dk__Octree__intersectLineCamera(ps, ph, &info, &res)) {
         W3906Q* pn = &normal;
         kind = 0;
         if (res.obj == 0) {
@@ -104,7 +104,7 @@ s32 func_0013f9e0(W3906Q* pos, W3906Q* from, W3906Q* to, u8 mode, u8 flag)
             W3906Q* s2e = &seg2.v[1];
             s2->v[0] = *from;
             *s2e = *ph;
-            func_00143d10(s2, ph, &info, &res);
+            dk__Octree__intersectLineCamera(s2, ph, &info, &res);
             res.again = 1;
         }
         f32 s;

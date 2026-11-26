@@ -23,7 +23,7 @@ static inline s32 rnd_1d65f8(s32 n) {
 struct O1d65f8 { u8 p0[64]; V1d65f8 v40; u8 p50[4]; void* cb; void* owner; u8 p5c[4]; };
 struct S1d65f8 { u8 p0[20]; u8 heap[4]; };
 struct T1d65f8 { u8 p0[2548]; T1d65f8* p9f4; };
-V1d65f8* func_0016c028(void*);
+V1d65f8* YS__OBJ__get_pos(void*);
 void func_001c2858(void*, V1d65f8*, void*, void*);
 s32 func_001c28f8(void*, V1d65f8*, s32);
 O1d65f8* func_001db888(void*, s32, void*);
@@ -31,7 +31,7 @@ void func_001dbc58(O1d65f8*, T1d65f8*, V1d65f8*, V1d65f8*);
 void func_001ce618(void);
 extern V1d65f8 D_01d5ba78;
 extern V1d65f8 D_01d5ba88;
-void func_001d65f8(T1d65f8* self, void* a, void* b);  // 0x001d65f8: definition moved into src/anon/unit_001d63a8.cpp
+void YS__CROWD_N_MU060___OVR_appear(T1d65f8* self, void* a, void* b);  // 0x001d65f8: definition moved into src/anon/unit_001d63a8.cpp
 }
 
 extern "C" {
@@ -86,7 +86,7 @@ struct O2bff98 {
     V2bff98 vc0;
 };
 void func_0031cc28(void*) asm("_Z13func_0031cc28Pv");
-void func_002c6420(O2bff98*);
+void worldmap__Camera__initialize(O2bff98*);
 extern u8 D_00361da8;
 extern u8 D_00361a60;
 void func_002bff98(O2bff98* self, V2bff98* p, V2bff98* q, f32 t);  // 0x002bff98: definition moved into src/anon/unit_002bebd0.cpp

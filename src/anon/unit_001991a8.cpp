@@ -61,7 +61,7 @@ s32 func_0016b7a0(s32);
 void func_00196b28(s32, s32);
 void func_0016bb38(s32, s32);
 s32 func_00198cb8(s32, s32);
-s32 func_0019ba60(u32) asm("_Z16ctarget_0019ba60jjjj");
+s32 YS__OBJ__is_exist(u32) asm("_Z17YS__OBJ__is_existjjjj");
 void func_00102c18(s32, s32, void*);
 
 void func_001993a0(s32 event);
@@ -99,14 +99,14 @@ void func_00199280(void) {
         switch (e->type) {
         case 1:
             o = e->obj;
-            if (!func_0019ba60(o)) continue;
+            if (!YS__OBJ__is_exist(o)) continue;
             st = *(s32**)(o + 1164);
             if (!st) continue;
             if (st[0] > st[2]) continue;
             break;
         case 0:
             o = e->obj;
-            if (!func_0019ba60(o)) continue;
+            if (!YS__OBJ__is_exist(o)) continue;
             st = *(s32**)(o + 1164);
             if (!st) continue;
             if (!((f32)st[0] / (f32)st[1] <= e->rate)) continue;

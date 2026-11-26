@@ -18,17 +18,17 @@ void wtarget_00144630(f32* out, BBSrc* s) asm("_Z16wtarget_00144630jjjj");
 void wtarget_00144630(f32* out, BBSrc* s);  // 0x00144630: definition moved into src/anon/unit_00144450.cpp
 s32 func_002ad1b0(s32);
 s32 func_002ad338(void);
-s32 func_002ad4a8(void);
+s32 Tz__JmComplete__isAlbumComp(void);
 s32 func_002ad660(void);
 s32 func_002ad7d0(s32);
 s32 func_002ad950(s32);
-s32 func_002adaf0(s32);
-s32 func_002adcb0(s32);
+s32 Tz__JmComplete__isTreasureComp(s32);
+s32 Tz__JmComplete__isNaviComp(s32);
 s32 func_002adf60(s32);
 s32 func_002ae0c0(s32);
 s32 func_002ae1b0(s32, s32);
-s32 func_002ae660(s32);
-s32 func_002ae768(s32);
+s32 Tz__JmComplete__isPuzzlePieceComp(s32);
+s32 Tz__JmComplete__isPuzzleGameComp(s32);
 s32 func_002ae890(s32);
 static inline __attribute__((always_inline)) s32 h_002ae908(s32 x) {
     if (x == 15) {
@@ -37,19 +37,19 @@ static inline __attribute__((always_inline)) s32 h_002ae908(s32 x) {
         if (!func_002ad660()) return 0;
         if (!func_002ad7d0(-1)) return 0;
         if (!func_002ad950(-1)) return 0;
-        if (!func_002adaf0(-1)) return 0;
-        if (!func_002adcb0(-1)) return 0;
+        if (!Tz__JmComplete__isTreasureComp(-1)) return 0;
+        if (!Tz__JmComplete__isNaviComp(-1)) return 0;
         if (!func_002adf60(-1)) return 0;
-        if (!func_002ae660(-1)) return 0;
-        if (!func_002ae768(-1)) return 0;
+        if (!Tz__JmComplete__isPuzzlePieceComp(-1)) return 0;
+        if (!Tz__JmComplete__isPuzzleGameComp(-1)) return 0;
         if (!func_002ae890(-1)) return 0;
         if (!func_002ae1b0(1, x)) return 0;
     } else {
-        if (!func_002ad4a8()) return 0;
+        if (!Tz__JmComplete__isAlbumComp()) return 0;
         if (!func_002ad7d0(x)) return 0;
         if (!func_002ad950(x)) return 0;
-        if (!func_002adaf0(x)) return 0;
-        if (!func_002adcb0(x)) return 0;
+        if (!Tz__JmComplete__isTreasureComp(x)) return 0;
+        if (!Tz__JmComplete__isNaviComp(x)) return 0;
         if (!func_002ae0c0(x)) return 0;
         if (!func_002ae1b0(0, x)) return 0;
         if (!func_002ae1b0(1, x)) return 0;
@@ -57,7 +57,7 @@ static inline __attribute__((always_inline)) s32 h_002ae908(s32 x) {
     }
     return 1;
 }
-s32 func_002ae908(s32 x);  // 0x002ae908: definition moved into src/anon/unit_002a99c8.cpp
+s32 Tz__JmComplete__isWorldComp(s32 x);  // 0x002ae908: definition moved into src/anon/unit_002a99c8.cpp
 s32 func_0019c090(A19*, B19*);
 s32 func_001917c0(void);
 static inline __attribute__((always_inline)) bool anyf_0019c218(s32 f) {
@@ -96,5 +96,5 @@ static inline __attribute__((always_inline)) s32 h1_0019c218(A19* a, B19* b) {
     if ((u8)((b->f0c >> 8) & 1) && (a->f160 & 0x80000)) return 1;
     return h2_0019c218(a, b);
 }
-s32 func_0019c218(A19* a, B19* b);  // 0x0019c218: definition moved into src/anon/unit_0019ba60.cpp
+s32 YS__OBJ__can_decide(A19* a, B19* b);  // 0x0019c218: definition moved into src/anon/unit_0019ba60.cpp
 }

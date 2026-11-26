@@ -24,7 +24,7 @@ extern V209 func_0017d348(V209* self, u32 x, f32 y);
 // 0016d800: moved to src/anon/unit_0016d2e0.cpp
 
 // --- 001a6600
-extern f32 func_001826e0(void);  // global_float_diff
+extern f32 YS__AREADATA__GetCostRest(void);  // global_float_diff
 u32 cac209(f32 f) asm("_ZN2YS5MAGIC10CanAddCostEf");
 // 001a6600: moved to src/yasui/libys/magic.cpp
 
@@ -54,7 +54,7 @@ extern u16 D_0035f280;
 void func_00281cf0(u32 a);  // 0x00281cf0: definition moved into src/anon/unit_00281cf0.cpp
 
 // --- 002cd3e0
-extern V209* func_0016c028(u32);  // obj_get_attach_or_alt
+extern V209* YS__OBJ__get_pos(u32);  // obj_get_attach_or_alt
 extern void func_002cd428(u32, V209*);
 void func_002cd3e0(u32 a, u32 b);  // 0x002cd3e0: definition moved into src/taito/path.cpp
 

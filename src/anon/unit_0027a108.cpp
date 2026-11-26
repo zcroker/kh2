@@ -19,8 +19,8 @@ s32 func_0028acb8(u32) asm("func_0028acb8");
 void func_0028aa40(u32) asm("func_0028aa40");
 extern u32 D_0035f01c asm("D_0035f01c");
 /*TARGET 0027a108*/
-void func_0027a108(void) asm("func_0027a108");
-void func_0027a108(void) {
+void Tz__CmAbility__FadeOutSelList(void) asm("Tz__CmAbility__FadeOutSelList");
+void Tz__CmAbility__FadeOutSelList(void) {
     u32 o = func_00257770();
     if (func_00287bc0() == 15) {
         func_0028dac8(o, 142);
@@ -86,7 +86,7 @@ void func_00138c10(void*, s32) asm("func_00138c10");
 s32 func_00257140(s32) asm("func_00257140");
 s32 func_00192048(s32) asm("func_00192048");
 s32 func_0028b038(void*) asm("func_0028b038");
-void func_0028be78(void*, s32) asm("func_0028be78");
+void Tz__ScrollBar__SetPos(void*, s32) asm("Tz__ScrollBar__SetPos");
 s32 func_002570a0(s32) asm("func_002570a0");
 void func_0027aed8(s32, s32*, s32*) asm("func_0027aed8");
 void func_00288fd8(void*, s32, s32, s32) asm("func_00288fd8");
@@ -95,10 +95,10 @@ s32 func_00259618(u16, u8*, s32) asm("func_00259618");
 s32 func_00192cc0(u8*, void*, s32) asm("func_00192cc0");
 u8* func_00273180(s32, s32) asm("func_00273180");
 s32 func_002595b8(s32, u8*, s32) asm("func_002595b8");
-s32 func_00286d28(s32, s32) asm("func_00286d28");
-s32 func_00287028(s32, s32) asm("func_00287028");
+s32 Tz__CmNewFlg__isAbilityNewMember(s32, s32) asm("Tz__CmNewFlg__isAbilityNewMember");
+s32 Tz__CmNewFlg__isAbilityHistMember(s32, s32) asm("Tz__CmNewFlg__isAbilityHistMember");
 s32 func_0027ae78(s32) asm("func_0027ae78");
-s32 func_00286ec8(s32, s32) asm("func_00286ec8");
+s32 Tz__CmNewFlg__isAbilityNewForm(s32, s32) asm("Tz__CmNewFlg__isAbilityNewForm");
 s32 func_00287218(s32, s32) asm("func_00287218");
 extern void* D_0035f01c asm("D_0035f01c");
 extern s32 D_0035ef6c asm("D_0035ef6c");
@@ -152,7 +152,7 @@ void func_0027a208(void) {
         return;
     }
     k = func_0028b038(D_0035f01c);
-    func_0028be78(D_0035f04c, k);
+    Tz__ScrollBar__SetPos(D_0035f04c, k);
     v = func_002570a0(15);
     func_0027aed8(v, &flag, &id);
     if (k != 0 && D_0035f230->e[k].b0 == D_0035f230->e[k + 1].b0) cur = D_0035f230->e[k].b0; else cur = -1;
@@ -187,16 +187,16 @@ void func_0027a208(void) {
         if (D_0035f230->e[k + 1].b3 != 0xff) {
 
             if (!flag) {
-                if (!func_00286d28(id, (s8)D_0035f230->e[k + 1].b3)) continue;
-                v = func_00287028(id, (s8)D_0035f230->e[k + 1].b3) ? D_00373e00 : D_00373dfc;
+                if (!Tz__CmNewFlg__isAbilityNewMember(id, (s8)D_0035f230->e[k + 1].b3)) continue;
+                v = Tz__CmNewFlg__isAbilityHistMember(id, (s8)D_0035f230->e[k + 1].b3) ? D_00373e00 : D_00373dfc;
             } else {
                 qq = D_0035f230->e[k + 1].b3 & 0x7f;
                 if ((s8)D_0035f230->e[k + 1].b3 & 0x80) {
-                    if (!func_00286ec8(func_0027ae78(id), qq)) continue;
+                    if (!Tz__CmNewFlg__isAbilityNewForm(func_0027ae78(id), qq)) continue;
                     v = func_00287218(func_0027ae78(id), qq) ? D_00373e00 : D_00373dfc;
                 } else {
-                    if (!func_00286d28(0, qq)) continue;
-                    v = func_00287028(0, qq) ? D_00373e00 : D_00373dfc;
+                    if (!Tz__CmNewFlg__isAbilityNewMember(0, qq)) continue;
+                    v = Tz__CmNewFlg__isAbilityHistMember(0, qq) ? D_00373e00 : D_00373dfc;
                 }
             }
             func_00138c10(base + i * 408 + 0x87d0, v);

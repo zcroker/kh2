@@ -1,7 +1,7 @@
 #include "../common/types.h"
 extern "C" {
 u8* func_001a1728(s32, s32);
-void func_001a17c8(u8*);
+void YS__SHEET__Free(u8*);
 s32 func_00291370(u8*, s32);
 s32 func_0023aa78(u8*);
 s32 func_0023aa98(u8*);
@@ -31,7 +31,7 @@ s32 func_002570a0(s32);
 void func_0027aed8(s32, s32*, s32*);
 Obj* func_00281180(s32, s32);
 s32 func_001a80c8(s32);
-Item* func_001a8190(s32);
+Item* YS__ITEM_TABLE__get_param(s32);
 s32 func_00281388(s32);
 s32 func_002814b0(s32);
 extern s32 D_0035f010;

@@ -32,8 +32,8 @@ u32 W1622_getActiveRGBA(W1622Seq*) asm("_ZN2YI8SEQUENCE13GetActiveRGBAEv");
 void W1622_setRGBA(W1622Seq*, f32, f32, f32, f32) asm("_Z16wtarget_00239fd0jjjj");
 
 extern "C" {
-void func_0023ade0(W1622Seq*);
-void func_00236d60(void);
+void YI__SEQUENCE__Draw(W1622Seq*);
+void YI__IMAGE_CACHE__Clear(void);
 
-void func_00138988(W1622Sprite* s);  // 0x00138988: definition moved into src/anon/unit_00138480.cpp
+void dk__Sprite__draw(W1622Sprite* s);  // 0x00138988: definition moved into src/anon/unit_00138480.cpp
 }

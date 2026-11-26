@@ -101,17 +101,17 @@ u64 func_00166730(TexInfo*);
 void func_001669e0(u8*);
 void func_0014d8d0(u8*);
 void func_0014ddb0(u8*);
-W290Q* func_0016c028(u32);
+W290Q* YS__OBJ__get_pos(u32);
 f32 func_002f8ad0(f32, f32);
-void* func_00106a18(s32);
+void* kn__getProjection(s32);
 f32 func_00106f30(void*, s32);
-void func_00141010(f32);
+void dk__ObjCamera__cancelSubjective(f32);
 Cam14e8b8* func_00140df0(void);
 u32 func_00140dc0(void);
 void func_00140dd0(Cam14e8b8*);
-s32 c14e8b8_19ba60(void*) asm("func_0019ba60");
+s32 c14e8b8_19ba60(void*) asm("YS__OBJ__is_exist");
 void func_0013f5f0(Cam14e8b8*);
-V14e8b8* c14e8b8_16c028(void*) asm("func_0016c028");
+V14e8b8* c14e8b8_16c028(void*) asm("YS__OBJ__get_pos");
 Pad14e8b8* c14e8b8_167f18(s32) asm("func_00167f18");
 void c14e8b8_11b6a8(M14e8b8*) asm("func_0011b6a8");
 void c14e8b8_11b6d8(M14e8b8*, f32) asm("func_0011b6d8");
@@ -194,7 +194,7 @@ u8* func_0014e648(u8* p) { return p + 752; }
 void func_0014e658(Cam14e8b8* c) {
     f32 d[4] __attribute__((aligned(16)));
     W290Q* a = D_0034a3f4;
-    W290Q* b = func_0016c028(D_0034a3f0);
+    W290Q* b = YS__OBJ__get_pos(D_0034a3f0);
     asm volatile("lqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 0(%2)\n\tvsub.xyzw $vf1, $vf1, $vf2\n\tsqc2 $vf1, 0(%0)"
                  : : "r"(d), "r"(a), "r"(b) : "memory");
     d[1] += D_0034a3f8;
@@ -205,18 +205,18 @@ void func_0014e658(Cam14e8b8* c) {
 // Clamps yaw and pitch to the field of view around the target.
 void func_0014e6f8(Cam14e8b8* c) {
     W290Q* a = D_0034a3f4;
-    W290Q* b = func_0016c028(D_0034a3f0);
+    W290Q* b = YS__OBJ__get_pos(D_0034a3f0);
     W290Q d;
     asm volatile("lqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 0(%2)\n\tvsub.wxyz $vf1, $vf1, $vf2\n\tsqc2 $vf1, 0(%0)" : : "r"(&d), "r"(a), "r"(b) : "memory");
     d.y += D_0034a3f8;
     f32 t = func_002f8ad0(d.x, d.z);
     f32 r = func_0017ce10(c->yaw - t);
-    f32 lim = func_00106f30(func_00106a18(1), 0) * 0.5f - 0.17453292f;
+    f32 lim = func_00106f30(kn__getProjection(1), 0) * 0.5f - 0.17453292f;
     if (r < -lim) c->yaw = func_0017ce10(t - lim);
     else if (lim < r) c->yaw = func_0017ce10(t + lim);
     t = -func_002f8ad0(d.y, __builtin_sqrtf(d.x * d.x + d.z * d.z));
     r = func_0017ce10(c->pitch - t);
-    lim = func_00106f30(func_00106a18(1), 1) * 0.5f - 0.17453292f;
+    lim = func_00106f30(kn__getProjection(1), 1) * 0.5f - 0.17453292f;
     if (r < -lim) c->pitch = func_0017ce10(t - lim);
     else if (lim < r) c->pitch = func_0017ce10(t + lim);
     if (s_pitchMax < c->pitch) c->pitch = s_pitchMax;
@@ -259,7 +259,7 @@ void func_0014e8b8(Cam14e8b8* c)
 
 
 void func_0014eb48(u32 target, W290Q* from, f32 height) {
-    func_00141010(30.0f);
+    dk__ObjCamera__cancelSubjective(30.0f);
     Cam14e8b8* c = func_00140df0();
     *(s32*)((u8*)c + 64) = 9;
     D_0034a3f0 = target;

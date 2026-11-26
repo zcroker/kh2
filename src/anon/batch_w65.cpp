@@ -62,7 +62,7 @@ void func_001206e0(u32* p);  // 0x001206e0: definition moved into src/anon/unit_
 void func_00139510(void*);
 void func_001b2028(u32);
 void func_001991a8(s32, s32);
-void func_00137630(u8* p);  // 0x00137630: definition moved into src/anon/unit_001374c8.cpp
+void dk__TREASURE_BOX_INFO__destroy(u8* p);  // 0x00137630: definition moved into src/anon/unit_001374c8.cpp
 
 // Rebuild the cached text when the current value changes.
 extern u8 D_0032bae0;
@@ -74,7 +74,7 @@ extern u32 D_0033caf4;
 u32 func_00105ee8(u32);
 void func_002fee78(void*, const char*, u32, u32);
 void func_001688c8(void*);
-void func_001684c0(void*, void*, s32, s32);
+void YS__FILE__ReadBarBack(void*, void*, s32, s32);
 // 0013a600: moved to src/harata/libdk/field2dd.cpp
 
 extern f32 D_0034a9e0;
@@ -100,20 +100,20 @@ void func_00192260(u32, s32);
 void func_001b8318(void);
 void func_001a3a50(void);
 void func_001a64c0(void);
-void func_001a5970(void);
-void func_001bfbd8(void);
+void YS__PRIZE__Read(void);
+void YS__PRIZEBOX__Read(void);
 void func_00182ab0(void);
 void func_001c8838(s32);
 void func_001bae08(void);
 void func_00169178(void);  // 0x00169178: definition moved into src/anon/unit_00168aa0.cpp
 
 Vq* func_001dc648(u32);
-Vq func_0017d050(u32);
+Vq YS__MATH__VectorToAngle(u32);
 // 0016e240: moved to src/anon/unit_0016d2e0.cpp
 
-void func_0017c4c8(void*, Vq*);
+void YS__OBJ__prepare_jump(void*, Vq*);
 void func_0017f488(void*, u32, f32, f32);
-void func_00172158(u32* p);  // 0x00172158: definition moved into src/anon/unit_00171e58.cpp
+void YS__method_obj_jump(u32* p);  // 0x00172158: definition moved into src/anon/unit_00171e58.cpp
 
 // First non-zero result of func_0019b380 over the 12-byte table entries.
 struct Ent12 { u32 a, b, c; };
@@ -147,7 +147,7 @@ void func_001966b0(s32 i);  // 0x001966b0: definition moved into src/anon/unit_0
 
 // Remove one unit of item `a` (100 = special case).
 void func_001a34e0(s32, s32);
-u8* func_00188fe0(void*);
+u8* YS__SAVERAM_BATTLE__get_partram(void*);
 extern u8 D_0032e020[];
 // 001a3458: moved to src/anon/unit_001a2a50.cpp
 
@@ -158,7 +158,7 @@ extern u32 D_01c6cb00[4];
 extern u32 D_01c6cb10;
 u32 func_001708f8(u32, s32);
 u8* func_00168b38(u32, s32, s32);  // entry_array_find_nth
-void func_001dddd0(void*, u32);
+void ryj__PAX__init(void*, u32);
 // 001a3a88: moved to src/yasui/libys/effect.cpp
 
 void func_00165768(u32);
@@ -172,7 +172,7 @@ void func_001b8988(u8* p, u8 v);  // 0x001b8988: definition moved into src/anon/
 
 struct Ent4 { u16 id; u8 b; u8 pad; };
 void func_001bc778(u32);
-u8* func_001bc780(u32, u32, u32, s32);
+u8* YS__COMMAND_MENU__add(u32, u32, u32, s32);
 void func_001bce90(u32 a, Ent4* e, u32 n, u32 c);  // 0x001bce90: definition moved into src/anon/unit_001bc568.cpp
 
 // Find the 16-byte entry whose first byte is `key`.
@@ -203,7 +203,7 @@ struct Rec40 { s32 id; u8 b[36]; };
 extern Rec40* D_0035dcfc;
 void func_00227da8(Rec40* src);  // 0x00227da8: definition moved into src/anon/unit_00224780.cpp
 
-void func_0023a0d8(void*);
+void YI__SEQUENCE__UpdateActive(void*);
 void SEQ_GetActiveXY(u8* p, s32* x, s32* y);  // 0x0023a9c0: definition moved into src/anon/unit_00239988.cpp
 
 u32 func_002efa40(u32);
@@ -237,12 +237,12 @@ struct Ent36 { u32 f; u32 r[8]; };
 extern u32* D_0035f630;
 s32 func_00276608(s32);
 void func_002765e8(s32, s32, s32);
-void func_002b1208(u32 a);  // 0x002b1208: definition moved into src/anon/unit_002b0950.cpp
+void Tz__JmPuzzle__ChangeImage(u32 a);  // 0x002b1208: definition moved into src/anon/unit_002b0950.cpp
 
 extern u32 D_003616f8[];
 void func_002bc470(u32);
 struct Ent12b { u32 a; s32 b; u32 c; };
-void func_002bce50(u8* p);  // 0x002bce50: definition moved into src/anon/unit_002bc978.cpp
+void SE_BANK__clearField(u8* p);  // 0x002bce50: definition moved into src/anon/unit_002bc978.cpp
 
 void func_002e7108(u32, f32);
 Mq func_002e71a0(u32, u32, s32);
@@ -263,9 +263,9 @@ void func_002361a0(void*);
 void func_0031a350(u32* p);  // 0x0031a350: definition moved into src/anon/unit_003197d0.cpp
 
 u32 func_0016bc20(u32, s32, s32);
-Vr func_0016bda8(u32);
+Vr YS__OBJ__get_target_pos(u32);
 struct Lookup32 { u32 a, b, c, d; Vr v; Lookup32() { d = 0; } };
-void func_0018a818(Lookup32*, u32, u32);
+void YS__COLLISION__set(Lookup32*, u32, u32);
 Vr func_0016c2b0(u32 a);  // 0x0016c2b0: definition moved into src/anon/unit_00169f98.cpp
 
 // Assertion "pMng"-style failure prints the message and file/line, then breaks.
@@ -285,11 +285,11 @@ void func_00201b30(Vq* o, Vq* a, Vq* b, f32 t);  // 0x00201b30: definition moved
 extern u8 D_00361e38[];
 extern u8 D_0035eb98[];
 extern union { u32* v; u8 c; } D_00361e28;
-void func_002369a0(void*);  // obj_ctor_36eac8
-void func_0023c008(void*);  // obj_ctor_36eae8
+void YI__IMAGE_FREEZE__IMAGE_FREEZE(void*);  // obj_ctor_36eac8
+void YI__LAYOUT__LAYOUT(void*);  // obj_ctor_36eae8
 void func_0028d140(void*);
 void func_00167f38(s32);
 void func_002c5f48(void);
-void func_002ca170(u32* p);  // 0x2ca170: moved to src/anon/unit_002ca0e0.cpp
+void dk__WM_GLANDING__WM_GLANDING(u32* p);  // 0x2ca170: moved to src/anon/unit_002ca0e0.cpp
 
 }

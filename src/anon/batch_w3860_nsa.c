@@ -1,4 +1,4 @@
-// func_001ff958: trail colour/position history update (sibling of 001f95d8 in batch_w3854_nsa.c).
+// pppKeShpTail3X: trail colour/position history update (sibling of 001f95d8 in batch_w3854_nsa.c).
 // C, -fno-strict-aliasing. Plain u16 colour rows; prm rows added in order 0,2,3,1,4,5 as in the sibling.
 #include "../common/types.h"
 typedef struct { f32 x, y, z, w; } Vq __attribute__((aligned(16)));
@@ -16,7 +16,7 @@ void sceVu0CopyVector(Vq* d, Vq* s);
 typedef struct { s32 frame:32; u8 pad[28]; R4 d[6]; u8 pad2[3]; u8 local; } PPrm;
 
 
-void func_001ff958(u8* obj, PPrm* prm, PWork* wk)
+void pppKeShpTail3X(u8* obj, PPrm* prm, PWork* wk)
 {
     Vq tmp;
     Trail* t;

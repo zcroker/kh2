@@ -10,7 +10,7 @@ struct S196430 {
 
 extern "C" {
 void func_00106fe8(P106d40*, f32);
-void func_00106c08(P106d40*);
+void kn__Projection__calcMatrix(P106d40*);
 S196430 func_00196328(u32);
 s32 func_00196768(u8, u8);
 extern u32 D_0032da20[];

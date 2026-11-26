@@ -45,7 +45,7 @@ bool func_001b0498(Ref0498* p) {  // obj_check_ready_flags
 
 // ==== from src/anon/auto80_199_queue.cpp
 namespace src2 {
-u32 func_0019ba60(...) asm("func_0019ba60");
+u32 YS__OBJ__is_exist(...) asm("YS__OBJ__is_exist");
 u32 func_001ad9c8(...) asm("func_001ad9c8");
 u32 func_001b0498(u32 a0) asm("func_001b0498");
 void func_0016c2b0(void* a0, u32 a1) asm("func_0016c2b0");
@@ -82,7 +82,7 @@ void func_001b04d8(u32 a0) {
         return;
     }
 
-    u32 v0 = func_0019ba60(*(u32*)(s0 + 48));
+    u32 v0 = YS__OBJ__is_exist(*(u32*)(s0 + 48));
     if (v0 != 0) {
         u8 tmp[16];
         func_0016c2b0(tmp, *(u32*)(s0 + 48));
@@ -211,7 +211,7 @@ struct OBv { u32 f0; volatile s32 f4; s32 f8; volatile s32 f12; u8 pad16[32]; vo
 
 
 struct VB { u16 a, b, c, d; };
-void func_0016af58(Q16*, void*) asm("func_0016af58");
+void YS__OBJ__get_dir(Q16*, void*) asm("YS__OBJ__get_dir");
 void* func_0016bc20(u32, s32, s32) asm("func_0016bc20");
 void func_001ad990(void*, f32, f32, f32) asm("func_001ad990");
 
@@ -231,7 +231,7 @@ void func_001b0798(OBv* o, s32 a, s32 b, f32 t) {
     o->f12 = v->d;
     o->f4 = 2;
     o->f48 = a;
-    func_0016af58(&tmp, (void*)a);
+    YS__OBJ__get_dir(&tmp, (void*)a);
     *d = tmp;
     }
     *(f32*)&o->f80 = 0.0f;
@@ -371,20 +371,20 @@ struct Pair09 { V09 a, b; };
 struct Tgt09 { u8 pad[16]; s16 yaw; s16 pitch; };
 
 struct Obj09 { u32 actor; u8 pad[28]; V09 pos; V09 x30; V09 dir; f32 angle; };
-s32 func_0019ba60(u32) asm("func_0019ba60");
+s32 YS__OBJ__is_exist(u32) asm("YS__OBJ__is_exist");
 Tgt09* func_0016bc20(u32, s32, s32) asm("func_0016bc20");
-Pair09 func_0018a818(u32, Tgt09*) asm("func_0018a818");
-V09 func_0016af58(u32) asm("func_0016af58");
+Pair09 YS__COLLISION__set(u32, Tgt09*) asm("YS__COLLISION__set");
+V09 YS__OBJ__get_dir(u32) asm("YS__OBJ__get_dir");
 void func_0011b6a8(M09*) asm("func_0011b6a8");
 void func_0011b6d8(M09*, f32) asm("func_0011b6d8");
 void func_0011b720(M09*, f32) asm("func_0011b720");
 void func_0011b768(M09*, f32) asm("func_0011b768");
-f32 func_0017d160(V09, V09) asm("func_0017d160");
+f32 YS__MATH__VectorAngle(V09, V09) asm("YS__MATH__VectorAngle");
 f32 fabsf(f32) asm("fabsf");
 f32 func_002f8ad0(f32, f32) asm("func_002f8ad0");
 
 
-f32 dotr(const V09&, const V09&) asm("func_0017d160");
+f32 dotr(const V09&, const V09&) asm("YS__MATH__VectorAngle");
 }
 
 // 1b0940
@@ -396,10 +396,10 @@ void func_001b0940(Obj09* o, V09* target)
     f32 lim = 0.08726646f;
     f32 lim3 = 0.0523598753f;
     f32 f;
-    if (!func_0019ba60(o->actor)) return;
+    if (!YS__OBJ__is_exist(o->actor)) return;
     Tgt09* t = func_0016bc20(o->actor, 20, -1);
     if (!t) return;
-    Pair09 p = func_0018a818(o->actor, t);
+    Pair09 p = YS__COLLISION__set(o->actor, t);
     f32 maxYaw = t->yaw * a;
     f32 maxPitch = t->pitch * a;
     V09 d = *target - p.b;
@@ -413,7 +413,7 @@ void func_001b0940(Obj09* o, V09* target)
     f32 lc = ch.normalize();
     V09 cv(lc, cur.y, 0.0f, 0.0f);
     cv.normalize();
-    V09 base = func_0016af58(o->actor);
+    V09 base = YS__OBJ__get_dir(o->actor);
     V09 bh(base.x, 0.0f, base.z, 0.0f);
     f32 lb = bh.normalize();
     V09 bv(lb, base.y, 0.0f, 0.0f);
@@ -424,7 +424,7 @@ void func_001b0940(Obj09* o, V09* target)
         func_0011b720(&m, o->angle);
         ch = m * bh;
     }
-    f = fabsf(func_0017d160(ch, dh));
+    f = fabsf(YS__MATH__VectorAngle(ch, dh));
     if (lim < f) {
         a = lim;
         V09 c = ch ^ dh;
@@ -434,7 +434,7 @@ void func_001b0940(Obj09* o, V09* target)
         func_0011b720(&m, a);
         dh = m * ch;
     }
-    f = fabsf(func_0017d160(bh, dh));
+    f = fabsf(YS__MATH__VectorAngle(bh, dh));
     if (maxYaw < f) {
         a = maxYaw;
         V09 c = bh ^ dh;
@@ -444,7 +444,7 @@ void func_001b0940(Obj09* o, V09* target)
         func_0011b720(&m, a);
         dh = m * bh;
     }
-    f32 f3 = fabsf(func_0017d160(cv, dv));
+    f32 f3 = fabsf(YS__MATH__VectorAngle(cv, dv));
     if (lim3 < f3) {
         a = lim3;
         V09 c = cv ^ dv;
@@ -456,7 +456,7 @@ void func_001b0940(Obj09* o, V09* target)
     } else {
         dv = cv;
     }
-    f = fabsf(func_0017d160(bv, dv));
+    f = fabsf(YS__MATH__VectorAngle(bv, dv));
     if (maxPitch < f) {
         a = maxPitch;
         V09 c = bv ^ dv;
@@ -521,8 +521,8 @@ struct Obj1b1100 { u8 pad[1344]; V1b1100 pos; V1b1100 dir; };
 
 struct Tgt1b1100 { u8 pad[16]; s16 range; };
 Tgt1b1100* func_0016bc20(Obj1b1100*, s32, s32) asm("func_0016bc20");
-f32 func_0017d160(V1b1100, V1b1100) asm("func_0017d160");
-Pair1b1100 func_0018a818(Obj1b1100*, Tgt1b1100*) asm("func_0018a818");
+f32 YS__MATH__VectorAngle(V1b1100, V1b1100) asm("YS__MATH__VectorAngle");
+Pair1b1100 YS__COLLISION__set(Obj1b1100*, Tgt1b1100*) asm("YS__COLLISION__set");
 f32 fabsf(f32) asm("fabsf");
 
 bool t1b1100(Obj1b1100*, V1b1100*) asm("_Z16ctarget_001b1100jjjj");
@@ -539,15 +539,15 @@ bool t1b1100(Obj1b1100* o, V1b1100* target)
         V1b1100 v;
         v.x = d.x; v.z = d.z; v.w = v.y = 0.0f;
         v.normalize();
-        return fabsf(func_0017d160(v, o->dir)) < 0.26179937f;
+        return fabsf(YS__MATH__VectorAngle(v, o->dir)) < 0.26179937f;
     } else {
-        Pair1b1100 p = func_0018a818(o, t);
+        Pair1b1100 p = YS__COLLISION__set(o, t);
         d = *target - p.b;
         d.normalize();
         V1b1100 v;
         v.x = d.x; v.z = d.z; v.w = v.y = 0.0f;
         v.normalize();
-        return fabsf(func_0017d160(v, o->dir)) <= t->range * 0.017453292f;
+        return fabsf(YS__MATH__VectorAngle(v, o->dir)) <= t->range * 0.017453292f;
     }
 }
 }
@@ -571,7 +571,7 @@ void ctarget_001b1328(u32 a, u32 b, u32 c, u32 d) {
 
 // ==== from src/anon/batch_w46.cpp
 namespace src12 {
-u8* func_001b9bc8(u8*) asm("func_001b9bc8");
+u8* YS__OBJ__Each(u8*) asm("YS__OBJ__Each");
 
 }
 
@@ -580,7 +580,7 @@ namespace src12 {
 void func_001b1360(s32 from, s32 to) asm("func_001b1360");
 void func_001b1360(s32 from, s32 to) {
     u8* o = 0;
-    while ((o = func_001b9bc8(o))) {
+    while ((o = YS__OBJ__Each(o))) {
         if (*(s32*)(o + 1188) == 2 && *(s32*)(o + 1232) == from) *(s32*)(o + 1232) = to;
     }
 }

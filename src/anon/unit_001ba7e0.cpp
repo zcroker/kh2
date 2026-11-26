@@ -15,7 +15,7 @@ void func_001d1fa8(u8*);
 void func_001d4d28(u8*);
 void func_002fee78(u8*, const char*, u32, u32);
 void func_00170518(u8*, s32, s32);
-u32 func_001d7098(u32);
+u32 YS__MISSION__OptionInit(u32);
 extern u8 D_003525c8[];
 extern u8 D_003525a8[];
 extern u8 D_00352588[];
@@ -155,7 +155,7 @@ extern "C" u32 func_001ba7e0(u1baa58_ctor::CTarget* self, u32 arg, u32 a2, u32 a
     self->f530.f = 1.0f;
     func_002fee78(self->res, D_0036dbf0, D_0033caf4[0], a2);
     func_00170518(self->res, 900, 0);
-    return func_001d7098(arg);
+    return YS__MISSION__OptionInit(arg);
 }
 
 // 0x1baa58: C1 copy.
@@ -214,7 +214,7 @@ extern "C" u32 ctarget_001baa58(u1baa58_ctor::CTarget* self, u32 arg, u32 a2, u3
     self->f530.f = 1.0f;
     func_002fee78(self->res, D_0036dbf0, D_0033caf4[0], a2);
     func_00170518(self->res, 900, 0);
-    return func_001d7098(arg);
+    return YS__MISSION__OptionInit(arg);
 }
 
 // 0x1bacd0: loads the mission's map resource, publishes it, and folds its flags into the field state.
@@ -233,7 +233,7 @@ void func_00191990(void);
 extern u1baa58_prep::W93UM D_01d49324;
 extern u1baa58_prep::W93UM D_0034f240_prep asm("D_0034f240");
 
-void func_001bacd0(u1baa58_prep::W93Fld* f)
+void YS__MISSION__prepare(u1baa58_prep::W93Fld* f)
 {
     using namespace u1baa58_prep;
     f->f72 = func_001708f8(f->f40, -1);
@@ -250,7 +250,7 @@ void func_001bacd0(u1baa58_prep::W93Fld* f)
 
 // 0x1badd8: YS::MISSION::Prepare().
 extern u32 D_01d49320;
-void func_001bacd0_u(u32) asm("func_001bacd0");
+void func_001bacd0_u(u32) asm("YS__MISSION__prepare");
 void YS_MISSION_Prepare() asm("_ZN2YS7MISSION7PrepareEv");
 void YS_MISSION_Prepare() {
     u32 p = D_01d49320;
@@ -287,12 +287,12 @@ void func_001bb220(void*);
 void func_001bb2c8(void*);
 void func_001db610(void*, void (*)(void*), void*);
 u1baa58_start::Prm838* func_00168b38(s32, s32, s32);
-s32 func_00196908(s32);
-void eff_1dddd0_1971(void*, s32) asm("_Z16wtarget_001dddd0jjjj");
+s32 YS__UNITSCRIPT__Start(s32);
+void eff_1dddd0_1971(void*, s32) asm("_Z14ryj__PAX__initjjjj");
 u1baa58_start::Unit838* func_001c1130(u8);
 s32 tail4_192048_1971(u16) asm("_Z16u_tail4_00192048jjjj");
 s32 func_001bbb50(void);
-void func_001ada38(s32);
+void YS__RECOV__Exec(s32);
 u64 iscol_1971(void) asm("_ZNK2YS13MISSION_TABLE12is_colosseumEv");
 s32 func_001d5668(u8);
 void func_001d5698(u8);
@@ -308,13 +308,13 @@ void func_001bae38(u1baa58_start::Obj838* o)
     using namespace u1baa58_start;
     func_001db610(o->data->sub1c, func_001bb2c8, o);
     Prm838* p = func_00168b38(o->x48, 3, 0);
-    if (has838(p)) o->x2cc = func_00196908(p->x8);
+    if (has838(p)) o->x2cc = YS__UNITSCRIPT__Start(p->x8);
     p = func_00168b38(o->x48, 18, 0);
     if (has838(p)) eff_1dddd0_1971(o->sub2, p->x8);
     if (o->data->x8) {
         Unit838* u = func_001c1130(o->data->x8);
         if (o->data->xa) u->x18 = tail4_192048_1971(o->data->xa);
-        if (func_001bbb50() || u->x0 == 0x23) func_001ada38(9);
+        if (func_001bbb50() || u->x0 == 0x23) YS__RECOV__Exec(9);
         if (iscol_1971()) {
             s32 max = D_0032bae0.x6 != 0xc4 ? 10 : 50;
             u8 lv = D_0032bae0.lv;
@@ -337,17 +337,17 @@ void func_001bae38(u1baa58_start::Obj838* o)
 }
 
 // 0x1bb020: YS::MISSION::end().
-void func_001d7380(u32 a0);
+void YS__MISSION__OptionEnd(u32 a0);
 void func_0014ca20();
 void func_001969c0(u32 a0);
-u32 func_001dde40(...);
+u32 ryj__PAX__ensure(...);
 u32 func_00170950(...);
 u32 func_001bbb50_v(...) asm("func_001bbb50");
 
 void YS_MISSION_end(u32 a0) asm("_ZN2YS7MISSION3endEv");
 void YS_MISSION_end(u32 a0) {
     u32 s0 = a0;
-    func_001d7380(*(u32*)a0);
+    YS__MISSION__OptionEnd(*(u32*)a0);
     func_0014ca20();
 
     s32 t7 = *(s32*)(s0 + 716);
@@ -358,7 +358,7 @@ void YS_MISSION_end(u32 a0) {
     if (*(u32*)(s0 + 72) != 0) {
         u32 p = s0 + 12;
         if (*(u32*)(s0 + 12) != 0) {
-            func_001dde40(p);
+            ryj__PAX__ensure(p);
         }
         func_00170950(*(u32*)(s0 + 72));
     }
@@ -382,7 +382,7 @@ extern u32 D_0034f240;
 s32 func_00195328(s32);
 s32 func_00197920(void);
 f32 func_00197b98(void);
-s32 func_0019ba60(u1baa58_exit::VObj_w1568*);
+s32 YS__OBJ__is_exist(u1baa58_exit::VObj_w1568*);
 void func_001bb630(s32, s32);
 void func_001bc0d0(u1baa58_exit::O_w1568_bb*);
 void func_001d21c0(void*);
@@ -397,7 +397,7 @@ s32 func_001bb090(u1baa58_exit::O_w1568_bb* o)
     switch (o->state) {
     case 0: {
         VObj_w1568* v = D_0034e948;
-        if (func_00197920() && func_0019ba60(v) && !v->vt->fn(v)) return 1;
+        if (func_00197920() && YS__OBJ__is_exist(v) && !v->vt->fn(v)) return 1;
         if (!(o->flags & 2)) func_001d7f80(o);
         o->state = 1;
         break;

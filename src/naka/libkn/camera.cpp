@@ -198,8 +198,8 @@ extern Buf256 D_003a7b70[] asm("D_003a7b70");
 extern Buf256 D_003a7d70[] asm("D_003a7d70");
 extern s32 D_0033cc40 asm("D_0033cc40");
 extern u8 D_0033cc44 asm("D_0033cc44");
-void* func_00106a18(u8 a) asm("func_00106a18");
-void* func_00106a18(u8 a) {  
+void* kn__getProjection(u8 a) asm("kn__getProjection");
+void* kn__getProjection(u8 a) {  
     if (a || D_0033cc44) return &D_003a7b70[D_0033cc40];
     return &D_003a7d70[D_0033cc40];
 }
@@ -283,8 +283,8 @@ void func_00106af0(ProjCam* c, f32* m, f32 w, f32 h)
 namespace n00106c08 {
 void func_0011b6a8(f32*) asm("func_0011b6a8");
 void func_00106af0(f32*, f32*, f32, f32) asm("func_00106af0");
-void func_00106c08(f32* p) asm("func_00106c08");
-void func_00106c08(f32* p) {
+void kn__Projection__calcMatrix(f32* p) asm("kn__Projection__calcMatrix");
+void kn__Projection__calcMatrix(f32* p) {
     f32 a[16] __attribute__((aligned(16)));
     f32 b[16] __attribute__((aligned(16)));
     f32* pb;
@@ -321,9 +321,9 @@ void func_00106c08(f32* p) {
 namespace n00106d40 {
 struct P106d40 { u8 pad[0x4c]; f32 f4c, f50, f54, f58, f5c, f60, f64, f68, f6c, f70, f74, f78; };
 void func_00106fe8(P106d40*, f32) asm("func_00106fe8");
-void func_00106c08(P106d40*) asm("func_00106c08");
-void func_00106d40(P106d40* o, f32 p0, f32 p1, f32 p2, f32 p3, f32 p4, f32 a, f32 b, f32 c, f32 p8, f32 p9, f32 p10) asm("func_00106d40");
-void func_00106d40(P106d40* o, f32 p0, f32 p1, f32 p2, f32 p3, f32 p4, f32 a, f32 b, f32 c, f32 p8, f32 p9, f32 p10) {
+void kn__Projection__calcMatrix(P106d40*) asm("kn__Projection__calcMatrix");
+void kn__Projection__set(P106d40* o, f32 p0, f32 p1, f32 p2, f32 p3, f32 p4, f32 a, f32 b, f32 c, f32 p8, f32 p9, f32 p10) asm("kn__Projection__set");
+void kn__Projection__set(P106d40* o, f32 p0, f32 p1, f32 p2, f32 p3, f32 p4, f32 a, f32 b, f32 c, f32 p8, f32 p9, f32 p10) {
     // Stores through byte offsets: with the struct fields gcc schedules the stack argument
     // loads differently under strict aliasing (the old copy was an _nsa file).
     u8* q = (u8*)o;
@@ -340,7 +340,7 @@ void func_00106d40(P106d40* o, f32 p0, f32 p1, f32 p2, f32 p3, f32 p4, f32 a, f3
     *(f32*)(q + 0x74) = p9;
     *(f32*)(q + 0x78) = p10;
     func_00106fe8(o, p0);
-    func_00106c08(o);
+    kn__Projection__calcMatrix(o);
 }
 }  // namespace n00106d40
 
@@ -349,8 +349,8 @@ namespace n00106de8 {
 f32 func_002f8a18(f32) asm("func_002f8a18");
 f32 atanf(f32) asm("atanf");
 struct Proj106 { u8 pad[64]; f32 dist; f32 fovx; f32 fovy; f32 w; f32 h; };
-void func_00106de8(Proj106* p, s32 vert, f32 fov) asm("func_00106de8");
-void func_00106de8(Proj106* p, s32 vert, f32 fov) {
+void kn__Projection__setFOV(Proj106* p, s32 vert, f32 fov) asm("kn__Projection__setFOV");
+void kn__Projection__setFOV(Proj106* p, s32 vert, f32 fov) {
     if (!vert) {
         f32 d = 512.0f / p->w * 0.5f / func_002f8a18(fov * 0.5f);
         p->fovx = fov;
@@ -528,8 +528,8 @@ void func_00107288(u8* p, u8* a, u8* b, u8* c) {
 
 // ---- 001072d0 (from src/anon/batch_w8.cpp)
 namespace n001072d0 {
-void func_001072d0(u8* p, u8* a, u8* b) asm("func_001072d0");
-void func_001072d0(u8* p, u8* a, u8* b) {
+void kn__Camera__lookAt_2(u8* p, u8* a, u8* b) asm("kn__Camera__lookAt_2");
+void kn__Camera__lookAt_2(u8* p, u8* a, u8* b) {
     u8* d = p + 0x50;
     if (d != a) {
         asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(d), "r"(a) : "$8", "memory");
@@ -579,8 +579,8 @@ void Camera::setRoll(f32 roll) { *(volatile f32*)((u32)this + (s32)(128)) = roll
 
 // ---- 00107368 (from src/anon/batch_w4.cpp)
 namespace n00107368 {
-void func_00107368(u8* p, void* dst) asm("func_00107368");
-void func_00107368(u8* p, void* dst) {  
+void kn__Camera__getPosition(u8* p, void* dst) asm("kn__Camera__getPosition");
+void kn__Camera__getPosition(u8* p, void* dst) {  
     void* src = p + 80;
     if (dst != src) {
         asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(dst), "r"(src) : "$8", "memory");
@@ -893,14 +893,14 @@ extern W2399B D_003a7f70[2] asm("D_003a7f70");
 extern W2399A D_003a7d70[2] asm("D_003a7d70");
 extern W2399B D_003a8090[2] asm("D_003a8090");
 extern s32 D_0033cc40 asm("D_0033cc40");
-void func_00106c08(W2399A*) asm("func_00106c08");
+void kn__Projection__calcMatrix(W2399A*) asm("kn__Projection__calcMatrix");
 void func_00107118(W2399B*) asm("func_00107118");
-void func_00107888(void) asm("func_00107888");
-void func_00107888(void)
+void kn__camera_task(void) asm("kn__camera_task");
+void kn__camera_task(void)
 {
     D_003a7d70[D_0033cc40] = D_003a7b70[D_0033cc40];
     D_003a8090[D_0033cc40] = D_003a7f70[D_0033cc40];
-    func_00106c08(&D_003a7b70[D_0033cc40]);
+    kn__Projection__calcMatrix(&D_003a7b70[D_0033cc40]);
     func_00107118(&D_003a7f70[D_0033cc40]);
 }
 #undef W2399_QCOPY4
@@ -914,19 +914,19 @@ extern u8 D_003a7f70[] asm("D_003a7f70");
 void func_00106998(s32) asm("func_00106998");
 void func_001069b8(s32) asm("func_001069b8");
 void func_001069f8(s32) asm("func_001069f8");
-void func_00106d40(void*, f32, f32, f32, f32, f32, f32, f32, f32, f32, f32, f32) asm("func_00106d40");
-void func_00106de8(void*, s32, f32) asm("func_00106de8");
+void kn__Projection__set(void*, f32, f32, f32, f32, f32, f32, f32, f32, f32, f32, f32) asm("kn__Projection__set");
+void kn__Projection__setFOV(void*, s32, f32) asm("kn__Projection__setFOV");
 void func_00107330(void*, f32, f32, f32) asm("func_00107330");
 void func_00107340(void*, f32, f32, f32) asm("func_00107340");
 void func_00107350(void*, f32, f32, f32) asm("func_00107350");
 void func_00107360(void*, f32) asm("func_00107360");
-void func_00107a90(void) asm("func_00107a90");
-void func_00107a90(void) {
+void gb__PLAYER_CAMERA__exec(void) asm("gb__PLAYER_CAMERA__exec");
+void gb__PLAYER_CAMERA__exec(void) {
     func_00106998(0);
     func_001069b8(0);  
     func_001069f8(0);
-    func_00106d40(D_003a7b70, 512.0f, 0.7999999523162842f, 0.8666666150093079f, 2048.0f, 2048.0f, 1.0f, 16770000.0f, 1.0f, 4000000.0f, 256.0f, 208.0f);
-    func_00106d40(D_003a7b70 + 256, 512.0f, 0.7999999523162842f, 0.8666666150093079f, 2048.0f, 2048.0f, 1.0f, 16770000.0f, 1.0f, 4000000.0f, 256.0f, 208.0f);
+    kn__Projection__set(D_003a7b70, 512.0f, 0.7999999523162842f, 0.8666666150093079f, 2048.0f, 2048.0f, 1.0f, 16770000.0f, 1.0f, 4000000.0f, 256.0f, 208.0f);
+    kn__Projection__set(D_003a7b70 + 256, 512.0f, 0.7999999523162842f, 0.8666666150093079f, 2048.0f, 2048.0f, 1.0f, 16770000.0f, 1.0f, 4000000.0f, 256.0f, 208.0f);
     func_00107330(D_003a7f70, 0.0f, -600.0f, -10000.0f);
     func_00107340(D_003a7f70, 1000.0f, -1000.0f, 0.0f);
     func_00107350(D_003a7f70, 0.0f, -1.0f, 0.0f);
@@ -935,8 +935,8 @@ void func_00107a90(void) {
     func_00107340(D_003a7f70 + 144, 1000.0f, -1000.0f, 0.0f);
     func_00107350(D_003a7f70 + 144, 0.0f, -1.0f, 0.0f);
     func_00107360(D_003a7f70 + 144, 0.0f);
-    func_00106de8(D_003a7b70, 0, 1.5f);
-    func_00106de8(D_003a7b70 + 256, 0, 1.5f);
+    kn__Projection__setFOV(D_003a7b70, 0, 1.5f);
+    kn__Projection__setFOV(D_003a7b70 + 256, 0, 1.5f);
 }
 void func_00106998(s32) asm("func_00106998");
 }  // namespace n00107a90

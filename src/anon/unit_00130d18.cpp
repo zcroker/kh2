@@ -43,7 +43,7 @@ union UF { f32 f; u8 c; };
 extern UF D_00347b70 asm("D_00347b70");
 void func_00127cf8(void*) asm("func_00127cf8");
 void func_00128480(Obj*, Arg*) asm("func_00128480");
-void func_00128b38(Obj*, Arg*, f32) asm("func_00128b38");
+void kn__MotionPrototype0__setFcurveValue(Obj*, Arg*, f32) asm("kn__MotionPrototype0__setFcurveValue");
 void func_00130c18(Obj*, f32) asm("func_00130c18");
 void func_0012d728(Obj*, Arg*, Mtx*, void*, void*) asm("func_0012d728");
 void func_00129c38(Obj*, Arg*, Mtx*, void*, void*) asm("func_00129c38");
@@ -54,7 +54,7 @@ void func_00130d28(Obj* o, Arg* a, const Mtx* mtx, void* p3, void* p4, f32 t) {
     t += o->cam->a * 60.0f / o->cam->c;
     D_00347b70.f = o->cam->a + t * o->cam->c / 60.0f;
     if (a->owner != o) func_00128480(o, a);
-    func_00128b38(o, a, t);
+    kn__MotionPrototype0__setFcurveValue(o, a, t);
     func_00130c18(o, t);
     Mtx m;
     f32* r1 = m.m[1];

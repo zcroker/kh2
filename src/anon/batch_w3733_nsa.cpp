@@ -45,11 +45,11 @@ extern Pts110c90 D_003a9040;
 extern u8 D_003a9250[];
 extern O110c90* D_00341708;
 s32 func_00146730(u8*, Box110c90*);
-V110c90* f110c90_attach(O110c90*) asm("func_0016c028");
+V110c90* f110c90_attach(O110c90*) asm("YS__OBJ__get_pos");
 s32 func_00110b00(O110c90*, V110c90*, Box110c90*);
 s32 f110c90_rand(s32) asm("func_0010f648");
 // Picks a free warp point near o (pb pins &b to s7; gcc swaps it with best otherwise).
-s32 func_00110c90(O110c90* o);  // 0x00110c90: definition moved into src/anon/unit_00110b00.cpp
+s32 kn__Friend__searchWarpPoint(O110c90* o);  // 0x00110c90: definition moved into src/anon/unit_00110b00.cpp
 }
 extern "C" {
 void func_00138c68(u8*, s32, s32);
@@ -57,19 +57,19 @@ void func_001395f8(u8*);
 void func_00139620(u8*);
 u8* func_00276348(void);
 u8* func_002766d0(void);
-void func_00276e78(void);
+void Tz__Jiminy__CreateCover(void);
 s32 func_00287bc0(void);
 void func_0028d8c0(u8*, s32, s32, s32, s32, s32, s32, s32);
 void func_0028d980(u8*, s32, s32, s32, s32, s32, s32, s32, s32);
 void func_0028dcc0(u8*, u8*);
 void func_0028f4d8(s32, s32, s32);
 s32 func_0028f930(s32);
-void func_002a17e8(void);
-void func_002a18d0(s32, s32);
+void Tz__JmDiagram__SetCharaName(void);
+void Tz__JmDiagram__GetCharaIdx(s32, s32);
 u8* func_002a1bc0(u16);
 void func_002a1cd8(void);
 void func_002a1f40(void);
-s32 func_002a9e98(u16);
+s32 Tz__JmNewInfo__isCharaNew(u16);
 s32 func_002a9f50(u16);
 extern s32 D_0035f148;
 extern s32 D_0035f14c;

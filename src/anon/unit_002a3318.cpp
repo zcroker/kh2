@@ -30,13 +30,13 @@ extern u32 D_00374ba4 asm("D_00374ba4");
 extern s32 D_00374b9c asm("D_00374b9c");
 extern s32 D_00374b98 asm("D_00374b98");
 u8* func_002766d0(void) asm("func_002766d0");
-void func_0028be78(s32, s32) asm("func_0028be78");
+void Tz__ScrollBar__SetPos(s32, s32) asm("Tz__ScrollBar__SetPos");
 void func_002fde18(void*, s32, s32) asm("func_002fde18");
 void func_00138c10(void*, s32) asm("func_00138c10");
-u32 func_00295430(s32, s32) asm("func_00295430");
+u32 Tz__JmWorldSel__GetId2WorldName(s32, s32) asm("Tz__JmWorldSel__GetId2WorldName");
 s32 func_002954e0(s32) asm("func_002954e0");
 void* func_00192048(u32) asm("func_00192048");
-void* func_0028de08(u32, void*, s32) asm("func_0028de08");
+void* Tz__MenuUtil__MakeQuestionStr(u32, void*, s32) asm("Tz__MenuUtil__MakeQuestionStr");
 s32 func_002a43f0(void) asm("func_002a43f0");
 void func_002a3648(void) asm("func_002a3648");
 void func_002a3950(void) asm("func_002a3950");
@@ -47,7 +47,7 @@ void func_002a3318(void) {
     u32 t;
     u8* o;
     u8* base = func_002766d0();
-    func_0028be78(D_0035f214, D_0035f5e4->lim);
+    Tz__ScrollBar__SetPos(D_0035f214, D_0035f5e4->lim);
     func_002fde18(D_0035f5e8 + 0x982c, 0, 32);
     for (i = 0; i < 9; i++) {
         o = D_0035f5e8 + i * 0x1b4 + 0x7974;
@@ -73,9 +73,9 @@ void func_002a3318(void) {
         if (i + D_0035f5e4->lim != sum) continue;
         o = D_0035f5e8 + i * 0x1b4 + 0x7974;
         func_00138c10(o, 72);
-        t = func_00295430(k, 1);
+        t = Tz__JmWorldSel__GetId2WorldName(k, 1);
         if (func_002954e0(k)) *(void**)(o + 0x198) = func_00192048(t);
-        else *(void**)(o + 0x198) = func_0028de08(t, base + i * 64 + 0x110a0, 64);
+        else *(void**)(o + 0x198) = Tz__MenuUtil__MakeQuestionStr(t, base + i * 64 + 0x110a0, 64);
         if (!D_0035f5e4->ent[k].b0) {
             t = (u32)(D_0035f5e8 + i * 0x1b4 + 0x88c8);
             *(void**)((u8*)t + 0x198) = func_00192048(func_002a43f0() ? D_00374ba0 : D_00374ba4);

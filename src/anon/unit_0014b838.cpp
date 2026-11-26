@@ -100,11 +100,11 @@ namespace n0014ba20 {
 // Constructor: base ctor, vtable, then two GS register packets.
 extern u64 D_0036b0d8 asm("D_0036b0d8");
 extern void* D_00349da8[] asm("D_00349da8");
-void func_0014b290(u8*) asm("func_0014b290");
+void dk__RectBase__createPacket(u8*) asm("dk__RectBase__createPacket");
 /*TARGET 0014ba20*/
 void func_0014ba20(u8* p) asm("func_0014ba20");
 void func_0014ba20(u8* p) {
-    func_0014b290(p);
+    dk__RectBase__createPacket(p);
     u64 d = D_0036b0d8;
     *(void**)p = D_00349da8;
     *(u64*)(p + 288) = 0x1000000000008001ULL;
@@ -122,7 +122,7 @@ void func_0014ba20(u8* p) {
 namespace n0014ba90 {
 // 00103480: moved to src/common/unit_001031b0.cpp
 
-void func_0014b290(u8*) asm("func_0014b290");
+void dk__RectBase__createPacket(u8*) asm("dk__RectBase__createPacket");
 extern void* D_00349da8[] asm("D_00349da8");
 extern u64 D_0036b0e0 asm("D_0036b0e0");
 /*TARGET 0014ba90*/
@@ -130,7 +130,7 @@ extern u64 D_0036b0e0 asm("D_0036b0e0");
 void func_0014ba90(u8* p) asm("func_0014ba90");
 // Constructor: two GIF-tag style 4-qword blocks at +0x100.
 void func_0014ba90(u8* p) {
-    func_0014b290(p);
+    dk__RectBase__createPacket(p);
     u64 d = D_0036b0e0;
     *(void**)p = D_00349da8;
     *(u64*)(p + 288) = 0x1000000000008001ULL;
@@ -235,7 +235,7 @@ void func_0014bb30(BObj* o) {
 
 // 0014bd50 (was src/anon/batch_w1640.cpp)
 namespace n0014bd50 {
-void func_0014b290(u8*) asm("func_0014b290");
+void dk__RectBase__createPacket(u8*) asm("dk__RectBase__createPacket");
 struct W1640ParamEnt { u16 type; u8 pad; u8 flag; void* ptr; u32 p8, pc; };
 struct W1640ParamObj { void* vt; u8 pad[28]; u8 data[224]; W1640ParamEnt e[33]; };
 extern void* D_00349d90[] asm("D_00349d90");
@@ -263,7 +263,7 @@ void func_0014bd50(W1640ParamObj* p) asm("func_0014bd50");
 void func_0014bd50(W1640ParamObj* p) asm("func_0014bd50");
 // constructor (second copy, same vtable as func_0014c050): fills a 33-entry parameter table
 void func_0014bd50(W1640ParamObj* p) {
-    func_0014b290((u8*)p);
+    dk__RectBase__createPacket((u8*)p);
     p->vt = D_00349d90;
     W1640_SetEnt(&p->e[0], 48, D_00349b50); p->e[0].type = 2;
     W1640_SetEnt(&p->e[1], 48, &p->pad[28]); p->e[1].type = 13;
@@ -303,7 +303,7 @@ void func_0014bd50(W1640ParamObj* p) {
 
 // 0014c050 (was src/anon/batch_w118.cpp)
 namespace n0014c050 {
-void func_0014b290(u8*) asm("func_0014b290");
+void dk__RectBase__createPacket(u8*) asm("dk__RectBase__createPacket");
 struct ParamEnt { u16 type; u8 pad; u8 flag; void* ptr; u32 p8, pc; };
 struct ParamObj { void* vt; u8 pad[28]; u8 data[224]; ParamEnt e[33]; };
 extern void* D_00349d90[] asm("D_00349d90");
@@ -331,7 +331,7 @@ void func_0014c050(ParamObj* p) asm("func_0014c050");
 void func_0014c050(ParamObj* p) asm("func_0014c050");
 // constructor filling a 33-entry parameter table
 void func_0014c050(ParamObj* p) {
-    func_0014b290((u8*)p);
+    dk__RectBase__createPacket((u8*)p);
     p->vt = D_00349d90;
     setEnt(&p->e[0], 48, D_00349b50); p->e[0].type = 2;
     setEnt(&p->e[1], 48, &p->pad[28]); p->e[1].type = 13;
@@ -388,7 +388,7 @@ void func_0014c350(Spr* p)
 
 // 0014c408 (was gap)
 namespace n0014c408 {
-void func_0014b290(u8*) asm("func_0014b290");
+void dk__RectBase__createPacket(u8*) asm("dk__RectBase__createPacket");
 // twin of 0x14c5a0: constructor filling a 17-entry parameter table
 struct ParamEnt { u16 type; u8 pad; u8 flag; void* ptr; u32 p8, pc; };
 struct ParamObj { void* vt; u8 pad[28]; u8 data[224]; ParamEnt e[17]; };
@@ -405,7 +405,7 @@ extern u8 D_00349d50[] asm("D_00349d50");
 static inline void setEnt(ParamEnt* e, u8 f, void* q) { e->flag = f; e->ptr = q; }
 void gap_0014c408(ParamObj* p) asm("gap_0014c408");
 void gap_0014c408(ParamObj* p) {
-    func_0014b290((u8*)p);
+    dk__RectBase__createPacket((u8*)p);
     p->vt = D_00349d78;
     setEnt(&p->e[0], 48, D_00349b50); p->e[0].type = 2;
     setEnt(&p->e[1], 48, &p->pad[28]); p->e[1].type = 13;
@@ -429,7 +429,7 @@ void gap_0014c408(ParamObj* p) {
 
 // 0014c5a0 (was src/anon/batch_w114.cpp)
 namespace n0014c5a0 {
-void func_0014b290(u8*) asm("func_0014b290");
+void dk__RectBase__createPacket(u8*) asm("dk__RectBase__createPacket");
 // ---- 0014c5a0: constructor filling a 17-entry parameter table
 struct ParamEnt { u16 type; u8 pad; u8 flag; void* ptr; u32 p8, pc; };
 struct ParamObj { void* vt; u8 pad[28]; u8 data[224]; ParamEnt e[17]; };
@@ -448,7 +448,7 @@ void func_0014c5a0(ParamObj* p) asm("func_0014c5a0");
 /*TARGET 0014c5a0*/
 void func_0014c5a0(ParamObj* p) asm("func_0014c5a0");
 void func_0014c5a0(ParamObj* p) {
-    func_0014b290((u8*)p);
+    dk__RectBase__createPacket((u8*)p);
     p->vt = D_00349d78;
     setEnt(&p->e[0], 48, D_00349b50); p->e[0].type = 2;
     setEnt(&p->e[1], 48, &p->pad[28]); p->e[1].type = 13;

@@ -40,7 +40,7 @@ u32 func_001063f0(s32, u32);
 void func_002fde18(u32, s32, s32);
 void func_0028d068(s32, s32);
 u8* func_00103eb0(void);
-void func_00102818(u32, s32, s32, u32*, s32);
+void TASK_MANAGER__create_thread(u32, s32, s32, u32*, s32);
 
 void func_0024c950(void);  // 0x0024c950: definition moved into src/anon/unit_0024ba58.cpp
 }

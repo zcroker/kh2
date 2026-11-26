@@ -12,7 +12,7 @@ struct MODE { u32 f0; u32 task; };
 extern MODE D_0032b9e8 asm("D_0032b9e8");
 void func_00167ee0(void) asm("func_00167ee0");
 void func_00103748(void) asm("func_00103748");
-void func_00103590(s32, void*) asm("func_00103590");
+void MENU__CreateAllocator(s32, void*) asm("MENU__CreateAllocator");
 u32 func_001031b0(void) asm("_ZN4MENU17CreateTaskManagerEv");
 s32 func_001033d8(s32) asm("func_001033d8");
 void func_00252fe8(s32) asm("func_00252fe8");
@@ -30,7 +30,7 @@ void func_00103100(void)
         func_00103748();
     }
     if (D_0032ba14 == 0) {
-        func_00103590(0, 0);
+        MENU__CreateAllocator(0, 0);
     }
     D_0032b9e8.task = func_001031b0();
     cur = D_003a6a50;

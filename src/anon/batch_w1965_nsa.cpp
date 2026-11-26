@@ -18,7 +18,7 @@ s32 func_00195700(u8*, u16);
 s32 func_00199890(W1965cEnt*, W1965cObj*, W1965cV*);
 s32 func_00199938(W1965cEnt*, W1965cObj*);
 s32 func_0019ac80(W1965cObj*);
-W1965cV func_0019afd8(s32);
+W1965cV YS__UNIT_GROUP__RandomPosPlayer(s32);
 W1965cV func_0019b0e8(s32, W1965cV*, f32, f32);
 void func_0019a808(W1965cObj* o);  // 0x0019a808: definition moved into src/anon/unit_00199688.cpp
 }

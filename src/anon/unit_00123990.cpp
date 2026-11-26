@@ -110,7 +110,7 @@ void func_00123ac0(Obj* o)
 namespace n00123ba8 {
 // A local whose (empty) destructor keeps the final call from becoming a sibcall.
 struct NoTail { ~NoTail() {} };
-void func_0011f3b8(void*) asm("func_0011f3b8");
+void kn__modelDestroy(void*) asm("kn__modelDestroy");
 void func_0011ee58(void*) asm("func_0011ee58");
 // Destructor: release each offset-listed entry of the attached table.
 extern u32 D_00347a90 asm("D_00347a90");
@@ -119,7 +119,7 @@ void func_00123ba8(u32* self) asm("func_00123ba8");
 void func_00123ba8(u32* self) {
     u8* a = (u8*)self[1];
     self[0] = (u32)&D_00347a90;
-    for (u32* p = (u32*)(a + 16); *p; p++) func_0011f3b8(a + *p);
+    for (u32* p = (u32*)(a + 16); *p; p++) kn__modelDestroy(a + *p);
     NoTail g;
     func_0011ee58(self);  // set_vtbl_347940
 }
@@ -129,7 +129,7 @@ void func_00123ba8(u32* self) {
 namespace n00123c20 {
 // ---- 00123c20
 extern u8 D_00347a90[] asm("D_00347a90");
-void func_0011f3b8(u8*) asm("func_0011f3b8");
+void kn__modelDestroy(u8*) asm("kn__modelDestroy");
 void func_0011ee58(u32*) asm("func_0011ee58");
 // set_vtbl_347940
 struct NoTail_00123c20 { ~NoTail_00123c20() {} };
@@ -139,7 +139,7 @@ void func_00123c20(u32* p) {
     NoTail_00123c20 nt;
     u8* q = (u8*)p[1];
     *p = (u32)D_00347a90;
-    for (s32* s = (s32*)(q + 16); *s; s++) func_0011f3b8(q + *s);
+    for (s32* s = (s32*)(q + 16); *s; s++) kn__modelDestroy(q + *s);
     func_0011ee58(p);  // set_vtbl_347940
 }
 }  // namespace n00123c20
@@ -148,7 +148,7 @@ void func_00123c20(u32* p) {
 namespace n00123c98 {
 // ---- 00123c20
 extern u8 D_00347a90[] asm("D_00347a90");
-void func_0011f3b8(u8*) asm("func_0011f3b8");
+void kn__modelDestroy(u8*) asm("kn__modelDestroy");
 void func_0011ee58(u32*) asm("func_0011ee58");
 // ---- 00123c98
 void func_00106420_3c98(u32*) asm("func_00106420");
@@ -157,7 +157,7 @@ void func_00123c98(u32* p) asm("func_00123c98");
 void func_00123c98(u32* p) {
     u8* q = (u8*)p[1];
     *p = (u32)D_00347a90;
-    for (s32* s = (s32*)(q + 16); *s; s++) func_0011f3b8(q + *s);
+    for (s32* s = (s32*)(q + 16); *s; s++) kn__modelDestroy(q + *s);
     func_0011ee58(p);  // set_vtbl_347940
     func_00106420_3c98(p);
 }
@@ -171,9 +171,9 @@ typedef void (*VFn)(void*);
 void** func_00124748(void*, u32) asm("func_00124748");
 /*TARGET 00123d10*/
 // list_nth_node_rel
-void func_00123d10(void* p) asm("func_00123d10");
+void kn__ModelMulti__getDistanceFromSkeleton(void* p) asm("kn__ModelMulti__getDistanceFromSkeleton");
 // list_nth_node_rel
-void func_00123d10(void* p) {
+void kn__ModelMulti__getDistanceFromSkeleton(void* p) {
     void** o = func_00124748(p, 0);  // list_nth_node_rel
     ((VFn)(*(void***)o)[3])(o);
 }
@@ -183,8 +183,8 @@ void func_00123d10(void* p) {
 namespace n00123d40 {
 void* func_00124748(void*, s32) asm("func_00124748");
 /*TARGET 00123d40*/
-void func_00123d40(void* a, void* b, void* c) asm("func_00123d40");
-void func_00123d40(void* a, void* b, void* c) {
+void kn__ModelMulti__getBoundingBox(void* a, void* b, void* c) asm("kn__ModelMulti__getBoundingBox");
+void kn__ModelMulti__getBoundingBox(void* a, void* b, void* c) {
     void** o = (void**)func_00124748(a, 0);  // list_nth_node_rel
     ((void (*)(void*, void*, void*))((void**)*o)[4])(o, b, c);
 }
@@ -196,8 +196,8 @@ void* func_00124748(void*, s32) asm("func_00124748");
 extern void (*D_0035e380[])(void) asm("D_0035e380");
 typedef s32 (*VFn2)(void*, s32);
 /*TARGET 00123d90*/
-s32 func_00123d90(void* a, s32 b) asm("func_00123d90");
-s32 func_00123d90(void* a, s32 b) {
+s32 kn__ModelMulti__partName2matrixNo(void* a, s32 b) asm("kn__ModelMulti__partName2matrixNo");
+s32 kn__ModelMulti__partName2matrixNo(void* a, s32 b) {
     void* o = func_00124748(a, 0);  // list_nth_node_rel
     return (*(VFn2*)(*(u8**)o + 24))(o, b);
 }
@@ -209,10 +209,10 @@ void* func_00124748(void*, s32) asm("func_00124748");
 /*TARGET 00123dd0*/
 // 0x0011a430: definition moved into src/anon/unit_0011a260.cpp
 
-void* func_00123dd0(void* a) asm("func_00123dd0");
+void* kn__ModelMulti__getHrcNum(void* a) asm("kn__ModelMulti__getHrcNum");
 // 0x0011a430: definition moved into src/anon/unit_0011a260.cpp
 
-void* func_00123dd0(void* a) {
+void* kn__ModelMulti__getHrcNum(void* a) {
     void* o = func_00124748(a, 0);  // list_nth_node_rel
     return (*(void* (**)(void*))(*(u8**)o + 28))(o);
 }
@@ -223,8 +223,8 @@ namespace n00123e00 {
 typedef u32 (*VFnR)(void*);
 void* func_00124748(void*, u32) asm("func_00124748");
 /*TARGET 00123e00*/
-u32 func_00123e00(void* a) asm("func_00123e00");
-u32 func_00123e00(void* a) {
+u32 kn__ModelMulti__getHrc(void* a) asm("kn__ModelMulti__getHrc");
+u32 kn__ModelMulti__getHrc(void* a) {
     void* o = func_00124748(a, 0);  // list_nth_node_rel
     return (*(VFnR*)(*(u8**)o + 32))(o);
 }
@@ -325,8 +325,8 @@ void func_001240b0(void* o, u32 a, u32 b) {
 namespace n00124100 {
 void* func_00124748(void*, s32) asm("func_00124748");
 /*TARGET 00124100*/
-void func_00124100(void* a, s32 b) asm("func_00124100");
-void func_00124100(void* a, s32 b) {
+void kn__ModelMulti__calc(void* a, s32 b) asm("kn__ModelMulti__calc");
+void kn__ModelMulti__calc(void* a, s32 b) {
     void** o = (void**)func_00124748(a, 0);  // list_nth_node_rel
     (*(void (**)(void*, s32))(*(u8**)o + 44))(o, b);
 }
@@ -335,8 +335,8 @@ void func_00124100(void* a, s32 b) {
 // 00124140 (was src/anon/auto80_199_queue.cpp)
 namespace n00124140 {
 /*TARGET 00124140*/
-u32 func_00124140(u8* a0) asm("_Z13func_00124140Ph");
-u32 func_00124140(u8* a0) {
+u32 kn__ModelMulti__getGroupNum(u8* a0) asm("_Z27kn__ModelMulti__getGroupNumPh");
+u32 kn__ModelMulti__getGroupNum(u8* a0) {
     s32 s1 = 0;
     u32 s2 = 0;
 
@@ -362,9 +362,9 @@ typedef void (*Fn52)(u8*, s32, u32);
 u8* func_00124748(u8*, s32) asm("func_00124748");
 /*TARGET 001241b8*/
 // list_nth_node_rel
-void func_001241b8(u8* p, s32 base, u32 c) asm("func_001241b8");
+void kn__ModelMulti__setDisplayFlag(u8* p, s32 base, u32 c) asm("kn__ModelMulti__setDisplayFlag");
 // list_nth_node_rel
-void func_001241b8(u8* p, s32 base, u32 c)
+void kn__ModelMulti__setDisplayFlag(u8* p, s32 base, u32 c)
 {
     u8* o = func_00124748(p, 0);  // list_nth_node_rel
     (*(Fn52*)(*(u8**)o + 52))(o, base, c);
@@ -381,9 +381,9 @@ typedef void (*Fn60)(u8*, s32, u32);
 u8* func_00124748(u8*, s32) asm("func_00124748");
 /*TARGET 00124278*/
 // list_nth_node_rel
-void func_00124278(u8* p, s32 base, u32 c) asm("func_00124278");
+void kn__ModelMulti__showPart(u8* p, s32 base, u32 c) asm("kn__ModelMulti__showPart");
 // list_nth_node_rel
-void func_00124278(u8* p, s32 base, u32 c)
+void kn__ModelMulti__showPart(u8* p, s32 base, u32 c)
 {
     u8* o = func_00124748(p, 0);  // list_nth_node_rel
     (*(Fn60*)(*(u8**)o + 60))(o, base, c);
@@ -400,9 +400,9 @@ typedef void (*Fn64)(u8*, s32, u32);
 u8* func_00124748(u8*, s32) asm("func_00124748");
 /*TARGET 00124338*/
 // list_nth_node_rel
-void func_00124338(u8* p, s32 base, u32 c) asm("func_00124338");
+void kn__ModelMulti__hidePart(u8* p, s32 base, u32 c) asm("kn__ModelMulti__hidePart");
 // list_nth_node_rel
-void func_00124338(u8* p, s32 base, u32 c)
+void kn__ModelMulti__hidePart(u8* p, s32 base, u32 c)
 {
     u8* o = func_00124748(p, 0);  // list_nth_node_rel
     (*(Fn64*)(*(u8**)o + 64))(o, base, c);
@@ -419,9 +419,9 @@ typedef void (*Fn68)(u8*, s32, u32);
 u8* func_00124748(u8*, s32) asm("func_00124748");
 /*TARGET 001243f8*/
 // list_nth_node_rel
-void func_001243f8(u8* p, s32 base, u32 c) asm("func_001243f8");
+void kn__ModelMulti__setStealth(u8* p, s32 base, u32 c) asm("kn__ModelMulti__setStealth");
 // list_nth_node_rel
-void func_001243f8(u8* p, s32 base, u32 c)
+void kn__ModelMulti__setStealth(u8* p, s32 base, u32 c)
 {
     u8* o = func_00124748(p, 0);  // list_nth_node_rel
     (*(Fn68*)(*(u8**)o + 68))(o, base, c);
@@ -438,9 +438,9 @@ typedef void (*Fn72)(u8*, s32, u32);
 u8* func_00124748(u8*, s32) asm("func_00124748");
 /*TARGET 001244b8*/
 // list_nth_node_rel
-void func_001244b8(u8* p, s32 base, u32 c) asm("func_001244b8");
+void kn__ModelMulti__resetStealth(u8* p, s32 base, u32 c) asm("kn__ModelMulti__resetStealth");
 // list_nth_node_rel
-void func_001244b8(u8* p, s32 base, u32 c)
+void kn__ModelMulti__resetStealth(u8* p, s32 base, u32 c)
 {
     u8* o = func_00124748(p, 0);  // list_nth_node_rel
     (*(Fn72*)(*(u8**)o + 72))(o, base, c);
@@ -456,8 +456,8 @@ namespace n00124578 {
 typedef u32 (*Fn8)(u8*, u32, u32, u32, u32, u32, u8, u32);
 u8* func_00124748(u32, u32) asm("func_00124748");
 /*TARGET 00124578*/
-u32 func_00124578(u32 a0, u32 a1, u32 a2, u32 a3, u32 t0, u32 t1, u8 t2, u32 t3) asm("func_00124578");
-u32 func_00124578(u32 a0, u32 a1, u32 a2, u32 a3, u32 t0, u32 t1, u8 t2, u32 t3) {
+u32 kn__ModelMulti__draw(u32 a0, u32 a1, u32 a2, u32 a3, u32 t0, u32 t1, u8 t2, u32 t3) asm("kn__ModelMulti__draw");
+u32 kn__ModelMulti__draw(u32 a0, u32 a1, u32 a2, u32 a3, u32 t0, u32 t1, u8 t2, u32 t3) {
     u8* o = func_00124748(a0, 0);  // list_nth_node_rel
     return (*(Fn8*)(*(u8**)o + 76))(o, a1, a2, a3, t0, t1, t2, t3);
 }
@@ -469,9 +469,9 @@ typedef s32 (*VFn124)(void*, s32, s32, s32, s32, s32, u8, s32);
 void* func_00124748(void*, s32) asm("func_00124748");
 /*TARGET 00124618*/
 // list_nth_node_rel
-s32 func_00124618(void* a0, s32 a1, s32 a2, s32 a3, s32 t0, s32 t1, u8 t2, s32 t3) asm("func_00124618");
+s32 kn__ModelMulti__drawSilhouette(void* a0, s32 a1, s32 a2, s32 a3, s32 t0, s32 t1, u8 t2, s32 t3) asm("kn__ModelMulti__drawSilhouette");
 // list_nth_node_rel
-s32 func_00124618(void* a0, s32 a1, s32 a2, s32 a3, s32 t0, s32 t1, u8 t2, s32 t3) {
+s32 kn__ModelMulti__drawSilhouette(void* a0, s32 a1, s32 a2, s32 a3, s32 t0, s32 t1, u8 t2, s32 t3) {
     void* o = func_00124748(a0, 0);  // list_nth_node_rel
     return (*(VFn124*)((*(u8**)o) + 80))(o, a1, a2, a3, t0, t1, t2, t3);
 }
@@ -486,8 +486,8 @@ VObj1246* func_00124748(u32, u32) asm("func_00124748");
 // list_nth_node_rel
 typedef u32 (*Fn1246)(VObj1246*, u32, u32, u32, u32, u8, u32);
 /*TARGET 001246b8*/
-u32 func_001246b8(u32 a0, u32 a1, u32 a2, u32 a3, u32 t0, u8 t1, u32 t2) asm("func_001246b8");
-u32 func_001246b8(u32 a0, u32 a1, u32 a2, u32 a3, u32 t0, u8 t1, u32 t2) {
+u32 kn__ModelMulti__drawOnShadow(u32 a0, u32 a1, u32 a2, u32 a3, u32 t0, u8 t1, u32 t2) asm("kn__ModelMulti__drawOnShadow");
+u32 kn__ModelMulti__drawOnShadow(u32 a0, u32 a1, u32 a2, u32 a3, u32 t0, u8 t1, u32 t2) {
     VObj1246* o = func_00124748(a0, 0);  // list_nth_node_rel
     return ((Fn1246)o->vt[22])(o, a1, a2, a3, t0, t1, t2);
 }
@@ -859,9 +859,9 @@ void func_0011b6a8(M124*) asm("func_0011b6a8");
 M124* func_0011b6d8(M124*, f32) asm("func_0011b6d8");
 /*TARGET 00124ca8*/
 // 00124ca8: look-at view matrix (eye, target, optional up, roll); with proj, also a 2D correction from the triangle a, b, |target-eye|
-void func_00124ca8(V124* eye, V124* tgt, s32 flip, M124* out, M124* proj, V124* upv, f32 a, f32 b, f32 roll, f32 roll2) asm("func_00124ca8");
+void gm__GRID__draw(V124* eye, V124* tgt, s32 flip, M124* out, M124* proj, V124* upv, f32 a, f32 b, f32 roll, f32 roll2) asm("gm__GRID__draw");
 // 00124ca8: look-at view matrix (eye, target, optional up, roll); with proj, also a 2D correction from the triangle a, b, |target-eye|
-void func_00124ca8(V124* eye, V124* tgt, s32 flip, M124* out, M124* proj, V124* upv, f32 a, f32 b, f32 roll, f32 roll2)
+void gm__GRID__draw(V124* eye, V124* tgt, s32 flip, M124* out, M124* proj, V124* upv, f32 a, f32 b, f32 roll, f32 roll2)
 {
     V124 fwd(0.0f, 0.0f, 0.0f, 0.0f), up(0.0f, 0.0f, 0.0f, 0.0f), side(0.0f, 0.0f, 0.0f, 0.0f);
     M124 view, rot, m2;

@@ -19,8 +19,8 @@ struct W1716SrcB { u8 pad[8]; u16 ids[80]; };
 extern W1716Sram* D_0035f2e4;
 W1716Sram* W1716_GetSram(void) asm("_ZN2Tz8CmNewFlg7GetSramEv");
 u8* W1716_getSaveRam(void) asm("_Z10getSaveRamv");
-W1716SrcA* W1716_ctarget_00188fe0(void*, s32) asm("_Z16ctarget_00188fe0jjjj");
-W1716SrcB* W1716_ctarget_00189200(void*, s32) asm("_Z16ctarget_00189200jjjj");
+W1716SrcA* W1716_ctarget_00188fe0(void*, s32) asm("_Z31YS__SAVERAM_BATTLE__get_partramjjjj");
+W1716SrcB* W1716_ctarget_00189200(void*, s32) asm("_Z31YS__SAVERAM_BATTLE__get_formramjjjj");
 
 static inline u32 W1716Test(u32* bits, u32 id) { return bits[id >> 5] & (1 << (id & 31)); }
 static inline u32* W1716Bits(W1716Sram* s, s32 grp) {

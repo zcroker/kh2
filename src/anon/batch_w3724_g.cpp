@@ -17,5 +17,5 @@ s32 func_002891e8(s32);
 s32 func_00139d78(Ent *);
 void func_00138c10(Ent *, s32);
 // Register pin: idx in s1 (the original keeps the D_0035f5d0 %hi in s0).
-void func_002a03d0(void);  // 0x002a03d0: definition moved into src/anon/unit_0029f938.cpp
+void Tz__JmAnsem__UpdateNewMark(void);  // 0x002a03d0: definition moved into src/anon/unit_0029f938.cpp
 }

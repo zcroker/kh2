@@ -16,12 +16,12 @@ struct V1893 {
 extern "C" {
 extern u32 D_0034e948;
 s32 func_0016e920(void);
-V1893* func_0016c028(u32);
+V1893* YS__OBJ__get_pos(u32);
 s32 func_001a75d8(V1893*, V1893*, s32);
 V1893 func_001a7888(V1893*, s32, f32, f32);
 s32 func_001050d8(s32);
 f32 func_002f8ad0(f32, f32);
-void func_0010c078(f32, s32, s32, V1893*);
+void kn__Friend__Friend(f32, s32, s32, V1893*);
 // 0017e4f8: moved to src/yasui/libys/friend.cpp
 
 }

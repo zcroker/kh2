@@ -14,5 +14,5 @@ void sceVu0Normalize(void*, void*);
 void sceVu0ScaleVector(void*, void*, f32);
 // Spawns an effect object from the manager table and runs a point through three matrix stages,
 // storing results into three of the object's slots.
-void func_001f6148(s32 a0, A6148* a, s16* pos);  // 0x001f6148: definition moved into src/anon/unit_001f5978.cpp
+void pppKeBornRnd4_Born(s32 a0, A6148* a, s16* pos);  // 0x001f6148: definition moved into src/anon/unit_001f5978.cpp
 }

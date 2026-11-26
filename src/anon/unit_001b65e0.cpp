@@ -2,7 +2,7 @@
 // Notes for the next reader:
 //  - func_001c9df8 takes no argument (see its definition in src/yasui/libys/sacrifice.cpp). Old drafts passed the task
 //    to it, which made the scheduler pull the wait call's arguments of the first loop into the last test block.
-//  - func_001ba028 is declared with a 64-bit (long) parameter here. This is a guess that only changes register
+//  - YS__OBJ__is_valid is declared with a 64-bit (long) parameter here. This is a guess that only changes register
 //    allocation order: the load of c->obj becomes a load plus a tied copy inside the second wait loop, which keeps the
 //    live-range copy of `task` for that loop behind `task` itself, so both stay in s3. The emitted code for the call is
 //    the same `lw a0,0(s2)` either way.
@@ -43,7 +43,7 @@ void func_00170dd0(void*);
 void func_00170320(s32);
 void func_0016ef28(s32);
 void func_00170888(void*);
-s32 func_0019ba60(W1624Obj*);
+s32 YS__OBJ__is_exist(W1624Obj*);
 s32 func_00180618(void*);
 s32 func_001c9df8(void);
 void func_00102448(void*, s32);
@@ -52,7 +52,7 @@ void func_0019ed78(W1624Fade*, f32);
 void func_0019ca20(s32);
 void* func_001050d8(u32);
 void* func_0016e920(s32);
-s32 func_0016c028(W1624Obj*);
+s32 YS__OBJ__get_pos(W1624Obj*);
 void func_001d0980(W1624Obj*, void*, s32, s32, s32, f32);
 void func_0017f488(void*, s32, f32, f32);
 void func_001b6ab8(W1624Change*);
@@ -64,15 +64,15 @@ void func_00197e08(W1624Obj*, W1624Obj*);
 void func_001b1360(W1624Obj*, W1624Obj*);
 void func_002edca0(W1624Obj*, W1624Obj*);
 void func_00111e50(void);
-s32 func_001ba028(long);
-void func_001c9e50(void*);
+s32 YS__OBJ__is_valid(long);
+void YS__SACRIFICE__WaitStable(void*);
 
 static inline bool W1624IsForm(W1624Change* c) { if (c->form == 0) return 0; if (c->form < 7) return 1; return 0; }
 static inline bool W1624NoFlag(void* p, s32 i) { return !func_001c8db8(p, i); }
 
 /*TARGET 001b65e0*/
-void wtarget_001b65e0(W1624Change* c, void* task, u32 x, u32 y) asm("_Z16wtarget_001b65e0jjjj");
-void wtarget_001b65e0(W1624Change* c, void* task, u32 x, u32 y)
+void YS__CHANGEFORM__exec(W1624Change* c, void* task, u32 x, u32 y) asm("_Z20YS__CHANGEFORM__execjjjj");
+void YS__CHANGEFORM__exec(W1624Change* c, void* task, u32 x, u32 y)
 {
     f32 zero;
     s32 two;
@@ -101,7 +101,7 @@ void wtarget_001b65e0(W1624Change* c, void* task, u32 x, u32 y)
         func_0016ef28(c->form);
         func_00170888(task);
         
-                while (func_0019ba60(c->obj) && !func_00180618(c->obj->motion) && func_001c9df8())
+                while (YS__OBJ__is_exist(c->obj) && !func_00180618(c->obj->motion) && func_001c9df8())
                 func_00102448(task, 0);
 
         func_00102448(task, 2);
@@ -109,7 +109,7 @@ void wtarget_001b65e0(W1624Change* c, void* task, u32 x, u32 y)
         c->eff = 0;
         func_0019ed78(&D_00350448, 20.0f);
     }
-    if (!func_0019ba60(c->obj)) return;
+    if (!YS__OBJ__is_exist(c->obj)) return;
 
     cam = c->obj->cam;
     pos = c->obj->pos;
@@ -120,7 +120,7 @@ void wtarget_001b65e0(W1624Change* c, void* task, u32 x, u32 y)
     c->obj->vt->release(c->obj);
     n = (W1624Obj*)func_001050d8(0xb80);
     info = func_0016e920(c->id);
-    m = func_0016c028(c->obj);
+    m = YS__OBJ__get_pos(c->obj);
     func_001d0980(n, info, c->form, c->obj->fb38, m, c->obj->f55c);
     c->flags |= 8;
     n->fac8 = c->obj->fac8;
@@ -154,11 +154,11 @@ void wtarget_001b65e0(W1624Change* c, void* task, u32 x, u32 y)
     func_002edca0(c->obj, n);
     func_00111e50();
     c->flags |= 4;
-    while (func_001ba028((long)c->obj)) func_00102448(task, 0);
+    while (YS__OBJ__is_valid((long)c->obj)) func_00102448(task, 0);
     func_00102448(task, 2);
     if (c->restore) {
         func_00170888(task);
-        func_001c9e50(task);
+        YS__SACRIFICE__WaitStable(task);
     }
 }
 }

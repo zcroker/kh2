@@ -45,12 +45,12 @@ static inline f32 normalize16b(QV16b* v) {
 }
 extern "C" {
 u8* func_00106a60(s32);
-Obj16b* func_001b9bc8(Obj16b*);
+Obj16b* YS__OBJ__Each(Obj16b*);
 s32 func_0016a020(Obj16b*);
-QV16b* func_0016c028(Obj16b*);
+QV16b* YS__OBJ__get_pos(Obj16b*);
 
 }
 // partial asm: register pins and empty ties steer allocation only (closest plain C: 24 lines, regalloc only).
 extern "C" {
-Obj16b* func_0016b8b8(s32 kind0, const QV16b* pos0);  // 0x0016b8b8: definition moved into src/anon/unit_00169f98.cpp
+Obj16b* YS__OBJ__SearchByCamera(s32 kind0, const QV16b* pos0);  // 0x0016b8b8: definition moved into src/anon/unit_00169f98.cpp
 }

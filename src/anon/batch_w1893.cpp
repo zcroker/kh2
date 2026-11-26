@@ -42,6 +42,6 @@ s32 func_00192c90(u32, u8*);
 void memcpy(u8*, u8*, s32);
 s32 func_00139d78(u8*);
 void func_0028d980(u8*, u32, u32, u32, u32, s32, s32, s32, s32);
-void func_00256cc0(s32 a, s32 b, s32 c);  // 0x00256cc0: definition moved into src/anon/unit_00254020.cpp
+void Tz__CmTop__CreatePadHelp(s32 a, s32 b, s32 c);  // 0x00256cc0: definition moved into src/anon/unit_00254020.cpp
 
 }

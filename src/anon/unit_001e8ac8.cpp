@@ -737,8 +737,8 @@ extern u8* D_01d9e6e8 asm("D_01d9e6e8");
 Re9* func_001e7a98(Oe9*, void*) asm("func_001e7a98");
 void sceVu0ApplyMatrix(V4e9*, void*, V4e9*) asm("sceVu0ApplyMatrix");
 /*TARGET 001e9d48*/
-void func_001e9d48(s32 a0, Ae9* a1, s16* a2) asm("func_001e9d48");
-void func_001e9d48(s32 a0, Ae9* a1, s16* a2) {
+void apea(s32 a0, Ae9* a1, s16* a2) asm("apea");
+void apea(s32 a0, Ae9* a1, s16* a2) {
     if (a1->idx != -1) {
         Re9* r = 0;
         Oe9* o = D_01d9e6e0;
@@ -771,7 +771,7 @@ extern Part1e9e48* D_01d9e6e0 asm("D_01d9e6e0");
 extern s32 D_01d9eab4 asm("D_01d9eab4");
 extern EmitRes1e9e48* D_01d9e6e4 asm("D_01d9e6e4");
 extern EmitOvr1e9e48* D_01d9e6e8 asm("D_01d9e6e8");
-void func_001e9d48(u8*, Emit1e9e48*, EmitPt1e9e48*) asm("func_001e9d48");
+void apea(u8*, Emit1e9e48*, EmitPt1e9e48*) asm("apea");
 /* VU0 random number in [0,1) (hand-written VU0 macro code) */
 static inline f32 rand1e9e48(void)
 {
@@ -782,9 +782,9 @@ static inline f32 rand1e9e48(void)
 }
 /*TARGET 001e9e48*/
 /* partMng particle emitter: spawn e->num points per tick (sequential or VU0-random pick) */
-void func_001e9e48(u8* base, Emit1e9e48* e, EmitCtx1e9e48* c) asm("func_001e9e48");
+void pppVertexAp(u8* base, Emit1e9e48* e, EmitCtx1e9e48* c) asm("pppVertexAp");
 /* partMng particle emitter: spawn e->num points per tick (sequential or VU0-random pick) */
-void func_001e9e48(u8* base, Emit1e9e48* e, EmitCtx1e9e48* c)
+void pppVertexAp(u8* base, Emit1e9e48* e, EmitCtx1e9e48* c)
 {
     EmitSt1e9e48* st = (EmitSt1e9e48*)(base + *c->off + 160);
     EmitTbl1e9e48* t;
@@ -805,14 +805,14 @@ void func_001e9e48(u8* base, Emit1e9e48* e, EmitCtx1e9e48* c)
             while (n--) {
                 if (st->cur >= t->count) st->cur = 0;
                 s32 k = t->idx[st->cur++]; pt = src[k];
-                func_001e9d48(base, e, &pt);
+                apea(base, e, &pt);
             }
             break;
         case 1:
             while (n--) {
                 f32 r = rand1e9e48();
                 pt = src[t->idx[(s32)(r * (f32)t->count)]];
-                func_001e9d48(base, e, &pt);
+                apea(base, e, &pt);
             }
             break;
         }
@@ -849,8 +849,8 @@ extern u8* D_01d9e6e0 asm("D_01d9e6e0");
 u8* func_001e7a98(u8*, u8*) asm("func_001e7a98");
 union HF { s16 h; f32 f; };
 /*TARGET 001ea100*/
-void func_001ea100(u32 x, u8* d, HF* v) asm("func_001ea100");
-void func_001ea100(u32 x, u8* d, HF* v)
+void pppVertexApLc(u32 x, u8* d, HF* v) asm("pppVertexApLc");
+void pppVertexApLc(u32 x, u8* d, HF* v)
 {
     s32 k = *(s32*)(d + 12);
     if (k == -1) return;
@@ -880,7 +880,7 @@ extern Part1e9e48* D_01d9e6e0 asm("D_01d9e6e0");
 extern s32 D_01d9eab4 asm("D_01d9eab4");
 extern EmitRes1e9e48* D_01d9e6e4 asm("D_01d9e6e4");
 extern EmitOvr1e9e48* D_01d9e6e8 asm("D_01d9e6e8");
-void func_001ea100(u8*, Emit1e9e48*, EmitPt1e9e48*) asm("func_001ea100");
+void pppVertexApLc(u8*, Emit1e9e48*, EmitPt1e9e48*) asm("pppVertexApLc");
 /* VU0 random number in [0,1) (hand-written VU0 macro code) */
 static inline f32 rand1e9e48(void)
 {
@@ -890,9 +890,9 @@ static inline f32 rand1e9e48(void)
     return r;
 }
 /*TARGET 001ea1b0*/
-/* twin of func_001e9e48 with a different spawn callee */
+/* twin of pppVertexAp with a different spawn callee */
 void func_001ea1b0(u8* base, Emit1e9e48* e, EmitCtx1e9e48* c) asm("func_001ea1b0");
-/* twin of func_001e9e48 with a different spawn callee */
+/* twin of pppVertexAp with a different spawn callee */
 void func_001ea1b0(u8* base, Emit1e9e48* e, EmitCtx1e9e48* c)
 {
     EmitSt1e9e48* st = (EmitSt1e9e48*)(base + *c->off + 160);
@@ -914,14 +914,14 @@ void func_001ea1b0(u8* base, Emit1e9e48* e, EmitCtx1e9e48* c)
             while (n--) {
                 if (st->cur >= t->count) st->cur = 0;
                 s32 k = t->idx[st->cur++]; pt = src[k];
-                func_001ea100(base, e, &pt);
+                pppVertexApLc(base, e, &pt);
             }
             break;
         case 1:
             while (n--) {
                 f32 r = rand1e9e48();
                 pt = src[t->idx[(s32)(r * (f32)t->count)]];
-                func_001ea100(base, e, &pt);
+                pppVertexApLc(base, e, &pt);
             }
             break;
         }

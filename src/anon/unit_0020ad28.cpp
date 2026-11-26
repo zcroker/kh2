@@ -124,8 +124,8 @@ s32 func_0020a060(W2418Q*, W2418A1*) asm("func_0020a060");
 void func_0020aec0(void*, W2418A1*, W2418Q*) asm("func_0020aec0");
 f32 func_0020aec8(void*, f32 (*)[4], W2418A1*, W2418Q*, W2418It*) asm("func_0020aec8");
 /*TARGET 0020aff8*/
-void func_0020aff8(u8* a0, W2418A1* a1, W2418A2* a2) asm("func_0020aff8");
-void func_0020aff8(u8* a0, W2418A1* a1, W2418A2* a2) {
+void pppRyjDrawMegaBirth(u8* a0, W2418A1* a1, W2418A2* a2) asm("pppRyjDrawMegaBirth");
+void pppRyjDrawMegaBirth(u8* a0, W2418A1* a1, W2418A2* a2) {
     W2418Q* q = (W2418Q*)(a0 + a2->fc->c + 0xa0);
     W2418It* it = q->it;
     W2418Vc* v = q->v;

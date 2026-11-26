@@ -4,7 +4,7 @@
 // entries after an 8-byte header) and a flag bitset test/set on the bit array at 0x33cae8.
 
 extern "C" {
-void func_00168388(const char*, void*, void (*)(void), u32);
+void YS__FILE__ReadBack(const char*, void*, void (*)(void), u32);
 extern u32 D_0033cae8[];
 }
 
@@ -21,7 +21,7 @@ void func_002f1a68(void) {
 
 void func_002f1a80(void) {
     D_00363c2c = 0;
-    func_00168388(D_00363c28, D_01e2c100, func_002f1a68, 0);
+    YS__FILE__ReadBack(D_00363c28, D_01e2c100, func_002f1a68, 0);
 }
 
 u32 func_002f1ab8(void) {

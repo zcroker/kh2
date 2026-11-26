@@ -6,7 +6,7 @@ void __ieee754_sqrt(void);
 void wtarget_00239bf8(u8*) asm("_Z16wtarget_00239bf8jjjj");
 void func_00303698(u32, void*);
 void fflush(void);
-void func_001cd690(void*, u32, u32);
+void YS__PRIORITYTARGET__search(void*, u32, u32);
 extern u32 D_00352bd0;
 extern u32 D_0034dbf8[];
 extern u8* D_00350df8;

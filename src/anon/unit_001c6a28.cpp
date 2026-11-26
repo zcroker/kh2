@@ -47,7 +47,7 @@ struct M {
 } __attribute__((aligned(16)));
 struct N { V pos; u8 pad0[5]; u8 alpha; u8 pad1[60]; u8 slot; };
 struct HIT { V pos; u8 rest[16]; } __attribute__((aligned(16)));
-s32 func_001d35e0(HIT*, const V&, const V&, u32) asm("func_001d35e0");
+s32 YS__BGHIT__check_line(HIT*, const V&, const V&, u32) asm("YS__BGHIT__check_line");
 s32 func_001d36e8(HIT*) asm("func_001d36e8");
 s32 func_001c5f90(N*) asm("func_001c5f90");
 extern u32 D_003638d0 asm("D_003638d0");
@@ -57,7 +57,7 @@ extern s32 D_01d498b0 asm("D_01d498b0");
 static inline f32 frand() { D_003638d0 *= 0x10dcd; return (f32)D_003638d0 * 2.3283064e-10f; }
 static inline f32 frange(f32 lo, f32 hi) { return lo + frand() * (hi - lo); }
 static inline void rnd(V& o) { f32 one = 1.0f; f32 x = frange(-400.0f, 400.0f); f32 z = -(frand() * 400.0f); o.x = x; o.y = 0.0f; o.w = one; o.z = z; }
-static inline s32 ground(V* v, V* b, HIT* h) { *v = D_01d49830 * *v; *b = *v; v->y = -10000.0f; b->y = 10000.0f; return func_001d35e0(h, *v, *b, 1); }
+static inline s32 ground(V* v, V* b, HIT* h) { *v = D_01d49830 * *v; *b = *v; v->y = -10000.0f; b->y = 10000.0f; return YS__BGHIT__check_line(h, *v, *b, 1); }
 void func_001c6a28(N* o) asm("func_001c6a28");
 void func_001c6a28(N* o) {
     V v, b;

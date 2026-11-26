@@ -43,10 +43,10 @@ struct BtlCmd {
     u8 f2e;                        
 };
 extern u8 D_00351ec0 asm("D_00351ec0");
-s32 func_001a1de0(BtlStatus*) asm("func_001a1de0");
+s32 YS__SHEET__is_mpdrive(BtlStatus*) asm("YS__SHEET__is_mpdrive");
 s32 func_001a6598(s16) asm("func_001a6598");
 s32 func_001b58a8(void) asm("func_001b58a8");
-s32 func_001b5b20(BtlObj*, BtlCmd*, s32) asm("func_001b5b20");
+s32 YS__LIMIT__GetCommandStatus(BtlObj*, BtlCmd*, s32) asm("YS__LIMIT__GetCommandStatus");
 s32 func_001b8ff8(BtlCmd*, BtlObj*) asm("func_001b8ff8");
 s32 func_001b91d0(BtlCmd*, s32) asm("func_001b91d0");
 s32 func_001bb4a0(void) asm("func_001bb4a0");
@@ -57,8 +57,8 @@ s32 func_001bf140(s32, u8) asm("func_001bf140");
 s32 func_001c8ab0(void) asm("func_001c8ab0");
 s32 func_001c8db8(void*, s32) asm("func_001c8db8");
 s32 func_001c9c00(void) asm("func_001c9c00");
-s32 func_001bc2a8(BtlCmd* cmd, BtlObj* obj) asm("func_001bc2a8");
-s32 func_001bc2a8(BtlCmd* cmd, BtlObj* obj) {
+s32 YS__COMMAND_SLOT__GetStatus(BtlCmd* cmd, BtlObj* obj) asm("YS__COMMAND_SLOT__GetStatus");
+s32 YS__COMMAND_SLOT__GetStatus(BtlCmd* cmd, BtlObj* obj) {
     s32 r = 0;
     BtlObj* pl = 0;
     if (obj != 0) pl = (obj->flags & 0x80) ? obj : 0;
@@ -76,7 +76,7 @@ s32 func_001bc2a8(BtlCmd* cmd, BtlObj* obj) {
         break;
     case 2:
         if (pl != 0) {
-            if (func_001a1de0(pl->status)) {
+            if (YS__SHEET__is_mpdrive(pl->status)) {
                 r = 5;
             } else if (pl->status->level < cmd->level) {
                 r = func_001a6598(cmd->arg) ? 2 : 5;
@@ -100,7 +100,7 @@ s32 func_001bc2a8(BtlCmd* cmd, BtlObj* obj) {
         r = 5;
         break;
     case 0x1c4:
-        if (func_001a1de0(pl->status)) {
+        if (YS__SHEET__is_mpdrive(pl->status)) {
             r = 5;
         } else if (pl->status->level < cmd->level) {
             r = 2;
@@ -118,7 +118,7 @@ s32 func_001bc2a8(BtlCmd* cmd, BtlObj* obj) {
         break;
     case 0x51:
     case 0x2c3:
-        r = func_001b5b20(pl, cmd, 0);
+        r = YS__LIMIT__GetCommandStatus(pl, cmd, 0);
         break;
     }
     if (func_001b8ff8(cmd, obj) || (pl != 0 && func_001b91d0(cmd, pl->fb50)) || func_001bf140(pl->fb44, cmd->f2e)) r = 5;

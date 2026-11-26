@@ -89,8 +89,8 @@ u32 SAVEFLAG_Check(u32 a0) {
 
 // 001a91f8 (from src/anon/batch_w2.cpp)
 namespace n001a91f8 {
-void func_001a91f8(s32* p) asm("func_001a91f8");
-void func_001a91f8(s32* p) {                     
+void YS__OBJDATA__clear(s32* p) asm("YS__OBJDATA__clear");
+void YS__OBJDATA__clear(s32* p) {                     
     p[0] = -1;
     p[1] = 0;
     p[3] = 0;
@@ -187,7 +187,7 @@ void func_001a9350(u32* a0) {
         func_00170950(t7);
     }
 
-    func_001a91f8(a0);                     
+    YS__OBJDATA__clear(a0);                     
 }
 } // n001a9350
 
@@ -257,8 +257,8 @@ static inline W78Vec operator-(const W78Vec& a, const W78Vec& b) { W78Vec r; vsu
 s32 func_001a9780(u32) asm("func_001a9780");
 u8* func_001a97b8(u32, s32) asm("func_001a97b8");
 u8* func_00168b38(u8*, s32, s32) asm("func_00168b38");
-u32 func_001a9458(u8* o, s32 a, s32 b) asm("func_001a9458");
-u32 func_001a9458(u8* o, s32 a, s32 b) {
+u32 YS__OBJDATA__get_kna(u8* o, s32 a, s32 b) asm("YS__OBJDATA__get_kna");
+u32 YS__OBJDATA__get_kna(u8* o, s32 a, s32 b) {
     u8* r = 0;
     if (func_001a9780(*(u32*)(o + 20))) {
         a *= 4;
@@ -300,36 +300,36 @@ u32 func_001a9528(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7
 // 001a9560 (from src/anon/batch_w109.cpp)
 namespace n001a9560 {
 s32 func_001a9528(u8*) asm("func_001a9528");
-void func_001dddd0(s32, s32) asm("func_001dddd0");
-s32 func_001de168(s32, s32, s32, s32, s32, s32) asm("func_001de168");
-void func_001a9560(u8* self, s32 a1, s32 a2, s32* out) asm("func_001a9560");
-void func_001a9560(u8* self, s32 a1, s32 a2, s32* out) {
+void ryj__PAX__init(s32, s32) asm("ryj__PAX__init");
+s32 ryj__PAX__start(s32, s32, s32, s32, s32, s32) asm("ryj__PAX__start");
+void YS__OBJDATA__start_model_effect(u8* self, s32 a1, s32 a2, s32* out) asm("YS__OBJDATA__start_model_effect");
+void YS__OBJDATA__start_model_effect(u8* self, s32 a1, s32 a2, s32* out) {
     s32 v = func_001a9528(self);
     if (!v) return;
-    func_001dddd0(a2, v);
+    ryj__PAX__init(a2, v);
     u8* o = *(u8**)(self + 8);
     s32 i;
     switch (*(u16*)(o + 76)) {
     case 5013:
-        for (i = 0; i < 3; i++) out[i] = func_001de168(a2, i, 0, 1, 0, a1);                      
+        for (i = 0; i < 3; i++) out[i] = ryj__PAX__start(a2, i, 0, 1, 0, a1);                      
         break;
     case 1016:
     case 5002:
-        *out = func_001de168(a2, 0, 0, 1, 0, a1);
+        *out = ryj__PAX__start(a2, 0, 0, 1, 0, a1);
         break;
     case 5026:
-        for (i = 0; i < 9; i++) out[i] = func_001de168(a2, i, 0, 1, 0, a1);                      
+        for (i = 0; i < 9; i++) out[i] = ryj__PAX__start(a2, i, 0, 1, 0, a1);                      
         break;
     case 5066:
-        for (i = 0; i < 14; i++) out[i] = func_001de168(a2, i, 0, 1, 0, a1);                      
+        for (i = 0; i < 14; i++) out[i] = ryj__PAX__start(a2, i, 0, 1, 0, a1);                      
         break;
     default:
         switch (*(u32*)o) {
         case 2184: case 2186: case 2187: case 2188: case 2428:
-            *out = func_001de168(a2, 0, 0, 1, 0, a1);
+            *out = ryj__PAX__start(a2, 0, 0, 1, 0, a1);
             break;
         case 2185:
-            for (i = 0; i < 4; i++) out[i] = func_001de168(a2, i, 0, 1, 0, a1);                      
+            for (i = 0; i < 4; i++) out[i] = ryj__PAX__start(a2, i, 0, 1, 0, a1);                      
             break;
         }
         break;
@@ -339,11 +339,11 @@ void func_001a9560(u8* self, s32 a1, s32 a2, s32* out) {
 
 // 001a9758 (from src/anon/tiny_jal_wrappers.cpp)
 namespace n001a9758 {
-u32 func_0016f7d0(u32, u32, u32, u32) asm("func_0016f7d0");
+u32 YS__OBJENTRY__GetCacheBuffStatus(u32, u32, u32, u32) asm("YS__OBJENTRY__GetCacheBuffStatus");
 u32 func_001a9758(u32 a0, u32 a1, u32 a2, u32 a3) asm("func_001a9758");
 u32 func_001a9758(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u, r15 = 0u;
-    r2 = func_0016f7d0(r4, r5, r6, r7);
+    r2 = YS__OBJENTRY__GetCacheBuffStatus(r4, r5, r6, r7);
     r15 = (u32)((s32)0u + (-13));
     r2 = (u32)(r2 & r15);
     r2 = ((u32)r2 < 0x00000001u);
@@ -460,8 +460,8 @@ namespace n001a98e8 {
 void func_00192f78(void *) asm("func_00192f78");
 void func_001a9970(void *, u32) asm("func_001a9970");
 u32 func_001aae68(u32) asm("func_001aae68");
-void func_001a98e8(u32 *a0, u32 a1, u32 a2, u32 a3, u32 a4) asm("func_001a98e8");
-void func_001a98e8(u32 *a0, u32 a1, u32 a2, u32 a3, u32 a4) {
+void YS__MESSAGEDRAW__MESSAGEDRAW(u32 *a0, u32 a1, u32 a2, u32 a3, u32 a4) asm("YS__MESSAGEDRAW__MESSAGEDRAW");
+void YS__MESSAGEDRAW__MESSAGEDRAW(u32 *a0, u32 a1, u32 a2, u32 a3, u32 a4) {
     a0[0] = 0;
     a0[1] = func_001aae68(a1);
     a0[2] = a2;
@@ -483,7 +483,7 @@ void func_001a98e8(u32 *a0, u32 a1, u32 a2, u32 a3, u32 a4) {
 namespace n001a9970 {
 struct S6 { u32 a[6]; };
 void func_00192990(u32, u32, S6*, char*) asm("func_00192990");
-void func_001aa388(char*, u32) asm("func_001aa388");
+void YS__MESSAGEDRAW__set_page(char*, u32) asm("YS__MESSAGEDRAW__set_page");
 void func_001a9970(char* t, int n) asm("func_001a9970");
 void func_001a9970(char* t, int n) {
     float f;
@@ -498,7 +498,7 @@ void func_001a9970(char* t, int n) {
     if (o) {
         S6 s = *(S6*)(t + 36);
         func_00192990(o, *(u32*)(t + 4), &s, t + 80);
-        func_001aa388(t, *(u32*)(t + 8));
+        YS__MESSAGEDRAW__set_page(t, *(u32*)(t + 8));
     }
 }
 } // n001a9970
@@ -537,10 +537,10 @@ void func_001a9a28(u32, u8*, s32*, s32*) asm("func_001a9a28");
 u32 func_001aa6f0(S1a9*, u32) asm("func_001aa6f0");
 u32 func_00192a80(u8*) asm("func_00192a80");
 void func_001aa850(T1a9*, u32) asm("func_001aa850");
-u8* func_001a9c20(S1a9*, T1a9*, u8*) asm("func_001a9c20");
+u8* YS__MESSAGEDRAW__draw_line(S1a9*, T1a9*, u8*) asm("YS__MESSAGEDRAW__draw_line");
 void func_001aa980(T1a9*) asm("func_001aa980");
 void func_001b7f30(void*) asm("func_001b7f30");
-void wt_001a9ae8(S1a9*, s32, s32, u32) asm("_Z16wtarget_001a9ae8jjjj");
+void wt_001a9ae8(S1a9*, s32, s32, u32) asm("_Z21YS__MESSAGEDRAW__drawjjjj");
 void wt_001a9ae8(S1a9* self, s32 x, s32 y, u32 z) {
     u8* it = self->f12;
     if (!it) return;
@@ -563,7 +563,7 @@ void wt_001a9ae8(S1a9* self, s32 x, s32 y, u32 z) {
     t.f20 = func_001aa6f0(self, 0x60000000);
     do {
         func_001aa850(&t, func_00192a80(it));
-        it = func_001a9c20(self, &t, it);
+        it = YS__MESSAGEDRAW__draw_line(self, &t, it);
         func_001aa980(&t);
     } while (it);
     func_001b7f30(t.sub);
@@ -628,8 +628,8 @@ s32 func_00192498(u8*, s32) asm("func_00192498");
 s32 func_00192450(u8*, s32) asm("func_00192450");
 f32 func_00192fb8(Style1a9c20*) asm("func_00192fb8");
 s32 func_001aa0a8(Win1a9c20*, Ctx1a9c20*, s32, u32, s32) asm("func_001aa0a8");
-u8* func_001a9c20(Win1a9c20* w, Ctx1a9c20* c, u8* p) asm("func_001a9c20");
-u8* func_001a9c20(Win1a9c20* w, Ctx1a9c20* c, u8* p)
+u8* YS__MESSAGEDRAW__draw_line(Win1a9c20* w, Ctx1a9c20* c, u8* p) asm("YS__MESSAGEDRAW__draw_line");
+u8* YS__MESSAGEDRAW__draw_line(Win1a9c20* w, Ctx1a9c20* c, u8* p)
 {
     s32 prev = -1;
     Out1a9c20 out;
@@ -845,7 +845,7 @@ s32 func_00192440(W1962Cmd*, s32) asm("func_00192440");
 W1962Cmd* func_00192388(W1962Cmd*) asm("func_00192388");
 s32 func_00192498(W1962Cmd*, s32) asm("func_00192498");
 void func_001991a8(s32, s32) asm("func_001991a8");
-void wt_001aa388(W1962Ob2* o, W1962Cmd* c, u32, u32) asm("_Z16wtarget_001aa388jjjj");
+void wt_001aa388(W1962Ob2* o, W1962Cmd* c, u32, u32) asm("_Z25YS__MESSAGEDRAW__set_pagejjjj");
 void wt_001aa388(W1962Ob2* o, W1962Cmd* c, u32, u32) {
     W1962Cmd* p = c;
     o->f0 = 0;
@@ -927,24 +927,24 @@ void func_001aa558(u8* o) {
 
 // 001aa668 (from src/anon/tiny_wrappers_more.cpp)
 namespace n001aa668 {
-u32 func_001aa388(u32, u32, u32, u32) asm("func_001aa388");
+u32 YS__MESSAGEDRAW__set_page(u32, u32, u32, u32) asm("YS__MESSAGEDRAW__set_page");
 u32 func_001aa668(u32 a0, u32 a1, u32 a2, u32 a3) asm("func_001aa668");
 u32 func_001aa668(u32 a0, u32 a1, u32 a2, u32 a3) {
     *(u32*)((u32)(a0) + 24u) = (u32)(a1);
-    return func_001aa388(a0, ((u32)(*(u32*)((u32)(a0) + 12u))), a2, a3);
+    return YS__MESSAGEDRAW__set_page(a0, ((u32)(*(u32*)((u32)(a0) + 12u))), a2, a3);
 }
 } // n001aa668
 
 // 001aa688 (from src/anon/tiny_auto80_queue.cpp)
 namespace n001aa688 {
 u32 func_001923c8(...) asm("func_001923c8");
-void func_001aa388(...) asm("func_001aa388");
+void YS__MESSAGEDRAW__set_page(...) asm("YS__MESSAGEDRAW__set_page");
 u32 func_001aa688(u32 a0) asm("func_001aa688");
 u32 func_001aa688(u32 a0) {
     u32 r = func_001923c8(*(u32*)(a0 + 0xC));
     u32 out = 0;
     if (r != 0u) {
-        func_001aa388(a0, r);
+        YS__MESSAGEDRAW__set_page(a0, r);
         out = 1;
     }
     return out;
@@ -953,11 +953,11 @@ u32 func_001aa688(u32 a0) {
 
 // 001aa6d0 (from src/anon/tiny_wrappers_more.cpp)
 namespace n001aa6d0 {
-u32 func_001aa388(u32, u32, u32, u32) asm("func_001aa388");
-u32 func_001aa6d0(u32 a0, u32 a1, u32 a2, u32 a3) asm("func_001aa6d0");
-u32 func_001aa6d0(u32 a0, u32 a1, u32 a2, u32 a3) {                           
+u32 YS__MESSAGEDRAW__set_page(u32, u32, u32, u32) asm("YS__MESSAGEDRAW__set_page");
+u32 YS__MESSAGEDRAW__set_line_space(u32 a0, u32 a1, u32 a2, u32 a3) asm("YS__MESSAGEDRAW__set_line_space");
+u32 YS__MESSAGEDRAW__set_line_space(u32 a0, u32 a1, u32 a2, u32 a3) {                           
     *(u32*)((u32)(a0) + 48u) = (u32)(a1);
-    return func_001aa388(a0, ((u32)(*(u32*)((u32)(a0) + 12u))), a2, a3);
+    return YS__MESSAGEDRAW__set_page(a0, ((u32)(*(u32*)((u32)(a0) + 12u))), a2, a3);
 }
 } // n001aa6d0
 
@@ -984,13 +984,13 @@ u32 func_001aa6f0(u32 a0, u32 a1) {
 
 // 001aa728 (from src/anon/batch_w47.cpp)
 namespace n001aa728 {
-void func_001a98e8(void*, u32, u32, u32, u32) asm("func_001a98e8");
-void func_001a9ae8(void*, u32, u32, u32) asm("func_001a9ae8");
-void func_001aa728(u32 a, u32 b, u32 c, u32 d, u32 e, u32 f, u32 g) asm("func_001aa728");
-void func_001aa728(u32 a, u32 b, u32 c, u32 d, u32 e, u32 f, u32 g) {
+void YS__MESSAGEDRAW__MESSAGEDRAW(void*, u32, u32, u32, u32) asm("YS__MESSAGEDRAW__MESSAGEDRAW");
+void YS__MESSAGEDRAW__draw(void*, u32, u32, u32) asm("YS__MESSAGEDRAW__draw");
+void YS__MESSAGEDRAW__Draw(u32 a, u32 b, u32 c, u32 d, u32 e, u32 f, u32 g) asm("YS__MESSAGEDRAW__Draw");
+void YS__MESSAGEDRAW__Draw(u32 a, u32 b, u32 c, u32 d, u32 e, u32 f, u32 g) {
     u8 t[96];
-    func_001a98e8(t, a, b, f, g);
-    func_001a9ae8(t, c, d, e);
+    YS__MESSAGEDRAW__MESSAGEDRAW(t, a, b, f, g);
+    YS__MESSAGEDRAW__draw(t, c, d, e);
 }
 } // n001aa728
 

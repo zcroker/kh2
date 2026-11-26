@@ -3,7 +3,7 @@ extern "C" {
 struct W2418M2b4 { u8 pad[0x4c]; };
 struct W2418O2b4 { W2418M2b4* a; W2418M2b4* b; W2418M2b4* c; };
 struct W2418P2b4 { u8 pad[0x14]; u16 h[4]; };
-void func_0023f1e0(W2418M2b4*, s32, s32, s32, s32, s32, s32, s32);
+void Tz__LayMsg__create(W2418M2b4*, s32, s32, s32, s32, s32, s32, s32);
 s32 func_0023f7d8(W2418M2b4*);
 s32 func_0023aa98(s32);
 s32 func_0028dd90(s32);

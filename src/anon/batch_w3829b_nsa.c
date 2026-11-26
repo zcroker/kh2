@@ -24,4 +24,4 @@ void func_00222730(void*, W2417Vec*, void*);
 // Partial asm (no extra code): the lui/lw of D_01d9e6e8 are single-instruction asms pinned to t7/a1 so
 // sched2 keeps them after the arg setup like the original; the empty asm ties only add sched2 readers
 // (t: idx so idx++ is issued before move v0,zero; a/q inputs place the lui after addiu s0 and before addu t6).
-void func_001f59b0(void* owner, W2417Prm* prm_, W2417Ctx* c);  // 0x001f59b0: definition moved into src/anon/unit_001f5978.cpp
+void pppKeBornRnd(void* owner, W2417Prm* prm_, W2417Ctx* c);  // 0x001f59b0: definition moved into src/anon/unit_001f5978.cpp

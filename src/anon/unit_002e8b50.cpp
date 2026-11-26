@@ -41,13 +41,13 @@ static VEC D_01e2bf90;
 extern VEC D_0034eef0;
 
 extern "C" {
-void func_00185e20(void*);
+void YS__ENEMY__StopStartAll(void*);
 void func_002e98b0(void*);
-void func_002e9610(void*, VEC);
+void Ts__FLARE__set_pos(void*, VEC);
 void func_002e95a0(u32, f32, f32);
 s32 func_002e9850(void);
-void* func_0016c028(void*);
-void func_0018a818(HIT*, void*, void*);
+void* YS__OBJ__get_pos(void*);
+void YS__COLLISION__set(HIT*, void*, void*);
 f32 func_0010f338(void*);
 s32 func_00112760(void*, s32);
 s32 func_00112780(void*, s32);
@@ -61,8 +61,8 @@ void* EachCollision(void*, s32, void*) asm("_ZN2YS3OBJ14each_collisionEiPKNS_14C
 void wtarget_0016c640(void*) asm("_Z16wtarget_0016c640jjjj");
 void wtarget_002ed268(void*) asm("_Z16wtarget_002ed268jjjj");
 void wtarget_002ed478(void) asm("_Z16wtarget_002ed478jjjj");
-s32 ctarget_0010e130(void*, s32) asm("_Z16ctarget_0010e130jjjj");
-s32 ctarget_002ed8e0(void*) asm("_Z16ctarget_002ed8e0jjjj");
+s32 kn__Friend__updateTarget(void*, s32) asm("_Z24kn__Friend__updateTargetjjjj");
+s32 Ts__SUMMON_ENEMY__Get(void*) asm("_Z21Ts__SUMMON_ENEMY__Getjjjj");
 s32 Friend_getToScript(void*) asm("_ZN2kn6Friend11getToScriptEv");
 s32 SUMMON_GetMode(void) asm("_ZN2YS6SUMMON7GetModeEv");
 s32 LIMIT_reset_hit_counter(void*) asm("_ZN2YS5LIMIT17reset_hit_counterEv");
@@ -80,7 +80,7 @@ public:
 }
 
 extern "C" void func_002e8b50(BD_VALUE* bd) {
-    func_00185e20(bd[0].p);
+    YS__ENEMY__StopStartAll(bd[0].p);
 }
 
 namespace Ts {
@@ -122,7 +122,7 @@ void trap_flare_free(BD_VALUE* bd) {
 }  // namespace Ts
 
 extern "C" void func_002e8c28(BD_VALUE* bd) {
-    func_002e9610(bd[0].p, *(VEC*)bd[1].p);
+    Ts__FLARE__set_pos(bd[0].p, *(VEC*)bd[1].p);
 }
 
 extern "C" void func_002e8c58(BD_VALUE* bd) {
@@ -158,11 +158,11 @@ extern "C" void func_002e8d08(BD_VALUE* bd) {
     h.n = 0;
     nd = EachCollision(e, 0, 0);
     if (nd || (nd = EachCollision(e, 1, 0)) != 0) {
-        func_0018a818(&h, e, nd);
+        YS__COLLISION__set(&h, e, nd);
         D_01e2bf90 = h.pos;
         D_01e2bf90.y -= h.f8 + 30.0f;
     } else {
-        D_01e2bf90 = *(VEC*)func_0016c028(e);
+        D_01e2bf90 = *(VEC*)YS__OBJ__get_pos(e);
     }
     bd[0].p = &D_01e2bf90;
 }
@@ -211,7 +211,7 @@ void trap_friend_get_main_status(BD_VALUE* bd) {
 }
 
 void trap_friend_update_target(BD_VALUE* bd) {
-    bd[0].i = ctarget_0010e130(((OBJ*)bd[0].p)->f4, bd[1].i != 0);
+    bd[0].i = kn__Friend__updateTarget(((OBJ*)bd[0].p)->f4, bd[1].i != 0);
 }
 
 void trap_obj_limit_hover_set_spec(BD_VALUE* bd) {
@@ -278,7 +278,7 @@ extern "C" void func_002e9148(BD_VALUE* bd) {
 namespace Ts {
 
 void trap_enemy_summon_entry(BD_VALUE* bd) {
-    bd[0].i = ctarget_002ed8e0(((OBJ*)bd[0].p)->f4);
+    bd[0].i = Ts__SUMMON_ENEMY__Get(((OBJ*)bd[0].p)->f4);
 }
 
 }  // namespace Ts

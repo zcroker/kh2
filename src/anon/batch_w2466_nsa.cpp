@@ -35,7 +35,7 @@ s32 func_0023aa18(void*);
 s32 func_0023aa38(void*);
 void func_00138c68(void*, s32, s32);
 
-void func_00246ab8(void);  // 0x00246ab8: definition moved into src/anon/unit_00242478.cpp
+void Tz__HECO__CleateSelInfo(void);  // 0x00246ab8: definition moved into src/anon/unit_00242478.cpp
 
 }
 

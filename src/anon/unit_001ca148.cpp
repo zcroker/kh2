@@ -51,23 +51,23 @@ struct W1719Obj;
 struct W1719Cfg { f32 f0; f32 reach; };
 extern W1719Cfg* D_00351f34 asm("D_00351f34");
 extern f32 D_00349e10 asm("D_00349e10");
-W1719Vec func_0016af58(W1719Obj*) asm("func_0016af58");
-W1719Vec* func_0016c028(W1719Obj*) asm("func_0016c028");
-W1719Vec func_0017d538(f32, const W1719Vec&) asm("func_0017d538");
-W1719Vec func_001ca148(f32 width, W1719Obj* a, W1719Obj* b) asm("func_001ca148");
-W1719Vec func_001ca148(f32 width, W1719Obj* a, W1719Obj* b) {
-    W1719Vec dirA = func_0016af58(a);
+W1719Vec YS__OBJ__get_dir(W1719Obj*) asm("YS__OBJ__get_dir");
+W1719Vec* YS__OBJ__get_pos(W1719Obj*) asm("YS__OBJ__get_pos");
+W1719Vec YS__MATH__VectorRotY(f32, const W1719Vec&) asm("YS__MATH__VectorRotY");
+W1719Vec YS__OBJ__get_lightcycle_movement(f32 width, W1719Obj* a, W1719Obj* b) asm("YS__OBJ__get_lightcycle_movement");
+W1719Vec YS__OBJ__get_lightcycle_movement(f32 width, W1719Obj* a, W1719Obj* b) {
+    W1719Vec dirA = YS__OBJ__get_dir(a);
     W1719Vec aimA, axis, toB;
-    W1719Vec* posA = func_0016c028(a);
+    W1719Vec* posA = YS__OBJ__get_pos(a);
     w1719_scale(&toB, &dirA, D_00351f34->reach);
     w1719_scale(&axis, &toB, D_00349e10);
     w1719_add(&aimA, posA, &axis);
-    W1719Vec dirB = func_0016af58(b);
-    W1719Vec posB = *func_0016c028(b);
+    W1719Vec dirB = YS__OBJ__get_dir(b);
+    W1719Vec posB = *YS__OBJ__get_pos(b);
     W1719Vec side;
     W1719Vec r;
     r.zero();
-    axis = func_0017d538(1.57079625f, dirB);
+    axis = YS__MATH__VectorRotY(1.57079625f, dirB);
     toB = posB - dirB * width - aimA;
     side = w1719_cross(axis, toB);
     if (side.y < 0.0f) {
@@ -129,25 +129,25 @@ struct QV_w1568_ca {
     }
 } __attribute__((aligned(16)));
 struct E_w1568_ca { u8 pad[0x1c]; s32 x1c; u8 pad2[8]; f32 x28; u8 pad3[0x2d4]; u8 x300[0x288]; u32 flags; u8 pad4[0x314]; QV_w1568_ca vel; };
-void func_0016af58(QV_w1568_ca*, E_w1568_ca*) asm("func_0016af58");
+void YS__OBJ__get_dir(QV_w1568_ca*, E_w1568_ca*) asm("YS__OBJ__get_dir");
 s32 func_0018ee60(s32, s32, E_w1568_ca*, QV_w1568_ca*, s32) asm("func_0018ee60");
 void func_001880b0(void*, const char*) asm("func_001880b0");
 s32 func_001ca498(E_w1568_ca*) asm("func_001ca498");
 s32 func_00186d18(E_w1568_ca*) asm("func_00186d18");
 void func_00187818(E_w1568_ca*) asm("func_00187818");
-void func_001ca4a8(E_w1568_ca* e) asm("func_001ca4a8");
-void func_001ca4a8(E_w1568_ca* e)
+void YS__ACTION_LIGHTCYCLE__CheckCrash(E_w1568_ca* e) asm("YS__ACTION_LIGHTCYCLE__CheckCrash");
+void YS__ACTION_LIGHTCYCLE__CheckCrash(E_w1568_ca* e)
 {
     QV_w1568_ca v(e->vel);
     f32 len = v.normalize();
     v.w = len;
     if (len < 1.0f) return;
     QV_w1568_ca d;
-    func_0016af58(&d, e);
+    YS__OBJ__get_dir(&d, e);
     if (v.dot(d) < -0.866f) {
         if (e->flags & 0x80) {
             QV_w1568_ca t;
-            func_0016af58(&t, e);
+            YS__OBJ__get_dir(&t, e);
             func_0018ee60(0, 992, e, &t, 1);
         } else {
             func_001880b0(e->x300, "dead_crash");

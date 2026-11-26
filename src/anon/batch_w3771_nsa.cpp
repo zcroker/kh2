@@ -30,8 +30,8 @@ extern "C" {
 void* W1635_getImage(void) asm("_ZN2sa14MUSICAL_TARGET8getImageEv");
 void* W1635_getSqd(void) asm("_ZN2sa10MUSICAL_2D6getSqdEv");
 void func_0022a0f8(W1635ComboPart*, s32, s32, s32);
-void func_00158050(W1635Sel*, s32, void*, void*, s32, s32, s32);
-void func_001386e0(W1635Sel*, s32, void*, void*, s32, s32);
+void dk__GAUGE_ONE__create(W1635Sel*, s32, void*, void*, s32, s32, s32);
+void dk__Sprite__create(W1635Sel*, s32, void*, void*, s32, s32);
 void W1635_hide(W1635Sel*) asm("_ZN2dk5Obj2D4hideEv");
 u8 W1635_call139d78(W1635ComboPart*) asm("_Z16u_call4_00139d78jjjj");
 void W1635_setZ(void*, u32) asm("_ZN2dk13RectParamBase4setZEj");

@@ -18,13 +18,13 @@ extern s32 D_003638d0;
 extern f32 D_0036ccd0;
 W2049Q func_0018e160(W2049Ctx**, void*);
 void func_0018e108(W2049Q*, W2049Hit*);
-s32 func_001a3b48(void*, u64, W2049Q*, s32, s32, s32);
+s32 YS__EFFECT__CategoryStart(void*, u64, W2049Q*, s32, s32, s32);
 void* func_001a3a78(void);
-s32 func_001de168(void*, s32, s32, s32, s32, s32);
+s32 ryj__PAX__start(void*, s32, s32, s32, s32, s32);
 W2049Q* func_001dc5f8(s32);
 W2049Q* func_001dc648(s32);
-void func_0017d050(W2049Q*, W2049Hit*);
-void func_001c2c00(s32);
+void YS__MATH__VectorToAngle(W2049Q*, W2049Hit*);
+void YS__HITMARK__Add(s32);
 u64 func_00312db8(u64, u64);
 
 void func_0018e420(W2049Ctx** ctx, u8* obj, W2049Hit* hit, void* src, u64 mask);  // 0x0018e420: definition moved into src/anon/unit_0018d050.cpp

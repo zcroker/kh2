@@ -86,7 +86,7 @@ struct Ent216 { u32 lo : 5; u32 : 1; u32 hi : 5; u32 : 21; u8 pad[28]; };
 struct Tbl216 { u8 pad[28]; s32 n; Ent216 e[1]; };
 struct Own216 { u32 a; Tbl216* t; };
 Tbl216* func_00120800(Own216*);  // obj_get_sub_ptr_by12
-void func_001216a8(Own216* o, u8* flags, s32 id);  // 0x001216a8: definition moved into src/anon/unit_00120520.cpp
+void kn__ModelSKL__resetStealth(Own216* o, u8* flags, s32 id);  // 0x001216a8: definition moved into src/anon/unit_00120520.cpp
 
 // --- 0013d9e0: release the five global objects (virtual slot 4) and clear them
 extern VObj0* D_003485f8;
@@ -115,12 +115,12 @@ struct Ent165 { u32 id; u32 obj; u32 flags; };
 struct Me165 { Vn81 pos; Vn81 dir; u8 pad[16]; Vn81 tgt; u8 pad2[60]; u32 id; };
 Ent165* func_00165ef0(Ent165*);
 s32 func_00142b70(u32);  // len_sq_compare_at80
-s32 func_00164718(u32, Me165*);
+s32 dk__OctCollFile__collisionSphere_2(u32, Me165*);
 s32 func_00165a10(Me165* m);  // 0x00165a10: definition moved into src/anon/unit_001656b8.cpp
 
 // --- 0016a4e8: deleting destructor
 extern u8 D_0034d850[];
-void func_001a17c8(u32);
+void YS__SHEET__Free(u32);
 void func_001b78b8(u32);  // to_105110
 void func_002cb708(u32);
 void func_00105110(u32);
@@ -181,7 +181,7 @@ void func_0015b268(u32, f32);
 // --- 00187650
 void func_00187728(u8*, f32);
 s32 func_001a1990(u8*, s32);
-s32 ctarget_00187650(u8* o, s32 n, u32 flag, u32) asm("_Z16ctarget_00187650jjjj");
+s32 YS__BTLOBJ__add_mp(u8* o, s32 n, u32 flag, u32) asm("_Z18YS__BTLOBJ__add_mpjjjj");
 // 00187650: moved to src/anon/unit_00185d10.cpp
 
 // --- 0018ed18
@@ -193,14 +193,14 @@ s32 func_0018d940(u8*, u8*);
 s32 func_0018f010(u8*);  // byte4_is_2_or_3
 u32 func_001b7998(u32, u8*);
 void func_0018e298(Ent18e*, u8*, u32);
-void func_0018ed18(List18e* l);  // 0x0018ed18: definition moved into src/anon/unit_0018d050.cpp
+void YS__ATTACK_WORK_MANAGER__check(List18e* l);  // 0x0018ed18: definition moved into src/anon/unit_0018d050.cpp
 
 
 // --- 00229728: refresh the per-slot ids when the current id changes
 void func_00150260(u8*, u32, s32, u32*);
 void func_00138c10(u8*, u32);
 void func_001395a8(u8*);
-void func_00229728(u8* o);  // 00229728: moved to src/sasa/musical_score.cpp (linked unit)
+void sa__MUSICAL_SCORE__update(u8* o);  // 00229728: moved to src/sasa/musical_score.cpp (linked unit)
 
 // --- 00248828
 extern VObjV81* D_0035ed54;
@@ -222,8 +222,8 @@ s32 func_00287bc0(void);
 s32 func_0023f100(u32);
 s32 func_0023f0c0(u32);
 void func_00252ce0(void);
-void func_00252d88(void);
-void func_00252e50(void);
+void Tz__ALCA__ChgMode(void);
+void Tz__ALCA__SetMess(void);
 u8* func_00167f18(u32);
 void func_00242618(u32, u32);
 void func_0023f108(u32);
@@ -250,15 +250,15 @@ extern u32 D_0035f080;
 extern u32 D_0035f084;
 u8* func_0023ee30(u32);
 void func_0031a838(u8*);
-void func_002369a0(u8*);  // obj_ctor_36eac8
-void func_0023c008(u8*);  // obj_ctor_36eae8
+void YI__IMAGE_FREEZE__IMAGE_FREEZE(u8*);  // obj_ctor_36eac8
+void YI__LAYOUT__LAYOUT(u8*);  // obj_ctor_36eae8
 u32 func_0023f948(u32, u32);
 u32 func_0023f908(u32, u32);
-void func_0023eea0(u8*, u32, u32, u32, u32, u32);
+void Tz__Layout__create(u8*, u32, u32, u32, u32, u32);
 void func_0023f0c8(u8*, s32);
-void func_0023ef50(u8*);
+void Tz__Layout__SetImageCache(u8*);
 void func_0026dd18(u32, u32, s32);  // store_session_globals
-void func_002584c8(void);  // 0x002584c8: definition moved into src/anon/unit_002584c8.cpp
+void Tz__Pause__PauseThread(void);  // 0x002584c8: definition moved into src/anon/unit_002584c8.cpp
 
 // --- 0025af70
 extern u8 D_00372ea0[];
@@ -285,7 +285,7 @@ extern u8* D_0035f0f4;
 s32 func_00281180(u32, s32);
 u32 func_002891b8(u32, s32);
 void func_00288ce0(u32, u32, s32, u8*, u8*);
-void func_0028af90(u32, s32);  // obj_set_field22_from_arg
+void Tz__Select__SetSelectMax(u32, s32);  // obj_set_field22_from_arg
 void func_0028b1e8(u32, u32);
 void func_00257708(u32);
 void func_0026c048(void);  // 0x0026c048: definition moved into src/anon/unit_0026a900.cpp
@@ -296,7 +296,7 @@ u32 func_0028b040(u32);
 u32 func_002570a0(u32);
 void func_0027aed8(u32, s32*, s32*);
 s32 func_0027bf20(u32);
-s32 func_0027c3e0(s32 id);  // 0x0027c3e0: definition moved into src/anon/unit_0027a6d8.cpp
+s32 Tz__CmAbility__SelCheck(s32 id);  // 0x0027c3e0: definition moved into src/anon/unit_0027a6d8.cpp
 
 // --- 0028ab20: release every entry's id (-1) and clear the current selection
 u8* func_0028ac98(u8*, s32);  // lookup_by_index_align
@@ -306,11 +306,11 @@ void SelectLeave81(u8* o);  // 0x0028ab20: definition moved into src/anon/unit_0
 
 // --- 0028b3c0
 u8* func_0023f1b0(u32);
-u32 func_0023c3e0(u8*, s16, u32);
+u32 YI__LAYOUT__SearchSequence(u8*, s16, u32);
 void func_001396b0(u8*);
 void func_0031ac78(u8*, u32);
-void func_00138840(u8*);
-void func_0028b3c0(u8* o);  // 0x0028b3c0: definition moved into src/anon/unit_00288b00.cpp
+void dk__Sprite__update(u8*);
+void Tz__LaySeq__update(u8* o);  // 0x0028b3c0: definition moved into src/anon/unit_00288b00.cpp
 
 // --- 0028fb88: allocate the two sub-objects through the global allocator
 typedef u8* (*VFnP81)(...);
@@ -326,8 +326,8 @@ void func_0028fb88(u8** o, u32 a, u32 b, u16* c);  // 0028fb88: moved to src/ano
 extern u8* D_0035f620;
 u8* func_001a82b0(u8*);
 u8* func_001a80c8(u16);  // table24_find_by_id
-s32 func_002764b0(u8);
-s32 func_002adcb0(s32 id);  // 0x002adcb0: definition moved into src/anon/unit_002a99c8.cpp
+s32 Tz__Jiminy__AreaWorld2JmWorld(u8);
+s32 Tz__JmComplete__isNaviComp(s32 id);  // 0x002adcb0: definition moved into src/anon/unit_002a99c8.cpp
 
 // --- 0018d420: destructor body: drop references, unlink from the global list
 struct Node18d { u32 vt; u32 flags; u8* a; u32 p; u8* b; u8 pad[8]; u32 h; u8 pad2[16]; u8 sub[144]; Node18d* next; };
@@ -342,7 +342,7 @@ void func_0018d420(Node18d* o);  // 0x0018d420: definition moved into src/anon/u
 // --- 001cc160: spawn up to n prizes at the object's position
 extern u32 D_00352050;
 void func_001cc358(void);
-Vn81 func_0016bda8(u8*);
+Vn81 YS__OBJ__get_target_pos(u8*);
 u8* func_001cc128(u32, Vn81*);
 void PrizeAppear81(u8* obj, s32 n) asm("_ZN2YS8PRIZE_CA6AppearEPNS_6BTLOBJEi");
 // 001cc160: moved to src/anon/unit_001cc048.cpp
@@ -366,7 +366,7 @@ void func_001dc818(u32);
 void func_002cf280(u8*, u32, u32);
 s32 func_002cf270(u8*, u32);
 void func_002cf2b0(u8*, u32);
-void func_002d0cf0(u8*);
+void Ti__MGObj__hibernate(u8*);
 void func_002d0c28(u8* o);  // 0x002d0c28: definition moved into src/anon/unit_002cf260.cpp
 
 // --- 002d1f88: push the inverse of the node's (orthonormal) matrix

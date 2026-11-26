@@ -339,7 +339,7 @@ struct Mtx { u128 q[4]; };
 extern Mtx D_00347b30 asm("D_00347b30");
 void func_0011d440(void) asm("func_0011d440");
 void func_0011b6a8(Mtx*) asm("func_0011b6a8");
-void func_00125f78(u8*, u32, u32, u32, u32, u32, f32) asm("func_00125f78");
+void kn__Motion__calc(u8*, u32, u32, u32, u32, u32, f32) asm("kn__Motion__calc");
 /*TARGET 0011c6a8*/
 // Loads the given matrix (or identity when null) into the shared work matrix, then sets up the object.
 void func_0011c6a8(u8* o, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, Mtx* m, f32 f) asm("func_0011c6a8");
@@ -352,7 +352,7 @@ void func_0011c6a8(u8* o, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, Mtx* m, f32 f)
                          "sq $8, 0(%0)\n\tsq $9, 16(%0)\n\tsq $10, 32(%0)\n\tsq $11, 48(%0)"
                          : : "r"(&D_00347b30), "r"(m) : "$8", "$9", "$10", "$11", "memory");
     } else func_0011b6a8(&D_00347b30);
-    func_00125f78(o, a1, a2, a3, a4, a5, f);
+    kn__Motion__calc(o, a1, a2, a3, a4, a5, f);
     *(u32*)(o + 24) = 0;
     *(u32*)(o + 12) |= 1;
 }
@@ -562,7 +562,7 @@ struct Self11ca20 {
 };
 Mdl11ca20* func_00124748(Mdl11ca20*, u32) asm("func_00124748");
 s32 func_00124788(Mdl11ca20*, u32) asm("func_00124788");
-Res11ca20* func_00109d00(Self11ca20*, s32, Mdl11ca20*, s32*, s32) asm("func_00109d00");
+Res11ca20* kn__VU1Draw__draw(Self11ca20*, s32, Mdl11ca20*, s32*, s32) asm("kn__VU1Draw__draw");
 Xf11ca20* f11ca20_get(s32) asm("func_00106a60");
 void f11ca20_submit(Xf11ca20*) asm("func_001070e8");
 /*TARGET 0011ca20*/
@@ -585,7 +585,7 @@ Res11ca20* func_0011ca20(Self11ca20* s, const M11ca20* w, const M11ca20* l, s32 
         tbl = s->tbl + k;
         base = s->base + k;
     }
-    Res11ca20* r = func_00109d00(s, arg, m, tbl, base);
+    Res11ca20* r = kn__VU1Draw__draw(s, arg, m, tbl, base);
     if (!r->xf && (m->flags & 2)) {
         Xf11ca20 x(*f11ca20_get(1));
         M11ca20::mul(&s->xf, &x.m, &s->local);
@@ -721,7 +721,7 @@ void func_00108998(void*) asm("func_00108998");
 s32 func_0010abb8(s32) asm("func_0010abb8");
 s32 func_00109f58(s32, s32, u8) asm("func_00109f58");
 s32 func_00109ea8(s32, s32, u8) asm("func_00109ea8");
-void func_00108c00(void*, s32, u64, u64, s32, s32, u64, u64) asm("func_00108c00");
+void kn__VU1DrawContext__setPacket(void*, s32, u64, u64, s32, s32, u64, u64) asm("kn__VU1DrawContext__setPacket");
 void func_00108a10(void*) asm("func_00108a10");
 void func_001342a8() asm("func_001342a8");
 s32 func_00133d38() asm("func_00133d38");
@@ -770,7 +770,7 @@ void func_0011cdf0(Self11cdf0* s, const M11cdf0* w, const M11cdf0* l, Desc11cdf0
     {
     s32 a = func_00109f58(mode, m->seq->p4, desc->b7);
     s32 b = func_00109ea8(mode, m->seq->p4, desc->b7);
-    func_00108c00(pk, 63, desc->a16, desc->a24 & ~((u64)1 << 32), b, a,
+    kn__VU1DrawContext__setPacket(pk, 63, desc->a16, desc->a24 & ~((u64)1 << 32), b, a,
                   (u64)rgb[0] | ((u64)rgb[1] << 8) | ((u64)rgb[2] << 16),
                   (u64)desc->b4 | ((u64)desc->b5 << 8) | ((u64)desc->b6 << 16) | ((u64)desc->b7 << 24) | ((u64)127 << 55));
     }
@@ -787,7 +787,7 @@ void func_0011cdf0(Self11cdf0* s, const M11cdf0* w, const M11cdf0* l, Desc11cdf0
         func_0010abb8(mode);
         s32 a2 = func_00109f58(mode, m->seq->p4, desc->b7);
         s32 b2 = func_00109ea8(mode, m->seq->p4, desc->b7);
-        func_00108c00(pk, 63, desc->a16 | ((u64)-1 << 56), desc->a24 | ((u64)1 << 32), b2, a2,
+        kn__VU1DrawContext__setPacket(pk, 63, desc->a16 | ((u64)-1 << 56), desc->a24 | ((u64)1 << 32), b2, a2,
                       (u64)rgb[0] | ((u64)rgb[1] << 8) | ((u64)rgb[2] << 16),
                       (u64)desc->b4 | ((u64)desc->b5 << 8) | ((u64)desc->b6 << 16) | ((u64)desc->b7 << 24) | ((u64)127 << 55));
         m->draw(&s->world, tbl, &d, s->base, s->p56, 1, xf);
@@ -1271,7 +1271,7 @@ void cam11de88_dtor(void*) asm("_Z13func_00134d58Pv");
 void func_0011dd08(V11de88*, void*) asm("func_0011dd08");
 void func_00134d10(void*) asm("func_00134d10");
 void func_00134d60(void*, V11de88*) asm("func_00134d60");
-void func_00134df8(void*, V11de88*, Out11de88*, Mat11de88*, void*) asm("func_00134df8");
+void gm__CONVERT__CreateModel(void*, V11de88*, Out11de88*, Mat11de88*, void*) asm("gm__CONVERT__CreateModel");
 void* func_00135640(void) asm("func_00135640");
 void func_0011be50(M11de88*) asm("func_0011be50");
 void func_0010abf0(Self11de88*, M11de88*, Desc11de88*, void*, Mat11de88*, Out11de88*, void*, void*) asm("func_0010abf0");
@@ -1295,9 +1295,9 @@ void func_0011de88(Self11de88* s, Desc11de88* d, void* a2, void* a3, void* e)
         ctr = (box[0] + box[6]) * 0.5f;
         ctr.y -= (box[6] - box[0]).length() * 8.0f;
         func_00134d60(&c, &ctr);
-        func_00134df8(&c, box, &o, &mt, e);
+        gm__CONVERT__CreateModel(&c, box, &o, &mt, e);
     } else {
-        func_00134df8(func_00135640(), box, &o, &mt, e);
+        gm__CONVERT__CreateModel(func_00135640(), box, &o, &mt, e);
     }
     if (s->res->k->kind != 2) {
         M11de88 t(s->m64);
@@ -1319,7 +1319,7 @@ void* func_00132018(void*) asm("func_00132018");
 // entry_ptr_from_header
 void func_0011e410(void*, void*) asm("func_0011e410");
 void func_0011e450(void*, void*) asm("func_0011e450");
-void func_0011e600(void*, void*, void*) asm("func_0011e600");
+void kn__ModelObj__synchronizeAnimation(void*, void*, void*) asm("kn__ModelObj__synchronizeAnimation");
 struct ChunkList { s16 tag; s16 pad; u32 n; };
 struct ChunkUser { u8 pad[52]; ChunkList* list; };
 static inline void* ChunkAt(ChunkList* c, s32 i) { return func_00132018(func_00132068(c, i)); }
@@ -1333,7 +1333,7 @@ void func_0011e260(ChunkUser* self, ChunkList* c)
         for (u32 i = 1; i < self->list->n; i++) {
             func_0011e450(self, ChunkAt(self->list, i));
             void* a = ChunkAt(self->list, 0);
-            func_0011e600(self, a, ChunkAt(self->list, i));
+            kn__ModelObj__synchronizeAnimation(self, a, ChunkAt(self->list, i));
         }
     }
 }
@@ -1410,7 +1410,7 @@ typedef void (*LoadFn)(Node*, void*);
 void* func_00132350(Node*) asm("func_00132350");
 void* func_00132180(void*, u32) asm("func_00132180");
 void* func_00132130(void*) asm("func_00132130");
-void func_001324b8(Node*, void*) asm("func_001324b8");
+void kn__TEXAnmWork__TEXAnmWork(Node*, void*) asm("kn__TEXAnmWork__TEXAnmWork");
 void func_00133198(Node*, void*) asm("func_00133198");
 void func_00132358(Node*, Node*) asm("func_00132358");
 /*TARGET 0011e450*/
@@ -1425,7 +1425,7 @@ void func_0011e450(Owner* o, void* c) {
     while (tail && func_00132350(tail)) tail = (Node*)func_00132350(tail);
     for (ch = func_00132180(c, 0x41584554); ch; ch = func_00132180(func_00132130(ch), 0x41584554)) {
         Node* n = ((AllocFn)o->alloc->vt[0])(o->alloc, 656, 0);
-        func_001324b8(n, c);
+        kn__TEXAnmWork__TEXAnmWork(n, c);
         ((LoadFn)n->vt[2])(n, ch);
         if (!tail) o->list = n;
         else func_00132358(tail, n);
@@ -1455,10 +1455,10 @@ W1967Anim* w1967_getNext(void*) asm("_ZNK2kn13AnimationWork7getNextEv");
 /*TARGET 0011e600*/
 // 0x00190b30: definition moved into src/anon/unit_001900d0.cpp
 
-void func_0011e600(W1967Owner* self, s32 a, s32 b) asm("func_0011e600");
+void kn__ModelObj__synchronizeAnimation(W1967Owner* self, s32 a, s32 b) asm("kn__ModelObj__synchronizeAnimation");
 // 0x00190b30: definition moved into src/anon/unit_001900d0.cpp
 
-void func_0011e600(W1967Owner* self, s32 a, s32 b) {
+void kn__ModelObj__synchronizeAnimation(W1967Owner* self, s32 a, s32 b) {
     W1967Anim* p1;
     W1967Anim* p;
     W1967Anim* q;
@@ -1570,9 +1570,9 @@ typedef void (*VFnF)(void*, f32);
 void* anim_getNext(void* w) asm("_ZNK2kn13AnimationWork7getNextEv");
 /*TARGET 0011ea40*/
 // Calls a virtual method (slot 5) with t on every animation work in o's list.
-void func_0011ea40(u8* o, f32 t) asm("func_0011ea40");
+void kn__ModelObj__playAnimation(u8* o, f32 t) asm("kn__ModelObj__playAnimation");
 // Calls a virtual method (slot 5) with t on every animation work in o's list.
-void func_0011ea40(u8* o, f32 t) {
+void kn__ModelObj__playAnimation(u8* o, f32 t) {
     void* p = *(void**)(o + 56);
     while (p) {
         (*(VFnF*)((*(u8**)p) + 20))(p, t);
@@ -1584,8 +1584,8 @@ void func_0011ea40(u8* o, f32 t) {
 // 0011ea98 (was src/anon/auto80_199_queue.cpp)
 namespace n0011ea98 {
 /*TARGET 0011ea98*/
-void func_0011ea98(u32 a0, u32 a1) asm("_Z13func_0011ea98jj");
-void func_0011ea98(u32 a0, u32 a1) {
+void kn__ModelObj__setTexanm(u32 a0, u32 a1) asm("_Z23kn__ModelObj__setTexanmjj");
+void kn__ModelObj__setTexanm(u32 a0, u32 a1) {
     u32 s0 = *(u32*)(a0 + 0x38);
     u32 s1 = a1;
 
@@ -1593,7 +1593,7 @@ void func_0011ea98(u32 a0, u32 a1) {
         u32 t7 = *(u32*)s0;
         u32 v0 = ((Fn4)(*(u32*)(t7 + 0xc)))(s0, 1, 0xffff, s1);
         if (v0 != 0) {
-            func_00132e28(s0, s1);
+            kn__TEXAnmWork__set(s0, s1);
         }
         v0 = func_00132350(s0);
         if (v0 != 0) {
@@ -1608,8 +1608,8 @@ void func_0011ea98(u32 a0, u32 a1) {
 // 0011eb08 (was src/anon/auto80_199_queue.cpp)
 namespace n0011eb08 {
 /*TARGET 0011eb08*/
-void func_0011eb08(u32 a0, u32 a1) asm("_Z13func_0011eb08jj");
-void func_0011eb08(u32 a0, u32 a1) {
+void kn__ModelObj__setDefaultTexanm(u32 a0, u32 a1) asm("_Z30kn__ModelObj__setDefaultTexanmjj");
+void kn__ModelObj__setDefaultTexanm(u32 a0, u32 a1) {
     u32 s0 = *(u32*)(a0 + 0x38);
     u32 s1 = a1;
 
@@ -1632,8 +1632,8 @@ void func_0011eb08(u32 a0, u32 a1) {
 // 0011eb78 (was src/anon/auto80_199_queue.cpp)
 namespace n0011eb78 {
 /*TARGET 0011eb78*/
-void func_0011eb78(u32 a0, u32 a1) asm("_Z13func_0011eb78jj");
-void func_0011eb78(u32 a0, u32 a1) {
+void kn__ModelObj__resetDefaultTexanm(u32 a0, u32 a1) asm("_Z32kn__ModelObj__resetDefaultTexanmjj");
+void kn__ModelObj__resetDefaultTexanm(u32 a0, u32 a1) {
     u32 s0 = *(u32*)(a0 + 0x38);
     u32 s1 = a1;
 
@@ -2149,8 +2149,8 @@ namespace n0011f3b8 {
 // Call the object's first virtual function.
 typedef void (*VFn)(void*);
 /*TARGET 0011f3b8*/
-void func_0011f3b8(void** obj) asm("func_0011f3b8");
-void func_0011f3b8(void** obj) {
+void kn__modelDestroy(void** obj) asm("kn__modelDestroy");
+void kn__modelDestroy(void** obj) {
     (*(VFn**)obj)[0](obj);
 }
 }  // namespace n0011f3b8
@@ -2323,10 +2323,10 @@ u32 func_0011ef20(u32, u32, u32, u32) asm("_Z13func_0011ef20jjjj");
 /*TARGET 0011f6c0*/
 // 0x0011b3e0: definition moved into src/anon/unit_0011a660.cpp
 
-u32 func_0011f6c0(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z13func_0011f6c0jjjj");
+u32 kn__ModelBG__destroyModelObj(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z28kn__ModelBG__destroyModelObjjjjj");
 // 0x0011b3e0: definition moved into src/anon/unit_0011a660.cpp
 
-u32 func_0011f6c0(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 kn__ModelBG__destroyModelObj(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_0011ef20(a0, a1, a2, a3);
 }
 }  // namespace n0011f6c0
@@ -2343,8 +2343,8 @@ struct D18_1792 { u8 pad[0x18]; s32 off18; };
 struct O4_1792 { u32 pad; D18_1792* d; };
 void func_0011efe8(void*) asm("func_0011efe8");
 /*TARGET 0011f6e8*/
-void func_0011f6e8(O4_1792* o, u8* bits, s16* list) asm("func_0011f6e8");
-void func_0011f6e8(O4_1792* o, u8* bits, s16* list) {
+void kn__ModelBG__setDisplayFlag(O4_1792* o, u8* bits, s16* list) asm("kn__ModelBG__setDisplayFlag");
+void kn__ModelBG__setDisplayFlag(O4_1792* o, u8* bits, s16* list) {
     D18_1792* d = o->d;
     func_0011efe8(o);
     if (*list != -1) {

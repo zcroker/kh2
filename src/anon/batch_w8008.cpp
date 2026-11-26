@@ -22,10 +22,10 @@ W8008Ent* func_00168b38(void*, s32, s32);
 W8008Ent* func_00168b88(s32, s32, s32, s32);
 W8008Obj* w8008_StunEnd(void) asm("_ZN2YS6PLAYER7StunEndEv");
 void w8008_motion_push(void*, s32, f32, f32, void*) asm("_ZN2YS6MOTION4pushEiffPFvPNS_3OBJEE");
-void w8008_wt1987a8(W8008Obj*, char*, W8008Obj*) asm("_Z16wtarget_001987a8jjjj");
+void w8008_wt1987a8(W8008Obj*, char*, W8008Obj*) asm("_Z24YS__STDOBJ__start_camerajjjj");
 s32 func_00190570(W8008Obj*, W8008Obj*);
-void func_00180378(void*, W8008Obj*, s32, f32);
-void func_001ada38(s32);
+void YS__MOTION__capture(void*, W8008Obj*, s32, f32);
+void YS__RECOV__Exec(s32);
 
 s32 func_001af7c0(W8008Arg* a, u32 id);  // 0x001af7c0: definition moved into src/anon/unit_001ada38.cpp
 

@@ -20,27 +20,27 @@ s32 func_0028b258(u32 m);  // 0x0028b258: definition moved into src/anon/unit_00
 struct E1592b { u16 id; u16 p[3]; };
 struct T1592b { s8 n; u8 pad[0x4f]; E1592b e[1]; };
 extern T1592b* D_0035f5d4;
-void func_002a18d0(void);
-s32 func_002a9e98(u16);
+void Tz__JmDiagram__GetCharaIdx(void);
+s32 Tz__JmNewInfo__isCharaNew(u16);
 s32 func_002a9f50(u16);
 
-s32 func_002a1b18(void);  // 0x002a1b18: definition moved into src/anon/unit_002a0908.cpp
+s32 Tz__JmDiagram__GetNewInfo(void);  // 0x002a1b18: definition moved into src/anon/unit_002a0908.cpp
 
 s32 func_002538f8(void*);
 s32 func_00253928(void*);
 s32 func_00253918(void);
-s32 func_002539e8(void*, s32);
+s32 Tz__CMData__BackRead(void*, s32);
 void func_00102448(void*, s32);
 
-s32 func_002593b8(void* a, void* t);  // 0x002593b8: definition moved into src/anon/unit_002588e8.cpp
+s32 Tz__CmComm__DataLoadWait(void* a, void* t);  // 0x002593b8: definition moved into src/anon/unit_002588e8.cpp
 
 
 s32 func_00287bc0(void);
 u32 func_00257070(s32);
-s32 func_00286418(s32);
+s32 Tz__CmNewFlg__isStatNew(s32);
 void func_002865d0(s32);
 
-void func_00266b58(void);  // 0x00266b58: definition moved into src/anon/unit_00265580.cpp
+void Tz__CmStat__UpdateTopNew(void);  // 0x00266b58: definition moved into src/anon/unit_00265580.cpp
 
 
 struct O1592 { u8 p[0x188]; s32 v; };
@@ -53,7 +53,7 @@ void func_00289038(S1592b* s, s32 i, u8 sel, u8 f1, s32 x, u8 f2, s32 y);  // 0x
 extern s8 D_0035f0b5;
 s32 func_00257130(void);
 void func_00282240(s32, s32, s32);
-void func_00282d70(s32);
+void Tz__ItemInfo__SortItemInfo(s32);
 
 void func_002634d8(s32 a);  // 0x002634d8: definition moved into src/anon/unit_002632d0.cpp
 

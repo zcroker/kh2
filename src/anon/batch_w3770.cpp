@@ -14,6 +14,6 @@ static inline s32 bit(const u32* b, u32 i) { return (b[i >> 5] & (1 << (i & 31))
 // 00287028: checks that every flag set in D_0035f2e4's bitsets is also set in the
 // save data (first set: 80 bits or the one bit 'id'; second: 48 bits per entry
 // for entries 1..3 or just entry 'mode'). Returns 1 when all are set, else 0.
-s32 func_00287028(s32 mode_, s32 id);  // 0x00287028: definition moved into src/anon/unit_00286d28.cpp
+s32 Tz__CmNewFlg__isAbilityHistMember(s32 mode_, s32 id);  // 0x00287028: definition moved into src/anon/unit_00286d28.cpp
 
 }

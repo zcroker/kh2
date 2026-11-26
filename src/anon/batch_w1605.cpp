@@ -33,6 +33,6 @@ s32 func_002a01c8(s32);
 s32 func_002943e8(s32);
 extern List29f* D_0035f5d0;
 void func_002765e8(s32, s32, s32);
-void func_002a03d0(void);
+void Tz__JmAnsem__UpdateNewMark(void);
 void func_0029fee8(s32 dir);  // 0x0029fee8: definition moved into src/anon/unit_0029f938.cpp
 }

@@ -62,5 +62,5 @@ u32 func_00233708(u32, s32);
 u32 func_002338a8(f32, u32);
 
 /* Build a GIF packet of textured sprite quads (UV scroll, rotation, per-vertex colour) for a 2D layout object. */
-void func_00238570(W1699Obj* obj, s32 a1, s32 a2, s32 a3, s32 a4);  // 0x00238570: definition moved into src/anon/unit_002384f8.cpp
+void YI__SPRITE___Draw(W1699Obj* obj, s32 a1, s32 a2, s32 a3, s32 a4);  // 0x00238570: definition moved into src/anon/unit_002384f8.cpp
 }

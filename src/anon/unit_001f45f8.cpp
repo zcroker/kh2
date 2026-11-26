@@ -229,7 +229,7 @@ void sceVu0ApplyMatrix(f32*, f32*, void*) asm("sceVu0ApplyMatrix");
 void sceVu0Normalize(f32*, f32*) asm("sceVu0Normalize");
 void sceVu0CopyVector(f32*, f32*) asm("sceVu0CopyVector");
 void func_00222080(E46*, u8*, f32*, f32*) asm("func_00222080");
-void func_00222170(A46*) asm("func_00222170");
+void KeThCp_Update(A46*) asm("KeThCp_Update");
 static inline f32 fdiv46(f32 a, f32 b)
 {
     f32 r;
@@ -344,7 +344,7 @@ void func_001f46f8(O46* owner, P46* prm, X46* ctx)
     arg.v80 = pos;
     arg.v64 = dir;
     arg.e = e;
-    func_00222170(&arg);
+    KeThCp_Update(&arg);
 }
 }  // namespace n001f46f8
 

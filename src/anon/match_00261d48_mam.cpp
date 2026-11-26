@@ -1,5 +1,5 @@
 // 00261d48 w2502: 0 diffs (try harness) ONLY with -fmove-all-movables (-O2 -fmove-all-movables, with or without -fno-strict-aliasing, -g or -g0).
-// Keys: func_00261fb8 takes NO argument (fixes jal nop), Slot261* s = &g->b[pos+j] local, pos += n; pos += n & 1;, pos declared before g.
+// Keys: Tz__CmItem__UpdateStockList takes NO argument (fixes jal nop), Slot261* s = &g->b[pos+j] local, pos += n; pos += n & 1;, pos declared before g.
 #include "../common/types.h"
 extern "C" {
 extern s32 D_0035ef6c;
@@ -16,7 +16,7 @@ s32 func_00257158(u16, u8, s32);
 void func_00138c10(u8*, s32);
 s32 func_002891e8(s32);
 s32 func_00289300(s32);
-void func_00261fb8(void);
+void Tz__CmItem__UpdateStockList(void);
 void func_00261ce8(s32);
 s32 func_002827e0(s32, s32);
 u8* func_00281f30(s32);

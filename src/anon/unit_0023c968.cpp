@@ -31,8 +31,8 @@ u32 func_0023c968(u8* p) { return (u32)(*(s32*)(p + 56) - 2) < 2; }
 // 0023c978 (was src/anon/auto80_199_queue.cpp)
 namespace n0023c978 {
 /*TARGET 0023c978*/
-u32 func_0023c978(void* a0) asm("_Z13func_0023c978Pv");
-u32 func_0023c978(void* a0) {
+u32 YI__LAYOUT__GetLoopMode(void* a0) asm("_Z23YI__LAYOUT__GetLoopModePv");
+u32 YI__LAYOUT__GetLoopMode(void* a0) {
     u8* s2;
     u8* s1;
     u8* s0;
@@ -131,10 +131,10 @@ extern f32 D_00349e14 asm("D_00349e14");
 void func_0023c598(void*) asm("_Z13func_0023c598Pv");
 void func_0023acd8(void*) asm("func_0023acd8");
 s32 W283_GetPlayMode(void*) asm("_ZN2YI8SEQUENCE11GetPlayModeEv");
-void wtarget_0023ca80(W283_WT* p, u32, u32, u32) asm("_Z16wtarget_0023ca80jjjj");
+void YI__LAYOUT__Control(W283_WT* p, u32, u32, u32) asm("_Z19YI__LAYOUT__Controljjjj");
 /*TARGET 0023ca80*/
-void wtarget_0023ca80(W283_WT* p, u32, u32, u32) asm("_Z16wtarget_0023ca80jjjj");
-void wtarget_0023ca80(W283_WT* p, u32, u32, u32) {
+void YI__LAYOUT__Control(W283_WT* p, u32, u32, u32) asm("_Z19YI__LAYOUT__Controljjjj");
+void YI__LAYOUT__Control(W283_WT* p, u32, u32, u32) {
     *(f32*)((u8*)p + 60) += D_00349e14 * p->speed;
     switch (p->state) {
     case 1:
@@ -176,14 +176,14 @@ namespace n0023cc18 {
 struct I265 { s32 id; s32 b; s32 c; s32 n; s32 x; s32 y; };
 struct O265 { u8 pad[64]; s32 h; u8 pad2[260]; s32 x; s32 y; u8 pad3[8]; };
 struct P265 { u8 pad[16]; u8* tbl; u8* recs; u8 pad2[24]; O265* objs; s32 cnt; s32 st; u8 padx[4]; f32 lim; u8 pad3[8]; s32 sel; u8 pad4[4]; s32 dx; s32 dy; };
-void func_00236d60(void) asm("func_00236d60");
+void YI__IMAGE_CACHE__Clear(void) asm("YI__IMAGE_CACHE__Clear");
 // clear_64_entries_24
 void func_00236830(s32) asm("func_00236830");
-void func_0023ade0(O265*) asm("func_0023ade0");
+void YI__SEQUENCE__Draw(O265*) asm("YI__SEQUENCE__Draw");
 void func_002367a0(void) asm("func_002367a0");
 /*TARGET 0023cc18*/
-void func_0023cc18(P265* p) asm("func_0023cc18");
-void func_0023cc18(P265* p) {
+void YI__LAYOUT__Draw(P265* p) asm("YI__LAYOUT__Draw");
+void YI__LAYOUT__Draw(P265* p) {
     I265* it;
     s32 last;
     s32 off;
@@ -192,7 +192,7 @@ void func_0023cc18(P265* p) {
     if (p->st < 2) return;
     if (p->st >= 4) return;
     { s32 k = p->sel * 20; u8* r = p->recs; it = (I265*)(p->tbl + *(u16*)(r + k) * 24); }
-    func_00236d60();  // clear_64_entries_24
+    YI__IMAGE_CACHE__Clear();  // clear_64_entries_24
     last = -1;
     for (i = 0; i < p->cnt; i++, it++) {
         O265* o = &p->objs[i];
@@ -205,7 +205,7 @@ void func_0023cc18(P265* p) {
             s32 ny = it->y + p->dy;
             o->x = nx;
             o->y = ny;
-            func_0023ade0(o);
+            YI__SEQUENCE__Draw(o);
         }
     }
     func_002367a0();
@@ -331,8 +331,8 @@ Thr49* func_00102788(u32, s32, s32, void*) asm("func_00102788");
 void func_0023cf60(void) asm("func_0023cf60");
 void func_0023cdd8(void) asm("func_0023cdd8");
 /*TARGET 0023cde8*/
-s32 func_0023cde8(Hdr49* h) asm("func_0023cde8");
-s32 func_0023cde8(Hdr49* h)
+s32 YI__VIBRATION__Create(Hdr49* h) asm("YI__VIBRATION__Create");
+s32 YI__VIBRATION__Create(Hdr49* h)
 {
     D_0035eb10.p = h;
     D_0035eb20[0] = (s32)h + h->o0;

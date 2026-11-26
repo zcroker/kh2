@@ -45,12 +45,12 @@ void func_0015bbc8(u8* p, s32 a1) {
 
 // ---- 0x0015bc50 (src/anon/tiny_jal_wrappers_flex.cpp)
 namespace n0015bc50 {
-u32 func_0014fcd8(u32, u32, u32, u32) asm("func_0014fcd8");
+u32 dk__INFO_BASE__update(u32, u32, u32, u32) asm("dk__INFO_BASE__update");
 u32 func_0015bc50(u32 a0, u32 a1, u32 a2, u32 a3) asm("_ZN2dk5Radar6updateEv");
 u32 func_0015bc50(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u, r15 = 0u, r16 = 0u;
     r16 = r4;
-    r2 = func_0014fcd8(r4, r5, r6, r7);
+    r2 = dk__INFO_BASE__update(r4, r5, r6, r7);
     r15 = *(u32*)((u32)r16 + (s32)(36));
     r15 = (u32)((s32)r15 + (16));
     *(u32*)((u32)r16 + (s32)(2980)) = r15;
@@ -110,15 +110,15 @@ void func_0014b698(W1646Spr*) asm("func_0014b698");
 void func_0014bb30(W1646Spr*) asm("func_0014bb30");
 void func_0015bab8(W1646Map*) asm("func_0015bab8");
 u64 func_00166148(void*, s32, s32) asm("func_00166148");
-W1646Vec func_0016af58(void*) asm("func_0016af58");
+W1646Vec YS__OBJ__get_dir(void*) asm("YS__OBJ__get_dir");
 void* func_0016b0d0(void) asm("func_0016b0d0");
-W1646Vec* func_0016c028(void*) asm("func_0016c028");
+W1646Vec* YS__OBJ__get_pos(void*) asm("YS__OBJ__get_pos");
 s32 func_00191c88(void) asm("func_00191c88");
 s32 func_001949d0(void) asm("func_001949d0");
 s32 func_00242ae8(void) asm("func_00242ae8");
 f32 func_002f8ad0(f32, f32) asm("func_002f8ad0");
-void func_0015bc80(W1646Hud* o) asm("func_0015bc80");
-void func_0015bc80(W1646Hud* o) {
+void dk__Radar__draw(W1646Hud* o) asm("dk__Radar__draw");
+void dk__Radar__draw(W1646Hud* o) {
     if (!o->enabled) return;
     if (func_00191c88()) return;
     void* pl = func_0016b0d0();
@@ -151,13 +151,13 @@ void func_0015bc80(W1646Hud* o) {
     s32 maxX = hw - 48;
     s32 minY = 48 - hh;
     s32 maxY = hh - 48;
-    W1646Vec pos = *func_0016c028(pl);
+    W1646Vec pos = *YS__OBJ__get_pos(pl);
     s32 dx = 0;
     s32 dy = 0;
     s32 x = o->x - (s32)(pos.x / o->div * o->scale);
     s32 y = (s32)(pos.z / o->div * o->scale) + o->y;
     W1646Vec d;
-    d = func_0016af58(pl);
+    d = YS__OBJ__get_dir(pl);
     func_0013edd0(ar, func_002f8ad0(d.x, d.z));
     if (x < minX) {
         dx = minX - x;

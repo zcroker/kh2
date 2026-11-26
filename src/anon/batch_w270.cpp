@@ -79,7 +79,7 @@ u32 W270_SelExitImpl(...);  // 0x0026db60: definition moved into src/anon/unit_0
 s32 W270_is_attach(W270Ys*) asm("_ZN2YS3OBJ9is_attachEv");
 void W270_detach(W270Ys*) asm("_ZN2YS3OBJ6detachEv");
 void W270_change_action(W270Ys*, s32) asm("_ZN2YS3OBJ13change_actionENS_6ACTION2IDE");
-void W270_ctarget(W270V*, u32) asm("_Z16ctarget_0016bda8jjjj");
+void W270_ctarget(W270V*, u32) asm("_Z23YS__OBJ__get_target_posjjjj");
 void W270_set_pos(W270Ys*, W270V*) asm("_ZN2YS3OBJ7set_posERKN2kn7FVectorE");
 void W270_set_rot(W270Ys*, f32) asm("_ZN2YS3OBJ7set_rotEf");
 void W270_17f488(void*, s32, f32, f32) asm("_Z13func_0017f488iiff");
@@ -93,10 +93,10 @@ s32 func_002a4ad8(s32);
 s32 func_002a4430(void);
 s32 func_002a43f0(void);
 W270It* func_001a80c8(u32);  // table24_find_by_id
-void func_0028de08(u32, u8*, s32);
+void Tz__MenuUtil__MakeQuestionStr(u32, u8*, s32);
 void* W270_tail4(u32) asm("_Z16u_tail4_00192048jjjj");
 void W270_dup(void*, u8*) asm("_ZNK2YS7MESSAGE3dupEPc");
-void W270_ctarget2(u8*, u32, s32) asm("_Z16ctarget_001a3788jjjj");
+void W270_ctarget2(u8*, u32, s32) asm("_Z21YS__ITEM__MakeMessagejjjj");
 void W270_wtarget(u8*, u32, u32) asm("_Z16wtarget_002fde18jjjj");
 void func_002a3950(void);  // 0x002a3950: definition moved into src/anon/unit_002a3648.cpp
 }

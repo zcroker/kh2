@@ -54,4 +54,4 @@ struct Obj152f40 : ObjB1577 {
 extern "C" {
 extern Obj152f40* volatile D_0034a6f0;
 }
-void u_tail0_00152f40(void);  // 0x00152f40: definition moved into src/anon/unit_0014ecb8.cpp
+void dk__LEVELUP_INFO__init(void);  // 0x00152f40: definition moved into src/anon/unit_0014ecb8.cpp

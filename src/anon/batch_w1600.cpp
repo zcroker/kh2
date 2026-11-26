@@ -13,9 +13,9 @@ s32 func_0023aa58(u8 *);
 s32 func_0023aa78(u8 *);
 u8 *func_001aae68(s32);
 s32 func_00192048(s32);
-void func_001a98e8(void *, s32, s32, s32, s32);
-void func_001aa6d0(void *, s32);
-void func_001a9ae8(void *, s32, s32, s32);
-void func_002a0200(s32 a0, s32 a1, s32 a2);  // 0x002a0200: definition moved into src/anon/unit_0029f938.cpp
+void YS__MESSAGEDRAW__MESSAGEDRAW(void *, s32, s32, s32, s32);
+void YS__MESSAGEDRAW__set_line_space(void *, s32);
+void YS__MESSAGEDRAW__draw(void *, s32, s32, s32);
+void Tz__JmAnsem__DrawMess(s32 a0, s32 a1, s32 a2);  // 0x002a0200: definition moved into src/anon/unit_0029f938.cpp
 
 }

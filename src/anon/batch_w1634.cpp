@@ -19,24 +19,24 @@ s32 func_0016f6f8(u32);
 s32 func_0016f770(u32);
 s32 func_0016f7a0(u32);
 void func_00197fe0(void*, W1634CharaData*, s32, void*, f32);
-void* func_00179fd0(W1634CharaData*, s32, void*, f32);
-void* func_0017e418(W1634CharaData*, void*, f32);
+void* YS__PLAYER__Appear(W1634CharaData*, s32, void*, f32);
+void* YS__FRIEND__Appear(W1634CharaData*, void*, f32);
 void func_001aea00(void*, W1634CharaData*, void*, f32);
 void func_001b1d60(void*, W1634CharaData*, void*, f32);
-void func_00195ed8(void*, W1634CharaData*, void*, f32);
-void func_001b3a90(void*, W1634CharaData*, void*, f32);
+void YS__SAVEPOINT__SAVEPOINT(void*, W1634CharaData*, void*, f32);
+void YS__BTLNPC__BTLNPC(void*, W1634CharaData*, void*, f32);
 void func_001a8618(void*, W1634CharaData*, void*, f32);
 void func_001aeb40(void*, W1634CharaData*, void*, f32);
 void func_001b20a0(void*, W1634CharaData*, void*, f32);
-void func_001a6bc8(void*, W1634CharaData*, void*, f32);
+void YS__FIELDOBJ__FIELDOBJ(void*, W1634CharaData*, void*, f32);
 void func_0018aba0(void*, W1634CharaData*, s32, void*, f32);
-void* func_002d0290(W1634CharaData*, void*, f32);
-void* func_002be800(W1634CharaData*, void*, f32);
+void* Ti__MGObj__create(W1634CharaData*, void*, f32);
+void* worldmap__Obj__appear(W1634CharaData*, void*, f32);
 void func_001bf270(void*, W1634CharaData*, void*, s32, f32);
-void func_001c7fb8(void*, W1634CharaData*, void*, f32);
+void YS__SUMMON__SUMMON(void*, W1634CharaData*, void*, f32);
 void func_001c2338(void*, W1634CharaData*, void*, f32);
 void func_001c4120(void*, W1634CharaData*, void*, f32);
-void* func_001c25e8(W1634CharaData*, void*, f32);
+void* YS__MASSOBJ__Create(W1634CharaData*, void*, f32);
 void func_001c2ce8(void*, W1634CharaData*, void*, f32);
 void func_001d9ef0(void*, W1634CharaData*, void*, f32);
 
@@ -55,17 +55,17 @@ static inline void* W1634New(W1634CharaData* cd, void* pos, f32 rot) {
 static inline __attribute__((always_inline)) void* W1634Create(W1634CharaData* cd, void* pos, f32 rot) {
     switch (cd->type) {
     case 0:
-        return (void*)func_00179fd0(cd, cd->level, pos, rot);
+        return (void*)YS__PLAYER__Appear(cd, cd->level, pos, rot);
     case 1:
-        return (void*)func_0017e418(cd, pos, rot);
+        return (void*)YS__FRIEND__Appear(cd, pos, rot);
     case 3:
         return (void*)W1634New<func_001aea00, 0xb00>(cd, pos, rot);
     case 4:
         return (void*)W1634New<func_001b1d60, 0xb00>(cd, pos, rot);
     case 7:
-        return (void*)W1634New<func_00195ed8, 0xa00>(cd, pos, rot);
+        return (void*)W1634New<YS__SAVEPOINT__SAVEPOINT, 0xa00>(cd, pos, rot);
     case 9:
-        return (void*)W1634New<func_001b3a90, 0xaf0>(cd, pos, rot);
+        return (void*)W1634New<YS__BTLNPC__BTLNPC, 0xaf0>(cd, pos, rot);
     case 10:
         return (void*)W1634New<func_001a8618, 0xa00>(cd, pos, rot);
     case 12:
@@ -73,29 +73,29 @@ static inline __attribute__((always_inline)) void* W1634Create(W1634CharaData* c
     case 13:
         return (void*)W1634New<func_001b20a0, 0xaf0>(cd, pos, rot);
     default:
-        return (void*)W1634New<func_001a6bc8, 0xaf0>(cd, pos, rot);
+        return (void*)W1634New<YS__FIELDOBJ__FIELDOBJ, 0xaf0>(cd, pos, rot);
     case 15:
         { void* p = W1634_AREA_Alloc(0xb40); func_0018aba0(p, cd, 5, pos, rot); return p; }
     case 16:
-        return (void*)func_002d0290(cd, pos, rot);
+        return (void*)Ti__MGObj__create(cd, pos, rot);
     case 17:
-        return (void*)func_002be800(cd, pos, rot);
+        return (void*)worldmap__Obj__appear(cd, pos, rot);
     case 18:
         { void* p = W1634_AREA_Alloc(0x9f0); func_001bf270(p, cd, pos, 0, 1.0f); return p; }
     case 19:
-        return (void*)W1634New<func_001c7fb8, 0xd00>(cd, pos, rot);
+        return (void*)W1634New<YS__SUMMON__SUMMON, 0xd00>(cd, pos, rot);
     case 20:
         return (void*)W1634New<func_001c2338, 0xa00>(cd, pos, rot);
     case 21:
         return (void*)W1634New<func_001c4120, 0xb00>(cd, pos, rot);
     case 22:
-        return (void*)func_001c25e8(cd, pos, rot);
+        return (void*)YS__MASSOBJ__Create(cd, pos, rot);
     case 23:
         return (void*)W1634New<func_001c2ce8, 0xaf0>(cd, pos, rot);
     case 24:
         return (void*)W1634New<func_001d9ef0, 0xa00>(cd, pos, rot);
     case 14:  // same as default; this extra copy reproduces the original's aligned default label
-        return (void*)W1634New<func_001a6bc8, 0xaf0>(cd, pos, rot);
+        return (void*)W1634New<YS__FIELDOBJ__FIELDOBJ, 0xaf0>(cd, pos, rot);
     }
     return 0;
 }

@@ -49,12 +49,12 @@ void func_001c8ec0(u32 a0)
 // ---- 001c8f68 gap: vtable 0x351ed0 slot 0
 namespace n001c8f68 {
 s32 func_0019c090(u8*) asm("func_0019c090");
-u8* func_0016c028(u8*) asm("func_0016c028");
+u8* YS__OBJ__get_pos(u8*) asm("YS__OBJ__get_pos");
 void func_0019fb70(void*, u8*) asm("func_0019fb70");
 void func_001c8f68(void* self, u8* o) asm("func_001c8f68");
 void func_001c8f68(void* self, u8* o) {
     if (func_0019c090(o) == 0) {
-        *(f32*)(o + 224) = *(f32*)(func_0016c028(o) + 4);
+        *(f32*)(o + 224) = *(f32*)(YS__OBJ__get_pos(o) + 4);
     }
     func_0019fb70(self, o);
 }
@@ -102,24 +102,24 @@ W1774Vec* func_001c8fe8(W1774Vec* r, W1774Obj* o, void* x) {
 // ---- 001c9080 from src/anon/batch_w13.cpp
 namespace n001c9080 {
 struct Q128 { u32 w[4]; };
-void func_0017c4c8(void*, void*) asm("func_0017c4c8");
+void YS__OBJ__prepare_jump(void*, void*) asm("YS__OBJ__prepare_jump");
 void func_0016bd60(void*, s32) asm("func_0016bd60");
-void func_001c9080(void* a0, void* a1, Q128* a2) asm("func_001c9080");
-void func_001c9080(void* a0, void* a1, Q128* a2) {
+void YS__ACTION_CARPETBLOW__jump(void* a0, void* a1, Q128* a2) asm("YS__ACTION_CARPETBLOW__jump");
+void YS__ACTION_CARPETBLOW__jump(void* a0, void* a1, Q128* a2) {
     Q128 t;
     asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(&t), "r"(a2) : "$8", "memory");
-    func_0017c4c8(a1, &t);
+    YS__OBJ__prepare_jump(a1, &t);
     func_0016bd60(a1, 20);
 }
 }  // namespace n001c9080
 
 // ---- 001c90c0 from src/anon/batch_w7.cpp
 namespace n001c90c0 {
-void func_0017c430(u32) asm("func_0017c430");
+void YS__OBJ__prepare_jump_height(u32) asm("YS__OBJ__prepare_jump_height");
 void func_0016bd60(u32, u32) asm("func_0016bd60");
-void func_001c90c0(u32 a0, u32 a1) asm("func_001c90c0");
-void func_001c90c0(u32 a0, u32 a1) {
-    func_0017c430(a1);
+void YS__ACTION_CARPETBLOW__jump_height(u32 a0, u32 a1) asm("YS__ACTION_CARPETBLOW__jump_height");
+void YS__ACTION_CARPETBLOW__jump_height(u32 a0, u32 a1) {
+    YS__OBJ__prepare_jump_height(a1);
     func_0016bd60(a1, 20);
 }
 }  // namespace n001c90c0

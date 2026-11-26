@@ -213,8 +213,8 @@ static inline V4 operator*(const M4& m, const V4& v) {
     return r;
 }
 /*TARGET 00209178*/
-void func_00209178(u8* a0, f32* m) asm("func_00209178");
-void func_00209178(u8* a0, f32* m) {
+void get_st(u8* a0, f32* m) asm("get_st");
+void get_st(u8* a0, f32* m) {
     f32 w, h, b;
     switch (a0[49]) { case 1: w = 0.48999998f; break; case 2: w = 0.24f; break; case 0: default: w = 0.98999995f; break; }
     switch (a0[50]) { case 1: h = 0.48999998f; break; case 2: h = 0.24f; break; case 0: default: h = 0.98999995f; break; }
@@ -235,14 +235,14 @@ void func_00209178(u8* a0, f32* m) {
 namespace n002092e0 {
 // 0x001e2c00: definition moved into src/anon/unit_001e0cb8.cpp
 
-u8 func_00209178(void*, void*) asm("func_00209178");
+u8 get_st(void*, void*) asm("get_st");
 /*TARGET 002092e0*/
 void func_002092e0(u8* a, u32* b, u8* c) asm("func_002092e0");
 void func_002092e0(u8* a, u32* b, u8* c) {
     u8* t = a + *(s32*)(*(u8**)(c + 12) + 8) + 160;
     if (*b == *(u32*)(a + 12)) {
         struct NoTail { ~NoTail() {} } g; // keeps the call a jal
-        func_00209178(b, t);
+        get_st(b, t);
     }
 }
 }  // namespace n002092e0

@@ -42,7 +42,7 @@ void func_00139570(C8BD8Sel*);
 void func_00139580(C8BD8Sel*);
 s32 func_0022b9e0(void);
 s32 func_0022b720(void);
-void func_001386e0(C8BD8Sel*, s32, s32, s32, s32, s32);
+void dk__Sprite__create(C8BD8Sel*, s32, s32, s32, s32, s32);
 void func_001396b0(C8BD8Sel*);
 void func_0031a260(C8BD8Sel*, void*);
 }

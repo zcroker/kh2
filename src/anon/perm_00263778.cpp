@@ -19,10 +19,10 @@ union BD_VALUE
   u32 u;
 };
 void func_0013dbb0(void);
-volatile short func_001a2a50(u32, s32, s32, s32);
+volatile short YS__ITEM__Use(u32, s32, s32, s32);
 void func_001a3458(u32, s32);
 s32 func_002570a0(s32);
-u16 *func_002632d0(s32);
+u16 *Tz__CmItem__isSoraOnly(s32);
 s32 func_002811b0(s32, s32);
 extern s32 D_0035f010;
 void func_00263778(s32 a0);  // 0x00263778: definition moved into src/anon/unit_002632d0.cpp

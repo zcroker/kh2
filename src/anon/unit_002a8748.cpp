@@ -38,9 +38,9 @@ u8* func_001d56c8(u32) asm("func_001d56c8");
 void func_002ab258(s32) asm("func_002ab258");
 /*TARGET 002a8768*/
 // Built with -fno-strength-reduce (_nsr).
-void func_002a8768(void) asm("func_002a8768");
+void Tz__JmMiniGame__UpdateNewMark(void) asm("Tz__JmMiniGame__UpdateNewMark");
 // Built with -fno-strength-reduce (_nsr).
-void func_002a8768(void) {
+void Tz__JmMiniGame__UpdateNewMark(void) {
     s32 i = 0;
     u8* w = func_002a9d68();
     func_00287bc0();
@@ -73,8 +73,8 @@ s32 func_00276c18(void) asm("func_00276c18");
 static inline s32 ok2(u8* v) { return *v < 2; }
 static inline s32 bad2(u8* v) { return ok2(v) ^ 1; }
 /*TARGET 002a8870*/
-s32 func_002a8870(s32 a) asm("func_002a8870");
-s32 func_002a8870(s32 a) {
+s32 Tz__JmMiniGame__isEnable(s32 a) asm("Tz__JmMiniGame__isEnable");
+s32 Tz__JmMiniGame__isEnable(s32 a) {
     T2a8* t = func_00294000(7);
     E2a8* e = t->e;
     s32 i;
@@ -93,10 +93,10 @@ u8* func_001d56c8(void) asm("func_001d56c8");
 /*TARGET 002a8920*/
 // 0x00299260: definition moved into src/anon/unit_002982f0.cpp
 
-bool func_002a8920(void) asm("func_002a8920");
+bool Tz__JmMiniGame__isPlay(void) asm("Tz__JmMiniGame__isPlay");
 // 0x00299260: definition moved into src/anon/unit_002982f0.cpp
 
-bool func_002a8920(void) {
+bool Tz__JmMiniGame__isPlay(void) {
     return *func_001d56c8() >= 2;
 }
 }  // namespace n002a8920
@@ -114,9 +114,9 @@ extern u8 D_00347e60[] asm("D_00347e60");
 extern u8 D_00347e40[] asm("D_00347e40");
 /*TARGET 002a8948*/
 // 002a8948: allocate the work buffers (ten 436-byte objects)
-void func_002a8948(void) asm("func_002a8948");
+void Tz__JmQuest__Init(void) asm("Tz__JmQuest__Init");
 // 002a8948: allocate the work buffers (ten 436-byte objects)
-void func_002a8948(void)
+void Tz__JmQuest__Init(void)
 {
     D_0035f608 = func_001063c0(772, func_00103570());
     u8* arr = func_001063c0(4360, func_00103570());
@@ -185,8 +185,8 @@ void func_002a94f8(...) asm("func_002a94f8");
 u32 func_00274ac8(...) asm("_ZN2Tz6Jiminy13JmCommonLeaveEv");
 u32 func_00287bc0(...) asm("func_00287bc0");
 /*TARGET 002a8a88*/
-void func_002a8a88() asm("_Z13func_002a8a88v");
-void func_002a8a88() {
+void Tz__JmQuest__LeaveAll() asm("_Z21Tz__JmQuest__LeaveAllv");
+void Tz__JmQuest__LeaveAll() {
     u32 v0 = func_00287bc0();
     if (v0 == 10 || v0 == 35) {
         func_002a94f8();

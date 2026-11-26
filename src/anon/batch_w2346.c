@@ -20,7 +20,7 @@ typedef struct {
 } Dst20b4e8;
 s8 func_0020b458(u8);
 f32 func_0020b410(void);
-void func_0020b4e8(Src20b4e8* s, Dst20b4e8* d, f32* pos)
+void birth_2(Src20b4e8* s, Dst20b4e8* d, f32* pos)
 {
     s32 i;
     d->col[0] = func_0020b458(s->col[0]);

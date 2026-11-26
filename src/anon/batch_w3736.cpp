@@ -1,10 +1,10 @@
 // w3736 batch.
 #include "../common/types.h"
 extern "C" {
-void func_001386e0(void*, s32, s32, void*, s32, s32);
+void dk__Sprite__create(void*, s32, s32, void*, s32, s32);
 void func_00139620(void*);
 s32 func_00139d78(void*);
-void func_002362b0(void*, s32);
+void YI__IMAGE__Init(void*, s32);
 s32 func_0023c4b8(s32, s32);
 s32 func_0023f1b0(s32);
 s32 func_0023f988(s32, s32);
@@ -23,7 +23,7 @@ extern S2a1d38 D_00374b60[];
 // Per-entry setup loop. Partial asm (step 4): the in-loop lui of D_0035f5d4 is hand-written (pinned to t7,
 // ordered after p) so loop/cse2 do not hoist it and give it a register; the empty asm around the pre-loop
 // load keeps t6 busy so its high half lands in t7. No code is emitted by the empty asm statements.
-void func_002a1d38(void);  // 0x002a1d38: definition moved into src/anon/unit_002a1d38.cpp
+void Tz__JmDiagram__UpdateGra(void);  // 0x002a1d38: definition moved into src/anon/unit_002a1d38.cpp
 
 struct S1b5108 { u8 pad[0x198]; void* x198; };
 extern S1b5108* D_0035f654;

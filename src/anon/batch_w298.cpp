@@ -26,22 +26,22 @@ extern u32 D_003638d0;
 void func_0018cd28(struct O8cb*, f32*, f32*);
 extern "C" {
 f32 func_0017ce10(f32);
-s32 func_0022a3d0(s32 n, f32 x, s32* a, s32* b, s32* c, s32* d, s32* e, s32* f, s32* g, s32* h, f32* out);  // 0022a3d0: moved to src/sasa/musical_input.cpp (linked unit)
+s32 sa__MUSICAL_INPUT__createCircleSize(s32 n, f32 x, s32* a, s32* b, s32* c, s32* d, s32* e, s32* f, s32* g, s32* h, f32* out);  // 0022a3d0: moved to src/sasa/musical_input.cpp (linked unit)
 
 s32 func_0016a070(u8*);
-QV298* func_0016c028(u8*);  // obj_get_attach_or_alt
+QV298* YS__OBJ__get_pos(u8*);  // obj_get_attach_or_alt
 void func_001703a8(s32);
 void func_001afb80(void*, s32, s32, s32);
-void func_0016ed50(s32, s32, s32);
+void YS__OBJENTRY__ReadRequest(s32, s32, s32);
 void func_00170888(void*);
-void func_001c9e50(void*);
+void YS__SACRIFICE__WaitStable(void*);
 s32 func_0017e4f8(s32, QV298*, f32, f32, f32);
 void func_001617d8(void);
 void func_001ad990(u8*, f32, f32, f32);
-s32 func_001ba028(u8*);  // list_contains_ptr
+s32 YS__OBJ__is_valid(u8*);  // list_contains_ptr
 void func_00102448(void*, s32);
 s32 func_001b5cf8(O5cf8* o, void* a1);  // 0x001b5cf8: definition moved into src/anon/unit_001b2780.cpp
 
 s32 func_0018ca48(u8);
-QV298* func_0016c028(u8*);  // obj_get_attach_or_alt
+QV298* YS__OBJ__get_pos(u8*);  // obj_get_attach_or_alt
 }

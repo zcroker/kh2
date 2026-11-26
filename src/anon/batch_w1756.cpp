@@ -16,7 +16,7 @@ struct E6_w1756 { s16 id; s16 a; s16 b; };
 extern E6_w1756 D_00372b50[];
 s32 func_00259460(s32 id, u8 f);  // 0x00259460: definition moved into src/anon/unit_002588e8.cpp
 
-void* ctarget_001b9bc8(void*) asm("_Z16ctarget_001b9bc8jjjj");
+void* YS__OBJ__Each(void*) asm("_Z13YS__OBJ__Eachjjjj");
 void* func_002be908(void* p);  // 0x002be908: definition moved into src/anon/unit_002be020.cpp
 
 }

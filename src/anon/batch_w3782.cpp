@@ -21,7 +21,7 @@ s32 func_002b6f78(void);
 void func_002ba140(s32, s32, s32);
 void func_002ba188(s32, s32, s32);
 void func_002ba1a0(s32, s32, s32);
-void func_002ba1b8(s32, s32, s32);
+void SOUND__sebTransfer(s32, s32, s32);
 
 #define R(x) ((Req2bad20*)(x))
 

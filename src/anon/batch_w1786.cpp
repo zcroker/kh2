@@ -18,7 +18,7 @@ s32 func_001b8ff8(W1786Flags* o, s32 a1);  // 0x001b8ff8: definition moved into 
 
 W1786Ob2* func_001cd7a8(void*);
 s32 func_0016a090(W1786Ob*);
-s32 W1786_ctarget(W1786Ob2*) asm("_Z16ctarget_0019ba60jjjj");
+s32 W1786_ctarget(W1786Ob2*) asm("_Z17YS__OBJ__is_existjjjj");
 void W1786_set_obj(W1786Tg*, void*, s32) asm("_ZN2YS6TARGET7set_objEPNS_3OBJEi");
 extern u8 D_01c60d10;
 extern W1786Ob2* D_0034e948;

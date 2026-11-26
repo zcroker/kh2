@@ -33,5 +33,5 @@ static inline __attribute__((always_inline)) void H436b(u8* e, u32 a, u32 b)
     *(volatile u32*)e = b; func_00239700(e + 24);
     *(volatile u32*)e = (u32)D_00347e40; *(u32*)(e + 408) = 0;
 }
-void func_00324510(u8* t);  // 0x00324510: definition moved into src/anon/unit_00324380.cpp
+void sa__MUSICAL_SCORE5__init(u8* t);  // 0x00324510: definition moved into src/anon/unit_00324380.cpp
 }

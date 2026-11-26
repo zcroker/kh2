@@ -20,5 +20,5 @@ s32 func_00181500(s32);
 void func_002f1900(void*, s32, W324Obj*);
 static inline bool cf(W324C4* p) { if (p->r < 2) return false; u32 m = p->a & 2; u32 r = m == 0; return r; }
 static inline bool big(W324C4* p) { return p->r >= 3; }
-void func_002bf650(W324Obj* o, W324C4* p);  // 0x002bf650: definition moved into src/anon/unit_002bebd0.cpp
+void worldmap__Symbol__setState(W324Obj* o, W324C4* p);  // 0x002bf650: definition moved into src/anon/unit_002bebd0.cpp
 }

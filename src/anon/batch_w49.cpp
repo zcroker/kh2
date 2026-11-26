@@ -24,7 +24,7 @@ s32 func_00141080(f32);
 void func_001ad990(u32, f32, f32, f32);
 struct S348710 { u8 pad[64]; u32 f64; u32 f68; };
 extern S348710 D_00348710;
-void func_00141010(f32 x);  // 0x00141010: definition moved into src/anon/unit_0013fca8.cpp
+void dk__ObjCamera__cancelSubjective(f32 x);  // 0x00141010: definition moved into src/anon/unit_0013fca8.cpp
 
 
 
@@ -53,7 +53,7 @@ static inline Node161248* next161248(Node161248* n) {
 // 00161248: moved to src/anon/unit_001611a8.cpp
 
 u8* func_001a6a20(u32, u32);
-s32 func_00176a90(u32);
+s32 YS__PARTY___OVR_is_star(u32);
 // 00179b68: moved to src/yasui/libys/player.cpp
 
 extern s32 D_0034ed00;
@@ -72,10 +72,10 @@ void func_00239700(u8*);
 void func_001abb28(u8*);
 u32 func_001ab810(void);  // get_global_1c7cec0
 u32 func_001ab800(void);
-void func_00239988(u8*, u32, u32);
+void YI__SEQUENCE__Init(u8*, u32, u32);
 // 001abd30: moved to src/anon/unit_001abb28.cpp
 
-u8* func_001b9bc8(u8*);
+u8* YS__OBJ__Each(u8*);
 typedef void (*Fn1bf6a8)(u8*);
 void func_001bf6a8(void);  // 0x001bf6a8: definition moved into src/anon/unit_001bc568.cpp
 
@@ -103,7 +103,7 @@ struct Vq {
 } __attribute__((aligned(16)));
 struct M1c7148 { Vq a, b; };
 extern M1c7148 D_01d498d0;
-void func_00143928(M1c7148*);
+void dk__Octree__collisionToMap(M1c7148*);
 // 001c7148: moved to src/anon/unit_001c7148.cpp (linked unit)
 
 u8* func_001d6cc8(u8*);
@@ -150,7 +150,7 @@ s32 func_002a6290(void);  // 0x002a6290: definition moved into src/anon/unit_002
 
 extern u32 D_0035f200, D_0035f214;
 u32 func_0028b038(u32);
-void func_0028be78(u32, u32);
+void Tz__ScrollBar__SetPos(u32, u32);
 void func_002a5df0(void);
 void func_002a65d0(void);
 void func_002a6308(u32, s32 m);  // 0x002a6308: definition moved into src/anon/unit_002a5a90.cpp
@@ -169,12 +169,12 @@ void func_002b5078(void);  // 0x002b5078: definition moved into src/anon/unit_00
 
 extern u32 D_00361768[];
 void func_002bc470(u32);
-void func_002bcee8(u32* p);  // 0x002bcee8: definition moved into src/anon/unit_002bc978.cpp
+void SE_BANK__clearGumi(u32* p);  // 0x002bcee8: definition moved into src/anon/unit_002bc978.cpp
 
 struct B2bf5a0 { u8 b0 : 1; };
 u8* func_001b6d70(u8);  // table_entry_ptr_b
 void func_0016ac38(u8*, s32, s32, s32, s32);
-void func_002bf5a0(u8* p);  // 0x002bf5a0: definition moved into src/anon/unit_002bebd0.cpp
+void worldmap__Symbol___OVR_checkState(u8* p);  // 0x002bf5a0: definition moved into src/anon/unit_002bebd0.cpp
 
 
 void func_002eb778(u8*, u32, s32, f32);
@@ -195,7 +195,7 @@ s32 func_00145580(s16* a, s16* b);  // 0x00145580: definition moved into src/ano
 
 u8* func_0016d080(u32, s32);
 void func_0016cbc8(u8*, s32, u32*, s32);
-void func_0016cd48(u8*, s32);
+void YS__VM__exec(u8*, s32);
 void func_0016cab8(u8*);
 void func_0016c7d8(u8*);
 extern u32 D_01c61b00;
@@ -236,7 +236,7 @@ void sceGsExecLoadImage(u8*, u32);
 void func_002367c8(u8* p);  // 0x002367c8: definition moved into src/anon/unit_00236180.cpp
 
 // Returns 1 if the current id is in the -1-terminated list.
-u16* func_002632d0(void);
+u16* Tz__CmItem__isSoraOnly(void);
 extern s16 D_00373270[];
 s32 func_002636b0(void);  // 0x002636b0: definition moved into src/anon/unit_002632d0.cpp
 

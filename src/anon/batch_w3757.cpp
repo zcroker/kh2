@@ -97,13 +97,13 @@ extern Fr10e810* D_00341708;
 extern u8 D_003a9040;
 s32 f10e810_update(Fr10e810*, const VecSet10e810*) asm("func_0010e368");
 s32 func_001917c0(void);
-V10e810* f10e810_attach(Fr10e810*) asm("func_0016c028");
+V10e810* f10e810_attach(Fr10e810*) asm("YS__OBJ__get_pos");
 f32 f10e810_hi(Who10e810*, s32, s32, s32) asm("func_00114328");
 f32 f10e810_lo(Who10e810*, s32, s32, s32) asm("func_001142e0");
 f32 f10e810_dist(Fr10e810*, s32) asm("func_0010e7e0");
 s32 func_0010e6e0(Fr10e810*, V10e810*, f32, f32, f32);
 s32 func_00143f28(u16, s32);
-s32 func_00143ae0(Seg10e810*, V10e810*, V10e810*, s32);
+s32 dk__Octree__intersectLineMap_2(Seg10e810*, V10e810*, V10e810*, s32);
 void f10e810_warp(Fr10e810*, s32, f32) asm("func_0010cac8");
 void f10e810_followMove(Fr10e810* o, const VecSet10e810* vs) asm("_ZN2kn6Friend10followMoveEPKNS_6VecSetE");
 void f10e810_followMove(Fr10e810* o, const VecSet10e810* vs);  // 0x0010e810: definition moved into src/anon/unit_0010dee8.cpp

@@ -56,8 +56,8 @@ void func_00283fb0(void) {
     func_00283eb8((u32)work1, (s32)(s8)p[(s32)(s8)p[14] + 4]);
     func_00253b30((u32)work0, (u32)work1);
 
-    func_00290a10(D_0035f2b0, (u32)work0, 24);
-    func_002362b0(D_0035f2b8, func_00290948(D_0035f2b0, 0));
+    Tz__MenuFile__alloc(D_0035f2b0, (u32)work0, 24);
+    YI__IMAGE__Init(D_0035f2b8, func_00290948(D_0035f2b0, 0));
 
     *(u8*)(D_0035f2b8 + 400) = 1;
 }

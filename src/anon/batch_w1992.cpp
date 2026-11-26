@@ -62,9 +62,9 @@ static inline s32 w1992_off2(P16eb48* p) { return !(p->b48 & 1); }
 
 extern "C" {
 
-void func_00128b38(Obj128b38* o, Out128b38* out, f32 t);  // 0x00128b38: definition moved into src/anon/unit_00128480.cpp
+void kn__MotionPrototype0__setFcurveValue(Obj128b38* o, Out128b38* out, f32 t);  // 0x00128b38: definition moved into src/anon/unit_00128480.cpp
 
-void w1992_tail4_16eb48(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z16u_tail4_0016eb48jjjj");
+void w1992_tail4_16eb48(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z28YS__OBJENTRY__ReadRequestSubjjjj");
 void w1992_tail4_16eb48(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0016eb48: definition moved into src/anon/unit_0016e8f8.cpp
 
 void func_00228f18();  // 00228f18: moved to src/sasa/musical_score.cpp (linked unit)
@@ -97,12 +97,12 @@ void func_001c0e60(Ob2dbd30*);
 void func_0011b6a8(MT2dbd30*);
 u32 func_0016b0a0(u32);
 void func_0011b7b0(MT2dbd30*, u32);
-QW2dbd30* func_0016c028(Ob2dbd30*);
+QW2dbd30* YS__OBJ__get_pos(Ob2dbd30*);
 Cfg2dbd30* func_002d73f0(s32);
 f32 cosf(f32);
 f32 sinf(f32);
 void func_002e7568(Ob2dbd30*, s32, void*, f32);
-void func_002db968(Ob2dbd30*, s32);
+void Ti__Afp__calc_local_matrix(Ob2dbd30*, s32);
 }
 static inline void w1992_scale(QW2dbd30& d, const QW2dbd30& a, f32 s) {
     asm volatile("lqc2 $vf1, 0(%1)\n\tmfc1 $8, %2\n\tqmtc2 $8, $vf2\n\tvmulx.wxyz $vf1, $vf1, $vf2x\n\tsqc2 $vf1, 0(%0)"

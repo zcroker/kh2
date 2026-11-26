@@ -9,5 +9,5 @@ void func_001c0150(W1753Sub*, u32);
 
 void func_0019f8f8(W1753S1* p, u32 v);  // 0x0019f8f8: definition moved into src/anon/unit_0019ee80.cpp
 
-void func_0019f950(W1753S1* p, u32 v);  // 0x0019f950: definition moved into src/anon/unit_0019ee80.cpp
+void YS__OBJ_ATTACK__OBJ_ATTACK(W1753S1* p, u32 v);  // 0x0019f950: definition moved into src/anon/unit_0019ee80.cpp
 }

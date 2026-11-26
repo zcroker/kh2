@@ -11,7 +11,7 @@ extern "C" void func_002aa4a8(...);
 extern "C" void func_002aa960(...);
 extern "C" void func_002aabe8(...);
 extern "C" void func_002ab020(...);
-extern "C" void func_002ab448(...);
+extern "C" void Tz__JmNewInfo__CheckTreasure(...);
 extern "C" void func_002ab818(...);
 extern "C" void func_002abba8(...);
 extern "C" void func_002abe28(...);

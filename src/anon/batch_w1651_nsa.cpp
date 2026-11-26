@@ -60,8 +60,8 @@ extern s8 D_01d48c98;
 extern W1651Vec D_01d48ca0;
 void func_001b3740(void);
 void func_002fd188(void (*)(void));
-W1651Vec* func_0016c028(W1651Actor*);
+W1651Vec* YS__OBJ__get_pos(W1651Actor*);
 f32 func_002f8ad0(f32, f32);
 void func_001835a0(W1651Actor*, f32);
-W1651Vec func_001b3428(W1651Ref* ref, W1651Actor* act);  // 0x001b3428: definition moved into src/anon/unit_001b2780.cpp
+W1651Vec YS__OBJOCC__RIDE__get_movement(W1651Ref* ref, W1651Actor* act);  // 0x001b3428: definition moved into src/anon/unit_001b2780.cpp
 }

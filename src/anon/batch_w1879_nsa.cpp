@@ -6,15 +6,15 @@ extern "C" {
 extern u8 D_00350c50[];
 extern List D_01c6ced0;
 s32 func_00192048(s32);
-void func_001a98e8(void*, s32, s32, s32, s32);
+void YS__MESSAGEDRAW__MESSAGEDRAW(void*, s32, s32, s32, s32);
 s32 func_001a9808(s32, s32);
 static inline Node* nextOf(Node* p) { return p ? p->next : D_01c6ced0.head; }
 // 001ac378: moved to src/anon/unit_001abb28.cpp
 
 // VU0 macro asm (vector subtract, normalize, dot product), as in the original.
 extern void* D_0034e948;
-V4* func_0016c028(void*);
-void func_0016af58(V4*, void*);
+V4* YS__OBJ__get_pos(void*);
+void YS__OBJ__get_dir(V4*, void*);
 void func_0015b1b0(u8, u8, u8);
 void func_0015b268(f32, s32);
 s32 func_001967f0(u8, u8, s32);
@@ -24,5 +24,5 @@ static inline f32 vnorm(V4* v) {
         : "=f"(len) : "r"(v) : "$8", "memory");
     return len;
 }
-s32 func_0019a6c0(void* self, u8* ids, f32* pos, u8 flag, u8 arg);  // 0x0019a6c0: definition moved into src/anon/unit_00199688.cpp
+s32 YS__UNIT_GROUP__jump_area(void* self, u8* ids, f32* pos, u8 flag, u8 arg);  // 0x0019a6c0: definition moved into src/anon/unit_00199688.cpp
 }

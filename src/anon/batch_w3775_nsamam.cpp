@@ -25,7 +25,7 @@ static inline bool skf(Tree* t, s32* f) {
   return sk;
 }
 
-void func_00141c38(Tree* t, s32 n, void* box, u16* cnt, s32 arg);  // 0x00141c38: definition moved into src/anon/unit_00141458.cpp
+void dk__OctCollFile__selectPolygon(Tree* t, s32 n, void* box, u16* cnt, s32 arg);  // 0x00141c38: definition moved into src/anon/unit_00141458.cpp
 }
 
 // 0020ab48: effect emitter update (advance animation frames, spawn new parts).
@@ -42,7 +42,7 @@ typedef struct EfEmitter { EfPart* parts; u8* work; s32 count; u8 padC[4]; u16 t
 extern s32 D_01d9ea9c;
 extern EfState* D_01d9e6e0;
 extern EfBank* D_01d9e6e4;
-void func_0020a658(EfEmitter* e, EfDef* def, EfPart* p, u32 a3, u8* w);
+void init_param(EfEmitter* e, EfDef* def, EfPart* p, u32 a3, u8* w);
 void func_0020a510(EfEmitter* e, EfDef* def, EfPart* p, u8* w);
 
 void func_0020ab48(EfEmitter* e, EfDef* def, u32 arg2) {
@@ -61,7 +61,7 @@ void func_0020ab48(EfEmitter* e, EfDef* def, u32 arg2) {
             EfFrame* f;
             u16 frame;
             s32 sum, rem, dur; register s32 nf asm("$9"); u16 n16;
-            { EfPart* q = p; asm("" : "+r"(q)); func_0020a658(e, def, q, arg2, w); }
+            { EfPart* q = p; asm("" : "+r"(q)); init_param(e, def, q, arg2, w); }
             { EfAnimRef* r = D_01d9e6e4->anims; r += def->anim; anim = r->anim; }
             frame = p->frame;
             nf = frame + 1;

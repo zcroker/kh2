@@ -201,14 +201,14 @@ extern s8 D_004f6330 asm("D_004f6330");
 extern Vq D_004f6340 asm("D_004f6340");
 void func_0016e898(void) asm("func_0016e898");
 void func_002fd188(void (*)(void)) asm("atexit");
-Vq func_0017d538(u32, f32) asm("func_0017d538");
+Vq YS__MATH__VectorRotY(u32, f32) asm("YS__MATH__VectorRotY");
 void func_0016d5d0(u32* p) asm("func_0016d5d0");
 void func_0016d5d0(u32* p) {
     if (!D_004f6330) {
         D_004f6330 = 1;
         func_002fd188(func_0016e898);  // pool_alloc_block
     }
-    D_004f6340 = func_0017d538(p[0], *(f32*)&p[1]);
+    D_004f6340 = YS__MATH__VectorRotY(p[0], *(f32*)&p[1]);
     p[0] = (u32)&D_004f6340;
 }
 }  // namespace n0016d5d0
@@ -396,14 +396,14 @@ void func_0016d8d0(u32* p) {
 // 0016d920 (from anon/batch_w34.cpp)
 namespace n0016d920 {
 struct Vec4 { f32 x, y, z, w; } __attribute__((aligned(16)));
-f32 func_0017d160(Vec4*, Vec4*) asm("func_0017d160");
+f32 YS__MATH__VectorAngle(Vec4*, Vec4*) asm("YS__MATH__VectorAngle");
 void func_0016d920(Vec4** p) asm("func_0016d920");
 void func_0016d920(Vec4** p) {
     Vec4 b;
     Vec4 a;
     asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(&b), "r"(p[1]) : "$8", "memory");
     asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(&a), "r"(p[0]) : "$8", "memory");
-    *(f32*)p = func_0017d160(&a, &b);
+    *(f32*)p = YS__MATH__VectorAngle(&a, &b);
 }
 }  // namespace n0016d920
 
@@ -472,12 +472,12 @@ void func_0016da20(DotArg* p)
 
 // 0016dad8 (from anon/batch_w35.cpp)
 namespace n0016dad8 {
-void func_0017d050(void*, u32) asm("func_0017d050");
+void YS__MATH__VectorToAngle(void*, u32) asm("YS__MATH__VectorToAngle");
 extern u8 D_004f62a0[] asm("D_004f62a0");
 void func_0016dad8(u8* p) asm("func_0016dad8");
 void func_0016dad8(u8* p) {
     u8 tmp[16] __attribute__((aligned(16)));
-    func_0017d050(tmp, *(u32*)p);
+    YS__MATH__VectorToAngle(tmp, *(u32*)p);
     u8* d = D_004f62a0;
     if (d != tmp) asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(d), "r"(tmp) : "$8", "memory");
     *(u8**)p = d;
@@ -713,7 +713,7 @@ void func_0016e048(f32* p) {
 
 // 0016e090 (from anon/tiny_jal_wrappers_reloc.cpp)
 namespace n0016e090 {
-u32 func_00188fe0(u32, u32, u32, u32) asm("_Z16ctarget_00188fe0jjjj");
+u32 YS__SAVERAM_BATTLE__get_partram(u32, u32, u32, u32) asm("_Z31YS__SAVERAM_BATTLE__get_partramjjjj");
 extern u8 D_0032e020 asm("D_0032e020");
 u32 func_0016e090(u32 a0, u32 a1, u32 a2, u32 a3) asm("_ZN2YS24trap_saveram_get_partramEP8BD_VALUE");
 u32 func_0016e090(u32 a0, u32 a1, u32 a2, u32 a3) {
@@ -721,7 +721,7 @@ u32 func_0016e090(u32 a0, u32 a1, u32 a2, u32 a3) {
     r16 = r4;
     r5 = *(u32*)((u32)r4 + (s32)(0));
     r4 = (u32)&D_0032e020;
-    r2 = func_00188fe0(r4, r5, r6, r7);
+    r2 = YS__SAVERAM_BATTLE__get_partram(r4, r5, r6, r7);
     *(u32*)((u32)r16 + (s32)(0)) = r2;
     return r2;
 }
@@ -740,22 +740,22 @@ u32 func_0016e0c8(u32 a0, u32 a1, u32 a2, u32 a3) {
 // 0016e0f8 (never written before: store a halfword into the form RAM entry)
 namespace g0016e0f8 {
 extern u32 D_0032e020 asm("D_0032e020");
-void* func_00189200(void*, u32) asm("_Z16ctarget_00189200jjjj");
+void* YS__SAVERAM_BATTLE__get_formram(void*, u32) asm("_Z31YS__SAVERAM_BATTLE__get_formramjjjj");
 void func_0016e0f8(u32* v) asm("func_0016e0f8");
 void func_0016e0f8(u32* v) {
-    *(u16*)func_00189200(&D_0032e020, v[0]) = *(u16*)&v[1];
+    *(u16*)YS__SAVERAM_BATTLE__get_formram(&D_0032e020, v[0]) = *(u16*)&v[1];
 }
 }  // namespace g0016e0f8
 
 // 0016e130 (from anon/batch_w11.cpp)
 namespace n0016e130 {
 extern u32 D_0032e020 asm("D_0032e020");
-void* func_00189200(void*, u32) asm("_Z16ctarget_00189200jjjj");
+void* YS__SAVERAM_BATTLE__get_formram(void*, u32) asm("_Z31YS__SAVERAM_BATTLE__get_formramjjjj");
 void func_001891b8(void*, u32) asm("_ZN2YS7FORMRAM11set_abilityEi");
 void trap_saveram_set_form_ability(u32*) asm("_ZN2YS29trap_saveram_set_form_abilityEP8BD_VALUE");
 void trap_saveram_set_form_ability(u32* v) asm("_ZN2YS29trap_saveram_set_form_abilityEP8BD_VALUE");
 void trap_saveram_set_form_ability(u32* v) {
-    func_001891b8(func_00189200(&D_0032e020, v[0]), v[1]);
+    func_001891b8(YS__SAVERAM_BATTLE__get_formram(&D_0032e020, v[0]), v[1]);
 }
 }  // namespace n0016e130
 
@@ -792,8 +792,8 @@ void func_0016e1c0(BD_VALUE* param_1) {
 // 0016e200 (from anon/batch_w14.cpp)
 namespace n0016e200 {
 void* func_001dc648(void*) asm("_ZN3ryj6EFFECT5angleEv");
-void func_0016e200(void** p) asm("func_0016e200");
-void func_0016e200(void** p) {
+void YS__trap_effect_set_rot(void** p) asm("YS__trap_effect_set_rot");
+void YS__trap_effect_set_rot(void** p) {
     u8* d = (u8*)func_001dc648(p[0]);
     u8* s = (u8*)p[1];
     if (d != s) {
@@ -812,11 +812,11 @@ struct Vq {
     }
 } __attribute__((aligned(16)));
 Vq* func_001dc648(u32) asm("_ZN3ryj6EFFECT5angleEv");
-Vq func_0017d050(u32) asm("func_0017d050");
-void func_0016e240(u32* p) asm("func_0016e240");
-void func_0016e240(u32* p) {
+Vq YS__MATH__VectorToAngle(u32) asm("YS__MATH__VectorToAngle");
+void YS__trap_effect_set_dir(u32* p) asm("YS__trap_effect_set_dir");
+void YS__trap_effect_set_dir(u32* p) {
     Vq* d = func_001dc648(p[0]);
-    *d = func_0017d050(p[1]);
+    *d = YS__MATH__VectorToAngle(p[1]);
 }
 }  // namespace n0016e240
 
@@ -858,7 +858,7 @@ void trap_effect_kill(BD_VALUE* bd) { ryj_EFFECT_kill(bd->i); }
 // 0016e338 (from anon/tiny_auto80_queue.cpp)
 namespace n0016e338 {
 extern u32 func_001dc978(...) asm("_ZN3ryj6EFFECT12fadeout_killEf");
-extern u32 func_001dc8c8(...) asm("func_001dc8c8");
+extern u32 ryj__EFFECT__fadeout_free(...) asm("ryj__EFFECT__fadeout_free");
 void func_0016e338(u32 a0) asm("_ZN2YS19trap_effect_fadeoutEP8BD_VALUE");
 void func_0016e338(u32 a0) {
     u32 t7 = *(u32*)((u32)a0 + (s32)(8));
@@ -869,7 +869,7 @@ void func_0016e338(u32 a0) {
         return;
     }
     a0 = *(u32*)((u32)a0 + (s32)(0));
-    ((void(*)(u32, f32))func_001dc8c8)(a0, *(f32*)((u32)t6 + (s32)(4)));
+    ((void(*)(u32, f32))ryj__EFFECT__fadeout_free)(a0, *(f32*)((u32)t6 + (s32)(4)));
 }
 }  // namespace n0016e338
 
@@ -1049,11 +1049,11 @@ void func_0016e680(void) {}
 
 // 0016e688 (from anon/batch_w1.cpp)
 namespace n0016e688 {
-void func_00188958(s32, s32) asm("func_00188958");
+void YS__PARTRAM__set_item_max(s32, s32) asm("YS__PARTRAM__set_item_max");
 void trap_assert(BD_VALUE* bd) asm("_ZN2YS11trap_assertEP8BD_VALUE");
 void trap_assert(BD_VALUE* bd) {
     s32 a = bd[0].i;
-    func_00188958(a, bd[1].i);
+    YS__PARTRAM__set_item_max(a, bd[1].i);
 }
 }  // namespace n0016e688
 
@@ -1093,11 +1093,11 @@ namespace g0016e758 {
 void SOUND_systemSePlay(s32, s32) asm("_ZN5SOUND12systemSePlayEii");
 void func_0016e758(BD_VALUE* bd) asm("func_0016e758");
 void func_0016e758(BD_VALUE* bd) { SOUND_systemSePlay(bd->i, 0); }
-void func_002bbf18(void) asm("func_002bbf18");
+void SOUND__silentBgSeOff(void) asm("SOUND__silentBgSeOff");
 void func_002bbed0(void) asm("func_002bbed0");
 void func_0016e778(BD_VALUE* bd) asm("func_0016e778");
 void func_0016e778(BD_VALUE* bd) {
-    if (bd->i > 0) func_002bbf18();
+    if (bd->i > 0) SOUND__silentBgSeOff();
     else func_002bbed0();
 }
 void func_001a6c90(s32) asm("func_001a6c90");
@@ -1121,11 +1121,11 @@ void trap_menuflag_check(BD_VALUE* bd) { bd->i = YS_MENUFLAG_Check(bd->i); }
 
 // 0016e800 (from anon/tiny_auto80_solver.cpp)
 namespace n0016e800 {
-u32 func_001a3188(u32, u32, u32, u32, u32, u32, u32, u32) asm("func_001a3188");
+u32 YS__ITEM__Get(u32, u32, u32, u32, u32, u32, u32, u32) asm("YS__ITEM__Get");
 u32 func_0016e800(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) asm("_ZN2YS13trap_item_getEP8BD_VALUE");
 u32 func_0016e800(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
     u32 s0 = a0;
-    u32 v0 = func_001a3188(*(u32*)a0, *(u32*)(s0 + 4), 0, a3, a4, a5, a6, a7);
+    u32 v0 = YS__ITEM__Get(*(u32*)a0, *(u32*)(s0 + 4), 0, a3, a4, a5, a6, a7);
     *(u32*)s0 = v0;
     return v0;
 }

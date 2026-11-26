@@ -30,13 +30,13 @@ struct W1649Mgr {
 };
 s32 func_00106a08(void);
 void* func_00106a60(s32);
-void func_00107368(void*, W1649Pos*);
+void kn__Camera__getPosition(void*, W1649Pos*);
 void func_00148598(W1649Mgr*, void*);
 void func_001b81e8(void);
 void func_001b8218(void);
 void func_00148a30(W1649Mgr*);
 void func_00148ac0(W1649Mgr*);
-void func_00147810(W1649Mgr*, W1649Ob*);
+void dk__OctDrawFile__calcCameraRelative(W1649Mgr*, W1649Ob*);
 f32 func_00148890(W1649Mgr*, W1649Ob*, W1649Pos*);
 void func_001472b8(void*, void*, s32, s32);
 void func_00148e40(W1649Mgr*, W1649Ob*, W1649Ob** out, s32* n);
@@ -54,5 +54,5 @@ union W1649FI { f32 f; W1649Ent* e; };
 // Built with -fno-strict-aliasing (_nsa file).
 // Per-frame update of all entries: measures their distance to the camera, sorts the visible ones
 // (nearest first, in scratchpad), fades out far ones, and updates them (by group when grouped).
-void func_001473e8(W1649Mgr* m);  // 0x001473e8: definition moved into src/anon/unit_00147140.cpp
+void dk__OctDrawFile__drawObjectAll(W1649Mgr* m);  // 0x001473e8: definition moved into src/anon/unit_00147140.cpp
 }

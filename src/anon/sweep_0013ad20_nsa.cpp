@@ -19,4 +19,4 @@ u8* func_001063c0(u32, u32);
 void func_0031a838(void*);
 void func_00239700(void*);
 void func_002361a0(void*);
-void func_0013ad20(void);  // 0x0013ad20: definition moved into src/anon/unit_0013a8b8.cpp
+void dk__COMMAND_ONE__init(void);  // 0x0013ad20: definition moved into src/anon/unit_0013a8b8.cpp

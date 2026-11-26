@@ -43,7 +43,7 @@ struct W1655Tgt {
 };
 // YS::COLLISION_ELEM
 struct W1655Elem { u8 id; u8 p1; u16 flags; };
-// hit sphere filled by func_0018a818
+// hit sphere filled by YS__COLLISION__set
 struct W1655Hit { s32 p0; f32 radius; f32 height; s32 pc; W1655QW centre; };
 struct W1655Prm { u8 p0[0x60]; f32 low; f32 high; u8 p68[4]; f32 yscale; f32 dirmin; };
 struct W1655ObjVt { void* f[39]; W1655QW (*getPos)(W1655Obj*); };
@@ -52,18 +52,18 @@ struct W1655Sys { u8 p0[0x4c]; f32 lockRange; };
 extern "C" {
 extern W1655Sys* D_00352130;
 f32 W1655_GetLockOnRatio() asm("_ZN2YS6STATUS14GetLockOnRatioEv");
-W1655Obj* W1655_ctarget(W1655Obj*) asm("_Z16ctarget_001b9bc8jjjj");
+W1655Obj* W1655_ctarget(W1655Obj*) asm("_Z13YS__OBJ__Eachjjjj");
 W1655Elem* W1655_each_collision(W1655Obj*, s32, W1655Elem*) asm("_ZN2YS3OBJ14each_collisionEiPKNS_14COLLISION_ELEME");
 void W1655_set_obj(W1655Tgt*, W1655Obj*, s32) asm("_ZN2YS6TARGET7set_objEPNS_3OBJEi");
 f32 W1655_FixRadian(f32) asm("_ZN2YS4MATH9FixRadianEf");
 f32 f_atan2f(f32, f32);
 f32 fabsf(f32);  // fabsf
-s32 func_0019bc38(W1655Obj*);
+s32 YS__OBJ__can_lockon(W1655Obj*);
 s32 func_0019bb58(W1655Obj*);
-void func_0018a818(W1655Hit*, W1655Obj*, W1655Elem*);
+void YS__COLLISION__set(W1655Hit*, W1655Obj*, W1655Elem*);
 W1655QW func_00190388(W1655Tgt*);
-W1655QW* func_0016c028(W1655Obj*);
-W1655QW func_0016af58(W1655Obj*);
+W1655QW* YS__OBJ__get_pos(W1655Obj*);
+W1655QW YS__OBJ__get_dir(W1655Obj*);
 }
 // Best candidate so far: the target plus its score (kept in memory, next to the target).
 struct W1655Best { W1655Tgt t; f32 v; };
@@ -73,7 +73,7 @@ extern "C" {
 W1655Tgt func_00190d10(W1655Tgt* cur, W1655Obj* self, f32 scale);  // 0x00190d10: definition moved into src/anon/unit_001900d0.cpp
 
 // Lock onto the nearest collision element, weighted by how far it is off self's facing.
-void func_00190f80(W1655Tgt* t, W1655Obj* self, f32 limit);  // 0x00190f80: definition moved into src/anon/unit_001900d0.cpp
+void YS__TARGET__search_auto_lockon(W1655Tgt* t, W1655Obj* self, f32 limit);  // 0x00190f80: definition moved into src/anon/unit_001900d0.cpp
 
 // Pick the nearest collision element lying in direction dir (flattened), within lock-on range.
 W1655Tgt func_001913d8(W1655Tgt* cur, W1655Obj* self, const W1655QW* dir);  // 0x001913d8: definition moved into src/anon/unit_001900d0.cpp

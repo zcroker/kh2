@@ -25,7 +25,7 @@ f32 D_003634f8 = 0.01f;
 f32 D_003634fc = 100.0f;
 f32 D_00363500 = 3.0f;
 
-Vec128 func_00184540(u32, f32, f32);
+Vec128 kn__MotionPrototype0__calcLimitValue(u32, f32, f32);
 Vec128 func_002ede48(u32, Vec128*, f32, f32);
 
 /* ---- 002ead98 (gap): action method, sets flag 0x1000, clears the velocity, loads the default params ---- */
@@ -49,7 +49,7 @@ void func_002eadd8(u32, u8* o) {
 
 /* ---- 002eae08 ---- */
 Vec128* func_002eae08(Vec128* out, u32 a1, u32 a2) {
-    *out = func_00184540(a2, D_003634f4, 1.0f - D_003634f8);
+    *out = kn__MotionPrototype0__calcLimitValue(a2, D_003634f4, 1.0f - D_003634f8);
     *out = func_002ede48(a2, out, D_003634fc, D_00363500);
     return out;
 }

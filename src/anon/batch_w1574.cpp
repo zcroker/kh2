@@ -31,23 +31,23 @@ void func_0015fe18(void*, E15c*, s32, V4w1574, V4w1574, V4w1574, s32, s32, s32, 
 void func_0015c2a0(s32 base, u64 mask);  // 0x0015c2a0: definition moved into src/anon/unit_0015bab8.cpp
 f32 func_001142c0(s32);
 void func_00190128(Tgt10d*);
-QW10d* func_0016c028(Act10d*);
-void func_00112df0(s32, Tgt10d*, QW10d*, f32);
+QW10d* YS__OBJ__get_pos(Act10d*);
+void kn__Friend__setAttackTarget(s32, Tgt10d*, QW10d*, f32);
 s32 Tgt10d_is_exist(Tgt10d*) asm("_ZNK2YS6TARGET8is_existEv");
 s32 Tgt10d_can_attack(Tgt10d*) asm("_ZNK2YS6TARGET10can_attackEv");
-s32 func_00190730(Tgt10d*, s32);
+s32 YS__TARGET__each(Tgt10d*, s32);
 s32 func_00112d90(Tgt10d*);
-void func_0018a818(Hit10d*, s32, s32);
+void YS__COLLISION__set(Hit10d*, s32, s32);
 void func_0010d2b8_impl(Act10d* self, void* unused, Tgt10d* out) asm("_Z13func_0010d2b8Pv");
 void func_0010d2b8_impl(Act10d* self, void* unused, Tgt10d* out);  // 0x0010d2b8: definition moved into src/anon/unit_0010ce78.cpp
-void func_001cf320(Obj187*, Ev187*, s32, s32, f32);
+void YS__TRPLAYER__ExecReflect(Obj187*, Ev187*, s32, s32, f32);
 s32 func_0019c090(Obj187*);
 void f17f488_187(void*, s32, f32, f32) asm("_Z13func_0017f488iiff");
 void push_187(void*, s32, f32, f32, void*) asm("_ZN2YS6MOTION4pushEiffPFvPNS_3OBJEE");
-void func_0016af58(QW187*, Obj187*);
+void YS__OBJ__get_dir(QW187*, Obj187*);
 void func_00186c58(Obj187*, QW187*, f32);
-void ctarget_00186a90_187(Obj187*, QW187*, f32) asm("_Z16ctarget_00186a90jjjj");
-static inline void Back187(QW187* t, Obj187* self) { QW187 v; func_0016af58(&v, self); Scale187(t, &v, -1.0f); }
+void ctarget_00186a90_187(Obj187*, QW187*, f32) asm("_Z23YS__BTLOBJ__set_hitbackjjjj");
+static inline void Back187(QW187* t, Obj187* self) { QW187 v; YS__OBJ__get_dir(&v, self); Scale187(t, &v, -1.0f); }
 // 00187018: moved to src/anon/unit_00185d10.cpp
-void func_00187018(Obj187* self, Ev187* ev, s32 a2, s32 mot, f32 spd);
+void YS__BTLOBJ__exec_reflect_default(Obj187* self, Ev187* ev, s32 a2, s32 mot, f32 spd);
 }

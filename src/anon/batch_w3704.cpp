@@ -8,7 +8,7 @@ void func_0017ebe8(void*, s32);
 void func_00195858(void*, u32);
 void func_001b2f38(void*, s32, u32);
 void func_001d56f0(void*);
-void func_001dddd0(void*, s32);
+void ryj__PAX__init(void*, s32);
 extern u8 D_003503e0[];
 extern u8 D_00350e48[];
 

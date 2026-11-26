@@ -91,7 +91,7 @@ void func_00170518(char*, s32, s32);
 s32 W1639_CheckFlag(s32) asm("_ZN2YS8PROGRESS9CheckFlagEi");
 void W1639_SetFlag(s32) asm("_ZN2YS8PROGRESS7SetFlagEi");
 void W1639_ParseIndex(void*, s32*, W1639Code*) asm("_ZNK2YS8AREADATA8SETINDEX5parseEPKNS0_4CODEES4_");
-void func_001ada38(s32);
+void YS__RECOV__Exec(s32);
 s32 func_001d9b40(u8*);
 
 // 00181da0: moved to src/yasui/libys/areadata.cpp

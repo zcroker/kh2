@@ -45,15 +45,15 @@ s32 func_001cc888(W63Body* b) {
 extern "C" {
 extern u8* D_00352050;
 struct V920 { f32 x, y, z, w; } __attribute__((aligned(16)));
-void func_0016bda8(V920*, u8*) asm("func_0016bda8");
+void YS__OBJ__get_target_pos(V920*, u8*) asm("YS__OBJ__get_target_pos");
 u8* func_001cc128(u8*, V920*) asm("_ZN2YS5PRIZE6appearEPKNS_11PRIZEEFFECT5PARAMERKN2kn7FVectorE");
 void func_001ccac0(u8*, u32);
 
 // Scatter up to n of the object's prizes towards `to`; 1 when it ran out.
-u32 c_001cc920(u8* to, u8* from, s32 n) asm("_Z16ctarget_001cc920jjjj");
+u32 c_001cc920(u8* to, u8* from, s32 n) asm("_Z20YS__PRIZE_CA__Vacuumjjjj");
 u32 c_001cc920(u8* to, u8* from, s32 n) {
     V920 pos;
-    func_0016bda8(&pos, from);
+    YS__OBJ__get_target_pos(&pos, from);
     s32 i = 0;
     if (n > 0) {
         while (1) {
@@ -84,10 +84,10 @@ struct Vc {
     Vc(const Vc& o) { asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(this), "r"(&o) : "$8", "memory"); }
 } __attribute__((aligned(16)));
 extern "C" {
-u8* func_0016c028(u8*);
+u8* YS__OBJ__get_pos(u8*);
 u8* func_001c16f0(u8*, u8*);
 void func_001cc9c8(u8* o, f32 r) {
-    Vc pos(*(Vc*)func_0016c028(o));  // obj_get_attach_or_alt
+    Vc pos(*(Vc*)YS__OBJ__get_pos(o));  // obj_get_attach_or_alt
     u8* e = 0;
     while ((e = func_001c16f0(*(u8**)(D_00352050 + 2548), e)) != 0) {
         if (*(u32*)(e + 72)) continue;
@@ -144,7 +144,7 @@ static inline VH Lerp(const VH& a, const VH& b, f32 t) {
 }
 struct ObjH { VH pos; u8 pad[32]; VH vel; u8 pad2[8]; u8* owner; };
 extern "C" {
-VH func_0016bda8h(u8*) asm("func_0016bda8");
+VH func_0016bda8h(u8*) asm("YS__OBJ__get_target_pos");
 s32 func_001ccc38(ObjH* a0);
 s32 func_001ccaa0(ObjH* a0) {
     s32 (*move)(ObjH*) = func_001ccc38;
@@ -273,18 +273,18 @@ void func_001ccf18(void* a0, s32 a1, s32 n) {
     }
 }
 
-s32 func_00186ce8(u8*);
+s32 YS__BTLOBJ__is_damage_motion(u8*);
 s32 func_00186d18(u8*);  // check_size140to150
-s32 func_001c7950b(void*, void*, f32, f32) asm("func_001c7950");
-void func_001c79a0b(void*, void*, s32) asm("func_001c79a0");
+s32 func_001c7950b(void*, void*, f32, f32) asm("YS__PRIZEEFFECT__can_get");
+void func_001c79a0b(void*, void*, s32) asm("YS__PRIZEEFFECT__get");
 void func_001d86a0(s32, s32);
 u8* func_00186078b(u8*) asm("func_00186078");
 struct Fl40 { u32 on:1; u32 rest:31; };
-void func_001ccfa0(void* self, u8* a) {
+void YS__PRIZE_TT___OVR_check_get(void* self, u8* a) {
     if (((Fl40*)(a + 40))->on) {
         u8* it = 0;
         while ((it = func_00186078b(it)) != 0) {
-            if (func_00186ce8(it)) continue;
+            if (YS__BTLOBJ__is_damage_motion(it)) continue;
             if (func_00186d18(it)) continue;
             if (*(u32*)(it + 360) & 0x40) continue;
             if (!func_001c7950b(a, it, 0.0f, 0.0f)) continue;

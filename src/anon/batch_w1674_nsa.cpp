@@ -67,5 +67,5 @@ void sceVu0CopyMatrix(f32 (*out)[4], f32 (*in)[4]);         // sceVu0CopyMatrix
 void sceVu0UnitMatrix(f32 (*m)[4]);                        // sceVu0UnitMatrix
 u8* func_0021d048(u8* data, DrawParam206b* p, s32 x);
 
-void func_00206be8(List206b* list);  // 0x00206be8: definition moved into src/anon/unit_00206be8.cpp
+void draw_lamp(List206b* list);  // 0x00206be8: definition moved into src/anon/unit_00206be8.cpp
 }

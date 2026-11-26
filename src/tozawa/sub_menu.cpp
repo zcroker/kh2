@@ -6,7 +6,7 @@ extern "C" u32 func_002431c0(...);
 extern "C" u32 func_00243150(...);
 extern "C" u32 func_0028ca78(...);
 extern "C" u32 func_0023fad0(...);
-extern "C" u32 func_00287a28(...);
+extern "C" u32 Tz__MenuBase__Exit(...);
 extern "C" u32 func_00242790(...);
 extern "C" u32 func_0023d368(...);
 extern "C" u32 func_002fee78(...);

@@ -9,18 +9,18 @@ struct VT_w271 { void* f[32]; };
 struct Obj_w271 { VT_w271* vt; };
 extern u32 D_0034e948;
 extern "C" {
-u32 func_0019ba60(u32);
+u32 YS__OBJ__is_exist(u32);
 u32 func_0019c090(u32);  // obj_is_enabled
 u32 func_0019c5d0(Obj_w271*);
 f32 func_001849d8(u32);
 u32 c5d0f(Obj_w271*, f32) asm("func_0019c5d0");
-V4_w271* func_0016c028(u32);  // obj_get_attach_or_alt
+V4_w271* YS__OBJ__get_pos(u32);  // obj_get_attach_or_alt
 f32 func_0016afe0(u32);
 void func_0016aeb8(Obj_w271*, f32);
 void func_0016ace0(Obj_w271*, V4_w271*);
 void func_0016ad68(Obj_w271*, u32);
 void func_0016ac38(Obj_w271*, s32, s32, s32, s32);
-void func_001b2db8(u32 self, Obj_w271* o);  // 0x001b2db8: definition moved into src/anon/unit_001b2780.cpp
+void YS__ACTION_CARPETOBJ__control(u32 self, Obj_w271* o);  // 0x001b2db8: definition moved into src/anon/unit_001b2780.cpp
 }
 struct M_w271 { f32 m[12]; f32 t[4]; } __attribute__((aligned(16)));
 extern "C" {
@@ -66,17 +66,17 @@ extern void* D_0035edac;
 extern u32 D_0035edb0;
 extern void* D_0035edc0;
 extern E_w271 D_003720a0[];
-void func_00288d80(void*, s32, s32, s32, u32, u32, E_w271*, void*);
+void Tz__Select__SetItem(void*, s32, s32, s32, u32, u32, E_w271*, void*);
 u8* func_002891b8(void*, s32);
 u32 func_0023aa78(void*);
 u32 func_0023aa98(void*);
-void func_00288e08(void*, s32, u32, s32);
+void Tz__Select__SetExOffset(void*, s32, u32, s32);
 u32 func_0028dd90(u32);  // mod10_classify_012
 u32 func_0028ddd8(u32);
 void func_001395f8(u8*);
-void func_002891f0(void*, s32, s32, s32, s32);
+void Tz__Select__SetCurrent(void*, s32, s32, s32, s32);
 void func_002b4388(void*, E_w271*, s32);
-void func_0024ba58(void);  // 0x0024ba58: definition moved into src/anon/unit_0024ba58.cpp
+void Tz__HBTE__SetupSel(void);  // 0x0024ba58: definition moved into src/anon/unit_0024ba58.cpp
 }
 #ifndef QCOPY
 #define QCOPY(d, s) asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(d), "r"(s) : "$8", "memory")

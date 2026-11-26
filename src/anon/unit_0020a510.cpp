@@ -23,7 +23,7 @@ struct V20a510 { f32 x, y, z, w; };
 struct I20a510 { V20a510 pos; V20a510 q; };
 struct M20a510 { u8 pad[0x7c]; f32 x, y, z; u8 pad2[0x9c - 0x88]; f32 r0, r1; };
 f32 func_00209fb8() asm("func_00209fb8");
-void func_0020a090(M20a510*, I20a510*, u8*) asm("func_0020a090");
+void birth(M20a510*, I20a510*, u8*) asm("birth");
 /*TARGET 0020a510*/
 void func_0020a510(void* self, void* mv, void* itv, u8* buf) asm("func_0020a510");
 void func_0020a510(void* self, void* mv, void* itv, u8* buf) {
@@ -56,7 +56,7 @@ void func_0020a510(void* self, void* mv, void* itv, u8* buf) {
     } while (r < len);
     it->pos.w = 1.0f;
     sceVu0ApplyMatrix(it, D_01d9e7b0, it);
-    func_0020a090(m, it, buf);
+    birth(m, it, buf);
 }
 }  // namespace n0020a510
 

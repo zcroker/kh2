@@ -51,13 +51,13 @@ void func_0018a670(W1886Body* a, W1886Body* b, W1886V* out);  // 0x0018a670: def
 
 extern u32 D_0034f240;
 extern f32 D_00349e10;
-s32 func_001b55e8(W1886Obj*);
+s32 YS__LIMIT__can_end(W1886Obj*);
 void func_001b5460(W1886Obj*);
-void func_00185e20(s32);
+void YS__ENEMY__StopStartAll(s32);
 s32 func_00197920(void);
 void func_0016c640(s32);
-void func_001b0250(s32);
-s32 func_0016cd48(s32, s32);
+void YS__VOICE__exec(s32);
+s32 YS__VM__exec(s32, s32);
 void func_001b5588(W1886Obj*);
 s32 func_001b5680(W1886Obj*);
 void func_001b53b0(W1886Obj*, f32);

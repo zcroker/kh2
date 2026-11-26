@@ -19,5 +19,5 @@ extern s8 D_0035f5a3;
 
 void func_00293708(void);  // 0x00293708: definition moved into src/anon/unit_00292e60.cpp
 
-void func_00297cf8(void);  // 0x00297cf8: definition moved into src/anon/unit_00295d28.cpp
+void Tz__JmAlbum__Init(void);  // 0x00297cf8: definition moved into src/anon/unit_00295d28.cpp
 }

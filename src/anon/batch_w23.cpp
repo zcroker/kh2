@@ -43,7 +43,7 @@ extern E24* D_0034a778;
 void func_00153540(void*, u32, u32, u32, u32);
 void func_001535b0(u8* p, s32 i);  // 0x001535b0: definition moved into src/anon/unit_00153158.cpp
 
-s32 func_001a1de0(void*);
+s32 YS__SHEET__is_mpdrive(void*);
 void func_00138c10(void*, s32);
 // 00157aa0: moved to src/anon/unit_00157688.cpp
 
@@ -68,7 +68,7 @@ void func_001d32e8(void*, s32, s32);
 void func_00197e08(s32 a, s32 b);  // 0x00197e08: definition moved into src/anon/unit_00195d00.cpp
 
 void* func_001050d8(u32);
-void func_001aedf8(void*, void*, s32);
+void YS__GAMEOVER__GAMEOVER(void*, void*, s32);
 void func_001af360(void* a);  // 0x001af360: definition moved into src/anon/unit_001ada38.cpp
 
 struct L1b { u8 pad[2228]; L1b* next; };
@@ -82,7 +82,7 @@ static inline bool list1b_has(L1b* o) {
     return false;
 }
 // Is o in the list?
-u8 func_001ba028(L1b* o);  // 0x001ba028: definition moved into src/anon/unit_001b9880.cpp
+u8 YS__OBJ__is_valid(L1b* o);  // 0x001ba028: definition moved into src/anon/unit_001b9880.cpp
 
 extern u8* D_01d49360;
 extern u32 D_00320888;
@@ -153,9 +153,9 @@ extern u8 D_01e2bc40[];
 extern u8 D_00375400[];
 extern u32 D_0033caf4;
 void func_002fee78(void*, void*, u32);
-void* func_002beb90(void);  // 0x002beb90: definition moved into src/anon/unit_002be020.cpp
+void* worldmap__Manager__get2ldFile(void);  // 0x002beb90: definition moved into src/anon/unit_002be020.cpp
 
-void func_00184540(void*, void*, f32, f32);
+void kn__MotionPrototype0__calcLimitValue(void*, void*, f32, f32);
 void* func_002bec38(void* a, void*, u8* c);  // 0x002bec38: definition moved into src/anon/unit_002bebd0.cpp
 
 extern u32 D_00362738;
@@ -181,7 +181,7 @@ typedef union { f32 value; u32 word; } ieee_float_shape_type;
 // copysignf
 f32 copysignf(f32 x, f32 y);  // 0x002fb900: definition moved into src/newlib/libm/sf_copysign.c
 
-void func_001acd78(void*);
+void YS__WINDOW_BASE__page_end(void*);
 void func_0031fd78(void* p);  // 0x0031fd78: definition moved into src/anon/unit_0031f2f8.cpp
 
 extern u32 D_00362a20;

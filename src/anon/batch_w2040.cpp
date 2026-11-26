@@ -89,7 +89,7 @@ void func_0016bd60(s32, s32);
 s32 func_001708f8(char*, s32);
 void func_002ce958(void*, s32, s32, s32);
 void func_002ceae8(void*, char*, const char*);
-void func_002cedd0(s32, void*);
+void Ti__MiniGame__create_task(s32, void*);
 s32 func_002dc7f8(void*);
 void func_002dc850(void*);
 void func_002e4a08(void*);
@@ -99,10 +99,10 @@ extern u8 D_00362990[];
 extern u8 D_003629e8[];
 extern char D_00375d48[];
 W2040Unit* func_001a1658(s32, s32);
-void func_001a17c8(W2040Unit*);
-void func_001a1950(W2040Unit*, s32, s32, s32);
-void func_001a1a20(W2040Unit*, s32, s32);
-void func_001a1aa0(W2040Unit*, s32, s32);
+void YS__SHEET__Free(W2040Unit*);
+void YS__SHEET__add_hp(W2040Unit*, s32, s32, s32);
+void YS__SHEET__add_mp(W2040Unit*, s32, s32);
+void YS__SHEET__add_drive(W2040Unit*, s32, s32);
 void func_001a2578(W2040Unit*, s32, s32);
 void func_001a25c8(W2040Unit*, s32, s32);
 void func_001a2618(W2040Unit*, s32, s32);
@@ -113,7 +113,7 @@ f32 func_002f8a18(f32);
 f32 fabsf(f32);
 
 void func_002dc2b8(W2040Obj* self, s32 x, s32 y);  // 0x002dc2b8: definition moved into src/anon/unit_002da040.cpp
-void func_002dc4e0(W2040Obj* self, s32 x, s32 y);  // 0x002dc4e0: definition moved into src/anon/unit_002da040.cpp
+void Ti__MGJump__MGJump(W2040Obj* self, s32 x, s32 y);  // 0x002dc4e0: definition moved into src/anon/unit_002da040.cpp
 void func_002e1440(void* self, C2040Vec* v, C2040Vec* mn, C2040Vec* mx);  // 0x002e1440: definition moved into src/anon/unit_002de3c8.cpp
 // 001a2b50: moved to src/anon/unit_001a2a50.cpp
 }

@@ -23,8 +23,8 @@ struct W2042Vec {
 } __attribute__((aligned(16)));
 struct W2042Seg { W2042Vec a, b; };
 struct W2042Obj { u8 p0[0x5fc]; f32 r; u64 :3; s64 k:32; };
-W2042Vec* func_0016c028(W2042Obj*);
-s32 func_00143ae0(W2042Seg*, W2042Vec*, W2042Vec*, s32);
+W2042Vec* YS__OBJ__get_pos(W2042Obj*);
+s32 dk__Octree__intersectLineMap_2(W2042Seg*, W2042Vec*, W2042Vec*, s32);
 
 static inline f32 w2042_norm(W2042Vec* v) {
     f32 len;

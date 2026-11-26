@@ -22,7 +22,7 @@ union BD_VALUE
 void func_001671e8(s32, s32);
 void func_00167218(void);
 s32 func_00227ca8(void *);
-s32 func_002282f0(s32);
+s32 sa__EVENT__checkStart(s32);
 typedef struct S4
 {
   s32 a;
@@ -31,6 +31,6 @@ typedef struct S4
   u8 b7;
   u8 p8[4];
 } S4;
-void func_0022cea0(S4 *p);  // 0022cea0: moved to src/sasa/event_layout.cpp (linked unit)
+void sa__EVENT__set_bin_seq_focus(S4 *p);  // 0022cea0: moved to src/sasa/event_layout.cpp (linked unit)
 
 }

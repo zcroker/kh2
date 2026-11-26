@@ -239,8 +239,8 @@ void func_0021f0d8(void*) asm("func_0021f0d8");
 struct W1807V4 { f32 x, y, z, w; };
 struct W1807Arg { u8* s; u8* m; void* a; void* b; };
 /*TARGET 001fa668*/
-void func_001fa668(u8* a, u32 a1, u8* c) asm("func_001fa668");
-void func_001fa668(u8* a, u32 a1, u8* c) {
+void pppKeLnsLpDraw(u8* a, u32 a1, u8* c) asm("pppKeLnsLpDraw");
+void pppKeLnsLpDraw(u8* a, u32 a1, u8* c) {
     u8* d = a + **(u32**)(c + 12);
     u8* s = d + 160;
     W1807V4 v;

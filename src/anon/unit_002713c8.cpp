@@ -30,7 +30,7 @@ void func_002713a0(s32, s8**, s32*) asm("func_002713a0");
 s32 func_00272c20(s32) asm("func_00272c20");
 void func_002fde18(void*, s32, s32) asm("func_002fde18");
 u8* func_00273140(s32) asm("func_00273140");
-void func_00271710(s32, u8*, s32, s32, s32) asm("func_00271710");
+void Tz__CmCustom__MakeItemMess(s32, u8*, s32, s32, s32) asm("Tz__CmCustom__MakeItemMess");
 void func_00271828(s32, u8*) asm("func_00271828");
 u8* func_00273180(s32, s32) asm("func_00273180");
 void func_002595b8(s32, u8*, s32) asm("func_002595b8");
@@ -90,7 +90,7 @@ void ttarget0_002713c8() {
                 } else {
                     a3 = *(s8*)(D_0035f12c + j * 8 + 10) == 1;
                 }
-                func_00271710(*(s16*)(D_0035f12c + j * 8 + 8), base + k * 32 + 0xae10, on, a3, sel);
+                Tz__CmCustom__MakeItemMess(*(s16*)(D_0035f12c + j * 8 + 8), base + k * 32 + 0xae10, on, a3, sel);
                 j++;
             } else {
                 func_00271828(*(s8*)(D_0035f12c + 3), base + k * 32 + 0xae10);
@@ -115,13 +115,13 @@ W1597It* func_001a80c8(s32) asm("func_001a80c8");
 void func_00259570(u8, s32, u8, s32) asm("func_00259570");
 void func_002595b8(s32, s32, s32) asm("func_002595b8");
 s32 func_001a3820(u16) asm("func_001a3820");
-W1597Rec* func_001b8e88(s32) asm("func_001b8e88");
+W1597Rec* YS__COMMAND_ELEM__Get(s32) asm("YS__COMMAND_ELEM__Get");
 s32 func_002595e0() asm("func_002595e0");
 u32 func_00192048(u32) asm("func_00192048");
 u32 func_002595e8(u32, u32) asm("func_002595e8");
 /*TARGET 00271710*/
-s32 func_00271710(s32 a0, u32 a1, u8 a2, u8 a3, s32 t0) asm("func_00271710");
-s32 func_00271710(s32 a0, u32 a1, u8 a2, u8 a3, s32 t0)
+s32 Tz__CmCustom__MakeItemMess(s32 a0, u32 a1, u8 a2, u8 a3, s32 t0) asm("Tz__CmCustom__MakeItemMess");
+s32 Tz__CmCustom__MakeItemMess(s32 a0, u32 a1, u8 a2, u8 a3, s32 t0)
 {
     W1597It* p;
     if (a0) p = func_001a80c8(a0); else p = 0;
@@ -132,7 +132,7 @@ s32 func_00271710(s32 a0, u32 a1, u8 a2, u8 a3, s32 t0)
         func_002595b8(t0, a1, 1);
     }
     if (a2) {
-        if (a0) v = func_001b8e88(func_001a3820(p->h0))->f8;
+        if (a0) v = YS__COMMAND_ELEM__Get(func_001a3820(p->h0))->f8;
     } else if (a0) {
         v = p->h8;
     }
@@ -170,8 +170,8 @@ namespace n00271870 {
 u8* func_001a8110(u8*) asm("func_001a8110");
 u32 func_001a3820(u16) asm("func_001a3820");
 /*TARGET 00271870*/
-u32 func_00271870(u32 key) asm("func_00271870");
-u32 func_00271870(u32 key) {
+u32 Tz__CmCustom__Command2Item(u32 key) asm("Tz__CmCustom__Command2Item");
+u32 Tz__CmCustom__Command2Item(u32 key) {
     u8* e = 0;
     u32 r = 0;
     if (!key) return 0;

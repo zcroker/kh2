@@ -36,8 +36,8 @@ union U9 { u32 u; s32 s; u8 c; };
 #define R(o) (((U9*)(d + (o)))->s)
 #define W(o) (*(u32*)(p + (o)))
 /*TARGET 00239988*/
-s32 func_00239988(u8* p, u8* d) asm("func_00239988");
-s32 func_00239988(u8* p, u8* d) {
+s32 YI__SEQUENCE__Init(u8* p, u8* d) asm("YI__SEQUENCE__Init");
+s32 YI__SEQUENCE__Init(u8* p, u8* d) {
     func_00237280(p, d);
     W(16) &= ~1;
     W(16) &= ~4;
@@ -412,8 +412,8 @@ void func_00239eb8(S239* p, f32 v) {
 namespace n00239f18 {
 struct F239 { u32 b0 : 1; u32 b1 : 1; u32 rest : 30; };
 /*TARGET 00239f18*/
-void func_00239f18(u8* p, f32 f) asm("func_00239f18");
-void func_00239f18(u8* p, f32 f) {  // obj_set_float312_and_flags
+void YI__SEQUENCE__SetScaleX(u8* p, f32 f) asm("YI__SEQUENCE__SetScaleX");
+void YI__SEQUENCE__SetScaleX(u8* p, f32 f) {  // obj_set_float312_and_flags
     *(f32*)(p + 312) = f;
     ((F239*)(p + 184))->b1 = !(*(f32*)(p + 308) == 1.0f && f == 1.0f && *(f32*)(p + 316) == 1.0f);
 }
@@ -516,12 +516,12 @@ f32 cosf(f32) asm("cosf");
 
 /* Finds the active key at seq->time and evaluates color, scale and position. */
 
-void func_0023a0d8(W1702Seq* seq) asm("func_0023a0d8");
+void YI__SEQUENCE__UpdateActive(W1702Seq* seq) asm("YI__SEQUENCE__UpdateActive");
 /* cosf */
 
 /* Finds the active key at seq->time and evaluates color, scale and position. */
 
-void func_0023a0d8(W1702Seq* seq) {
+void YI__SEQUENCE__UpdateActive(W1702Seq* seq) {
     seq->active = 1;
     s32 n = seq->numKeys;
     W1702Key* k = seq->keys;
@@ -650,12 +650,12 @@ void func_0023a0d8(W1702Seq* seq) {
 
 // 0023a8a8 (was gap)
 namespace n0023a8a8 {
-u32 func_0023a0d8(...) asm("func_0023a0d8");
+u32 YI__SEQUENCE__UpdateActive(...) asm("YI__SEQUENCE__UpdateActive");
 f32 func_0023a8a8(u8* a0) asm("func_0023a8a8");
 f32 func_0023a8a8(u8* a0) {
     u8* s0 = a0;
     if (*(u8*)(a0 + 212) == 0) {
-        func_0023a0d8((u32)a0);
+        YI__SEQUENCE__UpdateActive((u32)a0);
     }
     return *(f32*)(s0 + 216);
 }
@@ -663,13 +663,13 @@ f32 func_0023a8a8(u8* a0) {
 
 // 0023a8e0 (was src/anon/tiny_auto80_queue.cpp)
 namespace n0023a8e0 {
-u32 func_0023a0d8(...) asm("func_0023a0d8");
+u32 YI__SEQUENCE__UpdateActive(...) asm("YI__SEQUENCE__UpdateActive");
 /*TARGET 0023a8e0*/
 f32 func_0023a8e0(u8* a0) asm("_Z13func_0023a8e0Ph");
 f32 func_0023a8e0(u8* a0) {
     u8* s0 = a0;
     if (*(u8*)(a0 + 212) == 0) {
-        func_0023a0d8((u32)a0);
+        YI__SEQUENCE__UpdateActive((u32)a0);
     }
     return *(f32*)(s0 + 220);
 }
@@ -677,7 +677,7 @@ f32 func_0023a8e0(u8* a0) {
 
 // 0023a918 (was src/anon/tiny_auto80_queue.cpp)
 namespace n0023a918 {
-u32 func_0023a0d8(...) asm("func_0023a0d8");
+u32 YI__SEQUENCE__UpdateActive(...) asm("YI__SEQUENCE__UpdateActive");
 /*TARGET 0023a918*/
 u32 func_0023a918(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) asm("_Z13func_0023a918jjjjjjjj");
 u32 func_0023a918(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
@@ -685,7 +685,7 @@ u32 func_0023a918(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7
     r15 = (u32)(*(u8*)((u32)r4 + (s32)(212)));
     r16 = r4;
     if (r15 == 0u) {
-        r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_0023a0d8)(r4, r5, r6, r7, r8, r9, r10, r11);
+        r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))YI__SEQUENCE__UpdateActive)(r4, r5, r6, r7, r8, r9, r10, r11);
     }
     r2 = *(volatile u32*)((u32)r16 + (s32)(224));
     return r2;
@@ -694,7 +694,7 @@ u32 func_0023a918(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7
 
 // 0023a950 (was src/anon/tiny_auto80_queue.cpp)
 namespace n0023a950 {
-u32 func_0023a0d8(...) asm("func_0023a0d8");
+u32 YI__SEQUENCE__UpdateActive(...) asm("YI__SEQUENCE__UpdateActive");
 /*TARGET 0023a950*/
 u32 func_0023a950(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) asm("_Z13func_0023a950jjjjjjjj");
 u32 func_0023a950(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
@@ -702,7 +702,7 @@ u32 func_0023a950(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7
     r15 = (u32)(*(u8*)((u32)r4 + (s32)(212)));
     r16 = r4;
     if (r15 == 0u) {
-        r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_0023a0d8)(r4, r5, r6, r7, r8, r9, r10, r11);
+        r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))YI__SEQUENCE__UpdateActive)(r4, r5, r6, r7, r8, r9, r10, r11);
     }
     r2 = *(volatile u32*)((u32)r16 + (s32)(228));
     return r2;
@@ -711,7 +711,7 @@ u32 func_0023a950(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7
 
 // 0023a988 (was src/anon/tiny_auto80_queue.cpp)
 namespace n0023a988 {
-u32 func_0023a0d8(...) asm("func_0023a0d8");
+u32 YI__SEQUENCE__UpdateActive(...) asm("YI__SEQUENCE__UpdateActive");
 /*TARGET 0023a988*/
 u32 func_0023a988(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) asm("_Z13func_0023a988jjjjjjjj");
 u32 func_0023a988(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
@@ -719,7 +719,7 @@ u32 func_0023a988(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7
     r15 = (u32)(*(u8*)((u32)r4 + (s32)(212)));
     r16 = r4;
     if (r15 == 0u) {
-        r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_0023a0d8)(r4, r5, r6, r7, r8, r9, r10, r11);
+        r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))YI__SEQUENCE__UpdateActive)(r4, r5, r6, r7, r8, r9, r10, r11);
     }
     r2 = *(volatile u32*)((u32)r16 + (s32)(232));
     return r2;
@@ -731,11 +731,11 @@ namespace n0023a9c0 {
 void SEQ_GetActiveXY(u8* p, s32* x, s32* y) asm("_ZN2YI8SEQUENCE11GetActiveXYEPiS1_");
 // 0x00227da8: definition moved into src/anon/unit_00224780.cpp
 
-void func_0023a0d8(void*) asm("func_0023a0d8");
+void YI__SEQUENCE__UpdateActive(void*) asm("YI__SEQUENCE__UpdateActive");
 /*TARGET 0023a9c0*/
 void SEQ_GetActiveXY(u8* p, s32* x, s32* y) asm("_ZN2YI8SEQUENCE11GetActiveXYEPiS1_");
 void SEQ_GetActiveXY(u8* p, s32* x, s32* y) {
-    if (!p[212]) func_0023a0d8(p);
+    if (!p[212]) YI__SEQUENCE__UpdateActive(p);
     *x = *(s32*)(p + 228);
     *y = *(s32*)(p + 232);
 }
@@ -901,7 +901,7 @@ void func_0023acd8(u8* p)
 
 // 0023ade0 (was src/anon/batch_w500.cpp)
 namespace n0023ade0 {
-// 2D sprite keyframe animation (func_0023ade0 draws one animated sprite).
+// 2D sprite keyframe animation (YI__SEQUENCE__Draw draws one animated sprite).
 // One keyframe of the track (0x90 bytes).
 struct SprKey {
     u32 flags;        // 0x00
@@ -958,8 +958,8 @@ void func_002f3918(u32, void*) asm("func_002f3918");
 void func_002376d8(SprAnim*, s32) asm("func_002376d8");
 void func_00237740(SprAnim*, f32, f32, f32) asm("func_00237740");
 void func_00237a68(SprAnim*, f32, f32, f32) asm("func_00237a68");
-void func_00238570(SprAnim*, s32, s32, s32, s32) asm("func_00238570");
-void func_00238c90(SprAnim*, s32, s32, s32, s32) asm("func_00238c90");
+void YI__SPRITE___Draw(SprAnim*, s32, s32, s32, s32) asm("YI__SPRITE___Draw");
+void YI__SPRITE___Draw2(SprAnim*, s32, s32, s32, s32) asm("YI__SPRITE___Draw2");
 f32 sinf(f32) asm("sinf");
 f32 cosf(f32) asm("cosf");
 u32 __fixunssfsi(f32)  asm("__fixunssfsi")__attribute__((const));
@@ -971,8 +971,8 @@ extern u8 D_01dae5f0[][0x30] asm("D_01dae5f0");
 #define ILERP(a, b, t) ((a) + (s32)((f32)((b) - (a)) * (t)))
 #define FLERP(a, b, t) ((a) + ((b) - (a)) * (t))
 /*TARGET 0023ade0*/
-void func_0023ade0(SprAnim* o) asm("func_0023ade0");
-void func_0023ade0(SprAnim* o)
+void YI__SEQUENCE__Draw(SprAnim* o) asm("YI__SEQUENCE__Draw");
+void YI__SEQUENCE__Draw(SprAnim* o)
 {
     if (o->visible == 0) return;
     if ((u32)(o->px + 0x200) > 0x600) return;
@@ -1122,9 +1122,9 @@ void func_0023ade0(SprAnim* o)
             cv = ILERP(k->v[0], k->v[1], t);
         }
         if (!(o->mode & 0x200)) {
-            func_00238570(o, o->px + x, o->py + y, cu, cv);
+            YI__SPRITE___Draw(o, o->px + x, o->py + y, cu, cv);
         } else {
-            func_00238c90(o, o->px + x, o->py + y, cu, cv);
+            YI__SPRITE___Draw2(o, o->px + x, o->py + y, cu, cv);
         }
     }
 }

@@ -49,7 +49,7 @@ extern W2399A D_003a7d70[2];
 extern W2399B D_003a8090[2];
 extern "C" {
 extern s32 D_0033cc40;
-void func_00106c08(W2399A*);
+void kn__Projection__calcMatrix(W2399A*);
 void func_00107118(W2399B*);
 // 00107888: moved to src/naka/libkn/camera.cpp
 

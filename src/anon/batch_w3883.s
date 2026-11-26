@@ -1,7 +1,7 @@
 # Whole-function assembly (last step of the README ladder, 2026-11-09, helper w3883).
 # These functions were long-standing C/C++ near misses (many sessions and permuter runs); see ledger
 # attempts.tsv and the best/ADDR_w3883.* drafts. Replace with C/C++ after 100%.
-#   func_001c4918: ambient wave update and random ground-effect spawn (sched1 order of the pool load
+#   YS__CROWD_M_EX660___OVR_exec: ambient wave update and random ground-effect spawn (sched1 order of the pool load
 #                  against the D_003638d0 reload in the inlined random generator; v.w zero in an FP reg)
 	.set noreorder
 	.set noat
@@ -9,10 +9,10 @@
 
 	.section .text.func_001c4918,"ax",@progbits
 	.align 2
-	.globl func_001c4918
-	.type func_001c4918, @function
-	.ent func_001c4918
-func_001c4918:
+	.globl YS__CROWD_M_EX660___OVR_exec
+	.type YS__CROWD_M_EX660___OVR_exec, @function
+	.ent YS__CROWD_M_EX660___OVR_exec
+YS__CROWD_M_EX660___OVR_exec:
 	addiu	$29,$29,-240
 	sd	$22,192($29)
 	sd	$16,144($29)
@@ -330,5 +330,5 @@ func_001c4918:
 	mul.s	$f0,$f20,$f20
 	b	.L001c49e8
 	neg.s	$f0,$f0
-	.end func_001c4918
-	.size func_001c4918, .-func_001c4918
+	.end YS__CROWD_M_EX660___OVR_exec
+	.size YS__CROWD_M_EX660___OVR_exec, .-YS__CROWD_M_EX660___OVR_exec

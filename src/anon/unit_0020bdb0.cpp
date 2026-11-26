@@ -21,7 +21,7 @@ struct I20bdb0 { V20bdb0 pos; V20bdb0 q; };
 struct M20bdb0 { u8 pad[0xb8]; f32 x, y, z; u8 pad2[0xd8 - 0xc4]; f32 r0, r1; };
 extern u8 D_01d9e7b0[] asm("D_01d9e7b0");
 f32 func_0020b410() asm("func_0020b410");
-void func_0020b4e8(M20bdb0*, I20bdb0*, u8*) asm("func_0020b4e8");
+void birth_2(M20bdb0*, I20bdb0*, u8*) asm("birth_2");
 void sceVu0ApplyMatrix(void*, void*, void*) asm("sceVu0ApplyMatrix");
 void sceVu0Normalize(void*, void*) asm("sceVu0Normalize");
 void func_002fde18(void*, s32, u32) asm("func_002fde18");
@@ -57,7 +57,7 @@ void func_0020bdb0(void* self, void* mv, void* itv, u8* buf) {
     } while (r < len);
     it->pos.w = 1.0f;
     sceVu0ApplyMatrix(it, D_01d9e7b0, it);
-    func_0020b4e8(m, it, buf);
+    birth_2(m, it, buf);
 }
 }  // namespace n0020bdb0
 

@@ -31,6 +31,6 @@ extern volatile unsigned short D_00347f98[];
 extern u8 *D_0035f2b0;
 extern u8 *D_0035f2b4;
 extern u8 *D_0035f2b8;
-void func_00282f68(void);  // 0x00282f68: definition moved into src/anon/unit_00282c68.cpp
+void Tz__CmTutorial__Init(void);  // 0x00282f68: definition moved into src/anon/unit_00282c68.cpp
 
 }

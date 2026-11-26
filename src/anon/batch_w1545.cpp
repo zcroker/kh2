@@ -46,7 +46,7 @@ W1545E18* func_0018bae8(W1545O18* self, s32 key);  // 0x0018bae8: definition mov
 s32 func_00196768(s32 a, s32 b);  // 0x00196768: definition moved into src/anon/unit_00195d00.cpp
 
 // Facing vector (struct return): from the angle of -(x, z) when active, else the stored one.
-W1545V4 func_0016af58(W1545OK* o);  // 0x0016af58: definition moved into src/anon/unit_00169f98.cpp
+W1545V4 YS__OBJ__get_dir(W1545OK* o);  // 0x0016af58: definition moved into src/anon/unit_00169f98.cpp
 
 // Normalises *v, stores v * v.w at +32, s at +240, then state 5.
 void func_0019fdc0(u8* self, W1545V4* v, f32 s);  // 0x0019fdc0: definition moved into src/anon/unit_0019fb70.cpp

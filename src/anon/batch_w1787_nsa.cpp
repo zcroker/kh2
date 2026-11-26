@@ -5,7 +5,7 @@ extern "C" {
 /* 0013eeb8 */
 struct Pkt13eeb8 { u32 a; u32 b; u128* p; };
 struct Obj13eeb8 { u8 pad[0x10]; u8 c[4]; u8 pad2[0xc]; union { u128 q[15]; struct { u8 pad[0xa8]; u64 tag; } t; }; };
-void func_0013eb00(Obj13eeb8*);
+void dk__Ft4Base__calcXYZ(Obj13eeb8*);
 void func_001b7e68(Pkt13eeb8*, s32);
 void func_001b80d8(Pkt13eeb8*);
 void func_001b7f30(Pkt13eeb8*);

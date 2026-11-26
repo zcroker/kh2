@@ -17,10 +17,10 @@ void func_002890e0(u32, s32, s32, s32, s32);
 u32 func_002891e8(u32);
 void func_00289038(u32, u32, s32, s32, s32, s32, s32);
 s32 func_00289358(u32);
-void func_002b5c30(s32);
+void Tz__CmSLBase__UpdateListMess(s32);
 s32 func_0028d008(u32);
 u32 func_002891d0(u32);
-void func_0028cf28(u32, u32);
+void Tz__MenuCursor__SetParent(u32, u32);
 s32 func_0028d6e8(u32);
 void func_0028d660(u32, u32);
 void func_0025d560(void);
@@ -53,6 +53,6 @@ static inline void bs(u16* b, s32 i) {
     if (!bt(b, i)) b[(u32)i >> 4] |= 1 << (i & 15);
 }
 
-s32 func_002ae768(s32 a0);  // 0x002ae768: definition moved into src/anon/unit_002a99c8.cpp
+s32 Tz__JmComplete__isPuzzleGameComp(s32 a0);  // 0x002ae768: definition moved into src/anon/unit_002a99c8.cpp
 
 }

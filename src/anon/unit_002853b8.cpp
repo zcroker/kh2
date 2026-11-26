@@ -24,8 +24,8 @@
 namespace n002853b8 {
 s32 func_00293fb0(void) asm("func_00293fb0");
 u32 func_00103570(void) asm("func_00103570");
-void func_00293e00(u32) asm("func_00293e00");
-void func_00293fc0(void) asm("func_00293fc0");
+void Tz__JmInfo__Init(u32) asm("Tz__JmInfo__Init");
+void Tz__JmInfo__SetLeadData(void) asm("Tz__JmInfo__SetLeadData");
 void func_00253b30(void*, u32) asm("func_00253b30");
 void func_0023fa90(u32, void*) asm("func_0023fa90");
 extern u32 D_0035f2bc asm("D_0035f2bc");
@@ -35,8 +35,8 @@ void func_002853b8(void) asm("func_002853b8");
 void func_002853b8(void) {
     u8 buf[128];
     if (!func_00293fb0()) {
-        func_00293e00(func_00103570());
-        func_00293fc0();
+        Tz__JmInfo__Init(func_00103570());
+        Tz__JmInfo__SetLeadData();
     }
     func_00253b30(buf, D_0035f2bc);
     func_0023fa90(D_0035f2c4, buf);
@@ -121,7 +121,7 @@ s32 func_00192048(void*) asm("func_00192048");
 s32 func_0023aa18(void*) asm("func_0023aa18");
 s32 func_0023aa38(void*) asm("func_0023aa38");
 s32 func_0023aa78(void*) asm("func_0023aa78");
-void func_00259108(void*, s32, s32, s32, s32, s32, void*) asm("func_00259108");
+void Tz__CmComm__CreateConfirmSelector(void*, s32, s32, s32, s32, s32, void*) asm("Tz__CmComm__CreateConfirmSelector");
 u8* func_002891b8(void*, s32) asm("func_002891b8");
 void func_0028dcc0(void*, void*) asm("func_0028dcc0");
 void func_00138c68(void*, s32, s32) asm("func_00138c68");
@@ -143,7 +143,7 @@ void func_002854d8(void* p, u8 flag) {
     s32 n, m;
     if (flag) { m = 1; n = 2; }
     else { m = 0; n = 1; }
-    func_00259108(D_0035f2dc.p, 30013, 0, 0, D_0035f2c8, m, D_00374378);
+    Tz__CmComm__CreateConfirmSelector(D_0035f2dc.p, 30013, 0, 0, D_0035f2c8, m, D_00374378);
     for (s32 i = 0; i < n; i++) {
         func_0028dcc0(func_002891b8(D_0035f2dc.p, i), D_0035f2d8.p);
         s32 w = func_0023aa78(func_002891b8(D_0035f2dc.p, i) + 24);
@@ -205,8 +205,8 @@ void func_00287df0(s32, s32, s32, s32, s32) asm("func_00287df0");
 extern void* D_0035f2dc asm("D_0035f2dc");
 extern void* D_0035f2d8 asm("D_0035f2d8");
 /*TARGET 00285760*/
-s32 func_00285760(void) asm("func_00285760");
-s32 func_00285760(void)
+s32 Tz__Ending__SelCtrl(void) asm("Tz__Ending__SelCtrl");
+s32 Tz__Ending__SelCtrl(void)
 {
     s32 r = func_00289380(D_0035f2dc);
     if (r != -1 || func_00289310(D_0035f2dc)) {
@@ -322,7 +322,7 @@ void* func_001a8bd0_59f0(s32 a) asm("func_001a8bd0");
 u32 func_001a8c10(void* p, s32 i) asm("func_001a8c10");
 u8* func_001a1658(u32 m, s32 a) asm("func_001a1658");
 // state_dispatch_0_1_14
-void func_001a17c8(u8* c) asm("func_001a17c8");
+void YS__SHEET__Free(u8* c) asm("YS__SHEET__Free");
 u32 func_00281420(void) asm("func_00281420");
 u32 func_002814b0(s32 i) asm("func_002814b0");
 u16* func_001a8110(u16* it) asm("func_001a8110");
@@ -362,7 +362,7 @@ void ucall_2859f0(void) {
         for (k = 0; k < 8; k++) MarkFresh(have, eq[10 + k]);
         for (k = 0; k < 8; k++) MarkFresh(have, eq[18 + k]);
         for (k = 0; k < 8; k++) MarkFresh(have, eq[26 + k]);
-        func_001a17c8(c);
+        YS__SHEET__Free(c);
     }
     s32 mask = func_00281420();
     for (i = 0; i < 7; i++) {
@@ -628,8 +628,8 @@ struct Flags { u8 pad[200]; u32 bits[2]; };
 extern Flags* D_0035f2e4 asm("D_0035f2e4");
 s32 func_002812e0(void) asm("func_002812e0");
 /*TARGET 00286418*/
-s32 func_00286418(s32 n) asm("func_00286418");
-s32 func_00286418(s32 n) {
+s32 Tz__CmNewFlg__isStatNew(s32 n) asm("Tz__CmNewFlg__isStatNew");
+s32 Tz__CmNewFlg__isStatNew(s32 n) {
     s32 r;
     if (n >= 0) {
         u32* w = &D_0035f2e4->bits[(u32)n >> 5];
@@ -716,8 +716,8 @@ struct W1716SrcB { u8 pad[8]; u16 ids[80]; };
 extern W1716Sram* D_0035f2e4 asm("D_0035f2e4");
 W1716Sram* W1716_GetSram(void) asm("_ZN2Tz8CmNewFlg7GetSramEv");
 u8* W1716_getSaveRam(void) asm("_Z10getSaveRamv");
-W1716SrcA* W1716_ctarget_00188fe0(void*, s32) asm("_Z16ctarget_00188fe0jjjj");
-W1716SrcB* W1716_ctarget_00189200(void*, s32) asm("_Z16ctarget_00189200jjjj");
+W1716SrcA* W1716_ctarget_00188fe0(void*, s32) asm("_Z31YS__SAVERAM_BATTLE__get_partramjjjj");
+W1716SrcB* W1716_ctarget_00189200(void*, s32) asm("_Z31YS__SAVERAM_BATTLE__get_formramjjjj");
 static inline u32 W1716Test(u32* bits, u32 id) { return bits[id >> 5] & (1 << (id & 31)); }
 static inline u32* W1716Bits(W1716Sram* s, s32 grp) {
     if (grp == 0) return s->bits0;

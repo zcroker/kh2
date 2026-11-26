@@ -71,18 +71,18 @@ s32 func_00158548(In13*);
 f32 func_0017ce10(f32);
 s32 func_0013ff08(Ob13* o, In13* in, f32 dt);  // 0x0013ff08: definition moved into src/anon/unit_0013fca8.cpp
 
-QV_bfa0* func_0016c028(void*);  // obj_get_attach_or_alt
+QV_bfa0* YS__OBJ__get_pos(void*);  // obj_get_attach_or_alt
 void func_0018bfa0(Act_bfa0* a, void* b, f32 dist);  // 0x0018bfa0: definition moved into src/yasui/libys/npc.cpp
 
 void func_002ce2a0(Ob_c620*, s32*, f32*, QV_bfa0*);
 QV_bfa0 func_002cda68(Ob_c620*, s32, f32);
-void func_002cc620(Ob_c620* o, void* a, void* b);  // 0x002cc620: definition moved into src/taito/path.cpp
+void Ti__Path__reset_leave_way(Ob_c620* o, void* a, void* b);  // 0x002cc620: definition moved into src/taito/path.cpp
 
 void func_001143d8(Ob_b0a8*);
 Ch_b0a8* func_00111e38(s32);
 void* func_0010c778(Ch_b0a8*);
 void func_00135aa0(void*);
-void func_001c0d38(Ch_b0a8*, Ch_b0a8*, s32, s32);
+void YS__OBJ__attach(Ch_b0a8*, Ch_b0a8*, s32, s32);
 void func_0016ace0(Ch_b0a8*, const QV_b0a8&);
 void func_00198860(Ch_b0a8*, s32);
 void func_001ad990(u8*, f32, f32, f32);
@@ -92,7 +92,7 @@ Fx_b0a8* func_0013e610(s32);
 void func_0013e890(void);
 void func_0016bd60(Ch_b0a8*, s32);
 void func_0014eb48(Ch_b0a8*, QV_b0a8*, f32);
-void func_0011b0a8(Ob_b0a8* o);  // 0x0011b0a8: definition moved into src/anon/unit_0011a660.cpp
+void kn__ChickenLittle__start_limit(Ob_b0a8* o);  // 0x0011b0a8: definition moved into src/anon/unit_0011a660.cpp
 
 struct Hd_5680 { u8 p0[0x14]; s32 x14; u32 x18; s32 x1c; u32 x20; s32 x24; u32 x28; };
 struct El_5680 { s32 x0; s32 x4; };
@@ -104,8 +104,8 @@ struct Ob_5680 {
 };
 void func_00106ab8(void*);  // noop_ret
 void func_001070c8(void*);  // set_vtbl_34cc50
-void func_0015e4e0(void*);
-void func_0015e9e0(void*);
+void gm__SPRITEFROM3D__draw_common(void*);
+void dk__ModelSprite__ModelSprite(void*);
 void func_0031a830(void*);
 void func_001447c0(u8*, f32, f32, f32, f32, f32, f32);
 void func_00145b90(Ob_5680*, s32);
@@ -117,14 +117,14 @@ struct Desc94 { u8 p0[0x2c]; s32 x2c; };
 struct Ow94 { u8 p0[0x18]; Nd94 root; Nd94 elems[6]; u8 pad[0xb40 - 0x18 - 408*7]; s32 xb40; s32 xb44; s32 xb48; u32 xb4c; };
 s32 func_0022b9e0(void);
 s32 func_0022b720(void);
-void func_001386e0(void*, s32, s32, s32, s32, s32);
+void dk__Sprite__create(void*, s32, s32, s32, s32, s32);
 void func_001396b0(Nd94*);
 void func_0031a260(Nd94*, s32);
 void func_00139660(Nd94*);
 void func_00139688(Nd94*);
 s32 func_0023aa98(void*);
 void func_00138c68(Nd94*, s32, s32);
-void func_00229430(Ow94*, s32);  // to_1391c8_arg11
+void sa__MUSICAL_SCORE_BASE__create(Ow94*, s32);  // to_1391c8_arg11
 void func_00229830(Ow94*);
 static inline void setParent_2294c8(Nd94* n, Nd94* p) {
   n->parent = p;

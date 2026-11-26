@@ -5,11 +5,11 @@ u32 func_00113628(u32, u32, u32, u32);
 u32 func_00124bb8(u32, u32, u32, u32);  // obj_ctor_347b88
 u32 func_00138c10(u32, u32, u32, u32);
 u32 func_0013e8c0(u32, u32, u32, u32);
-u32 func_0014b290(u32, u32, u32, u32);
+u32 dk__RectBase__createPacket(u32, u32, u32, u32);
 u32 func_00185b00(u32, u32, u32, u32);
-u32 func_00188fe0(u32, u32, u32, u32);
-u32 func_00189200(u32, u32, u32, u32);
-u32 func_001a3788(u32, u32, u32, u32);
+u32 YS__SAVERAM_BATTLE__get_partram(u32, u32, u32, u32);
+u32 YS__SAVERAM_BATTLE__get_formram(u32, u32, u32, u32);
+u32 YS__ITEM__MakeMessage(u32, u32, u32, u32);
 u32 func_001a4db0(u32, u32, u32, u32);
 u32 func_001ae9a0(u32, u32, u32, u32);
 u32 func_001b1d20(u32, u32, u32, u32);

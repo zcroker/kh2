@@ -47,17 +47,17 @@ struct Chara {
 };
 extern "C" {
 void func_00111e50(void);
-void* func_00106a18(s32);
+void* kn__getProjection(s32);
 FMat* func_00106ad0(void*);
 u8* func_00106a60(s32);
 void func_00146680(void*, FMat*);
-void* func_0016c028(Chara*);
+void* YS__OBJ__get_pos(Chara*);
 s32 wtarget_0010b468(void*, void*) asm("_Z16wtarget_0010b468jjjj");
 s32 func_00112d90(Tgt*);
 void func_00190128(Tgt*);
 s32 Friend_is_party(Tgt*) asm("_ZN2kn6Friend8is_partyEPKN2YS6TARGETE");
 QWord func_00190388(Tgt*);
-s32 ctarget_0019ba60(u32) asm("_Z16ctarget_0019ba60jjjj");
+s32 YS__OBJ__is_exist(u32) asm("_Z17YS__OBJ__is_existjjjj");
 void func_001127c0(void);
 void func_001118a8(void);
 extern Chara* D_00341708[3];

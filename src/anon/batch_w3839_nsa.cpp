@@ -20,8 +20,8 @@ struct Of44 {
 struct Af44 { u32 flags; s32 i4; s32 i8; s32 ic; Tf44* t; s32 i14; s32 i18; s32 i1c; };
 extern "C" {
 u8* getFSR_f44(Of44*) asm("_ZN2kn6Friend16getFriendSaveRamEv");
-s32 ct_10f7b0_f44(Of44*, s32, s32) asm("_Z16ctarget_0010f7b0jjjj");
-s32 uc_1a1de0_f44(Hf44*) asm("_Z16u_call4_001a1de0jjjj");
+s32 ct_10f7b0_f44(Of44*, s32, s32) asm("_Z26kn__Friend__equipedAbilityjjjj");
+s32 uc_1a1de0_f44(Hf44*) asm("_Z21YS__SHEET__is_mpdrivejjjj");
 s32 func_0010cc80(Of44*);
 s32 func_0010f340(Of44*, QWf44*, Tf44*, f32);
 // Checks whether an action entry may be used now (party member, flags, save state, target, facing).
@@ -71,7 +71,7 @@ struct W1712Rec {
 
 extern "C" {
 void func_002713a0(s32, s8**, s32*);
-s16 func_00271870(u16);
+s16 Tz__CmCustom__Command2Item(u16);
 s32 func_001a36f8(s32);
 W1712Rec* func_001a80c8(s32);
 s32 func_001145b0(s16, s32);

@@ -375,7 +375,7 @@ struct E16 { u8 d[16]; ~E16() {} };
 
 // Destructor: tear down the layered members and chain to the base.
 void func_00319f88(void*) asm("func_00319f88");
-void func_0019f9a8(void*) asm("func_0019f9a8");
+void YS__OBJ_ATTACK__clear(void*) asm("YS__OBJ_ATTACK__clear");
 // array8_free_slots
 void func_001c0248(void*) asm("func_001c0248");
 void func_00319fb0(void*) asm("func_00319fb0");
@@ -384,7 +384,7 @@ extern u8 D_00345c08 asm("D_00345c08");
 extern u8 D_0034e8b8 asm("D_0034e8b8");
 extern u8 D_0034ee08 asm("D_0034ee08");
 struct G0 { u8* t; ~G0() { func_00319fb0(t); } };
-struct G1 { u8* t; ~G1() { *(void**)t = &D_0034ee08; func_0019f9a8(t + 2568); func_001c0248(t + 2640); } };
+struct G1 { u8* t; ~G1() { *(void**)t = &D_0034ee08; YS__OBJ_ATTACK__clear(t + 2568); func_001c0248(t + 2640); } };
 struct G2 { u8* t; ~G2() { *(void**)t = &D_0034e8b8; func_00319f88(t + 2824); } };
 struct B319 {
     void* vt;
@@ -411,7 +411,7 @@ extern u8 D_00345c08[] asm("D_00345c08");
 extern u8 D_0034e8b8[] asm("D_0034e8b8");
 extern u8 D_0034ee08[] asm("D_0034ee08");
 void func_00319f88(void*) asm("func_00319f88");
-void func_0019f9a8(void*) asm("func_0019f9a8");
+void YS__OBJ_ATTACK__clear(void*) asm("YS__OBJ_ATTACK__clear");
 void func_001c0248(void*) asm("func_001c0248");
 void func_00319fb0(void*) asm("func_00319fb0");
 void func_00105110(void*) asm("func_00105110");
@@ -432,7 +432,7 @@ void func_00319df8(u8* p) {
     *(void**)p = D_0034e8b8;
     func_00319f88(p + 2824);
     *(void**)p = D_0034ee08;
-    func_0019f9a8(p + 2568);
+    YS__OBJ_ATTACK__clear(p + 2568);
     func_001c0248(p + 2640);
     func_00319fb0(p);
     func_00105110(p);
@@ -1633,8 +1633,8 @@ extern u8 D_0034a958[] asm("D_0034a958");
 extern u8 D_00348678[] asm("D_00348678");
 extern u8 D_00348658[] asm("D_00348658");
 /*TARGET 0031b130*/
-void func_0031b130(u8* t) asm("func_0031b130");
-void func_0031b130(u8* t)
+void dk__INFORMATION__openHiTimer(u8* t) asm("dk__INFORMATION__openHiTimer");
+void dk__INFORMATION__openHiTimer(u8* t)
 {
     *(u32*)(t + 64) = (u32)D_00347f98;
     *(u32*)t = (u32)D_00348608;

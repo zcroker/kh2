@@ -14,7 +14,7 @@ extern void* D_0032bb1c;
 f32 func_001142e0(u8* p, s32 i, u8 a, u8 b);  // 0x001142e0: definition moved into src/anon/unit_001142a0.cpp
 
 extern u32 D_00348804;
-u8 func_001652c8(u32, u32, u32, u32, u32, u32, u32, u32);
+u8 dk__OctCollFile__getDanglePoint(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_00143470(u32 a, u32 b, u32 c, u32 d, u32 e, u32 f, u32 g);  // 0x00143470: definition moved into src/anon/unit_00142c90.cpp
 
 extern u8 D_00349f00[];
@@ -23,7 +23,7 @@ void func_0014dd60(void*, u8, u8, u8);  // store_3bytes_470
 // 0014e140: moved to src/anon/unit_0014d680.cpp
 
 extern Q16 D_0034aa50[2];
-Q16* func_0016c028(u32);  // obj_get_attach_or_alt
+Q16* YS__OBJ__get_pos(u32);  // obj_get_attach_or_alt
 // 00159ef8: moved to src/harata/libdk/targetcamera.cpp
 
 // Scales the base colour at +420 by (r, g, b)/128 into +680.
@@ -32,17 +32,17 @@ Q16* func_0016c028(u32);  // obj_get_attach_or_alt
 // Plane test: d = dot(a.xyz, b.xyz) + b.w -> *out; 1 when 0 <= d <= a[4].
 s32 func_00162b18(f32* a, f32* b, f32* out);  // 0x00162b18: definition moved into src/anon/unit_001614e8.cpp
 
-void func_0017d050(void*, u32);
+void YS__MATH__VectorToAngle(void*, u32);
 extern u8 D_004f62a0[];
 // 0016dad8: moved to src/anon/unit_0016d2e0.cpp
 
-u32 func_00180378(u32, u32, u32, f32);
+u32 YS__MOTION__capture(u32, u32, u32, f32);
 void func_00172440(u8* p);  // 0x00172440: definition moved into src/anon/unit_00171e58.cpp
 
 s32 func_00181500(s32);
 // 001819c0: moved to src/yasui/libys/progress.cpp
 
-void func_0016af58(void*, u32);
+void YS__OBJ__get_dir(void*, u32);
 // 001860b0: moved to src/anon/unit_00185d10.cpp
 s32 func_001860b0(u32 a, f32* b);
 
@@ -105,7 +105,7 @@ static inline void assert_fail_1e2c00(const char* e, const char* f, s32 l) {
 u8 func_001e7cc0(void*);
 u8 func_001e2c00(void* pMng);  // 0x001e2c00: definition moved into src/anon/unit_001e0cb8.cpp
 
-u8 func_00209178(void*, void*);
+u8 get_st(void*, void*);
 void func_002092e0(u8* a, u32* b, u8* c);  // 0x002092e0: definition moved into src/anon/unit_002090c0.cpp
 
 extern u32 D_0035dae4;
@@ -149,7 +149,7 @@ typedef void (*VFn)(void*);
 void func_002bee58(u8* p);  // 0x002bee58: definition moved into src/anon/unit_002bebd0.cpp
 
 void func_00143e50(void*, u16, u32);
-void func_00186a90(void*, void*, f32);
+void YS__BTLOBJ__set_hitback(void*, void*, f32);
 void func_002c5ff8(u8* p, u32 a);  // 0x002c5ff8: definition moved into src/anon/unit_002c53c8.cpp
 
 extern u8 D_003629e8[];
@@ -166,7 +166,7 @@ void func_00190128(void*);
 void func_002ed558(u8* p, u8* q, u32 a2, u32 a3, u32 a4);  // 0x002ed558: definition moved into src/anon/unit_002ecdb0.cpp
 
 void func_00103bb0(u32);
-void func_00103590(u32, void*);
+void MENU__CreateAllocator(u32, void*);
 extern void* D_003638c4;
 extern u8 D_003638c0;
 extern u8 D_003638c8;

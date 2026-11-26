@@ -23,12 +23,12 @@ namespace n00252fe8 {
 void func_0023d320() asm("func_0023d320");
 s32 func_002888c8() asm("func_002888c8");
 s32 func_002535d0(s32) asm("func_002535d0");
-void func_00242740(s32) asm("func_00242740");
+void Tz__MenuSound__SetPause(s32) asm("Tz__MenuSound__SetPause");
 s32 func_0028cbf8() asm("func_0028cbf8");
 s16 func_0028d0c8(s32) asm("func_0028d0c8");
 void func_00287910(s32, s32, s32) asm("func_00287910");
 s32 func_00103570() asm("func_00103570");
-void func_0028c878(s32, s32) asm("func_0028c878");
+void Tz__MenuCursor__Init(s32, s32) asm("Tz__MenuCursor__Init");
 void func_002530c8() asm("func_002530c8");
 void func_002425d0(s32) asm("func_002425d0");
 struct W1595Fns { void (*f0)(); void (*f4)(); };
@@ -42,11 +42,11 @@ void func_00252fe8(s32 id) {
     func_0023d320();
     s32 k = id;
     if (id == 10) k = func_002888c8();
-    if (k != 9 && k != 15 && k != 8) func_00242740(func_002535d0(k));
+    if (k != 9 && k != 15 && k != 8) Tz__MenuSound__SetPause(func_002535d0(k));
     D_01dae6a8.a = D_0035f3d4v;
     D_01dae6a8.b = !func_0028cbf8() ? -1 : func_0028d0c8(0);
     func_00287910(id, 4, 0);
-    func_0028c878(func_00103570(), 3);
+    Tz__MenuCursor__Init(func_00103570(), 3);
     func_002530c8();
     func_002425d0(1);
     func_00253330(id)->f4();

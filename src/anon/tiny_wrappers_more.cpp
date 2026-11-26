@@ -30,9 +30,9 @@ u32 func_00119b10(u32, u32, u32, u32);
 u32 func_0011c7c8(u32, u32, u32, u32);
 u32 func_0011c7f8(u32, u32, u32, u32);
 u32 func_0011e9a8(u32, u32, u32, u32);
-u32 func_0011ea98(u32, u32, u32, u32);
-u32 func_0011eb08(u32, u32, u32, u32);
-u32 func_0011eb78(u32, u32, u32, u32);
+u32 kn__ModelObj__setTexanm(u32, u32, u32, u32);
+u32 kn__ModelObj__setDefaultTexanm(u32, u32, u32, u32);
+u32 kn__ModelObj__resetDefaultTexanm(u32, u32, u32, u32);
 u32 func_0011ef20(u32, u32, u32, u32);
 u32 func_00127d40(u32, u32, u32, u32);
 u32 func_00127de0(u32, u32, u32, u32);
@@ -101,10 +101,10 @@ u32 func_0016c640(u32, u32, u32, u32);
 u32 func_0016d0d8(u32, u32, u32, u32);
 u32 func_0016d230(u32, u32, u32, u32);
 u32 func_0016e858(u32, u32, u32, u32);
-u32 func_0016ed50(u32, u32, u32, u32);
+u32 YS__OBJENTRY__ReadRequest(u32, u32, u32, u32);
 u32 func_00170320(u32, u32, u32, u32);
 u32 func_001703a8(u32, u32, u32, u32);
-u32 func_00170400(u32, u32, u32, u32);
+u32 YS__CACHE_BUFF__ReadRequestSub(u32, u32, u32, u32);
 extern "C" u32 YS_CACHE_BUFF_ReadRequest(u32, u32, u32, u32) asm("_ZN2YS10CACHE_BUFF11ReadRequestEPKcij");
 u32 func_00170888(u32, u32, u32, u32);
 u32 func_001708f8(u32, u32, u32, u32);
@@ -117,7 +117,7 @@ u32 func_001789b8(u32, u32, u32, u32);
 u32 func_00179dd0(u32, u32, u32, u32);
 u32 func_0017a7e0(u32, u32, u32, u32);
 u32 func_0017aad0(u32, u32, u32, u32);
-u32 func_0017cc30(u32, u32, u32, u32);
+u32 YS__ACTION_JUMP___land(u32, u32, u32, u32);
 u32 func_0017e808(u32, u32, u32, u32);
 u32 func_0017ec28(u32, u32, u32, u32);
 u32 func_0017ec30(u32, u32, u32, u32);
@@ -154,7 +154,7 @@ u32 func_00196b58(u32, u32, u32, u32);
 u32 func_00197ea8(u32, u32, u32, u32);
 u32 func_00198690(u32, u32, u32, u32);
 extern "C" u32 YS_STDOBJ_set_special_command(u32, u32, u32, u32) asm("_ZN2YS6STDOBJ19set_special_commandEi");
-u32 func_00198970(u32, u32, u32, u32);
+u32 YS__STDOBJ__reset_special_command(u32, u32, u32, u32);
 u32 func_00199120(u32, u32, u32, u32);
 u32 func_001995f8(u32, u32, u32, u32);
 u32 func_0019b970(u32, u32, u32, u32);
@@ -171,10 +171,10 @@ u32 func_001a5b08(u32, u32, u32, u32);
 u32 func_001a68e0(u32, u32, u32, u32);
 u32 func_001a7530(u32, u32, u32, u32);
 u32 func_001a8020(u32, u32, u32, u32);
-u32 func_001a82f0(u32, u32, u32, u32);
+u32 YS__TREASURE__TABLE___get(u32, u32, u32, u32);
 u32 func_001a8570(u32, u32, u32, u32);
-u32 func_001a9ae8(u32, u32, u32, u32);
-u32 func_001aa388(u32, u32, u32, u32);
+u32 YS__MESSAGEDRAW__draw(u32, u32, u32, u32);
+u32 YS__MESSAGEDRAW__set_page(u32, u32, u32, u32);
 u32 func_001ab890(u32, u32, u32, u32);
 u32 func_001abd10(u32, u32, u32, u32);
 u32 func_001ac078(u32, u32, u32, u32);
@@ -188,7 +188,7 @@ u32 func_001b3208(u32, u32, u32, u32);
 u32 func_001b3270(u32, u32, u32, u32);
 u32 func_001b3330(u32, u32, u32, u32);
 u32 func_001b3c58(u32, u32, u32, u32);
-u32 func_001b65e0(u32, u32, u32, u32);
+u32 YS__CHANGEFORM__exec(u32, u32, u32, u32);
 u32 func_001b8290(u32, u32, u32, u32);
 u32 func_001b8718(u32, u32, u32, u32);
 extern "C" u32 YS_OBJ_ControlOff(u32, u32, u32, u32) asm("_ZN2YS3OBJ10ControlOffEi");
@@ -210,7 +210,7 @@ u32 func_001cd548(u32, u32, u32, u32);
 u32 func_001ce668(u32, u32, u32, u32);
 u32 func_001cec70(u32, u32, u32, u32);
 u32 func_001d14b0(u32, u32, u32, u32);
-u32 func_001d1b60(u32, u32, u32, u32);
+u32 YS__MISSION_COUNT__set(u32, u32, u32, u32);
 u32 func_001d3060(u32, u32, u32, u32);
 u32 func_001d3588(u32, u32, u32, u32);
 u32 func_001d3bc0(u32, u32, u32, u32);
@@ -230,7 +230,7 @@ u32 func_001dbf78(u32, u32, u32, u32);
 u32 func_001dc098(u32, u32, u32, u32);
 u32 func_001dc140(u32, u32, u32, u32);
 u32 func_001ddc88(u32, u32, u32, u32);
-u32 func_001dddd0(u32, u32, u32, u32);
+u32 ryj__PAX__init(u32, u32, u32, u32);
 u32 func_001de508(u32, u32, u32, u32);
 u32 func_001e0348(u32, u32, u32, u32);
 u32 func_001e0750(u32, u32, u32, u32);
@@ -264,7 +264,7 @@ u32 func_00239bf8(u32, u32, u32, u32);
 u32 func_00239df0(u32, u32, u32, u32);
 u32 func_00239fd0(u32, u32, u32, u32);
 u32 func_0023a9c0(u32, u32, u32, u32);
-u32 func_0023ca80(u32, u32, u32, u32);
+u32 YI__LAYOUT__Control(u32, u32, u32, u32);
 u32 func_0023f070(u32, u32, u32, u32);
 u32 func_00241f20(u32, u32, u32, u32);
 u32 func_00254020(u32, u32, u32, u32);
@@ -307,20 +307,20 @@ u32 func_002cbd20(u32, u32, u32, u32);
 u32 func_002ce598(u32, u32, u32, u32);
 u32 func_002ce910(u32, u32, u32, u32);
 u32 func_002cebc0(u32, u32, u32, u32);
-u32 func_002cf058(u32, u32, u32, u32);
+u32 Ti__MiniGame___prepare_zone(u32, u32, u32, u32);
 u32 func_002cf280(u32, u32, u32, u32);
 extern "C" u32 Ti_MGObj_OVR_initialize(u32, u32, u32, u32) asm("_ZN2Ti5MGObj15_OVR_initializeEv");
-u32 func_002d00e0(u32, u32, u32, u32);
+u32 Ti__MGObj__check_all_leave(u32, u32, u32, u32);
 u32 func_002d1908(u32, u32, u32, u32);
 u32 func_002d1f40(u32, u32, u32, u32);
-u32 func_002d78a8(u32, u32, u32, u32);
+u32 Ti__MGHachimitsu__update_camera(u32, u32, u32, u32);
 u32 func_002dce80(u32, u32, u32, u32);
 u32 func_002dcea8(u32, u32, u32, u32);
 u32 func_002dd968(u32, u32, u32, u32);
-u32 func_002e1178(u32, u32, u32, u32);
+u32 Ti__MG_ALEscape__task_update_camera(u32, u32, u32, u32);
 u32 func_002e1288(u32, u32, u32, u32);
 u32 func_002e1878(u32, u32, u32, u32);
-u32 func_002e2440(u32, u32, u32, u32);
+u32 Ti__MG_EHSidecar__exec(u32, u32, u32, u32);
 u32 func_002e2570(u32, u32, u32, u32);
 u32 func_002e27c8(u32, u32, u32, u32);
 u32 func_002e2e50(u32, u32, u32, u32);
@@ -334,7 +334,7 @@ u32 func_002e8b08(u32, u32, u32, u32);
 u32 func_002e9200(u32, u32, u32, u32);
 u32 func_002e98b0(u32, u32, u32, u32);
 u32 func_002e98f0(u32, u32, u32, u32);
-u32 func_002e9b58(u32, u32, u32, u32);
+u32 Ts__TARGET_SEARCHER__add(u32, u32, u32, u32);
 u32 func_002e9fa8(u32, u32, u32, u32);
 u32 func_002eaab0(u32, u32, u32, u32);
 u32 func_002ead48(u32, u32, u32, u32);
@@ -406,7 +406,7 @@ u32 func_00119bb8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00119bb8: definition mo
 
 u32 func_0011b3e0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0011b3e0: definition moved into src/anon/unit_0011a660.cpp
 
-u32 func_0011f6c0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0011f6c0: definition moved into src/anon/unit_0011c128.cpp
+u32 kn__ModelBG__destroyModelObj(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0011f6c0: definition moved into src/anon/unit_0011c128.cpp
 
 u32 func_00127dc8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00127dc8: definition moved into src/anon/unit_00127a88.cpp
 
@@ -609,7 +609,7 @@ u32 func_0019ba20(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0019ba20: definition mo
 
 u32 func_0019ee60(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0019ee60: definition moved into src/anon/unit_0019ea10.cpp
 
-u32 func_0019fbc8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0019fbc8: definition moved into src/anon/unit_0019fb70.cpp
+u32 YS__ACTION_BLOW__end(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0019fbc8: definition moved into src/anon/unit_0019fb70.cpp
 
 u32 func_001a0470(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001a0470: definition moved into src/anon/unit_0019fb70.cpp
 
@@ -635,7 +635,7 @@ u32 func_001a2898(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001a2898: definition mo
 
 u32 func_001aa668(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001aa668: definition moved into src/anon/unit_001a9130.cpp
 
-u32 func_001aa6d0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001aa6d0: definition moved into src/anon/unit_001a9130.cpp
+u32 YS__MESSAGEDRAW__set_line_space(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001aa6d0: definition moved into src/anon/unit_001a9130.cpp
 
 u32 func_001aba98(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001aba98: definition moved into src/anon/unit_001ab598.cpp
 
@@ -763,7 +763,7 @@ u32 func_001efd60(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001efd60: definition mo
 
 u32 func_001f4fe0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001f4fe0: definition moved into src/anon/unit_001f45f8.cpp
 
-u32 func_0020d178(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0020d178: definition moved into src/anon/unit_0020d178.cpp
+u32 pppSnoScaleAllCon(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0020d178: definition moved into src/anon/unit_0020d178.cpp
 
 u32 func_0020efe8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0020efe8: definition moved into src/anon/unit_0020efe8.cpp
 
@@ -773,7 +773,7 @@ u32 func_00227a08(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00227a08: definition mo
 
 u32 func_00228450(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00228450: definition moved into src/anon/unit_00224780.cpp
 
-u32 func_00229430(u32 a0, u32 a1, u32 a2, u32 a3);  // 00229430: moved to src/sasa/musical_score.cpp (linked unit)
+u32 sa__MUSICAL_SCORE_BASE__create(u32 a0, u32 a1, u32 a2, u32 a3);  // 00229430: moved to src/sasa/musical_score.cpp (linked unit)
 
 u32 func_00229e28(u32 a0, u32 a1, u32 a2, u32 a3);  // 00229e28: moved to src/sasa/musical_combo.cpp (linked unit)
 
@@ -1081,7 +1081,7 @@ u32 func_0031a030(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0031a030: definition mo
 
 u32 func_0031a048(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0031a048: definition moved into src/anon/unit_003197d0.cpp
 
-u32 func_0031fb60(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0031fb60: definition moved into src/anon/unit_0031f2f8.cpp
+u32 YS__WINDOW_BASE__set_select(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0031fb60: definition moved into src/anon/unit_0031f2f8.cpp
 
 u32 func_0031fb78(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0031fb78: definition moved into src/anon/unit_0031f2f8.cpp
 

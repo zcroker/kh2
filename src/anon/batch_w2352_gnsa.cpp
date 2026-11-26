@@ -45,10 +45,10 @@ V path_pos(void*) asm("_ZN2Ti4Path15get_current_posEv");
 extern "C" {
 s32 func_0019d748(u8*);
 void func_0019da20(Buf*, u8*);
-void func_0019dd10(Buf*);
-void func_0019d5f8(u8*, Slot*);
+void YS__RC_SEARCHER__exec(Buf*);
+void YS__RECOM__start(u8*, Slot*);
 void func_0019d720(u8*);
-void func_00196028(Obj*);
+void YS__SAVEPOINT__recover(Obj*);
 void* func_0016b740(s32);
 void func_00190128(Tgt*);
 V func_00190388(Tgt*);
@@ -63,7 +63,7 @@ static inline bool low(u8* s) { return *(u8*)(s + 0x29) < 4; }
 #define SELF_ST(s)  (*(u8*)((s) + 0x29))
 /* 0019d790: per-frame update of a command user: refreshes its command slot, marks the target busy, then reports the
    current target position (a special target for ids 440/464, the path position for 523) through virtual slot 7. */
-void func_0019d790(u8* self);  // 0x0019d790: definition moved into src/anon/unit_0019ba60.cpp
+void YS__RECOM__exec(u8* self);  // 0x0019d790: definition moved into src/anon/unit_0019ba60.cpp
 
 
 }

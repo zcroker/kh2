@@ -17,20 +17,20 @@ struct HV {
 typedef unsigned int u128 __attribute__((mode(TI)));
 namespace YS { struct OBJ; }
 
-void h_0017c4c8(void*, HV*) asm("func_0017c4c8");
-void h_0017c430(void*) asm("func_0017c430");
+void h_0017c4c8(void*, HV*) asm("YS__OBJ__prepare_jump");
+void h_0017c430(void*) asm("YS__OBJ__prepare_jump_height");
 void h_0017c660(void*, void*) asm("func_0017c660");
 HV h_0017c870(void*, void*, f32, f32) asm("func_0017c870");
 void h_change_action(void*, s32) asm("_ZN2YS3OBJ13change_actionENS_6ACTION2IDE");
 void h_set_pos(void*, HV*) asm("_ZN2YS3OBJ7set_posERKN2kn7FVectorE");
 HV h_get_current_pos(void*) asm("_ZN2Ti4Path15get_current_posEv");
 void h_reset_current_pointer(void*, HV*) asm("_ZN2Ti4Path21reset_current_pointerERKN2kn7FVectorE");
-HV* h_0016c028(void*) asm("func_0016c028");
+HV* h_0016c028(void*) asm("YS__OBJ__get_pos");
 void h_set_skateboard_mode(void*, s32) asm("_ZN2YS4SORA19set_skateboard_modeEi");
 void h_score_stop(void*) asm("_ZN2Ts15SKATEBOARDSCORE4stopEv");
 void h_0017f5f8(void*, s32, s32, f32, f32) asm("func_0017f5f8");
 void h_motion_push(void*, s32, s32, f32, f32) asm("_ZN2YS6MOTION4pushEiffPFvPNS_3OBJEE");
-HV h_00184540(void*, f32, f32) asm("func_00184540");
+HV h_00184540(void*, f32, f32) asm("kn__MotionPrototype0__calcLimitValue");
 HV h_002eaf48(void*, s32) asm("func_002eaf48");
 HV h_002eb4f0(void*) asm("func_002eb4f0");
 void h_002eb4b0(void*) asm("func_002eb4b0");
@@ -106,8 +106,8 @@ struct EObj;
 struct EObjVt { void* f[8]; void (*f20)(EObj*, EActor*, s32); };
 struct EObj { EObjVt* vt; };
 s32 func_002eb3b8(EActor*) asm("func_002eb3b8");
-EV* func_0016c028(EActor*) asm("func_0016c028");
-EVR func_0016af58(EActor*) asm("func_0016af58");
+EV* YS__OBJ__get_pos(EActor*) asm("YS__OBJ__get_pos");
+EVR YS__OBJ__get_dir(EActor*) asm("YS__OBJ__get_dir");
 EVR func_002cba88(s32, const EV&, const EVR&, f32, f32) asm("func_002cba88");
 void e_set_dir(EActor*, const EV&) asm("_ZN2YS3OBJ7set_dirERKN2kn7FVectorE");
 void func_002eda90(f32, s32, s32) asm("func_002eda90");
@@ -122,9 +122,9 @@ extern "C" void func_002ec5f8(EObj* self, EActor* a) {
     EV t;
     s32 id = a->x508;
     if (func_002eb3b8(a)) return;
-    t = *func_0016c028(a);
+    t = *YS__OBJ__get_pos(a);
     f32 r = 24.0f;
-    a->dir = func_002cba88(id, t, func_0016af58(a), r, 0.5f);
+    a->dir = func_002cba88(id, t, YS__OBJ__get_dir(a), r, 0.5f);
     a->dir.normalize();
     a->dir.w = r;
     e_set_dir(a, a->dir);
@@ -136,7 +136,7 @@ extern "C" void func_002ec5f8(EObj* self, EActor* a) {
             D_0036354c -= D_00349e10;
         }
     }
-    EV d = D_01e2c050 - *func_0016c028(a);
+    EV d = D_01e2c050 - *YS__OBJ__get_pos(a);
     t = d;
     t.y = 0.0f;
     if (func_003142e0(func_00313b80(t.lensq()), 0x40e3880000000000ULL) < 0)
@@ -169,7 +169,7 @@ static inline f32 w1821_norm(W1821Vec* v) {
     return len;
 }
 W1821Vec func_0017c030(W1821Obj*, s32*, u8) asm("func_0017c030");
-void func_0017c4c8(W1821Obj*, W1821Vec) asm("func_0017c4c8");
+void YS__OBJ__prepare_jump(W1821Obj*, W1821Vec) asm("YS__OBJ__prepare_jump");
 void func_002eb778(W1821Obj*, u32, s32, f32) asm("func_002eb778");
 extern "C" void func_002ec850(void* unused, W1821Obj* p, u8 c) {
     W1821Vec v = p->p20;
@@ -179,7 +179,7 @@ extern "C" void func_002ec850(void* unused, W1821Obj* p, u8 c) {
     if (p->p10.w < len) p->p10 = v;
     v = func_0017c030(p, &k, c);
     v.y = 385.0f;
-    func_0017c4c8(p, v);
+    YS__OBJ__prepare_jump(p, v);
     p->b514 = 8;
     func_002eb778(p, 255, 1, 0.0f);
     p->w100 = 0x100;
@@ -199,13 +199,13 @@ void wtarget_002ec960(u8* o) {
 
 // ---- 2ec9d0 (src/anon/batch_w42.cpp)
 namespace n2ec9d0 {
-void func_0017c4c8(void*, void*) asm("func_0017c4c8");
+void YS__OBJ__prepare_jump(void*, void*) asm("YS__OBJ__prepare_jump");
 void func_002eb6f8(void*, s32, f32) asm("func_002eb6f8");
 extern "C" void func_002ec9d0(u8* p, u128* v, s32 n)
 {
     u128 tmp;
     asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(&tmp), "r"(v) : "$8", "memory");
-    func_0017c4c8(p, &tmp);
+    YS__OBJ__prepare_jump(p, &tmp);
     p[1300] = 8;
     func_002eb6f8(p, n, 0.0f);
     *(s32*)(p + 256) = n + 1;
@@ -218,11 +218,11 @@ namespace n2eca38 {
 struct V4 {
     u32 w[4];
 } __attribute__((aligned(16)));
-u32 func_0016c028(void*) asm("func_0016c028");
+u32 YS__OBJ__get_pos(void*) asm("YS__OBJ__get_pos");
 void func_002eb6f8(u32, s32, f32) asm("func_002eb6f8");
 extern f32 D_01e2c060 asm("D_01e2c060");
 extern V4 D_00363550 asm("D_00363550");
-V4* func_0016c028_v(u32) asm("func_0016c028");
+V4* func_0016c028_v(u32) asm("YS__OBJ__get_pos");
 static inline void cpq(void* d, const void* s) {
     asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(d), "r"(s) : "$8", "memory");
 }
@@ -306,7 +306,7 @@ u64 func_00313b80(f32) asm("func_00313b80");
 u64 func_00313f40(u64, u64) asm("func_00313f40");
 f32 __truncdfsf2(u64) asm("__truncdfsf2");
 f32 sinf(f32) asm("sinf");
-W1840Vec* func_0016c028(W1840PathOwner*) asm("func_0016c028");
+W1840Vec* YS__OBJ__get_pos(W1840PathOwner*) asm("YS__OBJ__get_pos");
 extern "C" W1840Vec* func_002ecb90(W1840Vec* r, void* self, W1840PathOwner* o) {
     f32 s = D_01e2c060 / 10.0f;
     s = sinf(__truncdfsf2(func_00313f40(func_00313b80(s * 3.14159274f), 0x3fe0000000000000ULL)));
@@ -314,7 +314,7 @@ extern "C" W1840Vec* func_002ecb90(W1840Vec* r, void* self, W1840PathOwner* o) {
     p = w1840_get_current_pos(o->path);
     *r = p - D_00363550;
     *r = D_00363550 + *r * s;
-    *r -= *func_0016c028(o);
+    *r -= *YS__OBJ__get_pos(o);
     return r;
 }
 }

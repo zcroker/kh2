@@ -41,39 +41,39 @@ void func_001a1a50(Sub1cf*, s32);
 void func_001d2648(u8*, s32, f32);  // clear_fields_0_4_32
 void func_001c8d80(u8*, s32);
 s32 func_002a0360(void);
-s32 func_002a9b88(s32);
-s32 func_002a8870(s32);
-s32 func_002b3ae8(void);
+s32 Tz__JmQuest__isEnable(s32);
+s32 Tz__JmMiniGame__isEnable(s32);
+s32 Tz__JmPuzzle__isEnable(void);
 s32 func_002a6500(void);
 s32 func_002a7530(void);
-s32 func_0029a5f0(s32 idx);  // 0x0029a5f0: definition moved into src/anon/unit_00299920.cpp
+s32 Tz__JmCollection__Cur2SelNum(s32 idx);  // 0x0029a5f0: definition moved into src/anon/unit_00299920.cpp
 void func_001cfbd8(u8* p, u32 a1, u32 a2, u32 a3);  // 0x001cfbd8: definition moved into src/anon/unit_001cf0b0.cpp
 
 extern E259 D_00372ed8[];
 extern void* D_0035f64c;
 extern u32 D_0035f664;
 s32 func_00253578(void);  // get_global_36ee90
-void func_00288d80(void*, s32, s32, s32, u32, u32, E259*, void*);
-void func_00288e08(void*, s32, s32, s32);
+void Tz__Select__SetItem(void*, s32, s32, s32, u32, u32, E259*, void*);
+void Tz__Select__SetExOffset(void*, s32, s32, s32);
 u32 func_002891b8(void*, s32);
 void func_00139620(u32);
 void func_001395f8(u32);
-void func_002891f0(void*, s32, s32, s32, s32);
+void Tz__Select__SetCurrent(void*, s32, s32, s32, s32);
 void func_0028af18(void*, s32);
-void func_00259e90(void);  // 0x00259e90: definition moved into src/anon/unit_002588e8.cpp
+void Tz__CmSLBase__SetupSlot(void);  // 0x00259e90: definition moved into src/anon/unit_002588e8.cpp
 
-s32 func_002282f0(s32);
-void* func_002282d8(void);  // limit_15000_or_25000
+s32 sa__EVENT__checkStart(s32);
+void* sa__EVENT__getEventPriority(void);  // limit_15000_or_25000
 C22e* func_00227d10(s32);
-void func_001ba028(B22e*);  // list_contains_ptr
-s32 func_00225b00(s32);  // flag_query_by_index
+void YS__OBJ__is_valid(B22e*);  // list_contains_ptr
+s32 sa__EVENT__isJumpMode(s32);  // flag_query_by_index
 V22e* func_00102c18(s32, void*, void*);
 void* func_001050c8(void);
 W22e* func_001063c0(s32, void*);
 void func_0014f030(W22e*, f32, f32, f32);  // obj_set_lerp_params
 void func_0022ed70(void);
 void func_0022ee00(void);
-void func_0022ee30(A22e* a);  // 0x0022ee30: definition moved into src/anon/unit_0022d358.cpp
+void sa__EVENT__set_shadow_alpha_seq(A22e* a);  // 0x0022ee30: definition moved into src/anon/unit_0022d358.cpp
 
 W259V4 func_00178330(void*);
 // 001785b8: moved to src/yasui/libys/player.cpp

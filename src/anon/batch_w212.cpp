@@ -3,7 +3,7 @@
 typedef unsigned int u128 __attribute__((mode(TI)));
 
 extern "C" {
-extern u8* func_0016c028(u32);  // obj_get_attach_or_alt
+extern u8* YS__OBJ__get_pos(u32);  // obj_get_attach_or_alt
 extern s32 func_001a6d08(s32) asm("_ZN2YS8MENUFLAG5CheckEi");
 extern void func_002dea00(f32, f32);  // obj_init_with_floats
 

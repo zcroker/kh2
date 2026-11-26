@@ -19,5 +19,5 @@ s32 func_001d9d48(E3440*);
 s32 func_002b3ac8(s32);
 u32 func_001064a8(s32);
 
-void func_002b3440(void);  // 0x002b3440: definition moved into src/anon/unit_002b3440.cpp
+void Tz__JmPuzzle__SetPiece(void);  // 0x002b3440: definition moved into src/anon/unit_002b3440.cpp
 }

@@ -53,7 +53,7 @@ extern "C" {
 void func_0011b6a8(M124*);
 M124* func_0011b6d8(M124*, f32);
 // 00124ca8: look-at view matrix (eye, target, optional up, roll); with proj, also a 2D correction from the triangle a, b, |target-eye|
-void func_00124ca8(V124* eye, V124* tgt, s32 flip, M124* out, M124* proj, V124* upv, f32 a, f32 b, f32 roll, f32 roll2);  // 0x00124ca8: definition moved into src/anon/unit_00123990.cpp
+void gm__GRID__draw(V124* eye, V124* tgt, s32 flip, M124* out, M124* proj, V124* upv, f32 a, f32 b, f32 roll, f32 roll2);  // 0x00124ca8: definition moved into src/anon/unit_00123990.cpp
 
 
 }

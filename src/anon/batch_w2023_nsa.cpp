@@ -67,13 +67,13 @@ extern f32 D_00349e10;
 extern f32 D_00351fd8;
 extern f32 D_00351fe0;
 W2023Pl* W2023_current(void) asm("_ZN2Ti8MGPlayer7currentEv");
-s32 W2023_ctarget(W2023Pl*) asm("_Z16ctarget_0019ba60jjjj");
+s32 W2023_ctarget(W2023Pl*) asm("_Z17YS__OBJ__is_existjjjj");
 void W2023_rotateY(W2023M*, f32) asm("_ZN2kn7FMatrix7rotateYEf");
 f32 func_001cbf50(f32);
 
-s32 func_001cab28(W2023Ob* o);  // 0x001cab28: definition moved into src/anon/unit_001ca8e0.cpp
+s32 YS__PRIZEEFFECT_PO__phase_get(W2023Ob* o);  // 0x001cab28: definition moved into src/anon/unit_001ca8e0.cpp
 
-s32 func_0022a3d0(s32 n, f32 x, s32* a, s32* b, s32* c, s32* d, s32* e, s32* f, s32* g, s32* h, f32* out);
+s32 sa__MUSICAL_INPUT__createCircleSize(s32 n, f32 x, s32* a, s32* b, s32* c, s32* d, s32* e, s32* f, s32* g, s32* h, f32* out);
 void W2023_hide(void*) asm("_ZN2dk5Obj2D9localHideEv");
 void W2023_show(void*) asm("_ZN2dk5Obj2D9localShowEv");
 void W2023_call4(void*) asm("_Z16u_call4_00139d78jjjj");
@@ -117,9 +117,9 @@ struct W2023SelfB {
     s32 b98;
 };
 
-void func_00229b28(W2023Self* s, s32 i, u32 z1, u32 z2, f32 x);  // 00229b28: moved to src/sasa/musical_combo.cpp (linked unit)
+void sa__MUSICAL_COMBO__createCircle(W2023Self* s, s32 i, u32 z1, u32 z2, f32 x);  // 00229b28: moved to src/sasa/musical_combo.cpp (linked unit)
 
-void func_0022a5c8(W2023SelfB* s, s32 i, u32 z1, u32 z2, f32 x);  // 0022a5c8: moved to src/sasa/musical_input.cpp (linked unit)
+void sa__MUSICAL_INPUT__createCircle(W2023SelfB* s, s32 i, u32 z1, u32 z2, f32 x);  // 0022a5c8: moved to src/sasa/musical_input.cpp (linked unit)
 
 struct W2023Q {
     f32 x, y, z, w;

@@ -9,7 +9,7 @@ void MISSION_Activate2d(void*) asm("_ZN2YS7MISSION10Activate2dEv");
 void EFFECT_kill(void*) asm("_ZN3ryj6EFFECT4killEv");
 u32 wtarget_002342f0(u32, u32, u32, u32) asm("_Z16wtarget_002342f0jjjj");
 void Layout_setNum(void*, s32, s32) asm("_ZN2Tz6Layout6setNumEii");
-void u_tail4_002e2d88(u32, u32, u32, u32) asm("_Z16u_tail4_002e2d88jjjj");
+void Ti__MG_EHSidecar__PlayPath(u32, u32, u32, u32) asm("_Z26Ti__MG_EHSidecar__PlayPathjjjj");
 
 extern "C" {
 s32 func_00103b38(s32);
@@ -26,13 +26,13 @@ void func_00160e50(u32);
 void func_0015c2a0(u32, u64);
 void func_0011c4e8(u32, void*, u32, u32, u32, u32, f32);
 void func_0011c4b0(u32, void*);
-f32 func_0017d160(Vec4*, Vec4*);  // vec3_dot_clamped
+f32 YS__MATH__VectorAngle(Vec4*, Vec4*);  // vec3_dot_clamped
 void func_002fee78(char*, const char*, void*);
 s32 func_0016a070(void*);
-void func_0017f380(s32);  // obj_walk_children
+void YS__MOTION__clear_queue(s32);  // obj_walk_children
 void func_0017f268(s32, s32, f32, f32);
 void func_001802d8(u32, u32, u32, u32, u32, u32);
-void* func_00185da8(void*);
+void* YS__ENEMY__Each(void*);
 void func_001b7df0(u32, u32);
 u8* func_0016e920(u32);
 
@@ -92,9 +92,9 @@ void func_00177dc8(void*, u32, u32, u32, u32);
 void func_001d56f0(void*);  // zero_three_words
 void func_001d16f8(void*);
 void func_0014f688(u32, u32, u32, u32, u32);
-void func_001d1950(void*, u32);
+void YS__MISSION_TIMER__start(void*, u32);
 void func_001e2c00(u32);
-void func_001e6c00(u32);  // alloc_336_align_171
+void pppDeleteMng(u32);  // alloc_336_align_171
 void func_001e6000(void*);  // obj_dec_timer
 
 extern void* D_00350bf0[];
@@ -128,7 +128,7 @@ s32 func_001a8c78(u8* p, s32 n);  // 0x001a8c78: definition moved into src/anon/
 
 // 001b1448: moved to src/yasui/libys/databuff.cpp
 
-void* func_001b5a10(void);  // 0x001b5a10: definition moved into src/anon/unit_001b2780.cpp
+void* YS__LIMIT__GetPax(void);  // 0x001b5a10: definition moved into src/anon/unit_001b2780.cpp
 
 // Takes a slot from the free list and initialises it.
 // 001b8680: moved to src/anon/unit_001b82d8.cpp
@@ -143,17 +143,17 @@ void sceVu0UnitMatrix(void*);  // vu_store_w_splat
 s32 func_00139d78(void*);
 void func_0023f0c8(void*, s32);
 u8* func_001058e8(void);
-s32 func_0024ac88(void);
+s32 Tz__TRTE__GetSeqInfo(void);
 void func_002839f0(s32);  // entry416_by_masked_index
 void* func_002be908(void*);
 void func_002c1dc0(void);
 s32 func_00190140(void*);
-void func_002c04c8(void*, void*, void*);
-void func_002c6490(void*);
+void worldmap__LockOnCamera__getEyeAt(void*, void*, void*);
+void worldmap__Camera__update(void*);
 void* func_001050d8(u32);
-void func_002dc4e0(void*, u32, u32);
+void Ti__MGJump__MGJump(void*, u32, u32);
 void func_002ceb08(void);
-void func_002cc620(u32, u8*, u32);
+void Ti__Path__reset_leave_way(u32, u8*, u32);
 void func_002eb6f8(u8*, s32);
 void func_001c1748(void*, u32, u32, u32);  // obj_init_from_src
 void func_00190128(void*);
@@ -162,7 +162,7 @@ void func_00170c00(u32);
 void func_00103bb0(s32);
 s32 func_00105c30(void);
 void func_00239870(void*);
-void func_0019f9a8(void*);  // array8_free_slots
+void YS__OBJ_ATTACK__clear(void*);  // array8_free_slots
 void func_001c0248(void*);
 void func_00319fb0(void*);  // big_obj_dtor
 void func_00105110(void*);

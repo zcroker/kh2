@@ -12,7 +12,7 @@ void wtarget_001e7230(u32, u32, u32, u32) asm("_Z16wtarget_001e7230jjjj");
 void wtarget_0028d068(u32, u32, u32, u32) asm("_Z16wtarget_0028d068jjjj");
 
 s32 func_00139d78(void*);
-Vec4* func_0016c028(void*);  // obj_get_attach_or_alt
+Vec4* YS__OBJ__get_pos(void*);  // obj_get_attach_or_alt
 
 void func_00170dd0(void);
 void func_003058a0(s32);
@@ -44,7 +44,7 @@ u8* func_0013aca0(u32 a, u32 b, u32 c, u32 d, u32 e, u32 f);  // 0x0013aca0: def
 struct S13e { u8 pad[388]; s32 f388; u8 pad2[56]; u8 sub[16]; };
 void func_00138c10(void*, s32);
 void func_00139510(void*);
-void func_0013e4b8(S13e* p);  // 0x0013e4b8: definition moved into src/anon/unit_0013dfb8.cpp
+void dk__LockOn__end(S13e* p);  // 0x0013e4b8: definition moved into src/anon/unit_0013dfb8.cpp
 
 struct N160 { u8 pad[128]; N160* next; u8 pad2[292]; s32 key; };
 extern N160* D_004f3b38;
@@ -55,14 +55,14 @@ static inline N160* Next160(N160* n) { if (!n) return D_004f3b38; return n->next
 union U173 { f32 f[4]; u32 u[4]; } __attribute__((aligned(16)));
 extern U173 D_01c5f480;
 f32 func_00184a90(void*);
-void func_00173f08(u32* p);  // 0x00173f08: definition moved into src/anon/unit_00171e58.cpp
+void YS__trap_obj_step_pos(u32* p);  // 0x00173f08: definition moved into src/anon/unit_00171e58.cpp
 
 s32 func_0017df70(void);
 u8* func_0016e920(s32);
-u32 func_0016f7d0(s32, u8*);
+u32 YS__OBJENTRY__GetCacheBuffStatus(s32, u8*);
 // 0017dfc8: moved to src/yasui/libys/friend.cpp
 
-void func_002cbca0(Vec4*, u32, Vec4*, u8*);
+void Ti__Path__get_next_movement(Vec4*, u32, Vec4*, u8*);
 // 001850a0: moved to src/anon/unit_00183088.cpp
 
 // Formats name [i][j] (32-byte strings, two per row) into buf (or a static buffer).
@@ -89,18 +89,18 @@ extern u64 D_0034ecc8;
 void func_0015ee10(s32);
 void func_0019ebc0(void);  // 0x0019ebc0: definition moved into src/anon/unit_0019ea10.cpp
 
-void func_001a98e8(void*, u32, u32, u32, u32);
-void func_001a9ae8(void*, u32, u32, u32);
-void func_001aa728(u32 a, u32 b, u32 c, u32 d, u32 e, u32 f, u32 g);  // 0x001aa728: definition moved into src/anon/unit_001a9130.cpp
+void YS__MESSAGEDRAW__MESSAGEDRAW(void*, u32, u32, u32, u32);
+void YS__MESSAGEDRAW__draw(void*, u32, u32, u32);
+void YS__MESSAGEDRAW__Draw(u32 a, u32 b, u32 c, u32 d, u32 e, u32 f, u32 g);  // 0x001aa728: definition moved into src/anon/unit_001a9130.cpp
 
 s32 func_001b58a8(void);
 u32 func_001a8bd0(s32);
 s32 func_001a8bf8(u32, s32);  // get_bits5_at
 s32 func_001c8db8(void*, s32);
 extern u8 D_00351ec0[];
-s32 func_001b6070(void);  // 0x001b6070: definition moved into src/anon/unit_001b2780.cpp
+s32 YS__CHANGEIN__CanExec(void);  // 0x001b6070: definition moved into src/anon/unit_001b2780.cpp
 
-s32 func_0019bb98(u8*);
+s32 YS__OBJ__is_heavy(u8*);
 u8* func_001b7998(u8*, u32);
 void func_0018a7d0(u8*, u32, Vec4*);
 void func_001b7df0(u8* p, u32 b);  // 0x001b7df0: definition moved into src/anon/unit_001b6a50.cpp
@@ -111,7 +111,7 @@ u32 func_001db610(u32, void*, S1b8*);
 extern u8 D_001b8520[];
 // 001b84b8: moved to src/anon/unit_001b82d8.cpp
 
-s32 func_001b9d40(u8* p);  // 0x001b9d40: definition moved into src/anon/unit_001b9880.cpp
+s32 YS__OBJ__can_control(u8* p);  // 0x001b9d40: definition moved into src/anon/unit_001b9880.cpp
 
 struct N1e0 { u8 pad[20]; N1e0* next; };
 extern N1e0* D_01d9e348;
@@ -132,7 +132,7 @@ void wtarget_001e7230(u32 a, u32 b, u32, u32);  // 0x001e7230: definition moved 
 extern u8 D_0035de26;
 extern u8 D_00232150[];
 void func_00102c18(s32, s32, void*);
-s32 func_002282f0u(u16) asm("func_002282f0");
+s32 func_002282f0u(u16) asm("sa__EVENT__checkStart");
 void func_002322b8(u8* p);  // 0x002322b8: definition moved into src/anon/unit_00231500.cpp
 
 extern u8* D_0035ee48;
@@ -141,8 +141,8 @@ void func_00250928(void);  // 0x00250928: definition moved into src/anon/unit_00
 s32 func_002538f8(u32);  // entry16_get_flag_bit
 s32 func_00253928(u32);  // entry16_get_bit1
 s32 func_00253918(void);
-s32 func_002539e8(u32, s32);
-s32 func_00259350(u32 a);  // 0x00259350: definition moved into src/anon/unit_002588e8.cpp
+s32 Tz__CMData__BackRead(u32, s32);
+s32 Tz__CmComm__DataLoad(u32 a);  // 0x00259350: definition moved into src/anon/unit_002588e8.cpp
 
 extern u8* D_0035f20c;
 u32 func_00192048(s32);
@@ -173,7 +173,7 @@ void func_002bb100(u8*, s32, s32);  // next_global_id
 void func_002bb5a8(u8*, u32);
 void func_002bb3f0(u8* p, u32 a, u32 b, u32 c, u32 d);  // 0x002bb3f0: definition moved into src/anon/unit_002bb070.cpp
 
-void func_002d0bd8(u8*, u8*);
+void Ti__MGObj__set_matrix_2(u8*, u8*);
 static inline void mcopy(void* d, void* s) {
     if (d != s) asm volatile("lq $8,0(%1)\n\tlq $9,16(%1)\n\tlq $10,32(%1)\n\tlq $11,48(%1)\n\tsq $8,0(%0)\n\tsq $9,16(%0)\n\tsq $10,32(%0)\n\tsq $11,48(%0)" : : "r"(d), "r"(s) : "$8", "$9", "$10", "$11", "memory");
 }
@@ -221,7 +221,7 @@ struct Pool13e { u8 pad[8064]; s32 free[9]; s32 n; };
 struct G13e { u32 v; };
 extern u8* D_003486a4;
 extern G13e D_003486a0;
-void func_0013e2d8(u8*, u32, u32);
+void dk__LockOn__start(u8*, u32, u32);
 u8* func_0013e610(u32 a);  // 0x0013e610: definition moved into src/anon/unit_0013dfb8.cpp
 
 s32 func_00228378(u8*, u8*);
@@ -239,9 +239,9 @@ void wtarget_001ce668(u32 a, u32 b, u32, u32);
 struct S22e { u8 pad[4]; s16 f4; u8 pad6[2]; u8 f8; u8 f9; s16 f10; s16 f12; };
 union U22 { s32 i; s16 h; };
 struct R22e { u8 pad[12]; U22 f12; U22 f16; u8 f20; u8 f21; };
-s32 func_002282f0(s32);
+s32 sa__EVENT__checkStart(s32);
 R22e* func_00227d10(s32);
-void func_0022efb8(S22e* p);  // 0x0022efb8: definition moved into src/anon/unit_0022d358.cpp
+void sa__EVENT__set_alpha_seq(S22e* p);  // 0x0022efb8: definition moved into src/anon/unit_0022d358.cpp
 
 // Stores s into the first free (id == -1) of 128 table entries. Unions with a
 // char member reproduce the original's reloads (built without strict aliasing).
@@ -262,5 +262,5 @@ void func_0023f900(u32);
 s32 func_00292630(void);
 u32 func_00293db8(s32, s32);
 void func_0023fa08(u32, u32);
-void func_00294e48(void);  // 0x00294e48: definition moved into src/anon/unit_00292e60.cpp
+void Tz__JmWorldSel__FileAlloc(void);  // 0x00294e48: definition moved into src/anon/unit_00292e60.cpp
 }

@@ -9,10 +9,10 @@ struct W1962Chr { u8 p[4]; u8 kind; };
 struct W1962Lst { W1962Nd* head; W1962Nd* tail; };
 struct W1962Obj { u32 f0; u32 fl; W1962Hdr* hdr; W1962Lst lst; u32 f14; u32 f18; u32 f1c; u32 f20; W1962Ev* ev; W1962Ent* ent; };
 extern "C" {
-W1962Nd* func_001db440(W1962Ent*);
+W1962Nd* YS__ZONE__Create(W1962Ent*);
 s32 func_00199810(W1962Ev*);
 W1962Chr* GetCharaData_0016e920(u32) asm("_ZN2Tz6JmInfo12GetCharaDataEj");
-s32 func_002d0200(W1962Chr*);
+s32 Ti__MGObj__IsInitAppear(W1962Chr*);
 void func_00199f90(W1962Obj*, W1962Ev*);
 void func_0019ab30(W1962Obj*, u16);
 void func_00199dc0(W1962Obj* o);  // 0x00199dc0: definition moved into src/anon/unit_00199688.cpp

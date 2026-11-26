@@ -13,11 +13,11 @@ s32 func_001d3c78(E*);
 s32 func_001d3e40(E*);
 void* func_0017e668(u8);
 X* func_00177860(void*);
-V4* func_0016c028(void*);  // obj_get_attach_or_alt
-Z* func_001b8e88(u16);
-s32 func_001bc2a8(Z*, void*, s32);
+V4* YS__OBJ__get_pos(void*);  // obj_get_attach_or_alt
+Z* YS__COMMAND_ELEM__Get(u16);
+s32 YS__COMMAND_SLOT__GetStatus(Z*, void*, s32);
 }
-static inline bool Near(Z* z, void* a) { return func_001bc2a8(z, a, 0) < 4; }
+static inline bool Near(Z* z, void* a) { return YS__COMMAND_SLOT__GetStatus(z, a, 0) < 4; }
 extern "C" {
 Z* func_001d45a0(void* self, u32 id);  // 0x001d45a0: definition moved into src/anon/unit_001d3c08.cpp
 }

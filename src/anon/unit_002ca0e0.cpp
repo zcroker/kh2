@@ -32,9 +32,9 @@ extern char D_00347f98[] asm("D_00347f98");
 extern char D_0035eb98[] asm("D_0035eb98");
 extern u8* D_00361e28 asm("D_00361e28");
 void func_0031a838(u8*) asm("func_0031a838");
-void func_002369a0(u8*) asm("func_002369a0");
+void YI__IMAGE_FREEZE__IMAGE_FREEZE(u8*) asm("YI__IMAGE_FREEZE__IMAGE_FREEZE");
 // obj_ctor_36eac8
-void func_0023c008(u8*) asm("func_0023c008");
+void YI__LAYOUT__LAYOUT(u8*) asm("YI__LAYOUT__LAYOUT");
 // obj_ctor_36eae8
 void func_0028d140(u8*) asm("func_0028d140");
 void func_00167f38(s32) asm("func_00167f38");
@@ -51,8 +51,8 @@ void func_002ca0e0(u8* p) {
     *(u32*)(p + 24) = 0;
     func_0031a838(p + 40);
     *(void**)(p + 28) = D_0035eb98;
-    func_002369a0(p + 52);  // obj_ctor_36eac8
-    func_0023c008(p + 76);  // obj_ctor_36eae8
+    YI__IMAGE_FREEZE__IMAGE_FREEZE(p + 52);  // obj_ctor_36eac8
+    YI__LAYOUT__LAYOUT(p + 76);  // obj_ctor_36eae8
     *(u32*)(p + 188) = 0;
     func_0028d140(p + 192);
     *(u32*)(p + 636) = 0;
@@ -75,25 +75,25 @@ void func_0031a838(void*) asm("func_0031a838");
 extern u8 D_00347f98[] asm("D_00347f98");
 extern u8 D_00361e38[] asm("D_00361e38");
 extern u8 D_0035eb98[] asm("D_0035eb98");
-void func_002369a0(void*) asm("func_002369a0");
+void YI__IMAGE_FREEZE__IMAGE_FREEZE(void*) asm("YI__IMAGE_FREEZE__IMAGE_FREEZE");
 // obj_ctor_36eac8
-void func_0023c008(void*) asm("func_0023c008");
+void YI__LAYOUT__LAYOUT(void*) asm("YI__LAYOUT__LAYOUT");
 // obj_ctor_36eae8
 void func_0028d140(void*) asm("func_0028d140");
 void func_00167f38(s32) asm("func_00167f38");
 void func_002c5f48(void) asm("func_002c5f48");
 
 extern union { u32* v; u8 c; } D_00361e28 asm("D_00361e28");
-void func_002ca170(u32* p) asm("func_002ca170");
-void func_002ca170(u32* p) {
+void dk__WM_GLANDING__WM_GLANDING(u32* p) asm("dk__WM_GLANDING__WM_GLANDING");
+void dk__WM_GLANDING__WM_GLANDING(u32* p) {
     p[7] = (u32)D_00347f98;
     p[0] = (u32)D_00361e38;
     p[3] = 0;
     p[6] = 0;
     func_0031a838(p + 10);
     p[7] = (u32)D_0035eb98;
-    func_002369a0(p + 13);  // obj_ctor_36eac8
-    func_0023c008(p + 19);  // obj_ctor_36eae8
+    YI__IMAGE_FREEZE__IMAGE_FREEZE(p + 13);  // obj_ctor_36eac8
+    YI__LAYOUT__LAYOUT(p + 19);  // obj_ctor_36eae8
     p[47] = 0;
     func_0028d140(p + 48);
     p[159] = 0;
@@ -278,8 +278,8 @@ void func_002cac40(s32) asm("func_002cac40");
 void func_002ca5b8(void*) asm("func_002ca5b8");
 void func_002ca0a8(void) asm("func_002ca0a8");
 
-void func_002ca4c0(u8* p) asm("func_002ca4c0");
-void func_002ca4c0(u8* p) {
+void dk__WM_GLANDING__select(u8* p) asm("dk__WM_GLANDING__select");
+void dk__WM_GLANDING__select(u8* p) {
     s32 a = func_00289380(*(void**)(p + 188));
     func_00287df0(a, func_00289310(*(void**)(p + 188)), 0, 0, 1);
     switch (a) {
@@ -336,7 +336,7 @@ namespace n002ca630 {
 void func_002ca630(u8* a0) asm("func_002ca630");
 void func_002ca630(u8* a0) {
     u8* s0 = a0;
-    func_00236d60();  // clear_64_entries_24
+    YI__IMAGE_CACHE__Clear();  // clear_64_entries_24
     u8* s1 = s0 + 28;
 
     if (func_00139d78(s1) != 0) {
@@ -353,14 +353,14 @@ void func_002ca630(u8* a0) {
         return;
     }
 
-    func_002ca010(*(u32*)(s0 + 640));
+    dk__WM_GLANDING_INFO__start(*(u32*)(s0 + 640));
     u32 s2 = func_0023f0c0(s1);
     u32 v0 = func_002ca3d0((u32)s0, 2);
     if (s2 != v0) {
         return;
     }
 
-    func_002ca4c0((u32)s0);
+    dk__WM_GLANDING__select((u32)s0);
 }
 }  // namespace n002ca630
 
@@ -372,8 +372,8 @@ class Select { public: u32 isCursorMove(); u32 isSelectTopMove(); };
 void func_002890e0(Obj_002890e0* self, u32 a1, s32 a2, u32 a3, s32 a4) asm("func_002890e0");
 
 
-void func_002ca6f8(u8* a0) asm("func_002ca6f8");
-void func_002ca6f8(u8* a0) {
+void dk__WM_GLANDING__drawSelectDeparture(u8* a0) asm("dk__WM_GLANDING__drawSelectDeparture");
+void dk__WM_GLANDING__drawSelectDeparture(u8* a0) {
     u8* s2 = a0 + 192;
     u32 s1 = *(u32*)(a0 + 188);
 
@@ -395,7 +395,7 @@ void func_002ca6f8(u8* a0) {
 namespace n002ca7b0 {
 
 
-void func_002ca6f8(u8* a0) asm("func_002ca6f8");
+void dk__WM_GLANDING__drawSelectDeparture(u8* a0) asm("dk__WM_GLANDING__drawSelectDeparture");
 
 
 void func_002ca7b0(u8* a0) asm("func_002ca7b0");
@@ -407,7 +407,7 @@ void func_002ca7b0(u8* a0) {
         u32 v1 = func_0023f0c0(s0);
         u32 v0 = func_002ca3d0((u32)s1, 2);
         if (v1 == v0) {
-            func_002ca6f8((u32)s1);
+            dk__WM_GLANDING__drawSelectDeparture((u32)s1);
             return;
         }
     }
@@ -433,14 +433,14 @@ s32 func_0023aa18(...) asm("func_0023aa18");
 s32 func_0023aa38(...) asm("func_0023aa38");
 u32 func_00288ce0(...) asm("func_00288ce0");
 u32 func_00239870(...) asm("func_00239870");
-u32 func_002891f0(...) asm("func_002891f0");
+u32 Tz__Select__SetCurrent(...) asm("Tz__Select__SetCurrent");
 u32 func_0028b078(...) asm("func_0028b078");
 // obj_setup_from_args
-u32 func_0028af90(...) asm("func_0028af90");
+u32 Tz__Select__SetSelectMax(...) asm("Tz__Select__SetSelectMax");
 // obj_set_field22_from_arg
 u32 func_00288f48(...) asm("func_00288f48");
 u32 func_0028d068(...) asm("func_0028d068");
-u32 func_0028d1c0(...) asm("func_0028d1c0");
+u32 Tz__LightCur__Create(...) asm("Tz__LightCur__Create");
 u32 func_002891d0(...) asm("func_002891d0");
 u32 func_0028d660(...) asm("func_0028d660");
 // record_set_value_refresh
@@ -477,12 +477,12 @@ void func_002ca828(u8* p) {
         func_00288ce0(s2, v, i, D_00375840, D_00375848);
         func_00239870(buf);
     }
-    func_002891f0(s2, 0, 1, 0, 2);
+    Tz__Select__SetCurrent(s2, 0, 1, 0, 2);
     func_0028b078(s2, 1, 2);  // obj_setup_from_args
-    func_0028af90(s2, 2);  // obj_set_field22_from_arg
+    Tz__Select__SetSelectMax(s2, 2);  // obj_set_field22_from_arg
     func_00288f48(s2, 16, 32, 64, 128);
     func_0028d068(30040, -1);
-    func_0028d1c0(p + 192, 30050, 1, 1, p + 28, D_00375838, 0);
+    Tz__LightCur__Create(p + 192, 30050, 1, 1, p + 28, D_00375838, 0);
     func_0028d660(p + 192, func_002891d0(s2));  // record_set_value_refresh
     func_001396b0(p + 192);
 }
@@ -493,8 +493,8 @@ namespace n002caa50 {
 // record408_set_and_refresh
 u32 func_001708f8(u32, s32) asm("func_001708f8");
 u32 func_002ca3d0(u8*, u32) asm("func_002ca3d0");
-void func_0023eea0(u8*, u32, u32, u32, u32, u32) asm("func_0023eea0");
-void func_0023ef50(u8*) asm("func_0023ef50");
+void Tz__Layout__create(u8*, u32, u32, u32, u32, u32) asm("Tz__Layout__create");
+void Tz__Layout__SetImageCache(u8*) asm("Tz__Layout__SetImageCache");
 void func_0023f0c8(u8*, u32) asm("func_0023f0c8");
 void func_002ca828(u8*) asm("func_002ca828");
 void func_001391c8(u8*, u32, u32) asm("func_001391c8");
@@ -505,8 +505,8 @@ u32 func_0023f948(T2caa50*, u32) asm("func_0023f948");
 u32 func_0023f908(T2caa50*, u32) asm("func_0023f908");
 void func_0023f848(T2caa50*) asm("func_0023f848");
 
-void func_002caa50(u8* p, u32 a, u32 b) asm("func_002caa50");
-void func_002caa50(u8* p, u32 a, u32 b) {
+void dk__WM_GLANDING__create(u8* p, u32 a, u32 b) asm("dk__WM_GLANDING__create");
+void dk__WM_GLANDING__create(u8* p, u32 a, u32 b) {
     *(u32*)(p + 640) = b;
     *(u32*)(p + 648) = 0;
     T2caa50 t;
@@ -516,8 +516,8 @@ void func_002caa50(u8* p, u32 a, u32 b) {
     func_0023fa08(&t, r);
     u32 x = func_0023f948(&t, 0);
     u32 y = func_0023f908(&t, 0);
-    func_0023eea0(p + 28, 30001, x, y, func_002ca3d0(p, 0), 0);
-    func_0023ef50(p + 28);
+    Tz__Layout__create(p + 28, 30001, x, y, func_002ca3d0(p, 0), 0);
+    Tz__Layout__SetImageCache(p + 28);
     func_0023f0c8(p + 28, func_002ca3d0(p, 2));
     func_002ca828(p);
     func_001391c8(p, 30002, 0);
@@ -572,9 +572,9 @@ void func_002cab98(u32 a0) {
     u32* vt = *(u32**)obj;
     u32 s0 = ((FnAlloc)vt[0])(obj, 652, 0);
 
-    func_002ca170(s0);
-    u32 v0 = func_002beb90();
-    func_002caa50(s0, v0, s1);
+    dk__WM_GLANDING__WM_GLANDING(s0);
+    u32 v0 = worldmap__Manager__get2ldFile();
+    dk__WM_GLANDING__create(s0, v0, s1);
 
     func_002cac40(3);
 }

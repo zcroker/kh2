@@ -25,19 +25,19 @@ static inline Vq285 lerp285(const Vq285& a, const Vq285& b, f32 t) {
 }
 struct Loc285 { f32 a, b, c; s32 d; Vq285 v; };
 struct Obj285 { Vq285 v0, v10, v20, v30, v40; s32 f50; f32 f54; };
-void func_001902a8(void*, Loc285*) asm("func_001902a8");
-Vq285* func_0016c028(s32) asm("func_0016c028");
+void YS__TARGET__make_collision(void*, Loc285*) asm("YS__TARGET__make_collision");
+Vq285* YS__OBJ__get_pos(s32) asm("YS__OBJ__get_pos");
 // obj_get_attach_or_alt
 void func_001a7610(Vq285*, Vq285*, s32, f32, f32) asm("func_001a7610");
 void func_0016bd60(s32, s32) asm("func_0016bd60");
 
-void func_002c6eb8(Obj285* o, s32 id, void* p) asm("func_002c6eb8");
-void func_002c6eb8(Obj285* o, s32 id, void* p) {
+void worldmap__Warp__start(Obj285* o, s32 id, void* p) asm("worldmap__Warp__start");
+void worldmap__Warp__start(Obj285* o, s32 id, void* p) {
     Loc285 l;
     l.d = 0;
-    func_001902a8(p, &l);
+    YS__TARGET__make_collision(p, &l);
     o->v40 = l.v;
-    o->v0 = *func_0016c028(id);  // obj_get_attach_or_alt
+    o->v0 = *YS__OBJ__get_pos(id);  // obj_get_attach_or_alt
     o->v30 = l.v;
     o->v30.z -= l.b;
     func_001a7610(&o->v30, &o->v30, 0, 5000.0f, 1000.0f);
@@ -71,8 +71,8 @@ extern f32 D_00349e10 asm("D_00349e10");
 void func_0017d748(W1781Vec* out, W1781Obj* self, f32 t) asm("func_0017d748");
 
 
-void func_002c7060(W1781Obj* self, void* obj) asm("func_002c7060");
-void func_002c7060(W1781Obj* self, void* obj) {
+void worldmap__Warp__exec(W1781Obj* self, void* obj) asm("worldmap__Warp__exec");
+void worldmap__Warp__exec(W1781Obj* self, void* obj) {
     W1781Vec v;
     f32 dur;
     self->time += D_00349e10;
@@ -142,10 +142,10 @@ extern u8 D_00347e60[] asm("D_00347e60");
 extern u8 D_00347e40[] asm("D_00347e40");
 extern W1722Menu* D_00361dd8 asm("D_00361dd8");
 void func_0031a838(void*) asm("func_0031a838");
-void func_002369a0(void*) asm("func_002369a0");
-void func_0023c008(void*) asm("func_0023c008");
+void YI__IMAGE_FREEZE__IMAGE_FREEZE(void*) asm("YI__IMAGE_FREEZE__IMAGE_FREEZE");
+void YI__LAYOUT__LAYOUT(void*) asm("YI__LAYOUT__LAYOUT");
 void func_00239700(void*) asm("func_00239700");
-s32 func_002beb90(void) asm("func_002beb90");
+s32 worldmap__Manager__get2ldFile(void) asm("worldmap__Manager__get2ldFile");
 s32 func_001708f8(s32, s32) asm("func_001708f8");
 void func_0023f800(W1722LayFile*) asm("func_0023f800");
 void func_0023f848(W1722LayFile*) asm("func_0023f848");
@@ -153,8 +153,8 @@ void func_0023fa08(W1722LayFile*, s32) asm("func_0023fa08");
 s32 func_0023f948(W1722LayFile*, s32) asm("func_0023f948");
 s32 func_0023f908(W1722LayFile*, s32) asm("func_0023f908");
 s32 func_002c83a8(W1722Menu*, s32) asm("func_002c83a8");
-void func_0023eea0(W1722Lay*, s32, s32, s32, s32, s32) asm("func_0023eea0");
-void func_0023ef50(W1722Lay*) asm("func_0023ef50");
+void Tz__Layout__create(W1722Lay*, s32, s32, s32, s32, s32) asm("Tz__Layout__create");
+void Tz__Layout__SetImageCache(W1722Lay*) asm("Tz__Layout__SetImageCache");
 void func_0023f0c8(W1722Lay*, s32) asm("func_0023f0c8");
 void func_00139570(W1722Lay*) asm("func_00139570");
 void* func_0023f1b0(W1722Lay*) asm("func_0023f1b0");
@@ -166,8 +166,8 @@ s32 func_00192048(s32) asm("func_00192048");
 void func_00138d60(W1722Sprite*, s32, s32, s32, s32, s32, s32) asm("func_00138d60");
 void func_00139620(W1722Sprite*) asm("func_00139620");
 s32 func_002c22b8(s32) asm("func_002c22b8");
-void func_002c8680(W1722Menu*, s32) asm("func_002c8680");
-void func_001386e0(W1722Sprite*, s32, s32, s32, s32, s32) asm("func_001386e0");
+void dk__WM_LANDING_INFO__setupKey(W1722Menu*, s32) asm("dk__WM_LANDING_INFO__setupKey");
+void dk__Sprite__create(W1722Sprite*, s32, s32, s32, s32, s32) asm("dk__Sprite__create");
 u8* func_001c0c18(void) asm("func_001c0c18");
 s32 func_002c5238(s32, s32, s32*) asm("func_002c5238");
 void func_001396b0(W1722Sprite*) asm("func_001396b0");
@@ -228,9 +228,9 @@ void func_002c7108(W1722Menu* self, s32 kind) {
     title = &self->title;
     func_0031a838(self->lay.m0c);
     self->lay.vptr = D_0035eb98;
-    func_002369a0(self->lay.m18);
-    func_0023c008(self->lay.m30);
-    self->cache = func_001708f8(func_002beb90(), -1);
+    YI__IMAGE_FREEZE__IMAGE_FREEZE(self->lay.m18);
+    YI__LAYOUT__LAYOUT(self->lay.m30);
+    self->cache = func_001708f8(worldmap__Manager__get2ldFile(), -1);
     title->s.vptr = D_00347f98;
     self->kind = kind;
     func_0031a838(&title->s.m0c);
@@ -254,8 +254,8 @@ void func_002c7108(W1722Menu* self, s32 kind) {
     func_0023fa08(&lf, self->cache);
     gra = func_0023f948(&lf, 0);
     mes = func_0023f908(&lf, 0);
-    func_0023eea0(&self->lay, 0x7581, gra, mes, func_002c83a8(self, 0), 0);
-    func_0023ef50(&self->lay);
+    Tz__Layout__create(&self->lay, 0x7581, gra, mes, func_002c83a8(self, 0), 0);
+    Tz__Layout__SetImageCache(&self->lay);
     func_0023f0c8(&self->lay, func_002c83a8(self, 2));
     func_00139570(&self->lay);
     self->unit = func_0023c4b8(func_0023f1b0(&self->lay), 1);
@@ -272,11 +272,11 @@ void func_002c7108(W1722Menu* self, s32 kind) {
     title->s.m188 = 0x99;
     r = func_002c22b8(kind);
     if (r != 0) {
-        func_002c8680(self, r);
+        dk__WM_LANDING_INFO__setupKey(self, r);
     }
-    func_001386e0(frame, 0x7585, self->unit, self->image, 0x48, 0xc9);
+    dk__Sprite__create(frame, 0x7585, self->unit, self->image, 0x48, 0xc9);
     frame->m188 = 0x49;
-    func_001386e0(base, 0x7585, self->unit, self->image, 0x41, 0xc9);
+    dk__Sprite__create(base, 0x7585, self->unit, self->image, 0x41, 0xc9);
     base->m188 = 0x42;
 
     func_002c5238(func_001c0c18()[kind], 2, digA);
@@ -284,7 +284,7 @@ void func_002c7108(W1722Menu* self, s32 kind) {
         s32 x = 0;
         s32 j;
         for (j = 0; j < 2; j++) {
-            func_001386e0(&self->numA[j], 0x7585, self->unit, self->image, digA[j] + 0x12, 0xc9);
+            dk__Sprite__create(&self->numA[j], 0x7585, self->unit, self->image, digA[j] + 0x12, 0xc9);
             W1722SetParent(&self->numA[j], base);
             func_00139660(&self->numA[j]);
             func_00139688(&self->numA[j]);
@@ -298,7 +298,7 @@ void func_002c7108(W1722Menu* self, s32 kind) {
     ofs = 0;
     n = func_002c5238(p0, 3, digB);
     for (s32 i = 0; i < n; i++) {
-        func_001386e0(&self->numB[i], 0x7585, self->unit, self->image, digB[3 - n + i] + 0x1c, 0xc9);
+        dk__Sprite__create(&self->numB[i], 0x7585, self->unit, self->image, digB[3 - n + i] + 0x1c, 0xc9);
         W1722SetParent(&self->numB[i], frame);
         func_00139660(&self->numB[i]);
         func_00139688(&self->numB[i]);
@@ -307,7 +307,7 @@ void func_002c7108(W1722Menu* self, s32 kind) {
         ofs += func_0023aa98(self->numB[i].seq);
     }
 
-    func_001386e0(sep, 0x7585, self->unit, self->image, 0x26, 0xc9);
+    dk__Sprite__create(sep, 0x7585, self->unit, self->image, 0x26, 0xc9);
     /* empty asm: self is opaque to GCSE, so self->sep.seq below is recomputed instead of reloaded */
     asm("" : "+r"(self));
     W1722SetParent(sep, frame);
@@ -319,7 +319,7 @@ void func_002c7108(W1722Menu* self, s32 kind) {
 
     func_002c5238(p1, 2, digA);
     for (s32 i = 0; i < 2; i++) {
-        func_001386e0(&self->numC[i], 0x7585, self->unit, self->image, digA[i] + 0x1c, 0xc9);
+        dk__Sprite__create(&self->numC[i], 0x7585, self->unit, self->image, digA[i] + 0x1c, 0xc9);
         W1722SetParent(&self->numC[i], frame);
         func_00139660(&self->numC[i]);
         func_00139688(&self->numC[i]);
@@ -387,10 +387,10 @@ extern u8 D_00347e60[] asm("D_00347e60");
 extern u8 D_00347e40[] asm("D_00347e40");
 extern W1722Menu* D_00361dd8 asm("D_00361dd8");
 void func_0031a838(void*) asm("func_0031a838");
-void func_002369a0(void*) asm("func_002369a0");
-void func_0023c008(void*) asm("func_0023c008");
+void YI__IMAGE_FREEZE__IMAGE_FREEZE(void*) asm("YI__IMAGE_FREEZE__IMAGE_FREEZE");
+void YI__LAYOUT__LAYOUT(void*) asm("YI__LAYOUT__LAYOUT");
 void func_00239700(void*) asm("func_00239700");
-s32 func_002beb90(void) asm("func_002beb90");
+s32 worldmap__Manager__get2ldFile(void) asm("worldmap__Manager__get2ldFile");
 s32 func_001708f8(s32, s32) asm("func_001708f8");
 void func_0023f800(W1722LayFile*) asm("func_0023f800");
 void func_0023f848(W1722LayFile*) asm("func_0023f848");
@@ -398,8 +398,8 @@ void func_0023fa08(W1722LayFile*, s32) asm("func_0023fa08");
 s32 func_0023f948(W1722LayFile*, s32) asm("func_0023f948");
 s32 func_0023f908(W1722LayFile*, s32) asm("func_0023f908");
 s32 func_002c83a8(W1722Menu*, s32) asm("func_002c83a8");
-void func_0023eea0(W1722Lay*, s32, s32, s32, s32, s32) asm("func_0023eea0");
-void func_0023ef50(W1722Lay*) asm("func_0023ef50");
+void Tz__Layout__create(W1722Lay*, s32, s32, s32, s32, s32) asm("Tz__Layout__create");
+void Tz__Layout__SetImageCache(W1722Lay*) asm("Tz__Layout__SetImageCache");
 void func_0023f0c8(W1722Lay*, s32) asm("func_0023f0c8");
 void func_00139570(W1722Lay*) asm("func_00139570");
 void* func_0023f1b0(W1722Lay*) asm("func_0023f1b0");
@@ -411,8 +411,8 @@ s32 func_00192048(s32) asm("func_00192048");
 void func_00138d60(W1722Sprite*, s32, s32, s32, s32, s32, s32) asm("func_00138d60");
 void func_00139620(W1722Sprite*) asm("func_00139620");
 s32 func_002c22b8(s32) asm("func_002c22b8");
-void func_002c8680(W1722Menu*, s32) asm("func_002c8680");
-void func_001386e0(W1722Sprite*, s32, s32, s32, s32, s32) asm("func_001386e0");
+void dk__WM_LANDING_INFO__setupKey(W1722Menu*, s32) asm("dk__WM_LANDING_INFO__setupKey");
+void dk__Sprite__create(W1722Sprite*, s32, s32, s32, s32, s32) asm("dk__Sprite__create");
 u8* func_001c0c18(void) asm("func_001c0c18");
 s32 func_002c5238(s32, s32, s32*) asm("func_002c5238");
 void func_001396b0(W1722Sprite*) asm("func_001396b0");
@@ -473,9 +473,9 @@ void func_002c77b8(W1722Menu* self, s32 kind) {
     title = &self->title;
     func_0031a838(self->lay.m0c);
     self->lay.vptr = D_0035eb98;
-    func_002369a0(self->lay.m18);
-    func_0023c008(self->lay.m30);
-    self->cache = func_001708f8(func_002beb90(), -1);
+    YI__IMAGE_FREEZE__IMAGE_FREEZE(self->lay.m18);
+    YI__LAYOUT__LAYOUT(self->lay.m30);
+    self->cache = func_001708f8(worldmap__Manager__get2ldFile(), -1);
     title->s.vptr = D_00347f98;
     self->kind = kind;
     func_0031a838(&title->s.m0c);
@@ -499,8 +499,8 @@ void func_002c77b8(W1722Menu* self, s32 kind) {
     func_0023fa08(&lf, self->cache);
     gra = func_0023f948(&lf, 0);
     mes = func_0023f908(&lf, 0);
-    func_0023eea0(&self->lay, 0x7581, gra, mes, func_002c83a8(self, 0), 0);
-    func_0023ef50(&self->lay);
+    Tz__Layout__create(&self->lay, 0x7581, gra, mes, func_002c83a8(self, 0), 0);
+    Tz__Layout__SetImageCache(&self->lay);
     func_0023f0c8(&self->lay, func_002c83a8(self, 2));
     func_00139570(&self->lay);
     self->unit = func_0023c4b8(func_0023f1b0(&self->lay), 1);
@@ -517,11 +517,11 @@ void func_002c77b8(W1722Menu* self, s32 kind) {
     title->s.m188 = 0x99;
     r = func_002c22b8(kind);
     if (r != 0) {
-        func_002c8680(self, r);
+        dk__WM_LANDING_INFO__setupKey(self, r);
     }
-    func_001386e0(frame, 0x7585, self->unit, self->image, 0x48, 0xc9);
+    dk__Sprite__create(frame, 0x7585, self->unit, self->image, 0x48, 0xc9);
     frame->m188 = 0x49;
-    func_001386e0(base, 0x7585, self->unit, self->image, 0x41, 0xc9);
+    dk__Sprite__create(base, 0x7585, self->unit, self->image, 0x41, 0xc9);
     base->m188 = 0x42;
 
     func_002c5238(func_001c0c18()[kind], 2, digA);
@@ -529,7 +529,7 @@ void func_002c77b8(W1722Menu* self, s32 kind) {
         s32 x = 0;
         s32 j;
         for (j = 0; j < 2; j++) {
-            func_001386e0(&self->numA[j], 0x7585, self->unit, self->image, digA[j] + 0x12, 0xc9);
+            dk__Sprite__create(&self->numA[j], 0x7585, self->unit, self->image, digA[j] + 0x12, 0xc9);
             W1722SetParent(&self->numA[j], base);
             func_00139660(&self->numA[j]);
             func_00139688(&self->numA[j]);
@@ -543,7 +543,7 @@ void func_002c77b8(W1722Menu* self, s32 kind) {
     ofs = 0;
     n = func_002c5238(p0, 3, digB);
     for (s32 i = 0; i < n; i++) {
-        func_001386e0(&self->numB[i], 0x7585, self->unit, self->image, digB[3 - n + i] + 0x1c, 0xc9);
+        dk__Sprite__create(&self->numB[i], 0x7585, self->unit, self->image, digB[3 - n + i] + 0x1c, 0xc9);
         W1722SetParent(&self->numB[i], frame);
         func_00139660(&self->numB[i]);
         func_00139688(&self->numB[i]);
@@ -552,7 +552,7 @@ void func_002c77b8(W1722Menu* self, s32 kind) {
         ofs += func_0023aa98(self->numB[i].seq);
     }
 
-    func_001386e0(sep, 0x7585, self->unit, self->image, 0x26, 0xc9);
+    dk__Sprite__create(sep, 0x7585, self->unit, self->image, 0x26, 0xc9);
     /* empty asm: self is opaque to GCSE, so self->sep.seq below is recomputed instead of reloaded */
     asm("" : "+r"(self));
     W1722SetParent(sep, frame);
@@ -564,7 +564,7 @@ void func_002c77b8(W1722Menu* self, s32 kind) {
 
     func_002c5238(p1, 2, digA);
     for (s32 i = 0; i < 2; i++) {
-        func_001386e0(&self->numC[i], 0x7585, self->unit, self->image, digA[i] + 0x1c, 0xc9);
+        dk__Sprite__create(&self->numC[i], 0x7585, self->unit, self->image, digA[i] + 0x1c, 0xc9);
         W1722SetParent(&self->numC[i], frame);
         func_00139660(&self->numC[i]);
         func_00139688(&self->numC[i]);

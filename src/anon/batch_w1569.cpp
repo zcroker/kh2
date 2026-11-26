@@ -9,10 +9,10 @@ struct Ob1a8778 {
 };
 extern char D_0036d610[];
 void func_0017f488(void*, s32, f32, f32);
-void func_00180378(void*, Ob1a8778*, s32, f32);
+void YS__MOTION__capture(void*, Ob1a8778*, s32, f32);
 void func_0017f5e0(void*, s32, s32, f32, f32);
-void wt_1c0d38(Ob1a8778*, Ob1a8778*, u32, u32) asm("_Z16u_tail4_001c0d38jjjj");
-void wt_1987a8(Ob1a8778*, char*, Ob1a8778*) asm("_Z16wtarget_001987a8jjjj");
+void wt_1c0d38(Ob1a8778*, Ob1a8778*, u32, u32) asm("_Z15YS__OBJ__attachjjjj");
+void wt_1987a8(Ob1a8778*, char*, Ob1a8778*) asm("_Z24YS__STDOBJ__start_camerajjjj");
 s32 func_001a81f0(s32, s32, s32);
 void func_001a8418(s32);
 void func_001a8678(Ob1a8778*);

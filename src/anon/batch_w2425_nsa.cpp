@@ -23,7 +23,7 @@ s32 func_001b1b58(Eff1b1560*);
 void func_001b1ab8(Eff1b1560*);
 void func_0015efa0(u8, u8, u8);
 void func_0015ca40(u8, u8, u8, f32, f32, f32, f32);
-void func_0015f618(void);
+void dk__Map__noDrawAll(void);
 void func_0015f548(void);
 static inline void Mod1b1560(Col1b1560* d, const Col1b1560* s, f32 t)
 {
@@ -99,5 +99,5 @@ s32 func_0020b4b8(Grp20c9d0*, Par20c9d0*);
 void func_0020c858(Obj20c9d0*, Par20c9d0*, Grp20c9d0*);
 f32 func_0020c860(Obj20c9d0*, f32*, Par20c9d0*, Grp20c9d0*, Elem20c9d0*);
 s32 func_0020f1e0(u16*, Param20c9d0*, s32);
-void func_0020c9d0(u8* base, Par20c9d0* par, Arg20c9d0* arg);  // 0x0020c9d0: definition moved into src/anon/unit_0020c580.cpp
+void pppRyjDrawMegaBirthModelFilter(u8* base, Par20c9d0* par, Arg20c9d0* arg);  // 0x0020c9d0: definition moved into src/anon/unit_0020c580.cpp
 }

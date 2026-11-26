@@ -24,11 +24,11 @@ void func_00239700(void*);
 void func_0031a838(void*);
 void func_0028d068(s32, s32);
 s32* func_00103eb0(void);
-void func_00102818(s32, s32, s32, void*, s32);
+void TASK_MANAGER__create_thread(s32, s32, s32, void*, s32);
 void PauseThread_243(void*) asm("_ZN2Tz4HEFT11PauseThreadEP4TASK");
 
 typedef void* (*AF)(s32, u32, void*);
 extern s32 D_0032ba14_i asm("D_0032ba14");
 static inline void* Al(u32 n) { s32 a = D_0032ba14_i; return (*(AF*)*(s32*)a)(a, n, __builtin_return_address(0)); }
-void func_00243298(void);  // 0x00243298: definition moved into src/anon/unit_00242478.cpp
+void Tz__HEFT__Init(void);  // 0x00243298: definition moved into src/anon/unit_00242478.cpp
 }

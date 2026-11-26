@@ -18,7 +18,7 @@ Obj* func_0013e610(s32);
 void func_00190388(void*, Q**);  // vec4_from_arg
 void func_0013e520(Obj*, s32);
 void func_0019d228(P*);
-void func_0019d260(P* p);  // 0x0019d260: definition moved into src/anon/unit_0019ba60.cpp
+void YS__LOCKON__update_mark(P* p);  // 0x0019d260: definition moved into src/anon/unit_0019ba60.cpp
 
 static const float
 half =  5.0000000000e-01f,

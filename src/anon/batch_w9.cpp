@@ -11,24 +11,24 @@ u32 func_001d14a0(void);
 void func_001b6bd8(u32, u32);
 u8* func_0019b260(void*, s32);
 u32 func_001d96c0(u32, u32);
-void func_001a1a20(void*, u32, u32);
+void YS__SHEET__add_mp(void*, u32, u32);
 void func_001d48b0(void*);
 void func_001bd668(void*);
 void func_001bd2d0(void*);
 void func_001bd5b0(void*, u32, u32);
-void func_00176cd0(void*);
+void YS__PARTY___OVR_voice(void*);
 void func_001dc9e0(void*);
 void func_001e6ce8(u32);
 void func_001e72a8(void*);
-void func_0022ac60(void*);
-void func_001390f0(void*);
+void sa__MUSICAL_INPUT__updateGauge(void*);
+void dk__Sprite3D__update(void*);
 void func_00234348(u32, u32, u32, u32, u32, u32);
-void func_002b4b00(void);
+void OvlShop__ItemShop__SetupConfirm(void);
 void func_0028f4d8(u32, u32, u32);
 void func_00240be0(void);
 u8* func_00257770(void);
 void func_0028da70(void*, u32);
-void func_00280148(void);
+void Tz__GumiPause__CreateAdvice(void);
 void func_002800d0(void);
 void func_00287cc0(u32);
 u8* func_00167f18(u32);
@@ -37,7 +37,7 @@ void func_001395f8(void*);
 void func_00170950(u32);
 u32 func_002bc0f0(s32);
 void* func_001050d8(u32);
-void func_002e0d28(void*, u32);
+void Ti__MG_ALEscape__MG_ALEscape(void*, u32);
 void func_0017f5f8(u32, u32, u32, f32, f32);
 void func_003146c8(void*);
 void func_00106420(void*);
@@ -107,7 +107,7 @@ u16 func_001b5af0(void);  // 0x001b5af0: definition moved into src/anon/unit_001
 
 void reset_special_command(u8* c);  // 0x001bdc18: definition moved into src/anon/unit_001bc568.cpp
 
-void func_001bdf38(u8* p);  // 0x001bdf38: definition moved into src/anon/unit_001bc568.cpp
+void YS__FIELD_COMMAND__initialize(u8* p);  // 0x001bdf38: definition moved into src/anon/unit_001bc568.cpp
 
 // 001c0a80: moved to src/anon/unit_001c0638.cpp
 void func_001c0a80(u8* p);
@@ -124,7 +124,7 @@ void func_0020eac0(void);  // 0x0020eac0: definition moved into src/anon/unit_00
 
 void func_0021cda0(s32 a);  // 0x0021cda0: definition moved into src/anon/unit_0021aee8.cpp
 
-void func_0022acd0(void* p);  // 0022acd0: moved to src/sasa/musical_input.cpp (linked unit)
+void sa__MUSICAL_INPUT__update(void* p);  // 0022acd0: moved to src/sasa/musical_input.cpp (linked unit)
 
 void func_00234670(u32 a0, u32 a1, u32 a2, u32 a3, u32 t0);  // 0x00234670: definition moved into src/anon/unit_002335e8.cpp
 
@@ -138,13 +138,13 @@ void func_002631b0(void);  // 0x002631b0: definition moved into src/anon/unit_00
 
 void func_0027f9b0(void);  // 0x0027f9b0: definition moved into src/anon/unit_0027f2b0.cpp
 
-s32 func_00288088(void);  // 0x00288088: definition moved into src/anon/unit_00286d28.cpp
+s32 Tz__MenuBase__isPressAnyKey(void);  // 0x00288088: definition moved into src/anon/unit_00286d28.cpp
 
 void func_0028d708(void* p);  // 0028d708: moved to src/anon/unit_0028c878.cpp
 
 // 00290a60: moved to src/anon/unit_0028f1e0.cpp
 
-u32 func_002bc158(s32 a);  // 0x002bc158: definition moved into src/anon/unit_002bb8b0.cpp
+u32 SOUND__allocSe(s32 a);  // 0x002bc158: definition moved into src/anon/unit_002bb8b0.cpp
 
 void func_002e0bb0(u32 a);  // 0x002e0bb0: definition moved into src/anon/unit_002de3c8.cpp
 

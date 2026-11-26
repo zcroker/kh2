@@ -1,7 +1,7 @@
 # Whole-function assembly (last step of the README match ladder, w3962 2026-11-11).
 # Transcribed from the retail disassembly; calls and globals with a func_/D_ symbol are referenced
 # through it. Replace with C/C++ after 100%.
-#   func_00125f78: motion blend (1732 insns, 928-byte frame, 7 args incl. f12 blend weight): bone-flag init
+#   kn__Motion__calc: motion blend (1732 insns, 928-byte frame, 7 args incl. f12 blend weight): bone-flag init
 #     on both motions (func_00124a40), function-local static (guard byte + atexit func_002fd188), per-bone
 #     parent lookup / matrix + quat lerp (func_001256c0, func_00125860), world-matrix update (func_001253c0).
 #     Closest C: none; never drafted (best/00125f78.cpp holds structure notes only).
@@ -13,10 +13,10 @@
 	.set nomacro
 	.section .text.func_00125f78,"ax",@progbits
 	.align 2
-	.globl func_00125f78
-	.type func_00125f78, @function
-	.ent func_00125f78
-func_00125f78:
+	.globl kn__Motion__calc
+	.type kn__Motion__calc, @function
+	.ent kn__Motion__calc
+kn__Motion__calc:
 	addiu	$29,$29,-928
 	swc1	$f21,916($29)
 	sd	$20,864($29)
@@ -823,7 +823,7 @@ func_00125f78:
 	lw	$7,40($20)
 	mul.s	$f13,$f13,$f1
 	addu	$7,$7,$8
-	jal	func_00124ca8
+	jal	gm__GRID__draw
 	addiu	$8,$7,64
 	lw	$12,708($29)
 	addiu	$13,$29,128
@@ -1832,6 +1832,6 @@ func_00125f78:
 	sq	$8,0($9)
 	b	.L00127a3c
 	lw	$12,672($29)
-	.end func_00125f78
-	.size func_00125f78, 6928
+	.end kn__Motion__calc
+	.size kn__Motion__calc, 6928
 

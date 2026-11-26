@@ -3,17 +3,17 @@
 // ---- shared declarations ----
 extern "C" {
 s32 func_001818e8();
-u8* func_001b8e88(u16);
+u8* YS__COMMAND_ELEM__Get(u16);
 void func_001bc720(void*);
 void func_001bc730(u8*, s32);
 void func_001bcc28(u8*);
-s32 func_001bcd08(u8*);
+s32 YS__COMMAND_MENU__check_close(u8*);
 void func_001bce00(u8*);
 s32 func_001bcf18(void*);
-s32 func_001bcf38(void*);
+s32 YS__COMMAND_MENU__is_shortcut_menu(void*);
 void func_001bd5b0(void*, s32, s32);
 void func_001bd618(void*, s32);
-void func_001bd988(void*);
+void YS__PLAYER_COMMAND__decide(void*);
 void func_002ba2e8(s32, s32);
 }
 struct W2045_S2240 { u8 pad[2240]; void** sp; };
@@ -21,7 +21,7 @@ struct W2045_Elem { u8 a[2]; u16 id; u8 b; u8 kind; u8 c[6]; };
 struct W2045_Menu { u8 pad[4]; u8* o; s32 n; W2045_Elem e[8]; };
 static inline bool w2045_entry_busy(void* e) {
     bool b = false;
-    if (func_001bcf18(e) || func_001bcf38(e)) b = true;
+    if (func_001bcf18(e) || YS__COMMAND_MENU__is_shortcut_menu(e)) b = true;
     return b;
 }
 static inline bool w2045_kind_ok(W2045_Elem* e) { return e->kind < 4; }
@@ -40,7 +40,7 @@ struct W2045_Obj { u8 pad[8]; s32 flags; u8 pad2[16]; s32 h; u8 pad3[8]; W2045_O
 struct W2045_Arg1 { u8 pad[16]; W2045_M44 m; };
 extern "C" {
 W2045_M44* func_00106ad0(s32);
-void func_00107368(W2045_Arg1*, W2045_V4*);
+void kn__Camera__getPosition(W2045_Arg1*, W2045_V4*);
 void func_00107478(W2045_Arg1*, W2045_V4*);
 void func_00143f78(void*, W2045_V4*);
 void func_00146680(void*, W2045_M44*);
@@ -59,7 +59,7 @@ void func_001e3330(s32);
 void func_001e6250(void);
 s32 func_001e6280(s32, s32);
 void func_001e65c8(void);
-void func_001e6c00(s32);
+void pppDeleteMng(s32);
 void func_001e6ed8(W2045_M44*, s32, W2045_V4*, W2045_V4*);
 void func_001e7008(f32);
 extern f32 D_00349e10;
@@ -71,7 +71,7 @@ static inline bool w2045_flag26(W2045_Obj* o) { u8 b = (o->flags >> 26) & 1; ret
 struct W2045_V4b { f32 x, y, z, w; } __attribute__((aligned(16)));
 struct W2045_Self { u8 pad[2848]; W2045_V4b dir; };
 extern "C" {
-W2045_V4b* func_0016c028(void);
+W2045_V4b* YS__OBJ__get_pos(void);
 f32 func_001065a8(f32, f32);
 void func_002d1d30(W2045_V4b*, void*, W2045_V4b*);
 f32 fabsf(f32);
@@ -94,6 +94,6 @@ s32 func_001bc9e8(u8* p);  // 0x001bc9e8: definition moved into src/anon/unit_00
 void func_001dd320(s32 a0, W2045_Arg1* a1, u8 a2);  // 0x001dd320: definition moved into src/anon/unit_001dd2b8.cpp
 
 // ---- 0x2d62d0 (VU0 normalize asm, lq/sq copy) ----
-void func_002d62d0(W2045_Self* self);  // 0x002d62d0: definition moved into src/anon/unit_002d62d0.cpp
+void Ti__Path__search_near_point_from_pre_point_nocycle(W2045_Self* self);  // 0x002d62d0: definition moved into src/anon/unit_002d62d0.cpp
 
 }

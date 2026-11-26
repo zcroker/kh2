@@ -20,14 +20,14 @@ void func_002ff2e8(u8*);
 s32 func_00253b00();
 void func_00253978(void*);
 void func_002539d0(void*);
-void func_001684c0(u8*, s32, void (*)(void*), Slot*);
-void func_00168388(u8*, s32, void (*)(void*), Slot*);
+void YS__FILE__ReadBarBack(u8*, s32, void (*)(void*), Slot*);
+void YS__FILE__ReadBack(u8*, s32, void (*)(void*), Slot*);
 
 // Starts slot idx's request (idx 6 fills buf itself): records a ticket, sets state 2 and
 // queues it with a completion callback.
 // key is pinned to s2 (both buffer results share it); the empty asm keeps a label at the
 // start of the non-6 arm, so the first beq's delay slot is filled from its target as in the original.
-s32 func_002539e8(s32 idx0, u32 key0);  // 0x002539e8: definition moved into src/anon/unit_002530c8.cpp
+s32 Tz__CMData__BackRead(s32 idx0, u32 key0);  // 0x002539e8: definition moved into src/anon/unit_002530c8.cpp
 
 extern Nd2List D_01d48db0;
 void func_001b9b28(Nd2*);

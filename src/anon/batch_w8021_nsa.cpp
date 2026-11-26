@@ -14,7 +14,7 @@ s32 func_001a1658(s32, s32);
 s32 func_001d1438(s32);
 s32 func_0019c090(W8021Owner*);
 void func_001c8d80(void*, s32);
-W8021Obj* func_00102818(u32, u32, u32, void*, s32);
+W8021Obj* TASK_MANAGER__create_thread(u32, u32, u32, void*, s32);
 void func_00102788(u32, u32, u32, void*);
 void func_001b6ca8(void);
 void func_001b6cc8(void);

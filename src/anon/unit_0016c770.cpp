@@ -209,7 +209,7 @@ namespace v8 {
 extern "C" void func_001da458(void*, u32) asm("func_001da458");  // stream_init_fields
 extern "C" void func_0016ce90(void*, u32) asm("func_0016ce90");
 
-void u_tail4_0016cba0(u32 a0, u32 a1, u32 a2, u32 a3) {
+void YS__VM__call_pc(u32 a0, u32 a1, u32 a2, u32 a3) {
     *(u32*)(a0 + 28) = 0;
     if ((s32)a1 > 0) func_001da458((void*)a0, a1);  // stream_init_fields
     else func_0016ce90((void*)a0, a1);
@@ -219,7 +219,7 @@ void u_tail4_0016cba0(u32 a0, u32 a1, u32 a2, u32 a3) {
 // 0016cbc8 (src/anon/tiny_auto80_fptr4.cpp)
 namespace v9 {
 u32 func_0016cb88(u32, u32, u32, u32) asm("func_0016cb88");
-u32 func_0016cba0(u32, u32, u32, u32) asm("func_0016cba0");
+u32 YS__VM__call_pc(u32, u32, u32, u32) asm("YS__VM__call_pc");
 
 u32 func_0016cbc8(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2, r16, r17, r18;
@@ -232,7 +232,7 @@ u32 func_0016cbc8(u32 a0, u32 a1, u32 a2, u32 a3) {
     r6 = r17;
     r7 = r18;
     r5 = r2;
-    return func_0016cba0(r4, r5, r6, r7);
+    return YS__VM__call_pc(r4, r5, r6, r7);
 }
 }  // namespace v9
 
@@ -243,7 +243,7 @@ extern s32 D_0034d8a4 asm("D_0034d8a4");
 extern s32 D_0034d8a0 asm("D_0034d8a0");
 void func_0016c8f8(S64*, u32, u32, u32) asm("func_0016c8f8");
 void func_001da458(S64*, s32, s32, s32) asm("func_001da458");
-void func_0016cd48(S64*, u32*) asm("func_0016cd48");
+void YS__VM__exec(S64*, u32*) asm("YS__VM__exec");
 void func_0016cab8(S64*) asm("func_0016cab8");
 
 void func_0016cc18(u32* p, s32 n, s32 b, s32 c, u32* q) {
@@ -257,7 +257,7 @@ void func_0016cc18(u32* p, s32 n, s32 b, s32 c, u32* q) {
         // Pin: original selects directly into a1 after the call; an unpinned pseudo gets hoisted by sched1.
         register u32* r asm("$5");
         if (!q) r = p; else r = q;
-        func_0016cd48(&s, r);
+        YS__VM__exec(&s, r);
     }
     D_0034d8a4 = s0;
     D_0034d8a0 = s1;
@@ -316,7 +316,7 @@ void func_0016ce90(W268Vm*) asm("func_0016ce90");
 void func_0016cab8(W268Vm*) asm("func_0016cab8");
 void func_0016c7d8(W268Vm*) asm("func_0016c7d8");
 
-s32 func_0016cd48(W268Vm* vm, W268Vm* parent)
+s32 YS__VM__exec(W268Vm* vm, W268Vm* parent)
 {
     if (!(vm->flags & 2)) {
         D_0034d8a4 = vm;
@@ -329,7 +329,7 @@ s32 func_0016cd48(W268Vm* vm, W268Vm* parent)
     W268Vm* c = vm->kids.head;
     while (c) {
         W268Vm* nx = c->next;
-        if (func_0016cd48(c, vm) == 1) {
+        if (YS__VM__exec(c, vm) == 1) {
             W268VmList* l = &vm->kids;
             W268Vm* prev;
             if (c == l->head) {

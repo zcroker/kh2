@@ -12,7 +12,7 @@ extern u8 D_0035f4f9 asm("D_0035f4f9");
 extern "C" u32 func_00102a38(...);  // list_contains_id
 extern "C" u32 func_00103eb0(...);
 extern "C" u32 func_00170320(...);
-extern "C" u32 func_00170cd0(...);
+extern "C" u32 YS__CACHE_BUFF__IsFlushing(...);
 extern "C" u32 func_00290940(...);
 extern "C" void func_00290a60(...);
 extern u8 D_00293848 asm("D_00293848");

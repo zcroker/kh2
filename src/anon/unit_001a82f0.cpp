@@ -59,8 +59,8 @@ void func_001d2298(void*);
 s32 func_001d22a8(u32);
 u32 func_00192048(u32);
 u32 func_0016a070(void*);
-s32 func_001a3018(u32, u32, u32);
-void func_001a3188(u32, s32, u32);
+s32 YS__ITEM__WhereGet(u32, u32, u32);
+void YS__ITEM__Get(u32, s32, u32);
 void func_001b1e80(u32);
 void func_00138190(u32, u32);
 
@@ -68,8 +68,8 @@ YS::ITEM_TABLE* func_001a80c8(u32 id);
 }
 
 // Opens a treasure: records it in the ring and sets its opened flag. Returns the item.
-u32 wtarget_001a82f0(TBOX* s) asm("_Z16wtarget_001a82f0jjjj");
-u32 wtarget_001a82f0(TBOX* s) {
+u32 YS__TREASURE__TABLE___get(TBOX* s) asm("_Z25YS__TREASURE__TABLE___getjjjj");
+u32 YS__TREASURE__TABLE___get(TBOX* s) {
     s32 i = s_ring.head;
     s_ring.head = (i + 1) % 8;
     u8* b = (u8*)&s_ring + i * 12;
@@ -80,8 +80,8 @@ u32 wtarget_001a82f0(TBOX* s) {
     ((RING_ENT*)(b + 8))->a = func_00192048(inf->a);
     e->b = func_00192048(inf->b);
     e->c = inf->c;
-    if (o) r = func_001a3018(s->item, func_0016a070(o), 1);
-    func_001a3188(s->item, r, 0);
+    if (o) r = YS__ITEM__WhereGet(s->item, func_0016a070(o), 1);
+    YS__ITEM__Get(s->item, r, 0);
     u32 f = s->flag;
     if (f) D_0032dedc[f >> 5] |= 1 << (f & 31);
     return e->c;
@@ -96,11 +96,11 @@ public:
 };
 
 void TABLE::get_treasurebox() const {
-    func_001b1e80(wtarget_001a82f0((TBOX*)this));
+    func_001b1e80(YS__TREASURE__TABLE___get((TBOX*)this));
 }
 
 u32 TABLE::get_event() const {
-    return wtarget_001a82f0((TBOX*)this);
+    return YS__TREASURE__TABLE___get((TBOX*)this);
 }
 }  // namespace TREASURE
 }  // namespace YS

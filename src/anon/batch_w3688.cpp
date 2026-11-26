@@ -17,9 +17,9 @@ static inline Vec vsub(const Vec& a, const Vec& b) {
 }
 struct P { f32 x, y, z; u32 k; Vec b; };
 extern "C" {
-void func_001902a8(u32, P*);
+void YS__TARGET__make_collision(u32, P*);
 s32 func_0016bc20(u32, s32, s32);
-void func_0018a818(P*, u32, s32);
+void YS__COLLISION__set(P*, u32, s32);
 
 // 001773b8: moved to src/yasui/libys/party.cpp
 }
@@ -41,8 +41,8 @@ struct Slot { void* p; u32 a; };
 struct Grp { u32 a, b; Slot slots[8]; };
 struct Obj6 { u8 pad[8]; s32 id; u8 pad2[0x100 - 12]; Grp g; };
 extern "C" {
-Vec* func_0016c028(s32);
-s32 func_0019c6f0(s32);
+Vec* YS__OBJ__get_pos(s32);
+s32 YS__OBJ__is_stop(s32);
 void func_002bc398(void*, Vec*);
 void func_002bc3f0(void*, Vec*);
 s32 func_002bc420(void*);

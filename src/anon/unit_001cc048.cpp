@@ -31,13 +31,13 @@ u32 func_001a4e30(...);
 void func_001a4e30_v(void*) asm("func_001a4e30");
 void func_00105110(void*);
 u8* func_001a5420(void*, u8*, void*);
-Vn1cc0 func_0016bda8(u8*);
+Vn1cc0 YS__OBJ__get_target_pos(u8*);
 s32 o1cc220_get_entry_id(void*) asm("_ZN2YS3OBJ12get_entry_idEv");
 O1cc220* func_00186078(O1cc220*);
-s32 c1cc220_00186ce8(O1cc220*) asm("_Z16ctarget_00186ce8jjjj");
+s32 c1cc220_00186ce8(O1cc220*) asm("_Z28YS__BTLOBJ__is_damage_motionjjjj");
 s32 func_00186d18(O1cc220*);
-s32 func_001c7950(void*, O1cc220*, f32, f32);
-void func_001c79a0(void*, O1cc220*, s32);
+s32 YS__PRIZEEFFECT__can_get(void*, O1cc220*, f32, f32);
+void YS__PRIZEEFFECT__get(void*, O1cc220*, s32);
 s32 func_001991a8(s32, s32);
 void func_001c71f8(u8*, f32);
 s32 func_001cc358(void);
@@ -114,7 +114,7 @@ void PrizeAppear(u8* obj, s32 n)
     if (!D_00352050) return;
     if (n == 0) return;
     Vn1cc0 pos;
-    pos = func_0016bda8(obj);
+    pos = YS__OBJ__get_target_pos(obj);
     s32 i;
     for (i = 0; i < n; i++) {
         u8* p = PrizeSetAppear(D_00352050, &pos);
@@ -127,7 +127,7 @@ void PrizeAppear(u8* obj, s32 n)
 s32 func_001cc310(O1cc220* p, void* target);
 
 // Find the first object in range that can be targeted and hand it over.
-s32 func_001cc220(void* self, void* target)
+s32 YS__PRIZE_CA___OVR_check_get(void* self, void* target)
 {
     bool special = o1cc220_get_entry_id(self) == 0x898;
     O1cc220* p = 0;
@@ -139,14 +139,14 @@ s32 func_001cc220(void* self, void* target)
         if (p->flags2 & 4) continue;
         if (c1cc220_00186ce8(p)) continue;
         if (func_00186d18(p)) continue;
-        if (!func_001c7950(target, p, D_0036d4a8, 0.0f)) continue;
+        if (!YS__PRIZEEFFECT__can_get(target, p, D_0036d4a8, 0.0f)) continue;
         return func_001cc310(p, target);
     }
 }
 
 s32 func_001cc310(O1cc220* o, void* b)
 {
-    func_001c79a0(b, o, 0);
+    YS__PRIZEEFFECT__get(b, o, 0);
     (*(s32*)((u8*)o + 0xac8))++;
     return func_001991a8(0x11, 0);
 }
@@ -228,7 +228,7 @@ s32 func_001cc5c8(u8* from, u8* to, s32 n)
     }
     Vn1cc0 ofs;
     asm volatile("lqc2 $vf5, 0(%2)\n\tlqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 16(%1)\n\tlqc2 $vf3, 32(%1)\n\tlqc2 $vf4, 48(%1)\n\tvmulax.wxyz ACC, $vf1, $vf5x\n\tvmadday.wxyz ACC, $vf2, $vf5y\n\tvmaddaz.wxyz ACC, $vf3, $vf5z\n\tvmaddw.wxyz $vf5, $vf4, $vf5w\n\tsqc2 $vf5, 0(%0)" : : "r"(&ofs), "r"(from + 64), "r"(&D_01d499a0) : "memory");
-    const Vn1cc0 pos = func_0016bda8(to);
+    const Vn1cc0 pos = YS__OBJ__get_target_pos(to);
     for (s32 i = 0; i < n; i++) {
         if (*(s32*)(from + 2760) == 0) return 1;
         Prize1cc5c8* p = (Prize1cc5c8*)PrizeSetAppear(PrizeSet1cc5c8(), &ofs);

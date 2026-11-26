@@ -77,7 +77,7 @@ static inline void vsub(W78Vec* d, const W78Vec* a, const W78Vec* b) {
 }
 static inline W78Vec operator-(const W78Vec& a, const W78Vec& b) { W78Vec r; vsub(&r, &a, &b); return r; }
 extern u8 D_0032bae0[] asm("D_0032bae0");
-void func_00198450(u8*) asm("func_00198450");
+void YS__STDOBJ___OVR_initialize(u8*) asm("YS__STDOBJ___OVR_initialize");
 u32 func_0016c008(u8*, s32) asm("func_0016c008");
 u8* func_001a81f0(u8, u8, u32) asm("func_001a81f0");
 s32 func_001a8450(u8*) asm("func_001a8450");
@@ -85,7 +85,7 @@ void func_0017f488(u8*, s32, f32, f32) asm("func_0017f488");
 void func_001a8678(u8*) asm("func_001a8678");
 void func_001a86b8(u8* o) asm("func_001a86b8");
 void func_001a86b8(u8* o) {
-    func_00198450(o);
+    YS__STDOBJ___OVR_initialize(o);
     u8* d = D_0032bae0;
     u32 v = func_0016c008(o, 1);
     u8* r = func_001a81f0(d[0], d[1], v);
@@ -114,10 +114,10 @@ struct Ob1a8778 {
 };
 extern char D_0036d610[] asm("D_0036d610");
 void func_0017f488(void*, s32, f32, f32) asm("func_0017f488");
-void func_00180378(void*, Ob1a8778*, s32, f32) asm("func_00180378");
+void YS__MOTION__capture(void*, Ob1a8778*, s32, f32) asm("YS__MOTION__capture");
 void func_0017f5e0(void*, s32, s32, f32, f32) asm("func_0017f5e0");
-void wt_1c0d38(Ob1a8778*, Ob1a8778*, u32, u32) asm("_Z16u_tail4_001c0d38jjjj");
-void wt_1987a8(Ob1a8778*, char*, Ob1a8778*) asm("_Z16wtarget_001987a8jjjj");
+void wt_1c0d38(Ob1a8778*, Ob1a8778*, u32, u32) asm("_Z15YS__OBJ__attachjjjj");
+void wt_1987a8(Ob1a8778*, char*, Ob1a8778*) asm("_Z24YS__STDOBJ__start_camerajjjj");
 s32 func_001a81f0(s32, s32, s32) asm("func_001a81f0");
 void func_001a8418(s32) asm("func_001a8418");
 void func_001a8678(Ob1a8778*) asm("func_001a8678");
@@ -126,13 +126,13 @@ void func_001a8778(Ob1a8778* a, Ob1a8778* b) asm("func_001a8778");
 void func_001a8778(Ob1a8778* a, Ob1a8778* b) {
     if (a->flag) {
         func_0017f488(a->sub, 153, 0.0f, 0.0f);
-        func_00180378(a->sub, b, 252, 0.0f);
+        YS__MOTION__capture(a->sub, b, 252, 0.0f);
         func_0017f5e0(b->sub, 0, 0, 0.0f, 0.0f);
         wt_1c0d38(b, a, 16386, 1);
         wt_1987a8(a, D_0036d610, a);
     } else {
         func_0017f488(a->sub, 153, 8.0f, 0.0f);
-        func_00180378(a->sub, b, 252, 8.0f);
+        YS__MOTION__capture(a->sub, b, 252, 8.0f);
         func_0017f5e0(b->sub, 0, 0, 0.0f, 0.0f);
     }
     if (a->p) {

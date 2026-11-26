@@ -40,14 +40,14 @@ extern "C" {
 extern s32 D_0032dfc8;
 extern u8 D_0032f230;
 void func_001b74b8(void*);
-void func_001a1950(void*, s32, s32, s32);
-void func_001a1a20(void*, s32, s32);
-void func_001a1aa0(void*, s32);  // ring_buffer_index
-void func_00188958(void*, s32);
+void YS__SHEET__add_hp(void*, s32, s32, s32);
+void YS__SHEET__add_mp(void*, s32, s32);
+void YS__SHEET__add_drive(void*, s32);  // ring_buffer_index
+void YS__PARTRAM__set_item_max(void*, s32);
 void func_001b7508(void*, s32, s32);
-void func_001a3188(s32, s32, s32);
+void YS__ITEM__Get(s32, s32, s32);
 void func_001b7538(void*, s32);
-void func_001b7428(s32);
+void YS__LEVELUP__ShowEffect(s32);
 void func_001b7658(void*, s32, s32);
 struct Sub1c0 { u8 pad[16]; u8 f16; u8 f17; u8 f18; };
 struct Obj1c0 { u8 pad0[4]; s32 f4; u8 pad8[388-8]; s32 f388; u8 pad392[434-392]; u8 f434; u8 pad435[580-435]; Sub1c0* f580; u8 pad584[596-584]; s32 f596; u8 pad600[4]; s32 f604; };
@@ -61,11 +61,11 @@ M299* func_0011b8d0(M299* m, const V299& axis, f32 ang);  // 0x0011b8d0: definit
 extern Mg2d6* D_00361f60;
 Cfg2d6* config2d6(Mg2d6*) asm("_ZN2Ti9MGOarashi6configEv");
 s32 is_attach2d6(Act2d6*) asm("_ZN2YS3OBJ9is_attachEv");
-V299 getpos2d6(Act2d6*) asm("_Z16ctarget_0016bda8jjjj");
-void setdir2d6(Act2d6*, V299*, f32) asm("_Z16ctarget_00186a90jjjj");
+V299 getpos2d6(Act2d6*) asm("_Z23YS__OBJ__get_target_posjjjj");
+void setdir2d6(Act2d6*, V299*, f32) asm("_Z23YS__BTLOBJ__set_hitbackjjjj");
 void wt2cf280(void*, s32, s32) asm("_Z16wtarget_002cf280jjjj");
 void func_002d6600(Act2d6*, V299*);
-void func_002d3f18(Act2d6*);
+void Ti__MGOarashiGimObj__force_destroy(Act2d6*);
 f32 fabsf(f32);  // fabsf
 static inline u8 pos2d6(Act2d6* t) { return 0.0f < t->f2780; }
 void func_002d6750(Act2d6* a, Ctx2d6* c);  // 0x002d6750: definition moved into src/anon/unit_002d62d0.cpp

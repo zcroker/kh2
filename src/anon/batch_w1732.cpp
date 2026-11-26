@@ -1,7 +1,7 @@
 #include "../common/types.h"
 
 extern "C" {
-void func_001d3148(void*);
+void YS__EVENT_CAMERA__make_matrix(void*);
 void func_001024a8(void*);
 void func_00226ed0(void*);
 void func_00226f20(void*);

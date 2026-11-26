@@ -55,7 +55,7 @@ struct Heap;
 struct HeapVt { void* (*alloc)(Heap*, u32, u32); void (*free)(Heap*, void*); };
 struct Heap { HeapVt* vt; };
 
-void wtarget_00151df0(u32, u32, u32, u32) asm("_Z16wtarget_00151df0jjjj");
+void dk__GET_MUNNY__create(u32, u32, u32, u32) asm("_Z21dk__GET_MUNNY__createjjjj");
 struct TaskB { u8 pad0[4]; f32 t; u8 pad8[8]; u32 mode; u8 pad20[28]; void* fn; };
 void func_00161f48_impl(u8 mode, f32 t) asm("_Z13func_00161f48i");
 struct EvInfo { u8 pad[4]; u8 kind; };
@@ -128,15 +128,15 @@ static inline void MMulTo(M4* d, M4* a, M4* b) {
 }
 struct CamObj { u8 pad[4]; u8 drawn; u8 pad5[83]; u8 active; };
 struct MdlRef { u32 a; u8* mdl; };
-u32 ctarget_002ed8e0(u32, u32, u32, u32) asm("_Z16ctarget_002ed8e0jjjj");
+u32 Ts__SUMMON_ENEMY__Get(u32, u32, u32, u32) asm("_Z21Ts__SUMMON_ENEMY__Getjjjj");
 struct Bigint { Bigint* next; };
 struct Reent { u8 pad[72]; Bigint* p5s; };
 extern "C" {
 extern u8 D_0036ac80[];
 Heap* func_001050c8(void);
 u32 func_001688c8(void*);
-void func_00168388(void*, u32, u32, u32);
-s32 func_00170cd0(void);
+void YS__FILE__ReadBack(void*, u32, u32, u32);
+s32 YS__CACHE_BUFF__IsFlushing(void);
 void func_002bb070(u32, u32, u32, u32, u32);
 s32 func_002ba200(void);
 void func_00102448(u32, u32);
@@ -158,17 +158,17 @@ s32 func_00152100(u32, u32);
 void func_001520c0(u32, u32);
 u32 func_0013e678(void);
 u32 func_0013a7e8(u32);
-void func_001386e0(u8*, u32, u32, u32, u32, u32);
+void dk__Sprite__create(u8*, u32, u32, u32, u32, u32);
 void func_001396b0(u8*);
 void func_0031a260(u8*, u32);
 void func_00138c40(u8*, u32, u32);
-void func_00239988(u8*, u32, u32);
+void YI__SEQUENCE__Init(u8*, u32, u32);
 void func_00239bf8(u8*, u32);
-void func_00151d48(u8*);
+void dk__GET_MUNNY__initNumber(u8*);
 u32 func_0023aa78(u8*);
 void func_0014fc40(u8*, u32, u32, u32, u32, u32);
 }
-void wtarget_00151df0(u32 a, u32 b, u32, u32);  // 0x00151df0: definition moved into src/anon/unit_0014ecb8.cpp
+void dk__GET_MUNNY__create(u32 a, u32 b, u32, u32);  // 0x00151df0: definition moved into src/anon/unit_0014ecb8.cpp
 extern "C" {
 
 extern f32 D_00349e10;
@@ -213,7 +213,7 @@ struct TaskMgr { u32 pad; void* q; };
 TaskMgr* func_00102c80(void);
 void func_00102670(void*, TaskB*);  // to_1025f8
 void func_00161df0(void);
-void func_00161f10(void);
+void dk__Camera__storeImageTask(void);
 void func_00161c20(void);
 void func_00161f38(void);
 struct U8Flag { u8 v; };
@@ -224,7 +224,7 @@ extern void* D_0034c778;
 void func_00161f48_impl(u8 mode, f32 t);  // 0x00161f48: definition moved into src/anon/unit_001614e8.cpp
 extern "C" {
 
-void func_001c20e8(u32, HitEv*, ActObj*);
+void YS__PATTERN__Convert(u32, HitEv*, ActObj*);
 void func_00186d48(ActObj*, HitEv*);
 s32 func_0018ca48(u8);
 void func_0013de08(ActObj*);
@@ -245,7 +245,7 @@ extern SaveMid D_01d5a97c;
 extern SaveMid D_0034f250;
 extern SaveMid D_01d5b1a4;
 extern SaveMid D_0034fa78;
-void func_001ada38(u32);
+void YS__RECOV__Exec(u32);
 void func_001ba138(void);  // to_2fd310_block
 void func_00242908(void);
 void func_00168fa8(void);
@@ -253,26 +253,26 @@ void func_00168fa8(void);
 // 001cd388: moved to src/anon/unit_001cd078.cpp
 
 s32 func_00190140(u32);
-Vq* func_0016c028(u8*);  // obj_get_attach_or_alt
-void func_001902a8(u32, Vq*);
-Vq func_0016af58(u32);
+Vq* YS__OBJ__get_pos(u8*);  // obj_get_attach_or_alt
+void YS__TARGET__make_collision(u32, Vq*);
+Vq YS__OBJ__get_dir(u32);
 // 001cda88: moved to src/anon/unit_001cd660.cpp
-void func_001cda88(Lockon* l, u32 obj, u32 tgt);
+void YS__CHOOSE_ATTACK__CHOOSE_ATTACK(Lockon* l, u32 obj, u32 tgt);
 
 extern u8 D_0032e020[];
 s32 func_001a8bf8(u32*, s32);  // get_bits5_at
 void func_001a8c60(u32*, s32, s32);  // masked_byte_store
 u32 func_001a8c10(u32*, s32);
-u8* func_00188fe0(u8*, u32);
+u8* YS__SAVERAM_BATTLE__get_partram(u8*, u32);
 void func_001d9630(u8*, u32);
 void func_001d94f8(u32 a, u32* other);  // 0x001d94f8: definition moved into src/anon/unit_001d7458.cpp
 
 extern f32 D_00349e10;
 f32 func_00184a90(u8*);
-Vq* func_0016c028(u8*);  // obj_get_attach_or_alt
+Vq* YS__OBJ__get_pos(u8*);  // obj_get_attach_or_alt
 struct VqI { FI x, y, z, w; } __attribute__((aligned(16)));
 // Velocity for a floating object, easing its height towards the ground.
-Vq func_001d2a68(u32, u8* o);  // 0x001d2a68: definition moved into src/anon/unit_001d2810.cpp
+Vq YS__ACTION_DEADSORA__calc_movement(u32, u8* o);  // 0x001d2a68: definition moved into src/anon/unit_001d2810.cpp
 
 union XfMatPtr { XfMat* p; f32 f; };
 extern XfMatPtr D_01d9e6e8;
@@ -302,7 +302,7 @@ void func_0031a838(u8*);
 void func_00239700(u8*);
 void func_002294c8(ItemPanel*, u32, s32*, u8*);
 void func_00229678(ItemPanel*, u32, s32);
-void func_0022ad88(s32 n, u32 b);  // 0022ad88: moved to src/sasa/musical_input.cpp (linked unit)
+void sa__MUSICAL_INPUT__scorePrint(s32 n, u32 b);  // 0022ad88: moved to src/sasa/musical_input.cpp (linked unit)
 
 extern u8* D_0035ec90;
 extern char* D_0035ec00;
@@ -316,7 +316,7 @@ extern u8 D_00371768[];
 extern u8 D_00371798[];
 void func_002fde18(void*, s32, u32);
 void memcpy(void*, const void*, u32);
-void func_002405a8(u8*, s32);
+void Tz__MCard__MakeTitle(u8*, s32);
 s32 func_00240108(void);  // get_global_36eb68
 void func_002ff2e8(char*, const char*);
 void func_00240450(u8* p, s32 n);  // 0x00240450: definition moved into src/anon/unit_0023f5b8.cpp
@@ -326,13 +326,13 @@ extern SaveList* D_0035ec98;
 extern DirEnt* D_0035ec9c;
 extern char D_003716e0[];
 extern char D_003716e8[];
-void func_00240360(s32);
+void Tz__MCard__MakeFname(s32);
 s32 func_002349c8(s32, u32);
 void func_002fde18(void*, s32, u32);
 s32 strcmp(const char*, const char*);  // strcmp
 void func_002ff2e8(char*, const char*);
 // Build the list of save files from the directory listing (skipping "." and "..").
-s32 func_00241008(void);  // 0x00241008: definition moved into src/anon/unit_0023f5b8.cpp
+s32 Tz__MCard__UpdateLocalInfo(void);  // 0x00241008: definition moved into src/anon/unit_0023f5b8.cpp
 
 extern MenuParts* D_0035f0f4;
 extern u32 D_0035f01c;
@@ -340,7 +340,7 @@ u8* func_00256b68(u32);
 s32 func_00139d78(void*);
 s32 func_0028acc8(u32);
 // Non-zero while any of the menu's animated parts is still busy.
-s32 func_0026cda0(void);  // 0x0026cda0: definition moved into src/anon/unit_0026c450.cpp
+s32 Tz__CmParty__isExistList(void);  // 0x0026cda0: definition moved into src/anon/unit_0026c450.cpp
 
 extern u32 D_0035f010;
 extern u32 D_0035f01c;
@@ -358,18 +358,18 @@ extern u32 D_0035f01c;
 extern ColTab2* D_0035f230;
 u32 func_002570a0(u32);
 s32 func_0028b040(u32);
-void func_0027c118(u32, u32);
-s32 func_0027af58(void);  // check_state16_then_loop
+void Tz__CmAbility__SetEquip(u32, u32);
+s32 Tz__CmAbility__Cur2AbiltyType(void);  // check_state16_then_loop
 void func_0027aed8(u32, s32*, s32*);
 s32 func_0027c3b8(u32);
 ColEnt* func_00273180(u32, s32);  // state_dispatch_2_3
 u8* func_001145b0(u32);
 u8* func_00281180(u32, u32);
-void func_0027c1c0(void);  // 0x0027c1c0: definition moved into src/anon/unit_0027a6d8.cpp
+void Tz__CmAbility__ChgEquipAbility(void);  // 0x0027c1c0: definition moved into src/anon/unit_0027a6d8.cpp
 
 u8* func_001a8110(u8*);
 // Assign each entry its table order (+1000 unless type 18), then sort by it.
-void func_00282d70(SortList* l);  // 0x00282d70: definition moved into src/anon/unit_00282c68.cpp
+void Tz__ItemInfo__SortItemInfo(SortList* l);  // 0x00282d70: definition moved into src/anon/unit_00282c68.cpp
 
 extern u32 D_0035f318;
 extern u32 D_0035f2ec;
@@ -381,14 +381,14 @@ u32 func_00103570(void);
 void func_00139e00(u32, u8);
 void func_0023edb0(u32);
 void func_00288b18(u32);
-void func_00236d60(void);  // clear_64_entries_24
+void YI__IMAGE_CACHE__Clear(void);  // clear_64_entries_24
 void func_00287b30(void);
 void func_00287d08(void);
 void func_0023ed00(u32);
 void func_0023d4f8(void*, u32);
 void func_00287c20(void);  // clear_global_flag_return_m1
-void func_0028c3f0(u32);
-void func_00287ed8(u32);
+void Tz__MenuItem__init(u32);
+void Tz__MenuBase__SavePadInit(u32);
 void func_00287910(u32 a, u32 b, u8 c);  // 0x00287910: definition moved into src/anon/unit_00286d28.cpp
 
 extern u8 D_0035f4f0;
@@ -400,7 +400,7 @@ void func_002933b8(void);
 u32* func_001a8bd0(s32);
 u32 func_001a8c10(u32*, s32);
 void func_00293350(s16, s16, s16);
-void func_00293520(void);  // 0x00293520: definition moved into src/anon/unit_00292e60.cpp
+void Tz__ChgWeapon__Update(void);  // 0x00293520: definition moved into src/anon/unit_00292e60.cpp
 
 extern u32 D_0035f200;
 s32 func_00289380(u32);
@@ -408,23 +408,23 @@ s32 func_00287cd0(void);
 void func_00296b08(void);
 s32 func_00289310(u32);
 s32 func_00276398(void);  // state_is_150
-void func_00276220(u32, u32);
+void Tz__Jiminy__SetParentSeqNum(u32, u32);
 void func_00287c90(u32);
 u32 func_00287df0(s32, s32, u32, u32, u32);
 s32 func_00242848(u32);
 void func_00287da0(void);
-void func_002968d8(void);  // 0x002968d8: definition moved into src/anon/unit_00295d28.cpp
+void Tz__JmReport__ControlRoxas(void);  // 0x002968d8: definition moved into src/anon/unit_00295d28.cpp
 
 extern PickCur* D_0035f5d4;
 u8* func_002766d0(void);
 s32 func_0023aa98(u8*);
-void func_00138c90(u8*, s32*, s32*);  // sum_fields_to_out
+void dk__Sprite__getPosAddOffset(u8*, s32*, s32*);  // sum_fields_to_out
 // Pick the icon under the cursor.
-void func_002a16b8(void);  // 0x002a16b8: definition moved into src/anon/unit_002a0908.cpp
+void Tz__JmDiagram__CalcSelIdx(void);  // 0x002a16b8: definition moved into src/anon/unit_002a0908.cpp
 
 extern u8* D_0035f634;
 extern AnmId3 D_00374cd8[];
-u32* func_002b23e0(s32);  // list_entry_by_index_checked
+u32* Tz__JmPuzzle__GetImageInfo(s32);  // list_entry_by_index_checked
 s32 func_00139d78(void*);
 s32 func_001396c0(u8*);
 void func_00139570(u8*);
@@ -433,22 +433,22 @@ void func_0028dcc0(u8*, u8*);
 void func_002b2f28(s32 idx);  // 0x002b2f28: definition moved into src/anon/unit_002b2a18.cpp
 
 extern CamObj* D_00361f60;
-u32 func_00106a18(u32);  // buffer_get_256
+u32 kn__getProjection(u32);  // buffer_get_256
 M4* func_00106ad0(u32);
 u8* func_00106a60(u32);  // buffer_get_by_index
 void func_00146680(u8*, M4*);  // copy_quad4_if_diff
-void func_002cec88(MdlRef* r);  // 002cec88: moved to src/taito/minigame_base.cpp (linked unit)
+void Ti__MiniGame__task_proc_view_info(MdlRef* r);  // 002cec88: moved to src/taito/minigame_base.cpp (linked unit)
 
 extern u32 D_003637b0[8];
 extern u32 D_003638d0;
-u8 func_0016f7d0(u32, u32);
+u8 YS__OBJENTRY__GetCacheBuffStatus(u32, u32);
 u8* func_0016e920(u32);
 s32 func_00182690(f32);
 u32 func_0016a020(u32);
 u64 func_00312db8(u64, u64);
 }
 // Pick a random member among the eligible party slots.
-u32 ctarget_002ed8e0(u32 a, u32, u32, u32);  // 0x002ed8e0: definition moved into src/anon/unit_002ecdb0.cpp
+u32 Ts__SUMMON_ENEMY__Get(u32 a, u32, u32, u32);  // 0x002ed8e0: definition moved into src/anon/unit_002ecdb0.cpp
 extern "C" {
 
 extern const s32 D_00377d00[3];

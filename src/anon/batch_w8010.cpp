@@ -8,7 +8,7 @@ char* func_002ff2e8(char*, const char*);
 char* func_002330c8(char*, char*);
 s32 readBuffAlloc_w8010(char*, Wk*, s32) asm("_ZN2sa5EVENT13readBuffAllocEPcPNS_7READ_WKENS_11EVENT_ALLOC10ALLOC_TYPEE");
 void func_002330b0();
-void func_001684c0(char*, s32, void (*)(), Wk*);
+void YS__FILE__ReadBarBack(char*, s32, void (*)(), Wk*);
 void func_002331a0(char* name, s32 type, s32 id, s32 d, s32 flag);  // 0x002331a0: definition moved into src/anon/unit_00232f08.cpp
 
 // ---- 00246328
@@ -29,7 +29,7 @@ void func_00247bb0(void);
 void func_00246708(void);
 void func_00246490(s32, s32, s32);
 struct NoTail246328 { ~NoTail246328() {} };
-void func_00246328(void);  // 0x00246328: definition moved into src/anon/unit_00242478.cpp
+void Tz__HECO__Draw(void);  // 0x00246328: definition moved into src/anon/unit_00242478.cpp
 
 // ---- 00251d80
 s32 func_00289310(void*);
@@ -37,14 +37,14 @@ s32 func_0028d008(s32);
 s32 func_00251e90(s32);
 void func_0028cf98(s32, s32);
 void func_00251ec8(s32);
-void func_00252660(s32);
-void func_00252540();
+void Tz__CANA__SetNewFlag(s32);
+void Tz__CANA__UpdateGra();
 s32 func_00252000();
 void func_00251fe0();
 void func_002890e0(void*, s32, s32, s32, s32);
 void func_00289038(void*, s32, s32, s32, s32, s32, s32);
 s32 func_002891d0(void*);
-void func_0028cf28(s32, s32);
+void Tz__MenuCursor__SetParent(s32, s32);
 void func_00251d80(void* obj, s32 mode, s32 h);  // 0x00251d80: definition moved into src/anon/unit_00250fb8.cpp
 
 // ---- 002657a8

@@ -49,9 +49,9 @@ s32 func_0018bd50(W1646Npc*, s32);
 void func_0018c438(W1646Act*);
 f32 w1646_angle(f32, f32) asm("_Z13func_001065a8jjjjjjjj");
 W1646Npc* func_0018b8e0(W1646Npc*, s32*);
-void func_0016af58(W1646Vec*, W1646Npc*);
+void YS__OBJ__get_dir(W1646Vec*, W1646Npc*);
 void func_0018bb70(W1646Npc*, s32, W1646Npc*, u8, f32);
-void func_0018b7f8(W1646Npc*);
+void YS__NPC__check_in_zone(W1646Npc*);
 
 void func_0018b478(W1646Npc* o);  // 0x0018b478: definition moved into src/yasui/libys/npc.cpp
 }

@@ -13,7 +13,7 @@ u8* func_00276348();
 void func_00276690(s32);
 u8* func_002766d0();
 void func_00287cc0(s32);
-void func_00288d80(s32, s32, s32, s32, s32, s32, s16*, s16*);
+void Tz__Select__SetItem(s32, s32, s32, s32, s32, s32, s16*, s16*);
 void func_00288e88(s32);
 u8* func_002891b8(s32, s32);
 void func_0028af28(s32, s32);
@@ -22,7 +22,7 @@ void func_0028d980(u8*, s32, s32, s32, s32, s32, s32, s32, s32);
 void func_0028dcc0(u8*, u8*);
 void func_002960d0();
 void func_002969e0();
-void func_00296b80(s32);
+void Tz__JmReport__CreateGra(s32);
 struct Sub { u8 pad[0xb8]; u32 fl; };
 void func_00296588(void);  // 0x00296588: definition moved into src/anon/unit_00295d28.cpp
 }

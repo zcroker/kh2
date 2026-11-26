@@ -39,8 +39,8 @@ struct W1647Obj { W1647ObjVt* vt; };
 
 extern "C" {
 W1647Obj* func_0016b7a0(u16);
-W1647V4* func_0016c028(void*);
-void func_0016af58(W1647V4*, void*);
+W1647V4* YS__OBJ__get_pos(void*);
+void YS__OBJ__get_dir(W1647V4*, void*);
 s32 func_00195700(void*, u16);
 f32 fabsf(f32);
 void W1647_appear(W1647Unit*, W1647Group*) asm("_ZNK2YS13UNIT_DATA_OBJ6appearEPNS_10UNIT_GROUPE");
@@ -48,5 +48,5 @@ extern void* D_0034e948;
 extern u8 D_0034f250[];
 
 /* 0019b668: per frame, despawns live units of a YS::UNIT_GROUP that are far away or behind the player, and spawns (appear) nearby dead ones in front. */
-void func_0019b668(W1647Group* g);  // 0x0019b668: definition moved into src/anon/unit_00199688.cpp
+void Ti__ACTION_PO_JUMP__exec_jump(W1647Group* g);  // 0x0019b668: definition moved into src/anon/unit_00199688.cpp
 }

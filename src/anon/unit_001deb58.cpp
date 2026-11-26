@@ -156,8 +156,8 @@ struct O1dec78
 };
 N1dec78 *func_001e0188(s32) asm("func_001e0188");
 /*TARGET 001dec78*/
-void func_001dec78(O1dec78 *o, u32 a, u32 b, f32 f, D1dec78 *d) asm("func_001dec78");
-void func_001dec78(O1dec78 *o, u32 a, u32 b, f32 f, D1dec78 *d)
+void ryj__PAX__MANAGER__MANAGER_2(O1dec78 *o, u32 a, u32 b, f32 f, D1dec78 *d) asm("ryj__PAX__MANAGER__MANAGER_2");
+void ryj__PAX__MANAGER__MANAGER_2(O1dec78 *o, u32 a, u32 b, f32 f, D1dec78 *d)
 {
   O1dec78 *new_var2;
   N1dec78 *n;
@@ -327,9 +327,9 @@ static inline void vmul1dee88(W1dee88Vec* out, const W1dee88Vec* a, const W1dee8
 }
 /*TARGET 001dee88*/
 // Writes a node's position, rotation and scale slots: from the key (world matrix times position) or from the source (world times local transform, axes normalised, lengths kept for scale).
-void func_001dee88(O1dee88* o) asm("func_001dee88");
+void ryj__PAX__MANAGER__bind(O1dee88* o) asm("ryj__PAX__MANAGER__bind");
 // Writes a node's position, rotation and scale slots: from the key (world matrix times position) or from the source (world times local transform, axes normalised, lengths kept for scale).
-void func_001dee88(O1dee88* o)
+void ryj__PAX__MANAGER__bind(O1dee88* o)
 {
     W1dee88Vec pos, rot, scale;
     W1dee88Mtx r, m;
@@ -615,30 +615,30 @@ struct O1df670 {
     u32 flags;
 };
 extern s32 D_00352b50 asm("D_00352b50");
-s32 func_0019ba60(Model1df670*) asm("func_0019ba60");
-s32 func_0019c6f0(Model1df670*) asm("func_0019c6f0");
+s32 YS__OBJ__is_exist(Model1df670*) asm("YS__OBJ__is_exist");
+s32 YS__OBJ__is_stop(Model1df670*) asm("YS__OBJ__is_stop");
 void func_001dc700(void*, s32) asm("func_001dc700");
 void func_001dcc30(void*) asm("func_001dcc30");
 void func_001dcc48(void*) asm("func_001dcc48");
-void func_0016b0e0(Model1df670*, u16, W1df670Mtx*) asm("func_0016b0e0");
+void YS__OBJ__get_bone_matrix(Model1df670*, u16, W1df670Mtx*) asm("YS__OBJ__get_bone_matrix");
 W1df670Vec func_0016b478(Model1df670*, u16, f32) asm("func_0016b478");
 W1df670Mtx func_0023ec48(Model1df670*, u16) asm("func_0023ec48");
 void func_0011d6c0(void*, u16, W1df670Mtx*) asm("func_0011d6c0");
 /*TARGET 001df670*/
-void func_001df670(O1df670* o) asm("func_001df670");
-void func_001df670(O1df670* o)
+void ryj__PAX__MANAGER__get_obj_data(O1df670* o) asm("ryj__PAX__MANAGER__get_obj_data");
+void ryj__PAX__MANAGER__get_obj_data(O1df670* o)
 {
     switch (D_00352b50) {
     case 1:
-        if (!func_0019ba60(o->model)) {
+        if (!YS__OBJ__is_exist(o->model)) {
             o->flags |= 0x10;
             func_001dc700(o->h, 0);
             return;
         }
-        func_001dc700(o->h, func_0019c6f0(o->model));
+        func_001dc700(o->h, YS__OBJ__is_stop(o->model));
         if (o->model->f268 & 0x80) func_001dcc30(o->h);
         else func_001dcc48(o->h);
-        func_0016b0e0(o->model, o->def->node, &o->mtx);
+        YS__OBJ__get_bone_matrix(o->model, o->def->node, &o->mtx);
         if (!(o->flags & 4)) return;
         o->pair->a = func_0016b478(o->model, o->def->nodeA, o->def->lenA);
         o->pair->b = func_0016b478(o->model, o->def->nodeB, o->def->lenB);
@@ -650,7 +650,7 @@ void func_001df670(O1df670* o)
             t.y = o->def->a[1];
             t.z = o->def->a[2];
             *(s32*)&t.w = 0;
-            func_0016b0e0(o->model, o->def->nodeA, &m);
+            YS__OBJ__get_bone_matrix(o->model, o->def->nodeA, &m);
             m.r3.unit();
             m.rot(t);
             o->pair->a += t;
@@ -658,7 +658,7 @@ void func_001df670(O1df670* o)
             t.y = o->def->b[1];
             t.z = o->def->b[2];
             *(s32*)&t.w = 0;
-            func_0016b0e0(o->model, o->def->nodeB, &m);
+            YS__OBJ__get_bone_matrix(o->model, o->def->nodeB, &m);
             m.r3.unit();
             m.rot(t);
             o->pair->b += t;
@@ -690,8 +690,8 @@ namespace n001df9c8 {
 void func_001dc840(u32) asm("func_001dc840");
 void func_001dc978(u32, f32) asm("func_001dc978");
 /*TARGET 001df9c8*/
-void func_001df9c8(u8* p) asm("func_001df9c8");
-void func_001df9c8(u8* p) {
+void ryj__PAX__MANAGER__system_delete(u8* p) asm("ryj__PAX__MANAGER__system_delete");
+void ryj__PAX__MANAGER__system_delete(u8* p) {
     u32 f = *(u32*)(p + 92);
     if (f & 0x20) return;
     *(u32*)(p + 92) = f | 0x20;
@@ -725,8 +725,8 @@ struct O1dfa38 {
     union { u32 flags; struct { u32 local : 1; u32 rest : 31; } fb; };
 };
 void func_001df2c0(O1dfa38*) asm("func_001df2c0");
-void func_001df670(O1dfa38*) asm("func_001df670");
-void func_001dee88(O1dfa38*) asm("func_001dee88");
+void ryj__PAX__MANAGER__get_obj_data(O1dfa38*) asm("ryj__PAX__MANAGER__get_obj_data");
+void ryj__PAX__MANAGER__bind(O1dfa38*) asm("ryj__PAX__MANAGER__bind");
 s32 func_001dc9f0(H1dfa38*) asm("func_001dc9f0");
 void func_001dfca8(O1dfa38*, s32) asm("func_001dfca8");
 void func_001dfe88(O1dfa38*, s32) asm("func_001dfe88");
@@ -735,7 +735,7 @@ void func_001e00b0(O1dfa38*) asm("func_001e00b0");
 void* f1dfa38_pos(H1dfa38*) asm("func_001dc5f8");
 s32 f1dfa38_effect(s32, void*) asm("func_002bc188");
 s32 func_001dffd8(O1dfa38*) asm("func_001dffd8");
-void func_001df9c8(O1dfa38*) asm("func_001df9c8");
+void ryj__PAX__MANAGER__system_delete(O1dfa38*) asm("ryj__PAX__MANAGER__system_delete");
 /*TARGET 001dfa38*/
 void func_001dfa38(O1dfa38* o) asm("func_001dfa38");
 void func_001dfa38(O1dfa38* o)
@@ -745,11 +745,11 @@ void func_001dfa38(O1dfa38* o)
     } else if (o->fb.local) {
         if (!(o->flags & 0x10)) {
             if (o->time <= 0.0f) {
-                func_001df670(o);
-                func_001dee88(o);
+                ryj__PAX__MANAGER__get_obj_data(o);
+                ryj__PAX__MANAGER__bind(o);
             } else if (func_001dc9f0(o->h) || !(((o->flags & 8) ? o->src->flags : o->def->flags) & 2)) {
-                func_001dee88(o);
-                func_001df670(o);
+                ryj__PAX__MANAGER__bind(o);
+                ryj__PAX__MANAGER__get_obj_data(o);
             }
         }
     }
@@ -767,7 +767,7 @@ void func_001dfa38(O1dfa38* o)
         o->flags |= 0x40;
     }
     if (o->f72 && !(o->flags & 8)) {
-        if (((o->flags & 0x10) && (o->def->flags & 0x200)) || (u8)((o->h->bits >> 25) & 1) || ((o->def->flags & 0x400) && func_001dffd8(o))) func_001df9c8(o);
+        if (((o->flags & 0x10) && (o->def->flags & 0x200)) || (u8)((o->h->bits >> 25) & 1) || ((o->def->flags & 0x400) && func_001dffd8(o))) ryj__PAX__MANAGER__system_delete(o);
     }
     o->time += D_00349e10;
 }
@@ -814,7 +814,7 @@ struct Part_1dfdb8 { u8 pad[0xaf8]; Part_1dfdb8* l; Part_1dfdb8* r; };
 struct Obj_1dfdb8 { u8 pad[0x40]; s32 x40; Hdr_1dfdb8* h; Part_1dfdb8* p; };
 f32 func_00194690(Part_1dfdb8*) asm("func_00194690");
 extern s32 D_00352b50 asm("D_00352b50");
-s32 func_0019ba60(Part_1dfdb8*) asm("func_0019ba60");
+s32 YS__OBJ__is_exist(Part_1dfdb8*) asm("YS__OBJ__is_exist");
 s32 func_0019c5d0(Part_1dfdb8*) asm("func_0019c5d0");
 Rec_1dfdb8* func_001dc670(s32) asm("func_001dc670");
 /*TARGET 001dfdb8*/
@@ -829,7 +829,7 @@ void func_001dfdb8(Obj_1dfdb8* o) {
         case 0x4003: case 0x4005: case 0x4007: p = p->l; break;
         case 0x4004: case 0x4006: case 0x4008: p = p->r; break;
         }
-        if (!func_0019ba60(p) || func_0019c5d0(p)) f = 0.0f;
+        if (!YS__OBJ__is_exist(p) || func_0019c5d0(p)) f = 0.0f;
         else f = func_00194690(p);
     }
     func_001dc670(o->x40)->f = f;
@@ -883,13 +883,13 @@ namespace n001dffd8 {
 // 0x001d6088: definition moved into src/anon/unit_001d4f40.cpp
 
 extern s32 D_00352b50 asm("D_00352b50");
-s32 func_0019ba60(u8*) asm("func_0019ba60");
+s32 YS__OBJ__is_exist(u8*) asm("YS__OBJ__is_exist");
 /*TARGET 001dffd8*/
 s32 func_001dffd8(u8* p) asm("func_001dffd8");
 s32 func_001dffd8(u8* p) {
     if (D_00352b50 != 1) return 0;
     s32 r = 0;
-    if (!func_0019ba60(*(u8**)(p + 72)) || (*(u32*)(*(u8**)(p + 72) + 352) & 0x20000000) ||
+    if (!YS__OBJ__is_exist(*(u8**)(p + 72)) || (*(u32*)(*(u8**)(p + 72) + 352) & 0x20000000) ||
         (*(u32*)(*(u8**)(p + 72) + 268) & 0x400))
         r = 1;
     return r;
@@ -1030,11 +1030,11 @@ void func_001e0230(u32 a, u32 b) {
 
 // 001e02a0 (was src/anon/tiny_wrappers_more.cpp)
 namespace n001e02a0 {
-u32 func_001dddd0(u32, u32, u32, u32) asm("_Z13func_001dddd0jjjj");
+u32 ryj__PAX__init(u32, u32, u32, u32) asm("_Z14ryj__PAX__initjjjj");
 /*TARGET 001e02a0*/
 u32 func_001e02a0(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z13func_001e02a0jjjj");
 u32 func_001e02a0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_001dddd0(a0, ((u32)(*(u32*)((u32)(a1) + 0u))), a2, a3);
+    return ryj__PAX__init(a0, ((u32)(*(u32*)((u32)(a1) + 0u))), a2, a3);
 }
 }  // namespace n001e02a0
 

@@ -34,8 +34,8 @@ void func_001391e8(u8*) {}
 
 // ---- 001391f0 from src/anon/tiny.cpp
 namespace n001391f0 {
-void func_001391f0(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z13func_001391f0jjjj");
-void func_001391f0(u32 a0, u32 a1, u32 a2, u32 a3) {
+void dk__Obj2D__update(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z17dk__Obj2D__updatejjjj");
+void dk__Obj2D__update(u32 a0, u32 a1, u32 a2, u32 a3) {
     (void)a0;
     (void)a1;
     (void)a2;
@@ -45,8 +45,8 @@ void func_001391f0(u32 a0, u32 a1, u32 a2, u32 a3) {
 
 // ---- 001391f8 from src/anon/batch_w1664.cpp
 namespace n001391f8 {
-void func_001391f8(void) asm("func_001391f8");
-void func_001391f8(void) {}
+void dk__Obj2D__draw(void) asm("dk__Obj2D__draw");
+void dk__Obj2D__draw(void) {}
 }  // namespace n001391f8
 
 // ---- 00139200 from src/anon/auto80_199_queue.cpp
@@ -723,8 +723,8 @@ typedef struct Pair139
   VObj139 b;
 } Pair139;
 s32 u_call4_00139d78(void *) asm("_Z16u_call4_00139d78jjjj");
-s32 func_00139c18(Pair139 *p) asm("func_00139c18");
-s32 func_00139c18(Pair139 *p)
+s32 dk__Obj2D__checkDoubleCreate(Pair139 *p) asm("dk__Obj2D__checkDoubleCreate");
+s32 dk__Obj2D__checkDoubleCreate(Pair139 *p)
 {
   VObj139 *new_var;
   if (u_call4_00139d78(p))
@@ -771,13 +771,13 @@ static inline Mtx Mul(const Mtx& a, const Mtx& b)
 struct Cam { u8 p0[32]; Mtx m; };
 struct Mats { u8 p0[16]; Mtx m; };
 extern Cam* D_00347f80 asm("D_00347f80");
-Mtx* func_00106a18(s32) asm("func_00106a18");
+Mtx* kn__getProjection(s32) asm("kn__getProjection");
 Mats* func_00106a60(s32) asm("func_00106a60");
 void func_00139c90(void) asm("func_00139c90");
 void func_00139c90(void)
 {
     Mtx* d = &D_00347f80->m;
-    Mtx* a = func_00106a18(0);                   
+    Mtx* a = kn__getProjection(0);                   
     Mats* b = func_00106a60(0);                        
     *d = Mul(*a, b ? b->m : *(Mtx*)0);
 }
@@ -991,8 +991,8 @@ void func_0013a200(void) {
 // ---- 0013a218 from src/anon/tiny_wrappers_imp.cpp
 namespace n0013a218 {
 u32 func_001393f8(u32, u32, u32, u32) asm("_Z13func_001393f8jjjj");
-u32 func_0013a218(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z13func_0013a218jjjj");
-u32 func_0013a218(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 dk__Obj2D__destroyLoopExec(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z26dk__Obj2D__destroyLoopExecjjjj");
+u32 dk__Obj2D__destroyLoopExec(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r15 = 0u;
     r15 = (u32)(0x0034u << 16);
     r4 = *(u32*)((u32)r15 + (s32)(32640));

@@ -10,16 +10,16 @@ extern "C" {
 
 extern W322GU D_0035f638;
 W322Sav* func_002a9d68(void);
-W322S3* func_002b23e0(s32);  // list_entry_by_index_checked
+W322S3* Tz__JmPuzzle__GetImageInfo(s32);  // list_entry_by_index_checked
 u32 func_002b2380(s32, s32);
 void func_002b2da8(s32);
 void func_002b3050(s32);
-void func_002b1bd0(s32);
+void Tz__JmPuzzle__UpdatePiece(s32);
 void func_002b2f28(s32);
 extern W322Pr D_003741b0[];
 s32 func_002811f8(u32, s32);  // find_halfword_index
 s32 func_002811b0(u32, s32);
-u32 func_00281fe0(u8* o, s32 a1, s32 m);  // 0x00281fe0: definition moved into src/anon/unit_00281cf0.cpp
+u32 Tz__ItemInfo__GetItemTypeMask(u8* o, s32 a1, s32 m);  // 0x00281fe0: definition moved into src/anon/unit_00281cf0.cpp
 static inline void w322_setbit(u32* p, u32 n) { p += n >> 5; *p |= 1 << (n & 31); }
 void func_002b0fc8(u32 fl);  // 0x002b0fc8: definition moved into src/anon/unit_002b0950.cpp
 }

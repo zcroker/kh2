@@ -37,7 +37,7 @@ void func_001396b0(W1950Obj *) asm("_ZN2Tz6Select10BeginLeaveEz");
 s32 func_00139d78(W1950Mgr *) asm("_Z16u_call4_00139d78jjjj");
 s32 func_0023aa18(void *) asm("_ZN2YI8SEQUENCE9GetParamXEv");
 s32 func_0023aa38(void *) asm("_ZN2YI8SEQUENCE9GetParamYEv");
-void func_00259108(void *, s32, s32, s32, s32, s32, void *);
+void Tz__CmComm__CreateConfirmSelector(void *, s32, s32, s32, s32, s32, void *);
 void func_00288f48(void *, s32, s32, s32, s32) asm("_ZN2Tz6Select10SetMoveKeyEiiii");
 W1950Obj *func_002891b8(void *, s32) asm("_ZN2Tz6Select10GetItemPtrEi");
 s32 func_002892f8(void *) asm("_ZN2Tz6Select10GetItemMaxEv");

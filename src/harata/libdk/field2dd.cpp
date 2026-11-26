@@ -39,7 +39,7 @@ u32 func_00168aa0(void*, s32);
 u8* func_00168b38(void*, s32, s32);  // entry_array_find_nth
 s32 func_0013d498(void);
 void func_0013b3f8(void);
-void func_0013b538(void);
+void dk__COMMAND_DRAW__leaveAll(void);
 s32 func_00242ea8(void);
 s32 func_0014a1f0(void);
 s32 func_00242c70(void) asm("_ZN2Tz6Config12isCommandKH2Ev");
@@ -48,11 +48,11 @@ u32 func_00105ee8(u32);
 void func_002fee78(char*, const char*, ...);  // sprintf
 void strlen(char*);  // strlen
 void func_001688c8(void*);
-void func_001684c0(void*, u8*, s32, s32);
+void YS__FILE__ReadBarBack(void*, u8*, s32, s32);
 void func_0031ae58(void*, void*);
 
 void func_0013a4a8(void);
-s32 func_0013a4c8(void);
+s32 dk__Field2DD__readCommand(void);
 void func_0013a6b8(void);
 
 // Builds the command demo table from the (25, 24) resource entries of the command file.
@@ -77,10 +77,10 @@ void func_0013a368(void) {
 namespace dk {
 
 void Field2DD::readConfigCommand() {
-    if (func_0013a4c8()) {
+    if (dk__Field2DD__readCommand()) {
         if (!func_0013d498()) {
             D_00347ff4 = 1;
-            func_0013b538();
+            dk__COMMAND_DRAW__leaveAll();
         }
     }
 }
@@ -93,7 +93,7 @@ void func_0013a4a8(void) { D_00347ff4 = 0; }
 u8 func_0013a4b8(void) { return D_00347ff4; }
 
 // Loads the command demo file of the current room and chapter when it changed.
-s32 func_0013a4c8(void) {
+s32 dk__Field2DD__readCommand(void) {
     if (func_00242ea8()) return 0;
     if (func_0014a1f0()) return 0;
     if (!func_00242c70()) {
@@ -111,18 +111,18 @@ s32 func_0013a4c8(void) {
     }
     strlen(D_003b8ba0);
     func_001688c8(D_003b8ba0);
-    func_001684c0(D_003b8ba0, D_004193c0, 0, 0);
+    YS__FILE__ReadBarBack(D_003b8ba0, D_004193c0, 0, 0);
     return 1;
 }
 
 // Loads the field demo file for the current language when it changed.
-void func_0013a600(void) {
+void dk__Field2DD__read(void) {
     u32 v = D_0032bae0;
     if (v == D_00347fe8) return;
     D_00347fe8 = v;
     func_002fee78((char*)D_003b8b80, "field2d/%s/%s0field.2dd", D_0033caf4, func_00105ee8(v));
     func_001688c8(D_003b8b80);
-    func_001684c0(D_003b8b80, D_003b8bc0, 0, 0);
+    YS__FILE__ReadBarBack(D_003b8b80, D_003b8bc0, 0, 0);
 }
 
 }

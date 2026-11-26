@@ -105,10 +105,10 @@ extern void* D_0035eb08[] asm("D_0035eb08");
 /*TARGET 0023c008*/
 // 0x00225328: definition moved into src/anon/unit_00224780.cpp
 
-void func_0023c008(u32* p) asm("func_0023c008");
+void YI__LAYOUT__LAYOUT(u32* p) asm("YI__LAYOUT__LAYOUT");
 // 0x00225328: definition moved into src/anon/unit_00224780.cpp
 
-void func_0023c008(u32* p) {  // obj_ctor_36eae8
+void YI__LAYOUT__LAYOUT(u32* p) {  // obj_ctor_36eae8
     *(void***)p = D_0035eb08;
     p[1] = 0;
     p[2] = 0; p[3] = 0; p[4] = 0; p[5] = 0; p[6] = 0; p[7] = 0; p[8] = 0; p[9] = 0;
@@ -192,7 +192,7 @@ struct Elem1987;
 void* znaj1987(u32, u32) asm("_Znaj");
 s32 getimg1987(s32, s32) asm("_ZN2YI12IMAGE_FREEZE8GetImageEi");
 void func_00239700(Elem1987*) asm("func_00239700");
-void func_00239988(Elem1987*, u8*, s32) asm("func_00239988");
+void YI__SEQUENCE__Init(Elem1987*, u8*, s32) asm("YI__SEQUENCE__Init");
 struct Elem1987 { virtual ~Elem1987(); u8 pad[340]; };
 struct Res1987 { u8 pad[8]; s32 o8; s32 oc; s32 o10; s32 o14; s32 o18; s32 o1c; };
 struct MB1987 {
@@ -235,7 +235,7 @@ s32 v1(MB1987* self, u8* res, s32 img, u32 heap)
     delete[] self->arr2;
     self->arr2 = 0;
     for (i = 0; i < self->n; i++) {
-        func_00239988(&self->arr[i], res + self->offs[i], getimg1987(self->img, 0));
+        YI__SEQUENCE__Init(&self->arr[i], res + self->offs[i], getimg1987(self->img, 0));
     }
     self->f3c = 0;
     self->f38 = 1;
@@ -308,8 +308,8 @@ struct w243_E14 { u16 h; u8 pad[18]; };
 struct w243_E10 { u32 a; s32 i; s32 off; u8 pad[12]; };
 struct w243_O { u8 pad[0x10]; w243_E10* t10; w243_E14* t14; u8 pad2[0x24 - 0x18]; s32 cnt; u8 pad3[4]; w243_E2c* arr; u8* base; s32 cnt34; u8 pad4[0x4c - 0x38]; s32 idx; };
 /*TARGET 0023c3e0*/
-u8* func_0023c3e0(w243_O* o, s32 x, s32 n) asm("func_0023c3e0");
-u8* func_0023c3e0(w243_O* o, s32 x, s32 n) {
+u8* YI__LAYOUT__SearchSequence(w243_O* o, s32 x, s32 n) asm("YI__LAYOUT__SearchSequence");
+u8* YI__LAYOUT__SearchSequence(w243_O* o, s32 x, s32 n) {
     s32 acc = 0;
     s32 i;
     for (i = 0; i < o->cnt; i++) {
@@ -389,12 +389,12 @@ void func_0023c598(void* self) { *(s32*)((char*)self + 64) = 0; }
 // 0023c5a0 (was src/anon/tiny_auto80_queue.cpp)
 namespace n0023c5a0 {
 // find_entry_in_group
-extern "C" u32 func_0023c5f0(...) asm("func_0023c5f0");
+extern "C" u32 YI__LAYOUT__GetAllFrame(...) asm("YI__LAYOUT__GetAllFrame");
 u32 func_0023ca30(...) asm("func_0023ca30");
 /*TARGET 0023c5a0*/
 u32 func_0023c5a0(u32 a0) asm("_Z13func_0023c5a0j");
 u32 func_0023c5a0(u32 a0) {
-    s32 s1 = (s32)func_0023c5f0(a0) - 1;
+    s32 s1 = (s32)YI__LAYOUT__GetAllFrame(a0) - 1;
     s32 v0 = (s32)func_0023ca30(a0, 0);
     if (v0 != 0) {
         if (v0 < s1) {
@@ -414,9 +414,9 @@ struct Obj { u8 p0[16]; Ent* ents; Grp* grps; u8 p24[20]; Item* items; };
 s32 func_00239b50(Item*, s32) asm("func_00239b50");
 /*TARGET 0023c5f0*/
 // find_entry_in_group
-s32 func_0023c5f0(Obj* o, s32 g) asm("func_0023c5f0");
+s32 YI__LAYOUT__GetAllFrame(Obj* o, s32 g) asm("YI__LAYOUT__GetAllFrame");
 // find_entry_in_group
-s32 func_0023c5f0(Obj* o, s32 g)
+s32 YI__LAYOUT__GetAllFrame(Obj* o, s32 g)
 {
     Grp* gp = &o->grps[g];
     Ent* e = &o->ents[gp->first];
@@ -433,12 +433,12 @@ s32 func_0023c5f0(Obj* o, s32 g)
 namespace n0023c6b8 {
 extern f32 D_00349e14 asm("D_00349e14");
 // find_entry_in_group
-extern "C" u32 func_0023c5f0(...) asm("func_0023c5f0");
+extern "C" u32 YI__LAYOUT__GetAllFrame(...) asm("YI__LAYOUT__GetAllFrame");
 /*TARGET 0023c6b8*/
 f32 func_0023c6b8(u32 a0) asm("_Z13func_0023c6b8j");
 f32 func_0023c6b8(u32 a0) {
     u32 s0 = a0;
-    s32 v0 = (s32)func_0023c5f0(s0);
+    s32 v0 = (s32)YI__LAYOUT__GetAllFrame(s0);
     return (f32)v0 * D_00349e14 * *(f32*)(s0 + 72);
 }
 }  // namespace n0023c6b8
@@ -480,8 +480,8 @@ struct Obj {
 u8* GetImage294(void*, s32) asm("_ZN2YI12IMAGE_FREEZE8GetImageEi");
 void wtarget294_00239bf8(void*, s32) asm("_Z16wtarget_00239bf8jjjj");
 s32 func_0023c5a0(Obj*, s32) asm("func_0023c5a0");
-void func_00239988(Item*, u8*, u8*) asm("func_00239988");
-u8 func_0023c978(Obj*) asm("func_0023c978");
+void YI__SEQUENCE__Init(Item*, u8*, u8*) asm("YI__SEQUENCE__Init");
+u8 YI__LAYOUT__GetLoopMode(Obj*) asm("YI__LAYOUT__GetLoopMode");
 /*TARGET 0023c728*/
 void func_0023c728(Obj* o, s32 idx) asm("func_0023c728");
 void func_0023c728(Obj* o, s32 idx) {
@@ -497,12 +497,12 @@ void func_0023c728(Obj* o, s32 idx) {
     Seg* s = &o->f16[e->f0];
     for (s32 i = 0; i < o->f52; i++) {
         u8* img = GetImage294(o->f40, s->f0);
-        func_00239988(&o->f48[i], o->f8 + o->f24[s->f4], img);
+        YI__SEQUENCE__Init(&o->f48[i], o->f8 + o->f24[s->f4], img);
         wtarget294_00239bf8(&o->f48[i], s->f8);
         s++;
         Item& it = o->f48[i]; it.f68 = o->f72;
     }
-    o->f80 = func_0023c978(o);
+    o->f80 = YI__LAYOUT__GetLoopMode(o);
 }
 }  // namespace n0023c728
 

@@ -34,11 +34,11 @@ static inline bool W1721_lt(f32 a, f32 b) { return a < b; }
 extern "C" {
 s32 func_00190680(W1721Target*, void*) asm("_ZNK2YS6TARGET7is_sameERKS0_");
 W1721V4 func_00190388(W1721Target*);
-void func_0016af58(W1721V4*, W1721Obj*);
-W1721V4 func_0017d538(f32, s32);
+void YS__OBJ__get_dir(W1721V4*, W1721Obj*);
+W1721V4 YS__MATH__VectorRotY(f32, s32);
 s32 func_0019c090(W1721Obj*);
 
 /* 0019df08: scales damage when the attack target matches the owner (0.5) or the lock target (0.8),
    then sets bit 30 (0x40000000) when the hit falls inside the facing cone, the arc cone or the extra obj test. */
-s32 func_0019df08(W1721Self* self, W1721Param* prm, W1721Target* tgt, s32 a3, s32 dmg);  // 0x0019df08: definition moved into src/anon/unit_0019ba60.cpp
+s32 YS__RC_SEARCHER__get_dist(W1721Self* self, W1721Param* prm, W1721Target* tgt, s32 a3, s32 dmg);  // 0x0019df08: definition moved into src/anon/unit_0019ba60.cpp
 }

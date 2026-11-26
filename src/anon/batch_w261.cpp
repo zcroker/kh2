@@ -47,9 +47,9 @@ static inline W261En* W261Find(s32 id) {
 W261Inf* func_001a80c8(u32);  // table24_find_by_id
 u32 func_00192048(u32);
 u32 func_0016a070(void*);
-s32 func_001a3018(u32, u32, u32);
-void func_001a3188(u32, s32, u32);
-u32 wtarget_001a82f0(W261Src* s) asm("_Z16wtarget_001a82f0jjjj");
+s32 YS__ITEM__WhereGet(u32, u32, u32);
+void YS__ITEM__Get(u32, s32, u32);
+u32 YS__TREASURE__TABLE___get(W261Src* s) asm("_Z25YS__TREASURE__TABLE___getjjjj");
 // 001a82f0: moved to src/anon/unit_001a82f0.cpp
 
 void func_002de698(u32);

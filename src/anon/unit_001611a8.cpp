@@ -124,8 +124,8 @@ extern s32 D_0034c738 asm("D_0034c738");
 extern s32 D_0034c73c asm("D_0034c73c");
 extern s32 D_004f3b30 asm("D_004f3b30");
 // dk::BgObj::init(ALLOCATOR*, MapFile*): keep both and start the object tasks for this mode.
-void func_001612b8(s32 a0, s32 a1) asm("func_001612b8");
-void func_001612b8(s32 a0, s32 a1) {
+void dk__BgObj__init(s32 a0, s32 a1) asm("dk__BgObj__init");
+void dk__BgObj__init(s32 a0, s32 a1) {
     D_0034c73c = a1;
     D_0034c738 = a0;
     func_00161228();

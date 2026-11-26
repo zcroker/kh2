@@ -66,7 +66,7 @@ extern V1118a8 D_00341720[3];
 extern V1118a8 D_00341750[3];
 void func_002fd188(void (*)(void));
 void func_001135b0(void);
-V1118a8* f1118a8_attach(Fr1118a8*) asm("func_0016c028");
+V1118a8* f1118a8_attach(Fr1118a8*) asm("YS__OBJ__get_pos");
 f32 func_00111808(Fr1118a8*);
 void func_001118a8(void);  // 0x001118a8: definition moved into src/anon/unit_001117d8.cpp
 }

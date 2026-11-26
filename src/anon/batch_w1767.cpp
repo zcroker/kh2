@@ -35,7 +35,7 @@ extern u8 D_00363808[];
 extern u8 D_003637e0[];
 W1767V* func_0016e920(s32);
 s32 func_0016f448(u8);
-f32 func_001c3ba8(void*, W1767Obj*);
+f32 YS__ACTION_GLIDEHOVER__calc_movement_y(void*, W1767Obj*);
 
 s32 func_00199810(W1767D* p);  // 0x00199810: definition moved into src/anon/unit_00199688.cpp
 

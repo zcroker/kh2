@@ -33,7 +33,7 @@ extern "C" {
 extern Mtx D_00347b30;
 void func_0011d440(void);
 void func_0011b6a8(Mtx*);
-void func_00125f78(u8*, u32, u32, u32, u32, u32, f32);
+void kn__Motion__calc(u8*, u32, u32, u32, u32, u32, f32);
 // Loads the given matrix (or identity when null) into the shared work matrix, then sets up the object.
 void func_0011c6a8(u8* o, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, Mtx* m, f32 f);  // 0x0011c6a8: definition moved into src/anon/unit_0011c128.cpp
 }
@@ -74,7 +74,7 @@ extern Pair8 D_00348578[];
 s32 func_0013cb80(void);  // get_global_358050
 s32 func_0013cb90(void);
 u32 func_0013cb30(void);
-void func_001386e0(u8*, u32, u32, s32, u32, u32);
+void dk__Sprite__create(u8*, u32, u32, s32, u32, u32);
 void func_00138c40(u8*, u32, u32);
 f32 func_0013b2a8(u8*);  // mul_float684_692
 void func_00138d48(u8*, f32, f32, f32, f32);
@@ -113,9 +113,9 @@ void func_001433c0(u8*, u32);
 namespace n00188958 {
 struct O9 { u8 pad[18]; u8 count; u8 pad2[33]; u16 a[8]; u16 b[8]; };
 extern "C" {
-void func_001a3188(u32, u32, u32);
+void YS__ITEM__Get(u32, u32, u32);
 // Resizes a slot list: clears new slots, releases removed ones.
-void func_00188958(O9* o, s32 n);  // 0x00188958: definition moved into src/anon/unit_00188848.cpp
+void YS__PARTRAM__set_item_max(O9* o, s32 n);  // 0x00188958: definition moved into src/anon/unit_00188848.cpp
 }
 }
 
@@ -147,7 +147,7 @@ struct W108 { u8 on; u8 b1; u8 mode : 8; };
 extern "C" {
 extern f32 D_00350a58[4];
 void func_0023acd8(u8*);
-void func_0023ade0(u8*);
+void YI__SEQUENCE__Draw(u8*);
 // Positions a child widget relative to (x, y) using the alignment mode.
 // 001ac108: moved to src/anon/unit_001abb28.cpp
 }
@@ -158,7 +158,7 @@ namespace n001b3e88 {
 extern "C" {
 s32 func_0018ca48(u8);
 void func_00198580(u8*, s32);  // check_div1000_500
-void func_001b3e88(u8* o, u8* e);  // 0x001b3e88: definition moved into src/anon/unit_001b2780.cpp
+void YS__PIERROT__damage_se(u8* o, u8* e);  // 0x001b3e88: definition moved into src/anon/unit_001b2780.cpp
 }
 }
 
@@ -168,7 +168,7 @@ struct CEnt { u16 id; u8 pad[126]; };
 struct CTbl { u32 f0; s32 count; CEnt e[1]; };
 extern "C" {
 extern CTbl* D_01d4955c;
-void func_001c2d88(CEnt*);
+void YS__PLAYERPARAM__apply(CEnt*);
 static inline CEnt* FindC(u32 id) {
     CTbl* t = D_01d4955c;
     s32 n = t->count;
@@ -178,7 +178,7 @@ static inline CEnt* FindC(u32 id) {
     return 0;
 }
 void u_call4_001c2eb8(u32, u32, u32, u32) asm("_Z16u_call4_001c2eb8jjjj");
-// Runs func_001c2d88 on every consecutive table entry with the given id.
+// Runs YS__PLAYERPARAM__apply on every consecutive table entry with the given id.
 void u_call4_001c2eb8(u32 id, u32, u32, u32);  // 0x001c2eb8: definition moved into src/anon/unit_001c2b58.cpp
 }
 }
@@ -189,7 +189,7 @@ extern "C" {
 s32 func_001a6d08(u32);
 void func_001a6c90(u32);  // set_bit_in_array_b
 s32 func_00181500(u16);
-u8* func_00189200(u8*, s32);
+u8* YS__SAVERAM_BATTLE__get_formram(u8*, s32);
 extern u16 D_0036e628[];
 extern u8 D_0032e020;
 extern u8 D_0032f056;
@@ -248,7 +248,7 @@ s32 func_002891e8(u32);
 s32 func_0023f0c0(void*);
 void func_0023f070(void*, s32, s32);
 void func_0028ab20(void*);
-void func_0024fd28(void);  // 0x0024fd28: definition moved into src/anon/unit_0024fbd0.cpp
+void Tz__LMMU__LoopAll(void);  // 0x0024fd28: definition moved into src/anon/unit_0024fbd0.cpp
 }
 }
 
@@ -261,7 +261,7 @@ s32 func_00139d78(void*);
 s32 func_0023f0c0(void*);
 s32 func_00287bc0(void);
 void func_00287bd0(s32, s32);
-void func_00252d88(void);  // 0x00252d88: definition moved into src/anon/unit_00250fb8.cpp
+void Tz__ALCA__ChgMode(void);  // 0x00252d88: definition moved into src/anon/unit_00250fb8.cpp
 }
 }
 
@@ -289,14 +289,14 @@ extern "C" {
 extern u32 D_0035f01c;
 extern u32 D_0035f0ec;
 s32 func_00287bc0(void);
-s32 func_0028b160(u32, u8*);  // find_index_in_array
+s32 Tz__Select__GetPtr2Idx(u32, u8*);  // find_index_in_array
 s32 func_0028b038(u32);
 u8* func_00281f30(u32);
-void func_001a98e8(u8*, u32, u8*, u32, u32);
+void YS__MESSAGEDRAW__MESSAGEDRAW(u8*, u32, u8*, u32, u32);
 s32 func_0023aa18(u8*);
 s32 func_0023aa38(u8*);
 u32 func_0023a918(u8*);
-void func_001a9ae8(u8*, s32, s32, u32);
+void YS__MESSAGEDRAW__draw(u8*, s32, s32, u32);
 void func_0026a9f8(s32 x, s32 y, u32 a2, u32 a3, u8* o);  // 0x0026a9f8: definition moved into src/anon/unit_0026a900.cpp
 }
 }
@@ -316,7 +316,7 @@ void func_0023d1e0(void);  // zero_global_d
 void func_001039f8(void);
 void func_0027f7f0(void);
 void func_0027f9d8(void);
-s32 func_0027f3d8(void);  // 0x0027f3d8: definition moved into src/anon/unit_0027f2b0.cpp
+s32 Tz__GumiPause__Control(void);  // 0x0027f3d8: definition moved into src/anon/unit_0027f2b0.cpp
 }
 }
 
@@ -372,8 +372,8 @@ struct VO { void (**vt)(VO*, s32, s32, VO*, s32); };
 extern "C" {
 void* func_0016abf8(VO*, s32, s32, s32);
 QWord* func_001dc5f8(void*);
-QWord func_0016bda8(VO*);
-void func_002d2a90(VO* o);  // 0x002d2a90: definition moved into src/anon/unit_002d2498.cpp
+QWord YS__OBJ__get_target_pos(VO*);
+void Ti__MGOarashiGimObj__start_tornado_attack(VO* o);  // 0x002d2a90: definition moved into src/anon/unit_002d2498.cpp
 }
 }
 
@@ -461,11 +461,11 @@ void func_0031dc78(u8* o);  // 0x0031dc78: definition moved into src/anon/unit_0
 namespace n0015aba8 {
 extern "C" {
 extern u8 D_0032bae0;
-void func_002362b0(u8*);
+void YI__IMAGE__Init(u8*);
 void func_002367c8(u8*);  // obj_dispatch_bitfield64
 s32 func_00105c30(void);
 s32 func_00241ed8(u8);
-void func_001386e0(u8*, u32, u32, s32, u32, u32);
+void dk__Sprite__create(u8*, u32, u32, s32, u32, u32);
 void func_0015aba8(u8* o, u32 a1, u32 a2);  // 0x0015aba8: definition moved into src/anon/unit_0015a810.cpp
 }
 }
@@ -474,8 +474,8 @@ void func_0015aba8(u8* o, u32 a1, u32 a2);  // 0x0015aba8: definition moved into
 namespace n001cea48 {
 struct Cea { s32 state; u32 b0 : 1; u32 b1 : 1; u32 rest : 30; };
 extern "C" {
-void func_002877a0(u8*, u32, u32);
-void func_001cea48(Cea* o, u8* e, u64* pad);  // 0x001cea48: definition moved into src/anon/unit_001ce6e8.cpp
+void Tz__Mg2DTron__CreateSeq(u8*, u32, u32);
+void YS__LIGHTCYCLE__check_turn(Cea* o, u8* e, u64* pad);  // 0x001cea48: definition moved into src/anon/unit_001ce6e8.cpp
 }
 }
 
@@ -490,7 +490,7 @@ s32 func_00244ee8(s32);
 s32 func_00139d78(void*);
 void func_00138c10(u8*, s32);
 void func_00243230(s32, s32);
-void func_00244e28(void);  // 0x00244e28: definition moved into src/anon/unit_00242478.cpp
+void Tz__HEFT__UpdateNewMark(void);  // 0x00244e28: definition moved into src/anon/unit_00242478.cpp
 }
 }
 

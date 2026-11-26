@@ -54,7 +54,7 @@ decided:
         s16 = (u16*)((u8*)s16 + 4);
     } while (s17 < 8);
 
-    u32 v0 = func_0014cba0();
+    u32 v0 = dk__Clock__getPlayTime();
     u32 t7 = v0 % s19;
     return picks[t7];
 }

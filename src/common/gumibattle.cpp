@@ -49,7 +49,7 @@ void func_00106420(void*);
 void func_00170c00(u32);
 void func_00170320(u32);
 void func_01f18014(u32, void*);
-void func_00105fc8(void);
+void WORLDMAP__gumiToWorldMap(void);
 u32 func_0014aba8(void);
 void func_0014aa58(u32, s32, s32);
 }
@@ -130,7 +130,7 @@ void func_00104108(void) {
         break;
     }
     case 3:
-        func_00105fc8();
+        WORLDMAP__gumiToWorldMap();
         break;
     default:
         return;

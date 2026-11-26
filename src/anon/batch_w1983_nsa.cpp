@@ -35,7 +35,7 @@ s32 func_00197920(void);
 s32 func_002e33d8(s32, s32, s32);
 s32 func_002e33f8(s32, s32, s32);
 s32 func_002e3318(s32, s32*, s32, s32, s32, s32);
-void func_002cf938(s32);
+void Ti__MGObj__reset_all_members(s32);
 void func_002cfb30(void);
 extern f32 D_00349e10;
 

@@ -16,7 +16,7 @@ void func_001e1df8(u8* p);  // 0x001e1df8: definition moved into src/anon/unit_0
 void wtarget_0020e9f8(f32 a, f32 b) asm("_Z16wtarget_0020e9f8jjjj");
 void wtarget_0020e9f8(f32 a, f32 b);  // 0x0020e9f8: definition moved into src/anon/unit_0020e9f8.cpp
 
-s32 func_0028b160(W211S28* s, u32 key);  // 0x0028b160: definition moved into src/anon/unit_00288b00.cpp
+s32 Tz__Select__GetPtr2Idx(W211S28* s, u32 key);  // 0x0028b160: definition moved into src/anon/unit_00288b00.cpp
 
 void func_0031e268(W211H* h);  // 0x0031e268: definition moved into src/anon/unit_0031e268.cpp
 }

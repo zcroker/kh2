@@ -28,7 +28,7 @@ void* func_001050c8(void);
 u8* func_001063c0(u32, void*);
 void func_002361a0(void*);
 s32 func_0013a7d0(s32);
-void func_00138650(void*, s32, s32, s32);
+void dk__SpriteImage__create(void*, s32, s32, s32);
 void func_0013e890(void);
 extern u32 D_00347e18[];
 extern u32 D_003486b0[];
@@ -45,4 +45,4 @@ void func_0014f300(void* a0);  // 0x0014f300: definition moved into src/anon/uni
 // Partial asm: the same hidden 0x340000 high half as in 0014f300 keeps the heap-pointer load after the D_003486a4
 // store; the store's own high half (lui 0x35) is one volatile asm instruction, and a1/a2 are pinned before it, so the
 // original order (li a1; move a2; lui; sw; lw) is kept. Built with -fno-strict-aliasing (_nsa).
-void u_call0_0013e688(void);  // 0x0013e688: definition moved into src/anon/unit_0013dfb8.cpp
+void dk__LockOn__init(void);  // 0x0013e688: definition moved into src/anon/unit_0013dfb8.cpp

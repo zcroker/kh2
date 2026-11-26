@@ -57,7 +57,7 @@ struct Seg2d7af0 {
     void Set(W2d7af0Vec pa, W2d7af0Vec pb) { a = pa; b = pb; }
 };
 struct X2d7af0 { u8 pad[193]; u8 off; u8 pad2[14]; W2d7af0Mtx base; W2d7af0Mtx cur; u8 pad3[468 - 336]; f32 hi, lo; };
-s32 func_00143dd0(Seg2d7af0*, W2d7af0Vec*, u16*, s32, s32);
+s32 dk__Octree__intersectLineMapKind(Seg2d7af0*, W2d7af0Vec*, u16*, s32, s32);
 W2d7af0Vec func_00143e50(u16, s32);
 s32 func_002d8898(X2d7af0*);
 
@@ -65,5 +65,5 @@ s32 func_002d8898(X2d7af0*);
 // y=-150 to y=+250), rebuild its axes from the hit triangle's normal, store it
 // as the current matrix, then probe left/right (x=-600/+600 at y=-80) and keep
 // the hit points' local x as the lo/hi limits.
-void func_002d7af0(X2d7af0* x);  // 0x002d7af0: definition moved into src/anon/unit_002d6f70.cpp
+void Ti__MGHachimitsu__calc_player_center_matrix(X2d7af0* x);  // 0x002d7af0: definition moved into src/anon/unit_002d6f70.cpp
 }

@@ -21,7 +21,7 @@ extern s32 D_0035f03c;
 extern s32 D_0035f0e4;
 extern s16 D_00373500;
 
-void func_002653a0(void) {
+void Tz__CmStat__CreateTopList(void) {
     u8* base = w1967_GetListBuffer();
     s32 i;
     s16 c;

@@ -10,24 +10,24 @@ u32 target_is_exist(const u8* t) asm("_ZNK2YS6TARGET8is_existEv");
 void wtarget_002f0598(void* o, Q16* q) asm("_Z16wtarget_002f0598jjjj");
 void trap_stitch_effect_kill(u32* v) asm("_ZN2kn23trap_stitch_effect_killEP8BD_VALUE");
 
-void func_00102818(u32, u32, u32, u32, u32);
+void TASK_MANAGER__create_thread(u32, u32, u32, u32, u32);
 void func_00113668(void*);
 void func_00105110(void*);
 void func_00102c48(u32, u32, void*, u32);
 void func_001384d0(void);
-void func_0013a600(void);
-void func_0013a4c8(void);
+void dk__Field2DD__read(void);
+void dk__Field2DD__readCommand(void);
 void func_001493b8(void*);
 void func_00149428(void*);
 void func_00138c10(void*, u32);
-void func_00150be8(void*);
-void func_00151d48(void*);
+void dk__TIMER__init(void*);
+void dk__GET_MUNNY__initNumber(void*);
 u8 func_00167e00(void*);
 void func_00194108(void*, u32);
 u32 func_001a4550(u32, u32);
 u32 func_00190208(const u8*, u32);
 u32 func_00239d10(u8*);
-void func_0017c4c8(void*, Q16*);
+void YS__OBJ__prepare_jump(void*, Q16*);
 void func_0016bd60(void*, s32);
 u32 func_001bd418(u8*);
 void func_001bd618(u8*, u32);
@@ -92,7 +92,7 @@ void func_001156b8(void** p);  // 0x001156b8: definition moved into src/anon/uni
 // Index of v in the id list at p+16 (count at p+12), or -1.
 // 00135c88: moved to src/naka/libkn/obj_observer.cpp
 
-void func_001385c0(void);  // 0x001385c0: definition moved into src/anon/unit_00138480.cpp
+void dk__Pause__init(void);  // 0x001385c0: definition moved into src/anon/unit_00138480.cpp
 
 // 00149c08: moved to src/harata/libdk/area.cpp
 
@@ -126,7 +126,7 @@ u32 func_001bd3e0(u8* p);  // 0x001bd3e0: definition moved into src/anon/unit_00
 
 void func_001bd668(u8* p);  // 0x001bd668: definition moved into src/anon/unit_001bc568.cpp
 
-void func_001bde58(u8* p);  // 0x001bde58: definition moved into src/anon/unit_001bc568.cpp
+void YS__PLAYER_COMMAND__clear_override(u8* p);  // 0x001bde58: definition moved into src/anon/unit_001bc568.cpp
 
 void func_001d6538(void** p);  // 0x001d6538: definition moved into src/anon/unit_001d63a8.cpp
 

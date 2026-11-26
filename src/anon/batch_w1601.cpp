@@ -15,10 +15,10 @@ s32 func_0023aa58(void *p);
 s32 func_0023aa78(void *p);
 Rc2a63a0 *func_001aae68(s32 a);
 s32 func_00192048(u16 id);
-void func_001a98e8(void *t, s32 a, s32 b, s32 c, s32 d);
-void func_001aa6d0(void *t, s32 w);
-void func_001a9ae8(void *t, s32 x, s32 y, s32 z);
-void func_002a63a0(s32 x, s32 y, s32 z);  // 0x002a63a0: definition moved into src/anon/unit_002a5a90.cpp
+void YS__MESSAGEDRAW__MESSAGEDRAW(void *t, s32 a, s32 b, s32 c, s32 d);
+void YS__MESSAGEDRAW__set_line_space(void *t, s32 w);
+void YS__MESSAGEDRAW__draw(void *t, s32 x, s32 y, s32 z);
+void Tz__JmBattle__DrawMess(s32 x, s32 y, s32 z);  // 0x002a63a0: definition moved into src/anon/unit_002a5a90.cpp
 
 // ---- b3.cpp
 extern u16 D_0035f090;
@@ -26,7 +26,7 @@ extern u16 D_0035f092;
 extern u16 D_0035f096;
 void func_0014cbe0(u32*, u32*, u32*, u32*);
 void func_0028e560(s32, u16*, s32, s32);
-void func_00258eb8_i(s32 a) asm("_Z13func_00258eb8i");
+void func_00258eb8_i(s32 a) asm("_Z23Tz__CmComm__SetDrawTimei");
 void func_00258eb8_i(s32 a);  // 0x00258eb8: definition moved into src/anon/unit_002588e8.cpp
 
 // ---- c4.cpp
@@ -60,7 +60,7 @@ inline Rec0028f280::Rec0028f280() {
         *(u32*)(a + 408) = 0;
         func_0028d140(b);
 }
-void func_0028f280(u32 a, u32 b, u32 c, u16* d, u16* e);  // 0028f280: moved to src/anon/unit_0028f1e0.cpp
+void Tz__SelHist__Init(u32 a, u32 b, u32 c, u16* d, u16* e);  // 0028f280: moved to src/anon/unit_0028f1e0.cpp
 
 // ---- g1.cpp
 typedef void (*VFn26cc30)(u8*);

@@ -16,9 +16,9 @@ void func_0016c7d8(W1531_TT*);
 
 extern W1531_Tab* D_01d48cb4;
 s32 func_001b7818(void*);
-u8* func_001b6fb0(void* self, s32 a);  // 0x001b6fb0: definition moved into src/anon/unit_001b6a50.cpp
+u8* YS__LEVELUP__Get(void* self, s32 a);  // 0x001b6fb0: definition moved into src/anon/unit_001b6a50.cpp
 
 s32 func_0016bba8(W1531_Ob*, s32, s32);
-void func_0018a818(W1531_E32*, W1531_Ob*, s32);
+void YS__COLLISION__set(W1531_E32*, W1531_Ob*, s32);
 void func_001b78d0(W1531_Lst* l);  // 0x001b78d0: definition moved into src/anon/unit_001b6a50.cpp
 }

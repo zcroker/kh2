@@ -10,7 +10,7 @@ extern "C" void func_0023fa08(void*, u32);
 extern "C" void func_0028b8e0(void*, u32);
 extern "C" void func_00290940(void*);
 extern "C" void func_00253b30(u32, u32);
-extern "C" void func_00290a10(u32, u32, u32);
+extern "C" void Tz__MenuFile__alloc(u32, u32, u32);
 extern "C" u32 func_00290a60(u32, u32, u32, u32);
 extern void* D_0035f674 asm("D_0035f674");
 extern u8 D_0035f3a8 asm("D_0035f3a8");

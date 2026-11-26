@@ -121,7 +121,7 @@ void sceVu0CopyVector(f32* out, f32* in);
 void sceVu0CopyMatrix(f32 (*out)[4], f32 (*in)[4]);
 void sceVu0UnitMatrix(f32 (*m)[4]);
 u8* func_0021d048(u8* data, DrawParam65b* p, s32 x);
-void func_002065b0(List65b* list) {
+void draw_shape(List65b* list) {
     DrawParam65b p;
     FMTX65b local;
     u32 i;
@@ -252,7 +252,7 @@ void sceVu0MulMatrix(f32 (*out)[4], f32 (*a)[4], f32 (*b)[4]); // sceVu0MulMatri
 void sceVu0CopyVector(f32* out, f32* in);                  // sceVu0CopyVector
 u8* func_0020f1e0(Model206* m, DrawParam206* p, s32 x);
 
-void func_002068d0(List206* list) {
+void draw_model(List206* list) {
     FMTX206 local;
     DrawParam206 p;
     u32 i = 0;

@@ -17,7 +17,7 @@ s32 func_00289310(u32);
 s32 func_00287df0(s32, s32, s32, s32, s32);
 s32 func_00242848(s32);
 void func_00287da0(void);
-s32 func_00280c38(void);  // 0x00280c38: definition moved into src/anon/unit_0027f2b0.cpp
+s32 Tz__GumiGameOver__Control(void);  // 0x00280c38: definition moved into src/anon/unit_0027f2b0.cpp
 
 
 struct JV { f32 x, y, z, w; } __attribute__((aligned(16)));
@@ -29,8 +29,8 @@ struct JA { s32 state; JP* p; u8 pad[32]; JO* o; };
 s32 func_00190140(void*);
 f32 func_00191c20(void);
 f32 func_00191c40(void);
-f32 func_001906f0(void*, JV*);
-void func_0019cc20(JA*);
+f32 YS__TARGET__get_dist(void*, JV*);
+void YS__LOCKON__release(JA*);
 void func_0019cd40(JA* a);  // 0x0019cd40: definition moved into src/anon/unit_0019ba60.cpp
 
 }

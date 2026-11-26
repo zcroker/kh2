@@ -22,10 +22,10 @@ namespace Tz {
 u32 u_call4_00139d78_is(u32) asm("_Z16u_call4_00139d78jjjj");
 void dk_Sprite_setNum_raw_is(u32, u32) asm("_ZN2dk6Sprite6setNumEi");
 u32 wtarget_002fde18_is(u32, u32, u32) asm("_Z16wtarget_002fde18jjjj");
-void func_00290d68_is(...) asm("func_00290d68");
+void func_00290d68_is(...) asm("Tz__ItemStat__CreateSeq");
 void func_00290f78_is(...) asm("_ZN2Tz8ItemStat8ClearSeqEv");
 u32 func_00291380_is(...) asm("func_00291380");
-void func_00291510_is(...) asm("func_00291510");
+void func_00291510_is(...) asm("Tz__ItemStat__Update");
 void func_00291ba8_is(...) asm("func_00291ba8");
 void* ItemStat::ClearSeq() {
     s32 s4 = (s32)this;
@@ -71,10 +71,10 @@ namespace Tz {
 u32 u_call4_00139d78_is(u32) asm("_Z16u_call4_00139d78jjjj");
 void dk_Sprite_setNum_raw_is(u32, u32) asm("_ZN2dk6Sprite6setNumEi");
 u32 wtarget_002fde18_is(u32, u32, u32) asm("_Z16wtarget_002fde18jjjj");
-void func_00290d68_is(...) asm("func_00290d68");
+void func_00290d68_is(...) asm("Tz__ItemStat__CreateSeq");
 void func_00290f78_is(...) asm("_ZN2Tz8ItemStat8ClearSeqEv");
 u32 func_00291380_is(...) asm("func_00291380");
-void func_00291510_is(...) asm("func_00291510");
+void func_00291510_is(...) asm("Tz__ItemStat__Update");
 void func_00291ba8_is(...) asm("func_00291ba8");
 void ItemStat::UpdateNowStat(s32 a1, s32 a2, s32 a3, s32 a4, s32 a5) {
     u32 s19 = (u32)a1;
@@ -93,20 +93,20 @@ void ItemStat::UpdateNowStat(s32 a1, s32 a2, s32 a3, s32 a4, s32 a5) {
 
 // 00291110 (from src/anon/batch_w88.cpp)
 namespace n00291110 {
-void func_00290d68(u32, u32) asm("func_00290d68");
+void Tz__ItemStat__CreateSeq(u32, u32) asm("Tz__ItemStat__CreateSeq");
 void func_00290f78(u32) asm("func_00290f78");
 u32 func_00291380(u32, u32) asm("func_00291380");
-void func_00291510(u32, u32, u32, u32) asm("func_00291510");
-void func_00291918(u32, u32, u32, u32, u32) asm("func_00291918");
-void func_00291de0(u32, u32, u32, u32, u32, u32, u32) asm("func_00291de0");
+void Tz__ItemStat__Update(u32, u32, u32, u32) asm("Tz__ItemStat__Update");
+void Tz__ItemStat__UpdateNewItem(u32, u32, u32, u32, u32) asm("Tz__ItemStat__UpdateNewItem");
+void Tz__ItemStat__UpdateNextStat(u32, u32, u32, u32, u32, u32, u32) asm("Tz__ItemStat__UpdateNextStat");
 void func_00291110(u32 a, u32 b, u32 c, u32 d, u32 e, u32 f, u32 g) asm("func_00291110");
 void func_00291110(u32 a, u32 b, u32 c, u32 d, u32 e, u32 f, u32 g) {
-    func_00290d68(a, e);
+    Tz__ItemStat__CreateSeq(a, e);
     func_00290f78(a);
     u32 m = (func_00291380(a, c) | func_00291380(a, d)) & ~0x100;
-    func_00291510(a, b, c, m);
-    func_00291918(a, b, c, d, m);
-    func_00291de0(a, b, c, d, f, g, m);
+    Tz__ItemStat__Update(a, b, c, m);
+    Tz__ItemStat__UpdateNewItem(a, b, c, d, m);
+    Tz__ItemStat__UpdateNextStat(a, b, c, d, f, g, m);
 }
 }  // namespace n00291110
 
@@ -303,8 +303,8 @@ s32 func_00291370(u8*, s32) asm("func_00291370");
 void func_0028dcc0(u8*, u8*) asm("func_0028dcc0");
 u8* func_001a80c8(s32) asm("func_001a80c8");
 void func_00192cc0(u8*, u32*, s32) asm("func_00192cc0");
-void func_00291510(u8* obj, s32 mode, s32 id, s32 mask) asm("func_00291510");
-void func_00291510(u8* obj, s32 mode, s32 id, s32 mask)
+void Tz__ItemStat__Update(u8* obj, s32 mode, s32 id, s32 mask) asm("Tz__ItemStat__Update");
+void Tz__ItemStat__Update(u8* obj, s32 mode, s32 id, s32 mask)
 {
     u8* p = func_002924d0(obj, id);
     s32 c;
@@ -409,8 +409,8 @@ s32 func_00291370(u8*, s32) asm("func_00291370");
 u8* func_002924d0(u8*, s32) asm("func_002924d0");
 extern u32 D_00374498 asm("D_00374498");
 extern u32 D_003744a0 asm("D_003744a0");
-void func_00291918(u8* obj, s32 mode, s32 id1, s32 id2, s32 mask) asm("func_00291918");
-void func_00291918(u8* obj, s32 mode, s32 id1, s32 id2, s32 mask) {
+void Tz__ItemStat__UpdateNewItem(u8* obj, s32 mode, s32 id1, s32 id2, s32 mask) asm("Tz__ItemStat__UpdateNewItem");
+void Tz__ItemStat__UpdateNewItem(u8* obj, s32 mode, s32 id1, s32 id2, s32 mask) {
     u32 i;
     s32 k = 0;
     u8* p1 = func_002924d0(obj, id1);
@@ -463,7 +463,7 @@ void func_00291918(u8* obj, s32 mode, s32 id1, s32 id2, s32 mask) {
 // 00291ba8 (from src/anon/batch_w2500.cpp)
 namespace n00291ba8 {
 u8* func_001a1728(s32, s32) asm("func_001a1728");
-void func_001a17c8(u8*) asm("func_001a17c8");
+void YS__SHEET__Free(u8*) asm("YS__SHEET__Free");
 s32 func_00291370(u8*, s32) asm("func_00291370");
 s32 func_0023aa78(u8*) asm("func_0023aa78");
 s32 func_0023aa98(u8*) asm("func_0023aa98");
@@ -515,7 +515,7 @@ void func_00291ba8(u8* w, s32 mode, s32 a2, s32 a3, s32 a4, s32 mask) {
         n++;
         *(u8**)(o + 408) = w + k * 8 + 10904;
     }
-    func_001a17c8(r);
+    YS__SHEET__Free(r);
 }
 }  // namespace n00291ba8
 
@@ -526,7 +526,7 @@ void func_00138c68(void*, s32, s32) asm("func_00138c68");
 extern u8 D_00374498[] asm("D_00374498");
 extern u8 D_003744a0[] asm("D_003744a0");
 s32 func_001a1728(s32, s32) asm("func_001a1728");
-void func_001a17c8(s32) asm("func_001a17c8");
+void YS__SHEET__Free(s32) asm("YS__SHEET__Free");
 s32 func_00291370(u8*, s32) asm("func_00291370");
 s32 func_0023aa18(void*) asm("func_0023aa18");
 s32 func_0023aa38(void*) asm("func_0023aa38");
@@ -538,8 +538,8 @@ s32 func_00292148(u8*, s32*, s32, s32, s32) asm("func_00292148");
 s32 func_002921d0(u8*, s32*, s32, s32, s32) asm("func_002921d0");
 s32 func_00292258(u8*, s32*, s32, s32, s32) asm("func_00292258");
 s32 func_002922e0(u8*, s32*, s32, s32, s32, s32) asm("func_002922e0");
-void func_00291de0(u8* w, s32 mode, s32 p2, s32 p3, s32 p4, s32 p5, s32 mask) asm("func_00291de0");
-void func_00291de0(u8* w, s32 mode, s32 p2, s32 p3, s32 p4, s32 p5, s32 mask) {
+void Tz__ItemStat__UpdateNextStat(u8* w, s32 mode, s32 p2, s32 p3, s32 p4, s32 p5, s32 mask) asm("Tz__ItemStat__UpdateNextStat");
+void Tz__ItemStat__UpdateNextStat(u8* w, s32 mode, s32 p2, s32 p3, s32 p4, s32 p5, s32 mask) {
     s32 h = func_001a1728(p4, p5);
     if (mode != 2) func_00291370(w, 2);
     s32 n = 0;
@@ -576,7 +576,7 @@ void func_00291de0(u8* w, s32 mode, s32 p2, s32 p3, s32 p4, s32 p5, s32 mask) {
         n++;
         d->name = w + k * 8 + 10904;
     }
-    func_001a17c8(h);
+    YS__SHEET__Free(h);
 }
 }  // namespace n00291de0
 
@@ -676,10 +676,10 @@ void func_002922e0(u8* p, s32* out, u32 id, u32 alt, u32 k, Obj* o)
 // 002924d0 (from src/anon/batch_w28.cpp)
 namespace n002924d0 {
 u32 func_001a80c8(u32) asm("func_001a80c8");
-u8* func_001a8190(u32) asm("func_001a8190");
+u8* YS__ITEM_TABLE__get_param(u32) asm("YS__ITEM_TABLE__get_param");
 u8* func_002924d0(u8* p, u32 a) asm("func_002924d0");
 u8* func_002924d0(u8* p, u32 a) {  // find_or_default_offset
-    u8* r = a ? func_001a8190(func_001a80c8(a)) : p + 0x2b3c;
+    u8* r = a ? YS__ITEM_TABLE__get_param(func_001a80c8(a)) : p + 0x2b3c;
     return r ? r : p + 0x2b3c;
 }
 }  // namespace n002924d0
@@ -717,7 +717,7 @@ u32 func_00292550(u32 a0, u32 a1, u32 a2, u32 a3) {
 
 // 00292568 (from src/tozawa/load_data.cpp)
 namespace Tz {
-u32 func_00170cd0_ld(...) asm("func_00170cd0");
+u32 func_00170cd0_ld(...) asm("YS__CACHE_BUFF__IsFlushing");
 void func_00170518_ld(...) asm("func_00170518");
 extern u8 D_00360000_ld asm("D_00360000");
 void YS_CACHE_BUFF_Flush_ld(TASK*) asm("_ZN2YS10CACHE_BUFF5FlushEP4TASK");
@@ -736,7 +736,7 @@ void LoadData::Request(const char* a0, s32 a1, bool a2) {
 // 002925c0 (from src/anon/batch_w30.cpp)
 namespace n002925c0 {
 u8* func_00103eb0(void) asm("func_00103eb0");
-u8* func_00102818(u32, u32, u32, void*, u32) asm("func_00102818");
+u8* TASK_MANAGER__create_thread(u32, u32, u32, void*, u32) asm("TASK_MANAGER__create_thread");
 void func_00292608(void*) asm("_ZN2Tz8LoadData9FlushTaskEP4TASK");
 void func_00292620(void) asm("func_00292620");
 }  // namespace n002925c0
@@ -746,13 +746,13 @@ void LoadDataFlush();
 void Tz::LoadDataFlush() {
     using namespace n002925c0;
     u8* t = func_00103eb0();
-    u8* r = func_00102818(*(u32*)(t + 4), 0, 0x222e0, (void*)func_00292608, 4096);
+    u8* r = TASK_MANAGER__create_thread(*(u32*)(t + 4), 0, 0x222e0, (void*)func_00292608, 4096);
     *(void**)(r + 0x30) = (void*)func_00292620;
 }
 
 // 00292608 (from src/tozawa/load_data.cpp)
 namespace Tz {
-u32 func_00170cd0_ld(...) asm("func_00170cd0");
+u32 func_00170cd0_ld(...) asm("YS__CACHE_BUFF__IsFlushing");
 void func_00170518_ld(...) asm("func_00170518");
 extern u8 D_00360000_ld asm("D_00360000");
 void YS_CACHE_BUFF_Flush_ld(TASK*) asm("_ZN2YS10CACHE_BUFF5FlushEP4TASK");

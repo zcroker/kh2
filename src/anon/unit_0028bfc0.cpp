@@ -111,8 +111,8 @@ u32 func_0023c4b8_28c198(u8*, u32) asm("func_0023c4b8");
 u8* func_00236ca8_28c198(u32, u32) asm("func_00236ca8");
 void func_0028c0a0(W28c198*, u32, u32, u8*, u32, u32) asm("func_0028c0a0");
 /*TARGET 0028c198*/
-W28c198* func_0028c198(u32 id, u32 a, u32 b, u32 bank, u32 c, u32 d) asm("func_0028c198");
-W28c198* func_0028c198(u32 id, u32 a, u32 b, u32 bank, u32 c, u32 d)
+W28c198* Tz__MenuItem__start(u32 id, u32 a, u32 b, u32 bank, u32 c, u32 d) asm("Tz__MenuItem__start");
+W28c198* Tz__MenuItem__start(u32 id, u32 a, u32 b, u32 bank, u32 c, u32 d)
 {
     P28c198* p = D_0035f3c4;
     p->n--;
@@ -204,8 +204,8 @@ inline W252Base::W252Base() { c = 0; vt = D_00347e60; }
 inline W252Item::W252Item() { f = 0; vt = D_0035f3e0; }
 inline W252Pool::W252Pool() { for (s32 i = 0; i < 32; i++) ids[i] = i; count = 32; }
 /*TARGET 0028c3f0*/
-void func_0028c3f0(s32 h) asm("func_0028c3f0");
-void func_0028c3f0(s32 h) {
+void Tz__MenuItem__init(s32 h) asm("Tz__MenuItem__init");
+void Tz__MenuItem__init(s32 h) {
     if (D_0035f3c4) {
         D_0035f3c8 = D_0035f3c4;
         D_0035f3d0 = D_0035f3cc;
@@ -270,7 +270,7 @@ extern MP* D_0035f3c4 asm("D_0035f3c4");
 extern s32 D_0035f3cc asm("D_0035f3cc");
 s32 func_00139d78(void*) asm("func_00139d78");
 s32 func_00239d10(void*) asm("func_00239d10");
-void func_001390a8(void*) asm("func_001390a8");
+void dk__SpriteMessage__update(void*) asm("dk__SpriteMessage__update");
 void func_00139570(void*) asm("func_00139570");
 void func_0028c5d8(MI* o) asm("func_0028c5d8");
 void func_0028c5d8(MI* o) {
@@ -279,7 +279,7 @@ void func_0028c5d8(MI* o) {
         else o->vt[5](o);
         return;
     }
-    func_001390a8(o);
+    dk__SpriteMessage__update(o);
 }
 }  // namespace n0028c5d8
 
@@ -297,10 +297,10 @@ s32 func_00139d78(void*) asm("func_00139d78");
 s32 func_00239d10(void*) asm("func_00239d10");
 s32 func_00287ec8(void) asm("func_00287ec8");
 void func_00287eb8(s32) asm("func_00287eb8");
-void func_00236d60(void) asm("func_00236d60");
-void func_00138988(void*) asm("func_00138988");
-s32 func_00138de0(void*) asm("func_00138de0");
-void func_00138c90(void*, s32*, s32*) asm("func_00138c90");
+void YI__IMAGE_CACHE__Clear(void) asm("YI__IMAGE_CACHE__Clear");
+void dk__Sprite__draw(void*) asm("dk__Sprite__draw");
+s32 dk__SpriteMessage__drawMessage(void*) asm("dk__SpriteMessage__drawMessage");
+void dk__Sprite__getPosAddOffset(void*, s32*, s32*) asm("dk__Sprite__getPosAddOffset");
 s32 func_0023a918(void*) asm("func_0023a918");
 void func_0028c678(MI* o) asm("func_0028c678");
 void func_0028c678(MI* o) {
@@ -309,14 +309,14 @@ void func_0028c678(MI* o) {
     if (o->f400 && !func_00239d10(o->f400)) return;
     u8 b = (s->flags >> 3) & 1;
     if (func_00287ec8()) {
-        func_00236d60();
+        YI__IMAGE_CACHE__Clear();
         if (!b) s->flags |= 8;
     }
-    func_00138988(o);
-    s32 r = func_00138de0(o);
+    dk__Sprite__draw(o);
+    s32 r = dk__SpriteMessage__drawMessage(o);
     if (o->f436) {
         s32 x, y;
-        func_00138c90(o, &x, &y);
+        dk__Sprite__getPosAddOffset(o, &x, &y);
         s32 v = 0;
         if (o->f396) v = func_0023a918((u8*)o->f396 + 24);
         else if (o->f400) v = func_0023a918(o->f400);

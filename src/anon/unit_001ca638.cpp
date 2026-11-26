@@ -113,16 +113,16 @@ void func_001ca830(u32, u8* a1) asm("_Z13func_001ca830jPh");
 void func_001ca830(u32, u8* a1) {
     u32* base = (u32*)0x00350000;
     u32 s0 = *(u32*)((u8*)base + (s16)0xe948);
-    if (func_0019ba60(s0) == 0) {
+    if (YS__OBJ__is_exist(s0) == 0) {
         return;
     }
     if ((*(u32*)(a1 + 40) & 1u) == 0) {
         return;
     }
-    if (((u32(*)(u32, u32, f32, f32))func_001c7950)((u32)a1, s0, 0.0f, 0.0f) == 0) {
+    if (((u32(*)(u32, u32, f32, f32))YS__PRIZEEFFECT__can_get)((u32)a1, s0, 0.0f, 0.0f) == 0) {
         return;
     }
-    func_001c79a0(a1, s0, 0);
+    YS__PRIZEEFFECT__get(a1, s0, 0);
     func_001d86a0(D_0036e128[(u32)*(u8*)(a1 + 20)], 0);
 }
 }  // namespace n001ca830

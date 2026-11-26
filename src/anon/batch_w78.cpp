@@ -104,24 +104,24 @@ static inline W78Vec operator-(const W78Vec& a, const W78Vec& b) { W78Vec r; vsu
 
 void func_0016c8f8(void*, u32, u32, u32);
 void func_001da458(void*, s32, u32, u32);  // stream_init_fields
-void func_0016cd48(void*, u32*);
+void YS__VM__exec(void*, u32*);
 void func_0016cab8(void*);
 extern u32 D_0034d8a4;
 extern u32 D_0034d8a0;
 
-s32 func_001a1de0(u32);
+s32 YS__SHEET__is_mpdrive(u32);
 u8* func_00177860(void*);
-void func_00187650(void*, s32, s32);
-void func_00187520(void*, s32, u32, u8);
+void YS__BTLOBJ__add_mp(void*, s32, s32);
+void YS__BTLOBJ___OVR_add_hp(void*, s32, u32, u8);
 // 00177c50: moved to src/yasui/libys/party.cpp
 }
 
 s32 func_00190180(u32*);
 void func_00190388(W78Vec*, u32*);  // vec4_from_arg
-W78Vec* func_0016c028(u8*);  // obj_get_attach_or_alt
-void func_00184ad0(u8*, W78Vec*, f32);
+W78Vec* YS__OBJ__get_pos(u8*);  // obj_get_attach_or_alt
+void YS__OBJ__turn_to_dir(u8*, W78Vec*, f32);
 extern "C" {
-u32 u_call4_00187300(u8* o, u32* tgt, f32 f) asm("_Z16u_call4_00187300jjjj");
+u32 YS__BTLOBJ___turn_to_target_range(u8* o, u32* tgt, f32 f) asm("_Z33YS__BTLOBJ___turn_to_target_rangejjjj");
 }
 
 extern "C" {
@@ -164,7 +164,7 @@ void func_001ad990(u8*, f32, f32, f32);
 void func_0019b500(u8* o);  // 0x0019b500: definition moved into src/anon/unit_00199688.cpp
 
 extern u8 D_0032bae0[];
-void func_00198450(u8*);
+void YS__STDOBJ___OVR_initialize(u8*);
 u32 func_0016c008(u8*, s32);
 u8* func_001a81f0(u8, u8, u32);
 s32 func_001a8450(u8*);
@@ -175,15 +175,15 @@ void func_001a86b8(u8* o);  // 0x001a86b8: definition moved into src/anon/unit_0
 s32 func_001a9780(u32);
 u8* func_001a97b8(u32, s32);
 u8* func_00168b38(u8*, s32, s32);  // entry_array_find_nth
-u32 func_001a9458(u8* o, s32 a, s32 b);  // 0x001a9458: definition moved into src/anon/unit_001a9130.cpp
+u32 YS__OBJDATA__get_kna(u8* o, s32 a, s32 b);  // 0x001a9458: definition moved into src/anon/unit_001a9130.cpp
 
 u8* func_00168b88(u32, s32, s32, s32);  // find_entry16_by_half_word
 #define W78_FOURCC(c) ((c)[0] | ((c)[1] << 8) | ((c)[2] << 16) | ((c)[3] << 24))
 
 struct W78Five { u32 w[5]; };
 struct W78Slot { u16 x0; u16 cnt; u8 pad[8]; W78Five v; u8 lvl; u8 pad2[3]; };
-u32 func_001b8e88(u32);
-void func_001bc6a8(W78Slot*, u32, u32, W78Five*, u32);
+u32 YS__COMMAND_ELEM__Get(u32);
+void YS__COMMAND_SLOT__set(W78Slot*, u32, u32, W78Five*, u32);
 W78Slot* func_001bd418(u8* o, s32 idx, u32 key, W78Five* src, u32 arg, s32 lvl);  // 0x001bd418: definition moved into src/anon/unit_001bc568.cpp
 }
 
@@ -192,7 +192,7 @@ extern "C" {
 u8 func_001d6d00(s32);
 void func_001c8d80(void*, s32);
 u8 func_001c8c38(void);
-u8* func_00102818(u32, s32, s32, void*, s32);
+u8* TASK_MANAGER__create_thread(u32, s32, s32, void*, s32);
 void func_001c83f8(void);
 void func_001c86e8(void);
 void func_001c98f0(f32);
@@ -219,10 +219,10 @@ void func_001d8820(s32, s32);
 void func_0017f488(u8*, s32, f32, f32);
 void func_0017f5e0(u8*, s32, s32, f32, f32);
 
-s32 func_001bbb28(void);
+s32 YS__MISSION__IsNoExp(void);
 u8* func_001d5cd0(void);
 void func_001d7000(u8, u8*);
-void func_001b7468(u32);
+void YS__LEVELUP__ShowEffectDrive(u32);
 extern u8 D_0032e020[];
 extern u32 D_0034e948;
 void func_001d6f28(s32 n);  // 0x001d6f28: definition moved into src/anon/unit_001d68e0.cpp
@@ -277,7 +277,7 @@ extern u8 D_01d9e8c0[];
 void func_00200700(u8* o, u32 a1, u8* a2);  // 0x00200700: definition moved into src/anon/unit_00200578.cpp
 
 void func_00228240(void);
-u32 func_002282d8(void);  // limit_15000_or_25000
+u32 sa__EVENT__getEventPriority(void);  // limit_15000_or_25000
 u8* func_00102c80(void);
 u8* func_00102788(u32, u32, u32, void*);
 void func_00227e30(void);
@@ -301,7 +301,7 @@ extern u8 D_00347f98[];
 extern u8 D_00347e60[];
 void func_0031a838(u8*);
 void func_00239700(u8*);
-void func_00228788(u8*);
+void sa__MUSICAL_GAUGE4__create(u8*);
 void func_002289f0(void);  // 002289f0: moved to src/anon/unit_00228618.cpp (linked unit)
 }
 
@@ -317,15 +317,15 @@ void func_002baa08(u32, u32, s32, s32);
 // Plays the title voice lines when the event name matches.
 s32 func_002325f0(u8* o);  // 0x002325f0: definition moved into src/anon/unit_00231500.cpp
 
-s32 func_002282f0(s16);
+s32 sa__EVENT__checkStart(s16);
 s32 func_00227ca8(void*);
-s32 func_00225b00(s16);  // flag_query_by_index
+s32 sa__EVENT__isJumpMode(s16);  // flag_query_by_index
 u32 func_002bc238(s32);
 void func_002bc358(u32, s32);
 extern s32 D_0035e35c;
 extern u32 D_0035db60[];
 struct W78Snd2 { s16 x0, x2, slot, kind; u8 name[4]; s16 id; };
-void func_00232c88(W78Snd2* o);  // 0x00232c88: definition moved into src/anon/unit_00231500.cpp
+void sa__EVENT__set_se_seq(W78Snd2* o);  // 0x00232c88: definition moved into src/anon/unit_00231500.cpp
 }
 
 void func_00106450(void*);
@@ -339,8 +339,8 @@ extern void* D_0035ec98;
 extern u32 D_0035ec9c;
 extern void* D_0035eca0;
 extern void* D_0035eca4;
-void u_call0_00240000(void) asm("_Z16u_call0_00240000v");
-void u_call0_00240000(void);  // 0x00240000: definition moved into src/anon/unit_0023f5b8.cpp
+void Tz__MCard__End(void) asm("_Z14Tz__MCard__Endv");
+void Tz__MCard__End(void);  // 0x00240000: definition moved into src/anon/unit_0023f5b8.cpp
 
 extern "C" {
 s32 func_00276c18(void);
@@ -354,7 +354,7 @@ s32 func_0024e080(void);  // 0x0024e080: definition moved into src/anon/unit_002
 
 u32 func_00257770(void);
 s32 func_00287bc0(void);
-s32 func_0027af58(void);  // check_state16_then_loop
+s32 Tz__CmAbility__Cur2AbiltyType(void);  // check_state16_then_loop
 void func_0028dac8(u32, s16);
 s32 func_0028be58(u32);
 void func_0028bdb8(u32);
@@ -372,12 +372,12 @@ extern "C" {
 extern u8 D_0035f3a8;
 u32 func_0023f948(void*, u32);
 u32 func_0023f908(void*, u32);
-void func_0023eea0(u32, u32, u32, u32, u32, u32);
+void Tz__Layout__create(u32, u32, u32, u32, u32, u32);
 void func_0023f0c8(u32, u32);
-void func_0028d7f0(u32 a0, u32 a1, u32 a2, u32 a3, u32 t0, u32 t1, u32 x, u32 y, u32 z);  // 0028d7f0: moved to src/anon/unit_0028c878.cpp
+void Tz__MenuUtil__CreateLay(u32 a0, u32 a1, u32 a2, u32 a3, u32 t0, u32 t1, u32 x, u32 y, u32 z);  // 0028d7f0: moved to src/anon/unit_0028c878.cpp
 
 void func_00290060(u8*);
-void func_001386e0(u32, u32, u32, u32, s32, s32);
+void dk__Sprite__create(u32, u32, u32, u32, s32, s32);
 void func_00259020(u32, u32, u32, u32, u32, u16*, s32, s32);
 void func_0028ff00(u8*);
 struct W78Mot { u32 obj; u32 x4; s16 a8; s16 pad; s16 a12; s16 pad2; u16 a16; };
@@ -392,31 +392,31 @@ void func_002a3318(void);
 extern u8* D_0035f5e4;
 struct W78Slot8 { u8 a, b, on, done; u8 pad[4]; };
 struct W78Tbl { u8 pad[4096]; W78Slot8 e[1]; };
-void func_002a3aa8(void);  // 0x002a3aa8: definition moved into src/anon/unit_002a3648.cpp
+void Tz__JmTreasure__UpdateNewMark(void);  // 0x002a3aa8: definition moved into src/anon/unit_002a3648.cpp
 
 u8* func_002a9d68(s32);
 extern u8* D_0035f610;
 static inline u32 w78_bit(u32* bits, u32 i) { return bits[i >> 5] & (1 << (i & 31)); }
 
 u8* func_001a82b0(u8*);
-s32 func_002764b0(u8);
+s32 Tz__Jiminy__AreaWorld2JmWorld(u8);
 void func_002ab728(s32 id);  // 0x002ab728: definition moved into src/anon/unit_002a99c8.cpp
 
 extern s32 D_0035f62c;
 extern s32 D_0035f628;
 void func_002ad110(void);
-void func_002ad258(void);
-void func_002ad390(void);
-void func_002ad580(void);
-void func_002ad6e8(void);
+void Tz__JmComplete__CheckAnsem(void);
+void Tz__JmComplete__CheckAlbum(void);
+void Tz__JmComplete__CheckBattle(void);
+void Tz__JmComplete__CheckQuest(void);
 void func_002ad878(void);
-void func_002ad9f8(void);
+void Tz__JmComplete__CheckTreasure(void);
 void func_002adbd0(void);
-void func_002add90(void);
-void func_002ae320(void);
-void func_002adfd0(void);
+void Tz__JmComplete__CheckSynthesis(void);
+void Tz__JmComplete__CheckPuzzle(void);
+void Tz__JmComplete__CheckStory(void);
 s32 func_002ae0c0(s32);
-void func_002acf48(void);  // 0x002acf48: definition moved into src/anon/unit_002a99c8.cpp
+void Tz__JmComplete__CheckAll(void);  // 0x002acf48: definition moved into src/anon/unit_002a99c8.cpp
 }
 
 // ---- c8
@@ -427,11 +427,11 @@ extern s32 D_0035f628;
 extern s32 D_0035f62c;
 extern u8* D_0035f620;
 
-u8* func_002b23e0(s32);  // list_entry_by_index_checked
+u8* Tz__JmPuzzle__GetImageInfo(s32);  // list_entry_by_index_checked
 u8* w78_9d68(void) asm("func_002a9d68");
 s32 func_002b2380(s16, s16);
 extern u8* D_0035f638;
-s32 func_002b3c38(u32 mask);  // 0x002b3c38: definition moved into src/anon/unit_002b3ac8.cpp
+s32 Tz__JmPuzzle__GameSelCheck(u32 mask);  // 0x002b3c38: definition moved into src/anon/unit_002b3ac8.cpp
 
 u32 func_002bc988(u32);
 s32 func_002bc9d8(u8*, u32);
@@ -464,12 +464,12 @@ extern u8 D_00362380;
 extern u8 D_00362388;
 void func_0017f540(u8*, s32, f32, f32);
 u32 func_002d1260(void);
-void func_001c0d38(u8*, u32, s32, s32);
+void YS__OBJ__attach(u8*, u32, s32, s32);
 void func_002e7568(u8*, s32, void*, f32);
 u8* func_002d1878(u32);
 void func_002e7340(u8*, u8*, s32, void*, f32, f32);
 
-u8* func_001b9bc8(u8*);
+u8* YS__OBJ__Each(u8*);
 s32 func_0019c768(u8*);
 s32 func_0016a060(u8*);
 void func_002cf280(u8*, s32, s32);

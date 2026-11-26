@@ -91,7 +91,7 @@ extern W2426Tab *D_01d9e6e4 asm("D_01d9e6e4");
 extern W2426Cam *D_01d9e6e8 asm("D_01d9e6e8");
 s32 func_00222568(void) asm("func_00222568");
 W2426Ent *func_001e7a98(W2426Mgr *, u8 *) asm("func_001e7a98");
-void func_001f6148(void *, W2426Prm *, s16 *) asm("func_001f6148");
+void pppKeBornRnd4_Born(void *, W2426Prm *, s16 *) asm("pppKeBornRnd4_Born");
 void func_0021ee48(void *, W2426Prm *, W2426CB, u16 *, s16, u8, u8) asm("func_0021ee48");
 void sceVu0ApplyMatrix(void *, void *, void *) asm("sceVu0ApplyMatrix");
 void func_002226b8(void *, void *) asm("func_002226b8");
@@ -99,8 +99,8 @@ void sceVu0SubVector(void *, void *, void *) asm("sceVu0SubVector");
 void sceVu0Normalize(void *, void *) asm("sceVu0Normalize");
 void sceVu0ScaleVector(void *, void *, f32) asm("sceVu0ScaleVector");
 /*TARGET 001f6298*/
-void func_001f6298(void *owner, W2426Prm *prm, W2426Ctx *c) asm("func_001f6298");
-void func_001f6298(void *owner, W2426Prm *prm, W2426Ctx *c)
+void pppKeBornRnd4(void *owner, W2426Prm *prm, W2426Ctx *c) asm("pppKeBornRnd4");
+void pppKeBornRnd4(void *owner, W2426Prm *prm, W2426Ctx *c)
 {
   W2426Grp *g;
   u8 *base;
@@ -133,7 +133,7 @@ void func_001f6298(void *owner, W2426Prm *prm, W2426Ctx *c)
     {
       return;
     }
-    func_0021ee48(owner, prm, func_001f6148, (u16 *) ((((u8 *) owner) + (*c->ofs)) + 160), prm->g0, prm->rnd, prm->n);
+    func_0021ee48(owner, prm, pppKeBornRnd4_Born, (u16 *) ((((u8 *) owner) + (*c->ofs)) + 160), prm->g0, prm->rnd, prm->n);
   }
   if (D_01d9ea9c != 0)
   {
@@ -250,8 +250,8 @@ void sceVu0SubVector(W1833Vec*, W1833Vec*, void*) asm("sceVu0SubVector");
 void sceVu0Normalize(W1833Vec*, W1833Vec*) asm("sceVu0Normalize");
 void sceVu0ScaleVector(W1833Vec*, W1833Vec*, f32) asm("sceVu0ScaleVector");
 /*TARGET 001f6648*/
-void func_001f6648(void* owner, W1833Prm* prm, s16* pos) asm("func_001f6648");
-void func_001f6648(void* owner, W1833Prm* prm, s16* pos) {
+void pppKeBornRnd5_Born(void* owner, W1833Prm* prm, s16* pos) asm("pppKeBornRnd5_Born");
+void pppKeBornRnd5_Born(void* owner, W1833Prm* prm, s16* pos) {
     W1833Ent* e = 0;
     u8* t = D_01d9e6e0->tbl + prm->idx * 16;
     if (t != 0) {

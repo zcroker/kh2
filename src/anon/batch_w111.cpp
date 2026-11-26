@@ -171,7 +171,7 @@ static inline f32 DistSq14(const void* a, const void* b) {
 }
 extern "C" {
 void* func_00106a60(s32);  // buffer_get_by_index
-void func_00107368(void*, Vq14*);  // vec_copy_at80_if_diff
+void kn__Camera__getPosition(void*, Vq14*);  // vec_copy_at80_if_diff
 Vq14* func_00143ec8(u16);
 Pts14* func_00143ea8(u16);
 s32 func_00162b68(Sph14*, Vq14*, f32*);
@@ -179,7 +179,7 @@ s32 func_00162bb0(Sph14*, Pts14*, Vq14*, f32*, Vq14*);
 s32 func_00162c28(Sph14*, Pts14*, Vq14*);
 s32 func_00163168(Sph14*, Pts14*, Vq14*);
 // Picks the point of object `id` nearest the camera (within 5000 units); *direct tells whether it was a direct hit.
-s32 func_0014ee28(s32 id, Vq14* out, u8* direct);  // 0x0014ee28: definition moved into src/anon/unit_0014ecb8.cpp
+s32 dk__POLYGONSE__calc(s32 id, Vq14* out, u8* direct);  // 0x0014ee28: definition moved into src/anon/unit_0014ecb8.cpp
 }
 
 struct Motor17 { void** vt; };
@@ -192,7 +192,7 @@ typedef void (*MotorFn17)(Motor17*, Obj17*, f32);
 extern "C" {
 extern Info17* D_00352130;
 s32 func_0017ca88(void*, Obj17*);
-s32 func_001958d0(Obj17*);
+s32 YS__ACTION_HANG__Check(Obj17*);
 s32 func_0017cb48(void*, Obj17*);  // can_run_when_268_bit0
 void func_0017cb78(void*, Obj17*);  // handle_field256_eq4
 // 0017c690: moved to src/anon/unit_0017c400.cpp
@@ -210,7 +210,7 @@ struct Obj18 {
     E18d d[64]; u8 sub6852[26]; u8 sub6878[28]; s16 h6906;
 };
 extern "C" {
-void func_001888c8(E18a*);
+void YS__PARTRAM__PARTRAM(E18a*);
 void func_00189170(E18b*);
 void func_001a8bb8(E18c*);  // obj_set_header_bytes
 void func_00319d30(void*);
@@ -226,13 +226,13 @@ struct Slot1c { u8 pad[8]; s32 busy; };
 struct Owner1c { u8 pad[2528]; void* res; };
 struct Mgr1c { u8 pad[4]; Owner1c* owner; s32 n; Ent1c ent[1]; };
 extern "C" {
-Data1c* func_001b8e88(u32);
-void func_0019ba60(void*);
+Data1c* YS__COMMAND_ELEM__Get(u32);
+void YS__OBJ__is_exist(void*);
 Src1c* func_001bd570(Owner1c*, s32);
-void func_001bc6a8(Ent1c*, Data1c*, void*, void*, u32);
+void YS__COMMAND_SLOT__set(Ent1c*, Data1c*, void*, void*, u32);
 s32 func_001bc948(Slot1c*);
 // Appends an entry for `id` (redirected through a linked source when present) and sets its initial state.
-Ent1c* func_001bc780(Mgr1c* o, u32 id, void* body, u32 b);  // 0x001bc780: definition moved into src/anon/unit_001bc568.cpp
+Ent1c* YS__COMMAND_MENU__add(Mgr1c* o, u32 id, void* body, u32 b);  // 0x001bc780: definition moved into src/anon/unit_001bc568.cpp
 }
 
 struct Pad24 { u8 pad[8]; u64 trig; };
@@ -253,7 +253,7 @@ s32 func_002469a0(s32);
 s32 func_00246840(void);
 Info24* func_001d56c8(u32);
 // Steps the current selection up/down (wrapping on a fresh press); returns whether it changed.
-bool func_00247870(u8 down);  // 0x00247870: definition moved into src/anon/unit_00242478.cpp
+bool Tz__HECO__MoveMaker(u8 down);  // 0x00247870: definition moved into src/anon/unit_00242478.cpp
 }
 
 extern "C" {
@@ -308,7 +308,7 @@ s32 func_00288040(void);
 void func_00288018(void);  // global_zero_4dwords
 void func_0026d960(void);
 // Menu update for this list: close handling, cursor feedback and entry dispatch.
-void func_0026c818(void);  // 0x0026c818: definition moved into src/anon/unit_0026c450.cpp
+void Tz__CmParty__Ctrl2ndSel(void);  // 0x0026c818: definition moved into src/anon/unit_0026c450.cpp
 }
 
 struct Pt27 { s16 x; s16 pad; s16 y; };
@@ -330,24 +330,24 @@ extern Sys27* D_00347f80;
 Pt27* func_00276fa8(void);  // global_ptr_by_flag2
 void* func_0023ee30(s32);
 void func_0031a838(void*);
-void func_002369a0(void*);  // obj_ctor_36eac8
-void func_0023c008(void*);  // obj_ctor_36eae8
-void func_0028d7f0(void*, s32, s32, s32, s32, s32, s32, s32, s32);
-void func_0023ef50(void*);
-void func_0028f280(void*, void*, void*, void*, void*);
+void YI__IMAGE_FREEZE__IMAGE_FREEZE(void*);  // obj_ctor_36eac8
+void YI__LAYOUT__LAYOUT(void*);  // obj_ctor_36eae8
+void Tz__MenuUtil__CreateLay(void*, s32, s32, s32, s32, s32, s32, s32, s32);
+void Tz__Layout__SetImageCache(void*);
+void Tz__SelHist__Init(void*, void*, void*, void*, void*);
 void func_00276598(void);
 void func_00239700(void*);
-void func_00276220(s32, s32);
+void Tz__Jiminy__SetParentSeqNum(s32, s32);
 void func_00275af8(void);
 s32 func_00287bc0(void);
-void func_002945e8(void);
+void Tz__JmWorldSel__Setup(void);
 void func_00296588(void);
-void func_002958b0(void);
+void Tz__JmReport__Setup(void);
 void func_00276588(s32);
 void func_0028fb28(s32, s32);
-void func_002a77a0(void);
+void Tz__JmMiniGame__Setup(void);
 // Creates this screen's main object and item, then enters the mode-specific setup.
-void func_00274fa8(void);  // 0x00274fa8: definition moved into src/anon/unit_002748a0.cpp
+void Tz__Jiminy__Setup(void);  // 0x00274fa8: definition moved into src/anon/unit_002748a0.cpp
 }
 
 extern "C" {

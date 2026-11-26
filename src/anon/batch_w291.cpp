@@ -31,32 +31,32 @@ extern "C" {
 
 extern W291W22* D_0035de84;
 extern s32 D_0035de88;
-s32 func_002282f0(s32); s32 func_00225b00(s32); s32 func_0022c758();
-s32 func_001de168(W291W22*, s32, s32, s32, s32, s32);  // scan_list_by_half
+s32 sa__EVENT__checkStart(s32); s32 sa__EVENT__isJumpMode(s32); s32 func_0022c758();
+s32 ryj__PAX__start(W291W22*, s32, s32, s32, s32, s32);  // scan_list_by_half
 s32 func_001dc9d0(s32); s32 func_001dc9e0(s32); s32 func_001dc7e8(s32);
 void func_001dc840(s32); void func_001dc920(s32); void func_001dc978(s32, f32);
-void func_0022c590(W291S22* s);  // 0022c590: moved to src/sasa/event_layout.cpp (linked unit)
+void sa__EVENT__set_bin_seq_mission_effect(W291S22* s);  // 0022c590: moved to src/sasa/event_layout.cpp (linked unit)
 
 extern u8 D_0035f0b0;
 s32 func_00240ba0(); s32 func_00287cd0(); s32 func_002b4ff8(); void func_00287cc0(s32);
 s32 func_00241a48(); void func_00287bd0(s32, s32); s32 func_00287d30();
 s32 func_00240430(); void func_00240118(s32, s32, s32); void func_00241450(s32); void func_00287d20(s32);
-s32 func_00233e70(s32); s32 func_00234798(); s32 func_00234758(); void func_00240e10(s32);
-void func_002b5108(s32, s32); void func_002b4c88(s32); s32 func_00241a88(s32); void func_00241a60();
+s32 func_00233e70(s32); s32 func_00234798(); s32 func_00234758(); void Tz__MCard__GetDirInfo(s32);
+void func_002b5108(s32, s32); void Tz__CmSLBase__SetupWarningConfirm(s32); s32 func_00241a88(s32); void func_00241a60();
 s32 func_00288040(); void func_00288018();  // global_zero_4dwords
 void func_0025b050();  // 0x0025b050: definition moved into src/anon/unit_002588e8.cpp
 
 extern W291P28* D_0035f2b4;
 extern W291T28 D_003742c8[];
 W291Q28* func_00167f18(s32); s32 func_00287cd0(); s32 func_002839f0(s32); s32 func_00283618();
-void func_00284048(); void func_00283f50(); void func_002833f8(); void func_00287cc0(s32);
+void func_00284048(); void func_00283f50(); void Tz__CmTutorial__CreateList(); void func_00287cc0(s32);
 void func_00257708(s32); void func_00283c50(); void func_00287bd0(s32, s32); void func_002937c0(s32);
-s32 func_00170cd0(); void func_00283fb0(); void func_00283790(); s32 func_00283668();
+s32 YS__CACHE_BUFF__IsFlushing(); void func_00283fb0(); void Tz__CmTutorial__CreateGra(); s32 func_00283668();
 void func_00242618(s32, s32); void func_00283e48();
-void func_00283230();  // 0x00283230: definition moved into src/anon/unit_00282c68.cpp
+void Tz__CmTutorial__Ctrl();  // 0x00283230: definition moved into src/anon/unit_00282c68.cpp
 
 s32 func_001a3a78(); void func_0018e8f0(W291B17**, s32, s32, W291B17**); s32 func_0019c090();  // obj_is_enabled
-void func_00187018(W291A17*, W291B17*, W291B17*, s32, f32); void func_00177a58(W291A17*);
+void YS__BTLOBJ__exec_reflect_default(W291A17*, W291B17*, W291B17*, s32, f32); void func_00177a58(W291A17*);
 void func_00176680(W291A17*, W291B17*, W291B17*);
 static inline bool w291_h1(W291A17* s) { return (s->p12->f8 & 2) || (s->f352 & 0x40); }
 static inline bool w291_h2(W291A17* s) { return func_0019c090() || w291_h1(s); }
@@ -64,8 +64,8 @@ static inline bool w291_h2(W291A17* s) { return func_0019c090() || w291_h1(s); }
 
 extern s32 D_0034e948;
 void func_002cf248(); void func_002cfb30(); W291R2d* func_002d1260(); void func_002d7698(W291O2d*);
-void func_002da8f0(W291R2d*, s32); void func_002da958(s32); void func_002d9218(W291O2d*);
-void func_002e7108(s32, f32); W291Mtx2d func_002e71a0(s32, u8, s32); void func_002d7af0(W291O2d*);
+void func_002da8f0(W291R2d*, s32); void Ti__MGHachimitsuPlayer__start_special_motion(s32); void func_002d9218(W291O2d*);
+void func_002e7108(s32, f32); W291Mtx2d func_002e71a0(s32, u8, s32); void Ti__MGHachimitsu__calc_player_center_matrix(W291O2d*);
 void func_002d84a8_w(W291O2d* o) asm("_Z13func_002d84a8i");
 void func_002d84a8_w(W291O2d* o);  // 0x002d84a8: definition moved into src/anon/unit_002d6f70.cpp
 }

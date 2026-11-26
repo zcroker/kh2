@@ -49,16 +49,16 @@ void func_001e6d38(u32 a0, u32 a1, u32 a2, u32 a3, u32 t0, u32 t1, u32 t2, u32 t
                    u64 d0, u64 d1, u64 d2, u64 d3, u64 d4, u64 d5);
 extern s32 D_00348804;
 s32 func_00165a10();
-s32 func_00164718(s32, O143*);
-s32 func_00165ad8(O143*, f32*);
+s32 dk__OctCollFile__collisionSphere_2(s32, O143*);
+s32 dk__ObjOcc__collisionDown(O143*, f32*);
 s32 func_001424c0(s32, O143*);
 extern u8 D_00351eb8[];
 extern u8 D_00351ec0[];
 extern u32 D_0034f240;
 s32 elem_is_menu(E1bc*) asm("_ZNK2YS12COMMAND_ELEM7is_menuEv");
 s32 func_001c8db8(void*, s32);
-s32 func_0019ba60(B1bc*);
-s32 func_001c9b38(E1bc*);
+s32 YS__OBJ__is_exist(B1bc*);
+s32 YS__SACRIFICE__GetCommandStatus(E1bc*);
 s32 func_001bbf40(void);
 extern M1f5* D_01d9e6e0;
 extern u8* D_01d9e6e8;
@@ -70,7 +70,7 @@ void sceVu0Normalize(f32*, f32*);
 struct S8 { s16 a, b, c, d; };
 union US8 { S8 s; u32 u; };
 u8 func_00263cc0(void);
-void func_0028b520(void*, u32, u32, u32, u32, void*, void*, s32, s32, s32);
+void Tz__LaySeqMess__create(void*, u32, u32, u32, u32, void*, void*, s32, s32, s32);
 u32 func_0023aa18(u32);
 u32 func_0023aa38(u32);
 void func_00138c68(void*, u32, u32);
@@ -86,12 +86,12 @@ extern UP D_0035f0dc;
 
 void func_001dcdb8(Obj1dc* o, s32 a, s32 b);  // 0x001dcdb8: definition moved into src/anon/unit_001dbfd8.cpp
 
-s32 func_00143928(O143* o);  // 0x00143928: definition moved into src/anon/unit_00142c90.cpp
+s32 dk__Octree__collisionToMap(O143* o);  // 0x00143928: definition moved into src/anon/unit_00142c90.cpp
 
 s32 func_001bc568(E1bc* e, B1bc* b);  // 0x001bc568: definition moved into src/anon/unit_001bc568.cpp
 
 void func_001f5f10(s32 id, A1f5* a, S1f5* s);  // 0x001f5f10: definition moved into src/anon/unit_001f5978.cpp
 
-void func_00263a90(u32 a0, u8 a1);  // 0x00263a90: definition moved into src/anon/unit_002632d0.cpp
+void Tz__CMenuHelp__Create_2(u32 a0, u8 a1);  // 0x00263a90: definition moved into src/anon/unit_002632d0.cpp
 
 }

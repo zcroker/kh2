@@ -23,31 +23,31 @@ void func_0017ebe8(void*, s32);
 void func_00195858(void*, u32);
 void func_001b2f38(void*, s32, u32);
 void func_001d56f0(void*);
-void func_001dddd0(void*, s32);
+void ryj__PAX__init(void*, s32);
 s32 func_00180cd0(u8*);
 s32 func_001805a8(u8*, u32);
 void func_0017f488(u8*, u32, f32, f32);
 void func_00169f98(u8*);
 void func_00180ce0(u8*);
 void func_001de450(u8*);
-void func_001dde40(u8*);
-s32 func_0016a328(u8*);
-s32 func_0016b638(u8*);
+void ryj__PAX__ensure(u8*);
+s32 YS__OBJ___OVR__destroy(u8*);
+s32 YS__OBJ___OVR_check_leave(u8*);
 s32 func_001b0320(u32);
-void* func_0016c028(void*);  // obj_get_attach_or_alt
+void* YS__OBJ__get_pos(void*);  // obj_get_attach_or_alt
 void func_002bc188(s32, void*);
 void func_001b0210(u32, u32, u32, u8*);
-void func_001b0250(u32, u32, u32, u32);
+void YS__VOICE__exec(u32, u32, u32, u32);
 void func_001d5770(u8*, Vec4*);
 void func_0016a9b8(u8*);
 u8* func_001050d8(s32);
-void func_00196ca8(u8*, s32, s32);
-void func_00196e98(u8*, u32);
-s32 func_00196f00(u8*);
+void YS__EVENT__EVENT(u8*, s32, s32);
+void YS__EVENT__set_camera_target(u8*, u32);
+s32 YS__EVENT__start(u8*);
 void func_00153d70(s32, s32);
-void func_001bdb70(u8*, s32, u32, u32, u8*);
+void YS__PLAYER_COMMAND__set_special_command(u8*, s32, u32, u32, u8*);
 void func_0019d720(u8*);
-void func_0013d6b0(u32, u32);
+void dk__COMMAND_DRAW__setCommandImage(u32, u32);
 void func_0013d798(void);
 s32 func_0019f528(u8*, u32);  // test_bit_by_index
 s32 func_0019f550(u8*, u32);  // test_bit_addressable
@@ -105,7 +105,7 @@ STDOBJ::STDOBJ(u32* a1, s32 a2, s32 a3) {
     if (*(s32*)(s2 + 0x10) != 0) {
         u8* v = (u8*)func_00168b38(*(s32*)(s2 + 0x10), 0x12, 0);
         if (v != 0 && *(s32*)(v + 8) != 0) {
-            func_001dddd0(p + 0x80, *(s32*)(v + 8));
+            ryj__PAX__init(p + 0x80, *(s32*)(v + 8));
         }
         v = (u8*)func_00168b38(*(s32*)(s2 + 0x10), 0x22, 0);
         if (v != 0) {
@@ -144,7 +144,7 @@ STDOBJ::STDOBJ(u32* a1, s32 a2, s32 a3) {
 extern "C" {
 void func_00198660(u8* a0, u32 a1, u32 a2, u32 a3);
 
-void func_00198450(u8* p) {
+void YS__STDOBJ___OVR_initialize(u8* p) {
     u8* q = p + 320;
     if (func_00180cd0(q) && func_001805a8(q, 0))
         func_0017f488(q, 0, 0.0f, 0.0f);
@@ -156,13 +156,13 @@ s32 func_001984b8(u8* s0) {
     func_00180ce0(s0 + 320);
     if (*(u32*)(s0 + 128) != 0) {
         func_001de450(s1);
-        func_001dde40(s1);
+        ryj__PAX__ensure(s1);
     }
-    return func_0016a328(s0);
+    return YS__OBJ___OVR__destroy(s0);
 }
 
 s32 func_00198510(u8* s0) {
-    if (func_0016b638(s0) == 0) {
+    if (YS__OBJ___OVR_check_leave(s0) == 0) {
         return 0;
     }
     s32 r = 0;
@@ -195,7 +195,7 @@ void func_00198580(u8* o, s32 id)
             if (k >= 0) id = id % 1000 + k * 1000;
         }
     }
-    func_002bc188(id, func_0016c028(o));
+    func_002bc188(id, YS__OBJ__get_pos(o));
 }
 
 void func_00198630(u8* self, u32 a1, u32 a2) {
@@ -208,7 +208,7 @@ void func_00198630(u8* self, u32 a1, u32 a2) {
 void func_00198660(u8* a0, u32 a1, u32 a2, u32 a3) {
     u32 t7 = *(u32*)(a0 + 2488);
     if (t7 != 0) {
-        func_001b0250(t7, a1, a2, a3);
+        YS__VOICE__exec(t7, a1, a2, a3);
     }
 }
 }
@@ -217,7 +217,7 @@ void wtarget_00198690(u8* a, u32, u32, u32) asm("_Z16wtarget_00198690jjjj");
 void wtarget_00198690(u8* a, u32, u32, u32) {
     ((void (*)(u8*))func_00198660)(a);
     Vec4 v;
-    QCOPY(&v, func_0016c028(a));
+    QCOPY(&v, YS__OBJ__get_pos(a));
     u8* p = a + 2524;
     for (s32 i = 0; i < 2; i++, p += 12) func_001d5770(p, &v);
     func_0016a9b8(a);
@@ -225,10 +225,10 @@ void wtarget_00198690(u8* a, u32, u32, u32) {
 
 extern "C" {
 struct Obj198 { u8 pad[1416]; u32 active : 1; };
-Obj198* func_001b9bc8(Obj198*);
+Obj198* YS__OBJ__Each(Obj198*);
 Obj198* func_00198700(Obj198* p) {
     do {
-        p = func_001b9bc8(p);
+        p = YS__OBJ__Each(p);
     } while (p != 0 && (u8)p->active == 0);
     return p;
 }
@@ -241,17 +241,17 @@ s32 func_00198738(u8* o, s8* b) {
 }
 }
 
-s32 wtarget_001987a8(u8* a0, s8* a1, u32 a2, u32) asm("_Z16wtarget_001987a8jjjj");
-s32 wtarget_001987a8(u8* a0, s8* a1, u32 a2, u32) {
+s32 YS__STDOBJ__start_camera(u8* a0, s8* a1, u32 a2, u32) asm("_Z24YS__STDOBJ__start_camerajjjj");
+s32 YS__STDOBJ__start_camera(u8* a0, s8* a1, u32 a2, u32) {
     s32 s2 = func_00198738(a0, a1);
     u8* s1 = a0 + 128;
     u8* s3 = func_001050d8(176);
-    func_00196ca8(s3, 11, s2);
+    YS__EVENT__EVENT(s3, 11, s2);
     *(u8**)(s3 + 8) = s1;
     if (a2 != 0) {
-        func_00196e98(s3, a2);
+        YS__EVENT__set_camera_target(s3, a2);
     }
-    return func_00196f00(s3);
+    return YS__EVENT__start(s3);
 }
 
 namespace YS {
@@ -269,25 +269,25 @@ void YS::STDOBJ::show_picture(int a) {
     func_00153d70(*(s32*)(v + 8), a);
 }
 
-void wtarget_00198970(u8* p, u32, u32, u32) asm("_Z16wtarget_00198970jjjj");
+void YS__STDOBJ__reset_special_command(u8* p, u32, u32, u32) asm("_Z33YS__STDOBJ__reset_special_commandjjjj");
 
 void YS::STDOBJ::set_special_command(int cmd)
 {
     u8* self = (u8*)this;
-    ((void (*)(u8*))wtarget_00198970)(self);
+    ((void (*)(u8*))YS__STDOBJ__reset_special_command)(self);
     u8* sub = self + 1952;
     u8* r1 = func_00168b88(*(void**)(sub + 16), 24, ID4(D_0036d0c8), 0);
     void* h = *(void**)(sub + 16);
     u32 a = *(u32*)(r1 + 8);
     u8* r2 = func_00168b88(h, 25, ID4(D_0036d0c8), 0);
     u8* o = *(u8**)(D_0034e948 + 2884);
-    func_001bdb70(o, cmd, a, *(u32*)(r2 + 8), self);
+    YS__PLAYER_COMMAND__set_special_command(o, cmd, a, *(u32*)(r2 + 8), self);
     func_0019d720(o + 2552);
     *(u32*)(self + 268) |= 0x800;
     *(u32*)(self + 1160) += 1;
 }
 
-void wtarget_00198970(u8* p, u32, u32, u32)
+void YS__STDOBJ__reset_special_command(u8* p, u32, u32, u32)
 {
     if (*(u32*)(p + 268) & 0x800) {
         u8* o = *(u8**)(D_0034e948 + 2884);
@@ -306,7 +306,7 @@ void YS::STDOBJ::hook_command_image()
     void* o = *(void**)(q + 16);
     u32 a = *(u32*)(r1 + 8);
     u32 b = *(u32*)(func_00168b88(o, 25, k2, 0) + 8);
-    func_0013d6b0(a, b);
+    dk__COMMAND_DRAW__setCommandImage(a, b);
 }
 
 extern "C" {

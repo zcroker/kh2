@@ -21,21 +21,21 @@ s32 LoadDataIsFlushing(void) asm("_ZN2Tz18LoadDataIsFlushingEv");
 s32 LoadDataIsFlushing_at(void) asm("func_00292630");  // same function, by its fixed address
 
 void func_00170c00(void*);
-s32 func_0019ba60(void*);
-void func_0011f3b8(void*);
+s32 YS__OBJ__is_exist(void*);
+void kn__modelDestroy(void*);
 void func_0011ee58(void*);  // set_vtbl_347940
 void func_00127f40(u32, u32);
 void func_001316f0(u32, u32);
 s32 func_001341e8(void*);
 s32 func_00134020(void);
 void func_00134030(void);  // poll_timer_status
-void* func_001b9bc8(void*);
+void* YS__OBJ__Each(void*);
 s32 func_0016f930(s32);
 void func_0016fb00(void*);
 s32 func_0019c5d0(void*);
 void func_00177638(void*);
 void func_001dc978(void*, f32);
-void* func_001de168(u32, u32, u32, u32, u32, void*);  // scan_list_by_half
+void* ryj__PAX__start(u32, u32, u32, u32, u32, void*);  // scan_list_by_half
 s32 func_001b58a8(void);
 s32 func_001a6850(void);
 void* func_00102c18(u32, u32, void*);
@@ -48,16 +48,16 @@ void func_00190128(void*);
 s32 func_00239bf8(void*, u32);
 void func_001ac970(void*, u32, u32, u32, u32, u32, u32, u32);
 void func_001ac078(void*, u32, u32, u32);
-void func_001aa388(void*, u32);
+void YS__MESSAGEDRAW__set_page(void*, u32);
 void func_001ad990(void*, f32, f32, f32);
 u8 func_00181500(u16);
 u8 func_001b8958(u16);
 u8 func_001a6d08(u16);
 void func_001e2c00(void*);
-void func_001e6c00(void*);  // alloc_336_align_171
+void pppDeleteMng(void*);  // alloc_336_align_171
 void func_00321c50(void*, void*);
 void func_001dc4b8(void*);
-void* func_00106a18(s32);  // buffer_get_256
+void* kn__getProjection(s32);  // buffer_get_256
 void* func_00106a60(s32);  // buffer_get_by_index
 void func_001dd320(void*, void*, s32);
 void sceVu0UnitMatrix(void*);  // vu_store_w_splat
@@ -85,16 +85,16 @@ u8* func_00103eb0(void);
 s32 func_00102a38(void*, void*);  // list_contains_id
 void func_00292608(void);
 void func_002933b8(void);
-s32 func_00170cd0(void);
+s32 YS__CACHE_BUFF__IsFlushing(void);
 s32 func_0023f900(void*);
 void func_0023fad0(void*);
 void func_00293d80(s32);
 void func_0017f540(void*, s32, f32, f32);
 void func_0017d8c0(void*, void*, void*);
-void func_00182f38(void);
+void YS__UNIT__InitMinigame(void);
 void func_00182f28(s32);  // store_global_35ed04
 void func_00319f88(void*);
-void func_0019f9a8(void*);  // array8_free_slots
+void YS__OBJ_ATTACK__clear(void*);  // array8_free_slots
 void func_001c0248(void*);
 void func_00319fb0(void*);  // big_obj_dtor
 void func_00105110(void*);
@@ -157,7 +157,7 @@ void func_001700e8(Node* n);  // 0x001700e8: definition moved into src/anon/unit
 // 00177540: moved to src/yasui/libys/party.cpp
 
 // 001877a0: moved to src/anon/unit_00185d10.cpp
-void func_001877a0(u8* o, u32 a, u32 b);
+void YS__BTLOBJ__bind_hitmark(u8* o, u32 a, u32 b);
 
 extern void* D_0034e948;
 extern u32 D_01c61960;
@@ -167,7 +167,7 @@ extern u32 D_0034f240;
 extern Pair D_00350338[8];
 void func_00196a40(void);  // 0x00196a40: definition moved into src/anon/unit_00195d00.cpp
 
-void func_0019cc20(s32* p);  // 0x0019cc20: definition moved into src/anon/unit_0019ba60.cpp
+void YS__LOCKON__release(s32* p);  // 0x0019cc20: definition moved into src/anon/unit_0019ba60.cpp
 
 // 001ac2a8: moved to src/anon/unit_001abb28.cpp
 
@@ -181,7 +181,7 @@ extern u8 D_00350b30[];
 
 // 001b0728: moved to src/yasui/libys/lookat.cpp
 
-u8 func_001d5868(u16* p);  // 0x001d5868: definition moved into src/anon/unit_001d4f40.cpp
+u8 YS__LINK_FLAG__is_ok(u16* p);  // 0x001d5868: definition moved into src/anon/unit_001d4f40.cpp
 
 extern u8 D_00352ae0[];
 extern s32 D_00352ae8;
@@ -198,7 +198,7 @@ void func_001eb140(void*, f32* v);  // 0x001eb140: definition moved into src/ano
 
 void func_001eb1b0(void*, f32* v);  // 0x001eb1b0: definition moved into src/anon/unit_001e8ac8.cpp
 
-s32 func_0022b028(s32 n);  // 0022b028: moved to src/sasa/musical_input.cpp (linked unit)
+s32 sa__MUSICAL_INPUT__BadScore(s32 n);  // 0022b028: moved to src/sasa/musical_input.cpp (linked unit)
 
 void func_0022bb60(void* p);  // 0022bb60: moved to src/sasa/event_movie.cpp (linked unit)
 
@@ -208,7 +208,7 @@ extern u8* D_0035ec94;
 void func_00241850(s32 i, s32 clear);  // 0x00241850: definition moved into src/anon/unit_0023f5b8.cpp
 
 // Bit test in the flag array at +18904.
-s32 func_002431d0(s32 a, s32 b);  // 0x002431d0: definition moved into src/anon/unit_00242478.cpp
+s32 Tz__SubMenu__isSetNew(s32 a, s32 b);  // 0x002431d0: definition moved into src/anon/unit_00242478.cpp
 
 extern u8* D_0035ed8c;
 void func_0024b078(void);  // 0x0024b078: definition moved into src/anon/unit_00249ef0.cpp
@@ -219,7 +219,7 @@ void func_00269ef8(void);  // 0x00269ef8: definition moved into src/anon/unit_00
 
 extern u32 D_0035f2c0;
 extern u8 D_00374348[];
-void func_00284e40(void);  // 0x00284e40: definition moved into src/anon/unit_00284220.cpp
+void Tz__Ending__SoundSetup(void);  // 0x00284e40: definition moved into src/anon/unit_00284220.cpp
 
 void func_0028a908(u8* o);  // 0x0028a908: definition moved into src/anon/unit_00288b00.cpp
 
@@ -235,7 +235,7 @@ extern u8 D_0035f5e1;
 extern void* D_0035f5dc;
 void func_002a1c68(void);  // 0x002a1c68: definition moved into src/anon/unit_002a0908.cpp
 
-void func_002bebd0(void*, u8* o);  // 0x002bebd0: definition moved into src/anon/unit_002bebd0.cpp
+void worldmap__ActionShip__control(void*, u8* o);  // 0x002bebd0: definition moved into src/anon/unit_002bebd0.cpp
 
 struct M64 { Q16 r[4]; };
 extern Q16 D_01e2bcb0;
@@ -245,7 +245,7 @@ void func_002c2168(Q16* q);  // 0x002c2168: definition moved into src/anon/unit_
 
 extern s32 D_00361fa0;
 extern u8* volatile D_00361fa4;
-void func_002cf938(u8 on);  // 0x002cf938: definition moved into src/anon/unit_002cf260.cpp
+void Ti__MGObj__reset_all_members(u8 on);  // 0x002cf938: definition moved into src/anon/unit_002cf260.cpp
 
 // Destructor chain: vtables reset as each base is torn down.
 extern u8 D_00362060[];

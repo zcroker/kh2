@@ -52,7 +52,7 @@ void func_00167ee0(void);
 s32 func_00103b38(s32);
 void func_00102080(void*);
 u32 func_00102788(u32, u32, u32, u32);
-void func_00102818(u32, u32, u32, u32, u32);
+void TASK_MANAGER__create_thread(u32, u32, u32, u32, u32);
 }
 
 namespace SHOP {
@@ -88,7 +88,7 @@ u32 CreateTask(u32 a0, u32 a1, u32 a2) {
 }
 
 void CreateTaskThread(u32 a0, u32 a1, u32 a2, u32 a3) {
-    func_00102818(D_0033cb80.manager, a0, a1, a2, a3);
+    TASK_MANAGER__create_thread(D_0033cb80.manager, a0, a1, a2, a3);
 }
 
 void StartMenu(s32 a) {

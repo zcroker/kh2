@@ -8,7 +8,7 @@ void func_002713a0(s32, s8**, s32*);
 s32 func_00272c20(s32);
 void func_002fde18(void*, s32, s32);
 u8* func_00273140(s32);
-void func_00271710(s32, u8*, s32, s32, s32);
+void Tz__CmCustom__MakeItemMess(s32, u8*, s32, s32, s32);
 void func_00271828(s32, u8*);
 u8* func_00273180(s32, s32);
 void func_002595b8(s32, u8*, s32);

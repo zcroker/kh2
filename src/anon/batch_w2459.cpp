@@ -1,5 +1,5 @@
 #include "../common/types.h"
-// w2459: matched func_00231500 (hoisted D_0035de90 high part via an always_inline call wrapper).
+// w2459: matched sa__EVENT__camera_ctrl (hoisted D_0035de90 high part via an always_inline call wrapper).
 // Camera event playback: evaluate the active camera key tracks for the current frame.
 #define W1695_QCOPY(d, s) asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(d), "r"(s) : "$8", "memory")
 struct W1695Vec {
@@ -30,7 +30,7 @@ struct W1695Key { f32 eye[3]; f32 target[3]; f32 roll; f32 fov; };
 extern "C" {
 s32 func_00162088(void);
 s32 func_00232328(void);
-void func_002311c0(W1695Key* out, void* track, f32 t);
+void sa__EVENT__calcValue_enc(W1695Key* out, void* track, f32 t);
 void func_00231390(W1695Key* out, void* ctl, f32 t);
 void func_002314c0(W1695Key* key);
 void func_0015d2e8(W1695Vec eye, W1695Vec target, f32 roll, f32 fov, s32 one, u8 a, u8 b, u8 c);
@@ -50,5 +50,5 @@ extern W1695Camera D_0035db20;
 extern u8 D_0035de90[8][32];
 static inline __attribute__((always_inline)) void W1695_Ctl(W1695Key* k, void* c, f32 t) { func_00231390(k, c, t); }
 
-void func_00231500(void);  // 0x00231500: definition moved into src/anon/unit_00231500.cpp
+void sa__EVENT__camera_ctrl(void);  // 0x00231500: definition moved into src/anon/unit_00231500.cpp
 }

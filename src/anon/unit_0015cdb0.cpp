@@ -32,11 +32,11 @@ static f32 D_004f3814 __attribute__((aligned(4)));
 
 extern "C" {
 void func_001069b8(u32);  // swap_global_word
-void func_00141010(f32);
+void dk__ObjCamera__cancelSubjective(f32);
 void func_00140f78(void*, void*);
 void* func_00106a60(s32);  // buffer_get_by_index
-void* func_00106a18(s32);  // buffer_get_256
-void func_00107368(void*, void*);  // vec_copy_at80_if_diff
+void* kn__getProjection(s32);  // buffer_get_256
+void kn__Camera__getPosition(void*, void*);  // vec_copy_at80_if_diff
 void func_00107478(void*, void*);  // vec_copy_at96_if_diff
 f32 func_001074b8(void*);
 f32 func_00106f30(void*, s32);
@@ -44,9 +44,9 @@ FVec* func_00140df0(void);  // dk::ObjCamera::getInstance
 FVec func_0013f6e8(FVec, FVec, FVec, f32, f32, f32, f32);  // spring step
 s32 func_001069e8(void);
 f32 func_0017ce10(f32);
-void func_0013f9e0(u8*, u8*, u8*, u8, s32);
+void dk__ObjCamera__collision_2(u8*, u8*, u8*, u8, s32);
 void func_00107300(void*, u8*, u8*, f32);  // copy_blocks_and_store_float
-void func_00106de8(void*, u8*, f32);
+void kn__Projection__setFOV(void*, u8*, f32);
 
 void func_0015ce90(void);
 void func_0015cef0(void);
@@ -59,7 +59,7 @@ struct EventCamera {
 
 void EventCamera::start() {
     func_0015ce90();
-    func_00141010(0.0f);
+    dk__ObjCamera__cancelSubjective(0.0f);
     func_001069b8(1);
     func_0015cef0();
 }
@@ -67,7 +67,7 @@ void EventCamera::start() {
 
 extern "C" {
 
-void func_0015cde0(u8 a) {
+void dk__EventCamera__end(u8 a) {
     u8 b[16];
     u8 c[16];
     func_001069b8(0);
@@ -75,10 +75,10 @@ void func_0015cde0(u8 a) {
     if (a == 1) {
         D_0034af38 = a;
         void* v = func_00106a60(1);
-        func_00107368(v, &D_004f3800);
+        kn__Camera__getPosition(v, &D_004f3800);
         func_00107478(v, &D_004f37f0);
         D_004f3814 = func_001074b8(v);
-        D_004f3810 = func_00106f30(func_00106a18(1), 0);
+        D_004f3810 = func_00106f30(kn__getProjection(1), 0);
     }
 }
 
@@ -129,13 +129,13 @@ void func_0015d2e8(u8* a0, u8* a1, u8* a2, u8 a3, u8 a4, u8 a5, f32 f0, f32 f1) 
     func_0015cff0();
     f0 = func_0017ce10(f0);
     c = func_00106a60(1);
-    if (a3 == m) func_0013f9e0(a0, a1, a0, a4, 0);
+    if (a3 == m) dk__ObjCamera__collision_2(a0, a1, a0, a4, 0);
     if (a5 == m) {
         func_0015d058((FVec*)a0, (FVec*)a1);
         func_0015d208(&f1, &f0);
     }
     func_00107300(c, a0, a1, f0);
-    func_00106de8(func_00106a18(1), a2, f1);
+    kn__Projection__setFOV(kn__getProjection(1), a2, f1);
 }
 
 }

@@ -30,7 +30,7 @@ struct W1786Vn { f32 x, y, z, w; } __attribute__((aligned(16)));
 struct W1786A1fb { u8 pad[0xc]; s32* p; };
 // 0x001adc48: definition moved into src/anon/unit_001ada38.cpp
 
-void func_001fa668(u8*, s32, void*) asm("func_001fa668");
+void pppKeLnsLpDraw(u8*, s32, void*) asm("pppKeLnsLpDraw");
 void W1786_wtarget(W1786Vn*, void*, W1786Vn*) asm("_Z17sceVu0ApplyMatrixjjjj");
 void sceVu0ScaleVector(void*, W1786Vn*, f32) asm("sceVu0ScaleVector");
 void func_001faea8(void*, s32, s32) asm("func_001faea8");
@@ -38,7 +38,7 @@ extern u8* D_01d9e6e8 asm("D_01d9e6e8");
 /*TARGET 001fb3c8*/
 void func_001fb3c8(u8* a0, s32 a1, W1786A1fb* a2) asm("func_001fb3c8");
 void func_001fb3c8(u8* a0, s32 a1, W1786A1fb* a2) {
-    func_001fa668(a0, a1, a2);
+    pppKeLnsLpDraw(a0, a1, a2);
     u8* base = a0 + *a2->p;
     u8* pb = base + 0x150;
     u8* pa = base + 0xa0;

@@ -74,7 +74,7 @@ namespace n00193d38 {
 struct Vec4 { f32 x, y, z, w; } __attribute__((aligned(16)));
 struct B32 { f32 a, y, c; u32 d; Vec4 pos; };
 struct VecD { f32 x, y, z, w; ~VecD() {} } __attribute__((aligned(16)));
-void func_0018a818(B32*, u8*, u32) asm("func_0018a818");
+void YS__COLLISION__set(B32*, u8*, u32) asm("YS__COLLISION__set");
 s32 func_001a7610(Vec4*, VecD*, s32, f32, f32) asm("func_001a7610");
 struct VA14;
 void func_00193be8(u8*, VA14*, void*, u32) asm("func_00193be8");
@@ -90,8 +90,8 @@ static inline VA14 operator-(const VecD& a, const VecD& b)
                  : : "r"(&a), "r"(&b), "r"(&r) : "memory");
     return r;
 }
-void func_00193d38(u8* p, u32 a1) asm("func_00193d38");
-void func_00193d38(u8* p, u32 a1)
+void YS__OBJ__make_matrix_lk(u8* p, u32 a1) asm("YS__OBJ__make_matrix_lk");
+void YS__OBJ__make_matrix_lk(u8* p, u32 a1)
 {
     B32 b;
     VecD out[2];
@@ -99,7 +99,7 @@ void func_00193d38(u8* p, u32 a1)
     b.d = 0;
     u32* q = (u32*)(p + 1636);
     for (s32 i = 0; i < 2; i++) {
-        func_0018a818(&b, p, *q++);
+        YS__COLLISION__set(&b, p, *q++);
         func_001a7610(&b.pos, &out[i], ((s32)(*(s64*)(p + 1536) << 29 >> 32)) & 0xf, 0.0f, b.c);
     }
     dir = out[0] - out[1];
@@ -184,28 +184,28 @@ u32 func_00194010(u32 a0) {
 
 // ---- 00194070 from src/anon/tiny_wrappers_more.cpp
 namespace n00194070 {
-u32 func_0011eb08(u32, u32, u32, u32) asm("_Z13func_0011eb08jjjj");
+u32 kn__ModelObj__setDefaultTexanm(u32, u32, u32, u32) asm("_Z30kn__ModelObj__setDefaultTexanmjjjj");
 u32 func_00194070(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z13func_00194070jjjj");
 u32 func_00194070(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_0011eb08(((u32)(*(u32*)((u32)(a0) + 1648u))), a1, a2, a3);
+    return kn__ModelObj__setDefaultTexanm(((u32)(*(u32*)((u32)(a0) + 1648u))), a1, a2, a3);
 }
 }  // namespace n00194070
 
 // ---- 00194088 from src/anon/tiny_wrappers_more.cpp
 namespace n00194088 {
-u32 func_0011eb78(u32, u32, u32, u32) asm("_Z13func_0011eb78jjjj");
+u32 kn__ModelObj__resetDefaultTexanm(u32, u32, u32, u32) asm("_Z32kn__ModelObj__resetDefaultTexanmjjjj");
 u32 func_00194088(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z13func_00194088jjjj");
 u32 func_00194088(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_0011eb78(((u32)(*(u32*)((u32)(a0) + 1648u))), a1, a2, a3);
+    return kn__ModelObj__resetDefaultTexanm(((u32)(*(u32*)((u32)(a0) + 1648u))), a1, a2, a3);
 }
 }  // namespace n00194088
 
 // ---- 001940a0 from src/anon/tiny_wrappers_more.cpp
 namespace n001940a0 {
-u32 func_0011ea98(u32, u32, u32, u32) asm("_Z13func_0011ea98jjjj");
+u32 kn__ModelObj__setTexanm(u32, u32, u32, u32) asm("_Z23kn__ModelObj__setTexanmjjjj");
 u32 func_001940a0(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z13func_001940a0jjjj");
 u32 func_001940a0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_0011ea98(((u32)(*(u32*)((u32)(a0) + 1648u))), a1, a2, a3);
+    return kn__ModelObj__setTexanm(((u32)(*(u32*)((u32)(a0) + 1648u))), a1, a2, a3);
 }
 }  // namespace n001940a0
 
@@ -263,14 +263,14 @@ namespace n00194218 {
 struct W2368Snd { u8 pad[0xc]; f32 vol; };
 struct W2368Slot { u8 pad[8]; s32 h; };
 struct W2368Obj { u8 pad0[0x9c]; u8 res[0x7b0 - 0x9c]; s32 arr[8]; };
-s32 func_001de168(void*, s32, s32, s32, s32, W2368Obj*) asm("func_001de168");
+s32 ryj__PAX__start(void*, s32, s32, s32, s32, W2368Obj*) asm("ryj__PAX__start");
 W2368Snd* func_001dc670(s32) asm("func_001dc670");
 void func_001dc920(s32) asm("func_001dc920");
 static inline W2368Slot* w2368_slot(W2368Obj* o, s32 i) { return (W2368Slot*)(i * 4 + (u32)o + 0x7b0); }
 void func_00194218(W2368Obj* o, s32 i, f32 v) asm("func_00194218");
 void func_00194218(W2368Obj* o, s32 i, f32 v) {
     if (v > 0.0f) {
-        if (w2368_slot(o, i)->h == 0) w2368_slot(o, i)->h = func_001de168(o->res, i, 0, 1, 0, o);
+        if (w2368_slot(o, i)->h == 0) w2368_slot(o, i)->h = ryj__PAX__start(o->res, i, 0, 1, 0, o);
         func_001dc670(w2368_slot(o, i)->h)->vol *= v;
     } else if (w2368_slot(o, i)->h) {
         func_001dc920(w2368_slot(o, i)->h);

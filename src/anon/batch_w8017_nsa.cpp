@@ -29,5 +29,5 @@ extern s32 D_0036df78[];
 extern s32 D_01d498b0;
 
 
-void func_001c6900(Act* a, QW* v);  // 0x001c6900: definition moved into src/anon/unit_001c5b90.cpp
+void YS__CROWD_M_EX760___Blow(Act* a, QW* v);  // 0x001c6900: definition moved into src/anon/unit_001c5b90.cpp
 }

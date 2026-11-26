@@ -37,12 +37,12 @@ void func_001814b8(u32);
 void func_001a6c90(u32);
 u8* func_001b6d70(s32);
 void func_001815d0(s32);
-void func_00181670(void);
+void YS__PROGRESS__CheckLM(void);
 void func_001817f0(s32);
 void func_00181778(void);
-void func_001d59b0(void);
+void YS__LINK_FLAG__Check(void);
 void func_001d5218(s32);
-void func_001b8ce0(s32);
+void YS__WORLDFLAG__ProgressCallback(s32);
 void func_001c0ba0(s32);
 void func_0019ef30(void);
 void func_00196540(s32);
@@ -89,5 +89,5 @@ void func_00133c60(s32, s32, s32, s32, s32);
 // Needs -fno-strict-aliasing (_nsa). Register pin (w3721): in three of the four part loops the texture
 // pointer is pinned to t5 ($13); without it gcc swaps t5/t6 for the pointer and its vis byte (closest C: 8 diffs).
 // Draws the visible parts of an object's model (or of its sub-model) with a per-part mask.
-s32 func_00123228(W3721bObj* o, W3721bMtx* mtx, s32* ids, W3721bDesc* d, u8* mask);  // 0x00123228: definition moved into src/anon/unit_00123138.cpp
+s32 kn__ModelSKL__drawSilhouette(W3721bObj* o, W3721bMtx* mtx, s32* ids, W3721bDesc* d, u8* mask);  // 0x00123228: definition moved into src/anon/unit_00123138.cpp
 }

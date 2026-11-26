@@ -24,7 +24,7 @@ struct M64 {
 
 union HP;
 u8* wtarget_00133980(HP*, u32, u32, u32, u32) asm("_Z16wtarget_00133980jjjj");
-u32 ctarget_00188fe0(u32, u32, u32, u32) asm("_Z16ctarget_00188fe0jjjj");
+u32 YS__SAVERAM_BATTLE__get_partram(u32, u32, u32, u32) asm("_Z31YS__SAVERAM_BATTLE__get_partramjjjj");
 void wtarget_002eccd0(u32, u32, u32, u32) asm("_Z16wtarget_002eccd0jjjj");
 
 extern "C" {
@@ -54,7 +54,7 @@ void func_0011cd80(u32, u8*, u8*, u8*, void*, u32);
 struct B148 { s16 a, b; u8 pad[12]; };
 void func_00148598(u8* a0, u8* a1);  // 0x00148598: definition moved into src/anon/unit_00147140.cpp
 
-void func_00141010(f32);
+void dk__ObjCamera__cancelSubjective(f32);
 u8* func_00140df0(void);
 extern s32 D_0034a990;
 extern f32 D_0034a994;
@@ -84,19 +84,19 @@ extern E16 D_0034d800[];
 
 u8* func_00176fb0(u8*, u32);
 s32 func_001a0920(u8*, u8*);
-s32 func_001b9d40(u8*);  // vtable_call_slot64_flags
+s32 YS__OBJ__can_control(u8*);  // vtable_call_slot64_flags
 void func_00177008(u8*, u8*, u32);
 // 001790c0: moved to src/yasui/libys/player.cpp
 
-s32 func_0019ba60(void*);
-s32 func_0019c6f0(void*);
-u8* func_001b9bc8(u8*);
+s32 YS__OBJ__is_exist(void*);
+s32 YS__OBJ__is_stop(void*);
+u8* YS__OBJ__Each(u8*);
 // 0017e280: moved to src/yasui/libys/friend.cpp
 
 u32 func_0016a070(void*);
 void func_001d6088(u32, u8*);
 void func_001890a8(void*, u32);
-void func_001d7e78(void*);
+void YS__ENEMYBASE___OVR__dead(void*);
 extern u8* D_01c608b8;
 extern u8 D_0032e020[];
 // 00185d10: moved to src/anon/unit_00185d10.cpp
@@ -111,8 +111,8 @@ struct Ent48 { u32 id; u32 pad[3]; S18 s; Vq v; };
 struct Tbl48 { s32 n; u32 pad[3]; Ent48 e[256]; };
 
 u32 func_0016bc20(u32, u32, u32);
-void func_0018a818(u8*, u32, u32);
-void func_001902a8(u32*, u8*);
+void YS__COLLISION__set(u8*, u32, u32);
+void YS__TARGET__make_collision(u32*, u8*);
 
 
 u8* func_0016e920(u32);
@@ -134,7 +134,7 @@ void func_001c8d98(void*, u32);
 void func_001c9b90(void);
 void func_001d2710(void*);
 void func_00319f88(void*);
-void func_0019f9a8(void*);  // array8_free_slots
+void YS__OBJ_ATTACK__clear(void*);  // array8_free_slots
 void func_001c0248(void*);
 void func_00319fb0(void*);  // big_obj_dtor
 extern u8 D_00352360[];
@@ -169,7 +169,7 @@ s32 func_001dc018(u32, u32, void*, void*);
 s32 func_001dc4e8(u8* p, u32 a, u32 b, u32 c);  // 0x001dc4e8: definition moved into src/anon/unit_001dbfd8.cpp
 
 void func_001e1500(void*);
-s32 func_001e1350(void*, u32);
+s32 ryj__LASER__check_obj_hit(void*, u32);
 u32 func_0017df58(u32);
 extern u32 D_0034e948;
 extern f32 D_00349e10;
@@ -181,25 +181,25 @@ struct A1fb { u8* p; u32 v; void* fn; f32 b; f32 a; u8* q; };
 
 void func_001e7798(u32, u32);
 extern u32 D_01d9e6e4;
-void func_00205718(u8* a0, u8* a1);  // 0x00205718: definition moved into src/anon/unit_002056b8.cpp
+void pppRyjMegaBirthDes(u8* a0, u8* a1);  // 0x00205718: definition moved into src/anon/unit_002056b8.cpp
 
 void func_00102448(u32, u32);
 s32 func_00225b50(s32);
 extern s32 D_0035db10;
 extern s32 D_0035de20;
-s32 func_002282f0(s32 a, u32 b);  // 0x002282f0: definition moved into src/anon/unit_00224780.cpp
+s32 sa__EVENT__checkStart(s32 a, u32 b);  // 0x002282f0: definition moved into src/anon/unit_00224780.cpp
 
 s32 func_00139d78(void*);
 void func_00139510(void*);
 extern u8* D_0035f038;
-void func_00257be0(void*) asm("_Z13func_00257be0Pv");
-void func_00257be0(void*);  // 0x00257be0: definition moved into src/anon/unit_00254020.cpp
+void Tz__CmTop__LeaveListSubWin(void*) asm("_Z26Tz__CmTop__LeaveListSubWinPv");
+void Tz__CmTop__LeaveListSubWin(void*);  // 0x00257be0: definition moved into src/anon/unit_00254020.cpp
 
 u32 func_00257070(u32);
 u8* func_00281180(u32, u32);
 extern u32 D_0035f010;
 struct T26 { u8 pad[17]; u8 n; u8 pad2[18]; u16 a[1]; };
-void func_0026b508(void);  // 0x0026b508: definition moved into src/anon/unit_0026a900.cpp
+void Tz__CmEquip__SortEquip(void);  // 0x0026b508: definition moved into src/anon/unit_0026a900.cpp
 
 extern u8* D_0035f21c;
 void func_00276b10(void);  // 0x00276b10: definition moved into src/anon/unit_002748a0.cpp
@@ -218,7 +218,7 @@ void func_002c1b60(u8* p, u8* a);  // 0x002c1b60: definition moved into src/anon
 
 void func_002c6280(u8* p, s32 i);  // 0x002c6280: definition moved into src/worldmap/cameramanager.cpp
 
-s32 func_002d0200(u8* p);  // 0x002d0200: definition moved into src/anon/unit_002cf260.cpp
+s32 Ti__MGObj__IsInitAppear(u8* p);  // 0x002d0200: definition moved into src/anon/unit_002cf260.cpp
 
 void sceVu0RotMatrixZ(void*, f32);
 void sceVu0RotMatrixY(void*, void*, f32);
@@ -255,7 +255,7 @@ union HP { Hd* h; u8* b; };
 u8* wtarget_00133980(HP* pp, u32 a1, u32 a2, u32 a3, u32 t0);  // 0x00133980: definition moved into src/anon/unit_00131418.cpp
 
 extern "C" u32 func_001b7818(u32);
-u32 ctarget_00188fe0(u32 a0, u32 a1, u32, u32);  // 0x00188fe0: definition moved into src/anon/unit_00188848.cpp
+u32 YS__SAVERAM_BATTLE__get_partram(u32 a0, u32 a1, u32, u32);  // 0x00188fe0: definition moved into src/anon/unit_00188848.cpp
 
 extern "C" f32 D_01e2c040;
 extern "C" f32 D_01e2c044;

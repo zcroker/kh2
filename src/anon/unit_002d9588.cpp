@@ -3,7 +3,7 @@
 #include "../common/types.h"
 
 namespace n002d9588 {
-s32 func_002cf308(s32) asm("func_002cf308");
+s32 Ti__MGObj__get_prize_count(s32) asm("Ti__MGObj__get_prize_count");
 struct Snd2d9588 { void** vt; };
 Snd2d9588* func_0016b740(s32) asm("func_0016b740");
 void func_001d86a0(s32, s32) asm("func_001d86a0");
@@ -23,9 +23,9 @@ void func_002d9588(Obj2d9588* o, s32 k, s32 i) {
     b->v4++;
     s32 tab[3] = { 10, 5, 1 };
     s32 r0, r1, r2;
-    r0 = func_002cf308(0);
-    r1 = func_002cf308(1);
-    r2 = func_002cf308(2);
+    r0 = Ti__MGObj__get_prize_count(0);
+    r1 = Ti__MGObj__get_prize_count(1);
+    r2 = Ti__MGObj__get_prize_count(2);
     if (r0 + r1 + r2 == o->m84[0] + o->m84[1] + o->m84[2]) {
         u8 ids[8] = { 0x18, 0, 0x19, 0x1a, 0, 0, 0x17, 0 };
         if (ids[o->f168]) {

@@ -3,7 +3,7 @@
 # best/ADDR_w3888.cpp. Replace with C/C++ after 100%.
 #   u_call0_002398d0 (func_002398d0): GIF packet setup, 25 sd stores. Registers and store order match
 #     in C; only the sched2 interleave of the first 28 insns differs (li 66 must outrank lui of D_01dae590).
-#   func_002499b8: smenu layout init. Matches in C (_nsamam) except the func_002b4070 stack-argument
+#   Tz__TRTE__Setup: smenu layout init. Matches in C (_nsamam) except the func_002b4070 stack-argument
 #     block (0xcb96 in a2, t7 reused for three hi parts); closest C has 11 differing lines.
 	.set noreorder
 	.set noat
@@ -11,10 +11,10 @@
 
 	.section .text.func_002499b8,"ax",@progbits
 	.align 2
-	.globl func_002499b8
-	.type func_002499b8, @function
-	.ent func_002499b8
-func_002499b8:
+	.globl Tz__TRTE__Setup
+	.type Tz__TRTE__Setup, @function
+	.ent Tz__TRTE__Setup
+Tz__TRTE__Setup:
 	addiu	$29,$29,-128
 	lui	$15,0x36
 	sd	$31,120($29)
@@ -360,5 +360,5 @@ func_002499b8:
 	nop	
 	b	.L00249ab8
 	nop	
-	.end func_002499b8
-	.size func_002499b8, .-func_002499b8
+	.end Tz__TRTE__Setup
+	.size Tz__TRTE__Setup, .-Tz__TRTE__Setup

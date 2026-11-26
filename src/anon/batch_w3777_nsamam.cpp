@@ -9,7 +9,7 @@ struct S2 { f32 a, b; };
 extern Ent* D_0035dcec;
 extern s32 D_0035de20;
 extern f32 D_0035de1c;
-void func_001ba028(s32);
+void YS__OBJ__is_valid(s32);
 void func_0016ace0(s32, V4*);
 void func_0016aeb8(s32, f32);
 s32 func_002302c0(f32, s32, V4*, S2*);

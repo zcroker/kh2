@@ -1,8 +1,8 @@
 # Whole-function assembly (last step of the README match ladder, w3952 2026-11-10).
 # Transcribed from the retail disassembly (mk_s.py); calls and globals with a func_/D_ symbol are referenced
 # through it. Replace with C/C++ after 100%.
-#   func_00193608: object world-matrix build (rotation from +1360 via func_0011b6a8/0011b7b0 or func_00193be8 with
-#     table D_01c61ae0, scale by +48 * +60 * +2256, optional attach to a model node via func_0016b0e0, func_00193d38
+#   YS__OBJ__make_matrix: object world-matrix build (rotation from +1360 via func_0011b6a8/0011b7b0 or func_00193be8 with
+#     table D_01c61ae0, scale by +48 * +60 * +2256, optional attach to a model node via YS__OBJ__get_bone_matrix, YS__OBJ__make_matrix_lk
 #     adjust, copy to +64, func_001b78d0/func_00193e88). VU0 macro code.
 #     Closest C: ~/re/kh2/tmp.w3952/best_00193608_ncfj.cpp (= best/00193608_w3947_ncfj.cpp, 173 of 375 lines off
 #     in try.sh with -fno-strict-aliasing -fno-cse-follow-jumps): the skip bool (s2 = 0 before func_0019c090, u8 t,
@@ -13,10 +13,10 @@
 	.set nomacro
 	.section .text.func_00193608,"ax",@progbits
 	.align 2
-	.globl func_00193608
-	.type func_00193608, @function
-	.ent func_00193608
-func_00193608:
+	.globl YS__OBJ__make_matrix
+	.type YS__OBJ__make_matrix, @function
+	.ent YS__OBJ__make_matrix
+YS__OBJ__make_matrix:
 	addiu	$29,$29,-496
 	sd	$17,424($29)
 	sd	$16,416($29)
@@ -150,7 +150,7 @@ func_00193608:
 	addiu	$16,$29,192
 	lw	$4,1392($17)
 	move	$6,$16
-	jal	func_0016b0e0
+	jal	YS__OBJ__get_bone_matrix
 	andi	$5,$5,0xffff
 	addiu	$15,$29,352
 	lqc2	$vf1,0($16)
@@ -292,7 +292,7 @@ func_00193608:
 	move	$4,$17
 	bnez	$2,.L00193abc
 	move	$4,$17
-	jal	func_00193d38
+	jal	YS__OBJ__make_matrix_lk
 	move	$5,$16
 	lqc2	$vf4,0($22)
 	lqc2	$vf1,0($16)
@@ -378,7 +378,7 @@ func_00193608:
 	sq	$8,0($19)
 	move	$4,$17
 .L00193b48:
-	jal	func_00193d38
+	jal	YS__OBJ__make_matrix_lk
 	move	$5,$16
 	lqc2	$vf4,0($22)
 	lqc2	$vf1,0($16)
@@ -420,6 +420,6 @@ func_00193608:
 	move	$7,$21
 	b	.L0019368c
 	addiu	$14,$17,48
-	.end func_00193608
-	.size func_00193608, 1500
+	.end YS__OBJ__make_matrix
+	.size YS__OBJ__make_matrix, 1500
 

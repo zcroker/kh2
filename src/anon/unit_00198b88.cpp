@@ -30,8 +30,8 @@ struct EVENT88 {
 
 extern "C" {
 extern EVENT88 D_01c61b48[16];
-void func_00198ee8(EVENT88*);
-s32 func_00199030(EVENT88*);
+void YS__SIGNAL_HOOK__exec(EVENT88*);
+s32 YS__SIGNAL_HOOK__SignalCall(EVENT88*);
 
 void func_00198b88(void) {
     EVENT88* p;
@@ -71,8 +71,8 @@ s32 func_00198cb8(s32 a, s32 b) {
     EVENT88* e = ctarget_00198bd0(a, b);
     s32 r;
     if (e != 0) {
-        func_00198ee8(e);
-        r = func_00199030(e);
+        YS__SIGNAL_HOOK__exec(e);
+        r = YS__SIGNAL_HOOK__SignalCall(e);
     } else {
         r = 0;
     }

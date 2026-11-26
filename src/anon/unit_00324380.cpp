@@ -105,8 +105,8 @@ static inline __attribute__((always_inline)) void H436b(u8* e, u32 a, u32 b)
     *(volatile u32*)e = (u32)D_00347e40; *(u32*)(e + 408) = 0;
 }
 /*TARGET 00324510*/
-void func_00324510(u8* t) asm("func_00324510");
-void func_00324510(u8* t)
+void sa__MUSICAL_SCORE5__init(u8* t) asm("sa__MUSICAL_SCORE5__init");
+void sa__MUSICAL_SCORE5__init(u8* t)
 {
     {
         u8* e = t;

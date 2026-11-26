@@ -26,10 +26,10 @@ struct O6 {
     u8 p14c[0x194 - 0x14c];
     s32 f194;     // 194
 };
-s32 func_0019c6f0(C6*);
+s32 YS__OBJ__is_stop(C6*);
 void func_001d7a50(void*);
 void func_00180ce0(O6*);
-void func_00189258(O6*);
+void YS__ANMATR__Reset(O6*);
 R6* func_00168b38(void*, s32, s32);
 void func_00180800(O6*, s32);
 void func_001807d0(O6*, f32);

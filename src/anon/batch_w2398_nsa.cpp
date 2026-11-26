@@ -41,13 +41,13 @@ struct E4Prm { u16 id; };
 extern "C" {
 void func_00190128(E4Tgt*);
 E4Ent* func_0018ee28(E4Ent*);
-E4Prm* func_0019e5f8(E4Self*, u32);
+E4Prm* YS__RC_SEARCHER__get_command_elem(E4Self*, u32);
 void e4_make(E4Hit*, s32, f32, f32) asm("_ZN2YS9COLLISION4makeEiff");
 s32 func_0018a550(E4Hit*, E4Hit*);
 void func_001908c0(E4Tgt*, E4Ent*, u32);
 E4V func_00190388(E4Tgt*);
 s32 e4_draw(E4Self*, E4Prm*) asm("_ZN2YS9COLLISION4drawEji");
-s32 func_0019df08(E4Self*, E4Prm*, E4Tgt*, const E4V&, s32);
-s32 func_0019dbc0(E4Self*, s32, E4Tgt*, s32, s32);
-void func_0019e400(E4Self* self);  // 0x0019e400: definition moved into src/anon/unit_0019ba60.cpp
+s32 YS__RC_SEARCHER__get_dist(E4Self*, E4Prm*, E4Tgt*, const E4V&, s32);
+s32 YS__RC_SEARCHER__check_set(E4Self*, s32, E4Tgt*, s32, s32);
+void YS__RC_SEARCHER__check_magic(E4Self* self);  // 0x0019e400: definition moved into src/anon/unit_0019ba60.cpp
 }

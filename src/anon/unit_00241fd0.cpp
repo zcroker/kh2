@@ -150,8 +150,8 @@ void func_00242110(u32 a0) {
 namespace n00242180 {
 u32 func_002ef9e0(u32, u32, u32, u32) asm("_Z13func_002ef9e0jjjj");
 /*TARGET 00242180*/
-u32 func_00242180(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z13func_00242180jjjj");
-u32 func_00242180(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 Tz__McSys__isEnableDataKH2(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z26Tz__McSys__isEnableDataKH2jjjj");
+u32 Tz__McSys__isEnableDataKH2(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2;
     r4 = *(u32*)((u32)r4 + (s32)(4));
     u32 (*fp_call4_002ef9e0)(u32, u32, u32, u32) = func_002ef9e0;

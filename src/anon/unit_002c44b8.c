@@ -24,7 +24,7 @@ void* func_00288be8(s32);
 void func_002889f0(void*, s32, s32);
 s32 func_002f1898(void);
 u32 func_002c3268(u8*);
-void func_0028b300(u8*, s32, s32, s32, u8*, u32, u8*, s32, s32);
+void Tz__LaySeq__create(u8*, s32, s32, s32, u8*, u32, u8*, s32, s32);
 void func_00139660(u8*);
 void func_00139688(u8*);
 s32 func_0023aa78(u8*);
@@ -32,7 +32,7 @@ s32 func_0023aa98(u8*);
 s32 func_0023aa18(s32);
 s32 func_0023aa38(s32);
 void func_00138c68(u8*, s32, s32);
-void func_002362b0(u8*, s32);
+void YI__IMAGE__Init(u8*, s32);
 void func_002367c8(u8*);
 u8* func_0028c2c8(s32, s32, s32, s32, s32);
 void func_001396b0(u8*);
@@ -40,12 +40,12 @@ void func_0031ac78(u8*, s32);
 void func_0031a260(u8*, s32);
 void func_00288ce0(void*, u8*, s32, u8*, u8*);
 void func_00139548(u8*);
-void func_002891f0(void*, s32, s32, s32, s32);
+void Tz__Select__SetCurrent(void*, s32, s32, s32, s32);
 void func_0028b078(void*, s32, s32);
-void func_0028af90(void*, s32);
+void Tz__Select__SetSelectMax(void*, s32);
 void func_00288f48(void*, s32, s32, s32, s32);
 void func_0028d068(s32, s32);
-void func_0028d1c0(u8*, s32, s32, s32, u8*, u8*, s32);
+void Tz__LightCur__Create(u8*, s32, s32, s32, u8*, u8*, s32);
 s32 func_002891d0(void*);
 void func_0028d660(u8*, s32);
 s32 func_002c2550(s32);
@@ -60,7 +60,7 @@ void func_0028bae0(u8*, s32, s32, s32, u8*, s32, s32, u8*, s32);
 void func_00138c10(u8*, s32);
 s32 func_002c2598(s32, s32);
 u8 func_002c2688(s32, s32);
-void func_001386e0(u8*, s32, s32, s32, s32, s32);
+void dk__Sprite__create(u8*, s32, s32, s32, s32, s32);
 
 
 typedef struct Item44b8 Item44b8;
@@ -143,7 +143,7 @@ void func_002c44b8(P44b8* p)
                     vis = 0;
                     sel = last;
                 }
-                func_0028b300((u8*)&p->items[p->n1], 30010, 1, 1, lay, func_002c3268((u8*)p), D_003755a0, 55, 0);
+                Tz__LaySeq__create((u8*)&p->items[p->n1], 30010, 1, 1, lay, func_002c3268((u8*)p), D_003755a0, 55, 0);
                 Item44b8* it = &p->items[p->n1];
                 s32 tex = it->tex;
                 func_00139660((u8*)it);
@@ -162,7 +162,7 @@ void func_002c44b8(P44b8* p)
                 p->n1++;
                 Ent44b8* e2 = &p->ents[idx];
                 if (e2->flags & 1) {
-                    func_0028b300((u8*)&p->items2[p->n2], 30030, 1, 1, lay, func_002c3268((u8*)p), D_003755a8, 56, 0);
+                    Tz__LaySeq__create((u8*)&p->items2[p->n2], 30030, 1, 1, lay, func_002c3268((u8*)p), D_003755a8, 56, 0);
                     Item44b8* it2 = &p->items[p->n2];
                     s32 tex2 = it2->tex;  // the original reads the first list here
                     func_00139660((u8*)&p->items2[p->n2]);
@@ -181,7 +181,7 @@ void func_002c44b8(P44b8* p)
                     p->n2++;
                 }
                 u8* o = e2->obj;
-                func_002362b0(o, p->ents[sel].has);
+                YI__IMAGE__Init(o, p->ents[sel].has);
                 func_002367c8(o);
                 o[400] = 1;
                 u8* v = func_0028c2c8(h, (s32)o, 11, -1, 0);
@@ -207,15 +207,15 @@ void func_002c44b8(P44b8* p)
         lay = p->lay;
     }
 done:
-    func_002891f0(g, first, 1, 0, 2);
+    Tz__Select__SetCurrent(g, first, 1, 0, 2);
     u8* rec = p->rec;
     u8* pg = p->pg;
     u8* pgb = p->pgb;
     func_0028b078(g, 2, rows);
-    func_0028af90(g, p->n);
+    Tz__Select__SetSelectMax(g, p->n);
     func_00288f48(g, 16, 32, 64, 128);
     func_0028d068(30040, -1);
-    func_0028d1c0(rec, 30050, 1, 1, lay, D_00375598, 0);
+    Tz__LightCur__Create(rec, 30050, 1, 1, lay, D_00375598, 0);
     func_0028d660(rec, func_002891d0(g));
     func_001396b0(rec);
     func_00138c68(rec, func_0023aa98(p->items[0].box), 0);
@@ -261,7 +261,7 @@ done:
         func_00288ce0(lst, v, i, D_003755e0, D_003755e8);
         s32 tex = func_002c2688(p->f8236, i) ? D_0037558c : D_00375590;
         u8* b = p->btns[i].pad;
-        func_001386e0(b, 30038, res, p->f13644, tex, 0);
+        dk__Sprite__create(b, 30038, res, p->f13644, tex, 0);
         *(u8**)(b + 396) = v;
         func_001396b0(b);
         if (*(s32*)(b + 396)) {
@@ -271,9 +271,9 @@ done:
         }
         func_001396b0(p->btns[i].pad);
     }
-    func_002891f0(lst, 0, 1, 0, 2);
-    if (p->pages < 4) func_0028af90(lst, p->pages);
-    else func_0028af90(lst, p->pages - 2);
+    Tz__Select__SetCurrent(lst, 0, 1, 0, 2);
+    if (p->pages < 4) Tz__Select__SetSelectMax(lst, p->pages);
+    else Tz__Select__SetSelectMax(lst, p->pages - 2);
     func_00288f48(lst, 16, 32, 64, 128);
 }
 

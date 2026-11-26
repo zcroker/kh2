@@ -63,8 +63,8 @@ extern f32 D_00349e14;
 void func_0023c598(void*) asm("_Z13func_0023c598Pv");
 void func_0023acd8(void*);
 s32 W283_GetPlayMode(void*) asm("_ZN2YI8SEQUENCE11GetPlayModeEv");
-void wtarget_0023ca80(W283_WT* p, u32, u32, u32) asm("_Z16wtarget_0023ca80jjjj");
-void wtarget_0023ca80(W283_WT* p, u32, u32, u32);  // 0x0023ca80: definition moved into src/anon/unit_0023c968.cpp
+void YI__LAYOUT__Control(W283_WT* p, u32, u32, u32) asm("_Z19YI__LAYOUT__Controljjjj");
+void YI__LAYOUT__Control(W283_WT* p, u32, u32, u32);  // 0x0023ca80: definition moved into src/anon/unit_0023c968.cpp
 
 extern char* D_0035ec88;
 extern W283_FE* D_0035ec9c;
@@ -83,12 +83,12 @@ extern void* D_00361f60;
 W283_JCfg* W283_MGJump_config(void*) asm("_ZN2Ti6MGJump6configEv");
 W283_JTbl* func_002dd650(void*);
 W283_JObj* func_001cbeb8(W283_V4*, u32);
-void func_002de500(void* self, W283_V4* pos);  // 0x002de500: definition moved into src/anon/unit_002de3c8.cpp
+void Ti__MGJumpGimObj__appear_prize(void* self, W283_V4* pos);  // 0x002de500: definition moved into src/anon/unit_002de3c8.cpp
 
 void func_00190128(W283_Tgt*);
 void W283_set_obj(W283_Tgt*, void*, s32) asm("_ZN2YS6TARGET7set_objEPNS_3OBJEi");
-void* func_00190730(W283_Tgt*, void*);
+void* YS__TARGET__each(W283_Tgt*, void*);
 s32 W283_can_attack(W283_Tgt*) asm("_ZNK2YS6TARGET10can_attackEv");
-void func_0018a818(W283_TI*, void*, void*);
-void func_00112df0(void* obj, W283_Tgt* out, W283_Q* from, f32 best);  // 0x00112df0: definition moved into src/anon/unit_001117d8.cpp
+void YS__COLLISION__set(W283_TI*, void*, void*);
+void kn__Friend__setAttackTarget(void* obj, W283_Tgt* out, W283_Q* from, f32 best);  // 0x00112df0: definition moved into src/anon/unit_001117d8.cpp
 }

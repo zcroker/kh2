@@ -24,7 +24,7 @@ void* func_00167f18(s32);
 void func_00323af8(B1615*, void*);
 s32 func_00288040(void);
 P1615* func_00288008(void);
-u32* func_002b23e0(s32);
+u32* Tz__JmPuzzle__GetImageInfo(s32);
 
 s32 func_002b0950(void);  // 0x002b0950: definition moved into src/anon/unit_002b0950.cpp
 }

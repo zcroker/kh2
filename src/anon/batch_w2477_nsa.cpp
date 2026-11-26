@@ -57,19 +57,19 @@ struct Pair09 { V09 a, b; };
 struct Tgt09 { u8 pad[16]; s16 yaw; s16 pitch; };
 struct Obj09 { u32 actor; u8 pad[28]; V09 pos; V09 x30; V09 dir; f32 angle; };
 extern "C" {
-s32 func_0019ba60(u32);
+s32 YS__OBJ__is_exist(u32);
 Tgt09* func_0016bc20(u32, s32, s32);
-Pair09 func_0018a818(u32, Tgt09*);
-V09 func_0016af58(u32);
+Pair09 YS__COLLISION__set(u32, Tgt09*);
+V09 YS__OBJ__get_dir(u32);
 void func_0011b6a8(M09*);
 void func_0011b6d8(M09*, f32);
 void func_0011b720(M09*, f32);
 void func_0011b768(M09*, f32);
-f32 func_0017d160(V09, V09);
+f32 YS__MATH__VectorAngle(V09, V09);
 f32 fabsf(f32);
 f32 func_002f8ad0(f32, f32);
 
-f32 dotr(const V09&, const V09&) asm("func_0017d160");
+f32 dotr(const V09&, const V09&) asm("YS__MATH__VectorAngle");
 static inline f32 func_002f8870x(f32 x){return x;}
 // 001b0940: moved to src/yasui/libys/lookat.cpp
 

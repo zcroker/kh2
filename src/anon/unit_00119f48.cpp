@@ -55,22 +55,22 @@ struct W1648Act { u8 pad[0xb7c]; u32 b7c; };
 extern s32 D_00341708 asm("D_00341708");
 s32 W1648_is_exist(W1648Tgt*) asm("_ZNK2YS6TARGET8is_existEv");
 s32 W1648_can_attack(W1648Tgt*) asm("_ZNK2YS6TARGET10can_attackEv");
-s32 func_00190730(W1648Tgt*, s32) asm("func_00190730");
+s32 YS__TARGET__each(W1648Tgt*, s32) asm("YS__TARGET__each");
 s32 func_00112d90(W1648Tgt*) asm("func_00112d90");
-void func_0018a818(W1648Hit*, W1648Obj*, s32) asm("func_0018a818");
-W1648QW* func_0016c028(W1648Act*) asm("func_0016c028");
+void YS__COLLISION__set(W1648Hit*, W1648Obj*, s32) asm("YS__COLLISION__set");
+W1648QW* YS__OBJ__get_pos(W1648Act*) asm("YS__OBJ__get_pos");
 s32 func_00119f48(u32) asm("func_00119f48");
 void func_0010da40(W1648Act*, W1648Tgt*, W1648Tgt*) asm("func_0010da40");
 static inline bool W1648_valid(W1648Tgt* t) { return W1648_is_exist(t) && t->a != 0; }
-void func_00119fc0(W1648Act* self, W1648Tgt* src, W1648Tgt* out) asm("func_00119fc0");
-void func_00119fc0(W1648Act* self, W1648Tgt* src, W1648Tgt* out) {
+void kn__Friend__searchEnemy_peterpan(W1648Act* self, W1648Tgt* src, W1648Tgt* out) asm("kn__Friend__searchEnemy_peterpan");
+void kn__Friend__searchEnemy_peterpan(W1648Act* self, W1648Tgt* src, W1648Tgt* out) {
     W1648Tgt cur;
     W1648Hit hit;
     W1648Tgt it;
     W1648QW d;
     f32 best = 0.0f;
     s32 k = 0;
-    while ((k = func_00190730(&it, k)) != 0) {
+    while ((k = YS__TARGET__each(&it, k)) != 0) {
         if (!func_00112d90(&it)) continue;
         if (!W1648_can_attack(&it)) continue;
         W1648Obj* o = (W1648Obj*)it.a;
@@ -78,8 +78,8 @@ void func_00119fc0(W1648Act* self, W1648Tgt* src, W1648Tgt* out) {
         if (!(o->kind->flags & 0x40)) continue;
         if (!(o->f10c & 0x20000)) continue;
         if (o->ae4 != D_00341708) continue;
-        func_0018a818(&hit, o, k);
-        W1648QW* p = func_0016c028(self);
+        YS__COLLISION__set(&hit, o, k);
+        W1648QW* p = YS__OBJ__get_pos(self);
         f32 len;
                                                         
         asm volatile("lqc2 $vf1, 0(%0)\n\tlqc2 $vf2, 0(%1)\n\tvsub.wxyz $vf1, $vf1, $vf2\n\tsqc2 $vf1, 0(%2)" : : "r"(&hit.v), "r"(p), "r"(&d) : "memory");

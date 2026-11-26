@@ -17,7 +17,7 @@
 
 // ---- 001dd2b8 from src/anon/batch_w44.cpp
 namespace n001dd2b8 {
-void* func_00106a18(s32) asm("func_00106a18");
+void* kn__getProjection(s32) asm("kn__getProjection");
 void* func_00106a60(s32) asm("func_00106a60");
 void func_001dd320(void*, void*, s32) asm("func_001dd320");
 extern u8 D_00352af0 asm("D_00352af0");
@@ -26,7 +26,7 @@ void func_001dd2b8(void) asm("func_001dd2b8");
 void func_001dd2b8(void) {
     if (D_00352af1) return;
     if (!D_00352af0) return;
-    void* a = func_00106a18(0);                   
+    void* a = kn__getProjection(0);                   
     func_001dd320(a, func_00106a60(0), 1);
 }
 }  // namespace n001dd2b8
@@ -46,7 +46,7 @@ struct W2045_V4 { f32 v[4]; } __attribute__((aligned(16)));
 struct W2045_Obj { u8 pad[8]; s32 flags; u8 pad2[16]; s32 h; u8 pad3[8]; W2045_Obj* next; };
 struct W2045_Arg1 { u8 pad[16]; W2045_M44 m; };
 W2045_M44* func_00106ad0(s32) asm("func_00106ad0");
-void func_00107368(W2045_Arg1*, W2045_V4*) asm("func_00107368");
+void kn__Camera__getPosition(W2045_Arg1*, W2045_V4*) asm("kn__Camera__getPosition");
 void func_00107478(W2045_Arg1*, W2045_V4*) asm("func_00107478");
 void func_00143f78(void*, W2045_V4*) asm("func_00143f78");
 void func_00146680(void*, W2045_M44*) asm("func_00146680");
@@ -65,7 +65,7 @@ void func_001e3330(s32) asm("func_001e3330");
 void func_001e6250(void) asm("func_001e6250");
 s32 func_001e6280(s32, s32) asm("func_001e6280");
 void func_001e65c8(void) asm("func_001e65c8");
-void func_001e6c00(s32) asm("func_001e6c00");
+void pppDeleteMng(s32) asm("pppDeleteMng");
 void func_001e6ed8(W2045_M44*, s32, W2045_V4*, W2045_V4*) asm("func_001e6ed8");
 void func_001e7008(f32) asm("func_001e7008");
 extern f32 D_00349e10 asm("D_00349e10");
@@ -79,7 +79,7 @@ void func_001dd320(s32 a0, W2045_Arg1* a1, u8 a2) {
     W2045_V4 v1;
     W2045_M44 m;
     W2045_M44 r;
-    func_00107368(a1, &v0);
+    kn__Camera__getPosition(a1, &v0);
     func_00107478(a1, &v1);
     func_001e6ed8(&a1->m, a0, &v0, &v1);
     m = *func_00106ad0(a0);
@@ -106,7 +106,7 @@ void func_001dd320(s32 a0, W2045_Arg1* a1, u8 a2) {
                 func_001dca70(o);
                 func_001e3330(o->h);
                 if (!func_001e6280(o->h, func_001dccc8(o, a2))) {
-                    func_001e6c00(o->h);
+                    pppDeleteMng(o->h);
                     o->h = 0;
                     o->flags |= 0x10000;
                 }

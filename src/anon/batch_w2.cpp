@@ -51,23 +51,23 @@ u8 func_00141778(void*, u16);
 void func_0016aeb8(void* obj, f32 v);
 void func_00158870(void* obj, f32 v);
 void func_001a2438(u32, u32, u32);
-void func_0017dcc0(void*);
+void YS__FRIEND__exec_stun(void*);
 void func_00175af8(void*);
 s32 func_0018e0d8(TRAP*, s32);
 void func_001a49a0(u32, u32, u32);
 void func_00195558(void*);
 u8* func_001a80c8(s32);  // table24_find_by_id
-void func_001b8e88(u32);
-void func_001de168(void*, u32, u32, u32, u32, u32);  // scan_list_by_half
+void YS__COMMAND_ELEM__Get(u32);
+void ryj__PAX__start(void*, u32, u32, u32, u32, u32);  // scan_list_by_half
 void func_001d2690(void*);
 void func_0021fbc0(u32);
-u16* func_002632d0();
+u16* Tz__CmItem__isSoraOnly();
 u8 func_001a3888(u16);  // id_in_range_5_7_131
 u8 func_00139d78(u8*);
 u8* func_002766d0();
 void func_0028dac8(u8*, s32);
 void func_002b73ac(u32, u32, u32, u32, u32);
-void func_001a55a8(u32, u32);
+void YS__PRIZE__Appear(u32, u32);
 void func_003053c0(u32);
 void* func_001050c8();
 void func_0023edb0(void*);
@@ -103,7 +103,7 @@ void func_0018fb70(u32* v);  // 0x0018fb70: definition moved into src/anon/unit_
 
 void func_00195750(void);  // 0x00195750: definition moved into src/anon/unit_00194790.cpp
 
-void func_001a91f8(s32* p);  // 0x001a91f8: definition moved into src/anon/unit_001a9130.cpp
+void YS__OBJDATA__clear(s32* p);  // 0x001a91f8: definition moved into src/anon/unit_001a9130.cpp
 
 void func_001b58f0(u8* p, u32 a1, u32 a2, u32 a3);  // 0x001b58f0: definition moved into src/anon/unit_001b2780.cpp
 
@@ -159,7 +159,7 @@ void iEnableIntc(u32 n);  // 0x003062a0: definition moved into src/sdk/libkernl_
 u32 func_00308200(s32 i);  // 0x00308200: definition moved into src/sdk/libkernl_003081d0.c
 
 typedef void (*VFn1)(void*);
-void func_00322968(void** o);  // 0x00322968: definition moved into src/anon/unit_00321728.cpp
+void sa__MUSICAL_TARGET__close(void** o);  // 0x00322968: definition moved into src/anon/unit_00321728.cpp
 }
 
 // ---- C++ symbols ----

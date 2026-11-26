@@ -87,14 +87,14 @@ static inline f32 Normalize(QWord* v)
 extern u32 D_0035169c[] asm("D_0035169c");
 extern QWord D_00352a60 asm("D_00352a60");
 extern u32 D_0034e948 asm("D_0034e948");
-QWord func_0016af58(u32) asm("func_0016af58");
-void func_001c6900(u8*, QWord*) asm("func_001c6900");
-s32 func_001c5c60(u8* o) asm("func_001c5c60");
-s32 func_001c5c60(u8* o) {
+QWord YS__OBJ__get_dir(u32) asm("YS__OBJ__get_dir");
+void YS__CROWD_M_EX760___Blow(u8*, QWord*) asm("YS__CROWD_M_EX760___Blow");
+s32 YS__CROWD_M_EX760__CheckAttack(u8* o) asm("YS__CROWD_M_EX760__CheckAttack");
+s32 YS__CROWD_M_EX760__CheckAttack(u8* o) {
     if (D_0035169c[o[82] * 8] & 2) {
     QWord d = Sub(*(QWord*)o, D_00352a60);
     d.f[1] = 0.0f;
-    QWord dir = func_0016af58(D_0034e948);
+    QWord dir = YS__OBJ__get_dir(D_0034e948);
     f32 t = Dot(dir, d);
     if (t < 0.0f || 1000.0f < t) return 0;
     QWord up;
@@ -107,7 +107,7 @@ s32 func_001c5c60(u8* o) {
     if (40000.0f < d.f[0] * d.f[0] + d.f[1] * d.f[1]) return 0;
     d = Sub(*(QWord*)o, D_00352a60);
     Normalize(&d);
-    func_001c6900(o, &d);
+    YS__CROWD_M_EX760___Blow(o, &d);
     return 1;
     }
     return 0;
@@ -161,8 +161,8 @@ struct E1c5 { u8 pad[16]; Sub1c5 sub; };
 extern E1c5 D_00351680[] asm("D_00351680");
 void func_001c5e18(void) asm("func_001c5e18");
 static inline void dec1c5(Sub1c5* s) { s->cnt--; }
-void func_001c5e88(u8* p) asm("func_001c5e88");
-void func_001c5e88(u8* p) {
+void YS__CROWD_M_EX760__ActionLeave(u8* p) asm("YS__CROWD_M_EX760__ActionLeave");
+void YS__CROWD_M_EX760__ActionLeave(u8* p) {
     s32 v = func_001dbd68(p);
     if (v) {
         p[21] = 0;
@@ -182,11 +182,11 @@ void func_001c5e88(u8* p) {
 namespace n001c5f38 {
 struct E1c5 { u8 pad[20]; s32 n; u8 pad2[8]; };
 extern E1c5 D_00351680[] asm("D_00351680");
-void func_001c5e88(void*) asm("func_001c5e88");
+void YS__CROWD_M_EX760__ActionLeave(void*) asm("YS__CROWD_M_EX760__ActionLeave");
 s32 func_001c5f38(u8* p) asm("func_001c5f38");
 s32 func_001c5f38(u8* p) {
     if (D_00351680[p[82]].n > 0) {
-        func_001c5e88(p);
+        YS__CROWD_M_EX760__ActionLeave(p);
         return 1;
     }
     return 0;
@@ -236,7 +236,7 @@ extern QWord D_01d49870 asm("D_01d49870");
 void func_001dbb38(void) asm("func_001dbb38");
 s32 func_00197920(void) asm("func_00197920");
 s32 func_001c5f78(void) asm("func_001c5f78");
-void* func_001b9bc8(void*) asm("func_001b9bc8");
+void* YS__OBJ__Each(void*) asm("YS__OBJ__Each");
 s32 func_0016a020(void*) asm("func_0016a020");
 s32 func_001dbe78(void*, QWord*) asm("func_001dbe78");
 struct Ob { QWord pos; u8 pad[72]; s32 x58; };
@@ -249,7 +249,7 @@ s32 func_001c5f90(Ob* o) {
         func_001dbb38();
     } else if (func_001c5f78()) {
         s32 cnt = 0;
-        while ((ret = func_001b9bc8(ret)) != 0) {
+        while ((ret = YS__OBJ__Each(ret)) != 0) {
             if (func_0016a020(ret) == 1469) {
                 if (++cnt >= 2) return 0;
             }
@@ -312,7 +312,7 @@ struct M {
 } __attribute__((aligned(16)));
 struct N { V pos; u8 pad0[5]; u8 alpha; u8 pad1[60]; u8 slot; };
 s32 func_001c5f38(N*) asm("func_001c5f38");
-s32 func_001c5c60(N*) asm("func_001c5c60");
+s32 YS__CROWD_M_EX760__CheckAttack(N*) asm("YS__CROWD_M_EX760__CheckAttack");
 s32 func_001c5c08(N*) asm("_Z13func_001c5c08Pv");
 s32 func_001c5f90(N*) asm("func_001c5f90");
 void func_001c6748(N*) asm("func_001c6748");
@@ -325,7 +325,7 @@ extern f32 D_01d498a0 asm("D_01d498a0");
 void func_001c6108(N* o) asm("func_001c6108");
 void func_001c6108(N* o) {
     if (func_001c5f38(o)) return;
-    if (func_001c5c60(o)) return;
+    if (YS__CROWD_M_EX760__CheckAttack(o)) return;
     if (func_001c5c08(o)) return;
     if ((D_0035169c[o->slot * 8] & 1) == 1) {
         V v, p;
@@ -656,8 +656,8 @@ extern s32 D_00351670 asm("D_00351670");
 extern s32 D_00351674 asm("D_00351674");
 extern s32 D_0036df78[] asm("D_0036df78");
 extern s32 D_01d498b0 asm("D_01d498b0");
-void func_001c6900(Act* a, QW* v) asm("func_001c6900");
-void func_001c6900(Act* a, QW* v) {
+void YS__CROWD_M_EX760___Blow(Act* a, QW* v) asm("YS__CROWD_M_EX760___Blow");
+void YS__CROWD_M_EX760___Blow(Act* a, QW* v) {
     s32 id;
     s32 r = 0;
     if (func_001c5f78(a, v) != 0) {

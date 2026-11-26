@@ -19,9 +19,9 @@ u32 func_00105870(void) asm("func_00105870");
 void func_00188fc0(void*) asm("func_00188fc0");
 void func_002be760(void*) asm("func_002be760");
 void func_001e0998(void*) asm("func_001e0998");
-void func_0014cb58(void) asm("func_0014cb58");
+void dk__Clock__newGame(void) asm("dk__Clock__newGame");
 void func_00105860(void*, s32) asm("func_00105860");
-void func_00196198(void) asm("func_00196198");
+void YS__VMCOMMON__NewGame(void) asm("YS__VMCOMMON__NewGame");
 void func_0023d3d0(void) asm("func_0023d3d0");
 struct Q { u32 w[4]; u8 b; };
 void func_00105748(u8* p) asm("func_00105748");
@@ -50,9 +50,9 @@ void func_00105748(u8* p) {
     func_00188fc0(a);
     func_002be760(b);
     func_001e0998(c);
-    func_0014cb58();
+    dk__Clock__newGame();
     func_00105860(p, 1);
-    func_00196198();
+    YS__VMCOMMON__NewGame();
     func_0023d3d0();
 }
 }  // namespace n00105748

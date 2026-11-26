@@ -13,7 +13,7 @@ struct Mat2c { V2c r[4]; };
 extern "C" {
 void func_001444c8(Box2c*, V2c*, V2c*);
 void func_0011b6a8(Mat2c*);
-void func_001449a8(Box2c*, Mat2c*);
+void dk__Aabbox__mulMatrix(Box2c*, Mat2c*);
 s32 func_002cec08(void*, Box2c*);
 extern void* D_00361f60;
 u8 func_002cef80(void* a0, V2c* pos);  // 002cef80: moved to src/taito/minigame_base.cpp (linked unit)

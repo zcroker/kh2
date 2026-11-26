@@ -44,7 +44,7 @@ struct W1695Track { s32 id; s16 start; s16 end; };
 struct W1695Key { f32 eye[3]; f32 target[3]; f32 roll; f32 fov; };
 s32 func_00162088(void) asm("func_00162088");
 s32 func_00232328(void) asm("func_00232328");
-void func_002311c0(W1695Key* out, void* track, f32 t) asm("func_002311c0");
+void sa__EVENT__calcValue_enc(W1695Key* out, void* track, f32 t) asm("sa__EVENT__calcValue_enc");
 void func_00231390(W1695Key* out, void* ctl, f32 t) asm("func_00231390");
 void func_002314c0(W1695Key* key) asm("func_002314c0");
 void func_0015d2e8(W1695Vec eye, W1695Vec target, f32 roll, f32 fov, s32 one, u8 a, u8 b, u8 c) asm("func_0015d2e8");
@@ -64,8 +64,8 @@ extern W1695Camera D_0035db20 asm("D_0035db20");
 extern u8 D_0035de90[8][32] asm("D_0035de90");
 static inline __attribute__((always_inline)) void W1695_Ctl(W1695Key* k, void* c, f32 t) { func_00231390(k, c, t); }
 /*TARGET 00231500*/
-void func_00231500(void) asm("func_00231500");
-void func_00231500(void) {
+void sa__EVENT__camera_ctrl(void) asm("sa__EVENT__camera_ctrl");
+void sa__EVENT__camera_ctrl(void) {
     s32 count = 0;
     s32 n = 0;
     s32 i;
@@ -102,7 +102,7 @@ void func_00231500(void) {
             f32 len = end - start;
             if (len < t) t = len;
         }
-        func_002311c0(&key, D_0035dce0[id], t);
+        sa__EVENT__calcValue_enc(&key, D_0035dce0[id], t);
         if (func_00162088() == 1 && n == count - 1) W1695_setCameraNumber(1);
         else W1695_setCameraNumber(0);
         if (D_0035de0a == 1 && D_0035de10 == 1) {
@@ -155,17 +155,17 @@ void func_00231928(u32 a0, u32 a1, u32 a2, u32 a3) {
 // 00231948 (was src/anon/auto80_199_queue.cpp)
 namespace n00231948 {
 /*TARGET 00231948*/
-void func_00231948(u32 a0) asm("_Z13func_00231948j");
-void func_00231948(u32 a0) {
+void sa__EVENT__set_bin_seq_crossfade(u32 a0) asm("_Z32sa__EVENT__set_bin_seq_crossfadej");
+void sa__EVENT__set_bin_seq_crossfade(u32 a0) {
     u32 s16v = a0;
     s32 t14;
     s32 a4;
     f32 f12;
 
-    if (func_002282f0(*(s16*)(a0 + 4)) != 0) {
+    if (sa__EVENT__checkStart(*(s16*)(a0 + 4)) != 0) {
         return;
     }
-    if (func_00225b00(*(s16*)(s16v + 4)) != 0) {  // flag_query_by_index
+    if (sa__EVENT__isJumpMode(*(s16*)(s16v + 4)) != 0) {  // flag_query_by_index
         return;
     }
 
@@ -247,22 +247,22 @@ struct W1696Player { u8 pad[0x40]; W1696Mtx mtx; };
 extern W1696Chan D_0035de90[8] asm("D_0035de90");
 extern s32 D_0035de28 asm("D_0035de28");
 void func_00140f78(W1696Vec* eye, W1696Vec* at) asm("func_00140f78");
-W1696Proj* func_00106a18(s32) asm("func_00106a18");
+W1696Proj* kn__getProjection(s32) asm("kn__getProjection");
 void* func_00106a60(s32) asm("func_00106a60");
 f32 func_00106f40(W1696Proj*, f32) asm("func_00106f40");
-void func_00107368(void* cam, W1696Vec*) asm("func_00107368");
+void kn__Camera__getPosition(void* cam, W1696Vec*) asm("kn__Camera__getPosition");
 void func_00107478(void* cam, W1696Vec*) asm("func_00107478");
 f32 W1696_getFov(void) asm("_ZN2dk9ObjCamera6getFovEv");
 W1696Player* W1696_GetPlayer(void) asm("_ZN2YS3OBJ9GetPlayerEv");
 f32 W1696_getRoll(void* cam) asm("_ZNK2kn6Camera7getRollEv");
 f32 W1696_getFOV(const W1696Proj* p, s32 worh) asm("_ZNK2kn10Projection6getFOVENS0_4WorHE");
 /*TARGET 002319c0*/
-void func_002319c0(s32 frame) asm("func_002319c0");
-void func_002319c0(s32 frame) {
+void sa__EVENT__set_objcamera_event_in(s32 frame) asm("sa__EVENT__set_objcamera_event_in");
+void sa__EVENT__set_objcamera_event_in(s32 frame) {
     W1696Vec at;
     W1696Vec eye;
     func_00140f78(&eye, &at);
-    W1696Proj* proj = func_00106a18(1);
+    W1696Proj* proj = kn__getProjection(1);
     f32 fov = func_00106f40(proj, W1696_getFov()) * 57.2957763671875f;
     eye.w = 1.0f;
     at.w = 1.0f;
@@ -293,12 +293,12 @@ void func_002319c0(s32 frame) {
     D_0035de90[7].key[1].value = fov;
 
     void* cam = func_00106a60(1);
-    func_00107368(cam, &eye);
+    kn__Camera__getPosition(cam, &eye);
     func_00107478(cam, &at);
     eye.w = 1.0f;
     at.w = 1.0f;
     f32 roll = W1696_getRoll(cam);
-    *proj = *func_00106a18(1);
+    *proj = *kn__getProjection(1);
     f32 fov2 = func_00106f40(proj, W1696_getFOV(proj, 0)) * 57.2957763671875f;
     eye = m * eye;
     at = m * at;
@@ -316,21 +316,21 @@ void func_002319c0(s32 frame) {
 
 // 00232070 (was src/anon/batch_w52.cpp)
 namespace n00232070 {
-u32 func_002282f0(s16) asm("func_002282f0");
+u32 sa__EVENT__checkStart(s16) asm("sa__EVENT__checkStart");
 u32 func_002ba620(void) asm("func_002ba620");
-void func_002319c0(s16) asm("func_002319c0");
+void sa__EVENT__set_objcamera_event_in(s16) asm("sa__EVENT__set_objcamera_event_in");
 extern u8 D_0035de0a[] asm("D_0035de0a");
 extern u8 D_0035de0c[] asm("D_0035de0c");
 extern s32 D_0035de10 asm("D_0035de10");
 /*TARGET 00232070*/
-void func_00232070(s16* p) asm("func_00232070");
-void func_00232070(s16* p) {
-    if (func_002282f0(p[2])) return;
+void sa__EVENT__set_bin_seq_objcamera(s16* p) asm("sa__EVENT__set_bin_seq_objcamera");
+void sa__EVENT__set_bin_seq_objcamera(s16* p) {
+    if (sa__EVENT__checkStart(p[2])) return;
     D_0035de0a[0] = 1;
     s32 m = p[3];
     D_0035de10 = m;
     if (m != 0) {
-        if (m == 1) func_002319c0(p[2]);
+        if (m == 1) sa__EVENT__set_objcamera_event_in(p[2]);
     } else if (!func_002ba620()) {
         D_0035de0c[0] = 1;
     }
@@ -397,13 +397,13 @@ s32 func_002283c8(void) asm("func_002283c8");
 OO* func_00227cd8(s32) asm("func_00227cd8");
 void* func_00106a60(s32) asm("func_00106a60");
 // buffer_get_by_index
-void func_00107368(void*, V4*) asm("func_00107368");
+void kn__Camera__getPosition(void*, V4*) asm("kn__Camera__getPosition");
 // vec_copy_at80_if_diff
 void func_00107478(void*, V4*) asm("func_00107478");
 // vec_copy_at96_if_diff
-s32 func_001ba028(u8*) asm("func_001ba028");
+s32 YS__OBJ__is_valid(u8*) asm("YS__OBJ__is_valid");
 // list_contains_ptr
-void func_001072d0(void*, V4*, V4*) asm("func_001072d0");
+void kn__Camera__lookAt_2(void*, V4*, V4*) asm("kn__Camera__lookAt_2");
 void func_001024a8(void*) asm("func_001024a8");
 /*TARGET 00232150*/
 void func_00232150(void* self) asm("func_00232150");
@@ -415,15 +415,15 @@ void func_00232150(void* self) {
     if (D_0035de26 == 1) {
         V4 a, b;
         void* c = func_00106a60(1);  // buffer_get_by_index
-        func_00107368(c, &a);  // vec_copy_at80_if_diff
+        kn__Camera__getPosition(c, &a);  // vec_copy_at80_if_diff
         func_00107478(c, &b);  // vec_copy_at96_if_diff
         if (o) {
-            if (func_001ba028((u8*)o->u.p)) {  // list_contains_ptr
+            if (YS__OBJ__is_valid((u8*)o->u.p)) {  // list_contains_ptr
                 a.w = 1.0f;
                 a = o->u.p->m * a;
                 b.w = 1.0f;
                 b = o->u.p->m * b;
-                func_001072d0(c, &a, &b);
+                kn__Camera__lookAt_2(c, &a, &b);
             } else func_001024a8(self);
         } else func_001024a8(self);
     } else func_001024a8(self);
@@ -437,7 +437,7 @@ namespace n002322b8 {
 extern u8 D_0035de26 asm("D_0035de26");
 extern u8 D_00232150[] asm("D_00232150");
 void func_00102c18(s32, s32, void*) asm("func_00102c18");
-s32 func_002282f0u(u16) asm("func_002282f0");
+s32 func_002282f0u(u16) asm("sa__EVENT__checkStart");
 /*TARGET 002322b8*/
 void func_002322b8(u8* p) asm("func_002322b8");
 void func_002322b8(u8* p) {
@@ -496,14 +496,14 @@ struct W1816O { s32 a; s32 b; s32 c; s32 d; s32 e; u8 pad[28]; char name[16]; };
 // 0016e3e0: moved to src/anon/unit_0016d2e0.cpp
 
 extern W1816M* D_0035de4c asm("D_0035de4c");
-void func_00232590(void) asm("func_00232590");
+void sa__EVENT__set_audio_data(void) asm("sa__EVENT__set_audio_data");
 W1816O* func_00227a28(void) asm("func_00227a28");
 void func_002feee8(char*, const char*) asm("func_002feee8");
 /*TARGET 00232398*/
 void func_00232398(W1816M* m) asm("func_00232398");
 void func_00232398(W1816M* m) {
     s32 i;
-    func_00232590();
+    sa__EVENT__set_audio_data();
     D_0035de4c = m;
     for (i = 0; i < m->count; i++) { m->e[i].p = 0; m->e[i].flag = 0; }
     for (i = 0; i < m->count; i++) {
@@ -556,14 +556,14 @@ char* func_00232498(void*) asm("func_00232498");
 char* func_002ff2e8(char*, const char*) asm("func_002ff2e8");
 u32 func_00227870(char*, void*, void*) asm("func_00227870");
 void func_00226030(void) asm("func_00226030");
-void func_00168388(char*, u32, void*, void*) asm("func_00168388");
+void YS__FILE__ReadBack(char*, u32, void*, void*) asm("YS__FILE__ReadBack");
 /*TARGET 00232510*/
-void func_00232510(void* a0, void* a1) asm("func_00232510");
-void func_00232510(void* a0, void* a1) {
+void sa__EVENT__audio_read_set(void* a0, void* a1) asm("sa__EVENT__audio_read_set");
+void sa__EVENT__audio_read_set(void* a0, void* a1) {
     Obj232* s = func_00227a60(a0, 3);
     func_002ff2e8(s->name, func_00232498(a0));
     s->id = func_00227870(s->name, s, a1);
-    func_00168388(s->name, s->id, (void*)func_00226030, s);
+    YS__FILE__ReadBack(s->name, s->id, (void*)func_00226030, s);
 }
 }  // namespace n00232510
 
@@ -578,10 +578,10 @@ extern u8 D_0035e359 asm("D_0035e359");
 /*TARGET 00232590*/
 // 0x001e7878: definition moved into src/anon/unit_001e0cb8.cpp
 
-void func_00232590(void) asm("func_00232590");
+void sa__EVENT__set_audio_data(void) asm("sa__EVENT__set_audio_data");
 // 0x001e7878: definition moved into src/anon/unit_001e0cb8.cpp
 
-void func_00232590(void) {
+void sa__EVENT__set_audio_data(void) {
     D_0035e359 = 0;
     if (func_002283e0()) {
         if (strncmp(func_00227120(), D_003712f0, 12) == 0) D_0035e359 = 1;
@@ -657,7 +657,7 @@ void func_00232718() {  // decrement_global_clamped
 
 // 00232738 (was src/anon/batch_w3720.cpp)
 namespace n00232738 {
-s32 func_00225b00(s16) asm("func_00225b00");
+s32 sa__EVENT__isJumpMode(s16) asm("sa__EVENT__isJumpMode");
 s32 func_00225b50(s16) asm("func_00225b50");
 s32 func_00225e48(void) asm("func_00225e48");
 void func_002278e0(void*) asm("func_002278e0");
@@ -671,8 +671,8 @@ typedef struct Hdr_w { s32 a; s16 n; s16 b; Ent_w e[1]; } Hdr_w;
 extern Hdr_w* D_0035de4c asm("D_0035de4c");
 extern s32 D_0035de20 asm("D_0035de20");
 /*TARGET 00232738*/
-void func_00232738(void) asm("func_00232738");
-void func_00232738(void)
+void sa__EVENT__audio_ctrl(void) asm("sa__EVENT__audio_ctrl");
+void sa__EVENT__audio_ctrl(void)
 {
     Hdr_w* h = D_0035de4c;
     if (h == 0) return;
@@ -686,7 +686,7 @@ void func_00232738(void)
                 Obj_w* o = e->obj;
                 if (o->type == 3) {
                     e->state = 1;
-                    if (func_00225e48() == 0 && func_00225b50(e->time) == 0 && func_00225b00(e->time) == 0) {
+                    if (func_00225e48() == 0 && func_00225b50(e->time) == 0 && sa__EVENT__isJumpMode(e->time) == 0) {
                         func_002326d0(o);
                         { register s32 a asm("$15"); register s32 b asm("$14"); asm volatile("lui %1,%%hi(D_0035de2c)\n\tlw %0,%%lo(D_0035de2c)(%1)\n\taddiu %0,%0,1\n\tsw %0,%%lo(D_0035de2c)(%1)" : "=&r"(a), "=&r"(b)); }
                     }
@@ -725,7 +725,7 @@ struct U7_SeTbl { u8 pad[4]; s16 n; u8 pad2[2]; U7_SeEnt e[1]; };
 struct U7_SeObj { u8 pad[20]; u32 h; };
 struct U7_SeReq { u8 pad[4]; s16 id; s16 fade; };
 extern U7_SeTbl* D_0035de4c asm("D_0035de4c");
-s32 func_002282f0(s32) asm("func_002282f0");
+s32 sa__EVENT__checkStart(s32) asm("sa__EVENT__checkStart");
 s32 func_002baa20(u32) asm("func_002baa20");
 void func_002b797c(u32, u32, s32) asm("func_002b797c");
 /*TARGET 002328c0*/
@@ -734,7 +734,7 @@ void func_002328c0(U7_SeReq* r) {
     U7_SeTbl* t;
     s32 sh, i;
     U7_SeEnt* e;
-    if (func_002282f0(r->id)) return;
+    if (sa__EVENT__checkStart(r->id)) return;
     sh = r->fade << 3;
     t = D_0035de4c;
     if (!t) return;
@@ -788,7 +788,7 @@ void func_00232988(void)
 namespace n00232a48 {
 void func_00226030(void*) asm("_Z13func_00226030Pv");
 void func_00102448(void*, s32) asm("func_00102448");
-void func_00168388(char*, s32, void (*)(void*), void*) asm("func_00168388");
+void YS__FILE__ReadBack(char*, s32, void (*)(void*), void*) asm("YS__FILE__ReadBack");
 s32 func_001688b8(void) asm("func_001688b8");
 s32 func_001688c8(char*) asm("func_001688c8");
 s32 func_00227870(char*, void*, s32) asm("func_00227870");
@@ -806,9 +806,9 @@ struct W2045_Ent { s32 type; u8 pad[16]; s32 h; u8 pad2[24]; char name[32]; };
 struct W2045_Arg { u8 pad[6]; s16 a; s16 b; };
 /*TARGET 00232a48*/
 // ---- 0x232a48 ----
-void func_00232a48(W2045_Arg* p, void* q) asm("func_00232a48");
+void sa__EVENT__read_se_data(W2045_Arg* p, void* q) asm("sa__EVENT__read_se_data");
 // ---- 0x232a48 ----
-void func_00232a48(W2045_Arg* p, void* q) {
+void sa__EVENT__read_se_data(W2045_Arg* p, void* q) {
     char buf[48];
     char buf2[48];
     s32 r2 = 0;
@@ -824,7 +824,7 @@ void func_00232a48(W2045_Arg* p, void* q) {
         strlen(buf);
         r1 = func_001688c8(buf);
         e1->h = func_00227870(buf, e1, 0);
-        func_00168388(buf, e1->h, func_00226030, e1);
+        YS__FILE__ReadBack(buf, e1->h, func_00226030, e1);
         if (p->b) {
             e2 = (W2045_Ent*)func_00227a28();
             e1->type = 5;
@@ -833,7 +833,7 @@ void func_00232a48(W2045_Arg* p, void* q) {
             strlen(buf2);
             r2 = func_001688c8(buf2);
             e2->h = func_00227870(buf2, e2, 0);
-            func_00168388(buf2, e2->h, func_00226030, e2);
+            YS__FILE__ReadBack(buf2, e2->h, func_00226030, e2);
         }
         while (func_001688b8()) func_00102448(q, 0);
     }
@@ -851,9 +851,9 @@ void func_00232a48(W2045_Arg* p, void* q) {
 
 // 00232c88 (was src/anon/batch_w78.cpp)
 namespace n00232c88 {
-s32 func_002282f0(s16) asm("func_002282f0");
+s32 sa__EVENT__checkStart(s16) asm("sa__EVENT__checkStart");
 s32 func_00227ca8(void*) asm("func_00227ca8");
-s32 func_00225b00(s16) asm("func_00225b00");
+s32 sa__EVENT__isJumpMode(s16) asm("sa__EVENT__isJumpMode");
 // flag_query_by_index
 u32 func_002bc238(s32) asm("func_002bc238");
 void func_002bc358(u32, s32) asm("func_002bc358");
@@ -861,17 +861,17 @@ extern s32 D_0035e35c asm("D_0035e35c");
 extern u32 D_0035db60[] asm("D_0035db60");
 struct W78Snd2 { s16 x0, x2, slot, kind; u8 name[4]; s16 id; };
 /*TARGET 00232c88*/
-void func_00232c88(W78Snd2* o) asm("func_00232c88");
-void func_00232c88(W78Snd2* o) {
-    if (func_002282f0(o->id)) return;
+void sa__EVENT__set_se_seq(W78Snd2* o) asm("sa__EVENT__set_se_seq");
+void sa__EVENT__set_se_seq(W78Snd2* o) {
+    if (sa__EVENT__checkStart(o->id)) return;
     if (o->kind == 0) {
         s32 v = func_00227ca8(o->name);
         s32 r = v - 1000;
         if (v <= 1000) r = D_0035e35c * 1000 + v;
-        if (func_00225b00(o->id)) return;
+        if (sa__EVENT__isJumpMode(o->id)) return;
         D_0035db60[o->slot] = func_002bc238(r);
     } else {
-        if (func_00225b00(o->id)) return;
+        if (sa__EVENT__isJumpMode(o->id)) return;
         u32 h = D_0035db60[o->slot];
         func_002bc358(h, 240);
     }
@@ -880,20 +880,20 @@ void func_00232c88(W78Snd2* o) {
 
 // 00232d60 (was src/anon/tiny_auto80_queue.cpp)
 namespace n00232d60 {
-u32 func_002282f0(...) asm("func_002282f0");
+u32 sa__EVENT__checkStart(...) asm("sa__EVENT__checkStart");
 void func_002bbed0(...) asm("func_002bbed0");
-void func_002bbf18(...) asm("func_002bbf18");
+void SOUND__silentBgSeOff(...) asm("SOUND__silentBgSeOff");
 /*TARGET 00232d60*/
 void func_00232d60(u8* a0) asm("_Z13func_00232d60Ph");
 void func_00232d60(u8* a0) {
     u8* s0 = a0;
-    if (func_002282f0((u32)*(s16*)(a0 + 4)) != 0) {
+    if (sa__EVENT__checkStart((u32)*(s16*)(a0 + 4)) != 0) {
         return;
     }
     if (*(u8*)(s0 + 6) == 0) {
         func_002bbed0();
     } else {
-        func_002bbf18();
+        SOUND__silentBgSeOff();
     }
 }
 }  // namespace n00232d60
@@ -905,9 +905,9 @@ union U232 { E232* p; s32 i; };
 extern U232 D_0035dcf8 asm("D_0035dcf8");
 /*TARGET 00232db0*/
 /* release the slot owned by id */
-void func_00232db0(s32 id) asm("func_00232db0");
+void sa__EVENT__clearMotionCtrlWk(s32 id) asm("sa__EVENT__clearMotionCtrlWk");
 /* release the slot owned by id */
-void func_00232db0(s32 id) {
+void sa__EVENT__clearMotionCtrlWk(s32 id) {
     for (s32 i = 0; i < 64; i++) {
         if (D_0035dcf8.p[i].a != -1 && D_0035dcf8.p[i].b == id) {
             D_0035dcf8.p[i].a = -1;

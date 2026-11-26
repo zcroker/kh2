@@ -97,12 +97,12 @@ extern W2426Tab *D_01d9e6e4;
 extern W2426Cam *D_01d9e6e8;
 s32 func_00222568(void);
 W2426Ent *func_001e7a98(W2426Mgr *, u8 *);
-void func_001f6148(void *, W2426Prm *, s16 *);
+void pppKeBornRnd4_Born(void *, W2426Prm *, s16 *);
 void func_0021ee48(void *, W2426Prm *, W2426CB, u16 *, s16, u8, u8);
 void sceVu0ApplyMatrix(void *, void *, void *);
 void func_002226b8(void *, void *);
 void sceVu0SubVector(void *, void *, void *);
 void sceVu0Normalize(void *, void *);
 void sceVu0ScaleVector(void *, void *, f32);
-void func_001f6298(void *owner, W2426Prm *prm, W2426Ctx *c);  // 0x001f6298: definition moved into src/anon/unit_001f6298.cpp
+void pppKeBornRnd4(void *owner, W2426Prm *prm, W2426Ctx *c);  // 0x001f6298: definition moved into src/anon/unit_001f6298.cpp
 

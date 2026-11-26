@@ -103,10 +103,10 @@ extern u32 D_0034a3f0;
 extern f32 D_0034a3f8;
 extern f32 D_004f3584;
 extern f32 D_004f3580;
-W290Q* func_0016c028(u32);  // obj_get_attach_or_alt
+W290Q* YS__OBJ__get_pos(u32);  // obj_get_attach_or_alt
 f32 func_002f8ad0(f32, f32);
 f32 func_0017ce10(f32);
-void* func_00106a18(s32);  // buffer_get_256
+void* kn__getProjection(s32);  // buffer_get_256
 f32 func_00106f30(void*, s32);
 struct W290Cam { u8 p[192]; f32 yaw; f32 pitch; };
 // 0014e6f8: moved to src/harata/libdk/fpscamera.cpp

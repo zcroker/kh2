@@ -1,7 +1,7 @@
 #include "../common/types.h"
 // 00232738: the D_0035de2c increment is hand-written (4 insns) so its address is not hoisted out of the loop.
 extern "C" {
-s32 func_00225b00(s16);
+s32 sa__EVENT__isJumpMode(s16);
 s32 func_00225b50(s16);
 s32 func_00225e48(void);
 void func_002278e0(void*);
@@ -15,7 +15,7 @@ typedef struct Hdr_w { s32 a; s16 n; s16 b; Ent_w e[1]; } Hdr_w;
 extern Hdr_w* D_0035de4c;
 extern s32 D_0035de20;
 extern s32 D_0035de2c;
-void func_00232738(void);  // 0x00232738: definition moved into src/anon/unit_00231500.cpp
+void sa__EVENT__audio_ctrl(void);  // 0x00232738: definition moved into src/anon/unit_00231500.cpp
 /* 0015c880: partial asm (register pins plus scheduling dependencies). The li and the y store are hand-written so sched2
    issues the stores in the original order; the empty asm holds the a store back until the float stores are done. */
 struct S4f3694 { u8 r, g, b, a; f32 x, y, z, w; };

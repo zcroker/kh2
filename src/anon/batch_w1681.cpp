@@ -47,7 +47,7 @@ static inline W1681Mtx W1681Mul(const W1681Mtx& l, const W1681Mtx& r)
 struct W1681Handle { void* p; };
 union W1681Value { s32 i; s32* p; };
 struct W1681Range { s32* begin; s32* end; } __attribute__((aligned(8)));
-// 256-byte camera record (see func_00106a18).
+// 256-byte camera record (see kn__getProjection).
 struct W1681Cam {
     W1681Mtx world;     // 0
     f32 f40;            // 64
@@ -77,11 +77,11 @@ struct W1681Obj {
     W1681Mtx viewMul;   // 496
     W1681Mtx clipMul;   // 560
 };
-W1681Cam* func_00106a18(s32);
+W1681Cam* kn__getProjection(s32);
 W1681Rec* func_00106a60(s32);
 W1681Mtx* W1681_camView(W1681Cam*) asm("_ZN2dk11ViewFrustum9setMatrixERKN2kn7FMatrixE");
 W1681Mtx* W1681_camClip(W1681Cam*) asm("_ZN2kn10Projection19getViewClipGsMatrixEv");
 void func_00146680(W1681Mtx*, const W1681Mtx*);
 // Takes a snapshot of the current camera and the current record, and precomputes the products.
-void func_00145cb0(W1681Obj* o);  // 0x00145cb0: definition moved into src/anon/unit_00145600.cpp
+void dk__OctDrawFile__calcViewFrustumMatrix(W1681Obj* o);  // 0x00145cb0: definition moved into src/anon/unit_00145600.cpp
 }

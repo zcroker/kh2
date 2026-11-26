@@ -6,15 +6,15 @@ extern s32 D_0035f258;
 extern u16 D_00374120[2][3];
 extern u16 D_00374148[];
 extern u16 D_00374150[];
-void func_0028d7f0(s32, s32, s32, s32, s32, s32, s32, s32, s32);
-void func_0023ef50(s32);
+void Tz__MenuUtil__CreateLay(s32, s32, s32, s32, s32, s32, s32, s32, s32);
+void Tz__Layout__SetImageCache(s32);
 void func_0028d8c0(s32, s32, s32, s32, s32, s32, s32, s32);
 s32 func_00103550(void);
-void func_00288d80(s32, s32, s32, s32, s32, s32, s16*, s16*);
+void Tz__Select__SetItem(s32, s32, s32, s32, s32, s32, s16*, s16*);
 u8* func_002891b8(s32, s32);
 void func_00139620(u8*);
 void func_0028af28(s32, s32);
-void func_002891f0(s32, s32, s32, s32, s32);
+void Tz__Select__SetCurrent(s32, s32, s32, s32, s32);
 
 static inline void setf8(u8* p) { *(u32*)(p + 184) |= 8; }
 static inline void set432(u8* p, s32 v) { *(s32*)(p + 432) = v; }
@@ -39,9 +39,9 @@ void func_002fde18(void*, s32, s32);
 Ent* func_001d9e30(Ent*);
 s32 func_001d9d88(Ent*);
 s32 func_002a43d0(Ent*);
-u8 func_002764b0(u8);
-void func_002a2ff8(void);
-s32 func_002ac748(s32);
+u8 Tz__Jiminy__AreaWorld2JmWorld(u8);
+void Tz__JmTreasure__SortList(void);
+s32 Tz__JmNewInfo__isPuzzleInfoNew(s32);
 s32 func_002ac800(s32);
 void func_002a2de8(void);  // 0x002a2de8: definition moved into src/anon/unit_002a1d38.cpp
 }
@@ -81,13 +81,13 @@ struct QM_w {
 } __attribute__((aligned(16)));
 struct Cam_w { u8 pad[0xb70]; QM_w m; QM_w inv; };
 extern "C" {
-void func_00178758(Cam_w*);
+void YS__PLAYER___OVR_pre_exec(Cam_w*);
 void func_0011b6a8(QM_w*);
 void FMatrix_rotateY_w(QM_w*, f32) asm("_ZN2kn7FMatrix7rotateYEf");
 void FMatrix_rotateXYZ_w(QM_w*, const QV_w*) asm("_ZN2kn7FMatrix9rotateXYZERKNS_7FVectorE");
 f32 ObjCamera_getObjBackDirection_w(Cam_w*) asm("_ZN2dk9ObjCamera19getObjBackDirectionEv");
 const QV_w* OBJ_get_xyzrot_w(Cam_w*) asm("_ZN2YS3OBJ10get_xyzrotEv");
 s32 OBJ_is_xyzrot_w(Cam_w*) asm("_ZN2YS3OBJ9is_xyzrotEv");
-const QV_w* func_0016c028(Cam_w*);
+const QV_w* YS__OBJ__get_pos(Cam_w*);
 void func_002d10a0(Cam_w* o);  // 0x002d10a0: definition moved into src/anon/unit_002cf260.cpp
 }

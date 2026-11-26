@@ -37,7 +37,7 @@ f32 func_0017d130(f32) asm("func_0017d130");
 void func_0017c400(u8*, s32) asm("func_0017c400");
 struct J_17c430 { u8 pad[0xd0]; f32 d0, d4, d8, dc; };
 
-void func_0017c430(J_17c430* a0, f32 x) {
+void YS__OBJ__prepare_jump_height(J_17c430* a0, f32 x) {
     if (0.0f <= x) {
         a0->d0 = 0.0f;
         a0->d8 = 0.0f;
@@ -76,10 +76,10 @@ static inline W1784QV w1784_scale(const W1784QV* v, f32 s) {
     return r;
 }
 struct W1784C4 { u8 pad[0xc0]; W1784QV dir; };
-void func_0017c430(W1784C4*, f32) asm("func_0017c430");
+void YS__OBJ__prepare_jump_height(W1784C4*, f32) asm("YS__OBJ__prepare_jump_height");
 
-void func_0017c4c8(W1784C4* c, W1784QV* v) {
-    func_0017c430(c, v->y);
+void YS__OBJ__prepare_jump(W1784C4* c, W1784QV* v) {
+    YS__OBJ__prepare_jump_height(c, v->y);
     v->y = 0.0f;
     f32 w = v->w;
     w1784_norm(v);
@@ -90,29 +90,29 @@ void func_0017c4c8(W1784C4* c, W1784QV* v) {
 
 // 0017c578 (src/anon/batch_w76.cpp)
 namespace x9 {
-f32* func_0016c028(u8*) asm("func_0016c028");  // obj_get_attach_or_alt
+f32* YS__OBJ__get_pos(u8*) asm("YS__OBJ__get_pos");  // obj_get_attach_or_alt
 struct Q16 { u32 w[4]; } __attribute__((aligned(16)));
 s32 func_00114620(u32) asm("func_00114620");
 u32 func_0016a070(u32) asm("func_0016a070");
 s32 func_001a35f8(s32, u32) asm("func_001a35f8");
 u8* func_001058e8(void) asm("func_001058e8");
-u8* func_00188fe0(u8*, u32) asm("func_00188fe0");
+u8* YS__SAVERAM_BATTLE__get_partram(u8*, u32) asm("YS__SAVERAM_BATTLE__get_partram");
 struct Entry { u16 id : 15; u16 on : 1; };
-u32 ctarget_0010f7b0(u32, u32, s32, u32) asm("_Z16ctarget_0010f7b0jjjj");
+u32 kn__Friend__equipedAbility(u32, u32, s32, u32) asm("_Z26kn__Friend__equipedAbilityjjjj");
 typedef void (*VFn)(void*);
 typedef void (*VFn2)(void*, u32);
 typedef void (*VFn4)(void*, u32, u32, u32);
 struct Bits8 { u32 b0 : 1; u32 hi : 31; };
 static inline bool InfoFlag(u8* info) { return ((Bits8*)(info + 8))->b0; }
 
-void flagupd_0017c578(void*, u8* o) asm("_Z13func_0017c578Pv");
+void flagupd_0017c578(void*, u8* o) asm("_Z22YS__ACTION_JUMP__startPv");
 void flagupd_0017c578(void*, u8* o)
 {
     u32 fl = *(u32*)(o + 264);
     if (fl & 0x10000) *(u32*)(o + 264) = fl | 0x20000;
     else *(u32*)(o + 264) = fl & ~0x20000;
     *(u32*)(o + 264) &= ~0x10000;
-    f32* v = func_0016c028(o);  // obj_get_attach_or_alt
+    f32* v = YS__OBJ__get_pos(o);  // obj_get_attach_or_alt
     *(f32*)(o + 216) += v[1];
     if (0.0f < *(f32*)(o + 204)) {
         Q16* d = (Q16*)(o + 32);
@@ -210,7 +210,7 @@ struct Obj17 {
 typedef void (*MotorFn17)(Motor17*, Obj17*, f32);
 extern Info17* D_00352130 asm("D_00352130");
 s32 func_0017ca88(void*, Obj17*) asm("func_0017ca88");
-s32 func_001958d0(Obj17*) asm("func_001958d0");
+s32 YS__ACTION_HANG__Check(Obj17*) asm("YS__ACTION_HANG__Check");
 s32 func_0017cb48(void*, Obj17*) asm("func_0017cb48");  // can_run_when_268_bit0
 void func_0017cb78(void*, Obj17*) asm("func_0017cb78");  // handle_field256_eq4
 
@@ -218,7 +218,7 @@ void func_0017cb78(void*, Obj17*) asm("func_0017cb78");  // handle_field256_eq4
 void func_0017c690(void* self, Obj17* o)
 {
     u64 unused[2]; // keeps the original's 48-byte frame
-    if ((o->mode & 4) && func_0017ca88(self, o) && func_001958d0(o)) return;
+    if ((o->mode & 4) && func_0017ca88(self, o) && YS__ACTION_HANG__Check(o)) return;
     if (6.0f < o->t && o->t < o->end) {
         if (o->flags & 0x400000) {
             if (func_0017cb48(self, o)) func_0017cb78(self, o);  // can_run_when_268_bit0
@@ -261,8 +261,8 @@ void func_00132370(void*, f32) asm("func_00132370");
 void func_00166930(u8*) asm("func_00166930");
 void func_0014dc08(u8*) asm("func_0014dc08");
 void func_0014dd10(u8*) asm("func_0014dd10");
-void func_00184540(Q16*, u8*) asm("func_00184540");
-f32 func_0017c930(u8*, u8*) asm("func_0017c930");
+void kn__MotionPrototype0__calcLimitValue(Q16*, u8*) asm("kn__MotionPrototype0__calcLimitValue");
+f32 YS__ACTION_JUMP__calc_movement_y(u8*, u8*) asm("YS__ACTION_JUMP__calc_movement_y");
 void func_001002a0(s32) asm("func_001002a0") __attribute__((noreturn));
 
 Q16* func_0017c870(Q16* ret, u8* a1, u8* a2) {
@@ -270,9 +270,9 @@ Q16* func_0017c870(Q16* ret, u8* a1, u8* a2) {
     ((UF*)(a2 + 208))->f += D_00349e10;
     ((UF*)(a2 + 20))->u = 0;
     Q16 t;
-    func_00184540(&t, a2);
+    kn__MotionPrototype0__calcLimitValue(&t, a2);
     if (ret != &t) QCOPY(ret, &t);
-    *(f32*)&ret->w[1] = func_0017c930(a1, a2);
+    *(f32*)&ret->w[1] = YS__ACTION_JUMP__calc_movement_y(a1, a2);
     return ret;
 }
 }  // namespace x12
@@ -295,7 +295,7 @@ struct Obj17c930 {
     u8 pad124[0x160 - 0x124];
     u32 flags;
 };
-V4c17c930* func_0016c028(Obj17c930*) asm("func_0016c028");
+V4c17c930* YS__OBJ__get_pos(Obj17c930*) asm("YS__OBJ__get_pos");
 f32 sinf(f32) asm("sinf");
 extern f32 D_00349e10 asm("D_00349e10");
 static inline u32 flag20(Obj17c930* o) { return o->flags & 0x20; }
@@ -306,8 +306,8 @@ static inline bool stopped(Obj17c930* o) { return frozen(o) || flag40(o); }
 static inline bool moving(Obj17c930* o) { return !stopped(o); }
 
 /* 0017c930: offset that follows sinf(sinf(t*pi/2)*pi/2) while t < len and a parabola
-   after it, measured from the current position (func_0016c028()->y) and clamped to scale * D_00349e10. */
-f32 func_0017c930(void* self, Obj17c930* o) {
+   after it, measured from the current position (YS__OBJ__get_pos()->y) and clamped to scale * D_00349e10. */
+f32 YS__ACTION_JUMP__calc_movement_y(void* self, Obj17c930* o) {
     if (moving(o)) {
         f32 r;
         f32 a = o->t; f32 b = o->len;
@@ -319,9 +319,9 @@ f32 func_0017c930(void* self, Obj17c930* o) {
             f32 t = a - b;
             r = o->base + o->amp + t * 0x1.a1f58cp-2f * t * 0.5f;
         }
-        f32 v = r - func_0016c028(o)->y;
+        f32 v = r - YS__OBJ__get_pos(o)->y;
         f32 lim = o->scale * D_00349e10;
-        if (v < lim) return r - func_0016c028(o)->y;
+        if (v < lim) return r - YS__OBJ__get_pos(o)->y;
         return lim;
     }
     return 0.0f;
@@ -409,8 +409,8 @@ void cc30_push(u8*, s32, f32, f32, void*) asm("_ZN2YS6MOTION4pushEiffPFvPNS_3OBJ
 s32 cc30_is_exist(u8*, s32) asm("_ZN2YS6MOTION8is_existEi");
 void cc30_change_action(Cc30Obj*, u32) asm("_ZN2YS3OBJ13change_actionENS_6ACTION2IDE");
 
-void wtarget_0017cc30(u32, Cc30Obj*, u32, u32) asm("_Z16wtarget_0017cc30jjjj");
-void wtarget_0017cc30(u32 a0, Cc30Obj* o, u32 act, u32 a3) {
+void YS__ACTION_JUMP___land(u32, Cc30Obj*, u32, u32) asm("_Z22YS__ACTION_JUMP___landjjjj");
+void YS__ACTION_JUMP___land(u32 a0, Cc30Obj* o, u32 act, u32 a3) {
     u8* m = o->mot;
     s32 a = o->action;
     if (a >= 0 && !(o->flags168 & 0x10)) {
@@ -429,11 +429,11 @@ void wtarget_0017cc30(u32 a0, Cc30Obj* o, u32 act, u32 a3) {
 
 // 0017cd08: virtual (vtable at 0x34eb88): 0x17cc30 with a2 = 0 (never written before)
 namespace x_cd08 {
-void func_0017cc30(u8*, u8*, u32) asm("_Z16wtarget_0017cc30jjjj");
+void YS__ACTION_JUMP___land(u8*, u8*, u32) asm("_Z22YS__ACTION_JUMP___landjjjj");
 
 void func_0017cd08(u8* a, u8* b) asm("func_0017cd08");
 void func_0017cd08(u8* a, u8* b) {
-    func_0017cc30(a, b, 0);
+    YS__ACTION_JUMP___land(a, b, 0);
 }
 }  // namespace x_cd08
 
@@ -452,7 +452,7 @@ s32 func_001c3618(u32, s32) asm("func_001c3618");
 u8* func_001ce300(s32) asm("func_001ce300");  // to_1ce2a0_index_minus1
 void func_0017f488(u8*, s32, f32, f32) asm("func_0017f488");
 
-void func_0017cd20(u8* a0, u8* a1)
+void YS__ACTION_JUMP__party_jump(u8* a0, u8* a1)
 {
     Vec82 v;
     u8* r;
@@ -561,15 +561,15 @@ static inline void W268Apply(W268V4* pr, const W268Mtx* m, const W268V4* v) {
         "sqc2 $vf5, 0(%0)"
         : : "r"(&r), "r"(m), "r"(v) : "memory");
 }
-W268Mtx* func_00106a18(s32) asm("func_00106a18");  // buffer_get_256
+W268Mtx* kn__getProjection(s32) asm("kn__getProjection");  // buffer_get_256
 u8* func_00106a60(s32) asm("func_00106a60");  // buffer_get_by_index
 
-W268V4 func_0017cf00(const W268V4& in)
+W268V4 YS__MATH__GetScreenPos(const W268V4& in)
 {
     W268V4 r(in);
     f32 one = 1.0f;
     r.v[3] = one;
-    W268Mtx* a = func_00106a18(1);  // buffer_get_256
+    W268Mtx* a = kn__getProjection(1);  // buffer_get_256
     u8* c = func_00106a60(1);  // buffer_get_by_index
     W268Mtx* b = c ? (W268Mtx*)(c + 16) : 0;
     W268V4 tmp;
@@ -608,14 +608,14 @@ extern u8 D_0032b930[] asm("D_0032b930");
 extern Ctl1 D_0032ba3c asm("D_0032ba3c");
 void wtarget_00103ec0(u32, u32, u32, u32) asm("_Z16wtarget_00103ec0jjjj");
 void ctarget0_001a5a48(void) asm("_Z17ctarget0_001a5a48v");
-Vec4 func_0016bda8(void*) asm("func_0016bda8");
-s32 func_001d35e0(Vec4*, Vec4*, Vec4*, s32) asm("func_001d35e0");
-void func_001a55a8(Vec4*, s32) asm("func_001a55a8");
+Vec4 YS__OBJ__get_target_pos(void*) asm("YS__OBJ__get_target_pos");
+s32 YS__BGHIT__check_line(Vec4*, Vec4*, Vec4*, s32) asm("YS__BGHIT__check_line");
+void YS__PRIZE__Appear(Vec4*, s32) asm("YS__PRIZE__Appear");
 void YS_OBJ_scatter_prize(u8*, s32) asm("_ZN2YS3OBJ13scatter_prizeEi");
 f32 func_002f8ad0(f32, f32) asm("func_002f8ad0");
 
 // Direction vector -> (pitch, yaw, 0, 1) angles.
-Vec4* func_0017d050(Vec4* out, Vec4* in) {
+Vec4* YS__MATH__VectorToAngle(Vec4* out, Vec4* in) {
     Vec4 t;
     t = *in;
     f32 len;
@@ -699,7 +699,7 @@ void select_begin_leave(void*) asm("_ZN2Tz6Select10BeginLeaveEz");
 void select_set_flag(void*, s32) asm("_ZN2Tz6Select7SetFlagEz");
 
 // 0017d160: angle between two vectors (VU0 dot product, clamped acos)
-f32 func_0017d160(void* a, void* b)
+f32 YS__MATH__VectorAngle(void* a, void* b)
 {
     f32 d;
     asm volatile("lqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 0(%2)\n\tvmul.xyz $vf1, $vf1, $vf2\n\tvaddy.x $vf1, $vf1, $vf1y\n\tvaddz.x $vf1, $vf1, $vf1z\n\tqmfc2 $8, $vf1\n\tmtc1 $8, %0"
@@ -815,7 +815,7 @@ struct W1975Self {
 };
 s32 W1975_Slot_is_exist(W1975Slot*) asm("_ZN2YS12COMMAND_SLOT8is_existEv");
 s32 W1975_Slot_is_beep(const W1975Slot*) asm("_ZNK2YS12COMMAND_SLOT7is_beepEv");
-s32 W1975_u_call4_001b8e88(u32) asm("_Z16u_call4_001b8e88jjjj");
+s32 W1975_u_call4_001b8e88(u32) asm("_Z21YS__COMMAND_ELEM__Getjjjj");
 s32 W1975_ctarget_001c8db8(void*, u32) asm("_Z16ctarget_001c8db8jjjj");
 void W1975_systemSePlay(s32, s32) asm("_ZN5SOUND12systemSePlayEii");
 typedef void (*W1975VFn)(W1975Self*);
@@ -825,7 +825,7 @@ f32 W1975_Ev_get_float(void*) asm("_ZN2sa5EVENT9get_floatEPv");
 W1975Work* W1975_Ev_entry_work_get(s32) asm("_ZN2sa5EVENT14entry_work_getEi");
 void W1975_LookAt_release(u8*, f32, W1975V*) asm("_ZN2YS6LOOKAT7releaseEf");
 extern f32 D_00349e10 asm("D_00349e10");
-f32 func_0017d160(const W1975V*, const W1975V*) asm("func_0017d160");
+f32 YS__MATH__VectorAngle(const W1975V*, const W1975V*) asm("YS__MATH__VectorAngle");
 W1975M func_0017d1d8(const W1975V&, f32) asm("func_0017d1d8");
 void func_002fd188(void (*)(void)) asm("func_002fd188");
 static inline f32 W1975_clampf(f32 v, f32 lo, f32 hi) { if (hi < v) v = hi; else if (v < lo) v = lo; return v; }
@@ -841,7 +841,7 @@ W1975V func_0017d348(const W1975V& a, const W1975V& b, f32 t) {
     nb = b;
     nb.normalize();
     f32 ang;
-    { W1975V c1 = na; W1975V c2 = nb; ang = func_0017d160(&c1, &c2); }
+    { W1975V c1 = na; W1975V c2 = nb; ang = YS__MATH__VectorAngle(&c1, &c2); }
     t = t * D_00349e10;
     ang = W1975_clampf(ang, -t, t);
     axis = W1975_cross(na, nb);
@@ -882,8 +882,8 @@ void func_0011b6a8(M4*) asm("func_0011b6a8");
 M4* func_0011b6d8(M4*, f32) asm("func_0011b6d8");
 M4* func_0011b720(M4*, f32) asm("func_0011b720");
 f32 func_0017ce10(f32) asm("_ZN2YS4MATH9FixRadianEf");
-V4* func_0017d538(V4* out, V4* in, f32 ang) asm("func_0017d538");
-V4* func_0017d538(V4* out, V4* in, f32 ang)
+V4* YS__MATH__VectorRotY(V4* out, V4* in, f32 ang) asm("YS__MATH__VectorRotY");
+V4* YS__MATH__VectorRotY(V4* out, V4* in, f32 ang)
 {
     M4 m;
     func_0011b6a8(&m);

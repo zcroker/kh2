@@ -16,12 +16,12 @@ void func_001c8e90(void);
 void* func_002c6218(void);
 void func_002c6190(void*);
 void* func_001050d8(int);
-void func_002bf098(void*);
+void worldmap__RootWindow__RootWindow(void*);
 void func_00191bf0(f32);
 void func_00191c30(f32);
 void func_002c1dc0(void);
 void func_002c1750(void);
-void func_002bf9d8(int);
+void worldmap__Event__Event(int);
 void func_002bea88(void);  // 0x002bea88: definition moved into src/anon/unit_002be020.cpp
 
 /* 00176dd8 */

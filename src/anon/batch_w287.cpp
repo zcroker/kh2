@@ -2,28 +2,28 @@
 extern "C" {
 extern u32 D_0035f140;
 extern u8 D_0035f222;
-void func_002593b8(s32, s32);
+void Tz__CmComm__DataLoadWait(s32, s32);
 void func_00276410(void);
 void func_00293bd0(s32, s32, s32);
 void func_00274db8(void);
-void func_002a7588(void);
+void Tz__JmSynthe__ReadMixData(void);
 void func_002925c0(void);
 void func_00102448(s32, s32);
 void func_00170dd0(s32);
 void func_00274e08(void);
-void func_00293fc0(void);
+void Tz__JmInfo__SetLeadData(void);
 void func_00294020(s32);
-void func_002a75c0(void);
+void Tz__JmSynthe__GetMixData(void);
 s32 func_00292630(void);
 s32 func_00287bc0(void);
-void func_00274cf0(s32);  // state_dispatch_0_1_2
-void func_002b3440(void);
+void Tz__Jiminy__LoadData(s32);  // state_dispatch_0_1_2
+void Tz__JmPuzzle__SetPiece(void);
 void func_002a9d88(void);
-void func_002acf48(void);
-void func_00274fa8(void);
+void Tz__JmComplete__CheckAll(void);
+void Tz__Jiminy__Setup(void);
 void func_00292870(void);
 void func_00242618(s32, s32);
-void func_00236d60(void);  // clear_64_entries_24
+void YI__IMAGE_CACHE__Clear(void);  // clear_64_entries_24
 s32 func_00275180(void);
 void func_00275438(void);
 void func_00274e50(void);
@@ -42,8 +42,8 @@ void func_00103500(s32);
 s32 func_00253380(u32);
 void func_00253538(s32);
 void func_001037b8(void);
-void wtarget_00253180(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z16wtarget_00253180jjjj");
-void wtarget_00253180(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00253180: definition moved into src/anon/unit_002530c8.cpp
+void Tz__CampMenu__Start(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z19Tz__CampMenu__Startjjjj");
+void Tz__CampMenu__Start(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00253180: definition moved into src/anon/unit_002530c8.cpp
 }
 struct E27 { u8 pad[5]; u8 key; u8 pad2[2]; };
 extern "C" {
@@ -52,15 +52,15 @@ extern s32 D_0035f01c;
 extern s32 D_0035f010;
 s32 func_002570a0(s32);
 void func_0027aed8(s32, s32*, s32*);
-s32 func_0027af58(void);  // check_state16_then_loop
+s32 Tz__CmAbility__Cur2AbiltyType(void);  // check_state16_then_loop
 s32 func_0028b040(s32);
 s32 func_0027c3b8(s32);
 E27* func_00273180(s32, s32);  // state_dispatch_2_3
 u8* func_001145b0(u16);
 u8* func_00281180(s32, s32);
-void func_0027c118(s32, s32);
+void Tz__CmAbility__SetEquip(s32, s32);
 #define REC(i) (D_0035f230 + (i) * 8)
-void func_0027bf68(void);  // 0x0027bf68: definition moved into src/anon/unit_0027a6d8.cpp
+void Tz__CmAbility__ChgEquip(void);  // 0x0027bf68: definition moved into src/anon/unit_0027a6d8.cpp
 }
 struct T15 { u8 id; u8 b1; u8 b2; u8 pad; f32 f4; f32 f8; f32 f12; f32 f16; };
 struct S15 { u8 pad[68]; T15 t; };
@@ -98,16 +98,16 @@ static inline f32 v287_normalize(V287* v) {
     return len;
 }
 struct R287 { f32 x, y, z; s32 w; V287 b; R287() { w = 0; } };
-void func_0018a818(R287*, u8*, s32);
+void YS__COLLISION__set(R287*, u8*, s32);
 extern "C" {
 extern u8* D_00352130;
 extern f32 D_00349e10;
 s32 func_001917b0(void);
 void func_0017de70(u8*);
-s32 func_001b9d40(u8*);  // vtable_call_slot64_flags
+s32 YS__OBJ__can_control(u8*);  // vtable_call_slot64_flags
 s32 func_0019c090(u8*);  // obj_is_enabled
 s32 func_001a3a78(void);
-s32 func_001de168(s32, s32, s32, s32, s32, s32);  // scan_list_by_half
+s32 ryj__PAX__start(s32, s32, s32, s32, s32, s32);  // scan_list_by_half
 void func_0017f540(u8*, s32, f32, f32);
 s32 func_0016bc20(u8*, s32, s32);
 V287* func_001dc5f8(s32);
@@ -143,7 +143,7 @@ extern "C" {
 extern u8* D_00361f60;
 extern f32 D_00349e10;
 s32 func_001c0cd8(void);
-V287* func_0016c028(u8*);  // obj_get_attach_or_alt
+V287* YS__OBJ__get_pos(u8*);  // obj_get_attach_or_alt
 u8* func_002d73f0(u8*);
 static inline void o287_tick(u8* self, f32 s) {
     *(f32*)(self + 2840) += s * D_00349e10;

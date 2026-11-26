@@ -40,7 +40,7 @@ void func_0019af98();
 void func_0019b4d0();
 void func_0019b500();
 void func_0019b5d8();
-void func_0019b668();
+void Ti__ACTION_PO_JUMP__exec_jump();
 extern u8* D_0034e948;
 
 s32 func_0019a1a0(W1809O19a1* o, s32 a1);  // 0x0019a1a0: definition moved into src/anon/unit_00199688.cpp
@@ -61,8 +61,8 @@ void* func_0016d1d8(void*);
 extern s32 D_00361f60;
 s32 func_001c0cd8(void*);
 W1809R2d5* func_0016bc20(void*, s32, s32);
-void func_0016bda8(W1809V2d5*, void*);
+void YS__OBJ__get_target_pos(W1809V2d5*, void*);
 
 // VU0 macro code: d = a - b, then the xyz length of d.
-s32 func_002d55b8(u8* a0);  // 0x002d55b8: definition moved into src/anon/unit_002d4548.cpp
+s32 Ti__MGOarashiPlayer__is_combine_ready(u8* a0);  // 0x002d55b8: definition moved into src/anon/unit_002d4548.cpp
 }

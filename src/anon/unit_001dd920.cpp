@@ -24,7 +24,7 @@ struct W93Sp { u8 pad[4]; s32 type; s32 flags; u8 p2[20 - 12]; W93Dr* dr; u8 p3[
 extern u8 D_00352af0 asm("D_00352af0");
 extern u8 D_00352af1 asm("D_00352af1");
 extern W93Sp* D_00352ae0 asm("D_00352ae0");
-void func_001dd6a0(void) asm("func_001dd6a0");
+void ryj__EFFECT__SortEffect(void) asm("ryj__EFFECT__SortEffect");
 void func_001b81e8(void) asm("func_001b81e8");
 void func_001e6688(void) asm("func_001e6688");
 s32 func_001dc9d0(W93Sp*) asm("func_001dc9d0");
@@ -33,8 +33,8 @@ s32 func_001dcc60(W93Sp*) asm("func_001dcc60");
 void func_001e6648(void) asm("func_001e6648");
 void func_001dca70(W93Sp*) asm("func_001dca70");
 void func_001e3330(u32) asm("func_001e3330");
-s32 func_001e66e8(u32) asm("func_001e66e8");
-void func_001e6c00(u32) asm("func_001e6c00");
+s32 pppPartDraw(u32) asm("pppPartDraw");
+void pppDeleteMng(u32) asm("pppDeleteMng");
 void func_001e6af8(void) asm("func_001e6af8");
 void func_001b8218(void) asm("func_001b8218");
 struct W93NoTail { ~W93NoTail() {} };
@@ -45,7 +45,7 @@ void func_001dd920(void)
     if (D_00352af1) return;
     if (!D_00352af0) return;
     s32 any = 0;
-    func_001dd6a0();
+    ryj__EFFECT__SortEffect();
     func_001b81e8();
     func_001e6688();
     W93Sp* next;
@@ -66,8 +66,8 @@ void func_001dd920(void)
             }
             func_001dca70(o);
             func_001e3330(o->tex);
-            if (func_001e66e8(o->tex)) continue;
-            func_001e6c00(o->tex);                        
+            if (pppPartDraw(o->tex)) continue;
+            pppDeleteMng(o->tex);                        
             o->tex = 0;
             o->flags |= 0x10000;
         }

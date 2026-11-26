@@ -23,7 +23,7 @@ void func_00150260(void*, void*, s32, s32*);
 void func_0023a9c0(void*, s32*, s32*);
 s32 func_0023aa18(void*);
 s32 func_0023aa38(void*);
-void func_001386e0(Sub*, s32, s32, void*, s32, s32);
+void dk__Sprite__create(Sub*, s32, s32, void*, s32, s32);
 void func_001396b0(Sub*);
 void func_0031a260(Sub*, s32);
 void func_00139660(Sub*);

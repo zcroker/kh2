@@ -7,7 +7,7 @@ struct W231Q { char p[0x108]; u32 flags; char q[0x48c - 0x10c]; W231Ent* tab; };
 struct W231S { char p[4]; W231Q* q; char r[0x18]; u32 w20; u32 idx; W231Q* q28; };
 void func_0019cbe8(W231S*);
 u32* func_00177860(W231Q*);
-s32 func_0019ba60(W231Q*);
+s32 YS__OBJ__is_exist(W231Q*);
 u32 func_00154b40(u32, u32);
 
 void func_0019cb48(W231S* s);  // 0x0019cb48: definition moved into src/anon/unit_0019ba60.cpp
@@ -20,7 +20,7 @@ void func_001e23b0(W231Sl* p, W231Sl* src);  // 0x001e23b0: definition moved int
 s32 func_002538f8(s32);  // entry16_get_flag_bit
 s32 func_00253928(s32);  // entry16_get_bit1
 s32 func_00253918(void);
-s32 func_002539e8(s32, s32);
+s32 Tz__CMData__BackRead(s32, s32);
 void func_00102448(u32, s32);
 s32 func_002b6298(u32 a);  // 0x002b6298: definition moved into src/anon/unit_002b60e8.cpp
 }

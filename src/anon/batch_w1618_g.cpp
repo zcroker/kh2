@@ -44,7 +44,7 @@ s32 W1618_IsExec(void) asm("_ZN2YS5EVENT6IsExecEv");
 s32 W1618_be_ready(void) asm("_ZN2Ti8MiniGame8be_readyEv");
 W1618M4* func_002e2930(W1618MG*);
 W1618M4* func_002e2920(W1618MG*);
-W1618V4* func_0016c028(W1618Ob*);
+W1618V4* YS__OBJ__get_pos(W1618Ob*);
 void W1618_set_pos(W1618Ob*, const W1618V4&) asm("_ZN2YS3OBJ7set_posERKN2kn7FVectorE");
 void W1618_set_dir(W1618Ob*, const W1618V4&) asm("_ZN2YS3OBJ7set_dirERKN2kn7FVectorE");
 

@@ -26,8 +26,8 @@ struct W1757V4 { f32 x, y, z, w; };
 
 extern "C" {
 extern W1757V4 D_00350990;
-void func_001ba028(void*);
-void func_00193608(void*);
+void YS__OBJ__is_valid(void*);
+void YS__OBJ__make_matrix(void*);
 u32 func_001024a8(...);
 
 void W1757_set_pos(W1757Obj* self, const W1757Vec& v) asm("_ZN2YS3OBJ7set_posERKN2kn7FVectorE");

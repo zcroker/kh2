@@ -2,7 +2,7 @@
 extern "C" {
 
 void* getSaveRam_w1521(void) asm("_Z10getSaveRamv");
-void func_0014ca80(s32, s32, s32, s32, s32);
+void dk__Clock__vCountToHMSMS(s32, s32, s32, s32, s32);
 void func_0014cc40(s32 a0, s32 a1, s32 a2, s32 a3, s32 idx);  // 0x0014cc40: definition moved into src/anon/unit_0014c7f0.cpp
 
 struct W1521Node { void* vt; u8 pad[0x78]; W1521Node* next; };
@@ -13,7 +13,7 @@ extern u8 D_00350c50;
 
 s32 func_00287bc0(void);
 void func_00276c50(s32, s32);
-void func_0029ea30(void);  // 0x0029ea30: definition moved into src/anon/unit_0029d008.cpp
+void Tz__JmDic__UpdateHelpMess(void);  // 0x0029ea30: definition moved into src/anon/unit_0029d008.cpp
 
 u32 func_001024a8(...);
 struct W1521Pos { s32 x, y; W1521Pos(s32 a, s32 b) : x(a), y(b) {} };

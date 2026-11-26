@@ -33,10 +33,10 @@ typedef struct O_w3
   u8 pad[0x18];
   W_w w[3];
 } O_w3;
-void func_00229430(O_w3 *, s32);
+void sa__MUSICAL_SCORE_BASE__create(O_w3 *, s32);
 s32 func_0022b9e0(void);
 s32 func_0022b720(void);
-void func_001386e0(W_w *, s32, s32, s32, s32, s32);
+void dk__Sprite__create(W_w *, s32, s32, s32, s32, s32);
 void func_001396b0(W_w *);
 void func_0031a260(W_w *, s32);
 inline static void Upd_w(W_w *w)
@@ -51,6 +51,6 @@ inline static void Upd_w(W_w *w)
   }
 }
 
-void func_00228788(O_w3 *o);  // 00228788: moved to src/anon/unit_00228618.cpp (linked unit)
+void sa__MUSICAL_GAUGE4__create(O_w3 *o);  // 00228788: moved to src/anon/unit_00228618.cpp (linked unit)
 
 }

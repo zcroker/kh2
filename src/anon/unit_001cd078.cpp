@@ -14,7 +14,7 @@ s32 func_001d87b8(s32);
 void func_001d86a0_x8559(s32, s32) asm("func_001d86a0");
 void func_0016be98(V1cd078*, u8*);
 void func_001ccf18(V1cd078*, s32, s32);
-void func_001cd078(u8* p) {
+void YS__PRIZE_TT__ExecDamage(u8* p) {
     V1cd078 v;
     s32 n, a, b;
     if (D_003520c0 == 0) return;
@@ -89,7 +89,7 @@ extern SaveMid D_01d5a97c;
 extern SaveMid D_0034f250m asm("D_0034f250");
 extern SaveMid D_01d5b1a4;
 extern SaveMid D_0034fa78;
-void func_001ada38(u32);
+void YS__RECOV__Exec(u32);
 void func_001ba138(void);  // to_2fd310_block
 void func_00242908(void);
 void func_00168fa8(void);
@@ -97,7 +97,7 @@ void func_001cd388(void) {
     D_0032bb30 = D_01d499b0b;
     D_0034f250m = D_01d5a97c;
     D_0034fa78 = D_01d5b1a4;
-    func_001ada38(8);
+    YS__RECOV__Exec(8);
     func_001ba138();  // to_2fd310_block
     func_00242908();
     func_00168fa8();

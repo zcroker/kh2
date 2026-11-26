@@ -11,5 +11,5 @@ u32 func_001a6d08(s32);
 void func_001a6c90(s32);
 void func_002641c8(Out14*, u8*, u32, u32);
 void func_002640a8(s32 a0, u16 a1, Out14* a2);
-void func_00263ee0(s32 a0, Out14* o);  // 0x00263ee0: definition moved into src/anon/unit_00263ee0.cpp
+void Tz__IShopInfo__GetShopTbl(s32 a0, Out14* o);  // 0x00263ee0: definition moved into src/anon/unit_00263ee0.cpp
 }

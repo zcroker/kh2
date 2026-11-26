@@ -32,7 +32,7 @@ extern s8 D_0036c610[8] asm("D_0036c610");
 extern s8 D_0036c618[8] asm("D_0036c618");
 extern s8 D_0036c620[8] asm("D_0036c620");
 extern s8 D_0036c628[8] asm("D_0036c628");
-void* func_001b1490(void*) asm("func_001b1490");
+void* YS__DATABUFF__ReadBar(void*) asm("YS__DATABUFF__ReadBar");
 Res* func_00168b38(void*, s32, s32) asm("func_00168b38");  // entry_array_find_nth
 Res* func_00168b88(void*, s32, s32, s32) asm("func_00168b88");  // find_entry16_by_half_word
 void func_00196608(u32) asm("func_00196608");
@@ -45,10 +45,10 @@ void func_002c22a8(u32) asm("func_002c22a8");
 
 static inline u32 TAG(const s8* s) { return s[0] | (s[1] << 8) | (s[2] << 16) | (s[3] << 24); }
 
-void func_00180f28(void) asm("func_00180f28");
-void func_00180f28(void)
+void YS__PROGRESS__Read(void) asm("YS__PROGRESS__Read");
+void YS__PROGRESS__Read(void)
 {
-    void* h = func_001b1490(D_0034ec68);
+    void* h = YS__DATABUFF__ReadBar(D_0034ec68);
     s32 i;
     for (i = 0; i < 19; i++) {
         Res* r = func_00168b38(h, 2, i);  // entry_array_find_nth
@@ -101,12 +101,12 @@ void func_001814b8(u32) asm("func_001814b8");
 void func_001a6c90(u32) asm("func_001a6c90");
 u8* func_001b6d70(s32) asm("func_001b6d70");
 void func_001815d0(s32) asm("func_001815d0");
-void func_00181670(void) asm("func_00181670");
+void YS__PROGRESS__CheckLM(void) asm("YS__PROGRESS__CheckLM");
 void func_001817f0(s32) asm("func_001817f0");
 void func_00181778(void) asm("func_00181778");
-void func_001d59b0(void) asm("func_001d59b0");
+void YS__LINK_FLAG__Check(void) asm("YS__LINK_FLAG__Check");
 void func_001d5218(s32) asm("func_001d5218");
-void func_001b8ce0(s32) asm("func_001b8ce0");
+void YS__WORLDFLAG__ProgressCallback(s32) asm("YS__WORLDFLAG__ProgressCallback");
 void func_001c0ba0(s32) asm("func_001c0ba0");
 void func_0019ef30(void) asm("func_0019ef30");
 void func_00196540(s32) asm("func_00196540");
@@ -165,12 +165,12 @@ void W3721_SetFlag(s32 flag) {
         c = (W3721FlagCmd*)&c->arg[c->n];
     }
     func_001815d0(flag);
-    func_00181670();
+    YS__PROGRESS__CheckLM();
     func_001817f0(flag);
     func_00181778();
-    func_001d59b0();
+    YS__LINK_FLAG__Check();
     func_001d5218(flag);
-    func_001b8ce0(flag);
+    YS__WORLDFLAG__ProgressCallback(flag);
     func_001c0ba0(flag);
     W3721_ColosseumCheck();
     if (flag == 0x8d0) func_0019ef30();
@@ -234,8 +234,8 @@ namespace g5 {
 s32 func_00181500(void*) asm("_ZN2YS8PROGRESS9CheckFlagEi");
 void func_00181178(void*) asm("_ZN2YS8PROGRESS7SetFlagEi");
 
-s32 func_00181570(void* a, void* b) asm("func_00181570");
-s32 func_00181570(void* a, void* b) {
+s32 YS__PROGRESS__CheckAndSet(void* a, void* b) asm("YS__PROGRESS__CheckAndSet");
+s32 YS__PROGRESS__CheckAndSet(void* a, void* b) {
     if (!func_00181500(a) && func_00181500(b)) {
         func_00181178(a);
         return 1;
@@ -250,7 +250,7 @@ struct E1815d0 { s32 a; s32 b; };
 extern E1815d0 D_0036c668[] asm("D_0036c668");
 void func_001a3458(s32, s32) asm("func_001a3458");
 s32 func_001a3570(s32) asm("func_001a3570");
-void func_00181570(s32, s32) asm("func_00181570");
+void YS__PROGRESS__CheckAndSet(s32, s32) asm("YS__PROGRESS__CheckAndSet");
 
 void func_001815d0(s32 id) asm("func_001815d0");
 void func_001815d0(s32 id) {
@@ -262,7 +262,7 @@ void func_001815d0(s32 id) {
     if (func_001a3570(32)) {
         E1815d0* e = D_0036c668;
         s32 i;
-        for (i = 4; i >= 0; i--, e++) func_00181570(e->a, e->b);
+        for (i = 4; i >= 0; i--, e++) YS__PROGRESS__CheckAndSet(e->a, e->b);
     }
 }
 }  // namespace g6
@@ -274,8 +274,8 @@ s32 func_001a3570(s32) asm("func_001a3570");
 void func_00181178(s32) asm("_ZN2YS8PROGRESS7SetFlagEi");
 extern u8 D_0032f05a asm("D_0032f05a");
 
-void func_00181670(void) asm("func_00181670");
-void func_00181670(void) {
+void YS__PROGRESS__CheckLM(void) asm("YS__PROGRESS__CheckLM");
+void YS__PROGRESS__CheckLM(void) {
     if (!func_00181500(11302)) {
         if (func_00181500(11313) && func_001a3570(87) > 0) func_00181178(11302);
         return;

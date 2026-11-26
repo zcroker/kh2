@@ -39,20 +39,20 @@ struct Obj1a4 {
     QWord prev;
 };
 extern "C" {
-void func_0016af58(QWord*, u32);
-QWord* func_0016c028(u32);
+void YS__OBJ__get_dir(QWord*, u32);
+QWord* YS__OBJ__get_pos(u32);
 
 static inline QWord Back(u32 id)
 {
     QWord t;
-    func_0016af58(&t, id);
+    YS__OBJ__get_dir(&t, id);
     return Scale(t, -1.0f);
 }
 static inline QWord Dir(Obj1a4* o, u32 id)
 {
     if (o->flags & 0x20) return Back(id);
     if (o->flags & 4) return Sub(o->pos, o->prev);
-    return Sub(*func_0016c028(id), o->pos);
+    return Sub(*YS__OBJ__get_pos(id), o->pos);
 }
 // 001a49f8: moved to src/anon/unit_001a3e70.cpp
 }

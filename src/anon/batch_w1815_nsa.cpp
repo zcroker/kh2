@@ -16,10 +16,10 @@ struct O178 {
 };
 void func_00179dd0(O178*, u16);
 void func_001991a8(s32, u16);
-void* func_00175c88(O178*, B178*);
+void* YS__PARTY__exec_command(O178*, B178*);
 void func_001bbcf8(void*);
-void func_0017a2d0(O178*);
-void func_001774e0(O178*);
+void YS__PLAYER__check_message_wall(O178*);
+void YS__PARTY__exec_hook(O178*);
 static inline __attribute__((always_inline)) u32 tA(u32 x) { return x & 4; }
 static inline __attribute__((always_inline)) u32 tB(u32 x) { return x & 8; }
 static inline __attribute__((always_inline)) u32 tC(u32 x) { return x & 0x10; }
@@ -35,7 +35,7 @@ extern Oe9* D_01d9e6e0;
 extern u8* D_01d9e6e8;
 Re9* func_001e7a98(Oe9*, void*);
 void sceVu0ApplyMatrix(V4e9*, void*, V4e9*);
-void func_001e9d48(s32 a0, Ae9* a1, s16* a2);  // 0x001e9d48: definition moved into src/anon/unit_001e8ac8.cpp
+void apea(s32 a0, Ae9* a1, s16* a2);  // 0x001e9d48: definition moved into src/anon/unit_001e8ac8.cpp
 
 struct Peb { u16 a0; u16 flags; u8 c[4]; u64 f8; u8* f10; s32 f14; u8 f18; u32 f1c; u8 pad[16]; };
 struct Teb { s32 a; s32 b; };

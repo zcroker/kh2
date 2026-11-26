@@ -21,7 +21,7 @@ extern "C" {
 extern u8 D_0034881c;
 extern W2389Cam* D_00348800;
 void* func_0016b0d0(void);
-W2389Vec* func_0016c028(void*);
+W2389Vec* YS__OBJ__get_pos(void*);
 void func_002f47d8(void* d, void* m, void* v, u32 f);
 // 001440e0: projects a target position through the camera matrix and sets screen offsets from two projections 200 units apart.
 void func_001440e0(void);  // 0x001440e0: definition moved into src/anon/unit_00142c90.cpp

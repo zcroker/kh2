@@ -1,5 +1,5 @@
 #include "../common/types.h"
-// func_002405a8: build the memory-card save title (Shift-JIS) for slot `slot`:
+// Tz__MCard__MakeTitle: build the memory-card save title (Shift-JIS) for slot `slot`:
 // header text, game level / completion marks, slot number, item count and play time
 // (hours, minutes) added into the template's fullwidth digit characters.
 
@@ -24,7 +24,7 @@ s32 func_00240108(void);
 s32 W3800_GetGameLevel(W3800_SaveRam*) asm("_ZN7SAVERAM12GetGameLevelEPv");
 W3800_SaveRam* W3800_getSaveRam(void) asm("_Z10getSaveRamv");
 s32 W3800_isGameComplete(W3800_SaveRam*) asm("_ZN7SAVERAM14isGameCompleteEv");
-W3800_Item* W3800_ctarget(void*, u32) asm("_Z16ctarget_00188fe0jjjj");
+W3800_Item* W3800_ctarget(void*, u32) asm("_Z31YS__SAVERAM_BATTLE__get_partramjjjj");
 void W3800_getPlayTime(u32*, u32*, u32*, u32*) asm("_ZN2dk5Clock18getPlayTimeToHMSMSERjS1_S1_S1_");
 
 extern W3800_SaveRam D_0032bb30;
@@ -35,6 +35,6 @@ extern const char* D_0035ec18[];
 extern const char* D_0035ec28;
 extern const char* D_0035ec2c;
 
-void func_002405a8(char* buf, s32 slot);  // 0x002405a8: definition moved into src/anon/unit_0023f5b8.cpp
+void Tz__MCard__MakeTitle(char* buf, s32 slot);  // 0x002405a8: definition moved into src/anon/unit_0023f5b8.cpp
 
 }

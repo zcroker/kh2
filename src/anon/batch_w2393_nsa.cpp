@@ -8,9 +8,9 @@ extern "C" {
 s32 func_00190140(Hnd10da40*) asm("_ZNK2YS6TARGET8is_existEv");
 void func_00190128(Hnd10da40*);
 void func_00190878(Hnd10da40*, s32, s32) asm("_ZN2YS6TARGET7set_objEPNS_3OBJEi");
-s32 func_00190730(Hnd10da40*, s32);
-void func_0018a818(Info10da40*, s32, s32);
-void* func_0016c028(void*);
+s32 YS__TARGET__each(Hnd10da40*, s32);
+void YS__COLLISION__set(Info10da40*, s32, s32);
+void* YS__OBJ__get_pos(void*);
 extern Hnd10da40 D_003417b0;
 extern s32 D_003417c4;
 }

@@ -3,7 +3,7 @@
 typedef void (*VFn)(void*);
 
 extern "C" {
-u32 func_00112740(void*);  // get_field2940
+u32 kn__Friend__getFlag(void*);  // get_field2940
 void func_00112730(void*, u32);
 void* func_00124748(void*, s32);  // list_nth_node_rel
 void* func_0016e920(void*, void*);
@@ -14,8 +14,8 @@ void func_001b1bb8(void*, u32, u32, u32, s32, f32);
 void* func_00180698(void);
 void func_0016cc18(void*, void*, void*, void*, s32);
 void func_001a1840(void*);
-void func_001a11e0(void*, s32);
-void func_00187650(void*, void*);
+void YS__SHEET__load(void*, s32);
+void YS__BTLOBJ__add_mp(void*, void*);
 void func_001a1990(void*, void*, u8);
 void* func_0016bff0(void*);
 void func_001956d0(void*, void*);
@@ -27,7 +27,7 @@ void func_001c1428(void*);
 void func_001dba98(void*);
 void func_0016b5b8(void*);
 u8* func_001ba158(void);
-void func_001ada38(s32);
+void YS__RECOV__Exec(s32);
 void func_001dc9e0(void*);
 void func_001e6cf8(void*);
 s32 func_001e2c78(void*);
@@ -43,7 +43,7 @@ void* func_0014aba8(void);
 void func_0014aa58(void*, s32, s32);
 void func_00287cc0(s32);
 void func_0026b470(void);
-void func_0026b508(void);
+void Tz__CmEquip__SortEquip(void);
 void func_0026b5a0(s32);
 void* func_002537c8(s32);
 void* func_0023fa08(void*, void*);
@@ -53,11 +53,11 @@ u8* func_001d56c8(void);
 void func_002b8824(void*, void*, s32, void*, void*);
 void* func_001050d8(s32);
 void func_002e20d8(void*, void*);
-void func_002e9610(void*, void*);
+void Ts__FLARE__set_pos(void*, void*);
 s32 func_002ef7b8(void);
 void func_001b8228(void);
 void func_001b8258(void);
-void func_0017c430(void*);
+void YS__OBJ__prepare_jump_height(void*);
 void func_0016bd60(void*, s32);
 void func_00106420(void*);
 
@@ -97,7 +97,7 @@ void* CMData_GetPtr(s32) asm("_ZN2Tz6CMData6GetPtrEi");
 
 void Peterpan_acceptNotifyPlayerTarget(void* s);  // 0x0011a430: definition moved into src/anon/unit_0011a260.cpp
 
-void* func_00123dd0(void* a);  // 0x00123dd0: definition moved into src/anon/unit_00123990.cpp
+void* kn__ModelMulti__getHrcNum(void* a);  // 0x00123dd0: definition moved into src/anon/unit_00123990.cpp
 
 // 00135ff0: moved to src/naka/libkn/effect_observer.cpp
 
@@ -123,7 +123,7 @@ void func_0018f218(u8* p);  // 0x0018f218: definition moved into src/anon/unit_0
 
 void SHEET_reload(void* s);  // 0x001a1460: definition moved into src/anon/unit_0019fb70.cpp
 
-void func_001a1a20(u8* p, void* a, u8 b);  // 0x001a1a20: definition moved into src/anon/unit_0019fb70.cpp
+void YS__SHEET__add_mp(u8* p, void* a, u8 b);  // 0x001a1a20: definition moved into src/anon/unit_0019fb70.cpp
 
 // 001a6c38: moved to src/anon/unit_001a6a10.cpp
 
@@ -133,7 +133,7 @@ s32 func_001b81e8(void);  // 0x001b81e8: definition moved into src/anon/unit_001
 
 s32 func_001bdd20(u8* p);  // 0x001bdd20: definition moved into src/anon/unit_001bc568.cpp
 
-void func_001befa8(u8* p);  // 0x001befa8: definition moved into src/anon/unit_001bc568.cpp
+void YS__FIELD_COMMAND__reset_special_command(u8* p);  // 0x001befa8: definition moved into src/anon/unit_001bc568.cpp
 
 // 001c2578: moved to src/anon/unit_001c0638.cpp
 void MASSOBJ_OVR_exec(void* o);
@@ -141,7 +141,7 @@ void MASSOBJ_OVR_exec(void* o);
 // 001ce458: moved to src/anon/unit_001cd660.cpp
 void func_001ce458(u8* p);
 
-void func_001d7940(void);  // 0x001d7940: definition moved into src/anon/unit_001d7458.cpp
+void YS__HE_COLOSSEUM__Start(void);  // 0x001d7940: definition moved into src/anon/unit_001d7458.cpp
 
 void EFFECT_color(void* e);  // 0x001dc670: definition moved into src/anon/unit_001dbfd8.cpp
 
@@ -168,11 +168,11 @@ void func_0026b448(void);  // 0x0026b448: definition moved into src/anon/unit_00
 
 void* CMData_GetPtr(s32);  // 0x002806c8: definition moved into src/anon/unit_0027f2b0.cpp
 
-void func_0028b218(u8* p, u8 on);  // 0x0028b218: definition moved into src/anon/unit_00288b00.cpp
+void Tz__Select__SetPageMode(u8* p, u8 on);  // 0x0028b218: definition moved into src/anon/unit_00288b00.cpp
 
 void func_00299260(void);  // 0x00299260: definition moved into src/anon/unit_002982f0.cpp
 
-bool func_002a8920(void);  // 0x002a8920: definition moved into src/anon/unit_002a8748.cpp
+bool Tz__JmMiniGame__isPlay(void);  // 0x002a8920: definition moved into src/anon/unit_002a8748.cpp
 
 void func_002bd730(s32 a, void* b, void* c, void* d);  // 0x002bd730: definition moved into src/anon/unit_002bc978.cpp
 

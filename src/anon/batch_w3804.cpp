@@ -119,7 +119,7 @@ struct E116Obj {
     s32 f1572;
 };
 extern "C" E116Cam* func_00111e38(s32);
-extern "C" s32 func_0019ba60(E116Model*);
+extern "C" s32 YS__OBJ__is_exist(E116Model*);
 extern "C" void func_001dc920(s32);
 extern "C" void func_00117910(E116Obj*, s32);
 extern "C" void func_00117aa8(E116Obj*, s32);
@@ -131,7 +131,7 @@ extern "C" E116Vec* func_001dc5f8(s32);
 extern "C" E116Vec* func_001dc620(s32);
 extern "C" E116Vec* func_001dc648(s32);
 extern "C" f32* func_001dc670(s32);
-extern "C" void func_0016b0e0(void*, s32, E116Mtx*);
+extern "C" void YS__OBJ__get_bone_matrix(void*, s32, E116Mtx*);
 extern "C" void func_0011b6a8(E116Mtx*);
 extern "C" void func_0011b7b0(E116Mtx*, E116Vec*);
 extern "C" void func_00115c08(E116Obj*, E116Mtx*, E116Vec*, E116Vec*, E116Vec*, u8);
@@ -141,6 +141,6 @@ extern "C" void func_0018f028(s32);
 
 
 extern "C" {
-void func_00116db0(E116Obj* o);  // 0x00116db0: definition moved into src/anon/unit_00114a90.cpp
+void kn__Stitch__pre_exec(E116Obj* o);  // 0x00116db0: definition moved into src/anon/unit_00114a90.cpp
 
 }

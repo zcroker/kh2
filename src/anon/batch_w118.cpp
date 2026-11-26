@@ -1,6 +1,6 @@
 #include "../common/types.h"
 extern "C" {
-void func_0014b290(u8*);
+void dk__RectBase__createPacket(u8*);
 }
 struct ParamEnt { u16 type; u8 pad; u8 flag; void* ptr; u32 p8, pc; };
 struct ParamObj { void* vt; u8 pad[28]; u8 data[224]; ParamEnt e[33]; };

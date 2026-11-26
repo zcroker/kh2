@@ -11,5 +11,5 @@ s32 func_00294408(Grp*);
 extern Dst* D_0035f5d4;
 }
 extern "C" {
-void func_002a18d0(s32 all, s32 sel);  // 0x002a18d0: definition moved into src/anon/unit_002a0908.cpp
+void Tz__JmDiagram__GetCharaIdx(s32 all, s32 sel);  // 0x002a18d0: definition moved into src/anon/unit_002a0908.cpp
 }

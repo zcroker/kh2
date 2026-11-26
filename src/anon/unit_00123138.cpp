@@ -20,10 +20,10 @@ namespace g00123138 {
 struct O;
 typedef u32 (*Fn)(O*, u32, u32, u32, u32, u32, u8, u32);
 struct O { Fn* vt; };
-u32 func_00121cc8(O*, u32, u32, u32, u32, u32, u8, u32) asm("func_00121cc8");
+u32 kn__ModelSKL__drawNormal(O*, u32, u32, u32, u32, u32, u8, u32) asm("kn__ModelSKL__drawNormal");
 u32 func_00123138(O* o, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u8 a6, u32 a7) asm("func_00123138");
 u32 func_00123138(O* o, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u8 a6, u32 a7) {
-    u32 r = func_00121cc8(o, a1, a2, a3, a4, a5, a6, a7);
+    u32 r = kn__ModelSKL__drawNormal(o, a1, a2, a3, a4, a5, a6, a7);
     if (a6) o->vt[21](o, a1, a2, a3, a4, a5, a6, a7);
     return r;
 }
@@ -83,11 +83,11 @@ void func_00133c60(s32, s32, s32, s32, s32) asm("func_00133c60");
 // Needs -fno-strict-aliasing (_nsa). Register pin (w3721): in three of the four part loops the texture
 // pointer is pinned to t5 ($13); without it gcc swaps t5/t6 for the pointer and its vis byte (closest C: 8 diffs).
 // Draws the visible parts of an object's model (or of its sub-model) with a per-part mask.
-s32 func_00123228(W3721bObj* o, W3721bMtx* mtx, s32* ids, W3721bDesc* d, u8* mask) asm("func_00123228");
+s32 kn__ModelSKL__drawSilhouette(W3721bObj* o, W3721bMtx* mtx, s32* ids, W3721bDesc* d, u8* mask) asm("kn__ModelSKL__drawSilhouette");
 // Needs -fno-strict-aliasing (_nsa). Register pin (w3721): in three of the four part loops the texture
 // pointer is pinned to t5 ($13); without it gcc swaps t5/t6 for the pointer and its vis byte (closest C: 8 diffs).
 // Draws the visible parts of an object's model (or of its sub-model) with a per-part mask.
-s32 func_00123228(W3721bObj* o, W3721bMtx* mtx, s32* ids, W3721bDesc* d, u8* mask)
+s32 kn__ModelSKL__drawSilhouette(W3721bObj* o, W3721bMtx* mtx, s32* ids, W3721bDesc* d, u8* mask)
 {
     W3721bTex* tex[32];
     s32 pk = func_0010ae90();
@@ -188,7 +188,7 @@ u64 func_00109040(s32) asm("func_00109040");
 u64 func_00109050(s32) asm("func_00109050");
 u64 func_00109058(s32) asm("func_00109058");
 u64 func_00109060(s32) asm("func_00109060");
-void func_00108ae0(s32, u32, u64, u64, u64, u64, u64, u64) asm("func_00108ae0");
+void kn__VU1DrawContext__setPacketForce(s32, u32, u64, u64, u64, u64, u64, u64) asm("kn__VU1DrawContext__setPacketForce");
 // Draws the masked (flag 4) visible parts of an object's model as a second pass.
 s32 func_00123650(Obj* o, Mtx* mtx, s32* ids, Desc* d, u8* mask) asm("func_00123650");
 s32 func_00123650(Obj* o, Mtx* mtx, s32* ids, Desc* d, u8* mask)
@@ -238,7 +238,7 @@ s32 func_00123650(Obj* o, Mtx* mtx, s32* ids, Desc* d, u8* mask)
                 }
             }
         }
-        func_00108ae0(pk, 63, func_00109040(pk), a, func_00109050(pk), func_00109058(pk), func_00109060(pk), b);
+        kn__VU1DrawContext__setPacketForce(pk, 63, func_00109040(pk), a, func_00109050(pk), func_00109058(pk), func_00109060(pk), b);
     }
     return 1;
 }

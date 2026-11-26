@@ -38,22 +38,22 @@ struct SegN { V4n a, b; };
 struct AabbN { f32 v[6]; };
 struct TriN { V4n a, b; };
 struct ObjN { u8 p0[12]; u8* f12; u8 p16[44]; u16* f60; u8 p64[16]; M4n m80; M4n m144; };
-void func_001449a8(AabbN*, M4n*) asm("func_001449a8");
+void dk__Aabbox__mulMatrix(AabbN*, M4n*) asm("dk__Aabbox__mulMatrix");
 void func_00144e30(V4n*) asm("func_00144e30");
 u32 func_00141970(ObjN*) asm("func_00141970");
 void func_00144e50(V4n*, AabbN*, u32) asm("func_00144e50");
 void func_00141980(ObjN*, u8*) asm("func_00141980");
 void func_00141c18(ObjN*, s32, s32, s32, s32) asm("func_00141c18");
-void func_00141c38(ObjN*, s32, V4n*, u16*, s32) asm("func_00141c38");
+void dk__OctCollFile__selectPolygon(ObjN*, s32, V4n*, u16*, s32) asm("dk__OctCollFile__selectPolygon");
 void func_00141988(ObjN*, u8*, TriN*) asm("func_00141988");
 s32 func_00164d60(ObjN*, TriN*, V4n*, V4n*, V4n*, V4n*) asm("func_00164d60");
 f32 func_00164c70(ObjN*, const V4n&, const V4n&, const V4n&) asm("func_00164c70");
 
-s32 func_001652c8(ObjN* o, V4n& pos, AabbN* box, V4n* outA, V4n* outB, V4n& outC, V4n& dir, u16* outId) asm("func_001652c8");
-s32 func_001652c8(ObjN* o, V4n& pos, AabbN* box, V4n* outA, V4n* outB, V4n& outC, V4n& dir, u16* outId)
+s32 dk__OctCollFile__getDanglePoint(ObjN* o, V4n& pos, AabbN* box, V4n* outA, V4n* outB, V4n& outC, V4n& dir, u16* outId) asm("dk__OctCollFile__getDanglePoint");
+s32 dk__OctCollFile__getDanglePoint(ObjN* o, V4n& pos, AabbN* box, V4n* outA, V4n* outB, V4n& outC, V4n& dir, u16* outId)
 {
     AabbN s = *box;
-    func_001449a8(&s, &o->m144);
+    dk__Aabbox__mulMatrix(&s, &o->m144);
     V4n b;
     func_00144e30(&b);
     func_00144e50(&b, &s, func_00141970(o));
@@ -61,7 +61,7 @@ s32 func_001652c8(ObjN* o, V4n& pos, AabbN* box, V4n* outA, V4n* outB, V4n& outC
     u8 buf[2048];
     func_00141980(o, buf);
     func_00141c18(o, 1024, 1024, 0, 0);
-    func_00141c38(o, 0, &b, &r, 15);
+    dk__OctCollFile__selectPolygon(o, 0, &b, &r, 15);
     if (r == 0) return 0;
     f32 best = 99999991988224.0f;
     s32 found = 0;
@@ -279,7 +279,7 @@ struct Ent165 { u32 id; u32 obj; u32 flags; };
 struct Me165 { Vn81 pos; Vn81 dir; u8 pad[16]; Vn81 tgt; u8 pad2[60]; u32 id; };
 Ent165* func_00165ef0(Ent165*) asm("func_00165ef0");
 s32 func_00142b70(u32) asm("func_00142b70");
-s32 func_00164718(u32, Me165*) asm("func_00164718");
+s32 dk__OctCollFile__collisionSphere_2(u32, Me165*) asm("dk__OctCollFile__collisionSphere_2");
 s32 func_00165a10(Me165* m) asm("func_00165a10");
 s32 func_00165a10(Me165* m) {
     Ent165* e = 0;
@@ -289,7 +289,7 @@ s32 func_00165a10(Me165* m) {
         u32 f = e->flags & 1;
         if (f) continue;
         if (func_00142b70(e->obj)) continue;
-        if (!func_00164718(e->obj, m)) continue;
+        if (!dk__OctCollFile__collisionSphere_2(e->obj, m)) continue;
         found = 1;
         m->dir = vsub81n(m->tgt, m->pos);
     }
@@ -322,8 +322,8 @@ void func_0031b9e0(Hit165ad8*) asm("func_0031b9e0");
 Ent165ad8* func_00165ef0(Ent165ad8*) asm("func_00165ef0");
 s32 func_00142b70(void*) asm("func_00142b70");
 s32 func_001424c0(void*, Hit165ad8*) asm("func_001424c0");
-s32 func_00165ad8(Hit165ad8* h, f32* minDist) asm("func_00165ad8");
-s32 func_00165ad8(Hit165ad8* h, f32* minDist)
+s32 dk__ObjOcc__collisionDown(Hit165ad8* h, f32* minDist) asm("dk__ObjOcc__collisionDown");
+s32 dk__ObjOcc__collisionDown(Hit165ad8* h, f32* minDist)
 {
     Ent165ad8* e = 0;
     s32 found = 0;

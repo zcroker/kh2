@@ -6,12 +6,12 @@ u32 func_00114690(u32, u32, u32, u32);
 u32 func_0013b508(u32, u32, u32, u32);
 u32 func_0013cb08(u32, u32, u32, u32);
 u32 func_0013db60(u32, u32, u32, u32);
-u32 func_00143ee8(u32, u32, u32, u32);
+u32 dk__Octree__getAttr(u32, u32, u32, u32);
 u32 func_0015dfd8(u32, u32, u32, u32);
 u32 func_0016a020(u32, u32, u32, u32);
 u32 func_0016a070(u32, u32, u32, u32);
 u32 func_0016d110(u32, u32, u32, u32);
-u32 func_0016f7d0(u32, u32, u32, u32);
+u32 YS__OBJENTRY__GetCacheBuffStatus(u32, u32, u32, u32);
 u32 func_00170240(u32, u32, u32, u32);
 u32 func_001702e0(u32, u32, u32, u32);
 u32 func_0017f3d8(u32, u32, u32, u32);
@@ -24,7 +24,7 @@ u32 func_001947c0(u32, u32, u32, u32);
 u32 func_00195468(u32, u32, u32, u32);
 u32 func_00198bd0(u32, u32, u32, u32);
 u32 func_0019b260(u32, u32, u32, u32);
-u32 func_001a3018(u32, u32, u32, u32);
+u32 YS__ITEM__WhereGet(u32, u32, u32, u32);
 u32 func_001a3570(u32, u32, u32, u32);
 u32 func_001a8b28(u32, u32, u32, u32);  // get_data_1c7cc10
 u32 func_001a9018(u32, u32, u32, u32);
@@ -35,7 +35,7 @@ u32 func_001d52c0(u32, u32, u32, u32);
 u32 func_001d7730(u32, u32, u32, u32);
 u32 func_002431c0(u32, u32, u32, u32);
 u32 func_00257770(u32, u32, u32, u32);
-u32 func_002632d0(u32, u32, u32, u32);
+u32 Tz__CmItem__isSoraOnly(u32, u32, u32, u32);
 u32 func_0026eda8(u32, u32, u32, u32);
 u32 func_00276368(u32, u32, u32, u32);
 u32 func_0027bba0(u32, u32, u32, u32);
@@ -64,7 +64,7 @@ u32 func_0014a268(u32 a0, u32 a1, u32 a2, u32 a3);  // 0014a268: moved to src/an
 
 u32 func_0014a2c8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0014a2c8: moved to src/anon/unit_00149fa8.cpp
 
-u32 func_0014cba0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0014cba0: definition moved into src/anon/unit_0014c7f0.cpp
+u32 dk__Clock__getPlayTime(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0014cba0: definition moved into src/anon/unit_0014c7f0.cpp
 
 u32 func_0014cbc0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0014cbc0: definition moved into src/anon/unit_0014c7f0.cpp
 

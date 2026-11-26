@@ -45,9 +45,9 @@ s32 func_0023aa58(void *p);
 s32 func_0023aa78(void *p);
 Rc29dba0 *func_001aae68(s32 a);
 s32 func_00192048(s16 id);
-void func_001a98e8(void *t, s32 a, s32 b, s32 c, s32 d);
-void func_001aa6d0(void *t, s32 w);
-void func_001a9ae8(void *t, s32 x, s32 y, s32 z);
-void func_0029dba0(s32 x, s32 y, s32 z);  // 0x0029dba0: definition moved into src/anon/unit_0029d008.cpp
+void YS__MESSAGEDRAW__MESSAGEDRAW(void *t, s32 a, s32 b, s32 c, s32 d);
+void YS__MESSAGEDRAW__set_line_space(void *t, s32 w);
+void YS__MESSAGEDRAW__draw(void *t, s32 x, s32 y, s32 z);
+void Tz__JmDic__DrawMess(s32 x, s32 y, s32 z);  // 0x0029dba0: definition moved into src/anon/unit_0029d008.cpp
 
 }

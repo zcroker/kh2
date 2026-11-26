@@ -19,8 +19,8 @@ extern "C" {
 extern W2030Pair D_01e2a5e8;
 extern W2030Pair D_01e2a5f0;
 extern s32 D_0032b91c;
-void func_002bad20(void);
-void func_00102818(s32, s32, s32, void (*)(void), s32);
+void TRANSFER__sendTask(void);
+void TASK_MANAGER__create_thread(s32, s32, s32, void (*)(void), s32);
 s32* func_002e34d8(W2030Q*, s32);
 
 // 002bacc0: moved to src/anon/unit_002bac78.cpp

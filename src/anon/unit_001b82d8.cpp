@@ -98,19 +98,19 @@ void func_001b8450(LibrettoSlot* s, u32 key, s32 (*fn)(void*, LibrettoSlot*)) {
 
 struct LibrettoCmd { u16 type; u16 pad; union { f32 f; s32 i; } v; };
 
-extern "C" s32 func_001b8520(LibrettoCmd* c, LibrettoSlot* x);
+extern "C" s32 YS__LIBRETTO__CodeParser(LibrettoCmd* c, LibrettoSlot* x);
 
 u32 func_001b84b8(LibrettoSlot* p, s32 id) {
     if (!p->count) return 0;
     p->id = id;
     if (!p->cur) p->cur = func_001b8420(p->key);
-    p->cur = func_001db610(p->cur, (s32 (*)(void*, LibrettoSlot*))func_001b8520, p);
+    p->cur = func_001db610(p->cur, (s32 (*)(void*, LibrettoSlot*))YS__LIBRETTO__CodeParser, p);
     return p->cur != 0;
 }
 
 extern "C" {
 
-s32 func_001b8520(LibrettoCmd* c, LibrettoSlot* x) {
+s32 YS__LIBRETTO__CodeParser(LibrettoCmd* c, LibrettoSlot* x) {
     s32 t;
     switch (c->type) {
     case 2:

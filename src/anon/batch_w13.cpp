@@ -12,7 +12,7 @@ void func_002ba848(s32);
 void func_00136a18(void);
 void func_0013f030(void);
 void* func_00102c80(void);
-void func_00102818(u32, s32, u32, void*, s32);
+void TASK_MANAGER__create_thread(u32, s32, u32, void*, s32);
 void func_0013f450(void);
 void func_001666a0(void*);  // zero_fields_0_4_6_8
 void func_00138c10(void*, s32);
@@ -22,10 +22,10 @@ u8 func_00176db0(void*, u32);
 u8 func_0016b558(void*, u32);
 u32 func_001a7588(u32, u32, u32, u32);
 void* func_00168b38(void*, s32, s32);  // entry_array_find_nth
-void func_00188340(void*, s32, void*, s32);
-void func_0019cc20(void*);
+void YS__ACT__callback(void*, s32, void*, s32);
+void YS__LOCKON__release(void*);
 u8* func_0019f7d0(void);
-void func_001d59b0(void);
+void YS__LINK_FLAG__Check(void);
 void func_003201e8(void*, void*);
 s32 func_001bb4a0(void);
 void func_0016a9a0(void*);  // to_16a950
@@ -34,19 +34,19 @@ void func_001c8d98(void*, s32);
 void func_0014c9f0(s32);
 void func_001bbe78(s32);
 void func_0016c640(s32);
-void func_0017c4c8(void*, void*);
+void YS__OBJ__prepare_jump(void*, void*);
 void func_0016bd60(void*, s32);
 void func_001a4e30(void*);
 void func_001d2210(void*);
 void func_001dc878(void*);
-void func_001e17b8(void*);
-s32 func_002282f0(s32);
+void ryj__LAST_XEMNUS_LASER__init(void*);
+s32 sa__EVENT__checkStart(s32);
 void func_00102c18(s32, s32, void*);
 void func_0022dc30(void);
 void func_00237238(void*);
 s32 func_00139d78(void*);
 void func_00139510(void*);
-void func_00283960(s32);
+void Tz__CmTutorial__LeaveList(s32);
 void func_00287c78(s32);
 void func_0028b8a0(void*);
 u8 func_0023f820(void*);
@@ -54,7 +54,7 @@ u32 func_002b823c(void);
 Q128* func_002cb890(void*, void*);  // hash_bucket_get
 void func_002cd878(void*, u32, s32, f32);
 void func_002cff98(void*);
-f32 func_001906f0(void*, void*);
+f32 YS__TARGET__get_dist(void*, void*);
 void func_00239870(void*);
 u8 func_0031a840(void*);
 void func_001b0188(void*);
@@ -107,7 +107,7 @@ void func_00114cc8(void** p);  // 0x00114cc8: definition moved into src/anon/uni
 void func_001207c8(void** p);  // 0x001207c8: definition moved into src/anon/unit_00120520.cpp
 
 typedef s32 (*VFn2)(void*, s32);
-s32 func_00123d90(void* a, s32 b);  // 0x00123d90: definition moved into src/anon/unit_00123990.cpp
+s32 kn__ModelMulti__partName2matrixNo(void* a, s32 b);  // 0x00123d90: definition moved into src/anon/unit_00123990.cpp
 
 // 001373a0: moved to src/harata/libdk/bgm.cpp
 
@@ -115,7 +115,7 @@ void func_0013f4d8(void);  // 0x0013f4d8: definition moved into src/anon/unit_00
 
 // 0014dbc8: moved to src/anon/unit_0014d680.cpp
 
-void func_001514b0(u8* p);  // 0x001514b0: definition moved into src/anon/unit_0014ecb8.cpp
+void dk__TIMER__alert(u8* p);  // 0x001514b0: definition moved into src/anon/unit_0014ecb8.cpp
 
 
 void Camera_onceCover(void* task);  // 0x001617e8: definition moved into src/anon/unit_001614e8.cpp
@@ -149,7 +149,7 @@ void func_001b0210(u8* p, s32 a1, s32 a2, s32 a3);  // 0x001b0210: definition mo
 
 // 0x1c8750: moved to src/yasui/libys/summon.cpp
 
-void func_001c9080(void* a0, void* a1, Q128* a2);  // 0x001c9080: definition moved into src/anon/unit_001c8e80.cpp
+void YS__ACTION_CARPETBLOW__jump(void* a0, void* a1, Q128* a2);  // 0x001c9080: definition moved into src/anon/unit_001c8e80.cpp
 
 void func_001ca718(void** p);  // 0x001ca718: definition moved into src/anon/unit_001ca638.cpp
 
@@ -186,7 +186,7 @@ void* func_002cd910_f(void* r, u32 a1, f32 f);  // 0x002cd910: definition moved 
 
 void func_002de810(void** p);  // 0x002de810: definition moved into src/anon/unit_002de3c8.cpp
 
-void func_002e7ff8(u32* p);  // 0x002e7ff8: definition moved into src/anon/unit_002e7b10.cpp
+void Ts__trap_target_dist(u32* p);  // 0x002e7ff8: definition moved into src/anon/unit_002e7b10.cpp
 
 u32 func_002f1898(void);  // 0x002f1898: definition moved into src/anon/unit_002f17e0.cpp
 

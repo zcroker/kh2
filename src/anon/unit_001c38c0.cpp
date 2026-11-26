@@ -17,8 +17,8 @@ namespace n001c38c0 {
 extern f32 D_00349e10 asm("D_00349e10");
 void func_0017f488(u8*, s32, f32, f32) asm("func_0017f488");
 void func_0017f5e0(u8*, s32, s32, f32, f32) asm("func_0017f5e0");
-void func_001c38c0(u32, u8* p) asm("func_001c38c0");
-void func_001c38c0(u32, u8* p) {
+void YS__ACTION_AIRSLIDE__control(u32, u8* p) asm("YS__ACTION_AIRSLIDE__control");
+void YS__ACTION_AIRSLIDE__control(u32, u8* p) {
     if (0.0f < *(f32*)(p + 244)) {
         if (*(u32*)(p + 268) & 4) *(f32*)(p + 244) -= D_00349e10;
         else *(f32*)(p + 244) = 0.0f;
@@ -63,13 +63,13 @@ struct U4_VO { U4_VOVt* vt; };
 struct U4_Lim { u8 pad[56]; f32 f56; };
 struct U4_Mover { u8 pad[12]; U4_VO* f12; u8 pad2[240 - 16]; U4_Lim* f240; u8 pad3[268 - 244]; u32 f268; u8 pad4[320 - 272]; u8 f320[4]; };
 #define U4_W80_MAX(a, b) ((a) > (b) ? (a) : (b))
-HasF4* func_0016c028(void*) asm("func_0016c028");
+HasF4* YS__OBJ__get_pos(void*) asm("YS__OBJ__get_pos");
 f32 func_00184a90(U4_Mover*) asm("func_00184a90");
 void func_0017f488(u8*, u32, f32, f32) asm("func_0017f488");
-void func_001c39d0(void* self, U4_Mover* m) asm("func_001c39d0");
-void func_001c39d0(void* self, U4_Mover* m) {
+void YS__ACTION_GLIDEHOVER___control(void* self, U4_Mover* m) asm("YS__ACTION_GLIDEHOVER___control");
+void YS__ACTION_GLIDEHOVER___control(void* self, U4_Mover* m) {
     if (m->f268 & 4) {
-        f32 d = U4_W80_MAX(func_00184a90(m) - func_0016c028(m)->f4, 0.0f);
+        f32 d = U4_W80_MAX(func_00184a90(m) - YS__OBJ__get_pos(m)->f4, 0.0f);
         if (!(d < m->f240->f56)) return;
     }
     func_0017f488(m->f320, 4, 16.0f, 0.0f);
@@ -81,15 +81,15 @@ void func_001c39d0(void* self, U4_Mover* m) {
 namespace n001c3aa0 {
 void func_0016bd60(u8*, u32) asm("func_0016bd60");
 void func_0017f540(u8*, u32, f32, f32) asm("func_0017f540");
-void func_001c39d0(u8*, u8*) asm("func_001c39d0");
-void func_001c3aa0(u8* a, u8* b) asm("func_001c3aa0");
-void func_001c3aa0(u8* a, u8* b) {
+void YS__ACTION_GLIDEHOVER___control(u8*, u8*) asm("YS__ACTION_GLIDEHOVER___control");
+void YS__ACTION_GLIDEHOVER__control(u8* a, u8* b) asm("YS__ACTION_GLIDEHOVER__control");
+void YS__ACTION_GLIDEHOVER__control(u8* a, u8* b) {
     if (0.0f < *(f32*)(b + 28)) {
         func_0016bd60(b, 18);
         return;
     }
     func_0017f540(b + 320, 208, 16.0f, 0.0f);
-    func_001c39d0(a, b);
+    YS__ACTION_GLIDEHOVER___control(a, b);
 }
 }  // namespace n001c3aa0
 
@@ -113,13 +113,13 @@ struct W1767Vec {
 } __attribute__((aligned(16)));
 struct W1767Obj { u8 pad[0x20]; W1767Vec v20; };
 extern f32 D_00349e10 asm("D_00349e10");
-f32 func_001c3ba8(void*, W1767Obj*) asm("func_001c3ba8");
+f32 YS__ACTION_GLIDEHOVER__calc_movement_y(void*, W1767Obj*) asm("YS__ACTION_GLIDEHOVER__calc_movement_y");
 W1767Vec func_001c3b20(void* a, W1767Obj* o) asm("func_001c3b20");
 W1767Vec func_001c3b20(void* a, W1767Obj* o) {
     o->v20 *= 0.9f;
     W1767Vec t;
     t = o->v20;
-    t.y = func_001c3ba8(a, o);
+    t.y = YS__ACTION_GLIDEHOVER__calc_movement_y(a, o);
     return t * D_00349e10;
 }
 }  // namespace n001c3b20
@@ -127,15 +127,15 @@ W1767Vec func_001c3b20(void* a, W1767Obj* o) {
 // ---- 001c3ba8 from src/anon/batch_w90.cpp
 namespace n001c3ba8 {
 f32 func_00184a90(void*) asm("func_00184a90");
-f32* func_0016c028(void*) asm("func_0016c028");
+f32* YS__OBJ__get_pos(void*) asm("YS__OBJ__get_pos");
 #define MAX(a, b) ((a) > (b) ? (a) : (b))
 #define MIN(a, b) ((a) < (b) ? (a) : (b))
-#define HEIGHT(o) (func_00184a90(o) - func_0016c028(o)[1])
+#define HEIGHT(o) (func_00184a90(o) - YS__OBJ__get_pos(o)[1])
 struct RangeParam { u8 pad[36]; f32 k; f32 off; f32 max; };
 struct RangeObj { u8 pad[240]; RangeParam* p; };
 static inline f32 Above(RangeObj* o) { f32 t = MAX(HEIGHT(o), 0.0f); return t - o->p->off; }
-f32 func_001c3ba8(u32 unused, RangeObj* o) asm("func_001c3ba8");
-f32 func_001c3ba8(u32 unused, RangeObj* o)
+f32 YS__ACTION_GLIDEHOVER__calc_movement_y(u32 unused, RangeObj* o) asm("YS__ACTION_GLIDEHOVER__calc_movement_y");
+f32 YS__ACTION_GLIDEHOVER__calc_movement_y(u32 unused, RangeObj* o)
 {
     f32 x = MAX(Above(o), 0.0f);
     return MIN(x * o->p->k, o->p->max);
@@ -144,11 +144,11 @@ f32 func_001c3ba8(u32 unused, RangeObj* o)
 
 // ---- 001c3ca8 from src/anon/tiny_auto80_queue.cpp
 namespace n001c3ca8 {
-void func_0017c578(...) asm("func_0017c578");
+void YS__ACTION_JUMP__start(...) asm("YS__ACTION_JUMP__start");
 void func_001c3ca8(void* a0, u8* a1) asm("_Z13func_001c3ca8PvPh");
 void func_001c3ca8(void* a0, u8* a1) {
     u8* s0 = a1;
-    func_0017c578(a0);
+    YS__ACTION_JUMP__start(a0);
     u8* t7 = *(u8**)(s0 + 240);
     *(f32*)(s0 + 284) = *(f32*)(t7 + 60);
 }
@@ -188,22 +188,22 @@ static inline W1830QW w1830_vcross(const W1830QW& a, const W1830QW& b) {
     return r;
 }
 struct W1830Obj1 { u8 p0[0x10]; W1830QW dir; u8 p20[0x140 - 0x20]; u8 snd[4]; };
-W1830QW func_0016af58(void*) asm("func_0016af58");
+W1830QW YS__OBJ__get_dir(void*) asm("YS__OBJ__get_dir");
 void func_0017f540(f32, f32, void*, s32) asm("func_0017f540");
-void func_001c39d0(s32, W1830Obj1*) asm("func_001c39d0");
-void func_001c3cf8(s32 a0, W1830Obj1* o) asm("func_001c3cf8");
-void func_001c3cf8(s32 a0, W1830Obj1* o) {
+void YS__ACTION_GLIDEHOVER___control(s32, W1830Obj1*) asm("YS__ACTION_GLIDEHOVER___control");
+void YS__ACTION_GLIDE__control(s32 a0, W1830Obj1* o) asm("YS__ACTION_GLIDE__control");
+void YS__ACTION_GLIDE__control(s32 a0, W1830Obj1* o) {
     W1830QW c;
     s32 id = 0xcd;
     if (o->dir.w > 0.0f) {
-        W1830QW t = func_0016af58(o);
+        W1830QW t = YS__OBJ__get_dir(o);
         if (w1830_vdot(&t, &o->dir) < 0.98f) {
-            c = w1830_vcross(func_0016af58(o), o->dir);
+            c = w1830_vcross(YS__OBJ__get_dir(o), o->dir);
             if (c.y > 0.0f) id = 0xce; else id = 0xcf;
         }
     }
     func_0017f540(16.0f, 0.0f, o->snd, id);
-    func_001c39d0(a0, o);
+    YS__ACTION_GLIDEHOVER___control(a0, o);
 }
 }  // namespace n001c3cf8
 
@@ -232,16 +232,16 @@ static inline W1830QW w1830_vscale(const W1830QW& a, f32 k) {
 struct W1830Prm { u8 p0[0x20]; f32 f20; u8 p24[0xc]; f32 f30; };
 struct W1830Obj2 { u8 p0[0x20]; W1830QW v20; u8 p30[0xf0 - 0x30]; W1830Prm* prm; };
 extern f32 D_00349e10 asm("D_00349e10");
-W1830QW func_0016af58(void*) asm("func_0016af58");
-f32 func_001c3ba8(void*, W1830Obj2*) asm("func_001c3ba8");
-W1830QW func_001c3e20(void* a1, W1830Obj2* o) asm("func_001c3e20");
-W1830QW func_001c3e20(void* a1, W1830Obj2* o) {
+W1830QW YS__OBJ__get_dir(void*) asm("YS__OBJ__get_dir");
+f32 YS__ACTION_GLIDEHOVER__calc_movement_y(void*, W1830Obj2*) asm("YS__ACTION_GLIDEHOVER__calc_movement_y");
+W1830QW YS__ACTION_GLIDE__calc_movement(void* a1, W1830Obj2* o) asm("YS__ACTION_GLIDE__calc_movement");
+W1830QW YS__ACTION_GLIDE__calc_movement(void* a1, W1830Obj2* o) {
     f32 k = o->prm->f30;
     f32 len = w1830_vlen(&o->v20);
     W1830QW c;
-    c = w1830_vscale(func_0016af58(o), o->prm->f20 * (1.0f - k) + len * k);
+    c = w1830_vscale(YS__OBJ__get_dir(o), o->prm->f20 * (1.0f - k) + len * k);
     o->v20 = c;
-    c.y = func_001c3ba8(a1, o);
+    c.y = YS__ACTION_GLIDEHOVER__calc_movement_y(a1, o);
     return w1830_vscale(c, D_00349e10);
 }
 }  // namespace n001c3e20

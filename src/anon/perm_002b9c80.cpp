@@ -21,7 +21,7 @@ union BD_VALUE
 s32 func_001688c8(void *);
 s32 func_00170b30(s32);
 void func_001682b8(void *, s32);
-void func_002ba1b8(s32, s32, s32);
+void SOUND__sebTransfer(s32, s32, s32);
 void func_002ba188(s32, s32, s32);
 s32 func_002b6f78(void);
 void func_002b6ab8(void);
@@ -30,6 +30,6 @@ extern u8 D_00374f30[];
 extern u8 D_00374f40[];
 extern u8 D_00374f50[];
 extern u8 D_00374f60[];
-void func_002b9c80(void);  // 0x002b9c80: definition moved into src/anon/unit_002b9ab8.cpp
+void SOUND__initCommonSe(void);  // 0x002b9c80: definition moved into src/anon/unit_002b9ab8.cpp
 
 }

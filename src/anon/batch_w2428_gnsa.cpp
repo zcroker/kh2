@@ -64,7 +64,7 @@ extern "C" {
 void func_0011dd08(V11de88*, void*);
 void func_00134d10(void*);
 void func_00134d60(void*, V11de88*);
-void func_00134df8(void*, V11de88*, Out11de88*, Mat11de88*, void*);
+void gm__CONVERT__CreateModel(void*, V11de88*, Out11de88*, Mat11de88*, void*);
 void* func_00135640(void);
 void func_0011be50(M11de88*);
 void func_0010abf0(Self11de88*, M11de88*, Desc11de88*, void*, Mat11de88*, Out11de88*, void*, void*);

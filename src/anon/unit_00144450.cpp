@@ -238,8 +238,8 @@ struct QM {
 void func_00144b38(void*, QV*) asm("func_00144b38");
 void func_001447e0(void*, QV*) asm("func_001447e0");
 /*TARGET 001449a8*/
-void func_001449a8(void* a, QM* m) asm("func_001449a8");
-void func_001449a8(void* a, QM* m) {
+void dk__Aabbox__mulMatrix(void* a, QM* m) asm("dk__Aabbox__mulMatrix");
+void dk__Aabbox__mulMatrix(void* a, QM* m) {
     QV mn, mx, cur;
     register s32 e1 asm("$11");
     {

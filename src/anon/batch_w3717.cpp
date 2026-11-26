@@ -28,8 +28,8 @@ s32 func_0023aa38(u8*);
 s32 func_0023f1b0(s32);
 s32 func_0023c4b8(s32, s32);
 s32 func_0023f988(s32, s32);
-void func_002362b0(u8*, s32);
-void func_001386e0(u8*, s32, s32, u8*, s32, s32);
+void YI__IMAGE__Init(u8*, s32);
+void dk__Sprite__create(u8*, s32, s32, u8*, s32, s32);
 void func_00139620(u8*);
 void func_0028dcc0(u8*, u8*);
 void func_00138c68(u8*, s32, s32);
@@ -49,6 +49,6 @@ extern s32 D_0037474c;
 // Register pins (p in s7, d in t7, the constant 1 in t6) and the empty asms reproduce the
 // original's register choice and scheduling; the else arm reads D_00374738 through a hidden
 // high half (0x370000 + 0x4738) so its lui is issued before id = d + 1.
-void func_00296b80(u8 flag);  // 0x00296b80: definition moved into src/anon/unit_00295d28.cpp
+void Tz__JmReport__CreateGra(u8 flag);  // 0x00296b80: definition moved into src/anon/unit_00295d28.cpp
 
 }

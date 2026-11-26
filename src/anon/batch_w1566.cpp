@@ -9,7 +9,7 @@ extern u8 D_00345c08[], D_0034e8b8[], D_0034ee08[];
 
 extern "C" {
 void func_00319f88(void*);
-void func_0019f9a8(void*);
+void YS__OBJ_ATTACK__clear(void*);
 void func_001c0248(void*);
 void func_00319fb0(void*);
 void func_00105110(void*);

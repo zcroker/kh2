@@ -46,7 +46,7 @@ static inline f32 Dot10ce(const V10ce& a, const V10ce& b)
 extern u8* D_00341708 asm("D_00341708");
 V10ce func_00190388(u8*) asm("func_00190388");
 // vec4_from_arg
-V10ce* func_0016c028(u8*) asm("func_0016c028");
+V10ce* YS__OBJ__get_pos(u8*) asm("YS__OBJ__get_pos");
 // obj_get_attach_or_alt
 f32 func_001142d0(u32) asm("func_001142d0");
 // get_float_at_ptr108
@@ -57,7 +57,7 @@ s32 func_0010cdd8(u8* o)
 {
     u32 t = *(u32*)(o + 3308);
     if (t && *(u32*)(o + 2548) != t) return 1;
-    V10ce d = func_00190388(o + 2548) - *func_0016c028(o);
+    V10ce d = func_00190388(o + 2548) - *YS__OBJ__get_pos(o);
     f32 r = func_001142d0(*(u32*)(o + 2912));
     r = r * r;
     if (r < Dot10ce(d, d)) return 1;
@@ -124,17 +124,17 @@ static inline f32 Dot10ce(const V10ce& a, const V10ce& b)
 extern u8* D_00341708 asm("D_00341708");
 V10ce func_00190388(u8*) asm("func_00190388");
 // vec4_from_arg
-V10ce* func_0016c028(u8*) asm("func_0016c028");
+V10ce* YS__OBJ__get_pos(u8*) asm("YS__OBJ__get_pos");
 // obj_get_attach_or_alt
 f32 func_001142d0(u32) asm("func_001142d0");
 // get_float_at_ptr108
 f32 func_00114380(u32) asm("func_00114380");
 f32 func_00114390(u32) asm("func_00114390");
 /*TARGET 0010cef0*/
-s32 func_0010cef0(u8* o) asm("func_0010cef0");
-s32 func_0010cef0(u8* o)
+s32 kn__Friend__checkLostTarget_near(u8* o) asm("kn__Friend__checkLostTarget_near");
+s32 kn__Friend__checkLostTarget_near(u8* o)
 {
-    V10ce d = func_00190388(o + 2548) - *func_0016c028(o);  // vec4_from_arg
+    V10ce d = func_00190388(o + 2548) - *YS__OBJ__get_pos(o);  // vec4_from_arg
     f32 r = func_001142d0(*(u32*)(o + 2912));  // get_float_at_ptr108
     r = r * r;
     if (r < Dot10ce(d, d)) return 1;
@@ -142,7 +142,7 @@ s32 func_0010cef0(u8* o)
     r += func_00114390(*(u32*)(o + 2912));
     r *= 0.5f;
     r = r * r;
-    d = func_00190388(o + 2548) - *func_0016c028(D_00341708);  // vec4_from_arg
+    d = func_00190388(o + 2548) - *YS__OBJ__get_pos(D_00341708);  // vec4_from_arg
     if (r < Dot10ce(d, d)) return 1;
     return 0;
 }
@@ -175,25 +175,25 @@ static inline Vq vsubn(const Vq& a, const Vq& b) {
 // ---- 0010d038
 Vq func_00190388(const void*) asm("func_00190388");
 // vec4_from_arg
-const Vq* func_0016c028(u32) asm("func_0016c028");
+const Vq* YS__OBJ__get_pos(u32) asm("YS__OBJ__get_pos");
 // obj_get_attach_or_alt
 f32 func_001142d0(u32) asm("func_001142d0");
 // get_float_at_ptr108
 f32 func_00114390(u32) asm("func_00114390");
 extern u32 D_00341708 asm("D_00341708");
 /*TARGET 0010d038*/
-s32 func_0010d038(u8* o) asm("func_0010d038");
-s32 func_0010d038(u8* o) {
+s32 kn__Friend__checkLostTarget_far(u8* o) asm("kn__Friend__checkLostTarget_far");
+s32 kn__Friend__checkLostTarget_far(u8* o) {
     struct Lk { u32 on : 1; u32 rest : 31; };
     Lk* lock = *(Lk**)(o + 3168);
     if (lock && !lock->on) return 1;
-    Vq d = vsubn(func_00190388(o + 2548), *func_0016c028((u32)o));  // vec4_from_arg
+    Vq d = vsubn(func_00190388(o + 2548), *YS__OBJ__get_pos((u32)o));  // vec4_from_arg
     f32 r = func_001142d0(*(u32*)(o + 2912));  // get_float_at_ptr108
     r = r * r;
     if (r < vdot(d, d)) return 1;
     r = func_00114390(*(u32*)(o + 2912));
     r = r * r;
-    d = vsubn(func_00190388(o + 2548), *func_0016c028(D_00341708));  // vec4_from_arg
+    d = vsubn(func_00190388(o + 2548), *YS__OBJ__get_pos(D_00341708));  // vec4_from_arg
     if (vdot(d, d) < r) return 1;
     return 0;
 }
@@ -255,13 +255,13 @@ struct Act10d { u8 pad[0xb60]; s32 b60; u8 pad2[0xcec - 0xb64]; s32 cec; };
 // 0x0015c2a0: definition moved into src/anon/unit_0015bab8.cpp
 f32 func_001142c0(s32) asm("func_001142c0");
 void func_00190128(Tgt10d*) asm("func_00190128");
-QW10d* func_0016c028(Act10d*) asm("func_0016c028");
-void func_00112df0(s32, Tgt10d*, QW10d*, f32) asm("func_00112df0");
+QW10d* YS__OBJ__get_pos(Act10d*) asm("YS__OBJ__get_pos");
+void kn__Friend__setAttackTarget(s32, Tgt10d*, QW10d*, f32) asm("kn__Friend__setAttackTarget");
 s32 Tgt10d_is_exist(Tgt10d*) asm("_ZNK2YS6TARGET8is_existEv");
 s32 Tgt10d_can_attack(Tgt10d*) asm("_ZNK2YS6TARGET10can_attackEv");
-s32 func_00190730(Tgt10d*, s32) asm("func_00190730");
+s32 YS__TARGET__each(Tgt10d*, s32) asm("YS__TARGET__each");
 s32 func_00112d90(Tgt10d*) asm("func_00112d90");
-void func_0018a818(Hit10d*, s32, s32) asm("func_0018a818");
+void YS__COLLISION__set(Hit10d*, s32, s32) asm("YS__COLLISION__set");
 void func_0010d2b8_impl(Act10d* self, void* unused, Tgt10d* out) asm("_Z13func_0010d2b8Pv");
 /*TARGET 0010d2b8*/
 void func_0010d2b8_impl(Act10d* self, void* unused, Tgt10d* out) asm("_Z13func_0010d2b8Pv");
@@ -272,16 +272,16 @@ void func_0010d2b8_impl(Act10d* self, void* unused, Tgt10d* out) {
     func_00190128(&it);
     func_00190128(&it);
     if (self->cec) {
-        QW10d pos(*func_0016c028(self));
-        func_00112df0(self->cec, &it, &pos, best);
+        QW10d pos(*YS__OBJ__get_pos(self));
+        kn__Friend__setAttackTarget(self->cec, &it, &pos, best);
         if (Tgt10d_is_exist(&it)) { *out = it; return; }
     }
     s32 k = 0;
-    while ((k = func_00190730(&it, k)) != 0) {
+    while ((k = YS__TARGET__each(&it, k)) != 0) {
         if (!func_00112d90(&it)) continue;
         if (!Tgt10d_can_attack(&it)) continue;
-        func_0018a818(&hit, it.a, k);
-        QW10d* p = func_0016c028(self);
+        YS__COLLISION__set(&hit, it.a, k);
+        QW10d* p = YS__OBJ__get_pos(self);
         f32 len;
         QW10d d;
         asm volatile("lqc2 $vf1, 0(%0)\n\tlqc2 $vf2, 0(%1)\n\tvsub.wxyz $vf1, $vf1, $vf2\n\tsqc2 $vf1, 0(%2)" : : "r"(&hit.v), "r"(p), "r"(&d) : "memory");
@@ -308,13 +308,13 @@ extern Act* D_00341708 asm("D_00341708");
 f32 func_001142c0(s32) asm("func_001142c0");
 f32 func_00114380(s32) asm("func_00114380");
 void func_00190128(Tgt*) asm("func_00190128");
-QW* func_0016c028(Act*) asm("func_0016c028");
-void func_00112df0(s32, Tgt*, QW*, f32) asm("func_00112df0");
+QW* YS__OBJ__get_pos(Act*) asm("YS__OBJ__get_pos");
+void kn__Friend__setAttackTarget(s32, Tgt*, QW*, f32) asm("kn__Friend__setAttackTarget");
 s32 Tgt_is_exist(Tgt*) asm("_ZNK2YS6TARGET8is_existEv");
 s32 Tgt_can_attack(Tgt*) asm("_ZNK2YS6TARGET10can_attackEv");
-s32 func_00190730(Tgt*, s32) asm("func_00190730");
+s32 YS__TARGET__each(Tgt*, s32) asm("YS__TARGET__each");
 s32 func_00112d90(Tgt*) asm("func_00112d90");
-void func_0018a818(Hit*, s32, s32) asm("func_0018a818");
+void YS__COLLISION__set(Hit*, s32, s32) asm("YS__COLLISION__set");
 void func_0010da40(Act*, s32, Tgt*) asm("func_0010da40");
 static inline f32 dist(QW* a, QW* b, QW* d) {
     f32 len;
@@ -338,10 +338,10 @@ void func_0010d468(Act* self, s32 a1, Tgt* out) {
         return;
     }
     if (func_00112d90(&D_003417b0)) {
-        QW pos(*func_0016c028(self));
+        QW pos(*YS__OBJ__get_pos(self));
         s32 id = D_003417b0.a;
         f32 r = func_001142c0(self->b60);
-        func_00112df0(id, out, &pos, r);
+        kn__Friend__setAttackTarget(id, out, &pos, r);
     }
 }
 void func_0010d570(Act* self, s32, Tgt* out) asm("func_0010d570");
@@ -353,13 +353,13 @@ void func_0010d570(Act* self, s32, Tgt* out) {
     f32 best = func_001142c0(self->b60);
     s32 k = 0;
     func_00190128(&it);
-    while ((k = func_00190730(&it, k)) != 0) {
+    while ((k = YS__TARGET__each(&it, k)) != 0) {
         if (!func_00112d90(&it)) continue;
         if (!Tgt_can_attack(&it)) continue;
-        func_0018a818(&hit, it.a, k);
-        f32 len = dist(&hit.v, func_0016c028(self), &d1) - hit.r;
+        YS__COLLISION__set(&hit, it.a, k);
+        f32 len = dist(&hit.v, YS__OBJ__get_pos(self), &d1) - hit.r;
         if (!(len < best)) continue;
-        f32 len2 = dist(&hit.v, func_0016c028(D_00341708), &d2) - hit.r;
+        f32 len2 = dist(&hit.v, YS__OBJ__get_pos(D_00341708), &d2) - hit.r;
         if (!(len2 < lim)) continue;
         // Same code in both arms (a permuter find): the dead test keeps gcc from splitting self's live range for the loop.
         if (self->b60) {
@@ -381,13 +381,13 @@ void func_0010d730(Act* self, s32, Tgt* out) {
     range = range + range;
     s32 k = 0;
     func_00190128(&it);
-    while ((k = func_00190730(&it, k)) != 0) {
+    while ((k = YS__TARGET__each(&it, k)) != 0) {
         if (!func_00112d90(&it)) continue;
         if (!Tgt_can_attack(&it)) continue;
-        func_0018a818(&hit, it.a, k);
-        f32 len = dist(&hit.v, func_0016c028(self), &d1) - hit.r;
+        YS__COLLISION__set(&hit, it.a, k);
+        f32 len = dist(&hit.v, YS__OBJ__get_pos(self), &d1) - hit.r;
         if (!(len < range)) continue;
-        f32 len2 = dist(&hit.v, func_0016c028(D_00341708), &d2) - hit.r;
+        f32 len2 = dist(&hit.v, YS__OBJ__get_pos(D_00341708), &d2) - hit.r;
         if (best < 0.0f || best < len2) {
             best = len2;
             *out = it;

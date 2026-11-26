@@ -33,20 +33,20 @@ void func_001d9028(u8*, C1bb2c8*);
 void func_001d93f0(u8*, C1bb2c8*);
 void func_001d5370_x8499(u8*, s32, s32) asm("func_001d5370");
 void func_001d4dc0(u8*, s32, s32, s32);
-void func_0019ba60_x8501(u8*) asm("func_0019ba60");
-void func_001a1aa0(u8*, s32);
+void func_0019ba60_x8501(u8*) asm("YS__OBJ__is_exist");
+void YS__SHEET__add_drive(u8*, s32);
 void func_001c0890(u8);
 s32 func_001d83c0(s32);
 void func_001d4fd0(u32*);
 void func_001d4ff0(u32*);
 void func_001bbe18(void*);
-void func_001bb890(void);
+void YS__MISSION__PostEnd(void);
 u32 func_00198d00(s32, s32);
 void func_001d5518(void*, void*, u32);
 void func_001bc0d0(void*);
 void func_001bb630(u32, u32);
 u8 func_001bba30_u8(void*) asm("func_001bba30");
-void func_001bb4f0(Obj1bb*, u32, u32);
+void YS__MISSION__complete(Obj1bb*, u32, u32);
 s32 func_001bbb50(void);
 u32 func_001c10f8(s32);
 void func_00253410(u32, s32);
@@ -68,12 +68,12 @@ void func_002bc798(void);
 void func_001c8d98(u8*, s32);
 s32 w1758_ys_mission_isexec(void) asm("func_001bb4a0");
 u32 w1758_tail4_192048(s32) asm("_Z16u_tail4_00192048jjjj");
-void func_0014f578(u32);
+void dk__INFORMATION__openInformationWindow(u32);
 void func_001d5370(u32*, u32, s32);
 void func_002534e0(u32, u32);
 s32 func_001d5460(u32);
-void func_001d7940(void);
-void func_001ada38(s32);
+void YS__HE_COLOSSEUM__Start(void);
+void YS__RECOV__Exec(s32);
 void func_00199098(u8*, s32);
 void func_0019f070(u8*, u32);
 void func_001af360(s32);
@@ -142,7 +142,7 @@ s32 func_001bb2c8(C1bb2c8* c, u8* x) {
     case 12: {
         u8* o = D_0034e948;
         func_0019ba60_x8501(o);
-        if ((*(u8**)(o + 1164))[431] == 1) func_001a1aa0(*(u8**)(o + 1164), c->a.i);
+        if ((*(u8**)(o + 1164))[431] == 1) YS__SHEET__add_drive(*(u8**)(o + 1164), c->a.i);
         break;
     }
     case 13:
@@ -175,7 +175,7 @@ u32 func_001bb4b0(void) {
     return r;
 }
 
-void func_001bb4f0(Obj1bb* o, u32 id, u32 arg) {
+void YS__MISSION__complete(Obj1bb* o, u32 id, u32 arg) {
     u8 snd = o->info->snd;
     if (snd) func_001c0890(snd);
     u32* q = (u32*)((u8*)o + 740);
@@ -184,7 +184,7 @@ void func_001bb4f0(Obj1bb* o, u32 id, u32 arg) {
         func_001d4ff0(q);
     }
     func_001bbe18(o->info->f20);
-    func_001bb890();
+    YS__MISSION__PostEnd();
     u32* m = &o->f104;
     if (m[1]) {
         u32 v = func_00198d00(id, -1);
@@ -236,24 +236,24 @@ void func_001bb6d0(u32 a0) {
             u32 t6 = *(u32*)(v0 + 8);
             if (t6 != 0xffff) {
                 if (func_00181500(t6) != 0) {
-                    return func_001bb4f0((Obj1bb*)D_01d49320, 156, s0);
+                    return YS__MISSION__complete((Obj1bb*)D_01d49320, 156, s0);
                 }
             }
         }
     }
 
-    return func_001bb4f0((Obj1bb*)D_01d49320, 7, s0);
+    return YS__MISSION__complete((Obj1bb*)D_01d49320, 7, s0);
 }
 
 void func_001bb740(s32 a) {
-    func_001bb4f0((Obj1bb*)D_01d49320, 16, a);
+    YS__MISSION__complete((Obj1bb*)D_01d49320, 16, a);
 }
 
 void func_001bb768(void) {
     func_001bbe18(*(u32*)(*(u8**)(((u8*)D_01d49320_w) + 8) + 24));
     *(u32*)(((u8*)D_01d49320_w) + 180) = 2;
     func_001d5518(((u8*)D_01d49320_w) + 160, ((u8*)D_01d49320_w) + 12, 0);
-    func_001bb890();
+    YS__MISSION__PostEnd();
     if (func_001bb7f8()) {
         *(u32*)(((u8*)D_01d49320_w) + 732) = 8;
         *(s32*)(((u8*)D_01d49320_w) + 736) = -1;
@@ -270,12 +270,12 @@ s32 func_001bb7f8(void) {
 }
 
 void func_001bb858(s32 a) {
-    func_001bb890();
+    YS__MISSION__PostEnd();
     func_001bb468();
     func_001991a8(15, a);
 }
 
-void func_001bb890(void) {
+void YS__MISSION__PostEnd(void) {
     D_01d49320_u.p->flags |= 4;
     D_01d49320_u.p->flags |= 0x10;
     func_0014ca20();
@@ -303,7 +303,7 @@ void func_001bb958(s32 n) {
         if (!w1758_ys_mission_isexec()) return;
         n = *(u16*)(*(u8**)(D_01d49320 + 8) + 6);
     }
-    if (n > 0) func_0014f578(w1758_tail4_192048(n));
+    if (n > 0) dk__INFORMATION__openInformationWindow(w1758_tail4_192048(n));
 }
 
 s32 func_001bb9b0(void) {
@@ -351,7 +351,7 @@ u32 func_001bbb08(void) {
     return *p;
 }
 
-u32 func_001bbb28(void) {
+u32 YS__MISSION__IsNoExp(void) {
     u8* p = D_01d49320;
     if (p == 0) return 0;
     if (*(u16*)(*(u8**)(p + 8) + 4) & 0x400) return 1;
@@ -375,11 +375,11 @@ void func_001bbba8(s32 m) {
     u8 buf[48];
     switch (m) {
     case 3:
-        if (func_001d5460(D_01d49324)) func_001d7940();
+        if (func_001d5460(D_01d49324)) YS__HE_COLOSSEUM__Start();
         id = 139;
         break;
     case 4:
-        func_001ada38(9);
+        YS__RECOV__Exec(9);
         id = 141;
         break;
     }
@@ -545,7 +545,7 @@ s32 func_001bc0e0(void) {
     return r;
 }
 
-s32 func_001bc130(void) {
+s32 YS__MISSION__IsActivate2d(void) {
     s32 r = 0;
     if (func_001bb4a0() == 0) goto yes;
     {
@@ -566,7 +566,7 @@ out:
 namespace n001bc188 {
 typedef void (*W246Fn)(u8*);
 struct W246NoTail { ~W246NoTail() {} };
-void func_00320528(void*) asm("func_00320528");
+void __sti___11_mission_cpp_fcee223a(void*) asm("__sti___11_mission_cpp_fcee223a");
 void func_001ddd88(void*) asm("func_001ddd88");
 static inline __attribute__((always_inline)) void w246_h1(u8* self) {
     if (self + 608 != 0) {
@@ -592,7 +592,7 @@ static inline __attribute__((always_inline)) void w246_h3(u8* self) {
 void wt(u32 a, u32 b) asm("_Z16wtarget_001bc188jjjj");
 void wt(u32 a, u32 b) {
     W246NoTail nt;
-    if (b == 0xffff && a == 1) func_00320528(D_01d48de8);
+    if (b == 0xffff && a == 1) __sti___11_mission_cpp_fcee223a(D_01d48de8);
     if (b == 0xffff && a == 0) {
         w246_h1(D_01d48de8);
         w246_h2(D_01d48de8);

@@ -4,7 +4,7 @@ struct Ent8 { u8 pad[8]; s16 h; };
 u8* func_00257770(void);
 void func_00139d78(u8*);
 s32 func_0028b038(s32);
-void func_0028be78(s32, s32);
+void Tz__ScrollBar__SetPos(s32, s32);
 s32 func_00257070(s32);
 void func_002713a0(s32, s8**, s32*);
 s32 func_00257140(s32);
@@ -56,5 +56,5 @@ void func_0028af18(s32, u32);
 // true for the Japanese-style layouts (system language 1 or 8)
 static inline u8 isjp() { u8 r = 0; if (func_00105c30() == 1 || func_00105c30() == 8) r = 1; return r; }
 // Refreshes the selection rows and the gauge/caption of the selected entry.
-void func_00247580(u8 flag);  // 0x00247580: definition moved into src/anon/unit_00242478.cpp
+void Tz__HECO__UpdateMaker(u8 flag);  // 0x00247580: definition moved into src/anon/unit_00242478.cpp
 }

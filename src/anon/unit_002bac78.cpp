@@ -54,15 +54,15 @@ static REQ_POOL s_pool;
 
 extern "C" {
 extern s32 D_0032b91c;
-void func_00102818(s32, s32, s32, void (*)(s32), s32);
+void TASK_MANAGER__create_thread(s32, s32, s32, void (*)(s32), s32);
 void func_00102448(s32, s32);  // TaskYield
 s32 func_002b6f78(void);
 void func_002ba140(s32, s32, s32);
 void func_002ba188(s32, s32, s32);
 void func_002ba1a0(s32, s32, s32);
-void func_002ba1b8(s32, s32, s32);
+void SOUND__sebTransfer(s32, s32, s32);
 
-void func_002bad20(s32 task);
+void TRANSFER__sendTask(s32 task);
 
 void func_002bac78(REQ* e, s32 a, s32 type, s32 b, s32 c, void (*cb)(s32), s32 arg) {
     e->type = type;
@@ -85,7 +85,7 @@ void func_002bac78(REQ* e, s32 a, s32 type, s32 b, s32 c, void (*cb)(s32), s32 a
 void func_002bacc0(void) {
     s_queue.clear();
     s_done.clear();
-    func_00102818(D_0032b91c, 0, 0x7a508, func_002bad20, 0x1800);
+    TASK_MANAGER__create_thread(D_0032b91c, 0, 0x7a508, TRANSFER__sendTask, 0x1800);
 }
 
 static void func_002bad18(void) {
@@ -95,14 +95,14 @@ static void func_002bad18(void) {
 
 // The task: runs each queued request, waits until it is done, then unlinks the finished
 // requests and gives them back to the pool.
-void func_002bad20(s32 task) {
+void TRANSFER__sendTask(s32 task) {
     for (;;) {
         s_done.tail = 0;
         s_done.head = 0;
         u32 r = 0;
         while ((r = !r ? s_queue.head : R(r)->next) != 0) {
             switch (R(r)->type) {
-            case 0: func_002ba1b8(R(r)->a, R(r)->b, R(r)->c); break;
+            case 0: SOUND__sebTransfer(R(r)->a, R(r)->b, R(r)->c); break;
             case 1: func_002ba188(R(r)->a, R(r)->b, R(r)->c); break;
             case 2: func_002ba1a0(R(r)->a, R(r)->b, R(r)->c); break;
             case 3: func_002ba140(R(r)->a, R(r)->b, R(r)->c); break;

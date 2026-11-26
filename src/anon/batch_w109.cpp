@@ -1,7 +1,7 @@
 #include "../common/types.h"
 extern "C" {
 // ---- f2.cpp
-s32 func_002282f0(u16);
+s32 sa__EVENT__checkStart(u16);
 void func_00225530(void);
 s32 func_002ba200(void);
 void func_002259f0(void);
@@ -17,22 +17,22 @@ void func_002253a0(u8* p, s32 arg);  // 0x002253a0: definition moved into src/an
 
 // ---- f3.cpp
 u8* func_001a1658(s32, s32);  // state_dispatch_0_1_14
-void func_001a17c8(u8*);
-bool func_001a1de0(u8*);
+void YS__SHEET__Free(u8*);
+bool YS__SHEET__is_mpdrive(u8*);
 bool func_001a2758(u8*);
 bool func_001a2778(u8*);
 bool func_001a2798(u8*);
 bool func_001a27b8(u8*);
 static inline bool IsFullA(u8* p) { return *(s32*)(p + 0) >= *(s32*)(p + 4); }
 static inline bool HasC(u8* p) { return p[433] < p[434]; }
-static inline bool IsFullB(u8* p) { return !func_001a1de0(p) && *(s32*)(p + 384) >= *(s32*)(p + 388); }
+static inline bool IsFullB(u8* p) { return !YS__SHEET__is_mpdrive(p) && *(s32*)(p + 384) >= *(s32*)(p + 388); }
 // 001a2e50: moved to src/anon/unit_001a2a50.cpp
 
 // ---- f4.cpp
 s32 func_001a9528(u8*);
-void func_001dddd0(s32, s32);
-s32 func_001de168(s32, s32, s32, s32, s32, s32);  // scan_list_by_half
-void func_001a9560(u8* self, s32 a1, s32 a2, s32* out);  // 0x001a9560: definition moved into src/anon/unit_001a9130.cpp
+void ryj__PAX__init(s32, s32);
+s32 ryj__PAX__start(s32, s32, s32, s32, s32, s32);  // scan_list_by_half
+void YS__OBJDATA__start_model_effect(u8* self, s32 a1, s32 a2, s32* out);  // 0x001a9560: definition moved into src/anon/unit_001a9130.cpp
 
 // ---- f5.cpp
 extern char D_0036e978[];
@@ -55,7 +55,7 @@ struct NoTail52b8 { ~NoTail52b8() {} };
 void func_001e52b8(u8* p, s16 off);  // 0x001e52b8: definition moved into src/anon/unit_001e0cb8.cpp
 
 // ---- f8.cpp
-void func_00236d60(u8*);  // clear_64_entries_24
+void YI__IMAGE_CACHE__Clear(u8*);  // clear_64_entries_24
 s32 func_00139d78(u8*);
 void func_00139510(u8*);
 s32 func_00139538(u8*);
@@ -162,11 +162,11 @@ void func_00276690(s32);
 void func_00287c30(void);
 void func_0028af18(s32, s32);
 void func_0028b1e8(s32, s32);
-void func_00274cf0(s32);  // state_dispatch_0_1_2
+void Tz__Jiminy__LoadData(s32);  // state_dispatch_0_1_2
 void func_002925c0(void);
 s32 func_00276358(void);
-void func_00276220(s32, s32);
-void func_002958b0(void);
+void Tz__Jiminy__SetParentSeqNum(s32, s32);
+void Tz__JmReport__Setup(void);
 s32 func_00289310(s32);
 s32 func_00276398(void);  // state_is_150
 void func_00275b60(void);
@@ -176,9 +176,9 @@ s32 func_00242848(s32);
 void func_00287da0(void);
 s32 func_00288040(void);
 void func_00288018(void);  // global_zero_4dwords
-void func_0028f6f0(s32);  // record884_refresh_by_index
+void Tz__SelHist__FadeOut(s32);  // record884_refresh_by_index
 void func_00297008(void);
-void func_00276dc0(void);
+void Tz__Jiminy__FadeOutHelp(void);
 void func_00287c00(s32);
 void func_00287cc0(s32);
 void func_00297630(void);  // 0x00297630: definition moved into src/anon/unit_00295d28.cpp
@@ -214,7 +214,7 @@ f32* func_001dc648(u8*);
 f32* func_001dc620(u8*);
 u8* func_001de948(s32);
 void func_001dea80(u8*, u8*, D1ddef0*, u8*, f32);
-void func_001df670(u8*);
+void ryj__PAX__MANAGER__get_obj_data(u8*);
 void func_00180df8(u8*, u8*);
 extern s32 D_00352b50;
 // Builds an entry from a descriptor and pushes its node onto the owner list head.
@@ -235,11 +235,11 @@ void func_00138c10(u8*, s32);
 s32 func_00192048(s32);
 void func_00262af8(void);
 s32 func_0028b038(s32);
-void func_002827f0(s32, s32, s32);
+void Tz__ItemInfo__MakeMsgTbl(s32, s32, s32);
 u8* func_00281f30(s32);
 struct E262820 { u16 id; u16 pad[2]; };
 E262820* func_00281f20(s32);
-void func_0028be78(s32, s32);
+void Tz__ScrollBar__SetPos(s32, s32);
 s32 func_00285d58(u16);
 s32 func_00285e30(u16);
 void func_00262820(void);  // 0x00262820: definition moved into src/anon/unit_0025f6b8.cpp
@@ -260,7 +260,7 @@ void func_00139620(u8*);
 void func_00138c68(u8*, s32, s32);
 void func_0028dcc0(u8*, u8*);
 void func_00138c10(u8*, s32);
-void func_002a92d8(void);  // 0x002a92d8: definition moved into src/anon/unit_002a92a0.cpp
+void Tz__JmQuest__CreateList(void);  // 0x002a92d8: definition moved into src/anon/unit_002a92a0.cpp
 
 // ---- f21.cpp
 struct V4dcf90 { f32 x, y, z, w; } __attribute__((aligned(16)));
@@ -268,11 +268,11 @@ struct V3dcf90 { f32 x, y, z; };
 void func_002dcf90_i(u8* self) asm("_Z13func_002dcf90i");
 void func_002dcf18(u8*);
 s32 func_002dc7f8(u8*);  // get_global_35e958
-s32 func_00106a18(s32);  // buffer_get_256
-void func_00106de8(s32, s32, f32);
-void func_00106c08(s32);
+s32 kn__getProjection(s32);  // buffer_get_256
+void kn__Projection__setFOV(s32, s32, f32);
+void kn__Projection__calcMatrix(s32);
 s32 func_00106a60(s32);  // buffer_get_by_index
-V4dcf90* func_0016c028(s32);  // obj_get_attach_or_alt
+V4dcf90* YS__OBJ__get_pos(s32);  // obj_get_attach_or_alt
 u8* func_002dc7c8(u8*);
 f32 func_002dceb0(u8*);
 f32 sinf(f32);

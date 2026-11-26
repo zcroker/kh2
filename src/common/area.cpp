@@ -93,7 +93,7 @@ extern u32 D_0034ecf0;
 extern u64 D_0034ecc0;
 extern char D_00351ec8[];
 
-void func_001021f0(void);
+void GAME_MODE__enable(void);
 void func_001cd168(void);
 u32 func_0014ac08(void);
 u32 func_0014abb8(void);
@@ -104,7 +104,7 @@ u32 func_0014abf8(void);
 u32 func_0014aba8(void);
 void func_0014aa80(u32, s32, s32);
 void func_001de7d8(void*, u32, u32);
-void func_001e06b8(void);
+void ryj__SHAKE__Init(void);
 void func_00149c40(u64);
 void func_00169210(void);
 void func_00108068(void);
@@ -115,7 +115,7 @@ void func_0013f0d0(void);
 void func_001bb438(void);
 void func_0019ef70(Jumper*);
 void func_0019f070(Jumper*, s32);
-void func_0014ce60(void);
+void dk__Vsync__initGameSpeed(void);
 void func_00109140(void);
 void func_00169030(TASK*);
 void func_0016fa98(s32, u32);
@@ -127,7 +127,7 @@ void func_00102688(u32, s32, s32);
 void func_001de910(void);
 void func_00182d80(void);
 s32 func_002283b0(void);
-void func_002b9f28(s32);
+void SOUND__areaInit(s32);
 void func_00149ca0(void);
 void func_001366b8(TASK*);
 void func_00136fd0(void);
@@ -143,10 +143,10 @@ void func_00136d40(TASK*);
 s32 func_0013ef80(void);
 void func_00102c18(s32, s32, void (*)(TASK*));
 void func_001024a8(TASK*);
-void func_00102818(u32, s32, s32, void (*)(TASK*), s32);
+void TASK_MANAGER__create_thread(u32, s32, s32, void (*)(TASK*), s32);
 void func_00167ea8(void);
 void func_00169308(void);
-void func_00108080(void);
+void kn__GSEnv__GSEnv(void);
 void func_00149db8(void);
 void func_00169350(void);
 void func_00149ec0(AREA*);
@@ -155,7 +155,7 @@ void func_00181ba0(void);
 void func_0013f050(u32);
 s32 func_00103b38(void);
 s32 func_002ee530(void);
-void func_001ada38(u32);
+void YS__RECOV__Exec(u32);
 void func_001cd388(void);
 MAPJUMP_TASK* func_00102788(u32, u32, u32, void (*)(TASK*));
 void func_001c8d80(char*, s32);
@@ -177,12 +177,12 @@ void func_00104e18(void);
 void func_001050b8(void);
 void func_001052a8(AREA* a);
 s32 func_00105310(AREA* a, Jumper* j);
-void func_00105370(u32 size, u32 a1);
+void AREA__CreateAllocator(u32 size, u32 a1);
 }
 
 void AREA::start() {
     D_0032bad8 = 1;
-    func_001021f0();
+    GAME_MODE__enable();
     func_001cd168();
     func_0014aa80(func_0014ac08(), 0, 0);
     func_0014aa80(func_0014abb8(), 0, 0);
@@ -192,7 +192,7 @@ void AREA::start() {
     func_0014aa80(func_0014abd8(), 0, 0);
     func_0014aa80(func_0014aba8(), 0, 0);
     func_001de7d8(GetAllocator(), D_0034ecec, D_0034ecf0);
-    func_001e06b8();
+    ryj__SHAKE__Init();
     func_00149c40(D_0034ecc0);
     func_00169210();
     func_00108068();
@@ -211,13 +211,13 @@ void func_00104a48(TASK* task) {
 
     j.f32 = 0;
     func_0019ef70(&j);
-    func_0014ce60();
+    dk__Vsync__initGameSpeed();
     func_00109140();
     for (;;) {
         func_00169030(task);
         if (!func_00105310(&D_0032bae0, &j)) break;
         func_0016fa98(6, 0x8c0000);
-        func_00105370(0x380000, 0x100000);
+        AREA__CreateAllocator(0x380000, 0x100000);
         func_001de7d8(D_0032bb1c, 0x80000, 0x20000);
         while (!func_001a84f0()) {
             func_001382b8(func_001a8510(&j));
@@ -236,9 +236,9 @@ void func_00104a48(TASK* task) {
         func_00182d80();
         func_001052a8(&D_003a7b08);
     }
-    func_00105370(D_0034ecd0 + D_0034ecd4, D_0034ecd4);
+    AREA__CreateAllocator(D_0034ecd0 + D_0034ecd4, D_0034ecd4);
     func_0016fa98(6, 0xc0000);
-    func_002b9f28(func_002283b0());
+    SOUND__areaInit(func_002283b0());
     func_00149ca0();
     func_001366b8(task);
     func_00136fd0();
@@ -286,7 +286,7 @@ void func_00104d30(AREA* d, AREA* s) {
 void func_00104da0(AREA* a) {
     D_003a7b00 = 0;
     func_001052a8(a);
-    func_00102818(D_0032b96c, 1, 5000, func_00104a48, 0x2000);
+    TASK_MANAGER__create_thread(D_0032b96c, 1, 5000, func_00104a48, 0x2000);
 }
 
 void func_00104de0(u32 world, u32 area, u32 entrance) {
@@ -308,7 +308,7 @@ void func_00104e18(void) {
     D_0032bad8 = 0;
     func_00167ea8();
     func_00169308();
-    func_00108080();
+    kn__GSEnv__GSEnv();
     func_00149db8();
     func_00102688(D_0032b96c, 1, 1);
     func_00169350();
@@ -332,7 +332,7 @@ void AREA::MapJumpTask(TASK* t) {
     }
     if (func_00103b38() != 0) return;
     if (func_002ee530() != 0) return;
-    if (self->snd != 0) func_001ada38(self->snd);
+    if (self->snd != 0) YS__RECOV__Exec(self->snd);
     func_00104e18();
     if (self->flag8 != 0) {
         func_001cd388();
@@ -345,11 +345,11 @@ void AREA::MapJumpTask(TASK* t) {
 
 extern "C" {
 
-void func_00104f58(const AREA* pos, u32 id, u32 mode, u8 flag, u32 snd) {
+void AREA__MapJump(const AREA* pos, u32 id, u32 mode, u8 flag, u32 snd) {
     if (D_003a7b00) {
         func_0013f050(id | 0x80000000);
         D_003a7b08 = *pos;
-        if (snd) func_001ada38(snd);
+        if (snd) YS__RECOV__Exec(snd);
         return;
     }
     func_00167ea8();
@@ -362,7 +362,7 @@ void func_00104f58(const AREA* pos, u32 id, u32 mode, u8 flag, u32 snd) {
         D_0032bb20->snd = snd;
         func_0013f050(id);
     } else {
-        func_001ada38(snd);
+        YS__RECOV__Exec(snd);
         D_0032bb20->snd = 0;
     }
     func_001c8d80(D_00351ec8, 2);
@@ -432,7 +432,7 @@ s32 func_00105310(AREA* a, Jumper* j) {
     return r;
 }
 
-void func_00105370(u32 size, u32 a1) {
+void AREA__CreateAllocator(u32 size, u32 a1) {
     void* h = func_00106178(func_00170b30(size), size);
     D_0032bb1c = (Allocator*)h;
     func_001091c8(h, 256, a1);

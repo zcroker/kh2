@@ -16,32 +16,32 @@ void func_0014a988(void*);  // clear_fields_244_260
 void func_0014acf8(void);
 void func_0014ac18(void);
 void func_00167e28(void*);
-void func_0019ba60(u32);
+void YS__OBJ__is_exist(u32);
 void func_0016c018(u32, u32, u32);
 void func_00177a38(void*);
 u32 func_001b58f0(u32, u32, u32, u32);
-void func_001902a8(void*, void*);
+void YS__TARGET__make_collision(void*, void*);
 void func_0018a970(void*, void*);
 void func_001de450(void*);
-void func_001dde40(void*);
+void ryj__PAX__ensure(void*);
 void func_00170950(u32);
 s32 func_002f71b0(s32);
 void func_001ae678(void);  // to_306698_arg10
-void func_001d2180(void*);
+void YS__COMBOCOUNTER__reset(void*);
 void func_001d20a8(void*);
-void func_0017c4c8(void*, void*);
+void YS__OBJ__prepare_jump(void*, void*);
 void func_001bc778(void*);
-void func_001bc990(void*, void*);
+void YS__COMMAND_MENU__make(void*, void*);
 void func_001dc920(u32);
 void func_001db7d0(void*);
 void func_001a4e30(void*);
 void func_00190920(void*, s32, void*);
-void func_00198450(void*);
+void YS__STDOBJ___OVR_initialize(void*);
 void func_0023f8c8(void*);
 void func_00106420(void*);
 u8* func_001058e8(void);
 void* func_00192048(s32);
-void func_00263a90(void*, u8);
+void Tz__CMenuHelp__Create_2(void*, u8);
 void func_0028da70(void*, s32);
 s32 func_00287bc0(void);
 u8* func_00294000(s32);
@@ -116,7 +116,7 @@ void func_00172a10(u32* p);  // 0x00172a10: definition moved into src/anon/unit_
 
 void func_0018fe48(u32* p);  // 0x0018fe48: definition moved into src/anon/unit_0018f140.cpp
 
-void func_001906f0(void* a, u128* v);  // 0x001906f0: definition moved into src/anon/unit_001900d0.cpp
+void YS__TARGET__get_dist(void* a, u128* v);  // 0x001906f0: definition moved into src/anon/unit_001900d0.cpp
 
 void func_001940b8(u8* p, u32 a, u32 b, u32 c, f32 x, f32 y);  // 0x001940b8: definition moved into src/anon/unit_00193be8.cpp
 
@@ -181,7 +181,7 @@ void worldmap_ObjWidget_D0(void** p);  // 0x00324b78: definition moved into src/
 struct E24 { u8 a; u32 b; u32 pad[4]; };
 extern E24 D_0035e440[64];
 // Clear the 64-entry table at D_0035e440.
-void func_00236d60(void);  // 0x00236d60: definition moved into src/anon/unit_00236180.cpp
+void YI__IMAGE_CACHE__Clear(void);  // 0x00236d60: definition moved into src/anon/unit_00236180.cpp
 
 // 001e0958: moved to src/rikeda/saveram_gumibattle.cpp
 }

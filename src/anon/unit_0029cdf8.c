@@ -7,15 +7,15 @@ typedef struct Lst9cd { s32 mask; u8 pad[260]; char names[10][64]; } Lst9cd;
 typedef struct Ent9cd { u8 pad[408]; char* name; } Ent9cd;
 Big9cd* func_002766d0(void);
 s32 func_0028b038(u32);
-void func_0028be78(u32, s32);
+void Tz__ScrollBar__SetPos(u32, s32);
 void func_00138c10(Spr9cd*, u32);
 void func_002fde18(void*, s32, s32);
 s32 func_0028afa8(u32);
-s32 func_00295430(s32, s32);
+s32 Tz__JmWorldSel__GetId2WorldName(s32, s32);
 s32 func_002954e0(s32);
 s32 func_00192048(s32);
 void func_00192c90(s32, char*);
-void func_0028de08(s32, char*, s32);
+void Tz__MenuUtil__MakeQuestionStr(s32, char*, s32);
 Ent9cd* func_002891b8(u32, s32);
 s32 func_002aa098(s32);
 s32 func_002aa148(s32);
@@ -28,7 +28,7 @@ void func_0029cdf8(void) {
     Big9cd* b = func_002766d0();
     s32 n = func_0028b038(D_0035f200);
     s32 i, k, cnt, v;
-    func_0028be78(D_0035f214, n);
+    Tz__ScrollBar__SetPos(D_0035f214, n);
     for (i = 0; i < 10; i++) func_00138c10(&b->spr[i], 2);
     func_002fde18(D_0035f5ac->names, 0, 640);
     k = 0;
@@ -41,10 +41,10 @@ void func_0029cdf8(void) {
         if (i < n) continue;
         if ((u8)((u32)(D_0035f5ac->mask >> i) & 1)) {
             s32 id = i ? i - 1 : 16;
-            s32 h = func_00295430(id, 1);
+            s32 h = Tz__JmWorldSel__GetId2WorldName(id, 1);
             v = func_002954e0(id);
             if (v) func_00192c90(func_00192048(h), D_0035f5ac->names[k]);
-            else func_0028de08(h, D_0035f5ac->names[k], 64);
+            else Tz__MenuUtil__MakeQuestionStr(h, D_0035f5ac->names[k], 64);
             func_002891b8(D_0035f200, k)->name = D_0035f5ac->names[k];
             if (v && func_002aa098(id)) {
                 s32 r = func_002aa148(id);

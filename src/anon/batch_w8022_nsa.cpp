@@ -18,7 +18,7 @@ void func_00288f48(void*, s32, s32, s32, s32);
 void func_002b3df8(void*);
 void func_0028d068(s32, s32);
 u8* func_00103eb0(void);
-void func_00102818(u32, s32, s32, void*, s32);
+void TASK_MANAGER__create_thread(u32, s32, s32, void*, s32);
 void func_0024f698(void);
 typedef void* (*AllocFn)(void*, u32, void*);
 extern void** D_0032ba14;
@@ -29,5 +29,5 @@ extern s32 D_0035ee3c, D_0035ee40, D_0035ee44;
 extern W8022_T* D_0035ee48;
 extern void* D_0035ee4c;
 extern u8 D_0035ee50, D_0035ee51;
-void func_0024f398(void);  // 0x0024f398: definition moved into src/anon/unit_0024e7e8.cpp
+void Tz__LMMU__Init(void);  // 0x0024f398: definition moved into src/anon/unit_0024e7e8.cpp
 }

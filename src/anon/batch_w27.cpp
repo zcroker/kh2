@@ -44,23 +44,23 @@ u8* func_00102c18(u32, u32, void*);
 void func_0014a830(void);
 void func_0014ae10(void);
 void func_0013a9e8(u32);
-void func_002bea00(void);
+void worldmap__Manager__readPackEnable(void);
 void func_0014a188(void);  // 0014a188: moved to src/anon/unit_00149fa8.cpp
 
 s32 func_00163268(f32* a, f32* b, f32* out);  // 0x00163268: definition moved into src/anon/unit_001614e8.cpp
 
-void* func_001b9bc8(void*);
+void* YS__OBJ__Each(void*);
 s32 func_0016a070(void*);
 void* func_0016b800(s32 id);  // 0x0016b800: definition moved into src/anon/unit_00169f98.cpp
 
 void func_0016c5a0(void*, u32);
 void wtarget_0016c640(u32 a, u32, u32, u32);  // 0x0016c640: definition moved into src/anon/unit_00169f98.cpp
 
-void func_0016af58(void*, u32);
+void YS__OBJ__get_dir(void*, u32);
 extern u32 D_01c5f480[4];
 void func_00171518(u32** p);  // 0x00171518: definition moved into src/anon/unit_00170f58.cpp
 
-void func_0016b010(void*, void*);  // obj_set_float1644_from_pair
+void YS__OBJ__set_wish_dir(void*, void*);  // obj_set_float1644_from_pair
 void func_00198690(void*);
 // 00175b68: moved to src/yasui/libys/party.cpp
 
@@ -93,7 +93,7 @@ s32 func_001a67b0(u32);
 void func_00239700(void*);
 u32 func_001ab810(void);  // get_global_1c7cec0
 u32 func_001ab800(void);
-void func_00239988(void*, u32, u32);
+void YI__SEQUENCE__Init(void*, u32, u32);
 // 001ac208: moved to src/anon/unit_001abb28.cpp
 
 s32 func_001bb4a0(void);
@@ -105,7 +105,7 @@ void func_001dca30(u32, u32, u32);  // obj_set48_52_flag40000
 void func_001c16a0(u32* p, u32 x);
 
 extern f32 D_00349e10;
-void func_001d2180(void*);
+void YS__COMBOCOUNTER__reset(void*);
 s32 func_001d21c0(u8* p);  // 0x001d21c0: definition moved into src/anon/unit_001d14e0.cpp
 
 struct Lerp1d3000 { u8 pad[240]; f32 hiVal; f32 loVal; f32 hi; f32 lo; };
@@ -146,7 +146,7 @@ s32 func_00253380(s32 x);  // 0x00253380: definition moved into src/anon/unit_00
 
 u32 func_0023aa18(void*);
 u32 func_0023aa38(void*);
-void func_0028eab8(u8* d, u8* s);  // 0028eab8: moved to src/anon/unit_0028c878.cpp
+void Tz__MultiSeq__setParamXYToOffset(u8* d, u8* s);  // 0028eab8: moved to src/anon/unit_0028c878.cpp
 
 void func_00290a60(void*);
 void func_00106450(void*);
@@ -178,7 +178,7 @@ void func_002cf3f8(void*);
 void func_002ceaa8(u8* p);  // 002ceaa8: moved to src/taito/minigame_base.cpp (linked unit)
 
 extern u32 D_0034ee08;
-void func_0019f9a8(void*);  // array8_free_slots
+void YS__OBJ_ATTACK__clear(void*);  // array8_free_slots
 void func_001c0248(void*);
 void func_00319fb0(void*);  // big_obj_dtor
 void func_002cffe0(u8* p);  // 0x002cffe0: definition moved into src/anon/unit_002cf260.cpp
@@ -192,7 +192,7 @@ extern u32 D_003625e0;
 void func_002d0ea8(void*);
 void func_002d9730(u8* p);  // 0x002d9730: definition moved into src/anon/unit_002d96d8.cpp
 
-void func_0018c258(void*, u32);
+void YS__NPC__get_rtn_action_dir(void*, u32);
 extern u32 D_01e2be20[4];
 // 002e37c0: moved to src/anon/unit_002e2f08.cpp
 

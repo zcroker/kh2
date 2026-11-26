@@ -99,8 +99,8 @@ void DbgSMenu::SignalCall() {}
 // ---- 0013f050 from src/anon/batch_w53.cpp
 namespace n0013f050 {
 extern s32 D_00348704 asm("D_00348704");
-void func_0013f230(void) asm("func_0013f230");
-void func_0015d540(void) asm("func_0015d540");
+void dk__JumpEffect__out(void) asm("dk__JumpEffect__out");
+void dk__KeyHoleJumpEffect__out(void) asm("dk__KeyHoleJumpEffect__out");
 void func_0013f378(void) asm("func_0013f378");
 void func_0013f498(void) asm("func_0013f498");
 void func_0013f050(s32 a) asm("func_0013f050");
@@ -121,10 +121,10 @@ L2:
     func_0013f378();
     return;
 L0:
-    func_0015d540();
+    dk__KeyHoleJumpEffect__out();
     return;
 L1:
-    func_0013f230();
+    dk__JumpEffect__out();
 }
 }  // namespace n0013f050
 
@@ -134,8 +134,8 @@ s32 func_001991a8(s32, s32) asm("func_001991a8");
 void func_0013f030(void) asm("func_0013f030");
 void func_0013f048(void) asm("func_0013f048");
 extern u32 D_00348704 asm("D_00348704");
-void func_0013f288(void) asm("func_0013f288");
-void func_0015d690(void) asm("func_0015d690");
+void dk__JumpEffect__in(void) asm("dk__JumpEffect__in");
+void dk__KeyHoleJumpEffect__in(void) asm("dk__KeyHoleJumpEffect__in");
 void func_0013f3d0(void) asm("func_0013f3d0");
 void func_0013f4d8(void) asm("func_0013f4d8");
 void func_0013f0d0(void) asm("func_0013f0d0");
@@ -146,8 +146,8 @@ void func_0013f0d0(void) {
         return;
     }
     switch (D_00348704 & 0x3fffffff) {
-    case 1: func_0013f288(); break;
-    case 0: func_0015d690(); break;
+    case 1: dk__JumpEffect__in(); break;
+    case 0: dk__KeyHoleJumpEffect__in(); break;
     case 2: func_0013f3d0(); break;
     case 3: func_0013f4d8(); break;
     }
@@ -207,8 +207,8 @@ void func_0013f1e8(u32 a0) {
 
 // ---- 0013f230 from src/anon/auto80_199_queue.cpp
 namespace n0013f230 {
-u32 func_0013f230(void) asm("_Z13func_0013f230v");
-u32 func_0013f230(void) {
+u32 dk__JumpEffect__out(void) asm("_Z19dk__JumpEffect__outv");
+u32 dk__JumpEffect__out(void) {
     func_0013efe8();
     u32 v0 = func_00102c80();
     u32 a0 = *(u32*)(v0 + 4);
@@ -222,8 +222,8 @@ u32 func_0013f230(void) {
 
 // ---- 0013f288 from src/anon/auto80_199_queue.cpp
 namespace n0013f288 {
-u32 func_0013f288(void) asm("_Z13func_0013f288v");
-u32 func_0013f288(void) {
+u32 dk__JumpEffect__in(void) asm("_Z18dk__JumpEffect__inv");
+u32 dk__JumpEffect__in(void) {
     func_0013f030();
     u32 v0 = func_00102c80();
     u32 a0 = *(u32*)(v0 + 4);
@@ -342,13 +342,13 @@ void func_0013f498(void) {
 namespace n0013f4d8 {
 void func_0013f030(void) asm("func_0013f030");
 void* func_00102c80(void) asm("func_00102c80");
-void func_00102818(u32, s32, u32, void*, s32) asm("func_00102818");
+void TASK_MANAGER__create_thread(u32, s32, u32, void*, s32) asm("TASK_MANAGER__create_thread");
 void func_0013f450(void) asm("func_0013f450");
 void func_0013f4d8(void) asm("func_0013f4d8");
 void func_0013f4d8(void) {
     func_0013f030();
     u8* v = (u8*)func_00102c80();
-    func_00102818(*(u32*)(v + 4), 1, 0x493e0, (void*)func_0013f450, 4096);
+    TASK_MANAGER__create_thread(*(u32*)(v + 4), 1, 0x493e0, (void*)func_0013f450, 4096);
 }
 }  // namespace n0013f4d8
 
@@ -551,11 +551,11 @@ V13f6 func_0013f6e8(V13f6* pos, V13f6* anchor, V13f6* vel, f32 dt, f32 k, f32 c,
 
 // ---- 0013f828 from src/anon/batch_w217.cpp
 namespace n0013f828 {
-u32* func_0016c028(u32) asm("func_0016c028");
+u32* YS__OBJ__get_pos(u32) asm("YS__OBJ__get_pos");
 void func_0013f828(u32* t) asm("func_0013f828");
 void func_0013f828(u32* t) {
     u32* s0 = t + 32;
-    u32* v = func_0016c028(t[17]);                          
+    u32* v = YS__OBJ__get_pos(t[17]);                          
     if (s0 != v) asm volatile("lq $8,0(%1)\n\tsq $8,0(%0)" :: "r"(s0), "r"(v) : "$8", "memory");
     ((f32*)t)[33] = ((f32*)t)[33] - 170.0f;
 }

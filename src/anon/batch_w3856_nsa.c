@@ -97,7 +97,7 @@ void sceVu0ApplyMatrix(f32*, f32*, void*);
 void sceVu0Normalize(f32*, f32*);
 void sceVu0CopyVector(f32*, f32*);
 void func_00222080(E46*, u8*, f32*, f32*);
-void func_00222170(A46*);
+void KeThCp_Update(A46*);
 
 static inline f32 fdiv46(f32 a, f32 b)
 {

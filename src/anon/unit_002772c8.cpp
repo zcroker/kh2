@@ -32,8 +32,8 @@ extern s32 D_00373e00 asm("D_00373e00");
 u8* func_00257770(void) asm("func_00257770");
 void func_0028f4d8(s32, s32, s32) asm("func_0028f4d8");
 s32 func_00257100(s32) asm("func_00257100");
-void func_00288d80(u32, s32, u32, u32, u32, s32, s32, s32) asm("func_00288d80");
-void func_00288e08(u32, s32, s32, s32) asm("func_00288e08");
+void Tz__Select__SetItem(u32, s32, u32, u32, u32, s32, s32, s32) asm("Tz__Select__SetItem");
+void Tz__Select__SetExOffset(u32, s32, s32, s32) asm("Tz__Select__SetExOffset");
 u8* func_002891b8(u32, s32) asm("func_002891b8");
 void func_00139620(u8*) asm("func_00139620");
 void func_001395f8(u8*) asm("func_001395f8");
@@ -46,23 +46,23 @@ void func_00138c68(u8*, s32, s32) asm("func_00138c68");
 s32 func_00257070(s32) asm("func_00257070");
 s32 func_002892f8(u32) asm("func_002892f8");
 void func_00257050(s32, s32, s32) asm("func_00257050");
-void func_002891f0(u32, s32, s32, s32, s32) asm("func_002891f0");
+void Tz__Select__SetCurrent(u32, s32, s32, s32, s32) asm("Tz__Select__SetCurrent");
 s32 func_0028afa8(u32) asm("func_0028afa8");
 void func_0027aed8(s32, s32*, s32*) asm("func_0027aed8");
-s32 func_00286d28(s32, s32) asm("func_00286d28");
-s32 func_00287028(s32, s32) asm("func_00287028");
+s32 Tz__CmNewFlg__isAbilityNewMember(s32, s32) asm("Tz__CmNewFlg__isAbilityNewMember");
+s32 Tz__CmNewFlg__isAbilityHistMember(s32, s32) asm("Tz__CmNewFlg__isAbilityHistMember");
 s32 func_0027ae78(s32) asm("func_0027ae78");
-s32 func_00286ec8(s32, s32) asm("func_00286ec8");
+s32 Tz__CmNewFlg__isAbilityNewForm(s32, s32) asm("Tz__CmNewFlg__isAbilityNewForm");
 s32 func_00287218(s32, s32) asm("func_00287218");
 void func_0028d8c0(u8*, s32, u32, u32, u32, s32, s32, s32) asm("func_0028d8c0");
 void func_0028dcc0(u8*, u8*) asm("func_0028dcc0");
 s32 func_0023aa18(u8*) asm("func_0023aa18");
 s32 func_0023aa38(u8*) asm("func_0023aa38");
-void func_00279cd8(void) asm("func_00279cd8");
+void Tz__CmAbility__CreateTopList(void) asm("Tz__CmAbility__CreateTopList");
 void func_00279ec8(void) asm("func_00279ec8");
 s32 func_0028af88(u32) asm("func_0028af88");
 s32 func_00258068(s32) asm("func_00258068");
-void func_00256cc0(s32, s32, s32) asm("func_00256cc0");
+void Tz__CmTop__CreatePadHelp(s32, s32, s32) asm("Tz__CmTop__CreatePadHelp");
 void func_0028af18(u32, s32) asm("func_0028af18");
 void func_00287cc0(s32) asm("func_00287cc0");
 /*TARGET 002772c8*/
@@ -70,12 +70,12 @@ void func_00287cc0(s32) asm("func_00287cc0");
 // func_00281180, then one row per entry), then sets its flags. Built with -fmove-all-movables.
 // Partial asm (no code emitted): p is pinned to s2 with empty "+r" ties so the call result is
 // used straight from v0 like the original; w doubles as the first product term so it gets s1.
-void func_002772c8(s32 arg) asm("func_002772c8");
+void Tz__CmAbility__SetupTop(s32 arg) asm("Tz__CmAbility__SetupTop");
 // 002772c8: sets up the list in D_0035f01c (first entry, up to three more entries chosen by
 // func_00281180, then one row per entry), then sets its flags. Built with -fmove-all-movables.
 // Partial asm (no code emitted): p is pinned to s2 with empty "+r" ties so the call result is
 // used straight from v0 like the original; w doubles as the first product term so it gets s1.
-void func_002772c8(s32 arg)
+void Tz__CmAbility__SetupTop(s32 arg)
 {
     s32 flag;
     s32 w;
@@ -88,8 +88,8 @@ void func_002772c8(s32 arg)
     D_0035f3d4 = 0x7541;
     s32 a = func_00257100(0);
     s32 b = func_00257100(1);
-    func_00288d80(D_0035f01c, 0, D_0035ef68, D_0035ef64, D_0035f03c, -1, a, b);
-    func_00288e08(D_0035f01c, 0, 0, -1);
+    Tz__Select__SetItem(D_0035f01c, 0, D_0035ef68, D_0035ef64, D_0035f03c, -1, a, b);
+    Tz__Select__SetExOffset(D_0035f01c, 0, 0, -1);
     u8* t = func_002891b8(D_0035f01c, 0);
     register u8* p asm("$18") = t;
     asm("" : "+r"(p));
@@ -106,7 +106,7 @@ void func_002772c8(s32 arg)
         if (func_00281180(D_0035f010, i)) {
             m = func_00257100(0);
             s32 b2 = func_00257100(1);
-            func_00288d80(D_0035f01c, n, D_0035ef68, D_0035ef64, D_0035f03c, -1, m, b2);
+            Tz__Select__SetItem(D_0035f01c, n, D_0035ef68, D_0035ef64, D_0035f03c, -1, m, b2);
             t = func_002891b8(D_0035f01c, n++);
             p = t;
             asm("" : "+r"(p));
@@ -131,7 +131,7 @@ void func_002772c8(s32 arg)
             func_00257050(15, v, 0);
         }
     }
-    func_002891f0(D_0035f01c, sel, 1, 0, 2);
+    Tz__Select__SetCurrent(D_0035f01c, sel, 1, 0, 2);
     i = 0;
     s32 cnt = func_0028afa8(D_0035f01c);
     if (cnt > 0) {
@@ -141,10 +141,10 @@ void func_002772c8(s32 arg)
             s32 c = D_0035ef6c;
             s32 r;
             if (!flag) {
-                if (!func_00286d28(id, -1)) goto skip;
-                r = func_00287028(id, -1);
+                if (!Tz__CmNewFlg__isAbilityNewMember(id, -1)) goto skip;
+                r = Tz__CmNewFlg__isAbilityHistMember(id, -1);
             } else {
-                if (!func_00286ec8(func_0027ae78(id), -1)) goto skip;
+                if (!Tz__CmNewFlg__isAbilityNewForm(func_0027ae78(id), -1)) goto skip;
                 r = func_00287218(func_0027ae78(id), -1);
             }
             c = r ? D_00373e00 : D_00373dfc;
@@ -158,12 +158,12 @@ void func_002772c8(s32 arg)
             q += 0x198;
         } while (i < cnt);
     }
-    func_00279cd8();
+    Tz__CmAbility__CreateTopList();
     func_00279ec8();
     s32 fl = func_0028af88(D_0035f01c);
     if (func_00258068(0)) {
         fl |= 0x100;
-        func_00256cc0(0xb373, -1, -1);
+        Tz__CmTop__CreatePadHelp(0xb373, -1, -1);
     }
     func_0028af18(D_0035f01c, fl);
     func_00287cc0(0);

@@ -133,8 +133,8 @@ namespace n0015aaf8 {
 typedef void (*VFn)(void*);
 s32 func_00197920(u8*) asm("func_00197920");
 extern f32 D_00349e14 asm("D_00349e14");
-void func_0015aaf8(u8* p) asm("func_0015aaf8");
-void func_0015aaf8(u8* p) {
+void dk__BILLBOARD_BASE__update(u8* p) asm("dk__BILLBOARD_BASE__update");
+void dk__BILLBOARD_BASE__update(u8* p) {
     if (func_00197920(p)) {
         ((VFn)(*(void***)p)[5])(p);
         return;
@@ -146,29 +146,29 @@ void func_0015aaf8(u8* p) {
 
 // ---- 0x0015ab70 (gap, written here)
 namespace n0015ab70 {
-void func_001aa728(s32, u32, s32, s32, u32, s32, s32) asm("func_001aa728");
-extern "C" void func_0015ab70(u8* o) { func_001aa728(2, *(u32*)(o + 24), 256, 384, 0x80ffffff, 0, 4); }
+void YS__MESSAGEDRAW__Draw(s32, u32, s32, s32, u32, s32, s32) asm("YS__MESSAGEDRAW__Draw");
+extern "C" void func_0015ab70(u8* o) { YS__MESSAGEDRAW__Draw(2, *(u32*)(o + 24), 256, 384, 0x80ffffff, 0, 4); }
 }
 
 // ---- 0x0015aba8 (src/anon/batch_w89.cpp)
 namespace n0015aba8 {
-void func_001386e0(u8*, u32, u32, s32, u32, u32) asm("func_001386e0");
+void dk__Sprite__create(u8*, u32, u32, s32, u32, u32) asm("dk__Sprite__create");
 extern u8 D_0032bae0 asm("D_0032bae0");
-void func_002362b0(u8*) asm("func_002362b0");
+void YI__IMAGE__Init(u8*) asm("YI__IMAGE__Init");
 void func_002367c8(u8*) asm("func_002367c8");
 s32 func_00105c30(void) asm("func_00105c30");
 s32 func_00241ed8(u8) asm("func_00241ed8");
-void func_001386e0(u8*, u32, u32, s32, u32, u32) asm("func_001386e0");
+void dk__Sprite__create(u8*, u32, u32, s32, u32, u32) asm("dk__Sprite__create");
 void func_0015aba8(u8* o, u32 a1, u32 a2) asm("func_0015aba8");
 void func_0015aba8(u8* o, u32 a1, u32 a2) {
     u8* s = o + 416;
     s32 skip = 0;
     s32 x = 0;
-    func_002362b0(s);
+    YI__IMAGE__Init(s);
     func_002367c8(s);  // obj_dispatch_bitfield64
     if (func_00105c30() == 1 || func_00105c30() == 8) skip = 1;
     if (!(u8)skip) x = func_00241ed8(D_0032bae0) != 0;
-    func_001386e0(o, 20000, a2, (s32)s, x, 0);
+    dk__Sprite__create(o, 20000, a2, (s32)s, x, 0);
 }
 }  // namespace n0015aba8
 
@@ -179,14 +179,14 @@ s32 func_00197920(u8*) asm("func_00197920");
 s32 func_001ad938(void) asm("func_001ad938");
 struct Flags34f240 { u32 b0 : 1; };
 extern Flags34f240 D_0034f240 asm("D_0034f240");
-void func_00138840(u8*) asm("func_00138840");
-void func_0015ac68(u8* p) asm("func_0015ac68");
-void func_0015ac68(u8* p) {
+void dk__Sprite__update(u8*) asm("dk__Sprite__update");
+void dk__BILLBOARD_PLACE__update(u8* p) asm("dk__BILLBOARD_PLACE__update");
+void dk__BILLBOARD_PLACE__update(u8* p) {
     if (func_00197920(p) || func_001ad938() || (u8)D_0034f240.b0) {
         ((VFn)(*(void***)p)[5])(p);
         return;
     }
-    func_00138840(p);
+    dk__Sprite__update(p);
 }
 }  // namespace n0015ac68
 
@@ -194,11 +194,11 @@ void func_0015ac68(u8* p) {
 namespace n0015ace0 {
 s32 func_00139538(u8*) asm("func_00139538");
 void func_00236788(u8*) asm("func_00236788");
-void func_00138988(u8*) asm("func_00138988");
+void dk__Sprite__draw(u8*) asm("dk__Sprite__draw");
 extern "C" void func_0015ace0(u8* o) {
     if (func_00139538(o)) return;
     func_00236788(o + 416);
-    func_00138988(o);
+    dk__Sprite__draw(o);
 }
 }
 
@@ -210,15 +210,15 @@ void func_0015ad28(u32 a0) {
     if (func_00139538(s0) != 0) {
         return;
     }
-    func_001aa728(2, *(u32*)(s0 + 24), 256, 192, 0x80ffffff, 0, 4);
+    YS__MESSAGEDRAW__Draw(2, *(u32*)(s0 + 24), 256, 192, 0x80ffffff, 0, 4);
 }
 }  // namespace n0015ad28
 
 // ---- 0x0015ad80 (src/anon/auto80_199_queue.cpp)
 namespace n0015ad80 {
 void func_00138d60(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6) asm("func_00138d60");
-void func_0015ad80(u32 a0, u32 a1, f32 a2) asm("func_0015ad80");
-void func_0015ad80(u32 a0, u32 a1, f32 a2) {
+void dk__BILLBOARD__DrawDisableReason(u32 a0, u32 a1, f32 a2) asm("dk__BILLBOARD__DrawDisableReason");
+void dk__BILLBOARD__DrawDisableReason(u32 a0, u32 a1, f32 a2) {
     u32 s1 = a0;
     u32 s2 = a1;
     f32 f20 = a2;
@@ -238,10 +238,10 @@ namespace n0015ae00 {
 extern f32 D_00349e14 asm("D_00349e14");
 s32 func_00197920(void*) asm("func_00197920");
 void func_00138c10(void*, s32) asm("func_00138c10");
-void func_001390a8(void*) asm("func_001390a8");
+void dk__SpriteMessage__update(void*) asm("dk__SpriteMessage__update");
 struct V15ae { u8 p[20]; void (*f5)(void*); };
-void func_0015ae00(u8* a) asm("func_0015ae00");
-void func_0015ae00(u8* a) {
+void dk__BILLBOARD_DISABLE_REASON__update(u8* a) asm("dk__BILLBOARD_DISABLE_REASON__update");
+void dk__BILLBOARD_DISABLE_REASON__update(u8* a) {
     if (func_00197920(a)) {
         (*(V15ae**)a)->f5(a);
         return;
@@ -253,7 +253,7 @@ void func_0015ae00(u8* a) {
         f = *(f32*)(a + 436);
     }
     if (f != 20000.0f) *(f32*)(a + 436) = f - D_00349e14;
-    func_001390a8(a);
+    dk__SpriteMessage__update(a);
 }
 }  // namespace n0015ae00
 

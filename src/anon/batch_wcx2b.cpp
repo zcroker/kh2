@@ -6,7 +6,7 @@ s32 func_0028acc8(s32);
 s32 func_00289310(s32);
 void func_0028abe0(s32);
 s32 func_002891e8(s32);
-s32 func_0024ac88(void);
+s32 Tz__TRTE__GetSeqInfo(void);
 void func_002b4388(s32, const char*, s32);
 void func_00287bd0(s32, s32);
 void func_00287cc0(s32);

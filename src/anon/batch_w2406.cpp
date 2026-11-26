@@ -15,7 +15,7 @@ void func_00289038(s32, s32, s32, s32, s32, s32, s32);
 s32 func_002469a0(s32);
 Ent246* func_002468a0(s32);
 void func_0023f070(s32, s32, s32);
-void func_00247580(s32);
+void Tz__HECO__UpdateMaker(s32);
 void func_00247c20(void);
 Msg246* func_00246868(void);
 s32 func_002474e0(s32);

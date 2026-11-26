@@ -117,8 +117,8 @@ namespace k2 {
 void func_0014b150(void*) asm("func_0014b150");
 void func_0014b300(void*) asm("func_0014b300");
 extern u8 D_00349b40[] asm("D_00349b40");
-void ctarget_0014b290(u32* self, u32, u32, u32) asm("_Z16ctarget_0014b290jjjj");
-void ctarget_0014b290(u32* self, u32, u32, u32) {
+void dk__RectBase__createPacket(u32* self, u32, u32, u32) asm("_Z26dk__RectBase__createPacketjjjj");
+void dk__RectBase__createPacket(u32* self, u32, u32, u32) {
     func_0014b150(self);
     *self = (u32)D_00349b40;
     func_0014b300(self);

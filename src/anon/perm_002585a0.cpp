@@ -30,7 +30,7 @@ extern P *D_0035f080;
 extern s32 D_0035f084;
 extern s16 D_0035f06c;
 extern u8 D_0035f069;
-void func_002588e8(s32);
+void Tz__Pause__CreateBg(s32);
 void func_0026dd18(P *, s32, s32);
 void func_002585a0(void);  // 0x002585a0: definition moved into src/anon/unit_002584c8.cpp
 

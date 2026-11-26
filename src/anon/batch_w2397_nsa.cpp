@@ -13,7 +13,7 @@ struct W2397Rec { char p[0xf]; u8 cf; };
 
 extern "C" {
 s32 func_001058d8(W2397Obj*);
-W2397Rec* func_00188fe0(void*, s32);
+W2397Rec* YS__SAVERAM_BATTLE__get_partram(void*, s32);
 s32 func_0019f880(u8, u8);
 extern W2397Obj* D_0035ec90;
 extern W2397Ent* D_0035ec94;

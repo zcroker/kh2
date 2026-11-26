@@ -40,7 +40,7 @@ u64 func_00314190(u64, u64);
 f32 __truncdfsf2(u64);
 void* func_0020eaf8(s32);
 void func_0020ebd8(s32);
-void func_0020d528(Req20d1d0*, u8);
+void pppSnoMdlDttNormDraw(Req20d1d0*, u8);
 
 void func_0020d1d0(u8* base, Ent20d1d0* e, Ctx20d1d0* c)
 {
@@ -104,7 +104,7 @@ void func_0020d1d0(u8* base, Ent20d1d0* e, Ctx20d1d0* c)
     }
     r.q40 = D_00352c18;
     r.b72 = e->b23;
-    func_0020d528(&r, e->b28);
+    pppSnoMdlDttNormDraw(&r, e->b28);
     D_01d9e8c0.f56 = save;
     func_0020ebd8(448);
 }

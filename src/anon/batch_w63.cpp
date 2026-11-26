@@ -5,7 +5,7 @@ typedef void (*VFn)(void*);
 extern "C" {
 void func_00167ea8(void);
 void func_00169308(void);
-void func_00108080(void);
+void kn__GSEnv__GSEnv(void);
 void func_00149db8(void);
 void func_00102688(u32, s32, s32);
 void func_00169350(void);
@@ -17,30 +17,30 @@ void func_001053c0(void);
 s32 func_002fea18(void);
 void func_00132270(void*);  // obj_ctor_347c00
 void func_00108398(void*);  // clear_quads_set_flags
-void func_0014fcd8(void*);
+void dk__INFO_BASE__update(void*);
 s32 func_00139538(void*);
 void func_00138c40(void*, s32, u32);
 void func_0023acd8(void*);
 void* func_0023ee30(u32);
 void func_0031a838(void*);
-void func_002369a0(void*);  // obj_ctor_36eac8
-void func_0023c008(void*);  // obj_ctor_36eae8
+void YI__IMAGE_FREEZE__IMAGE_FREEZE(void*);  // obj_ctor_36eac8
+void YI__LAYOUT__LAYOUT(void*);  // obj_ctor_36eae8
 void func_00153ea0(void*, u32, s32, u32, s32);
 void func_002fee78(char*, const char*, ...);
 void func_001447e0(void*, void*, void*);
 void func_00167658(void*, s32);
 s32 func_00141080(u32);
-s32 func_001b9d40(u32);  // vtable_call_slot64_flags
+s32 YS__OBJ__can_control(u32);  // vtable_call_slot64_flags
 void func_001835a0(u32, f32);
-void func_00175b68(u32);
+void YS__PARTY___OVR_post_exec(u32);
 void func_0016d110(void);
-u32 func_0016cd48(u32, s32);
+u32 YS__VM__exec(u32, s32);
 u8* func_00198bd0(u32, s32);
-void func_00198ee8(u8*);
+void YS__SIGNAL_HOOK__exec(u8*);
 void func_002ba2e8(s32, s32);
 void func_001ac728(u32);
-void func_001abbf0(void*);
-void func_001c1060(void);
+void YS__CURSOR__exec(void*);
+void YS__OBJ__DetachAll(void);
 void func_001b5400(void);
 void func_00102750(u32);
 void func_0013b320(void*);
@@ -68,7 +68,7 @@ void func_002bc798(void);
 void func_002ba9c0(void);
 void func_002bc470(s32);
 void func_002bcf58(void*);
-void func_002bcfa0(void*);
+void SE_BANK__objectDestroy(void*);
 void func_002baa60(void);
 void func_002bc608(s32);
 void func_002bbf98(void);
@@ -78,9 +78,9 @@ void func_001b86e0(u32);  // alloc_from_pool_magic_c
 void func_00170320(s32);
 void func_0017f540(void*, s32, f32, f32);
 u32 func_002d1260(void);
-void func_001c0d38(void*, u32, s32, s32);
+void YS__OBJ__attach(void*, u32, s32, s32);
 void func_002e7568(void*, s32, void*, f32);
-void func_002db968(void*, s32);
+void Ti__Afp__calc_local_matrix(void*, s32);
 void func_002eb9d8(u32, u8*, s32, f32);
 
 extern u8 D_0032bad8;
@@ -122,7 +122,7 @@ extern f32 D_01e2c044;
 // 00106558: moved to src/anon/unit_00106490.cpp
 
 // Constructor: base ctor, vtable, four 144-byte members, cleared tail fields.
-void func_001324b8(u8* p);  // 0x001324b8: definition moved into src/anon/unit_00131418.cpp
+void kn__TEXAnmWork__TEXAnmWork(u8* p);  // 0x001324b8: definition moved into src/anon/unit_00131418.cpp
 
 struct WNode { u16 h0; u16 h2; u32 w4; u32 w8; u32 tag; u64 idx : 15; u64 rest : 49; };
 struct WCtx { u8 pad[24]; WNode* cur; u32 pad28; union { WNode* top; u16 h; }; };
@@ -132,7 +132,7 @@ void wtarget_00133ae8(u32 a0, u32 a1, u32, u32);  // 0x00133ae8: definition move
 
 void func_0014fba0(void);  // 0x0014fba0: definition moved into src/anon/unit_0014ecb8.cpp
 
-void func_00151f40(u8* p);  // 0x00151f40: definition moved into src/anon/unit_0014ecb8.cpp
+void dk__GET_MUNNY__update(u8* p);  // 0x00151f40: definition moved into src/anon/unit_0014ecb8.cpp
 
 void* cam_sxfs(u32, u32) asm("_ZN2dk6Camera20singleCrossFadeStartEf");
 // Allocates and constructs a 164-byte cross-fade object.
@@ -204,13 +204,13 @@ void func_002865d0(u32 bit);  // 0x002865d0: definition moved into src/anon/unit
 
 void func_0028e560(void* p, s16* a, s32 n, u32 a3);  // 0028e560: moved to src/anon/unit_0028c878.cpp
 
-void func_00298e48(void);  // 0x00298e48: definition moved into src/anon/unit_002982f0.cpp
+void Tz__JmAlbum__UpdateMess(void);  // 0x00298e48: definition moved into src/anon/unit_002982f0.cpp
 
-void func_002b9f28(u8 a);  // 0x002b9f28: definition moved into src/anon/unit_002b9ab8.cpp
+void SOUND__areaInit(u8 a);  // 0x002b9f28: definition moved into src/anon/unit_002b9ab8.cpp
 
 void func_002bdac8(u8* p);  // 0x002bdac8: definition moved into src/anon/unit_002bc978.cpp
 
-void func_002dbca0(u8* p, u8 flag);  // 0x002dbca0: definition moved into src/anon/unit_002da040.cpp
+void Ti__MGHachimitsuPo__combine(u8* p, u8 flag);  // 0x002dbca0: definition moved into src/anon/unit_002da040.cpp
 
 // 002ebac0: moved to src/anon/unit_002eaf38.cpp
 }

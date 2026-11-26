@@ -20,8 +20,8 @@ extern W1835V3 D_01d9e360;
 extern W1835Tbl D_0032bb30;
 extern u16 D_0036dc88[4];
 void func_001bc778(void*);
-W1835Res* func_001bc780(void*, u16, s32, s32);
-W1835Ent* func_001b8e88(u16);
+W1835Res* YS__COMMAND_MENU__add(void*, u16, s32, s32);
+W1835Ent* YS__COMMAND_ELEM__Get(u16);
 W1835Ctx* func_00177850(W1835Mode*);
 f32 func_001ee5d8(u8);
 f32 func_001ee5c8(f32, f32);
@@ -37,6 +37,6 @@ void func_001ee850(W1835Obj* self, W1835Src* p, W1835Idx* q);  // 0x001ee850: de
 void func_001eea30(W1835Obj* self, W1835Src* p, W1835Idx* q);  // 0x001eea30: definition moved into src/anon/unit_001ec098.cpp
 
 
-void func_001bed48(W1835Self* self);  // 0x001bed48: definition moved into src/anon/unit_001bc568.cpp
+void YS__FIELD_COMMAND__make_shortcut(W1835Self* self);  // 0x001bed48: definition moved into src/anon/unit_001bc568.cpp
 
 }

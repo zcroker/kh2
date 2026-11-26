@@ -8,9 +8,9 @@ extern u8 D_00363848[];
 extern "C" {
 void func_002edf28(void*);  // obj_ctor_3637e0 (base class constructor)
 void func_001ad330(void*, s32);
-void func_001acbc0(void*);
-void func_001acda8(void*);
-void func_001ad3e0(void*);
+void YS__WINDOW_BASE__update(void*);
+void YS__WINDOW_BASE__close(void*);
+void YS__WINDOW_TUTORIAL__draw(void*);
 u32 func_00102210(void*);
 void func_00102080(void*);
 u32 func_001031b0(void);
@@ -48,11 +48,11 @@ static inline bool is_phase(u8* w, s32 p) { return *(s32*)(w + 112) == p; }
 
 s32 TutorialWidget::update() {
     u8* w = widget;
-    func_001acbc0(w);
+    YS__WINDOW_BASE__update(w);
     switch (state) {
     case 0:
         if (is_phase(w, 3)) {
-            func_001acda8(w);
+            YS__WINDOW_BASE__close(w);
             state = 1;
         }
         break;
@@ -64,7 +64,7 @@ s32 TutorialWidget::update() {
 }
 
 void TutorialWidget::draw(TutorialPos, TutorialArg) {
-    func_001ad3e0(widget);
+    YS__WINDOW_TUTORIAL__draw(widget);
 }
 
 }  // namespace menu

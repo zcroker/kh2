@@ -197,7 +197,7 @@ inline void EFFLIST::Remove(EFF* p) {
     p->next = 0;
 }
 void func_001e2c00(void*) asm("func_001e2c00");
-void func_001e6c00(void*) asm("func_001e6c00");
+void pppDeleteMng(void*) asm("pppDeleteMng");
 void func_00321c50(void*, void*) asm("func_00321c50");
 extern EFFLIST D_00352ae0 asm("D_00352ae0");
 extern s32 D_00352ae8 asm("D_00352ae8");
@@ -207,7 +207,7 @@ void func_001dc2f8(EFF* o) {
     o->vt = D_00352b48;
     if (o->f28) {
         func_001e2c00(o->f28);
-        func_001e6c00(o->f28);
+        pppDeleteMng(o->f28);
     }
     D_00352ae0.Remove(o);
     D_00352ae8--;
@@ -217,7 +217,7 @@ void func_001dc3b0(u8* o) {
     *(void**)o = D_00352b48;
     if (*(void**)(o + 28)) {
         func_001e2c00(*(void**)(o + 28));
-        func_001e6c00(*(void**)(o + 28));
+        pppDeleteMng(*(void**)(o + 28));
     }
     func_00321c50(&D_00352ae0, o);
     D_00352ae8--;
@@ -227,7 +227,7 @@ void func_001dc3b0(u8* o) {
 // ---- 001dc418 from src/anon/batch_w44.cpp
 namespace n001dc418 {
 void func_001e2c00(void*) asm("func_001e2c00");
-void func_001e6c00(void*) asm("func_001e6c00");
+void pppDeleteMng(void*) asm("pppDeleteMng");
 void func_00321c50(void*, void*) asm("func_00321c50");
 void func_001dc4b8(void*) asm("func_001dc4b8");
 extern u8 D_00352ae0[] asm("D_00352ae0");
@@ -238,7 +238,7 @@ void func_001dc418(u8* o) {
     *(void**)o = D_00352b48;
     if (*(void**)(o + 28)) {
         func_001e2c00(*(void**)(o + 28));
-        func_001e6c00(*(void**)(o + 28));                        
+        pppDeleteMng(*(void**)(o + 28));                        
     }
     func_00321c50(D_00352ae0, o);
     D_00352ae8--;
@@ -300,9 +300,9 @@ namespace n001dc558 {
 u32 func_001e6b90(void) asm("func_001e6b90");
 u32 func_001e6c40(u32, u32, u32, u32, f32) asm("func_001e6c40");
 void func_001e2c00(u32) asm("func_001e2c00");
-void func_001e6c00(u32) asm("func_001e6c00");
-s32 func_001dc558(u32* p, f32 f) asm("func_001dc558");
-s32 func_001dc558(u32* p, f32 f) {
+void pppDeleteMng(u32) asm("pppDeleteMng");
+s32 ryj__EFFECT__start(u32* p, f32 f) asm("ryj__EFFECT__start");
+s32 ryj__EFFECT__start(u32* p, f32 f) {
     s32 ok = 1;
     if (p[1] != 4) {
         p[7] = func_001e6b90();
@@ -310,7 +310,7 @@ s32 func_001dc558(u32* p, f32 f) {
     }
     if (!ok && p[7]) {
         func_001e2c00(p[7]);
-        func_001e6c00(p[7]);                        
+        pppDeleteMng(p[7]);                        
         p[7] = 0;
     }
     return ok;
@@ -446,39 +446,39 @@ bool EFFECT_is_loop(void* e) {
 // ---- 001dc818 from src/anon/tiny_auto80_solver.cpp
 namespace n001dc818 {
 u32 func_001dc9e0(u32, u32, u32, u32, u32, u32, u32, u32) asm("_Z13func_001dc9e0jjjjjjjj");
-u32 func_001e2c80(u32, u32, u32, u32, u32, u32, u32, u32) asm("_Z13func_001e2c80jjjjjjjj");
+u32 pppLoopEnd(u32, u32, u32, u32, u32, u32, u32, u32) asm("_Z10pppLoopEndjjjjjjjj");
 u32 func_001dc818(u32 a0) asm("_Z13func_001dc818j");
 u32 func_001dc818(u32 a0) {
     u32 s0 = a0;
     ((u32(*)(u32))func_001dc9e0)(a0);
-    return ((u32(*)(u32))func_001e2c80)(*(u32*)(s0 + 28));
+    return ((u32(*)(u32))pppLoopEnd)(*(u32*)(s0 + 28));
 }
 }  // namespace n001dc818
 
 // ---- 001dc840 from src/anon/tiny_auto80_solver.cpp
 namespace n001dc840 {
 u32 func_001dc9e0(u32, u32, u32, u32, u32, u32, u32, u32) asm("_Z13func_001dc9e0jjjjjjjj");
-u32 func_001e2c80(u32, u32, u32, u32, u32, u32, u32, u32) asm("_Z13func_001e2c80jjjjjjjj");
+u32 pppLoopEnd(u32, u32, u32, u32, u32, u32, u32, u32) asm("_Z10pppLoopEndjjjjjjjj");
 u32 func_001dc840(u32 a0) asm("_Z13func_001dc840j");
 u32 func_001dc840(u32 a0) {
     u32 s0 = a0;
     *(u32*)(a0 + 8) |= 1;
     ((u32(*)(u32))func_001dc9e0)(a0);
-    return ((u32(*)(u32))func_001e2c80)(*(u32*)(s0 + 28));
+    return ((u32(*)(u32))pppLoopEnd)(*(u32*)(s0 + 28));
 }
 }  // namespace n001dc840
 
 // ---- 001dc878 from src/anon/batch_w32.cpp
 namespace n001dc878 {
 void func_001e2c00(void*) asm("func_001e2c00");
-void func_001e6c00(void*) asm("func_001e6c00");
+void pppDeleteMng(void*) asm("pppDeleteMng");
 void EFFECT_free(u8*) asm("_ZN3ryj6EFFECT4freeEv");
 void EFFECT_free(u8* e) {
     *(u32*)(e + 8) |= 0x10000;
     void* h = *(void**)(e + 0x1c);
     if (h) {
         func_001e2c00(h);
-        func_001e6c00(*(void**)(e + 0x1c));                        
+        pppDeleteMng(*(void**)(e + 0x1c));                        
         *(void**)(e + 0x1c) = 0;
     }
 }
@@ -486,8 +486,8 @@ void EFFECT_free(u8* e) {
 
 // ---- 001dc8c8 from src/anon/auto80_199_queue.cpp
 namespace n001dc8c8 {
-void func_001dc8c8(u32 a0, f32 a1) asm("_Z13func_001dc8c8jf");
-void func_001dc8c8(u32 a0, f32 a1) {
+void ryj__EFFECT__fadeout_free(u32 a0, f32 a1) asm("_Z25ryj__EFFECT__fadeout_freejf");
+void ryj__EFFECT__fadeout_free(u32 a0, f32 a1) {
     if (0.0f < a1) {
         f32 f0 = *(f32*)(a0 + 32);
         u32 t7 = *(u32*)(a0 + 8);
@@ -506,13 +506,13 @@ void func_001dc8c8(u32 a0, f32 a1) {
 namespace n001dc920 {
 void EFFECT_kill(void*) asm("_ZN3ryj6EFFECT4killEv");
 void func_001e2c00(u32) asm("func_001e2c00");
-void func_001e6c00(u32) asm("func_001e6c00");
+void pppDeleteMng(u32) asm("pppDeleteMng");
 void EFFECT_kill(void* e) {
     u8* p = (u8*)e;
     *(u32*)(p + 8) |= 0x10001;
     if (*(u32*)(p + 28)) {
         func_001e2c00(*(u32*)(p + 28));
-        func_001e6c00(*(u32*)(p + 28));                        
+        pppDeleteMng(*(u32*)(p + 28));                        
         *(u32*)(p + 28) = 0;
     }
 }
@@ -789,13 +789,13 @@ u32 func_001dcd68(u32 a0, u32 a1, u32 a2, u32 a3) {
 
 // ---- 001dcd88 from src/anon/batch_w6.cpp
 namespace n001dcd88 {
-void func_00168388(u32, void*, void (*)(void), u32) asm("func_00168388");
+void YS__FILE__ReadBack(u32, void*, void (*)(void), u32) asm("YS__FILE__ReadBack");
 extern u32 D_00352aec asm("D_00352aec");
 extern u8 D_01d5bb40 asm("D_01d5bb40");
 void func_001dcd68(void) asm("func_001dcd68");
 void func_001dcd88(void) asm("func_001dcd88");
 void func_001dcd88(void) {
-    func_00168388(D_00352aec, &D_01d5bb40, func_001dcd68, 0);
+    YS__FILE__ReadBack(D_00352aec, &D_01d5bb40, func_001dcd68, 0);
 }
 }  // namespace n001dcd88
 
@@ -907,7 +907,7 @@ u32 func_001dcff0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, f32 a5) {
     u32 s0 = func_001dc488(56);
     func_001dc278(s0, s1, s2);
     func_001dc4e8(s0, s4, s3, s5);
-    func_001dc558(s0, f20);
+    ryj__EFFECT__start(s0, f20);
     return s0;
 }
 }  // namespace n001dcff0
@@ -926,7 +926,7 @@ u32 func_001dd098(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, f32 a5) {
     u32 s0 = func_001dc488(56);
     func_001dc278(s0, s1, s2);
     func_001dc540(s0, s4, s3, s5);
-    func_001dc558(s0, f20);
+    ryj__EFFECT__start(s0, f20);
     return s0;
 }
 }  // namespace n001dd098
@@ -939,7 +939,7 @@ u32 func_001dd140(u32 a0) {
     u32 s0 = func_001dc488(56);
     func_001dc278(s0, 1, 4);
     *(u32*)(s0 + 20) = s1;
-    func_001dc558(s0, 0.0f);
+    ryj__EFFECT__start(s0, 0.0f);
     return s0;
 }
 }  // namespace n001dd140

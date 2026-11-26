@@ -106,8 +106,8 @@ struct W3831SlotMgr { s32 pad0; s32 owner; u8 pad8[24]; W3831Slot slot[24]; };
 s32 func_001178d0(W3831SlotMgr*) asm("func_001178d0");
 s32 func_00111e38(s32) asm("func_00111e38");
 /*TARGET 00117970*/
-s32 func_00117970(W3831SlotMgr* m, s32 a, s32 y, s32 z, s32 w, u8 b, s32 c, s32 d) asm("func_00117970");
-s32 func_00117970(W3831SlotMgr* m, s32 a, s32 y, s32 z, s32 w, u8 b, s32 c, s32 d)
+s32 kn__Stitch__startEffect(W3831SlotMgr* m, s32 a, s32 y, s32 z, s32 w, u8 b, s32 c, s32 d) asm("kn__Stitch__startEffect");
+s32 kn__Stitch__startEffect(W3831SlotMgr* m, s32 a, s32 y, s32 z, s32 w, u8 b, s32 c, s32 d)
 {
     // Pins/empty asm (no code): w and d keep s0/s2, h stays a register in t5, and the
     // empty ties order the parameter stores like the original.
@@ -469,7 +469,7 @@ f32 func_0017ce10(f32) asm("_ZN2YS4MATH9FixRadianEf");
 f32 func_002f8870(f32) asm("fabsf");
 void func_0017f540(void*, s32, f32, f32) asm("_ZN2YS6MOTION6changeEiff");
 s32 func_00116d08(Who117f60*) asm("func_00116d08");
-void func_001169e8(Who117f60*, s32) asm("func_001169e8");
+void kn__Stitch__calc_move_target(Who117f60*, s32) asm("kn__Stitch__calc_move_target");
 void func_001168c0(Who117f60*) asm("func_001168c0");
 
 s32 func_00117f60(Who117f60* w, void* e, Tgt117f60* t, s32* score, u8 check) asm("func_00117f60");
@@ -524,7 +524,7 @@ s32 func_00118108(Who117f60* w, s32 a1, Tgt117f60* t, s32* score, u8 check)
         return 0;
     }
     if (!func_0010f8c0(w->model)) {
-        func_001169e8(w, -1);
+        kn__Stitch__calc_move_target(w, -1);
         func_0017f540((u8*)w->model + 320, 161, 4.0f, 0.0f);
     }
     w->dir = w->to - w->from;

@@ -22,5 +22,5 @@ struct QM {
 extern "C" {
 void func_00144b38(void*, QV*);
 void func_001447e0(void*, QV*);
-void func_001449a8(void* a, QM* m);  // 0x001449a8: definition moved into src/anon/unit_00144450.cpp
+void dk__Aabbox__mulMatrix(void* a, QM* m);  // 0x001449a8: definition moved into src/anon/unit_00144450.cpp
 }

@@ -1,7 +1,7 @@
 # Whole-function assembly (last step of the README match ladder, w3940 2026-11-10).
 # Transcribed from the retail disassembly; calls and globals are referenced through symbols.
 # Replace with C/C++ after 100%.
-#   func_002c0ca0: dk::WM_TOTAL_INFO constructor (Layout + head/items[3]/mid/tail[2] Obj2D members, LayFile
+#   dk__WM_TOTAL_INFO__WM_TOTAL_INFO: dk::WM_TOTAL_INFO constructor (Layout + head/items[3]/mid/tail[2] Obj2D members, LayFile
 #     local, layout 30101, sprites 30105 laid out left to right, create 30102). Closest C: tmp.w3940/best_002c0ca0.cpp
 #     (best/002c0ca0_w3934.cpp, ~42 lines off) and best_002c0ca0_volk.cpp (volatile items counter gives the
 #     orig 36(sp) spill): left are the prologue store schedule (vtable stores before sd s4) and one missing s-reg
@@ -11,10 +11,10 @@
 	.set nomacro
 	.section .text.func_002c0ca0,"ax",@progbits
 	.align 2
-	.globl func_002c0ca0
-	.type func_002c0ca0, @function
-	.ent func_002c0ca0
-func_002c0ca0:
+	.globl dk__WM_TOTAL_INFO__WM_TOTAL_INFO
+	.type dk__WM_TOTAL_INFO__WM_TOTAL_INFO, @function
+	.ent dk__WM_TOTAL_INFO__WM_TOTAL_INFO
+dk__WM_TOTAL_INFO__WM_TOTAL_INFO:
 	addiu	$29,$29,-128
 	lui	$15,%hi(D_00347f98)
 	lui	$14,%hi(D_00361aa0)
@@ -45,9 +45,9 @@ func_002c0ca0:
 	lui	$15,%hi(D_0035eb98)
 	addiu	$4,$20,52
 	addiu	$15,$15,%lo(D_0035eb98)
-	jal	func_002369a0
+	jal	YI__IMAGE_FREEZE__IMAGE_FREEZE
 	sw	$15,28($20)
-	jal	func_0023c008
+	jal	YI__LAYOUT__LAYOUT
 	addiu	$4,$20,76
 	lui	$15,%hi(D_00347e60)
 	sw	$0,188($20)
@@ -91,7 +91,7 @@ func_002c0ca0:
 	move	$23,$0
 	jal	func_0023f800
 	addiu	$19,$20,600
-	jal	func_002beb90
+	jal	worldmap__Manager__get2ldFile
 	move	$21,$20
 	li	$15,2
 	move	$4,$2
@@ -118,9 +118,9 @@ func_002c0ca0:
 	move	$7,$16
 	move	$9,$0
 	li	$5,30101
-	jal	func_0023eea0
+	jal	Tz__Layout__create
 	move	$4,$17
-	jal	func_0023ef50
+	jal	Tz__Layout__SetImageCache
 	move	$4,$17
 	move	$4,$20
 	jal	func_002c1460
@@ -147,7 +147,7 @@ func_002c0ca0:
 	move	$6,$30
 	lw	$4,32($29)
 	li	$8,75
-	jal	func_001386e0
+	jal	dk__Sprite__create
 	li	$9,201
 	lw	$14,32($29)
 	li	$15,76
@@ -158,7 +158,7 @@ func_002c0ca0:
 	li	$9,201
 	move	$6,$30
 	li	$5,30105
-	jal	func_001386e0
+	jal	dk__Sprite__create
 	move	$4,$19
 	lw	$15,32($29)
 	move	$4,$19
@@ -201,7 +201,7 @@ func_002c0ca0:
 	li	$5,30105
 	move	$6,$30
 	li	$8,49
-	jal	func_001386e0
+	jal	dk__Sprite__create
 	li	$9,201
 	lw	$14,32($29)
 	move	$4,$22
@@ -241,7 +241,7 @@ func_002c0ca0:
 	li	$9,201
 	move	$6,$30
 	li	$5,30105
-	jal	func_001386e0
+	jal	dk__Sprite__create
 	move	$4,$16
 	lw	$15,32($29)
 	move	$4,$16
@@ -295,5 +295,5 @@ func_002c0ca0:
 	ld	$31,120($29)
 	jr	$31
 	addiu	$29,$29,128
-	.end func_002c0ca0
-	.size func_002c0ca0, 1088
+	.end dk__WM_TOTAL_INFO__WM_TOTAL_INFO
+	.size dk__WM_TOTAL_INFO__WM_TOTAL_INFO, 1088

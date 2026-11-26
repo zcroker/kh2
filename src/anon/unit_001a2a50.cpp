@@ -16,8 +16,8 @@ s32 func_001a3888(s32) asm("func_001a3888");
 void* func_001a80c8(s32) asm("func_001a80c8");
 void* func_001a8bd0(s32) asm("func_001a8bd0");
 s32 func_001a8c10(void*, s32) asm("func_001a8c10");
-s32 func_001a2a50(s32 id, s32 a, s32 b, s32 c) asm("func_001a2a50");
-s32 func_001a2a50(s32 id, s32 a, s32 b, s32 c)
+s32 YS__ITEM__Use(s32 id, s32 a, s32 b, s32 c) asm("YS__ITEM__Use");
+s32 YS__ITEM__Use(s32 id, s32 a, s32 b, s32 c)
 {
     s32 r = 0;
     void* w = func_001a80c8(id);  // table24_find_by_id
@@ -43,10 +43,10 @@ namespace i1 {
 struct W2040Req { u16 type; u16 pad; u16 val; };
 struct W2040Unit { s32 f0; s32 f4; u8 pad[0x184 - 8]; s32 f184; };
 W2040Unit* func_001a1658(s32, s32) asm("func_001a1658");
-void func_001a17c8(W2040Unit*) asm("func_001a17c8");
-void func_001a1950(W2040Unit*, s32, s32, s32) asm("func_001a1950");
-void func_001a1a20(W2040Unit*, s32, s32) asm("func_001a1a20");
-void func_001a1aa0(W2040Unit*, s32, s32) asm("func_001a1aa0");
+void YS__SHEET__Free(W2040Unit*) asm("YS__SHEET__Free");
+void YS__SHEET__add_hp(W2040Unit*, s32, s32, s32) asm("YS__SHEET__add_hp");
+void YS__SHEET__add_mp(W2040Unit*, s32, s32) asm("YS__SHEET__add_mp");
+void YS__SHEET__add_drive(W2040Unit*, s32, s32) asm("YS__SHEET__add_drive");
 void func_001a2578(W2040Unit*, s32, s32) asm("func_001a2578");
 void func_001a25c8(W2040Unit*, s32, s32) asm("func_001a25c8");
 void func_001a2618(W2040Unit*, s32, s32) asm("func_001a2618");
@@ -65,21 +65,21 @@ void func_001a2b50(W2040Req* r, s32 id, s32 other, s32 pct) {
     b = (o->f184 * val * pct + 9999) / 10000;
     switch (r->type) {
     case 1: case 2: case 5:
-        func_001a1950(o, a, 0, flag);
+        YS__SHEET__add_hp(o, a, 0, flag);
         break;
     case 3: case 6:
-        func_001a1a20(o, b, flag);
+        YS__SHEET__add_mp(o, b, flag);
         break;
     case 4: case 7:
-        func_001a1950(o, a, 0, flag);
-        func_001a1a20(o, b, 0);
+        YS__SHEET__add_hp(o, a, 0, flag);
+        YS__SHEET__add_mp(o, b, 0);
         break;
     case 131:
-        func_001a1950(o, o->f4, 0, flag);
-        func_001a1a20(o, b, 0);
+        YS__SHEET__add_hp(o, o->f4, 0, flag);
+        YS__SHEET__add_mp(o, b, 0);
         break;
     case 274: case 275:
-        func_001a1aa0(o, r->val * 100, flag);
+        YS__SHEET__add_drive(o, r->val * 100, flag);
         break;
     case 276:
         func_001a2578(o, val, flag);
@@ -94,29 +94,29 @@ void func_001a2b50(W2040Req* r, s32 id, s32 other, s32 pct) {
         func_001a2668(o, val, flag);
         break;
     }
-    func_001a17c8(o);
+    YS__SHEET__Free(o);
 }
 }  // namespace i1
 
 // 001a2d78
 namespace i2 {
-s32 func_001a2e50(void*, s32) asm("func_001a2e50");
+s32 YS__ITEM__CanUseSub(void*, s32) asm("YS__ITEM__CanUseSub");
 s32 func_001a3888(s32) asm("func_001a3888");
 void* func_001a80c8(s32) asm("func_001a80c8");
 void* func_001a8bd0(s32) asm("func_001a8bd0");
 s32 func_001a8c10(void*, s32) asm("func_001a8c10");
-s32 func_001a2d78(s32 id, s32 a) asm("func_001a2d78");
-s32 func_001a2d78(s32 id, s32 a)
+s32 YS__ITEM__CanUse(s32 id, s32 a) asm("YS__ITEM__CanUse");
+s32 YS__ITEM__CanUse(s32 id, s32 a)
 {
     s32 r = 0;
     void* w = func_001a80c8(id);  // table24_find_by_id
     if (!func_001a3888(id)) {  // id_in_range_5_7_131
-        r = func_001a2e50(w, a);
+        r = YS__ITEM__CanUseSub(w, a);
     } else {
         void* g = func_001a8bd0(-1);
         for (s32 i = 0; i < 4; i++) {
             a = func_001a8c10(g, i);
-            if (a) r = r || func_001a2e50(w, a);
+            if (a) r = r || YS__ITEM__CanUseSub(w, a);
         }
     }
     return r;
@@ -125,18 +125,18 @@ s32 func_001a2d78(s32 id, s32 a)
 
 // 001a2e50
 namespace i3 {
-bool func_001a1de0(u8*) asm("_Z16u_call4_001a1de0jjjj");
+bool YS__SHEET__is_mpdrive(u8*) asm("_Z21YS__SHEET__is_mpdrivejjjj");
 static inline bool IsFullA(u8* p) { return *(s32*)(p + 0) >= *(s32*)(p + 4); }
 static inline bool HasC(u8* p) { return p[433] < p[434]; }
-static inline bool IsFullB(u8* p) { return !func_001a1de0(p) && *(s32*)(p + 384) >= *(s32*)(p + 388); }
+static inline bool IsFullB(u8* p) { return !YS__SHEET__is_mpdrive(p) && *(s32*)(p + 384) >= *(s32*)(p + 388); }
 u8* func_001a1658(s32, s32) asm("func_001a1658");
-void func_001a17c8(u8*) asm("func_001a17c8");
+void YS__SHEET__Free(u8*) asm("YS__SHEET__Free");
 bool func_001a2758(u8*) asm("func_001a2758");
 bool func_001a2778(u8*) asm("func_001a2778");
 bool func_001a2798(u8*) asm("func_001a2798");
 bool func_001a27b8(u8*) asm("func_001a27b8");
-bool func_001a2e50(u16* req, s32 id) asm("func_001a2e50");
-bool func_001a2e50(u16* req, s32 id) {
+bool YS__ITEM__CanUseSub(u16* req, s32 id) asm("YS__ITEM__CanUseSub");
+bool YS__ITEM__CanUseSub(u16* req, s32 id) {
     bool r = false;
     u8* p = func_001a1658(id, -1);  // state_dispatch_0_1_14
     if (!p) return false;
@@ -158,7 +158,7 @@ bool func_001a2e50(u16* req, s32 id) {
     case 278: r = !func_001a2798(p); break;
     case 279: r = !func_001a27b8(p); break;
     }
-    func_001a17c8(p);
+    YS__SHEET__Free(p);
     return r;
 }
 }  // namespace i3
@@ -169,10 +169,10 @@ typedef struct { u8 pad[0x1090]; u8 tbl[0x140]; u32 bits[8]; } G3018;
 typedef struct { u8 f0, f1, kind, flags; u8 pad[14]; u16 id; } P3018;
 typedef struct { u8 pad[0x12]; u8 n; u8 pad2[0x21]; u16 a[8]; u16 b[8]; } Q3018;
 extern G3018 D_0032e020 asm("D_0032e020");
-Q3018* ctarget_00188fe0(G3018*, u32) asm("_Z16ctarget_00188fe0jjjj");
+Q3018* YS__SAVERAM_BATTLE__get_partram(G3018*, u32) asm("_Z31YS__SAVERAM_BATTLE__get_partramjjjj");
 P3018* func_001a80c8(void) asm("func_001a80c8");
-s32 ctarget_001a3018(u32 arg0, u32 arg1, u32 arg2, u32 arg3) asm("_Z16ctarget_001a3018jjjj");
-s32 ctarget_001a3018(u32 arg0, u32 arg1, u32 arg2, u32 arg3)
+s32 YS__ITEM__WhereGet(u32 arg0, u32 arg1, u32 arg2, u32 arg3) asm("_Z18YS__ITEM__WhereGetjjjj");
+s32 YS__ITEM__WhereGet(u32 arg0, u32 arg1, u32 arg2, u32 arg3)
 {
     P3018* p = func_001a80c8();
     G3018* g = &D_0032e020;
@@ -185,7 +185,7 @@ s32 ctarget_001a3018(u32 arg0, u32 arg1, u32 arg2, u32 arg3)
         goto zero;
     }
     if (arg1 != 100 && arg2 == 1) {
-        Q3018* q = ctarget_00188fe0(g, arg1);
+        Q3018* q = YS__SAVERAM_BATTLE__get_partram(g, arg1);
         if (q) {
             u8 t = p->kind;
             if (t != 0) {
@@ -208,11 +208,11 @@ zero:
 
 // 001a3168: YS::ITEM::CanGet
 namespace i5 {
-u32 func_001a3018(u32, u32, u32, u32) asm("_Z16ctarget_001a3018jjjj");
+u32 YS__ITEM__WhereGet(u32, u32, u32, u32) asm("_Z18YS__ITEM__WhereGetjjjj");
 u32 func_001a3168(u32 a0, u32 a1, u32 a2, u32 a3) asm("_ZN2YS4ITEM6CanGetEiii");
 u32 func_001a3168(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u;
-    r2 = func_001a3018(r4, r5, r6, r7);
+    r2 = YS__ITEM__WhereGet(r4, r5, r6, r7);
     r2 = ((u32)0u < (u32)r2);
     return r2;
 }
@@ -226,24 +226,24 @@ struct S3188 { u8 pad[0x1898]; Bits3188 bits; };
 extern S3188 D_0032e020 asm("D_0032e020");
 void func_00188a28(void*, void*) asm("func_00188a28");
 void func_00188b68(void*, void*, u8) asm("func_00188b68");
-void* func_00188fe0(void*, s32) asm("func_00188fe0");
-s32 func_001a3018(void*, s32, s32) asm("_Z16ctarget_001a3018jjjj");
-void func_001a32c8(void*, s32) asm("func_001a32c8");
+void* YS__SAVERAM_BATTLE__get_partram(void*, s32) asm("YS__SAVERAM_BATTLE__get_partram");
+s32 YS__ITEM__WhereGet(void*, s32, s32) asm("_Z18YS__ITEM__WhereGetjjjj");
+void YS__ITEM__GetBackyard(void*, s32) asm("YS__ITEM__GetBackyard");
 void func_001a39c8(void*) asm("func_001a39c8");
 R3188* func_001a80c8(void*, s32) asm("func_001a80c8");
-s32 func_001a3188(void* a0, s32 a1, u8 a2) asm("func_001a3188");
-s32 func_001a3188(void* a0, s32 a1, u8 a2) {
+s32 YS__ITEM__Get(void* a0, s32 a1, u8 a2) asm("YS__ITEM__Get");
+s32 YS__ITEM__Get(void* a0, s32 a1, u8 a2) {
     R3188* r = func_001a80c8(a0, a1);  // table24_find_by_id
     S3188* g = &D_0032e020;
-    s32 n = func_001a3018(a0, a1, 1);
+    s32 n = YS__ITEM__WhereGet(a0, a1, 1);
     u32 one = 1;
     if (n == 0) return 0;
     if (r->b3 & one) goto A;
     if (n == 100) {
 A:
-        func_001a32c8(a0, 1);
+        YS__ITEM__GetBackyard(a0, 1);
     } else {
-        void* v = func_00188fe0(g, n);
+        void* v = YS__SAVERAM_BATTLE__get_partram(g, n);
         switch (r->b2) {
         case 0:
             func_00188a28(v, a0);
@@ -270,13 +270,13 @@ extern W1925_G2 D_0032bb30 asm("D_0032bb30");
 extern W1925_G1 D_0032e020 asm("D_0032e020");
 static inline bool W1925_isf(W1925_It* it) { return it->flags & 1; }
 void func_001815d0(s32) asm("func_001815d0");
-void func_00181670(void) asm("func_00181670");
+void YS__PROGRESS__CheckLM(void) asm("YS__PROGRESS__CheckLM");
 void func_001a3168(s32, s32, s32) asm("_ZN2YS4ITEM6CanGetEiii");
 void func_001a38b8(W1925_It*) asm("func_001a38b8");
 void func_001a39c8(s32) asm("func_001a39c8");
 W1925_It* func_001a80c8(s32) asm("func_001a80c8");
-void func_001a32c8(s32 id, s32 n) asm("func_001a32c8");
-void func_001a32c8(s32 id, s32 n)
+void YS__ITEM__GetBackyard(s32 id, s32 n) asm("YS__ITEM__GetBackyard");
+void YS__ITEM__GetBackyard(s32 id, s32 n)
 {
     s32 had = 0;
     W1925_It* it = func_001a80c8(id);
@@ -302,7 +302,7 @@ void func_001a32c8(s32 id, s32 n)
                 if (s->slot[i] == 0) { s->slot[i] = it->v; break; }
             }
         }
-        func_00181670();
+        YS__PROGRESS__CheckLM();
         return;
     }
 }
@@ -311,12 +311,12 @@ void func_001a32c8(s32 id, s32 n)
 // 001a3458: YS::ITEM::Reduce
 namespace i8 {
 void func_001a34e0(s32, s32) asm("func_001a34e0");
-u8* func_00188fe0(void*) asm("func_00188fe0");
+u8* YS__SAVERAM_BATTLE__get_partram(void*) asm("YS__SAVERAM_BATTLE__get_partram");
 extern u8 D_0032e020[] asm("D_0032e020");
 s32 YS_ITEM_Reduce(s32 a, s32 b) asm("_ZN2YS4ITEM6ReduceEii");
 s32 YS_ITEM_Reduce(s32 a, s32 b) {
     if (b == 100) { func_001a34e0(a, 1); return 1; }
-    u8* t = func_00188fe0(D_0032e020);
+    u8* t = YS__SAVERAM_BATTLE__get_partram(D_0032e020);
     s32 i;
     for (i = t[18] - 1; i >= 0; i--) {
         if (*(u16*)(t + 52 + i * 2) == a) { *(u16*)(t + 52 + i * 2) = 0; return 1; }
@@ -382,7 +382,7 @@ u32 func_001a3570(u32 a0) {
 namespace i11 {
 struct W248Tbl { u8 pad[18]; u8 n; u8 pad2[33]; u16 a[16]; u16 b[80]; };
 extern u8 D_0032e020[] asm("D_0032e020");
-W248Tbl* func_00188fe0(void*) asm("func_00188fe0");
+W248Tbl* YS__SAVERAM_BATTLE__get_partram(void*) asm("YS__SAVERAM_BATTLE__get_partram");
 s32 func_001a3570(u32) asm("_ZN2Tz6JmInfo13HasAnsemEntryEj");
 u8* func_001a80c8(u32) asm("func_001a80c8");
 s32 func_001a35f8(u32 id, s32 mode) asm("func_001a35f8");
@@ -391,7 +391,7 @@ s32 func_001a35f8(u32 id, s32 mode) {
     if (mode == 100) {
         cnt = func_001a3570(id);
     } else {
-        W248Tbl* t = func_00188fe0(D_0032e020);
+        W248Tbl* t = YS__SAVERAM_BATTLE__get_partram(D_0032e020);
         switch (func_001a80c8(id)[2]) {  // table24_find_by_id
         case 0: {
             s32 i;
@@ -434,7 +434,7 @@ namespace i14 {
 extern u8 D_0032e020 asm("D_0032e020");
 u32 func_001a8bd0(...) asm("func_001a8bd0");
 u32 func_001a8c10(...) asm("func_001a8c10");
-u32 func_00188fe0(u32 a0, u32 a1) asm("func_00188fe0");
+u32 YS__SAVERAM_BATTLE__get_partram(u32 a0, u32 a1) asm("YS__SAVERAM_BATTLE__get_partram");
 void func_00188ac8(u32 a0) asm("func_00188ac8");
 u8* func_001a80c8(u32) asm("func_001a80c8");
 u32 func_00192048(...) asm("func_00192048");
@@ -447,15 +447,15 @@ void func_001a3710() {
     do {
         u32 v = func_001a8c10(s1, s0);
         s0 = s0 + 1;
-        u32 p = func_00188fe0((u32)&D_0032e020, v);
+        u32 p = YS__SAVERAM_BATTLE__get_partram((u32)&D_0032e020, v);
         if (p) {
             func_00188ac8(p);
         }
     } while (s0 < 4);
 }
 
-u32 func_001a3788(u8* a0, u32 a1, s32 a2) asm("_Z16ctarget_001a3788jjjj");
-u32 func_001a3788(u8* a0, u32 a1, s32 a2) {
+u32 YS__ITEM__MakeMessage(u8* a0, u32 a1, s32 a2) asm("_Z21YS__ITEM__MakeMessagejjjj");
+u32 YS__ITEM__MakeMessage(u8* a0, u32 a1, s32 a2) {
     u8* s1 = a0;
     s32 s0 = a2;
     u8* p = func_001a80c8(a1);  // table24_find_by_id
@@ -472,7 +472,7 @@ u32 func_001a3788(u8* a0, u32 a1, s32 a2) {
 
 // 001a37e8
 namespace i16 {
-u32 func_001a3788(u32, u32, u32, u32) asm("_Z16ctarget_001a3788jjjj");
+u32 YS__ITEM__MakeMessage(u32, u32, u32, u32) asm("_Z21YS__ITEM__MakeMessagejjjj");
 u32 func_001a37e8(u32 a0, u32 a1, u32 a2, u32 a3) asm("func_001a37e8");
 u32 func_001a37e8(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u, r16 = 0u;
@@ -480,7 +480,7 @@ u32 func_001a37e8(u32 a0, u32 a1, u32 a2, u32 a3) {
     r5 = r4;
     r16 = (u32)&D_01c6cac0;
     r4 = r16;
-    r2 = func_001a3788(r4, r5, r6, r7);
+    r2 = YS__ITEM__MakeMessage(r4, r5, r6, r7);
     r2 = r16;
     return r2;
 }
@@ -504,10 +504,10 @@ s32 func_001a3820(void) {
 // 001a3868: YS::ITEM::GetCommandElem
 namespace i18 {
 u8* func_001a80c8(s32) asm("func_001a80c8");  // table24_find_by_id
-void func_001b8e88(u32) asm("func_001b8e88");
+void YS__COMMAND_ELEM__Get(u32) asm("YS__COMMAND_ELEM__Get");
 void GetCommandElem(s32 id) asm("_ZN2YS4ITEM14GetCommandElemEi");
 void GetCommandElem(s32 id) {
-    func_001b8e88(*(u16*)(func_001a80c8(id) + 16));
+    YS__COMMAND_ELEM__Get(*(u16*)(func_001a80c8(id) + 16));
 }
 }  // namespace i18
 
@@ -537,17 +537,17 @@ struct W2368Ent { u16 v; u16 pad; s32 f4; };
 struct W2368Info { u8 pad[4]; s16 kind; };
 struct W2368Arg { u8 pad[0x10]; u16 id; };
 extern u8 D_0032e020 asm("D_0032e020");
-W2368Ent* func_00189200(void*, s32) asm("func_00189200");
-W2368Info* func_001b8e88(u16) asm("func_001b8e88");
+W2368Ent* YS__SAVERAM_BATTLE__get_formram(void*, s32) asm("YS__SAVERAM_BATTLE__get_formram");
+W2368Info* YS__COMMAND_ELEM__Get(u16) asm("YS__COMMAND_ELEM__Get");
 u16 func_001a3958(s32) asm("func_001a3958");
 void func_001a38b8(W2368Arg* a) asm("func_001a38b8");
 void func_001a38b8(W2368Arg* a) {
-    W2368Ent* e = func_00189200(&D_0032e020, 6);
+    W2368Ent* e = YS__SAVERAM_BATTLE__get_formram(&D_0032e020, 6);
     e->f4 = 0;
-    s16 k = func_001b8e88(a->id)->kind;
+    s16 k = YS__COMMAND_ELEM__Get(a->id)->kind;
     switch (k) {
     case 1: case 4: case 5:
-        e = func_00189200(&D_0032e020, k);
+        e = YS__SAVERAM_BATTLE__get_formram(&D_0032e020, k);
         if (e->v == 0) e->v = func_001a3958(2);
         break;
     }

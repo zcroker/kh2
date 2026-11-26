@@ -16,7 +16,7 @@ extern FieldMode D_0032b968_m asm("D_0032b968");
 void func_001050b8(void);
 void func_00102b68_v(void) asm("func_00102b68");
 void func_0014a188(void);
-void func_00107a90(void);
+void gb__PLAYER_CAMERA__exec(void);
 extern u8 D_0032b998_b asm("D_0032b998");
 void func_00170a50(void);
 void func_00168fa8(void);
@@ -36,7 +36,7 @@ void func_00102a70(TASK* t) {
     func_001050b8();
     func_00102b68_v();
     func_0014a188();
-    func_00107a90();
+    gb__PLAYER_CAMERA__exec();
     if (D_0032b998_b) func_00170a50();
     func_00168fa8();
     if (D_0032b994_w) {
@@ -131,10 +131,10 @@ u32 func_00102c18(u32 a0, u32 a1, u32 a2, u32 a3) {
 
 // 0x102c48: creates a coroutine task on the field's manager.
 extern "C" {
-void func_00102818(u32, u32, u32, u32, u32);
+void TASK_MANAGER__create_thread(u32, u32, u32, u32, u32);
 extern u32 D_0032b96c;
 void func_00102c48(u32 a, u32 b, u32 c, u32 d) {
-    func_00102818(D_0032b96c, a, b, c, d);
+    TASK_MANAGER__create_thread(D_0032b96c, a, b, c, d);
 }
 }
 

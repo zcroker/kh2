@@ -14,5 +14,5 @@ void func_0011c7f8(void*, s32);
 
 /* Sets the alpha of three elements from t against three [low, high] ranges:
    0 above high, 0x80 below low, fading in between. One shared ratio variable. */
-void func_00148690(void* self, W2398Own* p, f32 t);  // 0x00148690: definition moved into src/anon/unit_00147140.cpp
+void dk__OctDrawFile__calcPartsLOD(void* self, W2398Own* p, f32 t);  // 0x00148690: definition moved into src/anon/unit_00147140.cpp
 }

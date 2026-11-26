@@ -18,7 +18,7 @@ void func_0019f578(void*);
 void func_0031e2c0(void*);
 void func_0031b9e0(void*);
 void func_0031e158(void*);
-void func_001a91f8(void*);
+void YS__OBJDATA__clear(void*);
 void func_001a92d8(void*, u32, W1637Param*);
 void func_0031e268(void*);
 s32 func_001948e0(void);
@@ -89,7 +89,7 @@ struct W1637S7a0 {
     u8 d[0xc]; s32 fc; u8 p10[8]; u8 o18[0x40];
     W1637_AI inline s32 GetFc() { return fc; }
     W1637_AI inline void Attach(void* own, void* p, void* q);
-    W1637_AI inline W1637S7a0(u32 id, W1637Param* prm) { func_001a91f8(this); func_001a92d8(this, id, prm); }
+    W1637_AI inline W1637S7a0(u32 id, W1637Param* prm) { YS__OBJDATA__clear(this); func_001a92d8(this, id, prm); }
 };
 struct W1637I4 { s32 a, b, c, d; W1637_AI inline W1637I4() : a(0), b(0), c(0), d(0) {} };
 union W1637U { s32 i; f32 f; W1637_AI inline W1637U(s32 v) : i(v) {} };
@@ -170,12 +170,12 @@ void func_0016a1b8(W1637Obj*, s32);
 void func_001b0448(void*, W1637Obj*);
 void func_0016aeb8(W1637Obj*, f32);
 void func_0016adc8(W1637Obj*, W1637V);
-void func_00193608(W1637Obj*);
+void YS__OBJ__make_matrix(W1637Obj*);
 void func_0016a2b0(W1637Obj*);
-void func_001a9560(void*, W1637Obj*, void*, void*);
+void YS__OBJDATA__start_model_effect(void*, W1637Obj*, void*, void*);
 }
 
-W1637_AI inline void W1637S7a0::Attach(void* own, void* p, void* q) { func_001a9560(this, (W1637Obj*)own, p, q); }
+W1637_AI inline void W1637S7a0::Attach(void* own, void* p, void* q) { YS__OBJDATA__start_model_effect(this, (W1637Obj*)own, p, q); }
 
 W1637Obj::W1637Obj(u32 id, W1637Param* prm, s32 a3, const W1637V& pos, f32 rot)
     : vt(D_0034d850), self(this), param(prm),
@@ -228,7 +228,7 @@ W1637Obj::W1637Obj(u32 id, W1637Param* prm, s32 a3, const W1637V& pos, f32 rot)
     t860.v890.w = rot;
     func_0016aeb8(this, rot);
     func_0016adc8(this, pos);
-    func_00193608(this);
+    YS__OBJ__make_matrix(this);
     func_0016a2b0(this);
     s7a0.Attach(this, &o09c, s7a0.o18);
 }

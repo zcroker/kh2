@@ -156,9 +156,9 @@ void func_001444c8(Box*, QWord*, QWord*) asm("func_001444c8");
 void func_00144be0(Box*, void*) asm("func_00144be0");
 void func_001605a0(Obj*, Mtx) asm("func_001605a0");
 void func_00143348(void*) asm("func_00143348");
-void func_0011eb08(void*, s32) asm("func_0011eb08");
+void kn__ModelObj__setDefaultTexanm(void*, s32) asm("kn__ModelObj__setDefaultTexanm");
 void func_0011e880(void*, s32, s32, s32) asm("func_0011e880");
-void func_001608c0(Obj*) asm("func_001608c0");
+void dk__BgObj__draw(Obj*) asm("dk__BgObj__draw");
 void func_00143520(QWord*, Light*) asm("func_00143520");
 void func_00160488(Obj*, s32, s32, s32) asm("func_00160488");
 void func_00161540(void*, void*) asm("func_00161540");
@@ -208,11 +208,11 @@ void func_0015f9c8(Obj* o, u32 a1, u32 kind, QWord pos, QWord rot, QWord scale, 
     func_001605a0(o, o->mtx);
     func_00143348(&o->gfx);
     o->flags = (o->flags & ~8) | 0x20;
-    func_0011eb08(o->gfx, 0);
+    kn__ModelObj__setDefaultTexanm(o->gfx, 0);
     func_0011e880(o->gfx, 2, 0, 0);
     if ((u8)(a10 & 1)) {
         o->flags |= 1;
-        func_001608c0(o);
+        dk__BgObj__draw(o);
     }
     if (__builtin_expect(a10 & 2, 0)) {
         Light l; LIGHT_INIT(l);
@@ -296,11 +296,11 @@ void func_0015fe18(Obj* o, u32 a1, u32 kind, QWord pos, QWord rot, QWord scale, 
     func_001605a0(o, o->mtx);
     func_00143348(&o->gfx);
     o->flags = (o->flags & ~8) | 0x20;
-    func_0011eb08(o->gfx, 0);
+    kn__ModelObj__setDefaultTexanm(o->gfx, 0);
     func_0011e880(o->gfx, 2, 0, 0);
     if ((u8)(a10 & 1)) {
         o->flags |= 1;
-        func_001608c0(o);
+        dk__BgObj__draw(o);
     }
     if (__builtin_expect(a10 & 2, 0)) {
         Light l; LIGHT_INIT(l);
@@ -416,14 +416,14 @@ void func_00160388(Obj* o) {
 namespace w1752 {
 void func_00161598(void*) asm("func_00161598");
 void func_00161668(void*, f32) asm("func_00161668");
-void func_0011ea40(f32, u32) asm("func_0011ea40");
+void kn__ModelObj__playAnimation(f32, u32) asm("kn__ModelObj__playAnimation");
 extern f32 D_00349e10 asm("D_00349e10");
 
 void func_00160430(u8* p) asm("func_00160430");
 void func_00160430(u8* p) {
     func_00161598(p + 0x110);
     func_00161668(p + 0x110, D_00349e10);
-    func_0011ea40(D_00349e10, *(u32*)(p + 0x1c0));
+    kn__ModelObj__playAnimation(D_00349e10, *(u32*)(p + 0x1c0));
 }
 }
 
@@ -551,8 +551,8 @@ void bx_set(Box*, f32, f32, f32, f32, f32, f32) asm("_ZN2dk6Aabbox3setEffffff");
 void func_00144b38(Box*, QMat*) asm("func_00144b38");
 void func_001605a0(Ob*, QMat) asm("func_001605a0");
 // Motion bounding box: the world matrix with y/z flipped times the motion matrix, padded by the radius.
-void func_001606e0(Ob* o) asm("func_001606e0");
-void func_001606e0(Ob* o) {
+void dk__BgObj__calcMotionBoundingBox(Ob* o) asm("dk__BgObj__calcMotionBoundingBox");
+void dk__BgObj__calcMotionBoundingBox(Ob* o) {
     Box b;
     bx_init(&b);
     QMat m;
@@ -574,15 +574,15 @@ void func_001606e0(Ob* o) {
 namespace w60 {
 void func_00144908(void*, void*) asm("func_00144908");
 void* func_0016b0d0(void) asm("func_0016b0d0");
-f32* func_0016c028(void*) asm("func_0016c028");
-void func_001608c0(u8* p) asm("func_001608c0");
-void func_001608c0(u8* p) {
+f32* YS__OBJ__get_pos(void*) asm("YS__OBJ__get_pos");
+void dk__BgObj__draw(u8* p) asm("dk__BgObj__draw");
+void dk__BgObj__draw(u8* p) {
     u32 tmp[4] __attribute__((aligned(16)));
     func_00144908(p + 656, tmp);
     if (p + 640 != (u8*)tmp) QCOPY(p + 640, tmp);
     void* r = func_0016b0d0();
     if (r) {
-        f32 y = func_0016c028(r)[1];
+        f32 y = YS__OBJ__get_pos(r)[1];
         if (*(f32*)(p + 660) <= y && y <= *(f32*)(p + 672)) *(f32*)(p + 644) = y;
     }
 }
@@ -597,24 +597,24 @@ u32 func_00160940(u32 a0, u32 a1, u32 a2, u32 a3) {
 }
 
 namespace a80 {
-void func_001606e0(void*) asm("func_001606e0");
-void func_001608c0(void*) asm("func_001608c0");
+void dk__BgObj__calcMotionBoundingBox(void*) asm("dk__BgObj__calcMotionBoundingBox");
+void dk__BgObj__draw(void*) asm("dk__BgObj__draw");
 void func_00143398(void*) asm("func_00143398");
 void func_00143328(void*) asm("func_00143328");
 void func_00160960(u8* a0) asm("func_00160960");
 void func_00160960(u8* a0) {
     if ((*(u32*)(a0 + 384) & 2u) != 0u) {
-        func_001606e0(a0);
+        dk__BgObj__calcMotionBoundingBox(a0);
         u32 t = *(u32*)(a0 + 696) & 1u;
         if (t != 0u) {
-            func_001608c0(a0);
+            dk__BgObj__draw(a0);
         }
         return func_00143398(a0 + 448);
     }
 
     u32 t = *(u32*)(a0 + 696) & 1u;
     if (t != 0u) {
-        func_001608c0(a0);
+        dk__BgObj__draw(a0);
     }
     return func_00143328(a0 + 448);
 }

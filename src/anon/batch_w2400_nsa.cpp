@@ -19,14 +19,14 @@ extern MgrQ* D_0034880c;
 extern MgrQ* D_00348804;
 void func_0015cb78(u8*, s32);
 void func_00141980(MgrQ*, u8*);
-s32 func_00142848(MgrQ*, ObjQ*);
+s32 dk__OctCollFile__selectDownAllPolygon(MgrQ*, ObjQ*);
 u16 func_00142688(MgrQ*, u32*, s32, ObjQ*);
 void func_001539c0(u8*, V4q*);
-u32 func_001435a0(ObjQ*);
+u32 dk__Octree__getSkeltonType(ObjQ*);
 V4q func_00143e50(u16, s32);
 V4q func_001422a0(MgrQ*, u16);
 InfQ* func_00142398(MgrQ*, u16);
-InfQ* func_00143ee8(u16, s32);
+InfQ* dk__Octree__getAttr(u16, s32);
 void func_00141988(MgrQ*, EntQ*, V4q*);
 static inline void negq(V4q* d, const V4q* s) {
     asm volatile("lqc2 $vf4, 0(%1)\n\tvsub.xyz $vf5, $vf0, $vf4\n\tsqc2 $vf5, 0(%0)" : : "r"(d), "r"(s) : "memory");

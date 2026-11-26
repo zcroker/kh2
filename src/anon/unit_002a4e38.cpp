@@ -5,10 +5,10 @@ namespace n002a4e38 {
 u8* jm_parent(void) asm("_ZN2Tz6Jiminy9GetParentEv");
 u8* jm_seqtbl(void) asm("_ZN2Tz6Jiminy9GetSeqTblEv");
 u8* jm_scrbar(void) asm("_ZN2Tz6Jiminy15GetScrBarSeqTblEv");
-void func_002a5d30(void) asm("func_002a5d30");
+void Tz__JmBattle__GetEnableLimit(void) asm("Tz__JmBattle__GetEnableLimit");
 s32 func_0028f930(s32) asm("func_0028f930");
 void func_0028f4d8(s32, s32, s32) asm("func_0028f4d8");
-void func_00276e78(void) asm("func_00276e78");
+void Tz__Jiminy__CreateCover(void) asm("Tz__Jiminy__CreateCover");
 void pz_cfo(void*, s32, s32, s32, s32, s32, s32, s32) asm("_ZN2Tz5Pause16CreateFadeObjectEz");
 void obj_xyoff(void*) asm("_ZN2dk5Obj2D17getSeqPraramXYOffEv");
 void mc_as(void*, void*) asm("_ZN2Tz10MenuCursor12AttachSpriteEz");
@@ -33,15 +33,15 @@ extern s32 D_0035f200 asm("D_0035f200");
 struct Lay { u8 pad[40]; void* img; };
 struct Obj { u8 pad[408]; void* x198; u8 pad2[8]; s32 x1a4; u8 pad3[4]; s32 x1ac; s32 x1b0; };
 struct Fade { u8 pad[408]; };
-void func_00288d80(s32, s32, s32, s32, s32, s32, s16*, s16*) asm("func_00288d80");
+void Tz__Select__SetItem(s32, s32, s32, s32, s32, s32, s16*, s16*) asm("Tz__Select__SetItem");
 Obj* sel_item(s32, s32) asm("_ZN2Tz6Select10GetItemPtrEi");
 void reset_alpha(Obj*) asm("_ZN2dk5Obj2D17resetSeqAlphaOnlyEv");
 void set_off(Obj*, s32, s32) asm("_ZN2dk6Sprite12setOffsetPosEii");
 void mc_create(Obj*, s32, s32, s32, s32, s32, s32, s32, s32) asm("_ZN2Tz10MenuCursor6CreateEz");
-void func_0028af90(s32, s32) asm("func_0028af90");
-void func_002891f0(s32, s32, s32, s32, s32) asm("func_002891f0");
+void Tz__Select__SetSelectMax(s32, s32) asm("Tz__Select__SetSelectMax");
+void Tz__Select__SetCurrent(s32, s32, s32, s32, s32) asm("Tz__Select__SetCurrent");
 void func_0028afd0(s32, s32) asm("func_0028afd0");
-void func_0028b218(s32, s32) asm("func_0028b218");
+void Tz__Select__SetPageMode(s32, s32) asm("Tz__Select__SetPageMode");
 void func_0028b248(s32, s32) asm("func_0028b248");
 void func_002a5df0(void) asm("func_002a5df0");
 void func_002a65d0(void) asm("func_002a65d0");
@@ -59,7 +59,7 @@ void func_002a4e38(void) asm("func_002a4e38");
 void func_002a4e38(void) {
     u8* par = jm_parent();
     u8* seq = jm_seqtbl();
-    func_002a5d30();
+    Tz__JmBattle__GetEnableLimit();
     if (!func_0028f930(0)) func_0028f4d8(0, -1, 0);
     s16 h[2][4];
     s32 i;
@@ -68,7 +68,7 @@ void func_002a4e38(void) {
     for (i = 0; i < 2; i++)
         for (s32 j = 0; j < 4; j++) h[i][j] = 2;
     s32 n = D_0035f3d4 - 1;
-    func_00276e78();
+    Tz__Jiminy__CreateCover();
     seq2 = seq + 1224;
     pz_cfo(seq, n, D_0035f14c, D_0035f148, D_0035f210, 110, -1, 0);
     obj_xyoff(seq);
@@ -84,7 +84,7 @@ void func_002a4e38(void) {
     if (t < 10) cnt = t;
     for (i = 0; i < cnt; i++) {
         Obj* p = &D_0035f5f0[i];
-        func_00288d80(D_0035f200, i, D_0035f14c, D_0035f148, D_0035f210, -1, h[0], h[1]);
+        Tz__Select__SetItem(D_0035f200, i, D_0035f14c, D_0035f148, D_0035f210, -1, h[0], h[1]);
         Obj* it = sel_item(D_0035f200, i);
         obj_xyoff(it);
         mc_as(it, seq);
@@ -106,11 +106,11 @@ void func_002a4e38(void) {
         mc_as(c, p);
     }
     s32 num = *(s8*)D_0035f5ec;
-    func_002891f0(D_0035f200, jm_curpos(mb_mode()), 0, -1, -1);
-    func_0028af90(D_0035f200, num);
+    Tz__Select__SetCurrent(D_0035f200, jm_curpos(mb_mode()), 0, -1, -1);
+    Tz__Select__SetSelectMax(D_0035f200, num);
     func_0028afd0(D_0035f200, jm_curtop(mb_mode()));
     if (num >= 2) {
-        func_0028b218(D_0035f200, 1);
+        Tz__Select__SetPageMode(D_0035f200, 1);
         func_0028b248(D_0035f200, 10);
     }
     n = D_0035f3d4;

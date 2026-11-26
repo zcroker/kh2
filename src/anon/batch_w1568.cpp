@@ -49,7 +49,7 @@ extern u8 D_0032bae0;
 s32 func_001917b0(void);
 s32 func_00196768(u8, u8);
 void func_0019a610(Obj_w1568_9a*, Key_w1568*, s32);
-s32 func_0019a6c0(Obj_w1568_9a*, Key_w1568*, Sub_w1568*, s32, s32);
+s32 YS__UNIT_GROUP__jump_area(Obj_w1568_9a*, Key_w1568*, Sub_w1568*, s32, s32);
 s32 func_001db198(Ctx_w1568*, u8);
 s32 func_0019a480(Obj_w1568_9a* p, Ctx_w1568* c);  // 0x0019a480: definition moved into src/anon/unit_00199688.cpp
 
@@ -65,7 +65,7 @@ extern u32 D_0034f240;
 s32 func_00195328(s32);
 s32 func_00197920(void);
 f32 func_00197b98(void);
-s32 func_0019ba60(VObj_w1568*);
+s32 YS__OBJ__is_exist(VObj_w1568*);
 void func_001bb630(s32, s32);
 void func_001bbe18(s32);
 void func_001bc0d0(O_w1568_bb*);
@@ -78,12 +78,12 @@ void func_002bc798(void);
 
 /* 001ca4a8 */
 
-void func_0016af58(QV_w1568_ca*, E_w1568_ca*);
+void YS__OBJ__get_dir(QV_w1568_ca*, E_w1568_ca*);
 s32 func_0018ee60(s32, s32, E_w1568_ca*, QV_w1568_ca*, s32);
 void func_001880b0(void*, const char*);
 s32 func_001ca498(E_w1568_ca*);
 s32 func_00186d18(E_w1568_ca*);
 void func_00187818(E_w1568_ca*);
-void func_001ca4a8(E_w1568_ca* e);  // 0x001ca4a8: definition moved into src/anon/unit_001ca148.cpp
+void YS__ACTION_LIGHTCYCLE__CheckCrash(E_w1568_ca* e);  // 0x001ca4a8: definition moved into src/anon/unit_001ca148.cpp
 
 }

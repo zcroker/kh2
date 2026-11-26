@@ -32,10 +32,10 @@ u32 func_002be020(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7
     u32 s19 = a1;
     u32 s18 = a2;
 
-    func_002be0b0(s17);                       
+    worldmap__Libretto__leaveObj(s17);                       
 
     if (func_002be5b8(s17) == 0) {
-        func_0015f618();
+        dk__Map__noDrawAll();
     }
 
     u32 s16 = func_001050d8(560);
@@ -57,8 +57,8 @@ s32 func_002be5b8(void*) asm("func_002be5b8");
 void func_0015f548(void) asm("func_0015f548");
 void func_001c8e90(void) asm("func_001c8e90");
 void func_002be9b0(void) asm("func_002be9b0");
-void func_002be0b0(u8* p, s32 i) asm("func_002be0b0");
-void func_002be0b0(u8* p, s32 i) {                       
+void worldmap__Libretto__leaveObj(u8* p, s32 i) asm("worldmap__Libretto__leaveObj");
+void worldmap__Libretto__leaveObj(u8* p, s32 i) {                       
     u8** slot = (u8**)((u8*)(i * 4) + (u32)p + 44);
     if (*slot) {
         func_002edfd8(p + 8, *slot);                          
@@ -74,12 +74,12 @@ void func_002be0b0(u8* p, s32 i) {
 }  // namespace n002be0b0
 
 // ---- 002be148 from src/worldmap/libretto.cpp
-void func_002be0b0(...) asm("func_002be0b0");
+void worldmap__Libretto__leaveObj(...) asm("worldmap__Libretto__leaveObj");
 namespace worldmap {
 void Libretto::leaveAllObj() {
     s32 i = 0;
     do {
-        func_002be0b0(this, (u32)i);                       
+        worldmap__Libretto__leaveObj(this, (u32)i);                       
         i += 1;
     } while (i < 4);
 }
@@ -215,14 +215,14 @@ void func_002be3c8(u32 a0) {
 
 // ---- 002be408 from src/anon/tiny_wrappers_imp.cpp
 namespace n002be408 {
-u32 func_002bdb70(u32, u32, u32, u32) asm("_Z13func_002bdb70jjjj");
+u32 worldmap__Libretto__parse(u32, u32, u32, u32) asm("_Z25worldmap__Libretto__parsejjjj");
 u32 func_002be408(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z13func_002be408jjjj");
 u32 func_002be408(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r15 = 0u;
     r5 = r4;
     r15 = (u32)(0x0036u << 16);
     r4 = *(u32*)((u32)r15 + (s32)(6140));
-    return func_002bdb70(r4, r5, r6, r7);
+    return worldmap__Libretto__parse(r4, r5, r6, r7);
 }
 }  // namespace n002be408
 
@@ -264,8 +264,8 @@ void func_00170888(u32) asm("func_00170888");
 extern char D_00375000[] asm("D_00375000");
 extern char D_00374fe8[] asm("D_00374fe8");
 extern const char* D_0033caf4 asm("D_0033caf4");
-void func_002be4b0(u32* p) asm("func_002be4b0");
-void func_002be4b0(u32* p) {
+void worldmap__Libretto__flush(u32* p) asm("worldmap__Libretto__flush");
+void worldmap__Libretto__flush(u32* p) {
     const char* s = func_00105c30() == 8 ? D_00375000 : D_0033caf4;
     func_002fee78(p + 16, D_00374fe8, s, p[0]);
     func_00170518(p + 16, -200, 0);
@@ -342,7 +342,7 @@ namespace n002be630 {
 struct W1790V4 { f32 x, y, z, w; };
 void func_0017f488(int, int, float, float) asm("_Z13func_0017f488iiff");
 s32 func_0016b740(s32) asm("func_0016b740");
-void u_tail4_001c0d38(u32, u32, u32, u32) asm("_Z16u_tail4_001c0d38jjjj");
+void YS__OBJ__attach(u32, u32, u32, u32) asm("_Z15YS__OBJ__attachjjjj");
 void wtarget_0016b070(u32, W1790V4*) asm("_Z16wtarget_0016b070jjjj");
 void func_002fd188(void (*)()) asm("func_002fd188");
 void D_002be6e8() asm("D_002be6e8");
@@ -353,7 +353,7 @@ void func_002be630(void) asm("func_002be630");
 void func_002be630(void) {
     s32 v = func_0016b740(931);
     s32 o = D_0034e948;
-    u_tail4_001c0d38(o, v, 0x4002, 0);
+    YS__OBJ__attach(o, v, 0x4002, 0);
                                                                          
     if (!D_01e2bc20) {
         D_01e2bc20 = 1;
@@ -459,8 +459,8 @@ void func_002bf468(u8*, u8*, u32, f32) asm("func_002bf468");
 void func_002c1aa0(u8*, u8*, u32, f32) asm("func_002c1aa0");
 void func_002c54c8(u8*, u8*, u32, f32) asm("func_002c54c8");
 u8* func_002c5ed8(u8*, u32, f32) asm("func_002c5ed8");
-u8* func_002be800(u8* d, u32 a, f32 f) asm("func_002be800");
-u8* func_002be800(u8* d, u32 a, f32 f) {
+u8* worldmap__Obj__appear(u8* d, u32 a, f32 f) asm("worldmap__Obj__appear");
+u8* worldmap__Obj__appear(u8* d, u32 a, f32 f) {
     switch (d[5]) {
     case 0:
         {
@@ -489,11 +489,11 @@ u8* func_002be800(u8* d, u32 a, f32 f) {
 
 // ---- 002be908 from src/anon/batch_w1756.cpp
 namespace n002be908 {
-void* ctarget_001b9bc8(void*) asm("_Z16ctarget_001b9bc8jjjj");
+void* YS__OBJ__Each(void*) asm("_Z13YS__OBJ__Eachjjjj");
 void* func_002be908(void* p) asm("func_002be908");
 void* func_002be908(void* p)
 {
-    while ((p = ctarget_001b9bc8(p)) != 0) {
+    while ((p = YS__OBJ__Each(p)) != 0) {
         if (*(u32*)((u8*)p + 0x588) & 0x40000000) return p;
     }
     return 0;
@@ -526,8 +526,8 @@ void func_002be9b0(void) {
 
 // ---- 002bea00 from src/anon/tiny.cpp
 namespace n002bea00 {
-void func_002bea00(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z13func_002bea00jjjj");
-void func_002bea00(u32 a0, u32 a1, u32 a2, u32 a3) {
+void worldmap__Manager__readPackEnable(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z33worldmap__Manager__readPackEnablejjjj");
+void worldmap__Manager__readPackEnable(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 b = (0x0036u << 16);
     *(u8*)((u32)b + (6297)) = (u8)0;
 }
@@ -630,12 +630,12 @@ void func_001c8e90(void) asm("func_001c8e90");
 void* func_002c6218(void) asm("func_002c6218");
 void func_002c6190(void*) asm("func_002c6190");
 void* func_001050d8(int) asm("func_001050d8");
-void func_002bf098(void*) asm("func_002bf098");
+void worldmap__RootWindow__RootWindow(void*) asm("worldmap__RootWindow__RootWindow");
 void func_00191bf0(f32) asm("func_00191bf0");
 void func_00191c30(f32) asm("func_00191c30");
 void func_002c1dc0(void) asm("func_002c1dc0");
 void func_002c1750(void) asm("func_002c1750");
-void func_002bf9d8(int) asm("func_002bf9d8");
+void worldmap__Event__Event(int) asm("worldmap__Event__Event");
 void func_002bea88(void) asm("func_002bea88");
 void func_002bea88(void) {
   D_00361898 = 1;
@@ -643,12 +643,12 @@ void func_002bea88(void) {
   func_002be6f0();
   func_001c8e90();
   func_002c6190(func_002c6218());
-  func_002bf098(func_001050d8(160));
+  worldmap__RootWindow__RootWindow(func_001050d8(160));
   func_00191bf0(k);
   func_00191c30(D_00352130->f * k + 500.0f);
   func_002c1dc0();
   func_002c1750();
-  func_002bf9d8(0);
+  worldmap__Event__Event(0);
 }
 }  // namespace n002bea88
 
@@ -686,8 +686,8 @@ extern u8 D_01e2bc40[] asm("D_01e2bc40");
 extern u8 D_00375400[] asm("D_00375400");
 extern u32 D_0033caf4 asm("D_0033caf4");
 void func_002fee78(void*, void*, u32) asm("func_002fee78");
-void* func_002beb90(void) asm("func_002beb90");
-void* func_002beb90(void) {
+void* worldmap__Manager__get2ldFile(void) asm("worldmap__Manager__get2ldFile");
+void* worldmap__Manager__get2ldFile(void) {
     func_002fee78(D_01e2bc40, D_00375400, D_0033caf4);
     return D_01e2bc40;
 }

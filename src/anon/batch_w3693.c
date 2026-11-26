@@ -1,6 +1,6 @@
 #include "../common/types.h"
 
-/* ---- func_001921d8: formats a name string into the shared buffer D_01c61ab8 ---- */
+/* ---- YS__MESSAGE__GetFilename: formats a name string into the shared buffer D_01c61ab8 ---- */
 char* func_00105ee8(void);
 s32 func_002fee78(char*, const char*, ...);
 extern char D_01c61ab8[];
@@ -20,7 +20,7 @@ static inline const char* nm(s32 a) {
 /* the $7 pin puts "move a3,v0" before the jal and "addiu a1" into its delay slot, as the original does */
 // 001921d8: moved to src/yasui/libys/message.cpp
 
-/* ---- func_002b31c0 ---- */
+/* ---- Tz__JmPuzzle__DrawMess ---- */
 
 
 u8 *func_002766d0(void);
@@ -34,7 +34,7 @@ s32 func_0023aa58(u8 *);
 s32 func_0023aa78(u8 *);
 u8 *func_001aae68(s32);
 s32 func_00192048(s32);
-void func_001a98e8(void *, s32, s32, s32, s32);
-void func_001aa6d0(void *, s32);
-void func_001a9ae8(void *, s32, s32, s32);
-void func_002b31c0(s32 a0, s32 a1, s32 a2);  // 0x002b31c0: definition moved into src/anon/unit_002b2a18.cpp
+void YS__MESSAGEDRAW__MESSAGEDRAW(void *, s32, s32, s32, s32);
+void YS__MESSAGEDRAW__set_line_space(void *, s32);
+void YS__MESSAGEDRAW__draw(void *, s32, s32, s32);
+void Tz__JmPuzzle__DrawMess(s32 a0, s32 a1, s32 a2);  // 0x002b31c0: definition moved into src/anon/unit_002b2a18.cpp

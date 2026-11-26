@@ -29,7 +29,7 @@ struct P { u8 p0[12]; Obj* o12; u8 p1[280 - 16]; f32 f280; u8 p2[320 - 284]; u8 
 u64 func_00313b80(f32) asm("func_00313b80");
 s32 func_003142e0(u64, u64) asm("func_003142e0");
 f32 func_0010e7e0(P*, s32) asm("func_0010e7e0");
-void func_0017dee8(void) asm("func_0017dee8");
+void YS__FRIEND__attack_(void) asm("YS__FRIEND__attack_");
 void func_0017f488(void*, u32, f32, f32) asm("func_0017f488");
 void mo_push(void*, s32, f32, f32, void*) asm("_ZN2YS6MOTION4pushEiffPFvPNS_3OBJEE");
 void func_001109c8(P* p) asm("func_001109c8");
@@ -54,7 +54,7 @@ void func_001109c8(P* p) {
             mo_push(p->m320, 0, 0.0f, 0.0f, 0);
         }
     } else {
-        func_0017dee8();
+        YS__FRIEND__attack_();
     }
 }
 }  // namespace g001109c8
@@ -63,7 +63,7 @@ void func_001109c8(P* p) {
 namespace n00110b00 {
 #define QCOPY(d, s) asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(d), "r"(s) : "$8", "memory")
 struct Vec4 { f32 x, y, z, w; } __attribute__((aligned(16)));
-Vec4* func_0016c028(void*) asm("func_0016c028");
+Vec4* YS__OBJ__get_pos(void*) asm("YS__OBJ__get_pos");
 // obj_get_attach_or_alt
 f32 fabsf(f32) asm("fabsf");
 struct RayQ { Vec4 a, b, c, hit; u8 pad[48]; u64 on : 1, rest : 33, hitflag : 1, rest2 : 29; u8 pad2[24]; };
@@ -71,7 +71,7 @@ extern u8 D_003a9250[] asm("D_003a9250");
 extern u8* D_00341708 asm("D_00341708");
 s32 w146730(void*, u32) asm("_Z16wtarget_00146730jjjj");
 void func_00319e90(RayQ*, void*) asm("func_00319e90");
-void func_00143928(RayQ*) asm("func_00143928");
+void dk__Octree__collisionToMap(RayQ*) asm("dk__Octree__collisionToMap");
 static inline void vsub(Vec4* d, const Vec4* a, const Vec4* b) {
     asm volatile("lqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 0(%2)\n\tvsub.xyzw $vf1, $vf1, $vf2\n\tsqc2 $vf1, 0(%0)" : : "r"(d), "r"(a), "r"(b) : "memory");
 }
@@ -92,7 +92,7 @@ s32 func_00110b00(u8* o, Vec4* pos, u32 a2) {
     if (r == 1) return 0;
     if (r != 0) return 0;
     if (*(u32*)(D_00341708 + 352) & 0x4000) return 0;
-    vsub(&d, pos, func_0016c028(D_00341708));  // obj_get_attach_or_alt
+    vsub(&d, pos, YS__OBJ__get_pos(D_00341708));  // obj_get_attach_or_alt
     k = *(f32*)(o + 2944);
     if (0.0f < d.y * k) return 0;
     d.y = 0.0f;
@@ -107,7 +107,7 @@ s32 func_00110b00(u8* o, Vec4* pos, u32 a2) {
         QvCopy(&ray.a, pos);
         asm volatile("vsub.xyzw $vf1, $vf0, $vf0\n\tsqc2 $vf1, 0(%0)" : : "r"(&ray.b) : "memory");
         ray.on = 0;
-        func_00143928(&ray);
+        dk__Octree__collisionToMap(&ray);
         if (ray.hitflag) return 0;
         return 1;
     }
@@ -161,14 +161,14 @@ extern Pts110c90 D_003a9040 asm("D_003a9040");
 extern u8 D_003a9250[] asm("D_003a9250");
 extern O110c90* D_00341708 asm("D_00341708");
 s32 func_00146730(u8*, Box110c90*) asm("func_00146730");
-V110c90* f110c90_attach(O110c90*) asm("func_0016c028");
+V110c90* f110c90_attach(O110c90*) asm("YS__OBJ__get_pos");
 s32 func_00110b00(O110c90*, V110c90*, Box110c90*) asm("func_00110b00");
 s32 f110c90_rand(s32) asm("func_0010f648");
 /*TARGET 00110c90*/
 // Picks a free warp point near o (pb pins &b to s7; gcc swaps it with best otherwise).
-s32 func_00110c90(O110c90* o) asm("func_00110c90");
+s32 kn__Friend__searchWarpPoint(O110c90* o) asm("kn__Friend__searchWarpPoint");
 // Picks a free warp point near o (pb pins &b to s7; gcc swaps it with best otherwise).
-s32 func_00110c90(O110c90* o)
+s32 kn__Friend__searchWarpPoint(O110c90* o)
 {
     Pts110c90* w = &D_003a9040;
     if (D_003a9040.count < 0) return -1;
@@ -318,7 +318,7 @@ static inline bool IsB0(Obj* o) { return o->b0; }
 extern s32 D_00341780 asm("D_00341780");
 extern Ent D_003a9050[] asm("D_003a9050");
 s32 func_001917c0(void) asm("func_001917c0");
-s32 func_00110c90(Obj*) asm("func_00110c90");
+s32 kn__Friend__searchWarpPoint(Obj*) asm("kn__Friend__searchWarpPoint");
 void func_00111060(Obj*, Ent*) asm("func_00111060");
 /*TARGET 001110e8*/
 void func_001110e8(Obj* o) asm("func_001110e8");
@@ -338,7 +338,7 @@ void func_001110e8(Obj* o)
             if (m == 0) return;
         }
     } else if (func_001917c0()) return;
-    s32 r = func_00110c90(o);
+    s32 r = kn__Friend__searchWarpPoint(o);
     if (r < 0) return;
     func_00111060(o, &D_003a9050[r]);
 }
@@ -427,14 +427,14 @@ extern Fr1112a8* g1112a8_leader asm("D_00341708");
 void f1112a8_setState(Fr1112a8*, s32) asm("func_0016bd60");
 s32 func_00111278(Fr1112a8*) asm("func_00111278");
 s32 func_0010f8d0(Fr1112a8*) asm("func_0010f8d0");
-void func_0010e130(Fr1112a8*, s32) asm("func_0010e130");
+void kn__Friend__updateTarget(Fr1112a8*, s32) asm("kn__Friend__updateTarget");
 f32 fabsf(f32) asm("fabsf");
 s32 func_001917c0(void) asm("func_001917c0");
 void func_001111c8(Fr1112a8*) asm("func_001111c8");
 void func_0010fa68(Fr1112a8*) asm("func_0010fa68");
 s32 func_0010fb10(Fr1112a8*) asm("func_0010fb10");
 void func_0010ff08(Fr1112a8*) asm("func_0010ff08");
-void func_00110500(Fr1112a8*) asm("func_00110500");
+void kn__Friend__followPlayer(Fr1112a8*) asm("kn__Friend__followPlayer");
 void func_001106a0(Fr1112a8*) asm("func_001106a0");
 void func_00140dc0(void) asm("func_00140dc0");
 /*TARGET 001112a8*/
@@ -448,7 +448,7 @@ void func_001112a8(Fr1112a8* o)
         if (!func_0010f8d0(o) && o->st->state == 32) f1112a8_setState(o, 31);
         if (!(o->f2040 & 4) && !(o->st->state - 31 < 3)) f1112a8_setState(o, 31);
     }
-    func_0010e130(o, 0);
+    kn__Friend__updateTarget(o, 0);
     if (o->f1632 & 4) o->f3288++;
     if (g1112a8_leader->f2064) o->f3288++;
     if (400.0f < fabsf(o->f2944)) o->f3288++;
@@ -457,7 +457,7 @@ void func_001112a8(Fr1112a8* o)
         func_0010fa68(o);
         if (!func_0010fb10(o)) func_0010ff08(o);
     } else {
-        func_00110500(o);
+        kn__Friend__followPlayer(o);
     }
     if (!(o->flags & 0x80)) func_001106a0(o);
     func_00140dc0();
@@ -513,15 +513,15 @@ struct Fr {
 extern void* D_00341708 asm("D_00341708");
 extern u8 D_00341700 asm("D_00341700");
 extern f32 D_00349e10 asm("D_00349e10");
-void func_0017bf40(u8*) asm("func_0017bf40");
+void YS__COMMAND__clear(u8*) asm("YS__COMMAND__clear");
 void func_00187f90(u8*) asm("func_00187f90");
 void func_0010eed8(Fr*, s32, s32) asm("func_0010eed8");
-s32 func_001774e0(Fr*) asm("func_001774e0");
+s32 YS__PARTY__exec_hook(Fr*) asm("YS__PARTY__exec_hook");
 s32 func_001917c0(void) asm("func_001917c0");
 void func_0010eee8(Fr*) asm("func_0010eee8");
 void func_0016a950(Fr*) asm("func_0016a950");
-void func_00175c88(Fr*, u8*) asm("func_00175c88");
-void func_0010c940(Fr*, f32, u32) asm("func_0010c940");
+void YS__PARTY__exec_command(Fr*, u8*) asm("YS__PARTY__exec_command");
+void kn__Friend__jump(Fr*, f32, u32) asm("kn__Friend__jump");
 void func_001110e8(Fr*) asm("func_001110e8");
 static inline bool AnyMoveFlag(u32 f) { u32 g = f, h = f; return (f & 4) || (g & 8) || (h & 0x10); }
 void func_00111520(Fr* o) asm("func_00111520");
@@ -534,7 +534,7 @@ void func_00111520(Fr* o) {
     o->oldPos = o->pos;
     o->pos.Zero();
     o->oldVel = o->vel;
-    func_0017bf40(o->cmd);
+    YS__COMMAND__clear(o->cmd);
     u32 fl = o->flags;
     o->flags = fl & ~0x80;
     if (o->faec && !(fl & 0x2000)) {
@@ -542,7 +542,7 @@ void func_00111520(Fr* o) {
         func_0010eed8(o, 0, 0);
         o->flags |= 0x2000;
     }
-    if (!func_001774e0(o)) {
+    if (!YS__PARTY__exec_hook(o)) {
         o->flags &= ~0x2000;
         f32 dt = D_00349e10;
         if (0.0f < o->tmr1) o->tmr1 -= dt;
@@ -557,9 +557,9 @@ void func_00111520(Fr* o) {
             if (m != 0) {
                 o->dir.w = 0;
                 if (m == 2) *(u16*)o->cmd = 0;
-                func_00175c88(o, o->cmd);
+                YS__PARTY__exec_command(o, o->cmd);
             } else {
-                if (*(u64*)o->cmd & (1ULL << 33)) func_0010c940(o, *(f32*)(o->cmd + 0x1c), *(u32*)(o->cmd + 0x20));
+                if (*(u64*)o->cmd & (1ULL << 33)) kn__Friend__jump(o, *(f32*)(o->cmd + 0x1c), *(u32*)(o->cmd + 0x20));
                 else func_001110e8(o);
             }
         }

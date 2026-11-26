@@ -23,12 +23,12 @@ void func_0017f488(int, int, float, float);
 
 extern "C" {
 W1790Sram* jm_GetSram(void) asm("_ZN2Tz9JmNewInfo7GetSramEv");
-s32 func_002a7490(void);
-s32 func_002a74c0(void);
+s32 Tz__JmSynthe__isEnableRecipe(void);
+s32 Tz__JmSynthe__isEnableMaterial(void);
 extern W1790Sram* D_0035f610;
 
 s32 func_0016b740(s32);
-void u_tail4_001c0d38(u32, u32, u32, u32) asm("_Z16u_tail4_001c0d38jjjj");
+void YS__OBJ__attach(u32, u32, u32, u32) asm("_Z15YS__OBJ__attachjjjj");
 void wtarget_0016b070(u32, W1790V4*) asm("_Z16wtarget_0016b070jjjj");
 void func_002fd188(void (*)());
 void D_002be6e8();
@@ -36,12 +36,12 @@ extern s8 D_01e2bc20;
 extern W1790V4 D_01e2bc30;
 extern s32 D_0034e948;
 
-void func_00138988(W1790Obj*);
-void func_00138de0(W1790Obj*);
+void dk__Sprite__draw(W1790Obj*);
+void dk__SpriteMessage__drawMessage(W1790Obj*);
 void seq_GetActiveXY(void*, s32*, s32*) asm("_ZN2YI8SEQUENCE11GetActiveXYEPiS1_");
 s32 seq_GetParamX(void*) asm("_ZN2YI8SEQUENCE9GetParamXEv");
 s32 seq_GetParamY(void*) asm("_ZN2YI8SEQUENCE9GetParamYEv");
-void func_0023ade0(W1790Pos*);
+void YI__SEQUENCE__Draw(W1790Pos*);
 extern s32 D_0034805c;
 
 void func_00148a68(W1790Mgr*, W1790Node*);
@@ -51,7 +51,7 @@ void func_002abba8(void);  // 0x002abba8: definition moved into src/anon/unit_00
 
 void func_002be630(void);  // 0x002be630: definition moved into src/anon/unit_002be020.cpp
 
-void func_0013aba8(W1790Obj* o);  // 0x0013aba8: definition moved into src/anon/unit_0013a8b8.cpp
+void dk__COMMAND_ONE__draw(W1790Obj* o);  // 0x0013aba8: definition moved into src/anon/unit_0013a8b8.cpp
 
-void func_00148470(W1790Mgr* g, W1790Node* n);  // 0x00148470: definition moved into src/anon/unit_00147140.cpp
+void dk__OctDrawFile__drawModel(W1790Mgr* g, W1790Node* n);  // 0x00148470: definition moved into src/anon/unit_00147140.cpp
 }

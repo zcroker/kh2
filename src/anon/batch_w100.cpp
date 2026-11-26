@@ -40,9 +40,9 @@ void func_00194668(u8*);
 void func_00194468(u8*);
 void func_001c0e60(u8*);
 u32 func_001762c0(u8*, s32);
-void func_001c0d38(u8*, u8*, u32, u32);
+void YS__OBJ__attach(u8*, u8*, u32, u32);
 void func_0016bd60(u8*, u32);
-void func_00198970(u32);
+void YS__STDOBJ__reset_special_command(u32);
 void func_00112778(u32, u32);
 
 void func_001195a8(u8* w);  // 0x001195a8: definition moved into src/anon/unit_001195a8.cpp
@@ -104,7 +104,7 @@ extern "C" {
 u32 func_00177860(u8*);
 s32 func_001c3618(u32, s32);
 s32 func_0019c090(u8*);  // obj_is_enabled
-s32 func_001b9d40(u8*);  // vtable_call_slot64_flags
+s32 YS__OBJ__can_control(u8*);  // vtable_call_slot64_flags
 void func_0016aef0(u8*, u8*);
 void func_0017f488(u8*, s32, f32, f32);
 void func_0017f5e0(u8*, s32, s32, f32, f32);
@@ -147,7 +147,7 @@ extern char D_0036c5b0[];
 extern s32 D_0034ec60;
 u32 func_0016a080(u8*);
 s32 func_002fee78(char*, const char*, ...);
-void func_00180058(u8*, u32, char*, u32, u32, u32, f32);
+void YS__MOTION___capture(u8*, u32, char*, u32, u32, u32, f32);
 
 // 001801b0: moved to src/yasui/libys/motion.cpp
 }
@@ -159,7 +159,7 @@ struct E11 { u32 a; u32 b; f32 t; };
 extern "C" {
 extern E11 D_01c608c0[64];
 extern u32 D_003638d0;
-u8* func_001b9bc8(u8*);
+u8* YS__OBJ__Each(u8*);
 void func_001884d0(u8*, E11*);
 }
 
@@ -232,7 +232,7 @@ extern u8 D_01c61b30[];
 extern u32 D_0032b96c;
 u32 func_0014aba8(void);
 void func_0014aa58(u32, s32, s32);
-void func_0015d540(void);
+void dk__KeyHoleJumpEffect__out(void);
 void func_002ef8d0(u8*, u32);
 void func_002bc788(void);
 void func_00196e88(Obj14*, s32, s32, f32);
@@ -317,17 +317,17 @@ extern "C" {
 s32 func_001bc710(Ent18*);
 void func_002ba2e8(s32, s32);
 s32 func_001bcf18(Hdr18*);
-s32 func_001bcf38(Hdr18*);  // state_in_set_5_10_13to18
+s32 YS__COMMAND_MENU__is_shortcut_menu(Hdr18*);  // state_in_set_5_10_13to18
 void func_001bc730(Hdr18*, s32);
 void func_001bd618(Obj18*, s32);
 }
 static inline bool Done18(Hdr18* h) {
     bool r = false;
-    if (func_001bcf18(h) || func_001bcf38(h)) r = true;
+    if (func_001bcf18(h) || YS__COMMAND_MENU__is_shortcut_menu(h)) r = true;
     return r;
 }
 extern "C" {
-void func_001bd988(Obj18* o);  // 0x001bd988: definition moved into src/anon/unit_001bc568.cpp
+void YS__PLAYER_COMMAND__decide(Obj18* o);  // 0x001bd988: definition moved into src/anon/unit_001bc568.cpp
 }
 
 }

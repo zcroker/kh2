@@ -56,5 +56,5 @@ f32 cosf(f32); /* cosf */
 
 /* Finds the active key at seq->time and evaluates color, scale and position. */
 
-void func_0023a0d8(W1702Seq* seq);  // 0x0023a0d8: definition moved into src/anon/unit_00239988.cpp
+void YI__SEQUENCE__UpdateActive(W1702Seq* seq);  // 0x0023a0d8: definition moved into src/anon/unit_00239988.cpp
 }

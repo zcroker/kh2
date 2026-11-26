@@ -25,9 +25,9 @@ void func_0017f488(u8*, s32, f32, f32);
 void func_0017f5e0(u8*, s32, s32, f32, f32);
 void func_0016bd60(u8*, s32);
 void func_00290740(u8*);
-void func_002362b0(u8*, u32);
+void YI__IMAGE__Init(u8*, u32);
 void func_002367c8(u8*);  // obj_dispatch_bitfield64
-void func_001386e0(u8*, u32, u32, u8*, u32, u32);
+void dk__Sprite__create(u8*, u32, u32, u8*, u32, u32);
 void func_002b740c(u32, u32, u32, u32);
 
 void func_002bd8f8(u32* p, u32 a1);  // 0x002bd8f8: definition moved into src/anon/unit_002bc978.cpp

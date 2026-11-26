@@ -97,7 +97,7 @@ s32 func_0010fb10(Cam10ff08*) asm("func_0010fb10");
 s32 func_0010f8d0(Cam10ff08*) asm("func_0010f8d0");
 s32 func_001137e0(Who10ff08*) asm("func_001137e0");
 Ent10ff08* func_001137e8(Who10ff08*) asm("func_001137e8");
-s32 func_001a1de0(Other10ff08*) asm("func_001a1de0");
+s32 YS__SHEET__is_mpdrive(Other10ff08*) asm("YS__SHEET__is_mpdrive");
 s32 func_0010f648(s32) asm("func_0010f648");
 s32 func_0010f600(Cam10ff08*) asm("func_0010f600");
 f32 func_0010f660(void) asm("func_0010f660");
@@ -110,13 +110,13 @@ void func_0010eed8(Cam10ff08*, Ent10ff08*, s32) asm("func_0010eed8");
 void func_00110630(Cam10ff08*) asm("func_00110630");
 Ent10ff08* func_0010fea0(Cam10ff08*) asm("func_0010fea0");
 u8* func_00112570(Cam10ff08*) asm("func_00112570");
-void func_0016b010(Cam10ff08*, V10ff08*) asm("func_0016b010");
+void YS__OBJ__set_wish_dir(Cam10ff08*, V10ff08*) asm("YS__OBJ__set_wish_dir");
 /*TARGET 0010ff08*/
 // func_0010ff08: camera target choice. Collects candidate entities whose pick callback accepts them
-// (pass 0 skips kind 2 and entities refused by func_001a1de0, pass 1 takes only kind 2), then picks one at random.
+// (pass 0 skips kind 2 and entities refused by YS__SHEET__is_mpdrive, pass 1 takes only kind 2), then picks one at random.
 void func_0010ff08(Cam10ff08* c) asm("func_0010ff08");
 // func_0010ff08: camera target choice. Collects candidate entities whose pick callback accepts them
-// (pass 0 skips kind 2 and entities refused by func_001a1de0, pass 1 takes only kind 2), then picks one at random.
+// (pass 0 skips kind 2 and entities refused by YS__SHEET__is_mpdrive, pass 1 takes only kind 2), then picks one at random.
 void func_0010ff08(Cam10ff08* c)
 {
     if (func_0010fb10(c)) return;
@@ -179,7 +179,7 @@ void func_0010ff08(Cam10ff08* c)
                 if (kind == 2) {
                     skip = true;
                 } else if (ents[i].q && ents[i].q->n > 0) {
-                    if (c->other) skip = func_001a1de0(c->other) != 0;
+                    if (c->other) skip = YS__SHEET__is_mpdrive(c->other) != 0;
                     if (kind == 1 && c->other && c->other->level < ents[i].q->n) skip = true;
                 }
             } else {
@@ -212,7 +212,7 @@ void func_0010ff08(Cam10ff08* c)
     func_0010eed8(c, 0, 0);
     {
         V10ff08 d = *dp;
-        func_0016b010(c, &d);
+        YS__OBJ__set_wish_dir(c, &d);
     }
     return;
 found:
@@ -242,8 +242,8 @@ static inline f32 vlen(void* v) {
     return r;
 }
 /*TARGET 00110500*/
-void func_00110500(u8* p) asm("func_00110500");
-void func_00110500(u8* p) {
+void kn__Friend__followPlayer(u8* p) asm("kn__Friend__followPlayer");
+void kn__Friend__followPlayer(u8* p) {
     func_0010e810(p, p + 2944);
     switch (*(s32*)(p + 2924)) {
     case 12:
@@ -295,7 +295,7 @@ void func_00110630(u8* a0) {
         return;
     }
 
-    func_00110500(s0);
+    kn__Friend__followPlayer(s0);
 }
 }  // namespace n00110630
 

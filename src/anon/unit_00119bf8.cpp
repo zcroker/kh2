@@ -57,10 +57,10 @@ u32 func_00119c40(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7
 // ---- 00119c88 from src/anon/batch_w7.cpp
 namespace n00119c88 {
 u32 func_001c8cd8(void) asm("func_001c8cd8");
-void func_00119e60(u32, u32) asm("func_00119e60");
+void kn__Genie__changeForm(u32, u32) asm("kn__Genie__changeForm");
 void func_00119c88(u32 a0) asm("func_00119c88");
 void func_00119c88(u32 a0) {
-    func_00119e60(a0, func_001c8cd8());
+    kn__Genie__changeForm(a0, func_001c8cd8());
 }
 }  // namespace n00119c88
 
@@ -109,10 +109,10 @@ void func_00119d08(void** p) {
 
 // ---- 00119d40 gap: script callback (table 0x347728)
 namespace n00119d40 {
-void func_00110500(u32) asm("func_00110500");
+void kn__Friend__followPlayer(u32) asm("kn__Friend__followPlayer");
 u32 func_00119d40(u32* a0, u32 a1, u32* a2, u32* a3, u8 t0) asm("func_00119d40");
 u32 func_00119d40(u32* a0, u32 a1, u32* a2, u32* a3, u8 t0) {
-    if (!t0) func_00110500(a0[1]);
+    if (!t0) kn__Friend__followPlayer(a0[1]);
     return 1;
 }
 }  // namespace n00119d40
@@ -157,8 +157,8 @@ extern E6 D_00347770[6] asm("D_00347770");
 void func_00194108(u32, s16) asm("func_00194108");
 void func_001940f0(u32, s16) asm("func_001940f0");
 void func_001c8cf8(s32) asm("func_001c8cf8");
-void func_00119e60(u8* p, s32 v) asm("func_00119e60");
-void func_00119e60(u8* p, s32 v)
+void kn__Genie__changeForm(u8* p, s32 v) asm("kn__Genie__changeForm");
+void kn__Genie__changeForm(u8* p, s32 v)
 {
     *(s32*)(p + 20) = v;
     s32 i;

@@ -12,14 +12,14 @@ u32 func_0016a358(u32, u32, u32, u32);
 u32 func_0016cb88(u32, u32, u32, u32);
 u32 func_00181500(u32, u32, u32, u32);
 u32 func_00182780(u32, u32, u32, u32);
-u32 func_001871c8(u32, u32, u32, u32);
-u32 func_00187300(u32, u32, u32, u32);
+u32 YS__BTLOBJ___turn_to_target(u32, u32, u32, u32);
+u32 YS__BTLOBJ___turn_to_target_range(u32, u32, u32, u32);
 u32 func_0018c598(u32, u32, u32, u32);
 u32 func_0018ca90(u32, u32, u32, u32);
 u32 func_00194830(u32, u32, u32, u32);
 u32 func_00195530(u32, u32, u32, u32);
 u32 func_00195858(u32, u32, u32, u32);
-u32 func_001a1de0(u32, u32, u32, u32);
+u32 YS__SHEET__is_mpdrive(u32, u32, u32, u32);
 u32 func_001a3168(u32, u32, u32, u32);
 u32 func_001a3570(u32, u32, u32, u32);
 u32 func_001a4e30(u32, u32, u32, u32);
@@ -27,16 +27,16 @@ u32 func_001a8450(u32, u32, u32, u32);
 u32 func_001a9780(u32, u32, u32, u32);
 u32 func_001b0188(u32, u32, u32, u32);
 u32 func_001b0330(u32, u32, u32, u32);
-u32 func_001b8e88(u32, u32, u32, u32);
+u32 YS__COMMAND_ELEM__Get(u32, u32, u32, u32);
 u32 func_001c0cd8(u32, u32, u32, u32);
 u32 func_001c6e58(u32, u32, u32, u32);
 u32 func_001c73e0(u32, u32, u32, u32);
 u32 func_001c7900(u32, u32, u32, u32);
-u32 func_001caf00(u32, u32, u32, u32);
-u32 func_001cb278(u32, u32, u32, u32);
+u32 YS__PRIZEEFFECT_PO__phase_get_po06_fall(u32, u32, u32, u32);
+u32 YS__PRIZEEFFECT_PO__phase_move_po06_rot(u32, u32, u32, u32);
 u32 func_001cb470(u32, u32, u32, u32);
 u32 func_001d1438(u32, u32, u32, u32);
-u32 func_001d1ed0(u32, u32, u32, u32);
+u32 YS__MISSION_GAUGE__destroy(u32, u32, u32, u32);
 u32 func_001d2210(u32, u32, u32, u32);
 u32 func_001d3f80(u32, u32, u32, u32);
 u32 func_001d4808(u32, u32, u32, u32);  // is_halfword42_zero
@@ -64,7 +64,7 @@ u32 func_002cff98(u32, u32, u32, u32);
 u32 func_002d0f38(u32, u32, u32, u32);
 u32 func_002db530(u32, u32, u32, u32);
 u32 func_002dea80(u32, u32, u32, u32);  // set_vtbl_362d20
-u32 func_002ed738(u32, u32, u32, u32);
+u32 Ts__TRINITY_SHOT_EFFECT__main(u32, u32, u32, u32);
 u32 func_002ed830(u32, u32, u32, u32);
 u32 func_002eec58(u32, u32, u32, u32);
 u32 func_002ef9e0(u32, u32, u32, u32);
@@ -88,20 +88,20 @@ u32 func_00321cb0(u32, u32, u32, u32);
 u32 func_001128d0(u32, u32, u32, u32);
 u32 func_0014a7f8(u32, u32, u32, u32);
 u32 func_0016b558(u32, u32, u32, u32);
-u32 func_0016cba0(u32, u32, u32, u32);
-u32 func_0016eb48(u32, u32, u32, u32);
+u32 YS__VM__call_pc(u32, u32, u32, u32);
+u32 YS__OBJENTRY__ReadRequestSub(u32, u32, u32, u32);
 u32 func_00182838(u32, u32, u32, u32);
 u32 func_00186008(u32, u32, u32, u32);
 u32 func_00192048(u32, u32, u32, u32);
 u32 func_00194468(u32, u32, u32, u32);
 u32 func_001b6298(u32, u32, u32, u32);
-u32 func_001c0d38(u32, u32, u32, u32);
-u32 func_001d8190(u32, u32, u32, u32);
+u32 YS__OBJ__attach(u32, u32, u32, u32);
+u32 YS__MISSION__init_mission2d(u32, u32, u32, u32);
 u32 func_00290a60(u32, u32, u32, u32);
 extern "C" u32 func_00292690(u32, u32, u32, u32) asm("_ZN2Tz8LoadData5ClearEi");
 u32 func_002b70b8(u32, u32, u32, u32);
-u32 func_002d7128(u32, u32, u32, u32);
-u32 func_002e2d88(u32, u32, u32, u32);
+u32 Ti__MGHachimitsu__MGHachimitsu(u32, u32, u32, u32);
+u32 Ti__MG_EHSidecar__PlayPath(u32, u32, u32, u32);
 u32 func_002e9fb8(u32, u32, u32, u32);
 
 extern u8 D_0032bb30;
@@ -387,7 +387,7 @@ u32 func_001b5cb8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001b5cb8: definition mo
 
 u32 func_001b6bd8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001b6bd8: definition moved into src/anon/unit_001b6a50.cpp
 
-u32 func_001b6c20(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001b6c20: definition moved into src/anon/unit_001b6a50.cpp
+u32 YS__CHANGEFORM__CaptureEnd(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001b6c20: definition moved into src/anon/unit_001b6a50.cpp
 
 u32 func_001b77a8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001b77a8: definition moved into src/anon/unit_001b6a50.cpp
 
@@ -506,7 +506,7 @@ void func_002419d0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002419d0: definition m
 
 u32 func_00241c20(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00241c20: definition moved into src/anon/unit_0023f5b8.cpp
 
-u32 func_00242180(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00242180: definition moved into src/anon/unit_00241fd0.cpp
+u32 Tz__McSys__isEnableDataKH2(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00242180: definition moved into src/anon/unit_00241fd0.cpp
 
 u32 func_002421a0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002421a0: definition moved into src/anon/unit_00241fd0.cpp
 

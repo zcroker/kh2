@@ -11,7 +11,7 @@ using namespace w1606c;
 extern "C" {
 W* func_002766d0(void);
 s32 func_0028b038(s32);
-void func_0028be78(s32, s32);
+void Tz__ScrollBar__SetPos(s32, s32);
 void func_002fde18(void*, s32, s32);
 s32 func_002892f8(s32);
 void func_00138c10(u8*, s32);
@@ -19,7 +19,7 @@ u8* func_002a01c8(s32);
 s32 func_002943e8(u8*);
 s32 func_00192048(s32);
 void func_00192c90(s32, E*);
-void func_0028de08(s32, E*, s32);
+void Tz__MenuUtil__MakeQuestionStr(s32, E*, s32);
 u8* func_002891b8(s32, s32);
 s32 func_002aa2f8(s32);
 s32 func_002aa378(s32);

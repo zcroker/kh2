@@ -7,18 +7,18 @@ void* func_0011ef70(void*, void*);
 void func_0011f2f0(void*);
 void func_0011ee58(void*);  // set_vtbl_347940
 void func_00106420(void*);
-void func_002362b0(void*, void*);
+void YI__IMAGE__Init(void*, void*);
 void func_002367c8(void*);  // obj_dispatch_bitfield64
 void func_0014ce20(s32);
 void func_0014ce30(s32);
-void func_0014ce60(void);
+void dk__Vsync__initGameSpeed(void);
 void func_00138c10(void*, s32);
 void* func_00140df0(void);
 void func_00140f10(void*);
 void func_00140dd0(void*);
 void func_001024a8(void*);
 void* func_001050c8(void);
-void func_001ba028(u32);  // list_contains_ptr
+void YS__OBJ__is_valid(u32);  // list_contains_ptr
 void func_0016bd60(u32, s32);
 void func_00177498(void*);
 void func_0016cc18(void*, void*, void*, void*, s32);
@@ -33,7 +33,7 @@ void func_001bbe38(s32);
 void func_0016c5b8(s32, s32);
 void func_001dc9e0(void*);
 s32 func_001e6d08(u32);
-void func_001e17b8(void*);
+void ryj__LAST_XEMNUS_LASER__init(void*);
 s32 func_00197920(void);
 void func_00226dc8(void);
 void func_00234670(s32, u32, s32, s32, s32);
@@ -46,10 +46,10 @@ void func_002b6ab8(void);
 u8 func_00325320(void*, void*);
 void func_002cff98(void*);
 void func_002ceb08(void);
-void func_0017c430(void*);
-void func_00138988(void*);
+void YS__OBJ__prepare_jump_height(void*);
+void dk__Sprite__draw(void*);
 void func_0014b9a8(void*);
-void func_00138de0(void*);
+void dk__SpriteMessage__drawMessage(void*);
 void func_0031ffc0(void*);
 void func_002dea80(void*);  // set_vtbl_362d20
 
@@ -148,7 +148,7 @@ void func_001c2b70(void);  // 0x001c2b70: definition moved into src/anon/unit_00
 
 bool EFFECT_is_waiting(u8* self);  // 0x001dc9f0: definition moved into src/anon/unit_001dbfd8.cpp
 
-void func_001e2788(u8* p);  // 0x001e2788: definition moved into src/anon/unit_001e0cb8.cpp
+void ryj__LAST_XEMNUS_LASER__LAST_XEMNUS_LASER(u8* p);  // 0x001e2788: definition moved into src/anon/unit_001e0cb8.cpp
 
 void func_00226e60(u8 v);  // 0x00226e60: definition moved into src/anon/unit_00224780.cpp
 

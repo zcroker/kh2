@@ -1,9 +1,9 @@
 # Whole-function assembly (last step of the README match ladder, w3950 2026-11-10).
 # Transcribed from the retail disassembly; calls and globals with a func_/D_ symbol are referenced
 # through it. Replace with C/C++ after 100%.
-#   func_002a5590: Jiminy menu init: two fade objects and cursors (D_0035f3d4-1), the list (func_00288d80),
+#   func_002a5590: Jiminy menu init: two fade objects and cursors (D_0035f3d4-1), the list (Tz__Select__SetItem),
 #     cursor/limit objects (D_0035f5f0), limit entry text into D_0035f5ec+31 (func_00192cc0 with D_00374ba8),
-#     then list/scroll bar setup (func_0028af90 ... func_0028be78) and selector enable bits.
+#     then list/scroll bar setup (Tz__Select__SetSelectMax ... Tz__ScrollBar__SetPos) and selector enable bits.
 #     Closest C: ~/re/kh2/tmp.w3950/best_002a5590_g.cpp (= best/002a5590_w3945_g.cpp, _g, about 257 lines off):
 #     the original reloads every global %hi with fresh t-regs (only hi(D_0035f5ec) in s3); ours keeps them in
 #     saved registers and spills pg.
@@ -57,7 +57,7 @@ func_002a5590:
 	lw	$17, %lo(D_0035f3d4)($14)	# 2a5624
 	addiu	$21,$30,3400	# 2a5628
 	li	$22,1	# 2a562c
-	jal	func_00276e78	# 2a5630
+	jal	Tz__Jiminy__CreateCover	# 2a5630
 	lui	$19,%hi(D_0035f5ec)	# 2a5634
 	addiu	$18,$17,-1	# 2a5638
 	lui	$15,%hi(D_0035f14c)	# 2a563c
@@ -111,7 +111,7 @@ func_002a5590:
 	lui	$14,%hi(D_0035f200)	# 2a56fc
 	lw	$8, %lo(D_0035f210)($15)	# 2a5700
 	lw	$4, %lo(D_0035f200)($14)	# 2a5704
-	jal	func_00288d80	# 2a5708
+	jal	Tz__Select__SetItem	# 2a5708
 	move	$5,$0	# 2a570c
 	lui	$15,%hi(D_0035f200)	# 2a5710
 	move	$5,$0	# 2a5714
@@ -129,9 +129,9 @@ func_002a5590:
 	lw	$15,32($29)	# 2a5744
 	jal	func_001395f8	# 2a5748
 	sw	$15,420($16)	# 2a574c
-	lui	$15,%hi(func_002a63a0)	# 2a5750
+	lui	$15,%hi(Tz__JmBattle__DrawMess)	# 2a5750
 	lui	$14,%hi(D_0035f14c)	# 2a5754
-	addiu	$15, $15, %lo(func_002a63a0)	# 2a5758
+	addiu	$15, $15, %lo(Tz__JmBattle__DrawMess)	# 2a5758
 	li	$9,99	# 2a575c
 	sw	$15,436($16)	# 2a5760
 	li	$10,-1	# 2a5764
@@ -244,14 +244,14 @@ func_002a5590:
 	addiu	$13,$15,-8	# 2a5910
 	slti	$15,$15,10	# 2a5914
 	movz	$22,$13,$15	# 2a5918
-	jal	func_0028af90	# 2a591c
+	jal	Tz__Select__SetSelectMax	# 2a591c
 	move	$5,$22	# 2a5920
 	lui	$14,%hi(D_0035f200)	# 2a5924
 	move	$6,$0	# 2a5928
 	lw	$4, %lo(D_0035f200)($14)	# 2a592c
 	li	$7,-1	# 2a5930
 	li	$8,-1	# 2a5934
-	jal	func_002891f0	# 2a5938
+	jal	Tz__Select__SetCurrent	# 2a5938
 	move	$5,$0	# 2a593c
 	lui	$15,%hi(D_0035f200)	# 2a5940
 	move	$5,$0	# 2a5944
@@ -290,7 +290,7 @@ func_002a5590:
 	move	$5,$18	# 2a59c8
 	lui	$15,%hi(D_0035f214)	# 2a59cc
 	move	$5,$0	# 2a59d0
-	jal	func_0028be78	# 2a59d4
+	jal	Tz__ScrollBar__SetPos	# 2a59d4
 	lw	$4, %lo(D_0035f214)($15)	# 2a59d8
 	lui	$14,%hi(D_0035f200)	# 2a59dc
 	jal	func_0028af88	# 2a59e0
@@ -310,7 +310,7 @@ func_002a5590:
 	bnez	$5, .L002a5a40	# 2a5a18
 	lui	$14,%hi(D_0035f200)	# 2a5a1c
 	li	$5,1	# 2a5a20
-	jal	func_0028b218	# 2a5a24
+	jal	Tz__Select__SetPageMode	# 2a5a24
 	lw	$4, %lo(D_0035f200)($14)	# 2a5a28
 	lui	$15,%hi(D_0035f200)	# 2a5a2c
 	li	$5,9	# 2a5a30

@@ -40,8 +40,8 @@ void func_00139620(u8*) asm("func_00139620");
 void func_00138c68(u8*, s32, s32) asm("func_00138c68");
 void func_0028dcc0(u8*, u8*) asm("func_0028dcc0");
 void func_00138c10(u8*, s32) asm("func_00138c10");
-void func_002a92d8(void) asm("func_002a92d8");
-void func_002a92d8(void) {
+void Tz__JmQuest__CreateList(void) asm("Tz__JmQuest__CreateList");
+void Tz__JmQuest__CreateList(void) {
     u8* g = func_002766d0();
     s32 id = D_0035f3d4;
     u8* q = g + 0xa998;
@@ -113,12 +113,12 @@ void func_002a94f8(void) {
 // 002a9570 (was src/anon/batch_w1588.cpp)
 namespace n002a9570 {
 s32 func_00289310(void) asm("func_00289310");
-void func_002a98a8(void) asm("func_002a98a8");
+void Tz__JmQuest__UpdateNewMark(void) asm("Tz__JmQuest__UpdateNewMark");
 void func_002a95a8(void) asm("func_002a95a8");
 void func_002a9570(void) asm("func_002a9570");
 void func_002a9570(void) {
     if (func_00289310()) {
-        func_002a98a8();
+        Tz__JmQuest__UpdateNewMark();
         func_002a95a8();
     }
 }
@@ -167,16 +167,16 @@ extern s32 D_00374c38 asm("D_00374c38");
 extern s32 D_00374c3c asm("D_00374c3c");
 W1610Base *func_002766d0(void) asm("_ZN2Tz6Jiminy9GetSeqTblEv");
 s32 func_0028b038(s32) asm("_ZN2Tz6Select12GetSelectTopEv");
-void func_0028be78(s32, s32) asm("func_0028be78");
+void Tz__ScrollBar__SetPos(s32, s32) asm("Tz__ScrollBar__SetPos");
 void func_002fde18(void *, s32, s32) asm("_Z16wtarget_002fde18jjjj");
 void func_00138c10(void *, s32) asm("_ZN2dk6Sprite6setNumEi");
-s32 func_00295430(s32, s32) asm("func_00295430");
+s32 Tz__JmWorldSel__GetId2WorldName(s32, s32) asm("Tz__JmWorldSel__GetId2WorldName");
 s32 func_002954e0(s32) asm("_ZN2Tz10JmWorldSel11isWorldOpenEi");
 s32 func_00192048(s32) asm("_Z16u_tail4_00192048jjjj");
-s32 func_0028de08(s32, void *, s32) asm("func_0028de08");
+s32 Tz__MenuUtil__MakeQuestionStr(s32, void *, s32) asm("Tz__MenuUtil__MakeQuestionStr");
 s32 func_002a9c40(s32) asm("func_002a9c40");
 W1610Rec *func_002a92a0(s32) asm("func_002a92a0");
-s32 func_002a99c8(W1610Rec *) asm("func_002a99c8");
+s32 Tz__JmQuest__GetQuestStat(W1610Rec *) asm("Tz__JmQuest__GetQuestStat");
 s32 func_002aacd8(s32) asm("func_002aacd8");
 s32 func_002aad58(s32) asm("func_002aad58");
 void func_002a95a8(void) asm("func_002a95a8");
@@ -186,7 +186,7 @@ void func_002a95a8(void)
   int new_var2;
   s32 new_var;
   s32 idx = func_0028b038(D_0035f200);
-  func_0028be78(D_0035f214, idx);
+  Tz__ScrollBar__SetPos(D_0035f214, idx);
   func_002fde18(base->name, 0, 640);
   s32 i;
   for (i = 0; i < 10; i++)
@@ -211,14 +211,14 @@ void func_002a95a8(void)
     if ((D_0035f608->e[idx + i].b < 0) && (D_0035f608->e[idx + i].c == 0))
     {
       func_00138c10(s, 102);
-      h = (new_var = func_00295430(a, 1));
+      h = (new_var = Tz__JmWorldSel__GetId2WorldName(a, 1));
       if (func_002954e0(a))
       {
         s->h = func_00192048(h);
       }
       else
       {
-        s->h = func_0028de08(h, buf, 64);
+        s->h = Tz__MenuUtil__MakeQuestionStr(h, buf, 64);
       }
     }
     else
@@ -232,7 +232,7 @@ void func_002a95a8(void)
       }
       else
       {
-        s->h = func_0028de08(h, buf, 64);
+        s->h = Tz__MenuUtil__MakeQuestionStr(h, buf, 64);
       }
     }
     else
@@ -240,7 +240,7 @@ void func_002a95a8(void)
       h = 106;
       W1610Rec *r = func_002a92a0(D_0035f608->e[idx + i].b);
       new_var2 = 107;
-      s32 v = func_002a99c8(r);
+      s32 v = Tz__JmQuest__GetQuestStat(r);
       if (v == 2)
       {
         h = new_var2;
@@ -262,7 +262,7 @@ void func_002a95a8(void)
       }
       else
       {
-        s->h = func_0028de08(h, buf, 64);
+        s->h = Tz__MenuUtil__MakeQuestionStr(h, buf, 64);
       }
       if (func_002aacd8(D_0035f608->e[idx + i].b))
       {

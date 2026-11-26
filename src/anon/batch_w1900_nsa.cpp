@@ -25,7 +25,7 @@ union G414 { MCSave878* p; s32 i; };
 extern G414 D_0035f414;
 void* func_001063c0(s32, s32);
 s32* func_001063f0(s32, s32);
-void func_0028c878(s32 heap, s32 n);  // 0028c878: moved to src/anon/unit_0028c878.cpp
+void Tz__MenuCursor__Init(s32 heap, s32 n);  // 0028c878: moved to src/anon/unit_0028c878.cpp
 }
 
 extern "C" {

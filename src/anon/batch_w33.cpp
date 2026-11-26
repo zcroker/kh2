@@ -64,8 +64,8 @@ void wtarget_001ac078(u32 a, u32 b, u32 c, u32 d) asm("_Z16wtarget_001ac078jjjj"
 struct St32 { u8 pad[13604]; u8 a; u8 b; };
 extern St32 D_0032bb30;
 void* func_001a15d0(s32, s32);
-void func_001a1c70(void*);
-void func_001a17c8(void*);
+void YS__SHEET__max_drive(void*);
+void YS__SHEET__Free(void*);
 void func_001adbc0(void);  // 0x001adbc0: definition moved into src/anon/unit_001ada38.cpp
 
 extern void* D_00350dec;
@@ -125,7 +125,7 @@ void func_00257708(s32);
 extern s32* D_0035f2b4;
 void func_00283d00(void*);
 void func_00283f50(void);
-void func_002833f8(void);
+void Tz__CmTutorial__CreateList(void);
 void func_002831e0(void* a, s32 b);  // 0x002831e0: definition moved into src/anon/unit_00282c68.cpp
 
 extern u8 D_003617e8;
@@ -148,7 +148,7 @@ struct Own2e8 { u8 pad[4]; void* h; };
 struct Obj2e8 { Own2e8* o; void* v; f32 a; f32 b; };
 void func_001b2210(void*, void*, f32, f32);
 void func_0016bd60(void*, s32);
-void func_002e8390(Obj2e8* o);  // 0x002e8390: definition moved into src/anon/unit_002e7b10.cpp
+void Ts__trap_obj_hop_direct(Obj2e8* o);  // 0x002e8390: definition moved into src/anon/unit_002e7b10.cpp
 
 void func_001c23a8(void*, void*, s32, s32, s32, s32, void*);
 extern void* D_00363758[];
@@ -168,7 +168,7 @@ extern void* D_00347f98[];
 void func_0031d7c0(void** p);  // 0x0031d7c0: definition moved into src/anon/unit_0031b9e0.cpp
 
 extern void* D_0034ee08[];
-void func_0019f9a8(void*);  // array8_free_slots
+void YS__OBJ_ATTACK__clear(void*);  // array8_free_slots
 void func_001c0248(void*);
 void func_00319fb0(void*);  // big_obj_dtor
 void func_00324980(u8* p);  // 0x00324980: definition moved into src/anon/unit_00324808.cpp

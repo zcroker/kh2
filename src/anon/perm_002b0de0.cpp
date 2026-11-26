@@ -18,7 +18,7 @@ union BD_VALUE
   void *p;
   u32 u;
 };
-s32 func_002b3c38(void);
+s32 Tz__JmPuzzle__GameSelCheck(void);
 s32 PlaySE_2b0(s32, s32) asm("_ZN2Tz9MenuSound6PlaySEEib");
 s32 func_002b0de0(u32 a);  // 0x002b0de0: definition moved into src/anon/unit_002b0950.cpp
 

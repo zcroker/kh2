@@ -86,9 +86,9 @@ extern u8* D_003633c8;          // the task
 extern void* D_0034e948;
 FLARE_POOL* D_01e2bfa0;
 s32 D_01e2bfa4;
-s32 func_0019ba60(void*);
+s32 YS__OBJ__is_exist(void*);
 void* func_0016bba8(void*, s32, void*);
-void func_0018a818(COLLISION*, void*, void*);
+void YS__COLLISION__set(COLLISION*, void*, void*);
 s32 func_0018a550(COLLISION*, COLLISION*);
 void func_0018a7d0(COLLISION*, COLLISION*, VEC*);
 double func_00313b80(f32);           // float_to_double
@@ -96,7 +96,7 @@ s32 func_003142e0(double, double);   // double_compare
 u32 func_001dc9e0(void*);
 VEC* func_001dc5f8(void*);
 FLARE_OBJ* func_002e97b8(FLARE_OBJ*);
-void func_002e9610(FLARE_OBJ*, const VEC&);
+void Ts__FLARE__set_pos(FLARE_OBJ*, const VEC&);
 void func_002e93b0(FLARE_OBJ*);
 }
 FIELD_COLS D_01e2bfb0;
@@ -104,19 +104,19 @@ FIELD_COLS D_01e2bfb0;
 extern "C" {
 
 // Collects the field's collision shapes.
-void func_002e9248(void) {
+void Ts__ExecAllFlare(void) {
     void* x = 0;
     D_01e2bfb0.count = 0;
     void* s = D_0034e948;
-    if (!func_0019ba60(s)) return;
+    if (!YS__OBJ__is_exist(s)) return;
     while ((x = func_0016bba8(s, 4, x))) {
-        func_0018a818(&D_01e2bfb0.e[D_01e2bfb0.count], s, x);
+        YS__COLLISION__set(&D_01e2bfb0.e[D_01e2bfb0.count], s, x);
         D_01e2bfb0.count++;
     }
 }
 
 void func_002e92e8(void*) {
-    func_002e9248();
+    Ts__ExecAllFlare();
     FLARE_OBJ* o = func_002e97b8(0);
     while (o) {
         func_002e93b0(o);
@@ -147,15 +147,15 @@ void func_002e93b0(FLARE_OBJ* self) {
     while ((o = func_002e97b8(o)) != 0) {
         if (o != self && func_0018a550(&self->col, &o->col)) {
             func_0018a7d0(&self->col, &o->col, &push);
-            func_002e9610(o, VEC(o->pos) + push * 0.5f);
-            func_002e9610(self, VEC(self->pos) + push * -0.5f);
+            Ts__FLARE__set_pos(o, VEC(o->pos) + push * 0.5f);
+            Ts__FLARE__set_pos(self, VEC(self->pos) + push * -0.5f);
         }
     }
     s32 i;
     for (i = 0; i < D_01e2bfb0.count; i++) {
         if (func_0018a550(&self->col, &D_01e2bfb0.e[i])) {
             func_0018a7d0(&self->col, &D_01e2bfb0.e[i], &push);
-            func_002e9610(self, VEC(self->pos) - push);
+            Ts__FLARE__set_pos(self, VEC(self->pos) - push);
         }
     }
 }
@@ -167,7 +167,7 @@ void func_002e95a0(FLARE_OBJ* p, f32 x, f32 y) {
     else CollisionMake(&p->col, 3, x, x);
 }
 
-void func_002e9610(FLARE_OBJ* a, const VEC& b) {
+void Ts__FLARE__set_pos(FLARE_OBJ* a, const VEC& b) {
     a->pos = b;
     a->col.pos = b;
     void* o = a->eff;

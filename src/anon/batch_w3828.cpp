@@ -15,7 +15,7 @@ extern u8* D_0034e948;
 s32 func_002eb068(u8*);
 void* func_0019b260(s32);
 s32 func_00184eb8(u8*, s32, void*);
-V3* func_0016c028(u8*);
+V3* YS__OBJ__get_pos(u8*);
 void func_002cbec0(void*, V3*);
 V3 func_002cbed8(void*);
 V3 func_002eaf48(u8*, s32);

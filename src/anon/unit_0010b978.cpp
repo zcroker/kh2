@@ -51,7 +51,7 @@ extern const Pair10b978 D_0036a448 asm("D_0036a448");
 extern const Pair10b978 D_0036a450 asm("D_0036a450");
 void func_0017d968__10b978(Pl10b978*) asm("func_0017d968");
 void func_00190128__10b978(void*) asm("func_00190128");
-void func_0017bf40__10b978(void*) asm("func_0017bf40");
+void func_0017bf40__10b978(void*) asm("YS__COMMAND__clear");
 void func_0010eee8__10b978(Pl10b978*) asm("func_0010eee8");
 Pl10b978* func_0017df58__10b978(s32) asm("func_0017df58");
 s32 func_0016a070__10b978(Pl10b978*) asm("func_0016a070");
@@ -64,7 +64,7 @@ extern s32 D_00341800[] asm("D_00341800");
 CTL10b978(func_00113648) CTL10b978(func_001148d0) CTL10b978(func_001147b8) CTL10b978(func_001151f8)
 CTL10b978(func_00114ff8) CTL10b978(func_00114d48) CTL10b978(func_00114ea0) CTL10b978(func_00114af8)
 CTL10b978(func_00115738) CTL10b978(func_001154c8) CTL10b978(func_00115620) CTL10b978(func_00119c40)
-CTL10b978(func_00117c28) CTL10b978(func_0011a6b0) CTL10b978(func_0011a490) CTL10b978(func_0011a2a8)
+CTL10b978(func_00117c28) CTL10b978(kn__ChickenLittle__ChickenLittle) CTL10b978(func_0011a490) CTL10b978(func_0011a2a8)
 CTL10b978(func_00114c30) CTL10b978(func_00115350)
 static inline void* Tab10b978(s32 k) { return (u8*)D_00341800 + D_00341800[k]; }
 #define NEW10b978(sz, fn) { void* c = func_001050d8__10b978(sz); fn##__10b978(c, p, Tab10b978(p->kind)); p->ctl = c; }
@@ -136,7 +136,7 @@ void func_0010b978(Pl10b978* p)
     case 204: {
         p->kind = 18;
         void* c = func_001050d8__10b978(80);
-        func_0011a6b0__10b978(c, p, Tab10b978(p->kind));
+        kn__ChickenLittle__ChickenLittle__10b978(c, p, Tab10b978(p->kind));
         p->ctl = c;
         p->pair.a = D_0036a450.a;
         p->pair.b = D_0036a450.b;
@@ -186,7 +186,7 @@ extern const Pair10c078 D_0036a448_x11764 asm("D_0036a448");
 extern const Pair10c078 D_0036a450_x11765 asm("D_0036a450");
 void func_0017d968__10c078(Pl10c078*) asm("func_0017d968");
 void func_00190128__10c078(void*) asm("func_00190128");
-void func_0017bf40__10c078(void*) asm("func_0017bf40");
+void func_0017bf40__10c078(void*) asm("YS__COMMAND__clear");
 void func_0010eee8__10c078(Pl10c078*) asm("func_0010eee8");
 Pl10c078* func_0017df58__10c078(s32) asm("func_0017df58");
 s32 func_0016a070__10c078(Pl10c078*) asm("func_0016a070");
@@ -199,14 +199,14 @@ extern s32 D_00341800[] asm("D_00341800");
 CTL10c078(func_00113648) CTL10c078(func_001148d0) CTL10c078(func_001147b8) CTL10c078(func_001151f8)
 CTL10c078(func_00114ff8) CTL10c078(func_00114d48) CTL10c078(func_00114ea0) CTL10c078(func_00114af8)
 CTL10c078(func_00115738) CTL10c078(func_001154c8) CTL10c078(func_00115620) CTL10c078(func_00119c40)
-CTL10c078(func_00117c28) CTL10c078(func_0011a6b0) CTL10c078(func_0011a490) CTL10c078(func_0011a2a8)
+CTL10c078(func_00117c28) CTL10c078(kn__ChickenLittle__ChickenLittle) CTL10c078(func_0011a490) CTL10c078(func_0011a2a8)
 CTL10c078(func_00114c30) CTL10c078(func_00115350)
 static inline void* Tab10c078(s32 k) { return (u8*)D_00341800 + D_00341800[k]; }
 #define NEW10c078(sz, fn) { void* c = func_001050d8__10c078(sz); fn##__10c078(c, p, Tab10c078(p->kind)); p->ctl = c; }
 static inline void CtorM10c078(u8* m) { func_00190128__10c078(m + 8); func_0017bf40__10c078(m); }
 /*TARGET 0010c078*/
-void func_0010c078(Pl10c078* p) asm("func_0010c078");
-void func_0010c078(Pl10c078* p)
+void kn__Friend__Friend(Pl10c078* p) asm("kn__Friend__Friend");
+void kn__Friend__Friend(Pl10c078* p)
 {
     func_0017d968__10c078(p);
     p->vt = (u32)D_00345c08;
@@ -270,7 +270,7 @@ void func_0010c078(Pl10c078* p)
     case 204: {
         p->kind = 18;
         void* c = func_001050d8__10c078(80);
-        func_0011a6b0__10c078(c, p, Tab10c078(p->kind));
+        kn__ChickenLittle__ChickenLittle__10c078(c, p, Tab10c078(p->kind));
         p->ctl = c;
         p->pair.a = D_0036a450_x11765.a;
         p->pair.b = D_0036a450_x11765.b;
@@ -331,12 +331,12 @@ namespace n0010c7f0 {
 // 00104da0: moved to src/common/area.cpp
 
 // --- 0010c7f0
-void func_0017dbb8(void*) asm("func_0017dbb8");
+void YS__FRIEND___OVR_initialize(void*) asm("YS__FRIEND___OVR_initialize");
 typedef void (*VFn)(void*);
 /*TARGET 0010c7f0*/
 void func_0010c7f0(u8* p) asm("func_0010c7f0");
 void func_0010c7f0(u8* p) {
-    func_0017dbb8(p);
+    YS__FRIEND___OVR_initialize(p);
     void* o = *(void**)(p + 2912);
     (*(VFn*)((*(u8**)o) + 20))(o);
 }
@@ -424,14 +424,14 @@ struct Vec4 {
         return *this;
     }
 } __attribute__((aligned(16)));
-void func_0017c4c8(void*, Vec4) asm("func_0017c4c8");
+void YS__OBJ__prepare_jump(void*, Vec4) asm("YS__OBJ__prepare_jump");
 void func_0017f488(void*, s32, f32, f32) asm("func_0017f488");
 static inline bool stateIsOne(u8* c) { return *(s32*)(c + 4) == 1; }
 /*TARGET 0010c940*/
 // 0010c940
-void func_0010c940(u8* p, s32 n, f32 t) asm("func_0010c940");
+void kn__Friend__jump(u8* p, s32 n, f32 t) asm("kn__Friend__jump");
 // 0010c940
-void func_0010c940(u8* p, s32 n, f32 t)
+void kn__Friend__jump(u8* p, s32 n, f32 t)
 {
     u8* c = *(u8**)(p + 12);
     if (c && stateIsOne(c)) return;
@@ -440,7 +440,7 @@ void func_0010c940(u8* p, s32 n, f32 t)
     Vec4 v;
     v = *(Vec4*)(p + 16);
     v.y = t;
-    func_0017c4c8(p, v);
+    YS__OBJ__prepare_jump(p, v);
     func_0017f488(p + 320, n, 0.0f, 0.0f);
     *(s32*)(p + 256) = n + 1;
     *(s32*)(p + 260) = n + 2;
@@ -550,7 +550,7 @@ namespace n0010cbc8 {
 /* 0010cbc8 */
 void YS_TARGET_set_obj(void* t, void* o, s32) asm("_ZN2YS6TARGET7set_objEPNS_3OBJEi");
 void* YS_ITEM_GetCommandElem(s32) asm("_ZN2YS4ITEM14GetCommandElemEi");
-void func_00176dd8(void*, void*, void*, s32) asm("func_00176dd8");
+void YS__PARTY__exec_item(void*, void*, void*, s32) asm("YS__PARTY__exec_item");
 /*TARGET 0010cbc8*/
 void func_0010cbc8(u8* p, s32 item, void* obj, s32 d) asm("func_0010cbc8");
 void func_0010cbc8(u8* p, s32 item, void* obj, s32 d) {
@@ -558,7 +558,7 @@ void func_0010cbc8(u8* p, s32 item, void* obj, s32 d) {
     if (obj == 0) return;
     *(s32*)(p + 0xb78) = 0;
     if (*(void**)(p + 0x9f4) != obj) YS_TARGET_set_obj(t, obj, 0);
-    func_00176dd8(p, YS_ITEM_GetCommandElem(item), t, d);
+    YS__PARTY__exec_item(p, YS_ITEM_GetCommandElem(item), t, d);
 }
 }  // namespace n0010cbc8
 
@@ -609,7 +609,7 @@ namespace n0010cce0 {
 
 // --- 0010cce0
 // Advance the object iterator until an object passing the check is found.
-void* func_001b9bc8p(void*) asm("func_001b9bc8");
+void* func_001b9bc8p(void*) asm("YS__OBJ__Each");
 bool func_00112d28(void*) asm("func_00112d28");
 /*TARGET 0010cce0*/
 void* func_0010cce0(void* p) asm("func_0010cce0");
@@ -626,13 +626,13 @@ namespace n0010cd30 {
 typedef s32 (*FA)(u32*, u32);
 typedef void (*FB)(s32, u32, u32);
 typedef s32 (*FC)(s32, u32);
-u32 func_001b9bc8(u32) asm("_Z16ctarget_001b9bc8jjjj");
+u32 YS__OBJ__Each(u32) asm("_Z13YS__OBJ__Eachjjjj");
 s32 func_0010cd30(FA a, FB b, FC c, u32 x) asm("func_0010cd30");
 s32 func_0010cd30(FA a, FB b, FC c, u32 x) {
     u32 h = 0;
     s32 r = 0;
     if (a) r = a(&h, x);
-    while ((h = func_001b9bc8(h)) != 0) b(r, h, x);
+    while ((h = YS__OBJ__Each(h)) != 0) b(r, h, x);
     if (c) r = c(r, x);
     return r;
 }

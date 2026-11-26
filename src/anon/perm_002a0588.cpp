@@ -32,6 +32,6 @@ void func_00239700(void *);
 void func_0031a838(void *) asm("_Z10ErrorRaisePv");
 void func_0023f800(void *) asm("_ZN2Tz7LayFileC1Ev");
 void func_002fde18(void *, s32, s32) asm("_Z16wtarget_002fde18jjjj");
-void func_002a0588(void);  // 0x002a0588: definition moved into src/anon/unit_0029f938.cpp
+void Tz__JmDiagram__Init(void);  // 0x002a0588: definition moved into src/anon/unit_0029f938.cpp
 
 }

@@ -47,7 +47,7 @@ struct PR { u8 _0[4]; PN* owner; };
 extern PN* D_0038aa40;
 extern u32 D_0032b91c;
 void func_00101ea8(void);
-PR* func_00102818(u32, u32, u32, void (*)(void), u32);
+PR* TASK_MANAGER__create_thread(u32, u32, u32, void (*)(void), u32);
 void func_001021d0(void);
 
 static inline PN* pnB(PN* p) { if (!p) return D_0038aa40; return p->next; }

@@ -14,13 +14,13 @@ s32 LoadDataIsFlushing(void) asm("_ZN2Tz18LoadDataIsFlushingEv");
 u8* func_00103eb0(void) asm("func_00103eb0");
 s32 func_00102a38(void*, void*) asm("func_00102a38");
 void func_00292608(void) asm("func_00292608");
-s32 func_00170cd0(void) asm("func_00170cd0");
+s32 YS__CACHE_BUFF__IsFlushing(void) asm("YS__CACHE_BUFF__IsFlushing");
 extern u8 D_0035f4b8 asm("D_0035f4b8");
 // Tz::LoadDataIsFlushing(): true while load data is still being flushed.
 s32 LoadDataIsFlushing(void) {
     s32 r = D_0035f4b8;
     if (func_00102a38(*(void**)(func_00103eb0() + 4), (void*)func_00292608)) return 1;
-    if (!r) r = func_00170cd0();
+    if (!r) r = YS__CACHE_BUFF__IsFlushing();
     return r;
 }
 }  // namespace n00292630
@@ -58,8 +58,8 @@ extern "C" s8 D_00374590[][2];
 u32 func_00103570(void) asm("func_00103570");
 void* func_001063f0(s32, u32) asm("func_001063f0");
 void func_002fde18(void*, s32, s32) asm("func_002fde18");
-void func_002926c0(s32 idx) asm("func_002926c0");
-void func_002926c0(s32 idx) {
+void Tz__UnitLoad__Init(s32 idx) asm("Tz__UnitLoad__Init");
+void Tz__UnitLoad__Init(s32 idx) {
     D_0035f4c4 = idx;
     D_0035f4bc = D_00374590[idx][0];
     D_0035f4c0 = D_00374590[idx][1] << 11;
@@ -84,8 +84,8 @@ extern void* D_0035f4d4 asm("D_0035f4d4");
 extern void* D_0035f4dc asm("D_0035f4dc");
 extern void* D_0035f4e4 asm("D_0035f4e4");
 void func_00106450(void*) asm("func_00106450");
-void func_002927b8(void) asm("func_002927b8");
-void func_002927b8(void)
+void Tz__UnitLoad__Exit(void) asm("Tz__UnitLoad__Exit");
+void Tz__UnitLoad__Exit(void)
 {
     D_0035f4bc = 0;
     D_0035f4c0 = 0;

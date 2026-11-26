@@ -35,9 +35,9 @@ struct Aabbox {
 
 extern "C" {
 void func_001c1748(void*, u32, const kn::FVector*, s32 (*)(void*));
-u32 func_0019ba60(u32);
-kn::FVector* func_0016c028(u32);  // obj_get_attach_or_alt
-void func_001a7790(dk::Aabbox*);
+u32 YS__OBJ__is_exist(u32);
+kn::FVector* YS__OBJ__get_pos(u32);  // obj_get_attach_or_alt
+void YS__BG__IsCulling(dk::Aabbox*);
 f32 func_002f8ad0(f32, f32);
 u8* func_0016f000(u32, kn::FVector*, f32);
 void func_0016c018(u8*, s32, u32);
@@ -87,7 +87,7 @@ Obj1dbc58::Obj1dbc58(u32 a1, const kn::FVector& p, u8* d) {
 extern "C" {
 
 void func_001dbcd0(void) {
-    if (func_0019ba60(D_0034e948)) D_01d5bab0 = *func_0016c028(D_0034e948);
+    if (YS__OBJ__is_exist(D_0034e948)) D_01d5bab0 = *YS__OBJ__get_pos(D_0034e948);
     D_00352ad0 -= D_00349e10;
 }
 
@@ -100,7 +100,7 @@ void func_001dbd68(const kn::FVector& p) {
     static const kn::FVector lo(-256.0f, -512.0f, -256.0f, 0.0f);
     static const kn::FVector hi(256.0f, 0.0f, 256.0f, 0.0f);
     dk::Aabbox box(p + lo, p + hi);
-    func_001a7790(&box);
+    YS__BG__IsCulling(&box);
 }
 
 static inline u32 Rand() { D_003638d0 *= 0x10dcd; return D_003638d0; }

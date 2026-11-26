@@ -99,12 +99,12 @@ struct Atk {
     s32 padcc;
     Vec pts[32];     // 0xd0
 };
-s32 func_0019ba60(u8*) asm("func_0019ba60");
-s32 func_0019c6f0(u8*) asm("func_0019c6f0");
+s32 YS__OBJ__is_exist(u8*) asm("YS__OBJ__is_exist");
+s32 YS__OBJ__is_stop(u8*) asm("YS__OBJ__is_stop");
 s32 func_0019f550(u8*, u32) asm("func_0019f550");
 u8* func_0016bc98(u8*, s32, u8*) asm("func_0016bc98");
 void func_0018f028(Atk*) asm("_ZN2YS6ATTACK7destroyEv");
-void func_0018a818(Col*, u8*, u8*) asm("func_0018a818");
+void YS__COLLISION__set(Col*, u8*, u8*) asm("YS__COLLISION__set");
 s32 func_0018eaf8(void*, Work*) asm("func_0018eaf8");
 void func_0018dc28(Atk*, Vec*, Vec*) asm("func_0018dc28");
 static inline Vec Sub(const Vec& a, const Vec& b) {
@@ -135,11 +135,11 @@ void func_001a40d0(Atk* self, void* mgr) {
     Work work;
     u8* e;
 
-    if (!func_0019ba60(self->obj) || func_0019c6f0(self->obj) || func_0019f550(self->obj + 1148, self->id)) {
+    if (!YS__OBJ__is_exist(self->obj) || YS__OBJ__is_stop(self->obj) || func_0019f550(self->obj + 1148, self->id)) {
         func_0018f028(self);
         return;
     }
-    if (!func_0019ba60(self->target)) return;
+    if (!YS__OBJ__is_exist(self->target)) return;
     if (*(u32*)(self->target + 2040) & 4) return;
     work.owner = self;
     e = 0;
@@ -147,7 +147,7 @@ void func_001a40d0(Atk* self, void* mgr) {
     while ((e = func_0016bc98(self->obj, 0x2040, e)) != 0) {
         if (e[0] != self->id) continue;
         Col* c = &work.col;
-        func_0018a818(c, self->obj, e);
+        YS__COLLISION__set(c, self->obj, e);
         func_0018eaf8(mgr, &work);
         p = work.col.pos;
         if (self->count < 32) {
@@ -176,8 +176,8 @@ namespace n001a4388 {
 struct VObj { void** vt; };
 void* func_00186078(void*) asm("func_00186078");
 u8* func_0016bba8(void*, s32, u8*) asm("_ZN2YS3OBJ14each_collisionEiPKNS_14COLLISION_ELEME");
-void func_001a4388(void) asm("func_001a4388");
-void func_001a4388(void) {
+void YS__ATTACK_OBJ__Exec(void) asm("YS__ATTACK_OBJ__Exec");
+void YS__ATTACK_OBJ__Exec(void) {
     VObj* o = 0;
     while ((o = (VObj*)func_00186078(o)) != 0) {
         if (*(u32*)((u8*)o + 268) & 0x100000) continue;
@@ -346,8 +346,8 @@ static inline void w1686_add(W1686Vec* d, const W1686Vec* a) {
         : : "r"(d), "r"(a) : "memory");
 }
 static inline f32 w1686_min(f32 a, f32 b) { return a < b ? a : b; }
-void func_001a45b8(W1686Magic* self, void* mgr) asm("func_001a45b8");
-void func_001a45b8(W1686Magic* self, void* mgr) {
+void YS__ATTACK_MAGIC__make_work(W1686Magic* self, void* mgr) asm("YS__ATTACK_MAGIC__make_work");
+void YS__ATTACK_MAGIC__make_work(W1686Magic* self, void* mgr) {
     W1686Vec pos;
     W1686Vec dir;
     W1686Vec size;
@@ -496,22 +496,22 @@ struct Obj1a4 {
     QWord pos;
     QWord prev;
 };
-void func_0016af58(QWord*, u32) asm("func_0016af58");
-QWord* func_0016c028(u32) asm("func_0016c028");
+void YS__OBJ__get_dir(QWord*, u32) asm("YS__OBJ__get_dir");
+QWord* YS__OBJ__get_pos(u32) asm("YS__OBJ__get_pos");
 static inline QWord Back(u32 id)
 {
     QWord t;
-    func_0016af58(&t, id);
+    YS__OBJ__get_dir(&t, id);
     return Scale(t, -1.0f);
 }
 static inline QWord Dir(Obj1a4* o, u32 id)
 {
     if (o->flags & 0x20) return Back(id);
     if (o->flags & 4) return Sub(o->pos, o->prev);
-    return Sub(*func_0016c028(id), o->pos);
+    return Sub(*YS__OBJ__get_pos(id), o->pos);
 }
-QWord func_001a49f8(Obj1a4* o, u32 id) asm("func_001a49f8");
-QWord func_001a49f8(Obj1a4* o, u32 id)
+QWord YS__ATTACK_MAGIC__get_dir(Obj1a4* o, u32 id) asm("YS__ATTACK_MAGIC__get_dir");
+QWord YS__ATTACK_MAGIC__get_dir(Obj1a4* o, u32 id)
 {
     QWord r;
     r = Dir(o, id);
@@ -546,19 +546,19 @@ static inline V58e operator+(const V58e& a, const V58e& b) {
 }
 struct S58e { u8 pad[0x9f4]; u8 x9f4[0x10]; };
 struct O58e { u8 pad[0xc]; s32 xc; u8 pad2[0x84 - 0x10]; S58e* x84; u8 pad3[0xe0 - 0x88]; V58e xe0; };
-s32 func_0019ba60(s32) asm("_Z16ctarget_0019ba60jjjj");
-V58e func_0016bda8(s32) asm("_Z16ctarget_0016bda8jjjj");
-V58e func_0016af58(S58e*) asm("func_0016af58");
+s32 YS__OBJ__is_exist(s32) asm("_Z17YS__OBJ__is_existjjjj");
+V58e YS__OBJ__get_target_pos(s32) asm("_Z23YS__OBJ__get_target_posjjjj");
+V58e YS__OBJ__get_dir(S58e*) asm("YS__OBJ__get_dir");
 s32 func_00190140(void*) asm("_ZNK2YS6TARGET8is_existEv");
 V58e func_00190388(void*) asm("func_00190388");
 V58e* func_001a4b78(V58e* r, O58e* o) asm("func_001a4b78");
 V58e* func_001a4b78(V58e* r, O58e* o) {
     V58e d;
-    if (func_0019ba60(o->xc)) {
-        *r = func_0016bda8(o->xc) - o->xe0;
+    if (YS__OBJ__is_exist(o->xc)) {
+        *r = YS__OBJ__get_target_pos(o->xc) - o->xe0;
         r->normalize();
     } else {
-        *r = func_0016af58(o->x84);
+        *r = YS__OBJ__get_dir(o->x84);
     }
     if (func_00190140(o->x84->x9f4)) {
         d = func_00190388(o->x84->x9f4) - o->xe0;
@@ -572,8 +572,8 @@ V58e* func_001a4b78(V58e* r, O58e* o) {
 
 // 001a4d40 (from anon/tiny_auto80_queue.cpp)
 namespace n001a4d40 {
-void func_001a4d40(f32 a0, f32 a1, u32 a2, u32 a3, u32 a4) asm("func_001a4d40");
-void func_001a4d40(f32 a0, f32 a1, u32 a2, u32 a3, u32 a4) {
+void YS__ATTACK_MAGIC__set_reaction_command(f32 a0, f32 a1, u32 a2, u32 a3, u32 a4) asm("YS__ATTACK_MAGIC__set_reaction_command");
+void YS__ATTACK_MAGIC__set_reaction_command(f32 a0, f32 a1, u32 a2, u32 a3, u32 a4) {
     *(u32*)(a2 + 0x110) = a3;
     *(u32*)(a2 + 0x114) = *(u32*)(a2 + 0x0C);
     *(u32*)(a2 + 0x118) = a4;

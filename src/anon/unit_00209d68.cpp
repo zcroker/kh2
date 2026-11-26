@@ -103,8 +103,8 @@ void sceVu0ScaleVector(void*, void*, f32) asm("sceVu0ScaleVector");
 void sceVu0ApplyMatrix(void*, void*, void*) asm("sceVu0ApplyMatrix");
 void sceVu0CopyMatrix(void*, void*) asm("sceVu0CopyMatrix");
 /*TARGET 00209ed0*/
-void func_00209ed0(u8* a, u32, u8* c) asm("func_00209ed0");
-void func_00209ed0(u8* a, u32, u8* c) {
+void pppRyjDrawDrawMatrixWorldDttFr(u8* a, u32, u8* c) asm("pppRyjDrawDrawMatrixWorldDttFr");
+void pppRyjDrawDrawMatrixWorldDttFr(u8* a, u32, u8* c) {
     f32 m[16] __attribute__((aligned(16)));
     u8* s = a + *(u32*)(*(u8**)(c + 12) + 4);
     sceVu0UnitMatrix(m);  // vu_store_w_splat

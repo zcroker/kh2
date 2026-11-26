@@ -15,7 +15,7 @@ func_0015d4e8:
 	addiu	$29,$29,-16
 	sd	$16,0($29)
 	sd	$31,8($29)
-	jal	func_0015d440
+	jal	dk__KeyHoleJumpEffect__jumpEffectOut_task
 	move	$16,$4
 	bnezl	$2,.L0015d534
 	ld	$16,0($29)
@@ -26,7 +26,7 @@ func_0015d4e8:
 	nop
 	jal	func_0014e098
 	li	$4,216
-	jal	func_0015d440
+	jal	dk__KeyHoleJumpEffect__jumpEffectOut_task
 	nop
 	move	$4,$16
 	beqz	$2,.L0015d50c

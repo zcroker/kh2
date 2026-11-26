@@ -11,13 +11,13 @@ extern s16 D_00374cc8[];
 extern s8 D_00374cd0[];
 extern PzObj* D_0035f634;
 extern PzBits* D_0035f638;
-u8* func_002b23e0(s32);
+u8* Tz__JmPuzzle__GetImageInfo(s32);
 PzWork* func_002a9d68(void);
 void func_00138c10(void*, s32);
 void func_002b28b0(u32, s32, s32, PzUV*);
-void func_00239558(void*, s16*, s16*);
+void YI__SPRITE__SetDirextUV(void*, s16*, s16*);
 
 // Puzzle board refresh: for every piece set in the dirty mask (or all when
 // flag), resize its sprite and set its UVs from the piece table.
-void func_002b1bd0(u8 flag);  // 0x002b1bd0: definition moved into src/anon/unit_002b0950.cpp
+void Tz__JmPuzzle__UpdatePiece(u8 flag);  // 0x002b1bd0: definition moved into src/anon/unit_002b0950.cpp
 }

@@ -12,7 +12,7 @@ s32 func_002d5588(P_w1731* p);  // 0x002d5588: definition moved into src/anon/un
 // --- 002ef340: by-value struct params (spilled, unused), call member at +0x40 then a global update
 struct A_w1731 { u32 x, y; };
 struct B_w1731 { u16 z, w; };
-void func_0023cc18(void*);
+void YI__LAYOUT__Draw(void*);
 void func_002ef618();
 // 002ef340: moved to src/anon/unit_002ef1f8.cpp
 

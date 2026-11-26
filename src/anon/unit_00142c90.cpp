@@ -45,12 +45,12 @@ void func_00108698(void*) asm("func_00108698");
 void func_0011b6a8(void*) asm("func_0011b6a8");
 void func_0011e260(s32, void*) asm("func_0011e260");
 void func_0011e880(s32, s32, s32, s32) asm("func_0011e880");
-void func_0011eb08(s32, s32) asm("func_0011eb08");
+void kn__ModelObj__setDefaultTexanm(s32, s32) asm("kn__ModelObj__setDefaultTexanm");
 void func_001415e8(void*, s32, u64) asm("func_001415e8");
 void func_00142bf8(void*) asm("func_00142bf8");
 void func_00143278(void) asm("func_00143278");
 void func_00143298(void) asm("func_00143298");
-void func_00145830(void*, s32, u8, u64) asm("func_00145830");
+void dk__OctDrawFile__OctDrawFile(void*, s32, u8, u64) asm("dk__OctDrawFile__OctDrawFile");
 W1677Res* func_00149288(void*) asm("func_00149288");
 void* func_00149290(void*) asm("func_00149290");
 s32 func_00149298(void*) asm("func_00149298");
@@ -65,15 +65,15 @@ void func_0014ecb8(void) asm("func_0014ecb8");
 void func_00153678(s32, u64, s32) asm("func_00153678");
 void func_0015c500(void) asm("func_0015c500");
 void func_0015c6d0(s32) asm("func_0015c6d0");
-void func_00142c90(void* setup, s32 heap, u8 flag, u64 mask) asm("func_00142c90");
-void func_00142c90(void* setup, s32 heap, u8 flag, u64 mask) {
+void dk__Octree__create(void* setup, s32 heap, u8 flag, u64 mask) asm("dk__Octree__create");
+void dk__Octree__create(void* setup, s32 heap, u8 flag, u64 mask) {
     D_0034881c = flag;
     D_0034881d = 0;
     func_00143298();
     func_00143278();
 
     void* p = func_001063c0(0x5380, heap);
-    func_00145830(p, func_00149298(setup), flag, mask);
+    dk__OctDrawFile__OctDrawFile(p, func_00149298(setup), flag, mask);
     D_00348800 = p;
 
     W1677Model* m = (W1677Model*)func_001063c0(0x90, heap);
@@ -89,7 +89,7 @@ void func_00142c90(void* setup, s32 heap, u8 flag, u64 mask) {
         func_0011e260(m->handle, tex);
     }
     func_0011b6a8(work);
-    func_0011eb08(m->handle, 0);
+    kn__ModelObj__setDefaultTexanm(m->handle, 0);
     func_0011e880(m->handle, 2, 0, 0);
     m->flag = 0;
     D_00348818 = m;
@@ -168,8 +168,8 @@ void func_0014eda8(void) asm("func_0014eda8");
 void func_001537f8(void) asm("func_001537f8");
 void func_00106420(void*) asm("func_00106420");
 void func_00145ab8(u8*) asm("func_00145ab8");
-void func_00142f50(void) asm("func_00142f50");
-void func_00142f50(void)
+void dk__Octree__destroy(void) asm("dk__Octree__destroy");
+void dk__Octree__destroy(void)
 {
     func_0014eda8();
     func_001537f8();
@@ -460,7 +460,7 @@ void func_001433e8(void) {
         return;
     }
 
-    func_0011ea40(*(u32*)s0, D_00349e10);
+    kn__ModelObj__playAnimation(*(u32*)s0, D_00349e10);
 }
 }  // namespace n001433e8
 
@@ -477,10 +477,10 @@ u8 func_00143448(u16 id) {
 // ---- 00143470 from src/anon/batch_w35.cpp
 namespace n00143470 {
 extern u32 D_00348804 asm("D_00348804");
-u8 func_001652c8(u32, u32, u32, u32, u32, u32, u32, u32) asm("func_001652c8");
+u8 dk__OctCollFile__getDanglePoint(u32, u32, u32, u32, u32, u32, u32, u32) asm("dk__OctCollFile__getDanglePoint");
 u32 func_00143470(u32 a, u32 b, u32 c, u32 d, u32 e, u32 f, u32 g) asm("func_00143470");
 u32 func_00143470(u32 a, u32 b, u32 c, u32 d, u32 e, u32 f, u32 g) {
-    return func_001652c8(D_00348804, a, b, c, d, e, f, g);
+    return dk__OctCollFile__getDanglePoint(D_00348804, a, b, c, d, e, f, g);
 }
 }  // namespace n00143470
 
@@ -556,16 +556,16 @@ struct E143 { u8 pad[14]; u16 h14; };
 struct T143 { u8 pad[12]; E143* f12; u8 pad2[4]; u32* f20; };
 extern T143* D_00348814 asm("D_00348814");
 void func_00141980(T143*, u8*) asm("func_00141980");
-u32 func_00142848(T143*, u32) asm("func_00142848");
+u32 dk__OctCollFile__selectDownAllPolygon(T143*, u32) asm("dk__OctCollFile__selectDownAllPolygon");
 u32 func_00142688(T143*, u32*, u32, u32) asm("func_00142688");
-u32 func_001435a0(u32 a) asm("func_001435a0");
-u32 func_001435a0(u32 a) {
+u32 dk__Octree__getSkeltonType(u32 a) asm("dk__Octree__getSkeltonType");
+u32 dk__Octree__getSkeltonType(u32 a) {
     u8 buf[2048];
     u32 x;
     u32 r = 0;
     if (!D_00348814) return r;
     func_00141980(D_00348814, buf);
-    u32 v = func_00142848(D_00348814, a);
+    u32 v = dk__OctCollFile__selectDownAllPolygon(D_00348814, a);
     x = 0;
     u32 i = func_00142688(D_00348814, &x, v, a);
     r = 0;
@@ -598,14 +598,14 @@ extern MgrQ* D_0034880c asm("D_0034880c");
 extern MgrQ* D_00348804 asm("D_00348804");
 void func_0015cb78(u8*, s32) asm("func_0015cb78");
 void func_00141980(MgrQ*, u8*) asm("func_00141980");
-s32 func_00142848(MgrQ*, ObjQ*) asm("func_00142848");
+s32 dk__OctCollFile__selectDownAllPolygon(MgrQ*, ObjQ*) asm("dk__OctCollFile__selectDownAllPolygon");
 u16 func_00142688(MgrQ*, u32*, s32, ObjQ*) asm("func_00142688");
 void func_001539c0(u8*, V4q*) asm("func_001539c0");
-u32 func_001435a0(ObjQ*) asm("func_001435a0");
+u32 dk__Octree__getSkeltonType(ObjQ*) asm("dk__Octree__getSkeltonType");
 V4q func_00143e50(u16, s32) asm("func_00143e50");
 V4q func_001422a0(MgrQ*, u16) asm("func_001422a0");
 InfQ* func_00142398(MgrQ*, u16) asm("func_00142398");
-InfQ* func_00143ee8(u16, s32) asm("func_00143ee8");
+InfQ* dk__Octree__getAttr(u16, s32) asm("dk__Octree__getAttr");
 void func_00141988(MgrQ*, EntQ*, V4q*) asm("func_00141988");
 static inline void negq(V4q* d, const V4q* s) {
     asm volatile("lqc2 $vf4, 0(%1)\n\tvsub.xyz $vf5, $vf0, $vf4\n\tsqc2 $vf5, 0(%0)" : : "r"(d), "r"(s) : "memory");
@@ -620,7 +620,7 @@ void func_00143648(ObjQ* o, OutQ* out) {
     if (D_0034880c) {
         u8 buf[2048];
         func_00141980(D_0034880c, buf);
-        s32 n = func_00142848(D_0034880c, o);
+        s32 n = dk__OctCollFile__selectDownAllPolygon(D_0034880c, o);
         u32 r = 0;
         u16 h = func_00142688(D_0034880c, &r, n, o);
         if (h != 0xffff) {
@@ -633,7 +633,7 @@ void func_00143648(ObjQ* o, OutQ* out) {
     V4q p = o->pos;
     p.y -= o->f108;
     func_001539c0(out->sub, &p);
-    out->f48 = func_001435a0(o);
+    out->f48 = dk__Octree__getSkeltonType(o);
     out->f36 = o->h96;
     if (o->h96 == 0xffff) {
         out->v0.x = 0.0f;
@@ -652,7 +652,7 @@ void func_00143648(ObjQ* o, OutQ* out) {
     if (!pp) {
         m = D_00348804;
         out->v0 = func_00143e50(o->h96, 0);
-        inf = func_00143ee8(o->h96, 0);
+        inf = dk__Octree__getAttr(o->h96, 0);
         { s32 fl = inf->h2; out->b52 = fl & 1; }
     } else {
         m = o->p120[1];
@@ -731,22 +731,22 @@ struct O143 {
 };
 extern s32 D_00348804 asm("D_00348804");
 s32 func_00165a10() asm("func_00165a10");
-s32 func_00164718(s32, O143*) asm("func_00164718");
-s32 func_00165ad8(O143*, f32*) asm("func_00165ad8");
+s32 dk__OctCollFile__collisionSphere_2(s32, O143*) asm("dk__OctCollFile__collisionSphere_2");
+s32 dk__ObjOcc__collisionDown(O143*, f32*) asm("dk__ObjOcc__collisionDown");
 s32 func_001424c0(s32, O143*) asm("func_001424c0");
-s32 func_00143928(O143* o) asm("func_00143928");
-s32 func_00143928(O143* o) {
+s32 dk__Octree__collisionToMap(O143* o) asm("dk__Octree__collisionToMap");
+s32 dk__Octree__collisionToMap(O143* o) {
     o->h64 = -1;
     o->flags &= ~(1ULL << 34);
     f32 t = 10000000.0f;
     o->h62 = -1;
-    s32 r = func_00165a10() | func_00164718(D_00348804, o);
+    s32 r = func_00165a10() | dk__OctCollFile__collisionSphere_2(D_00348804, o);
     o->i78 = 0;
-    if (func_00165ad8(o, &t) == 0) {
+    if (dk__ObjOcc__collisionDown(o, &t) == 0) {
         if (func_001424c0(D_00348804, o)) o->i78 = 0;
     } else {
         o->v10 = v143_sub(o->v30, o->v0);
-        r |= func_00164718(D_00348804, o);
+        r |= dk__OctCollFile__collisionSphere_2(D_00348804, o);
     }
     if (t != 10000000.0f) {
         o->f68 = t;
@@ -771,11 +771,11 @@ void func_00143a48(u32 a, u32 b, u32 c) {
 
 // ---- 00143ac0 from src/anon/tiny_auto80_queue.cpp
 namespace n00143ac0 {
-u32 func_00143ae0(...) asm("func_00143ae0");
+u32 dk__Octree__intersectLineMap_2(...) asm("dk__Octree__intersectLineMap_2");
 u32 func_00143ac0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) asm("_Z13func_00143ac0jjjjjjjj");
 u32 func_00143ac0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
     u64 scratch[2];
-    return func_00143ae0(a0, a1, (u32)&scratch, a2, a4, a5, a6, a7);
+    return dk__Octree__intersectLineMap_2(a0, a1, (u32)&scratch, a2, a4, a5, a6, a7);
 }
 }  // namespace n00143ac0
 
@@ -785,8 +785,8 @@ struct NoTail { ~NoTail() {} };
 extern void* D_00348804 asm("D_00348804");
 void func_00141c18(void*, u32, u32, u32, u32) asm("func_00141c18");
 void func_00141ff0(void*, u32, u32, u32, u32) asm("func_00141ff0");
-void func_00143ae0(u32 a, u32 b, u32 c, u32 d) asm("func_00143ae0");
-void func_00143ae0(u32 a, u32 b, u32 c, u32 d)
+void dk__Octree__intersectLineMap_2(u32 a, u32 b, u32 c, u32 d) asm("dk__Octree__intersectLineMap_2");
+void dk__Octree__intersectLineMap_2(u32 a, u32 b, u32 c, u32 d)
 {
     NoTail g;
     func_00141c18(D_00348804, 0, 0, 0, 0);
@@ -796,12 +796,12 @@ void func_00143ae0(u32 a, u32 b, u32 c, u32 d)
 
 // ---- 00143b60 from src/anon/batch_w1.cpp
 namespace n00143b60 {
-void func_00143b88(u32, u32, u32*, u32*, u32) asm("func_00143b88");
+void dk__Octree__intersectLine(u32, u32, u32*, u32*, u32) asm("dk__Octree__intersectLine");
 void func_00143b60(u32 a0, u32 a1, u32 a2) asm("func_00143b60");
 void func_00143b60(u32 a0, u32 a1, u32 a2) {
     u32 x;
     u32 y = 0;
-    func_00143b88(a0, a1, &x, &y, a2);
+    dk__Octree__intersectLine(a0, a1, &x, &y, a2);
 }
 }  // namespace n00143b60
 
@@ -809,15 +809,15 @@ void func_00143b60(u32 a0, u32 a1, u32 a2) {
 namespace n00143b88 {
 union Word { void* p; u32 w; u16 h; };
 extern Word D_00348804 asm("D_00348804");
-s32 func_00165db8(u32, u32, u16*, u32, u32, u32, u32*, u32, u32) asm("func_00165db8");
+s32 dk__ObjOcc__intersectLine(u32, u32, u16*, u32, u32, u32, u32*, u32, u32) asm("dk__ObjOcc__intersectLine");
 void func_00141c18(void*, u32, u32, u32, u32) asm("func_00141c18");
 s32 func_00141ff0(void*, u32, u32, u16*, u32) asm("func_00141ff0");
-s32 func_00143b88(u32 a0, u32 a1, u16* out, Word* flag, u32 a4) asm("func_00143b88");
-s32 func_00143b88(u32 a0, u32 a1, u16* out, Word* flag, u32 a4)
+s32 dk__Octree__intersectLine(u32 a0, u32 a1, u16* out, Word* flag, u32 a4) asm("dk__Octree__intersectLine");
+s32 dk__Octree__intersectLine(u32 a0, u32 a1, u16* out, Word* flag, u32 a4)
 {
     u16 id[2];
     flag->w = 0;
-    s32 r = func_00165db8(a0, a1, &id[0], 0, 0, 0, &flag->w, a4, 0);
+    s32 r = dk__ObjOcc__intersectLine(a0, a1, &id[0], 0, 0, 0, &flag->w, a4, 0);
     *out = id[0];
     func_00141c18(D_00348804.p, 0, 0, 0, 0);
     if (func_00141ff0(D_00348804.p, a0, a1, &id[1], a4)) { flag->w = 0; r = 1; *out = id[1]; }
@@ -827,7 +827,7 @@ s32 func_00143b88(u32 a0, u32 a1, u16* out, Word* flag, u32 a4)
 
 // ---- 00143c68 from src/anon/batch_w67.cpp
 namespace n00143c68 {
-s32 func_00165db8(s32, s32, s32*, s32, s32, s32, s32*, s32, s32) asm("func_00165db8");
+s32 dk__ObjOcc__intersectLine(s32, s32, s32*, s32, s32, s32, s32*, s32, s32) asm("dk__ObjOcc__intersectLine");
 void func_00141c18(u32, s32, s32, s32, s32) asm("func_00141c18");
 s32 func_00141ff0(u32, s32, s32, s32*, s32) asm("func_00141ff0");
 extern u32 D_00348804 asm("D_00348804");
@@ -836,7 +836,7 @@ s32 func_00143c68(s32 a, s32 b)
 {
     s32 x, y;
     y = 0;
-    s32 r = func_00165db8(a, b, &x, 512, 512, 0, &y, 15, 0);
+    s32 r = dk__ObjOcc__intersectLine(a, b, &x, 512, 512, 0, &y, 15, 0);
     func_00141c18(D_00348804, 512, 512, 0, 0);
     r |= func_00141ff0(D_00348804, a, b, &x, 15);
     return r != 0;
@@ -848,8 +848,8 @@ namespace n00143d10 {
 extern s32 D_00348808 asm("D_00348808");
 void func_00141c18(s32, s32, s32, s32, s32) asm("func_00141c18");
 s32 func_00141ff0(s32, s32, s32, void*, s32) asm("func_00141ff0");
-s32 func_00143d10(s32 a, s32 b, u16* out, s32* flag) asm("func_00143d10");
-s32 func_00143d10(s32 a, s32 b, u16* out, s32* flag) {
+s32 dk__Octree__intersectLineCamera(s32 a, s32 b, u16* out, s32* flag) asm("dk__Octree__intersectLineCamera");
+s32 dk__Octree__intersectLineCamera(s32 a, s32 b, u16* out, s32* flag) {
     s32 ret = 0;
     *flag = 0;
     if (D_00348808 != 0) {
@@ -872,8 +872,8 @@ struct NoTail { ~NoTail() {} };
 extern u32 D_00348804 asm("D_00348804");
 void func_00141c18(u32, u32, u32, u32, u32) asm("func_00141c18");
 u32 func_00141ff0(u32, u32, u32, u32, u32) asm("func_00141ff0");
-void func_00143dd0(u32 a, u32 b, u32 c, u32 d, u32 e) asm("func_00143dd0");
-void func_00143dd0(u32 a, u32 b, u32 c, u32 d, u32 e) {
+void dk__Octree__intersectLineMapKind(u32 a, u32 b, u32 c, u32 d, u32 e) asm("dk__Octree__intersectLineMapKind");
+void dk__Octree__intersectLineMapKind(u32 a, u32 b, u32 c, u32 d, u32 e) {
     NoTail g;
     func_00141c18(D_00348804, 15, d, 0, 0);
     func_00141ff0(D_00348804, a, b, c, e);
@@ -927,8 +927,8 @@ namespace n00143ee8 {
 extern u32 D_00348804 asm("D_00348804");
 extern u32 D_00348808 asm("D_00348808");
 u32* func_00142398(u32, u32) asm("_Z13func_00142398jj");
-void func_00143ee8(u32 a0, u32 a1) asm("_Z13func_00143ee8jj");
-void func_00143ee8(u32 a0, u32 a1) {
+void dk__Octree__getAttr(u32 a0, u32 a1) asm("_Z19dk__Octree__getAttrjj");
+void dk__Octree__getAttr(u32 a0, u32 a1) {
     u32 t5 = a0 & 0xFFFFu;
     if ((a1 & 0xFFu) != 0) {
         u32 p = D_00348808;
@@ -943,13 +943,13 @@ void func_00143ee8(u32 a0, u32 a1) {
 
 // ---- 00143f28 from src/anon/tiny_jal_wrappers.cpp
 namespace n00143f28 {
-u32 func_00143ee8(u32, u32, u32, u32) asm("_Z13func_00143ee8jjjj");
+u32 dk__Octree__getAttr(u32, u32, u32, u32) asm("_Z19dk__Octree__getAttrjjjj");
 u32 func_00143f28(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z13func_00143f28jjjj");
 u32 func_00143f28(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u;
     r4 = (u32)(r4 & 0xffffu);
     r5 = (u32)(r5 & 0x00ffu);
-    r2 = func_00143ee8(r4, r5, r6, r7);
+    r2 = dk__Octree__getAttr(r4, r5, r6, r7);
     r2 = *(u32*)((u32)r2 + (s32)(0));
     r2 = (u32)(r2 & 0x000fu);
     return r2;
@@ -1007,17 +1007,17 @@ s32 func_00143fc8(void* a, void* b) {
 // ---- 00144060 from src/anon/batch_w48.cpp
 namespace n00144060 {
 u8* func_00106a60(s32) asm("func_00106a60");
-void func_00107368(void*, void*) asm("func_00107368");
+void kn__Camera__getPosition(void*, void*) asm("kn__Camera__getPosition");
 void func_00165f70(void*, void*, void*, void*, void*) asm("func_00165f70");
 extern u8* D_00348800 asm("D_00348800");
 extern u32 D_00348810 asm("D_00348810");
 extern u8 D_0034881f asm("D_0034881f");
-void func_00144060(void) asm("func_00144060");
-void func_00144060(void) {
+void dk__Octree__buildOcclusionFrustum(void) asm("dk__Octree__buildOcclusionFrustum");
+void dk__Octree__buildOcclusionFrustum(void) {
     u8 buf[16];
     *(u32*)(D_00348800 + 1904) = 0;
     if (D_00348810 != 0 && D_0034881f != 0) {
-        func_00107368(func_00106a60(1), buf);                          
+        kn__Camera__getPosition(func_00106a60(1), buf);                          
         u8* q = D_00348800;
         func_00165f70((void*)D_00348810, buf, q + 624, q + 1904, q + 496);
     }
@@ -1047,14 +1047,14 @@ struct W2389Cam {
 extern u8 D_0034881c asm("D_0034881c");
 extern W2389Cam* D_00348800 asm("D_00348800");
 void* func_0016b0d0(void) asm("func_0016b0d0");
-W2389Vec* func_0016c028(void*) asm("func_0016c028");
+W2389Vec* YS__OBJ__get_pos(void*) asm("YS__OBJ__get_pos");
 void func_002f47d8(void* d, void* m, void* v, u32 f) asm("func_002f47d8");
 void func_001440e0(void) asm("func_001440e0");
 void func_001440e0(void) {
     if (D_0034881c != 0) {
         void* o = func_0016b0d0();
         if (o != 0) {
-            W2389Vec v(*func_0016c028(o));
+            W2389Vec v(*YS__OBJ__get_pos(o));
             W2389Vec r = D_00348800->m * v;
             s32 a[4], b[4];
             D_00348800->f774 = r.z;
@@ -1080,26 +1080,26 @@ extern u8* D_00348800 asm("D_00348800");
 extern u8* D_00348818 asm("D_00348818");
 extern u8 D_0034881d asm("D_0034881d");
 extern u8 D_0034881e asm("D_0034881e");
-void func_00145cb0(u8*) asm("func_00145cb0");
+void dk__OctDrawFile__calcViewFrustumMatrix(u8*) asm("dk__OctDrawFile__calcViewFrustumMatrix");
 void func_00146de0(u8*) asm("func_00146de0");
-void func_00144060(void) asm("func_00144060");
+void dk__Octree__buildOcclusionFrustum(void) asm("dk__Octree__buildOcclusionFrustum");
 void func_001440e0(void) asm("func_001440e0");
 void func_00146070(u8*, s16*) asm("func_00146070");
 void func_00146078(u8*, u32) asm("func_00146078");
 void func_00146498(u8*, u32, s32*) asm("func_00146498");
 u8* func_00106a60(s32) asm("func_00106a60");
-u8* func_00106a18(s32) asm("func_00106a18");
+u8* kn__getProjection(s32) asm("kn__getProjection");
 void func_0011cd80(u32, u8*, u8*, u8*, s16*, u32) asm("func_0011cd80");
-void func_001473e8(u8*) asm("func_001473e8");
+void dk__OctDrawFile__drawObjectAll(u8*) asm("dk__OctDrawFile__drawObjectAll");
 void func_00144250(void) asm("func_00144250");
 void func_00144250(void) {
     s16 list[2048];
     u8 m[64] __attribute__((aligned(16)));
     s32 n;
     if (D_0034881e == 1) return;
-    func_00145cb0(D_00348800);
+    dk__OctDrawFile__calcViewFrustumMatrix(D_00348800);
     func_00146de0(D_00348800);
-    func_00144060();
+    dk__Octree__buildOcclusionFrustum();
     func_001440e0();
     list[0] = -1;
     n = 0;
@@ -1110,7 +1110,7 @@ void func_00144250(void) {
     if (D_0034881d == 0) {
         u8* o = D_00348818;
         u8* c = func_00106a60(1);
-        u8* s = func_00106a18(1);
+        u8* s = kn__getProjection(1);
         u8* d = c + 16;
         asm volatile(".set noreorder\n\t"
             "lqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 16(%1)\n\tlqc2 $vf3, 32(%1)\n\tlqc2 $vf4, 48(%1)\n\t"
@@ -1123,7 +1123,7 @@ void func_00144250(void) {
             : : "r"(m), "r"(s), "r"(d) : "memory");
         func_0011cd80(*(u32*)o, m, o + 16, o + 80, list, 0);
     }
-    func_001473e8(D_00348800);
+    dk__OctDrawFile__drawObjectAll(D_00348800);
 }
 }  // namespace n00144250
 

@@ -10,7 +10,7 @@ void func_00109fe8(void*);
 void func_0010a1d0(void*);
 void func_0010a5f0(void);
 u64 func_00109050(void*);  // get_field16_64
-void func_00108ae0(void*, u32, u64, u64, u64, u64, u64, u64);
+void kn__VU1DrawContext__setPacketForce(void*, u32, u64, u64, u64, u64, u64, u64);
 void func_0010a580(void*);
 void func_0010a4d0(void);
 void func_00108a10(void*);
@@ -58,7 +58,7 @@ struct Work {
 };
 extern "C" {
 // Resets the four slots and sets up the three GS draw contexts.
-void func_0023d5b8(Work* w);  // 0x0023d5b8: definition moved into src/anon/unit_0023d260.cpp
+void Tz__MenuObj__Init(Work* w);  // 0x0023d5b8: definition moved into src/anon/unit_0023d260.cpp
 }
 
 extern "C" {
@@ -198,11 +198,11 @@ extern u8 D_0032f054;
 u32 func_001d1438(u32);
 s32 func_0016f6f8(u32);  // check_flag_4000_type
 s32 func_0016f770(u32);  // in_id_special_range
-u32 func_0016eb48(u32, u32, u32, s32);
+u32 YS__OBJENTRY__ReadRequestSub(u32, u32, u32, s32);
 u32 func_0016ef28(u8);
 }
 // Requests chara data for id (special ids map to story-dependent entries); returns the request result.
-u32 wtarget_0016ed50(u32 id, u32 kind, u32 mode, u32);  // 0x0016ed50: definition moved into src/anon/unit_0016e8f8.cpp
+u32 YS__OBJENTRY__ReadRequest(u32 id, u32 kind, u32 mode, u32);  // 0x0016ed50: definition moved into src/anon/unit_0016e8f8.cpp
 
 #define QCOPY(d, s) asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(d), "r"(s) : "$8", "memory")
 struct QV {
@@ -232,7 +232,7 @@ CamP* func_002d1878(void*);
 QV func_002d4f60(void*);
 QV func_002d2740(void*, void*, f32, f32);
 // Camera target: clamps the follow distance, refreshes the target vector and returns it scaled.
-QV func_002d6b30(CamIn* in, u8* o);  // 0x002d6b30: definition moved into src/anon/unit_002d62d0.cpp
+QV Ti__ACTION_PO_OARASHI__calc_movement(CamIn* in, u8* o);  // 0x002d6b30: definition moved into src/anon/unit_002d62d0.cpp
 }
 
 struct Ent8 { u8 f0, f1, f2, f3; u16 f4, f6; };
@@ -247,9 +247,9 @@ void func_002fde18(void*, s32, s32);
 ItemRec* func_001a82b0(ItemRec*);
 ItemDef* func_001a80c8(u16);  // table24_find_by_id
 s32 func_002a43b0(ItemRec*);
-u8 func_002764b0(u8);
-void func_002a2ff8(void);
-s32 func_002ab8e8(s32);
+u8 Tz__Jiminy__AreaWorld2JmWorld(u8);
+void Tz__JmTreasure__SortList(void);
+s32 Tz__JmNewInfo__isNaviNew(s32);
 s32 func_002ab9c8(s32);
 // Rebuilds the item list table (entries of type 22) and refreshes the 15 slot flags.
 void func_002a2c40(void);  // 0x002a2c40: definition moved into src/anon/unit_002a1d38.cpp
@@ -267,7 +267,7 @@ s32 func_001a8bf8(void*, s32);  // get_bits5_at
 void func_001a8ff8(void*, s32, s32);  // swap_bytes
 s32 func_00253598(void);
 SysA* func_00103eb0(void);
-ReqObj* func_00102818(u32, s32, s32, void*, s32);
+ReqObj* TASK_MANAGER__create_thread(u32, s32, s32, void*, s32);
 u32 func_001a8c10(void*, s32);
 u32 func_0017e668(u32);
 void func_00293b08(void);
@@ -283,7 +283,7 @@ s32 func_00276638(s32);
 s32 func_00276620(s32);
 s32 func_002943b0(u8*);  // test_bit_global_array
 void func_002765e8(s32, s32, s32);
-void func_0029eaa8(void);
+void Tz__JmDic__UpdateNewMark(void);
 // Moves the list cursor to the next/previous usable entry (wrapping) and scrolls the 10-row window.
 void func_0029cb28(s32 dir);  // 0x0029cb28: definition moved into src/anon/unit_0029ba88.cpp
 // Moves the list cursor to the next/previous usable entry (wrapping) and scrolls the 10-row window.
@@ -326,7 +326,7 @@ void func_00247c20(void);
 }
 extern "C" {
 // Re-creates the enabled entry widgets of the list (bit per entry in D_0035ed44).
-void func_00247a20(void);  // 0x00247a20: definition moved into src/anon/unit_00242478.cpp
+void Tz__HECO__CreateNewMark(void);  // 0x00247a20: definition moved into src/anon/unit_00242478.cpp
 }
 
 struct V4r { f32 x, y, z, w; } __attribute__((aligned(16)));
@@ -394,16 +394,16 @@ struct Actor { u8 pad[320]; ActSub sub; u8 pad344[1072]; u32 flags; };
 struct HitCtx { u8 pad[36]; s32 mode; };
 extern "C" {
 extern u32 D_00352bd0;
-s32 func_0019ba60(Actor*);
+s32 YS__OBJ__is_exist(Actor*);
 const QP& func_001e0cc8(HitCtx*);  // entry64_by_field32
 u32 func_0016bc20(Actor*, s32, s32);
-void func_0018a818(HitShape*, Actor*, u32);
+void YS__COLLISION__set(HitShape*, Actor*, u32);
 s32 func_0018a550(Sph*, HitShape*);  // state_dispatch_0_1_3
 s32 func_00180618(ActSub*);
 void func_001e2660(u32, QP*);
 void func_002bc188(u32, QP*);
-void func_001e1070(HitCtx*, Actor*);
+void ryj__LASER__strike(HitCtx*, Actor*);
 void func_001e23b0(u32, QP*);
 // Hit check around the context position: big sphere vs downed actor (state 254-256), else small sphere.
-s32 func_001e1350(HitCtx* c, Actor* o);  // 0x001e1350: definition moved into src/anon/unit_001e0cb8.cpp
+s32 ryj__LASER__check_obj_hit(HitCtx* c, Actor* o);  // 0x001e1350: definition moved into src/anon/unit_001e0cb8.cpp
 }

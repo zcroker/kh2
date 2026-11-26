@@ -225,7 +225,7 @@ struct O193330 {
     u8 pad4[2224 - 2092];
     Shape193330* shape;
 };
-void func_001b7c80(void*, Box193330*) asm("func_001b7c80");
+void YS__OBJCLSN__calc_bounding_box(void*, Box193330*) asm("YS__OBJCLSN__calc_bounding_box");
 s32 func_00180cd0(void*) asm("func_00180cd0");
 void func_00144be0(Box193330*, V193330*) asm("func_00144be0");
 void func_00193330(O193330* o) asm("func_00193330");
@@ -235,7 +235,7 @@ void func_00193330(O193330* o)
     V193330 t;
     V193330 corners[8];
     if (!o->shape) {
-        if (o->p2088) func_001b7c80(o->p2088, &o->world);
+        if (o->p2088) YS__OBJCLSN__calc_bounding_box(o->p2088, &o->world);
     } else {
         if (func_00180cd0((u8*)o + 320) && o->shape->kind() < 2) {
             V193330 p, q;

@@ -131,6 +131,6 @@ u32 func_0028af78(u32 a0,u32 a1,u32 a2,u32 a3);  // 0x0028af78: definition moved
 
 void func_002b4ac8(u32 a0,u32 a1,u32 a2,u32 a3);  // 0x002b4ac8: definition moved into src/anon/unit_002b3ac8.cpp
 
-u32 func_002cf308(u32 a0,u32 a1,u32 a2,u32 a3);  // 0x002cf308: definition moved into src/anon/unit_002cf260.cpp
+u32 Ti__MGObj__get_prize_count(u32 a0,u32 a1,u32 a2,u32 a3);  // 0x002cf308: definition moved into src/anon/unit_002cf260.cpp
 
 // 002e93a0: moved to src/sugi/flare.cpp

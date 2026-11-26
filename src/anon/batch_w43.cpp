@@ -34,19 +34,19 @@ extern u8 D_004f3820[];
 extern void* D_00348698[];
 extern u32 D_0034e948;
 u32 func_0016e920(u32);
-u8* func_001b9bc8(u8*);
+u8* YS__OBJ__Each(u8*);
 s32 func_0016c008(u8*, u32);
 void func_00190128(void*);
 void func_00190878(void*, u32, u32);
 void func_001d6ab0(u32);
 void func_0019ca90(u32, u32, void*);
-u32 func_0016c028(void*);  // obj_get_attach_or_alt
+u32 YS__OBJ__get_pos(void*);  // obj_get_attach_or_alt
 s32 func_001a7610(u32, void*, s32, f32, f32);
 void func_0016ace0(void*, void*);
 s32 func_001883d8(u8*, void*);
 void func_001880b0(u8*, void*);
 extern u8 D_0036cbb0[];
-void func_001902a8(void*, void*);
+void YS__TARGET__make_collision(void*, void*);
 extern s32 D_01c6cb70;
 struct P8 { u32 a; u32 b; };
 extern P8 D_01c6cb30[];
@@ -54,7 +54,7 @@ void func_00105110(u32);
 void func_001ac970(void*, s32, s32, u32, s32, s32, s32, s32);
 extern void* D_00350b30[];
 void func_001ac078(void*, s32, s32, s32);
-void func_001aa388(void*, u32);
+void YS__MESSAGEDRAW__set_page(void*, u32);
 extern f32 D_00349e10;
 void* func_00168b38(u32, s32, s32);  // entry_array_find_nth
 s32 func_001dcd38(void*);
@@ -102,14 +102,14 @@ struct B3 { u8 b[3]; };
 extern B3 D_00375518[];
 u32 func_001c2b58(s32);
 void func_002c1b60(void*, u32);
-void func_00198450(void*);
+void YS__STDOBJ___OVR_initialize(void*);
 extern V4 D_01e2bca0;
 extern V4 D_01e2bcb0;
 struct M4 { V4 r[4]; };
 extern M4 D_01e2bcc0;
 void func_00177dc8(void*, u32, s32, u32, u32);
 extern void* D_00361d00[];
-void func_001befd8(u32, s32, s32);
+void YS__FIELD_COMMAND__set_minigame(u32, s32, s32);
 void func_002cbec0(u32, u32);
 void func_002eaf48(V4*, u32, s32);
 extern V4 D_01e2c050;
@@ -117,7 +117,7 @@ void func_0016bd60(u32, s32);
 void func_002eb6f8(u32, s32, f32);
 extern f32 D_01e2c060;
 extern V4 D_00363550;
-V4* func_0016c028_v(u32) asm("func_0016c028");
+V4* func_0016c028_v(u32) asm("YS__OBJ__get_pos");
 
 // 128-bit copy (lq/sq), as the original
 static inline void cpq(void* d, const void* s) {
@@ -138,7 +138,7 @@ struct NdB { u8 q[16]; u32 f16; bool b20; s8 b21; u8 b22; s8 b23; bool b24; u8 p
 struct LLB { NdB* head; NdB* tail; };
 struct LsB { u8 pad[8]; u8 b8; u8 pad2[3]; LLB list; };
 
-s32 func_0010f748(u8* p, u32 b);  // 0x0010f748: definition moved into src/anon/unit_0010f338.cpp
+s32 kn__Friend__canItemAction(u8* p, u32 b);  // 0x0010f748: definition moved into src/anon/unit_0010f338.cpp
 
 void func_00112388(void);  // 0x00112388: definition moved into src/anon/unit_001117d8.cpp
 
@@ -156,7 +156,7 @@ void func_00174290(u8* p);  // 0x00174290: definition moved into src/anon/unit_0
 
 // 001852b8: moved to src/anon/unit_00183088.cpp
 
-void func_0018b200(u8* p);  // 0x0018b200: definition moved into src/yasui/libys/npc.cpp
+void YS__NPC__before_check(u8* p);  // 0x0018b200: definition moved into src/yasui/libys/npc.cpp
 
 // Mark dead and destroy every child in the list.
 void func_00199cd0(P199* p);  // 0x00199cd0: definition moved into src/anon/unit_00199688.cpp
@@ -183,7 +183,7 @@ void func_001e7cc0(u8* p);  // 0x001e7cc0: definition moved into src/anon/unit_0
 
 void func_00225328(u8* p);  // 0x00225328: definition moved into src/anon/unit_00224780.cpp
 
-void func_0023c008(u32* p);  // 0x0023c008: definition moved into src/anon/unit_0023bc58.cpp
+void YI__LAYOUT__LAYOUT(u32* p);  // 0x0023c008: definition moved into src/anon/unit_0023bc58.cpp
 
 void func_00249358(void);  // 0x00249358: definition moved into src/anon/unit_00247ff0.cpp
 
@@ -199,7 +199,7 @@ void func_0029dda8(void);  // 0x0029dda8: definition moved into src/anon/unit_00
 
 void func_002be340(u32 a);  // 0x002be340: definition moved into src/anon/unit_002be020.cpp
 
-void func_002c1ae8(u8* p);  // 0x002c1ae8: definition moved into src/anon/unit_002c10e0.cpp
+void worldmap__Gumi___OVR_initialize(u8* p);  // 0x002c1ae8: definition moved into src/anon/unit_002c10e0.cpp
 
 void func_002c20f8(V4* a);  // 0x002c20f8: definition moved into src/anon/unit_002c1e80.cpp
 

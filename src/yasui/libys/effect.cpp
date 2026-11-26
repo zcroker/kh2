@@ -30,12 +30,12 @@ const char* D_00350748 = "00effect.bar";
 void func_00170518(const char*, s32, s32);
 s32 func_001708f8(const char*, s32);
 u8* func_00168b38(s32, s32, s32);
-void func_001dddd0(ryj::PAX*, u32);
+void ryj__PAX__init(ryj::PAX*, u32);
 void func_001de450(ryj::PAX*);
-void func_001dde40(ryj::PAX*);
+void ryj__PAX__ensure(ryj::PAX*);
 void func_00170950(s32);
 s32 func_001de2e0(u32, u32);
-u8* func_001de168(u32, s32, u32, u32, u32, u32);
+u8* ryj__PAX__start(u32, s32, u32, u32, u32, u32);
 V4* func_001dc5f8(u8*);
 s32 func_001dc9d0(void*);
 void func_001dc978(void*, f32);
@@ -57,13 +57,13 @@ ryj::PAX* EFFECT::GetSystemPax(void) {
 
 void EFFECT::Init(void) {
     s_cache = func_001708f8(D_00350748, -1);
-    func_001dddd0(&s_pax, *(u32*)(func_00168b38(s_cache, 18, 0) + 8));
+    ryj__PAX__init(&s_pax, *(u32*)(func_00168b38(s_cache, 18, 0) + 8));
     s_dead.Clear();
 }
 
 void EFFECT::Ensure(void) {
     func_001de450(&s_pax);
-    func_001dde40(&s_pax);
+    ryj__PAX__ensure(&s_pax);
     func_00170950(s_cache);
 }
 
@@ -71,12 +71,12 @@ void EFFECT::Ensure(void) {
 
 extern "C" {
 
-u8* func_001a3b48(u32 a, u32 b, V4* v, u32 c, u32 d, u32 e)
+u8* YS__EFFECT__CategoryStart(u32 a, u32 b, V4* v, u32 c, u32 d, u32 e)
 {
     s32 id = func_001de2e0(a, b);
     u8* r = 0;
     if (id >= 0) {
-        u8* o = func_001de168(a, id, c, d, e, 0);
+        u8* o = ryj__PAX__start(a, id, c, d, e, 0);
         if (o) {
             V4* dst = func_001dc5f8(o);
             if (dst != v) asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(dst), "r"(v) : "$8", "memory");
@@ -89,7 +89,7 @@ u8* func_001a3b48(u32 a, u32 b, V4* v, u32 c, u32 d, u32 e)
 u8* func_001a3bf0(u32 a, u32 b, u32 e, u32 c, u32 d, u32 f) {
     s32 r = func_001de2e0(a, b);
     if (r < 0) return 0;
-    return func_001de168(a, r, c, d, f, e);
+    return ryj__PAX__start(a, r, c, d, f, e);
 }
 
 }  // extern "C"

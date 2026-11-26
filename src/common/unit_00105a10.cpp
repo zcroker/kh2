@@ -6,10 +6,10 @@
 
 extern "C" {
 void func_002bd260(u32);
-void func_002bd310(u32);
+void SOUND__readBgmThread(u32);
 void func_002ba220(u32, u32, u32, u32, u32, u32);
 void func_00106048(void);
-void func_00105fc8(void);
+void WORLDMAP__gumiToWorldMap(void);
 void func_002bd788(u32);
 void func_002bd730(u32, u32, u32, u32);
 void func_002bd760(u32);
@@ -41,12 +41,12 @@ void func_00105a20(void) {
     func_002bd260(0);
 
     f32 f20 = 0.0f;
-    func_002bd310(0);
+    SOUND__readBgmThread(0);
 
     func_002ba220(0, 12288, 12288, 0, 0, 0);
 
     func_00106048();
-    func_00105fc8();
+    WORLDMAP__gumiToWorldMap();
 
     func_002bd788(0);
     func_002bd730(0, 0, 0, 0);

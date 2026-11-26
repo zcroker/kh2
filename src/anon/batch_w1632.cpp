@@ -37,7 +37,7 @@ void func_00158138(W1632Party*, u32, u32, s32);
 u32 func_0013a7e8(s32);
 u32 func_0013d7e0(void);
 u32 func_00158290(W1632Party*);
-void func_00158050(W1632Sprite2*, u32, u32, u32, u32, u32, u32);
+void dk__GAUGE_ONE__create(W1632Sprite2*, u32, u32, u32, u32, u32, u32);
 void func_0013e0f8(W1632Gauge*, u32, u32, u32);
 void func_001581f8(W1632Party*);
 void func_00153fa0(W1632Sprite2*, u32, s32, s32, s32, u32);
@@ -79,7 +79,7 @@ static inline void W1632_setParent2b(W1632Sprite2* obj, W1632Sprite2* parent) {
 }
 
 // 00154f30: moved to src/anon/unit_00153ea0.cpp
-void func_00154f30(W1632Party* self, u32 a1, u32 a2);
+void dk__GAUGE_FRIEND__create(W1632Party* self, u32 a1, u32 a2);
 
 struct W1632Sprite {
     u8 pad0[24];
@@ -105,15 +105,15 @@ struct W1632Panel {
     u8 pad3[12896 - 11648 - 3 * 412];
     W1632Bar bar;               // 12896
 };
-u32 func_00155ee8(W1632Panel*);
+u32 dk__GAUGE_PLAYER__getDriveInSqNum(W1632Panel*);
 u32 func_00155fc0(W1632Panel*);
-u32 func_00155e30(W1632Panel*);
-s32 func_00155f40(W1632Panel*);
+u32 dk__GAUGE_PLAYER__getDriveCounter(W1632Panel*);
+s32 dk__GAUGE_PLAYER__getDriveLoopSqNum(W1632Panel*);
 s32 func_00156030(W1632Panel*);
 void func_00156408(W1632Panel*);
-void func_00158050(W1632Sprite2*, u32, u32, u32, u32, u32, u32);
+void dk__GAUGE_ONE__create(W1632Sprite2*, u32, u32, u32, u32, u32, u32);
 void func_0013dfb8(W1632Bar*, u32, u32);
-void func_001386e0(W1632Sprite*, u32, u32, u32, u32, u32);
+void dk__Sprite__create(W1632Sprite*, u32, u32, u32, u32, u32);
 u32 func_00139d78(void*);
 void func_0014b200(W1632Rect*, u32);
 void func_001396b0(void*);

@@ -14,7 +14,7 @@ s32 func_001a6d08(s32);
 extern S24_w1796 D_00371f30;
 void func_00220088(Item_w1796*, u16);
 
-s32 func_0024ac88(void);  // 0x0024ac88: definition moved into src/anon/unit_00249ef0.cpp
+s32 Tz__TRTE__GetSeqInfo(void);  // 0x0024ac88: definition moved into src/anon/unit_00249ef0.cpp
 
 void func_00221ed0(Node_w1796* n);  // 0x00221ed0: definition moved into src/anon/unit_00221e28.cpp
 }

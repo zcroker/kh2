@@ -17,10 +17,10 @@ struct Rgba2ef340 { u8 r, g, b, a; };
 extern "C" {
 void func_00236a58(void*, void*, u32);
 void func_0023c100(void*, void*, void*, u32);
-void func_0023ca80(void*, void*);
-void func_0023cc18(void*);
-void func_002362b0(void*, u32);
-void func_00239988(void*, u32, void*);
+void YI__LAYOUT__Control(void*, void*);
+void YI__LAYOUT__Draw(void*);
+void YI__IMAGE__Init(void*, u32);
+void YI__SEQUENCE__Init(void*, u32, void*);
 void* func_00236ca8(u32, u32);
 u32 func_0023c4b8(void*, u32);
 void func_0023acd8(void*);
@@ -28,7 +28,7 @@ s32 func_00239d10(void*);
 void func_002367c8(void*);
 void func_00236788(void*);
 void func_00239fd0(void*, f32, f32, f32, f32);
-void func_0023ade0(void*);
+void YI__SEQUENCE__Draw(void*);
 void func_00239bf8(void*, s32);
 void func_0023a9c0(void*, s32*, s32*);
 u32 func_0023a918(void*);
@@ -57,13 +57,13 @@ void func_002ef258(u8* d, LayoutRes2ef258* s) {
 }
 
 void func_002ef328(u8* p, void* a) {
-    func_0023ca80(p + 64, a);
+    YI__LAYOUT__Control(p + 64, a);
 }
 
 void func_002ef618(void);
 
 void func_002ef340(u8* t, Pos2ef340 a, Rgba2ef340 b) {
-    func_0023cc18(t + 64);
+    YI__LAYOUT__Draw(t + 64);
     func_002ef618();
 }
 
@@ -103,14 +103,14 @@ void func_002ef370(SeqPlayer2ef370* s, u32* a) {
     u32 v = a[0];
     s->f36 = v;
     s->f40 = a[1];
-    func_002362b0(s->image, v);
+    YI__IMAGE__Init(s->image, v);
     s->cur = s->image;
-    func_00239988(s->seq, s->f40, s->image);
+    YI__SEQUENCE__Init(s->seq, s->f40, s->image);
 }
 
 void func_002ef3c8(SeqPlayer2ef370* s, u8* layout, u32 img, u32 unit) {
     s->cur = func_00236ca8(*(u32*)(layout + 40), img);
-    func_00239988(s->seq, func_0023c4b8(layout, unit), s->cur);
+    YI__SEQUENCE__Init(s->seq, func_0023c4b8(layout, unit), s->cur);
 }
 
 void func_002ef5c8(SeqPlayer2ef370* s, s32 id);
@@ -138,7 +138,7 @@ void seq_2ef4f8(SeqPlayer2ef370* s, Pos2ef340 pos, Rgba2ef340 c) {
     u8* q = s->seq;
     func_00239fd0(q, c.r * 0.0078125f, c.g * 0.0078125f, c.b * 0.0078125f, c.a * 0.0078125f);
     *(Pos2ef340*)(q + 328) = pos;
-    func_0023ade0(q);
+    YI__SEQUENCE__Draw(q);
 }
 
 void func_002ef5a8(SeqPlayer2ef370* s, s32 id) {

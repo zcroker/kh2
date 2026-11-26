@@ -94,7 +94,7 @@ extern u8 D_00347f98[];
 extern u8 D_00347e60[];
 s32 func_00225e48(void);
 W1636Ent* func_00227d10(s32);
-s32 func_001ba028(u32);
+s32 YS__OBJ__is_valid(u32);
 W1636Vec func_0016b478(f32, u32, u32);
 void func_00105110(void*);
 void func_001024a8(void*);
@@ -121,12 +121,12 @@ void func_001396b0(void*);
 void func_0031a260(void*, s32);
 u32 func_0022b720(void);
 u32 func_0022b9e0(void);
-void func_00158050(void*, s32, u32, u32, s32, s32, s32);
-void func_001386e0(void*, s32, u32, u32, s32, s32);
+void dk__GAUGE_ONE__create(void*, s32, u32, u32, s32, s32, s32);
+void dk__Sprite__create(void*, s32, u32, u32, s32, s32);
 s32 func_00139d78(void*);
 void func_0014b200(void*, u32);
 void func_00138c10(void*, s32);
-void func_001390f0(void*);
+void dk__Sprite3D__update(void*);
 void func_00139510(void*);
 s32 func_002249b8(void);
 void func_0031a838(void*);
@@ -140,18 +140,18 @@ void func_002248f8(s32);
 void func_002247e8(s32);
 void func_002248c0(s32);
 
-void* func_0022af48(void*);
-void func_0022b028(s32);
+void* sa__MUSICAL_INPUT__BadPrint(void*);
+void sa__MUSICAL_INPUT__BadScore(s32);
 void func_0022afe8(s32);
-u32 func_0022aef0(void*);
+u32 sa__MUSICAL_INPUT__GoodPrint(void*);
 void func_0022afa0(s32);
-u32 func_0022ae98(void*);
+u32 sa__MUSICAL_INPUT__ExcellentPrint(void*);
 void func_0022a7e0(W1636Score* s, s32 type);
 }
 
 s32 D_0035e1f8[14] = { 0x71, 0x72, 0x73, 0x74, 0x75, 0x76, 0x77, 0x78, 0x79, 0x7a, 0x7b, 0x70, -1, 0 };
 
-void func_00229e58(W1636Task* t)
+void sa__MUSICAL_COMBO__printTask(W1636Task* t)
 {
     if (func_00225e48()) goto done;
     {
@@ -170,12 +170,12 @@ void func_00229e58(W1636Task* t)
         W1636Ent* e = func_00227d10(n->id);
         if (e == 0) return;
         if (e->obj == 0) return;
-        if (!func_001ba028(e->obj)) return;
+        if (!YS__OBJ__is_valid(e->obj)) return;
         W1636Vec pos = func_0016b478(1.0f, e->obj, bone);
         if (now >= limit) {
             if (!n->hit) {
-                func_0022af48(&pos);
-                func_0022b028(se);
+                sa__MUSICAL_INPUT__BadPrint(&pos);
+                sa__MUSICAL_INPUT__BadScore(se);
             }
             spr->vt->hide(spr);
             func_00105110(n);
@@ -186,10 +186,10 @@ void func_00229e58(W1636Task* t)
         if (!before && now <= end && (func_00167f18(0)->bits & 4)) {
             if (*pcount < max) {
                 func_0022afe8(se);
-                func_0022aef0(&pos);
+                sa__MUSICAL_INPUT__GoodPrint(&pos);
             } else {
                 func_0022afa0(se);
-                func_0022ae98(&pos);
+                sa__MUSICAL_INPUT__ExcellentPrint(&pos);
             }
             func_00224950(sound);
             (*pcount)++;
@@ -264,7 +264,7 @@ void* func_0022a368(s32 type) {
 
 extern const f32 D_003710d0 = 4.0f;
 
-s32 func_0022a3d0(s32 n, f32 x, s32* a, s32* b, s32* c, s32* d, s32* e, s32* f, s32* g, s32* h, f32* out)
+s32 sa__MUSICAL_INPUT__createCircleSize(s32 n, f32 x, s32* a, s32* b, s32* c, s32* d, s32* e, s32* f, s32* g, s32* h, f32* out)
 {
     f32 r = (f32)n / D_003710d0;
     f32 ang = (x + r) * (90.0f / r * 0.017453292f);
@@ -323,13 +323,13 @@ struct W2023SelfB {
     s32 b98;
 };
 
-void func_0022a5c8(W2023SelfB* s, s32 i, u32 z1, u32 z2, f32 x)
+void sa__MUSICAL_INPUT__createCircle(W2023SelfB* s, s32 i, u32 z1, u32 z2, f32 x)
 {
     s32 h;
     f32 rot;
     s32 a, b, c, d, e, f, g;
     W2023_hide(s->e[i].obj);
-    switch (func_0022a3d0(s->b98, x, &a, &b, &c, &d, &e, &f, &g, &h, &rot)) {
+    switch (sa__MUSICAL_INPUT__createCircleSize(s->b98, x, &a, &b, &c, &d, &e, &f, &g, &h, &rot)) {
     case 0:
         break;
     case 1:
@@ -428,13 +428,13 @@ void func_0022a7e0(W1636Score* s, s32 type)
 
     func_0022a0f8((u8*)&s->grp[0], 2500, 0, 11);
     func_0022a0f8((u8*)&s->grp[3], 2500, 1, 11);
-    func_00158050(&s->bar[2], 2500, sqd, img, a, 100, 11);
+    dk__GAUGE_ONE__create(&s->bar[2], 2500, sqd, img, a, 100, 11);
     func_0022a0f8((u8*)&s->grp[2], 2500, 1, 11);
-    func_00158050(&s->bar[1], 2500, sqd, img, 101, 500, 11);
+    dk__GAUGE_ONE__create(&s->bar[1], 2500, sqd, img, 101, 500, 11);
     func_0022a0f8((u8*)&s->grp[1], 2500, 1, 11);
-    func_00158050(&s->bar[0], 2500, sqd, img, 102, 700, 11);
-    func_001386e0(&s->face, 2500, sqd, img, c, 11);
-    func_001386e0(&s->base, 2499, sqd, img, b, 11);
+    dk__GAUGE_ONE__create(&s->bar[0], 2500, sqd, img, 102, 700, 11);
+    dk__Sprite__create(&s->face, 2500, sqd, img, c, 11);
+    dk__Sprite__create(&s->base, 2499, sqd, img, b, 11);
     W1636_setZ(&s->grp[0], 0);
     W1636_setZ(&s->grp[3], 200);
     W1636_setZ(&s->grp[2], 600);
@@ -459,14 +459,14 @@ void func_0022a7e0(W1636Score* s, s32 type)
 
 s32 func_0022ab80(u8* a0) { return *(u32*)(a0 + 5496) == 4; }
 
-void func_0022ab90(u8* a0) {
+void sa__MUSICAL_INPUT__initFace(u8* a0) {
     s32 v = func_0022ab80(a0);
     if (v != 0) {
         func_00138c10(a0 + 5072, 98);
     }
 }
 
-void func_0022abd8(u8* a0, u32 a1) {
+void sa__MUSICAL_INPUT__setFace(u8* a0, u32 a1) {
     if (func_0022ab80(a0) == 0) {
         return;
     }
@@ -487,15 +487,15 @@ void func_0022ac48(u8* a0, s32 v) {
     *(s32*)(a0 + 5488) = d;
 }
 
-void func_0022ac60(u8* a0) {
-    func_0022a5c8((W2023SelfB*)a0, 3, 200, 0, (f32)*(s32*)(a0 + 5488));
-    func_0022a5c8((W2023SelfB*)a0, 2, 600, 0, (f32)*(s32*)(a0 + 5484));
-    func_0022a5c8((W2023SelfB*)a0, 1, 800, 0, (f32)*(s32*)(a0 + 5492));
+void sa__MUSICAL_INPUT__updateGauge(u8* a0) {
+    sa__MUSICAL_INPUT__createCircle((W2023SelfB*)a0, 3, 200, 0, (f32)*(s32*)(a0 + 5488));
+    sa__MUSICAL_INPUT__createCircle((W2023SelfB*)a0, 2, 600, 0, (f32)*(s32*)(a0 + 5484));
+    sa__MUSICAL_INPUT__createCircle((W2023SelfB*)a0, 1, 800, 0, (f32)*(s32*)(a0 + 5492));
 }
 
-void func_0022acd0(void* p) {
-    func_0022ac60((u8*)p);
-    func_001390f0(p);
+void sa__MUSICAL_INPUT__update(void* p) {
+    sa__MUSICAL_INPUT__updateGauge((u8*)p);
+    dk__Sprite3D__update(p);
 }
 
 static inline void call20(u8* a0) {
@@ -521,7 +521,7 @@ void func_0022acf8(u8* a0) {
     func_00139510(a0 + 5072);
 }
 
-void func_0022ad88(s32 n, u32 b) {
+void sa__MUSICAL_INPUT__scorePrint(s32 n, u32 b) {
     if (n <= 0) return;
     if (func_002249b8() != 5) return;
     s32 cnt = n;
@@ -541,7 +541,7 @@ void func_0022ad88(s32 n, u32 b) {
     func_00229678(o, b, cnt);
 }
 
-u32 func_0022ae98(void* v) {
+u32 sa__MUSICAL_INPUT__ExcellentPrint(void* v) {
     u32 r = func_0022b688(142);
     Q16 t;
     QCOPY(&t, v);
@@ -550,7 +550,7 @@ u32 func_0022ae98(void* v) {
     return r;
 }
 
-u32 func_0022aef0(void* q) {
+u32 sa__MUSICAL_INPUT__GoodPrint(void* q) {
     u32 v = func_0022b688(141);
     Q16 t;
     QCOPY(&t, q);
@@ -559,7 +559,7 @@ u32 func_0022aef0(void* q) {
     return v;
 }
 
-void* func_0022af48(void* p) {
+void* sa__MUSICAL_INPUT__BadPrint(void* p) {
     u8 tmp[16] __attribute__((aligned(16)));
     void* v = (void*)func_0022b688(140);
     asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(tmp), "r"(p) : "$8", "memory");
@@ -586,7 +586,7 @@ s32 func_0022afe8_impl(s32 a0) {
     return s0;
 }
 
-s32 func_0022b028_impl(s32 n) asm("func_0022b028");
+s32 func_0022b028_impl(s32 n) asm("sa__MUSICAL_INPUT__BadScore");
 s32 func_0022b028_impl(s32 n) {
     func_002247e8(n);
     if (func_002249b8() == 3) {
@@ -606,14 +606,14 @@ void func_0022b0a0(s32 a0, void* a1) {
     s32 n = func_0022b028_impl(a0);
     u32 v;
     if (n > 0) {
-        v = func_0022ae98(a1);
+        v = sa__MUSICAL_INPUT__ExcellentPrint(a1);
     } else {
-        v = (u32)func_0022af48(a1);
+        v = (u32)sa__MUSICAL_INPUT__BadPrint(a1);
     }
-    func_0022ad88(n, v);
+    sa__MUSICAL_INPUT__scorePrint(n, v);
 }
 
-// 0022b108: the note task (gap function, never written before). Same data block as func_00229e58.
+// 0022b108: the note task (gap function, never written before). Same data block as sa__MUSICAL_COMBO__printTask.
 extern "C" {
 s32 func_002247d8(void);
 W1636Pad* func_00167bf0(s32);
@@ -669,7 +669,7 @@ void func_0022b108(W1636Task* t)
         W1636Ent* e = func_00227d10(n->id);
         if (e == 0) return;
         if (e->obj == 0) return;
-        if (!func_001ba028(e->obj)) return;
+        if (!YS__OBJ__is_valid(e->obj)) return;
         W1636Vec pos = func_0016b478(1.0f, e->obj, bone);
         if (now >= limit) {
             spr->vt->hide(spr);
@@ -709,14 +709,14 @@ void func_0022b108(W1636Task* t)
                     case 1: {
                         func_002248c0_v();
                         s32 v = func_0022afe8_r(se);
-                        func_0022ad88(v, v > 0 ? func_0022aef0(&pos) : (u32)func_0022af48(&pos));
+                        sa__MUSICAL_INPUT__scorePrint(v, v > 0 ? sa__MUSICAL_INPUT__GoodPrint(&pos) : (u32)sa__MUSICAL_INPUT__BadPrint(&pos));
                         func_00224950(sound);
                         break;
                     }
                     case 2: {
                         func_002248d0();
                         s32 v = func_0022afa0_r(se);
-                        func_0022ad88(v, v > 0 ? func_0022ae98(&pos) : (u32)func_0022af48(&pos));
+                        sa__MUSICAL_INPUT__scorePrint(v, v > 0 ? sa__MUSICAL_INPUT__ExcellentPrint(&pos) : (u32)sa__MUSICAL_INPUT__BadPrint(&pos));
                         func_00224950(sound);
                         break;
                     }

@@ -26,7 +26,7 @@ struct W1589S { u8 pad[4]; u16 h4; u8 pad6; s8 n; u8 p8[4]; W1589En e[1]; };
 union W1589G { W1589S* p; void* v; u16 h; s8 c; };
 extern W1589G D_0035f230;
 
-void func_00277020(void);  // 0x00277020: definition moved into src/anon/unit_002748a0.cpp
+void Tz__CmAbility__Init(void);  // 0x00277020: definition moved into src/anon/unit_002748a0.cpp
 
 void func_002799b0(void);  // 0x002799b0: definition moved into src/anon/unit_002793b0.cpp
 

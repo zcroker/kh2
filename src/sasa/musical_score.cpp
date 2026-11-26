@@ -21,7 +21,7 @@ void* func_00224880();
 s32 func_00224860(void);
 s32 func_0022b9e0(void);
 s32 func_0022b720(void);
-void func_001386e0(void*, s32, s32, s32, s32, s32);
+void dk__Sprite__create(void*, s32, s32, s32, s32, s32);
 void func_001396b0(void*);
 void func_0031a260(void*, s32);
 s32 func_00139d78(void*);
@@ -33,7 +33,7 @@ void func_00138c68(void*, s32, s32);
 u8* func_0014aba8(void*);
 void func_00139b28(s32);
 void func_00139ba0(s32);
-void func_001391f0(void*);
+void dk__Obj2D__update(void*);
 void func_00150260(u8*, u32, s32, u32*);
 void func_001395a8(u8*);
 }
@@ -52,7 +52,7 @@ struct Desc94 { u8 p0[0x2c]; s32 x2c; };
 struct Ow94 { u8 p0[0x18]; Nd94 root; Nd94 elems[6]; u8 pad[0xb40 - 0x18 - 408*7]; s32 xb40; s32 xb44; s32 xb48; u32 xb4c; };
 
 void func_002294c8(Ow94* o, s32 n, s32 b, Desc94* d);
-void func_00229430(void* a0, s32 a1);
+void sa__MUSICAL_SCORE_BASE__create(void* a0, s32 a1);
 void func_00229830(Ow94* o);
 
 static inline void* w1992_kalloc(u32 n) { Alc228f18* a = D_00347f80->a; return a->vt->alloc(a, n, 0); }
@@ -75,10 +75,10 @@ void func_00228f18() {
 }
 
 struct S229 { u8 pad[392]; s32 f392; u32 f396; u32 f400; };
-static inline void init229(S229* s, u32 x, u32 y) { func_001386e0((u8*)s, 2800, x, y, 21, 11); s->f396 = 0; s->f392 = 22; }
+static inline void init229(S229* s, u32 x, u32 y) { dk__Sprite__create((u8*)s, 2800, x, y, 21, 11); s->f396 = 0; s->f392 = 22; }
 
 void func_00229120(u8* p) {
-    func_00229430(p, 2800);
+    sa__MUSICAL_SCORE_BASE__create(p, 2800);
     *(u32*)(p + 2472) = func_00224860();
     u32 x = func_0022b9e0();
     u32 y = func_0022b720();
@@ -96,7 +96,7 @@ struct W1572_Obj { u8 pad[388]; s32 id; s32 val; u8 pad2[12]; };
 struct W1572_Vt { u8 pad[28]; void (*fn)(void*); };
 struct W1572_Mgr { W1572_Vt* vt; u8 pad[428]; W1572_Obj objs[5]; u8 pad3[2472 - 432 - 5 * 408]; s32 cur; };
 
-void func_002291d0(W1572_Mgr* m) {
+void sa__MUSICAL_SCORE1__update(W1572_Mgr* m) {
     m->vt->fn(m);
     s32 v = func_00224860();
     if (m->cur != v) {
@@ -111,7 +111,7 @@ void func_002291d0(W1572_Mgr* m) {
             i = n - 1;
             do {
                 if (func_00139d78(o) == 0) {
-                    func_001386e0(o, 0xaf0, a, b, D_0035e118[j], 11);
+                    dk__Sprite__create(o, 0xaf0, a, b, D_0035e118[j], 11);
                     o->val = D_0035e130[j];
                 } else if (o->id == D_0035e148[j]) {
                     func_00138c10(o, D_0035e118[j]);
@@ -146,16 +146,16 @@ void func_00229370() {
     func_00229120(o);
 }
 
-void func_00229430(void* a0, s32 a1) { dk_Obj2D_create(a0, a1, 11); }
+void sa__MUSICAL_SCORE_BASE__create(void* a0, s32 a1) { dk_Obj2D_create(a0, a1, 11); }
 
-void func_00229448(void* a0) {
+void sa__MUSICAL_SCORE_BASE__updateInit(void* a0) {
     u8* p = func_0014aba8(a0);
     if (*(u32*)(p + 252) != 0) {
         func_00139b28(11);
     } else {
         func_00139ba0(11);
     }
-    func_001391f0(a0);
+    dk__Obj2D__update(a0);
 }
 
 void func_00229498(u8* p) {
@@ -181,18 +181,18 @@ void func_002294c8(Ow94* o, s32 n, s32 b, Desc94* d) {
     o->xb48 = n;
     o->xb40 = b;
     o->xb4c = (u32)d;
-    func_001386e0(&o->root, 2800, r1, r2, d->x2c, 11);
+    dk__Sprite__create(&o->root, 2800, r1, r2, d->x2c, 11);
     s32 k = o->xb48 - 1;
     for (; i < o->xb48; i++, k--) {
         Nd94* e = &o->elems[i];
-        func_001386e0(e, 2800, r1, r2, *(s32*)o->xb4c, 11);
+        dk__Sprite__create(e, 2800, r1, r2, *(s32*)o->xb4c, 11);
         setParent_2294c8(e, &o->root);
         func_001396b0(e);
         func_00139660(e);
         func_00139688(e);
         func_00138c68(e, k * func_0023aa98((u8*)o + 456), 0);
     }
-    func_00229430(o, 2800);
+    sa__MUSICAL_SCORE_BASE__create(o, 2800);
     setParent_2294c8(&o->root, 0);
     func_00229830(o);
     o->xb44 = -1;
@@ -219,13 +219,13 @@ void MUSICAL_SCORE::setBaseParent(dk::Sprite* parent, int base) {
 }
 }  // namespace sa
 
-void func_002296f8(u8* p) {
+void sa__MUSICAL_SCORE__destroy(u8* p) {
     if (p != 0) {
         (*(void (**)(u8*))(*(u8**)p + 16))(p);
     }
 }
 
-void func_00229728(u8* o) {
+void sa__MUSICAL_SCORE__update(u8* o) {
     u32 buf[6];
     s32 i;
     s32 j;

@@ -27,14 +27,14 @@ extern char D_0036e490[]; extern char D_0036e4e0[]; extern char D_0036e4e8[]; ex
 extern char D_0036e500[]; extern char D_0036e508[]; extern char D_0036e510[]; extern char D_0036e520[];
 extern char D_01d5ba58[];
 void func_00190878(void*, s32, s32);
-s32 func_0019ba60(s32);
+s32 YS__OBJ__is_exist(s32);
 void func_001bc778(void*);
 void func_001bce90(void*, const char*, s32, void*);
 s32 func_001d4ae0(void*, void*, void*);
 s32 func_001d4bd8(void*, void*, void*);
 struct S { u32 type; s32 id; s32 pad; char buf[1]; };
 struct NoTail { ~NoTail(){} };
-s32 func_001d4940(S* p, void* a1, void* a2);  // 0x001d4940: definition moved into src/anon/unit_001d3c08.cpp
+s32 YS__SPECIAL_COMMAND___check(S* p, void* a1, void* a2);  // 0x001d4940: definition moved into src/anon/unit_001d3c08.cpp
 extern s32 D_01d9ea9c;
 extern u8* D_01d9e6e0;
 extern u8 D_01d9e360[];
@@ -53,7 +53,7 @@ s32 func_00224860(void);
 s32 func_0022b9e0(void);
 s32 func_0022b720(void);
 s32 func_00139d78(W1572_Obj*);
-void func_001386e0(W1572_Obj*, s32, s32, s32, s32, s32);
+void dk__Sprite__create(W1572_Obj*, s32, s32, s32, s32, s32);
 void func_00138c10(W1572_Obj*, s32);
-void func_002291d0(W1572_Mgr* m);  // 002291d0: moved to src/sasa/musical_score.cpp (linked unit)
+void sa__MUSICAL_SCORE1__update(W1572_Mgr* m);  // 002291d0: moved to src/sasa/musical_score.cpp (linked unit)
 }

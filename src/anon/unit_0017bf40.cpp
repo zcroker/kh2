@@ -72,7 +72,7 @@ typedef void (*Fn_00322b10_dtor)(u32);
 typedef void (*Fn_00322b10_mgr)(u32, u32);
 typedef void (*FnMgr)(u32, u32);
 
-void func_0017bf40(u32 a0) {
+void YS__COMMAND__clear(u32 a0) {
     *(u16*)(a0 + 0) = 0;
 
     u32 s0 = a0;
@@ -110,11 +110,11 @@ struct Obj {
 };
 typedef void (*VCall4)(Obj*, u32);
 u32 func_00190128(...) asm("func_00190128");
-u32 func_001b8e88(...) asm("func_001b8e88");
+u32 YS__COMMAND_ELEM__Get(...) asm("YS__COMMAND_ELEM__Get");
 typedef void (*FnA0)(u32);
 typedef void (*VirtCall)(u32 a0, u32 a1, u32 a2);
 typedef void (*VirtCall2)(u32 a0, u32 a1);
-void func_0017bfa0(u32 a0, u32 a1, u32 a2, u32 a3) asm("func_0017bfa0");
+void YS__COMMAND__set(u32 a0, u32 a1, u32 a2, u32 a3) asm("YS__COMMAND__set");
 typedef u32 (*Fn001c9110)(u32);
 struct Arg {
     u8 pad[40];
@@ -168,7 +168,7 @@ struct Auto80_199QueueCopy {
     u32 e;
 };
 
-void func_0017bfa0(u32 a0, u32 a1, u32 a2, u32 a3) {
+void YS__COMMAND__set(u32 a0, u32 a1, u32 a2, u32 a3) {
     *(u16*)(a0 + 0) = (u16)a1;
 
     u32 s0 = a0;
@@ -176,7 +176,7 @@ void func_0017bfa0(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 s1 = a2;
 
     if (a3 == 0) {
-        v0 = func_001b8e88(a1);
+        v0 = YS__COMMAND_ELEM__Get(a1);
     }
 
     u32 t7 = *(u16*)(v0 + 4);
@@ -197,8 +197,8 @@ struct Tk { u32 f0; s32 id; };
 typedef void (*VFn)(u8*);
 typedef void (*VFn3)(u8*, u32, u32);
 f32 func_0016c460(u8*, void*) asm("func_0016c460");
-void* func_00102818(u32, u32, u32, void*, u32) asm("func_00102818");
-Tk* func_00102818_t(u32, u32, u32, void*, u32) asm("func_00102818");
+void* TASK_MANAGER__create_thread(u32, u32, u32, void*, u32) asm("TASK_MANAGER__create_thread");
+Tk* func_00102818_t(u32, u32, u32, void*, u32) asm("TASK_MANAGER__create_thread");
 
 u8* func_0017c030(u8* out, u8* obj, void* a2, u8 flag) {
     u8* src = obj + 16;
@@ -215,10 +215,10 @@ struct Tk { u32 f0; s32 id; };
 typedef void (*VFn)(u8*);
 typedef void (*VFn3)(u8*, u32, u32);
 f32 func_0016c460(u8*, void*) asm("func_0016c460");
-void func_0017c4c8(u8*, void*) asm("func_0017c4c8");
+void YS__OBJ__prepare_jump(u8*, void*) asm("YS__OBJ__prepare_jump");
 void func_0017f488(u8*, u32, f32, f32) asm("func_0017f488");
-void* func_00102818(u32, u32, u32, void*, u32) asm("func_00102818");
-Tk* func_00102818_t(u32, u32, u32, void*, u32) asm("func_00102818");
+void* TASK_MANAGER__create_thread(u32, u32, u32, void*, u32) asm("TASK_MANAGER__create_thread");
+Tk* func_00102818_t(u32, u32, u32, void*, u32) asm("TASK_MANAGER__create_thread");
 u8* func_0017c030(u8* out, u8* obj, void* a2, u8 flag) asm("func_0017c030");
 
 void func_0017c0a0(u32 a0, u8* obj, u8 flag) {
@@ -227,7 +227,7 @@ void func_0017c0a0(u32 a0, u8* obj, u8 flag) {
     u32 w;
     func_0017c030(tmp, obj, &w, flag);
     asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(v), "r"(tmp) : "$8", "memory");
-    func_0017c4c8(obj, v);
+    YS__OBJ__prepare_jump(obj, v);
     func_0017f488(obj + 320, w, 0.0f, 0.0f);
     *(u32*)(obj + 256) = 4;
     *(u32*)(obj + 260) = 5;
@@ -240,8 +240,8 @@ void func_0017f540(u8*, u32, f32, f32) asm("func_0017f540");
 static inline __attribute__((always_inline)) void h_0017c108(u8* q, u32 f, u32 v) {
     if ((f & 4) || ((f & 0x10) && v)) func_0017f540(q, v, 8.0f, 0.0f);
 }
-void func_0017c108(u32 a0, u8* p, u32 a2) asm("func_0017c108");
-void func_0017c108(u32 a0, u8* p, u32 a2) { h_0017c108(p + 320, *(u32*)(p + 352), a2); }
+void YS__ACTION_IDLE__change_motion(u32 a0, u8* p, u32 a2) asm("YS__ACTION_IDLE__change_motion");
+void YS__ACTION_IDLE__change_motion(u32 a0, u8* p, u32 a2) { h_0017c108(p + 320, *(u32*)(p + 352), a2); }
 }  // namespace x4
 
 // 0017c160 (src/anon/batch_w1834.cpp)
@@ -257,10 +257,10 @@ struct W1834Obj {
 };
 s32 func_0016a070(W1834Obj*) asm("func_0016a070");
 void func_0016c168(W1834Obj*, s32) asm("func_0016c168");
-void func_0017c108(void*, W1834Obj*, s32) asm("func_0017c108");
-void func_001b3748(W1834Obj*, s32) asm("func_001b3748");
+void YS__ACTION_IDLE__change_motion(void*, W1834Obj*, s32) asm("YS__ACTION_IDLE__change_motion");
+void YS__OBJ__footprint(W1834Obj*, s32) asm("YS__OBJ__footprint");
 
-void func_0017c160(void* self, W1834Obj* o) {
+void YS__ACTION_IDLE__control(void* self, W1834Obj* o) {
     s32 r = 0;
     f32 v = o->v;
     if (v > 0.0f) {
@@ -268,8 +268,8 @@ void func_0017c160(void* self, W1834Obj* o) {
         if (!(v < (o->a + o->b) * 0.5f)) r = 2;
         if ((o->flags & 0x80) && o->sub.st == 0) {
             if (func_0016a070(o) != 14) {
-                func_001b3748(o, 10);
-                func_001b3748(o, 11);
+                YS__OBJ__footprint(o, 10);
+                YS__OBJ__footprint(o, 11);
             }
         }
     } else if (o->flags & 0x80) {
@@ -278,17 +278,17 @@ void func_0017c160(void* self, W1834Obj* o) {
             if ((u32)(s->st - 1) < 2) {
                 func_0016c168(o, 8);
                 if (func_0016a070(o) != 14) {
-                    func_001b3748(o, 8);
-                    func_001b3748(o, 9);
+                    YS__OBJ__footprint(o, 8);
+                    YS__OBJ__footprint(o, 9);
                 }
             }
         }
     }
-    func_0017c108(self, o, r);
+    YS__ACTION_IDLE__change_motion(self, o, r);
 }
 }  // namespace x5
 
-// 0017c290 (gap: the object's move direction: from func_00184540 when steered, else its velocity
+// 0017c290 (gap: the object's move direction: from kn__MotionPrototype0__calcLimitValue when steered, else its velocity
 // normalised and scaled, with the scaled copy kept at +32)
 namespace g0017c290 {
 struct V {
@@ -328,14 +328,14 @@ struct Obj {
     u32 f2064;      // 2064
 };
 extern f32 D_00349e10 asm("D_00349e10");
-V func_00184540(Obj*, f32, f32) asm("func_00184540");
+V kn__MotionPrototype0__calcLimitValue(Obj*, f32, f32) asm("kn__MotionPrototype0__calcLimitValue");
 V func_0017c290(void* self, Obj* o) asm("func_0017c290");
 V func_0017c290(void* self, Obj* o) {
-    if (o->f352 & 0x40) return func_00184540(o, o->f240, o->f240);
+    if (o->f352 & 0x40) return kn__MotionPrototype0__calcLimitValue(o, o->f240, o->f240);
     if ((bool)(o->f356 & 1)) {
         f32 y;
         if (o->f2064) y = o->p300->f40; else y = o->p300->f44;
-        return func_00184540(o, o->p300->f40, y);
+        return kn__MotionPrototype0__calcLimitValue(o, o->p300->f40, y);
     }
     V v;
     v = o->vel;

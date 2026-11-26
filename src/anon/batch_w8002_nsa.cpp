@@ -36,8 +36,8 @@ struct S1adb80 { s32 a; s32 b; };
 extern "C" {
 
 s32 func_00180dc0(void*, u16);
-s32 func_001de168(s32*, u16, s32, s32, s32, void*);
-s32 func_001b5918(s32*, void*, u16, s32);
+s32 ryj__PAX__start(s32*, u16, s32, s32, s32, void*);
+s32 YS__LIMIT__AnmatrEffect(s32*, void*, u16, s32);
 void func_0016cce8(s32, s32, Msg189d38*, s32, s32);
 struct Obj189d38 { u8 pad0[8]; u8* owner; u8 pad[0xf0-12]; s32* list; u8 pad2[8]; u8* alt; };
 struct Arg189d38 { s32 x; u16 id; };
@@ -52,7 +52,7 @@ bool func_001ca9c0(Obj1832*);
 void func_001ca910(Obj1832*);
 u8 ys_max_mp_1adb80(void*, bool) asm("_ZN2YS5SHEET6max_mpEb");
 u8 func_001a1910_u8(void*, s32, s32) asm("func_001a1910");
-void func_00189d38(Obj189d38* self, Arg189d38* arg);  // 0x00189d38: definition moved into src/anon/unit_00189d38.cpp
+void YS__ANMATR__TriggerEffect(Obj189d38* self, Arg189d38* arg);  // 0x00189d38: definition moved into src/anon/unit_00189d38.cpp
 
 
 bool func_001ca9e0(Obj1832* self);  // 0x001ca9e0: definition moved into src/anon/unit_001ca8e0.cpp

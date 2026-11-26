@@ -123,6 +123,6 @@ void func_0011bac8(MotMtx*, MotVec*);
 void func_001285f8(MotCtx*, f32, s32*, s32*);
 f32 func_00128750(MotCtx*, MotKey*, s32, s32, f32);
 
-f32 func_00129060(MotCtx* ctx, MotPose* pose, u16 idx);  // 0x00129060: definition moved into src/anon/unit_00128480.cpp
+f32 kn__MotionPrototype0__evalExpression(MotCtx* ctx, MotPose* pose, u16 idx);  // 0x00129060: definition moved into src/anon/unit_00128480.cpp
 
 }

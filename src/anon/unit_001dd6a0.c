@@ -29,7 +29,7 @@ void func_001dd568(Node**, f32*, s32, s32);
 static inline Node* nextNode(Node* n) { if (!n) return D_00352ae0.head; return n->next; }
 
 /* Depth-sort the effect node list: compute a key per node, sort, relink. */
-void func_001dd6a0(void)
+void ryj__EFFECT__SortEffect(void)
 {
     Node** nodes;
     f32* keys;

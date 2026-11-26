@@ -21,7 +21,7 @@ u32 func_00262650(void);  // 0x00262650: definition moved into src/anon/unit_002
 
 void func_00262730(void);  // 0x00262730: definition moved into src/anon/unit_0025f6b8.cpp
 
-void func_00262a30(void);  // 0x00262a30: definition moved into src/anon/unit_0025f6b8.cpp
+void Tz__CmItem__DrawUpdate(void);  // 0x00262a30: definition moved into src/anon/unit_0025f6b8.cpp
 
 void func_00262f58(void);  // 0x00262f58: definition moved into src/anon/unit_0025f6b8.cpp
 

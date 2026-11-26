@@ -67,7 +67,7 @@ extern "C" u32 func_001940f0(...);
 extern "C" u32 func_00194108(...);
 extern "C" u32 func_00195700(...);
 extern "C" u32 func_001a8b38(...);
-extern "C" u32 func_001d2180(...);
+extern "C" u32 YS__COMBOCOUNTER__reset(...);
 extern "C" void func_001bc688(...);
 extern "C" u32 func_002595e8(...);
 
@@ -305,14 +305,14 @@ extern "C" u32 func_001064a8(...);  // int_to_float_scaled
 void func_00111000(u32, f32);
 extern "C" void func_001374c8(...);
 extern "C" void func_00138190(...);
-extern "C" void func_001391f0(...);
+extern "C" void dk__Obj2D__update(...);
 extern "C" void func_001396b0(...);
 extern "C" void func_0013b8e8(...);
 extern "C" void func_001422a0(...);  // find_record16_and_copy
 u32* func_00142398(u32, u32);
 extern "C" void func_00143298(...);
 extern "C" void func_001432a8(...);
-extern "C" u32 func_001b9d40(...);  // vtable_call_slot64_flags
+extern "C" u32 YS__OBJ__can_control(...);  // vtable_call_slot64_flags
 extern "C" void func_00143e50(...);
 extern "C" void func_0014a1e0(...);
 extern "C" u32 func_0014abb8(...);  // get_data_359840
@@ -320,11 +320,11 @@ extern "C" u32 func_0014abc8(...);  // get_data_359950
 extern "C" void func_0014c940(...);
 extern "C" void func_0014c9f0(...);
 u32 func_0014ce50(f32);
-extern "C" void func_0014f578(...);
+extern "C" void dk__INFORMATION__openInformationWindow(...);
 extern "C" void func_001505b0(...);
-extern "C" void func_00151b78(...);
-extern "C" void func_00152120(...);
-extern "C" u32 func_00153468(...);
+extern "C" void dk__MISSION_GAUGE__releaseAlert(...);
+extern "C" void dk__NEXT_EXP__initNumber(...);
+extern "C" u32 dk__LEVELUP_INFO__openSummon(...);
 extern "C" void func_0015ee10(...);
 extern "C" void func_0015ee90(...);
 extern "C" void func_0015f6e8(...);
@@ -338,27 +338,27 @@ extern "C" u32 func_0016bc20(...);
 extern "C" void func_0016be98(...);
 extern "C" void func_0016c5b8(...);
 extern "C" void func_0016c640(...);
-extern "C" void func_0016ed50(...);
+extern "C" void YS__OBJENTRY__ReadRequest(...);
 extern "C" void func_00170570(...);
 extern "C" void func_00170dd0(...);
 extern "C" void func_00177dc8(...);
-extern "C" void func_0017c578(...);
+extern "C" void YS__ACTION_JUMP__start(...);
 extern "C" void func_0017f488(...);
-void func_00184540(u32, u32, f32, f32);
+void kn__MotionPrototype0__calcLimitValue(u32, u32, f32, f32);
 extern "C" void func_00185ed8(...);
-extern "C" void func_0018a818(...);
+extern "C" void YS__COLLISION__set(...);
 extern "C" void func_00190920(...);
 extern "C" void func_00191a20(...);
 extern "C" void func_00191a38(...);
-extern "C" u32 func_00191e40(...);
+extern "C" u32 YS__STATUS__IsDisableCampMenu(...);
 extern "C" u32 func_001923c8(...);
 extern "C" void func_00195858(...);
 extern "C" void func_00197cc0(...);
-extern "C" void func_00198450(...);
+extern "C" void YS__STDOBJ___OVR_initialize(...);
 extern "C" u32 func_0019f7d0(...);
 extern "C" u32 func_001a0e78(...);
 extern "C" void func_001a0ee0(...);
-extern "C" void func_001a1a20(...);
+extern "C" void YS__SHEET__add_mp(...);
 extern "C" void func_001a1db8(...);
 extern "C" u32 func_001a35f8(...);
 extern "C" void func_001a52a8(...);
@@ -366,21 +366,21 @@ extern "C" void func_001a5990(...);
 extern "C" u32 func_001a6658(...);
 extern "C" void func_001a7a48(...);
 extern "C" void func_001a7b78(...);
-extern "C" void func_001aa388(...);
+extern "C" void YS__MESSAGEDRAW__set_page(...);
 extern "C" u32 func_001ab800(...);
 extern "C" u32 func_001ab810(...);  // get_global_1c7cec0
 extern "C" void func_001ac310(...);
 extern "C" void func_001acdc0(...);
 extern "C" void func_001ad280(...);
 extern "C" void func_001ad9c8(...);  // float_accumulate_clamped
-extern "C" void func_001aedf8(...);
+extern "C" void YS__GAMEOVER__GAMEOVER(...);
 extern "C" void func_001b0210(...);
 extern "C" void func_001b1100(...);
-extern "C" u32 func_001b1490(...);
+extern "C" u32 YS__DATABUFF__ReadBar(...);
 extern "C" void func_001b3b70(...);
 extern "C" u32 func_001b58a8(...);
 extern "C" void func_001b6298(...);
-extern "C" u32 func_001b70d0(...);
+extern "C" u32 YS__LEVELUP__AddExp(...);
 extern "C" u32 func_001b77a8(...);
 u32 func_001b84b8(u32, u32, u32, u32);
 u32 func_001b8420(u32, u32, u32, u32);
@@ -392,22 +392,22 @@ extern "C" u32 func_001c11e0(...);
 extern "C" void func_001c1748(...);  // obj_init_from_src
 extern "C" u32 func_001c2b58(...);
 extern "C" u32 func_001c3748(...);
-extern "C" void func_001c79a0(...);
+extern "C" void YS__PRIZEEFFECT__get(...);
 extern "C" void func_001c8d80(...);
 extern "C" void func_001c8d98(...);
 extern "C" void func_001c8ec0(...);
-void func_001c97b0(void*, f32);
+void YS__SACRIFICE__StartPart(void*, f32);
 extern "C" void func_001d2130(...);
-extern "C" u32 func_001d35e0(...);
+extern "C" u32 YS__BGHIT__check_line(...);
 extern "C" u32 func_001d56c8(...);
-extern "C" void func_001d59b0(...);
+extern "C" void YS__LINK_FLAG__Check(...);
 extern "C" u32 func_001d5af8(...);
 extern "C" void func_001d5f30(...);
 extern "C" void func_001d71f0(...);
 extern "C" u32 func_001d83c0(...);
 void func_001d8d08(f32, u32);
 void func_001d8da0(f32, u32);
-extern "C" void func_001d8fa8(...);
+extern "C" void YS__MISSION__WarningGauge(...);
 void func_001d9050(u32, u32, f32);
 extern "C" u32 func_001d96c0(...);
 extern "C" u32 func_001db5a8(...);
@@ -421,7 +421,7 @@ extern "C" void func_001de590(...);
 extern "C" void func_001de610(...);
 extern "C" void func_001de750(...);
 extern "C" f32 func_001e09d0(...);
-extern "C" void func_001e1988(...);
+extern "C" void ryj__LAST_XEMNUS_LASER__setup(...);
 extern "C" u32 func_001e3650(...);  // ptr_add4
 extern "C" u32 func_001e3660(...);
 extern "C" u32 func_001e4248(...);
@@ -439,10 +439,10 @@ extern "C" s32 func_002249b8(...);  // get_global_36dac0
 extern "C" s32 func_002249e8(...);  // get_global_byte_36dad6
 extern "C" u32 func_00225eb8(...);
 extern "C" void func_00225fa0(...);
-extern "C" void func_00226478(...);
+extern "C" void sa__EVENT__fixAlloc(...);
 extern "C" u32 func_00227818(...);
 extern "C" u32 func_00227858(...);
-extern "C" u32 func_002282f0(...);
+extern "C" u32 sa__EVENT__checkStart(...);
 extern "C" void func_00228918(...);
 extern "C" void func_00228bd8(...);
 extern "C" s32 func_0022ab80(...);
@@ -450,9 +450,9 @@ extern "C" u32 func_002325f0(...);
 extern "C" void func_00234590(...);
 extern "C" void func_00234670(...);
 extern "C" void func_002346a0(...);
-extern "C" void func_00239988(...);
+extern "C" void YI__SEQUENCE__Init(...);
 extern "C" s32 func_00239b50(...);  // find_entry_in_group
-extern "C" u32 func_0023c5f0(...);
+extern "C" u32 YI__LAYOUT__GetAllFrame(...);
 extern "C" void func_0023d2b0(...);
 extern "C" void func_0023d410(...);
 extern "C" void func_0023ed90(...);  // set_global_byte1
@@ -462,7 +462,7 @@ extern "C" void func_0023fc08(...);
 extern "C" void func_0023fc40(...);
 extern "C" void func_0023fcd0(...);
 extern "C" u32 func_0023fd30(...);  // global_flag_nonzero
-extern "C" void func_00240360(...);
+extern "C" void Tz__MCard__MakeFname(...);
 extern "C" void func_00240be0(...);
 extern "C" void func_00240c08(...);
 extern "C" void func_002423a0(...);
@@ -470,11 +470,11 @@ extern "C" void func_00242408(...);  // set_global_crc_m1
 extern "C" void func_00242418(...);  // crc_byte_update
 extern "C" u32 func_00242708(...);
 extern "C" void func_00242880(...);
-extern "C" u32 func_0024ac88(...);
+extern "C" u32 Tz__TRTE__GetSeqInfo(...);
 extern "C" u32 func_00252110(...);
 extern "C" void func_00252ce0(...);
-extern "C" void func_00252d88(...);
-extern "C" void func_00252e50(...);
+extern "C" void Tz__ALCA__ChgMode(...);
+extern "C" void Tz__ALCA__SetMess(...);
 extern "C" void func_00253638(...);
 extern "C" void func_00253888(...);
 extern "C" void func_00253b30(...);
@@ -491,27 +491,27 @@ extern "C" void func_002597f0(...);
 extern "C" u32 func_00263cc0(...);
 extern "C" void func_00265580(...);
 extern "C" void func_002655e8(...);
-extern "C" void func_00265a30(...);
+extern "C" void Tz__CmAbility__FadeOutAll(...);
 extern "C" void func_00265ab8(...);
-extern "C" void func_0026d968(...);
+extern "C" void Tz__Selector__Init(...);
 extern "C" void func_00271e08(...);
 extern "C" void func_00271e80(...);
 extern "C" u32 func_00271ec8(...);
 extern "C" void func_00272340(...);
 extern "C" void func_002723e0(...);
-extern "C" void func_00276220(...);
-extern "C" u32 func_002764b0(...);
+extern "C" void Tz__Jiminy__SetParentSeqNum(...);
+extern "C" u32 Tz__Jiminy__AreaWorld2JmWorld(...);
 extern "C" u32 func_00276c18(...);
 extern "C" void func_0027a180(...);
 extern "C" void func_0027a898(...);
 extern "C" void func_0027acf8(...);
-extern "C" void func_002818b8(...);
+extern "C" void Tz__ItemPicDraw__Create(...);
 extern "C" u32 func_00281c30(...);
 extern "C" void func_00281f40(...);
 extern "C" void func_00281f48(...);  // memset_1920
 extern "C" void func_00281f70(...);
 extern "C" void func_00281f90(...);
-extern "C" u32 func_002833f8(...);
+extern "C" u32 Tz__CmTutorial__CreateList(...);
 extern "C" void func_002835a8(...);
 extern "C" void func_002835d8(...);
 extern "C" void func_00283d00(...);
@@ -521,7 +521,7 @@ extern "C" void func_00287c78(...);
 extern "C" void func_00287da0(...) asm("_ZN2Tz8MenuBase7SetExitEv");
 extern "C" u32 func_00288be8(...);
 extern "C" u32 func_002891e8(...);
-extern "C" void func_002891f0(...);
+extern "C" void Tz__Select__SetCurrent(...);
 extern "C" void func_0028abe0(...);
 extern "C" u32 func_0028acc8(...);
 extern "C" u32 func_0028be58(...);
@@ -529,7 +529,7 @@ extern "C" void func_0028ce38(...);
 extern "C" u32 func_0028d6e8(...) asm("_ZN2Tz8LightCur7isExistEv");
 extern "C" void func_00256ea8(...) asm("_ZN2Tz5CmTop12LeavePadHelpEv");
 extern "C" void func_0028f4d8(...);
-extern "C" void func_0028f6f0(...);  // record884_refresh_by_index
+extern "C" void Tz__SelHist__FadeOut(...);  // record884_refresh_by_index
 extern "C" void func_0028f7e8(...);
 extern "C" u32 func_00290940(...);
 extern "C" u32 func_00290960(...);
@@ -541,13 +541,13 @@ extern "C" void func_00293bd0(...);
 extern "C" void func_00293cb8(...);
 extern "C" void func_00294288(...);
 extern "C" void func_00295508(...);
-extern "C" void func_002955a8(...);
+extern "C" void Tz__JmWorldSel__DrawUpdate(...);
 extern "C" u32 func_002a43f0(...);
 extern "C" void func_002a67a8(...);
 extern "C" void func_002a73d0(...);
 extern "C" void func_002a8258(...);
 extern "C" void func_002a94f8(...);
-extern "C" void func_002b4b00(...);
+extern "C" void OvlShop__ItemShop__SetupConfirm(...);
 extern "C" u32 func_002b6e24(...);
 extern "C" u32 func_002b6f28(...);
 extern "C" void func_002b7078(...);
@@ -563,15 +563,15 @@ extern "C" u32 func_002ba810(...);
 extern "C" void func_002baa08(...);
 extern "C" void func_002baa60(...);
 extern "C" void func_002bbed0(...);
-extern "C" void func_002bbf18(...);
+extern "C" void SOUND__silentBgSeOff(...);
 extern "C" void func_002bc188(...);
 extern "C" void func_002bc470(...);
 extern "C" void func_002bc608(...);
 extern "C" void func_002bd760(...);
 extern "C" void func_002bd7d8(...);
-extern "C" void func_002be0b0(...);  // quad_entry_process
+extern "C" void worldmap__Libretto__leaveObj(...);  // quad_entry_process
 u32 func_002be5b8();
-extern "C" void func_002c0ca0(...);
+extern "C" void dk__WM_TOTAL_INFO__WM_TOTAL_INFO(...);
 extern "C" void func_002c1b60(...);
 extern "C" u32 func_002c5140(...);
 extern "C" void func_002c6158(...);
@@ -579,20 +579,20 @@ extern "C" u32 func_002cab48(...);
 extern "C" void func_002cb7c0(...);
 extern "C" void func_002cbd08(...);
 extern "C" void func_002cd260(...);
-extern "C" void func_002cd290(...);
+extern "C" void Ti__Path__reset_active_path(...);
 void func_002cd910(f32);  // split_float_call
 extern "C" void func_002cf268(...);
 extern "C" void func_002cff50(...);
 extern "C" void func_002d0070(...);
 extern "C" void func_002d08b8(...);
 extern "C" u32 func_002d1260(...);
-extern "C" void func_002d1550(...);
+extern "C" void Ti__MGOarashi__MGOarashi(...);
 extern "C" u32 func_002d1878(...);
 extern "C" void func_002d2948(...);
 extern "C" u32 func_002d5578(...);  // is_field340_eq151
 extern "C" void func_002d5950(...);
-extern "C" void func_002d5b48(...);
-extern "C" void func_002dc4e0(...);
+extern "C" void Ti__MGOarashiPlayer__stop_tornado_attack(...);
+extern "C" void Ti__MGJump__MGJump(...);
 extern "C" u32 func_002dc7c8(...);
 extern "C" void func_002dd2d8(...);
 void func_002e7108(u32, f32);
@@ -629,7 +629,7 @@ extern "C" void func_00324718(...);
 // ---- Additional function declarations needed from solver_decls ----
 
 extern "C" u32 func_0011d440(...);
-extern "C" u32 func_0017dbb8(...);
+extern "C" u32 YS__FRIEND___OVR_initialize(...);
 extern "C" u32 func_00227d10(...);
 
 
@@ -640,7 +640,7 @@ extern u8 D_0036a070;
 extern "C" u32 srand(...);
 
 
-extern "C" u32 func_0019ba60(...);
+extern "C" u32 YS__OBJ__is_exist(...);
 
 u32 func_00112c80(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);  // 0x00112c80: definition moved into src/anon/unit_001117d8.cpp
 
@@ -816,7 +816,7 @@ extern u8 D_003479a8;
 extern "C" u32 func_0011ef20(...);
 
 
-extern "C" u32 func_0011f7a8(...);
+extern "C" u32 kn__ModelBG__drawCommon(...);
 
 
 extern "C" u32 func_0011ee58(...);  // set_vtbl_347940
@@ -887,11 +887,11 @@ extern "C" u32 func_00133630(...);
 
 
 
-extern "C" u32 func_0023a0d8(...);
+extern "C" u32 YI__SEQUENCE__UpdateActive(...);
 
 u32 func_0023a950(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);  // 0x0023a950: definition moved into src/anon/unit_00239988.cpp
 
-extern "C" u32 func_0023a0d8(...);
+extern "C" u32 YI__SEQUENCE__UpdateActive(...);
 
 u32 func_0023a988(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);  // 0x0023a988: definition moved into src/anon/unit_00239988.cpp
 
@@ -1111,7 +1111,7 @@ extern "C" u32 func_0019c400(...);
 
 
 extern "C" u32 func_0016cb88(...);
-extern "C" u32 func_0016cba0(...);
+extern "C" u32 YS__VM__call_pc(...);
 
 
 extern "C" u32 func_0019ec88(...);
@@ -1263,7 +1263,7 @@ extern "C" u32 func_00198bd0(...);
 
 // 00198d20: moved to src/anon/unit_00198b88.cpp
 
-extern "C" u32 func_001a7790(...);
+extern "C" u32 YS__BG__IsCulling(...);
 
 extern "C" u32 func_0016a070(...);
 
@@ -1272,15 +1272,15 @@ extern "C" u32 func_00154b80(...);
 
 void func_0019cbe8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);  // 0x0019cbe8: definition moved into src/anon/unit_0019ba60.cpp
 
-extern "C" u32 func_0013e4b8(...);
+extern "C" u32 dk__LockOn__end(...);
 
 void func_0019d228(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);  // 0x0019d228: definition moved into src/anon/unit_0019ba60.cpp
 
-extern "C" u32 func_0019ba60(...);
+extern "C" u32 YS__OBJ__is_exist(...);
 
 u32 func_0019d4a8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);  // 0x0019d4a8: definition moved into src/anon/unit_0019ba60.cpp
 
-extern "C" u32 func_0013e4b8(...);
+extern "C" u32 dk__LockOn__end(...);
 
 void func_0019d548(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);  // 0x0019d548: definition moved into src/anon/unit_0019ba60.cpp
 
@@ -1296,7 +1296,7 @@ extern u8 D_003507a0;
 
 
 extern "C" u32 func_001c1708(...);
-extern "C" u32 func_001c7ee0(...);
+extern "C" u32 YS__PRIZE_MU__ClearAll(...);
 
 // 001a58f8: moved to src/anon/unit_001a4db0.cpp
 
@@ -1418,10 +1418,10 @@ extern "C" u32 func_001a4db0(...);
 extern u8 D_003520d0;
 
 
-extern "C" u32 func_002875e8(...);
+extern "C" u32 Tz__Mg2DTron__Mg2DTron(...);
 
 
-extern "C" u32 func_002875e8(...);
+extern "C" u32 Tz__Mg2DTron__Mg2DTron(...);
 
 
 extern "C" u32 func_00287760(...);
@@ -1448,16 +1448,16 @@ extern "C" u32 func_001d1678(...);  // obj_init_28bytes
 
 extern "C" u32 func_0014fb60(...);
 
-void func_001d1ed0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);  // 0x001d1ed0: definition moved into src/anon/unit_001d14e0.cpp
+void YS__MISSION_GAUGE__destroy(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);  // 0x001d1ed0: definition moved into src/anon/unit_001d14e0.cpp
 
 extern "C" u32 func_0014fb40(...);
 
-u32 func_001d1f08(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);  // 0x001d1f08: definition moved into src/anon/unit_001d14e0.cpp
+u32 YS__MISSION_GAUGE__is_open(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);  // 0x001d1f08: definition moved into src/anon/unit_001d14e0.cpp
 
 extern "C" u32 func_001d2110(...);
 
 
-extern "C" u32 func_0014f5d0(...);
+extern "C" u32 dk__INFORMATION__closeInformationWindow(...);
 
 void func_001d2710(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);  // 0x001d2710: definition moved into src/anon/unit_001d14e0.cpp
 
@@ -1563,7 +1563,7 @@ extern "C" u32 func_00170c50(...);
 u32 func_00225a30(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);  // 0x00225a30: definition moved into src/anon/unit_00224780.cpp
 
 extern "C" u32 func_00224e90(...);
-extern "C" u32 func_00225b00(...);  // flag_query_by_index
+extern "C" u32 sa__EVENT__isJumpMode(...);  // flag_query_by_index
 
 u32 func_00225b50(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);  // 0x00225b50: definition moved into src/anon/unit_00224780.cpp
 
@@ -1820,7 +1820,7 @@ u32 duplicate_unplaced_00276638(u32 a0) {
 }
 
 extern "C" u32 func_00192048(...);
-extern "C" u32 func_00276c88(...);
+extern "C" u32 Tz__Jiminy__CreateHelp(...);
 
 u32 duplicate_unplaced_00276c50(u32 a0, u32 a1) {
     u32 r4 = a0, r5 = a1, r2, r16;
@@ -1831,7 +1831,7 @@ u32 duplicate_unplaced_00276c50(u32 a0, u32 a1) {
     }
     r5 = r16;
     r4 = r2;
-    return ((u32(*)(u32,u32))func_00276c88)(r4, r5);
+    return ((u32(*)(u32,u32))Tz__Jiminy__CreateHelp)(r4, r5);
 }
 
 extern "C" u32 func_00139510(...);
@@ -1889,12 +1889,12 @@ extern "C" u32 func_0028dac8(...);
 u32 func_0027dbd8(u32 a0, u32 a1);  // 0x0027dbd8: definition moved into src/anon/unit_0027d2e8.cpp
 
 extern "C" u32 func_002800d0(...) asm("_ZN2Tz9GumiPause12UpdateAdviceEv");
-extern "C" u32 func_00280148(...);
+extern "C" u32 Tz__GumiPause__CreateAdvice(...);
 extern "C" u32 func_00287cc0(...);
 
 u32 duplicate_unplaced_0027f9b0(u32 a0) {
     u32 r4 = a0, r2;
-    r2 = ((u32(*)())func_00280148)();
+    r2 = ((u32(*)())Tz__GumiPause__CreateAdvice)();
     r2 = ((u32(*)())func_002800d0)();
     r4 = 0u;
     return ((u32(*)(u32))func_00287cc0)(r4);
@@ -2214,11 +2214,11 @@ extern "C" u32 func_00294ea8(...);
 
 u32 func_002945a8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);  // 0x002945a8: definition moved into src/anon/unit_00292e60.cpp
 
-extern "C" u32 func_002953c8(...);
+extern "C" u32 Tz__JmWorldSel__GetId2Info(...);
 
 u32 duplicate_unplaced_002954e0(u32 a0) {
     u32 r4 = a0, r2;
-    u32 (*fp_call0_002953c8)() = (u32(*)())func_002953c8;
+    u32 (*fp_call0_002953c8)() = (u32(*)())Tz__JmWorldSel__GetId2Info;
     r2 = fp_call0_002953c8();
     r4 = r2;
     u32 (*fp_call4_002941a8)(u32) = (u32(*)(u32))func_002941a8;
@@ -2226,7 +2226,7 @@ u32 duplicate_unplaced_002954e0(u32 a0) {
     return r2;
 }
 
-extern "C" u32 func_00295158(...);
+extern "C" u32 Tz__JmWorldSel__GetCur2Idx(...);
 
 u32 duplicate_unplaced_002956c0(u32 a0) {
     u32 r4 = a0, r2, r16, r17;
@@ -2236,7 +2236,7 @@ u32 duplicate_unplaced_002956c0(u32 a0) {
     r2 = fp_call4_00294000(r4);
     r4 = r17;
     r16 = (u32)((s32)r2 + (16));
-    u32 (*fp_call4_00295158)(u32) = (u32(*)(u32))func_00295158;
+    u32 (*fp_call4_00295158)(u32) = (u32(*)(u32))Tz__JmWorldSel__GetCur2Idx;
     r2 = fp_call4_00295158(r4);
     r2 = (u32)(r2 << 4);
     r16 = (u32)(r16 + r2);
@@ -2248,7 +2248,7 @@ u32 duplicate_unplaced_002956c0(u32 a0) {
 
 extern "C" u32 func_00274ac8(...) asm("_ZN2Tz6Jiminy13JmCommonLeaveEv");
 extern "C" u32 func_00287bc0(...);
-extern "C" u32 func_00296ab0(...);
+extern "C" u32 Tz__JmReport__LeaveAll(...);
 
 u32 func_00295868(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);  // 0x00295868: definition moved into src/anon/unit_00292e60.cpp
 
@@ -2301,7 +2301,7 @@ extern "C" u32 func_00274ac8(...) asm("_ZN2Tz6Jiminy13JmCommonLeaveEv");
 extern "C" u32 func_00287bc0(...);
 extern "C" u32 func_0029a310(...);
 
-u32 func_002995a8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);  // 0x002995a8: definition moved into src/anon/unit_002982f0.cpp
+u32 Tz__JmCollection__LeaveAll(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);  // 0x002995a8: definition moved into src/anon/unit_002982f0.cpp
 
 
 
@@ -2443,11 +2443,11 @@ extern "C" u32 func_001058e8(...);
 u32 func_002b2338(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);  // 0x002b2338: definition moved into src/anon/unit_002b1db8.cpp
 
 extern "C" u32 func_002ac678(...);
-extern "C" u32 func_002b23e0(...);  // list_entry_by_index_checked
+extern "C" u32 Tz__JmPuzzle__GetImageInfo(...);  // list_entry_by_index_checked
 
 u32 duplicate_unplaced_002b3420(u32 a0) {
     u32 r4 = a0, r2;
-    r2 = ((u32(*)())func_002b23e0)();
+    r2 = ((u32(*)())Tz__JmPuzzle__GetImageInfo)();
     r4 = (u32)(*(u8*)((u32)r2 + (s32)(2)));
     return ((u32(*)(u32))func_002ac678)(r4);
 }
@@ -2469,7 +2469,7 @@ extern "C" u32 func_002b9b78(...);
 extern "C" u32 func_002b9ed0(...);
 extern "C" u32 func_002ba390(...);
 extern "C" u32 func_002bce40(...);
-extern "C" u32 func_002bce50(...);
+extern "C" u32 SE_BANK__clearField(...);
 extern u8 D_01e2a410;
 
 u32 duplicate_unplaced_002b9e80(u32 a0) {
@@ -2480,7 +2480,7 @@ u32 duplicate_unplaced_002b9e80(u32 a0) {
     r4 = r16;
     r2 = ((u32(*)(u32))func_002bce40)(r4);
     r4 = r16;
-    r2 = ((u32(*)(u32))func_002bce50)(r4);
+    r2 = ((u32(*)(u32))SE_BANK__clearField)(r4);
     r2 = ((u32(*)())func_002b9b78)();
     r2 = ((u32(*)())func_002ba390)();
     return ((u32(*)())func_002b9ed0)();
@@ -2497,12 +2497,12 @@ extern u8 D_01e2a400;
 
 
 extern "C" u32 func_002bb228(...);
-extern "C" u32 func_002bc158(...);
+extern "C" u32 SOUND__allocSe(...);
 
 u32 func_002bc1e8(u32 a0, u32 a1);  // 0x002bc1e8: definition moved into src/anon/unit_002bb8b0.cpp
 
 extern "C" u32 func_002bb270(...);
-extern "C" u32 func_002bc158(...);
+extern "C" u32 SOUND__allocSe(...);
 
 u32 func_002bc238(u32 a0, u32 a1);  // 0x002bc238: definition moved into src/anon/unit_002bb8b0.cpp
 
@@ -2546,7 +2546,7 @@ extern "C" u32 func_002f17e0(...);
 
 
 extern "C" u32 func_001b6d70(...);  // table_entry_ptr_b
-extern "C" u32 func_002bf650(...);
+extern "C" u32 worldmap__Symbol__setState(...);
 
 u32 duplicate_unplaced_002bf618(u32 a0, u32 a1) {
     u32 r4 = a0, r5 = a1, r2, r15, r16;
@@ -2556,7 +2556,7 @@ u32 duplicate_unplaced_002bf618(u32 a0, u32 a1) {
     r2 = ((u32(*)(u32,u32))func_001b6d70)(r4, r5);
     r4 = r16;
     r5 = r2;
-    return ((u32(*)(u32,u32))func_002bf650)(r4, r5);
+    return ((u32(*)(u32,u32))worldmap__Symbol__setState)(r4, r5);
 }
 
 extern "C" u32 func_00105110(...);
@@ -2625,7 +2625,7 @@ extern u8 D_00361ca0;
 extern "C" u32 func_001984b8(...);
 extern "C" u32 func_001dc920(...);
 
-u32 func_002c56d0(u32 a0);  // 0x002c56d0: definition moved into src/anon/unit_002c53c8.cpp
+u32 dk__WM_OBJ___OVR__destroy(u32 a0);  // 0x002c56d0: definition moved into src/anon/unit_002c53c8.cpp
 
 extern "C" u32 func_0016bd60(...);
 extern "C" u32 func_001780d8(...);
@@ -2717,7 +2717,7 @@ u32 func_002cec20(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7
 extern "C" u32 func_002cec08(...);
 
 
-extern "C" u32 func_0019f9a8(...);  // array8_free_slots
+extern "C" u32 YS__OBJ_ATTACK__clear(...);  // array8_free_slots
 extern "C" u32 func_001c0248(...);
 extern "C" u32 func_00319fb0(...);  // big_obj_dtor
 extern u8 D_0034ee08;
@@ -2728,7 +2728,7 @@ u32 duplicate_unplaced_002cff98(u32 a0) {
     r16 = r4;
     *(volatile u32*)((u32)r16 + (s32)(0)) = r15;
     r4 = (u32)((s32)r4 + (2568));
-    u32 (*fp_call4_0019f9a8)(u32) = (u32(*)(u32))func_0019f9a8;
+    u32 (*fp_call4_0019f9a8)(u32) = (u32(*)(u32))YS__OBJ_ATTACK__clear;
     r2 = fp_call4_0019f9a8(r4);
     r4 = (u32)((s32)r16 + (2640));
     u32 (*fp_call4_001c0248)(u32) = (u32(*)(u32))func_001c0248;
@@ -2739,7 +2739,7 @@ u32 duplicate_unplaced_002cff98(u32 a0) {
     return r2;
 }
 
-extern "C" u32 func_0019f9a8(...);  // array8_free_slots
+extern "C" u32 YS__OBJ_ATTACK__clear(...);  // array8_free_slots
 extern "C" u32 func_001c0248(...);
 extern "C" u32 func_00319fb0(...);  // big_obj_dtor
 extern u8 D_0034ee08;
@@ -2750,7 +2750,7 @@ u32 duplicate_unplaced_002cffe0(u32 a0) {
     r16 = r4;
     *(volatile u32*)((u32)r16 + (s32)(0)) = r15;
     r4 = (u32)((s32)r4 + (2568));
-    u32 (*fp_call4_0019f9a8)(u32) = (u32(*)(u32))func_0019f9a8;
+    u32 (*fp_call4_0019f9a8)(u32) = (u32(*)(u32))YS__OBJ_ATTACK__clear;
     r2 = fp_call4_0019f9a8(r4);
     r4 = (u32)((s32)r16 + (2640));
     u32 (*fp_call4_001c0248)(u32) = (u32(*)(u32))func_001c0248;
@@ -2762,7 +2762,7 @@ u32 duplicate_unplaced_002cffe0(u32 a0) {
 }
 
 extern "C" u32 func_00105110(...);
-extern "C" u32 func_0019f9a8(...);  // array8_free_slots
+extern "C" u32 YS__OBJ_ATTACK__clear(...);  // array8_free_slots
 extern "C" u32 func_001c0248(...);
 extern "C" u32 func_00319fb0(...);  // big_obj_dtor
 extern u8 D_0034ee08;
@@ -2773,7 +2773,7 @@ u32 duplicate_unplaced_002d0028(u32 a0) {
     r16 = r4;
     *(volatile u32*)((u32)r16 + (s32)(0)) = r15;
     r4 = (u32)((s32)r4 + (2568));
-    r2 = ((u32(*)(u32))func_0019f9a8)(r4);
+    r2 = ((u32(*)(u32))YS__OBJ_ATTACK__clear)(r4);
     r4 = (u32)((s32)r16 + (2640));
     r2 = ((u32(*)(u32))func_001c0248)(r4);
     r4 = r16;
@@ -2785,7 +2785,7 @@ u32 duplicate_unplaced_002d0028(u32 a0) {
 extern "C" u32 func_00186020(...);
 extern "C" u32 func_001dc818(...);
 
-u32 func_002d0d48(u32 a0);  // 0x002d0d48: definition moved into src/anon/unit_002cf260.cpp
+u32 Ti__MGObj___OVR_leave_req(u32 a0);  // 0x002d0d48: definition moved into src/anon/unit_002cf260.cpp
 
 extern "C" u32 func_002cea28(...);
 extern u8 D_00362158;
@@ -3037,7 +3037,7 @@ u32 duplicate_unplaced_002db730(u32 a0) {
 }
 
 extern "C" u32 func_0016a9a0(...);  // to_16a950
-extern "C" u32 func_002db610(...);
+extern "C" u32 Ti__MGHachimitsuPod__set_run_effect(...);
 
 u32 duplicate_unplaced_002db7d0(u32 a0, u32 a1) {
     u32 r4 = a0, r5 = a1, r2, r15, r16;
@@ -3048,7 +3048,7 @@ u32 duplicate_unplaced_002db7d0(u32 a0, u32 a1) {
     r5 = (u32)((s32)0u + (-1));
     r15 = (u32)(r15 & 0x0001u);
     if (r15 != 0u) r5 = 0u;
-    return ((u32(*)(u32,u32))func_002db610)(r4, r5);
+    return ((u32(*)(u32,u32))Ti__MGHachimitsuPod__set_run_effect)(r4, r5);
 }
 
 extern "C" u32 func_002e7328(...);  // to_2e7458
@@ -3216,7 +3216,7 @@ extern "C" u32 func_002dc7e8(...);
 
 
 extern "C" u32 func_001050d8(...);
-extern "C" u32 func_002e0d28(...);
+extern "C" u32 Ti__MG_ALEscape__MG_ALEscape(...);
 
 u32 duplicate_unplaced_002e0bb0(u32 a0, u32 a1) {
     u32 r4 = a0, r5 = a1, r2, r16;
@@ -3225,7 +3225,7 @@ u32 duplicate_unplaced_002e0bb0(u32 a0, u32 a1) {
     r2 = ((u32(*)(u32,u32))func_001050d8)(r4, r5);
     r5 = r16;
     r4 = r2;
-    return ((u32(*)(u32,u32))func_002e0d28)(r4, r5);
+    return ((u32(*)(u32,u32))Ti__MG_ALEscape__MG_ALEscape)(r4, r5);
 }
 
 extern "C" u32 func_002e34d8(...);  // list_walk_stride12
@@ -3338,24 +3338,24 @@ extern "C" u32 func_0016bd60(...);
 
 
 extern "C" u32 func_0016bd60(...);
-extern "C" u32 func_0017c430(...);
+extern "C" u32 YS__OBJ__prepare_jump_height(...);
 
 u32 duplicate_unplaced_002eaaf0(u32 a0, u32 a1) {
     u32 r4 = a0, r5 = a1, r2, r16;
     r16 = r4;
-    r2 = ((u32(*)(u32,u32))func_0017c430)(r4, r5);
+    r2 = ((u32(*)(u32,u32))YS__OBJ__prepare_jump_height)(r4, r5);
     r4 = r16;
     r5 = (u32)((s32)0u + (44));
     return ((u32(*)(u32,u32))func_0016bd60)(r4, r5);
 }
 
 extern "C" u32 func_0016bd60(...);
-extern "C" u32 func_0017c430(...);
+extern "C" u32 YS__OBJ__prepare_jump_height(...);
 
 u32 duplicate_unplaced_002eb4b0(u32 a0, u32 a1) {
     u32 r4 = a0, r5 = a1, r2, r15, r16;
     r16 = r4;
-    r2 = ((u32(*)(u32,u32))func_0017c430)(r4, r5);
+    r2 = ((u32(*)(u32,u32))YS__OBJ__prepare_jump_height)(r4, r5);
     r15 = (u32)((s32)0u + (256));
     *(volatile u32*)((u32)r16 + (s32)(256)) = r15;
     r4 = r16;
@@ -3427,12 +3427,12 @@ u32 duplicate_unplaced_002efb60(u32 a0) {
 }
 
 extern "C" u32 func_0016bd60(...);
-extern "C" u32 func_0017c430(...);
+extern "C" u32 YS__OBJ__prepare_jump_height(...);
 
 u32 duplicate_unplaced_002f05d8(u32 a0, u32 a1) {
     u32 r4 = a0, r5 = a1, r2, r16;
     r16 = r4;
-    r2 = ((u32(*)(u32,u32))func_0017c430)(r4, r5);
+    r2 = ((u32(*)(u32,u32))YS__OBJ__prepare_jump_height)(r4, r5);
     r4 = r16;
     r5 = (u32)((s32)0u + (63));
     return ((u32(*)(u32,u32))func_0016bd60)(r4, r5);
@@ -3453,7 +3453,7 @@ u32 duplicate_unplaced_002f0708(u32 a0, u32 a1) {
 }
 
 extern "C" u32 func_0010c7e8(...);
-extern "C" u32 func_00119e60(...);
+extern "C" u32 kn__Genie__changeForm(...);
 
 u32 duplicate_unplaced_002f08d8(u32 a0, u32 a1) {
     u32 r4 = a0, r5 = a1, r2, r15, r16;
@@ -3463,11 +3463,11 @@ u32 duplicate_unplaced_002f08d8(u32 a0, u32 a1) {
     r2 = ((u32(*)(u32,u32))func_0010c7e8)(r4, r5);
     r5 = *(volatile u32*)((u32)r16 + (s32)(4));
     r4 = r2;
-    return ((u32(*)(u32,u32))func_00119e60)(r4, r5);
+    return ((u32(*)(u32,u32))kn__Genie__changeForm)(r4, r5);
 }
 
 extern "C" u32 func_0010c7e8(...);
-extern "C" u32 func_00119830(...);
+extern "C" u32 kn__Stitch__shotEffect(...);
 
 u32 duplicate_unplaced_002f09d8(u32 a0, u32 a1) {
     u32 r4 = a0, r5 = a1, r2, r15, r16;
@@ -3477,7 +3477,7 @@ u32 duplicate_unplaced_002f09d8(u32 a0, u32 a1) {
     r2 = ((u32(*)(u32,u32))func_0010c7e8)(r4, r5);
     r5 = *(volatile u32*)((u32)r16 + (s32)(4));
     r4 = r2;
-    return ((u32(*)(u32,u32))func_00119830)(r4, r5);
+    return ((u32(*)(u32,u32))kn__Stitch__shotEffect)(r4, r5);
 }
 
 extern "C" u32 func_0010c7e8(...);
@@ -3800,18 +3800,18 @@ extern u8 D_00347e60;
 extern u8 D_00347f98;
 
 
-extern "C" u32 func_00138988(...);
-extern "C" u32 func_00138de0(...);
+extern "C" u32 dk__Sprite__draw(...);
+extern "C" u32 dk__SpriteMessage__drawMessage(...);
 extern "C" u32 func_0014b9a8(...);
 
 u32 duplicate_unplaced_0031c068(u32 a0) {
     u32 r4 = a0, r2, r16;
     r16 = r4;
-    r2 = ((u32(*)(u32))func_00138988)(r4);
+    r2 = ((u32(*)(u32))dk__Sprite__draw)(r4);
     r4 = (u32)((s32)r16 + (448));
     r2 = ((u32(*)(u32))func_0014b9a8)(r4);
     r4 = r16;
-    r2 = ((u32(*)(u32))func_00138de0)(r4);
+    r2 = ((u32(*)(u32))dk__SpriteMessage__drawMessage)(r4);
     r16 = (u32)((s32)r16 + (480));
     r4 = r16;
     return ((u32(*)(u32))func_0014b9a8)(r4);
@@ -3931,7 +3931,7 @@ extern "C" u32 func_001b0188(...);
 extern u8 D_00350e48;
 
 
-extern "C" u32 func_0019f9a8(...);  // array8_free_slots
+extern "C" u32 YS__OBJ_ATTACK__clear(...);  // array8_free_slots
 extern "C" u32 func_001c0248(...);
 extern "C" u32 func_00319fb0(...);  // big_obj_dtor
 extern u8 D_0034ee08;
@@ -3942,7 +3942,7 @@ u32 duplicate_unplaced_0031eb68(u32 a0) {
     r16 = r4;
     *(volatile u32*)((u32)r16 + (s32)(0)) = r15;
     r4 = (u32)((s32)r4 + (2568));
-    u32 (*fp_call4_0019f9a8)(u32) = (u32(*)(u32))func_0019f9a8;
+    u32 (*fp_call4_0019f9a8)(u32) = (u32(*)(u32))YS__OBJ_ATTACK__clear;
     r2 = fp_call4_0019f9a8(r4);
     r4 = (u32)((s32)r16 + (2640));
     u32 (*fp_call4_001c0248)(u32) = (u32(*)(u32))func_001c0248;
@@ -3954,7 +3954,7 @@ u32 duplicate_unplaced_0031eb68(u32 a0) {
 }
 
 extern "C" u32 func_00105110(...);
-extern "C" u32 func_0019f9a8(...);  // array8_free_slots
+extern "C" u32 YS__OBJ_ATTACK__clear(...);  // array8_free_slots
 extern "C" u32 func_001c0248(...);
 extern "C" u32 func_00319fb0(...);  // big_obj_dtor
 extern u8 D_0034ee08;
@@ -3965,7 +3965,7 @@ u32 duplicate_unplaced_0031ebb0(u32 a0) {
     r16 = r4;
     *(volatile u32*)((u32)r16 + (s32)(0)) = r15;
     r4 = (u32)((s32)r4 + (2568));
-    r2 = ((u32(*)(u32))func_0019f9a8)(r4);
+    r2 = ((u32(*)(u32))YS__OBJ_ATTACK__clear)(r4);
     r4 = (u32)((s32)r16 + (2640));
     r2 = ((u32(*)(u32))func_001c0248)(r4);
     r4 = r16;
@@ -4003,7 +4003,7 @@ u32 duplicate_unplaced_0031f238(u32 a0) {
 }
 
 extern "C" u32 func_00105110(...);
-extern "C" u32 func_0019f9a8(...);  // array8_free_slots
+extern "C" u32 YS__OBJ_ATTACK__clear(...);  // array8_free_slots
 extern "C" u32 func_001c0248(...);
 extern "C" u32 func_00319fb0(...);  // big_obj_dtor
 extern u8 D_0034ee08;
@@ -4014,7 +4014,7 @@ u32 duplicate_unplaced_0031f340(u32 a0) {
     r16 = r4;
     *(volatile u32*)((u32)r16 + (s32)(0)) = r15;
     r4 = (u32)((s32)r4 + (2568));
-    r2 = ((u32(*)(u32))func_0019f9a8)(r4);
+    r2 = ((u32(*)(u32))YS__OBJ_ATTACK__clear)(r4);
     r4 = (u32)((s32)r16 + (2640));
     r2 = ((u32(*)(u32))func_001c0248)(r4);
     r4 = r16;
@@ -4094,7 +4094,7 @@ u32 duplicate_unplaced_00320118(u32 a0) {
 }
 
 extern "C" u32 func_00105110(...);
-extern "C" u32 func_0019f9a8(...);  // array8_free_slots
+extern "C" u32 YS__OBJ_ATTACK__clear(...);  // array8_free_slots
 extern "C" u32 func_001c0248(...);
 extern "C" u32 func_00319fb0(...);  // big_obj_dtor
 extern u8 D_0034ee08;
@@ -4105,7 +4105,7 @@ u32 duplicate_unplaced_00320198(u32 a0) {
     r16 = r4;
     *(volatile u32*)((u32)r16 + (s32)(0)) = r15;
     r4 = (u32)((s32)r4 + (2568));
-    r2 = ((u32(*)(u32))func_0019f9a8)(r4);
+    r2 = ((u32(*)(u32))YS__OBJ_ATTACK__clear)(r4);
     r4 = (u32)((s32)r16 + (2640));
     r2 = ((u32(*)(u32))func_001c0248)(r4);
     r4 = r16;
@@ -4115,7 +4115,7 @@ u32 duplicate_unplaced_00320198(u32 a0) {
 }
 
 extern "C" u32 func_00105110(...);
-extern "C" u32 func_0019f9a8(...);  // array8_free_slots
+extern "C" u32 YS__OBJ_ATTACK__clear(...);  // array8_free_slots
 extern "C" u32 func_001c0248(...);
 extern "C" u32 func_00319fb0(...);  // big_obj_dtor
 extern u8 D_0034ee08;
@@ -4126,7 +4126,7 @@ u32 duplicate_unplaced_00320290(u32 a0) {
     r16 = r4;
     *(volatile u32*)((u32)r16 + (s32)(0)) = r15;
     r4 = (u32)((s32)r4 + (2568));
-    r2 = ((u32(*)(u32))func_0019f9a8)(r4);
+    r2 = ((u32(*)(u32))YS__OBJ_ATTACK__clear)(r4);
     r4 = (u32)((s32)r16 + (2640));
     r2 = ((u32(*)(u32))func_001c0248)(r4);
     r4 = r16;
@@ -4178,7 +4178,7 @@ u32 duplicate_unplaced_003207c8(u32 a0) {
 }
 
 extern "C" u32 func_00105110(...);
-extern "C" u32 func_0019f9a8(...);  // array8_free_slots
+extern "C" u32 YS__OBJ_ATTACK__clear(...);  // array8_free_slots
 extern "C" u32 func_001c0248(...);
 extern "C" u32 func_00319fb0(...);  // big_obj_dtor
 extern u8 D_0034ee08;
@@ -4189,7 +4189,7 @@ u32 duplicate_unplaced_00320bc0(u32 a0) {
     r16 = r4;
     *(volatile u32*)((u32)r16 + (s32)(0)) = r15;
     r4 = (u32)((s32)r4 + (2568));
-    r2 = ((u32(*)(u32))func_0019f9a8)(r4);
+    r2 = ((u32(*)(u32))YS__OBJ_ATTACK__clear)(r4);
     r4 = (u32)((s32)r16 + (2640));
     r2 = ((u32(*)(u32))func_001c0248)(r4);
     r4 = r16;
@@ -4220,12 +4220,12 @@ u32 duplicate_unplaced_00321648(u32 a0) {
     r15 = (u32)&D_00352560;
     *(volatile u32*)((u32)r4 + (s32)(0)) = r15;
     r16 = r4;
-    r2 = ((u32(*)(u32))func_001d1ed0)(r4);
+    r2 = ((u32(*)(u32))YS__MISSION_GAUGE__destroy)(r4);
     r4 = r16;
     return ((u32(*)(u32))func_00106420)(r4);
 }
 
-extern "C" u32 func_0019f9a8(...);  // array8_free_slots
+extern "C" u32 YS__OBJ_ATTACK__clear(...);  // array8_free_slots
 extern "C" u32 func_001c0248(...);
 extern "C" u32 func_00319fb0(...);  // big_obj_dtor
 extern u8 D_0034ee08;
@@ -4236,7 +4236,7 @@ u32 duplicate_unplaced_003218c8(u32 a0) {
     r16 = r4;
     *(volatile u32*)((u32)r16 + (s32)(0)) = r15;
     r4 = (u32)((s32)r4 + (2568));
-    u32 (*fp_call4_0019f9a8)(u32) = (u32(*)(u32))func_0019f9a8;
+    u32 (*fp_call4_0019f9a8)(u32) = (u32(*)(u32))YS__OBJ_ATTACK__clear;
     r2 = fp_call4_0019f9a8(r4);
     r4 = (u32)((s32)r16 + (2640));
     u32 (*fp_call4_001c0248)(u32) = (u32(*)(u32))func_001c0248;
@@ -4248,7 +4248,7 @@ u32 duplicate_unplaced_003218c8(u32 a0) {
 }
 
 extern "C" u32 func_00105110(...);
-extern "C" u32 func_0019f9a8(...);  // array8_free_slots
+extern "C" u32 YS__OBJ_ATTACK__clear(...);  // array8_free_slots
 extern "C" u32 func_001c0248(...);
 extern "C" u32 func_00319fb0(...);  // big_obj_dtor
 extern u8 D_0034ee08;
@@ -4259,7 +4259,7 @@ u32 duplicate_unplaced_00321910(u32 a0) {
     r16 = r4;
     *(volatile u32*)((u32)r16 + (s32)(0)) = r15;
     r4 = (u32)((s32)r4 + (2568));
-    r2 = ((u32(*)(u32))func_0019f9a8)(r4);
+    r2 = ((u32(*)(u32))YS__OBJ_ATTACK__clear)(r4);
     r4 = (u32)((s32)r16 + (2640));
     r2 = ((u32(*)(u32))func_001c0248)(r4);
     r4 = r16;
@@ -4364,7 +4364,7 @@ extern u8 D_00347e60;
 extern u8 D_00347f98;
 
 
-extern "C" u32 func_0019f9a8(...);  // array8_free_slots
+extern "C" u32 YS__OBJ_ATTACK__clear(...);  // array8_free_slots
 extern "C" u32 func_001c0248(...);
 extern "C" u32 func_00319fb0(...);  // big_obj_dtor
 extern u8 D_0034ee08;
@@ -4375,7 +4375,7 @@ u32 duplicate_unplaced_00324938(u32 a0) {
     r16 = r4;
     *(volatile u32*)((u32)r16 + (s32)(0)) = r15;
     r4 = (u32)((s32)r4 + (2568));
-    u32 (*fp_call4_0019f9a8)(u32) = (u32(*)(u32))func_0019f9a8;
+    u32 (*fp_call4_0019f9a8)(u32) = (u32(*)(u32))YS__OBJ_ATTACK__clear;
     r2 = fp_call4_0019f9a8(r4);
     r4 = (u32)((s32)r16 + (2640));
     u32 (*fp_call4_001c0248)(u32) = (u32(*)(u32))func_001c0248;
@@ -4387,7 +4387,7 @@ u32 duplicate_unplaced_00324938(u32 a0) {
 }
 
 extern "C" u32 func_00105110(...);
-extern "C" u32 func_0019f9a8(...);  // array8_free_slots
+extern "C" u32 YS__OBJ_ATTACK__clear(...);  // array8_free_slots
 extern "C" u32 func_001c0248(...);
 extern "C" u32 func_00319fb0(...);  // big_obj_dtor
 extern u8 D_0034ee08;
@@ -4398,7 +4398,7 @@ u32 duplicate_unplaced_00324980(u32 a0) {
     r16 = r4;
     *(volatile u32*)((u32)r16 + (s32)(0)) = r15;
     r4 = (u32)((s32)r4 + (2568));
-    r2 = ((u32(*)(u32))func_0019f9a8)(r4);
+    r2 = ((u32(*)(u32))YS__OBJ_ATTACK__clear)(r4);
     r4 = (u32)((s32)r16 + (2640));
     r2 = ((u32(*)(u32))func_001c0248)(r4);
     r4 = r16;
@@ -4408,7 +4408,7 @@ u32 duplicate_unplaced_00324980(u32 a0) {
 }
 
 extern "C" u32 func_00105110(...);
-extern "C" u32 func_0019f9a8(...);  // array8_free_slots
+extern "C" u32 YS__OBJ_ATTACK__clear(...);  // array8_free_slots
 extern "C" u32 func_001c0248(...);
 extern "C" u32 func_00319fb0(...);  // big_obj_dtor
 extern u8 D_0034ee08;
@@ -4419,7 +4419,7 @@ u32 duplicate_unplaced_00324b08(u32 a0) {
     r16 = r4;
     *(volatile u32*)((u32)r16 + (s32)(0)) = r15;
     r4 = (u32)((s32)r4 + (2568));
-    r2 = ((u32(*)(u32))func_0019f9a8)(r4);
+    r2 = ((u32(*)(u32))YS__OBJ_ATTACK__clear)(r4);
     r4 = (u32)((s32)r16 + (2640));
     r2 = ((u32(*)(u32))func_001c0248)(r4);
     r4 = r16;
@@ -4624,7 +4624,7 @@ extern u8 D_001044f0;
 extern u8 D_0032ba90;
 
 
-extern "C" u32 func_00102818(...);
+extern "C" u32 TASK_MANAGER__create_thread(...);
 extern "C" u32 func_001052a8(...);
 extern u8 D_00104a48;
 extern u8 D_0032b96c;
@@ -4634,7 +4634,7 @@ u32 duplicate_unplaced_00104da0(u32 a0) {
     *(volatile u8*)((u32)&D_003a7b00 + (s32)(0)) = (u8)0u;
     ((u32(*)())func_001052a8)();
     u32 r4 = *(volatile u32*)((u32)&D_0032b96c + (s32)(0));
-    return ((u32(*)(u32, u32, u32, u32, u32))func_00102818)(
+    return ((u32(*)(u32, u32, u32, u32, u32))TASK_MANAGER__create_thread)(
         r4,
         1u,
         5000u,
@@ -4938,7 +4938,7 @@ extern u8 D_00347728;
 extern u8 D_003477a0;
 
 
-extern "C" u32 func_00119e60(...);
+extern "C" u32 kn__Genie__changeForm(...);
 extern "C" u32 func_001c8cd8(...);
 
 u32 duplicate_unplaced_00119c88(u32 a0, u32 a1) {
@@ -4947,7 +4947,7 @@ u32 duplicate_unplaced_00119c88(u32 a0, u32 a1) {
     r2 = ((u32(*)(u32,u32))func_001c8cd8)(r4, r5);
     r4 = r16;
     r5 = r2;
-    return ((u32(*)(u32,u32))func_00119e60)(r4, r5);
+    return ((u32(*)(u32,u32))kn__Genie__changeForm)(r4, r5);
 }
 
 extern "C" u32 func_00105110(...);
@@ -4983,13 +4983,13 @@ u32 duplicate_unplaced_0011a340(u32 a0) {
 }
 
 extern "C" u32 func_00112730(...);
-extern "C" u32 func_00112740(...);  // get_field2940
+extern "C" u32 kn__Friend__getFlag(...);  // get_field2940
 
 u32 duplicate_unplaced_0011a430(u32 a0, u32 a1) {
     u32 r4 = a0, r5 = a1, r2, r16;
     r16 = r4;
     r4 = *(volatile u32*)((u32)r4 + (s32)(4));
-    r2 = ((u32(*)(u32,u32))func_00112740)(r4, r5);
+    r2 = ((u32(*)(u32,u32))kn__Friend__getFlag)(r4, r5);
     r4 = *(volatile u32*)((u32)r16 + (s32)(4));
     r5 = (u32)(r2 | 0x0200u);
     return ((u32(*)(u32,u32))func_00112730)(r4, r5);
@@ -5010,13 +5010,13 @@ u32 duplicate_unplaced_0011a510(u32 a0) {
 }
 
 extern "C" u32 func_00113668(...);
-extern "C" u32 func_0013e4b8(...);
+extern "C" u32 dk__LockOn__end(...);
 extern u8 D_003478b0;
 
 u32 func_0011a700(u32 a0);  // 0x0011a700: definition moved into src/anon/unit_0011a660.cpp
 
 extern "C" u32 func_00113668(...);
-extern "C" u32 func_0013e4b8(...);
+extern "C" u32 dk__LockOn__end(...);
 extern u8 D_003478b0;
 
 u32 func_0011a750(u32 a0);  // 0x0011a750: definition moved into src/anon/unit_0011a660.cpp
@@ -5040,7 +5040,7 @@ extern u8 D_003478b0;
 
 extern "C" u32 func_00105110(...);
 extern "C" u32 func_00113668(...);
-extern "C" u32 func_0013e4b8(...);
+extern "C" u32 dk__LockOn__end(...);
 extern u8 D_003478b0;
 
 u32 func_0011a7a0(u32 a0);  // 0x0011a7a0: definition moved into src/anon/unit_0011a660.cpp
@@ -5428,30 +5428,30 @@ void duplicate_unplaced_00138480(u32 a0) {
     *(volatile u32*)((u32)t5 + (s32)(32264)) = t6;
 }
 
-extern "C" u32 func_002362b0(...);
+extern "C" u32 YI__IMAGE__Init(...);
 extern "C" u32 func_002367c8(...);  // obj_dispatch_bitfield64
 
 u32 duplicate_unplaced_00138698(u32 a0) {
     u32 r4 = a0, r2, r16;
     r16 = (u32)((s32)r4 + (32));
     r4 = r16;
-    r2 = ((u32(*)(u32))func_002362b0)(r4);
+    r2 = ((u32(*)(u32))YI__IMAGE__Init)(r4);
     r4 = r16;
     return ((u32(*)(u32))func_002367c8)(r4);
 }
 
-extern "C" u32 func_00138988(...);
-extern "C" u32 func_00138de0(...);
+extern "C" u32 dk__Sprite__draw(...);
+extern "C" u32 dk__SpriteMessage__drawMessage(...);
 
 u32 duplicate_unplaced_001390c0(u32 a0) {
     u32 r4 = a0, r2, r16;
     r16 = r4;
-    r2 = ((u32(*)(u32))func_00138988)(r4);
+    r2 = ((u32(*)(u32))dk__Sprite__draw)(r4);
     r4 = r16;
-    return ((u32(*)(u32))func_00138de0)(r4);
+    return ((u32(*)(u32))dk__SpriteMessage__drawMessage)(r4);
 }
 
-extern "C" u32 func_00138988(...);
+extern "C" u32 dk__Sprite__draw(...);
 
 void func_00139170(u32 a0);  // 0x00139170: definition moved into src/anon/unit_00138480.cpp
 
@@ -5471,8 +5471,8 @@ u32 duplicate_unplaced_001394d8(u32 a0) {
     return ((u32(*)(u32))func_00102750)(r4);
 }
 
-extern "C" u32 func_0013a4c8(...);
-extern "C" u32 func_0013b538(...);
+extern "C" u32 dk__Field2DD__readCommand(...);
+extern "C" u32 dk__COMMAND_DRAW__leaveAll(...);
 extern "C" u32 func_0013d498(...);
 extern u8 D_00347ff4;
 
@@ -5490,7 +5490,7 @@ extern u8 D_00347ffd;
 
 u32 func_0013a9f8(void);  // 0x0013a9f8: definition moved into src/anon/unit_0013a8b8.cpp
 
-extern "C" u32 func_00138840(...);
+extern "C" u32 dk__Sprite__update(...);
 extern "C" u32 func_0023acd8(...);
 extern u8 D_0034805c;
 
@@ -5577,7 +5577,7 @@ u32 duplicate_unplaced_0013d750(u32 a0) {
     return ((u32(*)(u32))func_001024a8)(r4);
 }
 
-extern "C" u32 func_0013e940(...);
+extern "C" u32 dk__Ft4Base__createPacket(...);
 extern "C" u32 func_0014b150(...);  // obj_init_fields_14b150
 extern u8 D_003486f0;
 
@@ -5591,7 +5591,7 @@ u32 duplicate_unplaced_0013e900(u32 a0) {
     ((u32*)(u32)r16)[0] = r15;
     r4 = r16;
     ((u32*)(u32)r16)[70] = 0u;
-    return ((u32(*)(u32))func_0013e940)(r4);
+    return ((u32(*)(u32))dk__Ft4Base__createPacket)(r4);
 }
 
 extern "C" u32 func_0013fec0(...);
@@ -5603,24 +5603,24 @@ f32 duplicate_unplaced_00141070(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, 
     return *(volatile f32*)((u32)r15 + (s32)(-30928));
 }
 
-extern "C" u32 func_0013a4c8(...);
-extern "C" u32 func_0013a600(...);
+extern "C" u32 dk__Field2DD__readCommand(...);
+extern "C" u32 dk__Field2DD__read(...);
 extern "C" u32 func_001493b8(...);
 extern u8 D_00348d68;
 
 u32 duplicate_unplaced_00149c08(u32 a0) {
     u32 r4 = a0, r2, r16;
     r16 = (u32)&D_00348d68;
-    r2 = ((u32(*)())func_0013a600)();
-    r2 = ((u32(*)())func_0013a4c8)();
+    r2 = ((u32(*)())dk__Field2DD__read)();
+    r2 = ((u32(*)())dk__Field2DD__readCommand)();
     r4 = r16;
     r2 = ((u32(*)(u32))func_001493b8)(r4);
     r4 = r16;
     return ((u32(*)(u32))func_00149428)(r4);
 }
 
-extern "C" u32 func_0014a500(...);
-extern "C" u32 func_0014a6e0(...);
+extern "C" u32 dk__Blur__update(...);
+extern "C" u32 dk__Blur__init(...);
 
 u32 func_0014a830(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);  // 0014a830: moved to src/anon/unit_00149fa8.cpp
 
@@ -6013,7 +6013,7 @@ extern "C" u32 func_0016bf20(u32, u32, u32, u32, u32, u32, u32, u32) asm("_ZN2YS
 extern "C" u32 func_0016bff0(u32, u32, u32, u32, u32, u32, u32, u32) asm("_ZN2YS3OBJ10get_serialEv");
 
 extern "C" u32 func_001891b8(...);
-extern "C" u32 func_00189200(...);
+extern "C" u32 YS__SAVERAM_BATTLE__get_formram(...);
 extern u8 D_0032e020;
 
 u32 duplicate_unplaced_0016e130(u32 a0, u32 a1) {
@@ -6021,20 +6021,20 @@ u32 duplicate_unplaced_0016e130(u32 a0, u32 a1) {
     r16 = r4;
     r5 = *(volatile u32*)((u32)r4 + (s32)(0));
     r4 = (u32)&D_0032e020;
-    r2 = ((u32(*)(u32,u32))func_00189200)(r4, r5);
+    r2 = ((u32(*)(u32,u32))YS__SAVERAM_BATTLE__get_formram)(r4, r5);
     r5 = *(volatile u32*)((u32)r16 + (s32)(4));
     r4 = r2;
     return ((u32(*)(u32,u32))func_001891b8)(r4, r5);
 }
 
-extern "C" u32 func_001b1448(...);
+extern "C" u32 YS__DATABUFF__Read(...);
 extern "C" u32 func_001d3390(...);
 
 u32 duplicate_unplaced_0016e8f8(u32 a0) {
     u32 r4 = a0, r2, r15;
     r15 = (u32)(0x0035u << 16);
     r4 = *(volatile u32*)((u32)r15 + (s32)(-9176));
-    r2 = ((u32(*)(u32))func_001b1448)(r4);
+    r2 = ((u32(*)(u32))YS__DATABUFF__Read)(r4);
     r4 = r2;
     return ((u32(*)(u32))func_001d3390)(r4);
 }
@@ -6196,7 +6196,7 @@ u32 duplicate_unplaced_00179f58(u32 a0) {
 }
 
 extern "C" u32 func_00112ab8(...);
-extern "C" u32 func_001762f8(...);
+extern "C" u32 YS__PARTY___OVR_exec_damage(...);
 
 u32 duplicate_unplaced_0017a1c8(u32 a0, u32 a1) {
     u32 r4 = a0, r5 = a1, r2, r14, r15, r16;
@@ -6205,7 +6205,7 @@ u32 duplicate_unplaced_0017a1c8(u32 a0, u32 a1) {
     r15 = *(volatile u32*)((u32)r4 + (s32)(268));
     r15 = (u32)(r15 & r14);
     *(volatile u32*)((u32)r4 + (s32)(268)) = r15;
-    r2 = ((u32(*)(u32,u32))func_001762f8)(r4, r5);
+    r2 = ((u32(*)(u32,u32))YS__PARTY___OVR_exec_damage)(r4, r5);
     r5 = r16;
     r4 = 0u;
     return ((u32(*)(u32,u32))func_00112ab8)(r4, r5);
@@ -6229,25 +6229,25 @@ extern "C" u32 func_001bc0e0(...);
 // 0017a680: moved to src/yasui/libys/player.cpp
 
 extern "C" u32 func_0016bd60(...);
-extern "C" u32 func_0017c430(...);
+extern "C" u32 YS__OBJ__prepare_jump_height(...);
 
 u32 duplicate_unplaced_0017a938(u32 a0, u32 a1) {
     u32 r4 = a0, r5 = a1, r2, r16;
     r4 = r5;
     r16 = r5;
-    r2 = ((u32(*)(u32,u32))func_0017c430)(r4, r5);
+    r2 = ((u32(*)(u32,u32))YS__OBJ__prepare_jump_height)(r4, r5);
     r4 = r16;
     r5 = (u32)((s32)0u + (1));
     return ((u32(*)(u32,u32))func_0016bd60)(r4, r5);
 }
 
 extern "C" u32 func_00175af8(...);
-extern "C" u32 func_0017dcc0(...);
+extern "C" u32 YS__FRIEND__exec_stun(...);
 
 u32 duplicate_unplaced_0017dc98(u32 a0) {
     u32 r4 = a0, r2, r16;
     r16 = r4;
-    r2 = ((u32(*)(u32))func_0017dcc0)(r4);
+    r2 = ((u32(*)(u32))YS__FRIEND__exec_stun)(r4);
     r4 = r16;
     return ((u32(*)(u32))func_00175af8)(r4);
 }
@@ -6280,14 +6280,14 @@ u32 duplicate_unplaced_0017eb98(u32 a0) {
     return r2;
 }
 
-extern "C" u32 func_0017ec98(...);
+extern "C" u32 YS__MOTION__id_to_num(...);
 extern "C" u32 func_0017edf0(...);
 extern "C" u32 func_00180408(...);
 
 u32 duplicate_unplaced_001805a8(u32 a0, u32 a1) {
     u32 r4 = a0, r5 = a1, r2, r16;
     r16 = r4;
-    r2 = ((u32(*)(u32,u32))func_0017ec98)(r4, r5);
+    r2 = ((u32(*)(u32,u32))YS__MOTION__id_to_num)(r4, r5);
     r4 = r16;
     r5 = r2;
     r2 = ((u32(*)(u32,u32))func_0017edf0)(r4, r5);
@@ -6327,12 +6327,12 @@ f32 duplicate_unplaced_00191c40(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, 
 
 extern "C" u32 func_001708f8(...);
 extern "C" u32 func_00191f78(...);
-extern "C" u32 func_001921d8(...);
+extern "C" u32 YS__MESSAGE__GetFilename(...);
 
 u32 duplicate_unplaced_00192290(u32 a0, u32 a1) {
     u32 r4 = a0, r5 = a1, r2, r16;
     r16 = r5;
-    r2 = ((u32(*)(u32,u32))func_001921d8)(r4, r5);
+    r2 = ((u32(*)(u32,u32))YS__MESSAGE__GetFilename)(r4, r5);
     r4 = r2;
     r5 = (u32)((s32)0u + (-1));
     r2 = ((u32(*)(u32,u32))func_001708f8)(r4, r5);
@@ -6343,7 +6343,7 @@ u32 duplicate_unplaced_00192290(u32 a0, u32 a1) {
 
 // 00192fb8: moved to src/yasui/libys/message.cpp
 
-extern "C" u32 func_0016b668(...);
+extern "C" u32 YS__OBJ___OVR_leave(...);
 extern "C" u32 func_001dc878(...);
 
 u32 duplicate_unplaced_00195f88(u32 a0) {
@@ -6352,23 +6352,23 @@ u32 duplicate_unplaced_00195f88(u32 a0) {
     r4 = *(volatile u32*)((u32)r4 + (s32)(2548));
     r2 = ((u32(*)(u32))func_001dc878)(r4);
     r4 = r16;
-    return ((u32(*)(u32))func_0016b668)(r4);
+    return ((u32(*)(u32))YS__OBJ___OVR_leave)(r4);
 }
 
 extern u8 D_0032da20;
 
 
 extern "C" u32 func_00197c90(...);
-extern "C" u32 func_001ada38(...);
-extern "C" u32 func_001b9db0(...);
+extern "C" u32 YS__RECOV__Exec(...);
+extern "C" u32 YS__OBJ__LeaveAll(...);
 
 u32 duplicate_unplaced_00197738(u32 a0) {
     u32 r4 = a0, r2;
     r4 = (u32)((s32)0u + (2000));
-    r2 = ((u32(*)(u32))func_001b9db0)(r4);
+    r2 = ((u32(*)(u32))YS__OBJ__LeaveAll)(r4);
     r2 = ((u32(*)())func_00197c90)();
     r4 = (u32)((s32)0u + (11));
-    return ((u32(*)(u32))func_001ada38)(r4);
+    return ((u32(*)(u32))YS__RECOV__Exec)(r4);
 }
 
 extern "C" u32 func_001b9c28(...);
@@ -6451,17 +6451,17 @@ u32 duplicate_unplaced_0019c920(u32 a0) {
     return r2;
 }
 
-extern "C" u32 func_0019d4f8(...);
+extern "C" u32 YS__RECOM__init(...);
 
 u32 duplicate_unplaced_0019d720(u32 a0) {
     u32 r4 = a0, r2, r16;
     r16 = r4;
     r2 = ((u32(*)(u32))func_0019d548)(r4);
     r4 = r16;
-    return ((u32(*)(u32))func_0019d4f8)(r4);
+    return ((u32(*)(u32))YS__RECOM__init)(r4);
 }
 
-extern "C" u32 func_001a11e0(...);
+extern "C" u32 YS__SHEET__load(...);
 extern "C" u32 func_001a1840(...);
 
 u32 duplicate_unplaced_001a1460(u32 a0, u32 a1) {
@@ -6470,7 +6470,7 @@ u32 duplicate_unplaced_001a1460(u32 a0, u32 a1) {
     r2 = ((u32(*)(u32,u32))func_001a1840)(r4, r5);
     r4 = r16;
     r5 = 0u;
-    return ((u32(*)(u32,u32))func_001a11e0)(r4, r5);
+    return ((u32(*)(u32,u32))YS__SHEET__load)(r4, r5);
 }
 
 u32 func_001a2758(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);  // 0x001a2758: definition moved into src/anon/unit_0019fb70.cpp
@@ -6484,17 +6484,17 @@ u32 func_001a27b8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7
 u32 func_001a27d8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);  // 0x001a27d8: definition moved into src/anon/unit_0019fb70.cpp
 
 extern "C" u32 func_001a80c8(...);  // table24_find_by_id
-extern "C" u32 func_001b8e88(...);
+extern "C" u32 YS__COMMAND_ELEM__Get(...);
 
 u32 duplicate_unplaced_001a3868(u32 a0) {
     u32 r4 = a0, r2;
     r2 = ((u32(*)())func_001a80c8)();
     r4 = (u32)(*(u16*)((u32)r2 + (s32)(16)));
-    return ((u32(*)(u32))func_001b8e88)(r4);
+    return ((u32(*)(u32))YS__COMMAND_ELEM__Get)(r4);
 }
 
 extern "C" u32 func_00170950(...);
-extern "C" u32 func_001dde40(...);
+extern "C" u32 ryj__PAX__ensure(...);
 extern "C" u32 func_001de450(...);
 extern u8 D_01c6cae0;
 
@@ -6504,7 +6504,7 @@ u32 duplicate_unplaced_001a3b08(u32 a0) {
     r4 = r16;
     r2 = ((u32(*)(u32))func_001de450)(r4);
     r4 = r16;
-    r2 = ((u32(*)(u32))func_001dde40)(r4);
+    r2 = ((u32(*)(u32))ryj__PAX__ensure)(r4);
     r15 = (u32)(0x01c7u << 16);
     r4 = *(volatile u32*)((u32)r15 + (s32)(-13572));
     return ((u32(*)(u32))func_00170950)(r4);
@@ -6545,19 +6545,19 @@ extern "C" u32 func_00195700(...);
 extern u8 D_0032dec0;
 
 
-extern "C" u32 func_0019c218(...);
-extern "C" u32 func_001b8e88(...);
+extern "C" u32 YS__OBJ__can_decide(...);
+extern "C" u32 YS__COMMAND_ELEM__Get(...);
 
 u32 duplicate_unplaced_001a74f8(u32 a0, u32 a1) {
     u32 r4 = a0, r5 = a1, r2, r14, r15;
-    u32 (*fp_call0_001b8e88)() = (u32(*)())func_001b8e88;
+    u32 (*fp_call0_001b8e88)() = (u32(*)())YS__COMMAND_ELEM__Get;
     r2 = fp_call0_001b8e88();
     r14 = (u32)(0x01c7u << 16);
     r5 = r2;
     r15 = *(volatile u32*)((u32)r14 + (s32)(-13448));
     *(volatile u32*)((u32)r15 + (s32)(2480)) = 0u;
     r4 = *(volatile u32*)((u32)r14 + (s32)(-13448));
-    u32 (*fp_call4_0019c218)(u32, u32) = (u32(*)(u32,u32))func_0019c218;
+    u32 (*fp_call4_0019c218)(u32, u32) = (u32(*)(u32,u32))YS__OBJ__can_decide;
     r2 = fp_call4_0019c218(r4, r5);
     return r2;
 }
@@ -6648,26 +6648,26 @@ u32 duplicate_unplaced_001b01d8(u32 a0) {
 }
 
 extern "C" u32 func_0016bd60(...);
-extern "C" u32 func_0017c430(...);
+extern "C" u32 YS__OBJ__prepare_jump_height(...);
 
 u32 duplicate_unplaced_001b27c0(u32 a0, u32 a1) {
     u32 r4 = a0, r5 = a1, r2, r16;
     r4 = r5;
     r16 = r5;
-    r2 = ((u32(*)(u32,u32))func_0017c430)(r4, r5);
+    r2 = ((u32(*)(u32,u32))YS__OBJ__prepare_jump_height)(r4, r5);
     r4 = r16;
     r5 = (u32)((s32)0u + (20));
     return ((u32(*)(u32,u32))func_0016bd60)(r4, r5);
 }
 
 extern "C" u32 func_0016bd60(...);
-extern "C" u32 func_0017c430(...);
+extern "C" u32 YS__OBJ__prepare_jump_height(...);
 
 u32 duplicate_unplaced_001b2c18(u32 a0, u32 a1) {
     u32 r4 = a0, r5 = a1, r2, r16;
     r4 = r5;
     r16 = r5;
-    r2 = ((u32(*)(u32,u32))func_0017c430)(r4, r5);
+    r2 = ((u32(*)(u32,u32))YS__OBJ__prepare_jump_height)(r4, r5);
     r4 = r16;
     r5 = (u32)((s32)0u + (20));
     return ((u32(*)(u32,u32))func_0016bd60)(r4, r5);
@@ -6693,7 +6693,7 @@ u32 duplicate_unplaced_001b5c78(u32 a0) {
     r16 = (u32)((s32)r4 + (104));
     r4 = r16;
     r17 = *(volatile u32*)((u32)r16 + (s32)(44));
-    r2 = ((u32(*)(u32))func_001d2180)(r4);
+    r2 = ((u32(*)(u32))YS__COMBOCOUNTER__reset)(r4);
     r4 = r16;
     r2 = ((u32(*)(u32))func_001d20a8)(r4);
     r2 = r17;
@@ -6704,7 +6704,7 @@ u32 func_001b8fd8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7
 
 extern "C" u32 func_001a36e0(...);
 extern "C" u32 func_001a80c8(...);  // table24_find_by_id
-extern "C" u32 func_001b8e88(...);
+extern "C" u32 YS__COMMAND_ELEM__Get(...);
 
 u32 duplicate_unplaced_001b90c8(u32 a0) {
     u32 r4 = a0, r2;
@@ -6712,7 +6712,7 @@ u32 duplicate_unplaced_001b90c8(u32 a0) {
     r4 = r2;
     r2 = ((u32(*)(u32))func_001a80c8)(r4);
     r4 = (u32)(*(u16*)((u32)r2 + (s32)(16)));
-    return ((u32(*)(u32))func_001b8e88)(r4);
+    return ((u32(*)(u32))YS__COMMAND_ELEM__Get)(r4);
 }
 
 extern "C" u32 func_001029e8(...);
@@ -6743,12 +6743,12 @@ u32 duplicate_unplaced_001ba310(u32 a0, u32 a1) {
 }
 
 extern "C" u32 func_001991a8(...);
-extern "C" u32 func_001bb890(...);
+extern "C" u32 YS__MISSION__PostEnd(...);
 
 u32 duplicate_unplaced_001bb858(u32 a0, u32 a1) {
     u32 r4 = a0, r5 = a1, r2, r16;
     r16 = r4;
-    r2 = ((u32(*)(u32,u32))func_001bb890)(r4, r5);
+    r2 = ((u32(*)(u32,u32))YS__MISSION__PostEnd)(r4, r5);
     r2 = ((u32(*)())func_001bb468)();
     r5 = r16;
     r4 = (u32)((s32)0u + (15));
@@ -6799,7 +6799,7 @@ u32 duplicate_unplaced_001be4b0(u32 a0, u32 a1) {
 }
 
 extern "C" u32 func_001bc778(...);
-extern "C" u32 func_001bc990(...);
+extern "C" u32 YS__COMMAND_MENU__make(...);
 extern u8 D_00351248;
 
 u32 duplicate_unplaced_001bf0c8(u32 a0, u32 a1) {
@@ -6809,14 +6809,14 @@ u32 duplicate_unplaced_001bf0c8(u32 a0, u32 a1) {
     r2 = ((u32(*)(u32,u32))func_001bc778)(r4, r5);
     r4 = r16;
     r5 = (u32)&D_00351248;
-    return ((u32(*)(u32,u32))func_001bc990)(r4, r5);
+    return ((u32(*)(u32,u32))YS__COMMAND_MENU__make)(r4, r5);
 }
 
 extern u8 D_01d49328;
 
 
 extern "C" u32 func_001c0cd8(...);
-extern "C" u32 func_001c0d38(...);
+extern "C" u32 YS__OBJ__attach(...);
 
 
 extern "C" u32 func_001c10f8(...);  // request_pool_block64
@@ -6858,7 +6858,7 @@ extern "C" u32 func_0016b5b8(...);
 extern "C" u32 func_001c13e8(...);
 
 // 001c25a0: moved to src/anon/unit_001c0638.cpp
-u32 func_001c25a0(u32 a0);
+u32 YS__MASSOBJ___OVR_leave_req(u32 a0);
 
 extern "C" u32 func_00191c50(...);
 
@@ -6892,13 +6892,13 @@ u32 duplicate_unplaced_001c7c68(u32 a0) {
 }
 
 extern "C" u32 func_0016bd60(...);
-extern "C" u32 func_0017c430(...);
+extern "C" u32 YS__OBJ__prepare_jump_height(...);
 
 u32 duplicate_unplaced_001c90c0(u32 a0, u32 a1) {
     u32 r4 = a0, r5 = a1, r2, r16;
     r4 = r5;
     r16 = r5;
-    r2 = ((u32(*)(u32,u32))func_0017c430)(r4, r5);
+    r2 = ((u32(*)(u32,u32))YS__OBJ__prepare_jump_height)(r4, r5);
     r4 = r16;
     r5 = (u32)((s32)0u + (20));
     return ((u32(*)(u32,u32))func_0016bd60)(r4, r5);
@@ -6994,18 +6994,18 @@ u32 duplicate_unplaced_001ce458(u32 a0) {
 extern "C" u32 func_001a8b28(...);  // get_data_1c7cc10
 
 
-extern "C" u32 func_00178280(...);
-extern "C" u32 func_00198970(...);
+extern "C" u32 YS__PLAYER___OVR_leave_req(...);
+extern "C" u32 YS__STDOBJ__reset_special_command(...);
 
 u32 duplicate_unplaced_001d0200(u32 a0) {
     u32 r4 = a0, r2, r16;
     r16 = r4;
-    r2 = ((u32(*)(u32))func_00198970)(r4);
+    r2 = ((u32(*)(u32))YS__STDOBJ__reset_special_command)(r4);
     r4 = r16;
-    return ((u32(*)(u32))func_00178280)(r4);
+    return ((u32(*)(u32))YS__PLAYER___OVR_leave_req)(r4);
 }
 
-extern "C" u32 func_0019cc20(...);
+extern "C" u32 YS__LOCKON__release(...);
 
 u32 duplicate_unplaced_001d07e0(u32 a0) {
     u32 r4 = a0, r2, r14, r15, r16;
@@ -7013,7 +7013,7 @@ u32 duplicate_unplaced_001d07e0(u32 a0) {
     r4 = (u32)((s32)r4 + (2932));
     r2 = ((u32(*)(u32))func_001d2710)(r4);
     r4 = ((u32*)(u32)r16)[720];
-    r2 = ((u32(*)(u32))func_0019cc20)(r4);
+    r2 = ((u32(*)(u32))YS__LOCKON__release)(r4);
     r15 = ((u32*)(u32)r16)[67];
     r14 = (u32)(0x0020u << 16);
     r15 = (u32)(r15 | r14);
@@ -7024,7 +7024,7 @@ u32 duplicate_unplaced_001d07e0(u32 a0) {
 extern "C" u32 func_0014f9a8(...);
 extern "C" u32 func_001d1708(...);
 
-u32 func_001d1ae8(u32 a0);  // 0x001d1ae8: definition moved into src/anon/unit_001d14e0.cpp
+u32 YS__MISSION_COUNT__deactivate(u32 a0);  // 0x001d1ae8: definition moved into src/anon/unit_001d14e0.cpp
 
 extern "C" u32 func_0014f9a8(...);
 extern "C" u32 func_001d1708(...);
@@ -7066,7 +7066,7 @@ u32 duplicate_unplaced_001d28f0(u32 a0) {
     return ((u32(*)(u32))func_00105110)(r4);
 }
 
-extern "C" u32 func_001d1b60(...);
+extern "C" u32 YS__MISSION_COUNT__set(...);
 
 
 extern "C" u32 func_00105110(...);
@@ -7088,15 +7088,15 @@ u32 duplicate_unplaced_001d74f8(u32 a0) {
 extern "C" u32 func_0014f830(...);
 extern "C" u32 func_001d1708(...);
 
-u32 func_001d7c90(u32 a0);  // 0x001d7c90: definition moved into src/anon/unit_001d7458.cpp
+u32 YS__MISSION_WATCH__deactivate(u32 a0);  // 0x001d7c90: definition moved into src/anon/unit_001d7458.cpp
 
-extern "C" u32 func_001d8190(...);
-
-
-extern "C" u32 func_001d8190(...);
+extern "C" u32 YS__MISSION__init_mission2d(...);
 
 
-extern "C" u32 func_001d8190(...);
+extern "C" u32 YS__MISSION__init_mission2d(...);
+
+
+extern "C" u32 YS__MISSION__init_mission2d(...);
 
 
 extern "C" u32 func_0016b5b8(...);
@@ -7253,7 +7253,7 @@ u32 duplicate_unplaced_00226d88(u32 a0) {
 }
 
 
-extern "C" u32 func_001390f0(...);
+extern "C" u32 dk__Sprite3D__update(...);
 extern "C" u32 func_00229d40(...);
 
 u32 duplicate_unplaced_00229d68(u32 a0) {
@@ -7261,18 +7261,18 @@ u32 duplicate_unplaced_00229d68(u32 a0) {
     r16 = r4;
     r2 = ((u32(*)(u32))func_00229d40)(r4);
     r4 = r16;
-    return ((u32(*)(u32))func_001390f0)(r4);
+    return ((u32(*)(u32))dk__Sprite3D__update)(r4);
 }
 
-extern "C" u32 func_001390f0(...);
-extern "C" u32 func_0022ac60(...);
+extern "C" u32 dk__Sprite3D__update(...);
+extern "C" u32 sa__MUSICAL_INPUT__updateGauge(...);
 
 u32 duplicate_unplaced_0022acd0(u32 a0) {
     u32 r4 = a0, r2, r16;
     r16 = r4;
-    r2 = ((u32(*)(u32))func_0022ac60)(r4);
+    r2 = ((u32(*)(u32))sa__MUSICAL_INPUT__updateGauge)(r4);
     r4 = r16;
-    return ((u32(*)(u32))func_001390f0)(r4);
+    return ((u32(*)(u32))dk__Sprite3D__update)(r4);
 }
 
 extern "C" u32 func_00105110(...);
@@ -7350,7 +7350,7 @@ u32 duplicate_unplaced_00239898(u32 a0) {
     return ((u32(*)(u32))func_00106420)(r4);
 }
 
-extern "C" u32 func_0023a0d8(...);
+extern "C" u32 YI__SEQUENCE__UpdateActive(...);
 
 u32 func_0023a918(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);  // 0x0023a918: definition moved into src/anon/unit_00239988.cpp
 
@@ -7390,7 +7390,7 @@ extern "C" u32 func_0023d820(...);
 
 void func_0023d7c8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);  // 0x0023d7c8: definition moved into src/anon/unit_0023d260.cpp
 
-extern "C" u32 func_0011eb08(...);
+extern "C" u32 kn__ModelObj__setDefaultTexanm(...);
 
 
 
@@ -7466,12 +7466,12 @@ u32 duplicate_unplaced_00246968(u32 a0) {
     return r2;
 }
 
-extern "C" u32 func_0028dbf8(...);
+extern "C" u32 Tz__MenuUtil__GetLaySeq(...);
 extern u8 D_00372348;
 extern u8 D_00372380;
 
 
-extern "C" u32 func_00253180(...);
+extern "C" u32 Tz__CampMenu__Start(...);
 extern "C" u32 func_0026d808(...);
 
 u32 duplicate_unplaced_002533e0(u32 a0, u32 a1) {
@@ -7481,7 +7481,7 @@ u32 duplicate_unplaced_002533e0(u32 a0, u32 a1) {
     r2 = ((u32(*)(u32,u32))func_0026d808)(r4, r5);
     r5 = r16;
     r4 = (u32)((s32)0u + (6));
-    return ((u32(*)(u32,u32))func_00253180)(r4, r5);
+    return ((u32(*)(u32,u32))Tz__CampMenu__Start)(r4, r5);
 }
 
 extern "C" u32 func_00258af0(...);
@@ -7494,7 +7494,7 @@ u32 duplicate_unplaced_00253480(u32 a0) {
     return ((u32(*)(u32))func_00258af0)(r4);
 }
 
-extern "C" u32 func_00253180(...);
+extern "C" u32 Tz__CampMenu__Start(...);
 extern "C" u32 func_00274f98(...);
 
 extern "C" u32 func_00103500(...);
@@ -7601,11 +7601,11 @@ u32 duplicate_unplaced_002631b0(u32 a0, u32 a1) {
 }
 
 extern "C" u32 func_001a3888(...);  // id_in_range_5_7_131
-extern "C" u32 func_002632d0(...);
+extern "C" u32 Tz__CmItem__isSoraOnly(...);
 
 u32 duplicate_unplaced_00263688(u32 a0) {
     u32 r4 = a0, r2;
-    u32 (*fp_call0_002632d0)() = (u32(*)())func_002632d0;
+    u32 (*fp_call0_002632d0)() = (u32(*)())Tz__CmItem__isSoraOnly;
     r2 = fp_call0_002632d0();
     r4 = (u32)(*(u16*)((u32)r2 + (s32)(0)));
     u32 (*fp_call4_001a3888)(u32) = (u32(*)(u32))func_001a3888;
@@ -7614,7 +7614,7 @@ u32 duplicate_unplaced_00263688(u32 a0) {
 }
 
 extern "C" u32 func_00192048(...);
-extern "C" u32 func_00263a90(...);
+extern "C" u32 Tz__CMenuHelp__Create_2(...);
 
 u32 duplicate_unplaced_00263a58(u32 a0, u32 a1) {
     u32 r4 = a0, r5 = a1, r2, r16;
@@ -7625,7 +7625,7 @@ u32 duplicate_unplaced_00263a58(u32 a0, u32 a1) {
     }
     r5 = r16;
     r4 = r2;
-    return ((u32(*)(u32,u32))func_00263a90)(r4, r5);
+    return ((u32(*)(u32,u32))Tz__CMenuHelp__Create_2)(r4, r5);
 }
 
 extern "C" u32 func_00257770(...);
@@ -7651,13 +7651,13 @@ u32 duplicate_unplaced_00265c50(u32 a0, u32 a1) {
 }
 
 extern "C" u32 func_0026b470(...);
-extern "C" u32 func_0026b508(...);
+extern "C" u32 Tz__CmEquip__SortEquip(...);
 extern "C" u32 func_0026b5a0(...);
 
 u32 duplicate_unplaced_0026b448(u32 a0) {
     u32 r4 = a0, r2;
     r2 = ((u32(*)())func_0026b470)();
-    r2 = ((u32(*)())func_0026b508)();
+    r2 = ((u32(*)())Tz__CmEquip__SortEquip)();
     r4 = (u32)((s32)0u + (-1));
     return ((u32(*)(u32))func_0026b5a0)(r4);
 }
@@ -7744,14 +7744,14 @@ extern "C" u32 func_001b77d0(...);
 
 
 extern "C" u32 func_001058e8(...);
-extern "C" u32 func_00189200(...);
+extern "C" u32 YS__SAVERAM_BATTLE__get_formram(...);
 
 u32 func_002814b0(u32 a0, u32 a1);  // 0x002814b0: definition moved into src/anon/unit_0027f2b0.cpp
 
 extern "C" u32 func_001058e8(...);
 
 
-extern "C" u32 func_002843e8(...);
+extern "C" u32 Tz__Ending__LeaveAll(...);
 extern "C" u32 func_00284538(...);
 
 void func_002843c0(void);  // 0x002843c0: definition moved into src/anon/unit_00284220.cpp
@@ -7864,7 +7864,7 @@ extern "C" u32 func_00139d78(...);
 extern u8 D_00347d60;
 
 extern "C" u32 func_0013cb08(...);
-extern "C" u32 func_001bcf38(...);  // state_in_set_5_10_13to18
+extern "C" u32 YS__COMMAND_MENU__is_shortcut_menu(...);  // state_in_set_5_10_13to18
 
 extern "C" u32 func_0013a810(...);
 extern "C" u32 func_0013cb08(...);
@@ -7916,10 +7916,10 @@ extern u8 D_00348638;
 
 void func_0013def8(u32 a0);  // 0x0013def8: definition moved into src/anon/unit_0013a8b8.cpp
 
-extern "C" u32 func_001390f0(...);
+extern "C" u32 dk__Sprite3D__update(...);
 extern "C" u32 func_00139d78(...);
 
-void func_0013e470(u32 a0);  // 0x0013e470: definition moved into src/anon/unit_0013dfb8.cpp
+void dk__LockOn__update(u32 a0);  // 0x0013e470: definition moved into src/anon/unit_0013dfb8.cpp
 
 void func_0013ee18(u32 a0, u64 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
     *(volatile u64*)((u32)a0 + (s32)(128)) = a1;
@@ -7991,7 +7991,7 @@ void duplicate_unplaced_0013f498(void) {
     func_00102788(a0, a1, a2, a3);
 }
 
-extern "C" u32 func_00102818(...);
+extern "C" u32 TASK_MANAGER__create_thread(...);
 extern "C" u32 func_00102c80(...);
 extern "C" u32 func_0013f030(...);
 void func_0013f450(u32);
@@ -8005,7 +8005,7 @@ void duplicate_unplaced_0013f4d8(void) {
     u32 a1 = (u32)((s32)0u + (1));
     a2 = (u32)(a2 | 0x93e0u);
     u32 a4 = (u32)((s32)0u + (4096));
-    func_00102818(a0, a1, a2, a3, a4);
+    TASK_MANAGER__create_thread(a0, a1, a2, a3, a4);
 }
 
 f32 func_002f8ad0(f32, f32);
@@ -8056,7 +8056,7 @@ u32 duplicate_unplaced_00142900(u32 a0, u32 a1, u32 a2, u32 a3) {
 }
 
 
-extern "C" u32 func_00143ae0(...);
+extern "C" u32 dk__Octree__intersectLineMap_2(...);
 
 u32 func_00143ac0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);  // 0x00143ac0: definition moved into src/anon/unit_00142c90.cpp
 
@@ -8110,7 +8110,7 @@ extern u8 D_0036b028;
 
 u32 func_00149fa8(u32 a0);  // 00149fa8: moved to src/anon/unit_00149fa8.cpp
 
-extern "C" u32 func_00102818(...);
+extern "C" u32 TASK_MANAGER__create_thread(...);
 extern u8 D_0014a0a0;
 extern u8 D_0032b96c;
 
@@ -8118,7 +8118,7 @@ void duplicate_unplaced_0014a138(u32 a0) {
     u32 s0 = a0;
     u32 a2 = (u32)(0x0004u << 16);
     u32 a3 = (u32)&D_0014a0a0;
-    u32 v0 = func_00102818(
+    u32 v0 = TASK_MANAGER__create_thread(
         *(volatile u32*)((u32)&D_0032b96c + (s32)(0)),
         0u,
         (u32)(a2 | 0x93e0u),
@@ -8133,7 +8133,7 @@ extern "C" u32 func_00102c18(...);
 extern "C" u32 func_0013a6d0(...);
 extern "C" u32 func_0013a9e8(...);
 extern "C" u32 func_0014ae10(...);
-extern "C" u32 func_002bea00(...);
+extern "C" u32 worldmap__Manager__readPackEnable(...);
 extern u8 D_0014a830;
 
 void duplicate_unplaced_0014a188() {
@@ -8142,7 +8142,7 @@ void duplicate_unplaced_0014a188() {
     *(u8*)((u32)v0 + (s32)(4)) = (u8)0u;
     func_0014ae10();
     func_0013a9e8(0x1u);
-    func_002bea00();
+    worldmap__Manager__readPackEnable();
 }
 
 extern u8 D_00349268;
@@ -8239,7 +8239,7 @@ u32 duplicate_unplaced_0014c908() {
 
 extern "C" u32 func_001058e8(...);
 
-void func_0014cb58();  // 0x0014cb58: definition moved into src/anon/unit_0014c7f0.cpp
+void dk__Clock__newGame();  // 0x0014cb58: definition moved into src/anon/unit_0014c7f0.cpp
 
 extern "C" u32 func_00102788(...);
 extern "C" u32 func_0014f030(...);  // obj_set_lerp_params
@@ -8255,13 +8255,13 @@ u32 duplicate_unplaced_0014cde0() {
 
 extern "C" u32 func_0014ce20(...);
 extern "C" u32 func_0014ce30(...);
-extern "C" u32 func_0014ce60(...);
+extern "C" u32 dk__Vsync__initGameSpeed(...);
 extern u8 D_00349e08;
 
 void duplicate_unplaced_0014cfc8() {
     func_0014ce20(1u);
     func_0014ce30(1u);
-    func_0014ce60();
+    dk__Vsync__initGameSpeed();
     u32 t7 = (u32)(0x35u << 16);
     u32 t6 = (u32)(0x35u << 16);
     *(u32*)((u32)t7 + (s32)(-25084)) = 0u;
@@ -8329,13 +8329,13 @@ u32 duplicate_unplaced_0014f688(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4) {
 }
 
 extern "C" u32 func_00139d78(...);
-extern "C" u32 func_00151528(...);
+extern "C" u32 dk__TIMER__close(...);
 extern u8 D_0034a428;
 
 void func_0014f6c8();  // 0x0014f6c8: definition moved into src/anon/unit_0014ecb8.cpp
 
 extern "C" u32 func_00139d78(...);
-extern "C" u32 func_001514b0(...);
+extern "C" u32 dk__TIMER__alert(...);
 extern u8 D_0034a428;
 
 void func_0014f708();  // 0x0014f708: definition moved into src/anon/unit_0014ecb8.cpp
@@ -8355,22 +8355,22 @@ extern u8 D_0034a458;
 
 u32 func_0014fbf8(u32 a0);  // 0x0014fbf8: definition moved into src/anon/unit_0014ecb8.cpp
 
-extern "C" u32 func_00150be8(...);
+extern "C" u32 dk__TIMER__init(...);
 
 u32 duplicate_unplaced_001514e8(u32 a0) {
     func_00138c10((u32)((s32)a0 + (496)), 3u);
     func_00138c10((u32)((s32)a0 + (904)), 9u);
-    return func_00150be8(a0);
+    return dk__TIMER__init(a0);
 }
 
 f32 func_00151690(u32 a0);  // 0x00151690: definition moved into src/anon/unit_0014ecb8.cpp
 
-extern "C" u32 func_00151d48(...);
+extern "C" u32 dk__GET_MUNNY__initNumber(...);
 
 u32 duplicate_unplaced_001520c0(u32 a0, u32 a1) {
     *(volatile u32*)((u32)a0 + (s32)(2892)) = (u32)(*(volatile u32*)((u32)a0 + (s32)(2892)) + a1);
     func_00138c10((u32)((s32)a0 + (48)), 17u);
-    return func_00151d48(a0);
+    return dk__GET_MUNNY__initNumber(a0);
 }
 
 extern "C" u32 func_0023ca70(...);
@@ -8378,16 +8378,16 @@ extern "C" u32 func_0023f1b0(...);
 
 u32 func_00153e28(f32 a0, f32 a1);  // 0x00153e28: definition moved into src/anon/unit_00153678.cpp
 
-extern "C" u32 func_00138840(...);
+extern "C" u32 dk__Sprite__update(...);
 
 // 00154330: moved to src/anon/unit_00153ea0.cpp
-void func_00154330(u32 a0);
+void dk__FACE__update(u32 a0);
 
-extern "C" u32 func_00138988(...);
+extern "C" u32 dk__Sprite__draw(...);
 extern "C" u32 func_00236788(...);  // to_236830
 
 // 00154358: moved to src/anon/unit_00153ea0.cpp
-void func_00154358(u32 a0);
+void dk__FACE__draw(u32 a0);
 
 extern "C" u32 func_00154288(...);  // state_index_0_1_2
 
@@ -8424,12 +8424,12 @@ u32 duplicate_unplaced_00155528(u32 a0) {
 // 00156010: moved to src/anon/unit_00153ea0.cpp
 u32 func_00156010(u32 a0);
 
-extern "C" u32 func_00155f40(...);
+extern "C" u32 dk__GAUGE_PLAYER__getDriveLoopSqNum(...);
 extern "C" u32 func_00156408(...);
 
 u32 duplicate_unplaced_00157068(u32 a0) {
     u32 s0 = a0;
-    u32 v0 = func_00155f40(a0);
+    u32 v0 = dk__GAUGE_PLAYER__getDriveLoopSqNum(a0);
     func_00138c10((u32)((s32)s0 + (11648)), v0);
     return func_00156408(s0);
 }
@@ -8484,7 +8484,7 @@ void duplicate_unplaced_00159700(void) {
     *(volatile u32*)((u32)v0 + (s32)(64)) = 5u;
 }
 
-extern "C" u32 func_0013f9e0(...);
+extern "C" u32 dk__ObjCamera__collision_2(...);
 extern "C" u32 func_00159ce0(...);
 
 // 0015a4e0: moved to src/harata/libdk/targetcamera.cpp
@@ -8570,7 +8570,7 @@ void duplicate_unplaced_0015cb78(u32 a0, u32 a1) {
 }
 
 extern "C" u32 func_001069b8(...);  // swap_global_word
-u32 func_00141010(f32);
+u32 dk__ObjCamera__cancelSubjective(f32);
 extern "C" u32 func_0015ce90(...);  // zero_global_byte_g
 extern "C" u32 func_0015cef0(...);
 
@@ -8658,7 +8658,7 @@ void duplicate_unplaced_001623b0() {
 void func_00162a20(u32 a0, u32 a1);  // 0x00162a20: definition moved into src/anon/unit_001614e8.cpp
 
 extern "C" u32 func_0017a718(...);
-extern "C" u32 func_0019ba60(...);
+extern "C" u32 YS__OBJ__is_exist(...);
 extern u8 D_0034e948;
 
 // 0017a798: moved to src/yasui/libys/player.cpp
@@ -8742,12 +8742,12 @@ void func_0016a2b0(u32 a0);  // 0x0016a2b0: definition moved into src/anon/unit_
 
 void func_0016a2e0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);  // 0x0016a2e0: definition moved into src/anon/unit_00169f98.cpp
 
-extern "C" u32 func_0016cd48(...);
-extern "C" u32 func_00187ca0(...);
+extern "C" u32 YS__VM__exec(...);
+extern "C" u32 YS__ACT__exec(...);
 
 void func_0016a950(u32 a0);  // 0x0016a950: definition moved into src/anon/unit_00169f98.cpp
 
-extern "C" u32 func_001de168(...);  // scan_list_by_half
+extern "C" u32 ryj__PAX__start(...);  // scan_list_by_half
 
 u32 func_0016abf8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0016abf8: definition moved into src/anon/unit_00169f98.cpp
 
@@ -8755,7 +8755,7 @@ f32 func_0016ae58(u32);
 
 void func_0016aeb8(u32 a0);  // 0x0016aeb8: definition moved into src/anon/unit_00169f98.cpp
 
-extern "C" u32 func_0016af58(...);
+extern "C" u32 YS__OBJ__get_dir(...);
 f32 func_002f8ad0(f32, f32);
 
 void func_0016afe0(u32 a0);  // 0x0016afe0: definition moved into src/anon/unit_00169f98.cpp
@@ -8803,18 +8803,18 @@ f32 func_002f8ad0(f32, f32);
 
 // 0016d728: moved to src/anon/unit_0016d2e0.cpp
 
-extern "C" u32 func_001dc8c8(...);
+extern "C" u32 ryj__EFFECT__fadeout_free(...);
 extern "C" u32 func_001dc978(...);
 
 // 0016e338: moved to src/anon/unit_0016d2e0.cpp
 
-extern "C" u32 func_00188958(...);
+extern "C" u32 YS__PARTRAM__set_item_max(...);
 
 void duplicate_unplaced_0016e688(u32 a0) {
     u32 a1 = *(u32*)((u32)a0 + (s32)(4));
     u32 t7 = *(u32*)((u32)a0 + (s32)(0));
     a0 = t7;
-    func_00188958(a0, a1);
+    YS__PARTRAM__set_item_max(a0, a1);
 }
 
 extern "C" u32 func_00188b68(...);
@@ -8828,7 +8828,7 @@ void duplicate_unplaced_0016e718(u32 a0) {
     func_00188b68(a0, a1, a2);
 }
 
-extern "C" u32 func_001a3188(...);
+extern "C" u32 YS__ITEM__Get(...);
 
 
 extern u8 D_0034d8a8;
@@ -8898,12 +8898,12 @@ void duplicate_unplaced_00171e58(u32 a0) {
     ((void(*)())(u32)t7f)();
 }
 
-extern "C" u32 func_0016bda8(...);
+extern "C" u32 YS__OBJ__get_target_pos(...);
 extern "C" u32 func_001c7d90(...);
 
 void func_00171f20(u32 a0);  // 0x00171f20: definition moved into src/anon/unit_00171e58.cpp
 
-extern "C" u32 func_0016bda8(...);
+extern "C" u32 YS__OBJ__get_target_pos(...);
 extern "C" u32 func_001d2930(...);
 
 void func_00171f68(u32 a0);  // 0x00171f68: definition moved into src/anon/unit_00171e58.cpp
@@ -8919,12 +8919,12 @@ void duplicate_unplaced_001721d8(u32 a0) {
 }
 
 extern "C" u32 func_0016bd60(...);
-extern "C" u32 func_001ba028(...);  // list_contains_ptr
+extern "C" u32 YS__OBJ__is_valid(...);  // list_contains_ptr
 
 void duplicate_unplaced_001723d0(u32 a0) {
     u32 s0 = a0;
     u32 t7 = *(u32*)((u32)a0 + (s32)(0));
-    func_001ba028(*(u32*)((u32)t7 + (s32)(4)));  // list_contains_ptr
+    YS__OBJ__is_valid(*(u32*)((u32)t7 + (s32)(4)));  // list_contains_ptr
     t7 = *(u32*)((u32)s0 + (s32)(0));
     u32 a1 = 0u;
     u32 t6 = *(u32*)((u32)t7 + (s32)(4));
@@ -8934,7 +8934,7 @@ void duplicate_unplaced_001723d0(u32 a0) {
 
 extern "C" u32 func_0016a020(...);
 extern "C" u32 func_0016ace0(...);
-extern "C" u32 func_0019afd8(...);
+extern "C" u32 YS__UNIT_GROUP__RandomPosPlayer(...);
 
 void func_001728e0(u32 a0);  // 0x001728e0: definition moved into src/anon/unit_00171e58.cpp
 
@@ -8979,7 +8979,7 @@ void duplicate_unplaced_00172c08(u32 a0) {
     *(u32*)((u32)s0 + (s32)(4)) = v0;
 }
 
-f32 func_001826e0();  // global_float_diff
+f32 YS__AREADATA__GetCostRest();  // global_float_diff
 
 void func_001730b0(u32 a0);  // 0x001730b0: definition moved into src/anon/unit_00171e58.cpp
 
@@ -9011,7 +9011,7 @@ u32 func_001a7610(u32, u32, u32, f32, f32);
 
 u32 func_001733b8(u32 a0);  // 0x001733b8: definition moved into src/anon/unit_00171e58.cpp
 
-f32 func_001806f8(u32, int);
+f32 YS__MOTION__get_length(u32, int);
 
 void func_00173a60(u32 a0);  // 0x00173a60: definition moved into src/anon/unit_00171e58.cpp
 
@@ -9019,7 +9019,7 @@ extern "C" u32 func_00180770(...);
 
 void func_00173a98(u32 a0);  // 0x00173a98: definition moved into src/anon/unit_00171e58.cpp
 
-extern "C" u32 func_00184ad0(...);
+extern "C" u32 YS__OBJ__turn_to_dir(...);
 
 void func_00173c38(u32 a0);  // 0x00173c38: definition moved into src/anon/unit_00171e58.cpp
 
@@ -9035,7 +9035,7 @@ void func_00191bf0(f32);
 
 void func_001749c8(u32 a0);  // 0x001749c8: definition moved into src/anon/unit_00171e58.cpp
 
-extern "C" u32 func_00159130(...);
+extern "C" u32 dk__ReactionCamera__create(...);
 extern "C" u32 func_00190128(...);
 extern "C" u32 func_00190878(...);
 
@@ -9090,7 +9090,7 @@ extern "C" u32 func_00176b20(...);
 // 00177710: moved to src/yasui/libys/party.cpp
 
 extern "C" u32 func_00177860(...);
-extern "C" u32 func_001a1de0(...);
+extern "C" u32 YS__SHEET__is_mpdrive(...);
 
 // 00177870: moved to src/yasui/libys/party.cpp
 
@@ -9098,7 +9098,7 @@ extern "C" u32 func_001778c0(...);
 
 // 00177958: moved to src/yasui/libys/party.cpp
 
-extern "C" u32 func_001d6ba0(...);
+extern "C" u32 YS__INDICATION__exec(...);
 
 // 00178888: moved to src/yasui/libys/player.cpp
 
@@ -9135,7 +9135,7 @@ void duplicate_unplaced_0017dec0() {
     func_001c9770();
 }
 
-extern "C" u32 func_0017e280(...);
+extern "C" u32 YS__FRIEND__can_sacrifice_leave(...);
 
 // 0017e310: moved to src/yasui/libys/friend.cpp
 
@@ -9144,7 +9144,7 @@ extern "C" u32 func_0017df58(...);
 // 0017e6d8: moved to src/yasui/libys/friend.cpp
 
 extern "C" u32 func_0017ec28(...);
-extern "C" u32 func_0017ec98(...);
+extern "C" u32 YS__MOTION__id_to_num(...);
 extern "C" u32 func_001a97b8(...);
 
 // 0017ec30: moved to src/yasui/libys/motion.cpp
@@ -9214,7 +9214,7 @@ u32 duplicate_unplaced_00181a90(u32 a0) {
     return r2;
 }
 
-f32 func_001826e0();  // global_float_diff
+f32 YS__AREADATA__GetCostRest();  // global_float_diff
 
 // 00182690: moved to src/yasui/libys/areadata.cpp
 
@@ -9226,7 +9226,7 @@ extern "C" u32 func_00199d38(...);
 
 // 00182910 YS::UNIT::update: moved to src/anon/unit_00182780.cpp
 
-extern "C" u32 func_00196908(...);
+extern "C" u32 YS__UNITSCRIPT__Start(...);
 extern "C" u32 func_00199dc0(...);
 
 // 00182940 YS::UNIT::activate: moved to src/anon/unit_00182780.cpp
@@ -9261,43 +9261,43 @@ extern "C" u32 func_001c0cd8(...);
 
 // 00185ac0: moved to src/anon/unit_001855e0.cpp
 
-extern "C" u32 func_00186478(...);
-extern "C" u32 func_00186a90(...);
+extern "C" u32 YS__BTLOBJ__exec_damage_small_spot(...);
+extern "C" u32 YS__BTLOBJ__set_hitback(...);
 
 // 00186548: moved to src/anon/unit_00185d10.cpp
 void func_00186548(u32 a0, u32 a1, f32 f12);
 
-extern "C" u32 func_00186590(...);
+extern "C" u32 YS__BTLOBJ___exec_damage_small_air(...);
 extern "C" u32 func_00186c58(...);
 
 // 001866a0: moved to src/anon/unit_00185d10.cpp
 void func_001866a0(u32 a0, u32 a1, f32 f12);
 
-extern "C" u32 func_00186590(...);
-extern "C" u32 func_00186a90(...);
+extern "C" u32 YS__BTLOBJ___exec_damage_small_air(...);
+extern "C" u32 YS__BTLOBJ__set_hitback(...);
 
 // 001866f0: moved to src/anon/unit_00185d10.cpp
 void func_001866f0(u32 a0, u32 a1, f32 f12);
 
 extern "C" u32 func_001860b0(...);
-extern "C" u32 func_001c1b08(...);
+extern "C" u32 YS__BTLOBJ__tornado(...);
 
 void duplicate_unplaced_00186948(u32 a0, u32 a1) {
     u32 s0 = a1;
     u32 s1 = a0;
     u32 v0 = func_001860b0(a0, a1);
-    func_001c1b08(s1, *(u32*)((u32)s0 + (s32)(28)), v0);
+    YS__BTLOBJ__tornado(s1, *(u32*)((u32)s0 + (s32)(28)), v0);
 }
 
 extern "C" u32 func_0016cce8(...);
 
 // 00186fd8: moved to src/anon/unit_00185d10.cpp
-void func_00186fd8(u32 a0, u32 a1);
+void YS__BTLOBJ___OVR_exec_reflect_bg(u32 a0, u32 a1);
 
 void func_001a1d40(u32, f32);
 
 
-extern "C" u32 func_0016a5b0(...);
+extern "C" u32 YS__OBJ___OVR_pre_exec(...);
 extern "C" u32 func_001dc920(...);
 extern "C" u32 func_001dc9e0(...);
 
@@ -9326,7 +9326,7 @@ extern "C" u32 func_001883d8(...);
 // 00188120: moved to src/anon/unit_00185d10.cpp
 void func_00188120(u32 a0, u32 a1);
 
-extern "C" u32 func_00188340(...);
+extern "C" u32 YS__ACT__callback(...);
 extern u8 D_01c60bc8;
 
 void duplicate_unplaced_001883f8(u32 a0, u32 a1) {
@@ -9336,10 +9336,10 @@ void duplicate_unplaced_001883f8(u32 a0, u32 a1) {
     u32 t5 = *(u32*)((u32)a0 + (s32)(136));
     *(u32*)((u32)t6 + (s32)(0)) = t5;
     *(u32*)((u32)t7 + (s32)(4)) = t4;
-    func_00188340(a0, (u32)3, t7, (u32)2);
+    YS__ACT__callback(a0, (u32)3, t7, (u32)2);
 }
 
-extern "C" u32 func_00188340(...);
+extern "C" u32 YS__ACT__callback(...);
 extern u8 D_01c60bd0;
 
 void duplicate_unplaced_00188430(u32 a0, u32 a1, u32 a2) {
@@ -9350,7 +9350,7 @@ void duplicate_unplaced_00188430(u32 a0, u32 a1, u32 a2) {
     *(u32*)((u32)t6 + (s32)(0)) = t5;
     *(u32*)((u32)t7 + (s32)(4)) = a1;
     *(u32*)((u32)t7 + (s32)(8)) = t4;
-    func_00188340(a0, (u32)7, t7, (u32)3);
+    YS__ACT__callback(a0, (u32)7, t7, (u32)3);
 }
 
 extern u8 D_01c608c0;
@@ -9359,12 +9359,12 @@ extern u8 D_01c608c0;
 void func_001887d8(u32 a0, u32 a1);
 
 extern "C" u32 func_00188948(...);
-extern "C" u32 func_00188fe0(...);
+extern "C" u32 YS__SAVERAM_BATTLE__get_partram(...);
 
 void duplicate_unplaced_00189028(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 s0 = a2;
     u32 s1 = a3;
-    u32 v0 = func_00188fe0(a0, a1);
+    u32 v0 = YS__SAVERAM_BATTLE__get_partram(a0, a1);
     a1 = s0;
     a2 = s1;
     a0 = v0;
@@ -9394,7 +9394,7 @@ u32 func_0018b198(u32 a0);  // 0x0018b198: definition moved into src/yasui/libys
 
 u32 func_0018b1d8(u32 a0);  // 0x0018b1d8: definition moved into src/yasui/libys/npc.cpp
 
-void func_0018b338(f32);
+void YS__NPC__after_talk(f32);
 
 void func_0018b270(void);  // 0x0018b270: definition moved into src/yasui/libys/npc.cpp
 
@@ -9428,11 +9428,11 @@ u32 duplicate_unplaced_0018f010(u32 a0) {
     return (u32)((u8)v0);
 }
 
-extern "C" u32 func_0018f070(...);  // list_contains_ptr_b
+extern "C" u32 YS__ATTACK__is_exist(...);  // list_contains_ptr_b
 
 void func_0018f028(u32 a0);  // 0x0018f028: definition moved into src/anon/unit_0018d050.cpp
 
-extern "C" u32 func_0019ba60(...);
+extern "C" u32 YS__OBJ__is_exist(...);
 
 void func_0018f428(u32 a0);  // 0x0018f428: definition moved into src/anon/unit_0018f140.cpp
 
@@ -9472,11 +9472,11 @@ extern "C" u32 func_001d37a0(...);
 
 void func_0018ffb8(u32 a0);  // 0x0018ffb8: definition moved into src/anon/unit_0018f140.cpp
 
-extern "C" u32 func_0019ba60(...);
+extern "C" u32 YS__OBJ__is_exist(...);
 
 
 extern "C" u32 func_00190140(...);
-extern "C" u32 func_0019bc38(...);
+extern "C" u32 YS__OBJ__can_lockon(...);
 
 u32 func_001901c0(u32 a0);  // 0x001901c0: definition moved into src/anon/unit_001900d0.cpp
 
@@ -9498,11 +9498,11 @@ extern u8 D_0034f240;
 // 00191c88: moved to src/yasui/libys/status.cpp
 
 extern "C" u32 func_00170518(...);
-extern "C" u32 func_001921d8(...);
+extern "C" u32 YS__MESSAGE__GetFilename(...);
 
 void duplicate_unplaced_00192260(u32 a0, u32 a1) {
     u32 s0 = a1;
-    u32 v0 = func_001921d8(a0);
+    u32 v0 = YS__MESSAGE__GetFilename(a0);
     func_00170518(v0, s0, 0u);
 }
 
@@ -9546,20 +9546,20 @@ void duplicate_unplaced_00195750(void) {
     func_00195558((u32)&D_0034fa78);
 }
 
-extern "C" u32 func_001b1448(...);
+extern "C" u32 YS__DATABUFF__Read(...);
 
 void duplicate_unplaced_00196170(void) {
     u32 t7 = (u32)(0x0035u << 16);
-    u32 v0 = func_001b1448(*(u32*)((u32)t7 + (s32)(816)));
+    u32 v0 = YS__DATABUFF__Read(*(u32*)((u32)t7 + (s32)(816)));
     t7 = (u32)(0x01c6u << 16);
     *(u32*)((u32)t7 + (s32)(6912)) = v0;
 }
 
-extern "C" u32 func_001b1448(...);
+extern "C" u32 YS__DATABUFF__Read(...);
 
 void duplicate_unplaced_00196300(void) {
     u32 t7 = (u32)(0x0035u << 16);
-    u32 v0 = func_001b1448(*(u32*)((u32)t7 + (s32)(820)));
+    u32 v0 = YS__DATABUFF__Read(*(u32*)((u32)t7 + (s32)(820)));
     t7 = (u32)(0x01c6u << 16);
     *(u32*)((u32)t7 + (s32)(6916)) = v0;
 }
@@ -9597,13 +9597,13 @@ extern u8 D_00197cf0;
 
 u32 func_00197e40(void);  // 0x00197e40: definition moved into src/anon/unit_00195d00.cpp
 
-extern "C" u32 func_001b0250(...);
+extern "C" u32 YS__VOICE__exec(...);
 
 // 00198660: moved to src/anon/unit_00197fe0.cpp
 
 extern "C" u32 func_00198bd0(...);
-extern "C" u32 func_00198ee8(...);
-extern "C" u32 func_00199030(...);
+extern "C" u32 YS__SIGNAL_HOOK__exec(...);
+extern "C" u32 YS__SIGNAL_HOOK__SignalCall(...);
 
 // 00198cb8: moved to src/anon/unit_00198b88.cpp
 
@@ -9638,12 +9638,12 @@ u32 func_0019bb18(u32 a0);  // 0x0019bb18: definition moved into src/anon/unit_0
 
 u32 func_0019bb58(u32 a0);  // 0x0019bb58: definition moved into src/anon/unit_0019ba60.cpp
 
-extern "C" u32 func_0019cc20(...);
+extern "C" u32 YS__LOCKON__release(...);
 extern u8 D_00350444;
 
 void duplicate_unplaced_0019c970(u32 a0) {
     u32 s0 = a0;
-    func_0019cc20();
+    YS__LOCKON__release();
     u32 t7 = *(u32*)((u32)&D_00350444 + (s32)(0));
     u32 t6 = s0;
     s0 = (u32)(t7 ^ t6);
@@ -9653,12 +9653,12 @@ void duplicate_unplaced_0019c970(u32 a0) {
     *(u32*)((u32)&D_00350444 + (s32)(0)) = t7;
 }
 
-extern "C" u32 func_0019cc20(...);
+extern "C" u32 YS__LOCKON__release(...);
 extern u8 D_00350444;
 
 void duplicate_unplaced_0019c9a8(u32 a0) {
     u32 s0 = a0;
-    func_0019cc20();
+    YS__LOCKON__release();
     u32 t7 = *(u32*)((u32)&D_00350444 + (s32)(0));
     u32 t6 = s0;
     s0 = (u32)(t7 ^ t6);
@@ -9835,11 +9835,11 @@ extern u8 D_003527e0;
 
 void func_001d6c88(void);  // 0x001d6c88: definition moved into src/anon/unit_001d68e0.cpp
 
-extern "C" u32 func_001b1448(...);
+extern "C" u32 YS__DATABUFF__Read(...);
 
 void duplicate_unplaced_001d9d00(void) {
     u32 t7 = (u32)(0x0035u << 16);
-    u32 v0 = func_001b1448(*(u32*)((u32)t7 + (s32)(10492)));
+    u32 v0 = YS__DATABUFF__Read(*(u32*)((u32)t7 + (s32)(10492)));
     t7 = (u32)(0x01d6u << 16);
     *(u32*)((u32)t7 + (s32)(-17752)) = v0;
 }
@@ -9963,7 +9963,7 @@ void duplicate_unplaced_001e0dc8(u32 a0) {
 
 void duplicate_unplaced_001e1ce0(u32 a0) {
     u32 s0 = a0;
-    func_001e1988(a0);
+    ryj__LAST_XEMNUS_LASER__setup(a0);
     u32 t6 = *(u32*)((u32)s0 + (s32)(3532));
     *(u32*)((u32)s0 + (s32)(3520)) = 1u;
     *(u32*)((u32)s0 + (s32)(3564)) = t6;
@@ -10180,13 +10180,13 @@ void duplicate_unplaced_00228e28(u32 a0) {
     func_00228bd8(s0);
 }
 
-void func_00229448(u32 a0);  // 00229448: moved to src/sasa/musical_score.cpp (linked unit)
+void sa__MUSICAL_SCORE_BASE__updateInit(u32 a0);  // 00229448: moved to src/sasa/musical_score.cpp (linked unit)
 
-void func_0022ab90(u8* a0);  // 0022ab90: moved to src/sasa/musical_input.cpp (linked unit)
+void sa__MUSICAL_INPUT__initFace(u8* a0);  // 0022ab90: moved to src/sasa/musical_input.cpp (linked unit)
 
 s32 func_0022afe8(s32 a0);  // 0022afe8: moved to src/sasa/musical_input.cpp (linked unit)
 
-void func_0022b5f0(u8* a0);  // 0022b5f0: moved to src/sasa/musical_target.cpp (linked unit)
+void sa__MUSICAL_TARGET__update(u8* a0);  // 0022b5f0: moved to src/sasa/musical_target.cpp (linked unit)
 
 u32 duplicate_unplaced_0022b7f0() {
     u32 s0 = (u32)D_01dad938;
@@ -10214,7 +10214,7 @@ void duplicate_unplaced_0022c508() {
 
 void func_0022cc08(u8* a0);  // 0022cc08: moved to src/sasa/event_layout.cpp (linked unit)
 
-void func_0022ce00(u8* a0);  // 0022ce00: moved to src/sasa/event_layout.cpp (linked unit)
+void sa__EVENT__set_bin_seq_obj_pause(u8* a0);  // 0022ce00: moved to src/sasa/event_layout.cpp (linked unit)
 
 void func_0022ce50(u8* a0);  // 0022ce50: moved to src/sasa/event_layout.cpp (linked unit)
 
@@ -10231,7 +10231,7 @@ extern "C" void func_0022d6d8() asm("_ZN2sa5EVENT7wide_onEv");
 
 void func_0022d728(u8* a0);  // 0x0022d728: definition moved into src/anon/unit_0022d358.cpp
 
-void func_0022d778(u8* a0);  // 0x0022d778: definition moved into src/anon/unit_0022d358.cpp
+void sa__EVENT__set_bin_wall_clip(u8* a0);  // 0x0022d778: definition moved into src/anon/unit_0022d358.cpp
 
 u32 func_0022e110(u8* a0);  // 0x0022e110: definition moved into src/anon/unit_0022d358.cpp
 
@@ -10252,7 +10252,7 @@ void duplicate_unplaced_0022f5a0(u32 a0, u32 a1, u32 a2) {
     (void)a0;
     a1 |= 0x40000000;
     u32 s0 = a2;
-    func_0016ed50(a1, 0xffffffff, 30);
+    YS__OBJENTRY__ReadRequest(a1, 0xffffffff, 30);
     u8* v0 = func_00227d10(s0);
     v0[22] = 1;
 }
@@ -10405,7 +10405,7 @@ void duplicate_unplaced_00240b48(u32 a0) {
 }
 
 void duplicate_unplaced_00240e10() {
-    func_00240360();
+    Tz__MCard__MakeFname();
 
     u32 t5 = D_0035ec94;
     u32 a1 = D_0035ec9c;
@@ -10606,7 +10606,7 @@ void func_0024f348();  // 0x0024f348: definition moved into src/anon/unit_0024e7
 void duplicate_unplaced_00251e90(u32 a0) {
     a0 <<= 3;
     u32 a2 = a0 + (u32)&D_00372610;
-    func_0028dbf8(D_0035ee60, (u32)&D_00372608, a2);
+    Tz__MenuUtil__GetLaySeq(D_0035ee60, (u32)&D_00372608, a2);
 }
 
 void duplicate_unplaced_00252618() {
@@ -10665,7 +10665,7 @@ void duplicate_unplaced_00259570(u32 a0, u32 a1, u32 a2, u32 a3) {
 }
 
 void duplicate_unplaced_0025a1d0() {
-    func_002b4b00();
+    OvlShop__ItemShop__SetupConfirm();
     func_0028f4d8(0, (u32)D_00372eea, 0);
     func_00240be0();
 }
@@ -10686,7 +10686,7 @@ void duplicate_unplaced_0025cd40() {
 }
 
 void duplicate_unplaced_0025dba8() {
-    func_002b4b00();
+    OvlShop__ItemShop__SetupConfirm();
     func_00240be0();
     func_0028f4d8(0, 0x8A7F, 0);
 }
@@ -10700,7 +10700,7 @@ extern "C" void func_00262538() asm("_ZN2Tz9ScrollBar7FadeOutEv");
 
 u32 duplicate_unplaced_00263d70() {
     u32 a0 = *(u32*)((u32)func_00103eb0() + 4u);
-    return ((u32(*)(u32, u32, u32, const char*, u32))func_00102818)(a0, 0u, 2000u, (const char*)&D_00263db0, 4096u);
+    return ((u32(*)(u32, u32, u32, const char*, u32))TASK_MANAGER__create_thread)(a0, 0u, 2000u, (const char*)&D_00263db0, 4096u);
 }
 
 u32 func_00263eb8(void* a0);  // 0x00263eb8: definition moved into src/anon/unit_002632d0.cpp
@@ -10727,10 +10727,10 @@ u32 duplicate_unplaced_00269378() {
 }
 
 u32 duplicate_unplaced_0026dcb8() {
-    func_0026d968();
+    Tz__Selector__Init();
     func_00287bd0(0u, 0u);
     u32 a0 = *(u32*)((u32)func_00103eb0() + 4u);
-    return ((u32(*)(u32, u32, u32, const char*, u32))func_00102818)(a0, 0u, 2000u, (const char*)&D_0026dd40, 4096u);
+    return ((u32(*)(u32, u32, u32, const char*, u32))TASK_MANAGER__create_thread)(a0, 0u, 2000u, (const char*)&D_0026dd40, 4096u);
 }
 
 void duplicate_unplaced_0026dd18(u32 a0, u32 a1, s32 a2) {
@@ -10758,7 +10758,7 @@ void func_00276300();  // 0x00276300: definition moved into src/anon/unit_002748
 
 void func_00276598();  // 0x00276598: definition moved into src/anon/unit_002748a0.cpp
 
-void func_00276dc0();  // 0x00276dc0: definition moved into src/anon/unit_002748a0.cpp
+void Tz__Jiminy__FadeOutHelp();  // 0x00276dc0: definition moved into src/anon/unit_002748a0.cpp
 
 u32 func_00276fa8();  // 0x00276fa8: definition moved into src/anon/unit_002748a0.cpp
 
@@ -10831,7 +10831,7 @@ u32 duplicate_unplaced_002831e0(u32 a0, u32 a1) {
     *(u32*)(*(u32*)(u32)&D_0035f2b4) = s1;
     func_00283d00(s0);
     func_00283f50();
-    return func_002833f8();
+    return Tz__CmTutorial__CreateList();
 }
 
 u32 duplicate_unplaced_00284048() {
@@ -10969,7 +10969,7 @@ void duplicate_unplaced_00290a10(void* a0, void* a1, void* a2) {
 u32 duplicate_unplaced_002925c0() {
     u32 v0 = func_00103eb0();
     u32 a0 = *(u32*)(v0 + 4);
-    v0 = func_00102818(a0, 0, 0x000222e0u, (u32)func_00292608, 4096u);
+    v0 = TASK_MANAGER__create_thread(a0, 0, 0x000222e0u, (u32)func_00292608, 4096u);
     *(u32*)(v0 + 48) = (u32)D_00292620;
     return v0;
 }
@@ -11012,7 +11012,7 @@ s32 duplicate_unplaced_00295228(u32 a0) {
     u32 s1 = a0;
     u32 base = func_00294000(0);
     u32 s0 = base + 16;
-    u32 idx = func_00295158(s1);
+    u32 idx = Tz__JmWorldSel__GetCur2Idx(s1);
     idx = idx << 4;
     idx = idx + s0;
     return *(s8*)idx;
@@ -11034,7 +11034,7 @@ void func_0029dd60() {
 
 u32 func_0029e0f8();  // 0x0029e0f8: definition moved into src/anon/unit_0029d008.cpp
 
-void func_0029ee38();  // 0x0029ee38: definition moved into src/anon/unit_0029d008.cpp
+void Tz__JmAnsem__LeaveAll();  // 0x0029ee38: definition moved into src/anon/unit_0029d008.cpp
 
 u32 duplicate_unplaced_002a01c8(u32 a0) {
     u32 s0 = a0;
@@ -11066,11 +11066,11 @@ u32 duplicate_unplaced_002a6368(u32 a0) {
     return v0 + s0;
 }
 
-void func_002a6a18();  // 0x002a6a18: definition moved into src/anon/unit_002a5a90.cpp
+void Tz__JmSynthe__LeaveAll();  // 0x002a6a18: definition moved into src/anon/unit_002a5a90.cpp
 
-u32 func_002a7490();  // 0x002a7490: definition moved into src/anon/unit_002a7308.cpp
+u32 Tz__JmSynthe__isEnableRecipe();  // 0x002a7490: definition moved into src/anon/unit_002a7308.cpp
 
-void func_002a7760();  // 0x002a7760: definition moved into src/anon/unit_002a7308.cpp
+void Tz__JmMiniGame__LeaveAll();  // 0x002a7760: definition moved into src/anon/unit_002a7308.cpp
 
 u32 duplicate_unplaced_002a7f20(u32 a0) {
     u32 s0 = a0;
@@ -11085,7 +11085,7 @@ u32 duplicate_unplaced_002a8920() {
     return v0 >= 2u;
 }
 
-void func_002a8a88();  // 0x002a8a88: definition moved into src/anon/unit_002a8748.cpp
+void Tz__JmQuest__LeaveAll();  // 0x002a8a88: definition moved into src/anon/unit_002a8748.cpp
 
 u32 duplicate_unplaced_002a92a0(u32 a0) {
     u32 s0 = a0;
@@ -11154,7 +11154,7 @@ void func_002bcda8(s32 a0, u32 a1);  // 0x002bcda8: definition moved into src/an
 
 void func_002bce10(u32* a0, u32 a1);  // 0x002bce10: definition moved into src/anon/unit_002bc978.cpp
 
-void func_002bcfa0();  // 0x002bcfa0: definition moved into src/anon/unit_002bc978.cpp
+void SE_BANK__objectDestroy();  // 0x002bcfa0: definition moved into src/anon/unit_002bc978.cpp
 
 void func_002bcfe8(u32* a0);  // 0x002bcfe8: definition moved into src/anon/unit_002bc978.cpp
 
@@ -11330,7 +11330,7 @@ void duplicate_unplaced_002c5418(u32 a0) {
     obj[1] = a0;
 }
 
-void func_002c55b0(u32 a0);  // 0x002c55b0: definition moved into src/anon/unit_002c53c8.cpp
+void dk__WM_OBJ___OVR_pre_exec(u32 a0);  // 0x002c55b0: definition moved into src/anon/unit_002c53c8.cpp
 
 void duplicate_unplaced_002c5628(u32 a0) {
     u32 v13 = *(u32*)(a0 + 264);
@@ -11386,9 +11386,9 @@ void duplicate_unplaced_002cff00(u32 a0) {
     func_002cff50(a0);
 }
 
-void func_002d0b88(u32 a0, u32 a1);  // 0x002d0b88: definition moved into src/anon/unit_002cf260.cpp
+void Ti__MGObj__set_matrix(u32 a0, u32 a1);  // 0x002d0b88: definition moved into src/anon/unit_002cf260.cpp
 
-void func_002d0bd8(u32 a0, u32 a1);  // 0x002d0bd8: definition moved into src/anon/unit_002cf260.cpp
+void Ti__MGObj__set_matrix_2(u32 a0, u32 a1);  // 0x002d0bd8: definition moved into src/anon/unit_002cf260.cpp
 
 void duplicate_unplaced_002d0ef0(u32 a0, u32 a1, u32 a2, u32 a3) {
     func_00177dc8(a0, a1, 11, a2, a3);
@@ -11399,7 +11399,7 @@ void duplicate_unplaced_002d0ef0(u32 a0, u32 a1, u32 a2, u32 a3) {
 
 void duplicate_unplaced_002d1270(u32 a0, u32 a1) {
     u32 p = func_001050d8(336);
-    func_002d1550(p, a0, a1);
+    Ti__MGOarashi__MGOarashi(p, a0, a1);
 }
 
 void duplicate_unplaced_002d4200(u32 a0, u32 a1, u32 a2) {
@@ -11466,7 +11466,7 @@ f32 func_002dc100(u32 a0);  // 0x002dc100: definition moved into src/anon/unit_0
 
 void duplicate_unplaced_002dc278(u32 a0, u32 a1) {
     u32 p = func_001050d8(0x80a0);
-    func_002dc4e0(p, a0, a1);
+    Ti__MGJump__MGJump(p, a0, a1);
 }
 
 f32 func_002dd250(u32 a0, u32 a1);  // 0x002dd250: definition moved into src/anon/unit_002da040.cpp
@@ -11477,7 +11477,7 @@ f32 func_002dd2b0();  // 0x002dd2b0: definition moved into src/anon/unit_002da04
 
 f32 func_002dd348(u32 a0, f32 a1);  // 0x002dd348: definition moved into src/anon/unit_002da040.cpp
 
-void func_002dd4a8(u32 a0, u32 a1);  // 0x002dd4a8: definition moved into src/anon/unit_002da040.cpp
+void Ti__MGJump__add_combo_count(u32 a0, u32 a1);  // 0x002dd4a8: definition moved into src/anon/unit_002da040.cpp
 
 f32 func_002de6e8(u32 a0);  // 0x002de6e8: definition moved into src/anon/unit_002de3c8.cpp
 
@@ -11694,7 +11694,7 @@ void func_0010a8e0(f32* a0);  // 0010a8e0: moved to src/anon/unit_00109c30.cpp
 
 void duplicate_unplaced_0010c7f0(C7F0_State* a0) {
     C7F0_State* s0 = a0;
-    func_0017dbb8((u32)a0);
+    YS__FRIEND___OVR_initialize((u32)a0);
     C7F0_Obj* a4 = s0->obj;
     a4->vtbl->fn5(a4);
 }
@@ -11815,7 +11815,7 @@ u32 duplicate_unplaced_00138650(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 s0 = a0;
     func_001391c8(a0, a1, a3);
     s0 += 32;
-    func_002362b0(s0, s1);
+    YI__IMAGE__Init(s0, s1);
     return func_002367c8(s0);  // obj_dispatch_bitfield64
 }
 
@@ -11824,7 +11824,7 @@ void duplicate_unplaced_001387f8(u32 a0, u32 a1, u32 a2, u32 a3) {
     (void)a2;
     u32 s0 = a0;
     u32 s1 = a3;
-    func_00239988(a0 + 24);
+    YI__SEQUENCE__Init(a0 + 24);
     func_00138c10(s0, s1);
     *(u32*)(s0 + 392) = 0xFFFFFFFFu;
 }
@@ -11836,7 +11836,7 @@ void duplicate_unplaced_001434d0(u32 a0) {
     func_00142900(D_00348804, 0, a0);
 }
 
-void func_00143ee8(u32 a0, u32 a1);  // 0x00143ee8: definition moved into src/anon/unit_00142c90.cpp
+void dk__Octree__getAttr(u32 a0, u32 a1);  // 0x00143ee8: definition moved into src/anon/unit_00142c90.cpp
 
 void func_00143f78(u32 a0, u32 a1);  // 0x00143f78: definition moved into src/anon/unit_00142c90.cpp
 
@@ -11862,7 +11862,7 @@ u32 duplicate_unplaced_0014ca20() {
 extern "C" u32 func_0014f0b0(...);
 u32 func_0014cd98(u32 a0);  // 0x0014cd98: definition moved into src/anon/unit_0014c7f0.cpp
 
-extern "C" void func_0014fdd0(...);  // entry_clear_by_fields
+extern "C" void dk__INFO_BASE__destroy(...);  // entry_clear_by_fields
 void func_001502e8(Obj001502e8* a0);  // 0x001502e8: definition moved into src/anon/unit_0014ecb8.cpp
 
 void func_00152498(Obj00152498* a0, u32 a1);  // 0x00152498: definition moved into src/anon/unit_0014ecb8.cpp
@@ -11933,7 +11933,7 @@ void func_001a0400(u32* param_1);  // 0x001a0400: definition moved into src/anon
 void func_001a0420(u32* param_1);  // 0x001a0420: definition moved into src/anon/unit_0019fb70.cpp
 
 void duplicate_unplaced_001a04f8(u32* param_1) {
-    func_001d8fa8(param_1[0] != 0u, param_1[1]);
+    YS__MISSION__WarningGauge(param_1[0] != 0u, param_1[1]);
 }
 
 void duplicate_unplaced_001a0678(u32* param_1) {
@@ -11983,12 +11983,12 @@ void duplicate_unplaced_001a3a50(void) {
 // 001a4d40: moved to src/anon/unit_001a3e70.cpp
 
 void duplicate_unplaced_001a5380(u32 a0, u32 a1, u32 a2) {
-    func_001c79a0(a2, a1, 0);
+    YS__PRIZEEFFECT__get(a2, a1, 0);
     func_001a52a8(a0, a1, a2);
 }
 
 void duplicate_unplaced_001a53d0(u32 a0, u32 a1, u32 a2) {
-    func_001c79a0(a2, a1, 1);
+    YS__PRIZEEFFECT__get(a2, a1, 1);
     func_001a52a8(a0, a1, a2);
 }
 
@@ -12007,7 +12007,7 @@ void duplicate_unplaced_001a6c90(u32 a0) {
     u32* p = (u32*)((u8*)&D_0032dec0 + ((a0 >> 5) << 2));
     u32 m = 1u << (a0 & 0x1Fu);
     *p = *p | m;
-    func_001d59b0();
+    YS__LINK_FLAG__Check();
 }
 
 // 001a64c0: moved to src/yasui/libys/magic.cpp
@@ -12077,7 +12077,7 @@ void duplicate_unplaced_001abb28(u32* a0) {
     func_00239700(p);
     u32 x = func_001ab810();  // get_global_1c7cec0
     u32 y = func_001ab800();
-    func_00239988(p, x, y);
+    YI__SEQUENCE__Init(p, x, y);
 }
 
 extern "C" void func_00239bf8(...);
@@ -12090,7 +12090,7 @@ void duplicate_unplaced_001abfd8(u8* a0) {
     func_00239700(p);
     u32 x = func_001ab810();  // get_global_1c7cec0
     u32 y = func_001ab800();
-    func_00239988(p, x, y);
+    YI__SEQUENCE__Init(p, x, y);
 }
 
 void duplicate_unplaced_001ac028(u8* a0) {
@@ -12099,7 +12099,7 @@ void duplicate_unplaced_001ac028(u8* a0) {
     func_00239700(p);
     u32 x = func_001ab810();  // get_global_1c7cec0
     u32 y = func_001ab800();
-    func_00239988(p, x, y);
+    YI__SEQUENCE__Init(p, x, y);
 }
 
 // 001ac0d0: moved to src/anon/unit_001abb28.cpp
@@ -12110,7 +12110,7 @@ void duplicate_unplaced_001ac208(u32* a0) {
     func_00239700(p);
     u32 x = func_001ab810();  // get_global_1c7cec0
     u32 y = func_001ab800();
-    func_00239988(p, x, y);
+    YI__SEQUENCE__Init(p, x, y);
 }
 
 void duplicate_unplaced_001ac258(u32* a0) {
@@ -12119,7 +12119,7 @@ void duplicate_unplaced_001ac258(u32* a0) {
     func_00239700(p);
     u32 x = func_001ab810();  // get_global_1c7cec0
     u32 y = func_001ab800();
-    func_00239988(p, x, y);
+    YI__SEQUENCE__Init(p, x, y);
 }
 
 void duplicate_unplaced_001ac660(u32 a0) {
@@ -12177,13 +12177,13 @@ void func_001af2e8();  // 0x001af2e8: definition moved into src/anon/unit_001ada
 void duplicate_unplaced_001af328(u32 a0) {
     u32 s0 = a0;
     u32 p = func_001050d8(80);
-    func_001aedf8(p, s0, 2);
+    YS__GAMEOVER__GAMEOVER(p, s0, 2);
 }
 
 void duplicate_unplaced_001af360(u32 a0) {
     u32 s0 = a0;
     u32 p = func_001050d8(80);
-    func_001aedf8(p, s0, 3);
+    YS__GAMEOVER__GAMEOVER(p, s0, 3);
 }
 
 void func_001af9f8();  // 0x001af9f8: definition moved into src/anon/unit_001ada38.cpp
@@ -12216,7 +12216,7 @@ void duplicate_unplaced_001b3bb8(u8* a0) {
 
 void func_001b3cb0(u8* a0, u32 a1);  // 0x001b3cb0: definition moved into src/anon/unit_001b2780.cpp
 
-void func_001b4098(u8* a0, u32 a1, u32 a2);  // 0x001b4098: definition moved into src/anon/unit_001b2780.cpp
+void YS__PIERROT___OVR_attack_callback(u8* a0, u32 a1, u32 a2);  // 0x001b4098: definition moved into src/anon/unit_001b2780.cpp
 
 void func_001b5970(u32 a0, u32 a1);  // 0x001b5970: definition moved into src/anon/unit_001b2780.cpp
 
@@ -12240,13 +12240,13 @@ u32 func_001b73e8(u8* a0, u32 a1);  // 0x001b73e8: definition moved into src/ano
 u32 duplicate_unplaced_001b7428(u32 a0) {
     u32 s0 = a0;
     u32 v0 = func_001a3a78(s0);
-    return func_001de168(v0, 15, 1, 1, 10005, s0);  // scan_list_by_half
+    return ryj__PAX__start(v0, 15, 1, 1, 10005, s0);  // scan_list_by_half
 }
 
 u32 duplicate_unplaced_001b7468(u32 a0) {
     u32 s0 = a0;
     u32 v0 = func_001a3a78(s0);
-    return func_001de168(v0, 16, 1, 1, 10005, s0);  // scan_list_by_half
+    return ryj__PAX__start(v0, 16, 1, 1, 10005, s0);  // scan_list_by_half
 }
 
 u32 func_001b74c8(u32 a0, u32 a1);  // 0x001b74c8: definition moved into src/anon/unit_001b6a50.cpp
@@ -12259,7 +12259,7 @@ u32 duplicate_unplaced_001b7768(u32* a0, u32 a1) {
     u32* s0 = a0;
     u32 s1 = a1;
     u32 v0 = func_001b77a8(1);
-    return func_00153468(v0, s0[0], s1);
+    return dk__LEVELUP_INFO__openSummon(v0, s0[0], s1);
 }
 
 s32 func_001b7818(s32 a0);  // 0x001b7818: definition moved into src/anon/unit_001b6a50.cpp
@@ -12284,10 +12284,10 @@ u32 func_001bcf18(u32* a0);  // 0x001bcf18: definition moved into src/anon/unit_
 
 void func_001bd370(u8* a0);  // 0x001bd370: definition moved into src/anon/unit_001bc568.cpp
 
-extern "C" u32 func_001bde58(...);
+extern "C" u32 YS__PLAYER_COMMAND__clear_override(...);
 void func_001bd3a0(u8* a0);  // 0x001bd3a0: definition moved into src/anon/unit_001bc568.cpp
 
-void func_001bde88(u8* a0);  // 0x001bde88: definition moved into src/anon/unit_001bc568.cpp
+void YS__FIELD_COMMAND__init_field(u8* a0);  // 0x001bde88: definition moved into src/anon/unit_001bc568.cpp
 
 void duplicate_unplaced_001bdf38(u32 a0) {
     u32 s0 = a0;
@@ -12322,10 +12322,10 @@ u32 duplicate_unplaced_001bf140(u32 a0, u32 a1) {
 }
 
 void duplicate_unplaced_001bfbd8() {
-    func_0016ed50(952, -1, 30);
-    func_0016ed50(953, -1, 30);
-    func_0016ed50(954, -1, 30);
-    func_0016ed50(955, -1, 30);
+    YS__OBJENTRY__ReadRequest(952, -1, 30);
+    YS__OBJENTRY__ReadRequest(953, -1, 30);
+    YS__OBJENTRY__ReadRequest(954, -1, 30);
+    YS__OBJENTRY__ReadRequest(955, -1, 30);
 }
 
 // 001c0ab0: moved to src/anon/unit_001c0638.cpp
@@ -12406,9 +12406,9 @@ void func_001d1698(u8* a0, u32 a1, u32 a2, u32 a3);  // 0x001d1698: definition m
 
 void func_001d1720(u8* a0, u32 a1);  // 0x001d1720: definition moved into src/anon/unit_001d14e0.cpp
 
-void func_001d1950(u8* a0, s32 a1);  // 0x001d1950: definition moved into src/anon/unit_001d14e0.cpp
+void YS__MISSION_TIMER__start(u8* a0, s32 a1);  // 0x001d1950: definition moved into src/anon/unit_001d14e0.cpp
 
-void func_001d1c28(u8* a0);  // 0x001d1c28: definition moved into src/anon/unit_001d14e0.cpp
+void YS__MISSION_COUNT__reset_warning(u8* a0);  // 0x001d1c28: definition moved into src/anon/unit_001d14e0.cpp
 
 void func_001d1e88(u8* a0);  // 0x001d1e88: definition moved into src/anon/unit_001d14e0.cpp
 
@@ -12475,7 +12475,7 @@ void func_001d76e8(u32 a0, u8* a1);  // 0x001d76e8: definition moved into src/an
 void duplicate_unplaced_001d7e00(u8* a0) {
     u8* s0 = a0;
     func_00190920((u32)(a0 + 2548), 2, (u32)s0);
-    func_00198450((u32)s0);
+    YS__STDOBJ___OVR_initialize((u32)s0);
 }
 
 u32 func_001d8438();  // 0x001d8438: definition moved into src/anon/unit_001d7458.cpp
@@ -12537,9 +12537,9 @@ f32 AREADATA::GetCostRest() {
 
 extern "C" u32 func_0019ba28(...);
 extern "C" u32 func_0019baa8(...);
-u32 ctarget_0019ba60(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0019ba60: definition moved into src/anon/unit_0019ba60.cpp
+u32 YS__OBJ__is_exist(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0019ba60: definition moved into src/anon/unit_0019ba60.cpp
 
-u32 u_call4_001a1de0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001a1de0: definition moved into src/anon/unit_0019fb70.cpp
+u32 YS__SHEET__is_mpdrive(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001a1de0: definition moved into src/anon/unit_0019fb70.cpp
 
 extern "C" u32 func_002ef988(...);
 extern "C" u32 func_002efbb8(...);

@@ -12,4 +12,4 @@ s32 func_0019c590(Sum* s);  // 0x0019c590: definition moved into src/anon/unit_0
 typedef struct VT_1a1950 { void* f[30]; s32 (*m)(void*, s32, s32, u8); } VT_1a1950;
 typedef struct Obj_1a1950 { VT_1a1950* vt; } Obj_1a1950;
 s32 func_001a1910(void*, s32, s32);
-s32 func_001a1950(void* a0, s32 a1, s32 a2, u8 a3);  // 0x001a1950: definition moved into src/anon/unit_0019fb70.cpp
+s32 YS__SHEET__add_hp(void* a0, s32 a1, s32 a2, u8 a3);  // 0x001a1950: definition moved into src/anon/unit_0019fb70.cpp

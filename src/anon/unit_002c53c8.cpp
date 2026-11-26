@@ -40,10 +40,10 @@ void func_002c5418(u32 x) {
 
 // 002c5460 (from src/anon/batch_w4.cpp)
 namespace n002c5460 {
-void func_00104f58(u32, u32, u32, u32, u32) asm("func_00104f58");
+void AREA__MapJump(u32, u32, u32, u32, u32) asm("AREA__MapJump");
 void func_002c5460(u32 a) asm("func_002c5460");
 void func_002c5460(u32 a) {
-    func_00104f58(a, 1, 0, 0, 0);
+    AREA__MapJump(a, 1, 0, 0, 0);
 }
 }  // namespace n002c5460
 
@@ -122,16 +122,16 @@ u32 func_002c55a8(u8* p) {
 // 002c55b0 (from src/anon/tiny_auto80_queue.cpp)
 namespace n002c55b0 {
 u32 func_001dc9e0(...) asm("_ZN3ryj6EFFECT9is_activeEv");
-u32 func_0016a5b0(...) asm("func_0016a5b0");
-void func_002c55b0(u32 a0) asm("func_002c55b0");
-void func_002c55b0(u32 a0) {
+u32 YS__OBJ___OVR_pre_exec(...) asm("YS__OBJ___OVR_pre_exec");
+void dk__WM_OBJ___OVR_pre_exec(u32 a0) asm("dk__WM_OBJ___OVR_pre_exec");
+void dk__WM_OBJ___OVR_pre_exec(u32 a0) {
     u32 v = *(u32*)(a0 + 2552);
     if (v != 0) {
         if (func_001dc9e0(v) == 0) {
             *(u32*)(a0 + 2552) = 0;
         }
     }
-    func_0016a5b0(a0);
+    YS__OBJ___OVR_pre_exec(a0);
 }
 }  // namespace n002c55b0
 
@@ -175,11 +175,11 @@ void func_002c5628(u32 a0) {
 // 002c5658 (from src/anon/batch_w38.cpp)
 namespace n002c5658 {
 void func_001dc978(void*, f32) asm("_ZN3ryj6EFFECT12fadeout_killEf");
-void* func_001de168(u32, u32, s32, s32, s32, void*) asm("func_001de168");
+void* ryj__PAX__start(u32, u32, s32, s32, s32, void*) asm("ryj__PAX__start");
 void func_002c5658(u8* p, u32 a, u32 b) asm("func_002c5658");
 void func_002c5658(u8* p, u32 a, u32 b) {
     if (*(void**)(p + 2552)) func_001dc978(*(void**)(p + 2552), 10.0f);
-    *(void**)(p + 2552) = func_001de168(a, b, 0, 1, 0x9c41, p);
+    *(void**)(p + 2552) = ryj__PAX__start(a, b, 0, 1, 0x9c41, p);
 }
 }  // namespace n002c5658
 
@@ -187,8 +187,8 @@ void func_002c5658(u8* p, u32 a, u32 b) {
 namespace n002c56d0 {
 u32 func_001984b8(...) asm("func_001984b8");
 u32 func_001dc920(...) asm("_ZN3ryj6EFFECT4killEv");
-u32 func_002c56d0(u32 a0) asm("func_002c56d0");
-u32 func_002c56d0(u32 a0) {
+u32 dk__WM_OBJ___OVR__destroy(u32 a0) asm("dk__WM_OBJ___OVR__destroy");
+u32 dk__WM_OBJ___OVR__destroy(u32 a0) {
     u32 r4 = a0, r2, r15, r16;
     r16 = r4;
     r15 = *(volatile u32*)((u32)r4 + (s32)(2552));
@@ -236,7 +236,7 @@ u8* func_002c5710(u8* e, u32 a, f32 f) {
 namespace n002c5850 {
 void func_00177dc8(void*, u32, s32, u32, u32) asm("func_00177dc8");
 extern void* D_00361d00[] asm("D_00361d00");
-void func_001befd8(u32, s32, s32) asm("func_001befd8");
+void YS__FIELD_COMMAND__set_minigame(u32, s32, s32) asm("YS__FIELD_COMMAND__set_minigame");
 void func_002c57d8(u8* p, u32 a, u32 b, u32 c) asm("func_002c57d8");
 void func_002c57d8(u8* p, u32 a, u32 b, u32 c) {
     func_00177dc8(p, a, 11, b, c);
@@ -246,7 +246,7 @@ void func_002c57d8(u8* p, u32 a, u32 b, u32 c) {
     *(u32*)(p + 3024) = 0;
     *(u32*)(p + 3028) = 0;
     *(u32*)(p + 3032) = 0;
-    func_001befd8(*(u32*)(p + 2884), 0, 0);
+    YS__FIELD_COMMAND__set_minigame(*(u32*)(p + 2884), 0, 0);
     *(u32*)(p + 2748) |= 0x10;
 }
 void func_002c5850(u8* p, u32 a, u32 b, u32 c) asm("func_002c5850");
@@ -258,7 +258,7 @@ void func_002c5850(u8* p, u32 a, u32 b, u32 c) {
     *(u32*)(p + 3024) = 0;
     *(u32*)(p + 3028) = 0;
     *(u32*)(p + 3032) = 0;
-    func_001befd8(*(u32*)(p + 2884), 0, 0);
+    YS__FIELD_COMMAND__set_minigame(*(u32*)(p + 2884), 0, 0);
     *(u32*)(p + 2748) |= 0x10;
 }
 }  // namespace n002c5850
@@ -280,15 +280,15 @@ void ObjCamera_start(u8* self, void* pl, void* pad) {
 namespace n002c5900 {
 void func_001bc778(u8*) asm("_ZN2YS12COMMAND_MENU5clearEv");
 s32 func_00190140(u8*) asm("_ZNK2YS6TARGET8is_existEv");
-u8* func_001bc780(u8*, s32, s32, s32) asm("func_001bc780");
+u8* YS__COMMAND_MENU__add(u8*, s32, s32, s32) asm("YS__COMMAND_MENU__add");
 void func_00178888(u8*) asm("_ZN2YS6PLAYER12_OVR_controlEv");
 void func_002c5900(u8* p) asm("func_002c5900");
 void func_002c5900(u8* p) {
     u8* s = *(u8**)(p + 2884) + 1196;
     func_001bc778(s);
     u8* r;
-    if (func_00190140(*(u8**)(p + 2880) + 4)) r = func_001bc780(s, 582, 0, 1);
-    else r = func_001bc780(s, 583, 0, 1);
+    if (func_00190140(*(u8**)(p + 2880) + 4)) r = YS__COMMAND_MENU__add(s, 582, 0, 1);
+    else r = YS__COMMAND_MENU__add(s, 583, 0, 1);
     r[6] = 4;
     func_00178888(p);
 }
@@ -296,17 +296,17 @@ void func_002c5900(u8* p) {
 
 // 002c5980 (gap): vtable slot after 002c5900; picks the target id and calls 002c5a48.
 namespace n002c5980 {
-void func_001788b8(u8*) asm("func_001788b8");
-u8* func_001b8e88(u32) asm("_Z16u_call4_001b8e88jjjj");
+void YS__PLAYER___OVR_exec(u8*) asm("YS__PLAYER___OVR_exec");
+u8* YS__COMMAND_ELEM__Get(u32) asm("_Z21YS__COMMAND_ELEM__Getjjjj");
 void func_002c5a48(u8*, s32) asm("func_002c5a48");
 void func_002c5980(u8* p) asm("func_002c5980");
 void func_002c5980(u8* p) {
     s32 id = 0;
-    func_001788b8(p);
+    YS__PLAYER___OVR_exec(p);
     s32* t = *(s32**)(p + 2880);
     if (t[0] == 2) id = t[1];
     u8* s = *(u8**)(p + 2884) + 2552;
-    u8* r = func_001b8e88(*(u16*)(s + 38));
+    u8* r = YS__COMMAND_ELEM__Get(*(u16*)(s + 38));
     u16 k = *(u16*)(r + 2);
     if (k == 159 || k == 518) id = **(s32**)(s + 44);
     func_002c5a48(p, id);
@@ -318,12 +318,12 @@ namespace n002c5a08 {
 void func_001789b8(u8*) asm("_Z16wtarget_001789b8jjjj");
 void func_002f1940(u8*) asm("func_002f1940");
 u32 func_001849b8(u8*) asm("_ZN2YS3OBJ10get_groundEv");
-void func_002c6050(u8*, u32) asm("func_002c6050");
+void worldmap__Player__checkDark(u8*, u32) asm("worldmap__Player__checkDark");
 void func_002c5a08(u8* p) asm("func_002c5a08");
 void func_002c5a08(u8* p) {
     func_001789b8(p);
     func_002f1940(p + 3024);
-    func_002c6050(p, func_001849b8(p));
+    worldmap__Player__checkDark(p, func_001849b8(p));
 }
 }  // namespace n002c5a08
 
@@ -331,19 +331,19 @@ void func_002c5a08(u8* p) {
 namespace n002c5a48 {
 struct S5a48b { u8 pad[4]; u8 v; };
 struct S5a48 { u8 pad[0x588]; s32 a; u32 b; u8 pad2[0xaf8-0x590]; S5a48b* p; };
-s32 func_0019ba60(S5a48*) asm("func_0019ba60");
+s32 YS__OBJ__is_exist(S5a48*) asm("YS__OBJ__is_exist");
 s32 func_002bfdf8() asm("func_002bfdf8");
 s32 func_002c1b48(S5a48*) asm("func_002c1b48");
 void func_002c85c8(s32) asm("func_002c85c8");
 void func_002c8648() asm("func_002c8648");
-void func_002ca010(s32) asm("func_002ca010");
+void dk__WM_GLANDING_INFO__start(s32) asm("dk__WM_GLANDING_INFO__start");
 void func_002ca0a8() asm("func_002ca0a8");
 void func_002c5a48(void* self, S5a48* o) asm("func_002c5a48");
 void func_002c5a48(void* self, S5a48* o) {
     if (func_002bfdf8() != 0) return;
     s32 s1 = -1;
     s32 s2 = -1;
-    if (func_0019ba60(o) != 0) {
+    if (YS__OBJ__is_exist(o) != 0) {
         if (o->a < 0) {
             s1 = o->p->v;
         } else {
@@ -351,7 +351,7 @@ void func_002c5a48(void* self, S5a48* o) {
         }
     }
     if (s1 >= 0) func_002c85c8(s1); else func_002c8648();
-    if (s2 >= 0) func_002ca010(s2); else func_002ca0a8();
+    if (s2 >= 0) dk__WM_GLANDING_INFO__start(s2); else func_002ca0a8();
 }
 }  // namespace n002c5a48
 
@@ -381,8 +381,8 @@ void func_0016bd60(u8*, s32) asm("_ZN2YS3OBJ13change_actionENS_6ACTION2IDE");
 s32 func_00190140(Rec2c5*) asm("_ZNK2YS6TARGET8is_existEv");
 void func_002f1990(u8*) asm("func_002f1990");
 Vq func_00190388(const void*) asm("func_00190388");
-const Vq* func_0016c028(u32) asm("func_0016c028");
-void func_002c6eb8(u8*, u8*, Rec2c5*) asm("func_002c6eb8");
+const Vq* YS__OBJ__get_pos(u32) asm("YS__OBJ__get_pos");
+void worldmap__Warp__start(u8*, u8*, Rec2c5*) asm("worldmap__Warp__start");
 void func_002c5b20(u8* o, Msg2c5* m) asm("func_002c5b20");
 void func_002c5b20(u8* o, Msg2c5* m) {
     switch (m->id) {
@@ -399,8 +399,8 @@ void func_002c5b20(u8* o, Msg2c5* m) {
         Rec2c5* r = &((Obj2c5*)o)->r;
         if (func_00190140(r)) {
             func_002f1990(o + 3024);
-            Vq d = vsub(func_00190388(r), *func_0016c028((u32)o));
-            func_002c6eb8(o + 2928, o, r);
+            Vq d = vsub(func_00190388(r), *YS__OBJ__get_pos((u32)o));
+            worldmap__Warp__start(o + 2928, o, r);
         }
         break;
     }
@@ -426,8 +426,8 @@ struct Q16 {
         return *this;
     }
 };
-Q16* func_0016c028(void*) asm("func_0016c028");
-void func_00178cf8_1(void*) asm("func_00178cf8");
+Q16* YS__OBJ__get_pos(void*) asm("YS__OBJ__get_pos");
+void func_00178cf8_1(void*) asm("YS__PLAYER__move_stop");
 u32 func_0016a020(u32) asm("func_0016a020");
 s32 func_002c5d38(void*, u32) asm("func_002c5d38");
 void func_002c8648(void) asm("func_002c8648");
@@ -449,7 +449,7 @@ void func_002c5c50(void* a, u32* b) {
         Q16 t;
         func_00190388(&t, b);
         asm volatile("lqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 0(%2)\n\tvsub.wxyz $vf1, $vf1, $vf2\n\tsqc2 $vf1, 0(%0)"
-                     : : "r"(&d), "r"(&t), "r"(func_0016c028(a)) : "memory");
+                     : : "r"(&d), "r"(&t), "r"(YS__OBJ__get_pos(a)) : "memory");
         ((s32*)&d)[1] = 0;
         asm volatile("lqc2 $vf1, 0(%0)\n\tvmul.xyz $vf2, $vf1, $vf1\n\tvaddy.x $vf2, $vf2, $vf2y\n\t"
                      "vaddz.x $vf2, $vf2, $vf2z\n\tvsqrt Q, $vf2x\n\tvwaitq\n\tcfc2.ni $8, $vi22\n\t"
@@ -466,7 +466,7 @@ void func_002c5c50(void* a, u32* b) {
 // 002c5d38 (from src/anon/auto80_199_queue.cpp)
 namespace n002c5d38 {
 u32 func_001b8958(u32) asm("func_001b8958");
-void func_002bf9d8(u32) asm("func_002bf9d8");
+void worldmap__Event__Event(u32) asm("worldmap__Event__Event");
 u32 func_002c5d38(u32 a0, u32 a1) asm("func_002c5d38");
 u32 func_002c5d38(u32 a0, u32 a1) {
     (void)a0;
@@ -475,7 +475,7 @@ u32 func_002c5d38(u32 a0, u32 a1) {
     if (a1 == 930) {
         if (func_001b8958(1) != 0) {
             if (func_001b8958(2) == 0) {
-                func_002bf9d8(1837);
+                worldmap__Event__Event(1837);
                 return 1;
             }
         }
@@ -493,7 +493,7 @@ u32 func_002c5d38(u32 a0, u32 a1) {
         goto fail;
     }
 
-    func_002bf9d8(1836);
+    worldmap__Event__Event(1836);
     return 1;
 
 fail:
@@ -526,9 +526,9 @@ struct Dir257 : QV257 {
     Dir257(f32 x_, f32 y_, f32 z_, f32 w_) { set4_257(this, x_, y_, z_, w_); }
     ~Dir257() {}
 };
-void func_00178cf8(u8*) asm("func_00178cf8");
+void YS__PLAYER__move_stop(u8*) asm("YS__PLAYER__move_stop");
 QV257 func_00190388(u32*) asm("func_00190388");
-QV257* func_0016c028(u8*) asm("func_0016c028");
+QV257* YS__OBJ__get_pos(u8*) asm("YS__OBJ__get_pos");
 void func_0016aef0(u8*, QV257*) asm("func_0016aef0");
 void func_002cb0e8(u32*, QV257*, f32) asm("func_002cb0e8");
 u32 func_002c1b48(u32) asm("func_002c1b48");
@@ -536,8 +536,8 @@ void func_002cab98(u32) asm("func_002cab98");
 void func_002c17a0(void) asm("func_002c17a0");
 void func_002c5dc0(u8* a0, u32* a1) asm("func_002c5dc0");
 void func_002c5dc0(u8* a0, u32* a1) {
-    func_00178cf8(a0);
-    QV257 d = func_00190388(a1) - *func_0016c028(a0);
+    YS__PLAYER__move_stop(a0);
+    QV257 d = func_00190388(a1) - *YS__OBJ__get_pos(a0);
     d.y = 0.0f;
     normalize257(&d);
     func_0016aef0(a0, &d);
@@ -593,10 +593,10 @@ u32 func_002c5fa0(u32 a0, u32 a1, u32 a2, u32 a3) {
 
 // 002c5fb8 (from src/anon/batch_w207.cpp)
 namespace n002c5fb8 {
-void func_0016bda8(void*) asm("_Z16ctarget_0016bda8jjjj");
+void YS__OBJ__get_target_pos(void*) asm("_Z23YS__OBJ__get_target_posjjjj");
 u32 func_002c5fb8(f32* a) asm("func_002c5fb8");
 u32 func_002c5fb8(f32* a) {
-    func_0016bda8(a);
+    YS__OBJ__get_target_pos(a);
     a[2] = a[2] + 3500.0f;
     return (u32)a;
 }
@@ -605,13 +605,13 @@ u32 func_002c5fb8(f32* a) {
 // 002c5ff8 (from src/anon/batch_w35.cpp)
 namespace n002c5ff8 {
 void func_00143e50(void*, u16, u32) asm("func_00143e50");
-void func_00186a90(void*, void*, f32) asm("func_00186a90");
+void YS__BTLOBJ__set_hitback(void*, void*, f32) asm("YS__BTLOBJ__set_hitback");
 void func_002c5ff8(u8* p, u32 a) asm("func_002c5ff8");
 void func_002c5ff8(u8* p, u32 a) {
     f32 tmp[4] __attribute__((aligned(16)));
     asm volatile("vsub.xyzw $vf1, $vf0, $vf0\n\tsqc2 $vf1, 0(%0)" : : "r"(p + 32) : "memory");
     func_00143e50(tmp, a, 0);
-    func_00186a90(p, tmp, 1000.0f);
+    YS__BTLOBJ__set_hitback(p, tmp, 1000.0f);
 }
 }  // namespace n002c5ff8
 
@@ -619,8 +619,8 @@ void func_002c5ff8(u8* p, u32 a) {
 namespace n002c6050 {
 void func_002f1900(u8*, s32, u8*) asm("func_002f1900");
 void func_002f19c8(u8*) asm("func_002f19c8");
-void func_002c6050(u8* p, s32 k) asm("func_002c6050");
-void func_002c6050(u8* p, s32 k)
+void worldmap__Player__checkDark(u8* p, s32 k) asm("worldmap__Player__checkDark");
+void worldmap__Player__checkDark(u8* p, s32 k)
 {
     switch (k) {
     case 1: func_002f1900(p + 3028, 5, p); func_002f19c8(p + 3032); break;

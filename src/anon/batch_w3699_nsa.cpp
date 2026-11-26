@@ -24,7 +24,7 @@ extern s32 D_00371ac8;
 s32 func_00246968(s32);
 s32 func_00246840(void);
 Inf* func_001d56c8(u8);
-void func_00239f18(f32, void*);
+void YI__SEQUENCE__SetScaleX(f32, void*);
 void* func_00192048(s32);
 void func_00192c90(void*, void*);
 s32 func_00192c40(void*, void*);
@@ -42,6 +42,6 @@ static inline bool chk247198(void) {
     return r;
 }
 
-void func_00247198(void);  // 0x00247198: definition moved into src/anon/unit_00242478.cpp
+void Tz__HECO__UpdateScore(void);  // 0x00247198: definition moved into src/anon/unit_00242478.cpp
 }
 }

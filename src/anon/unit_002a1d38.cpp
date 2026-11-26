@@ -20,10 +20,10 @@
 
 // 002a1d38 (was src/anon/batch_w3736.cpp)
 namespace n002a1d38 {
-void func_001386e0(void*, s32, s32, void*, s32, s32) asm("func_001386e0");
+void dk__Sprite__create(void*, s32, s32, void*, s32, s32) asm("dk__Sprite__create");
 void func_00139620(void*) asm("func_00139620");
 s32 func_00139d78(void*) asm("func_00139d78");
-void func_002362b0(void*, s32) asm("func_002362b0");
+void YI__IMAGE__Init(void*, s32) asm("YI__IMAGE__Init");
 s32 func_0023c4b8(s32, s32) asm("func_0023c4b8");
 s32 func_0023f1b0(s32) asm("func_0023f1b0");
 s32 func_0023f988(s32, s32) asm("func_0023f988");
@@ -43,11 +43,11 @@ extern S2a1d38 D_00374b60[] asm("D_00374b60");
 // Per-entry setup loop. Partial asm (step 4): the in-loop lui of D_0035f5d4 is hand-written (pinned to t7,
 // ordered after p) so loop/cse2 do not hoist it and give it a register; the empty asm around the pre-loop
 // load keeps t6 busy so its high half lands in t7. No code is emitted by the empty asm statements.
-void func_002a1d38(void) asm("func_002a1d38");
+void Tz__JmDiagram__UpdateGra(void) asm("Tz__JmDiagram__UpdateGra");
 // Per-entry setup loop. Partial asm (step 4): the in-loop lui of D_0035f5d4 is hand-written (pinned to t7,
 // ordered after p) so loop/cse2 do not hoist it and give it a register; the empty asm around the pre-loop
 // load keeps t6 busy so its high half lands in t7. No code is emitted by the empty asm statements.
-void func_002a1d38(void) {
+void Tz__JmDiagram__UpdateGra(void) {
     u8* w = func_002766d0();
     if (D_0035f5e0 == 0) return;
     if (func_00139d78(w + 0x4398)) return;
@@ -63,9 +63,9 @@ void func_002a1d38(void) {
         u8* q = w + 0xdca0;
         do {
             u8* o = p + 0x4398;
-            func_002362b0(q, func_0023f988(D_0035f5dc.dc, func_002a1bc0(t->e[i++].id)[1]));
+            YI__IMAGE__Init(q, func_0023f988(D_0035f5dc.dc, func_002a1bc0(t->e[i++].id)[1]));
             bool on = 1; *(bool*)(q + 400) = on;
-            func_001386e0(o, k, m, q, D_00374b60[idx].a, 0);
+            dk__Sprite__create(o, k, m, q, D_00374b60[idx].a, 0);
             q += 0x1a0;
             *(s32*)(p + 0x4520) = D_00374b60[idx].c;
             func_00139620(o);
@@ -135,8 +135,8 @@ struct Big { u8 pad[0x108c]; E8 e[10]; };
 extern Big* D_0035f5e4 asm("D_0035f5e4");
 extern void* D_0035f5e8 asm("D_0035f5e8");
 /*TARGET 002a1f88*/
-void func_002a1f88(void) asm("func_002a1f88");
-void func_002a1f88(void) {
+void Tz__JmTreasure__Init(void) asm("Tz__JmTreasure__Init");
+void Tz__JmTreasure__Init(void) {
     Big* p = (Big*)tz_alloc(0x10dc, tz_lsys());
     E8* e = p->e;
     s32 n = 9;
@@ -232,14 +232,14 @@ void func_002a2148(void* self) {}
 // 002a2150 (was src/tozawa/jm_treasure.cpp)
 namespace Tz { // method 002a2150
 u32 func_00287bc0_t(...) asm("func_00287bc0");
-void func_002a41f0(...) asm("func_002a41f0");
+void Tz__JmTreasure__LeaveList(...) asm("Tz__JmTreasure__LeaveList");
 void func_00274ac8(...) asm("_ZN2Tz6Jiminy13JmCommonLeaveEv");
 /*TARGET 002a2150*/
 void JmTreasure_LeaveAll(void) asm("_ZN2Tz10JmTreasure8LeaveAllEv");
 void JmTreasure_LeaveAll(void) {
     u32 v0 = func_00287bc0_t();
     if (v0 == 7 || v0 == 26 || v0 == 9 || v0 == 34 || v0 == 8 || v0 == 33) {
-        func_002a41f0();
+        Tz__JmTreasure__LeaveList();
         func_00274ac8();
     }
 }
@@ -260,7 +260,7 @@ void func_002a2a80(void) asm("func_002a2a80");
 void func_002a2c40(void) asm("func_002a2c40");
 s32 func_0028f930(s32) asm("func_0028f930");
 void func_0028f4d8(s32, s32, s32) asm("func_0028f4d8");
-void func_00276e78(void) asm("func_00276e78");
+void Tz__Jiminy__CreateCover(void) asm("Tz__Jiminy__CreateCover");
 void pz_cfo(void*, s32, s32, s32, s32, s32, s32, s32) asm("_ZN2Tz5Pause16CreateFadeObjectEz");
 void obj_xyoff(void*) asm("_ZN2dk5Obj2D17getSeqPraramXYOffEv");
 void mc_as(void*, void*) asm("_ZN2Tz10MenuCursor12AttachSpriteEz");
@@ -269,8 +269,8 @@ void* lay_get(s32) asm("_ZN2Tz6Layout9getLayoutEv");
 s32 yi_unit(void*, s32) asm("_ZN2YI6LAYOUT15GetSequenceUnitEi");
 s32 yi_img(void*, s32) asm("_ZN2YI12IMAGE_FREEZE8GetImageEi");
 void func_0028bae0(s32, s32, s32, s32, u8*, s32, s32, u8*, s32) asm("func_0028bae0");
-void func_002a4b78(void) asm("func_002a4b78");
-void func_002a3aa8(void) asm("func_002a3aa8");
+void Tz__JmTreasure__AdjustCurPos(void) asm("Tz__JmTreasure__AdjustCurPos");
+void Tz__JmTreasure__UpdateNewMark(void) asm("Tz__JmTreasure__UpdateNewMark");
 void func_002a3910(void) asm("func_002a3910");
 void sel_set(s32) asm("_ZN2Tz8Selector8SetStateEi");
 extern s32 D_0035f3d4 asm("D_0035f3d4");
@@ -281,8 +281,8 @@ extern s32 D_0035f214 asm("D_0035f214");
 struct Lay { u8 pad[40]; void* img; };
 struct BigV { u8 pad[0x1080]; s32 v; };
 /*TARGET 002a21b0*/
-void func_002a21b0(void) asm("func_002a21b0");
-void func_002a21b0(void) {
+void Tz__JmTreasure__Setup(void) asm("Tz__JmTreasure__Setup");
+void Tz__JmTreasure__Setup(void) {
     u8* par = jm_parent();
     u8* seq = jm_seqtbl();
     if (func_002a43f0()) func_002a2a80();
@@ -292,7 +292,7 @@ void func_002a21b0(void) {
     for (s32 i = 0; i < 4; i++) h[i] = 2;
     s32 n = D_0035f3d4;
     u8* seq2 = seq + 1224;
-    func_00276e78();
+    Tz__Jiminy__CreateCover();
     n--;
     pz_cfo(seq, n, D_0035f14c, D_0035f148, D_0035f210, 59, -1, 0);
     obj_xyoff(seq);
@@ -304,8 +304,8 @@ void func_002a21b0(void) {
     s32 u = yi_unit(lay_get(D_0035f210), D_0035f14c);
     s32 im = yi_img(((Lay*)lay_get(D_0035f210))->img, D_0035f148);
     func_0028bae0(D_0035f214, n, u, im, jm_scrbar(), ((BigV*)D_0035f5e4)->v, 9, seq2, 0);
-    func_002a4b78();
-    func_002a3aa8();
+    Tz__JmTreasure__AdjustCurPos();
+    Tz__JmTreasure__UpdateNewMark();
     func_002a3910();
     sel_set(0);
 }
@@ -316,13 +316,13 @@ namespace n002a23a0 {
 struct Pad2a23a0 { u64 a; u64 b; u64 c; u64 d; };
 Pad2a23a0* func_00167f18(s32) asm("func_00167f18");
 void func_00242618(s32, s32) asm("func_00242618");
-void func_00274cf0(s32) asm("func_00274cf0");
-void func_00276220(s32, s32) asm("func_00276220");
+void Tz__Jiminy__LoadData(s32) asm("Tz__Jiminy__LoadData");
+void Tz__Jiminy__SetParentSeqNum(s32, s32) asm("Tz__Jiminy__SetParentSeqNum");
 s32 func_00276358(void) asm("func_00276358");
 s32 func_00276368(void) asm("func_00276368");
 s32 func_00276398(void) asm("func_00276398");
 s32 func_00276888(void) asm("func_00276888");
-void func_00276dc0(void) asm("func_00276dc0");
+void Tz__Jiminy__FadeOutHelp(void) asm("Tz__Jiminy__FadeOutHelp");
 s32 func_00287bc0(void) asm("func_00287bc0");
 void func_00287c00(s32) asm("func_00287c00");
 void func_00287c30(void) asm("func_00287c30");
@@ -332,10 +332,10 @@ void func_00287da0(void) asm("func_00287da0");
 void func_00287f90(s32) asm("func_00287f90");
 void func_00288018(void) asm("func_00288018");
 s32 func_00288040(void) asm("func_00288040");
-void func_0028f6f0(s32) asm("func_0028f6f0");
+void Tz__SelHist__FadeOut(s32) asm("Tz__SelHist__FadeOut");
 void func_002925c0(void) asm("func_002925c0");
 s32 func_00292630(void) asm("func_00292630");
-void func_002958b0(void) asm("func_002958b0");
+void Tz__JmReport__Setup(void) asm("Tz__JmReport__Setup");
 void func_002995e8(void) asm("func_002995e8");
 void func_002a2148(void) asm("func_002a2148");
 void func_002a2150(void) asm("func_002a2150");
@@ -344,8 +344,8 @@ void func_002a4470(void) asm("func_002a4470");
 void func_002a45a0(void) asm("func_002a45a0");
 void func_002a4620(Pad2a23a0*) asm("func_002a4620");
 /*TARGET 002a23a0*/
-void func_002a23a0(void) asm("func_002a23a0");
-void func_002a23a0(void) {
+void Tz__JmTreasure__Control(void) asm("Tz__JmTreasure__Control");
+void Tz__JmTreasure__Control(void) {
     Pad2a23a0* pad = func_00167f18(0);
     s32 st = func_00287cd0();
     s32 sub = func_00287bc0();
@@ -359,20 +359,20 @@ void func_002a23a0(void) {
             func_002a2150();
             func_00287c30();
             sub = func_00287bc0();
-            func_00276220(func_00276358(), 0);
-            func_00274cf0(sub);
+            Tz__Jiminy__SetParentSeqNum(func_00276358(), 0);
+            Tz__Jiminy__LoadData(sub);
             func_002925c0();
             if (sub == 13) {
                 func_002995e8();
                 return;
             }
             if (sub == st) {
-                func_002958b0();
+                Tz__JmReport__Setup();
             }
         }
     } else {
         if ((pad->b & 0xc1fc) && func_00276398() == 0) {
-            func_00276220(0, 2);
+            Tz__Jiminy__SetParentSeqNum(0, 2);
         }
         if (st == 0 && func_00276398()) {
             func_002a4470();
@@ -389,11 +389,11 @@ void func_002a23a0(void) {
             } else if (b & 8) {
                 s32 m;
                 func_00242618(3, 1);
-                func_0028f6f0(0);
+                Tz__SelHist__FadeOut(0);
                 func_002a2148();
-                func_00276dc0();
+                Tz__Jiminy__FadeOutHelp();
                 func_002a45a0();
-                func_00276220(1, 1);
+                Tz__Jiminy__SetParentSeqNum(1, 1);
                 if (sub == 26 || sub == 34) m = 13; else m = 2;
                 func_00287c00(m);
                 func_00287cc0(2);
@@ -418,7 +418,7 @@ u8* jm_seqtbl(void) asm("_ZN2Tz6Jiminy9GetSeqTblEv");
 u8* jm_scrbar(void) asm("_ZN2Tz6Jiminy15GetScrBarSeqTblEv");
 s32 func_0028f930(s32) asm("func_0028f930");
 void func_0028f4d8(s32, s32, s32) asm("func_0028f4d8");
-void func_00276e78(void) asm("func_00276e78");
+void Tz__Jiminy__CreateCover(void) asm("Tz__Jiminy__CreateCover");
 void pz_cfo(void*, s32, s32, s32, s32, s32, s32, s32) asm("_ZN2Tz5Pause16CreateFadeObjectEz");
 void obj_xyoff(void*) asm("_ZN2dk5Obj2D17getSeqPraramXYOffEv");
 void mc_as(void*, void*) asm("_ZN2Tz10MenuCursor12AttachSpriteEz");
@@ -427,8 +427,8 @@ void* lay_get(s32) asm("_ZN2Tz6Layout9getLayoutEv");
 s32 yi_unit(void*, s32) asm("_ZN2YI6LAYOUT15GetSequenceUnitEi");
 s32 yi_img(void*, s32) asm("_ZN2YI12IMAGE_FREEZE8GetImageEi");
 void func_0028bae0(s32, s32, s32, s32, u8*, s32, s32, u8*, s32) asm("func_0028bae0");
-void func_002a4b78(void) asm("func_002a4b78");
-void func_002a3aa8(void) asm("func_002a3aa8");
+void Tz__JmTreasure__AdjustCurPos(void) asm("Tz__JmTreasure__AdjustCurPos");
+void Tz__JmTreasure__UpdateNewMark(void) asm("Tz__JmTreasure__UpdateNewMark");
 void func_002a3910(void) asm("func_002a3910");
 void sel_set(s32) asm("_ZN2Tz8Selector8SetStateEi");
 extern s32 D_0035f3d4 asm("D_0035f3d4");
@@ -443,8 +443,8 @@ s32 mb_mode(void) asm("_ZN2Tz8MenuBase7GetModeEv");
 void func_002a2de8(void) asm("func_002a2de8");
 s32 func_002b3b60(s32) asm("func_002b3b60");
 /*TARGET 002a2600*/
-void func_002a2600(void) asm("func_002a2600");
-void func_002a2600(void) {
+void Tz__JmTreasure__SetupPieceInfo(void) asm("Tz__JmTreasure__SetupPieceInfo");
+void Tz__JmTreasure__SetupPieceInfo(void) {
     s32 m = mb_mode();
     u8* par = jm_parent();
     u8* seq = jm_seqtbl();
@@ -455,7 +455,7 @@ void func_002a2600(void) {
     for (s32 i = 0; i < 4; i++) h[i] = 2;
     s32 n = D_0035f3d4;
     u8* seq2 = seq + 1224;
-    func_00276e78();
+    Tz__Jiminy__CreateCover();
     n--;
     pz_cfo(seq, n, D_0035f14c, D_0035f148, D_0035f210, 59, -1, 0);
     obj_xyoff(seq);
@@ -467,8 +467,8 @@ void func_002a2600(void) {
     s32 u = yi_unit(lay_get(D_0035f210), D_0035f14c);
     s32 im = yi_img(((Lay*)lay_get(D_0035f210))->img, D_0035f148);
     func_0028bae0(D_0035f214, n, u, im, jm_scrbar(), ((BigV*)D_0035f5e4)->v, 9, seq2, 0);
-    func_002a4b78();
-    func_002a3aa8();
+    Tz__JmTreasure__AdjustCurPos();
+    Tz__JmTreasure__UpdateNewMark();
     func_002a3910();
     sel_set(0);
 }
@@ -479,13 +479,13 @@ namespace n002a2818 {
 struct Pad2a23a0 { u64 a; u64 b; u64 c; u64 d; };
 Pad2a23a0* func_00167f18(s32) asm("func_00167f18");
 void func_00242618(s32, s32) asm("func_00242618");
-void func_00274cf0(s32) asm("func_00274cf0");
-void func_00276220(s32, s32) asm("func_00276220");
+void Tz__Jiminy__LoadData(s32) asm("Tz__Jiminy__LoadData");
+void Tz__Jiminy__SetParentSeqNum(s32, s32) asm("Tz__Jiminy__SetParentSeqNum");
 s32 func_00276358(void) asm("func_00276358");
 s32 func_00276368(void) asm("func_00276368");
 s32 func_00276398(void) asm("func_00276398");
 s32 func_00276888(void) asm("func_00276888");
-void func_00276dc0(void) asm("func_00276dc0");
+void Tz__Jiminy__FadeOutHelp(void) asm("Tz__Jiminy__FadeOutHelp");
 s32 func_00287bc0(void) asm("func_00287bc0");
 void func_00287c00(s32) asm("func_00287c00");
 void func_00287c30(void) asm("func_00287c30");
@@ -495,10 +495,10 @@ void func_00287da0(void) asm("func_00287da0");
 void func_00287f90(s32) asm("func_00287f90");
 void func_00288018(void) asm("func_00288018");
 s32 func_00288040(void) asm("func_00288040");
-void func_0028f6f0(s32) asm("func_0028f6f0");
+void Tz__SelHist__FadeOut(s32) asm("Tz__SelHist__FadeOut");
 void func_002925c0(void) asm("func_002925c0");
 s32 func_00292630(void) asm("func_00292630");
-void func_002958b0(void) asm("func_002958b0");
+void Tz__JmReport__Setup(void) asm("Tz__JmReport__Setup");
 void func_002a2148(void) asm("func_002a2148");
 void func_002a2150(void) asm("func_002a2150");
 s32 func_002a40c8(void) asm("func_002a40c8");
@@ -507,8 +507,8 @@ void func_002a45a0(void) asm("func_002a45a0");
 void func_002a4620(Pad2a23a0*) asm("func_002a4620");
 void func_002aed60(void) asm("func_002aed60");
 /*TARGET 002a2818*/
-void func_002a2818(void) asm("func_002a2818");
-void func_002a2818(void) {
+void Tz__JmTreasure__CtrlPieceInfo(void) asm("Tz__JmTreasure__CtrlPieceInfo");
+void Tz__JmTreasure__CtrlPieceInfo(void) {
     Pad2a23a0* pad = func_00167f18(0);
     s32 st = func_00287cd0();
     s32 sub = func_00287bc0();
@@ -522,20 +522,20 @@ void func_002a2818(void) {
             func_002a2150();
             func_00287c30();
             sub = func_00287bc0();
-            func_00276220(func_00276358(), 0);
-            func_00274cf0(sub);
+            Tz__Jiminy__SetParentSeqNum(func_00276358(), 0);
+            Tz__Jiminy__LoadData(sub);
             func_002925c0();
             if (sub == 27) {
                 func_002aed60();
                 return;
             }
             if (sub == st) {
-                func_002958b0();
+                Tz__JmReport__Setup();
             }
         }
     } else {
         if ((pad->b & 0xc1fc) && func_00276398() == 0) {
-            func_00276220(0, 2);
+            Tz__Jiminy__SetParentSeqNum(0, 2);
         }
         if (st == 0 && func_00276398()) {
             func_002a4470();
@@ -553,17 +553,17 @@ void func_002a2818(void) {
                 s32 m;
                 func_00242618(3, 1);
                 if (sub == 33) {
-                    func_0028f6f0(1);
+                    Tz__SelHist__FadeOut(1);
                     m = 27;
                 } else {
-                    func_0028f6f0(0);
+                    Tz__SelHist__FadeOut(0);
                     m = 2;
                 }
                 func_00287c00(m);
                 func_002a2148();
-                func_00276dc0();
+                Tz__Jiminy__FadeOutHelp();
                 func_002a45a0();
-                func_00276220(1, 1);
+                Tz__Jiminy__SetParentSeqNum(1, 1);
                 func_00287cc0(2);
             }
         }
@@ -586,9 +586,9 @@ void func_002fde18(void*, s32, s32) asm("func_002fde18");
 ItemRec* func_001a82b0(ItemRec*) asm("func_001a82b0");
 s32 func_00181500(u16) asm("func_00181500");
 s32 func_002a4390(ItemRec*) asm("func_002a4390");
-u8 func_002764b0(u8) asm("func_002764b0");
-void func_002a2ff8(void) asm("func_002a2ff8");
-s32 func_002ab540(s32) asm("func_002ab540");
+u8 Tz__Jiminy__AreaWorld2JmWorld(u8) asm("Tz__Jiminy__AreaWorld2JmWorld");
+void Tz__JmTreasure__SortList(void) asm("Tz__JmTreasure__SortList");
+s32 Tz__JmNewInfo__isTreasureNew(s32) asm("Tz__JmNewInfo__isTreasureNew");
 s32 func_002ab620(s32) asm("func_002ab620");
 /*TARGET 002a2a80*/
 void func_002a2a80(void) asm("func_002a2a80");
@@ -606,7 +606,7 @@ void func_002a2a80(void) {
         if (it->f4 == 0 && it->f8 != 0 && it->f8 != 2048) {
             if (func_00181500(it->f8) || all) {
                 r = func_002a4390(it);
-                u8 v = func_002764b0(it->f5);
+                u8 v = Tz__Jiminy__AreaWorld2JmWorld(it->f5);
                 D_0035f5e4.p->list[n].f0 = v;
                 if (r) cnt++;
                 D_0035f5e4.p->list[n].f4 = idx;
@@ -619,7 +619,7 @@ void func_002a2a80(void) {
     }
     D_0035f5e4.p->count = n;
     D_0035f5e4.p->active = cnt;
-    func_002a2ff8();
+    Tz__JmTreasure__SortList();
     for (s32 i = 0; i < 15; i++) {
         r = i * 8;
         Ent8* e = (Ent8*)(r + (u32)D_0035f5e4.p + 4096);
@@ -627,7 +627,7 @@ void func_002a2a80(void) {
             e->f2 = 0;
             D_0035f5e4.p->sub[i].f3 = 0;
         } else {
-            e->f2 = func_002ab540(i) != 0;
+            e->f2 = Tz__JmNewInfo__isTreasureNew(i) != 0;
             D_0035f5e4.p->sub[i].f3 = func_002ab620(i) != 0;
         }
     }
@@ -648,9 +648,9 @@ ItemRec* func_001a82b0(ItemRec*) asm("func_001a82b0");
 ItemDef* func_001a80c8(u16) asm("func_001a80c8");
 // table24_find_by_id
 s32 func_002a43b0(ItemRec*) asm("func_002a43b0");
-u8 func_002764b0(u8) asm("func_002764b0");
-void func_002a2ff8(void) asm("func_002a2ff8");
-s32 func_002ab8e8(s32) asm("func_002ab8e8");
+u8 Tz__Jiminy__AreaWorld2JmWorld(u8) asm("Tz__Jiminy__AreaWorld2JmWorld");
+void Tz__JmTreasure__SortList(void) asm("Tz__JmTreasure__SortList");
+s32 Tz__JmNewInfo__isNaviNew(s32) asm("Tz__JmNewInfo__isNaviNew");
 s32 func_002ab9c8(s32) asm("func_002ab9c8");
 /*TARGET 002a2c40*/
 // Rebuilds the item list table (entries of type 22) and refreshes the 15 slot flags.
@@ -669,7 +669,7 @@ void func_002a2c40(void) {
         if (func_001a80c8(it->id)->type == 22) {  // table24_find_by_id
             s32 r = func_002a43b0(it);
             if (r || all) {
-                u8 v = func_002764b0(it->f5);
+                u8 v = Tz__Jiminy__AreaWorld2JmWorld(it->f5);
                 D_0035f5e4.p->list[n].f0 = v;
                 if (r) cnt++;
                 D_0035f5e4.p->list[n].f4 = idx;
@@ -682,14 +682,14 @@ void func_002a2c40(void) {
     }
     D_0035f5e4.p->count = n;
     D_0035f5e4.p->active = cnt;
-    func_002a2ff8();
+    Tz__JmTreasure__SortList();
     for (s32 i = 0; i < 15; i++) {
         Ent8* e = (Ent8*)(i * 8 + (u32)D_0035f5e4.p + 4096);
         if (e->f0 == 0) {
             e->f2 = 0;
             D_0035f5e4.p->sub[i].f3 = 0;
         } else {
-            e->f2 = func_002ab8e8(i) != 0;
+            e->f2 = Tz__JmNewInfo__isNaviNew(i) != 0;
             D_0035f5e4.p->sub[i].f3 = func_002ab9c8(i) != 0;
         }
     }
@@ -713,9 +713,9 @@ void func_002fde18(void*, s32, s32) asm("func_002fde18");
 Ent* func_001d9e30(Ent*) asm("func_001d9e30");
 s32 func_001d9d88(Ent*) asm("func_001d9d88");
 s32 func_002a43d0(Ent*) asm("func_002a43d0");
-u8 func_002764b0(u8) asm("func_002764b0");
-void func_002a2ff8(void) asm("func_002a2ff8");
-s32 func_002ac748(s32) asm("func_002ac748");
+u8 Tz__Jiminy__AreaWorld2JmWorld(u8) asm("Tz__Jiminy__AreaWorld2JmWorld");
+void Tz__JmTreasure__SortList(void) asm("Tz__JmTreasure__SortList");
+s32 Tz__JmNewInfo__isPuzzleInfoNew(s32) asm("Tz__JmNewInfo__isPuzzleInfoNew");
 s32 func_002ac800(s32) asm("func_002ac800");
 /*TARGET 002a2de8*/
 void func_002a2de8(void) asm("func_002a2de8");
@@ -733,7 +733,7 @@ top:
     if (func_001d9d88(e) || flag) {
         if (!D_0035f5e4.p->bits[e->a].Test(e->b)) {
             s32 r = func_002a43d0(e);
-            u8 id = func_002764b0(e->c4);
+            u8 id = Tz__Jiminy__AreaWorld2JmWorld(e->c4);
             if (r) cnt2++;
             D_0035f5e4.p->r[cnt].id = id;
             D_0035f5e4.p->r[cnt].n = n;
@@ -748,13 +748,13 @@ top:
 out:
     D_0035f5e4.p->count = cnt;
     D_0035f5e4.p->cnt2 = cnt2;
-    func_002a2ff8();
+    Tz__JmTreasure__SortList();
     for (i = 0; i < 15; i++) {
         if (!D_0035f5e4.p->r[i + 512].id) {
             D_0035f5e4.p->r[i + 512].c2 = 0;
             D_0035f5e4.p->r[i + 512].c3 = 0;
         } else {
-            D_0035f5e4.p->r[i + 512].c2 = func_002ac748(i) != 0;
+            D_0035f5e4.p->r[i + 512].c2 = Tz__JmNewInfo__isPuzzleInfoNew(i) != 0;
             D_0035f5e4.p->r[i + 512].c3 = func_002ac800(i) != 0;
         }
     }
@@ -776,8 +776,8 @@ s32 func_002a43f0(void) asm("func_002a43f0");
 s32 func_002a4380(s32 i) asm("func_002a4380");
 s32 func_002954e0(s32 i) asm("func_002954e0");
 /*TARGET 002a2ff8*/
-void func_002a2ff8(void) asm("func_002a2ff8");
-void func_002a2ff8(void)
+void Tz__JmTreasure__SortList(void) asm("Tz__JmTreasure__SortList");
+void Tz__JmTreasure__SortList(void)
 {
     s32 i, j, n;
     Item2a2ff8 t;

@@ -2,7 +2,7 @@
 extern "C" {
 u8* func_00257770(void);
 s32 func_0028b038(s32);
-void func_0028be78(s32, s32);
+void Tz__ScrollBar__SetPos(s32, s32);
 s32 func_002570a0(s32);
 s32 func_00257140(s32);
 void func_00138c10(void*, s32);
@@ -10,7 +10,7 @@ u8* func_0027bba0(s32);
 s32 func_00192048(u16);
 s32 func_00192cc0(void*, void*, s32);
 void func_0027aed8(s32, s32*, s32*);
-s32 func_0027af58(void);
+s32 Tz__CmAbility__Cur2AbiltyType(void);
 s32 func_0027c3b8(s32);
 struct S436 { u8 p[408]; s32 v; u8 q[24]; };
 struct E27aaa0 { s8 a; s8 b; u8 pad[6]; };

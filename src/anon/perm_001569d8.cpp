@@ -81,7 +81,7 @@ void func_00158138(W1633Hud *, W1633Owner *, u32, u32);
 u32 func_0013a7e8(u32);
 u32 func_0013d7e0(void);
 u32 func_00158290(W1633Hud *);
-volatile unsigned char func_00158050(W1633Sprite *, u32, u32, u32, u32, u32, u32);
+volatile unsigned char dk__GAUGE_ONE__create(W1633Sprite *, u32, u32, u32, u32, u32, u32);
 void func_0013e0f8(W1633Gauge *, u32, u32, u32);
 void func_00139d78(void *);
 void func_0014b200(void *, u32);

@@ -29,7 +29,7 @@ extern u8 D_00340eb0;
 u32* func_00133bb8(void*, s32, u32, u32);
 s32 func_0010aba8(void);
 void func_0010a8e0(void*);
-s32 func_00106a18(s32);
+s32 kn__getProjection(s32);
 f32 func_001070a8(s32);
 
 W1986Pkt* func_00108730(W1986Src* p, void* q);  // 00108730: moved to src/anon/unit_001085a8.cpp
@@ -72,7 +72,7 @@ W1986Obj* func_001cbe30(W1986Tmp*, s32, s32);
 f32 sinf(f32);
 f32 cosf(f32);
 
-void func_002d36f0(void* a);  // 0x002d36f0: definition moved into src/anon/unit_002d2498.cpp
+void Ti__MGOarashiGimObj__appear_fall_prize(void* a);  // 0x002d36f0: definition moved into src/anon/unit_002d2498.cpp
 
 // 00175f68
 struct W1986Ob;
@@ -96,7 +96,7 @@ struct W1986Tg {
     u8 pad58c[0x56c];
     W1986Ob* obj[4];
 };
-W1986Tg* func_00176b58(u32);
+W1986Tg* YS__PARTY__GetByPart(u32);
 s32 func_0019c5d0(W1986Ob*);
 void func_00185a28(W1986Ob*);
 void* func_001d1438(s32);

@@ -15,5 +15,5 @@ s32 func_00287df0(s32, s32, s32, s32, s32);
 s32 func_00242848(s32);
 void func_0026d168(void);
 void func_00287c00(s32);
-void func_0026c9f0(void);  // 0x0026c9f0: definition moved into src/anon/unit_0026c450.cpp
+void Tz__CmParty__CtrlInfo(void);  // 0x0026c9f0: definition moved into src/anon/unit_0026c450.cpp
 }

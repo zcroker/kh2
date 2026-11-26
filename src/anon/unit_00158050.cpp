@@ -7,11 +7,11 @@
 
 // 158050 .. 1580e0
 namespace h0 {
-void func_001386e0(u8*, u32, u32, u32, u32, u32) asm("func_001386e0");
+void dk__Sprite__create(u8*, u32, u32, u32, u32, u32) asm("dk__Sprite__create");
 
-void func_00158050(u8* p, u32 a1, u32 a2, u32 a3, u32 a4, u32 x, u32 y) asm("func_00158050");
-void func_00158050(u8* p, u32 a1, u32 a2, u32 a3, u32 a4, u32 x, u32 y) {
-    func_001386e0(p, a1, a2, a3, a4, y);
+void dk__GAUGE_ONE__create(u8* p, u32 a1, u32 a2, u32 a3, u32 a4, u32 x, u32 y) asm("dk__GAUGE_ONE__create");
+void dk__GAUGE_ONE__create(u8* p, u32 a1, u32 a2, u32 a3, u32 a4, u32 x, u32 y) {
+    dk__Sprite__create(p, a1, a2, a3, a4, y);
     *(u32*)(p + 408) = x;
 }
 
@@ -20,7 +20,7 @@ void func_001b8010(u32, u32, u32, u32, u32) asm("func_001b8010");
 void func_001b80d8(u32) asm("func_001b80d8");
 void func_001b7f30(u32) asm("func_001b7f30");
 void func_00237ad8(u32, u32) asm("func_00237ad8");
-void func_00138988(u32) asm("func_00138988");
+void dk__Sprite__draw(u32) asm("dk__Sprite__draw");
 
 void func_00158088() asm("func_00158088");
 void func_00158088() {
@@ -35,8 +35,8 @@ void func_00158088() {
     func_001b7f30(p);
 }
 
-void func_001580e0(u32 a0) asm("func_001580e0");
-void func_001580e0(u32 a0) {
+void dk__GAUGE_ONE__draw(u32 a0) asm("dk__GAUGE_ONE__draw");
+void dk__GAUGE_ONE__draw(u32 a0) {
     u32 s0 = a0;
     if (*(u32*)(a0 + 408) != 0) {
         func_00158088();
@@ -46,7 +46,7 @@ void func_001580e0(u32 a0) {
         *(u32*)(p + 16) = x & m;
         func_00237ad8(p, *(u32*)(s0 + 408));
     }
-    return func_00138988(s0);
+    return dk__Sprite__draw(s0);
 }
 }  // namespace h0
 
@@ -56,7 +56,7 @@ u32 func_001391c8(...) asm("func_001391c8");
 u32 func_00158290(u32) asm("_ZN2dk11GAUGE_PARTY8getGroupEv");
 u32 func_00166cc8(u32) asm("func_00166cc8");
 u32 func_00166cf0(u32) asm("func_00166cf0");
-s32 func_001a1de0(u32) asm("_Z16u_call4_001a1de0jjjj");
+s32 YS__SHEET__is_mpdrive(u32) asm("_Z21YS__SHEET__is_mpdrivejjjj");
 void func_001399c0(u32) asm("func_001399c0");
 void func_00139948(u32) asm("func_00139948");
 
@@ -130,7 +130,7 @@ void func_001581f8(u32 a0) {
 
 u32 checkMpDrawTrigger(u8* p) asm("_ZN2dk11GAUGE_PARTY18checkMpDrawTriggerEv");
 u32 checkMpDrawTrigger(u8* p) {
-    s32 v = func_001a1de0(*(u32*)(*(u32*)(p + 52) + 1164));
+    s32 v = YS__SHEET__is_mpdrive(*(u32*)(*(u32*)(p + 52) + 1164));
     u8 old = p[33];
     p[33] = v;
     return old != (u32)v;

@@ -20,12 +20,12 @@ u8* func_002a9d68(void) asm("func_002a9d68");
 void func_00287bc0(void) asm("func_00287bc0");
 s32 func_0028b038(u32) asm("func_0028b038");
 u32 func_002a92a0(s32) asm("func_002a92a0");
-s32 func_002a99c8(u32) asm("func_002a99c8");
+s32 Tz__JmQuest__GetQuestStat(u32) asm("Tz__JmQuest__GetQuestStat");
 void func_002aae30(s32) asm("func_002aae30");
 extern u32 D_0035f200 asm("D_0035f200");
 extern Tbl* D_0035f608 asm("D_0035f608");
-void func_002a98a8(void) asm("func_002a98a8");
-void func_002a98a8(void) {
+void Tz__JmQuest__UpdateNewMark(void) asm("Tz__JmQuest__UpdateNewMark");
+void Tz__JmQuest__UpdateNewMark(void) {
     u8* p = func_002a9d68();
     func_00287bc0();
     s32 base = func_0028b038(D_0035f200);
@@ -37,7 +37,7 @@ void func_002a98a8(void) {
         i++;
         s32 c = D_0035f608->e[k].b;
         if (c < 0) continue;
-        if (func_002a99c8(func_002a92a0(c)) == 3) continue;
+        if (Tz__JmQuest__GetQuestStat(func_002a92a0(c)) == 3) continue;
         s32 d = D_0035f608->e[k].b;
         u32* bits = (u32*)(p + 148);
         if (bits[(u32)d >> 5] & (1 << (d & 31))) continue;

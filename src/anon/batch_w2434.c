@@ -9,8 +9,8 @@ typedef struct O_0016f610 {
 } O_0016f610;
 
 extern u8 D_0032e020[];
-u16* func_00189200(void*, s32);
-u16* func_00188fe0(void*, u16);
+u16* YS__SAVERAM_BATTLE__get_formram(void*, s32);
+u16* YS__SAVERAM_BATTLE__get_partram(void*, u16);
 
 static inline __attribute__((always_inline)) u16 getK_0016f610(O_0016f610* o) { return o->h4c; }
 
@@ -21,7 +21,7 @@ extern u8 D_0035f130;
 extern s8 D_0035f129;
 extern u8 D_0035f128;
 extern s16 D_01e21ec0[2][4];
-void func_0026ed48(void);
+void Tz__CmCustom__Init(void);
 
 void func_0026ec98(void);  // 0x0026ec98: definition moved into src/anon/unit_0026c450.cpp
 

@@ -26,7 +26,7 @@ void func_002ceb08(void*);
 void func_002e2660(u8*);
 void func_002e26c0(u8*);
 }
-void wtarget_002e2440(void*) asm("_Z16wtarget_002e2440jjjj");
+void Ti__MG_EHSidecar__exec(void*) asm("_Z22Ti__MG_EHSidecar__execjjjj");
 void wtarget_002e2570(void*) asm("_Z16wtarget_002e2570jjjj");
 void wtarget_002e27c8(void*) asm("_Z16wtarget_002e27c8jjjj");
 
@@ -58,8 +58,8 @@ extern "C" void func_002e2d50(void) {
     func_002e2660(m);
 }
 
-void u_tail4_002e2d88(s32 a, u32 b) asm("_Z16u_tail4_002e2d88jjjj");
-void u_tail4_002e2d88(s32 a, u32 b) {
+void Ti__MG_EHSidecar__PlayPath(s32 a, u32 b) asm("_Z26Ti__MG_EHSidecar__PlayPathjjjj");
+void Ti__MG_EHSidecar__PlayPath(s32 a, u32 b) {
     u8 c = b;
     u8* m = D_00361f60;
     if (m) ceb08_noarg();

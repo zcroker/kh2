@@ -1,8 +1,8 @@
 # Whole-function assembly (last step of the README match ladder, w3943 2026-11-10).
 # Transcribed from the retail disassembly; calls and globals with a func_/D_ symbol are referenced
 # through it. Replace with C/C++ after 100%.
-#   func_002b5c30: fills the 4 x 5 list rows (func_002b60e8), then one row per entry from
-#     func_00241f10's 32-byte records: title, flag-0x10 details (func_0014ca80 date, online check
+#   Tz__CmSLBase__UpdateListMess: fills the 4 x 5 list rows (func_002b60e8), then one row per entry from
+#     func_00241f10's 32-byte records: title, flag-0x10 details (dk__Clock__vCountToHMSMS date, online check
 #     func_00105c30 == 1/8) and three func_00138c10 icon/colour calls per row.
 #     Closest C: ~/re/kh2/tmp.w3943/best_002b5c30.cpp (= best/002b5c30_w3864.cpp, 246 of 301 lines off):
 #     s-register numbering (i in s3 not s4), stack giv slots 32/36 swapped, record pointer scheduled before the call.
@@ -13,10 +13,10 @@
 	.set nomacro
 
 	.section .text.func_002b5c30,"ax",@progbits
-	.globl func_002b5c30
-	.type func_002b5c30, @function
-	.ent func_002b5c30
-func_002b5c30:
+	.globl Tz__CmSLBase__UpdateListMess
+	.type Tz__CmSLBase__UpdateListMess, @function
+	.ent Tz__CmSLBase__UpdateListMess
+Tz__CmSLBase__UpdateListMess:
 	addiu	$29,$29,-128
 	sd	$20,80($29)
 	sd	$16,48($29)
@@ -60,7 +60,7 @@ func_002b5c30:
 	lui	$15,%hi(D_0035f678)
 	lw	$5,20($29)
 	lw	$4,%lo(D_0035f678)($15)
-	jal	func_0028be78
+	jal	Tz__ScrollBar__SetPos
 	move	$30,$2
 	lui	$13,%hi(D_0035f690)
 	addiu	$13,$13,%lo(D_0035f690)
@@ -293,7 +293,7 @@ func_002b5c30:
 	addiu	$6,$29,4
 	addiu	$7,$29,8
 	addiu	$8,$29,12
-	jal	func_0014ca80
+	jal	dk__Clock__vCountToHMSMS
 	move	$17,$0
 	jal	func_00105c30
 	nop
@@ -338,6 +338,6 @@ func_002b5c30:
 .L002b60dc:
 	b	.L002b5db0
 	li	$4,0x8a9a
-	.end func_002b5c30
-	.size func_002b5c30, 1204
+	.end Tz__CmSLBase__UpdateListMess
+	.size Tz__CmSLBase__UpdateListMess, 1204
 

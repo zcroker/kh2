@@ -56,7 +56,7 @@ struct Obj { u8 pad[320]; u8 sub[16]; };
 extern "C" {
 QW func_0018df90();
 void func_0016aef0(Obj*, QW*);
-void func_00186a90(Obj*, QW*, f32);
+void YS__BTLOBJ__set_hitback(Obj*, QW*, f32);
 void func_0017f488(void*, s32, f32, f32);
 void func_0017f5e0(void*, s32, s32, f32, f32);
 void func_00176a60(Obj*, f32);

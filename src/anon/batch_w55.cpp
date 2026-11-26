@@ -63,9 +63,9 @@ void func_0015cea0(Q16*);
 f32 func_0015ced0(void);
 f32 func_0015cee0(void);
 void func_0015ce90(void);  // zero_global_byte_g
-void func_0014fcd8(u8*);
+void dk__INFO_BASE__update(u8*);
 s32 func_00139d78(void*);
-void func_00151c70(u8*);
+void dk__MISSION_GAUGE__forceLeave(u8*);
 void func_00138c40(u8*, u32, u32);
 void func_001519f8(u8*);
 void func_001904a8(void*, void*);
@@ -76,18 +76,18 @@ void func_0015a158(u32, u8*);
 void func_0015a528(u8*);
 void func_0014c738(u8*);
 void func_0014c350(u8*);
-u32 func_001b9bc8(u32);
+u32 YS__OBJ__Each(u32);
 s32 func_0016a040(u32);
 void func_0016c568(u32, u32, f32);
 u32 func_0014aba8(void);
 void func_0014aa80(u32, s32, s32);
-void func_001ada38(s32);
+void YS__RECOV__Exec(s32);
 void func_00177710(void);
 extern u8 D_0032bb30[];
 u8 func_0016c008(u32, s32);
 s32 func_0016a070(u32);
 s32 func_0016a020(u32);
-void func_00253180(s32, s32);
+void Tz__CampMenu__Start(s32, s32);
 extern s8 D_01c60500;
 extern V4 D_01c60510;
 void func_0017bef8(void);
@@ -108,7 +108,7 @@ void func_001a78c0(u8*, u32, s32, f32, f32, f32, f32);
 void func_001a7888(u8*, u32, s32, f32, f32, f32, f32);
 extern DeadRingW55 D_01c6cb00;
 void func_001dc978(void*, f32);
-void func_001c79a0(u32, u32, s32);
+void YS__PRIZEEFFECT__get(u32, u32, s32);
 void func_001a52a8(u32, u32, u32);
 s32 func_001d22a8(u32);
 void func_001ac970(u8*, s32, s32, u32, s32, s32, s32, s32);
@@ -119,7 +119,7 @@ void func_00105110(void*);
 extern u32 D_01d49320;
 void func_001bbe18(u32);
 void func_001d5518(u8*, u8*, s32);
-void func_001bb890(void);
+void YS__MISSION__PostEnd(void);
 s32 func_001bb7f8(void);
 void func_001bc0d0(u8*);
 void func_001bbc30(void);
@@ -129,13 +129,13 @@ void* func_001050d8(u32);
 void func_001bf270(void*, u8*, u32, u32, f32);
 s32 func_001bc010(void);
 u32 func_0017df58(s32);
-s32 func_0019ba60(u32);
+s32 YS__OBJ__is_exist(u32);
 s32 func_0017e3b8(u32);
 extern void* D_01d5ba10[];
 s32 func_001d3558(void*, void*);
 void* func_001d3498(void*, void*);
 extern u32 D_01d9eaa0;
-void func_00287d68(void);  // copy_globals_3words
+void Tz__MenuBase__SaveMode(void);  // copy_globals_3words
 s32 func_00287db0(void);
 void func_0024ec50(void);
 extern u8* D_0035ee04;
@@ -160,7 +160,7 @@ void func_0029e258(s32);
 extern u8* D_0035f610;
 void func_001bc778(u8*);
 s32 func_00190140(u8*);
-u8* func_001bc780(u8*, s32, s32, s32);
+u8* YS__COMMAND_MENU__add(u8*, s32, s32, s32);
 void func_00178888(u8*);
 u32 func_002d1260(void);
 s32 func_002d5c40(u32);
@@ -217,7 +217,7 @@ void func_0013d620(void);  // 0x0013d620: definition moved into src/anon/unit_00
 
 void func_001407d0(u8* p);  // 0x001407d0: definition moved into src/anon/unit_0013fca8.cpp
 
-void func_00151aa8(u8* p);  // 0x00151aa8: definition moved into src/anon/unit_0014ecb8.cpp
+void dk__MISSION_GAUGE__update(u8* p);  // 0x00151aa8: definition moved into src/anon/unit_0014ecb8.cpp
 
 // 0015a5a8: moved to src/harata/libdk/targetcamera.cpp
 
@@ -272,7 +272,7 @@ extern "C" {
 
 extern "C" {
 
-void* func_001bf620(u32 a, u32 b);  // 0x001bf620: definition moved into src/anon/unit_001bc568.cpp
+void* YS__PRIZEBOX__Appear(u32 a, u32 b);  // 0x001bf620: definition moved into src/anon/unit_001bc568.cpp
 
 s32 func_001c9ab8(void);  // 0x001c9ab8: definition moved into src/yasui/libys/sacrifice.cpp
 
@@ -291,7 +291,7 @@ void func_00259570(u32 a, u32 b, u8 c, u8 d);  // 0x00259570: definition moved i
 
 s32 func_0025d620(s32 a);  // 0x0025d620: definition moved into src/anon/unit_002588e8.cpp
 
-s32 func_002638e0(s32 a);  // 0x002638e0: definition moved into src/anon/unit_002632d0.cpp
+s32 Tz__CmItem__SelCheck(s32 a);  // 0x002638e0: definition moved into src/anon/unit_002632d0.cpp
 
 bool func_0027a908(u8 a);  // 0x0027a908: definition moved into src/anon/unit_0027a6d8.cpp
 
@@ -317,7 +317,7 @@ Q16* func_002d2870(Q16* out, u8* b, u32 c);  // 0x002d2870: definition moved int
 
 extern "C" {
 
-void func_002e6fc0(u32* p, u32 b);  // 0x002e6fc0: definition moved into src/anon/unit_002e5f70.cpp
+void Ti__Afp__Afp(u32* p, u32 b);  // 0x002e6fc0: definition moved into src/anon/unit_002e5f70.cpp
 
 }
 

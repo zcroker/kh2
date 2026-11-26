@@ -81,13 +81,13 @@ extern s32 D_01d498a4 asm("D_01d498a4");
 extern s32 D_01d498a8 asm("D_01d498a8");
 extern f32 D_01d498ac asm("D_01d498ac");
 extern s32 D_01d498b0 asm("D_01d498b0");
-s32 func_0019ba60(u32) asm("func_0019ba60");
-V* func_0016c028(u32) asm("func_0016c028");
+s32 YS__OBJ__is_exist(u32) asm("YS__OBJ__is_exist");
+V* YS__OBJ__get_pos(u32) asm("YS__OBJ__get_pos");
 Node* func_0018ee10(Node*) asm("func_0018ee10");
 Cam* func_00106a60(s32) asm("func_00106a60");
-V func_0016af58(u32) asm("func_0016af58");
-Node* func_00185da8(Node*) asm("func_00185da8");
-void func_001dbad0(Obj*) asm("func_001dbad0");
+V YS__OBJ__get_dir(u32) asm("YS__OBJ__get_dir");
+Node* YS__ENEMY__Each(Node*) asm("YS__ENEMY__Each");
+void YS__CROWDOBJ___OVR_exec(Obj*) asm("YS__CROWDOBJ___OVR_exec");
 void func_001c5580(Obj* o) asm("func_001c5580");
 void func_001c5580(Obj* o) {
     V v;
@@ -96,7 +96,7 @@ void func_001c5580(Obj* o) {
     f32 maxd = 0.0f;
     s32 flag = 0;
     Node* q = 0;
-    if (func_0019ba60(player())) D_00352a60 = *func_0016c028(player());
+    if (YS__OBJ__is_exist(player())) D_00352a60 = *YS__OBJ__get_pos(player());
     {
         Node* p = 0;
         while ((p = func_0018ee10(p)) != 0) {
@@ -124,7 +124,7 @@ void func_001c5580(Obj* o) {
             else FLG[i * 8] |= 1;
             do {
                 if (flag) {
-                    V dir = func_0016af58(player());
+                    V dir = YS__OBJ__get_dir(player());
                     if (0.0f < v.dot(dir) + D_01d497c0.z) { FLG[i * 8] |= 2; break; }
                 }
                 FLG[i * 8] &= ~2;
@@ -137,7 +137,7 @@ void func_001c5580(Obj* o) {
     }
     D_01d498a8 = 0;
     FLG[best * 8] |= 1;
-    while ((q = func_00185da8(q)) != 0) D_01d498a8++;
+    while ((q = YS__ENEMY__Each(q)) != 0) D_01d498a8++;
     s32 avail = 1000 - D_01d498b0 - D_01d498a8;
     while (avail < D_01d498a4) {
         s32* ap = &D_00351680[0].a;
@@ -161,5 +161,5 @@ void func_001c5580(Obj* o) {
         e->a -= take;
         if (e->a == 0) FLG[b * 8] |= 4;
     }
-    func_001dbad0(o);
+    YS__CROWDOBJ___OVR_exec(o);
 }

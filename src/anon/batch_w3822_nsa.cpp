@@ -42,17 +42,17 @@ extern M2c90c8* D_00361e00;
 extern u8 D_0033bc10[];
 extern s16 D_003757d8[], D_003757e8[], D_003757f0[];
 void func_0031a838(void*);
-void func_002369a0(void*);
-void func_0023c008(void*);
+void YI__IMAGE_FREEZE__IMAGE_FREEZE(void*);
+void YI__LAYOUT__LAYOUT(void*);
 void func_00239700(void*);
-s32 func_002beb90(void);
+s32 worldmap__Manager__get2ldFile(void);
 s32 func_001708f8(s32, s32);
 void func_0023fa08(LayFile2c90c8*, s32);
 s32 func_0023f948(LayFile2c90c8*, s32);
 s32 func_0023f908(LayFile2c90c8*, s32);
 s32 func_002c9e90(M2c90c8*, s32);
-void func_0023eea0(void*, s32, s32, s32, s32, s32);
-void func_0023ef50(void*);
+void Tz__Layout__create(void*, s32, s32, s32, s32, s32);
+void Tz__Layout__SetImageCache(void*);
 void func_0023f0c8(void*, s32);
 void func_00139570(void*);
 u8* func_0023f1b0(void*);
@@ -62,7 +62,7 @@ Rec2c90c8* func_001e09a0(u8*, s32, s32, s32);
 s32 func_002c1c88(s32);
 void func_00138d60(WP2c90c8*, s32, s32, s32, s32, s32, s32);
 void func_00139620(WP2c90c8*);
-void func_001386e0(W2c90c8*, s32, s32, s32, s32, s32);
+void dk__Sprite__create(W2c90c8*, s32, s32, s32, s32, s32);
 void func_001396b0(W2c90c8*);
 void func_0031a260(W2c90c8*, s32);
 void func_00139660(W2c90c8*);
@@ -86,6 +86,6 @@ static inline void Attach2c90c8(W2c90c8* w, W2c90c8* parent)
     }
 }
 
-void func_002c90c8(M2c90c8* t, s32 course);  // 0x2c90c8: moved to src/anon/unit_002c87f8.cpp
+void dk__WM_GLANDING_INFO__WM_GLANDING_INFO(M2c90c8* t, s32 course);  // 0x2c90c8: moved to src/anon/unit_002c87f8.cpp
 
 }

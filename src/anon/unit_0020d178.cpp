@@ -19,10 +19,10 @@ u32 func_001e7230(u32, u32, u32, u32) asm("_Z13func_001e7230jjjj");
 /*TARGET 0020d178*/
 // 0x001f4fe0: definition moved into src/anon/unit_001f45f8.cpp
 
-u32 func_0020d178(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z13func_0020d178jjjj");
+u32 pppSnoScaleAllCon(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z17pppSnoScaleAllConjjjj");
 // 0x001f4fe0: definition moved into src/anon/unit_001f45f8.cpp
 
-u32 func_0020d178(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 pppSnoScaleAllCon(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_001e7230(((u32)(((u32)(a0) + (u32)(((u32)(*(u32*)((u32)(((u32)(*(u32*)((u32)(a1) + 12u)))) + 0u)))))) + 160u), 0x0000003cu, a2, a3);
 }
 }  // namespace n0020d178

@@ -113,7 +113,7 @@ extern u8 D_00340eb0 asm("D_00340eb0");
 u32* func_00133bb8(void*, s32, u32, u32) asm("func_00133bb8");
 s32 func_0010aba8(void) asm("func_0010aba8");
 void func_0010a8e0(void*) asm("func_0010a8e0");
-s32 func_00106a18(s32) asm("func_00106a18");
+s32 kn__getProjection(s32) asm("kn__getProjection");
 f32 func_001070a8(s32) asm("func_001070a8");
 W1986Pkt* func_00108730(W1986Src* p, void* q) asm("func_00108730");
 W1986Pkt* func_00108730(W1986Src* p, void* q)
@@ -154,7 +154,7 @@ W1986Pkt* func_00108730(W1986Src* p, void* q)
         func_0010a8e0(k->st);
     }
     f32 c = 2048.0f;
-    s32 r = func_00106a18(1);
+    s32 r = kn__getProjection(1);
     k->a[0] = c;
     k->a[1] = c;
     k->a[2] = 4000000.0f;
@@ -264,8 +264,8 @@ void func_00134450(u32) asm("func_00134450");
 
 // 00105a20: moved to src/common/unit_00105a10.cpp
 
-void func_00108ae0(u64* a0, u32 a1, u64 a2, u64 a3, u64 a4, u64 a5, u64 a6, u64 a7) asm("func_00108ae0");
-void func_00108ae0(u64* a0, u32 a1, u64 a2, u64 a3, u64 a4, u64 a5, u64 a6, u64 a7) {
+void kn__VU1DrawContext__setPacketForce(u64* a0, u32 a1, u64 a2, u64 a3, u64 a4, u64 a5, u64 a6, u64 a7) asm("kn__VU1DrawContext__setPacketForce");
+void kn__VU1DrawContext__setPacketForce(u64* a0, u32 a1, u64 a2, u64 a3, u64 a4, u64 a5, u64 a6, u64 a7) {
     func_00109008();
     func_00134408();
 
@@ -310,8 +310,8 @@ void func_00109008(void) asm("func_00109008");
 void func_00134408(void) asm("func_00134408");
 void func_00134428(u32, u64) asm("func_00134428");
 void func_00134450(u32) asm("func_00134450");
-void func_00108c00(u64* a0, u32 a1, u64 a2, u64 a3, u64 a4, u64 a5, u64 a6, u64 a7) asm("func_00108c00");
-void func_00108c00(u64* a0, u32 a1, u64 a2, u64 a3, u64 a4, u64 a5, u64 a6, u64 a7) {
+void kn__VU1DrawContext__setPacket(u64* a0, u32 a1, u64 a2, u64 a3, u64 a4, u64 a5, u64 a6, u64 a7) asm("kn__VU1DrawContext__setPacket");
+void kn__VU1DrawContext__setPacket(u64* a0, u32 a1, u64 a2, u64 a3, u64 a4, u64 a5, u64 a6, u64 a7) {
     func_00109008();
     func_00134408();
 

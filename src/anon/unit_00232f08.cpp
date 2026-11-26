@@ -41,8 +41,8 @@ struct W1573_E {
 };
 extern W1573_E* D_0035dcf8 asm("D_0035dcf8");
 extern f32 D_00349e10 asm("D_00349e10");
-void func_001ba028(u8*) asm("func_001ba028");
-W1573_Q* func_0016c028(u8*) asm("func_0016c028");
+void YS__OBJ__is_valid(u8*) asm("YS__OBJ__is_valid");
+W1573_Q* YS__OBJ__get_pos(u8*) asm("YS__OBJ__get_pos");
 void motion_start(void*, void*, f32, f32) asm("_ZN2YS6MOTION5startEPNS_6BINARCEff");
 s32 obj_is_attach(u8*) asm("_ZN2YS3OBJ9is_attachEv");
 void obj_set_pos(u8*, W1573_Q*) asm("_ZN2YS3OBJ7set_posERKN2kn7FVectorE");
@@ -60,8 +60,8 @@ void func_00232f08(void)
         if (e->obj == 0) continue;
         if (e->b != -1) {
             if (e->flag == 1) {
-                func_001ba028(e->obj);
-                e->vec = *func_0016c028(e->obj);
+                YS__OBJ__is_valid(e->obj);
+                e->vec = *YS__OBJ__get_pos(e->obj);
                 e->flag = 0;
             }
             f32 b2 = (f32)e->b + (f32)e->b;
@@ -71,7 +71,7 @@ void func_00232f08(void)
                 t = t - b2;
                 if (t < 2.0f) t = 2.0f;
                 t = t + a2;
-                func_001ba028(e->obj);
+                YS__OBJ__is_valid(e->obj);
                 motion_start(e->obj + 320, e->p12->arc, 0.0f, t);
                 if (obj_is_attach(e->obj) == 0) obj_set_pos(e->obj, &e->vec);
                 e->timer = t;
@@ -146,7 +146,7 @@ char* func_002ff2e8(char*, const char*) asm("func_002ff2e8");
 char* func_002330c8(char*, char*) asm("func_002330c8");
 s32 readBuffAlloc_w8010(char*, Wk*, s32) asm("_ZN2sa5EVENT13readBuffAllocEPcPNS_7READ_WKENS_11EVENT_ALLOC10ALLOC_TYPEE");
 void func_002330b0() asm("func_002330b0");
-void func_001684c0(char*, s32, void (*)(), Wk*) asm("func_001684c0");
+void YS__FILE__ReadBarBack(char*, s32, void (*)(), Wk*) asm("YS__FILE__ReadBarBack");
 /*TARGET 002331a0*/
 void func_002331a0(char* name, s32 type, s32 id, s32 d, s32 flag) asm("func_002331a0");
 void func_002331a0(char* name, s32 type, s32 id, s32 d, s32 flag) {
@@ -163,7 +163,7 @@ void func_002331a0(char* name, s32 type, s32 id, s32 d, s32 flag) {
     char* p = func_002330c8(name, s);
     s32 r = readBuffAlloc_w8010(p, w, type);
     w->f = r;
-    func_001684c0(p, r, func_002330b0, w);
+    YS__FILE__ReadBarBack(p, r, func_002330b0, w);
 }
 }  // namespace n002331a0
 
@@ -188,10 +188,10 @@ struct Vec4 { f32 x, y, z, w; } __attribute__((aligned(16)));
 
 struct Ev18 { u32 res; u8 pad[4]; u8* obj; };
 struct Sn18 { u8 pad[4]; u16 id; u8 pad2[2]; u16 sy; u8 pad3[4]; s16 kind; s16 sx; u8 arg[2]; };
-s32 func_002282f0(u16) asm("func_002282f0");
+s32 sa__EVENT__checkStart(u16) asm("sa__EVENT__checkStart");
 Ev18* func_00227d10(s16) asm("func_00227d10");
 u8* func_0016f000(u32, Vec4*, f32) asm("func_0016f000");
-void func_001ba028(u8*) asm("func_001ba028");
+void YS__OBJ__is_valid(u8*) asm("YS__OBJ__is_valid");
 // list_contains_ptr
 void func_00233280(u8*) asm("func_00233280");
 u32 func_00232e60(void) asm("func_00232e60");
@@ -207,14 +207,14 @@ void func_00232ea0(u32, Sn18*, Ev18*, u8*) asm("func_00232ea0");
 void func_002332a8(Sn18* p) asm("func_002332a8");
 void func_002332a8(Sn18* p)
 {
-    if (func_002282f0(p->id)) return;
+    if (sa__EVENT__checkStart(p->id)) return;
     Ev18* e = func_00227d10(p->kind);
     u32 h;
     if (!e->obj) {
         Vec4 v;
         asm volatile("sqc2 $vf0, 0(%0)" : : "r"(&v) : "memory");
         e->obj = func_0016f000(e->res | 0x40000000, &v, 3.1415925f);
-        func_001ba028(e->obj);  // list_contains_ptr
+        YS__OBJ__is_valid(e->obj);  // list_contains_ptr
         func_00233280(e->obj);
         h = func_00232e60();
     } else {
@@ -224,7 +224,7 @@ void func_002332a8(Sn18* p)
     *(s32*)(func_00102c18(1, 0xa7ee, func_00227950) + 4) = p->kind;
     if (!s[8]) *(u8**)(func_00102c18(1, 0xa7f3, func_00227a08) + 4) = s;
     u8* o = e->obj;
-    func_001ba028(o);  // list_contains_ptr
+    YS__OBJ__is_valid(o);  // list_contains_ptr
     func_0017f430(o + 320, *(u32*)(s + 20), (f32)p->sx * 2.0f, (f32)p->sy * 2.0f);
     func_00232ea0(h, p, e, s);
 }
@@ -232,8 +232,8 @@ void func_002332a8(Sn18* p)
 
 // 00233410 (was src/anon/batch_w51.cpp)
 namespace n00233410 {
-void func_001ba028(u32) asm("func_001ba028");
-u32 func_002282f0(u16) asm("func_002282f0");
+void YS__OBJ__is_valid(u32) asm("YS__OBJ__is_valid");
+u32 sa__EVENT__checkStart(u16) asm("sa__EVENT__checkStart");
 u32* func_00227d10(s16) asm("func_00227d10");
 u32 func_0016f000(u32, void*, f32) asm("func_0016f000");
 void func_00233280(u32) asm("func_00233280");
@@ -241,13 +241,13 @@ typedef unsigned int u128 __attribute__((mode(TI)));
 /*TARGET 00233410*/
 void func_00233410(u8* p) asm("func_00233410");
 void func_00233410(u8* p) {
-    if (func_002282f0(*(u16*)(p + 4))) return;
+    if (sa__EVENT__checkStart(*(u16*)(p + 4))) return;
     u32* e = func_00227d10(*(s16*)(p + 6));
     if (e[2]) return;
     u128 v;
     asm volatile("sqc2 $vf0, 0(%0)" : : "r"(&v) : "memory");
     e[2] = func_0016f000(e[0] | 0x40000000, &v, 3.1415925f);
-    func_001ba028(e[2]);  // list_contains_ptr
+    YS__OBJ__is_valid(e[2]);  // list_contains_ptr
     func_00233280(e[2]);
 }
 }  // namespace n00233410
@@ -256,7 +256,7 @@ void func_00233410(u8* p) {
 namespace n00233490 {
 // 16-byte aligned vector / matrix used with VU0 macro code.
 struct V4 { f32 x, y, z, w; } __attribute__((aligned(16)));
-s32 func_002282f0(u16) asm("func_002282f0");
+s32 sa__EVENT__checkStart(u16) asm("sa__EVENT__checkStart");
 u8* func_00227d10(s16) asm("func_00227d10");
 f32 func_00227c78(u8*) asm("func_00227c78");
 u32 func_00227ca8(u8*) asm("func_00227ca8");
@@ -267,7 +267,7 @@ typedef void (*VF233490)(u8*, V4*, u32);
 /*TARGET 00233490*/
 void func_00233490(u8* p) asm("func_00233490");
 void func_00233490(u8* p) {
-    if (func_002282f0(*(u16*)(p + 4))) return;
+    if (sa__EVENT__checkStart(*(u16*)(p + 4))) return;
     u8* o = func_00227d10(*(s16*)(p + 6));
     if (*(u32*)(o + 8)) return;
     V4 a, b;

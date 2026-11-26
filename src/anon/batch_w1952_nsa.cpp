@@ -22,7 +22,7 @@ struct W1952Path {
     W1952Seg s1;      // 80
 };
 extern "C" {
-f32 func_002cdfb0(W1952Path*, s32*, f32*, W1952Vec*);
+f32 Ti__Path__search_near_point_from_pre_point(W1952Path*, s32*, f32*, W1952Vec*);
 f32 func_002ce2a0(W1952Path*, s32*, f32*, W1952Vec*);
 W1952Seg* func_002cb890(W1952Path*, s32);
 W1952Vec func_002cd770(W1952Path*, W1952Seg*, W1952Seg*, f32);

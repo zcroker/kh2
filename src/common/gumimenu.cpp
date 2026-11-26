@@ -73,7 +73,7 @@ void func_00170dd0(void);
 void func_00170c00(void*);
 void func_00170320(s32);
 u32 func_00102788(u32, u32, u32, u32);
-void func_00102818(u32, u32, u32, u32, u32);
+void TASK_MANAGER__create_thread(u32, u32, u32, u32, u32);
 
 // Work buffer i (0: 2 KB, 1-2: 1 KB).
 u8* func_00104318(s32 i) {
@@ -141,7 +141,7 @@ u32 func_00104588(u32 a0, u32 a1, u32 a2) {
 }
 
 void func_001045b8(u32 a, u32 b, u32 c, u32 d) {
-    func_00102818(D_0032ba90.manager, a, b, c, d);
+    TASK_MANAGER__create_thread(D_0032ba90.manager, a, b, c, d);
 }
 }
 

@@ -45,9 +45,9 @@ struct V3c
 };
 extern O3c *D_0034e948;
 extern u8 D_0032bae0;
-s32 func_00176b58(u8);
+s32 YS__PARTY__GetByPart(u8);
 u32 *func_00177860(s32) asm("_ZN2YS5PARTY11get_abilityEv");
-s32 func_0019ba60(s32) asm("_Z16ctarget_0019ba60jjjj");
+s32 YS__OBJ__is_exist(s32) asm("_Z17YS__OBJ__is_existjjjj");
 V3c *func_001a80c8(u16);
 s32 func_001c8ab0() asm("_ZN2YS6SUMMON7GetModeEv");
 s32 func_001d3f80(u8 *) asm("_ZN2YS7MISSION12GetLimitCostEi");

@@ -18,7 +18,7 @@ void func_00287c30(void);
 void func_0028af18(void*, s32);
 void func_00276690(s32);
 s32 func_00276358(void);
-void func_00276220(s32, s32);
+void Tz__Jiminy__SetParentSeqNum(s32, s32);
 void func_002aed60(void);
 void func_002afaf0(void);
 s32 func_00289310(void*);
@@ -29,12 +29,12 @@ s32 func_00287df0(s32, s32, s32, void*, s32);
 void func_002b3b78(void);
 s32 func_00242848(s32);
 s32 func_0028b038(void*);
-void func_0028be78(void*, s32);
+void Tz__ScrollBar__SetPos(void*, s32);
 void func_002aece8(void);
-void func_00276dc0(void);
+void Tz__Jiminy__FadeOutHelp(void);
 s32 func_00276608(s32);
 s32 func_002b2338(s32);
-void func_002b2428(s32);
+void Tz__JmPuzzle__RequestGraLoad(s32);
 void func_00287c00(s32);
 void func_00287cc0(s32);
 s32 func_00288040(void);
@@ -43,4 +43,4 @@ s32 func_002891e8(void*);
 void func_002765e8(s32, s32, s32);
 void func_00287da0(void);
 
-void func_002b05f8(void);  // 0x002b05f8: definition moved into src/anon/unit_002b05f8.c
+void Tz__JmPuzzle__CtrlTutorial(void);  // 0x002b05f8: definition moved into src/anon/unit_002b05f8.c

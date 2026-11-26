@@ -79,8 +79,8 @@ extern Mgr51* D_0035f5e8 asm("D_0035f5e8");
 s32 func_00139d78(void*) asm("func_00139d78");
 void func_00139510__82352(void*) asm("func_00139510");
 /*TARGET 002a41f0*/
-void func_002a41f0(void) asm("func_002a41f0");
-void func_002a41f0(void)
+void Tz__JmTreasure__LeaveList(void) asm("Tz__JmTreasure__LeaveList");
+void Tz__JmTreasure__LeaveList(void)
 {
     if (func_00139d78(&D_0035f5e8->a)) func_00139510__82352(&D_0035f5e8->a);
     s32 j;
@@ -257,7 +257,7 @@ void func_00138c10(u8*, s32) asm("func_00138c10");
 void func_00138c68(u8*, u32, u32) asm("func_00138c68");
 void func_00138c78(u8*, u32*, u32*) asm("func_00138c78");
 void func_00242618(s32, s32) asm("func_00242618");
-void func_002a3aa8(void) asm("func_002a3aa8");
+void Tz__JmTreasure__UpdateNewMark(void) asm("Tz__JmTreasure__UpdateNewMark");
 s32 func_002a4990(s32) asm("func_002a4990");
 s32 func_002a4a00(s32) asm("func_002a4a00");
 extern u8* D_0035f5e4 asm("D_0035f5e4");
@@ -328,7 +328,7 @@ void func_002a4620(Pad2a* pad) {
         else if (D_0035f5e4[k * 8 + 4096] && *(s32*)(o + 388) == 66) func_00138c10(o, 65);
         *(s32*)(D_0035f5e4 + 4228) = top;
         *(s32*)(D_0035f5e4 + 4232) = sel;
-        func_002a3aa8();
+        Tz__JmTreasure__UpdateNewMark();
     }
 }
 }  // namespace n002a4620
@@ -415,8 +415,8 @@ union GP { u8* p; s32 i; };
 extern GP D_0035f5e4 asm("D_0035f5e4");
 s8* func_00276568(void) asm("func_00276568");
 /*TARGET 002a4b78*/
-void func_002a4b78(void) asm("func_002a4b78");
-void func_002a4b78(void)
+void Tz__JmTreasure__AdjustCurPos(void) asm("Tz__JmTreasure__AdjustCurPos");
+void Tz__JmTreasure__AdjustCurPos(void)
 {
     s32 m = func_00287bc0();
     if (m == 26 || m == 34 || m == 33) {

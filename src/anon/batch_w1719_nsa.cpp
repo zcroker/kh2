@@ -49,9 +49,9 @@ struct W1719Cfg { f32 f0; f32 reach; };
 extern "C" {
 extern W1719Cfg* D_00351f34;
 extern f32 D_00349e10;
-W1719Vec func_0016af58(W1719Obj*);
-W1719Vec* func_0016c028(W1719Obj*);
-W1719Vec func_0017d538(f32, const W1719Vec&);
+W1719Vec YS__OBJ__get_dir(W1719Obj*);
+W1719Vec* YS__OBJ__get_pos(W1719Obj*);
+W1719Vec YS__MATH__VectorRotY(f32, const W1719Vec&);
 
 // Compares object b's position with object a's facing direction.
 // Returns;  // 0x001ca148: definition moved into src/anon/unit_001ca148.cpp

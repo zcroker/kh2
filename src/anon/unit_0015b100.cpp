@@ -58,12 +58,12 @@ struct S15b { u8 pad[436]; f32 f; };
 union U15b { S15b* p; f32 f; };
 extern s32 D_0034aa98 asm("D_0034aa98");
 extern U15b D_0034aa9c asm("D_0034aa9c");
-void func_0015ad80(S15b*, u32) asm("func_0015ad80");
+void dk__BILLBOARD__DrawDisableReason(S15b*, u32) asm("dk__BILLBOARD__DrawDisableReason");
 void func_0015aea8(S15b*, u32) asm("func_0015aea8");
 void func_0015b268(u32 a, f32 f) asm("func_0015b268");
 void func_0015b268(u32 a, f32 f) {
     if (D_0034aa98 == 0) {
-        func_0015ad80(D_0034aa9c.p, a);
+        dk__BILLBOARD__DrawDisableReason(D_0034aa9c.p, a);
         D_0034aa98++;
     } else {
         D_0034aa9c.p->f = f;
@@ -97,24 +97,24 @@ void func_0015b2d0(void) {
 // ---- 0x0015b368 (src/anon/batch_w96.cpp)
 namespace n0015b368 {
 u32 func_0013a7e8(u32) asm("func_0013a7e8");
-void func_001386e0(u32, u32, u32, u32, u32, u32) asm("func_001386e0");
-void func_00239988(u32, u32, u32) asm("func_00239988");
+void dk__Sprite__create(u32, u32, u32, u32, u32, u32) asm("dk__Sprite__create");
+void YI__SEQUENCE__Init(u32, u32, u32) asm("YI__SEQUENCE__Init");
 void func_00239bf8(u32, u32) asm("func_00239bf8");
 s32 func_0015b4f8(void*, u32, s32*) asm("func_0015b4f8");
 s32 func_0023aa98(u32) asm("func_0023aa98");
 extern u8 D_0034ab50[] asm("D_0034ab50");
-void func_0015b368(u32 self, u32 a1, u32 a2, u32 a3) asm("func_0015b368");
-void func_0015b368(u32 self, u32 a1, u32 a2, u32 a3) {
+void dk__Exp__create(u32 self, u32 a1, u32 a2, u32 a3) asm("dk__Exp__create");
+void dk__Exp__create(u32 self, u32 a1, u32 a2, u32 a3) {
     s32 ids[8];
     s32 sum = 0;
     s32 i = 0;
     s32 half, v;
     u32 s5 = func_0013a7e8(0);
-    func_001386e0(self, 3800, s5, a2, a1, 15);
+    dk__Sprite__create(self, 3800, s5, a2, a1, 15);
     *(s32*)(self + 436) = func_0015b4f8(D_0034ab50, a3, ids);
     for (; i < *(s32*)(self + 436); i++) {
         u32 p = self + 440 + i * 344;
-        func_00239988(p, s5, a2);
+        YI__SEQUENCE__Init(p, s5, a2);
         func_00239bf8(p, ids[i]);
         sum += func_0023aa98(p);
     }
@@ -163,9 +163,9 @@ s32 func_0015b4f8(s32* tbl, s32 v, s32* out) {
 
 // ---- 0x0015b578 (src/anon/auto80_199_queue.cpp)
 namespace n0015b578 {
-void func_001390f0(u32 a0) asm("func_001390f0");
-void func_0015b578(u32 a0) asm("func_0015b578");
-void func_0015b578(u32 a0) {
+void dk__Sprite3D__update(u32 a0) asm("dk__Sprite3D__update");
+void dk__Exp__update(u32 a0) asm("dk__Exp__update");
+void dk__Exp__update(u32 a0) {
     u32 s1 = 0;
     u32 s2 = a0;
     u32 s0;
@@ -185,7 +185,7 @@ void func_0015b578(u32 a0) {
             break;
         } while (1);
     }
-    func_001390f0(s2);
+    dk__Sprite3D__update(s2);
 }
 }  // namespace n0015b578
 
@@ -226,7 +226,7 @@ void func_0015b5d8(u32 a0) {
         s2 += 4;
         *(u32*)(s0 + 328) = t0 + v;
         *(u32*)(s0 + 332) = t1;
-        func_0023ade0(s0);
+        YI__SEQUENCE__Draw(s0);
         if ((s32)s3 < *(s32*)(s1 + 436)) {
             s0 += 344;
             continue;
@@ -246,13 +246,13 @@ u32 func_001050c8(void) asm("func_001050c8");
 u8* func_001063c0(u32, u32) asm("func_001063c0");
 void func_00239700(u8*) asm("func_00239700");
 u32 func_0013e678(void) asm("func_0013e678");
-void func_0015b368(u8*, u32, u32, u32) asm("func_0015b368");
+void dk__Exp__create(u8*, u32, u32, u32) asm("dk__Exp__create");
 void func_001391a8(u8*, V4*) asm("func_001391a8");
 void func_0014f648(u32) asm("func_0014f648");
 extern u8 D_00347e60[] asm("D_00347e60");
 extern u8 D_0034ab80[] asm("D_0034ab80");
-void func_0015b680(V4* pos, u32 a, u32 b) asm("func_0015b680");
-void func_0015b680(V4* pos, u32 a, u32 b) {
+void dk__Exp__print(V4* pos, u32 a, u32 b) asm("dk__Exp__print");
+void dk__Exp__print(V4* pos, u32 a, u32 b) {
     u8* o = func_001063c0(2880, func_001050c8());
     *(u32*)(o + 12) = 0;
     *(u32*)o = (u32)D_00347e60;
@@ -261,7 +261,7 @@ void func_0015b680(V4* pos, u32 a, u32 b) {
     *(u32*)o = (u32)D_0034ab80;
     u8* q = o + 440;
     for (s32 i = 6; i != -1; i--, q += 344) func_00239700(q);
-    func_0015b368(o, 16, func_0013e678(), a);
+    dk__Exp__create(o, 16, func_0013e678(), a);
     V4 t;
     QCOPY(&t, pos);
     func_001391a8(o, &t);  // vec_copy_at416_if_diff
@@ -289,8 +289,8 @@ extern "C" void func_0015b778(void) {}
 namespace n0015b780 {
 void func_00139858(s32) asm("func_00139858");
 void func_00139ab0(s32) asm("func_00139ab0");
-void func_0015b780(void) asm("func_0015b780");
-void func_0015b780(void) {
+void dk__Exp__on(void) asm("dk__Exp__on");
+void dk__Exp__on(void) {
     func_00139858(15);
     func_00139ab0(15);
 }

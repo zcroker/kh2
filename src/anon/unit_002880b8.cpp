@@ -25,11 +25,11 @@ namespace n002880b8 {
 s32 func_00103570(void) asm("func_00103570");
 s32 func_001063c0(s32, s32) asm("func_001063c0");
 void func_0023f800(s32) asm("func_0023f800");
-void func_002369a0(s32) asm("func_002369a0");
+void YI__IMAGE_FREEZE__IMAGE_FREEZE(s32) asm("YI__IMAGE_FREEZE__IMAGE_FREEZE");
 void func_00239700(void*) asm("func_00239700");
-void func_0023c008(s32) asm("func_0023c008");
+void YI__LAYOUT__LAYOUT(s32) asm("YI__LAYOUT__LAYOUT");
 u8* func_00103eb0(void) asm("func_00103eb0");
-void func_00102818(s32, s32, s32, void*, s32) asm("func_00102818");
+void TASK_MANAGER__create_thread(s32, s32, s32, void*, s32) asm("TASK_MANAGER__create_thread");
 struct Alloc;
 struct AllocVt { void* (*alloc)(Alloc*, s32, s32); };
 struct Alloc { AllocVt* vt; };
@@ -45,9 +45,9 @@ extern s32 D_0035f33c asm("D_0035f33c");
 extern s32 D_0035f340 asm("D_0035f340");
 /*TARGET 002880b8*/
 // Startup: creates the managers kept in D_0035f334..D_0035f340 and starts a thread.
-void func_002880b8(void) asm("func_002880b8");
+void Tz__MenuBasic__Init(void) asm("Tz__MenuBasic__Init");
 // Startup: creates the managers kept in D_0035f334..D_0035f340 and starts a thread.
-void func_002880b8(void) {
+void Tz__MenuBasic__Init(void) {
     D_0035f32c = -1;
     D_0035f32e = -1;
     s32 r = func_001063c0(0x1C, func_00103570());
@@ -64,13 +64,13 @@ void func_002880b8(void) {
     func_00239700(p + 0x18);
     D_0035f338 = p;
     r = func_001063c0(0x18, func_00103570());
-    func_002369a0(r);
+    YI__IMAGE_FREEZE__IMAGE_FREEZE(r);
     D_0035f33c = r;
     r = func_001063c0(0x5C, func_00103570());
-    func_0023c008(r);
+    YI__LAYOUT__LAYOUT(r);
     D_0035f340 = r;
     D_0035f328 = 0;
-    func_00102818(*(s32*)(func_00103eb0() + 4), 0, 0x7CE, D_00288308, 0x1000);
+    TASK_MANAGER__create_thread(*(s32*)(func_00103eb0() + 4), 0, 0x7CE, D_00288308, 0x1000);
 }
 }  // namespace n002880b8
 
@@ -123,7 +123,7 @@ namespace n00288308 {
 void func_00288610(void) asm("func_00288610");
 void func_00102448(void*, s32) asm("func_00102448");
 void func_00288370(void) asm("_ZN2Tz9MenuBasic5SetupEv");
-void func_00236d60(void) asm("func_00236d60");
+void YI__IMAGE_CACHE__Clear(void) asm("YI__IMAGE_CACHE__Clear");
 s32 func_00288400(void*) asm("func_00288400");
 void func_002885d0(void*, s32) asm("func_002885d0");
 void func_00288308(void* t) asm("func_00288308");
@@ -132,7 +132,7 @@ void func_00288308(void* t) {
     func_00102448(t, 1);
     func_00288370();
     for (;;) {
-        func_00236d60();
+        YI__IMAGE_CACHE__Clear();
         if (func_00288400(t)) { func_002885d0(t, 0); return; }
         func_00102448(t, 0);
     }
@@ -205,7 +205,7 @@ VT288* func_00253330(s32) asm("func_00253330");
 void func_00103ea0(void (*)(void)) asm("func_00103ea0");
 // set_hook_ptr
 void func_00288638(void) asm("func_00288638");
-void func_00236d60(void) asm("func_00236d60");
+void YI__IMAGE_CACHE__Clear(void) asm("YI__IMAGE_CACHE__Clear");
 // clear_64_entries_24
 void func_00288870(void) asm("func_00288870");
 void func_0023fad0(void*) asm("func_0023fad0");
@@ -231,7 +231,7 @@ void func_00288478(void* ctx) {
     D_0035f330 = 0;
     func_00103ea0(func_00288638);  // set_hook_ptr
     for (;;) {
-        func_00236d60();  // clear_64_entries_24
+        YI__IMAGE_CACHE__Clear();  // clear_64_entries_24
         func_00288870();
         if (D_0035f330) break;
         func_00102448(ctx, 0);
@@ -314,7 +314,7 @@ void StartFade(void (*)()) asm("_ZN2Tz5Pause9StartFadeEPFvvE");
 void u_call4_00139d78(void*) asm("_Z16u_call4_00139d78jjjj");
 void* GetSequenceUnit(void*, s32) asm("_ZN2YI6LAYOUT15GetSequenceUnitEi");
 u8* GetImage(void*, s32) asm("_ZN2YI12IMAGE_FREEZE8GetImageEi");
-void func_001386e0(void*, s32, void*, void*, s32, s32) asm("func_001386e0");
+void dk__Sprite__create(void*, s32, void*, void*, s32, s32) asm("dk__Sprite__create");
 extern W246UP D_0035f338 asm("D_0035f338");
 extern void* D_0035f33c asm("D_0035f33c");
 extern void* D_0035f340 asm("D_0035f340");
@@ -331,7 +331,7 @@ void func_00288670(void (*cb)()) {
     void* seq = GetSequenceUnit(D_0035f340, 0);
     u8* img = GetImage(D_0035f33c, 0);
     img[400] = on;
-    func_001386e0(D_0035f338.c, 30036, seq, img, 5, 0);
+    dk__Sprite__create(D_0035f338.c, 30036, seq, img, 5, 0);
     *(s32*)(D_0035f338.c + 392) = on;
     D_0035f338.o->sub.set(8);
     D_0035f338.c[405] = on;

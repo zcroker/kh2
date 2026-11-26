@@ -35,13 +35,13 @@ struct W1784C4 { u8 pad[0xc0]; W1784QV dir; };
 struct W1784It { u8 b0; u8 b1; u8 f : 1; u8 : 7; bool ok() { return !f; } };
 struct W1784Iter { void* p; u32 type; };
 extern "C" {
-void func_0017c430(W1784C4*, f32);
+void YS__OBJ__prepare_jump_height(W1784C4*, f32);
 // 0017c4c8: moved to src/anon/unit_0017c400.cpp
 f32 func_0017ce10(void);
 W1784QM func_0017d1d8(f32, void*);
 // 0017d698: moved to src/anon/unit_0017c400.cpp
-void* func_001b9bc8(void*);
-s32 func_0019bc38(void*);
+void* YS__OBJ__Each(void*);
+s32 YS__OBJ__can_lockon(void*);
 W1784It* func_0016bba8(void*, s32, W1784It*);
-W1784It* func_00190730(W1784Iter* it, W1784It* cur);  // 0x00190730: definition moved into src/anon/unit_001900d0.cpp
+W1784It* YS__TARGET__each(W1784Iter* it, W1784It* cur);  // 0x00190730: definition moved into src/anon/unit_001900d0.cpp
 }

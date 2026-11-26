@@ -10,7 +10,7 @@ extern void func_0023f070(void*, s32, s32);
 extern void func_0024c898(void);
 extern s32 func_0028d008(s32);
 extern s32 func_002891d0(void*);
-extern void func_0028cf28(s32, s32);  // record408_set_and_refresh
+extern void Tz__MenuCursor__SetParent(s32, s32);  // record408_set_and_refresh
 extern void func_002b4388(void*, void*, s32);
 struct W268E6 { s16 a, b, c; };
 struct W268E36 { u8 d[36]; };
@@ -26,9 +26,9 @@ extern void* D_0035ee4c;
 extern W268E36 D_00372490[];
 extern W268E36 D_00372548[];
 
-void func_0024c420(void* a0, s32 a1, s32 a2);  // 0x0024c420: definition moved into src/anon/unit_0024ba58.cpp
+void Tz__HBTE__DrawSelector(void* a0, s32 a1, s32 a2);  // 0x0024c420: definition moved into src/anon/unit_0024ba58.cpp
 
-void func_00250550(void* a0, s32 a1, s32 a2);  // 0x00250550: definition moved into src/anon/unit_0024fbd0.cpp
+void Tz__LMMU__DrawSelector(void* a0, s32 a1, s32 a2);  // 0x00250550: definition moved into src/anon/unit_0024fbd0.cpp
 
 struct W268VObj { void (**vt)(W268VObj*); };
 struct W268FnHolder { u8 pad[8]; void (*fn)(void); };
@@ -89,7 +89,7 @@ void func_0031acc0(void*);
 void func_0031abd8(void*);
 void func_00239870(void*);
 void func_002816f0(void);
-void func_002aeba0(void);  // 0x002aeba0: definition moved into src/anon/unit_002aeba0.cpp
+void Tz__JmPuzzle__Exit(void);  // 0x002aeba0: definition moved into src/anon/unit_002aeba0.cpp
 
 struct W268Vm;
 struct W268VmList { W268Vm* head; W268Vm* tail; };
@@ -136,7 +136,7 @@ static inline void W268Apply(W268V4* pr, const W268Mtx* m, const W268V4* v) {
         "sqc2 $vf5, 0(%0)"
         : : "r"(&r), "r"(m), "r"(v) : "memory");
 }
-W268Mtx* func_00106a18(s32);  // buffer_get_256
+W268Mtx* kn__getProjection(s32);  // buffer_get_256
 u8* func_00106a60(s32);  // buffer_get_by_index
 // 0017cf00: moved to src/anon/unit_0017c400.cpp
 

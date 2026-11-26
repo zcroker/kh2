@@ -38,8 +38,8 @@ extern u32 D_003216a8;
 extern u8 D_003216b8[];
 extern u8* D_00350cc8;
 extern u8* D_00350ccc;
-s32 func_0019ba60(u8*);
-V1d3148* func_0016c028(u8*);
+s32 YS__OBJ__is_exist(u8*);
+V1d3148* YS__OBJ__get_pos(u8*);
 s32 func_001dc9e0(u8*);
 V1d3148* func_001dc5f8(u8*);
 }
@@ -67,24 +67,24 @@ void func_001d3108(Cmd1d3108* c, const M1d3148* m) {
     c->m = *m;
 }
 
-void func_001d3148(O1d3148* o) {
+void YS__EVENT_CAMERA__make_matrix(O1d3148* o) {
     switch (o->state) {
     case 2:
-        if (func_0019ba60(o->obj)) o->m = *(M1d3148*)(o->obj + 1712);
+        if (YS__OBJ__is_exist(o->obj)) o->m = *(M1d3148*)(o->obj + 1712);
         o->state = 0;
         break;
     case 3:
-        if (func_0019ba60(o->obj)) o->m = *(M1d3148*)(o->obj + 64);
+        if (YS__OBJ__is_exist(o->obj)) o->m = *(M1d3148*)(o->obj + 64);
         o->state = 7;
     case 7:
-        if (!func_0019ba60(o->obj)) {
+        if (!YS__OBJ__is_exist(o->obj)) {
             o->state = 0;
             break;
         }
-        (o->m.t = *func_0016c028(o->obj)).f[3] = 1.0f;
+        (o->m.t = *YS__OBJ__get_pos(o->obj)).f[3] = 1.0f;
         break;
     case 4:
-        if (func_0019ba60(D_00350cc8)) o->m = *(M1d3148*)(D_00350cc8 + 64);
+        if (YS__OBJ__is_exist(D_00350cc8)) o->m = *(M1d3148*)(D_00350cc8 + 64);
         o->state = 8;
     case 8:
         if (!D_00350ccc || !func_001dc9e0(D_00350ccc)) {

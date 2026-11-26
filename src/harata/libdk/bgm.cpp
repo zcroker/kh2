@@ -59,12 +59,12 @@ void func_002ba2b0(s32, s32);
 s32 func_002b7148(s32);
 s32 func_002bd250();
 s32 func_002bd260(s32);
-void func_002bd310(W1618Req*);
+void SOUND__readBgmThread(W1618Req*);
 s32 func_00225540(void);
 void func_002bb070(u32, u32, u32, u32, u32);
 s32 func_002ba200(void);
-void func_00168388(void*, u32, u32, u32);
-s32 func_00170cd0(void);
+void YS__FILE__ReadBack(void*, u32, u32, u32);
+s32 YS__CACHE_BUFF__IsFlushing(void);
 u16* func_001a9130(void);
 void func_00136a18(void);
 void func_00136878(void);
@@ -124,8 +124,8 @@ void func_00136ba8(u32 a) {
     u32 size = YS_FILE_GetSize(D_0036ac80);
     void* mem = h->vt->alloc(h, (size + 0x83f) & ~0x7ff, 0);
     u32 buf = ((u32)mem + 63) & ~63;
-    func_00168388(D_0036ac80, buf, 0, 0);
-    while (func_00170cd0()) TaskYield(a, 0);
+    YS__FILE__ReadBack(D_0036ac80, buf, 0, 0);
+    while (YS__CACHE_BUFF__IsFlushing()) TaskYield(a, 0);
     func_002bb070(1, buf, size, 0, 0);
     while (func_002ba200()) TaskYield(a, 0);
     h->vt->free(h, mem);
@@ -153,7 +153,7 @@ void func_00136d40(W1618Req* r) {
         r->id = id;
         r->slot = 0;
         r->alloc = W1618_GetAllocator();
-        func_002bd310(r);
+        SOUND__readBgmThread(r);
     }
     W1618Bgm* b = &D_00347d30_bgm[1];
     if (D_00347d30_bgm[1].flags & 1) {
@@ -162,7 +162,7 @@ void func_00136d40(W1618Req* r) {
         r->id = id;
         r->slot = 1;
         r->alloc = W1618_GetAllocator();
-        func_002bd310(r);
+        SOUND__readBgmThread(r);
     }
     if (D_00347d30_bgm[0].flags & 2) {
         D_00347d50 = 0;
@@ -339,7 +339,7 @@ void func_001373a0(void) {
     func_00136a18();
 }
 
-void func_001373d8(void) {
+void dk__BGM__Continue(void) {
     D_00347d54 = D_00347d56;
     D_00347d50 = 0;
     D_00347d55 = 0;

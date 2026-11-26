@@ -23,11 +23,11 @@ extern s32 D_0035f148 asm("D_0035f148");
 extern s32 D_0035f210 asm("D_0035f210");
 extern s16 D_00374cc8[] asm("D_00374cc8");
 u8* func_002766d0(void) asm("func_002766d0");
-St2b2a18* func_002b23e0(s32) asm("func_002b23e0");
+St2b2a18* Tz__JmPuzzle__GetImageInfo(s32) asm("Tz__JmPuzzle__GetImageInfo");
 void func_00139d78(u8*) asm("func_00139d78");
 s32 func_0023f1b0(s32) asm("func_0023f1b0");
 s32 func_0023c4b8(s32, s32) asm("func_0023c4b8");
-void func_001386e0(u8*, s32, s32, u8*, s32, s32) asm("func_001386e0");
+void dk__Sprite__create(u8*, s32, s32, u8*, s32, s32) asm("dk__Sprite__create");
 void func_0028d8c0(u8*, s32, s32, s32, s32, s32, s32, s32) asm("func_0028d8c0");
 void func_00139620(u8*) asm("func_00139620");
 void func_0028dcc0(u8*, u8*) asm("func_0028dcc0");
@@ -38,7 +38,7 @@ void func_002b2a18(void) {
     s32 i = 0;
     s32 off = 0;
     u8* g = func_002766d0();
-    register St2b2a18* st asm("$22") = func_002b23e0(-1);
+    register St2b2a18* st asm("$22") = Tz__JmPuzzle__GetImageInfo(-1);
     u8* base = D_0035f634;
     s32 id;
     u8* p;
@@ -59,7 +59,7 @@ void func_002b2a18(void) {
             b += 20832;
             s32 r = func_0023c4b8(func_0023f1b0(D_0035f210), 6);
             w = D_00374cc8[st->bit];
-            func_001386e0(p, id, r, g + 0xdca0, w, 0);
+            dk__Sprite__create(p, id, r, g + 0xdca0, w, 0);
             *(u32*)(b + 184) |= 8;
             func_00139620(p);
             p[405] = 1;
@@ -144,7 +144,7 @@ struct CurTbl278 { s16 a, b, c; };
 struct CurSt278 { u32 pad:27; u32 bit:1; u32 pad2:4; };
 extern CurOwn278* D_0035f634 asm("D_0035f634");
 extern CurTbl278 D_00374cd8[] asm("D_00374cd8");
-CurSt278* func_002b23e0(s32) asm("func_002b23e0");
+CurSt278* Tz__JmPuzzle__GetImageInfo(s32) asm("Tz__JmPuzzle__GetImageInfo");
 // list_entry_by_index_checked
 void Call4_278(CurItem278*) asm("_Z16u_call4_00139d78jjjj");
 s32 IsHide278(CurItem278*) asm("_ZN2dk5Obj2D6isHideEv");
@@ -154,7 +154,7 @@ void Attach278(CurItem278*, CurItem278*) asm("_ZN2Tz10MenuCursor12AttachSpriteEz
 /*TARGET 002b2da8*/
 void func_002b2da8(s32 idx) asm("func_002b2da8");
 void func_002b2da8(s32 idx) {
-    CurSt278* st = func_002b23e0(-1);  // list_entry_by_index_checked
+    CurSt278* st = Tz__JmPuzzle__GetImageInfo(-1);  // list_entry_by_index_checked
     CurItem278* o = &D_0035f634->item[idx + 1];
     Call4_278(o);
     if (IsHide278(o)) Show278(o);
@@ -194,7 +194,7 @@ struct AnmId3 { s16 a, b, c; };
 
 extern u8* D_0035f634 asm("D_0035f634");
 extern AnmId3 D_00374cd8[] asm("D_00374cd8");
-u32* func_002b23e0(s32) asm("func_002b23e0");
+u32* Tz__JmPuzzle__GetImageInfo(s32) asm("Tz__JmPuzzle__GetImageInfo");
 // list_entry_by_index_checked
 s32 func_00139d78(void*) asm("func_00139d78");
 s32 func_001396c0(u8*) asm("func_001396c0");
@@ -204,7 +204,7 @@ void func_0028dcc0(u8*, u8*) asm("func_0028dcc0");
 /*TARGET 002b2f28*/
 void func_002b2f28(s32 idx) asm("func_002b2f28");
 void func_002b2f28(s32 idx) {
-    u32* st = func_002b23e0(-1);  // list_entry_by_index_checked
+    u32* st = Tz__JmPuzzle__GetImageInfo(-1);  // list_entry_by_index_checked
     u8* p = D_0035f634 + idx * 408 + 19992;
     func_00139d78(p);
     if (!func_001396c0(p)) func_00139570(p);
@@ -237,14 +237,14 @@ struct UV55 { s16 u[4]; s16 v[4]; };
 extern GG* D_0035f638 asm("D_0035f638");
 extern u8* D_0035f634 asm("D_0035f634");
 GSav* func_002a9d68(void) asm("func_002a9d68");
-GS3U* func_002b23e0(s32) asm("func_002b23e0");
+GS3U* Tz__JmPuzzle__GetImageInfo(s32) asm("Tz__JmPuzzle__GetImageInfo");
 s32 func_002b2380(s32, s32) asm("func_002b2380");
 void func_0028dcc0(u8*, u8*) asm("func_0028dcc0");
 void func_002b28b0(u32 a0, s32 idx, s32 mode, UV55* out) asm("func_002b28b0");
-void func_00239558(u8* p, s16* a, s16* b) asm("func_00239558");
+void YI__SPRITE__SetDirextUV(u8* p, s16* a, s16* b) asm("YI__SPRITE__SetDirextUV");
 // Getter wrapper; the call has to go through an inline for the
 // register allocation of q to match.
-static inline GS3U* GetCur(s32 i) { return func_002b23e0(i); }
+static inline GS3U* GetCur(s32 i) { return Tz__JmPuzzle__GetImageInfo(i); }
 /*TARGET 002b3050*/
 void func_002b3050(u8 a0) asm("func_002b3050");
 void func_002b3050(u8 a0)
@@ -266,7 +266,7 @@ void func_002b3050(u8 a0)
             q = base;
             p = q + 20808;
             q += 20832;
-            func_00239558(q, uv.u, uv.v);
+            YI__SPRITE__SetDirextUV(q, uv.u, uv.v);
             func_0028dcc0(p, s3);
         }
         D_0035f638->b10 = 0;
@@ -279,7 +279,7 @@ namespace n002b31c0 {
 /* the $7 pin puts "move a3,v0" before the jal and "addiu a1" into its delay slot, as the original does */
 // 001921d8: moved to src/yasui/libys/message.cpp
 
-/* ---- func_002b31c0 ---- */
+/* ---- Tz__JmPuzzle__DrawMess ---- */
 
 
 u8 *func_002766d0(void) asm("func_002766d0");
@@ -293,12 +293,12 @@ s32 func_0023aa58(u8 *) asm("func_0023aa58");
 s32 func_0023aa78(u8 *) asm("func_0023aa78");
 u8 *func_001aae68(s32) asm("func_001aae68");
 s32 func_00192048(s32) asm("func_00192048");
-void func_001a98e8(void *, s32, s32, s32, s32) asm("func_001a98e8");
-void func_001aa6d0(void *, s32) asm("func_001aa6d0");
-void func_001a9ae8(void *, s32, s32, s32) asm("func_001a9ae8");
+void YS__MESSAGEDRAW__MESSAGEDRAW(void *, s32, s32, s32, s32) asm("YS__MESSAGEDRAW__MESSAGEDRAW");
+void YS__MESSAGEDRAW__set_line_space(void *, s32) asm("YS__MESSAGEDRAW__set_line_space");
+void YS__MESSAGEDRAW__draw(void *, s32, s32, s32) asm("YS__MESSAGEDRAW__draw");
 /*TARGET 002b31c0*/
-void func_002b31c0(s32 a0, s32 a1, s32 a2) asm("func_002b31c0");
-void func_002b31c0(s32 a0, s32 a1, s32 a2)
+void Tz__JmPuzzle__DrawMess(s32 a0, s32 a1, s32 a2) asm("Tz__JmPuzzle__DrawMess");
+void Tz__JmPuzzle__DrawMess(s32 a0, s32 a1, s32 a2)
 {
   u8 buf[96];
   s32 h = 15;
@@ -325,10 +325,10 @@ void func_002b31c0(s32 a0, s32 a1, s32 a2)
   /* $14 (t6) pin: the original loads q+20 into t6 */
   { register s32 t asm("$14") = *(s32*)(q + 20); y = (y - h) - t; }
   y = (y < 0) ? 0 : y;
-  func_001a98e8(buf, 3, func_00192048(20298), h, 0);
+  YS__MESSAGEDRAW__MESSAGEDRAW(buf, 3, func_00192048(20298), h, 0);
   new_var = &a1;
-  func_001aa6d0(buf, y);
-  func_001a9ae8(buf, a0, *new_var, a2);
+  YS__MESSAGEDRAW__set_line_space(buf, y);
+  YS__MESSAGEDRAW__draw(buf, a0, *new_var, a2);
   func_0014b9a8(D_0035f224);
 }
 }  // namespace n002b31c0
@@ -336,7 +336,7 @@ void func_002b31c0(s32 a0, s32 a1, s32 a2)
 // 002b3318 (was src/anon/batch_w96.cpp)
 namespace n002b3318 {
 u8* func_002a9d68(void) asm("func_002a9d68");
-u32* func_002b23e0(s32) asm("func_002b23e0");
+u32* Tz__JmPuzzle__GetImageInfo(s32) asm("Tz__JmPuzzle__GetImageInfo");
 // list_entry_by_index_checked
 s32 func_002b3ac8(u32) asm("func_002b3ac8");
 void func_002b2f28(u32) asm("func_002b2f28");
@@ -351,7 +351,7 @@ s32 func_002b3318(void) asm("func_002b3318");
 s32 func_002b3318(void) {
     u8* g = func_002a9d68();
     s32 ok = 1;
-    u32* e = func_002b23e0(-1);  // list_entry_by_index_checked
+    u32* e = Tz__JmPuzzle__GetImageInfo(-1);  // list_entry_by_index_checked
     u8 k;
     s32 n, i;
     if (*e & 0x4000000) return 0;
@@ -376,11 +376,11 @@ s32 func_002b3318(void) {
 namespace n002b3420 {
 // 0x0029e050: definition moved into src/anon/unit_0029d008.cpp
 
-u8* func_002b23e0() asm("func_002b23e0");
+u8* Tz__JmPuzzle__GetImageInfo() asm("Tz__JmPuzzle__GetImageInfo");
 // list_entry_by_index_checked
 void func_002ac678(u8) asm("func_002ac678");
 /*TARGET 002b3420*/
 void func_002b3420() asm("func_002b3420");
-void func_002b3420() { func_002ac678(func_002b23e0()[2]); }
+void func_002b3420() { func_002ac678(Tz__JmPuzzle__GetImageInfo()[2]); }
 }  // namespace n002b3420
 

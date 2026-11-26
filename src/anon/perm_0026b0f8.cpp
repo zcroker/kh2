@@ -51,7 +51,7 @@ s32 func_00257070(s32) asm("_ZN2Tz5CmTop9GetCurPosEi");
 P26b0f8 *func_00281180(u32, s32) asm("_ZN2Tz9PartyInfo8GetSheetEi");
 s32 func_00281198(u32, s32) asm("_ZN2Tz9PartyInfo8GetPartyEi");
 void func_00282240(s32, s32, s32);
-void func_002827f0(s32, s32, s32);
-void func_0026b0f8();  // 0x0026b0f8: definition moved into src/anon/unit_0026a900.cpp
+void Tz__ItemInfo__MakeMsgTbl(s32, s32, s32);
+void Tz__CmEquip__CtrlAutoConfirm();  // 0x0026b0f8: definition moved into src/anon/unit_0026a900.cpp
 
 }

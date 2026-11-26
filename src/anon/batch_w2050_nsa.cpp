@@ -56,11 +56,11 @@ s32 func_00139d78(s32);
 void func_0028d8c0(s32, s32, s32, s32, s32, s32, s32, s32);
 s32 func_001b1e70(void);
 s32 func_00293148(s32);
-void func_002362b0(u8*, s32);
-void func_001386e0(u8*, s32, s32, u8*, s32, s32);
+void YI__IMAGE__Init(u8*, s32);
+void dk__Sprite__create(u8*, s32, s32, u8*, s32, s32);
 s32 func_0023aa98(s32);
 s32 func_0023f1b0(s32);
-s32 func_0023c3e0(s32, s32, s32);
+s32 YI__LAYOUT__SearchSequence(s32, s32, s32);
 void func_001396b0(u8*);
 void func_0031a260(u8*, s32);
 void func_0031ac78(u8*, s32);
@@ -78,7 +78,7 @@ extern u8* D_0035f29c;
 extern s16 D_0035f2a0[3];
 extern s16 D_0035f2a8[2];
 
-void func_002818b8(s32 arg0);  // 0x002818b8: definition moved into src/anon/unit_0027f2b0.cpp
+void Tz__ItemPicDraw__Create(s32 arg0);  // 0x002818b8: definition moved into src/anon/unit_0027f2b0.cpp
 }
 
 #define QC_w2050c(d, s) asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(d), "r"(s) : "$8", "memory")
@@ -134,7 +134,7 @@ extern u32 D_0034aa30;
 extern f32 D_00349e10;
 void func_00159d30(TCam_w2050c*, const V4_w2050c*, V4_w2050c*, f32);
 void func_00159ef8(TCam_w2050c*);
-V4_w2050c* func_0016c028(s32);
+V4_w2050c* YS__OBJ__get_pos(s32);
 s32 func_00159dc0(V4_w2050c, u32*);
 s32 func_00159f50(TCam_w2050c*, s32);
 s32 func_00159f90(TCam_w2050c*, s32);

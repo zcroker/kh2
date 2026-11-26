@@ -16,7 +16,7 @@ void StartFade(void (*)()) asm("_ZN2Tz5Pause9StartFadeEPFvvE");
 void u_call4_00139d78(void*) asm("_Z16u_call4_00139d78jjjj");
 void* GetSequenceUnit(void*, s32) asm("_ZN2YI6LAYOUT15GetSequenceUnitEi");
 u8* GetImage(void*, s32) asm("_ZN2YI12IMAGE_FREEZE8GetImageEi");
-void func_001386e0(void*, s32, void*, void*, s32, s32);
+void dk__Sprite__create(void*, s32, void*, void*, s32, s32);
 extern W246UP D_0035f338;
 extern void* D_0035f33c;
 extern void* D_0035f340;
@@ -35,7 +35,7 @@ void func_002ab020(void);  // 0x002ab020: definition moved into src/anon/unit_00
 typedef void (*W246Fn)(u8*);
 struct W246NoTail { ~W246NoTail() {} };
 extern "C" {
-void func_00320528(void*);
+void __sti___11_mission_cpp_fcee223a(void*);
 void func_001ddd88(void*);
 extern u8 D_01d48de8[];
 }

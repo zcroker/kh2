@@ -22,7 +22,7 @@ s32 func_001c0090(void) asm("func_001c0090");
 u8* func_0019fe90(s32, s32) asm("func_0019fe90");
 void func_001c0150(void*, s32) asm("func_001c0150");
 void func_0018e0d8(void*, u32) asm("func_0018e0d8");
-s32 func_001b5a10(void) asm("func_001b5a10");
+s32 YS__LIMIT__GetPax(void) asm("YS__LIMIT__GetPax");
 struct W296Obj {
     void* vt;          
     u32 flags;         
@@ -76,7 +76,7 @@ void func_0018d050(W296Obj* o, u8* a1, u8* a2, s32 a3, s32 a4, s32 a5, s32 a6) {
         func_0018e0d8(o, o->p28[8]);
     }
     if (o->p28[0x12] & 2) {
-        o->p24 = (u8*)func_001b5a10();
+        o->p24 = (u8*)YS__LIMIT__GetPax();
     } else if (o->p28[0x12] & 8) {
         o->p24 = (u8*)(*(s32*)(o->pc + 0x23c) + 128);
     }
@@ -104,7 +104,7 @@ s32 func_001c0090(void) asm("func_001c0090");
 u8* func_0019fe90(s32, s32) asm("func_0019fe90");
 void func_001c0150(void*, s32) asm("func_001c0150");
 void func_0018e0d8(void*, u32) asm("func_0018e0d8");
-s32 func_001b5a10(void) asm("func_001b5a10");
+s32 YS__LIMIT__GetPax(void) asm("YS__LIMIT__GetPax");
 struct W296Obj {
     void* vt;          
     u32 flags;         
@@ -131,8 +131,8 @@ struct W296Obj {
 };
 struct W296List { W296Obj* head; W296Obj* tail; };
 extern W296List D_list asm("D_01c60cd8");
-void func_0018d238(W296Obj* o, u8* a1, u8* a2, s32 a3, s32 a4, s32 a5, s32 a6) asm("func_0018d238");
-void func_0018d238(W296Obj* o, u8* a1, u8* a2, s32 a3, s32 a4, s32 a5, s32 a6) {
+void YS__ATTACK__ATTACK_2(W296Obj* o, u8* a1, u8* a2, s32 a3, s32 a4, s32 a5, s32 a6) asm("YS__ATTACK__ATTACK_2");
+void YS__ATTACK__ATTACK_2(W296Obj* o, u8* a1, u8* a2, s32 a3, s32 a4, s32 a5, s32 a6) {
     s32 v;
     *(volatile u32*)&o->flags = 0;
     o->p10 = a2;
@@ -158,7 +158,7 @@ void func_0018d238(W296Obj* o, u8* a1, u8* a2, s32 a3, s32 a4, s32 a5, s32 a6) {
         func_0018e0d8(o, o->p28[8]);
     }
     if (o->p28[0x12] & 2) {
-        o->p24 = (u8*)func_001b5a10();
+        o->p24 = (u8*)YS__LIMIT__GetPax();
     } else if (o->p28[0x12] & 8) {
         o->p24 = (u8*)(*(s32*)(o->pc + 0x23c) + 128);
     }
@@ -296,14 +296,14 @@ struct W1578Obj {
 };
 void func_001c2ba8(void) asm("func_001c2ba8");
 void func_001c0560(void) asm("func_001c0560");
-void func_001a4388(void) asm("func_001a4388");
-void func_0018ed18(W1578Cont*) asm("func_0018ed18");
+void YS__ATTACK_OBJ__Exec(void) asm("YS__ATTACK_OBJ__Exec");
+void YS__ATTACK_WORK_MANAGER__check(W1578Cont*) asm("YS__ATTACK_WORK_MANAGER__check");
 extern W1578Obj* D_01c60cd8 asm("D_01c60cd8");
 void func_0018d620(void) asm("func_0018d620");
 void func_0018d620(void) {
     func_001c2ba8();
     func_001c0560();
-    func_001a4388();
+    YS__ATTACK_OBJ__Exec();
     W1578Cont* c = new W1578Cont;
     W1578Obj* o = D_01c60cd8;
     while (o) {
@@ -315,7 +315,7 @@ void func_0018d620(void) {
         }
         o = nx;
     }
-    func_0018ed18(c);
+    YS__ATTACK_WORK_MANAGER__check(c);
     delete c;
 }
 } // n0018d620
@@ -329,8 +329,8 @@ void func_00102c18(s32, s32, void (*)(void)) asm("func_00102c18");
 void func_0018d620(void) asm("func_0018d620");
 extern W2 D_01c60cd8 asm("D_01c60cd8");
 extern u8 D_01c60ce0 asm("D_01c60ce0");
-void func_0018d738(void) asm("func_0018d738");
-void func_0018d738(void) {
+void YS__ATTACK__Init(void) asm("YS__ATTACK__Init");
+void YS__ATTACK__Init(void) {
     func_001bff88();
     func_001c2b70();
     D_01c60cd8.a = 0;
@@ -362,11 +362,11 @@ void u_call0_0018d790(void) {
 // 0018d808 (from src/anon/batch_w18.cpp)
 namespace n0018d808 {
 struct Vec4 { f32 x, y, z, w; } __attribute__((aligned(16)));
-Vec4* func_0016c028(void*) asm("func_0016c028");
+Vec4* YS__OBJ__get_pos(void*) asm("YS__OBJ__get_pos");
 Vec4 func_0018d808(u8* b) asm("func_0018d808");
 Vec4 func_0018d808(u8* b) {
     Vec4 r;
-    Vec4* s = func_0016c028(*(void**)(b + 8));                          
+    Vec4* s = YS__OBJ__get_pos(*(void**)(b + 8));                          
     asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(&r), "r"(s) : "$8", "memory");
     return r;
 }
@@ -387,8 +387,8 @@ struct Q16 {
         return *this;
     }
 };
-Q16* func_0016c028(void*) asm("func_0016c028");
-void func_0016af58(Q16*, void*) asm("func_0016af58");
+Q16* YS__OBJ__get_pos(void*) asm("YS__OBJ__get_pos");
+void YS__OBJ__get_dir(Q16*, void*) asm("YS__OBJ__get_dir");
 static inline void vu0_scaled(Q16& r, const Q16& v, f32 s) {
     asm volatile("lqc2 $vf1, 0(%1)\n\tmfc1 $8, %2\n\tqmtc2 $8, $vf2\n\t"
                  "vmulx.xyzw $vf1, $vf1, $vf2x\n\tsqc2 $vf1, 0(%0)"
@@ -409,7 +409,7 @@ Q16* func_0018d840(Q16* out, u8* o, void* a) asm("func_0018d840");
 Q16* func_0018d840(Q16* out, u8* o, void* a) {
     if (*(u8**)(o + 12) != 0) {
         Q16 d;
-        vu0_sub(d, *func_0016c028(a), *(Q16*)(*(u8**)(o + 12) + 1840));                          
+        vu0_sub(d, *YS__OBJ__get_pos(a), *(Q16*)(*(u8**)(o + 12) + 1840));                          
         *out = d;
         ((s32*)out)[1] = 0;
         vu0_normalize_f1(*out);
@@ -417,7 +417,7 @@ Q16* func_0018d840(Q16* out, u8* o, void* a) {
     } else {
         Q16 d;
         Q16 t;
-        func_0016af58(&t, a);
+        YS__OBJ__get_dir(&t, a);
         vu0_scaled(d, t, -1.0f);
         *out = d;
     }
@@ -433,8 +433,8 @@ struct w243_A { u8 pad[0xc]; w243_B* c; w243_B* d; u8 pad2[0x14]; w243_T* t; u8 
 s32 func_001af9e8(w243_A*, w243_B*) asm("func_001af9e8");
 s32 func_001c0268(void*, w243_A*) asm("func_001c0268");
 s32 func_0019bb58(w243_B*) asm("func_0019bb58");
-s32 func_0019ba60(w243_B*) asm("func_0019ba60");
-s32 func_0019c6f0(w243_B*) asm("func_0019c6f0");
+s32 YS__OBJ__is_exist(w243_B*) asm("YS__OBJ__is_exist");
+s32 YS__OBJ__is_stop(w243_B*) asm("YS__OBJ__is_stop");
 static inline bool w243_kind(w243_A* a) { return (u8)(a->t->kind - 5) < 2; }
 s32 w243_ctarget(w243_A* a, w243_B* b) asm("_Z16ctarget_0018d940jjjj");
 s32 w243_ctarget(w243_A* a, w243_B* b) {
@@ -444,7 +444,7 @@ s32 w243_ctarget(w243_A* a, w243_B* b) {
     if (!func_0019bb58(b)) return 0;
     if (a->c == b || a->d == b) return 0;
     if (((a->m >> b->idx) & 1) == 0) return 0;
-    if (func_0019ba60(a->c) && func_0019c6f0(a->c)) return 0;
+    if (YS__OBJ__is_exist(a->c) && YS__OBJ__is_stop(a->c)) return 0;
     return 1;
 }
 } // n0018d940
@@ -455,13 +455,13 @@ static inline u32 ActFlags18d(u8* a) {
     u32* f = (u32*)(a + 2748);
     return (f[0] | f[1]) & ~f[2];
 }
-u8* func_0018c8f0(u8*, u8*, u8*) asm("func_0018c8f0");
+u8* YS__DAMAGE__Alloc(u8*, u8*, u8*) asm("YS__DAMAGE__Alloc");
 void func_00198580(u8*, s32) asm("func_00198580");
 s32 func_001de2e0(u32*, u64) asm("func_001de2e0");
-void func_001877a0(u8*, u32*, s32) asm("func_001877a0");
+void YS__BTLOBJ__bind_hitmark(u8*, u32*, s32) asm("YS__BTLOBJ__bind_hitmark");
 u8* func_0018da18(u8* o, u8* act, u8* info) asm("func_0018da18");
 u8* func_0018da18(u8* o, u8* act, u8* info) {
-    u8* r = func_0018c8f0(o, info, act);
+    u8* r = YS__DAMAGE__Alloc(o, info, act);
     if (*(u8**)(o + 12)) *(u32*)(*(u8**)(o + 12) + 264) |= 0x2000000;
     *(u32*)(o + 4) |= 2;
     if (*(u32*)(r + 24) & 4) return r;
@@ -474,7 +474,7 @@ u8* func_0018da18(u8* o, u8* act, u8* info) {
     if (!n) return r;
     u64 bit = (u64)1 << 32 << (n - 1);
     s32 k = func_001de2e0(e, (*(u32*)(act + 1416) & 0x80) ? bit | 0x400 : bit | 0x800);
-    if (k >= 0) func_001877a0(act, *(u32**)(o + 36), k);
+    if (k >= 0) YS__BTLOBJ__bind_hitmark(act, *(u32**)(o + 36), k);
     return r;
 }
 } // n0018da18
@@ -482,13 +482,13 @@ u8* func_0018da18(u8* o, u8* act, u8* info) {
 // 0018db38 (from src/anon/batch_w60.cpp)
 namespace n0018db38 {
 s32 func_0018d940(void*, void*, s32, void*) asm("func_0018d940");
-void* func_001c0320(void*, void*, void*) asm("func_001c0320");
+void* YS__ATTACK_CHECK__hit(void*, void*, void*) asm("YS__ATTACK_CHECK__hit");
 u8* func_0018da18(void*, void*, void*, void*) asm("func_0018da18");
-u8* func_0018db38(void* a, u8* b, s32 c, void* d) asm("func_0018db38");
-u8* func_0018db38(void* a, u8* b, s32 c, void* d) {
+u8* YS__ATTACK__strike(void* a, u8* b, s32 c, void* d) asm("YS__ATTACK__strike");
+u8* YS__ATTACK__strike(void* a, u8* b, s32 c, void* d) {
     u8 flag[16];
     if (!func_0018d940(a, b, c, d)) return 0;
-    u8* r = func_0018da18(a, b, func_001c0320(b + 2640, a, flag), d);
+    u8* r = func_0018da18(a, b, YS__ATTACK_CHECK__hit(b + 2640, a, flag), d);
     r[36] = c;
     if (!flag[0]) *(u32*)(r + 24) |= 3;
     return r;
@@ -531,7 +531,7 @@ struct Obj1337 {
     bool isB1() { if (flags & 2) return true; return false; }
     bool isBusy() { return isB3() || isB4(); }
 };
-s32 func_00143b88(Seg1337*, Hit1337*, u16*, s32*, s32) asm("func_00143b88");
+s32 dk__Octree__intersectLine(Seg1337*, Hit1337*, u16*, s32*, s32) asm("dk__Octree__intersectLine");
 void func_0018ddc0(Obj1337*, u16, Hit1337*, s32*) asm("func_0018ddc0");
 s32 func_0018dc28(Obj1337* self, const QV1337* from, const QV1337* to) asm("func_0018dc28");
 s32 func_0018dc28(Obj1337* self, const QV1337* from, const QV1337* to) {
@@ -543,7 +543,7 @@ s32 func_0018dc28(Obj1337* self, const QV1337* from, const QV1337* to) {
     res = 0;
     asm volatile("" ::: "memory");
     if (self->coll->enable && !self->isBusy() && (self->b8 || !self->isB1())) {
-        if (func_00143b88(&seg, &hit, &id, &res, 4) != 0) {
+        if (dk__Octree__intersectLine(&seg, &hit, &id, &res, 4) != 0) {
             goto found;
         }
         if (self->coll->height28 != 0) {
@@ -552,7 +552,7 @@ s32 func_0018dc28(Obj1337* self, const QV1337* from, const QV1337* to) {
             seg.p1.y += (f32)self->coll->height28;
             seg.p1.w = 1.0f;
             seg.p0.w = 1.0f;
-            if (func_00143b88(&seg, &hit, &id, &res, 4) != 0) {
+            if (dk__Octree__intersectLine(&seg, &hit, &id, &res, 4) != 0) {
             found:
                 func_0018ddc0(self, id, &hit, &res);
                 return 1;
@@ -584,9 +584,9 @@ s32 oc_get_attr_kind(u16, bool) asm("_ZN2dk6Octree11getAttrKindEtb");
 u32* ocf_get_attr(W1962OcF*, u16) asm("_ZN2dk11OctCollFile7getAttrEt");
 W1962QVb* w1962_effect_angle(void*) asm("_ZN3ryj6EFFECT5angleEv");
 W1962QVb func_001422a0(W1962OcF*, u16) asm("func_001422a0");
-void* func_001a3b48(W1962Cnt*, u64, W1962QVb*, s32, s32, s32) asm("func_001a3b48");
-W1962QVb func_0017d050(const W1962QVb&) asm("func_0017d050");
-void func_001c2c00(void*) asm("func_001c2c00");
+void* YS__EFFECT__CategoryStart(W1962Cnt*, u64, W1962QVb*, s32, s32, s32) asm("YS__EFFECT__CategoryStart");
+W1962QVb YS__MATH__VectorToAngle(const W1962QVb&) asm("YS__MATH__VectorToAngle");
+void YS__HITMARK__Add(void*) asm("YS__HITMARK__Add");
 void func_00198580(W1962Pl*, s32) asm("func_00198580");
 void func_0018ddc0(W1962Ob* o, u16 id, W1962QVb* pos, W1962Hit* h) asm("func_0018ddc0");
 void func_0018ddc0(W1962Ob* o, u16 id, W1962QVb* pos, W1962Hit* h) {
@@ -607,10 +607,10 @@ void func_0018ddc0(W1962Ob* o, u16 id, W1962QVb* pos, W1962Hit* h) {
         u8 lv = o->inf->lv;
         if (lv != 0) {
             t |= (1ULL << 32) << (lv - 1);
-            void* e = func_001a3b48(o->cnt, t, pos, 1, 1, 10000);
+            void* e = YS__EFFECT__CategoryStart(o->cnt, t, pos, 1, 1, 10000);
             if (e != 0) {
-                *w1962_effect_angle(e) = func_0017d050(n);
-                func_001c2c00(e);
+                *w1962_effect_angle(e) = YS__MATH__VectorToAngle(n);
+                YS__HITMARK__Add(e);
             }
         }
     }
@@ -761,7 +761,7 @@ typedef void (*VV)(...);
 #define VT(o,i) ((VF)((*(void***)(o))[i]))
 #define VTv(o,i) ((VV)((*(void***)(o))[i]))
 s32 func_001c0298(void*, void*) asm("func_001c0298");
-void* func_0018db38(void*, void*, u32, u32) asm("func_0018db38");
+void* YS__ATTACK__strike(void*, void*, u32, u32) asm("YS__ATTACK__strike");
 void func_0018e420(void*, void*, void*, void*, s32) asm("func_0018e420");
 void func_0018ef68(void*, void*, s32) asm("func_0018ef68");
 void func_0018ca10(void*) asm("func_0018ca10");
@@ -776,7 +776,7 @@ void func_0018e298(void** a0, void* a1, void* a2)
         F(*a0, 4, u32) |= 0x1000;
     }
     u8* t = F(a2, 12, u8*);
-    void* r = func_0018db38(*a0, a1, *(u16*)(t + 2), t[1]);
+    void* r = YS__ATTACK__strike(*a0, a1, *(u16*)(t + 2), t[1]);
     u32* f = (u32*)((u8*)a1 + 2748);
     if (!((f[0] | f[1]) & ~f[2] & 0x2000))
         func_0018e420(a0, a1, r, a2, mode);
@@ -823,13 +823,13 @@ extern W2049Q D_0034eef0 asm("D_0034eef0");
 extern s32 D_003638d0 asm("D_003638d0");
 W2049Q func_0018e160(W2049Ctx**, void*) asm("func_0018e160");
 void func_0018e108(W2049Q*, W2049Hit*) asm("func_0018e108");
-s32 func_001a3b48(void*, u64, W2049Q*, s32, s32, s32) asm("func_001a3b48");
+s32 YS__EFFECT__CategoryStart(void*, u64, W2049Q*, s32, s32, s32) asm("YS__EFFECT__CategoryStart");
 void* func_001a3a78(void) asm("func_001a3a78");
-s32 func_001de168(void*, s32, s32, s32, s32, s32) asm("func_001de168");
+s32 ryj__PAX__start(void*, s32, s32, s32, s32, s32) asm("ryj__PAX__start");
 W2049Q* func_001dc5f8(s32) asm("func_001dc5f8");
 W2049Q* func_001dc648(s32) asm("func_001dc648");
-void func_0017d050(W2049Q*, W2049Hit*) asm("func_0017d050");
-void func_001c2c00(s32) asm("func_001c2c00");
+void YS__MATH__VectorToAngle(W2049Q*, W2049Hit*) asm("YS__MATH__VectorToAngle");
+void YS__HITMARK__Add(s32) asm("YS__HITMARK__Add");
 u64 func_00312db8(u64, u64) asm("func_00312db8");
 void func_0018e420(W2049Ctx** ctx, u8* obj, W2049Hit* hit, void* src, u64 mask) asm("func_0018e420");
 void func_0018e420(W2049Ctx** ctx, u8* obj, W2049Hit* hit, void* src, u64 mask)
@@ -843,7 +843,7 @@ void func_0018e420(W2049Ctx** ctx, u8* obj, W2049Hit* hit, void* src, u64 mask)
         if (__builtin_expect(n != 0, 1)) {
             s32 id;
             if (hit->flags & 4) {
-                id = func_001de168(func_001a3a78(), 18, 1, 1, 10000, 0);
+                id = ryj__PAX__start(func_001a3a78(), 18, 1, 1, 10000, 0);
                 *func_001dc5f8(id) = D_0034eef0;
             } else {
                 u32 k = fx->spread;
@@ -858,13 +858,13 @@ void func_0018e420(W2049Ctx** ctx, u8* obj, W2049Hit* hit, void* src, u64 mask)
                 } else {
                     mask |= 0x100000000ULL << (n - 1);
                 }
-                id = func_001a3b48((*ctx)->list, mask, &D_0034eef0, 1, 1, 10000);
+                id = YS__EFFECT__CategoryStart((*ctx)->list, mask, &D_0034eef0, 1, 1, 10000);
             }
             if (id) {
                 W2049Q* m = func_001dc648(id);
-                func_0017d050(&v, hit);
+                YS__MATH__VectorToAngle(&v, hit);
                 *m = v;
-                func_001c2c00(id);
+                YS__HITMARK__Add(id);
             }
         }
     }
@@ -874,7 +874,7 @@ void func_0018e420(W2049Ctx** ctx, u8* obj, W2049Hit* hit, void* src, u64 mask)
         W2049Q v = D_0034eef0;
         v.y -= 1.0f;
         mask = (0x100000000ULL << (fx->slot - 1)) | 0x200;
-        func_001a3b48(lst, mask, &v, 1, 1, 10000);
+        YS__EFFECT__CategoryStart(lst, mask, &v, 1, 1, 10000);
     }
 }
 } // n0018e420
@@ -900,8 +900,8 @@ struct W260TgtVT { void* p[3]; W260V (*f12)(W260Tgt*, int); };
 struct W260Tgt { W260TgtVT* vt; };
 struct W260Ctl { W260Own* own; };
 f32 cosf(f32) asm("cosf");
-W260V func_0016af58(int) asm("func_0016af58");
-W260V func_0017d538(const W260V&, f32) asm("func_0017d538");
+W260V YS__OBJ__get_dir(int) asm("YS__OBJ__get_dir");
+W260V YS__MATH__VectorRotY(const W260V&, f32) asm("YS__MATH__VectorRotY");
 int func_0018e698(W260Ctl* c, W260Tgt** t) asm("func_0018e698");
 int func_0018e698(W260Ctl* c, W260Tgt** t)
 {
@@ -909,9 +909,9 @@ int func_0018e698(W260Ctl* c, W260Tgt** t)
     if (!b) return 1;
     f32 lim = -cosf((f32)b * 0.017453292f);
     W260V d;
-    d = func_0016af58(c->own->f12);
+    d = YS__OBJ__get_dir(c->own->f12);
     s8 e = c->own->p40->b35;
-    if (e) d = func_0017d538(d, (f32)(e * 2) * 0.017453292f);
+    if (e) d = YS__MATH__VectorRotY(d, (f32)(e * 2) * 0.017453292f);
     W260V w = (*t)->vt->f12(*t, c->own->f12);
     return W260Dot(w, d) < lim;
 }
@@ -931,16 +931,16 @@ struct W1833Obj {
 struct W1833B { u8 pad[0xc]; s32 vc; u8 pad10[0x18]; W1833Info* info; };
 struct W1833Arg { s32 a; W1833Obj* o; W1833B* b; };
 s32 func_0018f010(W1833B*) asm("func_0018f010");
-void func_001c0320(void*, W1833B*, void*) asm("func_001c0320");
+void YS__ATTACK_CHECK__hit(void*, W1833B*, void*) asm("YS__ATTACK_CHECK__hit");
 void func_0018ef68(void*, W1833Arg*, s32) asm("func_0018ef68");
 void func_0018e7c0(W1833Obj** pp, W1833B** pb) asm("func_0018e7c0");
 void func_0018e7c0(W1833Obj** pp, W1833B** pb) {
     u8 buf[16];
     (*pp)->cnt++;
     if (func_0018f010(*pb) == 0 || (*pb)->info->kind != 2) {
-        func_001c0320((*pp)->a30, *pb, buf);
+        YS__ATTACK_CHECK__hit((*pp)->a30, *pb, buf);
         if (!((*pp)->flags & 0x100)) {
-            func_001c0320((u8*)(*pp)->sub + 0xa50, *pb, buf);
+            YS__ATTACK_CHECK__hit((u8*)(*pp)->sub + 0xa50, *pb, buf);
         }
     }
     if ((*pp)->info->kind != 2) {
@@ -986,22 +986,22 @@ static inline __attribute__((always_inline)) void W93Normalize(W93Vec* v)
 }
 struct W93Hdr { u32 p0; u32 flags; };
 struct W93Act { W93Hdr* h; u8 pad[16]; f32 f20; u8 p2[8]; W93Vec pos; };
-void* func_001de168(u32, u32, s32, s32, s32, s32) asm("func_001de168");
+void* ryj__PAX__start(u32, u32, s32, s32, s32, s32) asm("ryj__PAX__start");
 W93Vec* func_001dc5f8(void*) asm("func_001dc5f8");
-void func_001c2c00(void*) asm("func_001c2c00");
+void YS__HITMARK__Add(void*) asm("YS__HITMARK__Add");
 void func_0018efe8(W93Hdr*) asm("func_0018efe8");
 void func_0018e8f0(W93Act* a, u32 x, u32 y, W93Act* b) asm("func_0018e8f0");
 void func_0018e8f0(W93Act* a, u32 x, u32 y, W93Act* b)
 {
     if (a->h->flags & 0x80) return;
     if (b->h->flags & 0x80) return;
-    void* r = func_001de168(x, y, 1, 1, 10000, 0);                      
+    void* r = ryj__PAX__start(x, y, 1, 1, 10000, 0);                      
     if (r) {
         W93Vec d;
         d = b->pos - a->pos;
         W93Normalize(&d);
         *func_001dc5f8(r) = a->pos + d * a->f20;
-        func_001c2c00(r);
+        YS__HITMARK__Add(r);
     }
     func_0018efe8(a->h);
     func_0018efe8(b->h);
@@ -1121,8 +1121,8 @@ s32 func_0018d940(u8*, u8*) asm("func_0018d940");
 s32 func_0018f010(u8*) asm("func_0018f010");
 u32 func_001b7998(u32, u8*) asm("func_001b7998");
 void func_0018e298(Ent18e*, u8*, u32) asm("func_0018e298");
-void func_0018ed18(List18e* l) asm("func_0018ed18");
-void func_0018ed18(List18e* l) {
+void YS__ATTACK_WORK_MANAGER__check(List18e* l) asm("YS__ATTACK_WORK_MANAGER__check");
+void YS__ATTACK_WORK_MANAGER__check(List18e* l) {
     u8* e = 0;
     while ((e = func_00186078(e)) != 0) {
         if (!func_0019bb58(e)) continue;
@@ -1190,9 +1190,9 @@ typedef void (*TFn)(Tgt*, Res*);
 struct Tgt { TFn* vt; };
 struct Q { u8 p0[40]; s32 f40; };
 Q* func_001050d8(s32) asm("func_001050d8");
-void func_0018d238(Q*, s32, s32, s32, s32, s32, s32) asm("func_0018d238");
+void YS__ATTACK__ATTACK_2(Q*, s32, s32, s32, s32, s32, s32) asm("YS__ATTACK__ATTACK_2");
 Res* func_0018da18(Q*, Tgt*, s32, s32) asm("func_0018da18");
-Res* func_0018db38(Q*, Tgt*, s32, s32) asm("func_0018db38");
+Res* YS__ATTACK__strike(Q*, Tgt*, s32, s32) asm("YS__ATTACK__strike");
 void func_0018ca10(Res*) asm("func_0018ca10");
 void func_0018f028(Q*) asm("func_0018f028");
 s32 func_0018ee60(s32 a, s32 b, Tgt* t, QWord* v, u8 flag) asm("func_0018ee60");
@@ -1200,10 +1200,10 @@ s32 func_0018ee60(s32 a, s32 b, Tgt* t, QWord* v, u8 flag)
 {
     s32 r = 0;
     Q* q = func_001050d8(208);
-    func_0018d238(q, a, 0, b, 0, -1, -1);
+    YS__ATTACK__ATTACK_2(q, a, 0, b, 0, -1, -1);
     Res* res;
     if (flag) res = func_0018da18(q, t, q->f40, 0);
-    else res = func_0018db38(q, t, 0, 0);
+    else res = YS__ATTACK__strike(q, t, 0, 0);
     if (res) {
         r = (res->f24 & 1) ^ 1;
         res->q = *v;
@@ -1262,7 +1262,7 @@ u32 func_0018f010(u32 a0) {
 
 // 0018f028 (from src/anon/tiny_auto80_queue.cpp)
 namespace n0018f028 {
-u32 func_0018f070(...) asm("func_0018f070");
+u32 YS__ATTACK__is_exist(...) asm("YS__ATTACK__is_exist");
 void func_0018f028(u32 a0) asm("func_0018f028");
 void func_0018f028(u32 a0) {
     u32 t7 = (u32)(0x01c6u << 16);
@@ -1271,7 +1271,7 @@ void func_0018f028(u32 a0) {
     if (t6 == 0u) {
         return;
     }
-    if (func_0018f070() == 0u) {                        
+    if (YS__ATTACK__is_exist() == 0u) {                        
         return;
     }
     u32 t7v = *(u32*)((u32)s0 + (s32)(4));
@@ -1288,8 +1288,8 @@ static inline Node_18f070* next_18f070(Node_18f070* p) {
     if (p == 0) return D_01c60cd8;
     return p->next;
 }
-int func_0018f070(Node_18f070* a) asm("func_0018f070");
-int func_0018f070(Node_18f070* a) {
+int YS__ATTACK__is_exist(Node_18f070* a) asm("YS__ATTACK__is_exist");
+int YS__ATTACK__is_exist(Node_18f070* a) {
     if (!a) return 0;
     Node_18f070* p = 0;
     while ((p = next_18f070(p)) != 0)

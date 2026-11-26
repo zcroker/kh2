@@ -189,8 +189,8 @@ u32 func_002c83a8(u32 a0, u32 a1, u32 a2, u32 a3) {  // halfword_375540_b
 namespace n002c83c0 {
 
 
-void func_002c83c0(u8* a0) asm("func_002c83c0");
-void func_002c83c0(u8* a0) {
+void dk__WM_LANDING_INFO__update(u8* a0) asm("dk__WM_LANDING_INFO__update");
+void dk__WM_LANDING_INFO__update(u8* a0) {
     u8* s1 = a0;
     u8* t6 = a0 + 196;
     u8* s0;
@@ -224,7 +224,7 @@ void func_002c83c0(u8* a0) {
     return;
 
 L_fail:
-    func_00236d60();  // clear_64_entries_24
+    YI__IMAGE_CACHE__Clear();  // clear_64_entries_24
 }
 }  // namespace n002c83c0
 
@@ -346,7 +346,7 @@ struct Self {
 };
 s32 func_002c22f0(s32) asm("func_002c22f0");
 s32 func_002c2358(s32) asm("func_002c2358");
-void func_001386e0(Sub*, s32, s32, s32, s32, s32) asm("func_001386e0");
+void dk__Sprite__create(Sub*, s32, s32, s32, s32, s32) asm("dk__Sprite__create");
 void func_001396b0(Sub*) asm("func_001396b0");
 void func_0031a260(Sub*, s32) asm("func_0031a260");
 void func_00139660(Sub*) asm("func_00139660");
@@ -355,8 +355,8 @@ s32 func_0023aa18(void*) asm("func_0023aa18");
 s32 func_0023aa58(void*) asm("func_0023aa58");
 void func_00138c68(Sub*, s32, s32) asm("func_00138c68");
 
-void func_002c8680(Self* self, s32 arg) asm("func_002c8680");
-void func_002c8680(Self* self, s32 arg) {
+void dk__WM_LANDING_INFO__setupKey(Self* self, s32 arg) asm("dk__WM_LANDING_INFO__setupKey");
+void dk__WM_LANDING_INFO__setupKey(Self* self, s32 arg) {
     s32 n = func_002c22f0(arg);
     if (n != 0) {
         s32 i = 0;
@@ -365,7 +365,7 @@ void func_002c8680(Self* self, s32 arg) {
         if (i < n) {
 c = &self->cnt; z = (u8*)self + 0x290; s32 e; asm("li %0,150" : "=r"(e)); Sub* s = self->subs;
             do {
-                func_001386e0(s, 0x7585, *(s32*)((u8*)self + 0x1734), *(s32*)((u8*)self + 0x1730), i < m ? e : 149, 201);
+                dk__Sprite__create(s, 0x7585, *(s32*)((u8*)self + 0x1734), *(s32*)((u8*)self + 0x1730), i < m ? e : 149, 201);
                 s->p18c = c;
                 func_001396b0(s);
                 if (s->p18c) {

@@ -48,13 +48,13 @@ s32 func_002abf40(s32, s32);
 static inline s32 tst_002abff0(s32 a0, s32 b) {
     u32* p = (u32*)(D_0035f610 + a0 * 4) + 43; return (p[(u32)b >> 5] & (1 << (b & 31))) != 0;
 }
-s32 func_002abff0(s32 a0, s32 a1);  // 0x002abff0: definition moved into src/anon/unit_002a99c8.cpp
+s32 Tz__JmNewInfo__isStoryNew(s32 a0, s32 a1);  // 0x002abff0: definition moved into src/anon/unit_002a99c8.cpp
 QV257 func_002cd950(void* self, f32 t, const QV257* p, const QV257* q);  // 0x002cd950: definition moved into src/taito/path.cpp
 extern s8 D_01e2bd80;
 extern QV257 D_01e2bd90;
-void func_00178cf8(u8*);  // clear_vecs_three
+void YS__PLAYER__move_stop(u8*);  // clear_vecs_three
 QV257 func_00190388(u32*);  // vec4_from_arg
-QV257* func_0016c028(u8*);  // obj_get_attach_or_alt
+QV257* YS__OBJ__get_pos(u8*);  // obj_get_attach_or_alt
 void func_0016aef0(u8*, QV257*);
 void func_002c6118(void);
 void func_002fd188(void (*)(void));  // pool_alloc_block
@@ -68,8 +68,8 @@ struct S32bb { u8 pad[0x3db0]; u16 h; };
 extern S32bb D_0032bb30;
 extern u32 D_003638d0;
 u8* func_0017df58(s32);
-s32 func_0019ba60(u8*);
-s32 func_0017e280(u8*);
+s32 YS__OBJ__is_exist(u8*);
+s32 YS__FRIEND__can_sacrifice_leave(u8*);
 f32 func_002f8b30(f32, f32);
 #define MAX257(a, b) ((a) > (b) ? (a) : (b))
 void func_001aefa0(u8* a0);  // 0x001aefa0: definition moved into src/anon/unit_001ada38.cpp

@@ -6,7 +6,7 @@ class Motion;
 
 namespace Tz {
 
-extern "C" u32 func_001a9458(...);
+extern "C" u32 YS__OBJDATA__get_kna(...);
 
 // 0x0023e690: definition moved into src/anon/unit_0023e5d0.cpp
 

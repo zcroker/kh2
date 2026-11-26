@@ -44,18 +44,18 @@ s32 oc_get_attr_kind(u16, bool) asm("_ZN2dk6Octree11getAttrKindEtb");
 u32* ocf_get_attr(W1962OcF*, u16) asm("_ZN2dk11OctCollFile7getAttrEt");
 W1962QVb* w1962_effect_angle(void*) asm("_ZN3ryj6EFFECT5angleEv");
 W1962QVb func_001422a0(W1962OcF*, u16);
-void* func_001a3b48(W1962Cnt*, u64, W1962QVb*, s32, s32, s32);
-W1962QVb func_0017d050(const W1962QVb&);
-void func_001c2c00(void*);
+void* YS__EFFECT__CategoryStart(W1962Cnt*, u64, W1962QVb*, s32, s32, s32);
+W1962QVb YS__MATH__VectorToAngle(const W1962QVb&);
+void YS__HITMARK__Add(void*);
 void func_00198580(W1962Pl*, s32);
 void func_0018ddc0(W1962Ob* o, u16 id, W1962QVb* pos, W1962Hit* h);  // 0x0018ddc0: definition moved into src/anon/unit_0018d050.cpp
 
-// ---- _Z16wtarget_001aa388jjjj
+// ---- _Z25YS__MESSAGEDRAW__set_pagejjjj
 void func_00192940(W1962Cmd*, u32, W1962S24, W1962S8*);
 s32 func_00192440(W1962Cmd*, s32);
 W1962Cmd* func_00192388(W1962Cmd*);
 s32 func_00192498(W1962Cmd*, s32);
 void func_001991a8(s32, s32);
-void wt_001aa388(W1962Ob2* o, W1962Cmd* c, u32, u32) asm("_Z16wtarget_001aa388jjjj");
+void wt_001aa388(W1962Ob2* o, W1962Cmd* c, u32, u32) asm("_Z25YS__MESSAGEDRAW__set_pagejjjj");
 void wt_001aa388(W1962Ob2* o, W1962Cmd* c, u32, u32);  // 0x001aa388: definition moved into src/anon/unit_001a9130.cpp
 }

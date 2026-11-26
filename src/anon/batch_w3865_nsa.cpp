@@ -9,5 +9,5 @@ f32 func_002cdcd8(Path2cdfb0*, s32*, f32*, V2cdfb0*, f32);
 /* Nearest point on a looping path: like func_002cdcd8 but indices wrap. Searches the
    current segment and the next one in the travel direction, keeps the closer one.
    Returns the distance, or -1 when it is not below maxDist. */
-f32 func_002cdfb0(Path2cdfb0* p, s32* idx, f32* t, V2cdfb0* pos, f32 maxDist);  // 0x002cdfb0: definition moved into src/taito/path.cpp
+f32 Ti__Path__search_near_point_from_pre_point(Path2cdfb0* p, s32* idx, f32* t, V2cdfb0* pos, f32 maxDist);  // 0x002cdfb0: definition moved into src/taito/path.cpp
 }

@@ -21,11 +21,11 @@ extern u8 D_0035f0f0;
 extern void* D_0035f0f4;
 extern void* D_0035f0fc;
 
-void func_00242740(s32 a);  // 0x00242740: definition moved into src/anon/unit_00242478.cpp
+void Tz__MenuSound__SetPause(s32 a);  // 0x00242740: definition moved into src/anon/unit_00242478.cpp
 
 void func_002957b8(void);  // 0x002957b8: definition moved into src/anon/unit_00292e60.cpp
 
-void func_002994f8(void);  // 0x002994f8: definition moved into src/anon/unit_002982f0.cpp
+void Tz__JmCollection__Init(void);  // 0x002994f8: definition moved into src/anon/unit_002982f0.cpp
 
 void func_0026ba48(void);  // 0x0026ba48: definition moved into src/anon/unit_0026a900.cpp
 

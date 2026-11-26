@@ -19,28 +19,28 @@ s32 func_00276348(void) asm("func_00276348");
 s32 func_002766d0(void) asm("func_002766d0");
 s32 func_0028f930(s32) asm("func_0028f930");
 void func_0028f4d8(s32, s32, s32) asm("func_0028f4d8");
-void func_002a9100(void) asm("func_002a9100");
-void func_00276e78(void) asm("func_00276e78");
+void Tz__JmQuest__ChkQuestInfo(void) asm("Tz__JmQuest__ChkQuestInfo");
+void Tz__Jiminy__CreateCover(void) asm("Tz__Jiminy__CreateCover");
 void func_0028d8c0(s32, s32, s32, s32, s32, s32, s32, s32) asm("func_0028d8c0");
 void func_00139620(s32) asm("func_00139620");
 void func_0028dcc0(s32, s32) asm("func_0028dcc0");
-void func_00288d80(s32, s32, s32, s32, s32, s32, s16*, s16*) asm("func_00288d80");
+void Tz__Select__SetItem(s32, s32, s32, s32, s32, s32, s16*, s16*) asm("Tz__Select__SetItem");
 s32 func_002891b8(s32, s32) asm("func_002891b8");
-void func_002a92d8(void) asm("func_002a92d8");
+void Tz__JmQuest__CreateList(void) asm("Tz__JmQuest__CreateList");
 void* func_0023f1b0(s32) asm("func_0023f1b0");
 s32 func_0023c4b8(void*, s32) asm("func_0023c4b8");
 s32 func_00236ca8(s32, s32) asm("func_00236ca8");
 s32 func_00276678(void) asm("func_00276678");
 void func_0028bae0(s32, s32, s32, s32, s32, s32, s32, s32, s32) asm("func_0028bae0");
-void func_0028af90(s32, s32) asm("func_0028af90");
-void func_002891f0(s32, s32, s32, s32, s32) asm("func_002891f0");
+void Tz__Select__SetSelectMax(s32, s32) asm("Tz__Select__SetSelectMax");
+void Tz__Select__SetCurrent(s32, s32, s32, s32, s32) asm("Tz__Select__SetCurrent");
 void func_0028afd0(s32, s32) asm("func_0028afd0");
 void func_00276690(s32) asm("func_00276690");
 void func_0028af28(s32, s32) asm("func_0028af28");
-void func_0028b218(s32, s32) asm("func_0028b218");
+void Tz__Select__SetPageMode(s32, s32) asm("Tz__Select__SetPageMode");
 void func_0028b248(s32, s32) asm("func_0028b248");
-void func_002a9048(void) asm("func_002a9048");
-void func_002a98a8(void) asm("func_002a98a8");
+void Tz__JmQuest__AdjustPos(void) asm("Tz__JmQuest__AdjustPos");
+void Tz__JmQuest__UpdateNewMark(void) asm("Tz__JmQuest__UpdateNewMark");
 void func_002a95a8(void) asm("func_002a95a8");
 void func_002a9888(void) asm("func_002a9888");
 void func_00287cc0(s32) asm("func_00287cc0");
@@ -52,8 +52,8 @@ extern s32 D_0035f200 asm("D_0035f200");
 extern s32 D_0035f214 asm("D_0035f214");
 extern s32* D_0035f608 asm("D_0035f608");
 /*TARGET 002a8ac8*/
-void func_002a8ac8(void) asm("func_002a8ac8");
-void func_002a8ac8(void) {
+void Tz__JmQuest__Setup(void) asm("Tz__JmQuest__Setup");
+void Tz__JmQuest__Setup(void) {
     s16 arr[4];
     s32 a = func_00276348();
     s32 b = func_002766d0();
@@ -61,10 +61,10 @@ void func_002a8ac8(void) {
     s16* p;
     if (!func_0028f930(0)) func_0028f4d8(0, -1, 0);
     for (i = 0; i < 4; i++) arr[i] = 2;
-    func_002a9100();
+    Tz__JmQuest__ChkQuestInfo();
     n = D_0035f3d4 - 1;
     c = b + 0x4c8;
-    func_00276e78();
+    Tz__Jiminy__CreateCover();
     func_0028d8c0(b, n, D_0035f14c, D_0035f148, D_0035f210, 101, -1, 0);
     v = 10;
     func_00139620(b);
@@ -72,11 +72,11 @@ void func_002a8ac8(void) {
     func_0028d8c0(c, n, D_0035f14c, D_0035f148, D_0035f210, 109, -1, 0);
     func_00139620(c);
     func_0028dcc0(c, a);
-    func_00288d80(D_0035f200, 0, D_0035f14c, D_0035f148, D_0035f210, -1, arr, arr);
+    Tz__Select__SetItem(D_0035f200, 0, D_0035f14c, D_0035f148, D_0035f210, -1, arr, arr);
     r0 = func_002891b8(D_0035f200, 0);
     func_00139620(r0);
     func_0028dcc0(r0, b);
-    func_002a92d8();
+    Tz__JmQuest__CreateList();
     n = D_0035f3d4;
     lim = *D_0035f608;
     if (lim >= 11) v = lim;
@@ -86,17 +86,17 @@ void func_002a8ac8(void) {
     { void* o = func_0023f1b0(D_0035f210); s32 k = D_0035f148;
     r2 = func_00236ca8(*(s32*)((u8*)o + 0x28), k); }
     func_0028bae0(D_0035f214, n, r1, r2, func_00276678(), v, 10, c, 0);
-    func_0028af90(D_0035f200, cnt);
-    func_002891f0(D_0035f200, 0, 0, -1, -1);
+    Tz__Select__SetSelectMax(D_0035f200, cnt);
+    Tz__Select__SetCurrent(D_0035f200, 0, 0, -1, -1);
     func_0028afd0(D_0035f200, 0);
     func_00276690(1);
     func_0028af28(D_0035f200, 16);
     if (cnt >= 2) {
-        func_0028b218(D_0035f200, 1);
+        Tz__Select__SetPageMode(D_0035f200, 1);
         func_0028b248(D_0035f200, 10);
     }
-    func_002a9048();
-    func_002a98a8();
+    Tz__JmQuest__AdjustPos();
+    Tz__JmQuest__UpdateNewMark();
     func_002a95a8();
     func_002a9888();
     func_00287cc0(0);
@@ -115,16 +115,16 @@ s32 func_00292630(void) asm("func_00292630");
 void func_00276690(s32 a) asm("func_00276690");
 void func_00287c30(void) asm("func_00287c30");
 s32 func_00276358(void) asm("func_00276358");
-void func_00276220(s32 a, s32 b) asm("func_00276220");
-void func_00274cf0(s32 a) asm("func_00274cf0");
+void Tz__Jiminy__SetParentSeqNum(s32 a, s32 b) asm("Tz__Jiminy__SetParentSeqNum");
+void Tz__Jiminy__LoadData(s32 a) asm("Tz__Jiminy__LoadData");
 void func_002925c0(void) asm("func_002925c0");
 void func_002995e8(void) asm("func_002995e8");
 s32 func_00276398(void) asm("func_00276398");
 void func_00275b60(void) asm("func_00275b60");
 void func_00287c90(s32 a) asm("func_00287c90");
 s32 func_00242848(s32 a) asm("func_00242848");
-void func_0028f6f0(s32 a) asm("func_0028f6f0");
-void func_00276dc0(void) asm("func_00276dc0");
+void Tz__SelHist__FadeOut(s32 a) asm("Tz__SelHist__FadeOut");
+void Tz__Jiminy__FadeOutHelp(void) asm("Tz__Jiminy__FadeOutHelp");
 s32 func_0028b038(void *s) asm("func_0028b038");
 void func_002765e8(s32 a, s32 b, s32 c) asm("func_002765e8");
 void func_00287c00(s32 m) asm("func_00287c00");
@@ -138,12 +138,12 @@ volatile unsigned int func_0028af18_b(void *s, u32 a) asm("func_0028af18");
 s32 func_00289310(void *s) asm("func_00289310");
 s32 func_00287df0(s32 a, s32 b, s32 c, void (*d)(void), s32 e) asm("func_00287df0");
 s32 func_002891e8(void *s) asm("func_002891e8");
-void func_002958b0(void) asm("func_002958b0");
-void func_002a8a88(void) asm("func_002a8a88");
+void Tz__JmReport__Setup(void) asm("Tz__JmReport__Setup");
+void Tz__JmQuest__LeaveAll(void) asm("Tz__JmQuest__LeaveAll");
 void func_002a8a80(void) asm("func_002a8a80");
 /*TARGET 002a8d98*/
-void func_002a8d98(void) asm("func_002a8d98");
-void func_002a8d98(void)
+void Tz__JmQuest__Control(void) asm("Tz__JmQuest__Control");
+void Tz__JmQuest__Control(void)
 {
   s32 cur = func_00289380(D_0035f200);
   s32 st = func_00287cd0();
@@ -157,20 +157,20 @@ void func_002a8d98(void)
         return;
       }
       func_00287f90(0);
-      func_002a8a88();
+      Tz__JmQuest__LeaveAll();
       return;
     }
     if (func_00292630())
     {
       return;
     }
-    func_002a8a88();
+    Tz__JmQuest__LeaveAll();
     func_00287c30();
     mode = func_00287bc0();
     func_0028af18_b(D_0035f200, 115);
     func_00276690(0);
-    func_00276220(func_00276358(), 0);
-    func_00274cf0(mode);
+    Tz__Jiminy__SetParentSeqNum(func_00276358(), 0);
+    Tz__Jiminy__LoadData(mode);
     func_002925c0();
     if (mode == 13)
     {
@@ -179,7 +179,7 @@ void func_002a8d98(void)
     else
       if (mode == 2)
     {
-      func_002958b0();
+      Tz__JmReport__Setup();
     }
     return;
   }
@@ -187,7 +187,7 @@ void func_002a8d98(void)
   {
     if (!func_00276398())
     {
-      func_00276220(0, 2);
+      Tz__Jiminy__SetParentSeqNum(0, 2);
       func_00275b60();
     }
   }
@@ -207,10 +207,10 @@ void func_002a8d98(void)
         break;
 
       case -2:
-        func_0028f6f0(0);
+        Tz__SelHist__FadeOut(0);
         func_002a8a80();
-        func_00276dc0();
-        func_00276220(1, 1);
+        Tz__Jiminy__FadeOutHelp();
+        Tz__Jiminy__SetParentSeqNum(1, 1);
         func_00287c00((mode == 0x23) ? (13) : (2));
         func_00287cc0(2);
       {
@@ -246,10 +246,10 @@ void func_0028afd0(void*, s32) asm("func_0028afd0");
 /*TARGET 002a9048*/
 // obj_set_signed18
 
-void func_002a9048(void) asm("func_002a9048");
+void Tz__JmQuest__AdjustPos(void) asm("Tz__JmQuest__AdjustPos");
 // obj_set_signed18
 
-void func_002a9048(void) {
+void Tz__JmQuest__AdjustPos(void) {
     s32 sel;
     if (func_00287bc0() == 35) {
         sel = 0;

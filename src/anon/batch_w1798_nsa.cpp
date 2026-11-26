@@ -26,7 +26,7 @@ struct Pair_165898 { s32 a, b; };
 extern "C" {
 void func_002be770(Obj_2bf468*);
 s32 func_001b6d70(u8);
-void func_002bf650(Obj_2bf468*, s32);
+void worldmap__Symbol__setState(Obj_2bf468*, s32);
 
 void func_002bf468(Obj_2bf468* p, s32* key);  // 0x002bf468: definition moved into src/anon/unit_002bebd0.cpp
 

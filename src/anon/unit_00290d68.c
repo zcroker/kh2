@@ -12,7 +12,7 @@ void func_00139620(Cur68*);
 void func_001395f8(Cur68*);
 void func_00138c68(Cur68*, s32, s32);
 void func_0028dcc0(Cur68*, Cur68*);
-void func_00290d68(Own68* o, Cur68* parent) {
+void Tz__ItemStat__CreateSeq(Own68* o, Cur68* parent) {
     s32 seq = func_00291370(o, 0);
     s32 id = o->id;
     s32 x = func_0023aa18((u8*)parent + 24);

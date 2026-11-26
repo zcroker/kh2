@@ -2,7 +2,7 @@
 # Transcribed from the retail disassembly; calls and globals with a func_/D_ symbol are referenced
 # through it. Replace with C/C++ after 100%.
 #   func_00268460: menu screen setup (title/info/help items via func_0028d8c0/func_0028d980, up to 8 list
-#     rows from func_00288d80/func_002891b8, extra column when mode-5 < 2, Jiminy flag 0x400 check).
+#     rows from Tz__Select__SetItem/func_002891b8, extra column when mode-5 < 2, Jiminy flag 0x400 check).
 #     Closest C: ~/re/kh2/tmp.w3953/best_00268460.cpp (= best/00268460_w3938_nsa.cpp, _nsa, ~150-200 lines off):
 #     func_00281198()+1 kept in v0 then move a1 (ours computes into an s-register), s-register numbering
 #     of the hoisted %hi(D_0035ef68/ef64/f03c) copies, scheduling in the second loop.
@@ -88,7 +88,7 @@ func_00268460:
 	lw	$15,48($29)
 	jal	func_00282620
 	lw	$4,%lo(D_0035f0ec)($16)
-	jal	func_00282d70
+	jal	Tz__ItemInfo__SortItemInfo
 	lw	$4,%lo(D_0035f0ec)($16)
 	lw	$15,48($29)
 .L00268578:
@@ -231,7 +231,7 @@ func_00268460:
 	lw	$4,%lo(D_0035f01c)($22)
 	addiu	$10,$29,16
 	addiu	$11,$29,24
-	jal	func_00288d80
+	jal	Tz__Select__SetItem
 	move	$5,$20
 	lw	$4,%lo(D_0035f01c)($22)
 	jal	func_002891b8
@@ -250,7 +250,7 @@ func_00268460:
 	move	$7,$19
 	move	$6,$0
 	move	$16,$2
-	jal	func_00288e08
+	jal	Tz__Select__SetExOffset
 	move	$5,$20
 	jal	func_00139620
 	move	$4,$17
@@ -408,13 +408,13 @@ func_00268460:
 	bnez	$14,.L00268a58
 	lui	$15,%hi(D_0035f01c)
 	lw	$5,40($29)
-	jal	func_0028af90
+	jal	Tz__Select__SetSelectMax
 	lw	$4,%lo(D_0035f01c)($15)
 .L00268a58:
 	jal	func_00268c68
 	lui	$16,%hi(D_0035f01c)
 	lw	$4,%lo(D_0035f01c)($16)
-	jal	func_0028b218
+	jal	Tz__Select__SetPageMode
 	li	$5,1
 	lw	$4,%lo(D_0035f01c)($16)
 	jal	func_0028b248
@@ -443,7 +443,7 @@ func_00268460:
 	ori	$5,$2,0x400
 	li	$4,0xcbdd
 	li	$5,-1
-	jal	func_00256cc0
+	jal	Tz__CmTop__CreatePadHelp
 	li	$6,-1
 .L00268ad8:
 	jal	func_00287cc0

@@ -30,6 +30,6 @@ struct O2bfe08 { u32 vt; u8 pad[12]; V4w282b m16; V4w282b m32; u8 pad2[36]; u32 
 extern "C" {
 extern u8 D_00361da8[];
 extern u8 D_00361a60[];
-void func_002c6420(O2bfe08*);
+void worldmap__Camera__initialize(O2bfe08*);
 void func_002bfe08(O2bfe08* o, V4w282b* a, V4w282b* b, f32 f);  // 0x002bfe08: definition moved into src/anon/unit_002bebd0.cpp
 }

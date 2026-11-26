@@ -263,7 +263,7 @@ void* create_task(void* self, int a, int b, void* fn) {
 // 0x102818: creates a coroutine task with its own stack of `size` bytes.
 u8* func_00102788(void*, u32, u32, u32);
 typedef u8* (*AllocFn)(void*, u32, void*);
-u8* func_00102818(void** heap, u32 a1, u32 a2, u32 a3, u32 size) {
+u8* TASK_MANAGER__create_thread(void** heap, u32 a1, u32 a2, u32 a3, u32 size) {
     u8* blk = (*(AllocFn*)*heap)(heap, size + 256, __builtin_return_address(0));
     u8* r = func_00102788(heap, a1, a2, a3);
     *(u32*)(blk + 252) = size;

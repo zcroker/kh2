@@ -1,9 +1,9 @@
 #include "../common/types.h"
 extern "C" {
 s32 func_00289310(void);
-void func_002a8768(void);
-void func_002a8330(void);
-void func_002a98a8(void);
+void Tz__JmMiniGame__UpdateNewMark(void);
+void Tz__JmMiniGame__UpdateList(void);
+void Tz__JmQuest__UpdateNewMark(void);
 void func_002a95a8(void);
 void func_00106420(void*);
 void* func_00103570(void);
@@ -26,9 +26,9 @@ void func_002a9570(void);  // 0x002a9570: definition moved into src/anon/unit_00
 
 void func_0029edf8(void);  // 0x0029edf8: definition moved into src/anon/unit_0029d008.cpp
 
-void func_0029edb8(void);  // 0x0029edb8: definition moved into src/anon/unit_0029d008.cpp
+void Tz__JmAnsem__Init(void);  // 0x0029edb8: definition moved into src/anon/unit_0029d008.cpp
 
-void func_00264388(void);  // 0x00264388: definition moved into src/anon/unit_002640a8.cpp
+void Tz__CmStat__Init(void);  // 0x00264388: definition moved into src/anon/unit_002640a8.cpp
 
 s32 func_00285d18(s32 x);  // 0x00285d18: definition moved into src/anon/unit_002853b8.cpp
 

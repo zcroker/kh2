@@ -85,29 +85,29 @@ struct W2043b_Res { W2043b_Vq a; W2043b_Vq b; };
 struct W2043b_Ent { W2043b_Vq v; u8 pad[8]; u32 f18; };
 struct W2043b_Obj { u8 p0[4]; u32 f4; u8 p1[0x620 - 8]; void* f620; s32 f624; };
 void* func_00106a60(s32) asm("func_00106a60");
-void func_00107368(void*, W2043b_Vq*) asm("func_00107368");
+void kn__Camera__getPosition(void*, W2043b_Vq*) asm("kn__Camera__getPosition");
 void* func_001050d8(u32) asm("func_001050d8");
-void func_0018d238(void*, u32, u32, u32, u32, s32, s32) asm("func_0018d238");
+void YS__ATTACK__ATTACK_2(void*, u32, u32, u32, u32, s32, s32) asm("YS__ATTACK__ATTACK_2");
 void func_00190128(void*) asm("func_00190128");
-void* func_00190730(W2043b_Hdl*, void*) asm("func_00190730");
+void* YS__TARGET__each(W2043b_Hdl*, void*) asm("YS__TARGET__each");
 s32 func_00112d90(W2043b_Hdl*) asm("func_00112d90");
 s32 func_001901c0(W2043b_Hdl*) asm("func_001901c0");
 s32 func_0018d940(void*, W2043b_Tg*) asm("func_0018d940");
 s32 func_0019c410(W2043b_Tg*) asm("func_0019c410");
 void* func_00112f88(W2043b_Hdl*) asm("func_00112f88");
-void func_0018a818(W2043b_Res*, W2043b_Tg*, void*) asm("func_0018a818");
-W2043b_Ent* func_0018db38(void*, W2043b_Tg*, u32, u32) asm("func_0018db38");
+void YS__COLLISION__set(W2043b_Res*, W2043b_Tg*, void*) asm("YS__COLLISION__set");
+W2043b_Ent* YS__ATTACK__strike(void*, W2043b_Tg*, u32, u32) asm("YS__ATTACK__strike");
 void func_0018ca10(W2043b_Ent*) asm("func_0018ca10");
-void func_001a55a8(W2043b_Vq*, s32) asm("func_001a55a8");
+void YS__PRIZE__Appear(W2043b_Vq*, s32) asm("YS__PRIZE__Appear");
 /*TARGET 00118378*/
 void func_00118378(W2043b_Obj* o, s32 a1) asm("func_00118378");
 void func_00118378(W2043b_Obj* o, s32 a1) {
     W2043b_Vq base;
     W2043b_Vq dir;
-    func_00107368(func_00106a60(1), &base);
+    kn__Camera__getPosition(func_00106a60(1), &base);
     if (o->f620 == 0) {
         void* p = func_001050d8(208);
-        func_0018d238(p, o->f4, 0, 1210, 0, -1, -1);
+        YS__ATTACK__ATTACK_2(p, o->f4, 0, 1210, 0, -1, -1);
         o->f620 = p;
         o->f624 = a1;
     }
@@ -117,7 +117,7 @@ void func_00118378(W2043b_Obj* o, s32 a1) {
     W2043b_Res r;
     r.a.w = 0;
     func_00190128(&it);
-    while ((n = func_00190730(&it, n)) != 0) {
+    while ((n = YS__TARGET__each(&it, n)) != 0) {
         if (!func_00112d90(&it)) continue;
         if (!func_001901c0(&it)) continue;
         W2043b_Tg* t = it.p;
@@ -125,17 +125,17 @@ void func_00118378(W2043b_Obj* o, s32 a1) {
         if (func_0019c410(t)) continue;
         void* v = func_00112f88(&it);
         if (!v) continue;
-        func_0018a818(&r, t, v);
+        YS__COLLISION__set(&r, t, v);
         dir = W2043b_vsub(r.b, base);
         W2043b_vnormalize(&dir);
-        W2043b_Ent* e = func_0018db38(o->f620, t, 0, 0);
+        W2043b_Ent* e = YS__ATTACK__strike(o->f620, t, 0, 0);
         if (!e) continue;
         s32 f = (e->f18 & 1) ^ 1;
         e->v = dir;
         t->vt->f64(t, e);
         func_0018ca10(e);
         if (!f) continue;
-        if (!t->vt->f60(t)) func_001a55a8(&r.b, 111);
+        if (!t->vt->f60(t)) YS__PRIZE__Appear(&r.b, 111);
     }
 }
 }  // namespace n00118378
@@ -204,12 +204,12 @@ void func_00190878(Tgt1185b0*, s32, s32) asm("_ZN2YS6TARGET7set_objEPNS_3OBJEi")
 s32 func_001b58a8(void) asm("_ZN2YS5LIMIT6IsExecEv");
 s32 func_0010f8c0(Model1185b0*) asm("func_0010f8c0");
 u32 func_00118328(Who1185b0*) asm("_Z13func_00118328j");
-void func_001169e8(Who1185b0*, s32) asm("func_001169e8");
+void kn__Stitch__calc_move_target(Who1185b0*, s32) asm("kn__Stitch__calc_move_target");
 void func_001168c0(Who1185b0*) asm("func_001168c0");
 s32 func_00116d08(Who1185b0*) asm("func_00116d08");
 void func_0017f488(void*, s32, f32, f32) asm("func_0017f488");
 void func_0017f5e0(void*, s32, f32, f32, void*) asm("func_0017f5e0");
-void* func_00117970(Who1185b0*, s32, Model1185b0*, s32, s32, s32, s32, s32) asm("func_00117970");
+void* kn__Stitch__startEffect(Who1185b0*, s32, Model1185b0*, s32, s32, s32, s32, s32) asm("kn__Stitch__startEffect");
 void func_00117b20(Who1185b0*, void*) asm("func_00117b20");
 void func_00118378(Who1185b0*, s32) asm("func_00118378");
 
@@ -237,7 +237,7 @@ s32 func_001185b0(Who1185b0* w, void* e, Tgt1185b0* t, s32* score, u8 check)
     }
     if (!func_0010f8c0(w->model)) {
         w->state = 0;
-        func_001169e8(w, 6);
+        kn__Stitch__calc_move_target(w, 6);
     }
     switch (w->state) {
     case 0: {
@@ -267,8 +267,8 @@ s32 func_001185b0(Who1185b0* w, void* e, Tgt1185b0* t, s32* score, u8 check)
         if (w->state == 2) {
             func_0017f488((u8*)w->model + 320, 203, 0.0f, 0.0f);
             func_0017f5e0((u8*)w->model + 320, 0, 0.0f, 0.0f, 0);
-            func_00117970(w, 12, 0, -1, 203, 0, 1, 0);
-            func_00117b20(w, func_00117970(w, 13, w->model, 19, 203, 0, 1, 0));
+            kn__Stitch__startEffect(w, 12, 0, -1, 203, 0, 1, 0);
+            func_00117b20(w, kn__Stitch__startEffect(w, 13, w->model, 19, 203, 0, 1, 0));
             w->state++;
         } else if (w->model->f340 != 203 || (w->model->f352 & 2)) {
             w->state++;

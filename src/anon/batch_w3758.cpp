@@ -5,7 +5,7 @@ extern s32 D_0034d8a4;
 extern s32 D_0034d8a0;
 void func_0016c8f8(S64*, u32, u32, u32);
 void func_001da458(S64*, s32, s32, s32);
-void func_0016cd48(S64*, u32*);
+void YS__VM__exec(S64*, u32*);
 void func_0016cab8(S64*);
 // 0016cc18: moved to src/anon/unit_0016c770.cpp
 
@@ -20,8 +20,8 @@ s32 func_0023aa38(u8*);
 s32 func_0023f1b0(u32);
 s32 func_0023c4b8(s32, u32);
 s32 func_0023f988(u32, s32);
-void func_002362b0(Obj3e0*, s32);
-void func_001386e0(Spr3e0*, u8*, s32, Obj3e0*, u32, s32);
+void YI__IMAGE__Init(Obj3e0*, s32);
+void dk__Sprite__create(Spr3e0*, u8*, s32, Obj3e0*, u32, s32);
 void func_00139620(Spr3e0*);
 void func_0028dcc0(void*, void*);
 void func_00138c68(void*, s32, s32);
@@ -38,5 +38,5 @@ extern u32 D_00374900;
 extern u32 D_00374904;
 // Partial asm: register pins (k1/c1 t7, one t6, spr0 s7), empty asm barriers keeping the original's serial
 // lui/lw order, and one hand-written lui so t6 holds the high half across the movz. See asm_review.tsv.
-void func_0029a3e0(u8 flag);  // 0x0029a3e0: definition moved into src/anon/unit_00299920.cpp
+void Tz__JmCollection__CreateGra(u8 flag);  // 0x0029a3e0: definition moved into src/anon/unit_00299920.cpp
 }

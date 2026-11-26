@@ -35,22 +35,22 @@ struct W2397Coll { u8 pad[0x30]; W2397Col col; };
 struct W2397Tgt { u8 d[32]; };
 struct W2397X { u8 d[16]; };
 extern "C" {
-s32 func_0019c4f8(W2397Obj*);
+s32 YS__OBJ__is_disable_rc(W2397Obj*);
 W2397Elem* W2397Obj_select(W2397Obj*, u32, W2397Elem*) asm("_ZN2YS3OBJ16select_collisionEjPKNS_14COLLISION_ELEME");
 s32 func_0019bdc8(W2397Obj*, u32, u32);
-u16* func_0019e5f8(W2397Coll*, u32);
-void func_0018a818(W2397Col*, W2397Obj*, W2397Elem*);
+u16* YS__RC_SEARCHER__get_command_elem(W2397Coll*, u32);
+void YS__COLLISION__set(W2397Col*, W2397Obj*, W2397Elem*);
 s32 func_0018a550(W2397Col*, W2397Col*);
 void func_00190128(W2397Tgt*);
 void W2397Tgt_set_obj(W2397Tgt*, W2397Obj*, s32) asm("_ZN2YS6TARGET7set_objEPNS_3OBJEi");
 s32 W2397Coll_draw(W2397Coll*, u16*) asm("_ZN2YS9COLLISION4drawEji");
-void func_0016af58(W2397X*, W2397Obj*);
-s32 func_0019df08(W2397Coll*, u16*, W2397Tgt*, W2397X*, s32);
-void func_0019dbc0(W2397Coll*, u32, W2397Tgt*, s32, s32);
+void YS__OBJ__get_dir(W2397X*, W2397Obj*);
+s32 YS__RC_SEARCHER__get_dist(W2397Coll*, u16*, W2397Tgt*, W2397X*, s32);
+void YS__RC_SEARCHER__check_set(W2397Coll*, u32, W2397Tgt*, s32, s32);
 
 // Walks obj's collision elements (kind 5 uses the element id, 0x83 maps to the sub-object id) and, for each one that
-// hits this collision, draws it and passes the flattened distance on to func_0019dbc0.
+// hits this collision, draws it and passes the flattened distance on to YS__RC_SEARCHER__check_set.
 // The constants and &col.b are locals set before the loop (the original keeps 5/131 in s6/s7 and spills &col.b).
-void func_0019e210(W2397Coll* self, W2397Obj* obj);  // 0x0019e210: definition moved into src/anon/unit_0019ba60.cpp
+void YS__RC_SEARCHER__check_obj(W2397Coll* self, W2397Obj* obj);  // 0x0019e210: definition moved into src/anon/unit_0019ba60.cpp
 
 }

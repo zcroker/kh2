@@ -42,7 +42,7 @@ extern s8 D_004f6330;
 extern Vq D_004f6340;
 void func_0016e898(void);
 void func_002fd188(void (*)(void));  // pool_alloc_block
-Vq func_0017d538(u32, f32);
+Vq YS__MATH__VectorRotY(u32, f32);
 // 0016d5d0: moved to src/anon/unit_0016d2e0.cpp
 
 void func_0013f5f0(void*);  // copy_float_220_to_48
@@ -64,7 +64,7 @@ typedef void (*VFn0)(void*);
 static inline Obj160* nx160b(Obj160* o) { return !o ? D_004f3b40.head : o->next; }
 // 00160b10: moved to src/harata/libdk/bgobj.cpp
 
-void* func_0017ec98(void*);
+void* YS__MOTION__id_to_num(void*);
 void* func_0017edf0(void*, void*);
 u8* func_00168b38(void*, u32, u32);  // entry_array_find_nth
 // 0017f4e0: moved to src/yasui/libys/motion.cpp
@@ -74,8 +74,8 @@ s32 func_0016a090(void*);  // get_byte74
 extern u8 D_0034ed78[];
 // 00185b70: moved to src/anon/unit_001855e0.cpp
 
-void* func_00185da8(void*);
-s32 func_00186ce8(void*);
+void* YS__ENEMY__Each(void*);
+s32 YS__BTLOBJ__is_damage_motion(void*);
 void func_0018f3a8(s32* out);  // 0x0018f3a8: definition moved into src/anon/unit_0018f140.cpp
 
 extern u32 D_0034f240;
@@ -93,7 +93,7 @@ struct Pool1a1 { u8 d[600]; s32 timer; u8 _25c[12]; };
 struct PoolMgr1a1 { Pool1a1 items[64]; s32 free[64]; s32 nfree; };
 extern PoolMgr1a1 D_01c62fb8;
 void func_001a1840(void*);
-void func_001a17c8(Pool1a1* p);  // 0x001a17c8: definition moved into src/anon/unit_0019fb70.cpp
+void YS__SHEET__Free(Pool1a1* p);  // 0x001a17c8: definition moved into src/anon/unit_0019fb70.cpp
 
 struct Obj1ac { void* vt; u8 _4[120]; Obj1ac* next; };
 extern struct { Obj1ac* head; Obj1ac* tail; } D_01c6cec0;
@@ -124,10 +124,10 @@ void func_001d19e8(void*, s32);
 void func_001d16e8(void*, u32, u32);
 extern u8 D_003525c8[];
 extern u8 D_003525e8[];
-void func_001d1f38(u32* p);  // 0x001d1f38: definition moved into src/anon/unit_001d14e0.cpp
+void YS__COMBOCOUNTER__COMBOCOUNTER(u32* p);  // 0x001d1f38: definition moved into src/anon/unit_001d14e0.cpp
 
 f32 func_002f8b30(f32, f32);
-void func_001d1b60(void*, s32);
+void YS__MISSION_COUNT__set(void*, s32);
 
 void func_00321ce8(void*, void*);  // list_unlink_node
 void func_001dc920(void*);
@@ -173,9 +173,9 @@ void func_00288e88(void*);
 void func_00252020(void);  // 0x00252020: definition moved into src/anon/unit_00250fb8.cpp
 
 void* func_002570a0(u32);
-u16* func_002632d0(void*);
+u16* Tz__CmItem__isSoraOnly(void*);
 u32 func_002811b0(void*, u32);
-void func_001a2a50(u32, u32, u32, u32);
+void YS__ITEM__Use(u32, u32, u32, u32);
 void func_001a3458(u32, u32);
 void func_0013dbb0(void);
 extern void* D_0035f010;
@@ -189,8 +189,8 @@ void func_00283e48(void);  // 0x00283e48: definition moved into src/anon/unit_00
 
 s32 func_00293fb0(void);
 u32 func_00103570(void);
-void func_00293e00(u32);
-void func_00293fc0(void);
+void Tz__JmInfo__Init(u32);
+void Tz__JmInfo__SetLeadData(void);
 void func_00253b30(void*, u32);
 void func_0023fa90(u32, void*);
 extern u32 D_0035f2bc;
@@ -222,8 +222,8 @@ void func_002ba040(void);  // 0x002ba040: definition moved into src/anon/unit_00
 void* func_001c3748(void*, void*);
 void func_00192048(u16);
 
-u8* func_001b9bc8(void*);
-void func_002d24e8(void*, void*);
+u8* YS__OBJ__Each(void*);
+void Ti__MGOarashi__set_current_tornado(void*, void*);
 void func_002d25f0(void* a);  // 0x002d25f0: definition moved into src/anon/unit_002d2498.cpp
 
 typedef s32 (*VFnB)(void*);

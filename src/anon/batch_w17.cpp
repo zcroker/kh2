@@ -3,13 +3,13 @@
 extern "C" {
 
 extern u32 D_0032b9a4;
-void func_00102818(u32, u32, u32, u32, u32);
+void TASK_MANAGER__create_thread(u32, u32, u32, u32, u32);
 // 00102f38: moved to src/common/title.cpp
 
 extern u32 D_0032b91c;
 extern u8 D_0032ba28;
 void func_00102788(u32, u32, u32, void*);
-void func_001037f8(void);
+void MENU__pauseExecTask(void);
 // 001037b8: moved to src/common/unit_001031b0.cpp
 
 extern u32 D_00346e80;
@@ -44,7 +44,7 @@ void func_00152508(void*, u32, u32, u32, u32);
 extern char D_001dda78[];
 extern u32 D_001ddb30;
 u8* func_00102c18(u32, u32, const char*);
-void func_001618b8(void);  // 0x001618b8: definition moved into src/anon/unit_001614e8.cpp
+void dk__Camera__createEffectDestroyTask(void);  // 0x001618b8: definition moved into src/anon/unit_001614e8.cpp
 
 extern u32 D_004f5250;
 extern u32 D_004f5258[];
@@ -53,26 +53,26 @@ void func_00167f38(void);
 // 00167fc8: moved to src/anon/unit_00167358.cpp
 
 u32 func_001c0cd8(void*);
-u8* func_0016c028(u8* p);  // 0x0016c028: definition moved into src/anon/unit_00169f98.cpp
+u8* YS__OBJ__get_pos(u8* p);  // 0x0016c028: definition moved into src/anon/unit_00169f98.cpp
 
-u8* func_00170400(u32, u32, u32);
+u8* YS__CACHE_BUFF__ReadRequestSub(u32, u32, u32);
 u8* func_00170530(u32 a, u32 b, s32 c, u32 d);  // 0x00170530: definition moved into src/anon/unit_0016e8f8.cpp
 
 typedef void (*VFn4)(void*, u32, u32, void*);
 // 00185a68: moved to src/anon/unit_001855e0.cpp
 
 extern void* D_01c608b8;
-u32 func_0019ba60(void*);
+u32 YS__OBJ__is_exist(void*);
 void* func_0016b0d0(void);
 void* ctarget_00185de0(u32, u32, u32, u32) asm("_Z16ctarget_00185de0jjjj");
 // 00185de0: moved to src/anon/unit_00185d10.cpp
 
-u8* func_001b9bc8(void*);
+u8* YS__OBJ__Each(void*);
 // 00186078: moved to src/anon/unit_00185d10.cpp
 u8* func_00186078(u8* p);
 
 extern u32 D_01c60bc8[2];
-void func_00188340(void*, u32, void*, u32);
+void YS__ACT__callback(void*, u32, void*, u32);
 // 001883f8: moved to src/anon/unit_00185d10.cpp
 void func_001883f8(u8* p, u32 a);
 
@@ -95,7 +95,7 @@ void func_0031fe00(void*, void*);
 
 void func_001b7958(s32* p, void* v);  // 0x001b7958: definition moved into src/anon/unit_001b6a50.cpp
 
-void func_001bb890(s32);
+void YS__MISSION__PostEnd(s32);
 void func_001bb468(void);
 void func_001991a8(s32, s32);
 void MissionExit(s32 a) asm("_ZN2YS7MISSION4ExitEi");
@@ -107,7 +107,7 @@ u8* func_001bbcb0(void);
 
 u32 func_001d01e0(void);
 void func_00170320(u32);
-void func_0016ed50(u32, u32, u32);
+void YS__OBJENTRY__ReadRequest(u32, u32, u32);
 
 
 extern u8* D_01d5ba0c;
@@ -180,7 +180,7 @@ void func_002cfeb0(void*, u32, u32, u32);  // obj_init_field1416_bit800
 void func_002e7308(void*);
 void func_002d5d10(u8* p, u32 a, u32 b);  // 0x002d5d10: definition moved into src/anon/unit_002d4548.cpp
 
-void func_0017c430(void*);
+void YS__OBJ__prepare_jump_height(void*);
 void func_0016bd60(void*, u32);
 // 002eb4b0: moved to src/anon/unit_002eaf38.cpp
 
@@ -199,7 +199,7 @@ u8 func_00106420_u8(void*) asm("func_00106420");
 u8 func_00316890(void** p);  // 0x00316890: definition moved into src/libsupc++/eh_exception.cpp
 
 extern u32 D_00352560;
-void func_001d1ed0(void*);
+void YS__MISSION_GAUGE__destroy(void*);
 void func_00321648(void** p);  // 0x00321648: definition moved into src/anon/unit_00320528.cpp
 
 }

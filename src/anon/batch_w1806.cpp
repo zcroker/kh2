@@ -8,7 +8,7 @@ void func_00225208(void);
 s32 func_00224c20(void);
 void func_00229370(void);
 void func_00228f18(void);
-void func_00228e58(void);
+void sa__MUSICAL_GAUGE3__init(void);
 void func_002289f0(void);
 void func_00228618(void);
 s32 func_002249a8(s32);

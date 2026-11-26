@@ -50,5 +50,5 @@ inline W252Base::W252Base() { c = 0; vt = D_00347e60; }
 inline W252Item::W252Item() { f = 0; vt = D_0035f3e0; }
 inline W252Pool::W252Pool() { for (s32 i = 0; i < 32; i++) ids[i] = i; count = 32; }
 extern "C" {
-void func_0028c3f0(s32 h);  // 0x0028c3f0: definition moved into src/anon/unit_0028bfc0.cpp
+void Tz__MenuItem__init(s32 h);  // 0x0028c3f0: definition moved into src/anon/unit_0028bfc0.cpp
 }

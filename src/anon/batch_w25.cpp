@@ -42,7 +42,7 @@ extern Q16 D_004f62a0;
 void func_0017d5e8(Q16*, u32, float);
 // 0016d640: moved to src/anon/unit_0016d2e0.cpp
 
-s32 func_00170cd0(void);
+s32 YS__CACHE_BUFF__IsFlushing(void);
 void func_00102448(void*, u32);
 void func_00170dd0(void* a);  // 0x00170dd0: definition moved into src/anon/unit_0016e8f8.cpp
 
@@ -73,7 +73,7 @@ void func_0019da20(u8* o, u32 a);  // 0x0019da20: definition moved into src/anon
 void func_00239700(void*);
 u32 func_001ab810(void);  // get_global_1c7cec0
 u32 func_001ab800(void);
-void func_00239988(void*, u32, u32);
+void YI__SEQUENCE__Init(void*, u32, u32);
 // 001abfd8: moved to src/anon/unit_001abb28.cpp
 
 void func_001d5370(u32*, u32, s32);
@@ -85,8 +85,8 @@ u8* func_001bbcb0(void);
 // 001bc0e0: moved to src/yasui/libys/mission.cpp
 
 struct O1bc { u16 f0; u16 f2; u8 f4; u8 f5; u16 pad; u32 f8; };
-u8 func_001bc2a8(u16*, u32, u32);
-void func_001bc6a8(O1bc* o, u16* a, u32 b, u32 c, u32 d);  // 0x001bc6a8: definition moved into src/anon/unit_001bc568.cpp
+u8 YS__COMMAND_SLOT__GetStatus(u16*, u32, u32);
+void YS__COMMAND_SLOT__set(O1bc* o, u16* a, u32 b, u32 c, u32 d);  // 0x001bc6a8: definition moved into src/anon/unit_001bc568.cpp
 
 extern u8 D_00351d38;
 void func_001c23a8(void*, u32, u32, u32, u32, u32, u32);
@@ -99,16 +99,16 @@ s32 func_001c9db0(u32 x);  // 0x001c9db0: definition moved into src/yasui/libys/
 
 s32 func_00197920(void);
 s32 func_0017a6c8(void*);
-void func_001c9e50(void* a);  // 0x001c9e50: definition moved into src/yasui/libys/sacrifice.cpp
+void YS__SACRIFICE__WaitStable(void* a);  // 0x001c9e50: definition moved into src/yasui/libys/sacrifice.cpp
 
 extern u8 D_003524b8;
 extern u8 D_0036e3a8;
 void func_00177dc8(u8*, u32, u32, u32, u32);
-void func_001befd8(u32, void*, u32);
+void YS__FIELD_COMMAND__set_minigame(u32, void*, u32);
 void func_001d14e0(u8* o, u32 a, u32 b, u32 c);  // 0x001d14e0: definition moved into src/anon/unit_001d14e0.cpp
 
 u8 func_001ddef0(u32**, u8*);
-u32 func_001de168(u32** o, u32 id);  // 0x001de168: definition moved into src/anon/unit_001ddcf0.cpp
+u32 ryj__PAX__start(u32** o, u32 id);  // 0x001de168: definition moved into src/anon/unit_001ddcf0.cpp
 
 extern u8 D_00354bc0;
 extern u8 D_00354be0;
@@ -123,7 +123,7 @@ void u_call0_00233c98(void);  // 0x00233c98: definition moved into src/anon/unit
 
 // Sets a 2-bit mode field (bits 9-10).
 u8* func_001058e8(void);
-void func_00242df0(s32 m);  // 0x00242df0: definition moved into src/anon/unit_00242478.cpp
+void Tz__Config__SetSummonEffect(s32 m);  // 0x00242df0: definition moved into src/anon/unit_00242478.cpp
 
 u8* func_001d56c8(u32);
 s32 func_00276c18(void);
@@ -132,7 +132,7 @@ s32 func_00244a10(void);  // 0x00244a10: definition moved into src/anon/unit_002
 extern u32 D_0035f2c0;
 void func_002bd7d8(void);
 VObj* func_00103580(void);
-void func_00284ea8(void);  // 0x00284ea8: definition moved into src/anon/unit_00284220.cpp
+void Tz__Ending__SoundBufferFree(void);  // 0x00284ea8: definition moved into src/anon/unit_00284220.cpp
 
 s32 func_00181500(u16);
 s32 func_001a3570(u16);

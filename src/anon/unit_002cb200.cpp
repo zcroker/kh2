@@ -98,11 +98,11 @@ void func_002cb3f8(u8* p, u32 a1, u32 a2) {
 
 // ---- 002cb478 gap: base call, then the 0x2cb4a0 update
 namespace n002cb478 {
-void func_002c55b0(u8*) asm("func_002c55b0");
+void dk__WM_OBJ___OVR_pre_exec(u8*) asm("dk__WM_OBJ___OVR_pre_exec");
 void func_002cb4a0(u8*) asm("_Z13func_002cb4a0j");
 void func_002cb478(u8* p) asm("func_002cb478");
 void func_002cb478(u8* p) {
-    func_002c55b0(p);
+    dk__WM_OBJ___OVR_pre_exec(p);
     func_002cb4a0(p);
 }
 }  // namespace n002cb478

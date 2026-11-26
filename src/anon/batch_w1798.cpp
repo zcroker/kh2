@@ -9,5 +9,5 @@ s32 battle_19bc38(void) asm("_ZN2YS6STATUS12IsBattleModeEv");
 s32 attach_19bc38(Obj_19bc38*) asm("_ZN2YS3OBJ9is_attachEv");
 extern u32 D_0034f240;
 
-s32 func_0019bc38(Obj_19bc38* p);  // 0x0019bc38: definition moved into src/anon/unit_0019ba60.cpp
+s32 YS__OBJ__can_lockon(Obj_19bc38* p);  // 0x0019bc38: definition moved into src/anon/unit_0019ba60.cpp
 }

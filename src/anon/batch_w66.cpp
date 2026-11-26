@@ -75,18 +75,18 @@ extern VObj* D_00347d5c;
 extern s32 D_00347d58;
 extern u32 D_00347d60;
 void func_001b2028(u32);
-void func_00137930(u8* p);  // 0x00137930: definition moved into src/anon/unit_001374c8.cpp
+void dk__TREASURE_EVENT_INFO__destroy(u8* p);  // 0x00137930: definition moved into src/anon/unit_001374c8.cpp
 // ---- 001435a0
 // Looks up an entry's 2-bit attribute (bits 14-15) in the current table.
 struct E143 { u8 pad[14]; u16 h14; };
 struct T143 { u8 pad[12]; E143* f12; u8 pad2[4]; u32* f20; };
 extern T143* D_00348814;
 void func_00141980(T143*, u8*);
-u32 func_00142848(T143*, u32);
+u32 dk__OctCollFile__selectDownAllPolygon(T143*, u32);
 u32 func_00142688(T143*, u32*, u32, u32);
-u32 func_001435a0(u32 a);  // 0x001435a0: definition moved into src/anon/unit_00142c90.cpp
+u32 dk__Octree__getSkeltonType(u32 a);  // 0x001435a0: definition moved into src/anon/unit_00142c90.cpp
 // ---- 00159b40
-void func_00141010(f32);
+void dk__ObjCamera__cancelSubjective(f32);
 u8* func_00140df0(void);
 void func_00162058(f32);  // to_161f48_arg1
 struct S20 { u32 w[5]; };
@@ -121,7 +121,7 @@ f32 func_00314930(Fpn* s);  // 0x00314930: definition moved into src/libgcc/_pac
 // Builds a descriptor for (a, b) and for the global object, then compares them.
 struct S18b { u8 pad[12]; u32 f12; u8 pad2[16]; S18b() { f12 = 0; } };
 u32 func_0016bc20(u32, u32, s32);
-void func_0018a818(S18b*, u32, u32);
+void YS__COLLISION__set(S18b*, u32, u32);
 s32 func_0018a550(S18b*, S18b*);  // state_dispatch_0_1_3
 extern u32 D_0034e948;
 s32 func_0018bd50(u32 a, u32 b);  // 0x0018bd50: definition moved into src/yasui/libys/npc.cpp
@@ -137,7 +137,7 @@ u8* func_0016d080(u32, s32);
 void func_0016cce8(u8*, s32, s32, s32, s32);
 void func_0016cbc8(u8*, s32, s32, s32);
 u32 func_0016cb88(u8*, s32);
-s32 func_00196908(u32 a);  // 0x00196908: definition moved into src/anon/unit_00195d00.cpp
+s32 YS__UNITSCRIPT__Start(u32 a);  // 0x00196908: definition moved into src/anon/unit_00195d00.cpp
 // ---- 00199718
 extern u8 D_0032bae0;
 extern u8* D_01c62148[];
@@ -164,16 +164,16 @@ void func_001b9380(O1b9* o);  // 0x001b9380: definition moved into src/anon/unit
 u32 func_0016a040(u8*);
 s32 func_00105300(void);
 extern u32 D_01d48db8[];
-s32 func_001b9c90(u8* p);  // 0x001b9c90: definition moved into src/anon/unit_001b9880.cpp
+s32 YS__OBJ___OVR_is_control(u8* p);  // 0x001b9c90: definition moved into src/anon/unit_001b9880.cpp
 // ---- 001bf930
-u32 func_0016c028(u8*);  // obj_get_attach_or_alt
+u32 YS__OBJ__get_pos(u8*);  // obj_get_attach_or_alt
 void func_002bc188(s32, u32);
 void func_001bf930(u32, u8* p);  // 0x001bf930: definition moved into src/anon/unit_001bc568.cpp
 // ---- 001c38c0
 extern f32 D_00349e10;
 void func_0017f488(u8*, s32, f32, f32);
 void func_0017f5e0(u8*, s32, s32, f32, f32);
-void func_001c38c0(u32, u8* p);  // 0x001c38c0: definition moved into src/anon/unit_001c2b58.cpp
+void YS__ACTION_AIRSLIDE__control(u32, u8* p);  // 0x001c38c0: definition moved into src/anon/unit_001c2b58.cpp
 // ---- 001c5e88
 s32 func_001dbd68(u8*);
 extern Vq D_01d49880;
@@ -182,7 +182,7 @@ struct E1c5 { u8 pad[16]; Sub1c5 sub; };
 extern E1c5 D_00351680[];
 void func_001c5e18(void);
 static inline void dec1c5(Sub1c5* s) { s->cnt--; }
-void func_001c5e88(u8* p);  // 0x001c5e88: definition moved into src/anon/unit_001c5b90.cpp
+void YS__CROWD_M_EX760__ActionLeave(u8* p);  // 0x001c5e88: definition moved into src/anon/unit_001c5b90.cpp
 // ---- 001cbc50
 u8* func_001db888(u8*, s32, void*);  // record_index_calc
 void func_001ca988(u8*, u8*, u32, u32, void*, u32);
@@ -204,27 +204,27 @@ static inline f32 rnd01(void) {
 f32 func_001eed88(u8 a);  // 0x001eed88: definition moved into src/anon/unit_001ec098.cpp
 f32 func_001eef90(u8 a);  // 0x001eef90: definition moved into src/anon/unit_001ec098.cpp
 // ---- 00229120
-void func_00229430(u8*, s32);  // to_1391c8_arg11
+void sa__MUSICAL_SCORE_BASE__create(u8*, s32);  // to_1391c8_arg11
 u32 func_00224860(void);  // get_global_36daf4
 u32 func_0022b9e0(void);
 u32 func_0022b720(void);
-void func_001386e0(u8*, s32, u32, u32, s32, s32);
+void dk__Sprite__create(u8*, s32, u32, u32, s32, s32);
 void func_001396b0(u8*);
 void func_0031a260(u8*, s32);
 struct S229 { u8 pad[392]; s32 f392; u32 f396; u32 f400; };
-static inline void init229(S229* s, u32 x, u32 y) { func_001386e0((u8*)s, 2800, x, y, 21, 11); s->f396 = 0; s->f392 = 22; }
+static inline void init229(S229* s, u32 x, u32 y) { dk__Sprite__create((u8*)s, 2800, x, y, 21, 11); s->f396 = 0; s->f392 = 22; }
 void func_00229120(u8* p);  // 00229120: moved to src/sasa/musical_score.cpp (linked unit)
 // ---- 0022cae8
-s32 func_002282f0(s16);
-s32 func_00225b00(s16);  // flag_query_by_index
-u32 func_002282d8(void);  // limit_15000_or_25000
+s32 sa__EVENT__checkStart(s16);
+s32 sa__EVENT__isJumpMode(s16);  // flag_query_by_index
+u32 sa__EVENT__getEventPriority(void);  // limit_15000_or_25000
 u8* func_00102c18(s32, u32, void*);
 void func_0022cba0(void);
 void func_0022cc08(void);
 u32 func_001050c8(void);
 u8* func_001063c0(s32, u32);
 void func_0023cd68(u8*);
-void func_0023cde8(u8*);
+void YI__VIBRATION__Create(u8*);
 void func_0022cae8(u8* p);  // 0022cae8: moved to src/sasa/event_layout.cpp (linked unit)
 // ---- 00249098 / 002b6418
 s32 func_002892f8(u32);
@@ -267,7 +267,7 @@ extern u8* D_0035f230;
 struct H27c { u16 v : 15; u16 flag : 1; };
 struct W27c { u8 pad[4]; H27c h; };
 struct E27d { u8 pad[14]; u8 b14; s8 b15; };
-void func_0027c118(s32 i, u8 f);  // 0x0027c118: definition moved into src/anon/unit_0027a6d8.cpp
+void Tz__CmAbility__SetEquip(s32 i, u8 f);  // 0x0027c118: definition moved into src/anon/unit_0027a6d8.cpp
 // ---- 002a7d10
 struct E2a7 { s16 a, b; };
 struct T2a7 { s32 n; E2a7 e[1]; };
@@ -276,7 +276,7 @@ extern u32 D_0035f200;
 s8* func_00276568(void);
 s32 func_0028afa8(u32);
 void func_0028afd0(u32, s32);  // obj_set_signed18
-void func_002a7d10(void);  // 0x002a7d10: definition moved into src/anon/unit_002a7308.cpp
+void Tz__JmMiniGame__AdjustPos(void);  // 0x002a7d10: definition moved into src/anon/unit_002a7308.cpp
 // ---- 002a8258
 struct VObj436 { void** vt; u8 pad[432]; };
 extern VObj436 (*D_0035f604)[2];
@@ -291,10 +291,10 @@ u8* func_001d56c8(u16);
 s32 func_00276c18(void);
 static inline s32 ok2(u8* v) { return *v < 2; }
 static inline s32 bad2(u8* v) { return ok2(v) ^ 1; }
-s32 func_002a8870(s32 a);  // 0x002a8870: definition moved into src/anon/unit_002a8748.cpp
+s32 Tz__JmMiniGame__isEnable(s32 a);  // 0x002a8870: definition moved into src/anon/unit_002a8748.cpp
 // ---- 002d56a0
 u8* func_0016bc20p(u32, s32, s32) asm("func_0016bc20");
-Vq* func_0016c028v(u32) asm("func_0016c028");
+Vq* func_0016c028v(u32) asm("YS__OBJ__get_pos");
 s32 func_002d56a0(u8* p);  // 0x002d56a0: definition moved into src/anon/unit_002d4548.cpp
 // ---- 002e7e58
 void func_0016bd60(u8*, s32);
@@ -312,7 +312,7 @@ void func_00134d58(void*);
 extern u8 D_00347cc0[];
 struct V4 { f32 x, y, z, w; };
 extern V4 D_00347ce0;
-void func_001e18d8(void*);
+void ryj__LAST_XEMNUS_LASER__ExecTaskFinalizer(void*);
 void func_0023d7c8(void*);
 void func_001ddd88(void*);
 void func_001070e8(void*);
@@ -330,7 +330,7 @@ struct Obj1e2 {
     E16 a[10];
     E16 b[10];
     E16 c[200];
-    ~Obj1e2() { func_001e18d8(this); }
+    ~Obj1e2() { ryj__LAST_XEMNUS_LASER__ExecTaskFinalizer(this); }
 };
 
 struct E408 { void** vt; u8 pad[404]; ~E408() { ((void (*)(E408*))vt[3])(this); } };

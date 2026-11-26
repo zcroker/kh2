@@ -57,14 +57,14 @@ void func_0019f4b8(void*, u16);
 void func_0019f610(void*, u16, u16);
 void W1645_Ctarget(void*, u32, u32) asm("_Z16ctarget_0019f670jjjj");
 void func_00198ae0(W1645Obj*, u16, u16, u16);
-void func_00189e18(W1645Obj*, u16, u16);
+void YS__ANMATR__ReactionCommand(W1645Obj*, u16, u16);
 s32 func_00187400(W1645Obj*, f32);
-s32 func_001874a0(W1645Obj*, f32);
+s32 YS__BTLOBJ__turn_to_lockon_range(W1645Obj*, f32);
 void func_001940a0(W1645Obj*, u16);
 void func_00198aa8(W1645Obj*, u16, u16, u16);
 
 static inline u32 W1645_F588(W1645Obj* o) { return o->flags588 & 1; }
 static inline bool W1645_Flag588b0(W1645Obj* o) { return (u8)W1645_F588(o); }
 
-void func_001892d8(W1645Cmd* cmd, W1645Ctx* ctx);  // 0x001892d8: definition moved into src/anon/unit_00188848.cpp
+void YS__ANMATR__CheckRangeCallback(W1645Cmd* cmd, W1645Ctx* ctx);  // 0x001892d8: definition moved into src/anon/unit_00188848.cpp
 }

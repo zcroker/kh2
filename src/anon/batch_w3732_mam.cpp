@@ -10,10 +10,10 @@ struct Self2823 { Tot2823 total; Ent2823 ent[682]; u8 pad[4]; s32 f1004; s32 f10
 extern "C" {
 s32 func_002811f8(s32, s32);
 Obj2823* func_00281180(s32, s32);
-s32 func_002826f8(Self2823*, s32, s32);
+s32 Tz__ItemInfo__CalcEquipMax(Self2823*, s32, s32);
 s32 func_00281480(s32, s32);
 s32 func_002813b8(void);
 s32 func_00281420(void);
 u16 func_002814b0(s32);
-void func_002823b0(Self2823* self, s32 b, s32 r);  // 0x002823b0: definition moved into src/anon/unit_002823b0.cpp
+void Tz__ItemInfo__SetEquip(Self2823* self, s32 b, s32 r);  // 0x002823b0: definition moved into src/anon/unit_002823b0.cpp
 }

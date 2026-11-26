@@ -15,7 +15,7 @@ s32 func_00181a18();
 void func_001be890(W22PC*, W22Menu*);
 void func_001bf010(W22PC*);
 void func_001be540(W22PC*, W22Menu*);
-void func_001bc780(W22Menu*, s32, s32, s32);
+void YS__COMMAND_MENU__add(W22Menu*, s32, s32, s32);
 
 void func_001be778(W22PC* p);  // 0x001be778: definition moved into src/anon/unit_001bc568.cpp
 

@@ -60,12 +60,12 @@ extern W1636V4 D_01e2bdd0;
 extern W1636V4 D_01e2bde0;
 extern W1636V4 D_01e2bdf0;
 extern W1636V4 D_01e2be00;
-s32 func_0019ba60(void*);
-W1636V4* func_0016c028(void*);  // obj_get_attach_or_alt
+s32 YS__OBJ__is_exist(void*);
+W1636V4* YS__OBJ__get_pos(void*);  // obj_get_attach_or_alt
 W1636Flags* func_001b6d70(s32);  // table_entry_ptr_b
 void* func_0016b740(s32);
 f32 sinf(f32);
-s32 func_002c6490(W1636Cam*);
+s32 worldmap__Camera__update(W1636Cam*);
 
 // Worldmap camera target update (blends the a/b offsets by distance to object 1110 and by depth).
 // Register pins: p in s1, an unused s0 kept live (the original saves s0 but never uses it),

@@ -34,7 +34,7 @@ extern s8 D_0036d748[8] asm("D_0036d748");
 extern s8 D_0036d750[8] asm("D_0036d750");
 void func_001aabd8(void) asm("func_001aabd8");
 void func_002fee78(char*, const char*, ...) asm("func_002fee78");
-void* func_001b1490(void*) asm("func_001b1490");
+void* YS__DATABUFF__ReadBar(void*) asm("YS__DATABUFF__ReadBar");
 W1963Res* func_00168b38(void*, s32, s32) asm("func_00168b38");
 W1963Res* func_00168b88(void*, s32, s32, s32) asm("func_00168b88");
 s32 func_00105c30(void) asm("func_00105c30");
@@ -47,7 +47,7 @@ void func_001aaa08(void)
     func_001aabd8();
     s32 f = 0;
     func_002fee78(buf, D_00350a28, D_0033caf4);
-    void* h = func_001b1490(buf);
+    void* h = YS__DATABUFF__ReadBar(buf);
     u32 v = func_00168b88(h, 2, TAG(D_0036d740), 0)->data;
     e[5].d1c = v;
     e[2].d1c = v;
@@ -117,11 +117,11 @@ void func_001aad28(s16 a0, s16 a1, s16 a2, s16 a3, s16 a4, u32 a5) {
 // 001aadb0 (from src/anon/batch_w18.cpp)
 namespace n001aadb0 {
 extern u8 D_01c6cd20[] asm("D_01c6cd20");
-void func_002362b0(void*, u32) asm("func_002362b0");
+void YI__IMAGE__Init(void*, u32) asm("YI__IMAGE__Init");
 void func_002367c8(void*) asm("func_002367c8");
 void func_001aadb0(u32 a) asm("func_001aadb0");
 void func_001aadb0(u32 a) {
-    func_002362b0(D_01c6cd20, a);
+    YI__IMAGE__Init(D_01c6cd20, a);
     func_002367c8(D_01c6cd20);                            
 }
 } // n001aadb0

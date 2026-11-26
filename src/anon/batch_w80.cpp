@@ -276,9 +276,9 @@ extern "C" {
 U0_Hdr* func_00120800(U0_Obj*);  // obj_get_sub_ptr_by12
 u32 func_001319d8(u32, f32);
 void func_0013b348(u32);
-void func_002362b0(u8*, u32);
+void YI__IMAGE__Init(u8*, u32);
 s32 func_0013a9d0(void);
-void func_002368e8(u8*, f32);
+void YI__IMAGE__ClutGray(u8*, f32);
 void func_002367c8(u8*);  // obj_dispatch_bitfield64
 void func_0013d4c8(void);
 u8* func_0013cb80(void);  // get_global_358050
@@ -300,7 +300,7 @@ char* func_002ff8b0(char*, s32);
 void func_002ff2e8(char*, const char*);
 void func_001700e8(U0_Blk*, u32);
 s32 func_0019c090(U0_Act*);  // obj_is_enabled
-s32 func_001b9d40(U0_Act*);  // vtable_call_slot64_flags
+s32 YS__OBJ__can_control(U0_Act*);  // vtable_call_slot64_flags
 U0_Mot* func_00177860(U0_Act*);
 void func_0016bd60(U0_Act*, u32);
 s32 func_0019c400(U1_Turn*);
@@ -310,30 +310,30 @@ void func_0016aeb8(U1_Turn*, f32);
 void func_002cb708(void*);
 void func_00105110(void*);
 void* func_0019b328(void*, u32);
-void* func_00182e08(u32);
-HasF4* func_0016c028(void*);  // obj_get_attach_or_alt
+void* YS__UNIT__GetPath(u32);
+HasF4* YS__OBJ__get_pos(void*);  // obj_get_attach_or_alt
 void* func_002cd018(U1_Eff*, void*, HasF4*, f32);
 s32 func_001d96e8(s32, s32);
 void func_00192cc0(char*, const char*, s32);
 void func_00192e50(u32, char*, u32, char*, char*, char*, char*, char*, char*);
 s32 func_0019f528(u8*, s32);  // test_bit_by_index
 s32 func_0019f550(u8*, s32);  // test_bit_addressable
-U2_Lvl* func_001b6fb0(void*, u32);
+U2_Lvl* YS__LEVELUP__Get(void*, u32);
 void func_001b72c0(U2_Lvl*, void*, u32, u32);
-void func_001b7428(U2_GrowOwn*);
+void YS__LEVELUP__ShowEffect(U2_GrowOwn*);
 void func_001a1460(u32);
-s32 func_00186ce8(u32);
+s32 YS__BTLOBJ__is_damage_motion(u32);
 f32 func_00184a90(U4_Mover*);
 void func_0017f488(u8*, u32, f32, f32);
 void func_001e8fe0(U5_Rot*, s32*);
 void func_0021efa8(U6_Osc*, u32);
-s32 func_002282f0(s32);
+s32 sa__EVENT__checkStart(s32);
 s32 func_002baa20(u32);
 void func_002b797c(u32, u32, s32);
 f32 sinf(f32);
 f32 cosf(f32);
 s32 func_00287bc0(void);
-void func_00287d68(void);  // copy_globals_3words
+void Tz__MenuBase__SaveMode(void);  // copy_globals_3words
 s32 func_00287db0(void);
 s32 func_0028acc8(u32);
 s32 func_00139d78(void*);
@@ -356,7 +356,7 @@ void func_0028abe0(u32);
 U12_VObj* func_00276348(void);
 s32 func_0028be58(u32);
 void func_0028be18(u32);
-void func_002766e0(void);
+void Tz__Jiminy__LeaveSeqTbl(void);
 void func_00287b18(u32, u32);
 void* func_00288be8(u32);
 void func_002889f0(void*, u32, u32);
@@ -364,14 +364,14 @@ void func_00288f48(void*, u32, u32, u32, u32);
 void func_00287bd0(u32, u32);
 U13_SysInfo* func_00103eb0(void);
 void func_0024e7e8(void);
-void func_00102818(u32, u32, u32, void (*)(void), u32);
+void TASK_MANAGER__create_thread(u32, u32, u32, void (*)(void), u32);
 u32 func_002891e8(u32);
 s32 func_00252110(u32);
 void func_0028da70(U14_CurObj*, s32);
 void func_0028d8c0(U14_CurObj*, u32, u32, u32, u32, s32, s32, u32);
 s32 func_00181500(u32);
 U17_GotList* func_00294000(u32);
-s32 func_002a8920(u32);
+s32 Tz__JmMiniGame__isPlay(u32);
 U18_Evt* func_001a82b0(U18_Evt*);
 U18_EvtInfo* func_001a80c8(u32);  // table24_find_by_id
 s32 func_002a43b0(U18_Evt*);
@@ -390,7 +390,7 @@ void func_0014c9f0(u32);
 void func_00320fa8(u8*);
 s32 func_00197920(U23_W80Obj*);
 void func_002e1440(U23_W80Obj*, U23_W80Vec*, U23_W80Vec*, U23_W80Vec*);
-U23_W80Vec* w80_pos_vec(void*) asm("func_0016c028");
+U23_W80Vec* w80_pos_vec(void*) asm("YS__OBJ__get_pos");
 U23_AiParam* func_002d73f0(U23_Ai*);
 s32 func_002ceef8(U23_Ai*, U23_AiTgt*);
 U24_W80Eff* func_001db888(U24_W80Heap*, u32, void*);  // record_index_calc
@@ -406,7 +406,7 @@ static inline bool func_00170b30_locked(U0_Blk* b) { return b->f40 >= 10000; }
 static inline bool func_00179450_flag(U0_Act* a) { return (a->sub->f8 & 2) || (a->f352 & 0x40); }
 static inline bool func_00179450_busy(U0_Act* a) { bool b = func_0019c090(a) || func_00179450_flag(a); return b == false; }
 // clear the low two flag bits of every entry matching id (-1 = all)
-void func_001214c0(U0_Obj* p, u8* flags, s32 id);  // 0x001214c0: definition moved into src/anon/unit_00120520.cpp
+void kn__ModelSKL__hidePart(U0_Obj* p, u8* flags, s32 id);  // 0x001214c0: definition moved into src/anon/unit_00120520.cpp
 void func_00131da8(U0_Node* n);  // 0x00131da8: definition moved into src/anon/unit_00131418.cpp
 void func_0013d550(u32 a, u32 b);  // 0x0013d550: definition moved into src/anon/unit_0013a8b8.cpp
 // 00159fd0: moved to src/harata/libdk/targetcamera.cpp
@@ -422,17 +422,17 @@ u32 func_00170b30(u32 size);  // 0x00170b30: definition moved into src/anon/unit
 // 00184ad0: moved to src/anon/unit_00183088.cpp
 // 00184eb8: moved to src/anon/unit_00183088.cpp
 // 001920f0: moved to src/yasui/libys/message.cpp
-s32 func_0019bd08(U1_Lk* o, s32 n);  // 0x0019bd08: definition moved into src/anon/unit_0019ba60.cpp
+s32 YS__OBJ__is_enable_collision(U1_Lk* o, s32 n);  // 0x0019bd08: definition moved into src/anon/unit_0019ba60.cpp
 
 #define U2_W80_MAX(a, b) ((a) > (b) ? (a) : (b))
 // level up while the experience requirement is met
-void func_001b71e8(void* o, U2_Grow* g, U2_GrowOwn* own);  // 0x001b71e8: definition moved into src/anon/unit_001b6a50.cpp
+void YS__LEVELUP__Check(void* o, U2_Grow* g, U2_GrowOwn* own);  // 0x001b71e8: definition moved into src/anon/unit_001b6a50.cpp
 
 #define U3_W80_MAX(a, b) ((a) > (b) ? (a) : (b))
 void func_001c0490(U3_TmrSet* s);  // 0x001c0490: definition moved into src/anon/unit_001bff88.cpp
 
 
-void func_001c39d0(void* self, U4_Mover* m);  // 0x001c39d0: definition moved into src/anon/unit_001c2b58.cpp
+void YS__ACTION_GLIDEHOVER___control(void* self, U4_Mover* m);  // 0x001c39d0: definition moved into src/anon/unit_001c2b58.cpp
 
 static inline void U5_w80_scale_row(f32* row, f32 s) {
     asm volatile("qmtc2 %1, $vf9\n\tlqc2 $vf10, 0(%0)\n\tvmulx.xyz $vf10, $vf10, $vf9x\n\tsqc2 $vf10, 0(%0)" : : "r"(row), "r"(s) : "memory");
@@ -477,7 +477,7 @@ void w80_JmBattle_LeaveAllInner(void);  // 0x002a67a8: definition moved into src
 void func_0024e678(void);  // 0x0024e678: definition moved into src/anon/unit_0024cda8.cpp
 
 static inline void U14_w80_cur_setflag(U14_CurSub* s, u32 f) { s->f184 |= f; }
-void func_00252540(void);  // 0x00252540: definition moved into src/anon/unit_00250fb8.cpp
+void Tz__CANA__UpdateGra(void);  // 0x00252540: definition moved into src/anon/unit_00250fb8.cpp
 
 
 s32 func_0027ed48(s32 key);  // 0x0027ed48: definition moved into src/anon/unit_0027e920.cpp
@@ -506,7 +506,7 @@ void func_003259a0(u8* o);  // 0x003259a0: definition moved into src/anon/unit_0
 
 
 s32 func_002d8a78(U23_Ai* a, U23_AiTgt* t);  // 0x002d8a78: definition moved into src/anon/unit_002d6f70.cpp
-void func_002e1668(U23_W80Obj* o, void* p, const U23_W80Vec* ofs, U23_W80Vec* acc);  // 0x002e1668: definition moved into src/anon/unit_002de3c8.cpp
+void Ti__MG_ALEscape___check_collision(U23_W80Obj* o, void* p, const U23_W80Vec* ofs, U23_W80Vec* acc);  // 0x002e1668: definition moved into src/anon/unit_002de3c8.cpp
 
 
 U24_W80Eff* func_002ed350(U24_W80Own* own, u32 a1, const U24_W80Param* prm, u32 a3, const U24_W80Vec* pos);  // 0x002ed350: definition moved into src/anon/unit_002ecdb0.cpp

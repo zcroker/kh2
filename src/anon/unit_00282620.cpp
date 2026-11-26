@@ -59,8 +59,8 @@ s32 func_00281480(s32, s32) asm("func_00281480");
 s32 func_002813b8() asm("func_002813b8");
 s32 func_00281420_x9060() asm("func_00281420");
 /*TARGET 002826f8*/
-s32 func_002826f8(u8* p, s32 a, s32 k) asm("func_002826f8");
-s32 func_002826f8(u8* p, s32 a, s32 k) {
+s32 Tz__ItemInfo__CalcEquipMax(u8* p, s32 a, s32 k) asm("Tz__ItemInfo__CalcEquipMax");
+s32 Tz__ItemInfo__CalcEquipMax(u8* p, s32 a, s32 k) {
     s32 r = 0;
     u8* t = *(u8**)(func_00281180_x9057(*(s32*)(p + 4100)) + 580);
     switch (k) {
@@ -105,11 +105,11 @@ void func_00282b00(u8*, s32, s32) asm("func_00282b00");
 // Runs 00281f70, then one of two handlers depending on the flag at +4104.
 // Register pins only (no asm): this in s2 and the call arguments set up before the branch,
 // as the original does.
-void func_002827f0(u8* a, s32 b, s32 c) asm("func_002827f0");
+void Tz__ItemInfo__MakeMsgTbl(u8* a, s32 b, s32 c) asm("Tz__ItemInfo__MakeMsgTbl");
 // Runs 00281f70, then one of two handlers depending on the flag at +4104.
 // Register pins only (no asm): this in s2 and the call arguments set up before the branch,
 // as the original does.
-void func_002827f0(u8* a, s32 b, s32 c) {
+void Tz__ItemInfo__MakeMsgTbl(u8* a, s32 b, s32 c) {
     func_00281f70(a, b, c);
     register u8* p asm("$18") = a;
     s32 t = *(s32*)(p + 4104);
@@ -157,7 +157,7 @@ extern char D_003741e8[] asm("D_003741e8");
 GInfo* func_001a80c8(u32) asm("func_001a80c8");
 // table24_find_by_id
 u32 func_001a3820(u32) asm("func_001a3820");
-GItem* func_001b8e88(u32) asm("func_001b8e88");
+GItem* YS__COMMAND_ELEM__Get(u32) asm("YS__COMMAND_ELEM__Get");
 s32 func_001a6598(u32) asm("func_001a6598");
 void func_00259570(u32, char*, s32, s32) asm("func_00259570");
 s32 func_002595e0(void) asm("func_002595e0");
@@ -176,7 +176,7 @@ void func_00282940(GObj* obj, s32 start, s32 n) {
         GInfo* info = func_001a80c8(obj->e[idx].id);  // table24_find_by_id
         u8 kind = info->b2;
         if (kind == 0 || kind == 18) {
-            GItem* item = func_001b8e88(func_001a3820(info->h0));
+            GItem* item = YS__COMMAND_ELEM__Get(func_001a3820(info->h0));
             u32 msg = item->f8;
             char* p = obj->rows[i].buf;
             if (info->b2 == 0) arg = obj->e[idx].b3 != 0;

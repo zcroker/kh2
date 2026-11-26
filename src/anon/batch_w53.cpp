@@ -59,10 +59,10 @@ void func_0011c438(u8*);
 void* func_0011e7e0(u32, void*, u32, u32, u32);
 void func_00132370(void*, f32);
 u8* func_00124748(u32, u32);  // list_nth_node_rel
-void func_00239988(u8*);
+void YI__SEQUENCE__Init(u8*);
 void func_00138c10(u8*, u32);
-void func_0013f230(void);
-void func_0015d540(void);
+void dk__JumpEffect__out(void);
+void dk__KeyHoleJumpEffect__out(void);
 void func_0013f378(void);
 void func_0013f498(void);
 void func_0014df88(void);
@@ -76,19 +76,19 @@ void func_0014dc08(u8*);
 void func_0014dd10(u8*);
 u32 func_001050c8(void);
 u32 func_00190140(u8*);
-void func_00190f80(u8*, u8*, f32);
+void YS__TARGET__search_auto_lockon(u8*, u8*, f32);
 void func_0019ca90(u32, u32, u8*);
 void func_0019d358(u32);
-void func_00184540(Q16*, u8*);
-f32 func_0017c930(u8*, u8*);
+void kn__MotionPrototype0__calcLimitValue(Q16*, u8*);
+f32 YS__ACTION_JUMP__calc_movement_y(u8*, u8*);
 u32 func_00187ab8(u32);
 void func_0031cc28(u32*);
 void func_00191938(u32);
 void func_00191bf0(f32);
-u32 func_0019ba60(u8*);
+u32 YS__OBJ__is_exist(u8*);
 void func_0016bd60(u8*, u32);
 void func_0017f540(u8*, u32, f32, f32);
-void func_001c39d0(u8*, u8*);
+void YS__ACTION_GLIDEHOVER___control(u8*, u8*);
 void func_001c6320(void);
 void func_00224828(s32);
 void func_0022afe8(s32);
@@ -104,15 +104,15 @@ u32 func_001708f8(u32, s32);
 void func_00290960(u8*, u32, u32);
 u32 func_002cab58(u32);
 void func_002c9f20(u8*);
-void func_002c90c8(void*, u32);
+void dk__WM_GLANDING_INFO__WM_GLANDING_INFO(void*, u32);
 u8* func_00102c80(void);
 u8* func_00102788(u32, u32, u32, u32);
 void func_002cfeb0(u8*, u32, u32, u32);  // obj_init_field1416_bit800
 void func_002e7308(u8*);
-void func_002def70(u8*);
+void Ti__ACTION_PO_JUMP__on_land(u8*);
 u8* func_002dc7c8(u32);
 void func_002deac0(u8*, f32, f32);  // set_float24_scaled
-void func_002deba0(u8*, u32, f32, f32);
+void Ti__ACTION_PO_JUMP__decide_way(u8*, u32, f32, f32);
 void func_001002a0(s32) __attribute__((noreturn));
 
 // Find the first free slot whose key matches the current key and clear it.
@@ -123,14 +123,14 @@ void func_0011c3b0(u8* p);  // 0x0011c3b0: definition moved into src/anon/unit_0
 
 void wtarget_0011e9a8(u32 a, u32 b, u32 c, u32 d, f32 x);  // 0x0011e9a8: definition moved into src/anon/unit_0011c128.cpp
 
-u32 func_00124578(u32 a0, u32 a1, u32 a2, u32 a3, u32 t0, u32 t1, u8 t2, u32 t3);  // 0x00124578: definition moved into src/anon/unit_00123990.cpp
+u32 kn__ModelMulti__draw(u32 a0, u32 a1, u32 a2, u32 a3, u32 t0, u32 t1, u8 t2, u32 t3);  // 0x00124578: definition moved into src/anon/unit_00123990.cpp
 
 void func_001387f8(u8* p, u32 a1, u32 a2, u32 a3);  // 0x001387f8: definition moved into src/anon/unit_00138480.cpp
 
 void func_0013f050(s32 a);  // 0x0013f050: definition moved into src/anon/unit_0013ef70.cpp
 
 static inline bool ready_14a0a0() { return *(u32*)(func_0014aba8() + 252) == 4; }
-void func_0014a0a0(u8* p);  // 0014a0a0: moved to src/anon/unit_00149fa8.cpp
+void dk__Field__execTitle_task(u8* p);  // 0014a0a0: moved to src/anon/unit_00149fa8.cpp
 
 // 0014e1f0: moved to src/anon/unit_0014d680.cpp
 
@@ -151,21 +151,21 @@ void func_001882a8(u8* p);
 // 00191758: moved to src/yasui/libys/status.cpp
 
 // Add d to a 0..99 sub-counter at +432, carrying into the level at +433 (capped by +434).
-void func_001a1aa0(u8* p, s32 d);  // 0x001a1aa0: definition moved into src/anon/unit_0019fb70.cpp
+void YS__SHEET__add_drive(u8* p, s32 d);  // 0x001a1aa0: definition moved into src/anon/unit_0019fb70.cpp
 
 // 001a6850: moved to src/yasui/libys/magic.cpp
 
 // Allocate an id 1..255 from a 256-bit bitmap, round-robin.
 u32 func_001bffd8(void);  // 0x001bffd8: definition moved into src/anon/unit_001bff88.cpp
 
-void func_001c3aa0(u8* a, u8* b);  // 0x001c3aa0: definition moved into src/anon/unit_001c2b58.cpp
+void YS__ACTION_GLIDEHOVER__control(u8* a, u8* b);  // 0x001c3aa0: definition moved into src/anon/unit_001c2b58.cpp
 
 // VU0 vector scale (v * 30) into p+64.
 void func_001c6400(u8* p, Q16* v);  // 0x001c6400: definition moved into src/anon/unit_001c5b90.cpp
 
 void func_0022afa0(s32 a);  // 0022afa0: moved to src/sasa/musical_input.cpp (linked unit)
 
-void func_002368e8(u8* p, f32 x);  // 0x002368e8: definition moved into src/anon/unit_00236180.cpp
+void YI__IMAGE__ClutGray(u8* p, f32 x);  // 0x002368e8: definition moved into src/anon/unit_00236180.cpp
 
 u32 func_002402e0(void);  // 0x002402e0: definition moved into src/anon/unit_0023f5b8.cpp
 
@@ -176,19 +176,19 @@ void func_00258080(s32* a, s32* b);  // 0x00258080: definition moved into src/an
 
 void func_0028e438(u8* p, s32 i, u32 v, u32 w);  // 0028e438: moved to src/anon/unit_0028c878.cpp
 
-void func_00290a10(u8* p, u32 a, u32 b);  // 00290a10: moved to src/anon/unit_0028f1e0.cpp
+void Tz__MenuFile__alloc(u8* p, u32 a, u32 b);  // 00290a10: moved to src/anon/unit_0028f1e0.cpp
 
-void func_002ca010(u32 a);  // 0x2ca010: moved to src/anon/unit_002c9998.cpp
+void dk__WM_GLANDING_INFO__start(u32 a);  // 0x2ca010: moved to src/anon/unit_002c9998.cpp
 
 
-void func_002cedd0(s32 n, E16* e);  // 002cedd0: moved to src/taito/minigame_base.cpp (linked unit)
+void Ti__MiniGame__create_task(s32 n, E16* e);  // 002cedd0: moved to src/taito/minigame_base.cpp (linked unit)
 
 // Wrap an angle into [-pi, pi].
 f32 func_002d48b8(f32 x);  // 0x002d48b8: definition moved into src/anon/unit_002d4548.cpp
 
 void func_002db808(u8* p, u32 a, u32 b);  // 0x002db808: definition moved into src/anon/unit_002da040.cpp
 
-void func_002df7d8(u8* p, u32 b);  // 0x002df7d8: definition moved into src/anon/unit_002de3c8.cpp
+void Ti__ACTION_PO_JUMP_ROO__on_land(u8* p, u32 b);  // 0x002df7d8: definition moved into src/anon/unit_002de3c8.cpp
 
 // Returns (o+16) scaled by D_00363440 (VU0).
 Q16* func_002eaba8(Q16* ret, u32, u8* o);  // 002eaba8: moved to src/anon/unit_002eaa68.cpp

@@ -53,7 +53,7 @@ void Radar_create(RadarS*, void*) asm("_ZN2dk5Radar6createEPv");
 void Radar_create(RadarS* self, void* data);  // 0x0015b7c0: definition moved into src/anon/unit_0015b100.cpp
 
 extern u32 D_0032e020;
-void* func_00189200(void*, u32);
+void* YS__SAVERAM_BATTLE__get_formram(void*, u32);
 void func_001891b8(void*, u32);
 void trap_saveram_set_form_ability(u32*) asm("_ZN2YS29trap_saveram_set_form_abilityEP8BD_VALUE");
 // 0016e130: moved to src/anon/unit_0016d2e0.cpp
@@ -63,17 +63,17 @@ struct P173 { u8** a; Q16* q; f32 f; };
 void func_0019fdc0(u8*, Q16*, f32);
 void func_00173808(P173* p);  // 0x00173808: definition moved into src/anon/unit_00171e58.cpp
 
-void func_0017c4c8(void*, Q16*);
+void YS__OBJ__prepare_jump(void*, Q16*);
 void func_0016bd60(void*, s32);
 // 0017a8f8: moved to src/anon/unit_0017a8f8.cpp
 
 s32 func_001860b0(void*);
-void func_001c1b08(void*, u32, s32);
+void YS__BTLOBJ__tornado(void*, u32, s32);
 // 00186948: moved to src/anon/unit_00185d10.cpp
 void func_00186948(void* a, u8* b);
 
 struct Obj198 { u8 pad[1416]; u32 active : 1; };
-Obj198* func_001b9bc8(Obj198*);
+Obj198* YS__OBJ__Each(Obj198*);
 // 00198700: moved to src/anon/unit_00197fe0.cpp
 
 
@@ -95,13 +95,13 @@ void func_00106420(void*);
 void func_001b01d8(void** p);  // 0x001b01d8: definition moved into src/anon/unit_001ada38.cpp
 
 void* func_001b77a8(s32);
-void func_00153468(void*, u32, void*);
-void func_001b7768(u32* a, void* b);  // 0x001b7768: definition moved into src/anon/unit_001b6a50.cpp
+void dk__LEVELUP_INFO__openSummon(void*, u32, void*);
+void YS__LEVELUP__INFO__show_summon(u32* a, void* b);  // 0x001b7768: definition moved into src/anon/unit_001b6a50.cpp
 
 struct P1be { u8 pad[2728]; u32 a; u32 b; };
 void func_001bd668(void*);
 void func_001bd5b0(void*, s32, s32);
-void func_001befd8(P1be* p, u32 a, u32 b);  // 0x001befd8: definition moved into src/anon/unit_001bc568.cpp
+void YS__FIELD_COMMAND__set_minigame(P1be* p, u32 a, u32 b);  // 0x001befd8: definition moved into src/anon/unit_001bc568.cpp
 
 extern u8* D_01d49508;
 extern u32 D_00320898;
@@ -111,7 +111,7 @@ s32 func_001c10f8(void* a);
 
 struct E1c5 { u8 pad[20]; s32 n; u8 pad2[8]; };
 extern E1c5 D_00351680[];
-void func_001c5e88(void*);
+void YS__CROWD_M_EX760__ActionLeave(void*);
 s32 func_001c5f38(u8* p);  // 0x001c5f38: definition moved into src/anon/unit_001c5b90.cpp
 
 extern u16 D_0032fafe[];
@@ -188,7 +188,7 @@ extern u32 D_00363c2c;
 extern u32 D_00363c28;
 extern u32 D_01e2c100;
 void func_002f1a68(void);
-void func_00168388(u32, void*, void (*)(void), s32);
+void YS__FILE__ReadBack(u32, void*, void (*)(void), s32);
 void func_002f1a80(void);  // 0x002f1a80: definition moved into src/anon/unit_002f1a68.cpp
 
 extern u32 D_00347e60;
@@ -196,7 +196,7 @@ void func_00239870(void*);
 u8 func_0031a840(void*);
 s32 func_0031a508(u8* p);  // 0x0031a508: definition moved into src/anon/unit_003197d0.cpp
 
-void func_0031f940(u8* p);  // 0x0031f940: definition moved into src/anon/unit_0031f2f8.cpp
+void YS__WINDOW_OBJ2D__draw(u8* p);  // 0x0031f940: definition moved into src/anon/unit_0031f2f8.cpp
 
 extern u32 D_00351100;
 void func_0031fec0(void*);

@@ -33,15 +33,15 @@ struct Obj187
 };
 extern u32 D_01c60bc0[];
 extern f32 D_00349e10;
-s32 func_0016cd48(s32, s32);
+s32 YS__VM__exec(s32, s32);
 void func_0016d110(void) asm("_Z17ttarget0_0016d110v");
 void func_00187b90(Obj187 *) asm("_Z17ctarget0_00187b90v");
 s32 func_00187be8(Obj187 *);
 s32 func_00187e20(Obj187 *);
-s32 func_00187e58(Obj187 *);
+s32 YS__ACT__is_damage_motion(Obj187 *);
 void func_001884d0(Obj187 *, s32 *);
 s32 func_001886d0(Obj187 *);
 // 00187ca0: moved to src/anon/unit_00185d10.cpp
-void func_00187ca0(Obj187 *p);
+void YS__ACT__exec(Obj187 *p);
 
 }

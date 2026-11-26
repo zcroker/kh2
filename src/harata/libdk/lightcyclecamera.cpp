@@ -13,16 +13,16 @@ struct C159070 { VTC159070* vt; };
 struct O159070 { u8 pad[68]; C159070* c; };
 
 extern "C" {
-s32 func_001b9d40(C159070*);
+s32 YS__OBJ__can_control(C159070*);
 V159070 func_001904a8(YS::TARGET*);
 void func_0015a260(O159070*, V159070*, f32);
 u32 func_00167f18(u32);
 void func_0015a158(u32, O159070*);
 void func_0015a528(O159070*);
-void func_00141010(f32);
+void dk__ObjCamera__cancelSubjective(f32);
 
 void func_00159070(O159070* o) {
-    if (func_001b9d40(o->c) || !D_0034a9f0.is_exist()) {
+    if (YS__OBJ__can_control(o->c) || !D_0034a9f0.is_exist()) {
         dk::LightCycleCamera::create();
     } else {
         V159070 v = func_001904a8(&D_0034a9f0);
@@ -33,8 +33,8 @@ void func_00159070(O159070* o) {
     }
 }
 
-void func_00159130(YS::TARGET* a) {
-    func_00141010(30.0f);
+void dk__ReactionCamera__create(YS::TARGET* a) {
+    dk__ObjCamera__cancelSubjective(30.0f);
     *(u32*)((u8*)dk::ObjCamera::getInstance() + 64) = 3;
     D_0034a9f0 = *a;
 }

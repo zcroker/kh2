@@ -4,7 +4,7 @@ namespace Tz {
 
 extern "C" u32 func_001a3570(...);
 extern "C" u32 func_00287bc0(...);
-extern "C" void func_002a41f0(...);
+extern "C" void Tz__JmTreasure__LeaveList(...);
 extern "C" void func_00274ac8(...) asm("_ZN2Tz6Jiminy13JmCommonLeaveEv");
 
 // 0x002a2150: definition moved into src/anon/unit_002a1d38.cpp

@@ -286,8 +286,8 @@ namespace n0014ca80 {
 u32 func_0014ca78(u32) asm("func_0014ca78");
 s32 __fixunssfsi(f32) asm("__fixunssfsi");
 /*TARGET 0014ca80*/
-void func_0014ca80(u32 a0, u32* h, u32* m, u32* s, s32* cs) asm("func_0014ca80");
-void func_0014ca80(u32 a0, u32* h, u32* m, u32* s, s32* cs)
+void dk__Clock__vCountToHMSMS(u32 a0, u32* h, u32* m, u32* s, s32* cs) asm("dk__Clock__vCountToHMSMS");
+void dk__Clock__vCountToHMSMS(u32 a0, u32* h, u32* m, u32* s, s32* cs)
 {
     u32 t = func_0014ca78(a0);
     *h = t / 216000; t %= 216000;
@@ -304,8 +304,8 @@ void func_0014ca80(u32 a0, u32* h, u32* m, u32* s, s32* cs)
 namespace n0014cb58 {
 u32 func_001058e8(...) asm("func_001058e8");
 /*TARGET 0014cb58*/
-void func_0014cb58() asm("_Z13func_0014cb58v");
-void func_0014cb58() {
+void dk__Clock__newGame() asm("_Z18dk__Clock__newGamev");
+void dk__Clock__newGame() {
     u32 v0 = func_001058e8();
     *(volatile u32*)((u32)v0 + (s32)(9284)) = 0u;
     u32 t7 = (u32)((s32)v0 + (9284));
@@ -325,10 +325,10 @@ u32 func_001058e8(u32, u32, u32, u32) asm("_Z13func_001058e8jjjj");
 /*TARGET 0014cba0*/
 // 0014a2c8: moved to src/anon/unit_00149fa8.cpp
 
-u32 func_0014cba0(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z13func_0014cba0jjjj");
+u32 dk__Clock__getPlayTime(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z22dk__Clock__getPlayTimejjjj");
 // 0014a2c8: moved to src/anon/unit_00149fa8.cpp
 
-u32 func_0014cba0(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 dk__Clock__getPlayTime(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u;
     r2 = func_001058e8(r4, r5, r6, r7);
     r2 = *(u32*)((u32)r2 + (s32)(9284));
@@ -352,7 +352,7 @@ u32 func_0014cbc0(u32 a0, u32 a1, u32 a2, u32 a3) {
 // 0014cbe0 (was src/harata/libdk/clock.cpp)
 namespace dk { // method 0014cbe0
 u32 func_001058e8(...) asm("func_001058e8");
-u32 func_0014ca80(...) asm("func_0014ca80");
+u32 dk__Clock__vCountToHMSMS(...) asm("dk__Clock__vCountToHMSMS");
 /*TARGET 0014cbe0*/
 u32 Clock::getPlayTimeToHMSMS(u32& a0, u32& a1, u32& a2, u32& a3) {
     u32 s0 = (u32)&a0;
@@ -360,20 +360,20 @@ u32 Clock::getPlayTimeToHMSMS(u32& a0, u32& a1, u32& a2, u32& a3) {
     u32 s2 = (u32)&a2;
     u32 s3 = (u32)&a3;
     u32 v0 = func_001058e8();
-    return func_0014ca80(*(u32*)(v0 + 9284), s0, s1, s2, s3);
+    return dk__Clock__vCountToHMSMS(*(u32*)(v0 + 9284), s0, s1, s2, s3);
 }
 }  // dk
 
 // 0014cc40 (was src/anon/batch_w1521.cpp)
 namespace n0014cc40 {
 void* getSaveRam_w1521(void) asm("_Z10getSaveRamv");
-void func_0014ca80(s32, s32, s32, s32, s32) asm("func_0014ca80");
+void dk__Clock__vCountToHMSMS(s32, s32, s32, s32, s32) asm("dk__Clock__vCountToHMSMS");
 /*TARGET 0014cc40*/
 void func_0014cc40(s32 a0, s32 a1, s32 a2, s32 a3, s32 idx) asm("func_0014cc40");
 void func_0014cc40(s32 a0, s32 a1, s32 a2, s32 a3, s32 idx) {
     u8* b = (u8*)getSaveRam_w1521() + 0x2444;
     asm("" : "+r"(b)); /* keeps base+0x2444 apart from the +8 field offset */
-    func_0014ca80(((s32*)b)[idx + 2], a0, a1, a2, a3);
+    dk__Clock__vCountToHMSMS(((s32*)b)[idx + 2], a0, a1, a2, a3);
 }
 }  // namespace n0014cc40
 
@@ -501,8 +501,8 @@ void func_0014ce50(f32 a0, u32 a1, u32 a2, u32 a3) {
 namespace n0014ce60 {
 extern f32 D_00349e0c asm("D_00349e0c");
 /*TARGET 0014ce60*/
-void func_0014ce60(void) asm("func_0014ce60");
-void func_0014ce60(void) { D_00349e0c = 1.0f; }
+void dk__Vsync__initGameSpeed(void) asm("dk__Vsync__initGameSpeed");
+void dk__Vsync__initGameSpeed(void) { D_00349e0c = 1.0f; }
 }  // namespace n0014ce60
 
 // 0014ce78 (was src/anon/tiny.cpp)
@@ -598,7 +598,7 @@ namespace n0014cfc8 {
 // obj_dispatch_bitfield64
 void func_0014ce20(s32) asm("func_0014ce20");
 void func_0014ce30(s32) asm("func_0014ce30");
-void func_0014ce60(void) asm("func_0014ce60");
+void dk__Vsync__initGameSpeed(void) asm("dk__Vsync__initGameSpeed");
 extern volatile s32 D_00349e04 asm("D_00349e04");
 extern volatile s32 D_00349e08 asm("D_00349e08");
 /*TARGET 0014cfc8*/
@@ -610,7 +610,7 @@ void func_0014cfc8(void) asm("func_0014cfc8");
 void func_0014cfc8(void) {
     func_0014ce20(1);
     func_0014ce30(1);
-    func_0014ce60();
+    dk__Vsync__initGameSpeed();
     D_00349e04 = 0;
     D_00349e08 = 0;
 }

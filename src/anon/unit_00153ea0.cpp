@@ -17,7 +17,7 @@ public:
     void getOffsetPos(s32&, s32&);
 }; }
 namespace src0 {
-u32 func_001386e0(...) asm("func_001386e0");
+u32 dk__Sprite__create(...) asm("dk__Sprite__create");
 u32 func_0013c7d0(...) asm("func_0013c7d0");
 u32 func_00138c10(...) asm("func_00138c10");
 u32 func_001395a8(...) asm("func_001395a8");
@@ -26,20 +26,20 @@ u32 func_0023f800(...) asm("func_0023f800");
 u32 func_0023fa08(...) asm("func_0023fa08");
 u32 func_0023f948(...) asm("func_0023f948");
 u32 func_0023f908(...) asm("func_0023f908");
-u32 func_0023eea0(u32, u32, u32, u32, u32, u32) asm("func_0023eea0");
+u32 Tz__Layout__create(u32, u32, u32, u32, u32, u32) asm("Tz__Layout__create");
 u32 func_0023f848(...) asm("func_0023f848");
 u32 func_001708f8(...) asm("func_001708f8");
 void func_00153cc8(u32, u32, u32, u32, u32) asm("func_00153cc8");
 u32 func_0016c060(...) asm("func_0016c060");
 void func_00154100(u32, u32, u32) asm("func_00154100");
-u32 func_002362b0(...) asm("func_002362b0");
+u32 YI__IMAGE__Init(...) asm("YI__IMAGE__Init");
 void func_00236410(u32, u32) asm("func_00236410");
 void func_00236428(u32, u32) asm("func_00236428");
 void func_002367c8(u32) asm("func_002367c8");
 u32 func_00154288(u32, u32) asm("func_00154288");
 void func_00154af0(u32) asm("func_00154af0");
 void func_00154b98(u32, u32) asm("func_00154b98");
-void func_0014fcd8(u32) asm("func_0014fcd8");
+void dk__INFO_BASE__update(u32) asm("dk__INFO_BASE__update");
 u32 func_00154950(u32) asm("func_00154950");
 u32 func_0013dda0(u32) asm("func_0013dda0");
 void func_001542c8(u32, u32, u32) asm("func_001542c8");
@@ -59,7 +59,7 @@ u32 func_00156030(u32) asm("func_00156030");
 u32 func_001396b0(...) asm("func_001396b0");
 u32 func_0031a260(...) asm("func_0031a260");
 u32 func_001565a8(...) asm("func_001565a8");
-u32 func_00155ee8(u32) asm("func_00155ee8");
+u32 dk__GAUGE_PLAYER__getDriveInSqNum(u32) asm("dk__GAUGE_PLAYER__getDriveInSqNum");
 
 
 u32 fn(...);
@@ -68,7 +68,7 @@ void func_00153ea0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4) asm("func_00153ea0");
 u32 func_001541d8(u32 a0, u32 a1, u32 a2) asm("func_001541d8");
 void func_001543a0(u32 a0, u32 a1, u32 a2) asm("func_001543a0");
 u32 func_00154450(u32 a0, u32 a1, u32 a2) asm("func_00154450");
-void func_00154a88(u32 a0) asm("func_00154a88");
+void dk__GAUGE_ENEMY__update(u32 a0) asm("dk__GAUGE_ENEMY__update");
 void func_00155300(u32 a0) asm("func_00155300");
 void func_00155390(u32 a0, u32 a1) asm("func_00155390");
 void func_001554c0(u32 a0) asm("func_001554c0");
@@ -97,8 +97,8 @@ void func_00153ea0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4) {
 namespace src1 {
 void* func_0023ee30(u32) asm("func_0023ee30");
 void func_0031a838(void*) asm("func_0031a838");
-void func_002369a0(void*) asm("func_002369a0");
-void func_0023c008(void*) asm("func_0023c008");
+void YI__IMAGE_FREEZE__IMAGE_FREEZE(void*) asm("YI__IMAGE_FREEZE__IMAGE_FREEZE");
+void YI__LAYOUT__LAYOUT(void*) asm("YI__LAYOUT__LAYOUT");
 void func_00153ea0(void*, u32, s32, u32, s32) asm("func_00153ea0");
 extern u8 D_00347f98[] asm("D_00347f98");
 extern u8 D_0035eb98[] asm("D_0035eb98");
@@ -116,8 +116,8 @@ void* cam_sxfs(u32 a0, u32 a1) {
     *(void**)p = D_00347f98;
     func_0031a838(p + 12);
     *(void**)p = D_0035eb98;
-    func_002369a0(p + 24);  // obj_ctor_36eac8
-    func_0023c008(p + 48);  // obj_ctor_36eae8
+    YI__IMAGE_FREEZE__IMAGE_FREEZE(p + 24);  // obj_ctor_36eac8
+    YI__LAYOUT__LAYOUT(p + 48);  // obj_ctor_36eae8
     *(void**)p = D_0034a7a0;
     func_00153ea0(p, a0, 4800, a1, 0);
     return p;
@@ -132,15 +132,15 @@ void func_0031ac78(u8*, s32) asm("func_0031ac78");
 void func_00138748(u8* p) asm("func_00138748");
 
 u8 u_call4_00139d78(void*) asm("_Z16u_call4_00139d78jjjj");f32 func_0017ce10(f32) asm("func_0017ce10");
-void func_00239f18(u8*, f32) asm("func_00239f18");
-void func_00239f18(u8*, f32) asm("func_00239f18");
+void YI__SEQUENCE__SetScaleX(u8*, f32) asm("YI__SEQUENCE__SetScaleX");
+void YI__SEQUENCE__SetScaleX(u8*, f32) asm("YI__SEQUENCE__SetScaleX");
 void func_00138c68(u8*, s32, s32) asm("func_00138c68");
-void func_001386e0(u8*, s32, u32, u32, s32, s32) asm("func_001386e0");
-void func_002362b0(u8*, u32) asm("func_002362b0");
+void dk__Sprite__create(u8*, s32, u32, u32, s32, s32) asm("dk__Sprite__create");
+void YI__IMAGE__Init(u8*, u32) asm("YI__IMAGE__Init");
 void func_002367c8(u8*) asm("func_002367c8");
 s32 func_001541d8(u8*, u32*, u32) asm("func_001541d8");
 u32 func_00154288(u8*, u32, u32) asm("func_00154288");
-void func_001386e0(u8*, u32, u32, u8*, u32, u32) asm("func_001386e0");
+void dk__Sprite__create(u8*, u32, u32, u8*, u32, u32) asm("dk__Sprite__create");
 void func_001391c8(u8*, u32) asm("func_001391c8");
 void func_00138748(u8*) asm("func_00138748");
 f32 func_0017ce10(f32) asm("func_0017ce10");
@@ -155,11 +155,11 @@ f32 func_0017ce10(f32) asm("func_0017ce10");
 void func_0014b1e0(u8*, s32, s32) asm("func_0014b1e0");
 s32 func_0013a9d0(void) asm("func_0013a9d0");
 f32 func_0017ce10(f32) asm("func_0017ce10");
-void func_002362b0(u8*, u32) asm("func_002362b0");
+void YI__IMAGE__Init(u8*, u32) asm("YI__IMAGE__Init");
 s32 func_0013a9d0(void) asm("func_0013a9d0");
-void func_002368e8(u8*, f32) asm("func_002368e8");
+void YI__IMAGE__ClutGray(u8*, f32) asm("YI__IMAGE__ClutGray");
 void func_002367c8(u8*) asm("func_002367c8");
-void func_001386e0(u8*, u32, u32, u8*, u32, u32) asm("func_001386e0");
+void dk__Sprite__create(u8*, u32, u32, u8*, u32, u32) asm("dk__Sprite__create");
 void func_001395a8(u8*) asm("func_001395a8");
 void func_00139598(u8*) asm("func_00139598");
 
@@ -173,7 +173,7 @@ void func_00153fa0(u8* p, u32 a, u32 b, u32 c, u32 d, u32 e)
     *(u32*)(p + 832) = b;
     u32 v = 0;
     if (func_001541d8(p, &v, c) == 1) {
-        func_001386e0(p, a, v, p + 416, func_00154288(p, d, e), e);
+        dk__Sprite__create(p, a, v, p + 416, func_00154288(p, d, e), e);
     } else {
         func_001391c8(p, a);
         func_00138748(p);
@@ -183,15 +183,15 @@ void func_00153fa0(u8* p, u32 a, u32 b, u32 c, u32 d, u32 e)
 
 // 154048
 namespace src2 {
-void func_00154048(u8* p, u32 a1, u32 a2, u32 a3, u32 t0, u32 t1) asm("func_00154048");
-void func_00154048(u8* p, u32 a1, u32 a2, u32 a3, u32 t0, u32 t1)
+void dk__FACE__createSummon(u8* p, u32 a1, u32 a2, u32 a3, u32 t0, u32 t1) asm("dk__FACE__createSummon");
+void dk__FACE__createSummon(u8* p, u32 a1, u32 a2, u32 a3, u32 t0, u32 t1)
 {
     *(u32*)(p + 832) = 0;
     u8* q = p + 416;
-    func_002362b0(q, a3);
-    if (func_0013a9d0()) func_002368e8(q, 1.0f);
+    YI__IMAGE__Init(q, a3);
+    if (func_0013a9d0()) YI__IMAGE__ClutGray(q, 1.0f);
     func_002367c8(q);  // obj_dispatch_bitfield64
-    func_001386e0(p, a1, a2, q, t0, t1);
+    dk__Sprite__create(p, a1, a2, q, t0, t1);
     p[836] = 1;
 }
 }
@@ -243,7 +243,7 @@ u32 func_001541d8(u32 a0, u32 a1, u32 a2) {
         if (s2 == 1) {
             u32 s0 = s1 + 416;
             func_00154100(s1, p1, p2);
-            func_002362b0(s0, tmp0);
+            YI__IMAGE__Init(s0, tmp0);
             func_00236410(s0, tmp1);  // obj_set4_then_call
             func_00236428(s0, tmp2);  // obj_set32_then_call
             func_002367c8(s0);  // obj_dispatch_bitfield64
@@ -296,19 +296,19 @@ void func_001542c8(u8* p, u32 a, u32 b) {
 // ==== from src/anon/tiny_auto80_queue.cpp
 namespace src6 {
  u32 func_00138c10(...) asm("func_00138c10");
- u32 func_00138988(...) asm("func_00138988");
- u32 func_00138988(...) asm("func_00138988");
- u32 func_00138988(...) asm("func_00138988");
- u32 func_00138840(...) asm("func_00138840");
+ u32 dk__Sprite__draw(...) asm("dk__Sprite__draw");
+ u32 dk__Sprite__draw(...) asm("dk__Sprite__draw");
+ u32 dk__Sprite__draw(...) asm("dk__Sprite__draw");
+ u32 dk__Sprite__update(...) asm("dk__Sprite__update");
  u32 func_00138c10(...) asm("func_00138c10");
 u32 func_00156030(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) asm("func_00156030");
 u32 func_00156058(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) asm("func_00156058");
 u32 func_00156080(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) asm("func_00156080");
- u32 func_00138840(...) asm("func_00138840");
-void func_00154330(u32 a0) asm("func_00154330");
- u32 func_00138988(...) asm("func_00138988");
+ u32 dk__Sprite__update(...) asm("dk__Sprite__update");
+void dk__FACE__update(u32 a0) asm("dk__FACE__update");
+ u32 dk__Sprite__draw(...) asm("dk__Sprite__draw");
  u32 func_00236788(...) asm("func_00236788");
-void func_00154358(u32 a0) asm("func_00154358");
+void dk__FACE__draw(u32 a0) asm("dk__FACE__draw");
  u32 func_00154288(...) asm("func_00154288");
 void func_00154408(u32 a0, u32 a1) asm("func_00154408");
 u32 func_00154910(u32 a0) asm("func_00154910");
@@ -323,10 +323,10 @@ u32 func_00157100(u8* a0) asm("func_00157100");
 
 // 154330
 namespace src6 {
-void func_00154330(u32 a0) asm("func_00154330");
-void func_00154330(u32 a0) {
+void dk__FACE__update(u32 a0) asm("dk__FACE__update");
+void dk__FACE__update(u32 a0) {
     if (*(u8*)((u32)a0 + (s32)(836)) != 0u) {
-        func_00138840(a0);
+        dk__Sprite__update(a0);
         return;
     }
 }
@@ -334,12 +334,12 @@ void func_00154330(u32 a0) {
 
 // 154358
 namespace src6 {
-void func_00154358(u32 a0) asm("func_00154358");
-void func_00154358(u32 a0) {
+void dk__FACE__draw(u32 a0) asm("dk__FACE__draw");
+void dk__FACE__draw(u32 a0) {
     u32 s0 = a0;
     if (*(u8*)((u32)s0 + (s32)(836)) != 0u) {
         func_00236788((u32)((s32)a0 + (416)));  // to_236830
-        func_00138988(s0);
+        dk__Sprite__draw(s0);
         return;
     }
 }
@@ -440,7 +440,7 @@ void func_00154b18(W1632Menu*) asm("func_00154b18");
 void func_0014fc40(W1632Menu*, u32, s32, u32, u32, s32) asm("func_0014fc40");
 u32 func_0013a7e8(s32) asm("func_0013a7e8");
 u32 func_0013d7e0(void) asm("func_0013d7e0");
-void func_001386e0(W1632Sprite*, u32, u32, u32, u32, u32) asm("func_001386e0");
+void dk__Sprite__create(W1632Sprite*, u32, u32, u32, u32, u32) asm("dk__Sprite__create");
 void func_001396b0(W1632Sprite*) asm("func_001396b0");
 void func_0031a260(W1632Sprite*, u32) asm("func_0031a260");
 void func_00138c68(W1632Sprite*, s32, s32) asm("func_00138c68");
@@ -472,12 +472,12 @@ void func_00154558(W1632Menu* self) {
     self->x = 0;
     tex = func_0013a7e8(1);
     img = func_0013d7e0();
-    func_001386e0(&self->parts[0], 7000, tex, img, 38, 6);
-    func_001386e0(&self->parts[1], 7000, tex, img, 42, 6);
-    func_001386e0(&self->parts[2], 7000, tex, img, 39, 6);
-    func_001386e0(&self->parts[3], 7000, tex, img, 40, 6);
-    func_001386e0(&self->parts[4], 7000, tex, img, 41, 6);
-    func_001386e0(&self->parts[5], 7000, tex, img, 43, 6);
+    dk__Sprite__create(&self->parts[0], 7000, tex, img, 38, 6);
+    dk__Sprite__create(&self->parts[1], 7000, tex, img, 42, 6);
+    dk__Sprite__create(&self->parts[2], 7000, tex, img, 39, 6);
+    dk__Sprite__create(&self->parts[3], 7000, tex, img, 40, 6);
+    dk__Sprite__create(&self->parts[4], 7000, tex, img, 41, 6);
+    dk__Sprite__create(&self->parts[5], 7000, tex, img, 43, 6);
     for (i = 0; i < 6; i++) {
         W1632_setParent(&self->parts[i], &self->parts[0]);
     }
@@ -486,7 +486,7 @@ void func_00154558(W1632Menu* self) {
     for (row = 0; row < 16; row++) {
         for (s32 j = 0; j < 2; j++) {
             W1632Sprite* p = &self->grid[row][j];
-            func_001386e0(p, 7000, tex, img, j == 0 ? 45 : 44, 6);
+            dk__Sprite__create(p, 7000, tex, img, j == 0 ? 45 : 44, 6);
             W1632_setParent(p, &self->parts[0]);
             func_00138c68(p, pos, 0);
         }
@@ -498,18 +498,18 @@ void func_00154558(W1632Menu* self) {
 
 // ==== from src/anon/batch_w76.cpp
 namespace src8 {
-void func_00239f18(u8*, f32) asm("func_00239f18");
+void YI__SEQUENCE__SetScaleX(u8*, f32) asm("YI__SEQUENCE__SetScaleX");
 void func_00138c68(u8*, s32, s32) asm("func_00138c68");
 
 }
 
 // 1547e0
 namespace src8 {
-void func_001547e0(u8* a, s32 b, s32 c) asm("func_001547e0");
-void func_001547e0(u8* a, s32 b, s32 c)
+void dk__GAUGE_ENEMY__updateHP(u8* a, s32 b, s32 c) asm("dk__GAUGE_ENEMY__updateHP");
+void dk__GAUGE_ENEMY__updateHP(u8* a, s32 b, s32 c)
 {
     f32 v = b;
-    func_00239f18(a + c * 408 + 72, v / 100.0f);  // obj_set_float312_and_flags
+    YI__SEQUENCE__SetScaleX(a + c * 408 + 72, v / 100.0f);  // obj_set_float312_and_flags
     s32 n = (s32)-v;
     func_00138c68(a + c * 408 + 48, n, 0);
     if (c == 2) func_00138c68(a + 1272, n, 0);
@@ -556,7 +556,7 @@ u32 func_00154930(u32 a0) {
 
 // ==== from src/anon/batch_wcx2.cpp
 namespace src10 {
-void func_00158050(u8*, s32, u32, u32, s32, s32, u32) asm("func_00158050");
+void dk__GAUGE_ONE__create(u8*, s32, u32, u32, s32, s32, u32) asm("dk__GAUGE_ONE__create");
 void func_00139598(u8*) asm("func_00139598");
 void func_00156880(u8* p, u32 a1, u32 a2, u32 a3) asm("func_00156880");
 
@@ -567,7 +567,7 @@ s32 func_00154910(Pg7*) asm("func_00154910");
 s32 func_00154930(Pg7*) asm("func_00154930");
 void func_00139598(u8*) asm("func_00139598");
 void func_001544b0(Pg7*) asm("func_001544b0");
-void func_001547e0(Pg7*, s32, s32) asm("func_001547e0");
+void dk__GAUGE_ENEMY__updateHP(Pg7*, s32, s32) asm("dk__GAUGE_ENEMY__updateHP");
 void func_001548a8(Pg7*, s32) asm("func_001548a8");
 void func_00154950(Pg7* p) asm("func_00154950");
 void func_00139598(u8*) asm("func_00139598");
@@ -579,7 +579,7 @@ static const f32 one = 1.0f, pi = 3.1415925f, pio2_hi = 1.57079625f, pio2_lo = 7
     pS4 = 0.000791535014f, pS5 = 3.47933092e-05f, qS1 = -2.4033947f, qS2 = 2.02094555f,
     qS3 = -0.68828392f, qS4 = 0.0770381466f;
 void func_00155d80(u8*) asm("func_00155d80");
-s32 func_00155e30(u8*) asm("func_00155e30");
+s32 dk__GAUGE_PLAYER__getDriveCounter(u8*) asm("dk__GAUGE_PLAYER__getDriveCounter");
 void func_00139598(u8*) asm("func_00139598");
 
 
@@ -587,7 +587,7 @@ void func_00139598(u8*) asm("func_00139598");
 s32 func_00155d80_r(u8*) asm("func_00155d80");extern s32 D_0034a8f0[] asm("D_0034a8f0");
 extern s32 D_0034a8a0[] asm("D_0034a8a0");
 extern s32 D_0034a8c8[] asm("D_0034a8c8");
-s32 func_00155e30(u8* p) asm("func_00155e30");
+s32 dk__GAUGE_PLAYER__getDriveCounter(u8* p) asm("dk__GAUGE_PLAYER__getDriveCounter");
 s32 func_00155fc0(u8* p) asm("func_00155fc0");
 
 }
@@ -612,22 +612,22 @@ void func_00154950(Pg7* p)
     if (a == p->page && a != 0) p->one = 1;
     if (!p->one) func_00139598((u8*)p + 456);
     func_001544b0(p);
-    func_001547e0(p, p->n0, 2);
-    func_001547e0(p, p->n1, 4);
-    func_001547e0(p, p->n2, 5);
+    dk__GAUGE_ENEMY__updateHP(p, p->n0, 2);
+    dk__GAUGE_ENEMY__updateHP(p, p->n1, 4);
+    dk__GAUGE_ENEMY__updateHP(p, p->n2, 5);
     func_001548a8(p, b);
 }
 }
 
 // 154a88
 namespace src0 {
-void func_00154a88(u32 a0) asm("func_00154a88");
-void func_00154a88(u32 a0) {
+void dk__GAUGE_ENEMY__update(u32 a0) asm("dk__GAUGE_ENEMY__update");
+void dk__GAUGE_ENEMY__update(u32 a0) {
     u32 s0 = a0;
 
     if (*(u8*)(a0 + 15584) != 0) {
         if ((*(u32*)(a0 + 12) & 0x100) == 0) {
-            func_0014fcd8(a0);
+            dk__INFO_BASE__update(a0);
             ((dk::Sprite*)(u32)(s0 + 48))->setPos(*(u32*)(s0 + 32), *(u32*)(s0 + 36));
             func_00154950(s0);
         }
@@ -674,7 +674,7 @@ namespace src13 {
 u32 func_0013d810(void) asm("func_0013d810");
 void func_00154450(u32, u32, u32) asm("func_00154450");
 void func_00154b40(u32 a, u32 b) asm("func_00154b40");
-u32 func_00155f40(void*) asm("func_00155f40");
+u32 dk__GAUGE_PLAYER__getDriveLoopSqNum(void*) asm("dk__GAUGE_PLAYER__getDriveLoopSqNum");
 void func_00138c10(void*, u32) asm("func_00138c10");
 void func_00156408(void*) asm("func_00156408");
 
@@ -876,7 +876,7 @@ void func_00158138(W1632Party*, u32, u32, s32) asm("func_00158138");
 u32 func_0013a7e8(s32) asm("func_0013a7e8");
 u32 func_0013d7e0(void) asm("func_0013d7e0");
 u32 func_00158290(W1632Party*) asm("func_00158290");
-void func_00158050(W1632Sprite2*, u32, u32, u32, u32, u32, u32) asm("func_00158050");
+void dk__GAUGE_ONE__create(W1632Sprite2*, u32, u32, u32, u32, u32, u32) asm("dk__GAUGE_ONE__create");
 void func_0013e0f8(W1632Gauge*, u32, u32, u32) asm("func_0013e0f8");
 void func_001581f8(W1632Party*) asm("func_001581f8");
 void func_00153fa0(W1632Sprite2*, u32, s32, s32, s32, u32) asm("func_00153fa0");
@@ -916,7 +916,7 @@ static inline void W1632_setParent2b(W1632Sprite2* obj, W1632Sprite2* parent) {
             func_0031a260(obj, 0);
         }
     }
-}void func_00154f30(W1632Party* self, u32 a1, u32 a2) asm("func_00154f30");
+}void dk__GAUGE_FRIEND__create(W1632Party* self, u32 a1, u32 a2) asm("dk__GAUGE_FRIEND__create");
 
 
 struct W1632Sprite {
@@ -945,15 +945,15 @@ struct W1632Panel {
     u8 pad3[12896 - 11648 - 3 * 412];
     W1632Bar bar;               // 12896
 };
-u32 func_00155ee8(W1632Panel*) asm("func_00155ee8");
+u32 dk__GAUGE_PLAYER__getDriveInSqNum(W1632Panel*) asm("dk__GAUGE_PLAYER__getDriveInSqNum");
 u32 func_00155fc0(W1632Panel*) asm("func_00155fc0");
-u32 func_00155e30(W1632Panel*) asm("func_00155e30");
-s32 func_00155f40(W1632Panel*) asm("func_00155f40");
+u32 dk__GAUGE_PLAYER__getDriveCounter(W1632Panel*) asm("dk__GAUGE_PLAYER__getDriveCounter");
+s32 dk__GAUGE_PLAYER__getDriveLoopSqNum(W1632Panel*) asm("dk__GAUGE_PLAYER__getDriveLoopSqNum");
 s32 func_00156030(W1632Panel*) asm("func_00156030");
 void func_00156408(W1632Panel*) asm("func_00156408");
-void func_00158050(W1632Sprite2*, u32, u32, u32, u32, u32, u32) asm("func_00158050");
+void dk__GAUGE_ONE__create(W1632Sprite2*, u32, u32, u32, u32, u32, u32) asm("dk__GAUGE_ONE__create");
 void func_0013dfb8(W1632Bar*, u32, u32) asm("func_0013dfb8");
-void func_001386e0(W1632Sprite*, u32, u32, u32, u32, u32) asm("func_001386e0");
+void dk__Sprite__create(W1632Sprite*, u32, u32, u32, u32, u32) asm("dk__Sprite__create");
 u32 func_00139d78(void*) asm("func_00139d78");
 void func_0014b200(W1632Rect*, u32) asm("func_0014b200");
 void func_001396b0(void*) asm("func_001396b0");
@@ -994,8 +994,8 @@ static inline void W1632_link(W1632Sprite* obj, void* parent) {
 
 // 154f30
 namespace src20 {
-void func_00154f30(W1632Party* self, u32 a1, u32 a2) asm("func_00154f30");
-void func_00154f30(W1632Party* self, u32 a1, u32 a2) {
+void dk__GAUGE_FRIEND__create(W1632Party* self, u32 a1, u32 a2) asm("dk__GAUGE_FRIEND__create");
+void dk__GAUGE_FRIEND__create(W1632Party* self, u32 a1, u32 a2) {
     u32 tex, img, grp;
     s32 i, j;
     W1632Sprite2* root = &self->spr[0];
@@ -1007,15 +1007,15 @@ void func_00154f30(W1632Party* self, u32 a1, u32 a2) {
     self->b[0] = 0;
     self->b[1] = 0;
     self->b[2] = 0;
-    func_00158050(&self->spr[0], 7000, tex, img, 71, 0, grp);
+    dk__GAUGE_ONE__create(&self->spr[0], 7000, tex, img, 71, 0, grp);
     func_0013e0f8(&self->g[0], 7000, 0, grp);
     func_0013e0f8(&self->g[1], 7000, 1, grp);
-    func_00158050(&self->spr[1], 7000, tex, img, 64, 100, grp);
+    dk__GAUGE_ONE__create(&self->spr[1], 7000, tex, img, 64, 100, grp);
     func_0013e0f8(&self->g[2], 7000, 1, grp);
-    func_00158050(&self->spr[2], 7000, tex, img, 65, 1000, grp);
+    dk__GAUGE_ONE__create(&self->spr[2], 7000, tex, img, 65, 1000, grp);
     func_0013e0f8(&self->g[3], 7000, 0, grp);
     func_0013e0f8(&self->g[4], 7000, 1, grp);
-    func_00158050(&self->spr[3], 7000, tex, img, 66, 10000, grp);
+    dk__GAUGE_ONE__create(&self->spr[3], 7000, tex, img, 66, 10000, grp);
     func_001581f8(self);
     {
         s32 c = self->f24;
@@ -1219,7 +1219,7 @@ void func_00138c40(u8*, s32, u32) asm("func_00138c40");
 void func_00139598(u8*) asm("func_00139598");
 void func_001395a8(u8*) asm("func_001395a8");
 s32 func_00155830(u32, f32*, f32*, f32*) asm("func_00155830");
-void func_00239f18(u8*, f32) asm("func_00239f18");
+void YI__SEQUENCE__SetScaleX(u8*, f32) asm("YI__SEQUENCE__SetScaleX");
 void func_00138d30(u8*, f32) asm("func_00138d30");
 void func_00138c68(u8*, s32, s32) asm("func_00138c68");
 
@@ -1351,7 +1351,7 @@ s32 func_00155758(s32 n, f32* a, s32* b, s32* c, s32* d, f32* ang) {
 namespace src28 {
 f32 func_0017ce10(f32) asm("func_0017ce10");
 s32 func_00155830(s32 a0, f32* a1, f32* a2, f32* a3) asm("func_00155830");
-void func_00239f18(u8*) asm("func_00239f18");
+void YI__SEQUENCE__SetScaleX(u8*) asm("YI__SEQUENCE__SetScaleX");
 void func_00138c68(u8*, s32, s32) asm("func_00138c68");
 
 }
@@ -1422,7 +1422,7 @@ void func_001559e8(u8* p, u32 a, s32 idx)
     f32 x, y, z;
     func_00139598(e + 6704);
     if (func_00155830(a, &x, &y, &z)) return;
-    func_00239f18(e + 6728, x);  // obj_set_float312_and_flags
+    YI__SEQUENCE__SetScaleX(e + 6728, x);  // obj_set_float312_and_flags
     func_001395a8(e + 6704);
     if (idx == 4) {
         func_00138d30(p + 9588, z);
@@ -1437,7 +1437,7 @@ void func_00155ab0(u8* p, s32 v, s32 i) asm("func_00155ab0");
 void func_00155ab0(u8* p, s32 v, s32 i)
 {
     f32 f = (f32)v;
-    func_00239f18(p + i * 412 + 6728, f / 100.0f);  // obj_set_float312_and_flags
+    YI__SEQUENCE__SetScaleX(p + i * 412 + 6728, f / 100.0f);  // obj_set_float312_and_flags
     if (i == 9) func_00138c68(p + 11236, (s32)-f, 0);
 }
 }
@@ -1446,7 +1446,7 @@ void func_00155ab0(u8* p, s32 v, s32 i)
 namespace src28 {
 void func_00155b58(u8* p, s32 idx, f32 f) asm("func_00155b58");
 void func_00155b58(u8* p, s32 idx, f32 f) {
-    func_00239f18(p + idx * 412 + 6728);  // obj_set_float312_and_flags
+    YI__SEQUENCE__SetScaleX(p + idx * 412 + 6728);  // obj_set_float312_and_flags
     if (idx == 9) func_00138c68(p + 11236, -(s32)(f * 100.0f), 0);
 }
 }
@@ -1467,8 +1467,8 @@ extern "C" const s32 D_0036b29c = 100;
 
 // 155bf0
 namespace src30 {
-void func_00155bf0(u8* p, s32 a) asm("func_00155bf0");
-void func_00155bf0(u8* p, s32 a)
+void dk__GAUGE_PLAYER__createDriveCircle(u8* p, s32 a) asm("dk__GAUGE_PLAYER__createDriveCircle");
+void dk__GAUGE_PLAYER__createDriveCircle(u8* p, s32 a)
 {
     if (D_004f3590 == 0) {
         D_004f3590 = 1;
@@ -1487,8 +1487,8 @@ void func_00155bf0(u8* p, s32 a)
 
 // 155cb0
 namespace src2 {
-void func_00155cb0(u8* p, s32 a, s32 b) asm("func_00155cb0");
-void func_00155cb0(u8* p, s32 a, s32 b)
+void dk__GAUGE_PLAYER__createDriveTimeCircle(u8* p, s32 a, s32 b) asm("dk__GAUGE_PLAYER__createDriveTimeCircle");
+void dk__GAUGE_PLAYER__createDriveTimeCircle(u8* p, s32 a, s32 b)
 {
     f32 x = (f32)a * (23.0f / (f32)b * 0.01745329238474369f);
     x = func_0017ce10(x);
@@ -1577,8 +1577,8 @@ L_end:
 
 // 155e30
 namespace src10 {
-s32 func_00155e30(u8* p) asm("func_00155e30");
-s32 func_00155e30(u8* p) {
+s32 dk__GAUGE_PLAYER__getDriveCounter(u8* p) asm("dk__GAUGE_PLAYER__getDriveCounter");
+s32 dk__GAUGE_PLAYER__getDriveCounter(u8* p) {
     u8* o = *(u8**)(p + 52);
     if (o != 0) {
         switch (*(*(u8**)(o + 1164) + 431)) {
@@ -1599,8 +1599,8 @@ s32 func_00155e30(u8* p) {
 
 // 155ee8
 namespace src10 {
-s32 func_00155ee8(u8* p) asm("func_00155ee8");
-s32 func_00155ee8(u8* p) {
+s32 dk__GAUGE_PLAYER__getDriveInSqNum(u8* p) asm("dk__GAUGE_PLAYER__getDriveInSqNum");
+s32 dk__GAUGE_PLAYER__getDriveInSqNum(u8* p) {
     u8* o = *(u8**)(p + 52);
     if (!o) goto def;
     switch ((*(u8**)(o + 1164))[431]) {
@@ -1617,14 +1617,14 @@ s32 func_00155ee8(u8* p) {
 
 // ==== from src/anon/batch_w1766.cpp
 namespace src32 {
-s32 func_001a1de0(void*) asm("func_001a1de0");
+s32 YS__SHEET__is_mpdrive(void*) asm("YS__SHEET__is_mpdrive");
 
 }
 
 // 155f40
 namespace src32 {
-s32 func_00155f40(u8* p) asm("func_00155f40");
-s32 func_00155f40(u8* p) {
+s32 dk__GAUGE_PLAYER__getDriveLoopSqNum(u8* p) asm("dk__GAUGE_PLAYER__getDriveLoopSqNum");
+s32 dk__GAUGE_PLAYER__getDriveLoopSqNum(u8* p) {
     u8* q = *(u8**)(p + 0x34);
     s32 r;
     if (q) {
@@ -1632,7 +1632,7 @@ s32 func_00155f40(u8* p) {
         case 4: r = 0x13; break;
         default:
         case 0: case 1:
-            if (func_001a1de0(*(void**)(q + 0x48c))) { r = 0x1a; break; }
+            if (YS__SHEET__is_mpdrive(*(void**)(q + 0x48c))) { r = 0x1a; break; }
             goto none;
         case 2: r = 0x33; break;
         case 3: r = 0x8d; break;
@@ -1764,12 +1764,12 @@ void func_00156130(W1632Panel* self, u32 tex, u32 img, u32 grp) {
     s32 x, y;
     W1632Sprite2* head;
     W1632Bar* bar;
-    func_00158050(head = &self->spr[0], 7000, tex, img, func_00155ee8(self), 0, grp);
+    dk__GAUGE_ONE__create(head = &self->spr[0], 7000, tex, img, dk__GAUGE_PLAYER__getDriveInSqNum(self), 0, grp);
     bar = &self->bar;
     func_0013dfb8(bar, 7000, grp);
-    func_00158050(&self->spr[1], 7000, tex, img, func_00155fc0(self), 5000, grp);
-    func_00158050(&self->spr[2], 7000, tex, img, func_00155e30(self), 0, grp);
-    func_001386e0(&self->icon, 7010, tex, img, 20, grp);
+    dk__GAUGE_ONE__create(&self->spr[1], 7000, tex, img, func_00155fc0(self), 5000, grp);
+    dk__GAUGE_ONE__create(&self->spr[2], 7000, tex, img, dk__GAUGE_PLAYER__getDriveCounter(self), 0, grp);
+    dk__Sprite__create(&self->icon, 7010, tex, img, 20, grp);
     func_00139d78(bar);
     func_0014b200(&bar->r, 6000);
     for (i = 0; i < 3; i++) {
@@ -1786,10 +1786,10 @@ void func_00156130(W1632Panel* self, u32 tex, u32 img, u32 grp) {
     x = func_0023aa18(&self->spr[0].seq);
     y = func_0023aa38(&self->spr[0].seq);
     func_00138c68(&self->spr[2], x, y);
-    head->f392 = func_00155f40(self);
+    head->f392 = dk__GAUGE_PLAYER__getDriveLoopSqNum(self);
     if (func_00156030(self)) {
         func_00138c10(head, 18);
-        head->f392 = func_00155f40(self);
+        head->f392 = dk__GAUGE_PLAYER__getDriveLoopSqNum(self);
     }
     func_00156408(self);
 }
@@ -1857,7 +1857,7 @@ u32 func_001564b0(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 s16 = a0 + 1324;
     u32 s17 = a0;
 
-    func_001386e0(s16, 7005, a1, a2, 27, a3);
+    dk__Sprite__create(s16, 7005, a1, a2, 27, a3);
     *(u32*)(s16 + 396) = s17 + 6704;
     func_001396b0(s16);
 
@@ -1882,7 +1882,7 @@ u32 func_00156540(u32 a0) {
     func_001565a8(s0);
     s1 = s0 + 1324;
     func_00138c10(s1, 27);
-    u32 v0 = func_00155ee8(s0);  // state_dispatch_0_4
+    u32 v0 = dk__GAUGE_PLAYER__getDriveInSqNum(s0);  // state_dispatch_0_4
     if (v0 == 21) {
         return func_001395a8(s1);
     }
@@ -1937,7 +1937,7 @@ struct W1633Hud {
     s8 b3cf4, b3cf5, b3cf6, b3cf7, b3cf8, b3cf9, b3cfa, b3cfb;
 };
 void func_0013e0f8(W1633Gauge*, u32, u32, u32) asm("func_0013e0f8");
-void func_00158050(W1633Sprite*, u32, u32, u32, u32, u32, u32) asm("func_00158050");
+void dk__GAUGE_ONE__create(W1633Sprite*, u32, u32, u32, u32, u32, u32) asm("dk__GAUGE_ONE__create");
 void func_00139d78(void*) asm("func_00139d78");
 void func_0014b200(void*, u32) asm("func_0014b200");
 void func_00139598(void*) asm("func_00139598");
@@ -1949,15 +1949,15 @@ namespace src34 {
 void func_001565c0(W1633Hud* self, u32 a1, u32 a2, u32 a3) asm("func_001565c0");
 void func_001565c0(W1633Hud* self, u32 a1, u32 a2, u32 a3) {
     func_0013e0f8(&self->gauge[1], 7000, 1, a3);
-    func_00158050(&self->spr[1], 7000, a1, a2, 121, 100, a3);
+    dk__GAUGE_ONE__create(&self->spr[1], 7000, a1, a2, 121, 100, a3);
     func_0013e0f8(&self->gauge[2], 7000, 1, a3);
-    func_00158050(&self->spr[2], 7000, a1, a2, 121, 500, a3);
+    dk__GAUGE_ONE__create(&self->spr[2], 7000, a1, a2, 121, 500, a3);
     func_0013e0f8(&self->gauge[3], 7000, 1, a3);
-    func_00158050(&self->spr[3], 7000, a1, a2, 128, 1000, a3);
-    func_00158050(&self->spr[4], 7000, a1, a2, 124, 0, a3);
-    func_00158050(&self->spr[5], 7000, a1, a2, 127, 0, a3);
-    func_00158050(&self->spr[6], 7000, a1, a2, 129, 0, a3);
-    func_00158050(&self->spr[7], 7000, a1, a2, 123, 0, a3);
+    dk__GAUGE_ONE__create(&self->spr[3], 7000, a1, a2, 128, 1000, a3);
+    dk__GAUGE_ONE__create(&self->spr[4], 7000, a1, a2, 124, 0, a3);
+    dk__GAUGE_ONE__create(&self->spr[5], 7000, a1, a2, 127, 0, a3);
+    dk__GAUGE_ONE__create(&self->spr[6], 7000, a1, a2, 129, 0, a3);
+    dk__GAUGE_ONE__create(&self->spr[7], 7000, a1, a2, 123, 0, a3);
     func_00139d78(&self->gauge[1]);
     func_0014b200(self->gauge[1].barA, 200);
     func_0014b200(self->gauge[1].barB, 200);
@@ -1988,10 +1988,10 @@ namespace src10 {
 void func_00156880(u8* p, u32 a1, u32 a2, u32 a3) asm("func_00156880");
 void func_00156880(u8* p, u32 a1, u32 a2, u32 a3)
 {
-    func_00158050(p + 10000, 7000, a1, a2, 116, 0, a3);
-    func_00158050(p + 10412, 7000, a1, a2, 119, 0, a3);
-    func_00158050(p + 10824, 7000, a1, a2, 115, 0, a3);
-    func_00158050(p + 11236, 7000, a1, a2, 120, 0, a3);
+    dk__GAUGE_ONE__create(p + 10000, 7000, a1, a2, 116, 0, a3);
+    dk__GAUGE_ONE__create(p + 10412, 7000, a1, a2, 119, 0, a3);
+    dk__GAUGE_ONE__create(p + 10824, 7000, a1, a2, 115, 0, a3);
+    dk__GAUGE_ONE__create(p + 11236, 7000, a1, a2, 120, 0, a3);
     u8* o = *(u8**)(p + 52);
     if (o && (*(u32*)(*(u8**)(o + 1164) + 592) & 4)) {
         func_00139598(p + 10000);
@@ -2084,7 +2084,7 @@ void func_00158138(W1633Hud *, W1633Owner *, u32, u32) asm("func_00158138");
 u32 func_0013a7e8(u32) asm("func_0013a7e8");
 u32 func_0013d7e0(void) asm("func_0013d7e0");
 u32 func_00158290(W1633Hud *) asm("func_00158290");
-volatile unsigned char func_00158050(W1633Sprite *, u32, u32, u32, u32, u32, u32) asm("func_00158050");
+volatile unsigned char dk__GAUGE_ONE__create(W1633Sprite *, u32, u32, u32, u32, u32, u32) asm("dk__GAUGE_ONE__create");
 void func_0013e0f8(W1633Gauge *, u32, u32, u32) asm("func_0013e0f8");
 void func_00139d78(void *) asm("func_00139d78");
 void func_0014b200(void *, u32) asm("func_0014b200");
@@ -2142,7 +2142,7 @@ void func_001569d8(W1633Hud *self, W1633Owner *owner)
   self->f3cf0 = 0;
   self->b3cfa = 0;
   self->b3cfb = 0;
-  func_00158050(top, 7000, a, b, 136, 0, c);
+  dk__GAUGE_ONE__create(top, 7000, a, b, 136, 0, c);
   func_0013e0f8(&self->gauge[0], 7000, 0, c);
   func_00139d78(&self->gauge[0]);
   func_0014b200(self->gauge[0].barA, 0);
@@ -2184,11 +2184,11 @@ namespace src36 {
 u32 func_00158290(u8*) asm("func_00158290");
 u32 func_0013a7e8(s32) asm("func_0013a7e8");
 u32 func_0013d7e0(void) asm("func_0013d7e0");
-u32 func_00155f40(u8*) asm("func_00155f40");
+u32 dk__GAUGE_PLAYER__getDriveLoopSqNum(u8*) asm("dk__GAUGE_PLAYER__getDriveLoopSqNum");
 u32 func_00155fc0(u8*) asm("func_00155fc0");
 void func_00138c10(u8*, u32) asm("func_00138c10");
-s32 func_00139c18(u8*) asm("func_00139c18");
-void func_001386e0(u8*, s32, u32, u32, s32, u32) asm("func_001386e0");
+s32 dk__Obj2D__checkDoubleCreate(u8*) asm("dk__Obj2D__checkDoubleCreate");
+void dk__Sprite__create(u8*, s32, u32, u32, s32, u32) asm("dk__Sprite__create");
 void func_001396b0(u8*) asm("func_001396b0");
 void func_0031a260(u8*, s32) asm("func_0031a260");
 
@@ -2202,12 +2202,12 @@ void func_00156d20(u8* p) {
     u32 a = func_00158290(p);
     u32 b = func_0013a7e8(1);
     u32 c = func_0013d7e0();
-    func_00138c10(q, func_00155f40(p));
+    func_00138c10(q, dk__GAUGE_PLAYER__getDriveLoopSqNum(p));
     func_00138c10(p + 12060, func_00155fc0(p));
     p[15606] = 1;
     if (p[15611] == 1) {
-        u8* e = p + func_00139c18(p + 4180) * 408 + 4180;
-        func_001386e0(e, 7000, b, c, 53, a);
+        u8* e = p + dk__Obj2D__checkDoubleCreate(p + 4180) * 408 + 4180;
+        dk__Sprite__create(e, 7000, b, c, 53, a);
         *(u8**)(e + 396) = q;
         func_001396b0(e);
         if (*(u32*)(e + 396)) {
@@ -2230,11 +2230,11 @@ s32 func_00158290(void*) asm("func_00158290");
 s32 func_0013a7e8(int) asm("func_0013a7e8");
 s32 func_0013d7e0(void) asm("func_0013d7e0");
 int func_00156030(void*) asm("func_00156030");
-s32 func_00155f40(void*) asm("func_00155f40");
-s32 func_00155ee8(void*) asm("func_00155ee8");
+s32 dk__GAUGE_PLAYER__getDriveLoopSqNum(void*) asm("dk__GAUGE_PLAYER__getDriveLoopSqNum");
+s32 dk__GAUGE_PLAYER__getDriveInSqNum(void*) asm("dk__GAUGE_PLAYER__getDriveInSqNum");
 s32 func_00155fc0(void*) asm("func_00155fc0");
-int func_00139c18(void*) asm("func_00139c18");
-void func_001386e0(void*, int, s32, s32, int, s32) asm("func_001386e0");
+int dk__Obj2D__checkDoubleCreate(void*) asm("dk__Obj2D__checkDoubleCreate");
+void dk__Sprite__create(void*, int, s32, s32, int, s32) asm("dk__Sprite__create");
 void func_001396b0(void*) asm("func_001396b0");
 void func_0031a260(void*, int) asm("func_0031a260");
 int func_001396c0(void*) asm("func_001396c0");
@@ -2264,18 +2264,18 @@ void func_00156e48(u8* p) {
     k = (K318*)(p + 11648);
     {
     s32 v1 = k->f388;
-    if (v1 == func_00155f40(p)) goto out;
+    if (v1 == dk__GAUGE_PLAYER__getDriveLoopSqNum(p)) goto out;
     }
     {
     s32 v2 = k->f388;
-    if (v2 == func_00155ee8(p)) goto out;
+    if (v2 == dk__GAUGE_PLAYER__getDriveInSqNum(p)) goto out;
     }
     {
         if (p[15611] == 1) {
-            int i = func_00139c18(p + 3364);
+            int i = dk__Obj2D__checkDoubleCreate(p + 3364);
             void* q = p + 6704;
             t = &((L318*)(p + 3364))[i];
-            func_001386e0(t, 7000, c, d, 130, b);
+            dk__Sprite__create(t, 7000, c, d, 130, b);
             t->f396 = q;
             func_001396b0(t);
             if (t->f396) {
@@ -2286,7 +2286,7 @@ void func_00156e48(u8* p) {
             if (func_001396c0(q)) func_00139570(&((L318*)(p + 3364))[i]);
         }
         if (func_00156058(p) || func_00156080(p)) {  // state_code_is_2
-            func_00138c10(k, func_00155f40(p));
+            func_00138c10(k, dk__GAUGE_PLAYER__getDriveLoopSqNum(p));
             func_00138c10(p + 12060, func_00155fc0(p));
             p[15607] = 1;
         } else {
@@ -2306,7 +2306,7 @@ out:
 namespace src13 {
 void GAUGE_PLAYER_update(u8*) asm("_ZN2dk12GAUGE_PLAYER6updateEv");
 void GAUGE_PLAYER_update(u8* self) {
-    func_00138c10(self + 11648, func_00155f40(self));
+    func_00138c10(self + 11648, dk__GAUGE_PLAYER__getDriveLoopSqNum(self));
     func_00156408(self);
 }
 }
@@ -2420,11 +2420,11 @@ s32 func_00156030(u8*) asm("func_00156030");
 u32 func_00158290(u8*) asm("func_00158290");
 u32 func_0013a7e8(s32) asm("func_0013a7e8");
 u32 func_0013d7e0(void) asm("func_0013d7e0");
-s32 func_00139c18(u8*) asm("func_00139c18");
-void func_001386e0(Q157*, s32, u32, u32, s32, u32) asm("func_001386e0");
+s32 dk__Obj2D__checkDoubleCreate(u8*) asm("dk__Obj2D__checkDoubleCreate");
+void dk__Sprite__create(Q157*, s32, u32, u32, s32, u32) asm("dk__Sprite__create");
 void func_001396b0(Q157*) asm("func_001396b0");
 void func_0031a260(Q157*, s32) asm("func_0031a260");
-u32 func_00155f40(u8*) asm("func_00155f40");
+u32 dk__GAUGE_PLAYER__getDriveLoopSqNum(u8*) asm("dk__GAUGE_PLAYER__getDriveLoopSqNum");
 u32 func_00155fc0(u8*) asm("func_00155fc0");
 void func_00138c10(void*, s32) asm("func_00138c10");
 
@@ -2439,8 +2439,8 @@ void func_001571c0(u8* p) {
     u32 c = func_00158290(p);
     u32 a = func_0013a7e8(1);
     u32 b = func_0013d7e0();
-    Q157* q = (Q157*)(p + 3364) + func_00139c18(p + 3364);
-    func_001386e0(q, 7000, a, b, 130, c);
+    Q157* q = (Q157*)(p + 3364) + dk__Obj2D__checkDoubleCreate(p + 3364);
+    dk__Sprite__create(q, 7000, a, b, 130, c);
     q->f396 = p + 6704;
     func_001396b0(q);
     if (q->f396) {
@@ -2448,7 +2448,7 @@ void func_001571c0(u8* p) {
         func_001396b0(q);
         if (q->f400) func_0031a260(q, 0);
     }
-    func_00138c10(p + 11648, func_00155f40(p));
+    func_00138c10(p + 11648, dk__GAUGE_PLAYER__getDriveLoopSqNum(p));
     func_00138c10(p + 12060, func_00155fc0(p));
     p[15607] = 1;
 }
@@ -2463,9 +2463,9 @@ void func_00139688(u8*) asm("func_00139688");
 u32 func_00158290(u8*) asm("func_00158290");
 u32 func_0013a7e8(s32) asm("func_0013a7e8");
 u32 func_0013d7e0(void) asm("func_0013d7e0");
-s32 func_00139c18(u8*) asm("func_00139c18");
-void func_001386e0(u8*, s32, u32, u32, u32, u32) asm("func_001386e0");
-void func_00154048(u8*, s32, s32, s32, s32, u32) asm("func_00154048");
+s32 dk__Obj2D__checkDoubleCreate(u8*) asm("dk__Obj2D__checkDoubleCreate");
+void dk__Sprite__create(u8*, s32, u32, u32, u32, u32) asm("dk__Sprite__create");
+void dk__FACE__createSummon(u8*, s32, s32, s32, s32, u32) asm("dk__FACE__createSummon");
 u32 func_0017df58(s32) asm("func_0017df58");
 s32 func_0016c060(u32, s32*, s32*) asm("func_0016c060");
 
@@ -2487,9 +2487,9 @@ void wt_001572e8(u8* p, u32 a, u32 b, u32) {
     u32 h = func_00158290(p);
     u32 x = func_0013a7e8(1);
     u32 y = func_0013d7e0();
-    s32 i = func_00139c18(p + 1732);
+    s32 i = dk__Obj2D__checkDoubleCreate(p + 1732);
     u8* m = p + i * 408 + 1732;
-    func_001386e0(m, 7000, x, y, a, h);
+    dk__Sprite__create(m, 7000, x, y, a, h);
     *(u32*)(m + 392) = b;
     *(u8**)(m + 396) = p + 6704;
     settle(m);
@@ -2497,9 +2497,9 @@ void wt_001572e8(u8* p, u32 a, u32 b, u32) {
     s4 = 0;
     s0 = 0;
     if (func_0016c060(func_0017df58(0), &s0, &s4)) {
-        s32 j = func_00139c18(p + 5008);
+        s32 j = dk__Obj2D__checkDoubleCreate(p + 5008);
         u8* n = p + j * 848 + 5008;
-        func_00154048(n, 13000, s4, s0, 3, h);
+        dk__FACE__createSummon(n, 13000, s4, s0, 3, h);
         *(u8**)(n + 396) = p + i * 408 + 1732;
         settle(n);
         u8* q = p + j * 848 + 5008;

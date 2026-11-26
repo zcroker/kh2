@@ -23,7 +23,7 @@ s32 func_001bb4a0(void);
 // Dispatch on a state byte (2: virtual call on an object, 3: helper), then notify.
 u8* func_001040f8(void);
 VObj* func_001045f0(void);
-void func_00105fc8(void);
+void WORLDMAP__gumiToWorldMap(void);
 u32 func_0014aba8(void);
 void func_0014aa58(u32, s32, s32);
 // 00104108: moved to src/common/gumibattle.cpp
@@ -44,7 +44,7 @@ void* func_00132180(void* p, u32 tag);  // 0x00132180: definition moved into src
 
 extern u8 D_00348590[];
 void func_00239700(void*);
-void func_0013b088(u8* p);  // 0x0013b088: definition moved into src/anon/unit_0013a8b8.cpp
+void dk__COMMAND_DRAW__COMMAND_DRAW(u8* p);  // 0x0013b088: definition moved into src/anon/unit_0013a8b8.cpp
 
 VObj* func_0016b0d0(void);
 u8* func_00167f18(s32);
@@ -59,7 +59,7 @@ void func_00144570(f32* box, u8* s);  // 0x00144570: definition moved into src/a
 // 2 = partially clipped, 1 = all inside.
 s32 func_001466b0(Vec4* m, Vec4* v);  // 0x001466b0: definition moved into src/anon/unit_00145600.cpp
 
-void func_00141010(f32);
+void dk__ObjCamera__cancelSubjective(f32);
 u8* func_00140df0(void);
 void func_0014e658(u8*);
 void func_0014e6f8(u8*);
@@ -86,10 +86,10 @@ void func_002fd188(void (*)(void));  // pool_alloc_block
 void func_0016e878(void);
 // 0016d340: moved to src/anon/unit_0016d2e0.cpp
 
-u32 func_001de168(u32, u32, u32, u32, u32, u32);  // scan_list_by_half
+u32 ryj__PAX__start(u32, u32, u32, u32, u32, u32);  // scan_list_by_half
 void func_00174858(u32* p);  // 0x00174858: definition moved into src/anon/unit_00171e58.cpp
 
-void func_0016b668(u8*);
+void YS__OBJ___OVR_leave(u8*);
 // 00175a70: moved to src/yasui/libys/party.cpp
 
 extern u32* D_01c60888;
@@ -97,13 +97,13 @@ u8* func_001a80c8(u32);  // table24_find_by_id
 // 00185890: moved to src/anon/unit_001855e0.cpp
 
 void func_00114580(u8*);
-void func_001888c8(u8* p);  // 0x001888c8: definition moved into src/anon/unit_00188848.cpp
+void YS__PARTRAM__PARTRAM(u8* p);  // 0x001888c8: definition moved into src/anon/unit_00188848.cpp
 
 // Puts id v into the first free slot of a, borrowing it from b if present.
 struct S188 { u8 pad[18]; u8 n; u8 pad2[33]; u16 a[8]; u16 b[8]; };
 void func_00188a28(S188* p, u32 v);  // 0x00188a28: definition moved into src/anon/unit_00188848.cpp
 
-u32* func_001b6fb0(u32, u32);
+u32* YS__LEVELUP__Get(u32, u32);
 extern u32 D_0032f210;
 s32 func_00188bb0(u8* p, u32 a);  // 0x00188bb0: definition moved into src/anon/unit_00188848.cpp
 
@@ -122,9 +122,9 @@ u32 func_0016a070(u32);
 s32 func_001a3888(u32);  // id_in_range_5_7_131
 // 001ba1f8: moved to src/yasui/libys/itemeffect.cpp
 
-u32 func_001b8e88(u16);
+u32 YS__COMMAND_ELEM__Get(u16);
 void func_001bd918(u8*, u32, s32);
-void func_001bd8c8(u8* p);  // 0x001bd8c8: definition moved into src/anon/unit_001bc568.cpp
+void YS__PLAYER_COMMAND___decide(u8* p);  // 0x001bd8c8: definition moved into src/anon/unit_001bc568.cpp
 
 // Fills 8 angles (k * 2pi/8) into a 16-byte-stride table.
 void func_001db8f8(void*, u32, s32, s32);
@@ -141,7 +141,7 @@ extern u8 D_01d5ba10[];
 void func_001d6a28(u8*);
 void func_0019ca20(u8*);
 void func_0013dde8(s32);
-void func_001befa8(u8*);
+void YS__FIELD_COMMAND__reset_special_command(u8*);
 extern u32 D_003527e0;
 void func_001d69d0(u8* p);  // 0x001d69d0: definition moved into src/anon/unit_001d68e0.cpp
 
@@ -151,12 +151,12 @@ extern u32 D_0036e620[];
 extern u32 D_003527e4;
 u8* func_001a5420(u32, void*, u32);
 void func_001d76c8(void);
-void func_001d8718(u32, s32);
+void YS__MISSION__AddCountForce(u32, s32);
 u8* func_001ba158(void);
 void func_001d7638(u32 a0, s32 i);  // 0x001d7638: definition moved into src/anon/unit_001d7458.cpp
 
 u8* func_001bbcb0(void);
-void func_001d8fa8(u8 on, s32 i);  // 0x001d8fa8: definition moved into src/anon/unit_001d7458.cpp
+void YS__MISSION__WarningGauge(u8 on, s32 i);  // 0x001d8fa8: definition moved into src/anon/unit_001d7458.cpp
 
 void func_001dcfb0(void);
 void func_001dd208(s32);
@@ -206,7 +206,7 @@ void func_00290960(u8* p, u32 a, u32 b);  // 00290960: moved to src/anon/unit_00
 
 void func_002b7fbc(s32);
 void func_002bced8(void*);
-void func_002bcee8(void*);
+void SE_BANK__clearGumi(void*);
 void func_002b9b78(void);
 void func_002ba390(void);
 void func_002bc798(void);
@@ -230,7 +230,7 @@ extern u8 D_00361b20[];
 void func_002c1a58(u8* p);  // 0x002c1a58: definition moved into src/anon/unit_002c10e0.cpp
 
 void func_002df160(u32);
-Vec4* func_0016c028(u32);  // obj_get_attach_or_alt
+Vec4* YS__OBJ__get_pos(u32);  // obj_get_attach_or_alt
 f32 func_002df1a0(u32);
 void func_0016ace0(u32, Vec4*);
 extern f32 D_00375d40;

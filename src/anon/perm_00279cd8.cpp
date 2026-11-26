@@ -38,6 +38,6 @@ void func_00139620(void *);
 void func_001395f8(void *);
 s32 func_00257140(s32);
 void func_001398d0(s32);
-void func_00279cd8(void);  // 0x00279cd8: definition moved into src/anon/unit_002793b0.cpp
+void Tz__CmAbility__CreateTopList(void);  // 0x00279cd8: definition moved into src/anon/unit_002793b0.cpp
 
 }
