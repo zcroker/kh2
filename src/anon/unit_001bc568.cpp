@@ -2291,3 +2291,48 @@ Slot_1bfd60* func_001bfd60(Slot_1bfd60* p, int v) {
 }
 }  // namespace n001bfd60
 
+
+// ---- 001bfda0 (was whole asm in src/anon/batch_w3910.s)
+// Fading colour slots: each live slot's colour is faded toward grey by its fader value and modulated by *src.
+// The by-value parameter of operator* is `const`: its copy MEM is then unchanging, so sched1 may move the
+// copy above the faded-colour stores while cse still drops their forwarding (retail g reload, r,b,a andi).
+namespace n001bfda0 {
+struct Col {
+    u8 r, g, b, a;
+    void Set(s32 ar, s32 ag, s32 ab, s32 aa) { r = ar; g = ag; b = ab; a = aa; }
+    Col operator*(const Col t) const { Col c; c.r = r * t.r >> 7; c.g = g * t.g >> 7; c.b = b * t.b >> 7; c.a = a * t.a >> 7; return c; }
+};
+struct Fader { f32 v; f32 spd; };
+struct Ent { s32 id; Col c; Fader f; };
+struct Out { s32 id; Col c; };
+struct Blk { Ent e[8]; Out o[9]; };
+s32 func_001ad9c8(Fader*) asm("func_001ad9c8");
+static inline bool isMoving(Ent* p) { return p->f.spd != 0.0f; }
+static inline Col scale(Ent* p) {
+    f32 k = p->f.v;
+    Col c;
+    c.Set((s32)((f32)(p->c.r - 0x80) * k) + 0x80, (s32)((f32)(p->c.g - 0x80) * k) + 0x80,
+          (s32)((f32)(p->c.b - 0x80) * k) + 0x80, (s32)((f32)(p->c.a - 0x80) * k) + 0x80);
+    return c;
+}
+Out* func_001bfda0(Blk* blk, Col* src) asm("func_001bfda0");
+Out* func_001bfda0(Blk* blk, Col* src) {
+    s32 n = 0;
+    for (s32 i = 0; i < 8; i++) {
+        Ent* p = &blk->e[i];
+        if (p->id) {
+            Fader* f = &p->f;
+            if (isMoving(p)) {
+                func_001ad9c8(f);
+                if (p->f.v == 0.0f) { p->id = 0; continue; }
+            }
+            blk->o[n].id = p->id;
+            blk->o[n].c = scale(p) * *src;
+            n++;
+        }
+    }
+    Out* r = 0;
+    if (n) { r = blk->o; blk->o[n].id = 0; }
+    return r;
+}
+}  // namespace n001bfda0

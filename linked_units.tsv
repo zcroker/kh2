@@ -45,7 +45,6 @@ src/anon/unit_001b1d20.cpp	001b1d20	001b2728	.rodata@0036d9c0	-G0
 src/anon/unit_001b2780.cpp	001b2728	001b65e0	.rodata@0036d9d4	-G0 -g -fno-strict-aliasing
 src/anon/unit_001b65e0.cpp	001b65e0	001b6a50	.rodata@0036dab4	-G0 -g -fno-strict-aliasing
 src/anon/unit_001b6a50.cpp	001b6a50	001b82d8	.rodata@0036dac4	-G0 -g -fno-strict-aliasing
-src/anon/batch_w3910.s	001bfda0	001bff88	-	-
 src/anon/unit_001c2b58.cpp	001c2b58	001c38c0	.rodata@0036dddc	-G0
 src/anon/unit_001c38c0.cpp	001c38c0	001c4050	.rodata@0036de08	-G0
 src/anon/unit_001c4050.cpp	001c4050	001c40e0	-	-G0
@@ -619,7 +618,7 @@ src/anon/unit_001a3e70.cpp	001a3e70	001a4db0	.rodata@0036d490	-G0 -fno-strict-al
 src/anon/unit_001a4db0.cpp	001a4db0	001a5b58	.data@00350790,.rodata@0036d4a8	-G0 -g
 src/yasui/libys/mission.cpp	001bb270	001bc2a8	.rodata@0036dc0c	-G0 -g
 src/anon/unit_001bc2a8.cpp	001bc2a8	001bc568	-	-G0 -falign-jumps=1
-src/anon/unit_001bc568.cpp	001bc568	001bfda0	.rodata@0036dc48	-G0 -fno-strict-aliasing
+src/anon/unit_001bc568.cpp	001bc568	001bff88	.rodata@0036dc48	-G0 -fno-strict-aliasing
 src/anon/unit_001bff88.cpp	001bff88	001c0638	.rodata@0036dd58	-G0 -fno-strict-aliasing
 src/anon/unit_001c0638.cpp	001c0638	001c2b58	.rodata@0036dd5c	-G0 -fno-strict-aliasing
 src/anon/unit_001c4120.cpp	001c40e0	001c4918	.rodata@0036de24	-G0 -fno-strict-aliasing
