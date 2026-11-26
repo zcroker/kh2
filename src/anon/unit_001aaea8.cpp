@@ -61,6 +61,12 @@ static inline void put1aafe8(Pkt1aafe8* p, s32 x, s32 y, s32 z, s32 w)
     p->cur->w = w;
     p->cur++;
 }
+static inline void ad1aafe8(Pkt1aafe8* p, u64 reg, u64 data)
+{
+    ((T1aafe8*)p->cur)->tag = data;
+    ((T1aafe8*)p->cur)->reg = reg;
+    p->cur++;
+}
 extern s32 D_00350a30 asm("D_00350a30");
 s32 func_001aaf98(Tex1aafe8*, s32, s32, s32, s32) asm("func_001aaf98");
 u64 func_001aaea8(Tex1aafe8*, s32) asm("func_001aaea8");
@@ -75,15 +81,8 @@ s32 func_001aafe8(Tex1aafe8* t, Pkt1aafe8* p, s32 x, s32 y, u32 color, s32 code,
     s32 rows = (1 << t->th) / t->ch;
     s32 u = code % cols * t->cw * 16 + 8;
     s32 v = code % (cols * rows) / cols * t->ch * 16 + 8;
-    u64 tag = func_001aaea8(t, code);
-    u32 g = (color >> 8) & 0xff;
-    ((T1aafe8*)p->cur)->tag = tag;
-    ((T1aafe8*)p->cur)->reg = 6;
-    p->cur++;
-                                                                                           
-                                                                             
-    asm("" : "+r"(t) : "r"(g), "r"(p->cur));
-    put1aafe8(p, color & 0xff, g, (color >> 16) & 0xff, color >> 24);
+    ad1aafe8(p, 6, func_001aaea8(t, code));
+    put1aafe8(p, color & 0xff, (color >> 8) & 0xff, (color >> 16) & 0xff, color >> 24);
     put1aafe8(p, u, v, 0, 0);
     put1aafe8(p, x, y - h, 0, 0x8000);
     u += t->cw * 16;
