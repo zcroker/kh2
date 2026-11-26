@@ -355,3 +355,50 @@ void func_00323fd8(u8* p) {
     CtorB(p + 6512);
 }
 }  // namespace n00323fd8
+
+// 003241a0 (was src/anon/batch_w3901.s)
+namespace n003241a0 {
+extern u8 D_00347f98[] asm("D_00347f98");
+extern u8 D_00347e60[] asm("D_00347e60");
+extern u8 D_00347e40[] asm("D_00347e40");
+void func_0031a838(u8*) asm("func_0031a838");
+void func_00239700(u8*) asm("func_00239700");
+// 408-byte element (vtable D_00347e60, sequence at +24).
+static inline void CtorB(u8* q) {
+    *(u32*)(q + 12) = 0;
+    *(u32*)q = (u32)D_00347e60;
+    func_00239700(q + 24);
+}
+// 436-byte element (vtable chain D_00347f98 -> D_00347e60 -> D_00347e40). One constructor for every
+// use below. The last vtable's address is taken before the sequence constructor call, so it is
+// already in a register when the first of the three single members is built.
+static inline void CtorC(u8* q) {
+    *(u32*)q = (u32)D_00347f98;
+    func_0031a838(q + 12);
+    *(u32*)q = (u32)D_00347e60;
+    u8* vt = D_00347e40;
+    func_00239700(q + 24);
+    *(void**)q = vt;
+    *(u32*)(q + 408) = 0;
+}
+/*TARGET 003241a0*/
+// Constructor of a 38.9 KB container: A[9][8], A, three C, C[9], C[9] (A = 408 bytes, C = 436 bytes).
+void func_003241a0(u8* p) asm("func_003241a0");
+void func_003241a0(u8* p) {
+    u8* r = p;
+    for (s32 i = 8; i != -1; i--) {
+        u8* e = r;
+        for (s32 j = 7; j != -1; j--) { CtorB(e); e += 408; }
+        r += 3264;
+    }
+    CtorB(p + 29376);
+    CtorC(p + 29784);
+    CtorC(p + 30220);
+    CtorC(p + 30656);
+    u8* x = p + 31092;
+    s32 off = 35016;  // offset of the second C[9]
+    for (s32 i = 8; i != -1; i--) { CtorC(x + (8 - i) * 436); }
+    u8* y = p + off;
+    for (s32 i = 8; i != -1; i--) { CtorC(y); y += 436; }
+}
+}  // namespace n003241a0
