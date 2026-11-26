@@ -1,6 +1,6 @@
 // func_00202ce0: particle trail update (sibling of 00201d60 in batch_w3853b_nsa.c). C, -fno-strict-aliasing.
-// Partial asm: an empty asm reading i twice after the key-point loop (raises i's allocation priority, i keeps s1),
-// and "+r" on c (keeps step = c copy), as in the sibling. Closest pure C: s1/s2 swapped for i and cnt-1.
+// i is reused as the count passed to func_002029e8 (gives i its s1 priority, as in the sibling).
+// Partial asm: "+r" on c keeps the step = c register copy, as in the sibling (pure C: 1 line, move t1,zero).
 #include "../common/types.h"
 typedef struct { f32 x, y, z, w; } Vq __attribute__((aligned(16)));
 typedef struct { u32 cur; u8 cnt; u8 on; u8 pad[2]; Vq (*key)[2]; } TrSt;
@@ -46,8 +46,8 @@ void func_00202ce0(TrObj* obj, u8* prm, TrSt* st)
             if (idx < 0) idx += cnt;
             sceVu0SubVector(&tmp[i++], &(*key)[idx * 2 + k], D_00354680);
         }
-        asm("" :: "r"(i), "r"(i));
-        func_002029e8(tmp, cnt, coef);
+        i = cnt;
+        func_002029e8(tmp, i, coef);
         for (i = 0; i < n + 1; i++) {
             s16* o = (s16*)(off + (u32)out) + i * 6;
             func_00202ba0(&res, tmp, coef, (f32)i / (f32)n * (f32)(cnt - 1));
