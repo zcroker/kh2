@@ -719,7 +719,7 @@ src/anon/unit_001c70e8.cpp	001c70e8	001c7148	.rodata@0036df88	-G0 -fno-schedule-
 src/anon/asm_001f2f78.s	001f2f74	001f4498	-	-
 src/anon/asm_001f87f0.s	001f87f0	001f8dd0	-	-
 src/anon/unit_001f8dd0.cpp	001f8dd0	001f9010	.rodata@00370238	-G0
-src/anon/asm_001f9010.s	001f9010	001f95a8	-	-
+src/anon/unit_001f9010.cpp	001f9010	001f95a8	.rodata@0037023c	-G0 -fno-strict-aliasing
 src/anon/unit_002f12b0.cpp	002f12b0	002f17e0	.rodata@0037623c	-G0
 src/anon/unit_002f17e0.cpp	002f17e0	002f1a68	.data@00363c20,.rodata@00376260,.bss@01e2c0d0	-G0
 src/anon/unit_002f1a68.cpp	002f1a68	002f1b48	.data@00363c28,.rodata@00376270,.bss@01e2c100	-G0
