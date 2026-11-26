@@ -905,6 +905,22 @@ void func_002708c0(void)
         if (D_0035f128) sel = -2;
         switch (sel) {
         case -1: break;
+        case -7: {
+            s32 r = func_00272b60(func_002570a0(26));
+            n = func_00287bc0();
+            func_00287bd0(37, 0);
+            if (r == 2) func_002831e0(0, n);
+            else if (r == 1) func_002831e0(1, n);
+            break;
+        }
+        case -2:
+            func_00263c60();
+            func_0028f6f0(2);
+            func_00256e80();
+            goto C;
+        case -4:
+            func_00287da0();
+            break;
         default:
             if (sel >= 0 && sel < n) {
                 n = func_002570a0(26);
@@ -933,27 +949,10 @@ void func_002708c0(void)
                 {
                     s32 r = func_002570a0(25);
                     s32 v = 26;
-                    asm volatile("" : "+r"(v));
                     if (r) v = 27;
                     func_00287c00(v);
                 }
             }
-            break;
-        case -7: {
-            s32 r = func_00272b60(func_002570a0(26));
-            n = func_00287bc0();
-            func_00287bd0(37, 0);
-            if (r == 2) func_002831e0(0, n);
-            else if (r == 1) func_002831e0(1, n);
-            break;
-        }
-        case -2:
-            func_00263c60();
-            func_0028f6f0(2);
-            func_00256e80();
-            goto C;
-        case -4:
-            func_00287da0();
             break;
         }
     }
