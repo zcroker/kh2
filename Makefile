@@ -29,6 +29,9 @@ SDK_CFLAGS := -O2 -G0 -g0 -x c -ffunction-sections
 # A linked SDK unit (src/sdk/*.c row in linked_units.tsv) gets its UNIT_FLAGS too (-fno-function-sections comes last).
 # Some Sony code was built with ee-gcc 2.96 instead: a `cc=ee-gcc2.96` token in the row's flags column sets UNIT_CC
 # (tools/compilers/ee-gcc2.96, fetched by docker/ps2/prepare.sh). See notes/linking.md.
+# An `as=ee-as` token sets UNIT_AS: the compiler only writes assembly (-S) and the main toolchain's assembler
+# builds the object. That assembler moves the instruction before a jump into an empty delay slot; the 2.9
+# compiler's own assembler never does. Sony's libgraph has volatile register accesses in delay slots.
 ASFLAGS := -G0
 VERIFY_AUTODIFF_COUNT ?= 3
 VERIFY_SMALL_DIFF_MAX ?= 32
@@ -176,7 +179,9 @@ out/build/%.o: %.cpp
 
 out/build/src/sdk/%.o: src/sdk/%.c
 	@mkdir -p $(dir $@)
-	@$(or $(UNIT_CC),$(SDK_CC)) $(SDK_CFLAGS) $(UNIT_FLAGS) -c -o $@ $<
+	@$(if $(UNIT_AS),\
+		$(or $(UNIT_CC),$(SDK_CC)) $(SDK_CFLAGS) $(UNIT_FLAGS) -S -o $(@:.o=.s) $< && $(UNIT_AS) $(ASFLAGS) -o $@ $(@:.o=.s),\
+		$(or $(UNIT_CC),$(SDK_CC)) $(SDK_CFLAGS) $(UNIT_FLAGS) -c -o $@ $<)
 
 out/build/%.o: %.c
 	@mkdir -p $(dir $@)

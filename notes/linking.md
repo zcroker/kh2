@@ -19,6 +19,14 @@ The list of units is `linked_units.tsv` at the repo root. The first unit is
 - Sony code built with ee-gcc 2.96 uses `cc=ee-gcc2.96`. Example: the SIF RPC client
   (`src/sdk/sifrpc_002f1b48.c`, `sifrpc_002f1da0.c`). Signs of 2.96: branch-likely, and a `while (i--);`
   delay loop unrolled by 4.
+- The `as=ee-as` token (same column, `src/sdk/*.c` rows): the compiler only writes assembly (`-S`) and the
+  main toolchain's assembler (`/opt/ps2/gcc/bin/ee-as`) builds the object. `objects.mk` then gets `UNIT_AS`.
+  Why: ee-gcc 2.9 never puts a volatile load or store into a delay slot, and its own assembler never moves
+  an instruction into one. Sony's libgraph has hardware-register accesses in `jr ra` / `jal` delay slots
+  (`sceGsResetPath`: the last `GIF_CTRL = 1`). The main toolchain's assembler does that move (it swaps the
+  instruction before a jump with the jump when the slot is empty), so plain volatile C matches.
+  Example: `src/sdk/libgraph_002f1e18.c`. Other Sony libraries (libcdvd, libkernl) keep `lw; jal; nop`
+  for volatile loads, so do not use the token there.
 - `docker/ps2/prepare.sh` gets both old compilers from decomp.me's compiler releases into
   `tools/compilers/` (not committed).
 - The link's `_gp` is not the game's 0x37a800. Setting it to 0x37a800 breaks the gp-relative references

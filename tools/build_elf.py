@@ -708,14 +708,21 @@ def generate_layout_outputs() -> int:
 def unit_make_rules(u) -> str:
     """objects.mk lines for one linked unit. A `cc=NAME` token in the flags column picks the compiler
     tools/compilers/NAME/bin/ee-gcc (for example cc=ee-gcc2.96 for Sony code built with ee-gcc 2.96);
+    an `as=ee-as` token (src/sdk/*.c rows) assembles the compiler's output with the main toolchain's
+    assembler, which fills an empty delay slot with the instruction before the jump (see notes/linking.md);
     the other tokens are compiler flags."""
     obj = src_to_obj(u.source)
     tokens = u.flags.split()
     cc = [t[3:] for t in tokens if t.startswith("cc=")]
-    flags = " ".join(t for t in tokens if not t.startswith("cc="))
+    gas = [t[3:] for t in tokens if t.startswith("as=")]
+    flags = " ".join(t for t in tokens if not t.startswith(("cc=", "as=")))
     out = f"{obj}: UNIT_FLAGS := -fno-function-sections {flags}\n"
     if cc:
         out += f"{obj}: UNIT_CC := /work/tools/compilers/{cc[-1]}/bin/ee-gcc\n"
+    if gas:
+        if gas[-1] != "ee-as":
+            raise SystemExit(f"linked_units.tsv: unknown assembler token as={gas[-1]} ({u.source})")
+        out += f"{obj}: UNIT_AS := /opt/ps2/gcc/bin/ee-as\n"
     return out + f"{obj}: linked_units.tsv\n"
 
 

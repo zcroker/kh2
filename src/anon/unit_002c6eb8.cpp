@@ -465,6 +465,7 @@ void func_002c77b8(W1722Menu* self, s32 kind) {
     W1722Sprite* frame;
     W1722Sprite* base;
     W1722Sprite* sep;
+    W1722Menu* m;
 
     self->m0c = 0;
     *(u32*)&self->vptr = (u32)D_00361de8;
@@ -553,27 +554,26 @@ void func_002c77b8(W1722Menu* self, s32 kind) {
     }
 
     func_001386e0(sep, 0x7585, self->unit, self->image, 0x26, 0xc9);
-    /* empty asm: self is opaque to GCSE, so self->sep.seq below is recomputed instead of reloaded */
-    asm("" : "+r"(self));
     W1722SetParent(sep, frame);
     func_00139660(sep);
     func_00139688(sep);
     func_00138c68(sep, ofs, 0);
     func_001396b0(sep);
-    ofs += func_0023aa98(self->sep.seq);
+    m = self;
+    ofs += func_0023aa98(m->sep.seq);
 
     func_002c5238(p1, 2, digA);
     for (s32 i = 0; i < 2; i++) {
-        func_001386e0(&self->numC[i], 0x7585, self->unit, self->image, digA[i] + 0x1c, 0xc9);
-        W1722SetParent(&self->numC[i], frame);
-        func_00139660(&self->numC[i]);
-        func_00139688(&self->numC[i]);
-        func_00138c68(&self->numC[i], ofs, 0);
-        func_001396b0(&self->numC[i]);
-        ofs += func_0023aa98(self->numC[i].seq);
+        func_001386e0(&m->numC[i], 0x7585, m->unit, m->image, digA[i] + 0x1c, 0xc9);
+        W1722SetParent(&m->numC[i], frame);
+        func_00139660(&m->numC[i]);
+        func_00139688(&m->numC[i]);
+        func_00138c68(&m->numC[i], ofs, 0);
+        func_001396b0(&m->numC[i]);
+        ofs += func_0023aa98(m->numC[i].seq);
     }
 
-    func_001391c8(self, 0x7582, 0xc9);
+    func_001391c8(m, 0x7582, 0xc9);
     func_0023f848(&lf);
 }
 #undef W1722_INIT
