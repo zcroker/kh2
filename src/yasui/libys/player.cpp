@@ -367,11 +367,9 @@ QWord* ctarget_00178330(QWord* out, const QWord* in) {
         v.f[1] = 0.0f;
         v.f[2] = -in->f[1];
         v.f[3] = 0.0f;
-        Cam* c = func_00106a60(1);
-        // Partial asm (no instructions): the original saves s2 without using it (a pseudo dropped after
-        // reload); an empty asm writing $18 reproduces the save.
-        { register u32 r18 asm("$18"); asm volatile("" : "=r"(r18)); }
-        m = *static_cast<Mtx*>(c);
+        // The call sits inside the assignment: operator='s `this` is live across it and takes s2, then
+        // drops out after reload (it equals sp), which leaves the unused s2 save the original has.
+        m = *static_cast<Mtx*>(func_00106a60(1));
         m.transpose();
         *out = m * v;
         out->f[1] = 0.0f;

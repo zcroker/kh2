@@ -260,15 +260,15 @@ void* kn__getProjection(s32) asm("kn__getProjection");
 W1680Cam* func_00106a60(s32) asm("func_00106a60");
 W1680QW func_00190388(W1680Tgt*) asm("func_00190388");
 f32 fabsf(f32) asm("fabsf");
+// The camera's matrix (null camera reads address 0, as retail does).
+static inline W1680Mtx& W1680_camMtx(W1680Cam* c) { return c ? c->m : *(W1680Mtx*)0; }
 void func_0011a938(W1680Self2* self, W1680Tgt* out, f32 fx, f32 fy) asm("func_0011a938");
 void func_0011a938(W1680Self2* self, W1680Tgt* out, f32 fx, f32 fy) {
     out->clear();
     f32 sz = W1680_getScreenZ(kn__getProjection(0));
-    W1680Cam* c = func_00106a60(0);
-    W1680Mtx m(c ? c->m : *(W1680Mtx*)0);
-
-    register u32 s0_busy asm("$16");
-    asm volatile("" : "=r"(s0_busy));
+    // The call sits inside the constructor's argument: the copy constructor's `this` is live across it,
+    // which is what keeps `self` out of s0.
+    W1680Mtx m(W1680_camMtx(func_00106a60(0)));
     W1680Tgt it;
     W1680Hit hit;
     W1680QW p = m * self->pos;
