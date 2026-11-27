@@ -3418,8 +3418,7 @@ void func_001e6688(void) {
     D_01da8cd0.g = 0; D_01da8cd0.a = 0; D_01da8cd0.d = 0; D_01da8cd0.h = 0;
     D_00354690.y = -1; D_00354690.x = 0;
     func_001e6648();
-    func_001e2b68();
-    asm volatile(""); /* keeps the call a jal (no sibcall), as the original */
+    { struct G{~G(){}} g; func_001e2b68(); }
 }
 }  // namespace n001e6688
 

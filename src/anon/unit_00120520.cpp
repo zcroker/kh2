@@ -325,11 +325,11 @@ u32 func_00120a20(Obj120a20* o, Tx120a20* tx, u32* outs, u32 addr, s32 n)
                 func_00133848(&p, 0, 0x17000000, 0);
                 e++;
                 func_001339d0(&p, (u32)m + e->off, e->qwc, e->a, e->b);
+                e++;
             } else {
                 func_001339d0(&p, tx->addr[n] + t * 64, 4, e->a, e->b);
+                e++;
             }
-            e++;
-            asm volatile(""); /* keeps e++ ahead of j++ (sched2 tie) */
         }
         func_00133898(&p, 0, 0x17000000, 0);
     }
@@ -346,11 +346,11 @@ u32 func_00120a20(Obj120a20* o, Tx120a20* tx, u32* outs, u32 addr, s32 n)
                     func_00133848(&p, 0, 0x17000000, 0);
                     e++;
                     func_001339d0(&p, (u32)m2 + e->off, e->qwc, e->a, e->b);
+                    e++;
                 } else {
                     func_001339d0(&p, tx->addr[n] + t * 64, 4, e->a, e->b);
+                    e++;
                 }
-                e++;
-                asm volatile(""); /* keeps e++ ahead of j++ (sched2 tie) */
             }
             func_00133898(&p, 0, 0x17000000, 0);
         }

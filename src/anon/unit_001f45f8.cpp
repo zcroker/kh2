@@ -98,11 +98,9 @@ static inline int inr_001f4640(s32 v, s32 lo, s32 hi)
     return 1;
 }
 /*TARGET 001f4640*/
-/* VU0 project + screen clip test. The __builtin_expect on the y < ymin test sets the block
-   frequencies that make global-alloc give ymin<<4 t2 and ymax<<4 t3 like the original. */
+/* VU0 project + screen clip test. */
 s32 func_001f4640(f32* v, s32* o, f32* m) asm("func_001f4640");
-/* VU0 project + screen clip test. The __builtin_expect on the y < ymin test sets the block
-   frequencies that make global-alloc give ymin<<4 t2 and ymax<<4 t3 like the original. */
+/* VU0 project + screen clip test. */
 s32 func_001f4640(f32* v, s32* o, f32* m)
 {
     s32 cx = D_00352bec;
@@ -131,8 +129,9 @@ s32 func_001f4640(f32* v, s32* o, f32* m)
         "sqc2 $vf15,0(%1)\n"
         : : "r"(v), "r"(o), "r"(m) : "memory");
     r = inr_001f4640(o[0], xmin << 4, xmax << 4);
-    if (__builtin_expect(o[1] < (ymin << 4), 1)) r = 0;
-    else if (o[1] > (ymax << 4)) r = 0;
+    s32 lo = ymin << 4, hi = ymax << 4;
+    if (o[1] < lo) r = 0;
+    else if (o[1] > hi) r = 0;
     if (o[2] <= 0) r = 0;
     return r;
 }
