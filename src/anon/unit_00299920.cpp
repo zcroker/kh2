@@ -235,7 +235,7 @@ void func_00287f90(s32) asm("func_00287f90");
 void Tz__JmCollection__LeaveAll(void) asm("Tz__JmCollection__LeaveAll");
 s32 func_00292630(void) asm("func_00292630");
 void func_00287c30(void) asm("func_00287c30");
-void func_0028af18(s32, s32) asm("func_0028af18");
+s32 func_0028af18(s32, s32) asm("func_0028af18");
 void Tz__Jiminy__LoadData(s32) asm("Tz__Jiminy__LoadData");
 void func_002925c0(void) asm("func_002925c0");
 s32 func_00276358(void) asm("func_00276358");
@@ -288,13 +288,8 @@ void func_00299e70(void)
         if (func_00292630()) return;
         Tz__JmCollection__LeaveAll();
         func_00287c30();
-        { s32 t = func_00287bc0();
-        s32 d = D_0035f200;
-        asm volatile("" : : "r"(d));
-        s32 x1 = 115;
-        asm volatile("" : : "r"(x1));
-        m = t;
-        func_0028af18(d, x1); }
+        m = func_00287bc0();
+        func_0028af18(D_0035f200, 115);
         Tz__Jiminy__LoadData(m);
         func_002925c0();
         Tz__Jiminy__SetParentSeqNum(func_00276358(), 0);
@@ -314,12 +309,12 @@ void func_00299e70(void)
         return;
     }
     func_0029a368();
-    if ((r != -1 || func_00289310(D_0035f200)) && !func_00276398()) {
+    s32 k;  // also holds the func_00289310 test below (the original reuses it; this keeps k out of mode's register)
+    if ((r != -1 || (k = func_00289310(D_0035f200))) && !func_00276398()) {
         Tz__Jiminy__SetParentSeqNum(0, 2);
         func_00275b60();
     }
     if (mode == 0 && func_00276398()) func_00287c90(1);
-    s32 k;
     if (!func_00242848(func_00287df0(r, func_00289310(D_0035f200), 1, Tz__JmCollection__SelCheck, 1))) {
         switch (r) {
         case -4:
@@ -338,7 +333,6 @@ void func_00299e70(void)
                 mode = a;
                 r = 1;
             }
-            asm volatile("" : "=r"(k));
             Tz__Jiminy__FadeOutHelp();
             Tz__Jiminy__SetParentSeqNum(r, 1);
             func_00287c00(mode);
