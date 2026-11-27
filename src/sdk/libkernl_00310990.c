@@ -24,12 +24,13 @@ int func_00310990(void)
 
 /* ---- 0x3109e0 */
 typedef struct Node { struct Node *next; int x4; int (*fn)(unsigned int, int, int, int); int arg; } Node;
-extern int D_01e3b300_i asm("D_01e3b300");
+/* the free-list head is volatile here (alarm handler, runs in interrupt context): the second `ld ra` that the
+ * original keeps after these accesses is only there because a volatile access sits between the two */
+extern volatile int D_01e3b300_i asm("D_01e3b300");
 int func_003109e0(unsigned int a, int b, int c, Node* n)
 {
     int r = n->fn(((unsigned int)n << 4) | (a & 0xfe) | 1, b, c, n->arg);
     if (r == 0) {
-        asm volatile("");
         n->next = (Node *)D_01e3b300_i;
         D_01e3b300_i = (int)n;
         n->x4 = 0;

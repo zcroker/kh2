@@ -1,4 +1,4 @@
-/* Sony PS2 Runtime Library 3.0.0: libkernl printf (kprintf.o), 0x306e80-0x3081d0 (its first function, the SIO putc, is in kprintf_00306e48.c). Built with ee-gcc 2.9-991111 -O2 -G0.
+/* Sony PS2 Runtime Library 3.0.0: libkernl printf (kprintf.o), 0x306ff8-0x3081d0 (the functions before the formatter are in kprintf_00306e48.c). Built with ee-gcc 2.9-991111 -O2 -G0.
  * Third-party code notice: these functions were rebuilt to match Sony Computer Entertainment's
  * PS2 runtime libraries that the game links. That code is not covered by this project's MIT License.
  * Linked unit (linked_units.tsv). Output goes to the SIO port, the Deci2 console (a 128-byte line
@@ -10,66 +10,11 @@ typedef int (*OutFn)(void *, int *, int);
 
 extern int DIntr(void);
 extern int EIntr(void);
-extern void func_003111f0(char *);
 
-extern int func_00306e48(int c); /* SIO putc: kprintf_00306e48.c */
-
-int D_003660d4 = 0;
-extern char D_01e35680[];
-void func_00306e80(int c)
-{
-    int n = D_003660d4;
-    if (n >= 126) {
-        D_003660d4 = 0;
-        D_01e35680[127] = 0;
-        func_003111f0(D_01e35680);
-        n = D_003660d4;
-    }
-    if (c == '\n') {
-        D_01e35680[n] = c;
-        D_003660d4 = 0;
-        D_01e35680[n + 1] = 0;
-        func_003111f0(D_01e35680);
-    } else {
-        D_003660d4 = n + 1;
-        D_01e35680[n] = c;
-    }
-}
-
-void func_00306f30(int c)
-{
-    if (c == '\n') {
-        func_00306e48('\r');
-        func_00306e48('\n');
-    } else
-        func_00306e48(c);
-}
-
-/* double bits -> int, clamped to [0, 9999], rounded. */
-typedef unsigned long u64;
-long func_00306f68(u64 a)
-{
-    long e;
-    e = (a << 1) >> 53;
-    e -= 1075;
-    if (e < -53) return 0;
-    if (e >= 13) return 9999;
-    a = (a << 12) >> 12;
-    a |= (1UL << 52);
-    if (e < 0) {
-        e = -e;
-        a >>= e - 2;
-        if ((a & 3) == 3) a = (a >> 2) + 1;
-        else a >>= 2;
-    } else {
-        a <<= e;
-    }
-    {
-        long t = a << 32;
-        asm("" : "+r"(t));
-        return t >> 32;
-    }
-}
+/* kprintf_00306e48.c */
+extern void func_00306e80(int c);
+extern void func_00306f30(int c);
+extern int func_00306f68(int);
 
 /* %e-style double output (soft-float helpers called directly) */
 extern int func_003142e0(double, double);
@@ -77,7 +22,6 @@ extern double __subdf3(double, double);
 extern double func_00313f40(double, double);
 extern double func_00314190(double, double);
 extern int __fixunsdfdi(double);
-extern int func_00306f68_i(int) asm("func_00306f68");
 int func_00307f90(void *a, void *b, int *n, const char *fmt, ...);
 int func_00306ff8(int (*out)(void *, int *, int), void *arg, int *n, double d)
 {
@@ -103,7 +47,7 @@ int func_00306ff8(int (*out)(void *, int *, int), void *arg, int *n, double d)
             e++;
         }
     }
-    x = func_00306f68_i(__fixunsdfdi(func_00313f40(d, 1000000.0)));
+    x = func_00306f68(__fixunsdfdi(func_00313f40(d, 1000000.0)));
     len += func_00307f90(out, arg, n, "0.%d", x);
     if (e >= 0)
         len += func_00307f90(out, arg, n, "e+%d", e);

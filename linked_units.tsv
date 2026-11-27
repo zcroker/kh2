@@ -722,8 +722,8 @@ src/anon/unit_001f9010.cpp	001f9010	001f95a8	.rodata@0037023c	-G0 -fno-strict-al
 src/anon/unit_002f12b0.cpp	002f12b0	002f17e0	.rodata@0037623c	-G0
 src/anon/unit_002f17e0.cpp	002f17e0	002f1a68	.data@00363c20,.rodata@00376260,.bss@01e2c0d0	-G0
 src/anon/unit_002f1a68.cpp	002f1a68	002f1b48	.data@00363c28,.rodata@00376270,.bss@01e2c100	-G0
-src/sdk/kprintf_00306e48.c	00306e48	00306e80	-	-G0 as=ee-as
-src/sdk/kprintf.c	00306e80	003081d0	.data@003660d4,.rodata@00377ef0	-G0
+src/sdk/kprintf_00306e48.c	00306e48	00306ff8	.data@003660d4	-G0 as=ee-as
+src/sdk/kprintf.c	00306ff8	003081d0	.rodata@00377ef0	-G0
 src/newlib/libc/abort.c	002fd160	002fd178	-	-G0 -fno-builtin
 src/newlib/libc/abs.c	002fd178	002fd188	-	-G0 -fno-builtin
 src/newlib/libc/atexit.c	002fd188	002fd220	-	-G0 -fno-builtin
