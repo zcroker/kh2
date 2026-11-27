@@ -1041,6 +1041,7 @@ extern u8 D_00347f98[] asm("D_00347f98");
 extern u8 D_00347e60[] asm("D_00347e60");
 extern u8 D_00347e40[] asm("D_00347e40");
 extern u8 D_0035eb98[] asm("D_0035eb98");
+extern u8* D_0035f250 asm("D_0035f250");
 extern u8* D_0035f254 asm("D_0035f254");
 extern u8* D_0035f258 asm("D_0035f258");
 extern u8* D_0035f25c asm("D_0035f25c");
@@ -1049,6 +1050,8 @@ extern u8* D_0035f25c asm("D_0035f25c");
 void Tz__GumiGameOver__Init(void) asm("Tz__GumiGameOver__Init");
 // Startup: builds the global managers (D_0035f250..5c) and starts a thread.
 void Tz__GumiGameOver__Init(void) {
+    // Reference taken up front (before the calls): its store then issues ahead of the D_00347f80 load.
+    u8*& inst = D_0035f250;
     func_002427c0();
     func_00253818(5);
     Tz__CmComm__DataLoad(5);
@@ -1064,10 +1067,7 @@ void Tz__GumiGameOver__Init(void) {
     *(u32*)p1 = (u32)D_0035eb98;
     YI__IMAGE_FREEZE__IMAGE_FREEZE(p1 + 24);
     YI__LAYOUT__LAYOUT(p1 + 48);
-    // The original stores D_0035f250 before it loads D_00347f80 (as if the two could alias):
-    // the store goes through a hidden high half pinned to t7, the register the original uses.
-    register u32 hs asm("$15") = 0x360000; asm("" : "+r"(hs));
-    *(u8**)(hs - 3504) = p1;
+    inst = p1;
     Alloc* al = *(Alloc**)(D_00347f80 + 20);
     u8* p2 = al->vt[0](al, 408, 0);
     *(u32*)(p2 + 12) = 0;
