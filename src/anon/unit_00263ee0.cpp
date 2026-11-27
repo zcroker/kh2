@@ -55,7 +55,8 @@ void Tz__IShopInfo__GetShopTbl(s32 a0, Out14* o) {
             if (f & 0x200) o->fl |= 2;
             s32 j;
             for (j = 0; j < e->n; j++, s++) {
-                if (__builtin_expect(s->a < 0, 1) || func_001a6d08(s->a)) func_002641c8(o, (u8*)h + s->off, s->b, 31);
+                bool neg = s->a < 0;
+                if (neg || func_001a6d08(s->a)) func_002641c8(o, (u8*)h + s->off, s->b, 31);
             }
             break;
         }
