@@ -551,16 +551,17 @@ extern s32 D_00374740 asm("D_00374740");
 extern s32 D_00374744 asm("D_00374744");
 extern s32 D_00374748 asm("D_00374748");
 extern s32 D_0037474c asm("D_0037474c");
+extern s32 D_00374738 asm("D_00374738");
 /*TARGET 00296b80*/
 // Sets up the two party-member panels (i = 0, 1) once, then marks D_0035f591.
-// Register pins (p in s7, d in t7, the constant 1 in t6) and the empty asms reproduce the
-// original's register choice and scheduling; the else arm reads D_00374738 through a hidden
-// high half (0x370000 + 0x4738) so its lui is issued before id = d + 1.
+// The globals read through block-local pointers (pd, pa, pb, pg) and the constant in `one` are
+// loop invariants that live two or more insns, so the loop pass moves them out; they get no
+// register and are loaded again at each use. Only p is still pinned (s7).
 void Tz__JmReport__CreateGra(u8 flag) asm("Tz__JmReport__CreateGra");
 // Sets up the two party-member panels (i = 0, 1) once, then marks D_0035f591.
-// Register pins (p in s7, d in t7, the constant 1 in t6) and the empty asms reproduce the
-// original's register choice and scheduling; the else arm reads D_00374738 through a hidden
-// high half (0x370000 + 0x4738) so its lui is issued before id = d + 1.
+// The globals read through block-local pointers (pd, pa, pb, pg) and the constant in `one` are
+// loop invariants that live two or more insns, so the loop pass moves them out; they get no
+// register and are loaded again at each use. Only p is still pinned (s7).
 void Tz__JmReport__CreateGra(u8 flag) {
     u8* w = func_002766d0();
     if (D_0035f590 == 0) return;
@@ -571,23 +572,11 @@ void Tz__JmReport__CreateGra(u8 flag) {
     register u8* p asm("$23") = w + 0x4398;
     s32 b = func_0023aa38(q0);
     do {
-        register s32 d asm("$15") = D_0035f3d4;
-        s32 id = d;
-        id += 2;
-        s32 m;
-        if (i == 0) { m = D_0037473c; }
-        else {
-            u32 hb = 0x370000;  // &D_00374738 high half
-
-            id = d + 1;
-
-            m = *(s32*)(hb + 0x4738);
-        }
-        s32 c = func_0023c4b8(func_0023f1b0(D_0035f210), m);
+        s32* pd = &D_0035f3d4; s32* pa = &D_0037473c; s32* pb = &D_00374738; s32 d = *pd; s32 id = d + 2; s32 m; if (i == 0) { m = *pa; } else { id = d + 1; m = *pb; }
+        s32* pg = &D_0035f210; u8 one = 1; s32 c = func_0023c4b8(func_0023f1b0(*pg), m);
         s32 e = func_0023f988(D_0035f58c, i);
         u8* q = w + i * 0x1a0 + 0xdca0;
         YI__IMAGE__Init(q, e);
-        register u8 one asm("$14") = 1;
         q[0x190] = one;
         s32 x, y;
         if (flag) {

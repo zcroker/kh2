@@ -261,12 +261,13 @@ u32 func_002c2598(u32 a, s32 n) {
 // ---- 002c2610 from src/anon/batch_w3724.cpp
 namespace n002c2610 {
 void* func_001c3748(s32, void*) asm("func_001c3748");
-s32 u_tail4(u32, void*) asm("_Z16u_tail4_00192048jjjj");
+s32 u_tail4(u32) asm("_Z16u_tail4_00192048jjjj");
 s32 func_002c2610(s32 a0, s32 n) asm("func_002c2610");
 s32 func_002c2610(s32 a0, s32 n) {
-    s32 nn = n; s32 i = 0; s32 aa = a0; void* p = 0;
-    while ((p = func_001c3748(aa, p)) != 0) {
-        if (i == nn) { return u_tail4(((u16*)p)[3], p); }
+    s32 i = 0;
+    void* p = 0;
+    while ((p = func_001c3748(a0, p)) != 0) {
+        if (i == n) return u_tail4(((u16*)p)[3]);
         i++;
     }
     return 0;
