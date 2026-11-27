@@ -257,7 +257,9 @@ src/harata/libdk/bookcamera.cpp	001589d0	00159070	.data@0034a9b0,.bss@004f35a0,.
 src/anon/unit_00241f20.cpp	00241f20	00241f98	.bss@01dae688	-G0
 src/anon/unit_00241fd0.cpp	00241f98	002422b8	-	-G0
 src/tozawa/crc.cpp	002422b8	00242478	.data@0035ecbc	-G0 -fno-strict-aliasing
-src/anon/unit_00242478.cpp	00242478	00247ff0	.rodata@0037190c	-G0 -g -fno-strict-aliasing
+src/anon/unit_00242478.cpp	00242478	00246f80	.rodata@0037190c	-G0 -g -fno-strict-aliasing
+src/anon/unit_00246f80.cpp	00246f80	00247198	-	-G0 -g -fno-strict-aliasing -fno-strength-reduce
+src/anon/unit_00247198.cpp	00247198	00247ff0	.rodata@00371ab4	-G0 -g -fno-strict-aliasing
 src/anon/unit_00247ff0.cpp	00247ff0	00249ef0	.rodata@00371ce4	-G0 -g -fno-strict-aliasing -fmove-all-movables
 src/anon/unit_00249ef0.cpp	00249ef0	0024ba58	.rodata@00371e54	-G0 -g -fno-strict-aliasing -fmove-all-movables
 src/anon/unit_0024ba58.cpp	0024ba58	0024cda8	.rodata@00371fac	-G0 -g -fno-strict-aliasing
