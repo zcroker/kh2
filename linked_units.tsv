@@ -805,7 +805,7 @@ src/anon/unit_001fe8d8.cpp	001fe8d8	001feb18	.rodata@00370284	-G0
 src/anon/asm_001feb18.s	001feb18	001ff0e0	-	-
 src/anon/unit_001ff0e0.cpp	001ff0e0	001ff110	-	-G0
 src/anon/unit_001ff110.cpp	001ff110	001ff350	.rodata@0037028c	-G0
-src/anon/asm_001ff350.s	001ff350	001ff928	-	-
+src/anon/unit_001ff350.cpp	001ff350	001ff928	.rodata@00370290	-G0 -fno-strict-aliasing
 src/anon/unit_001ff928.cpp	001ff928	001ff958	-	-G0
 src/anon/batch_w3860_nsa.c	001ff958	001ffd70	.rodata@00370294	-G0 -fno-strict-aliasing
 src/anon/asm_001ffd70.s	001ffd70	00200578	-	-
