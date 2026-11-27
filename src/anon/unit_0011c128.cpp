@@ -813,23 +813,15 @@ u32 func_0011d3d0(u8* p, u32 a, u32 b, u32 c, u32 d, u32 e) {
 
 // 0011d440 (was src/anon/tiny_auto80.cpp)
 namespace n0011d440 {
-void func_0011d440(u32, u32, u32, u32) asm("_Z13func_0011d440jjjj");
+void func_0011d440(u32*, u32, u32, u32) asm("_Z13func_0011d440jjjj");
 /*TARGET 0011d440*/
 // 0x00113450: definition moved into src/anon/unit_001117d8.cpp
 
-void func_0011d440(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z13func_0011d440jjjj");
 // 0x00113450: definition moved into src/anon/unit_001117d8.cpp
 
-void func_0011d440(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r12, r13, r14, r15;
-    r12 = *(volatile u32*)((u32)r4 + (s32)(44));
-    r15 = *(u32*)((u32)r4 + (s32)(48));
-    r14 = *(volatile u32*)((u32)r4 + (s32)(264));
-    r13 = *(u32*)((u32)r4 + (s32)(268));
-    *(volatile u32*)((u32)r4 + (s32)(44)) = r15;
-    *(u32*)((u32)r4 + (s32)(268)) = r14;
-    *(volatile u32*)((u32)r4 + (s32)(48)) = r12;
-    *(volatile u32*)((u32)r4 + (s32)(264)) = r13;
+void func_0011d440(u32* p, u32, u32, u32) {
+    u32 a = p[11], b = p[12], c = p[66], d = p[67];
+    p[11] = b; p[12] = a; p[66] = d; p[67] = c;
 }
 }  // namespace n0011d440
 
