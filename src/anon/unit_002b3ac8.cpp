@@ -298,7 +298,7 @@ namespace n002b4070 {
 struct W2418M2b4 { u8 pad[0x4c]; };
 struct W2418O2b4 { W2418M2b4* a; W2418M2b4* b; W2418M2b4* c; };
 struct W2418P2b4 { u8 pad[0x14]; u16 h[4]; };
-void Tz__LayMsg__create(W2418M2b4*, s32, s32, s32, s32, s32, s32, s32) asm("Tz__LayMsg__create");
+void Tz__LayMsg__create(W2418M2b4*, s32, s32, s32, void*, s32, s32, s32) asm("Tz__LayMsg__create");
 s32 func_0023f7d8(W2418M2b4*) asm("func_0023f7d8");
 s32 func_0023aa98(s32) asm("func_0023aa98");
 s32 func_0028dd90(s32) asm("func_0028dd90");
@@ -307,8 +307,8 @@ void func_0023f6c0(W2418M2b4*, s32) asm("func_0023f6c0");
 void func_0023f688(W2418M2b4*, s32) asm("func_0023f688");
 void func_001395f8(W2418M2b4*) asm("func_001395f8");
 /*TARGET 002b4070*/
-void func_002b4070(W2418O2b4* o, s32 a1, s32 a2, s32 a3, s32 e0, s32 e1, s32 e2, s32 e3, s32 e4, s32 c0, W2418P2b4* p, s32 x, s32 y) asm("func_002b4070");
-void func_002b4070(W2418O2b4* o, s32 a1, s32 a2, s32 a3, s32 e0, s32 e1, s32 e2, s32 e3, s32 e4, s32 c0, W2418P2b4* p, s32 x, s32 y) {
+void func_002b4070(W2418O2b4* o, s32 a1, s32 a2, s32 a3, void* e0, void* e1, void* e2, void* e3, void* e4, s32 c0, W2418P2b4* p, s32 x, s32 y) asm("func_002b4070");
+void func_002b4070(W2418O2b4* o, s32 a1, s32 a2, s32 a3, void* e0, void* e1, void* e2, void* e3, void* e4, s32 c0, W2418P2b4* p, s32 x, s32 y) {
     s32 v;
     if (e0) {
         Tz__LayMsg__create(o->a, a1, a2, a3, e0, c0, x, y);
@@ -338,7 +338,7 @@ void func_002b4070(W2418O2b4* o, s32 a1, s32 a2, s32 a3, s32 e0, s32 e1, s32 e2,
         func_0023f688(&o->b[2], func_0028ddd8(v));
         func_001395f8(&o->b[2]);
     }
-    if (__builtin_expect(e4, 1)) {
+    if (e4) {
         Tz__LayMsg__create(o->c, a1, a2, a3, e4, p->h[3], x, y);
         v = func_0023aa98(func_0023f7d8(o->c));
         func_0023f6c0(o->c, func_0028dd90(v));
