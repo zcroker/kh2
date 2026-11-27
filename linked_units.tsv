@@ -810,7 +810,7 @@ src/anon/asm_001ffd70.s	001ffd70	00200578	-	-
 src/anon/unit_002c0860.cpp	002c0860	002c10e0	-	-G0 -fno-strict-aliasing -fno-gcse
 src/anon/unit_002d9588.cpp	002d9588	002d96d8	.rodata@00375cc0	-G0 -fno-strict-aliasing
 src/anon/unit_002ddbf0.cpp	002ddbf0	002de010	.rodata@00375df0	-G0 -g -fno-strict-aliasing
-src/anon/asm_002de028.s	002de028	002de3c8	-	-
+src/anon/unit_002de028.cpp	002de028	002de3c8	.rodata@00375e00	-G0 -fno-strict-aliasing
 src/libgcc/_floatdisf.c	00311af0	00311bb8	-	-G0
 src/libgcc/_fixunsdfdi.c	00311bb8	00311cc0	-	-G0
 src/libgcc/_fixunssfdi.c	00311cc0	00311dd0	-	-G0
