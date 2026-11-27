@@ -173,7 +173,8 @@ void func_00168d08(W1831Blk* b, u8* x) {
     b->base = b;
     for (i = 0; i < b->count; i++) {
         W1831Ent* e = (W1831Ent*)(i * 16 + (u32)b);
-        if (__builtin_expect(e->size == 0, 0)) continue;
+        s32 used = e->size != 0;  // signed "< 1" test on the 0/1 value: needed for the register order
+        if (used < 1) continue;
         u8* o = e->ptr;
         u8* p = o + d;
         e->ptr = p;
