@@ -35,10 +35,10 @@ void func_00139570(u8*) asm("func_00139570");
 /*TARGET 002b2a18*/
 void func_002b2a18(void) asm("func_002b2a18");
 void func_002b2a18(void) {
-    s32 i = 0;
+    u8* i = 0;
     s32 off = 0;
     u8* g = func_002766d0();
-    register St2b2a18* st asm("$22") = Tz__JmPuzzle__GetImageInfo(-1);
+    St2b2a18* st = Tz__JmPuzzle__GetImageInfo(-1);
     u8* base = D_0035f634;
     s32 id;
     u8* p;
@@ -71,7 +71,7 @@ void func_002b2a18(void) {
         b += off;
         p = b + 19992;
         b += 20016;
-        w = tbl[st->bit * 3 + i];
+        w = tbl[st->bit * 3 + (s32)i];
         func_0028d8c0(p, id, D_0035f14c, D_0035f148, D_0035f210, w, -1, 0);
         i++;
         off += 408;
@@ -80,7 +80,7 @@ void func_002b2a18(void) {
         p[405] = one;
         func_0028dcc0(p, base);
         func_00139570(p);
-    } while (i < 2);
+    } while ((s32)i < 2);
     b = D_0035f634;
     p = b + 19584;
     func_0028d8c0(p, 30058, D_0035f14c, D_0035f148, D_0035f210, 115, -1, 0);
