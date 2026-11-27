@@ -225,7 +225,6 @@ s32 func_0020e160(s32 n) {
 
 // 0020e198 (was src/anon/batch_w3725.cpp)
 namespace n0020e198 {
-// func_0020e198: empty asm keeps the shifted value live so the srl is not tied to a1; see asm_review.tsv.
 struct B1882 { u8 b[96]; };
 struct BF4 { u32 :6; u32 f:26; };
 struct BF28 { u32 :5; u32 f:14; u32 :13; };
@@ -244,9 +243,10 @@ void func_0020e198(O1882* o) {
     T1882* t = &o->t;
     u8* p = 0;
     B1882 a, b;
+    s16 a1;
     if (t->w8) {
         u8 a3 = D_00359100[t->b19];
-        s16 a1 = t->h24 & 0x3fff;
+        a1 = t->h24 & 0x3fff;
         s32 a2, t0, t1;
         if (o->b15 == 111) {
             a2 = t->b40 >> 2; t0 = t->b42 << 4; t1 = t->b43 << 4;
@@ -262,10 +262,9 @@ void func_0020e198(O1882* o) {
         u8 i3 = t->b18;
         u32 w = t->w28 >> 5;
         u8 c3 = D_00359100[i3];
-        u32 c1 = w & 0x3fff;
+        a1 = w & 0x3fff;
         s16 c3x = t->bf4.f;
-        asm("" : "+r"(c1) : "r"(w));
-        sceGsSetDefLoadImage(&b, c1, 1, c3, 0, 0, 16, c3x);
+        sceGsSetDefLoadImage(&b, a1, 1, c3, 0, 0, 16, c3x);
         sceGsSyncPath(0, 0);
         func_003058a0(0);
         p += t->w8;
