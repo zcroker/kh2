@@ -201,18 +201,18 @@ void func_0019eda0(u32 a0) {
 
 // ---- 0019ee28 from src/anon/batch_w3702.cpp
 namespace n0019ee28 {
-struct S00350448 { s32 a; u8 pad[0x1c]; f32 c; };
-extern S00350448 D_00350448 asm("D_00350448");
+union Cell00350448 { s32 i; f32 f; };
+extern Cell00350448 D_00350448[9] asm("D_00350448");
 extern f32 D_00350464 asm("D_00350464");
 void wtarget_0019ee28(u32, u32, u32, u32) asm("_Z16wtarget_0019ee28jjjj");
 void wtarget_0019ee28(u32 a, u32 b, u32, u32) {
     if (b == 0xffff && a == 1) {
-        S00350448* p = &D_00350448;
+        // union cells: the +0x20 float store and the +0 int store can alias, which keeps their order in sched2
+        Cell00350448* p = D_00350448;
         f32 z = 0.0f;
-        p->c = z;
-        asm volatile("");
-        D_00350448.a = 0;
+        p[0].i = 0;
         D_00350464 = z;
+        p[8].f = z;
     }
 }
 }  // namespace n0019ee28
