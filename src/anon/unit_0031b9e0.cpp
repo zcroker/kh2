@@ -74,7 +74,7 @@ u32 func_0031ba88(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7
 u32 func_0031ba88(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r15;
     r15 = (u32)&D_00348d58;
-    *(volatile u32*)((u32)r4 + (s32)(0)) = r15;
+    *(u32*)((u32)r4 + (s32)(0)) = r15;
     return ((u32(*)())func_00106420)();
 }
 }  // namespace n0031ba88
@@ -166,7 +166,7 @@ u32 func_0031bb28(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7
 u32 func_0031bb28(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r15;
     r15 = (u32)&D_00348698;
-    *(volatile u32*)((u32)r4 + (s32)(0)) = r15;
+    *(u32*)((u32)r4 + (s32)(0)) = r15;
     return ((u32(*)())func_00106420)();
 }
 }  // namespace n0031bb28
@@ -193,7 +193,7 @@ u32 func_0031bb58(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7
 u32 func_0031bb58(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r15;
     r15 = (u32)&D_00348698;
-    *(volatile u32*)((u32)r4 + (s32)(0)) = r15;
+    *(u32*)((u32)r4 + (s32)(0)) = r15;
     return ((u32(*)())func_00106420)();
 }
 }  // namespace n0031bb58
@@ -207,7 +207,7 @@ u32 func_0031bb78(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7
 u32 func_0031bb78(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r15;
     r15 = (u32)&D_00348698;
-    *(volatile u32*)((u32)r4 + (s32)(0)) = r15;
+    *(u32*)((u32)r4 + (s32)(0)) = r15;
     return ((u32(*)())func_00106420)();
 }
 }  // namespace n0031bb78
@@ -234,7 +234,7 @@ u32 func_0031bba8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7
 u32 func_0031bba8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r15;
     r15 = (u32)&D_00348698;
-    *(volatile u32*)((u32)r4 + (s32)(0)) = r15;
+    *(u32*)((u32)r4 + (s32)(0)) = r15;
     return ((u32(*)())func_00106420)();
 }
 }  // namespace n0031bba8
@@ -261,7 +261,7 @@ u32 func_0031bbd8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7
 u32 func_0031bbd8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r15;
     r15 = (u32)&D_00348698;
-    *(volatile u32*)((u32)r4 + (s32)(0)) = r15;
+    *(u32*)((u32)r4 + (s32)(0)) = r15;
     return ((u32(*)())func_00106420)();
 }
 }  // namespace n0031bbd8
@@ -288,7 +288,7 @@ u32 func_0031bc08(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7
 u32 func_0031bc08(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r15;
     r15 = (u32)&D_00348698;
-    *(volatile u32*)((u32)r4 + (s32)(0)) = r15;
+    *(u32*)((u32)r4 + (s32)(0)) = r15;
     return ((u32(*)())func_00106420)();
 }
 }  // namespace n0031bc08
@@ -315,7 +315,7 @@ u32 func_0031bc38(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7
 u32 func_0031bc38(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r15;
     r15 = (u32)&D_00348698;
-    *(volatile u32*)((u32)r4 + (s32)(0)) = r15;
+    *(u32*)((u32)r4 + (s32)(0)) = r15;
     return ((u32(*)())func_00106420)();
 }
 }  // namespace n0031bc38
@@ -696,7 +696,7 @@ void func_0031c2c8(u32* p) {
     func_00239870(p + 18);
     func_0031a840(q);
     p[0] = (u32)D_00347f98;
-    asm volatile("" ::: "memory");
+
     Obj* o = D_00347f80->o;
     ((void(*)(Obj*, void*))o->vt[1])(o, p);
 }
@@ -1623,7 +1623,7 @@ void func_0031d490(u8* p) asm("func_0031d490");
 // Deleting destructor: same, then frees through the global allocator.
 void func_0031d490(u8* p) {
     Body31d290(p);
-    asm volatile("" ::: "memory");  // keeps the final vtable store ahead of the allocator lookup
+      // keeps the final vtable store ahead of the allocator lookup
     u8* a = *(u8**)(D_00347f80 + 20);
     (*(Free31d290*)(*(u8**)a + 4))(a, p);
 }
@@ -2333,7 +2333,7 @@ void func_0031e208(u32, u8* p, u32* flags, u32 v, u8* src) {  // gpr_field_updat
         u8* d = p + 64;
         *(u16*)(p + 98) = v;
         if (d != src) asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(d), "r"(src) : "$8", "memory");
-        asm volatile("" ::: "memory");
+
     }
     if (*flags & 0x1000) {
         u8* d = p + 80;

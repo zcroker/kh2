@@ -71,7 +71,7 @@ void sceGsResetPath(void)
     *(volatile unsigned int *)0x10003c10 = 1;
     *(volatile unsigned int *)0x10003c20 = 2;
     __asm__ __volatile__(".set noreorder\n\tsync.l\n\tcfc2 %0,$vi28\n\tori %0,%0,0x0200\n\tctc2 %0,$vi28\n\tsync.p\n\t.set reorder" : : "r"(0));
-    *(volatile u_long128 *)0x10005000 = *(u_long128 *)&D_00363c50[0];
+    *(u_long128 *)0x10005000 = *(u_long128 *)&D_00363c50[0];
     *(volatile u_long128 *)0x10005000 = *(u_long128 *)&D_00363c50[4];
     *(volatile unsigned int *)0x10003000 = 1;
 }

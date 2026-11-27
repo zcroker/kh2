@@ -823,11 +823,11 @@ void func_0011d440(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z13func_0011d440jjjj");
 void func_0011d440(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r12, r13, r14, r15;
     r12 = *(volatile u32*)((u32)r4 + (s32)(44));
-    r15 = *(volatile u32*)((u32)r4 + (s32)(48));
+    r15 = *(u32*)((u32)r4 + (s32)(48));
     r14 = *(volatile u32*)((u32)r4 + (s32)(264));
-    r13 = *(volatile u32*)((u32)r4 + (s32)(268));
+    r13 = *(u32*)((u32)r4 + (s32)(268));
     *(volatile u32*)((u32)r4 + (s32)(44)) = r15;
-    *(volatile u32*)((u32)r4 + (s32)(268)) = r14;
+    *(u32*)((u32)r4 + (s32)(268)) = r14;
     *(volatile u32*)((u32)r4 + (s32)(48)) = r12;
     *(volatile u32*)((u32)r4 + (s32)(264)) = r13;
 }
@@ -932,11 +932,11 @@ f32 func_0011d6c0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7
     u32 s1 = a0;
     func_0011d468(a0, a1, a2, a3, a4, a5, a6, a7);
     s0 = (u32)((u32)s0 << 6);
-    u32 r4 = *(volatile u32*)((u32)s1 + (s32)(20));
-    u32 t7 = *(volatile u32*)((u32)r4 + (s32)(0));
-    u32 v0 = ((u32(*)(u32))(*(volatile u32*)((u32)t7 + (s32)(32))))(r4);
+    u32 r4 = *(u32*)((u32)s1 + (s32)(20));
+    u32 t7 = *(u32*)((u32)r4 + (s32)(0));
+    u32 v0 = ((u32(*)(u32))(*(u32*)((u32)t7 + (s32)(32))))(r4);
     v0 = (u32)(v0 + s0);
-    return *(volatile f32*)((u32)v0 + (s32)(28));
+    return *(f32*)((u32)v0 + (s32)(28));
 }
 }  // namespace n0011d6c0
 
@@ -1859,7 +1859,7 @@ u32 func_0011ee78(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7
 u32 func_0011ee78(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r15;
     r15 = (u32)&D_00347940;
-    *(volatile u32*)((u32)r4 + (s32)(0)) = r15;
+    *(u32*)((u32)r4 + (s32)(0)) = r15;
     return ((u32(*)())func_00106420)();
 }
 }  // namespace n0011ee78
@@ -1940,9 +1940,9 @@ namespace n0011ef70 {
 u32 func_0011ef70(u32 a0, u32 a1) asm("_Z13func_0011ef70jj");
 u32 func_0011ef70(u32 a0, u32 a1) {
     if (a1 != 0u) {
-        return *(volatile u32*)((u32)a1 + (s32)(4));
+        return *(u32*)((u32)a1 + (s32)(4));
     }
-    return *(volatile u32*)((u32)a0 + (s32)(8));
+    return *(u32*)((u32)a0 + (s32)(8));
 }
 }  // namespace n0011ef70
 

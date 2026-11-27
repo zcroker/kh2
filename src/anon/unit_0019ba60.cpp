@@ -447,7 +447,7 @@ namespace YS {  // n0019c410
 u32 func_001a7790(...) asm("func_001a7790");
 u32 OBJ::is_culling() {
     u32 r2 = 0u;
-    u32 r15 = *(volatile u32*)((u32)this + (s32)(2040));
+    u32 r15 = *(u32*)((u32)this + (s32)(2040));
     r15 = (u32)(r15 & 0x0400u);
     u32 r4 = (u32)((s32)(u32)this + (1856));
     if (r15 != 0u) {
@@ -861,7 +861,7 @@ s32 func_0019ba60(W231Q*) asm("func_0019ba60");
 u32 func_00154b40(u32, u32) asm("func_00154b40");
 void func_0019cb48(W231S* s) asm("func_0019cb48");
 void func_0019cb48(W231S* s) {
-    volatile u32 z[5];
+    u32 z[5];
     z[3] = 0;
     func_0019cbe8(s);
     if (s->q28->tab) {
@@ -887,11 +887,11 @@ void func_0019cbe8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a
 void func_0019cbe8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r15, r16;
     r16 = r4;
-    r15 = *(volatile u32*)((u32)r4 + (s32)(32));
+    r15 = *(u32*)((u32)r4 + (s32)(32));
     r4 = r15;
     if (r15 != 0u) {
         ((void(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_00154b80)(r4, r5, r6, r7, r8, r9, r10, r11);
-        *(volatile u32*)((u32)r16 + (s32)(32)) = 0u;
+        *(u32*)((u32)r16 + (s32)(32)) = 0u;
     }
 }
 }  // namespace n0019cbe8
@@ -1124,11 +1124,11 @@ void func_0019d228(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a
 void func_0019d228(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r15, r16;
     r16 = r4;
-    r15 = *(volatile u32*)((u32)r4 + (s32)(24));
+    r15 = *(u32*)((u32)r4 + (s32)(24));
     r4 = r15;
     if (r15 != 0u) {
         ((void(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_0013e4b8)(r4, r5, r6, r7, r8, r9, r10, r11);
-        *(volatile u32*)((u32)r16 + (s32)(24)) = 0u;
+        *(u32*)((u32)r16 + (s32)(24)) = 0u;
     }
 }
 }  // namespace n0019d228
@@ -1317,12 +1317,12 @@ void func_0019d548(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a
 void func_0019d548(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r15, r16;
     r16 = r4;
-    r15 = *(volatile u32*)((u32)r4 + (s32)(8));
+    r15 = *(u32*)((u32)r4 + (s32)(8));
     r4 = r15;
     if (r15 != 0u) {
         ((void(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_0013e4b8)(r4, r5, r6, r7, r8, r9, r10, r11);
-        *(volatile u32*)((u32)r16 + (s32)(8)) = 0u;
-        *(volatile u32*)((u32)r16 + (s32)(4)) = 0u;
+        *(u32*)((u32)r16 + (s32)(4)) = 0u;
+        *(u32*)((u32)r16 + (s32)(8)) = 0u;
     }
 }
 }  // namespace n0019d548

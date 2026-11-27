@@ -36,7 +36,7 @@ void func_001c2b70(void) {
     do {
         *p = 0;
         i--;
-        asm volatile("nop\n\tnop\n\tnop");
+
         p++;
     } while (i >= 0);
     D_01d49550 = 0;
@@ -257,7 +257,7 @@ static inline __attribute__((always_inline)) void slots_a(u8* p, u8* a, u16* b) 
         s32 i;
         for (i = 0, e = (u16*)(a + 80); i < 80; i++, e++) {
             if (((u32)e[2] & 0xffff) >> 15) {
-                u8* r = (u8*)func_001a80c8(e[2] & 0x7fff);                       
+                u8* r = (u8*)func_001a80c8(e[2] & 0x7fff);
                 if (!r[6] || !b) func_001c3150(p, e[2] & 0x7fff);
             }
         }

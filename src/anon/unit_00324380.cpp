@@ -86,23 +86,23 @@ extern u8 D_00347e60[] asm("D_00347e60");
 extern u8 D_00347e40[] asm("D_00347e40");
 static inline __attribute__((always_inline)) void W1986_ctor408(u8* e)
 {
-    *(u32*)(e + 12) = 0; *(volatile u32*)e = (u32)D_00347e60; func_00239700(e + 24);
+    *(u32*)(e + 12) = 0; *(u32*)e = (u32)D_00347e60; func_00239700(e + 24);
 }
 static inline __attribute__((always_inline)) void H436(u8* e, u32 a, u32 b)
 {
-    *(volatile u32*)e = a; func_0031a838(e + 12);
-    *(volatile u32*)e = b; func_00239700(e + 24);
+    *(u32*)e = a; func_0031a838(e + 12);
+    *(u32*)e = b; func_00239700(e + 24);
     *(u32*)(e + 408) = 0; *(volatile u32*)e = (u32)D_00347e40;
 }
 static inline __attribute__((always_inline)) void H408(u8* e, u32 b)
 {
-    *(u32*)(e + 12) = 0; *(volatile u32*)e = b; func_00239700(e + 24);
+    *(u32*)(e + 12) = 0; *(u32*)e = b; func_00239700(e + 24);
 }
 static inline __attribute__((always_inline)) void H436b(u8* e, u32 a, u32 b)
 {
     *(volatile u32*)e = a; func_0031a838(e + 12);
-    *(volatile u32*)e = b; func_00239700(e + 24);
-    *(volatile u32*)e = (u32)D_00347e40; *(u32*)(e + 408) = 0;
+    *(u32*)e = b; func_00239700(e + 24);
+    *(u32*)e = (u32)D_00347e40; *(u32*)(e + 408) = 0;
 }
 /*TARGET 00324510*/
 void func_00324510(u8* t) asm("func_00324510");
@@ -112,7 +112,7 @@ void func_00324510(u8* t)
         u8* e = t;
         s32 i = 47;
         for (; i != -1; i--, e += 408) {
-            *(u32*)(e + 12) = 0; *(volatile u32*)e = (u32)D_00347e60; func_00239700(e + 24);
+            *(u32*)(e + 12) = 0; *(u32*)e = (u32)D_00347e60; func_00239700(e + 24);
         }
     }
     W1986_ctor408(t + 19584);
@@ -120,7 +120,7 @@ void func_00324510(u8* t)
         u8* e = t + 19992;
         s32 i = 1;
         for (; i != -1; i--, e += 408) {
-            *(u32*)(e + 12) = 0; *(volatile u32*)e = (u32)D_00347e60; func_00239700(e + 24);
+            *(u32*)(e + 12) = 0; *(u32*)e = (u32)D_00347e60; func_00239700(e + 24);
         }
     }
     u32 va = (u32)D_00347f98; u32 vb = (u32)D_00347e60;

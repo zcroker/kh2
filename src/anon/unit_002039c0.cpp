@@ -56,7 +56,7 @@ f32 func_00203a40(void) asm("func_00203a40");
 
 // VU0 random: five vrnext steps seeded with -1, plus 1.0 (hand-written VU0 macro code).
 f32 func_00203a40(void) {  // vu_const_5f
-    register u32 r asm("$15");
+    u32 r;
     asm volatile(
         "addi $8, $0, -1\n\tqmtc2 $8, $vf2\n\t"
         "vrxor R, $vf2x\n\tvrnext.x $vf1, R\n\t"

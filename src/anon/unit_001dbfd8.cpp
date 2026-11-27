@@ -157,7 +157,7 @@ extern void* D_00352ae0[2] asm("D_00352ae0");
 extern s32 D_00352ae8 asm("D_00352ae8");
 extern u8 D_00352b48 asm("D_00352b48");
 void func_001dc278(u8* p, s32 a1, s32 a2) asm("_Z13func_001dc278Phii");
-void func_001dc278(u8* p, s32 a1, s32 a2) {                    
+void func_001dc278(u8* p, s32 a1, s32 a2) {
     *(s32*)(p + 0xc) = 0;
     *(s32*)(p + 0x10) = 0;
     *(u32*)p = (u32)&D_00352b48;
@@ -238,7 +238,7 @@ void func_001dc418(u8* o) {
     *(void**)o = D_00352b48;
     if (*(void**)(o + 28)) {
         func_001e2c00(*(void**)(o + 28));
-        func_001e6c00(*(void**)(o + 28));                        
+        func_001e6c00(*(void**)(o + 28));
     }
     func_00321c50(D_00352ae0, o);
     D_00352ae8--;
@@ -283,15 +283,13 @@ s32 func_001dc4e8(u8* p, u32 a, u32 b, u32 c) {
 
 // ---- 001dc540 from src/anon/tiny_auto80.cpp
 namespace n001dc540 {
-u32 func_001dc540(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z13func_001dc540jjjj");
-u32 func_001dc540(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2, r15;
-    r15 = *(volatile u32*)((u32)r5 + (s32)(0));
-    r2 = (u32)((s32)0u + (1));
-    *(volatile u32*)((u32)r4 + (s32)(16)) = r7;
-    *(volatile u32*)((u32)r4 + (s32)(20)) = r15;
-    *(volatile u32*)((u32)r4 + (s32)(24)) = r6;
-    return r2;
+struct Effect { u32 pad[4]; u32 priority; u32 data; u32 id; };  // ryj::EFFECT: Priority @0x10, Data @0x14, ID @0x18
+u32 func_001dc540(Effect* e, u32* data, u32 id, u32 priority) asm("_Z13func_001dc540jjjj");
+u32 func_001dc540(Effect* e, u32* data, u32 id, u32 priority) {
+    e->data = *data;
+    e->id = id;
+    e->priority = priority;
+    return 1;
 }
 }  // namespace n001dc540
 
@@ -310,7 +308,7 @@ s32 func_001dc558(u32* p, f32 f) {
     }
     if (!ok && p[7]) {
         func_001e2c00(p[7]);
-        func_001e6c00(p[7]);                        
+        func_001e6c00(p[7]);
         p[7] = 0;
     }
     return ok;
@@ -415,7 +413,7 @@ void func_001dc700(u8* a0, u32 a1) {
 namespace n001dc738 {
 extern u32 D_0034f240 asm("D_0034f240");
 bool func_001dc738(u32* p) asm("func_001dc738");
-bool func_001dc738(u32* p) {                     
+bool func_001dc738(u32* p) {
     u32 fl = p[2];
     return (fl & 0x400000) || ((D_0034f240 & 0x20) && p[1] != 3) || (bool)(((s32)fl >> 26) & 1);
 }
@@ -478,7 +476,7 @@ void EFFECT_free(u8* e) {
     void* h = *(void**)(e + 0x1c);
     if (h) {
         func_001e2c00(h);
-        func_001e6c00(*(void**)(e + 0x1c));                        
+        func_001e6c00(*(void**)(e + 0x1c));
         *(void**)(e + 0x1c) = 0;
     }
 }
@@ -512,7 +510,7 @@ void EFFECT_kill(void* e) {
     *(u32*)(p + 8) |= 0x10001;
     if (*(u32*)(p + 28)) {
         func_001e2c00(*(u32*)(p + 28));
-        func_001e6c00(*(u32*)(p + 28));                        
+        func_001e6c00(*(u32*)(p + 28));
         *(u32*)(p + 28) = 0;
     }
 }
@@ -573,7 +571,7 @@ bool EFFECT_is_waiting(u8* self) {
 // ---- 001dca20 from src/anon/tiny_leaf.cpp
 namespace n001dca20 {
 u32 func_001dca20(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z13func_001dca20jjjj");
-u32 func_001dca20(u32 a0, u32 a1, u32 a2, u32 a3) {                        
+u32 func_001dca20(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u;
     r2 = *(u32*)((u32)r4 + (s32)(8));
     r2 = (u32)((s32)r2 >> 20);
@@ -585,7 +583,7 @@ u32 func_001dca20(u32 a0, u32 a1, u32 a2, u32 a3) {
 // ---- 001dca30 from src/anon/tiny_leaf.cpp
 namespace n001dca30 {
 void func_001dca30(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z13func_001dca30jjjj");
-void func_001dca30(u32 a0, u32 a1, u32 a2, u32 a3) {                           
+void func_001dca30(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r14 = 0u, r15 = 0u;
     r14 = *(u32*)((u32)r4 + (s32)(8));
     r15 = (u32)(0x0004u << 16);
@@ -665,7 +663,7 @@ void func_001dcb98(void* fx, u8* rgba)
 namespace n001dcc00 {
 u32 func_001e34e0(u32, u32, u32, u32) asm("_Z13func_001e34e0jjjj");
 u32 func_001dcc00(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z13func_001dcc00jjjj");
-u32 func_001dcc00(u32 a0, u32 a1, u32 a2, u32 a3) {                      
+u32 func_001dcc00(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_001e34e0(((u32)(*(u32*)((u32)(a0) + 28u))), a1, a2, a3);
 }
 }  // namespace n001dcc00
@@ -742,10 +740,10 @@ namespace n001dcd38 {
 u32 func_001dcd38(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) asm("_Z13func_001dcd38jjjjjjjj");
 u32 func_001dcd38(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r2, r15;
-    r15 = *(volatile u32*)((u32)r4 + (s32)(12));
+    r15 = *(u32*)((u32)r4 + (s32)(12));
     r2 = 0u;
     if (r15 != 0u) {
-        r2 = *(volatile u32*)((u32)r15 + (s32)(24));
+        r2 = *(u32*)((u32)r15 + (s32)(24));
     }
     return r2;
 }
@@ -964,7 +962,7 @@ void func_001dd1b0(BD_VALUE* bd) { func_001e7018(bd); }
 namespace n001dd1c8 {
 u32 func_001e7030(u32, u32, u32, u32) asm("_Z13func_001e7030jjjj");
 u32 func_001dd1c8(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z13func_001dd1c8jjjj");
-u32 func_001dd1c8(u32 a0, u32 a1, u32 a2, u32 a3) {                     
+u32 func_001dd1c8(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_001e7030(((u32)(a0) & 0xffu), ((u32)(a1) & 0xffu), ((u32)(a2) & 0xffu), a3);
 }
 }  // namespace n001dd1c8

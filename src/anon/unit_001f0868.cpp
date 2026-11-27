@@ -18,9 +18,9 @@ void func_001f0868(u32 a0, u32 a1) {
     *(volatile f32 *)(a1 + 4) = f1;
     register f32 f2 asm("$f2") = *(volatile f32 *)(a0 + 20);
     *(volatile u32 *)a1 = a0;
-    *(volatile f32 *)(a1 + 16) = f2;
+    *(f32 *)(a1 + 16) = f2;
     *(volatile f32 *)(a1 + 8) = z;
-    *(volatile f32 *)(a1 + 24) = z;
+    *(f32 *)(a1 + 24) = z;
     *(volatile f32 *)(a1 + 20) = z;
     *(volatile f32 *)(a1 + 12) = z;
 }

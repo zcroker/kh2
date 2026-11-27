@@ -33,7 +33,7 @@ void func_002369f0(u8*) asm("func_002369f0");
 void func_002c9998(u8* p) asm("func_002c9998");
 void func_002c9998(u8* p) {
     *(void**)p = D_00361e10;
-    u32 x = *(u32*)(p + 9604); asm volatile("" ::: "memory");
+    u32 x = *(u32*)(p + 9604);
     func_00170950(x);
     D_00361e00 = (D_00361e00 == p) ? 0 : D_00361e00;
     ARR(8376, 9600)
@@ -76,7 +76,7 @@ void func_002369f0(u8*) asm("func_002369f0");
 void func_002c9b38(u8* p) asm("func_002c9b38");
 void func_002c9b38(u8* p) {
     *(void**)p = D_00361e10;
-    u32 x = *(u32*)(p + 9604); asm volatile("" ::: "memory");
+    u32 x = *(u32*)(p + 9604);
     func_00170950(x);
     D_00361e00 = (D_00361e00 == p) ? 0 : D_00361e00;
     ARR(8376, 9600)
@@ -203,8 +203,8 @@ void func_002c9ea8(u32 a0, u32 a1, u32 a2, u32 a3) asm("func_002c9ea8");
 void func_002c9ea8(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r14, r15;
     if (r4 != 0u) {
-        r15 = *(volatile u32*)((u32)r4 + (s32)(0));
-        r14 = *(volatile u32*)((u32)r15 + (s32)(16));
+        r15 = *(u32*)((u32)r4 + (s32)(0));
+        r14 = *(u32*)((u32)r15 + (s32)(16));
         ((void(*)(u32,u32,u32,u32))(u32)r14)(r4, r5, r6, r7);
     }
 }

@@ -250,7 +250,7 @@ u32 func_0020ecc8(u32 a0, u32 a1) {
     u32 s18 = a1;
     s32 s17 = sceOpen(a0, 1);
     if (s17 < 0) {
-        *(volatile u32*)0 = 0;
+        *(u32*)0 = 0;
         return 0;
     }
 
@@ -275,7 +275,7 @@ s32 func_0020ed68(u32 name) asm("func_0020ed68");
 s32 func_0020ed68(u32 name) {
     s32 fd = sceOpen(name, 1);
     if (fd < 0) {
-        *(volatile u32*)0 = 0;
+        *(u32*)0 = 0;
         return 0;
     }
     s32 n = sceLseek(fd, 0, 2);

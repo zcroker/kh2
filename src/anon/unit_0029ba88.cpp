@@ -219,7 +219,7 @@ s32 func_002943b0(u8 *p) asm("func_002943b0");
 u32 func_0028af88(void *s) asm("func_0028af88");
 void func_0028af18(void *s, u32 a) asm("func_0028af18");
 void func_0028b1e8(void *s, s32 a) asm("func_0028b1e8");
-volatile unsigned short func_0029e960(void) asm("func_0029e960");
+unsigned short func_0029e960(void) asm("func_0029e960");
 void func_0029ea30(void) asm("func_0029ea30");
 void func_00287cc0(s32 a) asm("func_00287cc0");
 void func_0029dba0(void) asm("func_0029dba0");
@@ -581,7 +581,7 @@ void func_00288018(void) asm("func_00288018");
 void func_0029c5c8(void) asm("func_0029c5c8");
 void func_0029c5c8(void)
 {
-    register s32 r asm("$17") = func_00289380(D_0035f200);
+    s32 r = func_00289380(D_0035f200);
     s32 mode = func_00287cd0();
     register s32 m asm("$18") = func_00287bc0();
     register s32 i asm("$16");

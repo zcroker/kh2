@@ -834,7 +834,7 @@ void func_001b99d0(void)
             p->next = 0;
         }
     }
-    register u32 hb asm("$21") = 0x1d50000; // %hi(D_01d48db0)
+    u32 hb = 0x1d50000; // %hi(D_01d48db0)
     asm("" : "+r"(hb));
     while ((h = ((Nd2List*)(hb - 29264))->head) != 0) {
         for (it = q = h; q; q = qn) {
@@ -877,7 +877,7 @@ void func_001b9b28(u32 a0) {
         }
     }
 
-    u32 t7 = *(volatile u32*)(a0 + 2040);
+    u32 t7 = *(u32*)(a0 + 2040);
     *(u32*)(a0 + 2040) = t7 | 0x500;
 }
 }  // namespace n001b9b28
@@ -921,11 +921,11 @@ void func_001b9c58(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a
     idx += base;
     a0 &= 31;
     u32 mask = 1;
-    u32 val = *(volatile u32*)idx;
+    u32 val = *(u32*)idx;
     mask <<= a0;
     mask = ~mask;
     val &= mask;
-    *(volatile u32*)idx = val;
+    *(u32*)idx = val;
 }
 }  // namespace n001b9c58
 

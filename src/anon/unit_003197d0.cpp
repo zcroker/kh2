@@ -153,8 +153,8 @@ void func_00319930(u32 a0) {
         t15 = t15 + 4u;
     } while (t14 >= 0);
 
-    *(volatile u32*)(a0 + 204u) = 0u;
-    *(volatile u32*)(a0 + 200u) = 0u;
+    *(u32*)(a0 + 200u) = 0u;
+    *(u32*)(a0 + 204u) = 0u;
 }
 }  // namespace n00319930
 
@@ -192,9 +192,9 @@ void func_003199d0(u32 a0) {
         t15 = t15 + 4u;
     } while (t14 >= 0);
 
-    *(volatile u8*)(a0 + 577u) = 0u;
-    *(volatile u32*)(a0 + 52u) = 0u;
-    *(volatile u32*)(a0 + 56u) = 0u;
+    *(u32*)(a0 + 52u) = 0u;
+    *(u32*)(a0 + 56u) = 0u;
+    *(u8*)(a0 + 577u) = 0u;
 }
 }  // namespace n003199d0
 
@@ -327,8 +327,8 @@ void func_00319d20(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z13func_00319d20jjjj");
 
 void func_00319d20(u32 a0, u32 a1, u32 a2, u32 a3) {  // zero_two_words
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3;
-    *(volatile u32*)((u32)r4 + (s32)(4)) = 0u;
-    *(volatile u32*)((u32)r4 + (s32)(0)) = 0u;
+    *(u32*)((u32)r4 + (s32)(0)) = 0u;
+    *(u32*)((u32)r4 + (s32)(4)) = 0u;
 }
 }  // namespace n00319d20
 
@@ -2000,7 +2000,7 @@ u32 func_0031b7c8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7
 u32 func_0031b7c8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r15;
     r15 = (u32)&D_00348698;
-    *(volatile u32*)((u32)r4 + (s32)(0)) = r15;
+    *(u32*)((u32)r4 + (s32)(0)) = r15;
     return ((u32(*)())func_00106420)();
 }
 }  // namespace n0031b7c8
@@ -2083,7 +2083,7 @@ u32 func_0031b8f0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7
 u32 func_0031b8f0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r15;
     r15 = (u32)&D_00348698;
-    *(volatile u32*)((u32)r4 + (s32)(0)) = r15;
+    *(u32*)((u32)r4 + (s32)(0)) = r15;
     return ((u32(*)())func_00106420)();
 }
 }  // namespace n0031b8f0
@@ -2110,7 +2110,7 @@ u32 func_0031b920(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7
 u32 func_0031b920(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r15;
     r15 = (u32)&D_00348698;
-    *(volatile u32*)((u32)r4 + (s32)(0)) = r15;
+    *(u32*)((u32)r4 + (s32)(0)) = r15;
     return ((u32(*)())func_00106420)();
 }
 }  // namespace n0031b920

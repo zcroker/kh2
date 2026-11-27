@@ -222,7 +222,7 @@ void u_call0_00233c98(void) {
     do {
         *p = 0;
         i--;
-        asm volatile("nop\n\tnop\n\tnop");
+
         p++;
     } while (i > 0);
     func_00233ce0();
@@ -1054,7 +1054,7 @@ u32 func_00234848(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7
     r15 = (u32)&D_01dae480;
     r4 = (u32)(r4 + r5);    r4 = (u32)(r4 << 5);
     r4 = (u32)(r4 + r15);
-    r2 = *(volatile u32*)((u32)r4 + (s32)(0));
+    r2 = *(u32*)((u32)r4 + (s32)(0));
     return r2;
 }
 }  // namespace n00234848
@@ -1070,7 +1070,7 @@ u32 func_00234868(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7
     r15 = (u32)&D_01dae480;
     r4 = (u32)(r4 + r5);    r4 = (u32)(r4 << 5);
     r4 = (u32)(r4 + r15);
-    r2 = *(volatile u32*)((u32)r4 + (s32)(4));
+    r2 = *(u32*)((u32)r4 + (s32)(4));
     return r2;
 }
 }  // namespace n00234868
@@ -1086,7 +1086,7 @@ u32 func_00234888(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7
     r15 = (u32)&D_01dae480;
     r4 = (u32)(r4 + r5);    r4 = (u32)(r4 << 5);
     r4 = (u32)(r4 + r15);
-    r2 = *(volatile u32*)((u32)r4 + (s32)(8));
+    r2 = *(u32*)((u32)r4 + (s32)(8));
     return r2;
 }
 }  // namespace n00234888
@@ -1104,7 +1104,7 @@ u32 MCARD::GetConnectionStatus(s32 a0, s32 a1) {
     r4 = (u32)(r4 + r5);
     r4 = (u32)(r4 << 5);
     r4 = (u32)(r4 + r15);
-    return *(volatile u32*)((u32)r4 + 12);
+    return *(u32*)((u32)r4 + 12);
 }
 }  // YI
 
@@ -1142,7 +1142,7 @@ u32 MCARD::GetFileTableMax(s32 a0, s32 a1) {
     r4 = (u32)(r4 + r5);
     r4 = (u32)(r4 << 5);
     r4 = (u32)(r4 + r15);
-    return *(volatile u32*)((u32)r4 + 28);
+    return *(u32*)((u32)r4 + 28);
 }
 }  // YI
 

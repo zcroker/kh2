@@ -2399,7 +2399,7 @@ void func_00226fc8(void)
         *w = 0;
         i--;
         // R5900 short-loop padding
-        asm volatile("nop\n\tnop\n\tnop");
+
         w++;
     } while (i >= 0);
     func_0022d7e8();
@@ -2938,8 +2938,8 @@ f32 func_00227c78(u16* a0) {
     u32 w = v.u;
     w &= 0xffff0000u;
     w |= (u32)a0[0];
-    volatile u32* pu = (volatile u32*)&v.u;
-    volatile u16* ph = (volatile u16*)&v.u;
+    u32* pu = (u32*)&v.u;
+    u16* ph = (u16*)&v.u;
     *pu = w;
     ph[1] = a0[1];
     return v.f;
@@ -2958,8 +2958,8 @@ u32 func_00227ca8(u16* a0) {
     u32 w = v.u;
     w &= 0xffff0000u;
     w |= (u32)a0[0];
-    volatile u32* pu = (volatile u32*)&v.u;
-    volatile u16* ph = (volatile u16*)&v.u;
+    u32* pu = (u32*)&v.u;
+    u16* ph = (u16*)&v.u;
     *pu = w;
     ph[1] = a0[1];
     return v.u;

@@ -653,8 +653,8 @@ void func_001c1130(u32) asm("func_001c1130");
 void func_002bc798() asm("func_002bc798");
 void func_00196e88_7828(G197*, u32, u32, f32) asm("func_00196e88");
 struct F197 { u16 pad; u16 b0:1; u16 b1:1; u16 b2:1; u16 b3:1; u16 b4:1; u16 b5:1; };
-static inline u8 b0_197828() { return ((F197*)(*(G197* volatile*)&D_0035037c.g)->o)->b0; }
-static inline u8 b5_197828() { return ((F197*)(*(G197* volatile*)&D_0035037c.g)->o)->b5; }
+static inline u8 b0_197828() { return ((F197*)D_0035037c.g->o)->b0; }
+static inline u8 b5_197828() { return ((F197*)D_0035037c.g->o)->b5; }
 void func_00197828(f32 f) asm("func_00197828");
 void func_00197828(f32 f) {
     func_0014ce60();
@@ -726,6 +726,7 @@ void func_00105110(void*) asm("func_00105110");
 extern s32 D_01c61b40 asm("D_01c61b40");
 s32 func_001991a8(s32, s32) asm("func_001991a8");
 void func_001024a8(void*) asm("func_001024a8");
+struct F197a { u16 pad; u16 b0:1; u8 isB0() { return b0; } };
 void func_00197a00(void* a) asm("func_00197a00");
 void func_00197a00(void* a) {
     if (D_0035037c != 0) {
@@ -733,7 +734,7 @@ void func_00197a00(void* a) {
         u8 flag;
         if (func_00197028(D_0035037c) != 0) return;
         o = (u8*)D_0035037c;
-        flag = *(volatile u16*)(*(u8**)(o + 60) + 2) & 1;
+        flag = (*(F197a**)(o + 60))->isB0();
         if (o != 0) {
             func_00196e00(o);
             func_00105110(o);

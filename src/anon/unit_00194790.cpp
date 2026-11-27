@@ -170,7 +170,7 @@ void ctarget0_00194980(void)
 {
     u8 found = 0;
     Entry2363* e = ctarget_001947c0_w2363(-1, -1);
-                                                                            
+
     while (e->id != 0 && has_ansem_entry_w2363(e->id) > 0) {
         found = 1;
         break;
@@ -363,11 +363,11 @@ u32 func_00195328(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7
     r15 = (u32)(0x01c6u << 16);
     r6 = r4;
     r5 = (u32)((s32)0u + (22));
-    r4 = *(volatile u32*)((u32)r15 + (s32)(6908));
+    r4 = *(u32*)((u32)r15 + (s32)(6908));
     r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_00168b38)(r4, r5, r6, r7, r8, r9, r10, r11);
     r15 = 0u;
     if (r2 != 0u) {
-        r15 = *(volatile u32*)((u32)r2 + (s32)(8));
+        r15 = *(u32*)((u32)r2 + (s32)(8));
     }
     r2 = r15;
     return r2;
@@ -615,7 +615,7 @@ void u_call4_00195858(u32 a0, u32 a1, u32, u32) {
     f32* o = (f32*)a0;
     *(f32**)(o + 7) = func_001ce328(a1);
     *(f32**)(o + 8) = (f32*)func_001ce2d8(a1);
-    asm volatile("" ::: "memory");
+
     f32* m = *(f32**)(o + 7);
     o[0] = m[0];
     o[1] = m[1];

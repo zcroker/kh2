@@ -156,7 +156,7 @@ void func_002fde18(void *, s32, s32) asm("_Z16wtarget_002fde18jjjj");
 void func_0031a838(void *) asm("_Z10ErrorRaisePv");
 extern short D_00347e40[] asm("D_00347e40");
 extern u8 D_00347e60[] asm("D_00347e60");
-extern volatile unsigned short D_00347f98[] asm("D_00347f98");
+extern unsigned short D_00347f98[] asm("D_00347f98");
 extern u8 *D_0035f2b0 asm("D_0035f2b0");
 extern u8 *D_0035f2b4 asm("D_0035f2b4");
 extern u8 *D_0035f2b8 asm("D_0035f2b8");

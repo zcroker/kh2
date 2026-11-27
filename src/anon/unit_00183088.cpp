@@ -765,9 +765,9 @@ u32 func_001844e8(u32 a0) {
     if (func_00184478(s0) != 0) {
         s1 = 1;
     } else {
-        volatile float *p1 = (volatile float *)(s0 + 1348);
+        volatile float *p1 = (float *)(s0 + 1348);
         float f1 = *p1;
-        volatile float *p0 = (volatile float *)(s0 + 2116);
+        volatile float *p0 = (float *)(s0 + 2116);
         float f0 = *p0;
         if (!(f0 == f1)) {
             s1 = 1;
@@ -1629,11 +1629,11 @@ extern "C" u32 func_0016b5b8(...) asm("func_0016b5b8");
 u32 func_001855a0(u32 a0) {
     u32 r4 = a0, r2, r15, r16;
     r16 = r4;
-    r15 = *(volatile u32*)((u32)r4 + (s32)(2552));
+    r15 = *(u32*)((u32)r4 + (s32)(2552));
     r4 = r15;
     if (r15 != 0u) {
         r2 = ((u32(*)(u32))func_001dc920)(r4);
-        *(volatile u32*)((u32)r16 + (s32)(2552)) = 0u;
+        *(u32*)((u32)r16 + (s32)(2552)) = 0u;
     }
     r4 = r16;
     return ((u32(*)(u32))func_0016b5b8)(r4);

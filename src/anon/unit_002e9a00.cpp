@@ -281,8 +281,8 @@ namespace n002e9fa8 {
 void func_002e9fa8(u32 a0, u32 a1, u32 a2, u32 a3) asm("func_002e9fa8");
 void func_002e9fa8(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3;
-    *(volatile u8*)((u32)r4 + (s32)(4)) = (u8)0u;
-    *(volatile u32*)((u32)r4 + (s32)(8)) = 0u;
+    *(u32*)((u32)r4 + (s32)(8)) = 0u;
+    *(u8*)((u32)r4 + (s32)(4)) = (u8)0u;
 }
 }  // namespace n002e9fa8
 

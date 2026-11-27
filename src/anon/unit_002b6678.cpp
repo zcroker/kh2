@@ -66,12 +66,14 @@ s32 func_002b6708(s32 n, ...) {
     (&D_0035f6e0[id])[0].size = 64;
     (&D_0035f6e0[id])[0].attr = 0;
     FlushCache(0);
-retry:
-    r = sceSifSetDma(&D_0035f6e0[id], 1);
-    if (r == 0) {
-        func_002fdfc8("\x1b[44m%06d:\x1b[0m", D_0032b920);
-        func_002fdfc8("PlayList dma error = %d\n", r);
-        goto retry;
+    for (;;) {
+        r = sceSifSetDma(&D_0035f6e0[id], 1);
+        if (r == 0) {
+            func_002fdfc8("\x1b[44m%06d:\x1b[0m", D_0032b920);
+            func_002fdfc8("PlayList dma error = %d\n", r);
+            continue;
+        }
+        break;
     }
     while (sceSifDmaStat(r) >= 0);
     return id;

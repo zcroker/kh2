@@ -1024,13 +1024,13 @@ void func_001e21f8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a
 void func_001e21f8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r15, r16;
     r16 = r4;
-    r15 = *(volatile u32*)((u32)r4 + (s32)(3584));
+    r15 = *(u32*)((u32)r4 + (s32)(3584));
     r4 = r15;
     if ((s32)r15 >= 0) {
         r5 = (u32)((s32)0u + (120));
         ((void(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_002bc358)(r4, r5, r6, r7, r8, r9, r10, r11);
         r15 = (u32)((s32)0u + (-1));
-        *(volatile u32*)((u32)r16 + (s32)(3584)) = r15;
+        *(u32*)((u32)r16 + (s32)(3584)) = r15;
     }
 }
 }  // namespace n001e21f8
@@ -1551,7 +1551,7 @@ void func_001e2b90(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a
 void func_001e2b90(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r14, r15;
     r15 = (u32)(0x01dau << 16);
-    r14 = *(volatile u32*)((u32)r15 + (s32)(-5464));
+    r14 = *(u32*)((u32)r15 + (s32)(-5464));
     if (r14 != 0u) {
     u32 (*fp_call0_0020e758)() = (u32(*)())func_0020e758;
         ((void(*)())fp_call0_0020e758)();
@@ -2188,8 +2188,8 @@ void* func_001e3a88(void*, void*, s32, s32) asm("func_001e3a88");
 void func_001e3c18(E1e3c18* p) asm("func_001e3c18");
 void func_001e3c18(E1e3c18* p) {
     NoTail1e3c18 nt;
-    register s32 a asm("$18");
-    register s32 b asm("$17");
+    s32 a;
+    s32 b;
     void* v;
     /* hand-written loads: x9e must be read last, through the saved copy of p in s0 */
     asm("lh %0,156(%1)" : "=r"(a) : "r"(p));
@@ -2387,17 +2387,15 @@ extern const u32 R_0036ecf0[5] asm("D_0036ecf0") __attribute__((aligned(4))) = {
 // 001e4248 (was src/anon/batch_w244.cpp)
 namespace n001e4248 {
 // 002cef80: moved to src/taito/minigame_base.cpp (linked unit)
-// register pins reproduce the original's counter/temp allocation
 struct Hdr1e { s16 a; s16 b; s16 c; s16 fmt; u8 pad[16]; s32 off; };
 /*TARGET 001e4248*/
 Hdr1e** func_001e4248(s32* p) asm("func_001e4248");
 Hdr1e** func_001e4248(s32* p) {
-  register s32 n asm("$15") = p[0];
-  Hdr1e** h = (Hdr1e**)(p + 1);
-  register s32 i asm("$10");
-  if (n > 0) for (i = n; i != 0; i--) {
+  s32 n = *p++;
+  s32 i;
+  for (i = 0; i < n; i++) {
     s32 cnt = 0;
-    Hdr1e* t = *h++;
+    Hdr1e* t = *(Hdr1e**)p++;
     u8* d = (u8*)t + t->off + 32;
     if (t->b == 0) continue;
     switch (t->fmt) {
@@ -2410,7 +2408,7 @@ Hdr1e** func_001e4248(s32* p) {
       d += 4;
     }
   }
-  return h;
+  return (Hdr1e**)p;
 }
 }  // namespace n001e4248
 
@@ -3068,7 +3066,7 @@ namespace n001e5fd8 {
 /*TARGET 001e5fd8*/
 void func_001e5fd8(void) asm("func_001e5fd8");
 void func_001e5fd8(void) {
-  *(volatile u32*)0x10000010 |= 0x83;
+  *(u32*)0x10000010 |= 0x83;
   *(volatile u32*)0x10000000 = 0;
 }
 }  // namespace n001e5fd8
@@ -3268,7 +3266,7 @@ s32 func_001e8c28(Part1e6280*, s32) asm("func_001e8c28");
 void func_001e7cc0(Part1e6280*) asm("func_001e7cc0");
 static inline void timeEnd1e6280(PartTime1e6280* t)
 {
-    t->cur += *(volatile s32*)0x10000000 - t->start;
+    t->cur += *(s32*)0x10000000 - t->start;
     if (t->max < t->cur) t->max = t->cur;
 }
 static inline void timeSub1e6280(PartTime1e6280* t)
@@ -3300,7 +3298,7 @@ s32 func_001e6280(Part1e6280* p, s32 force)
     else p->on = 0;
     if (p->on && p->own->hide) goto done;
     p->tDraw.start = 0;
-    p->tTotal.start = *(volatile s32*)0x10000000;
+    p->tTotal.start = *(s32*)0x10000000;
     p->tUpdate.start = *(volatile s32*)0x10000000;
     same = 0;
     if (D_00354690.id == p->id) same = D_00354690.sub == p->sub;
@@ -3493,7 +3491,7 @@ static inline void timeEnd1e66e8(PartTime1e66e8* t)
 }
 static inline void timeStart1e66e8(PartTime1e66e8* t)
 {
-    t->start = *(volatile s32*)0x10000000;
+    t->start = *(s32*)0x10000000;
 }
 static inline void timeSub1e66e8(PartTime1e66e8* t)
 {
@@ -3520,7 +3518,7 @@ s32 func_001e66e8(Part1e66e8* p)
     td = &p->tDraw;
     tt = &p->tTotal;
     td->start = 0;
-    tt->start = *(volatile s32*)0x10000000;
+    tt->start = *(s32*)0x10000000;
     if (0.0f < p->wait) {
         timeSub1e66e8(td);
         timeEnd1e66e8(tt);
@@ -4018,10 +4016,10 @@ void wtarget_001e7230(u32 a, u32 b, u32, u32) asm("_Z16wtarget_001e7230jjjj");
 void wtarget_001e7230(u32 a, u32 b, u32, u32) {
     u32* p = (u32*)a;
     s32 n = (s32)b >> 2;
-    if (n-- != 0) do { *p = 0; n--; asm volatile("nop\n\tnop\n\tnop"); p++; } while (n != -1);
+    if (n-- != 0) do { *p = 0; n--;  p++; } while (n != -1);
     u8* q = (u8*)p;
     n = b & 3;
-    if (n-- != 0) do { *q = 0; n--; asm volatile("nop\n\tnop\n\tnop"); q++; } while (n != -1);
+    if (n-- != 0) do { *q = 0; n--;  q++; } while (n != -1);
 }
 }  // namespace n001e7230
 
@@ -4056,11 +4054,11 @@ void func_001e72a8(u32 addr) {
     sceGsSyncPath(0, 0);
     if (D_01d9e6b4 != addr) {
         while (PathBusy1e7()) {}
-        *(volatile u32*)0x10009020 = 0;
-        *(volatile u32*)0x10009030 = addr;
-        *(volatile u32*)0x1000e010 = 2;
+        *(u32*)0x10009020 = 0;
+        *(u32*)0x10009030 = addr;
+        *(u32*)0x1000e010 = 2;
         D_01d9e6b4 = addr;
-        *(volatile u32*)0x10009000 = 325;
+        *(u32*)0x10009000 = 325;
     } else {
         while (PathBusy1e7()) {}
     }
@@ -4087,7 +4085,7 @@ namespace n001e7440 {
 void func_001e7440(void) asm("func_001e7440");
 void func_001e7440(void) {
     u32 x;
-    do { x = *(volatile u32*)0x1000a000 & 0x100; __asm__ volatile("nop\n\tnop\n\tnop"); } while (x);
+    do { x = *(volatile u32*)0x1000a000 & 0x100;  } while (x);
 }
 }  // namespace n001e7440
 
@@ -4096,15 +4094,15 @@ namespace n001e7470 {
 /*TARGET 001e7470*/
 void func_001e7470(u32 a) asm("func_001e7470");
 void func_001e7470(u32 a) {
-    volatile u32* p = (volatile u32*)0x1000a000;
+    volatile u32* p = (u32*)0x1000a000;
     u32 t;
     do {
         t = *p & 0x100;
-        asm volatile("nop\n\tnop\n\tnop");  // hazard nops
+          // hazard nops
     } while (t);
-    *(volatile u32*)0x1000a020 = 0;
-    *(volatile u32*)0x1000a030 = a | 0x80000000;
-    *(volatile u32*)0x1000e010 = 2;
+    *(u32*)0x1000a020 = 0;
+    *(u32*)0x1000a030 = a | 0x80000000;
+    *(u32*)0x1000e010 = 2;
     *(volatile u32*)0x1000a000 = 0x145;
 }
 }  // namespace n001e7470
@@ -4115,7 +4113,7 @@ namespace n001e74d8 {
 void func_001e74d8(u32 a0) asm("_Z13func_001e74d8j");
 void func_001e74d8(u32 a0) {
     u32 s0 = a0;
-    volatile u32* st = (volatile u32*)0x10003c00;
+    volatile u32* st = (u32*)0x10003c00;
     while ((*st & 3) != 0) {
     }
 
@@ -4165,10 +4163,10 @@ void func_001e75a8(u32 tadr)
         asm volatile("cfc2.ni %0, $vi29" : "=r"(st));  // VPU_STAT
         if (st & 0x100) busy = 8;
     } while (busy);
-    *(volatile u32*)0x10009020 = 0;
-    *(volatile u32*)0x10009030 = tadr;
-    *(volatile u32*)0x1000e010 = 2;
-    *(volatile u32*)0x10009000 = 0x145;
+    *(u32*)0x10009020 = 0;
+    *(u32*)0x10009030 = tadr;
+    *(u32*)0x1000e010 = 2;
+    *(u32*)0x10009000 = 0x145;
     asm volatile(".set noreorder\n\t.set reorder");  // original leaves the return delay slot empty
 }
 }  // namespace n001e75a8
@@ -4407,7 +4405,7 @@ W268Item* func_001e7a98(W268Mgr* mgr, W268Owner* own) {
     it->f90 = 0;
     it->f94 = 0;
     it->owner = own;
-    asm volatile("" ::: "memory");
+
     it->b9d = 0;
     it->b9e = 0;
     W268Item* n = mgr->head;
@@ -4787,9 +4785,9 @@ void func_001e8330(Self_e* self)
                         p = q;
                     }
                     t = &h->start;
-                    h->start = *(volatile s32*)0x10000000;
+                    h->start = *(s32*)0x10000000;
                     fn(nd, p, sl);
-                    t[1] += *(volatile s32*)0x10000000 - h->start;
+                    t[1] += *(s32*)0x10000000 - h->start;
                     if (t[2] < t[1])
                         t[2] = t[1];
                 }

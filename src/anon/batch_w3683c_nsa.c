@@ -129,9 +129,9 @@ void func_00205178(u8* base, PEnt* ent, PCtx* ctx)
         if (t->x2 >= 9) {
             // The original keeps the two %hi halves in t6/t7 (probably HIGHs hoisted by loop.c and
             // rematerialised by reload; -fmove-all-movables shows it); gcc ties them to a0/a1 here, so the argument setup is asm.
-            register char* e asm("$4");
-            register char* f asm("$5");
-            register s32 l asm("$6");
+            char* e;
+            char* f;
+            s32 l;
             asm("lui $14,%%hi(D_003704d0)\n\tlui $15,%%hi(D_003704e8)\n\taddiu %0,$14,%%lo(D_003704d0)\n\taddiu %1,$15,%%lo(D_003704e8)\n\tli %2,1710"
                 : "=r"(e), "=r"(f), "=r"(l) : : "$14", "$15");
             func_002233f0(e, f, l);

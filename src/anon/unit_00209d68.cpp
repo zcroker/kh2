@@ -130,7 +130,7 @@ union FU { u32 u; f32 f; };
 f32 func_00209fb8(void) asm("func_00209fb8");
 // VU0 random float: reseed/step R five times. Hand-written VU0 assembly.
 f32 func_00209fb8(void) {  // vu_const_5f_c
-    register u32 x asm("$15");
+    u32 x;
     asm volatile("addi $8, $0, -1\n\tqmtc2 $8, $vf2\n\t"
         "vrxor R, $vf2x\n\tvrnext.x $vf1, R\n\tvrxor R, $vf2x\n\tvrnext.x $vf1, R\n\t"
         "vrxor R, $vf2x\n\tvrnext.x $vf1, R\n\tvrxor R, $vf2x\n\tvrnext.x $vf1, R\n\t"

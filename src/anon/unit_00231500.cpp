@@ -688,7 +688,7 @@ void func_00232738(void)
                     e->state = 1;
                     if (func_00225e48() == 0 && func_00225b50(e->time) == 0 && func_00225b00(e->time) == 0) {
                         func_002326d0(o);
-                        { register s32 a asm("$15"); register s32 b asm("$14"); asm volatile("lui %1,%%hi(D_0035de2c)\n\tlw %0,%%lo(D_0035de2c)(%1)\n\taddiu %0,%0,1\n\tsw %0,%%lo(D_0035de2c)(%1)" : "=&r"(a), "=&r"(b)); }
+                        { s32 a; register s32 b asm("$14"); asm volatile("lui %1,%%hi(D_0035de2c)\n\tlw %0,%%lo(D_0035de2c)(%1)\n\taddiu %0,%0,1\n\tsw %0,%%lo(D_0035de2c)(%1)" : "=&r"(a), "=&r"(b)); }
                     }
                 }
             }

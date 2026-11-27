@@ -43,12 +43,12 @@ void func_0023e5d0(void* a0, u32 a1, void* a2) {
     {
         f32 (*vf)(void*);
         vf = *(f32 (**)(void*))(*(u32*)a2 + 0x1c);
-        *(volatile f32*)(s0 + 0x12c) = vf(a2);
+        *(f32*)(s0 + 0x12c) = vf(a2);
     }
     {
         void* obj;
         f32 (*vf)(void*);
-        obj = (void*)*(volatile u32*)(s0 + 0x74);
+        obj = (void*)*(u32*)(s0 + 0x74);
         vf = *(f32 (**)(void*))(*(u32*)obj + 0x1c);
         *(f32*)(s0 + 0x130) = vf(obj);
     }

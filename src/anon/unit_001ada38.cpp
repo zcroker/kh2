@@ -250,7 +250,7 @@ u32 func_001adf00(u32 key, u32 buf) {
     if (!e) return 0;
     for (;;) {
         if (func_002f79c8(1) != 2 || func_002f7be8(e->id, (e->h6 & 0x3fff) + 1, buf, D_00350ca0) != 1) {
-            func_001ae678();                    
+            func_001ae678();
             continue;
         }
         func_001ae620();
@@ -320,7 +320,7 @@ u32 func_001ae0a0(u32 a0, u32 a1, u32 a2, u16 a3)
     u8* tbl = func_001ae010(a0) ? D_00350ca8 : D_00350ca0;
     for (;;) {
         if (func_002f79c8(1) != 2 || func_002f7be8(*(u32*)(h + 8) + a2, a3, a1, tbl) != 1) {
-            func_001ae678();                    
+            func_001ae678();
         } else {
             func_001ae620();
             if ((D_00350c88 = func_002f7dc8()) == 0) return a3 << 11;
@@ -339,7 +339,7 @@ u32 func_001ae1b0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7
     r2 = ((u32(*)())func_001ae460)();
     r15 = 0u;
     if (r2 != 0u) {
-        r15 = *(volatile u32*)((u32)r2 + (s32)(12));
+        r15 = *(u32*)((u32)r2 + (s32)(12));
     }
     r2 = r15;
     return r2;
@@ -355,7 +355,7 @@ u32 func_001ae1e0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7
     r2 = ((u32(*)())func_001ae460)();
     r15 = 0u;
     if (r2 != 0u) {
-        r15 = *(volatile u32*)((u32)r2 + (s32)(8));
+        r15 = *(u32*)((u32)r2 + (s32)(8));
     }
     r2 = r15;
     return r2;
@@ -385,7 +385,7 @@ u32 strlen(const char*) asm("strlen");
 u16 func_001ae270(const char* s) asm("func_001ae270");
 u16 func_001ae270(const char* s) {
     u16 crc = 0xffff;
-    u32 n = strlen(s);           
+    u32 n = strlen(s);
     const s8* p = (const s8*)s + n - 1;
     for (u32 i = 0; i < n; i++) {
         crc ^= *p-- << 8;
@@ -496,7 +496,7 @@ void func_001ae4c0(u32 a, u32 b, void* c) asm("func_001ae4c0");
 void func_001ae4c0(u32 a, u32 b, void* c) {
     for (;;) {
         if (func_002f79c8(1) != 2 || func_002f7be8(a, b, c, D_00350ca0) != 1) {
-            func_001ae678();                    
+            func_001ae678();
             continue;
         }
         func_001ae620();
@@ -628,7 +628,7 @@ u32 func_001ae7d0(S1ae* s, u8* buf, u32 size) {
     u32* sec = (u32*)(s->f8 + 8);
     for (;;) {
         if (func_002f79c8(1) != 2 || func_002f7be8(*sec, n, buf, &D_00350ca8) != 1) {
-            func_001ae678();                    
+            func_001ae678();
             continue;
         }
         func_001ae620();
@@ -662,7 +662,7 @@ void func_001ae8d8(u8* p, u32 buf, u32 size, u32 a, u32 e)
     u32 n = (size + 2047) >> 11;
     for (;;) {
         if (func_002f79c8(1) == 2 && func_002f7be8(*f, n, buf, D_00350ca8) == 1) break;
-        func_001ae678();                    
+        func_001ae678();
     }
 }
 }  // namespace n001ae8d8
@@ -796,7 +796,7 @@ void func_001aeb80(void) asm("func_001aeb80");
 void func_001aeb80(void) {
     u32 v = func_001b1490(D_00350de8);
     for (s32 i = 0; i < 19; i++) {
-        D_01c94040[i] = *(u32*)(func_00168b38(v, 2, i) + 8);                         
+        D_01c94040[i] = *(u32*)(func_00168b38(v, 2, i) + 8);
     }
 }
 }  // namespace n001aeb80
@@ -816,7 +816,7 @@ void func_001aebf0(u8* a) {
 // ---- 001aec40 from src/anon/tiny.cpp
 namespace n001aec40 {
 u32 func_001aec40(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z13func_001aec40jjjj");
-u32 func_001aec40(u32 a0, u32 a1, u32 a2, u32 a3) {                       
+u32 func_001aec40(u32 a0, u32 a1, u32 a2, u32 a3) {
     (void)a0;
     (void)a1;
     (void)a2;
@@ -872,10 +872,10 @@ void func_001aec50(Mgr* m, s32 arg1, s32 mode) {
         m->s1.a = 0;
         p->b = 0;
         q->a = 0;
-        CLEAR_BYTE(m, 28); CLEAR_WORD(m, 32); CLEAR_WORD(m, 36); CLEAR_WORD(m, 40);             
+        CLEAR_BYTE(m, 28); CLEAR_WORD(m, 32); CLEAR_WORD(m, 36); CLEAR_WORD(m, 40);
         p->g = 0;
         q->b = 0;
-        CLEAR_BYTE(m, 56); CLEAR_WORD(m, 60); CLEAR_WORD(m, 64); CLEAR_WORD(m, 68);             
+        CLEAR_BYTE(m, 56); CLEAR_WORD(m, 60); CLEAR_WORD(m, 64); CLEAR_WORD(m, 68);
         q->g = 0;
     }
     D_00350df0 = m;
@@ -920,10 +920,10 @@ void func_001aedf8(Mgr* m, s32 arg1, s32 mode) {
         m->s1.a = 0;
         p->b = 0;
         q->a = 0;
-        CLEAR_BYTE(m, 28); CLEAR_WORD(m, 32); CLEAR_WORD(m, 36); CLEAR_WORD(m, 40);             
+        CLEAR_BYTE(m, 28); CLEAR_WORD(m, 32); CLEAR_WORD(m, 36); CLEAR_WORD(m, 40);
         p->g = 0;
         q->b = 0;
-        CLEAR_BYTE(m, 56); CLEAR_WORD(m, 60); CLEAR_WORD(m, 64); CLEAR_WORD(m, 68);             
+        CLEAR_BYTE(m, 56); CLEAR_WORD(m, 60); CLEAR_WORD(m, 64); CLEAR_WORD(m, 68);
         q->g = 0;
     }
     D_00350df0 = m;
@@ -1157,7 +1157,7 @@ void func_001af3e0(u32 a0) asm("_Z13func_001af3e0j");
 void func_001af3e0(u32 a0) {
     u32 r4 = a0, r15, r16;
     r15 = (u32)(0x0035u << 16);
-    r16 = *(volatile u32*)((u32)r15 + (s32)(3568));
+    r16 = *(u32*)((u32)r15 + (s32)(3568));
     r4 = r16;
     if (r16 != 0u) {
     u32 (*fp_call4_001af210)(u32) = (u32(*)(u32))func_001af210;
@@ -1429,7 +1429,7 @@ void func_001af9f8() {
     }
     u32 a1 = *(u32*)(p + 76);
     u32* g = (u32*)0x00330000;
-    func_00102670(g[-4517], a1);              
+    func_00102670(g[-4517], a1);
 }
 }  // namespace n001af9f8
 
@@ -1497,7 +1497,7 @@ void func_001afaf0(u32 a0) {
         p = (u32*)((u8*)p + 12);
     } while ((s32)(u32)p < (s32)(u32)end);
 
-    u32 s0 = func_00170b30(0x00080000);                   
+    u32 s0 = func_00170b30(0x00080000);
     func_001afc00(566, s0);
     func_001afc00(567, s0);
     func_001afc00(568, s0);
@@ -1553,11 +1553,11 @@ void func_001afc00(u32 a, void* b) asm("func_001afc00");
 void func_001afc00(u32 a, void* b)
 {
     char buf[48];
-    if (__builtin_expect(a == 0,0)) return;
+    if ((a == 0)) return;
     VT* v = func_0016e920(a);
-    if (__builtin_expect(v == 0,0)) return;
+    if ((v == 0)) return;
     u32 id = v->id;
-    if (__builtin_expect(id - 1 >= 15,1)) return;
+    if ((id - 1 >= 15)) return;
     u32 sub = func_001947c0(-1, -1)->sub;
     s32 i;
     for (i = 0; i < 3; i++) {
@@ -1789,7 +1789,7 @@ void func_001b0250(Obj* o)
     s32 id = o->id;
     if (id >= 0) {
         func_001b0330(o);
-        o->h16 = ((MkFn)o->vt[2])(o, id, func_0016c028(o->h24));                          
+        o->h16 = ((MkFn)o->vt[2])(o, id, func_0016c028(o->h24));
         return;
     }
     if (!func_001b0320(o)) return;
@@ -1809,7 +1809,7 @@ void func_001b0250(Obj* o)
 // ---- 001b0320 from src/anon/tiny.cpp
 namespace n001b0320 {
 u32 func_001b0320(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z13func_001b0320jjjj");
-u32 func_001b0320(u32 a0, u32 a1, u32 a2, u32 a3) {                   
+u32 func_001b0320(u32 a0, u32 a1, u32 a2, u32 a3) {
     (void)a1;
     (void)a2;
     (void)a3;
@@ -1824,7 +1824,7 @@ void func_002bc358(u32, u32) asm("func_002bc358");
 void u_call4_001b0330(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z16u_call4_001b0330jjjj");
 void u_call4_001b0330(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32* p = (u32*)a0;
-    if (func_001b0320(a0, a1, a2, a3)) {                   
+    if (func_001b0320(a0, a1, a2, a3)) {
         func_002bc358(p[4], 0);
         p[4] = 0;
     }

@@ -263,7 +263,7 @@ namespace n0020b410 {
 f32 func_0020b410(void) asm("func_0020b410");
 // VU0 random float (hand-written VU0 asm).
 f32 func_0020b410(void) {  // vu_const_5f_b
-    register u32 b asm("$15");
+    u32 b;
     asm volatile(
         "addi $8, $0, -1\n\t"
         "qmtc2 $8, $vf2\n\t"

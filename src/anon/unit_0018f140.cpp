@@ -393,7 +393,7 @@ void func_0018f718(u32 a0) asm("_Z13func_0018f718j");
 void func_0018f718(u32 a0) {
     u32 s1 = a0;
     u32 s0 = *(u32*)a0;
-    if (func_0018f070(s0) != 0) {                        
+    if (func_0018f070(s0) != 0) {
         func_001a49d8(s0, *(f32*)(s1 + 4), *(f32*)(s1 + 8));
     }
 }
@@ -553,7 +553,7 @@ void func_0018f940(u32* p) asm("func_0018f940");
 void func_0018f940(u32* p) {
     if (!D_01c60cf0) {
         D_01c60cf0 = 1;
-        func_002fd188(func_001900c8);                     
+        func_002fd188(func_001900c8);
     }
     D_01c60d00 = func_001a4b78(*p);
     *p = (u32)&D_01c60d00;
@@ -593,7 +593,7 @@ void func_0018f9f8(u32 a0) asm("_Z13func_0018f9f8j");
 void func_0018f9f8(u32 a0) {
     u32 s1 = a0;
     u32 s0 = *(u32*)a0;
-    if (func_0018f070(s0) != 0) {                        
+    if (func_0018f070(s0) != 0) {
         func_001a4d70(s0, *(u32*)(s1 + 4));
     }
 }
@@ -605,7 +605,7 @@ void func_0018fa50(u32 a0) asm("_Z13func_0018fa50j");
 void func_0018fa50(u32 a0) {
     u32 s1 = a0;
     u32 s0 = *(u32*)a0;
-    if (func_0018f070(s0) != 0) {                        
+    if (func_0018f070(s0) != 0) {
         func_001a4d78(s0, *(f32*)(s1 + 4), *(f32*)(s1 + 8), *(f32*)(s1 + 12));
     }
 }
@@ -619,12 +619,12 @@ u32 func_0018db38(u32, void*, u32, u32) asm("func_0018db38");
 void func_0018ca10(u32) asm("func_0018ca10");
 void func_0018fab0(u32* p) asm("func_0018fab0");
 void func_0018fab0(u32* p) {
-    func_001ba028(*(u32*)(p[1] + 4));                      
+    func_001ba028(*(u32*)(p[1] + 4));
     u8* o = *(u8**)(p[1] + 4);
     u32 r = func_0018db38(p[0], o, p[2], p[3]);
     if (r) {
         (*(VFn1*)(*(u8**)o + 100))(o, r);
-        func_0018ca10(r);                          
+        func_0018ca10(r);
     }
 }
 }  // namespace n0018fab0
@@ -949,7 +949,7 @@ u32 func_001d3878(...) asm("func_001d3878");
 void func_00190000(u32 a0) asm("_Z13func_00190000j");
 void func_00190000(u32 a0) {
     u32 r4 = a0, r16;
-    r16 = *(volatile u32*)((u32)r4 + (s32)(0));
+    r16 = *(u32*)((u32)r4 + (s32)(0));
     r4 = r16;
     if (r16 != 0u) {
     u32 (*fp_call4_001d3878)(u32) = (u32(*)(u32))func_001d3878;

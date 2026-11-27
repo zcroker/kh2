@@ -13,7 +13,7 @@ extern void func_00308da0(void *);
 extern void func_00308a80(void *, int);
 
 /* The packet and client words are plain 32-bit ints here: the loads of cd->buff and cd->serve then conflict with the
- * stores to the packet, which pins the retail schedule. The gp store is a volatile asm in retail too (move v0,$28). */
+ * stores to the packet, which pins the retail schedule. The gp store is a asm in retail too (move v0,$28). */
 typedef void (*EndFn)(void *);
 typedef struct {
     void *paddr;

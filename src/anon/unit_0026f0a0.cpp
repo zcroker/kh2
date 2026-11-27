@@ -231,7 +231,7 @@ void func_0026f388(void) {
         func_001395f8(lab);
         lab += 436;
         { u32 c3c = D_0035f03c; u32 c64 = D_0035ef64; asm volatile(""); u32 c6c = D_0035ef6c;
-register u8* ra0 asm("$4"); asm volatile("move %0,%1" : "=r"(ra0) : "r"(box));
+u8* ra0; asm volatile("move %0,%1" : "=r"(ra0) : "r"(box));
         func_0028d8c0(ra0, id2, D_0035ef68, c64, c3c, c6c, -1, 0);
         }
         func_0028dcc0(box, n);

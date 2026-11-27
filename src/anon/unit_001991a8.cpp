@@ -120,21 +120,18 @@ void func_00199280(void) {
 }
 
 // Takes a watch out of the list and gives its slot back to the pool.
-// The register pins keep prev in t3 and the list head in t7, as in the original.
 static inline __attribute__((always_inline)) void watch_remove(WATCH* n) {
-    register WATCH* prev asm("$11");
-    register WATCH* h asm("$15") = s_list.head;
+    WATCH* prev;
+    WATCH* h = s_list.head;
     if (n == h) {
-        s_list.head = *(WATCH* volatile*)&n->next;
+        s_list.head = n->next;
         prev = 0;
     } else {
-        WATCH* it;
-        for (it = h; it->next != n; it = it->next) ;
-        prev = it;
-        prev->next = *(WATCH* volatile*)&n->next;
+        for (prev = h; prev->next != n; prev = prev->next) ;
+        prev->next = n->next;
     }
     WATCH_LIST* l = &s_list;
-    if (__builtin_expect(n == l->tail, 0)) l->tail = prev;
+    if ((n == l->tail)) l->tail = prev;
     n->next = 0;
     s_pool.free[s_pool.n++] = (s32)(n - s_pool.e);
 }
@@ -143,8 +140,8 @@ static inline __attribute__((always_inline)) void watch_remove(WATCH* n) {
 void func_001993a0(s32 event) {
     WATCH* c;
     WATCH* n;
-    for (c = s_list.head; __builtin_expect(c != 0, 0); c = n) {
-        n = c->next;
+    for (c = s_list.next(0); c != 0; c = n) {
+        n = s_list.next(c);
         if (c->event == event) watch_remove(c);
     }
 }

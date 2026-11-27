@@ -99,13 +99,13 @@ u32 func_002875e8(u32, u32, u32, u32, u32, u32, u32, u32) asm("_Z13func_002875e8
 u32 func_001ce880(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) asm("_Z13func_001ce880jjjjjjjj");
 u32 func_001ce880(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r2, r16;
-    *(volatile u32*)((u32)r4 + (s32)(0)) = 0u;
+    *(u32*)((u32)r4 + (s32)(0)) = 0u;
     r16 = r4;
-    *(volatile u32*)((u32)r16 + (s32)(8)) = 0u;
+    *(u32*)((u32)r16 + (s32)(8)) = 0u;
     r4 = (u32)((s32)r4 + (12));
     r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_002875e8)(r4, r5, r6, r7, r8, r9, r10, r11);
     *(u32*)((u32)r16 + (s32)(52)) = 0u;
-    *(volatile u32*)((u32)r16 + (s32)(56)) = 0u;
+    *(u32*)((u32)r16 + (s32)(56)) = 0u;
     return r2;
 }
 }  // namespace n001ce880
@@ -116,13 +116,13 @@ u32 func_002875e8(u32, u32, u32, u32, u32, u32, u32, u32) asm("_Z13func_002875e8
 u32 func_001ce8b8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) asm("_Z13func_001ce8b8jjjjjjjj");
 u32 func_001ce8b8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r2, r16;
-    *(volatile u32*)((u32)r4 + (s32)(0)) = 0u;
+    *(u32*)((u32)r4 + (s32)(0)) = 0u;
     r16 = r4;
-    *(volatile u32*)((u32)r16 + (s32)(8)) = 0u;
+    *(u32*)((u32)r16 + (s32)(8)) = 0u;
     r4 = (u32)((s32)r4 + (12));
     r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_002875e8)(r4, r5, r6, r7, r8, r9, r10, r11);
     *(u32*)((u32)r16 + (s32)(52)) = 0u;
-    *(volatile u32*)((u32)r16 + (s32)(56)) = 0u;
+    *(u32*)((u32)r16 + (s32)(56)) = 0u;
     return r2;
 }
 }  // namespace n001ce8b8
@@ -383,7 +383,7 @@ void func_001ced10(u8* p, u32 a, u32 b, u32 c) {
     *(u32*)(p + 2920) = 0;
     *(u32*)(p + 2928) = 0;
     *(void**)p = D_003521e0;
-    func_001d56f0(p + 2932);                     
+    func_001d56f0(p + 2932);
     *(u32*)(p + 1420) |= 4;
 }
 }  // namespace n001ced10
@@ -399,7 +399,7 @@ void func_001ced68(u8* p, u32 a1, u32 a2, u32 a3) {
     *(u32*)(p + 2920) = 0;
     *(u32*)(p + 2928) = 0;
     *(void**)p = D_003521e0;
-    func_001d56f0(p + 2932);                     
+    func_001d56f0(p + 2932);
     *(u32*)(p + 1420) |= 4;
 }
 }  // namespace n001ced68

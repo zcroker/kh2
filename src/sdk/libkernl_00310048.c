@@ -108,7 +108,7 @@ int func_003102e0(int a)
 }
 
 /* ---- 0x310330 */
-typedef struct { int x0, x4; volatile unsigned int id; unsigned int flags; long start; long total; } Ctr;
+typedef struct { int x0, x4; unsigned int id; unsigned int flags; long start; long total; } Ctr;
 typedef struct { int x0, x4, x8, xc; int count; Ctr *free; int x18; volatile unsigned int cur; } Mgr;
 extern Mgr D_00367118_d asm("D_00367118");
 int func_00310330(unsigned int id)

@@ -352,7 +352,7 @@ struct M {
 };
 
 static inline void mulMV(V* o, const M* m, const V* v) {
-    register const M* rm asm("$12") = m; register V* ro asm("$11") = o;
+    const M* rm = m; register V* ro asm("$11") = o;
     asm volatile(".set noreorder\n\t"
 "lqc2 $vf5,0(%2)\n\tlqc2 $vf1,0(%1)\n\tlqc2 $vf2,16(%1)\n\tlqc2 $vf3,32(%1)\n\tlqc2 $vf4,48(%1)\n\t"
 "vmulax.wxyz ACC,$vf1,$vf5x\n\tvmadday.wxyz ACC,$vf2,$vf5y\n\tvmaddaz.wxyz ACC,$vf3,$vf5z\n\tvmaddw.wxyz $vf5,$vf4,$vf5w\n\t"

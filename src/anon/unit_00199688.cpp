@@ -24,7 +24,7 @@ void func_00199688(void) asm("func_00199688");
 void func_00199688(void) {
     u32 o = func_001b1490(D_0035043c);
     for (s32 i = 0; i < 19; i++) {
-        u8* r = func_00168b38((void*)o, 2, i);                         
+        u8* r = func_00168b38((void*)o, 2, i);
         bool ok = hasValue8(r);
         u32 v = 0;
         if (ok) v = *(u32*)(r + 8);
@@ -116,13 +116,13 @@ u32 func_00199890(...) asm("func_00199890");
 void func_00199938(u32 a0, u32 a1) asm("func_00199938");
 void func_00199938(u32 a0, u32 a1) {
     V4_00199938 v;
-    *(u32*)((u32)&v + (s32)(12)) = 0u;
-    f32 f2 = *(volatile f32*)((u32)a0 + (s32)(12));
-    f32 f0 = *(volatile f32*)((u32)a0 + (s32)(4));
-    f32 f1 = *(volatile f32*)((u32)a0 + (s32)(8));
-    v.x = f0;
-    v.y = f1;
-    v.z = f2;
+    v.w = 0;
+    f32 x = *(f32*)(a0 + 4);
+    f32 y = *(f32*)(a0 + 8);
+    f32 z = *(f32*)(a0 + 12);
+    v.x = x;
+    v.y = y;
+    v.z = z;
     func_00199890(a0, a1, (u32)&v);
 }
 } // n00199938
@@ -717,7 +717,7 @@ namespace n0019a9e0 {
 u32 func_0019a9e0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) asm("func_0019a9e0");
 u32 func_0019a9e0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r2, r14, r15;
-    r14 = *(volatile u32*)((u32)r5 + (s32)(2076));
+    r14 = *(u32*)((u32)r5 + (s32)(2076));
     r2 = 0u;
     if (r14 != 0u) {
         r15 = (u32)(*(u8*)((u32)r14 + (s32)(48)));
@@ -968,7 +968,7 @@ Vq func_001a7888(const Vq*, u32, f32, f32) asm("func_001a7888");
 Vq func_0019afd8(u32 u) asm("func_0019afd8");
 Vq func_0019afd8(u32 u) {
     Vq r;
-    r = *func_0016c028(D_0034e948);                          
+    r = *func_0016c028(D_0034e948);
     r.y += -200.0f;
     if (func_0016e920(u)->isBig()) {
         r = func_001a78c0(&r, 0x10002, 150.0f, 450.0f, -100.0f, 100.0f);
@@ -1015,7 +1015,7 @@ void func_0019b180(u8* p) {
     QWord v;
     u8* it = 0;
     while ((it = func_00186078(it))) {
-        v = *func_0016c028(it);                          
+        v = *func_0016c028(it);
         VTest* o = 0;
         while ((o = !o ? *(VTest**)(p + 12) : o->next)) {
             if (o->test(&v)) {
@@ -1072,12 +1072,12 @@ void group_enable(void* g, s32 i) {
 namespace n0019b308 {
 u32 UG_get_rtn_param(u8* self) asm("_ZN2YS10UNIT_GROUP13get_rtn_paramEv");
 u32 UG_get_rtn_param(u8* self) {
-    u32 r15 = *(volatile u32*)((u32)self + (s32)(8));
+    u32 r15 = *(u32*)((u32)self + (s32)(8));
     u32 r14 = 6u;
     u32 r13 = (u32)(*(u8*)((u32)r15 + (s32)(0)));
     u32 r2 = 0u;
     if (r13 == r14) {
-        r2 = *(volatile u32*)((u32)self + (s32)(48));
+        r2 = *(u32*)((u32)self + (s32)(48));
     }
     return r2;
 }
@@ -1208,7 +1208,7 @@ void func_0019b5d8(u32 a0, u32 a1) {
     u32 t6 = *(u32*)(a1 + 0x6c);
     u32 t7 = *(u8*)(t6 + 0x2e);
     if (t7 != 0) {
-        if (func_0015f718(t7 - 1) == 0) {                      
+        if (func_0015f718(t7 - 1) == 0) {
             u32 t7b = *(u32*)(s0 + 0x6c);
             func_0015ee90(*(u8*)(t7b + 0x2e) - 1);
         }
@@ -1217,7 +1217,7 @@ void func_0019b5d8(u32 a0, u32 a1) {
 
     t7 = *(u8*)(t6 + 0x2f);
     if (t7 != 0) {
-        if (func_0015f718(t7 - 1) != 0) {                      
+        if (func_0015f718(t7 - 1) != 0) {
             u32 t7b = *(u32*)(s0 + 0x6c);
             func_0015ee10(*(u8*)(t7b + 0x2f) - 1);
             return;

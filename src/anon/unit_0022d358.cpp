@@ -917,10 +917,10 @@ void func_0022e4f0(Rot* r) {
     func_001ba028(v->o);  // list_contains_ptr
     f32* o = v->o;
     o[12] = __truncdfsf2(func_002f83f0(func_00313b80(o[12])));  // double_trunc
-    if (r->nx) { v->o[12] = -v->o[12]; asm volatile("" ::: "memory"); }
+    if (r->nx) { v->o[12] = -v->o[12];  }
     o = v->o;
     o[13] = __truncdfsf2(func_002f83f0(func_00313b80(o[13])));  // double_trunc
-    if (r->ny) { v->o[13] = -v->o[13]; asm volatile("" ::: "memory"); }
+    if (r->ny) { v->o[13] = -v->o[13];  }
     o = v->o;
     o[14] = __truncdfsf2(func_002f83f0(func_00313b80(o[14])));  // double_trunc
     if (r->nz) v->o[14] = -v->o[14];

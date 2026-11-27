@@ -1,6 +1,6 @@
 // YS script traps, first part of the file 0x170f58-0x175590 (object/actor traps of the VM trap
 // table at 0x34dd00). The file is linked as two units: unit_00170f58.cpp (up to and including the
-// gap trap 0x171e00, whose flags word is volatile for the reload after the call) and unit_00171e58.cpp.
+// gap trap 0x171e00, whose flags word is for the reload after the call) and unit_00171e58.cpp.
 // Each function keeps the declarations of the source it was matched in (one namespace per
 // function); functions marked "gap" were never written before and come from the trap table.
 #include "../common/types.h"

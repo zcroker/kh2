@@ -98,7 +98,7 @@ void func_002a0908(s32 sel)
         s32 f6 = flag * 6;
         s32 z6 = y + 6;
         u8* q = base;
-        register s8* np asm("$13"); register s32 nn asm("$15");
+        s8* np; register s32 nn asm("$15");
         do {
             u8* o1 = q + 4248;
             u8* it = func_002a1bc0(((Sel5d4*)D_0035f5d4.p)->it[i].id);
@@ -118,7 +118,7 @@ void func_002a0908(s32 sel)
             }
             q += 408;
             func_0028d8c0(o2, z6, D_0035f14c, D_0035f148, D_0035f210, c, -1, 0);
-            { register s32 m asm("$5") = 408; m = i * m; i++; func_0028dcc0(o2, base + m + 4248); }
+            { s32 m = 408; m = i * m; i++; func_0028dcc0(o2, base + m + 4248); }
             { u8* s = o2 + 24; *(s32*)(s + 184) |= 8; }
             np = (s8*)D_0035f5d4.p; nn = np[0];
         } while (i < nn);

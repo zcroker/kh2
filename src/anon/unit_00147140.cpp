@@ -469,7 +469,7 @@ void func_00147c78(u32, u8* p) {  // copy_bytes_232_to_12
 
 // 00147ca0 (was src/anon/batch_w2378_nsa.cpp)
 namespace n00147ca0 {
-// 00147ca0: recursive node walk. num/cur volatile reproduce the original's store/load order
+// 00147ca0: recursive node walk. num/cur reproduce the original's store/load order
 // (the list store stays ahead of the count store, the cur load after both). Built -fno-strict-aliasing.
 struct NodeW2378 { u8 pad[0xec]; NodeW2378* next; NodeW2378* child; NodeW2378* pad2; u32 flags; u8 pad3[0x11c - 0xfc]; u16 idx; };
 struct TblW2378 { u32 on:1; u32 rest:31; u32 pad; };
@@ -536,7 +536,7 @@ void func_00147d80(MgrW* m, NodeW* n, f32 t)
             c->n = j; *(NodeW**)(a + 8) = n;
         }
         register s32 cur asm("$14") = m->cur;
-        register s32 two asm("$15") = 2;
+        s32 two = 2;
         ((Sub2W*)(cur + (u32)n + 0x100))->set(two);
     }
     NodeW* c = 0;
@@ -672,8 +672,8 @@ inline W3701Proj::W3701Proj(const W3701Proj& o, void* mgr) : view(o.view) {
         register s32 i asm("$10");
         register f32 c120 asm("$f6"), a64 asm("$f5");
         register f32 c100 asm("$f0"), c104 asm("$f1"), c108 asm("$f2"), c112 asm("$f3"), c116 asm("$f4");
-        register void* q1 asm("$5");
-        register void* q0 asm("$4");
+        void* q1;
+        void* q0;
         const W3701Proj* op = &o;
         asm volatile("lw %0, 76(%1)" : "=r"(b76) : "r"(op));
         asm volatile("addiu %0, %1, 160" : "=r"(q1) : "r"(mgr));
@@ -847,15 +847,15 @@ void func_00148528(u32 a0) asm("_Z13func_00148528j");
 void func_00148528(u32 a0) {
     u32 t6 = *(u32*)((u32)a0 + (s32)(21360));
     if (t6 != 0u) {
-        u32 t7 = *(volatile u32*)((u32)t6 + (s32)(248));
+        u32 t7 = *(u32*)((u32)t6 + (s32)(248));
         t7 = (u32)(t7 | 0x0004u);
-        *(volatile u32*)((u32)t6 + (s32)(248)) = t7;
+        *(u32*)((u32)t6 + (s32)(248)) = t7;
     }
     a0 = *(u32*)((u32)a0 + (s32)(21364));
     if (a0 != 0u) {
-        u32 t7 = *(volatile u32*)((u32)a0 + (s32)(248));
+        u32 t7 = *(u32*)((u32)a0 + (s32)(248));
         t7 = (u32)(t7 | 0x0004u);
-        *(volatile u32*)((u32)a0 + (s32)(248)) = t7;
+        *(u32*)((u32)a0 + (s32)(248)) = t7;
     }
 }
 }  // namespace n00148528
@@ -870,14 +870,14 @@ void func_00148560(u32 a0) {
         u32 t6 = 0xfffffffbu;
         u32 t7 = *(u32*)((u32)t5 + (s32)(248));
         t7 = (u32)(t7 & t6);
-        *(volatile u32*)((u32)t5 + (s32)(248)) = t7;
+        *(u32*)((u32)t5 + (s32)(248)) = t7;
     }
     a0 = *(u32*)((u32)a0 + (s32)(21364));
     if (a0 != 0u) {
         u32 t6 = 0xfffffffbu;
         u32 t7 = *(u32*)((u32)a0 + (s32)(248));
         t7 = (u32)(t7 & t6);
-        *(volatile u32*)((u32)a0 + (s32)(248)) = t7;
+        *(u32*)((u32)a0 + (s32)(248)) = t7;
     }
 }
 }  // namespace n00148560
@@ -1063,9 +1063,9 @@ void func_00148a08(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a
     u32 v = *(u32*)(a0 + 17252);
     v |= 1;
     *(u32*)(a0 + 17252) = v;
-    u32 w = *(volatile u32*)(a1 + 248);
+    u32 w = *(u32*)(a1 + 248);
     w |= 2;
-    *(volatile u32*)(a1 + 248) = w;
+    *(u32*)(a1 + 248) = w;
 }
 }  // namespace n00148a08
 
@@ -1075,11 +1075,11 @@ extern u8 D_003a99f0 asm("D_003a99f0");
 /*TARGET 00148a30*/
 void func_00148a30(u32 a0) asm("_Z13func_00148a30j");
 void func_00148a30(u32 a0) {
-    *(volatile u32*)((u32)a0 + (s32)(21372)) = 0u;
+    *(u32*)((u32)a0 + (s32)(21372)) = 0u;
     u32 t7 = (u32)&D_003a99f0;
     s32 t6 = 255;
 L0:
-    *(volatile u32*)((u32)t7 + (s32)(0)) = 0u;
+    *(u32*)((u32)t7 + (s32)(0)) = 0u;
     t6 = (s32)(t6 - 1);
     if (t6 >= 0) {
         t7 = (u32)((u32)t7 + 4);

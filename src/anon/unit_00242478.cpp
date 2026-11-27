@@ -80,7 +80,7 @@ u32 func_00242560(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r2, r16;
     r16 = r4;
     r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_001058e8)(r4, r5, r6, r7, r8, r9, r10, r11);
-    r2 = *(volatile u32*)((u32)r2 + (s32)(9280));
+    r2 = *(u32*)((u32)r2 + (s32)(9280));
     return !((u32)r2 < (u32)r16);
 }
 }  // namespace n00242560
@@ -944,8 +944,8 @@ void func_00243298(void) {
     v = (s32)Al(12);
     func_002b3df8(v);
     {
-        register u32 h1 asm("$15");
-        register u32 h asm("$14");
+        u32 h1;
+        u32 h;
         asm("lui %0,%%hi(D_0035ed08)" : "=r"(h1));
         asm("lui %0,%%hi(D_0035ed0c)" : "=r"(h) : "r"(h1));
         asm("" : "+r"(v) : "r"(h));
@@ -982,8 +982,8 @@ void func_00243298(void) {
         s32* p = (s32*)(*al->vt)(al, 820, 0);
         u8* base = (u8*)(p + 1);
         u8* q = base;
-        register s32 i asm("$20") = 1;
-        register void* vt asm("$21") = e60;
+        s32 i = 1;
+        void* vt = e60;
         register s32 m1 asm("$22") = -1;
         *p = 2;
         do {

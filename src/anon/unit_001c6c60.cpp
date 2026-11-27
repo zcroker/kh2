@@ -7,7 +7,7 @@ namespace n001c6c60 {
 void func_001c6c60(u32 a0) asm("_Z13func_001c6c60j");
 void func_001c6c60(u32 a0) {
     s32 t7 = 0x001c0000;
-    *(volatile u8 *)(a0 + 21) = 0;
+    *(u8 *)(a0 + 21) = 0;
     asm volatile("" : "+r"(t7)::"memory");
     t7 += 27176;
     *(u32 *)(a0 + 84) = t7;
@@ -22,7 +22,7 @@ struct V3i1c6c78 { s32 a, b; f32 c; };
 extern V4f1c6c78 D_01d497c0 asm("D_01d497c0");
 extern V3i1c6c78 D_01d497d0 asm("D_01d497d0");
 extern V3i1c6c78 D_01d497e0 asm("D_01d497e0");
-struct E1680 { u8 v[16]; u32 a10, a14; u32 pad; u8 m[4]; ~E1680() { asm volatile(""); } };
+struct E1680 { u8 v[16]; u32 a10, a14; u32 pad; u8 m[4]; ~E1680() {  } };
 extern E1680 D_00351680[50] asm("D_00351680");
 void wtarget_001c6c78(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z16wtarget_001c6c78jjjj");
 void wtarget_001c6c78(u32 a0, u32 a1, u32 a2, u32 a3) {

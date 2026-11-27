@@ -480,7 +480,7 @@ void func_00291ba8(u8* w, s32 mode, s32 a2, s32 a3, s32 a4, s32 mask) {
     if (mode == 4) return;
     u8* r = func_001a1728(a3, a4);
     s32 base;
-    if (__builtin_expect(mode == 2,0)) base = *(s16*)(w + 11062);
+    if ((mode == 2)) base = *(s16*)(w + 11062);
     else base = func_00291370(w, 2);
     s32 n = 0;
     u8* q = w + 28;

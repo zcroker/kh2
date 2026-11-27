@@ -268,7 +268,7 @@ u32 func_00239d30(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r2, r15;
     r15 = (u32)((s32)0u + (36));
     r5 = (u32)(r5 * r15);
-    r15 = *(volatile u32*)((u32)r4 + (s32)(180));
+    r15 = *(u32*)((u32)r4 + (s32)(180));
     r5 = (u32)(r5 + r15);
     r2 = (u32)(*(u16*)((u32)r5 + (s32)(4)));
     r2 = ((u32)r2 < 0x00000001u);
@@ -687,7 +687,7 @@ u32 func_0023a918(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7
     if (r15 == 0u) {
         r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_0023a0d8)(r4, r5, r6, r7, r8, r9, r10, r11);
     }
-    r2 = *(volatile u32*)((u32)r16 + (s32)(224));
+    r2 = *(u32*)((u32)r16 + (s32)(224));
     return r2;
 }
 }  // namespace n0023a918
@@ -704,7 +704,7 @@ u32 func_0023a950(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7
     if (r15 == 0u) {
         r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_0023a0d8)(r4, r5, r6, r7, r8, r9, r10, r11);
     }
-    r2 = *(volatile u32*)((u32)r16 + (s32)(228));
+    r2 = *(u32*)((u32)r16 + (s32)(228));
     return r2;
 }
 }  // namespace n0023a950
@@ -721,7 +721,7 @@ u32 func_0023a988(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7
     if (r15 == 0u) {
         r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_0023a0d8)(r4, r5, r6, r7, r8, r9, r10, r11);
     }
-    r2 = *(volatile u32*)((u32)r16 + (s32)(232));
+    r2 = *(u32*)((u32)r16 + (s32)(232));
     return r2;
 }
 }  // namespace n0023a988
@@ -747,7 +747,7 @@ u32 func_0023aa18(u32, u32, u32, u32, u32, u32, u32, u32) asm("_Z13func_0023aa18
 /*TARGET 0023aa18*/
 u32 func_0023aa18(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) asm("_Z13func_0023aa18jjjjjjjj");
 u32 func_0023aa18(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32 idx = *(volatile u32*)((u32)a0 + (s32)(276));
+    u32 idx = *(u32*)((u32)a0 + (s32)(276));
     u8* base = *(u8**)((u32)a0 + (s32)(180));
     return *(u32*)(base + idx * 36 + 16);
 }
@@ -759,7 +759,7 @@ u32 func_0023aa38(u32, u32, u32, u32, u32, u32, u32, u32) asm("_Z13func_0023aa38
 /*TARGET 0023aa38*/
 u32 func_0023aa38(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) asm("_Z13func_0023aa38jjjjjjjj");
 u32 func_0023aa38(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32 idx = *(volatile u32*)((u32)a0 + (s32)(276));
+    u32 idx = *(u32*)((u32)a0 + (s32)(276));
     u8* base = *(u8**)((u32)a0 + (s32)(180));
     return *(u32*)(base + idx * 36 + 20);
 }
@@ -770,7 +770,7 @@ namespace n0023aa58 {
 /*TARGET 0023aa58*/
 u32 func_0023aa58(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) asm("_Z13func_0023aa58jjjjjjjj");
 u32 func_0023aa58(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32 idx = *(volatile u32*)((u32)a0 + (s32)(276));
+    u32 idx = *(u32*)((u32)a0 + (s32)(276));
     u8* base = *(u8**)((u32)a0 + (s32)(180));
     return *(u32*)(base + idx * 36 + 24);
 }
@@ -781,7 +781,7 @@ namespace n0023aa78 {
 /*TARGET 0023aa78*/
 u32 func_0023aa78(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) asm("_Z13func_0023aa78jjjjjjjj");
 u32 func_0023aa78(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32 idx = *(volatile u32*)((u32)a0 + (s32)(276));
+    u32 idx = *(u32*)((u32)a0 + (s32)(276));
     u8* base = *(u8**)((u32)a0 + (s32)(180));
     return *(u32*)(base + idx * 36 + 28);
 }
@@ -793,7 +793,7 @@ u32 func_0023aa98(u32, u32, u32, u32, u32, u32, u32, u32) asm("_Z13func_0023aa98
 /*TARGET 0023aa98*/
 u32 func_0023aa98(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) asm("_Z13func_0023aa98jjjjjjjj");
 u32 func_0023aa98(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32 idx = *(volatile u32*)((u32)a0 + (s32)(276));
+    u32 idx = *(u32*)((u32)a0 + (s32)(276));
     u8* base = *(u8**)((u32)a0 + (s32)(180));
     return *(u32*)(base + idx * 36 + 32);
 }

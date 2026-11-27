@@ -578,9 +578,9 @@ void func_00296b80(u8 flag) {
         if (i == 0) { m = D_0037473c; }
         else {
             u32 hb = 0x370000;  // &D_00374738 high half
-            asm volatile("" : "+r"(hb));
+
             id = d + 1;
-            asm volatile("");
+
             m = *(s32*)(hb + 0x4738);
         }
         s32 c = func_0023c4b8(func_0023f1b0(D_0035f210), m);
@@ -747,11 +747,11 @@ void func_00296fd0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a
 void func_00296fd0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r15, r16;
     r16 = (u32)(0x0036u << 16);
-    r15 = *(volatile u32*)((u32)r16 + (s32)(-2668));
+    r15 = *(u32*)((u32)r16 + (s32)(-2668));
     r4 = r15;
     if (r15 != 0u) {
         ((void(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_00106420)(r4, r5, r6, r7, r8, r9, r10, r11);
-        *(volatile u32*)((u32)r16 + (s32)(-2668)) = 0u;
+        *(u32*)((u32)r16 + (s32)(-2668)) = 0u;
     }
 }
 }  // namespace n00296fd0

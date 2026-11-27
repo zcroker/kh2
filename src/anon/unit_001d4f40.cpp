@@ -74,7 +74,7 @@ extern u32 D_01d5ba68 asm("D_01d5ba68");
 void func_001d5030(u32 a) asm("func_001d5030");
 void func_001d5030(u32 a) {
     D_00352768 = a;
-    D_01d5ba68 = *(u32*)((u8*)func_00168b38(a, 2, 0) + 8);                         
+    D_01d5ba68 = *(u32*)((u8*)func_00168b38(a, 2, 0) + 8);
 }
 } // n001d5030
 
@@ -187,8 +187,8 @@ namespace n001d5370 {
 void* func_00168b38(u32, s32, s32) asm("func_00168b38");
 void func_001d5370(u32* out, u32 a, s32 b) asm("func_001d5370");
 void func_001d5370(u32* out, u32 a, s32 b) {
-    u8* v = (u8*)func_00168b38(a, -1, b);                         
-    u8* w = (u8*)func_00168b38(a, -1, b + 1);                         
+    u8* v = (u8*)func_00168b38(a, -1, b);
+    u8* w = (u8*)func_00168b38(a, -1, b + 1);
     u32 x = *(u32*)(v + 8);
     u32 y = *(u32*)(w + 8);
     out[0] = x;
@@ -363,18 +363,13 @@ void func_001d5718(BD_VALUE* bd) { func_001d5730(bd); }
 // 001d5730 (from src/anon/tiny_auto80_queue.cpp)
 namespace n001d5730 {
 u32 func_002bc358(...) asm("func_002bc358");
-void func_001d5730(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) asm("func_001d5730");
-void func_001d5730(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r15, r16;
-    r16 = r4;
-    r15 = *(volatile u32*)((u32)r4 + (s32)(0));
-    r4 = r15;
-    if (r15 != 0u) {
-        r5 = (u32)((s32)0u + (10));
-        ((void(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_002bc358)(r4, r5, r6, r7, r8, r9, r10, r11);
-        *(volatile u32*)((u32)r16 + (s32)(8)) = 0u;
-        *(volatile u32*)((u32)r16 + (s32)(0)) = 0u;
-        *(volatile u32*)((u32)r16 + (s32)(4)) = 0u;
+void func_001d5730(u32* bd) asm("func_001d5730");
+void func_001d5730(u32* bd) {
+    if (bd[0] != 0u) {
+        func_002bc358(bd[0], 10);
+        bd[0] = 0u;
+        bd[1] = 0u;
+        bd[2] = 0u;
     }
 }
 } // n001d5730
@@ -417,7 +412,7 @@ void func_001d5800(u16* a0) {
         goto L1;
     }
     if (t6 != 3) goto Lret;
-    func_001a6c90(a0[1]);                       
+    func_001a6c90(a0[1]);
     return;
 
 L1:
@@ -712,7 +707,7 @@ s32 func_001d5d20(void) {
         do {
             v += *(s32*)(e + 4);
             i--;
-            asm volatile("nop\n\tnop");
+
             e += 8;
         } while (i != 0);
     }
@@ -768,7 +763,7 @@ namespace n001d5ec0 {
 struct Row1d5 { u16 v[5]; };
 extern Row1d5 D_0036e5a0[] asm("D_0036e5a0");
 u16 func_001d5ec0(u16* p, int n, int a, int b) asm("func_001d5ec0");
-u16 func_001d5ec0(u16* p, int n, int a, int b) {                          
+u16 func_001d5ec0(u16* p, int n, int a, int b) {
     Row1d5* r = &D_0036e5a0[a - 1];
     u16* e = &r->v[b];
     u16 from = e[-1];

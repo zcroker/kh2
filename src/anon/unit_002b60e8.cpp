@@ -10,10 +10,10 @@ extern u32 D_0035f660 asm("D_0035f660");
 void func_002b60e8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) asm("_Z13func_002b60e8jjjjjjjj");
 void func_002b60e8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {  // slot8_store_pair
     u32 off = ((a0 << 2) + a0 + a1) << 3;
-    u32 base = *(volatile u32*)&D_0035f660;
-    *(volatile u32*)(off + base) = a2;
-    u32 base2 = *(volatile u32*)&D_0035f660;
-    *(volatile u32*)(off + base2 + 4) = a3;
+    u32 base = *(u32*)&D_0035f660;
+    *(u32*)(off + base) = a2;
+    u32 base2 = *(u32*)&D_0035f660;
+    *(u32*)(off + base2 + 4) = a3;
 }
 }  // namespace n002b60e8
 

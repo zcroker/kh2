@@ -25,7 +25,7 @@ void func_002bb070(u32 a, u32 b, u32 c, u32 d, u32 e) {
 // 002bb0a0 (from src/anon/tiny_auto80_queue.cpp)
 namespace n002bb0a0 {
 void func_002bb0a0(s32 a0, s32* a1, s32* a2) asm("func_002bb0a0");
-void func_002bb0a0(s32 a0, s32* a1, s32* a2) {                
+void func_002bb0a0(s32 a0, s32* a1, s32* a2) {
     s32 q = a0 / 1000;
     s32 r = a0 % 1000;
     *a2 = r;
@@ -44,7 +44,7 @@ void func_002bb0c8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a
         a0 = r15;
     }
     u32 r14 = (u32)(0x0036u << 16);
-    *(volatile u32*)((u32)r14 + (s32)(5868)) = a0;
+    *(u32*)((u32)r14 + (s32)(5868)) = a0;
 }
 } // n002bb0c8
 
@@ -65,7 +65,7 @@ struct L28 { Nd28* head; Nd28* tail; };
 extern L28 D_01e2aa80 asm("D_01e2aa80");
 extern s32 D_003616e8 asm("D_003616e8");
 void func_002bb100(Nd28* n, s32 a1, s32 a2) asm("func_002bb100");
-void func_002bb100(Nd28* n, s32 a1, s32 a2) {                   
+void func_002bb100(Nd28* n, s32 a1, s32 a2) {
     s32 id = D_003616e8;
     n->id = id;
     D_003616e8 = ++id;
@@ -86,7 +86,7 @@ namespace n002bb180 {
 u32 func_002ba810(...) asm("func_002ba810");
 void func_002bb0a0(s32 a0, s32* a1, s32* a2) asm("func_002bb0a0");
 void func_002bb180(u32 a0, u32 a1) asm("func_002bb180");
-void func_002bb180(u32 a0, u32 a1) {                              
+void func_002bb180(u32 a0, u32 a1) {
     *(u16*)(a0 + 42) = 0;
 
     u32 s0 = a0;
@@ -116,9 +116,9 @@ u32 func_002bb1c8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7
     u32 s18 = a1;
     u32 s17 = a2;
 
-    func_002bb100(s16, 1, 0);                   
+    func_002bb100(s16, 1, 0);
     func_002bb5a8(s16, s17);
-    func_002bb180(s16, s18);                              
+    func_002bb180(s16, s18);
     return func_002bb0e0(s16);
 }
 } // n002bb1c8
@@ -162,8 +162,8 @@ u32 func_002bb2b8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7
     u32 s17 = a1;
     u32 s18 = a2;
 
-    func_002bb100(s16, a3, 2);                   
-    func_002bb180(s16, s17);                              
+    func_002bb100(s16, a3, 2);
+    func_002bb180(s16, s17);
     *(u32*)(s16 + 24) = s18;
     return func_002bb0e0(s16);
 }
@@ -183,8 +183,8 @@ u32 func_002bb310(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7
     u32 s18 = a2;
     u32 s19 = a3;
 
-    func_002bb100(s16, 0, 4);                   
-    func_002bb180(s16, s17);                              
+    func_002bb100(s16, 0, 4);
+    func_002bb180(s16, s17);
     *(u32*)(s16 + 24) = s18;
     *(u16*)(s16 + 46) = (u16)s19;
     return func_002bb0e0(s16);
@@ -205,7 +205,7 @@ u32 func_002bb378(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7
     u32 s17 = a3;
     u32 s20 = a4;
 
-    func_002bb100(s16, 1, 5);                   
+    func_002bb100(s16, 1, 5);
     func_002bb5a8(s16, s17);
     *(u32*)(s16 + 24) = s18;
     *(u32*)(s16 + 16) = s19;
@@ -220,7 +220,7 @@ void func_002bb100(u8*, s32, s32) asm("func_002bb100");
 void func_002bb5a8(u8*, u32) asm("func_002bb5a8");
 void func_002bb3f0(u8* p, u32 a, u32 b, u32 c, u32 d) asm("func_002bb3f0");
 void func_002bb3f0(u8* p, u32 a, u32 b, u32 c, u32 d) {
-    func_002bb100(p, 1, 6);                   
+    func_002bb100(p, 1, 6);
     func_002bb5a8(p, c);
     *(u32*)(p + 24) = a;
     *(u32*)(p + 16) = b;
@@ -235,9 +235,9 @@ struct CT {
     u32 _10;
     u32 _14;
     u32 _18;
-    CT* next;          
+    CT* next;
     u8 _20[0x11];
-    u8 kind;           
+    u8 kind;
 };
 extern CT* D_01e2aa80 asm("D_01e2aa80");
 u8 f73_u8(u32, u32, u32, s32, u32) asm("func_002b73ac");

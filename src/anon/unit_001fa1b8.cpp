@@ -311,7 +311,7 @@ void func_001fa7b0(u32 a0, u32 a1, u32 a2) {
 
     u32 t3off = t6b << 3;
     u32 t7c = 0x01da0000;
-    volatile u32* gp = (volatile u32*)t7c;
+    u32* gp = (u32*)t7c;
     u32 t4p = *(u32*)(t2 + 4);
     u32 t6c = gp[-1607];
     u32 t5c = *(u32*)(t6c + 20);
@@ -398,7 +398,7 @@ void func_001fa950(u32 a0, u32 a1, u32 a2) {
         } else {
             u32 t3off = t6b << 3;
             u32 k = 0x01da0000;
-            volatile u32* gp = (volatile u32*)k;
+            u32* gp = (u32*)k;
             u32 oldp = *(u32*)(s1 + 4);
             u32 t6c = gp[-1607];
             u32 t5c = *(u32*)(t6c + 20);
@@ -566,7 +566,7 @@ void func_001facf8(u32 a0, u32 a1, u32 a2) {
 
     u32 t3off = t6b << 3;
     u32 k = 0x01da0000;
-    volatile u32* gp = (volatile u32*)k;
+    u32* gp = (u32*)k;
     u32 oldp = *(u32*)(t2 + 4);
     u32 t6c = gp[-1607];
     u32 t5c = *(u32*)(t6c + 20);

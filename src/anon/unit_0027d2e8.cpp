@@ -86,7 +86,7 @@ u32 CmTop_isExistListAll() {
     u32 r2 = func_00139d78(r16);
     u32 r4 = 0u;
     if (r2 != 0u) {
-        u32 r15 = *(volatile u32*)((u32)r16 + (s32)(388));
+        u32 r15 = *(u32*)((u32)r16 + (s32)(388));
         r15 = (u32)(r15 ^ 0x00eau);
         r4 = ((u32)r15 < 0x00000001u);
     }

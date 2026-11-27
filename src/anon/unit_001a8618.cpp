@@ -152,14 +152,14 @@ void func_001a8908(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a
 void func_001a8908(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r14, r15;
     r14 = (u32)(0x01c7u << 16);
-    *(volatile u32*)((u32)r14 + (s32)(-13304)) = r4;
-    r15 = *(volatile u32*)((u32)r4 + (s32)(4));
+    *(u32*)((u32)r14 + (s32)(-13304)) = r4;
+    r15 = *(u32*)((u32)r4 + (s32)(4));
     r14 = (u32)((s32)0u + (52));
     r15 = (u32)(r15 * r14);
     r4 = (u32)(r4 + r15);
     r4 = (u32)((s32)r4 + (8));
     r15 = (u32)(0x01c7u << 16);
-    *(volatile u32*)((u32)r15 + (s32)(-13300)) = r4;
+    *(u32*)((u32)r15 + (s32)(-13300)) = r4;
 }
 } // n001a8908
 
@@ -219,7 +219,7 @@ void func_001a89f0(void) {
 namespace n001a8b28 {
 extern u32 D_01c6cc10 asm("D_01c6cc10");
 u32 func_001a8b28(u32 a0, u32 a1, u32 a2, u32 a3) asm("func_001a8b28");
-u32 func_001a8b28(u32 a0, u32 a1, u32 a2, u32 a3) {                     
+u32 func_001a8b28(u32 a0, u32 a1, u32 a2, u32 a3) {
     (void)a0;
     (void)a1;
     (void)a2;
@@ -235,7 +235,7 @@ u32 func_001a8b38(u32 a0, u32 a1, u32 a2, u32 a3) asm("func_001a8b38");
 u32 func_001a8b38(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u, r16 = 0u;
     r16 = r4;
-    r2 = func_001a8b28(r4, r5, r6, r7);                     
+    r2 = func_001a8b28(r4, r5, r6, r7);
     r16 = (u32)(r16 << 1);
     r16 = (u32)(r16 + r2);
     r2 = (u32)(*(u16*)((u32)r16 + (s32)(16)));
@@ -265,7 +265,7 @@ u32 func_001a8b68(u32 a0) {
 // 001a8ba0 (gap: twin of 0x001a8bb8)
 namespace n001a8ba0 {
 void func_001a8ba0(u8* p) asm("func_001a8ba0");
-void func_001a8ba0(u8* p) {                         
+void func_001a8ba0(u8* p) {
     p[0] = 0;
     p[1] = 18;
     p[2] = 18;
@@ -276,7 +276,7 @@ void func_001a8ba0(u8* p) {
 // 001a8bb8 (from src/anon/batch_w3.cpp)
 namespace n001a8bb8 {
 void func_001a8bb8(u8* p) asm("func_001a8bb8");
-void func_001a8bb8(u8* p) {                         
+void func_001a8bb8(u8* p) {
     p[0] = 0;
     p[1] = 18;
     p[2] = 18;
@@ -300,7 +300,7 @@ u32 MEMBER_Get(s32 index) {
 // 001a8bf8 (from src/anon/batch_w5.cpp)
 namespace n001a8bf8 {
 u8 func_001a8bf8(u8* p, s32 i) asm("func_001a8bf8");
-u8 func_001a8bf8(u8* p, s32 i) {                 
+u8 func_001a8bf8(u8* p, s32 i) {
     return p[i] & 0x1f;
 }
 } // n001a8bf8
@@ -332,7 +332,7 @@ u32 func_001a8c10(u32 a0) {
 // 001a8c60 (from src/anon/tiny_auto80_fptr4.cpp)
 namespace n001a8c60 {
 void func_001a8c60(u32 a0, u32 a1, u32 a2, u32 a3) asm("func_001a8c60");
-void func_001a8c60(u32 a0, u32 a1, u32 a2, u32 a3) {                      
+void func_001a8c60(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r15;
     r15 = (u32)((s32)0u + (-97));
     r4 = (u32)(r4 + r5);
@@ -380,19 +380,15 @@ void func_001a8d40(T4* out, s32 idx) asm("func_001a8d40");
 void func_001a8d40(T4* out, s32 idx)
 {
     T4 a, b;
-    s32 j;
-    register s32 i asm("$18");                                                                     
+    s32 i, j;
     func_001a8bb8(&a);
     func_001a8bb8(&b);
     a = D_01c6cc0c[idx];
     func_001a8c60(&b, 0, func_001a8bf8(&a, 0));
     j = 1;
-    i = 1;
-    s32 m = ~0x3f;
-    for (; i < 4; i++) {
-        s32 c = a.b[i];
-        if (m & c) {
-            func_001a8c60(&b, j, (u8)c);
+    for (i = 1; i < 4; i++) {
+        if (a.b[i] & 0xc0) {
+            func_001a8c60(&b, j, a.b[i]);
             j++;
             a.b[i] = 18;
         }
@@ -419,7 +415,7 @@ void func_001a8d40(T4* out, s32 idx)
 // 001a8f10 (from src/anon/batch_w35.cpp)
 namespace n001a8f10 {
 s32 func_001a8f10(s32 x) asm("func_001a8f10");
-s32 func_001a8f10(s32 x) {                  
+s32 func_001a8f10(s32 x) {
     switch (x) {
     case 1: case 14: return 0;
     case 2: return 1;
@@ -436,22 +432,22 @@ s32 func_001a8bf8(void*, s32) asm("func_001a8bf8");
 void func_001a8c60(void*, s32, s32) asm("func_001a8c60");
 void func_001a8f68(void* a0, void* a1) asm("func_001a8f68");
 void func_001a8f68(void* a0, void* a1) {
-    s32 v = func_001a8f10(a1);                  
+    s32 v = func_001a8f10(a1);
     s32 i;
     for (i = 1; i < 3; i++) {
-        if (func_001a8bf8(a0, i) == v) {                 
-            func_001a8c60(a0, i, func_001a8bf8(a0, 3));                      
+        if (func_001a8bf8(a0, i) == v) {
+            func_001a8c60(a0, i, func_001a8bf8(a0, 3));
             break;
         }
     }
-    func_001a8c60(a0, 3, v);                      
+    func_001a8c60(a0, 3, v);
 }
 } // n001a8f68
 
 // 001a8ff8 (from src/anon/auto200_999.cpp)
 namespace n001a8ff8 {
 void func_001a8ff8(u32 a0, u32 a1, u32 a2) asm("func_001a8ff8");
-void func_001a8ff8(u32 a0, u32 a1, u32 a2) {               
+void func_001a8ff8(u32 a0, u32 a1, u32 a2) {
     u8 *p1 = (u8 *)(a0 + a1);
     u8 *p2 = (u8 *)(a0 + a2);
     u8 v1 = *p1;

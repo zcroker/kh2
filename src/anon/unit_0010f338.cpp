@@ -285,7 +285,7 @@ void func_0010f880(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a
 void func_0010f880(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
     u32 s0 = a0;
     f32 f0 = func_001065a8(a0, a1, a2, a3, a4, a5, a6, a7);
-    *(volatile f32*)((u32)s0 + (s32)(3284)) = f0;
+    *(f32*)((u32)s0 + (s32)(3284)) = f0;
 }
 }  // namespace n0010f880
 

@@ -465,8 +465,8 @@ void func_0031f910(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z13func_0031f910jjjj");
 void func_0031f910(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r14, r15;
     if (r4 != 0u) {
-        r15 = *(volatile u32*)((u32)r4 + (s32)(0));
-        r14 = *(volatile u32*)((u32)r15 + (s32)(16));
+        r15 = *(u32*)((u32)r4 + (s32)(0));
+        r14 = *(u32*)((u32)r15 + (s32)(16));
         ((void(*)(u32,u32,u32,u32))(u32)r14)(r4, r5, r6, r7);
     }
 }

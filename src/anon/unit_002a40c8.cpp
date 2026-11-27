@@ -534,7 +534,7 @@ s32 func_002a4ad8(s32 a)
             sum += *q;
             n--;
             // R5900 short-loop padding
-            asm volatile("nop\n\tnop");
+
             q += 8;
         } while (n);
     }

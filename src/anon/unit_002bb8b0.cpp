@@ -239,7 +239,7 @@ void func_002bbde0()
     a->tail = 0;
     b->tail = 0;
     a->head = 0;
-    *(volatile s32*)&b->head = 0;                                                          
+    *(s32*)&b->head = 0;
     se3d_enable_w2363();
 }
 } // n002bbde0
@@ -439,7 +439,7 @@ u32 func_002bc1e8(u32 a0, u32 a1) {
     r2 = 0u;
     if (r17 != 0u) {
         r2 = ((u32(*)(u32,u32))func_002bb228)(r4, r5);
-        r2 = *(volatile u32*)((u32)r17 + (s32)(20));
+        r2 = *(u32*)((u32)r17 + (s32)(20));
     }
     return r2;
 }
@@ -460,7 +460,7 @@ u32 func_002bc238(u32 a0, u32 a1) {
     r2 = 0u;
     if (r17 != 0u) {
         r2 = ((u32(*)(u32,u32))func_002bb270)(r4, r5);
-        r2 = *(volatile u32*)((u32)r17 + (s32)(20));
+        r2 = *(u32*)((u32)r17 + (s32)(20));
     }
     return r2;
 }

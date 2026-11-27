@@ -81,9 +81,9 @@ namespace j2 {
 void func_0016bd60(void*, u32) asm("func_0016bd60");
 void func_001a2a18(u8* p) asm("func_001a2a18");
 void func_001a2a18(u8* p) {
-    register u8* vec asm("$14") = p + 32;
+    u8* vec = p + 32;
     asm volatile("vsub.xyzw $vf1, $vf0, $vf0\n\tsqc2 $vf1, 0(%0)" : : "r"(vec) : "memory");
-    register u32 flags asm("$13") = *(u32*)(p + 352);
+    u32 flags = *(u32*)(p + 352);
     if (flags & 0x40) func_0016bd60(p, 0);
     else func_0016bd60(p, 5);
 }

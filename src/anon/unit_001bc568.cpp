@@ -50,16 +50,15 @@ s32 func_001bc568(E1bc* e, B1bc* b) {
 
 // ---- 001bc688 from src/yasui/libys/commandmenu.cpp
 namespace n001bc688 {
-void slot_clear(u8* self) asm("_ZN2YS12COMMAND_SLOT5clearEv");
-void slot_clear(u8* self) {
-    u32 r4 = (u32)self, r15;
-    r15 = (u32)((s32)0u + 5);
-    *(u32*)(r4 + 8) = 0u;
-    *(volatile u8*)(r4 + 5) = (u8)r15;
-    *(volatile u16*)(r4 + 0) = (u16)0u;
-    *(volatile u16*)(r4 + 2) = (u16)0u;
-    *(volatile u8*)(r4 + 4) = (u8)0u;
-    *(volatile u8*)(r4 + 6) = (u8)0u;
+struct COMMAND_SLOT { u16 h0; u16 h2; u8 b4; u8 b5; u8 b6; u8 pad7; u32 w8; };
+void slot_clear(COMMAND_SLOT* self) asm("_ZN2YS12COMMAND_SLOT5clearEv");
+void slot_clear(COMMAND_SLOT* self) {
+    self->h0 = 0;
+    self->h2 = 0;
+    self->b4 = 0;
+    self->b5 = 5;
+    self->b6 = 0;
+    self->w8 = 0;
 }
 }  // namespace n001bc688
 
@@ -400,7 +399,7 @@ out:
 // ---- 001bcf38 from src/anon/batch_w24.cpp
 namespace n001bcf38 {
 s32 func_001bcf38(s32* p) asm("func_001bcf38");
-s32 func_001bcf38(s32* p) {                             
+s32 func_001bcf38(s32* p) {
     switch (*p) {
     case 5: case 10: case 13: case 14: case 15: case 16: case 17: case 18:
         return 1;
@@ -601,7 +600,7 @@ void func_001bd2d0(u32 a0, u32 a1, u32 a2) {
 // ---- 001bd370 from src/anon/tiny_auto80_queue.cpp
 namespace n001bd370 {
 void func_001bd370(u8* a0) asm("_Z13func_001bd370Ph");
-void func_001bd370(u8* a0) {                          
+void func_001bd370(u8* a0) {
     s32 t6 = 3;
     u32* p = (u32*)(a0 + 2536);
     do {
@@ -1119,7 +1118,7 @@ void func_001bdff0(void) asm("func_001bdff0");
 void func_001d6da8(u8*) asm("func_001d6da8");
 void func_001bded8(u8* p) asm("func_001bded8");
 void func_001bded8(u8* p) {
-    func_001bd370(p);                          
+    func_001bd370(p);
     func_001bc720(p + 36);
     func_001bc720(p + 732);
     *(u32*)(p + 2528) = 0;
@@ -1528,7 +1527,7 @@ void func_001bc990(void*, void*) asm("func_001bc990");
 void func_001be940(u8* p) asm("func_001be940");
 void func_001be940(u8* p)
 {
-    if (func_001b9d40(*(u32*)(p + 2528))) func_001d6da8(p + 2642);                             
+    if (func_001b9d40(*(u32*)(p + 2528))) func_001d6da8(p + 2642);
     command_menu_clear(p + 848);
     func_001bc990(p + 848, p + 2642);
 }

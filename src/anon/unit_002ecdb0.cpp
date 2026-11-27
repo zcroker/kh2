@@ -214,7 +214,7 @@ static inline f32 normalize(QV* v) {
     return len;
 }
 static inline f32 dot3(QV* v) {
-    register f32 d asm("$f0");
+    f32 d;
     asm volatile("lqc2 $vf1, 0(%1)\n\tvmul.xyz $vf1, $vf1, $vf1\n\tvaddy.x $vf1, $vf1, $vf1y\n\tvaddz.x $vf1, $vf1, $vf1z\n\tqmfc2 $8, $vf1\n\tmtc1 $8, %0" : "=f"(d) : "r"(v) : "$8", "memory");
     return d;
 }

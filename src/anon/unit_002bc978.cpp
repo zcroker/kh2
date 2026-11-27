@@ -48,7 +48,7 @@ u32 func_002bc990(u32 a0, u32 a1, u32 a2, u32 a3) {
 // ---- 002bc9a8 from src/anon/tiny_auto80_queue.cpp
 namespace n002bc9a8 {
 void func_002bc9a8(s32 a0, u32 a1, u32 a2) asm("_Z13func_002bc9a8ijj");
-void func_002bc9a8(s32 a0, u32 a1, u32 a2) {                           
+void func_002bc9a8(s32 a0, u32 a1, u32 a2) {
     s32 end = a0 + 324;
     while (1) {
         if (*(u32*)(a0 + 0) == a1) {
@@ -82,7 +82,7 @@ s32 func_002bc9d8(u8* p, s32 key) {
 namespace n002bca10 {
 struct E2bc { s32 b; s32 a; s32 c; };
 s32 func_002bca10(E2bc* t, s32 a, s32 b) asm("func_002bca10");
-s32 func_002bca10(E2bc* t, s32 a, s32 b) {                         
+s32 func_002bca10(E2bc* t, s32 a, s32 b) {
     E2bc* e = t;
     do {
         if (e->a == a && e->b == b) return b;
@@ -95,7 +95,7 @@ s32 func_002bca10(E2bc* t, s32 a, s32 b) {
 // ---- 002bca48 from src/anon/tiny_auto80_queue.cpp
 namespace n002bca48 {
 s32 func_002bca48(s32 a0, u32 a1) asm("_Z13func_002bca48ij");
-s32 func_002bca48(s32 a0, u32 a1) {                    
+s32 func_002bca48(s32 a0, u32 a1) {
     s32 end = a0 + 324;
 
     while (1) {
@@ -128,7 +128,7 @@ s32 func_002bca78(u8* o, void* a, void* b, s32* out, u32* out2)
     if (r == -1) {
         s32 v = *(s32*)(o + 328);
         *out = v;
-        func_002bc9a8(o, v, *out2);                           
+        func_002bc9a8(o, v, *out2);
         s32 n = func_002bc978(b);
         for (s32 i = 0; i < n - 1; i++) {
             s32 x = *(s32*)(o + 328) + i + 1;
@@ -164,7 +164,7 @@ u32 func_002bcb60(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7
     u32 ok = 0;
     if (r == -1) {
         *(u32*)s18 = s17;
-        func_002bc9a8(s16, s17, *(u32*)s19);                           
+        func_002bc9a8(s16, s17, *(u32*)s19);
         ok = 1;
     }
 
@@ -181,7 +181,7 @@ void func_002bcbf0(u8* o, s32 a1, s32 a2, s32* a3, s32* t0) {
     *t0 = func_002bc988(a1);
     s32 m = *(s32*)(o + 332);
     *a3 = m;
-    func_002bc9a8(o, m, *t0);                           
+    func_002bc9a8(o, m, *t0);
     *(s32*)(o + 332) = *(s32*)(o + 332) == 20 ? 21 : 20;
 }
 }  // namespace n002bcbf0
@@ -208,7 +208,7 @@ void func_002bcc60(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a
     *(u32*)s18 = func_002bc988(s17);
     *(u32*)s19 = 30;
 
-    func_002bc9a8(s16, 30, *(u32*)s18);                           
+    func_002bc9a8(s16, 30, *(u32*)s18);
 }
 }  // namespace n002bcc60
 
@@ -235,7 +235,7 @@ u32 func_002bccd8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7
     u32 ok = 0;
     if (r == -1) {
         *(u32*)s18 = s17;
-        func_002bc9a8(s16, s17, *(u32*)s19);                           
+        func_002bc9a8(s16, s17, *(u32*)s19);
         ok = 1;
     }
 
@@ -297,7 +297,7 @@ void func_002bcde0(u32* a0, u32 a1) asm("func_002bcde0");
 void func_002bcde0(u32* a0, u32 a1) {
     u32* end = (u32*)((u8*)a0 + 324);
 loop:
-    if (__builtin_expect(*a0 == a1, 0)) {
+    if ((*a0 == a1)) {
         a0[2] = 0;
         return;
     }
@@ -311,7 +311,7 @@ loop:
 // ---- 002bce10 from src/anon/tiny_auto80_queue.cpp
 namespace n002bce10 {
 void func_002bce10(u32* a0, u32 a1) asm("_Z13func_002bce10Pjj");
-void func_002bce10(u32* a0, u32 a1) {                          
+void func_002bce10(u32* a0, u32 a1) {
     u32* end = (u32*)((u8*)a0 + 324);
 loop:
     if (__builtin_expect(*a0 == a1, 0)) {
@@ -329,10 +329,11 @@ loop:
 namespace n002bce40 {
 void func_002bce40(u32, u32, u32, u32) asm("_Z13func_002bce40jjjj");
 void func_002bce40(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z13func_002bce40jjjj");
+struct Obj { u8 pad[324]; u32 x144; u8 pad148[336 - 328]; u8 b150; };
 void func_002bce40(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3;
-    *(volatile u8*)((u32)r4 + (s32)(336)) = (u8)0u;
-    *(volatile u32*)((u32)r4 + (s32)(324)) = 0u;
+    Obj* o = (Obj*)a0;
+    o->x144 = 0;
+    o->b150 = 0;
 }
 }  // namespace n002bce40
 
@@ -631,7 +632,7 @@ extern char D_00374fa8[] asm("D_00374fa8");
 char* func_002bd260(u32 a) asm("func_002bd260");
 char* func_002bd260(u32 a) {
     func_002fee78(D_01e2bba0, D_00374fa8, a);
-    strlen(D_01e2bba0);           
+    strlen(D_01e2bba0);
     return D_01e2bba0;
 }
 }  // namespace n002bd260
@@ -891,7 +892,7 @@ void func_002bd7d8(void) {
     func_002b8a70(D_003617ec);
     D_003617ec = 0;
     D_003617f0 = 0;
-    func_00102670(D_0032b91c, D_003617f4);              
+    func_00102670(D_0032b91c, D_003617f4);
     D_003617f4 = 0;
     D_003617f8 = 0;
 }
@@ -1004,11 +1005,11 @@ void func_002bda38(u8* p) {
     VObj2b* o = *(VObj2b**)(p + 16);
     while (o) {
         VObj2b* n = o->next;
-        if (o) o->vt[1](o);                                
+        if (o) o->vt[1](o);
         o = n;
     }
     if (*(u32*)(p + 104)) func_00170950(*(u32*)(p + 104));
-    func_001b86e0(*(u32*)(p + 4));                            
+    func_001b86e0(*(u32*)(p + 4));
     func_00170320(-200);
     D_003617fc = 0;
     *(u32*)(p + 8) = (u32)D_003637e0;
@@ -1031,11 +1032,11 @@ void func_002bdac8(u8* p) {
     u8* o = *(u8**)(p + 16);
     while (o) {
         u8* next = *(u8**)(o + 32);
-        if (o) (*(VFn*)(*(u8**)o + 4))(o);                                
+        if (o) (*(VFn*)(*(u8**)o + 4))(o);
         o = next;
     }
     if (*(u32*)(p + 104)) func_00170950(*(u32*)(p + 104));
-    func_001b86e0(*(u32*)(p + 4));                            
+    func_001b86e0(*(u32*)(p + 4));
     func_00170320(-200);
     D_003617fc.v = 0;
     *(void**)(p + 8) = D_003637e0;

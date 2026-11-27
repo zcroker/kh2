@@ -131,7 +131,7 @@ u32 func_0021aee8(MdlHdr* obj, u128* param)
         "vmul.wxyz $vf31,$vf31,$vf30\n"
         "sqc2 $vf31,848(%[r_t8])\n"
         ".set at\n.set reorder"
-        : 
+        :
         : [r_t7] "r" (h->color.word), [r_t8] "r" (spr)
         : "$2", "$3", "memory");
     asm volatile(".set noreorder\n.set noat\n"
@@ -142,12 +142,12 @@ u32 func_0021aee8(MdlHdr* obj, u128* param)
         "vitof0.wxyz $vf31,$vf31\n"
         "sqc2 $vf31,880(%[r_t8])\n"
         ".set at\n.set reorder"
-        : 
+        :
         : [r_t6] "r" (&h->color2), [r_t8] "r" (spr)
         : "$2", "memory");
     {
     register u8* vtx asm("$20") = h->vtxBuf;
-    register u8* tbl asm("$14") = D_00359110;
+    u8* tbl = D_00359110;
     register u8* vend asm("$21");
     spr->vtxBase.p = vtx;
     u8* e = h->vtxBuf + obj->nVtx * 16;
@@ -296,7 +296,7 @@ u32 func_0021aee8(MdlHdr* obj, u128* param)
         "addiu $7,$7,16\n"
         "4:\n"
         ".set at\n.set reorder"
-        : 
+        :
         : [r_t6] "r" (tbl), [r_t8] "r" (spr), [r_s6] "r" (h), [r_s0] "r" (obj)
         : "$2", "$3", "$4", "$6", "$7", "$8", "$9", "$10", "memory");
     {
@@ -326,13 +326,13 @@ u32 func_0021aee8(MdlHdr* obj, u128* param)
     { register u64 k asm("$14") = 8; spr->tag158.v = k; }
     vend = e;
     {
-    register u8* ft asm("$15") = D_00359970;
+    u8* ft = D_00359970;
     asm volatile(".set noreorder\n.set noat\n"
         "lqc2 $vf27,48(%[r_t7])\n"
         "lqc2 $vf28,64(%[r_t7])\n"
         "lqc2 $vf29,80(%[r_t7])\n"
         ".set at\n.set reorder"
-        : 
+        :
         : [r_t7] "r" (ft)
         : "memory");
     }
@@ -372,7 +372,7 @@ next:
                 "ori $4,$4,0x105\n"
                 "sw $4,0($2)\n"
                 ".set at\n.set reorder"
-                : 
+                :
                 : [r_t1] "r" (tag), [r_t8] "r" (spr), [r_k] "r" (k)
                 : "$2", "$3", "$4", "$5", "$6", "memory");
             }
@@ -1051,7 +1051,7 @@ next:
                 "ori $4,$4,0x105\n"
                 "sw $4,0($2)\n"
                 ".set at\n.set reorder"
-                : 
+                :
                 : [r_t1] "r" (tag), [r_t8] "r" (spr), [r_k] "r" (k)
                 : "$2", "$3", "$4", "$5", "$6", "memory");
             }

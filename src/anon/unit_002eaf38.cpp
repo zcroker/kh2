@@ -203,7 +203,7 @@ static inline __attribute__((always_inline)) f32 vlen(const V3* v) {
 V3* func_002cbed8r(V3*, void*) asm("func_002cbed8");
 V3* func_002eaf48r(V3*, u8*, s32) asm("func_002eaf48");
 extern "C" void func_002eb1e8(u8* self) {
-    
+
     if (func_002eb068(self)) return;
     void* t = func_0019b260(F3(self, 0xb4c, s32));
     if (!t) return;
@@ -213,7 +213,7 @@ extern "C" void func_002eb1e8(u8* self) {
     register V3* ta asm("$20") = &A; asm("" : "+r"(ta));
     register V3* tb asm("$19") = &B;
     func_002cbec0(m, func_0016c028(self));
-    { void* mm = m; asm("" : "+r"(mm)); func_002cbed8r(ta, mm); }
+    { void* mm = m;  func_002cbed8r(ta, mm); }
     asm volatile("" : "+r"(tb));
     vsub(ta, func_0016c028(self), tb);
     d = *tb;
@@ -225,10 +225,10 @@ extern "C" void func_002eb1e8(u8* self) {
     if (func_003142e0(func_00313b80(len), 300.0) >= 0) return;
     if (!(300.0f < vlen(&d))) return;
     {
-    register s32 o asm("$18") = F3(D_0034e948, 0xb44, s32);
-    register s32 e asm("$17") = func_002eaf40(self);
+    s32 o = F3(D_0034e948, 0xb44, s32);
+    s32 e = func_002eaf40(self);
     B3 b;
-    register void* tc asm("$16") = &b;
+    void* tc = &b;
     func_00190128((B3*)tc);
     func_00190878((B3*)tc, e, 0);
     func_001bd3e0(o, 1, 523, (B3*)tc, 1, 100);
@@ -660,7 +660,7 @@ Vec func_0017c030(Obj*, Vec*, u8) asm("func_0017c030");
 void func_0017c4c8(Obj*, Vec) asm("func_0017c4c8");
 void func_002eb778(Obj*, s32, s32, f32) asm("func_002eb778");
 void fx0017c030(Vec*, Obj*, Vec*, u32) asm("func_0017c030");
-static inline Vec get2ebf50(Obj* o, u8 k) { Vec t; Vec r; register Vec* a0 asm("$4") = &r; register Obj* a1 asm("$5") = o; register u32 a3 asm("$7") = k; register Vec* a2 asm("$6"); asm("la %0,%1" : "=r"(a2) : "m"(t), "r"(a0), "r"(a1), "r"(a3)); fx0017c030(a0, a1, a2, a3); return r; }
+static inline Vec get2ebf50(Obj* o, u8 k) { Vec t; Vec r; register Vec* a0 asm("$4") = &r; register Obj* a1 asm("$5") = o; register u32 a3 asm("$7") = k; Vec* a2; asm("la %0,%1" : "=r"(a2) : "m"(t), "r"(a0), "r"(a1), "r"(a3)); fx0017c030(a0, a1, a2, a3); return r; }
 extern "C" void func_002ebf50(void* self, Obj* o, u8 k) {
     Vec v = o->v32;
     f32 len = vnorm(&v);

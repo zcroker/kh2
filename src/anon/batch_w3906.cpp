@@ -110,7 +110,7 @@ s32 func_0013f9e0(W3906Q* pos, W3906Q* from, W3906Q* to, u8 mode, u8 flag)
         f32 s;
         {
             /* 30.0f from the literal pool at 0x0036adc4, with the 1 for the flag test in between */
-            register s32 one asm("$15");
+            s32 one;
             register const f32* k30 asm("$14");
             asm("lui $14,0x37\n\tli $15,1\n\taddiu $14,$14,-21052" : "=r"(k30), "=r"(one));
             s = *k30;

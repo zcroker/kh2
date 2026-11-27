@@ -239,12 +239,12 @@ extern u8 D_0034ae80 asm("D_0034ae80");
 void func_0015c1b0(void) asm("_Z16u_tail0_0015c1b0v");
 void func_0015c1b0(void) {
     u32 s0 = (u32)&D_0034ae80;
-    u32 t7 = *(volatile u32*)((u32)s0 + (s32)(0));
+    u32 t7 = *(u32*)((u32)s0 + (s32)(0));
     if (t7 != 0u) {
         u32 a0 = t7;
-        u32 t6 = *(volatile u32*)((u32)*(volatile u32*)((u32)t7 + (s32)(0)) + (s32)(16));
+        u32 t6 = *(u32*)((u32)*(u32*)((u32)t7 + (s32)(0)) + (s32)(16));
         ((void(*)(u32))t6)(a0);
-        *(volatile u32*)((u32)s0 + (s32)(0)) = 0u;
+        *(u32*)((u32)s0 + (s32)(0)) = 0u;
     }
 }
 }  // namespace n0015c1b0
@@ -255,10 +255,10 @@ void func_0015c1f0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a
 void func_0015c1f0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r14, r15;
     r15 = (u32)(0x0035u << 16);
-    r14 = *(volatile u32*)((u32)r15 + (s32)(-20864));
+    r14 = *(u32*)((u32)r15 + (s32)(-20864));
     r15 = (u32)((s32)0u + (1));
     if (r14 != 0u) {
-        *(volatile u8*)((u32)r14 + (s32)(3024)) = (u8)r15;
+        *(u8*)((u32)r14 + (s32)(3024)) = (u8)r15;
     }
 }
 }  // namespace n0015c1f0
@@ -269,9 +269,9 @@ extern u8 D_0034ae80 asm("D_0034ae80");
 extern u8 D_0034ae80 asm("D_0034ae80");
 void func_0015c210(void) asm("_Z16u_tail0_0015c210v");
 void func_0015c210(void) {
-    u32 t7 = *(volatile u32*)(u32)&D_0034ae80;
+    u32 t7 = *(u32*)(u32)&D_0034ae80;
     if (t7 != 0u) {
-        *(volatile u8*)((u32)t7 + (s32)(3024)) = (u8)0u;
+        *(u8*)((u32)t7 + (s32)(3024)) = (u8)0u;
     }
 }
 }  // namespace n0015c210

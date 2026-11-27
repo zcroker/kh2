@@ -49,13 +49,13 @@ void FlushCache(s32) asm("FlushCache");
 /*TARGET 00133d38*/
 u32* func_00133d38(void) asm("func_00133d38");
 u32* func_00133d38(void) {
-    *(volatile u32*)0x1000e010 = 6;
-    *(volatile u32*)0x1000e020 = 2;
-    *(volatile u32*)0x10003c20 = 6;
-    *(volatile u32*)0x10009010 = 0;
-    *(volatile u32*)0x10009020 = 0;
-    *(volatile u32*)0x10009030 = 0;
-    *(volatile u32*)0x10009040 = 0;
+    *(u32*)0x1000e010 = 6;
+    *(u32*)0x1000e020 = 2;
+    *(u32*)0x10003c20 = 6;
+    *(u32*)0x10009010 = 0;
+    *(u32*)0x10009020 = 0;
+    *(u32*)0x10009030 = 0;
+    *(u32*)0x10009040 = 0;
     *(volatile u32*)0x10009050 = 0;
     u32* p = ctarget_002f35e8_w1784(1);
     *p = 0x45;
@@ -162,7 +162,7 @@ s32 func_00133f80(void) asm("func_00133f80");
 s32 func_00133f80(void) {
     sceGsSyncPath(0, 0);
     D_00347cac = func_00133d38();
-    *(volatile u32*)0x10003010 = 1;
+    *(u32*)0x10003010 = 1;
     asm volatile("sync.p");
     func_003058a0(0);
     D_00347cb4 = 1;
@@ -194,7 +194,7 @@ namespace n00134030 {
 s32 func_00134030(void) asm("func_00134030");
 /* ---- 00134030: wait for VIF1 / GIF / VU0 / IPU idle ---- */
 s32 func_00134030(void) {  // poll_timer_status
-    if (*(volatile u32*)0x10009000 & 0x100) {
+    if (*(u32*)0x10009000 & 0x100) {
         // spin on COP0 condition (hand-written padding)
         asm volatile("1:\n\tnop\n\tnop\n\tnop\n\tnop\n\tnop\n\tnop\n\tnop\n\tbc0f 1b\n\tnop");
     }
@@ -224,7 +224,7 @@ void f1340e8(void* p) {
         func_00134030();  // poll_timer_status
         D_00347cb4 = 0;
     }
-    *(volatile u32*)0x10003010 = 0;  // GIF_MODE
+    *(u32*)0x10003010 = 0;  // GIF_MODE
 }
 }  // namespace n001340e8
 // 00134150 (was unwritten gap)
@@ -236,12 +236,12 @@ s32 func_00306238(s32);
 s32 func_00305350(s32, s32);
 }
 extern s32 D_00347cb0 asm("D_00347cb0");
-extern volatile u8 D_00347cb4 asm("D_00347cb4");
+extern u8 D_00347cb4 asm("D_00347cb4");
 s32 func_001341f8(s32) asm("func_001341f8");
 void func_00134150(void) asm("func_00134150");
 void func_00134150(void) {
     func_003061d0(1);
-    *(volatile u32*)0x1000e010 = 2;
+    *(u32*)0x1000e010 = 2;
     D_00347cb0 = func_00305330(1, func_001341f8, -1);
     func_00306238(1);
 }
@@ -272,10 +272,10 @@ namespace n001341f8 {
 extern volatile u8 D_00347cb4 asm("D_00347cb4");
 s32 func_001341f8(s32) asm("func_001341f8");
 s32 func_001341f8(s32) {
-    volatile u32* chcr = (volatile u32*)0x10009000;
+    volatile u32* chcr = (u32*)0x10009000;
     u32 t = (*chcr >> 28) & 7;
     if (t != 0 && t != 7) {
-        *(volatile u32*)0x1000e010 = 2;
+        *(u32*)0x1000e010 = 2;
         *chcr |= 0x100;
     } else {
         D_00347cb4 = 0;

@@ -214,7 +214,7 @@ void func_0015f9c8(Obj* o, u32 a1, u32 kind, QWord pos, QWord rot, QWord scale, 
         o->flags |= 1;
         func_001608c0(o);
     }
-    if (__builtin_expect(a10 & 2, 0)) {
+    if ((a10 & 2)) {
         Light l; LIGHT_INIT(l);
         func_00143520(&o->pos, &l);
         SetColor(o->color, l.rgb[0], l.rgb[1], l.rgb[2], 128);
@@ -302,7 +302,7 @@ void func_0015fe18(Obj* o, u32 a1, u32 kind, QWord pos, QWord rot, QWord scale, 
         o->flags |= 1;
         func_001608c0(o);
     }
-    if (__builtin_expect(a10 & 2, 0)) {
+    if ((a10 & 2)) {
         Light l; LIGHT_INIT(l);
         func_00143520(&o->pos, &l);
         SetColor(o->color, l.rgb[0], l.rgb[1], l.rgb[2], 128);

@@ -295,10 +295,10 @@ extern void ObjObserver_Create(void*) asm("_ZN2kn11ObjObserver6CreateEPPS0_");
 class Friend;
 /*TARGET 0010c778*/
 u32 Friend::getObjObserver() {
-    u32 r2 = *(volatile u32*)((u32)this + 2904);
+    u32 r2 = *(u32*)((u32)this + 2904);
     if (r2 == 0u) {
         ObjObserver_Create((void*)((u32)this + 2904));
-        r2 = *(volatile u32*)((u32)this + 2904);
+        r2 = *(u32*)((u32)this + 2904);
     }
     return r2;
 }
@@ -512,36 +512,19 @@ namespace n0010cb50 {
 /*TARGET 0010cb50*/
 void func_0010cb50(u8* a0, s32 a1, u32 a2) asm("_Z13func_0010cb50Phij");
 void func_0010cb50(u8* a0, s32 a1, u32 a2) {
-    u8* s0 = a0;
-    u8* p = s0 + 2548;
-    u32 v;
-    u32 eq;
-
+    struct V5 { u32 v[5]; };
+    V5* p = (V5*)(a0 + 2548);
     if (a2 == 0) {
         return;
     }
-    *(s16*)(s0 + 3122) = (s16)a1;
-    *(u32*)(s0 + 2936) = 0;
-    *(u8*)(s0 + 3125) = 0;
-    *(s16*)(s0 + 3120) = 2;
-
-    v = *(u32*)(p + 0);
-    eq = (v == a2);
-    if (!eq) {
+    *(s16*)(a0 + 3122) = (s16)a1;
+    *(u32*)(a0 + 2936) = 0;
+    *(u8*)(a0 + 3125) = 0;
+    *(s16*)(a0 + 3120) = 2;
+    if (*(u32*)(a0 + 2548) != a2) {
         func_00190878(p, a2, 0);
-        v = *(u32*)(p + 0);
     }
-
-    u32 e = *(volatile u32*)(s0 + 2552);
-    u32 d = *(volatile u32*)(s0 + 2556);
-    u32 c = *(volatile u32*)(s0 + 2560);
-    u32 f = *(volatile u32*)(s0 + 2564);
-    volatile u32* dst = (volatile u32*)s0;
-    dst[782] = v;   // +3128
-    dst[786] = f;   // +3144
-    dst[783] = e;   // +3132
-    dst[784] = d;   // +3136
-    dst[785] = c;   // +3140
+    *(V5*)(a0 + 3128) = *(V5*)(a0 + 2548);
 }
 }  // namespace n0010cb50
 

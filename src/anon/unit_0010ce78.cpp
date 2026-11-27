@@ -76,23 +76,12 @@ static inline u8 h0_0010ce78(void) {
     return r;
 }
 /*TARGET 0010ce78*/
-/* empty asm barrier keeps gcc from folding the last test into xor/sltu */
 s32 func_0010ce78(S0_0010ce78* p) asm("func_0010ce78");
-/* empty asm barrier keeps gcc from folding the last test into xor/sltu */
 s32 func_0010ce78(S0_0010ce78* p) {
-    u8 ok = h0_0010ce78();
-    s32 r = 0;
-    if (ok) {
-        s32 d = D_003417b0;
-        r = 1;
-        if (d == 0) goto out;
-        r = 0;
-        if (p->f == d) goto out;
-        r = 1;
-        asm volatile("");
-    }
-out:
-    return r;
+    if (!h0_0010ce78()) return 0;
+    s32 d = D_003417b0;
+    if (d != 0 && p->f == d) return 0;
+    return 1;
 }
 }  // namespace n0010ce78
 

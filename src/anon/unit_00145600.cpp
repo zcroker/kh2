@@ -909,16 +909,16 @@ namespace n00146d28 {
 /*TARGET 00146d28*/
 void func_00146d28(u32 a0) asm("_Z13func_00146d28j");
 void func_00146d28(u32 a0) {
-    *(volatile u32*)((u32)a0 + (s32)(21344)) = 0u;
-    s32 n = *(volatile s32*)((u32)a0 + (s32)(16));
+    *(u32*)((u32)a0 + (s32)(21344)) = 0u;
+    s32 n = *(s32*)((u32)a0 + (s32)(16));
     if (n <= 0) return;
     s32 cnt = n;
     u32 idx = 0u;
 L:
-    u32 base = *(volatile u32*)((u32)a0 + (s32)(4));
+    u32 base = *(u32*)((u32)a0 + (s32)(4));
     cnt = (s32)(cnt - 1);
     u32 s = (u32)(idx + base); base = s;
-    *(volatile u32*)((u32)base + (s32)(44)) = 0u;
+    *(u32*)((u32)base + (s32)(44)) = 0u;
     if (cnt != 0) {
         idx = (u32)(idx + (48));
         goto L;
@@ -964,20 +964,20 @@ namespace n00146de0 {
 /*TARGET 00146de0*/
 void func_00146de0(u32 a0) asm("_Z13func_00146de0j");
 void func_00146de0(u32 a0) {
-    s32 t7 = *(volatile s32*)((u32)a0 + (s32)(21344));
+    s32 t7 = *(s32*)((u32)a0 + (s32)(21344));
     if (t7 <= 0) return;
     s32 t4 = t7;
     u32 t2 = (u32)-3;
     u32 t3 = (u32)-2;
 L:
-    u32 t7p = *(volatile u32*)((u32)a0 + (s32)(17248));
+    u32 t7p = *(u32*)((u32)a0 + (s32)(17248));
     t4 = (s32)(t4 - 1);
-    u32 t6 = *(volatile u32*)((u32)t7p + (s32)(248));
+    u32 t6 = *(u32*)((u32)t7p + (s32)(248));
     t6 = (u32)(t6 & t2);
-    *(volatile u32*)((u32)t7p + (s32)(248)) = t6;
-    u32 t5 = *(volatile u32*)((u32)a0 + (s32)(17252));
+    *(u32*)((u32)t7p + (s32)(248)) = t6;
+    u32 t5 = *(u32*)((u32)a0 + (s32)(17252));
     t5 = (u32)(t5 & t3);
-    *(volatile u32*)((u32)a0 + (s32)(17252)) = t5;
+    *(u32*)((u32)a0 + (s32)(17252)) = t5;
     if (t4 != 0) {
         a0 = (u32)((s32)a0 + (8));
         goto L;
@@ -1026,10 +1026,10 @@ namespace n00146e70 {
 void func_00146e70(u32 a0, u32 a1, u32 a2) asm("_Z13func_00146e70jjj");
 void func_00146e70(u32 a0, u32 a1, u32 a2) {
     if (a2 == 0u) {
-        *(volatile u32*)((u32)a0 + (s32)(21360)) = a1;
+        *(u32*)((u32)a0 + (s32)(21360)) = a1;
         return;
     }
-    *(volatile u32*)((u32)a0 + (s32)(21364)) = a1;
+    *(u32*)((u32)a0 + (s32)(21364)) = a1;
 }
 }  // namespace n00146e70
 

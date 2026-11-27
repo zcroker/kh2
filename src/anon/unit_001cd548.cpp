@@ -31,10 +31,10 @@ void wt_001cd548(u32 init, u32 prio, u32, u32)
         func_001e0868(&g->f);
         /* the two id structs' ctors fill a, b, c with 0xffff (prio); the store
            order (c, c, a, a, b, b) needs hand-written instructions */
-        register u32 t4 asm("$12");
-        register u32 t5 asm("$13");
+        u32 t4;
+        u32 t5;
         register u32 t6 asm("$14");
-        register u32 t7 asm("$15");
+        u32 t7;
         asm volatile("lui %0,%%hi(D_01d5a970)" : "=r"(t6));
         asm volatile("lui %0,%%hi(D_01d5a974)" : "=r"(t7));
         asm volatile("addiu %0,%1,%%lo(D_01d5a970)" : "=r"(t5) : "r"(t6));

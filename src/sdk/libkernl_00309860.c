@@ -240,7 +240,7 @@ extern int func_00305650(int);
 /* sce fileio RPC end callback: copies each request's results back to the caller (by fno, jump
  * table 2..26), then either signals the request's semaphore or, for async requests (negated sema),
  * frees its slot. The compare value is pinned to a1 (one register asm) to reproduce the original's
- * negu v0 + move a1,v0 copy; the slot table is read through a volatile pointer, which keeps its
+ * negu v0 + move a1,v0 copy; the slot table is read through a pointer, which keeps its
  * stores out of the branch delay slots like the original. */
 void func_00309ec0(int *arg)
 {
@@ -303,7 +303,7 @@ void func_00309ec0(int *arg)
         h.sema = -h.sema;
         k = h.sema;
         for (i = 0; i < 32; i++) {
-            if (((volatile int *)D_003660e0)[i] == k) {
+            if (((int *)D_003660e0)[i] == k) {
                 ((volatile int *)D_003660e0)[i] = -1;
                 break;
             }

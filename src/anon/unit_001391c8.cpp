@@ -786,19 +786,18 @@ void func_00139c90(void)
 // ---- 00139d78 from src/anon/batch_w24.cpp
 namespace n00139d78 {
 struct LNode { u32 _0; LNode* next; };
-struct LMgr { u32 _0; LNode* head; u8 _8[92]; volatile u32 cur; };
-extern LMgr* volatile D_00347f80 asm("D_00347f80");
+struct LMgr { u32 _0; LNode* head; u8 _8[92]; u32 cur; };
 static inline s32 list_has(LNode** hp, u32 a) {
     LNode* n = 0;
-    while ((n = !n ? *(LNode* volatile*)hp : n->next) != 0) {
+    while ((n = !n ? *hp : n->next) != 0) {
         if ((u32)n == a) return 1;
     }
     return 0;
 }
 u8 u_call4_00139d78(u32, u32, u32, u32) asm("_Z16u_call4_00139d78jjjj");
 u8 u_call4_00139d78(u32 a, u32, u32, u32) {
-    D_00347f80->cur = a;
-    return list_has(&D_00347f80->head, a);
+    *(u32*)(D_00347f80 + 100) = a;  // u32 global (decls header); a field store would not reload it
+    return list_has(&((LMgr*)D_00347f80)->head, a);
 }
 }  // namespace n00139d78
 

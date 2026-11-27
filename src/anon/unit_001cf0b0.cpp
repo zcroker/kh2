@@ -967,9 +967,8 @@ void func_001d0678(u8* p, u8* msg) {
         u8* m = p + 320;
         func_0017f488(m, 193, 8.0f, 0.0f);
         *(void**)(m + 404) = (void*)func_001d0870;
-        asm volatile("" ::: "memory");
-        *(f32*)(p + 2924) = 0.0f;
         *(f32*)(p + 2920) = 120.0f;
+        *(f32*)(p + 2924) = 0.0f;
         break;
     }
     case 456:

@@ -133,7 +133,7 @@ f32 func_0016a0a0(u32 a0) asm("_Z13func_0016a0a0j");
 f32 func_0016a0a0(u32 a0) {
     u32 p = (u32)&D_0036c1a0;
     asm volatile("" : "+r"(p));
-    f32 ret = *(volatile f32 *)p;
+    f32 ret = *(f32 *)p;
     asm volatile("" : "+f"(ret));
     if ((*(u32 *)(a0 + 356) & 2) == 0) {
         u32 obj = *(u32 *)(a0 + 8);
@@ -159,11 +159,11 @@ u32 func_0016a0d0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r2, r15;
     r5 = (u32)((s32)0u + (4));
     r6 = 0u;
-    r4 = *(volatile u32*)((u32)r4 + (s32)(1964));
+    r4 = *(u32*)((u32)r4 + (s32)(1964));
     r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_00168b38)(r4, r5, r6, r7, r8, r9, r10, r11);
     r15 = 0u;
     if (r2 != 0u) {
-        r15 = *(volatile u32*)((u32)r2 + (s32)(8));
+        r15 = *(u32*)((u32)r2 + (s32)(8));
     }
     r2 = r15;
     return r2;
@@ -183,11 +183,11 @@ u32 func_0016a108(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r2, r15;
     r5 = (u32)((s32)0u + (7));
     r6 = 0u;
-    r4 = *(volatile u32*)((u32)r4 + (s32)(1964));
+    r4 = *(u32*)((u32)r4 + (s32)(1964));
     r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_00168b38)(r4, r5, r6, r7, r8, r9, r10, r11);
     r15 = 0u;
     if (r2 != 0u) {
-        r15 = *(volatile u32*)((u32)r2 + (s32)(8));
+        r15 = *(u32*)((u32)r2 + (s32)(8));
     }
     r2 = r15;
     return r2;
@@ -1703,7 +1703,7 @@ namespace n0016bf20 { // method (was YS::OBJ::get_appear_way)
 /*TARGET 0016bf20*/
 u32 OBJ_get_appear_way(void* self) asm("_ZN2YS3OBJ14get_appear_wayEv");
 u32 OBJ_get_appear_way(void* self) {
-    u32 r15 = *(volatile u32*)((u32)self + 2076);
+    u32 r15 = *(u32*)((u32)self + 2076);
     u32 r2 = (u32)((s32)0u + (-1));
     if (r15 != 0u) {
         r2 = (u32)(*(u8*)((u32)r15 + 28));
@@ -1753,7 +1753,7 @@ namespace n0016bff0 { // method (was YS::OBJ::get_serial)
 /*TARGET 0016bff0*/
 u32 OBJ_get_serial(void* self) asm("_ZN2YS3OBJ10get_serialEv");
 u32 OBJ_get_serial(void* self) {
-    u32 r15 = *(volatile u32*)((u32)self + 2076);
+    u32 r15 = *(u32*)((u32)self + 2076);
     u32 r2 = 0u;
     if (r15 != 0u) {
         r2 = (u32)(*(u16*)((u32)r15 + 30));

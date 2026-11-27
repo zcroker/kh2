@@ -16,17 +16,17 @@ void dk_RectParamBase_setColor(u32, u32, u32, u32,
                                u32) asm("_ZN2dk13RectParamBase8setColorEhhhh");
 
 void func_0017c400(u32 a0, u32 a1) {
-    register u32 v asm("$13") = *(u32 *)(a0 + 268);
+    u32 v = *(u32 *)(a0 + 268);
     register u32 m asm("$15") = (u32)-2;
-    register u32 neg asm("$14") = (u32)-1;
+    u32 neg = (u32)-1;
     asm volatile("" : "+r"(v), "+r"(m), "+r"(neg));
-    *(volatile u8 *)(a0 + 1300) = a1;
+    *(u8 *)(a0 + 1300) = a1;
     v &= m;
     asm volatile("" ::: "memory");
     *(volatile u32 *)(a0 + 256) = neg;
     m = 5;
-    *(volatile u32 *)(a0 + 268) = v;
-    *(volatile u32 *)(a0 + 260) = m;
+    *(u32 *)(a0 + 268) = v;
+    *(u32 *)(a0 + 260) = m;
     *(volatile u32 *)(a0 + 204) = 0;
 }
 }  // namespace x6

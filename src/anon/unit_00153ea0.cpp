@@ -5,7 +5,7 @@
 // external symbol is bound by asm label.
 
 // ==== from src/anon/auto80_199_queue.cpp
-namespace dk { 
+namespace dk {
 
 class Sprite {
 public:
@@ -538,7 +538,7 @@ void func_001548a8(u8* p, s32 n) {
 namespace src6 {
 u32 func_00154910(u32 a0) asm("func_00154910");
 u32 func_00154910(u32 a0) {
-    u32 v0 = *(volatile u32*)((u32)a0 + (s32)(15552));
+    u32 v0 = *(u32*)((u32)a0 + (s32)(15552));
     v0 = (u32)((s32)v0 + (-1));
     return (u32)((s32)v0 / (s32)200);
 }
@@ -548,7 +548,7 @@ u32 func_00154910(u32 a0) {
 namespace src6 {
 u32 func_00154930(u32 a0) asm("func_00154930");
 u32 func_00154930(u32 a0) {
-    u32 v0 = *(volatile u32*)((u32)a0 + (s32)(15560));
+    u32 v0 = *(u32*)((u32)a0 + (s32)(15560));
     v0 = (u32)((s32)v0 + (-1));
     return (u32)((s32)v0 / (s32)200);
 }
@@ -775,7 +775,7 @@ void func_00154cd0(u8* p, s32 i, f32 t) {
     s32 w, h, x, y;
     if (t < D_0034a838) { w = 64; h = 64; x = -64; y = -64; }
     else { w = 0; h = 0; x = 0; y = 0; }
-    
+
     f32 s = t * 3.1415925f + -1.5707963f;
     s = func_0017ce10(s);
     u_call4_00139d78(p + i*592 + 2576);
@@ -1510,13 +1510,13 @@ namespace src31 {
 u32 func_00155d58(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) asm("func_00155d58");
 u32 func_00155d58(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {  // table_word_indexed_by_3
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r2, r14, r15;
-    r14 = *(volatile u32*)((u32)r4 + (s32)(24));
+    r14 = *(u32*)((u32)r4 + (s32)(24));
     r15 = (u32)(r5 << 1);
     r15 = (u32)(r15 + r5);
     r15 = (u32)(r15 + r14);
     r14 = (u32)&D_0034a878;
     r15 = (u32)(r15 << 2);    r15 = (u32)(r15 + r14);
-    r2 = *(volatile u32*)((u32)r15 + (s32)(0));
+    r2 = *(u32*)((u32)r15 + (s32)(0));
     return r2;
 }
 }
@@ -1665,10 +1665,10 @@ s32 func_00155fc0(u8* p) {
 namespace src6 {
 u32 func_00156010(u32 a0) asm("func_00156010");
 u32 func_00156010(u32 a0) {
-    u32 t7 = *(volatile u32*)((u32)a0 + (s32)(52));
+    u32 t7 = *(u32*)((u32)a0 + (s32)(52));
     u32 v0 = 0u;
     if (t7 != 0u) {
-        u32 p = *(volatile u32*)((u32)t7 + (s32)(1164));
+        u32 p = *(u32*)((u32)t7 + (s32)(1164));
         u32 t6 = (u32)(*(u8*)((u32)p + (s32)(431)));
         v0 = (u32)(t6 < 1u);
     }
@@ -1681,10 +1681,10 @@ namespace src6 {
 u32 func_00156030(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) asm("func_00156030");
 u32 func_00156030(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r2, r14, r15;
-    r14 = *(volatile u32*)((u32)r4 + (s32)(52));
+    r14 = *(u32*)((u32)r4 + (s32)(52));
     r2 = 0u;
     if (r14 != 0u) {
-        r14 = *(volatile u32*)((u32)r14 + (s32)(1164));
+        r14 = *(u32*)((u32)r14 + (s32)(1164));
         r15 = (u32)(*(u8*)((u32)r14 + (s32)(431)));
         r15 = (u32)(r15 ^ 0x0004u);
         r2 = ((u32)r15 < 0x00000001u);
@@ -1698,10 +1698,10 @@ namespace src6 {
 u32 func_00156058(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) asm("func_00156058");
 u32 func_00156058(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {  // state_code_is_2
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r2, r14, r15;
-    r14 = *(volatile u32*)((u32)r4 + (s32)(52));
+    r14 = *(u32*)((u32)r4 + (s32)(52));
     r2 = 0u;
     if (r14 != 0u) {
-        r14 = *(volatile u32*)((u32)r14 + (s32)(1164));
+        r14 = *(u32*)((u32)r14 + (s32)(1164));
         r15 = (u32)(*(u8*)((u32)r14 + (s32)(431)));
         r15 = (u32)(r15 ^ 0x0002u);
         r2 = ((u32)r15 < 0x00000001u);
@@ -1715,10 +1715,10 @@ namespace src6 {
 u32 func_00156080(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) asm("func_00156080");
 u32 func_00156080(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {  // state_code_is_3
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r2, r14, r15;
-    r14 = *(volatile u32*)((u32)r4 + (s32)(52));
+    r14 = *(u32*)((u32)r4 + (s32)(52));
     r2 = 0u;
     if (r14 != 0u) {
-        r14 = *(volatile u32*)((u32)r14 + (s32)(1164));
+        r14 = *(u32*)((u32)r14 + (s32)(1164));
         r15 = (u32)(*(u8*)((u32)r14 + (s32)(431)));
         r15 = (u32)(r15 ^ 0x0003u);
         r2 = ((u32)r15 < 0x00000001u);
@@ -2084,7 +2084,7 @@ void func_00158138(W1633Hud *, W1633Owner *, u32, u32) asm("func_00158138");
 u32 func_0013a7e8(u32) asm("func_0013a7e8");
 u32 func_0013d7e0(void) asm("func_0013d7e0");
 u32 func_00158290(W1633Hud *) asm("func_00158290");
-volatile unsigned char func_00158050(W1633Sprite *, u32, u32, u32, u32, u32, u32) asm("func_00158050");
+unsigned char func_00158050(W1633Sprite *, u32, u32, u32, u32, u32, u32) asm("func_00158050");
 void func_0013e0f8(W1633Gauge *, u32, u32, u32) asm("func_0013e0f8");
 void func_00139d78(void *) asm("func_00139d78");
 void func_0014b200(void *, u32) asm("func_0014b200");

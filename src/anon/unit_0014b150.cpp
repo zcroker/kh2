@@ -71,17 +71,13 @@ void func_0014b208(u32 a0, u32 a1, u32 a2, u32 a3) {
     *(u16*)((u32)r4 + (s32)(6)) = (u16)r6;
 }
 
-void dk_RectParamBase_setColor(u32, u32, u32, u32, u32) asm("_ZN2dk13RectParamBase8setColorEhhhh");
-void dk_RectParamBase_setColor(u32 a0, u32 a1, u32 a2, u32 a3, u32 t0) {
-    a1 &= 0xff;
-    a2 &= 0xff;
-    a3 &= 0xff;
-    asm volatile("" : "+r"(a1), "+r"(a2), "+r"(a3));
-    *(volatile u8 *)(a0 + 16) = a1;
-    t0 &= 0xff;
-    *(volatile u8 *)(a0 + 17) = a2;
-    *(volatile u8 *)(a0 + 19) = t0;
-    *(volatile u8 *)(a0 + 18) = a3;
+struct RectColor { u8 pad[16]; u8 r, g, b, a; };
+void dk_RectParamBase_setColor(RectColor*, u8, u8, u8, u8) asm("_ZN2dk13RectParamBase8setColorEhhhh");
+void dk_RectParamBase_setColor(RectColor* p, u8 r, u8 g, u8 b, u8 a) {
+    p->r = r;
+    p->g = g;
+    p->b = b;
+    p->a = a;
 }
 
 void func_0014b248(u32 a0, u32 a1, u32 a2, u32 a3) asm("_ZN2dk13RectParamBase8setAlphaEh");

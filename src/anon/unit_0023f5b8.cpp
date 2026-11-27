@@ -275,9 +275,9 @@ void func_0023f8a8(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z13func_0023f8a8jjjj");
 void func_0023f8a8(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3;
     *(volatile u32*)((u32)r4 + (s32)(20)) = 0u;
-    *(volatile u32*)((u32)r4 + (s32)(4)) = 0u;
+    *(u32*)((u32)r4 + (s32)(4)) = 0u;
     *(volatile u8*)((u32)r4 + (s32)(24)) = (u8)0u;
-    *(volatile u32*)((u32)r4 + (s32)(8)) = 0u;
+    *(u32*)((u32)r4 + (s32)(8)) = 0u;
     *(volatile u32*)((u32)r4 + (s32)(12)) = 0u;
     *(volatile u32*)((u32)r4 + (s32)(16)) = 0u;
 }
@@ -463,10 +463,10 @@ u32 func_0023fad0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7
 u32 func_0023fad0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r2, r16;
     r16 = r4;
-    r4 = *(volatile u32*)((u32)r4 + (s32)(4));
+    r4 = *(u32*)((u32)r4 + (s32)(4));
     r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_00170950)(r4, r5, r6, r7, r8, r9, r10, r11);
     *(u32*)((u32)r16 + (s32)(4)) = 0u;
-    *(volatile u8*)((u32)r16 + (s32)(24)) = (u8)0u;
+    *(u8*)((u32)r16 + (s32)(24)) = (u8)0u;
     return r2;
 }
 }  // namespace n0023fad0
@@ -868,7 +868,7 @@ void func_00240240(char* dst, u32 a, u32 b) {
 
 // 002402e0 (was src/anon/batch_w53.cpp)
 namespace n002402e0 {
-extern volatile u32 D_01dae6a0 asm("D_01dae6a0");
+extern u32 D_01dae6a0 asm("D_01dae6a0");
 extern u32 D_0035ecac asm("D_0035ecac");
 extern u32 D_0035ecb0 asm("D_0035ecb0");
 extern u32 D_0035ecb4 asm("D_0035ecb4");
@@ -1034,9 +1034,10 @@ void func_002405a8(char* buf, s32 slot)
     s32 len;
     {
         // Partial asm: argument pins plus a hand-written copy of the length so the
-        // copy into its saved register fills the call's delay slot like the original.
-        register char* a0 asm("$4") = buf;
-        register s32 a2 asm("$6") = r;
+        // copy into its saved fills the call's delay slot like the original.
+        register char* a0
+ = buf;
+        s32 a2 = r;
         asm("" : "+r"(a2) : "r"(a0));
         asm("move %0,$2" : "=r"(len) : "r"(a0), "r"(a2));
         memcpy(a0, D_0035ec0c, a2);

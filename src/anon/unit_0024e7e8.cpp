@@ -377,7 +377,7 @@ u32 func_0024efc0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7
     a2 = a0 * 6;
     u32 r14 = (u32)&D_0035ee08;
     a1 = (u32)&D_00372380;
-    u32 tmp = *(volatile u32*)r14;
+    u32 tmp = *(u32*)r14;
     u32 tbl = (u32)&D_00372348;
     a0 = tmp;
     a2 += tbl;

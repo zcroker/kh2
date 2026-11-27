@@ -27,7 +27,7 @@ struct V2e2350 {
     f32 x, y, z, w;
     V2e2350() {}
     V2e2350(f32 a, f32 b, f32 c, f32 d) { x = a; y = b; z = c; w = d; }
-                                        
+
     V2e2350& operator=(const V2e2350& s) { if (this != &s) QCOPY(this, &s); return *this; }
 } __attribute__((aligned(16)));
 extern u8 D_00361aa0_2c10e0[] asm("D_00361aa0");
@@ -118,8 +118,8 @@ void func_002c1200(u8* p) {
     SEQUENCE_dtor(p + 216);
     *(u8**)(p + 192) = D_00347f98;
     *(u8**)(p + 28) = D_0035eb98;
-    func_0023c098(p + 76);                              
-    func_002369f0(p + 52);                              
+    func_0023c098(p + 76);
+    func_002369f0(p + 52);
     *(u8**)(p + 28) = D_00347f98;
     *(u8**)(p + 0) = D_00347f98;
 }
@@ -171,8 +171,8 @@ void func_002c1320(u8* p) {
     func_00239870(p + 216);
     *(void**)(p + 192) = D_00347f98;
     *(void**)(p + 28) = D_0035eb98;
-    func_0023c098(p + 76);                              
-    func_002369f0(p + 52);                              
+    func_0023c098(p + 76);
+    func_002369f0(p + 52);
     *(void**)(p + 28) = D_00347f98;
     *(void**)p = D_00347f98;
     {
@@ -197,8 +197,8 @@ void func_002c1478(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z13func_002c1478jjjj");
 void func_002c1478(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r14, r15;
     if (r4 != 0u) {
-        r15 = *(volatile u32*)((u32)r4 + (s32)(0));
-        r14 = *(volatile u32*)((u32)r15 + (s32)(16));
+        r15 = *(u32*)((u32)r4 + (s32)(0));
+        r14 = *(u32*)((u32)r15 + (s32)(16));
         ((void(*)(u32,u32,u32,u32))(u32)r14)(r4, r5, r6, r7);
     }
 }
@@ -240,7 +240,7 @@ void func_002c14e8(u8* self) {
     s32 ids[3];
     s32 ids2[2];
     s32 a, b, c, d;
-    func_00236d60(self);                        
+    func_00236d60(self);
     if (((F2c14e8*)(self + 24))->f) {
         if (func_00139d78(self + 28)) func_00139510(self + 28);
         (*(VFn2c14e8*)(*(u8**)self + 20))(self);

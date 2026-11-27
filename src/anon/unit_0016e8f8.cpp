@@ -655,7 +655,7 @@ void func_0016fab0(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r15;
     r15 = (u32)&D_01c5f460;
     *(volatile u32*)((u32)r15 + (s32)(12)) = r5;
-    *(volatile u32*)((u32)r15 + (s32)(8)) = r4;
+    *(u32*)((u32)r15 + (s32)(8)) = r4;
     *(volatile u32*)((u32)r15 + (s32)(16)) = r5;
 }
 } // n0016fab0
@@ -825,7 +825,7 @@ void func_0016fda8(CObj* o) {
     }
     case 2: {
         register CArr* a asm("$21") = o->arr;
-        register s32 n asm("$22") = a->n;
+        s32 n = a->n;
         register u32* p asm("$18") = o->u.ids;
         s32 i;
         for (i = 0; i < n; i++) {
@@ -837,11 +837,11 @@ void func_0016fda8(CObj* o) {
             CHdr* nh = func_0016fac8(0x40);
             u32 q = *p++;
             register u32 a3 asm("$7") = sz;
-            register CHdr* h asm("$16");
+            CHdr* h;
             asm("move %0, %1" : "=r"(h) : "r"(nh), "r"(a3));
-            register CHdr* a0r asm("$4");
+            CHdr* a0r;
             asm("move %0, %1" : "=r"(a0r) : "r"(nh), "r"(h));
-            register s32 a2r asm("$6");
+            s32 a2r;
             asm("li %0, 5300" : "=r"(a2r) : "r"(a0r));
             cbh_ctor_0016fba0(a0r, q, a2r, a3);
             s32 v = e->x8;
@@ -1424,7 +1424,7 @@ extern u32 D_0034dc9c asm("D_0034dc9c");
 extern u8 D_01c5c440 asm("D_01c5c440");
 void func_00170c00(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) asm("func_00170c00");
 void func_00170c00(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    u32 idx = *(volatile u32*)&D_0034dca8;
+    u32 idx = *(u32*)&D_0034dca8;
     u32* values = (u32*)&D_01c5c440;
     u32 sum = *(volatile u32*)&D_0034dc9c;
     u32 value = values[idx];
@@ -1537,11 +1537,11 @@ namespace n00170e18 {
 extern u32 D_0034dca0 asm("D_0034dca0");
 u32 func_00170e18() asm("func_00170e18");
 u32 func_00170e18() {
-    register u32 p asm("$14") = D_0034dca0;
+    u32 p = D_0034dca0;
     u32 ret = 1;
     if (p != 0) {
         while (1) {
-            register s32 v asm("$15") = *(s32 *)(p + 40);
+            s32 v = *(s32 *)(p + 40);
             ret = 0;
             v = v < 10000;
             v ^= 1;

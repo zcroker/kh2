@@ -25,14 +25,14 @@ public:
 };
 void RectBase::setGsPrim(u64 v) { reinterpret_cast<RectBaseGsPrimLayout*>(this)->gs_prim = v; }
 void RectBase::setGsUV(u64 a0, u64 a1) {
-    *(volatile u64 *)((u8 *)this + 208) = a0;
-    *(volatile u64 *)((u8 *)this + 224) = a1;
+    *(u64 *)((u8 *)this + 208) = a0;
+    *(u64 *)((u8 *)this + 224) = a1;
 }
 // 14b5f8 (never written before): the second UV register pair
 void func_0014b5f8(u8* p, u64 a0, u64 a1) asm("func_0014b5f8");
 void func_0014b5f8(u8* p, u64 a0, u64 a1) {
-    *(volatile u64 *)(p + 216) = a0;
-    *(volatile u64 *)(p + 232) = a1;
+    *(u64 *)(p + 216) = a0;
+    *(u64 *)(p + 232) = a1;
 }
 void RectBase::setGsFrame(u64 v) { reinterpret_cast<RectBaseGsFrameLayout*>(this)->gs_frame = v; }
 void RectBase::setGsZbuf(u64 v) { reinterpret_cast<RectBaseGsZbufLayout*>(this)->gs_zbuf = v; }

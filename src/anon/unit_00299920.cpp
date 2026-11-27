@@ -291,7 +291,7 @@ void func_00299e70(void)
         { s32 t = func_00287bc0();
         s32 d = D_0035f200;
         asm volatile("" : : "r"(d));
-        register s32 x1 asm("$5") = 115;
+        s32 x1 = 115;
         asm volatile("" : : "r"(x1));
         m = t;
         func_0028af18(d, x1); }
@@ -482,7 +482,7 @@ void func_0029a3e0(u8 flag) {
     s32 y = func_0023aa38((u8*)b + 24); register Spr3e0* s0 asm("$23")=b->spr;
     Obj3e0* o = b->obj;
     for (i = 0; i < 2; i++, o++) {
-        register u32 k1 asm("$15") = D_003748f4; asm volatile(""); u32 k = D_003748f0; asm volatile(""); register u32 hi asm("$14"); asm volatile("lui $14,%%hi(D_0035f210)" : "=r"(hi)); if (i == 0) k = k1; asm volatile(""); u32 g = *(u32*)(hi - 3568);
+        register u32 k1 asm("$15") = D_003748f4; asm volatile(""); u32 k = D_003748f0;  register u32 hi asm("$14"); asm volatile("lui $14,%%hi(D_0035f210)" : "=r"(hi)); if (i == 0) k = k1; asm volatile(""); u32 g = *(u32*)(hi - 3568);
         s32 sh = func_0023c4b8(func_0023f1b0(g), k);
         func_002362b0(o, func_0023f988(D_0035f5a4, i));
         {register u8 one asm("$14") = 1; o->b400 = one;}
@@ -626,7 +626,7 @@ void func_0029a820(void) {
     // gcc rematerialises the lui next to its load, reusing t7, and sinks the a2 move.
     register u32 h asm("$14"); asm volatile("lui %0,%%hi(D_00347f80)" : "=r"(h));
     D_0035f5b0 = p;
-    register s32 z asm("$6"); asm volatile("move %0,$0" : "=r"(z));
+    s32 z; asm volatile("move %0,$0" : "=r"(z));
     register u32 g asm("$13"); asm volatile("lw %0,%%lo(D_00347f80)(%1)" : "=r"(g) : "r"(h));
     u32 obj = *(u32*)(g + 20);
     s32 q = ((VFn)**(u32**)obj)(obj, 0x14f0, z);

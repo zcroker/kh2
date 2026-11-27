@@ -468,7 +468,7 @@ void func_002a65d0(void)
     u32* q = &a->bits[(u32)k >> 5]; if (!(*q & (1 << (k & 31)))) {
       func_002aab90(k);
       if (c == 37) {
-        register s32 sz asm("$16") = 408;
+        s32 sz = 408;
         s32 i = func_002891e8(D_0035f200);
         asm("mult %0,%1,%0" : "+r"(sz) : "r"(i));
         Ent *p = (Ent*)((u8*)b + sz + 0xa998);

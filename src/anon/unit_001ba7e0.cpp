@@ -178,8 +178,8 @@ extern "C" u32 ctarget_001baa58(u1baa58_ctor::CTarget* self, u32 arg, u32 a2, u3
     {
         ObjBase* o = &self->objA;
         o->f4 = 0;
-        *(volatile u32*)&self->objA.f8.v = 0;
-        *(volatile u32*)&o->vt = (u32)D_003525c8;
+        self->objA.f8.v = 0;
+        *(u32*)&o->vt = (u32)D_003525c8;
         func_00320400(o->body);
         func_001d1678((u8*)o, -1);
     }

@@ -235,9 +235,9 @@ struct Req {
 s32 func_002231b8(Req* r) asm("func_002231b8");
 s32 func_002231b8(Req* r)
 {
-    register u8* p asm("$15") = r->pkt;
+    u8* p = r->pkt;
     register s32 clip asm("$13");
-    register s32 ret asm("$2");
+    s32 ret;
     register s32 k asm("$14");
     V4 tmp;
     asm volatile(".set noreorder\n"

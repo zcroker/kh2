@@ -34,10 +34,10 @@ u32 func_001178d0(u32 a0) {
     u32 t5;
     u32 t7;
 L_check:
-    t7 = *(volatile u32*)((u32)t6 + (s32)(4));
+    t7 = *(u32*)((u32)t6 + (s32)(4));
     t5 = (u32)((u32)v0 << 6);
     if ((s32)t7 < 0) {
-        t7 = *(volatile u32*)((u32)t6 + (s32)(8));
+        t7 = *(u32*)((u32)t6 + (s32)(8));
         if (t7 == 0u) goto L_done;
     }
     v0 = (u32)(v0 + 1u);
@@ -48,7 +48,7 @@ L_check:
     t5 = (u32)((u32)v0 << 6);
 L_done:
     t7 = (u32)(t5 + a0);
-    *(volatile u32*)((u32)t7 + (s32)(32)) = 0u;
+    *(u32*)((u32)t7 + (s32)(32)) = 0u;
     return v0;
 }
 }  // namespace n001178d0

@@ -840,8 +840,8 @@ void func_00249508(void) {
     v = (s32)Al(12);
     func_002b3df8(v);
     {
-        register u32 h1 asm("$15");
-        register u32 h asm("$14");
+        u32 h1;
+        u32 h;
         asm("lui %0,%%hi(D_0035ed90)" : "=r"(h1));
         asm("lui %0,%%hi(D_0035ed94)" : "=r"(h) : "r"(h1));
         asm("" : "+r"(v) : "r"(h));
@@ -878,8 +878,8 @@ void func_00249508(void) {
         s32* p = (s32*)(*al->vt)(al, 820, 0);
         u8* base = (u8*)(p + 1);
         u8* q = base;
-        register s32 i asm("$20") = 1;
-        register void* vt asm("$21") = e60;
+        s32 i = 1;
+        void* vt = e60;
         register s32 m1 asm("$22") = -1;
         *p = 2;
         do {

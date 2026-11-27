@@ -233,7 +233,7 @@ void func_001a4510(u32 a0) asm("func_001a4510");
 void func_001a4510(u32 a0) {
     f32 z = 0.0f;
     u32 p = a0 + 0x20;
-    volatile f32* vp = (volatile f32*)p;
+    volatile f32* vp = (f32*)p;
     *(u32*)(a0 + 8) = 0;
     vp[0] = z;
     vp[3] = z;
@@ -243,13 +243,12 @@ void func_001a4510(u32 a0) {
 void func_001a4530(u32 a0) asm("_ZN2YS6ATTACKC2EPNS_6BTLOBJEPNS_6STDOBJEiiii");
 void func_001a4530(u32 a0) {
     f32 z = 0.0f;
-    u32 p = a0 + 0x20;
-    volatile f32* vp = (volatile f32*)p;
+    f32* v = (f32*)(a0 + 0x20);
     *(u32*)(a0 + 8) = 0;
-    vp[0] = z;
-    vp[3] = z;
-    vp[1] = z;
-    vp[2] = z;
+    v[0] = z;
+    v[1] = z;
+    v[2] = z;
+    v[3] = z;
 }
 }  // namespace n001a4530
 
@@ -595,9 +594,9 @@ void func_001a4d70(u8* p, u32 v) { *(u32*)(p + 196) = v; }
 namespace n001a4d78 {
 void func_001a4d78(u32 a0, f32 a1, f32 a2, f32 a3) asm("func_001a4d78");
 void func_001a4d78(u32 a0, f32 a1, f32 a2, f32 a3) {
-    *(volatile u32*)(a0 + 0xC8) = 0;
+    *(u32*)(a0 + 0xC8) = 0;
     *(f32*)(a0 + 0xCC) = a1;
-    f32 t = *(volatile f32*)(a0 + 0xC8);
+    f32 t = *(f32*)(a0 + 0xC8);
     if (!(t < a2)) {
         a2 = *(f32*)(a0 + 0x100);
     }

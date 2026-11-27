@@ -54,7 +54,7 @@ void func_002a1d38(void) {
     s32 i = 0;
     s32 k = D_0035f3d4 + 3;
     s32 m = func_0023c4b8(func_0023f1b0(D_0035f210), 0);
-    register s32 ph asm("$14"); asm("" : "=r"(ph));
+    s32 ph; asm("" : "=r"(ph));
     T2a1d38* t = D_0035f5d4;
     asm("" : : "r"(ph), "r"(t));
     s32 idx = t->kind == 0x10;
@@ -72,7 +72,7 @@ void func_002a1d38(void) {
             *(s8*)(p + 0x452d) = 1;
             *(s32*)(p + 0x4468) |= 8;
             func_0028dcc0(o, p + 0x1098);
-            register u32 hi asm("$15"); asm("lui %0,%%hi(D_0035f5d4)" : "=r"(hi) : "r"(p)); t = *(T2a1d38**)(hi - 2604); p += 0x198;
+            u32 hi; asm("lui %0,%%hi(D_0035f5d4)" : "=r"(hi) : "r"(p)); t = *(T2a1d38**)(hi - 2604); p += 0x198;
         } while (i < t->n);
     }
 }

@@ -169,7 +169,7 @@ int func_002f7be8(unsigned int lsn, unsigned int sec, void *buf, RMode *mode)
 {
     int size;
     RArg *p = &D_00363e80;
-    if (!((*(volatile int*)&D_00363db8) & 1) && func_002f7118() == 6)
+    if (!((*(int*)&D_00363db8) & 1) && func_002f7118() == 6)
         return 0;
     if (!func_002f6fc0(4))
         return 0;

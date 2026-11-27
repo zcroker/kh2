@@ -548,10 +548,10 @@ void func_0027fba0(void) {
         do {
             i++;
             c = i < 9;
-            __asm__("nop"); /* hand-written delay nops */
-            __asm__("nop");
-            __asm__("nop");
-            __asm__("nop");
+             /* hand-written delay nops */
+
+
+
         } while (c);
     }
     if (!func_00289310(D_0035f254)) return;
@@ -1829,9 +1829,9 @@ extern u8 D_00360000 asm("D_00360000");
 /*TARGET 002817b8*/
 void func_002817b8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) asm("_Z13func_002817b8jjjjjjjj");
 void func_002817b8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
-    *(volatile u16*)((u32)&D_00360000 - 3456) = (u16)-1;
-    *(volatile u32*)((u32)&D_00360000 - 3436) = 0u;
-    *(volatile u8*)((u32)&D_00360000 - 3432) = 0u;
+    *(u16*)((u32)&D_00360000 - 3456) = (u16)-1;
+    *(u32*)((u32)&D_00360000 - 3436) = 0u;
+    *(u8*)((u32)&D_00360000 - 3432) = 0u;
 }
 }  // namespace n002817b8
 

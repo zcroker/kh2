@@ -203,13 +203,13 @@ extern u8 D_01dac550[] asm("D_01dac550");
 void func_00224600(void*, void*, void*) asm("func_00224600");
 #define QCOPY(d, s) asm volatile("lq $2,0(%1)\n\tsq $2,0(%0)" : : "r"(d), "r"(s) : "$2", "memory")
 #define DMA_WAIT() do { \
-        register volatile u32* chcr asm("$13") = (volatile u32*)0x1000d000; \
+        volatile u32* chcr = (u32*)0x1000d000; \
         register u32 v asm("$14"); \
         register u32 busy asm("$15"); \
         do { \
             v = *chcr; \
             busy = v & 0x100; \
-            asm volatile("nop\n\tnop\n\tnop"); \
+             \
         } while (busy); \
         asm volatile("nop\n\tnop\n\tnop\n\tnop"); \
     } while (0)
@@ -217,12 +217,12 @@ void func_00224600(void*, void*, void*) asm("func_00224600");
 u32 func_0020f338(Mdl* m_, u128* src) asm("func_0020f338");
 u32 func_0020f338(Mdl* m_, u128* src) {
     register Mdl* m asm("$30") = m_;
-    register MdlWorkC* w asm("$19");
-    register MdlHdr* h asm("$22");
+    MdlWorkC* w;
+    MdlHdr* h;
     u8* pos;
     register u8* nrm asm("$23");
-    register u8* vtx asm("$20");
-    register u8* nout asm("$21");
+    u8* vtx;
+    u8* nout;
     register Prim* prim asm("$25");
     u32 flags;
     register u8* nrmOut asm("$14");
@@ -240,7 +240,7 @@ u32 func_0020f338(Mdl* m_, u128* src) {
     QCOPY((u128*)h + 2, src + 2);
     QCOPY((u128*)h + 3, src + 3);
     QCOPY((u128*)h + 4, src + 4);
-    asm("" : "+r"(h));
+
     asm volatile("sq $0,%0" : "=m"(w->cnt));
     h->ret = (h->ret + 63) & 0x0fffffc0;
     {
@@ -273,7 +273,7 @@ u32 func_0020f338(Mdl* m_, u128* src) {
         "vmul.wxyz $vf31,$vf31,$vf30\n"
         "sqc2 $vf31,848(%[r_s3])\n"
         ".set at\n.set reorder"
-        : 
+        :
         : [r_t7] "r" (h->col.w), [r_s3] "r" (w)
         : "$2", "$3", "memory");
     asm volatile(".set noreorder\n.set noat\n"
@@ -284,7 +284,7 @@ u32 func_0020f338(Mdl* m_, u128* src) {
         "vitof0.wxyz $vf31,$vf31\n"
         "sqc2 $vf31,880(%[r_s3])\n"
         ".set at\n.set reorder"
-        : 
+        :
         : [r_t6] "r" (&h->col2), [r_s3] "r" (w)
         : "$2", "memory");
     nrmOut = h->vtx + m->nvtx * 16;
@@ -306,8 +306,8 @@ u32 func_0020f338(Mdl* m_, u128* src) {
                 "dli $9,0xffffffff\n"
                 ".set noat\n"
                 ".set at\n.set reorder"
-                : 
-                : 
+                :
+                :
                 : "$9", "memory");
             mv = h->mtx32;
             asm volatile(".set noreorder\n.set noat\n"
@@ -316,7 +316,7 @@ u32 func_0020f338(Mdl* m_, u128* src) {
                 "lqc2 $vf26,32(%[r_v0])\n"
                 "lqc2 $vf27,48(%[r_v0])\n"
                 ".set at\n.set reorder"
-                : 
+                :
                 : [r_v0] "r" (mv)
                 : "memory");
             nv = (u16)m->nvtx;
@@ -431,7 +431,7 @@ u32 func_0020f338(Mdl* m_, u128* src) {
                     "lqc2 $vf22,32(%[r_sp])\n"
                     "lqc2 $vf23,48(%[r_sp])\n"
                     ".set at\n.set reorder"
-                    : 
+                    :
                     : [r_sp] "r" (mtx)
                     : "memory");
                 asm volatile(".set noreorder\n.set noat\n"
@@ -440,7 +440,7 @@ u32 func_0020f338(Mdl* m_, u128* src) {
                     "lqc2 $vf26,32(%[r_t7])\n"
                     "lqc2 $vf27,48(%[r_t7])\n"
                     ".set at\n.set reorder"
-                    : 
+                    :
                     : [r_t7] "r" (h->mtx36)
                     : "memory");
                 n = m->nnrm;
@@ -477,7 +477,7 @@ u32 func_0020f338(Mdl* m_, u128* src) {
                     "vmax.wxyz $vf30,$vf30,$vf31\n"
                     "sqc2 $vf30,0(%[r_s1])\n"
                     ".set at\n.set reorder"
-                    : 
+                    :
                     : [r_t7] "r" (p), [r_s1] "r" (o)
                     : "$6", "$7", "$8", "$9", "memory");
                 o += 16;
@@ -494,8 +494,8 @@ u32 func_0020f338(Mdl* m_, u128* src) {
         vtx = w->vtxOut;
         nout = w->nrmOut;
     } else {
-        register u8* o1 asm("$18");
-        register u8* o2 asm("$17");
+        u8* o1;
+        u8* o2;
         register s32 n asm("$16");
         register void* pa asm("$12");
         register void* pb asm("$15");
@@ -732,7 +732,7 @@ common:
         "lqc2 $vf28,64(%[r_t6])\n"
         "lqc2 $vf29,80(%[r_t6])\n"
         ".set at\n.set reorder"
-        : 
+        :
         : [r_t6] "r" (D_00359970)
         : "memory");
     w->m384 = D_01dac550;
@@ -755,13 +755,13 @@ common:
                     "sq $17,992(%[r_s3])\n"
                     "sq $18,976(%[r_s3])\n"
                     ".set at\n.set reorder"
-                    : 
+                    :
                     : [r_s3] "r" (w)
                     : "$17", "$18", "memory");
                 {
                     register u32 fl asm("$18");
                     register u8* vp asm("$17");
-                    register s32 c4k asm("$12");
+                    s32 c4k;
                     register u32 q asm("$2");
                     fl = w->hdr.flags;
                     vp = vtx;
@@ -787,7 +787,7 @@ common:
                     w->vtxBytes = q;
                     asm volatile("");
                     {
-                        register s32 k asm("$13");
+                        s32 k;
                         register u32 c asm("$2");
                         k = 0;
                         c = 0x1000000;
@@ -1028,7 +1028,7 @@ common:
                         "lq $17,992(%[r_s3])\n"
                         "lq $16,1008(%[r_s3])\n"
                         ".set at\n.set reorder"
-                        : 
+                        :
                         : [r_s3] "r" (w)
                         : "$16", "$17", "$18", "memory");
                 }
@@ -1039,13 +1039,13 @@ common:
                     "sq $17,992(%[r_s3])\n"
                     "sq $18,976(%[r_s3])\n"
                     ".set at\n.set reorder"
-                    : 
+                    :
                     : [r_s3] "r" (w)
                     : "$17", "$18", "memory");
                 {
                     register u32 fl asm("$18");
                     register u8* vp asm("$17");
-                    register s32 c4k asm("$12");
+                    s32 c4k;
                     register u32 q asm("$2");
                     fl = w->hdr.flags;
                     vp = vtx;
@@ -1071,7 +1071,7 @@ common:
                     w->vtxBytes = q;
                     asm volatile("");
                     {
-                        register s32 k asm("$13");
+                        s32 k;
                         register u32 c asm("$2");
                         k = 0;
                         c = 0x1000000;
@@ -1325,7 +1325,7 @@ common:
                         "lq $17,992(%[r_s3])\n"
                         "lq $16,1008(%[r_s3])\n"
                         ".set at\n.set reorder"
-                        : 
+                        :
                         : [r_s3] "r" (w)
                         : "$16", "$17", "$18", "memory");
                 }
@@ -1333,8 +1333,8 @@ common:
             continue;
         case 2:
         case 3: {
-            register u32* tbl asm("$12");
-            register s32 su asm("$14");
+            u32* tbl;
+            s32 su;
             register s32 sv asm("$15");
             w->dmaTag = 0x2000000d;
             tbl = D_00359180;
@@ -1348,7 +1348,7 @@ common:
             asm volatile("sq $0,%0" : "=m"(w->uvScale.q));
             {
                 register s64 tx asm("$2");
-                register s64 iw asm("$3");
+                s64 iw;
                 register s64 ih asm("$4");
                 tx = *(s64*)&w->tex0lo;
                 tx >>= 24;
@@ -1418,13 +1418,13 @@ common:
                     "sq $17,992(%[r_s3])\n"
                     "sq $18,976(%[r_s3])\n"
                     ".set at\n.set reorder"
-                    : 
+                    :
                     : [r_s3] "r" (w)
                     : "$17", "$18", "memory");
                 {
                     register u32 fl asm("$18");
                     register u8* vp asm("$17");
-                    register s32 c4k asm("$12");
+                    s32 c4k;
                     register u32 q asm("$2");
                     fl = w->hdr.flags;
                     vp = vtx;
@@ -1450,7 +1450,7 @@ common:
                     w->vtxBytes = q;
                     asm volatile("");
                     {
-                        register s32 k asm("$13");
+                        s32 k;
                         register u32 c asm("$2");
                         k = 0;
                         c = 0x1000000;
@@ -1721,7 +1721,7 @@ common:
                         "lq $17,992(%[r_s3])\n"
                         "lq $16,1008(%[r_s3])\n"
                         ".set at\n.set reorder"
-                        : 
+                        :
                         : [r_s3] "r" (w)
                         : "$16", "$17", "$18", "memory");
                 }
@@ -1732,13 +1732,13 @@ common:
                     "sq $17,992(%[r_s3])\n"
                     "sq $18,976(%[r_s3])\n"
                     ".set at\n.set reorder"
-                    : 
+                    :
                     : [r_s3] "r" (w)
                     : "$17", "$18", "memory");
                 {
                     register u32 fl asm("$18");
                     register u8* vp asm("$17");
-                    register s32 c4k asm("$12");
+                    s32 c4k;
                     register u32 q asm("$2");
                     fl = w->hdr.flags;
                     vp = vtx;
@@ -1764,7 +1764,7 @@ common:
                     w->vtxBytes = q;
                     asm volatile("");
                     {
-                        register s32 k asm("$13");
+                        s32 k;
                         register u32 c asm("$2");
                         k = 0;
                         c = 0x1000000;
@@ -2048,7 +2048,7 @@ common:
                         "lq $17,992(%[r_s3])\n"
                         "lq $16,1008(%[r_s3])\n"
                         ".set at\n.set reorder"
-                        : 
+                        :
                         : [r_s3] "r" (w)
                         : "$16", "$17", "$18", "memory");
                 }
@@ -2071,13 +2071,13 @@ common:
                     "sq $17,992(%[r_s3])\n"
                     "sq $18,976(%[r_s3])\n"
                     ".set at\n.set reorder"
-                    : 
+                    :
                     : [r_s3] "r" (w)
                     : "$17", "$18", "memory");
                 {
                     register u32 fl asm("$18");
                     register u8* vp asm("$17");
-                    register s32 c4k asm("$12");
+                    s32 c4k;
                     register u32 q asm("$2");
                     fl = w->hdr.flags;
                     vp = vtx;
@@ -2103,7 +2103,7 @@ common:
                     w->vtxBytes = q;
                     asm volatile("");
                     {
-                        register s32 k asm("$13");
+                        s32 k;
                         register u32 c asm("$2");
                         k = 0;
                         c = 0x1000000;
@@ -2369,7 +2369,7 @@ common:
                         "lq $17,992(%[r_s3])\n"
                         "lq $16,1008(%[r_s3])\n"
                         ".set at\n.set reorder"
-                        : 
+                        :
                         : [r_s3] "r" (w)
                         : "$16", "$17", "$18", "memory");
                 }
@@ -2380,13 +2380,13 @@ common:
                     "sq $17,992(%[r_s3])\n"
                     "sq $18,976(%[r_s3])\n"
                     ".set at\n.set reorder"
-                    : 
+                    :
                     : [r_s3] "r" (w)
                     : "$17", "$18", "memory");
                 {
                     register u32 fl asm("$18");
                     register u8* vp asm("$17");
-                    register s32 c4k asm("$12");
+                    s32 c4k;
                     register u32 q asm("$2");
                     fl = w->hdr.flags;
                     vp = vtx;
@@ -2412,7 +2412,7 @@ common:
                     w->vtxBytes = q;
                     asm volatile("");
                     {
-                        register s32 k asm("$13");
+                        s32 k;
                         register u32 c asm("$2");
                         k = 0;
                         c = 0x1000000;
@@ -2696,7 +2696,7 @@ common:
                         "lq $17,992(%[r_s3])\n"
                         "lq $16,1008(%[r_s3])\n"
                         ".set at\n.set reorder"
-                        : 
+                        :
                         : [r_s3] "r" (w)
                         : "$16", "$17", "$18", "memory");
                 }
@@ -2704,8 +2704,8 @@ common:
             continue;
         case 6:
         case 7: {
-            register u32* tbl asm("$12");
-            register s32 su asm("$14");
+            u32* tbl;
+            s32 su;
             register s32 sv asm("$15");
             u32 save;
             w->dmaTag = 0x20000010;
@@ -2720,7 +2720,7 @@ common:
             asm volatile("sq $0,%0" : "=m"(w->uvScale.q));
             {
                 register s64 tx asm("$2");
-                register s64 iw asm("$3");
+                s64 iw;
                 register s64 ih asm("$4");
                 tx = *(s64*)&w->tex0lo;
                 tx >>= 24;
@@ -2797,13 +2797,13 @@ common:
                     "sq $17,992(%[r_s3])\n"
                     "sq $18,976(%[r_s3])\n"
                     ".set at\n.set reorder"
-                    : 
+                    :
                     : [r_s3] "r" (w)
                     : "$17", "$18", "memory");
                 {
                     register u32 fl asm("$18");
                     register u8* vp asm("$17");
-                    register s32 c4k asm("$12");
+                    s32 c4k;
                     register u32 q asm("$2");
                     fl = w->hdr.flags;
                     vp = vtx;
@@ -2829,7 +2829,7 @@ common:
                     w->vtxBytes = q;
                     asm volatile("");
                     {
-                        register s32 k asm("$13");
+                        s32 k;
                         register u32 c asm("$2");
                         k = 0;
                         c = 0x1000000;
@@ -3134,7 +3134,7 @@ common:
                         "lq $17,992(%[r_s3])\n"
                         "lq $16,1008(%[r_s3])\n"
                         ".set at\n.set reorder"
-                        : 
+                        :
                         : [r_s3] "r" (w)
                         : "$16", "$17", "$18", "memory");
                 }
@@ -3145,13 +3145,13 @@ common:
                     "sq $17,992(%[r_s3])\n"
                     "sq $18,976(%[r_s3])\n"
                     ".set at\n.set reorder"
-                    : 
+                    :
                     : [r_s3] "r" (w)
                     : "$17", "$18", "memory");
                 {
                     register u32 fl asm("$18");
                     register u8* vp asm("$17");
-                    register s32 c4k asm("$12");
+                    s32 c4k;
                     register u32 q asm("$2");
                     fl = w->hdr.flags;
                     vp = vtx;
@@ -3177,7 +3177,7 @@ common:
                     w->vtxBytes = q;
                     asm volatile("");
                     {
-                        register s32 k asm("$13");
+                        s32 k;
                         register u32 c asm("$2");
                         k = 0;
                         c = 0x1000000;
@@ -3500,7 +3500,7 @@ common:
                         "lq $17,992(%[r_s3])\n"
                         "lq $16,1008(%[r_s3])\n"
                         ".set at\n.set reorder"
-                        : 
+                        :
                         : [r_s3] "r" (w)
                         : "$16", "$17", "$18", "memory");
                 }

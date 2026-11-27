@@ -60,7 +60,7 @@ f32 func_0020f088(f32 x) {
     register u32 three asm("$4");
     register u32 k asm("$5");
     // Empty barriers keep the operand set-up in source order (mfc1 first, as in the original).
-    xi = x; asm volatile(""); two = 0x40000000; asm volatile(""); three = 0x40400000; asm volatile(""); k = 0x3ff19120;
+    xi = x; asm volatile(""); two = 0x40000000;  three = 0x40400000; asm volatile(""); k = 0x3ff19120;
     register u32 r asm("$2");
     asm volatile("vrnext.wxyz $vf31, R\n\tqmtc2 %1, $vf30\n\tqmtc2 %2, $vf29\n\tqmtc2 %3, $vf28\n\tqmtc2 %4, $vf27\n\t"
                  "vmul.x $vf31, $vf31, $vf29\n\tvsubx.w $vf25, $vf31, $vf27x\n\tvsub.x $vf31, $vf31, $vf28\n\t"
