@@ -321,6 +321,7 @@ struct Fr10e810;
 struct V10e810 {
     f32 x, y, z, w;
     V10e810() {}
+    f32& operator[](s32 i) { return (&x)[i]; }
     V10e810& operator=(const V10e810& o)
     {
         if (this != &o) asm volatile(".set noreorder\n\tlq $8, 0(%1)\n\tsq $8, 0(%0)\n\t.set reorder" : : "r"(this), "r"(&o) : "$8", "memory");
@@ -384,8 +385,8 @@ struct Fr10e810 {
     u8 pad1[1360 - 284];
     V10e810 fwd;
     u8 pad2[1456 - 1376];
-    f32 f1456;
-    u8 pad3[1520 - 1460];
+    V10e810 v1456;
+    u8 pad3[1520 - 1472];
     u16 h1520;
     u8 pad4[1532 - 1522];
     f32 f1532;
@@ -480,7 +481,7 @@ void f10e810_followMove(Fr10e810* o, const VecSet10e810* vs)
         V10e810 out;
         p = *f10e810_attach(o);
         p.y -= o->f1532 * 0.4f;
-        { register f32 w asm("$f1") = *(f32*)&o->dir.w; f32 f = *(f32*)&o->f1456; a = o->dir * (f + w); }
+        a = o->dir * (o->v1456.x + o->dir[3]);
         a.w = 1.0f;
         f32 len = a.normalize();
         b = o->up.cross(a);
