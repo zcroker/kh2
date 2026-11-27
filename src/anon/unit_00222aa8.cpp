@@ -663,13 +663,12 @@ void func_00223af8(u32 idx, u8* rgba, u8 mode) {
 #define anim ((PrtAnim*)av)
         fv = (u32)&anim->frames[fv];
         u8* data = (u8*)anim + ((PrtFrame*)fv)->dataOfs;
-        register f32 sci asm("$14") = sc;
         asm volatile(
             "vsub.wxyz $vf4, $vf0, $vf0\n\tvadd.w $vf4, $vf4, $vf0\n\t"
             "vmr32.wxyz $vf3, $vf4\n\tvmr32.wxyz $vf2, $vf3\n\tvmr32.wxyz $vf1, $vf2\n\t"
-            "qmtc2 %0, $vf7\n\tvmulx.xyz $vf1, $vf1, $vf7x\n\tvmulx.xyz $vf2, $vf2, $vf7x\n\tvmulx.xyz $vf3, $vf3, $vf7x\n\t"
-            "lqc2 $vf8, 48(%1)\n\tvmove.w $vf8, $vf0\n\tvmove.wxyz $vf4, $vf8\n\t"
-            "lqc2 $vf9, 0(%2)\n\tlqc2 $vf10, 16(%2)\n\tlqc2 $vf11, 32(%2)\n\tlqc2 $vf12, 48(%2)\n\t"
+            "qmtc2 %1, $vf7\n\tvmulx.xyz $vf1, $vf1, $vf7x\n\tvmulx.xyz $vf2, $vf2, $vf7x\n\tvmulx.xyz $vf3, $vf3, $vf7x\n\t"
+            "lqc2 $vf8, 48(%2)\n\tvmove.w $vf8, $vf0\n\tvmove.wxyz $vf4, $vf8\n\t"
+            "lqc2 $vf9, 0(%0)\n\tlqc2 $vf10, 16(%0)\n\tlqc2 $vf11, 32(%0)\n\tlqc2 $vf12, 48(%0)\n\t"
             "lqc2 $vf13, 0(%3)\n\tlqc2 $vf14, 16(%3)\n\tlqc2 $vf15, 32(%3)\n\tlqc2 $vf16, 48(%3)\n\t"
             "vmulax.wxyz ACC, $vf9, $vf4x\n\tvmadday.wxyz ACC, $vf10, $vf4y\n\tvmaddaz.wxyz ACC, $vf11, $vf4z\n\tvmaddw.wxyz $vf4, $vf12, $vf4w\n\t"
             "vmulax.wxyz ACC, $vf13, $vf1x\n\tvmadday.wxyz ACC, $vf14, $vf1y\n\tvmaddaz.wxyz ACC, $vf15, $vf1z\n\tvmaddw.wxyz $vf1, $vf16, $vf1w\n\t"
@@ -677,7 +676,7 @@ void func_00223af8(u32 idx, u8* rgba, u8 mode) {
             "vmulax.wxyz ACC, $vf13, $vf3x\n\tvmadday.wxyz ACC, $vf14, $vf3y\n\tvmaddaz.wxyz ACC, $vf15, $vf3z\n\tvmaddw.wxyz $vf3, $vf16, $vf3w\n\t"
             "vmulax.wxyz ACC, $vf13, $vf4x\n\tvmadday.wxyz ACC, $vf14, $vf4y\n\tvmaddaz.wxyz ACC, $vf15, $vf4z\n\tvmaddw.wxyz $vf4, $vf16, $vf4w\n\t"
             "sqc2 $vf1, 0(%4)\n\tsqc2 $vf2, 16(%4)\n\tsqc2 $vf3, 32(%4)\n\tsqc2 $vf4, 48(%4)"
-            : : "r"(sci), "r"(eo), "r"(D_01d9e730), "r"(D_01d9e8c0), "r"(D_01d9e6e8->view) : "memory");
+            : : "r"(D_01d9e730), "r"(sc), "r"(eo), "r"(D_01d9e8c0), "r"(D_01d9e6e8->view) : "memory");
         for (s32 k = 0; k < 1; k++) ;
         r->mtx[0] = D_01d9e6e8->view[0];
         r->mtx[1] = D_01d9e6e8->view[1];
