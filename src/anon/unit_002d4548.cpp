@@ -208,29 +208,28 @@ typedef struct O2d4_w3717 {
     f32 c30, c34;
 } O2d4_w3717;
 // Constructor: base init, vtable, then clears the colour/scale fields.
-// The empty asm ties the x store to the c10 store (the original stores x after c10
-// although it is independent); v is pinned to $f1 as in the original.
+// x is stored through a plain f32 pointer and c34 as the w of a vector, so the
+// scheduler keeps the original store order without any asm.
 void func_002d4950(O2d4_w3717* o) asm("func_002d4950");
 // Constructor: base init, vtable, then clears the colour/scale fields.
-// The empty asm ties the x store to the c10 store (the original stores x after c10
-// although it is independent); v is pinned to $f1 as in the original.
+// x is stored through a plain f32 pointer and c34 as the w of a vector, so the
+// scheduler keeps the original store order without any asm.
 void func_002d4950(O2d4_w3717* o) {
     func_002d0ea8(o);
     o->vt = D_003622c0;
     o->bf0.i = 0;
     V4_w3717* q = &o->c00;
-    register f32 v asm("$f1") = o->bf0.f;
+    f32 v = o->bf0.f;
     q->y = v;
     q->z = v;
     q->w = v;
-    o->c34 = 0.0f;
+    o->c10 = 0.004f;
+    *(f32*)q = v;
     o->c14 = 0.0f;
     o->c18 = 0.0f;
     o->c1c = 0.0f;
     o->c30 = 0.0f;
-    o->c10 = 0.004f;
-    asm("" : "+f"(v) : "m"(o->c10));
-    q->x = v;
+    ((V4_w3717*)(&o->c30 - 2))->w = 0.0f;
 }
 }  // namespace n002d4950
 
@@ -253,29 +252,28 @@ typedef struct O2d4_w3717 {
 } O2d4_w3717;
 /*TARGET 002d49c0*/
 // Constructor: base init, vtable, then clears the colour/scale fields.
-// The empty asm ties the x store to the c10 store (the original stores x after c10
-// although it is independent); v is pinned to $f1 as in the original.
+// x is stored through a plain f32 pointer and c34 as the w of a vector, so the
+// scheduler keeps the original store order without any asm.
 void func_002d49c0(O2d4_w3717* o) asm("func_002d49c0");
 // Constructor: base init, vtable, then clears the colour/scale fields.
-// The empty asm ties the x store to the c10 store (the original stores x after c10
-// although it is independent); v is pinned to $f1 as in the original.
+// x is stored through a plain f32 pointer and c34 as the w of a vector, so the
+// scheduler keeps the original store order without any asm.
 void func_002d49c0(O2d4_w3717* o) {
     func_002d0ea8(o);
     o->vt = D_003622c0;
     o->bf0.i = 0;
     V4_w3717* q = &o->c00;
-    register f32 v asm("$f1") = o->bf0.f;
+    f32 v = o->bf0.f;
     q->y = v;
     q->z = v;
     q->w = v;
-    o->c34 = 0.0f;
+    o->c10 = 0.004f;
+    *(f32*)q = v;
     o->c14 = 0.0f;
     o->c18 = 0.0f;
     o->c1c = 0.0f;
     o->c30 = 0.0f;
-    o->c10 = 0.004f;
-    asm("" : "+f"(v) : "m"(o->c10));
-    q->x = v;
+    ((V4_w3717*)(&o->c30 - 2))->w = 0.0f;
 }
 }  // namespace n002d49c0
 

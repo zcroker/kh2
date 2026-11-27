@@ -72,7 +72,7 @@ int func_003071d0(OutFn fn, void *arg, int size, const char *fmt, va_list ap)
     int len, flags, width, prec, plen, count, n, padc, left, isstr;
     unsigned long uv;
     float f;
-    register float z asm("$f0");
+    float z;
     int c;
 
     end = &buf[31];
@@ -252,7 +252,8 @@ int func_003071d0(OutFn fn, void *arg, int size, const char *fmt, va_list ap)
         case 'e':
         case 'f':
             f = __truncdfsf2(*(double *)((ap += 8) - 8));
-            /* the original's assembler emitted no hazard nop between mtc1 and c.eq.s here */
+            /* the original's assembler emitted no hazard nop between mtc1 and c.eq.s here (but kept the one
+             * after c.eq.s); none of the assemblers at hand does both, so the mtc1 stays under noreorder */
             __asm__ volatile (".set noreorder\n\tmtc1 $0,%0\n\t.set reorder" : "=f"(z));
             if (f == z) {
                 count += fn(arg, &size, '0');
