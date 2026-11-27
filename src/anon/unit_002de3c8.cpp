@@ -557,13 +557,13 @@ u32 func_002deaa0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7
 namespace n002deac0 {
 // 0x0019fb70: definition moved into src/anon/unit_0019fb70.cpp
 
-extern f32 func_001065a8() asm("func_001065a8");
+f32 func_001065a8(f32, f32) asm("func_001065a8");
 struct W214O { u8 pad[24]; f32 f; };
 /*TARGET 002deac0*/
 void func_002deac0(W214O* o, f32 a, f32 b) asm("func_002deac0");
 void func_002deac0(W214O* o, f32 a, f32 b) {  // set_float24_scaled
-    if (a == b) { asm("" : "+r"(o)); o->f = a; }
-    else o->f = func_001065a8();
+    if (a == b) o->f = a;
+    else o->f = func_001065a8(a, b);
     o->f = o->f * 0.01f;
 }
 }  // namespace n002deac0
