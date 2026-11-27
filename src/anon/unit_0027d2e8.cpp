@@ -547,8 +547,8 @@ void func_0027dd18(void) {
 // Status panel builder: name, frame, then per row a label, a value text and (style 0 / 5) a bar and a gauge.
 // The value colour and the gauge id are one variable (d); the MP label id and MP gauge id are variables (mp, g99), so
 // the early if-conversion sees registers; the bar/gauge calls read the three resource handles through reference
-// accessors (loop.c hoists them like retail). __builtin_expect on the label-text row test reproduces retail's block
-// frequencies (s4/s5 global-alloc tie); no natural form found yet (ledger: experiments/O22_0027dee8.md).
+// accessors (loop.c hoists them like retail). The label-text row test is a signed int flag tested with < 1: gcc
+// predicts it not taken (row 0 rare), which gives retail's block frequencies (s4/s5 global-alloc tie).
 namespace n0027dee8 {
 struct W1714Spr {
     u8 pad0[0x18];
@@ -696,7 +696,8 @@ void func_0027dee8(s32 layout, s32 style, s32 type) {
             func_001395f8(&D_0035f248[i].label[j]);
             func_0028dcc0(&D_0035f248[i].label[j], &D_0035f248[i].frame);
             if (D_0035f24d == 0) {
-                if (__builtin_expect(j == 0, 0)) {
+                s32 z = j != 0;
+                if (z < 1) {
                     t = D_00374070[0];
                 } else {
                     t = (j == 1) ? 0xb9fd : mp;
