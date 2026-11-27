@@ -371,9 +371,11 @@ void dk__Clock__vCountToHMSMS(s32, s32, s32, s32, s32) asm("dk__Clock__vCountToH
 /*TARGET 0014cc40*/
 void func_0014cc40(s32 a0, s32 a1, s32 a2, s32 a3, s32 idx) asm("func_0014cc40");
 void func_0014cc40(s32 a0, s32 a1, s32 a2, s32 a3, s32 idx) {
-    u8* b = (u8*)getSaveRam_w1521() + 0x2444;
-    asm("" : "+r"(b)); /* keeps base+0x2444 apart from the +8 field offset */
-    dk__Clock__vCountToHMSMS(((s32*)b)[idx + 2], a0, a1, a2, a3);
+    u8* b = (u8*)getSaveRam_w1521();
+    b += 0x2444;
+    idx <<= 2;
+    idx += (s32)b;
+    dk__Clock__vCountToHMSMS(((s32*)idx)[2], a0, a1, a2, a3);
 }
 }  // namespace n0014cc40
 
