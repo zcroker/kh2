@@ -1552,7 +1552,7 @@ struct W1640Pool {
 };
 extern s32 D_00348548[][6] asm("D_00348548");
 extern s32 D_003484f8[] asm("D_003484f8");
-extern f32 D_0036ad70[] asm("D_0036ad70");
+extern const f32 D_0036ad70[] asm("D_0036ad70");
 extern W1640Pool* D_00348054 asm("D_00348054");
 s32 func_0013cb90(void) asm("func_0013cb90");
 s32 func_0013cb80(void) asm("func_0013cb80");
@@ -1598,7 +1598,6 @@ void func_0013ce08(W1640Cmd* self, s32 n)
         if (c != self->lastCol) changed = 1;
         u32 t = func_00192048(*(u32*)(item + 8));
         self->tag = t;
-        asm("" : "+r"(changed));                                                                            
         p = func_0013b5d0(self, 0, c, info, changed, 36, y, t, D_0036ad70[kind], D_003484f8[kind], 2);
         func_00139580(p);
         if (!self->flash) self->tag = 0;
