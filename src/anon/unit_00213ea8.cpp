@@ -2313,15 +2313,13 @@ u32 func_00215f28(MdlHdr* mdl, u128* param)
     {
     u128* tbl1 = D_01da8c40;
     u128* tbl2 = D_01da8bb0;
-    register u32 t1 asm("$14");
     if (h->tx.texSet != 0) {
         spr->tex0.v = h->tx.t.tex0;
-        t1 = h->tx.t.tex1;
+        spr->tex1.v = h->tx.t.tex1;
     } else {
         spr->tex0.v = obj->tex0;
-        t1 = obj->tex1;
+        spr->tex1.v = obj->tex1;
     }
-    spr->tex1.v = t1;
     spr->tag138.v = 66;
     spr->q140.v = tbl1[4];
     if (h->flags & 8) spr->q150.v = tbl1[3];
