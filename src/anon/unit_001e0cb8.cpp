@@ -2790,10 +2790,9 @@ void func_001e5718(u32* p, u8* bits, s16 k) {
     s32 n, i;
     u32 m = 0;
     if (p) {
-        p = (u32*)func_001e3660(func_001e3650(p), 1);
-        n = *p;
-        asm("" : "+r"(p)); /* keeps the count pointer and the loop pointer apart */
-        p++;
+        p = (u32*)func_001e3650(p);
+        p = (u32*)func_001e3660(p, 1);
+        n = *p++;
         for (i = 0; i < n; i++) {
             u32 v = *p++;
             s32 by = i >> 3;
@@ -2835,10 +2834,9 @@ void func_001e5898(u32* p) asm("func_001e5898");
 void func_001e5898(u32* p) {
     s32 n, i;
     if (p) {
-        p = (u32*)func_001e3660(func_001e3650(p), 1);
-        n = *p;
-        asm("" : "+r"(p)); /* keeps the count pointer and the loop pointer apart */
-        p++;
+        p = (u32*)func_001e3650(p);
+        p = (u32*)func_001e3660(p, 1);
+        n = *p++;
         for (i = 0; i < n; i++) {
             u32 v = *p++;
             ASSERT(!(v & 0xf), D_0036ec40, 1669);
