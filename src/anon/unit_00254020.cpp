@@ -2614,10 +2614,9 @@ s32 func_00257e00(void) {
     s32 i, j;
     s32 ok;
     s32 mask = 0;
-    Ent* e = D_00372a28;
-    asm("" : "+r"(e));  // hides e == D from cse, so loop2's giv takes D and e copies it (orig move s4,s5)
-    for (i = 0; i < 8; i++, e++) {
+    for (i = 0; i < 8; i++) {
         if (i == 1) continue;
+        Ent* e = &D_00372a28[i];
         ok = 1;
         {
             s8* p;
@@ -2630,8 +2629,9 @@ s32 func_00257e00(void) {
             }
         }
         if (!ok) continue;
-        for (j = 0; j < 4; j++) {
-            s8 c = D_00372a28[i].b[j];
+        Ent* f;
+        for (j = 0, f = &D_00372a28[i]; j < 4; j++) {
+            s8 c = *(f->b + j);
             if (c < 0) break;
             if (func_001a6d08(c) != 0) { ok = 0; break; }
         }
