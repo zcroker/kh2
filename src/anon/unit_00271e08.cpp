@@ -173,6 +173,7 @@ void func_00271ee8(void) {
     s32 vals[8];
     s32 cnt;
     s32 v;
+    s32 lbl;
     s32 i;
     u8* b = func_00257770();
     func_00139d78(b);
@@ -205,10 +206,10 @@ void func_00271ee8(void) {
                 v = D_00373a08[D_01e21ed8[i]];
                 func_00138c10(e, v);
                 s8 t = D_01e21ed8[i];
-                // pin: the original keeps the label id in a1 and copies it to a0 in the jal delay slot
-                register u32 x asm("$5") = D_00373a18[t];
-                if (!t) x = D_00373a28[idx];
-                *(s32*)(e + 408) = func_00192048(x);
+                // lbl is reused for the colour id below (an a1 argument), so it is allocated to a1
+                lbl = D_00373a18[t];
+                if (!t) lbl = D_00373a28[idx];
+                *(s32*)(e + 408) = func_00192048(lbl);
             }
             v = D_003739f8[D_01e21ed8[i]];
             func_00138c10(func_002891b8(D_0035f01c, k), v);
@@ -219,7 +220,10 @@ void func_00271ee8(void) {
             func_00138c10(f, r);
             *(u8**)(f + 408) = b + idx * 32 + 0xae10;
             if (func_00286068(((Ent8*)(D_0035f12c + idx * 8))->h))
-                func_00138c10(b + k * 408 + 0x87d0, func_00286160(((Ent8*)(D_0035f12c + idx * 8))->h) ? D_003739f0 : D_003739ec);
+            {
+                lbl = func_00286160(((Ent8*)(D_0035f12c + idx * 8))->h) ? D_003739f0 : D_003739ec;
+                func_00138c10(b + k * 408 + 0x87d0, lbl);
+            }
             k++;
         }
     }
