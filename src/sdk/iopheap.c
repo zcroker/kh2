@@ -15,16 +15,16 @@ int func_0030d820(void)
     int i;
     while (1) {
         if (sceSifBindRpc_0d820(&D_01e38a80_0d820, 0x80000003, 0) < 0) return -1;
-        if (D_01e38a80_0d820.p24) break;
+        if (D_01e38a80_0d820.p24) {
+            D_0036617c_0d820 = 0;
+            break;
+        }
         i = 0x100000;
         do {
             i--;
             asm volatile("nop"); asm volatile("nop"); asm volatile("nop"); asm volatile("nop");
         } while (i != -1);
     }
-    D_0036617c_0d820 = 0;
-    
-    asm volatile("");
     return 0;
 }
 
