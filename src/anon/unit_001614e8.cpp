@@ -1154,7 +1154,7 @@ struct Ray1628 { V1628 pos; V1628 dir; };
 static inline f32 dot(const V1628* a, const V1628* b) {
     f32 r;
     asm volatile(".set noreorder\n\tlqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 0(%2)\n\tvmul.xyz $vf1, $vf1, $vf2\n\tvaddy.x $vf1, $vf1, $vf1y\n\tvaddz.x $vf1, $vf1, $vf1z\n\tqmfc2 $8, $vf1\n\tmtc1 $8, %0\n\t.set reorder"
-        : "=f"(r) : "r"(a), "r"(b) : "$8", "memory");
+        : "=f"(r) : "r"(a), "r"(b) : "$8", "$14", "memory");
     return r;
 }
 static inline V1628 mul(const V1628& v, f32 s) {
@@ -1174,8 +1174,6 @@ s32 func_00162560(V1628**, V1628*) asm("func_00162560");
 s32 func_001628d8(Ray1628* ray, V1628** pp, V1628* n, V1628* out) asm("func_001628d8");
 s32 func_001628d8(Ray1628* ray, V1628** pp, V1628* n, V1628* out)
 {
-    register s32 k asm("$14");  // pin: occupies t6 (no code)
-    asm("" : "=r"(k));
     f32 d = dot(n, &ray->dir);
     if (0.0f <= d) return 0;
     f32 a = dot(n, *pp);
@@ -1186,7 +1184,6 @@ s32 func_001628d8(Ray1628* ray, V1628** pp, V1628* n, V1628* out)
     *out = mul(ray->dir, t);
     *out = add(*out, ray->pos);
     out->w = 1.0f;
-    asm("" : : "r"(k));
     return func_00162560(pp, out) != 0;
 }
 }  // namespace n001628d8
