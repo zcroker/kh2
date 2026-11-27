@@ -1,4 +1,4 @@
-// Linked unit 0x002a40c8-0x002a4e38.
+// Linked unit 0x002a3ba8-0x002a4e38.
 #include "../common/types.h"
 #include <stdarg.h>
 #include "../kn/fvector.hpp"
@@ -12,6 +12,141 @@
 #include "../harata/libdk/treasure_info.hpp"
 #include "../tozawa/cmenu_top.hpp"
 #include "../tozawa/help_gra.hpp"
+
+// 002a3ba8: builds the 9-row list objects under D_0035f5e8, the optional header and the 9 x 8 icon grid
+// (was whole asm in src/anon/asm_002a3ba8.s)
+namespace n002a3ba8 {
+u8* func_002766d0(void) asm("func_002766d0");
+s32 func_00276c38(s32) asm("func_00276c38");
+s32 func_00276c18(void) asm("func_00276c18");
+s32 func_002a43f0(void) asm("func_002a43f0");
+void func_002fde18(void*, s32, s32) asm("func_002fde18");
+void func_0028d980(u8*, s32, s32, s32, s32, s32, s32, s32, s32) asm("func_0028d980");
+s32 func_0023aa78(u8*) asm("func_0023aa78");
+s32 func_0023aa98(u8*) asm("func_0023aa98");
+s32 func_0023aa18(u8*) asm("func_0023aa18");
+s32 func_0023aa38(u8*) asm("func_0023aa38");
+void func_00139620(u8*) asm("func_00139620");
+void func_001395f8(u8*) asm("func_001395f8");
+void func_00138c68(u8*, s32, s32) asm("func_00138c68");
+void func_0028dcc0(u8*, u8*) asm("func_0028dcc0");
+void func_00138c10(u8*, s32) asm("func_00138c10");
+void func_0028d8c0(u8*, s32, s32, s32, s32, s32, s32, s32) asm("func_0028d8c0");
+s32 func_00192048(s32) asm("func_00192048");
+s32 func_00192cc0(u8*, const void*, ...) asm("func_00192cc0");
+struct Obj { u8 pad[408]; u8* x198; u8 pad2[8]; u32 x1a4; u8 pad3[4]; s32 x1ac; s32 x1b0; };
+struct Info2a3b { u8 p[0x1078]; s32 a; s32 b; };
+extern Info2a3b* D_0035f5e4 asm("D_0035f5e4");
+extern u8* D_0035f5e8 asm("D_0035f5e8");
+extern s32 D_0035f3d4 asm("D_0035f3d4");
+extern s32 D_0035f148 asm("D_0035f148");
+extern s32 D_0035f14c asm("D_0035f14c");
+extern s32 D_0035f210 asm("D_0035f210");
+extern u32 D_00374b90 asm("D_00374b90");
+/*TARGET 002a3ba8*/
+void func_002a3ba8(void) asm("func_002a3ba8");
+void func_002a3ba8(void)
+{
+    s32 off = 0;
+    s32 i;
+    s32 j;
+    s32 n;
+    u8* seq;
+    u32 fl;
+    s32 n1;
+    u8* o;
+    s32 x;
+    s32 y;
+    s32 cr;
+    seq = func_002766d0();
+    n = D_0035f3d4;
+    {
+        o = D_0035f5e8 + 0x77c0;
+        func_0028d980(o, n, D_0035f14c, D_0035f148, D_0035f210, func_00276c38(0), -1, -1, 0);
+        func_00139620(o);
+        func_0028dcc0(o, seq);
+        func_001395f8(o);
+        u8* q = seq + 24;
+        n1 = n + 1;
+        x = func_0023aa18(q);
+        y = func_0023aa38(q);
+        func_00138c68(o, x, y);
+        fl = 0x60000000;
+        ((Obj*)o)->x1b0 = 2;
+        i = 0;
+        ((Obj*)o)->x198 = D_0035f5e8 + 0x982c;
+        fl |= 8;
+        func_002fde18(D_0035f5e8 + 0x982c, 0, 32);
+    }
+    for (; i < 9; i++) {
+        u8* p = D_0035f5e8 + off;
+        o = p + 0x7974;
+        func_0028d980(o, n, D_0035f14c, D_0035f148, D_0035f210, 72, -1, -1, 0);
+        func_00139620(o);
+        func_0028dcc0(o, seq);
+        u8* q = p + 0x798c;
+        cr = func_0023aa78(q);
+        x = func_0023aa18(q);
+        s32 h = func_0023aa38(q);
+        func_00138c68(o, 0, i * cr);
+        ((Obj*)o)->x1ac = 3;
+        ((Obj*)o)->x1a4 = fl;
+        func_001395f8(o);
+        func_00138c10(o, 2);
+        s32 k = 0x88c8;
+        o = D_0035f5e8 + off + k;
+        func_0028d980(o, n, D_0035f14c, D_0035f148, D_0035f210, 2, -1, -1, 0);
+        func_00139620(o);
+        func_0028dcc0(o, D_0035f5e8 + off + 0x7974);
+        func_00138c68(o, x, h);
+        u8* f = seq + i * 408 + 0xa998;
+        ((Obj*)o)->x1ac = 3;
+        ((Obj*)o)->x1a4 = fl;
+        func_0028d8c0(f, n1, D_0035f14c, D_0035f148, D_0035f210, 2, -1, 0);
+        func_0028dcc0(f, D_0035f5e8 + off + 0x7974);
+        off += 436;
+    }
+    if (func_00276c18()) {
+        u8* p = D_0035f5e8;
+        o = p + 0x7458;
+        func_0028d980(o, n, D_0035f14c, D_0035f148, D_0035f210, 60, -1, -1, 0);
+        func_00139620(o);
+        func_0028dcc0(o, seq);
+        u8* q = p + 0x7470;
+        func_001395f8(o);
+        ((Obj*)o)->x198 = (u8*) func_00192048(func_002a43f0() ? 0x4a11 : 0x4a13);
+        x = func_0023aa18(q);
+        y = func_0023aa38(q);
+        s32 col = func_00276c38(2);
+        o = D_0035f5e8 + 0x760c;
+        func_0028d980(o, n, D_0035f14c, D_0035f148, D_0035f210, col, -1, -1, 0);
+        func_00139620(o);
+        func_0028dcc0(o, D_0035f5e8 + 0x7458);
+        func_00138c68(o, x, y);
+        func_001395f8(o);
+        ((Obj*)o)->x1b0 = 1;
+        ((Obj*)o)->x198 = D_0035f5e8 + 0x981c;
+        func_002fde18(D_0035f5e8 + 0x981c, 0, 16);
+        func_00192cc0(D_0035f5e8 + 0x981c, &D_00374b90, D_0035f5e4->b, D_0035f5e4->a);
+    }
+    for (i = 0; i < 9; i++) {
+        s32 o2 = i * 0xcc0;
+        for (j = 0; j < 8; j++) {
+            u8* p = (u8*)(o2 + (u32)D_0035f5e8);
+            func_0028d8c0(p, n, D_0035f14c, D_0035f148, D_0035f210, 74, -1, 0);
+            u8* q = p + 24;
+            func_00139620(p);
+            func_0028dcc0(p, seq);
+            cr = func_0023aa78(q);
+            x = func_0023aa98(q) * j;
+            y = cr * i;
+            func_00138c68(p, x, y);
+            func_00138c10(p, 2);
+            o2 += 0x198;
+        }
+    }
+}
+}  // namespace n002a3ba8
 
 // 002a40c8 (was src/anon/batch_w96.cpp)
 namespace n002a40c8 {
