@@ -779,7 +779,9 @@ src/sdk/libkernl_0030f290.c	0030f290	0030f4dc	.rodata@00378410	-G0
 src/sdk/libkernl_0030f548.c	0030f548	0030f61c	-	-G0
 src/sdk/libkernl_0030f688.c	0030f688	0030fc60	-	-G0
 src/sdk/libkernl_0030ff58.c	0030ff58	0030ffd4	-	-G0
-src/sdk/libkernl_00310048.c	00310048	00310f34	-	-G0
+src/sdk/libkernl_00310048.c	00310048	00310954	-	-G0
+src/sdk/libkernl_00310958.c	00310958	0031098c	-	-G0 -fno-optimize-sibling-calls cc=ee-gcc2.96
+src/sdk/libkernl_00310990.c	00310990	00310f34	-	-G0
 src/sdk/libkernl_00310fe0.c	00310fe0	003112fc	-	-G0
 src/sdk/libkernl_00311368.c	00311368	0031142c	-	-G0
 src/sdk/libkernl_00311460.c	00311460	00311490	-	-G0
