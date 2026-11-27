@@ -576,11 +576,10 @@ void func_0025e450(void)
             break;
         }
         if (r == 2) goto E;
-        {
-            register s32 a1 asm("$5") = 2;
-            s32 a0 = -1;
-            func_00240fd8(a0, a1);
-        }
+        func_00240fd8(-1, 2);
+        func_00240c08(Tz__MCard__GetPos(), 0, 32);
+        func_00287d20(12);
+        break;
     G:
         func_00240c08(Tz__MCard__GetPos(), 0, 32);
         func_00287d20(12);
