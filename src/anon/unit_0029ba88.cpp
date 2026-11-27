@@ -555,7 +555,7 @@ void func_0029e4c8(s32) asm("func_0029e4c8");
 s32 func_00292630(void) asm("func_00292630");
 void func_0029e430(void) asm("func_0029e430");
 void func_00287c30(void) asm("func_00287c30");
-void func_0028af18(s32, s32) asm("func_0028af18");
+s32 func_0028af18(s32, s32) asm("func_0028af18");
 void func_0028af28(s32, s32) asm("func_0028af28");
 s32 func_0028af88(s32) asm("func_0028af88");
 void func_0028b1e8(s32, s32) asm("func_0028b1e8");
@@ -598,14 +598,8 @@ void func_0029c5c8(void)
             s32 f;
             func_0028af28(D_0035f200, 16);
             f = func_0028af88(D_0035f200);
-            {
-                s32 g = f;
-                S29c* q = D_0035f5ac;
-                s32 h = f | 0xc000;
-                if (q->b5 >= 2) g = h;
-                asm("" : "+r"(g) : "r"(h), "r"(q));
-                func_0028af18(D_0035f200, g | 0x200);
-            }
+            if (D_0035f5ac->b5 >= 2) f |= 0xc000;
+            func_0028af18(D_0035f200, f | 0x200);
             func_0028b1e8(D_0035f200, 0);
             if (func_0028afa8(D_0035f200) >= 2) {
                 Tz__Select__SetPageMode(D_0035f200, 1);
