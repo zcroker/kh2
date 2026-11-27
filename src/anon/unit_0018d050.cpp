@@ -840,7 +840,7 @@ void func_0018e420(W2049Ctx** ctx, u8* obj, W2049Hit* hit, void* src, u64 mask)
     func_0018e108(&v, hit);
     if ((*ctx)->list->n) {
         s32 n = fx->count;
-        if (__builtin_expect(n != 0, 1)) {
+        s32 z = n != 0; if (z > 0) {
             s32 id;
             if (hit->flags & 4) {
                 id = ryj__PAX__start(func_001a3a78(), 18, 1, 1, 10000, 0);
