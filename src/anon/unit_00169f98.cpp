@@ -123,7 +123,6 @@ u32 func_0016a090(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a1; (void)a2; (void)a3; u
 
 // 0016a0a0 (was src/anon/auto200_999.cpp)
 namespace n0016a0a0 {
-extern f32 D_0036c1a0 asm("D_0036c1a0");
 /*TARGET 0016a0a0*/
 // 0x001bf140: definition moved into src/anon/unit_001bc568.cpp
 
@@ -131,16 +130,15 @@ f32 func_0016a0a0(u32 a0) asm("_Z13func_0016a0a0j");
 // 0x001bf140: definition moved into src/anon/unit_001bc568.cpp
 
 f32 func_0016a0a0(u32 a0) {
-    u32 p = (u32)&D_0036c1a0;
-    asm volatile("" : "+r"(p));
-    f32 ret = *(f32 *)p;
-    asm volatile("" : "+f"(ret));
+    f32 ret = 10000.0f;
     if ((*(u32 *)(a0 + 356) & 2) == 0) {
         u32 obj = *(u32 *)(a0 + 8);
         ret = *(f32 *)(obj + 80);
     }
     return ret;
 }
+extern const u32 D_0036c1a4 asm("D_0036c1a4");
+const u32 D_0036c1a4 = 0x11;
 }  // namespace n0016a0a0
 
 // 0016a0d0 (was src/anon/tiny_auto80_queue.cpp)

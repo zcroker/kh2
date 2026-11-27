@@ -560,7 +560,7 @@ src/anon/unit_00167358.cpp	001672c8	00168218	.data@0034d3c0,.bss@004f4250,.rodat
 src/yasui/libys/file.cpp	00168218	00168aa0	.data@0034d800,.bss@004f5280	-G0 -g -fmove-all-movables -fno-strict-aliasing
 src/anon/unit_00168aa0.cpp	00168aa0	00169398	.rodata@0036bf48	-G0 -fno-strict-aliasing
 src/anon/unit_00169398.cpp	00169398	00169f98	.rodata@0036c180	-G0 -fno-strict-aliasing
-src/anon/unit_00169f98.cpp	00169f98	0016c770	.rodata@0036c1a8	-G0 -fno-strict-aliasing
+src/anon/unit_00169f98.cpp	00169f98	0016c770	.rodata@0036c1a0	-G0 -fno-strict-aliasing
 src/anon/unit_0016c770.cpp	0016c770	0016d2e0	-	-G0 -fno-strict-aliasing
 src/anon/unit_0016d2e0.cpp	0016d2e0	0016e8f8	.rodata@0036c240	-G0 -fno-strength-reduce -fno-strict-aliasing
 src/anon/unit_0016e8f8.cpp	0016e8f8	00170f58	.rodata@0036c3d8	-G0
