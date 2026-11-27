@@ -192,8 +192,7 @@ extern const u32 R_00370220[4] asm("D_00370220") __attribute__((aligned(4))) = {
  * added to the ordering table (func_0020e858) by depth.
  * Partial asm: the two VU0 blocks are hand-written in the original (setup: matrix/scale loads;
  * per triangle: transform, perspective divide, clip test, packet stores, optional vertex cache),
- * written here as asm volatile with C operands; the four setup pointers are pinned to t4-t7 and
- * the clip result/cache pointer to t7/t6 because the original's asm used those registers. */
+ * written here as asm volatile with C operands (no register pins). */
 void func_001f7e90(Req7e90* r) asm("func_001f7e90");
 /* 001f7e90 (partMng): draws a model's triangle lists as GS packets. Sets up TEX0/ALPHA/CLAMP
  * registers and the VU0 camera/matrix state, then for each triangle copies its 3 vertices and
@@ -201,8 +200,7 @@ void func_001f7e90(Req7e90* r) asm("func_001f7e90");
  * added to the ordering table (func_0020e858) by depth.
  * Partial asm: the two VU0 blocks are hand-written in the original (setup: matrix/scale loads;
  * per triangle: transform, perspective divide, clip test, packet stores, optional vertex cache),
- * written here as asm volatile with C operands; the four setup pointers are pinned to t4-t7 and
- * the clip result/cache pointer to t7/t6 because the original's asm used those registers. */
+ * written here as asm volatile with C operands (no register pins). */
 void func_001f7e90(Req7e90* r)
 {
     Hdr7e90* h;
@@ -233,9 +231,9 @@ void func_001f7e90(Req7e90* r)
     f36 = r->f36;
     b->cache = r->cache;
     {
+        void* p16 = r->cam;
+        void* p20 = r->mtx;
         void* p48 = r->col0;
-        register void* p20 asm("$13") = r->mtx;
-        register void* p16 asm("$12") = r->cam;
         void* p52 = r->col1;
         asm volatile(
     "vsub.xyzw $vf9,$vf0,$vf0\n"
@@ -276,8 +274,8 @@ void func_001f7e90(Req7e90* r)
         if ((s8)h->kind != 0) break;
         h = (Hdr7e90*)((u8*)t + n * 20);
         for (; n > 0; n--) {
-            register s32 clip asm("$15");
-            register u8* cache asm("$14");
+            s32 clip;
+            u8* cache;
             p = (Pt7e90*)(pts + t->idx[0] * 6);
             b->v[0][0] = p->x; b->v[0][1] = p->y; b->v[0][2] = p->z;
             p = (Pt7e90*)(pts + t->idx[1] * 6);
@@ -501,7 +499,7 @@ void func_001f7e90(Req7e90* r)
     "add %[clip],$0,$0\n"
     "10:\n"
             ".set reorder\n"
-            : [clip] "=r"(clip) : [buf] "r"(b), [pkt] "r"(pkt), [f36] "r"(f36), [f64] "r"(f64), [f60] "r"(f60), [cache] "r"(cache) : "$2", "memory");
+            : [clip] "=&r"(clip) : [buf] "r"(b), [pkt] "r"(pkt), [f36] "r"(f36), [f64] "r"(f64), [f60] "r"(f60), [cache] "r"(cache) : "$2", "memory");
             if (clip == 0) {
                 func_0020e858(pkt, 14, b->xy[2] / 12288, 0);
                 pkt += 224;
