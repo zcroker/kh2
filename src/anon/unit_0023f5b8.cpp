@@ -1052,37 +1052,38 @@ void Tz__MCard__MakeTitle(char* buf, s32 slot)
         memcpy(buf + len, D_0035ec14, len);
         return;
     }
-    register char* line asm("$16") = buf + len; // pin: keeps the digit cursor in s1
+    char* line = buf + len;
     memcpy(line, D_0035ec10, len);
-    char* p = line + 3;
+    buf = line;
+    buf += 3;
     s32 v;
     u32 u;
-    v = slot / 10; if (v) { *p = v + *p; }
-    p += 2;
-    v = slot % 10; if (v) { *p = v + *p; }
-    p += 8;
+    v = slot / 10; if (v) { line[3] += v; }
+    buf += 2;
+    v = slot % 10; if (v) { *buf = v + *buf; }
+    buf += 8;
     W3800_Item* item;
     if ((u8)save->flag0) item = W3800_ctarget(save->items, 14);
     else item = W3800_ctarget(save->items, 1);
     s32 n = item->count;
-    v = n / 10; if (v) { *p = v + *p; }
-    p += 2;
-    v = n % 10; if (v) { *p = v + *p; }
+    v = n / 10; if (v) { *buf = v + *buf; }
+    buf += 2;
+    v = n % 10; if (v) { *buf = v + *buf; }
     u32 h, m, s, ms;
     W3800_getPlayTime(&h, &m, &s, &ms);
-    p += 4;
+    buf += 4;
     u32 hour = h;
     s32 big = 0;
-    u = hour / 100; if (u) { *p = u + *p; big = 1; } else { memcpy(p - 1, D_0035ec28, 2); }
+    u = hour / 100; if (u) { *buf = u + *buf; big = 1; } else { memcpy(buf - 1, D_0035ec28, 2); }
     hour %= 100;
-    p += 2;
-    u = hour / 10; if (u || big) { *p = u + *p; } else { memcpy(p - 1, D_0035ec28, 2); }
-    p += 2;
-    v = hour % 10; if (v) { *p = v + *p; }
-    p += 4;
-    v = m / 10; if (v) { *p = v + *p; }
-    p += 2;
-    v = m % 10; if (v) { *p = v + *p; asm("" : "+r"(p)); } // empty asm: register-allocation nudge only
+    buf += 2;
+    u = hour / 10; if (u || big) { *buf = u + *buf; } else { memcpy(buf - 1, D_0035ec28, 2); }
+    buf += 2;
+    v = hour % 10; if (v) { *buf = v + *buf; }
+    buf += 4;
+    v = m / 10; if (v) { *buf = v + *buf; }
+    buf += 2;
+    v = m % 10; if (v) { *buf = v + *buf; }
 }
 }  // namespace n002405a8
 
