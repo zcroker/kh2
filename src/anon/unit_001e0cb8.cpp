@@ -3305,7 +3305,7 @@ s32 func_001e6280(Part1e6280* p, s32 force)
     if (2.0f <= p->acc) {
         p->stopB = 0;
         stop = 0;
-        while (__builtin_expect(p->steps > 0, 0)) {
+        s32 z; while ((z = p->steps <= 0) < 1) {
             func_001e8bb8(p);
             if (func_001e8c28(p, 0)) {
                 func_001e7cc0(p);
