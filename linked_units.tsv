@@ -440,7 +440,8 @@ src/anon/unit_002b3440.cpp	002b3440	002b3ac8	-	-G0 -g -fno-strict-aliasing
 src/anon/unit_002b3ac8.cpp	002b3ac8	002b60e8	.rodata@00374c80	-G0 -g -fno-strict-aliasing
 src/anon/unit_002b60e8.cpp	002b60e8	002b6550	-	-G0
 src/anon/unit_002b6678.cpp	002b6678	002b6f28	.rodata@00374dd8	-G0 -O0
-src/anon/unit_002b6f28.cpp	002b6f28	002b8274	.rodata@00374e78	-G0 -O0
+src/anon/unit_002b6f28.cpp	002b6f28	002b823c	.rodata@00374e78	-G0 -O0
+src/anon/unit_002b823c.c	002b823c	002b8274	-	-O0 -G8
 src/anon/unit_002b8274.cpp	002b8274	002b9404	-	-G0 -O0
 src/anon/unit_002b95e8.cpp	002b95e8	002b9ab8	-	-G0 -O0
 src/anon/unit_002b9ab8.cpp	002b9ab8	002bac78	-	-G0
