@@ -228,7 +228,7 @@ s32 v1(MB1987* self, u8* res, s32 img, u32 heap)
         {
             Elem1987* p = arr;
             s32 k = n - 1;
-            if (__builtin_expect(n != 0, 1)) { do { func_00239700(p); p++; } while (--k != -1); }
+            while (k != -1) { func_00239700(p); p++; k--; }
         }
         self->arr = arr;
     }
