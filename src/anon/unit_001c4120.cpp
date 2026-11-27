@@ -266,3 +266,120 @@ void func_001c48a8(void* p) {
 }
 }  // namespace n001c48a8
 
+// ---- 001c4918: ambient wave update and random ground-effect spawn (was whole asm in batch_w3883.s)
+// Notes: frange(lo, hi) is the same inline as in 0x1c4520; func_001a7610 takes two floats (the v.w zero stays in $f13
+// as its 5th argument). The height step is an if/else on func_001c4170() with the same statement in both arms:
+// cross-jumping merges the arms and removes the branch (leaving the unused call), but in cse the join is a new
+// block, so func_0016f000's 0.0f is a fresh constant.
+namespace n001c4918 {
+struct FVec {
+    f32 x, y, z, w;
+    FVec() {}
+    FVec(f32 ax, f32 ay, f32 az, f32 aw) { x = ax; y = ay; z = az; w = aw; }
+    FVec& operator=(const FVec& o) {
+        if (this != &o) asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(this), "r"(&o) : "$8", "memory");
+        return *this;
+    }
+} __attribute__((aligned(16)));
+
+static inline FVec operator+(const FVec& a, const FVec& b) {
+    FVec r;
+    asm volatile("lqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 0(%2)\n\tvadd.wxyz $vf1, $vf1, $vf2\n\tsqc2 $vf1, 0(%0)" : : "r"(&r), "r"(&a), "r"(&b) : "memory");
+    return r;
+}
+
+struct FMtx {
+    FVec r[4];
+    FMtx() {}
+    FMtx& operator=(const FMtx& o) {
+        if (this != &o)
+            asm volatile("lq $8, 0(%1)\n\tlq $9, 16(%1)\n\tlq $10, 32(%1)\n\tlq $11, 48(%1)\n\t"
+                         "sq $8, 0(%0)\n\tsq $9, 16(%0)\n\tsq $10, 32(%0)\n\tsq $11, 48(%0)"
+                         : : "r"(this), "r"(&o) : "$8", "$9", "$10", "$11", "memory");
+        return *this;
+    }
+    // inverse of a rigid transform in place: transpose + negated translation
+    void invOrtho() {
+        asm volatile("lq $8, 0(%0)\n\tlq $9, 16(%0)\n\tlq $10, 32(%0)\n\tqmfc2 $11, $vf0\n\tlqc2 $vf4, 48(%0)\n\t"
+            "pextlw $12, $9, $8\n\tpextuw $13, $9, $8\n\tpextlw $14, $11, $10\n\tpextuw $15, $11, $10\n\t"
+            "pcpyld $8, $14, $12\n\tpcpyud $9, $12, $14\n\tpcpyld $10, $15, $13\n\t"
+            "qmtc2 $8, $vf1\n\tqmtc2 $9, $vf2\n\tqmtc2 $10, $vf3\n\t"
+            "vmulax.xyz ACC, $vf1, $vf4x\n\tvmadday.xyz ACC, $vf2, $vf4y\n\tvmaddz.xyz $vf4, $vf3, $vf4z\n\t"
+            "vsub.xyz $vf4, $vf0, $vf4\n\t"
+            "sq $8, 0(%0)\n\tsq $9, 16(%0)\n\tsq $10, 32(%0)\n\tsqc2 $vf4, 48(%0)"
+            : : "r"(this) : "$8", "$9", "$10", "$11", "$12", "$13", "$14", "$15", "memory");
+    }
+} __attribute__((aligned(16)));
+
+static inline FVec operator*(const FMtx& m, const FVec& v) {
+    FVec r;
+    asm volatile("lqc2 $vf5, 0(%2)\n\tlqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 16(%1)\n\tlqc2 $vf3, 32(%1)\n\tlqc2 $vf4, 48(%1)\n\t"
+                 "vmulax.wxyz ACC, $vf1, $vf5x\n\tvmadday.wxyz ACC, $vf2, $vf5y\n\tvmaddaz.wxyz ACC, $vf3, $vf5z\n\tvmaddw.wxyz $vf5, $vf4, $vf5w\n\t"
+                 "sqc2 $vf5, 0(%0)"
+                 : : "r"(&r), "r"(&m), "r"(&v) : "memory");
+    return r;
+}
+
+struct Wave { f32 a; f32 b; f32 c; f32 ang; };
+
+extern Wave D_01d49590[8] asm("D_01d49590");
+extern FMtx D_01d49610 asm("D_01d49610");
+extern s32 D_01d49650 asm("D_01d49650");
+extern FVec D_00352a60 asm("D_00352a60");
+extern u32 D_003638d0 asm("D_003638d0");
+s32 func_001c4160(void) asm("func_001c4160");
+void func_001c42a0(void) asm("func_001c42a0");
+s32 func_001c4170(void) asm("func_001c4170");
+f32 func_002f8960(f32) asm("func_002f8960");
+f32 func_002f87c0(f32) asm("func_002f87c0");
+f32 func_0017ce10(f32) asm("func_0017ce10");
+u8* func_00106a60(s32) asm("func_00106a60");
+void func_001dbad0(void*) asm("func_001dbad0");
+s32 func_00197920(void) asm("func_00197920");
+s32 func_0019ba60(void*) asm("func_0019ba60");
+s32 func_0016c6e8(s32) asm("func_0016c6e8");
+s32 func_001a7610(FVec*, FVec*, s32, f32, f32) asm("func_001a7610");
+s32 func_001a7588(FVec*, FVec*, FVec*, s32) asm("func_001a7588");
+void* func_0016f000(s32, FVec*, f32) asm("func_0016f000");
+void func_0016c018(void*, s32, s32) asm("func_0016c018");
+
+static inline f32 sgnsq2(f32 x) { f32 r; if (0.0f < x) r = x * x; else r = -(x * x); return r; }
+static inline f32 frange(f32 lo, f32 hi) {
+    D_003638d0 = D_003638d0 * 0x10dcd;
+    return lo + (f32)D_003638d0 * 2.3283064e-10f * (hi - lo);
+}
+
+void func_001c4918(void* obj) asm("func_001c4918");
+void func_001c4918(void* obj) {
+    if (func_001c4160()) func_001c42a0();
+    for (s32 i = 0; i < 8; i++) { f32 s = func_002f8960(D_01d49590[i].ang); f32 b = func_002f8960(D_01d49590[i].ang) * 50.0f; f32 c = func_002f87c0(D_01d49590[i].ang); f32 amp = 100.0f; D_01d49590[i].a = sgnsq2(s) * amp; Wave* w = &D_01d49590[i]; w->b = b; w->c = sgnsq2(c) * amp; D_01d49590[i].ang = func_0017ce10(D_01d49590[i].ang + 0.10471976f); }
+    u8* p = func_00106a60(1);
+    D_01d49610 = *(FMtx*)(p ? p + 16 : 0);
+    func_001dbad0(obj);
+    if (!func_00197920() && func_0019ba60(obj)) {
+        s32 n = func_001c4170();
+        if (func_0016c6e8(1368) < n) {
+            FVec v(frange(-500.0f, 500.0f), -1000.0f, frange(300.0f, 500.0f), 0.0f);
+            FVec base, hit;
+            FMtx m;
+            m = D_01d49610;
+            m.invOrtho();
+            FVec at = m * v + D_00352a60;
+            if (func_001a7610(&at, &v, 2, 2000.0f, 0.0f)) {
+                base = D_00352a60;
+                base.y -= 100.0f;
+                if (func_001a7588(&base, &v, &hit, 2) < 0) {
+                    if (func_001c4170() < 50) v.y += -1000.0f;
+                    else v.y += -1000.0f;
+                    void* o = func_0016f000(1368, &v, 0.0f);
+                    if (o) {
+                        func_0016c018(o, 1, D_01d49650);
+                        if (func_001c4170() < 50) func_0016c018(o, 2, 500);
+                        else if (func_001c4170() < 100) func_0016c018(o, 2, 1000);
+                    }
+                }
+            }
+        }
+    }
+}
+}  // namespace n001c4918
