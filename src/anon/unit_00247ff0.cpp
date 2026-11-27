@@ -800,6 +800,8 @@ extern s32 D_0035ed80 asm("D_0035ed80");
 extern void* D_0035ed84 asm("D_0035ed84");
 extern void* D_0035ed88 asm("D_0035ed88");
 extern s32 D_0035ed98 asm("D_0035ed98");
+extern u8* D_0035ed8c asm("D_0035ed8c");
+extern s8 D_0035ed9c asm("D_0035ed9c");
 void func_00287b18(s32, s32) asm("func_00287b18");
 s32 func_00288be8(s32) asm("func_00288be8");
 void func_002889f0(s32, s32, s32) asm("func_002889f0");
@@ -887,16 +889,12 @@ void func_00249508(void) {
             func_00239700(q + 0x18);
             q += 0x198;
         } while (i != m1);
-        register u32 h3 asm("$15");
-        register u32 h2 asm("$14");
-        asm("lui %0,%%hi(D_0035ed8c)" : "=r"(h3));
-        asm("lui %0,%%hi(D_0035ed9c)" : "=r"(h2) : "r"(h3));
-        asm("" : "+r"(base) : "r"(h2));
-        *(u8**)(h3 - 4724) = base;
-        register s32 r4 asm("$4") = 30026;
-        asm("" : "+r"(h2) : "r"(r4));
-        *(s8*)(h2 - 4708) = 0;
-        func_0028d068(r4, -1);
+        D_0035ed8c = base;
+        D_0035ed9c = 0;
+        // Same call in both arms: the arms merge after reload, but until then the argument
+        // loads sit in their own blocks, so the two stores stay next to each other in the
+        // first scheduling pass and their address halves get two registers (t7, t6).
+        if (base) func_0028d068(30026, -1); else func_0028d068(30026, -1);
     }
     func_00102818(func_00103eb0()[1], 0, 2000, (void*)PauseThread_243, 0x1000);
 }

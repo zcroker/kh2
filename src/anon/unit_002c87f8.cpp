@@ -170,54 +170,56 @@ void func_002c87f8(M2c90c8* t, s32 course)
     head->w.f392 = D_003757e8[t->mode];
     func_001386e0(title, 0x7586, course, t->img, t->mode ? 150 : 149, 201);
     Attach2c90c8(title, &head->w);
-    asm("" : "+r"(t));
+    // A plain copy in the block of the next use: gcse then sees two different expressions and
+    // does not share title.seq with the constructor call above (cse2 removes the copy again).
+    M2c90c8* tt = t;
     func_00139660(title);
     func_00139688(title);
-    func_00138c68(title, func_0023aa18(t->title.seq), 0);
+    func_00138c68(title, func_0023aa18(tt->title.seq), 0);
     func_001396b0(title);
-    s32 h = -func_0023aa58(t->title.seq);
+    s32 h = -func_0023aa58(tt->title.seq);
     head->f416 = 0;
     head->f412 = h / 2;
-    if (t->mode) {
+    if (tt->mode) {
         s32 n = 2;
-        if (t->mode != 1) n = 3;
+        if (tt->mode != 1) n = 3;
         s32 y = 0;
         for (s32 k = 0; k < n; k++) {
-            func_001386e0(&t->a[k], 0x7587, course, t->img, D_003757f0[rec[k]->icon], 201);
-            Attach2c90c8(&t->a[k], &head->w);
-            func_00139660(&t->a[k]);
-            func_00139688(&t->a[k]);
-            func_00138c68(&t->a[k], 0, y);
-            func_001396b0(&t->a[k]);
+            func_001386e0(&tt->a[k], 0x7587, course, tt->img, D_003757f0[rec[k]->icon], 201);
+            Attach2c90c8(&tt->a[k], &head->w);
+            func_00139660(&tt->a[k]);
+            func_00139688(&tt->a[k]);
+            func_00138c68(&tt->a[k], 0, y);
+            func_001396b0(&tt->a[k]);
             if (rec2[k]->flag) {
-                func_001386e0(&t->b[k], 0x7587, course, t->img, 120, 201);
-                Attach2c90c8(&t->b[k], &head->w);
-                func_00139660(&t->b[k]);
-                func_00139688(&t->b[k]);
-                func_00138c68(&t->b[k], 0, y);
-                func_001396b0(&t->b[k]);
-                func_001386e0(&t->c[k], 0x7587, course, t->img, D_003757f0[rec2[k]->icon], 201);
-                Attach2c90c8(&t->c[k], &head->w);
-                func_00138c68(&t->c[k], 90, y);
-                func_00139660(&t->c[k]);
-                func_00139688(&t->c[k]);
-                func_001396b0(&t->c[k]);
+                func_001386e0(&tt->b[k], 0x7587, course, tt->img, 120, 201);
+                Attach2c90c8(&tt->b[k], &head->w);
+                func_00139660(&tt->b[k]);
+                func_00139688(&tt->b[k]);
+                func_00138c68(&tt->b[k], 0, y);
+                func_001396b0(&tt->b[k]);
+                func_001386e0(&tt->c[k], 0x7587, course, tt->img, D_003757f0[rec2[k]->icon], 201);
+                Attach2c90c8(&tt->c[k], &head->w);
+                func_00138c68(&tt->c[k], 90, y);
+                func_00139660(&tt->c[k]);
+                func_00139688(&tt->c[k]);
+                func_001396b0(&tt->c[k]);
             }
             s32 xs[3];
             s32 cnt = func_002c5238((s32)rec[k]->f32_, 3, xs);
-            func_001386e0(&t->e[k], 0x7588, course, t->img, 144, 201);
-            Attach2c90c8(&t->e[k], &head->w);
-            func_00139660(&t->e[k]);
-            func_00139688(&t->e[k]);
-            func_00138c68(&t->e[k], 0, y);
-            func_001396b0(&t->e[k]);
-            s32 ex = func_0023aa98(t->e[k].seq);
+            func_001386e0(&tt->e[k], 0x7588, course, tt->img, 144, 201);
+            Attach2c90c8(&tt->e[k], &head->w);
+            func_00139660(&tt->e[k]);
+            func_00139688(&tt->e[k]);
+            func_00138c68(&tt->e[k], 0, y);
+            func_001396b0(&tt->e[k]);
+            s32 ex = func_0023aa98(tt->e[k].seq);
             s32 x = -ex;
             if (cnt > 0) {
-                W2c90c8* d = (W2c90c8*)(k * 1224 + (u32)t + 4704);
+                W2c90c8* d = (W2c90c8*)(k * 1224 + (u32)tt + 4704);
                 s32* xp = &xs[2];
                 for (s32 m = cnt; m != 0; m--) {
-                    func_001386e0(d, 0x7588, course, t->img, *xp-- + 134, 201);
+                    func_001386e0(d, 0x7588, course, tt->img, *xp-- + 134, 201);
                     Attach2c90c8(d, &head->w);
                     func_00139660(d);
                     func_00139688(d);
@@ -227,10 +229,10 @@ void func_002c87f8(M2c90c8* t, s32 course)
                     d++;
                 }
             }
-            y += func_0023aa78(t->a[k].seq);
+            y += func_0023aa78(tt->a[k].seq);
         }
     }
-    func_001391c8(t, 0x7582, 201);
+    func_001391c8(tt, 0x7582, 201);
 }
 }  // namespace n002c87f8
 
@@ -379,54 +381,56 @@ void func_002c90c8(M2c90c8* t, s32 course)
     head->w.f392 = D_003757e8[t->mode];
     func_001386e0(title, 0x7586, course, t->img, t->mode ? 150 : 149, 201);
     Attach2c90c8(title, &head->w);
-    asm("" : "+r"(t));
+    // A plain copy in the block of the next use: gcse then sees two different expressions and
+    // does not share title.seq with the constructor call above (cse2 removes the copy again).
+    M2c90c8* tt = t;
     func_00139660(title);
     func_00139688(title);
-    func_00138c68(title, func_0023aa18(t->title.seq), 0);
+    func_00138c68(title, func_0023aa18(tt->title.seq), 0);
     func_001396b0(title);
-    s32 h = -func_0023aa58(t->title.seq);
+    s32 h = -func_0023aa58(tt->title.seq);
     head->f416 = 0;
     head->f412 = h / 2;
-    if (t->mode) {
+    if (tt->mode) {
         s32 n = 2;
-        if (t->mode != 1) n = 3;
+        if (tt->mode != 1) n = 3;
         s32 y = 0;
         for (s32 k = 0; k < n; k++) {
-            func_001386e0(&t->a[k], 0x7587, course, t->img, D_003757f0[rec[k]->icon], 201);
-            Attach2c90c8(&t->a[k], &head->w);
-            func_00139660(&t->a[k]);
-            func_00139688(&t->a[k]);
-            func_00138c68(&t->a[k], 0, y);
-            func_001396b0(&t->a[k]);
+            func_001386e0(&tt->a[k], 0x7587, course, tt->img, D_003757f0[rec[k]->icon], 201);
+            Attach2c90c8(&tt->a[k], &head->w);
+            func_00139660(&tt->a[k]);
+            func_00139688(&tt->a[k]);
+            func_00138c68(&tt->a[k], 0, y);
+            func_001396b0(&tt->a[k]);
             if (rec2[k]->flag) {
-                func_001386e0(&t->b[k], 0x7587, course, t->img, 120, 201);
-                Attach2c90c8(&t->b[k], &head->w);
-                func_00139660(&t->b[k]);
-                func_00139688(&t->b[k]);
-                func_00138c68(&t->b[k], 0, y);
-                func_001396b0(&t->b[k]);
-                func_001386e0(&t->c[k], 0x7587, course, t->img, D_003757f0[rec2[k]->icon], 201);
-                Attach2c90c8(&t->c[k], &head->w);
-                func_00138c68(&t->c[k], 90, y);
-                func_00139660(&t->c[k]);
-                func_00139688(&t->c[k]);
-                func_001396b0(&t->c[k]);
+                func_001386e0(&tt->b[k], 0x7587, course, tt->img, 120, 201);
+                Attach2c90c8(&tt->b[k], &head->w);
+                func_00139660(&tt->b[k]);
+                func_00139688(&tt->b[k]);
+                func_00138c68(&tt->b[k], 0, y);
+                func_001396b0(&tt->b[k]);
+                func_001386e0(&tt->c[k], 0x7587, course, tt->img, D_003757f0[rec2[k]->icon], 201);
+                Attach2c90c8(&tt->c[k], &head->w);
+                func_00138c68(&tt->c[k], 90, y);
+                func_00139660(&tt->c[k]);
+                func_00139688(&tt->c[k]);
+                func_001396b0(&tt->c[k]);
             }
             s32 xs[3];
             s32 cnt = func_002c5238((s32)rec[k]->f32_, 3, xs);
-            func_001386e0(&t->e[k], 0x7588, course, t->img, 144, 201);
-            Attach2c90c8(&t->e[k], &head->w);
-            func_00139660(&t->e[k]);
-            func_00139688(&t->e[k]);
-            func_00138c68(&t->e[k], 0, y);
-            func_001396b0(&t->e[k]);
-            s32 ex = func_0023aa98(t->e[k].seq);
+            func_001386e0(&tt->e[k], 0x7588, course, tt->img, 144, 201);
+            Attach2c90c8(&tt->e[k], &head->w);
+            func_00139660(&tt->e[k]);
+            func_00139688(&tt->e[k]);
+            func_00138c68(&tt->e[k], 0, y);
+            func_001396b0(&tt->e[k]);
+            s32 ex = func_0023aa98(tt->e[k].seq);
             s32 x = -ex;
             if (cnt > 0) {
-                W2c90c8* d = (W2c90c8*)(k * 1224 + (u32)t + 4704);
+                W2c90c8* d = (W2c90c8*)(k * 1224 + (u32)tt + 4704);
                 s32* xp = &xs[2];
                 for (s32 m = cnt; m != 0; m--) {
-                    func_001386e0(d, 0x7588, course, t->img, *xp-- + 134, 201);
+                    func_001386e0(d, 0x7588, course, tt->img, *xp-- + 134, 201);
                     Attach2c90c8(d, &head->w);
                     func_00139660(d);
                     func_00139688(d);
@@ -436,10 +440,10 @@ void func_002c90c8(M2c90c8* t, s32 course)
                     d++;
                 }
             }
-            y += func_0023aa78(t->a[k].seq);
+            y += func_0023aa78(tt->a[k].seq);
         }
     }
-    func_001391c8(t, 0x7582, 201);
+    func_001391c8(tt, 0x7582, 201);
 }
 }  // namespace n002c90c8
 
