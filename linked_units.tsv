@@ -714,7 +714,7 @@ src/anon/unit_001c557c.cpp	001c557c	001c5b90	.rodata@0036deb4	-G0 -fno-strict-al
 src/anon/unit_001c6a28.cpp	001c6a28	001c6c60	.rodata@0036df4c	-G0
 src/anon/unit_001c70e8.cpp	001c70e8	001c7148	.rodata@0036df88	-G0 -fno-schedule-insns -fno-strict-aliasing
 src/anon/asm_001f2f78.s	001f2f74	001f4498	-	-
-src/anon/asm_001f87f0.s	001f87f0	001f8dd0	-	-
+src/anon/unit_001f87f0.cpp	001f87f0	001f8dd0	.rodata@00370234	-G0 -fno-strict-aliasing
 src/anon/unit_001f8dd0.cpp	001f8dd0	001f9010	.rodata@00370238	-G0
 src/anon/unit_001f9010.cpp	001f9010	001f95a8	.rodata@0037023c	-G0 -fno-strict-aliasing
 src/anon/unit_002f12b0.cpp	002f12b0	002f17e0	.rodata@0037623c	-G0
