@@ -356,6 +356,9 @@ s32 func_0023aa58(void*) asm("func_0023aa58");
 void func_00138c68(Sub*, s32, s32) asm("func_00138c68");
 
 void func_002c8680(Self* self, s32 arg) asm("func_002c8680");
+// Every use goes through this accessor (no pointer variable in the loop): loop.c then makes the
+// pointer a reduced giv whose start value is set after the hoisted 150, as in the original.
+static inline Sub* SubAt(Self* self, s32 i) { return &self->subs[i]; }
 void func_002c8680(Self* self, s32 arg) {
     s32 n = func_002c22f0(arg);
     if (n != 0) {
@@ -363,22 +366,21 @@ void func_002c8680(Self* self, s32 arg) {
         s32 m = func_002c2358(arg);
         Cnt* c; u8* z;
         if (i < n) {
-c = &self->cnt; z = (u8*)self + 0x290; s32 e; asm("li %0,150" : "=r"(e)); Sub* s = self->subs;
+c = &self->cnt; z = (u8*)self + 0x290;
             do {
-                func_001386e0(s, 0x7585, *(s32*)((u8*)self + 0x1734), *(s32*)((u8*)self + 0x1730), i < m ? e : 149, 201);
-                s->p18c = c;
-                func_001396b0(s);
-                if (s->p18c) {
-                    s->x190 = 0;
-                    func_001396b0(s);
-                    if (s->x190) func_0031a260(s, 0);
+                func_001386e0(SubAt(self, i), 0x7585, *(s32*)((u8*)self + 0x1734), *(s32*)((u8*)self + 0x1730), i < m ? 150 : 149, 201);
+                SubAt(self, i)->p18c = c;
+                func_001396b0(SubAt(self, i));
+                if (SubAt(self, i)->p18c) {
+                    SubAt(self, i)->x190 = 0;
+                    func_001396b0(SubAt(self, i));
+                    if (SubAt(self, i)->x190) func_0031a260(SubAt(self, i), 0);
                 }
-                func_00139660(s);
-                func_00139688(s);
+                func_00139660(SubAt(self, i));
+                func_00139688(SubAt(self, i));
                 s32 a = func_0023aa18(z);
-                func_00138c68(s, a - func_0023aa58(z) * i, 0);
-                func_001396b0(s);
-                s++;
+                func_00138c68(SubAt(self, i), a - func_0023aa58(z) * i, 0);
+                func_001396b0(SubAt(self, i));
                 i++;
             } while (i < n);
         } else {
