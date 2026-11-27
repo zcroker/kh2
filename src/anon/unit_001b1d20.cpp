@@ -117,14 +117,13 @@ struct Tk { u32 f0; s32 id; };
 Tk* func_00102818_t(u32, u32, u32, void*, u32) asm("func_00102818");
 extern s32 D_00350f1c asm("D_00350f1c");
 extern u32 D_0032b91c asm("D_0032b91c");
-extern Tk* D_01d48c44 asm("D_01d48c44");
+extern u32 D_01d48c44 asm("D_01d48c44");
 void func_001b1ee8(void) asm("func_001b1ee8");
 void func_001b1e80(s32 id) asm("func_001b1e80");
 void func_001b1e80(s32 id) {
     if (id == -1 || id == D_00350f1c) return;
     Tk* t = func_00102818_t(D_0032b91c, 0, 0x55730, (void*)func_001b1ee8, 4096);
-    D_01d48c44 = t;
-    asm volatile("" ::: "memory");
+    D_01d48c44 = (u32)t;
     t->id = id;
 }
 }  // namespace n001b1e80
@@ -341,8 +340,8 @@ void func_001b2210(u8* o, Vec4* dir, f32 speed, f32 h) {
 
 // 001b2308 (from src/anon/batch_w45.cpp)
 namespace n001b2308 {
-struct Lnk { u32 f0; u32 f4; u32 f8; u32 f12; f32 f16; void* f20; struct Lnk* next; };
-struct LList { Lnk* head; Lnk* tail; };
+struct Lnk { u32 f0; u32 f4; u32 f8; u32 f12; f32 f16; void* f20; void* next; };
+struct LList { void* head; void* tail; };
 void* func_001050d8(u32) asm("func_001050d8");
 extern LList D_01d48c80 asm("D_01d48c80");
 void func_001b2308(Lnk* a0, u32 n) asm("func_001b2308");
@@ -353,14 +352,13 @@ void func_001b2308(Lnk* a0, u32 n) {
     a0->f8 = 0;
     a0->f12 = 0;
     a0->f20 = func_001050d8(n << 4);
-    asm volatile("" ::: "memory");
     LList* l = &D_01d48c80;
     if (l->tail == 0) {
         l->tail = a0;
         l->head = a0;
         a0->next = 0;
     } else {
-        l->tail->next = a0;
+        ((Lnk*)l->tail)->next = a0;
         a0->next = 0;
         l->tail = a0;
     }
@@ -369,8 +367,8 @@ void func_001b2308(Lnk* a0, u32 n) {
 
 // 001b2380 (from src/anon/batch_w46.cpp)
 namespace n001b2380 {
-struct Buf1b2 { u32 n; u32 f4; u32 f8; u32 fc; f32 f10; void* data; Buf1b2* next; };
-struct List1b2 { Buf1b2* head; Buf1b2* tail; };
+struct Buf1b2 { u32 n; u32 f4; u32 f8; u32 fc; f32 f10; void* data; void* next; };
+struct List1b2 { void* head; void* tail; };
 extern List1b2 D_01d48c80 asm("D_01d48c80");
 void* func_001050d8(u32) asm("func_001050d8");
 void func_001b2380(Buf1b2* p, u32 n) asm("func_001b2380");
@@ -381,9 +379,8 @@ void func_001b2380(Buf1b2* p, u32 n) {
     p->f8 = 0;
     p->fc = 0;
     p->data = func_001050d8(n << 4);
-    asm volatile("" ::: "memory");
     if (!D_01d48c80.tail) { D_01d48c80.tail = p; D_01d48c80.head = p; p->next = 0; }
-    else { D_01d48c80.tail->next = p; p->next = 0; D_01d48c80.tail = p; }
+    else { ((Buf1b2*)D_01d48c80.tail)->next = p; p->next = 0; D_01d48c80.tail = p; }
 }
 }  // namespace n001b2380
 
