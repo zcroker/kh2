@@ -241,9 +241,10 @@ s32 func_002e64e8(u32 a0, u32 a1, u8* a2) {
     s32 i = 0;
     u8* p = a2 + 16;
     if (n > 0) {
-        s32 m = n; asm("" : "+r"(m));
+        s32 m = n;
         do {
-            if (p[0] == a0) { if (p[1] == a1) return i; }
+            n = p[0];
+            if (n == a0) { if (p[1] == a1) return i; }
             i++;
             p += *(s32*)(p + 12);
         } while (i < m);
@@ -261,9 +262,10 @@ u8* gap_002e6540(u32 a0, u32 a1, u8* a2) {
     s32 i = 0;
     u8* p = a2 + 16;
     if (n > 0) {
-        s32 m = n; asm("" : "+r"(m));
+        s32 m = n;
         do {
-            if (p[0] == a0) { if (p[1] == a1) return p; }
+            n = p[0];
+            if (n == a0) { if (p[1] == a1) return p; }
             i++;
             p += *(s32*)(p + 12);
         } while (i < m);
