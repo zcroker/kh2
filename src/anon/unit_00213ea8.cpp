@@ -323,7 +323,7 @@ u32 func_00213ea8(MdlHdr* mdl, u128* param)
         register u8* out asm("$16") = base + n * 16;
         void* r_m0 = m0;
         void* r_m1 = h->mtx1;
-        register void* r_m2 asm("$12") = h->mtx2;
+        void* r_m2 = h->mtx2;
         void* r_m3 = h->mtx3;
         register s32 cnt asm("$15") = n;
 
@@ -502,7 +502,7 @@ u32 func_00213ea8(MdlHdr* mdl, u128* param)
         "\tnop\n"
         ".set at\n.set reorder\n"
             : "+r"(out), "+r"(cnt), "+r"(r_m0), "+r"(r_m1), "+r"(r_m2), "+r"(r_m3), "+r"(base), "+r"(pos)
-            : "r"(nrm), "r"(n)
+            : "r"(nrm), "r"(n), "r"(r_m1)
             : "$2", "$3", "$4", "$5", "$6", "$7",  "memory");
     }
     s32 cofs = obj->cmdOfs;
