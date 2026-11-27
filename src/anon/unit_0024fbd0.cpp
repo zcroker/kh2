@@ -618,6 +618,8 @@ void Tz__CANA__Init(void) asm("Tz__CANA__Init");
 // Sets up two work buffers, then allocates and constructs the module objects.
 void Tz__CANA__Init(void) {
     void* p;
+    // Reference taken up front (before the calls): its store then issues ahead of the D_00347f80 load.
+    void*& r5c = D_0035ee5c;
     func_00287b18(4, 3);
     p = func_00288be8(56);
     func_002889f0(p, 4, 1);
@@ -625,13 +627,10 @@ void Tz__CANA__Init(void) {
     func_00288f48(p, 64, 128, 0, 0);
     p = func_00288be8(56);
     func_002889f0(p, 2, 0);
-    // Register pin: the hard-register copy raises the allocator load's sched1
-    // priority so it issues before the three global stores, as in the original.
-    register AH* h asm("$14") = D_00347f80;
-    D_0035ee5c = p;
+    r5c = p;
     D_0035ee60 = 0;
     D_0035ee64 = 0;
-    D_0035ee68 = new (h) X;
+    D_0035ee68 = new X;
     D_0035ee6c = new Y;
     D_0035ee70 = new Y[4];
     D_0035ee74 = new Y[4];
