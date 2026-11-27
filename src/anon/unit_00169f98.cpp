@@ -2059,11 +2059,8 @@ void func_0016c568(u32 a0) asm("_Z13func_0016c568j");
 // 0016ced0: moved to src/anon/unit_0016c770.cpp
 
 void func_0016c568(u32 a0) {
-    register u32 p asm("$14") = a0 + 1304;
-    asm volatile("" : "+r"(p));
-    u32 flags = *(u32 *)(a0 + 2040);
-    if ((flags & 4) == 0) {
-        func_001d79b8(p);
+    if ((*(u32 *)(a0 + 2040) & 4) == 0) {
+        func_001d79b8(a0 + 1304);
     }
 }
 }  // namespace n0016c568
