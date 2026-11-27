@@ -14,35 +14,38 @@ struct QWord {
         return *this;
     }
 } __attribute__((aligned(16)));
-struct Ctx { u16 id; QWord* obj; s32 found; };
+struct Ctx { u16 id; };
 union PU { s32* p; u16 h; };
 s32* func_00165ef0(s32*) asm("func_00165ef0");
 s32 func_00142b70(s32) asm("func_00142b70");
 void func_00141c18(s32, s32, s32, u32, s32) asm("func_00141c18");
 s32 func_00141ff0(s32, QWord*, QWord*, Ctx*, s32) asm("func_00141ff0");
 s32 dk__ObjOcc__intersectLine(QWord* a0, QWord* out, u16* outId, s32 a3, s32 t0, u8 t1, s32** outP, s32 t3, s32 skip) asm("dk__ObjOcc__intersectLine");
-s32 dk__ObjOcc__intersectLine(QWord* a0, QWord* out, u16* outId, s32 a3, s32 t0, u8 t1, s32** outP, s32 t3, s32 skip) {
+// a0 and found get no call-saved register (s0-s8 are all taken) and live in the frame next to c.
+// The out-pointers are written through a union (alias set 0), and skip is const (its stack load does not
+// depend on those stores): both set the order of the entry stores.
+s32 dk__ObjOcc__intersectLine(QWord* a0, QWord* out, u16* outId, s32 a3, s32 t0, u8 t1, s32** outP, s32 t3, const s32 skip) {
     QWord tmp;
     Ctx c;
+    s32 found;
     s32* p = 0;
-    *(s32* volatile*)outP = 0;
-    *(volatile u16*)outId = 0xffff;
+    ((PU*)outP)->p = 0;
+    ((PU*)outId)->h = 0xffff;
     c.id = 0xffff;
-    *(QWord* volatile*)&c.obj = a0;
-    *(volatile s32*)&c.found = 0;
+    found = 0;
     while ((p = func_00165ef0(p)) != 0) {
         if (p[0] == skip) continue;
         if (func_00142b70(p[1])) continue;
         func_00141c18(p[1], a3, t0, t1, 0);
-        if (func_00141ff0(p[1], c.obj, &tmp, &c, t3)) {
-            c.found = 1;
+        if (func_00141ff0(p[1], a0, &tmp, &c, t3)) {
+            found = 1;
             *out = tmp;
-            { register QWord* o asm("$14") = c.obj; register QWord* o1 asm("$15") = o + 1; if (o1 != out) QCOPY(o1, out); }
+            a0[1] = *out;
             ((PU*)outP)->p = p;
             *outId = c.id;
         }
     }
-    return c.found;
+    return found;
 }
 } // n00165db8
 

@@ -100,11 +100,10 @@ void Tz__ItemInfo__SetEquip(Self2823* self, s32 b, s32 r) {
                 id = items[j + 10];
                 break;
             }
-            if (!id) a = 0;
-            asm("" : "+r"(a));
+            if (!id) a = id;
+            e->a = a;
             e->id = id;
             e->b = eq != 0;
-            e->a = a;
             e->c = 999;
             e++;
         }
