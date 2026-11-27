@@ -1,6 +1,8 @@
 /* libkernl (Sony PS2 Runtime Library): kernel-mode ReleaseAlarm, built with ee-gcc 2.9-991111 -O2 -G0.
- * Partial asm (no instructions): the T3_COUNT address goes through an empty asm so the load is a plain
- * (non-volatile) lw that reorg can put in the jal delay slot, as in the original. */
+ * Third-party code notice: rebuilt to match Sony Computer Entertainment's PS2 runtime library code that
+ * the game links. It is not covered by this project's MIT License.
+ * Linked unit (linked_units.tsv, as=ee-as): the T3_COUNT read is a plain volatile load; the assembler
+ * moves it into the jal delay slot, as in the original. */
 typedef struct { unsigned short target; unsigned short time; int id; void *callback; void *common; void *gp; } Alarm;
 extern int D_80076700;
 extern unsigned long D_80076708;
@@ -30,11 +32,7 @@ int func_00366c10(int id)
                     func_00076460(D_80076740[0].target);
                 if (D_80076700 == 0)
                     *(volatile int *)0xb0001810 = 0x83;
-                {
-                    int *t3c = (int *)0xb0001800; /* T3_COUNT */
-                    __asm__("" : "+r"(t3c));
-                    ret = func_00076038(time, *t3c) - time;
-                }
+                ret = func_00076038(time, *(volatile int *)0xb0001800 /* T3_COUNT */) - time;
                 break;
             }
         }

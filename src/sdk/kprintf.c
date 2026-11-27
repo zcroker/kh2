@@ -1,4 +1,4 @@
-/* Sony PS2 Runtime Library 3.0.0: libkernl printf (kprintf.o), 0x306e48-0x3081d0. Built with ee-gcc 2.9-991111 -O2 -G0.
+/* Sony PS2 Runtime Library 3.0.0: libkernl printf (kprintf.o), 0x306e80-0x3081d0 (its first function, the SIO putc, is in kprintf_00306e48.c). Built with ee-gcc 2.9-991111 -O2 -G0.
  * Third-party code notice: these functions were rebuilt to match Sony Computer Entertainment's
  * PS2 runtime libraries that the game links. That code is not covered by this project's MIT License.
  * Linked unit (linked_units.tsv). Output goes to the SIO port, the Deci2 console (a 128-byte line
@@ -12,17 +12,7 @@ extern int DIntr(void);
 extern int EIntr(void);
 extern void func_003111f0(char *);
 
-/* SIO putc: wait while the TX FIFO is full, then write the byte. */
-int func_00306e48(int c)
-{
-    char *txfifo;
-    while (*(volatile int *)0x1000f130 & 0x8000)
-        ;
-    txfifo = (char *)0x1000f180;
-    asm("" : "+r"(txfifo));
-    *txfifo = c;
-    return c;
-}
+extern int func_00306e48(int c); /* SIO putc: kprintf_00306e48.c */
 
 int D_003660d4 = 0;
 extern char D_01e35680[];

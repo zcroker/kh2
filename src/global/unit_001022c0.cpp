@@ -193,19 +193,18 @@ void func_00102528(LList* l, LNode* n)
 
 extern "C" {
 // 0x1025f8: unlinks a task and ends it.
-struct Nd223 { u8 p[0x38]; Nd223* next; Nd223* prev; };
+struct Nd223 { u8 p[0x38]; Nd223* link[2]; };  // link[0]=next, link[1]=prev (as in 0x102528)
 struct Ls223 { Nd223* head; Nd223* tail; };
 struct Ow223 { u32 f0; u32 f4; Ls223 l; u8 q[0x110 - 16]; Nd223* cur; };
 extern void func_001022e8_n(Nd223*) asm("func_001022e8");
 
 void func_001025f8(Ow223* o, Nd223* n) asm("_Z13func_001025f8Pv");
 void func_001025f8(Ow223* o, Nd223* n) {
-    if (n == o->cur) o->cur = n == 0 ? o->l.head : n->next;
+    if (n == o->cur) o->cur = n == 0 ? o->l.head : n->link[0];
     Ls223* l = &o->l;
-    if (n->prev == 0) l->head = n->next; else n->prev->next = n->next;
-    asm volatile("" ::: "memory");
-    if (n->next == 0) l->tail = n->prev; else n->next->prev = n->prev;
-    n->prev = 0; n->next = 0;
+    if (n->link[1] == 0) l->head = n->link[0]; else n->link[1]->link[0] = n->link[0];
+    if (n->link[0] == 0) l->tail = n->link[1]; else n->link[0]->link[1] = n->link[1];
+    n->link[1] = 0; n->link[0] = 0;
     func_001022e8_n(n);
 }
 

@@ -459,21 +459,22 @@ u32 OBJ::is_culling() {
 
 // ---- 0019c440 from src/anon/auto200_999.cpp
 namespace n0019c440 {
+struct Info_0019c440 {
+    u8 pad0[72];
+    u16 bits0 : 5;
+    u16 bit5 : 1;
+    bool flag5() { return bit5; }
+};
+struct Obj_0019c440 {
+    u8 pad0[8];
+    Info_0019c440* info;  // +8
+    u8 pad1[2268 - 12];
+    u8 state;             // +2268
+};
 u32 ctarget_0019c440(u32 a0, u32, u32, u32) asm("_Z16ctarget_0019c440jjjj");
 u32 ctarget_0019c440(u32 a0, u32, u32, u32) {
-    register u32 p asm("$14") = *(u32 *)(a0 + 8);
-    register u32 v asm("$15") = *(u16 *)(p + 72);
-    v >>= 5;
-    v &= 1;
-    v &= 0xff;
-    asm volatile("" : "+r"(v));
-    u32 ret = 0;
-    if (v != 0) {
-        v = *(u8 *)(a0 + 2268);
-        v ^= 1;
-        ret = v < 1;
-    }
-    return ret;
+    Obj_0019c440* o = (Obj_0019c440*)a0;
+    return o->info->flag5() && o->state == 1;
 }
 }  // namespace n0019c440
 
@@ -492,22 +493,22 @@ u32 func_0019c470(u32 a0, u32 a1, u32 a2, u32 a3) {
 
 // ---- 0019c498 from src/anon/auto200_999.cpp
 namespace n0019c498 {
+struct Info_0019c498 {
+    u8 pad0[8];
+    u32 flags;  // +8
+};
+struct Obj_0019c498 {
+    u8 pad0[12];
+    Info_0019c498* info;  // +12
+    u8 pad1[352 - 16];
+    u32 f352;             // +352
+    u32 f356;
+    u32 f360;             // +360
+};
 u32 func_0019c498(u32 a0) asm("_Z13func_0019c498j");
 u32 func_0019c498(u32 a0) {
-    register u32 p asm("$14") = *(u32 *)(a0 + 12);
-    register u32 v asm("$15") = *(u32 *)(p + 8);
-    v &= 0x80;
-    u32 ret = 0;
-    if (v != 0) {
-        v = *(u32 *)(a0 + 352);
-        v &= 0x4000;
-        if (v == 0) {
-            v = *(u32 *)(a0 + 360);
-            v &= 2;
-            ret = v < 1;
-        }
-    }
-    return ret;
+    Obj_0019c498* o = (Obj_0019c498*)a0;
+    return (o->info->flags & 0x80) && !(o->f352 & 0x4000) && !(o->f360 & 2);
 }
 }  // namespace n0019c498
 
