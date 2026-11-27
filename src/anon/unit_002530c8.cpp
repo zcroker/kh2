@@ -498,14 +498,12 @@ extern u8 D_0035eee0 asm("D_0035eee0");
 u32 func_002538f8(u32 a0) asm("_Z13func_002538f8j");
 // 0x00232718: definition moved into src/anon/unit_00231500.cpp
 
-u32 func_002538f8(u32 a0) {  // entry16_get_flag_bit
+u32 func_002538f8(u32 a0) {
     u32 base = (u32)&D_0035eee0;
     a0 <<= 4;
     a0 += base;
     u32 v = *(u32 *)(a0 + 4);
-    v &= 1;
-    asm volatile("" : "+r"(v));
-    return v & 0xff;
+    return (v & 1) != 0;
 }
 }  // namespace n002538f8
 

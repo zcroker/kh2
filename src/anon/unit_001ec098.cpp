@@ -1391,7 +1391,7 @@ f32 func_001eeb90(u8 a) {
 
 // 001eec28 (was src/anon/batch_w264.cpp)
 namespace n001eec28 {
-struct W264In8 { u32 id; s32 o; s8 c[4]; u8 k; };
+struct W264In8 { u32 id; union { s32 o; f32 fo; }; s8 c[4]; u8 k; };
 extern u32 D_01d9ea9c asm("D_01d9ea9c");
 extern u8* D_01d9e6e0 asm("D_01d9e6e0");
 extern u8 D_01d9e360 asm("D_01d9e360");
@@ -1414,10 +1414,8 @@ void func_001eec28(u8* base, const W264In8* in, u8* desc)
     q[1] = func_001eeb90(in->k);
     q[2] = func_001eeb90(in->k);
     q[3] = func_001eeb90(in->k);
-    asm volatile("" ::: "memory");
-    p = (u8*)&D_01d9e360;
-    asm volatile("" ::: "memory");
     if (in->o != -1) p = base + in->o + 160;
+    else p = (u8*)&D_01d9e360;
     f32 v = q[0];
     s8 r = func_001eeb60(in->c[0], v);  // fix8_mul_sub
     s8 c = in->c[1];
@@ -1468,7 +1466,7 @@ f32 func_001eed88(u8 a) {
 
 // 001eee30 (was src/anon/batch_w264.cpp)
 namespace n001eee30 {
-struct W264In8 { u32 id; s32 o; s8 c[4]; u8 k; };
+struct W264In8 { u32 id; union { s32 o; f32 fo; }; s8 c[4]; u8 k; };
 extern u32 D_01d9ea9c asm("D_01d9ea9c");
 extern u8* D_01d9e6e0 asm("D_01d9e6e0");
 extern u8 D_01d9e360 asm("D_01d9e360");
@@ -1491,10 +1489,8 @@ void func_001eee30(u8* base, const W264In8* in, u8* desc)
     q[1] = func_001eed88(in->k);
     q[2] = func_001eed88(in->k);
     q[3] = func_001eed88(in->k);
-    asm volatile("" ::: "memory");
-    p = (u8*)&D_01d9e360;
-    asm volatile("" ::: "memory");
     if (in->o != -1) p = base + in->o + 160;
+    else p = (u8*)&D_01d9e360;
     f32 v = q[0];
     s8 r = func_001eed60(in->c[0], v);  // fix8_mul_b
     s8 c = in->c[1];
@@ -1617,7 +1613,7 @@ f32 func_001ef1a0(u8 a)
 // 001ef238 (was src/anon/batch_w264.cpp)
 namespace n001ef238 {
 union W264H { u16 h; u8 b; };
-struct W264In16 { u32 id; s32 o; s16 c[4]; u8 k; };
+struct W264In16 { u32 id; union { s32 o; f32 fo; }; s16 c[4]; u8 k; };
 extern u32 D_01d9ea9c asm("D_01d9ea9c");
 extern u8* D_01d9e6e0 asm("D_01d9e6e0");
 extern u8 D_01d9e360 asm("D_01d9e360");
@@ -1640,10 +1636,8 @@ void func_001ef238(u8* base, const W264In16* in, u8* desc)
     q[1] = func_001ef1a0(in->k);
     q[2] = func_001ef1a0(in->k);
     q[3] = func_001ef1a0(in->k);
-    asm volatile("" ::: "memory");
-    p = (u8*)&D_01d9e360;
-    asm volatile("" ::: "memory");
     if (in->o != -1) p = base + in->o + 160;
+    else p = (u8*)&D_01d9e360;
     f32 v = q[0];
     s16 r = func_001ef170(in->c[0], v);  // fix16_mul_sub
     s16 c = in->c[1];
@@ -1700,7 +1694,7 @@ f32 func_001ef398(u8 a)
 // 001ef440 (was src/anon/batch_w264.cpp)
 namespace n001ef440 {
 union W264H { u16 h; u8 b; };
-struct W264In16 { u32 id; s32 o; s16 c[4]; u8 k; };
+struct W264In16 { u32 id; union { s32 o; f32 fo; }; s16 c[4]; u8 k; };
 extern u32 D_01d9ea9c asm("D_01d9ea9c");
 extern u8* D_01d9e6e0 asm("D_01d9e6e0");
 extern u8 D_01d9e360 asm("D_01d9e360");
@@ -1723,10 +1717,8 @@ void func_001ef440(u8* base, const W264In16* in, u8* desc)
     q[1] = func_001ef398(in->k);
     q[2] = func_001ef398(in->k);
     q[3] = func_001ef398(in->k);
-    asm volatile("" ::: "memory");
-    p = (u8*)&D_01d9e360;
-    asm volatile("" ::: "memory");
     if (in->o != -1) p = base + in->o + 160;
+    else p = (u8*)&D_01d9e360;
     f32 v = q[0];
     s8 r = func_001ef370(in->c[0], v);  // fix16_mul_b
     s16 c = in->c[1];
@@ -1784,7 +1776,7 @@ f32 func_001ef5a0(u8 a)
 // 001ef648 (was src/anon/batch_w264.cpp)
 namespace n001ef648 {
 union W264H { u16 h; u8 b; };
-struct W264In16 { u32 id; s32 o; s16 c[4]; u8 k; };
+struct W264In16 { u32 id; union { s32 o; f32 fo; }; s16 c[4]; u8 k; };
 extern u32 D_01d9ea9c asm("D_01d9ea9c");
 extern u8* D_01d9e6e0 asm("D_01d9e6e0");
 extern u8 D_01d9e360 asm("D_01d9e360");
@@ -1807,10 +1799,8 @@ void func_001ef648(u8* base, const W264In16* in, u8* desc)
     q[1] = func_001ef5a0(in->k);
     q[2] = func_001ef5a0(in->k);
     q[3] = func_001ef5a0(in->k);
-    asm volatile("" ::: "memory");
-    p = (u8*)&D_01d9e360;
-    asm volatile("" ::: "memory");
     if (in->o != -1) p = base + in->o + 160;
+    else p = (u8*)&D_01d9e360;
     f32 v = q[0];
     s8 r = func_001ef578(in->c[0], v);  // fix16_mul
     s16 c = in->c[1];
