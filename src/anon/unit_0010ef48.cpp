@@ -49,11 +49,10 @@ s32 func_0010ef48(S1882* self) {
         if (!ptr) continue;
         if (!(e->flags & 2)) continue;
         if (skip == e) continue;
-        C1882* o = self->obj;
         s32 d = e->delta;
-        Fn1882 f;
-        if ((bool)(d & 1)) { u32 idx = ptr >> 2 << 2; s32 adj = d >> 1; asm("" : "+r"(adj) : "r"(idx)); u8* ao = (u8*)o + adj; f = *(Fn1882*)(idx + *(u32*)ao); }
-        else f = (Fn1882)ptr;
+        Fn1882 f; C1882* o;
+        if ((bool)(d & 1)) { o = self->obj; u32 idx = ptr >> 2 << 2; u8* ao = (u8*)o + (d >> 1); f = *(Fn1882*)(idx + *(u32*)ao); }
+        else { o = self->obj; f = (Fn1882)ptr; }
         if (f((C1882*)((u8*)o + (e->delta >> 1)), e, &l, &m, 1)) { r = 1; break; }
     }
     if (had) self->f2940 |= 4;
@@ -92,11 +91,10 @@ s32 func_0010f098(S1882* self) {
         if (!ptr) continue;
         if (!(e->flags & 0x10)) continue;
         if (skip == e) continue;
-        C1882* o = self->obj;
         s32 d = e->delta;
-        Fn1882 f;
-        if ((bool)(d & 1)) { u32 idx = ptr >> 2 << 2; s32 adj = d >> 1; asm("" : "+r"(adj) : "r"(idx)); u8* ao = (u8*)o + adj; f = *(Fn1882*)(idx + *(u32*)ao); }
-        else f = (Fn1882)ptr;
+        Fn1882 f; C1882* o;
+        if ((bool)(d & 1)) { o = self->obj; u32 idx = ptr >> 2 << 2; u8* ao = (u8*)o + (d >> 1); f = *(Fn1882*)(idx + *(u32*)ao); }
+        else { o = self->obj; f = (Fn1882)ptr; }
         if (f((C1882*)((u8*)o + (e->delta >> 1)), e, &l, &m, 1)) { r = 1; break; }
     }
     if (had) self->f2940 |= 4;
@@ -134,11 +132,10 @@ s32 func_0010f1e8(S1882* self) {
         if (!ptr) continue;
         if (!(e->flags & 0x20)) continue;
         if (skip == e) continue;
-        C1882* o = self->obj;
         s32 d = e->delta;
-        Fn1882 f;
-        if ((bool)(d & 1)) { u32 idx = ptr >> 2 << 2; s32 adj = d >> 1; asm("" : "+r"(adj) : "r"(idx)); u8* ao = (u8*)o + adj; f = *(Fn1882*)(idx + *(u32*)ao); }
-        else f = (Fn1882)ptr;
+        Fn1882 f; C1882* o;
+        if ((bool)(d & 1)) { o = self->obj; u32 idx = ptr >> 2 << 2; u8* ao = (u8*)o + (d >> 1); f = *(Fn1882*)(idx + *(u32*)ao); }
+        else { o = self->obj; f = (Fn1882)ptr; }
         if (f((C1882*)((u8*)o + (e->delta >> 1)), e, &l, &m, 1)) { r = 1; break; }
     }
     if (had) self->f2940 |= 4;
