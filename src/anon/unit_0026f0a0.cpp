@@ -209,9 +209,8 @@ void func_0026f388(void) {
     s32 id2 = id + 2;
     u8* lab = w + 24304;
     for (i = 0; i < 9;) {
-        u32 lb = D_0035ef64;
-        asm("" : "+r"(lb));
-        Tz__Select__SetItem(D_0035f01c, i, D_0035ef68, lb, D_0035f03c, -1, D_01e21ec0[0], D_01e21ec0[1]);
+        u32& r64 = D_0035ef64;
+        Tz__Select__SetItem(D_0035f01c, i, D_0035ef68, r64, D_0035f03c, -1, D_01e21ec0[0], D_01e21ec0[1]);
         Node* n = func_002891b8(D_0035f01c, i);
         func_00138c10(n, 264);
         h = func_0023aa78((u8*)n + 24);
