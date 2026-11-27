@@ -115,12 +115,9 @@ STDOBJ::STDOBJ(u32* a1, s32 a2, s32 a3) {
                 *(s32*)(s0 + 8) = -1;
                 *(s32*)(s0 + 0x14) = 0x1800;
                 *(s32*)(s0 + 0x10) = 0;
-                // Partial asm (moved as it is from batch_w3704.cpp): fixes the sched2 order of this re-init.
-                u32 vt; asm("" : "=r"(vt) : "0"(D_00350e48));
-                asm("sw %2,28(%1)" : "=m"(*(s32*)(s0 + 0x1C)) : "r"(s0), "r"(t), "r"(vt));
-                *(u32*)(p + 0x9BC) = vt;
-                s32 two; asm("li %0,2" : "=r"(two) : "m"(*(u32*)(p + 0x9BC)));
-                *(s32*)(s0 + 4) = two;
+                *(u32*)(p + 0x9BC) = (u32)D_00350e48;
+                *(void**)(s0 + 0x1C) = (void*)t;  // a pointer field: no alias with the int stores
+                *(s32*)(s0 + 4) = 2;
                 *(u32*)(p + 0x9B8) = (u32)s0;
             }
         }
