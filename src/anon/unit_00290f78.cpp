@@ -476,7 +476,8 @@ extern char D_00374498[] asm("D_00374498");
 extern char D_003744a0[] asm("D_003744a0");
 void func_00291ba8(u8* w, s32 mode, s32 a2, s32 a3, s32 a4, s32 mask) asm("func_00291ba8");
 void func_00291ba8(u8* w, s32 mode, s32 a2, s32 a3, s32 a4, s32 mask) {
-    if (__builtin_expect(mode == 0,0)) return;
+    s32 z0 = mode != 0;
+    if (z0 < 1) return;
     if (mode == 4) return;
     u8* r = func_001a1728(a3, a4);
     s32 base;
