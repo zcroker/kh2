@@ -2137,13 +2137,14 @@ void dk__MISSION_GAUGE__create(W2418Menu3* self, u32 a1, u32 a2, s32 mode, f32* 
     self->f2888 = *pv;
     dk__SpriteImage__create(&self->root, 3400, a1, 10);
     s32 r = func_0013a9d0();
-    if (__builtin_expect(r, 0)) {
+    if (r) {
         s5 = (u8*)&self->root + 32;
         YI__IMAGE__ClutGray(s5, 0.8f);
         func_002367c8(s5);
     } else {
         s5 = (u8*)&self->root + 32;
     }
+    f32 nm1 = -1.0f;
     num = 0;
     switch (mode) {
     case 0: num = 16; break;
@@ -2172,7 +2173,7 @@ void dk__MISSION_GAUGE__create(W2418Menu3* self, u32 a1, u32 a2, s32 mode, f32* 
     W2418_setParent(&self->spr[0], 0);
     func_00138c40(&self->spr[0], self->x, self->y);
     func_00151bd8(self);
-    self->f2892 = -1.0f;
+    self->f2892 = nm1;
 }
 }  // namespace n001516b0
 
