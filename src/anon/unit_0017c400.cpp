@@ -960,7 +960,7 @@ namespace x33 {
 struct W8007V4 {
     f32 x, y, z, w;
     W8007V4& operator=(const W8007V4& s) {
-        if (__builtin_expect(this != &s, 0)) W8007_QCOPY(this, &s);
+        s32 z = this != &s; if (z > 0) W8007_QCOPY(this, &s);
         return *this;
     }
 } __attribute__((aligned(16)));
