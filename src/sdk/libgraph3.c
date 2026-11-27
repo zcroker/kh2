@@ -230,18 +230,9 @@ done:
             tmp.q = *VIF1_FIFO;
         }
     }
-    {
-        /* Partial asm (no code emitted): a0 pinned and BUSDIR's address passed through an empty
-         * volatile asm, so the last BUSDIR store is a plain store that reorg puts in the jal delay
-         * slot like the original (a volatile store never fills a call slot in ee-gcc 2.9). */
-        register int a0 asm("$4");
-        u_long *busdir;
-        *VIF1_STAT = 0;
-        asm volatile("" : "=r"(busdir) : "0"(GS_BUSDIR));
-        a0 = imr;
-        *busdir = 0;
-        func_00305960(a0);
-    }
+    *VIF1_STAT = 0;
+    *GS_BUSDIR = 0;
+    func_00305960(imr);
     {
         u_long128 v = D_00363c70;
         *GS_CSR = 2;

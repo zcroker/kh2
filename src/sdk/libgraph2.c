@@ -38,7 +38,7 @@ typedef struct { u_long pmode, smode2, dispfb, display, bgcolor; } sceGsDispEnv;
 typedef struct { short s0; short s2; short s4; short mode; int f8; int fc; } sceGsGParam;
 extern sceGsGParam *sceGsGetGParam(void);
 
-extern int func_003080d0(const char *, ...);          /* scePrintf */
+extern void func_003080d0(const char *, ...);         /* scePrintf */
 extern void func_00305ab0(void);
 extern long func_00305b40(void);
 extern int func_00305940(void);                       /* GsGetIMR */
@@ -105,11 +105,24 @@ STR8 s_gif[] = "sceGsSyncPath: GIF does not terminate\r\n";
 
 #define vu_stat() ({ asm volatile(".set noreorder\n\tcfc2 %0, $vi29\n\t.set reorder" : "=r"(stat)); stat; })
 
-/* printf(f, *a) with the volatile register read in the jal delay slot. The original has this at
- * every site, but ee-gcc 2.9 never fills a delay slot with a volatile load, so jal/lw are written by
- * hand. The empty asm only ranks the address above the format string in the scheduler. */
-#define PR(f, a) { register const char *a0_ asm("$4") = (f); register unsigned int *v0_ asm("$2") = (unsigned int *)(a); asm("" : "+r"(v0_)); \
-    asm volatile(".set noreorder\n\tjal func_003080d0\n\tlw $5,0(%0)\n\t.set reorder" : "+r"(v0_), "+r"(a0_) : : "$3","$5","$6","$7","$8","$9","$10","$11","$12","$13","$14","$15","$24","$25","$31","memory"); }
+/* printf(f, *a): the volatile register read ends up in the jal delay slot (moved there by the assembler,
+ * see the `as=ee-as` token in notes/linking.md). scePrintf is declared void here: with an int result the
+ * address would go to v1 instead of v0. */
+#define PR(f, a) func_003080d0((f), REG(a))
+
+#define DUMP() { \
+    PR(s_d1chcr, 0x10009000); \
+    PR(s_d1tadr, 0x10009030); \
+    PR(s_d1madr, 0x10009010); \
+    PR(s_d1qwc, 0x10009020); \
+    PR(s_d2chcr, 0x1000a000); \
+    PR(s_d2tadr, 0x1000a030); \
+    PR(s_d2madr, 0x1000a010); \
+    PR(s_d2qwc, 0x1000a020); \
+    PR(s_vif1stat, 0x10003c00); \
+    PR(s_gifstat, 0x10003020); \
+}
+#define ERR(s) { func_003080d0(s); DUMP(); return -1; }
 
 /* 0x2f25a0 */
 int sceGsSyncPath(int mode, unsigned short timeout)
@@ -117,50 +130,22 @@ int sceGsSyncPath(int mode, unsigned short timeout)
     unsigned int cnt = 0;
     int ret;
     int stat;
-    register const char *msg asm("$4");
 
     if (mode == 0) {
         while (REG(0x10009000) & 0x100)
-            if (cnt++ > 0x1000000) goto err1;
+            if (cnt++ > 0x1000000) ERR(s_d1);
         while (REG(0x1000a000) & 0x100)
-            if (cnt++ > 0x1000000) goto err2;
+            if (cnt++ > 0x1000000) ERR(s_d2);
         while (REG(0x10003c00) & 0x1f000003)
-            if (cnt++ > 0x1000000) goto err3;
+            if (cnt++ > 0x1000000) ERR(s_vif1);
         asm volatile(".set noreorder\n\tcfc2 %0, $vi29\n\t.set reorder" : "=r"(stat));
         while (stat & 0x100) {
-            if (cnt++ > 0x1000000) goto err4;
+            if (cnt++ > 0x1000000) ERR(s_vu1);
             asm volatile(".set noreorder\n\tcfc2 %0, $vi29\n\t.set reorder" : "=r"(stat));
         }
         while (REG(0x10003020) & 0xc00)
-            if (cnt++ > 0x1000000) goto err5;
+            if (cnt++ > 0x1000000) ERR(s_gif);
         return 0;
-    err1:
-        msg = s_d1;
-        goto pr;
-    err2:
-        msg = s_d2;
-        goto pr;
-    err3:
-        msg = s_vif1;
-        goto pr;
-    err4:
-        msg = s_vu1;
-        goto pr;
-    err5:
-        msg = s_gif;
-    pr:
-        func_003080d0(msg);
-        PR(s_d1chcr, 0x10009000);
-        PR(s_d1tadr, 0x10009030);
-        PR(s_d1madr, 0x10009010);
-        PR(s_d1qwc, 0x10009020);
-        PR(s_d2chcr, 0x1000a000);
-        PR(s_d2tadr, 0x1000a030);
-        PR(s_d2madr, 0x1000a010);
-        PR(s_d2qwc, 0x1000a020);
-        PR(s_vif1stat, 0x10003c00);
-        PR(s_gifstat, 0x10003020);
-        return -1;
     }
     ret = (REG(0x10009000) & 0x100); if (ret) ret = 1;
     if (REG(0x1000a000) & 0x100) ret |= 2;
