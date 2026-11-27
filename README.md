@@ -10,8 +10,8 @@ It builds the current executable:
 
 > [!IMPORTANT]
 > This repository does **not** contain any game data: no executable, disc image or assets.
-> A legally obtained copy of the game is required to build it. This project is not, and
-> will not produce, a PC port or any other port. It is an unofficial fan project, not
+> A legally obtained copy of the game is required to build it. This repository is not a PC
+> port or any other port. It is an unofficial fan project, not
 > affiliated with or endorsed by Square Enix, Disney or Sony Interactive Entertainment.
 > See [Legal](#legal).
 
@@ -25,32 +25,58 @@ It builds the current executable:
 > is byte-identical to the original, but the source itself is machine-written, so names,
 > types and structure may be less idiomatic than hand-written decomp code.
 
-## Status (November 2026)
+## Status (27 November 2026)
 
 | Measure | Progress |
 |---|---|
-| Functions matched | **11,509 / 11,509 (100.0%)** |
-| Code matched (by size) | **100.0%** |
-| Source-file chunks fully matched ("linked" groundwork) | 141 of 141, with 141 at 90% or more |
+| Functions that compile to the original bytes | **11,509 / 11,509 (100%)** |
+| Game code built from C/C++ source | **96.2%** |
+| Game code still kept as hand-copied assembly (`.s` files) | 3.7% (141 files) |
+| Game data (tables, strings, constants) built from source | not started |
+| Functions with a real name | about 3,600 of 11,500 (about 30%) |
 
 Every commit keeps the rebuilt `kh2.elf` byte-identical to the retail executable.
 
-What's left is mostly the hard part: large functions, register-allocation near-misses,
-Sony PS2 SDK library code (Runtime Library 3.0.0, built with an older compiler), and
-hand-written assembly.
+All code now compiles back to the original. But the project is not finished. The steps below are
+what is left, in order.
 
 ### Roadmap
 
-1. **Linked build:** split the game back into its original source files (boundaries recovered
-   from the static-initializer table) and build by compiling and linking them, the way
-   finished decomps are built.
-2. **Tooling:** [m2c](https://github.com/matt-kempster/m2c) for first drafts,
-   [decomp-permuter](https://github.com/simonlindholm/decomp-permuter) for near-misses,
-   and shared headers for the game's data types.
-3. **Remaining code:** deep work on large functions; matching the Sony SDK libraries with
-   the compiler they were built with; keeping genuinely hand-written assembly as `.s` files.
-4. **Data and names:** data sections as source; real names for functions (a set of
-   machine-suggested names lives in `notes/function_names.tsv`).
+**Done: match all code.** Every function compiles to the same bytes as the original. The game's
+code is grouped into its original source files ("linked units"), which the build compiles and links
+whole.
+
+Small jobs that are still open in this step:
+
+* Convert the last 141 assembly files to C/C++. Some of these are Sony library code that needs
+  the older compiler it was built with.
+* Remove the remaining compiler tricks. Some functions still use register pins, empty `asm`
+  statements or extra `volatile` words to make the compiler produce the original order. See
+  `notes/detrick.md`.
+
+**1. Data as source.** The game's tables, strings and constants are still copied from your copy
+of the original executable. This step turns them into C/C++ structs, arrays and constants in the
+source files, so that the build makes them itself. Some files already declare their data at the
+right address, but the build does not use those bytes yet.
+
+**2. A shiftable build.** Today every source file is placed at a fixed address, on top of a copy of
+the original executable. If you add one instruction, everything after it moves and the addresses
+break. This step makes the linker place everything and fix every address, so that code and data
+can grow or shrink. Steps 1 and 2 must both be done before anybody can safely change the game.
+
+**3. Names and types.** Make the code easy to read for people and for AI agents. About 70% of
+functions still have placeholder names such as `func_0014ac18`, and much of the code reads
+fields as raw offsets (`*(u32*)(p + 2904)`) instead of named struct members. This means naming
+functions, variables and fields, and writing the game's real structs and classes. This is the
+longest step.
+
+* The E3 2014 PS3 debug build gives real names. `notes/e3/` has 7,636 name mappings. 1,458 are
+  applied. The others need review, and about 2 to 3 in every 100 applied names can be wrong.
+* `notes/function_names.tsv` holds a set of machine-suggested names that are not applied.
+
+**4. Optional: a PC port.** Without a port, the rebuilt game runs only on a PS2 or a PS2 emulator.
+A port is a separate, later project. It needs steps 1 to 3 first, and it will still need your own
+copy of the game.
 
 ## Setup
 
