@@ -4,7 +4,7 @@
  * Third-party code notice: rebuilt to match Sony Computer Entertainment's PS2 SDK library code that
  * the game links. It is not covered by this project's MIT License.
  * Linked unit (linked_units.tsv, cc=ee-gcc2.96), the first part of the object: 0x2f1b48-0x2f1cc0. 0x2f1cc0 and
- * 0x2f1d30 stay assembly rows and 0x2f1da0-0x2f1e18 is sifrpc_002f1da0.c. Its .rodata (the two error strings)
+ * 0x2f1d30 are sifrpc_002f1cc0.c / sifrpc_002f1d30.c (-G8 rows) and 0x2f1da0-0x2f1e18 is sifrpc_002f1da0.c. Its .rodata (the two error strings)
  * is at 0x3762a0. The semaphore id is a small-data (-G8) variable at gp-0x1d20 (0x378ae0); the link has its own
  * _gp, so it is reached through $gp here (sema(): the read written as one load, as a $28 MEM read cannot be
  * scheduled past the prologue saves). The client data (0x1e2d900) and the send buffer (0x1e2d940) by name. */

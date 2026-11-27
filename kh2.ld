@@ -28,16 +28,16 @@ SECTIONS {
     *(.gnu.linkonce.r*)
   }
 
-  /* Link-time gp for the few gp-relative (.sdata) references; build_elf.py retargets their
-     immediates to the game's gp (0x37A800) when the original address holds the same bytes. */
-  _gp = ALIGN(16) + 0x7FF0;
+  /* The game's gp (main sets $gp = 0x37A800). A linked unit built -G8 (a `-G8` token in its
+     linked_units.tsv row) reads small-data globals gp-relative; with this _gp their GPREL16
+     relocations resolve to the original offsets (the globals get their game addresses from
+     symbols.ld). The function path's own .sdata (short literals) goes to .cxx_sdata (after .cxx_bss), inside
+     gp's +-32 KB reach; build_elf.py retargets those immediates by content, not by link address. */
+  _gp = 0x0037A800;
   .cxx_data : {
     *(.data)
     *(.data.*)
     *(.gnu.linkonce.d*)
-    *(.sdata)
-    *(.sdata.*)
-    *(.gnu.linkonce.s*)
   }
 
   .reginfo : { *(.reginfo) }
@@ -54,6 +54,13 @@ SECTIONS {
     *(.gnu.linkonce.b*)
     *(COMMON)
     _end_bss = .;
+  }
+
+  /* After everything else: a fixed address here moves no other section. */
+  .cxx_sdata 0x00382000 : {
+    *(.sdata)
+    *(.sdata.*)
+    *(.gnu.linkonce.s*)
   }
 
   /DISCARD/ : {
