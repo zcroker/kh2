@@ -29,7 +29,7 @@ src/anon/unit_0014b838.cpp	0014b838	0014c7f0	.rodata@0036b0c8	-G0 -fno-strict-al
 src/anon/unit_0014c7f0.cpp	0014c7f0	0014d298	.rodata@0036b0e8	-G0 -g -fno-strict-aliasing
 src/anon/unit_00157688.cpp	00157688	00158050	.bss@004f3588,.rodata@0036b300	-G0
 src/anon/unit_00158050.cpp	00158050	00158450	-	-G0
-src/anon/batch_w3930.s	0015af48	0015b100	-	-
+src/anon/unit_0015af48.cpp	0015af48	0015b100	-	-G0 -fno-strict-aliasing
 src/anon/batch_w3959.s	00163898	00164578	-	-
 src/anon/asm_00166148.s	00166148	001664c0	-	-
 src/anon/batch_w3952.s	00193608	00193be8	-	-
