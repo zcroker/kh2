@@ -923,6 +923,8 @@ void PauseThread_243(void*) asm("_ZN2Tz4HEFT11PauseThreadEP4TASK");
 typedef void* (*AF)(s32, u32, void*);
 extern s32 D_0032ba14_i asm("D_0032ba14");
 static inline void* Al(u32 n) { s32 a = D_0032ba14_i; return (*(AF*)*(s32*)a)(a, n, __builtin_return_address(0)); }
+extern s32 D_0035ed08 asm("D_0035ed08");
+extern s8 D_0035ed0c asm("D_0035ed0c");
 /*TARGET 00243298*/
 void Tz__HEFT__Init(void) asm("Tz__HEFT__Init");
 void Tz__HEFT__Init(void) {
@@ -930,6 +932,7 @@ void Tz__HEFT__Init(void) {
     u8* o;
     void* e60 = &D_00347e60;
     void* e40 = &D_00347e40;
+    s32& g1 = D_0035ed08;
     func_00287b18(2, 3);
     v = func_00288be8(0x38);
     func_002889f0(v, 2, 1);
@@ -943,15 +946,8 @@ void Tz__HEFT__Init(void) {
     D_0035ecf8 = 0;
     v = (s32)Al(12);
     func_002b3df8(v);
-    {
-        u32 h1;
-        u32 h;
-        asm("lui %0,%%hi(D_0035ed08)" : "=r"(h1));
-        asm("lui %0,%%hi(D_0035ed0c)" : "=r"(h) : "r"(h1));
-        asm("" : "+r"(v) : "r"(h));
-        *(s32*)(h1 - 4856) = v;
-        *(s8*)(h - 4852) = 0;
-    }
+    g1 = v;
+    D_0035ed0c = 0;
     {
         Alloc* al = D_00347f80->al;
         o = (u8*)(*al->vt)(al, 436, 0);
