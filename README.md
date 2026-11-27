@@ -30,8 +30,8 @@ It builds the current executable:
 | Measure | Progress |
 |---|---|
 | Functions that compile to the original bytes | **11,509 / 11,509 (100%)** |
-| Game code built from C/C++ source | **96.3%** |
-| Game code still kept as hand-copied assembly (`.s` files) | 3.6% (137 files) |
+| Game code built from C/C++ source | **96.4%** |
+| Game code still kept as hand-copied assembly (`.s` files) | 3.5% (136 files) |
 | Game data (tables, strings, constants) built from source | not started |
 | Functions with a real name | about 3,600 of 11,500 (about 30%) |
 
