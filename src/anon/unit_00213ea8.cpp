@@ -4017,9 +4017,9 @@ void func_00224600(void*, void*, void*) asm("func_00224600");
 u32 func_00217d80(Mdl* m_, u128* src) asm("func_00217d80");
 u32 func_00217d80(Mdl* m_, u128* src) {
     register Mdl* m asm("$30") = m_;
-    register MdlWork* w asm("$20");
-    register MdlHdr* h asm("$21");
-    register u8* pos asm("$19");
+    MdlWork* w;
+    MdlHdr* h;
+    u8* pos;
     register u8* nrm asm("$23");
     u8* vtx;
     register u8* nout asm("$22");
@@ -4038,16 +4038,10 @@ u32 func_00217d80(Mdl* m_, u128* src) {
     QCOPY((u128*)h + 2, src + 2);
     QCOPY((u128*)h + 3, src + 3);
     QCOPY((u128*)h + 4, src + 4);
-    asm("" : "+r"(h));
+
     asm volatile("sq $0,%0" : "=m"(w->cnt));
-    {
-        u8* t = h->pos;
-        pos = t;
-        if (t == 0) pos = (u8*)m + m->posOff;
-        t = h->nrm;
-        nrm = t;
-        if (t == 0) nrm = (u8*)m + m->nrmOff;
-    }
+    { u8* t = h->pos; if (t == 0) pos = (u8*)m + m->posOff; else pos = t; }
+    { u8* t = h->nrm; nrm = t; if (t == 0) nrm = (u8*)m + m->nrmOff; }
     h->pos = pos;
     h->nrm = nrm;
     if (D_00352c38 != 0) {
