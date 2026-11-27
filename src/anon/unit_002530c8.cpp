@@ -338,19 +338,17 @@ extern s32 D_0035ef50 asm("D_0035ef50");
 extern s32 D_0035ef54 asm("D_0035ef54");
 extern u8 D_0035ef58 asm("D_0035ef58");
 extern u8 D_01dae6c0[] asm("D_01dae6c0");
-extern s32 D_0035eec0[] asm("D_0035eec0");
+extern char* D_0035eec0[] asm("D_0035eec0");
 void func_002fde18(void*, s32, s32) asm("func_002fde18");
-s32 strlen(s32) asm("strlen");
-char* func_00253b30(char*, s32) asm("func_00253b30");
+s32 strlen(const char*) asm("strlen");
+char* func_00253b30(char*, const char*) asm("func_00253b30");
 s32 func_00168328(char*, u8*) asm("func_00168328");
 s32 func_00253948(s32) asm("func_00253948");
 s32 func_001688b8(void) asm("func_001688b8");
 /*TARGET 00253638*/
 // Loads up to two entries (handles from D_0035eec0) into the D_01dae6c0 buffer and records them.
-// The empty asm (no code) keeps total's add after dst's (sched2 order).
 void func_00253638(void) asm("func_00253638");
 // Loads up to two entries (handles from D_0035eec0) into the D_01dae6c0 buffer and records them.
-// The empty asm (no code) keeps total's add after dst's (sched2 order).
 void func_00253638(void) {
     char buf[128];
     s32 total = 0;
@@ -360,7 +358,7 @@ void func_00253638(void) {
     u8* dst = D_01dae6c0;
     s32 i;
     for (i = 0; i < 2; i++) {
-        s32 h = D_0035eec0[i];
+        char* h = D_0035eec0[i];
         if (h != 0 && strlen(h) != 0) {
             Ent* e = &D_0035eee0[i];
             s32 v = func_00168328(func_00253b30(buf, h), dst);
@@ -369,7 +367,8 @@ void func_00253638(void) {
             e->one = 1;
             e->v = v;
             s32 n = func_00253948(v);
-            dst += n; asm("" : "+r"(n) : "r"(dst)); total += n;
+            total += n;
+            dst += n;
         }
     }
     D_0035ef50 = total;
