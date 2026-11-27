@@ -1076,8 +1076,7 @@ void func_0011d740(Self11d740* s, s32 a1, Desc11d740* desc, s32 a3, M11d740* own
         default: v = 0; break;
         }
         pkt.zbuf = v;
-        asm volatile("" ::: "memory");
-        u32 fl = desc->flags;
+        u32 fl = ((Pkt11d740*)desc)->kind;
         pkt.kind = 2;
         u8 b = fl & 1;
         if (!b) {
