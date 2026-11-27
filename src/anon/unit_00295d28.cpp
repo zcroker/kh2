@@ -556,12 +556,12 @@ extern s32 D_00374738 asm("D_00374738");
 // Sets up the two party-member panels (i = 0, 1) once, then marks D_0035f591.
 // The globals read through block-local pointers (pd, pa, pb, pg) and the constant in `one` are
 // loop invariants that live two or more insns, so the loop pass moves them out; they get no
-// register and are loaded again at each use. Only p is still pinned (s7).
+// register and are loaded again at each use. p is set inside the i == 0 arm; the loop pass moves it out too (s7).
 void Tz__JmReport__CreateGra(u8 flag) asm("Tz__JmReport__CreateGra");
 // Sets up the two party-member panels (i = 0, 1) once, then marks D_0035f591.
 // The globals read through block-local pointers (pd, pa, pb, pg) and the constant in `one` are
 // loop invariants that live two or more insns, so the loop pass moves them out; they get no
-// register and are loaded again at each use. Only p is still pinned (s7).
+// register and are loaded again at each use. p is set inside the i == 0 arm; the loop pass moves it out too (s7).
 void Tz__JmReport__CreateGra(u8 flag) {
     u8* w = func_002766d0();
     if (D_0035f590 == 0) return;
@@ -569,7 +569,6 @@ void Tz__JmReport__CreateGra(u8 flag) {
     u8* q0 = w + 0x18;
     s32 i = 0;
     s32 a = func_0023aa18(q0);
-    register u8* p asm("$23") = w + 0x4398;
     s32 b = func_0023aa38(q0);
     do {
         s32* pd = &D_0035f3d4; s32* pa = &D_0037473c; s32* pb = &D_00374738; s32 d = *pd; s32 id = d + 2; s32 m; if (i == 0) { m = *pa; } else { id = d + 1; m = *pb; }
@@ -595,6 +594,7 @@ void Tz__JmReport__CreateGra(u8 flag) {
         *(u32*)(o2 + 0xb8) |= 8;
         o[0x195] = 1;
         if (i == 0) {
+            u8* p = w + 0x4398;
             func_0028dcc0(p, w);
             func_00138c68(p, a, b);
         } else {

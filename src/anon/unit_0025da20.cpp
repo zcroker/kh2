@@ -620,7 +620,11 @@ void func_0025e450(void)
         break;
     case 19:
         if (func_00233e70(0)) break;
-        st = func_00234758(); if (__builtin_expect(st != 0, 0)) goto K;
+        st = func_00234758();
+        if (st != 0) {
+            if (st == 1) goto G;
+            goto E;
+        }
         func_002349c8(h, 0);
         st = Tz__MCard__ChkFileSize(1) ? 16 : 32;
         func_00240c08(Tz__MCard__GetPos(), 0, st);
