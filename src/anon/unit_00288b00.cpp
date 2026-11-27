@@ -152,14 +152,12 @@ struct T { s16 a; s16 b; s16 c; };
 O* Tz__MenuItem__start(s32, s32, s32, s32, s32, s32) asm("Tz__MenuItem__start");
 void func_00288ce0(s32, O*, s32, T*, s32) asm("func_00288ce0");
 /*TARGET 00288d80*/
-// Empty asm and pin keep the first lh in its own pseudo (t7), which sched1 issues in the prologue.
 void Tz__Select__SetItem(s32 a0, s32 a1, s32 a2, s32 a3, s32 t0, s32 t1, T* t2, s32 t3) asm("Tz__Select__SetItem");
-// Empty asm and pin keep the first lh in its own pseudo (t7), which sched1 issues in the prologue.
 void Tz__Select__SetItem(s32 a0, s32 a1, s32 a2, s32 a3, s32 t0, s32 t1, T* t2, s32 t3) {
-    register s32 v asm("$15") = t2->a;
-    asm("" : "+r"(v));
+    s32 v = t2->a;
     O* o = Tz__MenuItem__start(v, a2, a3, t0, t1, 0);
-    o->a = t2->c;
+    v = t2->c;
+    o->a = v;
     o->b = 1;
     func_00288ce0(a0, o, a1, t2, t3);
 }
