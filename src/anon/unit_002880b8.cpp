@@ -43,21 +43,21 @@ extern u8 D_0035f328 asm("D_0035f328");
 extern void* D_0035f338 asm("D_0035f338");
 extern s32 D_0035f33c asm("D_0035f33c");
 extern s32 D_0035f340 asm("D_0035f340");
+extern s32 D_0035f334 asm("D_0035f334");
 /*TARGET 002880b8*/
 // Startup: creates the managers kept in D_0035f334..D_0035f340 and starts a thread.
 void Tz__MenuBasic__Init(void) asm("Tz__MenuBasic__Init");
 // Startup: creates the managers kept in D_0035f334..D_0035f340 and starts a thread.
 void Tz__MenuBasic__Init(void) {
+    // Taking the reference first creates the store's high half early, so the store is ready
+    // before the D_00347f80 field load (retail order).
+    s32& g334 = D_0035f334;
     D_0035f32c = -1;
     D_0035f32e = -1;
     s32 r = func_001063c0(0x1C, func_00103570());
     func_0023f800(r);
     Holder* h = D_00347f80;
-    // The original loads D_00347f80 before this store and its field after it: the store
-    // goes through a hidden high half pinned to t7, the the original uses.
-    register u32 hs
- = 0x360000; asm("" : "+r"(hs));
-    *(s32*)(hs - 3276) = r;
+    g334 = r;
     Alloc* a = (Alloc*)h->a;
     u8* p = (u8*)a->vt->alloc(a, 0x198, 0);
     *(s32*)(p + 0xC) = 0;
