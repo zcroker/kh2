@@ -104,7 +104,6 @@ src/anon/asm_0027d008.s	0027d008	0027d2e8	-	-
 src/anon/asm_002a3ba8.s	002a3ba8	002a40c8	-	-
 src/anon/batch_w3950.s	002a5590	002a5a90	-	-
 src/anon/batch_w3916.s	002af418	002af748	-	-
-src/anon/batch_w3943.s	002b5c30	002b60e8	-	-
 src/anon/unit_002c3638.cpp	002c3638	002c3c90	.rodata@00375564	-G0 -fno-strict-aliasing
 src/taito/minigame_ctor.cpp	002ce958	002cea28	-	-G0 -fno-strict-aliasing
 src/anon/unit_002e2f08.cpp	002e2ed0	002e3f38	.data@00362f48,.bss@01e2be20,.rodata@00375f60	-G0
@@ -439,7 +438,7 @@ src/anon/unit_002b0950.cpp	002b0950	002b1db8	-	-G0 -g -fno-strict-aliasing -fmov
 src/anon/unit_002b1db8.cpp	002b1db8	002b2a18	-	-G0 -g -fno-strict-aliasing
 src/anon/unit_002b2a18.cpp	002b2a18	002b3440	-	-G0 -g -fno-strict-aliasing -fmove-all-movables
 src/anon/unit_002b3440.cpp	002b3440	002b3ac8	-	-G0 -g -fno-strict-aliasing
-src/anon/unit_002b3ac8.cpp	002b3ac8	002b5c30	.rodata@00374c80	-G0 -g -fno-strict-aliasing
+src/anon/unit_002b3ac8.cpp	002b3ac8	002b60e8	.rodata@00374c80	-G0 -g -fno-strict-aliasing
 src/anon/unit_002b60e8.cpp	002b60e8	002b6550	-	-G0
 src/anon/unit_002b6678.cpp	002b6678	002b6f28	.rodata@00374dd8	-G0 -O0
 src/anon/unit_002b6f28.cpp	002b6f28	002b8274	.rodata@00374e78	-G0 -O0

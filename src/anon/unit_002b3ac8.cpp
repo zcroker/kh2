@@ -1540,3 +1540,104 @@ void func_002b5b38(u32 a, s32 b, u32 c) {
 }
 }  // namespace n002b5b38
 
+
+// 002b5c30 (was src/anon/batch_w3943.s, whole asm)
+namespace n002b5c30 {
+struct Info { u32 flags; s32 fC; s32 f10; s32 f14; s8 f18; s8 f19; s8 f1a; s8 f1b; s8 f1c; u8 pad[3]; };
+struct Rec { s32 f0; s32 f4; Info info; };
+struct Line { char f0[8]; char f8[8]; char f10[8]; char f18[32]; };
+s32 func_00105c30(void) asm("func_00105c30");
+void func_00138c10(void*, s32) asm("func_00138c10");
+void func_0014ca80(s32, s32*, s32*, s32*, s32*) asm("func_0014ca80");
+s32 func_00192048(s32) asm("func_00192048");
+s32 func_00192b30(s32) asm("func_00192b30");
+s32 func_00192c40(s32, char*) asm("func_00192c40");
+s32 func_00192cc0(char*, const char*, ...) asm("func_00192cc0");
+Rec* func_00241f10(void) asm("func_00241f10");
+void func_002595e8(char*, s32) asm("func_002595e8");
+u8* func_002891b8(void*, s32) asm("func_002891b8");
+s32 func_002892f8(void*) asm("func_002892f8");
+s32 func_0028afa8(void*) asm("func_0028afa8");
+s32 func_0028b038(void*) asm("func_0028b038");
+void func_0028be78(s32, s32) asm("func_0028be78");
+s32 func_002b5b10(s32, s32) asm("func_002b5b10");
+void func_002b60e8(s32, s32, s32, s32) asm("func_002b60e8");
+extern s32 D_0035f648 asm("D_0035f648");
+extern void* D_0035f64c asm("D_0035f64c");
+extern Line* D_0035f65c asm("D_0035f65c");
+extern s32 D_0035f678 asm("D_0035f678");
+extern void* D_0035f690[3][4] asm("D_0035f690");
+extern const char D_00374cf0[] asm("D_00374cf0");
+extern const char D_00374cf8[] asm("D_00374cf8");
+extern const char D_00374d00[] asm("D_00374d00");
+extern const char D_00374d08[] asm("D_00374d08");
+extern const s16 D_00374da8[] asm("D_00374da8");
+extern const s32 D_00374db8[] asm("D_00374db8");
+static inline u8 IsLang(s32 a) { u8 r = 0; if (func_00105c30() == a || func_00105c30() == 8) r = 1; return r; }
+static inline s32 Print2(char* d, const char* f, s32 a, s32 b) { return func_00192cc0(d, f, a, b); }
+static inline s32 Print(char* d, const char* f, s32 v) { return func_00192cc0(d, f, v); }
+void func_002b5c30(s32 arg0) asm("func_002b5c30");
+void func_002b5c30(s32 arg0)
+{
+    s32 i; s32 j; s32 start; Rec* recs; s32 cnt;
+    void* (*tbl)[4] = D_0035f690;
+    recs = func_00241f10();
+    for (i = 0; i < 4; i++)
+        for (j = 0; j < 5; j++)
+            func_002b60e8(i, j, -1, 0);
+    start = func_0028b038(D_0035f64c);
+    cnt = func_0028afa8(D_0035f64c);
+    func_0028be78(D_0035f678, start);
+    s32 one = 1;
+    for (i = 0; i < func_002892f8(D_0035f64c); i++) {
+        s32 idx = (start + i) % cnt;
+        Line* ln = &D_0035f65c[i];
+        u8* ent = func_002891b8(D_0035f64c, i);
+        *(s32*)(ent + 408) = Print(ln->f0, D_00374cf0, idx + 1);
+        Rec* r = &recs[idx];
+        s32 n = r->info.flags;
+        Info* info = &r->info;
+        if (n == 0) {
+            func_002b60e8(i, 0, 5, func_00192048(arg0 ? 0x8a9f : 0x8a9d));
+        } else if (n & 0x10) {
+            s32 a, b, c, d;
+            j = 2;
+            s32 len = func_00192c40(func_00192048(0xcd96), D_0035f65c[i].f8);
+            Print(D_0035f65c[i].f8 + len, D_00374cf8, r->info.f19);
+            func_002b60e8(i, 0, 0, (s32)D_0035f65c[i].f8);
+            len = func_00192b30(func_00192cc0(D_0035f65c[i].f18, D_00374d00, r->info.f14));
+            func_002595e8(D_0035f65c[i].f18 + len, func_00192048(0xb7db));
+            func_002b60e8(i, 1, 1, (s32)D_0035f65c[i].f18);
+            if (IsLang(one)) {
+                n = D_00374db8[recs[idx].info.f18];
+                if (n > 0) {
+                    j = 3;
+                    func_002b60e8(i, 2, 2, func_00192048(n));
+                }
+            }
+            if (recs[idx].info.fC) func_002b60e8(i, j++, 3, recs[idx].info.fC);
+            func_0014ca80(recs[idx].info.f10, &a, &b, &c, &d);
+            s32 ty = IsLang(one) ? 4 : 2;
+            func_002b60e8(i, j++, ty, Print2(D_0035f65c[i].f10, D_00374d08, a, b));
+        } else if (n & 0x40) {
+            func_002b60e8(i, 0, 5, func_00192048(arg0 ? 0x8a9f : 0x8a9e));
+        } else {
+            func_002b60e8(i, 0, 5, func_00192048(0x8a9a));
+        }
+        if (info->flags & 0x10) {
+            s32 v;
+            n = info->f1a;
+            if (n >= 0) v = func_002b5b10(n, info->f1c); else v = 0;
+            func_00138c10(D_0035f690[0][i], v);
+            n = info->f1b;
+            func_00138c10(D_0035f690[1][i], D_00374da8[n]);
+            n = (info->flags & 0x10000000) ? 20 : D_0035f648;
+            func_00138c10(tbl[2][i], n);
+        } else {
+            func_00138c10(D_0035f690[0][i], 0);
+            func_00138c10(D_0035f690[1][i], 0);
+            func_00138c10(D_0035f690[2][i], D_0035f648);
+        }
+    }
+}
+}  // namespace n002b5c30
