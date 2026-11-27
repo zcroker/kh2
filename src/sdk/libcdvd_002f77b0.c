@@ -27,7 +27,7 @@ extern int func_002f72c0(int);
 extern void func_002f6910(void *);
 
 extern int D_00363d90;
-extern int D_00363da8;
+extern volatile int D_00363da8;
 extern volatile int D_00363dac;
 extern volatile int D_00363db0;
 extern int D_00363db4;
@@ -163,7 +163,8 @@ int ctarget_002f79c8(int mode)
     return r;
 }
 
-/* sceCdRead. One empty asm memory barrier on the failure path keeps the original store order. */
+/* sceCdRead. The semaphore id D_00363da8 is volatile like the flags around it: its load on the failure path stays
+ * after both flag stores, and the assembler (as=ee-as row) moves it into the SignalSema jal delay slot. */
 int func_002f7be8(unsigned int lsn, unsigned int sec, void *buf, RMode *mode)
 {
     int size;
@@ -197,7 +198,6 @@ int func_002f7be8(unsigned int lsn, unsigned int sec, void *buf, RMode *mode)
     (*(volatile int*)&D_00363db4) = 1;
     if (sceSifCallRpc(D_00364f50, 1, 1, p, 24, 0, 0, func_002f6910, D_00364e80) < 0) {
         (*(volatile int*)&D_00363de0) = 0;
-        __asm__ volatile("" ::: "memory");
         (*(volatile int*)&D_00363db4) = 0;
         func_00305640(D_00363da8);
         return 0;

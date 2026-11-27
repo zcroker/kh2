@@ -851,7 +851,7 @@ src/libgcc/unwind-dw2.c	00316e20	00319788	.data@00369d50,.rodata@00378618,.bss@0
 src/sdk/libgraph_002f1e18.c	002f1e18	002f20c0	.rodata@003762c8	-G0 as=ee-as
 src/sdk/libcdvd_002f6698.c	002f6698	002f6870	-	-G0
 src/sdk/libcdvd_002f6870.c	002f6870	002f77b0	.rodata@00376b70	-G0
-src/sdk/libcdvd_002f77b0.c	002f77b0	002f800c	.rodata@00376d10	-G0
+src/sdk/libcdvd_002f77b0.c	002f77b0	002f8010	.rodata@00376d10	-G0 as=ee-as
 src/sdk/libkernl_00305aa0.c	00305aa0	00305b40	-	-G0
 src/anon/gcc_crt_init.s	00319788	003197ac	-	-
 src/anon/unit_003197d0.cpp	003197d0	0031b940	-	-G0 -fno-strict-aliasing

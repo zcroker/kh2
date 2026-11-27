@@ -12,7 +12,7 @@
 
 /* 0030a3f8 func_0030a3f8 (was src/sdk/sdk_w3707.c) */
 typedef struct { int fd; int busy; int x8; int xc; } FdEnt_0a3f8;
-typedef struct { int a; int b; } Pair_0a3f8;
+typedef struct { int a; void *b; } Pair_0a3f8; /* b is a pointer: its store must not alias the int store of a */
 typedef struct { void *a; void *b; } PPair_0a3f8;
 extern FdEnt_0a3f8 D_01e38780_0a3f8[] asm("D_01e38780");
 extern char D_01e38980_0a3f8[] asm("D_01e38980");
@@ -42,7 +42,6 @@ int func_0030a3f8(void)
     FdEnt_0a3f8 *p;
     int t;
     Pair_0a3f8 *q = &D_01e38a00_0a3f8;
-    asm("" : "+r"(q));
     func_00308b30_0a3f8(0);
     D_01e38a00_0a3f8.a = 0;
     q->b = 0;
