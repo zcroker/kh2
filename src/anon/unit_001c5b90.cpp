@@ -529,7 +529,7 @@ void func_001c6460(N1c6460* n)
         n->active = 0;
         return;
     }
-    if (__builtin_expect(n->active != 0, 1)) {
+    s32 z = n->active != 0; if (z > 0) {
         n->timer -= D_00349e10;
         n->pos += d * D_00349e10 * -30.0f;
         n->pos.w = 1.0f;
